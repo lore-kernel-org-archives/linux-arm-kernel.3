@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AA1C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 14:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E570BC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 14:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ozF4W01O/l0MVYxT0l6He3hHSnzQw0/wHNJN/F8YkKo=; b=joVztUQtBL7NFONGkqYZLqiCgQ
-	WrR7hNMlsy6D0keyWvLM56GdNZl3Wg2UJ/5OUCaNPnhiqoPt8Tkg8K0upGHZjzM7uHp/AQqGf4SZL
-	Tr3LpOsV24xK54Tw/W3S2vZJrfPCGV29L4GG/73eLEiu9TnYs+OYJKKyXToG41YT1ErhhJp3lFx2P
-	ths8K3b0XOtx7Zv7VOAnKDe9dph7enl20CzV6aQrxdkS4t9cKeCiesQ/HxNnepQAKMGR+NayT1h4Y
-	73Tirc1oHPJh+8qToXs/sSa5RgUR9UmbK+1Dy8LWAnrLnTC9tVpMtDTSpiQaeNJYp28ub3KVVBX8k
-	i83OhH6A==;
+	bh=dFz3v1vOU8NaomwzxAGdCYY6k0C17r131s1eFNUPGok=; b=zH+HpBWqp+Khs7rujzUlp25NaU
+	0Z41p2WLnCJKlDdJ6h+zGPMCQ59wXSn3qagHbV3lJt4G3Iu2zNpNNIGUIe3TJvlzREdqnKANzck60
+	zM62debEeNOC0TkcC5NDV7IcMR+PyQxtZuVXNAciSlcqKqCvcWFCjPJGzBzRupAIF36qQou0fBjOv
+	cs3/Lk0lbFnLcWzQap8TDEiEEhj0NHjZTmXpYEOyq41MDo3KoJPQ5alKBfrsotmW+2VmYB1hn+ATH
+	ohguk8nK9S792Yt+USHid0CLZCFozDVFoQZodRwWqoN15tjxnZwZOgk6km8NdNNvoTxgFuDp5mWmQ
+	3vtcIVng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8IlF-0000000Hamq-2Dtn;
-	Sun, 20 Sep 2026 14:43:21 +0000
-Received: from out-129.mta0.migadu.com ([2001:41d0:1004:224b::81] helo=mta0.migadu.com)
+	id 1x8IlM-0000000HapG-2iFE;
+	Sun, 20 Sep 2026 14:43:28 +0000
+Received: from out-131.mta0.migadu.com ([2001:41d0:1004:224b::83] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8IlB-0000000Hale-2oGw
+	id 1x8IlJ-0000000Hanp-4B00
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 14:43:20 +0000
+	Sun, 20 Sep 2026 14:43:27 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=yZadQIKLPBXUWvfsPFFRLWHe9vBIyM1Isv2IkYkJtAU=;
+DKIM-Signature: a=rsa-sha256; bh=gM4dLcKAjlvwqbcZzf0lMd4pbz2znaxfLkXxxOxgqjE=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789915393; v=1; x=1790520193;
- b=jtI2NiRv+3htB6V6LqiwUVC2ioSsTrptlkBG6tZDgir9Iyr15xqPy+mNTcOSm7A+3rLw3Jg4
- ccgbnB9L1pgor+edNhqkTowBQbBCfkmcrNFXmNFb0PQXT1W9qCRk8D0VjULCqDE2RprnSRnMZGW
- jOmX0qKl1XF2hyGeyzC/lsMg=
+ t=1789915403; v=1; x=1790520203;
+ b=KVvtzwhOiSQjNxu/OzOCoo7y+I8LoZN0c3ZP8m7YzArzU5ySm63WM0jF1vf86GBNmL0/ieio
+ 2Ozo0yNFqp29LNGvtRbWVYcRG+GrrzJHTYfgD6KVvokCiL8gL00/NJdhq3A8UoRcxO32aVv14PJ
+ eU74tJijbO+nJM1L0JJKV2Zo=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 6ad4b5d5bc70596e;
-	Sun, 20 Sep 2026 14:43:13 +0000
-X-Mizu-Trace-ID: 6ad4b5d5bc70596e
+Received: by smtp.migadu.com with ESMTPS id 7db0e1f2bc964294;
+	Sun, 20 Sep 2026 14:43:23 +0000
+X-Mizu-Trace-ID: 7db0e1f2bc964294
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b8c42da963so5602e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 07:43:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBy3wVbdjKrgHUtZXLG9EQYE4VxCbFDKQKI7zBx50B3tC4eVC57TTBVRXlgeuc3xGhagGbQjT0aAp/1VEqMw28i6@lists.infradead.org
-X-Gm-Message-State: AFuF++kDVFavxJH62Mo5+5TkEcv33GSOsryUHkM5tpsgqvYvl915etyH
-	scWunuXLDQXGgiixWZ5JOPv5m9mGUc2HQng4tnEdOhXBeGjlazr67Mp6fNDu2IT+kb9ydelBjzs
-	shgFccsvKEL3OSPKCRqZ8LJ8NbgMaWBreBM8m9af5
-X-Received: by 2002:a05:6512:3c86:b0:5b1:5141:9156 with SMTP id
- 2adb3069b0e04-5b8c7eaa535mr93155e87.9.1789915388858; Sun, 20 Sep 2026
- 07:43:08 -0700 (PDT)
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b8c42da963so5606e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 07:43:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByo+eS5yG2TXTrPxUez97KDk4Wba/V+QOD+6lb577oww3HSBXSKfriZqwiNvwyJnvEeUTwjVBMN3dxIVP/uc8yH@lists.infradead.org
+X-Gm-Message-State: AFuF++mzAu9euDlhXSesgyqf9xH2DRcHhxUVYIlc20etbzB0hSU5vVTV
+	fFPgvQwWJwUuqPRRU3SYbpDwaIoNdOMoafBNPEXCs1lQ/5bVLI0lragvk/DCjdNwLfLqbQYEgnN
+	B//byI6fCsS/TkmZdKbDU8pEhhSmJkDA22rXqAHwO
+X-Received: by 2002:a05:6512:b87:b0:5b6:4ad:d6ba with SMTP id
+ 2adb3069b0e04-5b8c7eaffdemr82528e87.15.1789915402616; Sun, 20 Sep 2026
+ 07:43:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260919123150.3283606-1-maz@kernel.org> <20260919123150.3283606-4-maz@kernel.org>
-In-Reply-To: <20260919123150.3283606-4-maz@kernel.org>
+References: <20260919123150.3283606-1-maz@kernel.org> <20260919123150.3283606-3-maz@kernel.org>
+In-Reply-To: <20260919123150.3283606-3-maz@kernel.org>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 20 Sep 2026 15:42:32 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyeR8rSKToEuAy67iD-ZeWe65AWth2T7WWUKirTdfQURQ@mail.gmail.com>
-X-Gm-Features: AcwNN1VvD-EPQpppZTjxhfK5ARJxwLQY5wTTc0-s8s8S86Iq_yKG8kGbEvu1UCc
-Message-ID: <CA+EHjTyeR8rSKToEuAy67iD-ZeWe65AWth2T7WWUKirTdfQURQ@mail.gmail.com>
-Subject: Re: [PATCH 3/4] KVM: arm64: vgic-v5: Tidy-up programming of vpe
- descriptor address
+Date: Sun, 20 Sep 2026 15:42:46 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzm=kN6cUXtF6FEo4XSZkNj=cSUffCJ5YWHe5GjCxe=zQ@mail.gmail.com>
+X-Gm-Features: AcwNN1UMc1fUZyuBAnLvsDe3WEmHsJtOO9PCxP2Icvg_OpPj2A6l7rmpgXfBR5A
+Message-ID: <CA+EHjTzm=kN6cUXtF6FEo4XSZkNj=cSUffCJ5YWHe5GjCxe=zQ@mail.gmail.com>
+Subject: Re: [PATCH 2/4] KVM: arm64: vgic-v5: Correctly reset h_lpi_ist to NULL
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,8 +65,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Zenghui Yu <yuzenghui@huawei.com>, Sascha Bischoff <sascha.bischoff@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_074317_852350_9026BDA3 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20260920_074326_198933_7B58475E 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 19 Sept 2026 at 13:31, Marc Zyngier <maz@kernel.org> wrote:
+On Sat, 19 Sept 2026 at 13:32, Marc Zyngier <maz@kernel.org> wrote:
 >
-> Assigning an address calculation to a vpe_entry is poor practice, and
-> results in sparse moaning loudly. Tidy things up by computing the
-> physical address as such, and performing the cpu_to_le64() on that.
+> Resetting a pointer to 0 is not completely wrong, but sparse
+> legitimately shouts about it integer/pointer mix.
 >
-> Whilst at it, simplify the computing of that address, avoiding the
-> shifting back and forth, and kill the pointless GICV5_VPED_ADDR_SHIFT
-> definition.
+> Use NULL as expected.
 >
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202609190952.glUgOBvp-lkp@intel.com/
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
@@ -100,44 +98,24 @@ Cheers,
 /fuad
 
 > ---
->  arch/arm64/kvm/vgic/vgic-v5-tables.c | 8 +++-----
->  1 file changed, 3 insertions(+), 5 deletions(-)
+>  arch/arm64/kvm/vgic/vgic-v5-tables.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
 > diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> index d7196ed5d1bfd..2c8d0f360506c 100644
+> index ba8a8d5fcc2a3..d7196ed5d1bfd 100644
 > --- a/arch/arm64/kvm/vgic/vgic-v5-tables.c
 > +++ b/arch/arm64/kvm/vgic/vgic-v5-tables.c
-> @@ -63,7 +63,6 @@ static DEFINE_XARRAY(vm_info);
->  /* Virtual PE Table Entry */
->  #define GICV5_VPE_VALID                        BIT_ULL(0)
->  /* Note that there is no shift for the address by design. */
-> -#define GICV5_VPED_ADDR_SHIFT          3ULL
->  #define GICV5_VPED_ADDR                        GENMASK_ULL(55, 3)
+> @@ -1066,7 +1066,7 @@ static int vgic_v5_alloc_two_level_lpi_ist(struct kvm *kvm, unsigned int id_bits
+>                 /* Free the L1 IST again */
+>                 vmi = xa_load(&vm_info, vm_id);
+>                 kfree(vmi->h_lpi_ist);
+> -               vmi->h_lpi_ist = 0;
+> +               vmi->h_lpi_ist = NULL;
 >
->  /* L2 Interrupt State Table Entry */
-> @@ -725,7 +724,7 @@ int vgic_v5_vmte_alloc_vpe(struct kvm_vcpu *vcpu)
->         u32 vm_id = vgic_v5_vm_id(vcpu->kvm);
->         u16 vpe_id = vgic_v5_vpe_id(vcpu);
->         struct vgic_v5_vm_info *vmi;
-> -       vpe_entry tmp, *vpet_base;
-> +       vpe_entry *vpet_base;
->         void *vped;
->
->         /* Make sure we're not over what the hardware supports */
-> @@ -751,10 +750,9 @@ int vgic_v5_vmte_alloc_vpe(struct kvm_vcpu *vcpu)
->         vped = (u8 *)vmi->vped_base +
->                 (size_t)vcpu->vcpu_idx * vmt_info->vped_size;
->
-> -       tmp = FIELD_PREP(GICV5_VPED_ADDR, virt_to_phys(vped) >> GICV5_VPED_ADDR_SHIFT);
-> -
->         scoped_guard(raw_spinlock_irqsave, &vgic_v5_irs_lock) {
-> -               WRITE_ONCE(vpet_base[vpe_id], cpu_to_le64(tmp));
-> +               phys_addr_t paddr = virt_to_phys(vped) & GICV5_VPED_ADDR;
-> +               WRITE_ONCE(vpet_base[vpe_id], cpu_to_le64(paddr));
->                 vgic_v5_clean_inval(vpet_base + vpe_id, sizeof(vpe_entry));
+>                 return ret;
 >         }
->
 > --
 > 2.47.3
+>
 >
 
