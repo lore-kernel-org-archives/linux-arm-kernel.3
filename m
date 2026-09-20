@@ -4,91 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAA4C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAEDC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xY3f7CW2k+sxURpCWyIEkta47r/Ail7h0q2vhhuON5Y=; b=xRnlLRy/KDfbhHKDE0mIRKzOj7
-	UfRIIO9uKoA3mTIylxwXYmiDdfHxUhdwxXhn2LJXzlubEsmYNBIOBCLVpYYEw55nlj5ZMaRNmr9E2
-	9c7Og3GmtyrZWI4w1BRq/BahbBwC+6QCKDyKX9OMXr8mXztAYnyErru25aUCzZxs0e4M29wUHiNiU
-	84UkjH50pBFaND1xfeQXX23nhfEai5vbUmLI0ZzpOcO6EE7IR85fgsbRaiezSujv63mUZ21NxHHxr
-	v4+8mu30OmkD8vQJLTHh70U82NKX2xnWkffN7evaMsxWHgUyD2iKVu5ClQssY7MoEaoE4iA+8VswM
-	c6czykRQ==;
+	bh=Zs3RsGuA4dUDbRO1KmwFvzwlH/DxEtLctC1ij8O7myE=; b=CgqDFCMGsx0JJIXk/T0HFxpuQ/
+	IN2JUvXjGGm4zmhFc3NfLNl2Wj3Az4lNbJ1l8sgbuMQ914ml5SUMagIMpEdbatS8USPcx0gqJ0zcd
+	0so42XbayC241W8Zo5ucojpND1erkfQ1vTTOHw01E5CcwO8epSivSO+isVs2lW+T1tTHOQN71wqMN
+	obYsKbD30pcUjzigxZ7keMxohtTos0Vopa1cDvW+fUSDNNLgnNx3014Jn45GDA0xL/1eKexMM9g0y
+	au5up/czY0mihScscs9eBgXDjj0T5XJluG87BObgncmgjbiIb/roWCLt7Mn+bap/QdaplTPrCjsD3
+	dMgDebrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FcW-0000000HLr6-10Re;
-	Sun, 20 Sep 2026 11:22:08 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1x8FqU-0000000HMeX-1RX6;
+	Sun, 20 Sep 2026 11:36:34 +0000
+Received: from mail-m16023652196.xmail.ntesmail.com ([160.236.52.196])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FcP-0000000HLpF-2ucl
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 11:22:03 +0000
-Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36b088236
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sun, 20 Sep 2026 20:16:14 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=xY3f7CW2k+sxURpCWyIEkta47r/Ail7h0q2vhhuON5Y=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789902975; v=1;
-        b=mInm2XTuQIO9C+YXeqfebcOFmmo0frr1Zm8g8p5z6Jq7UKBcwKjgVAAMFAfVJiUd
-         xBenMftkF3iNMlA9lfJY3+/fWwDb25KsqHMCkpJxfIgzhWjYEBbHTAvPC4LvdadC
-         HvvXchwGjR19oAIws8ZLHbg0Oi6lIWRSVuFi7nXBPkFJ3LuA9Ug+B8Rup7Sia7o+
-         D0wcK8iqvjULQE2aTFv9oRsuQT/wCajOsPxekCfr6Hz6kwxXBQIM1SXQNu/1Abt3
-         Mty7ERJ9aLaBleu2qmxKWuIyf/Lc0dLr8W57cIzhjjc5Eq71ClnHRD4nzz5BCieM
-         xBbespM5NLD2jRJLBXhs9g==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sun, 20 Sep 2026 20:15:55 +0900
-Subject: [PATCH v11 14/21] arm64: errata: Require Apple IMPDEF PMUv3 traps
- on all CPUs
+	id 1x8FqP-0000000HMdS-2KbT;
+	Sun, 20 Sep 2026 11:36:32 +0000
+Received: from [172.16.12.74] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4e72f2e5d;
+	Sun, 20 Sep 2026 19:36:18 +0800 (GMT+08:00)
+Message-ID: <57f57f40-87ec-47a2-a8b9-cc8b1adc3b8f@rock-chips.com>
+Date: Sun, 20 Sep 2026 19:36:16 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hybrid-v11-14-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Andrew Jones <andrew.jones@oss.qualcomm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Shannon Zhao <shannon.zhao@linaro.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Fuad Tabba <fuad.tabba@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2262;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=3wHsuhm1EOsX6FnaaZCz7S9AObKXD0J2nrSu7LVseb8=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A7lnUxVOBxxlDNxw5oBdoJXrzRyT78vT9ioa8B0NP
- PU2+VpCRykLgxgXg6yYIktK0W5ujejaT4UJ8S0wc1iZQIYwcHEKwEQ+xDP896rZWnpzyrw5Iu9n
- 6q4y753/ZV/N7VDRi8oTLF7G1P8xfMXwT50rRNB9npSOKMParUeWf9G515Jh7jF7GafQ9MRvXSd
- 3cAAA
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/10] Add HPD support for Rockchip Analogix DP
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260804081717.741404-1-damon.ding@rock-chips.com>
+ <5609825.iZASKD2KPV@diego>
+ <29d483f3-2eb2-4886-a4fe-9b4b6d9d14f3@rock-chips.com>
+ <7775230.ejJDZkT8p0@diego>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <7775230.ejJDZkT8p0@diego>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa0be9a4b1603a8kunma17d51969197c6
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQhkfVkpKHR9JSUlMSRodSVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=QaYeJjLCc4XajREryUfFqAtNBIWn9Jb8ESbypl4sfBVl+JMwiqmovMf9LbFiY9YdTfh0FKfE9VKu3Xu3UhSxHC7B2kSHwtydFeVssV5BCxNEe7msZ9+wU59pyWIv/jRh/ZbafLMi7V/4nY7izMYZwmvj964QE4yoVLhH3tTwi0k=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=Zs3RsGuA4dUDbRO1KmwFvzwlH/DxEtLctC1ij8O7myE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_042201_958629_A1CBE9EC 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20260920_043630_309612_6ADA6452 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +86,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM relies on ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS as a system-wide
-precondition for PMUv3 emulation on affected Apple CPUs. A local CPU
-erratum is too weak for that: once the workaround is enabled, a late CPU
-that misses it may still be onlined.
+Hi Heiko,
 
-Make the workaround an all-early-CPU capability instead. The matcher is
-still local because it depends on MIDR_EL1, but the capability is only
-advertised if all early CPUs match. A late CPU that misses an advertised
-capability is therefore rejected.
+On 8/6/2026 7:42 AM, Heiko Stübner wrote:
+> Am Mittwoch, 5. August 2026, 06:06:48 Mitteleuropäische Sommerzeit schrieb Damon Ding:
+>> Hi Heiko,
+>>
+>> On 8/5/2026 6:39 AM, Heiko Stübner wrote:
+>>> Hi Damon,
+>>>
+>>> Am Dienstag, 4. August 2026, 10:17:07 Mitteleuropäische Sommerzeit schrieb Damon Ding:
+>>>> Display-connector mode (DP connector without HPD GPIO):
+>>>>
+>>>>     &edp_out_conn {
+>>>>         remote-endpoint = <&dp_con_in>;
+>>>>     };
+>>>>
+>>>>     dp-con {
+>>>>         compatible = "dp-connector";
+>>>>         label = "DP OUT";
+>>>>         type = "full-size";
+>>>>
+>>>>         port {
+>>>>             dp_con_in: endpoint {
+>>>>                 remote-endpoint = <&edp_out_conn>;
+>>>>             };
+>>>>         };
+>>>>     };
+>>>>
+>>>> Display-connector mode (DP connector with HPD GPIO):
+>>>>
+>>>>     dp-con {
+>>>>         compatible = "dp-connector";
+>>>>         label = "DP OUT";
+>>>>         type = "full-size";
+>>>>         pinctrl-0 = <&edp0_hpd>;
+>>>>         pinctrl-names = "default";
+>>>>         hpd-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
+>>>>
+>>>>         port {
+>>>>             dp_con_in: endpoint {
+>>>>                 remote-endpoint = <&edp_out_conn>;
+>>>>             };
+>>>>         };
+>>>>     };
+>>>>
+>>>> All four configurations detect cable plug/unplug events correctly.
+>>
+>> Thanks a lot for your testing and feedback. :-)
+>>
+>> It seems my test setup gave me the false impression that those cases
+>> worked well.
+>>
+>>>
+>>> hmm, it wasn't working entirely for me though and was still running into
+>>> issues when the display was unplugged on boot.
+>>>
+>>
+>> Are you seeing this boot‑unplug issue for both scenarios: DP‑connector
+>> with HPD‑gpio paired with eDP without HPD‑gpio, and DP‑connector without
+>> HPD‑gpio paired with eDP with HPD‑gpio? I.e. it wrongly reports
+>> connected even with no display plugged in and proceeds into DRM
+>> .atomic_enable()?
+> 
+> Yep it's different. The analogix-dp gpio-hpd works correctly,  because the
+> analogix driver can do gpiod_get_value() in analogix_dp_get_plug_in_status()
+> 
+> The dp-connector does not, as with the patch you pointed to, it lost
+> that ability. So on boot a plugged in display is not detected correctly
+> because there won't be a hotplug interrupt.
+> 
+>>
+>>> I wiggled around a bit like in the diff below and am now getting correct
+>>> plug and unplug events.
+>>
+>> Oh, I see. For the GPIO HPD case, the IRQ needs to be enabled early so
+>> that plug‑in interrupts can be properly responded to. However GPIO HPD
+>> does not require a runtime PM get. I will better separate these two
+>> scenarios in the next version.
+>>
+>>>
+>>> But of course, as the dp-variant of the connector does not provide
+>>> a "detect" and just the "hpd" functionality, it's missing the initial state.
+>>>
+>>> I'm currently not sure how to find out _if_ a panel is connected on boot.
+>>>
+>>
+>> Based on Dmitry's commit cb640b2ca546 ("drm/bridge: display‑connector:
+>> don't set OP_DETECT for DisplayPorts"), HPD events from DP‑variant
+>> connector should be handled by the upstream DP controller. Hence I added
+>> analogix_dp_bridge_notify() to retrieve HPD status coming from downstream.
+>>
+>> As expected, under the bridge‑connector framework, the detect result
+>> from Analogix DP should in theory reflect the actual connection status.
+>> Let's dig into this boot‑time initial‑state issue together.
+> 
+> One idea I had was, is it possible to do a drm_dp_read_dpcd_caps()
+> read during bind/... to see if something answers?
+> 
 
-Although kept in the errata capability table, this capability describes
-optional trap support, not a workaround required for safe CPU operation.
-Therefore, a late CPU can safely match the capability even when the
-system does not advertise it.
+Sorry for the long delay to get back to this series. I was stuck on some 
+tricky local issues.
 
-On these CPUs, ID_AA64DFR0_EL1.PMUVer == 0xf means the
-Arm-architected PMUv3 is not implemented. Without the system
-capability, KVM does not advertise PMUv3, and direct accesses to
-architected PMUv3 registers remain UNDEFINED. HACR_EL2[56] only makes
-those accesses trap to EL2 so KVM can emulate PMUv3; leaving it clear
-does not make them access Apple's native PMU.
+I'll test your suggestion and try to send out v3 within next week.
 
-The native Apple PMU uses separate implementation-defined system
-register encodings, which KVM independently traps with
-HCR_EL2.TIDCP. Allowing a late CPU with extra HACR_EL2 trap support
-therefore does not expose host PMU state to a guest.
+Best regards,
+Damon
 
-Fixes: bed9b8ec8c71 ("KVM: arm64: Advertise PMUv3 if IMPDEF traps are present")
-Assisted-by: Codex:gpt-5.5
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kernel/cpu_errata.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index b33dccfafaf8..3dc598a9fdd2 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -1020,7 +1020,7 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 	{
- 		.desc = "Apple IMPDEF PMUv3 Traps",
- 		.capability = ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
--		.type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
-+		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
- 		.matches = has_impdef_pmuv3,
- 		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
- 	},
-
--- 
-2.55.0
+> 
+>>> In other review comments:
+>>> - the bridge could use devm_drm_of_get_bridge() as suggested in
+>>>     the documentation of drm_of_find_panel_or_bridge(), as that would
+>>>     remove the separate panel_bridge creation
+>>> - instead of using plat_data->next_bridge _inside_ the driver
+>>>     struct drm_bridge has a field next_bridge already.
+>>
+>> Great suggestions, I will incorporate them for the next version
+>> alongside Sashiko's comments.
+>>
+>> Best regards,
+>> Damon
+>>
+>>>
+>>>
+>>> Heiko
+>>>
+>>>
+>>> ------- 8< -------
+>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> index 877e1b3ca7525..1388640a27de7 100644
+>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> @@ -43,7 +43,7 @@ static const bool verify_fast_training;
+>>>    static bool analogix_dp_require_pm_for_hpd_irq(struct analogix_dp_device *dp)
+>>>    {
+>>>    	return analogix_dp_is_rockchip(dp->plat_data->dev_type) && !dp->hpd_gpiod &&
+>>> -	       !dp->force_hpd;
+>>> +	       !dp->hpd_bridge && !dp->force_hpd;
+>>>    }
+>>>    
+>>>    static void analogix_dp_init_dp(struct analogix_dp_device *dp)
+>>> @@ -72,7 +72,7 @@ static int analogix_dp_detect_hpd(struct analogix_dp_device *dp)
+>>>    	 * Trust connection status from downstream bridge (e.g.,
+>>>    	 * display-connector with hpd-gpios).
+>>>    	 */
+>>> -	if (dp->plat_data->next_bridge && dp->connection_notified)
+>>> +	if (dp->hpd_bridge && dp->connection_notified)
+>>>    		return 0;
+>>>    
+>>>    	while (timeout_loop < DP_TIMEOUT_LOOP_COUNT) {
+>>> @@ -926,10 +926,10 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+>>>    	 */
+>>>    	if (dp->plat_data->next_bridge && dp->last_bridge_is_panel)
+>>>    		status = connector_status_connected;
+>>> -
+>>> -	if (!analogix_dp_detect_hpd(dp))
+>>> +	else if (!analogix_dp_detect_hpd(dp))
+>>>    		status = connector_status_connected;
+>>>    
+>>> +printk("---> %s status %d\n", __func__, status);
+>>>    	return status;
+>>>    }
+>>>    
+>>> @@ -1044,7 +1044,7 @@ static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
+>>>    		goto out_dp_init;
+>>>    	}
+>>>    
+>>> -	if (!analogix_dp_require_pm_for_hpd_irq(dp))
+>>> +	if (!analogix_dp_require_pm_for_hpd_irq(dp) && !dp->hpd_bridge)
+>>>    		enable_irq(dp->irq);
+>>>    	return 0;
+>>>    
+>>> @@ -1187,7 +1187,7 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
+>>>    	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
+>>>    		return;
+>>>    
+>>> -	if (!analogix_dp_require_pm_for_hpd_irq(dp))
+>>> +	if (!analogix_dp_require_pm_for_hpd_irq(dp) && !dp->hpd_bridge)
+>>>    		disable_irq(dp->irq);
+>>>    
+>>>    	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
+>>> @@ -1264,6 +1264,7 @@ static void analogix_dp_bridge_notify(struct drm_bridge *bridge, struct drm_conn
+>>>    	struct analogix_dp_device *dp = to_dp(bridge);
+>>>    
+>>>    	dp->connection_notified = (status == connector_status_connected);
+>>> +printk("---> %s connection_notified %d\n", __func__, dp->connection_notified);
+>>>    }
+>>>    
+>>>    static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
+>>> @@ -1641,6 +1642,13 @@ static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
+>>>    	if (ret && ret != -ENODEV)
+>>>    		return ret;
+>>>    
+>>> +	/*
+>>> +	 * There is a next link in the chain which is not a panel, we should
+>>> +	 * expect hotplug-information coming from there.
+>>> +	 */
+>>> +	if (plat_data->next_bridge && !drm_bridge_is_panel(plat_data->next_bridge))
+>>> +		dp->hpd_bridge = true;
+>>> +
+>>>    	return component_add(dp->dev, plat_data->ops);
+>>>    }
+>>>    
+>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+>>> index d0fb25e543ea0..ecca3b87b4456 100644
+>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+>>> @@ -169,6 +169,7 @@ struct analogix_dp_device {
+>>>    	bool			fast_train_enable;
+>>>    	bool			psr_supported;
+>>>    	bool			last_bridge_is_panel;
+>>> +	bool			hpd_bridge;
+>>>    	bool			connection_notified;
+>>>    
+>>>    	u8 dpcd[DP_RECEIVER_CAP_SIZE];
+>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+>>> index ec5950066f838..6f0d642739ffd 100644
+>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+>>> @@ -182,7 +182,7 @@ void analogix_dp_config_interrupt(struct analogix_dp_device *dp)
+>>>    	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
+>>>    	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
+>>>    
+>>> -	if (dp->hpd_gpiod) {
+>>> +	if (dp->hpd_gpiod || dp->hpd_bridge) {
+>>>    		analogix_dp_mute_hpd_interrupt(dp, HPD_IRQ);
+>>>    	} else {
+>>>    		/*
+>>> @@ -438,7 +438,7 @@ void analogix_dp_init_hpd(struct analogix_dp_device *dp)
+>>>    {
+>>>    	u32 reg;
+>>>    
+>>> -	if (dp->hpd_gpiod)
+>>> +	if (dp->hpd_gpiod || dp->hpd_bridge)
+>>>    		return;
+>>>    
+>>>    	analogix_dp_clear_hotplug_interrupts(dp, HPD_IRQ);
+>>> @@ -539,6 +539,9 @@ int analogix_dp_get_plug_in_status(struct analogix_dp_device *dp)
+>>>    	if (dp->hpd_gpiod) {
+>>>    		if (gpiod_get_value(dp->hpd_gpiod))
+>>>    			return 0;
+>>> +	} else if (dp->hpd_bridge) {
+>>> +		if (dp->connection_notified)
+>>> +			return 0;
+>>>    	} else {
+>>>    		reg = readl(dp->reg_base + ANALOGIX_DP_SYS_CTL_3);
+>>>    		if (reg & HPD_STATUS)
+>>>
+>>>
+>>>
+>>>
+>>>
+>>
+>>
+> 
+> 
+> 
+> 
+> 
+> 
 
 
