@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA81C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 14:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8890FC982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 14:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mQ23MGRY/u66yXz3UIgk63neNx6xs6J5UyDzagqLxxY=; b=wUPBqsj49PMnHMIr8UhWo1Szky
-	DQav9ERF6YJj0BV5IZ/tw/lf7DMTs6vUdE9ZRsH/VKWGMO8TP3iWVi0den+CYp1gyN1D/tdYa8t54
-	zwuCLwiiP+jCof4cFoEcHY6Ry787TzPus7COejaJqzRob7tl/0IAhz5TvRU1hrmkrGiWWnQSQ+7Gr
-	oB0TTcbdFjTZsc3lGx9mR+ImWdpujxku1IZq6x0ypmNWQSnvwzSWlKcBBh4jXb7ht3o+gJOYAn6IX
-	w2PUHXwEEm1VZd4l7cLiAHNhAU997zAXKxxsMo8PXzoconKef5xigviGzimjveELaIIWbjxooOw8/
-	LC7FjErg==;
+	bh=E2SZ7LXxk0nnMWEU5pr2Xf9Pm0qc6htez9AYqpxDpYU=; b=w1l5/iSQnMbxnyAsHUALBpXH3l
+	M+J7jXtMpUkC6ZFZQnIZHd6qblnZlveKhov0nBgPzoBmDLlpW/JDkom21Rg/KtzDKPm4Sm3eKbvis
+	+Pl9NmaSDAFo48nKsxxKCsqDAQcEzs/SxqSJ50vOMJvsqsfqInqt63asaRoQQNeQrlMCdRq0I0Htz
+	VFmz+SOqaWejvodn94aMJKWpLcLU4GWO+JZdB6b7u5JJ3V2JgF2FOY9LtidbCxts6cz3NlAEOfng9
+	3pWIsCU5M7PCOOFfcIFJJDGX0PEsp7lfwVkI3DfRJPtc7H7qF8NAPSUqqMPn+AYjNBc8BgiOxasmr
+	W6As9GSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8If1-0000000Ha9Y-2fIi;
-	Sun, 20 Sep 2026 14:36:55 +0000
-Received: from out-216.mta1.migadu.com ([95.215.58.216] helo=mta1.migadu.com)
+	id 1x8Ikn-0000000HaiN-1kdE;
+	Sun, 20 Sep 2026 14:42:53 +0000
+Received: from out-66.mta1.migadu.com ([95.215.58.66] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Iey-0000000Ha9D-1XzT
+	id 1x8Ikk-0000000Hahd-2FAK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 14:36:54 +0000
+	Sun, 20 Sep 2026 14:42:51 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=mQ23MGRY/u66yXz3UIgk63neNx6xs6J5UyDzagqLxxY=;
+DKIM-Signature: a=rsa-sha256; bh=1fWy5x8YUx7dVmmzZ+KhqPpbDf3gNkSDlagAqcQGkLg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789915008; v=1; x=1790519808;
- b=egiJDzzyfgxhxocOZs5nkHdd4D7IPBYyyDpELnm1f1yq8wA0GqaY/sXosZpl1kT2Kv8XbA2f
- k2Vbwb2VnYKTPy930piYeHuR0wEao9GQBb6ngFtz5el6b7bfe2Kuh5f3wFuRwlyNUgH9fOP7olp
- ZlQp46i5oRF4MvFCGbM6p6x0=
+ t=1789915367; v=1; x=1790520167;
+ b=JMZwqzR87SV9DWrG7h5kbXK7ciiQyMI9GOHYxxZPx1fhSBJuZSL2YCqxZXpbv8+R6RTil9E2
+ AKVksDhKkGBodkhZoSh95rG3mNtv9r1tvSB1vpDxVlYK9XAKSwcIhJmL3o7S/8SwdszRcubG58x
+ twVUCm5Y1V3l1DhTW42AgIUw=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 37a524671f362289;
-	Sun, 20 Sep 2026 14:36:48 +0000
-X-Mizu-Trace-ID: 37a524671f362289
+Received: by smtp.migadu.com with ESMTPS id cbdfd66f6be77372;
+	Sun, 20 Sep 2026 14:42:47 +0000
+X-Mizu-Trace-ID: cbdfd66f6be77372
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b5e5aaf7deso4265e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 07:36:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBysyr3tCm4AX4LTrzFGlU85QIPKHNyE7eos7hXegAd/febAnCNdsBxumo4jkDGp9Ndzie3Iv/arW/sgiJRo6qsN@lists.infradead.org
-X-Gm-Message-State: AFuF++nW0FeYHUBdSF1WCR6HFavSs8zt3FDBIXyCAO0UHSdkPdASzutC
-	w1qk1+7L6PctDBCcigK12mw91bKV1ArdinHQwVz3FgisTbcvEwlbARP8thYGrpDMPIt/fspvvYh
-	Cd4zkuObVlY+sxsu0R3iCYm/9/vcAuBWdy4pDj86V
-X-Received: by 2002:ac2:5bc5:0:b0:5b8:c922:b54c with SMTP id
- 2adb3069b0e04-5b8c931fa92mr37366e87.3.1789915007153; Sun, 20 Sep 2026
- 07:36:47 -0700 (PDT)
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b8c42da963so5596e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 07:42:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwMx6C7Fwp4T1Pc9Bl6kk+wilVlFmrR91plASbi6zl4ZsGEo3tuQNvK2oNN+rCL9zWWXuJbg3yxXdIi51bJ7dPo@lists.infradead.org
+X-Gm-Message-State: AFuF++kvov4iJBYpyb08nnn2YTGZMc6T8/pelWmZ9ukYpNz3ed2XBoTK
+	epspmPpJ8mUPYHQ48w0G1eIwyzhU8kzSB8wP2cFy3oSDWCBzE9UMPCPdPN33deQUIO34GcJRSEf
+	IjLBPhEk23qt792WEBRZayJ3rOt6FmOKqecMxePu4
+X-Received: by 2002:a05:6512:3e08:b0:5b8:9e63:dfb4 with SMTP id
+ 2adb3069b0e04-5b8c751430amr119379e87.14.1789915366405; Sun, 20 Sep 2026
+ 07:42:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260919123150.3283606-1-maz@kernel.org>
-In-Reply-To: <20260919123150.3283606-1-maz@kernel.org>
+References: <20260919123150.3283606-1-maz@kernel.org> <20260919123150.3283606-5-maz@kernel.org>
+In-Reply-To: <20260919123150.3283606-5-maz@kernel.org>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 20 Sep 2026 15:36:10 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzBWHjnFcYuPtROsEDS4ZFfSNf=VFYoTuG8F+R3Liyi8A@mail.gmail.com>
-X-Gm-Features: AcwNN1XWBFVsMxAv3Snaf6xpDNa73UqKxbPSMTBqLL_7dJeswjfUts5eBsRX5bc
-Message-ID: <CA+EHjTzBWHjnFcYuPtROsEDS4ZFfSNf=VFYoTuG8F+R3Liyi8A@mail.gmail.com>
-Subject: Re: [PATCH 0/4] KVM: arm64: vgic-v5: Random sparse fixes
+Date: Sun, 20 Sep 2026 15:42:10 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxDmJe=3zEoeFFdwW6yhjGiQRUQJOZpanFNd0wKcR4CBA@mail.gmail.com>
+X-Gm-Features: AcwNN1XruSsA5ybOhhOfItuSbQn7x4kogACoIWKSQ7hmigHvGBaPd17FPkfXrfw
+Message-ID: <CA+EHjTxDmJe=3zEoeFFdwW6yhjGiQRUQJOZpanFNd0wKcR4CBA@mail.gmail.com>
+Subject: Re: [PATCH 4/4] KVM: arm64: vgic-v5: Correctly handle host ISTE
+ __le32 conversion
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
@@ -65,8 +66,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Zenghui Yu <yuzenghui@huawei.com>, Sascha Bischoff <sascha.bischoff@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_073653_160233_781D8F96 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20260920_074250_719520_29A1DB27 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,25 +85,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Marc,
 
-On Sat, 19 Sep 2026 13:31:46 +0100, Marc Zyngier <maz@kernel.org> wrote:
+On Sat, 19 Sep 2026 13:31:50 +0100, Marc Zyngier <maz@kernel.org> wrote:
 [...]
-> I'm queuing this on top of the existing branch.
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5-tables.c b/arch/arm64/kvm/vgic/vgic-v5-tables.c
+[...]
+> @@ -1466,8 +1465,9 @@ static int vgic_v5_save_linear_ist(const struct vgic_v5_ist_desc *ist,
+>
+>          for (index = 0; index < nr_entries; index++) {
+>                  __le32 *h_iste_addr = ist->base + index * ist->iste_size;
+> +                u32 h_iste;
+>
+> -                h_iste = READ_ONCE(*h_iste_addr);
+> +                h_iste = le32_to_cpu(READ_ONCE(*h_iste_addr));
+>                  ret = put_user(h_iste, uaddr);
 
-For the four as queued in kvmarm/next, fixup included:
+arm-vgic-v5.rst documents the IST buffers as little-endian entries,
+which is what the raw __le32 copy gave userspace. With le32_to_cpu()
+here a BE host would hand out native-endian entries instead. Making
+uaddr a __le32 __user * (it's a u32 __user * today) keeps the
+documented format, and sparse is clean with it too.
 
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+With that:
 
-Sparse on vgic-v5-tables.c goes to no warnings, and the vgic_v5
-selftest passes on the FVP GICv5 model with a VHE host, before and
-after.
-
-The same selftest on an nVHE host oopses in
-__vgic_v5_restore_ppi_state() at the first KVM_RUN, with and without
-this series. That's the EL1 access to the GICv5 CPU interface that 6/7
-of [1] fixes, not new here.
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
 Cheers,
 /fuad
-
-[1] https://lore.kernel.org/r/20260915123846.2317931-1-fuad.tabba@linux.dev
 
