@@ -4,97 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722A3C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1CC2C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqS01F0fHUCNlMjJzLaTQZMMSglpdCcpPbBa80dW1pk=; b=cfNEexmZtf0c2ylgod6OCXhkMm
-	0nvuVEqdKiwgfZEeMaIlQhA/D3YvTvsv0CWnWFXXyJrP2k6NNtYb8g4Wt/kjvBHfeIN+5ouvgdX5M
-	Vj5fLFw+zBos2Xq/jASE5PZpFJR98DpkhhzNkpD+RiJ2RMvdOKpmJ4BPWM44Wx2G2OZcAUzPsFifK
-	Foa6MQslPugAlVohKYWqWArSPhH1oI3lwDgROEaNmiy9d0UMlLqcd7keq6DHzeVviYUpkzQlrFkOW
-	req6Kqn3Uw12zC0H+vbOEmYPusOWyBy5+JtsKK02Z4zX+cL092eKJkfUOCZbezL192taI6ElIO8nq
-	LcfkqLcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=603baMjfvZDDRI01HhGzn2fBvUjZwxELyYM5rjna2d8=; b=O1y7L4oj8m01Y+0jaX1w1VV5mv
+	EYHyfH6je1qxamOdh0HYAfWgPWR+9K4sreSNHJNdN/kNX4Qu9UqD1pgst3oHeo1jgk3BXq7Qejm8m
+	BXY9mVuN9DvIDCRg8HeYZWqrkuM7OvlQZdCJ03tC1V5Krw/OHGs7RCfupJI2QMexMnllx+Wdc5rbV
+	cnswqZzSGGBv8CcZHgQ04mdbZv1Iya7dBDOVBGpCaVQDQL/h+CgTnEMuO4Yo60yIoWiFYRBrYi8eV
+	vFRItL8bCbW7bJKcVTAZmF8bdzz91ttbTMvq1cF4T8izktkiiKasSl+PfND0S65rygvQh5so7eFSj
+	G7cjI8iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8EdL-0000000HFFu-2oU9;
-	Sun, 20 Sep 2026 10:18:55 +0000
-Received: from mail-wr2-x28.google.com ([2a00:1450:4864:30::28])
+	id 1x8EjN-0000000HFQy-21Bq;
+	Sun, 20 Sep 2026 10:25:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8EdI-0000000HFFW-1q8A
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 10:18:54 +0000
-Received: by mail-wr2-x28.google.com with SMTP id ffacd0b85a97d-485b1d2874aso1546346f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 03:18:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789899530; x=1790504330; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AqS01F0fHUCNlMjJzLaTQZMMSglpdCcpPbBa80dW1pk=;
-        b=F9jLB7TrG82DPTkmpeNUnyz8ufhRXuOVjsF8oSiaO5ZQkbn0IpkkzDBm25Kl9Q9KRB
-         RFQZY7/AqbufqbC4iEo9L35sT/WDoY0tOD822T9invsffAjzWZ0Pw0pqGtzNr/MikIvt
-         NltbNBpgXENQ865u5ldib2F1LIL5Y3GGqnRc/YJVcbnQTlzelLTS3T/2EwG66WI6FIvy
-         S8LNO7bsSgzhFEqPgEKfWSOshYxtd3ctjlOpMIozTVTQIbPMYdr3pCWLWmFuH/HuRR2B
-         6FSz3fOXhe1fz4vqdCFMuQt8iKGCPt92r8ajEZsVsyELW9TW6t3bBTYqwv/Z9YRzu1IU
-         pELQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789899530; x=1790504330;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AqS01F0fHUCNlMjJzLaTQZMMSglpdCcpPbBa80dW1pk=;
-        b=xtk4WkOOQUsD1+26TBUK9NCAVznDkBrlwjItqYjRFA9DsV1RAo9R9sqdbhxU071dPx
-         XjqFBWqTFtL0HVzlQ/EBzrqMgEzSglgzTkHDS0gyXyOAkt43SfOZ5G5T0MlTjZgdO7T8
-         69EILo8X/sMZwJnH3z/1vS0CDaXUFK0sF7mfN4piLqr/BRKh7B/zxasGqQLiiQzZYx0Q
-         WfbifUGgk9wZ7CLTIyymHoPFL/m6FaKgcAsdeK+MWtV0n+bjn/LWLrLpEhuUyTZZxNip
-         1F7/Pfey7IU+a2GmiH3eoEEhtQVVDANuE4CBioeQkcyfXB/yswE1QqznxjklqV5uu/hw
-         g4Ig==
-X-Forwarded-Encrypted: i=1; AKwUvBz9j3MExXbExeSkq+iePGbsmsXpiYh/PSg+IeULNc85IUbpJGkT4JHsPKk5hFDeAf0gVv7CdVDK/V+JFJDLR+48@lists.infradead.org
-X-Gm-Message-State: AFuF++n/1eS/9yeE4Joedmz2jULc8uQsVJxhXHy8FFSsZ/ZghDTede70
-	H2bWeqif3kVjGsrjF1rZUgv0aGXBa2fhm7WhJrJQtQeKstvrAEIW38z/PottzWZXYO4=
-X-Gm-Gg: AYBFou1SN1gF4hk2dEDJliSp4nwPK9XI1clmUxjMPTL+YVCaGW+vVVPbjnGfeJDqp8m
-	Ci3S5sf/jmbxpFz9jVV/FondAc/CdHxno0veJlo6RgvrnGEC8Ma9NRFXZQpVi5/cRveW2NVRPcm
-	8zFMUnQs724Sq/AAnxIgFoLbl5PuslxQ3HPNBLV6SJSIIgoswbbrGDuxlLUOohZD8QBqqFUnyjH
-	Y72ZoKuE+Okb9/fpTNoNbZZpZlnsiW81YT7eEokYHYKvsMt5OiMO/r1GmaZuiUmaTMnj2v8pbOi
-	cuOafcU9lKSIIYjQ7QsvbcFs8D5BSD1ljO4ExaZBpvrHff1l+friZeluGHBFaWTa0fYzjvsZuCa
-	GWwoTJtwqvxMJTUwz1cyY8ini7VpRzVrKaem8nZLw3RRl7ezfQbxkNIMsKedCBF+2hpeIPNiC0X
-	05KuTCJGN4pQuKF4jdNAwAW6Vsvb4xyu6ozAjy2jovYRMfssEI+os4iTZNaa6hl3+hdzZrT9RRY
-	78=
-X-Received: by 2002:a05:6000:310d:b0:487:27f9:82a with SMTP id ffacd0b85a97d-48727f90ab5mr5715729f8f.31.1789899529909;
-        Sun, 20 Sep 2026 03:18:49 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4872459f446sm12973334f8f.35.2026.09.20.03.18.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 03:18:49 -0700 (PDT)
-Date: Sun, 20 Sep 2026 12:18:47 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
-	Frank.Li@kernel.org, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
-Message-ID: <aq-xJE196Skvk2pX@monoceros>
-References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
- <20260918092951.5656-2-johannes.goede@oss.qualcomm.com>
- <20260918-impetuous-daring-barnacle-1ea4d0@sudeepholla>
- <dca62a09-2af7-463e-9ba0-1be935a95502@oss.qualcomm.com>
- <aq2g9otvja7xQqJ_@monoceros>
- <20260920-hippo-of-immense-assurance-50a5fd@sudeepholla>
+	id 1x8EjL-0000000HFOq-3Bi6;
+	Sun, 20 Sep 2026 10:25:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D56B434C1;
+	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0059AC2BCB3;
+	Sun, 20 Sep 2026 10:25:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789899907;
+	bh=FTANwXrpGcZhLdDebjS70tAHx07labgED5H/7r+H0Dk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=QC2XbdKn4vjeXGC6hrvhDOG/77Ji/5orNxkqfu5sQPNEHXNuL1joZVhwl0SmHDGfK
+	 CKV8fWnHXyZ89ygPaQfmLi2NdJPJTltnddHqICPN4KN34CEpUo2uyIjP0uOo7CuYj+
+	 nH2Yp3JqiTDiQ6AODxygUo/CBSaPg2IQ3OzyhZxSvhOTI6JEYgSZ1eEC4y5TRgHZmc
+	 vQM4ODR+qvJ9OZZIckrJqIFZAudnz4uvHoxCA/3wyErcVby3vpXG81nGTBHNdbkuOs
+	 3o4xCLLizufjWEU/tkkYehy08JJg6JtaNbod/tWfBOdACd1wGQdTw+gsiJ4gCx9cPX
+	 LwZAd3ezrXahg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D0624C982DA;
+	Sun, 20 Sep 2026 10:25:06 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Subject: [PATCH v2 00/12] soc: amlogic: clk-measure: Add support for more
+ SoCs
+Date: Sun, 20 Sep 2026 18:25:02 +0800
+Message-Id: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="va5epoaani5qcgwk"
-Content-Disposition: inline
-In-Reply-To: <20260920-hippo-of-immense-assurance-50a5fd@sudeepholla>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_031852_508288_4DD97BBA 
-X-CRM114-Status: GOOD (  36.75  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH60r2oC/4WNQQ6CMBBFr0K6dkzbaKWuvIchptYBGilDOkA0h
+ Ltb8QAu3//Je4tgTAFZnItFJJwDB+oz6F0hfOv6BiE8MgsttZEnJSFSQmDyDCMBT8NAaQTfPW8
+ RHU/586U2denuFk0psmZIWIfXlrhWmdvAI6X3VpzVd/3JrVL/5bMCCfYgURvr3FHXFxc7aoLfe
+ 4qiWtf1A4kYWQ/SAAAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chuan Liu <chuan.liu@amlogic.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=3172;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=FTANwXrpGcZhLdDebjS70tAHx07labgED5H/7r+H0Dk=;
+ b=+lRg6PWFN2RLQCPiESGgdpZI0F2zHAa+dnqwUIn55GLENxdSIr9ertnmnl6ayM1Zywp64iIZi
+ cdDCwKjniePC2pBsoZFpw2s+V8P3ZZYlVgG3W5qy48xWxHfwigx8Hae
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,137 +86,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series adds clk-measure support for the Amlogic A5, A4, S7,
+S7D, S6 and A9 SoCs, listed in the order of their release.
 
---va5epoaani5qcgwk
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 1/2] module: add SCMI device table alias support
-MIME-Version: 1.0
+The clock names for the clk-measure channels are kept consistent with
+those used by the clock driver as much as possible, making it easier to
+identify the relationship between the clk-measure channels and the
+corresponding clocks in the clock driver.
 
-On Sun, Sep 20, 2026 at 08:36:10AM +0100, Sudeep Holla wrote:
-> On Fri, Sep 18, 2026 at 10:39:46PM +0200, Uwe Kleine-K=F6nig wrote:
-> > On Fri, Sep 18, 2026 at 04:09:36PM +0200, Hans de Goede wrote:
-> > > Hi Sudeep,
-> > >=20
-> > > On 18-Sep-26 15:32, Sudeep Holla wrote:
-> > >=20
-> > > [...]
-> > >=20
-> > > >> diff --git a/include/linux/device-id/scmi.h b/include/linux/device=
--id/scmi.h
-> > > >> new file mode 100644
-> > > >> index 000000000000..1b4ccfa9dcc5
-> > > >> --- /dev/null
-> > > >> +++ b/include/linux/device-id/scmi.h
-> > > >> @@ -0,0 +1,17 @@
-> > > >> +/* SPDX-License-Identifier: GPL-2.0-only */
-> > > >> +#ifndef LINUX_DEVICE_ID_SCMI_H
-> > > >> +#define LINUX_DEVICE_ID_SCMI_H
-> > > >> +
-> > > >> +#ifdef __KERNEL__
-> > > >> +#include <linux/types.h>
-> > > >> +#endif
-> > > >> +
-> > > >> +#define SCMI_NAME_SIZE		32
-> > > >> +#define SCMI_MODULE_PREFIX	"scmi:"
-> > > >> +
-> > > >> +struct scmi_device_id {
-> > > >> +	__u8 protocol_id;
-> > > >> +	char name[SCMI_NAME_SIZE];
-> > > >> +};
-> > > >> +
-> > > >> +#endif /* ifndef LINUX_DEVICE_ID_SCMI_H */
-> > > >=20
-> > > > You need to include this above file in include/linux/mod_devicetabl=
-e.h
-> > > > to avoid duplication of its inclusion elsewhere. That's the pattern=
- followed
-> > > > I see.
-> > >=20
-> > > That is what I did for v3, but Uwe, who is leading the splitting
-> > > of mod_devicetable.h from one large monster include to smaller
-> > > per subsystem/bus includes explicitly requested me to follow this
-> > > pattern, see:
-> > >=20
-> > > https://lore.kernel.org/arm-scmi/aow2GFAfy84k-N2B@monoceros/
-> > >=20
-> > > [...]
-> > >=20
-> > > >> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devic=
-etable-offsets.c
-> > > >> index b4178c42d08f..91ec3704ee2b 100644
-> > > >> --- a/scripts/mod/devicetable-offsets.c
-> > > >> +++ b/scripts/mod/devicetable-offsets.c
-> > > >> @@ -1,5 +1,6 @@
-> > > >>  // SPDX-License-Identifier: GPL-2.0
-> > > >>  #define COMPILE_OFFSETS
-> > > >> +#include <linux/device-id/scmi.h>
-> > > >=20
-> > > > Drop this for above mentioned reason.
-> > >=20
-> > > This was explictly added at request of Uwe because the goal is to
-> > > get rid of mod_devicetable.h including all the device-id headers
-> > > in a big single catch-all include. This is done because currently
-> > > many files include mod_devicetable.h and then if any of the device-id
-> > > headers changes everything needs to be rebuild, making incremental
-> > > kernel builds much slower.
-> > >=20
-> > > (and the same for the second include you point out)
-> >=20
-> > FTR: That all sounds right.
-> >=20
-> > Let's not add the the dependency mess that is mod_devicetable.h.
-> >=20
->=20
-> I am confused. I am asking to align with what's done in
-> Commit ad428f5811bd ("mod_devicetable.h: Split into per subsystem headers=
-")
-> and you are disagreeing with that ?
->=20
-> I am not comfortable taking this patch unless there are other similar
-> examples that are agreed upon to break the pattern followed in the above
-> mentioned commit.
->=20
-> Uwe, please suggest.
+This patchset also includes an additional patch to optimize memory usage:
+  - soc: amlogic: clk-measure: Optimize CLK_MSR_ID to reduce memory usage
 
-I didn't start removing stuff from mod_devicetable.h yet, as changes
-there are expensive (regarding build dependencies). So the plan is to
-stop drivers consuming mod_devicetable.h and then drop it. (Not sure
-this is sensible as new users come in faster than I can fight them, but
-I didn't give up yet.)
+To avoid requiring everyone to spend additional effort on a separate
+patchset, I have included it in this series. Please feel free to point
+out if this is not appropriate for this series.
 
-So while adding new device_id structures to mod_devicetable.h is
-consistent with the existing practise, it still makes the situation
-worse, as every consumer of mod_devicetable.h then also depends on the
-new header for the new structure. That's why I think it's a good idea to
-deviate here, even if you're the first one doing so, to not worsen the
-already bad situation.
+To improve maintainability, this patchset also includes a patch to reorder
+the dt-binding and the compatible entries in the driver.
 
-If it helps you, I can propose a patch changing modpost to not use that
-catch-(nearly)-all header and use the needed linux/device-id/*.h
-instead. I put this on my list for tomorrow.
+To minimize unrelated changes, the existing clk-measure channel tables in
+the driver are left in their original order. The tables for the newly
+supported SoCs are ordered alphabetically.
 
-Best regards
-Uwe
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+---
+Changes in v2:
+- Reorder the dt-binding and the compatible entries in the driver
+  alphabetically.
+- Order the clk-measure channel tables for the newly supported SoCs
+  alphabetically.
+- Add the const qualifier to the A9 clk-measure channel table.
+- Rename "exit_Tsin_B_CLK_IN" to "ext_Tsin_B_CLK_IN" in the A9 clk-measure
+  channel table.
+- Link to v1: https://lore.kernel.org/r/20260911-more-socs-to-support-clk_measure-v1-0-940e269aa52f@amlogic.com
 
---va5epoaani5qcgwk
-Content-Type: application/pgp-signature; name="signature.asc"
+---
+Chuan Liu (12):
+      dt-bindings: soc: amlogic: Reordering compatible of clk-measure
+      dt-bindings: soc: amlogic: Add clk-measure compatible to support more SoCs
+      soc: amlogic: clk-measure: Support more measurement channels
+      soc: amlogic: clk-measure: Align compatible entries with DT bindings
+      soc: amlogic: clk-measure: Add support for more SoCs
+      soc: amlogic: clk-measure: Optimize CLK_MSR_ID to reduce memory usage
+      arm64: dts: amlogic: a5: Add clk-measure controller node
+      arm64: dts: amlogic: a4: Add clk-measure controller node
+      arm64: dts: amlogic: s7: Add clk-measure controller node
+      arm64: dts: amlogic: s7d: Add clk-measure controller node
+      arm64: dts: amlogic: s6: Add clk-measure controller node
+      arm64: dts: amlogic: a9: Add clk-measure controller node
 
------BEGIN PGP SIGNATURE-----
+ .../soc/amlogic/amlogic,meson-gx-clk-measure.yaml  |  16 +-
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |   5 +
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |   5 +
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi        |   5 +
+ arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        |   5 +
+ arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        |   5 +
+ arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       |   5 +
+ drivers/soc/amlogic/meson-clk-measure.c            | 927 ++++++++++++++++++++-
+ 8 files changed, 953 insertions(+), 20 deletions(-)
+---
+base-commit: a2530c83c458a503e55219966217dfd1c36a385e
+change-id: 20260710-more-socs-to-support-clk_measure-c826f8ab9e68
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqvswQACgkQj4D7WH0S
-/k63ZQf/c1EcLMBypE8L0sxQ62078sgY69oGq5tDdBhnBZ+z4IPNuVUBpEsbf6CY
-hV/ZDy6EEWrIof70NynUSSft8Na4sKCCNoUAX0miGwkgyse7NXgu/+kfxKnYamH8
-prDFe1BuWUgOnkVQz30liiPP2R54mXHS98TbV36hRU3VaKmT15gSgmQlaPwKiYud
-z/8blCaDCvt1oUpT1fLuAd6Ou3zvU9zLm/OpGl5sEMIHcJaTL+/+pJaJOyH34wg/
-kfTaQUIXa9gYIwXzC+1IN7VLF1N0CVDKdSABYE1o+07SHdmM4GweLPPNshAaHSN6
-N4WYHrSbicQ23mz2Vai55R+WDm/WKA==
-=3lua
------END PGP SIGNATURE-----
+Best regards,
+-- 
+Chuan Liu <chuan.liu@amlogic.com>
 
---va5epoaani5qcgwk--
+
 
