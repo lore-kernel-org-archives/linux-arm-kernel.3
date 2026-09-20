@@ -4,106 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18170C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 12:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5034C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 13:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2D3XC//PXEj3eDv40Gbahf5dAWuKc/ExUhJEz+Wh54=; b=UsrqA7i3LqZITRVzZXvR8cpw4k
-	Xbr05D54faQ4EDjfZdAIyBeDDaCwAAR7Kgnrhdy1qj6VRI1oAzDmScyZVlNj3KIpOIQ5wNul1Wz44
-	X8IPl44hiyBs1iiyg3zujwZ6Vjf3MbOdOUgd864qpbg780+Kx7f6iGi6mTAwL04/AD1oBXb4AgWgQ
-	50CrvF8VVEqQHrF8bugrBBlrQKjceQKji54CNfihVmDGjXC6aEp6Z4JYMbJfwpKAmmVYrLHxPALh8
-	iTunp0WPb3deeitc/G1A3vV38/uYEMrYOXZxdd7df+GMmcYFkDVmVU92bHuapUUMalh7PLl3eHgae
-	8W97RwGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Dv++Hwgz+611wPTlNPuNZg9gGp73vyEv5RaQpPZcNTQ=; b=GwgryXWWo65Sj7I3exsqvwGWEq
+	TPDKJANtF38Mr1cE2X80BiATGtQTv1IYYItwWvMfsHOhPpAs5Q0ApXM/ZS5u3YcwOvAKZ3vw7OeJT
+	7H708Y3zP+50NmLLld1uY+1j1OKT0L9j3v1iob/0OKYB/AkhLslfORd0PgJVGrg+OyuSXGVjHiAQt
+	iSm8fB6ytTxBTQgNYUnBEHcqdtXDuSkwUinqe9lfgGUUv7dWbeg4a7Jy63qrmeCPHN9pDtCUdTjGc
+	3v3k6EGosO/ODpWFZiRcauS4YQdfnJKwpxrzWDttxL1l8UtwS4sHisKmuM+zqldt8UlOT62oGFcDu
+	ChrRLqzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FY4-0000000HKHU-2qLL;
-	Sun, 20 Sep 2026 11:17:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8H9j-0000000HTeT-3Ito;
+	Sun, 20 Sep 2026 13:00:31 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FXz-0000000HKAe-1OLz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 20 Sep 2026 11:17:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+2D3XC//PXEj3eDv40Gbahf5dAWuKc/ExUhJEz+Wh54=; b=iMmNLTVu+2eIN+hBhgS3G7e3XF
-	/REgVJUpQGatHrWs4nrALkZ81IC0S5z/CS/OPKIPekfNQ0/ZAnJwWp52FwWa9YwN4Zre6ceIkoc8A
-	gmUbfIwADX4BBYjR6iFuCM6nyoh3jg5bdgW5pmrEYD1gnM4AYL5dKFNpqKfGie/Tde+XyR/ggoGPJ
-	b+TVN9tzzU1A+t+lAGKQMPRSQjsdOQBw1lDLB0+CMaQMhD3zH4UlV9e4eZtNTxgG65x8+13jyPUhE
-	AwmRVKy3/tMaH3iR8iPsxD0Jc09wCsIAf2YFWrVaW5gvbS/quTakmBUzZQ+m07ReAOm4csVi+m2Ao
-	4Cud/1rg==;
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8FXt-0000000BL3J-2pny
+	id 1x8H9g-0000000HTe9-3Wao
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 11:17:24 +0000
-Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36f088236
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sun, 20 Sep 2026 20:16:16 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=+2D3XC//PXEj3eDv40Gbahf5dAWuKc/ExUhJEz+Wh54=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789902977; v=1;
-        b=OJJVMnrxeC53WpNkLlXng9twP6VYuQ/JoGFuBUbI+92aGfH/slaGnULjiyVMSldf
-         efgrYqaTF9l0UlZExxiy0SoEV4eb7tllylg84VTpKsXVCRI72i1UX1Q9nDY2UI7h
-         8n7ZfpMbsolrr5ewER7q3PBuo8+aKOndD11ihYKZ33Tp/aEAc05MwrVr+XD0lEhl
-         cIbC49RedRspbqSlDWuVKD8MFgArPlpYE9A0+s+PJSpAKp7E906ZjzUxZ8JdhHet
-         qV/tJ3V9vTI3ZTx+tKm2557K8TbxM8NoEMLeGmlipXJnfPLCAegFyk494y04M01F
-         I8VZAdxh/rrlAVBkLV19Uw==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sun, 20 Sep 2026 20:15:59 +0900
-Subject: [PATCH v11 18/21] KVM: arm64: PMU: Pass the target CPU to
- kvm_pmu_probe_armpmu()
+	Sun, 20 Sep 2026 13:00:30 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68KBnpxI974577
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 13:00:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Dv++Hwgz+611wPTlNPuNZg
+	9gGp73vyEv5RaQpPZcNTQ=; b=FO3wYcFMrcX5P02v0oNSx90E8cM63zXbaurZeL
+	AHmrY7LltNDFGq/R8JcrmxAC9Y0FHBU6+TXJeJNuwrLOD/ykOONzvmGcSf1rZc+a
+	+sgvDxKrMJj40osgl0qJwjwjiTv1Si3IotQH3WbjoICmoXZkpvaw8CX6/8yzR2TL
+	q06lBUk2+PAVV/Kn/1g/MjwI8KtqZv2NDQfNaJ6BjYlIBQ+dp+AYdRlqXGfqO9fc
+	AQYbr3/Ykc6ZVUxZyn+0c92i7n0y/aBZF/Tb65MKhmjcZ4x1iSF02PNW6hWVqHXT
+	sJVgCyKq6hTsN0FrBsbXnKeZ0hqMdiTUYOKf1F1Vb7rjsWMA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gskjk2w4v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 13:00:28 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93a183a0e93so516192185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 06:00:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789909227; x=1790514027; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Dv++Hwgz+611wPTlNPuNZg9gGp73vyEv5RaQpPZcNTQ=;
+        b=Dk9MRDUUpVU+mTwspgSK5J3V2onlh9yaLN9/KYLupZqE/Mpl9OtoFP3cywSOwJIjdn
+         bXOtwp1Xwpz+1NbHRsaXyNsK+JyKKDFFDAZr+Wo3lBJ7Tnw0ozlyYb2VgEfSuTursEjH
+         eeit2SW6f1Y4gUdFU4tEPphyUENmin6+C1nkhKyysePfQVX34YXQmKNxv3R24tAxwtNZ
+         XRGv5H7Apt3IVzBbKXhRvBGUYNcT/sstsuYcY4ACAizKoG/AJ2HqdzoONXX+1qz1PC3x
+         bn8VdCUuKpHEJ/BDy/4R16py+b1G0jsHUE0GYjfZOSka2DpPOi+0PlvjLl5GmGzRDjX1
+         3tiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789909227; x=1790514027;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Dv++Hwgz+611wPTlNPuNZg9gGp73vyEv5RaQpPZcNTQ=;
+        b=DoobjMA5+gxhj6H1jbGPuI5+z9E5k9XpeILVDccO9DXnGGgSBs3V1IXFA7FenzEpFv
+         0bEcdMgT3xE95zoNK5hJeen1X/VWkip7GPj4u0wNyEc+A8cSPa5oSi9EmIOtYAserDnC
+         XHOt7ohedZKxD69Ovf9aLjY39pxmvtWoIyO6Houy4KDKIEtnX1m03Tik7P3SK391E2LC
+         +HLOSPWxSY+rvc/IutwxiUtUQJfIFsmj4obf3i05QjnBx3lrIsdskGdK58zLw9lu2C5k
+         gS8a6Rce/Q6+RbshiAQFpSOTqnB1bQRJj/seHmA2aioigU9VJ40tI97UF2zRqTB+1o23
+         NVeg==
+X-Forwarded-Encrypted: i=1; AKwUvBw706oJKSB/Wgpmhrhdbv2T9ah6oB4g5h/6ix52ZlfGBZy5gDqikYo95K3rDr0wTnLxEZO20lNtPebAIhnhCxw6@lists.infradead.org
+X-Gm-Message-State: AFuF++naGIcgaHpwuNKv2WsFfqIhOt7Wwu0SyYzCYRV6dkAQnaebKPDr
+	/RDim+SY3PdOfnl9B9k8MyetNEXckuYgdrTZ5JXDw9ga2dIF/+m05c0SaQXkVQROClwk0+mGwaw
+	qufVTFtQ5AbPfmCx2hPxb3JmlFo7Tyfu4Md+NZJHpHdKGVCUs+oDICp5U4KRWz5Qz4YVs7InyY4
+	QSHLDvBhGvow==
+X-Gm-Gg: AYBFou35DNHIfgEH5iDtL2ud8HQXLZurwmKHRQPsdCaqKIi93y1sKVtWH/O1ILZdJWe
+	bkcrhcn77GjXa9z8G0k15I2WzUCWbjHNkxU3HJYE9qcKQ/mMh8cmh15QjqBy3LCCiGqrOgdPNBl
+	gUIAoBz9ijwJm7SGrThu2D5uyViNIkE/2/UiQXWv6rVzCxGQ/ZXENsewpyLC9ce5z4QYOcGiWqa
+	19vhNi615UXpHTL3LJaXgtvi86bSbcflOrtjq27qX4KT0QbAnJ1mcLNtWr25EseaaTPJF7P0Lne
+	CcTR7It4vtfvWfUzoMt9xHiLDkHD85MaoB+Y4QmuYD9cvfSgnjz6Sk59YQ58v8eLJ24ZGn9z0j9
+	o9DgxYpwMf9XDZQ==
+X-Received: by 2002:a05:620a:6891:b0:93b:d7a3:45d7 with SMTP id af79cd13be357-93bf57b75afmr544587285a.64.1789909226342;
+        Sun, 20 Sep 2026 06:00:26 -0700 (PDT)
+X-Received: by 2002:a05:620a:6891:b0:93b:d7a3:45d7 with SMTP id af79cd13be357-93bf57b75afmr544577285a.64.1789909225736;
+        Sun, 20 Sep 2026 06:00:25 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fcda2140bsm147988155e9.1.2026.09.20.06.00.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Sep 2026 06:00:23 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Sun, 20 Sep 2026 15:00:02 +0200
+Subject: [PATCH net] net: stmmac: propagate PTP addend and system time
+ programming errors
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hybrid-v11-18-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Andrew Jones <andrew.jones@oss.qualcomm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Shannon Zhao <shannon.zhao@linaro.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Fuad Tabba <fuad.tabba@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4142;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=xEWxbBZGUjPYlzg4Xr8/yHzALhSurwMXAGDpDFsHDG4=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6AwUnJU9VHZgVv3lncJW29cWqhqBy7916DirG5xzur
- AiYy/uto5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCI9ogx/JZ2WROXdvLDk/dIv
- 9etCNtQZ2T3XSu+aHXnfbsOzVbv+WzMyTH8bNHGO69q5cwUEUh8+m2/1YdrGnbtWK098o3VFQfC
- dOQ8A
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+Message-Id: <20260920-stmmac-ptp-added-systime-error-v1-1-8ac9e7a3fce2@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NMQrDMAxA0asEzRW4ghqSq4QOri23GuwYyYSUk
+ LvXdHzL/ycYq7DBMp2gvIvJVgfutwniJ9Q3o6RhIEfezeTQeikhYusNQ0qc0L7WpTCy6qb4ivP
+ De/KUKcOINOUsx3+wQuUOz+v6AR3RqGN1AAAA
+X-Change-ID: 20260920-stmmac-ptp-added-systime-error-bc9566262f2f
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=H6JOUOYi c=1 sm=1 tr=0 ts=6aafd8ec cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=9VuKQwgGOwxQ2f590fkA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDE4OSBTYWx0ZWRfX0m4LuZQQg5KJ
+ O001s0Ri4Mcwi3+a7ioClDGHatO45f/3JHfzbo+IB7PTeSkUXgiyK1vMAgU6QZovBrtmJrC8fcN
+ ocur+MXmNvjlDbSmZ+AU6wHB/ZqgNs0DySYJTHLgHmW7yKGwK6/NUODdXjahM+EfNWINh2Goii2
+ aiyYCA6DP9l0dtKNMtzmEK5AyZ4DRNEs9r7p9MQM2IIfsItn8n36IGWSIs7qDTGarpTdu+Er2AW
+ iMNkIgvzIKmRFszZ3Pgm1VLylgjpwPQU+epyZ/JNl3VP1gommr9By7+F3c9HswfXNJhxBGMHovn
+ yo6nd3vtIQTxA4GvurdZDMJ7vJM6j/hkhAEHjgGusKHYX4Yuk0eD2nIDWZ9aDgeBClO5bYvYKAg
+ bJ+lVd/eSUN7cPp15/bMiqFnolblFwSHWgRV7IxL+DqyGYiTtKE4uPRKoMj38O/u5A041haBVI5
+ UQn8AMbxU89qIyOVItQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIwMDE4OSBTYWx0ZWRfX2xmk3S6NaQQt
+ DupetvDcNWzHs1lpETTn/tbpUhh+BCcZTtqH1QiZCB8x8EnE+92zrIHv9+pyDZW7a+zuELXI9G2
+ g35NX6A1SPkwFF+IXKn++Y0SNhASlkE=
+X-Proofpoint-ORIG-GUID: p2A3WjRU_--YrCxi-kRWeFyIhKShnrZf
+X-Proofpoint-GUID: p2A3WjRU_--YrCxi-kRWeFyIhKShnrZf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-20_04,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0
+ impostorscore=0 adultscore=0 spamscore=0 malwarescore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609200189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_121722_651778_7C5A1E46 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20260920_060029_844814_E9F6885E 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,123 +157,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_pmu_probe_armpmu() currently samples the current CPU internally,
-which ties the helper to default PMU selection.
+stmmac_update_subsecond_increment() ignores the error returned by
+stmmac_config_addend(), and stmmac_init_tstamp_counter() discards the
+addend and system time programming errors, always returning success. A
+failure to program the addend (PTP_TCR_TSADDREG) or to initialize the
+system time counter (PTP_TCR_TSINIT) is therefore silently swallowed,
+leaving the hardware timestamp counter in a non-running or partially
+configured state while the driver keeps operating as if timestamping
+were up. This matters for TAPRIO/EST offloading, which derives the gate
+base time from the hardware timestamp counter.
 
-Move that policy to kvm_arm_set_default_pmu() by passing
-raw_smp_processor_id() from the caller, and make the helper search for
-the pPMU covering an explicit CPU. Move the helper above
-kvm_pmu_create_perf_event() so later code can reuse it when creating
-PMU events for a VCPU's current pCPU.
+Return error codes from stmmac_update_subsecond_increment(),
+stmmac_init_tstamp_counter() and stmmac_dl_ts_coarse_set() instead of
+silently returning success.
 
-This preserves the existing default PMU selection behavior while
-preparing fixed-counters-only mode to select a pPMU at runtime.
-
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Fixes: cc4c9001ce31 ("net: stmmac: Switch stmmac_hwtimestamp to generic HW Interface Helpers")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
- arch/arm64/kvm/pmu-emul.c | 72 +++++++++++++++++++++++------------------------
- 1 file changed, 35 insertions(+), 37 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 89 ++++++++++++++++++-----
+ 1 file changed, 69 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 72b042e5c360..a303752c5e61 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -708,6 +708,23 @@ static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
- 	return eventsel;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 1fb5f804ea23..52587ecb1a54 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -601,31 +601,63 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
+ 	}
  }
  
-+static struct arm_pmu *kvm_pmu_probe_armpmu(int cpu)
-+{
-+	struct arm_pmu_entry *entry;
-+	struct arm_pmu *pmu;
+-static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
++static void stmmac_restore_subsecond_increment(struct stmmac_priv *priv,
++					       u32 default_addend,
++					       u32 systime_flags)
+ {
+ 	bool xmac = dwmac_is_xmac(priv->plat->core_type);
+-	u32 sec_inc = 0;
++	u32 sec_inc;
 +
-+	guard(rcu)();
-+
-+	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-+		pmu = entry->arm_pmu;
-+
-+		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-+			return pmu;
-+	}
-+
-+	return NULL;
++	stmmac_config_addend(priv, priv->ptpaddr, default_addend);
++	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
++	stmmac_config_sub_second_increment(priv, priv->ptpaddr,
++					   priv->plat->clk_ptp_rate,
++					   xmac, &sec_inc);
++	priv->default_addend = default_addend;
++	priv->sub_second_inc = sec_inc;
 +}
 +
- /**
-  * kvm_pmu_create_perf_event - create a perf event for a counter
-  * @pmc: Counter context
-@@ -837,42 +854,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
- 	list_add_tail_rcu(&entry->entry, &arm_pmus);
++static int stmmac_update_subsecond_increment(struct stmmac_priv *priv,
++					     u32 systime_flags)
++{
++	bool xmac = dwmac_is_xmac(priv->plat->core_type);
++	u32 sec_inc = 0, val;
+ 	u64 temp = 0;
++	int ret;
+ 
+-	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
++	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+ 
+ 	/* program Sub Second Increment reg */
+ 	stmmac_config_sub_second_increment(priv, priv->ptpaddr,
+ 					   priv->plat->clk_ptp_rate,
+ 					   xmac, &sec_inc);
+-	temp = div_u64(1000000000ULL, sec_inc);
+-
+-	/* Store sub second increment for later use */
+-	priv->sub_second_inc = sec_inc;
++	if (!sec_inc) {
++		ret = -EINVAL;
++		goto error;
++	}
+ 
+ 	/* calculate default added value:
+ 	 * formula is :
+ 	 * addend = (2^32)/freq_div_ratio;
+ 	 * where, freq_div_ratio = 1e9ns/sec_inc
+ 	 */
++	temp = div_u64(1000000000ULL, sec_inc);
+ 	temp = (u64)(temp << 32);
+-	priv->default_addend = div_u64(temp, priv->plat->clk_ptp_rate);
+-	stmmac_config_addend(priv, priv->ptpaddr, priv->default_addend);
++	val = div_u64(temp, priv->plat->clk_ptp_rate);
++
++	ret = stmmac_config_addend(priv, priv->ptpaddr, val);
++	if (ret)
++		goto error;
++
++	priv->sub_second_inc = sec_inc;
++	priv->default_addend = val;
++
++	return 0;
++error:
++	/* Restore previous configuration */
++	stmmac_restore_subsecond_increment(priv, priv->default_addend,
++					   priv->systime_flags);
++	return ret;
  }
  
--static struct arm_pmu *kvm_pmu_probe_armpmu(void)
--{
--	struct arm_pmu_entry *entry;
--	struct arm_pmu *pmu;
--	int cpu;
--
--	guard(rcu)();
--
--	/*
--	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
--	 * the same value is used for the entirety of the loop. Given this, and
--	 * the fact that no percpu data is used for the lookup there is no need
--	 * to disable preemption.
--	 *
--	 * It is still necessary to get a valid cpu, though, to probe for the
--	 * default PMU instance as userspace is not required to specify a PMU
--	 * type. In order to uphold the preexisting behavior KVM selects the
--	 * PMU instance for the core during vcpu init. A dependent use
--	 * case would be a user with disdain of all things big.LITTLE that
--	 * affines the VMM to a particular cluster of cores.
--	 *
--	 * In any case, userspace should just do the sane thing and use the UAPI
--	 * to select a PMU type directly. But, be wary of the baggage being
--	 * carried here.
--	 */
--	cpu = raw_smp_processor_id();
--	list_for_each_entry_rcu(entry, &arm_pmus, entry) {
--		pmu = entry->arm_pmu;
--
--		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
--			return pmu;
--	}
--
--	return NULL;
--}
--
- static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
+ /**
+@@ -864,25 +896,37 @@ static int stmmac_hwtstamp_get(struct net_device *dev,
+ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ 				      u32 systime_flags)
  {
- 	u32 hi[2], lo[2];
-@@ -1112,7 +1093,24 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
-  */
- int kvm_arm_set_default_pmu(struct kvm *kvm)
- {
--	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu();
-+	/*
-+	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-+	 * the same value is used for the entirety of the loop. Given this, and
-+	 * the fact that no percpu data is used for the lookup there is no need
-+	 * to disable preemption.
-+	 *
-+	 * It is still necessary to get a valid cpu, though, to probe for the
-+	 * default PMU instance as userspace is not required to specify a PMU
-+	 * type. In order to uphold the preexisting behavior KVM selects the
-+	 * PMU instance for the core during vcpu init. A dependent use
-+	 * case would be a user with disdain of all things big.LITTLE that
-+	 * affines the VMM to a particular cluster of cores.
-+	 *
-+	 * In any case, userspace should just do the sane thing and use the UAPI
-+	 * to select a PMU type directly. But, be wary of the baggage being
-+	 * carried here.
-+	 */
-+	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
++	u32 default_addend = priv->default_addend;
+ 	struct timespec64 now;
++	int ret;
  
- 	if (!arm_pmu)
- 		return -ENODEV;
+ 	if (!priv->plat->clk_ptp_rate) {
+ 		netdev_err(priv->dev, "Invalid PTP clock rate");
+ 		return -EINVAL;
+ 	}
+ 
+-	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+-	priv->systime_flags = systime_flags;
+-
+-	stmmac_update_subsecond_increment(priv);
++	ret = stmmac_update_subsecond_increment(priv, systime_flags);
++	if (ret)
++		return ret;
+ 
+ 	/* initialize system time */
+ 	ktime_get_real_ts64(&now);
+ 
+ 	/* lower 32 bits of tv_sec are safe until y2106 */
+-	stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec, now.tv_nsec);
++	ret = stmmac_init_systime(priv, priv->ptpaddr, (u32)now.tv_sec,
++				  now.tv_nsec);
++	if (ret)
++		goto error;
++
++	priv->systime_flags = systime_flags;
+ 
+ 	return 0;
++error:
++	/* Restore previous configuration */
++	stmmac_restore_subsecond_increment(priv, default_addend,
++					   priv->systime_flags);
++
++	return ret;
+ }
+ 
+ /**
+@@ -7693,18 +7737,23 @@ static int stmmac_dl_ts_coarse_set(struct devlink *dl, u32 id,
+ {
+ 	struct stmmac_devlink_priv *dl_priv = devlink_priv(dl);
+ 	struct stmmac_priv *priv = dl_priv->stmmac_priv;
++	u32 systime_flags = priv->systime_flags;
++	int ret;
+ 
+-	priv->tsfupdt_coarse = ctx->val.vbool;
+-
+-	if (priv->tsfupdt_coarse)
+-		priv->systime_flags &= ~PTP_TCR_TSCFUPDT;
++	if (ctx->val.vbool)
++		systime_flags &= ~PTP_TCR_TSCFUPDT;
+ 	else
+-		priv->systime_flags |= PTP_TCR_TSCFUPDT;
++		systime_flags |= PTP_TCR_TSCFUPDT;
+ 
+ 	/* In Coarse mode, we can use a smaller subsecond increment, let's
+ 	 * reconfigure the systime, subsecond increment and addend.
+ 	 */
+-	stmmac_update_subsecond_increment(priv);
++	ret = stmmac_update_subsecond_increment(priv, systime_flags);
++	if (ret)
++		return ret;
++
++	priv->tsfupdt_coarse = ctx->val.vbool;
++	priv->systime_flags = systime_flags;
+ 
+ 	return 0;
+ }
 
+---
+base-commit: 1e24c4f2ee44be0eee94092b5d13cbdb4bdf0d60
+change-id: 20260920-stmmac-ptp-added-systime-error-bc9566262f2f
+
+Best regards,
 -- 
-2.55.0
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
 
