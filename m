@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C68C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0554C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EGDy0+cVYNLfCeD7Ed45e1RMMV9bf212EVOKS40v3vw=; b=uR1hqwjuvrVH8hG0+Ow6UHQ1+g
-	61cTzmM6aIVagY3r+0CxQB4yNUxsIo02paAj5UJQ+pQ/iEqd+x36zrdtuH7jGifhn8hopfyuleMww
-	faVjPRxmtGVevcohQdOWx1OXgedDigntkpKumVTOFMvFz/T3Kw86h1ZuihWRWoKeemaK42c1Gm4zF
-	J6JHMMX5KOgPHEuDdqfr+9tIS03J0bLk345IQtlP63KFSdpkkORjH+VPt4Fd3vxVVyq/rU+br5xyD
-	1bHs6IrcgOn/3Kp4qYALSf5eGER1nzkKGR+8ATiBGGLNZxWubDp/32ki3cJa7g6IXcXKpbVzMMj9P
-	m/0N6A3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SvRcN97+jbxD6uQgpvhSo80k6y8QmG3eSAaiOeHxkVA=; b=t9AoSDFm5jKx9awaKYvT9OeJuB
+	NnoJeYNdh11GAgnGlTf2wEfYZV4xtKRMrWhPQCc+QBc+v62vupmKFhOMLOz4NzDgC1ZMyB3s9DMh+
+	cElQrvVNbJMk06Girl+CI3D+JJQignpkh12I59dXBfB6IYsmu7ybE5Nwoeu+tWaeILu39SYErJKMM
+	VzUs35c32KZcGXhLj9Qwucq7cHdWT6zDS22zK4gxnTOr+JhxO2WdW2wbk9mKzAJMcrj233Srxh2+u
+	YFKexQNqB8J45HMkAbHIRs7wZENqQUF4Cq4Qo2eiqz5Nz+RXfx9Eyz14QGd4wLrVsVcur60TVLui0
+	jdTRyBIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JEk-000000002mI-2SKM;
-	Sun, 20 Sep 2026 15:13:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JEh-000000002kx-2ITD;
-	Sun, 20 Sep 2026 15:13:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22EA61650;
-	Sun, 20 Sep 2026 08:13:38 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36F293F632;
-	Sun, 20 Sep 2026 08:13:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789917221; bh=SSUGOkvZlKcwT3YQ7ugwa08tm7XRyK2mRxan7tsBq9A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uBDAHjhBHkkPwi628BqqIFlQ+INGYryGrQdUfxjc10DPsc6erfmlXh9zJcVrJ3Li5
-	 YhNz8u7RxpgHCmj7AHjpjl57NcWuDNc0lyXiuRMvqgpYvzjvoVqGlHBEcIljCTNcjO
-	 4XmJx/k8MUIg6BaZ9K3VisgZGammxqfukhfY/ERA=
-Date: Sun, 20 Sep 2026 17:08:46 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano
- <enzo.adriano.code@gmail.com>
-Subject: Re: [PATCH v3 8/8] clk: sunxi-ng: a733: Add reset lines
-Message-ID: <20260920170846.087bd42d@ryzen.lan>
-In-Reply-To: <20260905-a733-clk-v3-8-50f238f39c78@pigmoral.tech>
-References: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
-	<20260905-a733-clk-v3-8-50f238f39c78@pigmoral.tech>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1x8JFr-000000002xo-3vbi;
+	Sun, 20 Sep 2026 15:14:59 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8JFp-000000002xG-3mtO
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 15:14:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=SvRcN97+jbxD6uQgpvhSo80k6y8QmG3eSAaiOeHxkVA=; b=ql
+	ppejBnN0PZNUqLKTHWkJM+HmHsYVsli3gyQekHvcOEfLfLGMguGBHbBszTS+Vu7Yazf+jxA4OgLsr
+	oG/1Q7/Gf/S4+7daMuDriuVEcZ258h6VrpCW4/UYBhPRWoV1Vad/rKZQaaW83DLJ1zHy5tdmu2gyF
+	5tl4p1EI6bOVmuU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x8JFk-006Ady-8f; Sun, 20 Sep 2026 17:14:52 +0200
+Date: Sun, 20 Sep 2026 17:14:52 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?iso-8859-1?Q?Nicol=F2_Giuliani_-_nicolo=2Egiuliani6=40studio=2Eunibo?=
+	=?iso-8859-1?B?Lml0?= <nicolo.giuliani6@studio.unibo.it>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: R: [PATCH 3/3] arm64: dts: marvell: Add Sophos XGS 107w NPU board
+Message-ID: <feea5596-f4ef-42af-b9f7-6bf170620532@lunn.ch>
+References: <20260919-send-dt-v1-0-365615a74ef3@studio.unibo.it>
+ <20260919-send-dt-v1-3-365615a74ef3@studio.unibo.it>
+ <6b935e31-169a-4cd1-b385-62dc659c1256@lunn.ch>
+ <DU4PR01MB12163AE447B65B21A7D585A0D80852@DU4PR01MB12163.eurprd01.prod.exchangelabs.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DU4PR01MB12163AE447B65B21A7D585A0D80852@DU4PR01MB12163.eurprd01.prod.exchangelabs.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_081347_851182_E522F557 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260920_081457_939216_6474B7B4 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,181 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 05 Sep 2026 00:45:37 +0800
-Junhui Liu <junhui.liu@pigmoral.tech> wrote:
-
-Hi,
-
-> Add the reset lines for the Allwinner A733 SoC. These reset control bits
-> are integrated into the Bus Gate Reset (BGR) registers, typically
-> sharing the same register address with their corresponding bus clock
-> gates. Integrate them into the main CCU driver using the existing
-> sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-> reset controller for the SoC.
+On Sun, Sep 20, 2026 at 08:48:20AM +0000, Nicolò Giuliani - nicolo.giuliani6@studio.unibo.it wrote:
+> Hi Andrew,
 > 
-> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-
-Many thanks, my comments have all been addressed:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> ---
->  drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
->  1 file changed, 126 insertions(+)
+> Thanks for the review.
 > 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> index c124b09855c0..b7fc2cfc626c 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> @@ -19,6 +19,7 @@
->  #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
->  
->  #include "ccu_common.h"
-> +#include "ccu_reset.h"
->  
->  #include "ccu_div.h"
->  #include "ccu_gate.h"
-> @@ -2183,11 +2184,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->  	.num	= CLK_FANOUT3 + 1,
->  };
->  
-> +static const struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-> +	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-> +	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-> +	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-> +	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-> +	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-> +	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-> +	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-> +	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-> +	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-> +	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-> +	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-> +	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-> +	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-> +	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-> +	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-> +	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-> +	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-> +	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-> +	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-> +	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-> +	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-> +	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-> +	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-> +	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-> +	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-> +	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-> +	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-> +	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-> +	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-> +	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-> +	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-> +	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-> +	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-> +	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-> +	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-> +	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-> +	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-> +	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-> +	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-> +	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-> +	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-> +	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-> +	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-> +	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-> +	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-> +	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-> +	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-> +	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-> +	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-> +	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-> +	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-> +	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-> +	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-> +	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-> +	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-> +	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-> +	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-> +	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-> +	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-> +	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-> +	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-> +	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-> +	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-> +	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-> +	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-> +	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-> +	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-> +	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-> +	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-> +	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-> +	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-> +	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-> +	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-> +	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-> +	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-> +	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-> +	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-> +	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-> +	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-> +	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-> +	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-> +	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-> +	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-> +	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-> +	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-> +	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-> +	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-> +	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-> +	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-> +	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-> +	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-> +	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-> +	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-> +	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-> +	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-> +	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-> +	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-> +	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-> +	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-> +	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-> +	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-> +	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-> +	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-> +	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-> +	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-> +	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-> +	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-> +	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-> +	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-> +	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-> +	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-> +	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-> +	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-> +	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-> +	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-> +	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-> +	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-> +	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-> +	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-> +};
-> +
->  static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
->  	.ccu_clks	= sun60i_a733_ccu_clks,
->  	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
->  
->  	.hw_clks	= &sun60i_a733_hw_clks,
-> +
-> +	.resets		= sun60i_a733_ccu_resets,
-> +	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
->  };
->  
->  static const u32 pll_regs[] = {
+> > The reset line of the switch (CP GPIO2 pin 17) is deliberately not given
+> > to the mv88e6xxx driver as reset-gpios. The 88E6193X needs about two
+> > seconds after a reset before it can be used, much longer than the driver
+> > waits, so the probe would time out.
+> >
+> > The obvious question is, why is your 88E6193X special?
 > 
+> I don't think it is.
 
+So please fix the driver to accept that the 88E6193X is much slower
+than any other Marvell device.
+
+
+I saw the probe time out when I started the kernel with kexec from the vendor Linux, so nothing had reset the switch before the driver did. When the boot loader resets the switch first, which is how the board normally boots, probing with reset-gpios works on this board (Linux 6.18). I have not been able to test a driver-only reset yet, because the boot loader always resets the switch first, so I cannot say what made the difference. I have not checked whether an EEPROM is attached. v2 describes reset-gpios and drops the comment.
+> 
+> > +&cp0_i2c0 {
+> > [...]
+> > +     gpio@20 {
+> >
+> > Which port?
+> 
+> It is the LED expander of the eight RJ45 ports (two pins per port). Nothing uses it yet, so I dropped the node from v2. It can come back together with the LED nodes.
+
+Doesn't the 88E6193X have LED controllers of its own? Why do you need
+additional LEDs?
+
+	Andrew
 
