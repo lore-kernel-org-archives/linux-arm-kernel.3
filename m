@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6278C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38B3C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4xyNahx++UeRE+3duparWGVDTSmJTCo/Jj3/jlmSRs=; b=1YwNL6t59TBjjGUruGIA7c3E2v
-	wuWBi9gq1nPRYy1GoZumPjwterdgx/gQl9tfXtK0dlqWt5J6pkZ0+LynWGHnBLkp1jD9xj1oP1P1K
-	SWON1uRmATho0z7z92T16wXwET1Gr+RuUb4r+NbBjlOmH2QJK76ppDNGOsaNIW1Zb8pLmjcHm8HkB
-	xNg8vu0XFV2aNdsOZaZK0Nuy7OyydtuzwdmfhctLzyIsX+QkSWvHVUsr8xmDaXZ4VZ4Ka8kNByqg7
-	kyMjk7ngJ8++o+S7sXBe8xbBJ/uPORrsITzNO8uZir6R2tEu3vI0qjMr+3lN1hsCmtPe9Jm65ovgk
-	WJ90oVDQ==;
+	bh=Ut//lMwTriMAYf9w4xmPFAJA6+5kyvCrTmMDCjDn4ko=; b=FhXTz7o3miNOl0S0YimGonVE6U
+	IxleIla2Myd9bdmPkzfFXoQH57sdmoEWpD/YvV3NGPxWn7XyUwtINRDEEmAxOvWb/bXksqCuI0KTk
+	1WOl+0ASUlHO+IwSbAZi8Zu7+xDIZaMJJPAOOwWC2QoLvCA9U6XKyYunn4yIQXDOpPYfz79Jdpz0D
+	2TWgWXjJ2TTVKS6ZmHlkaE8fLIx2JOcXUsk98V5O6wf4y8X6DJutYliqBVsu6nBJ8QNNN7QH0n4yo
+	GaZ/P/Et0k6iSugjBxqO0K0LSJx7dRk21sSCVE9GUU8Rkm24ScIMkUgx0T3Wz8EMCCJRzCVQwTC1f
+	1DV0BaIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JR8-000000003cR-298D;
-	Sun, 20 Sep 2026 15:26:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8JRp-000000003gG-2mOS;
+	Sun, 20 Sep 2026 15:27:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JR6-000000003cL-2seu
+	id 1x8JRo-000000003g6-3cnz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 15:26:36 +0000
+	Sun, 20 Sep 2026 15:27:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F09941B2A;
-	Sun, 20 Sep 2026 15:26:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ECAF1F000FF;
-	Sun, 20 Sep 2026 15:26:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A9670601F0;
+	Sun, 20 Sep 2026 15:27:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55341F00893;
+	Sun, 20 Sep 2026 15:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789917996;
-	bh=U4xyNahx++UeRE+3duparWGVDTSmJTCo/Jj3/jlmSRs=;
+	s=k20260515; t=1789918038;
+	bh=Ut//lMwTriMAYf9w4xmPFAJA6+5kyvCrTmMDCjDn4ko=;
 	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=Dfv7TiYjmnoWMGWqCZXmyp5LK7WO8c0cvUn8efVlQZ++xIZC7JhOOtTUQW8BpvuaB
-	 zjaXYWtnpFJcyjYd8pvRc08g6LQTZCTad1geVmlTiam1TpqHm4r4s+dLIc+0uJcCTg
-	 4KUXMzlG/Zsa1q0JL/EIM0DAu0Bvc5eDmnqBj/HxntTFauJMaAD+FUsUcQVQCsLJJX
-	 zB9BTqc97sf9x+dwuI6g8DlynmDOLp5L8L3uU+MGXIeXR12OibMQKCCW2hTkuC9gtD
-	 elECGKU1JIAV6tVJE7j8MGyBMmsKqUwfZkbFuuiDPpb2gUGa8nDiNpShZuxZh9FnE+
-	 9YihPYJQY5djg==
-Message-ID: <0e8b5e26-aeba-4a19-9453-206d51661d71@kernel.org>
-Date: Sun, 20 Sep 2026 17:26:31 +0200
+	b=VAMoS9a6VTHRnQ/NqAgkdvZPK/DdI1UW9jJGXBAfmeWQM1PF9FX2dInLX+WZQYYIs
+	 EeKWi/b8n2P7ABsQRdqdIfC/FeegoooCcmwdLz94OmY1PA2Z/I4oQJYAnLNFrHsyat
+	 FkUi3OJub4OdH3a0U454I1fod2Kds0nJCaq9h5fyqIVQvXJV+/mP8bGhfDghxcouuB
+	 ouKUSgA/IU6uOIunQlrHmbmDHTWIRSPdZu7/Jw7m04d7O0ABuPHDAQvvfkr4/EclKI
+	 JarX3czhysPsHenKyJqmvSh0Ddo2Dj3+mkGPrJMCr6YDx88hgCTymnIS/ammh7XCxM
+	 Zegp02R6pOnIg==
+Message-ID: <8437f878-7ee4-4e5c-9982-1b7d41a014fb@kernel.org>
+Date: Sun, 20 Sep 2026 17:27:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 2/2] ARM: dts: imx50: add support for Amazon Kindle 4
- (Yoshi)
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add Amazon Kindle 4 (Yoshi)
 To: Andrii Salivon <andrijsalivon@plajta.eu>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
@@ -57,7 +56,8 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
  Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20260920135456.3192247-3-andrijsalivon@plajta.eu>
+References: <20260920135314.3191171-1-andrijsalivon@plajta.eu>
+ <20260920135314.3191171-2-andrijsalivon@plajta.eu>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -102,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260920135456.3192247-3-andrijsalivon@plajta.eu>
+In-Reply-To: <20260920135314.3191171-2-andrijsalivon@plajta.eu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,38 +119,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/09/2026 15:54, Andrii Salivon wrote:
-> Add initial device tree for the Amazon Kindle 4 non-touch e-reader
-> (codename "yoshi", mainboard marked E01100), based on the i.MX50 SoC.
-> 
-> This enables the console (UART1) and internal eMMC (eSDHC3), tested
-> booting to a full Arch Linux ARM userspace with systemd on real
-> hardware.
+On 20/09/2026 15:53, Andrii Salivon wrote:
+> Add the amazon,yoshi compatible string for the Amazon Kindle 4
+> non-touch e-reader to the i.MX50 board list.
 > 
 > Signed-off-by: Andrii Salivon <andrijsalivon@plajta.eu>
-
-Your patches goes unthreaded. Just use b4 to submit your work.
-
 > ---
->  arch/arm/boot/dts/nxp/imx/Makefile            |  3 +-
->  .../boot/dts/nxp/imx/imx50-amazon-yoshi.dts   | 60 +++++++++++++++++++
->  2 files changed, 62 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm/boot/dts/nxp/imx/imx50-amazon-yoshi.dts
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-> index 1a2539fa19b4..dd508451286d 100644
-> --- a/arch/arm/boot/dts/nxp/imx/Makefile
-> +++ b/arch/arm/boot/dts/nxp/imx/Makefile
-> @@ -24,7 +24,8 @@ dtb-$(CONFIG_SOC_IMX35) += \
->  	imx35-pdk.dtb
->  dtb-$(CONFIG_SOC_IMX50) += \
->  	imx50-evk.dtb \
-> -	imx50-kobo-aura.dtb
-> +	imx50-kobo-aura.dtb \
-> +	imx50-amazon-yoshi.dtb
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> index 656f2596e1d5..ec61f45c351c 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -188,6 +188,7 @@ properties:
+>            - enum:
+>                - fsl,imx50-evk
+>                - kobo,aura
+> +              - amazon,yoshi
 
-Also here, why adding at the end. It only increases chances of conflicts.
-
+Don't break the order.
 
 Best regards,
 Krzysztof
