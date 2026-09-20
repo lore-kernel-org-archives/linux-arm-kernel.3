@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DDFC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 03:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCB0C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 04:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=elh06BPvOR+aqBWG+a9YMejfiEndb0cqDcnnH29KM38=; b=WZU1SGcZBurbRu5hvqaXvqe7yH
-	uVgJLMml7YYEyjTXphNJvn1uuuCRkwbuU7BsY677JwcwHg1MgMRgI+HD4Jym7RM57EAeHp18rQrDc
-	zNTZoXmCx4XaqZWPjcAuz98dPNNXxYOBdrzu7g39g/QV9u3BWDwiJFO9eh0MdFwFOXsQzYxaFroXf
-	jsW8L9FwHgQ+Hn7H0yaVtNRTUXAEe8kUPupRkS/rVfkD+KTWYFihe6ZpdbRE02sh6yVaAYFlVGprd
-	gI8MrE4SqwhuNoj2DXGOfZgGSRXXQnS/E+ylqXfPtludYwoS8WZejDV1NuzO98A4ftV1I1Fz2x1Jf
-	wcjMUUkg==;
+	bh=E/jszypxP8zTSlJApl+JV/f7O5viIfoLzIa0xtcXTuQ=; b=RDcdfmQ1e6GVtHbxioRUfO9vkM
+	n9uHpRF1AW2PKpY8yJ2au0Qdp4KFDapqIie0jsKmukxWqOfGmQREvpukOJ1/kQ4RgNkpRoLz/csT3
+	59LUbo/SoEVPszXmBzwk8SV7c0h18+ISq3RjpnfTeFvgfoJ6G7Q8hEmblAvfbP5nQAZEI75Kk7a+M
+	zJ60v9T24uxbVd6iPIIgXzLhrx9jljyGCKadKokIk1xFhrE5wJpeCHQSabWdGCtePaxzZeTQ6/YoY
+	QTIqTA1opHUSthBaIvWKUfu8u6ePtWuO2j+Ll4XaJ3wSKgIegmfLWia1P5e8dP8I1HFqXfVSe5qYu
+	fWBL1R2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x88Zq-0000000Gq7E-0Gyb;
-	Sun, 20 Sep 2026 03:50:54 +0000
-Received: from mail-proxy49146.mail.163.com ([45.254.49.146])
+	id 1x88qG-0000000GqeT-3U4S;
+	Sun, 20 Sep 2026 04:07:52 +0000
+Received: from out-231.mta1.migadu.com ([95.215.58.231] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x88Zn-0000000Gq6i-2rg0;
-	Sun, 20 Sep 2026 03:50:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=el
-	h06BPvOR+aqBWG+a9YMejfiEndb0cqDcnnH29KM38=; b=Rogi/3MPytkdsgRYNH
-	vE6a4yjT61PA14Mi1gV6dkVW6rzhPLimfOI8jsPvEYLyFGHVYFawAEjv4AUPBxuD
-	vqPav87lekW35xCb/izz1WNazgxoYbYDtvmTku3rRlfyFLtOOufdRYB/SXHJ6D0F
-	mPV54ZP7vsJVD3gXaPweDTNzs=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wCXJ4jiV69q2YnYBg--.30633S2;
-	Sun, 20 Sep 2026 11:49:55 +0800 (CST)
-From: Pengpeng Hou <hppiscas@163.com>
-To: peter.wang@mediatek.com
-Cc: chaotian.jing@mediatek.com,
-	chu.stanley@gmail.com,
-	james.bottomley@hansenpartnership.com,
-	mkp@kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	martin.petersen@oracle.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
+	id 1x88qD-0000000GqeA-20ZR
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 04:07:51 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=9X3Bhso6oyEXBNzc++2m2lbiMUmTnbOGNs5Z6OlLWX4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789877267; v=1; x=1790482067;
+ b=iSYbZxnaWcQm7+3NtaWHfclN2h1wPSVIxL7hjSxxTrSlH41ICEgzZinFAEWFAzgQoOWYXs6z
+ fBXVMnooeBE0watSJPWgHD+65BZVefmRF6X7k4wafKsXGxGWXrmQhTyKQi53uBoWrcwhc7xD0j+
+ nWDvsE/vy/9hB8pd/fbM01cc=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 420bf5996cf0c15b;
+	Sun, 20 Sep 2026 04:07:46 +0000
+X-Mizu-Trace-ID: 420bf5996cf0c15b
+X-Migadu-Flow: FLOW_OUT
+From: Qingfang Deng <qingfang.deng@linux.dev>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Jason Cooper <jason@lakedaemon.net>,
+	Thomas Petazzoni <thomas.petazzoni@free-electrons.com>,
 	linux-arm-kernel@lists.infradead.org,
-	stanleyjhu@google.com,
-	hppiscas@163.com
-Subject: [PATCH v2] scsi: ufs: mediatek: handle mPHY power-on failures
-Date: Sun, 20 Sep 2026 11:49:53 +0800
-Message-ID: <20260920034953.19535-1-hppiscas@163.com>
-X-Mailer: git-send-email 2.50.1
+	linux-kernel@vger.kernel.org
+Cc: Gabriel Rodriguez <lifehacksback@gmail.com>,
+	Qingfang Deng <qingfang.deng@linux.dev>
+Subject: [PATCH] ARM: mvebu: fix Cortex-A9 errata selection for Armada 38x
+Date: Sun, 20 Sep 2026 12:07:37 +0800
+Message-ID: <20260920040738.466563-1-qingfang.deng@linux.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCXJ4jiV69q2YnYBg--.30633S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXF4xKw43JrW5tr1fJw43Wrg_yoW5GryDpa
-	93K3yqkr1kGrWIvF429FsF93WrW3yfGFy8Gr13Cw1I93W2gr9FqFyvkryfWF4SyrZ5A3yj
-	qF18ta47GanIvr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRY0PhUUUUU=
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbCxgOUXWqvV+O6XwAA3Y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_205051_947582_E79EADCE 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20260919_210750_042820_8D0D73E7 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek helper enables VA09 before powering on the mPHY, but
-ignores the PHY result. A failure can leave VA09 enabled and publish
-mphy_powered_on as true, so a later power-on attempt is skipped.
+Armada 38x uses Cortex-A9 r4p1, but MACH_ARMADA_38X selects the
+workaround for erratum 720789, which was fixed in r2p0, and omits
+workarounds for errata that still affect r4p1.
 
-Check phy_power_on(), attempt to unwind VA09 on failure, and leave the
-state flag unchanged. Propagate the helper result from host
-initialization as well as its existing resume caller. Keep the original
-PHY error if the supply rollback also fails, and report that rollback
-separately.
+Drop ARM_ERRATA_720789 and select ARM_ERRATA_754322 for faulty MMU
+translations following an ASID switch and ARM_ERRATA_764319 for
+unexpected undefined instruction exceptions when reading debug
+registers. Also select ARM_ERRATA_764369 when SMP is enabled to work
+around cache maintenance by MVA failing to reach other agents.
 
-The issue was found by our static-analysis tool.
+The Cortex-A9 r4 Software Developers Errata Notice (ARM UAN 0009D)
+lists these errata in sections 2.3.3, 2.5.10 and 2.3.4, respectively.
 
-Fixes: 561e3a8726b2 ("scsi: ufs-mediatek: Fix unbalanced clock on/off")
-Fixes: cf137b3ea49a ("scsi: ufs-mediatek: Support VA09 regulator operations")
-Assisted-by: gpt 5
-Signed-off-by: Pengpeng Hou <hppiscas@163.com>
+Link: https://documentation-service.arm.com/static/608118675e70d934bc69f143
+Fixes: 9aa30f1c13d1 ("ARM: mvebu: add initial support for the Armada 380/385 SOCs")
+Signed-off-by: Qingfang Deng <qingfang.deng@linux.dev>
 ---
-Changes since v1:
-https://lore.kernel.org/all/20260828092311.10774-1-pengpeng@iscas.ac.cn/
-Use err for the rollback result and dev_err() for operation failures, as
-Stanley requested.
+ arch/arm/mach-mvebu/Kconfig | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
- drivers/ufs/host/ufs-mediatek.c |   18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 814c1b7343b9..12a6d4138e44 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -509,6 +509,7 @@ static int ufs_mtk_mphy_power_on(struct ufs_hba *hba, bool on)
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
- 	struct phy *mphy = host->mphy;
- 	struct arm_smccc_res res;
-+	int err;
- 	int ret = 0;
- 
- 	if (!mphy || !(on ^ host->mphy_powered_on))
-@@ -523,7 +524,18 @@ static int ufs_mtk_mphy_power_on(struct ufs_hba *hba, bool on)
- 			usleep_range(200, 210);
- 			ufs_mtk_va09_pwr_ctrl(res, 1);
- 		}
--		phy_power_on(mphy);
-+		ret = phy_power_on(mphy);
-+		if (ret) {
-+			if (ufs_mtk_is_va09_supported(hba)) {
-+				ufs_mtk_va09_pwr_ctrl(res, 0);
-+				err = regulator_disable(host->reg_va09);
-+				if (err)
-+					dev_err(hba->dev,
-+						"failed to unwind va09: %d\n", err);
-+			}
-+			dev_err(hba->dev, "failed to enable mphy: %d\n", ret);
-+			return ret;
-+		}
- 	} else {
- 		phy_power_off(mphy);
- 		if (ufs_mtk_is_va09_supported(hba)) {
-@@ -1295,7 +1307,9 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 	 *
- 	 * Enable phy clocks specifically here.
- 	 */
--	ufs_mtk_mphy_power_on(hba, true);
-+	err = ufs_mtk_mphy_power_on(hba, true);
-+	if (err)
-+		goto out_variant_clear;
- 
- 	if (ufs_mtk_is_rtff_mtcmos(hba)) {
- 		/* First Restore here, to avoid backup unexpected value */
-
-base-commit: 518e5b794c06c0f0eb40df3e202274a66202c137
+diff --git a/arch/arm/mach-mvebu/Kconfig b/arch/arm/mach-mvebu/Kconfig
+index 9f60a6fe0eaf..5203b5cfa457 100644
+--- a/arch/arm/mach-mvebu/Kconfig
++++ b/arch/arm/mach-mvebu/Kconfig
+@@ -55,7 +55,9 @@ config MACH_ARMADA_375
+ config MACH_ARMADA_38X
+ 	bool "Marvell Armada 380/385 boards"
+ 	depends on ARCH_MULTI_V7
+-	select ARM_ERRATA_720789
++	select ARM_ERRATA_754322
++	select ARM_ERRATA_764319
++	select ARM_ERRATA_764369 if SMP
+ 	select PL310_ERRATA_753970
+ 	select ARM_GIC
+ 	select ARM_GLOBAL_TIMER
 -- 
-2.50.1 (Apple Git-155)
+2.43.0
 
 
