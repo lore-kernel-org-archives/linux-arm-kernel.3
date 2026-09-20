@@ -4,142 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C59C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA4AC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AGAP2Ybmw0L7jOZJjvxtsmnLMJVGg8ukn0BH3Z2m38=; b=3mG0BGK/cXl8sKxiZadG+EnKej
-	PZTgPcf7txWipZAK4oiCjvuEsuiirkoAnOsP9RnrtT5kHoxsT7zoDE1GrdNDbTuknce1NMapUzco2
-	JOaCbXIm1X+L9LmXd/p+oKrCfm7USpJl6uIYkdNI0cTS5izqY7adzp9qdms3w95C8aCGf1mt3Th0O
-	M2x4dNzGrYTzKrKZZ27LMZ/mFnF+cdEg3+oNDOu/trthszN78fKt6zSI9GuyfRuEKSozp4cLDJSqH
-	dqtM20GS/e+z3m86pBGgjUM5COU/IQqc58QD1iLKr+J4/cryLWTWW8phm0wW9CznnrqnUD3saJXWi
-	YJgvKzXg==;
+	bh=Gy3DF58Vm2mdgoMOT66kYOhfj8/zD2R2O2PPzgK1V7g=; b=34V2BbDu71stkdHaQCbnbFWVwq
+	RbEZORrSJZL1g9eEFZUDm3SjOQiXnIqrpJzvm6XtEeqJUjXFW4Y/k5pXyXerl+mZ8kd4SICuE1+GE
+	xbE/Ga+00O7Mc4iUIEu5wNnqRTmcI4BcAqBTNxfXjCTQqcIViKgtUxUmvX/6uQxDe445G6b4eBbIN
+	yblvDVAIjQGiliCJwWQM7p3FNKoU+6cImh6aRSF1ikEcU8+WVjVWRvSC4l2+1uKCJV+5fWDFVns2W
+	lVmZSxyUHh7FQatGV80O1gR6oN19OqJtogQr0ylCHP5I8xvP/LPMh9AEaeDbYZ87hHnFQYcI3RrHS
+	pMg19tvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8D5V-0000000H7Km-1jG1;
-	Sun, 20 Sep 2026 08:39:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x8DDs-0000000H7uN-2429;
+	Sun, 20 Sep 2026 08:48:32 +0000
+Received: from mail-westeuropeazon11021130.outbound.protection.outlook.com ([52.101.70.130] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8D5S-0000000H7Jk-0B06
+	id 1x8DDp-0000000H7tv-0qNL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 08:39:51 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68K8VYFs1363520
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:39:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=2AGAP2Ybmw0L7jOZJjvxtsmn
-	LMJVGg8ukn0BH3Z2m38=; b=EbmYetsuXA9InbIe1SWN3OR7BiVZ4a3X8RJgVnaV
-	+1WZFbhyVVg9phlno0Fi0kZuD+Ro8v2kNF14xyTq3IV71pJfgqeQXD6a0mn4ag49
-	keQ4ibW5j87Dqcr0xfyPbnLD2I4Aolnhu5He0lwPgpqBRc580LAjKZmHWs3HiPvT
-	Y7wlVro2lGOuuOW8dB05hikiOZUz5nTRbcjk0lJmad616dI0iKCXQ1yjoNxgYMsq
-	ZCy8US5c7XyxvORavdCKc67m0z9k7tZWYxMggSvACs/OrxJ67293mcM5BspNoHcs
-	R9wEFcVi0kJh8+OAxILSDBzGfPgnAZpJgrzDYz4m2NgAkg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gsk5ejh7j-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:39:49 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93a0312937eso283315685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 01:39:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789893588; x=1790498388; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2AGAP2Ybmw0L7jOZJjvxtsmnLMJVGg8ukn0BH3Z2m38=;
-        b=ZUQ+xrB/SItPLDSzlMiOgeHqdz86vjtkWuObnYtskO51zUdv9ratnRTJEWaYmWAmJA
-         Jdt9n2oZBerkDTq+b5OWGtCi8nGyPQvb55ePAJ3mB0PIcxekX70L52QiOXr7stl+KjTl
-         F9Crp+1S9n2Z/jLdvG4H6huKrhlhbSpHz89qSPY0U8QKRkC6yQI9Mfiv0exBZ9aRChMm
-         1sCC3fiey+M2CGuxefif/ZRrsQ7x2ftrPBgrGnjEbrDqzm8A0U84vE5cYfP8GgW/wOUQ
-         qD9JUPr8qGx9DYuksnZv+gvjjDzsSDyQOhDpsCcK/YtX/vTTXdslzHexfrM79iMZbiiE
-         S/sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789893588; x=1790498388;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2AGAP2Ybmw0L7jOZJjvxtsmnLMJVGg8ukn0BH3Z2m38=;
-        b=tYzfPBqrX6BPO13/1QSkCjUt+l5qS0k2Jn23MSLx3pm+bXiwhYY9gxjRJSNIyKgs2c
-         PEp6Un9h5yhQhoL974EWusShwukK2uMo8hUcnmlcwZVWRzCsbMjWLqwpZD9vvm9z/LUx
-         C6ILQ/z379zjeMNQiEzqAykHUPU/X3c99hhx3uZWQcyjXXHokrliobpeiRHn1bBY5DZR
-         b/Un72XX84/0Zoui3h30erZaM+RhOQTjK8F8tUG/OJmTYN7qSLLtRLknp+JfoY0XIWTw
-         rnj/KoJbKKQPxI48V2XbJQ8CzW9jRIPxLubLXw4VJ8m7xWN4iB9X1XSxkqtNhtxcRXDY
-         oG8g==
-X-Forwarded-Encrypted: i=1; AKwUvBzZ0kkehX8aceSdBXExUu78DzErdvNcQq9rky+21oK9Uqy4idueGs/kkJtReI+OFAIA0N3ATfS5wBc/Mzhdsx+3@lists.infradead.org
-X-Gm-Message-State: AFuF++nwk0ge9rYFn1v41n22UisOymTdtmAkg4wE8PZXVLdoXSKJfk56
-	1m33xALjgfAdPDrc/6mu1JEunxp+ld9amCnX6SMNfsozu6aBc343JC/ZmLYo8mNqd9ZZcbw9s4g
-	z8H1qnx+4DsCm6MOn2HwG3RLNNcILIr5B5PQIqzmpDXKli4ZxdaIqPiaZlzJlVt1mr7dkSqSebO
-	YXQg==
-X-Gm-Gg: AYBFou2tj1BBMyURRT9SwZIiv67xPLv6L1Sx9KpCXdzZ1wamqwhUp4ScdoccYqRlTpG
-	LdGwg9dttwMyiNMV64Q+slNdls6l8S4mNL0iaRXKE3C/hCieBUQBAJAPURagJus+BytDwmiJkLE
-	o3oBwUdOxx3HRjpYd0Ro9E+duZwRPg8MOlvrAuw6jv+QhaHmja1FFVCevQVtaH1YGRvOwK09pid
-	vkVs6UPkLp6iwFu+EqyyXQiWJCVdiXt1EG9P2aCmlqbixrp6dObPqRWra6vC4ETV4KdpoY5R/fb
-	DBkGcT9vSW12nSMXtmpBKDb5b/mhp9cD/jBPVMvK28m8CRyfhQF/KOfQhjpyFPJdeuARmdfIuwF
-	xRpSp/PV86X2EYw==
-X-Received: by 2002:a05:620a:462a:b0:939:3b56:c416 with SMTP id af79cd13be357-93bf5523983mr486566985a.8.1789893588236;
-        Sun, 20 Sep 2026 01:39:48 -0700 (PDT)
-X-Received: by 2002:a05:620a:462a:b0:939:3b56:c416 with SMTP id af79cd13be357-93bf5523983mr486564585a.8.1789893587744;
-        Sun, 20 Sep 2026 01:39:47 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc52a5b6esm94919145e9.4.2026.09.20.01.39.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 01:39:46 -0700 (PDT)
-Date: Sun, 20 Sep 2026 10:39:46 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-        Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S . Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Sebastian Reichel <sebastian.reichel@collabora.com>,
-        netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: stmmac: dwmac-rk: fix bulk clock leak
- when the PHY clock fails
-Message-ID: <aq-b0sgCy6ILmWSc@lore-desk>
-References: <20260919174223.2356964-1-coiaprant@gmail.com>
+	Sun, 20 Sep 2026 08:48:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U1R78s1q3F6vFjpyc2YMGo9XPW5mbAeuiSpR934SbWHuj7a9gUAI+0IEZuUK4HSbVoDkiBgkycjn4x9ZWY+d/B14/mMnCFqyD2o1TIVPcoVJm5TgUDumYG5GdNWMVPH06jcrDzwzWY60b3RihQBOapD0+g58WeVppdTSXznVp9Oy+f3L6xxkctUfy9ziarzZyefUHwtPt2h4R/9whlCmbPnznPdFTfn9bg0QbUXtrPSsNIZ9dC+nlN2b4aMAMW+4H87q5vrjVwF0zgHgfkHK4zqFLRYAMbnm+S6kmvSkOkegB4MEEqY4UEnrkPorfAxbu7HF6AWeNV9Lu4hiiYskRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gy3DF58Vm2mdgoMOT66kYOhfj8/zD2R2O2PPzgK1V7g=;
+ b=FjMe6cRVSNkWqkSDULT1TKJQthecMq4cBdoh4t4neh8YUFyTPb+YBnSbXf2u5sj3/VCWd2TSY+OxQQwFNer4qXzQ8mYj0ZBe2NbotHg4hs+u0O3YhzFVWKn2ONcUs/GhIsHrwOkvcDXhvXVcDMjJfGHDx+ki+FMSB/2kkyFuZi/++GXyTdrk4okwKM0zrVtq8v1TGgv9W4VQXouV9lWDSvPQEvkeJi0HcgStPltF7BsiMpk1SC14VH/7NsIQYcRGT3MoSbpcazrQlTwOQFLa1OELaN2q5HWjp4KP4tVox/7kVAsk+qUCiv3g2Qt2XvsmHL2lqPKSQpXBGWqS1v0mMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=studio.unibo.it; dmarc=pass action=none
+ header.from=studio.unibo.it; dkim=pass header.d=studio.unibo.it; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=studio.unibo.it;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gy3DF58Vm2mdgoMOT66kYOhfj8/zD2R2O2PPzgK1V7g=;
+ b=f7X2PgtrXKl6Tt2OL1qWPk35L17rBzyF+uPhOpxByWAaEhOHZbL4vM/6BQwsOOV28wMXQ3swKKT9h7S35eYsHemkVi1qdu9+bl5F1sZXZ7ZBW6TEXIkzNkUcK8FinByCtWcfvVl4n/86Ra7FSd/0wL5c0+VJzup4yZn9nkv0mBZa+2REnfm/AeZzC3DH1Kr9h+LhhxW3lWtZOzpFQ5+6U2WAhQQliC2dBQL5nSm5aCQvm7uKvRkJtVkzYgomAYCTFjchY1ZvhxM5FmcDYoxdeYQID7AO/NHMjF0HybM6mFbkBvw2drr1RJ/H9Loku0yN58SSjXAHkc0u0EwWUvTMpA==
+Received: from DU4PR01MB12163.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:620::18) by AMBPR01MB12153.eurprd01.prod.exchangelabs.com
+ (2603:10a6:20b:6ef::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Sun, 20 Sep
+ 2026 08:48:21 +0000
+Received: from DU4PR01MB12163.eurprd01.prod.exchangelabs.com
+ ([fe80::bffd:753f:fbcc:c402]) by
+ DU4PR01MB12163.eurprd01.prod.exchangelabs.com ([fe80::bffd:753f:fbcc:c402%6])
+ with mapi id 15.21.0428.015; Sun, 20 Sep 2026 08:48:20 +0000
+From: =?iso-8859-1?Q?Nicol=F2_Giuliani_-_nicolo=2Egiuliani6=40studio=2Eunibo=2E?=
+ =?iso-8859-1?Q?it?= <nicolo.giuliani6@studio.unibo.it>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Gregory Clement
+	<gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	<sebastian.hesselbarth@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: R: [PATCH 3/3] arm64: dts: marvell: Add Sophos XGS 107w NPU board
+Thread-Topic: [PATCH 3/3] arm64: dts: marvell: Add Sophos XGS 107w NPU board
+Thread-Index: AQHdSG9FPSJli8/cuky5AOQ9f1roMbbWeggAgACufWQ=
+Date: Sun, 20 Sep 2026 08:48:20 +0000
+Message-ID: <DU4PR01MB12163AE447B65B21A7D585A0D80852@DU4PR01MB12163.eurprd01.prod.exchangelabs.com>
+References: <20260919-send-dt-v1-0-365615a74ef3@studio.unibo.it>
+ <20260919-send-dt-v1-3-365615a74ef3@studio.unibo.it>
+ <6b935e31-169a-4cd1-b385-62dc659c1256@lunn.ch>
+In-Reply-To: <6b935e31-169a-4cd1-b385-62dc659c1256@lunn.ch>
+Accept-Language: it-IT, en-US
+Content-Language: it-IT
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=studio.unibo.it;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU4PR01MB12163:EE_|AMBPR01MB12153:EE_
+x-ms-office365-filtering-correlation-id: 2b3a6371-9988-4c86-b3e1-08df16f3ec1b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|786006|23010399003|366016|1800799024|6133799003|22082099003|18002099003|38070700021|56012099006|5023799004|11063799006|4143699003|10067099003;
+x-microsoft-antispam-message-info: 4eVt1WOHi0M3jJExvKZLvA+Em100e4aOaSjc55A6pI53txLHJeBH5GjBuxXqRRTTBna723NOADelHQcGEu8xeDkZ+ohqHNervsiigAy3V29zz5jp9k0nCPxb80oMTkqH39vyi+H9d0/EsMfjNKVngiO8uK6qe+WsnU7ME9p1z/A/OAi31LjKsn9NVv32Q/gjJHPgk4noVnVq92o1g95j4H2oDjKOuSTrmAAo5R2+Ryz2LRY8plhyFZOojpkh2ProMtywYrVedyDCNk/ulGg8/wFcBY/CrlAb/ITXIN6DWTI/HH9GQqHsOJAazMyKD8Vjm8MHgjrF+djg8Ilm/3OnAlWSOtZ5E7jPouOLYig6jQZjvy4v7YB0g9GQZoaUy4pijz4WkRQYx0iOIGSYEaPwAcEJl9xWvgctD/+G2Z9auZSv1G8EWcf3STT7pMUTpeDNlKn8XWFdypf8AEJ+SGscH0CsqPXyOahdD7Hlzk+H/uLAl5qZaHrbpB1itmDslQzD3wgYl0QmyXcv9ctzVlV5e+th4jKTbjZjG86HRqgcKnXESkrYW+phQ+dQWb3FR6JRBVySRlPv+UsiUJ13+eqHWswPdul/ZRLlKeqYClGVU2m+LNdhPmcktrY/iZvl8pJeQ3Amn7OcB9RCh10qgOFjem5PJ6jMuWwW1hte3y42WpkIKS+TVR5NSNW9KqKAr8yP2Ro2hdWRG/1Zdr1kKIG7EC4sPKT3XXoVWjS5Wr4Ichw=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR01MB12163.eurprd01.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(786006)(23010399003)(366016)(1800799024)(6133799003)(22082099003)(18002099003)(38070700021)(56012099006)(5023799004)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?KuavYImgQnaOpypktvTvIy24BoWVYg/iN2l7o8YCzseCyHFrl57aKuRJen?=
+ =?iso-8859-1?Q?AqYhPgw5LXMBSvvKRFvztFJLPQcWbyus2rkcRv33huR5Q8mEqlO8GiaItN?=
+ =?iso-8859-1?Q?HB0T2uy+3uKOs9RbUY2dDmBF0HcJXnvlsEMf6u1TpxJkpjFEj4FORnVwPz?=
+ =?iso-8859-1?Q?YKXNczf5wjW5JQLtvVs4zj55RzgTI0m2ajTjFg30sJXj+v+x4WMfOVHCbI?=
+ =?iso-8859-1?Q?NaealeZwzqvNfy0ZNl4laZ/fljtrzRifbSIAJAKJ680cBo0Ayv4FIIbtkd?=
+ =?iso-8859-1?Q?Rpw4WHv6WfV7spi4h1ROZRk2pfmFXEvgcPj+b1vZaTEUYpPWjmOIm9uZE1?=
+ =?iso-8859-1?Q?bbVBQmVo5q+XP2GN7saxZg+MA9ocege0YjeG+KSJ8XuOFmpEMTTARUINXw?=
+ =?iso-8859-1?Q?Mq6xt6NLTDVyGI/W4+UN3y3+YYZG/hK/19dXKVy0NUQY0NyGEmXD5abaQH?=
+ =?iso-8859-1?Q?f2unLLmaPieFlLu/k1SVnqHcSERvIiQd1AN6JFyv8UROqkoaLxnJOoVOGU?=
+ =?iso-8859-1?Q?tPXFSoRPgJJSZU3E2mS0aS0jKqxcSfohCIhnJviZeKynIw8s9LC+tlO84I?=
+ =?iso-8859-1?Q?PqZiitgJ2Xmlu+7k/fufnbZMNlfmoZEr2e6veJ9uIrja2o7F9CEi9t4TwH?=
+ =?iso-8859-1?Q?42hAZ4yvv3rt1Kn1xyQNwbSrqWsSc/ORrE2qp0jvFdhoAxYVD/ay/4xiYC?=
+ =?iso-8859-1?Q?UnpaRIMQgoe+Nwgbk9eEETedpdo0hH4x+hqrHJEOOZ3qA6VS1Monj6Ir6B?=
+ =?iso-8859-1?Q?Tg/3dzauS852b8v/Xzyc24SzrDx0fRu7s1ihgffSmGVo0u78vorMUsvCyO?=
+ =?iso-8859-1?Q?iLthlbIk4Tdtx7ip03mvd6G8bEZszB7+w3wikLft9OwgPDFmqLAbLR+Hfd?=
+ =?iso-8859-1?Q?sIFReRYkvliOUHxbIYoRVUMFfoOiRMVboKB4RZxbGVEBTqGDF6D64kOqAK?=
+ =?iso-8859-1?Q?ruwxwzbPmm5g49HsQPvLrim92XK6SIsdlfloNTV6ZJDSNQGh9rcpZ2lZ/Z?=
+ =?iso-8859-1?Q?311Hwv8+RyoDucM7ChZQGmRoNDx2yT3IYphiDlIxXV2Yy5XVYA6G4B5+cj?=
+ =?iso-8859-1?Q?fjiAehbKOpc7ohqrLKJVGBPLFQTvXlxDD4xkyh9qitOn0Pj+Plq3SNzTTP?=
+ =?iso-8859-1?Q?VdOVVjrbl6eeG4fJpNhbVvcv8vRAfMzH/QbMYRa0qTbrXgmsllWD9GRP7z?=
+ =?iso-8859-1?Q?mTja4GdOHl+4a9oVPJIrb1j8iwvoTu0cldAsW9xaXGwXz5yhF32PDTFiBW?=
+ =?iso-8859-1?Q?eEoI8LHxMM1IAEvZG4ubdFHuv/xuq8jbSFJkYDoU/MQt3DqLz7VnMmiZs0?=
+ =?iso-8859-1?Q?iW+pW6swNjqg26hXQ1saNdgdTDBJ6cM3Opcs2oi68hnP6eZn+dy4mRr6HG?=
+ =?iso-8859-1?Q?ef/OeQB5wkZaFQPjByT9xgXV1z+/WjjWOnIMkjK6Lkpj/7z5HUow6WPJqH?=
+ =?iso-8859-1?Q?dvr1dke0LRj87j83skXTtwC4fDDJf9IucqbZBvN8K4XbrrseMIbO2KrBVE?=
+ =?iso-8859-1?Q?1LIAjRk+exxfyAZs1wBGDz7/F6kTDUJsLr1MqcQ46uAEVyT3B25+/Ik/Cr?=
+ =?iso-8859-1?Q?jEuThHuxZEODxX7vdEHUf7SMlrrJJoyWa64pGQyoNyTwJP9b1Sk0ActCi2?=
+ =?iso-8859-1?Q?6FdhP374vRy8le9OFb1wOpZ/eADbjtddb9F30J0xZ+VUm8uoUEt0Gc1aie?=
+ =?iso-8859-1?Q?YAaxgrvtjxO6gK9FiDyK4s94QS6nceqYdRQfdQvRXtpleYsujJBtFkDH8T?=
+ =?iso-8859-1?Q?Hxe43khWfuwqizJ8T37dOqMPdBLOqexh09P+x+WgwfGyhyuyruEDvYg/CR?=
+ =?iso-8859-1?Q?E6FoJnQLEoqdenqBDVNcbFwTOApDLkc=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lLE8aJHE80lsFHy5"
-Content-Disposition: inline
-In-Reply-To: <20260919174223.2356964-1-coiaprant@gmail.com>
-X-Proofpoint-GUID: vJg5Yal4crYMEjlIUYcAgymCuk2hqCez
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDEyNCBTYWx0ZWRfX6xNK9rkfEu2F
- PYkga+/svEv8VRjKQRjBzdP+bBpmMQWcR6lszWJI70UJp0evHvd6sBn9r7gL7HghSFJqX2pVQpT
- ZLvQIQwHUB9jgeWoTIEJKa3ktAeo/GlF7CZDK4IkgUWXnOK+VohlvBYBuO/CRfq470yoZsJ+xXT
- jQ004zlRExl8vJ9ZAIcyLjWa666M8dzrqRjK+zva0aGj/bxGt9uNeSRKmq2s8ZIzA+saU4a8Jn3
- Yf0Ncp0HtxsvcT9ubG3wZEMYS+Mpvc2jK20D8pksGF/LMiY1PphETIJQeJg9B/OY+eFo4FyPxuL
- jE4kf/KPZ+meTh56LeTxMDwoXuw+Uy61/TAq//mFngMQgxotosFl8/aqLZf0GhCfkgSKFKi52fG
- rc+Ilhp+Z2rwENdi+UEoQ05kYUVKEF18DFInb3iEVRgqqE7ksu9yzFk2MH0AERpg4a51F+cgyQP
- QxoWGSXGb+i3lIXDe9Q==
-X-Authority-Analysis: v=2.4 cv=f8Ddl+yM c=1 sm=1 tr=0 ts=6aaf9bd5 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=pGLkceISAAAA:8
- a=EUspDBNiAAAA:8 a=xsftiwRyr5-5OFJR58EA:9 a=CjuIK1q_8ugA:10
- a=zIhQHG-rzOcrLlsejY0A:9 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIwMDEyNCBTYWx0ZWRfX9EWpPP6MrBmU
- jArifDUzm3XssQ3rdXhfWJqRhexY+NBqLwMKN1eqR+kGn2Ev/G57l3z9Xzq4VdqkTLtbF1KwG4E
- BD+zST7YkReEekU+XSGjWbEnILvdy18=
-X-Proofpoint-ORIG-GUID: vJg5Yal4crYMEjlIUYcAgymCuk2hqCez
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-20_03,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 phishscore=0 adultscore=0
- spamscore=0 clxscore=1015 suspectscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609200124
+X-OriginatorOrg: studio.unibo.it
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU4PR01MB12163.eurprd01.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b3a6371-9988-4c86-b3e1-08df16f3ec1b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Sep 2026 08:48:20.3311
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e99647dc-1b08-454a-bf8c-699181b389ab
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: UJokIN7qkjO3wHtwBdvSOz2Tcgc6crdwuSVuQILRKL2Cj553OzpMmnFnlc7gCnZoTzI6M1r4YImGpbEPJA6Sqbi9gfSnp3JxLRvW65xnEi3JcZgERUxUFus7Du5M8HiO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR01MB12153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_013950_076110_96697359 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20260920_014829_766731_5F2AAD18 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,61 +148,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---lLE8aJHE80lsFHy5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Andrew,
 
-> gmac_clk_enable() enables the bulk clocks first and then the optional
-> PHY clock. If clk_prepare_enable() on the PHY clock fails, the function
-> returns without rolling back the bulk clocks, and bsp_priv->clk_enabled
-> stays false, so the later gmac_clk_enable(bsp_priv, false) becomes a
-> no-op and the bulk clock references are leaked.
->=20
-> Add the missing clk_bulk_disable_unprepare() on that failure path.
->=20
-> Fixes: ea449f7fa0bf ("net: ethernet: stmmac: dwmac-rk: rework optional cl=
-ock handling")
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+Thanks for the review.
 
-Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> The reset line of the switch (CP GPIO2 pin 17) is deliberately not given
+> to the mv88e6xxx driver as reset-gpios. The 88E6193X needs about two
+> seconds after a reset before it can be used, much longer than the driver
+> waits, so the probe would time out.
+>
+> The obvious question is, why is your 88E6193X special?
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net=
-/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 8d7042e689261..f3a98bd9d6ead 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -1163,7 +1163,10 @@ static int gmac_clk_enable(struct rk_priv_data *bs=
-p_priv, bool enable)
-> =20
->  			ret =3D clk_prepare_enable(bsp_priv->clk_phy);
->  			if (ret)
-> +				clk_bulk_disable_unprepare(bsp_priv->num_clks,
-> +							   bsp_priv->clks);
->  				return ret;
-> +			}
-> =20
->  			rk_configure_io_clksel(bsp_priv);
->  			rk_ungate_rmii_clock(bsp_priv);
-> --=20
-> 2.47.3
->=20
->=20
+I don't think it is. I saw the probe time out when I started the kernel wit=
+h kexec from the vendor Linux, so nothing had reset the switch before the d=
+river did. When the boot loader resets the switch first, which is how the b=
+oard normally boots, probing with reset-gpios works on this board (Linux 6.=
+18). I have not been able to test a driver-only reset yet, because the boot=
+ loader always resets the switch first, so I cannot say what made the diffe=
+rence. I have not checked whether an EEPROM is attached. v2 describes reset=
+-gpios and drops the comment.
 
---lLE8aJHE80lsFHy5
-Content-Type: application/pgp-signature; name=signature.asc
+> +&cp0_i2c0 {
+> [...]
+> +     gpio@20 {
+>
+> Which port?
 
------BEGIN PGP SIGNATURE-----
+It is the LED expander of the eight RJ45 ports (two pins per port). Nothing=
+ uses it yet, so I dropped the node from v2. It can come back together with=
+ the LED nodes.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaq+b0gAKCRA6cBh0uS2t
-rCAUAQCj0yfpPfa6URfV93oy7BQLAm5/S0I5F+E5Bxs9H7YvqwEA0d7mRWgJU5W3
-57K2prdD0OU/F5c69mDQ0MLisskqwAs=
-=MXlj
------END PGP SIGNATURE-----
+> +&cp0_i2c1 {
+> +     /* SFP EEPROM (0x50/0x51) */
+>
+> The addresses are not that simple. When a copper module is inserted,
+> other addresses are used. The SFP driver assumes it has access to all
+> addresses on the bus.
 
---lLE8aJHE80lsFHy5--
+Thanks, I had not considered copper modules. I removed the comment; the nod=
+e now only enables the I2C bus of the SFP cage.
+
+I will send v2 as a new thread after more feedback.
+
+Thanks,
+Nicolo Giuliani
+
+________________________________________
+Da: Andrew Lunn <andrew@lunn.ch>
+Inviato: domenica 20 settembre 2026 00:23
+A: Nicol=F2 Giuliani - nicolo.giuliani6@studio.unibo.it
+Cc: Rob Herring; Krzysztof Kozlowski; Conor Dooley; Gregory Clement; Sebast=
+ian Hesselbarth; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; =
+linux-arm-kernel@lists.infradead.org
+Oggetto: Re: [PATCH 3/3] arm64: dts: marvell: Add Sophos XGS 107w NPU board
+
+> The reset line of the switch (CP GPIO2 pin 17) is deliberately not given
+> to the mv88e6xxx driver as reset-gpios. The 88E6193X needs about two
+> seconds after a reset before it can be used, much longer than the driver
+> waits, so the probe would time out.
+
+The obvious question is, why is your 88E6193X special?
+
+I've seen issues when there is an EEPROM attached and it has a lot of
+content to setup the switch. But that goes against using DSA, where
+you want Linux to control the switch, not a fixed configuration.
+
+> +&cp0_i2c0 {
+> +     clock-frequency =3D <100000>;
+> +     status =3D "okay";
+> +
+> +     /* Drives the port speed LEDs, which are not described yet */
+> +     gpio@20 {
+
+Which port?
+
+> +&cp0_i2c1 {
+> +     /* SFP EEPROM (0x50/0x51) */
+
+The addresses are not that simple. When a copper module is inserted,
+other addresses are used. The SFP driver assumes it has access to all
+addresses on the bus.
+
+
+  Andrew
 
