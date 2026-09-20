@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECC6C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 04:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E43C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 04:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2MoZTcxnKczPWM7o1mzqY2ipongGCpZ7IBnK4RjYvUM=; b=U4NHLkLNOvd2Q38SpQYcXB/0iJ
-	GfSi7jYL9ZOSjSjf5HmMysgl/S+BXg0Gn6LdVq/x8G0DBeEAuLwlwHDwEK/3RAqdhyBW46j1e6kYN
-	YftnjoMC+IOaE0q7dESzzUNQU8PTlu05JHC1oGzvW6i8Gx/zVwGcXd4JIr+p9me718iDjgQTRpDKS
-	Gh1tmwGbKoKfT3DuyqQPVOzbLybCBZaCdEEX5HJsFeboDqTmuVaoUE28S5x9jIcjmUiJ6l1UdK7yi
-	zHbio6bh+hdWi+BT5tLZ50luTj6yRD0XUx5CLCt265TYjn35/qw75dRfeOYya67FCNE2ZY/vmdTvJ
-	kkys6mag==;
+	bh=Z4y87oy6OKAiqnu/jIL3XduDUN3BGcMssQM5AWBSQLw=; b=ntQGsQKVVeWZVsCMtsVTscwgwp
+	UxdjfnFolxTRtCfQXN6xi2CZmD7yKYmmqCSg/mSaFRhtlc+SFH5m0ssoe4gfRSnLDzHQKtyz84MG+
+	U7PPu3PVim3+MoZPTE9f7lQ+E8l+l912Q1ITpxLhrzvnkIPf1bW5uo0gUC8YqRK2uu0zSd82/Nvjf
+	FNvA5uDVNze/Plv/qZCVKziPW6ceAHXEaBlPx+o2wRqtOqlEe/s/kWevV7/urQOEkCDV6WNrDAG08
+	j7cXw1BXYMNUzn4NCRSUnJF6BUd/FN+UbwWpsPKzKgaiaQ2RFOicV52CnE3MrYyU9EPh0FnljWJp6
+	fETi0Dtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x89ay-0000000GsMG-1bGv;
-	Sun, 20 Sep 2026 04:56:08 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1x89b6-0000000GsS4-2bNF;
+	Sun, 20 Sep 2026 04:56:16 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x89av-0000000GsKP-2cCI
+	id 1x89b4-0000000GsQ5-1lxZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 04:56:07 +0000
-Received: by mail-pj2-x11.google.com with SMTP id d9443c01a7336-2d747eb79f7so13408625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 21:56:05 -0700 (PDT)
+	Sun, 20 Sep 2026 04:56:15 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2dd77300825so20378475ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 21:56:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789880165; x=1790484965; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789880174; x=1790484974; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2MoZTcxnKczPWM7o1mzqY2ipongGCpZ7IBnK4RjYvUM=;
-        b=J6bQlMsLvWXktxpMFH2ya5BLZJDIVPgQaz9vJYoNKi1zZb00E4i8DxM0dOFEUSAlck
-         T5plEsJdTjL1ue36soKfJsKRBbKrpwVwwVsOsa5hLv1+zT0IZqa486RKIdgWhy+t0x/6
-         87UM7nHCVXSoL57sF0TpMzj8HJC/SCY8gOKiqr5QVDQg5fLbiraFQerR0al/S7qctAed
-         LFD6YrG4hRz0D2nfrrL4DEpkoo2zwJJpotRwQKvUAe/jZA1i2P/EIKeKSTvpJ/LuytdW
-         cudpAZmZbgnjV6JVfMlcBosfKvwaS49X82IScOqY2RCks0p25PChU7oOrGzSFCvoW1z/
-         8agg==
+        bh=Z4y87oy6OKAiqnu/jIL3XduDUN3BGcMssQM5AWBSQLw=;
+        b=WpCEk3rX7WC2foF9K2CngReeeHtAyZuoDWq8vmxvVzzdLxoZP+A8t70efI/OEjnHtp
+         57jfE4nHqVMYUtjKZzVRfPzlHsK+/McOQcaPccmjFDmHODNG9K+/+qyJbwfZVijMbHph
+         FhqLuG4MYn9Z8fh5flZ+qDPcbP3Rs/80KKsUxHxbNg/87sZIeSPE2TeJpcH2arWf4d/G
+         wwTBg53qFmxnFW/v0G6j79N32+RWUgchyzKSRF6KknhgHBMHVQ8FA/dWWQKVSWf5FHol
+         kWJX4Ak0MGU+3yWDZpXBhpnStNUPvvIq2rfRnOa0EwuoxzchZCRmOoCxbHRhmUyOtf5y
+         mK6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789880165; x=1790484965;
+        d=1e100.net; s=20260707; t=1789880174; x=1790484974;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2MoZTcxnKczPWM7o1mzqY2ipongGCpZ7IBnK4RjYvUM=;
-        b=yvumEHlGYJjOE2A0CkGi+9FaNurMWWQuIp+vPBLYZ5AleLB9UBrvRqQS85+pb2LOCx
-         bg0Dc2tneaLw6E7ouhwsdL6rufey3c7CKQ1CVmQ5N/MKVDvPKLjHJECG/waWXhhZuEui
-         b7ZG1a3KM1DhyRDAiycEBWtywL5d2YlI0eshYxCO1m5RdEGfT0Jp4pIJeixtrnuHP6eJ
-         fIvdp9uq+12xNPfREImEO9rNy0u+ck9N/kwdohvp7/67aHuqsgasoxSV18QCaFn9M2Uj
-         f3AW+gBVAMGwIUSMTOLv51v05lPArgg3xWFLewBu+85epb08Au+C0a5vpiLbYpPv88LN
-         idcw==
-X-Forwarded-Encrypted: i=1; AKwUvByJbg98D+Y3W4xMNGj6BsoF9lP8wAgyS7cWBPD9LwXKxl6hUXM5eIldiWb96mM5n61rBTdXr6Urwr2grydFN3mB@lists.infradead.org
-X-Gm-Message-State: AFuF++kBdQBjVQu8EoS0admv7M6EtB25zGutrQw0fI+bGSS8w/CUOWwl
-	zVsCfezpX48bxYzvjcmU5odOg5NbVFfnlWb13A+/e4k88wThoS4tPHou
-X-Gm-Gg: AYBFou1QW3qo34Fd3JLJiA0yz1E8UZoRColRklf2JTg6JLMarfKP3C6jG2pu7ZyUVW4
-	Zp5CniWq8KsS4kGSRJmzJM8pikHn2ZiiD3+nsTg6Zt2qJQRTwx2m0nzcpkd3uDKwZSa6sVJoMmg
-	8hIXdfoWbEi2MvYRJrO32CRKsdqmCRujjrZr1kGFnpwKGHJeuS9UgJYpZwz06oAR64p41EalqW2
-	nSoaZgMJ/arTeZz7Gd7JggVL5UwlStP3/72UShJknHkPoyFNOKJml1Nh4xMlU2qNxD0brIH6GwV
-	SXUkdjdLIDB/uUR30eGt1O/WhARtMrVWqkPYAWclkbNRVEqnYj/m6RywjhDk6ILBbZnXvzAtewI
-	4TAZX9cNRPUrJSTzz9NinuP3qMlZvfsJaX3Kk68G3/VyTdFzHZAnT0VXfUa02nf64s1e0gLTmNr
-	s17kDXE49c3FR6UEMFo+RskA8jqW3nZ9wCZ6KKUR3eKxOZLwdQkyhB/YBsjDTHvaMKv0uZCAV9m
-	M6kQieIAr3e8d7mK9diU2ixcvg2GGn9DTa8zwZHB89NvPvh9Ee/uBkEcCKO1zidDo3JAuEK+W74
-	yWXbARI7k2YBluJoAecDHHtEeNdkXx5NUdnvdpDRZcpvxPo=
-X-Received: by 2002:a17:903:fa5:b0:2dd:c053:82f1 with SMTP id d9443c01a7336-2ddc053841bmr56459515ad.40.1789880164957;
-        Sat, 19 Sep 2026 21:56:04 -0700 (PDT)
+        bh=Z4y87oy6OKAiqnu/jIL3XduDUN3BGcMssQM5AWBSQLw=;
+        b=SqXwv27ACBdJgt3ziBcxQHACGaX/qRV8K0K5W7czUSg3AmaEwYaopJdXOIzO3z3iCS
+         yqg5Ys/xAgNpVGl4HZGybSZGcDAtmdvYcTZCEKgrK3CrHjef/9k8pYXPOul9oO739ZPf
+         CGCqFDULy/Ce8xApTMTv39Hzaiwar6gs8vH4ZaEkZtfcKE3Ycgn9P4zXnGPc1C5A/71i
+         BXaW2vSWfWeZ10knGBQ9+Vx2ewjJt9nEp3ZxkdPYaYLv4KzqEz7C1Oz21JhfgHmlifZB
+         UzpP+rqt7UhjJCcGy3gJ565aUN4+HfFgggLXnabWfAfDbMNglial2bOiN6ZHSTOQK2KN
+         MMyA==
+X-Forwarded-Encrypted: i=1; AKwUvByLMZM8Q8+yjvGlIEKFHebqIlz53fMmpc6HlUwmOgrWb8CxERExtS/PEU4w5R67FWVrdjolefj5ZVhxAlbp5c2v@lists.infradead.org
+X-Gm-Message-State: AFuF++m0f6CFjKTA4X+hXM13733EQTlsGUVZTgyMs3Lvc5Tr3ohoNY1J
+	GlHj8nhlHDPT1qqea74WmOlICRB/rRi9KE4yV4ZnSn2M7URVyK/YU2YL
+X-Gm-Gg: AYBFou3TgDQKZdzCsNAeuQNSAwEj7Gfj/whtNzTFB8DaC0DILMQFzVepwMGcKI81C8G
+	DXWHz17Nhnbv9zAAbTp3x5VDKKMkUrTzfi1qxbEVvGh/W0UdGCDBzHIKLbxsrMpoIrzxONa8Mcd
+	IV4wvXcOobz41b6Av39b9h/yUPAW/fKcg7P89LP6Or69cZIiJsOykFcjRri+6eiCP9NZ42MsxGW
+	FC2KG9bNdF7l6T64GIGqHHErtW2fcPe+gjBwkHnbIQL9UBSY7v0kxTnusCbNIDOIvmyZQEjY6mt
+	zoPNqy5sUjx2Nw61V/DKlzl+9ECNW961KXqn4H9KGjqU62ZCCGQpxy0lncCQi3HDnFGzFvUi/IF
+	dV+YYrjovNVHjNQ8/VPBPhnKIe+npvZv3nChw8uqAT/3qAMeadP63IPGT9AC95XAFBm9HC4ebnZ
+	aGsfDwBTB5kvJgmNhJ3XcMo+oBDEbj70cFdF7bCVZSOaIKfMRuneKt2yu7Zke1CTya2xaaHQ9XL
+	ndhA6EJl5heaakVhss4cZ/4Bhu8Jfndg1yC8vJKdxP93UADnP+DVDRO0GhnxxoxTiRgbI88NomQ
+	y08WRwn/KwO2xPU3GUCKc9af5mCOdTSuO/A/wBkZU0z1WAQ=
+X-Received: by 2002:a17:903:b48:b0:2c9:bf82:dd11 with SMTP id d9443c01a7336-2ddb1adc353mr126021925ad.7.1789880173735;
+        Sat, 19 Sep 2026 21:56:13 -0700 (PDT)
 Received: from [192.168.2.3] ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddc17d712dsm16026765ad.64.2026.09.19.21.55.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddc17d712dsm16026765ad.64.2026.09.19.21.56.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Sep 2026 21:56:04 -0700 (PDT)
+        Sat, 19 Sep 2026 21:56:13 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 20 Sep 2026 14:53:45 +1000
-Subject: [PATCH 06/28] ALSA: dmaengine: Always terminate DMA when a PCM is
- closed
+Date: Sun, 20 Sep 2026 14:53:46 +1000
+Subject: [PATCH 07/28] ALSA: Support nonatomic dmaengine PCMs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-macaudio-v1-6-741cc20a74e5@gmail.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260920-macaudio-v1-7-741cc20a74e5@gmail.com>
 References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
 In-Reply-To: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
 To: =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
@@ -102,21 +101,20 @@ To: =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>,
 Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com, 
- Takashi Iwai <tiwai@suse.de>, linux-mediatek@lists.infradead.org, 
- Hector Martin <marcan@marcan.st>
+ Takashi Iwai <tiwai@suse.de>, linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1367;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2677;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=zGb+++j8iUZe/cn0Z0nFJK8T6VZ7UceNkKMJL+0HzLM=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFnr0+UNCs+tnF8jm/Fr9rnD+qaz/5/MlJvafvnEpdXpu
- SeWZM6J65jIwiDGxWAppsiyoUnIY7YR281+kcq9MHNYmUCGSIs0MAABCwNfbmJeqZGOkZ6ptqGe
- oZGOsY4RAxenAEz1kxJGhmuLz9eF5142Xp283+/t0Rc/gw80iqvZZe94zfXn23/Xh9UM/2yWb2j
- yPuE6S9JqBqt0gZDlkrU7xeS3e7Hc+lrDvndKKxsA
+ bh=KObS9Pt9I+T74LqcNTQHQ5cFB2c2q8qsj/Np1ljqwI0=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFnr0xU2+4Xv/r+xROS6dVFDzcSiOyfWXf7+o3x2v8XN+
+ f7e1oJ/OyayMIhxMViKKbJsaBLymG3EdrNfpHIvzBxWJpAh0iINDEDAwsCXm5hXaqRjpGeqbahn
+ aKRjrGPEwMUpAFP9+xXDX8GZ9xRU9+7bXXMt7eK5Zew5L14t2sB48Drv779sq+Sd1d8xMkxZv9d
+ N4ur99eJhaqns17xjBA3fHwku4TzRxB7rpBbQwwsA
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_215605_670003_5865B6A1 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20260919_215614_487468_49629473 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,40 +129,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+From: Martin Povišer <povik+lin@cutebit.org>
 
-When a PCM is suspended, we pause the DMA. If the PCM is then closed
-while in this state, it does not receive the STOP trigger (as it is not
-running). In this case, we fail to properly terminate the DMA, calling
-dmaengine_synchronize() nonetheless, which is undefined behavior.
+Add support for nonatomic dmaengine PCMs.
 
-Make sure we always call dmaengine_terminate_async() on PCM close,
-regardless of whether it has been called previously or not in the
-trigger callbacks.
-
-Fixes: bc0e7345168c ("ALSA: pcm_dmaengine: Properly synchronize DMA on shutdown")
-Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Martin Povišer <povik+lin@cutebit.org>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- sound/core/pcm_dmaengine.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ sound/core/pcm_dmaengine.c | 32 ++++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
 diff --git a/sound/core/pcm_dmaengine.c b/sound/core/pcm_dmaengine.c
-index 1306b04be171..e59b561b849d 100644
+index e59b561b849d..839ff2711f5e 100644
 --- a/sound/core/pcm_dmaengine.c
 +++ b/sound/core/pcm_dmaengine.c
-@@ -355,6 +355,11 @@ static void __snd_dmaengine_pcm_close(struct snd_pcm_substream *substream,
- 	if (status == DMA_PAUSED)
- 		dmaengine_terminate_async(prtd->dma_chan);
+@@ -22,6 +22,8 @@
+ struct dmaengine_pcm_runtime_data {
+ 	struct dma_chan *dma_chan;
+ 	dma_cookie_t cookie;
++	struct work_struct complete_wq; /* for nonatomic PCM */
++	struct snd_pcm_substream *substream;
  
-+	/*
-+	 * The PCM might have been closed while suspended, which would
-+	 * skip the STOP trigger. Make sure we terminate.
-+	 */
-+	dmaengine_terminate_async(prtd->dma_chan);
+ 	unsigned int pos;
+ };
+@@ -147,6 +149,24 @@ static void dmaengine_pcm_dma_complete(void *arg)
+ 	snd_pcm_period_elapsed(substream);
+ }
+ 
++static void dmaengine_pcm_dma_complete_nonatomic(struct work_struct *wq)
++{
++	struct dmaengine_pcm_runtime_data *prtd = container_of(wq,
++							       struct dmaengine_pcm_runtime_data,
++							       complete_wq);
++	struct snd_pcm_substream *substream = prtd->substream;
++
++	dmaengine_pcm_dma_complete(substream);
++}
++
++static void dmaengine_pcm_dma_complete_nonatomic_callback(void *arg)
++{
++	struct snd_pcm_substream *substream = arg;
++	struct dmaengine_pcm_runtime_data *prtd = substream_to_prtd(substream);
++
++	schedule_work(&prtd->complete_wq);
++}
++
+ static int dmaengine_pcm_prepare_and_submit(struct snd_pcm_substream *substream)
+ {
+ 	struct dmaengine_pcm_runtime_data *prtd = substream_to_prtd(substream);
+@@ -169,7 +189,11 @@ static int dmaengine_pcm_prepare_and_submit(struct snd_pcm_substream *substream)
+ 	if (!desc)
+ 		return -ENOMEM;
+ 
+-	desc->callback = dmaengine_pcm_dma_complete;
++	if (substream->pcm->nonatomic)
++		desc->callback = dmaengine_pcm_dma_complete_nonatomic_callback;
++	else
++		desc->callback = dmaengine_pcm_dma_complete;
++
+ 	desc->callback_param = substream;
+ 	prtd->cookie = dmaengine_submit(desc);
+ 
+@@ -322,6 +346,10 @@ int snd_dmaengine_pcm_open(struct snd_pcm_substream *substream,
+ 	if (!prtd)
+ 		return -ENOMEM;
+ 
++	if (substream->pcm->nonatomic)
++		INIT_WORK(&prtd->complete_wq, dmaengine_pcm_dma_complete_nonatomic);
++
++	prtd->substream = substream;
+ 	prtd->dma_chan = chan;
+ 
+ 	substream->runtime->private_data = prtd;
+@@ -361,6 +389,8 @@ static void __snd_dmaengine_pcm_close(struct snd_pcm_substream *substream,
+ 	 */
+ 	dmaengine_terminate_async(prtd->dma_chan);
  	dmaengine_synchronize(prtd->dma_chan);
++	if (substream->pcm->nonatomic)
++		flush_work(&prtd->complete_wq);
  	if (release_channel)
  		dma_release_channel(prtd->dma_chan);
+ 	kfree(prtd);
 
 -- 
 2.55.0
