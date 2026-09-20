@@ -4,103 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBBCC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78830C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ehp9Aplx73w0kxknx9H3QmiLQowjGYfxL4eGXjvfQCY=; b=yTsbPDOGuCkdGd1GKLPmBAWARu
-	GER4BYM+UfYgio2BfCEmLBAr+CYnz8pHbCA7bZxmahSIg0ei8sy+s7qi8h9sr6aQhaAEu7aVL3q30
-	pWgxecmAtNQYvWmkQAsZuZbfTECbibp5YjUmb9reP8hIAU3CFZb5XgVzpvO3MQrPuphqEqfINpbbr
-	9UnLI8h8OosT1om+PbHBHjbfX8ir6q7AbN9lVE4yoOz98XNp5dvqGSDk0tGQMirKfTk3Bts6OqOVY
-	9pobgHzJ7Ia1GjxKllmlDO/2JrBXb66Li7jhLPoeYgDsn5fK0Qt6LM8196VDIOo5nIMgu1UJC0WEu
-	eEt2BrRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CdI8YWTI7CcjtM5Lm8MZwdhn3JWftP1z/ahH2AlI7vQ=; b=bDIAYXFHE5DweMwmgYzJ2HlnU9
+	fkD1RRjTiP4Egzf94T7chfO9bvlRaIFHtFQAMHeD832bu7XL4zhrssIiDCbCJqbFnSclHtPZzfVgr
+	Takreh9i2CgCN5UjwL+jxIyFERRJpCTPx4ImGkAG3jRfE9PguZiz9PdfkBtIqYWP11qbYZEUsTgNo
+	o5xmhlSShIKD+LIbAYVqyMIl8dklBlMSmWQJxyhmsgfD/MSpmq1kxKj2IvLYiPvfdcnyr2vzXZYKm
+	LPxIIf5wnRV86/8RvK1isxiXMDV4TfOLYm2DFCNUUxlxVMzmHYANU1+RoxmYpzg1XyjROVOqLb9p6
+	6UGgauvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8DFp-0000000H85J-3GKh;
-	Sun, 20 Sep 2026 08:50:33 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8DFm-0000000H846-0dMp
+	id 1x8Dic-0000000H99g-1FBt;
+	Sun, 20 Sep 2026 09:20:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8DiZ-0000000H99F-2M3N
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 08:50:32 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e620fa473so11727605e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 01:50:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1789894227; x=1790499027; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ehp9Aplx73w0kxknx9H3QmiLQowjGYfxL4eGXjvfQCY=;
-        b=H1FBiuTcT1E4HXWgrY6yUjAZCidvYHuwvQ7E8Qha/nMVcILWAVtus2Sc++EAXVXpRk
-         FaUvQhFpT764w7BuZEu+vqDF4FSoWhKETVvfxT/NkZwkcy43rEwlTYIY3Tffyow5n0wr
-         xVmH84EMFqzaCr5asejakPfZgyed1xeaCcRU8XLp+3ZSlB7PQqn0exsHinH1nOj2aOi5
-         8f6p8qQfT6CRbyBKj0LSAgF/l6yDUx71beQ0h33yNwfSsPJotj0yyOVmamsLeBGnsTDq
-         vxcOcME2kSofLnb+1eWf9TnEQLP18ratsNWCF7m2vlxT2Tdw42nFM5ZdrKAXxOM7KKsx
-         U7kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789894227; x=1790499027;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ehp9Aplx73w0kxknx9H3QmiLQowjGYfxL4eGXjvfQCY=;
-        b=yKir6Zw7/0hAeD30b36S5DiDjytKi4ni1TWrnPoijB4GOg2i9gdoriyVBr1NKw0zqn
-         Jw84P4dWZS7780Gk2WeiXlRpMMUQT/8LWfAeyVWyXL9XRUFZDYZ+i7k99iyCDUKJ5uU5
-         6EuT/VU4d5Kk+6jDaIVNyvNJWJz0hcpikfcgIocnoLyS3oCSynEQXDHfZC4l09hSiuEc
-         L68+LFweg6lOFXrtMweONHB6aipCrOnk3GSf8Ld3ZXkOxlu4+On1UYfH5upiMSvGvgrG
-         00tyCRxZhexGhUekWETamOBxgSw0IiWDHg3TrfHNwDLKheURs/WeL9OgDkjrZrtTh5Ac
-         cE+g==
-X-Forwarded-Encrypted: i=1; AKwUvBx/5j9HcETvxYQ5bjsNv9Zm8hinG4hfSTmAZxu3vvfi+eVDkE3u40Mn776fq1/YiqDQn0ei4p27h2uE/gzZT97X@lists.infradead.org
-X-Gm-Message-State: AFuF++mJPH29YGp34QMCGyaVcQlbE78PmI3byjRAbcDNZA0TCS+CXstF
-	dtaYpmo0gowtC7cot1OLaIg6dFsNrXoq2EmlqOUfh16Z1HcmBZdsU4v23Q9jsoaB7qI=
-X-Gm-Gg: AYBFou2B52afCDj+/kL4Ddhc1XDvVHWh4P7Ka18gz7//SYQj9NHuafirHdHA/OrwQyy
-	8ISl0Vegkcc0BdR0yOnppOTnpJcostkBrdTSE/xHWpL7fDmTV8QfFqOXvXI1II+i+WIDlYJiSkz
-	xGLBOY/QRiD5aWNUw+PTKYWolrwA1sBNTZOjnQHC7926pzJvdOnOju7Wp5Nunha3f7XZ3z1TjNC
-	EFCZkSPBnKV7zgb8F6NYGZGG8xQqFcv4YkpfjTY2SM1dC9qWb6z4rxb8d75YB+fF3YqQCSoU8EB
-	z1XpHFm0YE92FfR3Bu9QmHLjB26YGqe3RtZJZYKHg4jhc/3OsxJ3znPaBfXJKtcn5VpzpSuNUXW
-	6wm2ELXZ+3YzJ9REWlmJ6D8RzOJ6iDjp5uZsgFZQk6I6Sv3xO5PiW3lVKVdQyRdu7lKJUuM6hVI
-	MEMTsI4obuCoW+dBOANm07aPc65AhMF/xULAYTmHdJluO4cYul+C2c0kwGDKIx6D5DDV+7gR+Kk
-	vL6sFT7wvN1Ty8xcA==
-X-Received: by 2002:a05:600c:3584:b0:49d:286:83d5 with SMTP id 5b1f17b1804b1-49fc5722755mr130966755e9.13.1789894227775;
-        Sun, 20 Sep 2026 01:50:27 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc521f5d9sm67312145e9.2.2026.09.20.01.50.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 01:50:26 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman
- <khilman@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 07/10] clk: amlogic: Support POWER_OF_TWO for PLL
- pre-divider
-In-Reply-To: <f518be12-9c96-4415-b442-4afcbc5b5d36@amlogic.com>
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
- <20260511-b4-a9_clk-v1-7-41cb4071b7c9@amlogic.com>
- <1jy0hm6n7e.fsf@starbuckisacylon.baylibre.com>
- <8d89b669-e72e-4663-9596-999a12922d32@amlogic.com>
- <1jqzn65y9l.fsf@starbuckisacylon.baylibre.com>
- <3fda1592-f7d0-4e86-8615-602804673414@amlogic.com>
- <1ja4tm5pb3.fsf@starbuckisacylon.baylibre.com>
- <c9c4945f-cdfc-4382-b8ca-71b69d91deb4@amlogic.com>
- <f518be12-9c96-4415-b442-4afcbc5b5d36@amlogic.com>
-Date: Sun, 20 Sep 2026 10:50:12 +0200
-Message-ID: <1jo6dscnnf.fsf@starbuckisacylon.baylibre.com>
+	Sun, 20 Sep 2026 09:20:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F27D01691;
+	Sun, 20 Sep 2026 02:20:09 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A2BB3F59E;
+	Sun, 20 Sep 2026 02:20:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789896013; bh=P0MSY/kDk0ow8kuKtSYBKr3uG3KhXyWBVbPVVFEhnOA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UR4Q4NZhWn2Y2X904sw0onb09M6CGkumJqWgR8OczUv47NmVBLiDqglp+iX5rosWF
+	 epwGOz8Wj14Cc1twhNUeHYPr6y7AD9SMT0l/yUZkMvo9Zy0xw36jEP2rW3ZqwEkUMT
+	 fes5YkW9Jhzu8qHfuZrvdRwkRrBfKyl4YU+YLOVE=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: [PATCH v12 01/25] firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+Date: Sun, 20 Sep 2026 10:19:04 +0100
+Message-ID: <20260920091928.2014972-2-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260920091928.2014972-1-cristian.marussi@arm.com>
+References: <20260920091928.2014972-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_015030_583042_5FDE30A0 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260920_022015_638132_94DFCB66 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,20 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On dim. 20 sept. 2026 at 16:22, Jian Hu <jian.hu@amlogic.com> wrote:
->
-> Regarding the suggestion to remove N from the DCO and make it a separate 
-> prescaler,
->
-> I have a local draft for this change. Would you like me to send it as a 
-> follow-up patch,
+SCMIv4.0 introduces a couple of new possible protocol error codes: add
+the needed definitions and mappings to Linux error values.
 
-an RFC would be great, yes
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v4 --> v5
+ - map SCMI_ERR_IN_USE to EBUSY as natural
+---
+ drivers/firmware/arm_scmi/common.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
->
-> or are you planning to address it?
->
-
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index fe8c22cfb9f7..6f89ba96493d 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -48,6 +48,8 @@ enum scmi_error_codes {
+ 	SCMI_ERR_GENERIC = -8,	/* Generic Error */
+ 	SCMI_ERR_HARDWARE = -9,	/* Hardware Error */
+ 	SCMI_ERR_PROTOCOL = -10,/* Protocol Error */
++	SCMI_ERR_IN_USE = -11,  /* In Use Error */
++	SCMI_ERR_PARTIAL = -12, /* Partial Error */
+ };
+ 
+ static const int scmi_linux_errmap[] = {
+@@ -63,6 +65,8 @@ static const int scmi_linux_errmap[] = {
+ 	-EIO,			/* SCMI_ERR_GENERIC */
+ 	-EREMOTEIO,		/* SCMI_ERR_HARDWARE */
+ 	-EPROTO,		/* SCMI_ERR_PROTOCOL */
++	-EBUSY,			/* SCMI_ERR_IN_USE */
++	-EINVAL,		/* SCMI_ERR_PARTIAL */
+ };
+ 
+ static inline int scmi_to_linux_errno(int errno)
 -- 
-Jerome
+2.54.0
+
 
