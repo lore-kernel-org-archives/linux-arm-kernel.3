@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67478C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 12:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C47C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 12:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:CC:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4q4eE1hSPqoFF9hVD5Vo9NtpihGBtcqgrIHYR9lIyM=; b=KjtSMIFzigzeaR5s70xy9FYPPG
-	zr/36a2WzOJH7QNi55DYMWROOr8wAscGr/hTlyI47s7UkozaYPo41cxuhZn3ZvcOX/gJsfIHt0B4B
-	cCCI4Y0ZOEQxXm2TyY6i55sRumMFxmEhHVHM4vkzpKdNFr6ShRu4ivrI7aKiV3tzQqbr9tepoWJuV
-	sAdQXaG1OACk9Up0eIWIFwl0iBbWju9UCzWi4CEO/1nVktywRgVVJ71zsBuiok3bNmNZv8JSg23ZQ
-	Q7riNJVZurJVMZnaqJ422x+yuk3EOSanZMRINjbqodwEuCC7ZUlMpHcH59YL0lMPYdP81Mc/IXKbF
-	Q7tMP8pg==;
+	bh=k69LvB+0+kiSBvmUOIMo0gTPTsD6NckkAdGe25+Ma/0=; b=SH+CFWT3ccE7nnNh2ano+a2gZJ
+	ek5IK6LRSq7DpI0vWTgjxTJnYXMwLrRq8RDUt/qZlJdQNzdHuiNc/oR2bjqdAyLRgDRRyfG+MjADx
+	tW9yFgjVM5q8wR0+oBqzPKb9JpqkauLQqrDCMAt1G20djzgcdqvUphWCyg9m2CQp5/iHtJKdP5jAm
+	Gzkfdu7dpzNm1kwnVFNc+7jeI62+PxRG8wi5uMLJDZWHQI1cHDvmZB6fsFHTG3gaz8+qhBur1YaCs
+	6ythaX2mmTkXWgW1WD3PjYS4JbwTxvxAoh+UDGcZqXOlHqc38mg2l9p+8PjTr0j+Oqr+D3Qw7Uj8I
+	c+fq7KhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FY2-0000000HKCF-4Akq;
-	Sun, 20 Sep 2026 11:17:30 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1x8GPs-0000000HQiS-2g30;
+	Sun, 20 Sep 2026 12:13:08 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FXp-0000000HK4S-1i5Y
+	id 1x8GPp-0000000HQhw-0UNb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 11:17:20 +0000
-Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36e088236
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sun, 20 Sep 2026 20:16:16 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=a4q4eE1hSPqoFF9hVD5Vo9NtpihGBtcqgrIHYR9lIyM=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789902976; v=1;
-        b=ZYMoxdrqvxa0H67UyJl08C4EYujvBJAPsqb4qoc0GJYpSBcjN0XNrbeTwSiF8IQi
-         QUlq614nwQGEyVFyPP7v85/9Xewx40o7/xvUwy86Dpao+E3Z/iCWV8hA11vHIkQk
-         lmsd5AZjV+7elTYCxK8LG9oZmGlfGEbYE3Quc8vj3W6mz/d95edaL4Gv2pNN8aCP
-         E00t1ZadUUpxiM1/VFVXVHjRJwx/UA883I26GpeWVymz7J+9T5IFaennv46diynz
-         LkxK8gvZ0j/N1cyaeG+vkly+FHbGViB9O12Lg3RCXDDAuGIxpvaNf/4kdOVmekvP
-         PK11yHHENYq0p0yNrz0Inw==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sun, 20 Sep 2026 20:15:58 +0900
-Subject: [PATCH v11 17/21] KVM: arm64: PMU: Pass the pPMU to
- kvm_map_pmu_event()
+	Sun, 20 Sep 2026 12:13:07 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=k69LvB+0+kiSBvmUOIMo0gTPTsD6NckkAdGe25+Ma/0=;
+	b=kJ3zlqZ+H51TcrOli3BBdPFPUddKwUIotA38vp+0tgmxpOkCa1YaxmHHSqpjytalyRBM7lRjp
+	gieRm0+u7qshjvr9VDnomRN0CmA0h5BGGyO7LhSz1rsfT+JBm1E0d7AFz7+qWjGX81SOpGjEwRw
+	TNXZTgOxx4LtH6QXVp6snsc=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hnlLp2kXpz1T4LX;
+	Sun, 20 Sep 2026 20:01:06 +0800 (CST)
+Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
+	by mail.maildlp.com (Postfix) with ESMTPS id B58374057F;
+	Sun, 20 Sep 2026 20:12:53 +0800 (CST)
+Received: from [10.174.185.234] (10.174.185.234) by
+ dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Sun, 20 Sep 2026 20:12:52 +0800
+Message-ID: <68de0ad8-967b-49d4-872a-a9fdff7485fb@huawei.com>
+Date: Sun, 20 Sep 2026 20:12:51 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hybrid-v11-17-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Andrew Jones <andrew.jones@oss.qualcomm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Shannon Zhao <shannon.zhao@linaro.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Fuad Tabba <fuad.tabba@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1503;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=tjUetPIPNmPZFFuAWauSmYCWvYFAQD9PAEnjIoNhXmI=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6AwXes2TvOOQlfXAp67j90Hn6vgWPLX9XJpnNXK76U
- Onc/wXpHaUsDGJcDLJiiiwpRbu5NaJrPxUmxLfAzGFlAhnCwMUpABPhNGb479qtMdn29rq43vdb
- Ns7KiX31Y/vU/GAdw4PnOM1Tzu8PPcbwTyd0bdMahl4Hv08LXN0jYr7lCXs8XOe2527Y9DfaXkz
- PeAE=
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND][PATCH 0/2] Batch register access for live migration
+ optimization
+To: Marc Zyngier <maz@kernel.org>
+References: <20260918081930.4014735-1-wangyize7@huawei.com>
+ <861paq69te.wl-maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <oupton@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <fuad.tabba@linux.dev>,
+	<joey.gouly@arm.com>, <seiden@linux.ibm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <mark.rutland@arm.com>, <zhengchuan@huawei.com>,
+	<jiangjiacheng@huawei.com>, <yize_w1110@163.com>
+From: Yize Wang <wangyize7@huawei.com>
+In-Reply-To: <861paq69te.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.185.234]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemr200003.china.huawei.com (7.185.36.25)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_041717_670102_A4B87401 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260920_051305_798240_981B7FDF 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +83,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the VM argument with the pPMU used for event creation. The
-current caller still passes the VM's default pPMU, but this removes the
-implicit lookup from kvm_map_pmu_event() so later changes can map events
-against the pPMU selected for an individual vCPU.
 
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/pmu-emul.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+在 2026/9/18 20:08, Marc Zyngier 写道:
+> On Fri, 18 Sep 2026 09:18:13 +0100,
+> Yize Wang <wangyize7@huawei.com> wrote:
+>> This series adds batch register access support to KVM/arm64 to reduce
+>> syscall overhead during VM live migration.
+>>
+>> Currently, QEMU issues one ioctl per register when saving/restoring VGIC
+>> state. On large VM configurations this means tens of thousands of syscalls,
+>> where lock acquisition and context switch overhead dominates migration
+>> downtime. Thus, we provide a batch register method to allow userspace
+>> read/write multiple distributor and redistributor registers in a single call.
+>> In this way, we can significantly reduce syscalls and migration downtime.
+>>
+>> Test the VM migration time under pressure conditions.
+>> The VM specifications for migration are as follows:
+>> - VM use 4-K page;
+>> - the number of VCPU is 160;
+>> - the total memory is 320Gigabit;
+>> - use 'Redis SET-benchmark' to pressurize VM;
+>>
+>> Performance results (3-run average, ms):
+>>      | Metric              | Without patch | With patch | Improvement |
+>>      |---------------------|---------------|------------|-------------|
+>>      | Migration downtime  |        536    |     321    |     40%     |
+>>      | Source (total)      |        344    |     230    |     33%     |
+>>      |   - VGIC put        |        158    |      40    |     75%     |
+>>      |   - VGIC get        |        120    |      19    |     84%     |
+>>      | Destination (total) |        192    |      91    |     53%     |
+>>      |   - VGIC put        |        132    |      27    |     80%     |
+>>
+>> Yize Wang (2):
+>>    KVM: arm64: Add batch group constant and data structure to UAPI header
+>>    KVM: arm64: Add VGIC v3 batch register access implementation
+> Questions:
+>
+> - Why only the MMIO registers?
+>
+> - Why not the sysregs?
+>
+> - Why only the GIC?
+>
+> - Why not all of the state?
+>
+> - Where is the corresponding userspace code?
+>
+> More importantly, since this is about batching system calls:
+>
+> - Why can't this be done with io_uring instead?
+>
+> 	M.
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 335d712cc9c5..72b042e5c360 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -696,10 +696,8 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
- 	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
- }
- 
--static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
-+static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
- {
--	struct arm_pmu *pmu = kvm->arch.arm_pmu;
--
- 	/*
- 	 * The CPU PMU likely isn't PMUv3; let the driver provide a mapping
- 	 * for the guest's PMUv3 event ID.
-@@ -751,7 +749,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
- 	 * Don't create an event if we're running on hardware that requires
- 	 * PMUv3 event translation and we couldn't find a valid mapping.
- 	 */
--	eventsel = kvm_map_pmu_event(vcpu->kvm, eventsel);
-+	eventsel = kvm_map_pmu_event(vcpu->kvm->arch.arm_pmu, eventsel);
- 	if (eventsel < 0)
- 		return;
- 
 
--- 
-2.55.0
+Hi, Marc! Thank you for the review.
+
+
+These patches focus on optimizing GICv3 register access during live 
+migration. We found that there are a large number of locks (kvm->lock, 
+vcpus, config_lock) in the GIC, these lock operations wil cost large 
+time waste. The batches of sysreg for vcpu optimization will come in 
+follow as a separate series. And let me address these questions one by one.
+
+
+1. Why only the MMIO registers?
+
+In vgic_v3_batch_access(), we use 'entries' structure to implement batch 
+read/write of register status. The structure is 'struct 
+kvm_dev_arm_vgic_batch_entry', where the group information can be freely 
+specified by userspace. Thus, vgic_v3_batch_access() supports all VGIC 
+device attr groups, not only MMIO registers.
+
+
+2. Why not the sysregs?
+
+The newly added vgic_v3_batch_access() just forwards the groups received 
+fromQEMU in batches to 'vgic_v3_attr_regs_access()'. And this function 
+already has 'KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS' to handle sysregs. Our 
+patch does not modify the existing sysreg handling logic.
+
+
+3. Why only the GIC?
+
+During live migration, the GIC is the device with the largest number of 
+registers, and we found that there are a large number of locks in it. If 
+each register is locked and unlocked individually, it would cause large 
+time consumption. Thus, we want to optimize the GIC register time 
+consumption during live migrate. The experimental results also show that 
+batch processing significantly reduces VGIC handling time during migration.
+
+Similarly, vCPU register save/restore also costs significantly time. The 
+patch of vCPU sysreg batch access will be submitted separately in the 
+future.
+
+
+4. Why not all of the state?
+
+As different devices have different lock hierarchies and access 
+paths(e.g., GIC goes through the device fd, CPU regs go through the vcpu 
+fd), it's difficult for us to realize in a single batch handler. 
+Additionally, introducing too many changes at once would make review 
+harder. These patches focus on GIC-related optimization, and a separate 
+series for vCPU batch processing will follow.
+
+
+5. Where is the corresponding userspace code?
+
+The QEMU-side implementation has been posted to qemu-devel. The link is 
+below:
+
+https://lore.kernel.org/qemu-devel/20260918092120.370805-1-wangyize7@huawei.com/T/#t
+
+
+6. Why can't this be done with io_uring instead?
+
+The core idea of io_uring is to reduce the number of context switches 
+between user space and kernel space by utilizing two ring buffers. 
+However, each SQE is still processed independently in kernel space. For 
+the VGIC registers, each SQE still require lock -> read/write -> unlock, 
+so the per-register lock overhead remains unchanged. We hope to 
+read/write a set of register states with a single lock operation to 
+reduce the time cost. Therefore, io_uring does not meet our needs.
+
 
 
