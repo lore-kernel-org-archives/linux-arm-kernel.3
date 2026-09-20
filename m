@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7FFC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E379C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m30IpZhG7wE4c2XaFzkanmx/56m1vwLzIW+Xvrg4Iuw=; b=ft35eJEX1n+PDO7aQ9eE96PzlO
-	HCXbl8g5tlYHmG4h0YaqdTb1YMDiCdkI61lDTbwgyWOw49q6tcigRiEoLw2gqZjP8SqzAsffbRTgE
-	8+FaY88oANOi7SW1Gtzg+pd6r8hbGUdb/yumO5J35GQs5WCqFeXmLq+bpjt66pi2r7eLl8/xqLeZr
-	lh+b7mC51IGwoc0GlRht60fQq6hRh09+uXBgkJYVH0JkNk4l412xHAvV1ZNaR4SX1EF1A6ONQLU7o
-	4/HP3omgQirKMePvGAa2Yrdnfo7e6TYXCt/UGti5LeiFmLhgxZp8WJ2ywPLiO5pUOnAhULwn3nKa9
-	/ahdhuuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vt2ftUzXwwEiNRXjnC8qV9jrJvkIkUdpYX0jSjdAkkA=; b=X2/FmkDYiSlqvrkRL8Y/UcUMn8
+	9KWDiVxc51EkPDLtWvF9IRX5vljmykB/be4zYKlxyulAkeK8yVdNbrHgSdYrvoLHlooKeEnxNCfDX
+	qefEKXXC1XlEB+YSy4lSTb1Q3dTRI5NRKq99yDxEvoxhZDctJ6eY31LIpT1ta/O0EZ1dKCHb2GBdl
+	5dVBbXhRAe2ZGWHp4MEh8g+yPweTEtVvbn1NklZlR6PPpA/40tiitLp+ICATB+hSLuGXF46yhsDmQ
+	aKdd1ckPzRhIXdDcoK0EZ4J5fN2WkcLa5ucNVGBYFQtvx6dhAc9uIVV6M9dMjiCYyFG+Etws+LCS7
+	lWJivbxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FR6-0000000HJS4-1jqh;
-	Sun, 20 Sep 2026 11:10:20 +0000
-Received: from linkmauve.fr ([82.65.109.163])
+	id 1x8FXr-0000000HK7C-3AaG;
+	Sun, 20 Sep 2026 11:17:19 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FQu-0000000HJMI-3pxV;
-	Sun, 20 Sep 2026 11:10:13 +0000
-Received: by linkmauve.fr (Postfix, from userid 1000)
-	id 796D87189A55; Sun, 20 Sep 2026 13:10:03 +0200 (CEST)
-From: Link Mauve <linkmauve@linkmauve.fr>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: Link Mauve <linkmauve@linkmauve.fr>,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
-	Johan Hovold <johan@kernel.org>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	rust-for-linux@vger.kernel.org
-Subject: [PATCH v6 0/4] nvmem: migrate to const void * in reg_write
-Date: Sun, 20 Sep 2026 13:09:53 +0200
-Message-ID: <20260920111000.2404131-1-linkmauve@linkmauve.fr>
-X-Mailer: git-send-email 2.55.0
+	id 1x8FXp-0000000HK4a-1YmQ
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 11:17:19 +0000
+Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36Q088236
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Sun, 20 Sep 2026 20:16:09 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=Vt2ftUzXwwEiNRXjnC8qV9jrJvkIkUdpYX0jSjdAkkA=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1789902969; v=1;
+        b=dtHQfMG4J2oxJlDgsvUSENT5TaRXH95fbJnfsmbO5SiUXP0qi43UfHw9XdeKmQcU
+         C2aJZyVoKZJZ5V34b/ghwMae+i4XGXhHQ0IkhKWUDMcHcPoi6y2Pn+PItiXSTaBs
+         gJCN2IMpk1hvdE6i5GXLYzlmbQW033yNoRgoFwdsT4zDccsewrBDZm9xMo3CBcra
+         6Nd7XH7vsKaZ/2qUzD9eQtgM8igEGIDl15ZP2/MgOF9wIVkBztK1JINUuF/MXhV5
+         8xWnUvuwf3Ck9EfSxBH2hoX6q3UiG27qQrHVIfk1YD3s7fVk4ycDTVgWJIdg+8Ws
+         RNgPKnCepB808TqDXFcXGQ==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Sun, 20 Sep 2026 20:15:44 +0900
+Subject: [PATCH v11 03/21] KVM: arm64: PMU: Freeze counter count after
+ first run
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260920-hybrid-v11-3-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Shannon Zhao <shannon.zhao@linaro.org>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Fuad Tabba <fuad.tabba@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1162;
+ i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
+ bh=MrNqsf8vl79pbAxP49QCfE5TLu/s5O9EUAaIBtYYaqg=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A6mrD1z5vilWVrfGcs7FU0/+ayX3nOlcpnzU2NNdb
+ 1d2Xp9RRykLgxgXg6yYIktK0W5ujejaT4UJ8S0wc1iZQIYwcHEKwESsrzD892bUPfGsa2OmuNom
+ TpF0vhDW8NcsfcuYXugWzBe2vGc9neGfJctU3as6p2cUnTneJXuy7sbuJSrnltjsjJMLqW70cyv
+ gBwA=
+X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
+ fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_041009_121410_52A809AA 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260920_041717_640360_9C7B9445 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,102 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This callback used to take a mutable void * for no reason, which causes
-the compiler to be unaware that the val buffer should never be modified
-by the callback.
+PMU configuration is VM-scoped, but SET_NR_COUNTERS can be issued
+through any vCPU. Checking only whether that vCPU's PMU has been
+initialized allows userspace to change the counter count through an idle
+sibling after another vCPU has run.
 
-This was found while drafting the nvmem-provider Rust abstraction.
+Reject the attribute once any vCPU has run. This keeps the VM-wide
+implemented counter mask and the PMCR_EL0.N value stable after guest
+execution begins.
 
-Thanks to the guidance of Andy Shevchenko, this now introduces a new
-callback and deprecates the existing one, with the goal of renaming the
-new one into the old one once no user remains in the kernel.
+Fixes: b7628c797376 ("KVM: arm64: Allow userspace to limit the number of PMU counters for EL2 VMs")
+Assisted-by: Codex:gpt-5.6-sol
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/pmu-emul.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Changes since v5:
-- Link to v5:
-  https://lore.kernel.org/rust-for-linux/20260804135940.2378737-1-linkmauve@linkmauve.fr/T/
-- Add a dev_warn() when registering a nvmem driver with a deprecated
-  reg_write callback.
-- Add a fourth patch enabling COMPILE_TEST on three more nvmem drivers,
-  which forgot to depend on that config.
-- Remove a few unneeded (void *) and (const void *) casts in core.c.
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 832dd145af2a..950b7a349659 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -1112,6 +1112,9 @@ static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+ 
++	if (kvm_vm_has_ran_once(kvm))
++		return -EBUSY;
++
+ 	if (!kvm->arch.arm_pmu)
+ 		return -EINVAL;
+ 
 
-Changes since v4:
-- Link to v4:
-  https://lore.kernel.org/rust-for-linux/20260726131724.15299-1-linkmauve@linkmauve.fr/T/
-- Rebase on top of linux-next 20260803, the previous series didn’t apply
-  any more due to changes in core.c.
-- Also convert the at24, at25, eeprom_93xx46 and m24lr drivers to the
-  new reg_write_const callback, these were missed because they got moved
-  to the nvmem directory in linux-next between v3 and v4.
-
-Changes since v3:
-- Link to v3:
-  https://lore.kernel.org/rust-for-linux/20260716142415.28718-1-linkmauve@linkmauve.fr/T/
-- Drop Apple SPMI patch, which had already been independently included
-  in linux-next as 7089170e1df160f5f8fb395bc5aa2e2697b4e896.
-- Reword the cover letter’s subject.
-- Reorder the meson firmware patch before the other ones, so that every
-  commit is always working correctly.
-
-Changes since v2:
-- Link to v2:
-  https://lore.kernel.org/rust-for-linux/aljAqBNVXV1aVJqx@luna/T/
-- Rebase on top of linux-next/master.
-- Fix logic error which made all devices read-only.
-- Remove a blanket cast of function pointers to void * in
-  apple-spmi-nvmem (patch 3).
-- Also fix constness of write buffer in firmware: meson, which is used
-  exclusively by meson-efuse (patch 4).
-- Re-review all changes to make sure the passed types are more correct
-  than they were before.
-- Actually test with COMPILE_TEST, which I forgot to enable before…
-
-Changes since v1:
-- Link to v1:
-  https://lore.kernel.org/rust-for-linux/20260715175229.24672-1-linkmauve@linkmauve.fr/
-- Removed all changes to other subsystems than nvmem.
-- Added a new reg_write_const callback instead of changing the exisitng
-  reg_write.
-- Deprecated the existing reg_write callback, it will get removed once
-  all users in the kernel will be done migrating to the new one.
-
-Link Mauve (4):
-  firmware: meson: pass a const buffer to meson_sm_call_write()
-  nvmem: core: deprecate reg_write callback with reg_write_const
-  nvmem: make all reg_write callbacks take const void *
-  nvmem: enable COMPILE_TEST for more drivers
-
- drivers/firmware/meson/meson_sm.c       |  2 +-
- drivers/nvmem/Kconfig                   |  6 +++---
- drivers/nvmem/apple-spmi-nvmem.c        |  4 ++--
- drivers/nvmem/at24.c                    |  6 +++---
- drivers/nvmem/at25.c                    |  4 ++--
- drivers/nvmem/bcm-ocotp.c               |  8 ++++----
- drivers/nvmem/core.c                    | 26 ++++++++++++++++---------
- drivers/nvmem/eeprom_93xx46.c           |  6 +++---
- drivers/nvmem/imx-ocotp-scu.c           |  6 +++---
- drivers/nvmem/imx-ocotp.c               |  6 +++---
- drivers/nvmem/internals.h               |  1 +
- drivers/nvmem/lan9662-otpc.c            |  6 +++---
- drivers/nvmem/lpc18xx_eeprom.c          |  6 +++---
- drivers/nvmem/m24lr.c                   |  4 ++--
- drivers/nvmem/max77759-nvmem.c          |  4 ++--
- drivers/nvmem/meson-efuse.c             |  8 ++++----
- drivers/nvmem/qcom-spmi-sdam.c          |  6 +++---
- drivers/nvmem/qfprom.c                  |  6 +++---
- drivers/nvmem/rave-sp-eeprom.c          |  6 +++---
- drivers/nvmem/snvs_lpgpr.c              |  4 ++--
- drivers/nvmem/sprd-efuse.c              |  6 +++---
- drivers/nvmem/stm32-bsec-optee-ta.c     |  2 +-
- drivers/nvmem/stm32-bsec-optee-ta.h     |  4 ++--
- drivers/nvmem/stm32-romem.c             | 10 +++++-----
- drivers/nvmem/zynqmp_nvmem.c            |  6 +++---
- include/linux/firmware/meson/meson_sm.h |  2 +-
- include/linux/nvmem-provider.h          |  6 +++++-
- 27 files changed, 87 insertions(+), 74 deletions(-)
-
-
-base-commit: 3f2425f5b5bbbdd991ca9cdfd5502e68d8895998
 -- 
 2.55.0
 
