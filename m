@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38907C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 17:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC9AC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 17:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRR6GWm8VvaCpKgQykY2MiSoqyYUd1GFMV1rrWkJ4JI=; b=KvCyZJurhfH0pMkSbdh+TQYwU+
-	/s+kV0KusI+xxwtYCnN9klWYhE/JUGCF+DMTq/nXGbpp0hHeMJ3Y5QqnnnyARNVtxmYb+qcq2K2rf
-	qhvukEn9+xzi1zHfNZ6MQhs8YSphZbF5P0deuwHDbtWYP0gjBDxWgT9EcyM3QvWsVmF8lU0KlBODp
-	+ZJUSyyJR/I0IDx+n9ht8DprZzB57xN1jguBs5jmVgEN1PVHAEvvay4UJ/tc1TWO0CcJuLBN3TwSU
-	yowhE4FXCjThyOI27GzuZQLCBgs8X6ITS5ieAJsOM39dRUj1QHiH3Bbv2EDOWeh+c/tw4iBDWCE7F
-	WUT88cxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HCdz1wdJC9OT+zficoFF7wL3rJKkBYpCcd00vySQmSE=; b=o02HZRBHyMP+PzI4AaxuRXbbwZ
+	abO3kp59iGq//E3y37tRXTV4p2AGnbR5NZJLRxNv9mh5za1gI5Xknaa86Xpim1gAiRw1wuRgy8kjE
+	C/5AMxh6XuBkreezzVlME0MJ1fijsSuVNkJoKg6z6R6VYdWZhSWLRrhBCqCzU+sC+u/FFS5lJTpj0
+	n7/dk+0dZYlcHj397Fns2A85S18oEwbrIC+vxOqkp5qh9CCHcQxyuwul2gvOieNdarxtt1yww/Eil
+	fN0/y48vUVrutW/xlvxtQm86Wo7lCIQvpa87tfCe1DLTTinASSR8AM08GetqUuUQp8tzBiF7tKHB3
+	cKOmqfCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8L0w-00000000AkC-0dqG;
-	Sun, 20 Sep 2026 17:07:42 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x8L2I-00000000At6-1gdc;
+	Sun, 20 Sep 2026 17:09:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8L0u-00000000Ajd-29Ph;
-	Sun, 20 Sep 2026 17:07:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=SRR6GWm8VvaCpKgQykY2MiSoqyYUd1GFMV1rrWkJ4JI=; b=LswdCCLGZ/fMTQ3fP37RE0xKmP
-	tWLPS26CI1aHU7OSJLo4czeq1buGrq1SP4843QH/8q7GydxdJRJ5FarpIzBqSKJ98gU2TQc0oQwGy
-	FY+BYRxWt7Lee6y7s9AFMUxX5aVGPlNmmDATqZIjBxpHEmBB2Dit1Azv1/G9/Qn+g4cQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x8L0d-006BGL-FN; Sun, 20 Sep 2026 19:07:23 +0200
-Date: Sun, 20 Sep 2026 19:07:23 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: jan.petrous@oss.nxp.com
-Cc: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
+	id 1x8L2H-00000000Asz-1ZqZ
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 17:09:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 743FB601F0;
+	Sun, 20 Sep 2026 17:09:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 570571F00893;
+	Sun, 20 Sep 2026 17:09:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789924144;
+	bh=HCdz1wdJC9OT+zficoFF7wL3rJKkBYpCcd00vySQmSE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WTt+FY3X0e3VfK5ZIxtZsFFwfHPXo+Q2G1REdEZuOMqR7YR7YExSSjvGtVrd8KfWk
+	 KUi10bPASdWNkO2100raKxwhToUCDf0j0g1SE/4B9z+BLQXmK2QohjinjJpKu3IdQx
+	 dDZj0QFRutamod5aohNmg4mBcE7biYaqDmBiIoeXm35Q586Fxo43cLQ/AehjiHQsrc
+	 XY7EXp60EqzUYHMYe7BqMUzEvR+C/lQXAX5kpFw1ZzJHi5g1s6KDIV80WI2e9EI3SB
+	 qx0emCe+hKGINnF3ejUzsnmZ9/ONOZQ9S52XFB2B/koRwLQW4jIG74enb0GItgxcbK
+	 sQTYXlFWZgcOw==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sam Protsenko <semen.protsenko@linaro.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
-	Ionut Vicovan <ionut.vicovan@nxp.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	imx@lists.linux.dev, linux-pci@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>,
-	Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-Subject: Re: [PATCH RFC v3 05/12] net: pcs: Add NXP S32G XPCS driver
-Message-ID: <c2c4dbc4-e6b4-47a0-9852-d116c6d21f89@lunn.ch>
-References: <20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com>
- <20260919-s32g_serdes-v3-5-9d68868c1e89@oss.nxp.com>
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v4 1/2] dt-bindings: sram: Document samsung,exynos850-acpm-sram
+Date: Sun, 20 Sep 2026 19:08:52 +0200
+Message-ID: <178992412363.36366.4345126158825411848.b4-ty@b4>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260914-exynos850_sram-v4-1-253871de0f61@linaro.org>
+References: <20260914-exynos850_sram-v4-1-253871de0f61@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260919-s32g_serdes-v3-5-9d68868c1e89@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_100740_554310_0B7D356B 
-X-CRM114-Status: UNSURE (   5.95  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=732; i=krzk@kernel.org; h=from:subject:message-id; bh=wOpdMdU3DF1mK2QyVbqdQ3Xb/N3uH3K53tS2Mz8dBc8=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqsBMl/GgAuARyHXtA4+qfMaSKoMGlGdUJEAnYa WJZ1S4bpiyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCarATJQAKCRDBN2bmhouD 112OD/9YYnniZyiMj2BLPJQLkMeB32hp+SuhzEWi3EgUOz4TMHKCgT6wxKoKeGH3AdQKC4AupLa iiKC1CWoHH5bk7ZVEsH7dabLaEfEqtF1+tLrQhDLKC5OtdyUcwKh9e4IfkwrcvoPg2HgLig4e8a qRmMbNH0OgU9VhIFAYSA54a1Ud0Vrg+jXdfNOpH+j89jWNKeNnUBNlflMcBI0UYPhLuSGlpnugy Xu2W1iI+X7V6xQ66h6monxJT1BnzOxaMX0ln0BYnNqzweGaIQrlmcn6pt4T/xDl21hoGkelh8JO P01qpdb3WcUXwXXqhgw4FP2sgpldWPZT25/Msvou2Qb8ez0iNgPvQvTeXdSHxt19a6FxkkIa7gE ktRA8o522xaDWA+BGTEA95yq43I+kLnRpn47u4+ysFwlPz+jYZv2cfT5IogJJA2m6WamVa0nrm2 04jdcLgn6vWQcIF/V/AZrp+2wMHVAK8wRhQ5OPk05xt8KD+iMvkhzuhibYGSLHppbG/8RAaZcih 7/QBdFxPJ91r2IuklYoNXWs2GLpCH45cCGDR1q4CiscdMb0usScYUnR0sasYF8l9OiJrMHqsnnw t6xyHgp9BHoXFVHEQo3YJKIofD3Aiv8SxQdfmqpncfvs0m/jbZPt+dPF9VOoxbYRv9/vGM7uMPi xOb5FC7SDzqNr+
+ A==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +#define SR_MII_CTRL				0x1f0000
 
-This is 0x1f0000 + MII_BMCR
+On Mon, 14 Sep 2026 17:58:44 +0100, Alexey Klimov wrote:
+> Document "samsung,exynos850-acpm-sram" which represents an SRAM region used
+> for ACPM communication on Samsung-based SoCs.
+> 
+> The SRAM is consumed as a whole, is not split up using child nodes and
+> properties related to this are not required, that is why "mmio-sram"
+> compatible can't be used for ACPM purposes because it requires child nodes
+> to be declared, which are not needed and make no sense in case of ACPM.
+> 
+> [...]
 
-> +#define   SS13					BIT(13)
+Applied, thanks!
 
-#define BMCR_SPEED100           0x2000  /* Select 100Mbps              */
+[1/2] dt-bindings: sram: Document samsung,exynos850-acpm-sram
+      https://git.kernel.org/krzk/linux/c/ca4fb89e677527e32d16c5eb779eb34bccd2b967
 
-> +#define   AN_ENABLE				BIT(12)
-
-#define BMCR_ANENABLE           0x1000  /* Enable auto negotiation     */
-
-> +#define   RESTART_AN				BIT(9)
-
-#define BMCR_ANRESTART          0x0200  /* Auto negotiation restart    */
-
-> +#define   DUPLEX_MODE				BIT(8)
-
-#define BMCR_FULLDPLX           0x0100  /* Full duplex                 */
-
-> +#define   SS6					BIT(6)
-
-#define BMCR_SPEED1000          0x0040  /* MSB of Speed (1000)         */
-
-> +#define SR_MII_STS				0x1f0001
-
-This is 0x1f0000 + MII_BMSR
-
-> +#define   LINK_STS				BIT(2)
-
-#define BMSR_LSTATUS            0x0004  /* Link status                 */
-
-Please go through all these register definitions and throw out all the
-ones which follow 801.3 and use the values from include/uapi/linux/mii.h
-
-    Andrew
-
----
-pw-bot: cr
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
