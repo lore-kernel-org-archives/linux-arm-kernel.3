@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77997C982DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F9BC982D8
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LrJiEVM95oznn+hJH8/9LEjNBqxWrIAa6YUnSAT8k8=; b=SKNlSiKov0clX2fy9jYCwDBYld
-	nbfyvjKX2yL3uocO0smeBOzK9aV/pVjZlMgcCN4fqptHjzjPRf7GhsDf8hQf4LOY6IhH0fXedtRJ9
-	arLiKeq2vGXI7r4uzLNHZP0pqI02Bi5NTacpoJAjh1ccA1hjNPW5U+XB41RQvL5Kpoih3ylgZ5VHz
-	qfkWJNYbf3oBK0Mm+MdM4R5yJsD3vYam9sX8veL8AsT3SHPeN6f1qY4iG9Y6e5HXvZJ47Q0eCmRMd
-	Un32BxniiEyhnMHJJpd2snTE+WX/ZXQ1xi02oAIC4TW3CIsr6+uOHOAsVmeODpmsJjmU+rjLyXM9I
-	Tl53l5qw==;
+	bh=2lEjcT7B6RrB8qhxzgkUJFkPdx9c1jv0+Xl7DW4HptY=; b=oMG1qPVPc6RdG9065HiLTz+EJi
+	mVEWQSNEDN5hEmPZvq/BSkpldBRPRwFPioSmDopRII4qSuLKljIVRSDpnCMbeO7ZUBK9dHAcwaGr7
+	LlCaKF0fHhBJxoz34uZdhb3HWQlWAHA5RXoO9hpk8tDj9FwYruoL5+b6mIo5BJppaWZMyOJH/kkEv
+	zd7m5kYonSSPqB+sJRUpnTBR2d1GKXUK3rkcx2DDHWI/CFJWzw/IORU7VHpjArjMivJVylqG3lZw8
+	sTfJ3X38manQLmC4FhFGT0UDaa1QkP7wUR+/7sGQm4kQGKbCU4P/irsm7k+6GOsQGP7KCsEa8Chfz
+	pYeHPTtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QLE-00000000XVl-1e70;
+	id 1x8QLE-00000000XWZ-2pyv;
 	Sun, 20 Sep 2026 22:49:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QKz-00000000XLS-2txt
+	id 1x8QL9-00000000XRk-0s6u
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 22:48:46 +0000
+	Sun, 20 Sep 2026 22:48:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73F5340379;
-	Sun, 20 Sep 2026 22:48:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF1D1F000FF;
-	Sun, 20 Sep 2026 22:48:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 26483601F7;
+	Sun, 20 Sep 2026 22:48:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146BB1F00898;
+	Sun, 20 Sep 2026 22:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789944525;
-	bh=7LrJiEVM95oznn+hJH8/9LEjNBqxWrIAa6YUnSAT8k8=;
+	s=k20260515; t=1789944533;
+	bh=2lEjcT7B6RrB8qhxzgkUJFkPdx9c1jv0+Xl7DW4HptY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=bP3gQLnaIwo225Tg6gJB7a19mojGt4JpefiHDwZy5LPdCKWkhR4DZ6iQraCx45IJc
-	 Mk5ODpyNUXSgpf94D12KnQ6ekTm+hPdp722+5vgpK0kt9qvIFz0Y0EHGNuNCi/DxQM
-	 rDcyDTqK4ztRUrEh2gsi20HniBjKpJiqi1kAesQJbynW+UKWo1p5xkVyc6JrvBn2xJ
-	 t71P1n3RIQH03UtOicaG5HoGMifY3FyegznEXTsebIN5u9h99CrcZY6syA0InDviV5
-	 tcDR15GD2Xk9B7x7CuVwvqU+SrUhJOAMPOaEOymZtQ+fwSXMLknolh3TPdNdo3cFrb
-	 I8CkkHOm0HdeQ==
+	b=kqT6NJk6jifwbEvaz3n1mfwmMn2iP5ohN3vlpa/NC/9YL9/HGRGojrHjKRFOyJqly
+	 ihdQVg6YTdzTVNquR5Jaz+jB6SLQhIM4Uu4Bw8Zj4Ybm3ud7CboriCBVqj1CdRg9f4
+	 +exucgWF9gQ1C5S/7j4VAII+vBFVSXWsSSjaxGrlVanCujs554D93pNNRNW0W7Ne2p
+	 H/2A4ECDXsET/zwnSehUwN0xkyHRJ5bxp9ZjXkhU4r60Kz2ef4PA+yqqOwLakLPhHg
+	 WLJsPcqRfwQ6PEquUOwUVRCHHF3k1EC18I72AP5fOg6XaskXk1zpRWMNdHGmQEthjz
+	 B9tlP5I2YkBkQ==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 21 Sep 2026 00:48:13 +0200
-Subject: [PATCH v3 07/18] ARM: dts: ux500: Rename power domains node
+Date: Mon, 21 Sep 2026 00:48:15 +0200
+Subject: [PATCH v3 09/18] dt-bindings: timer: arm,twd-timer: Allow power
+ domains
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-ux500-power-domains-v7-1-v3-7-9352be6b86b1@kernel.org>
+Message-Id: <20260921-ux500-power-domains-v7-1-v3-9-9352be6b86b1@kernel.org>
 References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 In-Reply-To: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -77,28 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This matches the naming used in the binding document
-Documentation/devicetree/bindings/power/power-domain.yaml
-It's most logical to call it a power controller.
+Allow TWD timer nodes to reference their power domain.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- arch/arm/boot/dts/st/ste-dbx5x0.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/timer/arm,twd-timer.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-index 25a20fafc6b9..11fcae1904e2 100644
---- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-+++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-@@ -343,7 +343,7 @@ pmu {
- 			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+diff --git a/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml b/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml
+index eb1127352c7b..716d5f2d4eac 100644
+--- a/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml
++++ b/Documentation/devicetree/bindings/timer/arm,twd-timer.yaml
+@@ -33,6 +33,9 @@ properties:
+   clocks:
+     maxItems: 1
  
--		pm_domains: pm_domains0 {
-+		pm_domains: power-controller {
- 			compatible = "stericsson,ux500-pm-domains";
- 			#power-domain-cells = <1>;
- 		};
++  power-domains:
++    maxItems: 1
++
+   always-on:
+     description:
+       If present, the timer is powered through an always-on power domain,
 
 -- 
 2.55.0
