@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE393C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 21:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AD8C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 21:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5GVVx1LqA6B1jJlZmV64iP6HqsdwAzR/vY4RLJ8HlJI=; b=txaC1TKeFjVwIXJ2pDJA3ZmkjF
-	CsUeNU2yKozrVtTIQhbKJgnEV8Z5WD9LtbjRnUE7GevPNd0Ujs3na/G+6EIawYGMRC65l5rtbviw3
-	bV6gwJGDbFnehN2x4mRimxOsEaRa6fLoOTCcoNJj3GmWIQkU5eKmiyKPMH4AhPPjeFFGl0vL+x4ui
-	3hLUjC3v0+nAm0lkO6CDN1R3EtXU9GhXeIUyq/4frk+msSYm+qCKXhit8XIYuomBWmltoJFNo2bt4
-	5V14030gSuFbxGEGvKVOhcOlZ9RJtLsG4+pRwdZXX4DBcR2OrfQdMEIa4aLUp7XA+1w54WTdjYJMR
-	+66NkVag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dNN8eipdLX6K7kQkCh1wCd5ubolRJmwOq01XK22sELg=; b=G1rjCCTxR+q3nZOApTSjfGJIJf
+	rNRf3+vs6dtKqXb7PforcMp8yt6/7SEzJ4nVKX0VVMPI/oKlcgJiXp+F+svINBETR8/Sx/91Xiiac
+	XI+Px/zsCoho/2899Nh8SGJbvxAE24NCBUrSZqA/iZa8sHC+NHFjvr4cl0yKNlcN5P7+tmeG4dold
+	IZHBkapiSLFWM3tpic0cQYZqyOPYHNIB4xSNxr8zfE+m3rZO0NCrMCKIDg4WCPg1HJ2wmo8hVGIKl
+	OANlA5JS4VP3byZt52eEGZkZaSKfqBE21w530BzHozyN3fznTaB281V7gs7NZbQ7BiSY4BDjnu9c6
+	sOkOZtZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8OrM-00000000R3L-3btI;
-	Sun, 20 Sep 2026 21:14:04 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x8OrT-00000000R4j-0EQf;
+	Sun, 20 Sep 2026 21:14:11 +0000
+Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8OrJ-00000000R2f-2YnM
+	id 1x8OrL-00000000R31-2Ze0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 21:14:02 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-398beb616f5so1005419a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 14:14:00 -0700 (PDT)
+	Sun, 20 Sep 2026 21:14:04 +0000
+Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccb1a990so2079475a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 14:14:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789938840; x=1790543640; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5GVVx1LqA6B1jJlZmV64iP6HqsdwAzR/vY4RLJ8HlJI=;
-        b=OFnkIbreEGsOrE5mAXwgOCwinC2YhKOIcSYS85lffbGVKjhmJ9VQGwdbDVjGlPQ4T8
-         WnXkfseEyU+0ZsUPtORW+0YVhPfre3PXTqCeQ8bsyNmPVoTYlTTRVIz8WAGEjxDUIS6t
-         NIzKNHIkRyiRFxzzxE7w/hn00x954kL4JnF8iVbWI2H5Qe0XbXv4EjbarLa4T8b15hYo
-         NOXeOZyLottvzpp/hOdHhe9TLcXtsE7YlUnXD7DsvL+bodjRvXKzmddaG5s7zq1zYkLi
-         Hos6w2fYK1skRoATiXj7MPBw9aPFRB9PtF2lXhhahgmN4lQ68UIhPWM7ku8aVqgIY4Vd
-         U8Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789938840; x=1790543640;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1789938843; x=1790543643; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5GVVx1LqA6B1jJlZmV64iP6HqsdwAzR/vY4RLJ8HlJI=;
-        b=HcmrGuKgHEvuLIbVWo5rNzJ7SnaSeBb3kj7btvBIFqoSNuD2yn51b9nUCImsyweDTf
-         BHvfVpo3JF1rH8vmwT5ML4qGhUnUCR1AZ76ZWGf22k3fas6mgE3sNJhI7MIO8/ZNZfyI
-         dvNCwrYlGg3EV8aiQVI0H7KeCbOwC7loSnyF3wuaNEhGVoJzUJxs6n0aT8+eUdxi4yMD
-         jRNIdfc++JkhRjcR/f/Pz00b4k2/ySp3tqQ7dtO9gjbmS9tviTEPVKfwwdc51bJH5XlA
-         aPbPcGei16k2uP8N2/dHWABnlZvvu9xnhl4KzGsKgcWTt5Tzk4LHAYW/jrl2J6+JH6DX
-         b0vQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzt3vMt6dxi65KuB3eLmF45Ym2vTsOb+L9HadlkpwRRXqQyjpYg/h+AdeIdvsjoo2IhO9/VhdzGE8TcN5nu0Q/P@lists.infradead.org
-X-Gm-Message-State: AFuF++luAZX6rCmFIZurQHeltJ+QssR1k2jskpQtL5ki77N0CPm9GOK9
-	RgeO+zCz3aOdwC8m6cw09qKbuQAj3PQ2SD2j1sfoa0rt5DoyLFi6iOI6
-X-Gm-Gg: AYBFou34D6uYMc/XfVH6H7Odr9uACeW9CwbLN4p1ubQ7/W2xqLUy8IrAC1XibpOLT2V
-	rOEPaeyUhg+cDfhbQsYQmpiId1EJ4cNdl6Er2gFcuE9gi1Bk7S44XygdK/31TEhnRLqHSOYnfkk
-	Zrh2V4BivpmbKvfiu6XLCoWjJsjQF0B+iHtbpG1H/FMY+6DQiqDYIHeX4mQAdlQW0JW6UEtzqdv
-	tMftdKIP1FeujkA5Qi5kDK0sMhN/wxRexCPd75lXtG2YiVY/iEhtx53pejlVYBRz7HTPw6stQwK
-	fDOT+bB7GUuYZT2Ih9Ia/JmRtM/g0M+oR5ON/RBAPxjwnRKh5waJ9bgcokCQ1wGHKDXuUTlZv5o
-	bk4vDY+SaOjXUdhZBYnNT2J9eqATgn2M6mDDM9jOw28hI+nPQEj3kn6b0p3nP8igPCY6WfPXzmA
-	5ZfNy/MW0XKz3FsHNOwbtmvL3yl+hPN7NtwVKua2rowKTXk2LyAUyLzEWVKtchhi+YiGjdC5+4S
-	IrlI5kO46+6C3PQb+Z71GmYv+/SxUUQtUzqQyXa6tdi7QnzEsrpfYbTohaSe0bKmpf/WUCH0lJn
-	2pkeA+j+Lnyr2t4p7x2hGjJv+rQohN7iijxAg9l5OYZnplPGwpG2bwwKhZk=
-X-Received: by 2002:a17:90b:3a43:b0:39e:6c68:fd91 with SMTP id 98e67ed59e1d1-39e6c68fec5mr4752048a91.38.1789938839949;
-        Sun, 20 Sep 2026 14:13:59 -0700 (PDT)
+        bh=dNN8eipdLX6K7kQkCh1wCd5ubolRJmwOq01XK22sELg=;
+        b=mae652JiBDI3y3zs6RWYEJATEpJEB0CjiTtUnmNI6I3TBlbKxQIkNuxo60LRLozG5P
+         mIi8uIi23NwC9hkt1/jJMJcZYoWu/KeMtIa6qA4JjaDdq4QvEILSyrFgcvFoiKU4judF
+         LxYDmsor/TXdZnqJI+d7xebhvm4HU2NEZqBt4l67sEHJQTQaORA3j5uUCnbFQeJWhSbt
+         syrQNhLNn6HVv///3bipJ0hLaN1MLXS/B7uukmX7u3PH0ei6udEAZ4Lrf/+QGTxZ3Win
+         rREuTo1uw8/No6cIwQSY13mFDOPjTPXez5TQvEGfoRtTwbnCMIgo91Y2M3/c0V5CMXkS
+         RNzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789938843; x=1790543643;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dNN8eipdLX6K7kQkCh1wCd5ubolRJmwOq01XK22sELg=;
+        b=Q7AS8w89xvAnVsY4IghCNzW0SPXj5BGW18a5ufTjDnmt3Mw0RNaUnNR6Ax/RC9w7/F
+         cLqnUvLk78xbqLKVuD9Ytw/Ia9NskGb4sweYNhMNtd8zo/FG+7//aCRCFa3p8FJdkvhP
+         8YOreSB6PrdmNTRmle1Crf+vudm0QtuDTKSSZQjtBiHqAEp7GQlCARLRTc4n0Za5KjKO
+         JcIr2cmHPpNaOPBXfpN8XZhXwXNrSR8y9vilFYs+Vm1LJ4QbOvB3BRcgPDCvX+Nlvi2B
+         GPY3QjsAukCATrT2+PcF+rk3ozP0OTLSxXjYQvadAoHAkYjVS0b3RucgZTiO8DsF1pH+
+         v1uw==
+X-Forwarded-Encrypted: i=1; AKwUvBws37aTS0bzamYP5tF5f6CFRlrFk0haSapTxuyf5/zM8W/rCW+7UUZpBKcogMy1yHAlVnB7EkgRhcmIw/h7y2f5@lists.infradead.org
+X-Gm-Message-State: AFuF++nuCBY+AwqKkJz+dWI3PaNOGzeWCuSmgF+yLD61X3clcJbEzhCj
+	MgPYzm8NP+32MxzkoN1MQGVIPJbTcYR2iPVBJdG/qByggMLaE71YMHFe
+X-Gm-Gg: AYBFou13UtHYSWWYowj89WyQ/a3xBjsph0CRu9+8SFbsGJc8it1iHjNgrZato+fQZsY
+	U+wSVlTGkNtcTtSLvDHmfpsyHkh30hLlJcEfZ5BVc325ya63Vbf5id8sgfzPBkDkxVnZ3L8D8ta
+	Sy7Q0VB7Xs+H/TcdA32q63DNT+l2TpMww9s3trkVc8KYSEsaugTXmudxIdWf1QJbOTt+LqXyvmO
+	Y7alvhzlWvGPhO+ummDYzoxuC5/Tkf8KZ64M+jR4+4yj9oecYvWSyXxd2S97oo5L4VGVyoxCxgY
+	93+e6oMGCjj5GEOpcJOKG1rJkwyJbiSDLRsBOKr5lmM/YvR05ZbQ/eHATQGL4+A3R1KVaRUcilT
+	EgjVclTye/8+jfUhOuDtXkrK9383lCKvts6IZ3SNMF2dy/jtsBHM6xC7Lqe1PUz/oP0JyvjEJ9t
+	elaekMbg3eri7lsD9dsqsSaAFr7F0s+TNwe3VAwE+Td2pd0ddHb0zKqM7DQT52o9eSyH18TuIqj
+	b1evbS1GeA5CPWFttUkDWWJNbQ7S7rLuV+tVQA4+bKS+Td05PPr4F4NBZXyyD6WV5LAIjb7SvEl
+	/qQf0QnD3n9jMEGvBXb2mPQBXLp2Pxsz67RF6sCuM6MXw1wb
+X-Received: by 2002:a17:90a:d40e:b0:39e:6c6a:656f with SMTP id 98e67ed59e1d1-39e6c6a6787mr7048137a91.50.1789938842656;
+        Sun, 20 Sep 2026 14:14:02 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e6c3145dasm10609743a91.4.2026.09.20.14.13.57
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39e6c3145dasm10609743a91.4.2026.09.20.14.14.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 14:13:59 -0700 (PDT)
+        Sun, 20 Sep 2026 14:14:02 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -85,16 +86,17 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list),
 	linux-usb@vger.kernel.org (open list:USB SUBSYSTEM)
-Subject: [PATCH 0/2] usb: bcma: control VBUS via a regulator
-Date: Sun, 20 Sep 2026 14:13:54 -0700
-Message-ID: <20260920211356.186967-1-rosenp@gmail.com>
+Subject: [PATCH 1/2] usb: bcma: control VBUS via a regulator instead of a GPIO
+Date: Sun, 20 Sep 2026 14:13:55 -0700
+Message-ID: <20260920211356.186967-2-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260920211356.186967-1-rosenp@gmail.com>
+References: <20260920211356.186967-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_141401_674336_B37F73E7 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260920_141403_654722_FB5D8DF4 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +111,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bcma-hcd currently drives the USB power line by grabbing the
-undocumented "vcc-gpio" property from the controller node and poking
-it through gpiolib. Besides relying on a non-standard binding, this
-cannot work on boards such as the NETGEAR R7000 and R8000 where one
-chipcommon GPIO powers both the USB2 and USB3 cores: the two
-controllers each request that GPIO exclusively, so the second one
-fails with -EBUSY and its port stays dead.
+bcma-hcd drives the USB power line by grabbing the undocumented
+"vcc-gpio" from the controller node and poking it through gpiolib.
+Besides relying on a non-standard binding, this cannot work on boards
+such as the NETGEAR R7000 and R8000 where one chipcommon GPIO powers
+both the USB2 and USB3 cores: the two controllers each request that
+GPIO exclusively, so the second one fails with -EBUSY and its port
+stays dead.
 
-Instead, switch the driver to the standard regulator interface and
-express the power rails as regulator-fixed nodes bound to the
-chipcommon GPIOs. The regulator core reference-counts enable/disable
-requests, letting both controllers share one GPIO without conflicts.
+Use the standard regulator interface instead. Each core obtains its
+(shared) VBUS supply through devm_regulator_get_optional() and the
+regulator core reference-counts the enable/disable requests, allowing
+both controllers to drive one GPIO without conflicts.
 
-Rosen Penev (2):
-  usb: bcma: control VBUS via a regulator instead of a GPIO
-  ARM: dts: broadcom: model USB VBUS power with regulator-fixed
+Assisted-by: LLM
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/usb/host/bcma-hcd.c | 45 +++++++++++++++++++++++++------------
+ 1 file changed, 31 insertions(+), 14 deletions(-)
 
- .../broadcom/bcm4708-buffalo-wxr-1750dhp.dts  | 14 +++++-
- .../bcm4708-buffalo-wzr-1166dhp-common.dtsi   | 25 ++++++++++-
- .../broadcom/bcm4708-buffalo-wzr-1750dhp.dts  | 25 ++++++++++-
- .../broadcom/bcm4708-linksys-ea6300-v1.dts    | 14 +++++-
- .../broadcom/bcm4708-linksys-ea6500-v2.dts    | 14 +++++-
- .../dts/broadcom/bcm4708-netgear-r6250.dts    | 14 +++++-
- .../dts/broadcom/bcm4708-netgear-r6300-v2.dts | 14 +++++-
- .../dts/broadcom/bcm47081-luxul-xwr-1200.dts  | 14 +++++-
- .../broadcom/bcm47081-tplink-archer-c5-v2.dts | 14 +++++-
- .../dts/broadcom/bcm4709-asus-rt-ac3200.dts   | 14 +++++-
- .../broadcom/bcm4709-buffalo-wxr-1900dhp.dts  | 14 +++++-
- .../dts/broadcom/bcm4709-linksys-ea9200.dts   | 26 ++++++++++-
- .../dts/broadcom/bcm4709-netgear-r7000.dts    | 16 ++++++-
- .../dts/broadcom/bcm4709-netgear-r8000.dts    | 16 ++++++-
- .../broadcom/bcm4709-tplink-archer-c9-v1.dts  | 26 ++++++++++-
- .../dts/broadcom/bcm47094-asus-rt-ac3100.dtsi | 14 +++++-
- .../dts/broadcom/bcm47094-asus-rt-ac5300.dts  | 14 +++++-
- .../dts/broadcom/bcm47094-dlink-dir-885l.dts  | 14 +++++-
- .../dts/broadcom/bcm47094-dlink-dir-890l.dts  | 26 ++++++++++-
- .../broadcom/bcm47094-linksys-panamera.dts    | 26 ++++++++++-
- .../dts/broadcom/bcm47094-luxul-abr-4500.dts  | 14 +++++-
- .../dts/broadcom/bcm47094-luxul-xbr-4500.dts  | 14 +++++-
- .../dts/broadcom/bcm47094-luxul-xwr-3100.dts  | 14 +++++-
- .../broadcom/bcm47094-luxul-xwr-3150-v1.dts   | 14 +++++-
- .../arm/boot/dts/broadcom/bcm947189acdbmr.dts | 14 +++++-
- drivers/usb/host/bcma-hcd.c                   | 45 +++++++++++++------
- 26 files changed, 422 insertions(+), 47 deletions(-)
-
+diff --git a/drivers/usb/host/bcma-hcd.c b/drivers/usb/host/bcma-hcd.c
+index 519386255886..394ba9e5a7f7 100644
+--- a/drivers/usb/host/bcma-hcd.c
++++ b/drivers/usb/host/bcma-hcd.c
+@@ -20,12 +20,12 @@
+  */
+ #include <linux/bcma/bcma.h>
+ #include <linux/delay.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/platform_device.h>
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/of.h>
+ #include <linux/of_platform.h>
++#include <linux/regulator/consumer.h>
+ #include <linux/usb/ehci_pdriver.h>
+ #include <linux/usb/ohci_pdriver.h>
+ 
+@@ -40,7 +40,7 @@ struct bcma_hcd_device {
+ 	struct bcma_device *core;
+ 	struct platform_device *ehci_dev;
+ 	struct platform_device *ohci_dev;
+-	struct gpio_desc *gpio_desc;
++	struct regulator *regulator;
+ };
+ 
+ /* Wait for bitmask in a register to get set or cleared.
+@@ -280,14 +280,20 @@ static int bcma_hcd_usb20_ns_init(struct bcma_hcd_device *bcma_hcd)
+ 	return 0;
+ }
+ 
+-static void bcma_hci_platform_power_gpio(struct bcma_device *dev, bool val)
++static int bcma_hci_platform_power(struct bcma_device *dev, bool on)
+ {
+ 	struct bcma_hcd_device *usb_dev = bcma_get_drvdata(dev);
++	int err;
++
++	if (!usb_dev->regulator)
++		return 0;
+ 
+-	if (!usb_dev->gpio_desc)
+-		return;
++	if (on)
++		err = regulator_enable(usb_dev->regulator);
++	else
++		err = regulator_disable(usb_dev->regulator);
+ 
+-	gpiod_set_value(usb_dev->gpio_desc, val);
++	return err;
+ }
+ 
+ static const struct usb_ehci_pdata ehci_pdata = {
+@@ -405,11 +411,14 @@ static int bcma_hcd_probe(struct bcma_device *core)
+ 		return -ENOMEM;
+ 	usb_dev->core = core;
+ 
+-	usb_dev->gpio_desc = devm_gpiod_get_optional(&core->dev, "vcc",
+-						     GPIOD_OUT_HIGH);
+-	if (IS_ERR(usb_dev->gpio_desc))
+-		return dev_err_probe(&core->dev, PTR_ERR(usb_dev->gpio_desc),
+-				     "error obtaining VCC GPIO");
++	usb_dev->regulator = devm_regulator_get_optional(&core->dev, "vbus");
++	if (IS_ERR(usb_dev->regulator)) {
++		return PTR_ERR(usb_dev->regulator);
++
++	err = regulator_enable(usb_dev->regulator);
++	if (err)
++		return dev_err_probe(&core->dev, err,
++				     "error enabling VCC regulator");
+ 
+ 	switch (core->id.id) {
+ 	case BCMA_CORE_USB20_HOST:
+@@ -452,7 +461,7 @@ static void bcma_hcd_remove(struct bcma_device *dev)
+ 
+ static void bcma_hcd_shutdown(struct bcma_device *dev)
+ {
+-	bcma_hci_platform_power_gpio(dev, false);
++	bcma_hci_platform_power(dev, false);
+ 	bcma_core_disable(dev, 0);
+ }
+ 
+@@ -460,7 +469,11 @@ static void bcma_hcd_shutdown(struct bcma_device *dev)
+ 
+ static int bcma_hcd_suspend(struct bcma_device *dev)
+ {
+-	bcma_hci_platform_power_gpio(dev, false);
++	int err;
++
++	err = bcma_hci_platform_power(dev, false);
++	if (err)
++		return err;
+ 	bcma_core_disable(dev, 0);
+ 
+ 	return 0;
+@@ -468,7 +481,11 @@ static int bcma_hcd_suspend(struct bcma_device *dev)
+ 
+ static int bcma_hcd_resume(struct bcma_device *dev)
+ {
+-	bcma_hci_platform_power_gpio(dev, true);
++	int err;
++
++	err = bcma_hci_platform_power(dev, true);
++	if (err)
++		return err;
+ 	bcma_core_enable(dev, 0);
+ 
+ 	return 0;
 -- 
 2.55.0
 
