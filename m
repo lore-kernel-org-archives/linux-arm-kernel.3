@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787FBC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67478C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 12:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpstWXsEGNxvTAnG53+JLBqVzfY5FoROk7Pvi0Mk+sY=; b=fZN83Dg0LIG2a8Saf+PyEsoyBK
-	SoPswV3GE6SaK7HaMGspULLNiqWv7+/dGJvlsqxrmlfEx6KHtPl38SEyHu/rrgRQLTrrptcPT7Wmd
-	042PrvDJXh9INjWp0FW1VSyGDaD0KyzXzz+7fL4pRsq6L4knEEHf3pCKoScdQKQ4/D3BLqzyHRVkV
-	G/4JIQ4VN4yYXrD6ntknnfozZaBBVG0b6nuJiwjjr2psd2TA+6jy1avQgfu712XzeW+P6VHP7r48i
-	dUduLuAOH6sbJcIixEUyGmTjtVVyEFPVQyGezOBIT1Sk+obeRXI5tqK8kH5qj+pwGaBNXeIoW4Cmk
-	lWg3//iQ==;
+	bh=a4q4eE1hSPqoFF9hVD5Vo9NtpihGBtcqgrIHYR9lIyM=; b=KjtSMIFzigzeaR5s70xy9FYPPG
+	zr/36a2WzOJH7QNi55DYMWROOr8wAscGr/hTlyI47s7UkozaYPo41cxuhZn3ZvcOX/gJsfIHt0B4B
+	cCCI4Y0ZOEQxXm2TyY6i55sRumMFxmEhHVHM4vkzpKdNFr6ShRu4ivrI7aKiV3tzQqbr9tepoWJuV
+	sAdQXaG1OACk9Up0eIWIFwl0iBbWju9UCzWi4CEO/1nVktywRgVVJ71zsBuiok3bNmNZv8JSg23ZQ
+	Q7riNJVZurJVMZnaqJ422x+yuk3EOSanZMRINjbqodwEuCC7ZUlMpHcH59YL0lMPYdP81Mc/IXKbF
+	Q7tMP8pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FY3-0000000HKEm-3DXb;
-	Sun, 20 Sep 2026 11:17:31 +0000
+	id 1x8FY2-0000000HKCF-4Akq;
+	Sun, 20 Sep 2026 11:17:30 +0000
 Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FXr-0000000HK69-2p4h
+	id 1x8FXp-0000000HK4S-1i5Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 11:17:22 +0000
+	Sun, 20 Sep 2026 11:17:20 +0000
 Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
 	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36R088236
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36e088236
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sun, 20 Sep 2026 20:16:09 +0900 (JST)
+	Sun, 20 Sep 2026 20:16:16 +0900 (JST)
 	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=CpstWXsEGNxvTAnG53+JLBqVzfY5FoROk7Pvi0Mk+sY=;
+DKIM-Signature: a=rsa-sha256; bh=a4q4eE1hSPqoFF9hVD5Vo9NtpihGBtcqgrIHYR9lIyM=;
         c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
         h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789902970; v=1;
-        b=swLXvuxCmaz8hB04AEW2oFrcON647nR1UZTKe4ffJumEjp8MwV04mAcw7Tszh5kk
-         rIR4jQq2ERwzr3gHkpCW8a4XMpn/b0O/7or2OjHupmFhUHQaG04SlEx2aKcTQv+C
-         eBnAvwCtAlI881VIIebctlKfQPILNl6dRbCuPMELx0Wdu1AAZR9wO+naO366C7BT
-         I1eWgTPvMegh3THZvdq7orqHnUt/MeP8ZDF65Vfuh5ZRMVTQiATHXOFH25lvHuEF
-         1j7sxL2da5EF+ei3qtnc3hq8y54tJzMEEdLcZUk4gvaPgCFpSNyxGEMThPCWESMK
-         6qaXH5Qy00xhxk8BOH7kpg==
+        s=rs20250326; t=1789902976; v=1;
+        b=ZYMoxdrqvxa0H67UyJl08C4EYujvBJAPsqb4qoc0GJYpSBcjN0XNrbeTwSiF8IQi
+         QUlq614nwQGEyVFyPP7v85/9Xewx40o7/xvUwy86Dpao+E3Z/iCWV8hA11vHIkQk
+         lmsd5AZjV+7elTYCxK8LG9oZmGlfGEbYE3Quc8vj3W6mz/d95edaL4Gv2pNN8aCP
+         E00t1ZadUUpxiM1/VFVXVHjRJwx/UA883I26GpeWVymz7J+9T5IFaennv46diynz
+         LkxK8gvZ0j/N1cyaeG+vkly+FHbGViB9O12Lg3RCXDDAuGIxpvaNf/4kdOVmekvP
+         PK11yHHENYq0p0yNrz0Inw==
 From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sun, 20 Sep 2026 20:15:45 +0900
-Subject: [PATCH v11 04/21] KVM: arm64: selftests: Test SET_NR_COUNTERS
- after first run
+Date: Sun, 20 Sep 2026 20:15:58 +0900
+Subject: [PATCH v11 17/21] KVM: arm64: PMU: Pass the pPMU to
+ kvm_map_pmu_event()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hybrid-v11-4-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+Message-Id: <20260920-hybrid-v11-17-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -77,18 +77,18 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
         linux-kselftest@vger.kernel.org,
         Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3449;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1503;
  i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=7qyZ3yw8xwXvroToHAs5qx3zfIpA0akFceWmVOkFa8E=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A2lXr+g7PReYfHOn6usjIZ/dmvRe1F09wP3FpOeE3
- 9l5R7lcOkpZGMS4GGTFFFlSinZza0TXfipMiG+BmcPKBDKEgYtTACYSvpzhv9tLz/1h7+6p8CiL
- MO7inyL9vfzY2p8dzsLpJ7sF2R5VXWb4K/w1d+XRP88/m8rJORQ/Y9YuEbTuLtA7O/fsp/8KXS6
- u3AA=
+ bh=tjUetPIPNmPZFFuAWauSmYCWvYFAQD9PAEnjIoNhXmI=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6AwXes2TvOOQlfXAp67j90Hn6vgWPLX9XJpnNXK76U
+ Onc/wXpHaUsDGJcDLJiiiwpRbu5NaJrPxUmxLfAzGFlAhnCwMUpABPhNGb479qtMdn29rq43vdb
+ Ns7KiX31Y/vU/GAdw4PnOM1Tzu8PPcbwTyd0bdMahl4Hv08LXN0jYr7lCXs8XOe2527Y9DfaXkz
+ PeAE=
 X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
  fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_041719_957425_D853917C 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260920_041717_670102_A4B87401 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,112 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a regression test that runs one vCPU and then tries to change the
-VM-scoped PMU counter count through an idle sibling. Verify that
-SET_NR_COUNTERS fails with EBUSY once any vCPU has run.
+Replace the VM argument with the pPMU used for event creation. The
+current caller still passes the VM's default pPMU, but this removes the
+implicit lookup from kvm_map_pmu_event() so later changes can map events
+against the pPMU selected for an individual vCPU.
 
-Assisted-by: Codex:gpt-5.6-sol
 Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- .../selftests/kvm/arm64/vpmu_counter_access.c      | 47 ++++++++++++++++++++--
- 1 file changed, 43 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/pmu-emul.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 22223395969e..05135bcdb462 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -443,11 +443,10 @@ static void destroy_vpmu_vm(void)
- 	kvm_vm_free(vpmu_vm.vm);
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 335d712cc9c5..72b042e5c360 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -696,10 +696,8 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
+ 	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
  }
  
--static void run_vcpu(struct kvm_vcpu *vcpu, u64 pmcr_n)
-+static void run_vcpu(struct kvm_vcpu *vcpu)
+-static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
++static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
  {
- 	struct ucall uc;
- 
--	vcpu_args_set(vcpu, 1, pmcr_n);
- 	vcpu_run(vcpu);
- 	switch (get_ucall(vcpu, &uc)) {
- 	case UCALL_ABORT:
-@@ -461,6 +460,11 @@ static void run_vcpu(struct kvm_vcpu *vcpu, u64 pmcr_n)
- 	}
- }
- 
-+static void guest_code_done(void)
-+{
-+	GUEST_DONE();
-+}
-+
- static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool expect_fail)
- {
- 	struct kvm_vcpu *vcpu;
-@@ -503,7 +507,8 @@ static void run_access_test(u64 pmcr_n)
- 	/* Save the initial sp to restore them later to run the guest again */
- 	sp = vcpu_get_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SP_EL1));
- 
--	run_vcpu(vcpu, pmcr_n);
-+	vcpu_args_set(vcpu, 1, pmcr_n);
-+	run_vcpu(vcpu);
- 
+-	struct arm_pmu *pmu = kvm->arch.arm_pmu;
+-
  	/*
- 	 * Reset and re-initialize the vCPU, and run the guest code again to
-@@ -516,7 +521,8 @@ static void run_access_test(u64 pmcr_n)
- 	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SP_EL1), sp);
- 	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pc), (u64)guest_code);
+ 	 * The CPU PMU likely isn't PMUv3; let the driver provide a mapping
+ 	 * for the guest's PMUv3 event ID.
+@@ -751,7 +749,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+ 	 * Don't create an event if we're running on hardware that requires
+ 	 * PMUv3 event translation and we couldn't find a valid mapping.
+ 	 */
+-	eventsel = kvm_map_pmu_event(vcpu->kvm, eventsel);
++	eventsel = kvm_map_pmu_event(vcpu->kvm->arch.arm_pmu, eventsel);
+ 	if (eventsel < 0)
+ 		return;
  
--	run_vcpu(vcpu, pmcr_n);
-+	vcpu_args_set(vcpu, 1, pmcr_n);
-+	run_vcpu(vcpu);
- 
- 	destroy_vpmu_vm();
- }
-@@ -622,6 +628,37 @@ static bool kvm_supports_nr_counters_attr(void)
- 	return supported;
- }
- 
-+static void test_set_nr_counters_after_vcpu_run(void)
-+{
-+	struct kvm_vcpu *running_vcpu, *stopped_vcpu;
-+	unsigned int nr_counters = 0;
-+	struct kvm_vcpu_init init;
-+	struct kvm_vm *vm;
-+	int ret;
-+	u64 irq = 23;
-+
-+	vm = vm_create(2);
-+	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
-+	init.features[0] |= BIT(KVM_ARM_VCPU_PMU_V3);
-+	running_vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code_done);
-+	stopped_vcpu = aarch64_vcpu_add(vm, 1, &init, guest_code_done);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	vcpu_device_attr_set(running_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
-+	vcpu_device_attr_set(running_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+			     KVM_ARM_VCPU_PMU_V3_INIT, NULL);
-+	run_vcpu(running_vcpu);
-+
-+	ret = __vcpu_device_attr_set(stopped_vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS,
-+				     &nr_counters);
-+	TEST_ASSERT(ret == -1 && errno == EBUSY,
-+		    KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-+
-+	kvm_vm_free(vm);
-+}
-+
- int main(void)
- {
- 	u64 i, pmcr_n;
-@@ -630,6 +667,8 @@ int main(void)
- 	TEST_REQUIRE(kvm_supports_vgic_v3());
- 	TEST_REQUIRE(kvm_supports_nr_counters_attr());
- 
-+	test_set_nr_counters_after_vcpu_run();
-+
- 	pmcr_n = get_pmcr_n_limit();
- 	for (i = 0; i <= pmcr_n; i++) {
- 		run_access_test(i);
 
 -- 
 2.55.0
