@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C484C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593EEC982CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+PFA3o7u4LP9UbfBorEmDqajAgXqdamQ9sCfBZKl9Y=; b=XNfETR+bQABk1f2hCWtXi4sX2p
-	NOJnL24M+rQf3zw7QyUN9kv7d6p0J50OYbXdb42PHajn0S9OIF8HKmXr3l3kbuHEsguDMizbWNn0g
-	m562blH4pSZ55hZe2jzxxb7aeDoqRrhw1q3IzWC25qbaVW0bgqEkE3IzYP+TPi5Qu610bXBeegmSe
-	UiRv+7+DoUqPBAcd3ffJ+SVEL8QDe+O6gDCIjXWgqFdrcRTSSAMxf+zp+LE/feGaJmEwIopaQWFrD
-	V68YY95OXBSLO1yHQgCDExQtlFxRGtxM4nqe+SY09XOtGDZzpK6+PiFFmoVrDRWsPCVBTWqkdhoDO
-	gvm111IA==;
+	bh=HCwBqZ3Z1Ko+FK+TWDpxFERf1nGdWl32MbXodX0yeFc=; b=fPK+LD1n6SUzXvO6wtPglaSnlP
+	a/mAr6eiPy1R1tuiAiajQLI5neB75Ayk7l5zgGq1RAN3KDcX2Yio6OoJEJiokEbiAkIP8uQvl7jwZ
+	W9ZXU6cMknMT0dbUbMHU0gKP/0U/29cHMgBrFmAnJtjhI/BKf/dWL8x705ayAU7IAq31uhgWWieJj
+	uirWPibnRMZToxhixqQLa+9mtbeLFPxNLBAUysjYfAk0R6wSUvzHLEikxUMHt0+FP5zywBClC0JOi
+	aog2/ClcMuRPRVmln5hs+UFMZrig1+oXFqyNkGyn3C4T+WmQEstrL8SupLc1IROfixgxyYjHxP1nM
+	9StrfajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Djo-0000000HA3I-1X6Q;
-	Sun, 20 Sep 2026 09:21:32 +0000
+	id 1x8DkK-0000000HAWi-30UG;
+	Sun, 20 Sep 2026 09:22:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8Dk6-0000000HAM4-18NE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sun, 20 Sep 2026 09:21:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=HCwBqZ3Z1Ko+FK+TWDpxFERf1nGdWl32MbXodX0yeFc=; b=CzUxvreECMLcdpuaQ3TxrbCugs
+	qTHufpcsI843NJRy2q8rYTaayZBzxuHNf8FIlwGiVhR5J1xMq5kDAyZAjTXO5jZ3pCEERHFIyr9qT
+	ALbRzsEm4PUZ8cV7reh/kr7yTid1MBlN0xynIiNxmxV7LX8kKzVV9CKnFNJ+oMC19+r3lT1s/Y26a
+	9xdcsHqvVc6BqDFh5IzeI72RCgaukft/4sZjBCOacnbLd9m15FjiRWjvIzd8ayvNCAuL2qtgdgNfa
+	2ZSHQ4unUhyD/5PhfMgrOG2qJHoFU1PY41wlyO9kQRzLSi4swHSWxDmpwui7YlsCataZE0eSmVO7L
+	MiFLWY9A==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8DjT-0000000H9j7-2SsO
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8Dk1-0000000BI1n-49sV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 09:21:14 +0000
+	Sun, 20 Sep 2026 09:21:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C20B71650;
-	Sun, 20 Sep 2026 02:21:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6ECA21CE0;
+	Sun, 20 Sep 2026 02:21:41 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F4F13F59E;
-	Sun, 20 Sep 2026 02:21:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5A243F59E;
+	Sun, 20 Sep 2026 02:21:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789896070; bh=t9wyyeFMtxTXqDtnieZJaEnVceYHrygP7s5U8LrdN4U=;
+	t=1789896105; bh=KpUnK9nTZ9MsjB64snnJysKC48S25Nf2oKGr+4tdw/o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LAfe+EYKuJjFImL9E5GNvvtEJzJICNNETd3BtNGHQ996sgFy8dWc/5pNwTQ4HmSU2
-	 E6DePx9z6IdxoYs2IjUl5thX3i5XIKGbvrwG7xqc+r+PtYZlRBZ4kT082CwW4uhfnV
-	 +LSMaNSWiRGW24wvu23rzgCXgSJTd3iQs+oKN+jM=
+	b=kVau/WDnpjMz3xoAP2wRLiAFXpSlebj0Q1sjWx24eYjJv821CL8YqT6q3QUNwkL/j
+	 s95UoEBw4/SEq/drGyKfSaUqXjUSOewzQ8lm7c3jsNsMzPEL5KlTFurCgECtvgXKGA
+	 aGYUQObU4wcnscFNY76162qmTPtOwmbPBlk/SqmA=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,18 +78,21 @@ Cc: sudeep.holla@kernel.org,
 	puranjay@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v12 14/25] firmware: arm_scmi: Add Telemetry generation counter event
-Date: Sun, 20 Sep 2026 10:19:17 +0100
-Message-ID: <20260920091928.2014972-15-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>
+Subject: [PATCH v12 22/25] docs: ioctl-number: Add SCMI Ioctls
+Date: Sun, 20 Sep 2026 10:19:25 +0100
+Message-ID: <20260920091928.2014972-23-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260920091928.2014972-1-cristian.marussi@arm.com>
 References: <20260920091928.2014972-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_022111_743382_5FA117A4 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20260920_102146_261359_4D8D1879 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,184 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a per-instance generation counter to track configuration changes which
-uses the common telemetry events framework.
+Add SCMI Subsystem IOCTLs numbers
 
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-doc@vger.kernel.org
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v11 -->v12
- - reviewed generation counter update logic
-v6 --> v7
- - use new Generic event mechanism based on EventFD instead of WaitQ
-v5 --> v6
- - add relese semantic to the atomic set of the generation counter
- - use new eventfd_ctx common event logic
----
- drivers/firmware/arm_scmi/telemetry.c | 48 ++++++++++++++++++++++++++-
- include/linux/scmi_protocol.h         |  6 ++--
- 2 files changed, 51 insertions(+), 3 deletions(-)
+ Documentation/userspace-api/ioctl/ioctl-number.rst | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index c76409083160..ada4838d2351 100644
---- a/drivers/firmware/arm_scmi/telemetry.c
-+++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -16,6 +16,7 @@
- #include <linux/hash.h>
- #include <linux/io.h>
- #include <linux/limits.h>
-+#include <linux/lockdep.h>
- #include <linux/minmax.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
-@@ -26,6 +27,7 @@
- #include <linux/string.h>
- #include <linux/uuid.h>
- #include <linux/xarray.h>
-+#include <linux/wait.h>
- 
- #include "protocols.h"
- #include "notify.h"
-@@ -35,6 +37,7 @@
- /* Updated only after ALL the mandatory features for that version are merged */
- #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
- 
-+#define SCMI_TLM_GENERATION_ONE		(SCMI_TLM_GENERATION_INVALID + 1U)
- #define SCMI_TLM_TDCF_MAX_RETRIES	5
- 
- #define SCMI_TLM_DE_IMPL_NUM_DWORDS	4
-@@ -719,6 +722,37 @@ scmi_telemetry_tde_cache_lookup(struct telemetry_de *tde,
- 	return 0;
- }
- 
-+static inline void __scmi_telemetry_generation_set(struct telemetry_info *ti,
-+						   unsigned int new)
-+{
-+	int ret;
-+
-+	atomic_set_release(&ti->info.generation, new);
-+
-+	ret = scmi_telemetry_event_signal(ti, SCMI_TLM_EVT_GENERATION);
-+	if (ret)
-+		dev_warn_once(ti->ph->dev,
-+			      "Could NOT signal telemetry event %d\n",
-+			      SCMI_TLM_EVT_GENERATION);
-+}
-+
-+static inline void scmi_telemetry_generation_update(struct telemetry_info *ti)
-+{
-+	unsigned int next;
-+
-+	lockdep_assert_held(&ti->config_mtx);
-+
-+	/* Wrap around skipping invalid generation 0 */
-+	next = (atomic_read(&ti->info.generation) + 1) ?: SCMI_TLM_GENERATION_ONE;
-+
-+	__scmi_telemetry_generation_set(ti, next);
-+}
-+
-+static inline void scmi_telemetry_generation_reset(struct telemetry_info *ti)
-+{
-+	__scmi_telemetry_generation_set(ti, SCMI_TLM_GENERATION_ONE);
-+}
-+
- struct scmi_tlm_de_priv {
- 	struct telemetry_info *ti;
- 	void *next;
-@@ -2734,6 +2768,8 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
- 						       tstamp_enabled_state,
- 						       *tstamp);
- 
-+		/* A local change can have an impact anyway */
-+		scmi_telemetry_generation_update(ti);
- 		return 0;
- 	}
- 
-@@ -2766,11 +2802,13 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
- 	ret = ph->xops->do_xfer(ph, t);
- 	if (!ret) {
- 		ret = scmi_telemetry_state_set_resp_process(ti, obj, resp, is_group);
--		if (!ret)
-+		if (!ret) {
- 			/* Update cached state on success */
- 			scmi_telemetry_state_cache_update(ti, enable, enabled_state,
- 							  tstamp, tstamp_enabled_state,
- 							  grp, de);
-+			scmi_telemetry_generation_update(ti);
-+		}
- 	}
- 
- 	ph->xops->xfer_put(ph, t);
-@@ -2959,6 +2997,9 @@ scmi_telemetry_collection_configure(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
-+
- 	return ret;
- }
- 
-@@ -3473,6 +3514,9 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
- 		struct telemetry_info *ti = ph->get_priv(ph);
- 
- 		scmi_telemetry_local_resources_reset(ti);
-+		/* Reset generation now that server has been reset */
-+		scmi_telemetry_generation_reset(ti);
-+
- 		/* NO need to lookup the initial state we have just reset all */
- 	}
- 
-@@ -3994,6 +4038,8 @@ static int scmi_telemetry_instance_init(struct telemetry_info *ti)
- 	for (int i = 0; i < SCMI_TLM_EVT_MAX; i++)
- 		INIT_LIST_HEAD(&ti->events[i]);
- 	mutex_init(&ti->events_mtx);
-+	/* Generation counter init */
-+	atomic_set(&ti->info.generation, SCMI_TLM_GENERATION_ONE);
- 	atomic_set(&ti->des_enabled[ENA_STATE], 0);
- 	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
- 	mutex_init(&ti->des_enabled_mtx);
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index b4b3e95547ba..56b098bc472d 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -891,6 +891,7 @@ enum scmi_telemetry_collection {
- 	SCMI_TLM_SINGLE_READ,
- };
- 
-+#define SCMI_TLM_GENERATION_INVALID	0U
- #define SCMI_TLM_GRP_INVALID		0xFFFFFFFF
- 
- struct scmi_telemetry_intervals {
-@@ -986,6 +987,7 @@ struct scmi_telemetry_info {
- 	bool enabled;
- 	bool notif_enabled;
- 	enum scmi_telemetry_collection current_mode;
-+	atomic_t generation;
- };
- 
- struct scmi_telemetry_de_sample {
-@@ -996,7 +998,7 @@ struct scmi_telemetry_de_sample {
- };
- 
- enum scmi_telemetry_event {
--	SCMI_TLM_EVT_DUMMY,
-+	SCMI_TLM_EVT_GENERATION,
- 	SCMI_TLM_EVT_MAX,
- };
- 
-@@ -1022,11 +1024,11 @@ enum scmi_telemetry_event {
-  *		    the ones belonging to a specific group when provided.
-  *		    This causes an immediate update platform-side of all the
-  *		    enabled DEs.
-- * @reset: reset configuration and telemetry data.
-  * @event_subscribe: subscribe to the specified event @type using the provided
-  *		     @eventfd_ctx.
-  * @event_unsubscribe: unsubscribe to the specified event @type the previously
-  *		       registered @eventfd_ctx.
-+ * @reset: reset configuration and telemetry data.
-  */
- struct scmi_telemetry_proto_ops {
- 	const struct scmi_telemetry_info __must_check *(*info_get)
+diff --git a/Documentation/userspace-api/ioctl/ioctl-number.rst b/Documentation/userspace-api/ioctl/ioctl-number.rst
+index 2fc53093752d..3a89b2065674 100644
+--- a/Documentation/userspace-api/ioctl/ioctl-number.rst
++++ b/Documentation/userspace-api/ioctl/ioctl-number.rst
+@@ -401,6 +401,7 @@ Code  Seq#    Include File                                             Comments
+ 0xE5  00-3F  linux/fuse.h
+ 0xEC  00-01  drivers/platform/chrome/cros_ec_dev.h                     ChromeOS EC driver
+ 0xEE  00-09  uapi/linux/pfrut.h                                        Platform Firmware Runtime Update and Telemetry
++0xF1  00-FF  uapi/linux/scmi.h					       ARM SCMI Subsystem
+ 0xF3  00-3F  drivers/usb/misc/sisusbvga/sisusb.h                       sisfb (in development)
+                                                                        <mailto:thomas@winischhofer.net>
+ 0xF6  all                                                              LTTng Linux Trace Toolkit Next Generation
 -- 
 2.54.0
 
