@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED71C982EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F39C982EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZp7/w3Q0JX/yCG7cFeblXe+/5tQdKM7syzdgfGv7po=; b=gyVYUN+9LLKIaiQW0czfswI2A3
-	o8/vGtG9XTdXqSViiFteZlM/4yR+/dbuZKwan12APCAM5dD9R3D4/xDCFRbIs2VvYwMPZWH3qRG6X
-	VJIqoVYj0mvaFzyWVDq6pJH5twjxQ5BhKwO+JP/QkcoBOW51YTHaHHp9xaxWSDCRFnpXmGHQ0doMA
-	s3TaGo5pyq8HbRINm0ZXfGOkh1g26OglWDDJEE1EgnSpWRXgdqC//UWoTzdG5d3JU0rzCt6EVxtML
-	20QOK0lOT6w28uHhGQ56pYOm8sn1uw1eJaXuQuSWpMbgpeATubaS4URdT2M/Pxdd/9tptQHDUJy2Q
-	VeIIj0Yw==;
+	bh=q2AlgiVFcwdnFRrs+vk9S3Bh+Nu52KXf85ppUlxlQFY=; b=FLc8XRJMUv600/59P9pmwGNj+x
+	FfYEyHkmN0PnwHNRaVAu8f9e+3vAkWr5D74+HVAhJiHGhghjfQd6HBgh1tbGMKoSnIFa5CcELO1op
+	UL6hUiwn4tfv6XvkGAlHa6d391w6lnMquupwdnI0+hKKUZOVs/2JJ8cFsdAprfYmBFSOhLHPxc0p6
+	bT3k595LOKSjptkz5ZVkvOHgf8JwLIGv+U+afoNqmk3hzZr/Ua450dqfpLFhilPdoHc/lOe5rs3kg
+	WjjB2hNM6XYIXrDPlmpNPOplbQ5jtL4wGfFk2IpPGCTgUaTjfHldBWd5Eai7YbsJbJV7MVdGWSR1J
+	m2YY895Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Eje-0000000HFdd-1N9a;
-	Sun, 20 Sep 2026 10:25:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8Ejg-0000000HFhi-0Ha0;
+	Sun, 20 Sep 2026 10:25:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8EjM-0000000HFPE-1ADD;
+	id 1x8EjM-0000000HFOt-2APs;
 	Sun, 20 Sep 2026 10:25:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A70CF447DB;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A93860267;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 878F4C2BCB3;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1CA1CC2BCFB;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789899907;
-	bh=ASdPmlELWfdb/Y/YJ4rVHsEqniNVnoU71S6yuvMaeDA=;
+	bh=kEIyTYVWhIo4bZSTQ3AbETvRlpmXVWyXqEQrca8eNK4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RYwHfMwSAF5nDdiV+YTSP4L3xFRFa/7RQhOPKZuGeuoaq2Ci5WmX/7tPx3ZU9Kp/T
-	 ITFPoB65zRVfge6y4vdwmDMV9HTnYTA0+3VAg/dQAaq3RkL0RIwgg5wdPO3iDtqlil
-	 bsCz3EmzkmwecM9NGRd44zNBAx/gc35ILFFqbDoW3itOH+TT/oKwO5qRWrwtMoh8Yr
-	 JMekqBK7qWgsLYPJKW8Q/BPU/r7ChimVFBuiIinTIatHuk3uFeOWzLbfQ6cx6b6arj
-	 2lrEIFu/oFdwMOmnhGVkpCLFlrznDxmvfnM01CT20Yx16U9fm2YWOi8vyp4IkYeK04
-	 ojq1Awj0voCfQ==
+	b=LmamSxpIi0ZOBeIlL+jFx6gBDIicnzEdkYF6+WmI+V4jInuF3/C48ntJAyJyeLLrT
+	 r4Te4PcbuyPaAnDM5VgH3LG+505KmDD4KfzTsWibn3mPAlGHGqkZs2QcyZTD+/PRj9
+	 QhPMoQ42Bkglsb+gsAGzITeI2riQPB6ITgR2v8VbfZ+GLRPuQ9sEBmhh0QiU8o+Qsm
+	 8lCU3OxrH3W7eBAUhrTszuH820Rpk9D80cYd2Z40qF9GaOJj8Ywel2Cv4k/wQzzQZe
+	 +v4xpKLeQA2VkQowWazsJgbUZek1GA7eQPLhetPwmpPhb8Vu4pA4V9s9bN9qeLcjuN
+	 CCCxsbq0XKEBg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76229C982EA;
-	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F10DFC982D0;
+	Sun, 20 Sep 2026 10:25:06 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Sun, 20 Sep 2026 18:25:11 +0800
-Subject: [PATCH v2 09/12] arm64: dts: amlogic: s7: Add clk-measure
- controller node
+Date: Sun, 20 Sep 2026 18:25:04 +0800
+Subject: [PATCH v2 02/12] dt-bindings: soc: amlogic: Add clk-measure
+ compatible to support more SoCs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-more-socs-to-support-clk_measure-v2-9-224382a429e8@amlogic.com>
+Message-Id: <20260920-more-socs-to-support-clk_measure-v2-2-224382a429e8@amlogic.com>
 References: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 In-Reply-To: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=725;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=1482;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=g+jOIpaICoW8GinTHQ5X1UmJpEi/mHf2rXG4N1xQzYo=;
- b=WNuNl46dvYNUPSbmkvaNeDmv+5aas7rex8F4AsX7uFDvgprNI/t8BbpGAVRl/Xt8eYGago6Kq
- I5wgHOkMvPkBI/Vm3syFBtkEKBjLRf/YRkf74RaGD+OPTVT5at+ST6m
+ bh=iFtxCfNyNxPARsbwj859QUiks8NB1PYnjftvkWk6O4w=;
+ b=n+6DE+7fBlM1JfnSWqS5Se1LkQPL36RhfgtOAcoBHnGLrTW7Iubv5I5sLFdtZKHw4/BYAuJkL
+ h5L30EO/EkFDy2zhjuXgKE0FEd1sPAnCwt8S/HXIhNrILGG0/EPhoZC
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -90,29 +90,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Add the clk-measure controller node for S7 SoC family.
+Add clk-measure compatible for amlogic A5, A4, S7, S7D, S6 and A9 SoCs.
+
+Although the clk-measure IP itself has little hardware difference across
+SoCs, the clock inputs connected to the clk-measure block vary between
+SoCs. Therefore, it is difficult to fall back to the configuration used
+by previous SoCs.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+ .../bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml          | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-index a3faf4d188e1..64440df4f542 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-@@ -239,6 +239,11 @@ ao-secure@10220 {
- 				reg = <0x0 0x10220 0x0 0x140>;
- 				amlogic,has-chip-id;
- 			};
-+
-+			clk_msr: clock-measure@48000 {
-+				compatible = "amlogic,s7-clk-measure";
-+				reg = <0x0 0x48000 0x0 0x1c>;
-+			};
- 		};
- 	};
- };
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+index ad37eca48103..16893f427532 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml
+@@ -17,6 +17,9 @@ properties:
+   compatible:
+     enum:
+       - amlogic,a1-clk-measure
++      - amlogic,a4-clk-measure
++      - amlogic,a5-clk-measure
++      - amlogic,a9-clk-measure
+       - amlogic,c3-clk-measure
+       - amlogic,meson-axg-clk-measure
+       - amlogic,meson-g12a-clk-measure
+@@ -25,6 +28,9 @@ properties:
+       - amlogic,meson8-clk-measure
+       - amlogic,meson8b-clk-measure
+       - amlogic,s4-clk-measure
++      - amlogic,s6-clk-measure
++      - amlogic,s7-clk-measure
++      - amlogic,s7d-clk-measure
+       - amlogic,t7-clk-measure
+ 
+   reg:
 
 -- 
 2.42.0
