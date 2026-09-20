@@ -4,56 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593EEC982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7A5C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCwBqZ3Z1Ko+FK+TWDpxFERf1nGdWl32MbXodX0yeFc=; b=fPK+LD1n6SUzXvO6wtPglaSnlP
-	a/mAr6eiPy1R1tuiAiajQLI5neB75Ayk7l5zgGq1RAN3KDcX2Yio6OoJEJiokEbiAkIP8uQvl7jwZ
-	W9ZXU6cMknMT0dbUbMHU0gKP/0U/29cHMgBrFmAnJtjhI/BKf/dWL8x705ayAU7IAq31uhgWWieJj
-	uirWPibnRMZToxhixqQLa+9mtbeLFPxNLBAUysjYfAk0R6wSUvzHLEikxUMHt0+FP5zywBClC0JOi
-	aog2/ClcMuRPRVmln5hs+UFMZrig1+oXFqyNkGyn3C4T+WmQEstrL8SupLc1IROfixgxyYjHxP1nM
-	9StrfajQ==;
+	bh=43bdx5rB27SpdAyWeQi2xQtsUVVn3YsawtJ1R15vvkY=; b=Df8HKJvgoQFTEOb3Med6MTTcMq
+	MKpBpt98Nlwpn9nudGVLmuEjfJxKonCbNVg/xtULxUSDVigwg/L6u5i+j2Jvr+e7G4Kc/6yLzbXuK
+	H17I7uS31GnmD2JAk07olp58BsPikpipWe4iikK9IGPj1wVHeQdtqOBPqLTsuJITB4CS4OliE26iv
+	rGqpsbtELz0DkXL7tMfWMfpXXkB7+gsFwfoO1kxk+8wbqDoH81f3vR/6mqTRfyXf8GI2UTymjMtrD
+	DJJ9QtBFZOFWLWiGBgdAkd2Qd0pvg3WqhbT295Il8gvR1oFlDKHpF/yCuPehbNQ2FQJX29CzUXBK4
+	t2FXyEiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8DkK-0000000HAWi-30UG;
+	id 1x8DkK-0000000HAW3-1Phd;
 	Sun, 20 Sep 2026 09:22:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Dk6-0000000HAM4-18NE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 20 Sep 2026 09:21:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=HCwBqZ3Z1Ko+FK+TWDpxFERf1nGdWl32MbXodX0yeFc=; b=CzUxvreECMLcdpuaQ3TxrbCugs
-	qTHufpcsI843NJRy2q8rYTaayZBzxuHNf8FIlwGiVhR5J1xMq5kDAyZAjTXO5jZ3pCEERHFIyr9qT
-	ALbRzsEm4PUZ8cV7reh/kr7yTid1MBlN0xynIiNxmxV7LX8kKzVV9CKnFNJ+oMC19+r3lT1s/Y26a
-	9xdcsHqvVc6BqDFh5IzeI72RCgaukft/4sZjBCOacnbLd9m15FjiRWjvIzd8ayvNCAuL2qtgdgNfa
-	2ZSHQ4unUhyD/5PhfMgrOG2qJHoFU1PY41wlyO9kQRzLSi4swHSWxDmpwui7YlsCataZE0eSmVO7L
-	MiFLWY9A==;
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8Dk1-0000000BI1n-49sV
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8Djo-0000000HA2t-0VZO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 09:21:49 +0000
+	Sun, 20 Sep 2026 09:21:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6ECA21CE0;
-	Sun, 20 Sep 2026 02:21:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF3D01650;
+	Sun, 20 Sep 2026 02:21:27 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5A243F59E;
-	Sun, 20 Sep 2026 02:21:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9234A3F59E;
+	Sun, 20 Sep 2026 02:21:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789896105; bh=KpUnK9nTZ9MsjB64snnJysKC48S25Nf2oKGr+4tdw/o=;
+	t=1789896091; bh=HnEcRC1YRZYszSkF2yhcRqz//Sgrtd8Yokg4b6YTq58=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kVau/WDnpjMz3xoAP2wRLiAFXpSlebj0Q1sjWx24eYjJv821CL8YqT6q3QUNwkL/j
-	 s95UoEBw4/SEq/drGyKfSaUqXjUSOewzQ8lm7c3jsNsMzPEL5KlTFurCgECtvgXKGA
-	 aGYUQObU4wcnscFNY76162qmTPtOwmbPBlk/SqmA=
+	b=lVYscqX/oD8fcYPyMUWyaQiA0wnpuhETquewmMkgfn8SyjD3Xu8T2sGSj1RfIs4pG
+	 oweYH/8YtX3y33ZSob8Nx6OGnUEJ4+k33jlH9KD4D4uE4Mni8V06GkLPvFzj4bwC3e
+	 FMi6HfBFLNmX1WVLBjX3KbLPOXRPyqsxm0/Rkxkc=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -78,21 +63,18 @@ Cc: sudeep.holla@kernel.org,
 	puranjay@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH v12 22/25] docs: ioctl-number: Add SCMI Ioctls
-Date: Sun, 20 Sep 2026 10:19:25 +0100
-Message-ID: <20260920091928.2014972-23-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v12 19/25] firmware: arm_scmi: Add un-managed methods to get/put protocols operations
+Date: Sun, 20 Sep 2026 10:19:22 +0100
+Message-ID: <20260920091928.2014972-20-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260920091928.2014972-1-cristian.marussi@arm.com>
 References: <20260920091928.2014972-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_102146_261359_4D8D1879 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260920_022132_250817_C405EBDD 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +89,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SCMI Subsystem IOCTLs numbers
+Add a couple of simple common methods to be able to manually get and put
+protocol operations to address situation in which devres managed methods
+cannot be used.
 
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-doc@vger.kernel.org
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- Documentation/userspace-api/ioctl/ioctl-number.rst | 1 +
- 1 file changed, 1 insertion(+)
+v10 --> v11
+ - fixed a few comments typos
+---
+ drivers/firmware/arm_scmi/driver.c | 39 ++++++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h      |  7 ++++++
+ 2 files changed, 46 insertions(+)
 
-diff --git a/Documentation/userspace-api/ioctl/ioctl-number.rst b/Documentation/userspace-api/ioctl/ioctl-number.rst
-index 2fc53093752d..3a89b2065674 100644
---- a/Documentation/userspace-api/ioctl/ioctl-number.rst
-+++ b/Documentation/userspace-api/ioctl/ioctl-number.rst
-@@ -401,6 +401,7 @@ Code  Seq#    Include File                                             Comments
- 0xE5  00-3F  linux/fuse.h
- 0xEC  00-01  drivers/platform/chrome/cros_ec_dev.h                     ChromeOS EC driver
- 0xEE  00-09  uapi/linux/pfrut.h                                        Platform Firmware Runtime Update and Telemetry
-+0xF1  00-FF  uapi/linux/scmi.h					       ARM SCMI Subsystem
- 0xF3  00-3F  drivers/usb/misc/sisusbvga/sisusb.h                       sisfb (in development)
-                                                                        <mailto:thomas@winischhofer.net>
- 0xF6  all                                                              LTTng Linux Trace Toolkit Next Generation
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index f5aca46bc608..6838a1d5f80a 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2571,6 +2571,31 @@ scmi_devm_protocol_get(struct scmi_device *sdev, u8 protocol_id,
+ 	return pi->proto->ops;
+ }
+ 
++/**
++ * scmi_protocol_operations_get  - UnManaged get protocol operations
++ *
++ * @handle: A reference to the SCMI platform instance.
++ * @protocol_id: The protocol being acquired.
++ * @ph: A pointer reference used to pass back the associated protocol handle.
++ */
++static const void __must_check *
++scmi_protocol_operations_get(const struct scmi_handle *handle, u8 protocol_id,
++			     struct scmi_protocol_handle **ph)
++{
++	struct scmi_protocol_instance *pi;
++
++	if (!ph)
++		return ERR_PTR(-EINVAL);
++
++	pi = scmi_get_protocol_instance(handle, protocol_id);
++	if (IS_ERR(pi))
++		return pi;
++
++	*ph = &pi->ph;
++
++	return pi->proto->ops;
++}
++
+ /**
+  * scmi_devm_protocol_acquire  - Devres managed helper to get hold of a protocol
+  * @sdev: A reference to an scmi_device whose embedded struct device is to
+@@ -2627,6 +2652,18 @@ static void scmi_devm_protocol_put(struct scmi_device *sdev, u8 protocol_id)
+ 	WARN_ON(ret);
+ }
+ 
++/**
++ * scmi_protocol_operations_put  - UnManaged put protocol operations
++ *
++ * @handle: A reference to the SCMI platform instance.
++ * @protocol_id: The protocol being released.
++ */
++static void scmi_protocol_operations_put(const struct scmi_handle *handle,
++					 u8 protocol_id)
++{
++	scmi_protocol_release(handle, protocol_id);
++}
++
+ /**
+  * scmi_is_transport_atomic  - Method to check if underlying transport for an
+  * SCMI instance is configured as atomic.
+@@ -3358,6 +3395,8 @@ static int scmi_probe(struct platform_device *pdev)
+ 	handle->devm_protocol_acquire = scmi_devm_protocol_acquire;
+ 	handle->devm_protocol_get = scmi_devm_protocol_get;
+ 	handle->devm_protocol_put = scmi_devm_protocol_put;
++	handle->protocol_get = scmi_protocol_operations_get;
++	handle->protocol_put = scmi_protocol_operations_put;
+ 	handle->is_transport_atomic = scmi_is_transport_atomic;
+ 
+ 	/* Setup all channels described in the DT at first */
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 4b44c9f503bc..ebe3ee6e7aaa 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1137,6 +1137,9 @@ struct scmi_notify_ops {
+  * @devm_protocol_get: devres managed method to acquire a protocol and get specific
+  *		       operations and a dedicated protocol handler
+  * @devm_protocol_put: devres managed method to release a protocol
++ * @protocol_get: unmanaged method to acquire a protocol and get specific
++ *		  operations and a dedicated protocol handler
++ * @protocol_put: unmanaged method to release a protocol
+  * @is_transport_atomic: method to check if the underlying transport for this
+  *			 instance handle is configured to support atomic
+  *			 transactions for commands.
+@@ -1159,6 +1162,10 @@ struct scmi_handle {
+ 		(*devm_protocol_get)(struct scmi_device *sdev, u8 proto,
+ 				     struct scmi_protocol_handle **ph);
+ 	void (*devm_protocol_put)(struct scmi_device *sdev, u8 proto);
++	const void __must_check *
++		(*protocol_get)(const struct scmi_handle *handle, u8 proto,
++				struct scmi_protocol_handle **ph);
++	void (*protocol_put)(const struct scmi_handle *handle, u8 proto);
+ 	bool (*is_transport_atomic)(const struct scmi_handle *handle,
+ 				    unsigned int *atomic_threshold);
+ 	const struct scmi_notify_ops *notify_ops;
 -- 
 2.54.0
 
