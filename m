@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9C7C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E69C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FrgCaJC0AqPmNl+B205Shvk9FhEbUr/JGHlx7Hy7OPU=; b=rCuW5++uvOVQ6kHeAKOUtjutxi
-	n5kUBG7JmAAVf1GjQKtvjbB+elgUhdyCqLmPBCJzOhmPSSZTWtRqjjX2J5Z+wAzL3UzEopnOwGLkI
-	UHevfz2ICC/WokjAvTpSngGBKZD2AJ5i9iNAxLGgBhx/AaVh3qcZLRwq5XaOxKEwy6wa6ovrDcaBq
-	l2kp9oXofWbL5Loq5cnBI7FP7Gep+suFdjvnXMBlDDY6kCojfDOlhMwREWD9ATU+PzjgDiPgH0EX0
-	tYWEfWDzrJT5AY1+fiqb9UZ6B+DhublE6unKOith6L4NlBTB213MOTAhzQI2moMwP5W84kQ+fAao2
-	QUogd4Tw==;
+	bh=Y2p+CWD3SlvHFhm5upLG6ZgOd8bEtDZeUbNDOVEcky0=; b=rvdVS+qt+XO9xsZ2V8lvoe4qk2
+	7XsfIHbeRAbup0EdLERTFC6NiWdloD3AG1iJ6wPXHnqXb59YyNhJXBEZ3ecEKpnW0bquhsm5QH1rZ
+	mYswHWTvtx5JJU6HFE+rarqWdNX2JhxCw9FIBnZzyHdNB049KVJ+ltSbJPeKhsfkzDZ7E+5iFrRF0
+	8OMuFYfjDCp1d9Y4HtZYqD2St1A5uMXpp/zFTPYwxF3xfO5sx9qQ7CwuZClWie/akZsutrewkF4eH
+	C6CE7bi2edwXeGN8gers1OOO50iAxHL/VBlcOugq2HjoN0wcr2jgzB9DrCC2atMSI2TJNDfh78Qk7
+	7jTXnc/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Ejh-0000000HFmx-3WVp;
-	Sun, 20 Sep 2026 10:25:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8Ejg-0000000HFjh-3OmO;
+	Sun, 20 Sep 2026 10:25:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8EjM-0000000HFPF-3Lmh;
+	id 1x8EjM-0000000HFPD-29IE;
 	Sun, 20 Sep 2026 10:25:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B952160AB1;
+	by tor.source.kernel.org (Postfix) with ESMTP id A679A60AAE;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 540F8C4AF10;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BE55C2BCFF;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789899907;
-	bh=98JgfFXc+HkTsNRmHI1xyAm0Rm6gE2mGRox86nLGGNU=;
+	bh=DiPGG6/1y2xmrETzC91peDuTfVXoxRXsfQ56MzCZN9c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=N+A2fMOzXXQfixAEL7x234/IPdydY/ZMcCMQHoJAOpNVcrSpjflWWDkCuAB0cek0r
-	 2S8dRkNQxoilf5lnmS48Q/rkgBD5SptGtd6ANa8PJFbLqfSDpbM9gIYFfeilB0maAk
-	 vnCoF9fQJjaw9bJs0CWdqtka3ufirOQPZQv6uCKPtV1u+79LjRyYXVsUAKqVuWdLjB
-	 NCuPY6oXCgYFF+P086697M4q135bImyKRVRf/dQ3LP1aXgEf1X9nJ8Psn4qP+MtgRL
-	 S8Yc6VH6wkBzgoiQECjej3c0wQzHhCgx9Gu1JZYt0w7GJN5s2HGX59z3EMK1MB+Skj
-	 nHd+Xq1YUKG9Q==
+	b=JlhulgHzo1Uq8xQaSeaE5yFJFwQW7NePZQkWKJkruilbtLTRcHXx/cp7o7VjfGipk
+	 z7rqIcr2TNtgBkprIB+Rb3laIxnm7PWZb+ZrwxycbY3h71sE2/D69ERUKnHizuuotH
+	 G+Y6SDbtkR8pjeOr3SMxeD6inzNYZNx9fCKiqvF3WdkmMMAAvPpk4ZpghQk1j/Tqrz
+	 YPVuymCUqpCvVno+UjLJ7NtQk4S7/8HVAp3QVGEGaAFUc8ntxO2UZjc8vvAgpm9R6m
+	 rWr32FbbkJCKtOP70xGRLig8U6POIyyQ+yfCPI71ZP0TYb4BaW4sZk/t3TqUKB7031
+	 pzr9TZGMs1S9w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4248CC982EB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0DD46C982EA;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Sun, 20 Sep 2026 18:25:08 +0800
-Subject: [PATCH v2 06/12] soc: amlogic: clk-measure: Optimize CLK_MSR_ID to
- reduce memory usage
+Date: Sun, 20 Sep 2026 18:25:05 +0800
+Subject: [PATCH v2 03/12] soc: amlogic: clk-measure: Support more
+ measurement channels
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-more-socs-to-support-clk_measure-v2-6-224382a429e8@amlogic.com>
+Message-Id: <20260920-more-socs-to-support-clk_measure-v2-3-224382a429e8@amlogic.com>
 References: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 In-Reply-To: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=2725;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=1344;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=B0BKe3yD0PFCTHPaReABO4rDltehZzDiFxD06D1+ar8=;
- b=Dfmx99M+EjWRv1Vt6KsT+PhVSrdrxSXeHUJnW5ysW1l4grqtSbh60xPNISqMosDftZ88o2kFZ
- IaHADiOJ29IBSQiJVSjOWNDbkD9IPMQdwljQjQ0kcAPqKwotbjfGgwG
+ bh=e2ydz5bLAgoXoKx1id6ARA1Qq/OeV3kWw0wR36wz9Ks=;
+ b=0kYDHEMG2Lp7QnH8bZMG7IEpHfqcExl7IxtSh1NJ7/jFnZZd25yFr5rPr/Shj3vXkPwRQToqb
+ ToqAllBeLgqDOBiXdUwNPvAWnYcmFcsm3DtvKuF6qferH0spzUEEvv/
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -90,45 +90,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-The original CLK_MSR_ID macro uses __id as the designated array index.
-This can waste memory when defining struct meson_msr_id arrays. For
-example:
+On S4 and C3, as well as later SoCs, the clk-measure IP expands the
+number of supported measurement channels from 128 to 256. Accordingly,
+the MSR_CLK_SRC field in the register is extended from 7 bits to 8 bits.
 
-    static const struct meson_msr_id clk_msr_foo[] = {
-        CLK_MSR_ID(255, NULL),
-    };
+To support both the old and new implementations, the driver now
+uniformly defines the valid MSR_CLK_SRC field as bits[27:20].
 
-Although the array contains only one valid entry, it occupies space for
-256 elements because the designated initializer forces the array size to
-match the highest index.
-
-The driver does not rely on the array index when accessing measurement
-IDs. Instead, the measurement ID is obtained from the id field of struct
-meson_msr_id. Therefore, removing the designated array index from
-CLK_MSR_ID does not affect the current driver behavior while
-significantly reducing unnecessary memory usage.
-
-Compared with before and after modification, the memory size is reduced
-by 24.76%:
-$ scripts/bloat-o-meter pre_meson-clk-measure.o meson-clk-measure.o
-add/remove: 0/0 grow/shrink: 0/15 up/down: 0/-16224 (-16224)
-Function                                     old     new   delta
-clk_msr_sm1                                 3072    3048     -24
-clk_msr_a1                                  1488    1272    -216
-clk_msr_g12a                                2952    2712    -240
-clk_msr_gx                                  1992    1608    -384
-clk_msr_m8                                  1536    1104    -432
-clk_msr_a9                                  6120    5544    -576
-clk_msr_t7                                  5352    4632    -720
-clk_msr_axg                                 2640    1704    -936
-clk_msr_s6                                  5064    3672   -1392
-clk_msr_c3                                  4896    3264   -1632
-clk_msr_s7d                                 4632    2880   -1752
-clk_msr_s4                                  5376    3576   -1800
-clk_msr_a4                                  4488    2544   -1944
-clk_msr_s7                                  4632    2664   -1968
-clk_msr_a5                                  4560    2352   -2208
-Total: Before=65527, After=49303, chg -24.76%
+For SoCs where MSR_CLK_SRC is only 7 bits wide, the driver never sets
+bit27, and on those SoCs bit27 is read-only. Therefore, using
+bits[27:20] as the unified field definition does not introduce any
+behavioral change or compatibility issue for existing SoCs.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
@@ -136,18 +108,18 @@ Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-index 50928ac14f86..33767f0bc67c 100644
+index 8a1a9fed0e74..0d4ba2555d17 100644
 --- a/drivers/soc/amlogic/meson-clk-measure.c
 +++ b/drivers/soc/amlogic/meson-clk-measure.c
-@@ -55,7 +55,7 @@ struct meson_msr {
- };
+@@ -20,7 +20,7 @@ static DEFINE_MUTEX(measure_lock);
+ #define MSR_CONT		BIT(17) /* continuous measurement */
+ #define MSR_INTR		BIT(18) /* interrupts */
+ #define MSR_RUN			BIT(19)
+-#define MSR_CLK_SRC		GENMASK(26, 20)
++#define MSR_CLK_SRC		GENMASK(27, 20)
+ #define MSR_BUSY		BIT(31)
  
- #define CLK_MSR_ID(__id, __name) \
--	[__id] = {.id = __id, .name = __name,}
-+	{.id = __id, .name = __name,}
- 
- static const struct meson_msr_id clk_msr_m8[] = {
- 	CLK_MSR_ID(0, "ring_osc_out_ee0"),
+ #define MSR_VAL_MASK		GENMASK(15, 0)
 
 -- 
 2.42.0
