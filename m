@@ -4,87 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BC7C982CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4031C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBWXcJcC7r5udU+f3JskB9mXvpSquvdhffCz5TjSixQ=; b=hNOe2vN4mF7eylhppavlLT+5dT
-	aOkiIQWc8lq9QYFXxPBCdhQLCt1gQMIVA7ZlhIIJyoYxRRCqut4uaLq+TW1uG1zkZxnHMIG6WUUz9
-	OMy/YM7MegyBJ1nWn/gGzNNTHayiscvCtZmm3RZ+Ep0kTfIZMitkfIHKiNS9I8Gey+bdBcFvhCv7S
-	CA0ZmiODkwz1yzA+H8ZRdnCUBMKDVaaIVcjOR0U9WmS9fb1U8IvoqYFpsb90YXQUzCYpMJ+IcG6Vm
-	Dzd96YUGOibZjoHx4mtm55Ug/tDuXxJ/hZGzOORa8MGpzg7iWCFzt5kQUqde13h9qSNovnK06Nvu/
-	mty+FADg==;
+	bh=Ho3i2ZEne3XWeE0sZzsIJ9CaxZDAGSyO5hDwEJ0am2M=; b=hTD+QTI/yf3kLm9viahOQfR+TQ
+	SiP6qCboOLHDWi8tH2GAj5YL4YQiMjzENJZu5b5fCgGRgVbKLiXOz5poO1K5pattp6HBcS+poW4EL
+	sno/UN7rJsVmFCjJOFOl1EjNYGZcnlg6f1llXb5r+kDsJ9pmgMqOgD+8tAzeTRnzbKRIjfUC1kshR
+	2t69v0MuNzGNiBlBc5s8CyZjSrrACvHuAq3VKH9YrQ9Cn6XGtX6F5NnLCAx29AeHFCnz+ccJllMI8
+	+P5kIr8NP6AnF4Tnt1l3yFbwNUWxlIbX0QE75Sf3zAoPE3WWgkvFOw4iUbUYmt+OR7CIfn8Ayu2qm
+	2QnEZRSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8DqC-0000000HBUG-0ncA;
-	Sun, 20 Sep 2026 09:28:08 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x8DuS-0000000HBxM-2lMi;
+	Sun, 20 Sep 2026 09:32:32 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Dq9-0000000HBTJ-0fOA;
-	Sun, 20 Sep 2026 09:28:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789896481;
-	bh=EoI40flYwN+zpgSdnYx5O+fi9UEpSqaecE9jBZjjW3o=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=PRxmCpGt3GUsYG4tG7M1H6BjhtIo0Uh3CwN15Xy6WylIYP/hCx04xCXVSLRGGtKVA
-	 0HY3O4dYtRXyxhnY+gvASluQEXUIiZemmlzowpYN1EUTsddMCB8yH1Fb7TOizzQ3RC
-	 F0uLVHB8uhxKD6p39UOWwFxA3KAdAsxD9NREh8gxQ0xWXertJMQdLwHXv+eVV2Nc1X
-	 i9Uk0y0j+HUlmA5IwG1WSKM+q08DYXZ1HkNTB6vbdK68SI9AqSBe5tLy1Q0eUX43T4
-	 EvhmFA2g384cDc3gBo4ARZhO+KxXF1QBaLASh3ClOjHiPiUTMi5rknq1eJYq6hU10C
-	 Q6mbAwxEMd/Hw==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CF03E17E056A;
-	Sun, 20 Sep 2026 11:28:00 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
- Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
- Phong LE <ple@baylibre.com>, Helge Deller <deller@gmx.de>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Sashiko <sashiko-bot@kernel.org>, 
- Diederik de Haas <diederik@cknow-tech.com>, 
- Maud Spierings <maud_spierings@hotmail.com>
-In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
-References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
-Subject: Re: (subset) [PATCH v11 00/74] Add HDMI 2.0 support to DW HDMI QP
- TX
-Message-Id: <178989644664.716970.16229682978817466713.b4-ty@b4>
-Date: Sun, 20 Sep 2026 12:27:26 +0300
+	id 1x8DuP-0000000HBwe-15hI
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 09:32:30 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id E02521D000B8;
+	Sun, 20 Sep 2026 05:32:26 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Sun, 20 Sep 2026 05:32:28 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789896746;
+	 x=1789983146; bh=Ho3i2ZEne3XWeE0sZzsIJ9CaxZDAGSyO5hDwEJ0am2M=; b=
+	W0D53KwZ9zARRHvFEMKWf1d7HAYdfdoHw3qpZvwsYsSaMmF1lzmFwD1WCt7e68EB
+	kXBp0SDj3qMwKFCf0dWDijJTLrlTgcbx8lljQsQDOajBiuKJJ7671cNKQYvJMG6a
+	c8Moy2BFFAi9/m2E8BA0l4Uc2UPQzBDDxGIgp/6r2HtoyE5Kek7rTNBztI2hPm7m
+	og03655buJg9GlFuip5HopC87SSZBZlhxAmRoerGDCP2OaSMht4P/vQgMrnV/VIm
+	V4AxZ0AOenduZ0KPfc3EI3nbV/0EFM+SgAnL9H8IOufLgDZwa2nN0CHg8CvR1VbK
+	KZtzA65yXtNQyjnWJkUlhA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789896746; x=
+	1789983146; bh=Ho3i2ZEne3XWeE0sZzsIJ9CaxZDAGSyO5hDwEJ0am2M=; b=r
+	YxQRbi139+6siV9qRXDW3NMfleFDAnAYgDDi+SB0GKrzjKxsXv/39WEooXpyjY8r
+	kybEHRrGGf7WWo9EmkcuWDzLzfRaAvXcEey/Pzz02xd/d9JTOFEBOhYDZppH92+T
+	xLZG5i2p6hcx3BBhABk7P68AWoYag62ub9kamymzyMPNVIP49Z6DJGr22oQM4EhP
+	U1dcJD5WvtBtNQgSt7lt7sZOQq8vLRcE6CW0qPA/fioWWJ+MLFo3fn3HCKn2zpRi
+	jK0zztNP3M/O/B6LPofRTKP8zHiBsMbHql4i6XqyZsyKyKV/CMqedZLDde6yW0cZ
+	On2ygYt8pL/5Nu4VVR5yA==
+X-ME-Sender: <xms:JqivaiMSjhSG2el-vlZXeFvCN_Dc9vs7XlsbVy4M8Uk3imScOlSlew>
+    <xme:Jqivarz-m1KGJ0vH7-jeXAEMFTGXPuqNDwVlAP4qwidxo7Rctz8bIPKs-QS3D5eUK
+    -hOYrQR_f7SOUORHgtFw-1GbQHq_z_tN_X9hTn3QnzlYV_lGUgQbLBS>
+X-ME-Proxy-Cause: dmFkZTFDpxq9iaqfbx8D3WimXx4MB7M1g9g4zfB2+5uGFNXZ3AFJ8stXvDfhV1FH+PHZ+E
+    70MyuhtqrHrHhZ3QZM/LzCLzeROFzqwf+/QChzQjs4tJUzIAY7adhEro5EkjLolniLj9el
+    EgHzDiwDWXuinVt+ilVgF167crSLL+PIRk1w3kwf2DAK6fJ+AeYiPJ4+lbl0TscyMR6J1r
+    HYFCjyAQVFqegv1FmiR1/kZKl5fcUBvQDMen2ikVSHQnGQYyL0FUrcl58fBPregIZTDDSz
+    6n1x+XBtiCrXxHF17+cxZWTsdcC3hqfBaOX5h7fIVng7n0vQAF4ruBnI3WnBx16KjNyKCp
+    uWLIGGhB++czTT+BauSjxGDI5JoZ4dBka5ywsbs4hlapg4mOuGvmmG/WzFKcJvwnYmg88s
+    zIZE3UXrp1/JcAGga2ZTyeJNT7QSubCaWnwRlFVjDTpx4x0df+ScJNEsmZLf2yyuR6ZCRT
+    pMMhslJucNB7mwQyMECZfsOOqdPylJUh1iGYRG8gHPjkYrW4TIwToVcfl/jbyA2k1Y/wbi
+    78/pLUCFem/mLRrZXqXblvSkqmf/Nk3utSQ+qeZTACOojmuk+OhZLtuHODejlbNObtth1t
+    aLTlGZ5xLE81DJRhA7is5aK2GZpt3qavUTSpy77q3t9rg31Te+6VFf4C4T8A
+X-ME-Proxy: <xmx:J6ivasVL0T3M6Z19788okk3oMUUZNCnjPJ7YYDZ1C3XJwdM0cK3S4A>
+    <xmx:J6ivasar_cjXg88wp5zzLPyPC1TcaKO4ujUMg_nTby_EjB51mukc4g>
+    <xmx:J6ivarxAL1M65LVDpToqTBu1wpl6s64Kw8xaZvX2zxreR7cNVCFB_g>
+    <xmx:J6ivak21RceGHH2d2CSFtOz6YVKYQyKnz0eOPc7ZTAkPz4_8Lt5Tsw>
+    <xmx:Kqivai_TDlhLY7OXRBHdss6zS0AfoxD_i2sc33ugElktGooAmJ9HGHnT>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id EC6D732A0087; Sun, 20 Sep 2026 05:32:21 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+X-ThreadId: AzgOxjlYMeWB
+Date: Sun, 20 Sep 2026 11:30:34 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Qingfang Deng" <qingfang.deng@linux.dev>
+Cc: Linux-Arch <linux-arch@vger.kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Vikram Sethi" <vsethi@nvidia.com>, "Mike Rapoport" <rppt@kernel.org>,
+ "Shanker Donthineni" <sdonthineni@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <3250a625-7900-40a9-8f3c-612d333122dc@app.fastmail.com>
+In-Reply-To: <9895e60c-6a3c-40c8-b188-51891ee6b216@linux.dev>
+References: <20260920014357.7069-1-qingfang.deng@linux.dev>
+ <20260920014357.7069-3-qingfang.deng@linux.dev>
+ <5847c824-8d69-4d02-af2f-896bf47f0732@app.fastmail.com>
+ <9895e60c-6a3c-40c8-b188-51891ee6b216@linux.dev>
+Subject: Re: [PATCH v2 3/3] arm64: use generic MMIO accessors
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-36e3f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_022805_376711_4E0D00AE 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260920_023229_752423_71DCDF74 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +116,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Sep 20, 2026, at 11:24, Qingfang Deng wrote:
+>
+> Regarding unaligned accesses, the splitting can only happen when the 
+> address is known to be unaligned at compile-time. Do these accessors 
+> need to support unaligned MMIO? If so, I could add 
+> OPTIMIZER_HIDE_VAR(addr) to the generic accessors.
 
-On Tue, 01 Sep 2026 21:50:24 +0300, Cristian Ciocaltea wrote:
-> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
-> TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
-> management for high TMDS clock ratio and scrambling.  Since SCDC state
-> is lost on sink disconnects, the bridge driver needs to trigger a CRTC
-> reset during connector detection.
-> 
-> To support this at the DRM infrastructure level, the series first
-> introduces the HDMI version enum, then prepares for changing the
-> signature of drmm_connector_hdmi_init(), i.e. dropping the vendor,
-> product, supported_formats and max_bpc arguments, which are being moved
-> into struct drm_connector_hdmi_funcs, by temporarily renaming the helper
-> to drmm_connector_hdmi_ini2().  This lets the new signature be
-> introduced under the original name while callers are converted
-> incrementally.  Note the transitional name matches the original's length
-> so continuation-line arguments stay aligned to the opening parenthesis,
-> keeping the diff to the identifier itself and avoiding re-alignment
-> churn.
-> 
-> [...]
+I think all architectures that have had this problem just started
+using the inline asm variant, and I'd probably try to encourage
+that more.
 
-Applied, thanks!
+What might be helpful here would be to split out the __raw_* helpers
+into a separate header that is explicitly included on architectures
+without their own definitions, and an updated comment that explains
+that architectures are encouraged to implement these as inline asm
+instead of using the volatile load/store.
 
-[01/74] video/hdmi: Introduce HDMI version enum
-        commit: f0459aabf9e057920567b22a852ab36966cc291a
-[02/74] drm/connector: hdmi: Handle reset() state allocation failure
-        commit: 54acd0c74eba2a2c9a726856f5fdc6f9e74ea2e1
-[03/74] drm/display: hdmi: Rename drmm_connector_hdmi_init() to *_ini2()
-        commit: 245e321b61e384d956b95a3bfa59ac25ca4609c6
-[04/74] drm/connector: Add drmm_connector_hdmi_init() with new signature
-        commit: 400c9ede1ea4a4f26931a269b60de34cb26d51ec
-[05/74] drm/display: bridge_connector: Convert to drmm_connector_hdmi_init()
-        commit: cc6d8b2f87b97477ae25dcc1adb8e6e5a0088e4a
-[06/74] drm/probe-helper: Introduce .force_ctx() connector callback
-        commit: 9d1e2ae7196dacc90acc00a73b92c11662eb90ca
-[07/74] drm/connector: Add HDMI 2.0 scrambler infrastructure
-        commit: f27fb7e315216b8bddf29297542c471368a672b4
-[08/74] drm/display: scdc-helper: Add macro for connector-prefixed debug messages
-        commit: 62cdbd8d50c510e8b61266e043c04870b7877b8b
-[09/74] drm/display: scdc-helper: Add helper to set SCDC version information
-        commit: f57c2198380fcf475404c159c784d0ee70fa091b
-[10/74] drm/display: hdmi: Add HDMI 2.0 scrambling management helpers
-        commit: d653818324edc79d8dd55f77496220d3849910d0
-[11/74] drm/display: hdmi: Advertise SCDC source version when scrambling
-        commit: bc4dcf6f93778b182ad90233d3049acd9227136c
-[15/74] drm/bridge: Remove redundant error check in drm_bridge_helper_reset_crtc()
-        commit: 44fd815ec6ab5ae8e01de26529fe867bd0c07da1
-[16/74] drm/bridge: Add bridge ops for source-side HDMI 2.0 scrambling
-        commit: 2e37ecb36d8e989a514d5f921eadd91ed178861d
-[17/74] drm/display: bridge_connector: Use cached connector status in .get_modes()
-        commit: 4cf0eae2fc53b6933fe930450b46b20b0cfac4f2
-[18/74] drm/display: bridge_connector: Switch to .detect_ctx() connector helper
-        commit: a23d96ee6afbe7148c462f1ce017425628b4db45
-[19/74] drm/display: bridge_connector: Wire up HDMI 2.0 scrambler callbacks
-        commit: 8e5aa7fe23dbe6e3cba93f4eb1f5f56e2ad70ee7
-[20/74] drm/display: hdmi-state-helper: Add source TMDS rate validation
-        commit: 0f7bb8f4d26abbc27e78e633b44cac2279f0ce1e
-[21/74] drm/display: hdmi-state-helper: Pass acquire ctx to hotplug helpers
-        commit: 43c92f4c887e6ca6bdac1f80ed8087226c71b756
-[22/74] drm/display: hdmi-state-helper: Add drm_atomic_helper_connector_hdmi_force_ctx()
-        commit: 8ed0167d56e3d2ae3a8f8b1423d59de60aa457d4
-[23/74] drm/display: hdmi-state-helper: Sync SCDC state on hotplug
-        commit: 6867cd55ee5530851847ebed6ebab0b9f329e5ba
-[24/74] drm/display: hdmi-state-helper: Set HDMI scrambling requirement
-        commit: 23eef7a1c5f341315e66c1ef60ce525b64f0a2e3
-[25/74] drm/display: bridge_connector: Switch to .force_ctx() connector helper
-        commit: b4e30bf687ab5131ca5aa063abda6d0e9ddbc8e4
-
-Best regards,
--- 
-Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-
+     Arnd
 
