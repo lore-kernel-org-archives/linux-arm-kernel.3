@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2DBC982CC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F57C982DA
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 09:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5BTcoA9+94KRYddRu4mHSSUMUgwqghE4QR9AVtOE3w=; b=UsyjqKjJ2YrHsjpTLP0pUbSSkP
-	XtyVNKk7ESDith8ocS7pJV+cBMUh/ThK/iW8AEIQ39vRs4EIegz3mP277+FylVuUUrg1ajDDq9O0t
-	kSpNGCZY4uXcVHiUMDJMmC3biAurINvdWyqZudCh8fH6vVfM1vmW40K/Q8Ez5SUpQBiTtKqfA1Suz
-	G9165PhkGHC/O5mC+D+BHYaBuuXR7cBX8/hBd9MtAN779n/S7Lkolj7kRXfYjWQ7VsUwRR8bp1MsQ
-	dydga0VGUDWn98fY+KmD7SMRE1TVN+wQclyiEVt0Lx8jxsFosb/xD7Bl/AvW+ybPd8p3Ha0eL90Ni
-	ye4yUA3w==;
+	bh=3xZQd22GYIDLrHRX0aDqL7/yaX6oG+3LxGxC1+f08Mo=; b=FhPvpAooMabaR7Cvu0w4KkPcsv
+	hzV20k+xEvWGlMRlhX0GziYPNPxvRqrr0YOas91ymdBHnnh5julE0jDJ9ZC01MC7D2WAJCJcvLtE/
+	wmoZIPxsSkAxaRDTpWq7TOk6kAyAK7XFAIZn9PInv1yXpQRzPbXtp84gqfIa+t2IveiQBUFrw/Zdr
+	dYLvw1fhSUS8wxkfLBjxaMMRFbaqbu0R/Q/wNXpb+WVOf4fws0gAqcnM/3K6yLFgNkWE0Nx02wuTv
+	4OqTwDZexOki3u61/HkLgvBGtV6qgcgCcs6zTB4p43PkdSqGxiqtBCY3pa7qMlYxtdDrtRaDm7tmX
+	B+SphI5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Dim-0000000H9Ca-1zh2;
+	id 1x8Dim-0000000H9Cp-2QFl;
 	Sun, 20 Sep 2026 09:20:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Did-0000000H99p-0RQ7
+	id 1x8Dih-0000000H9B7-0Mo5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 09:20:20 +0000
+	Sun, 20 Sep 2026 09:20:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26889175A;
-	Sun, 20 Sep 2026 02:20:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C57E41C0A;
+	Sun, 20 Sep 2026 02:20:18 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D368E3F59E;
-	Sun, 20 Sep 2026 02:20:13 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F9C33F59E;
+	Sun, 20 Sep 2026 02:20:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789896017; bh=Z1zT/+qmdnYlo6v6PyvGTRruroGKs4FxS/7jYNNL1h8=;
+	t=1789896022; bh=sC1bOpzrpszySpo0zByntWzUlT0xtl8OobMjkxCvOxk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OtL7pd7tSdRuMX6Uj2n/EhNv5zenFA7EzbQCZ3/kabtNnyUF5Uq70SU18u5GP4Rnq
-	 IKYknV04kQcHjKTNIAiFzyVpK//cWJgW0iyumlsBETslgEB8O+trrlYvEzcHfz+a30
-	 MJsBNRQGS16Ij5fKz6Fh/8RBFEam7TNWi54skhcM=
+	b=YuKimaft2/ZwIFj8AG6LOdSx6JSXM0rX2X5MkvJntoK7Z/94R2qWLOyCvWWFUziyq
+	 6xw59aD3BOt7y3mLBRdweXdQ+JJ8gmfWhMuuSvysxoIwLUY1b4eaNTstUVXSh9/ZFy
+	 RVVFj7RrMWBPhSY91fDF25smp1U2D11f/irF/f9Y=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -65,17 +65,17 @@ Cc: sudeep.holla@kernel.org,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>,
 	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: [PATCH v12 02/25] firmware: arm_scmi: Allow registration of unknown-size events/reports
-Date: Sun, 20 Sep 2026 10:19:05 +0100
-Message-ID: <20260920091928.2014972-3-cristian.marussi@arm.com>
+Subject: [PATCH v12 03/25] firmware: arm_scmi: Introduce protocol instance notifiers
+Date: Sun, 20 Sep 2026 10:19:06 +0100
+Message-ID: <20260920091928.2014972-4-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260920091928.2014972-1-cristian.marussi@arm.com>
 References: <20260920091928.2014972-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_022019_239218_6F53E3E7 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20260920_022023_227345_182D927E 
+X-CRM114-Status: GOOD (  26.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,106 +90,326 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow protocols to register events with build-time unknown sizes: such
-events can be declared zero-sized and let the core SCMI stack perform the
-needed safe-net boundary checks based on the configured transport size.
+SCMI Protocol notifications are typically used by SCMI drivers to detect
+and react to particular conditions: this was the assumption and the classic
+usage scenario upon which the SCMI notification framework was built.
+
+Some protocols like Telemetry, though, could be interested in enabling and
+registering for such notifications: in such a scenario each initialized
+protocol instance could want to register a common protocol notifier.
+
+In order to reuse the existing SCMI Notifications machinery, allow
+protocols themselves to register for their own notifications and provide
+their own notifier callbacks.
+
+Each protocol, at the end of its initialization phase, can now provide one
+unique per-protocol-instance notifier block, which will be registered, by
+the core SCMI stack, on the related notification chain: such notifier will
+be automatically removed during the protocol de-initialization phase.
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v10 --> v11
- - account for ktime_t field when checking boundary
-v2 --> v3
- - split out of previous patch on protocol notifier
- - use max() instead of max_t()
+v10 -->v11
+ - added a few dev_dbg
+v8 --> v9
+ - Added membarrier comment
+v7 --> v8
+ - Reworked logic around protocol notifier registration to address
+   possible races as pointed out by Sashiko
+ - Reviewed commit message
+v5 -->v6
+ - move protocol notifier registration out of proto_init
+v2-->v3
+ - split out unrelated changes on event sizing
+v1-->v2
+ - Fixed multiline comment format
 ---
- drivers/firmware/arm_scmi/notify.c | 25 ++++++++++++++++++++-----
- drivers/firmware/arm_scmi/notify.h |  8 ++++++--
- 2 files changed, 26 insertions(+), 7 deletions(-)
+ drivers/firmware/arm_scmi/common.h    | 22 +++++++
+ drivers/firmware/arm_scmi/driver.c    | 89 +++++++++++++++++++++------
+ drivers/firmware/arm_scmi/notify.c    | 40 ++++++++++++
+ drivers/firmware/arm_scmi/protocols.h | 10 +++
+ 4 files changed, 142 insertions(+), 19 deletions(-)
 
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 6f89ba96493d..1d9e6af09672 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -18,6 +18,7 @@
+ #include <linux/list.h>
+ #include <linux/module.h>
+ #include <linux/property.h>
++#include <linux/notifier.h>
+ #include <linux/refcount.h>
+ #include <linux/scmi_protocol.h>
+ #include <linux/spinlock.h>
+@@ -687,8 +688,29 @@ static struct platform_driver __drv = {					       \
+ 	.probe = __tag##_probe,						       \
+ }
+ 
++struct scmi_protocol_notifier {
++	u8 proto_id;
++	u8 evt_id;
++	const u32 *src_id;
++	struct notifier_block *nb;
++	bool registered;
++};
++
+ void scmi_notification_instance_data_set(const struct scmi_handle *handle,
+ 					 void *priv);
+ void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
++
++int scmi_protocol_notifier_register(const struct scmi_handle *handle,
++				    struct scmi_protocol_notifier *pno);
++int scmi_protocol_notifier_unregister(const struct scmi_handle *handle,
++				      struct scmi_protocol_notifier *pno);
++
++static inline bool
++scmi_protocol_notifier_registered(struct scmi_protocol_notifier *pno)
++{
++	/* Ensure registered is visible */
++	return smp_load_acquire(&pno->registered);
++}
++
+ int scmi_inflight_count(const struct scmi_handle *handle);
+ #endif /* _SCMI_COMMON_H */
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 922777e86d58..26f39edc770a 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -91,6 +91,8 @@ struct scmi_xfers_info {
+  * @gid: A reference for per-protocol devres management.
+  * @users: A refcount to track effective users of this protocol.
+  * @priv: Reference for optional protocol private data.
++ * @pno: A protocol instance notifier descriptor: active only when the
++ *	 included notifier block @nb is non-NULL.
+  * @version: Protocol version supported by the platform as detected at runtime.
+  * @negotiated_version: When the platform supports a newer protocol version,
+  *			the agent will try to negotiate with the platform the
+@@ -110,6 +112,7 @@ struct scmi_protocol_instance {
+ 	void				*gid;
+ 	refcount_t			users;
+ 	void				*priv;
++	struct scmi_protocol_notifier   pno;
+ 	unsigned int			version;
+ 	unsigned int			negotiated_version;
+ 	struct scmi_protocol_handle	ph;
+@@ -1656,6 +1659,24 @@ static void *scmi_get_protocol_priv(const struct scmi_protocol_handle *ph)
+ 	return pi->priv;
+ }
+ 
++static int
++scmi_register_instance_notifier(const struct scmi_protocol_handle *ph, u8 evt_id,
++				const u32 *src_id, struct notifier_block *nb)
++{
++	struct scmi_protocol_instance *pi = ph_to_pi(ph);
++
++	pi->pno.proto_id = pi->proto->id;
++	pi->pno.evt_id = evt_id;
++	pi->pno.src_id = src_id;
++	/*
++	 * Ensure the descriptor fields are visibile when the notifier block is
++	 * made available
++	 */
++	smp_store_release(&pi->pno.nb, nb);
++
++	return 0;
++}
++
+ static const struct scmi_xfer_ops xfer_ops = {
+ 	.xfer_get_init = xfer_get_init,
+ 	.reset_rx_to_maxsz = reset_rx_to_maxsz,
+@@ -2256,6 +2277,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ 	pi->ph.hops = &helpers_ops;
+ 	pi->ph.set_priv = scmi_set_protocol_priv;
+ 	pi->ph.get_priv = scmi_get_protocol_priv;
++	pi->ph.instance_notifier_register = scmi_register_instance_notifier;
+ 	refcount_set(&pi->users, 1);
+ 
+ 	/*
+@@ -2318,24 +2340,34 @@ static struct scmi_protocol_instance * __must_check
+ scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
+ {
+ 	struct scmi_protocol_instance *pi;
++	struct notifier_block *proto_notifier_nb = NULL;
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
++	scoped_guard(mutex, &info->protocols_mtx) {
++		pi = idr_find(&info->protocols, protocol_id);
++		if (pi) {
++			refcount_inc(&pi->users);
++		} else {
++			const struct scmi_protocol *proto;
+ 
+-	if (pi) {
+-		refcount_inc(&pi->users);
+-	} else {
+-		const struct scmi_protocol *proto;
++			/* Fails if protocol not registered on bus */
++			proto = scmi_protocol_get(protocol_id, &info->version);
++			if (!proto)
++				return ERR_PTR(-EPROBE_DEFER);
+ 
+-		/* Fails if protocol not registered on bus */
+-		proto = scmi_protocol_get(protocol_id, &info->version);
+-		if (proto)
+ 			pi = scmi_alloc_init_protocol_instance(info, proto);
+-		else
+-			pi = ERR_PTR(-EPROBE_DEFER);
++			if (IS_ERR(pi))
++				return pi;
++
++			proto_notifier_nb = READ_ONCE(pi->pno.nb);
++		}
++	}
++
++	if (proto_notifier_nb) {
++		if (scmi_protocol_notifier_register(pi->handle, &pi->pno))
++			dev_warn(handle->dev,
++				 "Failed to register protocol notifier\n");
+ 	}
+-	mutex_unlock(&info->protocols_mtx);
+ 
+ 	return pi;
+ }
+@@ -2366,13 +2398,35 @@ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id)
+ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ {
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
++	struct notifier_block *proto_notifier_nb = NULL;
+ 	struct scmi_protocol_instance *pi;
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
+-	if (WARN_ON(!pi))
+-		goto out;
++	scoped_guard(mutex, &info->protocols_mtx) {
++		pi = idr_find(&info->protocols, protocol_id);
++		if (WARN_ON(!pi))
++			return;
+ 
++		/*
++		 * If a protocol notifier was registered and this is the
++		 * last istance releasing the protocol, mark the notifier
++		 * for un-registration: note that the notifier itself counts
++		 * as one user, as for any other regular notification, so if a
++		 * protocol notifier is registered and there are only 2 users
++		 * active we can derive that this is the last protocol
++		 * instance de-registering.
++		 */
++		if (scmi_protocol_notifier_registered(&pi->pno) &&
++		    refcount_read(&pi->users) == 2)
++			proto_notifier_nb = READ_ONCE(pi->pno.nb);
++	}
++
++	if (proto_notifier_nb) {
++		if (scmi_protocol_notifier_unregister(pi->handle, &pi->pno))
++			dev_err(handle->dev,
++				"Failed to release protocol notifier\n");
++	}
++
++	guard(mutex)(&info->protocols_mtx);
+ 	if (refcount_dec_and_test(&pi->users)) {
+ 		void *gid = pi->gid;
+ 
+@@ -2390,9 +2444,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
+ 			protocol_id);
+ 	}
+-
+-out:
+-	mutex_unlock(&info->protocols_mtx);
+ }
+ 
+ void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
 diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index fb60fb07c0ed..3264e1062700 100644
+index 3264e1062700..188282d9adc0 100644
 --- a/drivers/firmware/arm_scmi/notify.c
 +++ b/drivers/firmware/arm_scmi/notify.c
-@@ -595,7 +595,13 @@ int scmi_notify(const struct scmi_handle *handle, u8 proto_id, u8 evt_id,
- 	if (!r_evt)
- 		return -EINVAL;
+@@ -1417,6 +1417,25 @@ static int scmi_notifier_register(const struct scmi_handle *handle,
+ 	return ret;
+ }
  
--	if (len > r_evt->evt->max_payld_sz) {
-+	/*
-+	 * Events with a zero max_payld_sz are sized to be of the maximum
-+	 * size allowed by the transport: no need to be size-checked here
-+	 * since the transport layer would have already dropped such
-+	 * over-sized messages.
-+	 */
-+	if (r_evt->evt->max_payld_sz && len > r_evt->evt->max_payld_sz) {
- 		dev_err(handle->dev, "discard badly sized message\n");
- 		return -EINVAL;
- 	}
-@@ -752,7 +758,7 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 				  const struct scmi_protocol_handle *ph,
- 				  const struct scmi_protocol_events *ee)
- {
--	int i;
-+	int i, max_msg_sz, max_report_sz;
- 	unsigned int num_sources;
- 	size_t payld_sz = 0;
- 	struct scmi_registered_events_desc *pd;
-@@ -767,6 +773,9 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	if (!ni)
- 		return -ENOMEM;
- 
-+	max_msg_sz = ph->hops->get_max_msg_size(ph);
-+	max_report_sz = max_msg_sz + sizeof(ktime_t);
++int scmi_protocol_notifier_register(const struct scmi_handle *handle,
++				    struct scmi_protocol_notifier *pno)
++{
++	int ret;
 +
- 	/* num_sources cannot be <= 0 */
- 	if (ee->num_sources) {
- 		num_sources = ee->num_sources;
-@@ -779,8 +788,13 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	}
- 
- 	evt = ee->evts;
--	for (i = 0; i < ee->num_events; i++)
--		payld_sz = max_t(size_t, payld_sz, evt[i].max_payld_sz);
-+	for (i = 0; i < ee->num_events; i++) {
-+		if (evt[i].max_payld_sz == 0) {
-+			payld_sz = max_msg_sz;
-+			break;
-+		}
-+		payld_sz = max(payld_sz, evt[i].max_payld_sz);
-+	}
- 	payld_sz += sizeof(struct scmi_event_header);
- 
- 	pd = scmi_allocate_registered_events_desc(ni, proto_id, ee->queue_sz,
-@@ -807,7 +821,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 		mutex_init(&r_evt->sources_mtx);
- 
- 		r_evt->report = devm_kzalloc(ni->handle->dev,
--					     evt->max_report_sz, GFP_KERNEL);
-+					     evt->max_report_sz ?: max_report_sz,
-+					     GFP_KERNEL);
- 		if (!r_evt->report)
- 			return -ENOMEM;
- 
-diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
-index f18f98c5ab3b..c2eb4844c7db 100644
---- a/drivers/firmware/arm_scmi/notify.h
-+++ b/drivers/firmware/arm_scmi/notify.h
-@@ -18,8 +18,12 @@
++	ret = scmi_notifier_register(handle, pno->proto_id, pno->evt_id,
++				     pno->src_id, pno->nb);
++	if (ret)
++		return ret;
++
++	/* Make sure registration is visible */
++	smp_store_release(&pno->registered, true);
++
++	dev_dbg(handle->dev,
++		"Registered SCMI protocol [0x%X] notifier\n", pno->proto_id);
++
++	return 0;
++}
++
  /**
-  * struct scmi_event  - Describes an event to be supported
-  * @id: Event ID
-- * @max_payld_sz: Max possible size for the payload of a notification message
-- * @max_report_sz: Max possible size for the report of a notification message
-+ * @max_payld_sz: Max possible size for the payload of a notification message.
-+ *		  Set to zero to use the maximum payload size allowed by the
-+ *		  transport.
-+ * @max_report_sz: Max possible size for the report of a notification message.
-+ *		   Set to zero to use the maximum payload size allowed by the
-+ *		   transport plus the additional ktime_t timestamp.
+  * scmi_notifier_unregister()  - Unregister a notifier_block for an event
+  * @handle: The handle identifying the platform instance against which the
+@@ -1474,6 +1493,27 @@ static int scmi_notifier_unregister(const struct scmi_handle *handle,
+ 	return 0;
+ }
+ 
++int scmi_protocol_notifier_unregister(const struct scmi_handle *handle,
++				      struct scmi_protocol_notifier *pno)
++{
++	int ret;
++
++	/* Make sure de-registration is visible BEFORE calling unregister */
++	smp_store_release(&pno->registered, false);
++	ret = scmi_notifier_unregister(handle, pno->proto_id, pno->evt_id,
++				       pno->src_id, pno->nb);
++	if (WARN_ON(ret)) {
++		/* Make sure rollback is visible */
++		smp_store_release(&pno->registered, true);
++		return ret;
++	}
++
++	dev_dbg(handle->dev,
++		"Unregistered SCMI protocol [0x%X] notifier\n", pno->proto_id);
++
++	return 0;
++}
++
+ struct scmi_notifier_devres {
+ 	const struct scmi_handle *handle;
+ 	u8 proto_id;
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index 15ad5162e37a..b7f29003a7dc 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -166,6 +166,13 @@ struct scmi_proto_helpers_ops;
+  *	  can be used by the protocol implementation to generate SCMI messages.
+  * @set_priv: A method to set protocol private data for this instance.
+  * @get_priv: A method to get protocol private data previously set.
++ * @instance_notifier_register: A method to register interest for specific
++ *				notifications from within a protocol
++ *				implementation unit: ONLY one instance notifier
++ *				can be registered per-protocol.
++ *				The related notifier block will be registered
++ *				right after the protocol is initialized and
++ *				automatically removed on protocol release.
   *
-  * Each SCMI protocol, during its initialization phase, can describe the events
-  * it wishes to support in a few struct scmi_event and pass them to the core
+  * This structure represents a protocol initialized against specific SCMI
+  * instance and it will be used as follows:
+@@ -185,6 +192,9 @@ struct scmi_protocol_handle {
+ 	const struct scmi_proto_helpers_ops *hops;
+ 	int (*set_priv)(const struct scmi_protocol_handle *ph, void *priv);
+ 	void *(*get_priv)(const struct scmi_protocol_handle *ph);
++	int (*instance_notifier_register)(const struct scmi_protocol_handle *ph,
++					  u8 evt_id, const u32 *src_id,
++					  struct notifier_block *nb);
+ };
+ 
+ /**
 -- 
 2.54.0
 
