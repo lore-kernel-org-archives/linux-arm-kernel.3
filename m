@@ -4,79 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7600C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACDCC982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 08:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TgEB2mW2r7ZRX/i2n5NohthHoNwVMaL+1UawBMWRSYo=; b=kNPcUqZuuMDudSKWCatTQXFBRm
-	ZGLG6zELddGg/rDU8S1/LpJ+h4BG0qf2ayv7Kc6r2kt7mW5NIYLszzFGkcI7i2Db5oBPIVZ29KqVV
-	sloM6nmtZxNuwPv0lMQEEluKNQgOdUt3UbF4ZnCCpo3q6TyWBl5kNF0Ms2Gx0Pob8H3d2Xs9Cu5wf
-	nEQVzflGh+Cw0bV6lukNhYFbmGw4JEkRSGD/jFz77vrymLfMuP8WBhxt+SfJobLc7lu0uEF9r+SoG
-	DQy9V9KvpFynINDd2JzvxbxknMA4AkyJVlmeRf0ap+52gRkqgsk2TASevFUYJgRQZ6+RzCCeGI28+
-	iYaAcrOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tVuBfRM6hSH7bdNrYC43eEuMmYCLe63rDtFa+xag5MI=; b=psBM+ygvnBxAesKQ7mv7AUd8sz
+	UHieHRK+PdGCrRZCZrfu/T1UNtbzjCAbYHXUlSYMcjhsSgjf0kcRjMwppJU3WVNZW4AUA4dQK+X33
+	5zhlxZe950kFX8yaUJdvufTs1bsC4fkKT3bqGjn3bhwXGtipq5wBThq5NILrBDo4pHjto5/9Rk/VR
+	e6Vjz1AffjikYCmYIf8+1oGwlhdPTyEpv2eGDgG37iOk4vDvO8rZV4OC99g0oRz75xOooA/W0/fbN
+	8FCXNEos22hU//ynMgZVTu2L7ACuSm0WTa/DQy9+v1tLVX4ChWLP3Ex9g/rzkF9r5cgcYvOGZ0eDn
+	7yQ8V0kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8CgF-0000000H5lU-07JV;
-	Sun, 20 Sep 2026 08:13:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8Cly-0000000H6ET-0Ixu;
+	Sun, 20 Sep 2026 08:19:42 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Cg3-0000000H5ea-19DL;
-	Sun, 20 Sep 2026 08:13:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA05C447B4;
-	Sun, 20 Sep 2026 08:13:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6AFF1C2BD00;
-	Sun, 20 Sep 2026 08:13:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789892014;
-	bh=dtG3yKos+s0WDLjnqJtYPVmNnpWZzjKlK7h90lczdvc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OOyWyrjrM9o/L7pLJthNQkvJK+i9y69orDgNamaq1ypAuCvmp7/rI/sKTzh3+bhvo
-	 hEGYbFc68xSsMn7KJhCfCs3Du6k57dIb8ilzJm4F0Pfzjn8rJmk8tPwxKIYQ/hE+te
-	 6Gw1oRhRxNabYf/zmWwemW5Y1Nn0RRJuBmgVxXUVAT3VetnthPuoMrAmkTC64R4oKe
-	 9eIk5RLpbI55O5HmHQ9iIYueC0/nOxI96IThy5xamsXn/T7Rl6mLo/5A0aUMY9wS7S
-	 QuOzDIRP0w+G1doAtkUCG6Fe/W9fmNaLVbVrIuOHhEghEJG3X2zZDAx118ug36zI0V
-	 qaQBRL4PEjE+Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4D27BC982CC;
-	Sun, 20 Sep 2026 08:13:34 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Sun, 20 Sep 2026 08:13:30 +0000
-Subject: [PATCH 3/3] arm64: dts: amlogic: add T7 peripheral nodes
+	id 1x8Clu-0000000H6E7-1fAc
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 08:19:40 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68K54mbx760139
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:19:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=tVuBfRM6hSH7bdNrYC43eEuM
+	mYCLe63rDtFa+xag5MI=; b=pfXP6JY4DnCBiJRRqLLq4GC53wH/2llSz804NQdy
+	Sj/pSvLWm1EEnGneNra/2PGP2EfR4mKBEnxGCArCsWVRowRB6jBkutthASeU7T1v
+	npjATBwkOl+nVmTgWG+QQ+XVxaRmm89QEcPZFbW8jhG4tNbD9PEo8biBG1x2+5Ds
+	wLzEfD1lD6KnIrNZlMCYHLCqUzuvL/4ubh/ugNZXqHMgSiPyB9qZ8A0Si8VZMNrY
+	DanhYowD1V+3uTLZakUQ9ht5Q9avMbsSCIWvR3EbDgyrVaKHQe3Nar2TNmxcZC0a
+	x+ew65F6cCM7sfoH1gOqHsRYDezvuO2Ozwb5w4YrRPXYsQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gskp9te18-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:19:37 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93a01d1d1b6so329161885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 01:19:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789892376; x=1790497176; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tVuBfRM6hSH7bdNrYC43eEuMmYCLe63rDtFa+xag5MI=;
+        b=VN3wKHCN144/HrW32E9Wz22bO4ajZTqkHO1sDWvrO9rpBBz5FKHG6FRgEveip8rL8t
+         gwJe7znP/lERzTVmfIkQB+IBFdV9+gbjEmSZSyInA/JERLncSNk6OrR61SGA6fy6dOhg
+         53IXtR2b4mlylF+9LsVkkQQfuyCLuX3a9+h/GP2SJK8cvs+80xHbsgcqK4MpYoLXR/qC
+         /9SSuvLVbamfKqnBFtzTDHEEOCY+E2Xxk8w+nANO3vjo2RVu63Br0aNNyakco4IlmGen
+         A2Y9VA5DDHKk2eBhQgdTeM2tgTd5d/cqHLSj80C+DlJFqMCvC4Ilc9iveOo3V1f+3/PH
+         igGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789892376; x=1790497176;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tVuBfRM6hSH7bdNrYC43eEuMmYCLe63rDtFa+xag5MI=;
+        b=hxq+h4LNnxmmvAai7hz3WBOD+nmhW1H1s0WAjFdXHaoKYhEcsPYPQceNUSFamL2gJL
+         Di94OoUhXc30FiG5RumVQoEJM2iN8+wNCrhjden8zhDZ4PD0GyUo91ukwWrxAn3IdXcJ
+         LO/vHNQY6rqDcRYgmThCWBbijnF87pyyNaBXCqm/7INJ1mS2rirD+sd+fpqDq6lw6m4h
+         1wVwzqWoyPmnb967+nsHjwsem8hNI4IsWUr67oIPidjMpjhrX0pylj3ewjEFdqyW4DOh
+         wCUDY1wbTl9Wu/W7ZkL5kkcrye4nX5BChTed3/yeXOwVgcGO5l8o9C7aZIYCPekfrqRi
+         Zvow==
+X-Forwarded-Encrypted: i=1; AKwUvBzwTE8e6Zr2m2KsZ2nQeyb2xXHyWUW7jl6g3c63NHOp7QOrKBjYWDZogFnQ2BJ7/Bc+DJLm8fVpZSXmjxfo/PfU@lists.infradead.org
+X-Gm-Message-State: AFuF++kfOwHgX3mWurzmSjgxMqRo1DPalKXUatEG3KALkBJPwlIYtDKe
+	QV3WAua9J5kMBkKelleNqZorNH7iAnxZA5xsvbDkqAZhxHAxPuKnh5k0k8QVFsGprzHabUtX5jk
+	vvDH44H141umLzvWYUSMpQkIDDzPLenygMzaYBV5kYXPNguxADMH6ihv5KnQMrsTOtEnR+sLqXu
+	4WsQ==
+X-Gm-Gg: AYBFou31o/MLYays/Zrl5iFtv5XKQ4W5ovIq8C/TddQJBqfwmqk6TZlJnmae+RkFlxF
+	CbCZ9BkSReali8KXiCInEtVjkMsWxYTKOKlr4aFuAVX1MTXNzU0OCF7UoKLY61z8WlUjJW0BBsL
+	JfD8TV6z6veCunB45G4j6pNRKH8lUXabIDqCx45OuU0TyK7ZNq6SuBk+O/yj6JxboOEWMIxpmdR
+	XtS7BOrwpMMmkWzTi05SAdHne36FWqxs9DKxlU47rfRCoHB0aqMZMoviShDxQaGbnfVxKvkdL8Q
+	jkfWMgxstuuTANaNZ+QEdli7mq7bBYXMwcwLhAmTMygudbG1C5B2H5zgX3YtmvFKrhwp7+gBmaY
+	ISOKOTieBs65pbw==
+X-Received: by 2002:a05:620a:c47:b0:93b:c332:3d9e with SMTP id af79cd13be357-93bf560c669mr438973085a.30.1789892376494;
+        Sun, 20 Sep 2026 01:19:36 -0700 (PDT)
+X-Received: by 2002:a05:620a:c47:b0:93b:c332:3d9e with SMTP id af79cd13be357-93bf560c669mr438970585a.30.1789892375995;
+        Sun, 20 Sep 2026 01:19:35 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4885a0549c3sm557784f8f.25.2026.09.20.01.19.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Sep 2026 01:19:34 -0700 (PDT)
+Date: Sun, 20 Sep 2026 10:19:34 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Linkui Xiao <xiaolinkui@126.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: do not cache the new TSO MSS before
+ it reaches the DMA
+Message-ID: <aq-XFrxqzeQvYEAn@lore-desk>
+References: <20260920061609.1919876-1-xiaolinkui@126.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-t7-node-new-v1-3-e6e0840c1b0b@amlogic.com>
-References: <20260920-t7-node-new-v1-0-e6e0840c1b0b@amlogic.com>
-In-Reply-To: <20260920-t7-node-new-v1-0-e6e0840c1b0b@amlogic.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789892012; l=19364;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=peXhY/ZNiPmcRjcD24HE5BTTBtQP+wUOUxDOh1ytvjo=;
- b=Pc+tYHHWKbHpkoUfeRkZWTSVEitJy1ZultVqF4HVjK9j1xLmnP/P4YI3uvP8/HoN3HQg3ilkk
- cTCVGBGF51sD2Y73KDCNbdoHKJd3z+Mhzosu12OqdOOXJt4+FGMW/7B
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hdZmFPt14xPP7efX"
+Content-Disposition: inline
+In-Reply-To: <20260920061609.1919876-1-xiaolinkui@126.com>
+X-Proofpoint-ORIG-GUID: i1JN83lU5e5ArNSAZ51EyXwJzEXyVx6R
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDExOSBTYWx0ZWRfX/kucgbcpJDXs
+ cOS32Zt0o3mTHvMd8KV0wfG+o2yGydmgb9O3y2FIcm/9/KI0YzTRdwLO1fZviXix7qJslvU9WeH
+ +2+ixXvgqboOnGPj0zKIIz+kEEBsERNG5QTE34JwTV5YDrvzsguOkJvBoXI6gnupw3LrgjgtxW5
+ /fFAkO3jUVoh0Q78P8Qburp55Fk/ngOUEvTSsrYbXeoQRzrPndjGxTN3vNVMcOX1GiiEb8moHII
+ dKkdjNnVQjf6ZTkQUHbsXhjUgHTPKFvFk0HeMp6QMlJlNg+8OvG3NuHJKiTE3Wky2sP4L5bzsiJ
+ iie2PGQtSatKZa5HRHsI4u47+KppKgwJv7QKGgAVybKIbTa6ZEK1kiCJTCZcmyXix4D/6sLBPNY
+ I0iqXtFRcwQApxfBAy5P6i73Pt6SkBqau5tSdsnToeu85pIGVVNxpwVluv+zTp1oI+pmpkQSGvY
+ YecmKM6OlPCfhqUYkyg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIwMDExOSBTYWx0ZWRfX61iV6G452twA
+ Amu7mcx8gYV91myEXSRj5MVfwecjydUC3ONngmaTPg4PBPJQD60adguTuhlgYlAQvrvEN8ifb5L
+ tX641C55/cdw+w6mWn+4gEbGpvmPJCg=
+X-Authority-Analysis: v=2.4 cv=BKAmP1QG c=1 sm=1 tr=0 ts=6aaf9719 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IWBWnCfD7v3Vv49I:21 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=W4vQ8E46j4nzeUKewMYA:9 a=CjuIK1q_8ugA:10
+ a=6340d-lrAPSOr5qSYlQA:9 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-GUID: i1JN83lU5e5ArNSAZ51EyXwJzEXyVx6R
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-20_02,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 impostorscore=0 spamscore=0
+ malwarescore=0 bulkscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609200119
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_011938_444740_1696BBA9 
+X-CRM114-Status: GOOD (  31.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,713 +148,121 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+--hdZmFPt14xPP7efX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Add device tree descriptions for the peripherals on the Amlogic T7
-SoC and the T7 A311D2 AN400 board.
+> From: Linkui Xiao <xiaolinkui@kylinos.cn>
+>=20
+> stmmac_tso_xmit() fills the MSS context descriptor and stores the new MSS
+> in tx_q->mss right away, but the descriptor only gets its OWN bit much
+> later, right before the frame is handed to the DMA. Every error path in
+> between - the dma_map_single() of the linear part and the
+> skb_frag_dma_map() of each fragment - returns with tx_q->mss already
+> updated while the MAC is still programmed with the previous MSS; the
+> abandoned context descriptor is later reclaimed by stmmac_tx_clean().
+>=20
+> The next skb carrying the same MSS then compares equal to the cached
+> value, so no context descriptor is emitted and the hardware segments the
+> TCP stream with a stale MSS, generating frames whose payload size does
+> not match what the stack accounted for.
+>=20
+> Update tx_q->mss only once the context descriptor has been given to the
+> DMA, so that the cached value always describes what the hardware is
+> actually programmed with.
+>=20
+> The context descriptor is now handled like the data descriptors are:
+> tx_q->cur_tx is not advanced while it is being filled. Whether the frame
+> can be queued is only known after every dma_map_single() and
+> skb_frag_dma_map() has succeeded, so the descriptor stays at the slot
+> tx_q->cur_tx points to and the index moves past it later, together with
+> the data descriptors. That also keeps the context descriptor outside the
+> range stmmac_tx_clean() walks when the ring is cleaned after a failure,
+> so the error paths have to release it explicitly.
+>=20
+> Fixes: f748be531d70 ("stmmac: support new GMAC4")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-Add support for the T7 Ethernet controller, SPI controllers, I2C
-controllers, UARTs, pinctrl groups, regulators, and reserved memory.
-Also enable the Ethernet controller on the AN400 board.
+Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- .../boot/dts/amlogic/amlogic-t7-a311d2-an400.dts   | 155 +++++++
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        | 452 +++++++++++++++++++++
- 2 files changed, 607 insertions(+)
+> ---
+> Changes in v2:
+> - Do not advance tx_q->cur_tx while the context descriptor is filled, as
+>   for the data descriptors, and release the context descriptor on the
+>   error paths instead of leaving it to stmmac_tx_clean(). (Lorenzo Bianco=
+ni)
+>=20
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index af2d38a2bb3d..e2e680dd980c 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4563,10 +4563,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff =
+*skb, struct net_device *dev)
+>  			mss_desc =3D &tx_q->dma_tx[tx_q->cur_tx];
+> =20
+>  		stmmac_set_mss(priv, mss_desc, mss);
+> -		tx_q->mss =3D mss;
+> -		tx_q->cur_tx =3D STMMAC_NEXT_ENTRY(tx_q->cur_tx,
+> -						priv->dma_conf.dma_tx_size);
+> -		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
+>  	}
+> =20
+>  	if (netif_msg_tx_queued(priv)) {
+> @@ -4577,6 +4573,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *=
+skb, struct net_device *dev)
+>  	}
+> =20
+>  	first_entry =3D tx_q->cur_tx;
+> +	if (mss_desc)
+> +		first_entry =3D STMMAC_NEXT_ENTRY(first_entry,
+> +						priv->dma_conf.dma_tx_size);
+>  	entry =3D first_entry;
+> =20
+>  	WARN_ON(tx_q->tx_skbuff[entry]);
+> @@ -4714,6 +4713,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *=
+skb, struct net_device *dev)
+>  		 */
+>  		dma_wmb();
+>  		stmmac_set_tx_owner(priv, mss_desc);
+> +		tx_q->mss =3D mss;
+>  	}
+> =20
+>  	if (netif_msg_pktdata(priv)) {
+> @@ -4745,6 +4745,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *=
+skb, struct net_device *dev)
+>  						priv->dma_conf.dma_tx_size);
+>  	}
+>  error:
+> +	if (mss_desc)
+> +		stmmac_release_tx_desc(priv, mss_desc, priv->descriptor_mode);
+> +
+>  	dev_err(priv->device, "Tx dma map failed\n");
+>  	dev_kfree_skb(skb);
+>  	priv->xstats.tx_dropped++;
+> --=20
+> 2.25.1
+>=20
+>=20
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
-index ca7536f772ff..dfd82148179b 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
-@@ -24,12 +24,161 @@ memory@0 {
- 			0x00000001 0x00000000 0x00000000 0x20000000>;
- 	};
- 
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* 3 MiB reserved for ARM Trusted Firmware (BL31) */
-+		secmon_reserved: secmon@5000000 {
-+			reg = <0x0 0x05000000 0x0 0x300000>;
-+			no-map;
-+		};
-+
-+		/* 32 MiB reserved for ARM Trusted Firmware (BL32) */
-+		secmon_reserved_bl32: secmon@5300000 {
-+			reg = <0x0 0x05300000 0x0 0x2000000>;
-+			no-map;
-+		};
-+	};
-+
- 	xtal: xtal-clk {
- 		compatible = "fixed-clock";
- 		clock-frequency = <24000000>;
- 		clock-output-names = "xtal";
- 		#clock-cells = <0>;
- 	};
-+
-+	dc_in: regulator-dc-in {
-+		compatible = "regulator-fixed";
-+		regulator-name = "12V";
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vcc_5v: regulator-vcc-5v {
-+		compatible = "regulator-fixed";
-+		vin-supply = <&dc_in>;
-+		regulator-name = "VCC5V";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio GPIOH_1 GPIO_ACTIVE_HIGH>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vddao_3v3: regulator-vddao-3v3 {
-+		vin-supply = <&dc_in>;
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDAO_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vdd1v8_reg: regulator-vdd-1v8 {
-+		vin-supply = <&dc_in>;
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDIO_1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vddao_1v8: regulator-vddao-1v8 {
-+		compatible = "regulator-fixed";
-+		vin-supply = <&vddao_3v3>;
-+		regulator-name = "VDDAO_1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vddio_3v3: regulator-vddio-3v3 {
-+		compatible = "regulator-fixed";
-+		vin-supply = <&vddao_3v3>;
-+		regulator-name = "VDDIO_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio GPIO_TEST_N GPIO_ACTIVE_HIGH>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	sd_3v3: regulator-sd-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SD_3V3: SD/TF";
-+		vin-supply = <&vddao_3v3>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio GPIOD_11 GPIO_ACTIVE_LOW>;  /* 0R */
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vddio_c: regulator-sd-1v8-3v3 {
-+		compatible = "regulator-gpio";
-+		vin-supply = <&vddio_3v3>;
-+		regulator-name = "VDDIO_C: SD/TF.";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio GPIOE_2 GPIO_ACTIVE_HIGH>;
-+		gpios-states = <1>;
-+
-+		/* Based on P200 schematics, signal CARD_1.8V/3.3V_CTR */
-+		states = <1800000 1
-+			  3300000 0>;
-+	};
-+
-+	vddq_1v1: regulator-vddq-1v1 {
-+		compatible = "regulator-fixed";
-+		vin-supply = <&dc_in>;
-+		regulator-name = "VDDQ_1V1";
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		gpio = <&gpio GPIOD_10 GPIO_ACTIVE_HIGH>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vddqlp_0v6: regulator-vddqlp-0v6 {
-+		vin-supply = <&dc_in>;
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDQLP_0V6";
-+		regulator-min-microvolt = <600000>;
-+		regulator-max-microvolt = <600000>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	vdd_ddr: regulator-vdd-ddr {
-+		vin-supply = <&dc_in>;
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDD_DDR";
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <800000>;
-+		startup-delay-us = <70000>;
-+		enable-active-high;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
- };
- 
- &uart_a {
-@@ -37,3 +186,9 @@ &uart_a {
- 	clock-names = "xtal", "pclk", "baud";
- 	status = "okay";
- };
-+
-+&ethmac {
-+	status = "okay";
-+	phy-handle = <&internal_ephy>;
-+	phy-mode = "rmii";
-+};
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 8f3f1c0579a0..a4ca3be35842 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -5,10 +5,12 @@
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/power/amlogic,t7-pwrc.h>
-+#include <dt-bindings/gpio/gpio.h>
- #include "amlogic-t7-reset.h"
- #include <dt-bindings/clock/amlogic,t7-scmi.h>
- #include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
- #include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
-+#include <dt-bindings/gpio/amlogic,t7-periphs-pinctrl.h>
- 
- / {
- 	interrupt-parent = <&gic>;
-@@ -238,6 +240,30 @@ soc {
- 		#size-cells = <2>;
- 		ranges;
- 
-+		ethmac: ethernet@fdc00000 {
-+			compatible = "amlogic,t7-dwmac",
-+				     "amlogic,meson-axg-dwmac",
-+				     "snps,dwmac-4.00";
-+			reg = <0x0 0xfdc00000 0x0 0x10000>,
-+			      <0x0 0xfe024000 0x0 0x8>;
-+			interrupts = <GIC_SPI 74 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			power-domains = <&pwrc PWRC_T7_ETH_ID>;
-+			clocks = <&clkc_periphs CLKID_SYS_ETH>,
-+				 <&scmi_clk CLKID_FCLK_DIV2>,
-+				 <&scmi_clk CLKID_FCLK_50M>;
-+			clock-names = "stmmaceth", "clkin0", "clkin1";
-+			rx-fifo-depth = <4096>;
-+			tx-fifo-depth = <2048>;
-+			status = "disabled";
-+
-+			mdio0: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
-+
- 		gic: interrupt-controller@fff01000 {
- 			compatible = "arm,gic-400";
- 			#interrupt-cells = <3>;
-@@ -386,6 +412,206 @@ mux {
- 					};
- 				};
- 
-+				i2c0_ao_pins2: i2c0-ao-pins2 {
-+					mux {
-+						groups = "i2c0_ao_sda_e",
-+							"i2c0_ao_sck_e";
-+						function = "i2c0_ao";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c1_ao_pins: i2c1-ao-pins {
-+					mux {
-+						groups = "i2c1_ao_sda",
-+							"i2c1_ao_sck";
-+						function = "i2c1_ao";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c0_pins1: i2c0-pins1 {
-+					mux {
-+						groups = "i2c0_sda_t",
-+							"i2c0_sck_t";
-+						function = "i2c0";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c0_pins2: i2c0-pins2 {
-+					mux {
-+						groups = "i2c0_sda_h",
-+							"i2c0_sck_h";
-+						function = "i2c0";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c1_pins1: i2c1-pins1 {
-+					mux {
-+						groups = "i2c1_sda",
-+							"i2c1_sck";
-+						function = "i2c1";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c2_pins1: i2c2-pins1 {
-+					mux {
-+						groups = "i2c2_sda_x",
-+							"i2c2_sck_x";
-+						function = "i2c2";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c2_pins2: i2c2-pins2 {
-+					mux {
-+						groups = "i2c2_sda_t",
-+							"i2c2_sck_t";
-+						function = "i2c2";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c2_pins3: i2c2-pins3 {
-+					mux {
-+						groups = "i2c2_sda_m",
-+							"i2c2_sck_m";
-+						function = "i2c2";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c3_pins1: i2c3-pins1 {
-+					mux {
-+						groups = "i2c3_sda_m",
-+							"i2c3_sck_m";
-+						function = "i2c3";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c3_pins2: i2c3-pins2 {
-+					mux {
-+						groups = "i2c3_sda_h",
-+							"i2c3_sck_h";
-+						function = "i2c3";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c4_pins1: i2c4-pins1 {
-+					mux {
-+						groups = "i2c4_sda_y",
-+							"i2c4_sck_y";
-+						function = "i2c4";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c4_pins2: i2c4-pins2 {
-+					mux {
-+						groups = "i2c4_sda_h",
-+							"i2c4_sck_h";
-+						function = "i2c4";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				i2c5_pins1: i2c5-pins1 {
-+					mux {
-+						groups = "i2c5_sda",
-+							"i2c5_sck";
-+						function = "i2c5";
-+						drive-strength-microamp = <3000>;
-+						bias-disable;
-+					};
-+				};
-+
-+				spicc0_pins: spicc0-pins {
-+					mux {
-+						groups = "spi0_mosi",
-+							 "spi0_miso",
-+							 "spi0_sclk";
-+						function = "spi0";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
-+				spicc1_pins1: spicc1-pins1 {
-+					mux {
-+						groups = "spi1_mosi_c",
-+							 "spi1_miso_c",
-+							 "spi1_sclk_c";
-+						function = "spi1";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
-+				spicc1_pins2: spicc1-pins2 {
-+					mux {
-+						groups = "spi1_mosi_m",
-+							 "spi1_miso_m",
-+							 "spi1_sclk_m";
-+						function = "spi1";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
-+				spicc2_pins: spicc2-pins {
-+					mux {
-+						groups = "spi2_mosi",
-+							 "spi2_miso",
-+							 "spi2_sclk";
-+						function = "spi2";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
-+				spicc3_pins: spicc3-pins {
-+					mux {
-+						groups = "spi3_mosi",
-+							 "spi3_miso",
-+							 "spi3_sclk";
-+						function = "spi3";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
-+				spicc4_pins: spicc4-pins {
-+					mux {
-+						groups = "spi4_mosi",
-+							 "spi4_miso",
-+							 "spi4_sclk";
-+						function = "spi4";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
-+				spicc5_pins: spicc5-pins {
-+					mux {
-+						groups = "spi5_mosi",
-+							 "spi5_miso",
-+							 "spi5_sclk";
-+						function = "spi5";
-+						drive-strength-microamp = <2000>;
-+					};
-+				};
-+
- 				pwm_a_pins: pwm-a {
- 					mux {
- 						groups = "pwm_a";
-@@ -622,6 +848,41 @@ uart_a: serial@78000 {
- 				status = "disabled";
- 			};
- 
-+			uart_b: serial@7a000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7a000 0x0 0x18>;
-+				interrupts = <GIC_SPI 169 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
-+			uart_c: serial@7c000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7c000 0x0 0x18>;
-+				interrupts = <GIC_SPI 170 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
-+			uart_d: serial@7e000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x7e000 0x0 0x18>;
-+				interrupts = <GIC_SPI 171 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
-+			uart_e: serial@80000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x80000 0x0 0x18>;
-+				interrupts = <GIC_SPI 172 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
-+			uart_f: serial@82000 {
-+				compatible = "amlogic,t7-uart", "amlogic,meson-s4-uart";
-+				reg = <0x0 0x82000 0x0 0x18>;
-+				interrupts = <GIC_SPI 173 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
- 			gp0: clock-controller@8080 {
- 				compatible = "amlogic,t7-gp0-pll";
- 				reg = <0x0 0x8080 0x0 0x20>;
-@@ -688,6 +949,39 @@ sec_ao: ao-secure@10220 {
- 				amlogic,has-chip-id;
- 			};
- 
-+			eth_phy: mdio-multiplexer@28000 {
-+				compatible = "amlogic,g12a-mdio-mux";
-+				reg = <0x0 0x28000 0x0 0xa4>;
-+
-+				clocks = <&clkc_periphs CLKID_SYS_ETHPHY>,
-+					 <&xtal>,
-+					 <&scmi_clk CLKID_FCLK_50M>;
-+				clock-names = "pclk", "clkin0", "clkin1";
-+				mdio-parent-bus = <&mdio0>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				ext_mdio: mdio@0 {
-+					reg = <0>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				int_mdio: mdio@1 {
-+					reg = <1>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					internal_ephy: ethernet_phy@8 {
-+						compatible = "ethernet-phy-id0180.3301",
-+							     "ethernet-phy-ieee802.3-c22";
-+						interrupts = <GIC_SPI 340 IRQ_TYPE_LEVEL_HIGH>;
-+						reg = <8>;
-+						max-speed = <100>;
-+					};
-+				};
-+			};
-+
- 			pwm_ao_ef: pwm@30000 {
- 				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
- 				reg = <0x0 0x30000 0x0 0x24>;
-@@ -711,6 +1005,84 @@ clock-measurer@48000 {
- 				reg = <0x0 0x48000 0x0 0x1c>;
- 			};
- 
-+			spicc3: spi@4a000 {
-+				compatible = "amlogic,t7-spicc", "amlogic,meson-g12a-spicc";
-+				reg = <0x0 0x4a000 0x0 0x44>;
-+				power-domains = <&pwrc PWRC_T7_SPICC3_ID>;
-+				interrupts = <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_SPICC3>,
-+					 <&clkc_periphs CLKID_SPICC3>;
-+				clock-names = "core", "pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			spicc4: spi@4c000 {
-+				compatible = "amlogic,t7-spicc", "amlogic,meson-g12a-spicc";
-+				reg = <0x0 0x4c000 0x0 0x44>;
-+				power-domains = <&pwrc PWRC_T7_SPICC4_ID>;
-+				interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_SPICC4>,
-+					 <&clkc_periphs CLKID_SPICC4>;
-+				clock-names = "core", "pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			spicc5: spi@4e000 {
-+				compatible = "amlogic,t7-spicc", "amlogic,meson-g12a-spicc";
-+				reg = <0x0 0x4e000 0x0 0x44>;
-+				power-domains = <&pwrc PWRC_T7_SPICC5_ID>;
-+				interrupts = <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_SPICC5>,
-+					 <&clkc_periphs CLKID_SPICC5>;
-+				clock-names = "core", "pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			spicc0: spi@50000 {
-+				compatible = "amlogic,t7-spicc", "amlogic,meson-g12a-spicc";
-+				reg = <0x0 0x50000 0x0 0x44>;
-+				power-domains = <&pwrc PWRC_T7_SPICC0_ID>;
-+				interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_SPICC0>,
-+					 <&clkc_periphs CLKID_SPICC0>;
-+				clock-names = "core", "pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			spicc1: spi@52000 {
-+				compatible = "amlogic,t7-spicc", "amlogic,meson-g12a-spicc";
-+				reg = <0x0 0x52000 0x0 0x44>;
-+				power-domains = <&pwrc PWRC_T7_SPICC1_ID>;
-+				interrupts = <GIC_SPI 184 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_SPICC1>,
-+					 <&clkc_periphs CLKID_SPICC1>;
-+				clock-names = "core", "pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				status = "disabled";
-+			};
-+
-+			spicc2: spi@54000 {
-+				compatible = "amlogic,t7-spicc", "amlogic,meson-g12a-spicc";
-+				reg = <0x0 0x54000 0x0 0x44>;
-+				power-domains = <&pwrc PWRC_T7_SPICC2_ID>;
-+				interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_SYS_SPICC2>,
-+					 <&clkc_periphs CLKID_SPICC2>;
-+				clock-names = "core", "pclk";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				status = "disabled";
-+			};
-+
- 			pwm_ab: pwm@58000 {
- 				compatible = "amlogic,t7-pwm", "amlogic,meson-s4-pwm";
- 				reg = <0x0 0x58000 0x0 0x24>;
-@@ -756,6 +1128,86 @@ pwm_ao_cd: pwm@60000 {
- 				status = "disabled";
- 			};
- 
-+			i2c0: i2c@66000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x66000 0x0 0x48>;
-+				interrupts = <GIC_SPI 160 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_M_A>;
-+				status = "disabled";
-+			};
-+
-+			i2c1: i2c@68000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x68000 0x0 0x48>;
-+				interrupts = <GIC_SPI 161 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_M_B>;
-+				status = "disabled";
-+			};
-+
-+			i2c2: i2c@6a000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x6a000 0x0 0x48>;
-+				interrupts = <GIC_SPI 162 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_M_C>;
-+				status = "okay";
-+			};
-+
-+			i2c3: i2c@6c000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x6c000 0x0 0x48>;
-+				interrupts = <GIC_SPI 163 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_M_D>;
-+				status = "disabled";
-+			};
-+
-+			i2c4: i2c@6e000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x6e000 0x0 0x48>;
-+				interrupts = <GIC_SPI 164 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_M_E>;
-+				status = "disabled";
-+			};
-+
-+			i2c5: i2c@70000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x070000 0x0 0x48>;
-+				interrupts = <GIC_SPI 165 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_M_F>;
-+				status = "disabled";
-+			};
-+
-+			i2c_ao_a: i2c@76000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x076000 0x0 0x48>;
-+				interrupts = <GIC_SPI 330 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_AO_A>;
-+				status = "disabled";
-+			};
-+
-+			i2c_ao_b: i2c@86000 {
-+				compatible = "amlogic,t7-i2c", "amlogic,meson-axg-i2c";
-+				reg = <0x0 0x086000 0x0 0x48>;
-+				interrupts = <GIC_SPI 331 IRQ_TYPE_EDGE_RISING>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				clocks = <&clkc_periphs CLKID_SYS_I2C_AO_B>;
-+				status = "disabled";
-+			};
-+
- 			sd_emmc_a: mmc@88000 {
- 				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
- 				reg = <0x0 0x88000 0x0 0x800>;
+--hdZmFPt14xPP7efX
+Content-Type: application/pgp-signature; name=signature.asc
 
--- 
-2.52.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaq+XFgAKCRA6cBh0uS2t
+rKz0AQDQOKlvoWo/v6YdVyqg7wc3sX8gVj0oK+SpKbYYAjMZFQEAi+/NjQU08Sjg
+F7zosScZjl1GSR20UvITwQJmXwNs+QY=
+=Efwo
+-----END PGP SIGNATURE-----
 
+--hdZmFPt14xPP7efX--
 
