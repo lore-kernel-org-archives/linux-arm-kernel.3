@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565C8C982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C26BC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 10:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6NP2n58U5Yq4A+QRjecBvr6xX2Ma/D1EOfK7iAPVBA=; b=5DVYDE7HvdrYoQTmI8LS5qTL9s
-	N4KLoaVerqD/w23JQMPcrdAcpL7QjOFW3bN6+1/1r5q4IKxL7wflzJ2bykDpu+U/poQ0bzemgQ662
-	nz+BAEzxUonk/9CvBgAIBlL195/f76TxIIx/R3nIdoi+WYbmaWW0+VZZ8Eh9Zj/fEx7ixPUSli+x3
-	A4N7ZBRg3u+3NWgGvC4RleflhMx99GPGyqC4/TckMy+U9ozpqFaM7ZsZZC3TavSf6fBzKZORUasBo
-	klsny7FOR1a7oNrTdTTG4G2kBd2NLBXlv1d65Codn+5ve3gqYRUvXvyJijQKcFzin31fCXfMZkiMR
-	3SXpogkA==;
+	bh=wH+sqd2B4Gu4Ut6UI6dzi839GiX83YlylyPlV7kjZvQ=; b=ta+6qtss1CiqfkjvbWGwlTARgA
+	pCZaw+XtAJnsQVQ/pP6nIZkm/Rf87gfSgAXuM1y/WW7BiyqiiqDEy1WloRtYB42GoOJ5izlJv2gc4
+	RnFWtHdv5mWeGK4XfuL6oWSAcswVkabd4KrNOSjfSnBlhvUsXCUqXnydcslYDvwrtxnDa2gl338RA
+	E1fS0zBt+mNzWzJn3NbZKIHVkHYPv0HAqj9OlRvD2TAbZ+/F3/IxkJN8MZJevzqtJiJawCW9FfytM
+	9m2P/YtZxeLpC6XyfMvwk9WBqnXodK/nbwy9PetYQE9t+s0iy9lr+sggm4yAB/KUqN6+RBZPgplDM
+	va+cFgHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Eje-0000000HFed-2PMe;
+	id 1x8Eje-0000000HFdB-0h0o;
 	Sun, 20 Sep 2026 10:25:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8EjM-0000000HFPG-1dk4;
+	id 1x8EjM-0000000HFOs-0xLA;
 	Sun, 20 Sep 2026 10:25:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9737447E9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CE1E44491;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9AE21C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 33A05C2BD01;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789899907;
-	bh=d9gRokGuXMnRj4EGFfmt+XQXkpFvGjH7tDqGf3GPJhI=;
+	bh=eTxnJigNpnWXtmI4MZBvwR7lM1CHRz4uuZ4G5XSJRls=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=qJ3yoCy9F2Vv4a14SVSscKCA0W3kUjhMPmxd0WD7xLYsTRuE+obdFWi+CIkhLH/AB
-	 yYbEXdXelq6ynQBPaaLYFXfdayvb/ejNxuK+w18BpLa0R+4vdvGU9tv/V93MYcEl4D
-	 lmnoEthALBAPDTMjuq1u3+40i6r80IoF1UmboOoGfQrHMe7EUnrGJWrb5ZLVDVUuHo
-	 VAzIAUv8qiWFZZJuHM5SHjEA2PEIBmjbzdICYfkY6lwiJhS6y8r/nuu3sj6egWFhRI
-	 WNyYSlJcDkge+eH9n48Dz/lf/2aJICZHwo+1kTEyKqyUpq9K0ZAiAaaJK4rJdjCzQq
-	 ty0FIqQ552Y2w==
+	b=lpuk5y9Fz9W6Jmc2eeeHBeQys96jvJxxxHlvlUQIARzQ4yO8JDpvl3b+T4EdmY5Z2
+	 5XjQ8KfrH8sKriABn6wKSvcYCyRxy1KmGgWOK62H07XOqpSTSw7YNMNDugMxTJahk2
+	 jV1i2V4X/mhaIi8ZdQNl0SnjupChV4apStM48VFyqGJgXauG0cy1Ifmahjg8137IxO
+	 L3OJYTqxl79A1Vqd+Cy3TSzqF/EClznW7xuv5q9VBrGaVkmheGYkUpXG0iNIRCECSK
+	 xTWXKTL1mX4CNrda+XbqSLQQulyCA84MN/fAAJ974fiz/jBNyJQht9ZKjKwKNUmMu5
+	 hmRFpR741gwpg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 880E0C982E6;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D9ECC982E6;
 	Sun, 20 Sep 2026 10:25:07 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Sun, 20 Sep 2026 18:25:12 +0800
-Subject: [PATCH v2 10/12] arm64: dts: amlogic: s7d: Add clk-measure
- controller node
+Date: Sun, 20 Sep 2026 18:25:06 +0800
+Subject: [PATCH v2 04/12] soc: amlogic: clk-measure: Align compatible
+ entries with DT bindings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-more-socs-to-support-clk_measure-v2-10-224382a429e8@amlogic.com>
+Message-Id: <20260920-more-socs-to-support-clk_measure-v2-4-224382a429e8@amlogic.com>
 References: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 In-Reply-To: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=732;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789899904; l=3018;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=pLxRAmolmQ/S413sGcYNxtsPZfazg1P2W2c2iMu9cJc=;
- b=TQ6NQqP5UAgcMtDONzEg6xT4hV2z3fvgX89dDV3L/AwBLiTDhEbr70Pt24QgZaQdBf0F4sOy6
- m+agroZtVmxC/WyXdM98dNhN1aD4NXNodjxup09W+e3TEu/rDyd651Z
+ bh=N4Mx9eqZjQKXjqKlyxwgJVxp+RMgOs2WzYEHRChMU3s=;
+ b=FBt+mP4nvxZ0zj8/a5vbJEOhDz5lKQllZx7AGXo7yCzqBj581hQtEUz7qg0JWGGnNbFSiX2fM
+ Gm5afsxZ3uMBNGhpG6T8CfvAThO+lMlQ5ri7SycBoCxzkeEii2Ffm8z
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -90,29 +90,100 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-Add the clk-measure controller node for S7D SoC family.
+Reorder the meson_msr_match_table entries to match the order of the
+compatible strings in the DT binding.
+
+Move the newly added clk_msr_a1_data entry accordingly, while keeping
+the existing SoC-specific data order unchanged.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/soc/amlogic/meson-clk-measure.c | 40 ++++++++++++++++-----------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-index 0c4417bcd682..5593ff9e07eb 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-@@ -212,6 +212,11 @@ ao-secure@10220 {
- 				reg = <0x0 0x10220 0x0 0x140>;
- 				amlogic,has-chip-id;
- 			};
-+
-+			clk_msr: clock-measure@48000 {
-+				compatible = "amlogic,s7d-clk-measure";
-+				reg = <0x0 0x48000 0x0 0x1c>;
-+			};
- 		};
- 	};
+diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+index 0d4ba2555d17..d58c8d9629ea 100644
+--- a/drivers/soc/amlogic/meson-clk-measure.c
++++ b/drivers/soc/amlogic/meson-clk-measure.c
+@@ -1279,6 +1279,12 @@ static const struct msr_reg_offset msr_reg_offset_v2 = {
+ 	.duty_val = 0x18,
  };
+ 
++static const struct meson_msr_data clk_msr_a1_data = {
++	.msr_table = (void *)clk_msr_a1,
++	.msr_count = ARRAY_SIZE(clk_msr_a1),
++	.reg = &msr_reg_offset_v2,
++};
++
+ static const struct meson_msr_data clk_msr_c3_data = {
+ 	.msr_table = (void *)clk_msr_c3,
+ 	.msr_count = ARRAY_SIZE(clk_msr_c3),
+@@ -1291,12 +1297,6 @@ static const struct meson_msr_data clk_msr_s4_data = {
+ 	.reg = &msr_reg_offset_v2,
+ };
+ 
+-static const struct meson_msr_data clk_msr_a1_data = {
+-	.msr_table = (void *)clk_msr_a1,
+-	.msr_count = ARRAY_SIZE(clk_msr_a1),
+-	.reg = &msr_reg_offset_v2,
+-};
+-
+ static const struct meson_msr_data clk_msr_t7_data = {
+ 	.msr_table = (void *)clk_msr_t7,
+ 	.msr_count = ARRAY_SIZE(clk_msr_t7),
+@@ -1305,16 +1305,12 @@ static const struct meson_msr_data clk_msr_t7_data = {
+ 
+ static const struct of_device_id meson_msr_match_table[] = {
+ 	{
+-		.compatible = "amlogic,meson-gx-clk-measure",
+-		.data = &clk_msr_gx_data,
+-	},
+-	{
+-		.compatible = "amlogic,meson8-clk-measure",
+-		.data = &clk_msr_m8_data,
++		.compatible = "amlogic,a1-clk-measure",
++		.data = &clk_msr_a1_data,
+ 	},
+ 	{
+-		.compatible = "amlogic,meson8b-clk-measure",
+-		.data = &clk_msr_m8_data,
++		.compatible = "amlogic,c3-clk-measure",
++		.data = &clk_msr_c3_data,
+ 	},
+ 	{
+ 		.compatible = "amlogic,meson-axg-clk-measure",
+@@ -1324,21 +1320,25 @@ static const struct of_device_id meson_msr_match_table[] = {
+ 		.compatible = "amlogic,meson-g12a-clk-measure",
+ 		.data = &clk_msr_g12a_data,
+ 	},
++	{
++		.compatible = "amlogic,meson-gx-clk-measure",
++		.data = &clk_msr_gx_data,
++	},
+ 	{
+ 		.compatible = "amlogic,meson-sm1-clk-measure",
+ 		.data = &clk_msr_sm1_data,
+ 	},
+ 	{
+-		.compatible = "amlogic,c3-clk-measure",
+-		.data = &clk_msr_c3_data,
++		.compatible = "amlogic,meson8-clk-measure",
++		.data = &clk_msr_m8_data,
+ 	},
+ 	{
+-		.compatible = "amlogic,s4-clk-measure",
+-		.data = &clk_msr_s4_data,
++		.compatible = "amlogic,meson8b-clk-measure",
++		.data = &clk_msr_m8_data,
+ 	},
+ 	{
+-		.compatible = "amlogic,a1-clk-measure",
+-		.data = &clk_msr_a1_data,
++		.compatible = "amlogic,s4-clk-measure",
++		.data = &clk_msr_s4_data,
+ 	},
+ 	{
+ 		.compatible = "amlogic,t7-clk-measure",
 
 -- 
 2.42.0
