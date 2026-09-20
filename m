@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA22C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82782C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 11:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/QeXKEqHAmjxrcuUmzijfCUmr4/OEoPNf94l/24Kws=; b=F9V6wbyTwkbzyZSx+DhXLyqB7J
-	Ev1AZxmYP/U6S1+k60l8V3c1zMA6gOZcGK9e48Q5uwof+4T4dYontSG2tT8LS+SCjUCvpd6CfH3ae
-	v+cf434+v5XAyLYED9c+vVXMcruIiWOIJKbGTe4JSktcQ8FZQk3XwNJGKj3CKHmoO7CcXNle8dzMN
-	hgqje8Too2piyrjDRR9r3SRa2LTuNSHs0NRMil7Z8pERC5iiCDkWVPiKg3ijq8fCpMc5QiZdz1myV
-	VCv9BigVY9Dxba5Y2pMmG3cvRxmGhFIGBD/oWno1zldd3/FxHbTdMAIz85PpCZXo6JvwD80sJCgkK
-	mIZZkA0Q==;
+	bh=y5pufUz8KL5hcXE3IG0sGufufg11jZLTck/NL8QaP+Q=; b=HkY+EwRFDg4KA690g8nY0L9NNw
+	qdaPPdYDaYfYGRWSCAlSsZ8pVUWmMf8482VZ9h/wMKBxys7gAcFc/u3daPvP21VFBee9VQ3T0mXAa
+	br69KLciR830fucfIgC4PVefyFNvKgn59adjevPtWTaGpKVeXwqWbidxjyayCIIJ89v3NkELSv9WT
+	7PpCr8o0nRpnaSoBSW8ya/ArLs1ItI6bYmZpAM3IhN/gyMatZg02aG3G1tddcuZZAoICK3YLlmDzh
+	ogovY8KA7GHVFrSPx9wgfIhks6hP1wyYSLwd/jD5PQBH+IWV0A57dngN78kv0ou7TcsslQfthgd2x
+	+bkBOGTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FY3-0000000HKDB-1F9I;
-	Sun, 20 Sep 2026 11:17:31 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1x8FY5-0000000HKJf-2i1A;
+	Sun, 20 Sep 2026 11:17:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8FXp-0000000HK4V-2cao
+	id 1x8FY1-0000000HKBj-2567
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sun, 20 Sep 2026 11:17:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=y5pufUz8KL5hcXE3IG0sGufufg11jZLTck/NL8QaP+Q=; b=XRNNe9id/ayCRhV7LqWmRgBdZa
+	D/P9XxPXt3OUb/AeUQUctN6Frewg1QDlgNYsjhIHtC/CUJpMjJ9YzE0g4yjJtPLDpSMBb2zbJNL8z
+	D4BGFDLOlkWGZo2lv0mlT+dlZwqpnbBH/obUUuFmPBlG8vNi7O36u4OTD1QV/EZw+ber8CrNwmXUv
+	rW+1bqCs5cnXFMl7BtQDDFHyYXvdWK/c+mY3C2bjgqnapw815hUp7f8vLjrOJDjS4FpCuepFD6Wvm
+	wLlIHlRjFshYPvNY0TrMBBfp3hzQXzOaHg4U138EdeTR+vShwNuGjUOUfiGHThpvoy3xKNJx5b6Vm
+	38bLwNXg==;
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8FXv-0000000BL3M-30AL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 11:17:20 +0000
+	Sun, 20 Sep 2026 11:17:28 +0000
 Received: from [192.168.10.153] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
 	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36Y088236
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 68KBG36S088236
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sun, 20 Sep 2026 20:16:13 +0900 (JST)
+	Sun, 20 Sep 2026 20:16:10 +0900 (JST)
 	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=i/QeXKEqHAmjxrcuUmzijfCUmr4/OEoPNf94l/24Kws=;
+DKIM-Signature: a=rsa-sha256; bh=y5pufUz8KL5hcXE3IG0sGufufg11jZLTck/NL8QaP+Q=;
         c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
         h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1789902973; v=1;
-        b=v40m8Vk5FFKUowHiXoH90N9t7gq2Nju2moBwKNMF0xQsiDBtxawY59XgHU3IjmAC
-         9yU6DWwRRbxLSSBf52Ocnuv2X8SOBWccIBeSTWzM+KypIbrnNNtT+1JjXho2qKXW
-         0AbHPvOyekSoR3DnLFMFQm+tK1U/fcq0JPUU554Tzs7RLswC6kWVxkm4Koqe5OH1
-         +VLPR9p0mmAVCESSEIj3u9yyjGlgi3khNMU8MecQBOla2Z1Zt7Zm1ImbZH2RtiQr
-         bsVdxpK3ORAvOrNt8qWgUGCxflGmrepbzqd/gwwf77cWaxeo7wOReGCsNu6s1uSA
-         I0QOxHc3SjGg0fwsbxLhIw==
+        s=rs20250326; t=1789902970; v=1;
+        b=dh6UycQSH3jQEGeCBbIxmEuSSseuoMtHkMcrYs8WZ9Uit1a4JeDZLqzUn2x2hhLg
+         jVsxL53QR/x6CPuanzmV2Z2IU6rSFnTQKG7g3+quKEnX9RBhtNz8koXDUR1JSVp5
+         lwt8PRpBLXOYv5TRLRHpVk/7l1oAoKx/h8jo4enMOsTaOg9I92CyzFGidQBP5Efe
+         XB2VcmUYtUltw1Nnonu/2JcJkH6l6isVj21i1GV/DCGtj9bgq0bqoaBDMVwkdGmv
+         PmA8OF0c022gWLlcabb703SRLQUtlvq+WDAT+DcNQgzCYEBrh3oPuWOAhijuE4Ax
+         RKDCSyO20c87Dvmgt+OO/Q==
 From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sun, 20 Sep 2026 20:15:52 +0900
-Subject: [PATCH v11 11/21] KVM: arm64: PMU: Recreate events after userspace
- event writes
+Date: Sun, 20 Sep 2026 20:15:46 +0900
+Subject: [PATCH v11 05/21] KVM: arm64: PMU: Mask EL2-reserved bits on guest
+ bitmap reads
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hybrid-v11-11-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+Message-Id: <20260920-hybrid-v11-5-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 In-Reply-To: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -77,18 +92,18 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
         linux-kselftest@vger.kernel.org,
         Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2412;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2094;
  i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=6LLUznzO4H71nxemjRzGDOIgWidAJRt3Eg0+EfeUiB0=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A9lq2m9e1C2vl1fuF/VoCf+qfjIzIZqpwuI5z0oJu
- YmCoc86SlkYxLgYZMUUWVKKdnNrRNd+KkyIb4GZw8oEMoSBi1MAJuI3gZFhD++U1cs+xfPHn/F8
- eMjx/Fnm4uesVZMcL+/dMVs/NGiGPcM/o4pbi1OXOcQbiUrclZsol1/guEX91V3eEqMYP9WGfmk
- mAA==
+ bh=qrWSZiXd3NGTtjPsYculaMGwRl4ZEKcQtXcXafdCzEE=;
+ b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ9b6A2mzvy3l7FFbOK3uPIvZ5NgboX8TJF+0xXw6bfBi5
+ bUG0y6RjlIWBjEuBlkxRZaUot3cGtG1nwoT4ltg5rAygQxh4OIUgIloVzD8T0kvrXlxb/ESN/1V
+ 6kbsy0umtcrf/Mv7Q+ez+arnrJ0pUxn+uxSz7Fm/62ta4SHWexOD/ovXNdfeZfWtqVhqlVuunPi
+ bBQA=
 X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
  fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_041717_891547_3BF76BA1 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20260920_121726_161556_F333F8F7 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +118,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM_SET_ONE_REG writes to PMEVTYPERn_EL0 and PMCCFILTR_EL0 use the
-generic raw system register assignment. If a backing perf event already
-exists, it keeps its old event selection and privilege filters.
+MDCR_EL2.HPMN reserves event counters for EL2. Their bits in the PMU
+counter-enable, interrupt-enable, and overflow-status registers must
+read as zero at lower exception levels. The guest access handlers
+already mask writes, but return the raw bitmap on reads, exposing
+EL2-reserved state to the nested guest.
 
-Add a setter that preserves the raw userspace register value and
-requests deferred event recreation. This rebuilds the event on the vCPU
-thread without changing values returned by KVM_GET_ONE_REG or applying
-guest-write masking.
+Apply the accessible counter mask to reads in all three handlers,
+covering both SET and CLR aliases. Leave the stored state and userspace
+migration accesses unchanged so EL2-reserved bits remain preserved.
 
-Fixes: 9feb21ac57d5 ("arm64: KVM: Add access handler for event type register")
-Closes: https://sashiko.dev/#/patchset/20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp?part=6
-Assisted-by: Codex:gpt-5.6-sol
+Fixes: 9a1c58cfefb0 ("KVM: arm64: nv: Adjust range of accessible PMCs according to HPMN")
+Closes: https://sashiko.dev/#/patchset/20260914-hybrid-v10-0-92788053a691@rsg.ci.i.u-tokyo.ac.jp?part=6
+Assisted-by: Codex:gpt-6-astra
 Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 ---
- arch/arm64/kvm/sys_regs.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 6786311e9b7d..5a44bd5530ff 100644
+index 40927a4d4409..68339eb8a2bb 100644
 --- a/arch/arm64/kvm/sys_regs.c
 +++ b/arch/arm64/kvm/sys_regs.c
-@@ -1334,6 +1334,15 @@ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 va
- 	return 0;
- }
+@@ -1362,7 +1362,7 @@ static bool access_pmcnten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
  
-+static int set_pmu_evtyper(struct kvm_vcpu *vcpu,
-+			   const struct sys_reg_desc *r, u64 val)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, val);
-+	kvm_pmu_request_recreate(vcpu);
-+
-+	return 0;
-+}
-+
- static int get_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 *val)
- {
- 	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
-@@ -1584,7 +1593,7 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
- /* Macro to expand the PMEVTYPERn_EL0 register */
- #define PMU_PMEVTYPER_EL0(n)						\
- 	{ PMU_SYS_REG(PMEVTYPERn_EL0(n)),				\
--	  .reset = reset_pmevtyper,					\
-+	  .reset = reset_pmevtyper, .set_user = set_pmu_evtyper,	\
- 	  .access = access_pmu_evtyper, .reg = (PMEVTYPER0_EL0 + n), }
+ 		kvm_pmu_reprogram_counter_mask(vcpu, val);
+ 	} else {
+-		p->regval = __vcpu_sys_reg(vcpu, PMCNTENSET_EL0);
++		p->regval = __vcpu_sys_reg(vcpu, PMCNTENSET_EL0) & mask;
+ 	}
  
- /* Macro to expand the AMU counter and type registers*/
-@@ -3833,7 +3842,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	 * in 32bit mode. Here we choose to reset it as zero for consistency.
- 	 */
- 	{ PMU_SYS_REG(PMCCFILTR_EL0), .access = access_pmu_evtyper,
--	  .reset = reset_val, .reg = PMCCFILTR_EL0, .val = 0 },
-+	  .reset = reset_val, .reg = PMCCFILTR_EL0, .val = 0,
-+	  .set_user = set_pmu_evtyper },
+ 	return true;
+@@ -1386,7 +1386,7 @@ static bool access_pminten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			/* accessing PMINTENCLR_EL1 */
+ 			__vcpu_rmw_sys_reg(vcpu, PMINTENSET_EL1, &=, ~val);
+ 	} else {
+-		p->regval = __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
++		p->regval = __vcpu_sys_reg(vcpu, PMINTENSET_EL1) & mask;
+ 	}
  
- 	EL2_REG_VNCR(VPIDR_EL2, reset_unknown, 0),
- 	EL2_REG_VNCR(VMPIDR_EL2, reset_unknown, 0),
+ 	return true;
+@@ -1466,7 +1466,7 @@ static bool access_pmovs(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			/* accessing PMOVSCLR_EL0 */
+ 			__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, &=, ~(p->regval & mask));
+ 	} else {
+-		p->regval = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
++		p->regval = __vcpu_sys_reg(vcpu, PMOVSSET_EL0) & mask;
+ 	}
+ 
+ 	return true;
 
 -- 
 2.55.0
