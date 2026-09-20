@@ -4,118 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FDDC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 04:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81A6C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 05:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYHqvApWBxaD4bUAOaE882+EY9mUZ0r309+FWLunq88=; b=URqijBK6u80kiG9/AzvFL7r4xg
-	smAsVL05AMLMiIq7AYBDZ+17N9reC6D1ehkt171lsB8pLS0vyiMeB5ML/aWNXEpLPyfB9TIdCub4m
-	D6ZAuz83BzsExLLkTTnC6k3NkBfkF95HvYiOeUuo5Xa3oiybQ85LB00EdIVqtMs/UeQknGmkDmEth
-	9o4jcEJ3rcoNsbA4RdFfntkQLs3mzNx53xAyvhMR/Sstt1rB2r2hLxi36FF5ib+dP8AGiPUqd2Uqj
-	wUdbuh1A30uQvpzSrYjbnUTMqERRaI1TX/S/vSPIWXH8Vg0yi7o2wXJL0k0lyWPO/w1OoQJScCWvm
-	Kn3DOZJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ylZ/CvgG3yh2HSIJShoIBFahkooqMR7/RY6zuzk8lgo=; b=ewvFh0oQyyq6BxB/6KbVYwuzUH
+	sVQjIqhcqhuFoySXYuT1Qk1Qpr1VV4Qsdgij9TsSLvb7vUGpmbIXrM5DHulN7fKjTI/uE6ODgCYmg
+	aAgD+MGwHFhzq5mzEDZvfPIknXFBr/42XroU9Amgj32BOptaLT2zrQ+5nmAshMX0idllxVALuNKlQ
+	JxzqVKKPXgPn12z7sCnx/IiI4RB/JHIrx/fuXLyXeDsW6SqbBLVSnAAS0ENJCheEURaEKLUqOoxVh
+	iJXVIN/ln8gIfBOgKJzvKLJwaQQ8B5PXG+ifJq9iKy72bTLMzjbXHaVIIlR72muptZ6H8KGeNCwYi
+	jhi8UUBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x89eC-0000000GupF-3Xj0;
-	Sun, 20 Sep 2026 04:59:28 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1x89tZ-0000000GvQg-3tFH;
+	Sun, 20 Sep 2026 05:15:21 +0000
+Received: from mail-japanwestazon11022136.outbound.protection.outlook.com ([40.107.75.136] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x89e9-0000000GumY-2RKE
+	id 1x89tW-0000000GvQL-317E
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 04:59:26 +0000
-Received: by mail-pj2-x11.google.com with SMTP id d9443c01a7336-2d747f05ffcso15050655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 21:59:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789880365; x=1790485165; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OYHqvApWBxaD4bUAOaE882+EY9mUZ0r309+FWLunq88=;
-        b=eJSQBw36+C2IBBncb2FDNUnQWhK3nSf0cIPcXbxssbU8WTdPS9cxEMe7gam8YHa13u
-         WzVz8myVyDXHAwJgL4PbCPXZpQ5JgUzIRwdNco89mc09E4hA+ndf5JfK4a4CEoZ9KcNw
-         mj8tlJ6bNhGE8VGl1cmHBjBGlaB83J+4G+TwFhAAcSqhZ+vs1UuP46++fV8oKZPDpbjl
-         Fsv7i1CRxYiO19RpDShf7ijZpuILjZuVBPo+nJaN1CjjUkSQ6RrFChlJSeoakE0SbNi0
-         1I0SGsOHbeSzQF/eCL3Yqq5gwlVz8JvUSRBSfHLRlk3KIQk1diHlLuWomIEiw/xRXE/I
-         gAsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789880365; x=1790485165;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OYHqvApWBxaD4bUAOaE882+EY9mUZ0r309+FWLunq88=;
-        b=rRSFNs42Ahl5dAhzTspgraQMKfXyfb1suGXZM9h3gBsynx9ZXKDHxnXDLdwvlCZIlw
-         CZTSQs2IxUkjDT03yBrKz2cJDn6aMxajk47J4qzXm+Z2Urtsjuh0oHuC7Qd7q9TU8eQJ
-         DJJjhRBn3EXeOTK5WGhRX/2l9KsD/rUSwBkdroZD4wyGeyhgFGaqh017U4zaKvVfPR5C
-         p+4xuNUUP1n+PofFRbat8+91keqUWDu7m6xbfnGGyVxBv1W0CfxsgXfyXF9QCHprdI1F
-         7jL4Cxqm6sK4TXvOpXJ9CHuUCF3sJcN+qSqSCdBg31F2LvVHTW6PwDDpQmMxPzj2fruO
-         QweQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxvxdCK5kdWhDRIjPrZmizVCLoSs+1RQurfh0Lj4UzMwcUnJmnOAPYXJOGM6FW9IxbHwXzB0AyP7AtFmyTaEpiX@lists.infradead.org
-X-Gm-Message-State: AFuF++n52TsplaANHMtqJmSuuLbX00pcY/1JV1QfACZw8AmwQ7y2Eu+o
-	4JR9r6mDXlDCX1dg5UaxeRb2NnK55yUNn0kplg4gKHtgIJVHYvGUe7yu
-X-Gm-Gg: AYBFou0WBFlpNhDxPCe/RsWr+JBtOnsPXPDfz9XozyDruDNsqUTmVMvxF07oMtU/ny6
-	TdYa/BuYVgP4sHeEwevosHC3s7T6ZobMTyxvn/Mbl0/JZfsVIsfDEmsOI4SiAF9IPRgVrRNV0PI
-	88qs83/o8UTdom1EPoTq2svAJjEcw4JF2SnqMZlXDJXxE4xFP0LOEKkgLwKCJsXjcz/cRmX8Kn7
-	LzDVFgOi5oyTsfpQfTAk9tbOil7ko6c1hsuS9oF+OAd6W7f+02oKYQM984oiqCS6dimx/8RNw8a
-	S/X23JUl4poGY7vCaeHUXyXTbwMfu87pyym5qmocAm/h3cgzwfCO+AbWJrFRpBD1U4uhRnu7px7
-	4+EkZQ44+tbmZ66IX03St6qRiasUZpKCnjG8TCM9vakEmN3SkYon5LCfEBa/FV1qHK7ZXmxceGT
-	5IIoruN8h9mA0DqDFtKURfa6MfXBsJ/eVOvMSBkA/cLwFF8HX+791LvSv++OZNIdqvloi6tG79E
-	Lttzm0T89DbWaZ0K3TyCbBSuaQAyjj1+QgbcyLyv83+ztEFIz8iL66BARO7cMta9gZAFXWnmqmw
-	guCVPjVkdP2tHsx9F2saqReKmkcdwpM5ga0DPoDfH2zqhNM=
-X-Received: by 2002:a17:902:d4cb:b0:2dd:c053:e0f7 with SMTP id d9443c01a7336-2ddc053e14amr57727015ad.38.1789880364897;
-        Sat, 19 Sep 2026 21:59:24 -0700 (PDT)
-Received: from [192.168.2.3] ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddc17d712dsm16026765ad.64.2026.09.19.21.59.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Sep 2026 21:59:24 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Sun, 20 Sep 2026 14:54:07 +1000
-Subject: [PATCH 28/28] arm64: dts: apple: t602x-j47x: Add speaker/headset
- jack nodes
+	Sun, 20 Sep 2026 05:15:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s8SPU5oAvtezlEd4woUcNkLHALbOsUJgdptDyX27GWCxQKPbAgC+WyPDXNJFWfJaKD/IPB7czGlDqmuLYvY16lX6Z63EjWvB2tadTw/DB+Ve/qVEBlDytIcK4zZSlKn0m6oo4Xav+eHBSXmMw0SOP6BcYdKemutbifiJpxKtHZdWf+cOJeTPi61TOHjd3J2Tiyxp1gH+VZeLWMFAIPFfx6wlRyBkEZ9XHqzj8tQ1VRIseHjeJoWTNqshxcDkC8kPeCZMKxuaIYNFInfQb3CjYlckCYybsJ4czNso96UG5MX8oeMrWwAgQvpOlm2u0jTQughEDf2HsjCtBmxojgACNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ylZ/CvgG3yh2HSIJShoIBFahkooqMR7/RY6zuzk8lgo=;
+ b=pxXgi3CxESXTde6BDP9bdo0xPDjvgOYLxLNwOLCmScwsOaz3VJAGjJHmj/Zb26QE26zwKFOQAiasENSpzOy4bbGI0ZP9iLrRfvpeQJK0EyNFGD78d241fORMG11pR9tlAicSC9KuCVKIzG9+/+xcbtpf3d2Wpv4BVsAfJplljS8MzLoI1v/Ksr6e7jInX2o9ihi8oLpkStfH/JDlpDBfs3VtX5PKsnGVnrRfZIYPrb8ZlRSdfFHQq642+ETE08Ka/T5u0Kt4cwQkGII0IfxzByVbN6EHF4LAiyUn3ITAkaYJ1ikt9rt2sV4bbHKgsxY2t8y/chYOVgmWgrIUWdEt2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TYCP286CA0356.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:7c::8) by
+ JH0PR06MB6891.apcprd06.prod.outlook.com (2603:1096:990:51::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.15; Sun, 20 Sep 2026 05:15:04 +0000
+Received: from TY2PEPF0000AB85.apcprd03.prod.outlook.com
+ (2603:1096:405:7c:cafe::6d) by TYCP286CA0356.outlook.office365.com
+ (2603:1096:405:7c::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.15 via Frontend Transport; Sun,
+ 20 Sep 2026 05:15:03 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB85.mail.protection.outlook.com (10.167.253.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Sun, 20 Sep 2026 05:15:03 +0000
+Received: from ubuntu (unknown [172.20.64.99])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id B587840920E2;
+	Sun, 20 Sep 2026 13:15:01 +0800 (CST)
+From: Jelly Jia <Jelly.Jia@cixtech.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Jelly Jia <Jelly.Jia@cixtech.com>,
+	vkoul@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	Frank.Li@kernel.org,
+	robin.murphy@arm.com,
+	cix-kernel-upstream@cixtech.com,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/5] dt-bindings: dma: Add CIX Sky1 DMA-350 integration
+Date: Sun, 20 Sep 2026 13:15:01 +0800
+Message-ID: <20260920051501.3620794-1-Jelly.Jia@cixtech.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <aqE42NzerAiD2U1E@squawk>
+References: <aqE42NzerAiD2U1E@squawk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-macaudio-v1-28-741cc20a74e5@gmail.com>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
-In-Reply-To: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
-To: =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
- Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
- James Calligeros <jcalligeros99@gmail.com>, 
- James Schulman <james.schulman@cirrus.com>
-Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com, 
- Takashi Iwai <tiwai@suse.de>, linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2560;
- i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=wZ33HmVJ/5Act5G23FfyEoldMO69+O+FCZBZLHA6YUE=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFnr05VFbxtZ2sxO6rz5yvjZ5FtlffdnP/XfybTQ3vFf9
- vQgWa01HRNZGMS4GCzFFFk2NAl5zDZiu9kvUrkXZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
- NNIx1jFi4OIUgKlebcbIsNF/880JArN/VbEXGrKU3y9d/+feZy3e5XYinUf3PvpbEcvwv3o111H
- 9zCXse1hj/pyY9fsPb83NyDkbHzH1O+07w70vhgkA
-X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
- fpr=B08212489B3206D98F1479BDD43632D151F77960
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB85:EE_|JH0PR06MB6891:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: db941cae-d928-4856-80a4-08df16d6207e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|7416014|376014|1800799024|36860700016|18002099003|22082099003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: OAJssUO5OBQLxSxysO2gjsA4HD70vatnsM/JWqqtcnGhYlgP27EBi9Ywp0Ou0QKHFObaSoFQb914F/9uMOGtX2xg3mIlnutcxnRf/S7HcadJ2lvz2b+BOULQ5YM8UkhFw1JKOvB8f7vY2eEdzuidSfLMrjTMr4+U27s4SY6SU0RunUoBUmzGVwGYSypxFIc0V+gq9JaJid8zoUcfV9N/nquhZFKQmzIF3hOcm/GK/kLug/WViwUXGvdZMBZ6cU4nTiwqwwUz+G7NqflZzzSw6m2MaJ0DiTsozct3LKHzS2PLII3L8Zu9e4EvqI3QMi6eZBrLiRxShB6WfNRgK9yyUIslYa2rT8hea5JI0Vg7p6soCWIPXxIX+UjaTAg1B5YDosIGlhde2BOYabFudaUOWn2gSXgZTVwi/TNNpiOYGfJwd3IOXwUQE7uPD8H0s7lJaE8H/iU13BhbMGIc70SRL5Ea/n3aUF+SjrC8Oc05ZFm8jTS/Dnyl3qr4ZSBphhhCMfT5FgueQph45VaroFVX4Tj9kTWJcPJqYRX9S79s8qW3X301N9ek1ZqR7iaHY1d8FSEeTrvdHQwgmOEIW3kv26/J+//hg+pAnSWGI7PCcdHkK7Hm2WjezlilICVvKOkEssLqa7/x5Lsgjg7FN2ojznzALT7pFseJWpmQWpGbKk+l18UpYWVh5Mvm6Un87BQ6+pf2u+r6W6gD8EkjUPjOgw==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(7416014)(376014)(1800799024)(36860700016)(18002099003)(22082099003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: KowlSTKsSt9TJdAxFPtmIulOQxSk4H8krEHbIsvLX/3BxqqksLTr1ZNpAhVmdK8Dngu8n+h0JU2e0qwXJirROV1wGFMHfQpBVC+U69wxmyNbF4kS518dhvRfaKTdBpO+BwDqcqHLQ2sckcytkI7MOlskCJNhLeGi5qYf4eqoM5qnzRqPYqiD5mmiv+WLzDKPlyUWRaCgSoY2jDf+BhTq4KMsKQdpICNRATE3I8t7B+o9NqxZxrpyvdvzGh4VHjvschyzL3jBXhb6XBZuT0qPtY7WQQa/rYkmLsGc2R0UV4TRE7ux3J6/QWlVuTLvowjv2FswOnU0PY/j+ai+9E4GWZxVESqLgQorDxgWnN48UhyoTcYGXaG0kXDpt44DfNowj3XpK6uJVIns2ZvXvpENt+iJ0kN7eh5Y5uI8NWM8xZQeMsEqZSpHps69Y3VrihvI
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Sep 2026 05:15:03.1384
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: db941cae-d928-4856-80a4-08df16d6207e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB85.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6891
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_215925_654991_E2D0CEA6 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260919_221518_763999_CDB0B00A 
+X-CRM114-Status: UNSURE (   6.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,79 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M2 Pro/Max/Ultra Mac mini and Mac Studio integrate Apple-specific
-variants of the TI TAS2764 and Cirrus CS42L42. Add these nodes and
-advertise them to the machine driver via the sound node.
+Hi Conor,
 
-Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
----
- .../arm64/boot/dts/apple/t6020-j474s.dts |  5 +++++
- .../arm64/boot/dts/apple/t6021-j475c.dts |  5 +++++
- .../arm64/boot/dts/apple/t6022-j475d.dts |  5 +++++
- .../boot/dts/apple/t602x-j474-j475.dtsi  | 10 ++++++++++
- 4 files changed, 25 insertions(+)
+Thanks, understood: with the SoC-specific compatible scoping the
+integration code, other platforms are unaffected either way.
 
-diff --git a/arch/arm64/boot/dts/apple/t6020-j474s.dts b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-index e3c2635d84fa..e79315b15f11 100644
---- a/arch/arm64/boot/dts/apple/t6020-j474s.dts
-+++ b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-@@ -46,4 +46,9 @@ &pcie0 {
- 			<0x300 &pcie0_dart_3 1 1>;
- };
- 
-+&sound {
-+	compatible = "apple,j474-macaudio", "apple,j473-macaudio", "apple,macaudio";
-+	model = "Mac Studio J473";
-+};
-+
- #include "hwmon-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6021-j475c.dts b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-index 9fe17f1f7f59..8aecd23e0ac3 100644
---- a/arch/arm64/boot/dts/apple/t6021-j475c.dts
-+++ b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-@@ -36,4 +36,9 @@ &pcie0_dart_1 {
- 	status = "okay";
- };
- 
-+&sound {
-+	compatible = "apple,j475-macaudio", "apple,j375-macaudio", "apple,macaudio";
-+	model = "Mac Studio J475";
-+};
-+
- #include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6022-j475d.dts b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-index 32938a3bf96a..91ba7c1d2612 100644
---- a/arch/arm64/boot/dts/apple/t6022-j475d.dts
-+++ b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-@@ -73,3 +73,8 @@ &bluetooth0 {
- 	compatible = "pci14e4,5f72";
- 	brcm,board-type = "apple,canary";
- };
-+
-+&sound {
-+	compatible = "apple,j475-macaudio", "apple,j375-macaudio", "apple,macaudio";
-+	model = "Mac Studio J475";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi b/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi
-index 926bb4ab77af..7f1faefcf9bb 100644
---- a/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-j474-j475.dtsi
-@@ -36,3 +36,13 @@ &hpm2 {
- &hpm3 {
- 	interrupts = <44 IRQ_TYPE_LEVEL_LOW>;
- };
-+
-+&speaker {
-+	interrupts-extended = <&pinctrl_ap 58 IRQ_TYPE_LEVEL_LOW>;
-+	shutdown-gpios = <&pinctrl_ap 57 GPIO_ACTIVE_HIGH>;
-+};
-+
-+&jack_codec {
-+	interrupts-extended = <&pinctrl_ap 59 IRQ_TYPE_LEVEL_LOW>;
-+	reset-gpios = <&pinctrl_nub 8 GPIO_ACTIVE_HIGH>;
-+};
+For v2 my preference is to keep the wrapper, since it leaves the
+generic arm-dma350 driver and its binding untouched. Does that work
+for you, or would you rather see the dma-350 node itself carry a
+device-specific compatible, with the clocks, resets and
+memory-region described on it? I'd also like Robin's take on the
+arm-dma350 side before restructuring that far.
 
--- 
-2.55.0
-
+Best regards,
+Jelly
 
