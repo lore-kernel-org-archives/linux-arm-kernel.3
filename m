@@ -4,108 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E9EC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 05:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960E3C982D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 06:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=54xUl28tB3oyyAr/XFRTTgMHGsQTvwV3/5B41pgtCxk=; b=0dtf8V1pdKc0VevYtHaNDoSwy8
-	b/cqXGuMKG8GjDC8N+oLEZwMFPaigvSS0kO+A6QZO524gkJ1Y6zQpCEmwQx3gKebplL6bnkOJOeLS
-	kvaRHYhM+XM2WaPZuXVojGPmWeAcoUenxEUkM7KJO4QLq5N1J9cLMbewK5bg049LGYBjl4TLnFI5C
-	YQp/2zdCXLUPQN9f3+82q0T7iGAh6HuDmnLUZ0ZHuziN4dtT+tL+7taLM+0E0KVdncBjhH7tfkeRB
-	Pc/wzaGs5cXvDY7wGT2sHyABLSfejtr2Tj4FMfJ+ZxoTVZyh/OlH4Q68pGRDLqSYok5GWhPHHRZPu
-	PkXRBUNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vV7TW2SU9QNyrdw/O3i+fc2xpKeIdc3uZlqCvkwrnsQ=; b=o6BHXOiUq44jf0LGVxBUk50A96
+	i3g2+pjnPI3Fows/lohTskIAmaN+vPBu6edl59pFbOh3gJidOCe5dlzMTdBbxVxrpCj5lceDP7Af3
+	Smv1ogYzE1JlQgfCn20P2GXr2lKyw5+pf53weqvSsZvkZkNHkLXhOUA9rgBISATMILcN3zt7M1bjC
+	s9vfUpMVrn6agjw2n/kOOA4OXtv/vALR+BN1AaVVl0P3eSzb9Tu1paLhGsXzQFxlYPoI66gPZAhQj
+	/L/GniZ2UwCly1epOE1KZlSqaL3yQLloBsk4aXe442mXUYJ4zTkPMIJO59D5y7bb6p8ZJ4bRh3nXU
+	H+vR6nwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8A9v-0000000GwYd-2HwX;
-	Sun, 20 Sep 2026 05:32:15 +0000
-Received: from mail-oa2-x01.google.com ([2607:f8b0:4864:30::1])
+	id 1x8Aju-0000000GybS-2In1;
+	Sun, 20 Sep 2026 06:09:26 +0000
+Received: from winds.org ([68.75.195.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8A9o-0000000GwS8-1zgo
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 05:32:09 +0000
-Received: by mail-oa2-x01.google.com with SMTP id 586e51a60fabf-4511f6a63edso297088fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Sep 2026 22:32:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789882328; x=1790487128; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=54xUl28tB3oyyAr/XFRTTgMHGsQTvwV3/5B41pgtCxk=;
-        b=Ks/lvSeElLnjZaD7DDUPo53T/+i4cjQf/RoL5Xo4d4o3NK8isU6VfsSke1FEL8U+Uk
-         s8zgPJY3bRGtbk29Jpw/CFOOyzJ8bpnbp6yq939a1NvAh2h3iHAmY4/BKoFvkaDXzW4t
-         qjKeO2ONbBLTG3hlZzAlPIvKQNgUwebaLH4m/F5QzDD7uanP+beZsoe54/ebLCxML3Am
-         9hPf7nQVA/rsTrL2XQQ2DhpTtrbzggY4lXAoUEUCRiAzf6y8sbcRiQUEUaBSR6wBBOBj
-         bZ5OIkK+N8Vewi0pyKc8XhDeWZCrQ+tHjCh7mdNZ6bVqrX07OE0nX5T6GHhU0iHrHWzl
-         jhVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789882328; x=1790487128;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=54xUl28tB3oyyAr/XFRTTgMHGsQTvwV3/5B41pgtCxk=;
-        b=oms/dKU2d93YjedvZosIQdu2XI0rjRf92EbJQ7f0FUkwwWTiyB7VgfIDp957h0byqf
-         XkOVU30xTlzHWqHBC1/Xz9XLA/c8WFi2C+MXkLTZ3r/hdKaRJ0hc7euCGbpWD6P8UzjQ
-         KpXL10nUR1MoTgSqfm/F9cUIrc7DIyorHBrxXZUHKQW0lImDzswvsqYmHVgP6v0AGEwr
-         XBxJRkjRsyGXwzoCZZpMcWqDfOlhaAxJT3IrL+28ldNTERU23HCM+YYh9Q5KK+ckAVCb
-         vvxMmmncoCd9BXBvy/yqEPw5rOTpyHqvL7ZqYgh7bIYIJa9/kkkTncARGhCaZ/6ZxiE6
-         LQXg==
-X-Forwarded-Encrypted: i=1; AKwUvBwj8X+1jcfTomUEdP8uTVaGpVmVeQISWK3p29IcH3nVtbqM6LiDfRLn8YQ61b0RmizQGRZL33/nos9a5ajueo8C@lists.infradead.org
-X-Gm-Message-State: AFuF++nYV03YaMDdNdraVQTTn3HBhLhNdorWLiSxxTKrwOQElMjuIR00
-	jcwbrx+xY5DM8zSt3qCVCUesimeSuTdTQrXKggD/6rk6e8dFyJN7C1mG
-X-Gm-Gg: AYBFou0kp6BWhf8IcVuxUrodWEfhcC5jvgO3wTgRMX+E//WVoSymcb2HZw5uJzso7/4
-	iI0NB2LNMjga5nPntjmuv0JhpdiyewaH6pt+nm29t7wmfUu7u2bOARO4UnRpVdLzysbR8kTcT/Y
-	sjBKdrdMKNZOMUqaPK+A8NReSG6Zy2Wz3vXwP5k2AF1Eiulf2lh2dHtIo5/eOaOf7kqtmLAWKIt
-	Zpem7gVm/7jWIZ2dNJSzEdBfXhw8k4Kd3pDQBgWlD35fWV84M4K+xGjg9g5GbezHRb1XDRQGLkQ
-	hU6xYpt+k5SCN6XoI0zRDXCqPd4f12hdKU69f2iqEbQ2iOx50FJr9GdL/p1+rTYyKEBMTITt157
-	oCi/5AsFf4nNe1qIFhyj8b6s1/n2908O8BZ/nWSdEKHBFRwtz2dHTBT/BHSDY/6mpyhsBUv2ePo
-	FIlSpfOLusoyb3tFFrPKQOF2U5Xz3fU5CN2elrPP8yHTbrQUbq3c5XjwhplQAimWwa/w==
-X-Received: by 2002:a05:6820:818a:b0:6b7:8396:f3d6 with SMTP id 006d021491bc7-6ca9ce4cfcdmr7217118eaf.56.1789882327657;
-        Sat, 19 Sep 2026 22:32:07 -0700 (PDT)
-Received: from [192.168.18.164] ([2600:8804:5716:d800::2620])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6cd3541f07fsm5007319eaf.10.2026.09.19.22.32.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Sep 2026 22:32:06 -0700 (PDT)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Sun, 20 Sep 2026 00:31:53 -0500
-Subject: [PATCH v3 3/3] mfd: mt6397-core: Add mt6397 AUXADC support
+	id 1x8Ajr-0000000Gyax-339C;
+	Sun, 20 Sep 2026 06:09:25 +0000
+Received: by winds.org (Postfix, from userid 100)
+	id 858658F80256; Sun, 20 Sep 2026 02:09:19 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by winds.org (Postfix) with ESMTP id 8415D1334AD4D;
+	Sun, 20 Sep 2026 02:09:19 -0400 (EDT)
+Date: Sun, 20 Sep 2026 02:09:19 -0400 (EDT)
+From: Byron Stanoszek <gandalf@winds.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, 
+    Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+    Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+    Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+    Maxime Ripard <mripard@kernel.org>, 
+    Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, 
+    Andy Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+    Emil Renner Berthing <kernel@esmil.dk>, 
+    Hal Feng <hal.feng@starfivetech.com>, 
+    Michael Turquette <mturquette@baylibre.com>, 
+    Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Dominique Belhachemi <db@domibel.de>, 
+    Brian Masney <bmasney+clk@redhat.com>, 
+    Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org, 
+    devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    dri-devel@lists.freedesktop.org, mfd@lists.linux.dev, 
+    linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, 
+    Marek Szyprowski <m.szyprowski@samsung.com>, 
+    Maud Spierings <maud_spierings@murena.io>, 
+    Graham Markall <hello@big-grey.co.uk>, 
+    Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+    Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+    Joshua Peisach <jpeisach@ubuntu.com>, 
+    =?ISO-8859-15?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
+ subsystem
+In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+Message-ID: <b8b046ee-c574-3e16-6079-2fc415633dae@winds.org>
+References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com> <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-3-c00edacbee64@gmail.com>
-References: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-0-c00edacbee64@gmail.com>
-In-Reply-To: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-0-c00edacbee64@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lee Jones <lee@kernel.org>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, mfd@lists.linux.dev, 
- Roman Vivchar <rva333@protonmail.com>, 
- Luca Leonardo Scorcia <l.scorcia@gmail.com>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789882316; l=822;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=1otP8UYV9viBZZ+f8NwjITACufQDeLB/kdjE9I9R9IM=;
- b=9u9PT8EgMhT2CU7ynGTjZXDCJlhMILqp7KosTLFKUyKBrbzaMyv7T6YSoFBmQnoUOssaMtNEq
- wq0GEJz7dXDAC/rXFbTt3HuxJH3iGRrtfTsh2kyNLr/fEKdyaxtfq/X
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+Content-Type: text/plain; charset=us-ascii; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_223208_519475_3A935518 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260919_230923_838438_FFB4ACF1 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +89,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mt6397 PMIC includes an AUXADC. Register the AUXADC in the mt6397
-devices array to allow the corresponding driver to probe using compatible
-string.
+On Tue, 15 Sep 2026, Michal Wilczynski wrote:
 
-Assisted-by: LLM
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
- drivers/mfd/mt6397-core.c | 3 +++
- 1 file changed, 3 insertions(+)
+> This series enables the display subsystem on the StarFive JH7110.
 
-diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-index 9ec951996588..5d5f816492aa 100644
---- a/drivers/mfd/mt6397-core.c
-+++ b/drivers/mfd/mt6397-core.c
-@@ -261,6 +261,9 @@ static const struct mfd_cell mt6359_devs[] = {
- 
- static const struct mfd_cell mt6397_devs[] = {
- 	{
-+		.name = "mt6397-auxadc",
-+		.of_compatible = "mediatek,mt6397-auxadc",
-+	}, {
- 		.name = "mt6397-rtc",
- 		.num_resources = ARRAY_SIZE(mt6397_rtc_resources),
- 		.resources = mt6397_rtc_resources,
+Hi Michal,
 
--- 
-2.55.0
+I tested your v4 patch series on my VisionFive2 1.3B with kernel 7.3-rc3 today
+and it works very well, except for 2 issues. Note, to make the screen refresh
+properly, I am using the noncoherent cache fixes from
+https://github.com/ganboing-jh7110/linux/commits/ganboing-jh7110-cache-fix-v1/
+(specifically commits 3683d97, ef93e2c, 277db0b, and 26ce3e6) in addition to
+your patch.
+
+Issue 1: I have a Dell U2711 monitor which has limited HDMI 1.3 capability, so
+I invented my own Xorg mode to get a good frame rate:
+
+"2560x1440_40.22"  162.00  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync
+
+With this mode and your new driver, I started getting rows of black pixels
+flickering in the upper-left corner of my LCD screen. These weren't there back
+when I was running the same mode under the Keith Zhao driver from StarFive
+(drm/verisilicon v5 plus a bunch of patches for dma cache coherency)
+(https://patchwork.kernel.org/project/dri-devel/cover/20241120061848.196754-1-keith.zhao@starfivetech.com/).
+
+The glitches I saw suggested the sync polarity was being set incorrectly; the
+number of glitched rows was exactly the vsync pulse width plus 1 (i.e.
+"1440 1443 1448 1481" produced 6 bad rows, "1440 1443 1456 1481" produced 14,
+"1440 1441 1442 1481" produced 2, and so forth).
+
+I did a register dump between the two drivers and found that, although the
+DC8200 HSYNC and VSYNC registers were identical between the two versions, the
+hsync and vsync bits on the inno hdmi tx were swapped between the two. When I
+manually set the VIDEO_TIMING_CTL register from 0x09 to 0x05 (matching the
+output of Keith's driver), the glitches went away.
+
+Keith Zhao driver:
+
+=== DC8200 display 0 ===
+DC   PANEL_CONFIG               0x1418 = 0x00001111
+DC   HSIZE                      0x1430 = 0x0AA00A00
+DC   HSYNC                      0x1438 = 0x45280A30
+DC   VSIZE                      0x1440 = 0x05C905A0
+DC   VSYNC                      0x1448 = 0xC2D405A3
+DC   DPI_CONFIG                 0x14B8 = 0x00000005
+DC   FB_CONFIG                  0x1518 = 0x14000000
+DC   FB_ADDRESS                 0x1400 = 0x71200000
+DC   FB_STRIDE                  0x1408 = 0x00002800
+DC   FB_SIZE                    0x1810 = 0x02D00A00
+DC   FB_CONFIG_EX               0x1CC0 = 0x00002000
+DC   PANEL_START                0x1CCC = 0x00000001
+DC   DP_CONFIG                  0x1CD0 = 0x0000000A
+DC   FB_WATER_MARK              0x1CE8 = 0x00000000
+DC   PANEL_CONFIG_EX            0x2518 = 0x00000000
+
+=== INNO HDMI TX video timing ===
+HDMI VIDEO_TIMING_CTL           0x08   = 0x05
+HDMI EXT_HTOTAL_L               0x09   = 0xA0
+HDMI EXT_HTOTAL_H               0x0A   = 0x0A
+HDMI EXT_HBLANK_L               0x0B   = 0xA0
+HDMI EXT_HBLANK_H               0x0C   = 0x00
+HDMI EXT_HDELAY_L               0x0D   = 0x70
+HDMI EXT_HDELAY_H               0x0E   = 0x00
+HDMI EXT_HDURATION_L            0x0F   = 0x20
+HDMI EXT_HDURATION_H            0x10   = 0x00
+HDMI EXT_VTOTAL_L               0x11   = 0xC9
+HDMI EXT_VTOTAL_H               0x12   = 0x05
+HDMI EXT_VBLANK                 0x13   = 0x29
+HDMI EXT_VDELAY                 0x14   = 0x26
+HDMI EXT_VDURATION              0x15   = 0x05
+
+Your driver (showing only the changed values):
+
+DC   DP_CONFIG                  0x1CD0 = 0x00000000
+DC   PANEL_CONFIG_EX            0x2518 = 0x00000001
+HDMI VIDEO_TIMING_CTL           0x08   = 0x09
+
+Specifically the bit#s are different between the two drivers:
+
+inno_hdmi-starfive.h (Keith Zhao):     inno-hdmi.c (generic):
+   v_HSYNC_POLARITY_SF(n)  ((n) << 2)     v_HSYNC_POLARITY  bit 3
+   v_VSYNC_POLARITY_SF(n)  ((n) << 3)     v_VSYNC_POLARITY  bit 2
+
+"_SF" suggests this change is specific to StarFive. The correct positions are
+HSYNC=bit 2 and VSYNC=bit 3 for the JH7110.
+
+I'm guessing that your 42-mode test passed because most CEA modes are +hsync
++vsync, and this wouldn't show any difference if the two bits were transposed.
+
+Once the sync polarity is sorted, I'd be happy to give a Tested-by: on the
+series.
+
+  --
+
+Issue 2: This is more a feature request than an issue. Originally, I tried
+running this Xorg modeline, which worked well under Keith's driver:
+
+"2560x1440_49.90"  201.00  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync
+
+However, your driver would not accept this pixel clock. I then noticed you have
+a pre-PLL table of fixed clocks. Is there any chance you can change the code to
+compute the pre-PLL on the fly like how Keith does it, rather than use a table?
+
+Thanks for all your great work!
+
+Best regards,
+  -Byron
 
 
