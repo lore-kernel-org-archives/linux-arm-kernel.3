@@ -4,83 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 539BAC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F62BC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 17:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AecNapTxF362oY8rExZxZezRuqvp1u2dtTLC2cyGOGo=; b=pvhJZvj4nSR65t/zzIWfRqQNoN
-	m6c0Msz9ov7/lXM1va68vYeBgSuzxLVnNM0w5ksRoXZeyszOqYtlmji2w8wVfeMiSdt3voxSiibvZ
-	ENrWZ9CmPNACzj6VP2DiGl3PFJRMNHrMkFCydn8B+l5p7HEtd4UzS+F4XrOz7Ly37pTdH6FH2+nHN
-	LAlvwDFXkZDPWrRJsVR4cLdMfCvtGbQQPztPzwsNrlS0C/MCbiE26Kf5JSfT21UI3sDZeAxC0EwzW
-	hYoAAN1Si5elXoxwPaKA2pjZW7RoU1px+hN2zKbAX8EPdJZo46Zc5A47oDSE+FsFC/nHK73sfNkSh
-	UvLGW4TA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zvaA1R/5NGHCUWO468vfak0l7lZ8RN7fNc21wJSy80Q=; b=ilwXVeEN722PMQuMUo2Jlno5rb
+	88o0Z2GZkF4mYdv5UsWQzKTFfBQkrmNZHbpS73yJLWu7cypIjCBJlvCxffxUvoS6mblzOZXEcNVIx
+	BxUwRPvo6WXbMjPUNsli+bwL0IaOXWw0/3VIL/sCOMUd7pvKuv5BQFj+N69TR4Mwh6RMGcoiy58Ww
+	ZS7EcXeGXZDJbRUt8jV3V7WhHAXATYLr1zWRpwRGcOpfy+uBYPDyO3Algsa0pEaijBNasjH6WsQGm
+	ruKUil5MNVPMXYHRNvRWfeaRL5MvZ/a6i+xYgyKS5sNXikSggbxdhifqjlTJsv04rFDBy5DPRHX8B
+	yeyiDdLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JiN-000000005bQ-0dDt;
-	Sun, 20 Sep 2026 15:44:27 +0000
-Received: from smtp10.goneo.de ([85.220.189.106])
+	id 1x8Kvb-000000008dp-1Cuz;
+	Sun, 20 Sep 2026 17:02:11 +0000
+Received: from mail-pz2-x00.google.com ([2607:f8b0:4864:3b::])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JiC-000000005WT-1x8Y;
-	Sun, 20 Sep 2026 15:44:17 +0000
-Received: from hub2.goneo.de (hub2.goneo.de [IPv6:2001:1640:5::8:53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	by smtp10.goneo.de (Postfix) with ESMTPS id D3F9F240875;
-	Sun, 20 Sep 2026 17:44:14 +0200 (CEST)
-Received: from hub2.goneo.de (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	by hub2.goneo.de (Postfix) with ESMTPS id 9822F24046F;
-	Sun, 20 Sep 2026 17:44:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tk154.de; s=DKIM001;
-	t=1789919052;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AecNapTxF362oY8rExZxZezRuqvp1u2dtTLC2cyGOGo=;
-	b=IHf43IOKsxj6P1o2SIUddEo/Cckd8cLCRycpgDVjDrjv5WRVZCeIUt4wUHTHFZRIl5nMkj
-	pX/2PjUJcfHFktbABB01Jeiu9Wemam/gFyzgr1Qaau/Bbo3Z1ouKeuGoVxB3jQHSKeN3Hn
-	vibJXJPpmmL+nnH2uf/jTMEOozuxzrW5q2Tei5kzal9Om+TPOKqTOmtD5hud1dc/6f9joo
-	WC6wojI6BCXc6438Uj+NijGEzR8nWHrj49NaWEoxicg8XKV4sM3ZwZCugBIl7DA0P7Kjxk
-	Vi9kW9Hi7mB5xvuAhqU5YY4bO0wO8BINmaroYWnwBagDjhoRd1lb0D+PehnfWg==
-Received: from Til-Notebook.lan (unknown [IPv6:2a00:1f:5743:bc00::d0f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hub2.goneo.de (Postfix) with ESMTPSA id 63596240350;
-	Sun, 20 Sep 2026 17:44:08 +0200 (CEST)
-From: Til Kaiser <mail@tk154.de>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
+	id 1x8KvW-000000008ce-3eWS
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Sep 2026 17:02:09 +0000
+Received: by mail-pz2-x00.google.com with SMTP id 41be03b00d2f7-ca7fcfe1669so1274013a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 10:02:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789923725; x=1790528525; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zvaA1R/5NGHCUWO468vfak0l7lZ8RN7fNc21wJSy80Q=;
+        b=sQRhlZ8OWSsRlFRmjowlFsC4L1ZmEdpERRztarx4GOkWZknfPFjsJngHKLAQCDZmSm
+         5aiCxubMRLOtacOdovFLP8Qq6JQF0XOc2nRbu8SbQdDRKPlsC751uvqQQb5WoZXrSbLg
+         ljEHnqYAyyGg90gz9OmIylHAnSkQqPBQFP9KbW38+OPkddeYdK7a+WyUriIeV20G32af
+         GmcugYTapsXKztHGvNEVuG/8CHokjWBASzhr674m1h9OlxTVGsY+JS3WxThdSOxiKng5
+         zjkveUgujTjW5PNsRxNhDor/DZjmmXuY8I0rCxus3oLQ49fGWNASsTVuOWtU6z8OItzd
+         IYWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789923725; x=1790528525;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zvaA1R/5NGHCUWO468vfak0l7lZ8RN7fNc21wJSy80Q=;
+        b=mvJ0xtZHO+9O3vefJx5iQkP8T36TWZd+43/kU/E4mxOopecTXKGIgfX4Qd+wohYZY/
+         AEA2nmgGq6w6AwhaB6KIPsIReaFXtpr30l9GFPIRwdlm6jnFp/UM4TbCZWK8QmO4X/H7
+         8Vj9M5pO86aDUH4Pjjj5P7KVcYBy7Dr224F/FqfSURNfm24/5utRt8BPX5VmdxR6U57D
+         Cx0JWpG+LP0ra5Ccs7yBwSTCmVVq0joa5LJwechgAoOASAb802rQpx+Z6g4twVP+2ZAI
+         5OL4N5serK1VFLdnSORuX2wKiXmBGuVWCdmh5CsVx35SWii+ayHOn9H4VoGmBEsCyrA3
+         LauA==
+X-Forwarded-Encrypted: i=1; AKwUvBzMTregher34u2g2B7WUZS3zMyuyPk5iY/64oKBMu3UVx0RolXwdLR8F4nwEh80XocnRxcfQCAcLc9ylH8OQdXr@lists.infradead.org
+X-Gm-Message-State: AFuF++mNb+WPoqIj8qcdxv/yqa7vhhmEDWU1SmRuKbZ8ISyn8lzf1T4C
+	rttAm+E1pKOy61vXCdRPxclNAAs+tFLzsp0WG19qbjvr4ijF1/OYepR/
+X-Gm-Gg: AYBFou2Z/hprWm+dbBrg6nadFRIzRuk4BdBd61J/+fCSZS2NY+R2P+IZ8te6aKI2q3v
+	MBEXgFBYsOUCxIHxhWAu8afBl09IYHh+sV8MqwDQcyT4ZHKDgaAquc8S3/Iaxl4b5zm4pPeLjDD
+	HV64G/ZpsDDSajILn5AJnb86cCfHJZWOFQjmlRA+/hHooXf61WjgUpCo05QNU9Kj8mqrJdylqHV
+	wp14tBZzaMah4Ef3cuG3nErSl97HT3IT3FkdPOMyFEQM7OwWKz5zeOnD6yzPG7bVJHTJM0G5Tl/
+	muUt7pnfBeOSHUmFB6oAq6zr8D45EWcRxxBWqIzbr9mQnlr0/NgjufUmFbwR12NYwEJFeRkXDDU
+	hPOpISGNyRZJoHDhjGLdtNDlyHlxzp2ss/m84BD7mnf7nlRfTcfseul57YBNMoRvpNwf7gVgTdK
+	1WbMbTbyO9giWbvMLWNHE2enmBtlg2J0xYkj45WST1ewTTi8OXUBLPtOFAb2Pfm5VPgsZQdg==
+X-Received: by 2002:a05:6a00:3a18:b0:871:41fa:d1c9 with SMTP id d2e1a72fcca58-874ddffca64mr11441916b3a.25.1789923725129;
+        Sun, 20 Sep 2026 10:02:05 -0700 (PDT)
+Received: from server.lan ([168.138.199.194])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a9d07425sm2140646b3a.42.2026.09.20.10.01.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Sep 2026 10:02:03 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Coia Prant <coiaprant@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	David Heidelberg <david@ixit.cz>,
+	netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Til Kaiser <mail@tk154.de>
-Subject: [PATCH net-next 2/2] net: airoha: Add XDP statistics
-Date: Sun, 20 Sep 2026 17:43:29 +0200
-Message-ID: <20260920154329.161755-3-mail@tk154.de>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260920154329.161755-1-mail@tk154.de>
-References: <20260920154329.161755-1-mail@tk154.de>
+	linux-phy@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH net-next v9 00/11] net: pcs: add basic support for RK3568 XPCS
+Date: Mon, 21 Sep 2026 01:01:04 +0800
+Message-ID: <20260920170116.3624104-1-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Rspamd-UID: 6e5446
-X-Rspamd-UID: 047c72
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_084416_651019_88E4FC08 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20260920_100206_916688_530A9004 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,275 +122,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Track and expose per-device XDP statistics via ethtool, covering both
-the RX and TX sides of the XDP data path.
+This series adds proper SGMII support for the Rockchip RK3568 SoC
+using the integrated Synopsys DesignWare XPCS, along with necessary
+fixes and refactoring in the stmmac core and XPCS driver.
 
-A new struct airoha_xdp_stats is introduced and embedded in the existing
-struct airoha_hw_stats. It contains the following counters, all protected
-by the existing u64_stats_sync:
+Motivation
+==========
+The RK3568 integrates a DW XPCS accessed via APB3 and connected to
+a Naneng Combo SerDes PHY.  Several boards (e.g., Ariaboard
+Photonicat) use this interface for Gigabit Ethernet.  However, the
+current upstream stmmac driver does not support this configuration,
+and the XPCS driver has issues in SGMII poll mode that cause the
+link to be reported incorrectly.
 
-  rx_xdp_pass            - frames passed to the networking stack
-  rx_xdp_aborted         - frames with XDP_ABORTED or unknown action
-  rx_xdp_drop            - frames dropped by the BPF program or on error
-  rx_xdp_tx              - frames sent back out via XDP_TX
-  rx_xdp_tx_errors       - XDP_TX failures
-  rx_xdp_redirect        - frames successfully redirected
-  rx_xdp_redirect_errors - XDP_REDIRECT failures
-  tx_xdp_xmit            - frames successfully submitted via ndo_xdp_xmit
-  tx_xdp_xmit_errors     - frames dropped in ndo_xdp_xmit
+This series addresses these issues by:
+- Refactoring stmmac PCS lifetime management to allow platform drivers
+  full control over PCS creation/destruction
+- Fixing the XPCS driver's SGMII link recovery
+- Adding a Rockchip XPCS platform glue driver and wiring it up in
+  dwmac-rk
 
-The airoha_run_xdp() function is reworked to update the appropriate
-counter after each XDP action. The airoha_xdp_xmit() ndo_xdp_xmit handler
-is updated to record the number of successfully transmitted and dropped
-frames.
+Series overview
+===============
 
-The ethtool interface is extended with three new callbacks:
+Generic:
+  Patch 1: move XPCS lifetime management to platform drivers
 
-- get_strings: emits the XDP counter names followed by the page pool
-  stat strings obtained from page_pool_ethtool_stats_get_strings().
-- get_sset_count: returns the combined count of XDP and page pool stats.
-- get_ethtool_stats: reads the XDP counters under the u64_stats_sync
-  seqcount and appends page pool stats collected from all active RX
-  queues via page_pool_get_stats().
+PHY:
+  Patch 2: DT binding for Naneng Combo PHY SGMII MAC selection
+  Patch 3: implement the PHY SGMII MAC selection in driver
 
-PAGE_POOL_STATS is selected in Kconfig to enable the page pool statistics
-infrastructure required by the ethtool callbacks.
+RK3568 XPCS/SGMII:
+  Patch 4: DT binding for Rockchip RK3568 XPCS
+  Patch 5: add XPCS and fixed-clock nodes to rk3568.dtsi
+  Patch 6: add ANRESTART support for SGMII link recovery
+  Patch 7: implement the Rockchip XPCS platform glue driver
+  Patch 8: DT binding for Rockchip DWMAC PCS
+  Patch 9: wire up SGMII support in dwmac-rk
+  Patch 11: update MAINTAINERS
 
-Signed-off-by: Til Kaiser <mail@tk154.de>
+Board enablement:
+  Patch 10: enable SGMII LAN port on Photonicat board
+
+Changelog
+=========
+
+Changes since v8:
+
+Patch 7 (net: pcs: xpcs: add Rockchip RK3568 platform glue driver)
+- Replace the device_lock()/device_is_bound() check in xpcs_rk_create()
+  with a check on link->supplier->links.status. device_is_bound() only
+  tests whether the supplier's driver pointer is set, and that pointer
+  is cleared at the very end of the unbind path, after devres has
+  already freed the drvdata. Checking the device link's supplier state
+  instead tells us whether the link actually pins the supplier: if the
+  supplier was DL_DEV_DRIVER_BOUND when the link was created, the link
+  is in DL_STATE_CONSUMER_PROBE and unbind waits for this probe; any
+  other state means the supplier is not usable and we defer.
+- Drop the device_lock()/device_unlock() pair, which is no longer
+  needed since the link state itself carries the protection.
+- Update the comment above device_link_add() to describe the new
+  reasoning.
+
+Key design decisions
+====================
+- The stmmac core now delegates XPCS creation entirely to platform
+  drivers via pcs_init/pcs_exit.  This is necessary because the
+  generic XPCS creation logic would override any XPCS set up by the
+  platform driver.
+
+- The Rockchip XPCS driver creates a virtual MDIO bus over the APB3
+  registers and implements address remapping.  The generic XPCS core
+  handles all PCS configuration via phylink_pcs_ops.
+
+- On RK3568 in SGMII mode, the MAC clock is fixed at 125 MHz and
+  cannot be dynamically changed.  In-band mode is used, and the
+  generic stmmac set_clk_tx_rate callback is disabled to prevent
+  incorrect clock updates that would break RX.
+
+- The SerDes and power domain are attached to the XPCS device tree
+  node rather than the MAC node. This reflects the actual hardware
+  topology and simplifies the dwmac-rk driver by keeping all PCS-related
+  resources self-contained. It also prepares for possible future QSGMII
+  support, where a single SerDes serves multiple MACs and would be
+  more naturally managed under the XPCS node.
+
+Testing
+=======
+Board: Ariaboard Photonicat (RK3568)
+OS: Armbian (trixie)
+Kernel: 6.18 (backports)
+Result: The SGMII interface obtains an IP address, SSH works, and
+        ping traffic passes without loss.
+
+Notes
+=====
+- When testing out-band mode with set_clk_tx_rate, only 1000Mbps
+  works on both TX/RX; 10/100Mbps only works on TX side.
+
+Dependencies
+============
+None. All patches apply cleanly on top of torvalds master tree (v7.3).
+
+Acknowledgments
+===============
+This work was inspired by and builds upon the excellent work of others:
+- Serge Semin's Synopsys DesignWare XPCS platform driver (pcs-xpcs-plat.c)
+- Clément Léger's Renesas MIIC driver (pcs-rzn1-miic.c)
+- The Rockchip TRM and downstream OEM drivers
+
+Thanks in advance,
+Coia Prant
 ---
- drivers/net/ethernet/airoha/Kconfig      |   1 +
- drivers/net/ethernet/airoha/airoha_eth.c | 131 ++++++++++++++++++++---
- drivers/net/ethernet/airoha/airoha_eth.h |  14 +++
- 3 files changed, 133 insertions(+), 13 deletions(-)
+Coia Prant (11):
+  net: stmmac: move XPCS lifetime management to platform drivers
+  dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel
+    property
+  phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+  dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
+  arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
+  net: pcs: xpcs: add ANRESTART support for SGMII link recovery
+  net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+  dt-bindings: net: rockchip-dwmac: document pcs-handle
+  net: stmmac: dwmac-rk: add SGMII support for RK3568
+  arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
+  MAINTAINERS: add entry for Rockchip XPCS driver
 
-diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-index 1f6640a15fc9..3fa7683a79e9 100644
---- a/drivers/net/ethernet/airoha/Kconfig
-+++ b/drivers/net/ethernet/airoha/Kconfig
-@@ -20,6 +20,7 @@ config NET_AIROHA
- 	depends on NET_DSA || !NET_DSA
- 	select NET_AIROHA_NPU
- 	select PAGE_POOL
-+	select PAGE_POOL_STATS
- 	help
- 	  This driver supports the gigabit ethernet MACs in the
- 	  Airoha SoC family.
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 71b25f225a8a..29b837204842 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -864,6 +864,11 @@ static int airoha_xdp_xmit(struct net_device *netdev, int n,
- 	spin_unlock(&q->lock);
- 	rcu_read_unlock();
- 
-+	u64_stats_update_begin(&dev->stats.syncp);
-+	dev->stats.xdp_stats.tx_xdp_xmit += n - drops;
-+	dev->stats.xdp_stats.tx_xdp_xmit_errors += drops;
-+	u64_stats_update_end(&dev->stats.syncp);
-+
- 	return n - drops;
- }
- 
-@@ -871,40 +876,56 @@ static bool airoha_run_xdp(struct net_device *netdev, struct bpf_prog *prog,
- 			   struct xdp_buff *xdp, struct airoha_queue *q,
- 			   struct airoha_queue_entry *e, struct page *page)
- {
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct airoha_hw_stats *hw_stats = &dev->stats;
- 	u32 act = bpf_prog_run_xdp(prog, xdp);
-+	u64 *count;
- 
- 	switch (act) {
- 	case XDP_PASS:
--		return false;
-+		count = &hw_stats->xdp_stats.rx_xdp_pass;
-+		goto update_stats;
- 	case XDP_TX:
- 		if (unlikely(airoha_xdp_xmit_back(netdev, xdp, q->qdma) < 0)) {
-+			count = &hw_stats->xdp_stats.rx_xdp_tx_errors;
- 			trace_xdp_exception(netdev, prog, act);
--			page_pool_put_full_page(q->page_pool, page, true);
--		} else {
--			e->buf = NULL;
-+			break;
- 		}
--		break;
-+
-+		e->buf = NULL;
-+		count = &hw_stats->xdp_stats.rx_xdp_tx;
-+		goto update_stats;
- 	case XDP_REDIRECT:
- 		if (unlikely(xdp_do_redirect(netdev, xdp, prog) < 0)) {
-+			count = &hw_stats->xdp_stats.rx_xdp_redirect_errors;
- 			trace_xdp_exception(netdev, prog, act);
--			page_pool_put_full_page(q->page_pool, page, true);
--		} else {
--			q->xdp_flush = true;
--			e->buf = NULL;
-+			break;
- 		}
--		break;
-+
-+		e->buf = NULL;
-+		q->xdp_flush = true;
-+		count = &hw_stats->xdp_stats.rx_xdp_redirect;
-+		goto update_stats;
- 	default:
- 		bpf_warn_invalid_xdp_action(netdev, prog, act);
- 		fallthrough;
- 	case XDP_ABORTED:
-+		count = &hw_stats->xdp_stats.rx_xdp_aborted;
- 		trace_xdp_exception(netdev, prog, act);
--		fallthrough;
-+		break;
- 	case XDP_DROP:
--		page_pool_put_full_page(q->page_pool, page, true);
-+		count = &hw_stats->xdp_stats.rx_xdp_drop;
- 		break;
- 	}
- 
--	return true;
-+	page_pool_put_full_page(q->page_pool, page, true);
-+
-+update_stats:
-+	u64_stats_update_begin(&hw_stats->syncp);
-+	*count = *count + 1;
-+	u64_stats_update_end(&hw_stats->syncp);
-+
-+	return act != XDP_PASS;
- }
- 
- static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
-@@ -3676,12 +3697,96 @@ static const struct net_device_ops airoha_netdev_ops = {
- 	.ndo_xdp_xmit		= airoha_xdp_xmit,
- };
- 
-+#define AIROHA_ETHTOOL_XDP_STAT(x) { #x, \
-+				  offsetof(struct airoha_hw_stats, xdp_stats.x) / \
-+				  sizeof(u64) }
-+
-+static const struct {
-+	const char name[ETH_GSTRING_LEN];
-+	u32 offset;
-+} airoha_ethtool_xdp_stats[] = {
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_redirect),
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_redirect_errors),
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_pass),
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_aborted),
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_drop),
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_tx),
-+	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_tx_errors),
-+	AIROHA_ETHTOOL_XDP_STAT(tx_xdp_xmit),
-+	AIROHA_ETHTOOL_XDP_STAT(tx_xdp_xmit_errors),
-+};
-+
-+static void airoha_ethtool_get_strings(struct net_device *netdev, u32 stringset, u8 *data)
-+{
-+	int i;
-+
-+	switch (stringset) {
-+	case ETH_SS_STATS:
-+		for (i = 0; i < ARRAY_SIZE(airoha_ethtool_xdp_stats); i++) {
-+			strscpy(data, airoha_ethtool_xdp_stats[i].name, ETH_GSTRING_LEN);
-+			data += ETH_GSTRING_LEN;
-+		}
-+		page_pool_ethtool_stats_get_strings(data);
-+		break;
-+	}
-+}
-+
-+static int airoha_ethtool_get_sset_count(struct net_device *netdev, int stringset)
-+{
-+	switch (stringset) {
-+	case ETH_SS_STATS:
-+		return ARRAY_SIZE(airoha_ethtool_xdp_stats) + page_pool_ethtool_stats_get_count();
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static void airoha_ethtool_get_ethtool_stats(struct net_device *netdev,
-+					     struct ethtool_stats *stats,
-+					     u64 *data)
-+{
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct airoha_hw_stats *hw_stats = &dev->stats;
-+	u64 *hw_stats_base = (u64 *)hw_stats;
-+	struct page_pool_stats pp_stats = {};
-+	struct airoha_qdma *qdma;
-+	unsigned int start;
-+	int i;
-+
-+	if (netif_running(netdev))
-+		airoha_update_hw_stats(dev);
-+
-+	do {
-+		start = u64_stats_fetch_begin(&hw_stats->syncp);
-+		for (i = 0; i < ARRAY_SIZE(airoha_ethtool_xdp_stats); i++)
-+			data[i] = hw_stats_base[airoha_ethtool_xdp_stats[i].offset];
-+	} while (u64_stats_fetch_retry(&hw_stats->syncp, start));
-+
-+	rcu_read_lock();
-+	qdma = rcu_dereference(dev->qdma);
-+	if (qdma) {
-+		for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+			struct airoha_queue *q = &qdma->q_rx[i];
-+
-+			if (q->page_pool)
-+				page_pool_get_stats(q->page_pool, &pp_stats);
-+		}
-+	}
-+	rcu_read_unlock();
-+
-+	page_pool_ethtool_stats_get(data + ARRAY_SIZE(airoha_ethtool_xdp_stats),
-+				    &pp_stats);
-+}
-+
- static const struct ethtool_ops airoha_ethtool_ops = {
- 	.get_drvinfo		= airoha_ethtool_get_drvinfo,
- 	.get_eth_mac_stats      = airoha_ethtool_get_mac_stats,
- 	.get_rmon_stats		= airoha_ethtool_get_rmon_stats,
- 	.get_link_ksettings	= phy_ethtool_get_link_ksettings,
- 	.get_link		= ethtool_op_get_link,
-+	.get_strings		= airoha_ethtool_get_strings,
-+	.get_sset_count		= airoha_ethtool_get_sset_count,
-+	.get_ethtool_stats	= airoha_ethtool_get_ethtool_stats,
- };
- 
- static int airoha_metadata_dst_alloc(struct airoha_gdm_port *port)
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index cfbc0b8f5bf9..d2ac295c49e9 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -236,6 +236,18 @@ struct airoha_tx_irq_queue {
- 	u32 *q;
- };
- 
-+struct airoha_xdp_stats {
-+	u64 rx_xdp_redirect;
-+	u64 rx_xdp_redirect_errors;
-+	u64 rx_xdp_pass;
-+	u64 rx_xdp_aborted;
-+	u64 rx_xdp_drop;
-+	u64 rx_xdp_tx;
-+	u64 rx_xdp_tx_errors;
-+	u64 tx_xdp_xmit;
-+	u64 tx_xdp_xmit_errors;
-+};
-+
- struct airoha_hw_stats {
- 	struct u64_stats_sync syncp;
- 
-@@ -259,6 +271,8 @@ struct airoha_hw_stats {
- 	u64 rx_jabber;
- 	u64 rx_len[7];
- 
-+	struct airoha_xdp_stats xdp_stats;
-+
- 	struct {
- 		/* Previous HW register values for 32-bit counter delta
- 		 * tracking. Storing the last seen value and accumulating
+ .../net/pcs/rockchip,rk3568-xpcs.yaml         | 110 ++++
+ .../bindings/net/rockchip-dwmac.yaml          |  18 +
+ .../phy/phy-rockchip-naneng-combphy.yaml      |  13 +
+ MAINTAINERS                                   |   9 +
+ .../boot/dts/rockchip/rk3568-photonicat.dts   |  74 ++-
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi      |  45 ++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c |  44 +-
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      |   7 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 130 +++-
+ .../net/ethernet/stmicro/stmmac/dwmac-rzn1.c  |   7 +-
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   7 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c |  39 +-
+ drivers/net/pcs/Kconfig                       |  25 +
+ drivers/net/pcs/Makefile                      |   5 +-
+ drivers/net/pcs/pcs-xpcs-rk.c                 | 599 ++++++++++++++++++
+ drivers/net/pcs/pcs-xpcs.c                    |  35 +-
+ .../rockchip/phy-rockchip-naneng-combphy.c    |   8 +
+ include/linux/pcs/pcs-xpcs-rk.h               |  11 +
+ 19 files changed, 1115 insertions(+), 72 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+ create mode 100644 drivers/net/pcs/pcs-xpcs-rk.c
+ create mode 100644 include/linux/pcs/pcs-xpcs-rk.h
+
 -- 
-2.55.0
+2.47.3
 
 
