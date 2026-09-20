@@ -4,51 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF53EC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 18:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65621C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 18:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=69HT4BOxmlmQatwTKNlKG6p4loRaonB+Mgy4MynpgW4=; b=sb0gMGsRx5wnbn1FKKA1XrMaGg
-	jSeCgutLe0jRMcv3GLp4OKnQGg9golTXB26TdLnB7w2ZBePlvMyIc2sVoYZUAB9ndND6sFXupIBFc
-	kLxw3kPEmCUrrJDkpWLaDCH6IHe9vFAFimcE+zBl/tguTlEtuRvwxBxqTMi14FLu8Ljys1eWq/564
-	mHUEfgSeANOC/fiddMVhpbo0AFPlrV/aAOoq7YGBHhFl9MmIof9IBNvIFmM8xpWq8RCmeEcwMtPMl
-	Q3xqWcNp8NX0uVV4IE95c4YeNJaZMBPj/hVdTAacfO6Jznx4F5KyQCwJ77YvPmPJ2Nj3u3WsdK7c+
-	8o6rw9+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HyOsQWlx9wOPikLvlGoUZKXFqWOe7s/HotIfPZuLNMU=; b=McVPNIDt0R4CH+ugSnxV43OEj2
+	IHgoG0YMfJvEj4DcNPK+oxmjG1/Cv78jbgp0aw4HUajj+CQk5JfxjzDWEoRw7P6bHWYqABjiG1Xez
+	wgjJz13gtrVLVdocdXPRO/Q/TsE698kXZy9LVDqCVFM7qxFehdZpOWVweK/eGRtojIMh8fFJFcBvR
+	3RbMZGl/+4L+iUjzcw6jSKmKI1/F/pJdi5yFiVWMMDlOK/9TFFVnmgkh6d5GSAL2CaD9Xkf58za1H
+	QnDyG1cN8kBFhtxQco5F409LXYktwlo2UDNAkaJZ6bzW635HuxfwJiX/dH3mTjFD98UHWgN8NG3wE
+	PmUml3/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Lq0-00000000Cgn-2IB8;
-	Sun, 20 Sep 2026 18:00:28 +0000
-Received: from [95.181.193.9] (helo=mail.auroraos.dev)
+	id 1x8ME5-00000000DDj-0oyO;
+	Sun, 20 Sep 2026 18:25:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Lpx-00000000CgA-17aa;
-	Sun, 20 Sep 2026 18:00:27 +0000
-Received: from wasted (91.78.36.208) by exch16.corp.auroraos.dev
- (10.189.209.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1847.3; Sun, 20 Sep
- 2026 21:00:07 +0300
-From: Sergey Shtylyov <s.shtylyov@auroraos.dev>
-To: Ulf Hansson <ulfh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	<linux-pm@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-CC: Sergey Shtylyov <s.shtylyov@auroraos.dev>, Caesar Wang
-	<wxt@rock-chips.com>, Kevin Hilman <khilman@linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] pmdomain: rockchip: fix domain check in rockchip_pm_add_one_domain()
-Date: Sun, 20 Sep 2026 20:59:27 +0300
-Message-ID: <20260920175928.42566-1-s.shtylyov@auroraos.dev>
-X-Mailer: git-send-email 2.55.0
+	id 1x8ME4-00000000DDZ-1VFs;
+	Sun, 20 Sep 2026 18:25:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 97A8541861;
+	Sun, 20 Sep 2026 18:25:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEB351F000FF;
+	Sun, 20 Sep 2026 18:25:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789928718;
+	bh=HyOsQWlx9wOPikLvlGoUZKXFqWOe7s/HotIfPZuLNMU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=M9V7CC/CwGt//6juokjMbcKK8cPY1+gZVqM8m/L1Mq2QIvJFTCOZSlnLgr7EqiWYq
+	 h7iTOKd7ZyYiWgfBXFslK1xIkQOatthzOr9a4yihBOgHWkFIs/ylj67pAXdxjdHmGp
+	 xMnAG3e4ml8I0+RP9w8+lycYvpcophCNKOpzABtLqXMdESh2oERd7yjSi8y5ssa5p2
+	 DHcqu3qykSeteXL7fsJGI3GPcelUqY0n068pQv2Hetp6T5uEGSiSrCGktGjcltZ68n
+	 xVIDK+czfKPD916PNCfkDcPYVgJKEDjCg/kkIIv0Ege79AHlVNLVu1n2aBEPX8BhBW
+	 CLt9xrcO5c/pA==
+Date: Sun, 20 Sep 2026 20:25:16 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Mizuno Miotsuki <founder@crepuse.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add DFRobot UNIHIKER M10
+ V1.2
+Message-ID: <20260920-terrific-resolute-bullmastiff-7e3913@quoll>
+References: <20260919134125.59419-1-founder@crepuse.com>
+ <20260919134125.59419-2-founder@crepuse.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [91.78.36.208]
-X-ClientProxiedBy: exch16.corp.auroraos.dev (10.189.209.38) To
- exch16.corp.auroraos.dev (10.189.209.38)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_110025_329688_99115EE7 
-X-CRM114-Status: GOOD (  12.29  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260919134125.59419-2-founder@crepuse.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,38 +72,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In rockchip_pm_add_one_domain(), there's the check (most probably for
-the case where the "reg" prop has an unexpected value?) which doesn't
-make much sense as the variable pd_info will be NULL iff pmu->info->
-domain_info is NULL and the variable id is 0.  What does make sense
-there is checking pd_info->pwr_mask and pd_info->req_mask which (as
-seems to follow from the code) can't both be 0 for a valid domain...
+On Sat, Sep 19, 2026 at 01:41:31PM +0000, Mizuno Miotsuki wrote:
+> Add a board compatible for revision 1.2 of the DFRobot UNIHIKER M10.
+> Other PCB revisions are intentionally not covered.
+> 
+> Signed-off-by: Mizuno Miotsuki <founder@crepuse.com>
+> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
 
-Found by Linux Verification Center (linuxtesting.org) with the Svace
-static analysis tool.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Fixes: 7c696693a4f5 ("soc: rockchip: power-domain: Add power domain driver")
-Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+Best regards,
+Krzysztof
 
----
-This patch is against the fixes branch of Ulf Hansson's linux-pm.git repo.
-
- drivers/pmdomain/rockchip/pm-domains.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index ba66ae719428..69792e2b215b 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -809,7 +809,7 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
- 		return 0;
- 
- 	pd_info = &pmu->info->domain_info[id];
--	if (!pd_info) {
-+	if (!pd_info->pwr_mask && !pd_info->req_mask) {
- 		dev_err(pmu->dev, "%pOFn: undefined domain id %d\n",
- 			node, id);
- 		return -EINVAL;
--- 
-2.55.0
 
