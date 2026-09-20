@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AB5C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6278C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lDJLRD0tWKpTG3FemqC63jSPLEGJkOuVrxQR96bHhs=; b=iHKScJr9G/JhFXV8BGn0+EQG5R
-	Nvn9+duwwts4+4Yn0Yb9F2lZUaUiwEjPJyYa7AEF4NZIY6OYoUiZdgyJSIMFYNp2h2zCyawqeP97z
-	pS6SYKVkJStSwmsOuU+E2ECSpyrtTVgYpAj9DQYqb56eyloGyco8TKx7lHBUIBM5cmtbkU7KcaE8s
-	QS87cfp+l0edVCeAkxGu2tNlKPPihsRKhQr/ar6C5mynO7/sFF7QlkSMZ+JZjvlRciuISQVu03S5n
-	AhvQqforz1gZy0Eh6GogF2ZandMsii9+HKKBbTHxJIOkknFkHpdhgDGavf9mfIv1rzvoHXZ4zGWTS
-	isj2Z+Qg==;
+	bh=U4xyNahx++UeRE+3duparWGVDTSmJTCo/Jj3/jlmSRs=; b=1YwNL6t59TBjjGUruGIA7c3E2v
+	wuWBi9gq1nPRYy1GoZumPjwterdgx/gQl9tfXtK0dlqWt5J6pkZ0+LynWGHnBLkp1jD9xj1oP1P1K
+	SWON1uRmATho0z7z92T16wXwET1Gr+RuUb4r+NbBjlOmH2QJK76ppDNGOsaNIW1Zb8pLmjcHm8HkB
+	xNg8vu0XFV2aNdsOZaZK0Nuy7OyydtuzwdmfhctLzyIsX+QkSWvHVUsr8xmDaXZ4VZ4Ka8kNByqg7
+	kyMjk7ngJ8++o+S7sXBe8xbBJ/uPORrsITzNO8uZir6R2tEu3vI0qjMr+3lN1hsCmtPe9Jm65ovgk
+	WJ90oVDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JHm-000000003IX-2tEg;
-	Sun, 20 Sep 2026 15:16:58 +0000
+	id 1x8JR8-000000003cR-298D;
+	Sun, 20 Sep 2026 15:26:38 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8JHk-000000003IO-3hRg
+	id 1x8JR6-000000003cL-2seu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 15:16:56 +0000
+	Sun, 20 Sep 2026 15:26:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4352941715;
-	Sun, 20 Sep 2026 15:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAA8E1F000FF;
-	Sun, 20 Sep 2026 15:16:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F09941B2A;
+	Sun, 20 Sep 2026 15:26:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ECAF1F000FF;
+	Sun, 20 Sep 2026 15:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789917416;
-	bh=2lDJLRD0tWKpTG3FemqC63jSPLEGJkOuVrxQR96bHhs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=OnAGPvyVu9vBxlC+RUtW2mmfYe6GcvhdDKhk5hRP6CDFDcGPQLUPpe92Puxwn/sRt
-	 hbjFQrZSjTy6zaAb6Y7JG7l7dWhaUT0XsCD8q9MGasluvxgs8/cQYd5HVkJSQy7AeP
-	 A/r6Hla3m/q2EhnmmFozlhmV/2qMeBYPVACElKTOc5wc9jWQRpTWZ520N1vPpI2iEb
-	 Ce7MyE5iWFMh6uqijxTNDSFg9m9hdamIkf13ODzgfCqVDAZhvfUyfYp3eeBUNyj1S+
-	 Zllfx10IDtZJ542iPEeeW5q1C0wTbza8aDNTMER2EoDgDzhCLnq+hX/zATKJ/3J4zo
-	 Mr96Z2+pttpaA==
-Message-ID: <7553dff6-004a-46a7-88c2-728651366113@kernel.org>
-Date: Sun, 20 Sep 2026 17:16:47 +0200
+	s=k20260515; t=1789917996;
+	bh=U4xyNahx++UeRE+3duparWGVDTSmJTCo/Jj3/jlmSRs=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=Dfv7TiYjmnoWMGWqCZXmyp5LK7WO8c0cvUn8efVlQZ++xIZC7JhOOtTUQW8BpvuaB
+	 zjaXYWtnpFJcyjYd8pvRc08g6LQTZCTad1geVmlTiam1TpqHm4r4s+dLIc+0uJcCTg
+	 4KUXMzlG/Zsa1q0JL/EIM0DAu0Bvc5eDmnqBj/HxntTFauJMaAD+FUsUcQVQCsLJJX
+	 zB9BTqc97sf9x+dwuI6g8DlynmDOLp5L8L3uU+MGXIeXR12OibMQKCCW2hTkuC9gtD
+	 elECGKU1JIAV6tVJE7j8MGyBMmsKqUwfZkbFuuiDPpb2gUGa8nDiNpShZuxZh9FnE+
+	 9YihPYJQY5djg==
+Message-ID: <0e8b5e26-aeba-4a19-9453-206d51661d71@kernel.org>
+Date: Sun, 20 Sep 2026 17:26:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm64: dts: google: Add initial dts for
- frankel/blazer/mustang
-To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- soc@lists.linux.dev, Douglas Anderson <dianders@chromium.org>,
- Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>,
- Brian Norris <briannorris@google.com>,
- William McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-serial@vger.kernel.org, Brian Norris <briannorris@chromium.org>
-References: <20260918-contrib-pg-pixel10-initial-dts-v4-0-745eaca28b1a@linaro.org>
- <20260918-contrib-pg-pixel10-initial-dts-v4-3-745eaca28b1a@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 2/2] ARM: dts: imx50: add support for Amazon Kindle 4
+ (Yoshi)
+To: Andrii Salivon <andrijsalivon@plajta.eu>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260920135456.3192247-3-andrijsalivon@plajta.eu>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -114,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260918-contrib-pg-pixel10-initial-dts-v4-3-745eaca28b1a@linaro.org>
+In-Reply-To: <20260920135456.3192247-3-andrijsalivon@plajta.eu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -131,26 +119,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2026 21:05, Peter Griffin wrote:
-> From: Douglas Anderson <dianders@chromium.org>
+On 20/09/2026 15:54, Andrii Salivon wrote:
+> Add initial device tree for the Amazon Kindle 4 non-touch e-reader
+> (codename "yoshi", mainboard marked E01100), based on the i.MX50 SoC.
 > 
-> Add initial device trees for frankel (Pixel 10), blazer (Pixel 10
-> Pro) and mustang (Pixel 10 Pro XL). These device trees are enough to
-> boot to a serial prompt using an initramfs.
+> This enables the console (UART1) and internal eMMC (eSDHC3), tested
+> booting to a full Arch Linux ARM userspace with systemd on real
+> hardware.
 > 
-> Currently only Laguna B0 silicon found in mass production phones is
-> officially supported. Further revisions such as A0 silicon and EVT
-> devices maybe added in the future if they are useful. As of today,
-> these device trees boot fine on EVT devices with A0 silicon.
+> Signed-off-by: Andrii Salivon <andrijsalivon@plajta.eu>
+
+Your patches goes unthreaded. Just use b4 to submit your work.
+
+> ---
+>  arch/arm/boot/dts/nxp/imx/Makefile            |  3 +-
+>  .../boot/dts/nxp/imx/imx50-amazon-yoshi.dts   | 60 +++++++++++++++++++
+>  2 files changed, 62 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx50-amazon-yoshi.dts
 > 
-> A few things can be noted about these device trees:
+> diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+> index 1a2539fa19b4..dd508451286d 100644
+> --- a/arch/arm/boot/dts/nxp/imx/Makefile
+> +++ b/arch/arm/boot/dts/nxp/imx/Makefile
+> @@ -24,7 +24,8 @@ dtb-$(CONFIG_SOC_IMX35) += \
+>  	imx35-pdk.dtb
+>  dtb-$(CONFIG_SOC_IMX50) += \
+>  	imx50-evk.dtb \
+> -	imx50-kobo-aura.dtb
+> +	imx50-kobo-aura.dtb \
+> +	imx50-amazon-yoshi.dtb
 
+Also here, why adding at the end. It only increases chances of conflicts.
 
-I actually forgot if you intend me to pick it up. I assume it's not for
-me to pick up, but nevertheless let me know if something is needed from me.
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
