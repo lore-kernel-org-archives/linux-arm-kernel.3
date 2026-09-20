@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D559C982E1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0C4C982DA
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 17:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mg8/YZyIZ3CihMksQCv23yBYBJSGhmM45ppIsWYSP5M=; b=RucRoCp2tgcvWMZI5jIabj+0P7
-	C+L6NksejNXC9ZrBEmFf0b8frWOiz2a/jg3gXDx/0ex8ZpQYrjbYsvFPgHzwfRidO89YIIKQusRTa
-	x4c8hWM/tIJbgjo2HNX3B0O9FIaxOaBAPHn36qyIbo9inb/wxfREr3qnIy59gKVHRDhsSjx0WPR1E
-	MW0KhDOdYNy5aenf65z9afoO2wCmnKf0Eg0PlmQ9lurYdYusWfn7SMsNe++5tA/GtwGgGtYCP5A5z
-	e4PUI7U+8Rsa4M79M9DPq9uQ8YDzh36RvsR9tUeTVkBxErxMxu1IMoP1N131UHW7x8fbVHMHPDUfI
-	mXoec9Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dUcRCf1eGnVfi1W8WAuJzDtzf2AUhHVib1k17d62MRY=; b=XWiaTzv/5aKc/p6PMkSjNfIub5
+	H7iKcm16zO/x3CErcILCwwFVpxIT6ay/KoN629tIBpUc5TQHlIgX4SfiYVMYsRRfjgiMyzAEgpDsw
+	wfdB3r5FI+CXvC9eh3Ry6+1a2/Vak5RhCKG45FlEepzKAreBrHJLVdlckrDbHlaKEhQ6Hf2JPQIHM
+	h+R3oZ3wzYdf7/UN+nugnAUm22sBdXaeUNowyexoZCfZBNSlq2H6QWK99Luzg1xN5EIpS0f4HAO68
+	XYH8KyEzHbgxsT+jcmIAMnyfCOJ36Qd2U870uPJXuYoAjgRHmi9g+QBtl7CvreCuvUtOEWHUutKRn
+	qbaOMzVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8KwJ-0000000097f-0D8Z;
-	Sun, 20 Sep 2026 17:02:55 +0000
-Received: from mail-pz2-x09.google.com ([2607:f8b0:4864:3b::9])
+	id 1x8KwI-00000000972-3Oyi;
+	Sun, 20 Sep 2026 17:02:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8KwG-0000000094G-0UWN
+	id 1x8KwD-0000000091r-0hNT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 17:02:53 +0000
-Received: by mail-pz2-x09.google.com with SMTP id 41be03b00d2f7-cc53988d9f3so1289070a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 10:02:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789923771; x=1790528571; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Mg8/YZyIZ3CihMksQCv23yBYBJSGhmM45ppIsWYSP5M=;
-        b=KtlgqDn+ehoX0f9gtcg9ds8R34JRZtw/ohuGtzjHptUTlQjdAP+EB4eahntJkQBgZB
-         0d4Xrvf7vKZ/qu+Fvie0hsewc65zVFQYpymEYMY23HqIhyQxPWcVQOeVyXAaTW7hgkyp
-         RpLwF4h5do7wVgYjzOUNe4ilCJclli2I9a7DAF2/8UbGdXCgDr58Wi24uZLTs88vdmH5
-         VEJOJeT/3lZvR87Okk84JOE91aeMRr47XXUK70Vk9XihGSVxYXrH/ysNeRkWBY3VMGtz
-         LXFZ09OBJE/6L7/6XDJIDN4xibeQ9JURmkke5obZH/PUNDR4T9ebr87VQ5V7dhLWDtuR
-         88iA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789923771; x=1790528571;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Mg8/YZyIZ3CihMksQCv23yBYBJSGhmM45ppIsWYSP5M=;
-        b=EqbNdf6URp72XMan3uPTDIyUvNKcPBabyfoxf2Z6jiBFbCNuEjy62y39G9JK6+kN6N
-         XWgwcyWrobVCyEBdf6chEcyEteeEjUhhodZP6QDB78p3gd6OZxxI1mpaTRrtCmgEzOhA
-         FEr+8r68ih8QM9XkUz5tri5Mv1PzTyGG6hgi0eIlpIOIBdbUisjLE0e19w3hhcw+zj89
-         UmWEMYStoiImM8o2OGrXHr1HJScb5Zph6hgwBUh9LBUuUzPGBmD/YfHdeIfj9TOp0Q96
-         nd3IWinp8KzoiYuvu828UPehEy+VmLV5TsWTCVzRA+oTaH53MdI+MOSz+9qVbiaJ2qFa
-         MqQA==
-X-Forwarded-Encrypted: i=1; AKwUvBwHE4JKasLl+wgP8tinl0QHIVEB/uJAUmqdrZksERM/XAAktU8LkKfSl/jH5Fq9RvytA3APhfL+0PnOCOj9Kdgn@lists.infradead.org
-X-Gm-Message-State: AFuF++lTQ4DZLAHzTNeJQO0zBvigEgUmUFIX9TgO0BpSv14mCqJDo32i
-	HqtT92YGbMcT8zVFfxgxMJ8oSCD/Y8Ni/mc2+Xny6+koOqt7f8Havckg
-X-Gm-Gg: AYBFou3FgbsRC3Ijy7WHnRvLWVsXO7LfnLNDV4EpubgfcoZz/CVQmQunUqVfkGrYkDx
-	TqYXP9n85owGdRQkeHw1H79PpJ8CvLDUomFJgWCleSUCG4YCBNe9t1aSamcPZsDMcQIMHgOLFk2
-	BC4fcx8jMTOqgCXo3uQmntvweXiz+aezw5qlkZSGp7gu9kRVccTd39nm4dbM0/HPGAk5SHtORR4
-	dzfkhN/F1HIh0Xlb11Dn2m28POZsuph8VY/Gy9eiQfjDypBf09pPHUsta6gmnFSAbqfubQ7p5o0
-	+Y5oiw75po7vAa/uaGiP/KuwcRo+V4+T/g8og2/xihSrLWwE5JJ5N8VVRqPGHOi3U4joR9isMYH
-	0FhKdeqHqA9tUxBQY3j6BTY5m6BgQaAf8Yzlsiny8cnPYMcnWxMRrVAFMfaQmR2q19/wOdpUrw9
-	TVzUtM+dNzhsTJAdck57YQVi+UbEwfjBJEBMEFH7O7nJiQAydeKBu1RTeCxJ3872OCegwGHGf+a
-	wanAa+h
-X-Received: by 2002:a05:6a00:1ca2:b0:851:8baf:5b26 with SMTP id d2e1a72fcca58-874dc5eb6b5mr12081998b3a.14.1789923771468;
-        Sun, 20 Sep 2026 10:02:51 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a9d07425sm2140646b3a.42.2026.09.20.10.02.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 10:02:50 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v9 05/11] arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
-Date: Mon, 21 Sep 2026 01:01:09 +0800
-Message-ID: <20260920170116.3624104-6-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260920170116.3624104-1-coiaprant@gmail.com>
-References: <20260920170116.3624104-1-coiaprant@gmail.com>
-MIME-Version: 1.0
+	Sun, 20 Sep 2026 17:02:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 41FBB601FD;
+	Sun, 20 Sep 2026 17:02:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933221F000FF;
+	Sun, 20 Sep 2026 17:02:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789923768;
+	bh=dUcRCf1eGnVfi1W8WAuJzDtzf2AUhHVib1k17d62MRY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=knuxvx+E1K3bukIu7ANc9yenaH5TTf71fbgye/bWuIkebLzpglwIKsW758k1qKMAF
+	 1CHs3FkOat50571nqEZNDO7vgRPGkZJlRp0gAX49yLbdJFVpwkbf0eRlyJQoomGB5e
+	 dp0AKwstM/DaGrg3VlfTk6lj4ivxrFmHQOgjQ8Vsm/ZZ1yb1hckPjnicC76mkcIvAi
+	 8V/YD5kQp36Tc5VeYONlpjsZKM6cScWgS5sxa/DRujtT8vNpLJLan7FdYzXuPGIseB
+	 xMrHrcGYVQPoIRQZiS9SaGmY4ZMF9oJ7PqoBWHDcOZ+XP7m2rCz25tDA+ixi8x2c/h
+	 cEmGePV87inSw==
+Subject: Re: [PATCH net-next v3 1/3] net: stmmac: sun8i: reset the MAC after
+ PHY initialization
+From: netdev-bot+sashiko@kernel.org
+To: james.hilliard1@gmail.com
+Cc: richard.genoud@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org, alexandre.torgue@foss.st.com,
+ peppe.cavallaro@st.com, joabreu@synopsys.com, maxime.chevallier@bootlin.com,
+ mcoquelin.stm32@gmail.com, mripard@kernel.org, alastair@d-silva.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Date: Sun, 20 Sep 2026 17:02:46 +0000
+Message-ID: <178992376611.2160803.4135764677337336595@kernel.org>
+In-Reply-To: <20260917-submit-h616-emac1-v1-v3-1-62cb8316e19b@gmail.com>
+References: <20260917-submit-h616-emac1-v1-v3-1-62cb8316e19b@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_100252_158214_1B83A92B 
-X-CRM114-Status: GOOD (  14.08  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,97 +77,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3568 SoC integrates a Synopsys DesignWare XPCS that provides
-the Physical Coding Sublayer for 1000BASE-X, SGMII, and QSGMII
-interfaces via its four MII ports.  Add the XPCS device node and
-its pcs-mii sub-nodes to the SoC device tree.
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
-The XPCS device is accessed via the APB3 bus at 0xfda00000 and
-requires the CSR clock (PCLK_XPCS) for register access and the EEE
-clock (CLK_XPCS_EEE) for Energy Efficient Ethernet operation.  The
-PD_PIPE power domain must be enabled before any register access.
+Critical: 0 · High: 1 (1) · Medium: 3 · Low: 2
 
-Also add two fixed-clock nodes (clock-xpcs-gmac0 and clock-xpcs-gmac1,
-labelled clk_gmac0_xpcs_mii and clk_gmac1_xpcs_mii) providing the
-125 MHz reference clock for the GMACs when operating with XPCS.  Their
-clock-output-names match the CRU mux parent names in clk-rk3568.c, so
-boards can reparent SCLK_GMAC0_RX_TX / SCLK_GMAC1_RX_TX through
-assigned-clock-parents.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The XPCS node and its mii sub-nodes are disabled by default and
-must be enabled at the board level when 1000BASE-X/SGMII/QSGMII is
-in use.  The fixed-clock nodes are always present and do not have a
-status property, as they are static clock sources.
+- [High] A reset timeout during an MTU-change reopen leaves the still-
+  running netdev owning freed DMA resources, causing a later double free.
+- [Medium] Incomplete fix: the retained probe-time MAC soft reset in
+  mdio_mux_syscon_switch_fn()…
+- [Medium] Reset-timeout failure path leaves the EMAC un-quiesced.
+- [Medium] The MAC reset timeout is shorter than the PHY receive-clock
+  startup interval that IEEE 802.3 permits, so the newly relocated reset…
+- [Low] The patch fixes a user-visible failure (MAC probe fails and the
+  netdev plus its MDIO bus are torn down when the PHY driver has not…
+- [Low] Stale comment and vacuous runtime-PM window in
+  sun8i_dwmac_probe().
 
-The XPCS node requires a reference to the appropriate Naneng Combo PHY
-via the phys property.  dtbs_check only validates required properties
-for enabled nodes, so the SoC dtsi does not provide phys/phy-names:
-boards that enable the XPCS must supply them, since the SerDes link is
-a board-level design choice (combphy1 on some boards, combphy2 on
-others).
+Pre-existing issues:
+- [High] Use-after-free on the sun8i_dwmac_probe() `dwmac_mux:` error
+  path.
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3568.dtsi | 45 ++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+--
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-index 3bc653f027f1f..227d03e336043 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-@@ -110,6 +110,51 @@ sata0: sata@fc000000 {
- 		status = "disabled";
- 	};
- 
-+	xpcs: ethernet-pcs@fda00000 {
-+		compatible = "rockchip,rk3568-xpcs";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0x0 0xfda00000 0x0 0x200000>;
-+		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-+		clock-names = "csr", "eee";
-+		power-domains = <&power RK3568_PD_PIPE>;
-+		status = "disabled";
-+
-+		xpcs_mii0: ethernet-pcs-mii@0 {
-+			reg = <0>;
-+			status = "disabled";
-+		};
-+
-+		xpcs_mii1: ethernet-pcs-mii@1 {
-+			reg = <1>;
-+			status = "disabled";
-+		};
-+
-+		xpcs_mii2: ethernet-pcs-mii@2 {
-+			reg = <2>;
-+			status = "disabled";
-+		};
-+
-+		xpcs_mii3: ethernet-pcs-mii@3 {
-+			reg = <3>;
-+			status = "disabled";
-+		};
-+	};
-+
-+	clk_gmac0_xpcs_mii: clock-xpcs-gmac0 {
-+		compatible = "fixed-clock";
-+		clock-frequency = <125000000>;
-+		clock-output-names = "clk_gmac0_xpcs_mii";
-+		#clock-cells = <0>;
-+	};
-+
-+	clk_gmac1_xpcs_mii: clock-xpcs-gmac1 {
-+		compatible = "fixed-clock";
-+		clock-frequency = <125000000>;
-+		clock-output-names = "clk_gmac1_xpcs_mii";
-+		#clock-cells = <0>;
-+	};
-+
- 	pipe_phy_grf0: syscon@fdc70000 {
- 		compatible = "rockchip,rk3568-pipe-phy-grf", "syscon";
- 		reg = <0x0 0xfdc70000 0x0 0x1000>;
+net: stmmac: sun8i: reset the MAC after PHY initialization
+
+This moves the sun8i EMAC software reset out of probe and into the stmmac
+->reset (DMA reset) callback, so it runs during hardware setup once the PHY
+has been attached and resumed. The H3 MDIO-mux reset after switching the
+syscon mux is kept, and sun8i_dwmac_reset() now takes an ioaddr instead of
+a stmmac_priv.
+
+A few questions below.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 48c52eb962335..4523a14f5e0c3 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -269,11 +269,32 @@ static const struct emac_variant emac_variant_h6 = {
+>  #define SYSCON_ETCS_EXT_GMII	0x1
+>  #define SYSCON_ETCS_INT_GMII	0x2
+>  
+> +static int sun8i_dwmac_reset(void __iomem *ioaddr)
+> +{
+> +	u32 v;
+> +
+> +	v = readl(ioaddr + EMAC_BASIC_CTL1);
+> +	writel(v | 0x01, ioaddr + EMAC_BASIC_CTL1);
+> +
+> +	/* The timeout was previously set to 10ms, but some board (OrangePI0)
+> +	 * need more if no cable plugged. 100ms seems OK
+> +	 */
+> +	return readl_poll_timeout(ioaddr + EMAC_BASIC_CTL1, v,
+> +				  !(v & 0x01), 100, 100000);
+> +}
+
+[Severity: Medium]
+
+Is 100 ms enough for this poll now that the reset runs right after the PHY
+is brought back out of power-down?
+
+sun8i_dwmac_dma_reset() is reached from stmmac_hw_setup(), which is called
+after phylink_prepare_resume() on the reopen and resume paths.
+phylink_prepare_resume() says it does not wait for the receive clock:
+
+drivers/net/phy/phylink.c:phylink_prepare_resume() {
+	/* IEEE 802.3 22.2.4.1.5 allows PHYs to stop their receive clock
+	 * when PDOWN is set. ... Note that 802.3 allows PHYs 500ms before
+	 * the clock meets requirements. We do not implement this delay.
+	 */
+	if (pl->config->mac_requires_rxc && phydev && phydev->suspended)
+		phy_resume(phydev);
+}
+
+stmmac sets mac_requires_rxc, so for a PHY that takes longer than 100 ms
+after leaving PDOWN to produce a valid RXC, would the reset time out and
+make stmmac_hw_setup() fail on MTU change and on system resume?
+
+>  /* sun8i_dwmac_dma_reset() - reset the EMAC
+>   * Called from stmmac via stmmac_dma_ops->reset
+>   */
+>  static int sun8i_dwmac_dma_reset(void __iomem *ioaddr)
+>  {
+> +	int ret;
+> +
+> +	/* The PHY receive clock must be running for the reset to complete. */
+> +	ret = sun8i_dwmac_reset(ioaddr);
+> +	if (ret)
+> +		return ret;
+> +
+>  	writel(0, ioaddr + EMAC_RX_CTL1);
+>  	writel(0, ioaddr + EMAC_TX_CTL1);
+>  	writel(0, ioaddr + EMAC_RX_FRM_FLT);
+
+[Severity: Medium]
+
+Does this early return leave the EMAC un-quiesced?
+
+Two things change on the timeout path.  First, sun8i_dwmac_reset() has
+already set the self-clearing SOFT_RST request (bit 0 of EMAC_BASIC_CTL1)
+and nothing withdraws it.  Second, the register clearing that the ->reset
+callback previously did unconditionally is now skipped:
+
+	writel(0, ioaddr + EMAC_RX_CTL1);
+	writel(0, ioaddr + EMAC_TX_CTL1);
+	writel(0, ioaddr + EMAC_RX_FRM_FLT);
+	writel(0, ioaddr + EMAC_RX_DESC_LIST);
+	writel(0, ioaddr + EMAC_TX_DESC_LIST);
+	writel(0, ioaddr + EMAC_INT_EN);
+	writel(0x1FFFFFF, ioaddr + EMAC_INT_STA);
+
+The callers do not compensate.  In stmmac_main.c, __stmmac_open() reaches
+init_error: which only returns, unlike irq_error: which calls
+stmmac_stop_all_dma().  stmmac_resume() likewise just powers down the
+legacy serdes and returns.
+
+On resume the host IRQ is still registered while EMAC_INT_EN keeps the
+enables from before suspend (stmmac_suspend only calls
+stmmac_stop_all_dma()) and EMAC_INT_STA is never acknowledged.  Should the
+descriptor lists and interrupt registers still be cleared before returning
+the error?
+
+[Severity: High]
+
+Can a reset timeout here turn an MTU change into a double free of the DMA
+resources?
+
+stmmac_change_mtu() releases the interface and reopens it with the new
+configuration:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_change_mtu() {
+		__stmmac_release(dev);
+
+		ret = __stmmac_open(dev, dma_conf);
+		if (ret) {
+			free_dma_desc_resources(priv, dma_conf);
+			kfree(dma_conf);
+			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
+			return ret;
+		}
+}
+
+__stmmac_open() publishes the new pointers before the fallible setup:
+
+	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
+	...
+	phylink_prepare_resume(priv->phylink);
+	...
+	ret = stmmac_hw_setup(dev);
+	if (ret < 0)
+		goto init_error;
+
+struct stmmac_dma_conf embeds rx_queue[] and tx_queue[] by value, so
+priv->dma_conf ends up with its own copies of the descriptor, buffer and
+page pool pointers that stmmac_change_mtu() then frees.  The interface
+stays administratively up, and the next close does:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:__stmmac_release() {
+	/* Release and free the Rx/Tx resources */
+	free_dma_desc_resources(priv, &priv->dma_conf);
+}
+
+The MTU reopen is also the case where phylink_stop() has just powered the
+PHY down, so the new -ETIMEDOUT from sun8i_dwmac_dma_reset() is reachable
+there.  The core recovery gap in stmmac_change_mtu() and __stmmac_open()
+predates this patch, but the commit message says it wants to "return reset
+errors through the normal hardware-setup error path" - is that path safe to
+use on sun8i today?
+
+[ ... ]
+
+> @@ -895,7 +895,9 @@ static int mdio_mux_syscon_switch_fn(int current_child, int desired_child,
+>  		/* After changing syscon value, the MAC need reset or it will
+>  		 * use the last value (and so the last PHY set).
+>  		 */
+> -		ret = sun8i_dwmac_reset(priv);
+> +		ret = sun8i_dwmac_reset(priv->ioaddr);
+> +		if (ret)
+> +			dev_err(priv->device, "EMAC reset timeout\n");
+>  	}
+>  	return ret;
+>  }
+
+[Severity: Medium]
+
+Does this call site keep the receive-clock dependency the commit message
+says it removes?
+
+The new comment in sun8i_dwmac_dma_reset() states "The PHY receive clock
+must be running for the reset to complete", and the core honours that:
+stmmac_hw_setup() wraps stmmac_init_dma_engine() in
+phylink_rx_clk_stop_block(), and __stmmac_open()/stmmac_resume() call
+phylink_prepare_resume() first.
+
+mdio_mux_syscon_switch_fn() has neither guarantee.  It runs during MAC
+probe:
+
+sun8i_dwmac_register_mdio_mux()
+  mdio_mux_init()
+    of_mdiobus_register(child)
+      mdio_mux_read()
+        mdio_mux_syscon_switch_fn()
+          sun8i_dwmac_reset(priv->ioaddr)
+
+so no PHY driver can have been bound yet, and for
+DWMAC_SUN8I_MDIO_MUX_EXTERNAL_ID the internal EPHY has just been unpowered
+by sun8i_dwmac_unpower_internal_phy().
+
+On timeout the error propagates out of mdio_mux_read(), the child bus PHY
+scan fails, and mdio-mux.c drops that child without failing mdio_mux_init()
+as a whole:
+
+drivers/net/mdio/mdio-mux.c:mdio_mux_init() {
+		r = of_mdiobus_register(cb->mii_bus, child_bus_node);
+		if (r) {
+			mdiobus_free(cb->mii_bus);
+			if (r == -EPROBE_DEFER) { ... }
+			devm_kfree(dev, cb);
+			dev_err(dev, "Error: Failed to register MDIO bus for child %pOF: %pe\n", ...);
+}
+
+Would probe then succeed with the external PHY permanently absent, which is
+the same reprobe-to-recover state the commit describes fixing?
+
+Separately, the timeout now only logs.  The syscon mux field has already
+been rewritten and the EPHY power state already changed while the MAC has
+not latched the new selection - should either be restored before returning?
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but the reset kept here makes an
+existing unbalanced probe teardown easier to reach.  When
+mdio_mux_syscon_switch_fn() has already taken the internal branch,
+sun8i_dwmac_power_internal_phy() has set gmac->internal_phy_powered, and
+sun8i_dwmac_register_mdio_mux() then fails (this reset timing out, or
+of_mdiobus_register() returning -EPROBE_DEFER, or mdio_mux_init()
+returning -ENODEV for "No acceptable child buses found"), probe takes
+goto dwmac_mux:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:sun8i_dwmac_probe() {
+dwmac_mux:
+	reset_control_put(gmac->rst_ephy);
+	clk_put(gmac->ephy_clk);
+dwmac_remove:
+	pm_runtime_put_noidle(&pdev->dev);
+	stmmac_pltfr_remove(pdev);
+}
+
+stmmac_pltfr_remove() -> stmmac_dvr_remove() ends with
+priv->plat->exit(dev, priv->plat->bsp_priv), which is sun8i_dwmac_exit():
+
+	if (gmac->variant->soc_has_internal_phy)
+		sun8i_dwmac_unpower_internal_phy(gmac);
+
+and because internal_phy_powered is still true:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:sun8i_dwmac_unpower_internal_phy() {
+	if (!gmac->internal_phy_powered)
+		return;
+
+	clk_disable_unprepare(gmac->ephy_clk);
+	reset_control_assert(gmac->rst_ephy);
+}
+
+Does this use the clk and reset_control after they were put?
+sun8i_dwmac_remove() uses the other order, unpowering before putting:
+
+		mdio_mux_uninit(gmac->mux_handle);
+		sun8i_dwmac_unpower_internal_phy(gmac);
+		reset_control_put(gmac->rst_ephy);
+		clk_put(gmac->ephy_clk);
+
+> @@ -1217,10 +1219,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+>  			dev_err(&pdev->dev, "Failed to register mux\n");
+>  			goto dwmac_mux;
+>  		}
+> -	} else {
+> -		ret = sun8i_dwmac_reset(priv);
+> -		if (ret)
+> -			goto dwmac_remove;
+>  	}
+>  
+>  	pm_runtime_put(&pdev->dev);
+
+[Severity: Low]
+
+With this else arm gone, the comment above pm_runtime_get_sync() in
+sun8i_dwmac_probe() no longer matches the code:
+
+	/* the MAC is runtime suspended after stmmac_dvr_probe(), so we
+	 * need to ensure the MAC resume back before other operations such
+	 * as reset.
+	 */
+	pm_runtime_get_sync(&pdev->dev);
+
+There is no reset left in probe.  The only remaining work between the
+get_sync and pm_runtime_put() is the if (gmac->variant->soc_has_internal_phy)
+block, so for v3s, a83t, r40, a64 and h6 the pair now brackets nothing.
+Should the comment be updated, and should the get/put be moved inside the
+soc_has_internal_phy branch?
+
+[Severity: Low]
+
+Should this carry a Fixes: tag and a target tree?  The commit fixes a
+user-visible failure where probe tears down the netdev and its MDIO bus.
+git blame on the removed if/else and probe-time reset points at
+634db83b8265 ("net: stmmac: dwmac-sun8i: add support for mdio-mux"), on top
+of the original driver 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i").
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917-submit-h616-emac1-v1-v3-0-62cb8316e19b%40gmail.com
 
