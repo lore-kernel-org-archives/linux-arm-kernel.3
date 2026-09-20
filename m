@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49540C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF0DC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 22:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3PNs48/hw6gOs+rnx8SOZCN8AN4K92Hm86xbJ3bLbk0=; b=sidGLBk83EZfa25lNYmZySa3s/
-	yWnlJ1CpPNTcVaK4VyJVkWdHS6k5WSfu3lQGEF8ThiFTgYxs75hp8/RO6YkGlrUCSpVI/jKNbuzMl
-	GldPxYcEaU7x2zOPOR5+ycWS8gegK8jIrBpPbu0MHAQaV8kzSTSlPzHaEqeCd8sOTtFpNrbkgeujo
-	/dqWUIQa5HSBAemNMGto8Wuu5ADW3zUsqm5Wmipis+VM14dWR/ZUcuny6mD9z/MEsdMZpJE4g+x1z
-	qsKi7D9oSrdCIulIFyrOMseOdx1idJLVfPLb5vVra/DDOcpzWFn2/K0qvut8Z8g/oAx64S7oAivNS
-	6B360ShA==;
+	bh=p/Bug8kcoCTJvkuCSvSWkWwMkK0rongkUVUrvU0VBQs=; b=gAyj7FdRRmU4o2wesUEWgx54vx
+	QT3B32BjFEcmix0KLjZbc925uIROJHBCJiHlsGdi9+gArw6Qs5G7IjqwXB1VL35ucEQYN8nRtSsC6
+	bKUr92tOQjQpaYbH5errsiqnfDpLO51LLbG01Effn4HM3JUsMW3a5eKjWHS7JRYA8DltSjWpS1G4x
+	gfjvIRPrEiXR0ZXGIIB4xpiylm0CuxpQY7TL3SV6lf5swIkH8QDnQ1y8NN8mErTnX8Ga+SHc14UQE
+	jqUV72gW2lektYGhKkzNLwBOm1oTecJRHEISdUBZKYA7ZXe0hVhDuq2Uqtx1/catD8xx7M4pSpuYF
+	3G4cjC3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QLc-00000000XtI-3xxK;
+	id 1x8QLc-00000000XsC-1qfF;
 	Sun, 20 Sep 2026 22:49:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QLY-00000000Xob-1GGD
+	id 1x8QLP-00000000XhS-3jOQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 22:49:20 +0000
+	Sun, 20 Sep 2026 22:49:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0DB564049A;
-	Sun, 20 Sep 2026 22:49:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED2051F00893;
-	Sun, 20 Sep 2026 22:49:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5400660F86;
+	Sun, 20 Sep 2026 22:49:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D7F1F0089A;
+	Sun, 20 Sep 2026 22:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789944559;
-	bh=3PNs48/hw6gOs+rnx8SOZCN8AN4K92Hm86xbJ3bLbk0=;
+	s=k20260515; t=1789944551;
+	bh=p/Bug8kcoCTJvkuCSvSWkWwMkK0rongkUVUrvU0VBQs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=WzmrNFR50JeaL82QWp69lk4jCX8rSnPwwwZLywIokV9DCFV8pbe3C/PE/hBANvMJl
-	 O/zr3CCad3bmgcO85v+//Qf4/VRf6VfXPd88OWyTWqQ6awL6d/nGDh6AivogjUHhR6
-	 fTjBKMdNLs2affZ32piR2DzcReBheFDXBziASSIvGRZshEQVnFamAZSm5O83h94g7w
-	 /YcYkdKovPn6HpbVEwoUvMCtRQJu36N1jwylxlFbDJ/ZiIgBwPG4iWe1EoH43bhDOW
-	 /EwyrIQk2FWEaIN/w72j0tUNM6MLlYF8W9D1ynhAaKZUXu8pWFi/9dQ4jJ2xj/mxZp
-	 6awZPQsDrTfhw==
+	b=lgRp/fmOrVbSq3GX9ARPJOQaymFNLixFWxaWVbCxLakQHQ/Z+ptRid2wLVXHI5PWQ
+	 tu0mQdRCYnRv741w1MrUOeT6oPZY21xhMk8ndbm41uGcqUVe8UW6PkUeXWLr135PTb
+	 +Z3fyhUufJRj9pS757chUbIt/rRX9wveW88to/oO/YkmLTwfTnSO/qVEeo6CKeFuxC
+	 tBs4oKMGnDFeKna4bcQXxXa315mAM+Rvgbmtx3LjGr2CHj/PtN+IknyrcSFjwxiDUh
+	 E7opLjoi6blUQRhthPtMrbF2riynWJbhO/19IIE8l3+7XrQmF9MTVtaJstT5zTjqk6
+	 ee+mSCVNJQApg==
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 21 Sep 2026 00:48:21 +0200
-Subject: [PATCH v3 15/18] dmaengine: ste_dma40: Use power domain for LCLA
- SRAM
+Date: Mon, 21 Sep 2026 00:48:19 +0200
+Subject: [PATCH v3 13/18] drm/mcde: Use power domain for display power
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-ux500-power-domains-v7-1-v3-15-9352be6b86b1@kernel.org>
+Message-Id: <20260921-ux500-power-domains-v7-1-v3-13-9352be6b86b1@kernel.org>
 References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 In-Reply-To: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +61,7 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Lee Jones <lee@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
- Frank Li <Frank.li@oss.nxp.com>
+ dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,319 +77,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the LCLA ESRAM regulator with runtime PM.
+Replace explicit EPOD regulator handling with runtime PM.
 
-Use the SRAM device that owns the ESRAM34 power domain.
+Use the MCDE power domain and drop the regulator dependency.
 
-Hold that domain while DMA transfers are active. The DMA controller is
-runtime PM IRQ-safe, so keep taking explicit LCLA runtime PM references
-from the descriptor preparation path instead of relying on a runtime PM
-device link from the atomic transfer path.
-
-Add a stateless device link so system PM keeps the DMA controller ordered
-after the LCLA SRAM supplier.
-
-Suggested-by: Frank Li <Frank.li@oss.nxp.com>
 Assisted-by: LLM
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/dma/ste_dma40.c | 130 ++++++++++++++++++++++++++++++++----------------
- 1 file changed, 88 insertions(+), 42 deletions(-)
+ drivers/gpu/drm/mcde/mcde_clk_div.c |  4 +--
+ drivers/gpu/drm/mcde/mcde_display.c | 11 +++---
+ drivers/gpu/drm/mcde/mcde_drm.h     |  2 --
+ drivers/gpu/drm/mcde/mcde_drv.c     | 68 ++++++++++++-------------------------
+ drivers/gpu/drm/mcde/mcde_dsi.c     |  1 -
+ 5 files changed, 29 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
-index eda3f91741ed..2841af5b160b 100644
---- a/drivers/dma/ste_dma40.c
-+++ b/drivers/dma/ste_dma40.c
-@@ -21,8 +21,8 @@
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_dma.h>
-+#include <linux/of_platform.h>
- #include <linux/amba/bus.h>
+diff --git a/drivers/gpu/drm/mcde/mcde_clk_div.c b/drivers/gpu/drm/mcde/mcde_clk_div.c
+index 8c5af2677357..1a22e6233946 100644
+--- a/drivers/gpu/drm/mcde/mcde_clk_div.c
++++ b/drivers/gpu/drm/mcde/mcde_clk_div.c
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
 -#include <linux/regulator/consumer.h>
++#include <linux/pm_runtime.h>
  
- #include "dmaengine.h"
- #include "ste_dma40.h"
-@@ -383,6 +383,7 @@ struct d40_lli_pool {
-  * @node: List entry.
-  * @is_in_client_list: true if the client owns this descriptor.
-  * @cyclic: true if this is a cyclic job
-+ * @lcla_pm_active: LCLA SRAM power domain is held for this descriptor.
-  *
-  * This descriptor is used for both logical and physical transfers.
-  */
-@@ -402,6 +403,7 @@ struct d40_desc {
+ #include "mcde_drm.h"
+ #include "mcde_display_regs.h"
+@@ -95,7 +95,7 @@ static unsigned long mcde_clk_div_recalc_rate(struct clk_hw *hw,
+ 	 * It will come up with 0 in the divider register bits, which
+ 	 * means "divide by 2".
+ 	 */
+-	if (!regulator_is_enabled(mcde->epod))
++	if (!pm_runtime_active(mcde->dev))
+ 		return DIV_ROUND_UP_ULL(prate, 2);
  
- 	bool				 is_in_client_list;
- 	bool				 cyclic;
-+	bool				 lcla_pm_active;
- };
+ 	cr = readl(mcde->regs + cdiv->cr);
+diff --git a/drivers/gpu/drm/mcde/mcde_display.c b/drivers/gpu/drm/mcde/mcde_display.c
+index 257a6e84dd58..52f071bb347c 100644
+--- a/drivers/gpu/drm/mcde/mcde_display.c
++++ b/drivers/gpu/drm/mcde/mcde_display.c
+@@ -7,7 +7,7 @@
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/dma-buf.h>
+-#include <linux/regulator/consumer.h>
++#include <linux/pm_runtime.h>
+ #include <linux/media-bus-format.h>
  
- /**
-@@ -571,7 +573,8 @@ struct d40_gen_dmac {
-  * to phy_chans entries.
-  * @plat_data: Pointer to provided platform_data which is the driver
-  * configuration.
-- * @lcpa_regulator: Pointer to hold the regulator for the esram bank for lcla.
-+ * @lcla_dev: SRAM device for the ESRAM bank used by LCLA.
-+ * @lcla_link: Device link to keep system PM ordered against LCLA.
-  * @phy_res: Vector containing all physical channels.
-  * @lcla_pool: lcla pool settings and data.
-  * @lcpa_base: The virtual mapped address of LCPA.
-@@ -606,7 +609,8 @@ struct d40_base {
- 	struct d40_chan			**lookup_log_chans;
- 	struct d40_chan			**lookup_phy_chans;
- 	struct stedma40_platform_data	 *plat_data;
--	struct regulator		 *lcpa_regulator;
-+	struct device			 *lcla_dev;
-+	struct device_link		 *lcla_link;
- 	/* Physical half channels */
- 	struct d40_phy_res		 *phy_res;
- 	struct d40_lcla_pool		  lcla_pool;
-@@ -628,6 +632,36 @@ static struct device *chan2dev(struct d40_chan *d40c)
- 	return &d40c->chan.dev->device;
- }
- 
-+static void d40_transfer_runtime_get(struct d40_base *base)
-+{
-+	pm_runtime_get_sync(base->dev);
-+}
-+
-+static int d40_lcla_runtime_get(struct d40_base *base)
-+{
-+	if (!base->lcla_dev)
-+		return 0;
-+
-+	return pm_runtime_resume_and_get(base->lcla_dev);
-+}
-+
-+static void d40_desc_lcla_runtime_put(struct d40_chan *d40c,
-+				      struct d40_desc *d40d)
-+{
-+	struct d40_base *base = d40c->base;
-+
-+	if (!d40d->lcla_pm_active)
-+		return;
-+
-+	d40d->lcla_pm_active = false;
-+	pm_runtime_put(base->lcla_dev);
-+}
-+
-+static void d40_transfer_runtime_put(struct d40_base *base)
-+{
-+	pm_runtime_put_autosuspend(base->dev);
-+}
-+
- static bool chan_is_physical(struct d40_chan *chan)
- {
- 	return chan->log_num == D40_PHY_CHAN;
-@@ -818,6 +852,7 @@ static void d40_desc_free(struct d40_chan *d40c, struct d40_desc *d40d)
- 
- 	d40_pool_lli_free(d40c, d40d);
- 	d40_lcla_free_all(d40c, d40d);
-+	d40_desc_lcla_runtime_put(d40c, d40d);
- 	kmem_cache_free(d40c->base->desc_slab, d40d);
- }
- 
-@@ -1516,7 +1551,7 @@ static struct d40_desc *d40_queue_start(struct d40_chan *d40c)
- 	if (d40d != NULL) {
- 		if (!d40c->busy) {
- 			d40c->busy = true;
--			pm_runtime_get_sync(d40c->base->dev);
-+			d40_transfer_runtime_get(d40c->base);
- 		}
- 
- 		/* Remove from queue */
-@@ -1535,6 +1570,7 @@ static struct d40_desc *d40_queue_start(struct d40_chan *d40c)
- 			d40_desc_remove(d40d);
- 			d40_desc_free(d40c, d40d);
- 			d40c->busy = false;
-+			d40_transfer_runtime_put(d40c->base);
- 			return ERR_PTR(err);
- 		}
- 	}
-@@ -1583,7 +1619,7 @@ static void dma_tc_handle(struct d40_chan *d40c)
- 		if (d40_queue_start(d40c) == NULL) {
- 			d40c->busy = false;
- 
--			pm_runtime_put_autosuspend(d40c->base->dev);
-+			d40_transfer_runtime_put(d40c->base);
- 		}
- 
- 		d40_desc_remove(d40d);
-@@ -1637,6 +1673,7 @@ static void dma_tasklet(struct tasklet_struct *t)
- 		} else if (!d40d->is_in_client_list) {
- 			d40_desc_remove(d40d);
- 			d40_lcla_free_all(d40c, d40d);
-+			d40_desc_lcla_runtime_put(d40c, d40d);
- 			list_add_tail(&d40d->node, &d40c->client);
- 			d40d->is_in_client_list = true;
- 		}
-@@ -2067,7 +2104,7 @@ static int d40_free_dma(struct d40_chan *d40c)
- 		d40c->base->lookup_phy_chans[phy->num] = NULL;
- 
- 	if (d40c->busy)
--		pm_runtime_put_autosuspend(d40c->base->dev);
-+		d40_transfer_runtime_put(d40c->base);
- 
- 	d40c->busy = false;
- 	d40c->phy_chan = NULL;
-@@ -2246,6 +2283,7 @@ d40_prep_sg(struct dma_chan *dchan, struct scatterlist *sg_src,
- 	dma_addr_t dst_dev_addr;
- 	struct d40_desc *desc;
- 	unsigned long flags;
-+	bool got_lcla_pm = false;
+ #include <drm/drm_device.h>
+@@ -1168,16 +1168,15 @@ static void mcde_display_enable(struct drm_simple_display_pipe *pipe,
  	int ret;
  
- 	if (!chan->phy_chan) {
-@@ -2255,11 +2293,20 @@ d40_prep_sg(struct dma_chan *dchan, struct scatterlist *sg_src,
- 
- 	d40_set_runtime_config_write(dchan, &chan->slave_config, direction);
- 
-+	ret = d40_lcla_runtime_get(chan->base);
-+	if (ret) {
-+		chan_err(chan, "Failed to enable LCLA power domain\n");
-+		return NULL;
-+	}
-+	got_lcla_pm = !!chan->base->lcla_dev;
-+
- 	spin_lock_irqsave(&chan->lock, flags);
- 
- 	desc = d40_prep_desc(chan, sg_src, sg_len, dma_flags);
- 	if (desc == NULL)
- 		goto unlock;
-+	desc->lcla_pm_active = got_lcla_pm;
-+	got_lcla_pm = false;
- 
- 	if (sg_next(&sg_src[sg_len - 1]) == sg_src)
- 		desc->cyclic = true;
-@@ -2297,6 +2344,8 @@ d40_prep_sg(struct dma_chan *dchan, struct scatterlist *sg_src,
- 	d40_desc_free(chan, desc);
-  unlock:
- 	spin_unlock_irqrestore(&chan->lock, flags);
-+	if (got_lcla_pm)
-+		pm_runtime_put(chan->base->lcla_dev);
- 	return NULL;
- }
- 
-@@ -2628,7 +2677,7 @@ static int d40_terminate_all(struct dma_chan *chan)
- 	d40_term_all(d40c);
- 	pm_runtime_put_autosuspend(d40c->base->dev);
- 	if (d40c->busy)
--		pm_runtime_put_autosuspend(d40c->base->dev);
-+		d40_transfer_runtime_put(d40c->base);
- 	d40c->busy = false;
- 
- 	spin_unlock_irqrestore(&d40c->lock, flags);
-@@ -2931,29 +2980,11 @@ static int __init d40_dmaengine_init(struct d40_base *base,
- #ifdef CONFIG_PM_SLEEP
- static int dma40_suspend(struct device *dev)
- {
--	struct d40_base *base = dev_get_drvdata(dev);
--	int ret;
--
--	ret = pm_runtime_force_suspend(dev);
--	if (ret)
--		return ret;
--
--	if (base->lcpa_regulator)
--		ret = regulator_disable(base->lcpa_regulator);
--	return ret;
-+	return pm_runtime_force_suspend(dev);
- }
- 
- static int dma40_resume(struct device *dev)
- {
--	struct d40_base *base = dev_get_drvdata(dev);
--	int ret = 0;
--
--	if (base->lcpa_regulator) {
--		ret = regulator_enable(base->lcpa_regulator);
--		if (ret)
--			return ret;
--	}
--
- 	return pm_runtime_force_resume(dev);
- }
- #endif
-@@ -3509,7 +3540,10 @@ static int __init d40_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = pdev->dev.of_node;
- 	struct device_node *np_lcpa;
-+	struct device_node *np_lcla;
-+	struct device_node *np_lcla_parent;
- 	struct d40_base *base;
-+	struct platform_device *lcla_pdev;
- 	struct resource *res;
- 	struct resource res_lcpa;
- 	int num_reserved_chans;
-@@ -3610,21 +3644,32 @@ static int __init d40_probe(struct platform_device *pdev)
- 	irq_requested = true;
- 
- 	if (base->plat_data->use_esram_lcla) {
-+		np_lcla = of_parse_phandle(np, "sram", 1);
-+		if (!np_lcla) {
-+			dev_err(dev, "no LCLA SRAM node\n");
-+			ret = -EINVAL;
-+			goto destroy_cache;
-+		}
- 
--		base->lcpa_regulator = regulator_get(base->dev, "lcla_esram");
--		if (IS_ERR(base->lcpa_regulator)) {
--			d40_err(dev, "Failed to get lcpa_regulator\n");
--			ret = PTR_ERR(base->lcpa_regulator);
--			base->lcpa_regulator = NULL;
-+		np_lcla_parent = of_get_parent(np_lcla);
-+		of_node_put(np_lcla);
-+		if (!np_lcla_parent) {
-+			dev_err(dev, "no LCLA SRAM parent node\n");
-+			ret = -EINVAL;
- 			goto destroy_cache;
- 		}
- 
--		ret = regulator_enable(base->lcpa_regulator);
--		if (ret) {
--			d40_err(dev,
--				"Failed to enable lcpa_regulator\n");
--			regulator_put(base->lcpa_regulator);
--			base->lcpa_regulator = NULL;
-+		lcla_pdev = of_find_device_by_node(np_lcla_parent);
-+		of_node_put(np_lcla_parent);
-+		if (!lcla_pdev) {
-+			ret = -EPROBE_DEFER;
-+			goto destroy_cache;
-+		}
-+		base->lcla_dev = &lcla_pdev->dev;
-+		base->lcla_link = device_link_add(dev, base->lcla_dev,
-+						  DL_FLAG_STATELESS);
-+		if (!base->lcla_link) {
-+			ret = -ENODEV;
- 			goto destroy_cache;
- 		}
+ 	/* This powers up the entire MCDE block and the DSI hardware */
+-	ret = regulator_enable(mcde->epod);
++	ret = pm_runtime_resume_and_get(mcde->dev);
+ 	if (ret) {
+-		dev_err(drm->dev, "can't re-enable EPOD regulator\n");
++		dev_err(drm->dev, "can't enable MCDE power domain\n");
+ 		return;
  	}
-@@ -3663,16 +3708,17 @@ static int __init d40_probe(struct platform_device *pdev)
- 				 SZ_1K * base->num_phy_chans,
- 				 DMA_TO_DEVICE);
  
--	if (!base->lcla_pool.base_unaligned && base->lcla_pool.base)
-+	if (!base->lcla_pool.base_unaligned && base->lcla_pool.base &&
-+	    base->lcla_pool.pages)
- 		free_pages((unsigned long)base->lcla_pool.base,
- 			   base->lcla_pool.pages);
+ 	dev_info(drm->dev, "enable MCDE, %d x %d format %p4cc\n",
+ 		 mode->hdisplay, mode->vdisplay, &format);
  
- 	kfree(base->lcla_pool.base_unaligned);
+-
+ 	/* Clear any pending interrupts */
+ 	mcde_display_disable_irqs(mcde);
+ 	writel(0, mcde->regs + MCDE_IMSCERR);
+@@ -1327,9 +1326,9 @@ static void mcde_display_disable(struct drm_simple_display_pipe *pipe)
+ 		spin_unlock_irq(&crtc->dev->event_lock);
+ 	}
  
--	if (base->lcpa_regulator) {
--		regulator_disable(base->lcpa_regulator);
--		regulator_put(base->lcpa_regulator);
+-	ret = regulator_disable(mcde->epod);
++	ret = pm_runtime_put_sync_suspend(mcde->dev);
+ 	if (ret)
+-		dev_err(drm->dev, "can't disable EPOD regulator\n");
++		dev_err(drm->dev, "can't disable MCDE power domain\n");
+ 	/* Make sure we are powered down (before we may power up again) */
+ 	usleep_range(50000, 70000);
+ 
+diff --git a/drivers/gpu/drm/mcde/mcde_drm.h b/drivers/gpu/drm/mcde/mcde_drm.h
+index ecb70b4b737c..d4ff7606d917 100644
+--- a/drivers/gpu/drm/mcde/mcde_drm.h
++++ b/drivers/gpu/drm/mcde/mcde_drm.h
+@@ -91,8 +91,6 @@ struct mcde {
+ 	/* Locks the MCDE FIFO control register A and B */
+ 	spinlock_t fifo_crx1_lock;
+ 
+-	struct regulator *epod;
+-	struct regulator *vana;
+ };
+ 
+ #define to_mcde(dev) container_of(dev, struct mcde, drm)
+diff --git a/drivers/gpu/drm/mcde/mcde_drv.c b/drivers/gpu/drm/mcde/mcde_drv.c
+index 53275b575f0c..d5a2cc98c65b 100644
+--- a/drivers/gpu/drm/mcde/mcde_drv.c
++++ b/drivers/gpu/drm/mcde/mcde_drv.c
+@@ -61,7 +61,7 @@
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+-#include <linux/regulator/consumer.h>
++#include <linux/pm_runtime.h>
+ #include <linux/slab.h>
+ #include <linux/delay.h>
+ 
+@@ -284,45 +284,25 @@ static int mcde_probe(struct platform_device *pdev)
+ 	mcde->dev = dev;
+ 	platform_set_drvdata(pdev, drm);
+ 
+-	/* First obtain and turn on the main power */
+-	mcde->epod = devm_regulator_get(dev, "epod");
+-	if (IS_ERR(mcde->epod)) {
+-		ret = PTR_ERR(mcde->epod);
+-		dev_err(dev, "can't get EPOD regulator\n");
+-		return ret;
 -	}
-+	if (base->lcla_link)
-+		device_link_del(base->lcla_link);
-+	if (base->lcla_dev)
-+		put_device(base->lcla_dev);
- 	if (irq_requested)
- 		free_irq(base->irq, base);
- 	if (runtime_pm_enabled)
+-	ret = regulator_enable(mcde->epod);
++	pm_runtime_enable(dev);
++	ret = pm_runtime_resume_and_get(dev);
+ 	if (ret) {
+-		dev_err(dev, "can't enable EPOD regulator\n");
++		dev_err(dev, "can't enable MCDE power domain\n");
++		pm_runtime_disable(dev);
+ 		return ret;
+ 	}
+-	mcde->vana = devm_regulator_get(dev, "vana");
+-	if (IS_ERR(mcde->vana)) {
+-		ret = PTR_ERR(mcde->vana);
+-		dev_err(dev, "can't get VANA regulator\n");
+-		goto regulator_epod_off;
+-	}
+-	ret = regulator_enable(mcde->vana);
+-	if (ret) {
+-		dev_err(dev, "can't enable VANA regulator\n");
+-		goto regulator_epod_off;
+-	}
+-	/*
+-	 * The vendor code uses ESRAM (onchip RAM) and need to activate
+-	 * the v-esram34 regulator, but we don't use that yet
+-	 */
+ 
+ 	/* Clock the silicon so we can access the registers */
+ 	mcde->mcde_clk = devm_clk_get(dev, "mcde");
+ 	if (IS_ERR(mcde->mcde_clk)) {
+ 		dev_err(dev, "unable to get MCDE main clock\n");
+ 		ret = PTR_ERR(mcde->mcde_clk);
+-		goto regulator_off;
++		goto pm_runtime_put;
+ 	}
+ 	ret = clk_prepare_enable(mcde->mcde_clk);
+ 	if (ret) {
+ 		dev_err(dev, "failed to enable MCDE main clock\n");
+-		goto regulator_off;
++		goto pm_runtime_put;
+ 	}
+ 	dev_info(dev, "MCDE clk rate %lu Hz\n", clk_get_rate(mcde->mcde_clk));
+ 
+@@ -413,14 +393,15 @@ static int mcde_probe(struct platform_device *pdev)
+ 
+ 	/*
+ 	 * Perform an invasive reset of the MCDE and all blocks by
+-	 * cutting the power to the subsystem, then bring it back up
++	 * powering down the subsystem, then bring it back up
+ 	 * later when we enable the display as a result of
+ 	 * component_master_add_with_match().
+ 	 */
+-	ret = regulator_disable(mcde->epod);
+-	if (ret) {
+-		dev_err(dev, "can't disable EPOD regulator\n");
+-		return ret;
++	ret = pm_runtime_put_sync_suspend(dev);
++	if (ret < 0) {
++		dev_err(dev, "can't disable MCDE power domain\n");
++		pm_runtime_get_noresume(dev);
++		goto clk_disable;
+ 	}
+ 	/* Wait 50 ms so we are sure we cut the power */
+ 	usleep_range(50000, 70000);
+@@ -429,25 +410,21 @@ static int mcde_probe(struct platform_device *pdev)
+ 					      match);
+ 	if (ret) {
+ 		dev_err(dev, "failed to add component master\n");
+-		/*
+-		 * The EPOD regulator is already disabled at this point so some
+-		 * special errorpath code is needed
+-		 */
+-		clk_disable_unprepare(mcde->mcde_clk);
+-		regulator_disable(mcde->vana);
+-		return ret;
++		goto clk_disable_pm_disabled;
+ 	}
+ 
+ 	return 0;
+ 
+ clk_disable:
+ 	clk_disable_unprepare(mcde->mcde_clk);
+-regulator_off:
+-	regulator_disable(mcde->vana);
+-regulator_epod_off:
+-	regulator_disable(mcde->epod);
++pm_runtime_put:
++	pm_runtime_put_sync_suspend(dev);
++	goto pm_runtime_disable;
++clk_disable_pm_disabled:
++	clk_disable_unprepare(mcde->mcde_clk);
++pm_runtime_disable:
++	pm_runtime_disable(dev);
+ 	return ret;
+-
+ }
+ 
+ static void mcde_remove(struct platform_device *pdev)
+@@ -457,8 +434,7 @@ static void mcde_remove(struct platform_device *pdev)
+ 
+ 	component_master_del(&pdev->dev, &mcde_drm_comp_ops);
+ 	clk_disable_unprepare(mcde->mcde_clk);
+-	regulator_disable(mcde->vana);
+-	regulator_disable(mcde->epod);
++	pm_runtime_disable(&pdev->dev);
+ }
+ 
+ static void mcde_shutdown(struct platform_device *pdev)
+diff --git a/drivers/gpu/drm/mcde/mcde_dsi.c b/drivers/gpu/drm/mcde/mcde_dsi.c
+index 694372581840..ab8afb5cb0c5 100644
+--- a/drivers/gpu/drm/mcde/mcde_dsi.c
++++ b/drivers/gpu/drm/mcde/mcde_dsi.c
+@@ -8,7 +8,6 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+-#include <linux/regulator/consumer.h>
+ #include <video/mipi_display.h>
+ 
+ #include <drm/drm_atomic_helper.h>
 
 -- 
 2.55.0
