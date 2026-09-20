@@ -4,185 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27122C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DE1C982D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 15:04:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=riY9eG3dz9cv+aMf8SNtiXHDGuMJEVW0ccQBcCjvHek=; b=zx4fOV+CCyJNcVLbGS97Lu5Rc+
-	pc6VIgo38Suk2M4L10GJ+FnUiwRx9gBUrEknwXc5kaQlFPfTHhBqpQbUfydNeUFeOrhgbSitcFyUc
-	QonKcqx7PpfpDJvUFdmqD+qPQkMN61z1HVnsnR4bppqilj5EaXsyFP9AtLY9Zvv+MJQE9kg4UgQQC
-	1gr5u+SIC/4ijLJObJXOgBx8lEfk8u5YCmmyfFbO7STR8TOJuicdjp38xqVu2SqenmzQL9ky5Wqa2
-	hzrfyVf3sauGZHDF0g2ugEHugcE1DBlc/7tkLak7n2hUm/9EkFoC9XwgsyT2S7qKG+EFdjIPBo4yo
-	9pHv2UMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e0Xair5WrqnEDWZxl7Rdcr954TntOjThEzSLQBodpGU=; b=xAym6wydSZePkWfORgPJfS/Cpb
+	nP4Zlps93nO9WRihG2YpGy0cKFFCiNAbjHBVDiXtch8Xtc77QbWIa/E4k0pGYJ8LIAwMO0o4zctCf
+	6S5/bniwTqx75RqRrcRz+tA5A3PCzfWTMF623lqt9/p/95xf9N4okBMH6svY+HT5w3+kuTyCZEbLG
+	HzM5BcIEo1JIhFlvn9Q70iGpaJZxc4+BbWxgguMeAgV9Vq9bFFsBVJcEACnbxW3sk8pCR8hg3vfrg
+	i+Uupw45dB9NcbApInf51JDhqQRtq4rSwJ1JF4JJo4Li4A6wvKzcAwULut91CXRNr+KMNtFUIvU0X
+	CIq1XGYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8J4S-000000001rP-47GI;
-	Sun, 20 Sep 2026 15:03:12 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x8J65-0000000023H-0i6x;
+	Sun, 20 Sep 2026 15:04:53 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8J4Q-000000001ps-0rlZ
+	id 1x8J61-0000000022u-2d3j
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 15:03:11 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68KBoOc12288613
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 15:03:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	riY9eG3dz9cv+aMf8SNtiXHDGuMJEVW0ccQBcCjvHek=; b=Tc3H3MhjFhnblgJD
-	SPNW+KTDOflRPaWcL2vLPAG7WqseeqmVAEBRj58+94rfWA1icLbM5/eDLWwI3vcX
-	9swNh5fsoZC+3zlx5WDw7cIxzYqz8qoqpwAT6n0+1g1Ko3n0m+oYsJqEFnQTlUjY
-	/Pd837l494hM/8LQecJxSwFZcVZWwz6Yg8YPdH6EWctRA+GQmpOM6TKm1iXSjokv
-	lCvKpwfqTZfD3PtBhFWsNS6ANlRWxvrZZWwNB24DNR2SlEiVkKc9+HcbZs2XLznb
-	ltoNsbnsIFVRysLBL9+qxrMR9s2vqkH6HbxOzxQYUA0x5QJof8KLgJ3x9crfOigq
-	sXGFEQ==
-Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gsfrnujp0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 15:03:09 +0000 (GMT)
-Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-78fb9f59781so2403605137.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 08:03:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789916588; x=1790521388; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=riY9eG3dz9cv+aMf8SNtiXHDGuMJEVW0ccQBcCjvHek=;
-        b=VayY3QJSYU2AzIA8WUbQ0rqOvK1LmZvPagYn6DxIaIooFG3kY1dbCKjiN/rM7dQwxF
-         FsG0p5qzClRC4EAo84Xh8zK5XGsudrcvmXSGBqV/2isCGgnKjncavl/Lf+XDt1C7LCUC
-         0f+OmiVGFTpxs6jlFPa74WitUtHCFIeqMtn0zjYhzzRWSdhyUGdXvjghQWhaCymaNt4l
-         y1JJgE69T8eHKcq3lyhP7KrdkcuELO8e/uXsYqTnWnQwJk4A5Sbeq21Nx7OQy36lubVA
-         RWbicVZMfGD5exVLPBBhafBe0qMUs8qh7IIWmczPxBtv/WMFzmUg6EMgoe+7ZUJypjE0
-         9XOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789916588; x=1790521388;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=riY9eG3dz9cv+aMf8SNtiXHDGuMJEVW0ccQBcCjvHek=;
-        b=HmVgmLXiuMpGzVEKArhwPlW7M0rX8SOODDYDCgiLSGUkgYO2/1acxyee129DeAKEJP
-         w2f8c+qa+cSvw4QTbXCXg35LYJV39m7gWi/H7i+CeZ9wvrZabAiNkHjdmSJpJ91nNqrT
-         kLLqEa4dOSgGB13jIre/gANvnViuVzCZ2BvtFd2SCaND5nQ7DzQj3K8qRCHjlFbByTKR
-         Hp3cfYtWyniZutgLov5oae8/GW+HEZBLkbffr8+j9WA9uZB7hn/6h1uqXU7D5lZLLpqA
-         jw5DZW9xqbauYYMQ3FQEDh7SOoK0HG6wqKSsefBC7G9BLTVD3rrWp1NbvGYcS17c8YOC
-         7XbA==
-X-Forwarded-Encrypted: i=1; AKwUvBz83+ON/T3XbDJyTOh8JYpP5xNRGy7x6OXBMponh5vulINH5dAPK4C6RANW0+LVYCbV3hpYmNmzUGNkrsXiGacw@lists.infradead.org
-X-Gm-Message-State: AFuF++nQ32rWi6pi38coRr1oogTFN3yDAGXuSKGgAg/LnGT8DX9moNAs
-	//xgwEOPzDNEuv+Z2fBkIrTlGcmhcBTyUCgofZNorzeibuvYoJaB4Wi8n8vN1LVWu0xdubj32aJ
-	JZNLvu79tBRN5djO387anBMe+trp8IC57iAGxw4keHBturt1jqi9tdGIfbw2R9OUcYI7Bb/38K9
-	Mtmw==
-X-Gm-Gg: AYBFou31Fa+S5yTFMwG632ESO74NSE1nyFo5COrFr9j1fIdjKvSUK4UJhyNQY0l4Pqc
-	DrdwKHfJtIygMqwDKOjYZ3vHXhNJfWVyDRCU9LJWYT9TjNwOUrqMa30dvM8Rw63jh3dUv4p9Qr5
-	vP+7aYh/vNbZErn/Excz6l18HAl2i9ID2GG/yjRER0asi7kU/BXACOm6Hm/hpy6P9FZnG8UN5RJ
-	xGO9Dw8JTB6jb18wjXWQbWyPTb64mwOijZ0f078gzfXr6vDe6rJxG+X0lXmve/KtTvob3wWeaXO
-	zGzOT2cjcbNriICUwcwv4Rhk40tND+BR/tRRB9R8ZXWVTri+cOHqJumtDoUqykSNRpuhxjrUGJ5
-	Bi3NJwLggRA+w+a767fhG6kLLRSYtGqAHUNjytoOEy9S0j/jSg25xr5JeeP/MKXjVQ2QpdbenJc
-	FNqR4ruE0nngPt
-X-Received: by 2002:a05:6102:5714:b0:7a1:f7d2:e823 with SMTP id ada2fe7eead31-7a55daa4aefmr3065621137.28.1789916534079;
-        Sun, 20 Sep 2026 08:02:14 -0700 (PDT)
-X-Received: by 2002:a05:6102:5714:b0:7a1:f7d2:e823 with SMTP id ada2fe7eead31-7a55daa4aefmr3061758137.28.1789916509473;
-        Sun, 20 Sep 2026 08:01:49 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a6163d7119sm4090061fa.30.2026.09.20.08.01.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 08:01:48 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Sun, 20 Sep 2026 18:01:32 +0300
-Subject: [PATCH v5 7/8] soc: qcom: pmic-glink-altmode: pass down HPD_IRQ
- events
+	Sun, 20 Sep 2026 15:04:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=e0Xair5WrqnEDWZxl7Rdcr954TntOjThEzSLQBodpGU=; b=1EhtwmenXXHrqXysEV2ImkgAwi
+	PZNf1Pmmq/HkAdYuJhuTzzWhtfze1imU2ye99SaDoun8h0n2uAW1lQF1GJ2LXKR+n5p6xL5jgWbq9
+	E84ckkLx45ubYw8naGpyMB8XNkmI/QNHYrfLohm+aIUwDiHvloCLLSRwH9o+U+WCwUa8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x8J5r-006AaZ-P7; Sun, 20 Sep 2026 17:04:39 +0200
+Date: Sun, 20 Sep 2026 17:04:39 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Zoltan HERPAI <wigyori@uid0.hu>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com,
+	kernel@pengutronix.de, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: imx8mp: add Olimex i.MX8MP-SOM-EVB kit
+Message-ID: <b3ef52c9-3ab7-40b2-8279-9cc8c7f74eb8@lunn.ch>
+References: <20260918195559.130443-1-wigyori@uid0.hu>
+ <20260918195559.130443-3-wigyori@uid0.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260920-hpd-irq-events-v5-7-ff1de0090c72@oss.qualcomm.com>
-References: <20260920-hpd-irq-events-v5-0-ff1de0090c72@oss.qualcomm.com>
-In-Reply-To: <20260920-hpd-irq-events-v5-0-ff1de0090c72@oss.qualcomm.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Adrien Grassein <adrien.grassein@gmail.com>,
-        Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
-        Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Francesco Dolcini <francesco@dolcini.it>,
-        Abel Vesa <abelvesa@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
-        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1477;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=Y5prep+uK+TtAox//5HU+Am3tOMfG+jy1KYlpaBl7WM=;
- b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ9b6rx73FSI8L3M2/xHQ/9vYsClqvtqFDunnUQJ/PTexr
- Vv7aI1qJ6MxCwMjF4OsmCKLT0HL1JhNyWEfdkythxnEygQyhYGLUwAmElTKwbD89sa9B+8KP2p6
- 9qOlQ9erc85v7vgP/5qXta3VXDshTN3/Up7LDJtlL8+XKNV/nFwR31K7W5/D58kd6e+bZ24U8Jb
- /G8gmHewiJqL8jL2WrcxMS/Ti58O9Fx9eOvZPplTDuPleqNjUa5/TZJQEZBavPv7u8rZFan835h
- /JcWlYGCxxZsPZZd7B0s+tc1h1k7K3GWgw2Jy0vdfuc1v1WU2GiVlsj8TeLyc+1zUcza34H/tRP
- WV1X0m30rY5/Km1j/JT8r9yXFfKeHJNsP/illuvGRza3lV79FUZpr5cIl+oXZAv5rmqW7SdcWPD
- RKdOZ8X4PTNsYi4yZ3DdC+JJfxHRKpHnwxL5cnLz+sm7AA==
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=W9mtxhWk c=1 sm=1 tr=0 ts=6aaff5ad cx=c_pps
- a=P2rfLEam3zuxRRdjJWA2cw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
- a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=QyXUC8HyAAAA:8 a=Wdvqb4HS36tEXOME5F0A:9
- a=QEXdDO2ut3YA:10 a=ODZdjJIeia2B_SHc_B0f:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIwMDIxOSBTYWx0ZWRfX/Xy0qV51rXab
- hp9TjB6x/ZAE0+2d5/Df1UZWXqsM1N1TVjmkAFC7b2Bo78sEUB9EvdcyCw9SNGOhQT3d4qcaESJ
- zSIwPzk14ZLGByLYcIa2W1wFiYxSonE=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIwMDIxOSBTYWx0ZWRfXxpe5ullaIexR
- sp9UlAdSKBLdY2HMxg/TK6rccR8Pw6U7u5njZX0/4HdvdHKYFGB7VE/bXPrzFUhioq3QaGS1ZbQ
- Zm8kFVDlxVkkRf8+Q/x0YdHs6UXP/j5YIkX8n30o08Q479i27TF/+t5EnBHgIAodjvVc88o4izl
- Qls4U7bjLgRbKMORsEp/VrLHtXkWvpm3mRH0G9QQKosQ9xrQ/Ue5f2earnKbeHEICXa0kV+c0rZ
- t6k+kAvIXrNmDQD9E/jd8IjYK1Kx2rHDnod+cidqeCfv7gh1jcOjCX4ZlVhnoPgK82wsNL4pZpK
- wQGegu0FA4Z0g2TI+LBRbyAuLPxMLm++Xkgs6Am4vjv9pQH93F+u19I0dWivgg9qiRi/ibhM12o
- XOTul8BnrgMMNS3zLvBuucTe1amgGfKsiiuN1t/MqY30+ME54jQJlo/XGpeNxG0Gx7T0moShEv4
- u1fUJp9mTfL6LX2+6xw==
-X-Proofpoint-ORIG-GUID: dMRUns6gAPMQAfkRZjMgsWBU9EjFDNUg
-X-Proofpoint-GUID: dMRUns6gAPMQAfkRZjMgsWBU9EjFDNUg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-20_04,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 priorityscore=1501 spamscore=0 suspectscore=0
- impostorscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609200219
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918195559.130443-3-wigyori@uid0.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_080310_575921_53DEF76E 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260920_080449_816833_46E9A9D1 
+X-CRM114-Status: GOOD (  21.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,41 +70,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DisplayPort standard defines a special kind of HPD events called
-IRQ_HPD. These events are used to notify DP Source about the events on
-the Sink side.
+On Fri, Sep 18, 2026 at 09:55:59PM +0200, Zoltan HERPAI wrote:
+> This adds support for an i.MX8-based system-on-module + EVB board. The
+> product pages are here [1] and here [2] respectively.
+> 
+> There are two new files, one dts for the EVB and one dtsi for the SoM.
+> 
+> EVB features:
+>  - microSD slot, eMMC headers
+>  - 2x Ethernet 1Gb
+>  - 2x USB 3.0
+>  - 1x m.2 PCIe slot
+>  - 2x CAN interface
+>  - audio (2x jacks via ES8328)
+>  - at24 eeprom
+>  - separate UARTs for the A53 and the M7 cores
+>  - HDMI
+>  - UEXT and GPIO connectors with I2C available
+> 
+> SoM features:
+>  - NXP i.MX8MP @ 1600MHz
+>  - 4GByte memory
+>  - LVDS interface
+>  - 2x MIPI_CSI, 1x MIPI_DSI
+>  - status LED
+> 
+> [1] https://www.olimex.com/Products/SOM/NXP-iMX8/iMX8MP-SOM-4GB-IND
+> [2] https://www.olimex.com/Products/SOM/NXP-iMX8/iMX8MP-SOM-EVB-IND
+> 
+> Signed-off-by: Zoltan HERPAI <wigyori@uid0.hu>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |   1 +
+>  .../dts/freescale/imx8mp-olimex-som-evb.dts   | 137 +++++
+>  .../boot/dts/freescale/imx8mp-olimex-som.dtsi | 571 ++++++++++++++++++
+>  3 files changed, 709 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-olimex-som-evb.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-olimex-som.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 95ae85ab4..3657e3464 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -447,6 +447,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-msc-sm2s-ep1.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-navqp.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-enc-carrier-board.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-smarc-universal-board.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-olimex-som-evb.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk.dtb
+>  imx8mp-phyboard-pollux-etml1010g3dra-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
+>  	imx8mp-phyboard-pollux-etml1010g3dra.dtbo
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-olimex-som-evb.dts b/arch/arm64/boot/dts/freescale/imx8mp-olimex-som-evb.dts
+> new file mode 100644
+> index 000000000..26fee72d5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-olimex-som-evb.dts
+> @@ -0,0 +1,137 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright 2019 NXP
+> + * Copyright 2026 Zoltan HERPAI <wigyori@uid0.hu>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "imx8mp-olimex-som.dtsi"
+> +
+> +/ {
+> +	compatible = "olimex,imx8mp-som-evb", "fsl,imx8mp";
+> +	model = "Olimex i.MX8MP-SOM-EVB";
+> +
+> +	chosen {
+> +		stdout-path = &uart2;
+> +	};
+> +};
+> +
+> +&ecspi2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
+> +
+> +	status = "okay";
+> +
+> +	spidev1: spi@0 {
+> +		reg = <0>;
+> +		compatible = "rohm,dh2228fv";
+> +		spi-max-frequency = <500000>;
+> +	};
+> +};
+> +
+> +&flexcan1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan1>;
+> +
+> +	status = "okay";
+> +};
+> +
+> +&flexcan2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan2>;
+> +
+> +	status = "okay";
+> +};
+> +
+> +&i2c1 {
+> +	eeprom: eeprom@50 {
+> +		compatible = "atmel,24c16";
+> +		reg = <0x50>;
+> +		pagesize = <16>;
+> +	};
+> +};
+> +
+> +&snvs_pwrkey {
+> +	status = "okay";
+> +};
+> +
+> +&usb3_phy0 {
+> +	fsl,phy-tx-preemp-amp-tune-microamp = <1800>;
+> +	fsl,phy-tx-vref-tune-percent = <122>;
+> +
+> +	status = "okay";
+> +};
+> +
+> +&usb3_0 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_dwc3_0 {
+> +	dr_mode = "host";
+> +
+> +	status = "okay";
+> +};
+> +
+> +&usb3_phy1 {
+> +	vbus-supply = <&reg_usb1_host_vbus>;
+> +	fsl,phy-tx-preemp-amp-tune-microamp = <1800>;
+> +	fsl,phy-tx-vref-tune-percent = <116>;
+> +
+> +	status = "okay";
+> +};
+> +
+> +&usb3_1 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_dwc3_1 {
+> +	dr_mode = "host";
+> +
+> +	status = "okay";
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_ecspi2: ecspi2grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK		0x82
+> +			MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI		0x82
+> +			MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO		0x82
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi2_cs: ecspi2csgrp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13		0x40000
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan1: flexcan1grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_SPDIF_RX__CAN1_RX		0x154
+> +			MX8MP_IOMUXC_SPDIF_TX__CAN1_TX		0x154
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan2: flexcan2grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_SAI5_MCLK__CAN2_RX		0x154
+> +			MX8MP_IOMUXC_SAI5_RXD3__CAN2_TX		0x154
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan1_reg: flexcan1reggrp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05	0x154	/* CAN1_STBY */
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan2_reg: flexcan2reggrp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27	0x154	/* CAN2_STBY */
+> +		>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-olimex-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-olimex-som.dtsi
+> new file mode 100644
+> index 000000000..9876d3e7b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-olimex-som.dtsi
+> @@ -0,0 +1,571 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright 2019 NXP
+> + * Copyright 2026 Zoltan HERPAI <wigyori@uid0.hu>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/usb/pd.h>
+> +#include <dt-bindings/phy/phy-imx8-pcie.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include "imx8mp.dtsi"
+> +
+> +/ {
+> +	compatible = "olimex,imx8mp-som", "fsl,imx8mp";
+> +
+> +	chosen {
+> +		stdout-path = &uart2;
+> +	};
+> +
+> +	gpio-leds {
+> +		compatible = "gpio-leds";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_gpio_led>;
+> +
+> +		led_status: status {
+> +			color = <LED_COLOR_ID_YELLOW>;
+> +			function = LED_FUNCTION_STATUS;
+> +			gpios = <&gpio3 16 GPIO_ACTIVE_HIGH>;
+> +			default-state = "on";
+> +		};
+> +	};
+> +
+> +	memory@40000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x40000000 0 0xc0000000>,
+> +		      <0x1 0x00000000 0 0x40000000>;
+> +	};
+> +
+> +	pcie0_refclk: clock-pcie0 {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <100000000>;
+> +	};
+> +
+> +	reg_pcie0: regulator-pcie {
+> +		compatible = "regulator-fixed";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_pcie0_reg>;
+> +		regulator-name = "MPCIE_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&gpio2 6 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_usb1_host_vbus: regulator-usb1-vbus {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "usb1_host_vbus";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_usb1_vbus>;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		gpio = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_usdhc2_vmmc: regulator-usdhc2 {
+> +		compatible = "regulator-fixed";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
+> +		regulator-name = "VSD_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		gpio = <&gpio2 19 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +};
+> +
+> +&A53_0 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&A53_1 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&A53_2 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&A53_3 {
+> +	cpu-supply = <&buck2>;
+> +};
+> +
+> +&eqos {
+> +	phy-handle = <&ethphy0>;
+> +	phy-mode = "rgmii-id";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_eqos>;
+> +
+> +	status = "okay";
+> +
+> +	mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		ethphy0: ethernet-phy@3 {
+> +			compatible = "ethernet-phy-ieee802.3-c22";
+> +			eee-broken-100tx;
+> +			eee-broken-1000t;
 
-Pass IRQ_HPD events from the firmware to the HPD bridge, letting those
-to be delivered to the DisplayPort driver.
+Do you know what is actually broken here? Is it the PHY? The MAC? The
+combination of MAC and PHY?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Acked-by: Bjorn Andersson <andersson@kernel.org>
-Reviewed-by: Pengyu Luo <mitltlatltl@gmail.com>
-Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/soc/qcom/pmic_glink_altmode.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/soc/qcom/pmic_glink_altmode.c b/drivers/soc/qcom/pmic_glink_altmode.c
-index 465e5d2316a0..e903d4910e9c 100644
---- a/drivers/soc/qcom/pmic_glink_altmode.c
-+++ b/drivers/soc/qcom/pmic_glink_altmode.c
-@@ -374,7 +374,11 @@ static void pmic_glink_altmode_worker(struct work_struct *work)
- 		else
- 			conn_status = connector_status_disconnected;
- 
--		drm_aux_hpd_bridge_notify(&alt_port->bridge->dev, conn_status);
-+		drm_aux_hpd_bridge_notify_extra(&alt_port->bridge->dev,
-+						conn_status,
-+						alt_port->hpd_irq ?
-+						DRM_CONNECTOR_DP_IRQ_HPD :
-+						DRM_CONNECTOR_NO_EXTRA_STATUS);
- 	} else if (alt_port->mux_ctrl == MUX_CTRL_STATE_TUNNELING) {
- 		if (alt_port->svid == USB_TYPEC_TBT_SID)
- 			pmic_glink_altmode_enable_tbt(altmode, alt_port);
-
--- 
-2.47.3
-
+	Andrew
 
