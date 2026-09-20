@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802A3C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 23:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72806C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 23:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PYh/AD6nS8laDFlVoK9osQ5yY8ZdUZ4VHdWngoSYgg0=; b=Ob/zS6GwGDqPGTfBRJg0FRKJ5q
-	fqQvkkpaKGwwoifLdud9GuRHEinHD0cHi6X+c/BSBCQFcufvQ+WSFu9CA616skc42tBNoJFrps1rq
-	WyWErFhoTKd99++9UP1/5KAyhEL+xLF2Juz/8Dprw7CKGRj/4LrOg60weo2jwFaIWx8aRlj9jwmJe
-	VafTsqMC0hv/oNzHwNm22Pd4mqC/mz3l0iF45kLV29to6WOlRrEY7OBaCsNzW9JUU+yw4o37M8pud
-	RvouDb2X3v9xcD7uqn1NDv+BWF6wQxepIsbO/N16CPkGKec6VMihrbuVg+//ulj13y1xqauUIXyX9
-	qIx1HOgw==;
+	bh=iNmqXhGZZ3SwaOV8bqOvV8+pT+SPZVFh4wF6oc2IRlM=; b=bMPJ8FK/a0vVGf9aCs9svsgUfs
+	mp4bo5QoFM4VQaR03roz5etsEL31+9euOgt1/FF6FlBPXelg4uf+2z923TMmNeJ3AIX03IAgCk5iK
+	HqygdpLa9b6hxySTchRaTEoF6miNtfrwYgDZh1R9pwAFJFme5F9LbOBjqQRIaI2cgiy9ub7zkP6a1
+	pImEie5c6zQ1i3HexLNN+9suSQvq1tEgB359uG57PzDfwpDi+sqZ5u6ARqp9izrbcLt+WdNO3mCTZ
+	BxHkFpx3dL+HuxPvN58CuzjPbWWZolmqaQLlUGzn3FtI/pjvw4SxgQ2jwg7Tri7RUQU2LY1A0qW5p
+	NdfVWjaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8QjB-00000000a1F-3jrB;
-	Sun, 20 Sep 2026 23:13:47 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
+	id 1x8QmV-00000000a8P-1w3J;
+	Sun, 20 Sep 2026 23:17:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Qj8-00000000a0f-2UDM;
-	Sun, 20 Sep 2026 23:13:44 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4hp2Gk6LC4zMl2c;
-	Mon, 21 Sep 2026 01:13:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1789946014;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PYh/AD6nS8laDFlVoK9osQ5yY8ZdUZ4VHdWngoSYgg0=;
-	b=Zzo2IZ+7qi6H7xWvC3tFER2/ngqV5p+JrH/HN5SMSwbt+09kAzn4P0waANcyPWJIe/GXvG
-	HbN2h2ZC+R77nXVxhx1usLtN/2DzB1fy6e44dj/6u2/8ckLgWPGpr18J6iipSxr8XRbx24
-	DJWcp14c+bg2jeR3xUE1d3Q4h5irBl4S8qwuYYEugG4P6xrSOXqR2OfM1CS6Ef3bM8PtWK
-	Q2p3eEg1O8lhSNtKRDlc3Wt6wk3BHd5qk4dugourPKZwz9+nvc5Sgw9aV6HTq4f88rwwC3
-	DNaDQhg1wrJ0lM8YHwz8fYTvt59+gMPv+YjXqzwV++Xc8yJMWfWiCnRQDCPWOg==
-Message-ID: <797c63bc-b759-459c-99f2-d5c3146cbe67@mailbox.org>
-Date: Sun, 20 Sep 2026 19:17:09 +0200
+	id 1x8QmU-00000000a8E-4B4w;
+	Sun, 20 Sep 2026 23:17:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C55F9601F0;
+	Sun, 20 Sep 2026 23:17:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A394B1F000FF;
+	Sun, 20 Sep 2026 23:17:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789946229;
+	bh=iNmqXhGZZ3SwaOV8bqOvV8+pT+SPZVFh4wF6oc2IRlM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=KXchSqOMRu6y0GF6EJYza2QP88aCzZmwup1XUPGrasdEXOhI6G7OJ14iaK1CWpkJs
+	 yqDplcxA/MrOg7wIZwopBhu4eSf0x2hW43ePFgdnb1T8ZMGX4KBu4ZJhbq905a+M2B
+	 /QZq8nTfycPwGGIPWRLsEmzwrLZwV0Mx2erm3tVKNSXQuHaPkO0J4Bk/KhqqPUr36b
+	 LQQTXQ+wRVrHLNYaYL5uxJlfha8588V9Hp1xwdIzVyqQGtskhuqi/Fwt0mI8+W6MiC
+	 nyvSs8D9Mn/PNqMjBa9q4p3DN9FDOlq1/cC3K9rnEI+ARfCKV/s3bGi8ip+Wjn8cPq
+	 k9TKIz31I3z4A==
+Date: Mon, 21 Sep 2026 00:17:02 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Ryan Brue <ryanbrue.dev@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Lee
+ Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ mfd@lists.linux.dev, Roman Vivchar <rva333@protonmail.com>, Luca Leonardo
+ Scorcia <l.scorcia@gmail.com>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>
+Subject: Re: [PATCH v3 0/3] iio: adc: add mt6397 PMIC AUXADC support
+Message-ID: <20260921001702.3a208780@jic23-hlaptop>
+In-Reply-To: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-0-c00edacbee64@gmail.com>
+References: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-0-c00edacbee64@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH] media: dt-bindings: raspberrypi,pispbe: Fix example
- indent
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org
-References: <20260917002554.362516-1-marek.vasut+renesas@mailbox.org>
- <20260918-amusing-rat-of-nirvana-cda3f9@quoll>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <20260918-amusing-rat-of-nirvana-cda3f9@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 2c0fc8c46b5874c426e
-X-MBO-RS-META: m9q3hrijtsm5o47hjkr9iw4k9kpo396q
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_161342_786637_E05965E7 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/18/26 12:44 PM, Krzysztof Kozlowski wrote:
-> On Thu, Sep 17, 2026 at 02:25:18AM +0200, Marek Vasut wrote:
->> Fix two spaces before { in example. No functional change.
->>
->> DT checker reports this as follows:
->> "
->> ./Documentation/devicetree/bindings/media/raspberrypi,pispbe.yaml:56: example 0 [redundant-whitespace] extra whitespace before {
-> 
-> I already posted this for more files:
-> https://lore.kernel.org/all/20260801195528.235230-2-krzysztof.kozlowski@oss.qualcomm.com/
-> 
-> And doing such changes file-per-file is quite a churn, so better to
-> combine commits.
-All right, please just apply yours, thanks !
+On Sun, 20 Sep 2026 00:31:50 -0500
+Ryan Brue <ryanbrue.dev@gmail.com> wrote:
 
-I noticed it while running the DT checker, so I fixed it and sent a 
-patch, hence single file change.
+> The MediaTek mt6397 PMIC has a 10-bit AUXADC that nothing in-tree can
+> reach. On boards built around it that ADC is the only path to the battery:
+> the SoC's AUXADC is wired to board thermistors, and the charger ICs these
+> boards use have no ADC at all, so without it there is no pack voltage and
+> no state of charge.
+
+Hi Ryan,
+
+Please slow down between new versions.  Unless a maintainer is specifically
+asking for a quick turn around (sometimes happen very late in a series) at
+least a week is typical time to allow multiple reviews to come in
+and hence save on effort all round.
+
+Jonathan
+
 
