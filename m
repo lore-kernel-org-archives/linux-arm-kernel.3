@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1614CC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 13:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994ADC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 13:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8iTC9JPtz2vdRM9WQWi2dUzaX2OPQZPuYHgOoaoxIyw=; b=aEJHNaBK/63ycaWppo951HjtWU
-	b6zVoVyxcNaTAaDq95JnadA2wSqfxEAyq6F2pnEPjxSSFAwEJym54xbqhPu7IqDLlLLgrYT8WQ7ap
-	jFqrTUhZF62tyhQHdEeYCVn4JnFycPXQqukKKvRikjDp6hrKOC8vo4vzSlhJ3xf9NXta9FGNpeyKH
-	Okmv7a/q2ld/bqylasMZlF2Fk8a5ERzqhT5IR8qScBxpLtlBAvh+UWRM+WHm2jEwCeoYwGp2+PdJx
-	zZC1qn61nNyJiy1U7tlG3e5WZkYv941e0Rp6ui86bKJ7WeQCkgmK6NNHB8k7+X0Z/8XKrvLJZbN5s
-	NwR0fltA==;
+	bh=kBrM7OZiGlnf+3JkIfoU8Kcsy+7RE7oFy9ttD3jqPdQ=; b=s6ky9T6HQk1zm84STConDEbPSU
+	EaeakAokAHMHYIBEiyZ1qa44yAUMucAJOD2En12UtPwH0nfasgeySQfinCoj10kU8J3nJDR8uRdVT
+	Vwso9N9hCwuIOWjW03skWh/F40wuNYZmGnV+HrH5E9d8RY7yZQdqpmHjCSmNIunkyZA3HHT6WTpLM
+	E1pKClxPLnwI5XNEq09cEEE5Tr43PbuHe4RhQ/SC58iezd0RoZufSH4gqSPyKqXIlBWoU8RxdNcL9
+	Vnw4RSx2WkYo8ZcYtI+Z1+DmK4QHne6euL6sZGm578JmwVACfcZ+JHi9nCJtNA4brv5OGgoqpHzyX
+	VP2SDjxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Huo-0000000HWiv-2WES;
-	Sun, 20 Sep 2026 13:49:10 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x8HwR-0000000HWpP-3vXs;
+	Sun, 20 Sep 2026 13:50:51 +0000
+Received: from out-65.mta0.migadu.com ([91.218.175.65] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Hul-0000000HWic-3iXa
+	id 1x8HwK-0000000HWno-0Isb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 13:49:09 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A30ACC51468;
-	Sun, 20 Sep 2026 13:49:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D7A426033F;
-	Sun, 20 Sep 2026 13:49:04 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2997C103286A4;
-	Sun, 20 Sep 2026 15:48:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789912143; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=8iTC9JPtz2vdRM9WQWi2dUzaX2OPQZPuYHgOoaoxIyw=;
-	b=UTB/X/fSimERrtJA+QubT29YWdvXZmjGdyjvuyFxudaWyR5aywLobj0LsBENQhH2qoPyYl
-	J0o/ME8vsZ+/+EUEtH/IHtrR+WuS8ixESIB8gi4obLpH2irQ6HGGbTdJn7u6dH+phJxrAa
-	lK5SVNuOPSsR7oyjeNhD70+3uZg8KVTHNAsmbeRmbDm2BDajhXNI4/zg+tppPdKFWBE18R
-	LDwKYxM//w73mzK5g/sMo3XynVS7k7sjZfzOXbq5VEUwN1nRVsqt5/QHt7FyRg6m8/xTI+
-	fDveY6ZfeF/L+F4kWKg2i3PxOzpj2IkLNPINDPLkEyT74atD8nzEal4HI+J6Wg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Jacky Huang <ychuang570808@gmail.com>
-Cc: Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung
- <schung@nuvoton.com>,  Michael Turquette <mturquette@baylibre.com>,
-  Stephen Boyd <sboyd@kernel.org>,  Brian Masney <bmasney@redhat.com>,
-  Richard Cochran <richardcochran@gmail.com>,  Arnd Bergmann
- <arnd@arndb.de>,  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,  Steam
- Lin <STLin2@winbond.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-clk@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  netdev@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH] clk: nuvoton: ma35d1: Use clk_hw pointers as mux parents
-In-Reply-To: <b8a8a65b-e302-4747-bc90-4920fc48795a@gmail.com> (Jacky Huang's
-	message of "Tue, 15 Sep 2026 13:26:39 +0800")
-References: <20260813-perso-ma35d1-upstream-clk-v1-1-e78e5e6172ea@bootlin.com>
-	<87o6e0nfe4.fsf@bootlin.com>
-	<b8a8a65b-e302-4747-bc90-4920fc48795a@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Sun, 20 Sep 2026 15:48:55 +0200
-Message-ID: <87o6ds8248.fsf@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Sun, 20 Sep 2026 13:50:50 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=XSgnM9/tTrs2Fbc7ahvU6+D7SlzrKgvkr5L6sZlWc5A=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789912239; v=1; x=1790517039;
+ b=fc4vjR5wg5xOMN+kAi5TjfEff2ZkbsgLeNIZcPkSBAf94BW7llE/vD/KoIWRBwDQ5tMIZ4H7
+ 2fK09OW9xSCdN7ayxIG6CEG1JfTZ6JS7Bo+h4WcLrflXnctUGa+wZ42QLlzlJtbr0D8albxenjL
+ 9C61UhzCMs7oavRXvDn2d4dP6oRevSQSdjJdVMps41+BKaEQUOEK31NcK+Dq7vHySOBe0mNcAtN
+ +5QyQq1W0pO+UN5GF1vNF4w+rJI/hr5MBTh8+NVt4cUJH8xngARIxEdu5YmJU4mYX21BATZ0gnc
+ lTn3p8lNGPrUgEEyKVLC6pgoN6ImqLA5twgP0OQc15HsQ==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 9fed9906a7b4c0cf;
+	Sun, 20 Sep 2026 13:50:25 +0000
+X-Mizu-Trace-ID: 9fed9906a7b4c0cf
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 20 Sep 2026 15:50:24 +0200
+Message-Id: <DLK6XGIB22XG.58WF7VP9L3NH@cknow-tech.com>
+To: "Detlev Casanova" <detlev.casanova@collabora.com>, "Tomasz Figa"
+ <tfiga@chromium.org>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, "Nicolas Dufresne"
+ <nicolas.dufresne@collabora.com>, "Benjamin Gaignard"
+ <benjamin.gaignard@collabora.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Heiko Stuebner" <heiko@sntech.de>, "Ezequiel
+ Garcia" <ezequiel@vanguardiasur.com.ar>
+Cc: <kernel@collabora.com>, <linux-kernel@vger.kernel.org>,
+ <linux-media@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 0/4] media: Track v4l2 buffers through an allocator
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+X-Mailer: aerc 0.22.0-24-g39041fd9f179
+References: <20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com>
+In-Reply-To: <20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_064908_091105_83E769FB 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260920_065045_753515_0E5AD1A8 
+X-CRM114-Status: GOOD (  35.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +79,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacky,
+Hi Detlev,
 
-> For example:
+On Wed Sep 16, 2026 at 4:25 PM CEST, Detlev Casanova wrote:
+> Hello,
 >
-> =C2=A0 =C2=A0 static const struct clk_parent_data wdt1_sel_clks[] =3D {
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 { .index =3D -1, },
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 { .fw_name =3D "lxt", },
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 { .fw_name =3D "pclk3_div4096",=
- },
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 { .fw_name =3D "lirc", },
-> =C2=A0 =C2=A0 };
+> Currently, the only way to track buffers allocated by v4l2 from usespace
+> is to use the subsystem available debug information (e.g.:
+> /sys/kernel/debug/dma_buf/bufinfo).
+> But that information is generic and cannot be matched to a v4l2 driver or
+> to a userspace application: It is merely information about the allocation=
+.
 >
-> The TRM lists PCLK3/4096 and PCLK4/4096 as valid selectable parent
-> clocks for the WDT/WWDT blocks.
+> Other types of allocations require the developper to find where they are
+> exposed and how to link them to their test.
 >
-> However, the new conversion changes these entries to -1:
+> This can become hard to track when mutliple drivers are working at the
+> same time.
 >
-> =C2=A0 =C2=A0 static const int wdt1_parent_idx[] =3D {
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 -1, LXT, -1, LIRC
-> =C2=A0 =C2=A0 };
+> To improve that, add a small wrapper around buffer allocations to keep
+> track of them at the video device level so that we can add debug
+> information to them like a name, userspace pid/fd that did the
+> allocation,... and expose them to userspace via a debugfs entry.
+>
+> It currently only supports DMA buffer allocations and adds support for
+> VB2 allocations too.
+> Other kind of memory tracking can be added later.
+> The verisilicon and rkvdec drivers have been ported to use the tracked
+> dma alloactions.
+>
+> Note that this depends on the ftrace support patch series[1] that
+> provides fd/pid info in the v4l2_fh struct.
+> That series is a bit old, so this is based on an older linux version, but
+> that only changes things for the last 2 commits.
+>
+> A v4l2top utility[2] has been made, to be used in parallel with the
+> fdinfo patch series[3], to show the list of active streams with their HW
+> and memory usage.
+>
+> With this, debugfs looks like this when decoding a HEVC 1080p stream with
+> rkvdec on rk3588:
+>
+>   root # cat /sys/kernel/debug/v4l2/fdc38100.video-codec/mem=20
+>   created-by                      fd              pid             size   =
+         label
+>   -----------------------------------------------------------------------=
+--------------
+>   gst-launch-1.0                  7               635             39184  =
+         vdpu381-hevc-priv-tbl
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-7
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-6
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-5
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-4
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-3
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-2
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-1
+>   gst-launch-1.0                  7               635             4177920=
+         cap-00000000ac34392e-0
+>   gst-launch-1.0                  7               635             3133440=
+         out-000000005c0230f6-1
+>   gst-launch-1.0                  7               635             3133440=
+         out-000000005c0230f6-0
+>   =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>   Total size: 39729424
 
-That's indeed correct. Thanks for the proposal below, I will include it
-in the next iteration.
+I build a kernel with your 3 patch series and I also build the v4l2top util=
+ity.
+Cool tool :-D=20
+Especially after I found out I should build the 'upstream' branch ;-)
 
-[...]
+There were a couple of things I noticed:
+1) With 'plain' kernel 7.3-rc3 but also with all my patches included, but
+   excluding the patches from this series, I see this:
 
-> I have also tested this version on an MA35D1 board, and the clock
-> parent conversion appears to work correctly for the peripherals I
-> tested.
+```
+root@nanopc-t6-plus:~# ls -lh /sys/kernel/debug/v4l2/
+total 0
+drwxr-xr-x 3 root root 0 Sep 20 15:10 fdee0000.hdmi_receiver
+```
 
-Nice! If you're happy with v2, don't hesitate to send a formal
-Tested-by!
+Which is presumably the reason that with a kernel which also includes this
+patch series, I get the following kernel error:
+``[   10.849405] debugfs: 'v4l2' already exists in '/'``
 
-Thanks,
-Miqu=C3=A8l
+I don't think this should generate an error/warning/info message at all,
+but just silently dealt with.
+
+Checking v4l2 debug dir again results in this:
+```
+root@nanopc-t6-plus:~# ls -lh /sys/kernel/debug/v4l2/
+total 0
+drwxr-xr-x 2 root root 0 Sep 20 15:13 fdb60000.rga
+drwxr-xr-x 2 root root 0 Sep 20 15:13 fdb80000.rga
+drwxr-xr-x 2 root root 0 Sep 20 15:13 fdc38000.video-codec
+drwxr-xr-x 2 root root 0 Sep 20 15:13 fdee0000.hdmi_receiver
+```
+
+I noticed my video-codec address was slightly different from yours.
+
+Playing a 1080p BBB x264 video with a patched ffmpeg+mpv, results in this:
+```
+root@nanopc-t6-plus:~# cat /sys/kernel/debug/v4l2/fdc38000.video-codec/mem
+created-by                      fd              pid             size       =
+     label
+---------------------------------------------------------------------------=
+----------
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-10
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-9
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-8
+mpv                             26              2027            16736      =
+     vdpu381-h264-priv-tbl
+mpv                             26              2027            3133440    =
+     out-0000000079002cb1-3
+mpv                             26              2027            3133440    =
+     out-0000000079002cb1-2
+mpv                             26              2027            3133440    =
+     out-0000000079002cb1-1
+mpv                             26              2027            3133440    =
+     out-0000000079002cb1-0
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-7
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-6
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-5
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-4
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-3
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-2
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-1
+mpv                             26              2027            4177920    =
+     cap-00000000205a3b3a-0
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Total size: 58507616
+```
+
+And looking at the v4l2top utility, I noticed the following:
+1. I see differing indications of the load while it's playing :-D
+2. The ``Clock rate`` is always 750.0MHz (or 786431991Hz) (expected I think=
+?)
+3. The ``Total Memory`` is always 0B and the ``Memory usage details`` colum=
+n
+   is always empty. That's also the case when I press one of the arrow keys
+   which seems to select the entry. Am I missing sth or doing sth wrong?
+
+Cheers,
+  Diederik
+
+> [1]: https://lore.kernel.org/all/20260610-v4l2-add-ftrace-v2-0-9756edf72a=
+c1@collabora.com/
+> [2]: https://github.com/cazou/v4l2top/tree/upstream
+> [3]: https://lore.kernel.org/all/20260706-v4l2-add-fdinfo-v3-0-d556568cf3=
+8e@collabora.com/
+>
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+> Detlev Casanova (4):
+>       media: Add a v4l2 memory allocations tracker
+>       media: Store v4l2_fh in the vb_queue
+>       media: verisilicon: Switch to tracked dma allocations
+>       media: rkvdec: Switch to tracked dma allocations
+>
+>  drivers/media/common/videobuf2/Makefile            |   1 +
+>  drivers/media/common/videobuf2/v4l2-allocator.c    | 186 +++++++++++++++=
+++++++
+>  .../media/common/videobuf2/videobuf2-dma-contig.c  |  27 ++-
+>  .../media/platform/rockchip/rkvdec/rkvdec-h264.c   |  14 +-
+>  .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   |  14 +-
+>  .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    |  21 ++-
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c |  14 +-
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c |  14 +-
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  14 +-
+>  .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  14 +-
+>  .../media/platform/rockchip/rkvdec/rkvdec-vp9.c    |  33 ++--
+>  drivers/media/platform/rockchip/rkvdec/rkvdec.c    |   4 +
+>  drivers/media/platform/verisilicon/hantro.h        |   1 +
+>  drivers/media/platform/verisilicon/hantro_drv.c    |   4 +
+>  drivers/media/platform/verisilicon/hantro_h264.c   |   7 +-
+>  drivers/media/platform/verisilicon/hantro_hevc.c   | 100 ++++++-----
+>  drivers/media/platform/verisilicon/hantro_mpeg2.c  |  16 +-
+>  .../media/platform/verisilicon/hantro_postproc.c   |  14 +-
+>  drivers/media/platform/verisilicon/hantro_vp8.c    |  25 +--
+>  drivers/media/platform/verisilicon/hantro_vp9.c    |  34 +++-
+>  .../verisilicon/rockchip_vpu981_hw_av1_dec.c       | 160 +++++++++++----=
+---
+>  drivers/media/v4l2-core/v4l2-device.c              |   4 +-
+>  include/media/v4l2-allocator.h                     |  26 +++
+>  include/media/v4l2-device.h                        |   2 +
+>  include/media/videobuf2-core.h                     |   3 +
+>  25 files changed, 555 insertions(+), 197 deletions(-)
+> ---
+> base-commit: 66affa37cfac0aec061cc4bcf4a065b0c52f7e19
+> change-id: 20260612-v4l2-add-mem-tracker-da0088c74a64
+> prerequisite-change-id: 20260608-v4l2-add-ftrace-aec6e7f60a6c:v2
+> prerequisite-patch-id: bd45b4df66799a7f9f22b49973a78d1bd3590a4a
+> prerequisite-patch-id: 6a5ed5615f08257cf854d441785066b5ff4d5d47
+> prerequisite-patch-id: 02594c869498b9e91e416d70242afbaa6b3a8d6a
+> prerequisite-patch-id: 9f25ec78f3b99ac1c5d42eb732f5bd9eae73fadd
+> prerequisite-patch-id: 4ed2c2e8c3abfa7f6328d0ea4f488ca5a3eec8fb
+> prerequisite-patch-id: 8787d50eb80e1a63a57a123268cade23c9e64618
+> prerequisite-patch-id: bfe85822378fa771f9bbc3e1e8c8ff6bce0eb7fd
+> prerequisite-patch-id: 784d0801da320f7b41194f4632ee422c32f1b5b8
+> prerequisite-patch-id: 362c8366e2efbfb5e6f1a3f71cfddbd46e8d1506
+>
+> Best regards,
+> -- =20
+> Detlev Casanova <detlev.casanova@collabora.com>
+>
+>
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+
+
 
