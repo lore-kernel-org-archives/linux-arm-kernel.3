@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFEEC982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 06:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEDEC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 06:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TrLtgz6x2U7PEO6IDlWwEQdJyY8ByiWJ0svyu3eBk3I=; b=gLG6pxQGx9oTFIGqJh4lSXk3YV
-	8sNUX7NixXBKWtHAwnPWa7cy1TEKdpqjC0cZfFTfm0oD0QtyDyDX5hrghRHTGuItGNOrs45j/9mW5
-	gGBbC/dptIi0sYMjbIpBTsnY/h4IuSepmbUfkczXyTFRgvd3YaGtpv+4t9yeTfJI7XAKxX5ohh+7e
-	NicjZGfseXdRkPO7YXPSdd76DqgvatWrekoR0nqUP22JiNBxzrfGefqOu7Tss+j9F4xocebM7Kofd
-	flshClT5dTllIqz5BZflwwquJ7+1Wt7aTUbJUPsAS7tP9GUX3ulXVgjvkCX9o56FCy155ojAvDYNv
-	jG1XrAwA==;
+	bh=bLpwACqn9YN+hnHNFYXY6u+qLT2vyykvPNkreQhWJbE=; b=sZ2+8rtP4SyKCNkim8cjJrmyMh
+	0Er63yM51RPxjQQRDBey1tAnJN6peag7dTyQ/PnU/JljJmI9lnljtyxWTPLoI8dSRnCG3O/yQ0j25
+	ri59l8NqYZrA6kPfJZ30tcIEF2OAU5HaA5KeBDmG8gKT5PivLsNgEReeDyf7JmOdi3rwb8ScHLJVx
+	c20pH8eOvKpptf+Ktq9MiH4IVMlMkd3wd11vTOeHFS+8vifrttO+FWS4AQs5QAjxvt0Ra178d5tDR
+	0xTExzz4bbT2kssC7rmEAi8y3QAZYk8h9SaTw8Z7waaIhD+JltZgxcTAz1W15Vt72RkwIcfsVZnFw
+	/wtakstw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8XcO-000000012BA-1EwY;
-	Mon, 21 Sep 2026 06:35:12 +0000
-Received: from mail-m822136122.xmail.ntesmail.com ([8.221.36.122])
+	id 1x8Xdl-000000012iF-41t4;
+	Mon, 21 Sep 2026 06:36:37 +0000
+Received: from mail-m83103.xmail.ntesmail.com ([156.224.83.103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8XcK-0000000124a-0P96;
-	Mon, 21 Sep 2026 06:35:11 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4e87d7a93;
-	Mon, 21 Sep 2026 14:34:59 +0800 (GMT+08:00)
-Message-ID: <96882735-091f-49c6-a47b-5da8be711818@rock-chips.com>
-Date: Mon, 21 Sep 2026 14:34:57 +0800
+	id 1x8Xdi-000000012g6-07yU;
+	Mon, 21 Sep 2026 06:36:36 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4e87e853c;
+	Mon, 21 Sep 2026 14:36:26 +0800 (GMT+08:00)
+Message-ID: <ee8bf4cf-b2bd-4cbd-ba8c-2e7a871203e1@rock-chips.com>
+Date: Mon, 21 Sep 2026 14:36:25 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 19/19] drm/bridge: analogix_dp: don't create a
- panel_bridge
-From: Damon Ding <damon.ding@rock-chips.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jessica Zhang <jesszhan0024@gmail.com>,
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
- Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>,
- Paul Kocialkowski <paulk@sys-base.io>, Linus Walleij <linusw@kernel.org>,
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Sean Paul <sean@poorly.run>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>
-Cc: Albert Esteve <aesteve@redhat.com>, Anusha Srivatsa
- <asrivats@redhat.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, asahi@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
- linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
-References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
- <20260916-drm-bridge-every-panel-v3-19-83afb4f1a707@bootlin.com>
- <975a4d45-9a61-4858-b498-8bc0a1e44746@rock-chips.com>
-Content-Language: en-US
-In-Reply-To: <975a4d45-9a61-4858-b498-8bc0a1e44746@rock-chips.com>
+Cc: shawn.lin@rock-chips.com, Caesar Wang <wxt@rock-chips.com>,
+ Kevin Hilman <khilman@linaro.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pmdomain: rockchip: fix domain check in
+ rockchip_pm_add_one_domain()
+To: Sergey Shtylyov <s.shtylyov@auroraos.dev>, Ulf Hansson <ulfh@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-pm@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20260920175928.42566-1-s.shtylyov@auroraos.dev>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260920175928.42566-1-s.shtylyov@auroraos.dev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0c2acc9e403a8kunm657b9e77980220
+X-HM-Tid: 0aa0c2ae1f1d03a4kunm8c2b5e35309363
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZQx9KVh9PGB9MT0kfGB1ITFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDHhhJVksdTE1CHxlISk9CGlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=ZHOwku2DSYkcme2HF6miD3tsHrohcDCgQN32pWRYnUFFJhMdcqTLpQQOBt1nASCVshzWCK1Rf2jUBn74aj5YAYiAlPuBMp3c1pQ2RZPJiSymLL/avNTAW5fYkrdsl8AUfIfftyZEjxzoezMDLxmwH2o4F6DAq4wXT1lyFhMzJFI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=TrLtgz6x2U7PEO6IDlWwEQdJyY8ByiWJ0svyu3eBk3I=;
+	b=kMQEIk5wm+g8UmyBDt3/0JnReaXCZVItYbM0nLAQDOdsl62qdaAqKGEa9njMr3zell849z8plW8LVvvLMDQK3kvxBFs+652EswyGO8aFqRiabnIN5D6z0jKvhXzwjbhkJJ+T9Ml3JCJMH/1VArRIWJMeOR2AnWpZRHzw0brBHAo=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=bLpwACqn9YN+hnHNFYXY6u+qLT2vyykvPNkreQhWJbE=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_233509_498116_65678358 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20260920_233634_340200_97CE32FE 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,91 +72,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/21/2026 11:07 AM, Damon Ding wrote:
-> Hi Luca,
-> 
-> On 9/16/2026 9:45 PM, Luca Ceresoli wrote:
->> Now a panel_bridge is automatically created for every drm_panel and the
->> panel-bridge API is just a deprecated wrapper to access it.
->>
->> Update and simplify the code by just getting a reference to the
->> already-existing bridge using of_drm_get_bridge_by_endpoint().
->>
->> As of_drm_get_bridge_by_endpoint() returns a refcounted bridge, take care
->> of putting the bridge reference. This is not easily done in the remove 
->> path
->> due to the different probe paths of the user drivers, so add a devm 
->> action
->> to ensure the reference is put only when it was taken.
->>
->> Assisted-by: opencode:deepseek-v4-flash-0731
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> ---
->>   drivers/gpu/drm/bridge/analogix/Kconfig            |  1 -
->>   drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 40 ++++++++++++ 
->> +---------
->>   drivers/gpu/drm/exynos/exynos_dp.c                 | 36 + 
->> +-----------------
->>   drivers/gpu/drm/rockchip/analogix_dp-rockchip.c    |  9 -----
->>   include/drm/bridge/analogix_dp.h                   |  1 -
->>   5 files changed, 25 insertions(+), 62 deletions(-)
->>
+Hi Sergey,
 
-[snip]
+在 2026/09/21 星期一 1:59, Sergey Shtylyov 写道:
+> In rockchip_pm_add_one_domain(), there's the check (most probably for
+> the case where the "reg" prop has an unexpected value?) which doesn't
 
->> @@ -488,14 +487,6 @@ static void rockchip_dp_remove(struct 
->> platform_device *pdev)
->>   {
->>       struct rockchip_dp_device *dp = platform_get_drvdata(pdev);
+Agreed that check indeed makes little sense. But "most probably for the
+case where the reg prop has an unexpected value" does not hold: an 
+out-of-range reg value is already rejected by the "id >= pmu->info-
+ >num_domains" check above, and num_domains equals
+ARRAY_SIZE(domain_info) for every SoC, so there are no holes in the
+table that the new check could catch with the current data. AFAICT, this 
+patch does not change any runtime behaviour; it only turns dead code
+into a defensive check on the match-data tables.
 
-The above unused &rockchip_dp_device could be also remved.
 
->> -    /*
->> -     * Release the probe-time reference from of_drm_find_panel(). If 
->> bind
->> -     * ran, the panel_bridge holds a second reference that devm cleanup
->> -     * will release when the bridge is destroyed after remove() returns.
->> -     */
->> -    if (dp->plat_data.panel)
->> -        drm_panel_put(dp->plat_data.panel);
->> -
->>       component_del(&pdev->dev, &rockchip_dp_component_ops);
->>   }
->> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/ 
->> analogix_dp.h
->> index 0e0b87abee59..6033137b651e 100644
->> --- a/include/drm/bridge/analogix_dp.h
->> +++ b/include/drm/bridge/analogix_dp.h
->> @@ -35,7 +35,6 @@ static inline bool analogix_dp_is_rockchip(enum 
->> analogix_dp_devtype type)
->>   struct analogix_dp_plat_data {
->>       enum analogix_dp_devtype dev_type;
->> -    struct drm_panel *panel;
->>       struct drm_bridge *next_bridge;
->>       struct drm_encoder *encoder;
->>       struct drm_connector *connector;
->>
-> 
-> I apply this patch series with the related one[0], and the eDP work well 
-> on my RK3576 board.
-> 
-> Tested-by: Damon Ding <damon.ding@rock-chips.com>
-> 
-> In my patch series for Analogix DP HPD support, Heiko also pointed out 
-> that devm_drm_of_get_bridge()(deprecated now) can be used to get the 
-> panel bridge directly, and the redundant &analogix_dp_plat_data.panel 
-> can be removed[1]. Since your patch series already contains these 
-> optimizations, I will rebase my patch series on top of yours for 
-> subsequent updates.
-> 
-> Reviewed-by: Damon Ding <damon.ding@rock-chips.com>
-> 
-> [0] https://lore.kernel.org/all/20260915-drm-bridge-drm_panel-cleanup- 
-> v4-0-30401d9406f3@bootlin.com/
-> [1] https://lore.kernel.org/all/5609825.iZASKD2KPV@diego/
+> make much sense as the variable pd_info will be NULL iff pmu->info->
+> domain_info is NULL and the variable id is 0.  What does make sense
+> there is checking pd_info->pwr_mask and pd_info->req_mask which (as
+> seems to follow from the code) can't both be 0 for a valid domain...
 > 
 
-Best regards,
-Damon
+That means there is no bug being fixed here, should we drop the fixes tag?
+
+> Found by Linux Verification Center (linuxtesting.org) with the Svace
+> static analysis tool.
+> 
+> Fixes: 7c696693a4f5 ("soc: rockchip: power-domain: Add power domain driver")
+> Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+> 
+> ---
+> This patch is against the fixes branch of Ulf Hansson's linux-pm.git repo.
+> 
+>   drivers/pmdomain/rockchip/pm-domains.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+> index ba66ae719428..69792e2b215b 100644
+> --- a/drivers/pmdomain/rockchip/pm-domains.c
+> +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> @@ -809,7 +809,7 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
+>   		return 0;
+>   
+>   	pd_info = &pmu->info->domain_info[id];
+> -	if (!pd_info) {
+> +	if (!pd_info->pwr_mask && !pd_info->req_mask) {
+>   		dev_err(pmu->dev, "%pOFn: undefined domain id %d\n",
+>   			node, id);
+>   		return -EINVAL;
 
 
