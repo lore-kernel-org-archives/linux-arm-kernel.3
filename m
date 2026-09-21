@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AE6C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE11C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5xq9uOaZUlju0eA9uFj+yG1J8aLC1dru00Sy5/YfvlY=; b=cFgDAJxtRM45G95bbzlXxyu7kl
-	CUqi4UyrBQqAnvZKE/SCtzGajGGMbxya4tSjNGxYWxXDaeES9llo53oId5VSZ89MAL+Cs+rNd6NhD
-	mmkksPCnj0WrgZdUol9yi1NyrC7oWhst2+kNckrh3DP/Kmx+vL0t2SkGKJaIjS0FapHx5ckVOl+oi
-	2lwejpn+mNEtYVrO46JIB3UsksLlVPdz5NeI/AYVL99+NdinByHTO0GiHNcWdv6YCHwRVBrGcm2ow
-	9zJn6N2xtQJ8yvqIJDSmkUWtM2wX381yGvdZkWNOkKpe7bqzAg8x4esukA91NR24lS7G/CxoceArF
-	YrEVqh3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DfKCxDkGmiGAvVKE3w2w5luUgwycfNwU8vR07vCusUo=; b=sdLQW/bI91MCJegKJQ/GUFd9gY
+	lwcAld3jlvhQ5u8PzP6xCc6QRVgubkzw5ndeZfuSME9sS04Yrnwr3tvEvitCxGp7kX9tH5tCPpfJL
+	08LtddwbkgEuKOKUKLbr4xGwT2bjxOB6qNeZblkrOsqsV++h0kUFJrBCi+gK90EZyjCWABn9LMHAy
+	Ot+v41H2Kot2594PepH20pwG0kvyfIcp6jvRHdhlblaonEOizo5L4wVLXzixQ5zviD/Geq4UwypMB
+	hvtVZD3r06P5W3dhEqV+KwG9rua+gnaurAJoaxjyEXRvhodbh7PVT0osv1yz7FXnuuWlSGHNUyNvq
+	qKLQNulQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WkC-00000000wlH-0j0I;
-	Mon, 21 Sep 2026 05:39:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8WtR-00000000xq8-385Z;
+	Mon, 21 Sep 2026 05:48:45 +0000
+Received: from out-147.mta1.migadu.com ([95.215.58.147] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Wk5-00000000whf-4C5q
+	id 1x8WtO-00000000xnI-2sfY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 05:39:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FCC86021E;
-	Mon, 21 Sep 2026 05:39:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 076E31F000FF;
-	Mon, 21 Sep 2026 05:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789969145;
-	bh=5xq9uOaZUlju0eA9uFj+yG1J8aLC1dru00Sy5/YfvlY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CrI9BEZlPhYUnxwLwPnKCEiXrJEuZX8vCVzRAr0eJ8nuRJ1Nnw2PbP0m6eGyscMsw
-	 3zXLJd4r+YHbXkkBeL5eTGpO4+Y/f5XhEjEJQEQcbZz1a1U1b5QDeTipdu/xxJAkgt
-	 BsKjkMcHEg08VN6wkbC2woxk9gpLCboQNNdLFufLnguypxW7ZSo8RW2/TKKVVEuzmF
-	 2m1uHV0UjtAVQHlTj1HzC66XddDO9/ReQrEakl51KUqo0NDD0JRAyej0hiqjcDBztZ
-	 l/eqm6zNLbd0cWqhf3LzAwWWf3Av7nSUDFmthZQIENuJScdQCebbUHarBRB0aoGGq5
-	 5w3Sb7lW+E8yA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: [PATCH v12 7/7] coco: guest: arm64: Replace dummy CCA device with sysfs ABI
-Date: Mon, 21 Sep 2026 11:08:07 +0530
-Message-ID: <20260921053807.354802-8-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260921053807.354802-1-aneesh.kumar@kernel.org>
-References: <20260921053807.354802-1-aneesh.kumar@kernel.org>
+	Mon, 21 Sep 2026 05:48:44 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=jhV/vw4+vWN8dqMOnDQNzr0Wd/YKWAZ5SZrLjVrKgJI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789969718; v=1; x=1790574518;
+ b=wsWyZ/itCi6fu86wCCcJ0RZGEFvh1E6p15NlDx9Adkkv4ElC8H2tSzAL4teGcsjDOD6R85qz
+ ElMAx70yL56Y1inpsiwWZHt2hrRRGoQ/lXhLrDGO15qK0CXIIZPbnue43uUKvmPYjDQXRaCwlcP
+ 2RBx/KWVKMVfSuslG0ikOMXY=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by mta11.migadu.com with ESMTPS id 417d6ee2dae11de6;
+	Mon, 21 Sep 2026 05:48:38 +0000
+X-Mizu-Trace-ID: 417d6ee2dae11de6
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 21 Sep 2026 13:48:34 +0800
+From: Baoquan He <baoquan.he@linux.dev>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, robh@kernel.org,
+	saravanak@kernel.org, akpm@linux-foundation.org, rppt@kernel.org,
+	pasha.tatashin@soleen.com, pratyush@kernel.org,
+	m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
+	alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev,
+	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-mm@kvack.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v6 02/10] riscv: build crash_mem ranges from memblock
+ instead of resource tree
+Message-ID: <arDFMqcUr6xkTn-h@fedora>
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <20260902073116.802752-3-chenwandun1@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260902073116.802752-3-chenwandun1@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_224842_868755_AA00A17F 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,117 +82,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SMCCC firmware driver now creates the arm_smccc bus and instantiates
-the CCA RSI device once the RSI ABI is discovered. The arm64-specific
-arm-cca-dev platform device stub is therefore no longer needed.
+On 09/02/26 at 03:31pm, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+> 
+> Replace walk_system_ram_res() with for_each_mem_range(). A later patch
+> introduces MEMBLOCK_NODUMP in memblock, the reserved-memory regions
+> marked with MEMBLOCK_NODUMP can be excluded from the vmcore by walking
+> memblock.
+> 
+> for_each_mem_range() iterates memblock.memory, which is freed after
+> init unless ARCH_KEEP_MEMBLOCK is selected. riscv needs ARCH_KEEP_MEMBLOCK
+> to filter reserved memory from the vmcore, so extend its condition
+> (ACPI || KEXEC) with CRASH_DUMP. arm64 and loongarch already select
+> ARCH_KEEP_MEMBLOCK unconditionally.
+> 
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> ---
+>  arch/riscv/Kconfig                     |  2 +-
+>  arch/riscv/kernel/machine_kexec_file.c | 31 ++++++++++----------------
+>  2 files changed, 13 insertions(+), 20 deletions(-)
 
-However, userspace has used the arm-cca-dev platform device to detect Arm
-CCA Realm guests [1]. Removing it without a replacement would break that
-detection and would also leave userspace depending on kernel device-model
-details.
+This looks good to me, FWIW,
 
-Add /sys/firmware/cca/realm_guest as a stable ABI for detecting whether
-the kernel is running as an Arm CCA Realm guest. Create the file only in
-Realm world, where it reads 1.
+Acked-by: Baoquan He <baoquan.he@linux.dev>
 
-Remove the dummy arm-cca-dev registration now that userspace has a
-dedicated CCA Realm guest indicator, and document the new ABI in
-Documentation/ABI/testing/sysfs-firmware-cca.
-
-Link: https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- Documentation/ABI/testing/sysfs-firmware-cca |  7 ++++
- drivers/firmware/arm_rmm/rsi.c               | 43 +++++++++++++++-----
- 2 files changed, 39 insertions(+), 11 deletions(-)
- create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
-
-diff --git a/Documentation/ABI/testing/sysfs-firmware-cca b/Documentation/ABI/testing/sysfs-firmware-cca
-new file mode 100644
-index 000000000000..9cc355724f94
---- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-firmware-cca
-@@ -0,0 +1,7 @@
-+What:		/sys/firmware/cca/realm_guest
-+Date:		May 2026
-+Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
-+Description:	Read-only. Present only when the kernel is running as an
-+		Arm Confidential Compute Architecture (CCA) Realm guest, in
-+		which case it reads 1. If the file does not exist, the kernel
-+		is not running as a Realm guest.
-diff --git a/drivers/firmware/arm_rmm/rsi.c b/drivers/firmware/arm_rmm/rsi.c
-index 2dd69febedbd..425b27c0cad4 100644
---- a/drivers/firmware/arm_rmm/rsi.c
-+++ b/drivers/firmware/arm_rmm/rsi.c
-@@ -7,14 +7,16 @@
- #include <linux/memblock.h>
- #include <linux/psci.h>
- #include <linux/swiotlb.h>
--#include <linux/platform_device.h>
- #include <linux/arm-rsi-cmds.h>
-+#include <linux/kobject.h>
-+#include <linux/sysfs.h>
- 
- #include <asm/io.h>
- #include <asm/mem_encrypt.h>
- #include <asm/pgtable.h>
- 
- static struct realm_config config;
-+static struct kobject *cca_kobj;
- 
- unsigned long prot_ns_shared;
- EXPORT_SYMBOL(prot_ns_shared);
-@@ -182,17 +184,36 @@ void __init arm64_rsi_init(void)
- 	static_branch_enable(&rsi_present);
- }
- 
--static struct platform_device rsi_dev = {
--	.name = "arm-cca-dev",
--	.id = PLATFORM_DEVID_NONE
-+static ssize_t realm_guest_show(struct kobject *kobj,
-+		struct kobj_attribute *attr, char *buf)
-+{
-+	return sysfs_emit(buf, "1\n");
-+}
-+
-+static struct kobj_attribute cca_realm_guest =
-+	__ATTR(realm_guest, 0444, realm_guest_show, NULL);
-+
-+static const struct attribute *cca_realm_attrs[] = {
-+	&cca_realm_guest.attr,
-+	NULL
- };
- 
--static int __init arm64_create_dummy_rsi_dev(void)
-+static int __init realm_sysfs_init(void)
- {
--	if (is_realm_world() &&
--	    platform_device_register(&rsi_dev))
--		pr_err("failed to register rsi platform device\n");
--	return 0;
--}
-+	int ret;
- 
--arch_initcall(arm64_create_dummy_rsi_dev)
-+	if (!is_realm_world())
-+		return 0;
-+
-+	cca_kobj = kobject_create_and_add("cca", firmware_kobj);
-+	if (!cca_kobj)
-+		return -ENOMEM;
-+
-+	ret = sysfs_create_files(cca_kobj, cca_realm_attrs);
-+	if (!ret)
-+		return 0;
-+
-+	kobject_put(cca_kobj);
-+	return ret;
-+}
-+device_initcall(realm_sysfs_init);
--- 
-2.43.0
-
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d6c2dbf8455c..1de14a2d5aba 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -58,7 +58,7 @@ config RISCV
+>  	select ARCH_HAS_UBSAN
+>  	select ARCH_HAS_VDSO_ARCH_DATA
+>  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+> -	select ARCH_KEEP_MEMBLOCK if ACPI || KEXEC
+> +	select ARCH_KEEP_MEMBLOCK if ACPI || KEXEC || CRASH_DUMP
+>  	select ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE	if 64BIT && MMU
+>  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+>  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+> diff --git a/arch/riscv/kernel/machine_kexec_file.c b/arch/riscv/kernel/machine_kexec_file.c
+> index 26cd2a8bd0cd..808e872f4063 100644
+> --- a/arch/riscv/kernel/machine_kexec_file.c
+> +++ b/arch/riscv/kernel/machine_kexec_file.c
+> @@ -37,39 +37,32 @@ int arch_kimage_file_post_load_cleanup(struct kimage *image)
+>  }
+>  
+>  #ifdef CONFIG_CRASH_DUMP
+> -static int get_nr_ram_ranges_callback(struct resource *res, void *arg)
+> -{
+> -	unsigned int *nr_ranges = arg;
+> -
+> -	(*nr_ranges)++;
+> -	return 0;
+> -}
+> -
+>  unsigned int arch_get_system_nr_ranges(void)
+>  {
+>  	unsigned int nr_ranges = 2 + crashk_cma_cnt; /* For exclusion of crashkernel region */
+> +	u64 i;
+> +	phys_addr_t start, end;
+>  
+> -	walk_system_ram_res(0, -1, &nr_ranges, get_nr_ram_ranges_callback);
+> +	for_each_mem_range(i, &start, &end)
+> +		nr_ranges++;
+>  
+>  	return nr_ranges;
+>  }
+>  
+> -static int prepare_elf64_ram_headers_callback(struct resource *res, void *arg)
+> +int arch_crash_populate_cmem(struct crash_mem *cmem)
+>  {
+> -	struct crash_mem *cmem = arg;
+> +	u64 i;
+> +	phys_addr_t start, end;
+>  
+> -	cmem->ranges[cmem->nr_ranges].start = res->start;
+> -	cmem->ranges[cmem->nr_ranges].end = res->end;
+> -	cmem->nr_ranges++;
+> +	for_each_mem_range(i, &start, &end) {
+> +		cmem->ranges[cmem->nr_ranges].start = start;
+> +		cmem->ranges[cmem->nr_ranges].end = end - 1;
+> +		cmem->nr_ranges++;
+> +	}
+>  
+>  	return 0;
+>  }
+>  
+> -int arch_crash_populate_cmem(struct crash_mem *cmem)
+> -{
+> -	return walk_system_ram_res(0, -1, cmem, prepare_elf64_ram_headers_callback);
+> -}
+> -
+>  static char *setup_kdump_cmdline(struct kimage *image, char *cmdline,
+>  				 unsigned long cmdline_len)
+>  {
+> -- 
+> 2.43.0
+> 
 
