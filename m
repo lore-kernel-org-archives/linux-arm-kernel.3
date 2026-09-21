@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2A1C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E45C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EzyjvcjHnU8bsyuDFh4e4QIqzX8lLzZewGB28BdVIsQ=; b=CY2TtJD/kzJ7w0N1X/xFIJCuJv
-	fwTt51wZjoYnDcF28WOs+bpBUS1UdZKXFQ/YWgjqaafqi5meRD97AxObi4inEIG38gDB1PheWNfBr
-	A3TOzQHBzXoAgV22icqznZy/taPImOX6rEblw3Q3uUyiXhBGPCDZKuFHavKI6D0gyv2Rhaq1LnWlj
-	8xxsMXpIr2mHehkoIgxI+xHkvFiK2EMekE3B/wTvwl1MWuuLv8g5WPtU/uxQKeB0zIpgcRapw+QMf
-	kmz+z3iFVVFMzicOE/63/D15I/Plk35eKJXy5OPJzpgY8yMFbvm1197bp/8dce7SRq3eMOb9R2eWJ
-	Mpgy+Uug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpSBX9zUnKOsYMEzJCVdOj7P1czBOXfO4KP+K+06BCw=; b=cX+PQDD5la6ZOh873vwUnR+rLl
+	abj5i7I+HuOUaBtYz/xDd9MrPgMoJ2DY70XK7oR/vAd2vvM/Y4k+NKJl0RuQ+UOLLMnLw+w3qgIg2
+	3O2RWwsGdq8rmA4ZtBQaEeEntdENI3iHOIKMyUleQOs3l4WwIxokdTOP1iKW2GqoDVoemwF7N3AXL
+	M6acNZ/6E0Bbjai1xyb7mVwgO5Z3msJ0YFpBYZ/maavl+/ctA9YzOH5kcWbHBUIo1LaULDuGrqRKQ
+	yG2wbLoiMEz8Wqpapg7fkWcis+86KulAdd2FLo3kFaW8OY0ZKRJ3S757FjCPaZZYRuWUEy0ZDDsyh
+	iBlM4IKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eXI-00000002JQ7-27rW;
-	Mon, 21 Sep 2026 13:58:24 +0000
-Received: from m16.mail.126.com ([117.135.210.6])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eX7-00000002JNm-0LRS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 13:58:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ez
-	yjvcjHnU8bsyuDFh4e4QIqzX8lLzZewGB28BdVIsQ=; b=ZJ4A9DHyVWeOVgvWbX
-	SQ9fRseiZitjjvZsJRy0vgOPvPYK4I4A2fSw7+Isykg0xhImtaQWk6orSkYK66wu
-	PxNG9vEiBNQoqNSf6yBUF3YXTamAJDNvhfhfcrFh5fkANSSVg0y197cqefnaoe+Y
-	WmsS7GG7L1lk796eI84fvtd94=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD33wG+N7FqH9M7Bw--.62914S2;
-	Mon, 21 Sep 2026 21:57:18 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH net v3 1/2] net: stmmac: ethtool: ignore inapplicable per-queue coalesce fields
-Date: Mon, 21 Sep 2026 21:57:15 +0800
-Message-Id: <20260921135716.218420-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
+	id 1x8eZi-00000002JqX-49qf;
+	Mon, 21 Sep 2026 14:00:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8eZg-00000002Jpc-3Wyz;
+	Mon, 21 Sep 2026 14:00:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A6651D13;
+	Mon, 21 Sep 2026 07:00:48 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A03C33F528;
+	Mon, 21 Sep 2026 07:00:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789999251; bh=196CWRrTsBXNGEh3O1halF0+Yb/A+7t5R7xVTmSSTuQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RIH1OhFfFFabunQv0YPirHG+CsJ71/CgYQj6MJ4sSGsVQuJMZyLB4jJmRSzQ1LE2K
+	 rDCaxiiaeeqFrS4tkZ+PYRwgV01eC7wlP+F6GgTQZZnRsOz7ERB9k7nxd8o4rA2K2p
+	 j0e+0RpvqbHK5mmk+msSNDIq0m0LAKukZXJLpUeI=
+Date: Mon, 21 Sep 2026 15:00:45 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Vladimir Murzin <vladimir.murzin@arm.com>, paulmck@kernel.org
+Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [BUG/PATCH] drivers/usb/mtu3: Work around mtu3_log_ep
+ double-indirection issue
+Message-ID: <arE4jcn4dCD9gos_@J2N7QTR9R3.cambridge.arm.com>
+References: <a3ee0655-d818-48e0-84d1-475e6c16c991@paulmck-laptop>
+ <d7bb2cf4-11c3-468c-8749-99cc408299c7@arm.com>
+ <b6c621eb-6d20-4e00-ac05-af122b630ca5@paulmck-laptop>
+ <aae79c1c-8738-4b97-b1b9-d82d19d82d49@arm.com>
+ <20260909093524.249c2a1a@gandalf.local.home>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD33wG+N7FqH9M7Bw--.62914S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuF4DtFyxZF4Dury7Kry5twb_yoW7Jw47p3
-	yUCFZavw1kJrW2yw1kAF40kFy5trs3tFZ7XFyxt34Fka1fCry5Xry5tryUKFnFkrWkZrWY
-	gFWjq39ru398XaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UnmRUUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqR8E2mqxN7-cjgAA3p
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260909093524.249c2a1a@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_065815_149637_AA76A79F 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20260921_070052_917105_48D41798 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,129 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+On Wed, Sep 09, 2026 at 09:35:24AM -0400, Steven Rostedt wrote:
+> On Wed, 9 Sep 2026 11:31:28 +0100
+> Vladimir Murzin <vladimir.murzin@arm.com> wrote:
+> 
+> > I've done a little bit massaging and here is what worked for me
+> > 
+> > 
+> > diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+> > index 89870175d635..4d4bae25fa1f 100644
+> > --- a/drivers/usb/mtu3/mtu3_trace.h
+> > +++ b/drivers/usb/mtu3/mtu3_trace.h
+> > @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+> >                 __field(unsigned int, flags)
+> >                 __field(unsigned int, direction)
+> >                 __field(struct mtu3_gpd_ring *, gpd_ring)
+> > +               __field(dma_addr_t, gpd_ring_dma)
+> >         ),
+> >         TP_fast_assign(
+> >                 __assign_str(name);
+> > @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+> >                 __entry->flags = mep->flags;
+> >                 __entry->direction = mep->is_in;
+> >                 __entry->gpd_ring = &mep->gpd_ring;
+> > +               __entry->gpd_ring_dma = mep->gpd_ring.dma;
+> >         ),
+> >         TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+> >                 __get_str(name), usb_ep_type_string(__entry->type),
+> >                 __entry->maxp, __entry->slot,
+> >                 __entry->mult, __entry->maxburst,
+> > -               __entry->gpd_ring, &__entry->gpd_ring->dma,
+> > +               __entry->gpd_ring, &__entry->gpd_ring_dma,
+> >                 __entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+> >                 __entry->flags & MTU3_EP_STALL ? 'S' : 's',
+> >                 __entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+> 
+> LGTM,
+> 
+> Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
 
-rx_queues_to_use and tx_queues_to_use are independent: dwmac-intel uses
-6 RX and 4 TX channels on TGL and EHL, and snps,rx-queues-to-use and
-snps,tx-queues-to-use are parsed separately, so a queue index can exist
-in one direction only. include/linux/ethtool.h documents the parameters
-of the missing side as inapplicable and asks set_per_queue_coalesce() to
-ignore them, but __stmmac_set_coalesce() validates both directions for
-every index while __stmmac_get_coalesce() reports the inapplicable ones
-as zero.
+On v7.3-rc4 I still see the splat Paul reported initially, and the above
+fixes that, so FWIW:
 
-ethtool implements --per-queue by reading the current settings of every
-queue in the mask and sending them back with only the requested fields
-overwritten, so the zeroed fields are fed straight back into the setter:
+Tested-by: Mark Rutland <mark.rutland@arm.com>
 
-  - on an RX-only index the test for both TX fields being zero rejects
-    the request, so per-queue RX coalescing cannot be changed at all;
-  - on a TX-only index rx_coalesce_usecs is zero, stmmac_usec2riwt()
-    returns zero and the MIN_DMA_RIWT test rejects the request, so
-    per-queue TX coalescing cannot be changed at all.
+Steve, I assume you were expecting someone to send the above as a full
+patch.
 
-On an RX-only index the TX test rejects the request after the RX block
-has already called stmmac_rx_watchdog() and stored rx_riwt[] and
-rx_coal_frames[], so the driver reports -EINVAL with the hardware half
-reprogrammed.  The roll-back that ethtool_set_per_queue_coalesce() runs
-for the queues it has already changed then trips over the same test and
-cannot restore them.  On a TX-only index the rx_riwt range check fails
-before anything is written, but the request is still rejected and the
-TX settings are never stored.
+Paul, do you intend to send a v2, or should Vladimir send out his
+version as its own patch? I assume you're happy with a Reported-by, if
+he does that?
 
-Validate and apply only the side that the queue index actually has, and
-move the TX checks in front of the RX block so that a request is either
-applied completely or rejected without touching the device.
-
-Fixes: db2f2842e6f5 ("net: stmmac: add per-queue TX & RX coalesce ethtool support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
----
-Changes in v2:
-- Trim the comment in front of the TX checks to one line; the reasoning
-  belongs in the changelog. (Andrew Lunn)
-- Link: https://lore.kernel.org/all/20260920015647.1783574-1-xiaolinkui@126.com/
-
-Changes in v3:
-- Only run the TX checks when the index carries a TX ring, and the rx_riwt
-  range check only when it carries an RX ring. Moving the checks alone
-  rejected per-queue RX coalescing on an RX-only index and broke the
-  ethtool core rollback for it. (Sashiko review)
-- Reword the subject and changelog to describe the direction-aware
-  validation.
-
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 35 +++++++++++++------
- 1 file changed, 24 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 154cc0c7623d..fed648a9f784 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -837,6 +837,8 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	bool all_queues = false;
- 	unsigned int rx_riwt;
-+	bool has_rx;
-+	bool has_tx;
- 	u32 max_cnt;
- 	u32 rx_cnt;
- 	u32 tx_cnt;
-@@ -850,7 +852,20 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 	else if (queue >= max_cnt)
- 		return -EINVAL;
- 
--	if (priv->use_riwt) {
-+	has_rx = all_queues || queue < rx_cnt;
-+	has_tx = all_queues || queue < tx_cnt;
-+
-+	/* An index can be RX-only or TX-only; ignore the missing side. */
-+	if (has_tx &&
-+	    ec->tx_coalesce_usecs == 0 && ec->tx_max_coalesced_frames == 0)
-+		return -EINVAL;
-+
-+	if (has_tx &&
-+	    (ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK ||
-+	     ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
-+		return -EINVAL;
-+
-+	if (has_rx && priv->use_riwt) {
- 		rx_riwt = stmmac_usec2riwt(ec->rx_coalesce_usecs, priv);
- 
- 		if ((rx_riwt > MAX_DMA_RIWT) || (rx_riwt < MIN_DMA_RIWT))
-@@ -866,7 +881,7 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 				priv->rx_coal_frames[i] =
- 					ec->rx_max_coalesced_frames;
- 			}
--		} else if (queue < rx_cnt) {
-+		} else {
- 			priv->rx_riwt[queue] = rx_riwt;
- 			stmmac_rx_watchdog(priv, priv->ioaddr,
- 					   rx_riwt, queue);
-@@ -875,14 +890,6 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 		}
- 	}
- 
--	if ((ec->tx_coalesce_usecs == 0) &&
--	    (ec->tx_max_coalesced_frames == 0))
--		return -EINVAL;
--
--	if ((ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK) ||
--	    (ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
--		return -EINVAL;
--
- 	if (all_queues) {
- 		int i;
- 
-@@ -892,7 +899,7 @@ static int __stmmac_set_coalesce(struct net_device *dev,
- 			priv->tx_coal_timer[i] =
- 				ec->tx_coalesce_usecs;
- 		}
--	} else if (queue < tx_cnt) {
-+	} else if (has_tx) {
- 		priv->tx_coal_frames[queue] =
- 			ec->tx_max_coalesced_frames;
- 		priv->tx_coal_timer[queue] =
--- 
-2.25.1
-
+Mark.
 
