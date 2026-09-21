@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A69EC982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14BEC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJ8N+mrV6u3cfqGcoiPMbpRTWJEEOHp2lUrNnbxW06A=; b=DbU9J972ZTHJR6s9R8i80ElBED
-	wmFdnAwIQBgDtVRUgKk43s+9M9u53WOj+kjcFoLvgmascmMaH7Us6/JkVzODvLAXAnMDRdSerhuuc
-	JecAZ01D7z4SagBZ65Z0pLn+fZDncyDQDElE0qKVy3SMxP777wFZkcupBnNiL/RLoRgxCv8CryY6Q
-	fexeeHxJ6aSE3vo0v3qCYnhyqT/iBWbw6M6+3t0lQ4FebKwBXOVx0PeqllEsjY4FXrQzjLfkllZXT
-	jMWEBHZgbb1AagZsxdZp8YdVZp0ZlyTiSoIs37zLNchqKSBDwady3JbKMgsNffccPCIOnocF+OOKk
-	trhZigMA==;
+	bh=pggRQk8Zulvr6Cr863p0bNlrJVErb5Ls06+ht2GM3Yw=; b=g3iZe3VPTqEeJvCwxGx46xU5Hb
+	rCGL/i90Twxq3X7y1+vBtPGTm6OKRz3VeqbnHzV8B6vG9/k5M0RWdF6UrPCtVy0Xm17rsNoPoj5La
+	I0LAy3u6c3Yfo/271pQhxPnr7TBznSyYr/hccmVpQe+SLuqwCCf6Xsoo/QI84bLv66OvHCkuIuAJv
+	Kygmnc3Aqd3zGGMo/sc+EvvwBFIi7j2PJsW4H/E2cpXZMhlrITGUt9SL71upPOLvCN2CGmqzZdj2P
+	5/3l3UiQpw7aPkAHtocayZSRhQaVM+EoEteh5150ZH8XGYM7x+9B0xl/cgQWefpt0ZehxowMsGXD+
+	VJTRY6Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kA3-00000003I7F-1Etf;
-	Mon, 21 Sep 2026 19:58:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8kAE-00000003ICc-20PR;
+	Mon, 21 Sep 2026 19:58:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kA1-00000003I6g-38cD
+	id 1x8kAC-00000003IC4-3EZc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:58:45 +0000
+	Mon, 21 Sep 2026 19:58:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30B8B42A00;
-	Mon, 21 Sep 2026 19:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6F91F00893;
-	Mon, 21 Sep 2026 19:58:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 37AD6601FB;
+	Mon, 21 Sep 2026 19:58:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7791F000FF;
+	Mon, 21 Sep 2026 19:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020725;
-	bh=WJ8N+mrV6u3cfqGcoiPMbpRTWJEEOHp2lUrNnbxW06A=;
+	s=k20260515; t=1790020735;
+	bh=pggRQk8Zulvr6Cr863p0bNlrJVErb5Ls06+ht2GM3Yw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LD6W2WyzOksR0uOR2WulOxOo+3440yB3T3ZMsOTHOPwG4m1pEyPQOCOmNph0T4LIU
-	 Nod+IxbhEmbhGxA5ARKKzMEa+6U+beez7PC0zbeMF7v1JKQ1cNeyPncwMnfZnqnLtt
-	 xZ5BOp9K/5Pf/Ee55DqyWUNEekzivJ11F9niaNBC7trGJ6YqV3TipSMREUgAhk3jQm
-	 roY8A7XHayg9rtMl7ADBJpfS1AuOSN1bHCjgttaIS1y3nbEW1WMa19VXzEUahCNLBJ
-	 OLkpMSNuYCxAss9qlQX4y38Z8UVv48a18jH5UlbHiUhTI11KEXLou6o6HuzlAyDgF3
-	 fUNb1sQPq2V4A==
+	b=Cr8/jTPO4ju29h7a6Bana2wcdvyB81E04rvfgbs3js4wDOpP2pD0Pyb5vUGE6iyv1
+	 7N7Mf+BHtmNQ/dQc+jNyHpxnUhnBGT2YrCP/ZkEXPf/vvUytwBUZf4JpaYlXM/L22C
+	 4sI5NBdRiav6nUzbdg7itH/5iLuc1F4ZoRx6qT4F+973/OG0uIKOIF6c+aSq1+v6xY
+	 P7ii9/OlqTKUrsZ0cWncNQT0+tGZDO/rKffEAumSnameaPiYDr92z08CDd6ixae3yb
+	 PudyK8w+Y/3kdtYKXa+VHHAioQFDjHZ07r5b5sAdWFFPj1Svk3lDFMLaXgucCC9H97
+	 EowGMpegtaKCw==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 08/17] platform/x86: x86-android-tablets: Use
+Subject: [PATCH v1 07/17] platform/x86: apple-gmux: Switch to use
  acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:50:28 +0200
-Message-ID: <3912360.MHq7AAxBmi@rafael.j.wysocki>
+Date: Mon, 21 Sep 2026 21:49:49 +0200
+Message-ID: <2287208.Mh6RI2rZIc@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -110,31 +110,22 @@ function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/platform/x86/x86-android-tablets/core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ include/linux/apple-gmux.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/platform/x86/x86-android-tablets/core.c b/drivers/platform/x86/x86-android-tablets/core.c
-index cfff7f5eac5d..2c262f117235 100644
---- a/drivers/platform/x86/x86-android-tablets/core.c
-+++ b/drivers/platform/x86/x86-android-tablets/core.c
-@@ -390,7 +390,6 @@ static int gpio_secondary_fwnode_init(struct device *parent,
- {
- 	const struct software_node *const *swnode;
- 	struct fwnode_handle *fwnode;
--	struct device *phys_dev;
- 	int ret;
+diff --git a/include/linux/apple-gmux.h b/include/linux/apple-gmux.h
+index 206d97ffda79..d7939c3a08fd 100644
+--- a/include/linux/apple-gmux.h
++++ b/include/linux/apple-gmux.h
+@@ -109,7 +109,7 @@ static inline bool apple_gmux_detect(struct pnp_dev *pnp_dev, enum apple_gmux_ty
+ 		if (!adev)
+ 			return false;
  
- 	if (!node_group)
-@@ -418,7 +417,8 @@ static int gpio_secondary_fwnode_init(struct device *parent,
- 		if (WARN_ON(!fwnode))
- 			return -ENOENT;
- 
--		phys_dev = acpi_get_first_physical_node(to_acpi_device(dev));
-+		struct device *phys_dev __free(put_device) =
-+				acpi_bus_get_primary_device(to_acpi_device(dev));
- 		if (!phys_dev)
- 			return dev_err_probe(parent, -ENODEV,
- 					     "No physical device for ACPI GPIO dev: %pfwP\n",
+-		dev = get_device(acpi_get_first_physical_node(adev));
++		dev = acpi_bus_get_primary_device(adev);
+ 		acpi_dev_put(adev);
+ 		if (!dev)
+ 			return false;
 -- 
 2.51.0
 
