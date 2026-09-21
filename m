@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42501C982ED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717D1C982E6
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5L+bsoWmPLekEYM66FjXrtQ+U3z611xrc5MNXFSuEI=; b=IPkzmNfaXZKzhhac8Dzr08OV29
-	4VY0HPQXNJozoZPqIF/R2XSAOKkkv097Uu4QjozYhv7LTBdXIrZdwyfY768YbALpmUHKSgizLI0ci
-	Cdog6Wue7H7b5SKL514cRdIMRQD2ZAeGPlMZQr2bO9cV32O1FxPbWNwLcrRsrBLSk5fljODHOU0rq
-	knDTIrIZtgimiKt6jCslTZGfwQBqN27/U2efsZ18b+Vzvuj/In5tQitakR6+9/CXeKHlGbwzxM+w0
-	QcuupbbN1KLivEVqflxP2vvg5zpEArr7+XFCUtR7GTm/GBBKfWl22WYND+V9sLvL7rikSPbNaiv/Z
-	R21s3+Xg==;
+	bh=1N1AnyMnsM3RPCrD9BtF496M7LSPX+hpmo/Y3tqyskA=; b=DumHdsS2sDe+eW+sxi6pyTONDl
+	GsmJHySuIfD8vMnk7j5sjAjMc0o3ZC6nmmBZ2wRvV43MPEzq6gF6m/mcoSJLpNSTqj6k7i7OyHq+9
+	qmRc2IjqmEfPguunLaSXn71sCEPgmp/kwVslT2FZqJZb8g71SYKwyoQ93gnT3ZtgXCE7W7tvIf4MZ
+	Rqjlyz5LXIJVF184PX803e+AiwExLcKZhwrjGxVq+3N9C4/WPl2XxVQc3A27PKY7KF9TWgFqgSNWo
+	upIMwTKvdXZKzoG7SI+NHJ9f79lgB7yjjNLOJAfmn7QOLkDV0n5mdC7OuIvjQRuVBtzNgt6uaCNPS
+	BqJPYJog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gM0-00000002jHh-3fpS;
-	Mon, 21 Sep 2026 15:54:53 +0000
+	id 1x8gLz-00000002jGN-3Gov;
+	Mon, 21 Sep 2026 15:54:51 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gLc-00000002igD-1bGr;
+	id 1x8gLc-00000002igE-2eJJ;
 	Mon, 21 Sep 2026 15:54:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790006035; cv=none; 
+ARC-Seal: i=1; a=rsa-sha256; t=1790006029; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Qm70zm2P7Z3dLQEsA8wBm3JW+mpnGUIIXH2wYf8nn1LCGxEKVpcSav39j6zsVLlpiLYNDK+bTANoGSAOuZOvePK4LrQ+v5rDEZOQO2FxHnSmaa5plus13wmzwYsXtxdLUs9WUGwom2eVGSma1EfbqC5tvsM5J46L6C8WpPYO+j0=
+	b=bucFePsIG3sHaaq/2CBWDuM6TEQB5ZUvSiVK4L87uB8k+NTxy+ifG1BiI8b4jqBlbXCNYrQDmCA/4OGZvHfYxCui3ll5076Kw9Pybc26IofFFJAlIpftObLG2oOywgrWVuvUAZaPUKTEjZhkc9qVXqXJRdtyOTZhjyQ7I+cg+9I=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790006035; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=I5L+bsoWmPLekEYM66FjXrtQ+U3z611xrc5MNXFSuEI=; 
-	b=lOP9Cj+YJLxWf1N5VgiRomX/lqnO7uNB+42y+RG1F4Qt/A4czPYGAI2qjys4z2/Hr1Kz82zrjihmw0Y2fYToeSZ0E10ebYaQ1+KcEkI7/lUv8Wsu0gt83Ago97pkJc3meG+cvbTsWM274fyPyUavP+ZgGGWwG89EygSkAwI5NTA=
+	t=1790006029; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1N1AnyMnsM3RPCrD9BtF496M7LSPX+hpmo/Y3tqyskA=; 
+	b=iu3kjXMKrd5USM8jXxUw4CupgHeqjWdNt+Y9RDnUzADslvyhTk3jhiWYx3CZdpkEtPp1OD0R3Krt0Ixe8pasvpUlq+Y41zSNN62JwhWldKEe0CWNv0hJy1WutJTuN9LhFTsrXVJVPUUozy1zm0TUsIWuZq2TxVHcOIEmraV+eEY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790006035;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790006029;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=I5L+bsoWmPLekEYM66FjXrtQ+U3z611xrc5MNXFSuEI=;
-	b=ko/84+RVAHXZLFMZhNu3TYTpih0LU9lzYu2K3dwFnPB4HL+Ii6QQI364DC0w3kaY
-	NValglXTbMlKMbtRRk3hka1UNayLjTXrmobdhsIw8kroXnQ6Pb+c7hEAWAD/xME4dTH
-	uQkeVtPXduSDJPpW6jeinF6lTdCAVNC24RnNsBOI=
-Received: by smtp.zohomail.com with SMTPS id 1790006033715880.1589251682541;
-	Mon, 21 Sep 2026 08:53:53 -0700 (PDT)
+	bh=1N1AnyMnsM3RPCrD9BtF496M7LSPX+hpmo/Y3tqyskA=;
+	b=Jgz6DvBOy9K+i2RfOAOPfYf7p6Y5KWJ1d4xUkaPCAHzfCYATKkhhFEz2coekjKsq
+	pp87lncyTbEAsYCTjfRS7KVQQb1SMPsHoxZYEo3Qrl+ZltRJCRpZdwvnFwMSU2V39dY
+	qzCVkuN7ulHwQJzmRYiR6hkfDv0aM0zLuFYZw5ts=
+Received: by smtp.zohomail.com with SMTPS id 1790006028396815.1028205617608;
+	Mon, 21 Sep 2026 08:53:48 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 21 Sep 2026 17:51:46 +0200
-Subject: [PATCH RFC 20/25] drm/connector: hdmi: Add QMS state validation
- and computation
+Date: Mon, 21 Sep 2026 17:51:45 +0200
+Subject: [PATCH RFC 19/25] drm/connector: hdmi: Add QMS to VTEM EMP
+ generation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-vrr-limiter-uapi-v1-20-2fcd7d011646@collabora.com>
+Message-Id: <20260921-vrr-limiter-uapi-v1-19-2fcd7d011646@collabora.com>
 References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
 In-Reply-To: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
 To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
@@ -76,8 +76,9 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_085428_932149_5B1EA04C 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20260921_085428_963831_1EBB4565 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,172 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary code to the HDMI state helpers' hdmi_validate_vrr
-function in order to check and derive the state necessary for HDMI Quick
-Media Switching (QMS) support.
+If userspace indicates that QMS is desired, set the QMS related fields
+in the VTEM EMP struct based on the connector state.
 
-Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
-Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 103 +++++++++++++++++++++++-
- 1 file changed, 102 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index 7237070fc9ee..d392ae2908f9 100644
+index 7dbd678cf061..7237070fc9ee 100644
 --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
 +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -2,6 +2,7 @@
- 
- #include <linux/debugfs.h>
- #include <linux/export.h>
-+#include <linux/gcd.h>
- 
- #include <drm/drm_atomic.h>
- #include <drm/drm_connector.h>
-@@ -950,6 +951,26 @@ hdmi_generate_infoframes(const struct drm_connector *connector,
- 	return 0;
- }
- 
-+static const struct {
-+	u8 tfr_byte;
-+	u32 rate_n;
-+	u32 rate_d;
-+} hdmi_qms_tfrs[] = {
-+	{ 1, 24000, 1001 },
-+	{ 2, 24, 1 },
-+	{ 3, 25, 1 },
-+	{ 4, 30000, 1001 },
-+	{ 5, 30, 1 },
-+	{ 6, 48000, 1001 },
-+	{ 7, 48, 1 },
-+	{ 8, 50, 1 },
-+	{ 9, 60000, 1001 },
-+	{ 10, 60, 1 },
-+	{ 11, 100, 1 },
-+	{ 12, 120000, 1001 },
-+	{ 13, 120, 1 },
-+};
-+
- /**
-  * cmp_fraction - compares two fractional numbers
-  * @a: numerator of the first fraction
-@@ -988,6 +1009,69 @@ static int cmp_fraction(u32 a, u32 b, u32 c, u32 d)
- 	return 0;
- }
- 
-+/**
-+ * hdmi_validate_qms - Validate HDMI QMS state
-+ * @crtc_state: pointer to a &struct drm_crtc_state to run validation on
-+ * @info: pointer to a &struct drm_display_info of the accompanying connector
-+ *
-+ * Validate that the drm_crtc_vrr_state.vrr_min_numerator and
-+ * drm_crtc_vrr_state.vrr_min_denominator are acceptable for HDMI QMS, and check
-+ * that the display is HDMI QMS capable.
-+ *
-+ * Returns:
-+ *  - Negative errno on failure
-+ *  - the corresponding QMS signaling byte for the target frame rate otherwise
-+ */
-+static int hdmi_validate_qms(struct drm_crtc_state *crtc_state,
-+			     struct drm_connector_state *conn_state,
-+			     const struct drm_display_info *info)
-+{
-+	u32 rate_n = crtc_state->vrr_state.vrr_min_n;
-+	u32 rate_d = crtc_state->vrr_state.vrr_min_d;
-+	u32 min_rate_n, max_rate;
-+	u32 g, i;
-+
-+	if (!conn_state->hdmi.qms_enabled)
-+		return 0;
-+
-+	if (!info->hdmi.qms_capable)
-+		return -EOPNOTSUPP;
-+
-+	if (!drm_crtc_helper_vrr_is_fixed_rate(&crtc_state->vrr_state))
-+		return -EINVAL;
-+
-+	if (info->hdmi.qms_tfr_min)
-+		min_rate_n = 24000;
-+	else
-+		min_rate_n = info->monitor_range.min_vfreq * 1000;
-+
-+	if (info->hdmi.qms_tfr_max)
-+		max_rate = info->monitor_range.max_vfreq;
-+	else
-+		max_rate = 60;
-+
-+	g = gcd(rate_n, rate_d);
-+	if (g != 1) {
-+		rate_n /= g;
-+		rate_d /= g;
-+	}
-+
-+	if (!rate_d)
-+		return -EINVAL;
-+
-+	for (i = 0; i < ARRAY_SIZE(hdmi_qms_tfrs); i++) {
-+		if (cmp_fraction(min_rate_n, 1001, hdmi_qms_tfrs[i].rate_n,
-+				 hdmi_qms_tfrs[i].rate_d) > 0)
-+			continue;
-+		if (rate_n == hdmi_qms_tfrs[i].rate_n &&
-+		    rate_d == hdmi_qms_tfrs[i].rate_d &&
-+		    cmp_fraction(rate_n, rate_d, max_rate, 1) <= 0)
-+			return hdmi_qms_tfrs[i].tfr_byte;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static int hdmi_calculate_vtotal(const struct drm_display_mode *mode,
- 				 u32 rate_n, u32 rate_d, u16 *out_vtotal,
- 				 u32 *out_denom, u32 *out_frame_err)
-@@ -1093,6 +1177,8 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
- {
- 	struct drm_connector_state *new_conn_state =
- 		drm_atomic_get_new_connector_state(state, connector);
-+	struct drm_connector_state *old_conn_state =
-+		drm_atomic_get_old_connector_state(state, connector);
- 	struct drm_crtc_state *new_crtc_state =
- 		drm_atomic_get_new_crtc_state(state, new_conn_state->crtc);
- 	struct drm_crtc_state *old_crtc_state =
-@@ -1113,6 +1199,7 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
- 
- 	/* Save on the expensive vic lookup, if nothing else. */
- 	if (!new_crtc_state->mode_changed &&
-+	    !new_crtc_state->connectors_changed &&
- 	    old_crtc_state->vrr_enabled &&
- 	    old_vrr_state->vrr_min_n == vrr_state->vrr_min_n &&
- 	    old_vrr_state->vrr_min_d == vrr_state->vrr_min_d &&
-@@ -1143,7 +1230,9 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
- 		max_vfreq_n = mode_refresh;
- 
- 	is_fixed = drm_crtc_helper_vrr_is_fixed_rate(vrr_state);
--	if (is_fixed && info->hdmi.cinema_vrr)
-+	if (is_fixed && (info->hdmi.cinema_vrr || (info->hdmi.qms_tfr_min &&
-+						   new_conn_state->hdmi.qms_enabled &&
-+						   info->hdmi.qms_capable)))
- 		min_vfreq_n = 24;
- 
- 	if (!min_vfreq_n) {
-@@ -1165,6 +1254,18 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
- 		return ret;
+@@ -897,7 +897,15 @@ static int hdmi_generate_emp_infoframe_vtem(const struct drm_connector *connecto
+ 		return 0;
  	}
  
-+	ret = hdmi_validate_qms(new_crtc_state, new_conn_state, info);
-+	if (ret < 0) {
-+		drm_dbg_kms(dev, "Invalid QMS rate: %pe\n", ERR_PTR(ret));
-+		return ret;
+-	vtem->game_vrr_en = true;
++	if (conn_state->hdmi.qms_enabled) {
++		vtem->game_vrr_en = false;
++		vtem->qms_en = true;
++		vtem->next_tfr = conn_state->hdmi.qms_tfr_byte;
++	} else {
++		vtem->game_vrr_en = true;
++		vtem->qms_en = false;
++		vtem->next_tfr = 0;
 +	}
-+
-+	new_conn_state->hdmi.qms_tfr_byte = ret;
-+	if (new_conn_state->hdmi.qms_tfr_byte != old_conn_state->hdmi.qms_tfr_byte)
-+		vrr_state->dynamic = true;
-+	else
-+		vrr_state->dynamic = false;
-+
- 	if (!is_fixed) {
- 		vrr_state->dynamic = true;
+ 
+ 	vtem->m_const = !vrr->dynamic;
  
 
 -- 
