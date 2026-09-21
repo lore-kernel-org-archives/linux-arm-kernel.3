@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47255C982FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251B1C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6I1c2DKea4EEAi8SLaXvb55Qi01ll52Fv9Ok3/gsA0U=; b=Ur89+/gpnPm9QGB4LVaIIGcUKS
-	obnUgiTPHWja4qeAArnCcJ4R/RCit0YCJI+Qit3iVt4zZ+L6p8+FAhaMJPb0ROn9A6wYehr311B4z
-	Q+YKtLyLZPXSUT5jf+t+PEmKDCRi0AXuo6aFwP4MpbKrsOssJ6op9yndJt8Q5NhdKzCxXiuxUy6D5
-	vutgtO8A3VIOAG0BYXx0lNKouNq+MsSKY8dVpqUXloYIiNvmDQ+vAO42CB57pWvs6/6IzlkxN+jGn
-	FKUNlnimpTm9Y37kWzNJ+5krf4GZWJbukaq1tmpiFS8rEH8YlJIt2ql196ok/VDjLxEJNi8saPeY+
-	frHZ4E6Q==;
+	bh=ubTLm44ATjRdGaaOewajLt92Nruc3KcRR6dVN/XSnfY=; b=1ABFNjLSPpfV7z8DhJSSzqPAc4
+	3edYqy4TI527nRhRZCgT+EL407U5/axnsSrK9w/hzHEhx7Ll5LUqUzSAuPDfVKxfnTFmBF3qW+Ys3
+	icYtbNvOBM1c3TMKAAkGzjUQGHl12D6C+Xpcdf+ljHZO5Qrca5oQ0kMXFxjFQpGOgz2asGOGiU3yG
+	FT26HKZX8uSWz7yEVzDogfcvGwFoN6/2amGpT/RBDUPyUCycBTokv/9L/D55tNvL5LGWv3LXoy6qI
+	ZuELanOgaKeaJW7OqJFQ5XdJvRqgEiPY3HSruDVIFNJOV8F5JzCxlNSeH+/wrBnrQqrgVtoh4Llom
+	nkaztMew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nO1-00000003etL-2vsy;
-	Mon, 21 Sep 2026 23:25:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8nO8-00000003evb-3bUt;
+	Mon, 21 Sep 2026 23:25:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nO0-00000003etA-2gLV;
-	Mon, 21 Sep 2026 23:25:24 +0000
+	id 1x8nO7-00000003ev5-1TYo;
+	Mon, 21 Sep 2026 23:25:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B678260236;
-	Mon, 21 Sep 2026 23:25:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DE431F000FF;
-	Mon, 21 Sep 2026 23:25:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BA3D6600CB;
+	Mon, 21 Sep 2026 23:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37B941F00898;
+	Mon, 21 Sep 2026 23:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790033123;
-	bh=6I1c2DKea4EEAi8SLaXvb55Qi01ll52Fv9Ok3/gsA0U=;
+	s=k20260515; t=1790033130;
+	bh=ubTLm44ATjRdGaaOewajLt92Nruc3KcRR6dVN/XSnfY=;
 	h=From:To:Cc:Subject:Date;
-	b=lFShLVFLoiJWchmE1b7VGA36VTzuP1kn0UQ38IfKlVlQrWmYn/JkUccia0GaV4xFK
-	 0LY0w4qE5UYm2WG3x1sUTGgzrGo8lxL1E5X8N5nXVnhK/XvfLZ9f8f9JUQG4fL9o0e
-	 8OeDWw/uBx6Uucc46yqlwJP+A7v6KKYUb+JpvCkvknmvKi1GK1jpKjn0ZrXutxAkOB
-	 HhPk/Och7EriEHR352q9JaaXThNJkUWMHEUBhqOQgAQv8/QEBbJFOJdj2/ay1KP+w7
-	 9zETy60uNDBgrK5wQeFGXbkfeg/YGUX49h4nJMi7rrZUr0ap7uTLMClUYupU/Z10zK
-	 mnynxz0k5LLMg==
+	b=TthKSZEupVZgXPFzhqsbG9+b0c3xFYy1kyHb0aTTY8UQh0lQOV0lu+hQKip3t119q
+	 xQka+GQkFHdWFSPHjJDiRW0yrfphPyhp7nCA/GEmv5m1aLXlKxNcy3WuZD7ZtXxmc9
+	 7dBsLOLdGPP+mpx/ZO7ncWcIADkpARQ07nrN3KheFp0DyHg4oo2D3NMuItdC5TnwRy
+	 iS40ZhEAZ/afYcC21GGvIem+oxJ2u1r1HyLAo+tqotfpWzbsATDrDFq6hSJ2aQnV3H
+	 rpZf1eoQIQ2WlahJHIifi6BNkw/p9957Yc3gGlr19Gq0MrbuP7hUz55wg9OCJkPjAJ
+	 qYMY2koIn7VAA==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Flora Fu <flora.fu@mediatek.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>
+Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH] dt-bindings: remoteproc: Fix MT8188 SCP regs
-Date: Mon, 21 Sep 2026 18:25:19 -0500
-Message-ID: <20260921232520.3127457-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: soc: mediatek: Allow pwrap regs
+Date: Mon, 21 Sep 2026 18:25:26 -0500
+Message-ID: <20260921232527.3127894-1-robh@kernel.org>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -73,83 +72,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow single-register MT8188 SCP dual nodes with only the cfg
-region. Keep two-register and three-register requirements for the
-other MediaTek SCP variants that need SRAM and L1TCM regions.
+The MT7622 PMIC wrapper has a regulators child node. Add the child
+schema reference so regulator subnodes are evaluated by the MT6380
+regulator binding instead of being rejected.
 
-Assisted-by: LLM
+Assisted-by: Codex:gpt-5-5
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/remoteproc/mtk,scp.yaml          | 22 ++++++++++++++++---
- 1 file changed, 19 insertions(+), 3 deletions(-)
+ .../devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml       | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-index bdbb12118da4..2f0a28c7a24c 100644
---- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-@@ -28,11 +28,11 @@ properties:
-     description:
-       Should contain the address ranges for memory regions SRAM, CFG, and,
-       on some platforms, L1TCM.
--    minItems: 2
-+    minItems: 1
-     maxItems: 3
+diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+index e7c4a3984c60..79b755858bad 100644
+--- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
++++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+@@ -105,6 +105,9 @@ properties:
+   pmic:
+     type: object
  
-   reg-names:
--    minItems: 2
-+    minItems: 1
-     maxItems: 3
- 
-   clocks:
-@@ -171,6 +171,7 @@ allOf:
-     then:
-       properties:
-         reg:
-+          minItems: 2
-           maxItems: 2
-         reg-names:
-           items:
-@@ -185,6 +186,7 @@ allOf:
-     then:
-       properties:
-         reg:
-+          minItems: 3
-           maxItems: 3
-         reg-names:
-           items:
-@@ -195,17 +197,31 @@ allOf:
-       properties:
-         compatible:
-           enum:
--            - mediatek,mt8188-scp-dual
-             - mediatek,mt8195-scp-dual
-     then:
-       properties:
-         reg:
-+          minItems: 2
-           maxItems: 2
-         reg-names:
-           items:
-             - const: cfg
-             - const: l1tcm
- 
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - mediatek,mt8188-scp-dual
-+    then:
-+      properties:
-+        reg:
-+          minItems: 1
-+          maxItems: 1
-+        reg-names:
-+          items:
-+            - const: cfg
++  regulators:
++    $ref: /schemas/regulator/mediatek,mt6380-regulator.yaml#
 +
- additionalProperties: false
- 
- examples:
+ required:
+   - compatible
+   - reg
 -- 
 2.53.0
 
