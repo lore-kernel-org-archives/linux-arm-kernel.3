@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD81C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73F0C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ur/8qRa6Yu7moMMqrWPpC/cjN3qdiv/DOuU/40Boxgk=; b=HvI5d6RUKGgjDbIOIwruKkLNl9
-	QuRQ3+ZMJROBoq/2AAkqLY6fo5anbsGCPTBNshRhD11T38KUdhAwMonLtnYY0R7DGBkeNiPMeaxDm
-	Bx0cQW5ITBT7MvazElF3YKFDl3iWw6iXFGCf3fOlA2+eX9BG6uRDcdGoJQUrmDCf0e5LnXkT/Qvc+
-	3nGDYMBfheLnGaqR0PPqqEKN+08/aRwHr/vd/s7mIe+RCZ/uaGE8Uy22lOSkfLUhy/LrACDyFNTdf
-	89Qgld7sSmI8+gQyQjCiVpw/7L7tzoTKMjmIz1GH8/Imm9b0mdXzwxfaNIGKTYyGwiywcJ9q0hhbt
-	sQ/iGN6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Dcl/YCF2+B098BGRJ8CrT3yll1ewyEntjQdy30W5P4=; b=LJ9QGlU10wYDP5W23shFmV8/87
+	5O1KSik8Rydt0qe6tottAHy1nvTJpDVZ2L4fwmNUokwKqMfJVngcBg513jxESAiJwluWauZCvdGqH
+	RBxrx0xKW10PYajwfJTM7p7K8Ws+Mp6jDVdokC7jd0rd58XqeilKHAFOfSb2fJ7Rh69ZnHJbzsQ7c
+	/kTI2QsHfxPR/yVNkhQZPGMzqmbHwQF/aq7VISTXzthpIido/S2KbF+Vr5lTwsQm0u4ocB6n8HKeh
+	Z7Nks135KlyrAD4tv3CjmEEg9mE9ZCccyx4Mil31AdhhaHyFSqemwzx0XlPGt0kpc8UEHJVOgJKBe
+	L2LrqUpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gaK-00000002md4-0ItT;
-	Mon, 21 Sep 2026 16:09:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gaE-00000002mb8-3JY8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 16:09:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93C92176C;
-	Mon, 21 Sep 2026 09:09:27 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03CA63F86C;
-	Mon, 21 Sep 2026 09:09:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790006971; bh=bPWRp4q1aY5wrR5ZyhjF7sAuMRcvXD2G648sTqoPMWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZoyGwkvJv5whhIQOeavnPGAGbb+qcEEX1zSFB5h3B1SyUnjHF46vTeComXbqQPXQJ
-	 eXFYoCoHSLDh0Ug7MbQJYeXZ66rKYDE9S3d8Lb0algdfC5xWxpygE6sf4mtFYq/J0w
-	 22G+oSaM4ev6YyF54+T84HQTS3sGwmleRAcQv8ho=
-Message-ID: <a314ee8f-4152-4b29-8348-6cd750eced40@arm.com>
-Date: Mon, 21 Sep 2026 18:09:27 +0200
+	id 1x8gai-00000002mmp-1fdq;
+	Mon, 21 Sep 2026 16:10:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8gah-00000002mmM-16Sn;
+	Mon, 21 Sep 2026 16:10:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E72EA60120;
+	Mon, 21 Sep 2026 16:10:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D7C1F000FF;
+	Mon, 21 Sep 2026 16:10:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790007001;
+	bh=8Dcl/YCF2+B098BGRJ8CrT3yll1ewyEntjQdy30W5P4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=U8H4FXk2ri/2sD/yFYT+r33CsULfV6zir8BMvHAGdh04PvCgac9ult+PiQEzJAOLf
+	 PUfnkPM9fmPeH+dWRkW7MEd0cufrUy6QRfif8QWFDfL5fFUzzns2r2hm2w/l+GVk5S
+	 1LdZZpX7aCf3czlUPykZsV24sAQ/J9cALH3z0woJWa23rB4PbBvEC108NWtk9LEH6O
+	 XggwGv4iWzAUUu2rlziQg4CQ5Y6x0cWxn23RExJ9xVKnoEnuiSu2+2d4a6oXi42gZk
+	 vHi7uugSHWh68R4bhCjVLc9cxu78WO+yXrFaFELY7Bx437OV/dWgCHtQtZUYgu1chx
+	 fT6of19l3ygCQ==
+Subject: Re: [PATCH net v4 3/3] net: ethernet: mtk_wed: setup WDMA_RING_TX(0)
+ for non-DBDC MT7986
+From: netdev-bot+sashiko@kernel.org
+To: hujy652@gmail.com
+Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ sujuan.chen@mediatek.com, Rex.Lu@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Date: Mon, 21 Sep 2026 16:10:00 +0000
+Message-ID: <179000700034.2160803.10594281691384015089@kernel.org>
+In-Reply-To: <20260917144335.19466-3-hujy652@gmail.com>
+References: <20260917144335.19466-3-hujy652@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 12/14] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260911112835.714162-1-andre.przywara@arm.com>
- <20260911112835.714162-13-andre.przywara@arm.com>
- <3e7bdafd-d6ea-422c-82ff-e278a17280ff@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <3e7bdafd-d6ea-422c-82ff-e278a17280ff@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_090936_699357_55CEDAFF 
-X-CRM114-Status: GOOD (  34.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,330 +73,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-On 9/11/26 17:09, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 11/09/2026 12:28, Andre Przywara wrote:
->> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
->> registers through a firmware interface. This requires a shared memory
->> region to hold the message, and a mailbox to trigger the access.
->> For ACPI this is wrapped as a PCC channel, described using existing
->> ACPI abstractions.
->>
->> Add code to parse those PCC table descriptions associated with an MSC,
->> and store the parsed information in the MSC struct.
->> There can be multiple PCC channels, and each channel can serve multiple
->> MSCs, so we need to keep track of the channel usage, using a list and
->> a refcount.
->>
->> This will be used by the MPAM-Fb access wrapper code.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
->> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> ---
->>   drivers/resctrl/Kconfig         |   1 +
->>   drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
->>   drivers/resctrl/mpam_fb.c       |  41 +++++++++++
->>   drivers/resctrl/mpam_internal.h |   2 +
->>   4 files changed, 161 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
->> index 9591d792736e5..3f81638f57be3 100644
->> --- a/drivers/resctrl/Kconfig
->> +++ b/drivers/resctrl/Kconfig
->> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
->>   	bool "MPAM driver"
->>   	depends on ARM64 && ARM64_MPAM
->>   	select ACPI_MPAM if ACPI
->> +	select PCC if ACPI
->>   	select MAILBOX
->>   	help
->>   	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 14dc8461e4b8f..150a529458388 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -20,14 +20,19 @@
->>   #include <linux/irqdesc.h>
->>   #include <linux/list.h>
->>   #include <linux/lockdep.h>
->> +#include <linux/mailbox_client.h>
->>   #include <linux/mutex.h>
->>   #include <linux/platform_device.h>
->>   #include <linux/printk.h>
->> +#include <linux/property.h>
->>   #include <linux/srcu.h>
->>   #include <linux/spinlock.h>
->>   #include <linux/types.h>
->>   #include <linux/workqueue.h>
->>   
->> +#include <acpi/pcc.h>
->> +#include <acpi/acpi_io.h>
->> +
->>   #include "mpam_internal.h"
->>   
->>   /* Values for the T241 errata workaround */
->> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
->>   
->>   struct srcu_struct mpam_srcu;
->>   
->> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
->> +static DEFINE_MUTEX(pcc_chan_list_lock);
->> +static LIST_HEAD(pcc_chan_list);
->> +
->> +static void mpam_pcc_chan_release(struct kref *ref)
->> +{
->> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
->> +						 refcount);
->> +
->> +	pcc_mbox_free_channel(cur->pcc_chan);
->> +	list_del(&cur->pcc_chans);
->> +	mutex_destroy(&cur->pcc_chan_lock);
->> +	kfree(cur);
->> +}
->> +
->> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
->> +					       int subspace_id)
->> +{
->> +	struct mpam_pcc_chan *cur;
->> +
->> +	guard(mutex)(&pcc_chan_list_lock);
->> +
->> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
->> +		if (cur->subspace_id == subspace_id) {
->> +			kref_get(&cur->refcount);
->> +
->> +			return cur;
->> +		}
->> +	}
->> +
->> +	cur = kzalloc_obj(*cur);
->> +	if (!cur)
->> +		return ERR_PTR(-ENOMEM);
->> +
->> +	cur->pcc_cl.tx_block = true;
->> +
->> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
->> +	if (IS_ERR(cur->pcc_chan)) {
->> +		long err = PTR_ERR(cur->pcc_chan);
->> +
->> +		kfree(cur);
->> +		return ERR_PTR(err);
->> +	}
->> +
->> +	/*
->> +	 * Timeout based on the "nominal latency" in us, from the
->> +	 * PCC ACPI table. tx_tout is in ms.
->> +	 * Add some margin here to be on the safe side.
->> +	 */
->> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
->> +
->> +	mutex_init(&cur->pcc_chan_lock);
->> +
->> +	cur->subspace_id = subspace_id;
->> +	kref_init(&cur->refcount);
->> +
->> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
->> +
->> +	return cur;
->> +}
->> +
->> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
->> +{
->> +	struct mpam_pcc_chan *cur, *tmp;
->> +
->> +	if (!pcc_chan)
->> +		return 0;
->> +
->> +	guard(mutex)(&pcc_chan_list_lock);
->> +
->> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
->> +		if (cur == pcc_chan) {
->> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
->> +
->> +			return 0;
->> +		}
->> +	}
->> +
->> +	return -ENOENT;
->> +}
->> +
->>   /*
->>    * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
->>    * can be enabled.
->> @@ -2285,6 +2371,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->>   	if (!msc)
->>   		return;
->>   
->> +	mpam_pcc_chan_put(msc->pcc_chan);
->> +
->>   	mutex_lock(&mpam_list_lock);
->>   	mpam_msc_destroy(msc);
->>   	mutex_unlock(&mpam_list_lock);
->> @@ -2295,7 +2383,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   {
->>   	int err;
->> -	u32 tmp;
->> +	u32 pcc_subspace_id;
->>   	struct mpam_msc *msc;
->>   	struct resource *msc_res;
->>   	struct device *dev = &pdev->dev;
->> @@ -2339,7 +2427,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   	if (err)
->>   		return ERR_PTR(err);
->>   
->> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
->> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->>   		msc->iface = MPAM_IFACE_MMIO;
->>   	else
->>   		msc->iface = MPAM_IFACE_PCC;
->> @@ -2360,6 +2448,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>   		}
->>   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->>   		msc->mapped_hwpage = io;
->> +	} else if (msc->iface == MPAM_IFACE_PCC) {
->> +		u32 mpam_fb_msc_id;
->> +
->> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
->> +		if (IS_ERR(msc->pcc_chan)) {
->> +			pr_err("Failed to request MSC PCC channel\n");
->> +			return ERR_CAST(msc->pcc_chan);
->> +		}
->> +
->> +		err = mpam_fb_check_shared_buffer_size(msc);
->> +		if (err) {
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +			return ERR_PTR(err);
->> +		}
->> +
->> +		err = mpam_fb_check_protocol_version(msc);
->> +		if (err) {
->> +			mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +			return ERR_PTR(err);
->> +		}
->> +
->> +		if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
->> +					     &mpam_fb_msc_id))
->> +			mpam_fb_msc_id = msc->id;
->> +		msc->mpam_fb_msc_id = mpam_fb_msc_id;
-> 
-> This looks like the change earlier in the series to drivers/acpi/arm64/mpam.c makes no functional
-> effect unless the proposed spec changes are accepted; the default is msc->id. I'd just move the
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-Yes, but it reduces churn, and more importantly, is more true to the 
-MPAM-Fb spec, which says:
-"The MSC identifiers are sequential and start from 0 for each agent 
-which uses this protocol."
-So this requires that we have per-channel IDs for the MSCs, that's why I 
-think it's justified to introduce this already now, even when it's 
-somewhat redundant as the code stands now, as we always assign the 
-system-wide ID to it.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I can of course move that out (and have that already on top of v9, 
-internally), but wanted to check this with you.
+- [Medium] In mtk_wed_start()
+  (drivers/net/ethernet/mediatek/mtk_wed.c:2346-2347) the newly added…
 
-> earlier drivers/acpi/arm64/mpam.c to your last patch and introduce this device_property_read_u32()
-> their too (or a separate patch if it's easier for anyone). That way all but the last two patches can
-> be considered for merging without knowing what's going to happen with the spec.
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but the patch
+  widens it: dev->tx_wdma[] descriptor rings are allocated with…
 
-Well, sure, though I think a separation of MPAM-FB MSC IDs and 
-system-wide MSC IDs is inevitable, regardless of which spec is changed 
-and how the numbers are assigned, exactly.
+--
 
-> The struct msc property mpam_fb_msc_id is a bit long. Better as msc->fb_id?
+net: ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
 
-Sure, can shorten that.
+On a non-DBDC MT7986 only rx_ring[1]/tx_wdma[1] get set up, so
+WDMA_RING_TX(0) is never programmed even though WED needs it for RX
+offload.  The patch adds a call to mtk_wed_wdma_tx_ring_setup() for ring 0
+from mtk_wed_start() when the device is WED v2 and rx_ring[0] was not
+allocated, passing reset=true when tx_wdma[0] already exists.
 
-Cheers,
-Andre.
+> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+> index 3f0be70c3f145..3800e602d3c48 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+> @@ -2339,6 +2339,13 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
+>  		if (!dev->rx_wdma[i].desc)
+>  			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
+>  
+> +	/*
+> +	 * non-DBDC MT7986 allocates only rx_ring[1] and tx_wdma[1] during setup
+> +	 * but tx_wdma[0] is also needed for WED to function.
+> +	 */
+> +	if (mtk_wed_is_v2(dev->hw) && !dev->rx_ring[0].desc)
+> +		mtk_wed_wdma_tx_ring_setup(dev, 0, MTK_WED_WDMA_RING_SIZE, !!dev->tx_wdma[0].desc);
 
->>   	} else {
->>   		return ERR_PTR(-EINVAL);
->>   	}
->> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->> index 98212f761de38..8fc1d78a7b5ab 100644
->> --- a/drivers/resctrl/mpam_fb.c
->> +++ b/drivers/resctrl/mpam_fb.c
->> @@ -20,10 +20,15 @@
->>   #define MPAM_FB_PROTOCOL_ID		0x1a
->>   
->>   #define MPAM_PROTOCOL_VERSION_CMD	0x0
->> +#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
->> +#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
->> +
->>   #define MPAM_MSC_READ_CMD		0x4
->>   #define MPAM_MSC_WRITE_CMD		0x5
->>   
->>   #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
->> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
->> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
->>   
->>   #define MPAM_FB_SUCCESS		 0
->>   #define MPAM_FB_ERR_NOT_SUPPORTED	-1
->> @@ -209,3 +214,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
->>   	return mpam_fb_send_request(msc, msc->mpam_fb_msc_id, reg, &value,
->>   				    MPAM_MSC_WRITE_CMD);
->>   }
->> +
->> +/* We only support MPAM-Fb protocol version 1.x */
->> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
->> +{
->> +	u32 version;
->> +	int ret;
->> +
->> +	ret = mpam_fb_send_request(msc, 0, 0, &version,
->> +				   MPAM_PROTOCOL_VERSION_CMD);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
->> +		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
->> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
->> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
->> +
->> +		return -EINVAL;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
->> +{
->> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
->> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
->> +
->> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
->> +		pr_err("MPAM-Fb PCC channel size too small.\n");
->> +
->> +		return -ENOMEM;
->> +	}
->> +
->> +	return 0;
->> +}
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index e5a2804facd2d..314d3b48ca9fd 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
->>   /* MPAM-Fb Firmware-backed protocol wrappers */
->>   int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
->>   int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
->> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
->> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
->>   
->>   /*
->>    * MPAM MSCs have the following register layout. See:
-> 
+[Severity: Medium]
+Should the return value of mtk_wed_wdma_tx_ring_setup() be checked here?
 
+On the first start of a non-DBDC v2 device dev->tx_wdma[0].desc is NULL, so
+reset is false and the helper takes the allocation path:
+
+drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_wdma_tx_ring_setup() {
+	wdma = &dev->tx_wdma[idx];
+	if (!reset && mtk_wed_ring_alloc(dev, wdma, MTK_WED_WDMA_RING_SIZE,
+					 dev->hw->soc->wdma_desc_size, true))
+		return -ENOMEM;
+	...
+}
+
+mtk_wed_ring_alloc() does a dma_alloc_coherent() of
+MTK_WED_WDMA_RING_SIZE * wdma_desc_size (32 KiB on MT7986), and on failure
+the helper returns before writing MTK_WDMA_RING_TX(0) BASE/COUNT/CPU_IDX/
+DMA_IDX and before the "if (!idx)" block that programs the WED side
+MTK_WED_WDMA_RING_TX window.
+
+Since the status is dropped, mtk_wed_start() keeps going through
+mtk_wed_hw_init(), mtk_wed_configure_irq() and mtk_wed_dma_enable(), which
+arms MTK_WDMA_GLO_CFG_TX_DMA_EN and, for rx-capable v2,
+MTK_WED_WDMA_GLO_CFG_TX_DRV_EN | MTK_WED_WDMA_GLO_CFG_TX_DDONE_CHK, and
+then sets dev->running = true.  Can the hardware then fetch descriptors
+from a ring whose base register was left at 0 by the preceding
+mtk_wdma_tx_reset()/mtk_wed_reset(), leaving the WED offload silently
+non-functional with no message?
+
+The other caller of the same helper propagates the failure:
+
+drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_rx_ring_setup() {
+	if (mtk_wed_wdma_tx_ring_setup(dev, idx, MTK_WED_WDMA_RING_SIZE,
+				       reset))
+		return -ENOMEM;
+	...
+}
+
+and mtk_wed_start() itself already bails out on mtk_wed_rx_buffer_alloc()
+and mtk_wed_rro_cfg() failures.  Since mtk_wed_ops.start is void and
+mt7915_dma_start() cannot observe the error, would it make sense to abort
+the start sequence locally here (skipping mtk_wed_dma_enable() and
+dev->running = true) and log the failure?
+
+[Severity: Medium]
+This isn't a problem introduced by this patch, but does this new call add
+another leak of dev->tx_wdma[0]?
+
+dev->tx_wdma[] rings are allocated by mtk_wed_ring_alloc() via
+mtk_wed_wdma_tx_ring_setup(), but the ring-release helpers never free that
+array:
+
+drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_free_tx_rings() {
+	for (i = 0; i < ARRAY_SIZE(dev->tx_ring); i++)
+		mtk_wed_free_ring(dev, &dev->tx_ring[i]);
+	for (i = 0; i < ARRAY_SIZE(dev->rx_wdma); i++)
+		mtk_wed_free_ring(dev, &dev->rx_wdma[i]);
+}
+
+drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_free_rx_rings() {
+	mtk_wed_free_rx_buffer(dev);
+	mtk_wed_free_ring(dev, &dev->rro.ring);
+}
+
+__mtk_wed_detach() calls those helpers and then does
+memset(dev, 0, sizeof(*dev)), so tx_wdma[].desc/desc_phys are discarded and
+the 32 KiB coherent allocation can no longer be released.
+
+The existing allocation site is mtk_wed_rx_ring_setup(), so the omission
+predates this change, but non-DBDC MT7986/MT7981 previously never allocated
+tx_wdma[0] at all, and now every attach/start/detach cycle would leak one
+more ring.  Would adding dev->tx_wdma[] to mtk_wed_free_tx_rings() be the
+right way to restore alloc/free symmetry?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917144335.19466-1-hujy652%40gmail.com
 
