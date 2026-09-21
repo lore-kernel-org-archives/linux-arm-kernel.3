@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2760C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2542C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHBznU/RKpQgFAQzB7weutwQS0p5qU29+fazNItsqXQ=; b=ZCp8HeTifSfgiHov0TnoTUlBIL
-	mqLU6VBrLwE5ckvV92JO1Vjs6C/Kuzf79Z3O6yrLdC7WY66SxVth4jZy+CKBlkbvhHkznjtmI76Sf
-	8k0QmPf47CrB3VaZ/ntqvMzdT9aI88K/ibnpa3h/rkwD3wQRWLufiblOZkfuFdz3zum4iwTDZ89kB
-	UN51FavSePssmWDI3oltuyxK5WmjAk/iaNenyTN/eQm71NY/8GmF9WibTUEVMXzgfXK8n/MpKxZ/r
-	Bei0IdDp0BTCuS4mjcR8gIfbYhXze8n5xKXoHj0hdan/WFkrs+HEVjY+OOEVvKr7egUiN6wYL75UM
-	uk+WoHCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IVtYuumek0WMIWjuGEPO90mon01B6iduoFhN2E7u5ZE=; b=RrGxHJuCpBhaGhJ0K4SmJ9xnN6
+	6IiswbKB/EM0BryV9lC78ShYYoU/lMuoYKFoKXc6a2OBD+bffUr06Tj8MyR15C+WBUC7EqbcyYVzm
+	BEHAa5QilxY8B+frf8SLcPizVWEZyQwob4qtIt0HLTuxeM28n1kQniWmgN72m3kVCxfugzECdKur+
+	pHy+08oRh1jGCOy4UCx2rAvdVhOE8ARhycwZu0dR56/bHo9Bxg5rlMIHMB7Wf6QwIjfeQLlIqzS4g
+	gZy5txvECUPGxic3PgwsBl1kUlKJc2z7sdMKKiMIM8SKfpkc2X+5/kfIsrgcwa7HGzinl6DQ4tQ+s
+	MukkoCsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8egv-00000002Lba-1FMv;
-	Mon, 21 Sep 2026 14:08:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8egq-00000002LYb-1nov
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 14:08:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NHBznU/RKpQgFAQzB7weutwQS0p5qU29+fazNItsqXQ=; b=W7BbiH1evIwpZC0gHHQDOVVOG2
-	rUCfrB5C4tU0KPgXZ4f3OzWxrBbzuIDVLYE1FWev9900t5GB2tzQOXS813LOI9yTQoGm1ueQpxf98
-	dl3Kum0FF3gf0EYCA7QkVZwzLbFac+Wbz6ulE7cG3ycwoECF1DewrHy4b8vOJM7XdlX35kVXjrtXW
-	jvTvhgyHlHquVEEg9vU5wZiMLWBwpH6jZTnhLdBnuIHAF6HV9sOXkyxNDxoB+vFn38xqlheiX5PKh
-	hFqm25ddszQGSL/VWIz42yqVuSBUba/G1306uZSd6DCG6wcm007W+ytFewHe2eZFmIZR6An37GiUQ
-	RAPYyY1g==;
-Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8egk-0000000CNt2-3jQU
+	id 1x8ejA-00000002M7e-2sI5;
+	Mon, 21 Sep 2026 14:10:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8ej7-00000002M76-2DPb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:08:15 +0000
-Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2d94a158dc8so54348725ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 07:08:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789999686; x=1790604486; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NHBznU/RKpQgFAQzB7weutwQS0p5qU29+fazNItsqXQ=;
-        b=VxrlPgnpKWg3oT33IUDLVuiOZfofHrIWwCYEszfdbHSMy6xRe0X8iYUdtDMjkbwxwq
-         jArD+9lQr+5xVuf66Y5CQH3j1u4WSWJvnMGlw5leYW9uEY/etYs+7sur5JPImbyzcmoy
-         f3U8I52ndbV619lLFuH+tTERqkW4zQUgL75Ex/iECV7CWsKnzdQNRA/LPWAtHESVzTBP
-         EuvS0ri2TaHlSusLrJaVRt1XuEVt0FLc25QswuoL2paIweO+iwp94Za0dDlyTqidBOiJ
-         XFyKRwXiKlRceEcZe3a/jl9PaDLmupH6MFueZDhCyzfG+RM40M9bX9CtSPyw9YbQhxSF
-         R/gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789999686; x=1790604486;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NHBznU/RKpQgFAQzB7weutwQS0p5qU29+fazNItsqXQ=;
-        b=qtAQFNDtxGxe19tm8ChENd4O+GNVtQ/aWyJRcu3rPkQLMUjfp5YC2u1/B9KSrH1KoU
-         acGI6ob2QYNHcDW+WEqaRKhO1OVDbkFhHNPRKARxvJg8a0OYsN8xIYwJa/5HlqJ6iLap
-         VS/HUXi3oTOfxyjrI386QQdvWPnIBX/JV+cAXP9rvSBOlHqJ8upgyeym2DMhCa18ApXZ
-         AVLBo4xFHfTQLr+CaXDAlysvRSHh8LYFU+ITWtKn+gFKK7/EwXyj8VD/RSgWsk+435v9
-         mmG39R87W4nvLqIQDfI5sIg3jywqCkCU0K90tREWgzoLCIoe7qkH3CaUytFCI6VzVZTc
-         p6Pw==
-X-Forwarded-Encrypted: i=1; AKwUvBxE7cJODJScUXj7v7PPfrCwNeixOdO+gqeDOZ7vi2W8SZPdKpaWiBf3qTK3tItpMMUga/8mbZiaYlqkdA1JeKrF@lists.infradead.org
-X-Gm-Message-State: AFuF++k5K39a/4Dfs15+tWkWtu7lVyqDniwB5Tg6qyW7skDISpXisLzf
-	NTEY2kcc1mR4fUu+2lTlL3wYd7H/oYL+mcwvnN9UO1SAPuFcJ+NFklH5xlJk5hMbDIVhP09eLil
-	FpJc//WYN4AnnwmWaSTLzvA==
-X-Received: from plrr1.prod.google.com ([2002:a17:902:c601:b0:2df:3de3:9186])
- (user=stanleyjhu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:1844:b0:2dd:c100:942f with SMTP id d9443c01a7336-2ddc1009bf7mr110453315ad.45.1789999685875;
- Mon, 21 Sep 2026 07:08:05 -0700 (PDT)
-Date: Mon, 21 Sep 2026 22:08:03 +0800
-In-Reply-To: <20260920034953.19535-1-hppiscas@163.com>
-Mime-Version: 1.0
-References: <20260920034953.19535-1-hppiscas@163.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260921140803.3210439-1-stanleyjhu@google.com>
-Subject: Re: [PATCH v2] scsi: ufs: mediatek: handle mPHY power-on failures
-From: Stanley Jhu <stanleyjhu@google.com>
-To: Pengpeng Hou <hppiscas@163.com>, Peter Wang <peter.wang@mediatek.com>
-Cc: Stanley Jhu <stanleyjhu@google.com>, chaotian.jing@mediatek.com, 
-	chu.stanley@gmail.com, james.bottomley@hansenpartnership.com, mkp@kernel.org, 
-	linux-scsi@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, martin.petersen@oracle.com, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 21 Sep 2026 14:10:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0DFAD2F;
+	Mon, 21 Sep 2026 07:10:33 -0700 (PDT)
+Received: from [10.0.152.207] (e121487-lin.carmbridge.arm.com [10.0.152.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D34F73F86C;
+	Mon, 21 Sep 2026 07:10:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789999836; bh=xD5VlxpK5bB7PWiAg02WFHu3BTD2BA1f4uQVw+wQhKA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GjiRM1NsbOwNkRKbnQRkT8dzU8/Usml86HHRQTYM2JZZuAaWsiXeerwOrTSLmOE+F
+	 QWyJPWEOHJrqTyjSENo5uvKtkiKS4fJ1QY0t9f/VfY9XFO64M4tiN4BznkBRai/57u
+	 FL+ikc3m4R/4Ytd25iCWVIXbLfIFk/Eim4k0RMI4=
+Message-ID: <38ea1138-cc80-41de-9eb5-cd03571c4717@arm.com>
+Date: Mon, 21 Sep 2026 15:10:32 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/38] arm64: interrupts: Add common exception state
+ helpers
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ maz@kernel.org, lpieralisi@kernel.org, liaochang1@huawei.com
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-4-vladimir.murzin@arm.com>
+ <03e261b4-10da-4530-b28a-5512e399d2e3@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <03e261b4-10da-4530-b28a-5512e399d2e3@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_150813_666303_FDF112B0 
-X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-CacheID: sfid-20260921_071037_628258_0165CC09 
+X-CRM114-Status: UNSURE (   9.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,12 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 20 Sep 2026 11:49:53 +0800, Pengpeng Hou wrote:
-> Check phy_power_on(), attempt to unwind VA09 on failure, and leave the
-> state flag unchanged. Propagate the helper result from host
-> initialization as well as its existing resume caller. Keep the original
-> PHY error if the supply rollback also fails, and report that rollback
-> separately.
+On 9/17/26 10:10, Jinjie Ruan wrote:
+> 
+> 在 2026/9/14 18:20, Vladimir Murzin 写道:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
 
-Reviewed-by: Stanley Jhu <stanleyjhu@google.com>
+[snip]
+
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+>> +{
+>> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
+>> +
+>> +	if (system_uses_irq_prio_masking())
+>> +		state.pmr = regs->pmr;
+>> +
+>> +	return state;
+>> +}
+> Hi Vladimir,
+> 
+> This helper looks more related to the 5th patch "arm64: entry: Introduce
+> entry specific exception masking helpers", as it is entry-related.
+> Moving it to 5th patch may make it easier to review.
+> 
+> Best regards,
+> Jinjie
+> 
+
+Hi Jinjie,
+
+Sure, I'll move it there :)
+
+Thanks
+Vladimir
+
+
 
