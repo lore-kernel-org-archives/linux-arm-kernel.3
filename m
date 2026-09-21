@@ -4,71 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B5CC982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 08:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B47C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 08:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uUY0NDxhconnJTX6fOVMqMY44EtPzHDVv5OE3MBWrd4=; b=f2xaFWR1Gg7PgwS204bt84kWhj
-	803b8Ym7gKVvpnV9MsRcsHf6LYDvYWrW93EvEgEQUSr9YjEcZHTBA60ckqqGua7BxG9srsH36owmb
-	rEfY0GtW6oys4QZIY0sxqKJ2RffPaFUd7/jANUX3ZbswMojjwzdXb3NVn/4+uJEewUN04QTjuGZUv
-	prfATSC+R9dLy/UzVnkZtZmrHQqdI6z3o9mBP4B2bz72itJNi4h0BOYtzF5rsNM0/A+WSD9iGCY68
-	GTRT6Jk1BqwodWCaklRTNBqS1Ayf/at8pCaW/qfz6WrVW37lp1z7WzFHpmWZ2EKET7+AYwSMkVawe
-	46WwbdtA==;
+	bh=+Mjg/tCNPBZhheQ0n8yKQZmKA0XJJg6EpF0xjk8cvTM=; b=W1Ih7o8WAfSJDIdi7HHQBj19rY
+	gcQ0zMUAy2jDNXqWrDrgWPd6JHWyqCvfF1C3nAd8glOhdpME+MTwhCbYmj9+jGLadlrpLZx9wFZwV
+	DZbjWeUfyH6hicqC5csf0nvdNUbSi87DvQT5K3xp2nifaf1vwkoFQyHMlW0Nx0l3fVh5ahVQjrHqw
+	7vVws4KE/hvEgWqZ0U782I9ZDYL7rB3JEOd497Pu+KyzeV/AJdQzq/uFFsNvddt8coDGwYXAf6TN/
+	oJKD5JbMzC/nYf3h0vgSHU1phAETr1FO8zqSqtrBiyLzoQUjZ0yZyLar9wePJqr3IFjr22otoTJDJ
+	kgrYXElw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YzY-00000001IBJ-0sFn;
-	Mon, 21 Sep 2026 08:03:12 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1x8Z2A-00000001IXK-2pcG;
+	Mon, 21 Sep 2026 08:05:55 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YzU-00000001IAw-3rCJ
+	id 1x8Z27-00000001IWF-3xaP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 08:03:11 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2E313177;
-	Mon, 21 Sep 2026 10:01:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789977682;
-	bh=4MPgzglqjVdZGx+2jOi9TrPxLozn/ma4WxLeqRxobLo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=msr6NfKJ6WhAAdMlg0xGJcB2rHSwIPBiHVA2rAbnfPk22Hwy1NyXTdtaHpo/RQ8Z0
-	 dX/0UYWShCclNCWmyyMaQgM8geDtNwCIrfAG9oSDQ3PRIntxKnsygca8yOg7o/LKwu
-	 7alO8EgqLWdro5i2MwNZkxQVGRXPU0NC+kG9ccR8=
-Date: Mon, 21 Sep 2026 11:03:05 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
-Cc: Frank Li <frank.li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v2 6/6] media: imx8-isi: Enable ISI RAW10/12/14 output
- LSB alignment
-Message-ID: <20260921080305.GB1466037@killaraus.ideasonboard.com>
-References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
- <20260831-isi_imx952-v2-6-fafdb4b446d4@oss.nxp.com>
- <20260915000520.GB2804748@killaraus.ideasonboard.com>
- <AMBPR04MB3355239002794E284C008FAFBFFABA2@AMBPR04MB335523.eurprd04.prod.outlook.com>
- <20260915122546.GD2796257@killaraus.ideasonboard.com>
- <AMBPR04MB335523823246285C19B5B96E09FA842@AMBPR04MB335523.eurprd04.prod.outlook.com>
+	Mon, 21 Sep 2026 08:05:53 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68L7A4f0467404
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:05:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=+Mjg/tCNPBZhheQ0n8yKQZmK
+	A0XJJg6EpF0xjk8cvTM=; b=F/42jLtGZVHVPZrSgblDVkcw/e5msG++8fm/WtHt
+	s/m0oaPsnyC9JRhxBqFSdS8eXfFRFZEOrFjT3bn6Ss7a9798ofRzzHXW3er72A6b
+	fhuZk9GULIGPRK0h5gwUV1ZxeNQMLKbMLV8zQkZyUOTxVX9JB5WwmBo0uhP6FX5r
+	x28YwHzN6THG9haCO2YbuvlBgPP7xdnn2veyBDq1iTdb86zgYwoRFNiZ5vT3yA25
+	z37Xf/fxhbkhG9eUcdLWb+Edl7Ocwb0cdX1zFp+k9+LXlDVWzfh57I2l17pU1nrE
+	f6a84u3WsfKeC3I8AhgDeZpkyefQ80z/YHou1A96xPsw9A==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gtq8b9k0y-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:05:50 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93bf4c0af4eso281845385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 01:05:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789977950; x=1790582750; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+Mjg/tCNPBZhheQ0n8yKQZmKA0XJJg6EpF0xjk8cvTM=;
+        b=A0j12iwMZHEJfinqeUz1SKGG/E3a3SB7ll/Lf85hVIMAf8T7zN5MFuOAdEBLQ+/IwB
+         wm5m77ABbAlx7+q15tGfqnMxJmW2opIkbDtBQYoAxetTvGoY3zueuhHH2FxgdT/20MF1
+         oOgfclshF91tMA6LWkz3TpqD9YnPZUWHcEu7a9LtI47sdGbGW2Abz1beFcCyyaCO1i0F
+         WEsOHny0fFj57ShmANAjs48ULleB1QSXQ9auj1f239XcKDPEr2mF7bkSqaFvXFe6oVSZ
+         a2rKsd5DDY3LTSqTPDqaMHUZ2whVUn3BvQrzd4s2/PGNxxW9rGs+qNg/X/fmtO5s7uoy
+         U1Tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789977950; x=1790582750;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+Mjg/tCNPBZhheQ0n8yKQZmKA0XJJg6EpF0xjk8cvTM=;
+        b=oj6ipSRRtwI+EptmZLLsRwHxtFBzwR/nPy7pl0WuRlvhk1+n0NH3cRw5GnRFHn+FIe
+         MdN1OYFUKICmmtxK/79kOyhepIQeGmckGV5j6bwnMWuwlRp67GLGLdw4FiXew/gc/1ky
+         LjUTp5e/1QO9W7ndEeP1/a1yp5jrppE8On1IVpw/JFSvmBPZveFPmhT4LsHQmgw52o5O
+         BFe+74qdzuoAHGptXIbHhVEqZ/iPPpuIPGdvRCOG7/QY921iQDoojvCc8TTETSYG2ZQP
+         SsWyTZ/q1MKH2woHZU9o++cqInqybkgBPlMluPEpfTt3cmNKe64y7nj1H4x20E/QAJbS
+         kIFg==
+X-Forwarded-Encrypted: i=1; AKwUvBwoQFR55Sb2otC2ZJReXKDG47KXOQp1crH5jAo3Fo9ubbUXG0qksB2Ul+hmCYMxXYUd1Zhzonsq29SGj5VOugzj@lists.infradead.org
+X-Gm-Message-State: AFuF++lqzv0qS0hA6JrazY8NVXz3qxH10H+uuhHmoVxJF1g477UfqHT8
+	nf90GsfWZyCmvIQsS4guHqkE1I0a7kxC8FxBTZHUu263dvHxNt8mRrDJ7SSoRd34/7rJqbDEjat
+	+9zmPth1YQ62pcYoCKl2KQV+zFeN0AcEMkVp8oJ6hwK/kwVvCxeSJCZW0EoHVt4hu8JNvD/ZuDW
+	fC4w==
+X-Gm-Gg: AYBFou3IHc+TMPQ53Um+5oiqmTLca0VRVWAIPOzPAK7ho1rQL4D928gj/XutZTMrs3Y
+	zmhuPFatgN8DGEGzF68vvlqEyVhBi1l90IlMay35hqEDn9m9QVZ8hM+kPKxreETaP4IF/HSHusF
+	BWnJ3wrP6QIR3t/mFDxfr1QXGZFgSg87pOVH2kla7nZvKB6zqymK0oKWRFmMX2MGg0Gw/NXieFY
+	ttYeZ3OkJN4xQkI91Eoe7HhcllBBWS8rwdwcnLq+xVzMHypiR+lchabBdjbgHGfbzBIQhRMk4Ni
+	us4R+MLLRi2glvME145w9ziB5zh4FgnroJAkGNNjAcHJI6kt7C5R2MuRbm8GYGR9sjPNyl7Zc8O
+	OQt1eMZUGCOjqyw==
+X-Received: by 2002:a05:620a:1994:b0:939:f861:8836 with SMTP id af79cd13be357-93bf56e996emr820041985a.20.1789977949997;
+        Mon, 21 Sep 2026 01:05:49 -0700 (PDT)
+X-Received: by 2002:a05:620a:1994:b0:939:f861:8836 with SMTP id af79cd13be357-93bf56e996emr820038085a.20.1789977949460;
+        Mon, 21 Sep 2026 01:05:49 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4872459c3e9sm19451100f8f.32.2026.09.21.01.05.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 01:05:48 -0700 (PDT)
+Date: Mon, 21 Sep 2026 10:05:47 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Til Kaiser <mail@tk154.de>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+        davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+        pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: airoha: Add XDP statistics
+Message-ID: <arDlW06TwVzc2wOH@lore-desk>
+References: <20260920154329.161755-1-mail@tk154.de>
+ <20260920154329.161755-3-mail@tk154.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fzdF/KmcyqickKS5"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AMBPR04MB335523823246285C19B5B96E09FA842@AMBPR04MB335523.eurprd04.prod.outlook.com>
+In-Reply-To: <20260920154329.161755-3-mail@tk154.de>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDExNSBTYWx0ZWRfX2D9GpMFGyI4r
+ sNPaKoMIHEkU9e914e5KzUhFiWUnpNp51MAM9LiRyEKQBjEmcqt3d7QGBePs/I46zhVu2uo719y
+ u1WiJqy7KlmB0mr0sjaTZnKHzjo+2WbNCP2dKS9iYDgmxp+6ZH4qqZ3miHwcu2G8M2xvO4KyPIe
+ WVi1c/MhXr/9l1d41Eq4Fo5LE9Wq514OY5ETkjTGLzzug88FWZeImy9FD11r3sq+7BI9MuDTOLX
+ eAsMUoFEM5woweWEdmHTcnJDOgjCUb6lsfCNyAhxPHSg0lLOpLMvYkTU3FMsfrkctMNWVdbVKnl
+ 4CvPImVAt+dzTQPoupSEX+R47zw/d5kn1gA+LEFnPPv4DGQUFo3tIm9SMr204Qea76ZhVqL9Y/V
+ n3rj1onmNIBOCDQ4cdkpn+H3o65zkKVNZ9zSrqqc0rGn5LOdtJhBPYqh/zHBFhkxluPhYB0CF8T
+ ystu5GTYzeS6L9rFl3g==
+X-Proofpoint-GUID: hCoun60fPKpVnyUCsUIjthQhgcVnUE3k
+X-Authority-Analysis: v=2.4 cv=T/8Z3PKQ c=1 sm=1 tr=0 ts=6ab0e55e cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=MsImHhn9_lhz5m8RdU0A:9
+ a=CjuIK1q_8ugA:10 a=Plx7TgaRLYl5t2sQAAMA:9 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-ORIG-GUID: hCoun60fPKpVnyUCsUIjthQhgcVnUE3k
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDExNSBTYWx0ZWRfX/I3gIRiyyGu9
+ oY0FlJCvUfIxoZIFS6jQjHMcZymqJTHM0LjjaXmw0tLPf7TEgFbQWI3FiuFJgDUYw4iD2FP8ag/
+ ttw+/Puvu3Wb98Bu6dF7jRBT1WXnP3Y=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 phishscore=0 spamscore=0 adultscore=0
+ clxscore=1015 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609210115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_010309_261088_07569A04 
-X-CRM114-Status: GOOD (  63.20  )
+X-CRM114-CacheID: sfid-20260921_010552_099757_1C5891D1 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,392 +149,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 03:12:04AM +0000, G.N. Zhou (OSS) wrote:
-> On Tuesday, September 15, 2026 8:26 PM, Laurent Pinchart wrote:
-> > On Tue, Sep 15, 2026 at 02:19:55AM +0000, G.N. Zhou (OSS) wrote:
-> > > Hi Laurent,
-> > >
-> > > Thanks for your review.
-> > >
-> > > NXP Confidential
-> >
-> > Really ? :-)
-> >
-> > > On Tuesday, September 15, 2026 8:05 AM, Laurent Pinchart wrote:
-> > > > On Mon, Aug 31, 2026 at 11:37:01AM +0800, Guoniu Zhou wrote:
-> > > > > V4L2 requires RAW formats to be LSB-aligned (right-aligned).
-> > > > > Before i.MX952, the ISI shifts RAW10/12/14 output left to MSB, so
-> > > > > the driver works around this by using RAW16 format instead.
-> > > > >
-> > > > > The i.MX952 ISI introduces a RAW output LSB alignment bit. Enable
-> > > > > it along with the input MSB alignment on platforms that support
-> > > > > this feature, so that RAW10/12/14 output formats can be used
-> > > > > directly without the RAW16 workaround.
-> > > > >
-> > > > > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> > > > > ---
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  1 +
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 +
-> > > > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  | 39 ++++++++++++++++++++-
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    |  3 ++
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 40 +++++++++++----------
-> > > > -
-> > > > >  5 files changed, 63 insertions(+), 21 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > > index d492631dfb6d..0f776fc8fd7e 100644
-> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > > @@ -394,6 +394,7 @@ static const struct mxc_isi_plat_data mxc_imx952_data = {
-> > > > >     .format_mask            = GENMASK(30, 24),
-> > > > >     .buf_active_reverse     = true,
-> > > > >     .has_36bit_dma          = true,
-> > > > > +   .raw_out_lsb            = true,
-> > > > >  };
-> > > > >
-> > > > >  /*
-> > > > > -----------------------------------------------------------------------------
-> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > > index 73f6ea7b0ea1..c352bcf8dc47 100644
-> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> > > > > @@ -166,6 +166,7 @@ struct mxc_isi_plat_data {
-> > > > >     u32 format_mask;
-> > > > >     bool buf_active_reverse;
-> > > > >     bool has_36bit_dma;
-> > > > > +   bool raw_out_lsb;
-> > > >
-> > > > As there's a single SoC that supports this, I would have used the
-> > > > model field instead of adding a new boolean.
-> > > >
-> > > > >  };
-> > > > >
-> > > > >  struct mxc_isi_dma_buffer {
-> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> > > > > index 2405f7d33d0a..4838b445f279 100644
-> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> > > > > @@ -308,6 +308,7 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
-> > > > >                                     unsigned int vc,
-> > > > >                                     bool bypass)  {
-> > > > > +   const struct mxc_isi_plat_data *pdata = pipe->isi->pdata;
-> > > > >     u32 val;
-> > > > >
-> > > > >     mutex_lock(&pipe->lock);
-> > > > > @@ -357,6 +358,20 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
-> > > > >                     val |= CHNL_CTRL_VC_ID_1(vc >> 2);
-> > > > >     }
-> > > > >
-> > > > > +   if (pdata->raw_out_lsb) {
-> > > > > +           /*
-> > > > > +            * Enable RAW10/12/14 output LSB alignment to match the
-> > > > > +            * V4L2 requirement that RAW formats are LSB-aligned.
-> > > > > +            */
-> > > > > +           val |= CHNL_CTRL_RAW_OUT_LSB_ALIGN;
-> > > > > +
-> > > > > +           /*
-> > > > > +            * Align the data selection from pixel link to MSB to
-> > > > > +            * avoid data shift since the data from PL is MSB.
-> > > > > +            */
-> > > > > +           val |= CHNL_CTRL_RAW_IN_MSB_ALIGN;
-> > > > > +   }
-> > > > > +
-> > > > >     mxc_isi_write(pipe, CHNL_CTRL, val);
-> > > > >
-> > > > >     mutex_unlock(&pipe->lock);
-> > > > > @@ -406,11 +421,19 @@ void mxc_isi_channel_set_input_format(struct mxc_isi_pipe *pipe,
-> > > > >                   CHNL_IN_BUF_PITCH_LINE_PITCH(bpl));
-> > > > >  }
-> > > > >
-> > > > > +static bool isi_out_raw(u32 format) {
-> > > > > +   return format == CHNL_IMG_CTRL_FORMAT_RAW10 ||
-> > > > > +          format == CHNL_IMG_CTRL_FORMAT_RAW12 ||
-> > > > > +          format == CHNL_IMG_CTRL_FORMAT_RAW14; }
-> > > > > +
-> > > > >  void mxc_isi_channel_set_output_format(struct mxc_isi_pipe *pipe,
-> > > > >                                    const struct mxc_isi_format_info *info,
-> > > > >                                    struct v4l2_pix_format_mplane *format)  {
-> > > > >     const struct mxc_isi_plat_data *pdata = pipe->isi->pdata;
-> > > > > +   u32 fmt;
-> > > > >     u32 val;
-> > > > >
-> > > > >     /* set outbuf format */
-> > > > > @@ -418,7 +441,21 @@ void mxc_isi_channel_set_output_format(struct
-> > > > > mxc_isi_pipe *pipe,
-> > > > >
-> > > > >     val = mxc_isi_read(pipe, CHNL_IMG_CTRL);
-> > > > >     val &= ~pdata->format_mask;
-> > > > > -   val |= CHNL_IMG_CTRL_FORMAT(info->isi_out_format);
-> > > > > +
-> > > > > +   /*
-> > > > > +    * Before i.MX952, the ISI shifts the 10/12/14-bit formats left
-> > > > > +    * by 6, 4 and 2 bits when using CHNL_IMG_CTRL_FORMAT_RAW10/12/14
-> > > > > +    * respectively, to align the bits to the left and pad with zeros in
-> > > > > +    * the LSBs. The corresponding V4L2 formats are however right-aligned,
-> > > > > +    * we have to use CHNL_IMG_CTRL_FORMAT_RAW16 to avoid the left shift.
-> > > > > +    * After i.MX952, ISI add RAW10/12/14 LSB output alignment, so skip
-> > > > > +    * the above workaround.
-> > > >
-> > > > What happens on i.MX952 if you use CHNL_IMG_CTRL_FORMAT_RAW16 and
-> > > > don't set CHNL_CTRL_RAW_OUT_LSB_ALIGN ? Won't that work, the same
-> > > > way as on previous ISI versions ? If so we could use that workaround
-> > > > on i.MX952 as well and avoid this complexity.
-> > >
-> > > Before i.MX95, on platforms such as i.MX8QXP/QM, i.MX8MN/MP and
-> > > i.MX93, the gasket can provide LSB-aligned RAW10/12/14 data to the
-> > > ISI. In that case, using
-> > > CHNL_IMG_CTRL_FORMAT_RAW16 works as a workaround, as the ISI simply
-> > > passes the pixel data through without performing the internal left
-> > > shift, and the resulting memory layout matches the V4L2 RAW formats.
-> > >
-> > > Starting with i.MX95, the gasket has been replaced by the CSI
-> > > formatter block. Unlike the previous gasket implementation, the CSI
-> > > formatter always provides MSB-aligned
-> > > RAW10/12/14 data to the ISI. When CHNL_IMG_CTRL_FORMAT_RAW16 is used
-> > > on these SoCs, the data remains MSB-aligned in memory, which is not
-> > > compatible with the right-aligned RAW formats expected by V4L2 userspace.
-> > >
-> > > To address this limitation, newer ISI versions (i.MX952 and later) add
-> > > explicit output alignment control through CHNL_CTRL_RAW_OUT_LSB_ALIGN,
-> > > allowing the ISI to generate LSB-aligned RAW10/12/14 output. This is
-> > > the reason for the patch: it enables the hardware-supported alignment
-> > > mode on i.MX952 instead of relying on the RAW16 workaround, which no
-> > > longer produces V4L2-compatible output due to the CSI formatter behavior.
-> >
-> > How does it work on i.MX95 then ? Are all raw formats currently broken there ?
-> 
-> Yes, RAW10/12/14 formats are broken on i.MX95. Before i.MX95, the
-> gasket provides LSB-aligned data to the ISI, so the RAW16 passthrough
-> produces correct LSB-aligned output. Starting with i.MX95, the gasket
-> is replaced by the CSI formatter which always provides MSB-aligned
-> data, so the RAW16 passthrough outputs MSB-aligned data that doesn't
-> match the V4L2 format definition.
+--fzdF/KmcyqickKS5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-That would have been useful information in the commit message.
+> Track and expose per-device XDP statistics via ethtool, covering both
+> the RX and TX sides of the XDP data path.
+>=20
+> A new struct airoha_xdp_stats is introduced and embedded in the existing
+> struct airoha_hw_stats. It contains the following counters, all protected
+> by the existing u64_stats_sync:
+>=20
+>   rx_xdp_pass            - frames passed to the networking stack
+>   rx_xdp_aborted         - frames with XDP_ABORTED or unknown action
+>   rx_xdp_drop            - frames dropped by the BPF program or on error
+>   rx_xdp_tx              - frames sent back out via XDP_TX
+>   rx_xdp_tx_errors       - XDP_TX failures
+>   rx_xdp_redirect        - frames successfully redirected
+>   rx_xdp_redirect_errors - XDP_REDIRECT failures
+>   tx_xdp_xmit            - frames successfully submitted via ndo_xdp_xmit
+>   tx_xdp_xmit_errors     - frames dropped in ndo_xdp_xmit
+>=20
+> The airoha_run_xdp() function is reworked to update the appropriate
+> counter after each XDP action. The airoha_xdp_xmit() ndo_xdp_xmit handler
+> is updated to record the number of successfully transmitted and dropped
+> frames.
+>=20
+> The ethtool interface is extended with three new callbacks:
+>=20
+> - get_strings: emits the XDP counter names followed by the page pool
+>   stat strings obtained from page_pool_ethtool_stats_get_strings().
+> - get_sset_count: returns the combined count of XDP and page pool stats.
+> - get_ethtool_stats: reads the XDP counters under the u64_stats_sync
+>   seqcount and appends page pool stats collected from all active RX
+>   queues via page_pool_get_stats().
+>=20
+> PAGE_POOL_STATS is selected in Kconfig to enable the page pool statistics
+> infrastructure required by the ethtool callbacks.
+>=20
+> Signed-off-by: Til Kaiser <mail@tk154.de>
+> ---
+>  drivers/net/ethernet/airoha/Kconfig      |   1 +
+>  drivers/net/ethernet/airoha/airoha_eth.c | 131 ++++++++++++++++++++---
+>  drivers/net/ethernet/airoha/airoha_eth.h |  14 +++
+>  3 files changed, 133 insertions(+), 13 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/a=
+iroha/Kconfig
+> index 1f6640a15fc9..3fa7683a79e9 100644
+> --- a/drivers/net/ethernet/airoha/Kconfig
+> +++ b/drivers/net/ethernet/airoha/Kconfig
+> @@ -20,6 +20,7 @@ config NET_AIROHA
+>  	depends on NET_DSA || !NET_DSA
+>  	select NET_AIROHA_NPU
+>  	select PAGE_POOL
+> +	select PAGE_POOL_STATS
+>  	help
+>  	  This driver supports the gigabit ethernet MACs in the
+>  	  Airoha SoC family.
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 71b25f225a8a..29b837204842 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -864,6 +864,11 @@ static int airoha_xdp_xmit(struct net_device *netdev=
+, int n,
+>  	spin_unlock(&q->lock);
+>  	rcu_read_unlock();
+> =20
+> +	u64_stats_update_begin(&dev->stats.syncp);
+> +	dev->stats.xdp_stats.tx_xdp_xmit +=3D n - drops;
+> +	dev->stats.xdp_stats.tx_xdp_xmit_errors +=3D drops;
+> +	u64_stats_update_end(&dev->stats.syncp);
+> +
+>  	return n - drops;
+>  }
+> =20
+> @@ -871,40 +876,56 @@ static bool airoha_run_xdp(struct net_device *netde=
+v, struct bpf_prog *prog,
+>  			   struct xdp_buff *xdp, struct airoha_queue *q,
+>  			   struct airoha_queue_entry *e, struct page *page)
+>  {
+> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +	struct airoha_hw_stats *hw_stats =3D &dev->stats;
+>  	u32 act =3D bpf_prog_run_xdp(prog, xdp);
+> +	u64 *count;
+> =20
+>  	switch (act) {
+>  	case XDP_PASS:
+> -		return false;
+> +		count =3D &hw_stats->xdp_stats.rx_xdp_pass;
+> +		goto update_stats;
+>  	case XDP_TX:
+>  		if (unlikely(airoha_xdp_xmit_back(netdev, xdp, q->qdma) < 0)) {
+> +			count =3D &hw_stats->xdp_stats.rx_xdp_tx_errors;
+>  			trace_xdp_exception(netdev, prog, act);
+> -			page_pool_put_full_page(q->page_pool, page, true);
+> -		} else {
+> -			e->buf =3D NULL;
+> +			break;
+>  		}
+> -		break;
+> +
+> +		e->buf =3D NULL;
+> +		count =3D &hw_stats->xdp_stats.rx_xdp_tx;
+> +		goto update_stats;
+>  	case XDP_REDIRECT:
+>  		if (unlikely(xdp_do_redirect(netdev, xdp, prog) < 0)) {
+> +			count =3D &hw_stats->xdp_stats.rx_xdp_redirect_errors;
+>  			trace_xdp_exception(netdev, prog, act);
+> -			page_pool_put_full_page(q->page_pool, page, true);
+> -		} else {
+> -			q->xdp_flush =3D true;
+> -			e->buf =3D NULL;
+> +			break;
+>  		}
+> -		break;
+> +
+> +		e->buf =3D NULL;
+> +		q->xdp_flush =3D true;
+> +		count =3D &hw_stats->xdp_stats.rx_xdp_redirect;
+> +		goto update_stats;
+>  	default:
+>  		bpf_warn_invalid_xdp_action(netdev, prog, act);
+>  		fallthrough;
+>  	case XDP_ABORTED:
+> +		count =3D &hw_stats->xdp_stats.rx_xdp_aborted;
+>  		trace_xdp_exception(netdev, prog, act);
+> -		fallthrough;
+> +		break;
+>  	case XDP_DROP:
+> -		page_pool_put_full_page(q->page_pool, page, true);
+> +		count =3D &hw_stats->xdp_stats.rx_xdp_drop;
+>  		break;
+>  	}
+> =20
+> -	return true;
+> +	page_pool_put_full_page(q->page_pool, page, true);
+> +
+> +update_stats:
+> +	u64_stats_update_begin(&hw_stats->syncp);
+> +	*count =3D *count + 1;
+> +	u64_stats_update_end(&hw_stats->syncp);
 
-I think you should first fix the i.MX95 problem, and add i.MX952 support
-on top.
+Would it better if we update the stats in airoha_qdma_rx_process() passing a
+airoha_xdp_stats struct to airoha_run_xdp(). I guess doing so we can even d=
+rop
+xdp_flush field in airoha_qdma_queue struct.
 
-> > i.MX95 doesn't have CHNL_CTRL_RAW_OUT_LSB_ALIGN but it has
-> > CHNL_CTRL_RAW_IN_MSB_ALIGN. Wouldn't it be enough to set
-> > CHNL_CTRL_RAW_IN_MSB_ALIGN. on i.MX95 (and I suppose i.MX931 and
-> > i.MX93) and i.MX952 without setting CHNL_CTRL_RAW_OUT_LSB_ALIGN, and
-> > keep the current .isi_out_format workaround unconditionally ?
-> 
-> Unfortunately not. CHNL_CTRL_RAW_IN_MSB_ALIGN only affects how the
-> ISI selects input data in RAW10/12/14 format modes — it controls
-> whether the ISI selects the high bits or low bits from the pixel link
-> bus as its input. It does not affect RAW16 mode, which is a pure
-> passthrough.
+> +
+> +	return act !=3D XDP_PASS;
+>  }
+> =20
+>  static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+> @@ -3676,12 +3697,96 @@ static const struct net_device_ops airoha_netdev_=
+ops =3D {
+>  	.ndo_xdp_xmit		=3D airoha_xdp_xmit,
+>  };
+> =20
+> +#define AIROHA_ETHTOOL_XDP_STAT(x) { #x, \
+> +				  offsetof(struct airoha_hw_stats, xdp_stats.x) / \
+> +				  sizeof(u64) }
+> +
+> +static const struct {
+> +	const char name[ETH_GSTRING_LEN];
+> +	u32 offset;
+> +} airoha_ethtool_xdp_stats[] =3D {
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_redirect),
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_redirect_errors),
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_pass),
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_aborted),
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_drop),
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_tx),
+> +	AIROHA_ETHTOOL_XDP_STAT(rx_xdp_tx_errors),
+> +	AIROHA_ETHTOOL_XDP_STAT(tx_xdp_xmit),
+> +	AIROHA_ETHTOOL_XDP_STAT(tx_xdp_xmit_errors),
+> +};
+> +
+> +static void airoha_ethtool_get_strings(struct net_device *netdev, u32 st=
+ringset, u8 *data)
 
-If the pixel link always aligns data to the MSB, as you stated, does it
-mean that not setting CHNL_CTRL_RAW_IN_MSB_ALIGN would always result in
-dropping the MSBs of each pixel, essentially breaking ISI operation ?
-What is the use case for making the CHNL_CTRL_RAW_IN_MSB_ALIGN bit
-configurable if it must always be set for proper operation ?
+nit I like old style :)
 
-> So the RAW16 workaround no longer works on i.MX95 since the input
-> data from the CSI formatter is MSB-aligned. Should we filter out
-> RAW10/12/14 formats on i.MX95 as a fix, or do you have a different
-> approach in mind?
+	static void airoha_ethtool_get_strings(struct net_device *netdev,
+					       u32 stringset, u8 *data)
+	{
+		....
+	}
 
-If i.MX95 can't produce the V4L2 RAW1[024] formats at all, then they
-should be filtered out, yes.
+> +{
+> +	int i;
+> +
+> +	switch (stringset) {
+> +	case ETH_SS_STATS:
+> +		for (i =3D 0; i < ARRAY_SIZE(airoha_ethtool_xdp_stats); i++) {
+> +			strscpy(data, airoha_ethtool_xdp_stats[i].name, ETH_GSTRING_LEN);
+> +			data +=3D ETH_GSTRING_LEN;
+> +		}
+> +		page_pool_ethtool_stats_get_strings(data);
+> +		break;
+> +	}
+> +}
+> +
+> +static int airoha_ethtool_get_sset_count(struct net_device *netdev, int =
+stringset)
+> +{
+> +	switch (stringset) {
+> +	case ETH_SS_STATS:
+> +		return ARRAY_SIZE(airoha_ethtool_xdp_stats) + page_pool_ethtool_stats_=
+get_count();
 
-> > > > > +    */
-> > > > > +   fmt = !pdata->raw_out_lsb && isi_out_raw(info->isi_out_format) ?
-> > > > > +         CHNL_IMG_CTRL_FORMAT_RAW16 :
-> > > > > +         info->isi_out_format;
-> > > > > +
-> > > > > +   val |= CHNL_IMG_CTRL_FORMAT(fmt);
-> > > > >     mxc_isi_write(pipe, CHNL_IMG_CTRL, val);
-> > > > >
-> > > > >     /* line pitch */
-> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> > > > > index 35dec3a650ac..c9c22a3668f9 100644
-> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
-> > > > > @@ -20,6 +20,8 @@
-> > > > >  #define CHNL_CTRL_CHAIN_BUF_NO_CHAIN                               0
-> > > > >  #define CHNL_CTRL_CHAIN_BUF_2_CHAIN                                1
-> > > > >  #define CHNL_CTRL_SW_RST                                           BIT(24)
-> > > > > +#define CHNL_CTRL_RAW_OUT_LSB_ALIGN                                BIT(23) /* i.MX952 only */
-> > > > > +#define CHNL_CTRL_RAW_IN_MSB_ALIGN                                 BIT(22) /* i.MX{91,93,95,952} only */
-> > > > >  /*
-> > > > >   * CHNL_CTRL_BLANK_PXL: i.MX8{QM,QXP} only
-> > > > >   * CHNL_CTRL_VC_ID_1, CHNL_CTRL_VC_ID_1_MASK: i.MX{95,952} only
-> > > > @@ -88,6 +90,7 @@
-> > > > >  #define CHNL_IMG_CTRL_FORMAT_YUV420_3P10P                  0x3a
-> > > > >  #define CHNL_IMG_CTRL_FORMAT_YUV420_2P12                   0x3d
-> > > > >  #define CHNL_IMG_CTRL_FORMAT_YUV420_3P12                   0x3e
-> > > > > +#define CHNL_IMG_CTRL_FORMAT_RAW14                         0x41
-> > > >       /* i.MX{8ULP,91,93,95,952} only */
-> > > >
-> > > > This is documented as available on i.MX{8ULP,91,93,95,952}, but the
-> > > > format will only be used on i.MX952.
-> > > >
-> > > > >  #define CHNL_IMG_CTRL_GBL_ALPHA_VAL(n)                             ((n) << 16)
-> > > > >  #define CHNL_IMG_CTRL_GBL_ALPHA_VAL_MASK                           GENMASK(23, 16)
-> > > > >  #define CHNL_IMG_CTRL_GBL_ALPHA_EN                                 BIT(15)
-> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c> b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> > > > > index f45c2aae59ce..9a6a8302774c 100644
-> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> > > > > @@ -221,11 +221,11 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >     /*
-> > > > >      * RAW formats
-> > > > >      *
-> > > > > -    * The ISI shifts the 10-bit and 12-bit formats left by 6 and 4 bits
-> > > > > -    * when using CHNL_IMG_CTRL_FORMAT_RAW10 or MXC_ISI_OUT_FMT_RAW12
-> > > > > -    * respectively, to align the bits to the left and pad with zeros in
-> > > > > -    * the LSBs. The corresponding V4L2 formats are however right-aligned,
-> > > > > -    * we have to use CHNL_IMG_CTRL_FORMAT_RAW16 to avoid the left shift.
-> > > > > +    * The format entries use the native RAW10/12/14 ISI format codes.
-> > > > > +    * On platforms without hardware LSB alignment, the driver
-> > > > > +    * substitutes RAW16 at runtime in
-> > > > > +    * mxc_isi_channel_set_output_format() to avoid the left shift
-> > > > > +    * that the ISI applies to RAW10/12/14 output.
-> > > > >      */
-> > > > >     {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y8_1X8,
-> > > > > @@ -240,7 +240,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y10_1X10,
-> > > > >             .fourcc         = V4L2_PIX_FMT_Y10,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -249,7 +249,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y12_1X12,
-> > > > >             .fourcc         = V4L2_PIX_FMT_Y12,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -258,7 +258,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y14_1X14,
-> > > > >             .fourcc         = V4L2_PIX_FMT_Y14,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -312,7 +312,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SBGGR10_1X10,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SBGGR10,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -321,7 +321,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGBRG10_1X10,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SGBRG10,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -330,7 +330,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGRBG10_1X10,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SGRBG10,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -339,7 +339,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SRGGB10_1X10,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SRGGB10,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -348,7 +348,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SBGGR12_1X12,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SBGGR12,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -357,7 +357,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGBRG12_1X12,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SGBRG12,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -366,7 +366,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGRBG12_1X12,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SGRBG12,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -375,7 +375,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SRGGB12_1X12,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SRGGB12,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -384,7 +384,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SBGGR14_1X14,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SBGGR14,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -393,7 +393,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGBRG14_1X14,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SGBRG14,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -402,7 +402,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGRBG14_1X14,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SGRBG14,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
-> > > > > @@ -411,7 +411,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> > > > >             .mbus_code      = MEDIA_BUS_FMT_SRGGB14_1X14,
-> > > > >             .fourcc         = V4L2_PIX_FMT_SRGGB14,
-> > > > >             .type           = MXC_ISI_VIDEO_CAP,
-> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
-> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
-> > > > >             .mem_planes     = 1,
-> > > > >             .color_planes   = 1,
-> > > > >             .depth          = { 16 },
+same here:
+		return ARRAY_SIZE(airoha_ethtool_xdp_stats) +
+		       page_pool_ethtool_stats_get_count();
 
--- 
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +
+> +static void airoha_ethtool_get_ethtool_stats(struct net_device *netdev,
+> +					     struct ethtool_stats *stats,
+> +					     u64 *data)
+> +{
+> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +	struct airoha_hw_stats *hw_stats =3D &dev->stats;
+> +	u64 *hw_stats_base =3D (u64 *)hw_stats;
+> +	struct page_pool_stats pp_stats =3D {};
+> +	struct airoha_qdma *qdma;
+> +	unsigned int start;
+> +	int i;
+> +
+> +	if (netif_running(netdev))
+> +		airoha_update_hw_stats(dev);
+> +
+> +	do {
+> +		start =3D u64_stats_fetch_begin(&hw_stats->syncp);
+> +		for (i =3D 0; i < ARRAY_SIZE(airoha_ethtool_xdp_stats); i++)
+> +			data[i] =3D hw_stats_base[airoha_ethtool_xdp_stats[i].offset];
+> +	} while (u64_stats_fetch_retry(&hw_stats->syncp, start));
+> +
+> +	rcu_read_lock();
+> +	qdma =3D rcu_dereference(dev->qdma);
+
+IIRC airoha_ethtool_get_ethtool_stats() is running under RTNL so you can ju=
+st
+use airoha_qdma_deref() here.
+
 Regards,
+Lorenzo
 
-Laurent Pinchart
+> +	if (qdma) {
+> +		for (i =3D 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+> +			struct airoha_queue *q =3D &qdma->q_rx[i];
+> +
+> +			if (q->page_pool)
+> +				page_pool_get_stats(q->page_pool, &pp_stats);
+> +		}
+> +	}
+> +	rcu_read_unlock();
+> +
+> +	page_pool_ethtool_stats_get(data + ARRAY_SIZE(airoha_ethtool_xdp_stats),
+> +				    &pp_stats);
+> +}
+> +
+>  static const struct ethtool_ops airoha_ethtool_ops =3D {
+>  	.get_drvinfo		=3D airoha_ethtool_get_drvinfo,
+>  	.get_eth_mac_stats      =3D airoha_ethtool_get_mac_stats,
+>  	.get_rmon_stats		=3D airoha_ethtool_get_rmon_stats,
+>  	.get_link_ksettings	=3D phy_ethtool_get_link_ksettings,
+>  	.get_link		=3D ethtool_op_get_link,
+> +	.get_strings		=3D airoha_ethtool_get_strings,
+> +	.get_sset_count		=3D airoha_ethtool_get_sset_count,
+> +	.get_ethtool_stats	=3D airoha_ethtool_get_ethtool_stats,
+>  };
+> =20
+>  static int airoha_metadata_dst_alloc(struct airoha_gdm_port *port)
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index cfbc0b8f5bf9..d2ac295c49e9 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -236,6 +236,18 @@ struct airoha_tx_irq_queue {
+>  	u32 *q;
+>  };
+> =20
+> +struct airoha_xdp_stats {
+> +	u64 rx_xdp_redirect;
+> +	u64 rx_xdp_redirect_errors;
+> +	u64 rx_xdp_pass;
+> +	u64 rx_xdp_aborted;
+> +	u64 rx_xdp_drop;
+> +	u64 rx_xdp_tx;
+> +	u64 rx_xdp_tx_errors;
+> +	u64 tx_xdp_xmit;
+> +	u64 tx_xdp_xmit_errors;
+> +};
+> +
+>  struct airoha_hw_stats {
+>  	struct u64_stats_sync syncp;
+> =20
+> @@ -259,6 +271,8 @@ struct airoha_hw_stats {
+>  	u64 rx_jabber;
+>  	u64 rx_len[7];
+> =20
+> +	struct airoha_xdp_stats xdp_stats;
+> +
+>  	struct {
+>  		/* Previous HW register values for 32-bit counter delta
+>  		 * tracking. Storing the last seen value and accumulating
+> --=20
+> 2.55.0
+>=20
+>=20
+
+--fzdF/KmcyqickKS5
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCarDlWwAKCRA6cBh0uS2t
+rMdDAQCEVNYBekytNaFST2RrMePP44SxkUqsKYfyVZJkKZXz6wEA6znuBk9d9ElA
+BtQvlJ/vkXJsbxVEz4vP1pTYR87qGwo=
+=T0BR
+-----END PGP SIGNATURE-----
+
+--fzdF/KmcyqickKS5--
 
