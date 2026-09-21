@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8E8C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3F1C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQzHPXiaVd7MbxwqqBNnUGLBbzUtCNC6I4dGY9gtcK8=; b=W573hyTeKGbo4is2gJAhR4gCHz
-	Rk6LHMNk+uMAjq1TCaIbsBCUdLItHnk5/XRhq/LMkr4PYOMi4OufE3wMyDXoQN5kPo3Uzzp7hXqJ5
-	9r18690Ae8x1xd3fkbFetHW4pWhfNLPBSoJW4UA3RGIxJ6rSJkZNQIyjbbZtSSVOSAcHU0USiefDO
-	3t6ifSnPtVE9movFZbsJjbLMHRcVVoC5pqOE5jnHPBP+PqpJL4m+0PJd/GeB0g8IS2ZjImEEqwTJG
-	+iPb3beDZ7cry7LpFJRfzNvYyF+HfLVT5tT4U4s5gAtajTi/0yycGi6hyNn6fIRGt39m3gJ92lHHh
-	dLFOwGGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5pK4pXIJRmKPUjKpkdsb4t/uRH+AebunEcLl0SfF61Y=; b=ChGVQg8NaXiyenp/uzzxPYHP+E
+	cD7EjLfZtL5OLy/WR3a+E8g3ki4fWy6hpmaibbSl4fjff6fEsp8pxlj2RKP8hGn1/3IjrD9fHFEo1
+	IQsUdo6tbp/n/D9RrWhCxgBXbVchASQzRf1IHWvPwewYcHTl7l5Qezcj7Q5/11a3H8E9f7ybR/GAx
+	ifTDfBuIwtHtC6t65L0uKhw1tB2AQFInu9O7iwdfOlmn1b5rTB64qherFMzuJJe7cl3VQ59uyPCXI
+	gd2joG9Myx3Nhgd8gthXgfyoiwbQZiicjyKXUaqhX92ZTuiqSOd42Uwg0evvLi4fnZIkhBCMmyXi1
+	77YUTFrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dLg-00000002714-3NCp;
+	id 1x8dLs-0000000275b-3uKJ;
+	Mon, 21 Sep 2026 12:42:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8dLg-0000000270r-2Fzt
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 21 Sep 2026 12:42:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=5pK4pXIJRmKPUjKpkdsb4t/uRH+AebunEcLl0SfF61Y=; b=a/CqL+6HBulo5eszrLC8zosuyA
+	tAXXxpFk2e9jZYyx3DteZFaR7Ev5tRl15zScwdV0cMr2XR+X9+vf9J9IxRzCk42iZhkWuaZaAVkuf
+	S/W1j4anwWHoaHB+tNkO0h2ARpbSBQZhgQTlbU5qNBzhLFPVoh6zvwJ3Wm1PsZHfTQSkYq8UFMs0s
+	wg8/X1vXSVECzlPuD9cmMfVpxcq8qzfG6ukeyFZ/KRSto4qv5qYbsqXcbyuhJLq+Z5e81oqvJ+zWa
+	5TITI63WXQzmDJzW1Pu5pzFdjmI2riK9C+/umCZ+SwQPUEUEYhQ+GX/1mX9mVlALhab4hHclSYzKO
+	6UBzkRwA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dLe-0000000270L-1wEn
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8dLO-0000000CI1Z-3kGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 12:42:19 +0000
+	Mon, 21 Sep 2026 12:42:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36E811D13;
-	Mon, 21 Sep 2026 05:42:13 -0700 (PDT)
-Received: from [10.0.128.141] (unknown [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5ADB83F86C;
-	Mon, 21 Sep 2026 05:42:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C956F1595;
+	Mon, 21 Sep 2026 05:41:56 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94EAC3F86C;
+	Mon, 21 Sep 2026 05:41:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789994536; bh=IRpX+ZEp/zVlKdL3h+SzNZQpQmKb6Y0IMlPZO81/S6c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eQGWfG0TNldwMTREH8bTh8H+1w65s5SsyxtYASsAlYAaZhM8/Zie7v82Mz2jl0q9d
-	 zxAeSIJPe+dB5+sJ8mob10j+F/7snho7KhyQ+JbciEj5KvoFXiLNlzC3lNDR/4jHEl
-	 3xtE0k19WjVMcp+/ILdArlTZ7OInKPcsQie2e8do=
-Message-ID: <bbb2f1db-5d42-495f-b34e-184a6cd894ce@arm.com>
-Date: Mon, 21 Sep 2026 13:42:11 +0100
+	t=1789994520; bh=bI7w8gHGdhxh4VEARjnqWWbdnU1VuH+Od9f4EvEeVjw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ttcXOmh61SrOvoEOAPQ4GmU+Vn2kvt7wLlypDdYben4eNFpMKlX1kcQgIxYV6GTy/
+	 se1zPGzMTveLaG5RWM9n6A9/lXq6GcG3cwCrNI9upyNip918OfA4DpZpyTTodfXvvu
+	 tgI49nhw7/M9X/o3ScuCj0iBtTNzLWXay6LNgYNA=
+Date: Mon, 21 Sep 2026 18:11:56 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 0/4] arm64/mm: Convert pgtable READ_ONCE() as pxdp_get()
+Message-ID: <etkbm3mjzsrogpizjwutsqajslkjymjldpyf6robitdot4e23w@mqcikehwbqzv>
+References: <20260903060657.2717457-1-anshuman.khandual@arm.com>
+ <9aed35be-a411-4d9d-805c-03c836e9e56a@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 4/7] firmware: arm_rmm: Add support for SRO
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-5-suzuki.poulose@arm.com>
- <178978126542.2352296.15676256806777454164.b4-review@b4>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <178978126542.2352296.15676256806777454164.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9aed35be-a411-4d9d-805c-03c836e9e56a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_054218_607207_5A748725 
-X-CRM114-Status: GOOD (  57.94  )
+X-CRM114-CacheID: sfid-20260921_134212_268329_B3CC0A79 
+X-CRM114-Status: GOOD (  31.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,377 +89,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/09/2026 02:27, Jonathan Cameron wrote:
->> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
->> means that an SMC can return with an operation still in progress. The
->> host is expected to continue the operation until it reaches a conclusion
->> (either success or failure). During this process the RMM can request
->> additional memory ('donate') or hand memory back to the host
->> ('reclaim'). The host can request an in progress operation is cancelled,
->> but still continue the operation until it has completed (otherwise the
->> incomplete operation may cause future RMM operations to fail).
->>
->> The SRO is tracked using a struct rmi_sro_state object which keeps track
->> of any memory which has been allocated but not yet consumed by the RMM
->> or reclaimed from the RMM. This allows the memory to be reused in a
->> future request within the same operation. It will also permit an
->> operation to be done in a context where memory allocation may be
->> difficult (e.g. atomic context) with the option to abort the operation
->> and retry the memory allocation outside of the atomic context. The
->> memory stored in the struct rmi_sro_state object can then be reused on
->> the subsequent attempt.
->>
->> Wrappers for SRO RMI commands are also provided here because they depend
->> on the rmi_sro_execute() implementation added by this patch.
->> Delegate/undelegate handles are also added here because they now use the
->> SRO/stateful command infrastructure and are also used for the memory
->> DONATE/RECLAIM flows.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+On Mon, Sep 21, 2026 at 11:55:02AM +0100, Ryan Roberts wrote:
+> On 03/09/2026 07:06, Anshuman Khandual wrote:
+> > Route READ_ONCE() accesses on pgtable entries via level specific generic MM
+> > pxdp_get() helpers which platforms could then override when required. These
+> > accessors on arm64, will help in ensuring page table accesses are performed
+> > in an atomic manner while reading 128 bit page table entries later. But for
+> > now they just default to READ_ONCE(), thus preserving existing behaviour on
+> > current D64 translation.
+> > 
+> > This is similar to generic MM, where all atomic accesses have already been
+> > converted from READ_ONCE() into pgtable level specific accessors.
+> > 
+> > These are preparatory patches for D128 enablement, although standing their
+> > own for D64 translation as well. These patches are split from earlier D128
+> > V1 series. There are no functional changes here, and besides mm kselftests
+> > do not show any regression.
+> > 
+> > https://lore.kernel.org/linux-mm/20260729122452.3797443-1-anshuman.khandual@arm.com/
+> > 
+> > This series applies on v3.7-rc1 but after applying the following patches
 > 
-> Hi Suzuki.
-> 
-> A few comments and questions on the array for the cache of
-> allocations.
-> 
-> Jonathan
-> 
->> ---
->>   drivers/firmware/arm_rmm/rmi.c | 586 +++++++++++++++++++++++++++++++++
->>   include/linux/arm-rmi-cmds.h   |  41 +++
->>   2 files changed, 627 insertions(+)
->>
->> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
->> index 5b0e342ce3d5..4f9898ece754 100644
->> --- a/drivers/firmware/arm_rmm/rmi.c
->> +++ b/drivers/firmware/arm_rmm/rmi.c
->> @@ -15,6 +15,59 @@
->>   #define RMI_FEAT_REG_COUNT	2
->>   static unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT] __ro_after_init;
-> 
+> I assume you meant v7.3-rc1 here?
 
-Was there a question here you missed ? FWIW:
-
-I have expanded this to cover all 5 RmiFeatureRegisters exposed by RMM, 
-and it looks something like this now, with the use of ARRAY_SIZE() to
-limit accesses.
-
-
-/* RMM defines RmiFeatureRegister0 to RmiFeatureRegister5. */
-static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
+Oops ! that's correct.
 
 > 
+> > related to pgtable entry print standardization posted earlier.
+> > 
+> > https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
 > 
->> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
->> +				 unsigned long sro_handle,
->> +				 unsigned long donatereq,
->> +				 struct arm_smccc_1_2_regs *out_regs,
->> +				 gfp_t gfp)
-
-...
-
->> +	addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
->> +	FIELD_MODIFY(RMI_ADDR_RANGE_BLOCK_SIZE_MASK, &addr_range, block_size_fld);
->> +	FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, count);
->> +	FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
->> +
->> +	sro->addr_list[sro->addr_count] = addr_range;
->> +
->> +out:
+> This applies.
 > 
-> This doesn't smell like an 'out' - as the real works is done down
-> here.
-
-Ack, I have renamed it to "donate:"
-
->> +
->> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
->> +				    unsigned long sro_handle,
->> +				    unsigned long donatereq,
->> +				    struct arm_smccc_1_2_regs *out_regs,
->> +				    gfp_t gfp)
->> +{
->> +	unsigned long block_size_fld = RMI_DONATE_BLOCK_SIZE(donatereq);
->> +	unsigned long block_size = rmi_addr_block_size_to_bytes(block_size_fld);
->> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
->> +	unsigned long state = RMI_DONATE_STATE(donatereq);
->> +	unsigned long found = 0;
->> +	unsigned long donated_granules;
->> +	unsigned long granules_per_block = block_size >> PAGE_SHIFT;
->> +	unsigned long consumed_blocks;
->> +	int addr_list_start = sro->addr_count;
->> +
->> +	int ret;
->> +
->> +	for (int i = 0; i < addr_list_start && found < count; i++) {
->> +		unsigned long entry = sro->addr_list[i];
->> +
->> +		if (RMI_ADDR_RANGE_BLOCK_SIZE(entry) == block_size_fld &&
->> +		    RMI_ADDR_RANGE_COUNT(entry) == 1 &&
->> +		    RMI_ADDR_RANGE_STATE(entry) == state) {
->> +			addr_list_start--;
+> > 
+> > https://lore.kernel.org/linux-mm/20260901065454.1906343-1-anshuman.khandual@arm.com/
 > 
-> I guess putting that as a predecrement in the swap is a little
-> too obscure.
+> This fails:
+> ---8<---
+> $ b4 shazam 20260901065454.1906343-1-anshuman.khandual@arm.com
+> Grabbing thread from
+> lore.kernel.org/all/20260901065454.1906343-1-anshuman.khandual@arm.com/t.mbox.gz
+> Checking for newer revisions
+> Grabbing search results from lore.kernel.org
+>   Added from v3: 3 patches
+>   Added from v2: 3 patches
+> Analyzing 14 messages in the thread
+> Looking for additional code-review trailers on lore.kernel.org
+> Will use the latest revision: v3
+> You can pick other revisions using the -vN flag
+> Checking attestation on all messages, may take a moment...
+> ---
+>   ✓ [PATCH v3 1/2] arm64/mm: Move __check_safe_pte_update()
+>   ✓ [PATCH v3 2/2] arm64/mm: Standardize printing for pgtable entries
+>   ---
+>   ✓ Signed: DKIM/arm.com
+> ---
+> Total patches: 2
+> ---
+> Applying: arm64/mm: Move __check_safe_pte_update()
+> Applying: arm64/mm: Standardize printing for pgtable entries
+> Patch failed at 0002 arm64/mm: Standardize printing for pgtable entries
+> When you have resolved this problem, run "git am --continue".
+> If you prefer to skip this patch, run "git am --skip" instead.
+> To restore the original branch and stop patching, run "git am --abort".
+> error: patch failed: arch/arm64/mm/fault.c:160
+> error: arch/arm64/mm/fault.c: patch does not apply
+> hint: Use 'git am --show-current-patch=diff' to see the failed patch
+> ---8<---
 > 
-> Maybe a comment for this whole loop that it is gathering up
-> useable entries by moving them to the end of the bit of the
-> array that is already in use.  Neat little bit of code but takes a little
-> more thinking about than might be ideal when we look at this
-> 10 years down the line.  Maybe it's just that it is Friday...
-> 
->> +			swap(sro->addr_list[addr_list_start],
->> +			     sro->addr_list[i]);
->> +			found++;
->> +			i--;
-> 
-> Rather than decrement the loop variable, maybe a goto and a label
-> for try_new_entry or something like that?  Even a comment might
-> be useful.
+> And as a result I can't apply this series. Any tips?
 
-Ack. I think a while loop makes it look a bit better with
-comments. e.g.:
+May be this is based on older dependant patches.
 
-@@ -356,9 +356,11 @@ static int rmi_sro_donate_noncontig(struct 
-rmi_sro_state *sro,
-         unsigned long granules_per_block = block_size >> PAGE_SHIFT;
-         unsigned long consumed_blocks;
-         int addr_list_start = sro->addr_count;
--       int ret;
-+       int ret, i;
+The latest V3 does apply - although this series does not any more. 
 
--       for (int i = 0; i < addr_list_start && found < count; i++) {
-+       /* Gather the suitable entries to the end of the list */
-+       i = 0;
-+       while (i <  addr_list_start && found < count) {
-                 unsigned long entry = sro->addr_list[i];
+https://lore.kernel.org/linux-mm/20260916044933.2689426-1-anshuman.khandual@arm.com/
 
-                 if (RMI_ADDR_RANGE_BLOCK_SIZE(entry) == block_size_fld &&
-@@ -368,8 +370,11 @@ static int rmi_sro_donate_noncontig(struct 
-rmi_sro_state *sro,
-                         swap(sro->addr_list[addr_list_start],
-                              sro->addr_list[i]);
-                         found++;
--                       i--;
-+                       /* Continue from the swapped in entry */
-+                       continue;
-                 }
-+               /* skip past the entry */
-+               i++;
-         }
+I will respin the series updating the commit message as suggested on
+the other thread but probably with a hosted git branch for better
+access - should have just done that earlier given multiple moving
+pieces here.
 
 > 
->> +		}
->> +	}
->> +
->> +	ret = rmi_sro_ensure_capacity(sro, count - found);
->> +	if (ret)
->> +		return ret;
+> Thanks,
+> Ryan
 > 
-> Will this normally succeed? Feels like we could have a lot
-> of useless entrees at the start of the storage, so no room to
-> enough extra ones.
-
-That is true. In this case, we should be able to proceed to
-donate as much as we have been able to gather and retry
-the donation in the next iteration, by freeing up the
-cached ones.
-         ret = rmi_sro_ensure_capacity(sro, count - found);
--       if (ret)
--               return ret;
-+       if (ret) {
-+               /* If we have found some entries, donate them and try 
-again */
-+               if (found)
-+                       goto mem_donate;
-+               /* Otherwise, free up the list and start again */
-+               rmi_sro_free(sro);
-+       }
-
--       while (found < count) {
-+       for (; found < count; found++) {
-                 unsigned long addr_range;
-                 void *virt = alloc_pages_exact(block_size, gfp);
-                 phys_addr_t phys;
-@@ -403,12 +413,12 @@ static int rmi_sro_donate_noncontig(struct 
-rmi_sro_state *sro,
-                 FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, 
-state);
-
-                 sro->addr_list[sro->addr_count++] = addr_range;
--               found++;
-         }
-
-+mem_donate:
-         rmi_op_mem_donate(sro_handle,
-                           virt_to_phys(&sro->addr_list[addr_list_start]),
--                         count, 0, out_regs);
-+                         found, 0, out_regs);
-
->> +
->> +	while (found < count) {
 > 
-> For loop seems more natural to me given the bounds are known
-> and found is only incremented at the end.
-
-Ack
-
+> > 
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: Lorenzo Stoakes <ljs@kernel.org>
+> > Cc: Andrew Morton <akpm@linux-foundation.org>
+> > Cc: David Hildenbrand <david@kernel.org>
+> > Cc: Mike Rapoport <rppt@kernel.org>
+> > Cc: Linu Cherian <linu.cherian@arm.com>
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Cc: linux-mm@kvack.org
+> > 
+> > Anshuman Khandual (4):
+> >   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
+> >   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
+> >   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
+> >   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
+> > 
+> >  arch/arm64/include/asm/pgtable.h |  6 ++--
+> >  arch/arm64/mm/fault.c            |  8 ++---
+> >  arch/arm64/mm/fixmap.c           |  6 ++--
+> >  arch/arm64/mm/hugetlbpage.c      | 10 +++---
+> >  arch/arm64/mm/kasan_init.c       | 18 +++++-----
+> >  arch/arm64/mm/mmu.c              | 60 ++++++++++++++++----------------
+> >  arch/arm64/mm/pageattr.c         |  8 ++---
+> >  arch/arm64/mm/trans_pgd.c        | 14 ++++----
+> >  8 files changed, 66 insertions(+), 64 deletions(-)
+> > 
 > 
->> +		unsigned long addr_range;
->> +		void *virt = alloc_pages_exact(block_size, gfp);
->> +		phys_addr_t phys;
->> +
->> +		if (!virt)
->> +			return -ENOMEM;
->> +
->> +		phys = virt_to_phys(virt);
->> +
->> +		if (state == RMI_OP_MEM_DELEGATED) {
->> +			phys_addr_t delegated_phys;
->> +
->> +			if (rmi_delegate_range(phys, block_size,
->> +					       &delegated_phys)) {
-> 
-> Go long. It is shorter than the line that follows anyway!
-
-Ack
-
->> +
->> +	/* Keep just the blocks the RMM didn't use in addr_list */
->> +	for (int i = consumed_blocks; i < count; i++)
->> +		sro->addr_list[addr_list_start + i - consumed_blocks] =
->> +			sro->addr_list[addr_list_start + i];
-> 
-> Maybe memmove to make it clear you are shifting a chunk of the array
-> down.  This might be worth some asci art showing each step in brief.
-> Anyhow, something along these lines:
-> 
->        memmove(&sro->addr_list[addr_list_start],
-> 	      &sro->addr_list[addr_list_start + consumed_blocks],
-> 	      (count - consumed_blocks) * sizeof(*sro->addr_list));
-> 
-> Obviously doesn't save code, but maybe simpler to understand than
-> the loop.
-> 		
-
-Does the following hunk look better with the comment ?
-
-         /*
-          * Keep just the blocks the RMM didn't use in addr_list.
-          * RMM claimed consumed_blocks entries from addr_list_start.
-          * Move the entries left out at the end i.e.
-          * [ addr_list_start + consumed_blocks, addr_list_start + found)
-          * to the rest of the valid entries and adjust the addr_count to
-          * reflect the available entries.
-          */
-         for (int i = 0, src = addr_list_start + consumed_blocks;
-                 i < found - consumed_blocks; i++)
-                 sro->addr_list[addr_list_start + i] = 
-sro->addr_list[src + i];
-
-         sro->addr_count -= consumed_blocks;
-
-> 
->> +}
->> +
->> +static int rmi_sro_reclaim(struct rmi_sro_state *sro,
->> +			   unsigned long sro_handle,
->> +			   struct arm_smccc_1_2_regs *out_regs)
->> +{
->> +	unsigned long capacity;
->> +
->> +	if (rmi_sro_ensure_capacity(sro, 1))
->> +		rmi_sro_free(sro);
-> 
-> Maybe a comment on why you free the whole lot rather than a smaller
-> amount to make some room.
-
-We don't do partial free of the list today, and having that is
-unnecssarily complicating the logic/code. We are going to do a reclaim 
-anyways. Sure, I could add a comment.
-
-
-> 
->> +
->> +	capacity = RMI_MAX_ADDR_LIST - sro->addr_count;
->> +
->> +	rmi_op_mem_reclaim(sro_handle,
->> +			   virt_to_phys(&sro->addr_list[sro->addr_count]),
->> +			   capacity, out_regs);
->> +
->> +	/*
->> +	  * RMI_OP_MEM_RECLAIM always return RMI_INCOMPLETE, except when the
->> +	  * input parameters were invalid.
->> +	  */
->> +	if (WARN_ON_ONCE(RMI_RETURN_STATUS(out_regs->a0) != RMI_INCOMPLETE))
->> +		return -EINVAL;
->> +	if (WARN_ON_ONCE(out_regs->a1 > capacity))
->> +		out_regs->a1 = capacity;
-> I guess this should never happen, but bit ugly to fixup the register
-> return rather than perhaps using a local variable instead.
-
-We pass/get the out_regs, so local variable doesn't work, unless
-I missed what you were hinting at..
-
-> Obviously doesn't matter in practice.
-
-> 
->> +	sro->addr_count += out_regs->a1;
->> +
->> +	return 0;
->> +}
-> 
->> +
->> +/* For RMI commands that are stateful but not memory-transferring */
-> 
-> Given this is exported, maybe some docs on return values etc?
-> Similar for the other exported funcitons.
-
-Ack
-
-> 
->> +long rmi_sro_execute(struct arm_smccc_1_2_regs *regs)
->> +{
->> +	bool cancelled = false;
->> +	unsigned long sro_handle = regs->a1;
->> +
->> +	rmi_smccc_invoke(regs);
->> +
->> +	sro_handle = regs->a1;
->> +	while (RMI_RETURN_STATUS(regs->a0) == RMI_INCOMPLETE) {
->> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
->> +
->> +		switch (RMI_RETURN_MEMREQ(regs->a0)) {
->> +		case RMI_OP_MEM_REQ_NONE:
->> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
->> +					regs);
->> +			break;
->> +		default:
->> +			WARN_ON_ONCE(1);
->> +			if (!can_cancel)
->> +				return regs->a0;
->> +			/* If we have already cancelled, don't retry this */
-> 
-> Maybe expand that comment a little to say if we can get here under a
-> valid sequence and if so are we guaranteed that cancel is complete
-> given that is what caller will probably expect if it gets -ECANCELED.
-> 
-> My reading of spec would suggest we can't hit this path for the
-> calls that are not memory tranferring. Then again we can't hit the
-> first cancel either so all bets are off.  So maybe this is the
-> bet we can do.  Also can_cancel shouldn't be true after
-> rmi_op_cancel() as I assume you can't cancel a cancel.
-
-Ack.  This was to handle a buggy RMM (and soothing an LLM bot)
-
-Thank you for the review.
-
-Cheers
-Suzuki
-
-
-> 
-
 
