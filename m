@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB35EC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEB0C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c6+J1Vq3h0bS2yoIlW0KKcG73s4SMqoAE9/Q1kovmSE=; b=3kofB5xi9zte9AAHBaak7JHb82
-	F349OctcMZAF22k97jIo/dHysw7jpH2fynfRzRYHUdfHhdW3WtiQNLS63FLq3f/zrXTwRELOEgY/0
-	3o350JFP30FPsxuZJAUxOfDxxhPMdQOvVzwJ+NB0YG5J1RYQzmheVheTMsGKUUaVVfxYd25jWAyfS
-	/32FwRiDxCvMaX1glZPzypsuAwLgcVGlEZxKAh6hx5+mzmBEhOOYWnfSVo+KsdeigGfqHceLZ93rW
-	/f2rSLUkkVBnVM1fGzDT9wUnTjhb+AYuDBEkS0lQw2MMbvPNeJBzpJFCCly65/Ay+viDWDTd8ePju
-	44q8wMAw==;
+	bh=51UbhnTNQu4G+blw30KVXkWOBU3OphiMRdQFjecSFpw=; b=zjkpwjkjBNDut4WnsB3UCN8yP0
+	K2wxWUzVeW1Bm0wuadLPr+0HfWJzRdcuTucvOrP7z5ji6I+gRSALr+bvaUhnqVGi9fGttOJ7JQqtZ
+	OuQ8DfUNrkMAhCWaTUk4Fwhfxe8oautu1l1Is8SbVZzWi7sp4iisS6l6cKApzCOAGYEr6d4D3TeZO
+	OwXOd1IOAQViHSoC1yAsmiQBJBugG1uP3kmytjXzFwfmhxNjJ1bvW18x7YMKkE3MF+RCmBuBIKQK2
+	AB2+JEhMwl4G5p9pK3EdnnLFe/uqVI7TumdTMFUvFGahz3wIxGETNgUoyY0V+r44refSFi33WdLEb
+	iRPumiTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nrX-00000003jZr-14h5;
-	Mon, 21 Sep 2026 23:55:55 +0000
+	id 1x8nrW-00000003jYF-3IQw;
+	Mon, 21 Sep 2026 23:55:54 +0000
 Received: from mail-westus3azon11010020.outbound.protection.outlook.com ([52.101.201.20] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nrR-00000003jRO-3KSp
+	id 1x8nrO-00000003jRO-1Jtt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 23:55:51 +0000
+	Mon, 21 Sep 2026 23:55:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cQXmL6ttOAuH7SVC28C+cL/A/DifPu5PuuxD85ubhOJmlvmkkwBQLj5YGTeObLQCJXBiobDaqlClrG5j07+I6Jc2aT6vz56DPw4PNZ9jYaXUby1r6Ly4HU2t/vSleytfH6rVKtcN3BZ1oRKdEwL7i7g3mXEzINCtnC037Tgnpq2yDi9GQdJ/+Nef4D8arosQUByyHwQ74A3dgR2qKKc3Dv6cTnJbR2/hQHA8V3k2EKpb0eqUFgYw+Adg4Wp3WENNAlKIhfDrPuOPkiQgHQyyQxwgaTYeURABy+SgWflcJgeX/ujr7a4DoSr3tsmFRgx7DdC4Lvm2jTd4P3tTEm83og==
+ b=CLEqXnerWK7ioC47G+mOWJNErPajgNYJZ75NWLcJxSERy2KymKXbcvB6YbKUQ5YP3HjbjbJXRq5i3QuLeh8Q0pwmu8BIXvPxVVt1UvfNewcqkq2qaWebll/CQnSpVXaigVED/O+zRHDHyzsboMdA7W6vqDXn3yrkHDj0rwsP2UcGf4OU3VafKbhvQlBrCRdGSW3piMaoRDmAExIgciSOTgYI7mJBhWYpQ56AjZESoXQIk8bQnB58dytY9nPM+LbEyZOA689fltpshpTIDe4DYS92GweRbYFK+boXKUnCFQAQTbkf+QLOy4Xs+RW5LM8nUuyTP0G1umyzOq+gheLamg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c6+J1Vq3h0bS2yoIlW0KKcG73s4SMqoAE9/Q1kovmSE=;
- b=G4pHhNHh60fCqb4Czv6m9Oq8sIp2+lQD25maeT1xsmUd2C0rsrX9TVDE9EmCV2bGktR9IJFS8cJRmW49gDz6tcdtKIukWpt5dmiwH2BPIU0IQGluapnGGFR/xd3Fh6YBrgANdEPHEq1YSPcK2I+5FYG3XNStfEEdhRCngPYJRTk4AMsRQ5Q1ANzSvMmizzRKUElG/RbCpEzSuuGOOMpd3Ax7ajK38aSAlNgcyKhusPVAtxP4auQpaF2M9wtwQwMAOBllGSDv7E6Ve9GCfpRaxizswgHGkiPO8ogs8nSQcybzRJfpcz43Rz7Cf0DaGKqFhr/Hb2zHLFBPuIREms/Gng==
+ bh=51UbhnTNQu4G+blw30KVXkWOBU3OphiMRdQFjecSFpw=;
+ b=dAPj4iFQ4dMQad/czrdL7VqMVNz+Ft54sm3iTa+OzSYJ0rzDXocJkB1QC/EgOXULCAd0IlBUnau0BCaECzHjrq/RzJLdvSdsqTrArfXuUF21RYpPvHy46zvkg1f50lv4+PoygJD2QzBnawI7Vpjt6jnWotMfzy2h231dhg5no0DttxMX6bur/YlOANYOV6QlWCUr6Eta6XDnZTIy8F1C/0gUHuAmL1UNbdeXDOIGX2UrpPEmpvtu403gvxYEyEIyY7atOxODWnDuakklqg07RtT7ovmGsFTqURpFn6d38p5S9c7QGEpcjkaDbHfch4h3hJ514B3H8DWxgcTaGMQCzg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c6+J1Vq3h0bS2yoIlW0KKcG73s4SMqoAE9/Q1kovmSE=;
- b=W8KH05j5a7kp8V4nV/dpvXCyYY2KfeHQ2GBoy1EwGl8hk9kb0eNRJCxeEsrXJPIO8s22bZ5rb/ZgsjbrxtKdYlnxQSvSbPJuF3JxIcp2xMcwtne0Pqa8HAxdNY3SZwzxKCJVkUOrYBxQIN7I54jfcMDQ+IHjJNvONPK7LRCABwYHpgXupjkFvov90NhMKb7IfeJA4xn3FoIquNP0rf1T4N2kua2d+YxCzmX4Tyy2cn5rSd8fszHm2zTqNAgwJzLL9oEGawEES37UU/Zp7uoF9xqoGe3ldIu/DIw7GmGq4KCaLeyUAVJ3kSh9acaJ8OwEJWdCCT0AP4YB6UWKJZKKSQ==
+ bh=51UbhnTNQu4G+blw30KVXkWOBU3OphiMRdQFjecSFpw=;
+ b=NDWbu1wjef8neQLfA0pvCrpPxIDP4KywTdHwwFW6q96y/31z3ZAN6Mgq2rFxDl5tjLLetkrKZyk2sL21SvaGVyD/ha33Oopw7bPh3HuR5YZXN6R9NACueDey+k0cp3hj0bygqqwuvwZEiGM8Y6lj/gMR4PVziTbudJlM9ozSOJ/vWdR7bCZYqFaRX2HwOkREqE7/s95kit3XK86ANMUe2x2ZnLsClSq/4+QwSj27wvXmDoQ/Cb//8W7myY2otHeurgikaiTqUHfhb8JVVxXJXCQqjt+lkrhW9eGY+ymq+vWqrpVjWOpiPmPJ8kyRBJcBzka1R7kn+Q/RYQXC5dbeGg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from LY0PR12MB325698.namprd12.prod.outlook.com
  (2603:10b6:408:3bb::14) by CH0PR12MB8487.namprd12.prod.outlook.com
  (2603:10b6:610:18c::17) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Mon, 21 Sep
- 2026 23:55:25 +0000
+ 2026 23:55:23 +0000
 Received: from LY0PR12MB325698.namprd12.prod.outlook.com
  ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
  ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 23:55:25 +0000
+ 23:55:23 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Jonathan Corbet <corbet@lwn.net>,
@@ -77,69 +77,69 @@ Cc: David Matlack <dmatlack@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	stable@vger.kernel.org,
 	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: [PATCH v7 4/9] iommu/arm-smmu-v3: Optimize range invalidation for latency
-Date: Mon, 21 Sep 2026 20:55:12 -0300
-Message-ID: <4-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
+Subject: [PATCH v7 8/9] iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
+Date: Mon, 21 Sep 2026 20:55:16 -0300
+Message-ID: <8-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 In-Reply-To: <0-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SA0PR13CA0003.namprd13.prod.outlook.com
- (2603:10b6:806:130::8) To LY0PR12MB325698.namprd12.prod.outlook.com
+X-ClientProxiedBy: SA1PR04CA0014.namprd04.prod.outlook.com
+ (2603:10b6:806:2ce::20) To LY0PR12MB325698.namprd12.prod.outlook.com
  (2603:10b6:408:3bb::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|CH0PR12MB8487:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5abc0b12-7b36-4fe5-a7c9-08df183bcbac
+X-MS-Office365-Filtering-Correlation-Id: 7b996ef5-0494-4b6e-743a-08df183bca9a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|7416014|366016|10067099003|56012099006|11063799006|6133799003|3023799007|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: Y98xfNRcOPsxskin7Ah6tnd/DhrgLbd4+QvgDtBdBnWvN8LFXy0iv7xZQLeULsqxEKZQGg5XcLFntngSGt5yTUZb0EBmPtgFZuQFcAJocDHpQfBIebjmH8nTr2m6PpQp+wB/EgB/dlOhD3FmrcOxDmaz7gUzcdrU7ZhkZitP/emMrOp4Ld0gkcaKck97wbXAnQMFYJSf7uOTOJK8klCpMvQjHtlgB6AEzPA/VwHVJ37GgjWef3VXT6emM2KvPWSDZ98mhTGVgEwURBIjWDOLpHIGOydkWGnI0KYCPIXW5Sog7dvsUB21JthN+IVvGqzE6PGqv3K44+oHEtX7PmUM23rZRjYW3KdFfgatMxNXDGFoPgpGtryo1z0+ht6zHERDXoUIoCXxG5ZsacuVfSAIK50Q20VO13R7OZLs0hxr7Vmesd44hj0u9rMk/YQHGZftDCPFE6oOJTWmzue1++k21DeEopalRYvCrMtS2PnK0oxTMj6gESHr0+S4UOpQrsEmEMfpAC5E+/GcP2tXcnGuJr3m7FjIhzuRo0dndyrRWWJ27D/BSLNGYn0XSgkEM1mZLQcymerQbBO/5QO57GYTMBVWBsCn7UMHKUqua+eYYisd6t/nB8IvZ2WP0ZYEHMw1NQGK8pkcoQqA7ptjEEUAfV0xoq7Vr1URk9bhoVvmXAx08BBtDPTpqC7RVayrLgpPAJe7wH5r0IYtHsAsJZ5zOQ==
+X-Microsoft-Antispam-Message-Info: os7ISolIEBxuU+KQ2U6HuuEwJOQDx6dxUVVyOwtFc5bjVyU993onOja0iEZX/UPqSFrH7Ns4/WWcL4RunFPuqoeulZnHMECwvQjSEiT97qJ6j7HaU73Lj+/K0kxHaZ8XMQMyJ2mjlR/CEA5Ae4C3xOblwor04pMMsmWvgmrRtPl75haWJOSPAOv1kwR6Axu/9NjU/xryxOeN61p39+4u+aAQo7p8HQ/lJ3mUQzgFT6scuQ5zeoqpkYwp8MeEepwz4OKhSw/9KH5jY2qAv1Sz/I/sryIBtyh0Ww6Tn1uxHiRAiu8+cshvCta5nisI0g/nFOcbT2yPjvq0Pnc5siCVdpYjIuSpIFUyTj0AP57NvMOL/vSOkvJtYGJwHoULGu0BYwvKOLZW9xiWTxuSA/vLCIdlPW36S703UlUnfJQE/Bub3WPj/dL0XyVGE0Gohso0agPjSmM88QBVRgtqTIPalDjt5SOpWL7Z4yucrpogPBIwMoWWlbrol2Fuk9ePn7/GvMooMDv5RIGbo7/Fg6FMlAIWEZyoLq5YHPCJm6YCDle3mH8BLBO6eSkqq0sg1pnKgRU/ZEG44da6+27uU7TXnou3S0vWEYINPeY0xWnmNor4fA3pLaXEprydTqkSGQEFRQy7up9CN9P/0KMYuxshWUrcxf4fxeWGEanNctZ7y5ehiHk0DQqSqKxUk3ySnsjQ1oemMVxWRL8A+fQEmrLbdg==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(7416014)(366016)(10067099003)(56012099006)(11063799006)(6133799003)(3023799007)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ANC9D6+lqRi8sKylf53wP2tjdPeVRWpxzhKj3Lcq2R3DkcAnsSQ6tzHhmCjr?=
- =?us-ascii?Q?MaWc8kIGV0LDhDcEpL0pUWEywEZ3clxXaHHpV1gVmD070YUHyH7SyPK6dWnZ?=
- =?us-ascii?Q?tDzW6xl7nLOc4ZDX+ILsWRaMV9s6Dz85hmp7CUcdmHxRIKNrv1gQ484ashou?=
- =?us-ascii?Q?hdhAsEKQsihxx4IitJk4RyEsJVOZvWljfIVLi0NK3C51FyHKmau0cqOrrxXI?=
- =?us-ascii?Q?eudWtQYJ+/WgAYrIu+OqZM41ZY8VT/dZupPvwE0Gtx4vwUfG7zhk6jppLzE6?=
- =?us-ascii?Q?DVLAHqPYA+Fx5racPK4Lz86HSdXYecUYbLvP0UHHsdiiioJ4INlEqwFyPEtH?=
- =?us-ascii?Q?PCKqfCKvDo8OtiUjC3DrAhpn+5r/JbABiEscXktlFcKywylmX3fjJJ0rQieo?=
- =?us-ascii?Q?FALpZjoAxZuTd04GFXEMmQDpr1xIS9h1QkWOt7Y7TEJC7/F+iihhRqBummW8?=
- =?us-ascii?Q?lF3gdQwDcivAxN5UvCm8JbfMI6ECICxpq+dZlhxfcqjxtiKSNenJSzS6cyOK?=
- =?us-ascii?Q?2eseR5m3Bi5WbDvl7+5zonGhSTTcWTv8QQtM2sVI9w711neZkty9auHDvtnI?=
- =?us-ascii?Q?PsZqAjDKvduv+YFNkMlIAhzJaGe+uwP1/n5agxmPhiMCKjYLTCCMvWimAMsu?=
- =?us-ascii?Q?W7N0PayGcHbYPCG2OI6WRDJOxTlIKWbYcaVRiupgDbUa6qLbBU1es29aiBtu?=
- =?us-ascii?Q?yIZLhM82VuWcpranhlABLYwil0Fvu8EurRHJxFhajQ+G5DoDiamzFXaHBD+u?=
- =?us-ascii?Q?9ukcP8Cx7kBl2pg39w/jzAhpyS5jjRFnaMhcJ4ItOw+ybS5xa8lX65hqtjDp?=
- =?us-ascii?Q?H7MzoaXJtuae1sFjOLyP8y3jxBoCfVXk2O5OUh56EqikdQXwduPTLCQUoWOy?=
- =?us-ascii?Q?qd/t1RNj7erkf1qpw3bX6abumYNhdtJkBT2AINfQdcnXUZuS+mARPjI64MEf?=
- =?us-ascii?Q?mvj+b36mTFySZ5/80AokXptUEVADPsfq1FLFSs6sM/MYfshTMGsS/dHyjOQC?=
- =?us-ascii?Q?ZOUHMF1qr/+sUTKfuR5c5az6jGoVFPV3SetVinrqrvDnk3NTl24HInV1JEsj?=
- =?us-ascii?Q?bEecqqkX95M2KmcBWr14TeGgjfYB4J+G5rxYozHLOeG6Jz0ha9Iov682u1cP?=
- =?us-ascii?Q?9ObYjctcB5Xyi+ren7HOEpbmd9noQfTWSidpS35xyW+OH7aTqbaYMyZf2D88?=
- =?us-ascii?Q?fHYxsdMVchpg0uRe3teoq20jjsZX1wZKzw2bawn0aw2mKBi4wKGyALk4JEkZ?=
- =?us-ascii?Q?iLmZVB+IMJh5r7ZH1HFtHsvmjfToDmL4gWXap97JDdn+/M091ut9Kjz0gnm+?=
- =?us-ascii?Q?4s4PnVsrG6q0ZQ8gZqWwJtEhWpfJNKcpBReQHLEHwVOYXHQPy4nmEiXhkPJo?=
- =?us-ascii?Q?n0j2DlGtMqjAqyI02Qxga5ivHtD03DkmgQMhwB1YDmRxLSX2dUg/a0PqpDnD?=
- =?us-ascii?Q?DLEkbxeFDm71qgyVqV2HcCmnyX7OQC96EpCXgeqQAmbMhE5tCqzC7OfoGQH6?=
- =?us-ascii?Q?kmnuDXem1jKkngs09R13w8fKxnpLe4BQY8/fLGVzOOdOOlgdyngT6UCj4j9I?=
- =?us-ascii?Q?sms940YN4433uiRVgRxTIU0lTtKiYm4xbnQhY7mEXR9euklnf59yC4cPdEKh?=
- =?us-ascii?Q?1eKYa3I/58Z86M4OaYrDqKfTGZHhybWn+ztJmEt/9ksTfapiaz6JSpwAzBW/?=
- =?us-ascii?Q?JHrbZWOKeLmt0j4fAeZYLuQY8FIpvyDHXV8zge9tzsbPUcGw?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eJXUxcBZMi8Vp5BhyiM4/qT7d3lMP2zOlwCtjhcRzT0+v12FB+lVBeTYNlnh?=
+ =?us-ascii?Q?/tEGvSqqE6bIzlvYfBTTPBVENJ+7D2aHmEINYYSFZ56jDQIOUr78jJi7jtz/?=
+ =?us-ascii?Q?CnVcCD8J6WR6j/GcJ9Dw4ATulEuPWJ6+rXVB4fPvueW9EHhhCnOVzF2yWvTP?=
+ =?us-ascii?Q?FHsCbKaX73GSF0UbLWj2UNedK8xP7+fbn1yZIxsvXWWlgrFQWOI6RxjqVB1g?=
+ =?us-ascii?Q?VIuv6zZB6BTIHH43PmsB9012jPswkSCqkqRm1BFHgyX+4MzgBdMTgP4AgQBD?=
+ =?us-ascii?Q?d4QAbObH5PTIqzdi8wVkqLGOTb3Qgu9LjQd0K7dzzu+V4qGAmbh+dZplfbiN?=
+ =?us-ascii?Q?CZm6JGRfIh/8CcZe65PMm3ZmhECALekOXk3a+DOD+wM/RoUS79wTrMvdXCVf?=
+ =?us-ascii?Q?b2NhjEIvmCgOMBcejKNUHzepN3Oa0spr8IqBNKemr4/c2uE7iECdMCfVxs/v?=
+ =?us-ascii?Q?WvdaSADQQX8m2iINlg8WYJRU8O59mnE/Jb5OWREk/HR9aV96zq/2fAlr9W/I?=
+ =?us-ascii?Q?nTyPIYGUVOKeHyGuCqzK9qIaP2L2eR+FazXEKkX+NTHc3EF7O78jDOue4z5f?=
+ =?us-ascii?Q?PspL3EHjaws3tT6v9qTKmhrtlzKXvoJWQR4tW91MYhdIm8RYtNkvrMa1BGlQ?=
+ =?us-ascii?Q?Pin+BiUGNM286wRCtbC0I/C9IG30R53P0K2YV0YRvEyLtAC5TMb76q/XQRh/?=
+ =?us-ascii?Q?SBcjGEtOPIA5rM1tDt0OQuvV7xskQUi6Th6zgYQvp64ED5I8R07oRPhKaZ92?=
+ =?us-ascii?Q?u3JuKTGmg4KVjM9+Bm80Mq7iKXyExy9bRkG3GqNcEdnkfM53mUAjSOLCU62P?=
+ =?us-ascii?Q?NWXFUDK/fdE5EOkqRiZziQKyVSyuUOIfkeMgSLVpVJo8gM2DQL13BnSxVYQ0?=
+ =?us-ascii?Q?qrIQaDNZc16bx4bylhHDN1ozWk7YVTq3qoym2cp2adixD7Z5Kh6dLFS3dtpF?=
+ =?us-ascii?Q?qzmz53X/PbXv3anYTtJ1kjg5hTlAKkwiIeyChjssgmX61+shdz5MVuGC8g8d?=
+ =?us-ascii?Q?rwrDdzz7LdlyzVHaxZjkZ2WTa4Y4dAre8ElOMiHVnZnkEywN3tVjMKZY/wDJ?=
+ =?us-ascii?Q?+IZ471BJism3cc7SbmO7JxM+CgefZvB9lFsZvSFDtKSgK1zxWedW2/hv3hFw?=
+ =?us-ascii?Q?DxWhmIdiytS8fQTwVqO2Gdz7VFnwQfODwmfH0fvZKEfjYZZ2p/U2BHxe49W4?=
+ =?us-ascii?Q?x+OvX9CT1NsnMdwPMYuHlfWvnRQnxoEYAktz8EysJ29VRk+/3eVBUM3K9b5c?=
+ =?us-ascii?Q?0+Rt9PSS03qFF2rO/8VI4YHVJM2dsmb4Zah0Hjn/Ou+rBDyDdRzJuoQ55Y9n?=
+ =?us-ascii?Q?bHpOIwslMqgI9gMLePrbCXjleM7T62oC1bzl8rCkh69dsjY5p03nLE3RKmjW?=
+ =?us-ascii?Q?xL2IQFNuRzXuWnc18iLkW8Kb2kAwWPLlSD5XqNRIu9++SpZpQ39vmWDHKPv5?=
+ =?us-ascii?Q?jBTMef3NVOBQDJI4tPKb1KViWj3z2n1akBZ7/HNTyXxX/7IKY5MCBVu29Kfu?=
+ =?us-ascii?Q?gox4BGzeEXZYhWEeyVHN1MycagPKdKmYi2yg4BRnyzsYgNs90IAAlAHhM04a?=
+ =?us-ascii?Q?nOBjQwEyIGo66dEkMUd+3umqNUPk2GZK9PODRkSFDyND2Y8j0C2DMdc5QnNH?=
+ =?us-ascii?Q?2de0sGjjdORZX4bFxYfZmNjBeiiXN1Li4YhMNmPAPzqbz3NcRdJu2Z++hbeF?=
+ =?us-ascii?Q?FFwjmxVlpUWZKESpUoJb4LamaGhlilV3efBU6+M5QUHsCAQ7?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5abc0b12-7b36-4fe5-a7c9-08df183bcbac
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b996ef5-0494-4b6e-743a-08df183bca9a
 X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 23:55:21.1343
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 23:55:19.5991
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YhBRORJBs2c5hJgy+IIeq9kHSNvlhoy9XLuM7XpoJc4XlVacya077KZvKxI729lG
+X-MS-Exchange-CrossTenant-UserPrincipalName: onzAsBq8Qsm+LlWiQ3sAdVz/zb7ohV+kWUpAB0wjz4BYxAe3H3gzKYhaSd4Wuks2
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8487
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_165549_854551_BC55B960 
-X-CRM114-Status: GOOD (  29.28  )
+X-CRM114-CacheID: sfid-20260921_165546_386978_2D5EC95E 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,513 +154,456 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The server IOMMU drivers focus on invalidation latency by default,
-over-invalidating if necessary, to round the invalidation range up to a
-single command. I think this represents a trade off for DMA non-FQ and SVA
-where stalling the operation is overall worse than re-loading the IOTLB.
+The range-invalidation logic has long had a FIXME that there is not enough
+information to properly compute the range invalidation. There is also
+subtly not enough information to properly compute the single stride
+either.
 
-For instance AMD and VT-d both round the range up to the largest aligned
-power of two and invalidate that. This causes over-invalidation but that
-is preferred on real HW over trying to issue a number of smaller range
-invalidations.
+Change tlbi to use the information format that iommupt is going to use for
+ARM. This prepares the invalidation code to support iommupt and fixes two
+small limitations with the current code.
 
-SMMUv3 on the other hand will try to do up to 512 single invalidations,
-otherwise falls back to full invalidation, or it will try to issue an
-string of range invalidations for every 5 bits of IOVA range to perfectly
-cover it.
+iommupt is designed to accumulate all invalidation into a single gather,
+then the iommu driver should issue a small number of commands to execute
+the gather to control invalidation latency. This is in contrast to
+io-pgtable-arm.c which generates many gather flushes and direct walk cache
+flushes as it progresses.
 
-While the range-invalidation optimization is pretty good we can still do
-better and reduce it to only 2 invalidations at maximum using the idea
-Robin came up with to overlap two range invalidations in the middle. This
-preserves the exact coverage of the current range invalidation and still
-caps the number of range invalidations at 2.
+To accommodate this the gather will accumulate "damage" in bitmaps, one
+for leaf changes and one for table changes. This is enough information for
+SMMUv3 to compute the proper stride for single invalidation and to
+generate ideal hints for range invalidation.
 
-This works because the range invalidation can start at any IOVA, so we can
-place a range invalidation forwards from the start and backwards from the
-end, overlapping in the middle if the scale isn't precise enough.
+Change the inner workings of the tlbi process to directly use this
+new-style gather description with the idea that the iommupt conversion
+will just direct assign the gather fields to the tlbi.
 
-In the cases where this produces 2 range invalidations it continues to
-produce range invalidations that don't overlap, but the exact split point
-is different than the original algorithm due to the new calculation
-method. In cases where the original algorithm would produce 3 or more
-range invalidations this will produce 2 range invalidations with an
-overlap.
+Rework the three places creating the tlbi to express their needs in
+terms of the new bitmaps.
 
-The SVA under invalidation errata work around is maintained by "rounding
-up" to generate a single range invalidation that over-covers the entire
-range.
+1) Simple iotlb invalidation always gets a single range of leaf
+   levels, so it can set a single leaf bit
 
-Since the normal path is now the only one with a loop, split them into two
-functions and fold a simplified version of arm_smmu_inv_size_too_big()
-directly into the normal flow in a way that directly limits the number of
-single invalidation commands generated, again focusing on controlling
-latency.
+2) Walk invalidation is expected to clear the table and all the leaves it
+   could contain. Set a single table bit and all the leaf bits.
 
-The end result is any gather is converted into either:
- - One invalidate all
- - One or two range invalidation operations
- - At most 512 single invalidation ops
+   There is a weakness in the existing io-pgtable where it double
+   invalidates the leaves, once through the arm_smmu_tlb_inv_walk() then
+   again through the gather. Since these are separate operations they are
+   not capped by the invalidation count limits and a single unmap may end
+   up doing thousands of tlbi commands. Eventually converting to iommupt's
+   gather only approach will correct this.
 
-arm_smmu_domain_inv() is modified to always pass in the tgsz because the
-new logic relies on it being valid.
+3) SVA invalidation has no idea what the MM did, so it will set all
+   the bits in the bitmaps.
 
+   This corrects another weakness where the range-invalidation logic
+   was generating hints assuming the #2 rules which isn't correct
+   for SVA.
+
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 Tested-by: Nicolin Chen <nicolinc@nvidia.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 372 ++++++++++++--------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  16 +-
- 2 files changed, 238 insertions(+), 150 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  29 ++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 188 +++++++++++++-----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  25 ++-
+ 3 files changed, 185 insertions(+), 57 deletions(-)
 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index faeec656da9e7f..fdc6cb7a128037 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -140,17 +140,34 @@ static void arm_smmu_mm_arch_invalidate_secondary_tlbs(struct mmu_notifier *mn,
+ {
+ 	struct arm_smmu_domain *smmu_domain =
+ 		container_of(mn, struct arm_smmu_domain, mmu_notifier);
++	u8 tgsz_lg2 = smmu_domain->tgsz_lg2;
+ 	struct arm_smmu_tlbi tlbi = {
+ 		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+-		.iova = start,
++		.start = start,
++		.last = end - 1,
+ 		/*
+-		 * The mm_types defines vm_end as the first byte after the end
+-		 * address, different from IOMMU subsystem using the last
+-		 * address of an address range.
++		 * No information comes from the mm, assume the worst case that
++		 * it changed every table level. The way this is hooked into the
++		 * mm is tricky, the range won't be expanded to include an
++		 * entire table level if one was removed like the iommu gather
++		 * does. Thus even if this is a 4k invalidation it may be
++		 * including any table level too.
+ 		 */
+-		.size = end - start,
+-		.iopte_size = PAGE_SIZE,
++		.table_levels_bitmap = 0xfe,
+ 	};
++	u8 pmd_lg2sz = arm_smmu_pt_level_to_lg2sz(tgsz_lg2, 1);
++
++	/*
++	 * If the size is small then we can infer the invalidation is PTE only
++	 * and set the PTE level only. Otherwise it could be some other
++	 * combination so just set them all. This allows range invalidation to
++	 * use TTL=3 in cases of PTE only changes. The mm must not try to
++	 * partially invalidate pmd/etc.
++	 */
++	if (end - start < BIT_U64(pmd_lg2sz))
++		tlbi.leaf_levels_bitmap = 1;
++	else
++		tlbi.leaf_levels_bitmap = 0xff;
+ 
+ 	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
+ }
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index afc0f68728609d..5daebe06556c44 100644
+index 4062ef2e13fe30..de9017eb93458d 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2460,167 +2460,232 @@ static void arm_smmu_tlb_inv_context(void *cookie)
- 	arm_smmu_domain_inv(smmu_domain);
- }
- 
--static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
-+/*
-+ * Check address alignment for TTL hint per SMMUv3 H.a Section 4.4.1. Address
-+ * bits below the alignment must be zero, otherwise UNPREDICTABLE.
-+ */
-+static bool arm_smmu_ttl_addr_aligned(u64 address, unsigned int tg,
-+				      unsigned int ttl)
-+{
-+	unsigned int pgsz_lg2 = arm_smmu_pt_level_to_lg2sz(tg, 3 - ttl);
-+
-+	return !(address & GENMASK_U64(pgsz_lg2 - 1, 0));
-+}
-+
-+struct arm_smmu_range_inv {
-+	u64 start_tg;
-+	/* Normal integer, not encoded. 0 means 0.*/
-+	u64 num;
-+	unsigned int scale;
-+};
-+
-+static unsigned int arm_smmu_range_inv_calc_scale(u64 num_tg)
-+{
-+	return fls64((num_tg - 1) / (CMDQ_TLBI_RANGE_NUM_MAX + 1));
-+}
-+
-+static u64 arm_smmu_range_inv_calc_num(u64 num_tg, unsigned int scale)
-+{
-+	return DIV_ROUND_UP_ULL(num_tg, 1ULL << scale);
-+}
-+
-+/*
-+ * Initialize the smallest range invalidation covering num_tg and ending at
-+ * last_tg.
-+ */
-+static struct arm_smmu_range_inv arm_smmu_range_inv_init_end(u64 last_tg,
-+							     u64 num_tg)
-+{
-+	struct arm_smmu_range_inv range_inv = {};
-+
-+	if (!num_tg)
-+		return range_inv;
-+
-+	range_inv.scale = arm_smmu_range_inv_calc_scale(num_tg);
-+	range_inv.num = arm_smmu_range_inv_calc_num(num_tg, range_inv.scale);
-+	range_inv.start_tg = last_tg - ((range_inv.num << range_inv.scale) - 1);
-+	return range_inv;
-+}
-+
-+static void arm_smmu_cmdq_batch_add_range_inv(
-+	struct arm_smmu_device *smmu, struct arm_smmu_cmdq_batch *cmds,
-+	struct arm_smmu_cmd *ref_cmd, bool leaf_only,
-+	const struct arm_smmu_range_inv *range_inv, u8 ttl, u8 tg_enc)
-+{
-+	struct arm_smmu_cmd cmd;
-+	unsigned int tgsz_lg2 = tg_enc * 2 + 10;
-+	u64 iova = range_inv->start_tg << tgsz_lg2;
-+	unsigned int num = range_inv->num - 1;
-+
-+	/* 16K granule TTL=1 is reserved (Section 4.4.1) */
-+	if (WARN_ON(tgsz_lg2 == 14 && ttl == 1))
-+		ttl = 0;
-+
-+	/* Verify address alignment for the TTL hint */
-+	if (ttl && !arm_smmu_ttl_addr_aligned(iova, tgsz_lg2, ttl))
-+		ttl = 0;
-+
-+	/*
-+	 * SMMUv3 H.a Section 4.4.1: TG!=0, NUM==0, SCALE==0, TTL==0 is Reserved
-+	 * and causes CERROR_ILL. Single tg uses NUM=0, SCALE=0 with a TTL hint
-+	 * to target only the exact leaf entry.
-+	 *
-+	 * For a single tg invalidation a 0 TTL can come from places like the
-+	 * SVA path that don't have enough information to get a TTL, or as a
-+	 * side of effect of the splitting.
-+	 *
-+	 * A single-TG invalidation cannot reach this point if it is part of a
-+	 * CONT group, so it is safe to transform it into a single invalidation.
-+	 * The ARM_SMMU_OPT_FULL_CONT_RANGE_INV errata does not apply.
-+	 */
-+	if (!num && !range_inv->scale && !ttl)
-+		tg_enc = 0;
-+
-+	cmd.data[0] = ref_cmd->data[0] | FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
-+		      FIELD_PREP(CMDQ_TLBI_0_SCALE, range_inv->scale);
-+	cmd.data[1] = ref_cmd->data[1] |
-+		      FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf_only) |
-+		      FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-+		      FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
-+	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, &cmd);
-+}
-+
-+/*
-+ * Issue up to two range TLBI commands covering [iova, iova+size). Returns true
-+ * if successful, false if the range is too large to fit into range invalidation
-+ * commands.
-+ *
-+ * Normally the first range invalidation is the largest representable span which
-+ * does not exceed the requested range. If necessary, the second range
-+ * invalidation is the smallest representable range covering the remainder and
-+ * is anchored at the end. Any excess coverage from the second range
-+ * invalidation overlaps the first instead of exceeding the requested range.
-+ *
-+ * If a SVA is being invalidated and the SMMU has the
-+ * ARM_SMMU_OPT_FULL_CONT_RANGE_INV errata this produces only a single range
-+ * invalidation and overinvalidates to ensure any potential CONT is covered with
-+ * a single range invalidation.
-+ */
-+static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 					  struct arm_smmu_cmdq_batch *cmds,
- 					  struct arm_smmu_cmd *cmd,
- 					  struct arm_smmu_tlbi *tlbi)
- {
--	size_t inv_range = tlbi->iopte_size;
--	unsigned long iova = tlbi->iova;
--	unsigned long end = iova + tlbi->size;
--	unsigned long num_pages = 0;
--	u8 tg = tlbi->tgsz_lg2;
--	u64 orig_data0 = cmd->data[0];
--	u8 ttl = 0, tg_enc = 0;
-+	u8 tgsz_lg2 = tlbi->tgsz_lg2;
-+	struct arm_smmu_range_inv first = { .start_tg = tlbi->iova >>
-+							tgsz_lg2 };
-+	u64 last_tg = (tlbi->iova + tlbi->size - 1) >> tgsz_lg2;
-+	u64 num_tg = last_tg - first.start_tg + 1;
-+	u8 tg_enc = (tgsz_lg2 - 10) / 2;
-+	struct arm_smmu_range_inv trail;
-+	u8 ttl = 0;
- 
--	if (WARN_ON_ONCE(!tlbi->size))
--		return;
--
--	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--		num_pages = tlbi->size >> tg;
--
--		/* Convert page size of 12,14,16 (log2) to 1,2,3 */
--		tg_enc = (tg - 10) / 2;
--
--		/*
--		 * Determine what level the granule is at. For non-leaf, both
--		 * io-pgtable and SVA pass a nominal last-level granule because
--		 * they don't know what level(s) actually apply, so ignore that
--		 * and leave TTL=0. However for various errata reasons we still
--		 * want to use a range command, so avoid the SVA corner case
--		 * where both scale and num could be 0 as well.
--		 */
--		if (tlbi->leaf_only)
--			ttl = 4 - ((ilog2(tlbi->iopte_size) - 3) / (tg - 3));
--		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)
--			num_pages++;
--	}
--
--	while (iova < end) {
--		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--			/*
--			 * On each iteration of the loop, the range is 5 bits
--			 * worth of the aligned size remaining.
--			 * The range in pages is:
--			 *
--			 * range = (num_pages & (0x1f << __ffs(num_pages)))
--			 */
--			unsigned long scale, num;
--
--			/* Determine the power of 2 multiple number of pages */
--			scale = __ffs(num_pages);
--
--			/* Determine how many chunks of 2^scale size we have */
--			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
--
--			/* Keep the pre-DS 5-bit truncation when scale > 31 */
--			cmd->data[0] = orig_data0 |
--				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
--				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
--
--			/* range is num * 2^scale * pgsize */
--			inv_range = num << (scale + tg);
--
--			/* Clear out the lower order bits for the next iteration */
--			num_pages -= num << scale;
--		}
--
--		/*
--		 * IPA has fewer bits than VA, but they are reserved in the
--		 * command and something would be very broken if iova had them
--		 * set.
--		 */
--		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
--			       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--			       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
--			       (iova & ~GENMASK_U64(11, 0));
--
--		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--		iova += inv_range;
--	}
--}
--
--/*
-- * Generate a range invalidation for ARM_SMMU_OPT_FULL_CONT_RANGE_INV by
-- * ensuring the entire SVA requested range is covered with a single range
-- * invalidation command. The scale is adjusted so that the range invalidation
-- * may extend past the end of the requested range. This ensures that any CONT
-- * the MM is invalidating is covered by a single range invalidation. TTL and
-- * LEAF are always 0 because this is only used by SVA.
-- */
--static bool arm_smmu_cmdq_batch_add_range_inv(struct arm_smmu_device *smmu,
--					      struct arm_smmu_cmdq_batch *cmds,
--					      struct arm_smmu_cmd *cmd,
--					      unsigned long iova, size_t size,
--					      u8 tgsz_lg2)
--{
--	u64 cur_tg = iova >> tgsz_lg2;
--	u64 num_tg = ((iova + size - 1) >> tgsz_lg2) - cur_tg + 1;
--	unsigned int scale = fls64((num_tg - 1) / 32);
--
--	if (scale > 31)
--		return false;
--
--	cmd->data[0] |=
--		FIELD_PREP(CMDQ_TLBI_0_NUM,
--			   DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
--		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
--	cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_TG, (tgsz_lg2 - 10) / 2) |
--		       (cur_tg << tgsz_lg2);
--	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--	return true;
--}
--
--static bool arm_smmu_inv_size_too_big(struct arm_smmu_device *smmu,
--				      struct arm_smmu_tlbi *tlbi)
--{
--	size_t max_tlbi_ops;
--
--	/* 0 size means invalidate all */
--	if (!tlbi->size || tlbi->size == SIZE_MAX)
--		return true;
--
--	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV)
-+	if (!tlbi->size)
- 		return false;
+@@ -2397,8 +2397,8 @@ static struct arm_smmu_cmd arm_smmu_atc_inv_to_cmd(u32 sid, int ssid,
+ 	 * This has the unpleasant side-effect of invalidating all PASID-tagged
+ 	 * ATC entries within the address range.
+ 	 */
+-	page_start = tlbi->iova >> inval_grain_shift;
+-	page_end = (tlbi->iova + tlbi->size - 1) >> inval_grain_shift;
++	page_start = tlbi->start >> inval_grain_shift;
++	page_end = tlbi->last >> inval_grain_shift;
  
  	/*
--	 * Borrowed from the MAX_TLBI_OPS in arch/arm64/include/asm/tlbflush.h,
--	 * this is used as a threshold to replace "size_opcode" commands with a
--	 * single "nsize_opcode" command, when SMMU doesn't implement the range
--	 * invalidation feature, where there can be too many per-granule TLBIs,
--	 * resulting in a soft lockup.
-+	 * Determine what level the granule is at. For non-leaf, both io-pgtable
-+	 * and SVA pass a nominal last-level granule because they don't know
-+	 * what level(s) actually apply, so leave TTL=0.
- 	 */
--	max_tlbi_ops = 1 << (ilog2(tlbi->iopte_size) - 3);
--	return tlbi->size >= max_tlbi_ops * tlbi->iopte_size;
-+	if (tlbi->leaf_only)
-+		ttl = 4 - ((ilog2(tlbi->iopte_size) - 3) / (tgsz_lg2 - 3));
+ 	 * In an ATS Invalidate Request, the address must be aligned on the
+@@ -2524,16 +2524,11 @@ arm_smmu_tlbi_add_range_cmd(struct arm_smmu_tlbi *tlbi,
+ 			    u8 tg_enc)
+ {
+ 	struct arm_smmu_cmd *cmd = &tlbi->range.cmds[tlbi->range.num_cmds++];
+-	unsigned int tgsz_lg2 = tg_enc * 2 + 10;
+-	u64 iova = range_inv->start_tg << tgsz_lg2;
++	u64 iova = range_inv->start_tg << tlbi->tgsz_lg2;
+ 	unsigned int num = range_inv->num - 1;
+ 
+-	/* 16K granule TTL=1 is reserved (Section 4.4.1) */
+-	if (WARN_ON(tgsz_lg2 == 14 && ttl == 1))
+-		ttl = 0;
+-
+ 	/* Verify address alignment for the TTL hint */
+-	if (ttl && !arm_smmu_ttl_addr_aligned(iova, tgsz_lg2, ttl))
++	if (ttl && !arm_smmu_ttl_addr_aligned(iova, tlbi->tgsz_lg2, ttl))
+ 		ttl = 0;
+ 
+ 	/*
+@@ -2541,9 +2536,8 @@ arm_smmu_tlbi_add_range_cmd(struct arm_smmu_tlbi *tlbi,
+ 	 * and causes CERROR_ILL. Single tg uses NUM=0, SCALE=0 with a TTL hint
+ 	 * to target only the exact leaf entry.
+ 	 *
+-	 * For a single tg invalidation a 0 TTL can come from places like the
+-	 * SVA path that don't have enough information to get a TTL, or as a
+-	 * side of effect of the splitting.
++	 * For a single tg invalidation a 0 TTL can come as a side of effect of
++	 * the splitting.
+ 	 *
+ 	 * A single-TG invalidation cannot reach this point if it is part of a
+ 	 * CONT group, so it is safe to transform it into a single invalidation.
+@@ -2554,14 +2548,84 @@ arm_smmu_tlbi_add_range_cmd(struct arm_smmu_tlbi *tlbi,
+ 
+ 	cmd->data[0] = FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
+ 		       FIELD_PREP(CMDQ_TLBI_0_SCALE, range_inv->scale);
+-	cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
+-		       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
+-		       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
++	cmd->data[1] =
++		FIELD_PREP(CMDQ_TLBI_1_LEAF, !tlbi->table_levels_bitmap) |
++		FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
++		FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
++}
 +
-+	/*
-+	 * The spec defines the invalidated range as:
-+	 *   Range = ((NUM+1) * 2^SCALE) * Translation_Granule_Size
-+	 * NUM is 5 bits, so (NUM+1) covers 1..32 granules. Find the smallest
-+	 * SCALE at which a single command could cover num_tg.
-+	 *
-+	 * Unlike other IOMMUs the spec has no alignment requirement on the
-+	 * address beyond alignment to tg (so long as TTL=0).
-+	 */
-+	first.scale = arm_smmu_range_inv_calc_scale(num_tg);
-+	if (first.scale > 31) {
-+		/* Range too large for a single command do full invalidation */
-+		return false;
-+	}
-+
-+	if (tlbi->has_cont &&
-+	    (smmu->options & ARM_SMMU_OPT_FULL_CONT_RANGE_INV)) {
-+		/*
-+		 * Produce a single invalidation by rounding up and disabling
-+		 * the trailer.
-+		 */
-+		first.num = arm_smmu_range_inv_calc_num(num_tg, first.scale);
-+		trail.num = 0;
-+	} else {
-+		/*
-+		 * Produce two invalidations by rounding down and adding a
-+		 * second trailing range invalidation anchored at the end.
-+		 */
-+		first.num = num_tg >> first.scale;
-+		trail = arm_smmu_range_inv_init_end(
-+			last_tg, num_tg - ((u64)first.num << first.scale));
-+	}
-+	arm_smmu_cmdq_batch_add_range_inv(smmu, cmds, cmd, tlbi->leaf_only,
-+					  &first, ttl, tg_enc);
-+
-+	if (trail.num)
-+		arm_smmu_cmdq_batch_add_range_inv(
-+			smmu, cmds, cmd, tlbi->leaf_only, &trail, ttl, tg_enc);
-+	return true;
++static int arm_smmu_bitmap_to_level(u8 bitmap)
++{
++	return 3 - (int)__ffs(bitmap);
  }
  
--/* Used by non INV_TYPE_ATS* invalidations */
--static void arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
-+/*
-+ * One TLBI command per IOTLB entry, assuming the entries are all at least
-+ * iopte_granule sized. Returns false if too many commands would be needed which
-+ * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
-+ * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
+ /*
+- * Generate up to two range TLBI command payloads covering [iova, iova+size).
+- * Sets use_full_inv if the range is too large to represent.
++ * Compute the TTL hint from leaf/table level bitmaps. 0 ttl means no hint
++ * invalidate all levels.
 + */
-+static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
-+					   struct arm_smmu_cmdq_batch *cmds,
-+					   struct arm_smmu_cmd *cmd,
-+					   struct arm_smmu_tlbi *tlbi)
++static unsigned int arm_smmu_compute_ttl(u8 leaf_bitmap, u8 table_bitmap,
++					 u8 tgsz_lg2)
 +{
-+	unsigned long num_ops = tlbi->size / tlbi->iopte_size;
-+	unsigned long iova = tlbi->iova;
-+	unsigned long i;
++	int ttl;
 +
-+	if (!num_ops || num_ops > 512)
-+		return false;
++	if (leaf_bitmap) {
++		/* If TTL is used then only leaves at the TTL are invalidated */
++		if (!is_power_of_2(leaf_bitmap))
++			return 0;
 +
-+	for (i = 0; i < num_ops; i++) {
-+		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+			       (iova & ~GENMASK_U64(11, 0));
-+		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
-+		iova += tlbi->iopte_size;
++		ttl = arm_smmu_bitmap_to_level(leaf_bitmap);
++		if (table_bitmap) {
++			int table_ttl =
++				arm_smmu_bitmap_to_level(table_bitmap) + 1;
++
++			/*
++			 * A range invalidation with !leaf_only clears out all
++			 * table levels above the leaf level ttl only.
++			 */
++			if (table_ttl > ttl)
++				return 0;
++		}
++	} else if (table_bitmap) {
++		/*
++		 * Table-only invalidation. Spec says:
++		 *  For operations with Leaf=0, invalidation of cached Table
++		 *  descriptors for the address and scope additionally occurs at
++		 *  levels between the start of the walk and the level before
++		 *  the last level given by TTL.
++		 * Choose a TTL hint that covers the only target table
++		 * descriptor levels.
++		 */
++		ttl = arm_smmu_bitmap_to_level(table_bitmap) + 1;
++
++		/*
++		 * 16K granule, ARM TTL=1 is reserved (SMMUv3 H.a Section
++		 * 4.4.1.1) if DS=0, avoid it always for table invalidations
++		 * since we don't know what instance this will be applied to
++		 * yet.
++		 */
++		if (tgsz_lg2 == 14 && ttl == 1)
++			return 0;
++	} else {
++		/* Both bitmaps zero is not allowed */
++		WARN_ON(true);
++		return 0;
 +	}
-+	return true;
-+}
 +
-+static void arm_smmu_inv_all_cmd(struct arm_smmu_inv *inv,
-+				 struct arm_smmu_cmdq_batch *cmds,
-+				 struct arm_smmu_cmd *cmd)
-+{
-+	u64p_replace_bits(&cmd->data[0], inv->nsize_opcode, CMDQ_0_OP);
-+	arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
++	/*
++	 * Assumes the page table is formed properly and does not trigger the
++	 * 16k TTL=1 condition for leaf-only unless DS is enabled.
++	 *
++	 * ARM level -1 never has a leaf so something has gone wrong. ARM Level
++	 * 0 cannot be hinted because ttl=0 means no-hint.
++	 */
++	if (WARN_ON(ttl < 0))
++		return 0;
++	return ttl;
 +}
 +
 +/*
-+ * Used by non INV_TYPE_ATS* invalidations. Returns true if it fell back to
-+ * full invalidation using nsize_opcode.
++ * Generate up to two range TLBI command payloads covering [start, last]. Sets
++ * use_full_inv if the range is too large to represent.
+  *
+  * Normally the first range invalidation is the largest representable span which
+  * does not exceed the requested range. If necessary, the second range
+@@ -2570,28 +2634,21 @@ arm_smmu_tlbi_add_range_cmd(struct arm_smmu_tlbi *tlbi,
+  * invalidation overlaps the first instead of exceeding the requested range.
+  *
+  * For SVA on an invs containing an SMMU with ARM_SMMU_OPT_FULL_CONT_RANGE_INV,
+- * produce only a single range invalidation and overinvalidate so any potential CONT is
+- * covered by one command.
++ * produce only a single range invalidation and overinvalidate so any potential
++ * CONT is covered by one command.
+  */
+ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
+ 				     bool single_range_inv)
+ {
+ 	u8 tgsz_lg2 = tlbi->tgsz_lg2;
+-	struct arm_smmu_range_inv first = { .start_tg = tlbi->iova >>
++	unsigned int ttl = arm_smmu_compute_ttl(
++		tlbi->leaf_levels_bitmap, tlbi->table_levels_bitmap, tgsz_lg2);
++	struct arm_smmu_range_inv first = { .start_tg = tlbi->start >>
+ 							tgsz_lg2 };
+-	u64 last_tg = (tlbi->iova + tlbi->size - 1) >> tgsz_lg2;
++	u64 last_tg = tlbi->last >> tgsz_lg2;
+ 	u64 num_tg = last_tg - first.start_tg + 1;
+ 	u8 tg_enc = (tgsz_lg2 - 10) / 2;
+ 	struct arm_smmu_range_inv trail;
+-	u8 ttl = 0;
+-
+-	/*
+-	 * Determine what level the granule is at. For non-leaf, both io-pgtable
+-	 * and SVA pass a nominal last-level granule because they don't know
+-	 * what level(s) actually apply, so leave TTL=0.
+-	 */
+-	if (tlbi->leaf_only)
+-		ttl = 4 - ((ilog2(tlbi->iopte_size) - 3) / (tgsz_lg2 - 3));
+ 
+ 	/*
+ 	 * The spec defines the invalidated range as:
+@@ -2632,20 +2689,43 @@ static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
+ }
+ 
+ /*
+- * One TLBI command per IOTLB entry, assuming the entries are all at least
+- * iopte_granule sized. Sets use_full_inv if too many commands would be needed
+- * which indicates too high a latency. The threshold is similar to MAX_DVM_OPS
+- * in arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
++ * Compute the stride for single-page invalidation without range invalidation.
++ * Returns the log2 stride of the lowest affected level. Single invalidation
++ * removes all IOPTEs that contain the IOVA invalidated, and we can reliably
++ * assume that the architected page size and table sizes (not contiguous!) are
++ * reflected in the IOTLB. Thus if there is a 2M leaf entry we only need to
++ * issue a single IOTLB invalidation within that 2M IOVA.
 + */
-+static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
- 				       struct arm_smmu_cmdq_batch *cmds,
++static u8 arm_smmu_tlbi_calc_stride(struct arm_smmu_tlbi *tlbi)
++{
++	u8 combined = tlbi->table_levels_bitmap | tlbi->leaf_levels_bitmap;
++
++	if (WARN_ON(!combined))
++		return U8_MAX;
++	return arm_smmu_pt_level_to_lg2sz(tlbi->tgsz_lg2, __ffs(combined));
++}
++
++/*
++ * One TLBI command per stride-sized entry. Sets use_full_inv if too many
++ * commands would be needed. The threshold is similar to MAX_DVM_OPS in
++ * arch/arm64/include/asm/tlbflush.h.
+  */
+ static void arm_smmu_tlbi_calc_single(struct arm_smmu_tlbi *tlbi)
+ {
+-	unsigned long num_ops = tlbi->size / tlbi->iopte_size;
++	u8 stride_lg2 = arm_smmu_tlbi_calc_stride(tlbi);
++	unsigned long num_ops;
+ 
++	if (stride_lg2 == U8_MAX) {
++		tlbi->single.use_full_inv = true;
++		return;
++	}
++	num_ops = (tlbi->last - tlbi->start + 1) >> stride_lg2;
+ 	if (!num_ops || num_ops > 512) {
+ 		tlbi->single.use_full_inv = true;
+ 		return;
+ 	}
+ 	tlbi->single.num = num_ops;
++	tlbi->single.stride_lg2 = stride_lg2;
+ }
+ 
+ static void arm_smmu_inv_all_cmd(struct arm_smmu_inv *inv,
+@@ -2665,7 +2745,7 @@ static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
  				       struct arm_smmu_cmd *cmd,
  				       struct arm_smmu_tlbi *tlbi)
  {
--	struct arm_smmu_cmd nsize_cmd;
--
--	if (arm_smmu_inv_size_too_big(inv->smmu, tlbi))
--		goto full_inv;
--
--	if (tlbi->has_cont && tlbi->size > tlbi->iopte_size &&
--	    (inv->smmu->options & ARM_SMMU_OPT_FULL_CONT_RANGE_INV)) {
--		if (!arm_smmu_cmdq_batch_add_range_inv(inv->smmu, cmds, cmd,
--						       tlbi->iova, tlbi->size,
--						       tlbi->tgsz_lg2))
--			goto full_inv;
--		return;
-+	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-+		if (arm_smmu_cmdq_batch_add_range(inv->smmu, cmds, cmd, tlbi))
-+			return false;
-+	} else {
-+		if (arm_smmu_cmdq_batch_add_single(inv->smmu, cmds, cmd, tlbi))
-+			return false;
+-	u64 iova = tlbi->iova;
++	u64 iova = tlbi->start;
+ 	unsigned int i;
+ 
+ 	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
+@@ -2690,9 +2770,10 @@ static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
  	}
  
--	arm_smmu_cmdq_batch_add_range(inv->smmu, cmds, cmd, tlbi);
--	return;
--
--full_inv:
--	nsize_cmd = *cmd;
--	u64p_replace_bits(&nsize_cmd.data[0], inv->nsize_opcode, CMDQ_0_OP);
--	arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, &nsize_cmd);
-+	arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+	return true;
+ 	for (i = 0; i < tlbi->single.num; i++) {
+-		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
++		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF,
++					  !tlbi->table_levels_bitmap) |
+ 			       (iova & ~GENMASK_U64(11, 0));
+-		iova += tlbi->iopte_size;
++		iova += BIT_U64(tlbi->single.stride_lg2);
+ 		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
+ 	}
+ 	return false;
+@@ -2889,12 +2970,17 @@ static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
+ 				  size_t granule, void *cookie)
+ {
+ 	struct arm_smmu_domain *smmu_domain = cookie;
++	u8 tgsz_lg2 = smmu_domain->tgsz_lg2;
+ 	struct arm_smmu_tlbi tlbi = {
+ 		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+-		.iova = iova,
+-		.size = size,
+-		.iopte_size = 1 << smmu_domain->tgsz_lg2,
++		.start = iova,
++		.last = iova + size - 1,
+ 	};
++	u8 table_levels =
++		BIT(arm_smmu_pt_lg2sz_to_level(tgsz_lg2, ilog2(size)));
++
++	tlbi.table_levels_bitmap = table_levels;
++	tlbi.leaf_levels_bitmap = table_levels - 1;
+ 
+ 	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
+ }
+@@ -4165,21 +4251,31 @@ static void arm_smmu_flush_iotlb_all(struct iommu_domain *domain)
+ 		arm_smmu_tlb_inv_context(smmu_domain);
  }
  
- static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
-@@ -2642,6 +2707,7 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
- static void __arm_smmu_domain_inv_range(struct arm_smmu_tlbi *tlbi,
- 					struct arm_smmu_invs *invs)
++/*
++ * io-pgtable-arm.c calls this function either under
++ * arm_smmu_tlb_inv_page_nosync() or via the normal iommu code to flush the
++ * gather. Due to how iommu_iotlb_gather_add_page() works the gather will end up
++ * with a single uniform pgsize leaf. If it has to change to a different leaf
++ * level then it flushes the gather and starts a fresh one. Thus this always
++ * targets only a single leaf level.
++ */
+ static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
+ 				struct iommu_iotlb_gather *gather)
  {
-+	struct arm_smmu_inv *used_s12_vmall = NULL;
- 	struct arm_smmu_cmdq_batch cmds = {};
- 	struct arm_smmu_inv *cur;
- 	struct arm_smmu_inv *end;
-@@ -2673,13 +2739,21 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_tlbi *tlbi,
- 			arm_smmu_inv_to_cmdq_batch(cur, &cmds, &cmd, tlbi);
- 			break;
- 		case INV_TYPE_S2_VMID:
--			cmd = arm_smmu_make_cmd_tlbi(cur->size_opcode,
--						     0, cur->id);
--			arm_smmu_inv_to_cmdq_batch(cur, &cmds, &cmd, tlbi);
-+			cmd = arm_smmu_make_cmd_tlbi(cur->size_opcode, 0,
-+						     cur->id);
-+			if (arm_smmu_inv_to_cmdq_batch(cur, &cmds, &cmd, tlbi))
-+				used_s12_vmall = cur + 1;
- 			break;
- 		case INV_TYPE_S2_VMID_S1_CLEAR:
--			/* CMDQ_OP_TLBI_S12_VMALL already flushed S1 entries */
--			if (arm_smmu_inv_size_too_big(cur->smmu, tlbi))
-+			/*
-+			 * S2_VMID used CMDQ_OP_TLBI_S12_VMALL which already
-+			 * flushed S1 entries. These two types always come in
-+			 * pairs and arm_smmu_inv_cmp() ensures that they are
-+			 * consecutive in the list for the same SMMU. There may
-+			 * be several pairings so check this is paired with the
-+			 * one that did the full invalidation.
-+			 */
-+			if (used_s12_vmall == cur)
- 				break;
- 			arm_smmu_cmdq_batch_add_cmd(
- 				smmu, &cmds,
+ 	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
++	unsigned int tg = smmu_domain->tgsz_lg2;
+ 	struct arm_smmu_tlbi tlbi = {
+ 		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+-		.iova = gather->start,
+-		.size = gather->end - gather->start + 1,
+-		.iopte_size = gather->pgsize,
+-		.leaf_only = true,
++		.start = gather->start,
++		.last = gather->end,
+ 	};
+ 
+-	if (!gather->pgsize)
++	if (WARN_ON(gather->pgsize < BIT(tg)))
+ 		return;
+ 
++	tlbi.leaf_levels_bitmap =
++		BIT(arm_smmu_pt_lg2sz_to_level(tg, ilog2(gather->pgsize)));
++
+ 	arm_smmu_domain_tlbi(&tlbi, smmu_domain);
+ }
+ 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 5c1c3ccb5fff0b..2717bf2f3f3607 100644
+index 50fe7e99df898a..245db175386a9d 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -804,6 +804,19 @@ static inline struct arm_smmu_invs *arm_smmu_invs_alloc(size_t num_invs)
- 	return new_invs;
+@@ -823,17 +823,30 @@ static inline unsigned int arm_smmu_pt_lg2sz_to_level(unsigned int tgsz_lg2,
  }
  
-+/* Generic page-table level 0 is the leaf-only level. */
-+static inline unsigned int arm_smmu_pt_level_to_lg2sz(unsigned int tgsz_lg2,
-+						      unsigned int level)
-+{
-+	return tgsz_lg2 + (tgsz_lg2 - ilog2(sizeof(u64))) * level;
-+}
-+
-+static inline unsigned int arm_smmu_pt_lg2sz_to_level(unsigned int tgsz_lg2,
-+						      unsigned int lg2sz)
-+{
-+	return (lg2sz - tgsz_lg2) / (tgsz_lg2 - ilog2(sizeof(u64)));
-+}
-+
  struct arm_smmu_tlbi {
- 	unsigned long iova;
- 	size_t size;
-@@ -1176,7 +1189,8 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+-	unsigned long iova;
+-	size_t size;
+-	/* page or block size of the leaf iopte */
+-	unsigned int iopte_size;
++	unsigned long start;
++	unsigned long last;
+ 	/* Base Translation Granule of the page table */
+ 	u8 tgsz_lg2;
+-	bool leaf_only;
++	/*
++	 * Level bitmaps use iommupt numbering: bit 0 is the leaf-only level
++	 * (ARM level 3), bit 1 is the next level up (ARM level 2), etc. These
++	 * match the iommu_iotlb_gather.pt fields. Each set bit indicates a
++	 * change at that level. The contiguous hint has no effect on
++	 * invalidation processing because HW can ignore the hint.
++	 *
++	 * The pair selects the invalidation scope:
++	 *   table!=0, leaf==0 : walk cache only
++	 *   table==0, leaf!=0 : leaves only
++	 *   table!=0, leaf!=0 : walk cache + all leaves
++	 *   table==0, leaf==0 : illegal
++	 */
++	u8 leaf_levels_bitmap;
++	u8 table_levels_bitmap;
  
- static inline void arm_smmu_domain_inv(struct arm_smmu_domain *smmu_domain)
+ 	struct {
+ 		bool use_full_inv;
+ 		u16 num;
++		u8 stride_lg2;
+ 	} single;
+ 
+ 	struct {
+@@ -1205,6 +1218,8 @@ static inline void arm_smmu_domain_inv(struct arm_smmu_domain *smmu_domain)
  {
--	arm_smmu_domain_inv_range(smmu_domain, 0, 0, 0, false);
-+	arm_smmu_domain_inv_range(smmu_domain, 0, 0, 1 << smmu_domain->tgsz_lg2,
-+				  false);
- }
- 
- void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+ 	/* Prefilled for invalidate all */
+ 	struct arm_smmu_tlbi tlbi = {
++		.start = 0,
++		.last = ULONG_MAX,
+ 		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+ 		.single.use_full_inv = true,
+ 		.range.use_full_inv = true,
 -- 
 2.43.0
 
