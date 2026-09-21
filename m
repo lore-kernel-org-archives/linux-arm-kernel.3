@@ -4,110 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A46C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C265C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bnn6zn+vbwMdJcdlyBW4k06r7mJ5WHfKBmVX1PCngjU=; b=MzZWtXHtKsYSLbKy4XO/Sf+Pmu
-	cH0fLLd/Ufsg53uqWvTZhxGfkdshcE0Ib4VNniQCTOVhUuA1S5RETniHIL0XiJQjFXTyZR0xRA12/
-	EnBTWuMH/cfY2qm7n0aloxHxSXwUEpbhKEgcplKJ89fmxxXQan/svNn2FodNZMn2WE3m176xROx2B
-	W5dHzFGyxNCETEUO4fVzbGKvcp8W15F4r+bOz1QQgxpioiP8Mic4Im/UgrHo/V6LZciPuAaE5tmDe
-	kp4JMRIYJb7mbTpZzRO2SgwGcScREYkFxyWyaX2+NXKw6FJ1rFviz52pHx7u1bpGWUbAI0/vhHj1p
-	EQnesqKA==;
+	bh=tEMjD4QABtsqcKKWJSSUlZeCK+qOD0w5nqpSa9w3MOQ=; b=zy2a99vZhoSDztWP6frMzO6HcW
+	qdNgyPmVnHRw0q/nLD0F60JKMPCfSRimY1BDG4DqSeyglsnVlpHUY2QytGHZOl6tak4gEsRB3cCK8
+	UgHFmDywfuRJEszyLHzzyGC53hEZgcph6QDkmblI1N9B6jYkhIZPn7Ygq5tHKXigPCxpoZTHGmVFu
+	EK+fC63D6nt1cez49Cbc2dS4Yv+STAjV1KYpK9xkoHfB6stqI3Am6vdMUscPSuA3pQDF/taCJ0g7t
+	lDv6H9Hb72KLQnhhelN9yTjpNPXtyWbOnwXM9jY/mNJcwRz0UFgsJbiz1Da/rIl8vzHC4UL4A2Y1y
+	8BRXI04Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cYl-00000001yJf-2Fhj;
-	Mon, 21 Sep 2026 11:51:47 +0000
-Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+	id 1x8cae-00000001ych-3spi;
+	Mon, 21 Sep 2026 11:53:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cYj-00000001yIo-03PR
+	id 1x8cad-00000001yc5-1G8x
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 21 Sep 2026 11:53:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tEMjD4QABtsqcKKWJSSUlZeCK+qOD0w5nqpSa9w3MOQ=; b=ijstm9nOoSzDl9uiOiF3Q1ECIW
+	Bc5Oh4gz9PcJQNM6zk/SgelNR1GgHIWPBfrDiwB1x6yrwhav7T5xLlgiufhd2s10MP9Mv+NXIAxEH
+	XuHmOYaUQNwWo3a7UiOp0LqeftfcfSJAXJ8dO/dJp6glbUbhkcESPuBd96BJuRDbZsXf04jbZ7DGO
+	qi7PXP9n2KO/lKqNsr7xh+2K5yXVJACp37q7ZVNyzDBjA+PYLgIzBFl+m3jNPVsMOZvpnbv14OkAJ
+	qZ6LTzoHa/h6XzvCY8geQcLi/vo9NOIptl+RCuNRhb4acUkS4RvCPJxlSQsCP7WLPueG4Q0csLLw8
+	ZliJDFAQ==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8caQ-0000000CEyv-1K6Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 11:51:46 +0000
-Received: by mail-qk2-x10.google.com with SMTP id af79cd13be357-939109fafd6so245000885a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:51:43 -0700 (PDT)
+	Mon, 21 Sep 2026 11:53:41 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LAdhNE227633
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 11:53:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=tEMjD4QABtsqcKKWJSSUlZeC
+	K+qOD0w5nqpSa9w3MOQ=; b=SQ90gUYGFPYclcUdbC/XZkbNnW/4Op5voV5izajI
+	Tf0f+7EidkucBFZbHM87YD6n61hJYHPf1DwTzCPPYVo8eIXZH5atog8gxJCSvovG
+	jKx/fe9a7H3me6LGHCLb5qWdOjJGDiWPNEMI77+zIKs8iiicGt6q5kBcYymcM5ws
+	66U611gmAJFl2zA5JP+3WuePGB0fGDc8+zGOOUWRprqp/bXTWS+tp15jxY6eEJQp
+	1/gY3HmMFp1Skoc+vvkAwmBre6Fczus9DrbTQgzS2LL18C9Jcov6rRFqWUgGaWqj
+	Oj6Up9qkqe1W7FLe9Efc38vdEPvvrNDcjmC6kkL8nP6TKw==
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gu17grs51-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 11:53:25 +0000 (GMT)
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-97e9e1dd7fbso2208772241.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:53:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1789991503; x=1790596303; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bnn6zn+vbwMdJcdlyBW4k06r7mJ5WHfKBmVX1PCngjU=;
-        b=hRNdOo2X0+j2876ySDyXNVyPhsXK+IOrBfN1dH9yifTL+cwYhvTkRQ8+ByuWkCxWxt
-         D5IjSgucuNHjDPK5AOD+6W2aPfQ94d3afV2eiZrbCS3ay2fzNPzCzDXgSFPk0pc6QrCQ
-         1W26llohpDBYpQoly8cMu/hdLv/yavrO3QzRMcxHBJcvqZKK9Hbp1jGvGsCCpZ3Y6sX1
-         +FDVSnjQfZ7BRsOc8kyeWNhoxbZbaXkSll2DErrkbMG/KWtrQi24HU/vJC5FyO7HwYtv
-         59KsmnJLht4Pl1fTUQq/QNyizGLq+7o1muKefR1hC7fJ2M71THLfWaXLUcmusGwltss3
-         xC3w==
+        d=oss.qualcomm.com; s=google; t=1789991604; x=1790596404; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tEMjD4QABtsqcKKWJSSUlZeCK+qOD0w5nqpSa9w3MOQ=;
+        b=LMIPV2p8pdH6UKtVWl0ozImyg3Zu5Kf/SnRBlyyWCEWljfjLTzPj4YnRcDhpbWspu0
+         BwoJqn2X0+bUboYTbyeHg5m8HrKGbE95P/axJo8VMJGLUErEekmXAUA/wehkMgjRO/bU
+         67hVQ37Dz+CKmy8UegJz9jeIGxhejFjjHuMe5Vw9sqayY6MQuhYroDlMFP4yUsVhm82D
+         XwKSRqvD5nl0+frsW6fWvUgjMAX1NVu0eGpP/ZPFW4J/DVCyOYMx/h/uJ85qTJAgqyen
+         5NmUxXc0dMiKIhvXNVLXbwhCV9GC6KsAOiUyPZRbBXoE0xZAuI5xfq2uIvsg/jzz90kR
+         MLaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789991503; x=1790596303;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=bnn6zn+vbwMdJcdlyBW4k06r7mJ5WHfKBmVX1PCngjU=;
-        b=vXa8/faLWtd23/+HWC66fQf1BD26Zify3wq+UZfPi+kOIcLL0WcfxnA6TJxLHVVay5
-         lrLOvTxQ+MWjyEavGtHV+MEpRrg50GU5i8rNEBIWRjUhUI3SWAHvsN1B6IN4IejvCakb
-         Z8nHzMqdwTWgibJWvmXk8OIWf0Y6eyjLjXuLAwtfA02L+JljgjkG45Otv6NdL5qj1MGB
-         nn85g9CqehBGQSLPxWJO9tZ9OB3kLUAQgi+DFTEUAfQmADupn1lhkgOnaEapAx1JiT3b
-         W9xHKsYQ1VLbMFA5WwTgy7l8Wq8POOS4HFfRzGhOzehq+D8xuUQ2uZto5E42ule16HG+
-         MC9Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxYJuX77Vrc0Tq2wOcpLAXLVqX6rePf5/a++Uq6gUaqzGKA+okrdEf9M0+U0ZXU9EmziQiXTg7LKFoXrxayhse1@lists.infradead.org
-X-Gm-Message-State: AFuF++nJd2hAiIeIoazDSHrwSvUhFjtBTogGDB0nGDf6dusIZh0eI3EM
-	GrU7TM9/Mj1nvL+zvQInVSac1/4GX+nLl8xIOls/3WA5UGiZcGVzPirCp5+MmdBUYwZUFQ79itX
-	6Fubz
-X-Gm-Gg: AYBFou1Ya3OfPjvspj6+EYDGZP/qL7ajzpiE11RcIHbjoVnDHQLsbIzdrrCKdmZ/enI
-	TIxMsh1TCMFSyRSszBIQp625qrM7+KHRvOiOCZWgMKitU8v66ISzUBrgKMNZy6PEILIn/5ug9V+
-	w19zOu8zaUzUkiXEifxmjd5MVQ0/lT71pgbpyTJ6rGCWAAPFwYsIyacSqUxVKkW9HldPHaCI9Bc
-	zxd/Cn94imyVxFhj4XX6jZIVdCrHYIAZzOyIfOd4zTjM8p8o5qZ93/9Sf3AAmotgzqyZQ9+phS4
-	KaoiuwWEnfaR8tJKW/dH1zQryXCp3t39WySFaGIb+TylLh3mYxTFUfhR0Acs9bzZFTONFQm7nNk
-	MYbLtzZ4TiRx+pWKtmcVb9xRvZ3mkdpRohXjtQvzwEtRuy3Wf5aQ9NxO1JOtOJplEngHDeauasK
-	NKS/EpsvOdLdn+NRPYaZ2+7g3OcDZm9T4HYwpm5//pJDy27jM/Utk1Y5t5/E9pTMBxzWTFXnD1B
-	xfNuBhPMvceuLxYTI4PfuZx4fP9D5ZG1GB2Hp8Am4Mu11LZB6N+J/GvjQDfQi1Pu4I=
-X-Received: by 2002:a05:620a:2556:b0:93b:d79e:18f7 with SMTP id af79cd13be357-93c15e7ffcfmr18078085a.58.1789991502666;
-        Mon, 21 Sep 2026 04:51:42 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91260aa0f99sm65421876d6.38.2026.09.21.04.51.41
+        d=1e100.net; s=20260707; t=1789991604; x=1790596404;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tEMjD4QABtsqcKKWJSSUlZeCK+qOD0w5nqpSa9w3MOQ=;
+        b=kwL5dZUq45Lj1HUjzwWHMWXxNFxbHpYXU9gb55mnIG+NovcWDXgGEZOobnMl5r/5wr
+         +L8A/FlX3ps7KU6Oo3/o8aJT0yXZ0lpWvgBY33ldcJtWYftj9YkcXz0yERSJIVAEDHFz
+         37pr6muHIU+j93C2yPudpUst7wb5gUENfCTbrEw0AeUy2OB9jfueHBgQRwVPU9RXtTr+
+         qmx4wxLFmEcDLaLWBwjObiJTtMPI1ek2YoTQ6N9qtcPt9++g/o20TyhPkZ/9R1lGC4K9
+         migdQJ4LHymy6/dXJy8YT9clunXosSXB6Yrt1xCGhW1SbeCuWclfUPhVXvp/VfgDsVDW
+         UYgg==
+X-Forwarded-Encrypted: i=1; AKwUvBzYB5i3405as2Cygon0rly8xiaEuuIz4dq4cYBGNgroyyaKP19BWlIub4e5X3rcftnZD3Tc6NxVfwL0MMRKEKlE@lists.infradead.org
+X-Gm-Message-State: AFuF++lFHLE6pcqNeuIYKKKx3pXlNru2Xu5NKcGoIDv2TsTE59JDs+Pv
+	PkFqj2ZPnTnfy4ILu3Jf6tg1bfDqLrsTVExXs7zbn/sY2YV001NF8zGIvTWvYSRQ8sf5kQYNb4W
+	Oi8E6OlcbqGE3CNFQvXM6h3Mc6xjRYy8uIwGl9p7tFO5skNjdqREDEbL+hIRgLp0A+8WIx4y7lZ
+	ithw==
+X-Gm-Gg: AYBFou2JTmo5rmxAidmbnrBmYPcjCUkOsOLsaV04+WZPBSIAbkxxLZ590fLqLt/bkZx
+	hZO4raR4uSLOEDk7nBCP3PBQ8cUlre8JqMX5d1mgxHbvIUY2y9qNYcgJXO9hGPQw3J72vai5X6g
+	HGr2Rqf79BJRZIROMvYoIFCNE18qrQB8ULXfy2/X7GXGaisUBOFAAg3WWxzIYDo1cE2weuExSHW
+	aG/iBYwKh74zWwhQvXTD2mra9Kt860TmhoAz7U73rrz4RXgz525W/ksgKY5pgUBGM7ukDOyDG+P
+	c+JHoTIV8ntoIoBNYc59igmR8+/+qAis6XaySIJ8mGwnhnmUUzYcdVFT1JtbDPOPjLE1TkoxKKb
+	f7uvQgzTbvSNwiKc=
+X-Received: by 2002:a05:6122:d8e:b0:5c9:a60b:e59f with SMTP id 71dfb90a1353d-5c9b597ec34mr5069597e0c.10.1789991604529;
+        Mon, 21 Sep 2026 04:53:24 -0700 (PDT)
+X-Received: by 2002:a05:6122:d8e:b0:5c9:a60b:e59f with SMTP id 71dfb90a1353d-5c9b597ec34mr5069584e0c.10.1789991603944;
+        Mon, 21 Sep 2026 04:53:23 -0700 (PDT)
+Received: from oss.qualcomm.com ([86.121.170.232])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724460753sm23129187f8f.10.2026.09.21.04.53.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 04:51:41 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x8cYf-00000006E0j-0Dl6;
-	Mon, 21 Sep 2026 08:51:41 -0300
-Date: Mon, 21 Sep 2026 08:51:41 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	"T.J. Mercier" <tjmercier@google.com>
-Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
- alignment for cc-shared buffers
-Message-ID: <20260921115141.GJ11599@ziepe.ca>
-References: <aq1V3oeDdvXobt8J@arm.com>
- <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
- <20260918153642.GD11599@ziepe.ca>
- <d8123f21-d5ce-415b-a05a-392d97b8b57d@amd.com>
- <20260918165315.GF11599@ziepe.ca>
- <6115eaf7-21bc-49ce-8a74-08fd37a1e2c9@amd.com>
+        Mon, 21 Sep 2026 04:53:20 -0700 (PDT)
+Date: Mon, 21 Sep 2026 14:53:19 +0300
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: angelogioacchino.delregno@collabora.com, gregkh@linuxfoundation.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
+        nfraprado@collabora.com, sboyd@kernel.org
+Subject: Re: [PATCH] spmi: mtk-pmif: Fix clock reference leak in
+ mtk_spmi_bus_probe()
+Message-ID: <wqj654zd7zqr2uyoivfypt3qioqitciwakxxhb6eslu3q3sawn@jy7nsjxmgozh>
+References: <20260917155037.2161027-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6115eaf7-21bc-49ce-8a74-08fd37a1e2c9@amd.com>
+In-Reply-To: <20260917155037.2161027-1-vulab@iscas.ac.cn>
+X-Proofpoint-GUID: dipLPF_ccZdpwWdCX3OmDhYVnfn3spmk
+X-Authority-Analysis: v=2.4 cv=IewSymqa c=1 sm=1 tr=0 ts=6ab11ab5 cx=c_pps
+ a=KB4UBwrhAZV1kjiGHFQexw==:117 a=po8fGBi+ks8MzcVQGuqtFQ==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=OgdZ-FXbkxQzFk8FBkAA:9 a=CjuIK1q_8ugA:10
+ a=o1xkdb1NAhiiM49bd1HK:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDE3MSBTYWx0ZWRfXxsMX91WDSDPA
+ YrsxpvF32pNS1AdbWHhB5JeaosJQwhujcJBhAln7fNeD3Z+VVIcNQvtC8L/GJZ85kydVH9r++eW
+ 0xMoBuF5nh5TLc7azBws6AcKmOkmJunhe9FGoirQmT6u+VXRuYPRzf754QCEgUP3Hlu5ga3Qgm4
+ OK/ufE5S0hnS/OZoBuRZLEUDq7yhMJeC3tN+9noy9FbEyqd5SuGD9EqyUOmMuuTBOQots9Bxtla
+ 7XUXUzLmTOBBC3OtbBuXw0wPDYizAZK1KmgMP7ldustASh3KAgH7sXFPgcfmZr9PbSrkoAnWIlE
+ Z/gQ6H07H7YOJzG99obGnQ7KXSq2gOsdMZluFowLbCUvVXdGnpTbGsZEzZSuzV73k1rZcFEUZ/U
+ /RsSNvOK94toUsDQeqCWoZU4ZHIp8SCVhpzpEfizAATyyR8r3Khv63vJymiBDqyJAFLvGsSoXyJ
+ 8cHSObtdDYubs97yJeg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDE3MSBTYWx0ZWRfX4gHjRScfm6Cf
+ vgyb0bXfqf6ZO0Wym63FNTVKyke6shAwQvzY6gzWxDoloPECYB1aEXyJDjYrwlTOGC/XIoLrUVX
+ e9fo+tNflTAr3ZBNHu3cqVFfpwahZIY=
+X-Proofpoint-ORIG-GUID: dipLPF_ccZdpwWdCX3OmDhYVnfn3spmk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_04,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 spamscore=0 phishscore=0 malwarescore=0 adultscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609210171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_045145_117275_5BF982A7 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20260921_125338_670635_A7CD5C47 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,46 +164,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 11:07:17AM +0200, Christian König wrote:
-> On 9/18/26 18:53, Jason Gunthorpe wrote:
-> > On Fri, Sep 18, 2026 at 05:39:55PM +0200, Christian König wrote:
-> > 
-> >>> Arch code can figure out how to do it. If some ARM configs only give
-> >>> order 4 folios or whatever then dmabuf heap doesn't care.
-> >>
-> >> The fundamental problem is that DMA allocations are highly
-> >> architecture and device specific while Linux memory allocation APIs
-> >> are generic.
-> > 
-> > This isn't a dma allocation, this is a memory allocation.
+On 26-09-17 15:50:37, Wentao Liang wrote:
+> of_clk_get_by_name() returns a reference that must be released with
+> clk_put(). If the lookup of a later clock fails, the function returns
+> without releasing the clocks that were already obtained. Put those
+> clocks before returning.
 > 
-> No, I mean this is a DMA-buf heaps allocation. It is a DMA
-> allocation, we just don't know for which device.
+> Fixes: 078117963b2c ("spmi: mtk-pmif: Add multi-bus support for SPMI 2.0")
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-So? How is it any different from the existing alloc pages?
- 
-> So ideally we should use resources which work for most devices in
-> the system.
-
-Which this does.
-
-> If a device has special allocation requirements (CMA,
-> restricted addressing etc...) we need a specialized DMA-buf heaps
-> for it.
-
-Those things don't really intersect with CC, but if they did their are
-already heap names to request those, someone can add some shared
-restricted CMA option if they need someday ?
-
-> That userspace provides this cc_shared flag is a NO-GO to begin
-> with.
-
-What do you mean? We discussed this with the heap maintainers and we
-all agreed this was a kind of heap just like any of the other kinds of
-heaps that userspace can request.
-
-It is *exactly* the "special allocation requirements" you are talking
-about above.
-
-Jason
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 
