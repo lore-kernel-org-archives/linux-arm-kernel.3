@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8299C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F368C982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqL1+pxbQbl2lD+yMbd0BnhFooll2P4VKDlpZNXroxA=; b=GfXPJo4yF6TMvNERSb5V46YFRM
-	pOthnwca/Jjp/cpLfIC38C5/flwbW/UF/SN1P3S7+jdUXaXcdkgaARo2qfLaPWqX0kZQCJ1mrEJGj
-	e6uYoMgYFHrAl/mR14AbQ4xg3aAYpt/oW3cWDUTz+a99RXD+vXzlMd51l8Rb3Bu6OTCax0Da8sijS
-	zR1o617tvHmq/Ep1NJpKKhXdc8Z/KVU8yR92vdE5agoy+G3qG2s1U7N2kD+kywteFW12C6/Vh6QGx
-	I226SwCykPmZLOMUHVZzS82lStQtkVRYjTimLSN1RQfS8CjSNVpayvT8FCDbgvUKQHLrs8NKXSiHZ
-	+qEQkb7A==;
+	bh=Gzz6FOV+ihb6XY6fR1yWdHLsJygnj1TQ+0PTlX8dy6o=; b=zMRiIBToBC1UUh/HMM4etWMsHw
+	lHJQvT1TbnV6Q25ZujduXGFO50mFFVZiY7ro5veJchBgQhXQjg2aoTwHofp34b8Bt1K9TTkQiqPv5
+	YflxT/LIwwrwxK7vEXH2LZ2jrkkGPboJ03PMd84+zF8bXqwadlrWZIfhTn56yXKdKilMSIcgMfvGw
+	WQPHMwDjyw6Z5s22PkxdbcGl+JqvPUNdcE2NfoyxiRTclD+8mBZU6xELveqv4V6RErEdwzynfvhXe
+	FzOzumntJmUYZWUlerhw927tolJO4lfVPVLxAgXlGyoxPtzL0fVXzwf+20Q7xVW5Ex6ByBBUeJA4a
+	ZymjjBtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8diN-00000002Bw9-2TnT;
-	Mon, 21 Sep 2026 13:05:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8dkt-00000002CCO-3vhu;
+	Mon, 21 Sep 2026 13:08:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8diM-00000002Bvx-0wBj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 13:05:46 +0000
+	id 1x8dkr-00000002CBq-2gxb;
+	Mon, 21 Sep 2026 13:08:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8EF6443DE7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 13:05:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 737761F00893
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 13:05:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A1CEF60142;
+	Mon, 21 Sep 2026 13:08:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E831F000FF;
+	Mon, 21 Sep 2026 13:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789995945;
-	bh=eqL1+pxbQbl2lD+yMbd0BnhFooll2P4VKDlpZNXroxA=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=GytY8D3g9KdWyEtZtKTjUOE80hf8ad6hTWTO7J8PIUu0jHamYH88cX4PcpnIU4nuX
-	 Fb8JSRH3Z0LaZ3h+Pgb3AsvbFcuues6Bk5RIOba2lut9pliLRttQMlHxKmbOKAH2Yb
-	 Nh31eBZsWGEI2G7idQAW6xUecITXNq9iS7i2sMvQYIN8j20/cjTTq0TQ6EdLNUZCxP
-	 brZjpAm9BYFp8WBMt10OoutEA4CgYr68ypEaveyMCAvHgvpTrPjaxrgg+a+wjsUKDl
-	 ZZdNaF8bHTM+FswX6m4wAozccXVphUzMTrQ9GpTxAviLX5rpXaGuogEyWTAZoGR6sv
-	 p4hlu95urNk3Q==
-Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a59fa3112cso25832021fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 06:05:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzuYzEoetiOTcUEd77MKI+/pglF3iaHA/gvHaw2icWxcR6kvqPsnyTLo5E2uswTgzNnvkEqHAQnFOY6N+Uy8CkZ@lists.infradead.org
-X-Gm-Message-State: AFuF++lOuGfnRBRv8ktYJCq3RL5x/G6m1iM5Euii/Iki2m9ISPDQSHAB
-	Ag4CktOCt6PDPOexFnrnSJL51SxTXSOm238by0mT//n/DnA4HoAtukycEA2uuioo3LK8Lp1dc10
-	gkO7iQ+6OH3totk0muwgzkG9ZCQRtGon4ccX6dLm4dg==
-X-Received: by 2002:a05:651c:b13:b0:3a5:fb20:4e63 with SMTP id
- 38308e7fff4ca-3a5fbf54e10mr22033851fa.17.1789995943840; Mon, 21 Sep 2026
- 06:05:43 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 21 Sep 2026 09:05:42 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 21 Sep 2026 09:05:42 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <3e3a7197.9e4e.1a0c3e88117.Coremail.zl020895@163.com>
+	s=k20260515; t=1789996100;
+	bh=Gzz6FOV+ihb6XY6fR1yWdHLsJygnj1TQ+0PTlX8dy6o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jutjQXKQt8K6B0xwKgv+5DKEb5jeEZ9f4C/ODLNIaJm89wXXv7vEK7sftym6VdTWZ
+	 iWmXtpr5oBvd/fTs7Pnr+UITsvv31HyGnQ+iOx3dgtyyEq4uQpeN9MZAEWN/rJ+QRd
+	 o5w8NXUfLIIFh+A6kq6qdPe/r+5hRcNYXF1atuMwz1gCfIMayhWGLIGhiWMHNAQhWS
+	 3COIgiullYPWAz7+bvYXkrumeCx8KTXqLiPGlsZq7uoeCxzB3uz2Dz/PKfKftNH2h4
+	 D7hNOPpq1slIm8JHsXKzU3vyIHlaU3U96hShCHNR8rtBPOwgutM3G6Ruk7ufnYL6j/
+	 YKfjqqT4l267g==
+Subject: Re: [PATCH v6 net-next] net: phy: mediatek: support MT7530 PHYs on
+ EN71221 MCM
+From: netdev-bot+sashiko@kernel.org
+To: cjd@cjdns.fr
+Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
+ SkyLake.Huang@mediatek.com, andrew@lunn.ch, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ srherobrine20@gmail.com
+Date: Mon, 21 Sep 2026 13:08:19 +0000
+Message-ID: <178999609903.2160803.13587309272665638742@kernel.org>
+In-Reply-To: <20260917130534.297930-1-cjd@cjdns.fr>
+References: <20260917130534.297930-1-cjd@cjdns.fr>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
- <20260921-cv75-v5-v8-9-282ff5d98dda@ambarella.com> <CAMRc=Mf7dtxvxBUF1fOuKw0mxdhCYPj=J4ckySPZUvcZ7a6cbQ@mail.gmail.com>
- <3e3a7197.9e4e.1a0c3e88117.Coremail.zl020895@163.com>
-Date: Mon, 21 Sep 2026 09:05:42 -0400
-X-Gmail-Original-Message-ID: <CAMRc=MfSSHuPxOrP95aW5HXXE74f5X-yjr-KNavz_=tU__H33w@mail.gmail.com>
-X-Gm-Features: AcwNN1XpPns_pQlHseY9Ez4-fOhLH2UhBc-jukWmFLjbznkNpQwaq4oL4Cj_puk
-Message-ID: <CAMRc=MfSSHuPxOrP95aW5HXXE74f5X-yjr-KNavz_=tU__H33w@mail.gmail.com>
-Subject: Re: Re:Re: [PATCH v8 09/18] gpiolib: regmap: add gpio_regmap_get_chip()
-To: zl020895 <zl020895@163.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, longzhao@ambarella.com, 
-	Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Linus Walleij <linusw@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>, 
-	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Michael Walle <mwalle@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,16 +74,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Sep 2026 14:19:49 +0200, zl020895 <zl020895@163.com> said:
-> Hi Bart,
->
-> Done, sent as a follow-up:
-> https://lore.kernel.org/all/20260921-gpio-doc-followup-v1-1-618738124f4c@ambarella.com/
->
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-No, don't send follow-ups before anything is picked up. Also: Michael Walle,
-who's the maintainer for gpio-regmap was not Cc'ed on this so I'll wait for his
-Ack or change requests.
+Critical: 0 · High: 2 · Medium: 0 · Low: 0
 
-Bart
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The new "EcoNet EN751221 MCM PHY" driver entry can never bind,
+  because its gate en751221_is_mcm_phy() (drivers/net/phy/mediatek/mtk-…
+- [High] mt7530_is_gphy() (drivers/net/phy/mediatek/mtk-ge.c:150-154)
+  masks the raw return value of phy_read(phydev, MII_ESTATUS) with…
+
+--
+
+net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
+
+This adds a second phy_driver entry for the MT7530 PHYs found on the
+EcoNet EN751221 multi-chip module, which need extra register writes at
+config_init time.  The MT7530 entry loses PHY_ID_MATCH_EXACT and both
+entries now select hardware through custom match_phy_device callbacks.
+
+> diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+> index 96d8ac5154e5e..62e3eff37b800 100644
+> --- a/drivers/net/phy/mediatek/mtk-ge.c
+> +++ b/drivers/net/phy/mediatek/mtk-ge.c
+
+[ ... ]
+
+> @@ -101,6 +102,69 @@ static int mt7530_phy_config_init(struct phy_device *phydev)
+>  	return 0;
+>  }
+>  
+> +/*
+> + * The EcoNet EN751221 "G" multi-chip module MT7530 requires additional PHY
+> + * configuration.
+> + */
+> +static int en751221_mcm_phy_config_init(struct phy_device *phydev)
+> +{
+> +	int ret;
+> +
+> +	ret = genphy_soft_reset(phydev);
+> +	if (ret)
+> +		return ret;
+> +
+
+[ ... ]
+
+> +	return mt7530_phy_config_init(phydev);
+> +}
+> +
+> +static bool en751221_is_mcm_phy(struct phy_device *phydev)
+> +{
+> +	struct device *parent = phydev->mdio.bus->parent;
+> +
+> +	return parent && parent->of_node &&
+> +	       of_device_is_compatible(parent->of_node, "econet,en751221");
+> +}
+
+[Severity: High]
+Can en751221_is_mcm_phy() ever return true?  The string
+"econet,en751221" is documented as a root node compatible only:
+
+Documentation/devicetree/bindings/mips/econet.yaml:
+    properties:
+      $nodename:
+        const: '/'
+
+      compatible:
+        oneOf:
+          - description: Boards with EcoNet EN751221 family SoC
+
+and the only in-tree users are the root nodes of
+arch/mips/boot/dts/econet/en751221.dtsi and
+en751221_smartfiber_xp8421-b.dts.
+
+The node inspected here is the MDIO bus parent, which is the switch or
+MAC device, for example in mt7530_setup_mdio():
+
+drivers/net/dsa/mt7530.c:
+    bus->parent = dev;
+
+so parent->of_node carries a switch compatible such as
+"mediatek,mt7530" or "mediatek,mt7621", not the machine compatible.
+Does that make en751221_phy_match() always return 0, leaving the new
+"EcoNet EN751221 MCM PHY" entry unreachable and EN751221 MCM boards
+silently bound to the plain "MediaTek MT7530 PHY" entry instead?
+
+If the intent is machine level detection, would
+of_machine_is_compatible() be the matching API here?  If node level
+detection is intended, which compatible is expected on the switch or
+MDIO node?  I could not find an EN751221 switch or MDIO node or driver
+compatible upstream at all - grepping for "econet," under drivers/net/
+only turns up "econet,en7528-switch" in mt7530-mmio.c plus this new
+string - so is there any configuration in which this path runs today?
+
+Also, the subject says "EN71221 MCM" while the changelog body and the
+code use EN751221.
+
+> +
+> +/*
+> + * MTK_GPHY_ID_MT7530 ID is also used for an EcoNet SoC FE phy, but that PHY
+> + * does not advertise ESTATUS_1000_TFULL.
+> + */
+> +static bool mt7530_is_gphy(struct phy_device *phydev)
+> +{
+> +	return phydev->phy_id == MTK_GPHY_ID_MT7530 &&
+> +	       (phy_read(phydev, MII_ESTATUS) & ESTATUS_1000_TFULL) != 0;
+> +}
+
+[Severity: High]
+Should the phy_read() return value be checked for an error before it is
+masked?  ESTATUS_1000_TFULL is BIT(13):
+
+include/uapi/linux/mii.h:
+    #define ESTATUS_1000_TFULL	0x2000	/* Can do 1000BT Full          */
+
+phy_read() forwards mdiobus_read() errors as small negative values, and
+every one of those has bit 13 set (-EIO is 0xfffffffb, likewise
+-ETIMEDOUT, -EOPNOTSUPP).  Does an MDIO read failure therefore read as
+"advertises 1000BASE-T full duplex" and turn the guard into an accept?
+
+Second question on the same read: register 15 is only meaningful when
+BMSR_ESTATEN is set in MII_BMSR, and a PHY that does not implement it
+may return 0xffff, which again has bit 13 set.  genphy_read_abilities()
+gates the access and checks the result:
+
+drivers/net/phy/phy_device.c:genphy_read_abilities() {
+	...
+	if (val & BMSR_ESTATEN) {
+		val = phy_read(phydev, MII_ESTATUS);
+		if (val < 0)
+			return val;
+	...
+}
+
+Would the same gate plus error check be needed here, i.e. capture the
+read in an int and return false when it is negative?
+
+This matters because the FE PHY sharing MTK_GPHY_ID_MT7530 is exactly
+the device this predicate is meant to reject.  On a false positive,
+en751221_mcm_phy_config_init() runs genphy_soft_reset() followed by the
+page 1 and vendor MMD writes against that PHY.
+
+> +
+> +static int mt7530_phy_match(struct phy_device *phydev,
+> +			    const struct phy_driver *phydrv)
+> +{
+> +	return mt7530_is_gphy(phydev) && !en751221_is_mcm_phy(phydev);
+> +}
+> +
+> +static int en751221_phy_match(struct phy_device *phydev,
+> +			      const struct phy_driver *phydrv)
+> +{
+> +	return mt7530_is_gphy(phydev) && en751221_is_mcm_phy(phydev);
+> +}
+> +
+
+[ ... ]
+
+> @@ -126,7 +190,6 @@ static int mt7531_phy_config_init(struct phy_device *phydev)
+>  
+>  static struct phy_driver mtk_gephy_driver[] = {
+>  	{
+> -		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
+>  		.name		= "MediaTek MT7530 PHY",
+
+With PHY_ID_MATCH_EXACT gone, phy_bus_match() uses the callback result
+verbatim:
+
+drivers/net/phy/phy_device.c:phy_bus_match() {
+	...
+	if (phydrv->match_phy_device)
+		return phydrv->match_phy_device(phydev, phydrv);
+	...
+}
+
+so mt7530_is_gphy() is now the only binding gate for both entries.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917130534.297930-1-cjd%40cjdns.fr
 
