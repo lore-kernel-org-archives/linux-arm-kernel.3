@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11377C982D8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 00:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F3DC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 00:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ChCCtURRUG2JR4jfYCi2CnNeuLOMbvvHuLF9vSHoy1k=; b=HNTVJcipikj03jjqO3H6D5DYoK
-	YeAcuBv+yPsjhcKKjgDw1V0dNRVYMVpVE6rjIo12TIHj/dcWdYu/qEqnigMMO+367qtap02IBIkpR
-	1RzCYcK+/RNc6q1Pa6Xe165BgaZK2ZSrjikxojzmM0cx9MD3L/kCJhD1I1+js0VzeG2Anwe137hW7
-	QTTmtvUoO4uCkRRKelVyp0aXb9AwVp2FjwfOXLh5+9NfeXO0spthcmlVrLuTvQmcDwHsWm2zzT9Qr
-	RXT42w+TQTh+gpCADA6BmP6dZxhLPcqNZrWwjPtj0pqBXCBgU4PA8V4KrxwktiU1A1X9euSVs91Y8
-	I5OR364g==;
+	bh=Eaf/v3DplFm34AGPV8LWK5kB95r8fuqw5inPfZDB47I=; b=eZxH5wAfLHbPUEWMEtEI/NWfeH
+	Usf67FHPNBjWURG5TVuIJQnnS7gwv487iSVft+XnAb9pmRhIxyCMRD/AcptvRR7jDBiNc5OwmZH2K
+	yh+pBTImPM+pwW6tzPiUOJAZ5AvSbKFLt9u/8RrxAayg4VJpub4EEmIPH8ECvmwJZrNTlQBqDtNS8
+	2uqQAyI/tL9k5Uy/P2rjqmSc9uPr4taYtoKTYXt0TtBXwfu0sI5D2i3/XZXKTfH/m9rri9keLgFhu
+	rS4CkzRwNXWZDpFftDdVwrLB7DhgvgYZJfx3dCm7g8T2s8O2EvDprOS5EzXpWqrRO92tlgsjHU+Ob
+	kiuCzrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Rrp-00000000dCC-0A36;
-	Mon, 21 Sep 2026 00:26:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8Rro-00000000dBc-2mq3;
+	Mon, 21 Sep 2026 00:26:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Rrn-00000000dAx-38UQ
+	id 1x8Rrn-00000000dAz-2afa
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 21 Sep 2026 00:26:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE34A601F0;
-	Mon, 21 Sep 2026 00:26:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 770A6C2BCF5;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A49F44824;
+	Mon, 21 Sep 2026 00:26:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 940D9C2BCFB;
 	Mon, 21 Sep 2026 00:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789950402;
-	bh=AbdL3O6G/yNWEj72i8vXqvCJ2p6+AboINKG2AHfj4ro=;
+	bh=XcuXphc1NoAzr+3izm2WNxf/h73O4syl9fen+5x9GFE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PIv5Zb17YJBrCk4t8niVa3gseMI3M/zlzBw5WIRdLEbjclIh4v1toO9YYCYI6bPd4
-	 dyJR07tQkFoeTY0BCw46ZGn8Z1sNIxLERvsYkmuio9J6kgXOWVmbjPVP2PxmaDmaDJ
-	 6wZq6XmGeZo0DhDqkCrGhxHaUrKvGKdTIqt5kYvlDDrTvFzWexAg0h/9MV31lAp6Jq
-	 H3EjnvtSUwT0M4oojiqK2322PqccnHp267m3rBlwMXCnCOgj5NgXNtX5j1414/Fzjo
-	 YWrURS2EqsEhEuAFTd6suf1TiLZRXqtijRX7dFW98MTHUG1M3D5vg/rlrr5EUhpilt
-	 KWctWPe2wAxiA==
+	b=KOVbqPvq1vBXyqbdqs7PpMq3ThwcQmdWEHSE9qT9JCf56vNzh5yEdjEc7LfkRAgWF
+	 42wc63sz0Z+ST45zGZFrC8F5cmrLG43LQDzn4oOJycnHz69ocswtX7eAQrL2zOhcCy
+	 qQIDeDbnQX6JVSho6Qlrlitqtvhdbcwy9c/ig4slRzWlfK/F3QVSnOQiZ5lsi2XWVJ
+	 Wny75Z8fE6VAAtw28nuXBSGPUtWH/i+8DqT1Xfj40dxYozXx8hopZbiZG3f3EPiN5p
+	 X6v1DD7BfCVxGSS1jP9YssKxe43O33ZNO2CmoonxgVd1U3y3mDhSfgi/MoYq6gc37u
+	 j2EMGdy32Pqlg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63646C982DA;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81FC6C982EE;
 	Mon, 21 Sep 2026 00:26:42 +0000 (UTC)
 From: Nicolo Giuliani via B4 Relay <devnull+nicolo.giuliani6.studio.unibo.it@kernel.org>
-Date: Mon, 21 Sep 2026 02:26:41 +0200
-Subject: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add Sophos
+Date: Mon, 21 Sep 2026 02:26:43 +0200
+Subject: [PATCH v2 3/3] arm64: dts: marvell: Add Sophos XGS 107w NPU board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-send-dt-v2-1-fb6b81002ad7@studio.unibo.it>
+Message-Id: <20260921-send-dt-v2-3-fb6b81002ad7@studio.unibo.it>
 References: <20260921-send-dt-v2-0-fb6b81002ad7@studio.unibo.it>
 In-Reply-To: <20260921-send-dt-v2-0-fb6b81002ad7@studio.unibo.it>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,14 +60,13 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789950401; l=922;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789950401; l=5800;
  i=nicolo.giuliani6@studio.unibo.it; s=20260919; h=from:subject:message-id;
- bh=+G/P8vdSy/WAoSbx8vK45ADrYNnfP7i4AKHiwIu/gD8=;
- b=rGjJwB+7xpm/+G3PMkWkV50tW3ylod6WFvQFXLjtQUPIreX+BojjBPp4YK+hFDlB8yhYK/0H1
- jGrvtJp38dGDez/yYxisIlotNl06XiJD8zJ4Yqi1b54gZONhlZN+qtT
+ bh=8wZTzfWWfxJCcfQhfgPWj+G5wLPzig9U9sVX6n8unng=;
+ b=jikZ4TlVOrU/oqutu3YHm0CZ1r9460ZPVE66bWr3bSskobA8LRZJN4NPV3CRfRtuucJkd4C9n
+ DnWWhORYFGnD4dYHCg+OdFNdfU9wu74yPg24S2fYvRkVgu7ruj/HC/b
 X-Developer-Key: i=nicolo.giuliani6@studio.unibo.it; a=ed25519;
  pk=D652ecdT01GkA1eoFWNFNX85xIg5ZnFwUWyjfestgQw=
 X-Endpoint-Received: by B4 Relay for
@@ -90,29 +89,242 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
 
-Add the "sophos" vendor prefix for Sophos Ltd., a vendor of network
-security appliances.
+Add a device tree for the network processing unit (NPU) of the Sophos
+XGS 87/107 desktop firewalls. The appliance pairs an AMD x86 host with the
+NPU, a Marvell Armada CN9130 SoC with its own eMMC and SPI NOR flash that
+runs independently of the host and serves the front panel ports.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The eight RJ45 ports and the SFP cage are connected through a Marvell
+88E6193X switch on the MDIO bus of the SoC, at address 2. Switch port 0
+is the CPU port, a 10GBASE-R link to the first mvpp2 port. Ports 1 to 8
+are the RJ45 ports, which use the internal PHYs of the switch, and
+port 9 is the SFP cage, connected over 1000BASE-X.
+
+Describe the UART console, the eMMC, the SPI NOR flash that holds the boot
+loader and its environment (read-only), the SFP cage and the switch with
+its ports. The port LEDs, the PCIe link to the x86 host and the USB ports
+are not described.
+
+The switch is reset through CP GPIO2 pin 17.
+
+Tested on an XGS 107w with Linux 6.18: boot from eMMC, eMMC and SPI NOR
+access, the mvpp2 link to the switch at 10 Gb/s, the 88E6193X probing with
+its eight user ports, and 936 Mbit/s through a front port. The SFP cage is
+untested.
+
 Assisted-by: LLM
 Signed-off-by: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/marvell/Makefile               |   1 +
+ .../boot/dts/marvell/cn9130-sophos-xgs107w.dts     | 188 +++++++++++++++++++++
+ 2 files changed, 189 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index ba20029693..3dd9d9b8ab 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1595,6 +1595,8 @@ patternProperties:
-     description: Sony Corporation
-   "^sophgo,.*":
-     description: Sophgo Technology Inc.
-+  "^sophos,.*":
-+    description: Sophos Ltd.
-   "^sourceparts,.*":
-     description: Source Parts Inc.
-   "^spacemit,.*":
+diff --git a/arch/arm64/boot/dts/marvell/Makefile b/arch/arm64/boot/dts/marvell/Makefile
+index 09d1544041..3e301c8265 100644
+--- a/arch/arm64/boot/dts/marvell/Makefile
++++ b/arch/arm64/boot/dts/marvell/Makefile
+@@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_MVEBU) += ac5x-rd-carrier-cn9131.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += ac5-98dx35xx-rd.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9130-cf-base.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9130-cf-pro.dtb
++dtb-$(CONFIG_ARCH_MVEBU) += cn9130-sophos-xgs107w.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9131-cf-solidwan.dtb
+ dtb-$(CONFIG_ARCH_MVEBU) += cn9132-clearfog.dtb
+ 
+diff --git a/arch/arm64/boot/dts/marvell/cn9130-sophos-xgs107w.dts b/arch/arm64/boot/dts/marvell/cn9130-sophos-xgs107w.dts
+new file mode 100644
+index 0000000000..da6a1da1cc
+--- /dev/null
++++ b/arch/arm64/boot/dts/marvell/cn9130-sophos-xgs107w.dts
+@@ -0,0 +1,188 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Device tree for the network processing unit (NPU) of the Sophos XGS 87/107
++ * firewalls: a Marvell CN9130 SoC with a Marvell 88E6193X switch.
++ *
++ * The x86 host on the same board is not described here.
++ */
++
++/dts-v1/;
++
++#include "cn9130.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++
++/ {
++	model = "Sophos XGS 107w (CN9130 NPU)";
++	compatible = "sophos,xgs107w-npu", "marvell,cn9130";
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	aliases {
++		ethernet0 = &cp0_eth0;
++		i2c1 = &cp0_i2c1;
++	};
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x0 0x0 0x80000000>;
++	};
++
++	reserved-memory {
++		/* OP-TEE, reserved by the firmware */
++		tee@4400000 {
++			reg = <0x0 0x4400000 0x0 0x1000000>;
++			no-map;
++		};
++	};
++
++	/* Front-panel SFP cage "F1", wired to switch port 9 */
++	sfp: sfp {
++		compatible = "sff,sfp";
++		i2c-bus = <&cp0_i2c1>;
++		los-gpios = <&cp0_gpio1 1 GPIO_ACTIVE_HIGH>;
++		tx-fault-gpios = <&cp0_gpio1 2 GPIO_ACTIVE_HIGH>;
++		mod-def0-gpios = <&cp0_gpio1 3 GPIO_ACTIVE_LOW>;
++		tx-disable-gpios = <&cp0_gpio1 7 GPIO_ACTIVE_HIGH>;
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
++
++/* eMMC on the AP */
++&ap_sdhci0 {
++	bus-width = <8>;
++	non-removable;
++	mmc-ddr-1_8v;
++	status = "okay";
++};
++
++/*
++ * The MPP pin muxing is left as configured by the boot loader; the pin
++ * controller node only exists to back the GPIO banks.
++ */
++&cp0_syscon0 {
++	cp0_pinctrl: pinctrl {
++		compatible = "marvell,cp115-standalone-pinctrl";
++	};
++};
++
++&cp0_i2c1 {
++	/* I2C bus of the SFP cage */
++	clock-frequency = <100000>;
++	status = "okay";
++};
++
++/* 4 MB SPI NOR with U-Boot and its environment, read-only on purpose */
++&cp0_spi0 {
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <40000000>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			partition@0 {
++				label = "u-boot";
++				reg = <0x0 0x3f0000>;
++				read-only;
++			};
++
++			partition@3f0000 {
++				label = "u-boot-env";
++				reg = <0x3f0000 0x10000>;
++				read-only;
++			};
++		};
++	};
++};
++
++&cp0_ethernet {
++	status = "okay";
++};
++
++/* 10G link to switch port 0 */
++&cp0_eth0 {
++	phy-mode = "10gbase-r";
++	phys = <&cp0_comphy4 0>;
++	managed = "in-band-status";
++	status = "okay";
++};
++
++&cp0_mdio {
++	status = "okay";
++
++	switch@2 {
++		compatible = "marvell,mv88e6190";
++		reg = <2>;
++		reset-gpios = <&cp0_gpio2 17 GPIO_ACTIVE_LOW>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				ethernet = <&cp0_eth0>;
++				phy-mode = "10gbase-r";
++				managed = "in-band-status";
++			};
++
++			port@1 {
++				reg = <1>;
++				label = "p1";
++			};
++
++			port@2 {
++				reg = <2>;
++				label = "p2";
++			};
++
++			port@3 {
++				reg = <3>;
++				label = "p3";
++			};
++
++			port@4 {
++				reg = <4>;
++				label = "p4";
++			};
++
++			port@5 {
++				reg = <5>;
++				label = "p5";
++			};
++
++			port@6 {
++				reg = <6>;
++				label = "p6";
++			};
++
++			port@7 {
++				reg = <7>;
++				label = "p7";
++			};
++
++			port@8 {
++				reg = <8>;
++				label = "p8";
++			};
++
++			port@9 {
++				reg = <9>;
++				label = "sfp";
++				phy-mode = "1000base-x";
++				managed = "in-band-status";
++				sfp = <&sfp>;
++			};
++		};
++	};
++};
 
 -- 
 2.48.1
