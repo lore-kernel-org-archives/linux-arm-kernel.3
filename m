@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77337C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF09AC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KvByGjKnRAXGzZ68wxhXamqWMqdGOJxOiVrrjTHeQFA=; b=2L1EKqUPEhXDknc63PVumfc7kW
-	8QIhE+ldq7Y4TcGDgydWnipdQU4X7xiOVm4ZMC2efbaxa/QzrE1ae66vyqPvtXW7Tjk9zZ1vDvKus
-	K6EjIOypNgbAyOQiY43lMBHPbFHg69l9EWG+VzMnY2l7k9NS5AgP4NkZdxgYKffpJ/uhgcWy7qx7c
-	cBz17X+spkmHLjxJc4yEyOfhoAXPDavlW1CWacavviwqIRa9GHrhcry0SHx9K1q3nx04lVmw+gTsQ
-	PFENEnQDoV9u79VMm5nTt3wYxIhBJyFJpiw+AEGv1KfQ+noD10/o+AOkUroTRn+TPUC7jMCpnbitv
-	gSlWx2/w==;
+	bh=QnMacYZsTiu91aBrdpT044ZXgSNU90vCzZjH5YJEaR8=; b=hxPJ2T9Nlcfcd/y+fA8QFF+vl8
+	AZ9uT890VpbuMf0V+x0PaRFyARlgJiF4XEwN0rNUZl1zXEJcibXc/x2F7IpjibB1KG//lOkbCrhIF
+	uBV8hKG9xDWAw6+x0DYJfPx/RYDXU9nE897BMTHljYjx32bvXa54TBilvukE5ABiyf2esM7uigAI9
+	jEeoNWPx4yI3SUQyPd52PZ3guRFqHRaFDipPsr41UI87uloZjWpmYam/IFw0lAEhLesn+QyQDKhgl
+	ad2geYgF+X6CRP6296PlY09sbCgInPuvPclUdxiZdvZRev8vPzETh4b+OUj8bw0P4aLpZCjDHWSc3
+	Gugv+KUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ngD-00000003hcx-1ahZ;
-	Mon, 21 Sep 2026 23:44:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8ngO-00000003hln-1UaA;
+	Mon, 21 Sep 2026 23:44:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nfm-00000003hNn-2Pjp;
-	Mon, 21 Sep 2026 23:43:46 +0000
+	id 1x8nfi-00000003hLx-0vac;
+	Mon, 21 Sep 2026 23:43:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0760A60236;
-	Mon, 21 Sep 2026 23:43:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33ACD1F00893;
-	Mon, 21 Sep 2026 23:43:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AAFE343D62;
+	Mon, 21 Sep 2026 23:43:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27C021F00898;
+	Mon, 21 Sep 2026 23:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790034225;
-	bh=KvByGjKnRAXGzZ68wxhXamqWMqdGOJxOiVrrjTHeQFA=;
+	s=k20260515; t=1790034221;
+	bh=QnMacYZsTiu91aBrdpT044ZXgSNU90vCzZjH5YJEaR8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aUVoMUvBr4ZtRVG+InVPuvggrEWXJyGljvOrWxJ3Y02XF+XuwUaBuGjJ8jxtRFHEY
-	 5QvOGWacDv1FD7zwfYAemu/R/+gqmZwLK2Wg2Zxb03T24XGax7XSH58fyZ6v+QYGyw
-	 F406kjTkSxQc4Sf8PBW9XjdPmERh+JbQ+JKK/xVhkJQJMrflnUe8WGnLeVKmdUFC1r
-	 BlkZdXB+UZMWkYNnrwX4p4oCPpn6H8ZVtzhHCJFoK1GpQCVb/yfnKMNGYMVh7WIoCb
-	 xhGAOs7x62bBfI8C4tEMGaNiZrgBwpqBpyx2/kVKWvIWxJRI04nMfT/qoams0e4nGH
-	 MsF5VjbQoh+XQ==
-Subject: Re: [PATCH net-next v7 05/11] arm64: dts: rockchip: rk3568: add XPCS
- and fixed-clock nodes
+	b=abG50pjxo97oID9LJyNoCvvx1bHpw0G7bkaDhgKsg52JHt4tluPc/0omuk5lXHCcT
+	 EwbuX7kQ6mjQPkzUwls9qiW4M8CbHPWF6OAIlBfmc4gH3ZK6T3ttgElAchXKSy015I
+	 7oD1DlafWHNMczh3OxEr/aesUcx1FsPztvV5MClQvERqfXqzMptWEP4oFzPB24j70r
+	 lMYnQAfRjVudko70OpR/EETtw56CjidQjB8VJM8+jRapQLBhCyP8Cok3XL6nF8pv4t
+	 CTCbjBy0DglmI8VTQdjXgI9EbfzTA9tsOYoTBgpy2OuYAsCXq/ifJIy+KvI75SkU2D
+	 HNz5mcLBMGzqg==
+Subject: Re: [PATCH net-next v7 03/11] phy: rockchip: naneng-combphy: add
+ SGMII MAC selection for RK3568
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,10 +56,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Mon, 21 Sep 2026 23:43:43 +0000
-Message-ID: <179003422374.2160803.9758022128641976437@kernel.org>
-In-Reply-To: <20260917204624.2427486-6-coiaprant@gmail.com>
-References: <20260917204624.2427486-6-coiaprant@gmail.com>
+Date: Mon, 21 Sep 2026 23:43:39 +0000
+Message-ID: <179003421974.2160803.11569061351280580358@kernel.org>
+In-Reply-To: <20260917204624.2427486-4-coiaprant@gmail.com>
+References: <20260917204624.2427486-4-coiaprant@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,10 +78,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -89,135 +89,125 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The new `xpcs: ethernet-pcs@fda00000` node in
-  arch/arm64/boot/dts/rockchip/rk3568.dtsi omits `phys` and `phy-names`,…
-- [Low] Concern as raised: the patch advertises `rockchip,rk3568-xpcs`
-  and four ethernet-pcs-mii child nodes for which no driver or Rockchip…
+- [Medium] In drivers/phy/rockchip/phy-rockchip-naneng-combphy.c,
+  rk3568_combphy_cfg() now writes PIPE_GRF_XPCS_CON0 bit 1…
+
+Pre-existing issues:
+- [Low] Concern (validated as pre-existing style, not a new defect): the
+  newly added rockchip_combphy_param_write(priv->pipe_grf,…
 
 --
 
-arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
+phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
 
-This adds the RK3568 XPCS node at 0xfda00000 with four ethernet-pcs-mii
-sub-nodes, all disabled by default, plus two 125 MHz fixed-clock nodes whose
-clock-output-names match the CRU mux parents so boards can reparent
-SCLK_GMAC0_RX_TX / SCLK_GMAC1_RX_TX.
+This adds a "rockchip,sgmii-mac-sel" DT property to the RK3568 naneng
+combphy driver so the SGMII lane can be routed to either GMAC0 or GMAC1
+through PIPE_GRF_XPCS_CON0 bit 1 (pipe_sgmii_mac_sel).  The property is
+read in rockchip_combphy_parse_dt() and applied in rk3568_combphy_cfg()
+when the PHY type is PHY_TYPE_SGMII.
 
-A couple of questions below about the omitted phys/phy-names and about the
-commit message statement that justifies the omission.
+Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> index 3bc653f027f1f..227d03e336043 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> @@ -110,6 +110,51 @@ sata0: sata@fc000000 {
->  		status = "disabled";
->  	};
->  
-> +	xpcs: ethernet-pcs@fda00000 {
-> +		compatible = "rockchip,rk3568-xpcs";
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		reg = <0x0 0xfda00000 0x0 0x200000>;
-> +		clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-> +		clock-names = "csr", "eee";
-> +		power-domains = <&power RK3568_PD_PIPE>;
-> +		status = "disabled";
+A couple of questions below.
 
-[Severity: Medium]
-Does this node fail dtbs_check for missing phys and phy-names?
-
-The binding added by the preceding patch in this series,
-Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml, lists
-them in an unconditional required block:
-
-required:
-  - compatible
-  - reg
-  - "#address-cells"
-  - "#size-cells"
-  - clocks
-  - clock-names
-  - phys
-  - phy-names
-  - power-domains
-
-There is no status clause in that schema, and dtschema selects a node purely
-on its compatible, so the required-property check applies whether or not the
-node is disabled. With rk3568-photonicat.dts the only board adding the two
-properties (and only at the end of the series), wouldn't the remaining rk3568
-board DTBs report "'phys' is a required property" and "'phy-names' is a
-required property"?
-
-The commit message states:
-
-  "dtbs_check only validates required properties for enabled nodes, so the
-  SoC dtsi does not provide phys/phy-names"
-
-Is that accurate? Status awareness in the DT tooling looks like an explicit
-per-check opt-in rather than general behaviour, for example in
-scripts/dtc/checks.c the status-aware variant is a separately named check:
-
-static void check_unique_unit_address_if_enabled(struct check *c, struct dt_info *dti,
-					      struct node *node)
-{
-	check_unique_unit_address_common(c, dti, node, true);
-}
-CHECK_ENTRY(unique_unit_address_if_enabled, check_unique_unit_address_if_enabled,
-	    NULL, false, false, &avoid_default_addr_size);
-
-The same omission also affects the enable recipe described in the commit
-message. If a board only flips status to "okay", there is no serdes phandle
-in the node, so xpcs_rk_serdes_phy_init() in drivers/net/pcs/pcs-xpcs-rk.c
-(added later in this series) hits:
-
-	pxpcs->serdes_phy = devm_phy_get(dev, "serdes");
-	if (IS_ERR(pxpcs->serdes_phy))
-		return dev_err_probe(dev, PTR_ERR(pxpcs->serdes_phy),
-				     "Failed to get SerDes PHY\n");
-
-and probe aborts with -ENODEV. Would it make sense either to drop
-phys/phy-names from the binding's required list (or make them conditional),
-or to provide them in the dtsi, so the binding and the dtsi agree?
-
-[Severity: Low]
-This isn't a bug, but a note on ordering within the series: at this commit
-rockchip,rk3568-xpcs has no matching driver yet.
-
-Checking the end of the series, this resolves itself:
-
-drivers/net/pcs/pcs-xpcs-rk.c:
-	static const struct of_device_id xpcs_rk_of_ids[] = {
-		{ .compatible = "rockchip,rk3568-xpcs" },
-		{ /* sentinel */ },
-	};
-
-and drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c installs the PCS
-callbacks for SGMII:
-
-	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
-		...
-		plat_dat->pcs_init = rk_pcs_init;
-		plat_dat->pcs_exit = rk_pcs_exit;
-		plat_dat->select_pcs = rk_select_pcs;
-	}
-
-So the node is unbound only at the intermediate revision, where it stays
-disabled, and nothing breaks at build or runtime. Recording it here only for
-completeness.
-
-> +
-> +		xpcs_mii0: ethernet-pcs-mii@0 {
-> +			reg = <0>;
-> +			status = "disabled";
-> +		};
+> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> index 7843356a4dd47..7b867e7520064 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
 
 [ ... ]
 
+> @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+>  
+>  	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+>  
+> +	priv->sgmii_mac_sel = 1;
+> +	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
 > +
->  	pipe_phy_grf0: syscon@fdc70000 {
->  		compatible = "rockchip,rk3568-pipe-phy-grf", "syscon";
->  		reg = <0x0 0xfdc70000 0x0 0x1000>;
+
+[Severity: Medium]
+In rockchip_combphy_parse_dt(), the return value of
+device_property_read_u32() is discarded and priv->sgmii_mac_sel is
+pre-seeded with 1, so "property absent" and "property = 1" become
+indistinguishable later on.
+
+Is that intentional, or should the presence of the property be tracked
+separately so the write below can be skipped when the DT says nothing?
+
+>  	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
+>  	/* fallback to old behaviour */
+>  	if (PTR_ERR(priv->phy_rst) == -ENOENT)
+
+[ ... ]
+
+> @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+>  		break;
+>  
+>  	case PHY_TYPE_SGMII:
+> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
+> +					     priv->sgmii_mac_sel > 0);
+
+[Severity: Medium]
+Following on from the parse above: does this end up writing
+PIPE_GRF_XPCS_CON0 bit 1 on every RK3568 SGMII init, including on DTBs
+that do not carry the new property?
+
+rockchip_combphy_param_write() is not a read-modify-preserve; it always
+asserts the hiword write-enable for the bit:
+
+drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:rockchip_combphy_param_write() {
+	tmp = en ? reg->enable : reg->disable;
+	mask = GENMASK(reg->bitend, reg->bitstart);
+	val = (tmp << reg->bitstart) | (mask << BIT_WRITEABLE_SHIFT);
+
+	return regmap_write(base, reg->offset, val);
+}
+
+With .pipe_sgmii_mac_sel = { 0x0040, 1, 1, 0x00, 0x01 } that gives
+mask = GENMASK(1, 1) and val = (tmp << 1) | (mask << BIT_WRITEABLE_SHIFT),
+so bit 1 is latched to either 0 or 1 unconditionally.
+
+Before this patch the driver never touched that bit, so whatever the
+bootloader or a previous boot (kexec) left there survived PHY init.  Can a
+board whose firmware routed SGMII to GMAC0, running an older DTB without
+"rockchip,sgmii-mac-sel", now get the mux forced back to GMAC1 while the
+MAC driving the link is still GMAC0?
+
+The commit message says:
+
+    The hardware reset value is 1 (GMAC1). If the property is set to 0,
+    the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
+    remains at GMAC1.
+
+Is "remains at GMAC1" accurate given the bit is now actively programmed
+rather than left alone?  Writing the bit only when
+device_property_read_u32() actually succeeds would keep the change inert
+for existing DTBs; otherwise it may be worth stating in the commit message
+that the driver now takes ownership of this bit from firmware.
+
+[Severity: Low]
+This isn't a bug introduced by this patch, but a pre-existing convention
+worth noting: the regmap_write() error returned by
+rockchip_combphy_param_write() is discarded here, as it is at all of the
+other call sites in this file, so SGMII init can report success with the
+MAC mux left unprogrammed.
+
+With the in-tree DT this cannot actually fail; arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+declares the pipe-grf region as:
+
+	pipegrf: syscon@fdc50000 {
+		reg = <0x0 0xfdc50000 0x0 0x1000>;
+	};
+
+so offset 0x40 is well inside the regmap.  The neighbouring
+pipe_xpcs_phy_ready write at the same offset 0x40 already ignores its
+return value too.
+
+>  		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
+>  		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
+>  		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917204624.2427486-1-coiaprant%40gmail.com
