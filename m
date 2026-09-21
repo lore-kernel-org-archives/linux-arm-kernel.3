@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D45C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77909C982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oYAGsVvEhdzXCWG+jA1/MT2C7mPbAr8X9h6EIfIhiA=; b=L9rrVSWlHwcffKx43SEAYDSzs1
-	i71sn/5wu/aWhCkvzb9WxdV8WQjYEviUEJQhLWYmxPV/7f2gSlBNbPJMH/9WqEMxrB9S4hOKD76oe
-	hkbKynO/qZ2yvofKXJlKmNW00e7TO0vjKhBbtqA6rUwilE8ER6850b1OQJwm9JalGI/VZQvxGRAEM
-	Hgfk8Ti+pF6MO92oQ/jqrqkKuQaBzJmEMTYGwboteDEUvIKWgc0zA118yClG9maTWm5184sMWfYBf
-	kn6S1ErXfKYaaG/YKScP7XW9nUbCd87s+IKy6OKN7/PQMhmYkco4SUG99a6Ot3H+a0IsJplWbxuzW
-	K9wAdyKg==;
+	bh=fGZGEKRmpT20WJeHjbdlS6czM4JmHTnUJYSdUcbfzcc=; b=cTVxhWts3SREujRoGj/naID3sq
+	Wj6CfVkSsPYZQC4XqVvGL6yMRyxIxS+pqJy0b1FzerXN1vLYiwQxdsto/X4Pu/S54faMQclbz/IAy
+	KI+W3ZHeW2oMeKGCiYPjN8NWXTVej6uRAdL2zSeL3i3TUehIAbtDCdryLh2CK/sYbvc1GKUnvnDWA
+	lGb9mJ8F2LhsqhBEKFDu3zoV4yb6dnia1ObGaV0fZtZBfHWUo+sQtgOujeadzHx64EaiFRayYJ3My
+	Pjcbs+QtxCRSzkPe2B1SAorXaloEcHxT5vaeERxeJpgy+agEpKnMpXnRunMADFFvDwSWcfnEbQV53
+	qEZYrCsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dS9-000000028ZA-3BdG;
-	Mon, 21 Sep 2026 12:49:01 +0000
-Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dS7-000000028WL-1jrw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 12:49:00 +0000
-Received: from localhost (unknown [213.135.10.150])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.3ffe.de (Postfix) with ESMTPSA id 0FDAD5C;
-	Mon, 21 Sep 2026 14:48:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
-	t=1789994927;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8oYAGsVvEhdzXCWG+jA1/MT2C7mPbAr8X9h6EIfIhiA=;
-	b=HMNcECOFvWrzAxv7X6rh6ufMZzeR20RIFNOZLJPrJoTwjVmGqMgRjQhC8o3iWXnsMrK3go
-	snIUKwUa8cCa6Qs1+nOuaHbEAtgEGa4E6KiJyMQGCnZllwH26bM3dbh16VOcVhJzwN7rLQ
-	bpJ3pFruahOgtooN+AKT/f14q2LOyGObddcToHTinFpWEuwJfvTHByrSWU/W9LXps+Lt4y
-	1FEtrgXQZYf3eAQ21ST63nOtDZ81TivcweH/LVk/lkZPNqQuylwn+h/8If71DMM3sWkpVT
-	RWhNknTq27bzWl/SyXdCXMxqP4MZmopKytnGg0x+O6PoMmsrTHqwHwIP0yvY+w==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=dc334a3fcc535e0315e8224ae25d35c7ceb07b6cf064276ea636de9843ad;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Mon, 21 Sep 2026 14:48:44 +0200
-Message-Id: <DLL08SC6PWNS.2BUBIQYMBWIKQ@walle.cc>
-Subject: Re: [PATCH v7 09/15] gpiolib: regmap: add gpio_regmap_get_chip()
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
- "Jerome Brunet" <jbrunet@baylibre.com>, "Linus Walleij"
- <linusw@kernel.org>, "Bartosz Golaszewski" <brgl@kernel.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, "Jiri Slaby"
- <jirislaby@kernel.org>, "Andy Shevchenko"
- <andriy.shevchenko@linux.intel.com>, =?utf-8?q?Ilpo_J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Long Zhao"
- <zl020895@163.com>, "Lee Jones" <lee@kernel.org>, <mfd@lists.linux.dev>,
- <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>, <linux-serial@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-From: "Michael Walle" <michael@walle.cc>
-To: <longzhao@ambarella.com>, "Arnd Bergmann" <arnd@arndb.de>, "Krzysztof
- Kozlowski" <krzk@kernel.org>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, <soc@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
-X-Mailer: aerc 0.20.0
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <20260915-cv75-v5-v7-9-3297d3fbc9c0@ambarella.com>
-In-Reply-To: <20260915-cv75-v5-v7-9-3297d3fbc9c0@ambarella.com>
+	id 1x8dTS-000000028oJ-0UBE;
+	Mon, 21 Sep 2026 12:50:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8dTQ-000000028nf-0TjR;
+	Mon, 21 Sep 2026 12:50:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4588F176C;
+	Mon, 21 Sep 2026 05:50:15 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2AE03F86C;
+	Mon, 21 Sep 2026 05:50:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789995018; bh=TQv7l9aU1HPhSsH6yPVKN6maCdi89qI1I+QaGJPz64U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A1SoKiy+LIZ9OZR6QAKSKC1Ux368ZuAKB18oX6607x3al7a+KRnZc9iDJhGX3ZePO
+	 aT176Jp0/eANP5NLj9yCAhkVS10FWvTpr9OikBj7j5132HFZWEeyUqhAkayVoeKSwu
+	 OMGqtJEAqxDVi+EZSvFdcDPrspc5Js6YggW/hMp0=
+Date: Mon, 21 Sep 2026 13:50:10 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v5 2/6] dma: swiotlb: Track whether the pool size was
+ explicitly set
+Message-ID: <arEoAq9mhsx2mt1P@arm.com>
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-3-aneesh.kumar@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260921063628.362078-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_054859_598309_0CA44502 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20260921_055020_212713_5ED2C522 
+X-CRM114-Status: UNSURE (   8.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,33 +103,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---dc334a3fcc535e0315e8224ae25d35c7ceb07b6cf064276ea636de9843ad
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Mon, Sep 21, 2026 at 12:06:24PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> swiotlb_adjust_size() must not override a pool size supplied through the
+> swiotlb= command-line parameter.
+> 
+> Currently, it determines whether a size was supplied by comparing
+> default_nslabs with IO_TLB_DEFAULT_SIZE. This fails when the user
+> explicitly requests the compiled-in default size, allowing the request
+> to be overwritten by automatic pool sizing.
+> 
+> Record whether swiotlb= supplied a numeric size and add
+> swiotlb_default_size_changed() to query that state.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-On Tue Sep 15, 2026 at 1:15 PM CEST, Long Zhao via B4 Relay wrote:
-> From: Long Zhao <longzhao@ambarella.com>
->
-> Let drivers that implement a custom irqchip retrieve the gpio_chip
-> after registration. Attach a caller-provided irq_domain only when it
-> is present.
-
-So why do we need this? Why can't gpio-regmap register the
-irq_domain?
-
--michael
-
---dc334a3fcc535e0315e8224ae25d35c7ceb07b6cf064276ea636de9843ad
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCarEnrREcbWljaGFlbEB3
-YWxsZS5jYwAKCRASJzzuPgIf+LpuAYDE0AkurPddl0z6QE+hTeG4NZcB/7h42HL0
-OIorjxt6Yf4Z474zjfRls7Q8TEb5PWABgPO0XMEiJFECr8eYcTJCzY4GwwWiB1JR
-x0gMJHh8+WSi92hntm19knMXwoCPPyL1+A==
-=LBa0
------END PGP SIGNATURE-----
-
---dc334a3fcc535e0315e8224ae25d35c7ceb07b6cf064276ea636de9843ad--
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
