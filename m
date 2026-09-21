@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C937C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 00:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F89C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 00:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z0y0iKqkoDH4ID/1W9jrSb7Dm4EYVJh0udefr0qJ8Gw=; b=s7Aba4UbpS+5xFFIp+fnBzMA2r
-	egGBdbGAm6lfsb2UfNOZeuXE3du9os398g3Cbqbper+I54R9tedlyjzIUB2tOPjQLV8lw55iduJqf
-	/IkH4EnMCUWUT2sTQS6mB31SjCe6JxK5tJBW07JVY1xfI5Ou+8kYab35cyx1xe7l9894XHDmkHwKA
-	MnhmLl5P5NWpxqDjLD0qxi1cAcrUfpE4eT1FEq7JYet4zPl9tXLMIlx1noCDkEbo4/RlKtltpLSR8
-	pSu28H5w1mFeUbISdNPxHpnVVGsWlRqoXdwHHNU3ldOkL54UIJyb60AZu5sUkQPijCMTSqAnxHUzh
-	DhrP5sVA==;
+	bh=nwf30iuTuv5VLbNpYFck9XFeHn/Dpbwh6FqWUkooBEQ=; b=S7g/fl2qHprif3R7NQUhYV2aTP
+	eCy2qTXedwLMWuBn1cmXUL+EO6U6fyOFlYdjBK4z2bVFdPP1/rXZql/90IFFtppx8gBBmNSn83OTH
+	SJYpT09MeT0fwiY6QL/2UhVPWuQ5NXBIt9COEM2ZmIprhcwRzbA+vzKd4yz0zrf2/oAXi56mfyErs
+	++PTXGtoAOTOVGs8yE2xUgcKQqxU37LxBGzbrgXbgZB2AMwAobyxgx6OzBYeXWNnkEsDQmGSPEYrc
+	1S47no/T+3qYwaZe2sDgQNRYR9G5cLa/cAlZ+J5lFZvEcE/DiXtU4BeZafrR05nBqUMgvwHEUrwqS
+	ojS9FaFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8RhK-00000000ciE-15HZ;
-	Mon, 21 Sep 2026 00:15:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8Rmj-00000000ctS-3Kn4;
+	Mon, 21 Sep 2026 00:21:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8RhJ-00000000chz-0WAC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 00:15:53 +0000
+	id 1x8Rmi-00000000ctJ-2voA;
+	Mon, 21 Sep 2026 00:21:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BEDB600C8;
-	Mon, 21 Sep 2026 00:15:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08B801F000FF;
-	Mon, 21 Sep 2026 00:15:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C2998601F0;
+	Mon, 21 Sep 2026 00:21:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 930A61F000FF;
+	Mon, 21 Sep 2026 00:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789949751;
-	bh=Z0y0iKqkoDH4ID/1W9jrSb7Dm4EYVJh0udefr0qJ8Gw=;
+	s=k20260515; t=1789950087;
+	bh=nwf30iuTuv5VLbNpYFck9XFeHn/Dpbwh6FqWUkooBEQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Ai59kb6jTqkDSKs9I7Yq/ALk7AeqSUU8wxsHmwTwIlrcdvJCP9go5g98kxVIe2Fvd
-	 2MyIH8vy3lh5bqmXbO3zQWHzIrlmAHRKRHV9Yz0fj7fkypOzx1vVfL/aDCgbhC1xfr
-	 wj0jlnSTeArcyEVWK7iYejsUyMqNsVDEYZXEm95u+3e/PeRDY/eODxLHxzqijAEr5h
-	 D9a9QJf9zr1GtWdoUu/keNbgINRCt9iJNfwz2lzSnDo3QhYQ1EwCahQfD/rr9FfL9p
-	 r6We5e99qjPBjp9nfqaHyy/uwl55XOiilvXwFodUbdFj1vWM6Yb0qO6JV1hTigkcZ1
-	 7b3zxdufTDUBA==
-Date: Mon, 21 Sep 2026 01:15:45 +0100
+	b=C8gbed0tVCs/tkqu9+wuToN+7202xAx+QM2NyRJy4p+ixQ7rb65LcnrkJi3eCvtwp
+	 sU++JbEMgY4pKUqYUt33Bwk/KQMRiLVL+FKpF/bfqM1Hnrslio7QbqfBmrcUIGRuFm
+	 ozbjwLTMQA3xE6HKonFzaunnRJEuVJJLvBm5mU04oI49QArf8NgtehLTK33xA/Pu/R
+	 6kLvfQo/KlZz2knNZaArriNJFb5ypf8RjDyvUe9CUFr3euljeV6QOTnyJBY7NWosqH
+	 ZJV5z5dRTlJIBWdnfpqhkQiVDWt5ZCU0I3vo7fYq+ou1fvOo5scEE1wVqLnRmUSMEJ
+	 XSQmLvSnBLejQ==
+Date: Mon, 21 Sep 2026 01:21:21 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, David Lechner
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Roman Vivchar <rva333@protonmail.com>, David Lechner
  <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Olivier Moysan
- <olivier.moysan@foss.st.com>, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Sashiko
- <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v3] iio: adc: stm32-adc: fix possible division by zero
- in processed channel
-Message-ID: <20260921011545.138903c5@jic23-hlaptop>
-In-Reply-To: <aquKpzrNNpX0gy1c@ashevche-desk.local>
-References: <20260916-adc-fix-div0-v3-1-bedf027a6e7e@foss.st.com>
-	<aquKpzrNNpX0gy1c@ashevche-desk.local>
+ Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Zhiyong Tao
+ <zhiyong.tao@mediatek.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: iio: adc: mediatek,mt2701-auxadc: add
+ mt6572
+Message-ID: <20260921012121.048cef83@jic23-hlaptop>
+In-Reply-To: <20260918-boisterous-slim-dolphin-03d5ea@quoll>
+References: <20260916-6572-dt-auxadc-v1-1-e8190d614c33@protonmail.com>
+	<20260918-boisterous-slim-dolphin-03d5ea@quoll>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -77,24 +77,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026 09:37:27 +0300
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+On Fri, 18 Sep 2026 11:50:20 +0200
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-> On Wed, Sep 16, 2026 at 07:15:04PM +0200, Fabrice Gasnier wrote:
-> > In case the conversion has failed or returned zero, processing *val
-> > can lead to a division by zero. Need to check for errors, or converted
-> > value is zero, before processing the data. In case the converted value
-> > is zero, e.g. the Vrefint channel, this should be considered as invalid
-> > in all cases.  
+> On Wed, Sep 16, 2026 at 02:42:35PM +0300, Roman Vivchar wrote:
+> > Add a compatible string for the mt6572 AUXADC, that is compatible with
+> > mt8173 IP.
+> > 
+> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> > ---
+> >  Documentation/devicetree/bindings/iio/adc/mediatek,mt2701-auxadc.yaml | 1 +
+> >  1 file changed, 1 insertion(+)  
 > 
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Applied.
 
-Applied to the fixes-togreg branch of iio.git.
-Note this may well not go upstream until next merge window.
-
-Thanks,
+Thanks
 
 Jonathan
+
+> 
+> Best regards,
+> Krzysztof
+> 
 
 
