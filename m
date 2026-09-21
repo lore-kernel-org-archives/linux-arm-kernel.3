@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CFDC982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2A1C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=505rhK+elsmWiU1fs3MwwoGHwe7b9tZRevoRsk65ahQ=; b=YprsinzPqiMo4zkc+OO/kh/ygk
-	lkBatJdQmGwaFoqzFEGob62vWCig81/6cPvS9Ej2xY7uvAkaYBMih3kzZ0AhsrrxLJk9UvXZluhXe
-	7jZ+aVgs0l6y+K23CyoESqtNkvGxuda7TUZi4x+GikqElckLKCJOq+Gh+Y0Ql0/hc2Oz0RfEF1Oul
-	oDGl3Q2Fs1dExm5zfomHJtW78Xklf7fM7XeWT3xrxi/2R0mLHN/8pxQQHYNZauu5dxlPWhgt0dvCh
-	+gcnn67nDVc4h8rG+KXPhQw9U7UzSlZAQrvw6ysjUQ/YtP5eafGzs2X/lQ+BwIRuctfhI6cR+MypK
-	+07S2Pjg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EzyjvcjHnU8bsyuDFh4e4QIqzX8lLzZewGB28BdVIsQ=; b=CY2TtJD/kzJ7w0N1X/xFIJCuJv
+	fwTt51wZjoYnDcF28WOs+bpBUS1UdZKXFQ/YWgjqaafqi5meRD97AxObi4inEIG38gDB1PheWNfBr
+	A3TOzQHBzXoAgV22icqznZy/taPImOX6rEblw3Q3uUyiXhBGPCDZKuFHavKI6D0gyv2Rhaq1LnWlj
+	8xxsMXpIr2mHehkoIgxI+xHkvFiK2EMekE3B/wTvwl1MWuuLv8g5WPtU/uxQKeB0zIpgcRapw+QMf
+	kmz+z3iFVVFMzicOE/63/D15I/Plk35eKJXy5OPJzpgY8yMFbvm1197bp/8dce7SRq3eMOb9R2eWJ
+	Mpgy+Uug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eXA-00000002JOS-1IAd;
-	Mon, 21 Sep 2026 13:58:16 +0000
+	id 1x8eXI-00000002JQ7-27rW;
+	Mon, 21 Sep 2026 13:58:24 +0000
 Received: from m16.mail.126.com ([117.135.210.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eX7-00000002JNp-0x5R
+	id 1x8eX7-00000002JNm-0LRS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 13:58:15 +0000
+	Mon, 21 Sep 2026 13:58:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=50
-	5rhK+elsmWiU1fs3MwwoGHwe7b9tZRevoRsk65ahQ=; b=fcRNP8jJK1mcMFHqhC
-	Zhc2c3n4AScqc+sDmqGZP2YwRjnUM58zZdt0m9so6JWYTp5NaQJDit2zY2PQOx63
-	RS5rZSR9RR+A7T29O72/SKxIbujUDat4o7pHx2AmKz59IXgpaNMwYiMGc4IvbAlw
-	bh29iLT14wgpv4bzRHu2VSbj8=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ez
+	yjvcjHnU8bsyuDFh4e4QIqzX8lLzZewGB28BdVIsQ=; b=ZJ4A9DHyVWeOVgvWbX
+	SQ9fRseiZitjjvZsJRy0vgOPvPYK4I4A2fSw7+Isykg0xhImtaQWk6orSkYK66wu
+	PxNG9vEiBNQoqNSf6yBUF3YXTamAJDNvhfhfcrFh5fkANSSVg0y197cqefnaoe+Y
+	WmsS7GG7L1lk796eI84fvtd94=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD33wG+N7FqH9M7Bw--.62914S3;
-	Mon, 21 Sep 2026 21:57:21 +0800 (CST)
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD33wG+N7FqH9M7Bw--.62914S2;
+	Mon, 21 Sep 2026 21:57:18 +0800 (CST)
 From: Linkui Xiao <xiaolinkui@126.com>
 To: maxime.chevallier@bootlin.com,
 	andrew+netdev@lunn.ch,
@@ -51,23 +51,21 @@ Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Linkui Xiao <xiaolinkui@kylinos.cn>,
 	stable@vger.kernel.org
-Subject: [PATCH net v3 2/2] net: stmmac: fix a divide by zero in stmmac_xdp_xmit_xdpf()
-Date: Mon, 21 Sep 2026 21:57:16 +0800
-Message-Id: <20260921135716.218420-2-xiaolinkui@126.com>
+Subject: [PATCH net v3 1/2] net: stmmac: ethtool: ignore inapplicable per-queue coalesce fields
+Date: Mon, 21 Sep 2026 21:57:15 +0800
+Message-Id: <20260921135716.218420-1-xiaolinkui@126.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260921135716.218420-1-xiaolinkui@126.com>
-References: <20260921135716.218420-1-xiaolinkui@126.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD33wG+N7FqH9M7Bw--.62914S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZFy8Zr1fCFW7Zw1fKr1UGFg_yoW8uryUp3
-	yfCa90yr1kJr43Jw4kGw409Fy5Jay0yF47K3W8t393ZF45ZrZIqry3tayYqF17Ar4kX3ya
-	kw4Dur1DC3Wqy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UtDG5UUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqQEF22qxN8HcogAA3l
+X-CM-TRANSID: _____wD33wG+N7FqH9M7Bw--.62914S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuF4DtFyxZF4Dury7Kry5twb_yoW7Jw47p3
+	yUCFZavw1kJrW2yw1kAF40kFy5trs3tFZ7XFyxt34Fka1fCry5Xry5tryUKFnFkrWkZrWY
+	gFWjq39ru398XaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UnmRUUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqR8E2mqxN7-cjgAA3p
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_065813_735798_7855CF55 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260921_065815_149637_AA76A79F 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +82,126 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-tx-frames 0 is a valid coalescing request: it only stops the frame count
-from raising TX completion interrupts, while the coalescing timer armed
-by stmmac_tx_timer_arm() keeps reclaiming the descriptors. That is why
-stmmac_xmit(), stmmac_tso_xmit() and stmmac_xdp_xmit_zc() all test
-priv->tx_coal_frames[queue] before taking the modulo, and why
-__stmmac_set_coalesce() rejects the request only when tx-usecs is zero
-as well, since then nothing would complete the transmissions.
+rx_queues_to_use and tx_queues_to_use are independent: dwmac-intel uses
+6 RX and 4 TX channels on TGL and EHL, and snps,rx-queues-to-use and
+snps,tx-queues-to-use are parsed separately, so a queue index can exist
+in one direction only. include/linux/ethtool.h documents the parameters
+of the missing side as inapplicable and asks set_per_queue_coalesce() to
+ignore them, but __stmmac_set_coalesce() validates both directions for
+every index while __stmmac_get_coalesce() reports the inapplicable ones
+as zero.
 
-stmmac_xdp_xmit_xdpf() is the one transmit path that takes the modulo
-without the test, so
+ethtool implements --per-queue by reading the current settings of every
+queue in the mask and sending them back with only the requested fields
+overwritten, so the zeroed fields are fed straight back into the setter:
 
-	ethtool -C eth0 tx-usecs 10 tx-frames 0
+  - on an RX-only index the test for both TX fields being zero rejects
+    the request, so per-queue RX coalescing cannot be changed at all;
+  - on a TX-only index rx_coalesce_usecs is zero, stmmac_usec2riwt()
+    returns zero and the MIN_DMA_RIWT test rejects the request, so
+    per-queue TX coalescing cannot be changed at all.
 
-followed by an XDP_TX or an ndo_xdp_xmit frame divides by zero, which
-oopses in softirq context on the architectures that trap on a zero
-divisor.
+On an RX-only index the TX test rejects the request after the RX block
+has already called stmmac_rx_watchdog() and stored rx_riwt[] and
+rx_coal_frames[], so the driver reports -EINVAL with the hardware half
+reprogrammed.  The roll-back that ethtool_set_per_queue_coalesce() runs
+for the queues it has already changed then trips over the same test and
+cannot restore them.  On a TX-only index the rx_riwt range check fails
+before anything is written, but the request is still rejected and the
+TX settings are never stored.
 
-Add the missing test, which leaves set_ic false exactly like the other
-transmit paths do.
+Validate and apply only the side that the queue index actually has, and
+move the TX checks in front of the RX block so that a request is either
+applied completely or rejected without touching the device.
 
-Fixes: be8b38a722e6 ("net: stmmac: Add support for XDP_TX action")
+Fixes: db2f2842e6f5 ("net: stmmac: add per-queue TX & RX coalesce ethtool support")
 Cc: stable@vger.kernel.org
 Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
 ---
-v3:
-- New patch. stmmac_xdp_xmit_xdpf() is the only transmit path that divides
-  by tx_coal_frames[queue] without a zero test; add the missing test the
-  way stmmac_xdp_xmit_zc() has it. (Sashiko review)
+Changes in v2:
+- Trim the comment in front of the TX checks to one line; the reasoning
+  belongs in the changelog. (Andrew Lunn)
+- Link: https://lore.kernel.org/all/20260920015647.1783574-1-xiaolinkui@126.com/
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Changes in v3:
+- Only run the TX checks when the index carries a TX ring, and the rx_riwt
+  range check only when it carries an RX ring. Moving the checks alone
+  rejected per-queue RX coalescing on an RX-only index and broke the
+  ethtool core rollback for it. (Sashiko review)
+- Reword the subject and changelog to describe the direction-aware
+  validation.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index e2e680dd980c..276187f50ee3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5256,7 +5256,9 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 35 +++++++++++++------
+ 1 file changed, 24 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 154cc0c7623d..fed648a9f784 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -837,6 +837,8 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	bool all_queues = false;
+ 	unsigned int rx_riwt;
++	bool has_rx;
++	bool has_tx;
+ 	u32 max_cnt;
+ 	u32 rx_cnt;
+ 	u32 tx_cnt;
+@@ -850,7 +852,20 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 	else if (queue >= max_cnt)
+ 		return -EINVAL;
  
- 	tx_q->tx_count_frames++;
+-	if (priv->use_riwt) {
++	has_rx = all_queues || queue < rx_cnt;
++	has_tx = all_queues || queue < tx_cnt;
++
++	/* An index can be RX-only or TX-only; ignore the missing side. */
++	if (has_tx &&
++	    ec->tx_coalesce_usecs == 0 && ec->tx_max_coalesced_frames == 0)
++		return -EINVAL;
++
++	if (has_tx &&
++	    (ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK ||
++	     ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
++		return -EINVAL;
++
++	if (has_rx && priv->use_riwt) {
+ 		rx_riwt = stmmac_usec2riwt(ec->rx_coalesce_usecs, priv);
  
--	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
-+	if (!priv->tx_coal_frames[queue])
-+		set_ic = false;
-+	else if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
- 		set_ic = true;
- 	else
- 		set_ic = false;
+ 		if ((rx_riwt > MAX_DMA_RIWT) || (rx_riwt < MIN_DMA_RIWT))
+@@ -866,7 +881,7 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 				priv->rx_coal_frames[i] =
+ 					ec->rx_max_coalesced_frames;
+ 			}
+-		} else if (queue < rx_cnt) {
++		} else {
+ 			priv->rx_riwt[queue] = rx_riwt;
+ 			stmmac_rx_watchdog(priv, priv->ioaddr,
+ 					   rx_riwt, queue);
+@@ -875,14 +890,6 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 		}
+ 	}
+ 
+-	if ((ec->tx_coalesce_usecs == 0) &&
+-	    (ec->tx_max_coalesced_frames == 0))
+-		return -EINVAL;
+-
+-	if ((ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK) ||
+-	    (ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
+-		return -EINVAL;
+-
+ 	if (all_queues) {
+ 		int i;
+ 
+@@ -892,7 +899,7 @@ static int __stmmac_set_coalesce(struct net_device *dev,
+ 			priv->tx_coal_timer[i] =
+ 				ec->tx_coalesce_usecs;
+ 		}
+-	} else if (queue < tx_cnt) {
++	} else if (has_tx) {
+ 		priv->tx_coal_frames[queue] =
+ 			ec->tx_max_coalesced_frames;
+ 		priv->tx_coal_timer[queue] =
 -- 
 2.25.1
 
