@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F368C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BF0C982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gzz6FOV+ihb6XY6fR1yWdHLsJygnj1TQ+0PTlX8dy6o=; b=zMRiIBToBC1UUh/HMM4etWMsHw
-	lHJQvT1TbnV6Q25ZujduXGFO50mFFVZiY7ro5veJchBgQhXQjg2aoTwHofp34b8Bt1K9TTkQiqPv5
-	YflxT/LIwwrwxK7vEXH2LZ2jrkkGPboJ03PMd84+zF8bXqwadlrWZIfhTn56yXKdKilMSIcgMfvGw
-	WQPHMwDjyw6Z5s22PkxdbcGl+JqvPUNdcE2NfoyxiRTclD+8mBZU6xELveqv4V6RErEdwzynfvhXe
-	FzOzumntJmUYZWUlerhw927tolJO4lfVPVLxAgXlGyoxPtzL0fVXzwf+20Q7xVW5Ex6ByBBUeJA4a
-	ZymjjBtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eo+VrB6JJOwbs8IsxgYASPnp1ZE7MEEhUtA6BWTn5Xk=; b=k2s6BEL9LktqbwtuiWhSxDW56+
+	FPdTcEGgtD36cnO19muIDOGfDztpuOP4LqK6x2w9LJgMPMNeO1Qfv2reiHSDbD+NOCRiLOXblI1MX
+	qIWGe9mJmbNy8HQsmn7QK6s+MVQgvb5AYpQynIc2ga+t4BZQe/t3TP1PZhEN+mwzlStoJbPJ/x/UZ
+	TKZGt6GNGmg0TaxzAGZgD0CLTz7OMps0WeSJ4cY3XUC9rKeTc8pXeSIzfdWPsyCA6YV9reI60x64i
+	JSt0k1RdYkIBV1+VzrGmzYO7mJb9A19gynwKVdVKMyY880RnM2yc8DCSdLYy3Col99vboMDCJe+7o
+	iAC8q/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dkt-00000002CCO-3vhu;
-	Mon, 21 Sep 2026 13:08:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8dm5-00000002CRV-17RM;
+	Mon, 21 Sep 2026 13:09:37 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dkr-00000002CBq-2gxb;
-	Mon, 21 Sep 2026 13:08:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1CEF60142;
-	Mon, 21 Sep 2026 13:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E831F000FF;
-	Mon, 21 Sep 2026 13:08:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789996100;
-	bh=Gzz6FOV+ihb6XY6fR1yWdHLsJygnj1TQ+0PTlX8dy6o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jutjQXKQt8K6B0xwKgv+5DKEb5jeEZ9f4C/ODLNIaJm89wXXv7vEK7sftym6VdTWZ
-	 iWmXtpr5oBvd/fTs7Pnr+UITsvv31HyGnQ+iOx3dgtyyEq4uQpeN9MZAEWN/rJ+QRd
-	 o5w8NXUfLIIFh+A6kq6qdPe/r+5hRcNYXF1atuMwz1gCfIMayhWGLIGhiWMHNAQhWS
-	 3COIgiullYPWAz7+bvYXkrumeCx8KTXqLiPGlsZq7uoeCxzB3uz2Dz/PKfKftNH2h4
-	 D7hNOPpq1slIm8JHsXKzU3vyIHlaU3U96hShCHNR8rtBPOwgutM3G6Ruk7ufnYL6j/
-	 YKfjqqT4l267g==
-Subject: Re: [PATCH v6 net-next] net: phy: mediatek: support MT7530 PHYs on
- EN71221 MCM
-From: netdev-bot+sashiko@kernel.org
-To: cjd@cjdns.fr
-Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
- SkyLake.Huang@mediatek.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- srherobrine20@gmail.com
-Date: Mon, 21 Sep 2026 13:08:19 +0000
-Message-ID: <178999609903.2160803.13587309272665638742@kernel.org>
-In-Reply-To: <20260917130534.297930-1-cjd@cjdns.fr>
-References: <20260917130534.297930-1-cjd@cjdns.fr>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x8dm2-00000002CQD-39nW;
+	Mon, 21 Sep 2026 13:09:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1789996165; x=1790600965; i=wahrenst@gmx.net;
+	bh=Eo+VrB6JJOwbs8IsxgYASPnp1ZE7MEEhUtA6BWTn5Xk=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=cQUZTT8qVsRkuhDWGj8sobHpdfBPpDdkKF5PI01kcFS93c3n5bwXxGMpqJDx9onm
+	 SNIHTAKA1Mdy80IZV4t3pusLf0xGTJRDzrzUVOsc/r9UvbZFwVeBXMsXKGDSl06z0
+	 FS/dRX4OG7ZcqDt3npJzJ6qfcCjfRSblkdze9yLEAkjUUoCtvlcUs+sI/Kt16PWHp
+	 2FEoFHIFQTQ0K+J48Nym6+6OpRFaxT4gufFq+/dwmjug3PBmua5mPD4sEPLRz96UW
+	 LwHqjIaNW/27DQ+0G3Yr1kvi+Uc8uWAPQjogvTJYd5nAE8T6QXiRhK3nWUHa4FdCB
+	 uGGfxc1NOmXKD+9Gjg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N5GE1-1wjEfY1YYf-016pyi; Mon, 21
+ Sep 2026 15:09:25 +0200
+Message-ID: <9cb548d3-f3cf-4757-a9ff-5f878479c7d7@gmx.net>
+Date: Mon, 21 Sep 2026 15:09:23 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V5 0/4] arm64: dts: freescale: Add chargebyte Charge
+ Control Y
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Christoph Stoidner <c.stoidner@phytec.de>, Vinod Koul <vkoul@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Fabio Estevam
+ <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, devicetree@vger.kernel.org,
+ linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Rob Herring <robh@kernel.org>, Vincent Mailhol <mailhol@kernel.org>,
+ Aswath Govindraju <a-govindraju@ti.com>
+References: <20260907150420.18787-1-wahrenst@gmx.net>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260907150420.18787-1-wahrenst@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:dTkV2oD5YpD92t0EBpOUdk3SgFF0jb3vhQ1NQAolFNEcEJ8+VhK
+ 5+vGQ0Mllj2A/Ry0j03P/CET45XfCdP565A801Nq4zLUwcrhE68OhrQJnheYR5UV17d0DYN
+ hZmXQv7FH1A7ZxDo8UIk6IIH5n+NgZJkinmJJEHY6OOwbmDkltRRS2C2NuB7pq9Gbq88p8v
+ hovzxizSKDZnZRnHbl47A==
+UI-OutboundReport: notjunk:1;M01:P0:NIjBCQGh9cU=;eTisrmx80CVgm0Ugyb+PN7+ZfwT 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
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_060935_181610_BDCCD76A 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,190 +99,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hi Frank,
 
-Critical: 0 · High: 2 · Medium: 0 · Low: 0
+Am 07.09.26 um 17:04 schrieb Stefan Wahren:
+> This series adds support for the chargebyte Charge Control Y, which is
+> an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
+> Charging System) charging stations.
+>
+> sashiko reported in the first version of the series [1] that X_nRST_LAN
+> is available via GPIO line names, but there is no reset mechanismn in th=
+e
+> device tree. This finding is valid. Since the reset line feature isn't
+> implemented for LAN8651 driver yet, I like to proceed with the current
+> version. The LAN8651 handles reset via SPI commands and in rare cases
+> we still have the possibility to control the reset from userspace.
+> Btw the pin has a pull resistor in hardware, so it's not floating.
+>
+> sashiko complained in the fourth version of the series [2] about the
+> reset polarity of ethphy2 and the different drive strength across the
+> data lines. Both is intended.
+>
+> [1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C1F000=
+E9@smtp.kernel.org/
+> [2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C1F000=
+E9@smtp.kernel.org/
+>
+> Changes in V5:
+> - fix delete-node for pinctrl_leds (reported by sashiko)
+> - add Krzysztof's Reviewed-by
+I didn't received any feedback for V5 yet. Do you have any comments or=20
+could it be merged?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The new "EcoNet EN751221 MCM PHY" driver entry can never bind,
-  because its gate en751221_is_mcm_phy() (drivers/net/phy/mediatek/mtk-…
-- [High] mt7530_is_gphy() (drivers/net/phy/mediatek/mtk-ge.c:150-154)
-  masks the raw return value of phy_read(phydev, MII_ESTATUS) with…
-
---
-
-net: phy: mediatek: support MT7530 PHYs on EN71221 MCM
-
-This adds a second phy_driver entry for the MT7530 PHYs found on the
-EcoNet EN751221 multi-chip module, which need extra register writes at
-config_init time.  The MT7530 entry loses PHY_ID_MATCH_EXACT and both
-entries now select hardware through custom match_phy_device callbacks.
-
-> diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
-> index 96d8ac5154e5e..62e3eff37b800 100644
-> --- a/drivers/net/phy/mediatek/mtk-ge.c
-> +++ b/drivers/net/phy/mediatek/mtk-ge.c
-
-[ ... ]
-
-> @@ -101,6 +102,69 @@ static int mt7530_phy_config_init(struct phy_device *phydev)
->  	return 0;
->  }
->  
-> +/*
-> + * The EcoNet EN751221 "G" multi-chip module MT7530 requires additional PHY
-> + * configuration.
-> + */
-> +static int en751221_mcm_phy_config_init(struct phy_device *phydev)
-> +{
-> +	int ret;
-> +
-> +	ret = genphy_soft_reset(phydev);
-> +	if (ret)
-> +		return ret;
-> +
-
-[ ... ]
-
-> +	return mt7530_phy_config_init(phydev);
-> +}
-> +
-> +static bool en751221_is_mcm_phy(struct phy_device *phydev)
-> +{
-> +	struct device *parent = phydev->mdio.bus->parent;
-> +
-> +	return parent && parent->of_node &&
-> +	       of_device_is_compatible(parent->of_node, "econet,en751221");
-> +}
-
-[Severity: High]
-Can en751221_is_mcm_phy() ever return true?  The string
-"econet,en751221" is documented as a root node compatible only:
-
-Documentation/devicetree/bindings/mips/econet.yaml:
-    properties:
-      $nodename:
-        const: '/'
-
-      compatible:
-        oneOf:
-          - description: Boards with EcoNet EN751221 family SoC
-
-and the only in-tree users are the root nodes of
-arch/mips/boot/dts/econet/en751221.dtsi and
-en751221_smartfiber_xp8421-b.dts.
-
-The node inspected here is the MDIO bus parent, which is the switch or
-MAC device, for example in mt7530_setup_mdio():
-
-drivers/net/dsa/mt7530.c:
-    bus->parent = dev;
-
-so parent->of_node carries a switch compatible such as
-"mediatek,mt7530" or "mediatek,mt7621", not the machine compatible.
-Does that make en751221_phy_match() always return 0, leaving the new
-"EcoNet EN751221 MCM PHY" entry unreachable and EN751221 MCM boards
-silently bound to the plain "MediaTek MT7530 PHY" entry instead?
-
-If the intent is machine level detection, would
-of_machine_is_compatible() be the matching API here?  If node level
-detection is intended, which compatible is expected on the switch or
-MDIO node?  I could not find an EN751221 switch or MDIO node or driver
-compatible upstream at all - grepping for "econet," under drivers/net/
-only turns up "econet,en7528-switch" in mt7530-mmio.c plus this new
-string - so is there any configuration in which this path runs today?
-
-Also, the subject says "EN71221 MCM" while the changelog body and the
-code use EN751221.
-
-> +
-> +/*
-> + * MTK_GPHY_ID_MT7530 ID is also used for an EcoNet SoC FE phy, but that PHY
-> + * does not advertise ESTATUS_1000_TFULL.
-> + */
-> +static bool mt7530_is_gphy(struct phy_device *phydev)
-> +{
-> +	return phydev->phy_id == MTK_GPHY_ID_MT7530 &&
-> +	       (phy_read(phydev, MII_ESTATUS) & ESTATUS_1000_TFULL) != 0;
-> +}
-
-[Severity: High]
-Should the phy_read() return value be checked for an error before it is
-masked?  ESTATUS_1000_TFULL is BIT(13):
-
-include/uapi/linux/mii.h:
-    #define ESTATUS_1000_TFULL	0x2000	/* Can do 1000BT Full          */
-
-phy_read() forwards mdiobus_read() errors as small negative values, and
-every one of those has bit 13 set (-EIO is 0xfffffffb, likewise
--ETIMEDOUT, -EOPNOTSUPP).  Does an MDIO read failure therefore read as
-"advertises 1000BASE-T full duplex" and turn the guard into an accept?
-
-Second question on the same read: register 15 is only meaningful when
-BMSR_ESTATEN is set in MII_BMSR, and a PHY that does not implement it
-may return 0xffff, which again has bit 13 set.  genphy_read_abilities()
-gates the access and checks the result:
-
-drivers/net/phy/phy_device.c:genphy_read_abilities() {
-	...
-	if (val & BMSR_ESTATEN) {
-		val = phy_read(phydev, MII_ESTATUS);
-		if (val < 0)
-			return val;
-	...
-}
-
-Would the same gate plus error check be needed here, i.e. capture the
-read in an int and return false when it is negative?
-
-This matters because the FE PHY sharing MTK_GPHY_ID_MT7530 is exactly
-the device this predicate is meant to reject.  On a false positive,
-en751221_mcm_phy_config_init() runs genphy_soft_reset() followed by the
-page 1 and vendor MMD writes against that PHY.
-
-> +
-> +static int mt7530_phy_match(struct phy_device *phydev,
-> +			    const struct phy_driver *phydrv)
-> +{
-> +	return mt7530_is_gphy(phydev) && !en751221_is_mcm_phy(phydev);
-> +}
-> +
-> +static int en751221_phy_match(struct phy_device *phydev,
-> +			      const struct phy_driver *phydrv)
-> +{
-> +	return mt7530_is_gphy(phydev) && en751221_is_mcm_phy(phydev);
-> +}
-> +
-
-[ ... ]
-
-> @@ -126,7 +190,6 @@ static int mt7531_phy_config_init(struct phy_device *phydev)
->  
->  static struct phy_driver mtk_gephy_driver[] = {
->  	{
-> -		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
->  		.name		= "MediaTek MT7530 PHY",
-
-With PHY_ID_MATCH_EXACT gone, phy_bus_match() uses the callback result
-verbatim:
-
-drivers/net/phy/phy_device.c:phy_bus_match() {
-	...
-	if (phydrv->match_phy_device)
-		return phydrv->match_phy_device(phydev, phydrv);
-	...
-}
-
-so mt7530_is_gphy() is now the only binding gate for both entries.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917130534.297930-1-cjd%40cjdns.fr
+Best regards
 
