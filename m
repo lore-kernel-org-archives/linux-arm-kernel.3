@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E3D9C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 03:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0DCC982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 03:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=thBRA3BdH8VdVY4ioZyS/SS+nEIYECE2vWuugLNgY/U=; b=osYU3vijg8M9MZqlSZVC1QB9rt
-	2w1RwkZ8xScbRgw8FRS8BalPdm4C5CZ1TFKbLXhmde4edxwqXF5DXOCfkGeDuOvC3zqMQLiOcUWjd
-	7xR2HkOWD5mhhLKXi4XEEISXQ/I4K0Ur6QNRdkZ9+9kjICDlJCI1mIoX3tikDVEy6OcPOTM++ephN
-	+f6c7hDKf+93jqGIdoIedZKrzAQ0rRnk95OZ8fipU4X3wTJwUcj9PDYfhIqZUtdukTKQ1ddcnAhrb
-	jdJckVLLI+JRHOnqW2f1+4UicXPmOCposO0U6gp6U5Mh7xaAgVoqF1eXA3yu/9ev5rWPzbjXC7nQ+
-	4NU4rTCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z6oY/kUfjo0N/zyNXDq7OxbsjYBosOUEn1bA6PukbhQ=; b=e90PdflyK84lCDEVr340hLeDdC
+	LI5Ws4ED5az2GDR5ohI4YaTe/1k85CbWpdwgF2kfCbcyhtbKuGl5/ftN1YXGqzjNAsoS79HoTl0d0
+	wwkUi02keWtB4KU0pwVhU+j330N8hN80H0tbhytJl9IbeUh9A6KUyw0RpxgXSv6CCa/g0RPCzdUAp
+	GosNiW0gC1mWE8DzcZiktHQwg05pJAEBMDW9ISLO5sgsu8cvEtHENCrpdj9lvpayMKpRdkT9d+xZo
+	hZ6WBsZ6iVSKmSasSrG3fkf4dFx+8PebqTFreRLi0c1CSawUbuWrXAW+t3TvVAcweSYiGIqFynouk
+	zIA29vpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8V6W-00000000nFT-2HWm;
-	Mon, 21 Sep 2026 03:54:08 +0000
-Received: from mail-8140.vip.163.com ([60.191.81.40])
+	id 1x8VAq-00000000nU1-442K;
+	Mon, 21 Sep 2026 03:58:36 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8V6T-00000000nEw-1FPU
+	id 1x8VAo-00000000nTZ-0gAN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 03:54:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=thBRA3BdH8VdVY4ioZyS/SS+nEIYECE2vWuugLNgY/U=; b=M
-	9LOz8VEDOzW1v1SZPBtTQXUuw+YsMKEVnxVl/0cHjx3OSoeJ0X6egsKou5PFBYgY
-	Wi1+GsvX8iQrfU7GrEzCATDMxFhFufmC5vdvXv3z1xkkrHp+twfDGb0DeW51aXNS
-	mGvGIB9YhBi/YgIsNqWRThQ5VZxIqnaG1lWWe+9A2E=
-Date: Mon, 21 Sep 2026 11:52:33 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Linus Walleij" <linusw@kernel.org>
-Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Jerome Brunet" <jbrunet@baylibre.com>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>, "Lee Jones" <lee@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH v7 08/15] gpiolib: regmap: add write_data_after_dir
- quirk
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <CAD++jLkHfgu_V8i_fhE1WQe+qwJ=ictQSONWPq1fPuYYb8tSRA@mail.gmail.com>
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
- <20260915-cv75-v5-v7-8-3297d3fbc9c0@ambarella.com>
- <CAD++jLkHfgu_V8i_fhE1WQe+qwJ=ictQSONWPq1fPuYYb8tSRA@mail.gmail.com>
-X-NTES-SC: AL_Qu2TC/WdvU8u5SiZYukcn0wRhug/UMa4u/sm3YNXc80ElTHX5Qk5QFV9DV/c98WtKxmClBWuVzh21PVmZapTMlnau6fbzs43n5vSZcX5aQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
-MIME-Version: 1.0
-Message-ID: <46342be7.3c81.1a0c2181721.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: fSgvCgD3n00BqrBqt2pLAA--.36901W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbC7gFx4mqwqgHFHgAA3W
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+	Mon, 21 Sep 2026 03:58:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1789963114; x=1821499114;
+  h=date:from:to:cc:subject:message-id;
+  bh=V5Dz0iF0fLhKlPe9UXVkmYw6yu6lz1ZLz2hoieM5OkA=;
+  b=gRQKWF5+fFOGeJLcgMPVCJ83r3TouisKKhjV5zSenJeemvZwFvwVDkAF
+   IzX26Z/4+Fwh6/rFS5PGUFHi4CM5ZZ8wekaS1lQ10XeqyoFo79KrJgmGC
+   xTESpS/kLl6ccLwueFTt/rg8htlhoZDA70M/6kOXpjbb/WhpE+BlUf7s9
+   MuC84j/eM1YoowbMLbl2D2xn1ZO2hqFacKcXVKfOVUSG7yIifZjlUKsCy
+   zxzMdUSrLW3zOhvmwfpeD1yTCBiPteIJFGGEAcaxdqB90t+eVXMSmXbz1
+   QNEjVihIG97JVVVLRwpRSbAtMxUc8oWl5Eqajzn3qt80/vlygjWUG5qrM
+   Q==;
+X-CSE-ConnectionGUID: 8XPvB3KGQFWsqnjkSM8onA==
+X-CSE-MsgGUID: udVVJUoESXamtnOzRje+5A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11911"; a="78019459"
+X-IronPort-AV: E=Sophos;i="6.27,114,1787036400"; 
+   d="scan'208";a="78019459"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2026 20:58:33 -0700
+X-CSE-ConnectionGUID: MVBhTT1tSDGS98EwSJKAbQ==
+X-CSE-MsgGUID: DZ2vNYs0RbiHbtFzfhAyfA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,114,1787036400"; 
+   d="scan'208";a="280537178"
+Received: from lkp-server01.sh.intel.com (HELO 462990a40a85) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 20 Sep 2026 20:58:31 -0700
+Received: from kbuild by 462990a40a85 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x8VAi-00000000DFo-3nYU;
+	Mon, 21 Sep 2026 03:58:28 +0000
+Date: Mon, 21 Sep 2026 11:57:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4/ux500-audio-graph-card2 5/26] ld.lld:
+ error: vmlinux.a(arch/sparc/mm/ultra.o):(.text+0x734): unknown relocation
+ (41) against symbol etrap_irq
+Message-ID: <202609211120.1ric2KZz-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_205405_839391_AE0FE4A7 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260920_205834_242904_1F1D9B91 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +85,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTGludXMsCgpUaGFua3MgZm9yIHRoZSByZXZpZXcuIHY4IHdpbGwgc2tpcCB0aGUgcHJlLWRp
-cmVjdGlvbiBncGlvX3JlZ21hcF9zZXQoKSB3aGVuCndyaXRlX2RhdGFfYWZ0ZXJfZGlyIGlzIHNl
-dC4gVGhlIGdwaW9fcmVnbWFwX3NldCgpIHJldHVybnMgc3RheQppZ25vcmVkLCBwZXIgQW5keS4K
-CjAwMTQ6IGFkZGVkIHlvdXIgUmV2aWV3ZWQtYnkuCgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwoK
-QXQgMjAyNi0wOS0yMSAwNjowMjo0OCwgIkxpbnVzIFdhbGxlaWoiIDxsaW51c3dAa2VybmVsLm9y
-Zz4gd3JvdGU6Cj5IaSBMb25nLAo+Cj50aGFua3MgZm9yIHlvdXIgcGF0Y2ghCj4KPk9uIFR1ZSwg
-U2VwIDE1LCAyMDI2IGF0IDE6MTXigK9QTSBMb25nIFpoYW8gdmlhIEI0IFJlbGF5Cj48ZGV2bnVs
-bCtsb25nemhhby5hbWJhcmVsbGEuY29tQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4KPj4gRnJvbTog
-TG9uZyBaaGFvIDxsb25nemhhb0BhbWJhcmVsbGEuY29tPgo+Pgo+PiBTb21lIGNvbnRyb2xsZXJz
-IGlnbm9yZSBkYXRhLXJlZ2lzdGVyIHdyaXRlcyB3aGlsZSBhIGxpbmUgaXMgc3RpbGwgYW4KPj4g
-aW5wdXQuIE9wdGlvbmFsbHkgd3JpdGUgdGhlIG91dHB1dCB2YWx1ZSBhZ2FpbiBhZnRlciBzd2l0
-Y2hpbmcgdGhlCj4+IGRpcmVjdGlvbiwgbWF0Y2hpbmcgdGhlIGV4aXN0aW5nIFBMMDYxIGJlaGF2
-aW91ci4KPj4KPj4gU2lnbmVkLW9mZi1ieTogTG9uZyBaaGFvIDxsb25nemhhb0BhbWJhcmVsbGEu
-Y29tPgo+Cj5PSyBJIHNlZS4KPgo+KC4uLikKPgo+Cj4+IEBAIC0yNzEsOSArMjcyLDIyIEBAIHN0
-YXRpYyBpbnQgZ3Bpb19yZWdtYXBfZGlyZWN0aW9uX291dHB1dChzdHJ1Y3QgZ3Bpb19jaGlwICpj
-aGlwLAo+PiAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+PiAgICAgICAgIH0K
-Pj4KPj4gLSAgICAgICBncGlvX3JlZ21hcF9zZXQoY2hpcCwgb2Zmc2V0LCB2YWx1ZSk7Cj4+ICsg
-ICAgICAgcmV0ID0gZ3Bpb19yZWdtYXBfc2V0KGNoaXAsIG9mZnNldCwgdmFsdWUpOwo+PiArICAg
-ICAgIGlmIChyZXQpCj4+ICsgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+Cj5pZiAoIWdwaW8t
-PndyaXRlX2RhdGFfYWZ0ZXJfZGlyKSB7Cj4gICAgIHJldCA9IGdwaW9fcmVnbWFwX3NldChjaGlw
-LCBvZmZzZXQsIHZhbHVlKTsKPiAgICAgaWYgKHJldCkKPiAgICAgICAgICAgICByZXR1cm4gcmV0
-Owo+fQo+Cj5UaGVyZSBpcyBubyBwb2ludCBpbiBkb2luZyBzb21ldGhpbmcgeW91IGtub3cgd2ls
-bCBub3QKPndvcmsuCj4KPj4gKyAgICAgICByZXQgPSBncGlvX3JlZ21hcF9zZXRfZGlyZWN0aW9u
-KGNoaXAsIG9mZnNldCwgdHJ1ZSk7Cj4+ICsgICAgICAgaWYgKHJldCkKPj4gKyAgICAgICAgICAg
-ICAgIHJldHVybiByZXQ7Cj4+Cj4+IC0gICAgICAgcmV0dXJuIGdwaW9fcmVnbWFwX3NldF9kaXJl
-Y3Rpb24oY2hpcCwgb2Zmc2V0LCB0cnVlKTsKPj4gKyAgICAgICAvKgo+PiArICAgICAgICAqIGdw
-aW8gdmFsdWUgaXMgc2V0IGFnYWluLCBiZWNhdXNlIHBsMDYxIGRvZXNuJ3QgYWxsb3cgdG8gc2V0
-IHZhbHVlIG9mCj4+ICsgICAgICAgICogYSBncGlvIHBpbiBiZWZvcmUgY29uZmlndXJpbmcgaXQg
-aW4gT1VUIG1vZGUuCj4+ICsgICAgICAgICovCj4+ICsgICAgICAgaWYgKGdwaW8tPndyaXRlX2Rh
-dGFfYWZ0ZXJfZGlyKQo+PiArICAgICAgICAgICAgICAgcmV0dXJuIGdwaW9fcmVnbWFwX3NldChj
-aGlwLCBvZmZzZXQsIHZhbHVlKTsKPgo+VGhlbiB0aGVyZSBpcyBBbmR5J3MgY29tbWVudCBhcyB3
-ZWxsLgo+Cj5UaGUgcmVzdCBsb29rcyBnb29kLgo+Cj5Zb3VycywKPkxpbnVzIFdhbGxlaWoK
+Hi Linus,
+
+First bad commit (maybe != root cause):
+
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-audio-graph-card2
+head:   ba26e4e9cae9a3e1c396d1f4a34970d7caa166b0
+commit: bd19dc64243c585c8cb3c164b77a3f5d42b92771 [5/26] ASoC: ab8500: Remove the nonfunctional sidetone apply control
+config: sparc64-randconfig-1001-20260921 (https://download.01.org/0day-ci/archive/20260921/202609211120.1ric2KZz-lkp@intel.com/config)
+compiler: clang version 22.1.3 (https://github.com/llvm/llvm-project e9846648fd6183ee6d8cbdb4502213fcf902a211)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260921/202609211120.1ric2KZz-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609211120.1ric2KZz-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> ld.lld: error: vmlinux.a(arch/sparc/mm/ultra.o):(.text+0x734): unknown relocation (41) against symbol etrap_irq
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xd24): unknown relocation (41) against symbol user_rtt_fill_fixup_common
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/urtt_fill.o):(.text+0x8c): unknown relocation (41) against symbol rtrap
+>> ld.lld: error: vmlinux.a(arch/sparc/mm/ultra.o):(.text+0x744): unknown relocation (8) against symbol rtrap_xcall
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xd2c): unknown relocation (41) against symbol user_rtt_fill_fixup_common
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xd34): unknown relocation (41) against symbol user_rtt_fill_fixup_common
+>> ld.lld: error: vmlinux.a(arch/sparc/mm/ultra.o):(.text+0x9e8): unknown relocation (41) against symbol etrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/urtt_fill.o):(.text+0xc0): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/urtt_fill.o):(.text+0xd4): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/urtt_fill.o):(.text+0xfc): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/urtt_fill.o):(.text+0x10c): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xd9c): unknown relocation (41) against symbol rtrap
+>> ld.lld: error: vmlinux.a(arch/sparc/mm/ultra.o):(.text+0x9fc): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xe9c): unknown relocation (41) against symbol etrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xeac): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/mm/ultra.o):(.kprobes.text+0x84): unknown relocation (40) against symbol __flush_icache_page
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xfb4): unknown relocation (41) against symbol etrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xfc4): unknown relocation (41) against symbol rtrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0xfe4): unknown relocation (41) against symbol etrap
+   ld.lld: error: vmlinux.a(arch/sparc/kernel/head_64.o):(.text+0x100c): unknown relocation (41) against symbol rtrap
+   ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
