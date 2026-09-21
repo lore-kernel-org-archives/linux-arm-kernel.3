@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46372C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F60FC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DiEoWNyl/HmsFxa/QeSKicd4+2TIsyG8qOT3JDqK1NU=; b=OmswbDtWQ6QgHtQfz3lgm07ScJ
-	v2eODa8mfJTf6/+GEq+atIBBY59nsUKHYuXAoyi3laCPUxO1zNCZE+0zXvbxpRLDcgfaIk0hzypI2
-	13pCoRAATfJn2VbBe293dO0KnnBiQ4pI7Uj5Mr3HSdk1xA/LwdEPri0wDjxH2frUC+YQ8RjgHdE2I
-	RbJvHyeUExDMmTq9CaYcnx7GUzfZLy75O6ljhAlmehoYXVsz4nE939KR0JwoiV+hIw8ySyA4F93jS
-	LMw+nSJIY4q8/4VK581iQAFhbc2uCHYg/KNsjVcSaNeqWOSsJ1Rxg+6gm1zIAim/OUleSYaa9/my1
-	MnWCDKlw==;
+	bh=XjC/UZqLFtMb5vJyxy966HHDm1SdiObcPJD69fIKS4Q=; b=ixtv1lDdseEnvoEVnotV4U3wWb
+	pLLPFaHSRo39pLVcuQ1mLC4EZBskxZqIaYY06ee9jJYLuzrHBCIF1C0+toZZds5Cyb43yDadsEZBq
+	cdvV/Q8zQKe2sYhF3hCek3B9XiJ2uk8KcxufpVP2dwzJtv5RTXjF0USAlpEPsblj29poQ94I5pACk
+	p9au7TraiNR+F+BFqmu0Hv9ktd3n4xrdR1GGDnO0OnU3kOrbJ21AUPQCUlj6hiHzYz9fLCOC8q2xe
+	OjIAd6Je99pT+DPLcNHKhGB8V89KjARAB3+9PNtwFChzD0LvEAmOwLWTBZVtg/v1eXvS9NTwEBdVq
+	C6lZE/WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Tet-00000000iVE-0bXd;
-	Mon, 21 Sep 2026 02:21:31 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Tep-00000000iUd-3Otp
+	id 1x8U0G-00000000jxD-3LKz;
+	Mon, 21 Sep 2026 02:43:36 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8U0E-00000000jwn-3NIk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 02:21:30 +0000
-Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
-	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwBXdd6clLBqtHcQAA--.7307S2;
-	Mon, 21 Sep 2026 10:21:16 +0800 (CST)
-Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
-	by mail (Coremail) with SMTP id AQAAf8DwBXSYlLBqHvDYAA--.41704S3;
-	Mon, 21 Sep 2026 10:21:12 +0800 (CST)
-From: Zhu Ling <zhuling2709@phytium.com.cn>
-To: maz@kernel.org,
-	tglx@kernel.org
-Cc: radu@rendec.net,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zhu Ling <zhuling2709@phytium.com.cn>
-Subject: [PATCH v2] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
-Date: Mon, 21 Sep 2026 10:21:00 +0800
-Message-ID: <20260921022101.20941-1-zhuling2709@phytium.com.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <86ldjlp0qi.wl-maz@kernel.org>
-References: <86ldjlp0qi.wl-maz@kernel.org>
+	Mon, 21 Sep 2026 02:43:35 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccd78e6eso996001a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 19:43:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789958613; x=1790563413; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XjC/UZqLFtMb5vJyxy966HHDm1SdiObcPJD69fIKS4Q=;
+        b=Idu+UQKtd6uNfMkr9zTOfEp0ahoPUdMzPXbiuv3epOS/89TnAFDgV7SOURDfbhqS9i
+         ACT4DwylVMipwifPomVZ8fKW1mButTJTpcSU8l3dI4SVctzuduXxOfVUXBcODg7sj11V
+         O8+dQ4fQIWy7U2IF7SUZOfy5J6IX1DRWEA/30w0P+t6S1TAVNzVBJWGs8iYbuxHW5ccD
+         xxZXy7z687Ev9eUGDECABsjbpXHClblzVH7s+6BjD6RXYiPqoSaUqhSojclbg2GSd2n7
+         CedfK0+QauAdVx7GUFYPlZXGNnF+ltHPQ+fHfsLwlD/9aBqnKZ/25XJri0+jh6Ckt/+r
+         uzpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789958613; x=1790563413;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XjC/UZqLFtMb5vJyxy966HHDm1SdiObcPJD69fIKS4Q=;
+        b=Sx0tteu+O/fjb6Dq3TEB/aodsuFIep4cAwVaAZyDialFxPoOajbHhdCcpyiwK4zgbO
+         ulIQ+ZpQcDeBuOYzB7WFD48Y/Nl18MNuev3o+YDH9X3kQxn1x9Zh/cgVaobzAnmXFYdu
+         yeoV58CDbWkPhwAbhfLufF19jFNcK7sDgGBcMncIMqomyY0iB1aWUfq6nIH+OMInblKe
+         WCOuIXw+6hh90g65GNK5q1FgxHqldL4GqhrcsIa7kf4CwvFL4A8ysqRedcFVcGd8co+u
+         LtlnQP/3gzSy5fudCDUmzjyYn2zccjYRujBWf8vbudV/cgGKG3ENmLIOpEFNI8nMV3He
+         jidQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzYpab8hjbH7PV8tJnp+zD2rebJpzJ9tZt1Xba2+PUnml4MoIkkfBT6eCX2nfLjs8vyB/vJpVuIGtnXq8Y+R+tP@lists.infradead.org
+X-Gm-Message-State: AFuF++n6OwXvPSXqre1sexpDzNYg45PxCP3FhQvCUMNyx85FSHivn/en
+	KNndp99jcNf/02K+YhqxvER6Im3xh0IOUhiilFfpEQJkp84AHTW82tle
+X-Gm-Gg: AYBFou2kAixTGphuy7lbKlODZ8YexmhhJ4fyMDzWJoOj6NC2L/1760cU1Aq9pIB11C1
+	LDgni+vJFtpapKPfmnuc/k9Dd2LE72RdPHzKVWoAAaXk4w0eYwnh112KguruxQpXSJ+r5GoJTeq
+	qSZU8L5SQ1I4oK64zpu1eH4EZsk+cUrXEEfMgqy46mDbECdVhxd17nns4Vkye/crXGqwqLErSvz
+	EN2UU5uPcZ2ollUrGMi21psbGQJ9fNi0hJSRAK+YnLG7coOmBcEqEI8CYAD1axdmMpH4IdX8lj3
+	lp184tHFE4JYSyzCtin8HCSZj3azoBYqSUdw2sVKc5OUKvujVWo0xyx/yarP7JASGsL4zPapoUp
+	CTPI9CrIrI4Xo7Bu7mvMYXMO5QvgXli+hIgfFjJhTk8wQynOCz2ZLr23gVWDbVFcSntkm1QAg2e
+	R6Luac09qgTu9tFvdWU6t17xZfv1B/Ir5s3fMJWegIbo18PrLT/Fpm5iUZ6YR+mVEuddMQ4EJDQ
+	T9SKmwhqMjLSX69cZuBjnZCLDr8Y5GWuFha/pNj0p1RrCb/Pgfg7Wk=
+X-Received: by 2002:a17:90b:55c4:b0:3a0:34a4:187e with SMTP id 98e67ed59e1d1-3a034a41dc3mr3254394a91.15.1789958613234;
+        Sun, 20 Sep 2026 19:43:33 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a02900f84fsm10384623a91.2.2026.09.20.19.43.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 20 Sep 2026 19:43:32 -0700 (PDT)
+Message-ID: <1d988dfb-c930-4c17-ae77-47b93ff9f159@gmail.com>
+Date: Mon, 21 Sep 2026 10:43:28 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane disable
+ clearing FB_EN
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260918030125.315978-1-a0987203069@gmail.com>
+ <20260918030125.315978-8-a0987203069@gmail.com>
+ <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: AQAAf8DwBXSYlLBqHvDYAA--.41704S3
-X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQAFAWqwNEoBEwAAsz
-Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=zhuling270
-	9@phytium.com.cn;
-X-Coremail-Antispam: 1Uk129KBjvJXoW7AF48Zr4kJrWUAF4DuF4kZwb_yoW5JryUpF
-	W5J34Iyr4Iy3Wa9a1DAF1UZry5Jwn3KrW2krW7Gasrury5Gas8Aa1ay3sxX3W7XrZrAa4U
-	C3ZaqF18u3WUAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
-	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
-	UUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_192127_980362_ED1EC219 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20260920_194334_851315_1DABF06F 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,69 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running with UBSAN enabled, enabling a GPIO controller that uses a
-GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
 
-  shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
-  left shift of 2 by 30 places cannot be represented in type 'int'
-
-Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
-drivers/irqchip/irq-gic-v3.c. These masks are generated by shifting
-signed integer constants, which invokes undefined behavior when bit 31
-is selected.
-
-Use BIT() to generate the masks with an unsigned type and make their
-intent explicit.
-
-Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
----
-Changes in v2:
-- Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
-- Drop the redundant introductory text from the email.
-- Update the author email address.
-
-Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
----
- drivers/irqchip/irq-gic-common.c | 2 +-
- drivers/irqchip/irq-gic-v3.c     | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
-index c776f9142610..8bd1eaa54295 100644
---- a/drivers/irqchip/irq-gic-common.c
-+++ b/drivers/irqchip/irq-gic-common.c
-@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
- int gic_configure_irq(unsigned int irq, unsigned int type,
- 		       void __iomem *base)
- {
--	u32 confmask = 0x2 << ((irq % 16) * 2);
-+	u32 confmask = BIT(((irq % 16) * 2) + 1);
- 	u32 confoff = (irq / 16) * 4;
- 	u32 val, oldval;
- 	int ret = 0;
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 6e1fa5b247fc..15110d47ddb0 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
- 	u32 index, mask;
- 
- 	offset = convert_offset_index(d, offset, &index);
--	mask = 1 << (index % 32);
-+	mask = BIT(index % 32);
- 
- 	if (gic_irq_in_rdist(d))
- 		base = gic_data_rdist_sgi_base();
-@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
- 	u32 index, mask;
- 
- 	offset = convert_offset_index(d, offset, &index);
--	mask = 1 << (index % 32);
-+	mask = BIT(index % 32);
- 
- 	if (gic_irq_in_rdist(d))
- 		base = gic_data_rdist_sgi_base();
--- 
-2.43.0
-
+Icenowy Zheng 於 2026/9/18 下午 01:52 寫道:
+> 在 2026-09-18五的 11:01 +0800，Joey Lu写道：
+>> vs_dc8200_primary_plane_disable_ex() calls regmap_set_bits() on
+>> VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
+>> the primary plane on DC8200-family hardware actually leaves the
+>> framebuffer enable bit instead of clearing it.
+>>
+>> This bug predates this series: it was carried over unchanged from
+>> vs_primary_plane_atomic_disable() when patch "drm/verisilicon:
+>> introduce per-variant hardware ops table" split the DC8200-specific
+>> implementation out into vs_dc8200.c.
+>>
+>> Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon
+>> display controllers")
+> Maybe it'd be better to fix this before adding DC variant abstraction,
+> for easier backporting.
+>
+> Thanks,
+> Icenowy
+Makes sense. Should I send it as a standalone patch targeting
+drm-misc-fixes (separate from this series), or do you have a
+different preference for how to split it?
+>
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   drivers/gpu/drm/verisilicon/vs_dc8200.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>> b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>> index f72da10295e1b..25b5906a1c5fc 100644
+>> --- a/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>> +++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
+>> @@ -70,8 +70,8 @@ static void
+>> vs_dc8200_primary_plane_enable_ex(struct vs_dc *dc, unsigned int out
+>>   
+>>   static void vs_dc8200_primary_plane_disable_ex(struct vs_dc *dc,
+>> unsigned int output)
+>>   {
+>> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>> -			VSDC_FB_CONFIG_EX_FB_EN);
+>> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+>> +			  VSDC_FB_CONFIG_EX_FB_EN);
+>>   
+>>   	vs_dc8200_plane_commit(dc, output);
+>>   }
 
