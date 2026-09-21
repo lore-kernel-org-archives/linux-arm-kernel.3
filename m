@@ -4,111 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD15C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02220C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=; b=TrTLAK2X2qM2vTkAGp5Kig4c96
-	AJI9TyDgl8ZP18xQP+0b+5PkkPQ23sUzIbzSuZHZ5IkEaKMOPYdgEvYFafB4f8Yt07JttSpbmOyfE
-	FBpwSn4VE4ZXqdnsZH+kn2TwVqPuZWlanltTX3488pomVmwOzYjpPniBdCbSAOAWIpPqIp5n2kwRA
-	bzV/aFRQbcR3lim9jAUM/whLIgJU/3q1s7LI1sCy5BKKDIw9aGi/KjaFPgzSdN1xSth9juhwxd2mO
-	My+VC1Ha6M2djM8s29P6uqQL1ysZpcUyZTaMRNH1iIODuVPnDOSqXfsW+5ajVNVOx9vB7geIAUjl+
-	wQLw0xMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W9+XC8xNZLM4/e2/e890m0kUZdEbrymiobkoh/RIakg=; b=wUrt/tI8VtMV3QgNi7F6Rf1P/L
+	8Mtk3QKbodXxqX0Mx4GbJqDsCgUxJlItcT772PLJHmGXB6j2kdGerS+hvryTnvkSocNS8VXg+T/83
+	Xj/DIuKIQLqcxjzc2dGFRwTb55IjzqTciK5jN4yZMz6P1CmQ3FG/e04ndNzsDAexPcarBzr+J9g7O
+	VZ40ocSn3zbU1Iikygxr5+KZ+jcu0dwIfaSGF4yQ1tc6p8KEAJKr6rjT+e9E4H2f7o5o+EMDOXoRr
+	8xtzZLivg7S1yYoV7SqYKfKPKFqLNUJeJjcsn0sjoYqlNN5DQ7xNvgCgkpfKU//Nn8Vv5/XvMigfp
+	f+GOcWWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bO2-00000001iPy-1wLp;
-	Mon, 21 Sep 2026 10:36:38 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x8bP4-00000001igI-3TzD;
+	Mon, 21 Sep 2026 10:37:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bNz-00000001iOv-1j0k
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:36:36 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a6056be4d1so1925889a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 03:36:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789986993; cv=none;
-        d=google.com; s=arc-20260327;
-        b=phh7/s5WfeBlDLQHQv0ienFweS4rsSu0vj5YaC+JAAPW3mUtDZ0jOoLKb1wxak3FFo
-         UNVRIsY/E1Oe8Q0GUeCZacgIQJPGIRzowmUKMgTTSHaRtoHKTjDq3RpESwEsk54nmMDl
-         KC7mjm8sLPpPyD3SIRuRoP+yIrdhcSLHlGV0PGNHPv7WQRSKwls7L6xdN1rCK0eKqe2o
-         pFml11iUzW1t1kF5CyM9cYtzwtQvy3iO00P9x5mWuLR0gtaCyZgzZcOsfBUpkufkhEWE
-         gAjbpuH8Mm3Mbl8jgoKRjSz3yA2dGooNgobW2gXBSr1Un+ekaqPc8Gh7H02d3VhBH9Vv
-         AKGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=;
-        fh=qyX0M2W2c13ZTUYPlFVZYUOKXKaWqh1oDD0wbWvY9rM=;
-        b=iVmZcn9/r7Ug74Rp5R6MtbqfOf4+Lf9JhPru9+E7Xr4hYpdXy9+v/X1/k8+zWim6hc
-         SZYonjQ54TifYqnbNDEeR3EyBvaV5qp8rac5vFRSano0lo5NG80pJP6qRg2bmiDTeJLb
-         oW84MmgoPwctq2aX5wJ6L3RlyGXdwmBmszn5v0KOjB3S/KeBn95mUSb9GWI8AVKi3yCp
-         TXEhUFOI4rb5Hj7vcCflco8qA9dineRTndvh0tq4tCFGz/26CPpF6wfqlqyIt+PE9Jg4
-         UIow++XVcDevQx/Xdkpua/OVjkUG07GgCvG+WHiqsG2iFwINrfAN09GtMli3osfE0QHm
-         Ghmg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789986993; x=1790591793; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=;
-        b=E7oKYJCeNtTBjp38YI9ujQoKaSxxb/P/2mrMWbJkOKMgjxr9dOovteyixAFl+y9Rzh
-         ix59L5e6LviBF4Q8FmXttNMAXL1ntZfhODdAt3lhQMFrHjyOIgWGhBxN5ALZX4rEYu7O
-         3HltHGNlfeOLNUFfGHOGNYDa/ATnShKdZy19C64zAzteNMgaJwj0FKGViNK1UGeEDCpq
-         PuMpsoDFA6adu0YBuUEPXpOzldi94HUVu0C+N8Q/BssTAh/FLycX4nCiA+qRCjre+t6z
-         Rn7GuO/AhYSoX7F9UdrmMZsbidTgG3NegnzvYXswekWsb1zQ1Ix2X047n9vc4QtvBpGu
-         qz/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789986993; x=1790591793;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=;
-        b=rNlJ2OOmy+hW8qBn8hzm3h8JXyf9J2e1squiOufJKkmflO0gOJb3R9bRYQ8H/yWCk4
-         9UAXzgssn5G04wfRPIB2sU+d0s9PNheSAo4bZp2771iWPuY0A4it+NRcGjzcSLVOdlKn
-         MjTKMGHFOKhlFl0JUdZxw7QOclrVfRohbDfqgeJmFxDvOf4OfAehXiKmR8O5OPOwPzP5
-         K3mB0uj7+yY4OWxy+bRACjimwIsuyxB+4rccVdPsSw48J5NBlsc+rPRk9Lp6gkbLueU9
-         VRr55b74D7xhpShqfjFejXAN+EBBUCHmypmDsHynu6EB8nH3RpmX6PCOzB8S88TOqej3
-         EdBQ==
-X-Forwarded-Encrypted: i=1; AKwUvBybVbnxzxgYgtUWZxzwGsH7o+vtEIsYhfooVnRq5/ulYTcuJAl6PGiEYFLZd1P6JWJEDXpyeoxgOBsu2ajVACqz@lists.infradead.org
-X-Gm-Message-State: AFuF++m1Zuw7SIMTVJbvQvR7lvZ8M6c0eSiLc34qtHVgGZZvuXv4H2v4
-	GMRT2aN4AUdCDY/D5E+O9B5rsX31I4fjJKPc/dORVUlsD8M/c1Me2+GOELwZmkaftgt+sEcAG8Y
-	fjuWqRpwasiH6RfYXjMySPy569ejdkig=
-X-Gm-Gg: AYBFou1FSKiqrAo5wFoL2FybF6rVnJvRkcoi7bEPXqIrlVXYgvH6RJu2oVv9b+h+/E7
-	6X19xkZFVWrq8lyJnKPZtSS7/A37ybYCjo4XXL/E0peShmvdnsRpp/umUX2tJ5CapVJyzdNvpYc
-	r+Wa4TznrmT2HI9qnUjIJfyi3LJibrcdqW/Ebf7dBTEXFnk+4OCiliVBtBv+mTJww1TNNVorJJx
-	MEz7HgHnHwmIMqH16kGkpe647f5kPsdnYKTd9I6GArS4vrsBbd5pI13NUaNaDMIYQrwPFe1edXk
-	c+7Hpb6UDOj6vIFgxtrf8njQ222VT6BzIQAFWQZg07SRe5q9SF+mEg==
-X-Received: by 2002:a05:6402:4547:b0:6a9:f88b:14dd with SMTP id
- 4fb4d7f45d1cf-6aa4f97d7cfmr6238277a12.1.1789986992392; Mon, 21 Sep 2026
- 03:36:32 -0700 (PDT)
+	id 1x8bP0-00000001if5-0lGh;
+	Mon, 21 Sep 2026 10:37:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789987055;
+	bh=nJ25MVo0NGw9oiXZTAgE6pclgPjvVnOwEl7ePi56428=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=H+ekNY7fV7oFE4VG7Txu3BCjGpCaDF/UZ7SxcomhIY1K16HQz9T9VNqF+n9UMZ7TY
+	 /Iq5+9schdw8mgrT1S9yhJrqklfjSdeps+b40cmQ+UuYwv4LMnTfjde6fhxg52Ww99
+	 uTD1SJOfkQHFOgY92A2DoMc9BRmDf4Obz49LAuXnO8j8pOoSpuFQOZk5sG0tH9NhU4
+	 hBD1wRi8pPkIPb0GlitTHFx9qYfRlVi+skTqy4NuFEucGje8T9ZazsxuOrR3dtDFCr
+	 CztICHoZ73lrai30xkbcGAU3uChsT8SrKRIVo1B55/K1HqjQVDm3/uLT4Scwr09xHt
+	 NLHOdtxW5KAIA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0CF9817E020C;
+	Mon, 21 Sep 2026 12:37:35 +0200 (CEST)
+Message-ID: <2d9a1df3-6cdf-4d82-b2c8-907964711104@collabora.com>
+Date: Mon, 21 Sep 2026 12:37:34 +0200
 MIME-Version: 1.0
-References: <20260918175736.355305-1-l.scorcia@gmail.com> <178998607025.21155.9680834242820851509.b4-ty@b4>
-In-Reply-To: <178998607025.21155.9680834242820851509.b4-ty@b4>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Mon, 21 Sep 2026 12:36:20 +0200
-X-Gm-Features: AcwNN1VQ6S9fCy63ty823Nyxcerwh9XF-bIr0lhnPcmyyBWQe3Ulp9EvTrhD9Cw
-Message-ID: <CAORyz2+E9LY+6sb+0G-deR8ZVZK_xu+p_hvp8aKteVVhHpeBRQ@mail.gmail.com>
-Subject: Re: (subset) [PATCH 0/4] Add support for the mt8167 display pipeline
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>, 
-	Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] rtc: mt6397: expose the spare bytes of the alarm
+ registers as nvmem
+To: Ryan Brue <ryanbrue.dev@gmail.com>, Sen Chu <sen.chu@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Eddie Huang <eddie.huang@mediatek.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-pm@vger.kernel.org, mfd@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-rtc@vger.kernel.org
+References: <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-0-558b8f95cfbc@gmail.com>
+ <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-2-558b8f95cfbc@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-2-558b8f95cfbc@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_033635_457905_4DFFF556 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_033739_770534_C54049D0 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,17 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Applied to v7.3-next/soc, thanks!
->
-> [3/4] soc: mediatek: mt8167-mmsys: add routes for all display paths
->       commit: ae0968038f994d6e275f5dc94a27325ee751fe58
+On 9/18/26 06:57, Ryan Brue wrote:
+> Each alarm field lives in the low bits of its register and the driver
+> masks its writes accordingly, so the high byte of four of them is storage
+> the RTC never touches. MediaTek names these RTC_NEW_SPARE0 to
+> RTC_NEW_SPARE3 and gives the first to a fuel gauge, which is how its PMIC
+> battery drivers carry a state of charge over a reboot.
+> 
+> Offer all four as a battery-backed nvmem provider, so that a consumer does
+> not have to reach into this block behind the driver's back. Doing it here
+> is what makes it safe: a write lands under the same lock the alarm paths
+> take, so it can neither be lost inside mtk_rtc_set_alarm()'s
+> read-modify-write nor fire the write trigger in the middle of one.
+> 
+> The nvmem core does not range check a cell against the provider size, so
+> the callbacks check the offset themselves.
+> 
+> Tested on an MT6397; MediaTek's spare map for mt6323 matches, and the
+> alarm field masks are common to every compatible this driver binds.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 
-I'm sorry Angelo, please revert this - I'll post a v2 with the
-corrections spotted by Sashiko [1] later today.
-Thank you
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-[1] https://lore.kernel.org/linux-mediatek/CAORyz2KEfzcJ_2AphkPU6o-YhLAqudCXVdY+LDoynUx_FsTMJg@mail.gmail.com/
---
-Luca Leonardo Scorcia
-l.scorcia@gmail.com
 
