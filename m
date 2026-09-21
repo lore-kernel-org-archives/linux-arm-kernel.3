@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A80FC982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB78C982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9czfARorSYkXhn7wtuTfT0BpH91+/rvPllJAwe14Ukg=; b=ojl6opZupRGuDram8TonXBeOx7
-	7aRHqEnGCww6XJJpelAz2sTrkQI7XsaINxPwfIZqBIzw+Oe2aZXRZX68rn3k1MRaHShhA2e6wPDGY
-	M76dtQUwGXu46B9fqJauKgSMrq2gsrvNgYwIUoa+tZCJlZMldCDi/E3p4broKwiXkjPDAp4fDoMg9
-	pveIaiRftlIWlMP/E3XOZXVPwlw6FnENvLCTL5MpIYzf5hWNg+LGxrzR/lcZaGHwQc+achsBQRPzO
-	ZLNFoVz/5LrjU0V2Hw/B0JH3JbiBdnYn9nWOVqGSKDXjTVDXx7JnvBLd1N9O1W9vgVS9Vs9tM3bkH
-	3ZELEnHw==;
+	bh=VLQVaPaIz4Oo4ECfSXhlQRNeQ/Xty59vDImusrSG7WE=; b=zdUSf0Zvp4tOdrUVFENiylZIhz
+	zQTS8ML1pQlyJ7ZWkrK5036/4PhuUuUYItQd6oi3XeDUZoEoxMgUDJLAri6tBh5aH0pM27Mev5V8q
+	k9NDMj3qs/HRPk1FDOR3IMowpT8JRfaHh2XOOhV8iR7ehf62eG5CbHPQJ5uFeJrcaLuxdLkFamhRb
+	SUIe5T6o1FQS3yvAR8QH6/e5lYpsxdte2dDOOzwuaQ+JUOq59hO25W8UhJIKoRrfOdlTYYi8IPzuR
+	rG3rBOfHCBGfZvlTIG8jMZc7LSJnrvTuGgKpAsTdWPeFmdMr14YvCmMjNZIjT+YqeY89Q2NgcYu1q
+	N+adUkYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jCk-00000003BSf-3z8y;
-	Mon, 21 Sep 2026 18:57:30 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1x8k5T-00000003H7J-3SCF;
+	Mon, 21 Sep 2026 19:54:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jCj-00000003BS8-0zAz;
-	Mon, 21 Sep 2026 18:57:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=9czfARorSYkXhn7wtuTfT0BpH91+/rvPllJAwe14Ukg=; b=i07QEUr7FLrPNOasfEwFBQXlUm
-	R1FAx/bprujw+QWlcEP1wKK2utSRNCm6Mg8mI1/NCcBmOt+MIfycEGWY2mOLy3WjtOt9bAO6jeil5
-	ddfvZ4bYMZ+vykKvCJVEkNA1Ashmbg/kQxveGBb1l8ejcILd77zkYO70Lk1IsIo8OOvu+SR1lNSgi
-	wSm3i7/AVKsyc8U9vsa8i10CgDa/W+91OL6ReG9VjqtconeMcEWRBUIos9N2Iug5cAu6uPQrciUZC
-	P0JHDC3c+7azzmazJKmBqnrj9lYDDuScU6QAYzE/ubDDgwDXKcd1B6TvhcvGIi+8Jthe8rrPfPtFQ
-	unARWs7g==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jCd-000000054KL-1SFt;
-	Mon, 21 Sep 2026 18:57:23 +0000
-Date: Mon, 21 Sep 2026 19:57:23 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Hongru Zhang <zhanghongru06@gmail.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, baohua@kernel.org,
-	surenb@google.com, david@kernel.org, liam@infradead.org,
-	mhocko@suse.com, rppt@kernel.org, shakeel.butt@linux.dev,
-	vbabka@kernel.org, zhaonanzhe@xiaomi.com, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, loongarch@lists.linux.dev, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-	linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
-	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
-	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
-	Hongru Zhang <zhanghongru@xiaomi.com>
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Message-ID: <arF-E3Nsw9ZliH0t@casper.infradead.org>
-References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
- <arFYRAa-i7CIwmHL@gremlin>
+	id 1x8k5S-00000003H73-3Mnz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 19:54:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C6F1860008;
+	Mon, 21 Sep 2026 19:54:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F731F000FF;
+	Mon, 21 Sep 2026 19:54:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790020441;
+	bh=VLQVaPaIz4Oo4ECfSXhlQRNeQ/Xty59vDImusrSG7WE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PrqXoQT9JUH+Mt5DFo6jb5wNRcLao0KYZs4UJcMxZxkt4Mb/I6kA/cLCJ0Z4eaKo8
+	 QV1DK5ofiscj7r2qd6/WWmuWxwzuSd7lpodpOJczVDJ6aqpdJtKqlgnGJy42tXSNpW
+	 aOG3E1Sfr9uRcYZOcuf8JXEw11WqTYa9fgjYb0U7tME2kreOUZTHEWqmUenZEvgMqt
+	 +Elk1cUTempX8d359+DG1J5/V8f7URIutfbo/I6klwDxLP8ikFF0c57d5jDGviLwRl
+	 sxMv/Vm8blNpy6V/NvKXVlDMGIrRoGbvRnisjrRLGXeLErGUU/sO0LvFrCWNZE6SfN
+	 DvFbfWp9XtIbQ==
+Subject: Re: [PATCH net] net: ti: icss-iep: Cancel compare work before
+ releasing device resources
+From: netdev-bot+sashiko@kernel.org
+To: mhun512@gmail.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, danishanwar@ti.com, rogerq@kernel.org,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, diogo.ivo@siemens.com, stable@vger.kernel.org,
+ ae878000@gmail.com
+Date: Mon, 21 Sep 2026 19:54:00 +0000
+Message-ID: <179002044036.2160803.17680070427629412173@kernel.org>
+In-Reply-To: <20260917193847.63849-1-mhun512@gmail.com>
+References: <20260917193847.63849-1-mhun512@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arFYRAa-i7CIwmHL@gremlin>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,199 +73,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 06:54:25PM +0100, Lorenzo Stoakes (ARM) wrote:
-> OK I finally got to this...
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Brave ;-)
+Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0
 
-> I fear we're going to go round in circles on this/have endless revisions of
-> the same thing.
-> 
-> So 2 things the patch needs to answer, more or less right away:
-> 
-> 1. What are you actually optimising for?
-> 
-> 2. Where does the hurt happen?
-> 
-> Your patch does neither, then goes on to arm wave away all the complexity
-> and presents a 'simple' solution that I feel brushes a lot under the rug.
-> 
-> Answer to 1 is 'cold app startup time for a specific set of apps'
-> 2 is filemap_fault() AFAICT.
-> 
-> You should definitely be stating this upfront.
-> 
-> And I also seem to remember that zygote + multi-threaded apps = fork
-> blocking is part of the problem here, which is why there was push-back on
-> just holding the VMA lock over I/O.
-> 
-> Looking through filemap_fault() makes me want to cry and looking through
-> the other retry logic in the fault code makes me want to live on an island
-> with parakeets and coconuts forgetting any of this even exists...
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I think that's the right response.  It's why all the feedback from people
-who haven't even tried to follow the fault path (eg the session at LSFMM)
-is completely useless.  The fault path is WAY TOO COMPLEX.  I'll have
-more to say on this in two weeks at Plumbers.
+- [High] Incomplete fix: the compare work is still not drained before the
+  PTP clock it uses is torn down.
 
-> VM_FAULT_RETRY can mean a million different things:
-> 
-> 1. I dropped the lock and waited for the folio to be unlocked.
-> 
-> do_swap_page(), remove_device_exclusive_entry() -> folio_lock_or_retry()
-> 
-> 2. I dropped the lock to start I/O it may or may not be ready when you come
->    back.
-> 
-> filemap_fault() after do_sync_mmap_readahead() or page not uptodate
-> synchronous read with lock dropped <- what you are optimising for, or
-> shmem_falloc_wait() waiting for a hole punch.
-> 
-> The maybe_unlock_mmap_for_io() stuff.
+Pre-existing issues:
+- [High] Deadlock: `icss_iep_pps_enable()`
+  (drivers/net/ethernet/ti/icssg/icss_iep.c:579-618) calls…
+- [High] Fix scope is narrower than the commit message implies: detach of
+  the icss-iep device remains fundamentally unsafe.
 
-I think these two are the same case?  At least by my reading, case 2
-also waits for the folio to be unlocked (ie the read completed).
-do_sync_mmap_readahead() doesn't do that, but we then call
-__filemap_get_folio() which shuld return the appropriate folio,
-then we call __folio_lock_killable() or __folio_lock().
+--
 
-> 3. I dropped the lock and nothing was waited for, OOM me on retry!
-> 
-> filemap_fault() allocation failure, gotta retry because we dropped the
-> lock!
+net: ti: icss-iep: Cancel compare work before releasing device resources
 
-Oh, yeah, that's icky.  Hadn't even crawled onto my list of problems
-with this function.
+The patch moves the iep_cap_cmp IRQ request in icss_iep_probe() to after the
+platform data and regmap are set up, and switches the compare work from
+INIT_WORK() to devm_work_autocancel() so that devres frees the IRQ, then
+cancels the work, before the rest of the devm resources are released.
 
-> 4. I can't do this under the VMA lock, use an mmap lock
-> 
-> vmf_can_call_fault(), any vm_ops without ->map_pages, __vmf_anon_prepare()
-> when mmap_read_trylock() lost, also hugetlb_fault() horror shows.
-> 
-> Also device-private swap entries.
+No Link: tags in the commit header.
 
-This one really is my fault / Suren's fault / your fault ;-)
+> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
+> index ec085897edf09..fa45538f1faa6 100644
+> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
+> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
 
-We should not have overloaded VM_FAULT_RETRY for this case.  We should
-have had a distinct VM_FAULT_NEEDS_MMAP_LOCK code.  But I am *scared*
-to try to separate the two at this point.  It was hard to make sure we
-got all the cases as we pushed it down, and now it's going to be worse.
+[ ... ]
 
-But I don't think that hugetlb_fault() deserves any stick here:
-         * We must check to release the per-VMA lock. __vmf_anon_prepare() in
-         * hugetlb_wp() is the only way ret can be set to VM_FAULT_RETRY.
-is the comment on the only two mentions of VM_FAULT_RETRY in hugetlb.
+> @@ -895,9 +884,24 @@ static int icss_iep_probe(struct platform_device *pdev)
+>  
+>  	iep->ptp_info = icss_iep_ptp_info;
+>  	mutex_init(&iep->ptp_clk_mutex);
+> -	dev_set_drvdata(dev, iep);
+>  	icss_iep_disable(iep);
+>  
+> +	if (irq > 0) {
+> +		ret = devm_work_autocancel(dev, &iep->work, icss_iep_cap_cmp_work);
+> +		if (ret)
+> +			return ret;
 
-I do have a plan to get rid of those two mentions actually ...
-but let's talk about in in Prague.
+[Severity: High]
 
-> 5. Userfaultfd! Because of course!
-> 
-> Userspace has to do something.
-> 
-> handle_userfault() after sleeping for uffd handler, retry should succeed.
-> 
-> ctx->released -> yield to releasing thread.
+Does this cover the teardown path that actually releases the resource the
+worker touches?  devm_work_autocancel() only drains the work when devres
+runs, i.e. at icss-iep driver detach.  The resource the worker dereferences,
+iep->ptp_clock, is released much earlier by icss_iep_exit(), which the
+consumer calls on interface stop while the icss-iep device stays bound:
 
-I find it really hard to reason about uffd.
+drivers/net/ethernet/ti/icssg/icssg_prueth.c:prueth_emac_common_stop() {
+	...
+	icss_iep_exit(emac->iep);
+	...
+}
 
-> 6. Fatal signal
-> 
-> Arch handlers rely on this, so retry also means 'check signals'. Fun.
-> 
-> 7. Some driver insanity
-> 
-> It means all things to all people. Used for waiting on stuff like
-> 
-> LLM says:
-> 
-> - TTM at drivers/gpu/drm/ttm/ttm_bo_vm.c:62 and 144, dma_resv contention
->   and GPU idle wait. Consumers in amdgpu, i915, nouveau, radeon and vmwgfx
->   re-derive "was the reservation unlocked" from ret == VM_FAULT_RETRY &&
->   !NOWAIT.
-> 
-> - xe_bo_cpu_fault_fastpath() at drivers/gpu/drm/xe/xe_bo.c:2021, where
->   RETRY is the default return value, including for "runtime PM not active".
-> 
-> - panthor at drivers/gpu/drm/panthor/panthor_gem.c:831 onwards, where
->   dma_resv_trylock() failure is RETRY and the same error is NOPAGE, SIGBUS
->   or RETRY depending on mmap_lock_held.
-> 
-> - sgx_vepc_fault() at arch/x86/kernel/cpu/sgx/virt.c:91, EBUSY from
->   __sgx_vepc_fault().  All of these call mmap_read_unlock() directly rather
->   than release_fault_lock(). They are only safe because none has
->   ->map_pages, so vmf_can_call_fault() bounces them before ->fault
->   runs. The VMA-lock design rests on that proxy.
-> 
-> So yeah. All that. Wow.
-> 
-> 8. Nothing!
-> 
-> LLM says:
-> 
->   - page_mkwrite() returns in fs/exfat/file.c:951 (inode_trylock lost),
+icss_iep_exit() drops the clock first and only then looks at the enable
+state:
 
-That's just wrong.  It turns the pagefault path into a spin on
-the inode lock!
+int icss_iep_exit(struct icss_iep *iep)
+{
+	if (iep->ptp_clock) {
+		ptp_clock_unregister(iep->ptp_clock);
+		iep->ptp_clock = NULL;
+	}
+	icss_iep_disable(iep);
 
->     fs/nfs/file.c:699, fs/netfs/buffered_write.c:576 and
->     fs/orangefs/inode.c:635 onwards, including the combination
->     VM_FAULT_LOCKED | VM_FAULT_RETRY.
+	if (iep->pps_enabled)
+		icss_iep_pps_enable(iep, false);
+	else if (iep->perout_enabled)
+		icss_iep_perout_enable(iep, NULL, false);
 
-I think your AI is confused.  I don't see how nfs_vm_page_mkwrite()
-can return VM_FAULT_LOCKED | VM_FAULT_RETRY.  Nor netfs.  Orangefs
-is wrong and needs to be fixed ... once I figure out what it actually
-wants.
+	return 0;
+}
 
->     do_page_mkwrite() at mm/memory.c only
->     passes through ERROR and NOPAGE, and do_shared_fault() and
->     wp_page_shared() then ignore the returned value entirely. The write
->     fault completes as if page_mkwrite had succeeded.
+icss_iep_perout_enable() has no cancel_work_sync(), so on the perout branch
+the work is never drained here at all.
 
-That's probably OK.  I think?
+Meanwhile icss_iep_cap_cmp_irq() keeps queueing while either flag is set:
 
-> And maybe I'm missing some stuff too.
+	if (iep->pps_enabled || iep->perout_enabled)
+		schedule_work(&iep->work);
 
-There's also the VM_FAULT_COMPLETED insanity ...
+and icss_iep_cap_cmp_work() uses the pointer unconditionally:
 
-> But I worry a LOT more that it's just a HACK (and I know Barry was nice
-> about the idea and I appreciate it but I have to be honest).
-> 
-> Instead of dealing with any of the above, we just leave the mess in place +
-> just retry the operation under VMA because we happen to know, for this ONE
-> workload, it works out better.
-> 
-> And PROBABLY it doesn't add too much overhead to anything else.
-> 
-> SO.
-> 
-> I've written too much again, let's sum it up.
-> 
-> 1. WE HAVE TO DECIDE whether we want to accept the hack because it
->    helps in a known case and probably doesn't harm any other cases.
-> 
-> 2. WE HAVE TO FIX THIS DAMN MESS. Even if we take something like this WE
->    HAVE TO FIX IT.
-> 
-> I'm inclined to rip out the whole retry thing altogether one way or another
-> but I leave that to Matthew to figure out :)
+	pevent.pps_times.ts_real = ns_to_timespec64(ns);
+	pevent.type = PTP_CLOCK_PPSUSR;
+	pevent.index = 0;
+	ptp_clock_event(iep->ptp_clock, &pevent);
 
-I think there's a bathtub with a baby in it over there ...
+For PTP_CLOCK_PPSUSR, ptp_clock_event() reads ptp->pps_source and hands it
+to pps_event(), which dereferences it without a NULL check.
 
-There's considerable scope for simplification here.
-lock_folio_maybe_drop_mmap() makes my eyeballs bleed every time I look
-at it.  But we do need smoe kind of restart-the-fault mechanism.
+So with PEROUT enabled on /dev/ptpN and a CMP1 interrupt already having
+queued the work, can an ifdown reach ptp_clock_event() with iep->ptp_clock
+already NULL (or pointing at the just-unregistered clock)?  Would stopping
+event production, synchronizing the IRQ and draining the work before
+ptp_clock_unregister() in icss_iep_exit() be the placement that closes the
+window described in the commit message?
 
-> If we decide we DO want the hack, then DEAR LORD can we not have this
-> horrible duplication across arches? I seem to remember you agreed to take
-> that out ([0]), and maybe it's pending what Matthew wants to do, but is
-> there not a way to avoid that?
+> +
+> +		ret = devm_request_irq(dev, irq, icss_iep_cap_cmp_irq,
+> +				       IRQF_TRIGGER_HIGH, "iep_cap_cmp", iep);
+> +		if (ret)
+> +			dev_info(iep->dev, "cap_cmp irq request failed: %x\n",
+> +				 ret);
+> +		else
+> +			iep->cap_cmp_irq = irq;
+> +	}
+> +
+> +	dev_set_drvdata(dev, iep);
+> +
+>  	return 0;
+>  }
 
-We desperately need to move more of the fault handling path out of the
-architectures.
+[Severity: High]
 
-> I REALLY want to hear from Matthew on all this, I don't think we can move
-> ahead without his clear feedback.
+This is a pre-existing issue and not introduced by this patch, but since the
+patch adds a second cancel site for the same work, it may be worth looking
+at the existing one in icss_iep_pps_enable().
 
-Thanks for dragging me back into this ;-)
+The disable branch calls cancel_work_sync() with ptp_clk_mutex still held,
+as the mutex is only dropped at the exit label:
+
+static int icss_iep_pps_enable(struct icss_iep *iep, int on)
+{
+	...
+	mutex_lock(&iep->ptp_clk_mutex);
+	...
+	} else {
+		ret = icss_iep_perout_enable_hw(iep, &rq.perout, on);
+		if (iep->cap_cmp_irq)
+			cancel_work_sync(&iep->work);
+	}
+	...
+exit:
+	mutex_unlock(&iep->ptp_clk_mutex);
+
+and the work handler takes the same mutex as its first action:
+
+static void icss_iep_cap_cmp_work(struct work_struct *work)
+{
+	...
+	mutex_lock(&iep->ptp_clk_mutex);
+
+If the work was already queued by an earlier CMP1 interrupt and is blocked
+on mutex_lock(&iep->ptp_clk_mutex), can cancel_work_sync() then wait
+forever for a worker that is waiting for the lock the canceller holds?
+
+Disabling the compare hardware just before the cancel narrows the window,
+but does it close it for a work item that is already queued or running?
+
+[Severity: High]
+
+This is also a pre-existing gap rather than something this patch introduces,
+but the commit message frames the change as making driver detach safe, so
+the scope may be worth clarifying for stable backporters.
+
+icss_iep_driver has no .remove callback:
+
+static struct platform_driver icss_iep_driver = {
+	.driver = {
+		.name = "icss-iep",
+		.of_match_table = icss_iep_of_match,
+	},
+	.probe = icss_iep_probe,
+};
+
+and icss_iep_get_idx() hands the devm-allocated iep out to the consumer
+while only taking a device reference:
+
+	pdev = of_find_device_by_node(iep_np);
+	...
+	iep = platform_get_drvdata(pdev);
+	...
+	iep->client_np = np;
+
+Nothing there pins the icss-iep driver, so on a sysfs unbind while prueth is
+still bound, devres frees iep and unmaps iep->base while the PTP clock
+registered from &iep->ptp_info in icss_iep_init() is still registered, and
+while prueth still calls icss_iep_exit()/icss_iep_get_count_*() on that
+pointer.  After unbind, does a PHC ioctl such as icss_iep_ptp_gettimeex()
+still reach container_of(ptp_info) on freed memory and readl() on the
+unmapped window?
+
+Should the commit message say that the change drains the work item only, and
+that unbind of the icss-iep device remains unsafe for other reasons?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917193847.63849-1-mhun512%40gmail.com
 
