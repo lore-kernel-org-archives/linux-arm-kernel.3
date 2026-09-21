@@ -4,179 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AD1C982F7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD336C982F8
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5AqSFKEEkwVYj+NtZ0MDSRuOaTWu6Z2jWfDJcWGHQ/A=; b=jF3+3fHKFcVDGvptlrlnGRMloB
-	pFDAAnuj48FZbogec1iVv+1ii2NNgmFvf4Ysb1TNl+GKgth9OhIMMQFPKLl5zsKpGDGFHwmmXJZmh
-	3NCklxi/0DX7ZANdZJC0S9abP+ARyKrrMTdCAf0ZiNjuz+TMZzocC+mIkrWsBMftvO8Jgf3A2L91/
-	VPn6JozHGrSU+0cfCTm3H/B4syHX+PNz0y5xWJFy05TDIwYfONFrzkqPDb0Gs61cvRwnJ48UpAOv1
-	KRBSJwYbFPXnIcEdmXmBcUhIdMPJ2/2+BUYbeyoMxk5s+ITrPuY1RjZBeWSVSleAzgIb9uIlJU62g
-	p2DXqSpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WOQj9ttdzaZzx0r1oCUSx1dmfsNGOFunfKX1/bnwFeQ=; b=jiWo8MqybBehlGJY0iqGld43lc
+	ii7U3Ih9lbGrk8e+eNmfQgU/DeAPXvEH0EfnUwyxldjOtaDXCYou7OmwxllE+WQ1tRFNwKhBdWgKy
+	Ahc1AWj68Vhax1308YuLwItlDRh5LDmkiuVv1LgTLl7IsvDVUlgtVoOEv56evCNEB7NepeVpevTlD
+	J6cXHhLty9O4gGsonEd+V9CP+Ue9tNEnmZm0WbXRBVDrQtlTGE39J+oE5Tm1obIZ3NuaEYmTWtBUe
+	KvRV8k2W6ho3eaxhqTqgxHkFofBM2vIatKXkMn+PgznZXe2wXNAPF8jCQ45gU4r8XEPtXD/CQUve5
+	gzfJ5y/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dcM-00000002Ahq-3ZNh;
-	Mon, 21 Sep 2026 12:59:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8dcO-00000002AjL-0NA4;
+	Mon, 21 Sep 2026 12:59:36 +0000
+Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dc5-00000002AVF-20Wf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 12:59:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5AqSFKEEkwVYj+NtZ0MDSRuOaTWu6Z2jWfDJcWGHQ/A=; b=liRUFG+YEWdJtOlz1bsdHT6Ji8
-	/sVy+1AeOYpIpdb1mno5XEnuQGo2cI1JhWc4y8rmA5qUMOgz+mfboMOzgdLlwNsDT/hULi+HbOOsi
-	A2xoIz7vnQvDNwx5OuGr+4LkOrTpFbqN5euOPAT7vFqsHsN/9HTFlZbx3rS1awrxbEwG8BSmShyct
-	/6eglX6a5X2pyeKvHrM+YAFH2jWB4iA0sNoo0KIXi5vZkK5G8kirqHzWg/c2y9S6sD5PYx0X1SMQX
-	tJix20vZRCYSv2hC3BepeQGnFdF/NBHhDTaQpcPb4/cUJEMj5x2Ke1fRv3e1aE6DF9bAdWDBdwdqM
-	B+fvSzVQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8dbz-0000000CJCe-2NXA
+	id 1x8dcA-00000002AXX-1lTW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 12:59:15 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LAdu41287308
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 12:59:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5AqSFKEEkwVYj+NtZ0MDSRuOaTWu6Z2jWfDJcWGHQ/A=; b=jT3eFuSztVi0e+i2
-	SbwHg4kOwD7T7T/0jFLOyXg6lgKMRcFXDWJU7M4K9IhfSRAmDrGsI6hf8oanaUzU
-	qIpVOcGntXsoNne6PFRCe8f9+AYV/HrM7xwpmFUuu4nCViqpmRz6sFdVXjp+i0lg
-	0HX/IQEBvLEwzk4LsIDUySFsQJC7BHrO4nwk8jpFXs0fP8XorSZJSJy4nGZsm8Zp
-	Eqp4TCzKsltTVxUDR3ZV1S2vLg2KD5iGqeunU6feczilIsHTSbNRf1ykWXoNTOBS
-	Pm18mWNVj4dXUZrUs/wVNNXXhigqTMmpv6plARRUIhuDqc+32z3GNiUhFSniSsMp
-	PtggVw==
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gu0rj1545-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 12:59:09 +0000 (GMT)
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-980989f5030so2350719241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 05:59:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789995549; x=1790600349; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5AqSFKEEkwVYj+NtZ0MDSRuOaTWu6Z2jWfDJcWGHQ/A=;
-        b=TPMYLYoJ785pilxMexEtIt2vtdq1re+800ggdZeV6wlVPM0qkXY9lBMxg4yuO9tuHl
-         wrVD9p4wu3eJReSjBpO82V0Jkmm/hbKrWacoDEIJcR/Ql6C2pEeN1puMHyco3Hr6A/BJ
-         vNimQBxEIhdOPlCLIv+7E5lfxCoL722sEUGn44SavWkvJjIhq0jVdD6Bt4mkp77tVUxw
-         sBj5DyKB1PuNeIe4GLpPGgj110HVd8An7Lin6OmPjza9/qhtDx3zRu8aQ+vQbrLl2nbc
-         743yBprcjueJS4Af9DnTP8xdu3hUc4J+xf7g2930x21hlMy8dVoLgeA1EqM0X9LAE5rg
-         +s7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789995549; x=1790600349;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5AqSFKEEkwVYj+NtZ0MDSRuOaTWu6Z2jWfDJcWGHQ/A=;
-        b=Gq4obiWTu6q0CvvvShC2BiVwFAM8hPeQHPsr1kNJ3RojOfZtuUHU+/+u2vMPA+lWgT
-         vR0bhnGHcdqgBJX8fJsnesLJLnH3tZ7O4ryIJH31Hm2Q/tWylgV0HuCF5NTegPP0sd4G
-         l4eZ+xrAHTO+oLnucHBQtsVgXvmS/7idisy4TIDhzdfqyXzwR1ZH4uI/b4h9OprqHaxM
-         ayKC9YCZ/bCX46leAVjx7+aj0aGGAB2Qlz8vrq4//ZXcmzguCXMl/OHqxZouOegtjh/q
-         SnoK04O5rbdnPAXj4H8qx6FhcZEEOclhOCb4tfOWgedLjvGpky+ZFkIHvSqRyOtktFuT
-         D0Wg==
-X-Forwarded-Encrypted: i=1; AKwUvBxNJiEE89DPxOUXdd6soC/CoV4FxReEiczBEaXh0I3jSbGplXEfgpKFO2LHDbKqgo66jpfZomWhyau0fD/syI6Z@lists.infradead.org
-X-Gm-Message-State: AFuF++lbLkq9k2Ghdn0NXyzVEeYLdaIaizA8YMPy91KAJlzEMwywmbf6
-	lQNcvdYvrX8Vt68B+kDR8EjtdUKBcZs97zmtmPYNSJv3ndzEZIEtU6oa1VLmIssuD7VNFr6h267
-	gZlVlCuzPNVvuRXSrckeambZ40bPS4nGQdRgjVONltwIcibis5xHsIFyz/YLXMcmi/I9niRYJa3
-	0hAw==
-X-Gm-Gg: AYBFou2TmhgaXcc4Zl7LBS/SciJ0IcZIDEzUTi8kpAMT0PV3rDdmmTFxj2MMhj2C3s+
-	w7rwF2kESNbNl4EgSYoZhvoRP2fMGMNVpva7asj71K4ei4LUpRFLu87dKYewOyqeMys6yq7jBzH
-	DedBot8dTgRRDNtYJMjHd+biOw6Bx9/ElYnfim/TzRPq5xy0D0MmxxQWE3dcKE3a21In64glR+O
-	knJ0/LC/Z5XDEB8HWdEgDUtK4Kw0Je/3eDcwPinzehYv1mZ30m3IhssCtvHIo/y5kUKTjxHvlTs
-	uIKOZl+VOoScnYCclAOwE3M8PDBB4jfwnIFqaaQA2PseULerREW0jb07tnNBddkCPZWCGSPNQ0l
-	IfbJ6cayDJCbeXZeoU/B+KX4xgBs=
-X-Received: by 2002:a05:6102:6890:b0:7a1:f7e2:aade with SMTP id ada2fe7eead31-7a55c28a6ccmr4962277137.16.1789995549283;
-        Mon, 21 Sep 2026 05:59:09 -0700 (PDT)
-X-Received: by 2002:a05:6102:6890:b0:7a1:f7e2:aade with SMTP id ada2fe7eead31-7a55c28a6ccmr4962267137.16.1789995548881;
-        Mon, 21 Sep 2026 05:59:08 -0700 (PDT)
-Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:d04:d483:faad:1e4e])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2a359037aasm320278766b.63.2026.09.21.05.59.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 05:59:07 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Mon, 21 Sep 2026 14:58:21 +0200
-Subject: [PATCH v8 12/14] soc: qcom: add core driver for the Qualcomm
- Crypto Engine
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-qce-fix-self-tests-v8-12-107537869a72@oss.qualcomm.com>
-References: <20260921-qce-fix-self-tests-v8-0-107537869a72@oss.qualcomm.com>
-In-Reply-To: <20260921-qce-fix-self-tests-v8-0-107537869a72@oss.qualcomm.com>
-To: Thara Gopinath <thara.gopinath@gmail.com>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>,
-        Stanimir Varbanov <svarbanov@mm-sol.com>,
-        Eneas U de Queiroz <cotequeiroz@gmail.com>,
-        Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-        Eric Biggers <ebiggers@kernel.org>,
-        Demi Marie Obenour <demiobenour@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, brgl@kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4833;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=E327Pomf3JKllBCL3eKN9FPAVurkOetH3xJ+MFfA5xM=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqsSnzPkzRZxhXl7foHcU+1E5GYUoORYlNL6MAH
- auGzuiarRaJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCarEp8wAKCRAFnS7L/zaE
- w63tD/4jVpOnPxw4kGs/0iApyM/Y9G214wzm8NjO9bF+C/1ouSz9dM1BTK1oyNwrr69SLJVjd+s
- V+FaAVwA2GnO6p1UrDqig6sjJ/Fq7+CH7apb50f/we+EjUa3a5fmf7tEnGPrpI8Xh/Ann3eQ1e8
- m+SC2j8pwZyyUBzsyZQunn8IQy5QxbOpEcLpuNLgaIcc/49VraiomKLc4tajB/39lssnRPi6mc9
- 5Iv21zNF7mskkNA95VL3f6QvS7lU0TRFn0jpiXDM59gQMb/qcSm3/gwmFMK66Ytm1UZfYOxdfio
- FR13JdjerZeIiZCPa7CvCS5HnYHbxELR5qwhILylAtDWOc90YQyekhX/uooZeP0k2nt8OL1vGEt
- jIL4STRAcIkxGeMod6M30yFsEPOsu1+7MzSG07gUmcoDZ0KNWDM/wc4tz4RafDGZtRL6Swx8n64
- yFBOKytBp1WAQPuLWE4jltZxhesaEIm/khO0u2gVgsGq4b8b2Oqfl+3aEEiDr4BdplFvLWqeq62
- wGZpC2M4rs8tGLVORspQgvTVPuidY1P+tu1zjGZal6Mz+Z8TtEl/IapS+W9ghtPeQmXOqmf1OgO
- Tnj2WgZWGChf9WjMALz4UKB+s59HgcAWPaLbgxuAgav3i3EiAWYsvNNOJOu5CHQuIOHdcFXx6i1
- dwen9plIPcZUxnA==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDE4OSBTYWx0ZWRfX57nFtAY2iizt
- sbIWqY7RGVQd+xTpvIHZfwGR/jXnP1TLG0st5XFqqBT1dxfHrnHV4ElZcxrHQiH/sK30YhkrqPS
- JeOBdbaentjVK0W8IE4ymgBEaIKVabU=
-X-Authority-Analysis: v=2.4 cv=AsR7T+9P c=1 sm=1 tr=0 ts=6ab12a1d cx=c_pps
- a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
- a=EhY2VP3nYDlqWzrqXREA:9 a=QEXdDO2ut3YA:10 a=TD8TdBvy0hsOASGTdmB-:22
-X-Proofpoint-GUID: bmLdBMEAbl7shZZDNz-an8S5fCTdwuZs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDE4OSBTYWx0ZWRfX1HuIYokyNALY
- otOyPMGkvAdZVz11wm0NtkQ+EIrGfOuoqWa+u9yhEPOA6LaDrc78Yz/L9iWBRLWsHU2burIBqYo
- PDRfhDUQQO2SfW32LtgbZOrYqn3zq295s3d8moPT2QtnelvxyR78/71sbBKgeExqtJsqcHscPoJ
- jI0czQy9vv/wA8JoVAqZBWXu14o29U/DHWOAtIEs6EuizSHmX2M56dqGOqo9AbZXGxlt0xjSasj
- fFWhPQAd6kPWvVdcK59taiaDpB2Nj3lXHF9+ceFvvSKvYc7K+gVlN7qOo4Ii8VvVK2f7Y0EhGjd
- e7y5JfYFswaExPXPZ0yczSFXmkmQ+rEk4NSADAd5UJi7qKDSA89vF4U+9hzFqnJUJDZTsy7m2/N
- M02A07+pC1JMQunsWcFvDP2i9PcJx6TRGS/NNEPYU8jU0G1hym8eN8meDL2aB4L77UYlxmJOe9r
- 7GReg7YjWq7oF5E88dw==
-X-Proofpoint-ORIG-GUID: bmLdBMEAbl7shZZDNz-an8S5fCTdwuZs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-21_04,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 malwarescore=0 suspectscore=0 clxscore=1015
- impostorscore=0 adultscore=0 lowpriorityscore=0 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609210189
+	Mon, 21 Sep 2026 12:59:23 +0000
+Received: from localhost (unknown [213.135.10.150])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id A66305C;
+	Mon, 21 Sep 2026 14:59:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
+	t=1789995559;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WOQj9ttdzaZzx0r1oCUSx1dmfsNGOFunfKX1/bnwFeQ=;
+	b=I13ZyFowPkfV1nO/CxlAhbk2W/TKgMuwaSrksdCGGz9aGfbjQFGI5upWdE568HKZQxsQGC
+	No7IzxKS8Tagywoi6CCp6BJa3M1l7D3aEHlQT8DrMM/wY196y/NewA+Wvxp1QKl+BquxW8
+	KT+KmrZkYPFz5++EHRJcHzKxB0JyWLcxjyud/Q+9QIZdAM6dE/MV0ve0xrXxu9P6VeRupW
+	SOC8VZgImZL74xjFtkXEZunFkEzCkeiNFs2/sx/Vsqt+bmyhFH4REaLT6tHXzhwSBCkfS+
+	TD4bLQDK7G7MsHq8Kej0f8Wb8nai/GR33m6lnnglm3Kp86fW5wweyvXlkP0/GA==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=d4abaddd56845fd60ab6e5bb59bbbca58e0e49270f751b02e46e69be1e0c;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Mon, 21 Sep 2026 14:59:17 +0200
+Message-Id: <DLL0GV4PAJYJ.1JU0HPWE6K0LA@walle.cc>
+Subject: Re: [PATCH v7 08/15] gpiolib: regmap: add write_data_after_dir
+ quirk
+Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "Jerome Brunet" <jbrunet@baylibre.com>, "Linus Walleij"
+ <linusw@kernel.org>, "Bartosz Golaszewski" <brgl@kernel.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, "Jiri Slaby"
+ <jirislaby@kernel.org>, "Andy Shevchenko"
+ <andriy.shevchenko@linux.intel.com>, =?utf-8?q?Ilpo_J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Long Zhao"
+ <zl020895@163.com>, "Lee Jones" <lee@kernel.org>, <mfd@lists.linux.dev>,
+ <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <linux-gpio@vger.kernel.org>, <linux-serial@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <michael@walle.cc>
+To: <longzhao@ambarella.com>, "Arnd Bergmann" <arnd@arndb.de>, "Krzysztof
+ Kozlowski" <krzk@kernel.org>, "Alexandre Belloni"
+ <alexandre.belloni@bootlin.com>, <soc@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>
+X-Mailer: aerc 0.20.0
+References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
+ <20260915-cv75-v5-v7-8-3297d3fbc9c0@ambarella.com>
+In-Reply-To: <20260915-cv75-v5-v7-8-3297d3fbc9c0@ambarella.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_135912_365146_52E5F62A 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20260921_055922_634857_BE04C32B 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,151 +92,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the core driver for the Qualcomm crypto engine. Its task is to bind
-to the qce DT node, set up runtime PM for interconnect down-scaling and
-register the auxiliary device using the crypto offloader driver.
+--d4abaddd56845fd60ab6e5bb59bbbca58e0e49270f751b02e46e69be1e0c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
- drivers/soc/qcom/Kconfig    | 11 ++++++
- drivers/soc/qcom/Makefile   |  1 +
- drivers/soc/qcom/qce-core.c | 92 +++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 104 insertions(+)
+On Tue Sep 15, 2026 at 1:15 PM CEST, Long Zhao via B4 Relay wrote:
+> From: Long Zhao <longzhao@ambarella.com>
+>
+> Some controllers ignore data-register writes while a line is still an
+> input. Optionally write the output value again after switching the
+> direction, matching the existing PL061 behaviour.
+>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> ---
+>  drivers/gpio/gpio-regmap.c  | 20 ++++++++++++++++++--
+>  include/linux/gpio/regmap.h |  8 ++++++++
+>  2 files changed, 26 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
+> index 51b4d69b8740..dfcc1f1122ec 100644
+> --- a/drivers/gpio/gpio-regmap.c
+> +++ b/drivers/gpio/gpio-regmap.c
+> @@ -31,6 +31,7 @@ struct gpio_regmap {
+>  	unsigned int reg_clr_base;
+>  	unsigned int reg_dir_in_base;
+>  	unsigned int reg_dir_out_base;
+> +	bool write_data_after_dir;
 
-diff --git a/drivers/soc/qcom/Kconfig b/drivers/soc/qcom/Kconfig
-index 9f703261d7ac6ccde861b8d29626025bcfdbda8c..81c6634e855be23698591da6d3743ef68b516006 100644
---- a/drivers/soc/qcom/Kconfig
-+++ b/drivers/soc/qcom/Kconfig
-@@ -121,6 +121,17 @@ config QCOM_PMIC_GLINK
- 	  Say yes here to support USB-C and battery status on modern Qualcomm
- 	  platforms.
- 
-+config QCOM_CRYPTO_CORE
-+	tristate "Qualcomm Crypto Engine core driver"
-+	depends on PM
-+	select AUXILIARY_BUS
-+	help
-+	  Core driver for the Qualcomm Crypto Engine. Say yes here to enable
-+	  the top-level driver that binds to the devicetree node representing
-+	  the QCE, registers the sub-devices implementing actual QCE
-+	  functionalities and sets up runtime PM allowing the interconnects to
-+	  scale down.
-+
- config QCOM_RAMP_CTRL
- 	tristate "Qualcomm Ramp Controller driver"
- 	help
-diff --git a/drivers/soc/qcom/Makefile b/drivers/soc/qcom/Makefile
-index 798643be3590cc8303854658fd483b7807d2230f..33dfef07e7db2c0488b14c78f098afebf689d013 100644
---- a/drivers/soc/qcom/Makefile
-+++ b/drivers/soc/qcom/Makefile
-@@ -14,6 +14,7 @@ obj-$(CONFIG_QCOM_PMIC_GLINK)	+= pmic_glink.o
- obj-$(CONFIG_QCOM_PMIC_GLINK)	+= pmic_glink_altmode.o
- obj-$(CONFIG_QCOM_PMIC_PDCHARGER_ULOG)	+= pmic_pdcharger_ulog.o
- CFLAGS_pmic_pdcharger_ulog.o	:=  -I$(src)
-+obj-$(CONFIG_QCOM_CRYPTO_CORE)	+= qce-core.o
- obj-$(CONFIG_QCOM_QMI_HELPERS)	+= qmi_helpers.o
- qmi_helpers-y	+= qmi_encdec.o qmi_interface.o
- obj-$(CONFIG_QCOM_RAMP_CTRL)	+= ramp_controller.o
-diff --git a/drivers/soc/qcom/qce-core.c b/drivers/soc/qcom/qce-core.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..8a9d070935cc87eaf20ae2db25f304cf4b2694c0
---- /dev/null
-+++ b/drivers/soc/qcom/qce-core.c
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 Qualcomm Technologies, Inc. and/or its subsidiaries
-+ */
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/device.h>
-+#include <linux/device-id/of.h>
-+#include <linux/err.h>
-+#include <linux/interconnect.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+
-+#define QCE_DEFAULT_MEM_BANDWIDTH 393600
-+
-+static const char *const qce_core_aux_devs[] = { "crypto", NULL };
-+
-+static int qce_core_probe(struct platform_device *pdev)
-+{
-+	static const char *const *subdev;
-+	struct auxiliary_device *auxdev;
-+	struct device *dev = &pdev->dev;
-+	struct icc_path *mem_path;
-+	int ret;
-+
-+	mem_path = devm_of_icc_get(&pdev->dev, "memory");
-+	if (IS_ERR(mem_path))
-+		return PTR_ERR(mem_path);
-+
-+	dev_set_drvdata(dev, mem_path);
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	PM_RUNTIME_ACQUIRE(dev, pm);
-+	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (ret)
-+		return ret;
-+
-+	for (subdev = qce_core_aux_devs; *subdev; subdev++) {
-+		auxdev = __devm_auxiliary_device_create(dev, "qce", *subdev, NULL, 0);
-+		if (IS_ERR(auxdev))
-+			return PTR_ERR(auxdev);
-+	}
-+
-+	return 0;
-+}
-+
-+static int qce_core_runtime_suspend(struct device *dev)
-+{
-+	struct icc_path *mem_path = dev_get_drvdata(dev);
-+
-+	return icc_set_bw(mem_path, 0, 0);
-+}
-+
-+static int qce_core_runtime_resume(struct device *dev)
-+{
-+	struct icc_path *mem_path = dev_get_drvdata(dev);
-+
-+	return icc_set_bw(mem_path, QCE_DEFAULT_MEM_BANDWIDTH,
-+			  QCE_DEFAULT_MEM_BANDWIDTH);
-+}
-+
-+static const struct dev_pm_ops qce_core_pm_ops = {
-+	RUNTIME_PM_OPS(qce_core_runtime_suspend, qce_core_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
-+};
-+
-+static const struct of_device_id qce_core_of_match[] = {
-+	{ .compatible = "qcom,crypto-v5.1" },
-+	{ .compatible = "qcom,crypto-v5.4" },
-+	{ .compatible = "qcom,qce" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, qce_core_of_match);
-+
-+static struct platform_driver qce_core_driver = {
-+	.probe = qce_core_probe,
-+	.driver = {
-+		.name = KBUILD_MODNAME,
-+		.of_match_table = qce_core_of_match,
-+		.pm = pm_ptr(&qce_core_pm_ops),
-+	},
-+};
-+module_platform_driver(qce_core_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Qualcomm crypto engine core driver");
-+MODULE_ALIAS("platform:" KBUILD_MODNAME);
-+MODULE_AUTHOR("Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>");
 
--- 
-2.47.3
+Can we just have some quirk flags for these? First, this actually
+describe what it is - a quirk - and in the future, we don't have to
+copy all the flags individually in _register().
 
+Also maybe QUIRK_SET_AFTER_DIR. The whole driver doesn't mention a
+data register.
+
+>  	unsigned long *fixed_direction_mask;
+>  	unsigned long *fixed_direction_output;
+> =20
+> @@ -271,9 +272,22 @@ static int gpio_regmap_direction_output(struct gpio_=
+chip *chip,
+>  			return ret;
+>  	}
+> =20
+> -	gpio_regmap_set(chip, offset, value);
+> +	ret =3D gpio_regmap_set(chip, offset, value);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D gpio_regmap_set_direction(chip, offset, true);
+> +	if (ret)
+> +		return ret;
+> =20
+> -	return gpio_regmap_set_direction(chip, offset, true);
+> +	/*
+> +	 * gpio value is set again, because pl061 doesn't allow to set value of
+> +	 * a gpio pin before configuring it in OUT mode.
+
+Is this copied from the old code? Not sure, why pl061 have to be
+referenced here.
+
+-michael
+
+> +	 */
+> +	if (gpio->write_data_after_dir)
+> +		return gpio_regmap_set(chip, offset, value);
+> +
+> +	return 0;
+>  }
+> =20
+>  void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio)
+> @@ -376,6 +390,8 @@ struct gpio_regmap *gpio_regmap_register(const struct=
+ gpio_regmap_config *config
+>  			    config->fixed_direction_output, chip->ngpio);
+>  	}
+> =20
+> +	gpio->write_data_after_dir =3D config->write_data_after_dir;
+> +
+>  	/* if not set, assume there is only one register */
+>  	gpio->ngpio_per_reg =3D config->ngpio_per_reg;
+>  	if (!gpio->ngpio_per_reg)
+> diff --git a/include/linux/gpio/regmap.h b/include/linux/gpio/regmap.h
+> index 06255756710d..d7ffc12b00a2 100644
+> --- a/include/linux/gpio/regmap.h
+> +++ b/include/linux/gpio/regmap.h
+> @@ -48,6 +48,13 @@ struct regmap;
+>   *			(Optional) Bitmap representing the fixed direction of
+>   *			the GPIO lines. Useful when there are GPIO lines with a
+>   *			fixed direction mixed together in the same register.
+> + * @write_data_after_dir:
+> + *			(Optional) Write the output value again after
+> + *			switching a line to output in ->direction_output().
+> + *			Needed for hardware which ignores data register
+> + *			writes while the line is configured as an input.
+> + *			This is a legacy quirk (e.g. ARM PL061); new hardware
+> + *			must not use it. Direction changes will glitch.
+>   * @drvdata:		(Optional) Pointer to driver specific data which is
+>   *			not used by gpio-remap but is provided "as is" to the
+>   *			driver callback(s).
+> @@ -94,6 +101,7 @@ struct gpio_regmap_config {
+>  	unsigned int reg_dir_out_base;
+>  	int reg_stride;
+>  	int ngpio_per_reg;
+> +	bool write_data_after_dir;
+>  	struct irq_domain *irq_domain;
+>  	unsigned long *fixed_direction_mask;
+>  	unsigned long *fixed_direction_output;
+
+
+--d4abaddd56845fd60ab6e5bb59bbbca58e0e49270f751b02e46e69be1e0c
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCarEqJhEcbWljaGFlbEB3
+YWxsZS5jYwAKCRASJzzuPgIf+EaiAX9aiCN1PCW3AwWf/y/iLNMowy0oVDSCKjnf
+nVi253Q2A0LA1C1slrFLvx/ZThbl548BfA1DxrPIRtOIHHeKS9m37w4dtUa8W7cp
+Fk4Xf/wSCb9odGSdGEQgkywfnzPzVYXlhw==
+=P/i5
+-----END PGP SIGNATURE-----
+
+--d4abaddd56845fd60ab6e5bb59bbbca58e0e49270f751b02e46e69be1e0c--
 
