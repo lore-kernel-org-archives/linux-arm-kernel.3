@@ -4,85 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F140C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E82C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E8+TuwKUE2XBa2SuyOFw2XhfA4p/VrA5lusEOG2wO70=; b=S9GeU7RWBE79smJknoFn/w6Zq9
-	ZBGxHRIqwg/iBbih7/u+wEDnu6fIlxNy9OuUI/cQ05Fjbh16nTIqRhq/Eo7nZiqdy9uLggBaFRRkD
-	uXjGuvaFWelBvK2Z/Ej1SoYZIsGm1MziU+S46vBuB8h6AbGoXmIiP5TaZsUN3YkYzQzFhQTz6FPL4
-	JfZkprJ33z/rYwdXk5OZCickbOy1yj7gfl0oSCyjvjpGs0lSZ3BeZWhfsfYw+U9GgAuMtNfTAUw6v
-	YSuFMjlys0/ncq/JzV/Ipm2uNegkMs8O/j7iK5+utAhFzPw2iPcdlD2mu4w3X29S/zpaMQ9tkdgTK
-	OaSwxvmA==;
+	bh=PWAktAj8+a2EZgQ4kCGxOWW2beeBTXDV3b5mgoUzlt8=; b=pPAhlGVT7fvGq97Csn6ex3BKEx
+	Jwr+O467cbeJro0cyXPc+ELUcU+nRj763BHUM8jes1DfyEHSK6yPxcWdkcQm3UvJFR0Ii60WqD0+k
+	fyN7b7oS2WPZsdUAbdqgAhmIg1/Ss9A7ACz/1lpf4EvJZIv0+LmnJ/dGU0T3EPfufx1hpXNYfml+J
+	I+ZzvgShoSw9LQyvdp91gp89d+PWdjsFTfEH/C+EmqGv4cZvuSlbAGZPvsw8XO9yFz1w5oFnJNoZX
+	ltR0NlGYgClBzw8I5iiLazllqYJ4ZkwMrAqsWMEquhb+8gazCJoJdHXCOJp4eOxTzCT5AWTU7xVvC
+	aboIUQvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hFg-00000002tLr-0Cfk;
-	Mon, 21 Sep 2026 16:52:24 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x8hHO-00000002thg-3Tb8;
+	Mon, 21 Sep 2026 16:54:10 +0000
+Received: from mail-oo2-x2b.google.com ([2607:f8b0:4864:31::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hFN-00000002tF9-1iL5;
-	Mon, 21 Sep 2026 16:52:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id C077D4E40755;
-	Mon, 21 Sep 2026 16:52:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8CF895FFB2;
-	Mon, 21 Sep 2026 16:52:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C859C1032913F;
-	Mon, 21 Sep 2026 18:51:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790009517; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=E8+TuwKUE2XBa2SuyOFw2XhfA4p/VrA5lusEOG2wO70=;
-	b=DOj1Y41gnblEuUbAcpP3/m5HMMS+8CCXjkY0nVms96dcQJVAg6eDcUo/6D1ViLtXTvg/t6
-	dHQ7g26/B+Pl8hrOF9+FnEzM5qlsuFK/Qpep/KPqvJrDNIsGzH497zB30KindqOD11tjQU
-	sVWzDA/oXW+BOeMjwphAXxrivYUOp7/mV0KOP+uqH+upCyq8Ed6J8v95Zu+EatW8JEmDya
-	EzYiR1FyK+9ONJTnTx+Ho5A5MA+ZZdNDlSTWwXpMDgv3vhSYT2XghlFtBaVDM5Du/0Vp9s
-	nKPzT/Qx4U8tvu2vyp1PkjsWu18hnjG7QKoc6NyrPox5y8/8QrUygXcs4LqaSw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 21 Sep 2026 18:51:49 +0200
-Message-Id: <DLL5EWC41AQ4.ZVQI9FO4EEVN@bootlin.com>
-Cc: <kernel@collabora.com>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-rockchip@lists.infradead.org>,
- <linux-fbdev@vger.kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Cristian Ciocaltea"
- <cristian.ciocaltea@collabora.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Dave Stevenson"
- <dave.stevenson@raspberrypi.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Chen-Yu
- Tsai" <wens@kernel.org>, "Samuel Holland" <samuel@sholland.org>,
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, "Raspberry Pi Kernel
- Maintenance" <kernel-list@raspberrypi.com>, "Raphael Gallais-Pou"
- <rgallaispou@gmail.com>, "Sandy Huang" <hjc@rock-chips.com>,
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Andy Yan"
- <andy.yan@rock-chips.com>, "Algea Cao" <algea.cao@rock-chips.com>, "Daniel
- Stone" <daniels@collabora.com>, "Liu Ying" <victor.liu@nxp.com>, "Phong LE"
- <ple@baylibre.com>, "Helge Deller" <deller@gmx.de>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v11 14/74] drm/bridge: Fix unlocked list access in
- drm_bridge_attach()
-X-Mailer: aerc 0.22.0
-References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
- <20260901-dw-hdmi-qp-scramb-v11-14-bc12954a0688@collabora.com>
- <DLKTC338JONX.CQ6L7JYQ4UDD@bootlin.com>
-In-Reply-To: <DLKTC338JONX.CQ6L7JYQ4UDD@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1x8hHM-00000002tgu-05uk
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 16:54:09 +0000
+Received: by mail-oo2-x2b.google.com with SMTP id 006d021491bc7-6b1ae6c9b81so327361eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 09:54:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790009647; x=1790614447; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PWAktAj8+a2EZgQ4kCGxOWW2beeBTXDV3b5mgoUzlt8=;
+        b=ZEHbVq2H8S9FydIOAHVupeSzqYOk/7aJM6WizgXtf8M/4POskmwrtBDZxBWI8uKQd/
+         kdxm1/yaS68YG6McsbeO6iQ0wnJ2OCI4Jkr8/sbEweOcvQma8o+O+tVGwKZOWgQ+5Jmt
+         t9TS0D3+k5quaRE2GvnhS4iK9byvUjQb12dtwjlPQKGVF5BHHgmbj1vVO/kkcwZU1FyF
+         JwzZUWSSgoAP/b4zSz7J0TUQOLYhgH99Z9bFywE31fu2Ik8TRGZfTTTNy3pXQC3vmBay
+         zuyKnNrLBxLiR+u2Z3HKBzQqyTTyFMauzgY/4td8f1Tfx/bYi8jbQVX2yrwg+hTiIh05
+         jXTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790009647; x=1790614447;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PWAktAj8+a2EZgQ4kCGxOWW2beeBTXDV3b5mgoUzlt8=;
+        b=J/um+OL2KhV+jTZ2zumftH7CC+WSwiRifDBhpvpBEPbrpO0oianYYe/QtleFl8EsZz
+         V58txAmfnhqwxGCjhCLnDvcbUSkKrD7CTCrN8rR2GnhmECkgvEiGkGAc+BkMvTaTGc67
+         12gy2HTWO9NRw26sFCLTfRQ0AC918WsdRIiQQyt/yND2rsP7/oXpJ4+xtKfzgKmUHfu+
+         +aR8sFJ78ntlUE2I1SgwSuJC3YR4rJDf5trjcmEwp7o6JNDelxl/+b6CJ5ecIGVks1kf
+         1JDTbOVRrhbE2twr2M53vzSrMoiQQlvYuAVHy/jiMdxrbmWQDryZtkW31itGr0274h43
+         un3g==
+X-Forwarded-Encrypted: i=1; AKwUvBy9IU4rGMPh24MTToQUZhlKlsaKH/PIGuX3J+wqnsq6jGQwO1J/Kw5suA9ojkqWJUp9Y1lPrYW8oP4WajbSb7rO@lists.infradead.org
+X-Gm-Message-State: AFuF++lqXwik1t27nafo/FtHej8m3A/gcqMpuZwjpf04Fqa9D/z+g9Ie
+	Uf9kSxxPII4ej9o3cFi0+n3j+j9Ds6wDFKBCNi1VZiVSMu2P+Co7Fvcl
+X-Gm-Gg: AYBFou1bZTgpLJKjor9pk/ucVc7qIwvXdDRWacK2SfiMUMovExIcoyCW/nl35WKpO7B
+	WeqnZ/oGSDOOXA5UZrTLP3X3W0TMIImV0hfh0WEJ1Vg3BnPxdevLluTeYV8HPCmApD/Gq2iEXq7
+	bgr5B73owOnPt/Vd0LpPQ2GCzY+jkUuvmPNEKfuCs041XFspTPD3MK5dXpw4+Jbna1m6l70hOl1
+	fQYLeBmgSipksAzm1L1fpNgFq+jL8EF3GOmC28eI7hY/HV32e9ooGzqneCxS2BxY5J8ljCHzDGz
+	sl4A38mIqmArjILoNnhQvlR1Djvh4/78GVRuCVmy6wSerK/1G2UVXrPbAwak/DyT2mgcNNdlezE
+	i2kdlME5/YFwFDCnXkiaq1ujPHtR80zi4cXTQx7PHFgA9scKQGrwFxR6QVAhxoU1V8QJ4YI8AJG
+	xzd/p63/RvBTPgFzSZyCB/ZgQen076ey9qU/BvSj/T9isUGYIq70U5KpV17CEGyb+2V4HUS11AE
+	jUdpLVb2KmLMqUFZD7uCaWnatKbtI0zVCx06fGum0sx7SlREMqIRFclUV14y0ZEsUThZXvmM8vK
+	0IZnE51v3W8ICoTMpvcTsnrCdybB26qJRwcF22k6BkdzXN0CAtxWdx9DNl5YW8vNpxkjEqFTvdF
+	VwXzp0snHlBnMWEtHgvpPOw==
+X-Received: by 2002:a05:6820:812:b0:6b5:ec3f:497d with SMTP id 006d021491bc7-6d15a65b6c9mr206525eaf.24.1790009646999;
+        Mon, 21 Sep 2026 09:54:06 -0700 (PDT)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d145bc40e6sm510481eaf.5.2026.09.21.09.54.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 09:54:06 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 21 Sep 2026 10:54:03 -0600
+Subject: [PATCH net 2/3] net: stmmac: close the interface after a failed
+ MTU reopen
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260921-submit-stmmac-reset-fixes-v1-v1-2-87a4e431ee00@gmail.com>
+References: <20260921-submit-stmmac-reset-fixes-v1-v1-0-87a4e431ee00@gmail.com>
+In-Reply-To: <20260921-submit-stmmac-reset-fixes-v1-v1-0-87a4e431ee00@gmail.com>
+To: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Joakim Zhang <qiangqing.zhang@nxp.com>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Christian Marangi <ansuelsmth@gmail.com>, 
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>
+Cc: Richard Genoud <richard.genoud@bootlin.com>, 
+ Alastair D'Silva <alastair@d-silva.org>, Maxime Ripard <mripard@kernel.org>, 
+ James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_095205_611971_60EC127D 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_095408_076123_44056832 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,31 +118,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Sep 21, 2026 at 9:23 AM CEST, Luca Ceresoli wrote:
-> On Tue Sep 1, 2026 at 8:50 PM CEST, Cristian Ciocaltea wrote:
->> drm_bridge_attach() inspects bridge->list to warn about bridges being
->> attached without a previous drm_bridge_add() call, but it does so
->> without holding bridge_lock.
->>
->> The list head can be concurrently written by drm_bridge_add(),
->> drm_bridge_remove() and __drm_bridge_free() while they operate on
->> neighbouring entries of bridge_list or bridge_lingering_list, all of
->> them under bridge_lock.  Hence the unlocked read is a data race, even
->> though it is unlikely to change the outcome of list_empty() in practice.
->>
->> Perform the check with bridge_lock held.
->>
->> Fixes: 76f1a9711b83 ("drm/bridge: add warning for bridges attached witho=
-ut being added")
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+An MTU change stops the data path and then reopens it using a newly
+allocated DMA configuration. If reopening fails, the new allocation is
+freed while the netdev remains up and priv->dma_conf retains copies of
+the freed pointers. A subsequent close repeats NAPI disable and IRQ and
+DMA-resource teardown. It can hang in napi_disable() or access resources
+which have already been freed.
 
-And tested with bridge hotplug:
-Tested-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Track successful opens of the data path separately from the netdev's
+administrative state. Clear that state when releasing the data path and
+skip a second release after a failed reopen. Close the netdev through the
+network core on the MTU error path, so the PHY attachment and runtime-PM
+reference are released and the interface is marked down. A subsequent
+open can then allocate fresh resources and retry normally.
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Keep successful MTU changes on the existing path, retaining the PHY
+attachment and runtime-PM reference. Allocation failures before stopping
+the original data path still leave the running interface unchanged.
+
+Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU change with interface up")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 10 ++++++++++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 7582fca63741..873331dbaf77 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -281,6 +281,8 @@ struct stmmac_priv {
+ 	struct mutex lock;
+ 
+ 	struct stmmac_dma_conf dma_conf;
++	/* Paired __stmmac_open()/__stmmac_release(), serialized by RTNL. */
++	bool opened;
+ 
+ 	/* Generic channel for NAPI */
+ 	struct stmmac_channel channel[STMMAC_CH_MAX];
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 1fb5f804ea23..44b59d0f56b5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4179,6 +4179,7 @@ static int __stmmac_open(struct net_device *dev,
+ 	stmmac_enable_all_queues(priv);
+ 	netif_tx_start_all_queues(priv->dev);
+ 	stmmac_enable_all_dma_irq(priv);
++	priv->opened = true;
+ 
+ 	return 0;
+ 
+@@ -4249,6 +4250,11 @@ static void __stmmac_release(struct net_device *dev)
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 	u8 chan;
+ 
++	/* A failed MTU reopen has already released the data path. */
++	if (!priv->opened)
++		return;
++	priv->opened = false;
++
+ 	/* Stop and disconnect the PHY */
+ 	phylink_stop(priv->phylink);
+ 
+@@ -6174,6 +6180,10 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
+ 		if (ret) {
+ 			free_dma_desc_resources(priv, dma_conf);
+ 			kfree(dma_conf);
++			/* Finish closing the PHY and PM state, but do not repeat
++			 * the data-path teardown after the failed reopen.
++			 */
++			netif_close(dev);
+ 			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
+ 			return ret;
+ 		}
+
+-- 
+2.53.0
+
 
