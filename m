@@ -4,166 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C9FAC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 17:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4D0C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 17:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j3OFlUQBxN9agIpNKi5lnHusJ88SHWIFUzPy8SYBk+A=; b=KQILqHsCKrJdVE+EwPA3PWKbdq
-	Ayx7Z4C4ko9pfTVC6DlvwfokbnRQ+lwHgqDZTyU74U1Z3IFDuhQgn9clZnl+6XPIsFEyAnaTfYbir
-	ABI0D4xZlV8BJJWt4FBccEFDQEWdloEFR8XiREGw0z31sx54VRpgmJ68TTLXBn/Qh7tRNam9MHta6
-	oKYfNIHKDy4MwjlT1ESMtBbyGCZLtXwkE4XboJjUZ6+wONqDN1mOiPuwi7xD7CEzrbcCXbn+s1Rzc
-	N9eVwlEkvRKVLZefPbdQyzbmbbbYo+OdFiRZeZit8uDDqhibZElww5S+JgeHkzwwFQyhFLDq7TdlY
-	1aNHp+CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aQXqx3kypLayD7YI2GHlSyGrESOzJpPnn3LvqeJEGpM=; b=bytt7ld/3ccudavgRBYfBW8bSz
+	Of6QWsnDwSqhm03WxUtVrz3KU8MhB2dzhKG1s9excEjjUW8TMRGxTqh6tSr2N+8Qfq1G1uFixArQM
+	DW8cO9nmAoU3SBvXBCftiJktNqMl/sVnWv5ditkn19dHEdAPI7tPzcE2h728s/siokIrC01S7jOR1
+	QKwPMHK+hxneSPkXrXQi98ImBZfM12Sp/SYdmFbhJ6stPCMX7rl1yYNjX5xoGei3g6dxlBswmkNaY
+	5obBohr2+bCPBfglrPVrmDW+nPcdoDxFft43lI0a3qyiuqKZ2i5vk+CrdbLk2UceLiaAZ6JMZ0OrH
+	npkbbz/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hoB-00000002ykM-1isP;
-	Mon, 21 Sep 2026 17:28:03 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1x8hw9-000000030Av-1XWN;
+	Mon, 21 Sep 2026 17:36:17 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ho8-00000002yjn-1sly
+	id 1x8hw1-0000000309X-302r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 17:28:02 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LGuOIY4140747;
-	Mon, 21 Sep 2026 12:27:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=proofpoint-05-2026; bh=j3OFlUQBxN9agIp
-	NKi5lnHusJ88SHWIFUzPy8SYBk+A=; b=qqGE0qZul2dCaCnWjlYD4wUf//7KA/M
-	Mp9HQyEYlGuiPPUKAW7luyMZ45uzlNUhIwt45Og66uZW6F67HR/5JlIN5vv19cCq
-	s3S1QuPagnjeY3Pnv0daKflwFHfZO7GBB5bOvqTBQ4oiYe+2qw7rfsIFtuJ/HFSB
-	IHd9Di26DLG3GzAOgZaaE3xK2VOj2jBLOLUMFzFrJuNilwRCq3fPFNsEGh3TT8Xy
-	i0XiLhlZ/P7KP6Tu9iWuatCHJI6lT4Ur8d3kVa89jGBeUD+OB2KlHF9jFZwdMEI+
-	2ERd0rBebREOFeXz53sZS5ogjNWRiK2zvROp4qTROlgLS6L1rafA5oA==
-Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011035.outbound.protection.outlook.com [40.93.194.35])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gtx9fc31w-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 21 Sep 2026 12:27:57 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vR1Y816dHGfqRGT+rKiUHWJpCj4Ni1/1iVSlRArUH5gHg7+beLnN4J3m7owA2xbuCZvfvHTFqd4JfbVMF7xQJgqc9KmVbdAnxscMpUmvUESmmYWetRXfphcrnYDwtZ0gCsvShBNB3yGMVfaUbvVndbgrvKR92rpgAe1cIXCsP974uD+06Fb4HCEAR4E9fkoC+A11ycBOMZRBuekyWRvt+GVA3Jexyk16yjo8KqDFnQSyAQydQbok3UHexFxH4fQoIoylhjJZ31n3+SPVw4Sleib6IpVKPm57ex5Meb42+b3ucf0IWjMpYZXUa4xzdW9yeC/t4x09pdkLCnQCGu3eRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j3OFlUQBxN9agIpNKi5lnHusJ88SHWIFUzPy8SYBk+A=;
- b=YMj1oj1LI2ORYfDLGbIOzBEzqRKI+IhpyNtB0s8EZlzAE9Ok7jv/r4zGSbTp0a9S1fpEC9Q0stS2wpgNUNroob4f2ZppFn/EuPAJpNksAoOl9gOL7OgTOE30UClkJrda8dt2EfcqqdpdWSOYQVT5G9Hwg61Ouah2f6J/915s8ilIzV6WATwM/yuVnw/v7+x/2UY+Yk8VDomVmemn2NWUY6O8M8QotwDqGSt8yWhh+CpLQaiW1IOEZ50GpDFfzeLuEy0zgiV65MlawWpMx2jXBT24FGm7mBuolD8L1E/sQC/3V4srqYzdV+o7Oy/jipnIQxBsoSgiwEgftZ+UCIgyKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j3OFlUQBxN9agIpNKi5lnHusJ88SHWIFUzPy8SYBk+A=;
- b=AeP8MUlDyCD5beTmpUyi638BFIArc9BzjWhQArGbNg+wJvr4s+WEv2QtUsrdfKdBfrJhrYbh3RUTXziuZ+W5yN05+FmWi0ZNjyf8ehKz1Yc7qU9qgXUOgVYVNmHKWZ+KFAa+y4DVTEUmK0yJwe4AOYG5iZ1wjvHAhnt4Xub8hKo=
-Received: from SJ0PR13CA0126.namprd13.prod.outlook.com (2603:10b6:a03:2c6::11)
- by PH7PR10MB5878.namprd10.prod.outlook.com (2603:10b6:510:127::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Mon, 21 Sep
- 2026 17:27:53 +0000
-Received: from BY1PEPF0001AE1A.namprd04.prod.outlook.com
- (2603:10b6:a03:2c6:cafe::8c) by SJ0PR13CA0126.outlook.office365.com
- (2603:10b6:a03:2c6::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.12 via Frontend Transport; Mon,
- 21 Sep 2026 17:27:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BY1PEPF0001AE1A.mail.protection.outlook.com (10.167.242.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Mon, 21 Sep 2026 17:27:53 +0000
-Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
- 2026 12:27:46 -0500
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
- 2026 12:27:46 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Mon, 21 Sep 2026 12:27:46 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68LHRkhR2503018;
-	Mon, 21 Sep 2026 12:27:46 -0500
-Date: Mon, 21 Sep 2026 12:27:46 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Brandon Brnich <b-brnich@ti.com>
-CC: "Kumar, Udit" <u-kumar1@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <afd@ti.com>
-Subject: Re: [PATCH v2 4/6] arm64: dts: ti: k3-j784s4-j742s2-main-common:
- Assign SRAM to VPU nodes
-Message-ID: <20260921172746.jge67yswqjeolwz3@impulse>
-References: <20260810205206.685971-1-b-brnich@ti.com>
- <20260810205206.685971-5-b-brnich@ti.com>
- <b5dc14b2-9b8b-4da5-b48c-274bdf6581a3@ti.com>
- <01ff0252-1580-4934-af34-6ef70d874f10@ti.com>
+	Mon, 21 Sep 2026 17:36:13 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-4b1ba286f6bso71323b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 10:36:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20251104.gappssmtp.com; s=20251104; t=1790012167; x=1790616967; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aQXqx3kypLayD7YI2GHlSyGrESOzJpPnn3LvqeJEGpM=;
+        b=L4Bd0kCdq4sdgbvCQD99i/ppZ9F0n8mFp85kUiXrPBobW3B/EsXgKP1mJpEfoBcpVY
+         hdTAImYutDzGH2h+95QSoecUTm8f0e55V42p27ZEzsxDaui/dF0gD9yvdg7DoBDQTLnX
+         xdT9DwmnAIczdMiPOhKrdi/J2uqxp9PVbVKItMV4ze3w7XnbzNBdAXuMI82in/trTAyZ
+         CAKQJQj0mYExvFepxkHBL0euWMhgUqjwQE3/wmt/5CsYPcBytStMpL9fGKiQQojCGdn/
+         B7mdEDqS0jEFoo1OcMj8B/QmKGZkBWeZL0qyBFmTUeA7EMwOy8IxxlCjLwgActhLapgQ
+         b6kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790012167; x=1790616967;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aQXqx3kypLayD7YI2GHlSyGrESOzJpPnn3LvqeJEGpM=;
+        b=TwKNbmpD3An8IThsAdoHzrKP7jkxT/iSRbnTTukdtrRMQ6/0mNITd37Svgivv0162B
+         fmy6iKPI1UZiiuliV+VBKzPmRpEoCdU0tFuWmCL1PCny31I3YRfh2GwlKk9a+4LVozy3
+         /Fbrim32EF0vq58BF4yKwIfjqdsrwCpeZZlf5TQC0Gz0lqLqzow/Yp5Dh60uNTFUNdQD
+         WHJmA614yj8vsrzH4a2vxqzsdm2b4hddwxp342MsN7uN8zn63Uc/wfD9QHMHtfACnxVE
+         68nKwsSPnJ8ldotl2ReC/AMFBIUPNLxjC7YaAiknICdIkMiyCIus3tnhhZL5y4H4oEQG
+         ySGw==
+X-Forwarded-Encrypted: i=1; AKwUvBxreG/KnsxwtaaM44FkfnngxZpAcGo3vYgjjARlZyeemZ2/5G+Zru9qHFw4PBphd/llCR/MPz0twVgopHOFhJ/h@lists.infradead.org
+X-Gm-Message-State: AFuF++m7EaY3u4BKgOSJX6vP4T087TXq42T9O/d02Xw3rmdSwSESKlQV
+	zunW0hLZqJ6Xuv+JV9llK1COTIGjeG0+6pTnibJH7jdsraHgl5TR1eWUVc8zDVz4LSE=
+X-Gm-Gg: AYBFou11+t2pSCDRq1HHY9yiAfdZkLp4NI9EqHKLf7TkZRETXT5N1deVppeHbvqRcna
+	revRQYi2FSRGEIJ5IpL7074IwnY/kfPhtzBtzH2zNS6c3uwlSfA8RSDGLa6DFYJ24sz24w30kd1
+	Fzx0Suu8YZGiB92OSGpNT57EHPc7JTJox+BCFj/bbf8vSAfV9vYtpYRpfVxqbmUASn8G/YTBbVk
+	ib3qD5F2h6FnSHH5U56nxoCsCnKSVo3ngiZSyONah3/YIcMjdRXkeb4QvoPw/+FD/tQzE6FZn5c
+	ozYPy682GJqWgLtf8pfIkp5Yzwp+ctJRsDTxicqmH6255SKeoT/aFuPEyWJfQ8M15u3kDJRTyWF
+	DdwxnwNOBbxKXkqh6sZXCdTH82NIJzCriUXUgcXUkG8LEsdy31YHsapC8K494OqaxmSOfRDlCdV
+	0ykk8jcWc9HngTe3qcKA3A79gCr+J3XcUZ3jqqn9OW9PJYClsi5CijgXN1dKfPGhVJte63X/syq
+	n6YVajT6ML/n7MQFFE3lT5KeQ==
+X-Received: by 2002:a05:6808:150b:b0:4af:aaca:7be3 with SMTP id 5614622812f47-4d43708da96mr333033b6e.12.1790012166717;
+        Mon, 21 Sep 2026 10:36:06 -0700 (PDT)
+Received: from [172.19.0.10] ([99.196.129.128])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4d422effcf3sm704029b6e.6.2026.09.21.10.35.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Sep 2026 10:36:05 -0700 (PDT)
+Message-ID: <9ca64fc2-c1b3-4978-8610-0c844ee6238a@kernel.dk>
+Date: Mon, 21 Sep 2026 11:35:52 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <01ff0252-1580-4934-af34-6ef70d874f10@ti.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1A:EE_|PH7PR10MB5878:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a397910-dd88-479e-cdea-08df1805ab5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|1800799024|82310400026|56012099006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 7+iVifmOXwxts6+Dklk+derURNeDb3x1Ll2xUy3/F/SD2gNH0PBxMNtWy3fuS0Z4jeDNogaqsCMAT+unbQXqMlwQbIwkgXe/7WCgjJRJ4EuCNPwl/MAIZhvMlArwdHo5r7O+HSff5p2prg5bQlDW6p5zP81KFBAh2IqnceQMDgK6XI8IpLkMVFoxaT8cksD+WQZghBS1ACj2HHoHcUihq6/MIP40jeip/lW/zlLzYQfr5gWZ5ul9fyxduG27Abq8IAVDmeOhoQ2qejc8W2WMuWhdLhC1FjXVTbEY6Z+tjowuMnGSckZvvvH+0Gsnzl43XJjWH8I9YV8Yh27EeqfYymRNmelwrebv+d2UsD5MnV+5PmEaAdS0r5XhrIvodl6JIauvFaapsHCz8He9bSPsHd6/rWQOxEehpFD3zIqXm3TuTWPvtbLi7PB/ehLwQHZCbBFIwiKGaGUh32es2xgkuE3MofAW363tW45w1QpZzDoL3qWsHIrPMo2Qy8k/McYBFAe88K0BCjjZc7tmVOlhL7STcF1PrW7aBqBfQL1G/ksXFbBifLhUnzbuX8G9KXwcbofnzDcttAYkZ3zPRcW7FXxE6dVN9y8/GZtUuQMihZ9+X6lh7SvmtOdpDAO0Otw+LMtPeuPMJuth78R0gJ20EUqEWsoh7xf4JfalESLO6g09QMVwl3F5hoPPdviGPwKmb9LPYy4TkuFkCRgqC0Orrg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TzzijbvkUQnoeHKmq7hRgn+4VkCfS/TQf7ohR9tvlquw+MlSe/JTGGn0Dwgdz/Z997LFOfdCl1Yjpg44q6WwKE/jXE1gSX8O13sNWvBqIAsABDVzZSp6ZEO3aNCCynnHkJPZkNe/svDnUhAsUVYSvsrS6ryi6JQkxCjytmmnqXAfJsOVEQiGYYPhEMt4tnJ4ooWiHK+jWaGVQPcVNE/IZi+UE5GSZMxZ9LvsQV+3nnIrPILQR7tZx72ukBVUnogqVD3S+j593aVqRx0Sd3Jm8RkCOobpVz4WjFtO5PFExqqLuffStbHxonudRA5TubpRrewuiol6d+S6Cp76ASf9TEP7ajrK+sAW1+HBDSv/ncS9pXkkkxK3SmqQuOOah/ZOvzg3EF7OcBpgt9NKjzRA0bMKoF3m0eMjgWYMaT3ID/TZVNLE94K6FTz6onVo4au2
-X-Exchange-RoutingPolicyChecked: FJJ6ncOzuRXgeDFKsSc4fJ/bte1QhCt/rb79MxJp8rQFm3thizMiwokZe47jvPmzioPI3QUTlMfL7NkBmsMSbVFLY52uEmz66of+yF30vjq5f9lwMTCOV11vPffP7z/qgk+xJxZxujjNiURPjO0NlLtzOAedafz5aNcBjBRfd45kjNAH5W7crAdb48AvUQC5j0X8kC4iz21631HXZSTbfIzk0CYX1e028eOCeqQczqHpSkHBMtSAKSpObCzBMvWRKJq96Qtwg0iH5PN0WO8pXFSOrLYqKQcmOgVEhTBSjs97z5I5Hik9vEkNm2/2NXFTDHBdYTHs6ywt8ibJf6ocYQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 17:27:53.7284
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a397910-dd88-479e-cdea-08df1805ab5a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB5878
-X-Authority-Analysis: v=2.4 cv=Vou2kO2n c=1 sm=1 tr=0 ts=6ab1691d cx=c_pps
- a=ALJIVG5iHo/ZE5SKMfQyZg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8
- a=3V7uXGYgJxE3oTHjHdEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDI1NSBTYWx0ZWRfX6G5+38Eo+9Nb
- 1RY2iyWaMHhMspDqQCdHpvhn0k3vNZu1liaiU1i1LR9OsonaGC2m/u85ac8D7uzxwCWalQaUQG2
- bpiTE5eai7H/HEw3K948G6/155bfa7PwBGIVp9QSj5aK33BPBfb5ngUgBrMvBGXr/eQ+ALGCTun
- i+cloWwnoBd5TPrrF3YM2SiYUqXTt7NtNXVaSeZFdQFo06qf7/FTaA/pTAS31Lcp0gmoqVgsBJ8
- Jn+T/azJn620dt53ZXSlUL/O3l+LNMn86XpHJNqsOdfd9AmbKO2m4mqChl62wCQj7Woqt3lDjNs
- +tX4OYE2Vsb7zO3qFHJFcklX5rq3PmR8GfF6WRZfc4YUHujYjAqTRAXJrSNfLwcE4Vq26cNzM4O
- sAAhIDPIzIT4ZF8CyBlkCVwk/gFv3AWQndJB26lkIPmqB5M8k/Vun5nEYG9Y7c6X4/Wjeph8sXS
- lZiQfrRsJPZgLO8XDiQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDI1NSBTYWx0ZWRfX381vBJBs/R2O
- 5rEkJg9ruM8syM8grFMPH8VjwC8i8uen8zM013VYyF7FwMmZPCtLbx//Ci+pG3+4WW//X7oUBUc
- VfMbwynsloh2DBWamyXKFpBZxyEreyQ=
-X-Proofpoint-ORIG-GUID: l82YWqnufQY4h7HxMG_SorrStPp4tH0H
-X-Proofpoint-GUID: l82YWqnufQY4h7HxMG_SorrStPp4tH0H
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-21_05,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- lowpriorityscore=0 spamscore=0 suspectscore=0 adultscore=0 phishscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609210255
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/15] io_uring: thread identity handoff for blocking
+ inline issue
+To: "Eric W. Biederman" <ebiederm@xmission.com>
+Cc: io-uring@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com,
+ peterz@infradead.org, Oleg Nesterov <oleg@redhat.com>
+References: <20260911154148.644489-1-axboe@kernel.dk>
+ <87a4pdami2.fsf@email.froward.int.ebiederm.org>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <87a4pdami2.fsf@email.froward.int.ebiederm.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_102800_602149_68109F94 
-X-CRM114-Status: GOOD (  23.33  )
+X-CRM114-CacheID: sfid-20260921_103609_976638_895CC923 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,50 +106,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:31-20260921, Brandon Brnich wrote:
-> > > diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> > > index e836f0f42e30d..21ec9f207ff63 100644
-> > > --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> > > +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> > > @@ -1002,6 +1002,7 @@ vpu0: video-codec@4210000 {
-> > >   		interrupts = <GIC_SPI 182 IRQ_TYPE_LEVEL_HIGH>;
-> > >   		clocks = <&k3_clks 241 2>;
-> > >   		power-domains = <&k3_pds 241 TI_SCI_PD_EXCLUSIVE>;
-> > > +		sram = <&main_navss_sram>;
-> > >   	};
-> > >   	vpu1: video-codec@4220000 {
-> > > @@ -1010,6 +1011,7 @@ vpu1: video-codec@4220000 {
-> > >   		interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
-> > >   		clocks = <&k3_clks 242 2>;
-> > >   		power-domains = <&k3_pds 242 TI_SCI_PD_EXCLUSIVE>;
-> > > +		sram = <&main_navss_sram>;
-> > >   	};
-> > 
-> > Hello Brandon,
-> > Could you check, how two instances of hardware can share same sram ?
+On 9/18/26 10:33 PM, Eric W. Biederman wrote:
+> Jens Axboe <axboe@kernel.dk> writes:
 > 
-> If both instances are used in parallel, then only 1 would get the benefits
-> of b/w savings with this current patch. These VPU instances are in a race to
-> see who gets the pool depending on which instance allocates the first
-> stream. Current Wave5 driver will take the entire 64 KB pool once a stream
-> is opened. The pool is not released until all associated streams with that
-> instance are freed.
+>> Hi,
+>>
+>> io_uring issues requests inline with IO_URING_F_NONBLOCK and punts to
+>> io-wq when that isn't possible. For a range of opcodes it isn't possible
+>> at all, as there's no nonblocking path in the kernel for them: fsync,
+>> statx, openat, the *at family, xattr, fadvise, splice, etc. Those are
+>> punted unconditionally, and the punt costs a thread wakeup, a context
+>> switch and a task_work completion round trip per request. io_uring HAS
+>> to be cautious to prevent accidental blocking in the kernel, even if the
+>> operations predominantly never block. Sad story. Examples of that are
+>> things like an fdatasync that doesn't block, statx that hits dcache,
+>> openat for O_TMPFILE, etc. All of those would've completed inline just
+>> fine, but io_uring just cannot rely on that.
+>>
+>> This series issues those requests inline in blocking mode instead, and
+>> only pays for the offload if the request actually blocks. But by the
+>> time it blocks, the submitter is deep in the kernel with the request on
+>> its stack, so the work can't be moved to another thread. What we can
+>> move is the identity. If the submitting task blocks, an idle io-wq
+>> worker takes over its user visible identity (tid, signal state,
+>> credentials, scheduling attributes, cgroup, user register state),
+>> finishes the io_uring_enter() call and returns to userspace as the
+>> submitter. The original task finishes the request as an
+>> io-wq worker and joins the pool. Userspace is none the wiser, hopefully,
+>> the same tid came back from the syscall, it's just on a different
+>> task_struct. Folks that have been around a while may remember earlier
+>> attempts at this about 20 years ago.
 > 
-> I will look to see if the driver can be modified at all here. If it can't,
-> then I will find another node of available SRAM that I can hook up to 2nd
-> instance. For now, we can drop this patch and associated patch adding
-> main_navss_sram to J784s4 in this series.
+> I don't see anything immediately wrong, but I suspect I am just
+> not looking hard enough.
+> 
+> In my time working with the kernel I have never seen anyone actually get
+> this kind of thing correct.
+> 
+> The handoff that we do during exec has a bug with posix timers that
+> I think is 23 years old that we just caught, and still hasn't been
+> merged to Linus.
+> 
+> There was the old daemonize call that got it wrong so often I added
+> kthreadd.
 
-OK - What do i translate this as? We may need to change SRAM / need
-more SRAM? Since this is a pool, I'd rather have the driver use SRAM
-optimally before pulling in more SoC SRAM - if we really need it, lets
-send an update explaining the usecase where more SRAM was needed.
+I agree entirely with you, which is why this is (deeply) and RFC and I
+mostly pulled it to (some notion of) completion so I could run some
+testing and see how it performs.
 
-Am I correct?
+> Maybe you want something like the old solaris doors, or vfork.
+> Perform a synchronous task switch to this other thread, and call this
+> function in the other thread.  Then block waiting on the other thread
+> until the other thread blocks, or the function you called finishes.
+> 
+> Is there a reason you didn't try and do it that way?
+> Just a synchronous switch to and from a thread in your thread pool?
+> 
+> You aren't changing the mm so I really doubt changing the stack pointer
+> and a registers will be that expensive.
+
+And replies like this are also why I wanted to get it out, because I
+think it's a problem worth solving, and it's the best way to solicit
+ideas. I think there's some potential in your suggestion, let me try and
+dig at it a little bit and experiment...
+
+I'll be back with more details.
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Jens Axboe
 
