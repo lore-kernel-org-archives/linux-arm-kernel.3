@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF14C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5723C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SfLBfPT4P8YTcQ8clLoZdz2Hz7ChZoOgs/WWhX6OuK8=; b=Zo+WGIsgDRMSpbsLOuVT6KFeEk
-	KwE8ehrtWzV0Kx3u6AnZDKgRRGAsYRnxSIt4PTTenlLI+uQbTeq312CGkosfAbhpn3p86msTujIu2
-	2K8dFFuPz6s+ElgGqZd90vN8lhDz2+LJ6Mg2mta1zFTuej0AZXLsFFMwL47WEOyx5etIlPeLTzgbT
-	3iFhrpD48GRqlzZrWRXAiEqxmy2/6uJuKchtHgw6IqMZVNnhd2IcHl2gCRWPEpnIeeMXAnWtOshXv
-	7R/AxpGvDG1+MFP7EekTRQDBg+UmCVG+RoEF/L3UdgGhLq3ijjd9qfx8QksTYzNMSzaxoyFiTOm88
-	r9s2Rtkw==;
+	bh=z80fGZcv6BPIL4REfzCrI6RcJShWmT49WjhJXMKxxOU=; b=R1yhOPYMHlhWCPrnA31c2fyGvN
+	oIzIhRL7XN9Fqj4/dHzAPkgqT9Pih7/GKP04Pq9FEQ3Gsj/CcvbKHtKnYygl6iDPlqOQ1cot290CX
+	Fz9BPX+x/ITyP4xXzZTr6nKJc67QjygbpOia0ZqastxYq0SvLoUMZnnNyy73tkFSd+caUCXfvH9VH
+	Nx2ZrIfVYxRvmD5a1IeMLjAaEuO0oUMWSEbQ/hfGEfPZ2PPAR6trqetieJo2dbC20r1LEkaRaKNHO
+	oJRrrnPufCH+wxG4Qz+1l2F8U7ugWkekpSG17e2Zro/qo9yEREZnAnUhLRWyoBW2uEbuWkChqJyzE
+	nK3kMKRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8lZZ-00000003T3Y-0bHn;
-	Mon, 21 Sep 2026 21:29:13 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x8leM-00000003TVt-3IFH;
+	Mon, 21 Sep 2026 21:34:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8lZV-00000003T30-2PVw
+	id 1x8leJ-00000003TVK-1bnU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 21:29:11 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LKfNNl2167487
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 21:29:08 GMT
+	Mon, 21 Sep 2026 21:34:09 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LKeuSx1565145
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 21:34:07 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SfLBfPT4P8YTcQ8clLoZdz2Hz7ChZoOgs/WWhX6OuK8=; b=GTU4lB+BBWko+ahD
-	WLILQlwA00dwI4xT3PrluEnAwoU5OMSwBVsgqduNQS8GI01xMCib9CJP2bobH+Oj
-	mP84brkPaguPWG49c+1pPUh3ZQSCIdoutRYl+F8niVxgRgADPGHPmt5VNZQr/hEy
-	igi/fx/Z/D8GV4qjysVMVj51djoxhHz59ku1okilekdfELtwWt7HLZ22TilBTAql
-	xgMq9PlxwPCDJUHXuR1xPe94ZSlF1M0lHk73H2s1PneEI/YH8rgvc11LQ4fr4rN5
-	DdOMqE1F5tes5sfkYOtHrV18t0XHWZjP43oExADCb8gkTHqzjQi1rZ5oNLUIWaF7
-	bgm4SA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gub328anw-1
+	z80fGZcv6BPIL4REfzCrI6RcJShWmT49WjhJXMKxxOU=; b=bIzBAr5/YZDrBmax
+	l1lrKwqt/AXF2k3S8USImZugoEgOGjaM7BeHLt/wgHvoz7eSgHPGcmF/GnQ7hKWw
+	AVXxXIpaoMMm7xQex8VmfUTelZ8DLkpTOYg07K1uuNJziWJ5/B850e9jvzpkX9M2
+	pwTdNHrRtkT9vJ2oGhKQdHlAxZe9b1cEb1kjnGj1JfQ5Yum1e018V7QG3SzMurdZ
+	qYBpZL7EjftEzedXWYubyG0HHB/uHSMgmSZraBPpTFk28q2fzcvYi1lEM+EtWJJu
+	jyBC0lCVWmE6/ZqI2+sGqlJRoDpTc9G/FJJoJO3kliDc8dcpTXxBoBtNX0fRuwuM
+	x0giwg==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gu17gu4by-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 21:29:08 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2df375fb9b2so26050405ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 14:29:08 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 21:34:06 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-39e3dad7ab3so4647636a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 14:34:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790026147; x=1790630947; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790026446; x=1790631246; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=SfLBfPT4P8YTcQ8clLoZdz2Hz7ChZoOgs/WWhX6OuK8=;
-        b=S7q1c0jJEOlwT9OZEEW0/emHpBIbZMgoMx3bXFf+UkYfm7YVDba9awJzctZcl0rdnX
-         RiR11OOYBBu/95LoqkoiCKGinfBC8FDp7WkKI10+avSuMxpv9EBxWAqH/2YT+Xkg088b
-         WKKMmlSOb3mrNo6O6FjSMbFnJ55yB6ANTZkqlRgmy4OyGqYuv0UGrvHzrPvpDMbrwB2J
-         lsuHEyH3Tk4mPYA4xD/aCtSxAj466NgXMUYXhBQ7iH0OMx4bfaulnd0TvTIF+ngT4ZNa
-         BAr21bSNtJrN0UePLuNh3WzBgqnt3oYNRMKdvQ3Z6zAf+0iYRJBXsw/tR3RDg9pjEX74
-         QVpQ==
+        bh=z80fGZcv6BPIL4REfzCrI6RcJShWmT49WjhJXMKxxOU=;
+        b=U+e9NgFR0pl+nL8LLoCWt/gkXg3awKhdpnd4f3fc0N4zn8I9wWPdUIHSCq4K4DjNuh
+         cugD8bco8lcc0jte+zTvLv0RzCjokuwrJuuI3hvevMYg66KnF3vDJLhHcX44/ON4e2ut
+         fA5vybu+CK2gNl/es/4vLkx+oUVjB559Wls2J0VUsOSpsGfT+lun2J4Ilril8fS6UD/1
+         ncDcY0I79v+3uoyYuFxyQTOGDE8ZE0+Zs3oVLmA6/76fiJTPVaw6Ywp3VcQlAWeUQKqq
+         lCOl1hGKfEwMm0oE/cAYg6bePm71xeo1f4grLi4StJy6r1uTY3pzyUqV6sUn/zh8BeoH
+         q5PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790026147; x=1790630947;
+        d=1e100.net; s=20260707; t=1790026446; x=1790631246;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=SfLBfPT4P8YTcQ8clLoZdz2Hz7ChZoOgs/WWhX6OuK8=;
-        b=CpbW2yySfSKa5O3z31ynYVsyouUiDeTixLk9mz2EWQipEyikrvqsfmhONuBFwtFdER
-         bHteqnW3+S/rsbol4hDAmf+8kzIKg1FzkPo7+KH9BPLd9DSLcxkIEhsHWt8EqufWTJps
-         otxRtp2i6Hde1ZBcrGHFPgZgIpIPk6n6CGVnUCA4jgLsBgE39hieGj7nfEThF6URlwTU
-         OlFhqzME1oTF9zMhdNmu1eI/UTSwm8/tEo9FlSbHJltLIPqnbfBQ3s1q9HBTSEvu3Nh7
-         /zLieMJpqRjSG8pwG3Cy585nIt0pHNuhHU8wesJV2syU1EH076ofOGeVa7iDsj/kXaqS
-         573A==
-X-Forwarded-Encrypted: i=1; AKwUvBwAj4NFP17+ci7Zz8vPhvpFezEWbCTNsw+CoUIuXUE/GLZtUZLXZrwnEwJw7d2+YGcrpH4VQ00Qu/iRp2KPYD2k@lists.infradead.org
-X-Gm-Message-State: AFuF++n9dshxzF4wtxA8dalpl8C72hYGByU9nSS7txR07HKyJX/lfN5h
-	kJdcAS4I4gGWWhrWiABDMRaauIJLKL1mMrhpUgAt2zZ/uu/4CsGqQiEklgWSbCXyZ/hgrdDieiI
-	BKt4cLMPwxEDYGGEhsp44vcwihfwaV8MBrd2NZK5miq6zpvYJjvQm+Pg3D9fWCYQE+ZYqo7P9Gz
-	GO8bKUc4noLQ==
-X-Gm-Gg: AYBFou3v19LYH77T8r3wBLBcJF3L+LarQeJv6vcUYA8mFISU5hFdr78sDdj6KwTdrhi
-	8soYA9X5wNdJi/GDwIlu/rdWGcRxwOEJkJyXolK3IFTeFD8c7pemDIjTbEkEnkMcOwZMIvzemcy
-	/w3usoMJQREYwecdj1ufPfeXQmwz8UB4VnxmESmstQePCUfTWQjOalkXtimvwBXP/XdaL+CCEo2
-	jDvV5VBtreN8f3mtqMgkJ0g35TDCH/M2sVfodGuOymmJmK5EW/02Dg/iI5R4XApNCOEsvsjDjsN
-	6MHKVhdY/s3l2S2yXp98WXAqkNei2WiF1aboB3+mqHV3gt1koRJ75yQ1zimUchSyT6pM7Vy9vdp
-	1k1ERYRpgb1iQYoOdn1RLHcIv8w==
-X-Received: by 2002:a17:902:e745:b0:2dd:ad73:c98d with SMTP id d9443c01a7336-2ddb1bdefcdmr158852155ad.37.1790026147202;
-        Mon, 21 Sep 2026 14:29:07 -0700 (PDT)
-X-Received: by 2002:a17:902:e745:b0:2dd:ad73:c98d with SMTP id d9443c01a7336-2ddb1bdefcdmr158851845ad.37.1790026146755;
-        Mon, 21 Sep 2026 14:29:06 -0700 (PDT)
+        bh=z80fGZcv6BPIL4REfzCrI6RcJShWmT49WjhJXMKxxOU=;
+        b=KF08RUid3PRV25w04Su0VcudtMEVAeytyAzKmmPV03sz1Uqxaytn0l9GCPXbhjwEC6
+         fBvZ5ZQheDVWOA7ku4jmGdR079/F4Cyx5ANXh0RtYbiX8Y8yQMWEaOOLG7QSNwZBwA2h
+         dTJUk9ibz0Hv8NpEn+SDsVTHOhGiIdgYLn6WjBVAFGeNFynurJt0bpnwbXobhd3SaeQe
+         9y+p4tdRDsCq9tl3jEtPwpvP5tzhbiJGW3NPNWrTIvobUNHS/H6rhzO+bXxMyKNwETq5
+         aogybK68DEGTY7PLZ9LbYRdrmCksY7hKUFWMKswzvDvvmOVfVnzqBFzr+aG6H0NM1qcq
+         P1uw==
+X-Forwarded-Encrypted: i=1; AKwUvBySnBOu9H0ySTkXa0KUsQI6deZYYTw3w0fZfYuidZnVb9+9fc69jeC3mmYkMhwDlpjfTZg+8et+UjPUBh+xxKFo@lists.infradead.org
+X-Gm-Message-State: AFuF++lHwBuEMeGyDeh+Jh/wsALWn9dOYEsg7aquaogmvgv8o5qO2dJm
+	UZlenTJN+LIeamsD0sknRRF2RsBKweMssGqL/ePZT9LYpms5S5ct5n9dlVWYuRpRL/x0T2xFyCp
+	8ojjO+lVUpGceKN2VLR0TlOdDqDFSTd/dUPqqLrUVVuxeu3tiQ8E+rE2lUfsCY9EWPiRhYQD6sg
+	FLxQ==
+X-Gm-Gg: AYBFou0w7gvx/xmK2G353/8H2Cf0u9Y4gNiXZIkUDIuJVK3IDp33ycGtKYKtHdfx0kW
+	pcWED4MuW94Uz2hsGzQM34HcOIrtoiUcv9hFtUA/TRN9vfGvLiGg1Zr3izN+ajMZgWfZS+hKtlY
+	RAkEtqjSTS397SNDDyZym11LMQlIxbCLNSMvswMZWOmaZbm95+hU48ZW4Fgckqjv6HsWJVIEbHu
+	XeO2HbHxQdKPrWXrd9zpPGclZ5dimWaZ7rK4JEGzl3kfhKHVSL++lsJTOT1ZlAWvNAjultQxKYk
+	ygAXBjKtPosdQCtH+lQjuYNq7cyl6nmwKat3leKEoAdaeZYj36J+L5XdBvBcU4jpX1JPbHkuvPw
+	h0O0+Aly/kb4reoDnARpyEd90jQ==
+X-Received: by 2002:a17:90b:5187:b0:39e:6c6a:2095 with SMTP id 98e67ed59e1d1-39e6c6a22ecmr10542566a91.54.1790026445918;
+        Mon, 21 Sep 2026 14:34:05 -0700 (PDT)
+X-Received: by 2002:a17:90b:5187:b0:39e:6c6a:2095 with SMTP id 98e67ed59e1d1-39e6c6a22ecmr10542536a91.54.1790026445395;
+        Mon, 21 Sep 2026 14:34:05 -0700 (PDT)
 Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e5eabe1b9sm780432eec.2.2026.09.21.14.29.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a02625615dsm5648638a91.2.2026.09.21.14.34.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 14:29:06 -0700 (PDT)
-Date: Mon, 21 Sep 2026 14:29:03 -0700
+        Mon, 21 Sep 2026 14:34:04 -0700 (PDT)
+Date: Mon, 21 Sep 2026 14:33:52 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
@@ -103,49 +103,48 @@ Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
         WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
 Subject: Re: [PATCH v18 1/7] firmware: arm_rmm: Add SMC definitions for
  calling the RMM
-Message-ID: <20260921142903.000071d7@oss.qualcomm.com>
-In-Reply-To: <eb4a30a0-abd2-4334-b5f3-62621ec5a19e@arm.com>
+Message-ID: <20260921143352.0000014a@oss.qualcomm.com>
+In-Reply-To: <d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
 References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
 	<20260912083611.2513845-2-suzuki.poulose@arm.com>
 	<178978126540.2352296.16845657485139032765.b4-review@b4>
 	<d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
-	<eb4a30a0-abd2-4334-b5f3-62621ec5a19e@arm.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ISO-8859-1
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=B8ssQ+tM c=1 sm=1 tr=0 ts=6ab1a1a4 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
- a=8nJEP1OIZ-IA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=7CQSdrXTAAAA:8 a=ZpRu-6ZVBUCh-PS3OmgA:9 a=wPNLvfGTeEIA:10
- a=324X-CrmTo6CU4MGRt3R:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: unnY3NAISQNxfaAV8drMn9wnk8Ycq_Cl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDMxMyBTYWx0ZWRfX4NfxRrlo8D8f
- 7dBSUURBPtN6C0ANrK7n1KAhJiZ+8B3a6r2+BLsRdkdwsQ2W/wDOO07RHpglnksV0DNsAVZq1Kz
- SAudT3mj/sKySDBIzvEoT2urzOE/HGuM+tAJLXGhcMypSArLWDMOH6VR0Mekf7rn5eLPHS2vKG2
- CtSHytSU4bx8VX2g7aV9uZuZNjBEKbxIng7mdEKZZrp/Y4/vSo7CkQz54iOo4W1HgVQU/s/fHrd
- h5QE4YujQSmh3qp+t1MrVOJ9X9XOk7xZOktqyKw4Q7NU0LeC4z6gZl52kSBHMjtH2MWU0rkw46y
- ByUetJVmanBP1zDjMH4HNH2bjun6uR4Y6fJDqEX5dwA7txqSjW2jHOyJrw92QhdXs8SreD1A0OH
- Xrx3VDtA1UOyQ3KrmjifXCC6WXAdjUohoQkeze05j9Pey58ifGl+QdOsNGJiGCa8dMRhQVR6gyS
- xe9QOm87dme5La72hDg==
-X-Proofpoint-GUID: unnY3NAISQNxfaAV8drMn9wnk8Ycq_Cl
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDMxMyBTYWx0ZWRfXyyBsEQ08IKlW
- T12UL9nXFhnzdUn5Rco33cyZmgxM6a2YfOc9k0jldK2jKZ9l/ugIh59DrK7vdTcR/vrzdENuWlk
- Bd7JfEcirNBFLTXD1Rp0uEQFV4TMdUQ=
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: Zi74MTB23-mcc3Yi8d0g87UbgTcf5UM7
+X-Authority-Analysis: v=2.4 cv=IewSymqa c=1 sm=1 tr=0 ts=6ab1a2ce cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=7CQSdrXTAAAA:8 a=PlCZfVOHbWhc7nwO5CYA:9 a=CjuIK1q_8ugA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDMxNSBTYWx0ZWRfXyPxLE9aYASdg
+ DJqJeaiqdpBnyZFXiiXbag2KwMuSE/UfGa8ABsE4wNWWpZJeNRyD7yzgYElJ2siyClPEeTNv/jA
+ hjRX5vZ6kk2PEO0pOWPcYv3NMRCZW3hRPETCko0nMQI/IlWNJh3ZtVCR6ZZBsW61+gr3II69ljM
+ 4z0wegwxzfEmIjpcPfB1sMCvxq2ziSXWIlSFQC8oyPPfLFoVrpYc+u09wwmd0//OSTuBEl7yfny
+ AHBwdRd9jm3qIOu+vxuXSjxcgpNv5NnBr/AWhqYDXWthcb7wQkW3W6gjPREInIoW9D1DrzlAzbV
+ 0xNgAP7lxFW9O3gv+2sb6WwAGnq9HqznLnS00PfoPEXokMVlWtQEzSDEbi0LYC3B+qMGMEKY87/
+ F/8x0XF/MRUogxpecUku9UekVpr86Pe5k/uWb+pz819/n5trogdkJ+T4+BG5xf2I73hWu7WAOEs
+ hKWYLfikTQR8iVzxH9A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDMxNSBTYWx0ZWRfX8unkxTvE+j2G
+ hQZRutbhAFM2S6BrcwIBnl1LnuO3r9oq6B+WGmJNhRA+g6N7OVLSNT1IMUa4X7TAGJBPeFMto8G
+ ipTWt87nfODxGWBVzx0zBj2GLEdCkWY=
+X-Proofpoint-ORIG-GUID: Zi74MTB23-mcc3Yi8d0g87UbgTcf5UM7
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-21_06,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 spamscore=0 phishscore=0 impostorscore=0
- priorityscore=1501 bulkscore=0 lowpriorityscore=0 malwarescore=0
+ bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 spamscore=0 phishscore=0 malwarescore=0 adultscore=0
  clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609210313
+ definitions=main-2609210315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_142909_743331_D9C781DA 
-X-CRM114-Status: GOOD (  25.65  )
+X-CRM114-CacheID: sfid-20260921_143407_442528_1A148793 
+X-CRM114-Status: GOOD (  44.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,92 +159,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Sep 2026 11:14:22 +0100
+On Mon, 21 Sep 2026 10:27:46 +0100
 Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 
-> On 21/09/2026 10:27, Suzuki K Poulose wrote:
-> > On 19/09/2026 02:27, Jonathan Cameron wrote: =20
-> >>> The RMM (Realm Management Monitor) provides functionality that can be
-> >>> accessed by SMC calls from the host.
-> >>>
-> >>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
-> >>>
-> >>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
-> >>>
-> >>> Signed-off-by: Steven Price <steven.price@arm.com>
-> >>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com> =20
+> On 19/09/2026 02:27, Jonathan Cameron wrote:
+> >> The RMM (Realm Management Monitor) provides functionality that can be
+> >> accessed by SMC calls from the host.
 > >>
-> >> With Gavin's nitpicks and the GENMASK_ULL() from sashiko, just a few
-> >> comments inline.=A0 Mostly on subtle inconsistencies that really don't
-> >> matter that much.
-> >> =20
-> >>> =A0 include/linux/arm-smccc-rmi.h | 497 +++++++++++++++++++++++++++++=
-+++++
-> >>> =A0 1 file changed, 497 insertions(+)
-> >>> =A0 create mode 100644 include/linux/arm-smccc-rmi.h
-> >>>
-> >>> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-=
-=20
-> >>> rmi.h
-> >>> new file mode 100644
-> >>> index 000000000000..214d6228dfc2
-> >>> --- /dev/null
-> >>> +++ b/include/linux/arm-smccc-rmi.h =20
->=20
-> ..
->=20
-> >>> +
-> >>> +struct rec_exit {
-> >>> +=A0=A0=A0 union { /* 0x000 */
-> >>> +=A0=A0=A0=A0=A0=A0=A0 u8 exit_reason;
-> >>> +=A0=A0=A0=A0=A0=A0=A0 u8 padding0[0x100]; =20
->=20
-> ...
->=20
-> >> =20
-> >>> +=A0=A0=A0 };
-> >>> +=A0=A0=A0 union { /* 0x400 */
-> >>> +=A0=A0=A0=A0=A0=A0=A0 struct {
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u64 cntp_ctl;
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u64 cntp_cval;
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u64 cntv_ctl;
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u64 cntv_cval;
-> >>> +=A0=A0=A0=A0=A0=A0=A0 };
-> >>> +=A0=A0=A0=A0=A0=A0=A0 u8 padding4[0x100];
-> >>> +=A0=A0=A0 };
-> >>> +=A0=A0=A0 union { /* 0x500 */
-> >>> +=A0=A0=A0=A0=A0=A0=A0 struct {
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u64 ripas_base;
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u64 ripas_top;
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u8 ripas_value;
-> >>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 u8 padding5[0xf]; =20
+> >> The SMC definitions are based on DEN0137[1] version 2.0-bet3
 > >>
-> >> In various other places you just use a u64 for a u8
-> >> + padding. Why is this one special? And for that matter
-> >> various other fields later in this particular structure? =20
-> >=20
-> > Please feel free to point out, if you spot any. I am happy
-> > to fix them. =20
->=20
-> I took a look and the padding is for extra "u64" bits in there.
-> e.g, ripas_value offset =3D 0x510 and the s2ap_base is really at 0x520
-> not 0x518. Same applies for the pmu_ovf_status and vsmmu.
->=20
-> So, I would leave them as they are. The rest are consistent.
-> e.g, num_bps and num_wps. in realm_parameter
-Ok. That's logical enough for me.  When no padding happens to follow
-that goes beyond the u64 then use that for simplicity and if there
-is padding anyway use a u8[] that include the rest of the u64 and
-the next bit
+> >> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
+> >>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>  
+> > 
+> > With Gavin's nitpicks and the GENMASK_ULL() from sashiko, just a few
+> > comments inline.  Mostly on subtle inconsistencies that really don't
+> > matter that much.
+> >   
+> >>   include/linux/arm-smccc-rmi.h | 497 ++++++++++++++++++++++++++++++++++
+> >>   1 file changed, 497 insertions(+)
+> >>   create mode 100644 include/linux/arm-smccc-rmi.h
+> >>
+> >> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-rmi.h
+> >> new file mode 100644
+> >> index 000000000000..214d6228dfc2
+> >> --- /dev/null
+> >> +++ b/include/linux/arm-smccc-rmi.h
+> >> @@ -0,0 +1,497 @@
+> >> +/* SPDX-License-Identifier: GPL-2.0 */
+> >> +/*
+> >> + * Copyright (C) 2023-2026 ARM Ltd.
+> >> + *
+> >> + * The values and structures in this file are from the Realm Management Monitor
+> >> + * specification (DEN0137) version 2.0-bet3:
+> >> + * https://developer.arm.com/documentation/den0137/2-0bet3/
+> >> + */
+> >> +
+> >> +#ifndef __LINUX_ARM_SMCCC_RMI_H_
+> >> +#define __LINUX_ARM_SMCCC_RMI_H_
+> >> +
+> >> +#include <linux/arm-smccc.h>
+> >> +#include <linux/bitfield.h>
+> >> +#include <linux/bits.h>
+> >> +#include <linux/build_bug.h>
+> >> +#include <linux/sizes.h>
+> >> +
+> >> +#include <asm/page.h>
+> >> +
+> >> +#define SMC_RMI_CALL(func)				\
+> >> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
+> >> +			   ARM_SMCCC_SMC_64,		\
+> >> +			   ARM_SMCCC_OWNER_STANDARD,	\
+> >> +			   (func))  
+> > 
+> > Obviously it is v18 so probably a future thing but nothing about this
+> > is RMI specific.  Could be used for ARM_SMCCC_TRNG_RND64 for instance.
+> > I'm not entirely sure what we'd call such a macro
+> > 
+> > ARM_SMCCC_CALL_VAL64_STD() maybe?  
+> 
+> ARM_SMCCC_STD_CALL64_VAL() ?
+> 
+> But, I would leave it as a wider cleanup in the tree as a separate
+> series.
 
-Thanks for talking me through it!
+Ok.  A follow up would be fine I guess.
+
+
+> >> +
+> >> +#define RMI_RETURN_STATUS_MASK		GENMASK(7, 0)
+> >> +#define RMI_RETURN_INDEX_MASK		GENMASK(15, 8)
+> >> +#define RMI_RETURN_MEMREQ_MASK		GENMASK(9, 8)
+> >> +#define RMI_RETURN_CAN_CANCEL_MASK	BIT(10)
+> >> +
+> >> +#define RMI_RETURN_STATUS(ret)		FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
+> >> +#define RMI_RETURN_INDEX(ret)		FIELD_GET(RMI_RETURN_INDEX_MASK, ret)  
+> > 
+> > What's this one?  I can't find anything in the spec that matches it
+> > and as far as I can tell you don't use it in this series.  
+> 
+> This is coming from RmiResultDataLevel. See RmiResult type.
+> This was renamed after we introduce the RmiResultDataIncomplete.
+> It is used in the KVM code to find the "level" where a command
+> failed/walked.
+> 
+> I could rename it to RMI_RESULT_DATA_LEVEL() ?
+> Similarly RMI_RESULT_STATUS instead of RMI_RETURN_*
+
+Yes, that would make tracking it down easier. Thanks.
+
+> 
+> >   
+> >> +#define RMI_RETURN_MEMREQ(ret)		FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
+> >> +#define RMI_RETURN_CAN_CANCEL(ret)	FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)  
+> 
+> > These are obscure enough to find in the spec I'd give a comment just
+> > to save the sanity of anyone looking for them.  
+> 
+> As above, they are really RMI_RESULT_DATA_INCOMPLETE_*
+> 
+> >   
+> >> +/*
+> >> + * Note many of these fields are smaller than u64 but all fields have u64
+> >> + * alignment, so use u64 to ensure correct alignment.  
+> > 
+> > Obviously this is only going to run on arm64 so it's not critical, but
+> > more generally u64s aren't always 64 bit aligned.  So if you 'really'
+> > care aligned_u64 is there to ensure it.  Meh, arm64 so fine.  
+> 
+> Agreed, I am worried about the churn in the consumer code. Also, like
+> you said, this is only for ARM64. So, I would pass it.
+
+Ok. A tiny bit ugly but x86_32 adoption of RMM 2.0 is likely to be minimal :)
+
+
+> >> +
+> >> +struct rec_params {
+> >> +	union { /* 0x0 */
+> >> +		u64 flags;
+> >> +		u8 padding0[0x100];
+> >> +	};
+> >> +	union { /* 0x100 */
+> >> +		u64 mpidr;
+> >> +		u8 padding1[0x100];
+> >> +	};
+> >> +	union { /* 0x200 */
+> >> +		u64 pc;
+> >> +		u8 padding2[0x100];
+> >> +	};
+> >> +	union { /* 0x300 */
+> >> +		u64 gprs[REC_CREATE_NR_GPRS];
+> >> +		u8 padding3[0xd00];
+> >> +	};
+> >> +};
+> >> +
+> >> +static_assert(sizeof(struct rec_params) == SZ_4K);  
+> > Whilst the assert works and is need to prevent oversized the
+> > dos never seem to provide any indication of the final trailing
+> > padding other than indirectly and I don't like maths on Fridays ;).  
+> 
+> Agree it is a bit obscure, but ...
+> 
+> > Maybe union the inner union set with a u8 [SZ_4K]?
+> >   
+> 
+> That doesn't help if the other one runs past SZ_4K ?
+
+You still need the assert so I guess that is already providing
+the documentation indirectly so indeed little purpose in the
+extra union beyond removing need to have magic padding in the
+last element.  Mind you not obvious what that last pad should be
+if it wasn't just 'the rest'. So, I think this is fine as is.
+
+
+Thanks,
 
 Jonathan
->=20
-> Cheers
-> Suzuki
->=20
->=20
-> > =20
 
 
