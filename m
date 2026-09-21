@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF11C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63CEC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Lu3JkIVfFhjK+3tHMP3acbUxTBc952s9SigD2MFj0Q=; b=20Xtjlj4+sz/UtKHpIVJ7eU4ip
-	jCTlTNJDRcxmVeHMyaCebTjOFqeqdJCMKmrZ3hHDNpOBkTzaQ55bIbSrwhX92wx10pkg/fGBVlBpt
-	eoQvmpwM75rT9wCDK7xRa0EUju5tbLApi670pk3rZScPhJ1Dg7LtQa4YfaaOHrDaLpz8o1QTyTnph
-	QSyzE495BmIPIiQirpiH7nQ9b0r8+u/BwTKb94Yi+zn52Z+D2WqRbUauncGaRtRCRIAZD5+TfhDto
-	X5uPHHEbQU59OPG2RKXisSYL8ZBAdoQqoiySwXTRWnRSo0N97AWkeVlX8LenDKOtXjt+/+xe2CSIw
-	gCCgcMKA==;
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tTxYTgRIEirrtrMzaAvRXWdCOAiO9V0DpEQkMUGOnwQ=; b=qQL+WL0BmlKbwGnhpB3jT4Y6OR
+	kOl7n+1qzHM18eSzjX2mMLeiiJHH9fr5tPb7rpgRZ+9lZPIMPhBZfA8yAIdWUQHFXVLsTwJxKo4LB
+	HN7nWgIj3FI47rB3hqF8rq2KbedivZf+841bGYHhMjr0z5YVNdAMGNuA5cZJcyPl+njnhsuse/pn7
+	098fl282G26V8D+pJ2sEDKKlBNgROvOYPzN2Pk9Vi7q/59keRGrhBuj46iVXASow6QuGCuAFnIYsC
+	fcRtTA1wxgYVGhofbGvKAaoNNApmbDGrjwm2bYXgqE3PbRqy53FMaL3fnmXjGn/yIqD+SmEhv4JOz
+	1YHeGLSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8mcR-00000003ZpX-39nf;
+	id 1x8mcR-00000003Zp2-21qd;
 	Mon, 21 Sep 2026 22:36:15 +0000
-Received: from mail-westus3azon11011034.outbound.protection.outlook.com ([40.107.208.34] helo=PH0PR06CU001.outbound.protection.outlook.com)
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8mcN-00000003ZiS-0OTQ
+	id 1x8mcL-00000003ZkF-2lbv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 22:36:12 +0000
+	Mon, 21 Sep 2026 22:36:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KBPWSXFMCNyxCbvllVU44oI2mPP67d8UBEmTbntl2bYIoQF9xl24lZnYbM3SkatX9m9FeG2slJbLNsn8CSmlgBQgxIZMWokD3P6HYzxWRXr3SRbxT+sWjRd/5XRpPl3D67cdpdvQ9JKWzaz+qfv2q18BP2t0Qso7Gcwzu0vUjg+zHKj7aN2VpNqzt7aixoM4pxJ5hW8h40zkQCqx6vPSoeCUwuz9Hyxt2uAnKU7GMk43atyxJ9zUEzRLBYIi9bdR8W6pCF43H8MjY+ZyM17aF2FFZa+bp6k8d0i54qaK+xPYay6emsqbYBpHbJ3VPvlh9K4zLlQhW2IwAgQlo8P11Q==
+ b=pdiNFjTZEFPwrAwnDmqTUUQ+FlAiXPG6JGxy/Id3li5JST1Ivd2/Agfab4EroKgRDCO40AuvVGB3/Eaov35xHDhttMR5QhEN8fbn8d+4Sg+W+KVQyNkc8kfyF6D2I5nh5IRiUIVjAcw233uJwoQYDe6LV9VRxZPu6g2Ejo3lST2IK9Rt+QU9JAAWV5TVNCb4rRe6BEq7obP4hzwE6dySUiq23OChSqyK8IGqb/Az5oK1L0fiA48zaXFvzida6yfkU9VnOfeibmRg3MphQpFPq1PYrSjbYd2YAdEJTrVZrvVUSCfA/BLR4YdOqpMiswzB1L8UIiyUrv/iYlXaJPmaBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0Lu3JkIVfFhjK+3tHMP3acbUxTBc952s9SigD2MFj0Q=;
- b=WW5W5PW9xwnnCcTDnkUdUzTa50YnFloBCZ0SnC20+BZoULJWmqajdxFcy9fcBZ6vBGg70lEXDQYlbkyvAjjwj3kvBZLcPG97rCD8ru9RK9d9iO7vvwn2idEB1sxHtljBhB/aBHOW4JdCr8B+zcgvFL3fX4RC/x/JI0abC1/+9PVOFz3/vuJoTzom685Ha8BzUNQWCIQA7zdYBpSYlnZdgvi8WafMhRpSgZCP5mDkAJSUXocrDhFOP72haDu0mj7Wr8/rick4w5mHkIP+sodJTCSmD4UetZOMBPOkyG84Km9Al8gzgl3p/JAyvCk3nAXr1ABikuAB0hhLYmHy750aYA==
+ bh=tTxYTgRIEirrtrMzaAvRXWdCOAiO9V0DpEQkMUGOnwQ=;
+ b=XzpJy+2ERclZ8am0lTVS3RByAi5ge3IglCuda9Y4P61395h8fnvMQ53muK0zZQewCuk/YnL8LHgW1j4A3SHCSgeDQyYiDXHGPFycx6zhHah0cOZ3jGphmKD4H8XTjIJaH0Q0SFX4WIvwtsEZitfXr+jJi++w0kTpGWrJJ92A1IINoADpO30dW65w6LL32XGlIgk+cvlyr0LCxIy1aQQp4WMHA/6Wl98rY24EbklOMb9FA4bkFwguMPMvyrMkHGm9nQP7JMTdov0tI04o5SsFGjgElQOsNaNXBgpGdPBEs2xqHFJZQot66BJY3jeeFgqBadHAShPevEjvx6c+oqGtQA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Lu3JkIVfFhjK+3tHMP3acbUxTBc952s9SigD2MFj0Q=;
- b=d5Aw12QvzjglILwsYYBnyKtnjVBX06kMq8zHrUndoPyCWOVqegxHkJf9Rw+DHAvY8ajZXOQq3YXzs9ULIEvH7EvFDgpmyaz0HpCM2WahimaUmKWzrSY9RDPBJT2FjvrYwinVnImamwUfwbpHkwCwy2v+//jWVaH4xrw/jyAfQX67J8dczz6TvBAExcSbbNHZ4eu3yDM5d4IOUVvOfqAUAZ6zUrsIK7gu5YGMo+WoSOLgh2tcDR5HFZKi5Jps7uUrCH3dFSgzKwNpYNgLBEA62sg2pqWCgJMGFFvDFnQ2qq5emHorHGVYgubXN+LHVo3q00Br/ssV1Icl03vOf5K//g==
+ bh=tTxYTgRIEirrtrMzaAvRXWdCOAiO9V0DpEQkMUGOnwQ=;
+ b=h83xlHfv9niTGGFvFSXnF2npzn86QGRYw+JcJbPw85kXcDfMyauSQlkHj/NnQvORmkwfOHTMc2BnLmdVHc4xWkYLdzCzr0dP2GmA0wzFNNotSOvu95jWEQFFk992wru4eBvw6uxGp9p9Mp93/iC+5EJJDW1rGq/nTwSCqS5lFw0x82GZU1MIrvog0jtVVTlCQwqyrPEXR1h8WEZmuiCfbOvU4NTz1F1EmjaWIcxdfWvdfx7hkYk3Oe+5F9Ofg06dbl/PdsGMIr1TVCLAujwYG2F6YgmgZ+4k+6ToEtLvFvQXF41zzJx9kz+fEMY0azCo3rYgUjvf5NhI9bNKOfzBdw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by LV3PR12MB9144.namprd12.prod.outlook.com
  (2603:10b6:408:19d::10) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 22:35:57 +0000
+ 2026 22:35:55 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 22:35:57 +0000
+ 22:35:55 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alex Williamson <alex@shazbot.org>,
 	David Matlack <dmatlack@google.com>,
@@ -77,69 +77,67 @@ To: Alex Williamson <alex@shazbot.org>,
 	Tariq Toukan <tariqt@nvidia.com>,
 	Zenghui Yu <yuzenghui@huawei.com>
 Cc: patches@lists.linux.dev
-Subject: [PATCH v7 09/10] vfio: selftests: Add mlx5 driver - data path and memcpy ops
-Date: Mon, 21 Sep 2026 19:35:49 -0300
-Message-ID: <9-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
-In-Reply-To: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
-References: 
+Subject: [PATCH v7 00/10] mlx5 support for VFIO self test
+Date: Mon, 21 Sep 2026 19:35:40 -0300
+Message-ID: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: DSSP220CA0006.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:8:3d3::18) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: DSSP220CA0008.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:8:3d3::19) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV3PR12MB9144:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d3c1ede-fb9d-47ec-71d8-08df1830b151
+X-MS-Office365-Filtering-Correlation-Id: b917fb64-a24e-4e10-8260-08df1830b13f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|7416014|921020|56012099006|6133799003|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Pq2eK0Vlux3BsvlOI8KkQnRRkbcn5aC+Y2HrpHk2RrC95p1RK3gwOZTz0/9pBrSoPvs8NrMvD6DMIuVLJRjtEDir+mxP2W9CyzqZE35+ONxPWWiCxQzd78B/wks2qIECsBMHfaxgm5MgciYT3lVqrvIqGtLsrde8dvof50KOsRqzvsVUHDdyV9fvC/94g3enuyGgBrs2qAIQ6l7N4jM+DWMfWLKlfmDcT85rX42tLSsu9M6U42H+B8os1+GkKkfTc13hYvkr4vGeKTbO0RnwHSY6YHIzv03kUrDecRKfPHSEROPHHw988svBIn5zW8ZOubtW/bdYkV1vM50hpN4ckS4BgYdJctv+gI5CA5nzMHgwsAFm0hUoTLbrLB9oWJyHiFmWMvzV4uwcsDnHFC/640yMQyLNLMYqUtv10q3UeHHw1DeNMNuUR256pQmdLhzRyWFRSwlwiymWRfgE/VspbIBMZNzjKiJKUqlpfe+ldfVU5l1j6v+3YlWr3RfgyaANwBJZgiRQ1WV+AvljsYs3YCh+8fsYg9CS3yUZfm/b53NPivc35aKeHXkolsDiR2yJTiQiKuMRT2Fkqq3sXDOKroV+glqrdGn3EHre5FLPnlZHBrNOdcHJSSjgqXGdO9QCsZTYZcz+izA3ZMtrWCJrO83yUeuTqTx9pxPHJFEFhUwApwDuYEn0yTNRscnpNaaUGxpsgcTZ9xBsXZu6LlbPTw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(7416014)(921020)(56012099006)(6133799003)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|7416014|921020|56012099006|3023799007|6133799003|10067099003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: UXj8FxMiVzdzHimmSCD3KwR32DVlcCh9/qGwPeml0od0D5mTG1nz6Izhe6LPC/BEwS7oydemVkczntME31Cr836lUNxTA6lRJDQd9CcT7lU/h4rgquwXH24tIuQCg+QhHvZS0fRsJenyPQVcMhYf1GrXPoEDtMus4hEaiM5IesTfHsN6qnL3Xs5X8zQxN7YiBR8rLahUHMev/eGTod9JqtHDn7bFueWNkg5Etg54ySwMbMQeXqeNOlBV/mp9DWK0SR83FbVj70EoKKNbLomxTFrHZlv4R9kB7WM8oEdaH2iVZez5957fWku+PElhSwLIqjeyHLOs80CPEB15MMY6op+YuAc+DxQveVqAn1bWxKOJL3YgTfaZTOBEZH9d4R9ObCGIFuC4I9AVYS8meGbnb/m1QgRMe/S+Y6mIe20mivk14HS9RteYD8kQtwr42l768ApK6vn2/1Sqe0diRCZsSOLKAgD6uXT17yjr1ebvfP3v2BxhY7s59sQUW3r9cBon5N6vkj8pk9XD7zXfvn4NshoxMofzYgv4tWzEh32e25CTFFfolaMS0/+FkQoxgGqj0/MWOFS4VVYEpHDJxzLqpoUW3Q/snvEs/nIZdfZSSc0MB5cFf6WV1kHrgh2kp4Ejngm4IDXjUcqR/OXbO1aYUXs9CosSsQE/aLTwUBycY4shuvz+yqQmsVc/B83A0pRCLwhRJ48XRC36UhWTaelcKA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(7416014)(921020)(56012099006)(3023799007)(6133799003)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BSF6HlpEp0oPSSi+PD6YUPGBR96QZHMtYNYDzlfYX2MQUVw3zeKhH3We6f3v?=
- =?us-ascii?Q?rjg/gWsk7Zq5rDKeNrwCAnryNU5ZLgK1SyF5zIaYd2XwwmAVWnAyGhiuCTom?=
- =?us-ascii?Q?aTrpSPncvVMjKfk7zl6RFjuFyr0Ezp96uXyRFDjHdsc9f+VVCKAwxj3dkqPu?=
- =?us-ascii?Q?y+ncWvHSTBsZopT4mtwnESF/3bvflwItfwNdg1SGOXn9fD4825/2KL192PmF?=
- =?us-ascii?Q?Tps4Zd5id7SgFKPkZMv2QtA3bt3IT/NZtW/xRooJjIUkxIyrAqRD0f/aZ6ql?=
- =?us-ascii?Q?L2lqtyeklJoC6ySuVuFTCsgu4nRVDvDExs9+b2pGFQ6vSvqPapdsNMIIxwwo?=
- =?us-ascii?Q?huhp6MziVDpCjTByoDb78+XXfu1u+H4k1/BOHbKYgjTpDx+KqXl3+kIJBvcs?=
- =?us-ascii?Q?ftSYDSZ4ZXzdS0To56O3j7AKf1NcH5OAHFP1t7L44WlmoJOnvpilYXpNcQqC?=
- =?us-ascii?Q?i2gS8WgKz97VVhnbJs1jVG3QETk7HEKiqm6BlgUbcIZ3i44T0ThBXeDZb7BP?=
- =?us-ascii?Q?0kXPnHyvgLAEJiTkgGnsRh+/pFg86O9AdFfcL2TX7F/KDskn7uw3lxIxWYKz?=
- =?us-ascii?Q?p4rFz173zzF6JU6cep900p+bJssEqGZfwEhyTBGg0oEEZZRLflmChg5Ym8jJ?=
- =?us-ascii?Q?0V+v2p/+fc9ZBRpGEaZ1d1ENgmSac7ciNbCFE48CYAssIJYDpPgwuVTZ7pu+?=
- =?us-ascii?Q?z+dDcogiaCfZ4+85B7ubbtQ3+VZI+8r8q1dr7XYYRYbZIyqGl13ixcUIWcae?=
- =?us-ascii?Q?a460DlfkbIN6kUAd2U0/f8pOJVYoED+IXEqkzR00N5ewTWi+D8xk+ngq0S1V?=
- =?us-ascii?Q?plI7K9I1WGHvV0x0H75kC6/CAwt3b2G2VeHh4plA2nO2JDUnuAnQGJ3buIJF?=
- =?us-ascii?Q?qSEV0C7ZI/dZFpnuUI8WTbCZVR44F/Os/vRSPQFvHiXU/5GnkBM0R77ZQLBD?=
- =?us-ascii?Q?MxkBvXmvQdVE69WCTlWbfJUemfgTxKxNvUUTEpqGixcmf6CQhtxektAr1aU+?=
- =?us-ascii?Q?95iUohB1nslfnaUfm3BMVG05hvyDSJizk51tS76lq4C3F4hZlAIukZ8IohER?=
- =?us-ascii?Q?gNuWkQC2yiwbHixJjZDEzEOMhoFtP6ueFeYmADs4AeD5FFLCT7Yn4BDtUEpr?=
- =?us-ascii?Q?qrAMZjbGTzMiA8WRMgWQPVaDxHO4HZF0EcwSMOPWm9/dej8w5lZWzagdLyLx?=
- =?us-ascii?Q?JlkOU7k+obqQpasW0JDfdW5o4OtDt+ONXu7n0ZFXb/qJU36vbmAohUdhJPL0?=
- =?us-ascii?Q?e1gVtAj+lduqlzGGC0+lNVwltNVlGWO2Ui7Qic/3NXWkbKFi2neTOG0MofLT?=
- =?us-ascii?Q?r/6sdwP5Kti9qu+siratXapmbU9GgzWngJOjt60exJJ3Z80fkfnHc0yns6F0?=
- =?us-ascii?Q?qzN6gl5iW6iF4qayxBAbcWoFPMk7HE/JnNnsWfsYthGyQxz+PHz8bmehRedt?=
- =?us-ascii?Q?NHPUhdLRF5QGODghfAR4TugCF82kyvvNUOBYOq4PZPUPwTUvX9ADAPKXtocs?=
- =?us-ascii?Q?6EnP7JcfYpdEqtH55a8ZYrteAFy5iBJRzMa8DaFq+rJBFBd4nFpx3DuKWaB8?=
- =?us-ascii?Q?dQ0J+HmhvpweLVIXK4WDeaZORcJDGYv9OFd8OJuwWyefXsRi1rEK//a9KKHT?=
- =?us-ascii?Q?WwXvvRf2YfIg8Q9Dda/LoAt/OZc3IGmgM73fdufta28RqDMKvljSHROxOzKM?=
- =?us-ascii?Q?pHipUmgH9VWyrBX8OkjLzpbKfW/HJQZon3L6DXOew6X18th6?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sUBgzvnsUNQN6BJXJo1F/1mPMp8kxrKs7Mn7Fk9GQXE7du/T6ksS2EF/rfIm?=
+ =?us-ascii?Q?wqYbe7YysVECtDBIDweMFmiLoKzlW3/fmBBrrbXVlYmFdgtRATrEfvwnVEZA?=
+ =?us-ascii?Q?C0gsgNW19+BDuWIzfKnZG4AIhXfxaKZbMhPvwCfWlRzbCyYkitgldUUTlMuc?=
+ =?us-ascii?Q?+QJYniIsaKKISQn4s/WflmUOWXsAt2I/hz5n9Cfg9EJfQEVPBjwwiBNFcwGj?=
+ =?us-ascii?Q?CiXH1kUuwRe743aMcL88H7cBms70m8oXEvsDlRvhN3V8W8HpdR8Z0YGItjSR?=
+ =?us-ascii?Q?ts7q9rjUHkQ76OlKKEfh+HiS9L/RLP8vCAoAVLay4973S4EcH5cV58nwxbxM?=
+ =?us-ascii?Q?n0vIbsKhZ8R7CvxvdXzpdmsiE6B4FGnTARfSXfDTOFFt/zrBhDZkv0GOI1RD?=
+ =?us-ascii?Q?c6/2jEUE9/2sUGH/Tg4tE25Zj9YH6LHSAqMFYOWeYMawvubixJ4dAGh+6DG+?=
+ =?us-ascii?Q?EryXaMaP1hYg3CtCMnPn+oVq21dCGT7CjZv0yk6IB0g7UPMXMheEv4j0rOOy?=
+ =?us-ascii?Q?Egq8IiNfd87LIJJpBDKJpWgJB4L50T56xz5Bni2ivqoY4KlwbErsKlHV3MRI?=
+ =?us-ascii?Q?RO57xYY8Ddw+JjH7QDC3VXRDqI8HLP7niTN1mJlmJYgTocAEMZdv1MI8IgUL?=
+ =?us-ascii?Q?Jwxyh/9Rl2FAkeJuUxZUprG/eMLngg+6KvPgkWXU7a5nXUfzKIcMlrZ4A3Te?=
+ =?us-ascii?Q?lbahbXa802aGPdD+jOmJzWKc0Q7NadADk6gctnZ7928ZoGxVzAMmSbuTPG6a?=
+ =?us-ascii?Q?MN3bscqOTJxeAncTc6ojSY9G8Dz5H1CSOdg8ARRIIWRG0eztDgNEbbgQIjOp?=
+ =?us-ascii?Q?gvHcYB/YNy4ScV06WTGbIgTLds9Qa/JkrSVMmLH0Y0w808IEuBpoDavEbU1V?=
+ =?us-ascii?Q?URvNoeJTix5/SHdQopLuTBLBU5Tccj+uticpkroXtDU0vqeA60CcCyuIs3MO?=
+ =?us-ascii?Q?/FGlxIku+wB7BHpTYkZV+bVp240wwNuIwb1TSS30ahcLHgn34UF+ieiByYA1?=
+ =?us-ascii?Q?fNZMeyESqiY2O8CutxhLTPrJ4rwMCh3pyhSIVoSgHWYNpXXHswS5583bYLV7?=
+ =?us-ascii?Q?SRz4HTMsJRG7TUsUZgCcETlXcqJM2C6Sd2nhYsgKRA2+dnf9fuye52Ta7xHl?=
+ =?us-ascii?Q?xOErPiwNcz48oG2U/K3YaQ9ESGBsbJM/UpeUgAs6X3ynodqbX4/KTbZl4msS?=
+ =?us-ascii?Q?23Ox0KCqtrnp2IRgpmAt5w7LQ2BWuGIhpIBSCz7Q+KX3lIImRGP4SwWV8spl?=
+ =?us-ascii?Q?xPsCjPkqXJ7GIWtBKWYaakC+TqoJoUiOeZAH1RXda7SFOO14NJG2S9mHLqen?=
+ =?us-ascii?Q?wG5THDf3jrHOznJDppYATyB7JT6onltCbHOQ1xP1LUkvFnAYHvjRU/kDwvLC?=
+ =?us-ascii?Q?alaiNflXPHcJUnJnPB5fZtx11OGSNRxdCpCHpVnt7JVthyW8TTIGffHXSZFs?=
+ =?us-ascii?Q?ASsQ1WsiYT+MgMm8KT5goTQmtF4GBYVtmqHq+5iAH5RTp87tDMnlvHVUPVRk?=
+ =?us-ascii?Q?szsLhLVJJA9ktoI86vQYXVqTlFpI6OCwUPYIgnVFqlTEH1bffteQeS/lZFx1?=
+ =?us-ascii?Q?d2tjYF/oWxUvTbB0DpibMOtadDVxGbCY9mcTBy1U4Ksf8qaGIoMOF9a2SBVA?=
+ =?us-ascii?Q?cN+YPlXWpEF1S7xnsNXkT/AJ0hboF8YrEhrsEk3kcprFprwr6I/ejZt6ssRA?=
+ =?us-ascii?Q?6UsGsRpIMSDbpd0cJ5B++CMFVHvP+LuJKmsGYPArtruTfZ+z?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d3c1ede-fb9d-47ec-71d8-08df1830b151
+X-MS-Exchange-CrossTenant-Network-Message-Id: b917fb64-a24e-4e10-8260-08df1830b13f
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 22:35:52.4615
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 22:35:52.1807
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 23euUAYE5CT22jY9+RKBt86g1X97YX3Wt+peFiv9y4Ut+MDp+CP1DWTxsEBPzOiK
+X-MS-Exchange-CrossTenant-UserPrincipalName: GRKEtwq8DkwNFBpcBsg1BhJrFdnIT6YWz/fkJe4fCH/RteK1M0urmNPsuFVX5fdX
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_153611_159667_20F9A67B 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260921_153609_717953_BA86A44E 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,412 +152,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Complete the mlx5 driver by adding CQ/QP creation, QP state
-transitions, WQE posting, CQ polling, and the
-memcpy_start/memcpy_wait callbacks. After this patch the driver is
-functional for DMA tests.
+Add an mlx5 driver to VFIO self test. This is largely a remix of the
+existing VFIO mlx5 driver in rdma-core. It uses an RDMA loopback QP
+to issue RDMA WRITE operations which effectively perform memory
+copies using DMA. Since mlx5 has a stable programming ABI this
+should work on devices from CX5 to current HW. The device FW must
+support the QP loopback configuration.
 
-The data path implements RDMA Write self-loopback via an RC QP with
-force-loopback.  WQEs are posted to a 16-entry send queue with an
-NC doorbell, and completions are polled from a 16-entry CQ.
+Also support send_msi by arming completion events of the RDMA WRITE
+to trigger MSI delivery.
 
-Assisted-by: Claude:claude-opus-4.6
-Acked-by: David Matlack <dmatlack@google.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- .../selftests/vfio/lib/drivers/mlx5/mlx5.c    | 359 +++++++++++++++++-
- 1 file changed, 357 insertions(+), 2 deletions(-)
+mlx5 device startup is very complex and most of this code is just
+booting the device, with a smaller amount for operating the QP.
 
-diff --git a/tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5.c b/tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5.c
-index 5a87d070dc425f..fff3babef5e787 100644
---- a/tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5.c
-+++ b/tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5.c
-@@ -1343,6 +1343,354 @@ static void mlx5st_destroy_mkey(struct mlx5st_device *dev)
- 	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
- }
- 
-+/*
-+ * CQ create/destroy
-+ */
-+
-+static void mlx5st_create_cq(struct mlx5st_device *dev)
-+{
-+	struct vfio_pci_device *device = dev->device;
-+	u64 in[MLX5_ST_SZ_QW(create_cq_in) + 1] = {};
-+	u32 out[MLX5_ST_SZ_DW(create_cq_out)] = {};
-+	struct mlx5_ifc_cqc_bits *cqc;
-+	unsigned int i;
-+	__be64 *pas;
-+
-+	/* Initialize CQEs before CREATE_CQ: opcode=0xF, owner=1 */
-+	for (i = 0; i < CQ_CQE_CNT; i++) {
-+		struct mlx5st_cqe64 *cqe = &dev->cq_buf[i];
-+
-+		MLX5_SET(cqe64, cqe, opcode, 0xF);
-+		MLX5_SET_ONCE(cqe64, cqe, owner, 1);
-+	}
-+
-+	MLX5_SET(create_cq_in, in, opcode, MLX5_CMD_OP_CREATE_CQ);
-+
-+	cqc = MLX5_ADDR_OF(create_cq_in, in, cq_context);
-+	MLX5_SET(cqc, cqc, log_cq_size, LOG_CQ_SIZE);
-+	MLX5_SET(cqc, cqc, uar_page, dev->uar_page);
-+	MLX5_SET(cqc, cqc, c_eqn_or_apu_element, dev->eqn);
-+	MLX5_SET(cqc, cqc, cqe_sz, 0);
-+	pas = MLX5_ADDR_OF(create_cq_in, in, pas);
-+	MLX5_SET(cqc, cqc, page_offset, mlx5st_fill_pas(device, dev->cq_buf, pas));
-+	MLX5_SET(cqc, cqc, log_page_size, 0);
-+	MLX5_SET64(cqc, cqc, dbr_addr, to_iova(device, &dev->cq_dbrec));
-+
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+
-+	dev->cqn = MLX5_GET(create_cq_out, out, cqn);
-+	dev->cq_ci = 0;
-+	dev_dbg(device, "Created CQ: cqn=%u, %d entries\n", dev->cqn,
-+		 CQ_CQE_CNT);
-+}
-+
-+static void mlx5st_destroy_cq(struct mlx5st_device *dev)
-+{
-+	u32 out[MLX5_ST_SZ_DW(destroy_cq_out)] = {};
-+	u32 in[MLX5_ST_SZ_DW(destroy_cq_in)] = {};
-+
-+	MLX5_SET(destroy_cq_in, in, opcode, MLX5_CMD_OP_DESTROY_CQ);
-+	MLX5_SET(destroy_cq_in, in, cqn, dev->cqn);
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+}
-+
-+/*
-+ * QP create/destroy
-+ */
-+
-+static void mlx5st_create_qp(struct mlx5st_device *dev)
-+{
-+	struct vfio_pci_device *device = dev->device;
-+	u64 in[MLX5_ST_SZ_QW(create_qp_in) + 1] = {};
-+	u32 out[MLX5_ST_SZ_DW(create_qp_out)] = {};
-+	struct mlx5_ifc_qpc_bits *qpc;
-+	__be64 *pas;
-+
-+	MLX5_SET(create_qp_in, in, opcode, MLX5_CMD_OP_CREATE_QP);
-+
-+	qpc = MLX5_ADDR_OF(create_qp_in, in, qpc);
-+	MLX5_SET(qpc, qpc, st, MLX5_QPC_ST_RC);
-+	MLX5_SET(qpc, qpc, pm_state, MLX5_QPC_PM_STATE_MIGRATED);
-+	MLX5_SET(qpc, qpc, pd, dev->pdn);
-+	MLX5_SET(qpc, qpc, uar_page, dev->uar_page);
-+	MLX5_SET(qpc, qpc, cqn_snd, dev->cqn);
-+	MLX5_SET(qpc, qpc, cqn_rcv, dev->cqn);
-+	MLX5_SET(qpc, qpc, log_sq_size, LOG_SQ_SIZE);
-+	MLX5_SET(qpc, qpc, log_msg_max, dev->log_max_msg);
-+	MLX5_SET(qpc, qpc, rq_type, 0x3);
-+	MLX5_SET(qpc, qpc, ts_format, 1);
-+	pas = MLX5_ADDR_OF(create_qp_in, in, pas);
-+	MLX5_SET(qpc, qpc, page_offset,
-+		 mlx5st_fill_pas(device, dev->sq_buf, pas));
-+	MLX5_SET(qpc, qpc, log_page_size, 0);
-+	MLX5_SET64(qpc, qpc, dbr_addr, to_iova(device, &dev->qp_dbrec));
-+
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+
-+	dev->qpn = MLX5_GET(create_qp_out, out, qpn);
-+	dev->sq_pi = 0;
-+	dev_dbg(device, "Created QP: qpn=%u, RC, sq=%d wqes\n", dev->qpn,
-+		 SQ_WQE_CNT);
-+}
-+
-+static void mlx5st_destroy_qp(struct mlx5st_device *dev)
-+{
-+	u32 out[MLX5_ST_SZ_DW(destroy_qp_out)] = {};
-+	u32 in[MLX5_ST_SZ_DW(destroy_qp_in)] = {};
-+
-+	MLX5_SET(destroy_qp_in, in, opcode, MLX5_CMD_OP_DESTROY_QP);
-+	MLX5_SET(destroy_qp_in, in, qpn, dev->qpn);
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+}
-+
-+/*
-+ * QP state transitions
-+ */
-+
-+static void mlx5st_qp_rst2init(struct mlx5st_device *dev)
-+{
-+	u32 out[MLX5_ST_SZ_DW(rst2init_qp_out)] = {};
-+	u32 in[MLX5_ST_SZ_DW(rst2init_qp_in)] = {};
-+	struct mlx5_ifc_qpc_bits *qpc = MLX5_ADDR_OF(rst2init_qp_in, in, qpc);
-+
-+	MLX5_SET(rst2init_qp_in, in, opcode, MLX5_CMD_OP_RST2INIT_QP);
-+	MLX5_SET(rst2init_qp_in, in, qpn, dev->qpn);
-+
-+	MLX5_SET(qpc, qpc, primary_address_path.vhca_port_num, 1);
-+	MLX5_SET(qpc, qpc, pm_state, MLX5_QPC_PM_STATE_MIGRATED);
-+	MLX5_SET(qpc, qpc, rre, 1);
-+	MLX5_SET(qpc, qpc, rwe, 1);
-+
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+	dev_dbg(dev->device, "QP RST->INIT\n");
-+}
-+
-+static void mlx5st_qp_init2rtr(struct mlx5st_device *dev)
-+{
-+	u32 out[MLX5_ST_SZ_DW(init2rtr_qp_out)] = {};
-+	u32 in[MLX5_ST_SZ_DW(init2rtr_qp_in)] = {};
-+	struct mlx5_ifc_qpc_bits *qpc = MLX5_ADDR_OF(init2rtr_qp_in, in, qpc);
-+
-+	MLX5_SET(init2rtr_qp_in, in, opcode, MLX5_CMD_OP_INIT2RTR_QP);
-+	MLX5_SET(init2rtr_qp_in, in, qpn, dev->qpn);
-+
-+	MLX5_SET(qpc, qpc, mtu, 3);
-+	MLX5_SET(qpc, qpc, log_msg_max, dev->log_max_msg);
-+	MLX5_SET(qpc, qpc, remote_qpn, dev->qpn);
-+	MLX5_SET(qpc, qpc, min_rnr_nak, 12);
-+	MLX5_SET(qpc, qpc, primary_address_path.vhca_port_num, 1);
-+	MLX5_SET(qpc, qpc, primary_address_path.fl, 1);
-+
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+	dev_dbg(dev->device, "QP INIT->RTR (fl=1)\n");
-+}
-+
-+static void mlx5st_qp_rtr2rts(struct mlx5st_device *dev)
-+{
-+	u32 out[MLX5_ST_SZ_DW(rtr2rts_qp_out)] = {};
-+	u32 in[MLX5_ST_SZ_DW(rtr2rts_qp_in)] = {};
-+	struct mlx5_ifc_qpc_bits *qpc = MLX5_ADDR_OF(rtr2rts_qp_in, in, qpc);
-+
-+	MLX5_SET(rtr2rts_qp_in, in, opcode, MLX5_CMD_OP_RTR2RTS_QP);
-+	MLX5_SET(rtr2rts_qp_in, in, qpn, dev->qpn);
-+
-+	MLX5_SET(qpc, qpc, log_ack_req_freq, 0);
-+	MLX5_SET(qpc, qpc, retry_count, 7);
-+	MLX5_SET(qpc, qpc, rnr_retry, 7);
-+	MLX5_SET(qpc, qpc, primary_address_path.ack_timeout, 14);
-+
-+	mlx5st_cmd_exec(dev, in, sizeof(in), out, sizeof(out));
-+	dev_dbg(dev->device, "QP RTR->RTS\n");
-+}
-+
-+/*
-+ * Post RDMA Write WQE
-+ */
-+static void mlx5st_post_rdma_write(struct mlx5st_device *dev, u64 src_addr,
-+				    u32 src_lkey, u64 dst_addr, u32 dst_rkey,
-+				    u32 length, bool signaled)
-+{
-+	struct mlx5st_send_wqe *wqe;
-+	unsigned int idx;
-+
-+	idx = dev->sq_pi % SQ_WQE_CNT;
-+	wqe = &dev->sq_buf[idx];
-+
-+	memset(wqe, 0, sizeof(*wqe));
-+	MLX5_SET(wqe_ctrl_seg, &wqe->ctrl, opcode, MLX5_OPCODE_RDMA_WRITE);
-+	MLX5_SET(wqe_ctrl_seg, &wqe->ctrl, wqe_index, dev->sq_pi);
-+	MLX5_SET(wqe_ctrl_seg, &wqe->ctrl, qp_or_sq, dev->qpn);
-+	MLX5_SET(wqe_ctrl_seg, &wqe->ctrl, ds, MLX5_RDMA_WRITE_DS);
-+	if (signaled)
-+		MLX5_SET(wqe_ctrl_seg, &wqe->ctrl, ce, MLX5_WQE_CE_CQE_ALWAYS);
-+
-+	MLX5_SET64(wqe_raddr_seg, &wqe->raddr, raddr, dst_addr);
-+	MLX5_SET(wqe_raddr_seg, &wqe->raddr, rkey, dst_rkey);
-+
-+	MLX5_SET(wqe_data_seg, &wqe->data, byte_count, length);
-+	MLX5_SET(wqe_data_seg, &wqe->data, lkey, src_lkey);
-+	MLX5_SET64(wqe_data_seg, &wqe->data, addr, src_addr);
-+
-+	dev->sq_pi++;
-+
-+	/* Ensure WQE is visible to device before doorbell record */
-+	dma_wmb();
-+
-+	WRITE_ONCE(dev->qp_dbrec.send_counter,
-+		   cpu_to_be32(dev->sq_pi & 0xffff));
-+
-+	/*
-+	 * Ring doorbell: write first 8 bytes of ctrl to UAR BF register,
-+	 * iowrite has an internal dma_wmb() so the doorbell record will be
-+	 * visible.
-+	 */
-+	iowrite64be(be64_to_cpu(*(__be64 *)wqe),
-+		    (u8 __iomem *)dev->uar_base + dev->uar_bf_offset);
-+	dev->uar_bf_offset ^= MLX5_BF_SIZE;
-+}
-+
-+/*
-+ * Poll CQ
-+ */
-+static int mlx5st_poll_cq_batch(struct mlx5st_device *dev,
-+				unsigned int max_cqe)
-+{
-+	unsigned int polled = 0;
-+
-+	while (polled < max_cqe) {
-+		unsigned int idx = dev->cq_ci % CQ_CQE_CNT;
-+		struct mlx5st_cqe64 *cqe = &dev->cq_buf[idx];
-+		u8 owner, opcode;
-+
-+		owner = MLX5_GET_ONCE(cqe64, cqe, owner);
-+		if (owner != ((dev->cq_ci >> LOG_CQ_SIZE) & 1))
-+			break;
-+
-+		dma_rmb();
-+
-+		opcode = MLX5_GET(cqe64, cqe, opcode);
-+
-+		dev->cq_ci++;
-+		WRITE_ONCE(dev->cq_dbrec.recv_counter,
-+			   cpu_to_be32(dev->cq_ci & 0xffffff));
-+
-+		if (opcode == MLX5_CQE_REQ) {
-+			dev->sq_ci =
-+				(u16)(MLX5_GET(cqe64, cqe, wqe_counter) + 1);
-+			polled++;
-+			continue;
-+		}
-+		if (opcode == MLX5_CQE_REQ_ERR ||
-+		    opcode == MLX5_CQE_RESP_ERR) {
-+			dev_dbg(dev->device,
-+				"CQE error: opcode=0x%x syndrome=0x%x vendor=0x%x\n",
-+				opcode,
-+				MLX5_GET(cqe64, cqe, error_syndrome.syndrome),
-+				MLX5_GET(cqe64, cqe,
-+					 error_syndrome.vendor_error_syndrome));
-+			return -1;
-+		}
-+		dev_err(dev->device, "CQE unexpected opcode=0x%x\n", opcode);
-+		return -1;
-+	}
-+
-+	return polled;
-+}
-+
-+static int mlx5st_poll_cq(struct mlx5st_device *dev, unsigned int timeout_ms)
-+{
-+	struct timespec start, now;
-+	unsigned int elapsed;
-+	int ret;
-+
-+	clock_gettime(CLOCK_MONOTONIC, &start);
-+	for (;;) {
-+		ret = mlx5st_poll_cq_batch(dev, 1);
-+		if (ret < 0)
-+			return -1;
-+		if (ret > 0)
-+			return 0;
-+
-+		if (dev->have_eq)
-+			mlx5st_process_events(dev);
-+
-+		clock_gettime(CLOCK_MONOTONIC, &now);
-+		elapsed = (now.tv_sec - start.tv_sec) * 1000 +
-+			  (now.tv_nsec - start.tv_nsec) / 1000000;
-+		if (elapsed > timeout_ms) {
-+			dev_err(dev->device, "CQ poll timeout after %u ms\n",
-+				timeout_ms);
-+			return -1;
-+		}
-+	}
-+}
-+
-+/*
-+ * Data path setup/teardown helpers
-+ */
-+
-+static void mlx5st_setup_datapath(struct mlx5st_device *dev)
-+{
-+	mlx5st_create_cq(dev);
-+	mlx5st_create_qp(dev);
-+	mlx5st_qp_rst2init(dev);
-+	mlx5st_qp_init2rtr(dev);
-+	mlx5st_qp_rtr2rts(dev);
-+}
-+
-+static void mlx5st_teardown_datapath(struct mlx5st_device *dev)
-+{
-+	if (dev->qpn) {
-+		mlx5st_destroy_qp(dev);
-+		dev->qpn = 0;
-+	}
-+	if (dev->cqn) {
-+		mlx5st_destroy_cq(dev);
-+		dev->cqn = 0;
-+	}
-+	dev->sq_pi = 0;
-+	dev->sq_ci = 0;
-+	memset(&dev->qp_dbrec, 0, sizeof(dev->qp_dbrec));
-+	memset(&dev->cq_dbrec, 0, sizeof(dev->cq_dbrec));
-+}
-+
-+/*
-+ * memcpy callbacks
-+ */
-+
-+#define MLX5ST_MEMCPY_TIMEOUT_MS 60000
-+
-+static void mlx5st_memcpy_start(struct vfio_pci_device *device,
-+				 iova_t src, iova_t dst, u64 size, u64 count)
-+{
-+	struct mlx5st_device *dev = to_mlx5st(device);
-+	u64 i;
-+
-+	for (i = 0; i < count; i++) {
-+		bool signaled = (i == count - 1);
-+
-+		mlx5st_post_rdma_write(dev, src, dev->global_lkey, dst,
-+				       dev->global_rkey, size, signaled);
-+	}
-+}
-+
-+static int mlx5st_memcpy_wait(struct vfio_pci_device *device)
-+{
-+	struct mlx5st_device *dev = to_mlx5st(device);
-+	int ret;
-+
-+	ret = mlx5st_poll_cq(dev, MLX5ST_MEMCPY_TIMEOUT_MS);
-+	if (ret) {
-+		/*
-+		 * CQE error puts the QP in error state.  Rebuild the data path
-+		 * so subsequent operations can succeed.
-+		 */
-+		mlx5st_teardown_datapath(dev);
-+		mlx5st_setup_datapath(dev);
-+	}
-+	return ret;
-+}
-+
- /*
-  * Driver ops callbacks
-  */
-@@ -1373,6 +1721,11 @@ static void mlx5st_init(struct vfio_pci_device *device)
- 	mlx5st_alloc_pd(dev);
- 	mlx5st_create_mkey(dev);
- 
-+	mlx5st_setup_datapath(dev);
-+
-+	device->driver.max_memcpy_size = 1ULL << dev->log_max_msg;
-+	device->driver.max_memcpy_count = SQ_WQE_CNT - 1;
-+
- 	dev_dbg(device, "mlx5 driver initialized\n");
- }
- 
-@@ -1380,6 +1733,8 @@ static void mlx5st_remove(struct vfio_pci_device *device)
- {
- 	struct mlx5st_device *dev = to_mlx5st(device);
- 
-+	mlx5st_teardown_datapath(dev);
-+
- 	dev_dbg(device, "teardown: destroy_mkey\n");
- 	if (dev->mkey_index) {
- 		mlx5st_destroy_mkey(dev);
-@@ -1408,7 +1763,7 @@ struct vfio_pci_driver_ops mlx5st_ops = {
- 	.probe = mlx5st_probe,
- 	.init = mlx5st_init,
- 	.remove = mlx5st_remove,
--	.memcpy_start = NULL,
--	.memcpy_wait = NULL,
-+	.memcpy_start = mlx5st_memcpy_start,
-+	.memcpy_wait = mlx5st_memcpy_wait,
- 	.send_msi = NULL,
- };
+This entire series was coded by Claude Code in about 4 days. It
+used about 4.5M output tokens, 30 individual sessions and 5600 lines
+of AI-generated .md files. I spent an annoying amount of time
+de-slopping and cleaning its work product to make it presentable.
+However, previous VFIO drivers have taken on the order of 1-2
+months to write, so getting one in a week is pretty remarkable.
+
+For those interested, the flow I used was broadly a prompt sequence
+sort of like:
+
+ - Hey Claude, go look at the falcon series, VFIO self test, the
+   mlx5 driver, rdma-core and some PDF documentation and make a
+   plan to put mlx5 under the selftest.
+ - Write an rdma-core application using the built-in VFIO provider
+   that can do the required memcpy operations that vfio selftests
+   wants.
+   (This resulted in a 1k loc C file that compiled and ran the
+    first time but had a few bugs related to device programming
+    that the AI resolved.)
+ - Replace the rdma-core components with open-coded versions to
+   create a fully stand-alone program that does the DMA memcpy.
+ - Review and audit the thing.
+ [Pause and de-slop it]
+ - Make it work on a PF too (this is surprisingly hard!).
+ [Move to a kernel tree and copy all the .md files and .c program
+  it made]
+ - Hey Claude, look at all this stuff and make a broad plan to
+   actually build a VFIO self test.
+ - Here is my 1 sentence advice on what each patch should look
+   like, make a detailed plan to make a patch for every one.
+ [Pause and polish the patch plans]
+ - Execute plan X then commit it [pause and de-slop each patch,
+   repeat].
+ [Review and final polish]
+
+v7:
+ - Fix some compilation problems, kvm and the igb
+v6: https://patch.msgid.link/r/0-v6-8af36cf7b73f+e2-mlx5st_jgg@nvidia.com
+ - Rebase on v7.3-rc3
+ - Correct some minor sashiko remarks
+v5: https://patch.msgid.link/r/0-v5-4cacb99249f6+1b4-mlx5st_jgg@nvidia.com
+ - Rebase on v7.3-rc1
+ - Adjust how region_size is computed to min it to getpagesize()
+v4: https://patch.msgid.link/r/0-v4-021df3fb5a3f+98e-mlx5st_jgg@nvidia.com
+ - Rebase on vfio next, update igb and falcon
+ - Move rounding to iova_allocator_alloc()
+ - Remove arm barrier changes
+v3: https://patch.msgid.link/r/0-v3-76f117ad04f1+28a90-mlx5st_jgg@nvidia.com
+ - Move max into vfio_pci_driver_probe()
+ - Rebase on v7.2-rc3
+v2: https://patch.msgid.link/r/0-v2-72e9640932fd+2c64-mlx5st_jgg@nvidia.com
+ - Rebase on v7.1-rc3, drop falcon patches
+ - dev_dbg checks the format string even in non debug builds
+ - Sort includes
+ - Adjust comments/commit messageas
+ - Use linux/pci_ids.h
+ - Compute the driver.max_memcpy_size the same as mlx5 kernel driver, it
+   should be GBs now on most devices
+ - Put region_size into all drivers instead of allowing 0
+v1: https://patch.msgid.link/r/0-v1-dc5fa250ca1d+3213-mlx5st_jgg@nvidia.com
+
+Jason Gunthorpe (10):
+  net/mlx5: Add IFC structures for CQE and WQE
+  net/mlx5: Move HW constant groups from device.h/cq.h to mlx5_ifc.h
+  net/mlx5: Extract MLX5_SET/GET macros into mlx5_ifc_macros.h
+  net/mlx5: Add ONCE and MMIO accessor variants to mlx5_ifc_macros.h
+  selftests: Add additional kernel functions to tools/include/
+  vfio: selftests: Allow drivers to specify required region size
+  vfio: selftests: Add dev_dbg
+  vfio: selftests: Add mlx5 driver - HW init and command interface
+  vfio: selftests: Add mlx5 driver - data path and memcpy ops
+  vfio: selftests: mlx5 driver - add send_msi support
+
+ include/linux/mlx5/cq.h                       |   10 -
+ include/linux/mlx5/device.h                   |  231 +-
+ include/linux/mlx5/mlx5_ifc.h                 |  178 ++
+ include/linux/mlx5/mlx5_ifc_macros.h          |  185 ++
+ tools/arch/arm64/include/asm/barrier.h        |    4 +
+ tools/arch/x86/include/asm/barrier.h          |    5 +
+ tools/include/asm-generic/io.h                |   28 +
+ tools/include/asm/barrier.h                   |    8 +
+ tools/include/linux/stddef.h                  |   10 +
+ .../selftests/kvm/include/arm64/processor.h   |    4 +-
+ tools/testing/selftests/kvm/irq_test.c        |    2 -
+ .../selftests/vfio/lib/drivers/dsa/dsa.c      |    1 +
+ .../selftests/vfio/lib/drivers/igb/igb.c      |    1 +
+ .../selftests/vfio/lib/drivers/ioat/ioat.c    |    1 +
+ .../selftests/vfio/lib/drivers/mlx5/mlx5.c    | 1928 +++++++++++++++++
+ .../selftests/vfio/lib/drivers/mlx5/mlx5_hw.h |  114 +
+ .../vfio/lib/drivers/mlx5/mlx5_ifc.h          |    1 +
+ .../vfio/lib/drivers/mlx5/mlx5_ifc_fpga.h     |    1 +
+ .../vfio/lib/drivers/mlx5/mlx5_ifc_macros.h   |    1 +
+ .../vfio/lib/drivers/nv_falcon/nv_falcon.c    |    1 +
+ .../lib/include/libvfio/vfio_pci_device.h     |   11 +
+ .../lib/include/libvfio/vfio_pci_driver.h     |    6 +
+ .../selftests/vfio/lib/iova_allocator.c       |    7 +-
+ tools/testing/selftests/vfio/lib/libvfio.mk   |    1 +
+ .../selftests/vfio/lib/vfio_pci_driver.c      |    6 +
+ .../selftests/vfio/vfio_pci_driver_test.c     |    3 +-
+ 26 files changed, 2502 insertions(+), 246 deletions(-)
+ create mode 100644 include/linux/mlx5/mlx5_ifc_macros.h
+ create mode 100644 tools/include/linux/stddef.h
+ create mode 100644 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5.c
+ create mode 100644 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_hw.h
+ create mode 120000 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_ifc.h
+ create mode 120000 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_ifc_fpga.h
+ create mode 120000 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_ifc_macros.h
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
 2.43.0
 
