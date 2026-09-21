@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2113C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7FFC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YI29IQP2xezR62b+5zBXyIijN6X8d17e5umPu2y3XFs=; b=MPY0IlC/Klkx+JSZeJnO71+AKK
-	UV61JnAIXfQ/Eh0xINTshghYTAMOazQ1hP5Zh05YnGUkssw9POwdgQns4fYuymvTV43SCJgC1u2ZA
-	B6OG+GDc3L+wNCJjxbCBF+eFrOKEyGNG/qR6QO3uzbRdEZUrTaHwQsNKWguckPrA3r3tJ5uONxN22
-	RdecU9Ybs7+qe+Ph5qdpctZIoEYRvTeQRo5KBX5bQTQ+n1FmPcEebVCepaNHLgopvWPPY+9RbX6XI
-	p4QI5t1w/w+FmBd40HsalILkNEbLaqMQSVMapILEH0a9zYukt5QcH8xgFO+rd4UQwnlb7+11C9/PL
-	iQDblyKQ==;
+	bh=n97KZq/dt3+Fb3OXKCHqn4Dj5VctJrDhDo8X9t1KSnQ=; b=XYKXlKjhsJfkStulVpzfJZMhZS
+	IIulPRivv3ETQuYGJ4Ut6S8Qlxp2JQVQ1G3C0ZyKMsR/jLxGQosETo3a3W2g7oplskuhChdVk5/ab
+	BuZOnoc/RjTsTI2CLx+a4brtiCotXx0vc8sOVP8l3IQAk81I7nELmmtTNk+mhpz2qExvBC2QyOZ0d
+	17pehxRj23lQ7flzAjoinNnJVaNcq9FshF9YDH57BMVfhBjkuHo7SmWcg1raQwPBpotfeb8H8hFd6
+	iRIOS0RxbLIbg/FD38AH8WxTtsBuUArXdxlRn04Zd6qaOY7MmcDJ97Q20MLo8tJEsRb3GFTyJOlAH
+	u5EGvwTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nfo-00000003hOj-2KD6;
-	Mon, 21 Sep 2026 23:43:48 +0000
+	id 1x8ngB-00000003hbE-0KaL;
+	Mon, 21 Sep 2026 23:44:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nfg-00000003hL2-2prR;
-	Mon, 21 Sep 2026 23:43:40 +0000
+	id 1x8nfk-00000003hN5-1mZS;
+	Mon, 21 Sep 2026 23:43:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2C0360235;
-	Mon, 21 Sep 2026 23:43:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D79FC1F00893;
-	Mon, 21 Sep 2026 23:43:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D734860235;
+	Mon, 21 Sep 2026 23:43:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D261F000FF;
+	Mon, 21 Sep 2026 23:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790034219;
-	bh=YI29IQP2xezR62b+5zBXyIijN6X8d17e5umPu2y3XFs=;
+	s=k20260515; t=1790034223;
+	bh=n97KZq/dt3+Fb3OXKCHqn4Dj5VctJrDhDo8X9t1KSnQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VF6G0PmE1pYi7UpVqfg4pDWKTKj2ibBF/5FgWEtffUfTe90hAG7dyjixUqPHd3g0M
-	 9+KOOU1DSTaNCsbpIfOpNK1Hih84qE/B3dIa8AiW9LYdqtBW2z6xHxhsGUPX+4m7WR
-	 zSu6sps/VJlbLAj7bacp5Jv4zrN1zEyapITC7mAV8nSiiRdyWOJ8KoddklmfnQA785
-	 AMop2h4PTO/NWm1XUS4hH/VDaCxUoxxT0mkwpEFOMehjLnAmT+1ob0tKuvjfEjL7Y6
-	 yW8MCXH+8miIENqPP8sLWgUejIEikfHexhcNJi2qhjuZYzpYeET+Rv5OqmNeL5vNar
-	 gHBEXO6kHHYhA==
-Subject: Re: [PATCH net-next v7 02/11] dt-bindings: phy: rockchip:
- naneng-combphy: add rockchip,sgmii-mac-sel property
+	b=cMCHYpnyIm0S5Db+YyBO929/0yD6O04wu23g88ALfFmSmETUsLgn7G6jwzwNRQuTn
+	 YVx2Bh31qxFwjr99ZgrwOC3KlbsefpDoUL8wbi5zxARk85ZCOEMKPY2uqh0/hX+YuA
+	 nuuJFiZYl77s5PsN9h5vsyAxemtbcdwWTVnnPWswWl9vGDJkkJk6XMNH+Xi8PHATnO
+	 8+mIEsa8DTMoOVzsbJ5h1SN/f+HviuXqAzf12v37MNajKkg7RuPhpv3zOFytjhODVT
+	 Gwh9leRdj5v2nqJY9+mS/5oVUaT0pVX6xeBfY89Yj8WpHS3c+p5ERfgBpFXbB7dG9v
+	 WBb4o+I27la4A==
+Subject: Re: [PATCH net-next v7 04/11] dt-bindings: net: pcs: add
+ rockchip,rk3568-xpcs support
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,10 +56,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Mon, 21 Sep 2026 23:43:37 +0000
-Message-ID: <179003421738.2160803.13963773583177622439@kernel.org>
-In-Reply-To: <20260917204624.2427486-3-coiaprant@gmail.com>
-References: <20260917204624.2427486-3-coiaprant@gmail.com>
+Date: Mon, 21 Sep 2026 23:43:41 +0000
+Message-ID: <179003422174.2160803.7756611933343461937@kernel.org>
+In-Reply-To: <20260917204624.2427486-5-coiaprant@gmail.com>
+References: <20260917204624.2427486-5-coiaprant@gmail.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -84,73 +84,110 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] Concern that the newly documented `rockchip,sgmii-mac-sel`
-  property has no in-tree consumer, so a DT setting `rockchip,sgmii-mac-…
+- [Low] Concern (disproved as a defect): the binding does not describe
+  the CRU reset lines SRST_XPCS / SRST_XPCS_TX_DIV10 /…
+- [Low] The binding's description
+  (Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml…
 
 --
 
-dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel property
+dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
 
-This adds an optional rockchip,sgmii-mac-sel property to the naneng-combphy
-binding so that a device tree can select whether the RK3568 SGMII lane is
-routed to GMAC0 or GMAC1 via the pipe_sgmii_mac_sel GRF bit.  The property
-is restricted to the values 0 and 1, with a documented default of 1, and is
-allowed only for the compatible handled by the surrounding if block.
+This adds a new YAML binding for the Synopsys DesignWare XPCS as integrated
+on the Rockchip RK3568, with four MII ports described as
+ethernet-pcs-mii@N child nodes.  The node requires clocks, phys and a power
+domain, and the CRU reset lines are deliberately left undescribed.
 
-> diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> index 379b08bd9e97a..8e898bce9af73 100644
-> --- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-> @@ -80,6 +80,15 @@ properties:
->      description:
->        Some additional pipe settings are accessed through GRF regs.
->  
-> +  rockchip,sgmii-mac-sel:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    default: 1
-> +    description:
-> +      Select gmac0 or gmac1 to be used as SGMII controller.
-> +      The hardware reset value is GMAC1 (1). Set this to 0 to route
-> +      SGMII to GMAC0.
+Two questions about the new schema below.
 
-[Severity: Low]
-This isn't a bug, just a note for the record in case anyone looks at this
-commit in isolation.
-
-At this commit alone there is no consumer of rockchip,sgmii-mac-sel in
-drivers/phy/rockchip/phy-rockchip-naneng-combphy.c, so a device tree with
-rockchip,sgmii-mac-sel = <0> would pass dt_binding_check and probe while the
-SGMII lane stays routed to GMAC1.
-
-The following patch in the series, "phy: rockchip: naneng-combphy: add SGMII
-MAC selection for RK3568", adds the consumer:
-
-  rockchip_combphy_parse_dt() {
-      ...
-      priv->sgmii_mac_sel = 1;
-      device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
-      ...
-  }
-
-  rk3568_combphy_cfg() {
-      ...
-      case PHY_TYPE_SGMII:
-          rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-                                       priv->sgmii_mac_sel > 0);
-      ...
-  }
-
-The 0/1 encoding and the default of 1 in the schema match that driver code,
-and bindings-before-driver is the expected submission order, so nothing needs
-changing here.
-
-> +
->    "#phy-cells":
->      const: 1
->  
+> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+> new file mode 100644
+> index 0000000000000..703fcff0e3f70
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+> @@ -0,0 +1,110 @@
 
 [ ... ]
+
+> +  The XPCS is accessed over the APB3 bus and internally connected to a
+> +  Naneng Combo SerDes PHY.
+> +  It supports 1000BASE-X, SGMII and QSGMII modes.
+> +
+> +  The block contains four MII ports that can be individually enabled and
+> +  routed to one of the Ethernet GMAC controllers via the pcs-handle
+> +  property in the MAC device tree node.
+
+[Severity: Low]
+Is the routing really controlled from the XPCS side?  On RK3568 the
+SGMII data path mux looks like a single pipe-GRF bit owned by the combphy
+driver, not a per-port property of this node:
+
+drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:
+
+    static const struct rockchip_combphy_grfcfg rk3568_combphy_grfcfgs = {
+        ...
+        .pipe_sgmii_mac_sel = { 0x0040, 1, 1, 0x00, 0x01 },
+
+and in the PHY_TYPE_SGMII case of rk3568_combphy_cfg():
+
+    rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
+                                 priv->sgmii_mac_sel > 0);
+
+priv->sgmii_mac_sel comes from the rockchip,sgmii-mac-sel property and
+defaults to 1 (GMAC1) in rockchip_combphy_parse_dt().
+
+That means there is one SGMII path shared by two GMACs rather than four
+independently routable ports, doesn't it?
+
+Can a device tree then set gmac0's pcs-handle = <&xpcs_mii0> while the
+combphy keeps routing to GMAC1?  Both nodes validate, the XPCS probes and
+is configured, and neither driver can notice the disagreement because the
+two properties describe the same mux from opposite ends, so the link would
+just never come up.
+
+Would it be worth stating here that the MII port to MAC association has to
+agree with the combphy's rockchip,sgmii-mac-sel, and how the four ports map
+onto the two available GMACs in QSGMII mode, instead of describing per-port
+routing via pcs-handle?
+
+> +
+> +patternProperties:
+> +  "^ethernet-pcs-mii@[0-3]$":
+> +    type: object
+> +    description:
+> +      One of the four MII ports of the XPCS. The port is linked to an
+> +      Ethernet MAC controller via the pcs-handle property in the MAC's
+> +      device tree node.
+
+[ ... ]
+
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - clocks
+> +  - clock-names
+> +  - phys
+> +  - phy-names
+> +  - power-domains
+> +
+> +additionalProperties: false
+
+[Severity: Low]
+With no resets property described and additionalProperties: false here, a
+device tree cannot express the CRU reset lines SRST_XPCS,
+SRST_XPCS_TX_DIV10, SRST_XPCS_RX_DIV10 and SRST_XPCS_XGXS_RX from
+include/dt-bindings/clock/rk3568-cru.h at all.  Does that matter for an
+unusual bootloader hand-off where the block needs to be re-reset?
+
+For what it is worth, both halves of the rationale in the commit message
+check out: the glue driver drivers/net/pcs/pcs-xpcs-rk.c added later in the
+series contains no reset_control_* call (it brings the block up through
+devm_phy_get("serdes")/phy_power_on plus PD_PIPE runtime PM), and adding an
+optional resets/reset-names pair to the schema later stays backwards
+compatible.  So this is only a question about whether the DIV10 and XGXS_RX
+resets are needed in practice, not an objection to the documented omission.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917204624.2427486-1-coiaprant%40gmail.com
