@@ -4,144 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7151AC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5839EC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZfOg9XYdQ5/vxidE+9pPRR6RYjJCbLCLOIt2gCT+9Gg=; b=0K/U5OUw3I8E6/IKNWRk6HUVvg
-	HKUn2y9NKId3WT604dpCXRhsIOR01aFbhgaHpfSmx82Fjpd2n0hJdWiN3alzeun7+m3ArQ6Bn2oo8
-	I4LwdOdswQFPQz6g9vUqsdFzS+4nrKuAkEMQzccYW/mWhh9FIl4rCzOldo7Mt1MV/vNIKI9aGYA5d
-	6TcbwvwKegMxRjjCxXGPkYgEbiZooJBbB4VQ0YDM+uYqd4S6z4kfQWpD6Eq9q7Yrv7smXE50tmmoi
-	MfhHiLiYXyBlFlVxQLtBw6myY8mMw44EZy7w0g0zWH0HDfqU5stamEeFtaLyP9l7RGYSz7bRZBfmY
-	yNdHciEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j4liZ14THFBbmN0BGtw1acIhCbedsr31KR7f3ynsmuI=; b=3vltjGim+piHUIglTQ7Nd9i6P1
+	fGRbNJSFG+JKsSj/M2FbJpCacpPla3RMiDpdcCK1VEA672xIgolOgau+5SVJyLXTiQATWWEtwBU2V
+	lXOsSuC/G3aEP/V80i7iwGpHOoNuzdu/l98CyQS/x5vZDKFzTbgSkGT5da267ZA/Z2znl3ywSg2Vo
+	SeRHvHZpSZpq/rnTqlRkcoYuKPlvBignxLrffidLWGFO94yI7zoHxYBwNtyRleYSfSqROxCIisMnw
+	+ciEjkqGjiyo3LOKL9w3v1oarsPUO5BAW/8+hCZBnRkPbCPdNWrrhb5W8bqIUbECCW0wGrlUpCy2g
+	t7T+ouRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8lqT-00000003V1m-3BxR;
-	Mon, 21 Sep 2026 21:46:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x8lvZ-00000003VPc-24gY;
+	Mon, 21 Sep 2026 21:51:57 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8lqR-00000003V1M-49Vq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 21:46:41 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LKencV2741059
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 21:46:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZfOg9XYdQ5/vxidE+9pPRR6RYjJCbLCLOIt2gCT+9Gg=; b=EFoJNMx1X6Pv4FDS
-	tMUSGAa9LvqoGHZBedDqvdBcDA7Cvae9SnITto4f09jRtlbuekCrbMc/2MAKvf6x
-	gy2p3mZ2bhW8HdOSvKsdo/MKLNoMpVqXD90eb3NjmicVlbPWXm3gn48rxPFjxWVd
-	ccE3FYDFyB3GFotA+QlERyQZ16B85/XCfZXm5v3vSsXF7AER0i7zlTvSQHCun1zu
-	nfalxcV7idp0hPZlhBnqfZke+HLmsbX2Sc7DCOy8jejO2OtTqVCkLWdLV1vBiXSp
-	9DeQc19R9BUJCDEQgouChdIxMP4QiqIcIk83GTs5CpiOtWouC/iXLzm7qBgeMsWJ
-	YRLYVw==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gu01d3fd9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 21:46:38 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39de4e72b33so6332365a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 14:46:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790027198; x=1790631998; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZfOg9XYdQ5/vxidE+9pPRR6RYjJCbLCLOIt2gCT+9Gg=;
-        b=S99R1vau7sIaEJ+YM9qMQjfSSa93YhpEqFBo21E8O8mPAYEOCyU/iVY4E4NRY5eIKX
-         iA95yfP7iQRbe2kctesFXQkgO90hBSwHPrMY7HvegEv/G2HIeezwZ7OgC6Rl4Dc9wMYf
-         QonfieXs7OESkdtlWEsz874Gz2vlmIPRAkWgy8R9uchqygLDXZSsmf6Q2adpPfYqrDO/
-         JBObDBobvI2dtV+VXxFYcojk7yR2ZXw6TB3cWS95FBOwsktHKhcP8rdYJ+aLL75uB/yu
-         rP0M8tAFOSEUpprVTZCWb36c1BKvwSLzWY0sH7x1tnR3aTi3NPEQzLm100dMSmLAnWio
-         pcNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790027198; x=1790631998;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZfOg9XYdQ5/vxidE+9pPRR6RYjJCbLCLOIt2gCT+9Gg=;
-        b=WPAwy2NFTpNfxmb7YRyHbresXGh25JF/C9wXma7vhwOJlI7QlvySb76Bt4EhVwOiXa
-         0/BGDqyM5PbWFupZ9xWdQqU0SnStXEFz7WtF5HBbDDzCWp5rIXxTtzcGPHtNn2HbIgjT
-         xC48sPoR5XiLpwMUUFJwiHnsifOojD9bJIzXXmfXa0M6UQ5+xhyGLQTiecY0+8FC/WDz
-         QYqqOmmfZBYwweff3FzW9+EgfyUW+VDKrApfEB1JGWfiC5XuCuJfHSdMPCWDyIB5Dyet
-         aSRkj8tUkAsKrxA9hocJTD0HYQguVb5pW7TQrgAcR47LytZ9pPtaikHGgB5T1wDfpo7/
-         fSXQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzeK69pfa/98lM2thMC2TzzC2oBUp01dUL3Krby/yGxGVK+Vw96VvE5c2FPTtKMcDhh52I93kN+TwzVSdpSrJWp@lists.infradead.org
-X-Gm-Message-State: AFuF++m76bB7778jb32cXgtuUizXuiAHdlrQbnHcRARXS/O5Yy2dlkp8
-	D41R1HZNMSQP5hQVbiCOO5e82rmxUYU2gXPAULU8bkmTI/616O4pnsGM7ejQi7j+MHd3c/Y48eX
-	y4hCLnVranbb32hiaoT7pg2OuDBfDQWvAKRznoAY6sp/V4+R5DBMeNtUUq/cjiLfvnLIRiIGUiT
-	nHXw==
-X-Gm-Gg: AYBFou0ykC/Qh9LV4SgpEAQeeCxVA0FRTTR0C7djxBbbANKZ1z8/566rliP1YygcqHL
-	5yl5TIChWPjl0k3/o5ANDYQ8ej+WDfEBuRn69i8sRwKNk5rV84W5qjrEbQke8pyucvrpPcHw9Yj
-	LddcCj6JV477IuMGGA2jqUsZOlI3flJpN8SiyIUdrFZq/ubUs4Q2KLY5qhkZCAUg3HSFG3C/4Pz
-	jYITV8A8dSm0Iifwlp8b96Nd03wclOJpyREZycSaSlFX3Qgxz9yzT46i+gmKI6hgJFgVGU2d0+0
-	1qwK/jCZImGKVF2HSjO4OOiI+nOkunkwIr3X6qWbPUJjHOtoS5Ly0+tJMvwdpHBnyMptp4n8KNt
-	mtJ0JGkgySpef5rL37B/bAWqF4A==
-X-Received: by 2002:a17:90b:2dc3:b0:39e:3ce1:d22f with SMTP id 98e67ed59e1d1-39e54d3674bmr17165996a91.16.1790027197641;
-        Mon, 21 Sep 2026 14:46:37 -0700 (PDT)
-X-Received: by 2002:a17:90b:2dc3:b0:39e:3ce1:d22f with SMTP id 98e67ed59e1d1-39e54d3674bmr17165954a91.16.1790027197022;
-        Mon, 21 Sep 2026 14:46:37 -0700 (PDT)
-Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144f0c7e0d1sm439586c88.10.2026.09.21.14.46.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 14:46:35 -0700 (PDT)
-Date: Mon, 21 Sep 2026 14:46:31 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18 4/7] firmware: arm_rmm: Add support for SRO
-Message-ID: <20260921144631.00007440@oss.qualcomm.com>
-In-Reply-To: <bbb2f1db-5d42-495f-b34e-184a6cd894ce@arm.com>
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
-	<20260912083611.2513845-5-suzuki.poulose@arm.com>
-	<178978126542.2352296.15676256806777454164.b4-review@b4>
-	<bbb2f1db-5d42-495f-b34e-184a6cd894ce@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1x8lvX-00000003VPG-3DOU;
+	Mon, 21 Sep 2026 21:51:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=j4liZ14THFBbmN0BGtw1acIhCbedsr31KR7f3ynsmuI=; b=C/VoKAnYoViJsLPq6M2KfEq/2l
+	yj3Pxhx4N4KTa+gD9o+wnO6sW7Y8smzmG3yJuwnsGIl9NkZLhf0KM1U5Nc1rxBEwvlpqpcA8u6iA1
+	4mVUNb2aVlUhmcqZDt1jCZBvQkmWhR/4SWduTuhkrWUqY5huztGkCU/X+69KkAlsDC24NKT1y6gbC
+	eV9x5XXP4z+GNNlIJPJXJhNHiWKA0AwGemidSjcZ11RTnPg7/w5caDqVnxULkB0uM+ZWcMSA5/nuF
+	2KM4vLsO9gHCHTNI5rShUQfpSgOF/E/u7WJKerxRgQo+4ZSpHasM9Mo+UQ8RW8Fof5V44WQ6rf+22
+	RvEJK6/w==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8lvU-00000005flc-3NGk;
+	Mon, 21 Sep 2026 21:51:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=j4liZ14THFBbmN0BGtw1acIhCbedsr31KR7f3ynsmuI=; b=YTN6YR/z0jFiPpwVnyatzy/Yga
+	b/ntgapdGubCzkXTkPBHOGR601vbC8lI95G16qLYg3n28RJjTlVIJKfHrZvwI4sHKm4FK/Q+1ukPZ
+	Pi8CK0QzmBjm/fjsyLZo/zwgb8Wk24in9xxFJ8p6FtC5nmb99FmBecxo4nbJMQsFBI4jjXvHsVG8k
+	UY3JXdVfgvZGfAAoTVJzuO/DRYOpjHDFCel/Ea1luhz1+Ii1H2qy5gB7hhwOymTILDedQSGLM8hRE
+	lyJAbMfSYJlcMrhbibSOTdliNr0tlhfbCPbFc5gqMGCFAmTjZg4wEAu9yQdeucwA9d9M0a2SaH71v
+	jEa23Bog==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
+ zhangqing@rock-chips.com, Jiaxing Hu <gahing@gahingwoo.com>
+Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
+ sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
+ u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com,
+ diederik@cknow-tech.com, alchark@flipper.net,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [PATCH v13 13/14] arm64: dts: rockchip: add NPU (RKNN) nodes to rk3576
+Date: Mon, 21 Sep 2026 23:51:33 +0200
+Message-ID: <119338490.nniJfEyVGO@phil>
+In-Reply-To: <20260915104328.45901-14-gahing@gahingwoo.com>
+References: <20260915104328.45901-1-gahing@gahingwoo.com>
+ <20260915104328.45901-14-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: yagKvIcAqTHKo-tEJqZm5VxbZWecD2Rd
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDMxOCBTYWx0ZWRfX7U19A7r0bhyd
- Z+hTYLfLYuRGEkTzarYx0Tvk4o2m6V2QoXP84/lwAltXwNgKCoS0Qa6QYU/HaCsUVSu3kWWY6dn
- kpDCuMOzCHGSzJeqUoy98h6nRlrhpRc=
-X-Proofpoint-GUID: yagKvIcAqTHKo-tEJqZm5VxbZWecD2Rd
-X-Authority-Analysis: v=2.4 cv=Ht7jiETS c=1 sm=1 tr=0 ts=6ab1a5be cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=yke8hGA7Qea92797WwgA:9 a=CjuIK1q_8ugA:10 a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDMxOCBTYWx0ZWRfXztTfGr8mLfZP
- 0/sZeD7aEVgKFFVNDouCEufTF/dXpYNj6yCol6zG+YUKa2q7ZHVd+j8+zQRg9PNB2JkIGM2jypD
- 4d8EJrLWvcnLb38b+Icxk2Opr3E3ZFs3LUm2xRAtY9Y5AJeSDc1AZuVKtUQ3lT50hFoxYm/t3ZM
- Ps+/zBZb79mHpuBpCyJKcSkUnhsrWTIIAD6G/43CowBV6YWmhOTMDSxWxdn31P7V7mOzBZQ2p1/
- ovMn5HuKDMbHkYIE/mk4aGuGXbx3FyMC5IcIMzHYYq3LDRHaif12T8fRfMAPvjEqPfERjpXjFTS
- k4mE78iXG7dOFtqNZN+F/30ZDVjbWwtGH2ZAO+j92GI0tW8qGzHyZB1w+fb66JGq3pW0B3sz4F2
- yu5xnQ6guSx0ckKCA3V4zwJk7U60QcTb+i7FXLSJPnOaD67+nlHTPE3Bo0dd/Ukn+v9rgYKrSWE
- lAa5Wx5hyvxG65qHTgA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-21_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0 impostorscore=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609210318
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_144640_173406_6A7FA4E1 
-X-CRM114-Status: GOOD (  43.71  )
+X-CRM114-CacheID: sfid-20260921_225152_911034_D5BF802C 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,167 +88,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-> >> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> >> index 5b0e342ce3d5..4f9898ece754 100644
-> >> --- a/drivers/firmware/arm_rmm/rmi.c
-> >> +++ b/drivers/firmware/arm_rmm/rmi.c
-> >> @@ -15,6 +15,59 @@
-> >>   #define RMI_FEAT_REG_COUNT	2
-> >>   static unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT] __ro_after_init;  
-> >   
-> 
-> Was there a question here you missed ? FWIW:
+Am Dienstag, 15. September 2026, 12:43:27 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Jiaxing Hu:
+> Add the two RKNN cores and their IOMMUs. Both cores are disabled by
+> default; boards enable what they wire up.
+>=20
+> PD_NPU0 and PD_NPU1 are siblings under PD_NPUTOP and hold one core each,
+> but the convolution buffer and the DSU sit above them: ACLK_RKNN_CBUF,
+> HCLK_RKNN_CBUF and CLK_RKNN_DSU0 belong to the block rather than to either
+> core, and PD_NPUTOP already lists all three. Add them to both core domains
+> as well, so a core domain switching state has the clocks of the path it
+> shares running, and give each core domain the BIU reset that the pmdomain
+> driver now cycles once power is on.
+>=20
+> Each core lists both core domains, its own first, so that a core in use h=
+as
+> the whole block powered. Whether a single core can reach the shared path
+> with the sibling domain off is not something this series establishes;
+> listing both is the description that has been tested here. The IOMMU in
+> front of each core lists that core's domain only.
+>=20
+> Label the outer PD_NPU node so a board can attach the NPU rail to the
+> domain that gates the block.
+>=20
+> Clock the NPU inside the voltage its rail is given. CLK_RKNN_DSU0 clocks
+> both cores and the CBUF they share, nothing in mainline sets its rate, and
+> the block comes up at 786.432 MHz. Rockchip's OPP table for this NPU asks
+> 800 mV of its 800 MHz step at the worst leakage bins, and nothing in
+> mainline sets the rail either, so a board that follows this DTS runs the
+> NPU above the step whose voltage it happens to boot with.
+>=20
+> On a ROCK 4D with both cores enabled and vdd_npu_s0 at the 750 mV its PMIC
+> comes up with, two jobs in flight at once make the second core write sing=
+le
+> words of its output wrong: the right value with a bit of the accumulator
+> set, always the same position in the array. Either core alone is exact.
+> Four device trees, same board, kernel and userspace, four passes of 5400
+> rows each, every row compared with the same multiply done one row at a
+> time:
+>=20
+>   786 MHz, 750 mV    13 to 20 wrong rows a pass
+>   594 MHz, 750 mV    0, 0, 0, 0
+>   786 MHz, 800 mV    0, 0, 0, 0
+>   786 MHz, 850 mV    0, 0, 0, 0
+>=20
+> 594 MHz is a divider off GPLL and sits between that table's 500 and 600 M=
+Hz
+> steps, both of which ask 725 mV at every leakage bin, so it is inside the
+> voltage a board that describes no NPU rail already provides.
+>=20
+> The trade it buys is a core against a clock, and both halves are measured.
+> The rate lives in the device tree, so the two clocks cannot share a boot,
+> which means this comparison is across boots and has to clear the noise of
+> one. Twenty readings of a single arm inside one boot, nothing changed
+> between them, span 2.5%; across boots it can only be worse. So the 4.0 to
+> 4.2% below clears that floor by under a factor of two, and the 26 to 37%
+> clears it by ten. Five runs an arm, the arms alternating inside a boot,
+> one warm-up a model discarded, medians of five:
+>=20
+>   decode tok/s      594 MHz   786 MHz
+>   Llama-3.2-1B        17.85     18.60   two cores
+>                       11.17     13.77   one core
+>   SmolLM2-135M        41.46     43.12   two cores
+>                       38.26     41.90   one core
+>=20
+> Losing 192 MHz costs 4.0 to 4.2% of decode with both cores running. Losing
+> a core costs 26 to 37% on the 1B model, at either clock. The rate is the
+> cheaper of the two by six to nine times.
+>=20
+> The two arms cross-check each other: the clock is worth 23% on ONE core
+> against 4% on two. With both cores running the bottleneck is no longer the
+> clock, which is why this configuration can afford to give up 192 MHz.
+>=20
+> A core is worth much less on a small model, 2.8 to 7.7% on 135M, where the
+> second core's dispatch overhead is not repaid. TTFT moves by under 2%
+> either way, so none of this says anything about prefill.
+>=20
+> An OPP table with the rail attached is the proper answer, and it wants
+> driver support this series does not have.
 
-I think inaccurate cropping only!  Have been using b4 review tui
-(which is excellent btw!) Not sure I've gotten the hang of it fully yet.
+please trim that commit message A LOT :-) .
 
-> 
-> I have expanded this to cover all 5 RmiFeatureRegisters exposed by RMM, 
-> and it looks something like this now, with the use of ARRAY_SIZE() to
-> limit accesses.
-...
+You're just adding the nodes for the NPU cores, that does
+not need a novel-sized commit message.
 
 
-> 
-> >> +
-> >> +	/* Keep just the blocks the RMM didn't use in addr_list */
-> >> +	for (int i = consumed_blocks; i < count; i++)
-> >> +		sro->addr_list[addr_list_start + i - consumed_blocks] =
-> >> +			sro->addr_list[addr_list_start + i];  
-> > 
-> > Maybe memmove to make it clear you are shifting a chunk of the array
-> > down.  This might be worth some asci art showing each step in brief.
-> > Anyhow, something along these lines:
-> > 
-> >        memmove(&sro->addr_list[addr_list_start],
-> > 	      &sro->addr_list[addr_list_start + consumed_blocks],
-> > 	      (count - consumed_blocks) * sizeof(*sro->addr_list));
-> > 
-> > Obviously doesn't save code, but maybe simpler to understand than
-> > the loop.
-> > 		  
-> 
-> Does the following hunk look better with the comment ?
-> 
->          /*
->           * Keep just the blocks the RMM didn't use in addr_list.
->           * RMM claimed consumed_blocks entries from addr_list_start.
->           * Move the entries left out at the end i.e.
->           * [ addr_list_start + consumed_blocks, addr_list_start + found)
->           * to the rest of the valid entries and adjust the addr_count to
->           * reflect the available entries.
->           */
->          for (int i = 0, src = addr_list_start + consumed_blocks;
->                  i < found - consumed_blocks; i++)
->                  sro->addr_list[addr_list_start + i] = 
-> sro->addr_list[src + i];
-> 
->          sro->addr_count -= consumed_blocks;
+Additionally, please split this into two commits:
+=2D Adding the resets to the power-domains
+=2D Adding the nodes for the NPU cores (add pd_npu phandle here too)
 
-Good enough.  Not sure there is a perfect answer for this one!
 
-> 
-> >   
-> >> +}
-> >> +
-> >> +static int rmi_sro_reclaim(struct rmi_sro_state *sro,
-> >> +			   unsigned long sro_handle,
-> >> +			   struct arm_smccc_1_2_regs *out_regs)
-> >> +{
-> >> +	unsigned long capacity;
-> >> +
-> >> +	if (rmi_sro_ensure_capacity(sro, 1))
-> >> +		rmi_sro_free(sro);  
-> > 
-> > Maybe a comment on why you free the whole lot rather than a smaller
-> > amount to make some room.  
-> 
-> We don't do partial free of the list today, and having that is
-> unnecssarily complicating the logic/code. We are going to do a reclaim 
-> anyways. Sure, I could add a comment.
+Thanks a lot
+Heiko
 
-Might be useful as a breadcrumb in future but indeed not vital.
-That was what I was assuming was the case.
 
-> 
-> 
-> >   
-> >> +
-> >> +	capacity = RMI_MAX_ADDR_LIST - sro->addr_count;
-> >> +
-> >> +	rmi_op_mem_reclaim(sro_handle,
-> >> +			   virt_to_phys(&sro->addr_list[sro->addr_count]),
-> >> +			   capacity, out_regs);
-> >> +
-> >> +	/*
-> >> +	  * RMI_OP_MEM_RECLAIM always return RMI_INCOMPLETE, except when the
-> >> +	  * input parameters were invalid.
-> >> +	  */
-> >> +	if (WARN_ON_ONCE(RMI_RETURN_STATUS(out_regs->a0) != RMI_INCOMPLETE))
-> >> +		return -EINVAL;
-> >> +	if (WARN_ON_ONCE(out_regs->a1 > capacity))
-> >> +		out_regs->a1 = capacity;  
-> > I guess this should never happen, but bit ugly to fixup the register
-> > return rather than perhaps using a local variable instead.  
-> 
-> We pass/get the out_regs, so local variable doesn't work, unless
-> I missed what you were hinting at..
-
-Ahh. Indeed, I wasn't thinking ahead to it being visible after. 
-
-> >   
-> >> +long rmi_sro_execute(struct arm_smccc_1_2_regs *regs)
-> >> +{
-> >> +	bool cancelled = false;
-> >> +	unsigned long sro_handle = regs->a1;
-> >> +
-> >> +	rmi_smccc_invoke(regs);
-> >> +
-> >> +	sro_handle = regs->a1;
-> >> +	while (RMI_RETURN_STATUS(regs->a0) == RMI_INCOMPLETE) {
-> >> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
-> >> +
-> >> +		switch (RMI_RETURN_MEMREQ(regs->a0)) {
-> >> +		case RMI_OP_MEM_REQ_NONE:
-> >> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
-> >> +					regs);
-> >> +			break;
-> >> +		default:
-> >> +			WARN_ON_ONCE(1);
-> >> +			if (!can_cancel)
-> >> +				return regs->a0;
-> >> +			/* If we have already cancelled, don't retry this */  
-> > 
-> > Maybe expand that comment a little to say if we can get here under a
-> > valid sequence and if so are we guaranteed that cancel is complete
-> > given that is what caller will probably expect if it gets -ECANCELED.
-> > 
-> > My reading of spec would suggest we can't hit this path for the
-> > calls that are not memory tranferring. Then again we can't hit the
-> > first cancel either so all bets are off.  So maybe this is the
-> > bet we can do.  Also can_cancel shouldn't be true after
-> > rmi_op_cancel() as I assume you can't cancel a cancel.  
-> 
-> Ack.  This was to handle a buggy RMM (and soothing an LLM bot)
-
-Modern job titles: LLM Soother!
-
-I aggressively cropped previous email. For avoidance of doubt
-the rest all looked good to me.
-
-> 
-> Thank you for the review.
-You are welcome. Thanks for pushing this forwards
-
-Jonathan
-
-> 
-> Cheers
-> Suzuki
-> 
-> 
-> >   
-> 
 
 
