@@ -4,84 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31863C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB66FC982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzbi36ITGsS4iWNXxtdP65zumc/0Hv+pIAeGTi+GcQ4=; b=bgMQPDAI0EnINl+dfJtzOENRcp
-	++HI0kqSzrFR514YvSIZyA98JUtIn4i+D5IFCZ6yYPTSfe0zv8fItm1n2jcgeh40AfL5Ah8cBRd46
-	V5qsnF1P9pzOoFSSL9DjvJE+F79UbJXx6zc6upx2Blt7pXbnMlwPkIyYjnVVGF9KLM0FzcmzT2ip7
-	FyXkwYwnxRpPJhiVP2ZP6MzaDKq2k+20C/Jh550C8Dx5AH3vWBrbwdtyo+fRSW4++1L3lNSfvtTuC
-	8l+6JPqH9U2rLFx/OiGuL/vLNmwD8BObpG2XBHaXm8wP9L89QwmeBCgVJ9/A/FnrSAQZu4/QbEWkW
-	PeT4qhVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QaQFJBupYn8a2JRBQy+mTeYlD2vfa4TeC3icNHYznjc=; b=Z5/aymTXBWx7HvtAIBN/pdb6Ry
+	FpYS6NMx+qilEzJ+x1g1gFrQhBG3ert1FNkn66GVg3c+AOh0LgM+4Wbsh1k+soIHKY8iM2JaUlplV
+	qZZw64NXd5heZNCZml/fIQXWRyaiHrbLskY8EbB0xK2awB3i61Q37QgmlFntNHIa8asu07NRVlCEl
+	UC8k3/yWEOKvKwwAX6UI05Fv5Z+qL5Jujgn63tUkOOIUHmSdaAulV1oS+YR1KBFDba9pwZMgE+a+d
+	ypwriqYgczdT6oXfrTagdkQhiysaopCic23s4+Up6ZjY+2wJj+idVaPI0aiG7CPv6blAk9SDgvKh6
+	pGQd3K1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YGF-00000001Avg-0cQ3;
-	Mon, 21 Sep 2026 07:16:23 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1x8Xcj-000000012NK-1wCQ;
+	Mon, 21 Sep 2026 06:35:33 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YGB-00000001Aue-2nOP
+	id 1x8Xcg-000000012Kh-0EBn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 07:16:21 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DF96EC2C659;
-	Mon, 21 Sep 2026 07:17:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D669E60339;
-	Mon, 21 Sep 2026 07:16:16 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A850610329100;
-	Mon, 21 Sep 2026 09:16:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789974974; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=pzbi36ITGsS4iWNXxtdP65zumc/0Hv+pIAeGTi+GcQ4=;
-	b=AcujFY3uHm7+B7r1K++AlwOGnnnaQ6IU4z6IlMfOnRb/Rbb7s693ivo55BOAi8rpbWFYb7
-	AJMthmWmZWixUW19PScUjnWdVmxbfZj/hiqx63zdpmcZ76XxfZ9C5N0aFwc3YQW6eNbfyJ
-	W9ZPdRsgcyomRJWSgV2ft/aQqXVY/7Y/HYIi8BaFQPyk/1Fs5KGUK8tLKi+bLEm/ux4tvd
-	qcid/BryvhoRufogP0l/4GxIEgglYPp+6R1uvwypfsJkQ/b32iRZBndLyq5nnLv+sbtsIT
-	mhuvd67QwmP92llw1IOBVr+3lZQlxS8H4PGg4RrxtvV7qg3v0HkwAEbuFEOfOg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 21 Sep 2026 09:16:01 +0200
-Message-Id: <DLKT61DMSLFT.JA03R1SO6WNU@bootlin.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Dave
- Stevenson" <dave.stevenson@raspberrypi.com>, "Dmitry Baryshkov"
- <lumag@kernel.org>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
- "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>, "Chen-Yu Tsai" <wens@kernel.org>,
- "Samuel Holland" <samuel@sholland.org>, =?utf-8?q?Ma=C3=ADra_Canal?=
- <mcanal@igalia.com>, "Raspberry Pi Kernel Maintenance"
- <kernel-list@raspberrypi.com>, "Raphael Gallais-Pou"
- <rgallaispou@gmail.com>, "Sandy Huang" <hjc@rock-chips.com>,
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Andy Yan"
- <andy.yan@rock-chips.com>, "Algea Cao" <algea.cao@rock-chips.com>, "Daniel
- Stone" <daniels@collabora.com>, "Liu Ying" <victor.liu@nxp.com>, "Phong LE"
- <ple@baylibre.com>, "Helge Deller" <deller@gmx.de>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v11 12/74] drm/bridge: Fix unlocked list_del in
- drm_bridge_add()
-Cc: <kernel@collabora.com>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-rockchip@lists.infradead.org>,
- <linux-fbdev@vger.kernel.org>, "Sashiko" <sashiko-bot@kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
- <20260901-dw-hdmi-qp-scramb-v11-12-bc12954a0688@collabora.com>
-In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-12-bc12954a0688@collabora.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 21 Sep 2026 06:35:32 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68L3ZbCS4049209;
+	Mon, 21 Sep 2026 01:35:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=QaQFJBupYn8a2
+	JRBQy+mTeYlD2vfa4TeC3icNHYznjc=; b=qAxssB3EN1tgXGfhteVQDl8pNytIW
+	BAhtYOEuPjxiN1FOYv66tBn8XNQQ3zr1s1zOb8XmL0v9WhS9/Tms3UfrkuLzm2PC
+	KXGJzY7/ZWzbDsRyvqpyqoGBG148KxTBDT7W4scBe78YOzaW9+/u+eBZJ1M73gUf
+	8WCJb19lSti1ujhHPPZV+K6Rbq5K7zseVUXUTJMJpI0IFGsDRoXsDKi2NmTiCJmB
+	t0JcatK8CHclmJ9OOxXBzewyGCgEI8o+ou0A3DkfY5+wDHYgM+mttXHT7uaRxTgQ
+	9K2pr6Pjixobaf8J+NUaHQwW5Sk2kdx5Rzu0Gr82WD79gQ1ZnjuuR5lgg==
+Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010051.outbound.protection.outlook.com [52.101.56.51])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gtcbnmkcs-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 21 Sep 2026 01:35:20 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IbhD77TRBuU1yQWAtuY7c80i0gtuQiVOfeBG+yJzdRiPcyaa+6d+GwSFQCPpd37qKPvzdYOiyqLMvOGIMtlweVvY5mO8g/C0p46ebGPRCdHQhAaQHjsXPHPqwuDCB3xcsKunLgPKbJbeLpQaCToYOKq8lNqZB9AyQDLgDrsX+PqUeqJcQTL62hMl0ZF9BIANTi7c+289ek4jhQtFpMNlcZeeAMBCY0GEU2VwSdoTFF/3ned7H9kYu0NyxyMyktONiy9OtKRIuKyke+grS7xa/bsh+oI9QOn98v0VTG7MqfNySHZc45/Zv43gGSScAk/TG8BlRN4k2DA0pabHYorCPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QaQFJBupYn8a2JRBQy+mTeYlD2vfa4TeC3icNHYznjc=;
+ b=rNRpcPjuAO27UP/0BgVrCV3LqUkFn6JZLArSt9xX+ELaQbqjVnK5WnKN0yt2cXSUTu4WuaESZ3yyNJxV9gDlRyFq+R/yUJd/osv0n5k32aE7uIQErWUQfy82LhDCJje0z6d5S2SY5SsgQB8er7pyjKotJt3Txh2IW9+7HsYjqyhLwrRO0UqNJ3+fxHM/HtSjpYiIwHOhRh055gvbuJHgsmlYrh9KiGz19LJ68uAfwQyOpJrYsR6AqoiDQek5n7ijUYs5purfhTW40AMozz7433VJeEx/L28laTCBkTuMPUi2Yzu89qcZKaM6fdimZrOa5RHo/MbfReouRl0bc0N/Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QaQFJBupYn8a2JRBQy+mTeYlD2vfa4TeC3icNHYznjc=;
+ b=L8DE6czZgOmK1SHGAg3Rg7nYUlhpB0pa1wjkUQR3rMKWYoDduVMkjSVPUOWHvgBLP43jwsk06cDbNdwWG33aeDEPrnpaXuB14s/PhLoLGKGjaoIexM7X0GuKHnt+2QCGuEZot5QeeyL6z2xlU9dzb97jwDIBKbk7px85wdw6Tyw=
+Received: from LV3P220CA0021.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:234::13)
+ by SA2PR10MB4410.namprd10.prod.outlook.com (2603:10b6:806:fb::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.5; Mon, 21 Sep
+ 2026 06:35:17 +0000
+Received: from BN6PEPF00000072.namprd03.prod.outlook.com
+ (2603:10b6:408:234:cafe::2d) by LV3P220CA0021.outlook.office365.com
+ (2603:10b6:408:234::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.12 via Frontend Transport; Mon,
+ 21 Sep 2026 06:35:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN6PEPF00000072.mail.protection.outlook.com (10.167.248.199) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Mon, 21 Sep 2026 06:35:17 +0000
+Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
+ 2026 01:35:11 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
+ 2026 01:35:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 21 Sep 2026 01:35:11 -0500
+Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.53.39])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68L6Z7xd1510900;
+	Mon, 21 Sep 2026 01:35:08 -0500
+From: Akashdeep Kaur <a-kaur@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <sebin.francis@ti.com>, <k-willis@ti.com>
+Subject: [PATCH v2] arm64: dts: ti: k3-pinctrl: Add virtual GPIO select mux macros
+Date: Mon, 21 Sep 2026 12:05:05 +0530
+Message-ID: <20260921063505.3986565-1-a-kaur@ti.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN6PEPF00000072:EE_|SA2PR10MB4410:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c546c1c-dcaa-42d4-4db2-08df17aa8062
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700016|23010399003|82310400026|13003099007|6133799003|3023799007|10067099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: tEGLzC2Oev0QvErssvIA9wajUjfEqumqY5gEeRxB5tWgXITTPgNhTSWVvvGyS4t3WxX8y1G9H9rKaNkLpAC6XiMRfY/1Br/N36lOliU1P72PUDUW6H19CvtAp6YJHWPtLPAYGLxwN3+fSqLm0MAQ+27mbI0nsY3gnqKRH/HU3qWvUc+WjgUPeFBiw6nbES03HvBa8JafS9CrhR2ayeKV2EiNEErmJV7WyUaWnusxC1EtO5Ketyi5f6oXR3QQJY9yBsbDTE8QGlGc/rBff88qP0/Mcjs/GHus3k/wSRZxSW45v4iHQJmpXJ5WPPYhRQ8JtqYGBGewFs4F6zVUTcNIEFHuGC8wv4PvROVS98MGjfUb36oUmxlufpcgNrgTIxd6jH9IDJTdE5LREpt5JzHZLJ1uJZrP37lpINeUXIaF1ysxS4P5FvRyYOEG9sSRRC0bcMaj7EH7OJRaxTR2AyDNVb2azXgv5l5jaDhsz+b7t/91gIzVRbsc5T8zitKrDoUQ2I7uoNHAqUstqsvvATASQ66FmfrbRQIwnsRYUnuStvGD/J75x8rmowrVA5mAxqsIIitJpElu71iRKXPvKvJP017ZzA03snibZ0dmb5pWlAUoq9VW3Oey302NWGamvF/L2qeZQfIIiFny+ZmjvB0x6A==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(23010399003)(82310400026)(13003099007)(6133799003)(3023799007)(10067099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PtJ6wDkONZ4/31sS5KdDcRIuQkhz5ULAcr7n+5iXVKfi6EXMRXwxS3dLaqgwT0zXFrbGjNVZHndIJqkuYXnXq4up9t+0/k9IYla6Cq2UhwY/XzxtnaM3c8CxIuPTwl2EYwYQCQPToDlKBoFPrtKRZOZ7ijaR4bbddh1vQJeTdadwDENlvf7Tw/K3lKAHcyMjwuJydHsjP9ovbwgnzwyvgCRf2t6qbEQTVRlOIeHa5R9aBpDtGHiFc/ETcpl4dJAI6A+eWTjO8CaP2yKz+nBSLKRp5/ih8XmrpOUHp7/EkkDtld+ejIK5RxsSlADJ7aivUaL5RdqsGxYFLc8MmbBK9oCHD6WJQmj9sWyy66AibriRoCekT7MzoutSwm20/AFtoXC8L+iPUZcXY8DoD4ND04VOn6xFO/N+DDUZ3JdmEyjAmvuKJ/VeJjoeA02NoF1r
+X-Exchange-RoutingPolicyChecked: rD9DCG8BL3FYqgybtKnrIxxqTsd+7FVZp77jiWWTqOEKCnWDCes/WG10FKzcvK/Gy89wfXCsoxIY9jIRwSb2Zd9xXj5VxCZ4PzlqIoQ8b62I95qYH+C+083cLgBVVhdHmGyVJf3HQ6BuMKuL/54xVtANkQV3UHOBHRBMlFEvK2xfhhYL+Z8veb6ChForburJssi0FG8W6rEJR7TUuC6nyAljcX1/o65BsF4Ef0tBoZrXAlJF0FH2iFZrTkT/ZTfcz2gH8Wif+Vwd/KmQ8Yh1X0pXzmbsctYCA7pZqA4RI/hxJ6nqYskNBxek8YYEIDxYYQ5nSu+5K5LjmR4K774I/w==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 06:35:17.4537
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c546c1c-dcaa-42d4-4db2-08df17aa8062
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN6PEPF00000072.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4410
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDA5MyBTYWx0ZWRfX47M0A4VWXdFm
+ 2PTm9/RHZkDUyKUsN5WFZauWB90RNcAtFNnomSS0D7rRCA6FwtL2q0EioQHUUi1keg8/EQ8sUiN
+ WJ09TQFxF0vErQ+ZvXWMUSkXKdgADMs=
+X-Authority-Analysis: v=2.4 cv=P7CvFSAu c=1 sm=1 tr=0 ts=6ab0d028 cx=c_pps
+ a=oox2QBUX2gBgMMQWkhdftA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=VwQbUJbxAAAA:8
+ a=fbNvPRWCz3s4EN2JoQYA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDA5MyBTYWx0ZWRfX1T3iVrHrBC8Y
+ /rSw4K4ML58xOWnMjlzS7j2KRl0Hb+Ylz71KnsaTyT9+jXpjchMnFwn1kQa/bfh1UX0U2Eh9EeW
+ IZqrxEHGBPJTL3Qa50ELeFaeMyXqyV6ixfTLjHI+0cDoRWobQUxdtxVDC9ARc5xbIJFfemX4TvF
+ X/6xDNvosYjNjdu4Qj4Qn7xIUWyjmgiFYLjAimDQ77seebeuXFW1crhJnudgsIwH270EigBTHvg
+ ubs59B9S+0WygACoEjoh+Tgu7cwBPO+Vh5kPS6r/wdYX1hns6V1Lsz4FyVzJCn26nFuEKTI+Cx3
+ Own4m6LQk4+S9Nv8LkXxoNZMiA4Q5U3OoknibY1e97m+/svyAwSTrXfdqkH58aUux7l4JusfdL0
+ 12uSA9PSx7myeHtrrCCEdJeHVrw+rWuKfuHYQSkXS6VfOzm/0srAV0828q2FlbKipbLupzkTEHb
+ jStHt0UERAuBBRCMiHw==
+X-Proofpoint-GUID: W0fJR12eXeOPzEg0Ysfe_FklvkbJkMvr
+X-Proofpoint-ORIG-GUID: W0fJR12eXeOPzEg0Ysfe_FklvkbJkMvr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_02,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0 spamscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609210093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_001619_888605_1B2C521D 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20260920_233530_218670_DAB151E1 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,64 +173,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Cristian,
+Add virtual GPIO select mux macros for configuring the vgpio_sel
+field in pad configuration registers. This field selects GPIO
+controller routing. The meaning of each value is SoC-specific -
+refer to the Technical Reference Manual for the specific SoC.
 
-On Tue Sep 1, 2026 at 8:50 PM CEST, Cristian Ciocaltea wrote:
-> When re-adding a bridge that was previously removed, drm_bridge_add()
-> drops it from bridge_lingering_list without holding bridge_lock.
->
-> Both bridge_list and bridge_lingering_list are protected by bridge_lock,
-> as they are concurrently modified by drm_bridge_remove() and
-> __drm_bridge_free(), and walked by the debugfs 'bridges' file.  Running
-> the list_empty() test and the list_del_init() outside of the lock may
-> therefore corrupt either list.
+For example, on AM62L, values 0 and 1 select GPIO banks 0 and 2
+respectively, while on J784S4, values 0-3 select different GPIO
+controller pairs based on the pin. Pad configuration register
+field details can be found in each SoC's Technical Reference
+Manual (example: section 14.2.1.2.1 of [1]).
 
-The analysis appears correct, with a small nit: __drm_bridge_free() cannot
-touch the list concurrently to other functions, because it only runs when
-the refcount is 0, and all other functions tounch the lists only when they
-have a reference. (Should this sentence be wrong, that would be a big bug!)
+[1] AM62L TRM: https://www.ti.com/lit/ug/sprujb4a/sprujb4a.pdf
 
-But definitely drm_bridge_remove() and debugfs can run concurrently.
+Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+---
 
-> Perform both under bridge_lock.
->
-> Fixes: 17805a15d175 ("drm/bridge: add list of removed refcounted bridges"=
-)
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/20260723015004.1F5711F000E9@smtp.kern=
-el.org/
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/drm_bridge.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index afaae272347c..2c457ad74f3b 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -454,8 +454,10 @@ void drm_bridge_add(struct drm_bridge *bridge)
->  	 * in bridge_lingering_list. Remove it or bridge_lingering_list will be
->  	 * corrupted when adding this bridge to bridge_list below.
->  	 */
-> +	mutex_lock(&bridge_lock);
->  	if (!list_empty(&bridge->list))
->  		list_del_init(&bridge->list);
-> +	mutex_unlock(&bridge_lock);
+Changes in v2:
+  - Add all four PIN_VGPIO_SEL[0-3] macros instead of just two
+  - Use generic value-based naming to support all K3 SoCs
+  - Update commit message to clarify SoC-specific behavior
+  - Link to v1: https://lore.kernel.org/all/20260917111539.3844577-1-a-kaur@ti.com/
+  
+---
+ arch/arm64/boot/dts/ti/k3-pinctrl.h | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-The fix appears correct too, and consistent with the similar
-mutex_lock/unlock() below.
+diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+index 4491898d8294..f6d262933fad 100644
+--- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
++++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+@@ -3,11 +3,12 @@
+  * This header provides constants for pinctrl bindings for TI's K3 SoC
+  * family.
+  *
+- * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
++ * Copyright (C) 2018-2026 Texas Instruments Incorporated - https://www.ti.com/
+  */
+ #ifndef DTS_ARM64_TI_K3_PINCTRL_H
+ #define DTS_ARM64_TI_K3_PINCTRL_H
+ 
++#define VGPIO_SEL_SHIFT         (4)
+ #define WKUP_LVL_EN_SHIFT	(7)
+ #define WKUP_LVL_POL_SHIFT	(8)
+ #define DEBOUNCE_SHIFT		(11)
+@@ -111,6 +112,11 @@
+ #define PIN_WKUP_EN_LEVEL_HIGH		(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
+ #define PIN_WKUP_EN			(WKUP_ENABLE | WKUP_ON_EDGE)
+ 
++#define PIN_VGPIO_SEL0                  (0 << VGPIO_SEL_SHIFT)
++#define PIN_VGPIO_SEL1                  (1 << VGPIO_SEL_SHIFT)
++#define PIN_VGPIO_SEL2                  (2 << VGPIO_SEL_SHIFT)
++#define PIN_VGPIO_SEL3                  (3 << VGPIO_SEL_SHIFT)
++
+ /* Default mux configuration for gpio-ranges to use with pinctrl */
+ #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+ 
+-- 
+2.34.1
 
-So, with the "and __drm_bridge_free()," string removed from the commit
-message you can add:
-
-+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Thanks!
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
