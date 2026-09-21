@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57F7C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB043C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Mhs6eb7OkvMZOjYpBfupxS7w4Ah9cPyVbDMAhR1BJM=; b=lHL1cgeCnrMwXsa5FEHQdNFh5j
-	iBv5iXCZfrPZdqkaIC+bwWrlWJKRWfq0128EQl+iowkKqXSgCL9Q7zlC6NDRWGZr6OHUTfn0z1Q/v
-	ytA+aVRZpjQVddJf5SOK8hsmwlF2Yc+t0pdHnY9CWOE4JydS53lmSldctiKitq/ox8nnGVKlRYFEi
-	Inekydppxfv5vTjlXw7B+L/ZCYV+BqfR/wQSpSU18zYVUa+wjdJRYTVwkxoexONoAQ81D3i9UDgjR
-	B3vfU1U/1Sot2cVCDuJXQnWu6bqN06TpilaC20/YCIQzlGWXgrkYGiaObRYl1AVipTNMPxbsw78t8
-	t71Quorg==;
+	bh=n4tfQQNoh1s0SuFBn8g/TxJGhMe3ZOSgNRY3dXc6AJk=; b=R2eaXGFBFcB+21dwLbbC5hnuLX
+	xBcq63GsePvy9K3XjtyxBPeczs23GG9mdL5cv6zQeECmEEsTq+/dbLGE9le29xIw11i2KbUBaCFtF
+	nvHq5tETQRGbB/7oAbtxdDoGlO+aOTRRN9wEIlipdcqGy8CzkuyqwoAAkSz5onnBlh6dl9SJ8h0Wu
+	UC2b1iBdPD42nXF3srroeNLC+BzrYVZM/AHgHNeSSe4wTqbZLksttqYDzM4BbiqVWI5p/QwcNEDhx
+	shbFwJHzaEGrD/nAlB622XbiVFLAOwYrnGO1wytul4nVedgwxZwtVJtJymagdTdltbxb73WMZZt4j
+	KI58LRZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k9A-00000003HjV-39RX;
-	Mon, 21 Sep 2026 19:57:52 +0000
+	id 1x8k9K-00000003Hom-3ePv;
+	Mon, 21 Sep 2026 19:58:02 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k99-00000003Hit-0jrC
+	id 1x8k9J-00000003Hnn-3iet
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:57:51 +0000
+	Mon, 21 Sep 2026 19:58:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5EFA0601F0;
-	Mon, 21 Sep 2026 19:57:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807C41F000FF;
-	Mon, 21 Sep 2026 19:57:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5567B601F0;
+	Mon, 21 Sep 2026 19:58:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 763B91F000FF;
+	Mon, 21 Sep 2026 19:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020670;
-	bh=9Mhs6eb7OkvMZOjYpBfupxS7w4Ah9cPyVbDMAhR1BJM=;
+	s=k20260515; t=1790020681;
+	bh=n4tfQQNoh1s0SuFBn8g/TxJGhMe3ZOSgNRY3dXc6AJk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MbARqiV7B/zfuakxG+63SG5caSv4KSIkhdZNqBBLtdFvrpvbFYImUZ3HkRFCbqhrw
-	 qjBWyHn2eArQLhi7ERNIpORwvbfItMm0+vn9Qia1T6y8R4KSNI3f8M+ZpfYK9YRl+g
-	 Z2pp54eugw3h41rE/U9UhSYXwHMxOhBcyzmbbPydDabtRGpxv+QFLjDwN5yMzAA+Ki
-	 sPQV8T7lVBbftVjwHFoL6vK1l7sz+uBY2z1m03CdVOHHKV9E73axcA2i4qF2+uqh1+
-	 JX9Chi9bxAiot3vdNurFg4+je5ockMo707YpxprDWAN3Bvd2Co5CLiXTOcJkFeQ6cq
-	 3KXm/C+wQUm2w==
+	b=Ci0EfexEzpXudF6A1c0TRtaS3ijsUSJzv01W1MLD2bmATKrk4YDSRg9uokuQTkYan
+	 urzbYyusNB+l570E5twrDA1odMxPLzuEshNs6shFYh7z7YT1HLPBhUZTBB8UUz/NDp
+	 DrCb4KDhJ8OUEOs7U+IbTOs/3KI0DnpxKsWjXdModl6jPM22pi7RlmvW7WL6q+E+Tu
+	 iS657fJiAxB7i8oRzIHoC0Vm/Or2EPgEm/yHGYZBleqSlxQybJDLd7bVQSOJfd0nUt
+	 Zw4WOcr1rc00S7qHzQL747+8FZYX4Y5yDELZISU2iLc8BNhPOIj3b1lrJDbfR0Vyyo
+	 W7Q5xsASeT4Ew==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 13/17] ASoC: amd: acp-es8336: Switch to use
+Subject: [PATCH v1 12/17] ALSA: hda: tas2781: Switch to use
  acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:53:51 +0200
-Message-ID: <2063881.yKVeVyVuyW@rafael.j.wysocki>
+Date: Mon, 21 Sep 2026 21:53:12 +0200
+Message-ID: <895014215.0ifERbkFSE@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -108,29 +108,40 @@ device returned by acpi_get_first_physical_node() is removed right
 after dropping its ACPI companion's physical_node_lock in that
 function.
 
-It also fixes a device reference counting issue that may lead to
-a premature device release if gpiod_get_optional() fails in
-st_es8336_late_probe().
-
-Fixes: 02527c3f2300 ("ASoC: amd: add Machine driver for Jadeite platform")
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- sound/soc/amd/acp-es8336.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ sound/hda/codecs/side-codecs/tas2781_hda_i2c.c | 3 +--
+ sound/hda/codecs/side-codecs/tas2781_hda_spi.c | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/sound/soc/amd/acp-es8336.c b/sound/soc/amd/acp-es8336.c
-index 9f3f11256788..34e953d1a3a7 100644
---- a/sound/soc/amd/acp-es8336.c
-+++ b/sound/soc/amd/acp-es8336.c
-@@ -198,7 +198,7 @@ static int st_es8336_late_probe(struct snd_soc_card *card)
- 	if (!adev)
+diff --git a/sound/hda/codecs/side-codecs/tas2781_hda_i2c.c b/sound/hda/codecs/side-codecs/tas2781_hda_i2c.c
+index 5e5f46c9fb6b..161ca965c63e 100644
+--- a/sound/hda/codecs/side-codecs/tas2781_hda_i2c.c
++++ b/sound/hda/codecs/side-codecs/tas2781_hda_i2c.c
+@@ -100,8 +100,7 @@ static int tas2781_read_acpi(struct tasdevice_priv *p, const char *hid)
  		return -ENODEV;
+ 	}
  
--	codec_dev = acpi_get_first_physical_node(adev);
-+	codec_dev = acpi_bus_get_primary_device(adev);
+-	struct device *physdev __free(put_device) =
+-		get_device(acpi_get_first_physical_node(adev));
++	struct device *physdev __free(put_device) = acpi_bus_get_primary_device(adev);
+ 	ret = acpi_dev_get_resources(adev, &resources, tas2781_get_i2c_res, p);
+ 	if (ret < 0) {
+ 		dev_err(p->dev, "Failed to get ACPI resource.\n");
+diff --git a/sound/hda/codecs/side-codecs/tas2781_hda_spi.c b/sound/hda/codecs/side-codecs/tas2781_hda_spi.c
+index da71b57a26ee..f3ba7132d2b8 100644
+--- a/sound/hda/codecs/side-codecs/tas2781_hda_spi.c
++++ b/sound/hda/codecs/side-codecs/tas2781_hda_spi.c
+@@ -341,8 +341,7 @@ static int tas2781_read_acpi(struct tas2781_hda *tas_hda,
+ 
+ 	strscpy(p->dev_name, hid, sizeof(p->dev_name));
+ 
+-	struct device *physdev __free(put_device) =
+-		get_device(acpi_get_first_physical_node(adev));
++	struct device *physdev __free(put_device) = acpi_bus_get_primary_device(adev);
  	acpi_dev_put(adev);
- 	if (!codec_dev) {
- 		dev_err(card->dev, "can not find codec dev\n");
+ 	if (!physdev)
+ 		return -ENODEV;
 -- 
 2.51.0
 
