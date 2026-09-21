@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F60FC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36785C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XjC/UZqLFtMb5vJyxy966HHDm1SdiObcPJD69fIKS4Q=; b=ixtv1lDdseEnvoEVnotV4U3wWb
-	pLLPFaHSRo39pLVcuQ1mLC4EZBskxZqIaYY06ee9jJYLuzrHBCIF1C0+toZZds5Cyb43yDadsEZBq
-	cdvV/Q8zQKe2sYhF3hCek3B9XiJ2uk8KcxufpVP2dwzJtv5RTXjF0USAlpEPsblj29poQ94I5pACk
-	p9au7TraiNR+F+BFqmu0Hv9ktd3n4xrdR1GGDnO0OnU3kOrbJ21AUPQCUlj6hiHzYz9fLCOC8q2xe
-	OjIAd6Je99pT+DPLcNHKhGB8V89KjARAB3+9PNtwFChzD0LvEAmOwLWTBZVtg/v1eXvS9NTwEBdVq
-	C6lZE/WA==;
+	bh=+O5egBgvsUIuHoGJAoHI3ORXx+xU1etkOpoJliWaQik=; b=jciVbWi+/fpQR/yO6HgnKtgYBZ
+	dRPUDoXbFAylFhdKWxfUryRIhxAo2nWW9xgjhigN+mhVP7Dm2VblTwqYbf39e3/KwkyjhPRk98Vu2
+	7R5xtooS2GZTPHlKuVek8WGOSZh09Wo9kglIu+yiD0TZ/kFIJJQRmhUGsZHstIEbB+AkeC6QVmE1j
+	WBp0uxqm+6SoicBw/ZMJnmFq9/23ECtUILCHL0XBZmMMwR7Yz7Zrh1X22vjZoG25L0+AtziasLtwJ
+	Ibu5vAEGYZzFDepgqDli0LLxWRfWZqX+fwCzHj48Ve9KGaSlSrjxeH3N2nMfFTQpAOenkUONhciXC
+	aEH87nyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8U0G-00000000jxD-3LKz;
-	Mon, 21 Sep 2026 02:43:36 +0000
+	id 1x8U44-00000000kAK-0vZL;
+	Mon, 21 Sep 2026 02:47:32 +0000
 Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8U0E-00000000jwn-3NIk
+	id 1x8U42-00000000k9r-0UVa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 02:43:35 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccd78e6eso996001a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 19:43:33 -0700 (PDT)
+	Mon, 21 Sep 2026 02:47:31 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2db18fe433fso21530755ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 19:47:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789958613; x=1790563413; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789958849; x=1790563649; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XjC/UZqLFtMb5vJyxy966HHDm1SdiObcPJD69fIKS4Q=;
-        b=Idu+UQKtd6uNfMkr9zTOfEp0ahoPUdMzPXbiuv3epOS/89TnAFDgV7SOURDfbhqS9i
-         ACT4DwylVMipwifPomVZ8fKW1mButTJTpcSU8l3dI4SVctzuduXxOfVUXBcODg7sj11V
-         O8+dQ4fQIWy7U2IF7SUZOfy5J6IX1DRWEA/30w0P+t6S1TAVNzVBJWGs8iYbuxHW5ccD
-         xxZXy7z687Ev9eUGDECABsjbpXHClblzVH7s+6BjD6RXYiPqoSaUqhSojclbg2GSd2n7
-         CedfK0+QauAdVx7GUFYPlZXGNnF+ltHPQ+fHfsLwlD/9aBqnKZ/25XJri0+jh6Ckt/+r
-         uzpA==
+        bh=+O5egBgvsUIuHoGJAoHI3ORXx+xU1etkOpoJliWaQik=;
+        b=kq361BEw9znYqB7gDRre5V2TeqJ0du3KVwfFdkYGeGZRQfusI3skYBKo2MkT5yxMz1
+         ZRn2CE5qbeydH+ErWE2KuxOY5us+LaZKCSw07Uw4NgmvWEzuVHghcEfI8CoW+O9Z51b5
+         qN2WObLnwKcQjoiAK6tIBmXUjBfueysHGCA0reiME7LjPzkN6qhLVgg3Ir09Hn8gjkOv
+         6Grdv4jooOFlf4V37jwYgYwn9Q4+ySSMf5mdzqYT7qwgbfvIt6rTwp74ObjxVwven4D9
+         S+5IwLBq5W19gLBKYC0Nv8TAgLMEvYduU+/Z2AEtxgBm6Wy2HWfT4Ca05naKNckWZzth
+         fxaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789958613; x=1790563413;
+        d=1e100.net; s=20260707; t=1789958849; x=1790563649;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XjC/UZqLFtMb5vJyxy966HHDm1SdiObcPJD69fIKS4Q=;
-        b=Sx0tteu+O/fjb6Dq3TEB/aodsuFIep4cAwVaAZyDialFxPoOajbHhdCcpyiwK4zgbO
-         ulIQ+ZpQcDeBuOYzB7WFD48Y/Nl18MNuev3o+YDH9X3kQxn1x9Zh/cgVaobzAnmXFYdu
-         yeoV58CDbWkPhwAbhfLufF19jFNcK7sDgGBcMncIMqomyY0iB1aWUfq6nIH+OMInblKe
-         WCOuIXw+6hh90g65GNK5q1FgxHqldL4GqhrcsIa7kf4CwvFL4A8ysqRedcFVcGd8co+u
-         LtlnQP/3gzSy5fudCDUmzjyYn2zccjYRujBWf8vbudV/cgGKG3ENmLIOpEFNI8nMV3He
-         jidQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzYpab8hjbH7PV8tJnp+zD2rebJpzJ9tZt1Xba2+PUnml4MoIkkfBT6eCX2nfLjs8vyB/vJpVuIGtnXq8Y+R+tP@lists.infradead.org
-X-Gm-Message-State: AFuF++n6OwXvPSXqre1sexpDzNYg45PxCP3FhQvCUMNyx85FSHivn/en
-	KNndp99jcNf/02K+YhqxvER6Im3xh0IOUhiilFfpEQJkp84AHTW82tle
-X-Gm-Gg: AYBFou2kAixTGphuy7lbKlODZ8YexmhhJ4fyMDzWJoOj6NC2L/1760cU1Aq9pIB11C1
-	LDgni+vJFtpapKPfmnuc/k9Dd2LE72RdPHzKVWoAAaXk4w0eYwnh112KguruxQpXSJ+r5GoJTeq
-	qSZU8L5SQ1I4oK64zpu1eH4EZsk+cUrXEEfMgqy46mDbECdVhxd17nns4Vkye/crXGqwqLErSvz
-	EN2UU5uPcZ2ollUrGMi21psbGQJ9fNi0hJSRAK+YnLG7coOmBcEqEI8CYAD1axdmMpH4IdX8lj3
-	lp184tHFE4JYSyzCtin8HCSZj3azoBYqSUdw2sVKc5OUKvujVWo0xyx/yarP7JASGsL4zPapoUp
-	CTPI9CrIrI4Xo7Bu7mvMYXMO5QvgXli+hIgfFjJhTk8wQynOCz2ZLr23gVWDbVFcSntkm1QAg2e
-	R6Luac09qgTu9tFvdWU6t17xZfv1B/Ir5s3fMJWegIbo18PrLT/Fpm5iUZ6YR+mVEuddMQ4EJDQ
-	T9SKmwhqMjLSX69cZuBjnZCLDr8Y5GWuFha/pNj0p1RrCb/Pgfg7Wk=
-X-Received: by 2002:a17:90b:55c4:b0:3a0:34a4:187e with SMTP id 98e67ed59e1d1-3a034a41dc3mr3254394a91.15.1789958613234;
-        Sun, 20 Sep 2026 19:43:33 -0700 (PDT)
+        bh=+O5egBgvsUIuHoGJAoHI3ORXx+xU1etkOpoJliWaQik=;
+        b=m6nHYs3QVCAPLxOzsN1Yu/LGFWr/nE3nrX88OEj7Loz2SyY8uOMvDPqd/e0yOlWnbb
+         ypGDyUCoGF62aRSyfG/j0HApc/BaAor+N+PmvLIV0l/TU83C6pOOMOY5ZWphvxP/mIq1
+         kzMS2u26wdpzG+LSBeOuJGFlMbU/FhUN2IlZAixCVC6Dc3dBxT+EhLjtLkCMpItvWtby
+         GAo5LZxkEFFHaTcQsloji+y9+8F3BMR/0sMd6CcNbWK4khzNkg9gGYwb0dWrUE3ImHLQ
+         vGd8VXR4E8H9DZTXs+z+Ksqoo17ZRa7MBWyuZRee1MVBdUciP+cn0mTApJyz9k17bYRy
+         by/A==
+X-Forwarded-Encrypted: i=1; AKwUvBzbnVfthPEC1ggQBYxfk2xeWrS3ZkN0fFjokFw7PG5hUfj5DwwyUJzKhgPvPK6xC7Im4wQV0kGluBhBKk5EZ6BP@lists.infradead.org
+X-Gm-Message-State: AFuF++nCPGi9WG41R+x5xSnlgF24BlPFkgEsWniSUnKCNeqlrjS/eUcK
+	jUSfv3D4I85y3tlgAkW25YuA5Hi6Nt/bCul7fDeZGMBM/Ywxhywnt/le
+X-Gm-Gg: AYBFou2PbxCRUZsXbFMDZ1LWrzjFvaasqds1+iYVIj4hVHSj0gPiIhmMjiUmupTOCTz
+	BXRqDwF1jikJbGYr7H3J+r7v73xv9Ccy6PSFYFUvrABBwBluC+Vmzkv2WCejdXu/zxmhgyd8CEW
+	9VPqqOYoP9g2RubV7Nr1kkep91caZO+he117SFYdFOiUx0iWGBC68w8aOdBDpInwStHStJXZ0+j
+	PfXiK9bmJN6/WBvqP/De9bypqYTDyhblBYqzAoWFXSI9jaTNvwXzsHeODavZJ8jZjKOIXKQEjQz
+	UI3PwxYpTBdUbjD9+2uOUD0QUDqV+aLKFhQtLWvCHeiu8gbb4hFpj3/UNHPvtcFDyRe3+2zNno8
+	m3zvawoooNtTFNMekcKWFMIgOGuhlmZPTlnV5NCb4nQh8rZM6U6sAVBIJDb0G+RIJCvAs/8U6Fn
+	ymyDvFCl1MwBJpE7ovXIjLYzunFAW5/KvX3USZ/T9dR8Tl3aYGo5yu5felyyo8r9C0lrYLaFSFV
+	i+ZGjwNjPoBX9sQqggtItBhK5NQO26On5q0GTzIIGP6ZnmrH0MrB1w=
+X-Received: by 2002:a17:903:2349:b0:2dd:c100:b2c6 with SMTP id d9443c01a7336-2ddc100b360mr85279055ad.49.1789958849031;
+        Sun, 20 Sep 2026 19:47:29 -0700 (PDT)
 Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a02900f84fsm10384623a91.2.2026.09.20.19.43.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddc16b4a99sm25390025ad.5.2026.09.20.19.47.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 20 Sep 2026 19:43:32 -0700 (PDT)
-Message-ID: <1d988dfb-c930-4c17-ae77-47b93ff9f159@gmail.com>
-Date: Mon, 21 Sep 2026 10:43:28 +0800
+        Sun, 20 Sep 2026 19:47:28 -0700 (PDT)
+Message-ID: <7b5c7095-e086-45de-bdc2-9063e8229222@gmail.com>
+Date: Mon, 21 Sep 2026 10:47:24 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane disable
- clearing FB_EN
+Subject: Re: [PATCH v7 1/7] dt-bindings: display: verisilicon,dc: add support
+ for nuvoton,ma35d1-dcu
 To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
  maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
  airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org
 Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
  dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>
 References: <20260918030125.315978-1-a0987203069@gmail.com>
- <20260918030125.315978-8-a0987203069@gmail.com>
- <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
+ <20260918030125.315978-2-a0987203069@gmail.com>
+ <ea18c92ce2af08a65bfd8834ea7f262d1bcb4bf2.camel@iscas.ac.cn>
 Content-Language: en-US
 From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
+In-Reply-To: <ea18c92ce2af08a65bfd8834ea7f262d1bcb4bf2.camel@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_194334_851315_1DABF06F 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260920_194730_164619_DB6A06CE 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +112,152 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Icenowy Zheng 於 2026/9/18 下午 01:52 寫道:
+Icenowy Zheng 於 2026/9/18 下午 06:50 寫道:
 > 在 2026-09-18五的 11:01 +0800，Joey Lu写道：
->> vs_dc8200_primary_plane_disable_ex() calls regmap_set_bits() on
->> VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
->> the primary plane on DC8200-family hardware actually leaves the
->> framebuffer enable bit instead of clearing it.
+>> Add the Nuvoton MA35D1 DCUltraLite (nuvoton,ma35d1-dcu) to the
+>> binding.
+>> The DCUltraLite uses only four clocks (core, axi, ahb, pix0) and one
+>> reset (core), with a single output port.
 >>
->> This bug predates this series: it was carried over unchanged from
->> vs_primary_plane_atomic_disable() when patch "drm/verisilicon:
->> introduce per-variant hardware ops table" split the DC8200-specific
->> implementation out into vs_dc8200.c.
+>> The MA35D1 clock controller gates the core, AXI and AHB clocks with a
+>> single bit, but each remains a distinct clock line feeding the IP
+>> with
+>> its own rate constraints, so all four must still be listed
+>> individually
+>> in the devicetree; core, axi and ahb happen to share the same clock
+>> phandle.
 >>
->> Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon
->> display controllers")
-> Maybe it'd be better to fix this before adding DC variant abstraction,
-> for easier backporting.
+>> Move the clocks/clock-names minItems to 4 and resets/reset-names
+>> minItems to 1 at the top level, since that is the lowest count any
+>> supported variant needs.  Add an allOf/if block that tightens the
+>> constraint back up to the fixed 5-clock/3-reset topology required by
+>> the existing thead,th1520-dc8200 compatible, and another one that
+>> caps
+>> the new nuvoton,ma35d1-dcu compatible at the 4-clock/1-reset count it
+>> actually wires up.
+>>
+>> Restrict the same nuvoton,ma35d1-dcu if block to a single port@0,
+>> since the DCUltraLite only has one output port.
+> By the way, when will the MA35D1 device tree sources be updated? I saw
+> a lot of drivers being merged but w/o corresponding DT nodes: sdhci-of-
+> ma35d1, nuvoton-ma35d1-nand-controller, phy-ma35d1-usb2, rtc-ma35d1,
+> spi-ma35d1-qspi, ma35d1_wdt.
 >
 > Thanks,
 > Icenowy
-Makes sense. Should I send it as a standalone patch targeting
-drm-misc-fixes (separate from this series), or do you have a
-different preference for how to split it?
->
+We are currently reviewing several peripheral device tree updates, 
+including USB/PHY, CAN, and other related blocks.
+
+Once the core driver support is in place, we plan to do a more thorough 
+review and update of the MA35D1 device tree
+sources to ensure the corresponding DT nodes are properly added and 
+aligned with the upstream drivers.
+
+Thanks for your patience and feedback.
 >> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 >> ---
->>   drivers/gpu/drm/verisilicon/vs_dc8200.c | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>   .../bindings/display/verisilicon,dc.yaml      | 51
+>> +++++++++++++++++++
+>>   1 file changed, 51 insertions(+)
 >>
->> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8200.c
->> b/drivers/gpu/drm/verisilicon/vs_dc8200.c
->> index f72da10295e1b..25b5906a1c5fc 100644
->> --- a/drivers/gpu/drm/verisilicon/vs_dc8200.c
->> +++ b/drivers/gpu/drm/verisilicon/vs_dc8200.c
->> @@ -70,8 +70,8 @@ static void
->> vs_dc8200_primary_plane_enable_ex(struct vs_dc *dc, unsigned int out
+>> diff --git
+>> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> index 919a900122012..e1e6a3a953646 100644
+>> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> @@ -17,6 +17,7 @@ properties:
+>>       items:
+>>         - enum:
+>>             - thead,th1520-dc8200
+>> +          - nuvoton,ma35d1-dcu
+>>         - const: verisilicon,dc # DC IPs have discoverable ID/revision
+>> registers
 >>   
->>   static void vs_dc8200_primary_plane_disable_ex(struct vs_dc *dc,
->> unsigned int output)
->>   {
->> -	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
->> -			VSDC_FB_CONFIG_EX_FB_EN);
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
->> +			  VSDC_FB_CONFIG_EX_FB_EN);
+>>     reg:
+>> @@ -26,6 +27,7 @@ properties:
+>>       maxItems: 1
 >>   
->>   	vs_dc8200_plane_commit(dc, output);
->>   }
+>>     clocks:
+>> +    minItems: 4
+>>       items:
+>>         - description: DC Core clock
+>>         - description: DMA AXI bus clock
+>> @@ -34,6 +36,7 @@ properties:
+>>         - description: Pixel clock of output 1
+>>   
+>>     clock-names:
+>> +    minItems: 4
+>>       items:
+>>         - const: core
+>>         - const: axi
+>> @@ -42,12 +45,14 @@ properties:
+>>         - const: pix1
+>>   
+>>     resets:
+>> +    minItems: 1
+>>       items:
+>>         - description: DC Core reset
+>>         - description: DMA AXI bus reset
+>>         - description: Configuration AHB bus reset
+>>   
+>>     reset-names:
+>> +    minItems: 1
+>>       items:
+>>         - const: core
+>>         - const: axi
+>> @@ -79,6 +84,52 @@ required:
+>>     - reset-names
+>>     - ports
+>>   
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: thead,th1520-dc8200
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 5
+>> +
+>> +        clock-names:
+>> +          minItems: 5
+>> +
+>> +        resets:
+>> +          minItems: 3
+>> +
+>> +        reset-names:
+>> +          minItems: 3
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: nuvoton,ma35d1-dcu
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          maxItems: 4
+>> +
+>> +        clock-names:
+>> +          maxItems: 4
+>> +
+>> +        resets:
+>> +          maxItems: 1
+>> +
+>> +        reset-names:
+>> +          maxItems: 1
+>> +
+>> +        ports:
+>> +          properties:
+>> +            port@1: false
+>> +
+>> +          required:
+>> +            - port@0
+>> +
+>>   additionalProperties: false
+>>   
+>>   examples:
 
