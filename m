@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E527C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1315C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ddZlDOihzWi5JQs6xZrb8PiUllm3prjv4IIJMCF7rU=; b=LnPbksu3HdKOcvYxvXjW4Yypo/
-	dKYSGLvs2wyf9qlRkZLVTq5YdP4WWOLHdeg57ux29JrTOuDpzolu4TD44e0ASGh2jKlXISFWPjYjA
-	MfBcfkgNg/+HxQ6NItJ/9kKt/in6kTCNXam3Il1L79aCRACQxnHEQlA6xBEoYM4kj7yTNR1B7zGhA
-	O/is7BdAaUkwFJRdeVtGxA7aHSMIomNYPzpwtpxtePIJU4DSYFpnkGY55d6BCY3vLqMdnHiAgcWU+
-	iG+N3mLQ9DOaShGXgPBie5ZNpRK7eH9Q/6k6nbqXgQTYKub0P3rVxRuLzO+zWtc7wwchJrK2JgUc8
-	9qXt4H1Q==;
+	bh=8R0L9F6eKBP8mVjs+ITQcSGZyMba9QupshnTXoF8sqU=; b=ylhJY+cghmFkjSzhpjfWnrytrt
+	uPNJ8X2G9unAIYtnhe57mBbL35GeIbOSAg3496XWfnJaIoEUf8vATjPdw64dLMBlwDC/HYjz2iwMC
+	UhDBVAKK+iBCdpTEgoXrN4gVtC92cEj0I7+eOj+vI7go+m7TgsJkichbe+GS4A5vVfmFe4hlsNUDV
+	oyp0Gv7p9FHPRTBOMyJ5ltFpe1gQxq43E8tj9VH+HrkJRz7qvAohKYr6fa+ZuUyq1EApN9GjmD8eT
+	4o+cSPky4IzE5qlyp+stf0lKwkDMRTnzsWj82qmYcBt9fWtKEfsxRQM2WRTmcC2X1ouRXroV9z1Z8
+	XoG4ZUOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8aMz-00000001WXm-0FXh;
-	Mon, 21 Sep 2026 09:31:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8aMw-00000001WWJ-0PPr
+	id 1x8aNG-00000001WcE-0kEk;
+	Mon, 21 Sep 2026 09:31:48 +0000
+Received: from out-238.mta1.migadu.com ([2001:41d0:203:375::ee] helo=mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8aMy-00000001WWI-2uBK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 09:31:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA1671476;
-	Mon, 21 Sep 2026 02:31:21 -0700 (PDT)
-Received: from [10.0.128.141] (unknown [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 212273F86F;
-	Mon, 21 Sep 2026 02:31:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789983085; bh=24Mm5RiGha3l54zH1CVhHiOwalFID0+iPqIF5C+fNUI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NlPTk3IOOSsU1M/dT49gvNYmCWXKsvQ/WcsM659NIijSSpRguujMnVpDoOuq6shKE
-	 7DxMyAxCc5D5YQFjP7czzHDDYXW7THjKQTx6S8nzWP7dGNXhgrEvbqOjRS9cMUTu5z
-	 uVZnNOzinMOlHUVdslBh/XV4hQOVfTeDE9Qi7OTo=
-Message-ID: <b84f786e-69d8-4e03-a1ad-15b697bbaab1@arm.com>
-Date: Mon, 21 Sep 2026 10:31:20 +0100
+	Mon, 21 Sep 2026 09:31:30 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=K1qjGmEUN9aAoDHkdXRdhQEnxRrPQ9nGfz4XoRPKfSM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789983085; v=1; x=1790587885;
+ b=OVbVZBXK+CZwqLezNpAhQQMmL2W+0+wcgVgu++3atD+i2QJaVaII/bZifvSkPR+cAfUtLdg2
+ +j2kNlKJrLUGG8E/LQDQbU2ur9HCv8aoDQ5kK858XZjhe1qOwPOg0MW/6Jd7s9YLWHyzicgy+PV
+ tai1tsVTdLfieIQ1bCZhpJFw=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 830b0fab067b0897;
+	Mon, 21 Sep 2026 09:31:25 +0000
+X-Mizu-Trace-ID: 830b0fab067b0897
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
+Date: Mon, 21 Sep 2026 17:31:17 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 3/7] firmware: arm_rmm: Configure the RMM with the
- host's page size
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-4-suzuki.poulose@arm.com>
- <178978126541.2352296.3884730681319176394.b4-review@b4>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <178978126541.2352296.3884730681319176394.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v2] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC
+ helpers
+To: Zhu Ling <zhuling2709@phytium.com.cn>
+Cc: maz@kernel.org, tglx@kernel.org, radu@rendec.net,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <86ldjlp0qi.wl-maz@kernel.org>
+ <20260921022101.20941-1-zhuling2709@phytium.com.cn>
+Content-Language: en-US
+From: Zenghui Yu <zenghui.yu@linux.dev>
+In-Reply-To: <20260921022101.20941-1-zhuling2709@phytium.com.cn>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_023126_404425_D013181B 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260921_023128_890429_E2C8F568 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +73,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/09/2026 02:27, Jonathan Cameron wrote:
->> RMM v2.0 brings the ability to set the RMM's granule size. Check the
->> feature registers and configure the RMM so that it matches the host's
->> page size. This means that operations can be done with a granularity
->> equal to PAGE_SIZE.
->>
->> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+On 9/21/26 10:21 AM, Zhu Ling wrote:
+> When running with UBSAN enabled, enabling a GPIO controller that uses a
+> GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
 > 
-> One trivial but looks like it is getting quite a few changes from
-> Gavin's comments so no tags yet.
-
-...
-
->> +
->> +	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
->> +	if (!config) {
->> +		pr_err("Unable to allocate memory for RMM config\n");
->> +		return -ENOMEM;
->> +	}
->> +
->> +	config->rmi_granule_size = granule_size;
->> +
->> +	/*
->> +	 * For now we set the tracking_region_size to 0 which is the only option
->> +	 * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 16KB/64KB).
->> +	 * TODO: Support other tracking sizes via Kconfig option for other
->> +	 * PAGE_SIZES
->> +	 */
->> +	config->tracking_region_size = 0;
->> +
->> +	ret = rmi_rmm_config_set(virt_to_phys(config));
->> +	if (ret) {
->> +		pr_err("RMM config set failed (%d)\n", ret);
->> +		ret = -EINVAL;
->> +	}
->> +
->> +	free_page((unsigned long)config);
+>   shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+>   left shift of 2 by 30 places cannot be represented in type 'int'
 > 
-> Maybe some __free() magic is applicable here - would let you just
-> return in the error path above making for tidier flow and get
-> rid of need to assign ret above.
+> Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+> drivers/irqchip/irq-gic-v3.c. These masks are generated by shifting
+> signed integer constants, which invokes undefined behavior when bit 31
+> is selected.
+> 
+> Use BIT() to generate the masks with an unsigned type and make their
+> intent explicit.
+> 
+> Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
+> ---
+> Changes in v2:
+> - Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+> - Drop the redundant introductory text from the email.
+> - Update the author email address.
+> 
+> Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
+> ---
+>  drivers/irqchip/irq-gic-common.c | 2 +-
+>  drivers/irqchip/irq-gic-v3.c     | 4 ++--
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
+> index c776f9142610..8bd1eaa54295 100644
+> --- a/drivers/irqchip/irq-gic-common.c
+> +++ b/drivers/irqchip/irq-gic-common.c
+> @@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
+>  int gic_configure_irq(unsigned int irq, unsigned int type,
+>  		       void __iomem *base)
+>  {
+> -	u32 confmask = 0x2 << ((irq % 16) * 2);
+> +	u32 confmask = BIT(((irq % 16) * 2) + 1);
+>  	u32 confoff = (irq / 16) * 4;
+>  	u32 val, oldval;
+>  	int ret = 0;
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 6e1fa5b247fc..15110d47ddb0 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
+>  	u32 index, mask;
+>  
+>  	offset = convert_offset_index(d, offset, &index);
+> -	mask = 1 << (index % 32);
+> +	mask = BIT(index % 32);
+>  
+>  	if (gic_irq_in_rdist(d))
+>  		base = gic_data_rdist_sgi_base();
+> @@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
+>  	u32 index, mask;
+>  
+>  	offset = convert_offset_index(d, offset, &index);
+> -	mask = 1 << (index % 32);
+> +	mask = BIT(index % 32);
+>  
+>  	if (gic_irq_in_rdist(d))
+>  		base = gic_data_rdist_sgi_base();
 
-Ack
+gic_{poke,peek}_irq in drivers/irqchip/irq-gic.c have a similar pattern.
 
-Cheers
-Suzuki>
+|static void gic_poke_irq(struct irq_data *d, u32 offset)
+|{
+|	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
 
+Mind fixing them as well?
+
+Thanks,
+Zenghui
 
