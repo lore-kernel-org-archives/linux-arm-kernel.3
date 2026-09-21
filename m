@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C027C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 18:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A6FC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 18:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3snj98fmjbtANq16+FRyVMqVPheby92j6W8WIjGOO5U=; b=opljAMmye+KUtUMQgKPD+uuo4X
-	SspBchSQRbzz4sQvw4PpakFy5wxLOdbzuYn2BvByNNypuGCubxInd7iQT+cVS12DzSSzKhuTRPX3L
-	ujJxumJzNEIcBhyHIsIMLlkpxncKsKzAkXejee/eNFoSvn/8GcAVnuNw2CH/1p+BZGPycKr81Q2Tn
-	XTs7PtatKCFtib4e/dQMx6rnmOBzXL/RnUfiygxXIXFfamWZArPGO/q1Sv8GH427wPcNPyD/gjFBE
-	gHbN9I0lrdGNoa5TeOBne+c3oYAwfGwAsJzRud2fJYUfOmzOva7okCa5jPAimDYCueekkQFfWJSMu
-	kmL1foRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1IYSOWDSdVHavPw5AagIbmQivLGnywmbta0NyEZGhlY=; b=ddz4FE/V3eMqN2IY8ZZJJo8trp
+	Uiy12CPkHONssSO2c5hGi0+k6Bmkkp6w0yPtr1y/+rnbRcwTVgv0bFHMK43bxgxQTr2sX3508mkCG
+	0bKpH3HRB/byI4wVIXBhO7n0Fn1+YlQQKYKv4TtLLfYGGLwou+8d3B5yuXCVIUOXPYZryid7Dy50y
+	M4iur8APpJcR83FD78H02YvL6IptrIhMh0Wtw/LeuauLN9wllOLmiUt2tURZYsDKy0YGnJBGpWVb8
+	jbd7Uwi9b+zxnkYmkgO6CuSzZNoMRlyoP8gSVB6hyf19MkDzAc+7Zmhwmt0K8EWQeeVtqKZPtw760
+	WwrAuqxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ivR-00000003995-2c7W;
-	Mon, 21 Sep 2026 18:39:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8iwn-000000039N5-3PyB;
+	Mon, 21 Sep 2026 18:41:01 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ivP-0000000398q-431p
+	id 1x8iwj-000000039LZ-45ll
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 18:39:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8BEB60008;
-	Mon, 21 Sep 2026 18:39:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65F8A1F000FF;
-	Mon, 21 Sep 2026 18:39:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790015974;
-	bh=3snj98fmjbtANq16+FRyVMqVPheby92j6W8WIjGOO5U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jr8/IKplV+dmJmKP3CopP8NRnqIhbL8ZKCRP+bIIpuuEMVbmoILBjslfEmsTzXhgd
-	 80Xid8Aiv7Dm/fZ9FXXOPbtLlcDFsJE9H6zQXmNr32c4X5+It5RqPvu3lJvXS0CovZ
-	 C7zQtS0RH9NhGrErWzgjoNrAy9k/Xu2so61zDWM6vjMgb/xDEaGAmFxhIHLeAyssvd
-	 1zlStONeGroUdQXq+7aSu7q9MtE+XSs2N1vlQc5uFQEMlpAg8qP1RONlU5UZOM2mQt
-	 29hrOl0y2kFV0BFWJOteoBIwlIwbWMaf5lppsOL9vA8qv0wqmZ3FcN9SWfy6NK7plP
-	 6zKnVwlD9BnOw==
-Date: Mon, 21 Sep 2026 11:39:33 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
-	Jack Thomson <jackabt@amazon.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Restore the VM's feature bitmap when
- kvm_setup_vcpu() fails
-Message-ID: <arF55dt3_i4nxoSA@kernel.org>
-References: <20260921063718.1604533-1-fuad.tabba@linux.dev>
- <arDYHSlFHm_XzGvN@kernel.org>
- <CA+EHjTz0-qS8RRhdT8XjAgWqKhgjjzbRsZ_jwTBVqM-8pXk7Vw@mail.gmail.com>
- <arEskPHpAPQf5SAb@gremlin>
+	Mon, 21 Sep 2026 18:40:59 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1EA91034B8;
+	Mon, 21 Sep 2026 20:40:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1790016045;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=1IYSOWDSdVHavPw5AagIbmQivLGnywmbta0NyEZGhlY=;
+	b=CvmdGQZE6caIekfX+VDVlUD40Y5GvROg5DGKfHwS7TBY3BImNPFYKzza7e1TKqC4dD/vKK
+	THgiqTiqT0Ri5qTYOVW5R389tgFAZEd2CFeWc3H+d3l+mccWIgsCzOoD4nmIAEmMdvhuQZ
+	Czyj3A1NtzviXQA9VFjLjePVN6xQACIQ8YJJMjHP8nfeU9JOaQiooFdy+SkVU8ls4op29b
+	v/PuV8XzpIWGdTCDc0Qbqk9T+ljPBzEfl+tLgBgQd6yBTwrwglyP2ktPmNjZItmUquh4V/
+	Pqrt1zY+WuQlRjQ6QCMaQsBMr+pXlhzUkv55tN35mV+6m7+ZWBbHkdGyYjhnKw==
+Message-ID: <c43103f6-348c-48b9-a831-ecb9379ce46f@nabladev.com>
+Date: Mon, 21 Sep 2026 20:40:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arEskPHpAPQf5SAb@gremlin>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC] drm/imx: upstream direction for i.MX95 display support
+To: Liu Ying <victor.liu@nxp.com>, Piyush Patle <piyushpatle228@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, daniel.baluta@nxp.com,
+ Frank.Li@nxp.com, shawnguo@kernel.org, tzimmermann@suse.de,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
+ simona@ffwll.ch
+References: <20260624100326.413699-1-piyushpatle228@gmail.com>
+ <aj5MNiKSCiEDvDzL@raspi>
+ <CAMB+xkayaViXeC2GyMMUfeCMzA4=fh-Dq6NYOL-hzKoLfAF19w@mail.gmail.com>
+ <aksVMhFr8YzedE1w@raspi>
+ <CAMB+xkY2rut-sEUMyFnXqYCNmyseP4nAGj4BfreORTTM=SN8_g@mail.gmail.com>
+ <akuEOT2FRa77L0Jn@raspi>
+ <CAMB+xka8Fame7aFZSiWEtVcozSTXX8g9MKJu+cycU2vtiSDHmQ@mail.gmail.com>
+ <akxjwULa-p6c6IvR@raspi>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <akxjwULa-p6c6IvR@raspi>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_114058_698558_96CBB0B0 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Lorenzo,
+On 7/7/26 4:26 AM, Liu Ying wrote:
 
-On Mon, Sep 21, 2026 at 02:34:12PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Mon, Sep 21, 2026 at 08:24:56AM +0100, Fuad Tabba wrote:
-> > Hi Oliver,
-> >
-> > On Mon, 21 Sep 2026 00:09:17 -0700, Oliver Upton <oupton@kernel.org> wrote:
-> > [...]
-> > > > Nothing in the tree loads a vCPU whose init failed, so this is latent.
-> > > > The upcoming series that enables KVM_PRE_FAULT_MEMORY for arm64 exposes
-> > > > it: the generic kvm_vcpu_pre_fault_memory() calls vcpu_load() whether
-> > > > or not the vCPU has been initialised.
-> > >
-> > > That's a bug, not a feature. We should require an initialized vcpu for
-> > > the ioctl.
-> >
-> > That one is for Lorenzo then :) I'll reword the message so the stale
-> > bitmap comes first and the pre-fault crash is just how it showed up.
-> 
-> In general this is the behaviour of _generic_ KVM code
-> (kvm_vcpu_pre_fault_memory()), which itself does not require an initialised
-> vCPU, and no other arch seems to requires that either in the arch-specific
-> pre-fault code.
-> 
-> The actual pre-faulting implementation intentionally only targets the
-> canonical MMU to fault in S2 page tables, which doesn't need initialisation
-> to have taken place AFAICT.
-> 
-> However I could add:
-> 
-> 	if (!kvm_vcpu_initialized(vcpu))
-> 		return -ENOEXEC;
-> 
-> To kvm_arch_vcpu_pre_fault_memory(), which would make this a requirement,
-> though that would bring us out of line with other archs.
+Hi,
 
-Actually, we need this enforcement to happen before the arch-generic
-implementation calls vcpu_load(). So that would be some amount of
-kvm_arch_* boilerplate added to the generic code to enforce this
-requirement like we do on the other vCPU ioctls.
-
-I'm not too worried about aligning this with other architectures; the
-idea of a half-baked vCPU getting loaded is worrying.
-
-> OTOH, I don't see why anybody would pre-fault BEFORE init, feels like
-> something that should be done later on in VMM bring up right?
+> I need to point out that i.MX95 display controller also has 2 display engines
+> and 1 pixel engine, which is something missing in your code.  This makes me
+> think that you have no enough i.MX95 display controller documents.
 > 
-> So I doubt doing this would really break any sane user.
-> 
-> Let me know if you want that change in the series and I can respin it.
+> Generally speaking, I'd say there is a lot to be improved before posting the
+> formal patch series.  Gut feeling is that maybe it's a bit too difficult
+> for you to get the drivers right.  As I said earlier, my original plan is to
+> add i.MX8QXP prefetch engine support first with the posted patch series and
+> then to add i.MX95 display controller support, but maybe I can try to add the
+> latter first - just need to find a time slot.  However, adding prefetch engine
+> support first would directly show a reason to people why two DRM drivers are
+> warranted when adding i.MX95 display controller support.
 
-Please do, thank you for addressing this.
-
-Best,
-Oliver
+I haven't seen any MX95 DPU patches posted (except for my work from last 
+year), was there any progress since this discussion ?
 
