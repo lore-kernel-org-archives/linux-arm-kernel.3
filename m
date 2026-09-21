@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2077AC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 01:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC147C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8duZ0PDljIuHJwrD+tPi+wEqDcSEi5hndbcMRu3p6IU=; b=e7tXWdnhyUtqRMFF3sjaxR4Tv0
-	YLu/UaGswMh0cWYSPwVk7txfpZEREKVo35j3LSd2GowgSLZK4XlrNoDKxTE2QeL7AOvdwvXZzIIGV
-	L1tFtl9JNZ1MeEXJElT24XZGalYyn9252q7YEaCINWZpTeZNolApGyK68Rwp/NZV8LFwrRiREmYq4
-	jTePcrs7uDkQlj881s60IQOV3XI/iagB1lJoaFWvSD1nAwLFDMTEvGsLdB3ZwYc7wa9odQIKcK7FA
-	wORV8fwu4r6nlcye/7hD+i/NkC0J/cg/SR8ZMBjUUOXYn/PZ3+MjSSm9b/+vvpV3c+iQIHzP2niJg
-	LlhJKbgw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uikkSmrumHAqGpsS77IAH7yKBMssXnftH2z/L0nZR7s=; b=q6kF9D2eu/Mrs+f368ic+IkYbj
+	dSp3MvigieqLDLmwwgso8+jOn9yWG/936rzG/Hda/ywXl5qfKyoNSoi5SWVF4GtcjQ4069s0ZynBo
+	0r6cMbFwzo6IuHGtKNY+6ta3iKLWXdCD+Rcbf4MxZLYjyJ70JG8RLn43td3d8Wga1ip4XxW85QEWV
+	JHwt0riKJUTTHAWwnedXcjQ2kOHC1I+BErhruygtNuvdq6y1OuJLHAP1qAa0hmEAcjIr3eSuENXlH
+	Hhymq/L/McxtejkSVV1sDHDRIHahbJUHPcO3RaWwQKebZhys19FGrWkG3R940aJhBZVnw4LZtmYju
+	Lan3ZPRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TIK-00000000hqP-00TO;
-	Mon, 21 Sep 2026 01:58:12 +0000
-Received: from m16.mail.126.com ([220.197.31.6])
+	id 1x8TPo-00000000i2J-2zd2;
+	Mon, 21 Sep 2026 02:05:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TIH-00000000hpz-3T8W
+	id 1x8TPn-00000000i2D-3Re1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 01:58:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=8d
-	uZ0PDljIuHJwrD+tPi+wEqDcSEi5hndbcMRu3p6IU=; b=A+zT8h0dXjmMz7yDas
-	+jpGIhsglw6kJ3r0qa//5H+xbahOU+sBfGATUInNERN5lApVa6GiSFtbyg6JK+Lm
-	ffTnwtYeFSnVU7OdNP6+HQGzlRmsi3uGAgWAORlK8Pb3qSpL5N3kSk9gg0f6mClX
-	MwUeZxCbSzE1Q0w8ReUXcjwEU=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnH8wIj7BqSCOmBg--.28307S2;
-	Mon, 21 Sep 2026 09:57:30 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	lorenzo.bianconi@oss.qualcomm.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH net v3] net: stmmac: request the MDIO reset GPIO only once
-Date: Mon, 21 Sep 2026 09:57:27 +0800
-Message-Id: <20260921015727.2643540-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
+	Mon, 21 Sep 2026 02:05:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DCA32600C8;
+	Mon, 21 Sep 2026 02:05:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AF591F000FF;
+	Mon, 21 Sep 2026 02:05:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789956354;
+	bh=uikkSmrumHAqGpsS77IAH7yKBMssXnftH2z/L0nZR7s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nLGXGx/9rS7szEc3KLwMSNkACxLS7aBM6MZ2WuBpUCNbb10PeIQyJNh+f255zDV4B
+	 81x0Wp1ESuGMCcArEtxuxgxQ+AIEqHX+1t9xacnYxV19VCpqlX5lKztXK++pwxNAh4
+	 IubwkaPXp5URZ+l/0RKAGyDk4MqF45h/9dlPSgeC/LW3aD5b3bdNrMt82us3l7odaD
+	 MCajDY46F4fcDFFMrqwSzVBYxJrwZz0Vs0p85f39r2NZLKu5tlqcZEgep3pnPm4hCG
+	 /tfytr6E9VNyJ1N17tqr2/ZZ54JX/cBg6fhNigRFYBW6GsS4DIV9VhT0G8uq68aarp
+	 bNqAsBfFSub5Q==
+Date: Mon, 21 Sep 2026 03:05:46 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Marek Vasut
+ <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Cheick Traore <cheick.traore-ext@st.com>, Olivier Moysan
+ <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH 1/8] dt-bindings: iio: adc: stm32-adc: add support for
+ stm32mp23 and stm32mp25
+Message-ID: <20260921030546.73800535@jic23-hlaptop>
+In-Reply-To: <f1f9db42-f022-45da-a6fa-132d54d07716@foss.st.com>
+References: <20260911-adc-stm32mp25-v1-v1-0-cef26eecdef2@foss.st.com>
+	<20260911-adc-stm32mp25-v1-v1-1-cef26eecdef2@foss.st.com>
+	<20260913040801.30e07d4c@jic23-hlaptop>
+	<6e28ede2-686c-4972-8a15-348ae090cec8@foss.st.com>
+	<20260917035338.2ef5ded6@jic23-hlaptop>
+	<f1f9db42-f022-45da-a6fa-132d54d07716@foss.st.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnH8wIj7BqSCOmBg--.28307S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtw1rXr15Zw45JF43Cr13twb_yoW7Kr1kp3
-	y5Zay5JrykZr1xtw4kJw48ZF9Ykay3tr45Wa109rWSkw45trWYqr1ftry5XFy7trWDWa4a
-	gw18CF1UuF4qyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uo5lnUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqQqsg2qwjwqHJQAA3x
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_185810_212181_EC19C308 
-X-CRM114-Status: GOOD (  20.51  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,152 +83,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linkui Xiao <xiaolinkui@kylinos.cn>
+On Thu, 17 Sep 2026 09:27:10 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 
-stmmac_mdio_reset() calls devm_gpiod_get_optional() every time it runs.
-A GPIO line can only be requested once, so from the second call on
-gpiod_request_commit() returns -EBUSY. devm_gpiod_get_optional() only
-turns -ENOENT into NULL, hence the error is passed straight back and
-stmmac_mdio_reset() bails out before pulsing "snps,reset" and before
-running the STE101P MDC workaround.
+> On 9/17/26 04:53, Jonathan Cameron wrote:
+> > On Tue, 15 Sep 2026 09:49:01 +0200
+> > Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
+> >   
+> >> On 9/13/26 05:08, Jonathan Cameron wrote:  
+> >>> On Fri, 11 Sep 2026 17:51:23 +0200
+> >>> Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
+> >>>     
+> >>>> Add stm32mp23 and stm32mp25 compatibles. Three ADCs can be found on
+> >>>> these SoCs, split into two blocks:
+> >>>> - ADC12 are tightly coupled (common registers).
+> >>>> - ADC3 is managed independently.
+> >>>> Each ADC is a 12-bits successive approximation analog-to-digital converter,
+> >>>> with up to 20 multiplexed channels that can be configured as single ended
+> >>>> or differential.
+> >>>>
+> >>>> New property "st,adc-trigger-sel " allow to make the difference between
+> >>>> the ADCs and to apply the correct trigger configuration.
+> >>>>
+> >>>> STM32 ADC may be in a power domain: allow a single 'power-domains'.
+> >>>>
+> >>>> Restrict the last channel (19), as it is wired directly to ADC Vref+.
+> >>>> It's meaningless to have direct measurement. Internal Vref with
+> >>>> calibration data from bsec (nvmem) must be used instead e.g. vrefint.
+> >>>> Restrict deprecated properties (st,adc-channels, st,adc-diff-channels,
+> >>>> st,min-sample-time-nsecs).
+> >>>>
+> >>>> Co-developed-by: Cheick Traore <cheick.traore-ext@st.com>
+> >>>> Signed-off-by: Cheick Traore <cheick.traore-ext@st.com>
+> >>>> Co-developed-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> >>>> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+> >>>> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>    
+> >>>
+> >>> Hi Fabrice, all,
+> >>>     
+> >>>> ---
+> >>>>  .../devicetree/bindings/iio/adc/st,stm32-adc.yaml  | 106 ++++++++++++++++++---
+> >>>>  1 file changed, 94 insertions(+), 12 deletions(-)
+> >>>>
+> >>>> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> >>>> index c4c4575d3fa9..0e0ceaa3d8d6 100644
+> >>>> --- a/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> >>>> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> >>>> @@ -23,11 +23,18 @@ maintainers:
+> >>>>  
+> >>>>  properties:
+> >>>>    compatible:
+> >>>> -    enum:
+> >>>> -      - st,stm32f4-adc-core
+> >>>> -      - st,stm32h7-adc-core
+> >>>> -      - st,stm32mp1-adc-core
+> >>>> -      - st,stm32mp13-adc-core
+> >>>> +    oneOf:
+> >>>> +      - items:
+> >>>> +          - enum:
+> >>>> +              - st,stm32f4-adc-core
+> >>>> +              - st,stm32h7-adc-core
+> >>>> +              - st,stm32mp1-adc-core
+> >>>> +              - st,stm32mp13-adc-core
+> >>>> +      - items:
+> >>>> +          - enum:
+> >>>> +              - st,stm32mp23-adc-core
+> >>>> +              - st,stm32mp25-adc-core
+> >>>> +          - const: st,stm32-adc-core    
+> >>>
+> >>> What is this?  Given these all vary in features
+> >>> why would we fallback to a generic match for
+> >>> these new compatibles?    
+> >>
+> >> Hi Jonathan, all
+> >>
+> >> Ack, I'll drop it in v2,
+> >>  
+> >>>
+> >>>
+> >>>     
+> >>>>  additionalProperties: false
+> >>>>  
+> >>>>  required:
+> >>>> @@ -239,11 +276,18 @@ patternProperties:
+> >>>>  
+> >>>>      properties:
+> >>>>        compatible:
+> >>>> -        enum:
+> >>>> -          - st,stm32f4-adc
+> >>>> -          - st,stm32h7-adc
+> >>>> -          - st,stm32mp1-adc
+> >>>> -          - st,stm32mp13-adc
+> >>>> +        oneOf:
+> >>>> +          - items:
+> >>>> +              - enum:
+> >>>> +                  - st,stm32f4-adc
+> >>>> +                  - st,stm32h7-adc
+> >>>> +                  - st,stm32mp1-adc
+> >>>> +                  - st,stm32mp13-adc
+> >>>> +          - items:
+> >>>> +              - enum:
+> >>>> +                  - st,stm32mp23-adc
+> >>>> +                  - st,stm32mp25-adc
+> >>>> +              - const: st,stm32-adc    
+> >>>
+> >>> Similar to above, what is this?    
+> >>
+> >> same,
+> >>  
+> >>>
+> >>>     
+> >>>> @@ -344,6 +388,12 @@ patternProperties:
+> >>>>          items:
+> >>>>            - const: vrefint
+> >>>>  
+> >>>> +      st,adc-trigger-sel:
+> >>>> +        description: Selects the HW trigger configuration available on this ADC
+> >>>> +        $ref: /schemas/types.yaml#/definitions/uint32
+> >>>> +        enum: [0, 1]    
+> >>>
+> >>> Magic value that is meaningless to see in a dts.  If they
+> >>> are effectively not compatible, give them different compatibles and
+> >>> drop this property.  I'm unconvinced this property is more
+> >>> useful than that given just how opaque the description is.    
+> >>
+> >> That's exactly what I was wondering about. As you suggest, I can remove
+> >> this property, and introduce dedicated compatibles in V2, to clearly
+> >> identify the differences.
+> >>
+> >> Need to distinguish:
+> >> - ADC12 are tightly coupled (common registers).
+> >> - ADC3 is managed independently.
+> >> Triggers are different between them. The purpose of st,adc-trigger-sel
+> >> was to identify that.
+> >>
+> >> Also MP23 and MP25 are also different (trigger list). Combining this
+> >> would lead to introduce four compatibles, I'm thinking of:
+> >> - st,stm32mp23-adc12
+> >> - st,stm32mp23-adc3
+> >> - st,stm32mp25-adc12
+> >> - st,stm32mp25-adc3
+> >>  
+> > Naming wise, I wonder if it looks too much like adc twelve?
+> > Not sure how to avoid that cleanly as adc1-2 seems odd too.  
+> 
+> Hi Jonathan,
+> 
+> Indeed, so could introduce one compatible per Soc/ADC ?
+> 
+> +          - st,stm32mp23-adc1
+> +          - st,stm32mp23-adc2
+> +          - st,stm32mp23-adc3
+> +          - st,stm32mp25-adc1
+> +          - st,stm32mp25-adc2
+> +          - st,stm32mp25-adc3
+> 
+> There are some other differences between adc1 and adc2, e.g. in the
+> reference manual:
+> - ADC1 is connected to 18 external channels + 2 internal channels
+> - ADC2 is connected to 14 external channels + 6 internal channels
+> - ADC3 is connected to 14 external channels + 6 internal channels
+> 
+> This is resolved currently by channels child nodes with labels for
+> internal channels. So maybe better to name all of them (future proof) ?
+Yes. Ideally the binding would be constraining the channel nodes
+and we'd need the compatible to do that.
 
-The first call, made by of_mdiobus_register(), succeeds, so the failure
-is only visible later on: every resume that does not use WoL goes
-through stmmac_resume() -> stmmac_mdio_reset(), and that caller ignores
-the return value, so the PHY silently stays un-reset.
+Seems like we have a winner - separate compatibles :)
 
-The descriptor used to be requested exactly once: stmmac_mdio_reset()
-resolved "snps,reset-gpio" itself and cached the GPIO number in
-stmmac_mdio_bus_data::reset_gpio, and commit ae26c1c6cb9b ("stmmac: fix
-PHY reset during resume") relies on that cache to reuse the line on
-every call. commit 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in
-stmmac_mdio_reset") replaced it with a devm_gpiod_get_optional() that
-caches nothing, so the request is repeated on every call and fails from
-the second one on.
+Jonathan
 
-Parse the whole reset description, the GPIO and "snps,reset-delays-us",
-in stmmac_mdio_register() at probe time, and keep it in struct
-stmmac_priv. This is where devm-gpiod is meant to be used: the line is
-acquired with the device and released with it, and any failure to
-acquire it is reported during probe instead of being ignored by
-stmmac_resume(). stmmac_mdio_reset() then only pulses the cached line,
-with the delays that were read once and for all at probe time.
-
-The request and the delays are still gated on
-mdio_bus_data->needs_reset, which is the condition that installs the
-reset callback, and on the device using DT. stmmac_mdio_reset()
-itself no longer looks at the device tree at all: where the
-description is absent the cached descriptor is NULL and the delays
-are all zero, so the pulse is a no-op, just as the of_node check used
-to make it.
-
-Fixes: 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in stmmac_mdio_reset")
-Cc: stable@vger.kernel.org
-Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
----
-Changes in v3:
-- Read "snps,reset-delays-us" in stmmac_mdio_register() as well, so that
-  the whole reset description is parsed in one place. (Lorenzo Bianconi)
-- Drop the CONFIG_OF/of_node check from stmmac_mdio_reset(), which no
-  longer needs it now that nothing is parsed there: the callback does not
-  look at the device tree at all.
-
-Changes in v2:
-- Do not request the GPIO from stmmac_mdio_reset(); request it once in
-  stmmac_mdio_register() at probe time instead. (Maxime Chevallier)
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  3 ++
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 46 +++++++++----------
- 2 files changed, 24 insertions(+), 25 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 7582fca63741..2bb68e8b6274 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -25,6 +25,7 @@
- #include <net/xdp.h>
- #include <uapi/linux/bpf.h>
- 
-+struct gpio_desc;
- struct stmmac_pcs;
- 
- struct stmmac_resources {
-@@ -287,6 +288,8 @@ struct stmmac_priv {
- 
- 	unsigned int pause_time;
- 	struct mii_bus *mii;
-+	struct gpio_desc *mdio_reset_gpio;
-+	u32 mdio_reset_delays[3];
- 
- 	struct stmmac_pcs *integrated_pcs;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index afe98ff5bdcb..cf768afd9237 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -384,33 +384,16 @@ int stmmac_mdio_reset(struct mii_bus *bus)
- 	struct stmmac_priv *priv = netdev_priv(bus->priv);
- 	unsigned int mii_address = priv->hw->mii.addr;
- 
--#ifdef CONFIG_OF
--	if (priv->device->of_node) {
--		struct gpio_desc *reset_gpio;
--		u32 delays[3] = { 0, 0, 0 };
-+	if (priv->mdio_reset_delays[0])
-+		msleep(DIV_ROUND_UP(priv->mdio_reset_delays[0], 1000));
- 
--		reset_gpio = devm_gpiod_get_optional(priv->device,
--						     "snps,reset",
--						     GPIOD_OUT_LOW);
--		if (IS_ERR(reset_gpio))
--			return PTR_ERR(reset_gpio);
-+	gpiod_set_value_cansleep(priv->mdio_reset_gpio, 1);
-+	if (priv->mdio_reset_delays[1])
-+		msleep(DIV_ROUND_UP(priv->mdio_reset_delays[1], 1000));
- 
--		device_property_read_u32_array(priv->device,
--					       "snps,reset-delays-us",
--					       delays, ARRAY_SIZE(delays));
--
--		if (delays[0])
--			msleep(DIV_ROUND_UP(delays[0], 1000));
--
--		gpiod_set_value_cansleep(reset_gpio, 1);
--		if (delays[1])
--			msleep(DIV_ROUND_UP(delays[1], 1000));
--
--		gpiod_set_value_cansleep(reset_gpio, 0);
--		if (delays[2])
--			msleep(DIV_ROUND_UP(delays[2], 1000));
--	}
--#endif
-+	gpiod_set_value_cansleep(priv->mdio_reset_gpio, 0);
-+	if (priv->mdio_reset_delays[2])
-+		msleep(DIV_ROUND_UP(priv->mdio_reset_delays[2], 1000));
- 
- 	/* This is a workaround for problems with the STE101P PHY.
- 	 * It doesn't complete its reset until at least one clock cycle
-@@ -608,6 +591,19 @@ int stmmac_mdio_register(struct net_device *ndev)
- 	if (!mdio_bus_data)
- 		return 0;
- 
-+	if (mdio_bus_data->needs_reset && dev_of_node(priv->device)) {
-+		priv->mdio_reset_gpio =
-+			devm_gpiod_get_optional(priv->device, "snps,reset",
-+						GPIOD_OUT_LOW);
-+		if (IS_ERR(priv->mdio_reset_gpio))
-+			return PTR_ERR(priv->mdio_reset_gpio);
-+
-+		device_property_read_u32_array(priv->device,
-+					       "snps,reset-delays-us",
-+					       priv->mdio_reset_delays,
-+					       ARRAY_SIZE(priv->mdio_reset_delays));
-+	}
-+
- 	stmmac_mdio_bus_config(priv);
- 
- 	new_bus = mdiobus_alloc();
--- 
-2.25.1
+> 
+> Please advise,
+> Best Regards,
+> Fabrice
+> 
+> >   
+> >> I plan to update it in v2.
+> >>
+> >> Thanks,
+> >> Fabrice
+> >>  
+> >>>
+> >>>
+> >>>     
+> >>  
+> >   
+> 
+> 
 
 
