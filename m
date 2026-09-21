@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77EDC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225D7C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jo1mttMAeBwlE9oZ0kKMfIeVFqGCkPvCpNBkLCVIhak=; b=Wyb86c3MvzS/8Q/cMbDqq5j0ea
-	okSqBqC0tjFCKxLDc3bV9p4JvYah749YXFO13E0/zaujsgg8Y5PHwiktY2HmUbE7VnjJyr/Q/G2LP
-	4SktLH10cIrMQePJMWKJUlWXZclX6WY17Cv+qzIpk8murfPpscfA1YIw5zu8clYxAF8Ns7/zX7a1o
-	Z4hFDCY8HKVzRLG8GV8mAhvEN+N1a8lPiGZxG+XR+vao0GyYRV8DFG1oRLVp01wBGaDz28daoiY7x
-	f8YUhaI/DUOw7Z+AA/y6kbxhxhVopuaPpqpSXz3LHwzPEtXe5qBIHXN0x8AekrcqlN1C80VrWf07D
-	1BP9Z04Q==;
+	bh=C9OuFK8krYG5CFJQY5mJoDN0CmcjBiY8Df4psmo7f7k=; b=rB/5/17taNyScN3bTb4UUyN0oy
+	znZnB4gnYn8JPUiLZGLo+ps8cK9OsNjn3qXiNE14XQgYQSayB9sZu/ewzY1RZ67aLSQvfMLexMacp
+	jDsOawX3rrmrFpb3cbjg8f22O0EPrapAFziGAYAHOxp7NTehNif/96clk7CGh9zWvq/mVDe7H1Zfu
+	0z5zfpSeT3X9AY/iX8Ih3sfe4LVPTnebLrvu88rXwjYfmbVv10dSMFvu7mPz40C+0E7e1OoI2wyUN
+	dE9gHb6iPQhe4k/sS2waGt7z0GXAPeOYsg3Ib5rMrlKik3RsQT7eV/3mrhgzpUuWAcOKYHtOJcx2z
+	Ctu3YSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ffC-00000002YwZ-1FUB;
-	Mon, 21 Sep 2026 15:10:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8fgs-00000002ZIK-3MxB;
+	Mon, 21 Sep 2026 15:12:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ffB-00000002Yw2-1Abg
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:10:37 +0000
+	id 1x8fgq-00000002ZHZ-39Hy;
+	Mon, 21 Sep 2026 15:12:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5DCC40244;
-	Mon, 21 Sep 2026 15:10:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 037E11F000FF;
-	Mon, 21 Sep 2026 15:10:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E23960142;
+	Mon, 21 Sep 2026 15:12:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B7491F000FF;
+	Mon, 21 Sep 2026 15:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790003436;
-	bh=jo1mttMAeBwlE9oZ0kKMfIeVFqGCkPvCpNBkLCVIhak=;
+	s=k20260515; t=1790003538;
+	bh=C9OuFK8krYG5CFJQY5mJoDN0CmcjBiY8Df4psmo7f7k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OY1Y8tnRgZFAQsFAY86sn33inDXJ7p5NzoDpdtD2NzRETWTeVIDkfBva8QwenUumC
-	 WGc/A1EsUoeVvhosvijBx3soZOWwMOChxaHMOKqcca8+nVcrCHcDyVakaVfMoiBf0h
-	 BWCc+QIhhZRbNJ7Kko2JsfXycOT7f4RlBB97v70j8hiiLkOrgb7j/REzp2HPdQxSRU
-	 brxSVbPFDYPnGtz46at+/bQAMPlTWQNzOltBi/PyRcBnKgh9oQ8/DNmyzFpDme3p6Y
-	 0y02R2DQBAAPwHnM1o5LhJ6jt2s3IiojEa4uPkUREJMbcivC99fh/CU+e303YtQA4T
-	 7jtb6SrbmC0cQ==
-Date: Mon, 21 Sep 2026 16:10:31 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v4 1/8] dt-bindings: arm: Add Live Firmware Activation
-Message-ID: <20260921-nice-russet-caracal-6db6d3@sudeepholla>
-References: <20260918141112.2115555-1-andre.przywara@arm.com>
- <20260918141112.2115555-2-andre.przywara@arm.com>
+	b=ll1CjiAP/Ipjm1dHbz/UzwNVf9Su2P2qOIF1JmfRmgsGSU25vaCQ2xhjcQ1JLOaz4
+	 EfWNN+ckuH8zevwEV0XQBK8ptDUjLCv1HjxSFkKj5eeUQmVDJlcrD8ayhqK3wOEBSK
+	 3cVnaTQYVPioq0KH1+A2XfU2ddu58foJDAKEHR/9jP0tolYzATNsIURq3kcnkjU9cU
+	 lKJYn7IToJuUKRUUX8u/zhpe+XdEabg6RFg+Wmb7azT7uw0H0Rr0NxFzltQXI9wdhZ
+	 YAAp7ozwP56WEdbxFryz4ovhOso3trE8rzp93innvh+2VQaqdZodZbHALaKXJIHVaW
+	 /2nWX6PpbDydA==
+Date: Mon, 21 Sep 2026 17:12:15 +0200
+From: krzk@kernel.org
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Min Guo <min.guo@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Yonglong Wu <yonglong.wu@mediatek.com>, stable@vger.kernel.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mediatek@lists.infradead.org, Bin Liu <b-liu@ti.com>
+Subject: Re: [PATCH] usb: musb: mediatek: fix child device leak
+Message-ID: <arFJTmMczwQaRL7B@quoll>
+References: <20260921085119.308981-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260918141112.2115555-2-andre.przywara@arm.com>
+In-Reply-To: <20260921085119.308981-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,91 +67,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 04:11:04PM +0200, Andre Przywara wrote:
-> The Arm Live Firmware Activation spec [1] describes updating firmware
-> images during runtime, without requiring a reboot. Update images might
-> be deployed out-of-band, for instance via a BMC, in this case the OS
-> needs to be notified about the availability of a new image.
+
+On Mon, 21 Sep 2026 16:51:19 +0800, Guangshuo Li wrote:
+> mtk_musb_probe() populates child platform devices using
+> of_platform_populate(), but neither the probe error paths nor the
+> driver remove path depopulate them.
 > 
-> Describe an interrupt that could be triggered by the platform, to notify
-> about any changes.
+> If any initialization step after of_platform_populate() fails, the
+> probe returns without unregistering the populated child devices.
+> Likewise, the children remain registered when the driver is later
+> unbound.
 > 
-> [1] https://developer.arm.com/documentation/den0147/latest/
+> Use devm_of_platform_populate() so the populated child devices are
+> automatically depopulated when probe fails or the driver is unbound.
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> The issue was identified by a static analysis tool I developed and
+> confirmed by manual review.
+> 
+> Fixes: 0990366bab3c ("usb: musb: Add support for MediaTek musb controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 > ---
->  .../devicetree/bindings/arm/arm,lfa.yaml      | 50 +++++++++++++++++++
->  1 file changed, 50 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/arm/arm,lfa.yaml
+>  drivers/usb/musb/mediatek.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,lfa.yaml b/Documentation/devicetree/bindings/arm/arm,lfa.yaml
-> new file mode 100644
-> index 0000000000000..179c542f383d4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/arm,lfa.yaml
-> @@ -0,0 +1,50 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/arm,lfa.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm Live Firmware Activation (LFA)
-> +
-> +maintainers:
-> +  - Andre Przywara <andre.przywara@arm.com>
-> +  - Sudeep Holla <sudeep.holla@arm.com>
-> +
-> +description:
-> +  The Arm Live Firmware Activation (LFA) specification [1] describes a
-> +  firmware interface to activate an updated firmware at runtime, without
-> +  requiring a reboot. Updates might be supplied out-of-band, for instance
-> +  via a BMC, in which case the platform needs to notify an OS about pending
-> +  image updates.
-> +  [1] https://developer.arm.com/documentation/den0147/latest/
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,lfa
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description:
-> +      The notification interrupt for changed firmware image status. For
-> +      an out-of-band firmware update, some system entity would signal
-> +      the availability of a firmware update to the host OS via this interrupt.
-> +
-> +      This must be an edge-triggered IRQ.
-> +
-> +required:
-> +  - compatible
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    firmware {
-> +        firmware-update {
-> +            compatible = "arm,lfa";
-> +            interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
 
-Could the example use an edge-triggered interrupt type as it must be
-edge-triggered IRQ as per the above scheme ? As written, a device tree
-copied from the example violates the binding's requirement.
 
-Alternatively, is the binding incorrect and needs fixing ? I am not sure
-if there is any requirement on it from the specification. Where did you
-derive it from ?
+You sent multiple independent patches, to multiple independent
+subsystems. The amount of these patches clearly suggest this was
+AI generated and most likely not tested.
 
--- 
-Regards,
-Sudeep
+More importantly, you sent all this work without properly organizing
+relevant patches into patchsets. This makes reviewing difficult
+and might cause multiple reviewers to address the same issue.
+Replying to the entire set is impossible and requires handling each
+patch independently, instead of applying or discarding the set.
+Maintainers also won't see the bigger picture of your work. Quite
+worrying.
+
+This is on the verge of hostile patch: bomb us with so many
+contributions, we won't be able to handle them in efficient manner,
+like responding ONCE to ask you to slow down.  Considering all this
+is untested and LLM generated, I have even more doubts whether this
+should be considered for review.
+
+Please read kernel documentation BEFORE posting more work. It will
+explain you how to identify subsystems, how to organize your work per
+subsystem, how to document usage of LLM and how what you should not
+do if this was posted in a good faith.
+
+Best regards,
+Krzysztof
+
+
+
 
