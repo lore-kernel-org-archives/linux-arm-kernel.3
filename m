@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5103C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 601CAC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GX1kDtjAfCXSGF7xrHyk2v4uUNilnK+1K3CoVNBtw4A=; b=JUSOIS999ny55iY72WsyYb/FtH
-	stZDEs+kkT5z90f1alumdQ6NfDQthxTGGhsVEd5+v3RVrkF84O759bxk/vN7fbw7VvfeSU6Y9uA1d
-	D9+wsbUCZcVpX0adfdcQbn8hruFJwoQ2FAmlJmei+1HeXVX1HNFUgX4E2dQqazJ7iY0jlLPzz6i7F
-	+Pycu+iRgzqNul+qeL+/awM+/syJNYh8P2sA00jVD9kEKeKxSU/Vmm0MRgR6+szsSbnxGac8Dkppx
-	Bac/0yvc6F1sLHq96JGM6zommRxTrPbFNe8xtre29Z8TyuwBMzEG6kag9f+76RCS8jL4l4KFxHD/9
-	1Fr3XAeg==;
+	bh=4Gc84nshf57F/O9JNJXpRgG24Hn8rEipfBZo0XmFWJ4=; b=ZnG9HViDvOmX3sbBC/P6VJevSL
+	mWYD9ESFF3zz5SP7EkpFPq1RZIEhtdQAHKa+Pe36sJiFzJoO0Ce1pBgC1x0b9RJpnk6Wd6uya/A8h
+	sPXVZmKXa2RAk6Qs5OLX6Zd8eqazGC3lTKdU5fIBlzFuROqL+ZVRRlX+GAm+0yYo4u55EE0nWp1re
+	RCS7t0kvbzNwMLjOfjnbP1vvsLVfHGB0qZDdfo4jB0NceC/xvkVzhstQNU1jHOi+07biolqvWfkvY
+	xmLaH7j/+POG6hfoHOOkbt9RdVJlqFq4RupiQTCY4DvW8iYz1J4x0637x400mzUnIdPsMv1egJHlQ
+	xNp0GKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kAl-00000003IRd-3iQl;
-	Mon, 21 Sep 2026 19:59:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8kAy-00000003IYA-0aVL;
+	Mon, 21 Sep 2026 19:59:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kAk-00000003IQr-3O3w
+	id 1x8kAw-00000003IWs-0WrV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:59:30 +0000
+	Mon, 21 Sep 2026 19:59:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8912840238;
-	Mon, 21 Sep 2026 19:59:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 542F91F000FF;
-	Mon, 21 Sep 2026 19:59:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 90DC960142;
+	Mon, 21 Sep 2026 19:59:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3A611F00898;
+	Mon, 21 Sep 2026 19:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020770;
-	bh=GX1kDtjAfCXSGF7xrHyk2v4uUNilnK+1K3CoVNBtw4A=;
+	s=k20260515; t=1790020781;
+	bh=4Gc84nshf57F/O9JNJXpRgG24Hn8rEipfBZo0XmFWJ4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=araOXMAq3aGf5lhsHaF9EYdes13PfMxi/AKztAHU3Va9Nn/vDgBSHqo0RuqeabItb
-	 oNtT8BI+9WhQK8aNHeB4p9DzopBjegRomly7sPn5r0P6tX7YLA7OEiadHOlHz1p3Po
-	 0VRvp+5bka4Xj+WWdxNA/7dio0SkeoRI17P+Y0ba9o+uQWj0w05brmPZmTKxsTn9T5
-	 eP2rj5gGHKTms7HdD42p0zHYEeGtpIJcstNChorLw7RXgTT55bYgqWnIG8AhDR8Yut
-	 jAnt6ui6lqRaHEYMrQx5RSmAvq0KzO9sZYYAsJDB7eJ6B5lTlV3T9gsx0VW4f0eoni
-	 3JhTcsw/W2k5g==
+	b=GBNHRgIVmDV+JRar2AXK7q9NmtoXmMqVqeOQ+Zmz9MRMTqdjM9OinEXErDLc9F07D
+	 Cgo204193T83ZK7ugq6VrDNajh35492FawZ7ZxWHDspmr/t1VjVdxyradYr9+XtmLl
+	 Xu+tS6qUixcP5R4eta4rFx4wD22P8BfZXjQ6Th3bNLHe37mgq174PB0Nuz0bosGkwH
+	 qrIOsB6jCvijrcIF8pN7h+OqhoCPORhqjTHwk7TBKXbVwZgDljCqXZZV7x04Ni69Oe
+	 hMu+sWlpcG703QK9FbdiYYTAHgGnYL0XvwabJTfEkKkZHbt+Martqgvfr7sEtN/boP
+	 pLbb0Xy0CeBKg==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 04/17] iommu/arm-smmu-v3: Switch to use
+Subject: [PATCH v1 03/17] efi/dev-path-parser: Switch to use
  acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:47:52 +0200
-Message-ID: <2073406.usQuhbGJ8B@rafael.j.wysocki>
+Date: Mon, 21 Sep 2026 21:47:15 +0200
+Message-ID: <1870567.VLH7GnMWUR@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -110,22 +110,25 @@ function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/firmware/efi/dev-path-parser.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 5732f3ba0122..98f105798b89 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -5307,7 +5307,7 @@ static void acpi_smmu_dsdt_probe_tegra241_cmdqv(struct acpi_iort_node *node,
- 	adev = acpi_dev_get_first_match_dev("NVDA200C", uid, -1);
- 	if (adev) {
- 		/* Tegra241 CMDQV driver is responsible for put_device() */
--		smmu->impl_dev = get_device(acpi_get_first_physical_node(adev));
-+		smmu->impl_dev = acpi_bus_get_primary_device(adev);
- 		smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
- 		dev_info(smmu->dev, "found companion CMDQV device: %s\n",
- 			 dev_name(smmu->impl_dev));
+diff --git a/drivers/firmware/efi/dev-path-parser.c b/drivers/firmware/efi/dev-path-parser.c
+index 13ea141c0def..e0f864cbaa8c 100644
+--- a/drivers/firmware/efi/dev-path-parser.c
++++ b/drivers/firmware/efi/dev-path-parser.c
+@@ -37,9 +37,9 @@ static long __init parse_acpi_path(const struct efi_dev_path *node,
+ 	if (!adev)
+ 		return -ENODEV;
+ 
+-	phys_dev = acpi_get_first_physical_node(adev);
++	phys_dev = acpi_bus_get_primary_device(adev);
+ 	if (phys_dev) {
+-		*child = get_device(phys_dev);
++		*child = phys_dev;
+ 		acpi_dev_put(adev);
+ 	} else
+ 		*child = &adev->dev;
 -- 
 2.51.0
 
