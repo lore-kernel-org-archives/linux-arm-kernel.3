@@ -4,82 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58BCC982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBD5C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1vpA9Vu/anVUkgqQq6JZrIZF54n9p7jw4+5ezh/lQY=; b=yClhypdxwKv4MosLlqFb+uvlbO
-	+nJjN9sk1mB4fKRwj4tQiyp/zX7sZHGAUfuSUZt9+7UVbipveUWSvKlaggbGVlKgVuoC/NWrba1CZ
-	2cMdA8WBIgfdFTKofQHUEVhpuc4VsQS+zntv/U7C03+H65fFAlzg+3Y0k9R5A4zvxh1lf8xQnBzKn
-	s7i2dOUEoFkU5OJoxHfLYSUXkOcfQT4K6UzKsbSbT4yAVTJ38WhabSwE211avqcaaumBchTZ2sUiT
-	dVRjtEVD9fqNplbbg1q39GNKBhTjLuTBgJnRJbFlOdbtvGCHp+0F3vSblQ/I3X84YDl3RHwZReheg
-	O8vrPGFg==;
+	bh=DrpGKqIUkLFawAwAJ6T5iyyW+Mbq35mI1r9oJC3ubjA=; b=u074eX/KO87VS/JO0lWA3Fa+oe
+	kVL6jOtSHXQ4kuYdAPCFJOutN6xmsV7CUmNSx98QC456cHx9BmXh8MnoJqmKx0sE30EdSdlz4xRWU
+	MMYo/izNECHerwqOA52+XJIjNuUshWavN7BFUrlAbbICdyRTDIjTIiVMmoNXF/ROXH2DfE/bSIqMU
+	GjkqpF+pWg58S6aylq/iPFTBoDn/eAX48Fm1zSdqefwdK9kJq/w58B3dn/btIwvmD/JewzaL5C9sg
+	oaxEfj+DtdD/dcHt9GPEGU/CaJa1RbDAA9J+HgN996Dz9UFml1dro2fmvK8IabvbwnFjokGqRaUEN
+	u5p81puw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fih-00000002Zc8-3VeB;
-	Mon, 21 Sep 2026 15:14:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8flK-00000002a0B-0fMr;
+	Mon, 21 Sep 2026 15:16:58 +0000
+Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fig-00000002Zbj-2b3q;
-	Mon, 21 Sep 2026 15:14:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D23F260142;
-	Mon, 21 Sep 2026 15:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9121F000FF;
-	Mon, 21 Sep 2026 15:14:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790003653;
-	bh=A1vpA9Vu/anVUkgqQq6JZrIZF54n9p7jw4+5ezh/lQY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RCxq22/+ukarhuU4fLef1DBuO4WHwye2i/enhDbY/fN5vk+yc2q8glQdtTR4ar+R4
-	 kpaMNBUNGuZ2D9F7anJo8Tc7jUFessC92tZxVWklyiekG+W3GLDrLW80AZc4gMsvO8
-	 F1m0hqtosUiriuVusd21Dt9o31B5JZSVyrosgeImxruP1y7EXTOX3z3gam7EzpER3H
-	 z0Wcet/tUJg/ft7kI5gfVs//vOKXF69BeEsw6tJu8u7I5VNU37z9OJeWUJlLvNafDM
-	 ot7CzGLz37k3RgxiKDycEa/R/E80OkP5L0jlyZpjZRxgTAKetXHsS+LVitSS+VLOrv
-	 G3p3Ha4HzcvCQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 010351AC56A7; Mon, 21 Sep 2026 16:14:09 +0100 (BST)
-Date: Mon, 21 Sep 2026 17:14:09 +0200
-From: Mark Brown <broonie@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	id 1x8flI-00000002Zzm-0huX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 15:16:57 +0000
+Received: by mail-pz2-x0e.google.com with SMTP id d2e1a72fcca58-86e6d007703so2608346b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:16:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790003815; x=1790608615; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=DrpGKqIUkLFawAwAJ6T5iyyW+Mbq35mI1r9oJC3ubjA=;
+        b=UxJBlty/oNKDj7xoa8BZ8tZv0HC+i3svbLQfXiZO44fig6VZlgBl5xfFhpv1+Vnxnv
+         pDrI06rhrpZcAjAUh++BWcFeVgTnflDsGFEA9H8Xm815P4eGTc+rvk1XfAM6IvF8onFN
+         l+QHdv+I22FutI4N15xhZdHh1RiUsla9LUghX6cUplWtQ9WQZRQ2VKMZdRteycCEpYZQ
+         nKDxgjQaU0QV2ZAjIMwOCRZCOvy5nMdVFE/CXTB2stp/+dtY8000GSTJaayxYrmoik+s
+         sZOwRCc+jM5/GBpnw1fB5vC/MB1zigvRhAf5ddcfnBoi38WnuXCw0ywR2UrRWw1zcwLs
+         PwEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790003815; x=1790608615;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DrpGKqIUkLFawAwAJ6T5iyyW+Mbq35mI1r9oJC3ubjA=;
+        b=lS5aHlS9Kd+TrA3IoE7LjGZqEXrLmLBWYct4MN3gBRzhzO4xJS4i+h2f6JL+/qSSyE
+         f/figGwdTH6KflKYMQ6U5v/TsWY5uQ0A4Rvn6PS2bLkz/mkor+76Ne+SsekcuTqqtZAt
+         QsO4XL0UtwSnLpqPYBrlEkcMeyvwBOwzEZReVnothtdXMXwmt6WMoGjIHLk5RBbNDSBl
+         0O9aUudD7v3bPXmzyrcb3ixaoaAInIJ3KKktFZVdgqMIjV462/Qsont7nDnKa/7BCMOI
+         8Ga08GpiVVAnJwuGx7EzkJB1+8+HHuRJxjZmCd4sNDgZN0+0af9LwlcxGS8WEQp+xhyd
+         cKsQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxY5mysBIBiH7impNgV0VbXWFgz9cL6uCXCz6OMZQPbNNjuL1fBfk3JKMIdE7Z0tPWFtbCqzdDRKAHrzawzJif8@lists.infradead.org
+X-Gm-Message-State: AFuF++mTMi+lJw55upcPYNM8NOtBBSjHoHe7l8p5wSFk+Y2hYjR1J4ZV
+	RNlOzLA/QZyTdnCQPvWfNDfK86iU5DdSi3s1vrPQT4a7v1OQCMbzMZ4B
+X-Gm-Gg: AYBFou3857ksf50HhbPuXRsCrlyk43SYo8KaIRV1fcIES18DPdEJId10HDBwCsfq3So
+	nHH4dRsBOWRQ6uIKzne67vbnGWgdc08O2XrkCVYSt0YwgFV2f0dvCYQcymLV9kGU2N+Na1k0Iut
+	uF6JT60d3FsxIZUdPVnysEWCdGfpmEktAmxXVp9rA+gyqW8qfx3+hETzCFa727nsiGhTbEshYpP
+	semCoSrHeFibY2jV6I0DSZLX8p5/4IcqRThLkpvdlrP5RqUR98HYOq1aPRvL+0xdZTZCBPGZq51
+	kfztXwsuShmOS2hFPNraeeWXAhMXdBbJCuLxUjoIPyn6014EQhxDqjJIxUKQmEljuLa3Pmi6Jb7
+	XO4rpuhhcytaUXmW975kq2lCdFy8G3ELP96dN1KAbIhRnsRiUVUJxoOk5yP8QzyIFkGRTM925mp
+	SriisFng9cEraKOBVnLSdBBrAxc1SJV/Bf4Cr4NVyPjk83m5PAe3l8j6cJbXviV4w63caUr/iq4
+	lEmY02xbNzA
+X-Received: by 2002:a05:6a00:ad08:b0:874:706d:857b with SMTP id d2e1a72fcca58-874de9fd734mr15109225b3a.35.1790003815225;
+        Mon, 21 Sep 2026 08:16:55 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a95eceb2sm3431796b3a.24.2026.09.21.08.16.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 08:16:54 -0700 (PDT)
+Date: Mon, 21 Sep 2026 08:16:53 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Amit Kucheria <amit.kucheria@linaro.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
-	linux-mediatek@lists.infradead.org,
-	Martin =?utf-8?Q?Povi=C5=A1er?= <povik@protonmail.com>,
-	Hector Martin <marcan@marcan.st>,
-	Sasha Finkelstein <k@chaosmail.tech>
-Subject: Re: [PATCH 00/28] Add speaker and headset jack support for Apple
- Silicon Macs
-Message-ID: <arFJwcfSWqyawDYp@sirena.co.uk>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Tzu-Hao Wei <twei@axiado.com>,
+	Karthikeyan Mitran <kmitran@axiado.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-doc@vger.kernel.org, openbmc@lists.ozlabs.org
+Subject: Re: [PATCH v3 2/2] hwmon: add Axiado AX3000 and AX3005 PWM fan
+ controller driver
+Message-ID: <d9dfa12a-0999-4425-ba83-aacd48eea1ea@roeck-us.net>
+References: <20260921-axiado-ax3000-pwm-fan-v3-0-3def8b6ffec9@axiado.com>
+ <20260921-axiado-ax3000-pwm-fan-v3-2-3def8b6ffec9@axiado.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jhwW/VhgT1w2TOjQ"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
-X-Cookie: Too clever is dumb.
+In-Reply-To: <20260921-axiado-ax3000-pwm-fan-v3-2-3def8b6ffec9@axiado.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_081656_206797_E91F496D 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +113,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 21, 2026 at 12:23:56AM -0700, Petar Stepanovic wrote:
+> Add support for the PWM fan controller found on the Axiado AX3000 and
+> AX3005 SoCs.
+> 
+> The controller uses a hardware tachometer block and interrupt to measure
+> fan speed. Fan speed is controlled through a PWM signal supplied by an
+> external PWM controller.
+> 
+> Register the controller with the hwmon subsystem and expose the standard
+> fan1_input and pwm1 attributes. The physical fan is represented by a fan
+> child node containing the PWM specifier and the optional
+> pulses-per-revolution property. If pulses-per-revolution is not specified,
+> the driver uses two pulses per revolution.
+> 
+> The driver was tested on AX3000 and AX3005 boards.
+> 
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
---jhwW/VhgT1w2TOjQ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied.
 
-On Sun, Sep 20, 2026 at 02:53:39PM +1000, James Calligeros wrote:
-> Hi folks,
->=20
-> This series finalises support for the main
-> audio subsystem on Apple Silicon Macs. It adds a machine driver
-> called macaudio, which is based on an RFC sent many years ago
-> by Martin Povi=C5=A1er[1]. The driver uses the DPCM model to dynamically
-> glue a backend DAI (combination of MCA ports and codecs) to a
-> frontend PCM. While this theoretically allows us to route any
-> backend to any frontend, this is not used in practice; the "Primary"
-> frontend is always used for the headset codec and the "Secondary"
-> is always used for the speakers.
-
-This has got a lot of different stuff in it, there's several different
-sets of fixes, a number of framework features, as well as the new driver
-and a huge pile of DT updates.  It would be a lot more digestable were
-these things to be split out, especially the fixes.
-
---jhwW/VhgT1w2TOjQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqxSb4ACgkQJNaLcl1U
-h9ApuAf/ZwCUmddLEXrzSNnteIkRCaFhvQG/Ig3/Uo79xixZgarNV9EQrRh0cr/+
-wF4WqgVixB1t/yQr/ZvXeb2E1cuVxIY5MnqrXVqnFDxy0gZmr3kd1mKGvub6VstW
-E1auraBBQFDoz4/mBlBstM8YiWqmdgerxvqEGsHkjWMagDD/d8YG618XoY668mGW
-jn/w9JtTv9eyrrO3SX4N+MlVvLii06XTCi9Oegvjdo/uvF5tcICk9fZRY7bqXLGF
-KE1vXeSEdwr2ivDAjwMvYd1fjdBx1Ew+UL2mvTO3F1lAeA7o3zVieczdoP97C98C
-XEk5G4Q7u56Q1J2d8Vo0C0yXTyTVCg==
-=6yVp
------END PGP SIGNATURE-----
-
---jhwW/VhgT1w2TOjQ--
+Thanks,
+Guenter
 
