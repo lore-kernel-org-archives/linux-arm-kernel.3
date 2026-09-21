@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5958EC982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F71C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xAogfHl0rzKCRxwUa6GNW8uiIYa98DF9lOZtZbKkpiI=; b=tfyGyhRz9ubJ2RYa3+tmMqaUBd
-	lLiwfzlNYZjBanXSy5eFMob54VxDykRDadPt64zWZXvn3emXj0ltxkvWL+1u7ps2h0C+jPIKflRUG
-	9kWP7B4Lu4O/cxtS4nwPRY03DvUmM2kU1GTAgWS6TAJu/0LR+gPUWh+kLlfGLaMxZro9K/0An5Mk9
-	j3l8ybDgTOQ0MtfTXxVjbM4Tr4Bj3AAJ/kJqp/12VAoaFowdGQ+puCtKPUVjfDzFlCdj43GP266c0
-	t1k7CEyy2qToRo4cGwOexhRKaPtX8xxG2hg18qXmeIMIuaqWRHQgpahe2gTfzQ+uvDinjvoqaCZ4+
-	z5CGIKNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=avKVIYYtrZzYp1WGBNsCxOfiIbxk3sSWmj3SP4kCc1k=; b=KS2F9lfHnvxJLYL3jdHukpIqCc
+	k7vdfj+SCAqVwPQXgC0ARyJ3hai4C0v1DsQG6bUXLEYkhzy4UY2GEjjDRScpA6R/cDIbm7IKj4cQc
+	vtRudSnKDUlExTCp3SYD6jhr4P8ToX97hOEgmzhWgDtB4+qfAM4ixrdvhXuEradVdZyrEPRsk6abw
+	P7EU4XJSwzUm23j6881Y1m9y3v9e5+wz0BFTa6B8v9wfci9ElOAu/WNibFouvMEHhkeK20qXbl1oA
+	LNCZFZEGFADb7UQU6gAw/cGp0QuO7P10G7edbTRuNDg9nGbukwe/GMnNN5Xl79B//GVq+kg8EkGmh
+	P+t5BUaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8b67-00000001f40-38pJ;
-	Mon, 21 Sep 2026 10:18:07 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1x8b7y-00000001fRT-1uv7;
+	Mon, 21 Sep 2026 10:20:02 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8b62-00000001f0O-3S85
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:18:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789985882; x=1821521882;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=fHZY4IStNtbOlkeH/lkkLYxztDxxeJfIuR7oEBMyTlg=;
-  b=jFqNEdrreUSGsWqJuj4ugBXyugSgDNhDHcdEvLdnwc8Cpa0+DiONReTE
-   EV+4vD7wm7m0+QukhEGFIoIdiLGy4r3cjN6tt95PciON7LfGj8K5eAw4Z
-   X22AJQKweEqXd+1oxJsMnpnzhUmpnDVax+ps60sYu9g9qII0yDJOgkNKp
-   yhOwIGQcxCkelPEgk2RXbZQ8WK+9NIKf8Ees/3g11NH+fmI/7W7KIymsA
-   L7zz9lliz9+uPsHHD3PnflFQNhRl+fEacjJTMaDxapq0LmCDmY5Gwt5FX
-   MewqGw0rBk9cpW9TSJBW6yT9B0cCsj6rVf9VRFel4Gr/l2df1Hm+EziCu
-   Q==;
-X-CSE-ConnectionGUID: j0xeSroqRl+J/zI2Rswt9A==
-X-CSE-MsgGUID: 1dVjWwcfR6KzwfdgTADGmQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11911"; a="101080827"
-X-IronPort-AV: E=Sophos;i="6.27,114,1787036400"; 
-   d="scan'208";a="101080827"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Sep 2026 03:18:00 -0700
-X-CSE-ConnectionGUID: aMPcDpcFSJebozUmrpzOMA==
-X-CSE-MsgGUID: HXBtIuivROOVAS0ZmCsMsA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,114,1787036400"; 
-   d="scan'208";a="3627293"
-Received: from amilburn-desk.amilburn-desk (HELO kekkonen.fi.intel.com) ([10.245.244.157])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Sep 2026 03:17:56 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 06E9E120370;
-	Mon, 21 Sep 2026 13:17:55 +0300 (EEST)
-Date: Mon, 21 Sep 2026 13:17:54 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Pengyu Luo <mitltlatltl@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v6 2/5] media: hi846: Fix link frequency handling
-Message-ID: <arEEUjn0wiWpJjc4@kekkonen.localdomain>
-References: <20260830160025.211384-1-mitltlatltl@gmail.com>
- <20260830160025.211384-3-mitltlatltl@gmail.com>
- <apfrV9FZ1UN8RW55@kekkonen.localdomain>
- <CAH2e8h6eYmych9ESURozoNmn5Xg9SWcUUCo681NBz0FY9LB92w@mail.gmail.com>
+	id 1x8b7w-00000001fQ3-08fr;
+	Mon, 21 Sep 2026 10:20:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789985998;
+	bh=iS/knqCb5qCJLfWIIYfNisaIOoGLDLd7LFU6cnd1ZJQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KTFBxGRPPKQOqKIZaaFL7HZLsZv+EWKe23gjJaJoRWTPJ+gdYswvz9m+xNM5qtOiU
+	 fxXDrHUu3uFRo5C3XCIioO2Dgxid71zp++xl5lRoVYu/f4jkw37jOgWpw/7cEH7McY
+	 zT8TVulAd4Dg8QeS0yMAYQY1SswruKkNKR3vvYrZfHoYNYoZl362he/1iLM+4aMP72
+	 /J1cfQkqyEDEkYrVzcfWwvnUs/sYrvaZNTU/yZmU7p4FqLiws7t+VC//t+nNyPud4W
+	 IjuSqEDwEjyaOqLrQAyLU8lc794uT6sUIJaHxtpYOswbsZn5LK2kqFX99wlVpaz2Y5
+	 wBQ8QaP0OS2Tg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6666117E0104;
+	Mon, 21 Sep 2026 12:19:57 +0200 (CEST)
+Message-ID: <e1ee74fc-6cbe-4b72-93ba-3da830ee62f5@collabora.com>
+Date: Mon, 21 Sep 2026 12:19:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAH2e8h6eYmych9ESURozoNmn5Xg9SWcUUCo681NBz0FY9LB92w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add support for the mt8167 display pipeline
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+ linux-mediatek@lists.infradead.org
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>,
+ Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260918175736.355305-1-l.scorcia@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260918175736.355305-1-l.scorcia@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_031803_204605_867F0AC0 
-X-CRM114-Status: GOOD (  54.11  )
+X-CRM114-CacheID: sfid-20260921_032000_230953_9EE0D645 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,318 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pengyu,
+On 9/18/26 19:55, Luca Leonardo Scorcia wrote:
+> This series adds support for (almost) all display blocks of mt8167.
+> This SoC supports a DSI or DPI display and has HDMI output via a second
+> DPI block wired to the HDMI phy.
+> 
+> All the hard work was already upstreamed in the past, now all that's left
+> is some glue. In the first two patches we add support for the DPI output
+> blocks. In the third one we describe all the possible combinations of the
+> SoC display pipeline and in the last one we add the required nodes to the
+> SoC dtsi.
+> 
+> The final outputs of the display pipeline in the SoC dtsi are
+> intentionally left not connected to allow board dts to specify their
+> own output node.
+> 
+> I said almost all display blocks because HDMI output is not included in
+> this patch. I have it tested and working at all supported resolutions, but
+> since it needs some fixes in clocks and a new phy driver, I will send it
+> in a separate series.
+> 
+> The series has been tested on a Lenovo Smart Clock 2 (DSI), a Xiaomi Mi
+> Smart Clock 2 (DSI), and a Sony Playstation Classic Mini (HDMI via DPI).
+> Unfortunately I couldn't find an actual device using a DPI display, but
 
-On Sun, Sep 06, 2026 at 12:56:27PM +0800, Pengyu Luo wrote:
-> On Wed, Sep 2, 2026 at 5:24 PM Sakari Ailus
-> <sakari.ailus@linux.intel.com> wrote:
-> >
-> > Hi Pengyu,
-> >
-> > Thanks for the update.
-> >
-> 
-> I am glad to see your review too!
-> 
-> > On Mon, Aug 31, 2026 at 12:00:22AM +0800, Pengyu Luo wrote:
-> > > Link frequency is tied to PLL configuration, lane count, and external
-> > > and configurable clock, so use runtime here instead of hardcoding for
-> > > specific configuration. To implement this, we do
-> > >
-> > > 1. Drop fixed link freqs, we calculate the driver supported values and
-> > > use v4l2_link_freq_to_bitmap() to get the intersection with the DT
-> > > supported values.
-> > >
-> > > 2. Attach mipi_clk_div_{2,4}lane to current mode, and use the div with
-> > > mclk clock, lane count to calculate link frequency.
-> > >
-> > > 3. Drop mclk clock rate check.
-> > >
-> > > Fixes: e8c0882685f9 ("media: i2c: add driver for the SK Hynix Hi-846 8M pixel camera")
-> > > Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
-> > > ---
-> > > v6:
-> > > - Add link freq ctrl back (Sakari)
-> > > - Use v4l2_link_freq_to_bitmap() to get matched link freqs (Sakari)
-> > > - Move clk_get() before than hi846_parse_dt(), since we use clock in hi846_parse_dt()
-> > > v5:
-> > > - Use separated fields instead of raw register values for PLL cfg (Sakari)
-> > > - Use mul_u64_u32_div() to avoid loss of pricision and u64/u32 issues (Sakari)
-> > > - Drop line break (Sakari)
-> > > ---
-> > >  drivers/media/i2c/hi846.c | 151 ++++++++++++++++++++++++--------------
-> > >  1 file changed, 94 insertions(+), 57 deletions(-)
-> > >
-> > > diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
-> > > index 7f069aca0fce..2f8624f9bdf3 100644
-> > > --- a/drivers/media/i2c/hi846.c
-> > > +++ b/drivers/media/i2c/hi846.c
-> > > @@ -1,7 +1,7 @@
-> > >  // SPDX-License-Identifier: GPL-2.0
-> > >  // Copyright (c) 2021 Purism SPC
-> > >
-> > > -#include <linux/unaligned.h>
-> > > +#include <linux/bitfield.h>
-> > >  #include <linux/clk.h>
-> > >  #include <linux/delay.h>
-> > >  #include <linux/gpio/consumer.h>
-> > > @@ -11,6 +11,7 @@
-> > >  #include <linux/pm.h>
-> > >  #include <linux/property.h>
-> > >  #include <linux/regulator/consumer.h>
-> > > +#include <linux/unaligned.h>
-> > >  #include <media/v4l2-ctrls.h>
-> > >  #include <media/v4l2-device.h>
-> > >  #include <media/v4l2-fwnode.h>
-> > > @@ -219,8 +220,8 @@ struct hi846_mode {
-> > >       /* Horizontal timing size */
-> > >       u32 llp;
-> > >
-> > > -     /* Link frequency needed for this resolution */
-> > > -     u8 link_freq_index;
-> > > +     u8 mipi_clk_div_2lane;
-> > > +     u8 mipi_clk_div_4lane;
-> > >
-> > >       u16 fps;
-> > >
-> > > @@ -1040,13 +1041,6 @@ static const char * const hi846_test_pattern_menu[] = {
-> > >       "Resolution Pattern",
-> > >  };
-> > >
-> > > -#define FREQ_INDEX_640       0
-> > > -#define FREQ_INDEX_1280      1
-> > > -static const s64 hi846_link_freqs[] = {
-> > > -     [FREQ_INDEX_640] = 80000000,
-> > > -     [FREQ_INDEX_1280] = 200000000,
-> > > -};
-> > > -
-> > >  static const struct hi846_reg_list hi846_init_regs_list_2lane = {
-> > >       .num_of_regs = ARRAY_SIZE(hi846_init_2lane),
-> > >       .regs = hi846_init_2lane,
-> > > @@ -1061,7 +1055,13 @@ static const struct hi846_mode supported_modes[] = {
-> > >       {
-> > >               .width = 640,
-> > >               .height = 480,
-> > > -             .link_freq_index = FREQ_INDEX_640,
-> > > +             .mipi_clk_div_2lane = 4,
-> > > +             /*
-> > > +              * Dummy but necessary if we set this mode default, otherwise
-> > > +              * hi846_calc_pixel_rate() will be broken in
-> > > +              * hi846_init_controls()
-> > > +              */
-> > > +             .mipi_clk_div_4lane = 8,
-> >
-> > The divider of the 4-lane case appears to be always two times that of the
-> > 2-lane case. Could you calculate the value instead?
-> >
-> 
-> Ack
-> 
-> > I think it'd be better to keep the link frequencies and modes at separate
-> > indices; this is the way it used to be, too.
-> >
-> 
-> You mean add an array for the divider ratios then use the indices in
-> modes like before?
-> 
-> > >               .fps = 120,
-> > >               .frame_len = 631,
-> > >               .llp = HI846_LINE_LENGTH,
-> > > @@ -1086,7 +1086,8 @@ static const struct hi846_mode supported_modes[] = {
-> > >       {
-> > >               .width = 1280,
-> > >               .height = 720,
-> > > -             .link_freq_index = FREQ_INDEX_1280,
-> > > +             .mipi_clk_div_2lane = 2,
-> > > +             .mipi_clk_div_4lane = 4,
-> > >               .fps = 90,
-> > >               .frame_len = 842,
-> > >               .llp = HI846_LINE_LENGTH,
-> > > @@ -1112,7 +1113,8 @@ static const struct hi846_mode supported_modes[] = {
-> > >       {
-> > >               .width = 1632,
-> > >               .height = 1224,
-> > > -             .link_freq_index = FREQ_INDEX_1280,
-> > > +             .mipi_clk_div_2lane = 2,
-> > > +             .mipi_clk_div_4lane = 4,
-> > >               .fps = 30,
-> > >               .frame_len = 2526,
-> > >               .llp = HI846_LINE_LENGTH,
-> > > @@ -1167,6 +1169,9 @@ struct hi846 {
-> > >       struct v4l2_ctrl *hblank;
-> > >       struct v4l2_ctrl *exposure;
-> > >
-> > > +     s64 link_freqs[ARRAY_SIZE(supported_modes)];
-> > > +     int num_link_freqs;
-> > > +
-> > >       struct mutex mutex; /* protect cur_mode, streaming and chip access */
-> > >       const struct hi846_mode *cur_mode;
-> > >       bool streaming;
-> > > @@ -1192,21 +1197,41 @@ static const struct hi846_datafmt *hi846_find_datafmt(u32 code)
-> > >       return NULL;
-> > >  }
-> > >
-> > > -static inline u8 hi846_get_link_freq_index(struct hi846 *hi846)
-> > > +static u64
-> > > +hi846_get_link_freq(const struct hi846 *hi846, const struct hi846_mode *mode)
-> > >  {
-> > > -     return hi846->cur_mode->link_freq_index;
-> > > +     u64 mclk = clk_get_rate(hi846->clock);
-> > > +     u8 mipi_clk_div;
-> > > +
-> > > +     if (hi846->nr_lanes == 2)
-> > > +             mipi_clk_div = mode->mipi_clk_div_2lane;
-> > > +     else
-> > > +             mipi_clk_div = mode->mipi_clk_div_4lane;
-> > > +
-> > > +     /*
-> > > +      * HI846_REG_PLL_CFG_MIPI1_H = 0x025a, it is fixed in listed modes
-> > > +      * [11:8]: 0x02 => pre_div = 3
-> > > +      * [7:0]: 0x5a => multiplier = 90
-> > > +      */
+I don't think that it even exists with your SoC. It's fine though, because
+you're anyway testing the DPI interface in one way or another.
 
-It seems it'd be also fairly easy to write a PLL calculator for this. Or
-just use the CCS PLL calculator?
+> since DPI1-HDMI works, I feel confident saying that the clocks divisors
+> are correct.
 
-> > > +     return mul_u64_u32_div(mclk, 90, 3 * mipi_clk_div);
-> > >  }
-> > >
-> > > -static u64 hi846_get_link_freq(struct hi846 *hi846)
-> > > +static int hi846_get_link_freq_index(const struct hi846 *hi846,
-> > > +                                  const struct hi846_mode *mode)
-> > >  {
-> > > -     u8 index = hi846_get_link_freq_index(hi846);
-> > > +     u64 link_freq = hi846_get_link_freq(hi846, mode);
-> > > +     int i;
-> > > +
-> > > +     for (i = 0; i < hi846->num_link_freqs; i++)
-> > > +             if (hi846->link_freqs[i] == link_freq)
-> > > +                     return i;
-> > >
-> > > -     return hi846_link_freqs[index];
-> > > +     return -EINVAL;
-> > >  }
-> > >
-> > >  static u64 hi846_calc_pixel_rate(struct hi846 *hi846)
-> > >  {
-> > > -     u64 link_freq = hi846_get_link_freq(hi846);
-> > > +     u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
-> > >       u64 pixel_rate = link_freq * 2 * hi846->nr_lanes;
-> > >
-> > >       do_div(pixel_rate, HI846_RGB_DEPTH);
-> > > @@ -1429,8 +1454,8 @@ static int hi846_init_controls(struct hi846 *hi846)
-> > >       hi846->link_freq =
-> > >               v4l2_ctrl_new_int_menu(ctrl_hdlr, &hi846_ctrl_ops,
-> > >                                      V4L2_CID_LINK_FREQ,
-> > > -                                    ARRAY_SIZE(hi846_link_freqs) - 1,
-> > > -                                    0, hi846_link_freqs);
-> > > +                                    hi846->num_link_freqs - 1,
-> > > +                                    0, hi846->link_freqs);
-> > >       if (hi846->link_freq)
-> > >               hi846->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
-> > >
-> > > @@ -1503,10 +1528,9 @@ static int hi846_set_video_mode(struct hi846 *hi846, int fps)
-> > >       u64 frame_length;
-> > >       int ret = 0;
-> > >       int dummy_lines;
-> > > -     u64 link_freq = hi846_get_link_freq(hi846);
-> > > +     u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
-> > >
-> > > -     dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__,
-> > > -             hi846_get_link_freq(hi846));
-> > > +     dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__, link_freq);
-> > >
-> > >       do_div(link_freq, fps);
-> > >       frame_length = link_freq;
-> > > @@ -1699,6 +1723,7 @@ static int hi846_set_format(struct v4l2_subdev *sd,
-> > >       const struct hi846_datafmt *fmt = hi846_find_datafmt(mf->code);
-> > >       u32 tgt_fps;
-> > >       s32 vblank_def, h_blank;
-> > > +     int idx;
-> > >
-> > >       if (!fmt) {
-> > >               mf->code = hi846_colour_fmts[0].code;
-> > > @@ -1749,7 +1774,14 @@ static int hi846_set_format(struct v4l2_subdev *sd,
-> > >       mf->code = HI846_MEDIA_BUS_FORMAT;
-> > >       mf->field = V4L2_FIELD_NONE;
-> > >
-> > > -     __v4l2_ctrl_s_ctrl(hi846->link_freq, hi846_get_link_freq_index(hi846));
-> > > +     idx = hi846_get_link_freq_index(hi846, hi846->cur_mode);
-> > > +     if (idx < 0) {
-> > > +             dev_err(&client->dev,
-> > > +                     "failed to get link freq index: %d\n", idx);
-> > > +             return -EINVAL;
-> > > +     }
-> > > +
-> > > +     __v4l2_ctrl_s_ctrl(hi846->link_freq, idx);
-> > >       __v4l2_ctrl_s_ctrl_int64(hi846->pixel_rate,
-> > >                                hi846_calc_pixel_rate(hi846));
-> > >
-> > > @@ -1947,20 +1979,33 @@ static int hi846_identify_module(struct hi846 *hi846)
-> > >       return 0;
-> > >  }
-> > >
-> > > -static s64 hi846_check_link_freqs(struct hi846 *hi846,
-> > > -                               struct v4l2_fwnode_endpoint *ep)
-> > > +static int hi846_add_link_freqs(struct hi846 *hi846, struct device *dev,
-> > > +                             struct v4l2_fwnode_endpoint *ep)
-> > >  {
-> > > -     const s64 *freqs = hi846_link_freqs;
-> > > -     int freqs_count = ARRAY_SIZE(hi846_link_freqs);
-> > > -     int i, j;
-> > > -
-> > > -     for (i = 0; i < freqs_count; i++) {
-> > > -             for (j = 0; j < ep->nr_of_link_frequencies; j++)
-> > > -                     if (freqs[i] == ep->link_frequencies[j])
-> > > -                             break;
-> > > -             if (j == ep->nr_of_link_frequencies)
-> > > -                     return freqs[i];
-> > > -     }
-> > > +     s64 hi846_link_freqs[ARRAY_SIZE(supported_modes)];
-> > > +     unsigned long freq_bitmap;
-> > > +     int ret, i;
-> > > +
-> > > +     /*
-> > > +      * Since the MCLK freq varies between platforms, calculating driver
-> > > +      * supported link freqs here.
-> > > +      */
-> > > +     for (i = 0; i < ARRAY_SIZE(supported_modes); i++)
-> > > +             hi846_link_freqs[i] = hi846_get_link_freq(hi846, &supported_modes[i]);
-> > > +
-> > > +     ret = v4l2_link_freq_to_bitmap(dev, ep->link_frequencies,
-> > > +                                    ep->nr_of_link_frequencies,
-> > > +                                    hi846_link_freqs,
-> > > +                                    ARRAY_SIZE(hi846_link_freqs),
-> > > +                                    &freq_bitmap);
-> > > +     if (ret || !freq_bitmap)
-> > > +             return ret;
-> > > +
-> > > +     for (i = 0; i < ARRAY_SIZE(hi846_link_freqs); i++)
-> >
-> > Could you use the hi846_link_freqs array as-is for the control?
-> >
-> 
-> Could you please tell me if an array with repeat numbers is acceptable
-> for v4l2_ctrl_new_int_menu(), if so, keep it as-is is more convenient
-> later.
+While series is
 
-No, the link frequency determines the rest rather than the other way
-around. So the values need to be unique.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 > 
-> > The selectable modes are expected to depend on the chose link frequency,
-> > which is not affected by setting the format, for instance. I wonder if it'd
-> > be useful to squash the next patch into this one.
-> >
+> Luca Leonardo Scorcia (4):
+>    dt-bindings: display: mediatek: dpi: Add compatible for mt8167
+>    drm/mediatek: Add support for mt8167 Digital Parallel Interface
+>    soc: mediatek: mt8167-mmsys: add routes for all display paths
+>    arm64: dts: mediatek: mt8167: Add DRM nodes
 > 
-> Yes, it seems so, we need to get the index of link freq to set
-> control, so we can filter the mode by the index, and this lets us drop
-> previous checks.
+>   .../display/mediatek/mediatek,dpi.yaml        |   1 +
+>   arch/arm64/boot/dts/mediatek/mt8167.dtsi      | 369 ++++++++++++++++++
+>   drivers/gpu/drm/mediatek/mtk_dpi.c            |  23 ++
+>   drivers/gpu/drm/mediatek/mtk_drm_drv.c        |   2 +
+>   drivers/soc/mediatek/mt8167-mmsys.h           | 183 ++++++++-
+>   5 files changed, 569 insertions(+), 9 deletions(-)
+> 
 
-Sounds good to me.
 
--- 
-Kind regards,
-
-Sakari Ailus
 
