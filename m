@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C9AC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Sep 2026 23:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC8CC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 00:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n69+NQuL0MBxH8A3qlY0/AgvLV3+f1D8QUKm2WY4ZWI=; b=NNopmvkMa2CobC88hwtkjSNcex
-	ygmu41u5t9m6PkDu4nmI8lQ4UWg1oAQNNg5/O0YZuSQ/K6wvL18MVkLrIh2Ml0AYXPttNs0iK1YS5
-	9E9e1P6sRSU71L6InSRef2yy5Knj0QmVx5vfpcVsAFe2IYYdzvdxHxcLg3Fc6HhmAiSCWdAoIWLHY
-	ZrWYyEF9dwn0yCPcLFj4fPU5czeb7SLbpZyXiAdnJr0uQDeQUJa4ZOejx9kECiFMuu294sTcLH322
-	+wKKMog+rDVD7YLvD7h9oCCtGZ5UU03S4nON2/x6VsI8CkNYcO9yqBzIcLXewxSkovcp8vFG+OZjO
-	VusToKrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H9n14ecYroU7+DDO7NNn5gqPEvYih3tU4SI/4RTqUOg=; b=omM4z9LJb79jXrAqliRg9jaUkE
+	nHbLZADQlLceUYeEj2uw/H+o7GpcRPnFvL8bxC7MMWjAQiX9HmmeIrdx1pPktwwBOcJ8av54bfAck
+	goItPZq8b2TWcVo38uu2ge8s0tolqS7/LEKXANSZmxEBZiGXWmTCAEy3jnUGaVwLIxtGKDX0ZvwGg
+	dNbK0UpD8UEek6wk+rPAFSTOqMPw+oEUiv9F3gwetXt3Tj2vQ5x6qk7HIvIyGGIn0mRIAM+wsQp7w
+	mHfoxtGYF1aNcapHukKBamdLJs2dyDReBN8a6trqigWZOn8uJNuGB8+eQUtm0la+AevysdUKRuUGv
+	wdrgsHZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8RK5-00000000bfL-1rSl;
-	Sun, 20 Sep 2026 23:51:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8RgK-00000000cba-0P4M;
+	Mon, 21 Sep 2026 00:14:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8RK3-00000000bfB-3xyI
+	id 1x8RgI-00000000cbP-37c2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Sep 2026 23:51:52 +0000
+	Mon, 21 Sep 2026 00:14:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7025241A0C;
-	Sun, 20 Sep 2026 23:51:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B1A1F000FF;
-	Sun, 20 Sep 2026 23:51:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 214E0411B7;
+	Mon, 21 Sep 2026 00:14:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC77A1F000FF;
+	Mon, 21 Sep 2026 00:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789948311;
-	bh=n69+NQuL0MBxH8A3qlY0/AgvLV3+f1D8QUKm2WY4ZWI=;
+	s=k20260515; t=1789949690;
+	bh=H9n14ecYroU7+DDO7NNn5gqPEvYih3tU4SI/4RTqUOg=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=oH4PGHC7Axy/Amkc3VJw6ozl7LfldOKz0UpByM3IxPHU7qL8yngrsdYxQzs9eGLTW
-	 C4sn78GXQp/fyHcdD+bDrxfPf7T2K+QDKtaaWH2cSzndRSH3VxWVgPBuSydUJrLB7R
-	 EGhSuoyKjzlwGWooX1oU3HhsTUGEQBbq9hu2gFOmUIfZlKCAYPYlQCGpaV7wqEVUF1
-	 yMOzXd1c/KQHw8gGicCACzqNmsZhS9/QJirj18ScOL9NFYan29trdzttHAj5Gzkjw3
-	 bpGAoTvlRa6fAITu/GAsuUlv1D53qUFZCSLR5UQNj9JNMY2XPSxoTTWtPuqmTM9bJ+
-	 RM1Yx1mPiZ5Mw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x8RK0-0000000BJ26-4AzT;
-	Sun, 20 Sep 2026 23:51:49 +0000
-Date: Mon, 21 Sep 2026 00:54:52 +0100
-Message-ID: <87a4pb4gxf.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: vgic: Do not remove in-flight LPIs from AP list on disable
-In-Reply-To: <aq2N7HYbQw7zbpCq@kernel.org>
-References: <20260918040214.85580-1-ndaugoing@gmail.com>
-	<20260918040214.85580-2-ndaugoing@gmail.com>
-	<CA+EHjTx8zzvgqj99TKWfRD58X-M8v+hs9358_r_1zZonFNEsgw@mail.gmail.com>
-	<CAC2BP3K-fvW2s2j2ys+kPMuxrzeMw9yc6MrAk7U7CqCpb2WePQ@mail.gmail.com>
-	<CA+EHjTx9bTDuTnGgkrCcaAG+1S1Lx6+1BZnuhJcWNTJxWXkAHw@mail.gmail.com>
-	<aq2N7HYbQw7zbpCq@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=h/BXwGpzwvMMl60jjUUC9Kl6ZHqrND4q9enkECK5ewsMOK6xiYfIdxihYg/EVNTB4
+	 jTu2+13wihO63GvQHNT1TmbIdBrYeCO+F+Nw3+JakUmgnUnkxNShbv3gLTsNdZpCYP
+	 LPyhoLfWO8VqUcYALZcgwyKmr/M+91PaekaiP5wqK9EGKa6QDzeR7JLqjEdSPW+05T
+	 ByzbN5Vob9DXwvDbpnIymLKdGbRl/U5uqJXFHepDu5bDQEsZMS+yolMN8yMBgUkofi
+	 x7U2r/jIk9WN4gow267HaZjjuJgKYk+UzadiROdp9dnFoGanZOyRY7rPbZYhpkR5go
+	 hFyoxdW1hWm2w==
+Date: Mon, 21 Sep 2026 01:14:42 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Olivier Moysan
+ <olivier.moysan@foss.st.com>, <linux-iio@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Sashiko <sashiko-bot@kernel.org>, <stable@vger.kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>
+Subject: Re: [PATCH v3] iio: adc: stm32-adc: fix check on internal channel
+ availability
+Message-ID: <20260921011442.1c5a8403@jic23-hlaptop>
+In-Reply-To: <20260916-adc-fix-intchan-v1-v3-1-b5f05b86bc60@foss.st.com>
+References: <20260916-adc-fix-intchan-v1-v3-1-b5f05b86bc60@foss.st.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, ndaugoing@gmail.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Sep 2026 20:15:56 +0100,
-Oliver Upton <oupton@kernel.org> wrote:
+On Wed, 16 Sep 2026 19:18:38 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
+
+> If an unsupported internal channel like vddgpu is requested, the driver
+> prints a warning but falls through and assigns it a valid int_ch below.
 > 
-> On Fri, Sep 18, 2026 at 12:58:17PM +0100, Fuad Tabba wrote:
-> > Hi Yuchao,
-> > 
-> > On Fri, 18 Sept 2026 at 12:51, Yuchao Zhang <ndaugoing@gmail.com> wrote:
-> > >
-> > > Hi Fuad,
-> > >
-> > > Thanks a lot for pointing me to that thread! I was not aware of
-> > > Hyunwoo's earlier report and the discussion with Oliver and Marc.
-> > >
-> > > I'll read through the thread and their rationale on the ap_list_lock
-> > > approach. I'm happy to defer to Hyunwoo's effort to avoid duplicate
-> > > work.
-> > 
-> > I'm not sure you should defer to their effort. It doesn't seem like
-> > Hyunwoo has done any work on this for a while. I just wanted to point
-> > you to the existing discussion.
+> This causes a problem later during setup:
+> stm32_adc_int_ch_enable() {
+>     ...
+>     case STM32_ADC_INT_CH_VDDGPU:
+>         stm32_adc_set_bits(adc, adc->cfg->regs->or_vddgpu.reg,
+>                            adc->cfg->regs->or_vddgpu.mask);
+>     ...
+> }
 > 
-> Yuchao if you have cycles I would definitely appreciate it if you can
-> pursue a fix. My view hasn't changed since before: let's make that
-> traversal of the ap_list is done under the ap_list_lock, as this is not
-> intended to be walked lock-free.
+> Because the register offset is uninitialized (0), this performs a
+> read-modify-write on offset 0, which corresponds to the ISR register.
 > 
-> Taking a step back, the whole cross-vCPU LPI disabling always leaves me
-> feeling ill... Really when RWP=0 becomes visible from another vCPU we
-> need to guarantee that the LPIs have been actually retired, meaning we
-> can't have one sitting in an LR. Even with the locking fix I think we
-> miss this.
+> Fix this by returning before a valid int_ch is assigned. Choice is
+> made to keep current driver behavior to warn about the channel name.
 > 
-> Given how unlikely it is for well-behaved software to disable LPIs
-> remotely in the first place, I wonder if we should just halt the VM
-> similar to how we handle accesses to the active state. That's a really
-> big hammer but we've had a lot of bugs in this department and I'm
-> somewhat biased towards an obviously correct solution.
+> Fixes: cf0fb80ae167 ("iio: adc: stm32-adc: add stm32mp13 support")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260911162602.D323F1F000FF@smtp.kernel.org/
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Applied to the fixes-togreg branch of iio.git.
 
-Irrespective of the whole ap_list_lock issue, I think this is the only
-valid option. Messing with the ap_list of another vcpu while it is
-running can never result in something that actually works. There's a
-hack doing that in my tree.
+Thanks,
 
-> We wouldn't need to do this for a vCPU disabling LPIs on its own
-> redistributor since we've already exited the guest.
-
-In general, we could stop the target vcpu only. But this is making
-things more complex, and I quite like the idea of a large
-hammer... ;-)
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Jonathan
 
