@@ -4,68 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074B0C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3F5C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+R+4QFyF+WlCRdL4TduCp8yZAkpKRUdz35JbCI1EGI=; b=knF23WFFTPFpYgiNA4u7IuzMHm
-	SZ7iBpPWgQ2yMzWsHsR3pQ02kPFlAOFu3zT+2sS+k0MFUBqACybndxqiRtzaUKxR6bCKSji9BpvCt
-	4k4fUY4jSP1OgQGTd1aunwC162Ogfj9wOS5ll2YbskkdyGonj0fizPQdet/8SgE4+6e9mN7mpYaS9
-	LYEmuAQQQi2JztmDAteCm4bTdUusP0iXMtOkPktTi9vIUT+kU4QZB2DZ8f/Jof4dtMcXcxMDBd18L
-	YcHZobQrWmfSULXuY7dbDhgZDqAf4g2kBgoo3QD+plc+5uUak5p16bZ4XNAIBO5fYRlZvXQGHgNFL
-	sZ4o5LJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CMPRHpY2TQguawyCALFr3c1Go/7b6gQHKxaBqhryn0A=; b=3fYdjYBh1DcA3+hWXghS48x5Nm
+	czJPA7fyFtLGqj2CP89F+q6je2b8Zsm7Vw88YbB1bimfTetKFZ4j6q2GkJCNdgN7uCntK5dF6sSm5
+	3Q2RD/AtDIiIHUXZLmkzdkGHYyohKSmSMtyaeq2xqwJNB1g/YNdDRz6vd2IUox6ZUvPdekCPVx0/5
+	YCn+gyfuykHtfbzHbS2sDTuYU7zWpeVrDsBUsw8ZePKU/UGAHAfbDEANyhy0aiPilLnGyOnKuATb5
+	a3UdU1kae3SFxTFsh4sbraQ8ifM6WVzkORmZQoQi2S3Uc1tEQ2lDd0pFSKdJz8EXKSR93Mrfz/sYp
+	QnQPmwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8edH-00000002KSi-3UBE;
-	Mon, 21 Sep 2026 14:04:35 +0000
-Received: from out-112.mta1.migadu.com ([2001:41d0:203:375::70] helo=mta1.migadu.com)
+	id 1x8edU-00000002KXa-0YGa;
+	Mon, 21 Sep 2026 14:04:48 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8edD-00000002KRy-46Lj
+	id 1x8edM-00000002KSg-11Hh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:04:34 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=OSYAyJkxVLSPK+NkLdepaf6lI/E2wi+QfFe45FHXmeM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789999470; v=1; x=1790604270;
- b=Sk5a9FvZBlY/6bf164Jy3nmRv5LY6eEHg5avMTVpYBAI71bK86cnfGRDWp7d/R/xM9g7/QXJ
- Aa2Bdcjt+nLLeKrc+SthqXxIxax/HACY4nHAO5Y8N3mFT3uWS72dOphDUdq82nHpgavJOl1Q0tO
- ltX7KYvWBmswKZUBvfgiLdUo=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id cfe6841c27b4352f;
-	Mon, 21 Sep 2026 14:04:29 +0000
-X-Mizu-Trace-ID: cfe6841c27b4352f
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Zenghui Yu <zenghui.yu@linux.dev>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH 1/3] KVM: arm64: timers: Compute an offset-applied CVAL from the current count
-Date: Mon, 21 Sep 2026 15:04:25 +0100
-Message-Id: <20260921140427.2211373-2-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260921140427.2211373-1-fuad.tabba@linux.dev>
-References: <20260921140427.2211373-1-fuad.tabba@linux.dev>
+	Mon, 21 Sep 2026 14:04:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oH3gCpL7RHJk9Al+aL7PWnHEfUZyGVbDVbDOAVzIx7IrfPF6tZGflm3txxIQl7HiApoBzJ5crGfwba8UQg/01eDAaNgRM1WuiOJKb8vNlhTnF+XzbhevQPJtJeYckV2gDvfNbjCkPAlt8sU0UQnRV+LchHWlp11Oa+AU6dD4hEC9Q4ElUQzffEgUhTV+vTJFvsAeM8ERlMR51vZ6F9BtrBKXIr0iXnBKjPRcT/PvBYxaDv3dfvuPB10+rOyfLAke+H9+df0yGciOLDNPcw+vQHX70i0gUcqZrpoWwv8LrC+cUySemHbpXKZd6WOgLVOBdM2ycAOv2UHvdSFHVDmOig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CMPRHpY2TQguawyCALFr3c1Go/7b6gQHKxaBqhryn0A=;
+ b=QQonSamHTpOfbrO4JttOhs1zDeZvJYpUsYvzsY2TK3YtnPGQeAYe3A/157BpIcLV0N/surLwgEqDd2ttelI6kD8tUiWjg831OtBff+8DiCXbzriYmZ+F1Xc0D9aPKyo+U8XOysdRAHqjwPGZuulyNcpnAelSxcTMn0fVM/yqjg9qQH0dsk3WMF9UO60cEaFuIEnzdXnaMdIG05Lr+JaWCtmkZUJe7RezuVJPGksHeU9ZIgEmgffVRVFA8P9kfugOM93fWiAgpAICH16RMVi6yplPLE/LCS8htXI+FMAaEDWTDoTTyUfvoiotDnW9C+Z5HzWoSjPfOESQZU4rpEutUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CMPRHpY2TQguawyCALFr3c1Go/7b6gQHKxaBqhryn0A=;
+ b=ZEQYx3S1qNvsBjKJWvsmaLhTpHyVc2uRlvBZysIMmdbu+AyHLYYCnYA6DKQ1XBA5ZdXub0q5tl35VdyBwdeB+9JJCpdFWFHkvwPBtoFZInZy92DY2V1o25yjV4O2yI+S0YMa5pu3hD/nwdQMntWndKb0Q6oZP2kvupPbls2q/c+E7DHuX/6I5LSwGLgNHZJQ8oikzZpUzwnB1RCmeNo1qhVYFP2Mk+zmrQwaVLQJPMidJrZTiipGolMpxxPW8vyI35KHwTuwwZE9gfQdfQxHtnoRgq0eezRuh6J/UKGfSlwgN55T9dXbqf9caw34ewZh/dViA7D0TJVkiHBzFQiCZA==
+Received: from DU0SPRMB0016.eurprd04.prod.outlook.com (2603:10a6:10:350::19)
+ by GVXPR04MB10754.eurprd04.prod.outlook.com (2603:10a6:150:225::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
+ 2026 14:04:31 +0000
+Received: from DU0SPRMB0016.eurprd04.prod.outlook.com
+ ([fe80::1d94:6e4e:ee8c:2725]) by DU0SPRMB0016.eurprd04.prod.outlook.com
+ ([fe80::1d94:6e4e:ee8c:2725%5]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
+ 14:04:31 +0000
+From: Elena Popa <elena.popa@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Frank Li
+	<frank.li@nxp.com>, Fabio Estevam <festevam@gmail.com>, Ahmad Fatoum
+	<a.fatoum@pengutronix.de>, Cosmin Stefan Stoica <cosmin.stoica@nxp.com>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [EXT] [PATCH v5 2/2] arm64: dts: freescale: add MR-NAVQ95 basic
+ board support
+Thread-Topic: [EXT] [PATCH v5 2/2] arm64: dts: freescale: add MR-NAVQ95 basic
+ board support
+Thread-Index: AQHdRD0f2WEapyF2y0i/Bp5xw7Uz87bZGzew
+Date: Mon, 21 Sep 2026 14:04:31 +0000
+Message-ID: <DU0SPRMB0016A4EF54E5A03DEE09D66890842@DU0SPRMB0016.eurprd04.prod.outlook.com>
+References: <20260914113010.988-1-laurentiumihalcea111@gmail.com>
+ <20260914113010.988-3-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20260914113010.988-3-laurentiumihalcea111@gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-09-21T14:02:32.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
+ Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU0SPRMB0016:EE_|GVXPR04MB10754:EE_
+x-ms-office365-filtering-correlation-id: dc818558-2e1a-4a35-59ef-08df17e9420c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|19092799006|10067099003|56012099006|3023799007|18002099003|22082099003|4143699003|11063799006|38070700021;
+x-microsoft-antispam-message-info: CQL8/z2tF0ZKzWhNYsd8XHf4NMqp5Nlbw8H6ONrWqa8rGFijvwzgsbSSZIe+jlvgYpwUKGmho5cPRBZ6iUWoAu2yhqm7sA9IC8pZ9xPSEirNiQ9NpYS1wY+kuxjN1vj1cL4OVfKok8zNcT4bHkdfQRsIR8OEWUCroPZhDruM41yK4H1ZLfMlWEDq5+lO0VQBBI5LPK4/rd7Hnwxl01B3qYXjaEfwGCQxIiGTjYGSlqXn6YlzH/EUJxnMtdDjIXNkd3Fj8Zyk6M+wEEfx0Bsjlc+Eb3YrWqnZvKFHtcltYm0QKjfK8KaXzIiGQ65q1FCUI/vpMptFN2+F8j+Y6IPKOyaj8JutC4A39bmASMIuGpJQYfXs+J8wyJPHsctVJ8GQfQj/CiAnw2wpQc3ZUACJihOcVi0u4uchG7fzdot6sIV0igytQ7j0rsup3kwfmI0E42BQS+TdgqJhsdgfFjx5CUTufzmiZn2Nw00tWtL2TyTCVsFXOMF2w/wBRltMGfTC4a6XSPiwY+DV5FRJU1vdzjhuCmD6olz6iF6VX4JjXNR/y+ohaCFpieaV8JH0FiNbSQXTbTklwSWTtLQmQpFX2zn0rBXQsKuVrLr2agX442SX/kmqWSkclyQWA4OH3GIr9RNU2Zo71lyvIF3C/X8nTreNivmns0+kVcozhMn5GBHv32mGe0aRA84Kx+LKXfR68Es+vHkXd8xKz7s0mJrh77G+HviFakbplkSHxKx2sEg=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0SPRMB0016.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(19092799006)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(4143699003)(11063799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ps9pAly2umC5roNUrOaellOM70VFXmy44gwYRJv7v5I7HTlyB6r4uKXJQAIh?=
+ =?us-ascii?Q?5KDIH+vRzASEW6GX6n4qBPxUIouAcu2U7LwYcCEsucVpdzNNnm7yRDPJsFHP?=
+ =?us-ascii?Q?W0tHoOc+ZaT1onJjvb80+t+35N1p7JHWyLr6WcbjIsjD5VbEmeGr8zrKeOZ9?=
+ =?us-ascii?Q?/6OPam/0v7oa6EclHI4VCpCgNUtLXExrIjpvppzexAbVy81wQ9xG0225Pbgb?=
+ =?us-ascii?Q?i4eDrpCABjchUANAim4PJohLMzCvs1Wvn/EmU6IBuDLW6bbcFlCGP42aanM0?=
+ =?us-ascii?Q?7MTYKzjuej6eb3P/rpsUL6XdgrxH41sYh6U1zm69ylfcVjZPELvK87ziOTVU?=
+ =?us-ascii?Q?hE0QiNHMz17XP9fo2ACNWinl0tp0OLykRsGM2wXg6lOYUDcnCmtS6z0KA9Ni?=
+ =?us-ascii?Q?4flNl3R/t22wd1qgZlV8WMBvZWPYWZrjsaeSpZ8HpdBxujkFAPD+xk9YPLb3?=
+ =?us-ascii?Q?BPphJWUaXzA07KoiIl6/kUrk/o+dYSuVxlLvlbv5w7aRjQdjZFGxwcIUSbF2?=
+ =?us-ascii?Q?gvL7a5M9a+bw9DnoOwCRSAj8D/qPquBROLzBifdeoRAjhaLEk/ot2UWZ6Zbp?=
+ =?us-ascii?Q?WYAmNNIZOWzUKuQRJeegSlG6/4yaaJ8ogZ9FmmtLgDOuKC0ds84GkX4CFB/s?=
+ =?us-ascii?Q?4boN1OnbEy3wTW2cnE95Gz2cmYKk+9WHhxwWdUnHieteaURoMdYvo2OPvkwR?=
+ =?us-ascii?Q?Nd5IVes764A05V5No9E871cPLWDfjY++F0t/F0Ab/zJU+C2nvWlOTR5OPXB7?=
+ =?us-ascii?Q?AaYFMe3TQC+K9oM8tNNMLN1qJ1nFfdNMdkfw4wP8bhhlFv1xlDcowLHJhDXR?=
+ =?us-ascii?Q?bvGga4UAG5x4BlQrRH6xgly0Ll71xOd+ZfeMLUqzeI9L7IuD+KkCR7dh2h+h?=
+ =?us-ascii?Q?sgI9BLGklNKzj4xQTrml2U0kMdv155bUUfSEb+xB8yo0onmj5KSYH2F73EHe?=
+ =?us-ascii?Q?6ROMYrmI3ZNX6iGMlf7tlaziXIfL48GOGNs4s7gtflqX61zbvz+STGh+5cjg?=
+ =?us-ascii?Q?qDl7dB6LyQYHVwsrmClRccxpeyC9SB1DBJ94ivq9Liti+KmNf1T9My1dGSG5?=
+ =?us-ascii?Q?io541JXZW3eCc+RoT9VJf6Tv1G410ziBgprSx6VDh6iMNymy/a+R4hqrpnCZ?=
+ =?us-ascii?Q?LjHsT1AK2kuHhSYlfRfRUKtCQ9zqYqbx7172HgAySkn+FlF7xzsx7ozcQPO1?=
+ =?us-ascii?Q?gsrWF5ynp1C5/r++wEem4fzKMWD2glooDTl/apxfl0n1IAssKhMdklooe51/?=
+ =?us-ascii?Q?AttHHymqFBiAtpaVZdQ9CBqWnWdEpweNuJAKy0E0MQcY/D7nOeIZ+ysKK2os?=
+ =?us-ascii?Q?xawQXbExewPjroKxPUG9I7blt0ZXZ10c479Y7mXAfw4PEe5rak/T7PBXXDjy?=
+ =?us-ascii?Q?9br8OwU+9JgqpCMBTOQtrGvVWbv7C/vvfCdr4dGQuZ5EPdx8/vUnt1eXVmhI?=
+ =?us-ascii?Q?XUzKUw2YqsI7OlGfUIMhnRceXcbrPB8ewNWzvcqciPNHqupnRXTn3rY04Vwu?=
+ =?us-ascii?Q?hbk27hzfThYjN9Ajkdk6nb4hSabTBjrglQJfNMueGMGF48ZAoWP7Nd0ALoTF?=
+ =?us-ascii?Q?a3LOKwF+maxdFBf3QHrC81ayBkQE73o3E6pUuXQ5YUP7xv8LVXDebr3DscgS?=
+ =?us-ascii?Q?QAtmsnG+dwFX0i579i6mlvmbax+uK1KDMiNc4v4PXMkuKH8EswguQ8iBFuO9?=
+ =?us-ascii?Q?BOwGIohLLLFEE5/u3cmfx6tbBXtBgaKb3836QQ/QUOhllXHi?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU0SPRMB0016.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc818558-2e1a-4a35-59ef-08df17e9420c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Sep 2026 14:04:31.2812
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dldSbNsclVr/321zuMIQpa0YxEc3BP5a/lHyyUYPdLIU/ZclFuNcJ9TwLAYx1UPyLFLl9YPLx2R3mXv8K7STFg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10754
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_070432_752492_EAA5055A 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260921_070440_294761_8C14333A 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,167 +148,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the hardware won't apply a timer's offset, KVM programs CVAL +
-offset and lets it compare that against the raw counter. The compare is
-unsigned (IsTimerConditionMet, DDI0487M_c J1.4.3.29):
+> Add basic support for NXP's MR-NAVQ95 board. This board is designed for
+> robotics applications (e.g. drones, rovers, humanoids, etc..) and has the
+> following hardware feats (list is not exhaustive):
+>
+> * based on i.MX95 19x19 SoC
+> * 64GB eMMC
+> * 16GB of LPDDR5 memory
+> * 1 x USB 2.0 TypeC
+> * 1 x USB 3.0 TypeC
+> * 1 x RJ45 port with RTL8211 PHY
+>
+> The support targets revision B of the board.
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-  condition_met = (UInt(PhysicalCountInt() - offset) -
-                   UInt(compare_value)) >= 0;
+Reviewed-by: Elena Popa <elena.popa@nxp.com>
 
-Adding the offset to both sides preserves it only when both sums wrap
-or neither does: a guest whose counter is ahead of the host's by more
-than CVAL has an expired timer that CVAL + offset puts in the far
-future, and one behind it has a far-future timer that CVAL + offset
-wraps into the past.
+Thanks.
 
-On a CNTPOFF_EL2 host the first case livelocks: __activate_traps()
-reloads the guest's CVAL and the timer fires, __deactivate_traps()
-rewrites it as CVAL + offset on the way out and the line drops before
-the host can take the interrupt, and the vCPU only makes progress once
-an unrelated vcpu_put() and vcpu_load() inject the interrupt from the
-memory copy. arch_timer_edge_cases stops in its physical past-timer
-cases. Without CNTPOFF_EL2 the same cases hang until the vCPU is next
-loaded, which is what Zenghui reported on a Kunpeng920.
-
-Derive the programmed value from the current count instead: CVAL +
-offset while the deadline is ahead, 0 for a timer that has already
-expired for the guest, ~0 for one past the counter's wrap. That value
-can't be inverted, so timer_save_state() keeps the memory copy whenever
-an offset is in play; it's current there, written by the trap handler
-when the accesses are trapped and by __deactivate_traps() on the
-CNTPOFF_EL2 path. kvm_hyp_handle_timer() subtracted the offset back out
-for a guest hypervisor's read of its own physical CVAL, so return the
-memory copy there too.
-
-Fixes: c605ee245097 ("KVM: arm64: timers: Allow physical offset without CNTPOFF_EL2")
-Fixes: 9404673293b0 ("KVM: arm64: timers: Correctly handle TGE flip with CNTPOFF_EL2")
-Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
-Reported-by: Zenghui Yu <yuzenghui@huawei.com>
-Closes: https://lore.kernel.org/r/460258be-0102-e922-c342-4e87cd94b9e5@huawei.com
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/arch_timer.c     | 27 ++++++++++++---------------
- arch/arm64/kvm/hyp/vhe/switch.c | 11 ++++++-----
- include/kvm/arm_arch_timer.h    | 15 +++++++++++++++
- 3 files changed, 33 insertions(+), 20 deletions(-)
-
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 6ac3321f4c575..9278b5383c044 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -528,17 +528,11 @@ static void timer_save_state(struct arch_timer_context *ctx)
- 		goto out;
- 
- 	switch (index) {
--		u64 cval;
--
- 	case TIMER_VTIMER:
- 	case TIMER_HVTIMER:
- 		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTV_CTL));
--		cval = read_sysreg_el0(SYS_CNTV_CVAL);
--
--		if (has_broken_cntvoff())
--			cval -= timer_get_offset(ctx);
--
--		timer_set_cval(ctx, cval);
-+		if (!has_broken_cntvoff() || !timer_get_offset(ctx))
-+			timer_set_cval(ctx, read_sysreg_el0(SYS_CNTV_CVAL));
- 
- 		/* Disable the timer */
- 		write_sysreg_el0(0, SYS_CNTV_CTL);
-@@ -564,11 +558,12 @@ static void timer_save_state(struct arch_timer_context *ctx)
- 	case TIMER_PTIMER:
- 	case TIMER_HPTIMER:
- 		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTP_CTL));
--		cval = read_sysreg_el0(SYS_CNTP_CVAL);
--
--		cval -= timer_get_offset(ctx);
--
--		timer_set_cval(ctx, cval);
-+		/*
-+		 * With an offset, memory already holds the guest's CVAL (the
-+		 * trap handler or __deactivate_traps() wrote it).
-+		 */
-+		if (!timer_get_offset(ctx))
-+			timer_set_cval(ctx, read_sysreg_el0(SYS_CNTP_CVAL));
- 
- 		/* Disable the timer */
- 		write_sysreg_el0(0, SYS_CNTP_CTL);
-@@ -647,7 +642,8 @@ static void timer_restore_state(struct arch_timer_context *ctx)
- 		offset = timer_get_offset(ctx);
- 		if (has_broken_cntvoff()) {
- 			set_cntvoff(0);
--			cval += offset;
-+			if (offset)
-+				cval = timer_apply_offset(cval, offset, kvm_phys_timer_read());
- 		} else {
- 			set_cntvoff(offset);
- 		}
-@@ -660,7 +656,8 @@ static void timer_restore_state(struct arch_timer_context *ctx)
- 		cval = timer_get_cval(ctx);
- 		offset = timer_get_offset(ctx);
- 		set_cntpoff(offset);
--		cval += offset;
-+		if (offset)
-+			cval = timer_apply_offset(cval, offset, kvm_phys_timer_read());
- 		write_sysreg_el0(cval, SYS_CNTP_CVAL);
- 		isb();
- 		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTP_CTL);
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 7875911c05063..14aada311bac4 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -175,7 +175,8 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
- 		offset = read_sysreg_s(SYS_CNTPOFF_EL2);
- 
- 		if (map.direct_ptimer && offset) {
--			write_sysreg_el0(val + offset, SYS_CNTP_CVAL);
-+			val = timer_apply_offset(val, offset, arch_timer_read_cntpct_el0());
-+			write_sysreg_el0(val, SYS_CNTP_CVAL);
- 			isb();
- 		}
- 	}
-@@ -296,10 +297,10 @@ static bool kvm_hyp_handle_timer(struct kvm_vcpu *vcpu, u64 *exit_code)
- 		break;
- 	case SYS_CNTP_CVAL_EL0:
- 		if (vcpu_el2_e2h_is_set(vcpu)) {
--			val = read_sysreg_el0(SYS_CNTP_CVAL);
--
--			if (!has_cntpoff())
--				val -= timer_get_offset(vcpu_hptimer(vcpu));
-+			if (!has_cntpoff() && timer_get_offset(vcpu_hptimer(vcpu)))
-+				val = __vcpu_sys_reg(vcpu, CNTHP_CVAL_EL2);
-+			else
-+				val = read_sysreg_el0(SYS_CNTP_CVAL);
- 		} else {
- 			val = __vcpu_sys_reg(vcpu, CNTP_CVAL_EL0);
- 		}
-diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-index bc6f2fdd7ad33..80f96ea59f1ae 100644
---- a/include/kvm/arm_arch_timer.h
-+++ b/include/kvm/arm_arch_timer.h
-@@ -195,4 +195,19 @@ static inline void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
- 	WRITE_ONCE(*ctxt->offset.vm_offset, offset);
- }
- 
-+/*
-+ * CVAL to program when the hardware won't apply the timer's offset, so that
-+ * its compare against the raw counter matches the guest's at 'now'. An
-+ * expired timer stays expired; one past the wrap never fires.
-+ */
-+static inline u64 timer_apply_offset(u64 cval, u64 offset, u64 now)
-+{
-+	u64 hw = cval + offset;
-+
-+	if (now - offset >= cval)
-+		return 0;
-+
-+	return hw > now ? hw : U64_MAX;
-+}
-+
- #endif
--- 
-2.39.5
-
+NXP Confidential
 
