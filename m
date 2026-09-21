@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E1EC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71D4C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h9Dh9IL1TgnOR2oBNs2Jdo3i0N2m4wst/7fPMgNQb84=; b=hOJiHBmHpnYTWqAM/sJ0ICxwqR
-	bJogDppjGZrs3gL6NeGF/OoKLkkWeqecPy77EG1I+cF1pbrdHKkmi2aoad6/+X9q0zwqIjD0zUHxf
-	w45Q/II8rAzpZAzbtbHQAc7o4+FCz5QHSIT8drJKtvdvFzfIOHHvOGhHZB0rvTXeLUeUy41825POL
-	fJkR9zNE4fF4TuhKlj8nctL5eR/j2NvE0WpdY7+UvNqwlVABejCULhK/HjQ1Y+9QZAVZLqKycKUpd
-	YwKOewj6xAfPR9mLTiqjnxNUahB2EUMjEpsdA1KsBIFR3v79AG7GzVNX3GDX15K3jnb9kHapF24sT
-	ClkxQkbg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7OSlXD2h1PRBcpZ6rRtTEAuyRTVRcDI3N5oG8HVqHUU=; b=IAyq+anUl8196PmL0NrwTbT7i4
+	vZf4RZuyp1VmR5m82XQ1YA/xzyPQhfwtYHTPd4C7ZxfnMqsdUw6z0OrAQIohMsy3+sSrOq7XkcT+S
+	CwMPkR7JhOY/TjFiQZXgdIrcaR9CIJ2uY2WFQz/dFIzNhmMg3Pr9CBwIUsAuroSkoZLocNjJyNnlZ
+	u6z0scdGS6jAb21iQxJqlIarb2XJqzz4vic2lUb5EOY1VkSddqHZfqELmQRuPNF8w1exLpz8e31J9
+	/ouvdO7bOMGPMWgPzYY8Ft4/rlZrqa7YlVySmm6qtvL6MxMxS3QotrR0I7QVZ1gqZrsShYqpRe6la
+	Pxbbx4Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eKb-00000002HIY-3UcT;
-	Mon, 21 Sep 2026 13:45:17 +0000
+	id 1x8eKj-00000002HLj-3yjG;
+	Mon, 21 Sep 2026 13:45:25 +0000
 Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eKZ-00000002H9S-13yO
+	id 1x8eKe-00000002HJV-3G3q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 13:45:17 +0000
+	Mon, 21 Sep 2026 13:45:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=h9Dh9IL1TgnOR2oBNs2Jdo3i0N2m4wst/7fPMgNQb84=; b=2yP3NglbSJqWuhisGthTl7lGu8
-	0XqZDxLq/9PADSRBJesdREObHLdffnyXiZDDsnjb8kwg4DS7cV0h+zVy6KX+DF0Rb6Hq+Bx3aAJvt
-	nZ4EZNHRMenmzULyFma3Xa7wFhx1ypAPBjTEl2dwDGr5ylS0OC/md+1FkL0dsMJqqpxTmSSJFBc9C
-	XKojuSWMnThWYQ/VA7nxScLztm0admHIR5wurYResOv4M+Sm5hRAlbf8c2TFKkMKDeKPGcnAkjJce
-	oB6Dm2qmKsgrDMqwXeSXVgpM3/LlvL5KE3o71/2Ag5Jz5DnQtvp9A+18uJMndOO/OxwX6VExst/vz
-	JTT2Y9ZQ==;
+	bh=7OSlXD2h1PRBcpZ6rRtTEAuyRTVRcDI3N5oG8HVqHUU=; b=FWHCxf+UpDtYgAM9THc4sgWIrt
+	oV2v3TBanYvtwypBO2ubdaXpIwllzTSNq9Ndav9w85RSBG01SOPlzDr+2tK5EashB+CI3o8+osQAD
+	ra6uUEMd0eYUDi2WcsAjs3VJrI2cm0ti8A2Mv1yH9EOeW6ml+xhfCDX9PSX5x4gtGQA7UNW0biBK6
+	iPlyOldLWkIrmdKID3L8Vj7mJlbABVuMshRV1OZhd8UzfHQG++Imio2lDvKClTOWeR0WRGI2uYk+s
+	8/qu93L9GhBlQsJCmoK18JAsXj8xyut2x7Y1dIWwT467RUeNW8FmQI94RRKgZzD7WD0ovQ+vWihHn
+	s9RhQroA==;
 Received: from [115.246.246.98] (port=57742 helo=cypher.couthit.local)
 	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.5)
 	(envelope-from <parvathi@couthit.com>)
-	id 1x8eJk-00000008L1c-2xMV;
-	Mon, 21 Sep 2026 09:44:25 -0400
+	id 1x8eKY-00000008L1c-0sze;
+	Mon, 21 Sep 2026 09:45:15 -0400
 From: Parvathi Pudi <parvathi@couthit.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -72,10 +72,12 @@ Cc: linux-kernel@vger.kernel.org,
 	m-malladi@ti.com,
 	krishna@couthit.com,
 	mohan@couthit.com
-Subject: [PATCH net-next v4 0/3] Introduce HSR/PRP HW offload support for PRU-ICSSM Ethernet driver
-Date: Mon, 21 Sep 2026 19:11:20 +0530
-Message-ID: <20260921134343.200426-1-parvathi@couthit.com>
+Subject: [PATCH net-next v4 3/3] net: ti: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
+Date: Mon, 21 Sep 2026 19:11:23 +0530
+Message-ID: <20260921134343.200426-4-parvathi@couthit.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260921134343.200426-1-parvathi@couthit.com>
+References: <20260921134343.200426-1-parvathi@couthit.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -89,8 +91,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_064515_546323_D098A8C0 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260921_064520_972181_B2F06746 
+X-CRM114-Status: GOOD (  28.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,339 +107,1079 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This series introduces HSR and PRP protocol HW offload support for ICSSM-Prueth driver.
-HW offload support for HSR/PRP is implemented using dedicated HSR/PRP firmware running
-on 2 PRU cores(PRU-ICSS) as a "DAN" available in AM57xx, AM437x and AM335x.
-
-The following features are offloaded to HW in case of HSR and PRP:
-1. L2 forwarding of a HSR frame via traditional store and forward or via cut-through (only for HSR)
-2. Transmit frame duplication is offloaded to HW
-3. Tag removal on the receive is offloaded to HW
-4. Redundant duplicate packet discard on the receive is also offloaded to HW
-
-In HW offload mode, redundant tag insertion in the transmit path will be still done by HSR driver
-and firmware updates the LAN information available in the tag on the fly when PRU is transmitting
-frame in that respective LAN.
-
-HSR Test Setup:
---------------
-
-     ___________           ______________           ___________
-    |           | Link AB |              | Link BC |           |
-  __|   AM57*   |_________|AM57/AM43/AM33|_________|   AM57*   |___
- |  | Station A |         |   Station B  |         | Station C |   |
- |  |___________|         |______________|         |___________|   |
- |                                                                 |
- |_________________________________________________________________|
-                            Link CA
-
-Steps to switch to HSR forward offload mode:
--------------------------------------------------
-Example assuming eth1, eth2 ports of ICSSM on AM57x, AM437x and AM335x EVM's
-
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Set matching MAC addresses on both slave interfaces
-      ip link set eth1 address <mac-addr>
-      ip link set eth2 address <mac-addr>
-
-  3) Enable HSR offload for both interfaces
-      ethtool -K eth1 hsr-fwd-offload on
-      ethtool -K eth1 hsr-dup-offload on
-      ethtool -K eth1 hsr-tag-rm-offload on
-
-      ethtool -K eth2 hsr-fwd-offload on
-      ethtool -K eth2 hsr-dup-offload on
-      ethtool -K eth2 hsr-tag-rm-offload on
-
-  4) Create HSR interface and add slave interfaces to it
-      ip link add name hsr0 type hsr slave1 eth1 slave2 eth2 \
-    supervision 45 version 1
-
-  5) Add IP address to the HSR interface
-      ip addr add <IP_ADDR>/24 dev hsr0
-
-  6) Bring up the HSR interface
-      ip link set hsr0 up
-
-  7) Bring up the both slave ports
-      ip link set eth1 up
-      ip link set eth2 up
-
-Switching back to default mode:
---------------------------------
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Delete HSR interface
-      ip link delete hsr0
-
-  3) Disable HSR port-to-port offloading mode, packet duplication
-      ethtool -K eth1 hsr-fwd-offload off
-      ethtool -K eth1 hsr-dup-offload off
-      ethtool -K eth1 hsr-tag-rm-offload off
-
-      ethtool -K eth2 hsr-fwd-offload off
-      ethtool -K eth2 hsr-dup-offload off
-      ethtool -K eth2 hsr-tag-rm-offload off
-
-Testing the port-to-port frame forward offload feature:
--------------------------------------------------------
-  1) Connect the LAN cables as shown in the test setup.
-  2) Configure Station A and Station C in HSR non-offload mode.
-  3) Configure Station B is HSR offload mode.
-  4) Since HSR is a redundancy protocol, disconnect cable "Link CA",
-     to ensure frames from Station A reach Station C only through
-     Station B.
-  5) Run iperf3 Server on Station C and client on station A.
-  7) Check the CPU usage on Station B.
-
-CPU usage report on Station B using mpstat when running UDP iperf3:
--------------------------------------------------------------------
-
-AM57xx
-------
-
-  1) Non-Offload case
-  -------------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.00    0.00    0.00    0.00    0.00   10.41    0.00    0.00   89.59
-    0    0.00    0.00    0.00    0.00    0.00   20.88    0.00    0.00   79.12
-    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.00    0.00    0.10    0.00    0.00    0.73    0.00    0.00   99.17
-    0    0.00    0.00    0.20    0.00    0.00    1.46    0.00    0.00   98.34
-    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
-
-AM437x
-------
-
-  1) Non-Offload case
-  -------------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.30    0.00    0.80    0.00    0.00   35.19    0.00    0.00   63.72
-    0    0.30    0.00    0.80    0.00    0.00   35.19    0.00    0.00   63.72
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.10    0.00    0.31    0.10    0.00    1.74    0.00    0.00   97.75
-    0    0.10    0.00    0.31    0.10    0.00    1.74    0.00    0.00   97.75
-
-AM335x
-------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.30    0.00    1.10    0.00    0.00   90.32    0.00    0.00    8.28
-    0    0.30    0.00    1.10    0.00    0.00   90.32    0.00    0.00    8.28
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.43    0.00    3.61    0.00    0.00   13.28    0.00    0.00   82.68
-    0    0.43    0.00    3.61    0.00    0.00   13.28    0.00    0.00   82.68
-
-PRP Test Setup:
----------------
-
-     _________________        LAN-A        __________________
-    |                 |eth1-----------eth1|                  |
-    | AM57/AM437/AM335|                   | AM57/AM437/AM335 |
-    |    station A    |eth2-----------eth2|    station B     |
-    |_________________|       LAN-B       |__________________|
-
-Steps to switch to PRP offload mode:
-------------------------------------
-Example assuming eth1, eth2 ports of ICSSM on AM57x, AM437x and AM335x EVM's
-
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Set matching MAC addresses on both slave interfaces
-      ip link set eth1 address <mac-addr>
-      ip link set eth2 address <mac-addr>
-
-  3) Enable PRP offload for both interfaces
-      ethtool -K eth1 hsr-dup-offload on
-      ethtool -K eth1 hsr-tag-rm-offload on
-
-      ethtool -K eth2 hsr-dup-offload on
-      ethtool -K eth2 hsr-tag-rm-offload on
-
-  4) Create PRP interface and add slave interfaces to it
-      ip link add name prp0 type hsr slave1 eth1 slave2 eth2 \
-    supervision 45 proto 1
-
-  5) Add IP address to the PRP interface
-      ip addr add <IP_ADDR>/24 dev prp0
-
-  6) Bring up the PRP interface
-      ip link set prp0 up
-
-  7) Bring up the both slave ports
-      ip link set eth1 up
-      ip link set eth2 up
-
-Switching back to default mode:
---------------------------------
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Delete PRP interface
-      ip link delete prp0
-
-  3) Disable PRP offloading mode
-      ethtool -K eth1 hsr-dup-offload off
-      ethtool -K eth1 hsr-tag-rm-offload off
-
-      ethtool -K eth2 hsr-dup-offload off
-      ethtool -K eth2 hsr-tag-rm-offload off
-
-Testing the PRP offload feature:
---------------------------------
-  1) Connect eth1 of Station A to eth1 of Station B (LAN-A).
-     Connect eth2 of Station A to eth2 of Station B (LAN-B).
-  2) Configure Station A in PRP non-offload mode.
-  3) Configure Station B in PRP offload mode.
-  4) Run iperf3 Server on Station B and client on Station A.
-  5) Check the CPU usage on Station B.
-  6) Disconnect LAN-B cable to verify Station A frames still reach
-     Station B over LAN-A with no traffic interruption.
-  7) Reconnect LAN-B and disconnect LAN-A, verify the same.
-
-CPU usage report on Station B using mpstat when running UDP iperf3:
--------------------------------------------------------------------
-
-AM57x
------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys  %iowait    %irq   %soft  %steal  %guest   %idle
-  all    2.04    0.00   18.85    0.00     0.00   27.83    0.00    0.00   51.27
-    0    1.80    0.00   21.56    0.00     0.00   54.89    0.00    0.00   21.76
-    1    2.29    0.00   16.14    0.00     0.00    0.80    0.00    0.00   80.78
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys  %iowait    %irq   %soft  %steal  %guest   %idle
-  all    2.79    0.00   18.36    0.00     0.00   18.16    0.00    0.00   60.68
-    0    3.89    0.00   22.16    0.00     0.00   36.13    0.00    0.00   37.82
-    1    1.69    0.00   14.56    0.00     0.00    0.20    0.00    0.00   83.55
-
-AM437x
-------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys   %iowait  %irq   %soft    %steal  %guest   %idle
-  all    5.68    0.00    43.27   0.00    0.00    43.57    0.00     0.00    7.48
-    0    5.68    0.00    43.27   0.00    0.00    43.57    0.00     0.00    7.48
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys   %iowait  %irq   %soft    %steal  %guest   %idle
-  all    6.39    0.00    42.86   0.00    0.00   32.57    0.00      0.00   18.18
-    0    6.39    0.00    42.86   0.00    0.00   32.57    0.00      0.00   18.18
-
-AM335x
-------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys    %iowait  %irq   %soft    %steal  %guest   %idle
-  all    2.29    0.00    14.04    0.00    0.00    75.50    0.00    0.00    8.17
-    0    2.29    0.00    14.04    0.00    0.00    75.50    0.00    0.00    8.17
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys    %iowait  %irq   %soft    %steal  %guest   %idle
-  all    5.70    0.00    48.50    0.00    0.00    29.00    0.00    0.00    16.80
-    0    5.70    0.00    48.50    0.00    0.00    29.00    0.00    0.00    16.80
-
-Note:
-  hsr-tag-rm-offload and hsr-dup-offload are tightly coupled in the firmware implementation.
-  They both need to be enabled / disabled together and hsr-tag-ins-offload is unsupported.
-
-This is the v4 of the patch series [v1]. This version of the patchset addresses the
-comments made on [v3] of the series.
-
-Changes from v3 to v4 :
-
-*) Addressed 27 sashiko AI review comments that required code changes in this series.
-*) There are three pre-existing sashiko comments that are not introduced by this series:
-   - FDB learning can sleep in softirq context
-   - mode changes can bypass normal network state synchronization
-   - allocation failure can leave the RX descriptor unadvanced, potentially causing
-     repeated interrupts.
-   These will be addressed in a separate series.
-*) There are four comments which are false positives:
-   - NETIF_F_HW_HSR_DUP is for TX duplication, not RX duplicate discard, and is added in patch 3.
-   - The __packed comment is not applicable since C packing rules already handle this structure, as
-     noted in feedback on an earlier series (https://lore.kernel.org/all/20250708175301.599c82b8@kernel.org/).
-   - The LRE timer check depends on interface admin state, not link state, and both interfaces
-     are expected to remain up for HSR/PRP.
-   - atomic64_t is used to safely update statistics from the RX/TX paths, and the associated overhead
-     does not cause a performance regression in this context.
-*) Rebased the series onto the latest net-next.
-
-Changes from v2 to v3 :
-
-*) Addressed the 8 Sashiko AI review comments that required code changes in this series.
-*) Identified 4 Sashiko AI review comments as false positives and replied accordingly.
-*) The remaining 7 comments correspond to pre-existing issues and will be addressed separately.
-*) Rebased the series onto the latest net-next.
-
-Changes from v1 to v2 :
-
-*) Fixed all applicable issues, except for the false positives flagged by the AI review
-on sashiko.dev.
-*) Addressed Jakub Kicinski comments on patch 3 of the series.
-*) Rebased the series on latest net-next.
-
-[v1] https://lore.kernel.org/all/20260611123636.376577-1-parvathi@couthit.com/
-[v2] https://lore.kernel.org/all/20260630124958.894360-1-parvathi@couthit.com/
-[v3] https://lore.kernel.org/all/20260804121644.465118-1-parvathi@couthit.com/
-
-Thanks and Regards,
-Parvathi.
-
-Roger Quadros (3):
-  net: ti: icssm-prueth: Add HSR and PRP HW offload mode support for
-    AM57xx, AM437x and AM335x
-  net: ti: icssm-prueth: Add priority based RX IRQ handlers
-  net: ti: icssm-prueth: Support duplicate HW offload feature for HSR
-    and PRP
-
- drivers/net/ethernet/ti/Kconfig               |   1 +
- drivers/net/ethernet/ti/Makefile              |   2 +-
- .../ethernet/ti/icssm/icssm_lre_firmware.h    | 141 ++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 785 ++++++++++++++++--
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  89 +-
- .../ethernet/ti/icssm/icssm_prueth_common.c   | 312 +++++++
- .../net/ethernet/ti/icssm/icssm_prueth_lre.c  | 224 +++++
- .../net/ethernet/ti/icssm/icssm_prueth_lre.h  |  19 +
- .../ethernet/ti/icssm/icssm_prueth_switch.c   | 330 +++++++-
- .../ethernet/ti/icssm/icssm_prueth_switch.h   |   2 +
- drivers/net/ethernet/ti/icssm/icssm_switch.h  |  40 +-
- 11 files changed, 1836 insertions(+), 109 deletions(-)
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_lre_firmware.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_lre.h
-
+From: Roger Quadros <rogerq@ti.com>
+
+In HSR and PRP modes each outgoing frame must be sent on both PRU slave
+ports.
+
+Previously the driver was writing the frame into each port's transmit queue
+independently after updating the tags resulting in performing two OCMC
+buffer copy operations.
+
+Frame duplicate offloading is implemented with a common shared queue
+between the two ports. The driver writes the frame once into OCMC RAM,
+each port reads from the shared queue and replicates the transmission to
+both PRU ports, synchronising between PRU ports are maintained within
+firmware with appropriate handling.
+
+For HSR the driver inspects the encapsulated ethertype in the HSR tag.
+PTP frames (ETH_P_1588) are sent on the directed port only to avoid double
+duplication and all other HSR frames are duplicated to both ports.
+VLAN-tagged HSR frames are handled by advancing past the 4-byte VLAN header
+before reading the HSR tag.
+
+For PRP the driver checks the 6-byte RCT trailer for the ETH_P_PRP suffix
+to identify redundancy-tagged frames. Frames without an RCT are sent on the
+originating port only.
+
+On the receive side, icssm_parse_packet_info() reads the new HostRecv bit
+from the firmware instead of the unused BD Port field. This bit tells which
+HSR copy should be passed to the network stack.
+
+icssm_emac_rx_packet() ignores the other duplicate without creating an skb,
+since receiving duplicate HSR packets is expected and not an error. The
+OCMC-to-skb copy is also split into MAC header, VLAN, and payload parts.
+This makes it possible to remove the HSR tag from the middle of the packet.
+
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 266 ++++++++++++---
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  13 +-
+ .../ethernet/ti/icssm/icssm_prueth_common.c   |  11 +-
+ .../ethernet/ti/icssm/icssm_prueth_switch.c   | 322 +++++++++++++++++-
+ .../ethernet/ti/icssm/icssm_prueth_switch.h   |   1 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  34 +-
+ 6 files changed, 576 insertions(+), 71 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index 4a37935b8d35..6d5dd17b548a 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -36,12 +36,14 @@
+ #include "../icssg/icss_iep.h"
+ 
+ #define OCMC_RAM_SIZE		(SZ_64K)
++#define PRUETH_ETHER_TYPE_OFFSET	12
+ 
+ #define TX_START_DELAY		0x40
+ #define TX_CLK_DELAY_100M	0x6
+ #define HR_TIMER_TX_DELAY_US	100
+ 
+ #define NETIF_PRUETH_LRE_OFFLOAD_FEATURES       (NETIF_F_HW_HSR_FWD | \
++						 NETIF_F_HW_HSR_DUP | \
+ 						 NETIF_F_HW_HSR_TAG_RM)
+ 
+ /* ICSSM (v2.1) - supports 64-bit IEP counter.
+@@ -79,6 +81,32 @@ static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
+ 	}
+ }
+ 
++/* Queue Descriptors initialization for HSR PRP */
++const struct prueth_queue_desc hsr_prp_txopt_queue_descs[][NUM_QUEUES] = {
++	[PRUETH_PORT_QUEUE_HOST] = {
++		{ .rd_ptr = P0_Q1_BD_OFFSET, .wr_ptr = P0_Q1_BD_OFFSET, },
++		{ .rd_ptr = P0_Q2_BD_OFFSET, .wr_ptr = P0_Q2_BD_OFFSET, },
++		{ .rd_ptr = P0_Q3_BD_OFFSET, .wr_ptr = P0_Q3_BD_OFFSET, },
++		{ .rd_ptr = P0_Q4_BD_OFFSET, .wr_ptr = P0_Q4_BD_OFFSET, },
++	},
++	[PRUETH_PORT_QUEUE_MII0] = {
++		{ .rd_ptr = P0_Q3_BD_OFFSET, .wr_ptr = P0_Q3_BD_OFFSET, },
++		{ .rd_ptr = P0_Q4_BD_OFFSET, .wr_ptr = P0_Q4_BD_OFFSET, },
++		{ .rd_ptr = P1_Q3_TXOPT_BD_OFFSET,
++			.wr_ptr = P1_Q3_TXOPT_BD_OFFSET, },
++		{ .rd_ptr = P2_Q1_TXOPT_BD_OFFSET,
++			.wr_ptr = P2_Q1_TXOPT_BD_OFFSET, },
++	},
++	[PRUETH_PORT_QUEUE_MII1] = {
++		{ .rd_ptr = P0_Q1_BD_OFFSET, .wr_ptr = P0_Q1_BD_OFFSET, },
++		{ .rd_ptr = P0_Q2_BD_OFFSET, .wr_ptr = P0_Q2_BD_OFFSET, },
++		{ .rd_ptr = P1_Q3_TXOPT_BD_OFFSET,
++			.wr_ptr = P1_Q3_TXOPT_BD_OFFSET, },
++		{ .rd_ptr = P2_Q1_TXOPT_BD_OFFSET,
++			.wr_ptr = P2_Q1_TXOPT_BD_OFFSET, },
++	}
++};
++
+ static void icssm_prueth_write_reg(struct prueth *prueth,
+ 				   enum prueth_mem region,
+ 				   unsigned int reg, u32 val)
+@@ -97,6 +125,17 @@ static void icssm_prueth_write_reg(struct prueth *prueth,
+ static enum pruss_mem pruss_mem_ids[] = { PRUSS_MEM_DRAM0, PRUSS_MEM_DRAM1,
+ 					  PRUSS_MEM_SHRD_RAM2 };
+ 
++struct prp_txopt_rct {
++	__be16 sequence_nr;
++	__be16 lan_id_and_lsdu_size;
++	__be16 prp_suffix;
++};
++
++struct hsr_txopt_ethhdr {
++	struct ethhdr ethhdr;
++	struct hsr_tag hsr_tag;
++};
++
+ static const struct prueth_queue_info queue_infos[][NUM_QUEUES] = {
+ 	[PRUETH_PORT_QUEUE_HOST] = {
+ 		[PRUETH_QUEUE1] = {
+@@ -551,15 +590,22 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 				   struct sk_buff *skb,
+ 				   enum prueth_queue_id queue_id)
+ {
++	struct prueth_queue_desc __iomem *queue_desc_other_port = NULL;
+ 	struct prueth_queue_desc __iomem *queue_desc;
+ 	const struct prueth_queue_info *txqueue;
+-	struct net_device *ndev = emac->ndev;
+ 	struct prueth *prueth = emac->prueth;
++	struct hsr_txopt_ethhdr *hsr_ethhdr;
+ 	unsigned int buffer_desc_count;
+ 	int free_blocks, update_block;
++	struct vlan_ethhdr *vlan_hdr;
+ 	bool buffer_wrapped = false;
+ 	int write_block, read_block;
++	int free_blocks_other_port;
++	int read_block_other_port;
+ 	void *src_addr, *dst_addr;
++	u16 bd_rd_ptr_other_port;
++	struct ethhdr *ethhdr;
++	bool is_vlan = false;
+ 	int pkt_block_size;
+ 	void __iomem *sram;
+ 	void __iomem *dram;
+@@ -567,16 +613,13 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 	u16 update_wr_ptr;
+ 	u32 wr_buf_desc;
+ 	void *ocmc_ram;
++	__be16 proto;
++	u8 *hdr;
+ 
+ 	if (!PRUETH_IS_EMAC(prueth))
+ 		dram = prueth->mem[PRUETH_MEM_DRAM1].va;
+ 	else
+ 		dram = emac->prueth->mem[emac->dram].va;
+-	if (eth_skb_pad(skb)) {
+-		if (netif_msg_tx_err(emac) && net_ratelimit())
+-			netdev_err(ndev, "packet pad failed\n");
+-		return -ENOMEM;
+-	}
+ 
+ 	/* which port to tx: MII0 or MII1 */
+ 	txport = emac->tx_port_queue;
+@@ -584,7 +627,10 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 	pktlen = skb->len;
+ 	/* Get the tx queue */
+ 	queue_desc = emac->tx_queue_descs + queue_id;
+-	if (!PRUETH_IS_EMAC(prueth))
++	/* Tx queue context */
++	if (prueth_is_lre(prueth))
++		txqueue = &lre_queue_infos[txport][queue_id];
++	else if (PRUETH_IS_SWITCH(prueth))
+ 		txqueue = &sw_queue_infos[txport][queue_id];
+ 	else
+ 		txqueue = &queue_infos[txport][queue_id];
+@@ -607,6 +653,29 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 		free_blocks = buffer_desc_count;
+ 	}
+ 
++	/* Fetch queue state for the second LRE port */
++	if (prueth_is_lre(prueth)) {
++		queue_desc_other_port = emac->tx_queue_descs_other_port +
++					queue_id;
++		bd_rd_ptr_other_port = readw(&queue_desc_other_port->rd_ptr);
++
++		read_block_other_port = (bd_rd_ptr_other_port -
++					 txqueue->buffer_desc_offset) / BD_SIZE;
++
++		if (write_block > read_block_other_port) {
++			free_blocks_other_port = buffer_desc_count -
++						 write_block;
++			free_blocks_other_port += read_block_other_port;
++		} else if (write_block < read_block_other_port) {
++			free_blocks_other_port = read_block_other_port -
++						 write_block;
++		} else {
++			free_blocks_other_port = buffer_desc_count;
++		}
++
++		if (free_blocks_other_port < free_blocks)
++			free_blocks = free_blocks_other_port;
++	}
+ 	pkt_block_size = DIV_ROUND_UP(pktlen, ICSS_BLOCK_SIZE);
+ 	if (pkt_block_size > free_blocks) /* out of queue space */
+ 		return -ENOBUFS;
+@@ -656,6 +725,57 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 	if (PRUETH_IS_HSR(prueth))
+ 		wr_buf_desc |= BIT(PRUETH_BD_HSR_FRAME_SHIFT);
+ 
++	if (prueth_is_lre(prueth)) {
++		ethhdr = (struct ethhdr *)skb_mac_header(skb);
++		proto = ethhdr->h_proto;
++
++		if (proto == htons(ETH_P_8021Q)) {
++			vlan_hdr = (struct vlan_ethhdr *)ethhdr;
++			proto = vlan_hdr->h_vlan_encapsulated_proto;
++			is_vlan = true;
++		}
++
++		/* Check if the SKB has HSR tag */
++		if (PRUETH_IS_HSR(prueth) && proto == htons(ETH_P_HSR)) {
++			hdr = skb_mac_header(skb);
++
++			if (is_vlan) {
++				hsr_ethhdr =
++					(struct hsr_txopt_ethhdr *)(hdr +
++								    VLAN_HLEN);
++			} else {
++				hsr_ethhdr = (struct hsr_txopt_ethhdr *)hdr;
++			}
++
++			/* PTP frames (ETH_P_1588) carry no LAN ID
++			 * in the HSR tag
++			 */
++			if (hsr_ethhdr->hsr_tag.encap_proto !=
++			    htons(ETH_P_1588)) {
++				wr_buf_desc |= PRUETH_BD_LAN_INFO_MASK;
++			} else {
++				wr_buf_desc |= (txport <<
++						PRUETH_BD_LAN_A_SHIFT);
++			}
++			wr_buf_desc |= PRUETH_BD_RED_PKT_MASK;
++		} else if (PRUETH_IS_PRP(prueth)) {
++			/* Check if the SKB has PRP tag */
++			struct prp_txopt_rct *rct =
++				(struct prp_txopt_rct *)(skb_tail_pointer(skb) -
++							 ICSSM_LRE_TAG_SIZE);
++
++			if (rct->prp_suffix == htons(ETH_P_PRP)) {
++				wr_buf_desc |= PRUETH_BD_LAN_INFO_MASK;
++				wr_buf_desc |= PRUETH_BD_RED_PKT_MASK;
++			} else {
++				wr_buf_desc |= (txport <<
++						PRUETH_BD_LAN_A_SHIFT);
++			}
++		} else {
++			wr_buf_desc |= (txport << PRUETH_BD_LAN_A_SHIFT);
++		}
++	}
++
+ 	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
+ 	if (!PRUETH_IS_EMAC(prueth))
+ 		writel(wr_buf_desc, sram + readw(&queue_desc->wr_ptr));
+@@ -668,6 +788,10 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
+ 	update_wr_ptr = txqueue->buffer_desc_offset + (update_block * BD_SIZE);
+ 	writew(update_wr_ptr, &queue_desc->wr_ptr);
+ 
++	/* update the write pointer in queue descriptor of other port */
++	if (prueth_is_lre(prueth))
++		writew(update_wr_ptr, &queue_desc_other_port->wr_ptr);
++
+ 	return 0;
+ }
+ 
+@@ -680,8 +804,10 @@ void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
+ 	else
+ 		pkt_info->start_offset = false;
+ 
+-	pkt_info->port = (buffer_descriptor & PRUETH_BD_PORT_MASK) >>
+-			 PRUETH_BD_PORT_SHIFT;
++	/* Flag from BD to indicate packet is valid for HOST or not. */
++	pkt_info->host_recv_flag = !!(buffer_descriptor &
++				      PRUETH_BD_HOST_RECV_MASK);
++
+ 	pkt_info->length = (buffer_descriptor & PRUETH_BD_LENGTH_MASK) >>
+ 			   PRUETH_BD_LENGTH_SHIFT;
+ 	pkt_info->broadcast = !!(buffer_descriptor & PRUETH_BD_BROADCAST_MASK);
+@@ -711,17 +837,19 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 	struct net_device *ndev = emac->ndev;
+ 	unsigned int buffer_desc_count;
+ 	int read_block, update_block;
++	struct vlan_ethhdr *vlan_hdr;
+ 	unsigned int actual_pkt_len;
+ 	bool buffer_wrapped = false;
++	int adjust_for_hsr_tag = 0;
+ 	void *src_addr, *dst_addr;
+-	u16 start_offset = 0;
++	bool has_hsr_tag = false;
++	bool has_vlan = false;
++	struct ethhdr *ethhdr;
+ 	struct sk_buff *skb;
+ 	int pkt_block_size;
+ 	void *ocmc_ram;
++	__be16 proto;
+ 
+-	if (PRUETH_IS_HSR(emac->prueth))
+-		start_offset = (pkt_info->start_offset ?
+-				ICSSM_LRE_TAG_SIZE : 0);
+ 	/* the PRU firmware deals mostly in pointers already
+ 	 * offset into ram, we would like to deal in indexes
+ 	 * within the queue we are working with for code
+@@ -730,6 +858,8 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 	buffer_desc_count = icssm_get_buff_desc_count(rxqueue);
+ 	read_block = (*bd_rd_ptr - rxqueue->buffer_desc_offset) / BD_SIZE;
+ 	pkt_block_size = DIV_ROUND_UP(pkt_info->length, ICSS_BLOCK_SIZE);
++	/* OCMC RAM is not cached and read order is not important */
++	ocmc_ram = (__force void *)emac->prueth->mem[PRUETH_MEM_OCMC].va;
+ 
+ 	/* calculate end BD address post read */
+ 	update_block = read_block + pkt_block_size;
+@@ -741,11 +871,36 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 			buffer_wrapped = true;
+ 	}
+ 
++	/* Get the start address of the first buffer from
++	 * the read buffer description
++	 */
++	src_addr = ocmc_ram + rxqueue->buffer_offset +
++		   (read_block * ICSS_BLOCK_SIZE);
++
+ 	/* calculate new pointer in ram */
+ 	*bd_rd_ptr = rxqueue->buffer_desc_offset + (update_block * BD_SIZE);
+ 
+-	/* Exclude the HSR tag bytes already stripped by firmware, if any. */
+-	actual_pkt_len = pkt_info->length - start_offset;
++	if (PRUETH_IS_HSR(emac->prueth)) {
++		if (!pkt_info->host_recv_flag)
++			return 0;
++
++		ethhdr = (struct ethhdr *)src_addr;
++		proto = ethhdr->h_proto;
++
++		if (proto == htons(ETH_P_8021Q)) {
++			has_vlan = true;
++			vlan_hdr = (struct vlan_ethhdr *)ethhdr;
++			proto = vlan_hdr->h_vlan_encapsulated_proto;
++		}
++
++		if (proto == htons(ETH_P_HSR) && !pkt_info->timestamp)
++			has_hsr_tag = true;
++	}
++
++	actual_pkt_len = pkt_info->length;
++
++	if (has_hsr_tag)
++		actual_pkt_len -= ICSSM_LRE_TAG_SIZE;
+ 
+ 	/* Allocate a socket buffer for this packet */
+ 	skb = netdev_alloc_skb_ip_align(ndev, actual_pkt_len);
+@@ -757,15 +912,23 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 
+ 	dst_addr = skb->data;
+ 
+-	/* OCMC RAM is not cached and read order is not important */
+-	ocmc_ram = (__force void *)emac->prueth->mem[PRUETH_MEM_OCMC].va;
++	/* Copy destination and source MAC address */
++	memcpy(dst_addr, src_addr, PRUETH_ETHER_TYPE_OFFSET);
++	src_addr += PRUETH_ETHER_TYPE_OFFSET;
++	dst_addr += PRUETH_ETHER_TYPE_OFFSET;
+ 
+-	/* Get the start address of the first buffer from
+-	 * the read buffer description
+-	 */
+-	src_addr = ocmc_ram + rxqueue->buffer_offset +
+-		   (read_block * ICSS_BLOCK_SIZE);
+-	src_addr += start_offset;
++	adjust_for_hsr_tag += PRUETH_ETHER_TYPE_OFFSET;
++
++	if (has_vlan) {
++		memcpy(dst_addr, src_addr, VLAN_HLEN);
++		src_addr += VLAN_HLEN;
++		dst_addr += VLAN_HLEN;
++		adjust_for_hsr_tag += VLAN_HLEN;
++	}
++
++	/* HSR tag removal handling */
++	if (has_hsr_tag)
++		src_addr += ICSSM_LRE_TAG_SIZE;
+ 
+ 	/* Copy the data from PRU buffers(OCMC) to socket buffer(DRAM) */
+ 	if (buffer_wrapped) { /* wrapped around buffer */
+@@ -779,22 +942,23 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
+ 		if (pkt_info->length < bytes)
+ 			bytes = pkt_info->length;
+ 
+-		/* If applicable, account for the HSR tag removed */
+-		bytes -= start_offset;
++		if (has_hsr_tag)
++			bytes -= ICSSM_LRE_TAG_SIZE;
+ 
+ 		/* copy non-wrapped part */
+-		memcpy(dst_addr, src_addr, bytes);
++		memcpy(dst_addr, src_addr, bytes - adjust_for_hsr_tag);
+ 
+ 		/* copy wrapped part */
+-		dst_addr += bytes;
++		dst_addr += (bytes - adjust_for_hsr_tag);
+ 		remaining = actual_pkt_len - bytes;
+ 
+ 		src_addr = ocmc_ram + rxqueue->buffer_offset;
+ 		memcpy(dst_addr, src_addr, remaining);
+ 		src_addr += remaining;
+ 	} else {
+-		memcpy(dst_addr, src_addr, actual_pkt_len);
+-		src_addr += actual_pkt_len;
++		memcpy(dst_addr, src_addr, actual_pkt_len -
++		       adjust_for_hsr_tag);
++		src_addr += actual_pkt_len - adjust_for_hsr_tag;
+ 	}
+ 
+ 	if (PRUETH_IS_SWITCH(emac->prueth)) {
+@@ -1309,17 +1473,31 @@ static enum netdev_tx icssm_emac_ndo_start_xmit(struct sk_buff *skb,
+ 						struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
++	/* Spinlock for Tx Queues */
++	spinlock_t *lock_queue;
++	unsigned long flags;
+ 	int ret;
+ 	u16 qid;
+ 
+ 	qid = icssm_prueth_get_tx_queue_id(emac->prueth, skb);
++	/* Select the TX queue spin lock for this queue ID */
++	if (prueth_is_lre(emac->prueth))
++		lock_queue = &emac->prueth->lre_host_queue_lock[qid - 2];
++	else
++		lock_queue = &emac->host_queue_lock[qid - 2];
++
++	if (eth_skb_pad(skb)) {
++		if (netif_msg_tx_err(emac) && net_ratelimit())
++			netdev_err(ndev, "packet pad failed\n");
++		atomic64_inc(&emac->stats.tx_dropped);
++		return NETDEV_TX_OK;
++	}
++
++	spin_lock_irqsave(lock_queue, flags);
+ 	ret = icssm_prueth_tx_enqueue(emac, skb, qid);
+-	if (ret) {
+-		if (ret != -ENOBUFS && netif_msg_tx_err(emac) &&
+-		    net_ratelimit())
+-			netdev_err(ndev, "packet queue failed: %d\n", ret);
++	spin_unlock_irqrestore(lock_queue, flags);
++	if (ret)
+ 		goto fail_tx;
+-	}
+ 
+ 	atomic64_inc(&emac->stats.tx_packets);
+ 	atomic64_add(skb->len, &emac->stats.tx_bytes);
+@@ -1564,19 +1742,22 @@ static void icssm_emac_ndo_set_rx_mode(struct net_device *ndev)
+ static netdev_features_t icssm_emac_ndo_fix_features(struct net_device *ndev,
+ 						     netdev_features_t features)
+ {
+-	/* hsr tag removal offload and hsr fwd offload are tightly coupled in
+-	 * firmware implementation. Both these features need to be enabled /
+-	 * disabled together.
++	/* hsr tag removal offload, hsr fwd offload and hsr dup offload are
++	 * tightly coupled in firmware implementation. These features
++	 * must always be enabled/disabled together.
+ 	 */
+ 	if (!(ndev->features & NETIF_PRUETH_LRE_OFFLOAD_FEATURES))
+ 		if ((features & NETIF_F_HW_HSR_FWD) ||
+-		    (features & NETIF_F_HW_HSR_TAG_RM))
++		    (features & NETIF_F_HW_HSR_TAG_RM) ||
++		    (features & NETIF_F_HW_HSR_DUP))
+ 			features |= NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
+ 
+ 	if ((ndev->features & NETIF_F_HW_HSR_FWD) ||
+-	    (ndev->features & NETIF_F_HW_HSR_TAG_RM))
++	    (ndev->features & NETIF_F_HW_HSR_TAG_RM) ||
++	    (ndev->features & NETIF_F_HW_HSR_DUP))
+ 		if (!(features & NETIF_F_HW_HSR_FWD) ||
+-		    !(features & NETIF_F_HW_HSR_TAG_RM))
++		    !(features & NETIF_F_HW_HSR_TAG_RM) ||
++		    !(features & NETIF_F_HW_HSR_DUP))
+ 			features &= ~NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
+ 
+ 	return features;
+@@ -1777,6 +1958,9 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+ 	spin_lock_init(&emac->lock);
+ 	spin_lock_init(&emac->addr_lock);
+ 
++	spin_lock_init(&emac->host_queue_lock[0]);
++	spin_lock_init(&emac->host_queue_lock[1]);
++
+ 	/* get mac address from DT and set private and netdev addr */
+ 	ret = of_get_ethdev_address(eth_node, ndev);
+ 	if (!is_valid_ether_addr(ndev->dev_addr)) {
+@@ -2376,6 +2560,8 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 
+ 	prueth->support_lre = has_lre;
+ 	spin_lock_init(&prueth->addr_lock);
++	spin_lock_init(&prueth->lre_host_queue_lock[0]);
++	spin_lock_init(&prueth->lre_host_queue_lock[1]);
+ 	/* setup netdev interfaces */
+ 	if (eth0_node) {
+ 		ret = icssm_prueth_netdev_init(prueth, eth0_node);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+index 8cca5b87d4ff..9ed4176b66fa 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+@@ -94,7 +94,7 @@ struct prueth_queue_info {
+  * struct prueth_packet_info - Info about a packet in buffer
+  * @start_offset: true if frame carries an HSR/PRP start offset
+  * @shadow: this packet is stored in the collision queue
+- * @port: port packet is on
++ * @host_recv_flag: this frame should be received by host
+  * @length: length of packet
+  * @broadcast: this packet is a broadcast packet
+  * @error: this packet has an error
+@@ -105,7 +105,7 @@ struct prueth_queue_info {
+ struct prueth_packet_info {
+ 	bool start_offset;
+ 	bool shadow;
+-	unsigned int port;
++	bool host_recv_flag;
+ 	unsigned int length;
+ 	bool broadcast;
+ 	bool error;
+@@ -240,6 +240,8 @@ struct prueth_emac {
+ 	struct phy_device *phydev;
+ 	struct prueth_queue_desc __iomem *rx_queue_descs;
+ 	struct prueth_queue_desc __iomem *tx_queue_descs;
++	/* LRE duplicates each TX frame to both ports */
++	struct prueth_queue_desc __iomem *tx_queue_descs_other_port;
+ 
+ 	int link;
+ 	int speed;
+@@ -263,6 +265,7 @@ struct prueth_emac {
+ 	spinlock_t lock;
+ 	spinlock_t addr_lock;   /* serialize access to VLAN/MC filter table */
+ 
++	spinlock_t host_queue_lock[NUM_QUEUES / 2];
+ 	struct hrtimer tx_hrtimer;
+ 	struct prueth_emac_stats stats;
+ 	int offload_fwd_mark;
+@@ -314,9 +317,15 @@ struct prueth {
+ 	u8 emac_configured;
+ 	u8 hsr_members;
+ 	u8 br_members;
++
++	/* Per-queue TX lock - LRE uses only two priority queues
++	 * one for high priority and the other for low priority.
++	 */
++	spinlock_t lre_host_queue_lock[NUM_QUEUES / 2];
+ };
+ 
+ extern const struct prueth_queue_desc queue_descs[][NUM_QUEUES];
++extern const struct prueth_queue_desc hsr_prp_txopt_queue_descs[][NUM_QUEUES];
+ 
+ void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
+ 			     struct prueth_packet_info *pkt_info);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
+index 9b7b876240b5..e7139534b56f 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
+@@ -163,16 +163,17 @@ static int icssm_prueth_common_emac_rx_packets(struct prueth_emac *emac,
+ 			used++;
+ 		}
+ 
+-		/* Zero the BD after consuming it, a misaligned rd_ptr
+-		 * would otherwise mistake stale data for a valid incoming
+-		 * frame.
++		/* Leave the BD intact after reading. Firmware reuses it to
++		 * forward the frame to the second LRE port.
+ 		 */
+ 		if (port == 0) {
+-			writel(0, shared_ram + bd_rd_ptr);
++			if (PRUETH_IS_SWITCH(prueth))
++				writel(0, shared_ram + bd_rd_ptr);
+ 			writew(update_rd_ptr, &queue_desc->rd_ptr);
+ 			bd_rd_ptr = update_rd_ptr;
+ 		} else {
+-			writel(0, shared_ram + bd_rd_ptr_o);
++			if (PRUETH_IS_SWITCH(prueth))
++				writel(0, shared_ram + bd_rd_ptr_o);
+ 			writew(update_rd_ptr, &queue_desc_o->rd_ptr);
+ 			bd_rd_ptr_o = update_rd_ptr;
+ 		}
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+index 9d67fc7c23ac..a36664d70d82 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+@@ -199,6 +199,189 @@ static const struct prueth_queue_info rx_queue_infos[][NUM_QUEUES] = {
+ 	},
+ };
+ 
++/* Tx Queue context for HSR and PRP */
++const struct prueth_queue_info lre_queue_infos[][NUM_QUEUES] = {
++	[PRUETH_PORT_QUEUE_HOST] = {
++		[PRUETH_QUEUE1] = {
++			P0_Q1_BUFFER_OFFSET,
++			P0_QUEUE_DESC_OFFSET,
++			P0_Q1_BD_OFFSET,
++			P0_Q1_BD_OFFSET + ((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE2] = {
++			P0_Q2_BUFFER_OFFSET,
++			P0_QUEUE_DESC_OFFSET + 8,
++			P0_Q2_BD_OFFSET,
++			P0_Q2_BD_OFFSET + ((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE3] = {
++			P0_Q3_BUFFER_OFFSET,
++			P0_QUEUE_DESC_OFFSET + 16,
++			P0_Q3_BD_OFFSET,
++			P0_Q3_BD_OFFSET + ((HOST_QUEUE_3_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE4] = {
++			P0_Q4_BUFFER_OFFSET,
++			P0_QUEUE_DESC_OFFSET + 24,
++			P0_Q4_BD_OFFSET,
++			P0_Q4_BD_OFFSET + ((HOST_QUEUE_4_SIZE - 1) * BD_SIZE),
++		},
++	},
++	[PRUETH_PORT_QUEUE_MII0] = {
++		[PRUETH_QUEUE1] = {
++			P0_Q3_BUFFER_OFFSET,
++			P0_Q3_BUFFER_OFFSET +
++				((HOST_QUEUE_3_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P0_Q3_BD_OFFSET,
++			P0_Q3_BD_OFFSET + ((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE2] = {
++			P0_Q4_BUFFER_OFFSET,
++			P0_Q4_BUFFER_OFFSET +
++				((HOST_QUEUE_4_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P0_Q4_BD_OFFSET,
++			P0_Q4_BD_OFFSET + ((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE3] = {
++			P1_Q3_TXOPT_BUFFER_OFFSET,
++			P1_Q3_TXOPT_BUFFER_OFFSET +
++				((QUEUE_3_TXOPT_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P1_Q3_TXOPT_BD_OFFSET,
++			P1_Q3_TXOPT_BD_OFFSET +
++				((QUEUE_3_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE4] = {
++			P2_Q1_TXOPT_BUFFER_OFFSET,
++			P2_Q1_TXOPT_BUFFER_OFFSET +
++				((QUEUE_4_TXOPT_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P2_Q1_TXOPT_BD_OFFSET,
++			P2_Q1_TXOPT_BD_OFFSET +
++				((QUEUE_4_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++	},
++	[PRUETH_PORT_QUEUE_MII1] = {
++		[PRUETH_QUEUE1] = {
++			P0_Q1_BUFFER_OFFSET,
++			P0_Q1_BUFFER_OFFSET +
++				((HOST_QUEUE_1_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P0_Q1_BD_OFFSET,
++			P0_Q1_BD_OFFSET +
++				((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE2] = {
++			P0_Q2_BUFFER_OFFSET,
++			P0_Q2_BUFFER_OFFSET +
++				((HOST_QUEUE_2_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P0_Q2_BD_OFFSET,
++			P0_Q2_BD_OFFSET +
++				((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE3] = {
++			P1_Q3_TXOPT_BUFFER_OFFSET,
++			P1_Q3_TXOPT_BUFFER_OFFSET +
++				((QUEUE_3_TXOPT_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P1_Q3_TXOPT_BD_OFFSET,
++			P1_Q3_TXOPT_BD_OFFSET +
++				((QUEUE_3_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE4] = {
++			P2_Q1_TXOPT_BUFFER_OFFSET,
++			P2_Q1_TXOPT_BUFFER_OFFSET +
++				((QUEUE_4_TXOPT_SIZE - 1) * ICSS_BLOCK_SIZE),
++			P2_Q1_TXOPT_BD_OFFSET,
++			P2_Q1_TXOPT_BD_OFFSET +
++				((QUEUE_4_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++
++	},
++};
++
++/* Rx Queue Context for HSR and PRP */
++static const struct prueth_queue_info lre_rx_queue_infos[][NUM_QUEUES] = {
++	[PRUETH_PORT_QUEUE_HOST] = {
++		[PRUETH_QUEUE1] = {
++			P0_Q1_BUFFER_OFFSET,
++			HOST_QUEUE_DESC_OFFSET,
++			P0_Q1_BD_OFFSET,
++			P0_Q1_BD_OFFSET + ((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE2] = {
++			P0_Q2_BUFFER_OFFSET,
++			HOST_QUEUE_DESC_OFFSET + 8,
++			P0_Q2_BD_OFFSET,
++			P0_Q2_BD_OFFSET + ((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE3] = {
++			P0_Q3_BUFFER_OFFSET,
++			HOST_QUEUE_DESC_OFFSET + 16,
++			P0_Q3_BD_OFFSET,
++			P0_Q3_BD_OFFSET + ((HOST_QUEUE_3_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE4] = {
++			P0_Q4_BUFFER_OFFSET,
++			HOST_QUEUE_DESC_OFFSET + 24,
++			P0_Q4_BD_OFFSET,
++			P0_Q4_BD_OFFSET + ((HOST_QUEUE_4_SIZE - 1) * BD_SIZE),
++		},
++	},
++	[PRUETH_PORT_QUEUE_MII0] = {
++		[PRUETH_QUEUE1] = {
++			P0_Q3_BUFFER_OFFSET,
++			P1_QUEUE_DESC_OFFSET,
++			P0_Q3_BD_OFFSET,
++			P0_Q3_BD_OFFSET + ((HOST_QUEUE_3_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE2] = {
++			P0_Q4_BUFFER_OFFSET,
++			P1_QUEUE_DESC_OFFSET + 8,
++			P0_Q4_BD_OFFSET,
++			P0_Q4_BD_OFFSET + ((HOST_QUEUE_4_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE3] = {
++			P1_Q3_TXOPT_BUFFER_OFFSET,
++			P1_QUEUE_DESC_OFFSET + 16,
++			P1_Q3_TXOPT_BD_OFFSET,
++			P1_Q3_TXOPT_BD_OFFSET +
++				((QUEUE_3_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE4] = {
++			P2_Q1_TXOPT_BUFFER_OFFSET,
++			P1_QUEUE_DESC_OFFSET + 24,
++			P2_Q1_TXOPT_BD_OFFSET,
++			P2_Q1_TXOPT_BD_OFFSET +
++				((QUEUE_4_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++	},
++	[PRUETH_PORT_QUEUE_MII1] = {
++		[PRUETH_QUEUE1] = {
++			P0_Q1_BUFFER_OFFSET,
++			P2_QUEUE_DESC_OFFSET,
++			P0_Q1_BD_OFFSET,
++			P0_Q1_BD_OFFSET + ((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE2] = {
++			P0_Q2_BUFFER_OFFSET,
++			P2_QUEUE_DESC_OFFSET + 8,
++			P0_Q2_BD_OFFSET,
++			P0_Q2_BD_OFFSET + ((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE3] = {
++			P1_Q3_TXOPT_BUFFER_OFFSET,
++			P2_QUEUE_DESC_OFFSET + 16,
++			P1_Q3_TXOPT_BD_OFFSET,
++			P1_Q3_TXOPT_BD_OFFSET +
++				((QUEUE_3_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++		[PRUETH_QUEUE4] = {
++			P2_Q1_TXOPT_BUFFER_OFFSET,
++			P2_QUEUE_DESC_OFFSET + 24,
++			P2_Q1_TXOPT_BD_OFFSET,
++			P2_Q1_TXOPT_BD_OFFSET +
++				((QUEUE_4_TXOPT_SIZE - 1) * BD_SIZE),
++		},
++	},
++};
++
+ void icssm_prueth_sw_free_fdb_table(struct prueth *prueth)
+ {
+ 	if (prueth->emac_configured)
+@@ -856,8 +1039,12 @@ void icssm_prueth_sw_hostconfig(struct prueth *prueth)
+ 
+ 	/* queue information table */
+ 	dram = dram1_base + P0_Q1_RX_CONTEXT_OFFSET;
+-	memcpy_toio(dram, sw_queue_infos[PRUETH_PORT_QUEUE_HOST],
+-		    sizeof(sw_queue_infos[PRUETH_PORT_QUEUE_HOST]));
++	if (prueth_is_lre(prueth))
++		memcpy_toio(dram, lre_queue_infos[PRUETH_PORT_QUEUE_HOST],
++			    sizeof(lre_queue_infos[PRUETH_PORT_QUEUE_HOST]));
++	else
++		memcpy_toio(dram, sw_queue_infos[PRUETH_PORT_QUEUE_HOST],
++			    sizeof(sw_queue_infos[PRUETH_PORT_QUEUE_HOST]));
+ 
+ 	/* buffer descriptor offset table*/
+ 	dram = dram1_base + QUEUE_DESCRIPTOR_OFFSET_ADDR;
+@@ -882,8 +1069,15 @@ void icssm_prueth_sw_hostconfig(struct prueth *prueth)
+ 
+ 	/* queue table */
+ 	dram = dram1_base + P0_QUEUE_DESC_OFFSET;
+-	memcpy_toio(dram, queue_descs[PRUETH_PORT_QUEUE_HOST],
+-		    sizeof(queue_descs[PRUETH_PORT_QUEUE_HOST]));
++	if (prueth_is_lre(prueth))
++		memcpy_toio(dram,
++			    hsr_prp_txopt_queue_descs[PRUETH_PORT_QUEUE_HOST],
++			    sizeof(hsr_prp_txopt_queue_descs
++				    [PRUETH_PORT_QUEUE_HOST]));
++	else
++		memcpy_toio(dram, queue_descs[PRUETH_PORT_QUEUE_HOST],
++			    sizeof(queue_descs[PRUETH_PORT_QUEUE_HOST]));
++
+ }
+ 
+ void icssm_prueth_sw_config_packet_timestamping(struct prueth *prueth)
+@@ -898,7 +1092,7 @@ static int icssm_prueth_sw_port_config(struct prueth *prueth,
+ 				       enum prueth_port port_id)
+ {
+ 	unsigned int tx_context_ofs_addr, rx_context_ofs, queue_desc_ofs;
+-	void __iomem *dram, *dram_base, *dram_mac;
++	void __iomem *dram, *dram_base;
+ 	struct prueth_emac *emac;
+ 	void __iomem *dram1_base;
+ 
+@@ -909,26 +1103,17 @@ static int icssm_prueth_sw_port_config(struct prueth *prueth,
+ 		tx_context_ofs_addr     = TX_CONTEXT_P1_Q1_OFFSET_ADDR;
+ 		rx_context_ofs          = P1_Q1_RX_CONTEXT_OFFSET;
+ 		queue_desc_ofs          = P1_QUEUE_DESC_OFFSET;
+-
+-		/* for switch PORT MII0 mac addr is in DRAM0. */
+-		dram_mac = prueth->mem[PRUETH_MEM_DRAM0].va;
+ 		break;
+ 	case PRUETH_PORT_MII1:
+ 		tx_context_ofs_addr     = TX_CONTEXT_P2_Q1_OFFSET_ADDR;
+ 		rx_context_ofs          = P2_Q1_RX_CONTEXT_OFFSET;
+ 		queue_desc_ofs          = P2_QUEUE_DESC_OFFSET;
+-
+-		/* for switch PORT MII1 mac addr is in DRAM1. */
+-		dram_mac = prueth->mem[PRUETH_MEM_DRAM1].va;
+ 		break;
+ 	default:
+ 		netdev_err(emac->ndev, "invalid port\n");
+ 		return -EINVAL;
+ 	}
+ 
+-	/* setup mac address */
+-	memcpy_toio(dram_mac + PORT_MAC_ADDR, emac->mac_addr, 6);
+-
+ 	/* Remaining switch port configs are in DRAM1 */
+ 	dram_base = prueth->mem[PRUETH_MEM_DRAM1].va;
+ 
+@@ -983,21 +1168,126 @@ static int icssm_prueth_sw_port_config(struct prueth *prueth,
+ 	return 0;
+ }
+ 
++/* Configure TX/RX queue contexts and buffer descriptor tables for LRE port */
++static void icssm_prueth_lre_port_config(struct prueth *prueth,
++					 enum prueth_port port_id)
++{
++	unsigned int tx_context_ofs_addr, rx_context_ofs, queue_desc_ofs;
++	void __iomem *dram, *dram_base;
++	struct prueth_emac *emac;
++
++	emac = prueth->emac[port_id - 1];
++	if (port_id == PRUETH_PORT_MII0) {
++		tx_context_ofs_addr     = TX_CONTEXT_P1_Q1_OFFSET_ADDR;
++		rx_context_ofs          = P1_Q1_RX_CONTEXT_OFFSET;
++		queue_desc_ofs          = P1_QUEUE_DESC_OFFSET;
++	} else if (port_id ==  PRUETH_PORT_MII1) {
++		tx_context_ofs_addr     = TX_CONTEXT_P2_Q1_OFFSET_ADDR;
++		rx_context_ofs          = P2_Q1_RX_CONTEXT_OFFSET;
++		queue_desc_ofs          = P2_QUEUE_DESC_OFFSET;
++	}
++
++	/* Remaining switch port configs are in DRAM1 */
++	dram_base = prueth->mem[PRUETH_MEM_DRAM1].va;
++
++	/* queue information table */
++	memcpy_toio(dram_base + tx_context_ofs_addr,
++		    lre_queue_infos[port_id],
++		    sizeof(lre_queue_infos[port_id]));
++
++	memcpy_toio(dram_base + rx_context_ofs,
++		    lre_rx_queue_infos[port_id],
++		    sizeof(lre_rx_queue_infos[port_id]));
++
++	/* buffer descriptor offset table*/
++	dram = dram_base + QUEUE_DESCRIPTOR_OFFSET_ADDR +
++		(port_id * NUM_QUEUES * sizeof(u16));
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE1].buffer_desc_offset,
++	       dram);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE2].buffer_desc_offset,
++	       dram + 2);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE3].buffer_desc_offset,
++	       dram + 4);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE4].buffer_desc_offset,
++	       dram + 6);
++
++	/* buffer offset table */
++	dram = dram_base + QUEUE_OFFSET_ADDR +
++		port_id * NUM_QUEUES * sizeof(u16);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE1].buffer_offset, dram);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE2].buffer_offset,
++	       dram + 2);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE3].buffer_offset,
++	       dram + 4);
++	writew(lre_queue_infos[port_id][PRUETH_QUEUE4].buffer_offset,
++	       dram + 6);
++
++	/* queue size lookup table */
++	dram = dram_base + QUEUE_SIZE_ADDR +
++		port_id * NUM_QUEUES * sizeof(u16);
++	writew(HOST_QUEUE_1_SIZE, dram);
++	writew(HOST_QUEUE_2_SIZE, dram + 2);
++	writew(QUEUE_3_TXOPT_SIZE, dram + 4);
++	writew(QUEUE_4_TXOPT_SIZE, dram + 6);
++
++	/* queue table */
++	memcpy_toio(dram_base + queue_desc_ofs,
++		    &hsr_prp_txopt_queue_descs[port_id][0],
++		    4 * sizeof(hsr_prp_txopt_queue_descs[port_id][0]));
++
++	/* In HSR/PRP mode both slave ports share the host receive queue
++	 * descriptor region (P0_QUEUE_DESC_OFFSET). The firmware arbitrates
++	 * ownership; the driver always reads from the same host-side descriptor
++	 * base regardless of which physical port the frame arrived on.
++	 */
++	emac->rx_queue_descs = dram_base + P0_QUEUE_DESC_OFFSET;
++	emac->tx_queue_descs = dram_base +
++		lre_rx_queue_infos[port_id][PRUETH_QUEUE1].queue_desc_offset;
++
++	if (port_id == PRUETH_PORT_MII0) {
++		emac->tx_queue_descs_other_port = dram_base +
++			lre_rx_queue_infos
++			[port_id + 1][PRUETH_QUEUE1].queue_desc_offset;
++	} else if (port_id == PRUETH_PORT_MII1) {
++		emac->tx_queue_descs_other_port = dram_base +
++			lre_rx_queue_infos
++			[port_id - 1][PRUETH_QUEUE1].queue_desc_offset;
++	}
++}
++
+ int icssm_prueth_sw_emac_config(struct prueth_emac *emac)
+ {
+ 	struct prueth *prueth = emac->prueth;
+ 	u32 sharedramaddr, ocmcaddr;
+-	int ret;
++	void __iomem *dram_mac;
++	int ret = 0;
+ 
+ 	/* PRU needs local shared RAM address for C28 */
+ 	sharedramaddr = ICSS_LOCAL_SHARED_RAM;
+ 	/* PRU needs real global OCMC address for C30*/
+ 	ocmcaddr = (u32)prueth->mem[PRUETH_MEM_OCMC].pa;
+ 
++	if (emac->port_id == PRUETH_PORT_MII0) {
++		dram_mac = prueth->mem[PRUETH_MEM_DRAM0].va;
++	} else if (emac->port_id == PRUETH_PORT_MII1) {
++		dram_mac = prueth->mem[PRUETH_MEM_DRAM1].va;
++	} else {
++		netdev_err(emac->ndev, "invalid port\n");
++		return -EINVAL;
++	}
++
++	/* setup mac address */
++	memcpy_toio(dram_mac + PORT_MAC_ADDR, emac->mac_addr, ETH_ALEN);
++
+ 	if (prueth->emac_configured & BIT(emac->port_id))
+ 		return 0;
+ 
+-	ret = icssm_prueth_sw_port_config(prueth, emac->port_id);
++	if (prueth_is_lre(prueth) && !prueth->emac_configured) {
++		icssm_prueth_lre_port_config(prueth, PRUETH_PORT_MII0);
++		icssm_prueth_lre_port_config(prueth, PRUETH_PORT_MII1);
++	} else if (PRUETH_IS_SWITCH(prueth)) {
++		ret = icssm_prueth_sw_port_config(prueth, emac->port_id);
++	}
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
+index fe7197f9a6da..a009827b01d7 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
+@@ -17,6 +17,7 @@ u8 icssm_prueth_sw_get_stp_state(struct prueth *prueth,
+ 				 enum prueth_port port);
+ 
+ extern const struct prueth_queue_info sw_queue_infos[][4];
++extern const struct prueth_queue_info lre_queue_infos[][4];
+ 
+ void icssm_prueth_sw_fdb_tbl_init(struct prueth *prueth);
+ int icssm_prueth_sw_init_fdb_table(struct prueth *prueth);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_switch.h b/drivers/net/ethernet/ti/icssm/icssm_switch.h
+index b4d6b8660539..ec5925c812c3 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_switch.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_switch.h
+@@ -24,6 +24,9 @@
+ #define QUEUE_3_SIZE		97	/* Protocol specific */
+ #define QUEUE_4_SIZE		97	/* NRT (IP,ARP, ICMP) */
+ 
++#define QUEUE_3_TXOPT_SIZE	194	/* Protocol specific - High Priority */
++#define QUEUE_4_TXOPT_SIZE	194	/* NRT(IP,ARP, ICMP) - Low Priority*/
++
+ /* Host queue size (number of BDs). Each BD points to data buffer of 32 bytes.
+  * HOST PORT QUEUES can buffer up to 4 full sized frames per queue
+  */
+@@ -51,18 +54,19 @@
+  *				address found in FDB). For switch only.
+  * 8..12	Block_length	number of valid bytes in this specific block.
+  *				Will be <=32 bytes on last block of packet
++ * 8		RED_INFO	Set if the frame carries an HSR or PRP
++ *				redundancy tag
++ * 10		HostRecv	Set if the frame is destined for the host port.
++ *				For HSR only.
+  * 13		More		"More" bit indicating that there are more blocks
+  * 14		Shadow		indicates that "index" is pointing into shadow
+  *				buffer
+  * 15		TimeStamp	indicates that this packet has time stamp in
+  *				separate buffer - only needed if PTP runs on
+  *				host
+- * 16..17	Port		different meaning for ingress and egress,
+- *				Ingress: Port = 0 indicates phy port 1 and
+- *				Port = 1 indicates phy port 2.
+- *				Egress: 0 sends on phy port 1 and 1 sends on
+- *				phy port 2. Port = 2 goes over MAC table
+- *				look-up
++ * 16..17	LAN		Destination LAN for transmission:
++ *				bit 16 = LAN A, bit 17 = LAN B, set both to
++ *				duplicate to both LANs. For HSR and PRP only.
+  * 18..28	Length		11 bit of total packet length which is put into
+  *				first BD only so that host access only one BD
+  * 29		VlanTag		indicates that packet has Length/Type field of
+@@ -86,14 +90,21 @@
+ #define PRUETH_BD_SW_FLOOD_MASK		BIT(7)
+ #define PRUETH_BD_SW_FLOOD_SHIFT	7
+ 
++#define PRUETH_BD_RED_PKT_MASK		BIT(8)
++#define PRUETH_BD_RED_PKT		8
++
++#define PRUETH_BD_HOST_RECV_MASK	BIT(10)
++#define PRUETH_BD_HOST_RECV_SHIFT	10
++
+ #define	PRUETH_BD_SHADOW_MASK		BIT(14)
+ #define	PRUETH_BD_SHADOW_SHIFT		14
+ 
+ #define PRUETH_BD_TIMESTAMP_MASK	BIT(15)
+ #define PRUETH_BD_TIMESTAMP_SHIFT	15
+ 
+-#define PRUETH_BD_PORT_MASK		GENMASK(17, 16)
+-#define PRUETH_BD_PORT_SHIFT		16
++#define PRUETH_BD_LAN_INFO_MASK		GENMASK(17, 16)
++#define PRUETH_BD_LAN_A_SHIFT		16
++#define PRUETH_BD_LAN_B_SHIFT		17
+ 
+ #define PRUETH_BD_LENGTH_MASK		GENMASK(28, 18)
+ #define PRUETH_BD_LENGTH_SHIFT		18
+@@ -298,6 +309,9 @@
+ #define P0_Q4_BD_OFFSET		(P0_Q3_BD_OFFSET + HOST_QUEUE_3_SIZE * BD_SIZE)
+ #define P0_Q3_BD_OFFSET		(P0_Q2_BD_OFFSET + HOST_QUEUE_2_SIZE * BD_SIZE)
+ #define P0_Q2_BD_OFFSET		(P0_Q1_BD_OFFSET + HOST_QUEUE_1_SIZE * BD_SIZE)
++#define P1_Q3_TXOPT_BD_OFFSET	(P0_Q4_BD_OFFSET + HOST_QUEUE_4_SIZE * BD_SIZE)
++#define P2_Q1_TXOPT_BD_OFFSET	(P1_Q3_TXOPT_BD_OFFSET +	\
++				 QUEUE_3_TXOPT_SIZE * BD_SIZE)
+ #define P0_Q1_BD_OFFSET		P0_BUFFER_DESC_OFFSET
+ #define P0_BUFFER_DESC_OFFSET	SRAM_START_OFFSET
+ 
+@@ -334,6 +348,10 @@
+ 				 ICSS_BLOCK_SIZE)
+ #define P0_Q2_BUFFER_OFFSET	(P0_Q1_BUFFER_OFFSET + HOST_QUEUE_1_SIZE * \
+ 				 ICSS_BLOCK_SIZE)
++#define P1_Q3_TXOPT_BUFFER_OFFSET	(P0_Q4_BUFFER_OFFSET +	\
++					 HOST_QUEUE_4_SIZE * ICSS_BLOCK_SIZE)
++#define P2_Q1_TXOPT_BUFFER_OFFSET	(P1_Q3_TXOPT_BUFFER_OFFSET +	\
++					 QUEUE_3_TXOPT_SIZE * ICSS_BLOCK_SIZE)
+ #define P0_COL_BUFFER_OFFSET	0xEE00
+ #define P0_Q1_BUFFER_OFFSET	0x0000
+ 
 -- 
 2.43.0
 
