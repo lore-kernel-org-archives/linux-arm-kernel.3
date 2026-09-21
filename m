@@ -4,134 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76620C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3F6C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFYqz6HAaleOE71vMWGIh4R3tpiJWLS5A4rIz0dwtuE=; b=TJsTDC+PXDCflzKNroTSKLAIDF
-	/9WUfcUwPgJVMMSq70H8t1egVJ1CV5ndeYJmU7wJi3BfTW9O0MLfp1NaPKPZlss/PphtkcujBQvFF
-	XRM4Enb+SDPx3+BfSvBbZjYep4nRw7T6GU121mSudLK3bYrQtIOin85NO3AJr6rS7UUSJfScoUEgQ
-	hJqNIMaYbUgMndQgvBcm1jORLtsT9R2Jc6Vz7OWnuDa7Wn9i9+WE9lt77ZQoz6Jt5LmZ7yv9smU9W
-	MxKMpzwwaKyXxbi4Q2cit4o5O92oTCIMhUiiO5a0UkKMHc/Ky9EM1H031GBe30TAQ6gIcsVcbugbA
-	VDPc+cXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kmEsUEvY9vo2zaj1qCqnPiixs7yLoUz5iuxdnJ22dzs=; b=3lBIpZnJ04KJlnZCR/XnHhkYee
+	O2jgETU3fIPhjmFQO8d8ZRFswGEBm+PAGfc25e7cA1LKQXre9LGIqLxmWZKQcpnoryEqi3KMU0kHh
+	caKdunIggWq7SqiVSDrnIvJhsH1Y03Tmwp4KgaTU14HjiO0bSdSK27sp3O6KWzBlSMukpujt1cN9/
+	6tGk5RsIoGiJFEfJVIVr+KldvCUx2x2AVMiKVhvtfDcNfRztQjXcS7sclegIzDYESk/XsxA8pdCEw
+	OEfXO6RrtT2RsIRhp0xZw0+Rc59LR6NcYgfOaOmTu+uM/IRGwrtOlEV+/S0dOts3Rdch2cgpFVPkt
+	IQxYmACQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fIL-00000002RXP-43bT;
-	Mon, 21 Sep 2026 14:47:01 +0000
-Received: from mail-northeuropeazon11012005.outbound.protection.outlook.com ([52.101.66.5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x8fIf-00000002RcX-1HkN;
+	Mon, 21 Sep 2026 14:47:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fIJ-00000002RWS-0URN;
-	Mon, 21 Sep 2026 14:47:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EOOtiEmbkX78RaBosrJw7vnMAfGV7fw33GDnE6NzD7u6Acze5bvKbzYcj/RZrAqaUsMkbWnYgZeeT/HqTr3hMur1nLF1DuLP5Y48pBqie59vx5nkWV/N0oZIKZWZR2/+Z7zPOdoF4e+o7/+N86DBLhFmz0u5z97nK+CXql5HKNNZpiDOv25CeOGWib7vaGsn8rCqQYEWWIEBaTcPhpnFSIm7ixh+WXOv8cUeD6PKRPOFeBOh4NvZaXwSwAPCY88kj/IXVeVSka6Q9AciHSGSd1ZjtTG6QEZ/6HenoiE8L2AR2QEkJTsEZJrXgTd4m7Zigz+2SBfTjJoEWjWUQlhVAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AFYqz6HAaleOE71vMWGIh4R3tpiJWLS5A4rIz0dwtuE=;
- b=ypv2Vv2LP/gVri6wUctL1gun0xmN+NMUEH5ZEmlaKVB1bhseU61c04PrQdAaQL2181wQUIEtRBw/9qmTorGlFnxnAaXcmJYG9KKJyU+jVEOQVqxsPcT+JhO9lXKM8GhLZziN5TJZ+Ic2eu0c++Zj6MKVW1RR0iZDJJrRefhw9u+gBWSrmUbT8Uom2kPzJfYtPVx7Jn31M8k+VwGOYkxaZQsT8OiV7F27qyvmPEiULu141/+2w+TyPHKwvuf3zgBiktm+f1TPeYIb9lwvAecYIdT43Rv2V/kvTIZBeiavPqYOGqriAL3WXpPsDnB8e+kfxMfRS0v+uRRJmPWU/R/l3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AFYqz6HAaleOE71vMWGIh4R3tpiJWLS5A4rIz0dwtuE=;
- b=lQlyZ4j7Mb/yivFHvP3P3mszGn8Pdu1HE5i+KGLBBTnpX+6Isra3Zne+x5eiJxpI7eyzstWm5psKgJPBgL3AXybg4dlKUk0X7n1WJkr9auZDcK39Rkw0y+C4KhkWd3AfBUgxC0UK0kIPmASed2QN1VbRPyIQd/2WXY6yR34FCzJa9g9vdAw3KVshEfQvseXwq7aGlfRgTTGdfzBEfSsMwnbxblFeoGwl3AbURCEe3rsekHOcCo4x+cCsZzj8r02TlQPKKJfXc5073lk7D71j747tLzFJmZxvsDiqw1xWXtwEQdJGzgc5KgcOitSYTl8t2z1ok8MdG0xffQIHTDIAgw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS1PR04MB9239.eurprd04.prod.outlook.com (2603:10a6:20b:4c5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 14:46:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 14:46:54 +0000
-Date: Mon, 21 Sep 2026 09:46:41 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Frank Li <Frank.Li@nxp.com>, Christoph Stoidner <c.stoidner@phytec.de>,
-	Vinod Koul <vkoul@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>, devicetree@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>, Vincent Mailhol <mailhol@kernel.org>,
-	Aswath Govindraju <a-govindraju@ti.com>
-Subject: Re: [PATCH V5 0/4] arm64: dts: freescale: Add chargebyte Charge
- Control Y
-Message-ID: <arFDUby0v52HSNnU@SMW015318>
-References: <20260907150420.18787-1-wahrenst@gmx.net>
- <9cb548d3-f3cf-4757-a9ff-5f878479c7d7@gmx.net>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9cb548d3-f3cf-4757-a9ff-5f878479c7d7@gmx.net>
-X-ClientProxiedBy: PH0PR07CA0049.namprd07.prod.outlook.com
- (2603:10b6:510:e::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x8fIN-00000002RXQ-1ghy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 14:47:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26BDD42A9B;
+	Mon, 21 Sep 2026 14:47:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E2091F00893;
+	Mon, 21 Sep 2026 14:46:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790002023;
+	bh=kmEsUEvY9vo2zaj1qCqnPiixs7yLoUz5iuxdnJ22dzs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XZvbjTYhHMYYLm5eZryPH0+GXR5XNmEMgeQMCPy79tnA6n+P5f4CcDTyQnt4dJkto
+	 r+7dWlUrTZUruCEFkrdYRqfgrryNweCGyoS3uEbYCGDDYF12dPpKVfhxiyX0IKkc32
+	 6sCF1bMHAl3m5tjQsau8dPeZdeT68CkcU+/ulfYl7AuORlXF5fmBX+WJH7wTSYtNKO
+	 FeYi5cxWeXWmzKF/Lmmr8NGPq15bxbtIY/8dmxDI8/s+tuMQ2VJ0MVB3S7slT258mA
+	 7wteppWFHsnd2xoU9oBuTlOirIaGCLhQ3kXhHOPIcAiQyCd0UaP1JsRJ9WwQhVdQiK
+	 HyLMzG10qlNyw==
+Message-ID: <198df371-4599-4e71-814c-b94bddd41254@kernel.org>
+Date: Mon, 21 Sep 2026 16:46:56 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS1PR04MB9239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71922ea4-5870-4483-1e43-08df17ef2d56
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|19092799006|3023799007|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: QmJ5fmZ9XCTIkaoqXxdH1OZQw8qoCjzEfMUMTH4uB1+qUiKr6Nmts/vmcazoclp17CfY6t96R2jLdfPWjvMbMUMikvgN0F5iKEda8Z8L51/OWpmjKh7RvCCreLFzeFPTurl4J2ZAMmaZZ1bEaZPsGu2oP58d/dywu7vVjVZfxswithfGWtOFCnaXeyGhXXi4qaIMaIgtFuXfmdWtu/z9VPSgyN3DT0WljkwAwdp+Z0ByjpQs3cLUXJjcv3oYKpd9BvYvgaRSFAjF4YXVPgkWBhRDM2ldpWM0h8NuFpfbKLbHTTAwDFwWijP2N5LOV+sLtluxzdbptT12P1M25EljG6deYM7MEL5FVHNnGgU/4wnDFG5kRcvuAdP+Syrs6Ny8WGSElXTxUpKSif/IjZB8SKqQN3V+AK0u2GsmUx7M7alNY/cyf90754ADU+RljNypEbyBsej5yUZTHbSOf7Zh6wa99d7XJ5BUp56j5Nrz/GiiACSyOo6oCZ4Nke2MeT6pFRdbbXTyNGoJGZfXdsPSOvPh2IxYsmSkRQE0byZ1U0gZfO4i4qOIkCSCenIsnBptthYPSrOBfqH3i++9exgp9bqXTD4ID/cs89M0QOnB4j4aK+/p78TOrG6C6br2I4tQ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(19092799006)(3023799007)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?42pwCZSDTN75vx0gPc8sSQoJgFaAFGuZpqYP6nZiJzsCtRDpbfO9u/J17gUY?=
- =?us-ascii?Q?I4qELnFimCz+KPxwyvE77gJxz1I43zsqyeMm6xtEKtatxqAWrkcCVrue3iMo?=
- =?us-ascii?Q?+8OaTperbc34prNY3FCjT0r3LOZEzLj9nU5N9HbExRXZ/sla3f8G5XcCLjo5?=
- =?us-ascii?Q?c7ck+Ca8BkX7JGa95G4UnRuW2tKxC9IvfManitej6zuvoZtVthfrCl6N8DB0?=
- =?us-ascii?Q?mHIn1NtmKUcRno+8MOuPGLlhKWWg/iTKqdJED97UqmRbIJESyRDi8t1SUiwh?=
- =?us-ascii?Q?SVpBTq7NicwZk2afJKWLq6PWXVJxZgilhhB+cG50M3/aRJG6+ixBuwMnaB6y?=
- =?us-ascii?Q?aWJEbvAxjG912kwTup8ShDFDPm/F9aWwIMW3iSTLl7fMBEfiyQdCJL8JIWBy?=
- =?us-ascii?Q?LFIqCZW4YgEbUN63p/k+N8YpxUKwdLODEycbjcCTVqcjnVU2nNzIpF+N+90R?=
- =?us-ascii?Q?ziq2Mb+5NIXqT72bB2SgjUHnwhJIz/vMpccc7dykcgcbkFo8C2BzE0cEUijl?=
- =?us-ascii?Q?m52tKGsL/WAWaRmKBwSSwQunrEUeqGvhUFzEsqblessGK7d3qUTMe/1KSp+G?=
- =?us-ascii?Q?Gn16WkAFXY2kTKiA5bRMlh8kB7LShb8yacwsDhnHfVWkc+XVhkpbPDDvbtze?=
- =?us-ascii?Q?UgYGdoCNTNa3CSZqKk9/y3hujSl6eBRJcRAIrD4Xxv01XnzA8KiPGiqaz2AM?=
- =?us-ascii?Q?fYxNfhMaClExCm5SVkasLK64oKbti72u3mhZ/DBMJf1iEjsw2MS8r52N3/NK?=
- =?us-ascii?Q?MH0FBq/Uxo+EzruqnI7R9Let3uKkgdpFtm/h/bCd5vBOCezfXp2THrmGVn7z?=
- =?us-ascii?Q?JYT+mwJJqNtvnezw3EpBwa7SETNm8iRTh+IpILQ4K5lSertvqcFZMR3H6HH9?=
- =?us-ascii?Q?B0kk9KnYmXc2prCOf11oinlX0ysbzZS2dvPT+oQwlnFXsGDSyQ02DIZNXzWg?=
- =?us-ascii?Q?0k/A23klbDigpbRRGYK+20U+/niXufvIlMfC8lwYMU0xHAjDFIV+fNzXEU+K?=
- =?us-ascii?Q?bNwV0sENT9QWDvaW9cXcn07LuCrd3/cWhD3paGLzuHMq8lc/7wIt1EslzGyF?=
- =?us-ascii?Q?ETXcfexrXPMPaNZhIcv2J+sQqZmJguG1UyJemYyfBrznBcFrI+dmd1imEDQe?=
- =?us-ascii?Q?OeEVdg4mRJA+LGD7lMrrcSJYNIU72gDJdOly5xOknPWx/21N8GFgIdOWvTOX?=
- =?us-ascii?Q?t+kaahGLFfkLCarqVjS3NjMiqzoXRMob8O2/k57kUCfXWyrEOXGoWtuXPO+o?=
- =?us-ascii?Q?LJwfzNIoz7VDzKpYElcQfSPZA+huq/nHvD0TicHGlLalEO+rss+pUAed1nEq?=
- =?us-ascii?Q?yk8ycG7lyPxfEJe+64+un2n/nTiS95VoTGVFnNJ6+YRX+EbxxHrEXz89wS6j?=
- =?us-ascii?Q?oaOrYw4FllGMWA4uvh10z7NiFoOee9WuziVIoZ6Om6dlMg8G9DRbzewzAECu?=
- =?us-ascii?Q?QRrScKb26x+eQw8zL55ak2sygVnY3/xERqg6Ptzo+2EPJWFJRIJPrA75eGjK?=
- =?us-ascii?Q?AIWaXfTd1uSP+5BnDET3dpRWkLoyl1Ytru8X8QRGhw4G4DSWBfqiN/NQFsWt?=
- =?us-ascii?Q?ESuqdzH+W6wxjjaDupYgAl2/23Q93r9XC6Ovfgp1HbZXWiwhYCW+Ce7rTSvj?=
- =?us-ascii?Q?i5/3FHrpVy+/ca4St0HNv8EVGF+O+OkWglD/Qr38lLdGH5Oni0nrB9ph2Zni?=
- =?us-ascii?Q?JbSmRHkVZPyXYaQGVJkVWH/NjUz0WxLfQn8FI5g1ojxhfFqAeSRKQ/Qj1WUi?=
- =?us-ascii?Q?EaGPGDtqll22hicuAYyVl1hXLt07P9Ftt+3LJh2WasSlD4yyQaTG?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71922ea4-5870-4483-1e43-08df17ef2d56
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 14:46:53.8712
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dfZ4pdRvH7bmelojLwsuUXEfwl9vjBQSb3KmBCanSbdBSLCeIPClopWnnK+FhKl4e/YvL2xjoqW5EhYn6Uql2s1cgdn0JnlhIfpsrJBId8KA/giRwTddKfuxZjedQe2M
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9239
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_074659_154687_900F57E5 
-X-CRM114-Status: GOOD (  19.91  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] arm64/mm: Convert pgtable READ_ONCE() as pxdp_get()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260903060657.2717457-1-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260903060657.2717457-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,40 +118,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 03:09:23PM +0200, Stefan Wahren wrote:
-> Hi Frank,
->
-> Am 07.09.26 um 17:04 schrieb Stefan Wahren:
-> > This series adds support for the chargebyte Charge Control Y, which is
-> > an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
-> > Charging System) charging stations.
-> >
-> > sashiko reported in the first version of the series [1] that X_nRST_LAN
-> > is available via GPIO line names, but there is no reset mechanismn in the
-> > device tree. This finding is valid. Since the reset line feature isn't
-> > implemented for LAN8651 driver yet, I like to proceed with the current
-> > version. The LAN8651 handles reset via SPI commands and in rare cases
-> > we still have the possibility to control the reset from userspace.
-> > Btw the pin has a pull resistor in hardware, so it's not floating.
-> >
-> > sashiko complained in the fourth version of the series [2] about the
-> > reset polarity of ethphy2 and the different drive strength across the
-> > data lines. Both is intended.
-> >
-> > [1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C1F000E9@smtp.kernel.org/
-> > [2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C1F000E9@smtp.kernel.org/
-> >
-> > Changes in V5:
-> > - fix delete-node for pinctrl_leds (reported by sashiko)
-> > - add Krzysztof's Reviewed-by
-> I didn't received any feedback for V5 yet. Do you have any comments or could
-> it be merged?
+On 9/3/26 08:06, Anshuman Khandual wrote:
+> Route READ_ONCE() accesses on pgtable entries via level specific generic MM
+> pxdp_get() helpers which platforms could then override when required. These
+> accessors on arm64, will help in ensuring page table accesses are performed
+> in an atomic manner while reading 128 bit page table entries later. But for
+> now they just default to READ_ONCE(), thus preserving existing behaviour on
+> current D64 translation.
+> 
+> This is similar to generic MM, where all atomic accesses have already been
+> converted from READ_ONCE() into pgtable level specific accessors.
+> 
+> These are preparatory patches for D128 enablement, although standing their
+> own for D64 translation as well. These patches are split from earlier D128
+> V1 series. There are no functional changes here, and besides mm kselftests
+> do not show any regression.
+> 
+> https://lore.kernel.org/linux-mm/20260729122452.3797443-1-anshuman.khandual@arm.com/
+> 
+> This series applies on v3.7-rc1 but after applying the following patches
+> related to pgtable entry print standardization posted earlier.
+> 
+> https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
+> 
+> https://lore.kernel.org/linux-mm/20260901065454.1906343-1-anshuman.khandual@arm.com/
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Stoakes <ljs@kernel.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Linu Cherian <linu.cherian@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> 
+> Anshuman Khandual (4):
+>   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
+>   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
+>   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
+>   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
+> 
+>  arch/arm64/include/asm/pgtable.h |  6 ++--
+>  arch/arm64/mm/fault.c            |  8 ++---
+>  arch/arm64/mm/fixmap.c           |  6 ++--
+>  arch/arm64/mm/hugetlbpage.c      | 10 +++---
+>  arch/arm64/mm/kasan_init.c       | 18 +++++-----
+>  arch/arm64/mm/mmu.c              | 60 ++++++++++++++++----------------
+>  arch/arm64/mm/pageattr.c         |  8 ++---
+>  arch/arm64/mm/trans_pgd.c        | 14 ++++----
+>  8 files changed, 66 insertions(+), 64 deletions(-)
+Skimmed the changes, purely mechanical changes, so looks good.
 
-Wait for vinod pick phy binding part.
+Consider spelling out in the patches "No functional change intended."
 
-Frank
+-- 
+Cheers,
 
->
-> Best regards
->
+David
 
