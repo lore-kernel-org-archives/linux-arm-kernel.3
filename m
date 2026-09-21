@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C131C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A69EC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eN+0DjPC2PIBDvK9KcouX9O0xXht3SUEsMqJsvIURUo=; b=Iyqyo9ijPFdJJ478/LNk8hHrqb
-	inInCvA4zPdO6iKQAhhdv1OG+b66XJoc0wcnc/H9qAkCnxETDJFCngezayLrM1pdObb0KQoNeWTxw
-	A9CE1PALsT28kfrA7zFwK6oayYY692uLEjyqr2gaiInmpPF+ijTGpdhdMC7ncWl7NsIDx+pgdcvLK
-	0kzs85EB2bjh3jUhJ6hA/mbFkpUqC0WL9ER+mTfHJJUn4cMxpkKsuPn5sHVXRg/NVPyNJ0F70xoBL
-	Sa4fPKCr1bl9lmeW+ShkJoUJuOmgqfoDdLo49pSAj76e0tNTBm6B2C9uyhw/W6Vxf2+CXkTkPDKsF
-	iWDfGgCw==;
+	bh=WJ8N+mrV6u3cfqGcoiPMbpRTWJEEOHp2lUrNnbxW06A=; b=DbU9J972ZTHJR6s9R8i80ElBED
+	wmFdnAwIQBgDtVRUgKk43s+9M9u53WOj+kjcFoLvgmascmMaH7Us6/JkVzODvLAXAnMDRdSerhuuc
+	JecAZ01D7z4SagBZ65Z0pLn+fZDncyDQDElE0qKVy3SMxP777wFZkcupBnNiL/RLoRgxCv8CryY6Q
+	fexeeHxJ6aSE3vo0v3qCYnhyqT/iBWbw6M6+3t0lQ4FebKwBXOVx0PeqllEsjY4FXrQzjLfkllZXT
+	jMWEBHZgbb1AagZsxdZp8YdVZp0ZlyTiSoIs37zLNchqKSBDwady3JbKMgsNffccPCIOnocF+OOKk
+	trhZigMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k9s-00000003I2q-0hbL;
-	Mon, 21 Sep 2026 19:58:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8kA3-00000003I7F-1Etf;
+	Mon, 21 Sep 2026 19:58:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k9r-00000003I2F-0ADT
+	id 1x8kA1-00000003I6g-38cD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:58:35 +0000
+	Mon, 21 Sep 2026 19:58:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B76560008;
-	Mon, 21 Sep 2026 19:58:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8898F1F00893;
-	Mon, 21 Sep 2026 19:58:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 30B8B42A00;
+	Mon, 21 Sep 2026 19:58:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6F91F00893;
+	Mon, 21 Sep 2026 19:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020714;
-	bh=eN+0DjPC2PIBDvK9KcouX9O0xXht3SUEsMqJsvIURUo=;
+	s=k20260515; t=1790020725;
+	bh=WJ8N+mrV6u3cfqGcoiPMbpRTWJEEOHp2lUrNnbxW06A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ThZj/UOPRjQXCwRJZ/gEI4TMK9E3OQjwyrhcH8Bf8KJ76a5XslxbM0iNnyzwdCccP
-	 cdNW/zsTGGtHNFzkkKBnEMg0H3+t1qrp8F2cpOhHE49PGKnlIgpB/QgDWeixkungrs
-	 u+fk5tmMOjmJCIlPNcTTHfclpOfmw1cQGkYPxLbE4Z73fBQmLbJU4iP0zw68bS0dLg
-	 K7ELvdntHu8ZvCIH76dHZzWSEnrq6zJF7JzAr650C9YYtR4TgWl0cjOJAFKezcqjtj
-	 NL6jgtGlEnBNoM0QGZ2UC4BgHenUWmzGV8UmnOKA+QQrAjD1vzb4+dAkIUZFZ1PaQn
-	 Ewb8KNTEGclJQ==
+	b=LD6W2WyzOksR0uOR2WulOxOo+3440yB3T3ZMsOTHOPwG4m1pEyPQOCOmNph0T4LIU
+	 Nod+IxbhEmbhGxA5ARKKzMEa+6U+beez7PC0zbeMF7v1JKQ1cNeyPncwMnfZnqnLtt
+	 xZ5BOp9K/5Pf/Ee55DqyWUNEekzivJ11F9niaNBC7trGJ6YqV3TipSMREUgAhk3jQm
+	 roY8A7XHayg9rtMl7ADBJpfS1AuOSN1bHCjgttaIS1y3nbEW1WMa19VXzEUahCNLBJ
+	 OLkpMSNuYCxAss9qlQX4y38Z8UVv48a18jH5UlbHiUhTI11KEXLou6o6HuzlAyDgF3
+	 fUNb1sQPq2V4A==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,9 +73,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 09/17] thunderbolt: Switch to use acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:51:06 +0200
-Message-ID: <1941270.atdPhlSkOF@rafael.j.wysocki>
+Subject: [PATCH v1 08/17] platform/x86: x86-android-tablets: Use
+ acpi_bus_get_primary_device()
+Date: Mon, 21 Sep 2026 21:50:28 +0200
+Message-ID: <3912360.MHq7AAxBmi@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -109,40 +110,31 @@ function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/thunderbolt/acpi.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/platform/x86/x86-android-tablets/core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/thunderbolt/acpi.c b/drivers/thunderbolt/acpi.c
-index 53546bc477a5..be91bc604900 100644
---- a/drivers/thunderbolt/acpi.c
-+++ b/drivers/thunderbolt/acpi.c
-@@ -17,8 +17,8 @@ static acpi_status tb_acpi_add_link(acpi_handle handle, u32 level, void *data,
- 	struct acpi_device *adev = acpi_fetch_acpi_dev(handle);
+diff --git a/drivers/platform/x86/x86-android-tablets/core.c b/drivers/platform/x86/x86-android-tablets/core.c
+index cfff7f5eac5d..2c262f117235 100644
+--- a/drivers/platform/x86/x86-android-tablets/core.c
++++ b/drivers/platform/x86/x86-android-tablets/core.c
+@@ -390,7 +390,6 @@ static int gpio_secondary_fwnode_init(struct device *parent,
+ {
+ 	const struct software_node *const *swnode;
  	struct fwnode_handle *fwnode;
- 	struct tb_nhi *nhi = data;
-+	struct device *dev = NULL;
- 	struct pci_dev *pdev;
--	struct device *dev;
+-	struct device *phys_dev;
+ 	int ret;
  
- 	if (!adev)
- 		return AE_OK;
-@@ -37,7 +37,7 @@ static acpi_status tb_acpi_add_link(acpi_handle handle, u32 level, void *data,
- 	 * USB3 ports might not even have a physical device yet if xHCI driver
- 	 * isn't bound yet.
- 	 */
--	dev = acpi_get_first_physical_node(adev);
-+	dev = acpi_bus_get_primary_device(adev);
- 	if (!dev || !dev_is_pci(dev))
- 		goto out_put;
+ 	if (!node_group)
+@@ -418,7 +417,8 @@ static int gpio_secondary_fwnode_init(struct device *parent,
+ 		if (WARN_ON(!fwnode))
+ 			return -ENOENT;
  
-@@ -74,6 +74,7 @@ static acpi_status tb_acpi_add_link(acpi_handle handle, u32 level, void *data,
- 	}
- 
- out_put:
-+	put_device(dev);
- 	fwnode_handle_put(fwnode);
- 	return AE_OK;
- }
+-		phys_dev = acpi_get_first_physical_node(to_acpi_device(dev));
++		struct device *phys_dev __free(put_device) =
++				acpi_bus_get_primary_device(to_acpi_device(dev));
+ 		if (!phys_dev)
+ 			return dev_err_probe(parent, -ENODEV,
+ 					     "No physical device for ACPI GPIO dev: %pfwP\n",
 -- 
 2.51.0
 
