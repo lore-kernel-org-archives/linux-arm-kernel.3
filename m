@@ -4,145 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A52C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E204CC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLMPFEgSAqZyBdWsP31fIJ4sgcL2+0aVY2gTJcAODLs=; b=c4YXk8atoMvJQBKwi1FW0RBN6r
-	0Ea76CJ5ZZHMvWfcwADFmhIHIKnF5e1JJZN1e40byCT0GH78/VFHFjmfMDjXC3irpq4XgZls+TtMg
-	ZOElifU87soDRAeW29PHZeijlmcRgDC4t/MyY7Lk4zTbUX1qn9WJge2tGHttrt2EhOlbseAt0HmcQ
-	cQlmOWxKpaw6NOyNB0BZFPERjQ0vPhyE2cefC1ih1TDi/Bl+A3uVUIzEbiW+YlbrrfKi3crMzXObA
-	m5DTkdr2qtsoe4i7IPsvjwyuHqUH9PuQIoGJUCPo03beG9zvGK4YXWYPx+pYxcDCg/qUPr9NpCRXb
-	dn8v6UAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxJwbsrkoG8yNikWawE6fCceLbRB3E5/DU/dVJxCAZ4=; b=jtki2DEsue7yzq0rZfzaA64cWN
+	98lcTo/t5ha50NeKPWf/n43Lf5t4b8tPD0MaYE3CAqo+6MIxxJS/FTYwvr6t1iudCki/d9UubRQq0
+	oE8s0eUYFeuP8CTAn9/Bx2kJLbariZ35EC2rZPB4zp/8HEhYjqoP836eJYXwd88GqAJhO4Ea9HefC
+	5SJl3I8hIJycEMealViW6Tq4s26L/mTuV7xHHz+UHNYY6DuDi+gTIRxk7iQ3YR6rdcN+2SWqOfn3Y
+	A2N8Os0seRGMegADStpT7qOm+czNhc5GXG6Msgb8Q2BrxYPkPRvxHkSCT++2eE2j5udNV1OZGzMxa
+	DBjmbLSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ev0-00000002NfJ-0dXa;
-	Mon, 21 Sep 2026 14:22:54 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eux-00000002NdK-0sHW;
-	Mon, 21 Sep 2026 14:22:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oGZdLIzb+bKzcI466v29cW2Y46cEUur4HVjGHtDfG0majdAxrCkuRENxn6ArxAneqNtK7UHVh6iwFj99dASwjTcPGL45BG7hDVjnDn/ugCdJQBH3pvLHetffP+dJ3i1xT3AtLaEHXsWQyYGzRAgvNXvKyG1zF0apJfD6k+hPUKjAqfOozilcmOECVRsc5oueqr0/40qsO+TiSpmKEK/Hz7MtHt9XefZzY0eKwBhuKtjvoYN07BjPBGDpZdUI09wDmE+hX6gN8DL1eruySvwpiNTYoR0cmS8DGTGyKWl5o+VpHu2PYIeoAJ/N9M4Ly0DG/5rzrvjeEX0gvwlrsEFjWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZLMPFEgSAqZyBdWsP31fIJ4sgcL2+0aVY2gTJcAODLs=;
- b=xoQ/tIXVZh/mOI9//8f5QkM3NTbSfX4DSPnpyerGIlrFzOujBQYURPyUcWVp/Vuu1S8StLEZBuhse+1K2IQMjUhQdlmij7M1UDRDe4cbj8Du9xTSxlWVn6yTLKn7ynbgItRnWt4YYYW2XNOfSTrZdpTfa0dO6a2AX8LzMH5vl8s9zA1Z002GvumaW2EhWlbtdqQdkh2b5itO3Yxiyg03UvQEZwLPSsHVdeJ26NkY7Nwn56lJC00wCQXGL6UN+xzbbAnuYKCpTYwDjq9OFsSnP37FqYa78ugpEuDJBVI8NHiusqq8Ob3mdrkbqAMY345iBqMmMBEXqiD0744dXtT0KA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZLMPFEgSAqZyBdWsP31fIJ4sgcL2+0aVY2gTJcAODLs=;
- b=S+A2jMpGA/JEBpHNaGAAILRR8dbzJCnHmolno7c2ljtwXgzojWUqBG63PjqgF3L8m2o3xATkvRWn+gwA/9o2SVT15lUkTip2poUyhBLWXEeG5hGg4JWoSJD4eYoNFAOvfvtKZ4/NdorlCwG+UebZCEoRsS1Sxws0XeLgiIyVxTLV1W1jT8wqAGPhTleBfI0CX87WYnhVZUCQUOitk6undrZa5ZHJVFKRUHevnOx3AkwONpCJC30P3w1MuA0BzSg4Pv8yLLUX9OtcvPxFnA9guUgsVuLQM6oo3TUANusCqLTkchQeo+TH7Xs7KquAkJYScoGpmc70S1rYhfqTQ0s6Eg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19) by GV1PR04MB9214.eurprd04.prod.outlook.com
- (2603:10a6:150:29::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 14:22:38 +0000
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 14:22:38 +0000
-Date: Mon, 21 Sep 2026 17:22:30 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Linus Walleij <linusw@kernel.org>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Sean Paul <sean@poorly.run>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Albert Esteve <aesteve@redhat.com>, Anusha Srivatsa <asrivats@redhat.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, asahi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
-	freedreno@lists.freedesktop.org, linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v3 13/19] drm/bridge: fsl-ldb: don't create a panel_bridge
-Message-ID: <wge4c6p4ijsk6skitl5slznxagmuw5m4lhqmz56v6bbrsu4r4f@fhmo5hpibut3>
-References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
- <20260916-drm-bridge-every-panel-v3-13-83afb4f1a707@bootlin.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916-drm-bridge-every-panel-v3-13-83afb4f1a707@bootlin.com>
-X-ClientProxiedBy: AM0PR10CA0032.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:150::12) To GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19)
+	id 1x8evh-00000002Ntv-26AI;
+	Mon, 21 Sep 2026 14:23:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8evf-00000002Nso-07fl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 14:23:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A190819F0;
+	Mon, 21 Sep 2026 07:23:30 -0700 (PDT)
+Received: from [10.0.152.207] (e121487-lin.carmbridge.arm.com [10.0.152.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58E693F86C;
+	Mon, 21 Sep 2026 07:23:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790000614; bh=2XwvUk54/jBlQoYAN3bc7UxBCQ83zSbZ3E/fbuNoCYY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=chwlilSUiv1vDIcgfcigVcVozgqkdNyN8hepwRetITJkz93hyI4Pgs6BYQm/k3rz6
+	 dUbIYUEE/TIihRPGNZNRh0Yk1V00CLzaIPbZBKHUFK8/iqIGay9amA9EIgYZQkRRT5
+	 ne8SRM0mLCcKQ4M9b7U8FY+zd8qUUfRFDQYxmh3E=
+Message-ID: <75e7767e-f22a-45f7-ada6-72b1645ba32f@arm.com>
+Date: Mon, 21 Sep 2026 15:23:30 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|GV1PR04MB9214:EE_
-X-MS-Office365-Filtering-Correlation-Id: d6a00f19-e95e-419c-3f3c-08df17ebc9d4
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|19092799006|56012099006|11063799006|4143699003|22082099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: 6Ry210RMWU1m99zK2Th985rcEUcrtllfN1seDfAStbM9JRA6t+vfF6og33g32fnz5X77Qr5HrH9WjIw6nBhKQG2CD5kHNWPxti2JEgo0Zm4tVMW9lfD0etHojTT6CzlQ2hyapKszjRQJVuSIpzfZu8vKElHVcSbYpsaXTXsKPanLOb8uqve/t3m8pqbNz1EUw/NV1hP3Rv1q6RLo8esk22wgQj4DQq3jPqZavSW4ninhWIXzJId5DV54FaYeWNHgh1YIgeaKfOtZVT7b+qyB9cGmyUG3hRUg8upP0/uH2c4dSOP01yS5w4PkPKV3hifwaFjAzJzHrXQ5ELiSLUUynrTBEPCRVWDJD+MraNllDYsvnB6Q85JC/4VYsxtE7p86XlbIMoLof6cYqtRtAO0xIxd6f5r17+FHLYdJeiYH0ydFjC+hZ/fmXsKrvmqbZmR6RY+Pxcc+PDx9X2NzMSmjGN5PeJgl27gIZlZirgyvRlw6AV4thGgbjAEIm1i/cmWQW5uOHsKEgAyCp5XAO0ekalTIkEzcQRUzf0w0j0pWF1ttFsWAqsMzLKgzd863DAoT4ARqr3ccK+oCF6le7Dc2AN4sIQx6yx+A9ZtZnuw8wbkWpmSMCEJrbpQQo3JT/QYlD1OSobOb8rqvm19cumpOh+uFqT80JJk0sPY/GG9nf/s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(19092799006)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?H95D/SW4ZJ5x08QD7PJCQg2DI0haQgLFNEtphZR+/K+dg6LeB8d3fZaEgg7w?=
- =?us-ascii?Q?Eqrw1s69lYD45VxU1rbU06vL6TORFmomLjS7ZniegKZ5XmX3/3haaZ57JeNl?=
- =?us-ascii?Q?oOiH+to8uDIOvSVlj7q1C7hUcMTnBXCwc2tUILImjsbICp+Zh8tiYs0/C/rX?=
- =?us-ascii?Q?zWUO3r7roCClx34UJ1Dm6aeUhRb0PL1K+mxEws7auYUV6i5pWbUe6Hh9F5jA?=
- =?us-ascii?Q?RCDcyERxRuHVebif+5BObX1NIUooEfyZxEXVKJF0miz+m8BYVb2rlfGTR/i7?=
- =?us-ascii?Q?LA9h2yhqU5uJNn7VgbaC0n76Z6JHfnfJxtmTjqOB+2vgvFg6VWv0WiSmYuFw?=
- =?us-ascii?Q?szdTlq8JLcU/JnyasBNEz9FPdQ4Qi3TFAGvMwPHVUUySFI73i7eEmVNe+qsx?=
- =?us-ascii?Q?JXXwwoEatHBWgNZXPtZo4hv1olS1e7VjkLtO8bg3tjgqGaVZzxyshTl53PuX?=
- =?us-ascii?Q?VzJA0GDc6FKo13vZwb8Xiw0UaG0nDGtso3GoLfbjmM679BYls2uRuD5TuFMv?=
- =?us-ascii?Q?3hN7bLMzWCb9ls1Fa6CqaUVoOCtyouWZq94Q94AhJDy0HPUUG/1QZXQUGZ25?=
- =?us-ascii?Q?JVwI1l9Ots045/HgOQvWkfqhOvFUMyudcnIKEp3oV6v1F4Q/9J/KZcm/K2yl?=
- =?us-ascii?Q?9xiPe2rtY3VdPUKLPYl5JlVxjFgzKdt0L/OvQr+lPMKbTak4YEyBTUOSykuo?=
- =?us-ascii?Q?dQJStoT6jDhrKfx++yvc0ImyXjJE4VkEP93X91Orut12djmPhJkA75ka8tCS?=
- =?us-ascii?Q?ppwi24A753/9FxZrMwdAkBVhdCp9boi/UYgasZt4NybCD5vZ4OYMOc9UdYXK?=
- =?us-ascii?Q?Tub1Hk8SYMBTP12brAD8T49+/pNl++HY/1RRnBKxSYQetRAp1ACXApsxNLU5?=
- =?us-ascii?Q?07cFOYdp06VTmU7l5uiiQlpghKfB2nkzFP5DpuyRUhux7wT05cJA9rhYwERD?=
- =?us-ascii?Q?8RSWrGpxX7JXwNDAbgvIpZAWqVEPdvRc3iew7YBzkuSvm5e3Ag5d45a9UIpv?=
- =?us-ascii?Q?ijqlONABEEcsxO5srZCvwuACN/fFrlKTgWbIoss8//J+8aaditT7LKFhS9Zb?=
- =?us-ascii?Q?iS6qK6KTzCl62OhEEx3dFMMGZPoOe5XLe9pdQvjQHyaBvqMEjm4cVQXiUT7h?=
- =?us-ascii?Q?q4Ait352Fuji3lif9StJhaeqizBYQp/pqeAtKU/vsD9gXtTjRMPBaP8MkVPm?=
- =?us-ascii?Q?C8tPQywB4iO5/EdVz1ZTtcHICjW2NhDl3uqon0sy//7/woL3m0P0sLcRyCZ8?=
- =?us-ascii?Q?JAdguOTRJlDAu95emlSeZESdqiHpm/ZDGeWtJl6a9EsAQepJ12bzaz1ilKU4?=
- =?us-ascii?Q?9NXOS1C1W1mpqNvknKUZHAi/B0sRkWYxjRzTa5KUyv+1mG1EBQqbXEHNYoXI?=
- =?us-ascii?Q?cZVdt7IfTuidFdc6lysDVkz00QuCjYcEdj5+oFpwuGtgvsM5vnuKCt74SC92?=
- =?us-ascii?Q?XGLVK9Tg0q/V8E1Hk/UJ5ZkQDEx7njPj/Hrw56qUltUD/G0/HB2qes81h3u0?=
- =?us-ascii?Q?AY4/Ld3yfnHjv740unHdZvpI1rBgWO0BZmQDWQ8XX5Pe4sQohsrc7AgLComZ?=
- =?us-ascii?Q?3eK2bM0ts6KF4nJfI6WBhWx/M59fI8pEOej5IUyjy+qpw0zUJM+5nwXJvSvz?=
- =?us-ascii?Q?LoR4G4NPXDDjze0DPzkYmhZUl/FrSSW60H6hieroDZIMelmXoV5wi7dvUnpw?=
- =?us-ascii?Q?9RnqwSglOHFUMz4RowLG4VVoS/CAMZSUACRnJoyhhsJWJljkLzF0oC+E8asX?=
- =?us-ascii?Q?ResjsnOdAUtAc0/aC0cTCh+t28gcruE=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d6a00f19-e95e-419c-3f3c-08df17ebc9d4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 14:22:38.4915
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bs+8VLkYNnpIoq06RpXBn2mI9S3fceP1a3JMZz7tjv9osAhAQUwnt+2hS4uQUCewHfHdN9zbTxBKoAiO0ipT5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9214
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 24/38] arm64: nmi: Manage masking for superpriority
+ interrupts
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ maz@kernel.org, lpieralisi@kernel.org, liaochang1@huawei.com
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-25-vladimir.murzin@arm.com>
+ <6cf199f1-3e22-4c20-b1fc-f71b6e830a0b@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <6cf199f1-3e22-4c20-b1fc-f71b6e830a0b@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_072251_673311_EF5BB6B0 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260921_072335_166035_6666F264 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,23 +73,337 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
-
-On Wed, Sep 16, 2026 at 03:45:37PM +0200, Luca Ceresoli wrote:
-> Now a panel_bridge is automatically created for every drm_panel and the
-> panel-bridge API is just a deprecated wrapper to access it.
+On 9/17/26 12:41, Jinjie Ruan wrote:
 > 
-> Update and simplify the code by just getting a reference to the
-> already-existing bridge using of_drm_find_and_get_bridge().
+> 在 2026/9/14 18:20, Vladimir Murzin 写道:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> Extend logic to handle and debug exception context/state with knowlage
+>> of FEAT_NMI.
+>>
+>> Take care to order writes to ALLINT relative to DAIF, as clearing
+>> ALLINT before DAIF could result in taking an NMI while DAIF is fully
+>> masked, as could setting it after DAIF.
+>>
+>> Since superpriority interrupts are not masked through DAIF like pseduo
+>> NMIs are, we also need to modify the assembler macros for managing
+>> DAIF to ensure that the masking is done in the assembly code.
+>>
+>> Note that save_and_disable_irq/restore_irq and
+>> save_and_disable_daif/restore_irq pairs are used in distinct
+>> contextes:
+>>
+>> - former is used in context of SW PAN to quickly disable/enable
+>>   preemption
+>>
+>> - latter is used to completely mask all exceptions.
+>>
+>> For that reason split save_and_disable_daif/restore_irq into more
+>> generic exception save restore pair and plumb with FEAT_NMI logic.
+>>
+>> Co-developed-by: Mark Brown <broonie@kernel.org>
+>> Signed-off-by: Mark Brown <broonie@kernel.org>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/assembler.h            | 20 +++++++++--
+>>  .../include/asm/interrupts/common_flags.h     | 36 +++++++++++++++++++
+>>  arch/arm64/include/asm/interrupts/entry.h     |  6 ++--
+>>  arch/arm64/include/asm/interrupts/masking.h   |  3 +-
+>>  arch/arm64/include/asm/irqflags.h             |  3 +-
+>>  arch/arm64/kernel/entry.S                     | 12 +++----
+>>  6 files changed, 68 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+>> index 0b58b550e8dc..bcdbc308afba 100644
+>> --- a/arch/arm64/include/asm/assembler.h
+>> +++ b/arch/arm64/include/asm/assembler.h
+>> @@ -37,11 +37,27 @@
+>>  /*
+>>   * Save/restore interrupts.
+>>   */
+>> -	.macro save_and_disable_daif, flags
+>> -	mrs	\flags, daif
+>> +	.macro save_and_disable_exceptions, flags, tmp
+>> +	mrs     \flags, daif		// updates flags[9:6] with DAIF
+>> +#ifdef CONFIG_ARM64_NMI
+>> +alternative_if ARM64_NMI
+>> +	mrs_s	\tmp, SYS_ALLINT	// updates tmp[13] with AllInt
+>> +	msr_s	SYS_ALLINT_SET, xzr
+>> +	orr	\flags, \flags, \tmp	// now flags[13,9:6] carry pair of AllInt,DAIF
+>> +alternative_else_nop_endif
+>> +#endif
+>>  	msr	daifset, #0xf
+>>  	.endm
+>>  
+>> +	.macro  restore_exceptions, flags
+>> +	msr     daif, \flags		// bits other than flags[9:6] are ignored
+>> +#ifdef CONFIG_ARM64_NMI
+>> +alternative_if ARM64_NMI
+>> +	msr_s	SYS_ALLINT, \flags	// bits other than flags[13] are ignored
+>> +alternative_else_nop_endif
+>> +#endif
+>> +	.endm
+>> +
+>>  	.macro	save_and_disable_irq, flags
+>>  	mrs	\flags, daif
+>>  	msr	daifset, #3
+>> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+>> index c50c6e6473ec..18c9a392028a 100644
+>> --- a/arch/arm64/include/asm/interrupts/common_flags.h
+>> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+>> @@ -20,6 +20,14 @@
+>>  /*
+>>   * Exception context mapping
+>>   *
+>> + * FEAT_NMI
+>> + *
+>> + * CRITICAL -> DAIF + AllInt (corresponds to the state on exception entry)
+>> + * ERROR    ->  AIF + AllInt
+>> + * NONMI    ->   IF + AllInt
+>> + * NOIRQ    ->   IF
+>> + * PROCESS  ->    0
+>> + *
+>>   * pseudo-NMI
+>>   *
+>>   * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+>> @@ -76,6 +84,7 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+>>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+>>  
+>>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+>> +
+>>  }
+> An extra blank line.
 > 
-> And since of_drm_find_and_get_bridge() returns a refcounted bridge, take
-> care of putting the bridge reference by using bridge->next_bridge.
+
+Ack.
+
+>>  
+>>  static __always_inline
+>> @@ -84,6 +93,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+>>  	if (system_uses_irq_prio_masking())
+>>  		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+>>  
+>> +	if (system_uses_nmi())
+>> +               return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .allint=ALLINT_ALLINT};
+>> +
+>>  	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+>>  }
+>>  
+>> @@ -93,6 +105,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+>>  	if (system_uses_irq_prio_masking())
+>>  		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+>>  
+>> +	if (system_uses_nmi())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .allint=ALLINT_ALLINT};
+>> +
+>>  	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+>>  }
+>>  
+>> @@ -102,6 +117,9 @@ arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+>>  	if (system_uses_irq_prio_masking())
+>>  		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+>>  
+>> +	if (system_uses_nmi())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .allint=ALLINT_ALLINT};
+>> +
+>>  	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+>>  }
+>>  
+>> @@ -131,6 +149,9 @@ arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+>>  	if (system_uses_irq_prio_masking())
+>>  		state.pmr = regs->pmr;
+>>  
+>> +	if (system_uses_nmi())
+>> +		state.allint = regs->pstate & PSR_ALLINT_BIT;
+>> +
+>>  	return state;
+>>  }
+>>  
+>> @@ -150,6 +171,9 @@ void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+>>  	if (system_uses_irq_prio_masking()) {
+>>  		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+>>  			  actual.daif, actual.pmr, expected.daif, expected.pmr);
+>> +	} else if (system_uses_nmi()) {
+>> +		WARN_ONCE(1, "Unexpected DAIF+ALLINT: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+>> +			  actual.daif, actual.allint, expected.daif, expected.allint);
+>>  	} else {
+>>  		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
+>>  			  actual.daif, expected.daif);
+>> @@ -168,6 +192,7 @@ static __always_inline
+>>  void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
+>>  {
+>>  	bool pseudo_nmi = system_uses_irq_prio_masking();
+>> +	bool nmi = system_uses_nmi();
+>>  
+>>  	barrier();
+>>  
+>> @@ -194,8 +219,19 @@ void __arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool force)
+>>  		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>>  	}
+>>  
+>> +	/*
+>> +	 * Try to order ALLINT writes to be consistent with the DAIF state :
+>> +	 * we don't want to take an NMI with DAIF masked or when it should
+>> +	 * be masked but isn't yet.
+>> +	 */
+>> +	if (nmi && (hwstate.allint & ALLINT_ALLINT) && force)
+>> +		_allint_set();
+>> +
+>>  	write_sysreg(hwstate.daif, daif);
+>>  
+>> +	if (nmi && !(hwstate.allint & ALLINT_ALLINT) && force)
+>> +		_allint_clear();
+>> +
+>>  	if (pseudo_nmi && hwstate.pmr == GIC_PRIO_IRQON && force) {
+>>  		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>>  		pmr_sync();
+>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+>> index 0cfca62aa25b..2a522dd15556 100644
+>> --- a/arch/arm64/include/asm/interrupts/entry.h
+>> +++ b/arch/arm64/include/asm/interrupts/entry.h
+>> @@ -10,7 +10,6 @@
+>>  #include <asm/cpufeature.h>
+>>  #include <asm/interrupts/common_flags.h>
+>>  
+>> -
+>>  static __always_inline
+>>  arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>>  						  arm64_exc_hwstate_t next)
+>> @@ -26,7 +25,8 @@ arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>>  	if (!irqs_disabled)
+>>  		trace_hardirqs_on();
+>>  
+>> -	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+>> +	force = (system_uses_irq_prio_masking() && prev.pmr != next.pmr) ||
+>> +		(system_uses_nmi() && prev.allint != next.allint);
+>>  
+>>  	__arm64_update_exc_hwstate(next, force);
+>>  
+>> @@ -58,6 +58,7 @@ arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
+>>  			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
+>>  			 */
+>>  			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
+>> +			WARN_ON_ONCE(system_uses_nmi() && prev.allint < next.allint);
+> "prev.allint < next.allint" check should not be constrained by whether
+> DAIF is equal, because it is possible that both DAIF and ALLINT change
+> when the context is dropped, And when the context is dropped, ALLINT
+> will only remain unchanged ( 0 -> 0 or 1 -> 1 )or be cleared, such as:
 > 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>        ERROR    -> PROCESS
+> 
+> daif   AIF     ->   0
+> allint ALLINT  ->   0
+> 
 
-Reviewed-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+It is correct that we can check ALLINT independently, but I'm not sure
+what value that brings. Most invalid transitions would be covered by
+the DAIF check alone, except for transitions between NOIRQ and NONMI,
+where we have to rely on ALLINT.
 
--- 
-Thanks,
-Laurentiu
+Cheers
+Vladimir
+
+>>  		}
+>>  	}
+>>  
+>> @@ -77,6 +78,7 @@ arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_c
+>>  			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so smaller PMR value is stronger
+>>  			 */
+>>  			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr < next.pmr);
+>> +			WARN_ON_ONCE(system_uses_nmi() && prev.allint > next.allint);
+> It is the same here.
+> 
+> Otherwise,
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+>>  		}
+>>  	}
+>>  
+>> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+>> index 8729922974b0..6c5ca5befbc1 100644
+>> --- a/arch/arm64/include/asm/interrupts/masking.h
+>> +++ b/arch/arm64/include/asm/interrupts/masking.h
+>> @@ -30,7 +30,8 @@ arm64_exc_hwstates_t local_exceptions_save_mask(arm64_exc_context_t new)
+>>  	 * We've just got actual HW state so we can rely on that to
+>>  	 * optimize some unnecessary updates.
+>>  	 */
+>> -	force = system_uses_irq_prio_masking() && actual.pmr != state.pmr;
+>> +	force = (system_uses_irq_prio_masking() && actual.pmr != state.pmr) ||
+>> +		(system_uses_nmi() && actual.allint != state.allint);
+>>  
+>>  	if (!irqs_disabled)
+>>  		trace_hardirqs_on();
+>> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+>> index eedbdf7358e6..31b8f4e99532 100644
+>> --- a/arch/arm64/include/asm/irqflags.h
+>> +++ b/arch/arm64/include/asm/irqflags.h
+>> @@ -31,9 +31,10 @@
+>>  typedef union arm64_exc_hwstate {
+>>  	struct {
+>>  		u16 daif;
+>> +		u16 allint;
+>>  		u8 pmr;
+>>  		u8 __pad0;
+>> -		u32 __pad1;
+>> +		u16 __pad1;
+>>  	};
+>>  	unsigned long flags;
+>>  } arm64_exc_hwstate_t;
+>> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+>> index cb3be770f2d0..39ea3fdeb03a 100644
+>> --- a/arch/arm64/kernel/entry.S
+>> +++ b/arch/arm64/kernel/entry.S
+>> @@ -815,7 +815,7 @@ SYM_CODE_END(__bp_harden_el1_vectors)
+>>   *
+>>   */
+>>  SYM_FUNC_START(cpu_switch_to)
+>> -	save_and_disable_daif x11
+>> +	save_and_disable_exceptions x11, x12
+>>  	mov	x10, #THREAD_CPU_CONTEXT
+>>  	add	x8, x0, x10
+>>  	mov	x9, sp
+>> @@ -839,7 +839,7 @@ SYM_FUNC_START(cpu_switch_to)
+>>  	ptrauth_keys_install_kernel x1, x8, x9, x10
+>>  	scs_save x0
+>>  	scs_load_current
+>> -	restore_irq x11
+>> +	restore_exceptions x11
+>>  	ret
+>>  SYM_FUNC_END(cpu_switch_to)
+>>  NOKPROBE(cpu_switch_to)
+>> @@ -866,7 +866,7 @@ NOKPROBE(ret_from_fork)
+>>   * Calls func(regs) using this CPU's irq stack and shadow irq stack.
+>>   */
+>>  SYM_FUNC_START(call_on_irq_stack)
+>> -	save_and_disable_daif x9
+>> +	save_and_disable_exceptions x9, x10
+>>  #ifdef CONFIG_SHADOW_CALL_STACK
+>>  	get_current_task x16
+>>  	scs_save x16
+>> @@ -881,10 +881,10 @@ SYM_FUNC_START(call_on_irq_stack)
+>>  
+>>  	/* Move to the new stack and call the function there */
+>>  	add	sp, x16, #IRQ_STACK_SIZE
+>> -	restore_irq x9
+>> +	restore_exceptions x9
+>>  	blr	x1
+>>  
+>> -	save_and_disable_daif x9
+>> +	save_and_disable_exceptions x9, x10
+>>  	/*
+>>  	 * Restore the SP from the FP, and restore the FP and LR from the frame
+>>  	 * record.
+>> @@ -892,7 +892,7 @@ SYM_FUNC_START(call_on_irq_stack)
+>>  	mov	sp, x29
+>>  	ldp	x29, x30, [sp], #16
+>>  	scs_load_current
+>> -	restore_irq x9
+>> +	restore_exceptions x9
+>>  	ret
+>>  SYM_FUNC_END(call_on_irq_stack)
+>>  NOKPROBE(call_on_irq_stack)
+> -- Best regards, Jinjie
+> 
+
 
