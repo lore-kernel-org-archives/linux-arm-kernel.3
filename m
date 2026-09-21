@@ -4,76 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C43C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD600C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPW2dZAxEbH0+g92u4hCAhJCZWv/yfUo0ZYM9OdlpBM=; b=W7Tn6go0qYNbytrBHqnRpS0rlR
-	99cllXOOXj1ErCAusdWTgtC2r0yUu0y+XWzs9HF711IyyPWxwqQSTYDXnvS6W5HpV4W5imdNvTTrP
-	116bFL6YNWJ/WUpmtghuM0b0u8TiMK6bL7v3Bn7Zv3W/EB4I5/MUKR2Az2TFlPdiN4g09rfLkVspb
-	I82s+JZGICY7NCS9IAnKDDU1ETXW4wXJ+3pTv5XvvLK3furdgVrPdxLfURG/uCAnpR+QTP9pRU6kO
-	/6OxOkBD1gqZD0iezk7ooVjrAr7439uIWH8B2HGzv7DxXE3SCNVxi49wLeUttjAoLSEVDmLAn6C35
-	p/1PCWvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=isR6N7oua6mI9Dmgnu3gC3e9cJewlveSIcCXH4NLuyY=; b=QIWCIBAo12IRe0QX4f86GG98uM
+	v3gMfUdiLwSFAmJMevWZFt2ojQN9c5EyrouOXPfcdl7Sgc2DGNMotpBy3NLyACIDHGIWEz6BVo/RA
+	G61eSLINcIz9JogAwC3mT9XfugnwGOTJU+8w0o7TnWzIsGS/hpamIu6sDG4+Ntq0VCDTit9pQOj4O
+	hx6xwEWw0DyfFFO85584HbiaYYAttfg+fcmb//8myYTeaVopye9UuPC9ee2Bm8WW7MhgnzjRj81th
+	1XbHKEcrRXx2zIWcijqK1mCwfvzIZqtcRrqIIJHchqT/cY67jpGfP7wyZJQ8mH/bdsIerR6eK7L5c
+	P4Ii9ChQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ZhT-00000001OQi-1HdL;
-	Mon, 21 Sep 2026 08:48:35 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1x8a8T-00000001Ti7-3WIw;
+	Mon, 21 Sep 2026 09:16:29 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ZhP-00000001OPd-0hLB
+	id 1x8a8R-00000001Thb-1iPW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 08:48:32 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
-	by APP-03 (Coremail) with SMTP id rQCowADX2zlW77BqMptFCA--.6452S2;
-	Mon, 21 Sep 2026 16:48:22 +0800 (CST)
-Message-ID: <0da2ef7f08b23e916869d5c08267b3802d5a631d.camel@iscas.ac.cn>
-Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane
- disable clearing FB_EN
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 21 Sep 2026 16:48:22 +0800
-In-Reply-To: <b589c197-2297-42c4-b017-3594cdd1cd56@gmail.com>
-References: <20260918030125.315978-1-a0987203069@gmail.com>
-	 <20260918030125.315978-8-a0987203069@gmail.com>
-	 <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
-	 <1d988dfb-c930-4c17-ae77-47b93ff9f159@gmail.com>
-	 <cb30f57c0ac124aac85efad32626e6182b9f1369.camel@iscas.ac.cn>
-	 <b589c197-2297-42c4-b017-3594cdd1cd56@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Mon, 21 Sep 2026 09:16:28 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68L7A4u5608070
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 09:16:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	isR6N7oua6mI9Dmgnu3gC3e9cJewlveSIcCXH4NLuyY=; b=fGRvcwqCJZhEzECr
+	FMHMTJce9NFzwUvxWQ9gGKTW3DUJEGaQ1KF0J8jMmimCE9ZT/u/lAmXKztrw+ffc
+	/lIaNgUuReSay/rwbgpEy7V/gt76GmmTMWBd10wd1HKxcCz7L5EAfrf9Py7qvNck
+	Pb+fYUcZnBKC++yTEitn5OptTABxkyNDs0CVaw8mqAxJ7osuvCr6lHf+H5wL2OQw
+	ko38k0RtZUDBQSwnnLEyLV0wBWSssLZdIKeMF6Ht/IQJVH8TJQHYywFLsEIG6LNE
+	gj/L9EeSmpDg0iFknUlOqPj0UWZ2aB0S6j019gNx4sJqhaaQWhX+HnsXHVGHP7PA
+	g0CYXA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gtu1ehhhx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 09:16:26 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9308eafb465so418324685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 02:16:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1789982185; x=1790586985; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=isR6N7oua6mI9Dmgnu3gC3e9cJewlveSIcCXH4NLuyY=;
+        b=G76b4TEEYN462unLUI1eekcycKRuEV3qc7VM5gBNs6MlCgrBuvLJu/zkHZn0051UgL
+         sPJgGBKpH+UXFTHOIczkEuZLPEgmknDBdjCP6i70+tZErlUTez36YcnzTfHEdpkKsN+G
+         AXGdAWO0w2hAGbY3VYHiABxl0AS3rj9U1Z7qe2MA1ldttebudPkOf1PfjYR+NPUmyBPs
+         ebPhdQx1pDqElWTsgxHh8hLBXO6RAq4qiqp9TC93DPm1R2+Qvym+JUJ190htlhlyr+S/
+         NS8DebLIL7cfjlGOBsIm/27T7FS0p3X3ihxOx4Pb/iusiPt/XZUfUhOxECRKcCwOGpok
+         tIUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789982185; x=1790586985;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=isR6N7oua6mI9Dmgnu3gC3e9cJewlveSIcCXH4NLuyY=;
+        b=casistsTstagHCQzsQXswDtgDGSAIdzssNiRtfb7vh2xI0wBZrcJm6mnhrI2wtzJoX
+         IpCXufBbZs65goKvvCDmVA8xgD86Ht6VUAHKwgBeA1P86p0Ct7cHmMVKwXXDpPXIN5m1
+         RAx0LAgsQryAaIcZ02SRfJR2d+LeBOQEQZ7Ewbr59ScFSLgCeZsG6m2gFRfMC4pk8VCX
+         Jwx42hnJkeBL1dTt0C54f8DkfdOKYBj5buEbrgl8Bg+PFb+Lag5N2SllTBeVLYTPygh7
+         2ca7UCJ2ILVJD/f93HiRSA2R/QXJDrn3YzlDJJUhw/DaAOqRGm1OW2p9xRJDJBQwpR4n
+         aWOQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw6H2OP1KHujTfoQG9DS8HXeAN5q2nJ0upKP3Gl2kfXV+Sbf+J2GgQ3Nnhzp2C+weXqhDIEb7iafaIz/w8Ky7Hn@lists.infradead.org
+X-Gm-Message-State: AFuF++lCTKVFugkuQ5kkDrr9ScUQ1+dd1+NtKCPPv/6NcC3StTVpLVU8
+	ldpzMXf4w6jQKBPXx/sv4E8jAtj0eyhUZFBgm8RpvojIP5VstX6pgh6AmnJhMm9hfD1+pAjdvLs
+	kSPTd2qaAEbFgcwU/7e8lLMvDJ49idwMJ624zpYMRsuGjQ7I7phG9TSD+ckm2M9IPNoYLx9tUmG
+	qZpA==
+X-Gm-Gg: AYBFou3YHvDTcsBqqkWczad933ImJawY1GVcAXlFGbBLd6HunTjKNFmN0QmzOhygMaQ
+	Jb/zETuGc3144BQPMGsfyP2ooMCTgXRRkyAQffVtbpBo6Tr/plRH0S5N0MkGm8E2JZSN7ojbgju
+	bfEd9TsxyY6oWO2zPr/+TP/n+6FKMcTNPwWJhhlqYPmeHkjtNJ/JMKEx8OYwpB/vMw812s0giMK
+	pgUC0iweZ20D4oog54Bg+jISeEK9z+TQgMJ1DpdXwmch3d/iDavjGK4TdoSQqFdrnOKzvq5e/6J
+	r9tYm8faDEXtHfQDWxY56YAC5Kq+f5mqhJ5DpxPXmW6vnd1bCNIaL17j29dsu9kPVPhCBjjx8Uq
+	XEhh5N5CQLHrh3n3kw0PTx0wigw==
+X-Received: by 2002:a05:620a:2810:b0:939:5ba5:28c5 with SMTP id af79cd13be357-93bf5564a5fmr817539785a.17.1789982185259;
+        Mon, 21 Sep 2026 02:16:25 -0700 (PDT)
+X-Received: by 2002:a05:620a:2810:b0:939:5ba5:28c5 with SMTP id af79cd13be357-93bf5564a5fmr817538385a.17.1789982184876;
+        Mon, 21 Sep 2026 02:16:24 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:d04:d483:faad:1e4e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-487243cede9sm23544040f8f.0.2026.09.21.02.16.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 02:16:23 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
+        Mehmet Fide <mehmet.fide@gmail.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Haibo Chen <haibo.chen@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+        Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+        Jacky Bai <ping.bai@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev,
+        linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org,
+        Mehmet Fide <mehmet.fide@screeningeagle.com>
+Subject: Re: (subset) [PATCH v6 0/4] gpio: mmio: report the line direction on chips without direction registers
+Date: Mon, 21 Sep 2026 11:16:21 +0200
+Message-ID: <178998209530.39208.11869939955617063502.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260915080501.329424-1-mehmet.fide@gmail.com>
+References: <20260915080501.329424-1-mehmet.fide@gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowADX2zlW77BqMptFCA--.6452S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7KFyfCFW8JFyDXFWkKw4fAFb_yoW8Cw15pa
-	9rKas0kr4kXr1Ik397Cw48tayFgrWrJ3y7JryrGr1vk398tr1xJFyrKayfuFW8Grs3Gw1a
-	qF4qyr98CFWDCw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IU56yI5UUUUU==
-X-Originating-IP: [112.94.103.44]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDEzMSBTYWx0ZWRfX+tvMyc2sCYTk
+ 2D2XoSO/dmBs3+xshGnJRZdv3Di6T+q51GeMFOygGpZDHPGBH0ANq15Y2HfdrYQluDLAnFSnxmq
+ TVMEcVhdtaK6mxGUJIgY/XXPcCgRtEo=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDEzMSBTYWx0ZWRfX/MmMU1mohfqD
+ 8ftzqDlp/EP5pB69E8n1zWBCnKOxAzFf64wZBIFNG0jL9LqM8BZWYn4/y5P/M3LnNLqK4Yc4QCT
+ EYlk2hBaOC5xDjx7oV8abeb7ArN/vDPgsxl7ywrVDDdOssn7FpHDN7cXnxqwWGrS4AFikDvMZI+
+ htAppG71lQVwbsrW+w/USLyuQP2Bpr7N9UMqV/VkQcSYXix/4pprIMkakHqMQ5/ZbY0y1bhC632
+ JKU3X4zimQpmZE6JVWvQzGnWWE294Xmu1RUAoYsYKaAshMwW47ctZQWcjQN0TTIcAHZMXKvcGg5
+ Q69ivS8llU70hRhIlkdV+N6cm8eMm7FH8rih5CNBwcNzqh68+WjTE7GGZeS2PYUK1V3IOQy8mNY
+ GVKFaexbnz8UArg5w4JxLUENpsfaDu4PvTqDLzobGan3UJ6bULpoEPy/H8qApVrd1XBzA40eZuE
+ IOCTn2tUCfgCqIv3hAQ==
+X-Proofpoint-ORIG-GUID: rG1v5kAnMYqtas_CZ_QUJm2sp-qWzk9R
+X-Proofpoint-GUID: rG1v5kAnMYqtas_CZ_QUJm2sp-qWzk9R
+X-Authority-Analysis: v=2.4 cv=A6r5rKWG c=1 sm=1 tr=0 ts=6ab0f5ea cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
+ a=anw-P6zLAAAA:8 a=EUspDBNiAAAA:8 a=niCvQgg7AacVuODDKsUA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22 a=7_zPmhNiJtJTypZd5sO0:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_03,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 suspectscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609210131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_014831_582469_D6C15487 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20260921_021627_451270_C71135C1 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,60 +154,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-21=E4=B8=80=E7=9A=84 15:49 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
->=20
-> Icenowy Zheng =E6=96=BC 2026/9/21 =E4=B8=8B=E5=8D=88 03:30 =E5=AF=AB=E9=
-=81=93:
-> > Maybe it's better to just make it the 2nd patch in this patchset,
-> > just
-> > after the binding change.
-> >=20
-> > Waiting for something into drm-misc-fixes again will need another
-> > fixes
-> > pull and another RC back merge, which can consume weeks and miss
-> > the
-> > current merging window.
-> >=20
-> > In addition, it's possible that `drm/verisilicon: introduce per-
-> > variant
-> > hardware ops table` also gets backported for a more clean primary
-> > plane
-> > atomic_update disabling fix.
-> Understood. I'll fold the FB_EN fix in as patch 2, right after the
-> dt-bindings patch, targeting the current vs_primary_plane.c directly,
-> so the ops-table patch just carries the already-corrected code
-> forward
-> into vs_dc8200.c. Agreed that's faster than round-tripping.
->=20
-> On primary_plane_disable_ex - I'll keep the "_ex" suffix. DC8200
-> still
-> has a real per-variant operation there (clearing FB_EN + commit),
 
-Well I propose to remove _ex because there's no real non-per-variant
-operation.
+On Tue, 15 Sep 2026 10:04:57 +0200, Mehmet Fide wrote:
+> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+> 
+> Hi Bartosz, Linus,
+> 
+> this replaces the gpiolib guard patch [1], along the lines Bartosz
+> suggested there: instead of teaching gpiod_get_direction() to stay quiet
+> when a chip has no get_direction(), give gpio-mmio one and let the pin
+> controller tell it what the pad does.
+> 
+> [...]
 
-Thanks,
-Icenowy
+Applied, thanks!
 
-> while
-> DC8000 leaves it NULL and does nothing, so the suffix still reflects
-> an actual per-variant difference, not just structure introduced by
-> the
-> refactor.
->=20
-> While testing the cursor plane, I found the same class of bug there:
-> the disable register write was being triggered from the plane's
-> atomic_update() invisible-branch using the old plane state to look up
-> the CRTC/output, which can be stale or NULL on a plane's very first
-> commit if it's already invisible then. I've fixed it locally by
-> having
-> atomic_update() derive the CRTC/output from the state it already
-> holds
-> before checking visibility, instead of falling through to the
-> old-state-based disable path. Just flagging it here for now -
-> vs_cursor_plane.c isn't touched by any of my patches.
->=20
-> Thanks.
+[3/4] gpiolib: add get_config() and gpiochip_generic_get_config()
+      https://git.kernel.org/brgl/c/fc291104d01a4e42b44132925c46655d4be5ed13
+[4/4] gpio: mmio: track the direction of chips without direction registers
+      https://git.kernel.org/brgl/c/b5c26686305e070ecb8a4af3acbc4aa92266029e
 
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
