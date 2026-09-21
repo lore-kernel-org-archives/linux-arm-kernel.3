@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BE0C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71A8C982F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=peND3u9iKMtv2zvMcDVYUpzbofbKohHRcq1jnaDFbnc=; b=a9LjiDC/OMUpwfMsPS83wyDg9o
-	Aj1UPPoYKm5of+cVdhGKl7ZfY9SjkDcf0QVa6V0muxf6pwnm4FU+C+/Yl+GSxACEncRgpe9nkJuap
-	5gpJgHmgBPXtfDsF0csLupOL/G48t7IMa9azBNs3lePyVnptENsTlMfdBwMdnuJHeg52cTYWd0AKJ
-	fOFr9zcl8Mteh142vBf9AKe5K8HVtKaamPIRfoOfBnB/ptrxw/3lbPO6Pnf2ZZEaf7Jee4az4bdqg
-	yVLWZdidGjJw5XiDinPGWfDmvioMKB8O6qD50yI8mrd4s6KB6PTR/vGzBQA7KQdhB6NqIKi75MBpz
-	466gcdUg==;
+	bh=OJ0j+leg3y+Dpt5s4ny9DBNrD2A1KCj7Cpe/XpV27PM=; b=Ppzu3DH+x2kFZbFJt024B1I6+l
+	bgWB9aCUjsNRARZ/ZMupQdsS9K2y2P/9J02evCbDdlvKjhKivm16NE3xjevevJEkABj46bCC+nDRG
+	nazNzDexWhO31REzAcdXEQSK/BdYwHXs5V7XMkU/5+XQ4DKyRMnm5xGLa5RKOY3XraGb8QS8D6rrY
+	8shr2EffvyaWOIVDpl/nIIENq37777VCIFJxCJ7KXOrGfJBsbBHpvi7CtssaSC102R93ntxJ/CzeH
+	rdRLmFZcYODqIsAT6sqgtaKeAh7nHb/R3SpDfRynkY8hH0Lgb/it1Q2OarhgFxOEDjeLT0yzSRJN3
+	WeujJaxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kAP-00000003IHv-2jxJ;
-	Mon, 21 Sep 2026 19:59:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8kAa-00000003IMW-3FoS;
+	Mon, 21 Sep 2026 19:59:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kAO-00000003IGn-0B9x
+	id 1x8kAY-00000003ILN-3jm6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:59:08 +0000
+	Mon, 21 Sep 2026 19:59:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3140460008;
-	Mon, 21 Sep 2026 19:59:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 371B41F00898;
-	Mon, 21 Sep 2026 19:58:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 55E7560220;
+	Mon, 21 Sep 2026 19:59:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E1FE1F00893;
+	Mon, 21 Sep 2026 19:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020746;
-	bh=peND3u9iKMtv2zvMcDVYUpzbofbKohHRcq1jnaDFbnc=;
+	s=k20260515; t=1790020758;
+	bh=OJ0j+leg3y+Dpt5s4ny9DBNrD2A1KCj7Cpe/XpV27PM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ICHHt2C0VmIDG9URopw9qksrwfUtfgRpDtLr+UrdDLrG0zqSgNRcj9CdJDNVRufIC
-	 F3w8czv3WxRzXSCWLJ90f6yDOqd6OQiYhbq+EGOmgn03UX9fqv0buL2lF8CMp38Eyd
-	 HsNH25u/jeQ+Q40aTaQxvkI8rrLrmdUfNy5JemcL/jgGHv7MxNDyWzvr9SXR4dbvKN
-	 k8txKnaCLwKXHtCmXFSWZac9ur+5LIn4uVKC52SRzMv9JBWS0CCCuHcdk36xUZaTlh
-	 of22+Al90cbHGAdRI5Gga3ob1lfLdNdmrMT4k2g3smLeHs8dc5Eirhfj+Bn9IB8i55
-	 IBho6QPK9NEKQ==
+	b=LJMUchJq4XPhBwwniY+m7JZkvTDeHbUY5uyTkX0G05IqLNA6EH3+lQHO0F3undOJe
+	 Em9rOFh9y54stRVtWOT9ltk7rw4wzV5ISTEuKXzmn1+B53EUPrGDanCqq+wc3EY7C4
+	 JSiBlogkHgPTiFOFSqFOUxrtQIxXt9Hop5CyFNS8/BJgDIlp5TUHIKYQY2BuOiA6hc
+	 XwpOSpzVpr2LaJjGR7MSoMH4SpOYbaoCPdtbSvIv69G5xETyO/2hJaVv8rul5kt74O
+	 v/UKkHf0XTi+FrYAvK9+UHlUO6QImrQmOaU0XspiAZGlafld7GrXFInYxK88sSND0H
+	 d8kukbBC/zKGg==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 06/17] platform/x86: serdev_helpers: Switch to use
+Subject: [PATCH v1 05/17] platform/x86: yogabook: Switch to use
  acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:49:07 +0200
-Message-ID: <2720286.Lt9SDvczpP@rafael.j.wysocki>
+Date: Mon, 21 Sep 2026 21:48:30 +0200
+Message-ID: <1973238.CQOukoFCf9@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -110,23 +110,29 @@ function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/platform/x86/serdev_helpers.h | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/platform/x86/lenovo/yogabook.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/platform/x86/serdev_helpers.h b/drivers/platform/x86/serdev_helpers.h
-index 57eac75805e2..20267e1941f1 100644
---- a/drivers/platform/x86/serdev_helpers.h
-+++ b/drivers/platform/x86/serdev_helpers.h
-@@ -74,8 +74,7 @@ get_serdev_controller(const char *serial_ctrl_hid,
- 		return ERR_PTR(-ENODEV);
+diff --git a/drivers/platform/x86/lenovo/yogabook.c b/drivers/platform/x86/lenovo/yogabook.c
+index 1a4b2ab1f35d..8a91d440724b 100644
+--- a/drivers/platform/x86/lenovo/yogabook.c
++++ b/drivers/platform/x86/lenovo/yogabook.c
+@@ -353,13 +353,13 @@ static int yogabook_wmi_probe(struct wmi_device *wdev, const void *context)
+ 		goto error_put_devs;
  	}
  
--	/* get_first_physical_node() returns a weak ref */
--	parent = get_device(acpi_get_first_physical_node(adev));
-+	parent = acpi_bus_get_primary_device(adev);
- 	acpi_dev_put(adev);
- 	if (!parent) {
- 		pr_err("error could not get %s/%s serial-ctrl physical node\n",
+-	data->kbd_dev = get_device(acpi_get_first_physical_node(data->kbd_adev));
++	data->kbd_dev = acpi_bus_get_primary_device(data->kbd_adev);
+ 	if (!data->kbd_dev || !data->kbd_dev->driver) {
+ 		r = -EPROBE_DEFER;
+ 		goto error_put_devs;
+ 	}
+ 
+-	data->dig_dev = get_device(acpi_get_first_physical_node(data->dig_adev));
++	data->dig_dev = acpi_bus_get_primary_device(data->dig_adev);
+ 	if (!data->dig_dev || !data->dig_dev->driver) {
+ 		r = -EPROBE_DEFER;
+ 		goto error_put_devs;
 -- 
 2.51.0
 
