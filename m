@@ -4,106 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3F6C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDDFC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kmEsUEvY9vo2zaj1qCqnPiixs7yLoUz5iuxdnJ22dzs=; b=3lBIpZnJ04KJlnZCR/XnHhkYee
-	O2jgETU3fIPhjmFQO8d8ZRFswGEBm+PAGfc25e7cA1LKQXre9LGIqLxmWZKQcpnoryEqi3KMU0kHh
-	caKdunIggWq7SqiVSDrnIvJhsH1Y03Tmwp4KgaTU14HjiO0bSdSK27sp3O6KWzBlSMukpujt1cN9/
-	6tGk5RsIoGiJFEfJVIVr+KldvCUx2x2AVMiKVhvtfDcNfRztQjXcS7sclegIzDYESk/XsxA8pdCEw
-	OEfXO6RrtT2RsIRhp0xZw0+Rc59LR6NcYgfOaOmTu+uM/IRGwrtOlEV+/S0dOts3Rdch2cgpFVPkt
-	IQxYmACQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uaI3kmU3uE8s1l/mKjAGktkJ2ehGVLhz/2R5u1l102s=; b=Mjll0Li5fvUJLyafS8moFMcErx
+	W9xTsrrF3VKst27DggS/GOn4UmC5EmHsnwuN52zoStkkXpdSYaHy0O3A1bMvnjgJbR8IPgHH+zVIr
+	Xpx2xIeY/uO2hnesB7qeaTSTq1BhyC6D+mbpkDPp9Rxgs3VyxpKCYEKgkIC0SFol1OARptmSmrudg
+	KBnVLiAXHhIdV0K1USQKnsNtqfUUkc6ozhhKFmBZbYbZziZqfonq+vq6QiNgNwSAEtjZ45/9u2FGg
+	nLWCuO9gtCD4pmE1JT6gB+1Mq4qTo8rbg25F9YFuXfKTfbJhMjUrkm6onqQdtxjFhF8J3bf/oOxCK
+	BVHk6PDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fIf-00000002RcX-1HkN;
-	Mon, 21 Sep 2026 14:47:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8fJp-00000002Rqm-1z1r;
+	Mon, 21 Sep 2026 14:48:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fIN-00000002RXQ-1ghy
+	id 1x8fJj-00000002Rpm-2E3d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:47:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26BDD42A9B;
-	Mon, 21 Sep 2026 14:47:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E2091F00893;
-	Mon, 21 Sep 2026 14:46:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790002023;
-	bh=kmEsUEvY9vo2zaj1qCqnPiixs7yLoUz5iuxdnJ22dzs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XZvbjTYhHMYYLm5eZryPH0+GXR5XNmEMgeQMCPy79tnA6n+P5f4CcDTyQnt4dJkto
-	 r+7dWlUrTZUruCEFkrdYRqfgrryNweCGyoS3uEbYCGDDYF12dPpKVfhxiyX0IKkc32
-	 6sCF1bMHAl3m5tjQsau8dPeZdeT68CkcU+/ulfYl7AuORlXF5fmBX+WJH7wTSYtNKO
-	 FeYi5cxWeXWmzKF/Lmmr8NGPq15bxbtIY/8dmxDI8/s+tuMQ2VJ0MVB3S7slT258mA
-	 7wteppWFHsnd2xoU9oBuTlOirIaGCLhQ3kXhHOPIcAiQyCd0UaP1JsRJ9WwQhVdQiK
-	 HyLMzG10qlNyw==
-Message-ID: <198df371-4599-4e71-814c-b94bddd41254@kernel.org>
-Date: Mon, 21 Sep 2026 16:46:56 +0200
+	Mon, 21 Sep 2026 14:48:28 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LEGgSb2404379
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 14:48:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=uaI3kmU3uE8s1l/mKjAGkt
+	kJ2ehGVLhz/2R5u1l102s=; b=R0ATRRtLgmhprp72UGtSf+HLQUdYK5GgPOY8/4
+	S3ZMu3hkX3IAGJjh/t5zNjKkONlQ3W9B1zJf92oFxROt4+tsJ5qzxLrN9IboGkLQ
+	ZljeltC5oj5Cvh9tgmntlyuv2zM5p9x5g09wQjC7KTeVoubc+72TtQQJekwAkUOd
+	o0x3A+YzaKF9N+UiJ04EAhqPBAzRrWJETseIFqrO9FLshfReve8nHvHwm7p1MDBT
+	LbqY9koOKH6/v8Zj00+0TETmcuHxX3gBswszrpAWWEFFzA8CxTpDlrNM2goRnxKF
+	raYnwV8isBj/LJ29etwH5kb5o3QCB4hhEJEKgiiv3gWcASeA==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gtt3vax7d-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 14:48:26 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7930cb5cd3aso2222787137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 07:48:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790002106; x=1790606906; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=uaI3kmU3uE8s1l/mKjAGktkJ2ehGVLhz/2R5u1l102s=;
+        b=NAw6iwDUfLteFTJqc7QICvVpfYPFaUvlXemsSvxMByjtgEu2rxjepwgsUJsNSci6eG
+         sLoD9n4E3WuGjz7rSVOoJ7FhwdfoxtOaQTDjkvE5jkMJN7bnJkHWTyar2f6qPoIkqrM8
+         vrCz7X118fvq/fRoC/fVXQjnFsLwrfzZGBoLvstmBLgfg0qDofVuImJDJHIQPC3w54dc
+         csSvOnstdaSA8uiTrWcqg2TpyM4ogMt1huyA6sWPvOZBlI6VwnBhQbknlKnPLpabiWEG
+         OModPAzzmVUW8qRTUnSX33QO/sVc92I2ZqhOokoR2yC0mQAH2uOBwZxMExhAzT0l3FTo
+         9yKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790002106; x=1790606906;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=uaI3kmU3uE8s1l/mKjAGktkJ2ehGVLhz/2R5u1l102s=;
+        b=UCiZmzMGi3hTcMJi+f04tYD+6oCzxvCBdpbTTb8IxH0qb29YNV9pn2mUafbP/v2Kf7
+         MM7sGvCoCjP3utkGglk5GE97QBQ/Cbawa27ibYbPH33A5KyjACuqmNmVL8PdzMOgzIxk
+         MgcH12eusj0AruiEfjnAOMVEf0bJNocIH5tzc0Z7v2T7NZ5snBPtjNZm8DDdSEAYo05P
+         ftW8cNLodfkf1gr0B4U4BjV36Np42OqRclq1ezfIefp2nmQNWPK9WMTMYR/GZwclcdPh
+         YamyA6ZczmCFy654ow2AAefS9T0My7mEmMbTPAWhVR7VWufkF8t1xsoia9VyYIV84qRq
+         N05g==
+X-Forwarded-Encrypted: i=1; AKwUvBzLI0gFH7F5jTiDcZFdDdkazXbE4EmdquPH/r3xAO9nxJDj5bWKS6klRcw4d07hhAgxVDIZj7/NLRnyjzMTWrbR@lists.infradead.org
+X-Gm-Message-State: AFuF++mlQHEDlhQN1MugksQcT+2r6CYmQ0TsHwTaaOq2ekVTCOOEFDX8
+	YI/rEIqCqSK8N1Zg8kwOmWLxpFVQQbkRDDbACIMtxrKFtWajpIEQ36VNMR7BJGe0adPzuWKdc6A
+	aN71Nk8TU5wSu4wB92qGcnKH6Ja3zD65T/fW2pXZGhaQoX3bwE1LEm5Fm6DzmkR5dO8c5ZQUztV
+	VLdQ==
+X-Gm-Gg: AYBFou3Hv8jCfWAFsBhCI2KcO9YmQOL2AKjwp2SG0J+aOvnMweD4L+tA4KL+Xo1BFvx
+	FV64geuSIVSfyZPu1AH/TDQSV9xipbMV8M2NC1FniVU1E0qi8O4xERYouIogkFd2RVEJ4y/mepc
+	4xDwAIwWJmSnp+/bcWsHyxcOZNwKYa7okoTx8viSrwCmP9q626p3+6BnOAhNPOUjgxfYL1poorW
+	z4POFXTJogyhnnuUWv5nm6aJ4pe0gM/GaW55lic02iOIoaQRnUXFAK91zIPVqNZn9EM0VK24arL
+	C0e1DXmWdaDvwTrVO45n/6ektv/kv8eQiOIKBenLpqC4dV41AUC3Hi96Ln1d2PP21zwdhshBEiT
+	nMcInrbEz3o9n/g==
+X-Received: by 2002:a05:6102:e0e:b0:7a6:ef60:dac with SMTP id ada2fe7eead31-7a6ef6011abmr3250808137.34.1790002105554;
+        Mon, 21 Sep 2026 07:48:25 -0700 (PDT)
+X-Received: by 2002:a05:6102:e0e:b0:7a6:ef60:dac with SMTP id ada2fe7eead31-7a6ef6011abmr3250729137.34.1790002104845;
+        Mon, 21 Sep 2026 07:48:24 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fd1f0a061sm170708595e9.12.2026.09.21.07.48.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 07:48:24 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 21 Sep 2026 16:47:53 +0200
+Subject: [PATCH net v2] net: stmmac: fix rx Scatter-Gather support
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] arm64/mm: Convert pgtable READ_ONCE() as pxdp_get()
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <ljs@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20260903060657.2717457-1-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260903060657.2717457-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260921-stmmac-rx-sg-fix-v2-1-b6d88c5ac2d7@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6DIBREr2L+ut8AbRW76j0aF6CgJAVavjU2h
+ ruXuO9mkpnJvNmBTHKG4FbtkMzqyMVQjDhVMMwqTAbdWDwIJhrW8QZp8V4NmDakCa3bUMlRjFK
+ dtWIcyuyVTIkP5AOCWaAv4exoiel73Kz8qP4TV44c9aXTrZa2FVd7j0T1+6OeQ/S+LgJ9zvkHW
+ oLSxrwAAAA=
+X-Change-ID: 20260916-stmmac-rx-sg-fix-a8d2d8a3ba01
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=Ytia1IYX c=1 sm=1 tr=0 ts=6ab143ba cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=YI1BYhXVuOdgUOMkKCkA:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-ORIG-GUID: EEJpnG9xOI9E3YSF6PnUUHNgxI1YIB_a
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDIxNSBTYWx0ZWRfXyoZvwOtxundY
+ XdyMztREid6yxtl+Heio2aEI7Lqwi9O3ta8Uwl1vBYxdqDX6LOsXuUjwiZ3P+dHF9tcWuSoYBMw
+ YqvnhWZatpsZ/3+SzBGVlpgXkEuaxKw=
+X-Proofpoint-GUID: EEJpnG9xOI9E3YSF6PnUUHNgxI1YIB_a
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDIxNSBTYWx0ZWRfX/4YkqZOpZdTJ
+ M0iJTSymbHKsq8/CRbtBZdhqpSwmnW45eKwjv7gRuC4nA8vRuDyA9P1puNcJ5kZP/BZbnFo60iK
+ HkhfEuVgrXE3h7sVYvvrfbwBraDPY8/T0sIMo0GWqzbLj0Y4K/bfGbZQiPsXsQjfmuufNUJ4nYi
+ 8o+F/e4EQ1cmYI4k/ewLLAYdatoVDZ3Q2zn7yDFQNVF5wnjk1/zQ7fxmGe0YM6ctLKPD6hSzAQ7
+ WxKfCK+Edr0yKPj+jxYBYcZywzxpTBt2l3fPZGT2si81D/PA9KRi7xemrPzcJTCcFZkyVdym/fk
+ KIbbDzV8uo6W+PpX07lqLUmy1o4OkW48A9pImYVsaxBk3Bk3/M55ZfQPYGEzZt9gmsNkAhMRXAn
+ 5CoOy7EZN+BM0yso/aIVlQO9pgCTC6x/vXqMDIlSITA0LSgC9FEJsdu8AFzUlgmj6vzmbzyx/pX
+ z0YOYugVPn00OHRpfqg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0
+ clxscore=1015 impostorscore=0 malwarescore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609210215
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_074827_596697_900B3A05 
+X-CRM114-Status: GOOD (  29.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,65 +161,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/26 08:06, Anshuman Khandual wrote:
-> Route READ_ONCE() accesses on pgtable entries via level specific generic MM
-> pxdp_get() helpers which platforms could then override when required. These
-> accessors on arm64, will help in ensuring page table accesses are performed
-> in an atomic manner while reading 128 bit page table entries later. But for
-> now they just default to READ_ONCE(), thus preserving existing behaviour on
-> current D64 translation.
-> 
-> This is similar to generic MM, where all atomic accesses have already been
-> converted from READ_ONCE() into pgtable level specific accessors.
-> 
-> These are preparatory patches for D128 enablement, although standing their
-> own for D64 translation as well. These patches are split from earlier D128
-> V1 series. There are no functional changes here, and besides mm kselftests
-> do not show any regression.
-> 
-> https://lore.kernel.org/linux-mm/20260729122452.3797443-1-anshuman.khandual@arm.com/
-> 
-> This series applies on v3.7-rc1 but after applying the following patches
-> related to pgtable entry print standardization posted earlier.
-> 
-> https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
-> 
-> https://lore.kernel.org/linux-mm/20260901065454.1906343-1-anshuman.khandual@arm.com/
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Lorenzo Stoakes <ljs@kernel.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Linu Cherian <linu.cherian@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> 
-> Anshuman Khandual (4):
->   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
->   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
->   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
->   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
-> 
->  arch/arm64/include/asm/pgtable.h |  6 ++--
->  arch/arm64/mm/fault.c            |  8 ++---
->  arch/arm64/mm/fixmap.c           |  6 ++--
->  arch/arm64/mm/hugetlbpage.c      | 10 +++---
->  arch/arm64/mm/kasan_init.c       | 18 +++++-----
->  arch/arm64/mm/mmu.c              | 60 ++++++++++++++++----------------
->  arch/arm64/mm/pageattr.c         |  8 ++---
->  arch/arm64/mm/trans_pgd.c        | 14 ++++----
->  8 files changed, 66 insertions(+), 64 deletions(-)
-Skimmed the changes, purely mechanical changes, so looks good.
+When a received frame is larger than dma_buf_sz, the DMA scatters it
+across multiple RX descriptors (rx Scatter-Gather). The secondary RX
+buffer (sec_page) was only allocated and programmed when split-header
+(SPH) was active, so for regular frames buffer2 was neither allocated
+nor backed by a valid mapping. As soon as an incoming frame overflowed
+buffer1, the DMA wrote the overflow into the unmapped secondary-buffer
+address, triggering an SMMU translation fault on IOMMU-based platforms:
 
-Consider spelling out in the patches "No functional change intended."
+arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402, iova=0x00000000, fsynr=0x7f0011, cbfrsynra=0x1c90, cb=11
+arm-smmu 15000000.iommu: FSR    = 00000402 [Format=2 TF], SID=0x1c90
+arm-smmu 15000000.iommu: FSYNR0 = 007f0011 [S1CBNDX=127 WNR PLVL=1]
 
+Enable scatter-gather for non-SPH frames on cores that can program an
+independent secondary RX buffer (GMAC4/XGMAC): allocate and mark buffer2
+as valid in stmmac_init_rx_buffers() and stmmac_rx_refill(), and account
+for it in the buffer length computation. Legacy cores have no set_sec_addr
+op, so they keep buffer2 disabled.
+
+Since buffer2 is handed to the DMA at page offset 0, the page pool sync
+window is widened to cover both buffers in every mode: offset is set to 0
+and max_len to dma_buf_sz + stmmac_rx_offset().
+
+The FCS can straddle the buffer1/buffer2 boundary and a descriptor
+boundary, so it is now stripped from the tail of the assembled frame with
+skb_trim() instead of from a single buffer, avoiding an unsigned underflow
+for frames that overflow a buffer by 1..3 bytes. For single-buffer frames
+the XDP program must not see the FCS, so it is removed from the XDP buffer
+before the program runs.
+
+Native XDP currently only supports single-buffer (linear) frames. An
+oversized frame accepted by the MAC (jumbo enabled) is received via
+buffer2; the XDP program only sees buffer1, so on a TX/REDIRECT verdict
+the frame is forwarded truncated. XDP multi-buffer support to handle
+this case is planned as a follow-up.
+
+AF_XDP zero-copy RX is not covered by this change: a ZC queue still
+programs buffer2 at DMA address 0 (and XGMAC has no buffer2-valid bit),
+so an oversized frame overflowing buffer1 can still trigger the same
+SMMU translation fault. Handling is planned as a follow-up.
+
+Fixes: 88ebe2cf7f3f ("net: stmmac: Rework stmmac_rx()")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+Changes in v2:
+- Gate buf2 allocation by stmmac_rx_check_buf2_cap() routine.
+- Always set pp_params.offset to 0 and pp_params.max_len to dma_buf_sz +
+  rx_offset.
+- Do not remove fcs_len from buf1_len or buf2_len, just from len
+  counter.
+- Link to v1: https://lore.kernel.org/r/20260916-stmmac-rx-sg-fix-v1-1-b49b7b8f725f@oss.qualcomm.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 84 ++++++++++++++---------
+ 1 file changed, 50 insertions(+), 34 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 11035b7d944e..d41892b56c5a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1629,6 +1629,16 @@ static void stmmac_clear_descriptors(struct stmmac_priv *priv,
+ 		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
+ }
+ 
++static bool stmmac_rx_check_buf2_cap(struct stmmac_priv *priv)
++{
++	/* Only cores that can program an independent secondary RX buffer
++	 * (used for scatter-gather overflow or split-header payload) back
++	 * buffer2. Legacy cores have no set_sec_addr op, so buffer2 is
++	 * never handed to the hardware there.
++	 */
++	return priv->hw->desc && priv->hw->desc->set_sec_addr;
++}
++
+ /**
+  * stmmac_init_rx_buffers - init the RX descriptor buffer.
+  * @priv: driver private structure
+@@ -1659,16 +1669,13 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+ 		buf->page_offset = stmmac_rx_offset(priv);
+ 	}
+ 
+-	if (priv->sph_active && !buf->sec_page) {
++	if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
+ 		buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+ 		if (!buf->sec_page)
+ 			return -ENOMEM;
+ 
+ 		buf->sec_addr = page_pool_get_dma_addr(buf->sec_page);
+ 		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
+-	} else {
+-		buf->sec_page = NULL;
+-		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
+ 	}
+ 
+ 	buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
+@@ -2256,13 +2263,8 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	pp_params.nid = dev_to_node(priv->device);
+ 	pp_params.dev = priv->device;
+ 	pp_params.dma_dir = xdp_prog ? DMA_BIDIRECTIONAL : DMA_FROM_DEVICE;
+-	pp_params.offset = stmmac_rx_offset(priv);
+-	pp_params.max_len = dma_conf->dma_buf_sz;
+-
+-	if (priv->sph_active) {
+-		pp_params.offset = 0;
+-		pp_params.max_len += stmmac_rx_offset(priv);
+-	}
++	pp_params.offset = 0;
++	pp_params.max_len = dma_conf->dma_buf_sz + stmmac_rx_offset(priv);
+ 
+ 	rx_q->page_pool = page_pool_create(&pp_params);
+ 	if (IS_ERR(rx_q->page_pool)) {
+@@ -5097,7 +5099,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 				break;
+ 		}
+ 
+-		if (priv->sph_active && !buf->sec_page) {
++		if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
+ 			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+ 			if (!buf->sec_page)
+ 				break;
+@@ -5108,10 +5110,8 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 		buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
+ 
+ 		stmmac_set_desc_addr(priv, p, buf->addr);
+-		if (priv->sph_active)
+-			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
+-		else
+-			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
++		stmmac_set_desc_sec_addr(priv, p, buf->sec_addr,
++					 stmmac_rx_check_buf2_cap(priv));
+ 		stmmac_refill_desc3(priv, rx_q, p);
+ 
+ 		rx_q->rx_count_frames++;
+@@ -5142,7 +5142,9 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+ 	unsigned int plen = 0, hlen = 0;
+ 	int coe = priv->hw->rx_csum;
+ 
+-	/* Not first descriptor, buffer is always zero */
++	/* Not first descriptor, SPH enabled: buffer1 only carries the
++	 * split header of the first descriptor, so it is zero here.
++	 */
+ 	if (priv->sph_active && len)
+ 		return 0;
+ 
+@@ -5153,14 +5155,16 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+ 		return hlen;
+ 	}
+ 
+-	/* First descriptor, not last descriptor and not split header */
++	/* Not last descriptor and not split header: buffer1 is fully filled */
+ 	if (status & rx_not_ls)
+ 		return priv->dma_conf.dma_buf_sz;
+ 
+ 	plen = stmmac_get_rx_frame_len(priv, p, coe);
+ 
+-	/* First descriptor and last descriptor and not split header */
+-	return min_t(unsigned int, priv->dma_conf.dma_buf_sz, plen);
++	/* Last descriptor and not split header: buffer1 holds the remaining
++	 * bytes of the frame, up to dma_buf_sz
++	 */
++	return min_t(unsigned int, priv->dma_conf.dma_buf_sz, plen - len);
+ }
+ 
+ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+@@ -5170,8 +5174,7 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+ 	int coe = priv->hw->rx_csum;
+ 	unsigned int plen = 0;
+ 
+-	/* Not split header, buffer is not available */
+-	if (!priv->sph_active)
++	if (!stmmac_rx_check_buf2_cap(priv))
+ 		return 0;
+ 
+ 	/* For GMAC4, when split header is enabled, in some rare cases, the
+@@ -5188,14 +5191,15 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+ 	 * Thus 'plen - len' always gives the correct length of buf2.
+ 	 */
+ 
+-	/* Not GMAC4 and not last descriptor */
+-	if (priv->plat->core_type != DWMAC_CORE_GMAC4 && (status & rx_not_ls))
++	/* Not GMAC4, or non-SPH and not last descriptor */
++	if ((priv->plat->core_type != DWMAC_CORE_GMAC4 || !priv->sph_active) &&
++	    (status & rx_not_ls))
+ 		return priv->dma_conf.dma_buf_sz;
+ 
+ 	/* GMAC4 or last descriptor */
+ 	plen = stmmac_get_rx_frame_len(priv, p, coe);
+ 
+-	return plen - len;
++	return plen > len ? plen - len : 0;
+ }
+ 
+ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+@@ -5718,6 +5722,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 	unsigned int desc_size;
+ 	struct sk_buff *skb = NULL;
+ 	struct stmmac_xdp_buff ctx;
++	bool fcs_stripped = false;
+ 	int xdp_status = 0;
+ 	int bufsz;
+ 
+@@ -5807,24 +5812,31 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		len += buf2_len;
+ 
+ 		/* ACS is disabled; strip manually. */
+-		if (likely(!(status & rx_not_ls))) {
+-			if (buf2_len) {
+-				buf2_len -= ETH_FCS_LEN;
+-				len -= ETH_FCS_LEN;
+-			} else if (buf1_len) {
+-				buf1_len -= ETH_FCS_LEN;
+-				len -= ETH_FCS_LEN;
+-			}
+-		}
++		if (likely(!(status & rx_not_ls)))
++			len -= ETH_FCS_LEN;
+ 
+ 		if (!skb) {
+ 			unsigned int pre_len, sync_len;
+ 
++			/* Each frame starts here: reset the FCS handling */
++			fcs_stripped = false;
++
+ 			dma_sync_single_for_cpu(priv->device, buf->addr,
+ 						buf1_len, dma_dir);
+ 			net_prefetch(page_address(buf->page) +
+ 				     buf->page_offset);
+ 
++			/* The XDP program must not see the FCS. This only
++			 * applies to a single-buffer frame (buf2_len == 0),
++			 * where the whole frame and its FCS sit in buffer1;
++			 * otherwise the FCS is stripped from the assembled
++			 * frame with skb_trim().
++			 */
++			if (stmmac_xdp_is_enabled(priv) && !buf2_len) {
++				buf1_len -= ETH_FCS_LEN;
++				fcs_stripped = true;
++			}
++
+ 			xdp_init_buff(&ctx.xdp, bufsz, &rx_q->xdp_rxq);
+ 			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
+ 					 buf->page_offset, buf1_len, true);
+@@ -5925,6 +5937,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 
+ 		/* Got entire packet into SKB. Finish it. */
+ 
++		/* Remove FCS if needed */
++		if (!fcs_stripped)
++			skb_trim(skb, len);
++
+ 		stmmac_get_rx_hwtstamp(priv, p, np, skb);
+ 
+ 		if (priv->hw->hw_vlan_en)
+
+---
+base-commit: 9bca72a2dd0663d4b39a5d4ed252ad78a8569b5d
+change-id: 20260916-stmmac-rx-sg-fix-a8d2d8a3ba01
+
+Best regards,
 -- 
-Cheers,
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-David
 
