@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14804C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 08:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B5CC982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 08:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7znNeXgHNQuMnlCx6KpxREHOt8qDXTTPWARfe0tBfo=; b=lHiEGPGfYTWHPwqsZwI7/nsNzv
-	7tXS1p3gOD4XednB2QXOK7KWsJBZ5Z7DQW/VXetFFdsysIdq8VXC5us6pNToNP68lU7By/sa2xSgn
-	dfIb/yghAaF3K1bfgLjM+BprrsV+nmSf/ioWE4G5Ac4wwoW0oGS47lKH4Igs2yFij85JaWJD4dBhG
-	TX15PGByF3qpRtWdaTLLoJJDJtCDCeao7OYxUCS5Q61zmu97rOQQ2Zz1aTC2lBBtTKwHMbDWFI8Wk
-	jE1ambK+f3SK6SfuQyVXiNBcdMAM0HMfodCDAx3IE9ELQq8Dw/NcWSWjZQ6zgE29wI903UiO23T84
-	OO5lQAVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uUY0NDxhconnJTX6fOVMqMY44EtPzHDVv5OE3MBWrd4=; b=f2xaFWR1Gg7PgwS204bt84kWhj
+	803b8Ym7gKVvpnV9MsRcsHf6LYDvYWrW93EvEgEQUSr9YjEcZHTBA60ckqqGua7BxG9srsH36owmb
+	rEfY0GtW6oys4QZIY0sxqKJ2RffPaFUd7/jANUX3ZbswMojjwzdXb3NVn/4+uJEewUN04QTjuGZUv
+	prfATSC+R9dLy/UzVnkZtZmrHQqdI6z3o9mBP4B2bz72itJNi4h0BOYtzF5rsNM0/A+WSD9iGCY68
+	GTRT6Jk1BqwodWCaklRTNBqS1Ayf/at8pCaW/qfz6WrVW37lp1z7WzFHpmWZ2EKET7+AYwSMkVawe
+	46WwbdtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YwW-00000001Hu0-2kIJ;
-	Mon, 21 Sep 2026 08:00:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YwT-00000001Hta-1i2L
+	id 1x8YzY-00000001IBJ-0sFn;
+	Mon, 21 Sep 2026 08:03:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8YzU-00000001IAw-3rCJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 08:00:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D9E7143D;
-	Mon, 21 Sep 2026 00:59:56 -0700 (PDT)
-Received: from [10.57.83.12] (unknown [10.57.83.12])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC76C3F86F;
-	Mon, 21 Sep 2026 00:59:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789977599; bh=uRgzAnJkCmIi+snQIbSmkHF+wLnwLOyY5X1yVPOvLlY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oOow57TiAT2tB/NkK8hmGQp1DapcKPuzLjk1RccTkIyvjhT+W62/wiLiQQhfRtFKc
-	 4KXMyKWVtD0nlgizdDb0ZyrNReJpgNSJDCbQsOVPjvF3xkgEDDT/Lgpbx6mFtal5hX
-	 fPGGW5nNp3gYVFvgixCsuIVC77t3fq9WFJPKKwuc=
-Message-ID: <3e3e8b33-cf24-4b09-a64c-f9b2bbe604e7@arm.com>
-Date: Mon, 21 Sep 2026 08:59:53 +0100
+	Mon, 21 Sep 2026 08:03:11 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2E313177;
+	Mon, 21 Sep 2026 10:01:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789977682;
+	bh=4MPgzglqjVdZGx+2jOi9TrPxLozn/ma4WxLeqRxobLo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=msr6NfKJ6WhAAdMlg0xGJcB2rHSwIPBiHVA2rAbnfPk22Hwy1NyXTdtaHpo/RQ8Z0
+	 dX/0UYWShCclNCWmyyMaQgM8geDtNwCIrfAG9oSDQ3PRIntxKnsygca8yOg7o/LKwu
+	 7alO8EgqLWdro5i2MwNZkxQVGRXPU0NC+kG9ccR8=
+Date: Mon, 21 Sep 2026 11:03:05 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v2 6/6] media: imx8-isi: Enable ISI RAW10/12/14 output
+ LSB alignment
+Message-ID: <20260921080305.GB1466037@killaraus.ideasonboard.com>
+References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
+ <20260831-isi_imx952-v2-6-fafdb4b446d4@oss.nxp.com>
+ <20260915000520.GB2804748@killaraus.ideasonboard.com>
+ <AMBPR04MB3355239002794E284C008FAFBFFABA2@AMBPR04MB335523.eurprd04.prod.outlook.com>
+ <20260915122546.GD2796257@killaraus.ideasonboard.com>
+ <AMBPR04MB335523823246285C19B5B96E09FA842@AMBPR04MB335523.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] arm64: use hw_pte_t for HW PTE pointers
-To: Muhammad Usama Anjum <usama.anjum@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org
-References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
- <20260914-pte0_arm-v1-1-bb53b663e396@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260914-pte0_arm-v1-1-bb53b663e396@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AMBPR04MB335523823246285C19B5B96E09FA842@AMBPR04MB335523.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_010001_558351_B6D1119D 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20260921_010309_261088_07569A04 
+X-CRM114-Status: GOOD (  63.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,77 +83,392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2026 14:51, Muhammad Usama Anjum wrote:
-> With pte_t * used for HW PTE pointers, the compiler cannot distinguish
-> them from SW PTE value pointers. The generic HW PTE interfaces already
-> use hw_pte_t *, so arm64 HW PTE pointers must use that type before
-> ARCH_HAS_HW_PTE_T can make it distinct.
+On Mon, Sep 21, 2026 at 03:12:04AM +0000, G.N. Zhou (OSS) wrote:
+> On Tuesday, September 15, 2026 8:26 PM, Laurent Pinchart wrote:
+> > On Tue, Sep 15, 2026 at 02:19:55AM +0000, G.N. Zhou (OSS) wrote:
+> > > Hi Laurent,
+> > >
+> > > Thanks for your review.
+> > >
+> > > NXP Confidential
+> >
+> > Really ? :-)
+> >
+> > > On Tuesday, September 15, 2026 8:05 AM, Laurent Pinchart wrote:
+> > > > On Mon, Aug 31, 2026 at 11:37:01AM +0800, Guoniu Zhou wrote:
+> > > > > V4L2 requires RAW formats to be LSB-aligned (right-aligned).
+> > > > > Before i.MX952, the ISI shifts RAW10/12/14 output left to MSB, so
+> > > > > the driver works around this by using RAW16 format instead.
+> > > > >
+> > > > > The i.MX952 ISI introduces a RAW output LSB alignment bit. Enable
+> > > > > it along with the input MSB alignment on platforms that support
+> > > > > this feature, so that RAW10/12/14 output formats can be used
+> > > > > directly without the RAW16 workaround.
+> > > > >
+> > > > > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> > > > > ---
+> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  1 +
+> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 +
+> > > > >  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  | 39 ++++++++++++++++++++-
+> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    |  3 ++
+> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 40 +++++++++++----------
+> > > > -
+> > > > >  5 files changed, 63 insertions(+), 21 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > index d492631dfb6d..0f776fc8fd7e 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > @@ -394,6 +394,7 @@ static const struct mxc_isi_plat_data mxc_imx952_data = {
+> > > > >     .format_mask            = GENMASK(30, 24),
+> > > > >     .buf_active_reverse     = true,
+> > > > >     .has_36bit_dma          = true,
+> > > > > +   .raw_out_lsb            = true,
+> > > > >  };
+> > > > >
+> > > > >  /*
+> > > > > -----------------------------------------------------------------------------
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > index 73f6ea7b0ea1..c352bcf8dc47 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > @@ -166,6 +166,7 @@ struct mxc_isi_plat_data {
+> > > > >     u32 format_mask;
+> > > > >     bool buf_active_reverse;
+> > > > >     bool has_36bit_dma;
+> > > > > +   bool raw_out_lsb;
+> > > >
+> > > > As there's a single SoC that supports this, I would have used the
+> > > > model field instead of adding a new boolean.
+> > > >
+> > > > >  };
+> > > > >
+> > > > >  struct mxc_isi_dma_buffer {
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> > > > > index 2405f7d33d0a..4838b445f279 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> > > > > @@ -308,6 +308,7 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+> > > > >                                     unsigned int vc,
+> > > > >                                     bool bypass)  {
+> > > > > +   const struct mxc_isi_plat_data *pdata = pipe->isi->pdata;
+> > > > >     u32 val;
+> > > > >
+> > > > >     mutex_lock(&pipe->lock);
+> > > > > @@ -357,6 +358,20 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+> > > > >                     val |= CHNL_CTRL_VC_ID_1(vc >> 2);
+> > > > >     }
+> > > > >
+> > > > > +   if (pdata->raw_out_lsb) {
+> > > > > +           /*
+> > > > > +            * Enable RAW10/12/14 output LSB alignment to match the
+> > > > > +            * V4L2 requirement that RAW formats are LSB-aligned.
+> > > > > +            */
+> > > > > +           val |= CHNL_CTRL_RAW_OUT_LSB_ALIGN;
+> > > > > +
+> > > > > +           /*
+> > > > > +            * Align the data selection from pixel link to MSB to
+> > > > > +            * avoid data shift since the data from PL is MSB.
+> > > > > +            */
+> > > > > +           val |= CHNL_CTRL_RAW_IN_MSB_ALIGN;
+> > > > > +   }
+> > > > > +
+> > > > >     mxc_isi_write(pipe, CHNL_CTRL, val);
+> > > > >
+> > > > >     mutex_unlock(&pipe->lock);
+> > > > > @@ -406,11 +421,19 @@ void mxc_isi_channel_set_input_format(struct mxc_isi_pipe *pipe,
+> > > > >                   CHNL_IN_BUF_PITCH_LINE_PITCH(bpl));
+> > > > >  }
+> > > > >
+> > > > > +static bool isi_out_raw(u32 format) {
+> > > > > +   return format == CHNL_IMG_CTRL_FORMAT_RAW10 ||
+> > > > > +          format == CHNL_IMG_CTRL_FORMAT_RAW12 ||
+> > > > > +          format == CHNL_IMG_CTRL_FORMAT_RAW14; }
+> > > > > +
+> > > > >  void mxc_isi_channel_set_output_format(struct mxc_isi_pipe *pipe,
+> > > > >                                    const struct mxc_isi_format_info *info,
+> > > > >                                    struct v4l2_pix_format_mplane *format)  {
+> > > > >     const struct mxc_isi_plat_data *pdata = pipe->isi->pdata;
+> > > > > +   u32 fmt;
+> > > > >     u32 val;
+> > > > >
+> > > > >     /* set outbuf format */
+> > > > > @@ -418,7 +441,21 @@ void mxc_isi_channel_set_output_format(struct
+> > > > > mxc_isi_pipe *pipe,
+> > > > >
+> > > > >     val = mxc_isi_read(pipe, CHNL_IMG_CTRL);
+> > > > >     val &= ~pdata->format_mask;
+> > > > > -   val |= CHNL_IMG_CTRL_FORMAT(info->isi_out_format);
+> > > > > +
+> > > > > +   /*
+> > > > > +    * Before i.MX952, the ISI shifts the 10/12/14-bit formats left
+> > > > > +    * by 6, 4 and 2 bits when using CHNL_IMG_CTRL_FORMAT_RAW10/12/14
+> > > > > +    * respectively, to align the bits to the left and pad with zeros in
+> > > > > +    * the LSBs. The corresponding V4L2 formats are however right-aligned,
+> > > > > +    * we have to use CHNL_IMG_CTRL_FORMAT_RAW16 to avoid the left shift.
+> > > > > +    * After i.MX952, ISI add RAW10/12/14 LSB output alignment, so skip
+> > > > > +    * the above workaround.
+> > > >
+> > > > What happens on i.MX952 if you use CHNL_IMG_CTRL_FORMAT_RAW16 and
+> > > > don't set CHNL_CTRL_RAW_OUT_LSB_ALIGN ? Won't that work, the same
+> > > > way as on previous ISI versions ? If so we could use that workaround
+> > > > on i.MX952 as well and avoid this complexity.
+> > >
+> > > Before i.MX95, on platforms such as i.MX8QXP/QM, i.MX8MN/MP and
+> > > i.MX93, the gasket can provide LSB-aligned RAW10/12/14 data to the
+> > > ISI. In that case, using
+> > > CHNL_IMG_CTRL_FORMAT_RAW16 works as a workaround, as the ISI simply
+> > > passes the pixel data through without performing the internal left
+> > > shift, and the resulting memory layout matches the V4L2 RAW formats.
+> > >
+> > > Starting with i.MX95, the gasket has been replaced by the CSI
+> > > formatter block. Unlike the previous gasket implementation, the CSI
+> > > formatter always provides MSB-aligned
+> > > RAW10/12/14 data to the ISI. When CHNL_IMG_CTRL_FORMAT_RAW16 is used
+> > > on these SoCs, the data remains MSB-aligned in memory, which is not
+> > > compatible with the right-aligned RAW formats expected by V4L2 userspace.
+> > >
+> > > To address this limitation, newer ISI versions (i.MX952 and later) add
+> > > explicit output alignment control through CHNL_CTRL_RAW_OUT_LSB_ALIGN,
+> > > allowing the ISI to generate LSB-aligned RAW10/12/14 output. This is
+> > > the reason for the patch: it enables the hardware-supported alignment
+> > > mode on i.MX952 instead of relying on the RAW16 workaround, which no
+> > > longer produces V4L2-compatible output due to the CSI formatter behavior.
+> >
+> > How does it work on i.MX95 then ? Are all raw formats currently broken there ?
 > 
-> Convert HW PTE pointers to hw_pte_t *, retaining pte_t for SW PTE
-> values. Helpers shared with PMD and PUD operations keep explicit casts
-> because this series does not introduce distinct entry types for those
-> levels.
+> Yes, RAW10/12/14 formats are broken on i.MX95. Before i.MX95, the
+> gasket provides LSB-aligned data to the ISI, so the RAW16 passthrough
+> produces correct LSB-aligned output. Starting with i.MX95, the gasket
+> is replaced by the CSI formatter which always provides MSB-aligned
+> data, so the RAW16 passthrough outputs MSB-aligned data that doesn't
+> match the V4L2 format definition.
+
+That would have been useful information in the commit message.
+
+I think you should first fix the i.MX95 problem, and add i.MX952 support
+on top.
+
+> > i.MX95 doesn't have CHNL_CTRL_RAW_OUT_LSB_ALIGN but it has
+> > CHNL_CTRL_RAW_IN_MSB_ALIGN. Wouldn't it be enough to set
+> > CHNL_CTRL_RAW_IN_MSB_ALIGN. on i.MX95 (and I suppose i.MX931 and
+> > i.MX93) and i.MX952 without setting CHNL_CTRL_RAW_OUT_LSB_ALIGN, and
+> > keep the current .isi_out_format workaround unconditionally ?
 > 
-> arm64 still uses the hw_pte_t alias in this patch. The new pointer
-> spelling therefore denotes the same type until the final opt-in.
-> 
-> Include linux/pgtable_types.h in pi.h to make hw_pte_t visible.
-> 
-> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-> ---
->  arch/arm64/include/asm/hugetlb.h  |  19 ++---
->  arch/arm64/include/asm/pgalloc.h  |   2 +-
->  arch/arm64/include/asm/pgtable.h  | 143 ++++++++++++++++++++------------------
->  arch/arm64/include/asm/vmalloc.h  |   2 +-
->  arch/arm64/kernel/efi.c           |   3 +-
->  arch/arm64/kernel/pi/map_kernel.c |   4 +-
->  arch/arm64/kernel/pi/map_range.c  |   9 +--
->  arch/arm64/kernel/pi/pi.h         |   3 +-
->  arch/arm64/mm/contpte.c           |  49 +++++++------
->  arch/arm64/mm/fault.c             |   5 +-
->  arch/arm64/mm/fixmap.c            |   6 +-
->  arch/arm64/mm/hugetlbpage.c       |  48 +++++++------
->  arch/arm64/mm/kasan_init.c        |   4 +-
->  arch/arm64/mm/mmu.c               |  46 +++++++-----
->  arch/arm64/mm/pageattr.c          |   4 +-
->  arch/arm64/mm/trans_pgd.c         |   4 +-
->  16 files changed, 190 insertions(+), 161 deletions(-)
-> 
+> Unfortunately not. CHNL_CTRL_RAW_IN_MSB_ALIGN only affects how the
+> ISI selects input data in RAW10/12/14 format modes — it controls
+> whether the ISI selects the high bits or low bits from the pixel link
+> bus as its input. It does not affect RAW16 mode, which is a pure
+> passthrough.
 
-[...]
+If the pixel link always aligns data to the MSB, as you stated, does it
+mean that not setting CHNL_CTRL_RAW_IN_MSB_ALIGN would always result in
+dropping the MSBs of each pixel, essentially breaking ISI operation ?
+What is the use case for making the CHNL_CTRL_RAW_IN_MSB_ALIGN bit
+configurable if it must always be set for proper operation ?
 
-> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> index f66a0016dd02d..237a9136bc73b 100644
-> --- a/arch/arm64/mm/fixmap.c
-> +++ b/arch/arm64/mm/fixmap.c
-> @@ -35,7 +35,7 @@ static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
->  static pmd_t bm_pmd[PTRS_PER_PMD] __bss_pgtbl __maybe_unused;
->  static pud_t bm_pud[PTRS_PER_PUD] __bss_pgtbl __maybe_unused;
->  
-> -static inline pte_t *fixmap_pte(unsigned long addr)
-> +static inline hw_pte_t *fixmap_pte(unsigned long addr)
->  {
->  	return &bm_pte[BM_PTE_TABLE_IDX(addr)][pte_index(addr)];
+> So the RAW16 workaround no longer works on i.MX95 since the input
+> data from the CSI formatter is MSB-aligned. Should we filter out
+> RAW10/12/14 formats on i.MX95 as a fix, or do you have a different
+> approach in mind?
 
-How does this work, given you haven't yet converted bm_pte? You're returning a
-pte_t* where you need a hw_pte_t*. Either the compiler is implicitly converting
-(which would defeat the whole purpose of this series) or this patch doesn't
-compile until you convert bm_pte later on (which I suspect is more likely).
+If i.MX95 can't produce the V4L2 RAW1[024] formats at all, then they
+should be filtered out, yes.
 
->  }
-> @@ -43,7 +43,7 @@ static inline pte_t *fixmap_pte(unsigned long addr)
->  static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
->  {
->  	pmd_t pmd = READ_ONCE(*pmdp);
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  
->  	if (pmd_none(pmd)) {
->  		ptep = bm_pte[BM_PTE_TABLE_IDX(addr)];
+> > > > > +    */
+> > > > > +   fmt = !pdata->raw_out_lsb && isi_out_raw(info->isi_out_format) ?
+> > > > > +         CHNL_IMG_CTRL_FORMAT_RAW16 :
+> > > > > +         info->isi_out_format;
+> > > > > +
+> > > > > +   val |= CHNL_IMG_CTRL_FORMAT(fmt);
+> > > > >     mxc_isi_write(pipe, CHNL_IMG_CTRL, val);
+> > > > >
+> > > > >     /* line pitch */
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> > > > > index 35dec3a650ac..c9c22a3668f9 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> > > > > @@ -20,6 +20,8 @@
+> > > > >  #define CHNL_CTRL_CHAIN_BUF_NO_CHAIN                               0
+> > > > >  #define CHNL_CTRL_CHAIN_BUF_2_CHAIN                                1
+> > > > >  #define CHNL_CTRL_SW_RST                                           BIT(24)
+> > > > > +#define CHNL_CTRL_RAW_OUT_LSB_ALIGN                                BIT(23) /* i.MX952 only */
+> > > > > +#define CHNL_CTRL_RAW_IN_MSB_ALIGN                                 BIT(22) /* i.MX{91,93,95,952} only */
+> > > > >  /*
+> > > > >   * CHNL_CTRL_BLANK_PXL: i.MX8{QM,QXP} only
+> > > > >   * CHNL_CTRL_VC_ID_1, CHNL_CTRL_VC_ID_1_MASK: i.MX{95,952} only
+> > > > @@ -88,6 +90,7 @@
+> > > > >  #define CHNL_IMG_CTRL_FORMAT_YUV420_3P10P                  0x3a
+> > > > >  #define CHNL_IMG_CTRL_FORMAT_YUV420_2P12                   0x3d
+> > > > >  #define CHNL_IMG_CTRL_FORMAT_YUV420_3P12                   0x3e
+> > > > > +#define CHNL_IMG_CTRL_FORMAT_RAW14                         0x41
+> > > >       /* i.MX{8ULP,91,93,95,952} only */
+> > > >
+> > > > This is documented as available on i.MX{8ULP,91,93,95,952}, but the
+> > > > format will only be used on i.MX952.
+> > > >
+> > > > >  #define CHNL_IMG_CTRL_GBL_ALPHA_VAL(n)                             ((n) << 16)
+> > > > >  #define CHNL_IMG_CTRL_GBL_ALPHA_VAL_MASK                           GENMASK(23, 16)
+> > > > >  #define CHNL_IMG_CTRL_GBL_ALPHA_EN                                 BIT(15)
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c> b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> > > > > index f45c2aae59ce..9a6a8302774c 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> > > > > @@ -221,11 +221,11 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >     /*
+> > > > >      * RAW formats
+> > > > >      *
+> > > > > -    * The ISI shifts the 10-bit and 12-bit formats left by 6 and 4 bits
+> > > > > -    * when using CHNL_IMG_CTRL_FORMAT_RAW10 or MXC_ISI_OUT_FMT_RAW12
+> > > > > -    * respectively, to align the bits to the left and pad with zeros in
+> > > > > -    * the LSBs. The corresponding V4L2 formats are however right-aligned,
+> > > > > -    * we have to use CHNL_IMG_CTRL_FORMAT_RAW16 to avoid the left shift.
+> > > > > +    * The format entries use the native RAW10/12/14 ISI format codes.
+> > > > > +    * On platforms without hardware LSB alignment, the driver
+> > > > > +    * substitutes RAW16 at runtime in
+> > > > > +    * mxc_isi_channel_set_output_format() to avoid the left shift
+> > > > > +    * that the ISI applies to RAW10/12/14 output.
+> > > > >      */
+> > > > >     {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y8_1X8,
+> > > > > @@ -240,7 +240,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y10_1X10,
+> > > > >             .fourcc         = V4L2_PIX_FMT_Y10,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -249,7 +249,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y12_1X12,
+> > > > >             .fourcc         = V4L2_PIX_FMT_Y12,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -258,7 +258,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_Y14_1X14,
+> > > > >             .fourcc         = V4L2_PIX_FMT_Y14,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -312,7 +312,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SBGGR10_1X10,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SBGGR10,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -321,7 +321,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGBRG10_1X10,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SGBRG10,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -330,7 +330,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGRBG10_1X10,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SGRBG10,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -339,7 +339,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SRGGB10_1X10,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SRGGB10,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW10,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -348,7 +348,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SBGGR12_1X12,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SBGGR12,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -357,7 +357,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGBRG12_1X12,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SGBRG12,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -366,7 +366,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGRBG12_1X12,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SGRBG12,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -375,7 +375,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SRGGB12_1X12,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SRGGB12,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW12,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -384,7 +384,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SBGGR14_1X14,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SBGGR14,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -393,7 +393,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGBRG14_1X14,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SGBRG14,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -402,7 +402,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SGRBG14_1X14,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SGRBG14,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
+> > > > > @@ -411,7 +411,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> > > > >             .mbus_code      = MEDIA_BUS_FMT_SRGGB14_1X14,
+> > > > >             .fourcc         = V4L2_PIX_FMT_SRGGB14,
+> > > > >             .type           = MXC_ISI_VIDEO_CAP,
+> > > > > -           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW16,
+> > > > > +           .isi_out_format = CHNL_IMG_CTRL_FORMAT_RAW14,
+> > > > >             .mem_planes     = 1,
+> > > > >             .color_planes   = 1,
+> > > > >             .depth          = { 16 },
 
-Same problem here?
+-- 
+Regards,
 
-Thanks,
-Ryan
-
+Laurent Pinchart
 
