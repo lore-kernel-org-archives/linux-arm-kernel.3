@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50083C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B30C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ALgdzPpL+d5iGiTM4u8eiBjjv1/dqGxtZxieX6YLc34=; b=2Dn+7Lq9TuNygbmORnwm50t7c4
-	BPHOpE7S980aP48S211MdpL7BTV9SuaWsoEp3Wh7/lbhdSfggyXvqGOod/vhKGwx+si49v00VtQQV
-	YmSFCoy6SL7r88Rt0OuBfMJ+A2gqaRc4S5eRIX1nGI/qYU8v99+lIxpgheZYKHUEgdDEEuwW3f8So
-	tgsaK8LYuRP+qJ9cszx4/i9IYO/hdX6jLn6lgKu0tYIYPxnhNVbo7/fxZqMHqfd8X4ikUjm6QuFW0
-	cdPYBBHDYi1eRuWTWpcL5XwDWZC0so5vWCGC0AnYRUNWtR6KxaXwrB9myD0pq1vQYrxIwK1J5znFL
-	AsQ//xuQ==;
+	bh=yu9bHXGQw+DaXYWxFGKYbAE+cSQo+BWii/VuW+Fkk1M=; b=iGg5s2ul1h0hxFpInhBFjjGZop
+	S4pI/0tL4ivMRdmevrKe07JBB3TknIIxlmWVe98eX/s/GKXFvL3qWN236wo7FuJYTAiJr5ahtABNC
+	aEVwcfK2I5jqF0kotIZNM+dfx90oiHILipS3/UeVuQjXP9r0p65sEOE1eyHm6n/nDTwXn9C3dCC0l
+	jUCsgwm0huffUKmAYScnKxGJEG5T+yb/8Lwyo/H17BYLp5XfYaZ47LP14q0dAvrI9ybPDVk0IMzya
+	lHCDxw+FYvWJeJDHFR2tVsYr8B6ayrpEidNE51wQj9BnEv1y4Yl0iblFIjjapv/j0a+Fsc0CG23q8
+	r/L6g/3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8aWh-00000001YMM-40gv;
-	Mon, 21 Sep 2026 09:41:31 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8aWe-00000001YLW-12Yi
+	id 1x8aZZ-00000001Yqa-1mHC;
+	Mon, 21 Sep 2026 09:44:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8aZS-00000001Yps-3gjJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 09:41:30 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ALgdzPpL+d5iGiTM4u8eiBjjv1/dqGxtZxieX6YLc34=;
-	b=mF3DSM58SovSu16LW40YbPOsYmFVvTLh0MnsbWOBwDW734nHimzz4ZzNWf7wPGecmNLQ8QF88
-	blk2aJmHMH4AceVUSAMjAmlEkIzbXtxBKht00q9PUzucBH0fq0VMy4lH8qRJfMc6+WYlotpSN7j
-	yX1i9VUqRP2I+MZva9fp5pM=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hpHyH4LLzznTZf;
-	Mon, 21 Sep 2026 17:30:15 +0800 (CST)
-Received: from whupemk200014.china.huawei.com (unknown [7.152.185.79])
-	by mail.maildlp.com (Postfix) with ESMTPS id C24E240563;
-	Mon, 21 Sep 2026 17:41:17 +0800 (CST)
-Received: from [10.174.179.24] (10.174.179.24) by
- whupemk200014.china.huawei.com (7.152.185.79) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Mon, 21 Sep 2026 17:41:16 +0800
-Subject: Re: [PATCH v2 1/3] firmware: arm_ffa: Split the response out of
- ffa_msg_send_direct_req2()
-To: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J .
- Wysocki" <rafael@kernel.org>
-CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
-	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260901192906.133670-1-jamien@nvidia.com>
- <20260901192906.133670-2-jamien@nvidia.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <348dfed7-6aa2-77a2-a0a9-3aeed22f46b8@huawei.com>
-Date: Mon, 21 Sep 2026 17:41:15 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Mon, 21 Sep 2026 09:44:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2998F153B;
+	Mon, 21 Sep 2026 02:44:18 -0700 (PDT)
+Received: from [10.57.83.12] (unknown [10.57.83.12])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7468D3F86F;
+	Mon, 21 Sep 2026 02:44:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789983861; bh=QGwc+dAkTPXAJc9o4T5hZxy9BZq11nu1Z0f1P5saI/Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qwUc8yekPnle5iyolREB22nxPCxek0508Oh9aZKHTFLruu7FqF8h71LWhAgNuw5e8
+	 QO8MRf3saEnhCc9HduCxILbEzWErOEEfJEa25crNaoG3YkHcqnb9MTAiu+kCe9UwNQ
+	 wWUie9GNe6r5o8kHoxX5FXP83fHJqGFNHbtOiC5c=
+Message-ID: <89d44eaa-2ea8-478a-8a39-af91373485fb@arm.com>
+Date: Mon, 21 Sep 2026 10:44:15 +0100
 MIME-Version: 1.0
-In-Reply-To: <20260901192906.133670-2-jamien@nvidia.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] arm64: use HW PTE accessors in early map_range()
+To: Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-efi@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org
+References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
+ <20260914-pte0_arm-v1-5-bb53b663e396@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
 Content-Language: en-GB
+In-Reply-To: <20260914-pte0_arm-v1-5-bb53b663e396@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.24]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- whupemk200014.china.huawei.com (7.152.185.79)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_024128_945014_C0F90C55 
-X-CRM114-Status: GOOD (  30.02  )
+X-CRM114-CacheID: sfid-20260921_024424_596467_83D1D59F 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +83,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jamie,
-
-On 2026/9/2 3:29, Jamie Nguyen wrote:
-> ffa_msg_send_direct_req2() uses one buffer for both the request and the
-> response, and it only ever reports a callee side FFA_ERROR as a translated
-> errno. The ACPI FFH Operation Region handler added later in this series
-> can work with neither. It has to hand every response register back to AML,
-> including on the paths where the call failed.
+On 14/09/2026 14:51, Muhammad Usama Anjum wrote:
+> map_range() uses HW PTE pointers to build early translation tables at
+> each level. Directly testing, decoding, or assigning *tbl treats an
+> HW PTE as a SW PTE value, which requires explicit conversion once
+> hw_pte_t becomes distinct.
 > 
-> Move the body into __ffa_msg_send_direct_req2(). It writes the response to
-> a buffer of its own, returns X1-X3 through @resp_regs, and separates three
-> outcomes: success, a callee that returned FFA_ERROR (-EIO, with the FF-A
-> error code left in @resp_regs[1]), and anything else (-EPROTO).
+> Use __ptep_get() to load a SW PTE value for the empty-entry check and
+> child-table address, and __set_pte_nosync() to convert SW PTE values to
+> HW PTEs on stores. The no-sync helper performs WRITE_ONCE() without
+> adding the completion barriers used by __set_pte().
 > 
-> ffa_msg_send_direct_req2() sits on top of that as a wrapper. It copies to
-> the caller's buffer only on success and returns the same errnos it did
-> before, so ffa_sync_send_receive2() and its users are untouched.
-> 
-> No functional change.
-> 
-> Assisted-by: Claude:claude-opus-5
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 
-Assited-by: LLM
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-The kernel document was updated for this, please update the
-rest of two patches as well.
-
-> Co-developed-by: Dat Mach <dmach@nvidia.com>
-> Signed-off-by: Dat Mach <dmach@nvidia.com>
-> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
 > ---
->   drivers/firmware/arm_ffa/driver.c | 51 ++++++++++++++++++++++++++-----
->   1 file changed, 44 insertions(+), 7 deletions(-)
+>  arch/arm64/kernel/pi/map_range.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index 8654b3365c9b6..3236cd0a731ab 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -560,8 +560,20 @@ static int ffa_msg_send2(struct ffa_device *dev, u16 src_id, void *buf, size_t s
->   	return retval;
->   }
->   
-> -static int ffa_msg_send_direct_req2(u16 src_id, u16 dst_id, const uuid_t *uuid,
-> -				    struct ffa_send_direct_data2 *data)
-> +/*
-> + * Sends @req and reports the callee's X1-X3 through @resp_regs and its
-> + * X4-X17 through @resp, both unconditionally, so that a caller bound by
-> + * DEN0048D section 2.3.1.2 can copy every register back to AML even when the
-> + * callee returned FFA_ERROR. Keeping the response out of @req leaves the
-> + * caller free to decide when, if ever, to overwrite its own buffer. Returns
-> + * -EIO for FFA_ERROR (the FF-A error code is left in @resp_regs[1] as X2) and
-> + * -EPROTO for an unexpected response; both mean the call was made. Callers
-> + * that only need an errno should use ffa_msg_send_direct_req2().
-> + */
-> +static int __ffa_msg_send_direct_req2(u16 src_id, u16 dst_id, const uuid_t *uuid,
-> +				      const struct ffa_send_direct_data2 *req,
-> +				      struct ffa_send_direct_data2 *resp,
-> +				      u64 resp_regs[3])
->   {
->   	u32 src_dst_ids = PACK_TARGET_INFO(src_id, dst_id);
->   	union {
-> @@ -574,21 +586,46 @@ static int ffa_msg_send_direct_req2(u16 src_id, u16 dst_id, const uuid_t *uuid,
->   		.a2 = le64_to_cpu(uuid_regs.regs[0]),
->   		.a3 = le64_to_cpu(uuid_regs.regs[1]),
->   	};
-> -	memcpy((void *)&args + offsetof(ffa_value_t, a4), data, sizeof(*data));
-> +	memcpy((void *)&args + offsetof(ffa_value_t, a4), req, sizeof(*req));
->   
->   	invoke_ffa_fn(args, &ret);
->   
->   	ffa_msg_send_wait_for_completion(&ret);
+> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+> index 94f06da76e333..9c4c8060c5df4 100644
+> --- a/arch/arm64/kernel/pi/map_range.c
+> +++ b/arch/arm64/kernel/pi/map_range.c
+> @@ -51,19 +51,21 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+>  
+>  	while (start < end) {
+>  		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
+> +		pte_t entry = __ptep_get(tbl);
+>  
+>  		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
+>  			/*
+>  			 * This chunk needs a finer grained mapping. Create a
+>  			 * table mapping if necessary and recurse.
+>  			 */
+> -			if (pte_none(*tbl)) {
+> -				*tbl = __pte(__phys_to_pte_val(*pte) |
+> +			if (pte_none(entry)) {
+> +				entry = __pte(__phys_to_pte_val(*pte) |
+>  					     PMD_TYPE_TABLE | PMD_TABLE_UXN);
+> -				*pte += PTRS_PER_PTE * sizeof(pte_t);
+> +				__set_pte_nosync(tbl, entry);
+> +				*pte += PTRS_PER_PTE * sizeof(hw_pte_t);
+>  			}
+>  			map_range(pte, start, next, pa, prot, level + 1,
+> -				  (hw_pte_t *)(__pte_to_phys(*tbl) + va_offset),
+> +				  (hw_pte_t *)(__pte_to_phys(entry) + va_offset),
+>  				  may_use_cont, va_offset);
+>  		} else {
+>  			/*
+> @@ -81,7 +83,8 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+>  				protval &= ~PTE_CONT;
+>  
+>  			/* Put down a block or page mapping */
+> -			*tbl = __pte(__phys_to_pte_val(pa) | protval);
+> +			entry = __pte(__phys_to_pte_val(pa) | protval);
+> +			__set_pte_nosync(tbl, entry);
+>  		}
+>  		pa += next - start;
+>  		start = next;
+> 
 
-As you noted in the cover letter, the AML thread will stall here if no
-response, block the ACPI interpreter and the ACPI global lock when
-the field is Lock-flagged, so do we have some warnings if that happened?
-
->   
-> +	resp_regs[0] = ret.a1;
-> +	resp_regs[1] = ret.a2;
-> +	resp_regs[2] = ret.a3;
-> +	memcpy(resp, (void *)&ret + offsetof(ffa_value_t, a4), sizeof(*resp));
-> +
->   	if (ret.a0 == FFA_ERROR)
-> -		return ffa_to_linux_errno((int)ret.a2);
-> +		return -EIO;
-> +
-> +	if (ret.a0 == FFA_MSG_SEND_DIRECT_RESP2)
-> +		return 0;
-> +
-> +	return -EPROTO;
-> +}
->   
-> -	if (ret.a0 == FFA_MSG_SEND_DIRECT_RESP2) {
-> -		memcpy(data, (void *)&ret + offsetof(ffa_value_t, a4), sizeof(*data));
-> +static int ffa_msg_send_direct_req2(u16 src_id, u16 dst_id, const uuid_t *uuid,
-> +				    struct ffa_send_direct_data2 *data)
-> +{
-> +	struct ffa_send_direct_data2 resp;
-> +	u64 resp_regs[3];
-> +	int ret;
-> +
-> +	ret = __ffa_msg_send_direct_req2(src_id, dst_id, uuid, data, &resp,
-> +					 resp_regs);
-> +	if (!ret) {
-> +		*data = resp;
->   		return 0;
->   	}
->   
-> -	return -EINVAL;
-> +	if (ret == -EIO)
-> +		return ffa_to_linux_errno((int)resp_regs[1]);
-
-resp_regs[1] is confusing, comment here it links to X1 register
-is better.
-
-Thanks
-Hanjun
 
