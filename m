@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F354C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B70DC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Qu1+WZY8bl4VhPrsVVKqjPgM7e+P4+6OSuarLl4alY=; b=tW6Mw9js8aXqlmzlnjCk3uSoK9
-	Voxb5Lt47kM/itMBb3FYNvgUR+goHTZssybEQkQLfz/hHHrGpOGeFuy8I2xRkYGn+4uf//Lbc+wj6
-	I+kfwnpZcVOGxF8YpsZhcXFW8ZUKa/O43siEklCLe3sT89h6fPwGrUyw1NXzeThv2juH4SWleJTCx
-	ZPGd72HmvNRKD18plMCGF3nObL4yyxRSPyZb3yPaAb2AN5OPTTsJNeCLfN/tB/h4PHmiJz2Nquq6o
-	GUUskwssFtCwklhADKMrKuVKTy2fYxylf7uMR8ShAkrgtAqsXU7BLDRH0jXLk6sNnycSnL6LDOghc
-	+OUyNobQ==;
+	bh=TAVGV/5Thua1TFZOVKbuRwl/jAXk2aReC7bLxrqFtsg=; b=csWQlgxfvQ0uK4UqRCMG4mALXz
+	Z2DWGTNyABuibi2O/Dag3bHr4gWTk2aoLI/FycG+MzTh4J+ItxYss3ysJ3eolVVuwmXT+rXic3dA9
+	ZzM3M9/81Kbw2N+7IHnOQi0mXac2ZMy0S27K4VYvApWcSOx8wlTWvqtbB4FprySPLZYXCUH0zaYLs
+	HZXahEQWxguueTTQ+wGSNvEF50k2fEwgVUK8sROk7YnEPblqjozPk9NoryH4EpaWShtfaaVp0Xu8n
+	QlPf/l1UquV1S5zgLTK/aUYTzg9VQHfk5uWEck9sbkVRczpNAawDmxUv28Pb6ja8rHrI8ONR2YqYn
+	H1cGzT9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k8S-00000003HU4-0nid;
-	Mon, 21 Sep 2026 19:57:08 +0000
+	id 1x8k8c-00000003HWX-1AZF;
+	Mon, 21 Sep 2026 19:57:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k8Q-00000003HTb-3ejf
+	id 1x8k8b-00000003HW9-1vEz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:57:06 +0000
+	Mon, 21 Sep 2026 19:57:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C280413C3;
-	Mon, 21 Sep 2026 19:57:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 159021F000FF;
-	Mon, 21 Sep 2026 19:56:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 394A0436F7;
+	Mon, 21 Sep 2026 19:57:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87A3F1F000FF;
+	Mon, 21 Sep 2026 19:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020626;
-	bh=4Qu1+WZY8bl4VhPrsVVKqjPgM7e+P4+6OSuarLl4alY=;
+	s=k20260515; t=1790020637;
+	bh=TAVGV/5Thua1TFZOVKbuRwl/jAXk2aReC7bLxrqFtsg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=M/i+lPJY5pULFbcirUNA/QJkzvftB+OzaGhSJ+ohSAGP0lnuGEqLIhwSl6D67Pq/r
-	 7o+DTqC22yBwz2SebO8n/SLR1FYjGYiVUVfrCPcGA1rbenUNsUSNzjqM6yXgf8y/Z0
-	 tkiFy2tJs/aUGLH+zzgrHWF8sR8pYKDGIICzUDrKtotsIX3/rWkuHSU/GX5RRM4gDm
-	 bpHYi/A1p/Tzf+y4kofxlOvKBOZ7Czg5e8+Iw8ImwxKcDfsgD3qEfl4/FLtwrX0mRH
-	 +566dLnYIHsqoUXNydy8WSee7i3fKAiGqkVI52Z+uQ0TXFjY9YeV6Hl+o1/oLSIZgx
-	 piwixq3lxFW+A==
+	b=IdwgEx+YGAuylT795p2nuD/OUN0WwNll7UPKO7jtrFpUGbfB2ob36smndpAzNfWsm
+	 5ppEiNvfzHg0fKrFzZIb+itRMzh6qndqxQr8pFoZUbHgUPHz0VxFNgDSvfymhuRNYU
+	 4mS76GiBu07fKd+7HqmbT9eMiPL/Sq2FkdG2ODfs+YPG8sONNNaJ4VZY+7T14Keboq
+	 pyId8WU52CtwkRDtulypkfELySzUMCu1ynPmTUL2MNBTRPooxu4shT3wo+JwvMKNq0
+	 dZkVETyhg0G4jtY6AdWpwAZNxlY9y0DxnPh4Bg3IbGwQYr1v/pYAgOR+3rKYLwDsZI
+	 PFqJcTS8OUDfA==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,9 +73,9 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 17/17] ACPI: bus: Drop acpi_get_first_physical_node()
-Date: Mon, 21 Sep 2026 21:56:41 +0200
-Message-ID: <9732391.rMLUfLXkoz@rafael.j.wysocki>
+Subject: [PATCH v1 16/17] ASoC: loongson: Switch to use acpi_bus_get_primary_device()
+Date: Mon, 21 Sep 2026 21:55:56 +0200
+Message-ID: <2796562.BddDVKsqQX@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -98,76 +98,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
 
-Fold acpi_get_first_physical_node() into acpi_primary_dev_companion()
-that is its only remaining caller and drop its signature from the
-header file.
+Replace acpi_get_first_physical_node() that is slated for removal
+with acpi_bus_get_primary_device() that takes a reference to the
+device it is about to return.
 
-No intentional functional impact.
+This addresses a potential use-after-free that may occur if the
+device returned by acpi_get_first_physical_node() is removed right
+after dropping its ACPI companion's physical_node_lock in that
+function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/acpi/bus.c   | 20 +++++---------------
- include/linux/acpi.h |  7 -------
- 2 files changed, 5 insertions(+), 22 deletions(-)
+ sound/soc/loongson/loongson_card.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
-index 808c6746be14..cc6989d88645 100644
---- a/drivers/acpi/bus.c
-+++ b/drivers/acpi/bus.c
-@@ -809,24 +809,14 @@ struct device *acpi_bus_get_primary_device(struct acpi_device *adev)
- }
- EXPORT_SYMBOL_GPL(acpi_bus_get_primary_device);
+diff --git a/sound/soc/loongson/loongson_card.c b/sound/soc/loongson/loongson_card.c
+index 6422cc1703b6..9f3907278462 100644
+--- a/sound/soc/loongson/loongson_card.c
++++ b/sound/soc/loongson/loongson_card.c
+@@ -196,7 +196,6 @@ static int loongson_card_parse_acpi(struct loongson_card_data *data)
+ 	struct snd_soc_card *card = &data->snd_card;
+ 	const char *codec_dai_name;
+ 	struct acpi_device *adev;
+-	struct device *phy_dev;
+ 	int i, ret;
  
--/**
-- * acpi_get_first_physical_node - Find first physical node of an ACPI device
-- * @adev:	ACPI device in question
-- *
-- * Return: First physical node of ACPI device @adev
-- */
--struct device *acpi_get_first_physical_node(struct acpi_device *adev)
--{
--	guard(mutex)(&adev->physical_node_lock);
--
--	return primary_physical_device(adev);
--}
--EXPORT_SYMBOL_GPL(acpi_get_first_physical_node);
--
- static struct acpi_device *acpi_primary_dev_companion(struct acpi_device *adev,
- 						      const struct device *dev)
- {
--	const struct device *phys_dev = acpi_get_first_physical_node(adev);
-+	const struct device *phys_dev;
-+
-+	guard(mutex)(&adev->physical_node_lock);
-+
-+	phys_dev = primary_physical_device(adev);
+ 	/* fixup platform name based on reference node */
+@@ -204,7 +203,7 @@ static int loongson_card_parse_acpi(struct loongson_card_data *data)
+ 	if (!adev)
+ 		return -ENOENT;
  
- 	return phys_dev && phys_dev == dev ? adev : NULL;
- }
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index ba5234bd93a2..6f69819f9c9a 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -105,8 +105,6 @@ static inline const char *acpi_dev_name(struct acpi_device *adev)
- 	return dev_name(&adev->dev);
- }
- 
--struct device *acpi_get_first_physical_node(struct acpi_device *adev);
--
- enum acpi_irq_model_id {
- 	ACPI_IRQ_MODEL_PIC = 0,
- 	ACPI_IRQ_MODEL_IOAPIC,
-@@ -938,11 +936,6 @@ static inline const char *acpi_dev_name(struct acpi_device *adev)
- 	return NULL;
- }
- 
--static inline struct device *acpi_get_first_physical_node(struct acpi_device *adev)
--{
--	return NULL;
--}
--
- static inline void acpi_early_init(void) { }
- static inline void acpi_subsystem_init(void) { }
+-	phy_dev = acpi_get_first_physical_node(adev);
++	struct device *phy_dev __free(put_device) = acpi_bus_get_primary_device(adev);
+ 	if (!phy_dev)
+ 		return -EPROBE_DEFER;
  
 -- 
 2.51.0
