@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6139DC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881D7C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2RGwEkX8Nr2X2WiqJgXRovZAX/TOp2rfkegY7+nn5M=; b=ZvD2BONN/pJz71BlXqu6VpDZi3
-	IUpQ1o7/eFhnRjsbJMsqgn3wz/3uAddjhDgCnzoD1UCo7kAmb5y9q/cIkCpykQpBR1xHqWN+NjtD6
-	Iuqc+gbC4LayyIkM/A0Wkmu7tpbuQ8/SC0h5xzY/DX+ytWK7RJedNg7+ZTLxlhamw06OO4CLZdZ2s
-	XhKK5KO5hp4mMaaxfTdnXH3aB7/N7Tcl+35DAt7eUlmPKSH6qv2ZA1nxH+VWu9RSjss+2ui5NbA/V
-	j5kJsDNyaWuvEkw7POfIImPXuasQ43u2DYz28PkW6Cg2/19+QSXECt2/ol2VetP0fD9MSwzxHJHjv
-	bdhU2Zyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5JpxKnW07QZOzBNHAIMqBm7yFcbK3k0eeQC1zk0hFew=; b=tGTHNaBl9LL4Dz03KPIp7kqhsT
+	u5qGbzuQPkmVuXGpfbWZIrHBtgbCtBt2DRE1Y3hDB8pT1cGI0hlPt5muJA+7bACaSgjefdJyyYfKB
+	nK6b2X4RfgWg2Gqk57BYJLivgnjzNkj3RVBIaJpTZzOSuMnNe8pieKmh4EHs3yVd3UH+NPV77KsH8
+	wsTuhS7Uv2tKlN40QCECGc8jsQoEiPO80isujC0/YCE+8ye0F7TGLWU2qJS4MZDMextClLM2W2yjh
+	d7Oe6Vm8wuLnWsPqk1AlA4P2KMGQW6q6ehuU/lJN3EgtmuSvY9v/2gFEiEquZOT9uAgLgs3MGR9eC
+	ZiSyPMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Y4W-000000019Ky-0ELf;
-	Mon, 21 Sep 2026 07:04:16 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1x8YZ2-00000001En8-3vjx;
+	Mon, 21 Sep 2026 07:35:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Y4S-000000019KQ-1xit
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 07:04:14 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260921070405epoutp04921adb06728d0c1e79bd42fabb13458d~XRBeo72Ax1300913009epoutp04N
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 07:04:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260921070405epoutp04921adb06728d0c1e79bd42fabb13458d~XRBeo72Ax1300913009epoutp04N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789974245;
-	bh=A2RGwEkX8Nr2X2WiqJgXRovZAX/TOp2rfkegY7+nn5M=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=OJltEPhS4bdswx5DbOMWMF7aMeuigsTDgRdBzFosjRnngMXqPf+GD6UN4IG7qPhKz
-	 wQbRBoMSKKMeC5v7dW2sAVY/AzIR/TUv5XEYPCVs8Xr6PxjLrkJf0IUfK+OxUJJe8N
-	 MbQUz97SNvL5QlmO7OApDSNgkbOwn4FmOuH8fS1g=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20260921070404epcas5p3fd32e1e83eed9c75c3552ede73a9bcf4~XRBeSK8Xc0766607666epcas5p3g;
-	Mon, 21 Sep 2026 07:04:04 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4hpDjb6Tcfz3hhTL; Mon, 21 Sep
-	2026 07:04:03 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260921070403epcas5p1e5467529358348d41e60829d045e55e9~XRBcw5yLI1491414914epcas5p1n;
-	Mon, 21 Sep 2026 07:04:03 +0000 (GMT)
-Received: from [107.122.5.126] (unknown [107.122.5.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260921070400epsmtip20f421aa8950b361a497ca737f8cf6a1d~XRBZ8jRid2760327603epsmtip2I;
-	Mon, 21 Sep 2026 07:04:00 +0000 (GMT)
-Message-ID: <053c58ae-5920-4aed-a3b8-61b0a02fc52d@samsung.com>
-Date: Mon, 21 Sep 2026 12:33:58 +0530
+	id 1x8YZ0-00000001Ely-1hCM;
+	Mon, 21 Sep 2026 07:35:48 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DA348C36;
+	Mon, 21 Sep 2026 09:33:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1789976035;
+	bh=EgnOCBnnJ5SOs0ufuZFAwGK3a5ufdWOiG7rFGmgMKeU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NYJnH9jiYSuPY+BwBDdOisWoegG0YGvrWBJuC91+Dqj36D8Ei+WW6V0hr2WdRLzA4
+	 ceTiFTS1Dko1IjjTrFjG3vY0NRiNYl6eVDHf1tdYPmY6GvW9EDDxObEKF12Kxkr7uO
+	 cfiq2l+XPxObD84mFWWDFi3fAyfeni8e6gtQ0o3Q=
+Date: Mon, 21 Sep 2026 10:35:38 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Jimmy Su <jimmy.su@intel.com>,
+	Matthias Fend <matthias.fend@emfend.at>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Sylvain Petinot <sylvain.petinot@foss.st.com>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	Martin Kepplinger <martin.kepplinger@puri.sm>,
+	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Richard Acayan <mailingradian@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	David Heidelberg <david@ixit.cz>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH v6 0/6] dt-bindings: Orientation defines
+Message-ID: <20260921073538.GA1466037@killaraus.ideasonboard.com>
+References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
+ <CAMuHMdWWOB48AUCbXh=9ZGCK2qZyVH06kJ2paRY-wxkq5NC16A@mail.gmail.com>
+ <CAMuHMdVhK0vm_Ksze_=jG8D_=8Q45v+ezNbxwL7JntTt_v_fkg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: usb: Introduce samsung,snps-dwc3
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	gregkh@linuxfoundation.org, robh@kernel.org, conor+dt@kernel.org,
-	Thinh.Nguyen@synopsys.com, mani@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, jh0801.jung@samsung.com, h10.kim@samsung.com,
-	dh10.jung@samsung.com, akash.m5@samsung.com, hongpooh.kim@samsung.com,
-	eomji.oh@samsung.com, shijie.cai@samsung.com, muhammed.ali@samsung.com,
-	thiagu.r@samsung.com
-Content-Language: en-US
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-In-Reply-To: <628a4ac0-135d-434a-b5c7-27453e96fdec@kernel.org>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260921070403epcas5p1e5467529358348d41e60829d045e55e9
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260916122354epcas5p401fd6470d6cef75951af732b03aa5970
-References: <20260916122229.2604003-1-selvarasu.g@samsung.com>
-	<CGME20260916122354epcas5p401fd6470d6cef75951af732b03aa5970@epcas5p4.samsung.com>
-	<20260916122229.2604003-3-selvarasu.g@samsung.com>
-	<20260918-burgundy-marmoset-of-focus-c9b9a7@quoll>
-	<fef2b2f5-3838-4eec-8118-d41f9ca0ed2f@samsung.com>
-	<7fbcf497-a166-45d6-844d-faaece6f581c@kernel.org>
-	<628a4ac0-135d-434a-b5c7-27453e96fdec@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVhK0vm_Ksze_=jG8D_=8Q45v+ezNbxwL7JntTt_v_fkg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_000413_156166_FD922935 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20260921_003546_878362_9F38798E 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +107,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 21, 2026 at 09:07:01AM +0200, Geert Uytterhoeven wrote:
+> On Mon, 21 Sept 2026 at 09:05, Geert Uytterhoeven wrote:
+> > On Fri, 18 Sept 2026 at 12:55, Kieran Bingham wrote:
+> > > Add a new dt-bindings/media/video-interface-devices.h header that
+> > > initially supports the Orientation types and convert existing users
+> > > throughout the code base.
+> >
+> > Just noticed these are already in since commit 6ab5acfb8dd38729
+> > ("dt-bindings: media: Add macros for video interface devices") in
+> > media/master (next-20260903 and later)?
+> >
+> > > v3 collects tags, and fixes the typo, but drops all hunks that do not
+> >
+> > [...]
+> >
+> > > v2:
+> >
+> > Interesting changelog order ;-)
+> >
+> > [...]
+> >
+> > > v3:
+> >
+> > [...]
+> >
+> > > -v4:
+> >
+> > [...]
+> >
+> >
+> > > -v5:
+> > >  - Definitions now accepted in linux-media, rebased to get conversions in.
+> >
+> > Oh, you say so here ;-)
+> >
+> > >       arm64: dts: renesas: Convert to new media orientation definitions
+> >
+> > So it's been safe for me to pick this up since v5?
+> 
+> No it's not, there is a hard dependency.
 
-On 9/18/2026 7:25 PM, Krzysztof Kozlowski wrote:
-> On 18/09/2026 15:46, Krzysztof Kozlowski wrote:
->> On 18/09/2026 15:36, Selvarasu Ganesan wrote:
->>
->>> As seen in samsung,exynos-dwc3.yaml, our existing bindings already
->>> support multiple SoCs with diverse clock requirements within a single
->>> file. Similarly, we plan to use a single flattened Samsung binding to
->>> manage these diverse clock requirements. for different SoCs.
->>>
->>> Regarding the migration for current and future SoCs, would you prefer,
->> I do not understand how any of this is relevant to my review comment.
->>
->>> Option A: A single flattened binding file using a common fallback
->>> compatible string (instead of samsung,snps-dwc3) to minimize
->>> of_match_table entries, and if/then constraints to handle diverse clock
->>> requirements.
->>> Option B: Separate binding files for each individual SoCs.
->>>
->>> Could you please let us know your preferred approach? Once confirmed, we
->>> will address your other review comments based on the selected approach.
->> You do not have other bindings. You have one device. If you have more,
->> then post more. We are not making reviews based on imaginary future things.
-> OK, I guess you referred to my further comments about if:then: block
-> here. When you have more devices, you can add them to the same binding,
-> with proper constraints for each variant.
->
-> https://protect2.fireeye.com/v1/url?k=9ebe79fc-ff356cca-9ebff2b3-74fe485fffe0-0d2d81d841babdca&q=1&e=60d36b7b-e65b-4d92-9fe0-f943564aaf66&u=https%3A%2F%2Felixir.bootlin.com%2Flinux%2Fv7.3-rc3%2Fsource%2FDocumentation%2Fdevicetree%2Fbindings%2Fclock%2Fsamsung%2Cexynos990-clock.yaml%23L93
->
-> If the difference is only in clocks, one binding file is usually good to
-> hold many variants. If there are more differences, things are getting
-> too messy and more files are useful (see commit
-> c80dc8121d3af8f33413bb0f9ed9e81e2c576e1a for example).
+The whole series needs to be postponed by one kernel cycle :-/ It's not
+urgent so it's not a big deal. Kieran will have the priviledge of
+rebasing and sending a v7 :-)
 
+-- 
+Regards,
 
-Thanks for your reference.
-
-
-Since the differences between the Exynos SoCs with USB DWc3 are 
-primarily their clock requirements, We will keep the one binding file 
-and add Exynos8855 SoC now and extend the same binding with per 
-compatible clock constraints when others are migrated.
-
-As we mentioned in our previous comment, we would appreciate your 
-guidance on the naming convention for a binding file that supports 
-multiple SoCs for flattened support , similar to how 
-samsung,exynos-dwc3.yaml is structured.
-
-should we use a common binding filename for the flattened representation 
-(Example: samsung,exynos-dwc3-flattened.yaml)?
-
-
-Thanks,
-Selva
->
-> Best regards,
-> Krzysztof
+Laurent Pinchart
 
