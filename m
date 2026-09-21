@@ -4,126 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C23AC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E8BC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w3UJ+jJG/fm0G4nquu0DTAR8wl/181muiJC8crp8lPM=; b=ry2Syso1fmn2DUWgWwkkPdF2Rs
-	V5LMTJIbEAbo741VIloNrR/kp6SP2ACuoUzdSolS5e8iyUSLwex+mfQ/E9/xV8+QryhoSAImMZjKI
-	6cWbdaO/4kUHzeOKlC/gloeAtCX17X3kD9+ppYI1ccJ6EV1dlAa7wh4S1doF0rWUG11Qziwi1OUh6
-	z5dwjegxpcH0tWtz24q5gpN8c+EeE+c4zC9ty4IykO6bLN45htkElQqZpYvbvVS6ZSPkvDQP/Za0v
-	2MSwC4a6lIdkOirC2O9T17GaHktSJFLEFPOiTKP5oWx2qHZkvX9KinngTVpGC19DuMBhj6p3l2PIU
-	YdiglDeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XavhzQr4VzmWd4Gut7X0rOtPYvCGyPMIEIKU9C9TmK0=; b=AIT0qrs05E63xtndVQwm9GsG8U
+	ITcbvfBUhUohlB+02ftLYKdQ53UNHSb3KFwTBHH6Cvx0iYwHmZStbdouYF5d64DirC58LlEzYsRdb
+	cNKW7xXn6/Zdcodqqp91wSk1TsMuFMuxveQuA6x6jGP0XSj5XcnIUFls+WZmVGQO+EvuaEOUrU1PD
+	2f0OqPpHv/5KfKtx9GxTD7WOPKA8SScNQpUgxBvk66LhLvKuKYYJZanHYt1hjz3IAMsMhxDvEc+bG
+	dSyrCmC9LCY2tgbTU1blsvcZ5JnHyqTQoA91/mV1GQYUo/puHh5gyGzi7YLhjPcOUZ89LCE0VaVHC
+	ROXLEVdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cyA-000000022Dw-2EZY;
-	Mon, 21 Sep 2026 12:18:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8cz8-000000022NT-3HQA;
+	Mon, 21 Sep 2026 12:19:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cy8-000000022Db-2T7k
+	id 1x8cz8-000000022N4-13Yp
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 12:18:01 +0000
+	Mon, 21 Sep 2026 12:19:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=w3UJ+jJG/fm0G4nquu0DTAR8wl/181muiJC8crp8lPM=; b=nBjeh78xcjVdapa+ETqaLhxgv5
-	DPC3KbkXdJ8mADfdNm4Ld5aDJs5HhxeVEDRmiK0saDL2crcsrn5NOEoybpemf0pnFrnBz6wtcUrYZ
-	lF2UlvTk77CsbmC2DuzwXM0+Hok5yHkNW9fdeFHJoC1N9nNGISJS3Wpq/djxuX3AeQQ3CsuxRczqd
-	pSBPch6CuCA34BoogoqGUw8AVlIfuHOS0S5Wsm7gGp4VpSwFWzVGJCb86DjDGY0sWdjnORgTE6w8S
-	8CLFEtJlRFjjC0skOwOndRbj4xYqmsm+CpeOjYqKV6T5CtJw5lM/vRTMDt1KaIZJ3wToMDwIwEi2p
-	OCLwqmxA==;
-Received: from mail-qk2-x0f.google.com ([2607:f8b0:4864:34::f])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8cxs-0000000CGUb-44XN
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=XavhzQr4VzmWd4Gut7X0rOtPYvCGyPMIEIKU9C9TmK0=; b=EuZX4lfFWONxPAacRNFjWAjDoJ
+	EVdhajX3Bd9RPTdAgyEdUbz9W0YgnUL/uQ9bAFVsGJ+ftGcXNA2s9qIao/CGFxSXK1t4U6Wr6FAyG
+	bWtMOepAzDNtc5Cn9ZcqwDs8XYDVtXGcj5WNzPyDFec5EJ02O4pJQf7GW+67yjEE1Ax/A1v2+ulxX
+	8Oo9fH4aWhtnQSg78+OqEAlYSxw5k8QmyyRx/QSM8pWn8SQKkSj0hEaB09JzSKEs6OPyKLdkL8R5H
+	KGiQEwD2pwz+wOVGeLXIJyzTaBge0Ss8XAAS3egbLlcuoL78SSwuc3hAmYkqzZjBQVGjsf2cWhFw9
+	zBwy2Gdw==;
+Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8cz4-00000003s42-094C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 12:17:52 +0000
-Received: by mail-qk2-x0f.google.com with SMTP id af79cd13be357-939109f067cso306004485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 05:17:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1789993060; x=1790597860; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=w3UJ+jJG/fm0G4nquu0DTAR8wl/181muiJC8crp8lPM=;
-        b=KPsrd7Za2Pa3/UC8QbC1Aw+uVxbiNcj70Ismm1HhAv5L3mD9uIc8WCLbq0WBf4QPzy
-         9Wr5zn2pKc/m+hZgdUsygrQ/e3Uj7STyQ9gyouz4Mq30R4Il/tbNspaL+TygT3gPtloY
-         SnaaNgHIGw1i++t5/YaCr6RRVWYx44P9vYpthLiK6AXjjOdf44Qfv5Q8qHQLOXxe3kvd
-         LsFskhzpQmOhin5XaPGZqifoRzw1mvqIETToi6uXiYi9TYPjkgv2OWMzs6e938MvRCqN
-         ReP1H1tkka82xSAFjiJ/CB356xbZoZH08Q7x6qXBPpx/poP5CkR4D9dMuA90Dt0g+HVp
-         +bYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789993060; x=1790597860;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=w3UJ+jJG/fm0G4nquu0DTAR8wl/181muiJC8crp8lPM=;
-        b=U9Rvnd3XDcwrCkRInhhHZcIL1K54opD8oFme47sHwl5N75f87P45y5HEgjHhw/Dwiy
-         XOT3WF0Tj0UO6xyHeyA04OlmfYTcJXyD19z6r3RIAIGqitOFpgDMRRlc0gXQlF8OJsCB
-         6oXFl1/MwQU+oIBZlyuYEm7mU+Zv/+EYLOU/2S0IWRfppgYBtaRwvknWy3MY2mES1iGo
-         CsPJXXsUXFz8iRA3tfqwAZYYH1HZIbjDzqoLbvlBZZTs6ptiOxMrpdh8STRjtIYDZ+Jg
-         MUI3ViuTL3P8oMLMF+rJmbdg8xXL7LqDEgB/jf/oGJ1mILp8tsIgAa4IHY32b7W4s6TJ
-         WSNA==
-X-Forwarded-Encrypted: i=1; AKwUvBz4SOiluZL37Vc9cq7aZMZgonvF/CbTLOqCKoEpMytEpb0N3lsWXvDdEkGP6XcNUYb3uu7sLLMC0YwbBNL1RNWS@lists.infradead.org
-X-Gm-Message-State: AFuF++keFgqUukVPk3+GIsw5ilRK62kIy/8y/64Xz+pySltMCJOQnZkD
-	wzah+joTKEq11MW/hl9Dj3ouXc7FafioBy2vFaN+KGjy4iaiHGOrDeatUH9FwNdMxL0=
-X-Gm-Gg: AYBFou2fp3SXR9ltayN31qgKyUFUfsWO9Nw4o5Ow2/f4AT0h4yW0LTeBQoAUutM7MZO
-	JLyHSbH0aNZr0/u8SDSa6sW5zAZlmPaNbMJBHIQlwB9Fg7SclBvHI2IReE1kV5lz0webGPz2osT
-	UFUn7x8oToNx4yyyMUmY06QQt9JsB55GBYwMrsoioZLanbejrczWvtHLQX/3xOZ7LUvRHrMHurC
-	BAoUgUPAZuVQPfRca0YQJ40Dkj5m0rK/xkKbKSmox+qLU7IQGGNAqwLGm8BsqZAcG/pHsUXjej2
-	A4F17VqE85H6uBGUhbgwYn54WPJjulf2+/7jhxQocXWSp9jHzFH5hfyfrP0+vgAgr6U1N19l0nR
-	uwUKIkpOYW17rHZRE5Jm/fulAQcCm18UIL04Te31uFLBy2+5TW0BEyMcAqA9ffdLHHTLBu40HLI
-	MADmC9a6eEMjmQbZH8WmCgLejp6GcBHsdaxT8kRV5FbgXgrf+mwklkERUtM1UT15xTZa/q79Tlg
-	LQbX7IleIfZuoLGG4YMa4PlZDSKuRklOkqzt6Qe2WcQbDz9op7zBKbZe2zvU+pnyMI=
-X-Received: by 2002:a05:620a:440d:b0:93b:e6d3:3149 with SMTP id af79cd13be357-93c15ec31camr28407885a.53.1789993060138;
-        Mon, 21 Sep 2026 05:17:40 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93bedac21c7sm633945285a.22.2026.09.21.05.17.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 05:17:39 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x8cxn-00000006Foq-0Pwg;
-	Mon, 21 Sep 2026 09:17:39 -0300
-Date: Mon, 21 Sep 2026 09:17:39 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	"T.J. Mercier" <tjmercier@google.com>
-Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
- alignment for cc-shared buffers
-Message-ID: <20260921121739.GM11599@ziepe.ca>
-References: <aq1V3oeDdvXobt8J@arm.com>
- <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
- <20260918153642.GD11599@ziepe.ca>
- <d8123f21-d5ce-415b-a05a-392d97b8b57d@amd.com>
- <20260918165315.GF11599@ziepe.ca>
- <6115eaf7-21bc-49ce-8a74-08fd37a1e2c9@amd.com>
- <20260921115141.GJ11599@ziepe.ca>
- <45dd7a2f-8474-4388-b383-2dee3ee62206@amd.com>
+	Mon, 21 Sep 2026 12:19:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1789993130;
+	bh=XavhzQr4VzmWd4Gut7X0rOtPYvCGyPMIEIKU9C9TmK0=;
+	h=From:To:Cc:Subject:Date;
+	b=tdeOfXnPEYv+qF4pusWcP8n2AdvhwANsVoJQkEvtY/bYfTbdwoMQlZbhBBmecaVFo
+	 RAD8Sc12JWEJLl0q0XoE643LTEFcQKaYtQNBg20W720fbFN5jx5V/9F81rn/On2zTa
+	 cup24uoJXy+fe8fXduVgH351lhSgjiWYUMp5l6qA=
+Received: from RE0700.barrietech.com ([183.156.165.242])
+	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
+	id 45DB3E18; Mon, 21 Sep 2026 20:17:29 +0800
+X-QQ-mid: xmsmtpt1789993049t1yb1seja
+Message-ID: <tencent_4392079B5C29406B923C037A7E66DD338005@qq.com>
+X-QQ-XMAILINFO: MRMtjO3A6C9X29aUms/wkM2a3TG0IvKdvfY2aRLFDQQl2s8lj9cjBlvjwtb16J
+	 KIYuGhAaWx8FZW7rP2C1DFX4lrDvtLuauytgZv25Ficwe+vM2ZSghpJJVXoxSi5bWPa5hennos0C
+	 MiCaP/DYKMBdrGy5aXrKZmrabvG+zzNGLe5cr/qfME6QgQYb//isr6OtZ2fTV9JMmVVbZoqr5DO9
+	 UxewZUMBlGViwZ7jJ1ZaFlvhs/7V4bV8Qt+DOK38+SClH1JAByUJ3cxuQ+xRY1XvlsmUrTQ3voGf
+	 lPwCRx4BzHFbxgP9diF1e2DePgRTvquiirO53MHDrii48KVtcONMQA8WMs5UL396ooL2bDn0ICGd
+	 IENHebzaiQyk5Rac0fqnQW/WIP4aeUR84mMK5Xldvn9Vcp6+sSYKydXqCvqEe3CMSEIedSdMHZEH
+	 9OpB4HdsD6jWxEy+PxwvYd4mzniHkoXYbt+o2Y+9IbnoxYRLieS9NNPgaEbAS5CwLpVEGpR2DNnr
+	 Q5WMo2wqv39+yKC7XoX38x7ezAceVZJfLdzCJ/8HRwEgrBTppd3GIQIrSZ+TQa/FpKam9pFNRUuk
+	 NohROcbuSuWkqDh7lu8eufR6z4esQUjET1pmf9K1WpjUk8jIKFHNtS9x+qA71o4ZEMtrw7fmXyAu
+	 UTCUPkEyefXB1bzgaQjWsneH0+uZKqYvpGU9ZUwIXZjnFEbf0DfcTC8AG+DqDgcLys9bMlZxJNX9
+	 5nYPo0z+fSdoejGh5iY1ZVyP+nZYS8XOXVW3gpYjfPJS9DLK8hoB06dBWrF5HGCcbWiHD2/FordF
+	 HwpAB20+Z/cC+xfEMqHz+JNWpY54sYEcLcrObIGBvMxHBUW6mWnrklgkox5m4PuVxHXpLr/CG7YF
+	 zGHuuS53itATt1FrKHE6+8mez+G/E13O9NvZqNTr9dZ21t7B3AB6GBLcVWhBo2ELWqRo6KFYJq9n
+	 ew3aNqA1jY4mX8lS2KO1DLUM/XvimSTx5bXtW5gR0QkEG08ab7+IO1xq5H7qrHTmmzPIFPzf4Mda
+	 69GE/GDCbRBeZO5lwNX27f9rud68Z7N5twfIS/1MnCLBikNmqIum4yH05YLSm7CKYunHfhSeRyEh
+	 AlDFSSzUW4SflXa6w=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: zhoumin <teczm@foxmail.com>
+To: will@kernel.org,
+	joro@8bytes.org
+Cc: robin.murphy@arm.com,
+	jgg@ziepe.ca,
+	nicolinc@nvidia.com,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	teczm@foxmail.com,
+	stable@vger.kernel.org
+Subject: [PATCH] iommu/arm-smmu-v3: Skip unlinked duplicate stream nodes on removal
+Date: Mon, 21 Sep 2026 20:17:27 +0800
+X-OQ-MSGID: <20260921121727.630136-1-teczm@foxmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <45dd7a2f-8474-4388-b383-2dee3ee62206@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_131750_940370_0CF56E8B 
-X-CRM114-Status: GOOD (  27.41  )
+X-CRM114-CacheID: sfid-20260921_131858_554528_B6459455 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,71 +105,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 02:05:50PM +0200, Christian König wrote:
-> On 9/21/26 13:51, Jason Gunthorpe wrote:
-> > On Mon, Sep 21, 2026 at 11:07:17AM +0200, Christian König wrote:
-> >> On 9/18/26 18:53, Jason Gunthorpe wrote:
-> >>> On Fri, Sep 18, 2026 at 05:39:55PM +0200, Christian König wrote:
-> >>>
-> >>>>> Arch code can figure out how to do it. If some ARM configs only give
-> >>>>> order 4 folios or whatever then dmabuf heap doesn't care.
-> >>>>
-> >>>> The fundamental problem is that DMA allocations are highly
-> >>>> architecture and device specific while Linux memory allocation APIs
-> >>>> are generic.
-> >>>
-> >>> This isn't a dma allocation, this is a memory allocation.
-> >>
-> >> No, I mean this is a DMA-buf heaps allocation. It is a DMA
-> >> allocation, we just don't know for which device.
-> > 
-> > So? How is it any different from the existing alloc pages?
-> 
-> That you need to specify that this is for DMA without encryption.
+A master's firmware stream ID list can contain duplicates, for example
+for PCI devices behind an aliasing bridge. arm_smmu_insert_master()
+accepts these IDs when the existing stream belongs to the same master,
+but does not link the duplicate stream's rb_node into the SID tree.
 
-It is not for "DMA without encryption". It creates shared pages in a
-CC guest which *every* guest device can DMA from.
+Both arm_smmu_remove_master() and the insertion error path nevertheless
+call rb_erase() for every stream in their respective ranges. Erasing a
+zero-initialized, unlinked node can clear the tree root, losing SID to
+master mappings for other devices sharing the SMMU and leaving the tree
+inconsistent for subsequent operations.
 
-> >> That userspace provides this cc_shared flag is a NO-GO to begin
-> >> with.
-> > 
-> > What do you mean? We discussed this with the heap maintainers and we
-> > all agreed this was a kind of heap just like any of the other kinds of
-> > heaps that userspace can request.
-> > 
-> > It is *exactly* the "special allocation requirements" you are talking
-> > about above.
-> 
-> I only see a fraction of the patch set (because no DMA-buf
-> maintainer was CCed) and to me it looked like the cc_shared flag was
-> added as an additional parameter to the allocation and not a
-> separate heap created.
+Mark skipped duplicate nodes with RB_CLEAR_NODE() and skip them in both
+removal paths. Set the marker after sorting the stream array, since it
+contains the node's own address. Keep the stream array and num_streams
+unchanged to preserve existing STE, invalidation and single-stream
+feature checks.
 
-?
+Fixes: b00d24997a11 ("iommu/arm-smmu-v3: Fix iommu_device_probe bug due to duplicated stream ids")
+Cc: stable@vger.kernel.org
+Signed-off-by: zhoumin <teczm@foxmail.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-It was merged months ago, and you were CC'd:
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 5732f3ba0122..2627d496921e 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4141,8 +4141,10 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 					->master;
+ 
+ 			/* Bridged PCI devices may end up with duplicated IDs */
+-			if (existing_master == master)
++			if (existing_master == master) {
++				RB_CLEAR_NODE(&new_stream->node);
+ 				continue;
++			}
+ 
+ 			dev_warn(master->dev,
+ 				 "Aliasing StreamID 0x%x (from %s) unsupported, expect DMA to be broken\n",
+@@ -4154,7 +4156,8 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 
+ 	if (ret) {
+ 		for (i--; i >= 0; i--)
+-			rb_erase(&master->streams[i].node, &smmu->streams);
++			if (!RB_EMPTY_NODE(&master->streams[i].node))
++				rb_erase(&master->streams[i].node, &smmu->streams);
+ 		kfree(master->streams);
+ 		kfree(master->build_invs);
+ 	}
+@@ -4174,7 +4177,8 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+ 
+ 	mutex_lock(&smmu->streams_mutex);
+ 	for (i = 0; i < fwspec->num_ids; i++)
+-		rb_erase(&master->streams[i].node, &smmu->streams);
++		if (!RB_EMPTY_NODE(&master->streams[i].node))
++			rb_erase(&master->streams[i].node, &smmu->streams);
+ 	mutex_unlock(&smmu->streams_mutex);
+ 
+ 	kfree(master->streams);
+-- 
+2.53.0
 
-https://lore.kernel.org/all/20260325192352.437608-1-jiri@resnulli.us/
-
-It follows the design the dma heaps maintiners guided to create a new
-named heap:
-
-+	exp_info.name = "system_cc_shared";
-+	exp_info.priv = &system_heap_cc_shared_priv;
-
-Along side the normal heap:
-
- 	exp_info.name = "system";
-
-It is identical to "system" except the pages are "CC shared" meaning
-the hypervisor and every DMA device can access them.
-
-This series is just adjusting the rules around how
-set_memory_decrypted() works. It isn't changing any uAPI or adding
-anything new to dmabuf heaps.
-
-Yes, it ends up as a flag in the internal code flow, that is just how
-it got coded..
-
-Jason
 
