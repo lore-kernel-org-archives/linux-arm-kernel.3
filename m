@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5168DC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D997C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRMphI5T1L64WHuwz6aodMyAcWwTtLqR1TEhwEfUsrw=; b=jxc/AWiHt5svtQJ9NVpybyiY1R
-	4ssofTVoZk5RPFTZZjnPBUUMWTiAetjnLqhuEc9Bk27FgQ0Kfx2dYQJSjr/lApHJhgSLYS4R+/+3L
-	SgS/3F+kVlXE0VNpPk+/lROyOMgQJaF9M62Dh5PyymflVofh02TtM+C6drahA003hmYMWjbGmdB+b
-	hXs/5nGxA1awac8SL9K2aZzU/81bTHyl0KbcI0Q4InT3iMkL6GrW+4gpF0nzA11JTPOBJR10CLvJj
-	u78SHOEF0WLrBn33qv/gpzw/d3NuRKm+07sMntDEIgeaqRR41tdnp/bF3rjz9kNI1QxC0ktf8UyeG
-	c7hu3vwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Hw49sKCrk0TxQWy4HKwk2Z7RruqtWeFijH78wRP870=; b=r4bQf8nmRI/jzqoF9S5W5ZYaf0
+	Mg6/qVe/O3qTSyohPEH+cKbTfAX0gsTur2fwvl7c/RzwHQTgwJJb+5JSaJ8o0ftsNDqgZj1YcLkI8
+	/WEN6zVzZxmc6KOPnTborfGN//o5NovyYDB7Qmcc9xNLv8NfM8t3l5WbRBK/J+qIu01n0uchja5z5
+	oBb8DXhDxBtnFSOTr3vX671AtvlDwJGsgV52OkXpQfvZGoLi5iqs//VPQ4XLWntMCf8L5paqrMk9F
+	fEijLENMg+8QArm3Cvsyahtb3Wn5T5909ENEwQqigdcrAgkNtXfJEmXT+POTG3OVeblUbxpMjap5n
+	GCMnSFOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hBt-00000002sQO-3tKt;
-	Mon, 21 Sep 2026 16:48:29 +0000
+	id 1x8hDS-00000002slc-0TYY;
+	Mon, 21 Sep 2026 16:50:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hBl-00000002sNd-008m
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 16:48:21 +0000
+	id 1x8hDP-00000002sl2-3j32;
+	Mon, 21 Sep 2026 16:50:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SRMphI5T1L64WHuwz6aodMyAcWwTtLqR1TEhwEfUsrw=; b=kUD/43JjX19R+2kiyGHpz1kwaL
-	do4bW4k23CfcSAS5IE9cAtSy/VILpE6yEpLEUgkUIqJBVvptDYzkgHPzlBJHmvR3Qo27qJO9uGehE
-	sEcBt9vS5ErwfYc5hTrmO2VdAAJS06ThlWfqUwDpQnDbmoUkKoH0OLGEc3AYRLqVahT+KB8Lz7qLj
-	pfHkpCw5DAdptrBpcCn7BezTeay5CtjvtVro8e6eyfhoyRtijTtAw+o1uye31nay6mijgmpFi24DQ
-	1/yYJgGg4jEqras5XAgWiwK3L4bAIYRESvPAqOioHYzdvPF8GMcwPuMG5KDGVL4lOJ7/mhoWCoNH0
-	055ONS4w==;
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8hBh-0000000Ca3L-3NCu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 16:48:19 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-49e65bee41aso746765e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 09:48:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790009295; x=1790614095; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SRMphI5T1L64WHuwz6aodMyAcWwTtLqR1TEhwEfUsrw=;
-        b=Z9qu0tm6EUo2fU9Zx1q7hQHn80r8mQ0iy7yEa2o1cmWABlpS9MmCVxZ8meZlkfTPGa
-         pL6f6UPJHrkioEy+VbMcVv23Mw3wGbWRWQec6macpRZ9AG/btljtrCyXjaDJv/BaL3QA
-         wg46HJsNCWkQMtitP302k6ngh9YCf3C39ei9J+JcsigaUMr7jOIlXdVCwe3Nv/4T41pm
-         rOQENBEAIsKBwysjk2KmsAdE6KRX6V4w1stzWeuXkw2wrpyLwZWBEeMDEQantFIqALnO
-         WzFY55lonNl57L7vUUxjzCAElqFUQB/0cUURkkEelQV+XD1zR0ZzLvwbGR/SC/xHwHUf
-         L9xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790009295; x=1790614095;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SRMphI5T1L64WHuwz6aodMyAcWwTtLqR1TEhwEfUsrw=;
-        b=gZihLzTjETBRjqxu+bimp45rQcatrnPFGDPZDpSz+l8i6WMsPM08RPL8H+uMYSI/og
-         swaWkwpO/Q9AZ9K7bjf2yRiAHd7/kgEd+hazHyHx/rbK4CCHcZNE45GSpT0LDXucs0uJ
-         WfuEmS2QBTJCvHUdcpvTnFf75qb+GWWayldiypv+1CJMATaqOBkUReVRj72pMnxKYkqi
-         LnBmONlAm/J2Qez4he3HydNAMoxk+29PaQxbKrqaeQ60l/pTuSxJKrugYzR2BTWJ1+/g
-         uq9sKxguSDOnPVfQA9m5RUfGROrz4NCQCnaeKjrM2U9lXclKBPZpZxOIpgpsCxatqouP
-         O4rA==
-X-Forwarded-Encrypted: i=1; AKwUvBwdFmtI2m+lU0LGtIJwF3e1G29aF7JbPAs3RzqQVYOuOgHcbt0k1B8JRIYy6vqb4aN3hVbsG/nExvN3hUd0pFvT@lists.infradead.org
-X-Gm-Message-State: AFuF++lWtsHMeFfhyde9NVIOlKxq8xIEZ9pfi/UXFYabPjYSIaY8IXFY
-	iEwlRbNPQPa0qKDy0YMY+d5JwkVfnLufjSQBCAHcn9cPXDxpeibsAAGkmJLZYHz6Mn/VhvflS4E
-	cTMKIYCXQIAFOKlJCM2rozzb75w==
-X-Received: from wrbfm9.prod.google.com ([2002:a05:6000:2809:b0:488:5e25:c0aa])
- (user=snehalreddy job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600d:4443:20b0:49f:bb49:9cca with SMTP id 5b1f17b1804b1-49fd883ccd1mr3241865e9.5.1790009295199;
- Mon, 21 Sep 2026 09:48:15 -0700 (PDT)
-Date: Mon, 21 Sep 2026 16:47:48 +0000
-In-Reply-To: <20260921164748.2958578-1-snehalreddy@google.com>
-Mime-Version: 1.0
-References: <20260921164748.2958578-1-snehalreddy@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260921164748.2958578-3-snehalreddy@google.com>
-Subject: [PATCH 2/2] KVM: arm64: Support FFA_FN64_MEM_RECLAIM2 in host handler
-From: Snehal Koukuntla <snehalreddy@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, Snehal Koukuntla <snehalreddy@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9Hw49sKCrk0TxQWy4HKwk2Z7RruqtWeFijH78wRP870=; b=W/fdNxX02vixRdaiDSwdcGj9C6
+	gLXrODaitOzMy9U6MTVFedwCzG3uFDqvaT8/0TrM+zv9qmyGohdlc+ekWjKMM1kcbaQe+ifY295nc
+	Nfu9rG64FSvo5rMp6CcgHlPkC1ST/znl/OWg9sEyQRNNka3VVRM0vjZefhO5hymPsOqiUVnP4sd3T
+	3zFn/6CfhYsJP17aCW/cEI7c+IxVUiSmqgNn7nzoFCKGmKsuP+z9XNf3GSOSmIO8txtYMbpGbL5Qj
+	wzK9CiSx11DZj8NPZdCaYIuPSqM8n65Cq8TvA+YYj/sWfakk3lWMvwVWduVoHfKtLmzlAPrNZ0ZL8
+	YnYazToQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8hDM-0000000CaDP-0SHR;
+	Mon, 21 Sep 2026 16:50:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9584919F0;
+	Mon, 21 Sep 2026 09:49:53 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C3E73F9A2;
+	Mon, 21 Sep 2026 09:49:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790009397; bh=Wdg09chPpqQgC/K0e8SKRfjnjFGDVmMx8BswypSmTA0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XQmomevpZT09cy6cgr1kTzu2so5J171U16ite1cLw6tf7wJFB4IdlH5QxKz6sSd/4
+	 qRHE98CmDqCVVIr1K3Cv1yP6IMXAdywdYQoc3xBrma/fZL4DL86RO08+Hgqua4e3tA
+	 tpLMTY+ABzQMH+5gDW1Tr/akzSw8iQXUsL5/7yfc=
+Message-ID: <21180ec6-b9ad-43fd-9e52-51df644e1b93@arm.com>
+Date: Mon, 21 Sep 2026 17:49:42 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/6] dma: swiotlb: Centralize minimal pool sizing
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-4-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-4-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_174817_937031_63ED711A 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20260921_175000_678464_11C7B4A7 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,167 +108,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FF-A v1.3 ALP5 (DEN0140 rev J) adds the FFA_MEM_RECLAIM2 interface,
-allowing an Owner to reclaim a subset of pages from a shared or lent
-memory region by populating constituent memory region descriptors in
-its TX buffer along with a starting descriptor byte offset and initial
-page index. Upon completion, the Relayer returns the number of 4K pages
-reclaimed in x3.
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+> A default SWIOTLB pool used only for unaligned kmalloc bouncing can be
+> smaller than one required for limited DMA addressing. Arm64 and RISC-V
+> currently implement this sizing independently, using 1 MiB of SWIOTLB
+> space per GiB of RAM.
+> 
+> The SWIOTLB core now identifies this case with SWIOTLB_POOL_MINIMAL.
+> Size that policy in swiotlb_adjust_pool_size() and remove the
+> architecture-specific adjustments.
+> 
+> Explicit swiotlb= sizing remains unchanged because swiotlb_adjust_size()
+> preserves a user-configured size.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   arch/arm64/mm/init.c | 11 -----------
+>   arch/riscv/mm/init.c |  4 ----
+>   kernel/dma/swiotlb.c | 11 ++++++++++-
+>   3 files changed, 10 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 7d51fb5f5a71..95075b5c8207 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -340,17 +340,6 @@ void __init arch_mm_preinit(void)
+>   {
+>   	unsigned int flags = SWIOTLB_VERBOSE;
+>   
+> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
+> -		/*
+> -		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
+> -		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
+> -		 */
+> -		unsigned long size =
+> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> -
+> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+> -	}
+> -
+>   	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+>   		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+>   
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index e0e4c103d603..96856114b387 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -183,10 +183,6 @@ void __init arch_mm_preinit(void)
+>   		 * memory when DRAM starts above dma32_phys_limit.  Allocate
+>   		 * ~1 MB per 1 GB of RAM.
+>   		 */
+> -		unsigned long size =
+> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+> -		swiotlb = true;
+>   		swiotlb_flags |= SWIOTLB_ANY;
+>   	}
+>   
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 8f86deb25be2..f368a73f4ed0 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -483,9 +483,18 @@ static bool __init swiotlb_kmalloc_needs_bounce(void)
+>   static void __init
+>   swiotlb_adjust_pool_size(enum swiotlb_pool_policy policy)
+>   {
+> +	if (swiotlb_default_size_changed())
+> +		return;
+> +
 
-Support FFA_FN64_MEM_RECLAIM2 in the host FF-A proxy handler. Validate
-the register arguments, descriptor bounds, and initial page index
-against the host TX buffer before forwarding the SMC call to the SPMD,
-and unshare the reclaimed page ranges in the host stage-2 page tables.
+This appears to be entirely redundant, as ultimately the point of this 
+function is to call swiotlb_adjust_size() (if it does anything at all), 
+and the first thing that does is this same exact check. We hardly need 
+to micro-optimise short-circuiting a handful of arithmetic in a one-off 
+setup path, and it's convoluted enough as it is, so please try to avoid 
+redundancy that makes it even more confusing to follow.
 
-Link: https://support.arm.com/documentation/den0140/j
-Signed-off-by: Snehal Koukuntla <snehalreddy@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 117 ++++++++++++++++++++++++++++++++++
- 1 file changed, 117 insertions(+)
+>   	switch (policy) {
+> -	case SWIOTLB_POOL_MINIMAL:
+> +	case SWIOTLB_POOL_MINIMAL: {
+> +		unsigned long size;
+> +
+> +		/* Use 1MB per 1GB of RAM for kmalloc() bouncing. */
+> +		size = DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> +		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+>   		break;
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 5ad74ab265b5..e0fba07a67bc 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -232,6 +232,19 @@ static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 	}, res);
- }
- 
-+static void ffa_mem_reclaim2(struct arm_smccc_1_2_regs *res, u64 handle,
-+			     u64 flags, u64 x3, u64 x4, u64 x5)
-+{
-+	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_FN64_MEM_RECLAIM2,
-+		.a1 = handle,
-+		.a2 = flags,
-+		.a3 = x3,
-+		.a4 = x4,
-+		.a5 = x5,
-+	}, res);
-+}
-+
- static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
- {
- 	hyp_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-@@ -611,6 +624,107 @@ static void __do_ffa_mem_xfer(const u64 func_id,
- 		__do_ffa_mem_xfer((fid), (res), (ctxt));	\
- 	} while (0);
- 
-+static void do_ffa_mem_reclaim2(struct arm_smccc_1_2_regs *res,
-+				struct kvm_cpu_context *ctxt)
-+{
-+	DECLARE_REG(u64, handle, ctxt, 1);
-+	DECLARE_REG(u64, flags, ctxt, 2);
-+	DECLARE_REG(u64, x3, ctxt, 3);
-+	DECLARE_REG(u64, x4, ctxt, 4);
-+	DECLARE_REG(u64, x5, ctxt, 5);
-+	u32 req_desc_cnt = (u32)(x3 >> 32);
-+	u32 total_pages = (u32)x3;
-+	u32 desc_size = (u32)x4;
-+	u32 offset = (u32)x5;
-+	u32 page_index = (u32)(x5 >> 32);
-+	struct ffa_mem_region_addr_range *range;
-+	u32 reclaimed_pages;
-+	u32 reclaimed_count = 0;
-+	u32 in_idx;
-+	int ret = 0;
-+
-+	if (ffa_check_unused_args_sbz(ctxt, 6) || (flags & ~1ULL) || (x4 >> 32)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	if (!req_desc_cnt || !total_pages) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	if (desc_size != sizeof(struct ffa_mem_region_addr_range)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	if ((u64)req_desc_cnt * desc_size > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	if (offset % desc_size != 0) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	if (offset >= (u64)req_desc_cnt * desc_size) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	hyp_spin_lock(&host_buffers.lock);
-+	if (!host_buffers.tx) {
-+		ret = FFA_RET_INVALID_PARAMETERS;
-+		goto out_unlock;
-+	}
-+
-+	memcpy(hyp_buffers.tx, host_buffers.tx, (u64)req_desc_cnt * desc_size);
-+
-+	range = (void *)hyp_buffers.tx + offset;
-+	if (page_index >= range->pg_cnt) {
-+		ret = FFA_RET_INVALID_PARAMETERS;
-+		goto out_unlock;
-+	}
-+
-+	ffa_mem_reclaim2(res, handle, flags, x3, x4, x5);
-+	if (res->a0 != FFA_SUCCESS)
-+		goto out_unlock;
-+
-+	reclaimed_pages = res->a3;
-+
-+	for (in_idx = offset / desc_size; in_idx < req_desc_cnt; in_idx++) {
-+		struct ffa_mem_region_addr_range temp;
-+		u32 pg_cnt, to_reclaim;
-+
-+		if (reclaimed_count >= reclaimed_pages)
-+			break;
-+
-+		range = (void *)hyp_buffers.tx + in_idx * desc_size;
-+		if (!range->pg_cnt)
-+			continue;
-+
-+		pg_cnt = range->pg_cnt - page_index;
-+		to_reclaim = min(pg_cnt, reclaimed_pages - reclaimed_count);
-+
-+		temp = (struct ffa_mem_region_addr_range) {
-+			.address = range->address + (u64)page_index * FFA_PAGE_SIZE,
-+			.pg_cnt = to_reclaim,
-+		};
-+
-+		WARN_ON(ffa_host_unshare_ranges(&temp, 1));
-+
-+		reclaimed_count += to_reclaim;
-+		page_index = 0;
-+	}
-+
-+out_unlock:
-+	hyp_spin_unlock(&host_buffers.lock);
-+
-+	if (ret)
-+		ffa_to_smccc_res(res, ret);
-+}
-+
- static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
- 			       struct kvm_cpu_context *ctxt)
- {
-@@ -1107,6 +1221,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_MEM_RECLAIM:
- 		do_ffa_mem_reclaim(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_FN64_MEM_RECLAIM2:
-+		do_ffa_mem_reclaim2(&res, host_ctxt);
-+		goto out_handled;
- 	case FFA_MEM_LEND:
- 	case FFA_FN64_MEM_LEND:
- 		do_ffa_mem_xfer(FFA_FN64_MEM_LEND, &res, host_ctxt);
--- 
-2.55.0.1082.g2b9226bbc0-goog
+Similarly I think it would be clearer if we had a common 
+swiotlb_adjust_size() call at the end of the function, and then either 
+calculate a size or return early in each switch case as appropriate.
+
+Furthermore, swiotlb_size_or_default() is awful IMO - and in fact after 
+this series we could perhaps clean it up entirely by making the size 
+implicit in swiotlb_init_late() - not to mention misleadingly redundant. 
+I'd say just open-code "default_nslabs << IO_TLB_SHIFT" like elsewhere 
+in the file, but in fact it may as well just be IO_TLB_DEFAULT_SIZE 
+(think about it...)
+
+Thanks,
+Robin.
+
+> +	}
+>   	case SWIOTLB_POOL_CC_GUEST:
+>   		break;
+>   	case SWIOTLB_POOL_NONE:
 
 
