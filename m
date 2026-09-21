@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A07C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 04:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E4EC982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wy2x4ZYheSBxqLbE0QSTdD6qclVPdHF3/ogYAZYIVzk=; b=ieFIOos8L3gx5zRk5brSwshCzx
-	Tgg4w2TQWsE2nbs0TbGyiKjrDSIEOuJ5CCelV0Q6Zscrt2Tr3BFQRjOF0yF19SIdLnSruNpEQsvS6
-	AAPlNvbX7r/DMUdeGtvmavqbDvMiJdqlV312kW9h19QQslvM1XQdOeewCrJNLBeDtHYQobsAy3ys3
-	u7TiEwOlTj6DbPSKrXGsTqR7FxaOaSfIq2xg/X8qIBn61V5EzxBNtOANRAGOHYHQepVWkMuVvkg+I
-	+7DE2/fEEbhT8974Pjs/y0Mgh34inrA/iv5bJ2konN1xa8X26UUz83VFtCbkyUCCQUHfe92WaiV9/
-	pX2hMk+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kiKhv4UQlQ6nf911s/Mw2QK7+i7eND0g6bvkktiJpTE=; b=HGqB2RKhElycjzXIRSOy6LWvlo
+	sEd3CBLiXvXLuka2OFegvFppATEt+4Hh31521vIuJO0EV9YilpFrppO5ZDerZcS5qjL3JHiALCh+9
+	DZLyFHTWvas7kCdqhSa/RyNjyGsyQPmYtJjZTUPTrtihoyiLxQypdKJoHlLsUUkhnfx5HtvTyEtTl
+	P9h4ZM/9gf3KXdkfoonXzCC4uKcWMXK8Kz1aykPLhdYV8xWaQ0IfWXzZh3aNrZkshFmof0uixQvyB
+	sdzzumKdEC/fm6F4seSA9v+G1HDfaC00amYfYYSUgAeKIhvBhg2kqtAzjVmpAxf3w5AfIb/gYAlvu
+	oh+uujOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8W0p-00000000rRq-38qw;
-	Mon, 21 Sep 2026 04:52:19 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1x8VZ7-00000000oba-0GSv;
+	Mon, 21 Sep 2026 04:23:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8W0n-00000000rRM-4BKP
+	id 1x8VYz-00000000oV3-3aHT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 04:52:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789966338; x=1821502338;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8kMF8rBimaKR13vElBQ7E2iTbUTLoPrvjEkzyOHFPes=;
-  b=hG+bfr2epISWcjoDxXtVrhoCj6kvsacQ5fWlECmwztR6XmQ7SMcp2xUM
-   xlNWz6iMDUa6Vd3gO2kFrM1jMoEJc621S9yQfF5t8YYk5u/t+5rO+ZAHq
-   A05n45Aj44RdG0kh7kiDK0N05zUUPBtuR2mGXJ++V78uPkwbT2ja4siUO
-   KMrf+tqMEtQd2JsW6cA9gEkbrfazi6AvC0kaPy9fFCiwoBWs7Jqr1byid
-   B/fq3gOCWmdf60wuqTAuI6i8w/Rf9ZC0leqy3SlxOCFqsAIA9mBe5ZUe+
-   VxKlxPao8FSdVJeY1U86yz4UxQhBLwD4irEoVqucT/DgqW5TD+7srLblo
-   g==;
-X-CSE-ConnectionGUID: oksEOZsgRC23O+22hMHXMQ==
-X-CSE-MsgGUID: reEmoqLkTGmj8SpSR+qdaw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11911"; a="101051123"
-X-IronPort-AV: E=Sophos;i="6.27,114,1787036400"; 
-   d="scan'208";a="101051123"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2026 21:52:16 -0700
-X-CSE-ConnectionGUID: MItRL1SEQU+PADvh8ZG6qg==
-X-CSE-MsgGUID: Ps6tTfHOTIKYy6/HtaSfWA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,114,1787036400"; 
-   d="scan'208";a="271036526"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Sep 2026 21:52:09 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 020F299; Mon, 21 Sep 2026 06:51:55 +0200 (CEST)
-Date: Mon, 21 Sep 2026 06:51:55 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Cc: Andi Shyti <andi.shyti@kernel.org>,
-	Mika Westerberg <westeri@kernel.org>,
-	Shyam Sundar S K <shyam-sundar.s-k@amd.com>,
-	Elie Morisse <syniurge@gmail.com>,
-	Benson Leung <bleung@chromium.org>,
-	Guenter Roeck <groeck@chromium.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Devyn Liu <liudingyuan@h-partners.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Binbin Zhou <zhoubinbin@loongson.cn>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>,
-	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Dmitry Osipenko <digetx@gmail.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Israel Cepeda <israel.a.cepeda.lopez@intel.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Hu <hanshu@zhaoxin.com>, George Cherian <gcherian@marvell.com>,
-	linux-i2c@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 2/2] i2c: busses: use named initializers for
- acpi_device_id
-Message-ID: <20260921045155.GL106095@black.igk.intel.com>
-References: <20260918-acpi-i2c-v1-0-caf4bea4886c@thegoodpenguin.co.uk>
- <20260918-acpi-i2c-v1-2-caf4bea4886c@thegoodpenguin.co.uk>
+	Mon, 21 Sep 2026 04:23:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 057814495C;
+	Mon, 21 Sep 2026 04:23:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C02E8C2BCB3;
+	Mon, 21 Sep 2026 04:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789964612;
+	bh=IiAg44XTMe/C82ryz2ODqQii+pc3aBWmgtcjsuk5Nuk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=ijrKui3QDSfe4hlv1Pqwaa+1r55dluqykAnosyMyPt7myzeCL9Mq2IUV2oTiGgB98
+	 XfYnufY+PkRhrxkU9KUvyj2EvpBJZ7QdthglIVcC6EiTjqNHF57VKouH39lRZKFhTq
+	 GfOIWLdG8G75C4TX95+bFAAQoIeKYEBe9QyPE5NPEly/SRvNvSs/YvmbHVGPhlbR6b
+	 2EZQMztaaqQdSN1/regYTH2fIHbIP+vSCcb/v/hrkCoLGoBEdCzUaQT029ivXsGroT
+	 UAP9IkIOf+L/ztqstpDxGHWul1/4Ks155K4Hc7rPV1le3ZQ0NIir91kdlTRrJnNixL
+	 4/uAQrgRzo9dQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A6CC6C982F1;
+	Mon, 21 Sep 2026 04:23:32 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Mon, 21 Sep 2026 12:23:29 +0800
+Subject: [PATCH v8 10/18] gpio: pl061: convert register access to regmap
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260918-acpi-i2c-v1-2-caf4bea4886c@thegoodpenguin.co.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_215218_069976_0381C639 
-X-CRM114-Status: GOOD (  12.44  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260921-cv75-v5-v8-10-282ff5d98dda@ambarella.com>
+References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
+In-Reply-To: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
+ mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789964608; l=11255;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=bNMGD8MihqEG4c46cw/A6tznIzR/bR90tX0r5+quMeU=;
+ b=CA40djdf4mLPoJECiUp1UGpAicmpzmAXOncX6ZTWV28zd7TZ+RvUi4WcDgEu34RgjQvtee3mV
+ Kppqg1dbZD7AXWvos3RwjvUaX/IBiGvfgT1tNI0mlNmycss7mXUNcTT
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,29 +94,345 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 02:01:51PM +0100, Pawel Zalewski wrote:
-> Use a designated initializer for the acpi_device_id fields which makes the
-> code more readable and consistent with how lists are initialized in the
-> rest of the kernel code base. Also drop explicitly setting fields to 0
-> where it is redundant.
-> 
-> Unify the list terminator to have a single space between the brackets and
-> no trailing comma.
-> 
-> Unify list item alignment to have a single space padding between the
-> brackets.
-> 
-> Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-> ---
->  drivers/i2c/busses/i2c-amd-asf-plat.c       |  2 +-
->  drivers/i2c/busses/i2c-amd-mp2-plat.c       |  2 +-
->  drivers/i2c/busses/i2c-cros-ec-tunnel.c     |  2 +-
->  drivers/i2c/busses/i2c-designware-platdrv.c | 42 ++++++++++++++---------------
+From: Long Zhao <longzhao@ambarella.com>
 
-For i2c-dw:
+Replace readb()/writeb() with a MMIO regmap while keeping the existing
+gpio_chip and girq irqchip. Use a raw spinlock so irq_ack() can run
+under the irq descriptor lock.
 
-Acked-by: Mika Westerberg <westeri@kernel.org>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+---
+ drivers/gpio/Kconfig      |   1 +
+ drivers/gpio/gpio-pl061.c | 134 ++++++++++++++++++++++++++++++----------------
+ 2 files changed, 89 insertions(+), 46 deletions(-)
+
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index f03c05288376..2a1487bd1a94 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -583,6 +583,7 @@ config GPIO_PL061
+ 	depends on ARM_AMBA || COMPILE_TEST
+ 	select IRQ_DOMAIN
+ 	select GPIOLIB_IRQCHIP
++	select REGMAP_MMIO
+ 	help
+ 	  Say yes here to support the PrimeCell PL061 GPIO device.
+ 
+diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
+index 919cf86fd590..66aea0856bc4 100644
+--- a/drivers/gpio/gpio-pl061.c
++++ b/drivers/gpio/gpio-pl061.c
+@@ -19,9 +19,11 @@
+ #include <linux/ioport.h>
+ #include <linux/irq.h>
+ #include <linux/irqchip/chained_irq.h>
++#include <linux/log2.h>
+ #include <linux/module.h>
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/pm.h>
++#include <linux/regmap.h>
+ #include <linux/seq_file.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+@@ -36,6 +38,7 @@
+ #define GPIOIC  0x41C
+ 
+ #define PL061_GPIO_NR	8
++#define PL061_DATA_OFFSET	2
+ 
+ struct pl061_context_save_regs {
+ 	u8 gpio_data;
+@@ -49,18 +52,49 @@ struct pl061_context_save_regs {
+ struct pl061 {
+ 	raw_spinlock_t		lock;
+ 
+-	void __iomem		*base;
++	struct regmap		*regmap;
+ 	struct gpio_chip	gc;
+ 	int			parent_irq;
+ 
+ 	struct pl061_context_save_regs csave_regs;
+ };
+ 
++static bool pl061_is_data_reg(unsigned int reg)
++{
++	return is_power_of_2(reg) &&
++	       reg >= BIT(PL061_DATA_OFFSET) &&
++	       reg <= BIT(PL061_DATA_OFFSET + PL061_GPIO_NR - 1);
++}
++
++static bool pl061_volatile_reg(struct device *dev, unsigned int reg)
++{
++	switch (reg) {
++	case GPIOMIS:
++	case GPIOIC:
++		return true;
++	default:
++		return pl061_is_data_reg(reg);
++	}
++}
++
++static const struct regmap_config pl061_regmap_config = {
++	.reg_bits = 16,
++	.val_bits = 8,
++	.reg_stride = 4,
++	.max_register = GPIOIC,
++	.volatile_reg = pl061_volatile_reg,
++	.fast_io = true,
++	.use_raw_spinlock = true,
++};
++
+ static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
+ {
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
++	unsigned int gpiodir = 0;
+ 
+-	if (readb(pl061->base + GPIODIR) & BIT(offset))
++	regmap_read(pl061->regmap, GPIODIR, &gpiodir);
++
++	if (gpiodir & BIT(offset))
+ 		return GPIO_LINE_DIRECTION_OUT;
+ 
+ 	return GPIO_LINE_DIRECTION_IN;
+@@ -70,12 +104,9 @@ static int pl061_direction_input(struct gpio_chip *gc, unsigned offset)
+ {
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 	unsigned long flags;
+-	unsigned char gpiodir;
+ 
+ 	raw_spin_lock_irqsave(&pl061->lock, flags);
+-	gpiodir = readb(pl061->base + GPIODIR);
+-	gpiodir &= ~(BIT(offset));
+-	writeb(gpiodir, pl061->base + GPIODIR);
++	regmap_update_bits(pl061->regmap, GPIODIR, BIT(offset), 0);
+ 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
+ 
+ 	return 0;
+@@ -86,19 +117,19 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
+ {
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 	unsigned long flags;
+-	unsigned char gpiodir;
++	unsigned int mask = BIT(offset);
+ 
+ 	raw_spin_lock_irqsave(&pl061->lock, flags);
+-	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
+-	gpiodir = readb(pl061->base + GPIODIR);
+-	gpiodir |= BIT(offset);
+-	writeb(gpiodir, pl061->base + GPIODIR);
++	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
++		     !!value << offset);
++	regmap_update_bits(pl061->regmap, GPIODIR, mask, mask);
+ 
+ 	/*
+ 	 * gpio value is set again, because pl061 doesn't allow to set value of
+ 	 * a gpio pin before configuring it in OUT mode.
+ 	 */
+-	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
++	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
++		     !!value << offset);
+ 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
+ 
+ 	return 0;
+@@ -107,15 +138,19 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
+ static int pl061_get_value(struct gpio_chip *gc, unsigned offset)
+ {
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
++	unsigned int val = 0;
++
++	regmap_read(pl061->regmap, BIT(offset + PL061_DATA_OFFSET), &val);
+ 
+-	return !!readb(pl061->base + (BIT(offset + 2)));
++	return !!val;
+ }
+ 
+ static int pl061_set_value(struct gpio_chip *gc, unsigned int offset, int value)
+ {
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 
+-	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
++	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
++		     !!value << offset);
+ 
+ 	return 0;
+ }
+@@ -126,8 +161,8 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 	int offset = irqd_to_hwirq(d);
+ 	unsigned long flags;
+-	u8 gpiois, gpioibe, gpioiev;
+-	u8 bit = BIT(offset);
++	unsigned int gpiois = 0, gpioibe = 0, gpioiev = 0;
++	unsigned int bit = BIT(offset);
+ 
+ 	if (offset < 0 || offset >= PL061_GPIO_NR)
+ 		return -EINVAL;
+@@ -145,9 +180,9 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
+ 
+ 	raw_spin_lock_irqsave(&pl061->lock, flags);
+ 
+-	gpioiev = readb(pl061->base + GPIOIEV);
+-	gpiois = readb(pl061->base + GPIOIS);
+-	gpioibe = readb(pl061->base + GPIOIBE);
++	regmap_read(pl061->regmap, GPIOIEV, &gpioiev);
++	regmap_read(pl061->regmap, GPIOIS, &gpiois);
++	regmap_read(pl061->regmap, GPIOIBE, &gpioibe);
+ 
+ 	if (trigger & (IRQ_TYPE_LEVEL_HIGH | IRQ_TYPE_LEVEL_LOW)) {
+ 		bool polarity = trigger & IRQ_TYPE_LEVEL_HIGH;
+@@ -199,9 +234,9 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
+ 			 offset);
+ 	}
+ 
+-	writeb(gpiois, pl061->base + GPIOIS);
+-	writeb(gpioibe, pl061->base + GPIOIBE);
+-	writeb(gpioiev, pl061->base + GPIOIEV);
++	regmap_write(pl061->regmap, GPIOIS, gpiois);
++	regmap_write(pl061->regmap, GPIOIBE, gpioibe);
++	regmap_write(pl061->regmap, GPIOIEV, gpioiev);
+ 
+ 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
+ 
+@@ -211,6 +246,7 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
+ static void pl061_irq_handler(struct irq_desc *desc)
+ {
+ 	unsigned long pending;
++	unsigned int mis = 0;
+ 	int offset;
+ 	struct gpio_chip *gc = irq_desc_get_handler_data(desc);
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+@@ -218,8 +254,9 @@ static void pl061_irq_handler(struct irq_desc *desc)
+ 
+ 	chained_irq_enter(irqchip, desc);
+ 
+-	pending = readb(pl061->base + GPIOMIS);
+-	if (pending) {
++	regmap_read(pl061->regmap, GPIOMIS, &mis);
++	if (mis) {
++		pending = mis;
+ 		for_each_set_bit(offset, &pending, PL061_GPIO_NR)
+ 			generic_handle_domain_irq(gc->irq.domain,
+ 						  offset);
+@@ -233,11 +270,9 @@ static void pl061_irq_mask(struct irq_data *d)
+ 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
+-	u8 gpioie;
+ 
+ 	raw_spin_lock(&pl061->lock);
+-	gpioie = readb(pl061->base + GPIOIE) & ~mask;
+-	writeb(gpioie, pl061->base + GPIOIE);
++	regmap_update_bits(pl061->regmap, GPIOIE, mask, 0);
+ 	raw_spin_unlock(&pl061->lock);
+ 
+ 	gpiochip_disable_irq(gc, d->hwirq);
+@@ -248,13 +283,11 @@ static void pl061_irq_unmask(struct irq_data *d)
+ 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
+-	u8 gpioie;
+ 
+ 	gpiochip_enable_irq(gc, d->hwirq);
+ 
+ 	raw_spin_lock(&pl061->lock);
+-	gpioie = readb(pl061->base + GPIOIE) | mask;
+-	writeb(gpioie, pl061->base + GPIOIE);
++	regmap_update_bits(pl061->regmap, GPIOIE, mask, mask);
+ 	raw_spin_unlock(&pl061->lock);
+ }
+ 
+@@ -272,9 +305,7 @@ static void pl061_irq_ack(struct irq_data *d)
+ 	struct pl061 *pl061 = gpiochip_get_data(gc);
+ 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
+ 
+-	raw_spin_lock(&pl061->lock);
+-	writeb(mask, pl061->base + GPIOIC);
+-	raw_spin_unlock(&pl061->lock);
++	regmap_write(pl061->regmap, GPIOIC, mask);
+ }
+ 
+ static int pl061_irq_set_wake(struct irq_data *d, unsigned int state)
+@@ -308,15 +339,20 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
+ 	struct device *dev = &adev->dev;
+ 	struct pl061 *pl061;
+ 	struct gpio_irq_chip *girq;
++	void __iomem *base;
+ 	int ret, irq;
+ 
+ 	pl061 = devm_kzalloc(dev, sizeof(*pl061), GFP_KERNEL);
+ 	if (pl061 == NULL)
+ 		return -ENOMEM;
+ 
+-	pl061->base = devm_ioremap_resource(dev, &adev->res);
+-	if (IS_ERR(pl061->base))
+-		return PTR_ERR(pl061->base);
++	base = devm_ioremap_resource(dev, &adev->res);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	pl061->regmap = devm_regmap_init_mmio(dev, base, &pl061_regmap_config);
++	if (IS_ERR(pl061->regmap))
++		return PTR_ERR(pl061->regmap);
+ 
+ 	raw_spin_lock_init(&pl061->lock);
+ 	pl061->gc.request = gpiochip_generic_request;
+@@ -335,7 +371,7 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
+ 	/*
+ 	 * irq_chip support
+ 	 */
+-	writeb(0, pl061->base + GPIOIE); /* disable irqs */
++	regmap_write(pl061->regmap, GPIOIE, 0); /* disable irqs */
+ 	irq = adev->irq[0];
+ 	if (!irq)
+ 		dev_warn(&adev->dev, "IRQ support disabled\n");
+@@ -366,14 +402,20 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
+ static int pl061_suspend(struct device *dev)
+ {
+ 	struct pl061 *pl061 = dev_get_drvdata(dev);
++	unsigned int val = 0;
+ 	int offset;
+ 
+ 	pl061->csave_regs.gpio_data = 0;
+-	pl061->csave_regs.gpio_dir = readb(pl061->base + GPIODIR);
+-	pl061->csave_regs.gpio_is = readb(pl061->base + GPIOIS);
+-	pl061->csave_regs.gpio_ibe = readb(pl061->base + GPIOIBE);
+-	pl061->csave_regs.gpio_iev = readb(pl061->base + GPIOIEV);
+-	pl061->csave_regs.gpio_ie = readb(pl061->base + GPIOIE);
++	regmap_read(pl061->regmap, GPIODIR, &val);
++	pl061->csave_regs.gpio_dir = val;
++	regmap_read(pl061->regmap, GPIOIS, &val);
++	pl061->csave_regs.gpio_is = val;
++	regmap_read(pl061->regmap, GPIOIBE, &val);
++	pl061->csave_regs.gpio_ibe = val;
++	regmap_read(pl061->regmap, GPIOIEV, &val);
++	pl061->csave_regs.gpio_iev = val;
++	regmap_read(pl061->regmap, GPIOIE, &val);
++	pl061->csave_regs.gpio_ie = val;
+ 
+ 	for (offset = 0; offset < PL061_GPIO_NR; offset++) {
+ 		if (pl061->csave_regs.gpio_dir & (BIT(offset)))
+@@ -398,10 +440,10 @@ static int pl061_resume(struct device *dev)
+ 			pl061_direction_input(&pl061->gc, offset);
+ 	}
+ 
+-	writeb(pl061->csave_regs.gpio_is, pl061->base + GPIOIS);
+-	writeb(pl061->csave_regs.gpio_ibe, pl061->base + GPIOIBE);
+-	writeb(pl061->csave_regs.gpio_iev, pl061->base + GPIOIEV);
+-	writeb(pl061->csave_regs.gpio_ie, pl061->base + GPIOIE);
++	regmap_write(pl061->regmap, GPIOIS, pl061->csave_regs.gpio_is);
++	regmap_write(pl061->regmap, GPIOIBE, pl061->csave_regs.gpio_ibe);
++	regmap_write(pl061->regmap, GPIOIEV, pl061->csave_regs.gpio_iev);
++	regmap_write(pl061->regmap, GPIOIE, pl061->csave_regs.gpio_ie);
+ 
+ 	return 0;
+ }
+
+-- 
+2.34.1
+
+
 
