@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00492C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A2DC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=; b=nA4nK2387BdqWH/q7FxZoG+J4f
-	h4tFiyOEpr6jF32I/CvrGLVNen2kkgls1LG2Y6alljc+Njj3CiGcXuQujQWHvG2LW5izi/mZwMTFZ
-	ay3r3b92Wq64RpnoJUSMIdeY8L/6WoOhsvGc3EYLcX8yTgWJfahyrIKsjgzpeKeu4m8TkrXHmtAg3
-	gPGRNxi6/kE0UXxHAuA7OxHJkKBV06HFfQ7zZ+7wjJyBhiMXdQ4KBDl3kgbYin+xE+4fLaZ55r59f
-	KgqjtaqdBXK2qfpO11dps0DMggSk8VaKF3KZ22shc6ePEbFmb8qlf/xNqlhws7CErInZ3sOFIVEHm
-	CMAnmQGA==;
+	bh=h4/riDOncgRUhzR5epGdXHOZl5OnvQAmiqOQ7MptE7w=; b=oxZPCgz4e2T7qmGpir81nQmuKs
+	RNcBvxr83tX8mjp2XF7htDr/LBdcJxy27wFhHC/KItX3uFaFgPPJgBGrGadXqT25NfpBC4NUEK7Gr
+	3JyGydtJwtVHCw2KeNP4zZrnJPJqGalUKJBzviJQ8FEwdYb5P1wKOaD+tCmEpnorQgPrPxwyU2MrV
+	J+OABKduoWYaS0v53b5D/ot4eIL8mE5KTh8WnstOKh8uN4N3VKGIT2W2xto+KJbU1d8qc8S8UtvQ5
+	wPOk6wHsqYxSNvaOi1G/TLuKWudByvxW6p+HrBAk9sKLdtnPHZAyGMvGROL73hi1AZeFRToJCV0nV
+	EoBA8yUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cN7-00000001wNY-2jxU;
-	Mon, 21 Sep 2026 11:39:45 +0000
+	id 1x8cNG-00000001wTK-463q;
+	Mon, 21 Sep 2026 11:39:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cN5-00000001wL7-2MeS
+	id 1x8cN7-00000001wMN-0NxE
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 11:39:43 +0000
+	Mon, 21 Sep 2026 11:39:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=; b=Vg93cxyfKf9XeElM/WjCBqyoHZ
-	Xq8JMTAJUUd69/EbNzGaE7rGEuyK1QQyAONPYy/pK4+C66LtovqJ5SudkS/sLA4SHngiJfiskEBYw
-	3Hsc5l1DVc5nCZMxC2aRGOLQozazXmE4qVYqwyYh+PsUrNa26ikEH7YXEEkFX2MN39ZFM33OrHULc
-	h1ZFCwcnLVMwgXKnSM4c3fjhKbkkmShlqTHJqvB75hgkOprejaM9F+nTFWyFmClsMUhBk5E9nZAxj
-	YIEUqcw0CYFhkURwKv8N9O0gZLSTsXWU6oCOR7vpAAQNkgQ2SnkOWwdZh5OzRM+huQOz3QpQrvD1Q
-	T7Q+Sakw==;
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	bh=h4/riDOncgRUhzR5epGdXHOZl5OnvQAmiqOQ7MptE7w=; b=kJTrtgL8j4SN/no6YK2tj+owZA
+	jRVbdat2UqZho152zsbhIYi7s9SGB6Eu6psjNvJS60iEAOXUQZYVFoRGSD/PlMWKHPXnW+ItN8M8F
+	rUFJd3py65mcKONHa2Gk8VAqDLCf36l8NmTtBVUPYHOTOAJs3p8bZiQANkE7s9kFdpopLbMOD/BQ9
+	wDUtAEJk2o2/lWgYOavuzTdXxBZqu/syJiUgqhA6U81bID9Lxxk+uUn65Jer9cSET3PVcQLedvOwo
+	8xVP1lMjjdHAx/vxCM+GsevS1Eo1uYsW6BR/Zx3jGk5jGbmQd6YE4UurnkyFPqEzKjJ5BXxL5vHxu
+	GLkC04hQ==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8cMq-0000000CDko-2xo4
+	id 1x8cMs-0000000CDlU-3IeO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 11:39:30 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccff31419so24128925e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:39:28 -0700 (PDT)
+	Mon, 21 Sep 2026 11:39:43 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6b885ef8so15637915e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:39:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789990767; x=1790595567; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789990769; x=1790595569; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=;
-        b=jXwwRhOLY8GlB8AJrQBqyjYuDOdGBIh5z6IVi77vkJpVpqlQXCDeefMog/5jSUKtgl
-         713W69CsD/aCG1QuHzUEWVBzROclRWVr7qyLfsV3XDsZyVAVe87t2KNC80R58nHPL70P
-         n2omsgi/1bzcx4Zuode098wiOx0ttnzNOn9VejXIww7AEwM7u5/Du0IT1s5X51en4sMX
-         ltdqZNG9LqZproS24yCz+fIvo9vFR/W5Yhat07m1MCX3xU8QE7DhgTC4fs3kzSQgUN2A
-         EtqY1fB05QQBbufHotuqawD6JTRg7n+nKEX9rNdlvEE+1cNdf0KRnQ5OrWbwKIEhT8Ij
-         rRzA==
+        bh=h4/riDOncgRUhzR5epGdXHOZl5OnvQAmiqOQ7MptE7w=;
+        b=O8PZ/aWoPNsC2KeCoTYd7BWqmPntX5MP56FOKHZaDFcGDA0adQgr4T/8lkuB2lqIj1
+         WezbNk1Hd1nFI9mP1AY9OrwtYuUYEYXikozI4uDd1pV/sCJyArtmk2f9/M2PNrGl1W1q
+         Wcv4L1Y0u7AUJCX9AvUhVwl2FcrKWwVIpGAHMjyee6HC6Y1W+OTN5UiB/YkI2McBf1i0
+         JB1o54vL42WmS3ca1CBkmlgMIAbc1FKvGrkmS7EQZumO5HkgrOrtw/wgkNs2kFi/5kAy
+         uE1H2TTD0TU2XdQbGuB6D2euhmg5WPy2Kx8QoBzTJo61kycHCA4sfUae+OiuBK/jQUPu
+         zfhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789990767; x=1790595567;
+        d=1e100.net; s=20260707; t=1789990769; x=1790595569;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=;
-        b=sTx7bpRXLJGCnjTFVHbKnY7ce5dp6hKqT0DHQ6z+qnMU4kB5ML05y0pQu+Pl39Hqfo
-         o36OMfkrNT0IySeGL44If1wVwVClfJwoIbp4yOnmxkmp6nNBWkjDWDO/a6yJ8t7QuwSD
-         xMu/QYONAZ7pmv0vRCBgp4qDe93FTB1giw+TiV+GrZ7JJPZqAj5jfZ0KRxpKRz3IhTQV
-         nuZEBYSyXk/hbAjJjLSHLfdUtKqFdwf3UTFWYr7pNzoqmaKjqHPuN7rYSGfkV6zKZK8g
-         cWmXlBAGBqFafieVwGYLpXDMp4GHu5646gaYPLMDRquTVa0hrrgb2UHepz0TWEm1l5CO
-         SUFw==
-X-Forwarded-Encrypted: i=1; AKwUvBzQKxIai7Se0bzj4C/qvoSWzZttWnWKRIad2/M3nmrbjtxv4YmbsYEDjUKGe7Tn4POFuhiOkl9u/brQNM5Fm691@lists.infradead.org
-X-Gm-Message-State: AFuF++lnTXUYJSbKTHVVkmvyWBnYkuMdPncbOOhoKZsIYAKfacqPrq8t
-	QU6XuQxsmSqykb7xTME6x6S/llxqKeAkZLrlCSASoWptokf56UGuRQ3N
-X-Gm-Gg: AYBFou3BsOd+e8JARQ93GkdNWP/NJh0Cx3P7oNdQ7B95LeV1t31kGaUz5mUfmHg+XzH
-	WLHX/yFemmRzrRKcp2bukl7atMb/VY/0TwzL+DUHXi9RAikiTGgVplIT071cftY3h/DLr8W/5PQ
-	UK/nFDjwnx97ip0xuF90axzPBs2Q7ROeSLd/e9ZpIVfuzR/ST2MoMm/ccZh0SUNa5Fza1jopCVq
-	hJdaMxDRZRsKruU1sPN8NZTw/rGhBOoI1lhFL1d43+eLQzTAyrfokjFgn315AR2Qw6WU+2QZ2Uv
-	ta6kmF6CIYZExEAEBcA0VqvDqXETqgTG863PbataqPu9GUiX8YSGveDUJPfnLAOaKyU8VhBdwsU
-	vIR/n1/j7j4uJzu6LVYlWj+w34DzbIZZ2dJlhqXlhAUJMtiXS+0LekYtKro0it9+fqygX02FqCN
-	VbBOljhT4B61AgcZjJVoFWcfHiHMScc2Z5UYXsveJG2MUeTM0pm/b5qcQbmLfAd9IruHM=
-X-Received: by 2002:a05:600c:1c05:b0:49c:edfa:15a with SMTP id 5b1f17b1804b1-49fc56af038mr172418205e9.13.1789990767340;
-        Mon, 21 Sep 2026 04:39:27 -0700 (PDT)
+        bh=h4/riDOncgRUhzR5epGdXHOZl5OnvQAmiqOQ7MptE7w=;
+        b=E3TSTLyTuMHCrsk87V3w6kQem3vyvMsbRHZPofSchGXAd+2IgCeSRwynMD6ih/Zmju
+         5HDNt4Ck5a8vGKGtpCiOxpFKsnUbKeCykGmLVlsbrQTuPyFjX6Ko08LLYJ87jRVc9MYQ
+         y7RxnOs51dDEUiStUv+r7hFLYJXr5D3Ycav8tgcearsxsT0FQYx7c+l2gn4QMX9Faool
+         PIW2sQRS8NySuM3dBlPkz3/bt6IfEOnoq6cYX29HRzKe+Zwo1CfKkeWfgNLBhhI0PPBR
+         +mHtQTl//5Nkg2MclBBi2KsQOstIkPq4khSX2hZvrOVFINuTUWb35s5NaKK9tfTyyRmk
+         UHEw==
+X-Forwarded-Encrypted: i=1; AKwUvByYy5kHT1Bs3I2mhSv1cuVUN5EkBdxKXEYd/moebRKP02Egm6IGiDlDu0N5n7tFTe3+3zoxDkCwbMOVE32wL4pZ@lists.infradead.org
+X-Gm-Message-State: AFuF++mg6yOXMY7sS8x047eMdXZNjFXp3o1bMgpoQFWQrBzUijb9w/Ha
+	NbtKMvLKyoyc5KXZ72cE+G2kjdZZtQ7EzPLJ8+cThp57//NwHtI8SrkJ
+X-Gm-Gg: AYBFou2zVprnosLDEYDHp7y4sK1zoSvcC9NXYSC3F1D1PrvKHck4lhjH0SGAnR85YIk
+	pVZ/+Apl1Z55AlHBUSxjm6BkKVNR5wdcAxzsGXr9rNLZYXEUNId3XwUAVqblOLsdY41zBQ8UrP8
+	j02HRMNQs1UKSfQKpfXC7DEu1Jb0bxjz2XWM+8XZOFSklSsfihKJLoB/iMUBp1im0CnvUBoCtrL
+	5EKJOrYveDiqR5UsEJycdyyGhxONBfOS7XH7BQUXkg/FCfIyh7/xqgvBw26bPVrY4IrbNJ5mVC1
+	7oSPAoy3YUHu8l27cGTccoRhBz/WLXD57gxDpJ0Wro6cy5soPdZo3J/YesvysI9D0Pm2f9DE+JO
+	ymGWGEY/vLRUT2Jva3mmfDQBlYlTwUeCFnwjsm4g/Qe2A2aW8URRldMnw/x2LxZH62ytZhNaZJE
+	/RZCpxJJvyApkuhSqsOoB/A/dlAiXLQkGEVadP6+w8Smyr5FSz96P2Gu4cw0cQ5E/5v2E=
+X-Received: by 2002:a05:600c:46cf:b0:49c:de80:b833 with SMTP id 5b1f17b1804b1-49fc5687b6cmr156358075e9.2.1789990769221;
+        Mon, 21 Sep 2026 04:39:29 -0700 (PDT)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc57547easm244273865e9.3.2026.09.21.04.39.26
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc57547easm244273865e9.3.2026.09.21.04.39.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 04:39:26 -0700 (PDT)
+        Mon, 21 Sep 2026 04:39:28 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
 Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -105,17 +105,17 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 1/4] dt-bindings: display: mediatek: dpi: Add compatible for mt8167
-Date: Mon, 21 Sep 2026 13:38:55 +0200
-Message-ID: <20260921113914.779393-2-l.scorcia@gmail.com>
+Subject: [PATCH v2 2/4] drm/mediatek: Add support for mt8167 Digital Parallel Interface
+Date: Mon, 21 Sep 2026 13:38:56 +0200
+Message-ID: <20260921113914.779393-3-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260921113914.779393-1-l.scorcia@gmail.com>
 References: <20260921113914.779393-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_123929_079625_AB80AE4E 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260921_123940_577629_918D0DA6 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,29 +130,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek mt8167 SoC has two Digital Parallel Interface (DPI) blocks,
-one can be routed to a DPI display while the other is wired to the HDMI
-block. They are not compatible with any other device, so add a new
-compatible to describe them in the device tree.
+Add support for the two DPI blocks found in the mt8167 SoCs. One of them
+can be routed to a DPI connector and another is directly connected to the
+HDMI IP.
 
 Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml       | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/mediatek/mtk_dpi.c     | 23 +++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c |  2 ++
+ 2 files changed, 25 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-index eb4f276e8dc4..6cd96a5cd4ae 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-@@ -21,6 +21,7 @@ properties:
-       - enum:
-           - mediatek,mt2701-dpi
-           - mediatek,mt7623-dpi
-+          - mediatek,mt8167-dpi
-           - mediatek,mt8173-dpi
-           - mediatek,mt8183-dpi
-           - mediatek,mt8186-dpi
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
+index 0e4f430de983..9012adeb63d0 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+@@ -1114,6 +1114,10 @@ static const struct mtk_dpi_factor dpi_factor_mt2701[] = {
+ 	{ 64000, 4 }, { 128000, 2 }, { U32_MAX, 1 }
+ };
+ 
++static const struct mtk_dpi_factor dpi_factor_mt8167[] = {
++	{ 64000, 16 }, { 74250, 8 }, { 160000, 4 }, { U32_MAX, 2 }
++};
++
+ static const struct mtk_dpi_factor dpi_factor_mt8173[] = {
+ 	{ 27000, 48 }, { 84000, 24 }, { 167000, 12 }, { U32_MAX, 6 }
+ };
+@@ -1163,6 +1167,24 @@ static const struct mtk_dpi_conf mt2701_conf = {
+ 	.csc_enable_bit = CSC_ENABLE,
+ };
+ 
++static const struct mtk_dpi_conf mt8167_conf = {
++	.dpi_factor = dpi_factor_mt8167,
++	.num_dpi_factor = ARRAY_SIZE(dpi_factor_mt8167),
++	.reg_h_fre_con = 0xe0,
++	.max_clock_khz = 150000,
++	.output_fmts = mt8173_output_fmts,
++	.num_output_fmts = ARRAY_SIZE(mt8173_output_fmts),
++	.pixels_per_iter = 1,
++	.is_ck_de_pol = true,
++	.swap_input_support = true,
++	.support_direct_pin = true,
++	.dimension_mask = HPW_MASK,
++	.hvsize_mask = HSIZE_MASK,
++	.channel_swap_shift = CH_SWAP,
++	.yuv422_en_bit = YUV422_EN,
++	.csc_enable_bit = CSC_ENABLE,
++};
++
+ static const struct mtk_dpi_conf mt8183_conf = {
+ 	.dpi_factor = dpi_factor_mt8183,
+ 	.num_dpi_factor = ARRAY_SIZE(dpi_factor_mt8183),
+@@ -1342,6 +1364,7 @@ static void mtk_dpi_remove(struct platform_device *pdev)
+ 
+ static const struct of_device_id mtk_dpi_of_ids[] = {
+ 	{ .compatible = "mediatek,mt2701-dpi", .data = &mt2701_conf },
++	{ .compatible = "mediatek,mt8167-dpi", .data = &mt8167_conf },
+ 	{ .compatible = "mediatek,mt8173-dpi", .data = &mt8173_conf },
+ 	{ .compatible = "mediatek,mt8183-dpi", .data = &mt8183_conf },
+ 	{ .compatible = "mediatek,mt8186-dpi", .data = &mt8186_conf },
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index c86a3f54f35b..64c87221d931 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -802,6 +802,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
+ 	  .data = (void *)MTK_DPI },
+ 	{ .compatible = "mediatek,mt8167-dsi",
+ 	  .data = (void *)MTK_DSI },
++	{ .compatible = "mediatek,mt8167-dpi",
++	  .data = (void *)MTK_DPI },
+ 	{ .compatible = "mediatek,mt8173-dpi",
+ 	  .data = (void *)MTK_DPI },
+ 	{ .compatible = "mediatek,mt8183-dpi",
 -- 
 2.43.0
 
