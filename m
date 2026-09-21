@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCBBC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06568C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NqgY6PswTEBy8Ql3ryxfhlIyJkIeEuwOW64TnavHIk=; b=IUNvoImvHrMja0iFORFbli1/rx
-	LkfZtPYOrKkQWaB6/N6U97jgQ/wyRcgqQnQOjZv7LjLXd4Q5vAEovLsUfeiaGujEM6bI4uJRwxaj7
-	u0pUMTCzNybBBGxvldyEN9Og6oOOwZ82D6hc0PBc9jUKrDWdkTgzAc7glJJvk/BjtFDPDE0o1IRDB
-	pmsAw1C5e41ixM1hZI+xTtZllswzdUBunM+iUfImkbxzaW7OPctlCUXjq/tW35ruHpjWjbI50MZ1f
-	AtD5pnt3c16gsy+mJklYjRNFYKkKWKZB2fjfz7do7DNNfjiHeZzycLRx3MPdZphu9DR/7shhFhiR8
-	LRXae5tg==;
+	bh=xT6B5z/Lm9Yq6kTTqxh6/x5YBBWDcznbkfV7ooekiP4=; b=n8/tWZj2mezu8IzWwfkFQLG/Y/
+	LNs4Ng/+DVdww6eivvo08FbS3aEppp+5jtGb9+qHU1tyF5sHW6MX8pKBMiPC2aByfxpBLBSLDaNBF
+	DNkF9m8dr0iy1lRUdDPEshZPQXRAypjZDL6ldcApwVaHvduOmO4EJj2oK67TPT8uWgfY76DCpr5Cz
+	3wJAGsuC2Fcw6wx+QZiO49dae+Cv8Kj5+ZoZPBSl/8QnN6DWbRaSld0qwuzOqSwhNmDIMf2k0QekX
+	UEEFSBQHKW4O7e9l3KGQMTA1eZG11bl1+uAequFmBMeCnU6Os5EYe6Rh08JDgARVH4sgLMgEm+B0M
+	qE+tDAMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8enc-00000002MiK-0piZ;
-	Mon, 21 Sep 2026 14:15:16 +0000
+	id 1x8eoG-00000002MoR-3i7M;
+	Mon, 21 Sep 2026 14:15:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8enZ-00000002Mhu-3V6N
+	id 1x8eoE-00000002Mn1-2KgA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:15:15 +0000
+	Mon, 21 Sep 2026 14:15:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9501E176C;
-	Mon, 21 Sep 2026 07:15:08 -0700 (PDT)
-Received: from [10.0.152.207] (e121487-lin.carmbridge.arm.com [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 268103F86C;
-	Mon, 21 Sep 2026 07:15:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84FB819F0;
+	Mon, 21 Sep 2026 07:15:45 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 144EF3F86C;
+	Mon, 21 Sep 2026 07:15:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790000112; bh=QrfcEyyCuOa4e/SO8MXzejyGVXjLsOvmYfYwjNB4neM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mzD1Ge+NflcbXNe0vVMSkIpA82XGBhQIuxPaR/Rrr/joTBQOe/KzCT+Nx6Ar/8+KK
-	 COwDKhH5V/4rCgZzZg5GNhk/1TSCmXMHoAJ0Bf8/mDJ6QVEk2Qy2j8YlDts0IDycIi
-	 77p6JakMfoas8q4P+z48TE6wNlqnP4GM03RGBFnA=
-Message-ID: <17c7ffbb-ed00-4c6d-b255-c77aff977721@arm.com>
-Date: Mon, 21 Sep 2026 15:15:07 +0100
+	t=1790000149; bh=GFF0q4XjecnXvt26SXMCNpoTC+BgSNXJBJ9ZFMXMeO4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nJ1MVoEuIS2S2b3v4/MsCYgyL3+L2ycb3tuEcEo4wIdwkIxtUqibdbHbl0md3gOCh
+	 3PyPr7xV34llOnb87+K4KMB0JoLyNNke5iONl/pyL2ruV30zfjjnm1GsPfscv3Pxeu
+	 QqOiQ4/zuG+aHIQBG4xBv2zHFfN8u6UEEBIRa7Ac=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 1/5] KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
+Date: Mon, 21 Sep 2026 15:15:44 +0100
+Message-ID: <arE8EOPh1-NWtFIU@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <eb629070-a02f-426a-92ee-b2c8f9e2aa9a@huawei.com>
+References: <20260901171558.2674031-1-leo.bras@arm.com> <20260901171558.2674031-2-leo.bras@arm.com> <86bja17cg7.wl-maz@kernel.org> <aql8jY4o8SzjJuFU@LeoBrasDK> <aqnku2TcFzIKhjQl@kernel.org> <aqp73SxO78o7LJTs@LeoBrasDK> <eb629070-a02f-426a-92ee-b2c8f9e2aa9a@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/38] arm64: entry: Introduce entry specific exception
- masking helpers
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- maz@kernel.org, lpieralisi@kernel.org, liaochang1@huawei.com
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <20260914102102.68597-6-vladimir.murzin@arm.com>
- <77548d26-25b4-4e88-b902-bae52e520289@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <77548d26-25b4-4e88-b902-bae52e520289@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_071513_950094_6490F2E1 
-X-CRM114-Status: GOOD (  25.07  )
+X-CRM114-CacheID: sfid-20260921_071554_673690_B44A9E32 
+X-CRM114-Status: GOOD (  43.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,198 +83,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/17/26 10:53, Jinjie Ruan wrote:
+On Fri, Sep 18, 2026 at 05:39:17PM +0800, Tian Zheng wrote:
 > 
-> 在 2026/9/14 18:20, Vladimir Murzin 写道:
->> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>
->> The entry code handles interrupt masking differently from the rest of
->> the kernel. Exception handlers enter and exit with all exceptions
->> masked, but they must temporarily unmask the appropriate set of
->> exceptions so that the rest of the handler executes with the expected
->> exception state.
->>
->> For EL0 handlers, this means dropping to masking context appropriate
->> for the work to be performed. For EL1 handlers, this means restoring
->> the masking context of the interrupted task. In both cases, all
->> exceptions must be masked again before returning from the exception
->> handler.
->>
->> The rest of the kernel typically follows the opposite pattern: it
->> raises the masking context to protect a critical section and later
->> restores the previous context.
->>
->> Given these different usage patterns, introduce a dedicated set of
->> exception masking helpers for the entry code. Keeping these helpers
->> separate from the generic interrupt masking APIs makes the intended
->> usage explicit and helps avoid mixing the two masking models.
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/include/asm/interrupts/entry.h | 100 ++++++++++++++++++++++
->>  1 file changed, 100 insertions(+)
->>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
->>
->> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
->> new file mode 100644
->> index 000000000000..0cfca62aa25b
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/interrupts/entry.h
->> @@ -0,0 +1,100 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * Copyright (C) 2025 Arm Ltd.
->> + */
->> +#ifndef __ASM_INTERRUPTS_ENTRY_H
->> +#define __ASM_INTERRUPTS_ENTRY_H
->> +
->> +#include <asm/arch_gicv3.h>
->> +#include <asm/bug.h>
->> +#include <asm/cpufeature.h>
->> +#include <asm/interrupts/common_flags.h>
->> +
->> +
->> +static __always_inline
->> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
->> +						  arm64_exc_hwstate_t next)
->> +{
->> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
->> +	bool force;
->> +
->> +	arm64_debug_exc_hwstate(prev);
->> +
->> +	if (prev.flags == next.flags)
->> +		return next;
->> +
->> +	if (!irqs_disabled)
->> +		trace_hardirqs_on();
->> +
->> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
->> +
->> +	__arm64_update_exc_hwstate(next, force);
->> +
->> +	if (irqs_disabled)
->> +		trace_hardirqs_off();
->> +
->> +	return next;
->> +}
->> +
->> +static __always_inline
->> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
->> +{
->> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
->> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
-> Could it be renamed to a more intuitive name, such as
-> arm64_exc_hwstate_of_regs()?
+> 
+> On 9/16/2026 7:22 PM, Leonardo Bras wrote:
+> > On Tue, Sep 15, 2026 at 05:37:15PM -0700, Oliver Upton wrote:
+> > > On Tue, Sep 15, 2026 at 06:12:45PM +0100, Leonardo Bras wrote:
+> > > > > Yes, the HW should ignore it. But we have also
+> > > > > seen quite a few broken designs in this area...
+> > > > > 
+> > > > 
+> > > > I lack experience on what bad thing could happen. So I will expand on what
+> > > > I belive to understand up to here:
+> > > > 
+> > > > - The PTE is in memory, so the DBM bit can be set regardless of being RES0
+> > > > - For SW pagetable walking, I don't think 'bit 51 == 0' is checked
+> > > > - For HW pagetable walking, maybe some faulty implementation may rely on
+> > > >    bit51 being RES0, and fault otherwise.
+> > > > 
+> > > > If that's the case, then we would have to actually support both encodings,
+> > > > and only enable the new one if HAFDBS is available in the system.
+> > > > 
+> > > > I just wonder how high are the chances to have such a broken design,
+> > > > or other broken designs did not come to my mind, and if we have to start
+> > > > with that multiple-encoding option.
+> > > 
+> > > FWIW, the host stage-1 already uses the DBM bit unconditionally,
+> > > treating it as a software bit on implementations without HAFDBS.
+> > > Although given the quality of any garden variety Arm MMU I understand
+> > > where Marc is coming from.
+> > > 
+> > > I don't think the HAFDBS enablement is complicated enough to be done in
+> > > a separate series without any meaningful users, nor would I really be
+> > > interested in taking it without, say, HDBSS.
+> > > 
+> > > Can you please work with Tian to get a combined series out for this?
+> > > 
+> > 
+> > Hi Oliver, thanks for reviewing!
+> > 
+> > Sure, one of the reasons I sent like this is so Tian could use it as a base
+> > for his next version.
+> > 
+> > 
+> 
+> Hi Oliver, Leo,
+> 
+> Works for us. I plan to send HDBSS v5 maybe next week with this series
+> merged in. Both dirty-tracking consumers are already built on top of the
+> DBM approach: dirty ring and dirty bitmap.
+> 
+> Leo, with your blessing, I'd like to pick patches 1-4 into the HDBSS
+> tree with your Signed-off-by preserved and mine added on top, plus some
+> bug fixes on top of this RFC series.
+
+Yeah, no problem on my side. I would just observe the maintainers' comments 
+on those before merging them.
+
+> 
+> For patch 5, I'd like to rework it into a derived hardware dirty mode
+> that replaces both kvm_set_hafdbs() and our earlier HDBSS enable/disable
+> hooks, so the whole thing lands as one series.
 > 
 
-Ack.
+My intention when I wrote that patch was to add a base so you could add 
+HDBSS on kvm_arch_commit_memory_region() with new patch such as:
 
->> +
->> +	return __arm64_switch_exc_hwstate_to(prev, next);
->> +}
->> +
->> +static __always_inline
->> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
->> +{
->> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
->> +
->> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->> +		WARN_ON_ONCE(prev.daif < next.daif);
->> +
->> +		if (prev.daif == next.daif) {
->> +			/*
->> +			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
->> +			 */
->> +			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
->> +		}
-> The if branch is a dead code now, we can remove it.
+	/* Disable HAFDBS when dirty-logging starts */
+	if (kvm_supports_hafdbs(kvm))
+		kvm_set_hafdbs(kvm, 0);
++	else
++		kvm_enable_hdbss(kvm);
+...
+
+	/* If dirty-logging was canceled, set HAFDBS back on */
+	if (kvm_supports_hafdbs(kvm) &&
+	    atomic_read(&kvm->nr_memslots_dirty_logging) == 0)
+		kvm_set_hafdbs(kvm, 1);
++	else
++		kvm_disable_hdbss(kvm);
+
+
+That being said, I need to run tests to make sure the usage of HAFDBS 
+outside of dirty_tracking makes any sense in terms of performance, but if 
+that's not the case, it would be fine to rework it so it does not 
+enable/disable HAFDBS there.
+
+> Performance looks good in both dirty ring and dirty bitmap scenarios so
+> far.
 > 
 
-Let compiler do the job :)
+Awesome!
 
-> arm64_drop_exc_context is only used directly in the context of
-> el0t_64_error_handler below. It switches from ERROR_CONTEXT to
-> PROCESS_CONTEXT.
-> 
-
-Such specialization goes against the idea of generalization. We don't
-want to touch the helpers every time we decide to change a caller -
-it's too much cognitive load to keep all these details in mind, and
-they're easy to miss.
-
-Thanks
-Vladimir
-
-> And now arm64_unmask_exc_context always switch from CRITICAL_CONTEXT
-> to ERROR_CONTEXT/NONMI_CONTEXT/NOIRQ_CONTEXT/PROCESS_CONTEXT.
-> 
-> So there is no case where prev and next DAIF are the same.
-> 
-> 1009 static void noinstr __el0_error_handler_common(struct pt_regs *regs)
-> 1010 {
-> 1011 >-------unsigned long esr = read_sysreg(esr_el1);
-> 1012 >-------arm64_exc_hwstate_t hwstate;
-> 1013 >-------irqentry_state_t state;
-> 1014
-> 1015 >-------arm64_enter_from_user_mode(regs);
-> 1016 >-------hwstate = arm64_unmask_exc_context(ERROR_CONTEXT);
-> 1017 >-------state = irqentry_nmi_enter(regs);
-> 1018 >-------do_serror(regs, esr);
-> 1019 >-------irqentry_nmi_exit(regs, state);
-> 1020 >-------hwstate = arm64_drop_exc_context(hwstate, PROCESS_CONTEXT);
-> 1021 >-------arm64_exit_to_user_mode(regs, hwstate);
-> 1022 >-------arm64_debug_exc_context(CRITICAL_CONTEXT);
-> 1023 }
-> 1024
-> 1025 asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
-> 1026 {
-> 1027 >-------__el0_error_handler_common(regs);
-> 1028 }
-> 
-> 
->> +	}
->> +
->> +	return __arm64_switch_exc_hwstate_to(prev, next);
->> +}
->> +
->> +static __always_inline
->> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
->> +{
->> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
->> +
->> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->> +		WARN_ON_ONCE(prev.daif > next.daif);
->> +
->> +		if (prev.daif == next.daif) {
->> +			/*
->> +			 * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so smaller PMR value is stronger
->> +			 */
->> +			WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr < next.pmr);
->> +		}
->> +	}
->> +
->> +	return __arm64_switch_exc_hwstate_to(prev, next);
->> +}
->> +
->> +static __always_inline
->> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
->> +{
->> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
->> +
->> +	return arm64_drop_exc_context(prev, context);
->> +}
->> +
->> +static __always_inline
->> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
->> +{
->> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
->> +}
->> +
->> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
-> -- Best regards, Jinjie
-> 
-
+Thanks!
+Leo
 
