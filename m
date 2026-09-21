@@ -4,56 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF54DC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0384C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWLwX8DWyk6tmDOQHHgr36r/+cwmqwe2iEQzYwuHPtE=; b=D56hh579Z/dI1icaRhcosTUAH7
-	73NnwTuD4fpVG1RzlBdn7IUQVIei0qWzeMiT2js8Zk6ylJmTrZaKNkx6ohFqvMF4F8MHArYl9I68t
-	WA0Izpet9PVYAOw+Xkuao9OSX4Qnc6a33+fsliG5qxGps/MjII4Wr85o982SvamkDSKsPVfSq7yGz
-	bXv3svKb+4WgrKNi89dIxBgb/Tnf6YnfBqu+LF8jh0FxoWAwI4Om2y7XwiHCEvngv6L02Mr77reXJ
-	kHJNdDSJAwDx+Przo44nteFyEySUHMIej7RfwvkQjzH9/4S+t89Mxyv6ZSj5W5aPUvk7QOmXjsZKD
-	n8Psf5rA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=waX7gSuoELYg8dj5wYlyPglljpLDMxvzm6cH/Hs1p9s=; b=c6d2FXMee3sEwe
+	mAkoFFhum2fj24d0sCeBsVyMvXM3FuyeeUbNvlgAlBqXzE/kB71DN13TEFG0mMlfq8FTBJY+V/Y+J
+	gWj0LPiRhelSpkCbPhNaQMWC5EHGChzNcq+0VHOkBXrf/bDzverEvASwiOqOYajhTJIAAxMDdqNbB
+	0uIwLOYbKImExM/7QCiQNTdwgK6m7vRCW1gbFyRrT7lUKs7UH2MEXHTPNqg4EZvjhNiRG0GlQcojn
+	0Nih82S0HCQn3AaxkHFMJaxJEVqWWhqKvpmVLINZtB71n2InL3Fc+l+n8851cyM6XF2TTxXTT5w0U
+	jJV8TFU+YzhzxAHB+4BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g3q-00000002dgP-2rc3;
-	Mon, 21 Sep 2026 15:36:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8g7E-00000002eEl-11Hm;
+	Mon, 21 Sep 2026 15:39:36 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g3p-00000002dg7-4BR1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:36:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 764E241B55;
-	Mon, 21 Sep 2026 15:36:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB1AF1F000FF;
-	Mon, 21 Sep 2026 15:36:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790004965;
-	bh=pWLwX8DWyk6tmDOQHHgr36r/+cwmqwe2iEQzYwuHPtE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EMnoPuYp13fVCB8vNKTXhfp8D8qzmQaNvuw6mSpQJGKfejInySU5UrPMvwcChxX5D
-	 hDkL6HZHAByR0MIgSvO5tXeOjEdxedG4qDfIRgR8eM0LXZLmtN00MGMOsJMVHDQ3Os
-	 69RHu6JRspxP+9H6uS7/lizG943Q8Y5zUZmTCHV0CYIGPvH7OU5DHDM2A26fil5ZDQ
-	 msfYA42yd5QZPiKTsmgiqHF4hlyqHKu+SyIiblciVBf3GSGI2EUo98+7eid5M5E1ht
-	 3uQbzgb44afu2cYRW0Q8zju4Fy5swIkqvJ1TsiIDSZ0G4/7D5xHeBbjL0V2IRzbQ0q
-	 xDXfD6GPYTN0Q==
-Date: Mon, 21 Sep 2026 16:36:00 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v4 3/8] firmware: smccc: lfa: Add timeout and trigger
- watchdog
-Message-ID: <20260921-elastic-impartial-pig-ea6b58@sudeepholla>
-References: <20260918141112.2115555-1-andre.przywara@arm.com>
- <20260918141112.2115555-4-andre.przywara@arm.com>
+	id 1x8g7B-00000002eDh-0E4W;
+	Mon, 21 Sep 2026 15:39:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790005138; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DM22Q4L7fTdn9aRDm2/lVkwtzCkgmWQ7zKUEcemjiEUdIg6pmxcg7CMjVB+m5T1B/ZpL4y8aKBq4EqNd9Iqo0REQZz75wqliu1OV2HlSgGkBCSbjRtjMzZR9XxhnpqicxGA/EjOjmW8lJMyMbpNBQwMPHS5JVBli4I8odca9sPk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790005138; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=waX7gSuoELYg8dj5wYlyPglljpLDMxvzm6cH/Hs1p9s=; 
+	b=HdYxw61fPPSFvUcaPF7lAOdqbC3OqTIZNA1Q0c/zPBPv/TVcv0Xpci0sacNxJlijdTNXvZqyt0wWVg1Xktr0h0b/5PwDdzaGWtQY7okkKgxv4GW1oefyPoxy2r5uK+XnusgvEvRgEL8lnJtBmxx9BvHVbdxATEIYJwmtlFO57K8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790005138;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=waX7gSuoELYg8dj5wYlyPglljpLDMxvzm6cH/Hs1p9s=;
+	b=ZAXkjGn+YlZPSoDO4iguBidh6f1lT3vlb+1uDaENs/F/G2h71FAvyx3/aw8P6tR1
+	P7la7D90TZPy9o0hAASlJILa+TzJBDB5ZQUj+pl+X78w9ViUduhdyZ40ipCB1+joi3A
+	tgqX2/hrammTGY5UFosiQsuNaeXqOUX/j2r1sqU8=
+Received: by smtp.zohomail.com with SMTPS id 1790005136630103.40203631844861;
+	Mon, 21 Sep 2026 08:38:56 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH v4 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
+ and PRCM
+Date: Mon, 21 Sep 2026 23:37:58 +0800
+Message-Id: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918141112.2115555-4-andre.przywara@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22QS2rDMBRFt2I0roJ+tixTQvZROpCfn2LR+FPJM
+ Skhe69sF5yWTgRX6Bxx751EDB4jqbI7CTj76Ic+BfWSEWhtf0bqm5SJYKJg6aBWS0nh8kFZoxw
+ wZo0zQNLzMaDzt1X19p5y6+M0hK/VPPPldpNIznbJzCmjsqgVmloolevT6M/dEOzlMCG0ZBHNY
+ oc150+wSLDRquFlCTUy+A+WO2xY/gTLBOfMCVk6aUCXf+HH1ing5zWtMm3FSIcx2nWVKnv9sRY
+ 0XvubX7X9QMetFdQNCg7GYWF+u4/LXLWNSGHoOj9V2awPkgbg6dfHN13ULbOTAQAA
+X-Change-ID: 20260202-a733-clk-0d4fc00a9f9c
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Enzo Adriano <enzo.adriano.code@gmail.com>, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6077;
+ i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
+ bh=xPqtt4Y27/A6I22jOVVgdxx5STBSaUOlB7hM2ytzsNc=;
+ b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLI2+qeffn9Yd9+7/Yd1Dl/dpxozP0YiaWdfYpt53fvru
+ 9hZbrpydJSwMIhxMciKKbJw+Yv/s9bh+XZEoPU+zBxWJpAhDFycAjCRnc8ZGS7ct38UIihmKO3s
+ uLJ00bV4gfPOTVVLOyatsrXbr1C/I4Lhq8CefQHFfeWfAhKmaejLmLCZRdrF8v7SvVJQvfRriSA
+ HAA==
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
+ fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_083933_573404_829E6DB1 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,26 +102,127 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 04:11:06PM +0200, Andre Przywara wrote:
-> From: Vedashree Vidwans <vvidwans@nvidia.com>
-> 
-> Enhance PRIME/ACTIVATION functions to touch watchdog and implement
-> timeout mechanism. This update ensures that any potential hangs are
-> detected promptly and that the LFA process is allocated sufficient
-> execution time before the watchdog timer expires. These changes improve
-> overall system reliability by reducing the risk of undetected process
-> stalls and unexpected watchdog resets.
-> 
+Add support for the main CCU and the PRCM module (R-CCU) found in the
+Allwinner A733 SoC. The clock architecture is derived from the previous
+A523 design, with the MCU_CCU removed and the clock tree extended for
+the additional functional blocks found on the A733.
 
-I assume this change is separate from 2/8 for authorship purposes.
-Otherwise it should ideally be part of the original driver. It is prone
-to firmware bugs without these changes.
+The A733 introduces a "pll-ref" clock that normalizes the physical
+oscillator frequency, which can be 19.2MHz, 24MHz, or 26MHz, into a
+consistent 24MHz reference for the PLL clock tree.
 
--- 
-Regards,
-Sudeep
+The peripheral, video, and DE PLLs provide multiple independently gated
+outputs with programmable dividers. Model these outputs as separate
+divider-and-gate child clocks. Also follow the documented hierarchy for
+the derived peripheral PLL outputs. The explicitly named PLL_AUDIO1 /2
+and /5 outputs are modeled as fixed-factor clocks, with their divider
+fields initialized accordingly.
+
+Also extend the sunxi-ng SDM (Sigma-Delta Modulation) support for the
+dual-pattern register layout used by the A733 PLLs. PLL_AUDIO0 uses the
+dual-pattern SDM support to synthesize its fractional output.
+PLL_AUDIO1 does not expose fractional rates, but its SDM controls are
+modeled so that stale settings left by firmware can be disabled when an
+integer rate is programmed.
+
+The actual parents of a small number of bus gates are not documented in
+the user manual. Follow the vendor BSP and keep these gates parented to
+"hosc" until more complete hardware information is available.
+
+This series depends on the A523 single-divider clock fixes [1], which
+add feature support to the M-only clock macro used by the MBUS and DRAM0
+clocks. The prerequisite series has been applied to the
+sunxi/clk-for-7.4 branch.
+
+Link: https://patch.msgid.link/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech [1]
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+Changes in v4:
+- Model the MBUS and DRAM0 clocks as M-only clocks
+- Base the series on the A523 single-divider clock fixes
+- Link to v3: https://patch.msgid.link/20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech
+
+Changes in v3:
+- Patch 1: Rename the clock/reset binding headers with the allwinner vendor
+  prefix, use BSD-2-Clause for their dual license, and reorder the binding
+  properties according to the preferred schema layout
+- Patches 1 and 4: Drop the undocumented 12X suffix from the video and DE
+  PLL core clock names and binding IDs
+- Patch 2: Require all PAT1 enable bits to be set when checking whether SDM
+  is enabled
+- Patch 4: Model the independently gated peripheral, video, and DE PLL
+  outputs as programmable-divider child clocks
+- Patch 4: Follow the documented hierarchy for the derived peripheral PLL
+  outputs
+- Patch 4: Model the explicitly named PLL_AUDIO1 /2 and /5 outputs as
+  fixed-factor clocks and initialize their divider fields accordingly
+- Patch 4: Model the PLL_AUDIO1 SDM controls so stale firmware settings are
+  disabled when an integer rate is programmed
+- Patch 4: Add the missing module device table and remove an unused include
+- Patch 6: Replace the MP helpers used by timer clocks, which have no M
+  divider, with the corresponding P-only helpers
+- Patch 7: Document the unresolved parents of bus gates kept on hosc and
+  fix the APB/AHB IOMMU1 system clock names
+- Patches 3 and 8: Make the reset maps const
+- Link to v2: https://patch.msgid.link/20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech
+
+Changes in v2:
+- Rework the clocks property in DT bindings to source hosc directly from
+  the oscillator to adapt to the new RTC binding
+- Clean up the SDM dual-pattern helper macro and add the missing enable
+  parameter for pll-audio0
+- Number single-instance clocks with 0, e.g. GPU0, VE_ENC0/VE_DEC0,
+  DRAM0, NAND0, GPADC0, THS0, etc
+- Correct 8x PLL post-divider names to 12x for video and DE PLLs
+  (pll-videoX-12x, pll-de-12x)
+- Drop gic, cpu-peri, nsi clocks
+- Rename clocks: OWA -> SPDIF, USB_REF -> USB01_REF, HDMI_ESM -> HDCP_ESM,
+  PWMCTRL -> PWM
+- Mark bus-dram0, ahb-store and mbus-store critical to avoid DMA, MMC and
+  SPI NOR failures when unused clocks are disabled
+- Switch PRCM timer clocks to P-only helpers
+- Fix bus gate bit positions for UARTs and correct the sysdap register
+  address
+- Interleave bus clocks into function clocks
+- Link to v1: https://lore.kernel.org/r/20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech
+
+---
+Junhui Liu (8):
+      dt-bindings: clk: sun60i-a733-ccu: Add Allwinner A733 support
+      clk: sunxi-ng: sdm: Add dual patterns support
+      clk: sunxi-ng: a733: Add PRCM CCU
+      clk: sunxi-ng: a733: Add PLL clocks support
+      clk: sunxi-ng: a733: Add bus clocks support
+      clk: sunxi-ng: a733: Add mod clocks support
+      clk: sunxi-ng: a733: Add bus clock gates
+      clk: sunxi-ng: a733: Add reset lines
+
+ .../bindings/clock/allwinner,sun60i-a733-ccu.yaml  |  107 +
+ drivers/clk/sunxi-ng/Kconfig                       |   10 +
+ drivers/clk/sunxi-ng/Makefile                      |    4 +
+ drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c           |  273 +++
+ drivers/clk/sunxi-ng/ccu-sun60i-a733.c             | 2391 ++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_sdm.c                     |   52 +-
+ drivers/clk/sunxi-ng/ccu_sdm.h                     |   29 +-
+ .../dt-bindings/clock/allwinner,sun60i-a733-ccu.h  |  290 +++
+ .../clock/allwinner,sun60i-a733-r-ccu.h            |   39 +
+ .../dt-bindings/reset/allwinner,sun60i-a733-ccu.h  |  129 ++
+ .../reset/allwinner,sun60i-a733-r-ccu.h            |   23 +
+ 11 files changed, 3321 insertions(+), 26 deletions(-)
+---
+base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+change-id: 20260202-a733-clk-0d4fc00a9f9c
+prerequisite-message-id: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
+prerequisite-patch-id: 0df2ae41836b86fd868dfa01ddfde57f888f761a
+prerequisite-patch-id: 88f3a431e7c551a9fa732f062188f10fdd362eeb
+prerequisite-patch-id: 3e88bc873c909059d1199f82cda4013765e7a5e5
+prerequisite-patch-id: 0dbc27cd7417352319a0705a051dff35085e8922
+
+Best regards,
+--  
+Junhui Liu <junhui.liu@pigmoral.tech>
+
 
