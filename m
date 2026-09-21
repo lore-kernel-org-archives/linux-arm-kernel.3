@@ -4,92 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC79C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8299C982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9lrDJGugDn/XEbngsUxQjCalL4q6BemMqvBoYxwI24=; b=AOmE+PNgsehQtA72X6WJz2Cqm/
-	J9ijgd6PbLTPal1VbVcNN0QyqIeGEClWHacA1c3bOfZ0pTW9bxfwvStpa8Sh74STfyamyIRYisJT4
-	39WhCB4A6htD4KmqeBDvgq38r250Ykm+DrW33zqwd2oJEby2rA3tI1XAe8h1fR3xffvs6w0OCXhod
-	iveznZ4WQYDa9exEupry1xe79v65JYX18qjVbjiTvJ0N46Qt8o0NCgxqvAqP7UUn4dRLAZniALlwu
-	KWUzByceCspP6qr8ZtPoyJzk2JvOdNmysBMWjYDOWqkmprVGFj8V+2fjShT3ikSh4C6PA5A03U33C
-	/dmPNTEQ==;
+	bh=eqL1+pxbQbl2lD+yMbd0BnhFooll2P4VKDlpZNXroxA=; b=GfXPJo4yF6TMvNERSb5V46YFRM
+	pOthnwca/Jjp/cpLfIC38C5/flwbW/UF/SN1P3S7+jdUXaXcdkgaARo2qfLaPWqX0kZQCJ1mrEJGj
+	e6uYoMgYFHrAl/mR14AbQ4xg3aAYpt/oW3cWDUTz+a99RXD+vXzlMd51l8Rb3Bu6OTCax0Da8sijS
+	zR1o617tvHmq/Ep1NJpKKhXdc8Z/KVU8yR92vdE5agoy+G3qG2s1U7N2kD+kywteFW12C6/Vh6QGx
+	I226SwCykPmZLOMUHVZzS82lStQtkVRYjTimLSN1RQfS8CjSNVpayvT8FCDbgvUKQHLrs8NKXSiHZ
+	+qEQkb7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dfy-00000002Bkf-0qzo;
-	Mon, 21 Sep 2026 13:03:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8diN-00000002Bw9-2TnT;
+	Mon, 21 Sep 2026 13:05:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dfw-00000002Bk2-2HEE;
-	Mon, 21 Sep 2026 13:03:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=a9lrDJGugDn/XEbngsUxQjCalL4q6BemMqvBoYxwI24=; b=XuGsWsG1kf6Hy+/v6wd2WBDPnD
-	x0lImw4z+BN95UoEZ6OI68pmPFhHtJ2QNkmgf9kW//oscPVa7PP38/3AjfLe/btjNjKE0r6XR6gik
-	hDjczh50o6ZkXx2DNEuqRVH/JQRNQV3k5IWPZnUaXU/sLuXCLrhhzj5m8QYeaGxsQyXKh5IYM/QUh
-	0nwxmzi065jo0AwU6fl1DIKfLQFK97Ch9/59UxfWYlHAI60li3z2XWWTg9IFNoXwZ+ihoaCUZUBM5
-	zRiJ+A8iIc10ElbW0Z5++laA8iMR7CgeerOxZEykH1iYTcwBeGMP7z5cJfSkYLlqZuMAXPncFZUIM
-	eXsHqDTg==;
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8dfi-0000000CJWh-0A6a;
-	Mon, 21 Sep 2026 13:03:11 +0000
-X-UUID: baf01f2ab5bc11f1acbe4559397dec65-20260921
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=a9lrDJGugDn/XEbngsUxQjCalL4q6BemMqvBoYxwI24=;
-	b=oHo5rWTgO0D8TcgUG6tMwgqBajHLA6bnp3H79Uup4526JwG7RbSJXOT5ii/P+Yv1KLa4sdJOwd+1oFpnXlFALM7LbmVz+iUVv/gY1r+VOInQ7v/D96VAJdL6W3ioT+XDcRGPkMqDRXlzvm8u0es6u6tawBwqzdvjyIAHxV85pVQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:65f907f1-9272-4dff-832a-3a40e38890de,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:f4e15f7c-2058-4298-90ad-1156c3f1dffd,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
-	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
-	-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: baf01f2ab5bc11f1acbe4559397dec65-20260921
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1146948144; Mon, 21 Sep 2026 06:02:41 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 21 Sep 2026 21:02:39 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
- Transport; Mon, 21 Sep 2026 21:02:39 +0800
-Message-ID: <0a8e36f57f169b9ff75ed7a3d547a36340b98e32.camel@mediatek.com>
-Subject: Re: [PATCH v2] scsi: ufs: mediatek: handle mPHY power-on failures
-From: Peter Wang <peter.wang@mediatek.com>
-To: Pengpeng Hou <hppiscas@163.com>
-CC: <chaotian.jing@mediatek.com>, <chu.stanley@gmail.com>,
-	<james.bottomley@hansenpartnership.com>, <mkp@kernel.org>,
-	<linux-scsi@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <martin.petersen@oracle.com>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<linux-arm-kernel@lists.infradead.org>, <stanleyjhu@google.com>
-Date: Mon, 21 Sep 2026 21:02:38 +0800
-In-Reply-To: <20260920034953.19535-1-hppiscas@163.com>
-References: <20260920034953.19535-1-hppiscas@163.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1x8diM-00000002Bvx-0wBj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 13:05:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8EF6443DE7
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 13:05:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 737761F00893
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 13:05:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789995945;
+	bh=eqL1+pxbQbl2lD+yMbd0BnhFooll2P4VKDlpZNXroxA=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=GytY8D3g9KdWyEtZtKTjUOE80hf8ad6hTWTO7J8PIUu0jHamYH88cX4PcpnIU4nuX
+	 Fb8JSRH3Z0LaZ3h+Pgb3AsvbFcuues6Bk5RIOba2lut9pliLRttQMlHxKmbOKAH2Yb
+	 Nh31eBZsWGEI2G7idQAW6xUecITXNq9iS7i2sMvQYIN8j20/cjTTq0TQ6EdLNUZCxP
+	 brZjpAm9BYFp8WBMt10OoutEA4CgYr68ypEaveyMCAvHgvpTrPjaxrgg+a+wjsUKDl
+	 ZZdNaF8bHTM+FswX6m4wAozccXVphUzMTrQ9GpTxAviLX5rpXaGuogEyWTAZoGR6sv
+	 p4hlu95urNk3Q==
+Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a59fa3112cso25832021fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 06:05:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzuYzEoetiOTcUEd77MKI+/pglF3iaHA/gvHaw2icWxcR6kvqPsnyTLo5E2uswTgzNnvkEqHAQnFOY6N+Uy8CkZ@lists.infradead.org
+X-Gm-Message-State: AFuF++lOuGfnRBRv8ktYJCq3RL5x/G6m1iM5Euii/Iki2m9ISPDQSHAB
+	Ag4CktOCt6PDPOexFnrnSJL51SxTXSOm238by0mT//n/DnA4HoAtukycEA2uuioo3LK8Lp1dc10
+	gkO7iQ+6OH3totk0muwgzkG9ZCQRtGon4ccX6dLm4dg==
+X-Received: by 2002:a05:651c:b13:b0:3a5:fb20:4e63 with SMTP id
+ 38308e7fff4ca-3a5fbf54e10mr22033851fa.17.1789995943840; Mon, 21 Sep 2026
+ 06:05:43 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 21 Sep 2026 09:05:42 -0400
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 21 Sep 2026 09:05:42 -0400
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <3e3a7197.9e4e.1a0c3e88117.Coremail.zl020895@163.com>
 MIME-Version: 1.0
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_140309_645142_2A771DC8 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
+ <20260921-cv75-v5-v8-9-282ff5d98dda@ambarella.com> <CAMRc=Mf7dtxvxBUF1fOuKw0mxdhCYPj=J4ckySPZUvcZ7a6cbQ@mail.gmail.com>
+ <3e3a7197.9e4e.1a0c3e88117.Coremail.zl020895@163.com>
+Date: Mon, 21 Sep 2026 09:05:42 -0400
+X-Gmail-Original-Message-ID: <CAMRc=MfSSHuPxOrP95aW5HXXE74f5X-yjr-KNavz_=tU__H33w@mail.gmail.com>
+X-Gm-Features: AcwNN1XpPns_pQlHseY9Ez4-fOhLH2UhBc-jukWmFLjbznkNpQwaq4oL4Cj_puk
+Message-ID: <CAMRc=MfSSHuPxOrP95aW5HXXE74f5X-yjr-KNavz_=tU__H33w@mail.gmail.com>
+Subject: Re: Re:Re: [PATCH v8 09/18] gpiolib: regmap: add gpio_regmap_get_chip()
+To: zl020895 <zl020895@163.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, longzhao@ambarella.com, 
+	Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Linus Walleij <linusw@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Lee Jones <lee@kernel.org>, 
+	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Michael Walle <mwalle@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +96,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2026-09-20 at 11:49 +0800, Pengpeng Hou wrote:
-> The MediaTek helper enables VA09 before powering on the mPHY, but
-> ignores the PHY result. A failure can leave VA09 enabled and publish
-> mphy_powered_on as true, so a later power-on attempt is skipped.
->=20
-> Check phy_power_on(), attempt to unwind VA09 on failure, and leave
-> the
-> state flag unchanged. Propagate the helper result from host
-> initialization as well as its existing resume caller. Keep the
-> original
-> PHY error if the supply rollback also fails, and report that rollback
-> separately.
->=20
-> The issue was found by our static-analysis tool.
->=20
-> Fixes: 561e3a8726b2 ("scsi: ufs-mediatek: Fix unbalanced clock
-> on/off")
-> Fixes: cf137b3ea49a ("scsi: ufs-mediatek: Support VA09 regulator
-> operations")
-> Assisted-by: gpt 5
-> Signed-off-by: Pengpeng Hou <hppiscas@163.com>
-> ---
+On Mon, 21 Sep 2026 14:19:49 +0200, zl020895 <zl020895@163.com> said:
+> Hi Bart,
+>
+> Done, sent as a follow-up:
+> https://lore.kernel.org/all/20260921-gpio-doc-followup-v1-1-618738124f4c@ambarella.com/
+>
 
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+No, don't send follow-ups before anything is picked up. Also: Michael Walle,
+who's the maintainer for gpio-regmap was not Cc'ed on this so I'll wait for his
+Ack or change requests.
+
+Bart
 
