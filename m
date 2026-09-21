@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225D7C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9826C982F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9OuFK8krYG5CFJQY5mJoDN0CmcjBiY8Df4psmo7f7k=; b=rB/5/17taNyScN3bTb4UUyN0oy
-	znZnB4gnYn8JPUiLZGLo+ps8cK9OsNjn3qXiNE14XQgYQSayB9sZu/ewzY1RZ67aLSQvfMLexMacp
-	jDsOawX3rrmrFpb3cbjg8f22O0EPrapAFziGAYAHOxp7NTehNif/96clk7CGh9zWvq/mVDe7H1Zfu
-	0z5zfpSeT3X9AY/iX8Ih3sfe4LVPTnebLrvu88rXwjYfmbVv10dSMFvu7mPz40C+0E7e1OoI2wyUN
-	dE9gHb6iPQhe4k/sS2waGt7z0GXAPeOYsg3Ib5rMrlKik3RsQT7eV/3mrhgzpUuWAcOKYHtOJcx2z
-	Ctu3YSTQ==;
+	bh=QMTxb+mrtRH4SZa45PP2QG37d3OHVFOsk6tg8TRWT1Q=; b=zRRjB24/e1seNV/PjYGZZcz9B2
+	KDYYCj2RdDdv192VB+qL27Yt2Q3Tn023rx3F+FtlA7Gk5bM4nWQWzNnkfptqcC7k9PrDJcyc/881t
+	53YUHkWUHvIU6rNTPqAVsPx6Egnerr6GtnPyWz986hccUB8W7ikeRyQu+rN2ieu9cymtR5ZjJmWKv
+	0e/8Lj+qTxB7HxWgTaqz1fXcc1ARVX9UtpXi5I3vqmdLGfyd/hkvpmb8PBCNUYcz2bhqw8Edx/cgS
+	QQOAZ6SxqWipTRug1GH0C9Mr7sQmXuiMtxD5wRvfXwQtim+PpM6P6xhE/yH68q8umiNPvkTTh2cBc
+	0vJ1R8KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fgs-00000002ZIK-3MxB;
-	Mon, 21 Sep 2026 15:12:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8fhf-00000002ZPq-1yq1;
+	Mon, 21 Sep 2026 15:13:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fgq-00000002ZHZ-39Hy;
-	Mon, 21 Sep 2026 15:12:20 +0000
+	id 1x8fhd-00000002ZPj-3svb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 15:13:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E23960142;
-	Mon, 21 Sep 2026 15:12:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B7491F000FF;
-	Mon, 21 Sep 2026 15:12:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F16942E2D;
+	Mon, 21 Sep 2026 15:13:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D85E1F000FF;
+	Mon, 21 Sep 2026 15:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790003538;
-	bh=C9OuFK8krYG5CFJQY5mJoDN0CmcjBiY8Df4psmo7f7k=;
+	s=k20260515; t=1790003589;
+	bh=QMTxb+mrtRH4SZa45PP2QG37d3OHVFOsk6tg8TRWT1Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ll1CjiAP/Ipjm1dHbz/UzwNVf9Su2P2qOIF1JmfRmgsGSU25vaCQ2xhjcQ1JLOaz4
-	 EfWNN+ckuH8zevwEV0XQBK8ptDUjLCv1HjxSFkKj5eeUQmVDJlcrD8ayhqK3wOEBSK
-	 3cVnaTQYVPioq0KH1+A2XfU2ddu58foJDAKEHR/9jP0tolYzATNsIURq3kcnkjU9cU
-	 lKJYn7IToJuUKRUUX8u/zhpe+XdEabg6RFg+Wmb7azT7uw0H0Rr0NxFzltQXI9wdhZ
-	 YAAp7ozwP56WEdbxFryz4ovhOso3trE8rzp93innvh+2VQaqdZodZbHALaKXJIHVaW
-	 /2nWX6PpbDydA==
-Date: Mon, 21 Sep 2026 17:12:15 +0200
+	b=iJCEI1oOSZdZ4wOPsD7JtxZtw8COX3cI+qeiJBArITZKgCViGq0E5FOiAnLvsGBVI
+	 ZSRYWgKerrALYWgng07D/4nnKr5lUd68rXvg5er+Q11vmS7L8pAmODUngLmS2oWM9o
+	 ly6hbus0vnsWmeif2oKqQvbfy9lz2kuafLFK7k8lXwo+5Ff4zl3+RP8J08DP1P08lD
+	 fKgI8Rw9diXgbHWfTPald21ls9kewQ07UZuG9t7slqWiTTxr8zFyJ38CcXce/vW1eK
+	 xP8dDhXYRlVxh7H9tM12rBkXUk6fKTei6WT16owIuOJRgbPI7w59BBPle8YP5gwzaS
+	 A38N6PnCXAsUQ==
+Date: Mon, 21 Sep 2026 17:13:06 +0200
 From: krzk@kernel.org
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Min Guo <min.guo@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Yonglong Wu <yonglong.wu@mediatek.com>, stable@vger.kernel.org, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mediatek@lists.infradead.org, Bin Liu <b-liu@ti.com>
-Subject: Re: [PATCH] usb: musb: mediatek: fix child device leak
-Message-ID: <arFJTmMczwQaRL7B@quoll>
-References: <20260921085119.308981-1-lgs201920130244@gmail.com>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: linusw@kernel.org, stable@vger.kernel.org, sboyd@kernel.org, 
+	linux-clk@vger.kernel.org, bmasney@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, mturquette@baylibre.com
+Subject: Re: [PATCH] clk: versatile: clk-icst: Fix node reference leak in
+ of_syscon_icst_setup()
+Message-ID: <arFJgR0SKZRd-EmK@quoll>
+References: <20260915070103.1733176-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260921085119.308981-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260915070103.1733176-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,28 +71,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 21 Sep 2026 16:51:19 +0800, Guangshuo Li wrote:
-> mtk_musb_probe() populates child platform devices using
-> of_platform_populate(), but neither the probe error paths nor the
-> driver remove path depopulate them.
+On Tue, 15 Sep 2026 07:01:03 +0000, Wentao Liang wrote:
+> of_get_parent() takes a reference on the syscon parent node. The
+> reference is intentionally kept on the success path, but the error paths
+> return without dropping it, leaking the node reference. Release the
+> reference before returning on the error paths.
 > 
-> If any initialization step after of_platform_populate() fails, the
-> probe returns without unregistering the populated child devices.
-> Likewise, the children remain registered when the driver is later
-> unbound.
-> 
-> Use devm_of_platform_populate() so the populated child devices are
-> automatically depopulated when probe fails or the driver is unbound.
-> 
-> The issue was identified by a static analysis tool I developed and
-> confirmed by manual review.
-> 
-> Fixes: 0990366bab3c ("usb: musb: Add support for MediaTek musb controller")
+> Fixes: d430819d69a5 ("clk: versatile-icst: add device tree support")
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
->  drivers/usb/musb/mediatek.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/clk/versatile/clk-icst.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
 
 
