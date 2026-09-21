@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D14DC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D810EC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=52tNeDu8Sx+QHd6wEVEFM9NUN84pRBXq3nOTjLgEzE8=; b=mmGd6Hh5cEzTqvaafgFDOBByHj
-	F5lKlSIR2ylWyKht4ZvqdJToOcT8FQfWmSOcY7o63wJG7S3G08cOIYB4Tu2VoJ21TIb+f6S6KL/kw
-	yWakCwtJX4F5YboX2Dcx2w9cu0NzX4J3zS/XbuX5DLJ232n5Cfb8ChnHHkqP60ED/eoFSOhyMFKOp
-	Za60H7PeTLS6+Md3MWWmANDyLI1k5ubziFT9wDqtdJxJmTfSjRGEvz/XvGfUTWlWwCbBMFCAWfcOM
-	tI88i6aR2NYr/g/TazFuecJNozgGaLfb+SEyto/OEsm0X4Xz3F3kY+hAhq675yl/2bNNmC0VeHmgV
-	aGrC7mCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=crAu+rO/8jjpMeszBXQph4x7yIoYqyBep9PV7qmQuK8=; b=MC3/yg7KpRSrop4Hkh1o5xblkN
+	EA2+Vh/lpti0QAVCt1/6AbNRDYY7og1U8TID96Bs7drLZyLdwUr3D9koPDNg1ZzxS3B5NA+OghZfw
+	6lY92MSteN2TLf79YdeEVuxZepBKIEwSv4PrJrUImfTVczW3GrYl0oBM7Hu8Lh7xpxBFQanwm5vnF
+	O1rOsUQeJfWMDExdUZcPJzHr0018MBxhcycnMW6eR8Lp6aWKg2EZKdf/csz9bvmBIp4mB2AqJ4/6a
+	kyqtEy3MXMEKPvcWB6VBszx3x1Ct+RBlBSlfqFN9OcTEmvH8ISqu/V1cRgIJmGKEmbE2HmBMe4JEP
+	aR0K2FnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ftv-00000002bMd-0hFa;
-	Mon, 21 Sep 2026 15:25:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8fut-00000002bhx-1xi0;
+	Mon, 21 Sep 2026 15:26:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ftu-00000002bM5-1PXs;
-	Mon, 21 Sep 2026 15:25:50 +0000
+	id 1x8fus-00000002bhH-192d
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 15:26:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A02F40A50;
-	Mon, 21 Sep 2026 15:25:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2B221F000FF;
-	Mon, 21 Sep 2026 15:25:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B5DB340F3B;
+	Mon, 21 Sep 2026 15:26:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B931F000FF;
+	Mon, 21 Sep 2026 15:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790004349;
-	bh=52tNeDu8Sx+QHd6wEVEFM9NUN84pRBXq3nOTjLgEzE8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lx18RnvPmerMwYKQBdZc24TN0CA72fv1PlKnIN7fmREb7z4DLrOzWNxX0v1AfkThT
-	 2on/RpJJUThi4V13fYJKL2Orrx5UD2dx4E38CnNYuvwOUU6bgjsNJ5hsuzm1zwAxCl
-	 01DDbFqnAHOV56oV49xPxn5toCEHk2gjkb/Po/jisxflIq8qlh9vxjUCN4PvcR9tKe
-	 XoOIXln291MBXqB0BLKdNEl0l33QzQpmeM8f0MGLf5uWGgFXm17X6RzdeQu0PIE/AY
-	 ptaH/kTFHjN9PS16mhnjg0DVXQ9gvdsqIBHBm/l1M+CRzO4v+FQwld92QZOSh1R6g4
-	 RLll6pDrbXqjg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 569CB1AC56A7; Mon, 21 Sep 2026 16:25:46 +0100 (BST)
-Date: Mon, 21 Sep 2026 17:25:46 +0200
-From: Mark Brown <broonie@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Amit Kucheria <amit.kucheria@linaro.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
-	linux-mediatek@lists.infradead.org,
-	Martin =?utf-8?Q?Povi=C5=A1er?= <povik@protonmail.com>
-Subject: Re: [PATCH 02/28] ASoC: cs42l42: Fix typo
-Message-ID: <arFMetXGoogEAwmJ@sirena.co.uk>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <20260920-macaudio-v1-2-741cc20a74e5@gmail.com>
+	s=k20260515; t=1790004409;
+	bh=crAu+rO/8jjpMeszBXQph4x7yIoYqyBep9PV7qmQuK8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=kXOCMPeOABC3WIWc0m2aMa53Wy1vci2Ph1we34tBe20fflS/kwx9hhp/Bh2Uo+id5
+	 e6dy3zdJ14+pNdpep6sBKlIMjn3Khyu9Fehxt5yHD/bXdzQ+/hUEwmutBQ88ho5LXl
+	 9OPClu0cxwjagvWcavMP05o/JjEt3lVfuRCHGM0taw3BZXgz/On7tIzHebY2HeJ9q+
+	 EMbKmUEBXIWCO++8CrCDYqtnvfwS9etcFOBXWgmLW2TFA3sVnOSVHEy/Oxl26bbs9y
+	 A4Jxo92CBcSprJG84NCdVoSDEbokDxtFGJwV4uc7ucTkSfhbPPRtSbgjRca+9MgtQY
+	 qJVNPaTSiDWrw==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>,
+	Christian =?utf-8?Q?K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	"T.J. Mercier" <tjmercier@google.com>
+Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
+ alignment for cc-shared buffers
+In-Reply-To: <20260921123725.GN11599@ziepe.ca>
+References: <aq1V3oeDdvXobt8J@arm.com>
+ <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
+ <20260918153642.GD11599@ziepe.ca>
+ <d8123f21-d5ce-415b-a05a-392d97b8b57d@amd.com>
+ <20260918165315.GF11599@ziepe.ca>
+ <6115eaf7-21bc-49ce-8a74-08fd37a1e2c9@amd.com>
+ <20260921115141.GJ11599@ziepe.ca>
+ <45dd7a2f-8474-4388-b383-2dee3ee62206@amd.com>
+ <20260921121739.GM11599@ziepe.ca>
+ <cd2b32dc-5a80-4ef5-82bc-dd41ea96dc01@amd.com>
+ <20260921123725.GN11599@ziepe.ca>
+Date: Mon, 21 Sep 2026 20:56:41 +0530
+Message-ID: <yq5a1pam4ocu.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="G0JcrUZHHYSZL8sl"
-Content-Disposition: inline
-In-Reply-To: <20260920-macaudio-v1-2-741cc20a74e5@gmail.com>
-X-Cookie: Too clever is dumb.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,34 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Jason Gunthorpe <jgg@ziepe.ca> writes:
 
---G0JcrUZHHYSZL8sl
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On Mon, Sep 21, 2026 at 02:24:21PM +0200, Christian K=C3=B6nig wrote:
+>
+>> I also don't see where mem_cc_shared_granule_size is added?
+>
+> Patch 1:
+>
+> https://lore.kernel.org/all/20260904103452.1197239-2-aneesh.kumar@kernel.=
+org/
+>
+> Aneesh, please be sure to use get_maintainers on series like this so
+> everyone gets cc'd.
+>
 
-On Sun, Sep 20, 2026 at 02:53:41PM +1000, James Calligeros wrote:
-> From: Martin Povi=C5=A1er <povik@protonmail.com>
->=20
-> Fixes: 2c394ca79604 ("ASoC: Add support for CS42L42 codec")
+For v7, I included only the maintainer entries because the recipient
+list was getting too long, but I added the mailing lists.
 
-This one is a very clear example of something that should have been
-split out, it's unrelated to the rest of the series.
-
---G0JcrUZHHYSZL8sl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqxTGAACgkQJNaLcl1U
-h9Caewf+N5iufxYFZ1liCvBd7fhltp9ck3djJSBs5D9F/V24SiXkujxzDT8AQdtt
-gcgzgX64NeQHbmgXRupfcESD2zeVGOOzSmbL9Kp3ohp8j5YqYey3hJEerIOlWxw0
-ZXWOY0jdi4I3A3PE0Y5H4R6jO044TTmVVNeOFHTHXIN+zxhAVNvnjfuZImzoI8R9
-dpGasJ1qTw75x1hZbryAhBcS7ho28ZT9t6kPhehrfRP3iXUinwItU8yiFBghmVvM
-FrcKdFdM1AvZjLiIE/rqudAdqlpszUVWDjluAnWdJb0w4onBKbbMgjmsE2KAygHC
-75lcoKFZI0G6SoaytCypAVZ/dAJeMA==
-=I6dw
------END PGP SIGNATURE-----
-
---G0JcrUZHHYSZL8sl--
+-aneesh
 
