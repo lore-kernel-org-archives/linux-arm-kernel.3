@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A43C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577A1C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKHClVFFPy5JiCiG2TsrSbAYAz0dgiBEm5Q3hgpAXHY=; b=XGU10/VvcgufNfodOJ+lpa9xUK
-	Zw7NYhjXGf53tzAaVSLT159vP+VIGuuXopXenR+LNsXnKWKA5Qy/3tlmV5bpGqSoKtU6Gh77jN/fa
-	kE2/xdIVv0rvxOtPA8ibE8lNPeFUN7FwMUHJ3rWHmFOJNc0fKA30gDGXBDLzNaYEY8S3QsImdOcSu
-	cYqpxP2QxvkcSIiVTkdMzfUt2J5NvmUxfeEtYcDiupGCWteO1js5SJtdhFrOiuV+bX3QIdGi0Km76
-	JRLUSALw+NEcr+KymG6syN6aURSbs6XVNTxJ5zlTBwGOySReIE1HeTenp4bDdUAei+z7gKLFvW5aZ
-	E0ufWHrw==;
+	bh=JQQobm2iGdul4vwwk8ShCpZIU/Flt3uUKOmfroPv3c4=; b=hliw182vT64yzMv8/I2z185SSm
+	ytCcZNVpOmL+jmCPhir7KBGba7YmjtzHUiwlazQqcZY5GeGrGz6AMvz4X4o231xooqV47rUkRo/Yf
+	VGP/hVpZrjjYEzbe5Q9DJfVIUi4dknHD3PMeWD7dnItcONO/O+g/w1UqMpXsKndGy+bWXrFnt3BA1
+	cuTGhWm3SKaB2h1/SpNGG4GJBpZuNVXCPCkArVqyecHMLHVYQtGTP9Om4tn+m5fTGi1bqdN8Ynn2y
+	Kk8npwQ6ZfqXiLGo4TqhAH7R5hgyIMU2ltO9BNRBCILya7vn7WeuYXDJp6M6yzBYStOGgXwpGsFhU
+	IKpiU1IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8VZ7-00000000odh-3INq;
-	Mon, 21 Sep 2026 04:23:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8WjY-00000000wVR-1UB3;
+	Mon, 21 Sep 2026 05:38:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8VZ0-00000000oV4-3Vbp
+	id 1x8WjW-00000000wUy-2ssa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 04:23:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16BA444A44;
-	Mon, 21 Sep 2026 04:23:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D3174C2BD05;
-	Mon, 21 Sep 2026 04:23:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789964613;
-	bh=ELqcw3LBSmBtItQm8aQ9QzI3Xq97N7afNTnfipf3dIo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=hkGrnjqN2EScBr3rFVpYCEeHwdWf8lluL/mfolmfzaLQd+nKWGOHq6/UqRFJNHYHo
-	 HnCthIpUPc3ui/CRtWE3zu9uZMXkKxAvuYmPT18E3tHkGXCZ24kDn/piqp9gJEC2Nh
-	 SE5p4gUk3YhUDFYmnTx4jkXY3LarCfKrnjBRcBIQQHjTo8168MhPlH8RVr1/GSmexn
-	 mYe1FWAPeDhy1ZLIksE1T0MfC3FYWI09qfF7/YYs2iF+/TU0gojBbAve0ReOWklGy3
-	 5BHW9cLdkMtEb0fy16ikJxpfs5AbCQU4YuJVLti3dDJ9aLWA0mKH0oluqfevwt42eU
-	 qNAq4xb4jYp9w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BBEECC982F1;
-	Mon, 21 Sep 2026 04:23:33 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Mon, 21 Sep 2026 12:23:33 +0800
-Subject: [PATCH v8 14/18] gpio: pl061: add Ambarella register-layout
- variant
+	Mon, 21 Sep 2026 05:38:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4981340748;
+	Mon, 21 Sep 2026 05:38:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 789A61F00893;
+	Mon, 21 Sep 2026 05:38:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789969110;
+	bh=JQQobm2iGdul4vwwk8ShCpZIU/Flt3uUKOmfroPv3c4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WTIXJblGAHB9h42Hf8VsLE0V3wPlaUE/6CjJk3kC9/qK3bzwD71DgWdzn+fZlDaV1
+	 GpuOJSzZ5bXiXafdbfvsqnkBUhRNxbnvOAYAd+9VHMAlaZROrVj4InNvRyC1TmGzIr
+	 KAV0HFqfG3zshn0DgZu1NdIR3HRYF9W0JgHS3incwdKsuNMfAU5WXq3rz8DxEWSU1A
+	 IKV7Q4S/Eb5imzJ9nmY8M2Yy5fM/FcZgg+g8qmPmkxpoeP5pUCQnxfVC7CQVbCMR6s
+	 FvNI04JhdXmkNc1BU9zajRLI7JCDVfAtU13TQup3z92Agy79VahKKduZmSV5tzAU2B
+	 U2LWB5zNtZAPQ==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v12 1/7] firmware: smccc: Add an Arm SMCCC bus
+Date: Mon, 21 Sep 2026 11:08:01 +0530
+Message-ID: <20260921053807.354802-2-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260921053807.354802-1-aneesh.kumar@kernel.org>
+References: <20260921053807.354802-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-cv75-v5-v8-14-282ff5d98dda@ambarella.com>
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
-In-Reply-To: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Long Zhao <zl020895@163.com>, Lee Jones <lee@kernel.org>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789964608; l=3980;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=UJUD7yvQRDjUnxZn37u+jsf5HE3dcaqrKiM8weupWiY=;
- b=aqTvGbpbG0JFVzw6uqBtaNBvLqAtjHTQy6aHG8wAteDMBByBZz7cprSPfRRlH3juaq5VzSRDp
- 6E+eKojrlH8B7Dl98RytohYGgxKU8fs13hdrHdzAU/34rXsnlNtqTZC
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,148 +80,362 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+SMCCC-discovered firmware services are currently represented by separate
+platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
+represent independent DT/ACPI-described platform resources; they are
+features of the SMCCC firmware interface.
 
-Add a 32-bit, 32-line layout with DAT/DIR/IS/IBE/IEV/IE/MIS/IC plus
-MASK and ENABLE. Probe unmasks the bank and enables the controller.
-IRQ type changes also clear the pending bit. This derivative does not
-need write-after-direction or system suspend save/restore.
+Add an Arm SMCCC bus for services discovered through the SMCCC firmware
+interface. The bus provides SMCCC device and driver registration
+helpers, function ID based matching, modalias generation, and a sysfs
+modalias attribute so SMCCC service drivers can bind to discovered
+firmware services and autoload as modules.
 
-Match the part with designer AMBA_VENDOR_AMBARELLA (JEP106 identity
-0x68, bit 7 set) and part number 0x061.
+Follow-up changes can then register SMCCC firmware services as arm-smccc
+devices instead of creating independent per-feature platform devices.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
+Based on arm_ffa code
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/gpio/gpio-pl061.c | 59 +++++++++++++++++++++++++++++++++++++++++++++++
- include/linux/amba/bus.h  |  1 +
- 2 files changed, 60 insertions(+)
+ MAINTAINERS                         |   1 +
+ drivers/firmware/smccc/Makefile     |   2 +-
+ drivers/firmware/smccc/bus.c        | 158 ++++++++++++++++++++++++++++
+ include/linux/arm-smccc-bus.h       |  48 +++++++++
+ include/linux/device-id/arm_smccc.h |  19 ++++
+ include/linux/mod_devicetable.h     |   1 +
+ scripts/mod/devicetable-offsets.c   |   3 +
+ scripts/mod/file2alias.c            |   8 ++
+ 8 files changed, 239 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/firmware/smccc/bus.c
+ create mode 100644 include/linux/arm-smccc-bus.h
+ create mode 100644 include/linux/device-id/arm_smccc.h
 
-diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
-index 604129a68948..fc7269837af4 100644
---- a/drivers/gpio/gpio-pl061.c
-+++ b/drivers/gpio/gpio-pl061.c
-@@ -39,6 +39,18 @@
- #define PL061_MIS		0x418
- #define PL061_IC		0x41c
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c2414447892c..42364c540f50 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -24741,6 +24741,7 @@ M:	Sudeep Holla <sudeep.holla@kernel.org>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ F:	drivers/firmware/smccc/
++F:	include/linux/arm-smccc-bus.h
+ F:	include/linux/arm-smccc.h
  
-+#define AMBARELLA_GPIO_NR	32
-+#define AMBARELLA_DAT		0x00
-+#define AMBARELLA_DIR		0x04
-+#define AMBARELLA_IS		0x08
-+#define AMBARELLA_IBE		0x0c
-+#define AMBARELLA_IEV		0x10
-+#define AMBARELLA_IE		0x14
-+#define AMBARELLA_MIS		0x20
-+#define AMBARELLA_IC		0x24
-+#define AMBARELLA_MASK		0x28
-+#define AMBARELLA_ENABLE	0x2c
+ SECURITY CONTACT
+diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
+index 40d19144a860..68bbff1407b8 100644
+--- a/drivers/firmware/smccc/Makefile
++++ b/drivers/firmware/smccc/Makefile
+@@ -1,4 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ #
+-obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
++obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= bus.o smccc.o kvm_guest.o
+ obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
+diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
+new file mode 100644
+index 000000000000..21239e43adc0
+--- /dev/null
++++ b/drivers/firmware/smccc/bus.c
+@@ -0,0 +1,158 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Arm Limited
++ */
 +
- struct pl061_regs {
- 	unsigned int dat;
- 	unsigned int dir;
-@@ -335,6 +347,18 @@ static bool pl061_arm_volatile_reg(struct device *dev, unsigned int reg)
- 	}
- }
- 
-+static bool pl061_ambarella_volatile_reg(struct device *dev, unsigned int reg)
++#include <linux/arm-smccc-bus.h>
++#include <linux/slab.h>
++
++static int arm_smccc_bus_match(struct device *dev,
++		const struct device_driver *drv)
 +{
-+	switch (reg) {
-+	case AMBARELLA_DAT:
-+	case AMBARELLA_MIS:
-+	case AMBARELLA_IC:
-+		return true;
-+	default:
-+		return false;
++	const struct arm_smccc_device_id *id_table;
++	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	id_table = to_arm_smccc_driver(drv)->id_table;
++	if (!id_table)
++		return 0;
++
++	while (id_table->func_id) {
++		if (smccc_dev->func_id == id_table->func_id)
++			return 1;
++		id_table++;
 +	}
++
++	return 0;
 +}
 +
- static const struct regmap_config pl061_arm_regmap_config = {
- 	.reg_bits = 16,
- 	.val_bits = 8,
-@@ -346,6 +370,16 @@ static const struct regmap_config pl061_arm_regmap_config = {
- 	.use_raw_spinlock = true,
- };
- 
-+static const struct regmap_config pl061_ambarella_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.max_register = AMBARELLA_ENABLE,
-+	.volatile_reg = pl061_ambarella_volatile_reg,
-+	.fast_io = true,
-+	.use_raw_spinlock = true,
++static int arm_smccc_bus_probe(struct device *dev)
++{
++	struct arm_smccc_driver *smccc_drv = to_arm_smccc_driver(dev->driver);
++
++	return smccc_drv->probe(to_arm_smccc_device(dev));
++}
++
++static void arm_smccc_bus_remove(struct device *dev)
++{
++	struct arm_smccc_driver *smcc_drv = to_arm_smccc_driver(dev->driver);
++
++	if (smcc_drv->remove)
++		smcc_drv->remove(to_arm_smccc_device(dev));
++}
++
++static int arm_smccc_bus_uevent(const struct device *dev,
++		struct kobj_uevent_env *env)
++{
++	const struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	return add_uevent_var(env, "MODALIAS=" ARM_SMCCC_MODULE_PREFIX "f%08X",
++			      smccc_dev->func_id);
++}
++
++static ssize_t modalias_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	return sysfs_emit(buf, ARM_SMCCC_MODULE_PREFIX "f%08X\n",
++			  smccc_dev->func_id);
++}
++static DEVICE_ATTR_RO(modalias);
++
++static struct attribute *arm_smccc_device_attrs[] = {
++	&dev_attr_modalias.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(arm_smccc_device);
++
++const struct bus_type arm_smccc_bus_type = {
++	.name = "arm_smccc",
++	.match = arm_smccc_bus_match,
++	.probe = arm_smccc_bus_probe,
++	.remove = arm_smccc_bus_remove,
++	.uevent = arm_smccc_bus_uevent,
++	.dev_groups = arm_smccc_device_groups,
++};
++EXPORT_SYMBOL_GPL(arm_smccc_bus_type);
++
++int arm_smccc_driver_register(struct arm_smccc_driver *driver,
++		struct module *owner, const char *mod_name)
++{
++	if (!driver->probe || !driver->id_table)
++		return -EINVAL;
++
++	driver->driver.bus = &arm_smccc_bus_type;
++	driver->driver.name = driver->name;
++	driver->driver.owner = owner;
++	driver->driver.mod_name = mod_name;
++
++	return driver_register(&driver->driver);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_driver_register);
++
++void arm_smccc_driver_unregister(struct arm_smccc_driver *driver)
++{
++	driver_unregister(&driver->driver);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_driver_unregister);
++
++static void arm_smccc_release_device(struct device *dev)
++{
++	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++
++	kfree(smccc_dev);
++}
++
++static struct device *arm_smccc_device_alloc(u32 func_id)
++{
++	struct arm_smccc_device *smccc_dev;
++
++	smccc_dev = kzalloc_obj(*smccc_dev);
++	if (!smccc_dev)
++		return NULL;
++
++	smccc_dev->func_id = func_id;
++	smccc_dev->dev.bus = &arm_smccc_bus_type;
++	smccc_dev->dev.release = arm_smccc_release_device;
++	device_initialize(&smccc_dev->dev);
++
++	return &smccc_dev->dev;
++}
++
++struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id)
++{
++	int ret;
++
++	if (!name)
++		return ERR_PTR(-EINVAL);
++
++	struct device *dev __free(put_device) = arm_smccc_device_alloc(func_id);
++	if (!dev)
++		return ERR_PTR(-ENOMEM);
++
++	ret = dev_set_name(dev, "%s", name);
++	if (ret)
++		return ERR_PTR(ret);
++
++	ret = device_add(dev);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return to_arm_smccc_device(no_free_ptr(dev));
++}
++EXPORT_SYMBOL_GPL(arm_smccc_device_register);
++
++void arm_smccc_device_unregister(struct arm_smccc_device *smccc_dev)
++{
++	if (!smccc_dev)
++		return;
++
++	device_unregister(&smccc_dev->dev);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_device_unregister);
++
++static int __init arm_smccc_bus_init(void)
++{
++	return bus_register(&arm_smccc_bus_type);
++}
++subsys_initcall(arm_smccc_bus_init);
+diff --git a/include/linux/arm-smccc-bus.h b/include/linux/arm-smccc-bus.h
+new file mode 100644
+index 000000000000..cde268fc2930
+--- /dev/null
++++ b/include/linux/arm-smccc-bus.h
+@@ -0,0 +1,48 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 Arm Limited
++ */
++#ifndef __LINUX_ARM_SMCCC_BUS_H
++#define __LINUX_ARM_SMCCC_BUS_H
++
++#include <linux/device.h>
++#include <linux/device-id/arm_smccc.h>
++#include <linux/module.h>
++
++struct arm_smccc_device {
++	struct device dev;
++	u32 func_id;
 +};
 +
- static const struct pl061_regs pl061_arm_regs = {
- 	.dir	= PL061_DIR,
- 	.is	= PL061_IS,
-@@ -356,6 +390,19 @@ static const struct pl061_regs pl061_arm_regs = {
- 	.ic	= PL061_IC,
- };
- 
-+static const struct pl061_regs pl061_ambarella_regs = {
-+	.dat	= AMBARELLA_DAT,
-+	.dir	= AMBARELLA_DIR,
-+	.is	= AMBARELLA_IS,
-+	.ibe	= AMBARELLA_IBE,
-+	.iev	= AMBARELLA_IEV,
-+	.ie	= AMBARELLA_IE,
-+	.mis	= AMBARELLA_MIS,
-+	.ic	= AMBARELLA_IC,
-+	.mask	= AMBARELLA_MASK,
-+	.enable	= AMBARELLA_ENABLE,
++#define to_arm_smccc_device(d) container_of(d, struct arm_smccc_device, dev)
++
++struct arm_smccc_driver {
++	struct device_driver driver;
++
++	const char *name;
++	int (*probe)(struct arm_smccc_device *sdev);
++	void (*remove)(struct arm_smccc_device *sdev);
++	const struct arm_smccc_device_id *id_table;
 +};
 +
- static const struct pl061_drvdata pl061_arm = {
- 	.regmap_config		= &pl061_arm_regmap_config,
- 	.regs			= &pl061_arm_regs,
-@@ -365,6 +412,13 @@ static const struct pl061_drvdata pl061_arm = {
- 	.reg_mask_xlate		= pl061_arm_reg_mask_xlate,
- };
- 
-+static const struct pl061_drvdata pl061_ambarella = {
-+	.regmap_config		= &pl061_ambarella_regmap_config,
-+	.regs			= &pl061_ambarella_regs,
-+	.ngpio			= AMBARELLA_GPIO_NR,
-+	.clear_irq_on_type	= true,
++#define to_arm_smccc_driver(d) \
++	container_of_const(d, struct arm_smccc_driver, driver)
++
++int arm_smccc_driver_register(struct arm_smccc_driver *driver,
++		struct module *owner, const char *mod_name);
++void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
++struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id);
++void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
++
++#define arm_smccc_register(driver) \
++	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
++#define arm_smccc_unregister(driver) \
++	arm_smccc_driver_unregister(driver)
++
++#define module_arm_smccc_driver(__arm_smccc_driver) \
++	module_driver(__arm_smccc_driver, arm_smccc_register, \
++		      arm_smccc_unregister)
++
++extern const struct bus_type arm_smccc_bus_type;
++
++#endif /* __LINUX_ARM_SMCCC_BUS_H */
+diff --git a/include/linux/device-id/arm_smccc.h b/include/linux/device-id/arm_smccc.h
+new file mode 100644
+index 000000000000..a8579832fc1c
+--- /dev/null
++++ b/include/linux/device-id/arm_smccc.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __LINUX_DEVICE_ID_ARM_SMCCC_H
++#define __LINUX_DEVICE_ID_ARM_SMCCC_H
++
++#ifdef __KERNEL__
++#include <linux/types.h>
++#endif
++
++#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
++
++/**
++ * struct arm_smccc_device_id - Arm SMCCC bus device identifier
++ * @func_id: SMCCC function identifier
++ */
++struct arm_smccc_device_id {
++	__u32 func_id;
 +};
 +
- static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- {
- 	struct device *dev = &adev->dev;
-@@ -533,6 +587,11 @@ static const struct amba_id pl061_ids[] = {
- 		.mask	= 0x000fffff,
- 		.data	= (void *)&pl061_arm,
- 	},
-+	{
-+		.id	= (AMBA_VENDOR_AMBARELLA << 12) | 0x061,
-+		.mask	= 0x000fffff,
-+		.data	= (void *)&pl061_ambarella,
-+	},
- 	{ 0, 0 },
- };
- MODULE_DEVICE_TABLE(amba, pl061_ids);
-diff --git a/include/linux/amba/bus.h b/include/linux/amba/bus.h
-index 80a74cd2da7e..411533bfa61d 100644
---- a/include/linux/amba/bus.h
-+++ b/include/linux/amba/bus.h
-@@ -98,6 +98,7 @@ enum amba_vendor {
- 	AMBA_VENDOR_ST = 0x80,
- 	AMBA_VENDOR_QCOM = 0x51,
- 	AMBA_VENDOR_LSI = 0xb6,
-+	AMBA_VENDOR_AMBARELLA = 0xe8,
- };
++#endif /* __LINUX_DEVICE_ID_ARM_SMCCC_H */
+diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+index a397213bedac..318c4b5c3451 100644
+--- a/include/linux/mod_devicetable.h
++++ b/include/linux/mod_devicetable.h
+@@ -16,6 +16,7 @@
+ #include "device-id/amba.h"
+ #include "device-id/ap.h"
+ #include "device-id/apr.h"
++#include "device-id/arm_smccc.h"
+ #include "device-id/auxiliary.h"
+ #include "device-id/bcma.h"
+ #include "device-id/ccw.h"
+diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+index b4178c42d08f..1492e9fdc7cb 100644
+--- a/scripts/mod/devicetable-offsets.c
++++ b/scripts/mod/devicetable-offsets.c
+@@ -254,6 +254,9 @@ int main(void)
+ 	DEVID(auxiliary_device_id);
+ 	DEVID_FIELD(auxiliary_device_id, name);
  
- extern const struct bus_type amba_bustype;
-
++	DEVID(arm_smccc_device_id);
++	DEVID_FIELD(arm_smccc_device_id, func_id);
++
+ 	DEVID(ssam_device_id);
+ 	DEVID_FIELD(ssam_device_id, match_flags);
+ 	DEVID_FIELD(ssam_device_id, domain);
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index 8d36c74dec2d..980d7da456bb 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -1349,6 +1349,13 @@ static void do_auxiliary_entry(struct module *mod, void *symval)
+ 	module_alias_printf(mod, false, AUXILIARY_MODULE_PREFIX "%s", *name);
+ }
+ 
++static void do_arm_smccc_entry(struct module *mod, void *symval)
++{
++	DEF_FIELD(symval, arm_smccc_device_id, func_id);
++
++	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "f%08X", func_id);
++}
++
+ /*
+  * Looks like: ssam:dNcNtNiNfN
+  *
+@@ -1519,6 +1526,7 @@ static const struct devtable devtable[] = {
+ 	{"mhi", SIZE_mhi_device_id, do_mhi_entry},
+ 	{"mhi_ep", SIZE_mhi_device_id, do_mhi_ep_entry},
+ 	{"auxiliary", SIZE_auxiliary_device_id, do_auxiliary_entry},
++	{"arm_smccc", SIZE_arm_smccc_device_id, do_arm_smccc_entry},
+ 	{"ssam", SIZE_ssam_device_id, do_ssam_entry},
+ 	{"dfl", SIZE_dfl_device_id, do_dfl_entry},
+ 	{"ishtp", SIZE_ishtp_device_id, do_ishtp_entry},
 -- 
-2.34.1
-
+2.43.0
 
 
