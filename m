@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA80FC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371E2C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siS6q1O96r8tBJzuPFNLC7opJrdAHxEvYaTkWIfgUUU=; b=QqSweIYSKn51NeX9sZ+ueYkIKF
-	8KhfsIsSRYBZZmsxdyYZB9+zQyF8K/zJaY/IRPyGRpE0JCapxjlXCzn2pNqpxaBEpd62JEyMZ5hS+
-	igVCv8qzFrNjW0dADqA1Mcar3QI7kVk/40Ih3aUJTnevV7dM8o8d3kbl4V31S7oE9Tf8uxiVow4lI
-	7WgC7FET8oPwDIgMryK7NfTEjo7T1PIFsKVhQNuMRkLYk9XSyFp7jhL9hsKtwgxZriIkjwYBB3Re7
-	qV2DVCrilDdIvqj86EsZtRqDayRkEKhs0GpqIdbruuT8Xv0MwgvWEqdfmRk31dGX7tHtxvseZyXPW
-	29xYFJ6g==;
+	bh=RIpxqITDfA7RmolIrlPIbBKnqZiSPFBAJdQmg5tAnIk=; b=K2rHpKq+j0v+FDgP3sma5yW1U4
+	wPVhqHc8v48VKYnsxay9ChQyTSM/PzUHnHvUBbsPptg+PvzVzv7gg5rh3D++R6CHJVBAv4ygFqXWz
+	VkWZKVYKh2EuhrUcINOUoc0innaJFeOGbJk39Kz/LseSNlS32A3/U0OoAWqlaEzPVhiLTfAOgXMJ/
+	xXar+kmKTgeVHnJSJjYUs/HVpy+QrGAlpc2M/QDJDBvhYgpTklynk9i3SwOrvX3dYYm9yy8RxFoEk
+	81qymETxvLAVnEJ+IZiLuhIHDLXZ6ngRBfXxk1iVR9zwE1LAZVeceYo260LYLlVOlK+hfE2V5linQ
+	Dnmw3hKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fMA-00000002T0j-2ASH;
-	Mon, 21 Sep 2026 14:50:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8fMU-00000002T7q-3Bf6;
+	Mon, 21 Sep 2026 14:51:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fLw-00000002SuJ-1StM
+	id 1x8fMH-00000002T2S-0pqR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:50:44 +0000
+	Mon, 21 Sep 2026 14:51:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E8534013A;
-	Mon, 21 Sep 2026 14:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612241F00893;
-	Mon, 21 Sep 2026 14:50:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A1CA9600D1;
+	Mon, 21 Sep 2026 14:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77EE21F00893;
+	Mon, 21 Sep 2026 14:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790002244;
-	bh=siS6q1O96r8tBJzuPFNLC7opJrdAHxEvYaTkWIfgUUU=;
+	s=k20260515; t=1790002264;
+	bh=RIpxqITDfA7RmolIrlPIbBKnqZiSPFBAJdQmg5tAnIk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PjUxmdmq75evpjC4UkLaIYo0hP1XgCpj8SoLSF8Mj/tcBn6ZXbtjFhVAaKSTA07Pz
-	 lcTzehyS2LIa8dVZJu0DH7jWgBEqhuXNdci/JIOQjepi2K6XsYv9W8nt+AQOrN2R5A
-	 GwhI+wHs4GccO3WeI8bWmNcjtBIETFgcFnkfcJJEuwLLSycNBG1sqPgI3051Zr8kZ6
-	 U97zOFM3SrsTI1AnQl5GJtgARF76druhEyK+73UdsBpZrzCA9fClz5xVqiCrtuMxzV
-	 w1xa4hEs4oNB/M+V03LS2ikLG8NnJCu3G2/YsWbURiG3Y/RuHL5MIzUGNI/ccucgQc
-	 T9CCrMe1mJY2w==
+	b=U2t85MqEar9/QE6fbQs7GNiO7mB2uSgtDrQex0/73Ec54N3fnUaqTEvimBm4eBh5X
+	 Mx7reovji1y0h9moEFn5hOC1cwh4mQ1xNkSDZv1aKe5jZbyNPpY6qd8s0qXiiaepDg
+	 vpI3sL1MsD2yNWaA2h7v2fj/Z0cfBMWQRwFa487uO6sTn+Z1INBuR7Ifd5ndf98yls
+	 1incq5rJC0DTmnsm2F8SmMB0/9YCzOL3YnishM1Zuy9vjpkRuAbnWCnqfuUK0wHZGb
+	 L725hd/X0O6zpYej/UqSZ4PFCbDhcjLR9kbVZ/qZxUXm6yYazpLKIenCh2gvu2BCwV
+	 IlJ65pPpNT/eg==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -66,9 +66,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	linaro-mm-sig@lists.linaro.org,
 	linux-media@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v7 11/13] dma-buf: system_heap: Limit scatterlist entries to the buffer size
-Date: Mon, 21 Sep 2026 20:18:45 +0530
-Message-ID: <20260921144847.501151-12-aneesh.kumar@kernel.org>
+Subject: [RFC PATCH v7 13/13] swiotlb: Make rounded shared pool capacity allocatable
+Date: Mon, 21 Sep 2026 20:18:47 +0530
+Message-ID: <20260921144847.501151-14-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260921144847.501151-1-aneesh.kumar@kernel.org>
 References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
@@ -88,55 +88,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The system heap currently allocates each backing page no larger than the
-remaining dma-buf length. It can therefore use the complete
-compound-page size for every scatterlist entry while keeping the total
-length equal to the buffer size.
+CoCo shared memory may need to be allocated and transitioned in units larger
+than the requested object. Before this change, users handled the resulting
+capacity as follows:
 
-Shared backing allocations may need to be rounded up to an architecture
-shared granule size. A backing allocation can then be larger than the
-remaining buffer length. Describing the complete allocation in the
-scatterlist would incorrectly expose the rounded tail to scatterlist
-consumers as part of the dma-buf.
+  User                         Rounded capacity reused
+  dma-buf system heap          no
+  DMA-direct                   no
+  regular GIC tables           no
+  small GIC ITTs               yes, through a gen_pool
+  early SWIOTLB pool           no
+  late SWIOTLB pool            yes
+  persistent dynamic SWIOTLB   no
+  transient dynamic SWIOTLB    no, one mapping only
+  atomic DMA pools             yes, through a gen_pool
+  restricted SWIOTLB pool      no additional padding
 
-Track the remaining buffer length while constructing the scatterlist and
-limit each entry to the smaller of the compound-page size and the
-remaining length. The complete backing allocation remains owned by the
-heap and is still released normally.
+Improve the early and persistent dynamic SWIOTLB pools. They already own
+and transition backing rounded to the shared granule size, and SWIOTLB
+is itself a suballocator. Advertise the rounded extent as slots, size
+the slot metadata to match. This makes the extra capacity available
+without reserving more backing memory.
 
-This does not change behavior with the current allocation policy, but
-prepares the heap for shared-granule-sized backing allocations.
+Keep transient dynamic pools unchanged. A transient pool belongs to one
+DMA mapping and is destroyed when that mapping is unmapped, so its spare
+backing cannot satisfy a later request without changing the lifetime
+model.
+
+Do not attempt the same optimization for dma-buf, DMA-direct or regular
+GIC objects. Those allocations have independent caller-visible sizes and
+lifetimes. Reusing their padding requires a shared-granule suballocator
+with reference counting, per-object mappings and accounting.
+
+Note:
+For the current 64 KiB CCA shared granule size, SWIOTLB pool sizes are
+already multiples of the 256 KiB IO_TLB segment size. Consequently, the
+rounding does not change any runtime values on current CCA systems. It
+instead makes the code express the intended invariant that pool metadata
+describes the complete shared-granule-aligned backing allocation.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/dma-buf/heaps/system_heap.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ kernel/dma/swiotlb.c | 30 ++++++++++++++++++++++++------
+ 1 file changed, 24 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/dma-buf/heaps/system_heap.c b/drivers/dma-buf/heaps/system_heap.c
-index c8959eadc71d..b5b8cdf65f23 100644
---- a/drivers/dma-buf/heaps/system_heap.c
-+++ b/drivers/dma-buf/heaps/system_heap.c
-@@ -406,6 +406,7 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
- 	struct system_heap_buffer *buffer;
- 	DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
- 	unsigned long size_remaining = len;
-+	unsigned long sg_remaining = len;
- 	unsigned int max_order = orders[0];
- 	struct system_heap_priv *priv = dma_heap_get_drvdata(heap);
- 	bool cc_shared = priv->cc_shared;
-@@ -454,7 +455,11 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index cb67105b8812..9577a8807b07 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -330,6 +330,14 @@ static inline unsigned long nr_slots(u64 val)
+ 	return DIV_ROUND_UP(val, IO_TLB_SIZE);
+ }
  
- 	sg = table->sgl;
- 	list_for_each_entry_safe(page, tmp_page, &pages, lru) {
--		sg_set_page(sg, page, page_size(page), 0);
-+		unsigned long sg_len;
++static unsigned long swiotlb_align_nslabs(unsigned long nslabs)
++{
++	unsigned long granule_nslabs;
 +
-+		sg_len = min_t(unsigned long, page_size(page), sg_remaining);
-+		sg_set_page(sg, page, sg_len, 0);
-+		sg_remaining -= sg_len;
- 		sg = sg_next(sg);
- 		list_del(&page->lru);
++	granule_nslabs = cc_shared_granule_size() >> IO_TLB_SHIFT;
++	return ALIGN(nslabs, granule_nslabs);
++}
++
+ static void swiotlb_mark_pool_used(struct io_tlb_pool *pool)
+ {
+ 	unsigned long i;
+@@ -435,11 +443,12 @@ static void add_mem_pool(struct io_tlb_mem *mem, struct io_tlb_pool *pool)
+ }
+ 
+ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
+-		unsigned int flags,
++		unsigned long *alloc_nslabs, unsigned int flags,
+ 		int (*remap)(void *tlb, unsigned long nslabs))
+ {
++	unsigned long aligned_nslabs = swiotlb_align_nslabs(nslabs);
++	size_t bytes = aligned_nslabs << IO_TLB_SHIFT;
+ 	void *tlb;
+-	size_t bytes = ALIGN(nslabs << IO_TLB_SHIFT, cc_shared_granule_size());
+ 
+ 	/*
+ 	 * By default allocate the bounce buffer memory from low memory, but
+@@ -457,12 +466,13 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
+ 		return NULL;
  	}
+ 
+-	if (remap && remap(tlb, nslabs) < 0) {
++	if (remap && remap(tlb, aligned_nslabs) < 0) {
+ 		memblock_free(tlb, bytes);
+ 		pr_warn("%s: Failed to remap %zu bytes\n", __func__, bytes);
+ 		return NULL;
+ 	}
+ 
++	*alloc_nslabs = aligned_nslabs;
+ 	return tlb;
+ }
+ 
+@@ -475,6 +485,7 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
+ {
+ 	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
+ 	unsigned long nslabs;
++	unsigned long alloc_nslabs;
+ 	unsigned int nareas;
+ 	size_t alloc_size;
+ 	void *tlb;
+@@ -499,13 +510,14 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
+ 		swiotlb_adjust_nareas(num_possible_cpus());
+ 
+ 	nslabs = default_nslabs;
+-	nareas = limit_nareas(default_nareas, nslabs);
+-	while ((tlb = swiotlb_memblock_alloc(nslabs, flags, remap)) == NULL) {
++	while ((tlb = swiotlb_memblock_alloc(nslabs, &alloc_nslabs, flags,
++					     remap)) == NULL) {
+ 		if (nslabs <= IO_TLB_MIN_SLABS)
+ 			return;
+ 		nslabs = ALIGN(nslabs >> 1, IO_TLB_SEGSIZE);
+-		nareas = limit_nareas(nareas, nslabs);
+ 	}
++	nslabs = alloc_nslabs;
++	nareas = limit_nareas(default_nareas, nslabs);
+ 
+ 	if (default_nslabs != nslabs) {
+ 		pr_info("SWIOTLB bounce buffer size adjusted %lu -> %lu slabs",
+@@ -871,6 +883,12 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+ 		tlb_size = nslabs << IO_TLB_SHIFT;
+ 	}
+ 
++	/* Transient pools are tied to one mapping and cannot reuse padding. */
++	if (mem->cc_shared && !dev) {
++		nslabs = swiotlb_align_nslabs(nslabs);
++		tlb_size = nslabs << IO_TLB_SHIFT;
++	}
++
+ 	slot_order = get_order(array_size(sizeof(*pool->slots), nslabs));
+ 	pool->slots = (struct io_tlb_slot *)
+ 		__get_free_pages(gfp, slot_order);
 -- 
 2.43.0
 
