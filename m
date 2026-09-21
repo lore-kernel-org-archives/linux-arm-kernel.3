@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 601CAC982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED831C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 20:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Gc84nshf57F/O9JNJXpRgG24Hn8rEipfBZo0XmFWJ4=; b=ZnG9HViDvOmX3sbBC/P6VJevSL
-	mWYD9ESFF3zz5SP7EkpFPq1RZIEhtdQAHKa+Pe36sJiFzJoO0Ce1pBgC1x0b9RJpnk6Wd6uya/A8h
-	sPXVZmKXa2RAk6Qs5OLX6Zd8eqazGC3lTKdU5fIBlzFuROqL+ZVRRlX+GAm+0yYo4u55EE0nWp1re
-	RCS7t0kvbzNwMLjOfjnbP1vvsLVfHGB0qZDdfo4jB0NceC/xvkVzhstQNU1jHOi+07biolqvWfkvY
-	xmLaH7j/+POG6hfoHOOkbt9RdVJlqFq4RupiQTCY4DvW8iYz1J4x0637x400mzUnIdPsMv1egJHlQ
-	xNp0GKzg==;
+	bh=6UjZ3rrjP9HMf//Eca0cD5Hxt1wv6E9n3d8DQuHis1c=; b=voNJ8IY2kvHq1j6wEH5tfy4Dyd
+	qWZoQToBZQNWuIJmrL5Yvsr8yKN41KkbcB2ff2x1zUlB/obtI1wonXQE0Wq3G/bdd0qZZRsCALuFs
+	1F08XIBpOObZCFbNLlxZxVPtdg4nY6SOiZqB1kXjmCNhiuAYSYM3mPrFb0O37tRkcNW6XGMg/bFNY
+	h2fQxgH8xnXNhCaaMWnfK/VIZdGN2vHaJOHzsFIxL0yq+qBDB/cD9Tp3HLGRU99Zfe+3RmmBdbwVH
+	fdJ9h963pPu0XtaUe1xI0BKuYucRjRkl7JFNGRcy5TrfttlJiBKzotXpPKHsObXyY8gw3u+oJk2/q
+	fxmNmwLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kAy-00000003IYA-0aVL;
-	Mon, 21 Sep 2026 19:59:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8kB9-00000003Id1-1CLZ;
+	Mon, 21 Sep 2026 19:59:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8kAw-00000003IWs-0WrV
+	id 1x8kB7-00000003IcQ-0a3b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:59:42 +0000
+	Mon, 21 Sep 2026 19:59:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90DC960142;
-	Mon, 21 Sep 2026 19:59:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3A611F00898;
-	Mon, 21 Sep 2026 19:59:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8EEE560142;
+	Mon, 21 Sep 2026 19:59:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F7921F00893;
+	Mon, 21 Sep 2026 19:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020781;
-	bh=4Gc84nshf57F/O9JNJXpRgG24Hn8rEipfBZo0XmFWJ4=;
+	s=k20260515; t=1790020792;
+	bh=6UjZ3rrjP9HMf//Eca0cD5Hxt1wv6E9n3d8DQuHis1c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GBNHRgIVmDV+JRar2AXK7q9NmtoXmMqVqeOQ+Zmz9MRMTqdjM9OinEXErDLc9F07D
-	 Cgo204193T83ZK7ugq6VrDNajh35492FawZ7ZxWHDspmr/t1VjVdxyradYr9+XtmLl
-	 Xu+tS6qUixcP5R4eta4rFx4wD22P8BfZXjQ6Th3bNLHe37mgq174PB0Nuz0bosGkwH
-	 qrIOsB6jCvijrcIF8pN7h+OqhoCPORhqjTHwk7TBKXbVwZgDljCqXZZV7x04Ni69Oe
-	 hMu+sWlpcG703QK9FbdiYYTAHgGnYL0XvwabJTfEkKkZHbt+Martqgvfr7sEtN/boP
-	 pLbb0Xy0CeBKg==
+	b=e/QZ44QoHkWQu3p7iBCIv9/7xn/8Du5V/nI1YenLVuShu29wR4TbMO/TFCpNmUIfQ
+	 sA/NDjrZJJBqUNm+6p4NmRZwdQ3552p9YJguqEBwAcbguFjmUKFsUCuvLDsDjkrtBW
+	 5aP3kEn7oAeirKrSev65TnRdlMpFzbJiDHemXNlnoc8HYUVxHa3TOGTYFzoCs37Cvd
+	 FYn3/bLwkN4RcAmPSXWeCctarbfkKqlDcwehqs+0coUMpmTtd4BZAylrC+y0pehGXM
+	 FGUaBREvbn3E5lZn3jfvOvrZpzH0LCVNWt4HhB6npAdLHRzoq1+c61E9/3215+MUFX
+	 WAa9B+8VFsrVw==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,9 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 03/17] efi/dev-path-parser: Switch to use
- acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:47:15 +0200
-Message-ID: <1870567.VLH7GnMWUR@rafael.j.wysocki>
+Subject: [PATCH v1 02/17] ACPI: amba: Switch to use acpi_bus_get_primary_device()
+Date: Mon, 21 Sep 2026 21:46:37 +0200
+Message-ID: <3362405.5fSG56mABF@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -110,25 +109,27 @@ function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/firmware/efi/dev-path-parser.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/acpi/arm64/amba.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/efi/dev-path-parser.c b/drivers/firmware/efi/dev-path-parser.c
-index 13ea141c0def..e0f864cbaa8c 100644
---- a/drivers/firmware/efi/dev-path-parser.c
-+++ b/drivers/firmware/efi/dev-path-parser.c
-@@ -37,9 +37,9 @@ static long __init parse_acpi_path(const struct efi_dev_path *node,
- 	if (!adev)
- 		return -ENODEV;
+diff --git a/drivers/acpi/arm64/amba.c b/drivers/acpi/arm64/amba.c
+index 1350083bce5f..7ee431d9464a 100644
+--- a/drivers/acpi/arm64/amba.c
++++ b/drivers/acpi/arm64/amba.c
+@@ -87,11 +87,12 @@ static int amba_handler_attach(struct acpi_device *adev,
+ 	 * the amba device we are about to create.
+ 	 */
+ 	if (parent)
+-		dev->dev.parent = acpi_get_first_physical_node(parent);
++		dev->dev.parent = acpi_bus_get_primary_device(parent);
  
--	phys_dev = acpi_get_first_physical_node(adev);
-+	phys_dev = acpi_bus_get_primary_device(adev);
- 	if (phys_dev) {
--		*child = get_device(phys_dev);
-+		*child = phys_dev;
- 		acpi_dev_put(adev);
- 	} else
- 		*child = &adev->dev;
+ 	device_set_node(&dev->dev, acpi_fwnode_handle(adev));
+ 
+ 	ret = amba_device_add(dev, &iomem_resource);
++	put_device(dev->dev.parent);
+ 	if (ret) {
+ 		dev_err(&adev->dev, "%s(): amba_device_add() failed (%d)\n",
+ 		       __func__, ret);
 -- 
 2.51.0
 
