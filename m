@@ -4,137 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0CAC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3F5C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lYR+CCfe7Nse5TyLdV8R6PaT5x5yrAjUFlHn+dCy7yU=; b=QXYzoveeiKLnMbQmB0lw3aHjk2
-	WnJXR654+v+nX78nH01+MyMX6tt9vKPKC6vUA9TcHL0fiPZgWiCLTlu4zjRsEhAysjWBVQqMczoxg
-	74Cal3na+hfFjc3GsGXFmNtq8QRTsKTSOURRy86jLTGIOAhW4DCFWPcyLieH4LwHrmzn6YVhJFj+X
-	Y7jiteb6ce2ANBqVZDi53bvyaTq1quQU+TSw3663OcO0AoGC23vbqZMrJQM7ZwZwRMrnCkjbqgo8x
-	WwDFwrO/nqOTCGv2vhRL5FjNsoZzD/tnePoEG8FRnYDue82BY1D4eibgsekFqxhxlKp59JtLlS/la
-	NKo2qPbQ==;
+	bh=MDIUNnJTr3U0Ey9p4etc55PGRbEZi0JsFTUGlPBKo5M=; b=C8+a+dcQFlcFBq9KxTt4nspj7z
+	DrVNKXsJ+cqbVKKBfRieFrhvAmAuanIw6L+OSq99stNSQOlIpTiEgZgeQCkezho32xcHbC7lqdGBb
+	04x9cBjVjfZCbubMwNwoG+KG8xTAJ8TV+4IMMITqDEWTdKljugmaZonVW2S0U1TxzYu4WOtI8LIc0
+	EUz2Qy5Ge0AAAgqgifzyietrDg3qnV5/sYa5NsBXCGgNHPIM2ekxfHPCD3W/sHi3hJCuOTWkZdzKR
+	DvhRlw4kBUCBWqcyGg1ZfSmR+FyE0qziK+KKU+GaPf5ieHSO6St1lOgAITB7i8hXiYxVuk3VhWBFu
+	GXkZMYww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cF1-00000001vGT-3l5Y;
-	Mon, 21 Sep 2026 11:31:23 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x8cHW-00000001vck-12Jo;
+	Mon, 21 Sep 2026 11:33:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cEz-00000001vEp-1mgT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 11:31:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HgfGuraVCqFpUHUTAuekBbZqGkIctaBANUgLNI0U4ZdkgS/ghUIIYWOZyzji44w+tzl40W3Vba8S4LUVAB2kM3BOCYwevqjrZlp9YVWj+excIr4bBaMTt+1dOphUhVz6H429I5ygtDCpksPwQCZj/rJA8lPl6LftUJ9hTxIUzIwIMkYvmitvbPyHHeVlJpFGdYtBEYc7cx2qL3/Fw/yCanza/UHzYN3LnvaOPaq5C0gJbhCWLuystMLqInMSDHUzhdGhuhK47ytNArm7Y6NJe2gtBzRMtS4fQGaZJhqj+aOuLgNWfP5aZZ2/9O3MI0y/B8px270RSSvApE7NEGySHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lYR+CCfe7Nse5TyLdV8R6PaT5x5yrAjUFlHn+dCy7yU=;
- b=K1B8VFTMvu/8c80vmRnV8mnXyf8fB5YjSNMEh5uUWEirudhMH7S/GMhWM0hlgmGVzE9mDoBGXa2rZkCTKI63fP8v1dMlhV0VmrLfEB/4yUnIM/ODCU5lHr34HzHbew8tlsFGGc9J4BC5pd4vTwG2xGDk/xNVxlwcDhpKCXSGFfGCwj+4E+m50rS8hvRX70SNUC5HkvBWxXuxDaw/cjFrV6pbT7rPpK8XVC8GkR0w+fEV74wDlRoQ4tgEn+hVhPqVXUy3wn7ge2R/TdEilhXsGXV/nky9t0dN1n6+9pAp6KDXI5NT5fu9kTH7+GIMKHcQ08QO98TxbwXTrMmLmY6uaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lYR+CCfe7Nse5TyLdV8R6PaT5x5yrAjUFlHn+dCy7yU=;
- b=JtzhnJ5YpT41EUSmZoTz1P+MMuczpvwWT15MtwUzgi3dme2MXKguSJ+rFvkto8kSU0ij1+tTJVjerin95+zDju22PPnDc/xDxAWD7xpGjkcIj0N3B1VvOF8YeF65xVtkKgxxreSnNMRdih5wQbCgJJPjbDe7pq5DLZJEgxe28CJ1HA0zfjouyBwo8gC/v091HrSAkE9lzQ725IGpVhYI6NLwvoStb/OQLqEtojTwkipPVND0OaEveqPIh3js8Do1ekTroHz23Zwwv6NcSUPFDX8ToAWEK/hiWxTjCKxiYv+tSnvLlyRwzfDHR36N0jlSFUgoRFKVl/1jW9hwkEC6Ww==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by VI0PR04MB10637.eurprd04.prod.outlook.com (2603:10a6:800:25f::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 11:31:16 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 11:31:16 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Mon, 21 Sep 2026 19:35:00 +0800
-Subject: [PATCH RFC v2 1/4] iommu/arm-smmu-v3: Convert streams from RB tree
- to XArray
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-smmu-shared-sid-v2-1-4b656ce68178@nxp.com>
-References: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
-In-Reply-To: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, 
- Jean-Philippe Brucker <jpb@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: MA5P287CA0043.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:175::6) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	id 1x8cHV-00000001vcX-14pd;
+	Mon, 21 Sep 2026 11:33:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 927454394F;
+	Mon, 21 Sep 2026 11:33:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B591F000FF;
+	Mon, 21 Sep 2026 11:33:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789990436;
+	bh=MDIUNnJTr3U0Ey9p4etc55PGRbEZi0JsFTUGlPBKo5M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MdJ1QI3yp0m4W6wPjnpOlP/LuYDBBHyHtO6Zn5chWqo6r8O56zfzdu30oPxNYD7eA
+	 6NGIwnlNi7nbYAUpTe1nB9kvVWEiGBLoBvhjAHsDR6BvGuOtqTHJcPSCEiap+Uxct0
+	 XCeDFQD0PyS9iZgRDiVsh2TcunDaQiBgZY/9kjfjGSJr7L8n5Hmu9QWXs9J+wkqaLD
+	 OQSjmUuvVqsmZx1mUngxnmaYWwePogbProrqJV/yU2encACF0F3DNiP/Z86Sez1sve
+	 3bQh5KztIL9br8JUjHdDnn67RbY+tci0wjl5CYZnvUkpF+gfVLiTLCjAdHzsfTJzui
+	 Wb+6X6UdDhHpQ==
+Date: Mon, 21 Sep 2026 13:33:54 +0200
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Kieran Bingham <kieran.bingham@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
+	Matthias Fend <matthias.fend@emfend.at>, Mikhail Rudenko <mike.rudenko@gmail.com>, 
+	Daniel Scally <dan.scally@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Michael Riesch <michael.riesch@collabora.com>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+	Sylvain Petinot <sylvain.petinot@foss.st.com>, Paul Elder <paul.elder@ideasonboard.com>, 
+	Martin Kepplinger <martin.kepplinger@puri.sm>, Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
+	Tommaso Merciai <tomm.merciai@gmail.com>, Svyatoslav Ryhel <clamor95@gmail.com>, 
+	Richard Acayan <mailingradian@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux@ew.tq-group.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	David Heidelberg <david@ixit.cz>, Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH v6 0/6] dt-bindings: Orientation defines
+Message-ID: <arEVs0FDleyHeeLj@orome>
+References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
+ <CAMuHMdWWOB48AUCbXh=9ZGCK2qZyVH06kJ2paRY-wxkq5NC16A@mail.gmail.com>
+ <CAMuHMdVhK0vm_Ksze_=jG8D_=8Q45v+ezNbxwL7JntTt_v_fkg@mail.gmail.com>
+ <20260921073538.GA1466037@killaraus.ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VI0PR04MB10637:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67741980-5d52-4398-8060-08df17d3d955
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|19092799006|10067099003|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: ijmPW31CZQO5l0bGL3MFCbE/hDecU3ictjC7ThYh96n23AUGJyOGd54L3dqeok4CxSA3u9iHB3gD484RIlL1lhNuDXdVLeIcWGKSB1rXlpa5RsWJmsHWB2prvBLcBf1FhK7DyY9c+WkjSMxHG+haW+QEfKo+gAaKtbvemQ++hrC6XzL6C1rvKZ6E1zfR2R+7pEGjHPFm4udjZgTTywHw/SRbmKSIdunsS+vtYXKVnFfAepRYj7r3DHU7OWm8SoOj2w7JoL8S4X2m7En9udOvW3xV+muA6amHKum0b6bSt5/PYrpudd9P9MUhcEM/wFwNPdAG6lALisgmz4n94lRy0653PDII9RJ9aH6CQTnO7F4I2p3UZy8tawLQ2BEOfvQ2M7uuQpvSuBTqYY8YSs8njPpocCdQKh9gP6rEVZWIUOtF/BnI6xzw3p7SpU6WuTZcTitAtrIRl9MpFaVxPZQpOZtUb6ypJax2y7obNqP28EkaMbsg+hlGahKygouD92s9HjuIJM34KM7XewR0llzauIvGGUozsVlsYPxejYdTc99cwujHtFjooaFoRvgssG6WO2xeuvTk2x85kVpCSUD6p7ZfdI3+1vwbVOMZ3lk2G8GDrmOZRZZ02qJozsggQsIWtxOna0izZknHYNtWii4kr+Ed2iOD5W7a1jv+GQgBmAo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(19092799006)(10067099003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?THRtMndJZm9Yc2FqaWxQamVhNkdqT2lidFJ6dThZNHg1YVpzdUwyQ013VkZ6?=
- =?utf-8?B?cm1mUHVpVnh0cEJaYjEvN3hEczR1M05nRk94TkRpMGx2aDNFWEhUN3dvUEtk?=
- =?utf-8?B?NzJvT256SFZFcStDWU5vaVhlY1c5a2tLVGpxV202bW9sTVFvN0oxV2M4b3NT?=
- =?utf-8?B?QThXU1p2V2hIc0Q2WHVmbm40eHNOb2NZMEFpUHVQY0ZvQ2lkU0dTV0NITDJU?=
- =?utf-8?B?SlhyMkZDU3VGaW9tRXhlcWJ4VkcxdEt0cUVva0pmTnBydFo0K3ZxNGl5ek9D?=
- =?utf-8?B?S1dZekIxdzlOUzVEaThJSzRrR1JkTTJ0R1llUFFrWkNhdEt5WjJwVUdqQXBR?=
- =?utf-8?B?b2JZWEY1bzFSaFU1eHFKRE0xdFZIODYxVlhCbUJqSXhkZzJtUXpoOUlxcTFn?=
- =?utf-8?B?TXRlS3lndW44dGJWck1maDY3YnlRZWZqZnNTL2M2bkgyRzNZaHJFTS8yT0dR?=
- =?utf-8?B?d2N3N2g3UXEraE5ERTg1U2V2TzZjS0dsWmlyZzVYbHpNUUpjRHBMTyt4S1Ez?=
- =?utf-8?B?NEVWZEpkOW1nVGg5T1FNOHl6L0NKa253bTY0eWF4RUcxK1RrQlBJRko2cSsw?=
- =?utf-8?B?S1JDQ2d3dWd2STEvbXlyUnZCWkd5U2NoK1lVQ2M5VVhCVWVWWVdhTi9tKzRL?=
- =?utf-8?B?U1JoTWF0RWk5bEQrTWNyekpzOG1ObElTc28xb2JwRlJudytHV3dGTEtOTFlD?=
- =?utf-8?B?MDhmMGJZR2cxRUlXNUw2VGwveVkxVktnNkgxQWdxUkNNRlpMdTZVR2RWS3A0?=
- =?utf-8?B?OVNZZXc0U2s3RlhUZkpsVzBmeGxFWjRLRmNHM1VyclNvK1lYWE1OYlIwZDRZ?=
- =?utf-8?B?aXBacFVjNUQxRllCOUdrWW9GQ0JScms3RTgwajJQQlpLRjMyRVU5bDE2eENx?=
- =?utf-8?B?VDRSTzNjV3Q1bXR4cWZURld4enAzOHp4U204L1lpcnZFTUJ4aTB3ZHNPejR6?=
- =?utf-8?B?eEt4NzdpWU5MNlBIVDBRMUdWd0ZaQlQ1UThNaEJOdHVSbk9wUE1ZUG05OUNh?=
- =?utf-8?B?c1Qva3hxbFlTczlZM2pEN1JZVUhnNThVaXMwQTMxVmFLWTZJbXIzdXN4Yy80?=
- =?utf-8?B?RjFyNXBuSEpBVS9OUzd5aVpwUWFRUldlVy9jNUZPR2xTak9ERnVmWW9rTDVB?=
- =?utf-8?B?bElIY1E4TVlQd0h3cERObnhuTjBEUFI4TmFEV21PeG8xU2pXejZtSVVGZlZu?=
- =?utf-8?B?aE05UGQwajVwOHV1WFFsQXRDNmJzTllxSkNyVGFEU2NqWGJMYXJGY0g0bDdn?=
- =?utf-8?B?bVFLd3hHc0JCbXRTQ1hWelBrTlQ5cDR3Q0NQVG1SQU5ocUhQVUdSTGJvRG4w?=
- =?utf-8?B?Nzhrbm1PbTVITGw1UHVwV2RjQWd4Rm5SU1pYd0l0aklwNXRpSHBNajhJalIy?=
- =?utf-8?B?bG1kQmxtUkxZNU8yd1ZjdVVFcWNiUGQ1OWR0a1E3Ri9DNjhOM3BnaDhCOVhP?=
- =?utf-8?B?Z2w5akVtMkNlYlQrb0lwRTVid1F5RUxGanNsNmY5M2c4VTlWbUp4elk4OVMv?=
- =?utf-8?B?OUVPWDMyOXBFc1QvOEJpK1Y5NEw0NlYxMkxSR0tPQWtlck11YmsrMTdoS0dv?=
- =?utf-8?B?WnVjMHg2Szh4V0s5RUYxM1duU2lhREs3aTB6KzBXTjRZOWszVkNhZERJUGZo?=
- =?utf-8?B?UkNNZUsyNDFDWGc4ZWJKSmVXSlFrUDNCc2NiUkZ3Y3FjQ092V2pwSzdIOThl?=
- =?utf-8?B?WVY1dDB2bVY5d2dYeFZjYkhWK3hIYlYxZDhZWmZvNnJ1czcwcW55V3crdWtK?=
- =?utf-8?B?U0krZ3NFYmFRRkhCV2tTTC9zV1VWYkZ0djBEbFFzbTlCbG5FUmh0bDhoamhL?=
- =?utf-8?B?TnhsTHpnZFlWcGlSL2N5TFJTa25ua2hQVUZJc3Z1WnlFRFVjeEpxZ1Brck1l?=
- =?utf-8?B?MmJEeEtZeStOMGw0VUMrYVVWTy80bTljN3AwZEVpamZWMEx4R1p1MFhRWHlZ?=
- =?utf-8?B?Tk1ZMnZSOUd3dkhobVUvU2h3cm0rNEsxVmU5NSt3Q0lyaGN2c3dwNU5lN2JN?=
- =?utf-8?B?TmxZV2hRTVNFWW11bm9lWENpYzZIWUxYZ1h5dnN5NFJQYS9iNEQ5NGlzOHlh?=
- =?utf-8?B?T3U2a0NEMHlDTENuSXNmYTJVY3RxUGNZZUhTa3NHTmw2Y0hqYURGL1dJQnow?=
- =?utf-8?B?cXFmR2JyNXdOTFh6QW1aSjVWbllybytCZHB5dVFNUlUwMGtjdVZYdjJkUmdK?=
- =?utf-8?B?OFhTdjVKMmRZK0RhSmdDeVI1dmt3RFljay9sNkVXaDViT3NrREJwQ2cwTzR0?=
- =?utf-8?B?ekpPQ09pU2NDd3YxK3EzNkpkcGdHZzZlZXZrUGRFUDY3MXNJV3lJUTlDckNO?=
- =?utf-8?B?djZ4eU83N2JVRHJRSUpTVWpMeGhtM1JvbmJadmsvN2s3WmkzbDJUa0p5V3h3?=
- =?utf-8?Q?hf8DVKARn4wPkYtIX4Akksx0rsRsY3cnjfJU6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67741980-5d52-4398-8060-08df17d3d955
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 11:31:16.2764
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N9f6ugbOgxlJTMoZoeYAVzvh9GlbVFleUk3mLed8gyzeMHrcc23pQ2DrOL8ONHQUCZREA87h4Z0WE8E6TY1+tyCGoKRj9BJ0WOd3ZgMnlf9G4jL3n42DLBOcn1n5/lGA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10637
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_043121_612275_6C2E72FD 
-X-CRM114-Status: GOOD (  22.09  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rscvpqrbalagvufr"
+Content-Disposition: inline
+In-Reply-To: <20260921073538.GA1466037@killaraus.ideasonboard.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,217 +92,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
 
-Replace the smmu->streams RB tree with an XArray for SID ->
-arm_smmu_stream lookups. The existing streams_mutex serialises all
-accesses (both xa_store/xa_erase and xa_load), protecting the lifetime
-of returned pointers against concurrent arm_smmu_remove_master()
-without requiring RCU grace periods. A mutex (rather than xa_lock) is
-needed because several paths sleep while the lock is held:
-dmam_alloc_coherent(GFP_KERNEL) in arm_smmu_init_sid_strtab(), and
-down_read() inside iommu_report_device_fault().
+--rscvpqrbalagvufr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 0/6] dt-bindings: Orientation defines
+MIME-Version: 1.0
 
-This removes the RB tree comparators, the rb_node from
-arm_smmu_stream, and simplifies duplicate-SID handling for bridged PCI
-devices.
+On Mon, Sep 21, 2026 at 10:35:38AM +0300, Laurent Pinchart wrote:
+> On Mon, Sep 21, 2026 at 09:07:01AM +0200, Geert Uytterhoeven wrote:
+> > On Mon, 21 Sept 2026 at 09:05, Geert Uytterhoeven wrote:
+> > > On Fri, 18 Sept 2026 at 12:55, Kieran Bingham wrote:
+> > > > Add a new dt-bindings/media/video-interface-devices.h header that
+> > > > initially supports the Orientation types and convert existing users
+> > > > throughout the code base.
+> > >
+> > > Just noticed these are already in since commit 6ab5acfb8dd38729
+> > > ("dt-bindings: media: Add macros for video interface devices") in
+> > > media/master (next-20260903 and later)?
+> > >
+> > > > v3 collects tags, and fixes the typo, but drops all hunks that do n=
+ot
+> > >
+> > > [...]
+> > >
+> > > > v2:
+> > >
+> > > Interesting changelog order ;-)
+> > >
+> > > [...]
+> > >
+> > > > v3:
+> > >
+> > > [...]
+> > >
+> > > > -v4:
+> > >
+> > > [...]
+> > >
+> > >
+> > > > -v5:
+> > > >  - Definitions now accepted in linux-media, rebased to get conversi=
+ons in.
+> > >
+> > > Oh, you say so here ;-)
+> > >
+> > > >       arm64: dts: renesas: Convert to new media orientation definit=
+ions
+> > >
+> > > So it's been safe for me to pick this up since v5?
+> >=20
+> > No it's not, there is a hard dependency.
+>=20
+> The whole series needs to be postponed by one kernel cycle :-/ It's not
+> urgent so it's not a big deal. Kieran will have the priviledge of
+> rebasing and sending a v7 :-)
 
-No behavioural change intended; preparation for shared-SID support.
+If all platform maintainers Ack this series, they could go through the
+media tree where the shared include was already merged. Alternatively
+the media maintainers could provide a shared branch for everyone to pull
+into their platform trees.
 
-Assisted-by: Claude:claude-opus-4-6
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 83 ++++++++++++++---------------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 11 +++-
- 2 files changed, 48 insertions(+), 46 deletions(-)
+But given that this is simply replacing a literal with a preprocessor
+macro, maybe not worth the extra hassle.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 5732f3ba0122d..65e448a69a019 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2024,37 +2024,17 @@ static int arm_smmu_init_l2_strtab(struct arm_smmu_device *smmu, u32 sid)
- 	return 0;
- }
- 
--static int arm_smmu_streams_cmp_key(const void *lhs, const struct rb_node *rhs)
--{
--	struct arm_smmu_stream *stream_rhs =
--		rb_entry(rhs, struct arm_smmu_stream, node);
--	const u32 *sid_lhs = lhs;
--
--	if (*sid_lhs < stream_rhs->id)
--		return -1;
--	if (*sid_lhs > stream_rhs->id)
--		return 1;
--	return 0;
--}
--
--static int arm_smmu_streams_cmp_node(struct rb_node *lhs,
--				     const struct rb_node *rhs)
--{
--	return arm_smmu_streams_cmp_key(
--		&rb_entry(lhs, struct arm_smmu_stream, node)->id, rhs);
--}
--
- static struct arm_smmu_master *
- arm_smmu_find_master(struct arm_smmu_device *smmu, u32 sid)
- {
--	struct rb_node *node;
-+	struct arm_smmu_stream *stream;
- 
- 	lockdep_assert_held(&smmu->streams_mutex);
- 
--	node = rb_find(&sid, &smmu->streams, arm_smmu_streams_cmp_key);
--	if (!node)
-+	stream = xa_load(&smmu->streams, sid);
-+	if (!stream)
- 		return NULL;
--	return rb_entry(node, struct arm_smmu_stream, node)->master;
-+	return stream->master;
- }
- 
- /* IRQ and event handlers */
-@@ -4123,38 +4103,47 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
- 	     NULL);
- 
- 	mutex_lock(&smmu->streams_mutex);
--	for (i = 0; i < fwspec->num_ids; i++) {
-+	for (i = 0; i < master->num_streams; i++) {
- 		struct arm_smmu_stream *new_stream = &master->streams[i];
--		struct rb_node *existing;
-+		struct arm_smmu_stream *existing;
- 		u32 sid = new_stream->id;
- 
- 		ret = arm_smmu_init_sid_strtab(smmu, sid);
- 		if (ret)
- 			break;
- 
--		/* Insert into SID tree */
--		existing = rb_find_add(&new_stream->node, &smmu->streams,
--				       arm_smmu_streams_cmp_node);
--		if (existing) {
--			struct arm_smmu_master *existing_master =
--				rb_entry(existing, struct arm_smmu_stream, node)
--					->master;
--
--			/* Bridged PCI devices may end up with duplicated IDs */
--			if (existing_master == master)
--				continue;
-+		/* Bridged PCI devices may end up with duplicated IDs */
-+		if (i > 0 && master->streams[i - 1].id == sid)
-+			continue;
- 
-+		existing = xa_load(&smmu->streams, sid);
-+		if (existing) {
- 			dev_warn(master->dev,
- 				 "Aliasing StreamID 0x%x (from %s) unsupported, expect DMA to be broken\n",
--				 sid, dev_name(existing_master->dev));
-+				 sid, dev_name(existing->master->dev));
- 			ret = -ENODEV;
- 			break;
- 		}
-+
-+		/*
-+		 * xa_store() returns the old entry (void *) on success
-+		 * or an ERR_PTR on allocation failure.  Use xa_err() to
-+		 * convert to a standard errno.
-+		 */
-+		ret = xa_err(xa_store(&smmu->streams, sid, new_stream,
-+				      GFP_KERNEL));
-+		if (ret)
-+			break;
- 	}
- 
- 	if (ret) {
--		for (i--; i >= 0; i--)
--			rb_erase(&master->streams[i].node, &smmu->streams);
-+		for (i--; i >= 0; i--) {
-+			u32 sid = master->streams[i].id;
-+
-+			if (i > 0 && master->streams[i - 1].id == sid)
-+				continue;
-+			xa_erase(&smmu->streams, sid);
-+		}
- 		kfree(master->streams);
- 		kfree(master->build_invs);
- 	}
-@@ -4167,14 +4156,19 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
- {
- 	int i;
- 	struct arm_smmu_device *smmu = master->smmu;
--	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
- 
- 	if (!smmu || !master->streams)
- 		return;
- 
- 	mutex_lock(&smmu->streams_mutex);
--	for (i = 0; i < fwspec->num_ids; i++)
--		rb_erase(&master->streams[i].node, &smmu->streams);
-+	for (i = 0; i < master->num_streams; i++) {
-+		u32 sid = master->streams[i].id;
-+
-+		/* Skip intra-master duplicate SIDs */
-+		if (i > 0 && master->streams[i - 1].id == sid)
-+			continue;
-+		xa_erase(&smmu->streams, sid);
-+	}
- 	mutex_unlock(&smmu->streams_mutex);
- 
- 	kfree(master->streams);
-@@ -4602,7 +4596,7 @@ static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
- 	int ret;
- 
- 	mutex_init(&smmu->streams_mutex);
--	smmu->streams = RB_ROOT;
-+	xa_init(&smmu->streams);
- 
- 	ret = arm_smmu_init_queues(smmu);
- 	if (ret)
-@@ -5627,6 +5621,7 @@ static void arm_smmu_device_remove(struct platform_device *pdev)
- 
- 	iommu_device_unregister(&smmu->iommu);
- 	iommu_device_sysfs_remove(&smmu->iommu);
-+	xa_destroy(&smmu->streams);
- }
- 
- static void arm_smmu_device_shutdown(struct platform_device *pdev)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index dd2fee2f560e6..97dc97ac704d9 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -14,6 +14,7 @@
- #include <linux/kernel.h>
- #include <linux/mmzone.h>
- #include <linux/sizes.h>
-+#include <linux/xarray.h>
- 
- struct arm_smmu_device;
- struct arm_vsmmu;
-@@ -961,14 +962,20 @@ struct arm_smmu_device {
- 	/* IOMMU core code handle */
- 	struct iommu_device		iommu;
- 
--	struct rb_root			streams;
-+	/*
-+	 * XArray of arm_smmu_stream, indexed by SID.
-+	 * All accesses (reads and writes) are serialised by streams_mutex.
-+	 * The mutex is held across xa_load() and all subsequent uses of the
-+	 * returned pointer to prevent use-after-free from concurrent
-+	 * arm_smmu_remove_master().
-+	 */
-+	struct xarray			streams;
- 	struct mutex			streams_mutex;
- };
- 
- struct arm_smmu_stream {
- 	u32				id;
- 	struct arm_smmu_master		*master;
--	struct rb_node			node;
- };
- 
- struct arm_smmu_vmaster {
+Thierry
 
--- 
-2.34.1
+--rscvpqrbalagvufr
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmqxFiIACgkQ3SOs138+
+s6HA/BAAlTOuxN7hAGKsy7dYRPGn5XonD1CL3PrwL+ma3OlyhbTXIVe+Io6RW7J5
+zKfOah30Mnvem2LLH7Sg0m4pfm8rTX/nF7tQQihKyk5IU0/9OgH8/2J5VeB6WRmb
+7ekKOnFAQw9YQs1vcpGn4Jm1JvkIz1ari2ZXHx2qf3gfSi43gDwZ5ZLZSnL2NyTG
+ZaSMB+Sqiao0Q8YuY0UYuEi4jqGJr6qV0fpJKMaG+LHrPS42UG0PYDSbwLkkXALN
+GOz3A9wsFz58L3s92t3+L030Jl/WJEzrg9b6HzfbuS1YKX0mcG1FWRQB3k6waSQM
+lSVq/HZ2fzW31WglB118JZFVqyBGH8cHxXumpsOkOcPiga0dkUIkfCIdOm1GWP1J
+Q/CMLKNu3phGaXej8wIlhtZxUbhP1DYJmAWtYNSAbOg/Zgomo1Q4y+m2qxkO2VWr
+fq/UoozCz2rYlLcTDYB/ML7e2KZHsh7OTNwIGaJ3eIretaKyI+K9jOfOxLZ83SuJ
+yvkNTOAq9sRKiSQod41cgN4UWLsSEdLn6399hyFGHpcwazrebRKfnnfMUauRflSq
+sLokqJGJrk/Ck2uecD/pNXlBGztCR5Czxyf+R4CHNMKMa8HqYQS9OFvU32QnyD26
+6Nb3cTM0bMwTrWMTJVQnV+SVmqld3xVL6f9i1vImIvJAiEcxJQg=
+=n1ZD
+-----END PGP SIGNATURE-----
+
+--rscvpqrbalagvufr--
 
