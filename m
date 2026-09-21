@@ -4,97 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA3DC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 06:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A408C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 06:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VoCg32Arx4e7KaF2GJEfcwJzh1ShvNusNafOCb8ICO0=; b=EijT6cs7SJV6ZyjWRnKdA5Z6mB
-	cNX+GR2N1O/lsp0SJ6Kjx8+yX+k13rOh359O3uqAbXfjzNRUT6Er5fB2OAUvHkkh+9Eb8zNWGoz0O
-	ebIYDogZul1b+VE8OwqPQibKs14EzNL1HdAUe+8Hva76FW6zd0KXZMEZ84/A3Pw0b3a7+vjR5Vyzc
-	W3eoGg3RPtUPiDiVL7l33B2OvQgKSjhhOgn7mdPzjezsfg7bo7FBPAs1YqxG2myepWBIEQ4AJ4AYP
-	awVUbpFx5tAJCenxwUDSMWvLwBGa/Po1xvnA5fnLVoDHhF4+Ms/YWqIIoDA9r/S0Sc9MZSIh6Gxqs
-	xMLVTjWg==;
+	bh=A+8OPNDTMUtNRwvm6okuvzvDQl5XdfF+zgDgtOpY5Lw=; b=r7yKHuEbZPD0D15qpSWcUrm7Nh
+	GWS5F8IKx6raQiP1aqwcoSj1mRgzXuMV+DDxx15MRS7Z2EkrDGdA7arBqDTzkgjDGS3WlqNPE0CL1
+	KmyUx81oVgWSPUDyfQgU1plxyo9m8s1KXhq+iGoU9VAap9flIxuH41qro5RPXJrQCtzxa8jKqvcy7
+	2YBlocJSPM5HcMppGd7lHWBguX+mdx42C1P5cDoBNz2LCCLgtjZ7kZ8xPh8lRGnuaZlhav1SjE+ja
+	qhCwGi05FUGqnvHsZMTc9HX0GBqUKtU4mFmfobYgASwkeoEVnXRjZKXCoafn7djuJfdWF26V8WtG8
+	IvAu28pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8XfN-000000013iI-2GoN;
-	Mon, 21 Sep 2026 06:38:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8Xhi-000000014R7-0AXq;
+	Mon, 21 Sep 2026 06:40:42 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8XfL-000000013g0-27d5;
-	Mon, 21 Sep 2026 06:38:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E870405BB;
-	Mon, 21 Sep 2026 06:38:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9341A1F000FF;
-	Mon, 21 Sep 2026 06:38:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789972695;
-	bh=VoCg32Arx4e7KaF2GJEfcwJzh1ShvNusNafOCb8ICO0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jIq/flJRY3S5laEIT+Wa5u9H4XzbVTG73lEvv3r80VBqC4d4gx2R4rPz/4iRfl+FS
-	 T6wvnzWrCYCSrJ9jduv4Hi4hvZmj7+Rp8DdiuCZWhpb4wC2QAk14pe8YwzDbTbzob/
-	 5XsqIPaBZBiYB/OBhqr7ZaFUtIxWNm4rA9fuRNv5aT0GRKaM5P3x7AQzIRdvxQVz5i
-	 vhLUG13WQhfQov1qCVQmey56rKz+067+EwWOoaeLlTRKhqQr22C9XSlq+YNCQKkKj8
-	 X3UFdT52k2baLO2qi5Cs3dBJorRVGHCGxy1fyZqxLbV3Hv3Ix9tQo9SAAn0a4ffJCA
-	 WoE8T/WIg/byg==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v5 6/6] dma: swiotlb: Remove SWIOTLB_ANY
-Date: Mon, 21 Sep 2026 12:06:28 +0530
-Message-ID: <20260921063628.362078-7-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260921063628.362078-1-aneesh.kumar@kernel.org>
-References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+	id 1x8Xhf-000000014QV-0nhO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 06:40:41 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68L5GJwA2770128;
+	Mon, 21 Sep 2026 01:40:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=A+8OPNDTMUtNRwvm6okuvzvDQl5XdfF+zgDgtOpY5
+	Lw=; b=WNgyu8eWsRw88PFdqyws7yhvmAG0v97/oi6GmYUK5h+rgCy8Me8gvUGAM
+	1plfNIjjayVOvSPD2DXV9I8xoiuXNnM4EnxH6u7V6BTBVqLVMzynt8YHMoc0L8H2
+	wUSBi1PMfRv0EVKxk9o8lxuPlSjKiqHYuSplTnkQIQ/z9sWDcmzo28rmB7nU3V+f
+	5QObPIo4WZda3S0bXmc3u/OVRlx4odGpQbTEAbRZPLycX7vP4e3vrmDczevggPw7
+	xGqQRY2LGwiVElXS4y9Sx92pIVXfbjyz0uKxW9nc75tahWTVcF6KrfgDCXn+aAgi
+	Qt9KD7b9xXRbfRJgJqAZi/yvphLMw==
+Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013066.outbound.protection.outlook.com [40.107.201.66])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gtx9f8ewy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 21 Sep 2026 01:40:30 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mMcvarQQjw+1r9b/yofoswsnztCfO0BpJoKPr27DJBh3nS80ZK6+TO2bOATXhm842OwqB+rl4BwWj10BdOBooXkg8qnV1KdOgb1lmNaqrkakIUSp9ZcPoxOqXf4hR5N0vv57w7QfNfElzgcPZICyZ3kp0e7GorQt3mVYR5aU+hMSm5VU3ZNJFmtxP/XD1xXbsLUieUd4pdIok5t+HlmaDAe2tiQdPIM2/AYsrXskRzvqm8q/ypJQy/bymPIQtuZ0kXRbE+hFlUSfCjV1p1dVAdzub0zSEyMTzszINRzWmv/PdHj20F0kQNYlPcfzaVv+/+PI6PKMkYr5Zrj1eHJitg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=A+8OPNDTMUtNRwvm6okuvzvDQl5XdfF+zgDgtOpY5Lw=;
+ b=ScrcY8nsZqwKSaPAtVb5Xr/j0fauOvGPUf67CVBPykZY+tvQomcIy6cyY6pnzmKEu963o9XCwTS76OgcUG7WRyexIw5idxBp/0BNqdG3UUcxC8PzE0VsmZOX1dZZwwvEYiqgRMa4UhfNvRnb9sYL4xGi4jd+G2sFoYCp9EiLwnuWKAyEERX3M4azHGMn2BxAZIIXgN+pzj1xRpqoInN7HCMiegA7sgWj3Nb5Xy80AYfhnzTXyp4YDur8mYCMk+NTGRJOMXN2dFvspMRlgQS/LCEWP5m8dZVN3Dct1sodWzLYKEAxAQoWlsgib97S7tX6WponyyikuGpOdjYI4YJSRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=A+8OPNDTMUtNRwvm6okuvzvDQl5XdfF+zgDgtOpY5Lw=;
+ b=vURB5nqGjrhY5RW/D+F6UGS31gIOGB64ix3e19dwSmZ24TiIv3B3OliPX5kUb6cyAwh0Tdhd63Y8PiZWObpS/KZWFmUgua0K/nj/O99dwn25OF8CYB3MoJXpOzqaW+JGlqd/q4ss1qpz/eiLIpDuWe0u9SB2OqGsNsCEk+7OWkk=
+Received: from BYAPR21CA0029.namprd21.prod.outlook.com (2603:10b6:a03:114::39)
+ by MW4PR10MB5882.namprd10.prod.outlook.com (2603:10b6:303:18f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Mon, 21 Sep
+ 2026 06:40:27 +0000
+Received: from SJ5PEPF00000207.namprd05.prod.outlook.com
+ (2603:10b6:a03:114:cafe::7) by BYAPR21CA0029.outlook.office365.com
+ (2603:10b6:a03:114::39) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Mon,
+ 21 Sep 2026 06:40:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ5PEPF00000207.mail.protection.outlook.com (10.167.244.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Mon, 21 Sep 2026 06:40:27 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
+ 2026 01:40:12 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
+ 2026 01:40:12 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 21 Sep 2026 01:40:12 -0500
+Received: from [10.24.53.39] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.53.39])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68L6e8SR1519418;
+	Mon, 21 Sep 2026 01:40:09 -0500
+Message-ID: <7795b166-b0fc-4bc0-9dd3-f0fa8251de6d@ti.com>
+Date: Mon, 21 Sep 2026 12:10:08 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-pinctrl: Add virtual GPIO select mux
+ macros
+To: Vignesh Raghavendra <vigneshr@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>
+References: <20260917111539.3844577-1-a-kaur@ti.com>
+ <39d5525a-1276-47af-8659-70a86cda8a1b@ti.com>
+Content-Language: en-US
+From: Akashdeep Kaur <a-kaur@ti.com>
+In-Reply-To: <39d5525a-1276-47af-8659-70a86cda8a1b@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000207:EE_|MW4PR10MB5882:EE_
+X-MS-Office365-Filtering-Correlation-Id: d97f44b6-73e8-4bcb-eef8-08df17ab390a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|23010399003|36860700016|6133799003|10067099003|56012099006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: v1Q23LxZsdJJ14Ar1rAT3uhQ9vYSnpdPcC+X+1Bd+SwAcqEp+EhVqMfs70PStJaNjQTEUGk6k26r8w/1WIyZsSC5AgdaU/JKoRVRT4R0v2QKLAmJ34+Nn4M+iu18i1E1nFtHpnrARK5IOaukQTZMc6FCIb5zSflftVdbMsx/p6SwLt+9X8Fsw7+7zQTY2GXLplOMVIqKmjtCTl1DNbUlV30b/svuC0Fx5ASidoc1qPQLLo87OPDxCCSxL+QezCUgt6vM4xJxnj6WKjvao/oTPRSWEkVLQYob/pvWA7CEPih+MPSYX3wedkRJntfC/4m580MksL0Wt0h5L7gbhchRXmJup4GBTlGW84XfoS5Ic6IfFBA6azJM9ow6rGJ+fIPw1lq1L7CZJ7cYAvLsZoapP+TyFtw2npyBTbCQQK/HMIRbvbx0W7RiAoCjWXc2bE6ukNinpDqfgpk+9dC317JaIJFxioKyiQhwpzxpBk8Zl6fTUZH35/If8SobHSfAhAuG4SI1O+g6uYPUYGRc9n3L39J0I4xyJ4yhhQc8qiDQ5kn32bfJi3s4NQK57vwsjRPObN3kvPzcLi8lFgc+f0xNeQrDtVzEZ8YmijAVv0D18kfNqii1j+g60rrMNCCm59mFRUtHPLMw2M8WZS/YVJBWgQzsxVcv+jZ44HEWSsALM8be9NpLf4TVws9wr8MCKtWq
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(23010399003)(36860700016)(6133799003)(10067099003)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bWTfmCy4HGzTGNSpr+7xTvAQWA1sjmOO4+DwUX4CJK6blYaRClh+khHK3trSyT+tD607WNhQ3Ztxd1CkWkRHkj33fS2kOylebgRzDiA+T0emjpaRQ6VsSn8VKCuQYkFmM9bvKA4eVGO5Wi4zE55/Q9OEihxQvHQVa3677Y5uesS/N2LgcGQHdlOGdzcQGfs9Zrq35W/qFnQSGuQngTlz6SRaQSz3eLri8GSIFxT/A7bBFNUb7OgjE0z6d2cQ59Vj4h+SnukfpPL2JOO6X1aZT1x11fyiIFcFOGkZPqUEAGPnqP01MY/o4joggRI11NRSbwkuDjJ8fl5gTi9I4rjv5ZO+GkDZ70+g6yfWE7Um81+9nNm7SlRJWBsl94a1u/p3E86WV/lw7d/k2tHDwPCwqlO+wR1/30wgZ9n/W3LnRGtsA6ok5FhOJwPUTWIh3bdc
+X-Exchange-RoutingPolicyChecked: IPiI7983pJkPwoBHHftOByGJ7hsu7VsVb1timyPhPI+svNnphXIY4TS9gQe3/KKVbctTFAL5ND0fe6kUHzAJfjN+JGuvmajb7APvK+khX8GJ1rzsm2W8MDTYCXYb4ps3bq3vpjMr5vY8Pm1X9XmBNAl0QOkBm/8ACAmVDO0bqMB6cr9BahZvhlCEkDDV2F4fc9cZv/7bhbV9yDqqNfLb212sdQfHOqiiyNboWgQNm8KgFu7zR3MGUra3tF0moAHA112y8UDh8D8j7hGYYv1TDrRyQk+iFg7XQJ9EmHKnTB6UdbGZ4QsawIRZOI/OQZG0eS6+zQdvobbeOZftWUpChA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 06:40:27.2869
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d97f44b6-73e8-4bcb-eef8-08df17ab390a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000207.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB5882
+X-Authority-Analysis: v=2.4 cv=Vou2kO2n c=1 sm=1 tr=0 ts=6ab0d15e cx=c_pps
+ a=2KosHvP3s5kmPOqSYQ0Nog==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=We7qAqze--YcBpNh1UUA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDA5NCBTYWx0ZWRfX70dlFnqx/5in
+ RpbZfW2Ed8xe2aqqzMxQaaWPHtQg/Mrgigr00PvjT1VzmZ1UEGqcYZaAURCKnvinrqCFP/TxkRO
+ eprTvULtl0Dm6jlSiwhx58fmoFEvZUYuglCf6oqtcPNgGZpGKgM5hmS2jcTES9W4WEerkAlCHbi
+ Ophz4OuyR8CRAnvLgVWM5p8h1P+dKA0cCjHahxdKVSVYLhrLPQZJDgLmaq5Q9rXxGsV0X7MwJ5e
+ WO+HYstWCkr4Ys1pN/Zp0iQjQ3JeB+Jxu4+owlqgNIdoXo+d220u/2CIo8QK4OCq36dBzIoIj6z
+ nirMCXYJn8R1xDuuh6KXurtobZzGsEAAmcBOjkG1vWF3guiYSvUyz4XVq/ZfC5ez0c8izc4ja6d
+ u5Me2Bm4LCgzbNQxiv++n4/fNrAJl7PnTRwqe5NSDTCH3qKxcErIwuV9L4Uqh8KriLjUhY8p3U/
+ Na0mZ5EEIwLe7kfZM7g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDA5NCBTYWx0ZWRfX9+M5YRfdthqH
+ y7CQyj8kB642RPhFjHjJipOrSRoBNmGE2wlRafmwnEMqL6gZN/DirmSOyf3N3e3aZEa50Kdkbts
+ ohDoe5SDkozNhMg5A0bdkDu1uhx2OhM=
+X-Proofpoint-ORIG-GUID: 0FfUB4e2-ygbEbMT7VsE3mQUOq1C7Oow
+X-Proofpoint-GUID: 0FfUB4e2-ygbEbMT7VsE3mQUOq1C7Oow
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_02,2026-09-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
+ lowpriorityscore=0 spamscore=0 suspectscore=0 adultscore=0 phishscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609210094
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_234039_346978_93244E72 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,187 +179,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-swiotlb pools are currently allocated below the architecture's low
-address limit by default. SWIOTLB_ANY overrides this and permits
-allocation anywhere in directly mapped memory.
+Hi Vignesh,
 
-SWIOTLB_INIT_ADDRESSING_LIMIT now explicitly identifies callers which
-need a pool that is reachable by devices with limited DMA addressing.
-Use it as the placement constraint and remove SWIOTLB_ANY.
+On 18/09/26 13:57, Vignesh Raghavendra wrote:
+> 
+> 
+> On 17/09/26 16:45, Akashdeep Kaur wrote:
+>> Add virtual GPIO select mux macros to allow users to select GPIO
+>> controller bank for pins. The two GPIO controller instances in the
+>> MAIN domain share physical pins, and the vgpio_sel field routes each
+...
+>>   
+>> +#define VGPIO_SEL_SHIFT         (4)
+>>   #define WKUP_LVL_EN_SHIFT	(7)
+>>   #define WKUP_LVL_POL_SHIFT	(8)
+>>   #define DEBOUNCE_SHIFT		(11)
+>> @@ -111,6 +112,9 @@
+>>   #define PIN_WKUP_EN_LEVEL_HIGH		(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
+>>   #define PIN_WKUP_EN			(WKUP_ENABLE | WKUP_ON_EDGE)
+>>   
+>> +#define PIN_VGPIO_SEL0                  (0 << VGPIO_SEL_SHIFT)
+>> +#define PIN_VGPIO_SEL2                  (1 << VGPIO_SEL_SHIFT)
+>> +
+> 
+> Unfortunately, this field has different meaning in different SoCs. Here
+> is the definition from J784s4:
+> 
+> Note this field  is irrelevant when Muxmode is not 7.
+> for MAIN GPIO
+> 00 = GPIO0 or 1 depending on the specific pin (meaning if mode 7 has
+> GPIO0.x then it is GPIO0 and if GPIO1.x then GPIO1)
+> 01 - GPIO2 or 3 depending on the specific pin (meaning if mode 7 has
+> GPIO0.x then it is GPIO2 and if GPIO1.x then GPIO3)
+> 10 - GPIO4 or 5 depending on the specific pin (meaning if mode 7 has
+> GPIO0.x then it is GPIO4 and if GPIO1.x then GPIO5)
+> 11 - GPIO6 or 7 depending on the specific pin (meaning if mode 7 has
+> GPIO0.x then it is GPIO6 and if GPIO1.x then GPIO7)
+> Note this field  is irrelevant when Muxmode is not 7.
+> 
+> Thus, macros need to be generic or it should just open code the constant.
 
-This changes the default behavior for callers which do not set either
-flag. Previously, omitting SWIOTLB_ANY placed the default pool below the
-architecture's low address limit and also constrained dynamically
-allocated pools to the same range. After this change, omitting
-SWIOTLB_INIT_ADDRESSING_LIMIT permits both static and dynamic pools to
-use any directly mapped memory.
+Thank you for the feedback and the detailed J784S4 example. You're
+absolutely right that the naming was too AM62L-specific. I've addressed 
+this in v2 by using generic value-based naming (PIN_VGPIO_SEL0/1/2/3) 
+and adding all four values. The commit message now clarifies that the 
+meaning is SoC-specific.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- Documentation/core-api/swiotlb.rst |  8 ++++----
- arch/powerpc/mm/mem.c              |  6 ++++--
- arch/riscv/mm/init.c               | 16 ----------------
- arch/s390/mm/init.c                |  2 +-
- arch/x86/kernel/pci-dma.c          |  2 +-
- include/linux/swiotlb.h            |  7 +++----
- kernel/dma/swiotlb.c               | 17 ++++++-----------
- 7 files changed, 19 insertions(+), 39 deletions(-)
-
-diff --git a/Documentation/core-api/swiotlb.rst b/Documentation/core-api/swiotlb.rst
-index 71b4e4c27eb5..06d9f88fdf7b 100644
---- a/Documentation/core-api/swiotlb.rst
-+++ b/Documentation/core-api/swiotlb.rst
-@@ -148,10 +148,10 @@ may also be adjusted
- due to other conditions, such as running in a CoCo VM, as described above. If
- CONFIG_SWIOTLB_DYNAMIC is enabled, additional pools may be allocated later in
- the life of the system. Each pool must be a contiguous range of physical
--memory. The default pool is allocated below the 4 GiB physical address line so
--it works for devices that can only address 32-bits of physical memory (unless
--architecture-specific code provides the SWIOTLB_ANY flag). In a CoCo VM, the
--pool memory must be decrypted before swiotlb is used.
-+memory. The default pool is allocated below the architecture's low address
-+limit when it is needed for devices with limited DMA addressing. Otherwise,
-+it may be allocated anywhere in directly mapped memory. In a CoCo VM, the pool
-+memory must be decrypted before swiotlb is used.
- 
- Each pool is divided into "slots" of size IO_TLB_SIZE, which is 2 KiB with
- current definitions. IO_TLB_SEGSIZE contiguous slots (128 slots) constitute
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index 006ed41097e9..1bdea6c03848 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -295,9 +295,11 @@ void __init arch_mm_preinit(void)
- 		/*
- 		 * Since the guest memory is inaccessible to the host,
- 		 * devices always need to use the SWIOTLB buffer for DMA
--		 * even if dma_capable() says otherwise.
-+		 * even if dma_capable() says otherwise. The hypervisor has
-+		 * no addressing limitation, so the buffer may be allocated
-+		 * anywhere.
- 		 */
--		ppc_swiotlb_flags |= SWIOTLB_ANY;
-+		ppc_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
- 	}
- 
- 	/*
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 96856114b387..734712230f35 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -165,27 +165,11 @@ static void print_vm_layout(void) { }
- 
- void __init arch_mm_preinit(void)
- {
--	bool swiotlb = max_pfn > PFN_DOWN(dma32_phys_limit) &&
--		       memblock_start_of_DRAM() < dma32_phys_limit;
- 	unsigned int swiotlb_flags = SWIOTLB_VERBOSE;
- #ifdef CONFIG_FLATMEM
- 	BUG_ON(!mem_map);
- #endif /* CONFIG_FLATMEM */
- 
--	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb &&
--	    dma_cache_alignment != 1) {
--		/*
--		 * No 32-bit DMA bouncing needed (either all DRAM is within
--		 * the 32-bit limit, or it all starts above it), but
--		 * kmalloc() buffers whose sizes are not cache-line-aligned
--		 * still require bouncing for non-coherent DMA.  Use
--		 * SWIOTLB_ANY so that the buffer can be allocated from high
--		 * memory when DRAM starts above dma32_phys_limit.  Allocate
--		 * ~1 MB per 1 GB of RAM.
--		 */
--		swiotlb_flags |= SWIOTLB_ANY;
--	}
--
- 	if ((max_pfn > PFN_DOWN(dma32_phys_limit)) &&
- 	     (memblock_start_of_DRAM() < dma32_phys_limit))
- 		swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 78f507e24ceb..ce10292447f1 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -166,7 +166,7 @@ static void __init pv_init(void)
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
--	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_ANY);
-+	swiotlb_init(SWIOTLB_VERBOSE);
- 	swiotlb_update_mem_attributes();
- }
- 
-diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-index ce257b20ea9c..74e92b457758 100644
---- a/arch/x86/kernel/pci-dma.c
-+++ b/arch/x86/kernel/pci-dma.c
-@@ -90,7 +90,7 @@ static void __init pci_xen_swiotlb_init(void)
- 	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
- 	x86_swiotlb_flags &= ~(SWIOTLB_INIT_ADDRESSING_LIMIT |
- 			       SWIOTLB_INIT_DEFAULT_OFF);
--	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
-+	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP;
- 	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
- 	dma_ops = &xen_swiotlb_dma_ops;
- 	if (IS_ENABLED(CONFIG_PCI))
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index 466c33795db0..503e1446e0d8 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -15,13 +15,12 @@ struct page;
- struct scatterlist;
- 
- #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
--#define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
- /* Initialize a default-sized pool for devices with limited DMA addressing. */
--#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
-+#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
- /* Initialize a default-sized pool that requires architecture remapping. */
--#define SWIOTLB_INIT_REMAP		(1 << 3)
-+#define SWIOTLB_INIT_REMAP		(1 << 2)
- /* Do not initialize a pool unless SWIOTLB is explicitly required. */
--#define SWIOTLB_INIT_DEFAULT_OFF		(1 << 4)
-+#define SWIOTLB_INIT_DEFAULT_OFF	(1 << 3)
- 
- /*
-  * Maximum allowable number of contiguous slabs to map,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 46b789eb0806..77d7c320de28 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -450,15 +450,10 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	size_t bytes = PAGE_ALIGN(nslabs << IO_TLB_SHIFT);
- 	void *tlb;
- 
--	/*
--	 * By default allocate the bounce buffer memory from low memory, but
--	 * allow to pick a location everywhere for hypervisors with guest
--	 * memory encryption.
--	 */
--	if (flags & SWIOTLB_ANY)
--		tlb = memblock_alloc(bytes, PAGE_SIZE);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
-+	else
-+		tlb = memblock_alloc(bytes, PAGE_SIZE);
- 
- 	if (!tlb) {
- 		pr_warn("%s: Failed to allocate %zu bytes tlb structure\n",
-@@ -604,10 +599,10 @@ void __init swiotlb_init_remap(unsigned int flags,
- #ifdef CONFIG_SWIOTLB_DYNAMIC
- 	if (!remap)
- 		io_tlb_default_mem.can_grow = true;
--	if (flags & SWIOTLB_ANY)
--		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
-+	else
-+		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
- #endif
- 
- 	/* if we have host or guest memory encryption */
--- 
-2.43.0
+Thanks and Regards,
+Akashdeep Kaur
+> 
+>>   /* Default mux configuration for gpio-ranges to use with pinctrl */
+>>   #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+>>   
+> 
 
 
