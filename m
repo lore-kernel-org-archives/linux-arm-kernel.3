@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509A1C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 06:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3918C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 06:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4cTrkejZqjO54vzP9W02sQt9N5PF/Wx2jSHjrZFM5k4=; b=FGVmfNZQIBUjxmAUCaVjDsZ1f2
-	i3iCMpqjqv8UnRLx5VMB1av63LYortMd2uvQ5dzpgazh9/dadu5r1JFNIYgKL2e2037L+GYa7SzlO
-	xt0LfaQMaPAXSsP+n++UoDJspFR7EGzBPLZfRAiTAkOoKwva8DqX6LYd5i5qOa/V+N4CKj8bRPpII
-	AbCJG5MBuxdWLM6yYP98L1R9uR4Cy61WF9uLKwNeIW2mh/dlyizG4KWYgy1zQN3078RqiOAvV30Qh
-	c5lxARWJBVfpLj+4/brSNCeSh2eSWRkSS2nIa/YkHJNhb8NF5E11mdYtYuvZFrKOdpHQFLN2wjjWw
-	BDG3Onkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eI/rghceFoKRDvJzmmhIiWgU5dI02A3SjLrHZWxVm/o=; b=ZQitL3IMs4u6OHSidNPORQNbSX
+	XD5Da75n1LDHAHtn98iJUGyMki+1w98eVTwp4kDh8VyeTT38gQg4tY7dRxQB4uMHPvLPV1CLhvvUx
+	M3PP+xLO1RT6ZSzpWaFLuPmUuUx8ClGFugSq6zzp1SdEw/wxbh6hpMJEZyq+7q5KR1MzFlIW4C2BN
+	d1ksSjy5crczS7S4H9PwFzZs5DrwPDztuG3bMLYk9yLk2aHsC0qpo38WEAa0OBzyxXe1y/GOuXS83
+	scUfixZeyJ63VCpv/ReNz0ki6YVtT4l/wOhb/7k4Pn/mJXyW+M6L/l2FRagwLsjo9e9I5PLw39fI2
+	1/cCKC8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8XMe-000000010tP-39MP;
-	Mon, 21 Sep 2026 06:18:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8XbQ-000000011gO-1HQ6;
+	Mon, 21 Sep 2026 06:34:12 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8XMd-000000010tJ-1xA1
+	id 1x8XbN-000000011fZ-1Sl1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 06:18:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91D44601F1;
-	Mon, 21 Sep 2026 06:18:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B581F000FF;
-	Mon, 21 Sep 2026 06:18:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789971534;
-	bh=4cTrkejZqjO54vzP9W02sQt9N5PF/Wx2jSHjrZFM5k4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CY2RMC+DNz9xNIoZK14hBmxfCcFt6QyKdMK/xwH5iNIzCNzArlB984Q+Wfv6djmVw
-	 CBv/hUadhRgr8wviJST5L7mhqEb7aE2XqFrn438zP2nipDhlChd/kdatBBSyIoomeG
-	 DegjBaIaAaEXCVxmgvEno4PK7FbEfhqDjHRBsfdUoIlf2AUM+rNuHmUj6W6a90E+df
-	 LjDFF2Di7jyxTwpYJZxzLPj1DS/Pz3Y5DxUTEHQoC9g2OxbPOiXE4e2nBgVOuAfLk+
-	 zPXijxa2lrTKU3HN41BSqZhwz7Q8G+1D29b3oN/qZqzME2iPDzPSAnUHKXd4ftqfXH
-	 TKzTisJAeiT1w==
-Subject: Re: [PATCH net v2] net: stmmac: do not cache the new TSO MSS before
- it reaches the DMA
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaolinkui@kylinos.cn, stable@vger.kernel.org
-Date: Mon, 21 Sep 2026 06:18:53 +0000
-Message-ID: <178997153300.2160803.9722094587431911734@kernel.org>
-In-Reply-To: <20260920061609.1919876-1-xiaolinkui@126.com>
-References: <20260920061609.1919876-1-xiaolinkui@126.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 21 Sep 2026 06:34:10 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id d9443c01a7336-2d9004a1ac0so16401145ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 23:34:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789972447; x=1790577247; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eI/rghceFoKRDvJzmmhIiWgU5dI02A3SjLrHZWxVm/o=;
+        b=j2PS2fcwwPo8uwJxkuttXOWFzkDaW0iXzmdAdtjIyspmIF1QvqV11DZ9wyg+JzC/dy
+         qYf0sKKtJ45xTfMos24g7WcyPrC1TDt8L1sDM5z4eF1iCjKGA2ZK742fK6BAJWwGih6Z
+         tu0azw+KPDwJ3vn2nTQR1IIzHP9YMTfwsK7GB3LLDDenp6Janp5ttdcAxCrWh6lE1Jz+
+         TRP22KxUOlkXuERMB7/Uzx7STIvNVwf+p+TqrFNXji3UZ/D1ChTLsoYSLgwh3XbGw8tD
+         ++9se96Hzx2u0fNi/CKr3D2AtpkbooYkSv8a4R9G4NIXv4A32n/daG2aJaGPWDGYNgFX
+         kq+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789972447; x=1790577247;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eI/rghceFoKRDvJzmmhIiWgU5dI02A3SjLrHZWxVm/o=;
+        b=USf6OJrEXsh70MP9dT/s14l3OIIYrQ/sECJtOSii2TbzFrYaFmBPNyjzIW3l6oHVHL
+         VQDF2lPJ4c8r0QMWw8hrwFmRhVRkibQ8fnbvg/U0SaGhU2+QWoavZ4EUcMhuec4HtFcK
+         REnDu7SmOjpIzhRY8+LKq9rkNAxqAKfoWq83NMp/Ab4A1XWpfy/F0AIaTkb9Og8AD2W6
+         tKA7KqOqGPMDan43Iu/hnfB6coqn3z5fGeUKQDnkJ103cFLDV2/SdwMOe+gxpauqpPKs
+         2C2PrGUwcam+xHozBkMLsO67MxgIokPWCciCxvnobOheeGNBpz9WhV4mzJi7xCp/adZn
+         2Z/Q==
+X-Forwarded-Encrypted: i=1; AKwUvByX8F2dZO2sCmCJF7bZVaiGPbE+KMpsuK0kT5frSxzAZJgNTsHnYsAGIdvdSxCv7rniOXiUsFr6fdrEStKe2ebF@lists.infradead.org
+X-Gm-Message-State: AFuF++ll1w+RofdKLiAxkiOTTXF6q2q7pp2XrgaK92x04XKkXZBRKKib
+	G0iD0Yv39vgkP8Wh/DtesqXrXx9RzrTOiH8uoMVWzT45P9/Rci3S/m+Z
+X-Gm-Gg: AYBFou1GJqnURjZikfGu7VVEexdYdvUizfHILIjv4d0F9chHmmZeeaiFA3F2sAqDfdE
+	EOx4K4L+q4kq4if3QiVtIe4zMZ4QlaamV/NwFG46LelbxGsryEeByXLAMHMvoMVSo4CzH3eH7r+
+	u5v5VIObC7BWGt9nhV5SqLWjLpFHXKvj+Vr9oGEw5Kjzw175P3b7zVc49p6RUU6DDcq1pOsR2/V
+	Yy5/BN/wSGViyR+1AYK8sWYsdoGXCnNVOLOr3pVuqTN4p2bo2pLzn+lB3N335074BSOT/a8eqYC
+	CuKTNA178AXO/FWaYvtUb6KJxR94pymwn1xf1ADcoS3r42pr24MRlMkAz0NDLTUG7OJFjdYae3n
+	V4WQL+px/lNWxmwuR5UXgedDxPhf/Pog1yDnFuTlFgoi+zcqXRRZQg47xOlu/xGphuh4RNQWJA0
+	R/ve9lcutB12wl4YAURPuU7q4civtEkYkO3J7eO/wzhdv5w+lPOJRz/qYZO3/sfOt3s7PTy284c
+	CVNXPav0hE=
+X-Received: by 2002:a17:902:e751:b0:2c8:2808:3ec9 with SMTP id d9443c01a7336-2ddb1ae69b7mr148847475ad.12.1789972447082;
+        Sun, 20 Sep 2026 23:34:07 -0700 (PDT)
+Received: from Aaron-M6 ([188.253.120.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddc17888a8sm28824695ad.26.2026.09.20.23.34.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Sep 2026 23:34:06 -0700 (PDT)
+From: Yaozhong Li <yaozhonguwl@gmail.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: drop unused i2s0 from rk3399-firefly
+Date: Mon, 21 Sep 2026 14:34:00 +0800
+Message-ID: <20260921063400.2020-1-yaozhonguwl@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.3
+In-Reply-To: <20260903082713.192-1-yaozhonguwl@gmail.com>
+References: <20260903082713.192-1-yaozhonguwl@gmail.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_233409_379612_F80C11AA 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Please drop this series.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+The commit message claims that nothing on this board uses i2s0. That is
+true for the DAI, but I missed that its pin groups also list GPIO4_A0:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  i2s0-8ch-bus           ... <4 RK_PA0 1 &pcfg_pull_none>
+  i2s0-8ch-bus-bclk-off  ... <4 RK_PA0 1 &pcfg_pull_none>
 
-- [Medium] The commit message of "net: stmmac: do not cache the new TSO
-  MSS before it reaches the DMA" describes a failure mode that cannot…
+That pin carries SCLK_I2S_8CH_OUT, the MCLK the RT5640 runs on:
 
---
+  rt5640: rt5640@1c {
+          clocks = <&cru SCLK_I2S_8CH_OUT>;
+          clock-names = "mclk";
+  };
 
-net: stmmac: do not cache the new TSO MSS before it reaches the DMA
+Dropping the whole &i2s0 override therefore leaves the codec clock pin
+without its mux configuration and analog audio stops working. I have
+reproduced that on the board. Sorry for not catching it before sending.
 
-The patch moves the tx_q->mss update in stmmac_tso_xmit() so it happens
-only after the MSS context descriptor gets its OWN bit, keeps tx_q->cur_tx
-parked on the context descriptor slot while the frame is being built, and
-releases that descriptor explicitly on the error paths.
+The correct change must split the MCLK pin into its own group, attach
+that group to i2s1, and disable the otherwise unused i2s0 controller in
+the same patch.
 
-The code change itself looks fine; the question below is only about the
-changelog.
+Patch 2/2 depends on this one - with i2s0 still enabled there is no
+pl330 channel left for i2s2 - so it cannot stand on its own either. It
+is resent unchanged as part of the v2 series rather than separately.
 
->     The next skb carrying the same MSS then compares equal to the cached
->     value, so no context descriptor is emitted and the hardware segments the
->     TCP stream with a stale MSS, generating frames whose payload size does
->     not match what the stack accounted for.
+Could you please mark both patches as superseded in patchwork.
 
-[Severity: Medium]
-Can that on-the-wire symptom actually be observed before this patch?
-
-Before the patch, the abandoned context descriptor sits at the slot that
-tx_q->cur_tx had when stmmac_set_mss() was called, and cur_tx was already
-advanced past it, so every later frame is queued behind that descriptor.
-Neither dwmac4_set_mss_ctxt() nor dwmac4_release_tx_desc() ever sets the
-OWN bit, so the slot stays at OWN=0.
-
-The error paths in stmmac_tso_xmit() return without calling
-stmmac_flush_tx_descriptors(), and that is the only place the tail pointer
-is written:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_flush_tx_descriptors() {
-	...
-	stmmac_set_queue_tx_tail_ptr(priv, tx_q, queue, tx_q->cur_tx);
-	...
-}
-
-so the engine stays parked on the abandoned context descriptor. When a
-later xmit bumps the tail, the DMA re-fetches that slot, finds OWN=0 and
-suspends again.
-
-Meanwhile stmmac_tx_clean() reclaims the OWN=0 context slot in software and
-then stops at the first descriptor the DMA still owns:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_tx_clean() {
-	...
-		if (unlikely(status & tx_dma_own))
-			break;
-	...
-}
-
-which pins dirty_tx just past the stuck slot, so cur_tx can never wrap
-around and rewrite it.
-
-Doesn't that mean no frame queued after the mapping failure is segmented at
-all, stale MSS or otherwise, and that the real pre-patch consequence is a
-wedged tx ring recovered only by the watchdog / stmmac_tx_err() path, which
-resets the channel and clears tx_q->mss via stmmac_reset_tx_queue()?
-
-The patch does fix that by keeping tx_q->cur_tx on the context slot and
-releasing mss_desc on the error paths, but the changelog does not mention
-the stall. Since this carries a Fixes: tag and Cc: stable, could the
-changelog describe the tx stall and controller reset instead of the
-mis-sized segment description?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260920061609.1919876-1-xiaolinkui%40126.com
+Sorry for the noise.
 
