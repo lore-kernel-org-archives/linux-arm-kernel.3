@@ -4,99 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A11C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC90EC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCrcI7igLaQUil9vBYjywYIs9hdqlrNEBSUMKWJIUV4=; b=F7NWRNBzFcfEe53XGH1jsEhkso
-	CYL+DpeUargj2kt6agUGBS2uKIIHyP6WzhQ7FtP05ESTW9qk01pXEP6lyad21pbiT8kF6A5g7LOhZ
-	swHJIQLyIcD86HtEpUJuI+dFOUsif62AQI+k8YohtoP5dbyKHPZEmkM7WRJQVqejIDrUL8WLFhB+j
-	p1dsWVItLBa6PGTZrlrFOphT+J7zNN5nTfoDlDRWjRpMSWm3tCh7T3DfmWiZXfVUaptqdXN3qAPEw
-	tgk5fftVpEIPQ5FZ12avfvJ1zDuDCc5zBkXwowtN0u0dJSS2qZl6btTDvkx9uUd6ufbRS/wrwHLcD
-	iLyWQQNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ycnprV0l+QiM05HZAYzXXqeG9wnBaUsBNe37TTIlwsM=; b=WOy26VLHi2wiQtH4tuNA4WR9yK
+	p9ApW277g8aT+xwnBwKBQVkby10rJGpzB3KGxCO9/00RLNslNVTvDvQuQDWDA+MQQrMlMZ8mEVe0M
+	8HTj6DkfQvVKuvRw+A0tCJWhL27Rfq6eTjCTz1/ydpOGyeZY/DZ/5Dys/6hquW2ZHKj1gxyxKLkR/
+	QdtBcLk3F0wj7ucUvk/hWRAPVijrrg4QPwFZowsg3XLIzGw9m+bKTCg8y6SOSxBQjmzCplHKcGqMb
+	JQZeOB5X6LpRTuMJv8/tpjgwbWDqqFaYTQuv2mSJQuxvjoGIKknaGMU8tFoGUTAsIjVU6A8RuldND
+	7cQ7eTuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bmT-00000001ocP-1PV0;
-	Mon, 21 Sep 2026 11:01:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8brO-00000001pPx-1Sep;
+	Mon, 21 Sep 2026 11:06:58 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8blr-00000001oLk-2SrH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 11:01:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oCrcI7igLaQUil9vBYjywYIs9hdqlrNEBSUMKWJIUV4=; b=NeT4Y6pE1wMpTOhRCeWh9WhuQF
-	pR/5N7Gmo+FZAI963xOBJ3GAnj+7/M662npDhM40vCLR9wRr/78c5RYNUUcbOEf6TGby/9Ts+mU5f
-	xGi7lM9j4gEjqWJ9Bmxmen/Ag1uVL59kud5s0ERily8X8+5K0gz6PCHoj8vUilYYn+paYUw8DJhev
-	xd4cRepsr4UDO1bIuJ2k7cfbjEWoPll3Dju4tNj392UMbUFVwNF4Mc1SJHaLIBsTSoTxU59FiQ5A/
-	pR/fB64S00XzxBJKv5aFqyF+dlWPMqFNVDYPM+xhniFVlCN27oM+PeBobtUCeq1H8VM74rtJNlb/i
-	bpWuBRPQ==;
-Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8blj-0000000CA3O-3Fud
+	id 1x8brM-00000001pPX-1kGv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 11:01:10 +0000
-Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-487057d8a3eso351326f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:01:07 -0700 (PDT)
+	Mon, 21 Sep 2026 11:06:57 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747ee1f38so28464175ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:06:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789988466; x=1790593266; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oCrcI7igLaQUil9vBYjywYIs9hdqlrNEBSUMKWJIUV4=;
-        b=MgSiyOgNPo0W7g2LnQbTYzE6urvrMfg7xTGvAvsVKpJRrtfB8SVc7bo3/6OprFJlc9
-         89cM6EBI483iLo8iwyxKdCEqLOy7Etni15zR3SQVCIwMKpWUEe2PH8/R53rW51bKasvg
-         XEEovwvDy8CrowZXqDzE9cw4toFkM7fFNczhOntpwkmZ09QpnWGRA46tPG23U5vtH6eg
-         ZT20Okgvk5OEGidMS7j0BbcEulJW+xQNqb/vrt3swtaOqW5xy7EQwfCFnF9fLMmTq14e
-         3NJVypYZFwl/gB1Dl10TtGg9y1PJOuCQaDw3pzd/mQE5bQh9Gcc7g8i6NUDiajlxF1mg
-         BsRg==
+        d=gmail.com; s=20251104; t=1789988815; x=1790593615; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ycnprV0l+QiM05HZAYzXXqeG9wnBaUsBNe37TTIlwsM=;
+        b=ZRd3X+gHH0Zt6K/NRtXXKXkFWVaWwcVQPGMUV1eqjDd8kNecyzRZrglr9ATB2c5/t6
+         Su87hKQabe48dYn+8qsrdwBo7lsXW5+eB2rW+070DblZsZo5l/MqvGdZEYiBmKwA8T3V
+         Vb/fCKls9YRVWt6jQJ/L9JjiK681JOS7hEbcPD9BkgkBiZDYsYgtf8cx1lrp3oP/VitY
+         PvreySRkLARIZ62HcZRRtuBJgTzFNzVL+/S32rWtPcssAIUfZTxNsSalIoUsaHaAyaLD
+         gm/F+Y0AyTrLH4voqh3IMLF7qS8k/La0gOLL5l8bbi9RRMreYCoyYk4GpgIaRDPuw8K5
+         zHiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789988466; x=1790593266;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1789988815; x=1790593615;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oCrcI7igLaQUil9vBYjywYIs9hdqlrNEBSUMKWJIUV4=;
-        b=jKtmGFiMOqEjxnBiHUiwpxew1NrBXqUgsgCzy7V5r6ZGoFFHdIxywYYV9OWeXGd/Lv
-         rqv3UCOP2rQbi9HDTN608NtPf3wx3dG/N55fs1HJZdWjBwUBqOe/+Am0lfQBtMoNn+1q
-         88bCT6CiADRgBBcUgLggCveEjNRnpRMh4iFgFlTMGsywan2ZwpTdnyW/Zs+Ur6f7oWXL
-         rFm5WnRD9iPXgqW9Wx3ss3c0pMh+/g8Kjzr1ctoJLP9WSAU35adPuDzAouL8RDFbHIv+
-         Pgl1Fuu8yS+3NPpHkzhxFxh05u/8mf29Wdr9jLISwQzMBUyZ8SXcLmkbh/fkp/Fsm6E3
-         F3uA==
-X-Forwarded-Encrypted: i=1; AKwUvByOcsR7kjttzjtSUnHYrOhz7uOFJv6xjvcwtWmYigSbGgfvLnk3rdG07B4v3w8HVByJUkjFrtOoYGVmPoshWz1C@lists.infradead.org
-X-Gm-Message-State: AFuF++lxy6oIEMQt1S7ElukdU6W+JK9KgK6yZJKo6fejeMlAj+iVr0fS
-	g/ZO7VP3Iq+5ug7eaLPwxHs94t93cRHOYYhQ5RCxgX4a0A5mvqdPDnN3VbB/uGNAjP9ZqNKQkcR
-	p0pCoi8Bwgpmt3bYlX6hZRg==
-X-Received: from wrbeh15.prod.google.com ([2002:a05:6000:410f:b0:487:2514:733])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:290d:b0:487:27f9:829 with SMTP id ffacd0b85a97d-48727f90a8cmr8269596f8f.30.1789988465393;
- Mon, 21 Sep 2026 04:01:05 -0700 (PDT)
-Date: Mon, 21 Sep 2026 12:00:50 +0100
-In-Reply-To: <20260921110050.3977591-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260921110050.3977591-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260921110050.3977591-9-vdonnefort@google.com>
-Subject: [PATCH v2 8/8] dt-bindings: firmware: optee: Add memory-region property
-From: Vincent Donnefort <vdonnefort@google.com>
-To: catalin.marinas@arm.com, will@kernel.org, rppt@kernel.org, 
-	akpm@linux-foundation.org, sudeep.holla@kernel.org, jenswi@kernel.org, 
-	robh@kernel.org
-Cc: mark.rutland@arm.com, sumit.garg@kernel.org, ardb@kernel.org, 
-	thierry.reding@kernel.org, david@kernel.org, danielmentz@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        bh=ycnprV0l+QiM05HZAYzXXqeG9wnBaUsBNe37TTIlwsM=;
+        b=Znz2CwZrbNnwvoOGx5+QKb7l5M+Pluh5wqeJbSaAVd6X9l2WpbXNeQ8JeCMDm1ExX8
+         vfeUb6+OHyqilMJ5aq0vUL51FgYvoeG6J14JKV04jToiPts948RVOWKyGBUmMosaBynj
+         vn1xltysUYcC1rFPwd3xXUbFEpqXt80ZvZ5OHbv5zN+awoMksjCJpdAOaR4TKyGEzLVN
+         fr3vNkCDKrGHPESSXi4Hvv/L+mQBESJXPxGmWFDyeQWwXMef1oB7bo1xiSkAXrZP8nom
+         sNG0T/W++Uz3Mib3quURFJM8sRK68AUqUrx4s48yp0PYoTN1LjIO5dTBwbigl2Zebnad
+         4iGA==
+X-Forwarded-Encrypted: i=1; AKwUvBxmTqquvZwQWQU7rw2rzLXwcaThwJVKyZGBzK8Cstg6HTtCFHIypbfJ6vHQGqE+x5RkY4MygLhEdd3aWNjBxXRK@lists.infradead.org
+X-Gm-Message-State: AFuF++laz94pfaJOQ9qcRCODJOACSm3mhvSHkygElWMEZaAJg04jEaAw
+	ARW9yxdgS5HifanDxw2o/G/AU/QNa7GfP4tNtLQEam89I05L7UMbKmdx
+X-Gm-Gg: AYBFou0W7tPgBqLTiTne83UN7gxXiianVE5jpMlWCpIOdaL662oiJUpsmZQhfc0kdiM
+	RJu08BCX/T4tmYPIxpMu9N8NX5M5VgCDwwRt/xk9paEaxX9zp6iUs0qK8vMQN8xHPr92dKrj37G
+	Kr9uZPK8POyCafnOPu79zrp0/g/bNLG9W3qE37bUxzONfXPpsx9D0O6aF0/a0lApwNpBHSqDOvs
+	+u/wVGbGJr8Umr5EPAfsC5Jzvh859Z2sfZ9CIuMunsrJIe63tAjiH3SYRi9TO7QPZzTuzZ+tKRA
+	S34l6z7eA6CVpFAmzPi5c7DPL6Vz/vi4XYBPztfaMd65hbnZuG1RUS3MTNjixJjlHw68mchjyy0
+	8n2t3pHiPXqm9bkgVZzo+ciLsukpcwBa4xSlmKCiOslekPAMSEeif6CehD8mBCL5qnaEmlLByBE
+	YfvUOR1/fprMay3XwV5Ii+62trhcNXRMWYc1kHFw67n8559lnF/IRkEuwjlX7ivI8UoalsW78CI
+	BiRK2Cgd6994ixwJHMwtGVfRhd5wA07p8v8wpKKz3Q3MM82n8Uy4iD8k+oaNg==
+X-Received: by 2002:a17:903:2447:b0:2d9:43f5:b462 with SMTP id d9443c01a7336-2ddb1b79df8mr144230985ad.5.1789988815140;
+        Mon, 21 Sep 2026 04:06:55 -0700 (PDT)
+Received: from [192.168.151.214] (222-228-113-186.aichi.fdn.vectant.ne.jp. [222.228.113.186])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddc17ba719sm31428165ad.56.2026.09.21.04.06.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Sep 2026 04:06:54 -0700 (PDT)
+Message-ID: <17a74e90-27d1-4954-86a8-491267f00cb8@gmail.com>
+Date: Mon, 21 Sep 2026 20:06:47 +0900
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Yoshifumi SHU <envzhu@gmail.com>
+Subject: Re: [PATCH v2 00/14] ARM: deprecated platform removal
+To: arnd@kernel.org
+Cc: Frank.Li@nxp.com, aaro.koskinen@iki.fi, alexander.sverdlin@siemens.com,
+ alexandre.belloni@bootlin.com, alexandre.torgue@foss.st.com,
+ andreas@kemnade.info, andrew@lunn.ch, arnd@arndb.de,
+ claudiu.beznea@tuxon.dev, conor+dt@kernel.org, david@kernel.org,
+ devicetree@vger.kernel.org, enelsonmoore@gmail.com, festevam@gmail.com,
+ geert@linux-m68k.org, gregory.clement@bootlin.com, imx@lists.linux.dev,
+ kernel@pengutronix.de, khilman@baylibre.com, kmehltretter@gmail.com,
+ kristoffer.ericson@gmail.com, krzk@kernel.org, linusw@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux@armlinux.org.uk,
+ liviu.dudau@arm.com, lpieralisi@kernel.org, mcoquelin.stm32@gmail.com,
+ nicolas.ferre@microchip.com, npitre@baylibre.com, robert.jarzmik@free.fr,
+ robh@kernel.org, rogerq@kernel.org, s.hauer@pengutronix.de,
+ sebastian.hesselbarth@gmail.com, shawnguo@kernel.org, soc@lists.linux.dev,
+ stefan@agner.ch, sudeep.holla@kernel.org, tony@atomide.com, vz@mleia.com,
+ thehajime@gmail.com
+References: <20260914140821.1805449-1-arnd@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20260914140821.1805449-1-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_120108_059928_31B89FE9 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_040656_461269_0F42B33A 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +117,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow reserved-memory via memory-region to support the arm,ffa-lend-pool.
+Hi Arnd and all,
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- .../devicetree/bindings/arm/firmware/linaro,optee-tz.yaml    | 5 +++++
- 1 file changed, 5 insertions(+)
+I would like to request that the core Arm Cortex-M support be retained, specifically for v8-M.
 
-diff --git a/Documentation/devicetree/bindings/arm/firmware/linaro,optee-tz.yaml b/Documentation/devicetree/bindings/arm/firmware/linaro,optee-tz.yaml
-index 26ebcf4565f3..7fddea9cfdbc 100644
---- a/Documentation/devicetree/bindings/arm/firmware/linaro,optee-tz.yaml
-+++ b/Documentation/devicetree/bindings/arm/firmware/linaro,optee-tz.yaml
-@@ -41,6 +41,11 @@ properties:
-       HVC #0, register assignments
-       register assignments are specified in drivers/tee/optee/optee_smc.h
- 
-+  memory-region:
-+    maxItems: 1
-+    description: |
-+      Phandle to a reserved-memory node for the OP-TEE lend pool.
-+
- required:
-   - compatible
-   - method
--- 
-2.55.0.1082.g2b9226bbc0-goog
+I'm heavily using Arm Cortex-M / NOMMU Linux for academic research.
+In particular, I frequently run Linux on newer Arm v8-M (Cortex-M33/M55/M85) processors.
+However, dropping CONFIG_CPU_V7M also removes support for these newer CPUs.
+Because v8-M is highly compatible with the older v7-M (Cortex-M3/M4/M7), the v8-M support is tightly coupled with CONFIG_CPU_V7M, despite the name. 
+The major differences are essentially CPU IDs and PMSAv8 MPU support.
+So I need the majority of CONFIG_CPU_V7M to support Arm v8-M. 
 
+Regarding platform support, I don't need Linux-side device drivers.
+In my current setup, Linux runs in a virtualized environment hosted by an RTOS (like Zephyr) and accesses devices through virtio served by the RTOS.
+I also understand that maintaining legacy MCU platform support is a significant burden.
+Therefore, I don't object to removing the platform support, though the MPS platform remains convenient for bare-metal testing.
+
+I am willing to help maintain this support, including modernizing the relevant code. I can regularly test kernels on real Armv8-M hardware.
+If an active maintainer is required to keep the support, I am willing to take on that responsibility.
+Please let me know how I can help keep the support.
+
+Thanks,
+Yoshifumi
 
