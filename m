@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7732AC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D9DC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z4j95iorbULZW94KfX9vH9S7sD5hTc6RHIL3XgcCWVU=; b=BtWLwXXIC3H2ts1OVt3JUZcbvN
-	Nk95y1Nrcidut/BazO209WtDgcV/Ym0rORrKDi68ZuBVjDliNXzXmS7wP7RvBmPftETeT22ZlZBDP
-	t+mVcu7Xzj2PW3MoPog1CHFB8gh63zKSbdjFyzQTXpP/tzzXxsxs4tRZ82By1L6fy1QDt73nERV0C
-	b3z9+Uqxqpz3DQlIViopGUCfYxc+5+RDpqunNM9sIUrUeenheatlkjTCI6jz7Y4yivLGzJyGYF74J
-	wrIUqoRp6XPDzLHNi3YxTqIhblMGNmlnPd8J2F0oECCX15RBprMF048pbsGgJvuLEGJnoMq3iW1p+
-	xR/+GvxQ==;
+	bh=s9i/ToZsbA5iXctbYEYVjf65fydob/mr01EsHElgSTk=; b=gIQjfyX5sjsNjqVB9XqrBVSlZb
+	JNkhMSnrD4PXUhRQPm07EuNIrqqlgNQ+oOyuX3a4qb89OSjImNX3jx0R12xqvQ/zpEifXRTKCSrjM
+	GJ9YQp+ZdJmSLUjPy/nG3eTluQn2prJPjJSd2j7VmHnsNIqdOty3z9vAp/q8eG/6YYGY7AseGbgu2
+	BCUxSOsYvR3i8Lkomrqrwi53gIMmyLuhJoh/gEcSTQ5GpvLW6YX+/FGRNxZ6y7yAOK/xG50nSA6Ag
+	EJNOQ8m5rj8+asAWMKwRmvRnXJfDNoLuTKfIJ/OscgiGtCf4VF4fwiHV3n34sAmKW2Nfwe20dF7CC
+	w15nxNMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nQ2-00000003faL-0sBu;
-	Mon, 21 Sep 2026 23:27:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8nQj-00000003fmo-1xeL;
+	Mon, 21 Sep 2026 23:28:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nQ1-00000003fZx-0diI;
-	Mon, 21 Sep 2026 23:27:29 +0000
+	id 1x8nQi-00000003fmU-1oM1;
+	Mon, 21 Sep 2026 23:28:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9428760235;
-	Mon, 21 Sep 2026 23:27:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161AF1F000FF;
-	Mon, 21 Sep 2026 23:27:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 53A5760236;
+	Mon, 21 Sep 2026 23:28:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C956F1F000FF;
+	Mon, 21 Sep 2026 23:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790033248;
-	bh=Z4j95iorbULZW94KfX9vH9S7sD5hTc6RHIL3XgcCWVU=;
+	s=k20260515; t=1790033291;
+	bh=s9i/ToZsbA5iXctbYEYVjf65fydob/mr01EsHElgSTk=;
 	h=From:To:Cc:Subject:Date;
-	b=LXcAx7dk9Cvfcmws4NMjLKDSkYUgwfCaLkhBMMPXb2fgDdLs1WjcJXvmmTkd4TlDr
-	 +jiXPfKkSL8P7ZnXZoXuqkRlysBOGRbAylJS/0jqRL9L5E2HyWz38k73nf3jdOFxrT
-	 FPxeeXd1rdv/QPDf14WiwPbQ/elhYZE3XzJ6sxzLi3Q0S6rt162Zwm2LpV4b8PnmvG
-	 Js6ejO/r5xOMdgqqlEaxyBRsr18Izr2qnlN4o6/pLFkBmr5f6FH6hVaGXfItrkxSu9
-	 /o/f2aUB6/1Pzy86sXPO+lWGOmJH9ne1fmiTEhLlgC7gN6XPXHFqTeER73epYSNGgq
-	 iCQCmJS4raLOA==
+	b=XVBRn4HAER+wIB/E1iVk+dVgAHu83sRTjn6y74APepGBQ1VZ6N+hHkfvdjHVgdiLU
+	 J/LRnQ4ScTBfL+ekBqAafSEEuJ6co4rYknZEwK5+woBeM5s7SyTrp0tvH5h3LAMO37
+	 UM89JozSTA+pvcbol3QHFY+V8Otsz5aQBJSTVUnnFjoSvmUCVQfv4ikou3XYUQXcNq
+	 OyZ6hYfM613SOlbK6nSqhTb5rBX/3hGQPvBHsX4Th4yS/rgzmkiedmEzdD/z/Vn0Vt
+	 eIkgWdBpMnVmK/TeRzYlLfOdl/QTdrgNknxCOxyeFHxFnkRnO+WMddXzvFqJkuThw1
+	 bXZQjn7aqx1iw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Yong Wu <yong.wu@mediatek.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: iommu@lists.linux.dev,
+	Michael Turquette <mturquette@baylibre.com>,
+	Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-clk@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: iommu: Describe MT8195 infra IRQs
-Date: Mon, 21 Sep 2026 18:27:15 -0500
-Message-ID: <20260921232716.3134140-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: clock: mediatek: Add MT8516 fallbacks
+Date: Mon, 21 Sep 2026 18:28:06 -0500
+Message-ID: <20260921232807.3137010-1-robh@kernel.org>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -75,78 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8195 infra IOMMU has one fault interrupt per IOMMU bank. Require
-the five bank interrupts, named bank0 through bank4, for this
-compatible. Keep other MediaTek IOMMUs limited to one unnamed interrupt.
+MT8516 topckgen and apmixedsys nodes use the common syscon fallback
+form. Add the MT8516 compatibles to the branches that allow the
+syscon fallback.
 
+Fixes: cd9fdd06b0e8 ("dt-bindings: arm: mediatek: topckgen: Convert to DT schema")
+Fixes: 16a146735df3 ("dt-bindings: arm: mediatek: apmixedsys: Convert to DT schema")
 Assisted-by: LLM
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/iommu/mediatek,iommu.yaml        | 30 ++++++++++++++++++-
- arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  2 ++
- 2 files changed, 31 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/clock/mediatek,apmixedsys.yaml          | 2 +-
+ Documentation/devicetree/bindings/clock/mediatek,topckgen.yaml  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-index 79c573c47b08..4dc5621c17e1 100644
---- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-+++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-@@ -100,7 +100,11 @@ properties:
-     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,apmixedsys.yaml b/Documentation/devicetree/bindings/clock/mediatek,apmixedsys.yaml
+index 591a9e862c7d..438723d25320 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,apmixedsys.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,apmixedsys.yaml
+@@ -26,7 +26,6 @@ properties:
+           - mediatek,mt7988-apmixedsys
+           - mediatek,mt8135-apmixedsys
+           - mediatek,mt8173-apmixedsys
+-          - mediatek,mt8516-apmixedsys
+       - items:
+           - const: mediatek,mt7623-apmixedsys
+           - const: mediatek,mt2701-apmixedsys
+@@ -42,6 +41,7 @@ properties:
+               - mediatek,mt7629-apmixedsys
+               - mediatek,mt8167-apmixedsys
+               - mediatek,mt8183-apmixedsys
++              - mediatek,mt8516-apmixedsys
+           - const: syscon
  
-   interrupts:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 5
-+
-+  interrupt-names:
-+    description: Names of IOMMU banks providing fault interrupts.
+   reg:
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,topckgen.yaml b/Documentation/devicetree/bindings/clock/mediatek,topckgen.yaml
+index c080fb0a1618..6594d491e215 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,topckgen.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,topckgen.yaml
+@@ -23,7 +23,6 @@ properties:
+           - mediatek,mt7622-topckgen
+           - mediatek,mt8135-topckgen
+           - mediatek,mt8173-topckgen
+-          - mediatek,mt8516-topckgen
+       - items:
+           - const: mediatek,mt7623-topckgen
+           - const: mediatek,mt2701-topckgen
+@@ -43,6 +42,7 @@ properties:
+               - mediatek,mt7988-topckgen
+               - mediatek,mt8167-topckgen
+               - mediatek,mt8183-topckgen
++              - mediatek,mt8516-topckgen
+           - const: syscon
  
-   clocks:
-     items:
-@@ -155,6 +159,30 @@ required:
-   - '#iommu-cells'
- 
- allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8195-iommu-infra
-+    then:
-+      properties:
-+        interrupts:
-+          minItems: 5
-+        interrupt-names:
-+          items:
-+            - const: bank0
-+            - const: bank1
-+            - const: bank2
-+            - const: bank3
-+            - const: bank4
-+      required:
-+        - interrupt-names
-+    else:
-+      properties:
-+        interrupts:
-+          maxItems: 1
-+        interrupt-names: false
-+
-   - if:
-       properties:
-         compatible:
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-index 9aaf8b6edcb5..3e46ffaa44c6 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-@@ -937,6 +937,8 @@ iommu_infra: infra-iommu@10315000 {
- 				     <GIC_SPI 797 IRQ_TYPE_LEVEL_HIGH 0>,
- 				     <GIC_SPI 798 IRQ_TYPE_LEVEL_HIGH 0>,
- 				     <GIC_SPI 799 IRQ_TYPE_LEVEL_HIGH 0>;
-+			interrupt-names = "bank0", "bank1", "bank2", "bank3",
-+					  "bank4";
- 			#iommu-cells = <1>;
- 		};
- 
+   reg:
 -- 
 2.53.0
 
