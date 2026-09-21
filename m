@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA69C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57F7C982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kIqLl2fR0Y8FnAZS32z+o+xiwBvBARRJCqimT/79qTk=; b=ez+acEPx2aau+stT5ncxGj+A5F
-	VGQT97uwt/k9RxtJcyfEgVztsWays56YGvwlOPiGDO37giJVoX7QSvH5yEYuStbMRiDzrSRsn1uVW
-	uo7YWhkwT5kV90ETZyuO3plGtuWKgAxxm7vKc9e5EjghNus3u/OhYinDzQNPzDX57rfE5zXSuQZ/N
-	yziJRRDogpOEVdzwim/2Kj4tJFJghNLsuxJ+C7nP5IvXlng+lQ0J3C/rT4CpPbPjOZlhqbLZYJgrE
-	2Ca4K85DaSTlTwzFHxTo3TlXdqJCyjP+2Z4rHll4eURnwKIqRgXgpMEhwTSwtUAltuCVyNXJcKJ/k
-	+qA3HxxQ==;
+	bh=9Mhs6eb7OkvMZOjYpBfupxS7w4Ah9cPyVbDMAhR1BJM=; b=lHL1cgeCnrMwXsa5FEHQdNFh5j
+	iBv5iXCZfrPZdqkaIC+bwWrlWJKRWfq0128EQl+iowkKqXSgCL9Q7zlC6NDRWGZr6OHUTfn0z1Q/v
+	ytA+aVRZpjQVddJf5SOK8hsmwlF2Yc+t0pdHnY9CWOE4JydS53lmSldctiKitq/ox8nnGVKlRYFEi
+	Inekydppxfv5vTjlXw7B+L/ZCYV+BqfR/wQSpSU18zYVUa+wjdJRYTVwkxoexONoAQ81D3i9UDgjR
+	B3vfU1U/1Sot2cVCDuJXQnWu6bqN06TpilaC20/YCIQzlGWXgrkYGiaObRYl1AVipTNMPxbsw78t8
+	t71Quorg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k8z-00000003Hei-28pJ;
-	Mon, 21 Sep 2026 19:57:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8k9A-00000003HjV-39RX;
+	Mon, 21 Sep 2026 19:57:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k8y-00000003He0-0Nk6
+	id 1x8k99-00000003Hit-0jrC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:57:40 +0000
+	Mon, 21 Sep 2026 19:57:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 849E6601F9;
-	Mon, 21 Sep 2026 19:57:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A461B1F000FF;
-	Mon, 21 Sep 2026 19:57:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5EFA0601F0;
+	Mon, 21 Sep 2026 19:57:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807C41F000FF;
+	Mon, 21 Sep 2026 19:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020659;
-	bh=kIqLl2fR0Y8FnAZS32z+o+xiwBvBARRJCqimT/79qTk=;
+	s=k20260515; t=1790020670;
+	bh=9Mhs6eb7OkvMZOjYpBfupxS7w4Ah9cPyVbDMAhR1BJM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lRV8I/cxEYMAz9r1D9EWEMa3f2Cm02BZ36hP2eztkqtgDxPF4HdjKCutBQDwK7SyC
-	 Qwk4Py/zVgM/smZIVVKBf1SaMl+mUyXF+G3QU9onmszrXe7RcaYiupUKWgHK/1AKHZ
-	 caXhXf5qed0b4I8Xk55EX4WchV9ty/tTRBvcyMbY4himnpN4VfIM3AmhOJ86l6mpjY
-	 NE9qm8+/5X3C4g085fpBZhy9lG73sZT+rYOlPODTSAPV0WSU1wN4qrom9OQEd25ZHz
-	 1IJwLW0huDYmNFSo74v0+hHiYl5aJz9d6Tl1h7mC1ZvORpVR0ojgoM6znH8S0BSgiB
-	 gjtvMse2uYc4w==
+	b=MbARqiV7B/zfuakxG+63SG5caSv4KSIkhdZNqBBLtdFvrpvbFYImUZ3HkRFCbqhrw
+	 qjBWyHn2eArQLhi7ERNIpORwvbfItMm0+vn9Qia1T6y8R4KSNI3f8M+ZpfYK9YRl+g
+	 Z2pp54eugw3h41rE/U9UhSYXwHMxOhBcyzmbbPydDabtRGpxv+QFLjDwN5yMzAA+Ki
+	 sPQV8T7lVBbftVjwHFoL6vK1l7sz+uBY2z1m03CdVOHHKV9E73axcA2i4qF2+uqh1+
+	 JX9Chi9bxAiot3vdNurFg4+je5ockMo707YpxprDWAN3Bvd2Co5CLiXTOcJkFeQ6cq
+	 3KXm/C+wQUm2w==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 14/17] ASoC: amd: acp3x-es83xx: Switch to use
+Subject: [PATCH v1 13/17] ASoC: amd: acp-es8336: Switch to use
  acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:54:29 +0200
-Message-ID: <2310746.NgBsaNRSFp@rafael.j.wysocki>
+Date: Mon, 21 Sep 2026 21:53:51 +0200
+Message-ID: <2063881.yKVeVyVuyW@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -108,28 +108,29 @@ device returned by acpi_get_first_physical_node() is removed right
 after dropping its ACPI companion's physical_node_lock in that
 function.
 
-It also fixes a device reference counting issue that may lead to a
-premature device release if devm_kzalloc() fails in acp3x_es83xx_probe().
+It also fixes a device reference counting issue that may lead to
+a premature device release if gpiod_get_optional() fails in
+st_es8336_late_probe().
 
-Fixes: 54fcd9dd44b2 ("ASoC: amd: acp: Add machine driver that enables sound for systems with a ES8336 codec")
+Fixes: 02527c3f2300 ("ASoC: amd: add Machine driver for Jadeite platform")
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- sound/soc/amd/acp/acp3x-es83xx/acp3x-es83xx.c | 2 +-
+ sound/soc/amd/acp-es8336.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/sound/soc/amd/acp/acp3x-es83xx/acp3x-es83xx.c b/sound/soc/amd/acp/acp3x-es83xx/acp3x-es83xx.c
-index 3a640e652314..c522b421e1ec 100644
---- a/sound/soc/amd/acp/acp3x-es83xx/acp3x-es83xx.c
-+++ b/sound/soc/amd/acp/acp3x-es83xx/acp3x-es83xx.c
-@@ -428,7 +428,7 @@ static int acp3x_es83xx_probe(struct snd_soc_card *card)
- 			return -ENXIO;
- 		}
+diff --git a/sound/soc/amd/acp-es8336.c b/sound/soc/amd/acp-es8336.c
+index 9f3f11256788..34e953d1a3a7 100644
+--- a/sound/soc/amd/acp-es8336.c
++++ b/sound/soc/amd/acp-es8336.c
+@@ -198,7 +198,7 @@ static int st_es8336_late_probe(struct snd_soc_card *card)
+ 	if (!adev)
+ 		return -ENODEV;
  
--		codec_dev = acpi_get_first_physical_node(adev);
-+		codec_dev = acpi_bus_get_primary_device(adev);
- 		acpi_dev_put(adev);
- 		if (!codec_dev) {
- 			dev_warn(dev, "Error cannot find codec device, will defer probe\n");
+-	codec_dev = acpi_get_first_physical_node(adev);
++	codec_dev = acpi_bus_get_primary_device(adev);
+ 	acpi_dev_put(adev);
+ 	if (!codec_dev) {
+ 		dev_err(card->dev, "can not find codec dev\n");
 -- 
 2.51.0
 
