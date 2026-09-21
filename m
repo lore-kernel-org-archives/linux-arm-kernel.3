@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C82C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FC1C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tzE636cVh2JJVlZjpsk49ae/rOjGWKwBn3JBb6NY11I=; b=BPcBVj4C5LSeZ+QrweVEamQYjx
-	xdDPgN75JkEEcA4VDxZDgNAx/RBuSo3AFtIZcq/SyO8f0pxBW2kauF71FkQSXbkNKKr7y5KP5PiKD
-	tKHfkYn0Tu3p88xnN9ctPT7CTuzWLt9L6hgT0VTGXv5VCiDtoeTvRQVL0/cJl0P6wEaRvGOjcn2hz
-	cvRm2Up43XOcw+Kfsw5L50b54ZMkI8UuAAiYZzlZ3hF9tMDGObzgBJ9IQzJQ0f2T3TVG+3XSr5y1U
-	w2uRoh9zJgY2iaOwCR9qU/NkHDhSoLvy7GBvM9wz5HMvI48v3U/3G9P+x1jsAIPK69IkNW6SlenjK
-	KkltRWxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4lv/4qA49zZhVU6Mtn/HDxpZJGQJyADrP9l8XahpZC0=; b=c224f9pzbqHdcmz1g5ooILoQvf
+	gWldT8mP1MADgkh9G2O/IwDFAObu2k16DNsGF106530eeBLZPC5GMHBmINUSxEp9PxAeQLZdO9niK
+	MocIyETYVFcsC8BqC+keVIdq1pcB88vweJpoDzgyGb5+ty7F6tQwWXkxWR8TO7avvBrcDRM9OjiMw
+	V2agotAQhgidEia1YOTO0+DLg0DkYNeueXjPDP2jr16TPF33JMoODQJkOizPW2h7xXuhG2lWYJz8T
+	FJBwkumWI7TDXeSadavv08BVQgqecqTNxoqWxi64YoPgBYQ0wbz2JIUPufCcg1STRMozvQw8dzckY
+	WtN7Zcfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8arY-00000001cJb-2JkL;
-	Mon, 21 Sep 2026 10:03:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8arV-00000001cJ4-21to
+	id 1x8arn-00000001cNa-0uW9;
+	Mon, 21 Sep 2026 10:03:19 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8arf-00000001cJt-0Oc8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:03:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC1CC1CE0;
-	Mon, 21 Sep 2026 03:02:56 -0700 (PDT)
-Received: from [10.0.128.141] (unknown [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A6DB3F86F;
-	Mon, 21 Sep 2026 03:02:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789984980; bh=2Bi9HNrID2cE7gcX784v6dveXii59tEhPSRzCiZgdgs=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=blOJwDP8A/onBBJLnCPxUp9mIb8MzS7wS1+7wngcIelq7GcWJvaTjSVFF1Ytq/w3R
-	 x1av8/QUs0lhT01IoJteJ3chVaJ+FHMaSGYVCI5C4ujUt7eSTRkRLr5foUzByLlrWt
-	 EwI7qlCQh+NLED+A0IIYKTIEedohHbTqb02OPxBY=
-Message-ID: <45fb9520-7003-412f-9ab1-14e2a762c816@arm.com>
-Date: Mon, 21 Sep 2026 11:02:56 +0100
+	Mon, 21 Sep 2026 10:03:13 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 1A4FC1F947;
+	Mon, 21 Sep 2026 12:03:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1789984984;
+	bh=4lv/4qA49zZhVU6Mtn/HDxpZJGQJyADrP9l8XahpZC0=; h=From:To:Subject;
+	b=cuLLnOrIpN8MYL71+U54afnRLtYNj/apQyXqHsXD9V/kHSFYbwoBTBFnCQcYdNKDH
+	 fMg36K1GT5vECr5fNb2Db3WPSzoY1SLhnGhqu8eYP4g1TnaBRQxUZ92knI4Ka3haIW
+	 +P2RCIwINK245R2oFTShmrgCQJcLEfMR79X9ovppMS2DxPcGQdDacjfU8LwDyRu4nE
+	 JAy9bK13RJq9ryRnODkiNkcdIr/RtUDSo0YvvkB7DBaYELvv5NFoSGOdaRujsitttc
+	 wGenHDupm2H7gCaGJ98fMkAx1rkJUNRn72umjS/GD/kz5KbhwC/qzbmeDNK+HGsL3t
+	 mMY8HON3Y+o9Q==
+Date: Mon, 21 Sep 2026 12:02:59 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 0/3] drm/bridge: Add Thine THC63LVD827 LVDS encoder
+ and 10inch LVDS panel on Colibri iMX7
+Message-ID: <20260921100259.GA61633@francesco-nb>
+References: <20260908100230.83796-1-francesco@dolcini.it>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 1/7] firmware: arm_rmm: Add SMC definitions for
- calling the RMM
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-2-suzuki.poulose@arm.com>
- <178978126540.2352296.16845657485139032765.b4-review@b4>
- <d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
-In-Reply-To: <d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260908100230.83796-1-francesco@dolcini.it>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_030301_650999_3F045A84 
-X-CRM114-Status: GOOD (  32.61  )
+X-CRM114-CacheID: sfid-20260921_030312_200368_8836A673 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,178 +88,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 10:27, Suzuki K Poulose wrote:
-> On 19/09/2026 02:27, Jonathan Cameron wrote:
->>> The RMM (Realm Management Monitor) provides functionality that can be
->>> accessed by SMC calls from the host.
->>>
->>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
->>>
->>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
->>>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>
->> With Gavin's nitpicks and the GENMASK_ULL() from sashiko, just a few
->> comments inline.  Mostly on subtle inconsistencies that really don't
->> matter that much.
->>
->>>   include/linux/arm-smccc-rmi.h | 497 ++++++++++++++++++++++++++++++++++
->>>   1 file changed, 497 insertions(+)
->>>   create mode 100644 include/linux/arm-smccc-rmi.h
->>>
->>> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc- 
->>> rmi.h
->>> new file mode 100644
->>> index 000000000000..214d6228dfc2
->>> --- /dev/null
->>> +++ b/include/linux/arm-smccc-rmi.h
->>> @@ -0,0 +1,497 @@
->>> +/* SPDX-License-Identifier: GPL-2.0 */
->>> +/*
->>> + * Copyright (C) 2023-2026 ARM Ltd.
->>> + *
->>> + * The values and structures in this file are from the Realm 
->>> Management Monitor
->>> + * specification (DEN0137) version 2.0-bet3:
->>> + * https://developer.arm.com/documentation/den0137/2-0bet3/
->>> + */
->>> +
->>> +#ifndef __LINUX_ARM_SMCCC_RMI_H_
->>> +#define __LINUX_ARM_SMCCC_RMI_H_
->>> +
->>> +#include <linux/arm-smccc.h>
->>> +#include <linux/bitfield.h>
->>> +#include <linux/bits.h>
->>> +#include <linux/build_bug.h>
->>> +#include <linux/sizes.h>
->>> +
->>> +#include <asm/page.h>
->>> +
->>> +#define SMC_RMI_CALL(func)                \
->>> +    ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,        \
->>> +               ARM_SMCCC_SMC_64,        \
->>> +               ARM_SMCCC_OWNER_STANDARD,    \
->>> +               (func))
->>
->> Obviously it is v18 so probably a future thing but nothing about this
->> is RMI specific.  Could be used for ARM_SMCCC_TRNG_RND64 for instance.
->> I'm not entirely sure what we'd call such a macro
->>
->> ARM_SMCCC_CALL_VAL64_STD() maybe?
-> 
-> ARM_SMCCC_STD_CALL64_VAL() ?
-> 
-> But, I would leave it as a wider cleanup in the tree as a separate
-> series.
-> 
->>
->> I'm not just not keen on macros whose names to me hint at something
->> special. FWIW this also matches SMC_RSI_FID() and FFA_SMC64().
->> Isn't it nice when we have a predictable naming scheme :)
->>
->> FID (for Function IDentifier) is in the spec, so maybe?
->>
->> Anyhow, I don't really care that much.
->>
->>> +
->>> +#define SMC_RMI_VERSION                SMC_RMI_CALL(0x0150)
->>> +
->>
->>
->>> +#define RMI_ABI_MAJOR_VERSION    2
->>> +#define RMI_ABI_MINOR_VERSION    0
->>> +
->>> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
->>
->> I'd mask it.  Mostly because that would shout that it is only 15 bits.
->>
-> 
-> Ack
-> 
->>> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
->>> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
->>
->> I'd go all in on FIELD_PREP() / FIELD_GET() + GENMASK just for the
->> sake of consistency + not having to be careful that everything is
->> checked for fit to keep the LLM bots happy.
->>
->>> +
->>> +#define RMI_RETURN_STATUS_MASK        GENMASK(7, 0)
->>> +#define RMI_RETURN_INDEX_MASK        GENMASK(15, 8)
->>> +#define RMI_RETURN_MEMREQ_MASK        GENMASK(9, 8)
->>> +#define RMI_RETURN_CAN_CANCEL_MASK    BIT(10)
->>> +
->>> +#define RMI_RETURN_STATUS(ret)        
->>> FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
->>> +#define RMI_RETURN_INDEX(ret)        
->>> FIELD_GET(RMI_RETURN_INDEX_MASK, ret)
->>
->> What's this one?  I can't find anything in the spec that matches it
->> and as far as I can tell you don't use it in this series.
-> 
-> This is coming from RmiResultDataLevel. See RmiResult type.
-> This was renamed after we introduce the RmiResultDataIncomplete.
-> It is used in the KVM code to find the "level" where a command
-> failed/walked.
-> 
-> I could rename it to RMI_RESULT_DATA_LEVEL() ?
-> Similarly RMI_RESULT_STATUS instead of RMI_RETURN_*
-> 
->>
->>> +#define RMI_RETURN_MEMREQ(ret)        
->>> FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
->>> +#define RMI_RETURN_CAN_CANCEL(ret)    
->>> FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
-> 
->> These are obscure enough to find in the spec I'd give a comment just
->> to save the sanity of anyone looking for them.
-> 
-> As above, they are really RMI_RESULT_DATA_INCOMPLETE_*
-> 
->>
->>> +/*
->>> + * Note many of these fields are smaller than u64 but all fields 
->>> have u64
->>> + * alignment, so use u64 to ensure correct alignment.
->>
->> Obviously this is only going to run on arm64 so it's not critical, but
->> more generally u64s aren't always 64 bit aligned.  So if you 'really'
->> care aligned_u64 is there to ensure it.  Meh, arm64 so fine.
-> 
-> Agreed, I am worried about the churn in the consumer code. Also, like
-> you said, this is only for ARM64. So, I would pass it.
-> 
->>
->>> + */
->>> +struct rmm_config {
->>> +    union { /* 0x0 */
->>> +        struct {
->>> +            u64 tracking_region_size;
->>> +            u64 rmi_granule_size;
->>> +        };
->>> +        u8 sizer[SZ_4K];
->>> +    };
->>> +};
->>> +
->>> +static_assert(sizeof(struct rmm_config) == SZ_4K);
->>> +
->>> +#define RMI_REALM_PARAM_FLAG_SVE        BIT(1)
->>> +#define RMI_REALM_PARAM_FLAG_PMU        BIT(2)
->>> +#define RMI_REALM_PARAM_FLAG_DA            BIT(3)
->>> +#define RMI_REALM_PARAM_FLAG_LFA_POLICY        GENMASK(6, 5)
->>> +#define RMI_REALM_PARAM_FLAG_MEC_POLICY        GENMASK(8, 7)
->>
->> Tiny bit inconsistent. When do you decide _MASK is needed and when
->> not?  Seems a little too random for multibit fields.
-> 
-> I will try to clean this up.
+Hello,
+just a gentle ping on this.
 
-Actually, this is used when we don't consume them from RMM. i.e.,
-we never call FIELD_GET() on them. But thats not a reason for
-not being consistent in naming. I can fix it
+On Tue, Sep 08, 2026 at 12:02:24PM +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> 
+> This series adds support for the Thine THC63LVD827 DPI to LVDS encoder and
+> afterward uses it to add a DT overlay to enable the Toradex 10inch LVDS panel
+> on Colibri iMX7 / Iris
 
-Cheers
-Suzuki
+I did not get any feedback on the binding (apart a small comment from
+Frank -> thanks!) and zero feedback on the driver. Maybe some DT and DRM
+bridge people can have a look?
+
+Thanks a lot, appreciated.
+
+Francesco
+
 
 
