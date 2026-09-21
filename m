@@ -4,102 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D57C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E25C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scSu49n0yZs/NkIL79oefwB1Fce7usaOArd+rmA6NfU=; b=h+C2LLU2s+rLot56we5AhYbCSJ
-	CPrCBMwd890kKB2+1tLJwEybwzKoYkB9utAQIyErWtxeLihAs4eye5b2M6/VWIie5QEGXurpD7/lE
-	pIHraX6IEzXsyD9htX6IjXpynHsARUdd7i71C5/23lKGyNtLiMqRnIspccc650RkhzjhFKfjRx+0s
-	Jt7YAGFgcYaGwg7IthmQyu955DAjwU3bKZFqvtX7YdXakUUpSDJRrfj7BHYFrwkRIceULXJ92Jpzv
-	Mh2BOLbeaQmn1CbaTIoXztRkP8uEVhrzlG26Uy9t0FP8HnsBQqUsLLVV/R49qlbimALd9aDqkIUNg
-	J5V6apCg==;
+	bh=ev9JnqYn8mQmOCRku707kjkP1oz2wBTVDOe4Yv6Gfno=; b=nsr9I/pwzfwRbLDVSXX92bQdMp
+	64h4ynBNaKcw4dvK/pXbb+ffnkni7h5a9SlNzHHmzUcwiFigrB+mt4YQ4SqUwPg75IVwvAcRqiJFK
+	yTLiEDeOpPI0A9UrlfaQVMvzPasTaBHrvypRhNMHOuYXY8eFHu5zkrMvhZ5QezGTptW2hIMgvnINc
+	biyxY01vhxv78cAr4yYrWNNxmVrrPYrTNJiu4bGGRbTpUMuCUo5quSUMrLtxPBRcCixLdHns/LuXA
+	UIBbTGAtxhaPIcooOoiyfYeFmcUvwU7mz16VzSALrtHf5jp9B3QSVcW68WUF+ufCwVuv/kDSykQ8C
+	fd1xicBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fXK-00000002WqP-0JG5;
-	Mon, 21 Sep 2026 15:02:30 +0000
-Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
+	id 1x8fXy-00000002XAN-22XS;
+	Mon, 21 Sep 2026 15:03:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fXH-00000002WnR-418G
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:02:29 +0000
-Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-8692a8568e9so2620305b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:02:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790002946; x=1790607746; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=scSu49n0yZs/NkIL79oefwB1Fce7usaOArd+rmA6NfU=;
-        b=RKqV7jce6leXQOy2qpHGD61FpNA1PuQb/Bob//JXT6MPMvMz5WeDN7velV6uFb4FHH
-         x6ZFjzMwi/U5M9P2vLB4EdlONGMINB3XPNZXSOadIAxZVcM6VRLixkLA9cLuNCU6hOM9
-         GuT5FwB4nErP4mwTgqfgI13ntneyo864oAi+FVrXkZNU/0XTKf6pnMLAtKOt8pwTtnG0
-         5TXxgnLpXV3hw0z6ISf4CxP5Himuk+8yL+205EuM4X43SUV496uoP1WEPpDnTkjOi3bP
-         IcPgA99dz6sbxpLf8ivRHiE3VyNUJjhuAKK555Cugk4Zbx6GBn4kZax7ehUpcPmRy1nL
-         A7bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790002946; x=1790607746;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=scSu49n0yZs/NkIL79oefwB1Fce7usaOArd+rmA6NfU=;
-        b=SHLfFGN5C0xte5fe9CD/Y7M2GeMovev1hPWv0+YPU9qYQqw2aaDnJl8O4Kk5OkyOzS
-         DZTHQPXrrZ1jS0eZeGOMgYQxuAJFssYrEd7OvWcp7c5iGkVlQnx1IcbrR8S2kfIHtxLW
-         cVs5lap//oU4pdlspA837BB9zR2qZeWXUzcPk9eSR9U/vlKyU3gR9DWo9imrwrhjbnUq
-         ZtBnyvJ4eI18dmpdULiOhIwn4DiVd4wRAEQMLGJJk+0YH+6VocKm0eiPyzB3ojDMUh/L
-         39lnd3fZFyQYt9hV9/q8njbTcX9opQEzhp1FHfIzWQZYlgcOHr7ZaRo8lNMOd1Gf8cUW
-         dffw==
-X-Forwarded-Encrypted: i=1; AKwUvBy6nR/KAnwjK2VuylTyhBAoL/+90HkmfEPgamcN9z9LwDvwtsvmzBSAp0OWxaLuBoSNIvsSXXwjC8a1Cukww++b@lists.infradead.org
-X-Gm-Message-State: AFuF++kNSGmUm3SPmiJk385T8rljGAiGaRPcrfP+vZ41iA8O1HL0RfEA
-	WWOqubyqvNbDHPJEVfH0B1C2wW5BU7LJR8+tsCrwu9JS3DEwTINkCVpO
-X-Gm-Gg: AYBFou0/IHMzx1li/+jR276QIO0E4oBk8H/gw/WZUONzRkgU6rTinlgCb1QI2w3SFQf
-	v+xca/ormL/s6OIuJaAqOou3aZBi72/fUOaFwdBaO4Jf5A3jVfrdszPBpCjeLqz5GrphnkBVvXB
-	6uMZdnClej9WF4Tal/XFXZmL22+le6FBFh3u61Dh/p6NeQ5+DZL09FsqFuAw54USwf4GnVUzEzx
-	tqXpfD1HqO6Uq2ed2N/22w1vIUJhEXOFuau+wZIwBNPp1CXpzfMNKUlxgAurapEMXerUpo6rHs6
-	b6R37YfpcDd9Ji+nGhBpht5uO3p8euX+yFf/1arhqSXnC/0qK9NdOGLi99UFMdTJx/CMxgo+OT6
-	xaFDSXXIzm1ybqA2TJgw/TvJgIjE1xLIqvog1iwUMSePZZrqxcAPh1BgQnr+1ARutPq8iPI0IpE
-	ks6CQHB06De8RPgBiaMY/ua4K8Zgu260x3FocofBrg7f5RUXmG2HinzyeMnmNtTmCKt6S95fzZb
-	E/O57NHRzLj
-X-Received: by 2002:aa7:88d0:0:b0:878:3538:8f80 with SMTP id d2e1a72fcca58-87835389b2bmr7554907b3a.46.1790002946544;
-        Mon, 21 Sep 2026 08:02:26 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a95eceb2sm3411465b3a.24.2026.09.21.08.02.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 08:02:26 -0700 (PDT)
-Date: Mon, 21 Sep 2026 08:02:25 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Rob Herring <robh@kernel.org>,
+	id 1x8fXw-00000002X9I-0JPT;
+	Mon, 21 Sep 2026 15:03:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8CA41417F9;
+	Mon, 21 Sep 2026 15:03:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 137C01F000FF;
+	Mon, 21 Sep 2026 15:03:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790002987;
+	bh=ev9JnqYn8mQmOCRku707kjkP1oz2wBTVDOe4Yv6Gfno=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=n9HQdLe31TtwecPF6AJ5SjUg6DGRjA+JJ/rh8Fvb8J5TD/fbYzOcfr1XR0yzxWW5C
+	 p8kZxYMkGcECWBdR0heb1a+WGiVmw9CkPkCvXVB/Gyq3jcPFhKQjnCbpIJZhGqI8xx
+	 kOZrVHVMh705FILqAl7rQDG41W97PAJRrBiH8bON3XmyWxsUE/0MoZYCCLLTL9FCbp
+	 YqEfm39wrWWt+I3mEztHl+qtQtqkbOzuuu6Aa1P9L3xuYLf1v9Lbfo7TU+Uz/u2/aJ
+	 pR5jNOydJwr0r7qfWZVBWKoiinEwYei3/WEsD0W7xJYD3OrOaFKWpt/30BCJG8FA4K
+	 wF29OnFNpM3OQ==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 07E7F1AC56A7; Mon, 21 Sep 2026 16:03:04 +0100 (BST)
+Date: Mon, 21 Sep 2026 17:03:03 +0200
+From: Mark Brown <broonie@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Tzu-Hao Wei <twei@axiado.com>,
-	Karthikeyan Mitran <kmitran@axiado.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-doc@vger.kernel.org, openbmc@lists.ozlabs.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: add Axiado AX3000 and AX3005
- PWM fan controller
-Message-ID: <01278847-ebeb-45af-b520-765fa6ae3477@roeck-us.net>
-References: <20260921-axiado-ax3000-pwm-fan-v3-0-3def8b6ffec9@axiado.com>
- <20260921-axiado-ax3000-pwm-fan-v3-1-3def8b6ffec9@axiado.com>
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Amit Kucheria <amit.kucheria@linaro.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+	linux-mediatek@lists.infradead.org,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 05/28] alsa: pcm: Remove the qos request only if active
+Message-ID: <arFHJ44K0Obi97uD@sirena.co.uk>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <20260920-macaudio-v1-5-741cc20a74e5@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GTYDC3kvYvkjH6S7"
 Content-Disposition: inline
-In-Reply-To: <20260921-axiado-ax3000-pwm-fan-v3-1-3def8b6ffec9@axiado.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_080228_020879_9E75EF98 
-X-CRM114-Status: GOOD (  13.09  )
+In-Reply-To: <20260920-macaudio-v1-5-741cc20a74e5@gmail.com>
+X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,21 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 12:23:55AM -0700, Petar Stepanovic wrote:
-> Add a Devicetree binding for the PWM fan controller found on the
-> Axiado AX3000 and AX3005 SoCs.
-> 
-> The controller measures fan speed using a hardware tachometer block.
-> Fan speed is controlled through a PWM signal supplied by an external
-> PWM controller.
-> 
-> Add a MAINTAINERS entry for the binding.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
-Applied.
+--GTYDC3kvYvkjH6S7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Guenter
+On Sun, Sep 20, 2026 at 02:53:44PM +1000, James Calligeros wrote:
+> From: Hector Martin <marcan@marcan.st>
+>=20
+> Fixes warning:
+
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
+
+--GTYDC3kvYvkjH6S7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqxRycACgkQJNaLcl1U
+h9ABPQf/bkaR3SLlw7Iix+Fi/ktcWjdvjZKNoq/KPUuFQz6wTPJ2LQ/x+HAyuGfV
+qLj88DOA4jrs8z22KqbX7t17fadvBRLqVpWlGfCsBIQyF2pAzhdqF5zAMlGJIMFp
+gYLGzFKXCg3K4ebDdpJvRhwtm6pzbV9yQ3QXI91fMB5aeB0TdBMdT7JEeO+HolXH
+7s3qTenDOVZHgMKcmwBquc98Fwj2X/Hs7MzIPTBjWoaZ9sPwWFIZqMRBvlRxb9Vx
+RZo3j4hW5lJvL/bqpLJjeKZA67Tx6RLGUrAYt8Who7ruwqj8dtcG1L9WOO/NSd0Y
+oso1OQUMbRZAy/skLqsVe7ocnexJ8A==
+=60k5
+-----END PGP SIGNATURE-----
+
+--GTYDC3kvYvkjH6S7--
 
