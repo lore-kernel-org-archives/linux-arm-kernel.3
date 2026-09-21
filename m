@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3F2C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48C7C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jE+eIzcQ8oQ4HV8nw3uP9cmcpgngx1xK2AKLODCmwbg=; b=S+NAFQKhXCc1YK88eJjm8Fn5wo
-	AhXw/GuWemc+X2ykEFRttQRWSaolMmW7PGLEE8DcaLROZAnkgqQ5r7d/8nLaOXXI9+OWbagSB5Uy+
-	JoKSktDsFGjs5vx6gVryrK9SpTCABNrktn4hf+8RJ9RIb5bfNw6mVtiGFKME/ZVh71l3DxmmA5HO+
-	CxTqCHKBVUyUQzmbmvcvO3H390FEXuF7IJI5n9tlj1XbzyWs0FL6dRUZh9jxOfbOY2Ykb7u1tn0hf
-	uD8wZT5/DiszRhxiyhWkvV1pn2+zRTWoQ5k3z965Y5mwrKjTB7TteRbyTKOFolIwvBtnwIiNhNUiD
-	9DI33Pzw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3o/ZDMC/htvLXK6XDyZdoYYF/W+enLQOn8II0EvNtTU=; b=D5sqqAGLZuSspGSRNZRyKDcBns
+	BxdN8N+Ih4KiUpSGQqcx/pkqfHZBc9ZBdPAvQjZVBey7MjShBbN1qGnH3eIpqvHvOnZwsEEAxT3Vv
+	AM2AIEVfJ+7W2KnjhVRGFUrKzma9cKad+dIi7tf/e4hV/VKoKVUjUNauj+WAvLZID8DoPuj6CMRDa
+	bgSUPe2FFmN9AJ32THFEg1MUg6am6vyMyfv5Aq2uTSmgEZUbYQjsPwap1Iqx0ci5GpULaygpeA7bR
+	6P5xu/BanTeGYDCVWObEFeB8e9e5WMKe0mSc747V/l50ys1dFEY3VrUu3hfu0YuF39I4hxVzHOSXs
+	IpFaga6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8auY-00000001cpl-05VL;
-	Mon, 21 Sep 2026 10:06:10 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x8ayu-00000001dJJ-3Pv2;
+	Mon, 21 Sep 2026 10:10:40 +0000
+Received: from out-118.mta0.migadu.com ([2001:41d0:1004:224b::76] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8auS-00000001cna-1tpg;
-	Mon, 21 Sep 2026 10:06:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789985161;
-	bh=cDVOUqRmDAiIlq1x0W5Pvyz6PeI3fBgskd+Ma0ilQKo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A3pfzR/dCqrz8smbfXkXbFTaPcptGDfypqJU0/vWlqaFXv6he4RZgFT2s1gI4WHJD
-	 wnsm/w/bm4cf/OeQ5iGHeKsxop9OmaKwEk4DZSFWhR41obr1W9Q07t/Fhla4sa2KEo
-	 rZnlnUNakg4PvHKtYLdwwHYiVAZ/FWjTBaVVkzdqqSjzjwtTpMPmSMn+ULiGk4PJFA
-	 3Yg/py1RSSE+qxIaNb4EJFtx9TGzAGtSqqfSHFORXNQi1k7h7bLkp5b5veC22bHsoW
-	 fQZFTnrMgQa9NJODZqU7bEF1cFC4Ay1PfltiJIBmiwucz+NCWMz6oTIgZxOF9fLomF
-	 FESu3L+VMYGPw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 49EA117E020C;
-	Mon, 21 Sep 2026 12:06:00 +0200 (CEST)
-Message-ID: <a657522a-30b3-491c-8f1c-9d09e3bbe176@collabora.com>
-Date: Mon, 21 Sep 2026 12:05:59 +0200
+	id 1x8ayr-00000001dId-2OcX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 10:10:39 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=Yuf6CVS5HHsFju/bVLT2UkgQQk/AjuyAU2D19bqRojI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789985435; v=1; x=1790590235;
+ b=Dyh42vJlY20BNiB1peouSmWJzMaHH5EuTE1D3HavSkiCPbEeaeb0zQCBhxINxHMOYs5l5jMp
+ nOvKBVIS77Q31d31EZu1hx8KZYaXREU0iydi0FRUxC3AadNQTX//EMziJGL2MiWUoqOTagRCPjo
+ sVp/MBI2OUYY/5WSHt+d4kfY=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 26de98a1c1e4e5d7;
+	Mon, 21 Sep 2026 10:10:35 +0000
+X-Mizu-Trace-ID: 26de98a1c1e4e5d7
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Shuah Khan <shuah@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v2 0/2] KVM: arm64: Fix a vSError staying pending after delivery under pKVM
+Date: Mon, 21 Sep 2026 11:10:28 +0100
+Message-Id: <20260921101030.1231605-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 02/13] drm/mediatek: Implement Display Stream
- Compression support
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, jitao.shi@mediatek.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- justin.yeh@mediatek.com, jason-jh.lin@mediatek.com,
- Nikolai Burov <nikolai.burov@jolla.com>
-References: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com>
- <20260916110825.102631-3-angelogioacchino.delregno@collabora.com>
- <94451cc1-5dcc-4017-9b17-19fc20245ca8@rock-chips.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <94451cc1-5dcc-4017-9b17-19fc20245ca8@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_030604_670948_0AAA991E 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20260921_031037_758351_3C5AABA0 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,99 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/19/26 08:52, Chaoyi Chen wrote:
-> Hi,
-> 
-> On 9/16/2026 7:08 PM, AngeloGioacchino Del Regno wrote:
->> Add a real driver for the Display Stream Compression (DSC) Display
->> Controller IP, implementing support for DSC v1.1 to v1.2.
->>
->> In order to do this, it was necessary to remove the basic DSC IP
->> bypass setup from mtk_ddp_comp: this functionality is retained in
->> the new mtk_disp_dsc driver, which checks if DSC was actually
->> requested by other components (with the only one that currently
->> supports this being DSI) and, if not, it will set BYPASS mode in
->> the DSC IP.
->>
->> Like before, the BYPASS mode is set before starting the DSC IP,
->> but unlike before, this is being done in the component start
->> callback instead of the config one.
->> Notably, the config callback is called by mtk_crtc always
->> immediately before the calling start callback, so the order of
->> register writes is retained.
->> The only real difference is that now this is being done through
->> CPU writes instead of CMDQ, but since that's called only once
->> and since it's just three registers, the performance impact will
->> not be minimal and not even measurable.
->>
->> As anticipated, DSC handling was also introduced in the mtk_dsi
->> driver: when performing dsi_host_attach, the driver now checks
->> if the DSI panel adds the DSC configuration structure to the
->> mipi_dsi_device structure and, if it does, it will store a
->> pointer in the driver-local mtk_dsi structure's `dsc` member.
->>
->> The DSI driver will then check whether the DSC configuration
->> that comes from the panel is valid (in regard to MediaTek DSI)
->> and will call the DRM API's DSC helpers to calculate and set
->> all of the const and RC parameters for the actual DSC setup.
->>
->> For the time being, even though the latest MediaTek SoCs do
->> support DSC v1.2, only DSC v1.1 pre-scr support is implemented
->> as an initial contribution (which is rather big, and 1.2 would
->> make it even bigger - but that can anyway be implemented later).
->>
->> As a last step for validation of DSC parameters in DSI, a check
->> for the hdisplay against DSC slice sidth and one for vdisplay
->> against DSC slice height was added to the mode_valid callback,
->> making sure that H/V are, as expected, multiples of slice W/H.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/Makefile       |   1 +
->>   drivers/gpu/drm/mediatek/mtk_crtc.c     |  21 ++
->>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c |  43 +--
->>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h |   9 +
->>   drivers/gpu/drm/mediatek/mtk_disp_drv.h |   8 +
->>   drivers/gpu/drm/mediatek/mtk_disp_dsc.c | 449 ++++++++++++++++++++++++
->>   drivers/gpu/drm/mediatek/mtk_drm_drv.c  |   2 +
->>   drivers/gpu/drm/mediatek/mtk_drm_drv.h  |   1 +
->>   drivers/gpu/drm/mediatek/mtk_dsi.c      | 151 +++++++-
->>   9 files changed, 635 insertions(+), 50 deletions(-)
->>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_dsc.c
->>
-> 
-> [...]
-> 
->> +
->> +	dsc->simple_422 = false;
->> +	dsc->convert_rgb = true;
->> +	dsc->vbr_enable = false;
->> +
->> +	drm_dsc_set_const_params(dsc);
->> +	drm_dsc_set_rc_buf_thresh(dsc);
->> +
->> +	ret = drm_dsc_setup_rc_params(dsc, DRM_DSC_1_2_444);
->> +	if (ret) {
->> +		dev_err(dev, "Cannot find DSC RC params\n");
->> +		return ret;
->> +	}
->> +
-> 
-> Just out of curiosity, is there a reason the DSC v1.1 rc parameters
-> aren't used here?
-> 
+Hi folks,
 
-I was using the v1.1 RC parameters before, but Nikolai found out that some panels
-actually require that, even when v1.2 support is not declared.
+Changes since v1 [1]:
+  - Added a cover letter. (Marc)
+  - Rebased on 7.3-rc4.
 
-Besides, he also validated that v1.2 works for him, and works for me as well, so
-I opted to use those ones instead, as the v1.1 pre_scr params were working for me
-but not for him.
+Under pKVM a vSError the guest has already taken stays pending in the
+host's copy of HCR_EL2, since the lazy state sync for non-protected
+guests stopped copying VSE back on exit. That's a 7.3-rc regression.
+Patch 1 reflects VSE back on every exit. Patch 2 makes the
+external_aborts selftest check that the SError is no longer pending
+once delivered: it fails on the unpatched base and passes with the fix,
+and also passes under nVHE and VHE.
 
-This will be improved in the future, as choosing any of the two will leave us with
-something working and something broken... but I plan to make those improvements
-only after at least this basic support finds his way upstream.
+The "Confine protected VM vCPU state to EL2" series [2] carries patch 1
+as its own patch 1, since its later patches change the same exit path in
+hyp-main.c and don't apply on a tree without the fix. It isn't part of
+that series: the fix lands from here, and so does the selftest, which
+that series doesn't carry.
+
+Based on Linux 7.3-rc4 (93f51579e7df2).
 
 Cheers,
-Angelo
+/fuad
+
+[1] https://lore.kernel.org/all/20260829071120.2522788-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260914113338.159227-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (2):
+  KVM: arm64: Sync HCR_EL2.VSE back to the host vCPU under pKVM
+  KVM: arm64: selftests: Check SError is not pending after delivery
+
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c                  | 4 ++++
+ tools/testing/selftests/kvm/arm64/external_aborts.c | 6 ++++++
+ 2 files changed, 10 insertions(+)
+
+
+base-commit: 93f51579e7df248780214094418f205253383cc5
+-- 
+2.39.5
+
 
