@@ -4,101 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBD5C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63EBCC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrpGKqIUkLFawAwAJ6T5iyyW+Mbq35mI1r9oJC3ubjA=; b=u074eX/KO87VS/JO0lWA3Fa+oe
-	kVL6jOtSHXQ4kuYdAPCFJOutN6xmsV7CUmNSx98QC456cHx9BmXh8MnoJqmKx0sE30EdSdlz4xRWU
-	MMYo/izNECHerwqOA52+XJIjNuUshWavN7BFUrlAbbICdyRTDIjTIiVMmoNXF/ROXH2DfE/bSIqMU
-	GjkqpF+pWg58S6aylq/iPFTBoDn/eAX48Fm1zSdqefwdK9kJq/w58B3dn/btIwvmD/JewzaL5C9sg
-	oaxEfj+DtdD/dcHt9GPEGU/CaJa1RbDAA9J+HgN996Dz9UFml1dro2fmvK8IabvbwnFjokGqRaUEN
-	u5p81puw==;
+	bh=FZeopfMMZGjaWtQq8rssdR4HwEQQbLQYNh1E8IOw0DI=; b=jk106yOysCqiep5QERij8uYhVZ
+	5hZdgOlHcNIc5rLPEHYR56ZnFq/5/cRgEmnlkCEqjpQzvaqqDKOUXMVlKkDDbL4Srue2P2OqhEbjR
+	v1zg7+o3NP22lJiqZBwubBjeUHK15vrypU85/EOitZhQ3ywCltP4IAhTt0+ySfv3llQjeow1nrr+d
+	+TdvdG5Jda22ZKfk75t6qymPcz/FYVe7sYXBIu5aTc1ItswiAgPJKMbmQ9XR5r4ZCJsnnwbHeSxCC
+	FoduDsdYkYw2kYXBIFYYAhjIBYyd2vUSo/FDf8zbGVOk0/Z4trISr6rAmXcT+j2Ie1eWeqTGwB8bu
+	2ckQSdrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8flK-00000002a0B-0fMr;
-	Mon, 21 Sep 2026 15:16:58 +0000
-Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
+	id 1x8fmB-00000002a72-1YJQ;
+	Mon, 21 Sep 2026 15:17:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8flI-00000002Zzm-0huX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:16:57 +0000
-Received: by mail-pz2-x0e.google.com with SMTP id d2e1a72fcca58-86e6d007703so2608346b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:16:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790003815; x=1790608615; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=DrpGKqIUkLFawAwAJ6T5iyyW+Mbq35mI1r9oJC3ubjA=;
-        b=UxJBlty/oNKDj7xoa8BZ8tZv0HC+i3svbLQfXiZO44fig6VZlgBl5xfFhpv1+Vnxnv
-         pDrI06rhrpZcAjAUh++BWcFeVgTnflDsGFEA9H8Xm815P4eGTc+rvk1XfAM6IvF8onFN
-         l+QHdv+I22FutI4N15xhZdHh1RiUsla9LUghX6cUplWtQ9WQZRQ2VKMZdRteycCEpYZQ
-         nKDxgjQaU0QV2ZAjIMwOCRZCOvy5nMdVFE/CXTB2stp/+dtY8000GSTJaayxYrmoik+s
-         sZOwRCc+jM5/GBpnw1fB5vC/MB1zigvRhAf5ddcfnBoi38WnuXCw0ywR2UrRWw1zcwLs
-         PwEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790003815; x=1790608615;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DrpGKqIUkLFawAwAJ6T5iyyW+Mbq35mI1r9oJC3ubjA=;
-        b=lS5aHlS9Kd+TrA3IoE7LjGZqEXrLmLBWYct4MN3gBRzhzO4xJS4i+h2f6JL+/qSSyE
-         f/figGwdTH6KflKYMQ6U5v/TsWY5uQ0A4Rvn6PS2bLkz/mkor+76Ne+SsekcuTqqtZAt
-         QsO4XL0UtwSnLpqPYBrlEkcMeyvwBOwzEZReVnothtdXMXwmt6WMoGjIHLk5RBbNDSBl
-         0O9aUudD7v3bPXmzyrcb3ixaoaAInIJ3KKktFZVdgqMIjV462/Qsont7nDnKa/7BCMOI
-         8Ga08GpiVVAnJwuGx7EzkJB1+8+HHuRJxjZmCd4sNDgZN0+0af9LwlcxGS8WEQp+xhyd
-         cKsQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxY5mysBIBiH7impNgV0VbXWFgz9cL6uCXCz6OMZQPbNNjuL1fBfk3JKMIdE7Z0tPWFtbCqzdDRKAHrzawzJif8@lists.infradead.org
-X-Gm-Message-State: AFuF++mTMi+lJw55upcPYNM8NOtBBSjHoHe7l8p5wSFk+Y2hYjR1J4ZV
-	RNlOzLA/QZyTdnCQPvWfNDfK86iU5DdSi3s1vrPQT4a7v1OQCMbzMZ4B
-X-Gm-Gg: AYBFou3857ksf50HhbPuXRsCrlyk43SYo8KaIRV1fcIES18DPdEJId10HDBwCsfq3So
-	nHH4dRsBOWRQ6uIKzne67vbnGWgdc08O2XrkCVYSt0YwgFV2f0dvCYQcymLV9kGU2N+Na1k0Iut
-	uF6JT60d3FsxIZUdPVnysEWCdGfpmEktAmxXVp9rA+gyqW8qfx3+hETzCFa727nsiGhTbEshYpP
-	semCoSrHeFibY2jV6I0DSZLX8p5/4IcqRThLkpvdlrP5RqUR98HYOq1aPRvL+0xdZTZCBPGZq51
-	kfztXwsuShmOS2hFPNraeeWXAhMXdBbJCuLxUjoIPyn6014EQhxDqjJIxUKQmEljuLa3Pmi6Jb7
-	XO4rpuhhcytaUXmW975kq2lCdFy8G3ELP96dN1KAbIhRnsRiUVUJxoOk5yP8QzyIFkGRTM925mp
-	SriisFng9cEraKOBVnLSdBBrAxc1SJV/Bf4Cr4NVyPjk83m5PAe3l8j6cJbXviV4w63caUr/iq4
-	lEmY02xbNzA
-X-Received: by 2002:a05:6a00:ad08:b0:874:706d:857b with SMTP id d2e1a72fcca58-874de9fd734mr15109225b3a.35.1790003815225;
-        Mon, 21 Sep 2026 08:16:55 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a95eceb2sm3431796b3a.24.2026.09.21.08.16.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 08:16:54 -0700 (PDT)
-Date: Mon, 21 Sep 2026 08:16:53 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Tzu-Hao Wei <twei@axiado.com>,
-	Karthikeyan Mitran <kmitran@axiado.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-doc@vger.kernel.org, openbmc@lists.ozlabs.org
-Subject: Re: [PATCH v3 2/2] hwmon: add Axiado AX3000 and AX3005 PWM fan
- controller driver
-Message-ID: <d9dfa12a-0999-4425-ba83-aacd48eea1ea@roeck-us.net>
-References: <20260921-axiado-ax3000-pwm-fan-v3-0-3def8b6ffec9@axiado.com>
- <20260921-axiado-ax3000-pwm-fan-v3-2-3def8b6ffec9@axiado.com>
+	id 1x8fmA-00000002a6q-3Adi;
+	Mon, 21 Sep 2026 15:17:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 38DA641A0A;
+	Mon, 21 Sep 2026 15:17:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204551F000FF;
+	Mon, 21 Sep 2026 15:17:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790003870;
+	bh=FZeopfMMZGjaWtQq8rssdR4HwEQQbLQYNh1E8IOw0DI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FvsSq7bGpr+WQkIRqKbIFqhznCehDavMsy+xrRUogym6mY3wQDOFmTHYiBDR5utUy
+	 xXnFOx0VI7OXvgUC4z2/HHL/SEm6ko7DVLbT+YWQ1jydr5XkbvhZI45RuAkLLNnxhd
+	 N+A0c7UsjQhvT2to6O5OzXKZDEmjTWodrS8LweVr6zuveCd+qWq2MyQqbecvRFnYtO
+	 jf06uhx5elUfYm7NkEy6yNp/gyfuP85YU6do3J+txWMitujkhsoByVbFO6oji5QpNk
+	 Z/OSu5MZCfcv0CKizE1chWr9RjK8uNUA4aBue93UMThW1qFJQDzxRsB34Of1JxSXYw
+	 ouyM6iHUmQJBw==
+Date: Mon, 21 Sep 2026 17:17:46 +0200
+From: krzk@kernel.org
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: richard@nod.at, alexandre.belloni@bootlin.com, 
+	linux-mtd@lists.infradead.org, vigneshr@ti.com, bbrezillon@kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	nicolas.ferre@microchip.com, stable@vger.kernel.org, miquel.raynal@bootlin.com, 
+	claudiu.beznea@tuxon.dev
+Subject: Re: [PATCH] mtd: rawnand: atmel: Fix HSMC clock leak in legacy
+ controller init
+Message-ID: <arFKmdQULrC47WYe@quoll>
+References: <20260917102804.2146887-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260921-axiado-ax3000-pwm-fan-v3-2-3def8b6ffec9@axiado.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_081656_206797_E91F496D 
-X-CRM114-Status: GOOD (  14.74  )
+In-Reply-To: <20260917102804.2146887-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,26 +71,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 12:23:56AM -0700, Petar Stepanovic wrote:
-> Add support for the PWM fan controller found on the Axiado AX3000 and
-> AX3005 SoCs.
-> 
-> The controller uses a hardware tachometer block and interrupt to measure
-> fan speed. Fan speed is controlled through a PWM signal supplied by an
-> external PWM controller.
-> 
-> Register the controller with the hwmon subsystem and expose the standard
-> fan1_input and pwm1 attributes. The physical fan is represented by a fan
-> child node containing the PWM specifier and the optional
-> pulses-per-revolution property. If pulses-per-revolution is not specified,
-> the driver uses two pulses per revolution.
-> 
-> The driver was tested on AX3000 and AX3005 boards.
-> 
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 
-Applied.
+On Thu, 17 Sep 2026 10:28:04 +0000, Wentao Liang wrote:
+> atmel_hsmc_nand_controller_legacy_init() takes a reference to the
+> HSMC clock with of_clk_get() and enables it, but the error paths
+> that follow only release the device node, so both the reference and
+> the enable are leaked whenever the controller cannot be fully
+> initialized.  The probe fails in that case and never reaches
+> atmel_hsmc_nand_controller_remove(), which is where the clock is
+> normally disabled and put.
+> 
+> Add an err_disable_clk path that disables and releases the clock
+> before jumping to the existing out path.
+> 
+> Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/mtd/nand/raw/atmel/nand-controller.c | 25 +++++++++++++-------
+>  1 file changed, 16 insertions(+), 9 deletions(-)
+> 
 
-Thanks,
-Guenter
+
+You sent multiple independent patches, to multiple independent
+subsystems. The amount of these patches clearly suggest this was
+AI generated and most likely not tested.
+
+More importantly, you sent all this work without properly organizing
+relevant patches into patchsets. This makes reviewing difficult
+and might cause multiple reviewers to address the same issue.
+Replying to the entire set is impossible and requires handling each
+patch independently, instead of applying or discarding the set.
+Maintainers also won't see the bigger picture of your work. Quite
+worrying.
+
+This is on the verge of hostile patch: bomb us with so many
+contributions, we won't be able to handle them in efficient manner,
+like responding ONCE to ask you to slow down.  Considering all this
+is untested and LLM generated, I have even more doubts whether this
+should be considered for review.
+
+Please read kernel documentation BEFORE posting more work. It will
+explain you how to identify subsystems, how to organize your work per
+subsystem, how to document usage of LLM and how what you should not
+do if this was posted in a good faith.
+
+Best regards,
+Krzysztof
+
+
+
 
