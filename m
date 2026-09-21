@@ -4,64 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580D9C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB7FC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcL3GAkRKxieHVQbXg+KXKMiPhwn+/h/T17lmePKN9U=; b=3F/XASHBWmpsZ5XOc85W0Le3qc
-	iR1VHs3EQNvuy9upfHa6tzHvW8KqA4n5htZOAc+wK2vbTDc8IlD62dRVjZ2uUnj7CFRd8SRMUfOdF
-	es3vGrb/DORbE2MzhBIglDU8SVGWAzQFfkKQqVOVffPyrJ430jbgVW3jlXyE+QK+PlKhzezvjDMXd
-	0g6zyhhfKQYWSxvted/0L11bfJGy2tIb2HlevjJedJcqv/Ca9q60X0sFOZIyOnDYi6qt4OHYVNyGZ
-	5VBlKAWTN/a8efhLOh26T5MJ5jZLTsX1ULEwEq1yYXGGD3aL956wGdvUI8X0vJZHZXAUS9q5yBSKN
-	B8n6xhiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TT5lRmym0T1mzXaOaX/8a6/gNfD3HTc1xl19TrAEELM=; b=eWl/Hh1YBDvuTcDgVe6YW0EVj+
+	9e6ASr2PIVEVkutEtrlRrVEiC8rBi3A1q1KJx0dT39BytlwUlXP+F4m2VfavLBrFohBFMBJgAemEd
+	pUOp0OxLY7fBeHn94abMd9gZr91lZPQDNnYxLriwN/KNJNZN2FY+ggZgUO8cdcs3ZJWEO7ux7QMP3
+	w8f7pYhW3TE/zD4VNPE5+lIR3lyO78ll0t+29aofnO7NSi18jFsyFJ3hThyKO/h27J5ztDuTntsH4
+	zyGUpeucOUfedOqYcruFq1B8N58cLwALCbc8V9NkCepbUp3JLXJGZQ21zK60u6Q12YYc3z4KJMDfR
+	hrtfRJRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bCX-00000001gJ7-1NWN;
-	Mon, 21 Sep 2026 10:24:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bCU-00000001gIh-47uQ
+	id 1x8bDJ-00000001gVa-30Ls;
+	Mon, 21 Sep 2026 10:25:33 +0000
+Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8bDG-00000001gTE-3a0t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:24:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87C3219F0;
-	Mon, 21 Sep 2026 03:24:37 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9DBA3F86C;
-	Mon, 21 Sep 2026 03:24:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789986281; bh=FhXjGblU154b3/iGKZgOvko5HqBskKdnpkd2ss6SKBw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PP+b/+BlFbviOChQuugyXCOT9qITsdQW628WzZJIkn8J7eQr7Z+d1r95L0xVfD1Bw
-	 LcS4DgVewJ0NUeNGAUniVn8IKG3xT5vqPtwMy+NzOibblC1J6uR0epCNTp6uIzItWt
-	 r7SQsbQCnIGDsMgAECycXtGKxHqhnlHZ7LsRHu2s=
-Date: Mon, 21 Sep 2026 11:24:36 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v3 12/13] arm64: Kbuild: Remove vestigial big-endian
- support
-Message-ID: <arEF5IOJSlQyYwX5@arm.com>
-References: <20260918145217.1669-1-will@kernel.org>
- <20260918145217.1669-13-will@kernel.org>
+	Mon, 21 Sep 2026 10:25:32 +0000
+Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-8693af0d7c4so3036748b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 03:25:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789986328; x=1790591128; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TT5lRmym0T1mzXaOaX/8a6/gNfD3HTc1xl19TrAEELM=;
+        b=e5jgnpAh4VVbEfICKqyZDXGmXbO2xLXEJbi5W67ZguFD0j8KT8+8z4ajuP4Ef7ZEdL
+         pps8kX23njl9sRq3oqvAOxwQDHfiaay8SRazbzo191vI+BCpBxTsOE4KSSA5iqVXgNAb
+         fYFeTVrt7U60Itc9BVDgDZtpML3JbPgECGXQCrk7G6eIIa3uUOUVTktIUZCYuWxGR2qj
+         b3ExXSRTbaYq5de478Psz79enWmXaomM0OgzGk0lhpnDPoL5xL05WIpvOk1r0e1cBRzW
+         w3FT/usaT84Yo3iM3bN0fzFO0B0/Sj/RtuFOyagcfQen+jihjORkNn3vlmJwFx31a95h
+         EohA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789986328; x=1790591128;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TT5lRmym0T1mzXaOaX/8a6/gNfD3HTc1xl19TrAEELM=;
+        b=jbdyoInHedL18NtmbvLkTDpDyaD+pwLPisy9770Mfnic1W0P6lRDfH/tPT5UGFtU+g
+         o16xgv8FLlfwjnwCvo2agTCQcYmhf0qfecCrc0/+yqwZMeLUUMSbdEj5+67zSmC3XU99
+         lkkrJ8u/81MGEV3HhPGHl4jBZwP9ExQgAXMk0SPoLIoCfvxQBBM8MDMpEXTqol6MeuEm
+         abfLPc1U8a5fSSmD2g3pYxb/9NdItVpP0fh9ljLlA3FzfRH7IQj/BxN71WvQt/LDEYZy
+         osgYiw2qOW3QirvDE0MwNZ7TnTTFIeHzZ1JR6nonkYce7TvpZBapZHnnMbyyJHu4notK
+         Xg7Q==
+X-Forwarded-Encrypted: i=1; AKwUvBx6uwydXroDFfSKSC4bQp81HeySHtfIwAtv+Z+6BPw/ezHheKu92+ocwtH7txFc4bvrFpzObK8cr18821e5wuSY@lists.infradead.org
+X-Gm-Message-State: AFuF++lQfAl1o125PXuoQzmuZ7d3dERDaN+IYmJOjmV0rM+EeNED7w0t
+	zhLqWhwiIe/OywXYSgjrDWq8uEyaQ9yoUS9cOUi7xQNo4W6gveOyVSTK
+X-Gm-Gg: AYBFou3THJY66wLPTKpNq6Nnbbp1qsGQJo3IKBlxPnioD55UhIgqy3lNEezuODmKFWM
+	JILo/2Tn8Dzh/rpYnNBGvctgaskFl5Ua2+6AFNj5WkeuXAyWEKy5NxgbLs2XhqSuifagubfw64Z
+	77Ciw88JL54S6IeCEKq3JLysn1X3RSB5lMIHMCI/8pubdcsqVo1Cd1DoIxYcG7ZsP+/Ul1xtar7
+	WU+Dgn5PrSK/EaZvzXNztwfWkY9u5iUypeCwt3xBbmkkyQgVJ9EXiznDHbWJvqAJqXKnjx4xrox
+	Xje0NZWOfpwwFYzqEd4CBcw2+Qf+X5fzahbu0FuRePtxW5BivIH4orVd8D4X/usFACXKWIij2WP
+	3NG3Er0FrGjf7euqi6Zva3xdFZN/E6b5U2odhM0lDNbqtVLsG+fUzwIg//2HbMdw1k0X9Gh5lKn
+	qltJ0ogPTeusP9Nchb/Guyda6N0Xuz7IXP/MbAQ3OJxTGqWA/zIaa0SwQAqboUVyyp8vqIGA8s9
+	l2L5JRIZ7GojJ7act+5IUVZQopb
+X-Received: by 2002:a05:6a00:1911:b0:878:34e7:9a3c with SMTP id d2e1a72fcca58-87834e7a3a3mr7459656b3a.53.1789986328468;
+        Mon, 21 Sep 2026 03:25:28 -0700 (PDT)
+Received: from buffalo-ssd.taila54753.ts.net ([240b:253:4760:f400:1ebf:ceff:fe7f:5e0b])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a94f238csm2909174b3a.21.2026.09.21.03.25.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 03:25:28 -0700 (PDT)
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Danilo Krummrich <dakr@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Laura Nao <laura.nao@collabora.com>,
+	Sjoerd Simons <sjoerd@collabora.com>,
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
+Subject: [PATCH 0/6] clk: mediatek: Fix descriptor clock ID allocation
+Date: Mon, 21 Sep 2026 19:25:16 +0900
+Message-ID: <20260921102522.1640072-1-akkun11.open@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918145217.1669-13-will@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_032443_082830_5E4957DC 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260921_032530_923773_399C1FAE 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +112,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 03:52:14PM +0100, Will Deacon wrote:
-> -choice
-> -	prompt "Endianness"
-> -	default CPU_LITTLE_ENDIAN
-> -	help
-> -	  Select the endianness of data accesses performed by the CPU. Userspace
-> -	  applications will need to be compiled and linked for the endianness
-> -	  that is selected here.
-> -
-> -config CPU_BIG_ENDIAN
-> -	bool "Build big-endian kernel"
-> -	depends on BROKEN
-> -	help
-> -	  Say Y if you plan on running a kernel with a big-endian userspace.
-> -
-> -config CPU_LITTLE_ENDIAN
-> -	bool "Build little-endian kernel"
-> -	help
-> -	  Say Y if you plan on running a kernel with a little-endian userspace.
-> -	  This is usually the case for distributions targeting arm64.
+Several MediaTek clock providers have clock IDs that do not match the
+size of the clock array allocated by the common descriptor-based probe.
 
-Running the checks through an LLM found that CONFIG_GVE depends on
-X86 || CPU_LITTLE_ENDIAN, so it won't be enabled anymore.
+Add dummy entries for missing IDs so that the allocated onecell data
+covers the complete clock ID space used by each provider.
 
-I think that's the only positive test of CPU_LITTLE_ENDIAN.
+Akari Tsuyukusa (6):
+  clk: mediatek: Fix MT6779 clock onecell IDs
+  clk: mediatek: Fix MT6797 clock onecell IDs
+  clk: mediatek: Reserve missing MT8167 clock ID
+  clk: mediatek: Reserve missing MT8173 topckgen IDs
+  clk: mediatek: Reserve missing MT8196 MDP clock IDs
+  clk: mediatek: Reserve missing MT8516 top clock IDs
+
+ drivers/clk/mediatek/clk-mt6779-aud.c      | 1 +
+ drivers/clk/mediatek/clk-mt6779-cam.c      | 1 +
+ drivers/clk/mediatek/clk-mt6779-img.c      | 1 +
+ drivers/clk/mediatek/clk-mt6779-ipe.c      | 1 +
+ drivers/clk/mediatek/clk-mt6779-mfg.c      | 1 +
+ drivers/clk/mediatek/clk-mt6779-mm.c       | 2 ++
+ drivers/clk/mediatek/clk-mt6779-vdec.c     | 1 +
+ drivers/clk/mediatek/clk-mt6779-venc.c     | 1 +
+ drivers/clk/mediatek/clk-mt6779.c          | 1 +
+ drivers/clk/mediatek/clk-mt6797-img.c      | 1 +
+ drivers/clk/mediatek/clk-mt6797-mm.c       | 1 +
+ drivers/clk/mediatek/clk-mt6797-vdec.c     | 1 +
+ drivers/clk/mediatek/clk-mt6797-venc.c     | 1 +
+ drivers/clk/mediatek/clk-mt8167.c          | 1 +
+ drivers/clk/mediatek/clk-mt8173-topckgen.c | 7 +++++++
+ drivers/clk/mediatek/clk-mt8196-mdpsys.c   | 2 ++
+ drivers/clk/mediatek/clk-mt8516.c          | 2 ++
+ 17 files changed, 26 insertions(+)
 
 -- 
-Catalin
+2.55.0
+
 
