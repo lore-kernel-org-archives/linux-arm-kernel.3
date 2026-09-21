@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEA1C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4E9C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYN6gB7Ijq5F3mQPt8j/w5U9BHlrr8gpwOqMcp1ScAg=; b=wpTxveDNglrJNC6Wmb9lPsC3ux
-	gu9XXAkGsJjzR+rWuucpSI2NGhTZbmfyyyR+GnIZncAIXkWayH3wIkKSwuSCoFA7Kpjd23ysJPsaz
-	yXmkNx7FwT33biFmcqXkFXjNVaQkehkwCzZ25xgpeaTsn7wdjuZbZvbvn9mgGcyFaSpA05bFzZ4kZ
-	ErlqY0AT00XxY2o3XNlAUknCB3FVTKaLxHSTpXB3YLMB2vRKZDLBLGIHWaKrEM+txcVImRyxkWG2v
-	V1syt3pGtuxO3aB1LSObjPjHeJ5pr48Eaf7KNzoyB1MCK6R+u/SY98vUCGrUatddrATIyBXz7Nj7h
-	Opex/i9A==;
+	bh=bOzR8GVrme4M89CxBLevVcZ1IZiI/sDrZnX7jk52Wno=; b=QmlOci/0L/sSAhllfs1BPxsJMS
+	f10nuGXLS/CIM8Vwhgu2jKPJ3RGeFVq29wzMi+W9rziprLJDs8hYizHGKsNbF/p9bSPjlx8nDxr5k
+	vGgXJvmlvDJU9TgxGyjSc+KICAZ1QP0YKfhPJGoh44OyfbK66/UwQWHhlX9BulJycPuctKymGMxBA
+	NR+XJL+oxOMFzk80PWVe/QLHX58tNQBDSq2US/IzjEozYAYtErqAgi+hkvZNzm4C2fUKDX4a/Jm0m
+	MJUjR0HDim+2Tu5LMW9owd9XxRp4N/Ms64FZORb7fBVdTwUA7PRcLDCF0n3e/EMAkofLhFf2mz5ln
+	fe4nQPaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fpG-00000002ahN-0Von;
-	Mon, 21 Sep 2026 15:21:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8fqi-00000002atV-1jmo;
+	Mon, 21 Sep 2026 15:22:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fpF-00000002ahD-1FcH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:21:01 +0000
+	id 1x8fqg-00000002atB-3cq2;
+	Mon, 21 Sep 2026 15:22:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C047E40F3E;
-	Mon, 21 Sep 2026 15:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75BD81F000FF;
-	Mon, 21 Sep 2026 15:21:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DBCF7600C8;
+	Mon, 21 Sep 2026 15:22:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 521351F000FF;
+	Mon, 21 Sep 2026 15:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790004060;
-	bh=sYN6gB7Ijq5F3mQPt8j/w5U9BHlrr8gpwOqMcp1ScAg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=OBxIhJsPI6FsskimLCHHwrb8YKf6UPRxsiFCq59DToJg9t5AnuMw/QWSc+aBld6qV
-	 NB3NNeRcUt3wKYVht8mQrwSIZ7/mOEejWEpr1fF/Dwd3BpiED8bv/PAPMsLaXsNGJl
-	 q2NGUlDPTERSUs4uxPzUsiSo/mS/VKDXMhwjsqHr7hWE48gYYswEiAI8J5HyCcHPA0
-	 EPSKVPrlwvmniMaY3C8eAC48YqmZNW9dFf1Lrsc/M2n4fFGXj3kV2L62rgB4CPVW//
-	 4lFlmRyZkfTB24GFesazvM4qSuSQ8ITvwJTIy8phGp6Q5YPcDWnSUIR3Tfkim3WJvW
-	 aGFFPbZg+71jA==
-Date: Mon, 21 Sep 2026 10:20:58 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1790004149;
+	bh=bOzR8GVrme4M89CxBLevVcZ1IZiI/sDrZnX7jk52Wno=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=C2ZU9Id/+o1irOenoCt9jM34dfFp6/t2bWH0fXwvb2Jy9dd0QU7QgEOUE6aaFSh24
+	 ToidA/ICs5d9V0HBZPj9oTwsLLE/lG+jfwZ4qNdgQ3J2mVj6aNrHZJeXB9uPT6/ezr
+	 gXQVF4K8q7fJBfeInuGl2eceBeaRH6wz6s46Gh8KJc3HrDs3zH4dQIjIU0cvlbiSbj
+	 NuE943hL8XPvQt6FSMoxRLuOaQgZnCm/MyA9lsUapoUk3aeDQr/qjeVHR2chXn8lK/
+	 fnevuSvK1Qjau09aVKkyer+OS5zMNmo2RkEil1IK4TTwuUiid4f4jF8L2Nd6tQKvho
+	 tS+6MZU40uEcA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id B5E3B1AC56A7; Mon, 21 Sep 2026 16:22:22 +0100 (BST)
+Date: Mon, 21 Sep 2026 17:22:22 +0200
+From: Mark Brown <broonie@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Amit Kucheria <amit.kucheria@linaro.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 01/28] dt-bindings: sound: Add Apple Macs sound
+ peripherals
+Message-ID: <arFLrr23j9QVjKp5@sirena.co.uk>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <20260920-macaudio-v1-1-741cc20a74e5@gmail.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: sumit.garg@kernel.org, linux-arm-kernel@lists.infradead.org, 
- akpm@linux-foundation.org, mark.rutland@arm.com, 
- linux-kernel@vger.kernel.org, sudeep.holla@kernel.org, 
- thierry.reding@kernel.org, david@kernel.org, rppt@kernel.org, 
- jenswi@kernel.org, linux-mm@kvack.org, danielmentz@google.com, 
- catalin.marinas@arm.com, op-tee@lists.trustedfirmware.org, 
- devicetree@vger.kernel.org, will@kernel.org, ardb@kernel.org
-To: Vincent Donnefort <vdonnefort@google.com>
-In-Reply-To: <20260921110050.3977591-8-vdonnefort@google.com>
-References: <20260921110050.3977591-1-vdonnefort@google.com>
- <20260921110050.3977591-8-vdonnefort@google.com>
-Message-Id: <179000402021.412547.18161897733601725746.robh@kernel.org>
-Subject: Re: [PATCH v2 7/8] dt-bindings: reserved-memory: Add Arm FF-A lend
- pool
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9DlXPXtwe81yJB7g"
+Content-Disposition: inline
+In-Reply-To: <20260920-macaudio-v1-1-741cc20a74e5@gmail.com>
+X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +93,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 21 Sep 2026 12:00:49 +0100, Vincent Donnefort wrote:
-> Add bindings for the "arm,ffa-lend-pool" reserved-memory CMA pool.
-> 
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> ---
->  .../reserved-memory/arm,ffa-lend-pool.yaml    | 55 +++++++++++++++++++
->  1 file changed, 55 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reserved-memory/arm,ffa-lend-pool.yaml
-> 
+--9DlXPXtwe81yJB7g
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-My bot found errors running 'make dt_binding_check' on your patch:
+On Sun, Sep 20, 2026 at 02:53:40PM +1000, James Calligeros wrote:
+> From: Martin Povi=C5=A1er <povik+lin@cutebit.org>
+>=20
+> Add binding for Apple Silicon Macs machine-level integration of sound
+> peripherals.
 
-yamllint warnings/errors:
+> +      - description: Machines compatible with J293
+> +        items:
+> +          - enum:
+> +              - apple,j493-macaudio
+> +          - const: apple,j293-macaudio
+> +          - const: apple,macaudio
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/reserved-memory/arm,ffa-lend-pool.example.dtb: ffa-lend-pool (arm,ffa-lend-pool): {'compatible': ['arm,ffa-lend-pool'], 'reusable': True, 'size': 67108864, '$nodename': ['ffa-lend-pool']} is valid under each of {'if': {'required': ['iommu-addresses']}, 'then': {'required': ['reg']}}, {'required': ['size']}
-	from schema $id: http://devicetree.org/schemas/reserved-memory/arm,ffa-lend-pool.yaml
-Documentation/devicetree/bindings/reserved-memory/arm,ffa-lend-pool.example.dtb: ffa-lend-pool (arm,ffa-lend-pool): Unevaluated properties are not allowed ('reusable', 'size' were unexpected)
-	from schema $id: http://devicetree.org/schemas/reserved-memory/arm,ffa-lend-pool.yaml
+This doesn't seem to correspond to the DT for j493.
 
-doc reference errors (make refcheckdocs):
+--9DlXPXtwe81yJB7g
+Content-Type: application/pgp-signature; name="signature.asc"
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260921110050.3977591-8-vdonnefort@google.com
+-----BEGIN PGP SIGNATURE-----
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqxS60ACgkQJNaLcl1U
+h9CEPAf/dQqOTFUfSqvlY/jmFLZk+OUZk4RtOYaqTJ/vfY4z/YQ/sCnFIXYeZnin
+TSXdhiD4jqVa4STh+dsIzzsnODcQyStOhfCGFXIYzSoV9gdR00T3DwHlTKU6zrlz
+qDFc3jxbaHcdW2VZ10YmawxZ9PIjGevKTgKQwrLLD9rxjWEa64yVb+1hgc8jAmWv
+vn8e4DnGoR0qfJvzIJ/GgiRmwEY2EK2zXw4x+QtQzFVCrV01QmrIuQIvKKXlFkmQ
+BiHssUi3qgPFuaWRNe6yubT8pq/8qGFBiBtr/YMoYPNv9vGp0Tr0ARhCo8ycHTsH
+yOa386ia8Ee7BbOlalJdhEWFxxxwqw==
+=e0C1
+-----END PGP SIGNATURE-----
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+--9DlXPXtwe81yJB7g--
 
