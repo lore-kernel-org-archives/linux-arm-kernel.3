@@ -4,91 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B04C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 18:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0320C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 18:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8BaAO/JTedLrIStDBlrZRjwux1WdgbCnv3+4CtQ+5po=; b=dKt5w/TH7ylvaDgSFjpfYk5wJb
-	LQAJ2uOptMJGHhoTDwdHE8d2KrZrlsSSOy1YBCSi/5DWJTUPOzJuKckq7H18Xz2jNUi89D9mFQCHt
-	AF5+I54ODYhncZeeYudEs5IazOoPRPIvAsXQ/lFE9MqMApdoUtZyeEaW3wMiis46eMSTtXKrTFR24
-	rUAOGR1tcgvSDfd0Ny1UvySrrMr/iVLSs7MQOc3BvNA/vZetSyVeOKxdLb1Wpvgl6SA5TDZoOKfcZ
-	J4JFZmv2f3G5/+EU+oyYY2dOIdffJZXhu9yyRXJYdkvy1pfK2XyVudktLlvxHjHieS71EY6R+UjZx
-	Kp4fP8GA==;
+	bh=qIwSMIYKqd/HyMR94ewi8crt6BwQsBujCc6Lw+X9iRE=; b=WExvWkqW72t3PmC2VTUhFEeTiv
+	llyhmVpxGuwme5c/PyszGUO+N/GOy/tjZ1euV7m34zyv3oeYmztip/4fCjXuZR1EPZz4q4u0JEi6b
+	asPgCwttjeeK9up75iJ535B+6ujUDOYuBfuIPATOla9QLuOf63lbldq6CQmqLTV5wq09hvXa/1gJr
+	hOYvJGOlBUcAC6O/9pHXk/rc16ai1YyQv8sQqTYq4SlSKkgLCZ2dAOPWjYVhe1nerIJ8Ofta8LqJN
+	vodsHTBl2IQBZ1lsOcjV2/T7GVhMi9X8A6IX4GMleBrUZWq7x3A+Pld7nioeuTe1d9HXDlLrdzYUs
+	YupUFI6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ioN-0000000384L-0PhG;
-	Mon, 21 Sep 2026 18:32:19 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x8iod-0000000387Z-0yN9;
+	Mon, 21 Sep 2026 18:32:35 +0000
+Received: from mail-lf2-x11.google.com ([2a00:1450:4864:36::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ioK-0000000383x-3f89
+	id 1x8ioZ-0000000385w-3FmV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 18:32:17 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2dd77300825so34317165ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 11:32:16 -0700 (PDT)
+	Mon, 21 Sep 2026 18:32:33 +0000
+Received: by mail-lf2-x11.google.com with SMTP id 2adb3069b0e04-5b8cbb7b9cfso1157764e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 11:32:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790015547; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FhoTDdkkLeCDBthxjUIftUef4lnPxVLXQncpnaXXb+KxE0NuCzX+W0ROLS0aPNSwT4
+         qCx3GR84I/WCmJhyF5RxbbY7P3TEwp3nHpv0gXd3uyiSkEqpCl414WjzeRYP6SBJ44SU
+         gmn/T0GqI8LRo1eiSyaADsi7M7qPy/UDWHeM3jMD3CIZeV80KVJsihX/ru9jiZIrO3d/
+         1ANb56aa2f/yCQZQilsTy7N0vtOSWOTNDktjE/2NVG1tEvplqjoA+INozPSZOLK+Njbc
+         15CXNvo/O54xWjK/XdrXJL20asH4SJNUqCx/KYBzZnvEQGMPvTHdvYv6+fmlzysN4Qib
+         W/EQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qIwSMIYKqd/HyMR94ewi8crt6BwQsBujCc6Lw+X9iRE=;
+        fh=TcUg0N3gfkEra9t/yU/cUfM5jUymN+PhOBofinbRD14=;
+        b=DeUS2BSJJjmKA2h8UqolMz/v7ge+PU4RxYnCb1EdsuiFvJn7wfvXXGiS52+ugFwMM9
+         PAhJMxFE+opmVK0nUMWkgQLpDK4po/t0Was9CwDuhtf6vYPEqjquihunQ5QzLE8IDhfR
+         +PGnV24b7zR5kh4O3Xq38K3DLhXgBzpX+D1BqGnObajU0qMJZJuMxunU+4yri2pW6i2d
+         04G/jXO3jNHulxiQwA5kVTTuzXtGDBSf8chYmu0NhGNzHHOIouhXL0VYiSpKLolePBLU
+         HvJ3Js2/LsN+c+O+I+K8MTSVf/j8zQHmxbNAIe62NL8+Ey67E5BU133O4PRY/Gp3ez1f
+         yxOw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1790015536; x=1790620336; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8BaAO/JTedLrIStDBlrZRjwux1WdgbCnv3+4CtQ+5po=;
-        b=VzlFUnHtgpRCHbOsKXpHq6JFY2CLqxF2xLIpBlAiPluMKtuvFVCXru4dn95CQ4A2EZ
-         m0IY4WyOvNp4D7KMnQHoXbz5LVusTBExspT1Dd2fJ4/V818bpMguQJM6v+m1J4OzJhxl
-         Pa//9fI70eEB5ad56r9oPfQLPH0IGeY9Nzgp+OPJM/ba/San/j8EebjT1BgctueVXcbn
-         6f4C0EuBHtWBKlQs5xoFlEb/NPdOZvwHv6Qk1t8YbQ6B++qZ49ypvfc74Zx+bbDQyKyU
-         bydi+iXdoXysq7O5wOUgbVrAXstgtsKwmBIqU/ZtiOPcxZ51XUOeXnU3Uwf8D1y9W0+X
-         1X5A==
+        d=gmail.com; s=20251104; t=1790015547; x=1790620347; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qIwSMIYKqd/HyMR94ewi8crt6BwQsBujCc6Lw+X9iRE=;
+        b=V113PS8M03TCEeQx1Gn0G1wZxSPq57IZR8KjE5ZT3z4iadfxj8f5TkxnOyI0UDcfHM
+         /b3Jxr2KqCOdvbWZrQO3JHFonA1p6WSa7E8BZrgy0u4QBvXsLC04jSM+d1inFd6ybvoX
+         5gPCGtS6yZli9YXcLcrmSsdo4mbkc63hGMcn3VPORr1SizUXCHus+S+w/tDdjurtSlry
+         fGFZrADXQNXmehNBB4bcjxJj+beCETIcCt0bgl39GbntuIidVfsnNIyxFwixei1dB3oM
+         qnUtR07ct7fropfAasjNdkdzB2daNnVUzUQ0Z6dLhwvVycaboFmOSFNcVErRudbaP/HZ
+         adOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790015536; x=1790620336;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1790015547; x=1790620347;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8BaAO/JTedLrIStDBlrZRjwux1WdgbCnv3+4CtQ+5po=;
-        b=FA2d5DQyfBYcK/JDh4CB6cLNDFyhK/QMY3ebeb4YffZbW+YJk52RKwv0VXx4xMhFuN
-         kvNHnt8cOYX4nxWuAuMpRdZAAoQCDXr9x+4HlRof0T6GZjZkT7aNdXf2XlhzZNySgdV5
-         +MxjXyU24+oi8DD157m+FeDx+4F0EyefV5V9RVIXJjAALQ3N8Z5jkJrYW4oPOSeqdz5c
-         zwWnsw1i4AhcnR1zZu6rcbmLrI2nHCIiF1kceLuxDSKEq2y+rR7hjY2wuJVIlTA/LGbc
-         muB1KO6lo/rafHTOzUiQAxYnuRFiTj7M+2n9W4Cy3WKAyacnMAugZI/QKggH1pBVfEtg
-         +21w==
-X-Forwarded-Encrypted: i=1; AKwUvByE7cUrsa8HJgJFWFQ2jmYdkPpeuVNVumjF4dlZOx7L/GJqTgrUoWEVbSqJcvibeacfdUFHq28PnGvRhk4zscLr@lists.infradead.org
-X-Gm-Message-State: AFuF++mZpJC3bEZvJmenwyy7yRWTmjWM08oby+767nIQEh4h27pFm1Fw
-	+CJcd76uvBUoQ3OmhxWTlrCepGpkZsJ+/uYm6z6gtL6Z8FQ2uQo0N+u8GHdG4RcjUQI=
-X-Gm-Gg: AYBFou2HDFxN4CvA54sCEthcam1/W2N1xHmoeuGbT+Oh5OSgCKJLYv0hxS9G0S90773
-	auKjKRllL7BVFMrGyx3p4WNP2fML0tSaktZgegTru/q6xpYTqwExPcyfuhutIlIUkluD0jHNSNQ
-	Yht5Tig9Oy1eGrnGBZbF52fCAqCR++JP1nJvZs1yioBneAK0o3xxAqVXW5S6xB9hYtdMTq7SI7v
-	LxCD2N0H00ZwD8vPZ3vAO4rQZG/65vyv12kKBwnrpGVyfE8cSnN0Au9lAU4cf54KHJVd65riNQi
-	DBaqhghoX4p07LllqUPma9F414UmYLL5+I1kYnlrKpB0/pPV0dyLd2O+k004xWMjXA+fFZ6vKAC
-	gq2omBbWDBbtqPzCENtqNH+JZWU5TSqVXovQmPr43Mz7cH2StTgbB1QinHHkLI5s05JowLzecSF
-	zfNvIw7z6P+APJrPnotuPxi9yYJrTQpX0ePsTwZAHom93RTkfBhx7c9gjxuBHamA1YdMHEgH4=
-X-Received: by 2002:a17:90b:3a43:b0:39e:6c68:c778 with SMTP id 98e67ed59e1d1-39e6c68ca12mr11774403a91.46.1790015535822;
-        Mon, 21 Sep 2026 11:32:15 -0700 (PDT)
-Received: from localhost ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144da432647sm32883863c88.5.2026.09.21.11.32.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Sep 2026 11:32:15 -0700 (PDT)
-Mime-Version: 1.0
+        bh=qIwSMIYKqd/HyMR94ewi8crt6BwQsBujCc6Lw+X9iRE=;
+        b=JmvpSKN9ifYBTqkjIfoCs80aukuee2ZLq1a4S12Tv2OcZlgaU9iV+N225FKK3oen1c
+         Irhn1x8V+t9xS9O6s34JbOkXC62AbuHtvoSV4Wvk1yuemVUsab9V+7vZoCYnEkAKiWmm
+         4/qrKcqxcP5OUs1uGRIdp6bdaYlHA/MVaW+6+Rh78tZgB4AXMWu55prOkOXfH3RRvYCp
+         5otObTXmp9BPHd5QeO1YzQCFluHkzPlEvmd9cAvdDDXUlBhX4x0H5JsevjkyJJH4lo6S
+         EU4dh36Jb5ZtggKI476Xu9EG7EseqMgzuKfnnf0nHPynQ8FZrr/Mz19ittNUh7M9uqkE
+         kxaA==
+X-Forwarded-Encrypted: i=1; AKwUvByJBHx/gPGivGZvdAXoc3cEXOiVEp4Axhhs17tThN+8OH6D6yybXhSr+FEnDl8RPflkALa8dLcADFuTc8giErAR@lists.infradead.org
+X-Gm-Message-State: AFuF++n9V8dzH7bC4iiG1C5LqTMdZSPqSTqMgSe+HqxAkeTx8G65cJA7
+	JQIpcoYcOR7U8jyufF5hNIBvzOd1Ef0qGJjz/N2tjFregSMxQbwlqeUI6hrfNwiutNTKZ8LIApq
+	Qe2LdJCrlfk1kpkg6lqgV+W2lpol1rS4=
+X-Gm-Gg: AYBFou1AwcVhs7nilUzhMGhpeyqv6FkIXvnL4fXk3IrfbgDrOyUPxpZN5EcCsDNy6y2
+	25cFXjaABXGr2lTgpo2gb6imWpXye/68q/U6Dyfh8XWPmgNsemcSylpYyiCSVf9xrTSwkCwLIMe
+	SeMWWi30FrsVdmpAj/BUSNYalycEUd/QHkqMW12C4+/mpL3twHybwh9y8Dc+OGtvAa07+5Z4F/A
+	MbyF9Afk4ZJvYf/zECvCntgYTj3bn1AQIlvfSxfe8vS6Fm1eEFKj1HmUjBHWxtBTuGn3AeEvgvw
+	8zc1GwKwJXdrUi5DZAgHBVGOvXyPIrVytj0IsFgyCXNijVsoF58JZFqMnG2BgRMrdhN8ZL3mFzW
+	HQJex7AUr+g==
+X-Received: by 2002:a05:6512:159c:b0:5b2:9f7a:29aa with SMTP id
+ 2adb3069b0e04-5b8c179de22mr3976341e87.0.1790015546739; Mon, 21 Sep 2026
+ 11:32:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260920211356.186967-1-rosenp@gmail.com> <20260920211356.186967-2-rosenp@gmail.com>
+In-Reply-To: <20260920211356.186967-2-rosenp@gmail.com>
+From: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
+Date: Mon, 21 Sep 2026 20:32:14 +0200
+X-Gm-Features: AcwNN1VdL-Fqcu_uP6CBPAY_SNwPGWfl7hrsVO4b8Qj22YVrcCYQZRsojkFfRw4
+Message-ID: <CACna6ryP-ZySxcK_b+BH-5ckDJxAOXE3tVtLYWP6SYA_Re3HOA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] usb: bcma: control VBUS via a regulator instead of a GPIO
+To: Rosen Penev <rosenp@gmail.com>
+Cc: devicetree@vger.kernel.org, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Hauke Mehrtens <hauke@hauke-m.de>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, 
+	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 21 Sep 2026 11:32:13 -0700
-Message-Id: <DLL7JS0LKL6X.1F7SU76VO5XVK@nexthop.ai>
-Subject: Re: [PATCH v7] i2c: xiic: restore non-managed runtime PM to fix clk
- WARN flood
-From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Abdurrahman Hussain"
- <abdurrahman@nexthop.ai>
-Cc: "Michal Simek" <michal.simek@amd.com>, "Andi Shyti"
- <andi.shyti@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20260821-i2c-xiic-restore-runtime-pm-teardown-v7-1-954e06765144@nexthop.ai> <DLBBXHXIVHZL.BIOFL7T9OAM7@nexthop.ai> <aqJQ8Qm_nhBaWR-s@ashevche-desk.local>
-In-Reply-To: <aqJQ8Qm_nhBaWR-s@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_113216_935659_4F2BA6DD 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20260921_113232_373560_695960BD 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +125,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Sep 9, 2026 at 11:40 PM PDT, Andy Shevchenko wrote:
-> On Wed, Sep 09, 2026 at 08:51:33PM -0700, Abdurrahman Hussain wrote:
->> On Fri Aug 21, 2026 at 6:12 PM PDT, Abdurrahman Hussain wrote:
+niedz., 20 wrz 2026 o 23:14 Rosen Penev <rosenp@gmail.com> napisa=C5=82(a):
+> bcma-hcd drives the USB power line by grabbing the undocumented
+> "vcc-gpio" from the controller node and poking it through gpiolib.
+> Besides relying on a non-standard binding, this cannot work on boards
+> such as the NETGEAR R7000 and R8000 where one chipcommon GPIO powers
+> both the USB2 and USB3 cores: the two controllers each request that
+> GPIO exclusively, so the second one fails with -EBUSY and its port
+> stays dead.
 >
->> Gentle ping on this one. It has been quiet since v7 went out on Aug 21.
->>
->> Andy, v4 onwards switched to request_threaded_irq()/free_irq() with the
->> explicit free in the probe error path and in remove(), per your comment =
-on
->> v3. Does that address your concern, or is there anything else you would
->> like changed?
->
-> Seems okay to me.
->
->> Andi, this is a regression fix for 50c63491ff26 (the devres conversion),
->> and the WARN fires on every unbind/rmmod of the driver, so it would be
->> good to get it into 7.2 or early 7.3 fixes if the patch looks OK to you.
->
-> v7.2 is already released, so v7.3-rcX is the best you can get.
->
->> Happy to respin if anything is still open.
+> Use the standard regulator interface instead. Each core obtains its
+> (shared) VBUS supply through devm_regulator_get_optional() and the
+> regulator core reference-counts the enable/disable requests, allowing
+> both controllers to drive one GPIO without conflicts.
 
-Andi, ping on this one.
+You should add support for VBUS without dropping "vcc-gpio" for now.
+Deprecate it. Give it some time and then submit a patch to drop it.
 
-It is a regression from my own 50c63491ff26 ("i2c: xiic: switch to
-devres managed APIs"), which landed in v7.1, so both v7.1 and v7.2 WARN
-on every unbind/rmmod of the driver. Andy was happy with v7 [1].
+This patch as it stands also breaks bisectability (because it drops
+"vcc-gpio" before switching to VBUS.
 
-Could you take it for 7.3 fixes?
-
-Abdurrahman
+--=20
+Rafa=C5=82
 
