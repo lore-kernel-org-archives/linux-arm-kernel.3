@@ -4,101 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43E2C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00492C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bJjHs4K3u+gvdjbfOs0Xg8GRiY9vzGbZiOJ805s9gPE=; b=x07PKrEUSLLgjajWh1AudHDzs3
-	VJ7EbTDdB9LWwI02lWIUe1oCQavetkgfCwKalD+55v7q+k5cW9M6fiOO5dDXHfL6stkVkLpKdY6Ec
-	g39nY7u7r2+6qnjf9Oq6krlPPbS7sJnocJdC7NC6tJO6qZ5UqDCJcYCAXQf41O5sr4pf85KqsZbO7
-	jMuiDbAnLpWxM7IC07XS4cpho9VqlHrNpjA5YV2UXy6I/fLt7eNsStuSQfaKD31nNU7NN5oD9sde0
-	EWlnZKL0wQJzV7am6CgDm5Pnkkm/3XZMUpvMIyf17UXcpiW0YDcDrG3bR+Wrq639/QAtQMhwIMMy9
-	6bt0KRPg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=; b=nA4nK2387BdqWH/q7FxZoG+J4f
+	h4tFiyOEpr6jF32I/CvrGLVNen2kkgls1LG2Y6alljc+Njj3CiGcXuQujQWHvG2LW5izi/mZwMTFZ
+	ay3r3b92Wq64RpnoJUSMIdeY8L/6WoOhsvGc3EYLcX8yTgWJfahyrIKsjgzpeKeu4m8TkrXHmtAg3
+	gPGRNxi6/kE0UXxHAuA7OxHJkKBV06HFfQ7zZ+7wjJyBhiMXdQ4KBDl3kgbYin+xE+4fLaZ55r59f
+	KgqjtaqdBXK2qfpO11dps0DMggSk8VaKF3KZ22shc6ePEbFmb8qlf/xNqlhws7CErInZ3sOFIVEHm
+	CMAnmQGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cMs-00000001wH2-0fSA;
-	Mon, 21 Sep 2026 11:39:30 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x8cN7-00000001wNY-2jxU;
+	Mon, 21 Sep 2026 11:39:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8cMp-00000001wGE-1IKh
+	id 1x8cN5-00000001wL7-2MeS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 21 Sep 2026 11:39:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=; b=Vg93cxyfKf9XeElM/WjCBqyoHZ
+	Xq8JMTAJUUd69/EbNzGaE7rGEuyK1QQyAONPYy/pK4+C66LtovqJ5SudkS/sLA4SHngiJfiskEBYw
+	3Hsc5l1DVc5nCZMxC2aRGOLQozazXmE4qVYqwyYh+PsUrNa26ikEH7YXEEkFX2MN39ZFM33OrHULc
+	h1ZFCwcnLVMwgXKnSM4c3fjhKbkkmShlqTHJqvB75hgkOprejaM9F+nTFWyFmClsMUhBk5E9nZAxj
+	YIEUqcw0CYFhkURwKv8N9O0gZLSTsXWU6oCOR7vpAAQNkgQ2SnkOWwdZh5OzRM+huQOz3QpQrvD1Q
+	T7Q+Sakw==;
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8cMq-0000000CDko-2xo4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 11:39:28 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e66390995so15143505e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:39:26 -0700 (PDT)
+	Mon, 21 Sep 2026 11:39:30 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccff31419so24128925e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 04:39:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789990765; x=1790595565; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bJjHs4K3u+gvdjbfOs0Xg8GRiY9vzGbZiOJ805s9gPE=;
-        b=BZ9Np9kR+pY8wDQ3o8ZgV/avcqOHN2COuOXhW1pVxP/jKkXiiVmr4p+iT8fosTWBIO
-         GVYzreWYAc6jTk2QAJg1BnK0diPcGcgNefwEKQKHpAF+7BCMImPjjVYDu3UAz7dxvEc5
-         6aDT+b04na6XOU/rlx3UHQ0e0h661PDS2lVRuVGk99i4wFxfMlKtuijLTG9utRnhvAVk
-         ZvHazQNq7yIwm8XBE6Djnjs5tKXWblibnnuT5//z7xyZkBRMwg3dAPQvQ2/wbijXR/wS
-         sfMQYSTAx82i9PiXHbe9Nc8wiKCl4Rf+lyX2Lxv+gYXyUt1tIsJJ5KHvpOw1Bm2NcaqL
-         h7pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789990765; x=1790595565;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1789990767; x=1790595567; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bJjHs4K3u+gvdjbfOs0Xg8GRiY9vzGbZiOJ805s9gPE=;
-        b=qaCmq82vgwInAFRGpzujwohSbgthSl8vOSi2NOcgda36pF3p9uO2lslVmji/1J4kID
-         1Ysp/aJSl6VYjbxF4zW6TlMBWHTRFzo0Sm7cywfqnMneu8iPSjoo03fDXfmukWr87Fi1
-         D9Vvn5MMQ194uo67NAgxRAUtXbG1o7MS0gsb/+ESZCDJ0n/5+SmC2SPrS35K1AF84AhD
-         B5FoVw/Ei60mLjNatrwdAoWORxjXi5PsnS5hf0Y5XaYkYu7A4NgG/Ypa6+RYjvKtIizq
-         pLWHcfhICKWHlqCgpSIVxX3XA+tOCrGYx6dfeoKs1811WSPwpvaKbKgw234w7cJkug2h
-         a9eQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzqdvcOe3as0czcDW68swhuATxnU9JIhOO8WDdr73TngwAHa48zH3h1rXMM7AweVYtpKoa4lfwnGBdSUaWW6Ul+@lists.infradead.org
-X-Gm-Message-State: AFuF++lZTh2gyT2Nt+bXrnxNhgEeQUGzgnZF4MWjVXoT1fLWicAlnD+F
-	svSADbmuOfI2XZm8NnV6HfBzfxTH9rNifQQqlTvXvyPqyPZNRHm5nOAB
-X-Gm-Gg: AYBFou2Fu//8ZT+6iQtk/4er11/cpWYZR9nKZ4g0koNLfUk0XrscYn7QVMMtkAcqfWL
-	Y9Z/UOCZaF1+ZI17jhOFLF8peJGogZFSyCb5uOaKBjUdC16gl4QquV6wWEbwqaJlC5lTw3R897B
-	zOmfdeXpW+x+vDoDkf95oIzFBDeeIBFLZ7cd/8+TAlwpLkgv3slr9Tqm9TArI8cPVr7JslCskko
-	E3MpXVfAPP6SMmueyM+plO4TitRDct4XsEawws8HUHI+JEECbJzS7U0ngZfZYM2hz2LG0lPguZZ
-	b5r9rqa7cPozd26PP6vWWIJMr7koh1jUuRlKlKyYGFpvBceoGdxCldV1YZ9cKqeF/+Cp3jG2b7b
-	lEzqkg0jQVdRtfGcj3KYgP4cbRUZVimfKQkf8vuZUFv7jaEWWE1moOK12UBilhkpoDQUoLq2l9M
-	Jm0xyRmjsKULgFldr7Uj5Edtaf53klHAlnpQJSZghMqo9CzptnHnaTgDp/gWNhza6Fi/1/HKJ6d
-	Tntbg==
-X-Received: by 2002:a05:600c:3b8e:b0:49f:bc43:9e96 with SMTP id 5b1f17b1804b1-49fc57144aamr185348875e9.8.1789990765124;
-        Mon, 21 Sep 2026 04:39:25 -0700 (PDT)
+        bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=;
+        b=jXwwRhOLY8GlB8AJrQBqyjYuDOdGBIh5z6IVi77vkJpVpqlQXCDeefMog/5jSUKtgl
+         713W69CsD/aCG1QuHzUEWVBzROclRWVr7qyLfsV3XDsZyVAVe87t2KNC80R58nHPL70P
+         n2omsgi/1bzcx4Zuode098wiOx0ttnzNOn9VejXIww7AEwM7u5/Du0IT1s5X51en4sMX
+         ltdqZNG9LqZproS24yCz+fIvo9vFR/W5Yhat07m1MCX3xU8QE7DhgTC4fs3kzSQgUN2A
+         EtqY1fB05QQBbufHotuqawD6JTRg7n+nKEX9rNdlvEE+1cNdf0KRnQ5OrWbwKIEhT8Ij
+         rRzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789990767; x=1790595567;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AqNF5JZ6UPtOMyOPCzIVZh05aJF/SoOQw4MLana8W40=;
+        b=sTx7bpRXLJGCnjTFVHbKnY7ce5dp6hKqT0DHQ6z+qnMU4kB5ML05y0pQu+Pl39Hqfo
+         o36OMfkrNT0IySeGL44If1wVwVClfJwoIbp4yOnmxkmp6nNBWkjDWDO/a6yJ8t7QuwSD
+         xMu/QYONAZ7pmv0vRCBgp4qDe93FTB1giw+TiV+GrZ7JJPZqAj5jfZ0KRxpKRz3IhTQV
+         nuZEBYSyXk/hbAjJjLSHLfdUtKqFdwf3UTFWYr7pNzoqmaKjqHPuN7rYSGfkV6zKZK8g
+         cWmXlBAGBqFafieVwGYLpXDMp4GHu5646gaYPLMDRquTVa0hrrgb2UHepz0TWEm1l5CO
+         SUFw==
+X-Forwarded-Encrypted: i=1; AKwUvBzQKxIai7Se0bzj4C/qvoSWzZttWnWKRIad2/M3nmrbjtxv4YmbsYEDjUKGe7Tn4POFuhiOkl9u/brQNM5Fm691@lists.infradead.org
+X-Gm-Message-State: AFuF++lnTXUYJSbKTHVVkmvyWBnYkuMdPncbOOhoKZsIYAKfacqPrq8t
+	QU6XuQxsmSqykb7xTME6x6S/llxqKeAkZLrlCSASoWptokf56UGuRQ3N
+X-Gm-Gg: AYBFou3BsOd+e8JARQ93GkdNWP/NJh0Cx3P7oNdQ7B95LeV1t31kGaUz5mUfmHg+XzH
+	WLHX/yFemmRzrRKcp2bukl7atMb/VY/0TwzL+DUHXi9RAikiTGgVplIT071cftY3h/DLr8W/5PQ
+	UK/nFDjwnx97ip0xuF90axzPBs2Q7ROeSLd/e9ZpIVfuzR/ST2MoMm/ccZh0SUNa5Fza1jopCVq
+	hJdaMxDRZRsKruU1sPN8NZTw/rGhBOoI1lhFL1d43+eLQzTAyrfokjFgn315AR2Qw6WU+2QZ2Uv
+	ta6kmF6CIYZExEAEBcA0VqvDqXETqgTG863PbataqPu9GUiX8YSGveDUJPfnLAOaKyU8VhBdwsU
+	vIR/n1/j7j4uJzu6LVYlWj+w34DzbIZZ2dJlhqXlhAUJMtiXS+0LekYtKro0it9+fqygX02FqCN
+	VbBOljhT4B61AgcZjJVoFWcfHiHMScc2Z5UYXsveJG2MUeTM0pm/b5qcQbmLfAd9IruHM=
+X-Received: by 2002:a05:600c:1c05:b0:49c:edfa:15a with SMTP id 5b1f17b1804b1-49fc56af038mr172418205e9.13.1789990767340;
+        Mon, 21 Sep 2026 04:39:27 -0700 (PDT)
 Received: from luca-vm.lan ([154.61.61.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc57547easm244273865e9.3.2026.09.21.04.39.23
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc57547easm244273865e9.3.2026.09.21.04.39.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 04:39:24 -0700 (PDT)
+        Mon, 21 Sep 2026 04:39:26 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
 Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	CK Hu <ck.hu@mediatek.com>,
 	Jitao shi <jitao.shi@mediatek.com>,
 	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 0/4] Add support for the mt8167 display pipeline
-Date: Mon, 21 Sep 2026 13:38:54 +0200
-Message-ID: <20260921113914.779393-1-l.scorcia@gmail.com>
+Subject: [PATCH v2 1/4] dt-bindings: display: mediatek: dpi: Add compatible for mt8167
+Date: Mon, 21 Sep 2026 13:38:55 +0200
+Message-ID: <20260921113914.779393-2-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260921113914.779393-1-l.scorcia@gmail.com>
+References: <20260921113914.779393-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_043927_361081_B1DC606A 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20260921_123929_079625_AB80AE4E 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,52 +130,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for (almost) all display blocks of mt8167.
-This SoC supports a DSI or DPI display and has HDMI output via a second
-DPI block wired to the HDMI phy.
+MediaTek mt8167 SoC has two Digital Parallel Interface (DPI) blocks,
+one can be routed to a DPI display while the other is wired to the HDMI
+block. They are not compatible with any other device, so add a new
+compatible to describe them in the device tree.
 
-All the hard work was already upstreamed in the past, now all that's left
-is some glue. In the first two patches we add support for the DPI output
-blocks. In the third one we describe all the possible combinations of the
-SoC display pipeline and in the last one we add the required nodes to the
-SoC dtsi.
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml       | 1 +
+ 1 file changed, 1 insertion(+)
 
-The final outputs of the display pipeline in the SoC dtsi are
-intentionally left not connected to allow board dts to specify their
-own output node.
-
-I said almost all display blocks because HDMI output is not included in
-this patch. I have it tested and working at all supported resolutions, but
-since it needs some fixes in clocks and a new phy driver, I will send it
-in a separate series.
-
-The series has been tested on a Lenovo Smart Clock 2 (DSI), a Xiaomi Mi
-Smart Clock 2 (DSI), and a Sony Playstation Classic Mini (HDMI via DPI).
-Unfortunately I couldn't find an actual device using a DPI display, but
-since DPI1-HDMI works, I feel confident saying that the clocks divisors
-are correct.
-
-Changes in v2:
-- Fixed some copy-and-paste error in MMSYS routes spotted by Sashiko [2].
-
-Initial version: [1]
-
-[1] https://lore.kernel.org/linux-mediatek/20260918175736.355305-1-l.scorcia@gmail.com/
-[2] https://sashiko.dev/#/message/20260918180358.81A1D1F000FF%40smtp.kernel.org
-
-Luca Leonardo Scorcia (4):
-  dt-bindings: display: mediatek: dpi: Add compatible for mt8167
-  drm/mediatek: Add support for mt8167 Digital Parallel Interface
-  soc: mediatek: mt8167-mmsys: add routes for all display paths
-  arm64: dts: mediatek: mt8167: Add DRM nodes
-
- .../display/mediatek/mediatek,dpi.yaml        |   1 +
- arch/arm64/boot/dts/mediatek/mt8167.dtsi      | 369 ++++++++++++++++++
- drivers/gpu/drm/mediatek/mtk_dpi.c            |  23 ++
- drivers/gpu/drm/mediatek/mtk_drm_drv.c        |   2 +
- drivers/soc/mediatek/mt8167-mmsys.h           | 193 ++++++++-
- 5 files changed, 579 insertions(+), 9 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
+index eb4f276e8dc4..6cd96a5cd4ae 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
+@@ -21,6 +21,7 @@ properties:
+       - enum:
+           - mediatek,mt2701-dpi
+           - mediatek,mt7623-dpi
++          - mediatek,mt8167-dpi
+           - mediatek,mt8173-dpi
+           - mediatek,mt8183-dpi
+           - mediatek,mt8186-dpi
 -- 
 2.43.0
 
