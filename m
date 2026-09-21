@@ -4,168 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD5FC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B87C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxtAlA5GlDFeVwxGeacOQGp9QBx7wcRm9o0QdQ3l7Jw=; b=snOBBA57hTy1d2DykHOE8mqkeK
-	UOM9miXYj2eSc+Ba3Vh/eo6GHKBBnv21oRkNglAjIOYyoTVxSk0JPEvsOzIGrdPZGKwa6//mwDXt4
-	lSu2VKAMI3fuGn5OjQRPFLIOWaQR31dkXUq+a960JZnjVZsFJyj2DVJLDPF7gXZbYR/taJeJfzhA6
-	bPMC96vH1rLoqSUP2y1jmIM7GGxwtw1yOeR/jcNhGy9/mJcZbTYrJXiUfTkx0BBViR7VrZq/CwWLj
-	fTpemx+2kmRHzDXN206CweAHa5yaXhx01nsHt7RnMLNF0XLTpf2/PTreWQThbXZGB1eA4TEiNSTMY
-	t077LKqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+0Q1c8+iWUmjCb/LFDx56zSUXvnrXb5ByHvCNbq3fbc=; b=hTgbxdiUrTNW7uncMUPjXRnKGW
+	BePyHF1UooO8zUIs464t19JYm28iq94sYReY9qs+G6XlG6rHp5KQRT4qjKBkNaLZr3z+0IsmZ9lJg
+	j5A3b4OBMa6W8rtiC4wH9/mvj/2vlWVNLvls4li1vgRfNwpXA/Fpjs2ysS0WJ8JtZHMkMgVu0vbFp
+	wxegDEmMqPCN+u4G5dIMw8rFJrpcu6oSSinQLA0L3SvBWKeYHerSUYAXtJi6nFn2U+Alr7V6fsfKD
+	SrVb8rgIAdW7dRv6EeL+Dy8zri17euA5LJny15EmKXbOLY4PHxi0JFjkHMW9qXoB2qI/mxDqTeJ6J
+	/hiAazpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gsG-00000002pUp-3w8n;
-	Mon, 21 Sep 2026 16:28:12 +0000
-Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
+	id 1x8gsk-00000002ped-15CT;
+	Mon, 21 Sep 2026 16:28:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gsE-00000002pTf-0fnV;
-	Mon, 21 Sep 2026 16:28:11 +0000
-Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
-	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LEi4sJ1547342;
-	Mon, 21 Sep 2026 11:27:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	PODMain02222019; bh=jxtAlA5GlDFeVwxGeacOQGp9QBx7wcRm9o0QdQ3l7Jw=; b=
-	XLGsAhAAye+xZ+3/mF33xMWUYDSBiBViUJbDZ2swUMo5WyfeR+IAupFgB3on+2qT
-	Z3gMsStXvebwTVP7JzquQvXCLRdmYENCZykEaoj0H/1W3zjIZxvUa2GWLB9VWI2m
-	6lOUmniD30K4B37UsmIys1mOqUEcJ/4ut/rdZhWEwLF/lCWmn4fyAPVLIuIYQB/g
-	7PMYaO42TTZ+HgtON8Fu7XCmODGw92SWLoP9IqyD7BkURqd+QCMWzAvvGXNIxN9h
-	eH73brPIUdLsRgXGEnDI2Joa+iFacUpSWq4qWA0IkVz0y90Xosg2KaG0W4pdI46A
-	EBGgbex3ieTmIdn/Pg6i8w==
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11020110.outbound.protection.outlook.com [52.101.193.110])
-	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4gsptj2axg-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 21 Sep 2026 11:27:46 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IeVjXYL/cuhG4GO4WDJj0NwV3bi+GB5FRVjYvZknud19DkCNW8yViXGUYkMqaf3ZPNKnMb0j69phNRoUIh7LmzoKzvNpmdQXm1JVgOK1HqfJzxDxBgEo9HDQYCpy+5YjRyJDlK8pptNa+e4YM1g5sP+jamWKEM+NxFrHGswIMKG68R6cPPqiWj1L5WHsjtCeyPh8bZz8SNoqgBxI2t8MgD7kZKdfX8Z4e3Lr7a/WxXBBDkX5U96cJ4Z6vH5mbWPL8GQo3iiHxwh6kJwGuWBb2KVFFL2nbmwzVDgPOCcAGK6DMAJH4JpzRLrQDV7Ji6wlRk922gHPT7amqCKZlTbZ1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jxtAlA5GlDFeVwxGeacOQGp9QBx7wcRm9o0QdQ3l7Jw=;
- b=WBBrqTlof/GyR1hxRpvjuoHDsUW8VWChTvrR43WiVEJFL9Bwco3ZhoUW5W8d0vhd99WikCFvRM/IXbex+8DdPF0tntuyVma+paObJKhxM/pOEJP4UyHA46RF9iWevpagCAaNDAaECT/dyFwDyyaTq++ahSv1t40ki54J2TPEU6EZ5Ail/iVsfmAaaUp3chSMQVY+4cALJIp76Zayw53k74Rbv9Iy4a5wIBTgIkGX70kH3VaP0YwKKMXOMS+apF4p7JkuxCq+QokCMQf3+r63VYOjAOjPXKGOLteTkKEpxU77+sdTOxt9vm+17yrJ+7x7tv5VAH1IhZpy5fQ4f4Nhcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=cirrus.com
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jxtAlA5GlDFeVwxGeacOQGp9QBx7wcRm9o0QdQ3l7Jw=;
- b=KrjDxNVRcVU9BzWKrCJNvOopQ4juRPaB5F6m7drUzzSVq5mToVKBPsq1gbobyFZ2EWS2d2KF2MEazRF7wgrgjlj0hWrzIYdn1WJsW7IcKMxC8Cqm5niaqomUPQdBb3o20QCqGs+DcWJf74h9KMrXLS3qhrRlyCo18w5XTHgp9aI=
-Received: from BY3PR10CA0002.namprd10.prod.outlook.com (2603:10b6:a03:255::7)
- by LV0PR19MB9496.namprd19.prod.outlook.com (2603:10b6:408:321::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 16:27:41 +0000
-Received: from SJ1PEPF0000231F.namprd03.prod.outlook.com
- (2603:10b6:a03:255:cafe::5b) by BY3PR10CA0002.outlook.office365.com
- (2603:10b6:a03:255::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.16 via Frontend Transport; Mon,
- 21 Sep 2026 16:27:41 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- SJ1PEPF0000231F.mail.protection.outlook.com (10.167.242.235) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.8
- via Frontend Transport; Mon, 21 Sep 2026 16:27:40 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 00777406540;
-	Mon, 21 Sep 2026 16:27:39 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id D8FA3820244;
-	Mon, 21 Sep 2026 16:27:38 +0000 (UTC)
-Date: Mon, 21 Sep 2026 17:27:37 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: James Calligeros <jcalligeros99@gmail.com>,
-        Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-        Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
-        Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-        David Rhodes <david.rhodes@cirrus.com>,
-        Richard Fitzgerald <rf@opensource.cirrus.com>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-        Ulf Hansson <ulfh@kernel.org>,
-        Amit Kucheria <amit.kucheria@linaro.org>,
-        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-        Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-        Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-        James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
-        linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
-        linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 10/28] ASoC: ops: Accept patterns in snd_soc_limit_volume
-Message-ID: <arFa+frv9QcL4b36@opensource.cirrus.com>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <20260920-macaudio-v1-10-741cc20a74e5@gmail.com>
- <arFM5QGrJx1aYhGK@sirena.co.uk>
+	id 1x8gsi-00000002pdh-2Ko6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 21 Sep 2026 16:28:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+0Q1c8+iWUmjCb/LFDx56zSUXvnrXb5ByHvCNbq3fbc=; b=foEofhujVx6V/Lu2ic3k1dwIKP
+	FMilKmbpIRs7BP2OmrjJ4fiC+ptIdYcZarv7QCaSzTqbmoy/G0y5n/kiYJVECOzPxsFHPeNj8PwQj
+	gK63K+v9UfgrOOR7kR7BfnWwmsqPffIdPIMiQPvCSkqbCNccvZFKffzLiDTq2BJ7g2z9FB+NGR494
+	yrIV/wXzrAKxEb1DCcBkfGJefCmqek2IFZ35P3bGfdufMdqtDs1iuV2ZlSIHWedfMSfxkj5wx0JJ+
+	SErxk7JTI63vYFaAMPgWGZt7kh1rFMgT8QjQq15rSx1gNjA63JSvDBx1iJN2Oqk4sNgUg/qoYvozf
+	DpM/d32g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8gse-0000000CYlo-3BHm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 16:28:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EE0119F0;
+	Mon, 21 Sep 2026 09:28:28 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FD443F9A2;
+	Mon, 21 Sep 2026 09:28:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790008111; bh=m2dl8YTZY3DsOKp5evDCX+Sh9buB1ABpJyTpyMJd9O4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=blHh5Wg1HCyYhZ47HleWhM7X3QjSNO2lfWc1seBLPiwZk09O2S8W1EGTbgtBxy52d
+	 hbH5ewugIHjHlpZBhD2voZtBkFGHzzzsMCYQaLmJYxh+xPeOfd7baIzFGQcItA6Une
+	 lUqYpsvXQStERXx2BCL+HoNehG6y80Ulvmb+lXNM=
+Message-ID: <d96cbb8f-631c-433f-a553-6a6e20531f68@arm.com>
+Date: Mon, 21 Sep 2026 17:28:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 12/14] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260911112835.714162-1-andre.przywara@arm.com>
+ <20260911112835.714162-13-andre.przywara@arm.com>
+ <3e7bdafd-d6ea-422c-82ff-e278a17280ff@arm.com>
+ <a314ee8f-4152-4b29-8348-6cd750eced40@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <a314ee8f-4152-4b29-8348-6cd750eced40@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <arFM5QGrJx1aYhGK@sirena.co.uk>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231F:EE_|LV0PR19MB9496:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1f9fddc-41bd-4cd4-9b94-08df17fd41b7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|61400799027|36860700016|7416014|376014|10067099003|5023799004|22082099003|16102099003|18002099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: WEt2hcz/03tIBvyp5dvbFm4gNUUXpUXESpxFIrKSeD8tS1Jzy4DNl/I92fRUVE2UjF8N3Wv+IIUMZFsg1MQr533qgvBzz/uOVAAQR04nXcoMWuo2vc9+TrOHsuJatzCrb+HKFIq4sFtWTkdTqbsXXVk5qPBgLb5EgFka/4FNO/YVnIuYG50IdF/0e6bIgOi6QOfy1c+UiuObwgy0jpZ1iEzSuxMr8ENW8vSxlBwXNJvBxyhmkVy1pvnjZObnllZDZ6A6Vro2xDVYZg7ektdqhO+GqZb4q5jqZnHcMR41xrC+0aN5Ud1Q6z/4Hd91MZHuHpA/wniALc5zWzAZTQ9WauH2r0sCMiAPSbRiOAouLKXKg6knY2NHUUAZzevfRF600rFfIAsu90IB7aakRfGOBvHibTC3xGu4dZuCxoDAsiu1vhLfcSF3cqVZpmL+K+EHzoPn3Hgh/vMBPxRAIFW13AYNEflzA/Uy3b1g6sAr3zb03n9wQDgdO0BsoWSI0mNbntZkbOcGAiwUEmEm88OtmfbKkEDpJ3FrgtMg5mLNO9Xe0rS4fC7aVvvDFbVVzt8pFdbC8KPuG4rm0I/Fm4toocw2IPtH522pLkXplOyJdMMDCidRLwa6X+Ct/M2AW8J6+WPoiNLZjFLPJm2545sKo7QhfA2M1BDFc37oZxMx2OAuwzTgkjneH3y8r7s+e0s8mjnR6T35nS90GISd7asTpg==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(61400799027)(36860700016)(7416014)(376014)(10067099003)(5023799004)(22082099003)(16102099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: qKV/o5LUfpym/rFkK6QuV5/U6VWw4LhJSuFmQn81EyqdFQl8/Sj8e7pqkhUjpSwfU40CHGcf7knnE9CZqIIShUVtOaFMruAQyaB8YdwicoBlVvKEOTdxEMG/uxVfZoUbgEk0qtxYJxnuli6/R+mfefRJaKs6W+8dPuPk/djVCZliulKx4BYCh8Uxg7iLmtczz43hdteI2tKnLQ7ZK7/b/azCXyN96hXNCuwsbmDkCTDuKN/V85+bJpS1afAwi8Oep9xDBvxfkeOEpxShC2JRS5oUps9gPSuYtRz21vXWVqdIfdPAm6ON9gJY+AwNsGAEiNEgvKSfbszke+zke5mCy227f1xQySAVVsWw7ZNK8Ukx+cDOz72e7M+zRH/rasCXsiTfJkRca5Y1iPedCzd4Zz7keXt717mzPjp3MP4o8q0UV3Iy34iuqs6e1qMclahe
-X-Exchange-RoutingPolicyChecked: S0rtAnkfmxfH/KvAABj1sTAFUinw2TT8HFFQ2qyofuUdvzJXvoOhy63pJINwU+ty+1GleS6vKtI6MFCUyR6q88BjBBnwwE7miXUfAQ2N9o6NTGw68/d1+zTl3Kqv4aEiqHMNIf3+8rdPt79lBVoJKfP94zdJ8fEGEMYnajTqZD9AsTUgSUylkGj0hnCKCIr/e2kH+QT0n0U54wgJ0cBE9/kKrB6NX7VeOJ87MtCExGDnhQkNdaCk9CRNY6st+sqC06tViDPwFQff6cF6yCFkwbiY1K3YtKtiUvgVy1YxUXZlKNYnhMYEwc46n1Lb/SHpZnssj59y3Go4tmyi1VQ4NQ==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 16:27:40.3659
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1f9fddc-41bd-4cd4-9b94-08df17fd41b7
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SJ1PEPF0000231F.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR19MB9496
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDI0MCBTYWx0ZWRfX/GPi3cPUZWej
- W/xSIdKZXY94akUQEx+GhcwSXGSjkqXpI4bnhbbqsdzafVftTZ/S9Lx+zGcZVc2jAreaGOeve7W
- HWxfp7vHvqux0bIN4gMWsMcqNTaTDRM=
-X-Authority-Analysis: v=2.4 cv=fuZJ914f c=1 sm=1 tr=0 ts=6ab15b02 cx=c_pps
- a=pY+kOdcf8RAo0+yonGAjpg==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
- a=NwbpVL58AAAA:8 a=2jMZWftWlEQurTBL9HEA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=tNWvAHffTtQgx3ZTRG8Q:22
-X-Proofpoint-GUID: daj2nYHdeRL-jd2F9FSBK9u0q0ldrj5H
-X-Proofpoint-ORIG-GUID: daj2nYHdeRL-jd2F9FSBK9u0q0ldrj5H
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDI0MCBTYWx0ZWRfXy1P7UpMmWDcm
- 91lDuP926PhllMe9Nng6XDi0LlHab2LmWvQdLWFUWSUBX2odOXw+tWNr94IOTF/ySsZmg1a6DSz
- sbVfQ5NuMGvWeBqYWAPK2CZfYkqEmzp2xEo+luOwS6qzudy8CgQacReZSnubJ4eY4ykAOHkpJfg
- i/Igd1XhgPHzWmj2PYNsbc+Y7cQHnTxyNlfNOPmKd8isq3p4OpYqEbg94pwBg44fNGeCTCrWaAs
- KU4qbMwt8ZqtlXwnX4ZfqgnLVv1Tk/YwC+zm6IDa3Eqdtd67xxcZi6190pQVN4uj89T2mKVgduI
- cI4dRRAFie5rUkkv42dTpVGgJS5S8i1kSGIZUCiMIm6D0rut2T2cjvyMeps36SLYtfogAYsq7U/
- DsvHxaWhNvLUCLSzW8Mz2cQleks8aQ17y3KpJeSPDg4c9TuxwBnrACx3NWsIRZjj+v5+2aw1CZn
- 0I8POgtvvPtqrqfcT8g==
-X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_092810_864388_5EE63118 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260921_172837_236465_CE232E6B 
+X-CRM114-Status: GOOD (  35.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,34 +100,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 05:27:33PM +0200, Mark Brown wrote:
-> On Sun, Sep 20, 2026 at 02:53:49PM +1000, James Calligeros wrote:
-> > From: Martin Povišer <povik+lin@cutebit.org>
-> > 
-> > In snd_soc_limit_volume, instead of looking up a single control by name,
-> > also understand wildcard-starting patterns like '* Amp Gain Volume' to
-> > touch many controls at one.
+Hi Andre,
+
+On 21/09/2026 17:09, Andre Przywara wrote:
+> Hi Ben,
 > 
-> > -	return soc_limit_volume(kctl, max);
-> > +	return hits;
-> >  }
-> >  EXPORT_SYMBOL_GPL(snd_soc_limit_volume);
+> On 9/11/26 17:09, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 11/09/2026 12:28, Andre Przywara wrote:
+>>> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+>>> registers through a firmware interface. This requires a shared memory
+>>> region to hold the message, and a mailbox to trigger the access.
+>>> For ACPI this is wrapped as a PCC channel, described using existing
+>>> ACPI abstractions.
+>>>
+>>> Add code to parse those PCC table descriptions associated with an MSC,
+>>> and store the parsed information in the MSC struct.
+>>> There can be multiple PCC channels, and each channel can serve multiple
+>>> MSCs, so we need to keep track of the channel usage, using a list and
+>>> a refcount.
+>>>
+>>> This will be used by the MPAM-Fb access wrapper code.
+>>>
+>>> [1] https://developer.arm.com/documentation/den0144/latest
+>>>
+>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
+>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+>>> Tested-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+>>> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>>> ---
+>>>   drivers/resctrl/Kconfig         |   1 +
+>>>   drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
+>>>   drivers/resctrl/mpam_fb.c       |  41 +++++++++++
+>>>   drivers/resctrl/mpam_internal.h |   2 +
+>>>   4 files changed, 161 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+>>> index 9591d792736e5..3f81638f57be3 100644
+>>> --- a/drivers/resctrl/Kconfig
+>>> +++ b/drivers/resctrl/Kconfig
+>>> @@ -2,6 +2,7 @@ menuconfig ARM64_MPAM_DRIVER
+>>>       bool "MPAM driver"
+>>>       depends on ARM64 && ARM64_MPAM
+>>>       select ACPI_MPAM if ACPI
+>>> +    select PCC if ACPI
+>>>       select MAILBOX
+>>>       help
+>>>         Memory System Resource Partitioning and Monitoring (MPAM) driver for
+>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>>> index 14dc8461e4b8f..150a529458388 100644
+>>> --- a/drivers/resctrl/mpam_devices.c
+>>> +++ b/drivers/resctrl/mpam_devices.c
+>>> @@ -20,14 +20,19 @@
+>>>   #include <linux/irqdesc.h>
+>>>   #include <linux/list.h>
+>>>   #include <linux/lockdep.h>
+>>> +#include <linux/mailbox_client.h>
+>>>   #include <linux/mutex.h>
+>>>   #include <linux/platform_device.h>
+>>>   #include <linux/printk.h>
+>>> +#include <linux/property.h>
+>>>   #include <linux/srcu.h>
+>>>   #include <linux/spinlock.h>
+>>>   #include <linux/types.h>
+>>>   #include <linux/workqueue.h>
+>>>   +#include <acpi/pcc.h>
+>>> +#include <acpi/acpi_io.h>
+>>> +
+>>>   #include "mpam_internal.h"
+>>>     /* Values for the T241 errata workaround */
+>>> @@ -50,6 +55,87 @@ static LIST_HEAD(mpam_all_msc);
+>>>     struct srcu_struct mpam_srcu;
+>>>   +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
+>>> +static DEFINE_MUTEX(pcc_chan_list_lock);
+>>> +static LIST_HEAD(pcc_chan_list);
+>>> +
+>>> +static void mpam_pcc_chan_release(struct kref *ref)
+>>> +{
+>>> +    struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
+>>> +                         refcount);
+>>> +
+>>> +    pcc_mbox_free_channel(cur->pcc_chan);
+>>> +    list_del(&cur->pcc_chans);
+>>> +    mutex_destroy(&cur->pcc_chan_lock);
+>>> +    kfree(cur);
+>>> +}
+>>> +
+>>> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
+>>> +                           int subspace_id)
+>>> +{
+>>> +    struct mpam_pcc_chan *cur;
+>>> +
+>>> +    guard(mutex)(&pcc_chan_list_lock);
+>>> +
+>>> +    list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
+>>> +        if (cur->subspace_id == subspace_id) {
+>>> +            kref_get(&cur->refcount);
+>>> +
+>>> +            return cur;
+>>> +        }
+>>> +    }
+>>> +
+>>> +    cur = kzalloc_obj(*cur);
+>>> +    if (!cur)
+>>> +        return ERR_PTR(-ENOMEM);
+>>> +
+>>> +    cur->pcc_cl.tx_block = true;
+>>> +
+>>> +    cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
+>>> +    if (IS_ERR(cur->pcc_chan)) {
+>>> +        long err = PTR_ERR(cur->pcc_chan);
+>>> +
+>>> +        kfree(cur);
+>>> +        return ERR_PTR(err);
+>>> +    }
+>>> +
+>>> +    /*
+>>> +     * Timeout based on the "nominal latency" in us, from the
+>>> +     * PCC ACPI table. tx_tout is in ms.
+>>> +     * Add some margin here to be on the safe side.
+>>> +     */
+>>> +    cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
+>>> +
+>>> +    mutex_init(&cur->pcc_chan_lock);
+>>> +
+>>> +    cur->subspace_id = subspace_id;
+>>> +    kref_init(&cur->refcount);
+>>> +
+>>> +    list_add_tail(&cur->pcc_chans, &pcc_chan_list);
+>>> +
+>>> +    return cur;
+>>> +}
+>>> +
+>>> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
+>>> +{
+>>> +    struct mpam_pcc_chan *cur, *tmp;
+>>> +
+>>> +    if (!pcc_chan)
+>>> +        return 0;
+>>> +
+>>> +    guard(mutex)(&pcc_chan_list_lock);
+>>> +
+>>> +    list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
+>>> +        if (cur == pcc_chan) {
+>>> +            kref_put(&cur->refcount, mpam_pcc_chan_release);
+>>> +
+>>> +            return 0;
+>>> +        }
+>>> +    }
+>>> +
+>>> +    return -ENOENT;
+>>> +}
+>>> +
+>>>   /*
+>>>    * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
+>>>    * can be enabled.
+>>> @@ -2285,6 +2371,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>>>       if (!msc)
+>>>           return;
+>>>   +    mpam_pcc_chan_put(msc->pcc_chan);
+>>> +
+>>>       mutex_lock(&mpam_list_lock);
+>>>       mpam_msc_destroy(msc);
+>>>       mutex_unlock(&mpam_list_lock);
+>>> @@ -2295,7 +2383,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>>>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>>   {
+>>>       int err;
+>>> -    u32 tmp;
+>>> +    u32 pcc_subspace_id;
+>>>       struct mpam_msc *msc;
+>>>       struct resource *msc_res;
+>>>       struct device *dev = &pdev->dev;
+>>> @@ -2339,7 +2427,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>>       if (err)
+>>>           return ERR_PTR(err);
+>>>   -    if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+>>> +    if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
+>>>           msc->iface = MPAM_IFACE_MMIO;
+>>>       else
+>>>           msc->iface = MPAM_IFACE_PCC;
+>>> @@ -2360,6 +2448,33 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>>           }
+>>>           msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>>>           msc->mapped_hwpage = io;
+>>> +    } else if (msc->iface == MPAM_IFACE_PCC) {
+>>> +        u32 mpam_fb_msc_id;
+>>> +
+>>> +        msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
+>>> +        if (IS_ERR(msc->pcc_chan)) {
+>>> +            pr_err("Failed to request MSC PCC channel\n");
+>>> +            return ERR_CAST(msc->pcc_chan);
+>>> +        }
+>>> +
+>>> +        err = mpam_fb_check_shared_buffer_size(msc);
+>>> +        if (err) {
+>>> +            mpam_pcc_chan_put(msc->pcc_chan);
+>>> +
+>>> +            return ERR_PTR(err);
+>>> +        }
+>>> +
+>>> +        err = mpam_fb_check_protocol_version(msc);
+>>> +        if (err) {
+>>> +            mpam_pcc_chan_put(msc->pcc_chan);
+>>> +
+>>> +            return ERR_PTR(err);
+>>> +        }
+>>> +
+>>> +        if (device_property_read_u32(&pdev->dev, "mpam-fb-msc-id",
+>>> +                         &mpam_fb_msc_id))
+>>> +            mpam_fb_msc_id = msc->id;
+>>> +        msc->mpam_fb_msc_id = mpam_fb_msc_id;
+>>
+>> This looks like the change earlier in the series to drivers/acpi/arm64/mpam.c makes no functional
+>> effect unless the proposed spec changes are accepted; the default is msc->id. I'd just move the
 > 
-> This will break the existing Cirrus and TI users which treat non-zero
-> values as errors, most users ignore the return value but they check.
+> Yes, but it reduces churn, and more importantly, is more true to the MPAM-Fb spec, which says:
+> "The MSC identifiers are sequential and start from 0 for each agent which uses this protocol."
+> So this requires that we have per-channel IDs for the MSCs, that's why I think it's justified to
+> introduce this already now, even when it's somewhat redundant as the code stands now, as we always
+> assign the system-wide ID to it.
+> 
+> I can of course move that out (and have that already on top of v9, internally), but wanted to check
+> this with you.
 
-Thanks, yeah fixing up the existing users would be greatly
-appreciated.
+I don't really mind. If Lorenzo/Sudeep are happy with doing the preparation work in
+drivers/acpi/arm64/mpam.c then I'm ok with it. It's currently a non-functional change but does make
+the expected path forward slightly clearer.
 
-Also are we sure this wildcard approach is the way to go? Does
-make me slightly nervous that you could get stuff like a driver
-adds a new control and it gets pulled unexpectedly into a
-wildcarded limit.
+> 
+>> earlier drivers/acpi/arm64/mpam.c to your last patch and introduce this device_property_read_u32()
+>> their too (or a separate patch if it's easier for anyone). That way all but the last two patches can
+>> be considered for merging without knowing what's going to happen with the spec.
+> 
+> Well, sure, though I think a separation of MPAM-FB MSC IDs and system-wide MSC IDs is inevitable,
+> regardless of which spec is changed and how the numbers are assigned, exactly.
 
-Are you using the wildcard mostly to skip the component prefix
-stuff? I wonder if adding an option to match without that might
-be more explicit.
+It seems so.
 
 Thanks,
-Charles
+
+Ben
+
+> >> The struct msc property mpam_fb_msc_id is a bit long. Better as msc->fb_id?
+> 
+> Sure, can shorten that.
+> 
+> Cheers,
+> Andre.
+> 
+>>>       } else {
+>>>           return ERR_PTR(-EINVAL);
+>>>       }
+>>> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+>>> index 98212f761de38..8fc1d78a7b5ab 100644
+>>> --- a/drivers/resctrl/mpam_fb.c
+>>> +++ b/drivers/resctrl/mpam_fb.c
+>>> @@ -20,10 +20,15 @@
+>>>   #define MPAM_FB_PROTOCOL_ID        0x1a
+>>>     #define MPAM_PROTOCOL_VERSION_CMD    0x0
+>>> +#define MPAM_FB_VERSION_MAJOR_MASK        GENMASK_U32(31, 16)
+>>> +#define MPAM_FB_VERSION_MINOR_MASK        GENMASK_U32(15, 0)
+>>> +
+>>>   #define MPAM_MSC_READ_CMD        0x4
+>>>   #define MPAM_MSC_WRITE_CMD        0x5
+>>>     #define MPAM_FB_PROT_HEADER_LEN        sizeof(u32)
+>>> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
+>>> +#define MPAM_FB_MAX_MSG_SIZE        (4 * sizeof(u32))
+>>>     #define MPAM_FB_SUCCESS         0
+>>>   #define MPAM_FB_ERR_NOT_SUPPORTED    -1
+>>> @@ -209,3 +214,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+>>>       return mpam_fb_send_request(msc, msc->mpam_fb_msc_id, reg, &value,
+>>>                       MPAM_MSC_WRITE_CMD);
+>>>   }
+>>> +
+>>> +/* We only support MPAM-Fb protocol version 1.x */
+>>> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
+>>> +{
+>>> +    u32 version;
+>>> +    int ret;
+>>> +
+>>> +    ret = mpam_fb_send_request(msc, 0, 0, &version,
+>>> +                   MPAM_PROTOCOL_VERSION_CMD);
+>>> +    if (ret)
+>>> +        return ret;
+>>> +
+>>> +    if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
+>>> +        pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
+>>> +               FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
+>>> +               FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
+>>> +
+>>> +        return -EINVAL;
+>>> +    }
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
+>>> +{
+>>> +    int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
+>>> +                  sizeof(struct acpi_pcct_ext_pcc_shared_memory);
+>>> +
+>>> +    if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
+>>> +        pr_err("MPAM-Fb PCC channel size too small.\n");
+>>> +
+>>> +        return -ENOMEM;
+>>> +    }
+>>> +
+>>> +    return 0;
+>>> +}
+>>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>>> index e5a2804facd2d..314d3b48ca9fd 100644
+>>> --- a/drivers/resctrl/mpam_internal.h
+>>> +++ b/drivers/resctrl/mpam_internal.h
+>>> @@ -538,6 +538,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+>>>   /* MPAM-Fb Firmware-backed protocol wrappers */
+>>>   int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
+>>>   int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
+>>> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
+>>> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
+>>>     /*
+>>>    * MPAM MSCs have the following register layout. See:
+>>
+> 
+
 
