@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FC7C982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46372C982DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 02:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l68p6y9NHhQ5pKgUx9BaN4JsbLotPe4iTlUtg3ojSsw=; b=gXpKE557gFfpVntL4TVvbQXfdb
-	dqmoUlLGeK6mZXPClySLS7RPf5j5myYG771kdLNGcAdsq0P9a+XoK5vauhOpJgQhkqZ5n5ceAH+fz
-	1F97cmlpFNNt/VNU+V2++6TvbmBLdskW1YwjjKz86x95om2XJeQBw1oaLbqKndsOBH/PcdttQfFt8
-	V1QE4NWH110WlG7xPc5QcrloQJ09ZvmS02wkNmy6Be8CpKkwwBQfDYRMkwci3gf8E9Xl8LocxLkfi
-	2xex+O7FSf5fqEqCMblJc/DystCBqllwZMQeUnPaSe75KSK2AiwRdkdNji/quAz9/wrw2ebKIdWg5
-	as4nurHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DiEoWNyl/HmsFxa/QeSKicd4+2TIsyG8qOT3JDqK1NU=; b=OmswbDtWQ6QgHtQfz3lgm07ScJ
+	v2eODa8mfJTf6/+GEq+atIBBY59nsUKHYuXAoyi3laCPUxO1zNCZE+0zXvbxpRLDcgfaIk0hzypI2
+	13pCoRAATfJn2VbBe293dO0KnnBiQ4pI7Uj5Mr3HSdk1xA/LwdEPri0wDjxH2frUC+YQ8RjgHdE2I
+	RbJvHyeUExDMmTq9CaYcnx7GUzfZLy75O6ljhAlmehoYXVsz4nE939KR0JwoiV+hIw8ySyA4F93jS
+	LMw+nSJIY4q8/4VK581iQAFhbc2uCHYg/KNsjVcSaNeqWOSsJ1Rxg+6gm1zIAim/OUleSYaa9/my1
+	MnWCDKlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TQ0-00000000i3t-2o7G;
-	Mon, 21 Sep 2026 02:06:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TPy-00000000i3F-0W2O
+	id 1x8Tet-00000000iVE-0bXd;
+	Mon, 21 Sep 2026 02:21:31 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8Tep-00000000iUd-3Otp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 02:06:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F012600C8;
-	Mon, 21 Sep 2026 02:06:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12EF31F00893;
-	Mon, 21 Sep 2026 02:06:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789956365;
-	bh=l68p6y9NHhQ5pKgUx9BaN4JsbLotPe4iTlUtg3ojSsw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Uv1HcJgdLofEzF9PavymWJvOADIi2uWTL3rwJxvEuadPjw7BKf9XTaOTofIZw/aQ6
-	 S4YZNL4A06aX4nPIebMxRmRalSsfvPEJnf3oJIWxAEGvYrHtKu6xOrxRrAA8MyMVcd
-	 ZRUO9XQ3Hi+1Pk9l2ia0fibEqqu2YD/hufzUDt3JkaBfopJlfRJ9xmCTVEF/3aJMYJ
-	 Lljb/43hNnfHqDJSO0Ft3o2i4Du6beXQOf1OGbgWWrzFWBuCp5LERjFyxlXENJSeeY
-	 Aa1izOTEyxO8fR3gXxPtlPiuDqnMTuK5KmZKSaRfbzeN+08f4jDTd0c3Nbq5pT+CTu
-	 IskVPZPAepJEg==
-Subject: Re: [PATCH net v2] net: stmmac: ethtool: validate TX coalesce before
- reprogramming RX
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaolinkui@kylinos.cn, stable@vger.kernel.org
-Date: Mon, 21 Sep 2026 02:06:03 +0000
-Message-ID: <178995636352.2160803.2776927980309704252@kernel.org>
-In-Reply-To: <20260920015647.1783574-1-xiaolinkui@126.com>
-References: <20260920015647.1783574-1-xiaolinkui@126.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 21 Sep 2026 02:21:30 +0000
+Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
+	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwBXdd6clLBqtHcQAA--.7307S2;
+	Mon, 21 Sep 2026 10:21:16 +0800 (CST)
+Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
+	by mail (Coremail) with SMTP id AQAAf8DwBXSYlLBqHvDYAA--.41704S3;
+	Mon, 21 Sep 2026 10:21:12 +0800 (CST)
+From: Zhu Ling <zhuling2709@phytium.com.cn>
+To: maz@kernel.org,
+	tglx@kernel.org
+Cc: radu@rendec.net,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zhu Ling <zhuling2709@phytium.com.cn>
+Subject: [PATCH v2] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+Date: Mon, 21 Sep 2026 10:21:00 +0800
+Message-ID: <20260921022101.20941-1-zhuling2709@phytium.com.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <86ldjlp0qi.wl-maz@kernel.org>
+References: <86ldjlp0qi.wl-maz@kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: AQAAf8DwBXSYlLBqHvDYAA--.41704S3
+X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQAFAWqwNEoBEwAAsz
+Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=zhuling270
+	9@phytium.com.cn;
+X-Coremail-Antispam: 1Uk129KBjvJXoW7AF48Zr4kJrWUAF4DuF4kZwb_yoW5JryUpF
+	W5J34Iyr4Iy3Wa9a1DAF1UZry5Jwn3KrW2krW7Gasrury5Gas8Aa1ay3sxX3W7XrZrAa4U
+	C3ZaqF18u3WUAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
+	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
+	UUUUU
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_192127_980362_ED1EC219 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,172 +74,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+When running with UBSAN enabled, enabling a GPIO controller that uses a
+GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
+  shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+  left shift of 2 by 30 places cannot be represented in type 'int'
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+drivers/irqchip/irq-gic-v3.c. These masks are generated by shifting
+signed integer constants, which invokes undefined behavior when bit 31
+is selected.
 
-- [High] Incomplete fix: the TX validation relocated to the top of
-  __stmmac_set_coalesce()…
+Use BIT() to generate the masks with an unsigned type and make their
+intent explicit.
 
-Pre-existing issues:
-- [High] __stmmac_set_coalesce() accepts tx_max_coalesced_frames == 0 as
-  long as tx_coalesce_usecs != 0 (the check at stmmac_ethtool.c:855 only…
+Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
+---
+Changes in v2:
+- Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+- Drop the redundant introductory text from the email.
+- Update the author email address.
 
---
+Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
+---
+ drivers/irqchip/irq-gic-common.c | 2 +-
+ drivers/irqchip/irq-gic-v3.c     | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-net: stmmac: ethtool: validate TX coalesce before reprogramming RX
-
-The two TX parameter checks in __stmmac_set_coalesce() are moved ahead of the
-RX block so that a request rejected because of its TX values no longer
-reprograms the RX watchdog and rx_riwt[]/rx_coal_frames[] first.  The
-changelog motivates this with the per-queue path, where ethtool reads the
-current values back and sends them straight in again.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> index 1be5310ca766..193b65f9650f 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> @@ -850,6 +850,16 @@ static int __stmmac_set_coalesce(struct net_device *dev,
->  	else if (queue >= max_cnt)
->  		return -EINVAL;
->  
-> +	/* Check TX parameters before applying any RX setting */
-> +
-> +	if (ec->tx_coalesce_usecs == 0 &&
-> +	    ec->tx_max_coalesced_frames == 0)
-> +		return -EINVAL;
-
-[Severity: High]
-Does this reordering actually fix the per-queue case described in the
-changelog?  The relocated check runs for every queue index, but the TX apply
-block further down is gated on the queue having a TX ring:
-
-	} else if (queue < tx_cnt) {
-		priv->tx_coal_frames[queue] = ec->tx_max_coalesced_frames;
-		priv->tx_coal_timer[queue] = ec->tx_coalesce_usecs;
-	}
-
-and __stmmac_get_coalesce() deliberately reports zeros for an index that has
-no TX ring:
-
-	if (queue < tx_cnt) {
-		ec->tx_coalesce_usecs = priv->tx_coal_timer[queue];
-		ec->tx_max_coalesced_frames = priv->tx_coal_frames[queue];
-	} else {
-		ec->tx_coalesce_usecs = 0;
-		ec->tx_max_coalesced_frames = 0;
-	}
-
-On a device with rx_queues_to_use > tx_queues_to_use (dwmac-intel
-tgl_common_data sets 6 RX and 4 TX queues, so queues 4 and 5 are RX-only),
-does ethtool -Q ethX queue_mask 0x10 --coalesce rx-usecs N still return
--EINVAL here?
-
-If so, is the net effect for that queue not worse than before?  Previously
-the RX watchdog and rx_riwt[]/rx_coal_frames[] were programmed and -EINVAL
-was returned; now the early return means the RX part is never applied, so
-per-queue RX coalescing on an RX-only queue index has no effect at all.
-
-There is a second consequence in the ethtool core.
-ethtool_set_per_queue_coalesce() snapshots the getter output per queue and
-replays it on failure, discarding the return code:
-
-net/ethtool/ioctl.c:ethtool_set_per_queue_coalesce() {
-	...
-roll_back:
-	if (ret != 0) {
-		tmp = backup;
-		for_each_set_bit(i, queue_mask, bit) {
-			dev->ethtool_ops->set_per_queue_coalesce(dev, i, tmp);
-			tmp++;
-		}
-	}
-	...
-}
-
-For an RX-only queue the saved backup necessarily carries tx_coalesce_usecs
-== 0 and tx_max_coalesced_frames == 0, so the new first check rejects the
-replay before the RX block runs.  Can the RX watchdog and rx_riwt[] of that
-queue therefore stay at the values of the failed request after a later queue
-in the mask fails?
-
-> +
-> +	if (ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK ||
-> +	    ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES)
-> +		return -EINVAL;
-> +
->  	if (priv->use_riwt) {
->  		rx_riwt = stmmac_usec2riwt(ec->rx_coalesce_usecs, priv);
->  
-> @@ -875,14 +885,6 @@ static int __stmmac_set_coalesce(struct net_device *dev,
-
-The mirror of the same problem is left in place for a TX-only index.  With
-priv->use_riwt set and queue >= rx_cnt, the getter reports
-rx_coalesce_usecs = 0, stmmac_usec2riwt() returns 0 and
-
-		if ((rx_riwt > MAX_DMA_RIWT) || (rx_riwt < MIN_DMA_RIWT))
-			return -EINVAL;
-
-rejects the request before any TX value is stored.
-
-include/linux/ethtool.h documents both halves of the contract:
-
- * @get_per_queue_coalesce: ... If only a RX queue or a TX
- *	queue has this number, set the inapplicable fields to ~0 and return 0.
- * @set_per_queue_coalesce: ... If only a RX queue or a TX
- *	queue has this number, ignore the inapplicable fields.
-
-Would making the validation direction-aware, so the TX checks only apply when
-all_queues || queue < tx_cnt and the rx_riwt check only when
-all_queues || queue < rx_cnt (plus the getter reporting ~0 instead of 0 for
-the inapplicable fields), address both directions rather than reordering
-alone?
-
-[Severity: High]
-This isn't a bug introduced by this patch, but since the validation is being
-moved anyway, is the zero tx_max_coalesced_frames case worth handling here
-too?  The check above only rejects both TX fields being zero, so
-ethtool -C ethX tx-usecs 10 tx-frames 0 stores priv->tx_coal_frames[queue]
-== 0, and stmmac_xdp_xmit_xdpf() divides by it with no zero test:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_xdp_xmit_xdpf() {
-	...
-	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
-		set_ic = true;
-	...
-}
-
-That is reached from stmmac_xdp_xmit_back() for XDP_TX and from
-stmmac_xdp_xmit() for ndo_xdp_xmit, so does this divide by zero in softirq
-context on x86?
-
-The other TX sites do test for zero, but the guard and the divisor are
-separate unannotated loads of the same plain u32 with no lock, for example in
-stmmac_xmit() and stmmac_tso_xmit():
-
-	else if (!priv->tx_coal_frames[queue])
-		set_ic = false;
-	...
-	else if ((tx_q->tx_count_frames %
-		  priv->tx_coal_frames[queue]) < tx_packets)
-
-and in stmmac_xdp_xmit_zc():
-
-		if (!priv->tx_coal_frames[queue])
-			set_ic = false;
-		else if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
-
-Can a concurrent ethtool store of 0 land between the guard and the modulo
-reload?  Would a single READ_ONCE() snapshot per transmit path be
-appropriate?
-
+diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
+index c776f9142610..8bd1eaa54295 100644
+--- a/drivers/irqchip/irq-gic-common.c
++++ b/drivers/irqchip/irq-gic-common.c
+@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
+ int gic_configure_irq(unsigned int irq, unsigned int type,
+ 		       void __iomem *base)
+ {
+-	u32 confmask = 0x2 << ((irq % 16) * 2);
++	u32 confmask = BIT(((irq % 16) * 2) + 1);
+ 	u32 confoff = (irq / 16) * 4;
+ 	u32 val, oldval;
+ 	int ret = 0;
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 6e1fa5b247fc..15110d47ddb0 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
+ 	u32 index, mask;
+ 
+ 	offset = convert_offset_index(d, offset, &index);
+-	mask = 1 << (index % 32);
++	mask = BIT(index % 32);
+ 
+ 	if (gic_irq_in_rdist(d))
+ 		base = gic_data_rdist_sgi_base();
+@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
+ 	u32 index, mask;
+ 
+ 	offset = convert_offset_index(d, offset, &index);
+-	mask = 1 << (index % 32);
++	mask = BIT(index % 32);
+ 
+ 	if (gic_irq_in_rdist(d))
+ 		base = gic_data_rdist_sgi_base();
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260920015647.1783574-1-xiaolinkui%40126.com
+2.43.0
+
 
