@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A10C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F6FC982F7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KIoS8Wk3aO2W56jJdGPN5s/0bYew7FSDY+B2h6y7nI=; b=f3AsTZ+JsUWkfNubDF7bi0b4zN
-	ZSp4FG3WbzZAl7/8RaRKV4wiFFMqNW0rUrnNyccnTqJ+w4qh8zsCIP3hdDK7MKjJs8CkIsvmBEz3t
-	xM1Cj27BrDr8CqVkB7nCkM+BkRdn7vVMlFv5wZZNa4lJ2ig1fw7jsid3VXghyC8VsK/xM8cKxZREI
-	253VK3SH9I9MvFebuXoP9O8T27LkJGtnMuWKO/HEAdQF8KJ6jQ4KpXxiLon3P1v6cjDpjzmJXtr4h
-	7u5Has+kAoawmWbnLzxU3HLOZr0NlKfsgWAPOMBtACTMMOy+07qA/eIUqejw96e1Z5k7j9lNgVOXS
-	Dv/k68XA==;
+	bh=efoLoxTLZCI9lLVl5KtKc9xjH+8+kvrBAUCLeXNI+r8=; b=wk1pz7N2gCSwZRMSUSXaQlf+En
+	gaRbQMJL7XHtOmoefKkXrRwyHGwBuVQ/98R0bcgKIeRdEERsLRmvT1bbBx5Sgjf7aYPXFOEfdVnT3
+	2Fq3O2jkCITUM+jhRx+xxdRVZJN/j+G1+bC2POhQYtyVW1RbG2CyCAwZzW1ou+DcERCV5CemkJo/9
+	q/OJvlEDh7UCpE0TwCqDWr9G7tHvjs/JlqDgoC+DGzTZr1HVJchGgi7Q2v7ko2VEukpaO5Qz7+B5h
+	fk95Nuc5e95lKgl54UkiI/3dBPvOthTAVDvkouSNMiEoCl9uXKUEw58H9X/IBmRjtnSDVJVybnF0g
+	Blc+ZzaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YnH-00000001G6s-3zI5;
+	id 1x8YnH-00000001G6P-2zdf;
 	Mon, 21 Sep 2026 07:50:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YnF-00000001G53-1mQG;
+	id 1x8YnF-00000001G4y-1HDp;
 	Mon, 21 Sep 2026 07:50:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D90424491E;
+	by sea.source.kernel.org (Postfix) with ESMTP id B308C444FB;
 	Mon, 21 Sep 2026 07:50:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A28C0C2BCFC;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 86F43C2BCF6;
 	Mon, 21 Sep 2026 07:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789977028;
-	bh=HmXNcA1YAnZLx3RPO+XZdE0dPg1yJCRKOMe6ArOea/0=;
+	bh=kvW2wtFi4KgEvcIkbiTYobALqwrfnuma/iDmVJ0C9Wk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ei0GaIjp/JYeY5paFYYdOhUUpKgeAMxtlvvhXH7xYUsbPrUOJGxWKCq0tgnxPeEff
-	 8iYfC6oAOtkIgqr9ubL8pRuU6Oy3pNRLis8Js+5SE8EoxM2p+j9bqS5WVLKlIgUd9e
-	 DqQyzlNT8CsQLgeV3hms6dvSM1rAZBK+h9VP49mBi0AV9WGFqnRRrLVoj695JtSNWF
-	 l4wM5jVmdciTIphDjySjrbtDNQlXdjG7SDv6fvJAQe6ZzYsZSXI4U2dlkFQ7rTfMp6
-	 szoExnbD8MSIPlL6OiNDQf5aDAfxxk2Ow3CQlC1CYW77dTZDm5UHP9tq4Cx2wQ++Zz
-	 Cv/jsRHK3F6dw==
+	b=JCY2WLvIl5nZPSOAIBhKvER3EujbwB9twrDIeIHqSGi2yKO2udhEBxVy+spl1GmGR
+	 QJJOrU//BingRMrHY4zzfXa49QYkV4k9kKyex8KQwX5w7OOFEKVAqexnyh9aTlnzwU
+	 ilC3NYcBuuVkHPVJypad7XOzHq4Cy/8yG19ZT+IiD8IZ838wDO0tPb3PXKtAFTIHen
+	 G15lO3AOuzUj7r5EFZgypn/pxQaGcFriBxjUKB6+X8DskQDmsAtyVtHPePHu6CIbeh
+	 aNTha1p50JYI1Q6DWxiF1Om2orMTgxb1iFMC95dQBqGikRnV5K6wOt7tAm5lURwmVG
+	 +VWYXHTkJFNoQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 86EF7C982E1;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67403C982DE;
 	Mon, 21 Sep 2026 07:50:28 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Mon, 21 Sep 2026 10:50:04 +0300
-Subject: [PATCH v5 3/3] ARM: dts: mediatek: mt6323: add EFUSE support
+Date: Mon, 21 Sep 2026 10:50:02 +0300
+Subject: [PATCH v5 1/3] dt-bindings: mfd: mediatek: mt6397: add mt6323 PMIC
+ EFUSE
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-mt6323-nvmem-v5-3-2f5d308369f0@protonmail.com>
+Message-Id: <20260921-mt6323-nvmem-v5-1-2f5d308369f0@protonmail.com>
 References: <20260921-mt6323-nvmem-v5-0-2f5d308369f0@protonmail.com>
 In-Reply-To: <20260921-mt6323-nvmem-v5-0-2f5d308369f0@protonmail.com>
 To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
@@ -64,13 +65,14 @@ To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
 Cc: Andy Shevchenko <andy@kernel.org>, linux-pm@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ben Grisdale <bengris32@protonmail.ch>
+ Ben Grisdale <bengris32@protonmail.ch>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789977026; l=757;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789977026; l=1581;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=8n+fwUrTUb93L9BoRmKvxttEJdPZMxj+kOtwP+JsFd4=;
- b=SWoFRNidnBCUlUu656YiSgktrrfkfKBTAufN94jHbzP0uIfkrOYsUy/RuOLTGuMSNNMwX8OhO
- r1AiZZpqB58AUPELx7M3UW9eqjjGGHGyP6PH3PAFVownyr3h4R0WR2K
+ bh=mlQDk3dan2vmhf7s3FB34YUhH5UJAOcwjjg7f1t51Hs=;
+ b=jYi5D0ZpLAxZPr3YuxJlL2rWdoMaE5b5z5VP9LMjKqdJENvJ79CzgDJIc1gBeZbyI5eG+j01t
+ R7S0AxfYUrZAZnvzP99AP6o8K5RadBnk0wm2PN9zqZ56jlI/2zqdz8/
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -93,29 +95,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-Add the devicetree node for the mt6323 efuse.
+The MediaTek mt6323 PMIC includes an EFUSE used for storing calibration
+data.
 
-Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+Add the devicetree binding documentation for the MediaTek mt6323 EFUSE.
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- arch/arm/boot/dts/mediatek/mt6323.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../devicetree/bindings/mfd/mediatek,mt6397.yaml    | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/arch/arm/boot/dts/mediatek/mt6323.dtsi b/arch/arm/boot/dts/mediatek/mt6323.dtsi
-index c070f4b0936c..c2d08d29cee7 100644
---- a/arch/arm/boot/dts/mediatek/mt6323.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt6323.dtsi
-@@ -19,6 +19,10 @@ mt6323_adc: adc {
- 			#io-channel-cells = <1>;
- 		};
+diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+index 3cbc0dc12c31..d2de227ae7a6 100644
+--- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
++++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+@@ -159,6 +159,23 @@ properties:
+     required:
+       - compatible
  
-+		efuse {
-+			compatible = "mediatek,mt6323-efuse";
-+		};
++  efuse:
++    type: object
++    unevaluatedProperties: false
++    description:
++      The efuse is responsible for storing calibration data, such as thermal
++      sensor calibration.
 +
- 		mt6323_leds: leds {
- 			compatible = "mediatek,mt6323-led";
- 			#address-cells = <1>;
++    properties:
++      compatible:
++        const: mediatek,mt6323-efuse
++
++      nvmem-layout:
++        $ref: /schemas/nvmem/layouts/nvmem-layout.yaml#
++
++    required:
++      - compatible
++
+   leds:
+     type: object
+     additionalProperties: false
+@@ -307,6 +324,10 @@ examples:
+         interrupt-controller;
+         #interrupt-cells = <2>;
+ 
++        efuse {
++          compatible = "mediatek,mt6323-efuse";
++        };
++
+         leds {
+             compatible = "mediatek,mt6323-led";
+             #address-cells = <1>;
 
 -- 
 2.55.0
