@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786E6C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBA1C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBqt0mh6pcap7thNEZ0vvpX8jJ6tpmFAZKqxiel3dQQ=; b=rLP7pluX8MjkneNXqeVNqZ2M+T
-	J42cN8I5qSlR8TLM/x4zSRYhEemxFs6QR1NpvDEKKqIn8ZHeKy4r5REC5SG7kJCcefD64FxNRjLZ+
-	dG0GUUt7xxGwGG3aYleoaDEMYGV805Btj2lLWi8j2TvEUq97rMjCcK/VCeH+91KPznHYN19TvhgPW
-	eP+mTDzqmD3N1l+Xup/Ky1604l0VQKOR8Ob3GLsNI4rvZR/PvS4lpigjPacrdC1Olft6GlUo/V7Yu
-	NrbRy2HTcj+sDzTFQ1nuuJ7YcqC28Czztk6LIpw24DON6lj4Z+j9qdrzB9MhKp+9hl4M9m+OhLh0K
-	M8V4T1ug==;
+	bh=RrimYz7WyjtBcj/HkK+xOiLxCG21DGbqHUT10/ckkkk=; b=sBkowbqOMn3pC7eZz97sSNuuff
+	mLL5JP9pK8u6Aurn+C+HzPXD6vT1iKHAyvpgiE+ULz/wHA3V7lbWn0Ojp4y3b0nh2HP7YAX+kAlgH
+	okgVMzbUfwQDWfxU13UN4a6XbHaqvlFxudOtbvy1AtmF8gZ+ye9pmGLsNISEjKxC2vsRU9s1hKhZA
+	TLmCBhrOT4TbeyahUHsQFOcOLH60zxO2TpDDG0WXiTj0eQfTC0jjFGD3In4HozQKwPbeysrLVnRVT
+	91niSELfC+7oYoBoPZnVdSFHRxPr4n3GRljv2EN0nLcGJrc41mbYL9uF18PJP6cjHucSgtQXsCWYR
+	ll3a4U0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8mdf-00000003ade-10ei;
-	Mon, 21 Sep 2026 22:37:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8md7-00000003aEA-2zee
+	id 1x8mf3-00000003b3G-1rtS;
+	Mon, 21 Sep 2026 22:38:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8mf0-00000003b2R-3FS3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 22:36:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26ACD44A35;
-	Mon, 21 Sep 2026 22:36:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F39C01F008A3;
-	Mon, 21 Sep 2026 22:36:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790030217;
-	bh=BBqt0mh6pcap7thNEZ0vvpX8jJ6tpmFAZKqxiel3dQQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=LZUyPM+4AUnm1jMP9gskBVuXFWVxpsC68r/4p97UNpFVYIeJBS8PiccQtMfM9l/FE
-	 kBnRuYLfjzDUeIX1qPl0bBeS+t16BD+rXBmw3/bQSvtgpnonkswSDHJA+a8QErLu5+
-	 13b6fqyxV4TDduKl3AZUPXnd6rXmOPdCbjFR9nGCLRFy1jLLrijyDCy0AL6slnCUsE
-	 zAPxUtYlXsrxQab7dlp7Q66MJ9tsF9OSIFZcSzKzy/JlSr6jyB7Sf+aDiZruktV2F/
-	 VtBXKqx19NASAMT7X4dv7NmAVzUpimF1tPQAjGYHxmayg1virnmIRjlzh8jnI8a22o
-	 Sh6uPkzrx3ZMA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93ACB3930205;
-	Mon, 21 Sep 2026 21:20:15 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 21 Sep 2026 22:38:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5E2416A3;
+	Mon, 21 Sep 2026 15:38:47 -0700 (PDT)
+Received: from [10.57.9.187] (unknown [10.57.9.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0551A3F632;
+	Mon, 21 Sep 2026 15:38:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790030331; bh=3g0q7Ij9nzRcg2zVM4o/E4Ackcg7ngcc2tKqZAwliBo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mwK/wwZMN6yHUYXxM1HJ7kFXqzV3zwL8DSbcAGQh0dzeQjRE0daZvgBihhsFgCzmQ
+	 o6RvVhDa6Pq3B2Pgf6skBdfv33eDcsdpg8RrD3Jec4uDn045zelu7Xq4amMww+CfBv
+	 lY5k3bKOBitGl5MXvPr0OZk5aqqwTIcKlRpyhz2I=
+Message-ID: <994feeea-87ab-44a9-bbc1-091e93fed8b6@arm.com>
+Date: Mon, 21 Sep 2026 23:38:46 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: microchip: vcap: Stop selecting DEBUG_FS for
- KUnit
- tests
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <179002561414.3241479.7487658463570218195.git-patchwork-notify@kernel.org>
-Date: Mon, 21 Sep 2026 21:20:14 +0000
-References: <20260917064736.77354-1-kmehltretter@gmail.com>
-In-Reply-To: <20260917064736.77354-1-kmehltretter@gmail.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
- UNGLinuxDriver@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- geert@linux-m68k.org, brendan.higgins@linux.dev, david@davidgow.net,
- raemoar63@gmail.com, linux-kselftest@vger.kernel.org,
- kunit-dev@googlegroups.com, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Content-Language: en-GB
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260921145338.000070e0@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260921145338.000070e0@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_153854_957933_F9A30A9E 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 17 Sep 2026 08:47:36 +0200 you wrote:
-> VCAP_KUNIT_TEST enables DEBUG_FS even when the kernel configuration
-> leaves it disabled. Remove the selection, following the dependency rule
-> in Documentation/dev-tools/kunit/style.rst.
+On 21/09/2026 22:53, Jonathan Cameron wrote:
 > 
-> The debugfs implementation and its tests are already built only with
-> DEBUG_FS. The other VCAP tests can run without it.
+>>
+>> [1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
+>> [2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v18
+> Not seeing this branch.  I wanted to sanity check on discussion in the thread and
+> was being lazy so didn't want to check out the branch I built for review.
+
+Apologies, I missed it. I have done so now.
+
+Thanks
+Suzuki
+
 > 
-> [...]
-
-Here is the summary with links:
-  - [net] net: microchip: vcap: Stop selecting DEBUG_FS for KUnit tests
-    https://git.kernel.org/netdev/net-next/c/2fba93180872
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+> J
+> 
 
 
