@@ -4,93 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE09C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58068C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y/u3vmta3+dbrofrUmndHlgFpIUmssOjUpr8W2OjIi4=; b=LVAHAoE0KX3/e6aWY2/5na17W6
-	SWm/lJbY1WIDvtNZePJHSKJjS68oanwPeR+4rTSx+0DdlSYCAG68z2VeC9EaSws1Rfxf/C2Yb7sjV
-	es+SeURKBLNQmNw4Ye353ni97uKx2aYamctaa3FiPRllhB46D9R0JoRJN6q7afe4WE6wGFbbqUCw9
-	tSBVEqDaaXOkjm6KRGCJAJPIgvMuWcY1hg3wkeEsLsPTw5ooi2YoWYWWnc7neXC75h6f2MwltaM/u
-	MPSEOtORJ8NIm6psrClZRHXqdIAW06ALdtr8dGKs05lNdYsugPXjhxXDAfsDlH6F/Kk1LeLU7JUEd
-	aNqhjdOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kAV83GG8Wx3vs0tpxEdTxwn0XZCNc0tZOHUrR9Lz48M=; b=WzsprzmQRgsFR0gs9Jqp5SJJxq
+	zufZU5uEqZPcTcZ5m2kq8iC5q/JdKLRM20TZxp/Fo0DM19qAYebg225fyFJuiXqOpcbMJgZSr1Sz+
+	QJOMUZSGyLDqQ7+01vUCh5BrxCa9CxjbVQ6HbORkjaVRrAROrkruSqLCr+Ll5wbYKgya4O+BQsJDz
+	YVfICLLW0l1NEKwqZlp4C13lNoCUgiRYghVScsazT1Y+bBvypZ7vPbBXKDS2cdgva/S6xOg++iV1Z
+	Nqus0mbkQ+2vVYSnOW/gF2kdbFopEWywluJcsjUB7td3CVOjlTUAQ0JPbndWiegS586LEia23h9Te
+	C7MPe+ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gLD-00000002i5E-3WIo;
-	Mon, 21 Sep 2026 15:54:03 +0000
+	id 1x8gLK-00000002iEM-2cg0;
+	Mon, 21 Sep 2026 15:54:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gL3-00000002hsb-1vJ4;
-	Mon, 21 Sep 2026 15:53:53 +0000
+	id 1x8gLA-00000002hz0-3JzA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 21 Sep 2026 15:54:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=y/u3vmta3+dbrofrUmndHlgFpIUmssOjUpr8W2OjIi4=; b=QU+zU0WD+ThCMa9LGcItYbNEvX
-	IGFZdDQmlNUS/pda6eY3L2HqcpEVeKBodK0g+BLg4K6WCYL4UExPFoz+kvveTTfWsBCicqcheNj3B
-	cpSuxZFuBIRxEKlSxT5rOJwbHj48W9qOsSYwPcegctrQ/KJIlERUUpjEemLKSBjDfxc65Ia8zo0nx
-	rLnimACbUxlNh2eY48l/neeiN2Yrpmx1sY38eBBHKBKIvwoECOM6txmCtmMEoGUOJt0uxUjmj6TNa
-	ngq6m5q/d9lfco0N/6FY5rXIGupb1PC5FMP6aIFR30enRvg5K+e+uL7ubKCBb8v51Cu9Q0FZ+qt6j
-	aAPWg8yA==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=kAV83GG8Wx3vs0tpxEdTxwn0XZCNc0tZOHUrR9Lz48M=; b=GzmexpaAqT769LxYOZty7UIGka
+	2yMfEg8iHik2NwIEZdj2YXS6AC5ASY/+EcUjavCowDFqELVMjo9s1Y7iW9HwizUvGsZFh4IFsbTfu
+	4iVB6aV7a83dfoZI64cMAFhlFJHEk4kSZKd/F4GO0nqSobiqgDdn6V015/PsnKmq0GuFYpk1Ukj0a
+	00ZPD/juR0A7cNj2+0siBKxd6OMO1ZrNc9sDs6Yxfyf48xl20JPjfi9vh0qAU4b/rMV/oyQ6DRSlo
+	10S1ALuEm5qZvkBxSWLxeYcY0uPSwUo9xAMpDJCt4xrmL74O7ROICynBBNhdTNnUx7HfuolgaTK4B
+	fMmCZG6A==;
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8gKu-0000000CVSj-46Gb;
-	Mon, 21 Sep 2026 15:53:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790005985; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MkvctPEgN/opcclJ7AbrHT0NUw5PyfmjTlw1EVX0+A9iCip/vCP3fTYIf4WeCcAmxdjPIfeki2VQrDQYcGZdVseNywFZQf87igLM7iofK+RpNwQExbBpkQ/GBA7eppgMrgnKur3C8we3HtOKWDzWZ/1qkMBPJkuFt9XdZSVZ+ME=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790005985; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=y/u3vmta3+dbrofrUmndHlgFpIUmssOjUpr8W2OjIi4=; 
-	b=bqmI9sT7fNW9pKNoXHo6CGSAoz+HKc8xaQoLIMQjPz0JPYYdbgzRXXDQEkWFL5dFKj4xcPPJK7300o+RNR3Dkuk6CA5coRlKJsIKeKBuUMqEz60Fn9jkiHfxAfvXzAiI3r+GCfuQ6WW78Fdpj0n39jjCY4kIEhUbCEJvrFZ0zA0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790005985;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=y/u3vmta3+dbrofrUmndHlgFpIUmssOjUpr8W2OjIi4=;
-	b=fcrE2OXrBcW4dbZejVZKBloogh6hW3A6feRsFGFcBd4A5tiB57BqLjkWHwbBuKiN
-	l6DmQrYGZiaHpBxaeZ8bYc85y0Bq9FNES1a+GcgVJu/iywyvc+9urb8Clkp/lIp9gzr
-	1TfyNvvK3GIlrrm9T1WjiL8RsRhKhSn4zUtBDa7M=
-Received: by smtp.zohomail.com with SMTPS id 179000598377154.95688948710904;
-	Mon, 21 Sep 2026 08:53:03 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 21 Sep 2026 17:51:37 +0200
-Subject: [PATCH RFC 11/25] drm/rockchip: vop2: Enable VRR
+	id 1x8gL5-0000000CVVq-3ad1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 15:53:59 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d9004a1ac0so20459955ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:53:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1790006032; x=1790610832; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kAV83GG8Wx3vs0tpxEdTxwn0XZCNc0tZOHUrR9Lz48M=;
+        b=nnqBb5kFLXedyxlToTR96V94fHbCpFQ/WeE9BLT94bdy/s9j5p9kgxjJGB93QciQag
+         J7I1AI2YoBL++CCkmB1BjlcQI0fESQF44D0jGUx66pdsTcWwV/d9fYEhG27hLqW1lOfT
+         TwTUaL8suFvdLoIqaKzSbZLbWxMsgW0Q9LXtDvGKGllir6XUB1HUEugP20MH1j7Vqyf/
+         nRjTT0/6EKtMJ6xy6wtaZqjkiiX3bSzvVEo//yE7OJP8zSjOSObxkzR+pT4f7Lj6NIDY
+         NdkDCUHl9JckrgSHDBUYWQJlx3uqCfA8lVcoflHO6mcOn/Q/2GtHCabx7RLXSK+WZJeO
+         sp1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790006032; x=1790610832;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kAV83GG8Wx3vs0tpxEdTxwn0XZCNc0tZOHUrR9Lz48M=;
+        b=dXaZHXh/RMju4BfQNzQiTjNEPt48hqICpfLEWh0Od1cXnWQgOk2LGkPMwitPlJ9uoL
+         xjWXhj3g3dHuPuk1bHcS7vzFObEphh4FkvCNdIZWIutfGi0O1A3G/ER30Opq5Jge6ruw
+         KT20MsUoEXhcWkttzoMJrDn5sOGxQJQi1xTEbwqU8R5zCN1KDcw/9lVWiy4vStcmXYiz
+         aUmh5pcD+3sXniAbLMt6q3JD+1WGUoWNl2HXEsEt0dml2xxANVZEwCIbIr5VMsM84VQR
+         LfxtlCEgAupBboRkj8ZmXn9UBC7fklrUR2DxmJYmhy38CsK5C1peQKrs9Uqnwyt0ilfc
+         2Ksg==
+X-Forwarded-Encrypted: i=1; AKwUvBzVS0SmzNFzFYhYWkYW3YnqAZpg/nUxFlVUxlqc43cKVa/efgSWWLN2t2LuTO9ANJI4gHnTh8iMCGD4ZvX0pX3T@lists.infradead.org
+X-Gm-Message-State: AFuF++kiT6A6ukpBxs4lRnk+Ujug71K0N3Swci2uzIB5Tgy5O8VffSu/
+	0qR/IIKOybXEXi9gQekwE0CBXipKScM8AM4uy3/Ik/Hja6c4QRjmEh/b+hPxL+sIh5Y=
+X-Gm-Gg: AYBFou1aVIZ9xqd0JFWBTQm3yfdfyNDp9q5o/efLHeqPGDLWxTiXRslgs+9KU0Ay3oq
+	H+8Zto8awEJ06m/n3SsrIjRkosDU5TR//QzIaLgw3qnuSg5WX1SjYFv/FsFvrEUL39xep/SC+PW
+	PvjzALJKr6Ndwor3dNOZWo57W4siW1aR2ITAxYtZKE4c2iw7ANQlQiBROz/64ERnGNebYnWh+v1
+	iD4Va/QGmgW/fyZGdG/bov0sbgrmtAjJz7u229KYLSCNEdTDgGVqEnn59pGcgSXU48e8vpZ3WRS
+	GCQ8DIsOkTr1TWnyXnSUmqn0r+6VbQY2H2ym7Aqgrw65KY6Os+tktDZwWTU0mwxskwsXMOXLAJ7
+	EB9oVzuWir9O3K7LiiAegtPNreRYLLZuw3/F+TkXJZZ/KDUaG0NG6DFszqFJDZ83kA+WA2IymdL
+	JEVb30p3rFUmg1bxYDzEfVuhks2FaeEEM9PaCZsIiUAUAoTAzY0ml7IIRPxZLHazxbgJA=
+X-Received: by 2002:a17:903:98f:b0:2dd:c053:e0f4 with SMTP id d9443c01a7336-2ddc053e132mr114905975ad.35.1790006031634;
+        Mon, 21 Sep 2026 08:53:51 -0700 (PDT)
+Received: from localhost ([71.212.197.238])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2ddc178701csm36425795ad.13.2026.09.21.08.53.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 08:53:50 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Andrew Davis <afd@ti.com>, Tony Lindgren <tony@atomide.com>, Vignesh R
+ <vigneshr@ti.com>, Andreas
+ Kemnade <andreas@kemnade.info>, Roger
+ Quadros <rogerq@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, Andrew Davis
+ <afd@ti.com>
+Subject: Re: [PATCH v2 1/8] i2c: omap: Drop bit shift for I2C register
+ addresses
+In-Reply-To: <20260908154223.116074-2-afd@ti.com>
+References: <20260908154223.116074-1-afd@ti.com>
+ <20260908154223.116074-2-afd@ti.com>
+Date: Mon, 21 Sep 2026 08:53:50 -0700
+Message-ID: <7hzexad2i9.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-vrr-limiter-uapi-v1-11-2fcd7d011646@collabora.com>
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
-In-Reply-To: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
-To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
- Leo Li <sunpeng.li@amd.com>, Daniel Stone <daniels@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Derek Foreman <derek.foreman@collabora.com>, 
- wayland-devel@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_165345_431337_CDE17ED4 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260921_165357_530369_711DACC4 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,150 +118,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new VRR state tracking to handle VRR front porch adjustment.
+Andrew Davis <afd@ti.com> writes:
 
-To avoid indenting too deeply, refactor the vblank handling into its own
-function while at it, where scope-based cleanup helpers for the lock can
-be used.
+> The OMAP7xx devices used a register address shift of 1, but this device
+> has long since been removed from the kernel. So now no remaining board
+> device uses a shift other than 2, and no DT supported platform ever did.
+> We can drop this flag and use the pre-shifted register addresses. This
+> simplifies the register access.
+>
+> Signed-off-by: Andrew Davis <afd@ti.com>
+> Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 
-Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
-Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 62 ++++++++++++++++++++++------
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  9 ++++
- 2 files changed, 59 insertions(+), 12 deletions(-)
+Acked-by: Kevin Hilman <khilman@baylibre.com>
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index bfb384142568..e79081c04437 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -24,6 +24,7 @@
- #include <drm/drm_atomic_uapi.h>
- #include <drm/drm_blend.h>
- #include <drm/drm_crtc.h>
-+#include <drm/drm_crtc_helper.h>
- #include <linux/debugfs.h>
- #include <drm/drm_debugfs.h>
- #include <drm/drm_flip_work.h>
-@@ -2011,6 +2012,25 @@ static void vop2_crtc_atomic_begin(struct drm_crtc *crtc,
- 	vop2->ops->setup_overlay(vp);
- }
- 
-+static void vop2_vp_set_vrr_vtotal(struct vop2_video_port *vp, unsigned int vtotal)
-+{
-+	const u32 mask = RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL |
-+			 RK3568_VP_DSP_VTOTAL_VS_END__IMD;
-+
-+	if (!vtotal) {
-+		vop2_vp_update_bits(vp, RK3568_VP_DSP_VTOTAL_VS_END,
-+				    RK3568_VP_DSP_VTOTAL_VS_END__IMD, 0);
-+		return;
-+	}
-+
-+	/* Value is 13 bits at most, saturate it if too large */
-+	if (vtotal > RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL >> 16)
-+		vtotal = RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL >> 16;
-+
-+	vop2_vp_update_bits(vp, RK3568_VP_DSP_VTOTAL_VS_END, mask,
-+			    vtotal << 16 | RK3568_VP_DSP_VTOTAL_VS_END__IMD);
-+}
-+
- static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 				   struct drm_atomic_commit *state)
- {
-@@ -2029,6 +2049,11 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 
- 	spin_lock_irq(&crtc->dev->event_lock);
- 
-+	if (crtc_state->vrr_enabled) {
-+		if (drm_crtc_helper_vrr_flush(crtc_state))
-+			vop2_vp_set_vrr_vtotal(vp, crtc_state->vrr_state.cur_vtotal);
-+	}
-+
- 	if (crtc->state->event) {
- 		WARN_ON(drm_crtc_vblank_get(crtc));
- 		vp->event = crtc->state->event;
-@@ -2371,6 +2396,30 @@ static irqreturn_t rk3576_vp_isr(int irq, void *data)
- 	return ret;
- }
- 
-+static void vop2_vp_handle_vblank(struct vop2_video_port *vp)
-+{
-+	struct drm_crtc *crtc = &vp->crtc;
-+	struct vop2 *vop2 = vp->vop2;
-+	u32 val;
-+
-+	guard(spinlock)(&crtc->dev->event_lock);
-+
-+	if (!vp->event)
-+		return;
-+
-+	val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
-+
-+	if (!(val & BIT(vp->id))) {
-+		drm_crtc_send_vblank_event(crtc, vp->event);
-+		vp->event = NULL;
-+		drm_crtc_vblank_put(crtc);
-+
-+		if (crtc->state->vrr_enabled)
-+			if (drm_crtc_helper_vrr_vsync(crtc->state))
-+				vop2_vp_set_vrr_vtotal(vp, crtc->state->vrr_state.cur_vtotal);
-+	}
-+}
-+
- static irqreturn_t vop2_isr(int irq, void *data)
- {
- 	struct vop2 *vop2 = data;
-@@ -2402,18 +2451,7 @@ static irqreturn_t vop2_isr(int irq, void *data)
- 
- 			if (irqs & VP_INT_FS_FIELD) {
- 				drm_crtc_handle_vblank(crtc);
--				spin_lock(&crtc->dev->event_lock);
--				if (vp->event) {
--					u32 val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
--
--					if (!(val & BIT(vp->id))) {
--						drm_crtc_send_vblank_event(crtc, vp->event);
--						vp->event = NULL;
--						drm_crtc_vblank_put(crtc);
--					}
--				}
--				spin_unlock(&crtc->dev->event_lock);
--
-+				vop2_vp_handle_vblank(vp);
- 				ret = IRQ_HANDLED;
- 			}
- 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index ffcb39c130aa..fdb2030e3ad4 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -655,6 +655,9 @@ enum dst_factor_mode {
- 
- #define RK3588_VP_DSP_CTRL__GAMMA_UPDATE_EN		BIT(22)
- 
-+#define RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL		GENMASK(28, 16)
-+#define RK3568_VP_DSP_VTOTAL_VS_END__IMD		BIT(15)
-+
- #define RK3588_VP_CLK_CTRL__DCLK_OUT_DIV		GENMASK(3, 2)
- #define RK3588_VP_CLK_CTRL__DCLK_CORE_DIV		GENMASK(1, 0)
- 
-@@ -810,6 +813,12 @@ static inline void vop2_vp_write(struct vop2_video_port *vp, u32 offset, u32 v)
- 	regmap_write(vp->vop2->map, vp->data->offset + offset, v);
- }
- 
-+static inline void vop2_vp_update_bits(struct vop2_video_port *vp, u32 offset,
-+				       u32 mask, u32 v)
-+{
-+	regmap_update_bits(vp->vop2->map, vp->data->offset + offset, mask, v);
-+}
-+
- static inline u32 vop2_readl(struct vop2 *vop2, u32 offset)
- {
- 	u32 val;
+Feel free to take this with the rest of the drivers/i2c/ patches.
 
--- 
-2.55.0
-
+Kevin
 
