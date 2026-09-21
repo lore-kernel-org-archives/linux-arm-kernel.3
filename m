@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E45C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98532C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpSBX9zUnKOsYMEzJCVdOj7P1czBOXfO4KP+K+06BCw=; b=cX+PQDD5la6ZOh873vwUnR+rLl
-	abj5i7I+HuOUaBtYz/xDd9MrPgMoJ2DY70XK7oR/vAd2vvM/Y4k+NKJl0RuQ+UOLLMnLw+w3qgIg2
-	3O2RWwsGdq8rmA4ZtBQaEeEntdENI3iHOIKMyUleQOs3l4WwIxokdTOP1iKW2GqoDVoemwF7N3AXL
-	M6acNZ/6E0Bbjai1xyb7mVwgO5Z3msJ0YFpBYZ/maavl+/ctA9YzOH5kcWbHBUIo1LaULDuGrqRKQ
-	yG2wbLoiMEz8Wqpapg7fkWcis+86KulAdd2FLo3kFaW8OY0ZKRJ3S757FjCPaZZYRuWUEy0ZDDsyh
-	iBlM4IKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iILC5xME/b0sfeA5z8m4n3H3q1QyP/rlc3rI+i8SQHU=; b=YnOHGv5auK2VKJ6v1YJQFYlCX4
+	B1wW3leivH9Drx4g2J8wShVE9kbT22EKb4qlld2aRmCl1Fxf81ZoAvgFa4uCP/ktymYPXTXTqJHnI
+	qHLogi8dHEcP1xUsfQOjtxAgIuyiSrpMehepY2mag7iD/vgVUXYjdKChCJugSNiUtEx9hBGnbDOWj
+	NCT0W6890ZaIGdSe6oDPiUojTnoilGLgOSPmF5G+7ba+hQvk5HojV91vXLpooyIqP0ahpWZCX8CT5
+	q1xjwuQkSC+eF3bzc3U9S6p3NmfXbyERbTxBA0X+yftC45Ewdx3mfgV7/GiaHXifMWj1BmbcQDbw6
+	+ZWNg7fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eZi-00000002JqX-49qf;
-	Mon, 21 Sep 2026 14:00:54 +0000
+	id 1x8ea4-00000002JwR-0dOK;
+	Mon, 21 Sep 2026 14:01:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eZg-00000002Jpc-3Wyz;
-	Mon, 21 Sep 2026 14:00:54 +0000
+	id 1x8eZy-00000002JvK-3beR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 14:01:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A6651D13;
-	Mon, 21 Sep 2026 07:00:48 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A03C33F528;
-	Mon, 21 Sep 2026 07:00:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 184411D13;
+	Mon, 21 Sep 2026 07:01:04 -0700 (PDT)
+Received: from [10.0.152.207] (e121487-lin.carmbridge.arm.com [10.0.152.207])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 34E233F528;
+	Mon, 21 Sep 2026 07:01:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789999251; bh=196CWRrTsBXNGEh3O1halF0+Yb/A+7t5R7xVTmSSTuQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RIH1OhFfFFabunQv0YPirHG+CsJ71/CgYQj6MJ4sSGsVQuJMZyLB4jJmRSzQ1LE2K
-	 rDCaxiiaeeqFrS4tkZ+PYRwgV01eC7wlP+F6GgTQZZnRsOz7ERB9k7nxd8o4rA2K2p
-	 j0e+0RpvqbHK5mmk+msSNDIq0m0LAKukZXJLpUeI=
-Date: Mon, 21 Sep 2026 15:00:45 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Vladimir Murzin <vladimir.murzin@arm.com>, paulmck@kernel.org
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [BUG/PATCH] drivers/usb/mtu3: Work around mtu3_log_ep
- double-indirection issue
-Message-ID: <arE4jcn4dCD9gos_@J2N7QTR9R3.cambridge.arm.com>
-References: <a3ee0655-d818-48e0-84d1-475e6c16c991@paulmck-laptop>
- <d7bb2cf4-11c3-468c-8749-99cc408299c7@arm.com>
- <b6c621eb-6d20-4e00-ac05-af122b630ca5@paulmck-laptop>
- <aae79c1c-8738-4b97-b1b9-d82d19d82d49@arm.com>
- <20260909093524.249c2a1a@gandalf.local.home>
+	t=1789999267; bh=K7Yz+xXlTDKQwFd3K9tXJFvftMjPzQS4ZumX5Km0aC8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=so+jMAiVGK5T07Kq6QDOP+bhCFnJGODmCPcwlOOvoEqrsb5jvDxxG7lPdYA4/qQQw
+	 zegcNyDs+3uQTbNPl6VFR2fIF5dxqqDNdi+6fnbiOS9LqrHBuDEGYLolhgHEmNhfin
+	 +uPUUhEMkTUeBD5bJ02cmbBotGj7mYGDpJk0jULE=
+Message-ID: <874c20c9-3aeb-4057-a699-16654982c8b9@arm.com>
+Date: Mon, 21 Sep 2026 15:01:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260909093524.249c2a1a@gandalf.local.home>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/38] arm64: entry: replace DAIF helpers with entry
+ helpers
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ maz@kernel.org, lpieralisi@kernel.org, liaochang1@huawei.com
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <20260914102102.68597-7-vladimir.murzin@arm.com>
+ <15bc779f-e6f5-4c2a-a629-cb020f12a41a@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <15bc779f-e6f5-4c2a-a629-cb020f12a41a@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_070052_917105_48D41798 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260921_070110_991362_399FAC1B 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,56 +73,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 09:35:24AM -0400, Steven Rostedt wrote:
-> On Wed, 9 Sep 2026 11:31:28 +0100
-> Vladimir Murzin <vladimir.murzin@arm.com> wrote:
+On 9/16/26 10:34, Jinjie Ruan wrote:
 > 
-> > I've done a little bit massaging and here is what worked for me
-> > 
-> > 
-> > diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
-> > index 89870175d635..4d4bae25fa1f 100644
-> > --- a/drivers/usb/mtu3/mtu3_trace.h
-> > +++ b/drivers/usb/mtu3/mtu3_trace.h
-> > @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
-> >                 __field(unsigned int, flags)
-> >                 __field(unsigned int, direction)
-> >                 __field(struct mtu3_gpd_ring *, gpd_ring)
-> > +               __field(dma_addr_t, gpd_ring_dma)
-> >         ),
-> >         TP_fast_assign(
-> >                 __assign_str(name);
-> > @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
-> >                 __entry->flags = mep->flags;
-> >                 __entry->direction = mep->is_in;
-> >                 __entry->gpd_ring = &mep->gpd_ring;
-> > +               __entry->gpd_ring_dma = mep->gpd_ring.dma;
-> >         ),
-> >         TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
-> >                 __get_str(name), usb_ep_type_string(__entry->type),
-> >                 __entry->maxp, __entry->slot,
-> >                 __entry->mult, __entry->maxburst,
-> > -               __entry->gpd_ring, &__entry->gpd_ring->dma,
-> > +               __entry->gpd_ring, &__entry->gpd_ring_dma,
-> >                 __entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
-> >                 __entry->flags & MTU3_EP_STALL ? 'S' : 's',
-> >                 __entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+> 在 2026/9/14 18:20, Vladimir Murzin 写道:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> Replace all uses of the `local_daif_...` helpers in `entry-common.c`
+>> with the new entry-specific exception masking helpers.
+>>
+>> Also replace `local_irq_disable()` with a switch to NOIRQ context
+>> using the new helpers. This provides:
+>>
+>> - consistency checks for hardware state
+>> - a unified style for managing exception context
+>>
+>> Now that both the irqflags API and entry code handle DAIF and PMR
+>> correctly, remove `GIC_PRIO_PSR_I_SET` from the PMR value set by
+>> `kernel_entry` in `entry.S` and by `init_gic_priority_masking()` in
+>> `kernel/smp.c`.
+>>
+>> The `local_daif_...` helpers and other specialized code still use
+>> `GIC_PRIO_PSR_I_SET` for now; this commit does not change their
+>> behavior.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/kernel/entry-common.c | 258 ++++++++++++++++++++-----------
+>>  arch/arm64/kernel/entry.S        |   2 +-
+>>  arch/arm64/kernel/smp.c          |   2 +-
+>>  3 files changed, 173 insertions(+), 89 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+>> index 72c03ccea59f..fd0bfead6e70 100644
+>> --- a/arch/arm64/kernel/entry-common.c
+>> +++ b/arch/arm64/kernel/entry-common.c
+>> @@ -18,11 +18,11 @@
+>>  #include <linux/thread_info.h>
+>>  
+>>  #include <asm/cpufeature.h>
+>> -#include <asm/daifflags.h>
+>>  #include <asm/esr.h>
+>>  #include <asm/exception.h>
+>>  #include <asm/fpsimd.h>
+>>  #include <asm/irq_regs.h>
+>> +#include <asm/interrupts/entry.h>
+>>  #include <asm/kprobes.h>
+>>  #include <asm/mmu.h>
+>>  #include <asm/processor.h>
+>> @@ -53,9 +53,10 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
+>>   * instrumentable code, or any code which may trigger an exception.
+>>   */
+>>  static void noinstr __arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>> -						irqentry_state_t state)
+>> +						irqentry_state_t state,
+>> +						arm64_exc_hwstate_t hwstate)
+>>  {
+>> -	local_daif_mask();
+>> +	arm64_mask_exc_context(hwstate);
+>>  	mte_check_tfsr_exit();
+>>  	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
+>>  }
+>> @@ -64,22 +65,24 @@ static void noinstr __arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>>   * We are returning from the context which allows involuntary kernel preemption
+>>   */
+>>  static void noinstr arm64_exit_to_kernel_mode_preempt(struct pt_regs *regs,
+>> -						      irqentry_state_t state)
+>> +						      irqentry_state_t state,
+>> +						      arm64_exc_hwstate_t hwstate)
+>>  {
+>>  	irqentry_exit_to_kernel_mode_preempt(regs, state);
+>> -	__arm64_exit_to_kernel_mode(regs, state);
+>> +	__arm64_exit_to_kernel_mode(regs, state, hwstate);
+>>  }
+>>  
+>>  static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>> -					      irqentry_state_t state)
+>> +					      irqentry_state_t state,
+>> +					      arm64_exc_hwstate_t hwstate)
+>>  {
+>>  	if (!regs_irqs_disabled(regs)) {
+>> -		local_irq_disable();
+>> -		arm64_exit_to_kernel_mode_preempt(regs, state);
+>> +		hwstate = arm64_lift_exc_context(hwstate, NOIRQ_CONTEXT);
+> Hi Vladimir,
 > 
-> LGTM,
+> As we discussed earlier in the link below, I think it is neither
+> necessary nor correct to switch to NOIRQ_CONTEXT here; the default
+> local_irq_disable() is fine.
 > 
-> Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
 
-On v7.3-rc4 I still see the splat Paul reported initially, and the above
-fixes that, so FWIW:
+Hi Jinjie,
 
-Tested-by: Mark Rutland <mark.rutland@arm.com>
+Switching to NOIRQ_CONTEXT *unconditionally* is indeed incorrect, but
+here we do it only if !regs_irqs_disabled(regs), which implies that
+DAIF is 0.  Thus, switching to NOIRQ_CONTEXT is equivalent to
+local_irq_disable().
 
-Steve, I assume you were expecting someone to send the above as a full
-patch.
+I'd prefer not to mix different APIs and to keep the switch to
+NOIRQ_CONTEXT, since this provides:
+- consistency checks for the hardware state
+- a unified style for managing exception context
 
-Paul, do you intend to send a v2, or should Vladimir send out his
-version as its own patch? I assume you're happy with a Reported-by, if
-he does that?
+If that makes this clearer we can replace regs_irqs_disabled(regs)
+with arch_irqs_disabled_flags(hwstate.flags).
 
-Mark.
+Thanks
+Vladimir
+
+
+> Link:
+> https://lore.kernel.org/all/77080aa8-7df1-43f0-8c82-1096db05f745@huawei.com/
+> 
+> Best regards,
+> Jinjie
+> 
 
