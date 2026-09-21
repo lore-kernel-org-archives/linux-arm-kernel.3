@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B0AC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:54:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC29C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fVK7xdLrIgmNCx71jw7NwMha6WBnYRw57W6b6ElMFQw=; b=FJYZgVFIJxPikYhwJeuWov4Kn+
-	7Y6CVdq6e+FAUOjbUnjO8Sjgox2+hD4u4I6WlrJsU1Ch2Wg6wWaMGhXoZcgEuziuIj/7zojUrEN04
-	uwzeqVc4H1pepmoFj+U73OyAkU7YtW5MGwlIeJgJs3rZKNYbzkl/04aW0/LA5HqlfMfR6JSUS2H1w
-	Kf4FFW8E+oVhVWrFgRBRxxkei4lEKtL8u0gkro6VKrtfzNlbh9s0gPRI7HeuGN2x8YjbHF4i4glz2
-	as3GaHmtE21COtLJWv6bXI5H/DrqyT+MsUHZSFAoUdM30/UPhcXsAq3TcHDDNteil8MiCBg6uIGZz
-	xl9t44xA==;
+	bh=NrH1BPLpuLOqQDQpOONb+r82Ea0xWENpicF6PhqY/S8=; b=XiIrYNiEjl0oHSo4tFGrdQ6tW3
+	lnKqoitg4bCXl+wHShAZ/g9BSwWEIf3sgCfzo5Nru42MnUQdS51xnS9ckH6hO4zuc9tgiBs9IYdhP
+	y1SvxDypbdpeJSCfdRkOVOj2SmCM8xLzv+hAOFXaCcAoK1o0oFAsWcbRhJ0kOSNdFBwKw7hrnDAzs
+	diiLK0pE0EevM+bUw6+TdrHy6abdsF8I1aGl+t6RGEh1rF+bHi7VL3qdWEZYg5Zi5kiNveogAIFRs
+	CzjSvkW1i2CLIPdMgp8mkBDwsntguA1L+0jdiKrMoJaqvzUQFxDygoMgePXvZx0lACCC5NdHxRlbk
+	oguffzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gL4-00000002hu5-0glQ;
-	Mon, 21 Sep 2026 15:53:54 +0000
+	id 1x8gLB-00000002i00-2Icq;
+	Mon, 21 Sep 2026 15:54:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gKd-00000002hXY-31Yn;
-	Mon, 21 Sep 2026 15:53:27 +0000
+	id 1x8gKo-00000002hha-0AEL;
+	Mon, 21 Sep 2026 15:53:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=fVK7xdLrIgmNCx71jw7NwMha6WBnYRw57W6b6ElMFQw=; b=jy28bNHySr1YLxEf+/+4jaT6zQ
-	xE2jhBEV/5IFwkTGrMZ2vC77dXvyq2aS3mm/WTY6rQ4Hs7PcdZd0YK1OAx0nw52IcOrRQX+iVuxIy
-	7rUrEgPsq18s32d+1VY3moldBEtQBCjcrcF5XESOAwXaCVFYHRC94+wBwtqv6aXHbqq4B59kI3d5G
-	JcNtps2VNB/8daRQ9SYcITbyIhPJV72dpfaFdkrdNVRZI8gW2fZdoZ+21HfgYtUSHOt/VPiYzq9o+
-	Mcmx6teyUR4PQVrsAVVUHzJ0+Uy8W5KVNmfcwUgrORwUpFUBaGyWXjoVimz2VpIIses7A2Nz5MLmz
-	X7tUlaaA==;
+	bh=NrH1BPLpuLOqQDQpOONb+r82Ea0xWENpicF6PhqY/S8=; b=mboP4kLVmThrPoEtkuxZcDwHBC
+	t8JISQ0LktkCHVKqHiz+cngpWfs/sLv36mDSQarkqzkcignK1F1tiHCAoktSULV04MSK7geIWuguN
+	G8o0w0t0lQPxXzVCQhEpVtbLwg8RPdPG3qVyDb/CTehxbsojNnvW05UeQueRVAD4lkBT8v2vHcSeS
+	IU8vQhxc8xKPTTiw3Kv6svIeIuqC1jdjfYn58QCkOFH4sbK/dEdkvDLoc2D0vSWaox04NJ6Z0ru9+
+	lO24ObSDQPHDGmPLQM4J+s+ovLfvkd6BZz3wrSOhWQ2zDzJGYR85niuN4CQnOOPPV3kQd+MZd12Zz
+	aJJa9nbA==;
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8gKX-0000000CVOV-1qj4;
-	Mon, 21 Sep 2026 15:53:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790005961; cv=none; 
+	id 1x8gKj-0000000CVQg-38Rk;
+	Mon, 21 Sep 2026 15:53:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790005967; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ekDDWz6SKI6q6ld6C77KoGkwZ5pQEiQ2wumL+GCaea5SlhTExiwzvhnMqdMj6NNzbNmocdnyuw4Hx+bXnuubZ+Zoe8+T9Pu37KrWlO9mZa9uJECkZLdw51WHZxP7UZYU6y0ILrqV9R7d3qlYqHVT/qaFz2DuSXoBDwEO3ZJWN60=
+	b=eXCGYJemu4BVEiqC5856QnRCmHqKrEkFRxM0YUtesxCydeXdKQPq9fJXqcKdysNNd1q5f9oHd6alHOvOWKnkVxafl+gT+czPlez0JpXNaDktwrIW4GrLCAashst6cEJY9n3SfR2pWMtNmuzrWyqZuT9UaVjwk4MSZjUsaw5H6tw=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790005961; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=fVK7xdLrIgmNCx71jw7NwMha6WBnYRw57W6b6ElMFQw=; 
-	b=NU7kt8+teL4wsnrpXy5NYLNKO8qPyM/gShZqQhLcLg9fbS6H0xA2XwbnWXAB5sHmQ8B6kTg2vGGd0256mQS5EdGRL+z/lPh5NKhIpdcdCpYqUdSA+zonY3aQjjg3WJQ2NER4tUYD3gwKjECig1dwvlpCvuqOGt/+ashGZkdgIkE=
+	t=1790005967; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=NrH1BPLpuLOqQDQpOONb+r82Ea0xWENpicF6PhqY/S8=; 
+	b=LBgNiCsPouf5SGKErMhoq7Bl/06lEezg5d0KulEtR6QJRS166y3Obn3fHWs1reLiKPxKZMN5EQcHfDBdSXENZaeFDOrTYM4b7LU1HBnEJGn2kOXoJZS5lGyIgxdW0VGzXEwitNR8yt89f570y5GXYNoI3Gi7hZNZyLo5veqlQsE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790005961;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790005967;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=fVK7xdLrIgmNCx71jw7NwMha6WBnYRw57W6b6ElMFQw=;
-	b=XWOkjhXGE+0Ttweod/Ofn4ftYbzzg/lblKp6FpAWxnMUd91E55EZpgcPCbkgP3fB
-	h6h710VlM+Hg/y5T25Ga7MJxL42rVOQSeoh8jKL42RNrFf5q4C/BSguRCdTbaP7RSLg
-	OHYpGkM2erk6Ch076Q07G4YVxL1vSZbSXiWiFD4o=
-Received: by smtp.zohomail.com with SMTPS id 1790005960600608.9880494214716;
-	Mon, 21 Sep 2026 08:52:40 -0700 (PDT)
+	bh=NrH1BPLpuLOqQDQpOONb+r82Ea0xWENpicF6PhqY/S8=;
+	b=eoObOOP2Dc5eRhtDEA2ShosHM7hJxzu2HeIFqOlzIQExUrtPWD/UdiB0t2dDRNfw
+	gpUucXuH46qfDDPYyQMBuq4n4AMDGVkcIQQWzUGtfCJtRVUsndEnQGCFdf4bN+qY/hM
+	iF5/yDj8eu6yLjPmcZMZihVDmn/Zvr92ihZu/Hsk=
+Received: by smtp.zohomail.com with SMTPS id 17900059663881006.9027491955;
+	Mon, 21 Sep 2026 08:52:46 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 21 Sep 2026 17:51:33 +0200
-Subject: [PATCH RFC 07/25] drm/crtc-helper: Add VRR helper functions
+Date: Mon, 21 Sep 2026 17:51:34 +0200
+Subject: [PATCH RFC 08/25] drm/bridge: synopsys: Add VTEM EMP support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-vrr-limiter-uapi-v1-7-2fcd7d011646@collabora.com>
+Message-Id: <20260921-vrr-limiter-uapi-v1-8-2fcd7d011646@collabora.com>
 References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
 In-Reply-To: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
 To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
@@ -89,8 +89,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_165321_913455_D7EAD7D8 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260921_165334_886772_5FCF467E 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,121 +105,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VRR needs to change the vertical front porch timing to change the duration
-of a frame. Add two helpers to aid in this.
+From: Derek Foreman <derek.foreman@collabora.com>
 
-drm_crtc_helper_vrr_flush should be called when the source has a new
-frame ready to present. It adjusts the internal VRR state, and returns
-whether the current vtotal has been changed. Callers can then adjust
-their hardware state as is necessary.
+Add code to pack and schedule VTEM EMPs.
 
-drm_crtc_helper_vrr_vsync should be called in the vblank interrupt
-handler. It adjusts the internal VRR state, and returns whether the
-current vtotal has been changed. Callers can then adjust their hardware
-state as is necessary.
-
-Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
 Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/drm_crtc_helper.c | 63 +++++++++++++++++++++++++++++++++++++++
- include/drm/drm_crtc_helper.h     |  4 +++
- 2 files changed, 67 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 50 +++++++++++++++++++++++++++-
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h |  1 +
+ 2 files changed, 50 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/drm_crtc_helper.c b/drivers/gpu/drm/drm_crtc_helper.c
-index 4a8cfe046e4a..4ffb3b0b7878 100644
---- a/drivers/gpu/drm/drm_crtc_helper.c
-+++ b/drivers/gpu/drm/drm_crtc_helper.c
-@@ -838,6 +838,69 @@ int drm_crtc_helper_set_config(struct drm_mode_set *set,
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index c9568aea98dc..3315082d4475 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -673,6 +673,15 @@ static int dw_hdmi_qp_bridge_clear_spd_infoframe(struct drm_bridge *bridge)
+ 	return 0;
  }
- EXPORT_SYMBOL(drm_crtc_helper_set_config);
  
-+/**
-+ * drm_crtc_helper_vrr_flush - Update VRR state on frame ready
-+ * @crtc_state: pointer to &struct drm_crtc_state of CRTC that has a new frame ready
-+ *
-+ * Update the VRR state by communicating that a frame is ready on
-+ * @crtc_state.crtc.
-+ *
-+ * Should be called from the @crtc_state.crtc &drm_crtc_helper_funcs.atomic_flush
-+ * hook.
-+ *
-+ * Returns:
-+ * - %true if @crtc_state.vrr_state.cur_vtotal changed
-+ * - %false otherwise
-+ */
-+bool drm_crtc_helper_vrr_flush(struct drm_crtc_state *crtc_state)
++static int dw_hdmi_qp_bridge_clear_vtem_emp(struct drm_bridge *bridge)
 +{
-+	struct drm_crtc_vrr_state *vrr = &crtc_state->vrr_state;
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
 +
-+	if (!crtc_state->vrr_enabled) {
-+		if (vrr->cur_vtotal) {
-+			vrr->cur_vtotal = 0;
-+			return true;
-+		}
-+		return false;
++	dw_hdmi_qp_mod(hdmi, 0, PKTSCHED_EMP_VTEM_TX_EN, PKTSCHED_PKT_EN);
++
++	return 0;
++}
++
+ static int dw_hdmi_qp_bridge_clear_audio_infoframe(struct drm_bridge *bridge)
+ {
+ 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
+@@ -775,6 +784,42 @@ static int dw_hdmi_qp_bridge_write_spd_infoframe(struct drm_bridge *bridge,
+ 	return 0;
+ }
+ 
++static int dw_hdmi_qp_bridge_write_vtem_emp(struct drm_bridge *bridge,
++					    const u8 *buffer, size_t len)
++{
++	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++	u32 val, i;
++
++	if (len != HDMI_INFOFRAME_SIZE(VTEM)) {
++		dev_err(hdmi->dev, "unsupported vtem emp packet size of %zu\n", len);
++		return -EINVAL;
 +	}
 +
-+	if (vrr->cur_vtotal == vrr->base_vtotal)
-+		return false;
++	val = buffer[1] << 8 | buffer[2] << 16;
++	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS0);
 +
-+	vrr->cur_vtotal = vrr->base_vtotal;
++	val = buffer[3] | buffer[4] << 8;
++	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS1);
 +
-+	return true;
++	val = buffer[8] << 8 | buffer[9] << 16 | buffer[10] << 24;
++	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS2);
++
++	val = buffer[11] | buffer[12] << 8 | buffer[13] << 16;
++	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS3);
++
++	/*
++	 * The remaining registers need to explicitly be rewritten even if they
++	 * stay at 0, as per the hardware documentation.
++	 */
++	for (i = PKT_EMP_VTEM_CONTENTS4; i <= PKT_EMP_VTEM_CONTENTS7; i += 4)
++		dw_hdmi_qp_write(hdmi, 0, i);
++
++	dw_hdmi_qp_mod(hdmi, PKTSCHED_EMP_VTEM_TX_EN, PKTSCHED_EMP_VTEM_TX_EN,
++			PKTSCHED_PKT_EN);
++
++	return 0;
 +}
-+EXPORT_SYMBOL(drm_crtc_helper_vrr_flush);
 +
-+/**
-+ * drm_crtc_helper_vrr_vsync - Update VRR state on vblank end
-+ * @crtc_state: pointer to &struct drm_crtc_state of CRTC the vblank occurred on
-+ *
-+ * Update the VRR state by communicating that a vertical blank has ended and a
-+ * new frame is about to start.
-+ *
-+ * Returns:
-+ *  - %true if @crtc_state.vrr_state.cur_vtotal changed
-+ *  - %false otherwise
-+ */
-+bool drm_crtc_helper_vrr_vsync(struct drm_crtc_state *crtc_state)
-+{
-+	struct drm_crtc_vrr_state *vrr = &crtc_state->vrr_state;
-+	u16 old_vtotal = vrr->cur_vtotal;
-+
-+	if (!crtc_state->vrr_enabled)
-+		vrr->cur_vtotal = 0;
-+	else
-+		vrr->cur_vtotal = vrr->max_vtotal;
-+
-+	if (abs_diff(vrr->cur_vtotal, old_vtotal) > 1)
-+		vrr->dynamic = true;
-+
-+	return old_vtotal != vrr->cur_vtotal;
-+}
-+EXPORT_SYMBOL(drm_crtc_helper_vrr_vsync);
-+
- static int drm_helper_choose_encoder_dpms(struct drm_encoder *encoder)
+ static int dw_hdmi_qp_bridge_write_audio_infoframe(struct drm_bridge *bridge,
+ 						   const u8 *buffer, size_t len)
  {
- 	int dpms = DRM_MODE_DPMS_OFF;
-diff --git a/include/drm/drm_crtc_helper.h b/include/drm/drm_crtc_helper.h
-index 855da5733c47..0c8c11ea36dd 100644
---- a/include/drm/drm_crtc_helper.h
-+++ b/include/drm/drm_crtc_helper.h
-@@ -44,6 +44,7 @@ struct drm_encoder;
- struct drm_framebuffer;
- struct drm_mode_set;
- struct drm_modeset_acquire_ctx;
-+struct drm_crtc_state;
- 
- void drm_helper_disable_unused_functions(struct drm_device *dev);
- int drm_crtc_helper_set_config(struct drm_mode_set *set,
-@@ -62,4 +63,7 @@ int drm_helper_connector_dpms(struct drm_connector *connector, int mode);
- void drm_helper_resume_force_mode(struct drm_device *dev);
- int drm_helper_force_disable_all(struct drm_device *dev);
- 
-+bool drm_crtc_helper_vrr_flush(struct drm_crtc_state *crtc_state);
-+bool drm_crtc_helper_vrr_vsync(struct drm_crtc_state *crtc_state);
-+
- #endif
+@@ -1000,6 +1045,8 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
+ 	.hdmi_write_hdr_drm_infoframe = dw_hdmi_qp_bridge_write_hdr_drm_infoframe,
+ 	.hdmi_clear_spd_infoframe = dw_hdmi_qp_bridge_clear_spd_infoframe,
+ 	.hdmi_write_spd_infoframe = dw_hdmi_qp_bridge_write_spd_infoframe,
++	.hdmi_clear_vtem_emp = dw_hdmi_qp_bridge_clear_vtem_emp,
++	.hdmi_write_vtem_emp = dw_hdmi_qp_bridge_write_vtem_emp,
+ 	.hdmi_clear_audio_infoframe = dw_hdmi_qp_bridge_clear_audio_infoframe,
+ 	.hdmi_write_audio_infoframe = dw_hdmi_qp_bridge_write_audio_infoframe,
+ 	.hdmi_audio_startup = dw_hdmi_qp_audio_enable,
+@@ -1118,7 +1165,8 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 			   DRM_BRIDGE_OP_HDMI |
+ 			   DRM_BRIDGE_OP_HDMI_AUDIO |
+ 			   DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME |
+-			   DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME;
++			   DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME |
++			   DRM_BRIDGE_OP_HDMI_VTEM_EMP;
+ 	if (!hdmi->no_hpd)
+ 		hdmi->bridge.ops |= DRM_BRIDGE_OP_HPD;
+ 	hdmi->bridge.of_node = pdev->dev.of_node;
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
+index c07847e8d7dd..6ce87064a267 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
+@@ -210,6 +210,7 @@
+ #define PKTSCHED_AVI_TX_EN				BIT(13)
+ #define PKTSCHED_VSI_TX_EN				BIT(12)
+ #define PKTSCHED_EMP_CVTEM_TX_EN			BIT(10)
++#define PKTSCHED_EMP_VTEM_TX_EN				BIT(9)
+ #define PKTSCHED_AMD_TX_EN				BIT(8)
+ #define PKTSCHED_GCP_TX_EN				BIT(3)
+ #define PKTSCHED_AUDS_TX_EN				BIT(2)
 
 -- 
 2.55.0
