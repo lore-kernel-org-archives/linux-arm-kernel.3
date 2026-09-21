@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9826C982F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58BCC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMTxb+mrtRH4SZa45PP2QG37d3OHVFOsk6tg8TRWT1Q=; b=zRRjB24/e1seNV/PjYGZZcz9B2
-	KDYYCj2RdDdv192VB+qL27Yt2Q3Tn023rx3F+FtlA7Gk5bM4nWQWzNnkfptqcC7k9PrDJcyc/881t
-	53YUHkWUHvIU6rNTPqAVsPx6Egnerr6GtnPyWz986hccUB8W7ikeRyQu+rN2ieu9cymtR5ZjJmWKv
-	0e/8Lj+qTxB7HxWgTaqz1fXcc1ARVX9UtpXi5I3vqmdLGfyd/hkvpmb8PBCNUYcz2bhqw8Edx/cgS
-	QQOAZ6SxqWipTRug1GH0C9Mr7sQmXuiMtxD5wRvfXwQtim+PpM6P6xhE/yH68q8umiNPvkTTh2cBc
-	0vJ1R8KA==;
+	bh=A1vpA9Vu/anVUkgqQq6JZrIZF54n9p7jw4+5ezh/lQY=; b=yClhypdxwKv4MosLlqFb+uvlbO
+	+nJjN9sk1mB4fKRwj4tQiyp/zX7sZHGAUfuSUZt9+7UVbipveUWSvKlaggbGVlKgVuoC/NWrba1CZ
+	2cMdA8WBIgfdFTKofQHUEVhpuc4VsQS+zntv/U7C03+H65fFAlzg+3Y0k9R5A4zvxh1lf8xQnBzKn
+	s7i2dOUEoFkU5OJoxHfLYSUXkOcfQT4K6UzKsbSbT4yAVTJ38WhabSwE211avqcaaumBchTZ2sUiT
+	dVRjtEVD9fqNplbbg1q39GNKBhTjLuTBgJnRJbFlOdbtvGCHp+0F3vSblQ/I3X84YDl3RHwZReheg
+	O8vrPGFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fhf-00000002ZPq-1yq1;
-	Mon, 21 Sep 2026 15:13:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8fih-00000002Zc8-3VeB;
+	Mon, 21 Sep 2026 15:14:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fhd-00000002ZPj-3svb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:13:09 +0000
+	id 1x8fig-00000002Zbj-2b3q;
+	Mon, 21 Sep 2026 15:14:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F16942E2D;
-	Mon, 21 Sep 2026 15:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D85E1F000FF;
-	Mon, 21 Sep 2026 15:13:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D23F260142;
+	Mon, 21 Sep 2026 15:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B9121F000FF;
+	Mon, 21 Sep 2026 15:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790003589;
-	bh=QMTxb+mrtRH4SZa45PP2QG37d3OHVFOsk6tg8TRWT1Q=;
+	s=k20260515; t=1790003653;
+	bh=A1vpA9Vu/anVUkgqQq6JZrIZF54n9p7jw4+5ezh/lQY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iJCEI1oOSZdZ4wOPsD7JtxZtw8COX3cI+qeiJBArITZKgCViGq0E5FOiAnLvsGBVI
-	 ZSRYWgKerrALYWgng07D/4nnKr5lUd68rXvg5er+Q11vmS7L8pAmODUngLmS2oWM9o
-	 ly6hbus0vnsWmeif2oKqQvbfy9lz2kuafLFK7k8lXwo+5Ff4zl3+RP8J08DP1P08lD
-	 fKgI8Rw9diXgbHWfTPald21ls9kewQ07UZuG9t7slqWiTTxr8zFyJ38CcXce/vW1eK
-	 xP8dDhXYRlVxh7H9tM12rBkXUk6fKTei6WT16owIuOJRgbPI7w59BBPle8YP5gwzaS
-	 A38N6PnCXAsUQ==
-Date: Mon, 21 Sep 2026 17:13:06 +0200
-From: krzk@kernel.org
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: linusw@kernel.org, stable@vger.kernel.org, sboyd@kernel.org, 
-	linux-clk@vger.kernel.org, bmasney@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, mturquette@baylibre.com
-Subject: Re: [PATCH] clk: versatile: clk-icst: Fix node reference leak in
- of_syscon_icst_setup()
-Message-ID: <arFJgR0SKZRd-EmK@quoll>
-References: <20260915070103.1733176-1-vulab@iscas.ac.cn>
+	b=RCxq22/+ukarhuU4fLef1DBuO4WHwye2i/enhDbY/fN5vk+yc2q8glQdtTR4ar+R4
+	 kpaMNBUNGuZ2D9F7anJo8Tc7jUFessC92tZxVWklyiekG+W3GLDrLW80AZc4gMsvO8
+	 F1m0hqtosUiriuVusd21Dt9o31B5JZSVyrosgeImxruP1y7EXTOX3z3gam7EzpER3H
+	 z0Wcet/tUJg/ft7kI5gfVs//vOKXF69BeEsw6tJu8u7I5VNU37z9OJeWUJlLvNafDM
+	 ot7CzGLz37k3RgxiKDycEa/R/E80OkP5L0jlyZpjZRxgTAKetXHsS+LVitSS+VLOrv
+	 G3p3Ha4HzcvCQ==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 010351AC56A7; Mon, 21 Sep 2026 16:14:09 +0100 (BST)
+Date: Mon, 21 Sep 2026 17:14:09 +0200
+From: Mark Brown <broonie@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Amit Kucheria <amit.kucheria@linaro.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+	linux-mediatek@lists.infradead.org,
+	Martin =?utf-8?Q?Povi=C5=A1er?= <povik@protonmail.com>,
+	Hector Martin <marcan@marcan.st>,
+	Sasha Finkelstein <k@chaosmail.tech>
+Subject: Re: [PATCH 00/28] Add speaker and headset jack support for Apple
+ Silicon Macs
+Message-ID: <arFJwcfSWqyawDYp@sirena.co.uk>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jhwW/VhgT1w2TOjQ"
 Content-Disposition: inline
-In-Reply-To: <20260915070103.1733176-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +95,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 15 Sep 2026 07:01:03 +0000, Wentao Liang wrote:
-> of_get_parent() takes a reference on the syscon parent node. The
-> reference is intentionally kept on the success path, but the error paths
-> return without dropping it, leaking the node reference. Release the
-> reference before returning on the error paths.
-> 
-> Fixes: d430819d69a5 ("clk: versatile-icst: add device tree support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/clk/versatile/clk-icst.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
+--jhwW/VhgT1w2TOjQ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Sun, Sep 20, 2026 at 02:53:39PM +1000, James Calligeros wrote:
+> Hi folks,
+>=20
+> This series finalises support for the main
+> audio subsystem on Apple Silicon Macs. It adds a machine driver
+> called macaudio, which is based on an RFC sent many years ago
+> by Martin Povi=C5=A1er[1]. The driver uses the DPCM model to dynamically
+> glue a backend DAI (combination of MCA ports and codecs) to a
+> frontend PCM. While this theoretically allows us to route any
+> backend to any frontend, this is not used in practice; the "Primary"
+> frontend is always used for the headset codec and the "Secondary"
+> is always used for the speakers.
 
-You sent multiple independent patches, to multiple independent
-subsystems. The amount of these patches clearly suggest this was
-AI generated and most likely not tested.
+This has got a lot of different stuff in it, there's several different
+sets of fixes, a number of framework features, as well as the new driver
+and a huge pile of DT updates.  It would be a lot more digestable were
+these things to be split out, especially the fixes.
 
-More importantly, you sent all this work without properly organizing
-relevant patches into patchsets. This makes reviewing difficult
-and might cause multiple reviewers to address the same issue.
-Replying to the entire set is impossible and requires handling each
-patch independently, instead of applying or discarding the set.
-Maintainers also won't see the bigger picture of your work. Quite
-worrying.
+--jhwW/VhgT1w2TOjQ
+Content-Type: application/pgp-signature; name="signature.asc"
 
-This is on the verge of hostile patch: bomb us with so many
-contributions, we won't be able to handle them in efficient manner,
-like responding ONCE to ask you to slow down.  Considering all this
-is untested and LLM generated, I have even more doubts whether this
-should be considered for review.
+-----BEGIN PGP SIGNATURE-----
 
-Please read kernel documentation BEFORE posting more work. It will
-explain you how to identify subsystems, how to organize your work per
-subsystem, how to document usage of LLM and how what you should not
-do if this was posted in a good faith.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqxSb4ACgkQJNaLcl1U
+h9ApuAf/ZwCUmddLEXrzSNnteIkRCaFhvQG/Ig3/Uo79xixZgarNV9EQrRh0cr/+
+wF4WqgVixB1t/yQr/ZvXeb2E1cuVxIY5MnqrXVqnFDxy0gZmr3kd1mKGvub6VstW
+E1auraBBQFDoz4/mBlBstM8YiWqmdgerxvqEGsHkjWMagDD/d8YG618XoY668mGW
+jn/w9JtTv9eyrrO3SX4N+MlVvLii06XTCi9Oegvjdo/uvF5tcICk9fZRY7bqXLGF
+KE1vXeSEdwr2ivDAjwMvYd1fjdBx1Ew+UL2mvTO3F1lAeA7o3zVieczdoP97C98C
+XEk5G4Q7u56Q1J2d8Vo0C0yXTyTVCg==
+=6yVp
+-----END PGP SIGNATURE-----
 
-Best regards,
-Krzysztof
-
-
-
+--jhwW/VhgT1w2TOjQ--
 
