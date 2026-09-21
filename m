@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A9EC982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 08:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415C6C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 08:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMQoUbFbkBmtg2Op/ssogbW7S871P7MvOsFe4ikx5pw=; b=Z1lE3dyTH2qCUyuo86aQyhzQ7k
-	YdD2dth1SqWTOtKaofUC5VdjXXAu4ZR3SAESKbS9SNmGmCGIOY9ssNGG0IcmmjtLiOIRjw3Jiyzgu
-	IHbsacymwjiK3tZ2Kmu1hfznM32buT4lTZdTEmm/zyFuPhRHT5XVoPXVKt0rfSoYkIVkrerKIrVwO
-	maFarbAWU6wwZ0lCgVJIR1gZcwzIxyc8ZcCfXgT2rdBP+OQqdexHy6gf37kp6008vPuu3sdwHv7Sy
-	4G/T0IcIuw4Te6Erv+BJ8zahdu5JWLcvSuPf38gTVpkYaCBZgOYANv/q8Ej6rPHiSBzlmhKPOYjw6
-	RNXSFujw==;
+	bh=ZGjrYtBK4Zg+yzb3uvAueO3dnuVX9W9iegXNBKP+x44=; b=D3ZpBHOKwjm1IGPEZnvU1ls50r
+	Ha8n1sde86FkgG2/2EejZKA+BSjhTTSz2igzUQvI43MuRuwRcI68uCCMedxD8LtWv1Y+PkLlXFeTm
+	hBp3wYDLa4nWfK4Hf0QXfq2o3b9ZNIA1aHVyxHN/jm258XFBDQYPMAprsleOEocjGc+KGYVzvaQtl
+	bunqAtS8yOrIz7TOSkE9yoNPQWXIBV0S/QQfkX+9kbNv903foOqpjlyDQahEI66okwWH/RLgTb0vX
+	UWxoYDaji1fYRgL0wO+nryAnRNJd0OyERLxKKj6SZjP9tze2WyyibuqaZxEZ74JIb4M8xJD93Ne6H
+	04t6qdLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Zce-00000001NlM-30mg;
-	Mon, 21 Sep 2026 08:43:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Zcd-00000001Nl9-3KYw
+	id 1x8Zec-00000001O32-06Zr;
+	Mon, 21 Sep 2026 08:45:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8ZeZ-00000001O2Q-3evh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 08:43:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3847A43ED1;
-	Mon, 21 Sep 2026 08:43:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3631F000FF;
-	Mon, 21 Sep 2026 08:43:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789980215;
-	bh=kMQoUbFbkBmtg2Op/ssogbW7S871P7MvOsFe4ikx5pw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mILJ6K+/4ifQWXrg46EePjbXVwCVVBln1I3gCIIpwWmKkdN0eUKdRIQyvWulys4iz
-	 3I+CsOokgKWic5PEpnTGd5C1ZYgzUqTjd+jyICJGcHP7Wmfcm/6Qh20/gEwq/Pg/Uy
-	 gw6jE/RQva9tBf/RPRv8GjMJGxOQ1e/WPGk/Z+L8HYcf4umTCfIAL/vByuTQwpoSlJ
-	 HYa4OyQ9TsdpHR5b8K7ptXwufSOr6yIJBhREVTj9IUMKD+s5AW+/PuBvSKY7Ir5zZB
-	 IEMWt/pxaYs/lPJxhmE+xtNBQsCjfxWeM58OLusdaTx56koqRHmk2bCiDvF8iVOVBc
-	 SyXXt0nrpJkrw==
-Date: Mon, 21 Sep 2026 10:43:32 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/3] i2c: xiic: preserve PEC byte length in SMBus
- block read setup
-Message-ID: <arDgdyG0QsNerDH5@zenone.zhora.eu>
-References: <20260909-i2c-xiic-v4-0-218df31e9d3b@nexthop.ai>
- <20260909-i2c-xiic-v4-1-218df31e9d3b@nexthop.ai>
+	Mon, 21 Sep 2026 08:45:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73804175A;
+	Mon, 21 Sep 2026 01:45:31 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B1333F86C;
+	Mon, 21 Sep 2026 01:45:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789980334; bh=S79PLM7OFJBvhVWmeCH8T7TgIzhYa8hIStDMR5Puddg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=I7zoLa2/77OP0m2cDnZ1NU+cNWgCHAC37cl9S1wyRItEP8OQfUqWtyR7V7dLGQQsZ
+	 puXncDq/Bhf+H+m2/WCrWsRgdXdh9X7otp2gOSW9g51cArK3sezDGqFrHHbEDFv83S
+	 LrkoSzoO5XZvq9nQ0MRX0W+NtR6xZ1VrAcc9Dq10=
+Date: Mon, 21 Sep 2026 09:45:30 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH v12 2/7] firmware: hwrng: arm_smccc_trng: Register as an
+ SMCCC device
+Message-ID: <arDuqtfrRcBmWRic@arm.com>
+References: <20260921053807.354802-1-aneesh.kumar@kernel.org>
+ <20260921053807.354802-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260909-i2c-xiic-v4-1-218df31e9d3b@nexthop.ai>
+In-Reply-To: <20260921053807.354802-3-aneesh.kumar@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_014535_947404_D83A3882 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,33 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Abdurraham,
-
-...
-
->  		xiic_read_rx(i2c);
->  		if (xiic_rx_space(i2c) == 0) {
-> +			/*
-> +			 * If the setup path padded a short SMBus block read up
-> +			 * to SMBUS_BLOCK_READ_MIN_LEN for the HW exit
-> +			 * workaround, trim rx_msg->len back to the number of
-> +			 * bytes that are actually valid so the SMBus core's
-> +			 * PEC check reads the right index. Must happen before
-> +			 * the rx_msg = NULL below.
-> +			 */
-> +			if (i2c->rx_msg && i2c->smbus_actual_len)
-> +				i2c->rx_msg->len = i2c->smbus_actual_len;
-
-We do need to reset smbus_actual_len at every xiic_start_recv(),
-otherwise this would be true for every rx_msg. Right?
-
-Andi
-
->  			/* this is the last part of the message */
->  			i2c->rx_msg = NULL;
->  
+On Mon, Sep 21, 2026 at 11:08:02AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> The SMCCC TRNG interface is a firmware-provided SMCCC service rather than a
+> standalone platform device. Now that the SMCCC core has an SMCCC bus,
+> create an arm-smccc-trng device for the discovered TRNG service and convert
+> the hwrng driver to an SMCCC driver.
 > 
-> -- 
-> 2.54.0
+> The SMCCC id table preserves module autoloading for systems where the TRNG
+> driver is built as a module.
 > 
+> The sysfs device path changes from the old smccc_trng platform-device path
+> to an arm-smccc device path. No known userspace dependency on the old path
+> was found; a Debian Code Search lookup for the existing platform-device
+> name/path did not find any users.
+> 
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Tested-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  arch/arm/include/asm/archrandom.h       |  2 +-
+>  arch/arm64/include/asm/archrandom.h     |  2 +-
+>  drivers/char/hw_random/arm_smccc_trng.c | 32 ++++++++-----
+>  drivers/firmware/smccc/smccc.c          | 62 +++++++++++++++++++++----
+>  4 files changed, 76 insertions(+), 22 deletions(-)
+
+I asked you two times already to cc the hw_random maintainers. Not
+adding them again but not merging this stuff without their ack either.
+So, up to you.
+
+-- 
+Catalin
 
