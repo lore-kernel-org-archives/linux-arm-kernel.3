@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF09AC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9ED2C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 23:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QnMacYZsTiu91aBrdpT044ZXgSNU90vCzZjH5YJEaR8=; b=hxPJ2T9Nlcfcd/y+fA8QFF+vl8
-	AZ9uT890VpbuMf0V+x0PaRFyARlgJiF4XEwN0rNUZl1zXEJcibXc/x2F7IpjibB1KG//lOkbCrhIF
-	uBV8hKG9xDWAw6+x0DYJfPx/RYDXU9nE897BMTHljYjx32bvXa54TBilvukE5ABiyf2esM7uigAI9
-	jEeoNWPx4yI3SUQyPd52PZ3guRFqHRaFDipPsr41UI87uloZjWpmYam/IFw0lAEhLesn+QyQDKhgl
-	ad2geYgF+X6CRP6296PlY09sbCgInPuvPclUdxiZdvZRev8vPzETh4b+OUj8bw0P4aLpZCjDHWSc3
-	Gugv+KUQ==;
+	bh=Zl7eC8lMz4Pjw1I1o2N00til9DTBdWZKgKdDutJ66sY=; b=x6nIcjEBC0KtqTyUrWgEF/IaUp
+	4/KkD6qFFYDChEL8yHTbYiqKRNAuGzLd1T238QfWfhqdhqTS922sHYs05AOJLg9IyBDQweeEgq9Kr
+	gXuOmnkPJNnkJCCQFQLyPGVXfRUYmVmEZDKMUC415rLs/XFx72urSELf3a00JwA5gtarLeTgA/wWU
+	k5nXgBNHLZiUIF9GcVdY9R/t1137L4ttrELLy+Ar7mVTpNeN0QRcZ5Jyr8xPGV3jj9AZlAbf6/f7v
+	KJfrjwC5zzv9S4owKSMChQFdU+rDnG5VAJl3Ea3xnxC5nDY9IdN7EblrvcROIx0YODQFizUsM2t2g
+	8lUP99Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ngO-00000003hln-1UaA;
+	id 1x8ngO-00000003hmI-26Aj;
 	Mon, 21 Sep 2026 23:44:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8nfi-00000003hLx-0vac;
-	Mon, 21 Sep 2026 23:43:42 +0000
+	id 1x8nfo-00000003hOm-40f3;
+	Mon, 21 Sep 2026 23:43:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAFE343D62;
-	Mon, 21 Sep 2026 23:43:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27C021F00898;
-	Mon, 21 Sep 2026 23:43:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B5DE44A0E;
+	Mon, 21 Sep 2026 23:43:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D32F1F000FF;
+	Mon, 21 Sep 2026 23:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790034221;
-	bh=QnMacYZsTiu91aBrdpT044ZXgSNU90vCzZjH5YJEaR8=;
+	s=k20260515; t=1790034228;
+	bh=Zl7eC8lMz4Pjw1I1o2N00til9DTBdWZKgKdDutJ66sY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=abG50pjxo97oID9LJyNoCvvx1bHpw0G7bkaDhgKsg52JHt4tluPc/0omuk5lXHCcT
-	 EwbuX7kQ6mjQPkzUwls9qiW4M8CbHPWF6OAIlBfmc4gH3ZK6T3ttgElAchXKSy015I
-	 7oD1DlafWHNMczh3OxEr/aesUcx1FsPztvV5MClQvERqfXqzMptWEP4oFzPB24j70r
-	 lMYnQAfRjVudko70OpR/EETtw56CjidQjB8VJM8+jRapQLBhCyP8Cok3XL6nF8pv4t
-	 CTCbjBy0DglmI8VTQdjXgI9EbfzTA9tsOYoTBgpy2OuYAsCXq/ifJIy+KvI75SkU2D
-	 HNz5mcLBMGzqg==
-Subject: Re: [PATCH net-next v7 03/11] phy: rockchip: naneng-combphy: add
- SGMII MAC selection for RK3568
+	b=YmXgLRbQFuCXw5d0EwgEbchKj4+EcLd4fsPiCuF3wrMwpsZCyG23IZfJK8gwJ/xD1
+	 /0hB5qDTqqDsQa+fOa79OY/xk29RnT4rhbXnnOnn+8nOKdMDQpa/0Kr3RwExoLfHSV
+	 y3zeDAYyuJDNDWmcRg5OW9+FnnrrRi39s/Pggr8p/eTdT07y6xDV51m+OIzRGnqYz7
+	 lh+vlxYZSqTVrPZkG/F9qCw4BGbjNUVv1Uq0eggSYx5Ehw3Gtwic/kQeQ8sNjGqDLQ
+	 Ddn5nCkwcHw1Hkq7FyY8Vjk/bKVdnvxeLf/IAULLZvW9hR9nJnJpHzOEOBRU6Qfbgv
+	 9iDfjJ3Z8OG0A==
+Subject: Re: [PATCH net-next v7 06/11] net: pcs: xpcs: add ANRESTART support
+ for SGMII link recovery
 From: netdev-bot+sashiko@kernel.org
 To: coiaprant@gmail.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -56,10 +56,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Date: Mon, 21 Sep 2026 23:43:39 +0000
-Message-ID: <179003421974.2160803.11569061351280580358@kernel.org>
-In-Reply-To: <20260917204624.2427486-4-coiaprant@gmail.com>
-References: <20260917204624.2427486-4-coiaprant@gmail.com>
+Date: Mon, 21 Sep 2026 23:43:45 +0000
+Message-ID: <179003422590.2160803.6200112625831511615@kernel.org>
+In-Reply-To: <20260917204624.2427486-7-coiaprant@gmail.com>
+References: <20260917204624.2427486-7-coiaprant@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,10 +78,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -89,125 +89,142 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In drivers/phy/rockchip/phy-rockchip-naneng-combphy.c,
-  rk3568_combphy_cfg() now writes PIPE_GRF_XPCS_CON0 bit 1…
-
-Pre-existing issues:
-- [Low] Concern (validated as pre-existing style, not a new defect): the
-  newly added rockchip_combphy_param_write(priv->pipe_grf,…
+- [Medium] The recovery sequence in xpcs_get_state_c37_sgmii() consumes
+  the only evidence that an SGMII AN cycle completed (writes 0 to…
+- [Medium] The new AN-register mutations in xpcs_get_state_c37_sgmii()
+  (latch clear + BMCR_ANRESTART, pcs-xpcs.c:1110-1121) are performed…
 
 --
 
-phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+net: pcs: xpcs: add ANRESTART support for SGMII link recovery
 
-This adds a "rockchip,sgmii-mac-sel" DT property to the RK3568 naneng
-combphy driver so the SGMII lane can be routed to either GMAC0 or GMAC1
-through PIPE_GRF_XPCS_CON0 bit 1 (pipe_sgmii_mac_sel).  The property is
-read in rockchip_combphy_parse_dt() and applied in rk3568_combphy_cfg()
-when the PHY type is PHY_TYPE_SGMII.
+This adds BMCR_ANRESTART to the C37 SGMII paths of pcs-xpcs: the config
+path now clears DW_VR_MII_AN_INTR_STS and sets ANRESTART together with
+ANENABLE, and xpcs_get_state_c37_sgmii() clears the AN complete latch and
+issues an ANRESTART when the link is down but AN completion was latched.
 
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 229)
-
-A couple of questions below.
-
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 7843356a4dd47..7b867e7520064 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+> diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+> index 0337e2bcc0125..8c3875b6985b9 100644
+> --- a/drivers/net/pcs/pcs-xpcs.c
+> +++ b/drivers/net/pcs/pcs-xpcs.c
 
 [ ... ]
 
-> @@ -375,6 +377,9 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
+> @@ -816,9 +825,14 @@ static int xpcs_config_aneg_c37_sgmii(struct dw_xpcs *xpcs,
+>  	if (ret < 0)
+>  		return ret;
 >  
->  	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
->  
-> +	priv->sgmii_mac_sel = 1;
-> +	device_property_read_u32(dev, "rockchip,sgmii-mac-sel", &priv->sgmii_mac_sel);
+> +	/* Clear CL37 AN complete status */
+> +	ret = xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +	if (ret < 0)
+> +		return ret;
 > +
-
-[Severity: Medium]
-In rockchip_combphy_parse_dt(), the return value of
-device_property_read_u32() is discarded and priv->sgmii_mac_sel is
-pre-seeded with 1, so "property absent" and "property = 1" become
-indistinguishable later on.
-
-Is that intentional, or should the presence of the property be tracked
-separately so the write below can be skipped when the DT says nothing?
-
->  	priv->phy_rst = devm_reset_control_get_exclusive(dev, "phy");
->  	/* fallback to old behaviour */
->  	if (PTR_ERR(priv->phy_rst) == -ENOENT)
-
-[ ... ]
-
-> @@ -873,6 +878,8 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
->  		break;
+>  	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED)
+>  		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+> -				 mdio_ctrl | BMCR_ANENABLE);
+> +				 mdio_ctrl | BMCR_ANENABLE | BMCR_ANRESTART);
 >  
->  	case PHY_TYPE_SGMII:
-> +		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_sgmii_mac_sel,
-> +					     priv->sgmii_mac_sel > 0);
+>  	return ret;
+>  }
 
 [Severity: Medium]
-Following on from the parse above: does this end up writing
-PIPE_GRF_XPCS_CON0 bit 1 on every RK3568 SGMII init, including on DTBs
-that do not carry the new property?
+Is there anything serializing xpcs_config_aneg_c37_sgmii() against
+xpcs_get_state_c37_sgmii() now that both mutate the AN registers?
 
-rockchip_combphy_param_write() is not a read-modify-preserve; it always
-asserts the hiword write-enable for the bit:
+xpcs_config_aneg_c37_sgmii() reads MII_BMCR at function entry, clears
+BMCR_ANENABLE, reprograms DW_VR_MII_AN_CTRL and DW_VR_MII_DIG_CTRL1,
+writes AN_INTR_STS = 0, and then writes back the value it read at entry:
 
-drivers/phy/rockchip/phy-rockchip-naneng-combphy.c:rockchip_combphy_param_write() {
-	tmp = en ? reg->enable : reg->disable;
-	mask = GENMASK(reg->bitend, reg->bitstart);
-	val = (tmp << reg->bitstart) | (mask << BIT_WRITEABLE_SHIFT);
+	mdio_ctrl = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMCR);
+	...
+	ret = xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+			 mdio_ctrl | BMCR_ANENABLE | BMCR_ANRESTART);
 
-	return regmap_write(base, reg->offset, val);
+xpcs_modify() only holds bus->mdio_lock for a single register
+read-modify-write, not for the whole sequence, so can these interleave?
+
+	thread A: phylink_resolve() -> phylink_mac_pcs_get_state() ->
+		  xpcs_get_state_c37_sgmii()   (pl->state_mutex, no rtnl)
+	thread B: ETHTOOL_GLINKSETTINGS / SIOCGMIIREG ->
+		  phylink_ethtool_ksettings_get() / phylink_mii_read() ->
+		  phylink_mac_pcs_get_state()  (rtnl only)
+	thread C: phylink_major_config() -> xpcs_config() ->
+		  xpcs_config_aneg_c37_sgmii()
+
+phylink_resolve() takes pl->phydev_mutex, phy->lock and pl->state_mutex but
+not rtnl, while the ethtool and ioctl query paths reach the same op under
+rtnl only, so the lock sets do not appear to intersect.
+
+If a get_state() sets BMCR_ANRESTART while the config path has ANENABLE
+cleared, is that restart request simply lost?  And can the final blind
+write of the stale mdio_ctrl above discard BMCR bits set by a concurrent
+get_state()?  Similarly, two concurrent get_state() calls can both observe
+the same latched ANCMPLT and both issue a restart, with the second
+aborting the negotiation the first started.
+
+Note that the pre-patch code already wrote the AN_INTR_STS latch from the
+get_state() path; it is the newly added BMCR read-modify-write that makes
+the interleaving change hardware state.
+
+> @@ -1093,9 +1107,18 @@ static int xpcs_get_state_c37_sgmii(struct dw_xpcs *xpcs,
+>  		return 0;
+>  	}
+>  
+> -	/* Clear AN complete status or interrupt */
+> -	if (state->an_complete)
+> -		xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +	if (state->an_complete) {
+> +		/* Clear AN complete status or interrupt */
+> +		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		/* Initiate the next round of AN */
+> +		ret = xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_ANRESTART,
+> +				  BMCR_ANRESTART);
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+
+[Severity: Medium]
+Can this sequence permanently disable the recovery it adds?
+
+The write of 0 to DW_VR_MII_AN_INTR_STS consumes the only record that an
+SGMII AN cycle completed, and the restart is then a separate fallible MDIO
+read-modify-write:
+
+drivers/net/pcs/pcs-xpcs.c:
+int xpcs_modify(struct dw_xpcs *xpcs, int dev, u32 reg, u16 mask, u16 set)
+{
+	return mdiodev_c45_modify(xpcs->mdiodev, dev, reg, mask, set);
 }
 
-With .pipe_sgmii_mac_sel = { 0x0040, 1, 1, 0x00, 0x01 } that gives
-mask = GENMASK(1, 1) and val = (tmp << 1) | (mask << BIT_WRITEABLE_SHIFT),
-so bit 1 is latched to either 0 or 1 unconditionally.
+If the latch clear succeeds but the xpcs_modify() fails, the PCS is left
+with AN neither complete nor restarted.  The re-entry gate is
+if (state->an_complete), and AN_INTR_STS is now 0, so every later poll
+reads 0 and never retries.
 
-Before this patch the driver never touched that bit, so whatever the
-bootloader or a previous boot (kexec) left there survived PHY init.  Can a
-board whose firmware routed SGMII to GMAC0, running an older DTB without
-"rockchip,sgmii-mac-sel", now get the mux forced back to GMAC1 while the
-MAC driving the link is still GMAC0?
+The caller only logs the error:
 
-The commit message says:
+	ret = xpcs_get_state_c37_sgmii(xpcs, state);
+	if (ret)
+		dev_err(&xpcs->mdiodev->dev, "%s returned %pe\n",
+			"xpcs_get_state_c37_sgmii", ERR_PTR(ret));
 
-    The hardware reset value is 1 (GMAC1). If the property is set to 0,
-    the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
-    remains at GMAC1.
+so no pending-restart state is kept anywhere.  Would clearing the latch
+only after a successful restart write, or keeping a flag that forces a
+retry on the next poll, be preferable here?
 
-Is "remains at GMAC1" accurate given the bit is now actively programmed
-rather than left alone?  Writing the bit only when
-device_property_read_u32() actually succeeds would keep the change inert
-for existing DTBs; otherwise it may be worth stating in the commit message
-that the driver now takes ownership of this bit from firmware.
+Related to this, the commit message says:
 
-[Severity: Low]
-This isn't a bug introduced by this patch, but a pre-existing convention
-worth noting: the regmap_write() error returned by
-rockchip_combphy_param_write() is discarded here, as it is at all of the
-other call sites in this file, so SGMII init can report success with the
-MAC mux left unprogrammed.
+    If an MDIO access fails at this point, it indicates an
+    unrecoverable hardware condition until reset.
 
-With the in-tree DT this cannot actually fail; arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-declares the pipe-grf region as:
-
-	pipegrf: syscon@fdc50000 {
-		reg = <0x0 0xfdc50000 0x0 0x1000>;
-	};
-
-so offset 0x40 is well inside the regmap.  The neighbouring
-pipe_xpcs_phy_ready write at the same offset 0x40 already ignores its
-return value too.
-
->  		rockchip_combphy_param_write(priv->pipe_grf, &cfg->pipe_xpcs_phy_ready, true);
->  		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_phymode_sel, true);
->  		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_qsgmii, true);
-
-[ ... ]
+Is that accurate?  -ETIMEDOUT or -EBUSY on a busy MDIO bus is transient,
+and for the Rockchip glue added later in the series a
+pm_runtime_resume_and_get() failure in xpcs_rk_read_reg() /
+xpcs_rk_write_reg() would also surface here without implying the PCS needs
+a reset.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917204624.2427486-1-coiaprant%40gmail.com
