@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD0CC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 01:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41A7C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 01:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JkQGzk7JtUmJhDI7/lc646wm8+od1xD4GOgStSiB+TI=; b=hv+09qgnjI8FEd8B4HviuRLsgt
-	WgXbClOsWStvICGk10VNG7fn4qgaC2IQJ2V4JhtZSao7VuJkOAMDgnkFlXc9vxAEE85ChJVbDJqkD
-	RDHexX/P+sa3n19XYRKXNe+pmfnzpUkrmoMfcjx2Suzl5ilAbOJ6k1RePNTWo1jSKIioHT+UBgkw1
-	T2VcRBCbJG/5+ucUH7s5ChEAB4s4nnK7SLCGC6192GzuxWSr+n/emOufpuQFBqTgoSkq3Od0WmgVU
-	nNR+G3YQnf++JkkrYT1N7OqxzxYv9n5PNdshMu7hNBnvxgr2SyNGy6jVfsljeMb+CmAo6Msn/AxL5
-	Q2aHXuyQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9iPlkY3CknuAFyY3M8TOGdUAXhGOxVAJ6BaVRsWDl0M=; b=oZYvIojm0TLMDklSmSSk6pXlz8
+	lcO/CUE7IgQaZDtjOO6CMcB0fnEopuExJM4V/52h0K980sgG5OAMhMH9zj/ojv9c28AlwO5kE3k7c
+	VQLvXRsMJdCS3xuv364FDNfMSuIVGZdjESFK7Gplpx7GDp8NVCEQDEiHBKZXSupzrtESCGKDYFjW7
+	0kFlcEilBHAQBwu+s6+cZ7cICbqvlMXQKBk+xs783aciiNNochG9IYcSEh4T7EZ17F6r+n+GaGgQC
+	T25qzk2DtWPWVxp3hcyot/gLb01MYCzBPYNcRNehCGN8W3kMUtmS1/djojU/gzYGn6yLcd8wt9MpW
+	GmYPHNCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TDe-00000000hWn-0oPt;
-	Mon, 21 Sep 2026 01:53:22 +0000
-Received: from mail-m8344.xmail.ntesmail.com ([156.224.83.44])
+	id 1x8TGq-00000000hf9-2SHF;
+	Mon, 21 Sep 2026 01:56:40 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TDa-00000000hWF-21hv;
-	Mon, 21 Sep 2026 01:53:20 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4e7dcd1ab;
-	Mon, 21 Sep 2026 09:53:12 +0800 (GMT+08:00)
-Message-ID: <b6ccf98c-58f3-4fdc-bd7b-3eb1bc3b6e98@rock-chips.com>
-Date: Mon, 21 Sep 2026 09:53:12 +0800
+	id 1x8TGn-00000000hek-44MW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 01:56:39 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-39b9184fa80so2150924a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 18:56:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789955797; x=1790560597; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9iPlkY3CknuAFyY3M8TOGdUAXhGOxVAJ6BaVRsWDl0M=;
+        b=Oy7ZtZ1SwWXBSDvu8g6SRFeU/Kheea04PMHErVRrlWbiUzNrWn3djZPzIsiAtSpNxH
+         6Be4/G3B90fiwirCIgm6Lb+J3OUr5voIIH+NDbBqHjb4EWuKY07iXtdW56WAU3uBkg2q
+         R2AoRQmD44Hld4H/maYQyWXrYCndcFJQL7Tk8KDpUMBCcqoDcmq8wOsaJnSXp41nkQv7
+         8Hil66oCaE3SbzjpEFhA568dE7QSyzeu4xpvte8M7mRkwBxgnrkgScIeaAmrdXq8BZYU
+         gC/42H+XouGUHqGK+xeopkFTpJaneM7ABKVzxyavFIKfgzRtBRRsPLJ8EyDjP+Oqd3Fz
+         tqXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789955797; x=1790560597;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9iPlkY3CknuAFyY3M8TOGdUAXhGOxVAJ6BaVRsWDl0M=;
+        b=ZhSIyHxqm7xkhPECniNJuhtFkEJfcrobjOBJeSrsr+1GafjoEmSLwifie+OOJUHugj
+         8KMEQq0+pi06M+/L9DisjlHlfEqGyZZO08B3JDZ58/mU0Z679T6Aj4V9eTEgUK63heFJ
+         lkfKWMKVwd/2daY2v85kuPJeg4UNoaGkPlw/Eew3h7shDEVNJ4QGHsrYS9lyLDb74I4m
+         NygNt8NO0qrPnPgOjzeHSEUmQHKPAsHtWuGsjNuaIaJbvMd9XBCD5Q+zbyreAN4gII8u
+         0kEBNIGtL8W87wD7bHAfd64ikRVHHyLCeEakwCBMyXMDOLCwjjCgWHhffWonfYHk7Xju
+         lbrw==
+X-Forwarded-Encrypted: i=1; AKwUvBzfoCoqN9pXrM5NN0WYv8Ri9ZfK6U/nWVBsLJz8HhSbkWLFWuLr1b8jfyinZ3Nwh3Dcip935trICUUfmxNWrBz6@lists.infradead.org
+X-Gm-Message-State: AFuF++lcJ0rvhTArcPvSZtW0vw54sTyRUantYMcj8Wakv4quR3bTY1D5
+	mnXWXONeEhi38TjZzW1+/OvGMaB5N46Do3ry2xSEm6DMJqHjMpTi+DH3
+X-Gm-Gg: AYBFou2n9+QOTMn5GpDfhugh9wXNE69t478yI86aipZv0FImnWFvo3NhiRnaKIpu/iG
+	CP2Ykrixr1ERHChwJjVJP3OI85jM4bvzfOadXiRswODM8A2t2By+RHuYrnmNmW/9mpOw3BF88Rp
+	yx6+2YwFo2cx3W+b/P75c4QlVztMBzS7zBD+zHvtw7fD6U4znLkoEDp15Xee9UFUL1ldYVhF8LM
+	SmMJ9w/uKN03guXWpuu5tQ2dr+3mThny2ZfFfhSXfW5Wt01pN9lJKeF6zki+ZJL4XCP1mlZntqr
+	s/Ers2KYj5hvu7KXnG2AAvMDOOoAWLIgSERtWbytrEug0nYkciV6600xl6YQc4hxTn/LzfEX4Vl
+	3JpZZUFM46ZelHOP6RycSWs+o9cOes6COyM9DSDhFk9bWA++EYlli+2J/cVWw11j/ZkvYDWlLDD
+	+mx2xkeUp2R02W5mye05qBzi1EGS6FOGfP1tLxlbUnLs3GzJysJsplZLuAybowLFwCx9G1SCOxa
+	lf0mpPSAFji73F2uWBj6sNTEEf2jQJnPv/lb+qWw0GNv4AH4wy83GtY9BjkyDmk2WfE4eSCdbrz
+	l9zgwykrSUq+AjDj1AB9LRXvBHCI8YrfiwpFWnb9A4ysJolBMfjBD5bDpSY=
+X-Received: by 2002:a17:90a:d2ce:b0:3a0:42a8:b357 with SMTP id 98e67ed59e1d1-3a042a8b394mr2631643a91.4.1789955796847;
+        Sun, 20 Sep 2026 18:56:36 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a041b87bfesm4094223a91.3.2026.09.20.18.56.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Sep 2026 18:56:36 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM IPROC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: broadcom: rename pl330 DMA nodes to dma-controller
+Date: Sun, 20 Sep 2026 18:56:34 -0700
+Message-ID: <20260921015634.1044454-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/8] drm/connector: pass down IRQ_HPD to the drivers
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Adrien Grassein <adrien.grassein@gmail.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Pengyu Luo <mitltlatltl@gmail.com>,
- Nikita Travkin <nikita@trvn.ru>, Yongxing Mou
- <yongxing.mou@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Francesco Dolcini <francesco@dolcini.it>, Abel Vesa <abelvesa@kernel.org>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org
-References: <20260920-hpd-irq-events-v5-0-ff1de0090c72@oss.qualcomm.com>
- <20260920-hpd-irq-events-v5-2-ff1de0090c72@oss.qualcomm.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260920-hpd-irq-events-v5-2-ff1de0090c72@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa0c1aad18703a7kunm0bf2730011828ad
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZS0xNVh4YQx9JSEhLGB0aGFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=F1wae6Xc2Ll98E4oH3aX72tWpdTNBpUF/4Id0y1xtGULdLtcXmREe+rQNGcB3XdtZo+IKwJ/iDsWwlE1VZ5+iFWx+r8nsHoh8utA9dquAo25H8sCGGSNxUgNNRvgYaEMnEVgr09gpsnUdeon8tvQ8GlQryjz6eiIHmj7zAX49V0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=JkQGzk7JtUmJhDI7/lc646wm8+od1xD4GOgStSiB+TI=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_185318_860795_D8FEB8B1 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260920_185638_067057_F323B1ED 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,144 +103,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+Each PL330 device node in the Cygnus, HR2, and Northstar Plus dtsi files
+was named dma or dma@<addr>, which does not follow the generic
+recommended node name for DMA controllers (dma-controller).
 
-On 9/20/2026 11:01 PM, Dmitry Baryshkov wrote:
-> The DisplayPort standard defines a special kind of HPD events called
-> IRQ_HPD. These events are used to notify DP Source about the events on
-> the Sink side.
-> 
-> Extend drm_connector_funcs::oob_hotplug_event() to pass the
-> notifications about the IRQ_HPD events down to the individual drivers,
-> letting them handle those as required.
-> 
-> Reviewed-by: Pengyu Luo <mitltlatltl@gmail.com>
-> Acked-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
->  drivers/gpu/drm/display/drm_bridge_connector.c | 17 ++++++++++-------
->  drivers/gpu/drm/drm_connector.c                |  2 +-
->  drivers/gpu/drm/i915/display/intel_dp.c        |  3 ++-
->  include/drm/drm_connector.h                    |  3 ++-
->  4 files changed, 15 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-> index 00feb73e63d7..a51567d19550 100644
-> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> @@ -141,7 +141,8 @@ struct drm_bridge_connector {
->   */
->  
->  static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
-> -					    enum drm_connector_status status)
-> +					    enum drm_connector_status status,
-> +					    enum drm_connector_dp_event event)
->  {
->  	struct drm_bridge_connector *bridge_connector =
->  		to_drm_bridge_connector(connector);
-> @@ -154,7 +155,8 @@ static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
->  }
->  
+Rename them accordingly. The phandle labels (dma0/dma) are preserved,
+so existing references via &dma keep working.
 
-It looks like you only changed the function signature. 
-Don't the "bridge->funcs->hpd_notify" inside this function need to pass the event?
+Assisted-by: LLM
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi | 2 +-
+ arch/arm/boot/dts/broadcom/bcm-hr2.dtsi    | 2 +-
+ arch/arm/boot/dts/broadcom/bcm-nsp.dtsi    | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-	drm_for_each_bridge_in_chain_scoped(bridge_connector->encoder, bridge) {
-		if (bridge->funcs->hpd_notify)
-			bridge->funcs->hpd_notify(bridge, connector, status);
-	}
-
-
->  static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bridge_connector,
-> -					    enum drm_connector_status status)
-> +					    enum drm_connector_status status,
-> +					    enum drm_connector_dp_event event)
->  {
->  	struct drm_connector *connector = &drm_bridge_connector->base;
->  	struct drm_device *dev = connector->dev;
-> @@ -163,7 +165,7 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
->  	connector->status = status;
->  	mutex_unlock(&dev->mode_config.mutex);
->  
-> -	drm_bridge_connector_hpd_notify(connector, status);
-> +	drm_bridge_connector_hpd_notify(connector, status, event);
->  
->  	drm_kms_helper_connector_hotplug_event(connector);
->  }
-> @@ -171,16 +173,17 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
->  static void drm_bridge_connector_hpd_cb(void *cb_data,
->  					enum drm_connector_status status)
->  {
-> -	drm_bridge_connector_handle_hpd(cb_data, status);
-> +	drm_bridge_connector_handle_hpd(cb_data, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
->  }
->  
->  static void drm_bridge_connector_oob_hotplug_event(struct drm_connector *connector,
-> -						   enum drm_connector_status status)
-> +						   enum drm_connector_status status,
-> +						   enum drm_connector_dp_event event)
->  {
->  	struct drm_bridge_connector *bridge_connector =
->  		to_drm_bridge_connector(connector);
->  
-> -	drm_bridge_connector_handle_hpd(bridge_connector, status);
-> +	drm_bridge_connector_handle_hpd(bridge_connector, status, event);
->  }
->  
->  static void drm_bridge_connector_enable_hpd(struct drm_connector *connector)
-> @@ -223,7 +226,7 @@ drm_bridge_connector_detect(struct drm_connector *connector, bool force)
->  		if (hdmi)
->  			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
->  
-> -		drm_bridge_connector_hpd_notify(connector, status);
-> +		drm_bridge_connector_hpd_notify(connector, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
->  	} else {
->  		switch (connector->connector_type) {
->  		case DRM_MODE_CONNECTOR_DPI:
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> index 5d4945ea1e95..f0facccb7859 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -3698,7 +3698,7 @@ void drm_connector_dp_oob_status(struct fwnode_handle *connector_fwnode,
->  		return;
->  
->  	if (connector->funcs->oob_hotplug_event)
-> -		connector->funcs->oob_hotplug_event(connector, status);
-> +		connector->funcs->oob_hotplug_event(connector, status, event);
->  
->  	drm_connector_put(connector);
->  }
-> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
-> index 50ed615cf0f6..a2acff240b45 100644
-> --- a/drivers/gpu/drm/i915/display/intel_dp.c
-> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
-> @@ -6800,7 +6800,8 @@ static int intel_dp_connector_atomic_check(struct drm_connector *_connector,
->  }
->  
->  static void intel_dp_oob_hotplug_event(struct drm_connector *_connector,
-> -				       enum drm_connector_status hpd_state)
-> +				       enum drm_connector_status hpd_state,
-> +				       enum drm_connector_dp_event event)
->  {
->  	struct intel_connector *connector = to_intel_connector(_connector);
->  	struct intel_display *display = to_intel_display(connector);
-> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-> index 906aaefca7e1..c3374cd2598e 100644
-> --- a/include/drm/drm_connector.h
-> +++ b/include/drm/drm_connector.h
-> @@ -1884,7 +1884,8 @@ struct drm_connector_funcs {
->  	 * has been received from a source outside the display driver / device.
->  	 */
->  	void (*oob_hotplug_event)(struct drm_connector *connector,
-> -				  enum drm_connector_status status);
-> +				  enum drm_connector_status status,
-> +				  enum drm_connector_dp_event event);
->  
->  	/**
->  	 * @debugfs_init:
-> 
-
+diff --git a/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi b/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi
+index 07ca0d993c9f..a017e46fd78f 100644
+--- a/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi
+@@ -331,7 +331,7 @@ msi1: msi {
+ 			};
+ 		};
+ 
+-		dma0: dma@18018000 {
++		dma0: dma-controller@18018000 {
+ 			compatible = "arm,pl330", "arm,primecell";
+ 			reg = <0x18018000 0x1000>;
+ 			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>,
+diff --git a/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi b/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi
+index 75545b10ef2f..13bc358adcfe 100644
+--- a/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi
+@@ -154,7 +154,7 @@ uart1: serial@400 {
+ 			status = "disabled";
+ 		};
+ 
+-		dma@20000 {
++		dma-controller@20000 {
+ 			compatible = "arm,pl330", "arm,primecell";
+ 			reg = <0x20000 0x1000>;
+ 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
+diff --git a/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi b/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi
+index 6a4482c93167..5f14cd3ce211 100644
+--- a/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi
+@@ -201,7 +201,7 @@ uart1: serial@400 {
+ 			status = "disabled";
+ 		};
+ 
+-		dma: dma@20000 {
++		dma: dma-controller@20000 {
+ 			compatible = "arm,pl330", "arm,primecell";
+ 			reg = <0x20000 0x1000>;
+ 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
 -- 
-Best, 
-Chaoyi
+2.55.0
+
 
