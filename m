@@ -4,161 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92498C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6358BC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 16:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eeu5SElqmUMD6kBDALfXEwO/2IZJ13X0VeDHcgsVAts=; b=wQbcLKNJ0gB14p/s1qg+/CD3q6
-	mrDSCua0wa1qSxnHSMB8QRnst7bm5umBW5uideEGDSHv8HwSW+nbgo+4TDJl0fsfHEPho1Ccd898L
-	rMm+7KeS6JJ9jGtXr4lEfSgr2Shy1UBWz/aF/5/hBqSq8OqAzXyVUCW39yVg17vr7Jip4izSsoOOy
-	vuTlROWzhpB1FuWVWXV4ATXbqoi+7TmfDwGRasVOH/25EmfM5dVRYLzR/uF2krspci5A8vS0lKFpU
-	YK5coOqgVy4Q5Rz/4X4gbwJZLBx6cjVhonjbCHoD0uvnq4yxg1JCg7Wog2Z3SLPEIXX/lITVOPAcf
-	7Y1DwLiw==;
+	bh=PyHmy8r/O5EX/bAIT+ss5mh6M+tcDcvG0zSQ88r4hQM=; b=dOCAtXC2s7Up05dcNVpWcPCkv/
+	oHmhlI526FSn3hveLL87Nc/wPHzX/Md80lx3s876+uepp6PzgoWbu8vSPPCMt87/WQHt4suKoj2At
+	6WLqRJiQZxIPZmas0VuTYt5qYOcTQHwUPZrD15CDunnbKnqlt5crJ/EQ3smjGuslbN1MTQ0LkKSGF
+	c22GCSE5V8KF5UTg7R390fOHVm2q2J0brNrBppJjMbtbGSi/qnlTjF4dakU78cd6Otq/88kssk4iJ
+	2Lgt18xjwyYf2XsB/3Wh/KpWcF/z7oBp9FXIGNP5TIsiYuVo6QSBOTwR8ubxp2K7asyelsAnZYr4B
+	nICS01ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gZH-00000002mMU-21mI;
-	Mon, 21 Sep 2026 16:08:35 +0000
-Received: from mail-swedencentralazon11013030.outbound.protection.outlook.com ([52.101.83.30] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1x8gZr-00000002mTZ-3cGR;
+	Mon, 21 Sep 2026 16:09:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gZE-00000002mLY-3MGC;
-	Mon, 21 Sep 2026 16:08:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bcwUXd5eghpl3OcBmQjtf59A4wzIaFOZThmRlJLTksXqP2CXvs3Qi1OJimUlLXezW3VOtLdURqys7fdyvTZ91VdIYuGqOVhKp2BYkPMgdJg6yh25zOULSl8boyL46Hds3YjmMffBagWDM0rQCxTObPlcvRQIWw34Ww/zgLw0vv3ZwFUlQi4eMgm/iUCBSEf+ZKxVT+vFtdrJAIK69zoRhbMql8Xy+3E1HYMarfWvPwnb/NqqXwNbJRHaXTSBE50orUrKukbQ9MLOmeidIifLpJ0YyFZRz3AJ01zxoouEAqxMULe9QxyW0lJYhAgXW9OXNgMa0bG5cHqOnTYUSmxIxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eeu5SElqmUMD6kBDALfXEwO/2IZJ13X0VeDHcgsVAts=;
- b=dp6lgFbXVH2zWNLtB4baREK5WEJCNCf8O8C90izuMFa59OiY/baJUWQgAf6sX2NShwDQIOidrxXRobsCzG4w2NiyKV975FcG9IgeIfr5atpHW11SvL/Mr8GYK+P9xdVJyeg/yN+6Tnj6B6NqRLcPRYqzgIeCbjn2cub0wxaXV9J6wP2Cqekt3cjCzrAcru3AEIY0e4FeBZFjIfbcprTB9DidbbdEHEgxq/X9mtGeLza9MTVL+y2yinqaakgYE3Fi4cY0YLV/26zPEzZXCf30SByVIwOJ1dkO7DbjhQt7IxOuDahYTe1PMxKh2T5UGp7viIKdRuo15Q9xkp1EndXeQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eeu5SElqmUMD6kBDALfXEwO/2IZJ13X0VeDHcgsVAts=;
- b=I9S5BAxklhCqwSKuMJdi6x3zn5tGIfjHt3c6x9PsALoPeZMe3Q2ZOqmbWTBR9nZ+KKulNMhtDWOhW4R6ghOcUsdfeNFU2Svrq5CR9R3h+CjlwgDuZpBrMemdx8MPVDwiB4aY7yO+lmfkGWKvCk1ZFRqdx/UhNyOWexRAt975UansZirMrJkqzb8TMEhr7/gI7bM2oigPNh7d3s4Xzduepzc8u1mNboaVp8Ohjtq4ut7iOYwsCkgI+jGttiSS/EwLTaUZksfhCrFvCG8sdqg9xnQLdcXhPqpUCaJpjY3MMluw5s7bba/cMPEo4cB4bHUWsqen9LWGRTVgqmjhqsKypQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DUYPR04MB12668.eurprd04.prod.outlook.com (2603:10a6:10:660::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 16:08:27 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 16:08:27 +0000
-Date: Mon, 21 Sep 2026 11:08:13 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Aubin Constans <aubin.constans@microchip.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Linus Walleij <linusw@kernel.org>, Fan Wu <fanwu01@zju.edu.cn>,
-	Vinod Koul <vkoul@kernel.org>, Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Rosen Penev <rosenp@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Zhan Xusheng <zhanxusheng1024@gmail.com>,
-	Pan Chuang <panchuang@vivo.com>, Khalid Aziz <khalid@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Rakuram Eswaran <rakuram.e96@gmail.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>,
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..." <imx@lists.linux.dev>,
-	"open list:OMAP MMC SUPPORT" <linux-omap@vger.kernel.org>,
-	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
-	"open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>,
-	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>
-Subject: Re: [PATCH v3 1/1] mmc: use dmaengine_get_dma_device() instead of
- chan->device->dev
-Message-ID: <arFWbWgzyigSLAEO@SMW015318>
-References: <20260921144426.1083196-1-Frank.Li@oss.nxp.com>
- <arFG6UHs3VRifkBq@shikoro>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arFG6UHs3VRifkBq@shikoro>
-X-ClientProxiedBy: CY5PR19CA0070.namprd19.prod.outlook.com
- (2603:10b6:930:69::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x8gZr-00000002mTH-0TQC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 16:09:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4CDCA60142;
+	Mon, 21 Sep 2026 16:09:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 717A51F000FF;
+	Mon, 21 Sep 2026 16:09:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790006950;
+	bh=PyHmy8r/O5EX/bAIT+ss5mh6M+tcDcvG0zSQ88r4hQM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RmrzuHvYZqJIsUvy0vk/EifYiIphyntnEsNvTkBvL32cJTv2+88OaBhoqzXUSEKqX
+	 50t3XHwV7ptdlhNrCrV031N+NV8JyBnH9y2GphFXHlbgJOYKMBnCdMl0RQC5RpDeuG
+	 iKyc1EMcUlt8K76Na6RURxTKJvIu4J+QeSXJ2L1Loa5Lq66FNoG+wOnDfd4+AKhUmY
+	 e/RV7KLSOHPoaAjctJ3MdvWEF0exj1YmVPj4lvpzh5vHirYvz/cymSoRYDbnC5Ub2v
+	 vfjGKOqtZHRCTwToJGgGn3d4g/MFdJ77eMdBohC2aH7VkxjjZDPegiRZuY9mei7FB8
+	 xAsyfIq9di2hw==
+Date: Mon, 21 Sep 2026 17:09:05 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v4 6/8] firmware: smccc: lfa: Register DT interrupt
+Message-ID: <20260921-aloof-sympathetic-python-54aa7d@sudeepholla>
+References: <20260918141112.2115555-1-andre.przywara@arm.com>
+ <20260918141112.2115555-7-andre.przywara@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUYPR04MB12668:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9480c4db-0051-46f8-1a03-08df17fa91f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|376014|7416014|366016|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: iph9a54kZb9L02c5d2bBHr07Kxg6W8ftoQctrnniEiZaEZZopw4Yjb5oSHWb5JaM0auNZj+5qLvP5M2EChZqSe1WCOe9nEAutV+EVxmekOZO2Iwbgr4eU0kfjoPy+BSklojh+qtFyNZ4n6uiKj+wporcvi71oGe1OekAFKApnjJoEoBuC1o211jJvDLgYxFarUvn70HiyncwpDbfNo+WmgrFQX9dIncUvPiCoSC/s8zIFXD7f2oylk7PWPSaZhf7AK2VCRfyBEO4ABxTYe7SqEYu4eIVOYkp85tIsqv0RHtWAYXnIOdN5LiGA6zNfJQGxvjkm6eOz+GUEsuDNRsM1JzwyyqAqyJn3OkK8kEydodJU4FLh9X3LmCUIMXEfxm7dZc0b0z+6dPSqd22P37VegDd8aukR+MswJQWe29hSZX0/FytmN6qLkecRazgev1dqkBU7NOtwYwo7MMAb6oxKOQ1/NlJXPLEoolECW+F9bZMN/gqxRz4MbOqoLyJUESIvF6MIESQNFq9C743qqylK7jb2xliDG2UFNRB8FQLHONjqAL4oxuZqVLT/hVIfMOrgzWOGL4ouRNUv8RvtOzrNx2GGMSGL4VLwwbEgonHZTxhgoY0QWQCOA5qy8JCPKcZvowsMDf130QsF68efYA1ww==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(376014)(7416014)(366016)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OO66PwKA2AeFc68YhvXiHKQL82jnBoPht8pwwz0VA6jjb/jPS1SnxZrf/4JS?=
- =?us-ascii?Q?sbHtcBu1d2OgEy1Q8cEXUdgj2bhNQedS3Xbh6y6IMe8sUO7EYNqVepIoRyp1?=
- =?us-ascii?Q?0fZ5JzFOZpvvFHa2xmwHK2COLOuJiffpvmP0mcuHh5Gg16fj3fcL1LKQTRt2?=
- =?us-ascii?Q?KBomaoDTNAlUoJPFozUUMQZEZiSSwXN3kKyj/Ts1pc1WaVdSREP1hTBBGGHp?=
- =?us-ascii?Q?/wrNDk+4Z+esvObni1pNL5zewDAgrkvMF2TdGyGPP0EzPIfQTgj2VG5flfui?=
- =?us-ascii?Q?YuLvF+IJah+fxa/qwbJ7RXeNzU4wz3pnLIX6RUkZhNuVPA1+CApNEVLUdnDi?=
- =?us-ascii?Q?/UANJX+5HEbIfcz1z7iAXwmRPFjl5xLKjlJ/DzcRcMjaqcKgPycr49gXr5a4?=
- =?us-ascii?Q?2cUqRJ2ZB2tvUUihqsuSX8aCuiRAN3k4ENRKXwqHjVCx/ay8U0s4/jrUOppM?=
- =?us-ascii?Q?CdRRP5yu+gLfvJdkKJ4uNk0FvnECuA/vJlKZDjlb+nY0iC2YdeMiW+6A0Szl?=
- =?us-ascii?Q?OsXnjCefLYRxSTxeJBkrFVeUQBCuqzm7MB9XJ8GvHQm3JPY3Wz6JwX96p/5/?=
- =?us-ascii?Q?eOaIHNCT4sGy3XnufJ5vSFffTGk0bdNIUIcLOL7B95iopM3MH+CGFPR2zmtx?=
- =?us-ascii?Q?CcG1G5NQxlMWJkam0fg7K1sK1+fhPMpfsQKAMQkAPzaIQdHPtyqtLTuwzwim?=
- =?us-ascii?Q?NFCrhVVuECJcmxLQwY0M12qSIsS6RzrN738MC76vVU6eDjEXxNyW1wKFLlHN?=
- =?us-ascii?Q?3X+Ea9k5l+lzWZHmLrstHhnUn24gytrxwS1/fDu9cdz8FoJgBEqlqDyEcRDT?=
- =?us-ascii?Q?73RqecegxP2lb7nMPFOOapDOJ4Njyxg6RUnwYCp0MQbC7JLwiq+Je9umBCLY?=
- =?us-ascii?Q?LnCVSpGsvKaZ67lxSqZrjNzufqVhy+8gTrcQpu3FmaiFyl9Cfh79TrKQM2kY?=
- =?us-ascii?Q?1tOMKLCa2gwDDCJYOIZ/G6HHBas6szJgqrxkXQA9q8vJHNJgKKa+uqjmFZ62?=
- =?us-ascii?Q?ttu7t5EJqfNKV8hmiTRZrmKEFK74rcfUSn30nNybcjMyJ8qmkeiNtKqPOWp3?=
- =?us-ascii?Q?Z0ohScZkXaD9s4Zk/0Vq+ajObqrH3pIyjCJBa1qkVlusC026EBi1AZ4YuNIp?=
- =?us-ascii?Q?4XHqZvLfSJ+ZLj2KUTt/RH4YkGuEVdnquPCPnQFm5NO9BvXUfc2siiM7KmJP?=
- =?us-ascii?Q?GTn8PXDw2Grbuobj8btwGXwRdwPdCKFcCBgQ3resj1YwWtIgkUXQjEnsy8fO?=
- =?us-ascii?Q?aPsIjJUUiKWEQD9UqOyjndAIfzmuby9n6nCHfLDpsSWks3pBYAoiJYWM1xQc?=
- =?us-ascii?Q?z55kK/Ak+nbtpVqBMRT3Vlp1y162jRvPsb4GObMLyR1q3qIq6ljlpX0CrCt0?=
- =?us-ascii?Q?ysvnhC3yqLQ8VQuq2msnhmTRhVH4+ohLec5BWSMWiuORwjFEgswf3VNBgdwx?=
- =?us-ascii?Q?z4JCMf/vfJmqJjTWXf1qhVAqgT14LCxvfkiGXHzVHzoq+nBp36Q+INNIU/ba?=
- =?us-ascii?Q?Eq+5GnP75j+fHebtmlSrFJtIdOwE/NDoyOrkHiXL9Az5SVm0cUCCuURu6D6O?=
- =?us-ascii?Q?16epfiC2pzxQ7Meyiq8b0j98u/MdBgPEO+FAMTOa6oTkUQPE7uUFn4PexS+Z?=
- =?us-ascii?Q?SfiY15VmvDIa5IDldTYVyExU4WEbtpNZZb4bXadd7ORqkTux3mbJQna6Zmf/?=
- =?us-ascii?Q?ZWJwUBuY8n2eYCRKCVXuSxHs4XtP86yqY0xYmlsUbVgpp/53BezlkNTsC/aD?=
- =?us-ascii?Q?GoKwbg0CJJCKndV5X1vG+V4sDyuxJFjpHvEWbOfizwhx3maxVaXh?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9480c4db-0051-46f8-1a03-08df17fa91f7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 16:08:26.9581
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LFChKBo5HzPC8CRCNheL05TlR2RcrCLVLtIR1j+h/eU7pg3qTvhqj5DOYIsjaTskijZhGevXiR1yID4AClaWEGdd3/CoVuzE5Vkkv9cSZbY3YeXoXncZ6mvrVRjqzWN5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUYPR04MB12668
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_090832_837791_D3F13C9C 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260918141112.2115555-7-andre.przywara@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,19 +65,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 05:02:01PM +0200, Wolfram Sang wrote:
->
-> > eviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
->
-> Missing 'R' at the beginning. checkpatch would have reported this,
-> please put it in your loop.
+On Fri, Sep 18, 2026 at 04:11:09PM +0200, Andre Przywara wrote:
+> The Arm Live Firmware Activation spec describes an asynchronous
+> notification mechanism, where the platform can notify the host OS about
+> newly pending image updates.
+> In the absence of the ACPI notification mechanism also a simple
+> devicetree node can describe an interrupt.
+> 
+> Add code to find the respective DT node and register the specified
+> interrupt, to trigger the activation if needed.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/firmware/smccc/lfa_fw.c | 39 +++++++++++++++++++++++++++++++++
+>  1 file changed, 39 insertions(+)
+> 
+> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+> index 7a55b4a6785d8..a23df331ffde9 100644
+> --- a/drivers/firmware/smccc/lfa_fw.c
+> +++ b/drivers/firmware/smccc/lfa_fw.c
+> @@ -16,6 +16,8 @@
+>  #include <linux/list.h>
+>  #include <linux/module.h>
+>  #include <linux/nmi.h>
+> +#include <linux/of.h>
+> +#include <linux/of_irq.h>
+>  #include <linux/psci.h>
+>  #include <linux/stop_machine.h>
+>  #include <linux/string.h>
+> @@ -871,6 +873,37 @@ static void lfa_remove_acpi(struct device *dev)
+>  }
+>  #endif
+>  
+> +static irqreturn_t lfa_irq_handler_thread(int irq, void *dev_id)
+> +{
+> +	int ret;
+> +
+> +	while (!(ret = activate_pending_image()))
+> +		;
 
-Sorry, I missed run checkpatch before send.
+Yet again trusting firmware too much!
 
-Frank
+> +
+> +	if (ret != -ENOENT)
+> +		pr_warn("notified image activation failed: %d\n", ret);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int lfa_register_dt(struct device *dev)
+> +{
+> +	struct device_node *np;
+> +	unsigned int irq;
+> +
+> +	np = of_find_compatible_node(NULL, NULL, "arm,lfa");
+> +	if (!np)
+> +		return -ENODEV;
+> +
+> +	irq = irq_of_parse_and_map(np, 0);
+> +	of_node_put(np);
+> +	if (!irq)
+> +		return -ENODEV;
+> +
+> +	return devm_request_threaded_irq(dev, irq, NULL, lfa_irq_handler_thread,
+> +					 IRQF_COND_ONESHOT, NULL, NULL);
 
->
+And where can I find free_irq() ? Yes devm_() can do that for you but how
+does that work with races around removal of device for example. I prefer
+to have free_irq() at the very beginning of lfa_remove().
+
+> +}
+> +
+>  static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+>  {
+>  	struct arm_smccc_1_2_regs reg = { 0 };
+> @@ -913,6 +946,12 @@ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
+>  			pr_info("registered LFA ACPI notification\n");
+>  		if (err != -ENODEV)
+>  			return err;
+> +	} else {
+> +		err = lfa_register_dt(&sdev->dev);
+> +		if (!err)
+> +			pr_info("registered LFA DT notification interrupt\n");
+> +		if (err != -ENODEV)
+> +			return err;
+
+More code addition with absolutely no error handling 🙁.
+
+
+>  	}
+>  
+>  	return 0;
+> -- 
+> 2.43.0
+> 
+
+-- 
+Regards,
+Sudeep
 
