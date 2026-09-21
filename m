@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C63C982FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE0FC982EE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oSFZ2mFA8VKpkq2eozLxDfSa3b2z9uge5jLEZ5PpWWU=; b=zc7A4f4fTiZbM5UxBVHFszv0yj
-	Ke8Gy5aZQKz/uPkhQYWAqFXvP0k446s5vjJWZf8asMDXaQyJ34iHimDj32Sufnif9vwgOSWndG+y1
-	RGC0kpXeR1eapYktFxyOrWoDw21kN2nmPLbSsYfNh269X+TAw59FGuc67flkJdohDUjW+hPS9hlx+
-	4tBS0f30DLi4csupdZmZFKg5rgcp6IRizMmvbqKiXM5jJ3DwexAqxzxBmqPsdh/orHHctwGtSTzpb
-	LgtEeqO5MctP52hD3+j1N2RBjVZls+I1zTceHd7cft2UqTuY2H8K1+RUZ7lmqHwUoWj/cMdHkHdp5
-	te214BBQ==;
+	bh=rG0PGngxZ9eJCxWKdqWKn36vkLKB7SwSqjxijh1UYCU=; b=cY/t9SOv6ZCx7UmhbOt4JXi0ak
+	769Xoe9aX2CIAOe5TodPijj/7Dsyyk5JGhdbJUGJEH0EA4oOmhDX0kwzSC7BzN78rWlx5vboR/DC2
+	+ski2cSxDTvLAiP/MHUUDnnoMQVQqC2P5wxBDqDZDHNv6Iy6JXSFLlXLAjU69WBcA9aJ1UwfWcIZu
+	YlFzSzsuxpcUVCDyH36nlqEr0wrGY6Y40KPqeO+eQzqfJ7xdse/mdoNxLrBKoceswgzDT0Qx/iI6E
+	Edmhwdqmroq7bVlmXMfEZ/toZ4NremQ3vsDw4p17wN0Szg37H6DgWOIRpyS8Ai9PkkGySBxLsctRx
+	043eCGvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fza-00000002cXG-3rZ0;
-	Mon, 21 Sep 2026 15:31:42 +0000
+	id 1x8g00-00000002csZ-26hE;
+	Mon, 21 Sep 2026 15:32:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fzV-00000002cTu-2OuB
+	id 1x8fzc-00000002cYe-0K79
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 15:31:39 +0000
+	Mon, 21 Sep 2026 15:31:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=oSFZ2mFA8VKpkq2eozLxDfSa3b2z9uge5jLEZ5PpWWU=; b=gEgQpAhk6OBQ5VBkyT/bu/WaMi
-	Pl1wK6MIaRHKOAe/kEUeVnbuOVGA2GMo6owuXH/0o8ERnn7NTnoaJC+H9X4T4GItB2WoTsvvY8I5b
-	MiQ60ZUM47CrSrRPR4wBBrOo0eQoGnBrDC/hKpcUCDjMVZLhofFxwesNU/iWtjgO6Yxusbc9DEuSd
-	gEbumawD9Bldy9jZqHdjZ5ZAj/ymSlOZnYZ9cz4k4ljzG0YxtTd89Cu39lgpL05txaGqa5unILDM8
-	zPqxs4w2INX7Lz3Prw2T9oAH+CqLhhb/YChi68hZV3YFdKSoPTw51buO8UucHWWdnxgSraZJ6CvON
-	vARvd3tw==;
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	bh=rG0PGngxZ9eJCxWKdqWKn36vkLKB7SwSqjxijh1UYCU=; b=NenCZRWbqf4ZDW2ZEY8rDd9Bku
+	DF54R/+ykuv62De3FVbObzTd94mTzbpb6p9Lq5y+qV9hIH7XlYipPMXQP5QpH+T93GO7+1dasmpME
+	eQJlhM+e+aDF6S3eqxVf8tbKJGWuzSpbxsRE1AtWBqXw2wA3EiimaY8hf9eTgTRfOAPxKziCLpuye
+	CWr+kHj0uhs00p4NWz4Ue3HVGlLKPjBqAg/+BdXJyzqv+LyMPaowbYZ7UQZo+qQOriWB08PBKSFzI
+	RsukiKVfkAYUW90PVqQxqV7J+Qnw06GgxSdEjdcRtD+ve3j8mNcUyrDyWgo/DLEvsQGp+Dfd2FTDH
+	DPT8XMRA==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8fzR-0000000CTg7-24qP
+	id 1x8fzV-0000000CThI-3GTP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:31:35 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-482f63546c5so2469070f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:31:32 -0700 (PDT)
+	Mon, 21 Sep 2026 15:31:39 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4858bc96fabso2552065f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:31:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790004691; x=1790609491; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790004696; x=1790609496; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oSFZ2mFA8VKpkq2eozLxDfSa3b2z9uge5jLEZ5PpWWU=;
-        b=FeQ2S/vkcLipfLF8VzZRHeRWjPMvKdJxHivbi/wy7tA4QD1zIE7hrMhLu+wVJIIb9Q
-         gegbf07/+uzH3Q3bFyxDvQfI3IqCYau9NlQZpIYx0PE+g/PYPSkp/iGUzjKw34NOcvSw
-         RKb3GHSlJpttLFokZlNnrz4wUw9yVJap0NBNyblR9z5J4gokWPgU7ulYGVey5JJCBkoC
-         ZlvNDc6rh5Gj0TyJnvYpzvKe83wGoy4g91dPz9TaxLd9BRVsoaRbFMyk0DJToPzMg7pI
-         EDOgrNFzqbDIS6696D/08+o/zlj4NuI9v5b0hSZFtAiAoLhpqfbn1LqyG0oHeDeIBXav
-         WPyQ==
+        bh=rG0PGngxZ9eJCxWKdqWKn36vkLKB7SwSqjxijh1UYCU=;
+        b=CO0xy9swKagvHKnXEKMiiM0vPElyF5+MIv8j6nmctwqUzhlrfhBWZ1+IzXpF9s26b5
+         GCEqXXXgDbnuY2ymM1z6GOispNeX75rV1aT29GmF7pHALxzs8XYHg4AtTzDDiIByKsze
+         sq1ZUhqcmRiOHhl6Gh8CmnB0Fl6dYzpfeylh2GBRFBKKqjngdXXIcnpWzljA7Jq+e5eC
+         a/Qm+B6tkwNWZxgZkeYOckI4Sz5cei7jXSs1w/bu1xBvMpUE9yTuZu6dLioFattIeBZD
+         XxvqIfIm5o/Kzdq4ULimRz+l2g487xikd/IUHE/nzmM2iaQVopggTvgGKcduF6JNHZ3B
+         Yzbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790004691; x=1790609491;
+        d=1e100.net; s=20260707; t=1790004696; x=1790609496;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=oSFZ2mFA8VKpkq2eozLxDfSa3b2z9uge5jLEZ5PpWWU=;
-        b=lzkgsOHurrgM6TMG0+K0vhaV0PdYLtCbBftzz01wBHJDUKMWJjxqoJD9x/EJWA5WsP
-         hCY/FWicSJ+Umu9NUmnS/msJ32dtut21cgfqzgu0JpGQlC2h5fkkyOVB7Kkt4lRR58GD
-         U0FrB6DCOi2kVSH5RNOK50G43TgszZFX9rHsq+p/DRrhWtHyoOL9UvbO0100nDL9X004
-         Gufp1RINRHZ1GrLpyIEQ5TAo8gPuiU9FrzBVywg7MfDo5s5tinhYnfjIu/JmTOp/iG7X
-         fd3lks6GwR52P7ix2qAKwZrMxDCoYx+Rf3e4qJCvXFbTtS902LxEc2auDARbgalPERzW
-         wC/g==
-X-Forwarded-Encrypted: i=1; AKwUvBww006p6dT9V99vIk73dJsEUD/aEfacTHjisOibTvgy9QO1D+RcWDLWu6rlAjLJMt8dBvyd/bmF7d1FUbBjCeDL@lists.infradead.org
-X-Gm-Message-State: AFuF++k/Pi6QrBJjFtVHg1LyKv18niIWe76Zp7fkgDY+LOQvshNEBO6h
-	ze47rnNOMwLQZ555b2rTWT2Jo+A62iLHdj91K05qr3OfB9iCr3pcpGFp
-X-Gm-Gg: AYBFou05EjdyaYGgWt8vb/YYhRLzVQsey0oLpSpj+QHZWdqLXnHFoXMJCo5B8e1F31Q
-	+dxWL3UC3U7IjunESSG/vcCj/NGIbxg+RPHvj1fUVDeLKC4z2/Cpp2pyg/n/ezWatJQuztYgQhX
-	b/mszS9Eb4XYRWbaTMLZG7134hJT8zlkhrbi6sEV2rZjE/5L/48YOoQaFR3Kg217R0vWvOUUbes
-	BwrUD0uQQZPbe6SUAoI6g+9vw9uy5jB7uKYmq4Jd5ptlaOqB3Cb/PDsidJmcgwr1LqqyrAx9+CH
-	+PFPcH6yi4jmHGXXIOcxQjrcVRMw3U6peDz6Z06cWQAxk3sHz+GIywCZo9jflQO2t3kVDbl5ltD
-	oKgws8g1wh/BPw3mP1ftl1XQAdaQyBTafIyQ14/yXqdfNarsHrN6jzsqSaMsiv+DADF47VPiTgE
-	PUU0r1agqCQwN0Af7qwtkKO596U3GRqN3OZlr0umTfps9G9CRj6/8Kep43oA1W4vGpKLSFlKuUk
-	DxRzJQpaTTk1QI+mh565RjsVEYRMdNio5nC5Iapmmq+ZamI0HBP3UGO5Q==
-X-Received: by 2002:a05:6000:4b13:b0:487:1687:197d with SMTP id ffacd0b85a97d-4871e212458mr14317492f8f.6.1790004691345;
-        Mon, 21 Sep 2026 08:31:31 -0700 (PDT)
+        bh=rG0PGngxZ9eJCxWKdqWKn36vkLKB7SwSqjxijh1UYCU=;
+        b=fWgjJo9Fc1khA1EYieTEHlUMoBASvD48pajnekhehUvTA0LJ4d5FDE3usjDglATV/M
+         M0M4WYhw5qo2y9MzTNh4xazHgemyVmW2NYlGdQ70NrdqR5pDSz5SzbWPuIZRf/Kjx1+Z
+         qEd/wxtLcTlezV1M+ZDx8Zi1v62ycyMWAZXWI0Z4hFe1y3dsIog+RBZtkSqDUUdnveqK
+         FjCrc58OYQK/yky821/XpUSBxdnWdsp21EJa//zTNZCxjx9hqScxlHKknmj20WGYUQa1
+         pdp+sOVgi/ATqsgkM8pbrQp5370xQhg/4RHx5Car6TN05x2w21mpXILMFZ2/RbyF9wgp
+         0M2A==
+X-Forwarded-Encrypted: i=1; AKwUvBwtHKe2wXvdP2cGTDG6C2zIsvU0GMs6SE9X564PiSknh2lFjLItzDzuoeHlyOE1vknNzPe5FzzkOhuZ/XYVh58d@lists.infradead.org
+X-Gm-Message-State: AFuF++mcV1eTUmzXtpsEIx7j2OmqAc51UUp5Oc5XtIHZQQgwZjYCSKdz
+	8ufjmBDLQLrmIuDhGAO8vpfVC5J3rENMCSuhW/XbFXWk7BptjeX5gdiP
+X-Gm-Gg: AYBFou3lW7s9430FQUiujIL98Ed8wlGynJAPR5rA3OCuQmYzUyoRy2eCgW9KmSuBQik
+	0nr5XQlqyKBGtk23m4tSj5FsPUPOVzST6Wh426tyuxkS/h7LUB3vkiXgWvmg5EeIUyF4pYZRdKY
+	wk2QqJYQdWIOWTH8u/Dg0VcUuDeYzEdIhO1rCZZjGOMP5sSEBMzoHkDU04HzsN/IQB+RgchNkRP
+	DAuj4jWCon5JiKbBmk5TzBhyFeOjPaCLxvdTy0oTrIVoBm4P4LW+MEE6LFdnO2DRMxoZCW0qBka
+	ZNmZ9Cg58oUO/89R6smzZ1AwLLANNmYxseOpCWYOrwzPvjStk0k5NnGKRa3Alo2+CrGRiG00cth
+	XDlSzxT4OJA6kRRqD9lL/9eRwdFlNXn+5Y9a+bwEqpzk/Dig+BpMQ28i5e6Tgl7LUsdeWAdD0XP
+	gfgsx1SNTfJh5od6Due7O79TnpMUGSWbb6GEbXivIBi8pNJNXJasL4aFo9aVxdll/Fuz2LflQqC
+	dbgUrYNCJEgoCgUXZnoL0fnigo9pG07UbABqkqGTd+F8lY+4498UOD5nQ==
+X-Received: by 2002:a05:6000:26cc:b0:486:f9d9:fe0d with SMTP id ffacd0b85a97d-4871e3961dcmr15911596f8f.29.1790004696322;
+        Mon, 21 Sep 2026 08:31:36 -0700 (PDT)
 Received: from [127.0.1.1] (lmontsouris-656-1-83-121.w82-127.abo.wanadoo.fr. [82.127.110.121])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724562aebsm25313835f8f.14.2026.09.21.08.31.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724562aebsm25313835f8f.14.2026.09.21.08.31.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 08:31:29 -0700 (PDT)
+        Mon, 21 Sep 2026 08:31:35 -0700 (PDT)
 From: Amin Gattout <amin.gattout@gmail.com>
-Date: Mon, 21 Sep 2026 17:29:57 +0200
-Subject: [PATCH v2 1/5] media: dt-bindings: add rockchip rk3576 vicap
+Date: Mon, 21 Sep 2026 17:30:01 +0200
+Subject: [PATCH v2 5/5] arm64: dts: rockchip: add vicap node to rk3576
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-vicap-rk3576-v2-1-0a4582e20c72@gmail.com>
+Message-Id: <20260921-vicap-rk3576-v2-5-0a4582e20c72@gmail.com>
 References: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
 In-Reply-To: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -102,19 +102,18 @@ To: Mehdi Djait <mehdi.djait@linux.intel.com>,
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Amin Gattout <amin.gattout@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ linux-kernel@vger.kernel.org, Amin Gattout <amin.gattout@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790004687; l=3185;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790004687; l=3338;
  i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=8UIbOajv/WeBQjxhRwQ8WC4GpLGZ30N+4iDWN0b6s8o=;
- b=lKpSlM1nNUiAbgX0spgPXAk0GpWUq8d3KoePWyxk4ZSDU3HkmiPsECMZUnE7pYP6SmzdfHjUv
- odFPQ1dailNC0o+hdS/dO7TmYRMTNNv9fogQQIDl+DajAdYmtsxsM90
+ bh=ZC4qyA+QqW+G5Bs4L+6PfR/B7WGJI496vaWFRnkBXSU=;
+ b=0LFg7TskclcAaCKsLisQlh1M5J7hMLHO+H4Vs4clqqE8Vi5mMqDn0Btt6CcQ37cSRzpVaha+6
+ WJotjvQpMwjD/J9lQ19LZJojwTq6AFHEacSCgvrUauDIJ1MgRuVpGdE
 X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
  pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_163134_057945_06976BBC 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260921_163138_022958_AB568ADB 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,115 +128,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for the Video Capture (VICAP) unit of the Rockchip
-RK3576. This variant features five MIPI CSI-2 ports and a connection
-to the image signal processor (ISP). The pixel clock of each MIPI port
-enters the VICAP through a dedicated gate in the clock and reset unit,
-so the variant takes five interface clocks and five interface resets
-in addition to the aclk, hclk and dclk of the other variants.
+Add the device tree node for the Video Capture (VICAP) unit of the
+RK3576 and its IOMMU, and connect the VICAP to the two MIPI CSI-2
+receivers that are usable with the MIPI D-PHYs in full mode.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
 Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 ---
- .../bindings/media/rockchip,rk3568-vicap.yaml      | 46 +++++++++++++++++++++-
- 1 file changed, 45 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 83 ++++++++++++++++++++++++++++++++
+ 1 file changed, 83 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-index 080b64503b1b..b7dfaf3b378d 100644
---- a/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-+++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-@@ -15,6 +15,10 @@ description:
-   the data from camera sensors, video decoders, or other companion ICs and
-   transfers it into system main memory by AXI bus.
- 
-+  The Rockchip RK3576 Video Capture (VICAP) is similar to its RK3568
-+  counterpart, but features five MIPI CSI-2 ports and an additional
-+  connection to the image signal processor (ISP) block.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index cbf8b70cc15a..0c46accf5657 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1323,6 +1323,81 @@ vdec_mmu: iommu@27b00800 {
+ 			rockchip,disable-mmu-reset;
+ 			#iommu-cells = <0>;
+ 		};
++		vicap: video-capture@27c10000 {
++			compatible = "rockchip,rk3576-vicap";
++			reg = <0x0 0x27c10000 0x0 0x800>;
++			interrupts = <GIC_SPI 318 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>,
++				 <&cru DCLK_VICAP>,
++				 <&cru CLK_VICAP_I0CLK>, <&cru CLK_VICAP_I1CLK>,
++				 <&cru CLK_VICAP_I2CLK>, <&cru CLK_VICAP_I3CLK>,
++				 <&cru CLK_VICAP_I4CLK>;
++			clock-names = "aclk", "hclk", "dclk",
++				      "iclk", "iclk1", "iclk2", "iclk3", "iclk4";
++			iommus = <&vicap_mmu>;
++			power-domains = <&power RK3576_PD_VI>;
++			resets = <&cru SRST_A_VICAP>, <&cru SRST_H_VICAP>,
++				 <&cru SRST_D_VICAP>,
++				 <&cru SRST_VICAP_I0CLK>, <&cru SRST_VICAP_I1CLK>,
++				 <&cru SRST_VICAP_I2CLK>, <&cru SRST_VICAP_I3CLK>,
++				 <&cru SRST_VICAP_I4CLK>;
++			reset-names = "arst", "hrst", "drst",
++				      "irst0", "irst1", "irst2", "irst3", "irst4";
++			status = "disabled";
 +
-   The Rockchip RK3588 Video Capture (VICAP) is similar to its RK3568
-   counterpart, but features six MIPI CSI-2 ports and additional connections
-   to the image signal processor (ISP) blocks.
-@@ -23,6 +27,7 @@ properties:
-   compatible:
-     enum:
-       - rockchip,rk3568-vicap
-+      - rockchip,rk3576-vicap
-       - rockchip,rk3588-vicap
- 
-   reg:
-@@ -33,7 +38,7 @@ properties:
- 
-   clocks:
-     minItems: 4
--    maxItems: 5
-+    maxItems: 8
- 
-   clock-names:
-     items:
-@@ -42,6 +47,9 @@ properties:
-       - const: dclk
-       - const: iclk
-       - const: iclk1
-+      - const: iclk2
-+      - const: iclk3
-+      - const: iclk4
-     minItems: 4
- 
-   iommus:
-@@ -221,6 +229,40 @@ allOf:
- 
-             port@11: false
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3576-vicap
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 8
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+        clock-names:
-+          minItems: 8
++				vicap_dvp: port@0 {
++					reg = <0x0>;
++				};
 +
-+        resets:
-+          minItems: 8
-+          maxItems: 8
++				vicap_mipi0: port@1 {
++					reg = <0x1>;
++				};
 +
-+        reset-names:
-+          items:
-+            - const: arst
-+            - const: hrst
-+            - const: drst
-+            - const: irst0
-+            - const: irst1
-+            - const: irst2
-+            - const: irst3
-+            - const: irst4
++				vicap_mipi1: port@2 {
++					reg = <0x2>;
 +
-+        ports:
-+          properties:
-+            port@6: false
++					vicap_mipi1_input: endpoint {
++						remote-endpoint = <&csi1_output>;
++					};
++				};
 +
-+            port@11: false
++				vicap_mipi2: port@3 {
++					reg = <0x3>;
++				};
 +
-   - if:
-       properties:
-         compatible:
-@@ -230,9 +272,11 @@ allOf:
-       properties:
-         clocks:
-           minItems: 5
-+          maxItems: 5
++				vicap_mipi3: port@4 {
++					reg = <0x4>;
++
++					vicap_mipi3_input: endpoint {
++						remote-endpoint = <&csi3_output>;
++					};
++				};
++
++				vicap_mipi4: port@5 {
++					reg = <0x5>;
++				};
++
++				vicap_toisp0: port@10 {
++					reg = <0x10>;
++				};
++			};
++		};
++
++		vicap_mmu: iommu@27c10800 {
++			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x27c10800 0x0 0x100>;
++			interrupts = <GIC_SPI 319 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>;
++			clock-names = "aclk", "iface";
++			power-domains = <&power RK3576_PD_VI>;
++			rockchip,disable-mmu-reset;
++			#iommu-cells = <0>;
++			status = "disabled";
++		};
  
-         clock-names:
-           minItems: 5
-+          maxItems: 5
+ 		csi1: csi@27c90000 {
+ 			compatible = "rockchip,rk3576-mipi-csi2", "rockchip,rk3568-mipi-csi2";
+@@ -1346,6 +1421,10 @@ csi1_in: port@0 {
  
-         resets:
-           minItems: 9
+ 				csi1_out: port@1 {
+ 					reg = <1>;
++
++					csi1_output: endpoint {
++						remote-endpoint = <&vicap_mipi1_input>;
++					};
+ 				};
+ 			};
+ 		};
+@@ -1372,6 +1451,10 @@ csi3_in: port@0 {
+ 
+ 				csi3_out: port@1 {
+ 					reg = <1>;
++
++					csi3_output: endpoint {
++						remote-endpoint = <&vicap_mipi3_input>;
++					};
+ 				};
+ 			};
+ 		};
 
 -- 
 2.43.0
