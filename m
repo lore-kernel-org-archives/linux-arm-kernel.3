@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EC2C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C82C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4wYZlc/qQMgTe04jHDjaGrlbvA6eb7ylxMAolUqBcg=; b=zjDaEcBQQ887TAl6jXHnw08cQx
-	TSwW4N5RXs+HA7KXNXIjgV6Td71sDljqZYzasEx7M1sLLn+pYEk+03ERCTOHUGcW+DYFiTICWQ7fv
-	vEXNcvIEXO7YKJ/lTQ7mUzhjNXBslT6krczF0NIfILZYywyPM8El5yi8uotUhCdcKDdwvTq/FF0mj
-	4vVNhhaRhI0zkThSnk0siDdj6VnkIVn6VqfUvYaz61Egh6UXE8it2zm3nT2FiMtvFDjK2bwjC6wBT
-	mxMpHtFVnuIU4iVbS7mAeVeRo4inE4FahK5KYgwrG0JHr8kBaBV63Vx8XIan+ZKlRW5bFyjqWN79l
-	n8N4qJAw==;
+	bh=tzE636cVh2JJVlZjpsk49ae/rOjGWKwBn3JBb6NY11I=; b=BPcBVj4C5LSeZ+QrweVEamQYjx
+	xdDPgN75JkEEcA4VDxZDgNAx/RBuSo3AFtIZcq/SyO8f0pxBW2kauF71FkQSXbkNKKr7y5KP5PiKD
+	tKHfkYn0Tu3p88xnN9ctPT7CTuzWLt9L6hgT0VTGXv5VCiDtoeTvRQVL0/cJl0P6wEaRvGOjcn2hz
+	cvRm2Up43XOcw+Kfsw5L50b54ZMkI8UuAAiYZzlZ3hF9tMDGObzgBJ9IQzJQ0f2T3TVG+3XSr5y1U
+	w2uRoh9zJgY2iaOwCR9qU/NkHDhSoLvy7GBvM9wz5HMvI48v3U/3G9P+x1jsAIPK69IkNW6SlenjK
+	KkltRWxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8aot-00000001bs2-16sB;
-	Mon, 21 Sep 2026 10:00:19 +0000
+	id 1x8arY-00000001cJb-2JkL;
+	Mon, 21 Sep 2026 10:03:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8aor-00000001bqp-0C8L
+	id 1x8arV-00000001cJ4-21to
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:00:18 +0000
+	Mon, 21 Sep 2026 10:03:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD5B6153B;
-	Mon, 21 Sep 2026 03:00:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC1CC1CE0;
+	Mon, 21 Sep 2026 03:02:56 -0700 (PDT)
 Received: from [10.0.128.141] (unknown [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED95B3F86F;
-	Mon, 21 Sep 2026 03:00:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A6DB3F86F;
+	Mon, 21 Sep 2026 03:02:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789984815; bh=KAHxQyCLffudv7kQ3tADcUX1WeHMPGpfPiNr5Zb4Uh8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XIoXtAaMDOmRwnyu8sQf9DbMLWTCBU9V5oWmQUBvvcAE0iV7BleEDJn/HYfi8FPS4
-	 WURSswpMLg10IEqSoRXoWQTAKT605tz3LQp9wSC1XsWgay3+UaMl75Zq22llLh57WA
-	 qG+44nuymFX6VWTfsKEBT31BtsVckOC8JfB6jbVg=
-Message-ID: <f927f542-cf96-4dd3-a4ec-94883ba10ce6@arm.com>
-Date: Mon, 21 Sep 2026 11:00:11 +0100
+	t=1789984980; bh=2Bi9HNrID2cE7gcX784v6dveXii59tEhPSRzCiZgdgs=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=blOJwDP8A/onBBJLnCPxUp9mIb8MzS7wS1+7wngcIelq7GcWJvaTjSVFF1Ytq/w3R
+	 x1av8/QUs0lhT01IoJteJ3chVaJ+FHMaSGYVCI5C4ujUt7eSTRkRLr5foUzByLlrWt
+	 EwI7qlCQh+NLED+A0IIYKTIEedohHbTqb02OPxBY=
+Message-ID: <45fb9520-7003-412f-9ab1-14e2a762c816@arm.com>
+Date: Mon, 21 Sep 2026 11:02:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 4/7] arm64: realm: Move Realm memory encryption ops to
- RSI code
+Subject: Re: [PATCH v18 1/7] firmware: arm_rmm: Add SMC definitions for
+ calling the RMM
 Content-Language: en-GB
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
- Andre Przywara <andre.przywara@arm.com>,
- Suzuki K Poulose <suzuki.poulose@ram.com>
-References: <20260921053807.354802-1-aneesh.kumar@kernel.org>
- <20260921053807.354802-5-aneesh.kumar@kernel.org> <arDwTjQiqF6VZOau@arm.com>
- <yq5a5wzz3rfo.fsf@kernel.org>
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <yq5a5wzz3rfo.fsf@kernel.org>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-2-suzuki.poulose@arm.com>
+ <178978126540.2352296.16845657485139032765.b4-review@b4>
+ <d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
+In-Reply-To: <d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_030017_139478_3B5BC975 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_030301_650999_3F045A84 
+X-CRM114-Status: GOOD (  32.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +80,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 10:05, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> 
->> On Mon, Sep 21, 2026 at 11:08:04AM +0530, Aneesh Kumar K.V (Arm) wrote:
->>> Realm memory encryption callbacks are CCA-specific. Keep the Realm callback
->>> registration with the RSI initialization code instead of pageattr.c, which
->>> only needs to provide the low-level page-attribute transition helper.
+On 21/09/2026 10:27, Suzuki K Poulose wrote:
+> On 19/09/2026 02:27, Jonathan Cameron wrote:
+>>> The RMM (Realm Management Monitor) provides functionality that can be
+>>> accessed by SMC calls from the host.
 >>>
->>> Export __set_memory_enc_dec() within arm64 so the RSI code can wrap it with
->>> the Realm-specific encrypt/decrypt callbacks and warning policy.
+>>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
 >>>
->>> No functional changes in this patch.
+>>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
 >>>
->>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@ram.com>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 >>
->> Nit: Suzuki's still at arm ;)
-
-;-)
-
+>> With Gavin's nitpicks and the GENMASK_ULL() from sashiko, just a few
+>> comments inline.  Mostly on subtle inconsistencies that really don't
+>> matter that much.
+>>
+>>>   include/linux/arm-smccc-rmi.h | 497 ++++++++++++++++++++++++++++++++++
+>>>   1 file changed, 497 insertions(+)
+>>>   create mode 100644 include/linux/arm-smccc-rmi.h
+>>>
+>>> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc- 
+>>> rmi.h
+>>> new file mode 100644
+>>> index 000000000000..214d6228dfc2
+>>> --- /dev/null
+>>> +++ b/include/linux/arm-smccc-rmi.h
+>>> @@ -0,0 +1,497 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0 */
+>>> +/*
+>>> + * Copyright (C) 2023-2026 ARM Ltd.
+>>> + *
+>>> + * The values and structures in this file are from the Realm 
+>>> Management Monitor
+>>> + * specification (DEN0137) version 2.0-bet3:
+>>> + * https://developer.arm.com/documentation/den0137/2-0bet3/
+>>> + */
+>>> +
+>>> +#ifndef __LINUX_ARM_SMCCC_RMI_H_
+>>> +#define __LINUX_ARM_SMCCC_RMI_H_
+>>> +
+>>> +#include <linux/arm-smccc.h>
+>>> +#include <linux/bitfield.h>
+>>> +#include <linux/bits.h>
+>>> +#include <linux/build_bug.h>
+>>> +#include <linux/sizes.h>
+>>> +
+>>> +#include <asm/page.h>
+>>> +
+>>> +#define SMC_RMI_CALL(func)                \
+>>> +    ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,        \
+>>> +               ARM_SMCCC_SMC_64,        \
+>>> +               ARM_SMCCC_OWNER_STANDARD,    \
+>>> +               (func))
+>>
+>> Obviously it is v18 so probably a future thing but nothing about this
+>> is RMI specific.  Could be used for ARM_SMCCC_TRNG_RND64 for instance.
+>> I'm not entirely sure what we'd call such a macro
+>>
+>> ARM_SMCCC_CALL_VAL64_STD() maybe?
+> 
+> ARM_SMCCC_STD_CALL64_VAL() ?
+> 
+> But, I would leave it as a wider cleanup in the tree as a separate
+> series.
+> 
+>>
+>> I'm not just not keen on macros whose names to me hint at something
+>> special. FWIW this also matches SMC_RSI_FID() and FFA_SMC64().
+>> Isn't it nice when we have a predictable naming scheme :)
+>>
+>> FID (for Function IDentifier) is in the spec, so maybe?
+>>
+>> Anyhow, I don't really care that much.
+>>
+>>> +
+>>> +#define SMC_RMI_VERSION                SMC_RMI_CALL(0x0150)
+>>> +
+>>
+>>
+>>> +#define RMI_ABI_MAJOR_VERSION    2
+>>> +#define RMI_ABI_MINOR_VERSION    0
+>>> +
+>>> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
+>>
+>> I'd mask it.  Mostly because that would shout that it is only 15 bits.
 >>
 > 
+> Ack
 > 
-> Will fix. I copied it from:
+>>> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+>>> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+>>
+>> I'd go all in on FIELD_PREP() / FIELD_GET() + GENMASK just for the
+>> sake of consistency + not having to be careful that everything is
+>> checked for fit to keep the LLM bots happy.
+>>
+>>> +
+>>> +#define RMI_RETURN_STATUS_MASK        GENMASK(7, 0)
+>>> +#define RMI_RETURN_INDEX_MASK        GENMASK(15, 8)
+>>> +#define RMI_RETURN_MEMREQ_MASK        GENMASK(9, 8)
+>>> +#define RMI_RETURN_CAN_CANCEL_MASK    BIT(10)
+>>> +
+>>> +#define RMI_RETURN_STATUS(ret)        
+>>> FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
+>>> +#define RMI_RETURN_INDEX(ret)        
+>>> FIELD_GET(RMI_RETURN_INDEX_MASK, ret)
+>>
+>> What's this one?  I can't find anything in the spec that matches it
+>> and as far as I can tell you don't use it in this series.
 > 
-> https://lore.kernel.org/all/bb59b1e0-2550-4a9d-8738-a54e5f106f45@arm.com
+> This is coming from RmiResultDataLevel. See RmiResult type.
+> This was renamed after we introduce the RmiResultDataIncomplete.
+> It is used in the KVM code to find the "level" where a command
+> failed/walked.
+> 
+> I could rename it to RMI_RESULT_DATA_LEVEL() ?
+> Similarly RMI_RESULT_STATUS instead of RMI_RETURN_*
+> 
+>>
+>>> +#define RMI_RETURN_MEMREQ(ret)        
+>>> FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
+>>> +#define RMI_RETURN_CAN_CANCEL(ret)    
+>>> FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
+> 
+>> These are obscure enough to find in the spec I'd give a comment just
+>> to save the sanity of anyone looking for them.
+> 
+> As above, they are really RMI_RESULT_DATA_INCOMPLETE_*
+> 
+>>
+>>> +/*
+>>> + * Note many of these fields are smaller than u64 but all fields 
+>>> have u64
+>>> + * alignment, so use u64 to ensure correct alignment.
+>>
+>> Obviously this is only going to run on arm64 so it's not critical, but
+>> more generally u64s aren't always 64 bit aligned.  So if you 'really'
+>> care aligned_u64 is there to ensure it.  Meh, arm64 so fine.
+> 
+> Agreed, I am worried about the churn in the consumer code. Also, like
+> you said, this is only for ARM64. So, I would pass it.
+> 
+>>
+>>> + */
+>>> +struct rmm_config {
+>>> +    union { /* 0x0 */
+>>> +        struct {
+>>> +            u64 tracking_region_size;
+>>> +            u64 rmi_granule_size;
+>>> +        };
+>>> +        u8 sizer[SZ_4K];
+>>> +    };
+>>> +};
+>>> +
+>>> +static_assert(sizeof(struct rmm_config) == SZ_4K);
+>>> +
+>>> +#define RMI_REALM_PARAM_FLAG_SVE        BIT(1)
+>>> +#define RMI_REALM_PARAM_FLAG_PMU        BIT(2)
+>>> +#define RMI_REALM_PARAM_FLAG_DA            BIT(3)
+>>> +#define RMI_REALM_PARAM_FLAG_LFA_POLICY        GENMASK(6, 5)
+>>> +#define RMI_REALM_PARAM_FLAG_MEC_POLICY        GENMASK(8, 7)
+>>
+>> Tiny bit inconsistent. When do you decide _MASK is needed and when
+>> not?  Seems a little too random for multibit fields.
+> 
+> I will try to clean this up.
 
-Yikes, my bad.
+Actually, this is used when we don't consume them from RMM. i.e.,
+we never call FIELD_GET() on them. But thats not a reason for
+not being consistent in naming. I can fix it
 
-for FWIW, I really meant :
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cheers
+Suzuki
 
 
