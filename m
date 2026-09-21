@@ -4,117 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C639C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17C1C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6CuawVxIWhEs6YC068dOAO7JxwWhj6Ln8+UX+AQKf0=; b=jfX4vxg89Saeg9dtqwfZFT53o7
-	4d2sDpwpx0fv+D9s/GCFCJQvqtvdJzzECMuUvf+SxjEPhLQpeRmmaQT25l3DTjz1meViHc4CIuWOV
-	KoaSjPQcpg6xrjbFIrUSOHBTgV/SSpSBWceYEPZslMOkKzejBODQSzpBFJoDO7RyAJsiPNMeEM/W+
-	eZgLlvPvegmQx10g4YNeQ5B7w7StFD+JZd+L5BuH65q5UQA2e7VbVLa8ky+N482xHBvta0fMmGbjA
-	gUJTdWL7yTu3HPuusmK29mF2rcGts4TeFZo7fCgunWI3Av9NmHisOGG7XdecHSuZWmbEPzjewybpm
-	og1LG2cg==;
+	bh=g/ymVCjiH3s+MtQ93CoF/UW5PG4Yj5pDBq+EeHXY07Q=; b=eRoPOCc78Xe7rDkdsKVS8Ci4Xh
+	OR2u3djU4L6/Su07M6CcIX4wNkuMuuzeOqJACGf341aAk1UdnQdPKcEuNxUzGTJdq5nVfg1Rp68cS
+	NEoqq6+Q/TBcho4UTpLJL2fL2Lvuk0Y7DrXZ+05Ykx/WyT+XDaNCCTJYUicy39qYwmSSpXBG2YQT+
+	9RUBdJc/NxOxfelwieuQKvc6k1i6xupZipRipi7xSMhxyXssk7H+dZ8yR6byciXWgrXQ8DUf5uYhU
+	VvAAsY0BYrdz00SQsB5YfqMr4IpaPdtCnFWI1jMGHRZYVkLP3Pd3TUFtGvtdkA8tuCTEZbwS7TMYR
+	zdyvUUWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g00-00000002csx-37UD;
-	Mon, 21 Sep 2026 15:32:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8g0E-00000002d12-364Y;
+	Mon, 21 Sep 2026 15:32:22 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fzc-00000002cYl-0RuW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 15:31:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=t6CuawVxIWhEs6YC068dOAO7JxwWhj6Ln8+UX+AQKf0=; b=n0M4QvP+EM0/eOXlAzq1jNHXc8
-	FQ4Rv9Hj+1ec7ryGl7+MCSdEx+nMtOEqMOpZ/zF948yFDJcK4HVtX1Uk1V50MusmYWDtELp1g3w1J
-	Xkd8JZnSdNfHtsnRpiCrDGa+gMYXVDAg5Cf/ujEj8ckrc33PitAyOiMwaOekMWiyJ1DdvRj1oIHVe
-	KxkNwl2pOawalobKs/PQxKYnQVxKyH8boudHrtrbhoqTidHsgoGBLPrUJcTcYnR7gYrRhzEjVI2Ky
-	dxK+Oz4EA5ZcsyBFXt8RLRrAw24M0Qav3GFGsZBKs+PhX6pmPHHtMaSBAGkSBHyHQaZ19K0DLnLot
-	FPaZg0DA==;
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8fzV-0000000CTgv-2H0y
+	id 1x8g01-00000002csT-473R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:31:39 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4843e397f74so1488f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:31:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790004696; x=1790609496; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=t6CuawVxIWhEs6YC068dOAO7JxwWhj6Ln8+UX+AQKf0=;
-        b=ri5dgXERpdVU6EgMJNKgbKJ2eZkYC2h5XlrNVnUKvjxAHmzZ+cOr+ihyMixuiBGOqC
-         aLNTP2epiyrl6NRujISdTeeWSHa4pz9Pz6EFjtitv2NftwH5Lp1VocItdaTE6SRA3QiE
-         kvpLSbEnX8yFLl+yw0c4n/uOThYlItJXipS9xXJfr95edQpbuhtT17dNoZWphTSxjg3C
-         M0Qhn2GIdezUh1V5Q/aQK6/2mziGTctupyHWtseeW2f7myf6fJSYh+iIz5HmjZOiz9p2
-         f80ZCz/uzUdSpjEmi/XNO4d5XxELJAHAXAVfADEUHpiQIyCKwamaXEpHE19nokhxt92k
-         2OEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790004696; x=1790609496;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=t6CuawVxIWhEs6YC068dOAO7JxwWhj6Ln8+UX+AQKf0=;
-        b=s1bHcE3QboowHBRyhid2KzLtkORIZw3e1sgtrF7tp4u2NWEt1UuWJsqA0C3htC/YmU
-         FAPlkqlC+999x+ndNsnowgcklR3ehT2hJmOX9+b3gGwu8HW+7ZQFU74TlX/8Q9VnTTJJ
-         lc548Qe7NOhblMZqzZc03noZXg9nIOB1MJmtd/aLE0CnQ0yZTtKvyqYsjLONCpxkiWA9
-         S/zuY97JfgLAlW9FSDIHB78500qxLJtRqaw5s0h17FXyzzAU6D4lxyDi8RSUazws/7Dt
-         6/OWBsoZU2W5ugpmV20WO5KNWR5BoSsTcXtNG+T7oZWrYi/hyMgbgBFjoOxbA1/EKzku
-         hI3Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxluB2X1DhOVg7eOopA9KWSrNOeIjIwnPSHXDC8I6jrc2jg4h2f1S9zGJq6l9n44w1jFZZokCU/1AIGD1D8Tn8P@lists.infradead.org
-X-Gm-Message-State: AFuF++kRNka+KHIVayv0a8+9QfM9+fo6g01LELV9nZ3xzzFjNu/4vjF7
-	FkmVph8lCgdA8eIghcSZP3kgAAstZsGMCxbNWaBkyVIx+R6cjSWmmkKa
-X-Gm-Gg: AYBFou393V3x6R0SzP4Xk2ScssaZxH7P60oHayTNhgsw5s1gdynQTWG2tjC/w48b+sM
-	qCZ9tM5KyMcmaGgYdi8+iQeBRSXPELm1VaXZ3J6f0mI1SEepUxW+aKYs0/Fy8FJqMsyFA0IU/rL
-	6TyURpEwSqTNc/qSGrHj4dlcz94F4skT0fzXs1VN6licaXTOcN/xi/j2MOdLMRURcULsg6HA9Uc
-	PsgqdUcisCbXOFZX04FbpeDQJcwqkXQ4K3GorABC+43gWdEsNWXozH7G4kn7xpHl3TByoT2sibY
-	RvBGSjEzg8zvnHPkvOExSOivoTeq15ry8bBRUoVvTz41sgZKuUB2g2fQPQeaJoRF0e53NXkGOxa
-	8KQnnUcC5RnrmE9F6lji1vp2Y8RKsF73LWmJNCc04k26p46LcIUgcHEpCP3K5uLRuGKPb99HnZP
-	VYeoFaAxcGZ4LIOd8EL6cK72QnOUYH+3k7ihgIZPm4TuEwgro5S6DoEsAS8yJ7JidzvuIJ8+xpb
-	Q8ATTdHMY6fgIW8MEllnAAGJap1B3xAAMUQj0/qCxYm2Bv3aQdL5teb5w==
-X-Received: by 2002:a05:6000:2f83:b0:487:fb2:1a0f with SMTP id ffacd0b85a97d-48860f7ec9bmr21822f8f.6.1790004695614;
-        Mon, 21 Sep 2026 08:31:35 -0700 (PDT)
-Received: from [127.0.1.1] (lmontsouris-656-1-83-121.w82-127.abo.wanadoo.fr. [82.127.110.121])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724562aebsm25313835f8f.14.2026.09.21.08.31.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 08:31:35 -0700 (PDT)
-From: Amin Gattout <amin.gattout@gmail.com>
-Date: Mon, 21 Sep 2026 17:30:00 +0200
-Subject: [PATCH v2 4/5] media: rockchip: rkcif: add support for rk3576
- vicap mipi capture
+	Mon, 21 Sep 2026 15:32:12 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68LF8PMu1172081;
+	Mon, 21 Sep 2026 10:31:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=g/ymVCjiH3s+MtQ93CoF/UW5PG4Yj5pDBq+EeHXY0
+	7Q=; b=mFwokzvF1tPleakkZTsSgk7L6WdxyaCjpiD0rSsTDma8zv+E5fo9Xp0WE
+	ngpSQSyMQVRWXisaaWAlMwwUm3ieHgjzTygemtHJBOzC3dBX7IPF9kWKXM7IqExY
+	7VxDkxSUzB9ZDJJ0QSYBNUcH+i80dOrCcH3UhoGpYlzG10FKU5EJ6EJsGwPFaJg9
+	P8yvIeXn5vjCsoWnra9G+1/eFUJV5Lolt9TvtSOiNFWwyya9B6/xLb8rL+rJ4qZg
+	78sOayR4j5hOgSXkA+yOsa6Vk9cKMK6yOTcSXOp6eKMpLWYkByQtlISZVw8MfBAD
+	VEU4VEXNNkZC33WMDXc1xTE4KQHag==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011035.outbound.protection.outlook.com [52.101.62.35])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gtcbnqjr1-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 21 Sep 2026 10:31:52 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UYJLWMtDCsZ65Uizxx2hQVtu7v7s+njRcDAgBJfhViYNkdJ4cquOlohYK1wjpcVOUssECs69KkrS5zhPisp+YXLzRiVUJPwoAWorSrUBfLiatjWcfkr10GOKaRNsVBBua9Kz4mZKXqIeapGUvXGGcc6brhuKgi9RP94YxpWvjTB8WWNcLJ0M/sm435aWxqnbdRUcW8UIPgTI8O94JRtJC4lXMA9mai/EdSecHhghzAjRNXqYGlODqZiLm0czk6vZMCdk5DFwt7m6JXG3tPlT/y+d4ga/YlESZq2HNdYOCcibC4QJXhYFPQCcmGMnB36Nlo+3H/IxwjGq0IdPd7b3Ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g/ymVCjiH3s+MtQ93CoF/UW5PG4Yj5pDBq+EeHXY07Q=;
+ b=ApRFyKnX6+glcPdGjDlBk4CcVE3lzRrzMAmTUVNyOvxtYpn1puGJe5DpMcVgU35VyIpZRzZIvQKkPhwuqoqd2VSfSl0EAF00Hu9rTkpm9Ubi4L5EsoU92WMMlGuz93nVedD+rIf/I8YyiRGMlfZbaBNTTu7CCLEHAov6L/0oq+oKhBDa60WEDypL7HXGBpqN4folTSKU+8Y8YInMLd8VlSpDvxXaJHI9GpcQlF9hiFTtsQEa9tmr0QkqQuB3Nu3m+OyYYERp1sPfU+RwZ0RZZAhEKuhuYdtUrb2vYxatDYUfKKAz0fHm5KF3EXQ0E0Tc/XklxKSlue+6bWupGd8WdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g/ymVCjiH3s+MtQ93CoF/UW5PG4Yj5pDBq+EeHXY07Q=;
+ b=DwDuQWYgntwvzjqyS07ez1smM0KC+XSTURWsW3Hk5R+7pWJGtMqjqYIGXbLIXotXbF/UC6J7yA/1THhRSBiJAqaMG1eJoInXoKf7WmL+S/GmvKQoYv7DRWdOYqxVB5PVTEbSke7+KONOxvPTQdIhtWE5YdTs7zlr+9LtTJ73VAI=
+Received: from SJ0PR13CA0147.namprd13.prod.outlook.com (2603:10b6:a03:2c6::32)
+ by SN7PR10MB7075.namprd10.prod.outlook.com (2603:10b6:806:34f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Mon, 21 Sep
+ 2026 15:31:42 +0000
+Received: from SJ1PEPF000023D8.namprd21.prod.outlook.com
+ (2603:10b6:a03:2c6:cafe::68) by SJ0PR13CA0147.outlook.office365.com
+ (2603:10b6:a03:2c6::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Mon,
+ 21 Sep 2026 15:31:41 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF000023D8.mail.protection.outlook.com (10.167.244.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.0 via Frontend Transport; Mon, 21 Sep 2026 15:31:41 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
+ 2026 10:31:17 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 21 Sep
+ 2026 10:31:17 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Mon, 21 Sep 2026 10:31:17 -0500
+Received: from [10.249.36.64] ([10.249.36.64])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68LFVHvO3245254;
+	Mon, 21 Sep 2026 10:31:17 -0500
+Message-ID: <01ff0252-1580-4934-af34-6ef70d874f10@ti.com>
+Date: Mon, 21 Sep 2026 10:31:16 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/6] arm64: dts: ti: k3-j784s4-j742s2-main-common:
+ Assign SRAM to VPU nodes
+To: "Kumar, Udit" <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <afd@ti.com>
+References: <20260810205206.685971-1-b-brnich@ti.com>
+ <20260810205206.685971-5-b-brnich@ti.com>
+ <b5dc14b2-9b8b-4da5-b48c-274bdf6581a3@ti.com>
+Content-Language: en-US
+From: Brandon Brnich <b-brnich@ti.com>
+In-Reply-To: <b5dc14b2-9b8b-4da5-b48c-274bdf6581a3@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-vicap-rk3576-v2-4-0a4582e20c72@gmail.com>
-References: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
-In-Reply-To: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
-To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Amin Gattout <amin.gattout@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790004687; l=8452;
- i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=lMxXbWh9gcYq1Rca1IdpzxHKsuHkIoF7ppljfHLIC0Y=;
- b=uMI84BK2y4kV3gSqKg2dSq1XehFV36psClHlnyAtlUyBK1MQg1r5+4FFHzVj8Os+6OuL27QV3
- 29RLUz2gtu8BidgcVolA3Vt/KDpL9ZSjfGc7/UKGmWD11PVWIOJSTC/
-X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
- pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D8:EE_|SN7PR10MB7075:EE_
+X-MS-Office365-Filtering-Correlation-Id: dfd4feee-5606-424d-f513-08df17f56f89
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|36860700016|1800799024|376014|10067099003|921020|18002099003|22082099003|56012099006|4143699003|13003099007;
+X-Microsoft-Antispam-Message-Info: btAT04MjmLB32wmT+Nd7e1j5/tck6+8PtS+qUqLviNYHyiAGAzkbQa3daYPBwEkrHbDIG4HYEjkv8ewiKKOU4GAX8uxygSKdQ70snsoKDQ7Lz8BUILnnxoB34keqfKaa0bTq4aav9xtNKUSBFLAampTUG51wjrXkgD94rrs1e46KNMmYPf0bjZN/zAPArN97j3bNvXECenXHvp3VrZ5SUSFBTt/Aq61iVFisZHdgJLZxuBXrTJmyicMGx4RwlavLSorR2j/QUyYmuYGzCBC0v49mVhUrVUzqxxFos1NLf/TafA+DtfU5T+tAerFFXVltRcHjkExXBDP2VDG7zn3WIxWjbOw9MW8kP71X7GzuF3TeQfFi5UztI+YlaPYvNpq2XfnAMyjQdWmPrEkBEpoFgCWXkntR/dYt8piYENRLzeBozItR5IY5vQAV0vpviw1uNtAmZGJnrJEpaZMtm5Rvtb4a1bCSY+AxSmR0tUjCYB5mwEFVM261gWbWnIB6O/22A6lj4eiOFBxZIqml+3HCEu+pbjqC04Vq07gE088tOjYkUscCKaE/1lgZE9sHgYxUEomjA8cWqZ2p0IqXKjJ+Cd4Fp/vLFgnH/FuK2M30oq/mJ+pmNnoIpvk6ViKP8nNgxxXqz9a/ezhnotiW4dJ+JtmnQg6spWsGAnk6LPbim8TxXFJECY53FUMUuwYVDaY9JyrgA+gXQuXLgJKTI9BCOQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(1800799024)(376014)(10067099003)(921020)(18002099003)(22082099003)(56012099006)(4143699003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: If0tqpup9rsmAQf7Jmnb91ZxDTXUvGMRuqpCnRKo3CdpBnWi6a3LVp3WrShfPeqbZ7fyRi0oia8YHmnJV/AIx5F7mOJ57ZD/cnpXi8p4Tth8GxYBn7vS+xgi7RppoRNXuIb7APWytltsF8ZvpiSkM2M08l0FisMaCTA1AwVQG36kMXsDY4ooP1qNNx7NALQJgzjMlXkcBGb8kCh2knxqcekOaKSNheENOyWD7BHbmHF4Hyl+4MUo4LZeWJpeuLg0K/Tn72cEX8JhbtlAU/mixBA3pjPYOYThagCNy6ZAoJPB3g1vj+O+ljlmjoZAnt/jmnfxfQAfSdw5JRSEYIEmMdGVjn8/HiKkUonvEqeOE3xlepfPi4m2heuM5M/tZ5B6S6CpvioU7/uWEpdLH4HJNteGnp1rkYqFNboggMNXqSMhtaY+ru0E8/+UCvLMxRf/
+X-Exchange-RoutingPolicyChecked: ViXEilDAgzrR/h8rokxLj5crFwUfdOvItOasucGkLPy1ZYNYFk5srCLGSCKjYe/tsCC0i6182wV8pWaMzpI7Z6FsgaFW6Dzx1ZbBU1BFpyEBnbK5JqjZH2xjpZt/l6uAJT+mPVfz2ZnYncckocHeV09ZDm4kOG5pmaRS1Ip/6gTocKoYH5t1UTF1s/7K3oE3E1LLq12zFtNzfAPuoewx2Mar2K3/kUimuAzNCQ1ZacteYcp4HFaHqaHXb+4XS2tYrsD/4vLGhblCKzNIwyrre75MyyoZDFcSDFlkY5YMPWHJ/Mxz4K3Qo938W7hnTHdzzp0314MU27rH2XpcQAcRmQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 15:31:41.4330
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dfd4feee-5606-424d-f513-08df17f56f89
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D8.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7075
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDIyNiBTYWx0ZWRfX5miwCaRVJYqx
+ 7Umn6lyA/38F0AFZXKkOTkHV0q3/HZuSS1Qd0UNgTNPVMtKMGRiBYOdBXYW1KfYBgfuDm2KDzvw
+ lvhPf36tN0rUvPaY/kwEeGck7yZ/A+0=
+X-Authority-Analysis: v=2.4 cv=P7CvFSAu c=1 sm=1 tr=0 ts=6ab14de8 cx=c_pps
+ a=YQq2SbcpNRFTj3qt8lmqwA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=P-IC7800AAAA:8
+ a=sozttTNsAAAA:8 a=ho0JAuJ0ECzAQ1l8ebEA:9 a=QEXdDO2ut3YA:10
+ a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDIyNiBTYWx0ZWRfXwHygAlX51Dvo
+ JePTUVyEtBKuG/BT2PqfsIXCnfWfew9rdgBdz+yDTDa9R4G1vE7D029L4qP4fjYdW9ENOidj835
+ 6aB9UozcfSbDeIzW0XrqUv+JTx/HARqAMVcHAyMi3JJKmBdkr4TNAfufZSn8KRMMzxJWlUfp2pO
+ srR3jP+zizqjcJucWOqCYJVxEp3AbvVvJ4aoTvKRXeC7uAs9usvWivS4eshDNnaNMH5JwzXU6mg
+ fRPspaOb16nU1ORCMfG4UFS+Zrsc/DI959veilLWQd4xDbEW/NBguPOJKBmg72DNWRrE1H/ZCIy
+ Fr1TgRXwB3ltl/aqAHWarY8HkJM5pj66+CWdWW6SphvLN4RwwmjtBKTMIDTyYtFp+PgoQKH7HP6
+ MC91tTb0ItdDQWEDXJ+SQDv3hYXfdxJbYVYYM7gCspKhPdfgD0xC7imxXwMRBWr2mAnH2Gs3F98
+ FBwbWj1J1jeBEynFP7Q==
+X-Proofpoint-GUID: LKjt4M6cBGXa4iJqbPjcHCepSS4XnWyt
+X-Proofpoint-ORIG-GUID: LKjt4M6cBGXa4iJqbPjcHCepSS4XnWyt
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-21_05,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 phishscore=0 suspectscore=0 adultscore=0 spamscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609210226
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_163137_857277_7233DEFE 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260921_083210_036418_CE6DA550 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,251 +181,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3576 Video Capture (VICAP) unit features a Digital Video Port
-(DVP) and five MIPI CSI-2 capture interfaces. Compared to the RK3588
-variant, the MIPI register blocks are laid out differently (there is
-no block at offset 0x200), the ID_CTRL0 bit layout has changed, and
-the VC/DT filter has moved from ID_CTRL0 to ID_CTRL1. The capture
-size, which the other variants configure in ID_CTRL1, lives in the
-ID_SET_SIZE register.
+Hi Udit,
 
-On the RK3576 the pixel clock of each MIPI port enters the VICAP
-through a dedicated CRU gate (CLK_VICAP_I0CLK to CLK_VICAP_I4CLK),
-so the variant claims these five clocks in addition to aclk, hclk
-and dclk.
+On 9/5/26 7:48 AM, Kumar, Udit wrote:
+> 
+> 
+> On 8/11/2026 2:22 AM, Brandon Brnich wrote:
+>> The Wave5 VPU supports connecting to on-chip SRAM through its secondary
+>> AXI interface. This allows temporal buffers to be stored on a per-stream
+>> basis, reducing DDR memory traffic.
+>>
+>> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+>> Reviewed-by: Andrew Davis <afd@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+>> index e836f0f42e30d..21ec9f207ff63 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+>> @@ -1002,6 +1002,7 @@ vpu0: video-codec@4210000 {
+>>   		interrupts = <GIC_SPI 182 IRQ_TYPE_LEVEL_HIGH>;
+>>   		clocks = <&k3_clks 241 2>;
+>>   		power-domains = <&k3_pds 241 TI_SCI_PD_EXCLUSIVE>;
+>> +		sram = <&main_navss_sram>;
+>>   	};
+>>   
+>>   	vpu1: video-codec@4220000 {
+>> @@ -1010,6 +1011,7 @@ vpu1: video-codec@4220000 {
+>>   		interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
+>>   		clocks = <&k3_clks 242 2>;
+>>   		power-domains = <&k3_pds 242 TI_SCI_PD_EXCLUSIVE>;
+>> +		sram = <&main_navss_sram>;
+>>   	};
+> 
+> Hello Brandon,
+> Could you check, how two instances of hardware can share same sram ?
 
-Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
----
- .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 140 +++++++++++++++++++++
- .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   1 +
- .../media/platform/rockchip/rkcif/rkcif-common.h   |   2 +-
- drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  21 ++++
- 4 files changed, 163 insertions(+), 1 deletion(-)
+If both instances are used in parallel, then only 1 would get the 
+benefits of b/w savings with this current patch. These VPU instances are 
+in a race to see who gets the pool depending on which instance allocates 
+the first stream. Current Wave5 driver will take the entire 64 KB pool 
+once a stream is opened. The pool is not released until all associated 
+streams with that instance are freed.
 
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-index 432f47a1fc23..53e62d059764 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-@@ -30,6 +30,14 @@
- #define RK3568_MIPI_CTRL0_CROP_EN     BIT(5)
- #define RK3568_MIPI_CTRL0_WRDDR(type) ((type) << 1)
- 
-+#define RK3576_MIPI_CTRL0_HIGH_ALIGN  BIT(11)
-+#define RK3576_MIPI_CTRL0_WRDDR(type) ((type) << 8)
-+#define RK3576_MIPI_CTRL0_PARSE(type) ((type) << 4)
-+#define RK3576_MIPI_CTRL0_DMA_EN      BIT(3)
-+#define RK3576_MIPI_CTRL0_CROP_EN     BIT(1)
-+
-+#define RK3576_MIPI_CTRL1_DT(dt)      ((dt) << 2)
-+
- #define RK3588_MIPI_CTRL0_DMA_EN      BIT(28)
- #define RK3588_MIPI_CTRL0_HIGH_ALIGN  BIT(27)
- #define RK3588_MIPI_CTRL0_WRDDR(type) ((type) << 5)
-@@ -490,6 +498,138 @@ const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data = {
- 	},
- };
- 
-+static u32
-+rkcif_rk3576_mipi_ctrl0(struct rkcif_stream *stream,
-+			const struct rkcif_output_fmt *active_out_fmt)
-+{
-+	u32 ctrl0 = RKCIF_MIPI_CTRL0_CAP_EN | RK3576_MIPI_CTRL0_DMA_EN |
-+		    RK3576_MIPI_CTRL0_CROP_EN;
-+
-+	switch (active_out_fmt->mipi.type) {
-+	case RKCIF_MIPI_TYPE_RAW8:
-+		break;
-+	case RKCIF_MIPI_TYPE_RAW10:
-+		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x1);
-+		if (!active_out_fmt->mipi.compact)
-+			ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x1);
-+		break;
-+	case RKCIF_MIPI_TYPE_RAW12:
-+		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x2);
-+		if (!active_out_fmt->mipi.compact)
-+			ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x1);
-+		break;
-+	case RKCIF_MIPI_TYPE_RGB888:
-+		ctrl0 |= RK3576_MIPI_CTRL0_PARSE(0x7);
-+		break;
-+	case RKCIF_MIPI_TYPE_YUV422SP:
-+		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x4);
-+		break;
-+	case RKCIF_MIPI_TYPE_YUV420SP:
-+		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x5);
-+		break;
-+	case RKCIF_MIPI_TYPE_YUV400:
-+		ctrl0 |= RK3576_MIPI_CTRL0_WRDDR(0x3);
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	return ctrl0;
-+}
-+
-+static u32
-+rkcif_rk3576_mipi_ctrl1(struct rkcif_stream *stream,
-+			const struct rkcif_output_fmt *active_out_fmt)
-+{
-+	return RK3576_MIPI_CTRL1_DT(active_out_fmt->mipi.dt);
-+}
-+
-+const struct rkcif_mipi_match_data rkcif_rk3576_vicap_mipi_match_data = {
-+	.mipi_num = 5,
-+	.mipi_ctrl0 = rkcif_rk3576_mipi_ctrl0,
-+	.mipi_ctrl1 = rkcif_rk3576_mipi_ctrl1,
-+	.regs = {
-+		[RKCIF_MIPI_CTRL] = 0x20,
-+		[RKCIF_MIPI_INTEN] = 0x74,
-+		[RKCIF_MIPI_INTSTAT] = 0x78,
-+	},
-+	.regs_id = {
-+		[RKCIF_ID0] = {
-+			[RKCIF_MIPI_CTRL0] = 0x00,
-+			[RKCIF_MIPI_CTRL1] = 0x04,
-+			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x24,
-+			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x2c,
-+			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x34,
-+			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x28,
-+			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x30,
-+			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_CROP_START] = 0x90,
-+			[RKCIF_MIPI_SET_SIZE] = 0xa0,
-+		},
-+		[RKCIF_ID1] = {
-+			[RKCIF_MIPI_CTRL0] = 0x08,
-+			[RKCIF_MIPI_CTRL1] = 0x0c,
-+			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x38,
-+			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x40,
-+			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x48,
-+			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x3c,
-+			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x44,
-+			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_CROP_START] = 0x94,
-+			[RKCIF_MIPI_SET_SIZE] = 0xa4,
-+		},
-+		[RKCIF_ID2] = {
-+			[RKCIF_MIPI_CTRL0] = 0x10,
-+			[RKCIF_MIPI_CTRL1] = 0x14,
-+			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x4c,
-+			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x54,
-+			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x5c,
-+			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x50,
-+			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x58,
-+			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_CROP_START] = 0x98,
-+			[RKCIF_MIPI_SET_SIZE] = 0xa8,
-+		},
-+		[RKCIF_ID3] = {
-+			[RKCIF_MIPI_CTRL0] = 0x18,
-+			[RKCIF_MIPI_CTRL1] = 0x1c,
-+			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x60,
-+			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x68,
-+			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x70,
-+			[RKCIF_MIPI_FRAME0_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x64,
-+			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x6c,
-+			[RKCIF_MIPI_FRAME1_VLW_Y] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_FRAME1_VLW_UV] = RKCIF_REGISTER_NOTSUPPORTED,
-+			[RKCIF_MIPI_CROP_START] = 0x9c,
-+			[RKCIF_MIPI_SET_SIZE] = 0xac,
-+		},
-+	},
-+	.blocks = {
-+		{
-+			.offset = 0x100,
-+		},
-+		{
-+			.offset = 0x300,
-+		},
-+		{
-+			.offset = 0x400,
-+		},
-+		{
-+			.offset = 0x500,
-+		},
-+		{
-+			.offset = 0x600,
-+		},
-+	},
-+};
-+
- static u32
- rkcif_rk3588_mipi_ctrl0(struct rkcif_stream *stream,
- 			const struct rkcif_output_fmt *active_out_fmt)
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-index 7edaca44f653..4e17cbc04b76 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-@@ -13,6 +13,7 @@
- #include "rkcif-common.h"
- 
- extern const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data;
-+extern const struct rkcif_mipi_match_data rkcif_rk3576_vicap_mipi_match_data;
- extern const struct rkcif_mipi_match_data rkcif_rk3588_vicap_mipi_match_data;
- 
- int rkcif_mipi_register(struct rkcif_device *rkcif);
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-index f83c8099b78e..08a213438d34 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-@@ -27,7 +27,7 @@
- #include "rkcif-regs.h"
- 
- #define RKCIF_DRIVER_NAME "rockchip-cif"
--#define RKCIF_CLK_MAX	  5
-+#define RKCIF_CLK_MAX	  8
- 
- enum rkcif_format_type {
- 	RKCIF_FMT_TYPE_INVALID,
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-index be3a174b9aab..2a5758776b3e 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-@@ -53,6 +53,23 @@ static const struct rkcif_match_data rk3568_vicap_match_data = {
- 	.mipi = &rkcif_rk3568_vicap_mipi_match_data,
- };
- 
-+static const char *const rk3576_vicap_clks[] = {
-+	"aclk",
-+	"hclk",
-+	"dclk",
-+	"iclk",
-+	"iclk1",
-+	"iclk2",
-+	"iclk3",
-+	"iclk4",
-+};
-+
-+static const struct rkcif_match_data rk3576_vicap_match_data = {
-+	.clks = rk3576_vicap_clks,
-+	.clks_num = ARRAY_SIZE(rk3576_vicap_clks),
-+	.mipi = &rkcif_rk3576_vicap_mipi_match_data,
-+};
-+
- static const char *const rk3588_vicap_clks[] = {
- 	"aclk",
- 	"hclk",
-@@ -76,6 +93,10 @@ static const struct of_device_id rkcif_plat_of_match[] = {
- 		.compatible = "rockchip,rk3568-vicap",
- 		.data = &rk3568_vicap_match_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3576-vicap",
-+		.data = &rk3576_vicap_match_data,
-+	},
- 	{
- 		.compatible = "rockchip,rk3588-vicap",
- 		.data = &rk3588_vicap_match_data,
+I will look to see if the driver can be modified at all here. If it 
+can't, then I will find another node of available SRAM that I can hook 
+up to 2nd instance. For now, we can drop this patch and associated patch 
+adding main_navss_sram to J784s4 in this series.
 
--- 
-2.43.0
+Best,
+Brandon
+
+> 
+> LTM, each block need 64KB of SRAM
+> https://elixir.bootlin.com/linux/v7.2.2/source/drivers/media/platform/chips-media/wave5/wave5-vpu.c#L463>
+> 
+>>   
+>>   	main_sdhci0: mmc@4f80000 {
+> 
 
 
