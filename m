@@ -4,95 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881D7C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D65AC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JpxKnW07QZOzBNHAIMqBm7yFcbK3k0eeQC1zk0hFew=; b=tGTHNaBl9LL4Dz03KPIp7kqhsT
-	u5qGbzuQPkmVuXGpfbWZIrHBtgbCtBt2DRE1Y3hDB8pT1cGI0hlPt5muJA+7bACaSgjefdJyyYfKB
-	nK6b2X4RfgWg2Gqk57BYJLivgnjzNkj3RVBIaJpTZzOSuMnNe8pieKmh4EHs3yVd3UH+NPV77KsH8
-	wsTuhS7Uv2tKlN40QCECGc8jsQoEiPO80isujC0/YCE+8ye0F7TGLWU2qJS4MZDMextClLM2W2yjh
-	d7Oe6Vm8wuLnWsPqk1AlA4P2KMGQW6q6ehuU/lJN3EgtmuSvY9v/2gFEiEquZOT9uAgLgs3MGR9eC
-	ZiSyPMTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qcNAYLYdiq5rOSe15EFUoU8/lzxAYix9CpJvkQBhqoE=; b=IJFSXJ+aYZtIC6is12UjQvDbpS
+	2F4gEoDZYzf8m7B5h36rwKgHPOSY2MxUWxc4AVuvXb02AwNvc/Gk2ZPHVUuKsv5lFSqeIiKnnx8pt
+	BPNfs1sUEEhORYdmp8Nr9cPut+73vCCGkNUlE4rAGFefY5ZCco6JhLoLJJj37JsqqAnj5I/U6zCI8
+	T7CulouKDbUN01PYeF8uEiZQTzjGyps+kD4J63pNIwAz/7c5wm661WL5wiQukoIAL1aH24/jQMok3
+	OxN9CiOYZotuRkFjU5JQK8YpGjNvUprs5eRCEDmONoc1v66zXIkUW+PDMSt/YcOktO8ZQdAhgSbxp
+	N8nW8oEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YZ2-00000001En8-3vjx;
-	Mon, 21 Sep 2026 07:35:48 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8YZ0-00000001Ely-1hCM;
-	Mon, 21 Sep 2026 07:35:48 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DA348C36;
-	Mon, 21 Sep 2026 09:33:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1789976035;
-	bh=EgnOCBnnJ5SOs0ufuZFAwGK3a5ufdWOiG7rFGmgMKeU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NYJnH9jiYSuPY+BwBDdOisWoegG0YGvrWBJuC91+Dqj36D8Ei+WW6V0hr2WdRLzA4
-	 ceTiFTS1Dko1IjjTrFjG3vY0NRiNYl6eVDHf1tdYPmY6GvW9EDDxObEKF12Kxkr7uO
-	 cfiq2l+XPxObD84mFWWDFi3fAyfeni8e6gtQ0o3Q=
-Date: Mon, 21 Sep 2026 10:35:38 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Jimmy Su <jimmy.su@intel.com>,
-	Matthias Fend <matthias.fend@emfend.at>,
-	Mikhail Rudenko <mike.rudenko@gmail.com>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Sylvain Petinot <sylvain.petinot@foss.st.com>,
-	Paul Elder <paul.elder@ideasonboard.com>,
-	Martin Kepplinger <martin.kepplinger@puri.sm>,
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Svyatoslav Ryhel <clamor95@gmail.com>,
-	Richard Acayan <mailingradian@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	David Heidelberg <david@ixit.cz>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH v6 0/6] dt-bindings: Orientation defines
-Message-ID: <20260921073538.GA1466037@killaraus.ideasonboard.com>
-References: <20260918-kbingham-orientation-v6-0-5e8b1f01be29@ideasonboard.com>
- <CAMuHMdWWOB48AUCbXh=9ZGCK2qZyVH06kJ2paRY-wxkq5NC16A@mail.gmail.com>
- <CAMuHMdVhK0vm_Ksze_=jG8D_=8Q45v+ezNbxwL7JntTt_v_fkg@mail.gmail.com>
+	id 1x8YbH-00000001F87-1YOu;
+	Mon, 21 Sep 2026 07:38:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8YbF-00000001F7O-0FdD
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 07:38:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BB42175A;
+	Mon, 21 Sep 2026 00:37:58 -0700 (PDT)
+Received: from [10.57.83.12] (unknown [10.57.83.12])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC0733F86F;
+	Mon, 21 Sep 2026 00:37:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789976281; bh=nrUjuFhT3s2+v/gwSala4pCbrkVM+7IhP9tittz2bGU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=l6ko2rleUboMNNtjiHiGjklemMccKDrVkhFCxBZ8Sdh5DR4atC+hN8GMVuMwMP5mz
+	 35t8eGH82Xntk2lduJ6VuzvD4tP1J1d2XqoJr0PaLohuTpW2PjZwo3fxqWq6vXhlxV
+	 DDTrpBYl7OVsuGeT/5runOY5gbLovztguwJGGIsY=
+Message-ID: <8d36a988-f6e2-446b-92fd-dc13a4fa691a@arm.com>
+Date: Mon, 21 Sep 2026 08:37:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdVhK0vm_Ksze_=jG8D_=8Q45v+ezNbxwL7JntTt_v_fkg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] arm64: use hw_pte_t for fixmap HW PTEs
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-efi@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org
+References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
+ <20260914-pte0_arm-v1-4-bb53b663e396@arm.com>
+ <829523cd-85a4-4f8e-b9f2-f3c1d7ce4fb1@arm.com>
+ <1d1e38d8-cc1a-4a53-80c7-c0ef75a70105@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <1d1e38d8-cc1a-4a53-80c7-c0ef75a70105@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_003546_878362_9F38798E 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260921_003805_194384_0EF4D6DA 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 09:07:01AM +0200, Geert Uytterhoeven wrote:
-> On Mon, 21 Sept 2026 at 09:05, Geert Uytterhoeven wrote:
-> > On Fri, 18 Sept 2026 at 12:55, Kieran Bingham wrote:
-> > > Add a new dt-bindings/media/video-interface-devices.h header that
-> > > initially supports the Orientation types and convert existing users
-> > > throughout the code base.
-> >
-> > Just noticed these are already in since commit 6ab5acfb8dd38729
-> > ("dt-bindings: media: Add macros for video interface devices") in
-> > media/master (next-20260903 and later)?
-> >
-> > > v3 collects tags, and fixes the typo, but drops all hunks that do not
-> >
-> > [...]
-> >
-> > > v2:
-> >
-> > Interesting changelog order ;-)
-> >
-> > [...]
-> >
-> > > v3:
-> >
-> > [...]
-> >
-> > > -v4:
-> >
-> > [...]
-> >
-> >
-> > > -v5:
-> > >  - Definitions now accepted in linux-media, rebased to get conversions in.
-> >
-> > Oh, you say so here ;-)
-> >
-> > >       arm64: dts: renesas: Convert to new media orientation definitions
-> >
-> > So it's been safe for me to pick this up since v5?
+On 18/09/2026 21:00, David Hildenbrand (Arm) wrote:
+> On 9/18/26 18:03, Ryan Roberts wrote:
+>> On 14/09/2026 14:51, Muhammad Usama Anjum wrote:
+>>> fixmap_pte() returns a pointer into bm_pte, and early_fixmap_init_pte()
+>>> installs those arrays as page tables. Their elements are therefore
+>>> HW PTEs.
+>>>
+>>> Change the element type of bm_pte to hw_pte_t so it matches the HW PTE
+>>> pointers returned and passed to the accessors. This is needed before
+>>> ARCH_HAS_HW_PTE_T makes HW PTEs and SW PTE values distinct types; the
+>>> array dimensions and placement are unchanged.
+>>>
+>>> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+>>> ---
+>>>  arch/arm64/mm/fixmap.c | 2 +-
+>>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+>>> index 237a9136bc73b..709a97fe327d8 100644
+>>> --- a/arch/arm64/mm/fixmap.c
+>>> +++ b/arch/arm64/mm/fixmap.c
+>>> @@ -31,7 +31,7 @@ static_assert(NR_BM_PMD_TABLES == 1);
+>>>  
+>>>  #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
+>>>  
+>>> -static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
+>>> +static hw_pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
+>>
+>> I think in my original proposal it was impossible to have a hw_pte value; only a
+>> hw_pte pointer was possible. Being able to create hw_pte values means that it is
+>> possible that a hw_pte_t pointer is not actually pointing to an entry in a HW
+>> pgtable. The main motivation for this is that we want to dereference neighbours
+>> of a hw pte based on it's pointer and be confident that it is safe. I think this
+>> removes some of the safety.
 > 
-> No it's not, there is a hard dependency.
+> If you follow some of the related discussions on the core-mm series, there is a
+> path forward to go further into that direction.
 
-The whole series needs to be postponed by one kernel cycle :-/ It's not
-urgent so it's not a big deal. Kieran will have the priviledge of
-rebasing and sending a v7 :-)
+OK, as long as we have a path to the "full" solution if we ever need it, then
+sounds good to me.
 
--- 
-Regards,
+> 
+> People instantiating a hw_pte_t on the stack are not really a concern right now.
+> 
 
-Laurent Pinchart
 
