@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53329C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF54DC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:36:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W8D2yB3bE6BKhGOLQ/iMBVp9chvKCeuMO2b5VVl3euw=; b=bnhcsJT9x3oAV45iOPqnV9Ynr8
-	bqrraezWDMyaRE7G25v4Zqn9eeDvCU8oQ5NGLha4nWbHKVHbFgWH4Kecnq783nnZCIAd6F+l7zlC7
-	1NlhGBzpQwcEnBluzoaGWRROwhY8BEzXP96F2SJUHpgTJ+UdJW5wW2JvBV3duJw2SXGLe0+6mAXHd
-	DszeJ7FSI6sVrsKVTBzaQTY+JCgNpppf9lbKm9OJVEhR2zlS4vaG/AXcfu9DXf9/Joz3xSBphBpum
-	J9mvPnq+eTtP1tkxlVqEHXFtNtKsPrvEhF/Ci1QDk31LABxc9SqgaUUqQ7pwo8tl3SeccJD8P9yB1
-	epfdtxmQ==;
+	bh=pWLwX8DWyk6tmDOQHHgr36r/+cwmqwe2iEQzYwuHPtE=; b=D56hh579Z/dI1icaRhcosTUAH7
+	73NnwTuD4fpVG1RzlBdn7IUQVIei0qWzeMiT2js8Zk6ylJmTrZaKNkx6ohFqvMF4F8MHArYl9I68t
+	WA0Izpet9PVYAOw+Xkuao9OSX4Qnc6a33+fsliG5qxGps/MjII4Wr85o982SvamkDSKsPVfSq7yGz
+	bXv3svKb+4WgrKNi89dIxBgb/Tnf6YnfBqu+LF8jh0FxoWAwI4Om2y7XwiHCEvngv6L02Mr77reXJ
+	kHJNdDSJAwDx+Przo44nteFyEySUHMIej7RfwvkQjzH9/4S+t89Mxyv6ZSj5W5aPUvk7QOmXjsZKD
+	n8Psf5rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g0s-00000002dHs-0LtX;
-	Mon, 21 Sep 2026 15:33:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8g3q-00000002dgP-2rc3;
+	Mon, 21 Sep 2026 15:36:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g0p-00000002dHC-2e6O;
-	Mon, 21 Sep 2026 15:32:59 +0000
+	id 1x8g3p-00000002dg7-4BR1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 15:36:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6261342E72;
-	Mon, 21 Sep 2026 15:32:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B941F00893;
-	Mon, 21 Sep 2026 15:32:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 764E241B55;
+	Mon, 21 Sep 2026 15:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB1AF1F000FF;
+	Mon, 21 Sep 2026 15:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790004779;
-	bh=W8D2yB3bE6BKhGOLQ/iMBVp9chvKCeuMO2b5VVl3euw=;
+	s=k20260515; t=1790004965;
+	bh=pWLwX8DWyk6tmDOQHHgr36r/+cwmqwe2iEQzYwuHPtE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=omqZJTJw3PS4Hi5M6+ar0tInmiG98Vpn5CiLztucoUgrYpt+KCEftnxirMgNs2cqf
-	 tJvVdi35oPoJcq67aCkSrjwJrX157arhUnBVjKWg90/DLXnvPnQDPIXYQg35dk0BLw
-	 8qBG6l4V7Skg36KaxaxwpV14JdTD6fQ1Al1YfXD+egl/AvfPRT9dlu91qVxKC2Zgpk
-	 4LSeVRPPqE/uuCMinpgSB/Y+/XNWMMcWXkECW1d7fqV2KW6PRs2Hxrtk8D+xNl2nMu
-	 3l6caMeoFxWFt/Ozq46DQ2wUGQEzXsPVicDxx2IUlvl4gXpE1rqggjuoGpDHbwvQnn
-	 qSOWCMp8TfLRw==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 049A61AC56A7; Mon, 21 Sep 2026 16:32:54 +0100 (BST)
-Date: Mon, 21 Sep 2026 17:32:54 +0200
-From: Mark Brown <broonie@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Amit Kucheria <amit.kucheria@linaro.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 07/28] ALSA: Support nonatomic dmaengine PCMs
-Message-ID: <arFOJnILnWgUY59s@sirena.co.uk>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <20260920-macaudio-v1-7-741cc20a74e5@gmail.com>
+	b=EMnoPuYp13fVCB8vNKTXhfp8D8qzmQaNvuw6mSpQJGKfejInySU5UrPMvwcChxX5D
+	 hDkL6HZHAByR0MIgSvO5tXeOjEdxedG4qDfIRgR8eM0LXZLmtN00MGMOsJMVHDQ3Os
+	 69RHu6JRspxP+9H6uS7/lizG943Q8Y5zUZmTCHV0CYIGPvH7OU5DHDM2A26fil5ZDQ
+	 msfYA42yd5QZPiKTsmgiqHF4hlyqHKu+SyIiblciVBf3GSGI2EUo98+7eid5M5E1ht
+	 3uQbzgb44afu2cYRW0Q8zju4Fy5swIkqvJ1TsiIDSZ0G4/7D5xHeBbjL0V2IRzbQ0q
+	 xDXfD6GPYTN0Q==
+Date: Mon, 21 Sep 2026 16:36:00 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v4 3/8] firmware: smccc: lfa: Add timeout and trigger
+ watchdog
+Message-ID: <20260921-elastic-impartial-pig-ea6b58@sudeepholla>
+References: <20260918141112.2115555-1-andre.przywara@arm.com>
+ <20260918141112.2115555-4-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xOqEqatVNA/Q95D7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260920-macaudio-v1-7-741cc20a74e5@gmail.com>
-X-Cookie: Too clever is dumb.
+In-Reply-To: <20260918141112.2115555-4-andre.przywara@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +65,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 18, 2026 at 04:11:06PM +0200, Andre Przywara wrote:
+> From: Vedashree Vidwans <vvidwans@nvidia.com>
+> 
+> Enhance PRIME/ACTIVATION functions to touch watchdog and implement
+> timeout mechanism. This update ensures that any potential hangs are
+> detected promptly and that the LFA process is allocated sufficient
+> execution time before the watchdog timer expires. These changes improve
+> overall system reliability by reducing the risk of undetected process
+> stalls and unexpected watchdog resets.
+> 
 
---xOqEqatVNA/Q95D7
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I assume this change is separate from 2/8 for authorship purposes.
+Otherwise it should ideally be part of the original driver. It is prone
+to firmware bugs without these changes.
 
-On Sun, Sep 20, 2026 at 02:53:46PM +1000, James Calligeros wrote:
-> From: Martin Povi=C5=A1er <povik+lin@cutebit.org>
->=20
-> Add support for nonatomic dmaengine PCMs.
-
-This is nice to have but I don't see a user being added here?
-
---xOqEqatVNA/Q95D7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqxTiMACgkQJNaLcl1U
-h9D8yAf/bljkO0Fr3bF7YamCura0DZBNVxUDe198L5l38PN93J+nfGKN1w3Ttw89
-OB35EXtVf7Jp6WxjFmNUTfWWT3/BVPMBzoZ+KhamYQYQn0JTPI3SG4W3sxvvWMP9
-9LX4NfetIr6oh2gwoJ46XeZhTl36iP72hNbOvxWqdiuB7uU27kDyt+fhgtmGbUjw
-T7OZEpb7Zf7fJfaFdJ9wJ5qo3fvE/O8tw1Q/cx+tur3aValh9G21+pQVgVcL6snQ
-rCZ/D5M9TSFhACwZHVtg9uaU9KtLXlQob25SUqBRz3+c9h/fgQoKdnJCxkKX0lB1
-8j36JXdggD/naDGfRyraCDekc+AjPg==
-=i2/i
------END PGP SIGNATURE-----
-
---xOqEqatVNA/Q95D7--
+-- 
+Regards,
+Sudeep
 
