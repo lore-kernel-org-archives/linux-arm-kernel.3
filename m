@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E71C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C131C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 19:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHcB4o2w3Zdn0ye43c8OGi6J8wemapWUr6CsKkoAjrE=; b=DOWi4+KRBnXP5KgWfYvrJGx0JG
-	GWTk4YSDfocHRJ8gUyA/F8opBZNJIP1MSH4YeMvsnCoxd3TD/tGSxWAoBbRwEobzDsto9k88Gk+mc
-	uQUeqfQX208MSCD+4HR3Gu5mOHGjj+ReiMMrDgtl8jjnxkuMHK/ej6/zzST01UAwzPBDwYyojkGDM
-	dOpS2g4Cs1bYQ/sVwznDZSMonCWgvvm+vIPojhbge2iM8XZNxt45ASmnU7hX2eCPO+P4kp+7ulLJL
-	7duQ4aZMmf0wZCsoMMq0MTR8oVt98yLRJvwIADHZ6D9q1Bf4kMuWojgfv7XiCImnEOuOY3KFQN1Sn
-	sOMbxkcg==;
+	bh=eN+0DjPC2PIBDvK9KcouX9O0xXht3SUEsMqJsvIURUo=; b=Iyqyo9ijPFdJJ478/LNk8hHrqb
+	inInCvA4zPdO6iKQAhhdv1OG+b66XJoc0wcnc/H9qAkCnxETDJFCngezayLrM1pdObb0KQoNeWTxw
+	A9CE1PALsT28kfrA7zFwK6oayYY692uLEjyqr2gaiInmpPF+ijTGpdhdMC7ncWl7NsIDx+pgdcvLK
+	0kzs85EB2bjh3jUhJ6hA/mbFkpUqC0WL9ER+mTfHJJUn4cMxpkKsuPn5sHVXRg/NVPyNJ0F70xoBL
+	Sa4fPKCr1bl9lmeW+ShkJoUJuOmgqfoDdLo49pSAj76e0tNTBm6B2C9uyhw/W6Vxf2+CXkTkPDKsF
+	iWDfGgCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k9g-00000003Hyp-0Hsm;
-	Mon, 21 Sep 2026 19:58:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8k9s-00000003I2q-0hbL;
+	Mon, 21 Sep 2026 19:58:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8k9f-00000003HyZ-28gP
+	id 1x8k9r-00000003I2F-0ADT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 19:58:23 +0000
+	Mon, 21 Sep 2026 19:58:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45DEB42A00;
-	Mon, 21 Sep 2026 19:58:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79EAD1F000FF;
-	Mon, 21 Sep 2026 19:58:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B76560008;
+	Mon, 21 Sep 2026 19:58:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8898F1F00893;
+	Mon, 21 Sep 2026 19:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790020703;
-	bh=QHcB4o2w3Zdn0ye43c8OGi6J8wemapWUr6CsKkoAjrE=;
+	s=k20260515; t=1790020714;
+	bh=eN+0DjPC2PIBDvK9KcouX9O0xXht3SUEsMqJsvIURUo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SEe5NuA3oV+2rlY4NDNTgzgN+EhUtl/RhRX7W82zXhVGfmIVYdvu00kG46saiPclP
-	 pNFVVc/p19ABBaHJ/C4VhAL9jnfUIpjaov1ujZU+I/YuEGj/oke7/muKpYt5aUCLRZ
-	 MIPRQ9EhPcSmVSsMeha3pVlc+EjSi8K60gChy7K/69/KzLr8HH+Vh/iCP61PTsHRf0
-	 JlnqF+sfNF+woCNll0zPPxyyyxcae6yot0V6v5gW6cjtKL3cs5u1wRT99jm4v0VQGH
-	 x2mw9C8Lo6GgvKys4LOX9loRnSPyB8soJC1eBHy+snWuv/LTrqASg5EaywNPrz2TEF
-	 Vtk7Xtu50mW7g==
+	b=ThZj/UOPRjQXCwRJZ/gEI4TMK9E3OQjwyrhcH8Bf8KJ76a5XslxbM0iNnyzwdCccP
+	 cdNW/zsTGGtHNFzkkKBnEMg0H3+t1qrp8F2cpOhHE49PGKnlIgpB/QgDWeixkungrs
+	 u+fk5tmMOjmJCIlPNcTTHfclpOfmw1cQGkYPxLbE4Z73fBQmLbJU4iP0zw68bS0dLg
+	 K7ELvdntHu8ZvCIH76dHZzWSEnrq6zJF7JzAr650C9YYtR4TgWl0cjOJAFKezcqjtj
+	 NL6jgtGlEnBNoM0QGZ2UC4BgHenUWmzGV8UmnOKA+QQrAjD1vzb4+dAkIUZFZ1PaQn
+	 Ewb8KNTEGclJQ==
 From: "Rafael J. Wysocki" <rafael@kernel.org>
 To: Linux ACPI <linux-acpi@vger.kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -73,10 +73,9 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Binbin Zhou <zhoubinbin@loongson.cn>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: [PATCH v1 10/17] ALSA: hda: cs35l41: Switch to use
- acpi_bus_get_primary_device()
-Date: Mon, 21 Sep 2026 21:51:44 +0200
-Message-ID: <2290124.Icojqenx9y@rafael.j.wysocki>
+Subject: [PATCH v1 09/17] thunderbolt: Switch to use acpi_bus_get_primary_device()
+Date: Mon, 21 Sep 2026 21:51:06 +0200
+Message-ID: <1941270.atdPhlSkOF@rafael.j.wysocki>
 Organization: Linux Kernel Development - Intel
 In-Reply-To: <7995179.EvYhyI6sBW@rafael.j.wysocki>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
@@ -110,23 +109,40 @@ function.
 
 Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- sound/hda/codecs/side-codecs/cs35l41_hda.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/thunderbolt/acpi.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/sound/hda/codecs/side-codecs/cs35l41_hda.c b/sound/hda/codecs/side-codecs/cs35l41_hda.c
-index 62296be45c55..32abb71dd401 100644
---- a/sound/hda/codecs/side-codecs/cs35l41_hda.c
-+++ b/sound/hda/codecs/side-codecs/cs35l41_hda.c
-@@ -1926,8 +1926,7 @@ static int cs35l41_hda_read_acpi(struct cs35l41_hda *cs35l41, const char *hid, i
+diff --git a/drivers/thunderbolt/acpi.c b/drivers/thunderbolt/acpi.c
+index 53546bc477a5..be91bc604900 100644
+--- a/drivers/thunderbolt/acpi.c
++++ b/drivers/thunderbolt/acpi.c
+@@ -17,8 +17,8 @@ static acpi_status tb_acpi_add_link(acpi_handle handle, u32 level, void *data,
+ 	struct acpi_device *adev = acpi_fetch_acpi_dev(handle);
+ 	struct fwnode_handle *fwnode;
+ 	struct tb_nhi *nhi = data;
++	struct device *dev = NULL;
+ 	struct pci_dev *pdev;
+-	struct device *dev;
+ 
+ 	if (!adev)
+ 		return AE_OK;
+@@ -37,7 +37,7 @@ static acpi_status tb_acpi_add_link(acpi_handle handle, u32 level, void *data,
+ 	 * USB3 ports might not even have a physical device yet if xHCI driver
+ 	 * isn't bound yet.
+ 	 */
+-	dev = acpi_get_first_physical_node(adev);
++	dev = acpi_bus_get_primary_device(adev);
+ 	if (!dev || !dev_is_pci(dev))
+ 		goto out_put;
+ 
+@@ -74,6 +74,7 @@ static acpi_status tb_acpi_add_link(acpi_handle handle, u32 level, void *data,
  	}
  
- 	cs35l41->dacpi = adev;
--	struct device *physdev __free(put_device) =
--		get_device(acpi_get_first_physical_node(adev));
-+	struct device *physdev __free(put_device) = acpi_bus_get_primary_device(adev);
- 	if (!physdev) {
- 		acpi_dev_put(adev);
- 		return -ENODEV;
+ out_put:
++	put_device(dev);
+ 	fwnode_handle_put(fwnode);
+ 	return AE_OK;
+ }
 -- 
 2.51.0
 
