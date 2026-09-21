@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C8BC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580D9C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdNN8wBCfzSMXGzJJEelWBMvPVsck9Owmas8/0jO7+Q=; b=BDEfhK0x3TAELQrKDZRnciTu4H
-	hZMod3F5BU8VCldVsEBopCBOLqDPk5AFgWHRBO9RBGm3C40+pnY7zCQhDDysOZuFL/1iokbYZ0Sks
-	XkB88Fu42HrpYnprJGXgoU8Cx2FdnLd4fCvgjEbGATiOzTd+0I0MLTX8pl1pIwLcowP+CHc100Oz1
-	iSQ/vqWl0BFE2/TI4pVwgFdVzLDBILCyAOO+YomfQJGIsauDdf6CRQHudSwKLO9v8UC9ewJ1adqDC
-	3lnAoGERui2DySKFtZTGtyH/Y+XD7kJEBkXkz3gMXiUpscS1+bTxKbP/gJhcC18MgqhT1gwAAQyax
-	7VbaHOBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VcL3GAkRKxieHVQbXg+KXKMiPhwn+/h/T17lmePKN9U=; b=3F/XASHBWmpsZ5XOc85W0Le3qc
+	iR1VHs3EQNvuy9upfHa6tzHvW8KqA4n5htZOAc+wK2vbTDc8IlD62dRVjZ2uUnj7CFRd8SRMUfOdF
+	es3vGrb/DORbE2MzhBIglDU8SVGWAzQFfkKQqVOVffPyrJ430jbgVW3jlXyE+QK+PlKhzezvjDMXd
+	0g6zyhhfKQYWSxvted/0L11bfJGy2tIb2HlevjJedJcqv/Ca9q60X0sFOZIyOnDYi6qt4OHYVNyGZ
+	5VBlKAWTN/a8efhLOh26T5MJ5jZLTsX1ULEwEq1yYXGGD3aL956wGdvUI8X0vJZHZXAUS9q5yBSKN
+	B8n6xhiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bAQ-00000001fwW-01qI;
-	Mon, 21 Sep 2026 10:22:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bAN-00000001fvo-3POE;
-	Mon, 21 Sep 2026 10:22:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789986149;
-	bh=2zzAiPlCMlsKvglShMlQV7ph8zJ/L+voqaBQavdm2YA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=N5UOaGREaW4M8VNJGJXTyB1093FUv/1VEXDlrgZLzoEyAGVWo24TyGZHS/XZtFQFU
-	 gRk1eE9RNUUdRFYN5J4SA73arYUfTZzBToEMEfxo1VaGDxp/ZDovL0vGgxQtvPu9Gg
-	 pKTO402q5C+vEarlWIj6hCArDorCe70Fw+/Bky+Wqwcac9V3hfGIB7bzPcLCj35nGH
-	 erlWHSpco2lVv37v817Ls+imGrHt4Q8Hm8fQKH2yLsSolDp3a/cerTROPerTFfIiVG
-	 LfvF9QbDz34U7glJP3cdRIJHD49adFlg1AJDRQHohtvagHuts/R4eJTB69vnYyE03Z
-	 Sww6ZQvMmjEHQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2120817E03B6;
-	Mon, 21 Sep 2026 12:22:29 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Frank Wunderlich <linux@fw-web.de>
-Cc: Frank Wunderlich <frank-w@public-files.de>, 
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Linus Walleij <linusw@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20260918143846.30458-1-linux@fw-web.de>
-References: <20260918143846.30458-1-linux@fw-web.de>
-Subject: Re: [PATCH 0/2] Add gpio labels for R4Pro
-Message-Id: <178998614908.21581.16111635463377491991.b4-ty@b4>
-Date: Mon, 21 Sep 2026 12:22:29 +0200
+	id 1x8bCX-00000001gJ7-1NWN;
+	Mon, 21 Sep 2026 10:24:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8bCU-00000001gIh-47uQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 10:24:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87C3219F0;
+	Mon, 21 Sep 2026 03:24:37 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9DBA3F86C;
+	Mon, 21 Sep 2026 03:24:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789986281; bh=FhXjGblU154b3/iGKZgOvko5HqBskKdnpkd2ss6SKBw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PP+b/+BlFbviOChQuugyXCOT9qITsdQW628WzZJIkn8J7eQr7Z+d1r95L0xVfD1Bw
+	 LcS4DgVewJ0NUeNGAUniVn8IKG3xT5vqPtwMy+NzOibblC1J6uR0epCNTp6uIzItWt
+	 r7SQsbQCnIGDsMgAECycXtGKxHqhnlHZ7LsRHu2s=
+Date: Mon, 21 Sep 2026 11:24:36 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v3 12/13] arm64: Kbuild: Remove vestigial big-endian
+ support
+Message-ID: <arEF5IOJSlQyYwX5@arm.com>
+References: <20260918145217.1669-1-will@kernel.org>
+ <20260918145217.1669-13-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918145217.1669-13-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_032232_008558_D743B6E2 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_032443_082830_5E4957DC 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Sep 2026 16:38:41 +0200, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> This Series adds line-names for i2c-gpio adapter and pcie hogs
-> for easier debugging via /sys/kernel/debug/gpio.
-> 
-> Frank Wunderlich (2):
->   arm64: dts: mediatek: mt7988a-bpi-r4pro: add names for i2c-to-gpio
->     chip
->   arm64: dts: mediatek: mt7988a-bpi-r4pro: label gpio-hogs
-> 
-> [...]
+On Fri, Sep 18, 2026 at 03:52:14PM +0100, Will Deacon wrote:
+> -choice
+> -	prompt "Endianness"
+> -	default CPU_LITTLE_ENDIAN
+> -	help
+> -	  Select the endianness of data accesses performed by the CPU. Userspace
+> -	  applications will need to be compiled and linked for the endianness
+> -	  that is selected here.
+> -
+> -config CPU_BIG_ENDIAN
+> -	bool "Build big-endian kernel"
+> -	depends on BROKEN
+> -	help
+> -	  Say Y if you plan on running a kernel with a big-endian userspace.
+> -
+> -config CPU_LITTLE_ENDIAN
+> -	bool "Build little-endian kernel"
+> -	help
+> -	  Say Y if you plan on running a kernel with a little-endian userspace.
+> -	  This is usually the case for distributions targeting arm64.
 
-Applied to v7.3-next/dts64, thanks!
+Running the checks through an LLM found that CONFIG_GVE depends on
+X86 || CPU_LITTLE_ENDIAN, so it won't be enabled anymore.
 
-[1/2] arm64: dts: mediatek: mt7988a-bpi-r4pro: add names for i2c-to-gpio chip
-      commit: ee3f4a1785bd73a865a4aa5e1974c6079f96b2bc
-[2/2] arm64: dts: mediatek: mt7988a-bpi-r4pro: label gpio-hogs
-      commit: bf89276b2db391cbb25d1a0e898280fe85b16fb5
+I think that's the only positive test of CPU_LITTLE_ENDIAN.
 
-Cheers,
-Angelo
-
-
+-- 
+Catalin
 
