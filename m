@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51842C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE097C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPds00CPuo0sl2ypaQ/wdQWyadF9e46X9vKuCNW/M40=; b=iWJrFkdQc/9FGCTCsUKSZoPPgz
-	GE0GkcILhUNBWw3cIO7mJvyWpmvjc1m5k1F+ljem4Fnka6LJeELWyfwTsVWtdAo+lQ/iocHmNJ1ju
-	lqh0y5eHIcwfI3cCUeBc6q5xOrGiSlFoqftLLG8UPX/i91estvgMiP8v0be3THnXfWaJ/aR1VTGli
-	uNZ031JkGKjtwR+j2ZuH9lmJHVutLLEtb7uiElnfQAjFF1okkcX4DvrG2jVXr+l7nL2BxZN4eHW2j
-	iFOpuNIfsqTypoNR41or/VxgzfHjiSx93RSZ0wXCH+Q2uYE87lA69qKAjkPkvq+ZGX+YaIynKd/3d
-	y6pI/JJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SZaE+/V/3Ox4fJEambNuRMxbNdzB8U8Pl1Jt8JcniJM=; b=DwIMkt7PdcmesJlrSeDKVhBsyn
+	/cZ0O8yKnap1U5lJMooiMU52mMLEc+IDrjJHFXGhU3fQKj/2QNMQXHDh5FAR+bEv+MAthE91MQ/YS
+	AiyFF9nM3lDBMyQ7nlfE7Rygmm9y2VfD+xnwOvXU/ujuhz5AYqJcHAMnGwUmn9Ql5O2GQRAnu5Bt0
+	GyNhj/RMISaCwBeArF7IVp2JdSdDuCRMXWQdEk32I84H8FWzXKHn1oUR7F/T26Rx9d47YLq0+y2Tc
+	EkvPNkQNYfBOwYA5tYI9bxueZXrKCNiuS52kP+b0/FlmfLDFObvXlJkG+nsaLsj7thTyD2QWhVWi4
+	TUc4Db+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eA1-00000002FnW-0Fpv;
-	Mon, 21 Sep 2026 13:34:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8e9z-00000002Fmz-2qZe
+	id 1x8eEV-00000002GKu-3I3g;
+	Mon, 21 Sep 2026 13:38:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8eET-00000002GKV-2gpm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 13:34:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0637600C8;
-	Mon, 21 Sep 2026 13:34:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52FBC1F000FF;
-	Mon, 21 Sep 2026 13:34:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789997658;
-	bh=uPds00CPuo0sl2ypaQ/wdQWyadF9e46X9vKuCNW/M40=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SSXwlK38kiauqEhRh8+Pr0Ahx3wVZ6QcaM1Mm03CqCH91GgKLTwH/LxcxFLbVO4Zi
-	 Fb8yRSey5wxIspybcq4fckdmq9+PkSFg47BLm9udssp5v+0jTutqSdQ1Akk4Wfohhe
-	 loJGZ8Qi53PPffCB8DpvFsyTYwJzHKXWhRERxkSC+mxrUP/6UO1z3uiRBI005jZEm3
-	 P5rNM/uZNUWZ7zbgwG2kg7GtfmM3sckK3Ow+5DrF+KDUDHOlW+K0dSUM4uQfASGmz8
-	 59D6eS5pQyGD09iMfU48lSzvSyaQ8HBd2clEYyVbp+U8zlpMzqusbkFieywHlPkOf5
-	 wTaBuLxz097tQ==
-Date: Mon, 21 Sep 2026 14:34:12 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Jack Thomson <jackabt@amazon.com>, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: Restore the VM's feature bitmap when
- kvm_setup_vcpu() fails
-Message-ID: <arEskPHpAPQf5SAb@gremlin>
-References: <20260921063718.1604533-1-fuad.tabba@linux.dev>
- <arDYHSlFHm_XzGvN@kernel.org>
- <CA+EHjTz0-qS8RRhdT8XjAgWqKhgjjzbRsZ_jwTBVqM-8pXk7Vw@mail.gmail.com>
+	Mon, 21 Sep 2026 13:38:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7B4C19F6;
+	Mon, 21 Sep 2026 06:38:51 -0700 (PDT)
+Received: from [10.0.128.141] (unknown [10.0.128.141])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 656B83F86F;
+	Mon, 21 Sep 2026 06:38:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789997935; bh=MKegHsV8HzpeuCGAw7PUAXUzjaeSFOdwlkUlxPrRN1Y=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=dRkF6hot2SZM9x7rXT9uJ32yX8g3jH6t3bZx4R0uMTnlLattJs7rhfOXyCkD/Lg2H
+	 vNJ3kjbuUeHmumIC/8/lDd1Q4y4td1m0hp9Mlju7grA/51Q+jMf8Gw9H3N0AyTlN0y
+	 TUb00JwsTZ6YEE8FYHRh/7YAGXiWyFwsVrwA3JXY=
+Message-ID: <93aea89c-0a05-4b5a-905d-2e8c14a9e894@arm.com>
+Date: Mon, 21 Sep 2026 14:38:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTz0-qS8RRhdT8XjAgWqKhgjjzbRsZ_jwTBVqM-8pXk7Vw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
+ for memory
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-7-suzuki.poulose@arm.com>
+ <178978126543.2352296.12214136703168879825.b4-review@b4>
+ <65b0c03b-36b9-4e60-aa55-c3b4b85e21ee@arm.com>
+In-Reply-To: <65b0c03b-36b9-4e60-aa55-c3b4b85e21ee@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_063857_780822_04EE5DA9 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +80,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 08:24:56AM +0100, Fuad Tabba wrote:
-> Hi Oliver,
->
-> On Mon, 21 Sep 2026 00:09:17 -0700, Oliver Upton <oupton@kernel.org> wrote:
-> [...]
-> > > Nothing in the tree loads a vCPU whose init failed, so this is latent.
-> > > The upcoming series that enables KVM_PRE_FAULT_MEMORY for arm64 exposes
-> > > it: the generic kvm_vcpu_pre_fault_memory() calls vcpu_load() whether
-> > > or not the vCPU has been initialised.
-> >
-> > That's a bug, not a feature. We should require an initialized vcpu for
-> > the ioctl.
->
-> That one is for Lorenzo then :) I'll reword the message so the stale
-> bitmap comes first and the pre-fault crash is just how it showed up.
+On 21/09/2026 10:32, Suzuki K Poulose wrote:
+> On 19/09/2026 02:27, Jonathan Cameron wrote:
+>>> The RMM maintains the state of all the granules in the system to make
+>>> sure that the host is abiding by the rules. This state can be maintained
+>>> at different granularity, per page (TRACKING_FINE) or per region
+>>> (TRACKING_COARSE or TRACKING_INTERMEDIATE). The region size depends 
+>>> on the
+>>> underlying "RMI_GRANULE_SIZE". For a "coarse"/"intermediate" region, 
+>>> all pages
+>>> in the region must be of the same state, this implies we need to have 
+>>> "fine"
+>>> tracking for DRAM, so that we can delegate individual pages.
+>>>
+>>> For now we only support a statically carved out memory for tracking
+>>> granules for the "fine" regions. This can be extended in the future to
+>>> allow modifying the tracking granularity and remove the need for a
+>>> static allocation by the firmware.
+>>>
+>>> Similarly, the firmware may create L0 GPT entries describing the total
+>>> address space. But if we change the "PAS" (Physical Address Space) of a
+>>> granule, then the firmware may need to create L1 tables to track the PAS
+>>> at a finer granularity. Linux therefore checks if the platform 
+>>> firmware manages
+>>> the PAR region. i.e., the firmware is in charge of managing the L1 GPTs
+>>> (creation and the required memory for the GPT tables - via static 
+>>> carveouts)
+>>> without host intervention. Support for dynamic GPT creation by the 
+>>> host will be
+>>> added later.
+>>>
+>>> If the firmware requires us to manage the tracking or GPT memory, 
+>>> Deactivate
+>>> the RMM and reclaim any memory donated at RMM activation.
+>>>
+>>> Apply the same checks when hotplugged memory is brought online.
+>>>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> [ Switch to RMI_GPT_L1_INFO for checking GPTs and deactivate RMM ]
+>>> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>
+>> A few comments inline.
+>>
+>>
+>>> ---
+>>>   Changes since v17:
+>>>       * Move wrappers that may not be used elsewhere, out of arm-rmi- 
+>>> cmds.h
+>>>   Changes since v16:
+>>>       * Check fine tracking and create L1 GPTs for hotplug-added memory.
+>>>       * Clarify the L1 GPT setup and move the explanatory comment.
+>>>       * Switch to using RMI_GPT_INFO command for checking the GPTs.
+>>>       * Deactivate the RMM and reclaim the memory if we can't proceed.
+>>>   Changes since v15:
+>>>       * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
+>>>       * Handle negative error codes from wrappers.
+>>>   Changes since v14:
+>>>       * Move the implementation into drivers/firmware/arm_rmm.
+>>>   Changes since v13:
+>>>       * Moved out of KVM
+>>> ---
+>>>   drivers/firmware/arm_rmm/rmi.c | 200 +++++++++++++++++++++++++++++++++
+>>>   include/linux/arm-rmi-cmds.h   |   2 +
+>>>   2 files changed, 202 insertions(+)
+>>>
+>>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/ 
+>>> arm_rmm/rmi.c
+>>> index ecc89e91d264..583e1aca9b15 100644
+>>> --- a/drivers/firmware/arm_rmm/rmi.c
+>>> +++ b/drivers/firmware/arm_rmm/rmi.c
+>>
+>>
+>>> + */
+>>> +static inline long rmi_gpt_info(unsigned long start, unsigned long end,
+>>
+>> Why inline vs letting compiler make it's mind up?
+>> Same in other places
+>>
+>>> +                unsigned long *out_top,
+>>> +                unsigned long *out_gpt_par_state)
+>>> +{
+>>> +    struct arm_smccc_1_2_regs regs = {
+>>> +        SMC_RMI_GPT_INFO, start, end,
+>>> +    };
+>>> +
+>>> +    rmi_smccc_invoke(&regs);
+>>> +    if (regs.a0 != RMI_SUCCESS)
+>>> +        return regs.a0;
+>>> +
+>>> +    if (out_top)
+>>> +        *out_top = regs.a1;
+>>> +    if (out_gpt_par_state)
+>>> +        *out_gpt_par_state = regs.a2;
+>>> +
+>>> +    return RMI_SUCCESS;
+>>> +}
+>>
+>>
+>>
+>>>   static int __init arm64_init_rmi(void)
+>>>   {
+>>>       int ret;
+>>> @@ -786,8 +970,24 @@ static int __init arm64_init_rmi(void)
+>>>       if (ret) {
+>>>           pr_err("RMM activate failed\n");
+>>>           ret = ret < 0 ? ret : -ENXIO;
+>>> +        return ret;
+>>
+>> Why did this change?
+> 
+> Rebase messed up. I will restore it.
 
-In general this is the behaviour of _generic_ KVM code
-(kvm_vcpu_pre_fault_memory()), which itself does not require an initialised
-vCPU, and no other arch seems to requires that either in the arch-specific
-pre-fault code.
+Actually this is not. We dont have to check the metadata if
+we couldn't activate the RMM. Also, the failure path at the
+bottom has "deactivate", which again is not needed. So
+it is the right thing to do.
 
-The actual pre-faulting implementation intentionally only targets the
-canonical MMU to fault in S2 page tables, which doesn't need initialisation
-to have taken place AFAICT.
+> 
+>>
+>>>       }
+>>> +    ret = rmi_init_metadata();
+>>> +    if (ret)
+>>
+>> And this is hitting another bit of guidance in cleanup.h.
+>> Functions shouldn't be mixing __free and friends with
+>> gotos.  Again, not a bug here but there are large ugly
+>> monsters around this stuff, hence the blanket guidance.
+>> I haven't thought that hard on how you avoid it here, but
+>> usually it's a combination of suitable helpers and wrappers
+>> and resulting code is often more readable as a result.
 
-However I could add:
+I could change the hunk to something like, but that looks ugly.
 
-	if (!kvm_vcpu_initialized(vcpu))
-		return -ENOEXEC;
+@@ -1010,20 +1010,12 @@ static int __init arm64_init_rmi(void)
+                 return ret;
+         }
 
-To kvm_arch_vcpu_pre_fault_memory(), which would make this a requirement,
-though that would bring us out of line with other archs.
+-       ret = rmi_init_metadata();
+-       if (ret)
+-               goto out_deactivate;
++       if (!rmi_init_metadata() && 
+!register_memory_notifier(&rmi_memory_nb)) {
++               arm64_rmi_is_available = true;
++               pr_info("RMI configured\n");
++               return 0;
++       }
 
-OTOH, I don't see why anybody would pre-fault BEFORE init, feels like
-something that should be done later on in VMM bring up right?
+-       ret = register_memory_notifier(&rmi_memory_nb);
+-       if (ret)
+-               goto out_deactivate;
+-
+-       arm64_rmi_is_available = true;
+-       pr_info("RMI configured\n");
+-
+-       return 0;
+-
+-out_deactivate:
+         WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, 
+SMC_RMI_RMM_DEACTIVATE));
+         return ret;
+  }
 
-So I doubt doing this would really break any sane user.
 
-Let me know if you want that change in the series and I can respin it.
+Either ways, we have to cleanup the object on return, no matter
+the route we take. So the original form is much more readable
+for me.
 
---
-Cheers, Lorenzo
+Cheers
+Suzuki
+
+>>
+> 
+> I will see if I can improve it.
+> 
+> Cheers
+> Suzuki
+> 
+
 
