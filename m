@@ -4,156 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94B8C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FA1C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=orKvpeqkKoM8WgynMkKmVpwIwgecSBthzT2hDgJ1qW4=; b=lC0uV2T71igMwxAEYXTkeFYNI2
-	6UjTsfnWIBlNPekX077hSoDfep4b+HN+HT+cIocIhI/4DGQLDcnyTNVmwxAvL+davxuLEwZT7XIlR
-	UZlmcSnY85QGMS64Zo75i8EBnfr9j66vEMSHTogLC762pK6dEGxea0NqU8x3yr0q3HaUK7vykf9Dn
-	0ZOlwmvSCO7ssS6soFMT3kG5IQkVF/mp+jQ9kQGnXhxSfDLE38NupoToZvTxcn5GnmYWC442r1s9m
-	feNgMF+u3NOYkG0x7TNy6yybj11fFHpwHygGxtqmZF3waggrlUHBz0cuQ2l8fXBnWbh4j75JW+RZv
-	yhX2d1wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Mcd4no3UbI4LZC3U6cjCroRtcCSEmK+AcwHgX1z/10=; b=AJJeFj8qYtqJYFcSWQ6c1S2bB2
+	ajh0dPUkYvKaeRyvQ58IPqUo+GAChUcrw7aH0w+juSgLE7XBuvZq4leYPJp3QAhgvTUHuAMv1bWdE
+	nxgTNtL/6lqJiwJvTGY15zo06tFQrMwUbGKfcJ+LygHA0kGFK53Yvq4osbelSeo8GlF/XpaZ2zWg0
+	wmyy5ROXlDATfOH+xj+ec98bPIajR6ug5R0suMTApdOE5KiGy8W+b7TJTP8CDoG8UR8UhFcJhP6y3
+	SOmYDyvs/6TLYNEHQCckZQhh3cdnVhqKlqGS6uEup+I+PPK2WdohitrJe9PuGRBCXti9cKA9NtR05
+	55lksH3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8agS-00000001akT-04O8;
-	Mon, 21 Sep 2026 09:51:36 +0000
-Received: from mail-northeuropeazon11012042.outbound.protection.outlook.com ([52.101.66.42] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x8ajU-00000001bCL-2Pwc;
+	Mon, 21 Sep 2026 09:54:44 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8agO-00000001ajI-30Bz
+	id 1x8ajQ-00000001bBA-16UW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 09:51:34 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Uvh5fZxFHWX61M7CgTZ5+i32Gh5JUgXRPYQ3GdNdq0WVzth1OqwykSt72vTp1e7gMQf/VUt2uv7jLmlgkBqCc3Hl1NgFiOGEgNLZE717sPjg7jiv0LFCtOffA0bcH8ycN39Oj/AJ2UuhfRCL34W4aYbzZLkhMMtNa7hBF116mVM2Iu1m7ZjsvaZGB1J4d2gH09kO9CZUMl3UL82hXGgrAjK/Rt7Nf+wiCYErayk9YYw6kgiQJozEAGhh/6WZf0XkcJQucGlBub8fCeZdJmpjFmwwnV8Mhq0NfyHdFr7ee2hsLbl+ipEYdsHCxb27aiuJJIILynVZ72D4fT3fW85zOw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=orKvpeqkKoM8WgynMkKmVpwIwgecSBthzT2hDgJ1qW4=;
- b=lUcNy9XhzRTCnj99BDaCK5858Yv2jWs+tWupnNhMYgM2xp3ocu9A5Kyg54oGTaEQpTdlawfXxJXk8k3baqUh5kmBh62HLRi5B/3z9G9c+901cyUqJKVKEr75yNkvFHaZRMeaDjmrB+AYO58bBAK9t/28fUITciY9IOU7nsBC7zunFFajmvPPCdhFJjAotLWLlbmPqi26Rh/ll8NOfV9hov5oyTZRhcZGoT7wu8Bbpc2DsE5rC2Ww3K5n+ah9tKWdFNroUaxzYfzDx6H0/qpoS8GLPtC9xljcuSTNISnbCFB0VZolDYAX2Wo7qm7Wfet/8VPlpsxrsYXO/7o5gtjkAQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=orKvpeqkKoM8WgynMkKmVpwIwgecSBthzT2hDgJ1qW4=;
- b=kTQwTdUyqNIDyIvZwpNamhpHKIv6LL7tqCtwMtJBzGHJ5ZPF7DkGoVDQzCyEZZQtUM0jagxe8qYeIwkZ7n8mAou1i0iG8RHolzZqcDSCQ4GQuNBL1maLz96NcAqMp+tHehZJTyoeto1fVj4bUTKfhFvmorVMck1fZbBy0u39yNA=
-Received: from AM9P193CA0030.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::35)
- by DB3PR08MB8794.eurprd08.prod.outlook.com (2603:10a6:10:435::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Mon, 21 Sep
- 2026 09:51:23 +0000
-Received: from CPH1EPF00000530.eurprd05.prod.outlook.com
- (2603:10a6:20b:21e:cafe::8) by AM9P193CA0030.outlook.office365.com
- (2603:10a6:20b:21e::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.16 via Frontend Transport; Mon,
- 21 Sep 2026 09:51:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- CPH1EPF00000530.mail.protection.outlook.com (10.167.241.171) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.8
- via Frontend Transport; Mon, 21 Sep 2026 09:51:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jgNGrj8+HHAnoVDs9t1KPVng2+bUd/mAWzl80z6t1J4sHy8e9lYsYwWWtjbpR0gwjClSmkj7hCmo/MR+7CkXIy7nlF4YXdllfamvL9SYNMqU3UdJW0yLcYwnQ64vjp7NZbgMKkyZj7gB0L7mZ1T4ioZHO2KhqFf7Sa2hGIjk34U8qaraIL3doEL+Uo0q3ZhtxfaSWPQGlqgObY3oP/xFLTWPv7alJG/85D41VRZQwQolcn0P7VAAQ8aC3pj17PtprMZPmh/I2drSR/fGzAGvOWEe5RNFw2Sn/iTJ+tXStxiIX7a0iI6I/oLwVw+3aKoN4D6bgfdClSvCM1w74oB+3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=orKvpeqkKoM8WgynMkKmVpwIwgecSBthzT2hDgJ1qW4=;
- b=P6LrWibkxRA+HPQ0EODtjniU1JMPeP+mSUDRp4S9lM8GqV6buu4G6qakOqpmWDyPlrafTp3/v6qF1jI+97L7e8rhiueW+CTC27/SPqNy/qYw0krueA8ELMZuMQptbWyhEAxifkG8cTg6JneumcWuknJqRUwXNurF6eFnHvdvTRuFuRhhDMlcP4qIvpaF5U1WGb/PeJgjoY2ZpfHKFmwigDTMU9XYGNyl3SLqV0ZOGCNCi9owXmoC7wdhvblAqo7pZMm1Ast5Zr9mLxxlq5x0uTvnLY6tcmvTQ3T6aImtzyjKKvmmYUc7/XlSefaYaXc887wSrHTemUpPkVW1qvkuuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=orKvpeqkKoM8WgynMkKmVpwIwgecSBthzT2hDgJ1qW4=;
- b=kTQwTdUyqNIDyIvZwpNamhpHKIv6LL7tqCtwMtJBzGHJ5ZPF7DkGoVDQzCyEZZQtUM0jagxe8qYeIwkZ7n8mAou1i0iG8RHolzZqcDSCQ4GQuNBL1maLz96NcAqMp+tHehZJTyoeto1fVj4bUTKfhFvmorVMck1fZbBy0u39yNA=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from VI1PR08MB3421.eurprd08.prod.outlook.com (2603:10a6:803:80::16)
- by DB5PR08MB10023.eurprd08.prod.outlook.com (2603:10a6:10:4a4::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Mon, 21 Sep
- 2026 09:50:49 +0000
-Received: from VI1PR08MB3421.eurprd08.prod.outlook.com
- ([fe80::e079:6bd:fbe0:89b4]) by VI1PR08MB3421.eurprd08.prod.outlook.com
- ([fe80::e079:6bd:fbe0:89b4%3]) with mapi id 15.21.0451.004; Mon, 21 Sep 2026
- 09:50:49 +0000
-Message-ID: <e044fdbc-a648-417d-9949-6e4e51040aa4@arm.com>
-Date: Mon, 21 Sep 2026 10:50:47 +0100
-User-Agent: Mozilla Thunderbird
-Cc: usama.anjum@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-mm@kvack.org
-Subject: Re: [PATCH 3/6] arm64: convert between HW PTEs and SW PTE values
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-References: <20260914-pte0_arm-v1-0-bb53b663e396@arm.com>
- <20260914-pte0_arm-v1-3-bb53b663e396@arm.com>
- <86d4aea6-4272-427e-9229-295489e068d7@arm.com>
-From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Content-Language: en-US
-In-Reply-To: <86d4aea6-4272-427e-9229-295489e068d7@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PA7P264CA0486.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:3dc::25) To VI1PR08MB3421.eurprd08.prod.outlook.com
- (2603:10a6:803:80::16)
+	Mon, 21 Sep 2026 09:54:42 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=+Mcd4no3UbI4LZC3U6cjCroRtcCSEmK+AcwHgX1z/10=;
+	b=AM8SilRnwAQhIli30+gdRB7/GoUQZvPgxLBbtFpQpmguu+Cs3UBMlPZIHmaOO+2wnlPYT2h1V
+	tAzOXIh+42kdWcT9wKEQ45L96Joo/3glCIEMjzXQdHFRsZ2o4AcXh/f6Vxvam9FIN9K4rTKJwm8
+	J7lFm/cxQ6oiExkwihUz/hM=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hpJFW5gx5zmV8f;
+	Mon, 21 Sep 2026 17:43:27 +0800 (CST)
+Received: from whupemk200014.china.huawei.com (unknown [7.152.185.79])
+	by mail.maildlp.com (Postfix) with ESMTPS id B8C804048B;
+	Mon, 21 Sep 2026 17:54:29 +0800 (CST)
+Received: from [10.174.179.24] (10.174.179.24) by
+ whupemk200014.china.huawei.com (7.152.185.79) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 21 Sep 2026 17:54:28 +0800
+Subject: Re: [PATCH v2 2/3] ACPI: arm64: Add support for the FF-A FFH
+ Operation Region (offset 2)
+To: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J .
+ Wysocki" <rafael@kernel.org>
+CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260901192906.133670-1-jamien@nvidia.com>
+ <20260901192906.133670-3-jamien@nvidia.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <6ed517b2-90e8-8654-757e-6c0730b7d321@huawei.com>
+Date: Mon, 21 Sep 2026 17:54:27 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: VI1PR08MB3421:EE_|DB5PR08MB10023:EE_|CPH1EPF00000530:EE_|DB3PR08MB8794:EE_
-X-MS-Office365-Filtering-Correlation-Id: 720387db-fb0c-4378-f160-08df17c5e4cf
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|921020|6133799003|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: l2SHpBKVaA5142jj8rwdMQjSTdYikj5Tts0ndkO0A7UuzzgTCw+2uRK2w5NiVcUrYJdHi4gT21kyDZXyzLLBFBusqaTGGZ1yv0X6llJ52+JaiEVLvrnslIl7bw25YQ6Da67sNUT/Ojr9sSTZ6Ddbg/Gp1sa0XjRbmvFh+2Cn281/2AX0E6/TWRdVLcMvTlpmefbQKZ6l/5IvF/DLet7xpqaWEPGhfyXKc/6rynhPJyafcqsCijiqklx1EARlT+8z7Ry/RZpdISZ56R7E5sFT9/8C/ouP6dOMobPReH5vhRUpcdyRcfWhvODXl0K8y6ulxXbPwzNKnm0NjZ/sqij9jNC97AFV0LpHpYKpggkLwpT7jaXN2PQ0y2UG38ABMsarXChojCTpv1BaLWtyUSHj+w3xIHE5TLKIB1gSQnH0wLepzbmBbYLY1dvbu+9qHoEJ5nAdZ5Meo+REqobDyFCIfUIqYoaDSxbmi0dX8DC/ahJEqXOYXILYs6bm+H9lfTmTX3BRxWYJeC79c3l0UZjP1GY/s4oB56U88OXL1L8XIJ3PR6qx6XTEJghPj6vNKCl8mVRrO4UMUDsU1u5xfLmewVs/lr0lYkWCm+S1Wijb+o8clddsV5FdTjMd6zTQuNzRa3c3J1CpH5O5yMpihuXbLAus76iNa5DpYSyrRmUMgIMcN/GM+KoR3hNH5JYBCIVeYpDISfGESI1s0HkqzdCmBQ==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR08MB3421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(921020)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: e7Ov9zfLE8kyPWXOuaBNWWIs8nBhk0gXD6fUNj3xP9lXu8bz3z6FiHQ8pQumAULYLstrS9dp5n0Gf4KJvievn9WStFtkuoDUEN2gW7VYnATzsDHe7ekF5dJD5nMnHU3+6+5wjKIW7ngFgdvBb9GS6KA8YzIQANp5lsT97MzGy8xPXsPcgDqPDvR/kSp6J9L289WtOwzzzP0v4R8RA6/U83/b9NzSjG0Qff00qgcHDqXUmDYywIr8QJTQNYluuh7RB4WeVBYCzm9d8FVsjLy6wCkHuC88hasxBXho/TAgT24EAgdQh7hmI4i0WA4Ym05IgD3gbPdnBy+Qm5kFLkt9Rg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR08MB10023
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: CPH1EPF00000530.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 964fcc93-c640-4efe-dcfa-08df17c5d106
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|35042699022|1800799024|14060799003|82310400026|23010399003|36860700016|921020|18002099003|22082099003|56012099006|11063799006|4143699003|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: Xi3mT5C5Y6CldZPzDWTWgYHJdePUayXmPUosTqNNGTKzOWCo9gYYQubhFdyQVLLJRwdeNRWXLOMR4/dG2I1TlHf85d0tvo9tOfldbZjW+HZLR6logRdXQK+Bwn4Nt6lDlRTuYTg3+4Et0hIcntYbKiW3ZyrgzpTARvlCiX/QptPdwFhHr/QWBz1JSOJHxjYt/L+qPM53tV9KxyQW577Pe6clxITTdHiMNDV99w2PNCy9EdaqAyWArpviqQ3Pd2hKp1Ph3k3vR5KpNx3OXYOPqQEnWTeg7kF6vuG/ZhFnNPnkAqmz+ahF7FzGe0/9qkn7+AqP5qEvub4HDRZ8atLC9e2818QH9LJhUmzwhYh+zdEEXzDQ21yMmcF8GqJThPJ6npx6K7Qdx0ZB1L0df91rf9S7J2aQNjn0U37EOuWcSH8Ktks2QoSdzwxqyeT8lWXVQlGzukYMz1zKE9ZNSqKfjFwSxcQ0CGv/fJ7gZQ3xNYNTSh8zTc+imzz2F8ns3edzkwnc6RCl/JkY7W6tKjz7hftQVkRMVIokduFwMgVuz4b4KlsXclnRkt+Gb8pEvPdrt/fWz/w6JbWlMVxdt+HVWj0DxCfTHZ0bgyxvy5yHxsk2v3vpNjqe8VoaZPPVHe2isoXO5aN0SPG8UgehDMStLiEhB0FB3Z9DrHPZXIDxxKMWqaPLHvLqyXPJ+d+4+1ntdvSDwPMmFMeMjQCumsMMtHxUhgs4Djo3KBHPzi4Db6Gfork4qGZ5XuUmusM01rld
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(35042699022)(1800799024)(14060799003)(82310400026)(23010399003)(36860700016)(921020)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SKwJXYpbW7m2Q30QdVd2RsWZMCGBqsuigZdJD4aYuvkeSd59/0Q64OIlWdww4mlKWeDP5D28dk9s/v9WW2i4kGYO98EZTETsBUdMA/x3dalmT6MMJU4hBrr9VmvbnN8upYskiNh7GFbvEu0QNQLtWBD+qrxot6vGZ++jLiBABfXWyR0+9sAkUvUZhBdKJaxGDWJVIkCfJbCdI59T+yehcea97yVfbK4XufX7LNiscbdQKe6XVP0EpaP/5xvQ81JQ+kgX8CMMrXpiTudTROTbC3oqaYqddjsU1W2Ol78D1sgjY3zp6LAGS5Sd/ZXieIMG4U0Bgop9KiWJKPJv+f9Uq3WgZ93o8A9cJ2CvMQztlR0XBxqgiLzpZrxW3NiKq4UhDg4C/Cgg23Ergn2F31BUm3CyJ8qkbx4MBRuCwqboBQp+Q2lgYvOxeBhn+OB4B2kg
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 09:51:22.3351
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 720387db-fb0c-4378-f160-08df17c5e4cf
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF00000530.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB8794
+In-Reply-To: <20260901192906.133670-3-jamien@nvidia.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.179.24]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ whupemk200014.china.huawei.com (7.152.185.79)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_025133_041536_F646CC01 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20260921_025440_938229_98EDB865 
+X-CRM114-Status: GOOD (  40.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,100 +85,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 9:26 am, Ryan Roberts wrote:
-> On 14/09/2026 14:51, Muhammad Usama Anjum wrote:
->> __ptep_get() returns a SW PTE value, and __set_pte_nosync() accepts one.
->> When HW PTEs use a distinct hw_pte_t, directly reading or writing *ptep
->> as a SW PTE value no longer satisfies those interfaces.
->>
->> Use __pte_from_hw after READ_ONCE() to obtain a SW PTE value and add
->> __hw_pte before WRITE_ONCE() to form an HW PTE.
->>
->> Define __hw_pte for both the wrapper and alias configurations so the
->> same accessor code works in either case.
->>
->> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
->> ---
->>  arch/arm64/include/asm/pgtable.h | 4 ++--
->>  include/linux/pgtable_types.h    | 2 ++
->>  2 files changed, 4 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 4768ec59de555..67c4a6179e154 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -360,7 +360,7 @@ static inline pte_t pte_clear_uffd(pte_t pte)
->>  
->>  static inline void __set_pte_nosync(hw_pte_t *ptep, pte_t pte)
->>  {
->> -	WRITE_ONCE(*ptep, pte);
->> +	WRITE_ONCE(*ptep, __hw_pte(pte));
+On 2026/9/2 3:29, Jamie Nguyen wrote:
+> Arm DEN0048D (Functional Fixed Hardware Specification v1.3, March 2026)
+> added a third FFH Operation Region flavour. An Operation Region declared
+> with an Offset of 0x2 triggers an FFA_MSG_SEND_DIRECT_REQ2 call instead of
+> a bare SMC or HVC, and each 64-bit field of the region is one register,
+> starting at X0:
 > 
-> Would this work as an alternative? It removes the need for the new __hw_pte()
-> helper. In future, converting a pte_t to a hw_pte_t won't be trivial so having a
-> generic helper for it doesn't feel like a good fit.
+>    X0		call status, populated by OSPM on return
+>    X1		Bits[15:0] receiver endpoint ID, or zero to have OSPM
+> 		resolve it from the service UUID
+>    X2-X3		service UUID of the callee partition, written by ACPI
+> 		platform firmware using ToUUID()
+>    X4-X17	message payload, X4 is always present
 > 
-> 	WRITE_ONCE(hw_pte_val(*ptep), pte_val(pte));
+> DEN0048D recommends Offset 0x2 for new platforms, since not every OSPM
+> implements Offsets 0x0 and 0x1. Linux implements both and rejects anything
+> else, so AML using the recommended encoding simply fails today.
+> 
+> Add the Operation Region side of it. Region length validation, the X0-X17
+> layout, the ToUUID() to FF-A UUID byte order conversion and the DEN0048D
+> table 3 status codes all live here; they are ACPI semantics, not FF-A
+> ones. The call itself goes out through a small set of ops that the FF-A
+> driver registers. That indirection is needed because this file is built
+> in, while CONFIG_ARM_FFA_TRANSPORT is a tristate.
+> 
+> Anything that stops the call being made comes back to AML in the X0 status
+> field: a malformed region length, or a null service UUID when AML has
+> asked OSPM to find the endpoint itself. Once the call has gone out every
+> register is copied back, whatever the outcome, which is what DEN0048D
+> requires. That also takes care of table 3, because FFA_ERROR reports the
+> FF-A error code in X2 and FFH_FFA_CALL_FAILED wants it in the same place.
+> A response that is neither FFA_ERROR nor FFA_MSG_SEND_DIRECT_RESP2 is
+> handled the same way; the call did complete.
+> 
+> Assisted-by: Claude:claude-opus-5
+> Co-developed-by: Dat Mach <dmach@nvidia.com>
+> Signed-off-by: Dat Mach <dmach@nvidia.com>
+> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+> ---
+>   drivers/acpi/arm64/ffh.c | 185 +++++++++++++++++++++++++++++++++++++++
+>   include/linux/acpi.h     |  41 +++++++++
+>   2 files changed, 226 insertions(+)
+> 
+> diff --git a/drivers/acpi/arm64/ffh.c b/drivers/acpi/arm64/ffh.c
+> index 04380bab193df..9f8a508cf2d4a 100644
+> --- a/drivers/acpi/arm64/ffh.c
+> +++ b/drivers/acpi/arm64/ffh.c
+> @@ -1,7 +1,9 @@
+>   // SPDX-License-Identifier: GPL-2.0-only
+>   #include <linux/acpi.h>
+>   #include <linux/arm-smccc.h>
+> +#include <linux/rwsem.h>
+>   #include <linux/slab.h>
+> +#include <linux/uuid.h>
+>   
+>   /*
+>    * Implements ARM64 specific callbacks to support ACPI FFH Operation Region as
+> @@ -62,6 +64,183 @@ static bool acpi_ffh_smccc_owner_allowed(u32 fid)
+>   	return false;
+>   }
+>   
+> +/*
+> + * FFH Operation Regions declared with an Offset of 0x2 trigger an
+> + * FFA_MSG_SEND_DIRECT_REQ2 call, as described in Arm DEN0048D (Functional
+> + * Fixed Hardware Specification v1.3) section 2.3.1.2. Every 64-bit field of
+> + * the region maps to one register, ordered from X0:
+> + *
+> + *   X0		status, one of the ACPI_FFH_FFA_* codes below, populated by
+> + *		OSPM on return
+> + *   X1		Bits[15:0] hold the receiver endpoint ID, or zero to have OSPM
+> + *		resolve it from the service UUID
+> + *   X2-X3	service UUID of the callee partition, written by ACPI platform
+> + *		firmware with the ToUUID() ASL operator
+> + *   X4-X17	message payload, X4 is always present
+> + *
+> + * The region Length is "32 + 8 * N" bytes with 1 <= N <= 14, which is X0-X4
+> + * at minimum and X0-X17 at most.
+> + */
+> +#define ACPI_FFH_FFA_HDR_REGS		4	/* X0 - X3 */
+> +#define ACPI_FFH_FFA_MAX_PAYLOAD_REGS	14	/* X4 - X17 */
+> +#define ACPI_FFH_FFA_UUID_OFFSET	(2 * sizeof(u64))
+> +#define ACPI_FFH_FFA_MIN_LENGTH		((ACPI_FFH_FFA_HDR_REGS + 1) * sizeof(u64))
+> +#define ACPI_FFH_FFA_MAX_LENGTH		\
+> +	((ACPI_FFH_FFA_HDR_REGS + ACPI_FFH_FFA_MAX_PAYLOAD_REGS) * sizeof(u64))
+> +
+> +/* DEN0048D table 3, FFH Operation Region status codes for FFA calls */
+> +#define ACPI_FFH_FFA_CALL_FAILED		1
+> +#define ACPI_FFH_FFA_SUCCESS			0
+> +#define ACPI_FFH_FFA_NOT_SUPPORTED		(-1)
+> +#define ACPI_FFH_FFA_INVALID_PARAMETERS		(-2)
+> +#define ACPI_FFH_FFA_OUT_OF_MEMORY		(-3)
+> +#define ACPI_FFH_FFA_UNSPECIFIED_ERROR		(-4)
+> +
+> +static const struct acpi_ffh_ffa_ops *ffa_ops;
+> +static DECLARE_RWSEM(ffa_ops_sem);
+> +
+> +int acpi_ffh_ffa_register(const struct acpi_ffh_ffa_ops *ops)
+> +{
+> +	int ret = 0;
+> +
+> +	if (!ops || !ops->partition_id || !ops->direct_req2)
+> +		return -EINVAL;
+> +
+> +	down_write(&ffa_ops_sem);
+> +	if (ffa_ops)
+> +		ret = -EBUSY;
+> +	else
+> +		ffa_ops = ops;
+> +	up_write(&ffa_ops_sem);
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_ffh_ffa_register);
+> +
+> +void acpi_ffh_ffa_unregister(const struct acpi_ffh_ffa_ops *ops)
+> +{
+> +	down_write(&ffa_ops_sem);
+> +	if (ffa_ops == ops)
+> +		ffa_ops = NULL;
+> +	up_write(&ffa_ops_sem);
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_ffh_ffa_unregister);
+> +
+> +/*
+> + * ToUUID() emits the UUID in mixed-endian (EFI GUID) byte order whereas FF-A
+> + * expects the RFC4122 layout, which is exactly a guid_t to uuid_t conversion.
+> + */
+> +static void acpi_ffh_ffa_uuid(uuid_t *uuid, const u8 *aml_buf)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < UUID_SIZE; i++)
+> +		uuid->b[i] = aml_buf[guid_index[i]];
+> +}
+> +
+> +static int acpi_ffh_ffa_status(int err)
+> +{
+> +	switch (err) {
+> +	case 0:
+> +		return ACPI_FFH_FFA_SUCCESS;
+> +	case -EIO:
+> +	case -EPROTO:
+> +		return ACPI_FFH_FFA_CALL_FAILED;
+> +	case -EOPNOTSUPP:
+> +		return ACPI_FFH_FFA_NOT_SUPPORTED;
+> +	case -EINVAL:
+> +	case -ENOENT:
+> +	case -ENODEV:
+> +	case -ENOTUNIQ:
+> +		return ACPI_FFH_FFA_INVALID_PARAMETERS;
+> +	case -ENOMEM:
+> +		return ACPI_FFH_FFA_OUT_OF_MEMORY;
+> +	default:
+> +		return ACPI_FFH_FFA_UNSPECIFIED_ERROR;
+> +	}
+> +}
+> +
+> +static bool acpi_ffh_ffa_length_valid(u64 length)
+> +{
+> +	return length >= ACPI_FFH_FFA_MIN_LENGTH &&
+> +	       length <= ACPI_FFH_FFA_MAX_LENGTH &&
+> +	       !(length % sizeof(u64));
+> +}
+> +
+> +static void acpi_ffh_ffa_handler(struct acpi_ffh_info *info, void *value)
+> +{
+> +	int status = ACPI_FFH_FFA_INVALID_PARAMETERS;
+> +	u64 resp_regs[3] = {};
+> +	unsigned int nr_payload;
+> +	u64 *regs = value;
+> +	uuid_t uuid;
+> +	u16 dst_id;
+> +	int ret;
+> +
+> +	if (!acpi_ffh_ffa_length_valid(info->length))
+> +		goto out;
+> +
+> +	nr_payload = info->length / sizeof(u64) - ACPI_FFH_FFA_HDR_REGS;
+> +
+> +	acpi_ffh_ffa_uuid(&uuid, (u8 *)value + ACPI_FFH_FFA_UUID_OFFSET);
+> +
+> +	down_read(&ffa_ops_sem);
+> +	if (!ffa_ops) {
+> +		status = ACPI_FFH_FFA_NOT_SUPPORTED;
+> +		goto out_unlock;
+> +	}
+> +
+> +	/*
+> +	 * A zero receiver endpoint ID means ACPI platform firmware expects
+> +	 * OSPM to derive it from the service UUID.
+> +	 */
+> +	dst_id = regs[1] & GENMASK(15, 0);
+> +	if (!dst_id) {
+> +		/*
+> +		 * A null UUID means "every partition" to
+> +		 * FFA_PARTITION_INFO_GET, so reject it here rather than let a
+> +		 * bare read of the Operation Region, which arrives as a zeroed
+> +		 * buffer, resolve to an arbitrary endpoint.
+> +		 */
+> +		if (uuid_is_null(&uuid))
+> +			goto out_unlock;
+> +
+> +		ret = ffa_ops->partition_id(&uuid, &dst_id);
+> +		if (ret) {
+> +			status = acpi_ffh_ffa_status(ret);
+> +			goto out_unlock;
+> +		}
+> +	}
+> +
+> +	ret = ffa_ops->direct_req2(dst_id, &uuid, regs + ACPI_FFH_FFA_HDR_REGS,
+> +				   nr_payload, resp_regs);
+> +	status = acpi_ffh_ffa_status(ret);
+> +
+> +	/*
+> +	 * DEN0048D asks for the response registers to be copied back. That also
+> +	 * takes care of table 3: FFA_ERROR reports the FF-A error code in X2,
+> +	 * which is exactly where FFH_FFA_CALL_FAILED wants it. -EIO and -EPROTO
+> +	 * both mean the call completed, so the registers hold the callee's
+> +	 * response and not AML's own request.
+> +	 */
+> +	if (!ret || ret == -EIO || ret == -EPROTO) {
+> +		regs[1] = resp_regs[0];
+> +		regs[2] = resp_regs[1];
+> +		regs[3] = resp_regs[2];
+> +	}
+> +
+> +out_unlock:
+> +	up_read(&ffa_ops_sem);
+> +out:
+> +	/*
+> +	 * DEN0048D describes this field as 64 bits wide and gives the table 3
+> +	 * codes as signed values, so sign extend rather than write a narrower
+> +	 * quantity. 0xfffe or 0xfffffffe would read back as a positive number
+> +	 * in a 64-bit AML comparison.
+> +	 */
+> +	regs[0] = (u64)(s64)status;
+> +}
+> +
+>   int acpi_ffh_address_space_arch_handler(acpi_integer *value, void *region_context)
+>   {
+>   	int ret = 0;
+> @@ -99,6 +278,12 @@ int acpi_ffh_address_space_arch_handler(acpi_integer *value, void *region_contex
+>   			ffh_ctxt->invoke_ffh64_fn(r, r);
+>   			memcpy(value, r, ffh_ctxt->info.length);
+>   		}
+> +	} else if (ffh_ctxt->info.offset == 2) {
+> +		/* FFA_MSG_SEND_DIRECT_REQ2 call */
+> +		if (ffh_ctxt->info.length < sizeof(u64))
+> +			ret = AE_ERROR;
 
-Yeah, this would work. It removes the need for the generic conversion
-helpers which is even better.
+There is a acpi_ffh_ffa_length_valid() check in acpi_ffh_ffa_handler(),
+is it a duplicated one here?
 
-> 
-> In general, I wonder if we should avoid defining both the __hw_pte() and
-> __pte_from_hw() generic helpers. Conversion between sw and hw representations
-> will become arch-specific in future and for arm64 that conversion will need
-> extra information so it's can't just specialize these interfaces as they are.
+> +		else
+> +			acpi_ffh_ffa_handler(&ffh_ctxt->info, value);
 
-Agreed.
-
-> 
->>  }
->>  
->>  static inline void __set_pte_complete(pte_t pte)
->> @@ -381,7 +381,7 @@ static inline void __set_pte(hw_pte_t *ptep, pte_t pte)
->>  
->>  static inline pte_t __ptep_get(hw_pte_t *ptep)
->>  {
->> -	return READ_ONCE(*ptep);
->> +	return __pte_from_hw(READ_ONCE(*ptep));
-> 
-> 
-> ...Corresponds with:
-> 
-> 	return __pte(READ_ONCE(hw_pte_val(*ptep)));
-
-I'll update. 
-
-> 
-> Thanks,
-> Ryan
-> 
->>  }
->>  
->>  extern void __sync_icache_dcache(pte_t pteval);
->> diff --git a/include/linux/pgtable_types.h b/include/linux/pgtable_types.h
->> index ee4eace5c3e1c..b5862a16aa497 100644
->> --- a/include/linux/pgtable_types.h
->> +++ b/include/linux/pgtable_types.h
->> @@ -9,11 +9,13 @@
->>  #ifdef CONFIG_ARCH_HAS_HW_PTE_T
->>  typedef struct __hw_pte_t { pte_t __pte; } hw_pte_t;
->>  #define __pte_from_hw(pte)	((pte).__pte)
->> +#define __hw_pte(pte)  ((hw_pte_t) { (pte) })
->>  
->>  #define hw_pte_val(x)  pte_val((x).__pte)
->>  #else
->>  #define hw_pte_t pte_t
->>  #define __pte_from_hw(pte)	(pte)
->> +#define __hw_pte(pte)  (pte)
->>  
->>  #define hw_pte_val(x)  pte_val(x)
->>  #endif
->>
-> 
-
-
--- 
-Thanks,
-Usama
+Thanks
+Hanjun
 
