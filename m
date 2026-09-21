@@ -4,86 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2281C982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A9CC982F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=q17BTeQu3f/C2Tj9dpVKkyYMWZ/X3XaQhujghfI7S8w=; b=EzBc/adjTk1hAv
-	SPb4xrhAHI7yz4x5U3ND/X8EDOXLASx2+mlkjof0Simuh3r4+u82oN1JCHiffocu3odNDRdApd0z9
-	wmxCCNt6C7QnVXSBYF+jEnoDYxwlKVYyDnqCY14jlAGCA5uYSht+SYTwqMHqOEzddfD9vI8CfxPdr
-	mliQAYN1do3GjugYAIbaSXickfJ3/6uSsBoSgiYx2Sz+mTaiSDDxCtXVRsQwSAOgo2/2GoVB+JaFI
-	PxsWIw2AAd1G7wjq+23gfkR3TaCmQcURJ0W4cEm1x4L8iK0zsCIifqg4RiRWZcVkKxkzJSwX4g1es
-	NUCqpFxbAGABvu79oMUA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/2HAjOtO4JT6djVdWHJMgChsjtAACcDgZqmOTkPDDE8=; b=aePcrpFAjIwPi7ayyBQuSuEwEK
+	OXtjxZDeuRK8rrh5iUqGKESDcQq+11txeKARudm8kKYsSok6nJ+S5uhRfAW6TBa+5OnkbjjNVVVTW
+	tQu8yo9TC9LZf2Hzji5FYF6uX1vuB9FGE8WmUgOddsIrwtD5N7Jz+7gmhtBfUE4FRvo2CBKysYCSP
+	3V7LKUNv0XHRUO/FLMJTGcXuxZ0JevuiA5GedGGaIYSHHAfzRwqAAvjWa/wQARdtzDyt2512Dg7cR
+	g4LFroodg+BClZonSb8VSa9eddG+yodZBAGUvZ72wv61+e8QTQ6NitaLftvLWKWxRzslV9303kWYH
+	1k70SWVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fzS-00000002cSB-3qG9;
-	Mon, 21 Sep 2026 15:31:34 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x8fzb-00000002cXZ-04J6;
+	Mon, 21 Sep 2026 15:31:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fzQ-00000002cQg-3umv
+	id 1x8fzX-00000002cUM-28yQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 21 Sep 2026 15:31:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=/2HAjOtO4JT6djVdWHJMgChsjtAACcDgZqmOTkPDDE8=; b=cQDlwXdaO9qm304KuLzfaarnUR
+	THqBkJH5b/pHTZVWrPyxMuHCJU8HQHc2A5huookFmYab9xHllnyxv6fB8n6Kp8ihDOk39/0kWGjJN
+	G+5cG4k0RjNv8WX0xRT+mvRrJkJFcLv4eQG/9A4TXC09yqWzIELFFW4xqJm1DqasSJj0/hv2dV9mO
+	YpKmk6lIp0gMyrOMF0gjcvUHznyTpV9eebunoJXidKiWxxv6YV/Z2e/xQ1vMmB6uS1/n+RbCyHiUy
+	zAIIsUmU7JeI8UwNFzW3BhHXNlODYcm5y7Pro4/whgxelKbX3qg6kLk0oJfKV7B9M1eyEHn4PHtvl
+	DeR3c8HA==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8fzU-0000000CTgc-2Wlx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 15:31:34 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49d1ca5b0d6so23439905e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:31:30 -0700 (PDT)
+	Mon, 21 Sep 2026 15:31:38 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f633ecdeso2724378f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 08:31:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790004689; x=1790609489; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=q17BTeQu3f/C2Tj9dpVKkyYMWZ/X3XaQhujghfI7S8w=;
-        b=Co0tXj8IsyKCabFFBJLcg8bmCcFiA8l3M7TxNk8oqgiChapgzgevostsSztX1rQPM6
-         A5CX3q2Twja5xiW7jUawsoQqZZWYI0wgKn29DOTNDtgT8lEyvzVUCPlTVY1Qo763kbL3
-         lExZMUHTsNa4p0AXPOqzTFcA7p0qRTMNaxpD6LlnB+DlpOCzfZTf48gIuOKUft+s/FB8
-         yJF7vH+xBMzb79QijPsAW0AgQ26wWk8LjY0rDcGWWUNZzY/s2k9gKY2S2sxmzWOkBRwR
-         YOnGjGUhs9lGMzy72CgClgmoBqjb5vTO80hMSuQDMDSPPDT837rg3zdWBvo03XT5HBJc
-         Vepg==
+        d=gmail.com; s=20251104; t=1790004695; x=1790609495; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/2HAjOtO4JT6djVdWHJMgChsjtAACcDgZqmOTkPDDE8=;
+        b=Ja6OeviSkMbcJMzfxSS+Z1e5ZnoQipHoWbcF33GIyvNXyHR3FI1TMzg/SM/mLr1/vS
+         W5JNxYXK+Y9FmpsEBbvnOGqAeeipSphRjinJZ0FGJd7XcYMkinprSIuFpOZewzFJ1tW8
+         JcByDuJxX1TRHpt/1zZW/VAJ9PZNobFB8+1e2RFTdVqT6ToiPfA0OXaAGFD6r1k9py9P
+         9TrJ1r9fkE2iJoqRC6cG70v3ooRTVd0h7cDEnLd3m7PrqkFSxFT7kni02urE1uwLrkwk
+         gZ+MnHTLBdIVUWjksmIwJDB3WJxY4Jqf4VIvstSJMZgW9TOVQgW+XF4wjDL3q/OQlgc9
+         lKQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790004689; x=1790609489;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=q17BTeQu3f/C2Tj9dpVKkyYMWZ/X3XaQhujghfI7S8w=;
-        b=zuEEOmb+0ms4jWsxnjjF9hBpATegxAyrWq5sSnmcVA293twACdlMVdZ915bRkmUNEM
-         C8m2K7KDUieQuT6+/Kz7w4woACHjO8khMzlHRfPKuSJBqX6vxXqIbsKoR9aHLEJ0x6tc
-         mTMNGFz4k2lbLotrxfjZC5Qpoe+0tO5Q54lm29JtTdyXVeX2D/MrdW5pWgrampLTdQVf
-         uizpSOWBuN8Aio0SFNmRnqbXi/cjhdlw17G45Gq7R7TYHrHF4XoWzMomkeT29WCyJZ6z
-         1V59UiQN9QDNKUGm8dgPaHrnX18iLloI8lAPsQm7naD6uoNFq5vjZsuIs0x/0vkCl7ti
-         /2WQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxh/4CKnClO4Fmwdbm0FCeDFkc63MV9M9DJ6dOAzbYpwQDrO7F69EVa0WiWBTwphXbk1eV4sk8lg1/CZy76Y+QV@lists.infradead.org
-X-Gm-Message-State: AFuF++kdMxcW3YREYWvHa1aHoII5q26Mp0OGDjnv2Xb6X1HvGXC+2mab
-	xMVDNserUd2oPgPpimqYWAtOdVowixFbuNB2ebcGVKbDJ6dsKPurTDG9
-X-Gm-Gg: AYBFou0nOHOAHqv2P49tlFGJfRnpDLirXfIRKwgKPAw3GYnN1forE0/Src5C6P3mmyj
-	xsH2GUTogs0wGgVOi0pFoOlFOmSyCH3FeulibcGSVLNVhBHpVQZq2SxO76SEzmhRSvt/WuKoNkl
-	dgLvjisL2shzl7TD1KY13FlgiYSkP+2oN1tOD0w/S4iLRYihnt0UToFcS6B1YTCCYI+JWkLqyRq
-	GZkbnu6HAtDULfX9/D84eeFQr5RuenpYz8LK3Lmt1iL+uxcbAA+RebjzWNR2Eb9j2D+EtXtu67A
-	S/vTnwQZO4qbPsIFmETsAv+MaArT4mHbRnD4pAOxUNzAq5BvAYQ5xTy6Y0YOVkDlyk3ajCMxq0m
-	CqwTzZigQYO+nHVGHGe7F7TDvXqSAdADzH4Hsx87xVNICuR4FOq3S7U0aGcDfJUSkD+9o9nImAV
-	bY01vUPuYbfI1zgoo1hJmExeMdc7ziszRC8cmTVsidkIkpt9vaHqo7ftwUX236eWox1WY1dyOce
-	kRVBkR3ziTkrrrExyVssLRZjf/wUEqIY2NM0J0Rcc5XtRdwL1kpowj4Gg==
-X-Received: by 2002:a05:600c:3ba0:b0:49e:73d3:78ab with SMTP id 5b1f17b1804b1-49fc55adc12mr195005285e9.0.1790004688933;
-        Mon, 21 Sep 2026 08:31:28 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790004695; x=1790609495;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/2HAjOtO4JT6djVdWHJMgChsjtAACcDgZqmOTkPDDE8=;
+        b=XWfkq1jUrFzXTtqqO8Q501di+MW3RKpDzvk5sjBnec9ygmF0cLbmBAXAUg5s9NvO3t
+         5Ba3BJ8dXidcQcmeFS7nEL989p61M/z009GDpGeXmTrwUJ/Hm75qsDGNvtKJVxqevkTN
+         KcAkbi0URRpugXSI7oFgu8vaEF9UmE/tyLgtEv2L69/uoxYJIoNxYrcg2j0eJPLL5rIt
+         ylXyW2up8dDiBhNvDxzAYoR1kZ4CWlOwxcTQWmq2Wh5UbZ17t6dt19CZheDwIAgMftKE
+         ITxT2IG7wgrKhr/aWWfsAwaZ6/q21A+L2GzFfFcAJPZ3jWd0zMTOT64r/9bWbft6ZaTh
+         1ukQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxffWQjQHmByuUlphEwi2Ajse+jV/JzKafrbASmn5DxEVtq9hngaTt1T7LVesZQ5niCFsa9D4iwHftNbQSMdA/u@lists.infradead.org
+X-Gm-Message-State: AFuF++n9bNOhRh77pO/CAvGNuxgOw/VmfC6TaPvrpqqUlWsUls9D+aKm
+	giTAP/J/pXBMlWJksXvunPedfLbZYaK1ee49X58ldk/cYdrTzYgttTyK
+X-Gm-Gg: AYBFou0JqAWMgy17rRPK91LryqAhHMQUT1i8xFVY5XAL1h9nF0dqksPZlslIQCdl19/
+	xOqyhEUcmyfEOO6Px96dwymcl64rTsuWVvidAOK3576cAfsvHgZW/yvT56dgwMNemRd7BkPhS5d
+	UgZQSjCSwZIMHeookSu8pKaniukJz7nU3ooyZAqymBwpzxb5+ieZ79kqhY020W5nA6E0+vCtViG
+	VTZ3CXASWO/mnxxIyKen9R/ZMc2+az3P0a2w/irMKZjwEiMek4o6EeNA+cY43tXXe8izFGJ0c6X
+	wlYzmTx5nffoPkHn4wt7P3Gd5Q/om5ed0clMXFMA6mxhUtlGcuqM3ogq97jeJFmftfe1rC1zTIO
+	RMmh9b1bIBuuphLa0SadvXO4PJOR2parAexCtxvLWqxMZcUVgBdU0UugFgS+bDXJ3mHgrhTZWeo
+	i2cam+/NBp3vHKE5cKOQhlgHYf8eDwyQtfBb3t7gv2N9ggnEQBi5nBfip9RstzghUxviH7I9p0v
+	Rzjhk6j28gp6Jtg7dYMKBesMlP5fnhqRcmpfM3Ksese2N8itnq+L4vGyg==
+X-Received: by 2002:a05:6000:260d:b0:488:5d3e:becb with SMTP id ffacd0b85a97d-4885d3ec377mr3423054f8f.39.1790004694794;
+        Mon, 21 Sep 2026 08:31:34 -0700 (PDT)
 Received: from [127.0.1.1] (lmontsouris-656-1-83-121.w82-127.abo.wanadoo.fr. [82.127.110.121])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724562aebsm25313835f8f.14.2026.09.21.08.31.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48724562aebsm25313835f8f.14.2026.09.21.08.31.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 08:31:28 -0700 (PDT)
+        Mon, 21 Sep 2026 08:31:34 -0700 (PDT)
 From: Amin Gattout <amin.gattout@gmail.com>
-Subject: [PATCH v2 0/5] media: rockchip: add support for the RK3576 Video
- Capture unit
-Date: Mon, 21 Sep 2026 17:29:56 +0200
-Message-Id: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
+Date: Mon, 21 Sep 2026 17:29:59 +0200
+Subject: [PATCH v2 3/5] media: rockchip: rkcif: add a callback for the MIPI
+ ID_CTRL1 register
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHRNsWoC/1WPzW7DIBCEXyXi3K0MZoH41PeocuBnSWjrOAUHt
- Yr87sV2parHkWbmm3mwQjlRYcPhwTLVVNJ0bUI8HZi/2OuZIIWmmeiE6owwUJO3N8jvPWoFijT
- nhmwnpGItcssU09dW93radbm7N/Lz2vHryPR5b5x5t/1hGnWHIPiSQED2FcJcQGsuXDC9DKSGK
- tYaZwuBn8YxzcPBBYzSYOxjywuBzijUPSEebeycFigpSm4kWyddUpmn/L0drnxbsGGPHP9/qxw
- 6CH1Ecmhs5/DlPNr08dyo7LQsyw8bfY7wOwEAAA==
-X-Change-ID: 20260828-vicap-rk3576-6e7118ea0246
+Message-Id: <20260921-vicap-rk3576-v2-3-0a4582e20c72@gmail.com>
+References: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
+In-Reply-To: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
  Michael Riesch <michael.riesch@collabora.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -91,19 +103,18 @@ To: Mehdi Djait <mehdi.djait@linux.intel.com>,
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Amin Gattout <amin.gattout@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ linux-kernel@vger.kernel.org, Amin Gattout <amin.gattout@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790004687; l=3333;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790004687; l=2149;
  i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=QIycfM8lSGGpojOIRQ7BJiuB5wrTj6UvPklU28CgqhI=;
- b=xJZVG8DMwVCT85tBT03zInvpL1eGKUYrkEBIDqUtAM993jolzJTX6rarm5D6/FBRrPwbZBk9W
- TrrC0yfaAx5BsukaBjJDfNKb5HQLhUoYXudewIoohBijfVtAOh6wHaB
+ bh=RarTNDU+cdrtiJCRKIjHK9/KtTW/V+grsr3mpwyd0ak=;
+ b=AfnwiBUYc0Iwvv07IbNj4GLcQp3c8H7KT2SE4wJXU/4N3vJJhNOprP36ijMkFaowrAHFyv3c6
+ vPvJjApEssmBBjgqwoobVr5BffVD1PUuu8Qebca+Cabc2NfcYXvyCnb
 X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
  pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_083132_993698_322FFBF9 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20260921_163136_793815_183CE3FD 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,74 +129,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the Video Capture (VICAP) unit of the
-Rockchip RK3576 to the rkcif driver.
+The contents of the MIPI ID_CTRL1 register differ between variants. The
+RK3568 and RK3588 hold the capture size there, while the RK3576 uses it
+for the virtual channel and data type filter.
 
-The RK3576 VICAP features a digital video port (DVP) and five MIPI
-CSI-2 capture interfaces. Compared to the RK3588 variant, the MIPI
-register blocks are laid out differently, the ID_CTRL0 bit layout has
-changed, the VC/DT filter has moved from ID_CTRL0 to ID_CTRL1, and the
-capture size is configured in the new ID_SET_SIZE register. In
-addition, the pixel clock of each MIPI port enters the VICAP through a
-dedicated gate in the clock and reset unit, so the VICAP claims five
-interface clocks and five interface resets.
-
-The two driver patches that come first prepare the rkcif driver for
-that, by adding a register index for the capture size and a callback
-for the contents of ID_CTRL1. Neither changes the behavior of the
-existing variants.
-
-The device tree node connects the VICAP to the two MIPI CSI-2
-receivers that are usable with the MIPI D-PHYs in full mode, following
-the approach taken for the RK3588.
-
-Tested on a Radxa ROCK 4D with a Radxa Camera 4K, whose Sony IMX415
-sensor is wired to the first MIPI D-PHY in full mode.
-
-This series applies on top of the RK3576 MIPI CSI-2 receiver
-series [1].
-
-[1] https://lore.kernel.org/r/20260915-csi-2-rcv-dts-v2-0-bdaf8141616a@gmail.com
+Let each variant provide a callback that builds the register value, in
+preparation for the RK3576 support. Variants that do not provide one
+keep writing the capture size, so their behavior is unchanged.
 
 Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 ---
-Changes in v2:
-- Split the driver patch in three, one adding a register index for the
-  capture size, one adding a callback for the contents of ID_CTRL1, and
-  one adding the RK3576 support itself (Michael)
-- Collected Acked-by from Conor and Reviewed-by from Michael on the
-  binding patch, and Reviewed-by from Michael on the device tree patch
-- Link to v1: https://patch.msgid.link/20260915-vicap-rk3576-v1-0-d3f5eb58a0b5@gmail.com
+ drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c | 5 ++++-
+ drivers/media/platform/rockchip/rkcif/rkcif-common.h       | 2 ++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
----
-Amin Gattout (5):
-      media: dt-bindings: add rockchip rk3576 vicap
-      media: rockchip: rkcif: add a register index for the MIPI capture size
-      media: rockchip: rkcif: add a callback for the MIPI ID_CTRL1 register
-      media: rockchip: rkcif: add support for rk3576 vicap mipi capture
-      arm64: dts: rockchip: add vicap node to rk3576
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
+index e0acb9049ca1..432f47a1fc23 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
+@@ -749,7 +749,10 @@ static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
+ 	if (match_data->mipi_ctrl0)
+ 		ctrl0 = match_data->mipi_ctrl0(stream, active_out_fmt);
+ 
+-	ctrl1 = RKCIF_XY_COORD(width, height);
++	if (match_data->mipi_ctrl1)
++		ctrl1 = match_data->mipi_ctrl1(stream, active_out_fmt);
++	else
++		ctrl1 = RKCIF_XY_COORD(width, height);
+ 
+ 	int_mask |= RKCIF_MIPI_INT_FRAME0_END(stream->id);
+ 	int_mask |= RKCIF_MIPI_INT_FRAME1_END(stream->id);
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+index 4d9211ba9bda..f83c8099b78e 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
+@@ -207,6 +207,8 @@ struct rkcif_mipi_match_data {
+ 	unsigned int regs_id[RKCIF_ID_MAX][RKCIF_MIPI_ID_REGISTER_MAX];
+ 	u32 (*mipi_ctrl0)(struct rkcif_stream *stream,
+ 			  const struct rkcif_output_fmt *active_out_fmt);
++	u32 (*mipi_ctrl1)(struct rkcif_stream *stream,
++			  const struct rkcif_output_fmt *active_out_fmt);
+ 	struct {
+ 		unsigned int offset;
+ 	} blocks[RKCIF_MIPI_MAX - RKCIF_MIPI_BASE];
 
- .../bindings/media/rockchip,rk3568-vicap.yaml      |  46 +++++-
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  83 +++++++++++
- .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 155 ++++++++++++++++++++-
- .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   1 +
- .../media/platform/rockchip/rkcif/rkcif-common.h   |   4 +-
- drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |  21 +++
- drivers/media/platform/rockchip/rkcif/rkcif-regs.h |   1 +
- 7 files changed, 308 insertions(+), 3 deletions(-)
----
-base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
-change-id: 20260828-vicap-rk3576-6e7118ea0246
-prerequisite-change-id: 20260825-csi-2-rcv-dts-7712bd834de6:v2
-prerequisite-patch-id: fbe2d84f88709b8bf846debe6b8ce62c4392ca63
-prerequisite-patch-id: 9bce33933ae69e8cc7f7ef2f0d9acb969620bc85
-prerequisite-patch-id: bff0c668524f94b0b7901c682d5ccdccfe18d46e
-prerequisite-patch-id: 8f45701f840680a35e044f43ebd3087282847990
-prerequisite-patch-id: bdbb3e9b072469900cac21031cd799265b52d734
-prerequisite-patch-id: c91ceb74abc8bc79ac036990abdef4cbd7328f97
-
-Best regards,
---  
-Amin Gattout <amin.gattout@gmail.com>
+-- 
+2.43.0
 
 
