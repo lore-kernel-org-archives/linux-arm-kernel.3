@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30516C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B653C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 13:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7mBu7KzcyTyfDyGtVhqs/jTK19v7sG05dKkGBzNKj0=; b=oIQAlW8cQlC28p4sTYuwRqsODn
-	Ta39rQv0J4zoHbgGiB3ZSDb9eQSlg+BUSJJCGa7/h6hqeqIwX7jtfWRFGTVvGXOin2VmAmUb7M7Qp
-	mrcxYDv0yZfOeVz2lp+ekKJlBi1jDyDJB3/1+WN7uL/yVkrHFYDxxAbsJMfzexF0mt/JgkKI5HZvq
-	k41m3HuutDE/3b6IeJ7K7X7mHTb4woXercMHt8zFyVNSkZYlv+oDM6XxLQUzLMb7mAq72VgZuUHNk
-	h+IJsD68XqS65syY5G0RUm0XrBzv8IB5u/iAeV00zFYlO69axWfyW2iBIPj8EVOi6q/jzXolPzP8G
-	1jonVN3g==;
+	bh=I4ZczZP60GGyLgMGKTvbjHMqpsZeZfnjU75R62E8W38=; b=XdJtwRgfPVcXdLKb6yFtiJH3G8
+	5C9ieJDC2dfkWfOoDqevkSYB9eNTcJNxm4nvC5s5Qa3qDmTxjYtjmmOPk+HX2aB30S2uU3YB56VTD
+	iHxa7sugPhcIzGCCDFzM1T5jfonG18AvYMYr/vDo9ew4spbFJ6nR71Fq2UqOwMy63ziP+pHOWg+HS
+	93wS/iQDueHlrXRGj6LHaXdzsF7n63AgpNAcwJf6xE8iuUVikjKh6x32et4JkS9EJpvPNGq88/7q/
+	O8B/APQBDOygOnvrq7JkNqLl6QA9XoJU1/RJZoXn237QNYynZAcYbW498wx+6Z/RPiN9TNs11ulAR
+	LnYj48kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eMm-00000002Hzg-06ew;
-	Mon, 21 Sep 2026 13:47:34 +0000
+	id 1x8ePz-00000002IW2-20Wa;
+	Mon, 21 Sep 2026 13:50:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8eMc-00000002HyB-1SKZ
+	id 1x8ePw-00000002IUL-3VVc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 13:47:25 +0000
+	Mon, 21 Sep 2026 13:50:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80A2A19F6;
-	Mon, 21 Sep 2026 06:47:17 -0700 (PDT)
-Received: from [10.0.152.207] (e121487-lin.carmbridge.arm.com [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F68E3F528;
-	Mon, 21 Sep 2026 06:47:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FCC219F6;
+	Mon, 21 Sep 2026 06:50:41 -0700 (PDT)
+Received: from [192.168.178.6] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9437D3F528;
+	Mon, 21 Sep 2026 06:50:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789998441; bh=S74E5qHOMv58fpsLAJXvsMCedmwmZf3vVK1QuOOeH6c=;
+	t=1789998645; bh=DjB3fpKqAp8686etMoCaKqxhPaFUQK7vXCBysnxb29c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JgGKSG3DHvEYF7Gd0tmK4Uagl3rZDrPMlHPyODGbKGP4qvFoJ/VEp+tg/r6F2ybX9
-	 B2diEnSgkh5ZyCIbIZCb5uKTQPC/AgawneWOLSvzMgud2d4q1u3+aofvn9ab0zyiil
-	 HEUIQIogJwWd7E21Lc2RVGqSnFyiHC6y0TYNb9cQ=
-Message-ID: <cf017cb5-c048-4b22-846e-aea206da695c@arm.com>
-Date: Mon, 21 Sep 2026 14:47:17 +0100
+	b=elKUwwCqub7RIwV77IdsKQyaM87EwE3VLi531pEViltJiItG1HhW+lmj1VNLTK4Qx
+	 6+h7C8XOgMDMcFVtEyt5gJHh1mO/Ga97VpFBOzCpuZFkv3mZL+nfl68VWS5QYVSEeM
+	 mE8Wc7bBSS8dB7+phLxP9ufh8GoinSoZzhwwFKQk=
+Message-ID: <2404d9c9-b66c-43ab-a42d-709486b0f250@arm.com>
+Date: Mon, 21 Sep 2026 15:50:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 32/38] arm64: nmi: Add Kconfig for NMI
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
- maz@kernel.org, lpieralisi@kernel.org, liaochang1@huawei.com
-References: <20260914102102.68597-1-vladimir.murzin@arm.com>
- <20260914102102.68597-33-vladimir.murzin@arm.com>
- <c02d298b-4e2d-412a-908a-16c017799c45@huawei.com>
+Subject: Re: [PATCH v5] arm64: topology: fix arch_freq_get_on_cpu() overflow
+ above 4.19 GHz
+To: Oleg Keri <okerixx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Sumit Gupta <sumitg@nvidia.com>, Beata Michalska <beata.michalska@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ananthu C V <ananthu.cv@oss.qualcomm.com>, linux-pm@vger.kernel.org
+References: <20260917182059.2851-1-okerixx@gmail.com>
 Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <c02d298b-4e2d-412a-908a-16c017799c45@huawei.com>
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <20260917182059.2851-1-okerixx@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_064722_613178_15C1E841 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20260921_065048_956112_A83AEB3E 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,67 +80,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/26 10:06, Jinjie Ruan wrote:
+On 17.09.26 20:20, Oleg Keri wrote:
+> arch_freq_get_on_cpu() computes the product of the frequency scale and
+> the reference frequency as a u64, but assigns it to an unsigned int
+> before shifting it back down:
 > 
-> 在 2026/9/14 18:20, Vladimir Murzin 写道:
->> From: Mark Brown <broonie@kernel.org>
->>
->> Since NMI handling is in some fairly hot paths we provide a Kconfig
->> option which allows support to be compiled out when not needed.
->>
->> Signed-off-by: Mark Brown <broonie@kernel.org>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/Kconfig | 18 ++++++++++++++++++
->>  1 file changed, 18 insertions(+)
->>
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index 2738637ccb92..df5ff59715d1 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -2251,6 +2251,24 @@ endmenu # "ARMv8.7 architectural features"
->>  config AS_HAS_MOPS
->>  	def_bool $(as-instr,.arch_extension mops)
->>  
->> +menu "ARMv8.8 architectural features"
->> +
->> +config ARM64_NMI
->> +	bool "Enable support for Non-maskable Interrupts (NMI)"
->> +	default y
-> We should select HAVE_PERF_EVENTS_NMI to enable perf-NMI-based
-> hardlockup detector as pseudo NMI do.
+> 	freq = scale * arch_scale_freq_ref(cpu);
+> 	freq >>= SCHED_CAPACITY_SHIFT;
 > 
-
-It seems there are ongoing discussions [1,2] about moving away from it
-towards the buddy detector. So I can add it, but I'm not sure whether
-it will still be necessary in the future.
-
-[1] https://lore.kernel.org/linux-arm-kernel/amtyQH7lzLDKE3WD@thinkstation/
-[2] https://lore.kernel.org/lkml/20260902-qcom-wdt-nmi-series-v3-0-f3999362a9ea@google.com/
-
-Thanks
-Vladimir
-
-> arch/arm64/Kconfig:     select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
-> || ARM64_NMI
+> The product is truncated to 32 bits before the shift, so the result
+> wraps once arch_scale_freq_ref() exceeds 2^32 / SCHED_CAPACITY_SCALE,
+> i.e. 4194304 kHz.
 > 
->> +	help
->> +	  Non-maskable interrupts are an architecture and GIC feature
->> +	  which allow the system to configure some interrupts to be
->> +	  configured to have superpriority, allowing them to be handled
->> +	  before other interrupts and masked for shorter periods of time.
->> +
->> +	  The feature is detected at runtime, and will remain disabled
->> +	  if the cpu does not implement the feature. It will also be
->> +	  disabled if pseudo NMIs are enabled at runtime.
->> +
->> +endmenu # "ARMv8.8 architectural features"
->> +
->> +
->>  menu "ARMv8.9 architectural features"
->>  
->>  config ARM64_POE
+> On a Snapdragon X2 Elite (Glymur) laptop, whose boost OPP is 4723200
+> kHz, cpuinfo_avg_freq reports 524283 kHz instead of ~4723200 kHz while
+> the CPU demonstrably runs at the boost frequency: a fixed workload
+> completes in 1.72 s at the 4723200 kHz OPP versus 2.01 s at 4032000
+> kHz, matching the 1.171 frequency ratio.
 > 
+> Compute it with cap_scale(), turned into a static inline taking u64 and
+> moved to <linux/sched/topology.h> so it is usable outside kernel/sched.
+> 
+> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
+> Signed-off-by: Oleg Keri <okerixx@gmail.com>
+
+Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
+
+> ---
+> Changes in v5:
+> - cap_scale() becomes a static inline taking u64 arguments instead of
+>   a macro, as Dietmar proposed and Peter agreed, after Peter pointed out
+>   that the macro relies on one operand being u64.  It now lives in
+>   <linux/sched/topology.h>, where SCHED_CAPACITY_SHIFT is visible,
+>   rather than <linux/topology.h>.
+> - Patch 2/2 of v4 is dropped: it duplicated Ananthu C V's series [1],
+>   which I tested instead.  This fix is needed with that series, since
+>   it puts the reference above 4194304 kHz from boot.
+> - v4: https://lore.kernel.org/all/20260917125112.2283-1-okerixx@gmail.com/
+> 
+> [1] https://lore.kernel.org/all/20260908-schedutil-boost-frequency-handling-v2-0-25312a713699@oss.qualcomm.com/
+> 
+>  arch/arm64/kernel/topology.c   | 6 ++----
+>  include/linux/sched/topology.h | 5 +++++
+>  kernel/sched/sched.h           | 2 --
+>  3 files changed, 7 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index d28438f8b83f..39dd7f8575cd 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/init.h>
+>  #include <linux/percpu.h>
+>  #include <linux/sched/isolation.h>
+> +#include <linux/sched/topology.h>
+>  #include <linux/xarray.h>
+>  
+>  #include <asm/cpu.h>
+> @@ -186,7 +187,6 @@ int arch_freq_get_on_cpu(int cpu)
+>  	struct amu_cntr_sample *amu_sample;
+>  	unsigned int start_cpu = cpu;
+>  	unsigned long last_update;
+> -	unsigned int freq = 0;
+>  	u64 scale;
+>  
+>  	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
+> @@ -245,9 +245,7 @@ int arch_freq_get_on_cpu(int cpu)
+>  	 * (see amu_scale_freq_tick for details)
+>  	 */
+>  	scale = arch_scale_freq_capacity(cpu);
+> -	freq = scale * arch_scale_freq_ref(cpu);
+> -	freq >>= SCHED_CAPACITY_SHIFT;
+> -	return freq;
+> +	return cap_scale(arch_scale_freq_ref(cpu), scale);
+>  }
+>  
+>  static void amu_fie_setup(const struct cpumask *cpus)
+> diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
+> index b5d9d7c2b8ad..922b2f015e89 100644
+> --- a/include/linux/sched/topology.h
+> +++ b/include/linux/sched/topology.h
+> @@ -234,6 +234,11 @@ static inline void rebuild_sched_domains_energy(void)
+>  }
+>  #endif
+>  
+> +static inline u64 cap_scale(u64 value, u64 scale)
+> +{
+> +	return value * scale >> SCHED_CAPACITY_SHIFT;
+> +}
+> +
+>  #ifndef arch_scale_cpu_capacity
+>  /**
+>   * arch_scale_cpu_capacity - get the capacity scale factor of a given CPU.
+> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> index 6c3ad70e58b8..45796fccdc84 100644
+> --- a/kernel/sched/sched.h
+> +++ b/kernel/sched/sched.h
+> @@ -236,8 +236,6 @@ static inline int task_has_dl_policy(struct task_struct *p)
+>  	return dl_policy(p->policy);
+>  }
+>  
+> -#define cap_scale(v, s)		((v)*(s) >> SCHED_CAPACITY_SHIFT)
+> -
+>  static inline void update_avg(u64 *avg, u64 sample)
+>  {
+>  	s64 diff = sample - *avg;
+> 
+> base-commit: 0d9d0dbf2fddcff5859d623e90ca73c4054276e1
+
+
 
 
