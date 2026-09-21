@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A90DC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4F3C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNLMb5AFJCxC745nVpuaFiewc9/2MlH8Pg3ljXvOpj0=; b=poWc61DaF/0KbXjHv8cYMxzNGT
-	kcMA0NPHK7jR6KWYfDMr3JEZfD5Qg7Yu+fqwfRw6JbUUYDCFZViAO2jliByAW82CF7JR9nEz1IWlb
-	fUtpCLNWOS5UFVAYh/l3Jqa/+s8qnKeoa9yHIf0sIwf1yyDGQ88C1phDWxRSit1p8S/5jOFTwbM6D
-	647FfcWJ/i/Of6ZAheTzpBgQtEg3WmuCB2jf/28z62P/KTnYKzohGl/I3uPBcmmnYyS1jdLALSD/i
-	8CZxU4uu7hV+QzDxn4whXlP/QCbgErBsd54oZe5diYeBaScbGLhOfRnI27Ee/HODsJCzNctSKmsvz
-	U71KeWuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7a7FiRj9irmW2vcBF4GcopZzHO/rYoKbMXIliVZxUlo=; b=m+q+K7+ptb/MSbOfTeK+dGD9wy
+	Y53PIrZcO8iAB48Jm/rvSMAERXdZAsqMXsnKsLpIpOFlACEmwx5LCJ57ym3z2eqr7WjuM7/aVMsny
+	MHsTnuW9hjuvHwvV4GGCW3KkCh76cXzl5qNsoVbDRJ1agJXS2MsmESsUyOern03BxpusyGEKdvTmK
+	5NkLHEAeNibhGDITFgDobAeRavEBnLSF+qAHUZApfwR/FaFbJ8sa0JUYCHFGXzE0/z5po3n49pYlh
+	JsqG1gI2Ugjof6avOxkblTp7zEc7NRdktipqJjS32ba1qkJ+Ax16bhBKszFI/RAb2PcQI+PgnQm90
+	+f1MfJHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8b8c-00000001faU-2mWS;
-	Mon, 21 Sep 2026 10:20:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8b98-00000001fik-3Iss;
+	Mon, 21 Sep 2026 10:21:14 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8b8c-00000001faJ-0czo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:20:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1DC740E3A;
-	Mon, 21 Sep 2026 10:20:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B191F000FF;
-	Mon, 21 Sep 2026 10:20:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789986041;
-	bh=NNLMb5AFJCxC745nVpuaFiewc9/2MlH8Pg3ljXvOpj0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IrMUPLkKpQcDlbrGZTdQTV9W9/dlD87OAArKdawf0J895O3QCGqnTR+U4eJ++5Lbt
-	 7dnOcAoBh7XoRBC+U+hxEtlbSmhqNwQtU4RZOMfGL1CYEh4GFtj50XnQLkn0ETV+5L
-	 8CvdFJBCDbFqdK8DJebEsZAmPH6L+hhTCwoM54y554eWFZ4gUTzRF8fx846lz4QUUZ
-	 OsJ76eMJzdbts56aagfaudVTRCcPjxgLLQ/6tTCbXRYrT7EzfUW7D5ewADoQk2cUSV
-	 Y9h6vy4DiYhJV3ln9x7++PFP5PaPxiKwkhnoxDG2jCPtTv1BPT6oaQonUjCchDUynY
-	 nKTjRO9RYa+hg==
-Subject: Re: [PATCH net v2] net: xilinx: axienet: Free outstanding DMA buffers
- on dmaengine stop
-From: netdev-bot+sashiko@kernel.org
-To: suraj.gupta2@amd.com
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 21 Sep 2026 10:20:40 +0000
-Message-ID: <178998604072.2160803.17018942361014137390@kernel.org>
-In-Reply-To: <20260917100525.250952-1-suraj.gupta2@amd.com>
-References: <20260917100525.250952-1-suraj.gupta2@amd.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x8b96-00000001fhP-3nxl;
+	Mon, 21 Sep 2026 10:21:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1789986071;
+	bh=uw5pdRN2Q9JJj2+CbK1XOe8tJnBuwe3/GQzFs3S+ECE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=m01RtQigaCGmATt3Z2RO+l2X3jp6emasy4I7DqrplE+e2RosUCFD10dMp2AviNqgF
+	 CgRL9VAzG34cRLpnhKETmKpvh7tqDrrWrklo486vc8A7FcQFsR/A2WqIvW11KZnPLR
+	 QZvz89UsDAdHgnB80XALmbEbX6MZAkmC8aT2ymc+lHhK2C8NRUBS9sUL4lKZG4aiAD
+	 o+f09zXHEypzLxAYdSFPm73tA8UiDgFytinUCifu7xAggNaqcCEgLHIHkOgyeEVM6L
+	 QeY8HY3C5i5Q+FujPosjf7l9UxTcLI4Sb9jBfuZ04qFfrVXKLcTEbzi+Jtkw5a8n0P
+	 vEtd2aLg3S1Wg==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 49F6217E03B6;
+	Mon, 21 Sep 2026 12:21:10 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org, 
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>, 
+ Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260918175736.355305-1-l.scorcia@gmail.com>
+References: <20260918175736.355305-1-l.scorcia@gmail.com>
+Subject: Re: (subset) [PATCH 0/4] Add support for the mt8167 display
+ pipeline
+Message-Id: <178998607025.21155.9680834242820851509.b4-ty@b4>
+Date: Mon, 21 Sep 2026 12:21:10 +0200
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_032113_102054_70436DB8 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,229 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Fri, 18 Sep 2026 19:55:24 +0200, Luca Leonardo Scorcia wrote:
+> This series adds support for (almost) all display blocks of mt8167.
+> This SoC supports a DSI or DPI display and has HDMI output via a second
+> DPI block wired to the HDMI phy.
+> 
+> All the hard work was already upstreamed in the past, now all that's left
+> is some glue. In the first two patches we add support for the DPI output
+> blocks. In the third one we describe all the possible combinations of the
+> SoC display pipeline and in the last one we add the required nodes to the
+> SoC dtsi.
+> 
+> [...]
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
+Applied to v7.3-next/soc, thanks!
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+[3/4] soc: mediatek: mt8167-mmsys: add routes for all display paths
+      commit: ae0968038f994d6e275f5dc94a27325ee751fe58
 
-- [High] The new @stopping check in axienet_dma_rx_cb() does not actually
-  fence RX resubmission against the terminate in axienet_stop(), so the…
+Cheers,
+Angelo
 
-Pre-existing issues:
-- [High] TX ring head/tail desynchronization causes a NULL pointer
-  dereference in axienet_dma_tx_cb().
 
---
-
-net: xilinx: axienet: Free outstanding DMA buffers on dmaengine stop
-
-In the dmaengine path the driver clears the ring slot's skb pointer in the
-TX and RX completion callbacks, so a non-NULL skb marks a slot that still
-owns a live DMA-mapped buffer, and axienet_stop() unmaps and frees every
-such buffer instead of only kfree()ing the ring shells. It also sets
-@stopping before dmaengine_terminate_sync() and checks it in
-axienet_dma_rx_cb() to fence RX resubmission, and releases the channels
-before freeing the rings.
-
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 1722b7038f340..fc314f67f157c 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -881,6 +881,7 @@ static void axienet_dma_tx_cb(void *data, const struct dmaengine_result *result)
->  	u64_stats_update_end(&lp->tx_stat_sync);
->  	dma_unmap_sg(lp->dev, skbuf_dma->sgl, skbuf_dma->sg_len, DMA_TO_DEVICE);
->  	dev_consume_skb_any(skbuf_dma->skb);
-> +	skbuf_dma->skb = NULL;
-
-[Severity: High]
-This isn't a bug introduced by this patch, but can clearing the slot's skb
-here turn an existing TX ring desynchronization into a NULL pointer
-dereference?
-
-axienet_start_xmit_dmaengine() advances the head before the fallible steps:
-
-	lp->tx_ring_head++;
-	sg_init_table(skbuf_dma->sgl, sg_len);
-	ret = skb_to_sgvec(skb, skbuf_dma->sgl, 0, skb->len);
-	if (ret < 0)
-		goto xmit_error_drop_skb;
-
-	ret = dma_map_sg(lp->dev, skbuf_dma->sgl, sg_len, DMA_TO_DEVICE);
-	if (!ret)
-		goto xmit_error_drop_skb;
-
-None of the xmit_error_* labels rewind lp->tx_ring_head, and they return
-NETDEV_TX_OK without ever calling dmaengine_submit(), so that slot is
-consumed with no descriptor behind it and skbuf_dma->skb is never assigned.
-
-axienet_dma_tx_cb() pairs completions with slots positionally:
-
-	skbuf_dma = axienet_get_tx_desc(lp, lp->tx_ring_tail++);
-	len = skbuf_dma->skb->len;
-	txq = skb_get_tx_queue(lp->ndev, skbuf_dma->skb);
-
-so after one skipped slot the head/tail pairing is off by one for the life of
-the interface and the next completion lands on the skipped slot.
-
-Before this patch that read a stale, already consumed skb pointer. With
-skbuf_dma->skb = NULL set on every completion, the skipped slot's skb is
-deterministically NULL, so the dereference above runs on NULL from the DMA
-channel tasklet.
-
-The triggering condition is a single dma_map_sg() failure, i.e. the same
-IOMMU aperture exhaustion the commit message describes as motivation. Would
-it be reasonable to advance lp->tx_ring_head only after
-device_prep_slave_sg() succeeds, or unwind it on the pre-submit error paths,
-as part of this series?
-
-> @@ -1171,6 +1172,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
->  						       &meta_max_len);
->  	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
->  			 DMA_FROM_DEVICE);
-> +	skbuf_dma->skb = NULL;
->  
->  	if (IS_ERR(app_metadata)) {
->  		if (net_ratelimit())
-> @@ -1193,6 +1195,12 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
->  	u64_stats_update_end(&lp->rx_stat_sync);
->  
->  rx_submit:
-> +	/* Do not re-arm the RX ring while a stop is in progress, or the
-> +	 * teardown could free a buffer still handed to the engine.
-> +	 */
-> +	if (READ_ONCE(lp->stopping))
-> +		return;
-> +
->  	for (i = 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
->  				   RX_BUF_NUM_DEFAULT); i++)
->  		axienet_rx_submit_desc(lp->ndev);
-
-[Severity: High]
-Does this check actually fence resubmission against the terminate?
-
-axienet_dma_rx_cb() runs from the xilinx DMA channel tasklet, which drops
-chan->lock around dmaengine_desc_get_callback_invoke() in
-xilinx_dma_chan_desc_cleanup(), concurrently with axienet_stop() in process
-context. READ_ONCE()/WRITE_ONCE() only prevent tearing, they do not make the
-check-then-submit sequence atomic:
-
-CPU0 (DMA tasklet)                     CPU1 (axienet_stop)
-axienet_dma_rx_cb()
-  READ_ONCE(lp->stopping) == false
-                                       WRITE_ONCE(lp->stopping, true);
-                                       dmaengine_terminate_sync(rx_chan);
-  axienet_rx_submit_desc()
-    skbuf_dma->skb = skb;
-    dmaengine_submit(dma_rx_desc);
-  dma_async_issue_pending(lp->rx_chan);
-
-Note that dmaengine_terminate_sync() ends in dmaengine_synchronize(), which
-for this provider is xilinx_dma_synchronize() -> tasklet_kill(): it waits for
-the running tasklet to finish rather than discarding what that tasklet
-submits.
-
-Does the late submit re-arm the hardware? xilinx_dma_tx_submit() queues the
-descriptor and clears the provider's terminate state:
-
-	append_desc_queue(chan, desc);
-	...
-	chan->terminating = false;
-
-and xilinx_dma_terminate_all() left the channel idle:
-
-	chan->terminating = true;
-	xilinx_dma_free_descriptors(chan);
-	chan->idle = true;
-
-so the racing dma_async_issue_pending() reaches start_transfer() and
-reprograms CURDESC/TAILDESC with DMACR.RUNSTOP set.
-
-Is anything after that point stopping the channel again? dma_release_channel()
--> dma_chan_put() only does:
-
-	if (!chan->client_count && chan->device->device_free_chan_resources) {
-		/* Make sure all operations have completed */
-		dmaengine_synchronize(chan);
-		chan->device->device_free_chan_resources(chan);
-	}
-
-and xilinx_dma_free_chan_resources() dma_free_coherent()s chan->seg_v without
-a stop_transfer() or reset, so moving the release ahead of the ring free does
-not appear to close the window.
-
-The new teardown loop then sees the resubmitted slot:
-
-> +		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++) {
-> +			skbuf_dma = lp->rx_skb_ring[i];
-> +			if (skbuf_dma && skbuf_dma->skb) {
-> +				dma_unmap_single(lp->dev, skbuf_dma->dma_address,
-> +						 lp->max_frm_size, DMA_FROM_DEVICE);
-> +				dev_kfree_skb_any(skbuf_dma->skb);
-> +			}
-
-Can this unmap and free a buffer the engine is still writing into, turning
-the former mapping leak into DMA write-after-free?
-
-Documentation/driver-api/dmaengine/client.rst also states:
-
-   The behavior of this function is undefined if dma_async_issue_pending() has
-   been called between dmaengine_terminate_async() and this function.
-
-which is exactly what the racing callback does inside the window, and this
-patch removes the extra dmaengine_synchronize() calls that followed the
-terminates.
-
-There is a second placement question: the ring is dereferenced before the new
-check,
-
-	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
-	skb = skbuf_dma->skb;
-
-so a completion from a re-armed channel arriving after tasklet_kill() and
-after kfree(lp->rx_skb_ring) touches freed memory before the @stopping test is
-reached.
-
-The commit message says "Set @stopping before terminating and check it in the
-callback to fence resubmission, and release the channels before freeing the
-rings so a late completion cannot touch a freed ring." Given the above, does
-the check-submit-issue sequence need real serialization against the stop
-transition, or a second dmaengine_terminate_sync() once all callbacks are
-known to be drained?
-
-> @@ -1752,20 +1761,43 @@ static int axienet_stop(struct net_device *ndev)
->  		free_irq(lp->rx_irq, ndev);
->  		axienet_dma_bd_release(ndev);
->  	} else {
-> +		struct skbuf_dma_descriptor *skbuf_dma;
-> +
-> +		WRITE_ONCE(lp->stopping, true);
->  		dmaengine_terminate_sync(lp->tx_chan);
-> -		dmaengine_synchronize(lp->tx_chan);
->  		dmaengine_terminate_sync(lp->rx_chan);
-> -		dmaengine_synchronize(lp->rx_chan);
-> -
-> -		for (i = 0; i < TX_BD_NUM_MAX; i++)
-> -			kfree(lp->tx_skb_ring[i]);
-> -		kfree(lp->tx_skb_ring);
-> -		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++)
-> -			kfree(lp->rx_skb_ring[i]);
-> -		kfree(lp->rx_skb_ring);
->  
-> +		/* Release the channels before freeing the rings, so the DMA is
-> +		 * fully torn down before the memory its descriptors reference is
-> +		 * freed.
-> +		 */
->  		dma_release_channel(lp->rx_chan);
->  		dma_release_channel(lp->tx_chan);
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917100525.250952-1-suraj.gupta2%40amd.com
 
