@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C504C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786F9C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FfNFnkRxeRIfSVC8rvgsN9btpGP8I/3Z780moERFccM=; b=ACoX2Yz1WVZGtIxxo+YMk0y/mr
-	DqxIK3zkoKfQch1m+7WYv9jL4xv5h1w06m2ez+9BjNHOPqEom6riKpIeJGUXB4Png5plh2iwOjAQn
-	cZ3MT068p/J8qsN1KtEFCxBeBRlmtkMGF+8K2kcVGhU80pKjnnGHHj5nbbVuKqxRDgjxgY/+soH8U
-	lgOu5BwaNyt505JOhtjSny4Y67jhOf6iyJJs2C9noSd+IBeWzHf/9Sv2xTPZ1cPX51ZfR4D//6B4G
-	5tQ5zXe0HKkxfFj3RAoP8mzjttLTYN1xJMOhQjpCRlgHhNegf0/iPm1o6rNEKAvEsCeo4vrMIdrT4
-	hP9veZjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HE4c3YaJR7jDFl2y0TbFLq5M4OnIWzzs/dF5WjR2wKg=; b=M5C2eIYrbjmwbaAJoD+b/++Zmg
+	Yig5WXVxc9cuDxqHKeiMgOnlvRkKXUDZ017R9jRyzgnRGYeVCVkB+utGt1jxQSPLjSxwDBG/onq3I
+	qWmVtm8ASoqBwprVzP5F9F89IjdbHt8uc/6hJtOp8G9o6MFx0Cirfs5YHWem+J/BLqp84dcVaLy7R
+	94ryzscXXTg8BmBwVhisR5gZL8W6Uz4MlRNQW3odghGjICUUbV83BWBrjH0gAN9X4V350ti6bjic4
+	lkuMCTh/wvwMmRRTbb5G8awItPoupX9DjMvr/R/sUl2q8yUDO07nfGfAORlRspTdMtyJqG7tsgqWF
+	dRkk5VYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8f7P-00000002Pfe-1ELe;
-	Mon, 21 Sep 2026 14:35:43 +0000
+	id 1x8f7s-00000002Plg-2IuQ;
+	Mon, 21 Sep 2026 14:36:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8f7O-00000002PfK-16Vp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:35:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id C1A8A436FD;
-	Mon, 21 Sep 2026 14:35:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 17B901F000FF;
-	Mon, 21 Sep 2026 14:35:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790001341;
-	bh=FfNFnkRxeRIfSVC8rvgsN9btpGP8I/3Z780moERFccM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=odFG9EuLtyr9lu2Ecfa7snIZhoyKG7wH7smFOyUudLLIw6C+fzlUa1gH/uJe0Izxa
-	 Z1jUzBBiPGYH7eBzTDep0wQ608CWB5qWs44NQFnzcz8GsXqvtGl++oByaaVbURR9hr
-	 cpDZqhouYE2YfxpzAefXzuB+eXi3vySVgIDy4MNPv2WBNvkBEIdkUYNpOdHwj6UJuT
-	 Q/ylaMJmxDFZD+gV8zvrR0osskSM++G7ju+7c0lsJkI/RCq6h4FZuJ+A4c0e5N3Bz7
-	 XIxig9QZmqEf5aHKvZ36DLQL+XMiPNtWtddQpX6gMwY3sBcqUwAU85JEqmw1+Wxgim
-	 U7WnRLZkt+SeA==
-Date: Mon, 21 Sep 2026 16:35:38 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>, 
-	Prasad Bolisetty <pbolisetty@axiado.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Harshit Shah <hshah@axiado.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
-Message-ID: <arFAj7yU2x42-76G@monoceros>
-References: <20260921-axiado-ax3000-pwm-v5-0-202aad28e129@axiado.com>
- <20260921-axiado-ax3000-pwm-v5-1-202aad28e129@axiado.com>
+	id 1x8f7r-00000002Pkg-19bQ;
+	Mon, 21 Sep 2026 14:36:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E546404B4;
+	Mon, 21 Sep 2026 14:36:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D9E04C2BCB8;
+	Mon, 21 Sep 2026 14:36:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790001370;
+	bh=ZIK0xCkexQBqyQJA96xFqjCpNT9qXiTKF+FxrGI34Pk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=r05i/PejEXJfMAmTiMpbQ7/UfVCxSSEuKOGtiDxwd0JxdoDdbECGC3fpYHhVXOws0
+	 J5CKtVmfMwXXe7EuvQjVsYm4MZj3kmTuGDHy0RrqmTspNWJu8Nn7LIHA+hH2tMnXRi
+	 OxQY0RxbaUxXsGiRYPotTUtgHQhW7nnO271bchKy31D1tykTS9/OGYzijRoLSvDRiH
+	 TqLEdl5CNDOqqMy+sSoZHFCT6IzDI9ibqTSvO0w2I9+jVJavHM3wWP1fMHOt6veFQD
+	 wJU2rTRNQIhw+OvIhnEU7w4gMxQPbsI38/62ZhAQgfA7V0MwyMlM2/X86inCjfJCSU
+	 Rg0CCJmgdkzWA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B7C93C982EE;
+	Mon, 21 Sep 2026 14:36:10 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Mon, 21 Sep 2026 17:35:47 +0300
+Subject: [PATCH v4 1/3] dt-bindings: nvmem: mediatek: efuse: add mt6572
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mkruqjy2cimrsduu"
-Content-Disposition: inline
-In-Reply-To: <20260921-axiado-ax3000-pwm-v5-1-202aad28e129@axiado.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260921-6572-nvmem-v4-1-e9c14156559a@protonmail.com>
+References: <20260921-6572-nvmem-v4-0-e9c14156559a@protonmail.com>
+In-Reply-To: <20260921-6572-nvmem-v4-0-e9c14156559a@protonmail.com>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Lala Lin <lala.lin@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790001369; l=1140;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=5K32Q1swD4S3cSggeXC/0toQquH0mxZvBxfpkIPi+IU=;
+ b=vN0LQ6RrUvamCnJ3YNAb1NmCBNxWbR1qb6O4xG+Yo+hFue9REj1sTD2uAKhHpARSpX17c7SlD
+ 0GPpYNQY6z6DrrpgVXrJH+q+uTxZ8jnCorvR57pliwVopbBLWNkC9Yp
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,41 +85,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Roman Vivchar <rva333@protonmail.com>
 
---mkruqjy2cimrsduu
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v5 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
-MIME-Version: 1.0
+Add a compatible string for the mt6572 SoC efuse controller.
 
-Hello Petar,
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+ Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-On Mon, Sep 21, 2026 at 12:21:30AM -0700, Petar Stepanovic wrote:
-> +  "#pwm-cells":
-> +    const: 2
+diff --git a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
+index f9323b3ecfc8..e10947164941 100644
+--- a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
++++ b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
+@@ -24,13 +24,16 @@ properties:
+ 
+   compatible:
+     oneOf:
++      - enum:
++          - mediatek,mt6572-efuse
++          - mediatek,mt8186-efuse
++
+       - items:
+           - enum:
+               - mediatek,mt8188-efuse
+               - mediatek,mt8189-efuse
+               - mediatek,mt8196-efuse
+           - const: mediatek,mt8186-efuse
+-      - const: mediatek,mt8186-efuse
+ 
+       - items:
+           - enum:
 
-Can you please make this 3?
+-- 
+2.55.0
 
-Best regards
-Uwe
 
---mkruqjy2cimrsduu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqxQLcACgkQj4D7WH0S
-/k5kdQf+OXV22WZQ9pfauGcLp09q+oshtLYpLawSeyzm/h7HCjYisBtBbLTVFvR1
-5KDGUP2CYL2HDVgdj3NypW+GEGLFsF9IN+wAIedUWQY6hWItGfdGJt42Zy5kYYRp
-LpOFredIHH0OVVkxnit1XyTYC3htW1Q+DwqcqlwFHrx4zuv/etW6vWiW5Dk9za4t
-JOJRoUA3sUeCXRabkWUWAST++NqKBvvgrRNJA3ys85ocQ7eBL1GQkCcn6YfJ7Af2
-IuGZXl+Ys9bcp7rgQIFJ1JYj8B6JXRFXVOgUMWiGG/kcbVdUgkZWAiuQ1io0yUo2
-We7S9r/5xHDPkvsTxkp68luZYviu4g==
-=od5S
------END PGP SIGNATURE-----
-
---mkruqjy2cimrsduu--
 
