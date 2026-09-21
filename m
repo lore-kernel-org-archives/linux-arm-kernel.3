@@ -4,177 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FCE5C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8E8C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MCkUtZMQ71ULc4B874+EyT+6Pil1L5OznKSmBdpWeOQ=; b=YhHLspkldbhtSeotmIEkgVkEtB
-	YbUgkyxeJG5o/FtcecgS9vkgkGz9nKYgfTmZ6SY4UC9WlPiOVL/Yb3g36XOoPSRxym/EfVRa9+1ZV
-	vHrCkZrJX+uRI7/H98nwjqMdQBTUWvNZbnQoSwl+eWPKm/xNW4UDIDWCfhMtIlyNZASELeGWABRUC
-	Hr5Kuvql6V3EnVw3s+h76kSAX1gkvS0XQi2OKHsEhYwL9GOG6PrG8aHGzavQnHG+m4+0h2Nnj8J+A
-	mUn+Gb+P61zPns4RH4NVi7NmkMxwlIO/gpkSsYMo5X/8rMb9Ps6VRY12p+adYEVkm9JA94BDbxnqX
-	w+b4ZpEw==;
+	bh=jQzHPXiaVd7MbxwqqBNnUGLBbzUtCNC6I4dGY9gtcK8=; b=W573hyTeKGbo4is2gJAhR4gCHz
+	Rk6LHMNk+uMAjq1TCaIbsBCUdLItHnk5/XRhq/LMkr4PYOMi4OufE3wMyDXoQN5kPo3Uzzp7hXqJ5
+	9r18690Ae8x1xd3fkbFetHW4pWhfNLPBSoJW4UA3RGIxJ6rSJkZNQIyjbbZtSSVOSAcHU0USiefDO
+	3t6ifSnPtVE9movFZbsJjbLMHRcVVoC5pqOE5jnHPBP+PqpJL4m+0PJd/GeB0g8IS2ZjImEEqwTJG
+	+iPb3beDZ7cry7LpFJRfzNvYyF+HfLVT5tT4U4s5gAtajTi/0yycGi6hyNn6fIRGt39m3gJ92lHHh
+	dLFOwGGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dKx-000000026Y4-2zvN;
-	Mon, 21 Sep 2026 12:41:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dKt-000000026VT-1Ays
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 12:41:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MCkUtZMQ71ULc4B874+EyT+6Pil1L5OznKSmBdpWeOQ=; b=Fean5zUI1ntBuDcYFbgI/Cus/E
-	V8YmY1BvKhu/6bYUEsdMwusxoIDpk+uJ7cimbAZO/p1wft+YVLm9msle8BCJ0kAomeW4MZzzvKOih
-	IlxBpDk+8uh9CIa5zNF71TqCGmJgN9Tg91FhjrribvWzx6mQt7REYmQOAuql2/Ham/xYDD6fT6McG
-	NYfO41ZNDe90TaHq9O5bMJFTnAbfzPM9I7C7aZVEonW1OFflXwqwGaN+WpIEQwM/V1xrdMKRjS3WX
-	nfUFrSJDUDd7hizFm/WZpdyQq+Y9ED+1D3Amm3DzJVphiUa9cdpsANzwUFa/GbcsE2VVGfzThsRq0
-	4D5zm/zQ==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8dKp-0000000CHx3-4528
+	id 1x8dLg-00000002714-3NCp;
+	Mon, 21 Sep 2026 12:42:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8dLe-0000000270L-1wEn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 12:41:29 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68LAdmDV227824
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 12:41:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MCkUtZMQ71ULc4B874+EyT+6Pil1L5OznKSmBdpWeOQ=; b=ElvYsXrWBfG26UY6
-	V2FjiXMbFsn2iyvAOqIpcKtWlHbfEpYrsN6TuG8RGba9ur7ykT+VMqKDB6YY5Rdu
-	1RgTFl1vWgXfnbVkwWcxf8tyuw1JV8PUXYsoMkDE/AyYgLpnPTelKF9tb1jP4BXd
-	mL0V9Es9ZkHSHoco2uWla/d3HWZV2M56jQLiizIyJhzsYWg772rzH4yYChe/lw0k
-	iCNPyj3ISyHBL5ZKAB1+VNxtGfqh3bZeevfKNbdl9eYwXswY08YbDJK4NQlUzx7e
-	JRgjm81AofSvqE3tFcngODmLTOTYmlzusB8VknB9JCHVqBUGByOZc18OzTDYHpF8
-	08b3gQ==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gu17grx74-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 12:41:23 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cb48f41343aso3509885a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 05:41:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789994483; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qHV2N9NFiOMvVZaEzX6kXKfiM49mlLuvQ0CZ9IZc+IXSlQ2yGAFBBAQY/CjkCuIvQo
-         x88KqO3L5nS4cJXLJdoNa2POsDtHxn882t2qWa6cVW3tI82fMV8PqmIewYbGPlJQCg8y
-         Yk5EHbLQTEyYm7dD9TzDByfdKak75snldlZid9AuXhLnaqRlb5sqn+qF9CPPPF3Z7xxQ
-         JPcluJUrcd0c2eufYnFRt+/TrRRZVr3uZd/2GYHtgO6IBOqkByj+3hTsEFXfsVwFxJam
-         DpCs0/NhT3SwVLNrzzyVaKZDplg9lggD+14steR+w0mPfniORWHjdzStXSm57KBZg3Qy
-         Un7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=MCkUtZMQ71ULc4B874+EyT+6Pil1L5OznKSmBdpWeOQ=;
-        fh=XimMtJbBZ2y9uo+W03nDfeFkokBf4NnEhn8D22gLFHo=;
-        b=S6HlsAUr9faLlMNfNqesc6FQSe3NOCjJsR4D5cCn7CWdgQQMtE2k9SVraUWb/zrGXL
-         ZkozHL97Gj4bIUj4u0njUos6C1SaBFZXYLRy0E+0lRMuTul9DNBmAb8Ld1VFZr8+wVx7
-         mZEYUid2EHHHP766BxvujMRQVZtuieSmjxcU3VyAB1EKAXAd9SiNzUnEAYWySfZsel22
-         WNVnU4GZLsTbFgpWW/XO9ZayKT9OglR/A92qLcFVBpyiLp3t/4zNn+P37u04XElTCmfa
-         gHsHTMeKxylqLmTsmbOKRT+NFu3/xuM2q6Rkpu1+zdXLUZyiW0vYbuJe7BgOPDbrhDPQ
-         QkTw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789994483; x=1790599283; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MCkUtZMQ71ULc4B874+EyT+6Pil1L5OznKSmBdpWeOQ=;
-        b=UOm6m2q+QRCCB8Z+3Y9C5S5qvRuF5THwRgMPXq0B89uZ6vyCPnHLDTPSrnlE2m8ezL
-         q4RI14HPjcmdYjB4SybcVD8d92/kX3E4FrnMfMfHxazuVOW29Oq5CLtQ5VwaOjRhzS/l
-         gQs5Mca2MjicfbxLMc/UjlZ/Dse0DjBr4dWi+cKhiP6E91nb166XmIOH78pRVHAW4Ggk
-         mvPdm58M+KlAgs3h+dY6Sm4xX2FXWfW5yvOasx6dzSSkbra/MMk89+6cxaeP1YDq87ZF
-         WMqOfe3Gvwq5Zya1XCuiNiFziwpU7CQSf2JnmxZwOJLTMKiRn3u7/4IrpdCNg8lOPUaO
-         9+Nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789994483; x=1790599283;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MCkUtZMQ71ULc4B874+EyT+6Pil1L5OznKSmBdpWeOQ=;
-        b=CimC4+plsbBqUs3aMeuNZVm6a1BYvxzHajAieXbwDh6+Ozjdgxkck3FzqYC8RVBnQk
-         5UyAjtzjkgxNo1DtD48CJQRc2yeSpJBBfC6RLdfbYt65/c+D9ctZDcSl6kJK+pXC+6Mt
-         ax+S01i5I9/2lIku04nOWaH7kWQ0VBKMJJR4u9GZlo1vVJ9R8MoRtIqaR9C0rv78tCnO
-         JtN3dLgC0szC+lSSBiE9sEjw+RI2YpXfY29IYZlSIqOKh5oQNgC3trJNxlDRDVFNnItn
-         t1n4RBXFNVEWVJDnPC9hk6rsDmfxwFRrQnJSpkRpxLU6xvGAnlZ8NC7sRhit2PYl7qJ5
-         HVgA==
-X-Forwarded-Encrypted: i=1; AKwUvBya0JER9OFeSIPpc/r3iXufXlDow1KglTpUMe6W5+YGMLZ9oVgtBvd+MZSAxYz9UKGozquijwlC2pvUWOd4ETCP@lists.infradead.org
-X-Gm-Message-State: AFuF++lq2r/ppbzP9M5HkDDsloKXeYD06L81mM8w5bnA/Wf8/bk5z5Rm
-	CZ7aw8yqxVsPRhVuh5fk6S5gPWKzyQA8QTWyJAfLYB0V1NDzmSMQY7xqetYnVJ4rZj9J6rPgKV+
-	Eg2yITbiaGYf7lWg/44Qz5LjJgaDeGAhh68YvE/RH1T+Ob5h1BmJSzueq5pjj9eZ06oDBNIlQhM
-	XtPJZz3Tc7gigM1w7kypYS+ETfFqj/s1WHQHxMe11U75yPVGhv890c
-X-Gm-Gg: AYBFou0aSlvC0QDtXJtiB2vfaMab0C9XygM/sl3XRj4ZNrTE0WL2sBlUHoP0PKXAKlr
-	9gqvX7RfFJrVFx5UDYlRkLcUjSJFwFLV77kWq0gt9Qqqpvqrvlruhm9TtWAA85fmu4Lkj36jiyC
-	tnUcFuehL0vP51xiQNYypV4XKtFXjdFgMSub9H0myZ7oTdA1uG9UzojexvuQ==
-X-Received: by 2002:a05:6a20:728e:b0:3db:b3b:5343 with SMTP id adf61e73a8af0-3dd72553e40mr19632623637.12.1789994482615;
-        Mon, 21 Sep 2026 05:41:22 -0700 (PDT)
-X-Received: by 2002:a05:6a20:728e:b0:3db:b3b:5343 with SMTP id
- adf61e73a8af0-3dd72553e40mr19632577637.12.1789994482080; Mon, 21 Sep 2026
- 05:41:22 -0700 (PDT)
+	Mon, 21 Sep 2026 12:42:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36E811D13;
+	Mon, 21 Sep 2026 05:42:13 -0700 (PDT)
+Received: from [10.0.128.141] (unknown [10.0.128.141])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5ADB83F86C;
+	Mon, 21 Sep 2026 05:42:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789994536; bh=IRpX+ZEp/zVlKdL3h+SzNZQpQmKb6Y0IMlPZO81/S6c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eQGWfG0TNldwMTREH8bTh8H+1w65s5SsyxtYASsAlYAaZhM8/Zie7v82Mz2jl0q9d
+	 zxAeSIJPe+dB5+sJ8mob10j+F/7snho7KhyQ+JbciEj5KvoFXiLNlzC3lNDR/4jHEl
+	 3xtE0k19WjVMcp+/ILdArlTZ7OInKPcsQie2e8do=
+Message-ID: <bbb2f1db-5d42-495f-b34e-184a6cd894ce@arm.com>
+Date: Mon, 21 Sep 2026 13:42:11 +0100
 MIME-Version: 1.0
-References: <20260915104328.45901-1-gahing@gahingwoo.com> <20260915104328.45901-10-gahing@gahingwoo.com>
-In-Reply-To: <20260915104328.45901-10-gahing@gahingwoo.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Mon, 21 Sep 2026 14:41:09 +0200
-X-Gm-Features: AcwNN1U_m4mjOUzjWYeAqWZntQVfxzbTcYRMim6iZjC6YeWC6g3-sc-ZIdGx-1E
-Message-ID: <CAPx+jO--v8dHGCTMQrooxm7dLPDYbUHt4euWTud-GKK7efOuZA@mail.gmail.com>
-Subject: Re: [PATCH v13 09/14] pmdomain: rockchip: add optional per-domain
- power-on settle delay
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: tomeu@tomeuvizoso.net, heiko@sntech.de, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, joro@8bytes.org,
-        will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org,
-        p.zabel@pengutronix.de, ogabbay@kernel.org, zhangqing@rock-chips.com,
-        royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
-        sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
-        u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com,
-        diederik@cknow-tech.com, alchark@flipper.net,
-        dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
-        iommu@lists.linux.dev, linux-pm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: pWkgtVbEVe9s2mmJVp6rZOtPZdJvIM2k
-X-Authority-Analysis: v=2.4 cv=IewSymqa c=1 sm=1 tr=0 ts=6ab125f3 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=9GNsruGHAAAA:8 a=EUspDBNiAAAA:8
- a=TQVB6zonJKZT9JHDKKgA:9 a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
- a=gf-oSkQAjqHFJRp-GQfY:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIxMDE4MiBTYWx0ZWRfX66NI3qTolqag
- Kg8AYXbXYbPrEVrZmOa0MXElev0JnQ3TBiNokTM2p/2W9jpUYGDbuQhdUnZItb9GEOpApHwu4SK
- 4y/WuaoV3SZjPtFtDKaIPHvaUyukwZUVVySJW7eEXWxz6h0MEvAEd795dxmt5ghJwwQcu8fnn5k
- XkPL8/0yQIoLgnpE8tqc5FmPPvDjn/rkbScYe5V1YM82WoACpzF9Qh4aC2GZ8b53cPBWujtgeY7
- l2RDlFuNVHG+GlwomElcEAXm6afCuinKOFiYuKQYLDSJaJBLTc/egW1gtd+jiid39AB0imqFzoA
- 6dP4S9ZpCZY7ew4NYgdHkGAU0E3gKs/+O2WFSIolD/yyZMcSiss6UuQCOWecr+z0w2oiushAbZY
- wz334wC4roFYPNt5mP8bUrZ7oN9en8UeC7GxGnMk486TwWJmLEnBIfgHTd5ipSNqOuL+ALVxknQ
- 5etnnGGBaCN/ZfBn3tQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIxMDE4MiBTYWx0ZWRfX/URxcO41v566
- VGbyQGMPPp6No3X7M6bAL/5moH++7cK9DCehLEOxbt82/tN5esKvHGbZl4n7c4K8+RVbPyXNLcK
- rUdb43/7o40EecvRBz92YDvqVrcNnc4=
-X-Proofpoint-ORIG-GUID: pWkgtVbEVe9s2mmJVp6rZOtPZdJvIM2k
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-21_04,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0
- lowpriorityscore=0 spamscore=0 phishscore=0 malwarescore=0 adultscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609210182
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 4/7] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-5-suzuki.poulose@arm.com>
+ <178978126542.2352296.15676256806777454164.b4-review@b4>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <178978126542.2352296.15676256806777454164.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_134128_431735_01BD8EB5 
-X-CRM114-Status: GOOD (  41.55  )
+X-CRM114-CacheID: sfid-20260921_054218_607207_5A748725 
+X-CRM114-Status: GOOD (  57.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,257 +78,377 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 12:45=E2=80=AFPM Jiaxing Hu <gahing@gahingwoo.com> =
-wrote:
->
-> The RK3576 NPU domains need a short settle time after the idle request is
-> released before the registers behind the domain answer. Without it the Qo=
-S
-> writes that rockchip_pmu_restore_qos() issues land while the domain is
-> still coming up, and the NPU throws an async SError on the first cold
-> power-on.
->
-> Give rockchip_domain_info an optional delay_us and wait for it between
-> releasing idle and restoring QoS. Rename DOMAIN_M_O_R_G to
-> DOMAIN_M_O_R_G_W for the settle delay it now carries; RK3576 is its only
-> user, so the old spelling is not kept around.
+On 19/09/2026 02:27, Jonathan Cameron wrote:
+>> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
+>> means that an SMC can return with an operation still in progress. The
+>> host is expected to continue the operation until it reaches a conclusion
+>> (either success or failure). During this process the RMM can request
+>> additional memory ('donate') or hand memory back to the host
+>> ('reclaim'). The host can request an in progress operation is cancelled,
+>> but still continue the operation until it has completed (otherwise the
+>> incomplete operation may cause future RMM operations to fail).
+>>
+>> The SRO is tracked using a struct rmi_sro_state object which keeps track
+>> of any memory which has been allocated but not yet consumed by the RMM
+>> or reclaimed from the RMM. This allows the memory to be reused in a
+>> future request within the same operation. It will also permit an
+>> operation to be done in a context where memory allocation may be
+>> difficult (e.g. atomic context) with the option to abort the operation
+>> and retry the memory allocation outside of the atomic context. The
+>> memory stored in the struct rmi_sro_state object can then be reused on
+>> the subsequent attempt.
+>>
+>> Wrappers for SRO RMI commands are also provided here because they depend
+>> on the rmi_sro_execute() implementation added by this patch.
+>> Delegate/undelegate handles are also added here because they now use the
+>> SRO/stateful command infrastructure and are also used for the memory
+>> DONATE/RECLAIM flows.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Co-Developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> Hi Suzuki.
+> 
+> A few comments and questions on the array for the cache of
+> allocations.
+> 
+> Jonathan
+> 
+>> ---
+>>   drivers/firmware/arm_rmm/rmi.c | 586 +++++++++++++++++++++++++++++++++
+>>   include/linux/arm-rmi-cmds.h   |  41 +++
+>>   2 files changed, 627 insertions(+)
+>>
+>> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+>> index 5b0e342ce3d5..4f9898ece754 100644
+>> --- a/drivers/firmware/arm_rmm/rmi.c
+>> +++ b/drivers/firmware/arm_rmm/rmi.c
+>> @@ -15,6 +15,59 @@
+>>   #define RMI_FEAT_REG_COUNT	2
+>>   static unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT] __ro_after_init;
+> 
 
-To me, everything below in the commit message can just be dropped. The
-above is clear enough.
+Was there a question here you missed ? FWIW:
 
->
-> The suffix scheme does not survive this cleanly and it is worth saying so
-> rather than leaving it for review. The letters name fields, but R already
-> means two things in this family: DOMAIN_M_O_R takes r_status and r_offset
-> AND a regulator under one R, while DOMAIN_M_R has no repair fields and it=
-s
-> R is the regulator. DOMAIN_M_O_R_G's R was the repair pair -- it did not
-> set need_regulator at all -- so the paragraph below, which gives it one,
-> adds a field the name does not mention. Naming it _W_R or _RG would be
-> inventing a convention rather than following one. Say which you would
-> rather have.
->
-> While the macro is being rewritten, give it the regulator argument that
-> DOMAIN_M_O_R and DOMAIN_M_R already take. Without .need_regulator set,
-> rockchip_pd_regulator_enable() returns early for every RK3576 domain, so =
-a
-> domain-supply in the device tree is never looked up and never enabled. Ad=
-d
-> a DOMAIN_RK3576_R spelling that passes true and use it for RK3576_PD_NPU,
-> which is the one RK3576 domain with a rail of its own; every other domain
-> passes false and is unchanged.
->
-> Two things beyond the delay, both worth saying out loud because neither i=
-s
-> what the subject describes.
->
-> RK3576_PD_NPU also gets need_regulator here, which makes
-> rockchip_pm_add_one_domain() call rockchip_pd_power(pd, false) at probe o=
-n
-> all thirteen in-tree rk3576 boards. Only rock-4d enables an NPU core, and
-> it is the one that declares the supply, so on the other twelve ->power_on
-> never runs and the regulator is never looked up at all. It is deliberate,
-> and it is what the delay is for:
-> without the domain being forced off at probe, a bootloader that leaves th=
-e
-> NPU powered means ->power_on is never called and neither the delay nor
-> 10/14's reset pulse ever runs.
->
-> This is not new behaviour in this driver. RK3588_PD_NPU has carried
-> need_regulator since it was added and its req_mask is 0 exactly as this
-> one's is, so rockchip_pd_power(pd, false) has been running at probe on ev=
-ery
-> rk3588 board, with rockchip_pmu_set_idle_request() returning immediately
-> because there is no request to make. Of the forty-nine in-tree rk3588 boa=
-rd
-> files, twenty-one enable an NPU core and declare the supply, twenty-six d=
-o
-> not enable one at all so ->power_on never runs for them, and two enable i=
-t
-> with no supply: quartzpro64 and youyeetoo-yy3588 take the dummy regulator
-> and the one line dev_warn from the regulator core today. The idle
-> handshake lives in the child domains and on both SoCs they keep it:
-> NPUTOP, NPU0 and NPU1 carry req and idle masks of their own.
->
-> If that is too much for one patch, say so and it splits.
->
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+I have expanded this to cover all 5 RmiFeatureRegisters exposed by RMM, 
+and it looks something like this now, with the use of ARRAY_SIZE() to
+limit accesses.
 
-Other than the nitpick above, this looks good to me!
 
-Kind regards
-Uffe
+/* RMM defines RmiFeatureRegister0 to RmiFeatureRegister5. */
+static unsigned long rmi_feat_reg_cache[5] __ro_after_init;
 
-> ---
->  drivers/pmdomain/rockchip/pm-domains.c | 56 ++++++++++++++++----------
->  1 file changed, 34 insertions(+), 22 deletions(-)
->
-> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/ro=
-ckchip/pm-domains.c
-> index ba66ae719..39988efd8 100644
-> --- a/drivers/pmdomain/rockchip/pm-domains.c
-> +++ b/drivers/pmdomain/rockchip/pm-domains.c
-> @@ -18,6 +18,7 @@
->  #include <linux/of_address.h>
->  #include <linux/of_clk.h>
->  #include <linux/clk.h>
-> +#include <linux/delay.h>
->  #include <linux/regmap.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/mfd/syscon.h>
-> @@ -59,6 +60,7 @@ struct rockchip_domain_info {
->         u32 pwr_offset;
->         u32 mem_offset;
->         u32 req_offset;
-> +       u32 delay_us;
->  };
->
->  struct rockchip_pmu_info {
-> @@ -185,7 +187,7 @@ struct rockchip_pmu {
->         .need_regulator =3D regulator,                    \
->  }
->
-> -#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status,=
- r_status, r_offset, req, idle, ack, g_mask, wakeup)   \
-> +#define DOMAIN_M_O_R_G_W(_name, p_offset, pwr, status, m_offset, m_statu=
-s, r_status, r_offset, req, idle, ack, g_mask, delay, wakeup, regulator)   =
-    \
->  {                                                      \
->         .name =3D _name,                                  \
->         .pwr_offset =3D p_offset,                         \
-> @@ -200,8 +202,10 @@ struct rockchip_pmu {
->         .req_mask =3D (req),                              \
->         .idle_mask =3D (idle),                            \
->         .clk_ungate_mask =3D (g_mask),                    \
-> +       .delay_us =3D (delay),                            \
->         .ack_mask =3D (ack),                              \
->         .active_wakeup =3D wakeup,                        \
-> +       .need_regulator =3D regulator,                    \
->  }
->
->  #define DOMAIN_M_R(_name, pwr, status, req, idle, ack, wakeup, regulator=
-)      \
-> @@ -258,8 +262,11 @@ struct rockchip_pmu {
->  #define DOMAIN_RK3568(name, pwr, req, wakeup, regulator)               \
->         DOMAIN_M_R(name, pwr, pwr, req, req, req, wakeup, regulator)
->
-> -#define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
-eq, idle, g_mask, wakeup)      \
-> -       DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status=
-, r_offset, req, idle, idle, g_mask, wakeup)
-> +#define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
-eq, idle, g_mask, delay, wakeup)       \
-> +       DOMAIN_M_O_R_G_W(name, p_offset, pwr, status, 0, r_status, r_stat=
-us, r_offset, req, idle, idle, g_mask, delay, wakeup, false)
-> +
-> +#define DOMAIN_RK3576_R(name, p_offset, pwr, status, r_status, r_offset,=
- req, idle, g_mask, delay, wakeup)     \
-> +       DOMAIN_M_O_R_G_W(name, p_offset, pwr, status, 0, r_status, r_stat=
-us, r_offset, req, idle, idle, g_mask, delay, wakeup, true)
->
->  /*
->   * Dynamic Memory Controller may need to coordinate with us -- see
-> @@ -681,6 +688,10 @@ static int rockchip_pd_power(struct rockchip_pm_doma=
-in *pd, bool power_on)
->                 if (ret < 0)
->                         goto out;
->
-> +               /* Some domains need to settle before the QoS registers a=
-nswer. */
-> +               if (pd->info->delay_us)
-> +                       udelay(pd->info->delay_us);
-> +
->                 rockchip_pmu_restore_qos(pd);
->         }
->
-> @@ -1300,25 +1311,26 @@ static const struct rockchip_domain_info rk3568_p=
-m_domains[] =3D {
->  };
->
->  static const struct rockchip_domain_info rk3576_pm_domains[] =3D {
-> -       [RK3576_PD_NPU]         =3D DOMAIN_RK3576("npu",    0x0, BIT(0), =
- BIT(0), 0,       0x0, 0,       0,       0,       false),
-> -       [RK3576_PD_NVM]         =3D DOMAIN_RK3576("nvm",    0x0, BIT(6), =
- 0,      BIT(6),  0x4, BIT(2),  BIT(18), BIT(2),  false),
-> -       [RK3576_PD_SDGMAC]      =3D DOMAIN_RK3576("sdgmac", 0x0, BIT(7), =
- 0,      BIT(7),  0x4, BIT(1),  BIT(17), 0x6,     false),
-> -       [RK3576_PD_AUDIO]       =3D DOMAIN_RK3576("audio",  0x0, BIT(8), =
- 0,      BIT(8),  0x4, BIT(0),  BIT(16), BIT(0),  false),
-> -       [RK3576_PD_PHP]         =3D DOMAIN_RK3576("php",    0x0, BIT(9), =
- 0,      BIT(9),  0x0, BIT(15), BIT(15), BIT(15), false),
-> -       [RK3576_PD_SUBPHP]      =3D DOMAIN_RK3576("subphp", 0x0, BIT(10),=
- 0,      BIT(10), 0x0, 0,       0,       0,       false),
-> -       [RK3576_PD_VOP]         =3D DOMAIN_RK3576("vop",    0x0, BIT(11),=
- 0,      BIT(11), 0x0, 0x6000,  0x6000,  0x6000,  false),
-> -       [RK3576_PD_VO1]         =3D DOMAIN_RK3576("vo1",    0x0, BIT(14),=
- 0,      BIT(14), 0x0, BIT(12), BIT(12), 0x7000,  false),
-> -       [RK3576_PD_VO0]         =3D DOMAIN_RK3576("vo0",    0x0, BIT(15),=
- 0,      BIT(15), 0x0, BIT(11), BIT(11), 0x6800,  false),
-> -       [RK3576_PD_USB]         =3D DOMAIN_RK3576("usb",    0x4, BIT(0), =
- 0,      BIT(16), 0x0, BIT(10), BIT(10), 0x6400,  true),
-> -       [RK3576_PD_VI]          =3D DOMAIN_RK3576("vi",     0x4, BIT(1), =
- 0,      BIT(17), 0x0, BIT(9),  BIT(9),  BIT(9),  false),
-> -       [RK3576_PD_VEPU0]       =3D DOMAIN_RK3576("vepu0",  0x4, BIT(2), =
- 0,      BIT(18), 0x0, BIT(7),  BIT(7),  0x280,   false),
-> -       [RK3576_PD_VEPU1]       =3D DOMAIN_RK3576("vepu1",  0x4, BIT(3), =
- 0,      BIT(19), 0x0, BIT(8),  BIT(8),  BIT(8),  false),
-> -       [RK3576_PD_VDEC]        =3D DOMAIN_RK3576("vdec",   0x4, BIT(4), =
- 0,      BIT(20), 0x0, BIT(6),  BIT(6),  BIT(6),  false),
-> -       [RK3576_PD_VPU]         =3D DOMAIN_RK3576("vpu",    0x4, BIT(5), =
- 0,      BIT(21), 0x0, BIT(5),  BIT(5),  BIT(5),  false),
-> -       [RK3576_PD_NPUTOP]      =3D DOMAIN_RK3576("nputop", 0x4, BIT(6), =
- 0,      BIT(22), 0x0, 0x18,    0x18,    0x18,    false),
-> -       [RK3576_PD_NPU0]        =3D DOMAIN_RK3576("npu0",   0x4, BIT(7), =
- 0,      BIT(23), 0x0, BIT(1),  BIT(1),  0x1a,    false),
-> -       [RK3576_PD_NPU1]        =3D DOMAIN_RK3576("npu1",   0x4, BIT(8), =
- 0,      BIT(24), 0x0, BIT(2),  BIT(2),  0x1c,    false),
-> -       [RK3576_PD_GPU]         =3D DOMAIN_RK3576("gpu",    0x4, BIT(9), =
- 0,      BIT(25), 0x0, BIT(0),  BIT(0),  BIT(0),  false),
-> +       /*                                            name    p_offset pw=
-r      status  r_status r_offset req      idle     g_mask   delay wakeup */
-> +       [RK3576_PD_NPU]         =3D DOMAIN_RK3576_R("npu",  0x0, BIT(0), =
- BIT(0), 0,       0x0, 0,       0,       0,       0,    false),
-> +       [RK3576_PD_NVM]         =3D DOMAIN_RK3576("nvm",    0x0, BIT(6), =
- 0,      BIT(6),  0x4, BIT(2),  BIT(18), BIT(2),  0,    false),
-> +       [RK3576_PD_SDGMAC]      =3D DOMAIN_RK3576("sdgmac", 0x0, BIT(7), =
- 0,      BIT(7),  0x4, BIT(1),  BIT(17), 0x6,     0,    false),
-> +       [RK3576_PD_AUDIO]       =3D DOMAIN_RK3576("audio",  0x0, BIT(8), =
- 0,      BIT(8),  0x4, BIT(0),  BIT(16), BIT(0),  0,    false),
-> +       [RK3576_PD_PHP]         =3D DOMAIN_RK3576("php",    0x0, BIT(9), =
- 0,      BIT(9),  0x0, BIT(15), BIT(15), BIT(15), 0,    false),
-> +       [RK3576_PD_SUBPHP]      =3D DOMAIN_RK3576("subphp", 0x0, BIT(10),=
- 0,      BIT(10), 0x0, 0,       0,       0,       0,    false),
-> +       [RK3576_PD_VOP]         =3D DOMAIN_RK3576("vop",    0x0, BIT(11),=
- 0,      BIT(11), 0x0, 0x6000,  0x6000,  0x6000,  0,    false),
-> +       [RK3576_PD_VO1]         =3D DOMAIN_RK3576("vo1",    0x0, BIT(14),=
- 0,      BIT(14), 0x0, BIT(12), BIT(12), 0x7000,  0,    false),
-> +       [RK3576_PD_VO0]         =3D DOMAIN_RK3576("vo0",    0x0, BIT(15),=
- 0,      BIT(15), 0x0, BIT(11), BIT(11), 0x6800,  0,    false),
-> +       [RK3576_PD_USB]         =3D DOMAIN_RK3576("usb",    0x4, BIT(0), =
- 0,      BIT(16), 0x0, BIT(10), BIT(10), 0x6400,  0,    true),
-> +       [RK3576_PD_VI]          =3D DOMAIN_RK3576("vi",     0x4, BIT(1), =
- 0,      BIT(17), 0x0, BIT(9),  BIT(9),  BIT(9),  0,    false),
-> +       [RK3576_PD_VEPU0]       =3D DOMAIN_RK3576("vepu0",  0x4, BIT(2), =
- 0,      BIT(18), 0x0, BIT(7),  BIT(7),  0x280,   0,    false),
-> +       [RK3576_PD_VEPU1]       =3D DOMAIN_RK3576("vepu1",  0x4, BIT(3), =
- 0,      BIT(19), 0x0, BIT(8),  BIT(8),  BIT(8),  0,    false),
-> +       [RK3576_PD_VDEC]        =3D DOMAIN_RK3576("vdec",   0x4, BIT(4), =
- 0,      BIT(20), 0x0, BIT(6),  BIT(6),  BIT(6),  0,    false),
-> +       [RK3576_PD_VPU]         =3D DOMAIN_RK3576("vpu",    0x4, BIT(5), =
- 0,      BIT(21), 0x0, BIT(5),  BIT(5),  BIT(5),  0,    false),
-> +       [RK3576_PD_NPUTOP]      =3D DOMAIN_RK3576("nputop", 0x4, BIT(6), =
- 0,      BIT(22), 0x0, 0x18,    0x18,    0x18,    15,   false),
-> +       [RK3576_PD_NPU0]        =3D DOMAIN_RK3576("npu0",   0x4, BIT(7), =
- 0,      BIT(23), 0x0, BIT(1),  BIT(1),  0x1a,    15,   false),
-> +       [RK3576_PD_NPU1]        =3D DOMAIN_RK3576("npu1",   0x4, BIT(8), =
- 0,      BIT(24), 0x0, BIT(2),  BIT(2),  0x1c,    15,   false),
-> +       [RK3576_PD_GPU]         =3D DOMAIN_RK3576("gpu",    0x4, BIT(9), =
- 0,      BIT(25), 0x0, BIT(0),  BIT(0),  BIT(0),  0,    false),
->  };
->
->  static const struct rockchip_domain_info rk3588_pm_domains[] =3D {
-> --
-> 2.43.0
->
+> 
+> 
+>> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
+>> +				 unsigned long sro_handle,
+>> +				 unsigned long donatereq,
+>> +				 struct arm_smccc_1_2_regs *out_regs,
+>> +				 gfp_t gfp)
+
+...
+
+>> +	addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
+>> +	FIELD_MODIFY(RMI_ADDR_RANGE_BLOCK_SIZE_MASK, &addr_range, block_size_fld);
+>> +	FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, count);
+>> +	FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
+>> +
+>> +	sro->addr_list[sro->addr_count] = addr_range;
+>> +
+>> +out:
+> 
+> This doesn't smell like an 'out' - as the real works is done down
+> here.
+
+Ack, I have renamed it to "donate:"
+
+>> +
+>> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
+>> +				    unsigned long sro_handle,
+>> +				    unsigned long donatereq,
+>> +				    struct arm_smccc_1_2_regs *out_regs,
+>> +				    gfp_t gfp)
+>> +{
+>> +	unsigned long block_size_fld = RMI_DONATE_BLOCK_SIZE(donatereq);
+>> +	unsigned long block_size = rmi_addr_block_size_to_bytes(block_size_fld);
+>> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+>> +	unsigned long state = RMI_DONATE_STATE(donatereq);
+>> +	unsigned long found = 0;
+>> +	unsigned long donated_granules;
+>> +	unsigned long granules_per_block = block_size >> PAGE_SHIFT;
+>> +	unsigned long consumed_blocks;
+>> +	int addr_list_start = sro->addr_count;
+>> +
+>> +	int ret;
+>> +
+>> +	for (int i = 0; i < addr_list_start && found < count; i++) {
+>> +		unsigned long entry = sro->addr_list[i];
+>> +
+>> +		if (RMI_ADDR_RANGE_BLOCK_SIZE(entry) == block_size_fld &&
+>> +		    RMI_ADDR_RANGE_COUNT(entry) == 1 &&
+>> +		    RMI_ADDR_RANGE_STATE(entry) == state) {
+>> +			addr_list_start--;
+> 
+> I guess putting that as a predecrement in the swap is a little
+> too obscure.
+> 
+> Maybe a comment for this whole loop that it is gathering up
+> useable entries by moving them to the end of the bit of the
+> array that is already in use.  Neat little bit of code but takes a little
+> more thinking about than might be ideal when we look at this
+> 10 years down the line.  Maybe it's just that it is Friday...
+> 
+>> +			swap(sro->addr_list[addr_list_start],
+>> +			     sro->addr_list[i]);
+>> +			found++;
+>> +			i--;
+> 
+> Rather than decrement the loop variable, maybe a goto and a label
+> for try_new_entry or something like that?  Even a comment might
+> be useful.
+
+Ack. I think a while loop makes it look a bit better with
+comments. e.g.:
+
+@@ -356,9 +356,11 @@ static int rmi_sro_donate_noncontig(struct 
+rmi_sro_state *sro,
+         unsigned long granules_per_block = block_size >> PAGE_SHIFT;
+         unsigned long consumed_blocks;
+         int addr_list_start = sro->addr_count;
+-       int ret;
++       int ret, i;
+
+-       for (int i = 0; i < addr_list_start && found < count; i++) {
++       /* Gather the suitable entries to the end of the list */
++       i = 0;
++       while (i <  addr_list_start && found < count) {
+                 unsigned long entry = sro->addr_list[i];
+
+                 if (RMI_ADDR_RANGE_BLOCK_SIZE(entry) == block_size_fld &&
+@@ -368,8 +370,11 @@ static int rmi_sro_donate_noncontig(struct 
+rmi_sro_state *sro,
+                         swap(sro->addr_list[addr_list_start],
+                              sro->addr_list[i]);
+                         found++;
+-                       i--;
++                       /* Continue from the swapped in entry */
++                       continue;
+                 }
++               /* skip past the entry */
++               i++;
+         }
+
+> 
+>> +		}
+>> +	}
+>> +
+>> +	ret = rmi_sro_ensure_capacity(sro, count - found);
+>> +	if (ret)
+>> +		return ret;
+> 
+> Will this normally succeed? Feels like we could have a lot
+> of useless entrees at the start of the storage, so no room to
+> enough extra ones.
+
+That is true. In this case, we should be able to proceed to
+donate as much as we have been able to gather and retry
+the donation in the next iteration, by freeing up the
+cached ones.
+         ret = rmi_sro_ensure_capacity(sro, count - found);
+-       if (ret)
+-               return ret;
++       if (ret) {
++               /* If we have found some entries, donate them and try 
+again */
++               if (found)
++                       goto mem_donate;
++               /* Otherwise, free up the list and start again */
++               rmi_sro_free(sro);
++       }
+
+-       while (found < count) {
++       for (; found < count; found++) {
+                 unsigned long addr_range;
+                 void *virt = alloc_pages_exact(block_size, gfp);
+                 phys_addr_t phys;
+@@ -403,12 +413,12 @@ static int rmi_sro_donate_noncontig(struct 
+rmi_sro_state *sro,
+                 FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, 
+state);
+
+                 sro->addr_list[sro->addr_count++] = addr_range;
+-               found++;
+         }
+
++mem_donate:
+         rmi_op_mem_donate(sro_handle,
+                           virt_to_phys(&sro->addr_list[addr_list_start]),
+-                         count, 0, out_regs);
++                         found, 0, out_regs);
+
+>> +
+>> +	while (found < count) {
+> 
+> For loop seems more natural to me given the bounds are known
+> and found is only incremented at the end.
+
+Ack
+
+> 
+>> +		unsigned long addr_range;
+>> +		void *virt = alloc_pages_exact(block_size, gfp);
+>> +		phys_addr_t phys;
+>> +
+>> +		if (!virt)
+>> +			return -ENOMEM;
+>> +
+>> +		phys = virt_to_phys(virt);
+>> +
+>> +		if (state == RMI_OP_MEM_DELEGATED) {
+>> +			phys_addr_t delegated_phys;
+>> +
+>> +			if (rmi_delegate_range(phys, block_size,
+>> +					       &delegated_phys)) {
+> 
+> Go long. It is shorter than the line that follows anyway!
+
+Ack
+
+>> +
+>> +	/* Keep just the blocks the RMM didn't use in addr_list */
+>> +	for (int i = consumed_blocks; i < count; i++)
+>> +		sro->addr_list[addr_list_start + i - consumed_blocks] =
+>> +			sro->addr_list[addr_list_start + i];
+> 
+> Maybe memmove to make it clear you are shifting a chunk of the array
+> down.  This might be worth some asci art showing each step in brief.
+> Anyhow, something along these lines:
+> 
+>        memmove(&sro->addr_list[addr_list_start],
+> 	      &sro->addr_list[addr_list_start + consumed_blocks],
+> 	      (count - consumed_blocks) * sizeof(*sro->addr_list));
+> 
+> Obviously doesn't save code, but maybe simpler to understand than
+> the loop.
+> 		
+
+Does the following hunk look better with the comment ?
+
+         /*
+          * Keep just the blocks the RMM didn't use in addr_list.
+          * RMM claimed consumed_blocks entries from addr_list_start.
+          * Move the entries left out at the end i.e.
+          * [ addr_list_start + consumed_blocks, addr_list_start + found)
+          * to the rest of the valid entries and adjust the addr_count to
+          * reflect the available entries.
+          */
+         for (int i = 0, src = addr_list_start + consumed_blocks;
+                 i < found - consumed_blocks; i++)
+                 sro->addr_list[addr_list_start + i] = 
+sro->addr_list[src + i];
+
+         sro->addr_count -= consumed_blocks;
+
+> 
+>> +}
+>> +
+>> +static int rmi_sro_reclaim(struct rmi_sro_state *sro,
+>> +			   unsigned long sro_handle,
+>> +			   struct arm_smccc_1_2_regs *out_regs)
+>> +{
+>> +	unsigned long capacity;
+>> +
+>> +	if (rmi_sro_ensure_capacity(sro, 1))
+>> +		rmi_sro_free(sro);
+> 
+> Maybe a comment on why you free the whole lot rather than a smaller
+> amount to make some room.
+
+We don't do partial free of the list today, and having that is
+unnecssarily complicating the logic/code. We are going to do a reclaim 
+anyways. Sure, I could add a comment.
+
+
+> 
+>> +
+>> +	capacity = RMI_MAX_ADDR_LIST - sro->addr_count;
+>> +
+>> +	rmi_op_mem_reclaim(sro_handle,
+>> +			   virt_to_phys(&sro->addr_list[sro->addr_count]),
+>> +			   capacity, out_regs);
+>> +
+>> +	/*
+>> +	  * RMI_OP_MEM_RECLAIM always return RMI_INCOMPLETE, except when the
+>> +	  * input parameters were invalid.
+>> +	  */
+>> +	if (WARN_ON_ONCE(RMI_RETURN_STATUS(out_regs->a0) != RMI_INCOMPLETE))
+>> +		return -EINVAL;
+>> +	if (WARN_ON_ONCE(out_regs->a1 > capacity))
+>> +		out_regs->a1 = capacity;
+> I guess this should never happen, but bit ugly to fixup the register
+> return rather than perhaps using a local variable instead.
+
+We pass/get the out_regs, so local variable doesn't work, unless
+I missed what you were hinting at..
+
+> Obviously doesn't matter in practice.
+
+> 
+>> +	sro->addr_count += out_regs->a1;
+>> +
+>> +	return 0;
+>> +}
+> 
+>> +
+>> +/* For RMI commands that are stateful but not memory-transferring */
+> 
+> Given this is exported, maybe some docs on return values etc?
+> Similar for the other exported funcitons.
+
+Ack
+
+> 
+>> +long rmi_sro_execute(struct arm_smccc_1_2_regs *regs)
+>> +{
+>> +	bool cancelled = false;
+>> +	unsigned long sro_handle = regs->a1;
+>> +
+>> +	rmi_smccc_invoke(regs);
+>> +
+>> +	sro_handle = regs->a1;
+>> +	while (RMI_RETURN_STATUS(regs->a0) == RMI_INCOMPLETE) {
+>> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs->a0) == RMI_OP_CAN_CANCEL;
+>> +
+>> +		switch (RMI_RETURN_MEMREQ(regs->a0)) {
+>> +		case RMI_OP_MEM_REQ_NONE:
+>> +			rmi_op_continue(sro_handle, RMI_CONTINUE_KEEP_GOING,
+>> +					regs);
+>> +			break;
+>> +		default:
+>> +			WARN_ON_ONCE(1);
+>> +			if (!can_cancel)
+>> +				return regs->a0;
+>> +			/* If we have already cancelled, don't retry this */
+> 
+> Maybe expand that comment a little to say if we can get here under a
+> valid sequence and if so are we guaranteed that cancel is complete
+> given that is what caller will probably expect if it gets -ECANCELED.
+> 
+> My reading of spec would suggest we can't hit this path for the
+> calls that are not memory tranferring. Then again we can't hit the
+> first cancel either so all bets are off.  So maybe this is the
+> bet we can do.  Also can_cancel shouldn't be true after
+> rmi_op_cancel() as I assume you can't cancel a cancel.
+
+Ack.  This was to handle a buggy RMM (and soothing an LLM bot)
+
+Thank you for the review.
+
+Cheers
+Suzuki
+
+
+> 
+
 
