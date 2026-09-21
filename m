@@ -4,60 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA99C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 11:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC997C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 12:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BHuvo0BMs5lNofbYQMZ80kY1wIqL0Onu5K/sWBzZHeY=; b=DQ3a7TdPh0rr8NKwk6+KxYFQaQ
-	OzeB+K3W9NJhFADvaazu2X6ZZ1P9xqprvb5IDtH9mWCS7HCOBAmK3bzGdiCqxXyopYtqO3rJ3C1+E
-	5tM26OjvxtpQRBIFew+lp/kjMFTlI+Evm6tLD1sTRVWJ+4zNSJZaX7K4NyyF0sFivaiU63nfDjLcu
-	OQtK/uh2Yvis/Ts3Y7xT5hT3N1aFx5SKvegoSVG8EO1xtkrnp/PD5ybRBb+5kq9HhemlibSyziVsY
-	FlraTthhOCOTLVtKfKJvCExvtFfODz7mnB4Lx8b8gNvwOw0ZpodFncN4vrZzqnZeTNbJ1luIFA4Fg
-	9lbKfLow==;
+	bh=MNQhr9rBu8mM55aNRKf1YFcvj8FACeOm4a2xF69xTOA=; b=qsR2cdnxxHYYAkvZeP8kgdlFdv
+	Widp8/kfTirE5FFtt5pfMxgEri7ZGP8dLxKeYHfZx7vFc6sx3vlue/2znfiiul3eRSUKqDNabLIxT
+	u9f9q0vlCmo+r3VHSW644TMyod2rfNOjCbdBO4LxGbA1k6efwenRVJssbUGTWoe7DlT6Hw9QlGj9X
+	RkFLCDqoTpUg5WVPoILgT365y7FU5Mf3I2tFvw8QDNEWi9lZSzj6pF+uAEo/pM3566+aKDyYGo/Du
+	HcOSq7rSPagujJakTgNLYYzMzTye0MLI1WYVUwpB9jdZY/FYixyEwQZA6ZxyXdQvNt7mTm4c9jvfO
+	DQ8HbSjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ceS-00000001zI0-3A5u;
-	Mon, 21 Sep 2026 11:57:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8cme-0000000209z-3ad5;
+	Mon, 21 Sep 2026 12:06:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ceR-00000001zHn-2sfU
+	id 1x8cmd-0000000209l-3Ws9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 21 Sep 2026 12:06:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MNQhr9rBu8mM55aNRKf1YFcvj8FACeOm4a2xF69xTOA=; b=qHGDY832GAZOekk/klhR57N0hY
+	v+i35MPicYDiQD2IzO1J892USG+3jvC5U0Rc5Qef9ae2wnMuCNWRQWMO62JWMZHlmzbVbPmd4QBAx
+	3pgdOKkLpMlvVCGz3zdyEbNZa+3XLnGitxVAvvRGdj/c2WFtDT11qXdeVtWwGCqgVoVQLX1Uiu3Xx
+	/8XTzMHxzfa6HQA0vGQ7tyd039fX9nhKU6CKRTC13WF8MFQ/CBCoMzg4yH40OFHOxJhZ1qUdv9T4G
+	nWSyR76UR+mrCugcXczvdCR46HtHKOv6sR4RckiUbBA8iXKJHc/sYYBnCIdTTnMHGabNt+tHhQwwH
+	JkDLnoBw==;
+Received: from mail-northcentralusazon11012033.outbound.protection.outlook.com ([40.107.200.33] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8cmZ-0000000CFpF-3ele
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 11:57:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FF6640B80;
-	Mon, 21 Sep 2026 11:57:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FC2F1F000FF;
-	Mon, 21 Sep 2026 11:57:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789991859;
-	bh=BHuvo0BMs5lNofbYQMZ80kY1wIqL0Onu5K/sWBzZHeY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Azcx5PRWvXD2RliqeziEhQOYuCcLhWc5JF1xqnd5ZSMPj4rF+9uLJ8/RSwqTdTZPf
-	 9Q7kjd0bStpmDblAQdZ3W79iW0ti3Hze1ysDo5A5HRQWLx5CJXuEbU7A98jZTC2FoM
-	 bIwHgafDbK2MVMPG6sdXAc9X1pPcJC56JLCIoZvfzRf6oHPtFozZCYGDuSUuVufdGL
-	 mBr8YwX+jGbRXt2wlrAS6ZrPl/HTijqYX6XiFyQm29ErK/lHjcxI7q9m0p5WJRFeGE
-	 FZEoMhcbjICsARbTThKmvs9J/h41pT6VO3THPxV/I627YI5eTags8jX5d09xgSl6mP
-	 vO5Whu43UMQvg==
-Subject: Re: [PATCH net v2] net: axienet: bound TX completion cleanup by the
- NAPI budget
-From: netdev-bot+sashiko@kernel.org
-To: maimon.sagi@gmail.com
-Cc: radhey.shyam.pandey@amd.com, netdev@vger.kernel.org,
- robert.hancock@calian.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 21 Sep 2026 11:57:38 +0000
-Message-ID: <178999185805.2160803.2118648689532400433@kernel.org>
-In-Reply-To: <20260917115657.20697-1-maimon.sagi@gmail.com>
-References: <20260917115657.20697-1-maimon.sagi@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
+	Mon, 21 Sep 2026 12:06:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MJ4MUiUMIqhixQ5OcZhZmd4nkm75+bPBxDXElq5WM9xuL8MmNlxnBqhYry/65gRn6uFAPhK4zrYard/i7JOMWxxiKEEm0bnIPYE3ybtEIwXihcWn3Ozj4KccTZsFt1yPBrsgah3ND6k//xcArBXNtpkMcPADg+64lkjuEAjre3ltqfX/nwXGuJNDT9yTRjNU8tOSAsDO6DUNVFedwvooWMlqnz1Y5HLQLQtW0WeT9ivvRhZ17Dw8s5YM9/z/DM0OCXBh5+WQY3FbsuBHlzjA4bY2kO9RO2W18j2ddeq/BlAZNnhalx+F6lHbMB37fVGPly1ZY3iT4pxC3ILCM5/r1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MNQhr9rBu8mM55aNRKf1YFcvj8FACeOm4a2xF69xTOA=;
+ b=aBLwltYUZKGobhQz2a0UZiiHBd4+prq0e0+RvPlY6C1PRC65XKWZPCQdj7pA+cQkoCgzizuEo5LaxpcTR4kvSiIa7XZUBxZIRQxd3dgT7v2Ge6zQPYBxD3v+BSUVYWlibOmvC01NbIrHDmg/Jts25+ZYOc5a13NrCrngrEY6BgJw0bk5HKQaDb//6RHFagohNstveQHyafm2dQIpbEg5WoPfrRRPvpIn6TGd7ZYHI1l+kQoqBSz5CGNfXcK5q+fiQQd76KWLaIGi5IG7hPxExb/Xg8NwrSMxwOqe1C9SrKX4jGcxGN/3bBv9L+qMzCujjODYW5ybOjgfONuoE3wDIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MNQhr9rBu8mM55aNRKf1YFcvj8FACeOm4a2xF69xTOA=;
+ b=kzkzurJQvd8A5VemSSyHp9V/f560vCO1P0dXG1KGlYUBE2vLhmICQpqz22PPG9t/0YMQgwTEzBSlrL9A3nr+6V7/OpX11h0Kc0F7pqNezVgWsELxlJRgZsKn+Xgcp48xlSG9fjp7+fjVn7Z8KIZ5jXDwXYsH14umJF3peuxf5HQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ0PR12MB5673.namprd12.prod.outlook.com (2603:10b6:a03:42b::13)
+ by SA1PR12MB8699.namprd12.prod.outlook.com (2603:10b6:806:389::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
+ 2026 12:05:55 +0000
+Received: from SJ0PR12MB5673.namprd12.prod.outlook.com
+ ([fe80::c3e5:48f8:beb6:ea68]) by SJ0PR12MB5673.namprd12.prod.outlook.com
+ ([fe80::c3e5:48f8:beb6:ea68%6]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
+ 12:05:55 +0000
+Message-ID: <45dd7a2f-8474-4388-b383-2dee3ee62206@amd.com>
+Date: Mon, 21 Sep 2026 14:05:50 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
+ alignment for cc-shared buffers
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Thomas Gleixner
+ <tglx@kernel.org>, Will Deacon <will@kernel.org>,
+ Sumit Semwal <sumit.semwal@linaro.org>, "T.J. Mercier" <tjmercier@google.com>
+References: <aq1V3oeDdvXobt8J@arm.com>
+ <97c30fce-9bda-4c61-b1b9-10297b89c8d9@amd.com>
+ <20260918153642.GD11599@ziepe.ca>
+ <d8123f21-d5ce-415b-a05a-392d97b8b57d@amd.com>
+ <20260918165315.GF11599@ziepe.ca>
+ <6115eaf7-21bc-49ce-8a74-08fd37a1e2c9@amd.com>
+ <20260921115141.GJ11599@ziepe.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <20260921115141.GJ11599@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BL1P221CA0018.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c5::30) To SJ0PR12MB5673.namprd12.prod.outlook.com
+ (2603:10b6:a03:42b::13)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR12MB5673:EE_|SA1PR12MB8699:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3df9640-2f4e-4285-aa8a-08df17d8b0bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|7416014|6133799003|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: lE6Fvf8xU4bqEidO/nRwKsmR7oxVTUjb76KqVddB6imaBwstJGfURirHusMParUB9gnaig6fqwBaPbMCaVz3CcNltuL5lzvstDUDkCmrx+BRCKetiA5F/KPJh5eetN/xfhdnz974eJJ+hLgkkw28c6sbP0HEkyhiknJFtWJbLySFrQiNdyXZ8W48LZM1AZ/6qe8EiKquVhgZohfjTgxLVIGTZoTIUdl9Ou6/JD+IHeqKWWhFCrtMg7E8j1RENArl/cu6fzlX2GmjvWLqfvq/cg+frmPF5GwJRU6SvG2JSgA20pRDYbD08eMkSjFiNiW2qvCy3XrEdygZhWty2pk9FnipJPmfZVZM33Q06tbrqKCSQ0AJDCZfXNOpFPZx65XauegGJ/hapvhtx1FNyy6hw79poRggpxtfhcPt6AFUDKeYmA5qEJ6YXv+UF0rYAmxPw+MMPBsqUEHtjl0A4MLq5gbAaQcOFNXgfSK9iHaKefOobgltNiKRBoYnv5gJbJJL6Tin45XqI+iZe3880dvjASZahncyTOdyr4crRK8dafWMyq3DcAH0apTU6ahAFNoHomQO4DwDkd1qJ+v81Dw07bUTWPUrbfD5ms0NNvRj6aYlmR336yI6LvNgb+IxiVxPSNqXIYBEfI562CSpZ6P1fdnJ858H9/LSYZBtoyaAPkE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5673.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(7416014)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VXdwZ3c5bEtrYU5EQzcrMXQ0NEdPcVJmbjB4cmI2TXJMaDRQTmoyd1VPdUhn?=
+ =?utf-8?B?RVBHajZVSjJHMUZwckJTb1VRazdpSzhXd3RLbXdxZmlHVnFQZjIxMDMySUhY?=
+ =?utf-8?B?aHowVCtEakNFRDJWazNtOG5yNmJyUWp0b3ZwU1NsM2twRjF1NS9LQkxGR0wx?=
+ =?utf-8?B?TVhxdDJmR0RCUVFDZmN6d3hpd0V1SThYZmlmTkljc1pCd0hJd0NOQlVoR3Fh?=
+ =?utf-8?B?aFRVcm1YdUM4K3VjazZlVkE2ZTVGc3JEN2h6ZzNJa25kVHRPT2dXQ25KQmZF?=
+ =?utf-8?B?YjIzKzNNTVlHZzlueXMyS3p1ZjROYjJZYzEycGdkRmFvK3BTcVVxclI4cFF2?=
+ =?utf-8?B?bE45M0FGTlJNaG9aakFHOGlwWm1mTUNGbDJmWllnSGY5enhGdnBGR3dPQ2lj?=
+ =?utf-8?B?WFdlWEN1ZkVzVktpd0l4b1JZU0pVQWRFM1ZuSW9XTXRZYjlseTBuUUoxZnJh?=
+ =?utf-8?B?QTF6dmpGOTU3dllIeUhoOWFOYlYvcmllbkNIbFladWxIUjRaajFXWWNVdUNL?=
+ =?utf-8?B?RXFQZkNCOVduem5yR2JuL0d0OGZKL2FmUnp2cDlQMVpXNWZaa0xwS2lGR0No?=
+ =?utf-8?B?NlVXb0dWQVByOW90Z0RzelhTSHJPSTlGVUEyMlJmRDdnK2ZIczJjc1hFRDQw?=
+ =?utf-8?B?UStpMFQzVUUyNUtDc2FGZ1hTVWExYWRWNEJGTkswSUtQN3pLOWRMYWs4U2FU?=
+ =?utf-8?B?U3RpQUJjUURkREZoK1JFaHhRNWFvMjBYNGlpbXMwaWRKNHBCOFR6dzFyVlZs?=
+ =?utf-8?B?TllnZkR6T3VPWVhCOVBtdEFjWGJLWXRJNmI1UVJmZUJxQmxRaGN4ZnBlWVk0?=
+ =?utf-8?B?NFlPV3diWXlwd2JmdlNQaVlXK1lDNXU5U1dYMmY1TTZQTkY2YUsrb01nRHlS?=
+ =?utf-8?B?U1ZyVUdNNjl0cFFnSGdQZ2RueGh3NHo4d1lsWW1lOEFCdjJTTnBuNllYV0hK?=
+ =?utf-8?B?YTBtUlVsZmJzcHRLQWFWaW5mdENtajdqT0VzeTEzRWluZHNZakRDSjlzWE9r?=
+ =?utf-8?B?M3VpUTVYQ3VoZk44YXd6Q09ZQUhITThLWFYvdVB5Njh6ZjZVbXdhRS9HSnZP?=
+ =?utf-8?B?aDIyS2dsdTBLOFhuUDhhd0ZxelN6QTQ1UUJocjl1aUtTM004L2p0TkZkZ25B?=
+ =?utf-8?B?WStTY1FoSzFpMHFDcDR5Y2F3RUpxUm95VXFzMGhic3RiZVBRcjBBMTF1azd0?=
+ =?utf-8?B?STRqTHpKNC9DT2pQN0lrYWN6V3FXY2ZVeUpiUkROTEdzMEVXeDJ1cXczS1Bu?=
+ =?utf-8?B?bUQrdVVXcWltMWdZNjBxaFVGVER2K0trWjZtUkd2MmJ4TmFBMlFLYi8zenVU?=
+ =?utf-8?B?ZWY2QUNNaHJNWFAyNXpMTzdCL0t3aEh3OFBGRkNCcEs5YU9lTnlnR0tSVGJz?=
+ =?utf-8?B?aFFadVdsaGVCN2o5NXUxbWttWXRJdVRFc3A3d0hDN0tXNG9rNCtjM2p3czBS?=
+ =?utf-8?B?ck9rL3JlSXpsY1RMVjRGSVBUS2p3cExWRmhuODJRYmxyNkY3RjlDYXpTSVhy?=
+ =?utf-8?B?ZHdZeTFoVGFIOWdxK1FCNlRNTjZyUnd2SXZ5REYzU2tiUG96aExMcHJKenFE?=
+ =?utf-8?B?aGVKVFpGMGNIT0dJVmRidjhvOU42V01jM2JtODV2cWgwWlAxc1A1QTg5Q3RU?=
+ =?utf-8?B?QkJONXpHRHlTTUNWSmdneHA3UFdacEVteittZytDWThqcVlxWDhiUFVnOVox?=
+ =?utf-8?B?N1Voai9kVDI5ZzgxYy9MMk02d1Qra00zMS95c1dLRzdSaDZ3SGN4U2RXM1F0?=
+ =?utf-8?B?S09YckxsUDVTQlJOZktYK3JVaVl1bDVxTUp5dG94R0NTUDRjRCsveDJPOUo1?=
+ =?utf-8?B?Q2FMNTlXUjZPdlN1VjQwVW5NRG5KUEl6Z1M0YlAxWkRXdUVnMmh0ZFhubFNM?=
+ =?utf-8?B?cU53em5Ka1BtRm9XQ0dQMXY0Vm8wRUw5WlJnM29Lc0hlM0hQY1dvdDBSVStT?=
+ =?utf-8?B?bEJXQWhOQUxKa3JScElacFFLOGJheVMwb1VJQzVpRWpJNkpuS0JhLzROaWJi?=
+ =?utf-8?B?VXZDS2pCMmU4amlPdEo3eGN6TEY0eWs4ZmQxLzZTM01kalpJT2hpaVJzN01R?=
+ =?utf-8?B?T2w4amU2N2xjRFhmdGRieVdkM0RrOHFPb1hUUHhNQ0MrMnVuODBSNkcwQVBr?=
+ =?utf-8?B?allzSXJjcW0zRzRVRXV5TzhsT2JwbkZUb2VwRjNnaXl2YXpqRTZnUnZteDlI?=
+ =?utf-8?B?d29LRU5pN2JSUW5zS2htNU1MVzVHZmc0bjdNS2orVlJMWUJtU0NNUmQ4Vmx3?=
+ =?utf-8?B?cER4T1JpNkh0Q25pSHU4OU1ZaTYxbSszeXVZTW5vUUd3MkRLVnJXWnhuMDlj?=
+ =?utf-8?Q?GUri9FZNMkGqfVbNnh?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3df9640-2f4e-4285-aa8a-08df17d8b0bd
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5673.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 12:05:55.6913
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DHrl+eD0PyPLy9xD3nSE/EV5GyxyY+A7zNneLgqoZ7IMiP6mvBos13iBRYCU0lER
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8699
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_130604_208352_50629916 
+X-CRM114-Status: GOOD (  24.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,161 +175,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 9/21/26 13:51, Jason Gunthorpe wrote:
+> On Mon, Sep 21, 2026 at 11:07:17AM +0200, Christian König wrote:
+>> On 9/18/26 18:53, Jason Gunthorpe wrote:
+>>> On Fri, Sep 18, 2026 at 05:39:55PM +0200, Christian König wrote:
+>>>
+>>>>> Arch code can figure out how to do it. If some ARM configs only give
+>>>>> order 4 folios or whatever then dmabuf heap doesn't care.
+>>>>
+>>>> The fundamental problem is that DMA allocations are highly
+>>>> architecture and device specific while Linux memory allocation APIs
+>>>> are generic.
+>>>
+>>> This isn't a dma allocation, this is a memory allocation.
+>>
+>> No, I mean this is a DMA-buf heaps allocation. It is a DMA
+>> allocation, we just don't know for which device.
+> 
+> So? How is it any different from the existing alloc pages?
 
-Critical: 0 · High: 1 · Medium: 0 (1) · Low: 0
+That you need to specify that this is for DMA without encryption.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+>> So ideally we should use resources which work for most devices in
+>> the system.
+> 
+> Which this does.
+> 
+>> If a device has special allocation requirements (CMA,
+>> restricted addressing etc...) we need a specialized DMA-buf heaps
+>> for it.
+> 
+> Those things don't really intersect with CC, but if they did their are
+> already heap names to request those, someone can add some shared
+> restricted CMA option if they need someday ?
+> 
+>> That userspace provides this cc_shared flag is a NO-GO to begin
+>> with.
+> 
+> What do you mean? We discussed this with the heap maintainers and we
+> all agreed this was a kind of heap just like any of the other kinds of
+> heaps that userspace can request.
+> 
+> It is *exactly* the "special allocation requirements" you are talking
+> about above.
 
-- [High] Incomplete fix: the new budget guard in axienet_free_tx_chain()
-  is disabled when @budget == 0 (`if (!force && budget && packets >=…
+I only see a fraction of the patch set (because no DMA-buf maintainer was CCed) and to me it looked like the cc_shared flag was added as an additional parameter to the allocation and not a separate heap created.
 
-Pre-existing issues:
-- [Medium] Pre-existing (not introduced or claimed to be fixed by this
-  patch): axienet_dma_bd_release()…
+If that is not the case then it is actually the correct approach.
 
---
+Christian.
 
-net: axienet: bound TX completion cleanup by the NAPI budget
+> 
+> Jason
 
-The patch adds a budget check to axienet_free_tx_chain() so the TX
-completion loop stops on a packet boundary once the NAPI budget is spent,
-and treats a budget of zero as "no limit" so the netpoll TX reclaim and the
-@force callers still drain the ring.  The kernel-doc for @budget is updated
-to match.
-
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 1722b7038f340..039885814a5d2 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -772,7 +772,9 @@ static int axienet_device_reset(struct net_device *ndev)
->   * @force:	Whether to clean descriptors even if not complete
->   * @sizep:	Pointer to a u32 accumulating the total byte count of
->   *		completed packets (using skb->len). Ignored if NULL.
-> - * @budget:	NAPI budget (use 0 when not called from NAPI poll)
-> + * @budget:	NAPI budget. When @force is false, cleanup stops after this
-> + *		many completed packets. Zero means no limit, as used by the
-> + *		netpoll TX reclaim and by callers outside NAPI poll.
->   *
->   * Would either be called after a successful transmit operation, or after
->   * there was an error when setting up the chain.
-> @@ -788,6 +790,15 @@ static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
->  	dma_addr_t phys;
->  
->  	for (i = 0; i < nr_bds; i++) {
-> +		/* A NAPI poll must not return more than its budget.  Stop on a
-> +		 * packet boundary once it is spent - cur_p->skb is only set on
-> +		 * a packet's last descriptor, so no packet is left half-freed.
-> +		 * A zero budget means no limit: netpoll polls with a budget of
-> +		 * 0 to reclaim the TX path only, and must still clean the ring.
-> +		 */
-> +		if (!force && budget && packets >= budget)
-> +			break;
-> +
-
-[Severity: High]
-With the "budget &&" term, is the case the commit message is about still
-reachable on the netpoll path?
-
-For a budget of 0 the guard never fires, so axienet_free_tx_chain() walks up
-to lp->tx_bd_num descriptors and increments packets for every completed
-descriptor with a non-NULL cur_p->skb.  axienet_tx_poll() then returns that
-count verbatim:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_tx_poll() {
-	packets = axienet_free_tx_chain(lp, lp->tx_bd_ci, lp->tx_bd_num, false,
-					&size, budget);
-	...
-	if (packets < budget && napi_complete_done(napi, packets)) {
-	...
-	return packets;
-}
-
-netpoll is the caller that enforces the invariant:
-
-net/core/netpoll.c:poll_one_napi() {
-	/* We explicitly pass the polling call a budget of 0 to
-	 * indicate that we are clearing the Tx path only.
-	 */
-	work = napi->poll(napi, 0);
-	WARN_ONCE(work, "%pS exceeded budget in poll\n", napi->poll);
-	...
-}
-
-lp->napi_tx is on dev->napi_list (netif_napi_add(ndev, &lp->napi_tx,
-axienet_tx_poll) in axienet_probe()), so netpoll_poll_dev()->poll_napi()->
-poll_one_napi() reaches axienet_tx_poll() with budget 0.  If netconsole or
-kgdboe is active on the interface and at least one TX descriptor has
-XAXIDMA_BD_STS_COMPLETE_MASK set with cur_p->skb != NULL, doesn't that poll
-return non-zero work for a budget of 0 and trip the WARN_ONCE?
-
-The "packets < budget" test is also false for budget 0, so
-napi_complete_done() is skipped on that pass, which is the secondary symptom
-the changelog describes.
-
-Would it work better to keep the unlimited reclaim for budget 0 (it is
-already bounded by lp->tx_bd_num) but have axienet_tx_poll() report
-"budget ? packets : 0", while still doing the byte/packet accounting?
-
-The new kernel-doc says zero means "no limit, as used by the netpoll TX
-reclaim".  netpoll asks for two things: drain the TX path, and report zero
-work.  Could the kernel-doc and the in-loop comment mention both?
-
-One more nit on the changelog:
-
-  "Zero therefore means no limit, which also covers the @force callers that
-  clean up after a DMA mapping failure with a budget of 0."
-
-The guard is already gated on !force, so the @force callers are unaffected by
-the value of @budget here.
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but while looking at the TX
-reclaim path: does axienet_dma_bd_release() leak the outstanding TX skbs and
-their streaming DMA mappings?
-
-The RX side walks the ring and cleans up:
-
-drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_dma_bd_release() {
-	for (i = 0; i < lp->rx_bd_num; i++) {
-		...
-		dev_kfree_skb(lp->rx_bd_v[i].skb);
-		...
-		dma_unmap_single(lp->dev, phys, lp->max_frm_size, DMA_FROM_DEVICE);
-	}
-	...
-	/* If we end up here, tx_bd_v must have been DMA allocated. */
-	dma_free_coherent(lp->dev,
-			  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
-			  lp->tx_bd_v,
-			  lp->tx_bd_p);
-}
-
-The TX ring is freed with no equivalent pass over lp->tx_bd_v, so descriptors
-between lp->tx_bd_ci and lp->tx_bd_tail keep their cur_p->skb and their
-dma_map_single() mapping.
-
-axienet_stop() disables TX reclamation before the release, so nothing can run
-afterwards:
-
-	napi_disable(&lp->napi_tx);
-	...
-	axienet_dma_stop(lp);
-	cancel_work_sync(&lp->dma_err_task);
-	free_irq(lp->tx_irq, ndev);
-	free_irq(lp->rx_irq, ndev);
-	axienet_dma_bd_release(ndev);
-
-So an "ip link set down" or a driver unbind with frames in flight would lose
-up to lp->tx_bd_num skbs and mappings.  The budget cap added here can leave
-completed-but-unreclaimed descriptors around for a later poll, which slightly
-widens the window, but the leak is independent of this change.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917115657.20697-1-maimon.sagi%40gmail.com
 
