@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC375C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5585EC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 14:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YIrNPxWdOhK7e8TNUkyAnoQLyi/9GZU5lkXMuOGGMWQ=; b=THQsbXA84bpROWipEu5JBKprKl
-	eX211qLF/QT26RvvEUHck0UADbR2DytUC86AjO4tjFlp9Oh40jlUH/j8WSGcntcq9BtOSvLY1FqaA
-	UI9PWfPWgyDZCTd5o58Wt5UhV3z/zxzOf9aWY6WiAD7LBVL8Tzh3c/Rn948ODeWVxGSiXNKox1WZu
-	ayUXc6QWuqiWJq8nbpQ83C0LE6l2aLOX/x4jV47C2mgvAWqXvDZkYz9pFKYYvIYmFCJVPKCSmQDbG
-	0evfLrQ6g2yRLbI2M3aFkaBXuAX9eZvxOb56fHtu8bgB1oOyIwb3zHQd3a24PNt/EzEA7XAL9Z88s
-	fhM5TZfQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uM1P7EYZw7wk7taKSV6yf3up95jn2KRr1wCZHKfs2Po=; b=jAze+TM7P7h2nxZpxJHFJouGOR
+	mnkrudpf2IC/k622JCmnvy/e5/ziDy7oYgIQ3qeEdvBMj1ojhlFLoKZTWV4hcVlYHFTcfWMJriODw
+	zcDE1sLJWkixvWIJRtnwOHEK/DPyDZxMfOOfFCTSdcIj+LcnaHdPgMv1wENsGce1U20QqH+Pnc8DV
+	IHYmri2xln7b6U0AfVSzwvplo/sLoHwXUIc3AGqMfrVvl71VF0Aar+TqWpfBcuXm3L9DQbQeQT9wN
+	vLXT+pdCOF0nqnEzxUelkTZ4VietBBa0Y3Tjneta5KusY3uz0OdIzcnejsarXI2NjuUID44fkgkiX
+	YINJCiog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fOx-00000002Tto-1GHP;
-	Mon, 21 Sep 2026 14:53:51 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x8fOy-00000002Tvy-0oga;
+	Mon, 21 Sep 2026 14:53:52 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fOn-00000002Tnb-03y5
+	id 1x8fOt-00000002Tq6-0NWS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 14:53:43 +0000
+	Mon, 21 Sep 2026 14:53:48 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 38EF14E4096B;
-	Mon, 21 Sep 2026 14:53:35 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 7D6F5C5CD64;
+	Mon, 21 Sep 2026 14:54:31 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F20FC5FFB2;
-	Mon, 21 Sep 2026 14:53:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0445B1032906F;
-	Mon, 21 Sep 2026 16:53:25 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 577C25FFB2;
+	Mon, 21 Sep 2026 14:53:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8BB4610329080;
+	Mon, 21 Sep 2026 16:53:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790002410; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=YIrNPxWdOhK7e8TNUkyAnoQLyi/9GZU5lkXMuOGGMWQ=;
-	b=xsPtNmpMVxHhJ7js+nP2TN/lhzAYZ0kCrnLmIsun0//rxysuJMH15+oSxIEgI7o4NWYHNA
-	//pUIoUXKhbzvJMKzMRzLmz8K13XnFglr11OYUY4KoY1vyCOBHupL4mdW6FzMActyBEBI2
-	myZ1+kFFhvtyoVYCPPx6bo1TL1y5pANBgkz+pK9g1UcRbW0C9ELbsa8lVPi3Ra8vygwoW1
-	+Blxpa7RO4+g/96ReTYyFnVWcxG9CmukRgILVx/YpXk1gX8KDsz5YRyJQxxqxkqbqGh1JC
-	42KH0S22XbpiYjLkKrYLBostPT+xpNECMXjYF5pNKZBsGVCPl7XAVhiKSMK+4w==
+	t=1790002424; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=uM1P7EYZw7wk7taKSV6yf3up95jn2KRr1wCZHKfs2Po=;
+	b=WKa4hZyQXZNdc26cOxj+Ebb47oww8B6fJH2mbtoqlTdc+oEql2Kg/hoQQBsB+TqlMrIE48
+	iDUgI6aK2o0ZQZgSDAj0mPsM3BJ4YKgNuSE6RuturxzgCOP4fnxWKd6nAdPRvuTfgRPfDh
+	ziuFvgRnKjeCpVIgwCYto8NAn/KmfluWcmF6UQ0ktKz9BzH26vjs6zDDiWxmf//QG0vOfW
+	OQK/7s2SfWBZLpS4aEsxkdaMex/IuX2VbB4JJwUc3fY/eWLkq0NhIHTG3CwyLtfNWxTK/2
+	G0WN+YCya780gquYYqDSKo0GUoGLgum8dA+RkgWM+3QxAC6lJ1FcnahS8CmZMg==
 From: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>
@@ -60,16 +61,18 @@ Cc: Tero Kristo <kristo@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v4 0/7] dts: ti: k3-j7: Reserve memory for LPM metadata
-Date: Mon, 21 Sep 2026 16:53:18 +0200
-Message-ID: <20260921145325.300025-1-richard.genoud@bootlin.com>
+Subject: [PATCH v4 5/7] arm64: dts: ti: k3-j784s4-ti-ipc-firmware: Reserve memory for LPM metadata
+Date: Mon, 21 Sep 2026 16:53:23 +0200
+Message-ID: <20260921145325.300025-6-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260921145325.300025-1-richard.genoud@bootlin.com>
+References: <20260921145325.300025-1-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_075341_221364_1AC00386 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260921_075347_423467_D51CF4C9 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +87,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For TI Jacinto SoCs (J7200, J721S2, J784S4, J722S, J742S2) which support
-low power modes, a chunk of memory is reserved for LPM metadata, needed
-for saving ATF context and the certificate information of ATF and OPTEE
-and the DM image. This LPM metadata area is firewalled to be accessed
-only by TIFS.
+Declare a carveout memory region to store LPM metadata on J784S4.
 
-At boot time, U-Boot R5 SPL copies the DM image into this memory region
-so that it doesn't have to be reloaded from storage at resume, speeding
-up the resume time.
+For Jacinto devices, this memory region is needed for saving ATF context
+and the certificate information of ATF and OPTEE and DM image. This LPM
+metadata area is firewalled to be accessed only by TIFS.
 
-U-Boot R5 SPL/TIFS use this area to save and restore:
+U-Boot R5 SPL/TIFS will use this area to save and restore:
 - ATF context
 - ATF certificate information
 - OPTEE certificate information
-- DM image
+- DM image (which has been copied in memory at boot time by U-Boot
+  R5-SPL)
+
+At resume, U-Boot R5 SPL is executed and detects that the board is
+resuming (with a flag set in the PMIC), then it:
+- brings out of retention the DDR
+- retrieves the LPM memory region from DTS
+- authenticates certificates from LPM memory region and applies firewalls
+- asks TIFS to restore TFA and its own minimal context
+- starts TFA on remote proc
+- loads back DM image from memory and jumps to DM
 
 https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
 
-NB: Unlike for Sitara, this memory region is not part of the DM memory,
-which is not retained across suspend, so the Sitara binding can't be
-re-used here.
+As this is used by U-Boot SPL, bootph-pre-ram is added and the device is
+enabled.
 
-Patch 1 adds a new binding for this layout.
-Patch 2 skips the firewalled lpm-metadata memory region
-The other patches add the memory region for the TI Jacinto SoCs (J7200,
-J721S2, J784S4, J722S, J742S2)
+NB: This memory region is not part of DM memory (which is not retained
+at suspend)
 
-Changes since v3:
-- rebase on v7.3-rc4
-- skip mapping the firewalled lpm-metadata memory region
-Link to v3: https://lore.kernel.org/lkml/20260703143717.177362-1-richard.genoud@bootlin.com/
+Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
+Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
+---
+ .../boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi    | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Changes since v2:
-- Split the DTS changes per ipc-firmware.dtsi
-- Reference the LPM carveout through a phandle
-- Add a dt-bindings patch documenting the "lpm-metadata" memory-region
-  name for the Jacinto layout.
-- Use the generic @memory node naming instead of @lpm-memory.
-- Clarify how the DM image is handled
-Link to v2: https://lore.kernel.org/lkml/20260427160326.370415-1-richard.genoud@bootlin.com/
-
-Changes since v1:
-- add specific lpm region for j742s2 and j784s4 instead of the common
-  one since the addresses are not the same.
-- add j721s2 lpm_memory_region
-- change j722s addresse to prevent holes
-Link to v1: https://lore.kernel.org/lkml/20260312113446.1857592-1-p-mantena@ti.com/
-
-Richard Genoud (TI) (7):
-  dt-bindings: remoteproc: k3-r5f: Add Jacinto LPM memory region
-  remoteproc: k3: skip mapping firewalled lpm-metadata memory region
-  arm64: dts: ti: k3-j7200-ti-ipc-firmware: Reserve memory for LPM
-    metadata
-  arm64: dts: ti: k3-j721s2-ti-ipc-firmware: Reserve memory for LPM
-    metadata
-  arm64: dts: ti: k3-j784s4-ti-ipc-firmware: Reserve memory for LPM
-    metadata
-  arm64: dts: ti: k3-j722s-ti-ipc-firmware: Reserve memory for LPM
-    metadata
-  arm64: dts: ti: k3-j742s2-ti-ipc-firmware: Reserve memory for LPM
-    metadata
-
- .../bindings/remoteproc/ti,k3-r5f-rproc.yaml  | 18 ++++++++--
- .../boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi | 12 +++++--
- .../dts/ti/k3-j721s2-ti-ipc-firmware.dtsi     | 12 +++++--
- .../boot/dts/ti/k3-j722s-ti-ipc-firmware.dtsi | 12 +++++--
- arch/arm64/boot/dts/ti/k3-j742s2-evm.dts      |  2 ++
- .../dts/ti/k3-j742s2-ti-ipc-firmware.dtsi     | 24 +++++++++++++
- .../dts/ti/k3-j784s4-ti-ipc-firmware.dtsi     | 15 ++++++++
- drivers/remoteproc/ti_k3_common.c             | 36 +++++++++++++------
- 8 files changed, 111 insertions(+), 20 deletions(-)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j742s2-ti-ipc-firmware.dtsi
-
-
-base-commit: 93f51579e7df248780214094418f205253383cc5
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
+index 81b508b9b05e..1c0c1533f0a3 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
+@@ -17,6 +17,12 @@ c71_3_memory_region: memory@ab100000 {
+ 		reg = <0x00 0xab100000 0x00 0xf00000>;
+ 		no-map;
+ 	};
++
++	lpm_memory_region: memory@ac000000 {
++		reg = <0x00 0xac000000 0x00 0x00300000>;
++		no-map;
++		bootph-pre-ram;
++	};
+ };
+ 
+ &mailbox0_cluster5 {
+@@ -27,6 +33,15 @@ mbox_c71_3: mbox-c71-3 {
+ 	};
+ };
+ 
++&mcu_r5fss0_core0 {
++	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
++			<&mcu_r5fss0_core0_memory_region>,
++			<&lpm_memory_region>;
++	memory-region-names = "dma", "firmware", "lpm-metadata";
++	bootph-pre-ram;
++	status = "okay";
++};
++
+ &c71_3 {
+ 	mboxes = <&mailbox0_cluster5 &mbox_c71_3>;
+ 	memory-region = <&c71_3_dma_memory_region>,
 
