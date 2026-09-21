@@ -4,82 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7723EC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD15C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uf7K0+ckYfZ1RE4IQEUJIKlulg/YWQPSFrPzeeWpU08=; b=GW39qYgZfEIZGpvt8fIhnsU4sZ
-	wU5x8MEb3Zek2kogs/QZmyji6qq2OypDJptqlMjduBxnFwqRe4UTasVGMUSyzd1BXCqKklDUXO9KE
-	ukd6iPJnijMegXfudmBcw/hnzFwza1EfRxtKp/JvcyLwm9I+xyuJsjtnPce1K8SoviJcafnLY8K8S
-	Aus1+9kCeYQHYDeOPOxrvG82gdobNTAtz//noCvQloXl9ZO8dU7K5V55r0S+Xf3kgt6lCnImeR3hs
-	2Y4RCCylgfr8AqvEsFNxFg5Zi7ZKhaHavap/I9MeaIiZYQGM90HP/l4FCgaXbIVn+JZAcV30BNyd1
-	EHQyYVyA==;
+	bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=; b=TrTLAK2X2qM2vTkAGp5Kig4c96
+	AJI9TyDgl8ZP18xQP+0b+5PkkPQ23sUzIbzSuZHZ5IkEaKMOPYdgEvYFafB4f8Yt07JttSpbmOyfE
+	FBpwSn4VE4ZXqdnsZH+kn2TwVqPuZWlanltTX3488pomVmwOzYjpPniBdCbSAOAWIpPqIp5n2kwRA
+	bzV/aFRQbcR3lim9jAUM/whLIgJU/3q1s7LI1sCy5BKKDIw9aGi/KjaFPgzSdN1xSth9juhwxd2mO
+	My+VC1Ha6M2djM8s29P6uqQL1ysZpcUyZTaMRNH1iIODuVPnDOSqXfsW+5ajVNVOx9vB7geIAUjl+
+	wQLw0xMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bMf-00000001iCC-0tAz;
-	Mon, 21 Sep 2026 10:35:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8bO2-00000001iPy-1wLp;
+	Mon, 21 Sep 2026 10:36:38 +0000
+Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bMe-00000001iBk-0HrN
+	id 1x8bNz-00000001iOv-1j0k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:35:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 773B1436D8
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 10:35:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B4CA1F0089B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 10:35:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789986911;
-	bh=uf7K0+ckYfZ1RE4IQEUJIKlulg/YWQPSFrPzeeWpU08=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=orNUCASLJXrta2jQAt3DZfNJXG64yPkECzsZxCKUcdNrEr8sYKbeFrvYhVt6pvxRn
-	 XPaVfFVj0LFVmn5txFq7ujldG6HlnD1PJchdDGytX3zXACi0HoHW8G1xpjuJMcFjpw
-	 g5lFmheLNbd2i0jgKrnpoOmOHqlX9qQXBTw+plQvtCN2xAIQ6yXieA8FnmBr2ziQuN
-	 o5rtdr/TamlhcRr+eXDKTARMiyUoClUwvTp6zljHDD+uU4/6YMMhcu9AQtD2CmS3nz
-	 mxqFNI2wO1mm3TUpmUi6agq2nTJmbuj6wOQ+ND6sa/5ghz8haPxdfrt1ZSAhIvkz3V
-	 XBCHb0kNekbZg==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f16cd1so2562442e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 03:35:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzpKyeQR5EgquH2TQjQnBFanToQOocgGkfTctZ9K0+/IdqobCZpg4GHQa4uxyzKPQ1rCNjO24iJqSUTzCZfTTB8@lists.infradead.org
-X-Gm-Message-State: AFuF++lKJzC/iRu7/COB8nV99N/bRDUB3BwpvzRtUjcsYY/9QNZZZ3Bb
-	sJz8p2b4lCRWh+500e1WrVyC7EbsVpu/4xmOCH5zsuk0xU13BaseGJ0iogkGx8rzTsxyQarT/tq
-	nzYun86nMLKXTPkdbHHni97J5FJFqqPmbLzN8yZpNBA==
-X-Received: by 2002:a05:6512:3e1a:b0:5b8:b419:b90 with SMTP id
- 2adb3069b0e04-5b8c197b251mr2961808e87.67.1789986910027; Mon, 21 Sep 2026
- 03:35:10 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 21 Sep 2026 06:35:08 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 21 Sep 2026 06:35:08 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260921-cv75-v5-v8-9-282ff5d98dda@ambarella.com>
+	Mon, 21 Sep 2026 10:36:36 +0000
+Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a6056be4d1so1925889a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 03:36:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789986993; cv=none;
+        d=google.com; s=arc-20260327;
+        b=phh7/s5WfeBlDLQHQv0ienFweS4rsSu0vj5YaC+JAAPW3mUtDZ0jOoLKb1wxak3FFo
+         UNVRIsY/E1Oe8Q0GUeCZacgIQJPGIRzowmUKMgTTSHaRtoHKTjDq3RpESwEsk54nmMDl
+         KC7mjm8sLPpPyD3SIRuRoP+yIrdhcSLHlGV0PGNHPv7WQRSKwls7L6xdN1rCK0eKqe2o
+         pFml11iUzW1t1kF5CyM9cYtzwtQvy3iO00P9x5mWuLR0gtaCyZgzZcOsfBUpkufkhEWE
+         gAjbpuH8Mm3Mbl8jgoKRjSz3yA2dGooNgobW2gXBSr1Un+ekaqPc8Gh7H02d3VhBH9Vv
+         AKGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=;
+        fh=qyX0M2W2c13ZTUYPlFVZYUOKXKaWqh1oDD0wbWvY9rM=;
+        b=iVmZcn9/r7Ug74Rp5R6MtbqfOf4+Lf9JhPru9+E7Xr4hYpdXy9+v/X1/k8+zWim6hc
+         SZYonjQ54TifYqnbNDEeR3EyBvaV5qp8rac5vFRSano0lo5NG80pJP6qRg2bmiDTeJLb
+         oW84MmgoPwctq2aX5wJ6L3RlyGXdwmBmszn5v0KOjB3S/KeBn95mUSb9GWI8AVKi3yCp
+         TXEhUFOI4rb5Hj7vcCflco8qA9dineRTndvh0tq4tCFGz/26CPpF6wfqlqyIt+PE9Jg4
+         UIow++XVcDevQx/Xdkpua/OVjkUG07GgCvG+WHiqsG2iFwINrfAN09GtMli3osfE0QHm
+         Ghmg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789986993; x=1790591793; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=;
+        b=E7oKYJCeNtTBjp38YI9ujQoKaSxxb/P/2mrMWbJkOKMgjxr9dOovteyixAFl+y9Rzh
+         ix59L5e6LviBF4Q8FmXttNMAXL1ntZfhODdAt3lhQMFrHjyOIgWGhBxN5ALZX4rEYu7O
+         3HltHGNlfeOLNUFfGHOGNYDa/ATnShKdZy19C64zAzteNMgaJwj0FKGViNK1UGeEDCpq
+         PuMpsoDFA6adu0YBuUEPXpOzldi94HUVu0C+N8Q/BssTAh/FLycX4nCiA+qRCjre+t6z
+         Rn7GuO/AhYSoX7F9UdrmMZsbidTgG3NegnzvYXswekWsb1zQ1Ix2X047n9vc4QtvBpGu
+         qz/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789986993; x=1790591793;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=h/tDLQ7kiHFPBmC66BABbwtjlpncgEgg8G3PARGPN7c=;
+        b=rNlJ2OOmy+hW8qBn8hzm3h8JXyf9J2e1squiOufJKkmflO0gOJb3R9bRYQ8H/yWCk4
+         9UAXzgssn5G04wfRPIB2sU+d0s9PNheSAo4bZp2771iWPuY0A4it+NRcGjzcSLVOdlKn
+         MjTKMGHFOKhlFl0JUdZxw7QOclrVfRohbDfqgeJmFxDvOf4OfAehXiKmR8O5OPOwPzP5
+         K3mB0uj7+yY4OWxy+bRACjimwIsuyxB+4rccVdPsSw48J5NBlsc+rPRk9Lp6gkbLueU9
+         VRr55b74D7xhpShqfjFejXAN+EBBUCHmypmDsHynu6EB8nH3RpmX6PCOzB8S88TOqej3
+         EdBQ==
+X-Forwarded-Encrypted: i=1; AKwUvBybVbnxzxgYgtUWZxzwGsH7o+vtEIsYhfooVnRq5/ulYTcuJAl6PGiEYFLZd1P6JWJEDXpyeoxgOBsu2ajVACqz@lists.infradead.org
+X-Gm-Message-State: AFuF++m1Zuw7SIMTVJbvQvR7lvZ8M6c0eSiLc34qtHVgGZZvuXv4H2v4
+	GMRT2aN4AUdCDY/D5E+O9B5rsX31I4fjJKPc/dORVUlsD8M/c1Me2+GOELwZmkaftgt+sEcAG8Y
+	fjuWqRpwasiH6RfYXjMySPy569ejdkig=
+X-Gm-Gg: AYBFou1FSKiqrAo5wFoL2FybF6rVnJvRkcoi7bEPXqIrlVXYgvH6RJu2oVv9b+h+/E7
+	6X19xkZFVWrq8lyJnKPZtSS7/A37ybYCjo4XXL/E0peShmvdnsRpp/umUX2tJ5CapVJyzdNvpYc
+	r+Wa4TznrmT2HI9qnUjIJfyi3LJibrcdqW/Ebf7dBTEXFnk+4OCiliVBtBv+mTJww1TNNVorJJx
+	MEz7HgHnHwmIMqH16kGkpe647f5kPsdnYKTd9I6GArS4vrsBbd5pI13NUaNaDMIYQrwPFe1edXk
+	c+7Hpb6UDOj6vIFgxtrf8njQ222VT6BzIQAFWQZg07SRe5q9SF+mEg==
+X-Received: by 2002:a05:6402:4547:b0:6a9:f88b:14dd with SMTP id
+ 4fb4d7f45d1cf-6aa4f97d7cfmr6238277a12.1.1789986992392; Mon, 21 Sep 2026
+ 03:36:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com> <20260921-cv75-v5-v8-9-282ff5d98dda@ambarella.com>
-Date: Mon, 21 Sep 2026 06:35:08 -0400
-X-Gmail-Original-Message-ID: <CAMRc=Mf7dtxvxBUF1fOuKw0mxdhCYPj=J4ckySPZUvcZ7a6cbQ@mail.gmail.com>
-X-Gm-Features: AcwNN1VMqVgF7bm9abckTPi2_jaxdRsIFb-CjJ1kvLYDiK7JhcmYHE-hjU9EtD0
-Message-ID: <CAMRc=Mf7dtxvxBUF1fOuKw0mxdhCYPj=J4ckySPZUvcZ7a6cbQ@mail.gmail.com>
-Subject: Re: [PATCH v8 09/18] gpiolib: regmap: add gpio_regmap_get_chip()
-To: longzhao@ambarella.com
-Cc: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>, 
+References: <20260918175736.355305-1-l.scorcia@gmail.com> <178998607025.21155.9680834242820851509.b4-ty@b4>
+In-Reply-To: <178998607025.21155.9680834242820851509.b4-ty@b4>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Mon, 21 Sep 2026 12:36:20 +0200
+X-Gm-Features: AcwNN1VQ6S9fCy63ty823Nyxcerwh9XF-bIr0lhnPcmyyBWQe3Ulp9EvTrhD9Cw
+Message-ID: <CAORyz2+E9LY+6sb+0G-deR8ZVZK_xu+p_hvp8aKteVVhHpeBRQ@mail.gmail.com>
+Subject: Re: (subset) [PATCH 0/4] Add support for the mt8167 display pipeline
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+	Matthias Brugger <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>, 
+	Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_033635_457905_4DFFF556 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +123,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Sep 2026 06:23:28 +0200, Long Zhao via B4 Relay
-<devnull+longzhao.ambarella.com@kernel.org> said:
-> From: Long Zhao <longzhao@ambarella.com>
+> Applied to v7.3-next/soc, thanks!
 >
-> Let drivers that implement a custom irqchip retrieve the gpio_chip
-> after registration.
->
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  drivers/gpio/gpio-regmap.c  | 6 ++++++
->  include/linux/gpio/regmap.h | 1 +
->  2 files changed, 7 insertions(+)
->
-> diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
-> index fbd4c753525a..21e0993b89e2 100644
-> --- a/drivers/gpio/gpio-regmap.c
-> +++ b/drivers/gpio/gpio-regmap.c
-> @@ -295,6 +295,12 @@ void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio)
->  }
->  EXPORT_SYMBOL_GPL(gpio_regmap_get_drvdata);
->
-> +struct gpio_chip *gpio_regmap_get_chip(struct gpio_regmap *gpio)
-> +{
-> +	return &gpio->gpio_chip;
-> +}
-> +EXPORT_SYMBOL_GPL(gpio_regmap_get_chip);
+> [3/4] soc: mediatek: mt8167-mmsys: add routes for all display paths
+>       commit: ae0968038f994d6e275f5dc94a27325ee751fe58
 
-Please provide a kernel doc for all public APIs. It should explain that this
-must not be used outside of a GPIO controller driver context.
+I'm sorry Angelo, please revert this - I'll post a v2 with the
+corrections spotted by Sashiko [1] later today.
+Thank you
 
-Bart
+[1] https://lore.kernel.org/linux-mediatek/CAORyz2KEfzcJ_2AphkPU6o-YhLAqudCXVdY+LDoynUx_FsTMJg@mail.gmail.com/
+--
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
 
