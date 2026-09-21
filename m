@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42A3C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7404CC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJVEr6a0OZAW7OKTnS0O645VXXgFRtTC9GGc4jO2eGY=; b=WnAGewlvTSOZ12Q+RU6anMmysQ
-	mfQfbzaXZzFHdAJ9AUT3FksTwqH8fqtxxPPwFRnJVSGpkjDHzDNfA1gPgE9pun+9hiq//ryp7PPvq
-	Du+z2AcatJIEm87dzKQ71FVH2drmk+WJHnMcygRAQw1N8Z8eAmUNAVrmh5jI4oD0NS6Ss7fkNzuBg
-	bhgFpr8gas91h9hJ7ylhNw1lXLBuq24xEst4+lfs4jbSj95dw812zomXCy8SxMuskEw8WyDPSpJro
-	s4J0VNzFFpI75ccgx4YPtjYs7T2lTGrGQPQVRKzdrDTi3PdzTw4VytVgD99v0Lgzhmc3q2KniwZSH
-	vhvOtNeA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JYchMiREWowW3+mUg8h/Fng4wcnIcSeQ0Ii8DipHHhY=; b=lmJketoP/5SRgccqvOxjLbfPfT
+	Nmg52DjIJtK2IL5bt05d14Gqmt8J5F2cjpLP8fhOfPs2iQx+lZkktYDmK8BEsgRs0Z27cYEnw4l9h
+	s/dIgGj9tawoCiTqnmKDLwSbBdp9khvxa6F2YIkgrDD19ia4IQUEBEF2/CQioy5oR9xm+8zSvr1N+
+	NDkgMUyXnANrRgYvZMJWctDbqVhbENJ3hAhx8gPilg4aR8U9e3GqT8+OpIvjs+o/aOIadAb0xT6FI
+	d729uF/HUsDORyxO9itEYAq9JaoY3EBNYV8YaXEDoDYD1nKutVX6TyfCmd0t18wfo4EI9l0DDMu8P
+	v5XalPsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bPD-00000001ijl-08HN;
-	Mon, 21 Sep 2026 10:37:51 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x8bUL-00000001jTP-3i4H;
+	Mon, 21 Sep 2026 10:43:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bP1-00000001ifA-0DIP;
-	Mon, 21 Sep 2026 10:37:42 +0000
+	id 1x8bUI-00000001jSi-46vU;
+	Mon, 21 Sep 2026 10:43:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789987056;
-	bh=s5tfGQ9gAxXHj++YoLLRdSqIzPeYCvALiQy+qEXoTMw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Zqfpw35gzxYJv+ToFK9pr0yMyQPJ3kDMtZdJUaMn/t996IR/WqfwAl5g5SIVPttvv
-	 qj8CBE9BfRwPS4jkvkLV0ShzmdcUNURqGUjGoh7pYJSltmmFI2anQqMVPe7suo40aM
-	 IiIiWA8/jUBcU68L/8FeCsYUw6yQhNCar3eWjjOeUJjT9l2uP/yv00U6MxEI5aOedC
-	 f7x4pk4ftC4hxVD8Ehtfvd/wVYGDTzkO6nuXYE9ySsU3lA/Ac6/yGphhQrc+m2+yck
-	 r4VEyjWCu3iJcp9MtvystFeWvep3xAh5bAC60MLJDJku/e8dov8R56I8AwsvpceSk+
-	 btcS9NSBByVug==
+	s=mail; t=1789987384;
+	bh=Jgwpcker6k9rDea0kRKtirRFxf58xRqNK/1bFIhkyeg=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=oMTNaCUUQMOFVvWtgJ8FpNZ78+radWm4cFtglDxYayHg0KljOdwH8twiOXi86vS+U
+	 P3VUGiXZmygGnudp9xbNeTLWgolxWIBtpw50uZp180Qt5J6bwhxGXRSHalytZTM+6E
+	 2zxNom4zWTDpnpi/BFF1YgFfhfMoLnQE3suBwwbogv6IekEHfTDrFHDuJrXjjSDohm
+	 6v50HbEataNqYDAVG6gHO69vfRYaEz3UtKyFlL7EmlZNEoGJ11fi/hJYypEtBORh4u
+	 xNxx8Qt4b9iGK7fOa/1MsShkRNlvXC0pUMqKDGSQLNt3bI4p447TOs6WYGN4plBFxQ
+	 2eNtJ8McJQ3/g==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E630317E03B6;
-	Mon, 21 Sep 2026 12:37:35 +0200 (CEST)
-Message-ID: <8fd92e56-85c6-41f2-98d0-3b3422ef2c1a@collabora.com>
-Date: Mon, 21 Sep 2026 12:37:34 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C7EA17E09D6;
+	Mon, 21 Sep 2026 12:43:03 +0200 (CEST)
+Message-ID: <bffc0927-26c0-4b36-9d66-d75dc5aa3b89@collabora.com>
+Date: Mon, 21 Sep 2026 12:43:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: mfd: mediatek: mt6397: describe the
- RTC's nvmem layout
-To: Ryan Brue <ryanbrue.dev@gmail.com>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Eddie Huang <eddie.huang@mediatek.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-pm@vger.kernel.org, mfd@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-rtc@vger.kernel.org
-References: <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-0-558b8f95cfbc@gmail.com>
- <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-1-558b8f95cfbc@gmail.com>
+Subject: Re: [PATCH] media: dt-bindings: Correct white-space style
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Zhi Mao <zhi.mao@mediatek.com>,
+ Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Bin Liu <bin.liu@mediatek.com>,
+ Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+ Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+ Bryan O'Donoghue <bod@kernel.org>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Xia Jiang
+ <xia.jiang@mediatek.com>, Stanimir Varbanov <stanimir.varbanov@linaro.org>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260801195528.235230-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <1505ca0c-4a31-4673-bbe0-8474133fc504@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260917-rbrue-suez-upstreaming-mt6397-rtc-nvmem-v1-1-558b8f95cfbc@gmail.com>
+In-Reply-To: <1505ca0c-4a31-4673-bbe0-8474133fc504@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_033739_786223_0C33F943 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20260921_034307_178407_3622642F 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +94,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/18/26 06:57, Ryan Brue wrote:
-> Four of the MT6397 RTC's alarm registers use only their low bits; the
-> high byte of each is storage the clock and the alarm don't touch.
-> MediaTek's documentation names them RTC_NEW_SPARE0 to RTC_NEW_SPARE3 and
-> assigns the first to a fuel gauge, which is what a battery driver reads
-> at boot so that the reported capacity does not jump across a reboot.
+On 9/18/26 12:46, Krzysztof Kozlowski wrote:
+> On 01/08/2026 21:55, Krzysztof Kozlowski wrote:
+>> Correct a few white-space issues, like double space after '=' or before
+>> bracket '{' characters, which will be flagged by dt-check-style.  No
+>> functional changes.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>> ---
+>>   .../bindings/media/amlogic,c3-mipi-csi2.yaml  |  4 +-
+>>   .../bindings/media/i2c/galaxycore,gc05a2.yaml |  2 +-
+>>   .../media/mediatek,vcodec-encoder.yaml        |  2 +-
+>>   .../bindings/media/mediatek-jpeg-decoder.yaml |  4 +-
+>>   .../bindings/media/mediatek-jpeg-encoder.yaml |  2 +-
+>>   .../bindings/media/qcom,msm8996-venus.yaml    | 40 +++++++++----------
+>>   .../bindings/media/raspberrypi,pispbe.yaml    |  2 +-
+>>   7 files changed, 28 insertions(+), 28 deletions(-)
 > 
-> They sit in the RTC's always-on domain, so the driver can offer them as
-> a battery-backed nvmem provider. Allow a board to lay cells out over
-> them.
+> This received reviews, is trivial, waits on the lists for 1.5 monts and
+> it seems people are repeating what I did.
 > 
-> Assisted-by: LLM
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
-
-Makes a lot of sense to me.
+> I understand this won't be picked up by media.
+....in any case, for MediaTek:
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-> ---
->   Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 9 +++++++++
->   1 file changed, 9 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> index 3cbc0dc12c31..5c89c589b53c 100644
-> --- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> @@ -81,6 +81,15 @@ properties:
->   
->         start-year: true
->   
-> +      nvmem-layout:
-> +        $ref: /schemas/nvmem/layouts/nvmem-layout.yaml
-> +        description:
-> +          The RTC carries four bytes of storage that neither the clock nor the
-> +          alarm uses, in the high half of four of the alarm registers, and
-> +          offers them as a battery-backed nvmem provider. MediaTek's
-> +          documentation names them RTC_NEW_SPARE0 to RTC_NEW_SPARE3 and gives
-> +          the first to a fuel gauge.
-> +
->       required:
->         - compatible
->   
-> 
 
