@@ -4,101 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08D1C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5C9C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TrkUPYLMl9LKtkW3M3SxTjU77noomALRO+sF6HlftGw=; b=anGUwc2u4V6rbR7UtWshiV/gg3
-	AwCA47dfcwwZnQ0AqCvCu1m2eX0LshcVeqkEAlRjH9+Qn7U9C1hm5twE+aj36JBClecIJU7PCbIQs
-	SL9ijPMO8ZB9Q/5oeL4RdXFKLQp6rtKq1j4Nkhuh0O/T5UvKbuHBqrmjuPK82wn8soZ32dPmhE4x4
-	zSuDfE4IOOpwkQ2XXyZnjwND5oic7SN+2P6VoLc+sPEiFuAljhdmcnpss12OW+T2ptSQrBIH3+JDG
-	BrEjf5q6So+t1BpDIQ+Q8z/b/L/T8IZm707Th07FitQJT/Lz866ICaAmZnWNTKfPeC9xkPAx3Nnx/
-	lUnpBsJw==;
+	bh=hFMcHKEkW9VJemIkcZBmOy9eKfMpVkSEhH7a5ywHPrw=; b=hZyNpqros/lfYEWJsvZFM9gOU0
+	NsdS3HIFKqWEisxOLM0k2QJC42Ckp6y2HR9g8kuP6DR/HgW9GYVe/y5OvTP6KuO7YxPikQByMN3kw
+	7UwNvKxF8PbPMqb41djk7UuNbjc5B/5YxFYttMvBCTyWUVkOJh9RhE39LwoT34T9uT5+wAVpPZNg8
+	fY9ZFzqzEa5fDHkTTCaEX3ZqISc659Ifdjk/V+ogInTzUNhdB9vteSiZqSUW9L7ZH9CHgL2j6nKy4
+	ogTR1NBcWg6fthTP0mFHNq0QAcuNt/FdKVPUMmrZlgqySPUAavfLIT9G+DNxtOShfAlrZ4GJR9NJX
+	myHq9MXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8m2u-00000003WQW-3x7c;
-	Mon, 21 Sep 2026 21:59:32 +0000
-Received: from mail-ed2-x0f.google.com ([2a00:1450:4864:33::f])
+	id 1x8m33-00000003WTv-0Xs4;
+	Mon, 21 Sep 2026 21:59:41 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8m2s-00000003WPn-2RMv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 21:59:31 +0000
-Received: by mail-ed2-x0f.google.com with SMTP id 4fb4d7f45d1cf-6aa1d00daaaso6052731a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 14:59:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790027968; x=1790632768; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TrkUPYLMl9LKtkW3M3SxTjU77noomALRO+sF6HlftGw=;
-        b=EECnGagN2r124kridownsGOVuDaehrDtrFDsf/Zz6GnBiuEZJrtp5etDmMr7FfubeH
-         aQZj7pMAQuDQ1+k1kwRfbzLqoBx+UawxB6VY+ZDSqWKbhaiLLNMdQg+IboH/HlUUJiXp
-         JPHEfSR14zKk4Zp7ZHKaIV496Yk4duG6LCry6Y/yqTyA8s0+mwFx2h5tL2IrxI00ST6L
-         0AAAjaC915dBpV+OtTUCtSc4xT04ftc6iUyzLt4YA84Azl6BlnRTWDuNrFcfNgqFsdc6
-         jN/9oDH1+f7PY+EVUotZRdipwJqq+jzVGaKAFqfRfBr3fY/NXQP4AHtiCztWlke+NjQs
-         lkTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790027968; x=1790632768;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TrkUPYLMl9LKtkW3M3SxTjU77noomALRO+sF6HlftGw=;
-        b=bj99g8YDmCUQPxWkWQPy6e25QHEUJrL14JkfXo+Xc9erYHOZCMLseKnrndHLWu4asF
-         f8pTUWaUaX6lyR4Kj+jYbx0jjWb1AH6b7l8HjjivakRbyrxkGdoQpsLiSUIyfHVtNSUu
-         L/9AcYK/6/7w+rNaDbSuFjGr/RU/7qlbHtIn0wNMfGOmGXTYFuj8SSnxB6qyb9F+aD3c
-         /SLzhBeTRPa/cAr1MQiSTyKgTpr71bV9vQqe67BxJB8ZFJTSsXfNUL0Wspjs/w6dMVK0
-         PIwzQpZk+qM1f+t43IrcZS06IFntPPx3dKdCgQ0OU31g5Tt1CIreWA7U8k+0dSympMny
-         tEMw==
-X-Forwarded-Encrypted: i=1; AKwUvByKwMZjfj1A2gmpTKvzvnSOEf0CJOuLXNi51VZO14Dqj0L+Kv8Tk4Eb9JUa5p+2xAhmyfA1W0iGTWvBPqOyzOGj@lists.infradead.org
-X-Gm-Message-State: AFuF++kixdgloU43FLQZnjEebQSCQ4FgrfiMUx6mvXRH52YHQhO4pT5g
-	V1404MPRtw0pv36GBi0aKdFuQnSftiz7kVm5/DyDb9TL/3XWhcWGx5BC
-X-Gm-Gg: AYBFou1qPo9cuaDAvJgMOEgu78mjgTh9t1irhxyWkB9pL0RfpSIWKUX5JIcL3NK56Cl
-	q703wvnooozY0RzSBsL3nhRT+2qsrdoxBOFYmBfJ51PZXKD4vc8Qz7y/YzE6u82pmAmcn3DrZP8
-	xj5UIy4Z3urO7ZvWX3tnLRB2SMR8WNY9xCGr3iFJJ5b7w13Zjv+M0GnbF4Wj3JFjUQSRUTq2gDO
-	Pn47+oDG+vhHFgdu6KD4wChfcYQ5TyLO8Hg5UPY0p+IBJ7+yo7QuPhE7mY/JrLEchjsH9g/yyNw
-	68HdF/x2Meazfyt4kzauoI7A3t7W+2ZMUEtwlzdRhuwhDaS5+gvdagAS/BsjgFmcNCF44Hg0pGb
-	lVl2Udk6eYPzo9yxrFVG+9Ulcge5Txr0ELoDtTh9NpFPdB1sc4JOQOSjrSBv8tkLhhauhXYVxZ6
-	/Pl1p+KaMXlk5asrJl1WbVRCDn5B4rszbNVWTjhbji5UVw6DlCJj7HemNluL525on4hPkR++nb1
-	lnIkOTUU1vfzYIh8W5XQAzfhQ==
-X-Received: by 2002:a17:906:99c9:b0:c29:61b9:7b3b with SMTP id a640c23a62f3a-c2a15829440mr1024592366b.49.1790027968392;
-        Mon, 21 Sep 2026 14:59:28 -0700 (PDT)
-Received: from [192.168.33.7] ([89.151.31.85])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2a962c814fsm9185866b.34.2026.09.21.14.59.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Sep 2026 14:59:27 -0700 (PDT)
-Message-ID: <7980fee5-f70a-426d-8cdc-d51e15323852@gmail.com>
-Date: Mon, 21 Sep 2026 23:59:25 +0200
+	id 1x8m2v-00000003WQQ-3oVs;
+	Mon, 21 Sep 2026 21:59:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BabfJQtNODTahRsQJxAZwaUwKVLzNC64MNtFjWwhTv3+FvDMowJejCZ302KLdY31C34/hBBVAmN6hGHWJJeyZyNXBKWVkgyA2ft/1NHPvVSnSXviYBjH0L+nJtk/LeMzZ+1aZfpeskQqMOOVm9OQYYEGXBgpzzOGyWYEXNLuc+wGhLW0Af8KQhFgJ9ot7Gq2+V8j/xbQ7CSz320I8CsbaipyNX//Do7C54+80yQntbE48rTTfirjAdag92529ni7NKyA8uqwP8WppGkAQmUCKN+V95g0hXde3JR/ByU41xEvOcaV03NpWUOpRqbvJiPTPwjOaTd3xpW0R5HvUCkc+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hFMcHKEkW9VJemIkcZBmOy9eKfMpVkSEhH7a5ywHPrw=;
+ b=nTGfNG1CQSpmE8l5J15/VqxQdjrk/eAn0Dem46CneH5Vt+IDZm+MisMKY3vGbHt5RVwyWn2n4lOR9mvwt1zjD2ac3kDLcmgKil20m5+S+2ZCXzw4niE6Y/pZworo8Ni9oVeLRyEtMDFX2ua4HyYFTZtqHK+maSo6uYxvMGppXmRnUiPM+Zc+F9FgEb4oeM7lTeePSci431kknKrwoSF1snJ2vGFH8AWr7GepYdkhTS9fxixoQe0Eyxd+q4jQmcwNXT+zNV6BnqnpMqeRxFm7d3Y2G4cFRjxfb1moqbegwlWkIYGWUnlFs2eAjRWASws/ZzuxY8mxA3rS8072bDsfnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=collabora.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hFMcHKEkW9VJemIkcZBmOy9eKfMpVkSEhH7a5ywHPrw=;
+ b=eOliHVanpE4HTIr4nOH9b4Ic65Lgu2BkVPxUTTsXItcAwnturf4D28hDKgLrGlN4USaSPvdem3xII4d5Bp7ThlbzlbPyrpsV028NbRAWreT/GeTBlkRRX1xgMVRLe+Kf/gmgUIsxypqts0InI10ODpuiKLCGQXEck6MleyiRXtw=
+Received: from MW4PR03CA0305.namprd03.prod.outlook.com (2603:10b6:303:dd::10)
+ by LV1PR12MB999306.namprd12.prod.outlook.com (2603:10b6:408:3f8::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
+ 2026 21:59:20 +0000
+Received: from SJ1PEPF000023D8.namprd21.prod.outlook.com
+ (2603:10b6:303:dd:cafe::29) by MW4PR03CA0305.outlook.office365.com
+ (2603:10b6:303:dd::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.6 via Frontend Transport; Mon, 21
+ Sep 2026 21:59:19 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF000023D8.mail.protection.outlook.com (10.167.244.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.0 via Frontend Transport; Mon, 21 Sep 2026 21:59:19 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 21 Sep
+ 2026 16:59:18 -0500
+Received: from [10.254.92.51] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
+ Transport; Mon, 21 Sep 2026 16:59:16 -0500
+Message-ID: <75b82a61-fe82-4597-bfb5-3c717fbb0dda@amd.com>
+Date: Mon, 21 Sep 2026 17:59:11 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv2 1/2] usb: bcma: add regulator support
-To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
- Hauke Mehrtens <hauke@hauke-m.de>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "moderated list:BROADCOM BCM5301X ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>
-References: <20260921214133.16519-1-rosenp@gmail.com>
- <20260921214133.16519-2-rosenp@gmail.com>
+Subject: Re: [PATCH RFC 03/25] drm/atomic-helper: Set mode_changed on
+ vrr_enabled change
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, "Borah, Chaitanya
+ Kumar" <chaitanya.kumar.borah@intel.com>, Daniel Stone
+	<daniels@collabora.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Andrzej Hajda
+	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert
+ Foss <rfoss@kernel.org>, Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
+	<andy.yan@rock-chips.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<linux-fbdev@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kernel@collabora.com>, Derek Foreman
+	<derek.foreman@collabora.com>, <wayland-devel@lists.freedesktop.org>
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
+ <20260921-vrr-limiter-uapi-v1-3-2fcd7d011646@collabora.com>
 Content-Language: en-US
-From: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
-In-Reply-To: <20260921214133.16519-2-rosenp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Leo Li <sunpeng.li@amd.com>
+In-Reply-To: <20260921-vrr-limiter-uapi-v1-3-2fcd7d011646@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D8:EE_|LV1PR12MB999306:EE_
+X-MS-Office365-Filtering-Correlation-Id: 734b0074-17ff-45f6-0b6c-08df182b9686
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|42112799006|7416014|376014|23010399003|1800799024|10067099003|56012099006|18002099003|22082099003|4143699003|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: A2VlOXDdR+oPxukfB0Hqba9c+9GWqbnl0DZmjvyady7BHuulT10igfaTNbYAKBIDkpZZnqBGDl6wa7uzrvodf/0Nl22QTyV5AnZBbZP4HX0WJ5nCr+GNfTciA+xZX8rzvbuOKPB0fsH/tsniEjDeK48fhbIo6ofDoHLXkI30x8tfAEb2thYTOTgMoGvM4Wgao12f72IskulUkRaS503ymqQr191c/APW7mJV4zTuxPvsZsZ4d2xSnMEYtW9Qi3V2EE5rryjHQnWKfykaQV67MBddiFwD5MDyzhHlztMrBYZem50IYzHWgHOleq/z7eWeOozzS/NC88UWFibUlAs1E/JvWlSaBgBXxf140a5Vk6D1JpH7G3UxtDwyukP8WvOsl2kYTFJrnUUPni9M3aTSQp4bSGwFXbq7D9T6Atg5iIQ7sYfxA9N2G3Lv1KiOMVI94+RBfwBA8eiQMXzwvIncJmeN5fl+YoUwPNjuNZud4Jt3Car9ksTrnSYhi/4bM3z5YuEU3CXS2iBzI+hKSd+T2TXix7rxDsNLM/iyz8x8kBAyIwkS370JvUS0Qbcbq5RsWNrCJHeY0a/SBvHoKKgXumiIdl87SmEhh81mJszw1zeR3oVAgQlfQ1eeyaQ/aDUNV/ScgbZLjk8sVZfdKhSQ8AFsgqaMk/8SNvtTHkqTs8wiakWaPqmuLdp4v0LcUQq4yYJdktjnLNIO+3IuDUt1eZR7i0YMrZLwEr042QKb/1+nB6RaWL86wQHwGfTGnafq
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(42112799006)(7416014)(376014)(23010399003)(1800799024)(10067099003)(56012099006)(18002099003)(22082099003)(4143699003)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: DkDOYVCz2k68aiT/v07088fgbH3ftLGYeOf2JdLn97YLgcaWEuqr21RPwyHktr4hW2hFYjMm5RewL2cAmzKOUBbbFBl/2Ud7ZG7ZoO1UWwzHBjx5W825UhXW7YdanGbgS/DlcckqsM9BARfP+JpwC3gnJUAIR7PEpHr5uL9QTD5XKDsCCS4L0DnWBF/eSZAIK8V0IN8oUCVHA3Dfmrkq3PomDG1SdTFvDX55k/WhKrU0FgBS1cll3lB+G4QcqYY238O73WRXT3zDmoxo7zk7uXM1Z9gpEpRrN2/ex/25eluzTRIOzeNekvGW9DZteByiHPTdx50VJ3c72XduOwPCEiLpwagj2TrIbh74VxbzZC82ySqeN8qJplKoKHqfWe1NVqO/fZUL2Aty4ACDE5xHQB3QlJubtT+UaGZMOg61ryKbMR34Vfti33akTwlfBmsN
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 21:59:19.6890
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 734b0074-17ff-45f6-0b6c-08df182b9686
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D8.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR12MB999306
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_145930_633147_4C23F711 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_145933_957108_37D5363B 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,22 +136,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-W dniu 21.09.2026 o 23:41, Rosen Penev pisze:
-> @@ -411,6 +422,14 @@ static int bcma_hcd_probe(struct bcma_device *core)
->   		return dev_err_probe(&core->dev, PTR_ERR(usb_dev->gpio_desc),
->   				     "error obtaining VCC GPIO");
->   
-> +	usb_dev->regulator = devm_regulator_get(dev, "vbus");
-> +	if (IS_ERR(usb_dev->regulator))
-> +		return dev_err_probe(dev, PTR_ERR(usb_dev->regulator), "error obtaining VBUS regulator");
+Hi Nicholas,
 
-Did you test this for DT without VBUS? You seem to *require* regulator. Shouldn't you make it optional?
+Thanks for sending this out. I'm looking into an amdgpu implementation
+and had some comments along the way. Will reply inline on respective
+patches.
 
-
-> +	err = regulator_enable(usb_dev->regulator);
-> +	if (err)
-> +		return dev_err_probe(dev, err, "error enabling VCC regulator");
+On 2026-09-21 11:51, Nicolas Frattaroli wrote:
+> A change in whether VRR is enabled or not on a CRTC will be of interest
+> to any VRR implementation, as they may need to recalculate certain
+> internal state in response. So far, this was handled ad-hoc in the
+> drivers that implement VRR.
+> 
+> Handle this in the common DRM atomic core by setting the mode_changed
+> flag when this occurs. The rationale for using mode_changed is that VRR
+> is deeply intertwined with the current mode with regards to its timing.
+> Consequently, any component that cares about a mode change is likely
+> also going to care about VRR being enabled/disabled.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/drm_atomic_helper.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+> index 9d006f98413a..0664d5779282 100644
+> --- a/drivers/gpu/drm/drm_atomic_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_helper.c
+> @@ -694,6 +694,12 @@ drm_atomic_helper_check_modeset(struct drm_device *dev,
+>  			new_crtc_state->active_changed = true;
+>  		}
+>  
+> +		if (old_crtc_state->vrr_enabled != new_crtc_state->vrr_enabled) {
+> +			drm_dbg_atomic(dev, "[CRTC:%d:%s] VRR changed\n",
+> +				       crtc->base.id, crtc->name);
+> +			new_crtc_state->mode_changed = true;
+> +		}
 > +
 
-Can't you use one of devm helpers that get and enable regulator for you?
+I don't think this is the case for all hardware, at least not for amdgpu.
+The parts in HW that adjust vtotal can be programmed without requiring
+bandwidth recalculations or reprogramming of pipes. 
+
+- Leo
+
+>  		if (new_crtc_state->enable != has_connectors) {
+>  			drm_dbg_atomic(dev, "[CRTC:%d:%s] enabled/connectors mismatch (%d/%d)\n",
+>  				       crtc->base.id, crtc->name,
+> 
+
 
