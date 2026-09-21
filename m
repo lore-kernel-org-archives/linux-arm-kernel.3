@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C29F0C982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C6AC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jfe01UndmrkEcZk8OgwaUlUkfvz8EN6XhxiCIShyxKs=; b=mMOQNbkkXSY593kqerftuPCsJt
-	yG0fHHAtauN+Wk9WuZ3Ook0FrQLMeKGKdXeTjXhyeHlZEGybmzgGnz81d49d+nC63tiFVK4A0/JCf
-	uRqjK73uqLniYAutXbhkXElS+RIeNjcr+AMvrS2uo7yVnvYNo1E3jiVKA3iXqBOE3nHQ4sYXlfP6+
-	SvYnkm051OWrKjpR0/AxjGtny1kKklGPWEgmf/CqvQPQ1l+LUdbH+zqcbhJVw3S9JnJo/6pfa9NWo
-	jTwoIfh4kUpVSwBdBUlJOM3U5pNnkILpMMqU8nXjpDYVMTRXM2yhIW8hR1J/s4OhENvSEI/asIu9I
-	TlmNaYfA==;
+	bh=FW7Z4YDC3ysJJdOVPNKRrKuMen84++d4RjEZfPoJAi8=; b=z/CtlYqSk9kiNqAjOxbn0SxJfk
+	+2Y5wI7dbL9TO4YjlqPF67l1dTxt7Zmugw+4QyJyzRCNEqO41ZMlF0uxl+N6EstiS1c1coPYZDxeL
+	XovzD74F4ZtrVTCH8IleglmvfW7hGS2jwp3UG9/eA6a+hNzDdlVUrB3Fl/a9EAuUpWn7qAQn3SKxN
+	yWMSBX2JuSj1o8DBRVKuGSpXk02hq6qNkdEUYPhh6UKe1XsLB/ZqiUdf+kjvQhVzSvg2S4RIYDV6K
+	YmgFEZsp22Tc9TpCSa/EhcpAzke6noF2IcUb9L2g9uWADRq/xYixbs4cvkjjKHuQr0PMpAwUyckAX
+	ZOeWJnHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8mcJ-00000003Zjd-39ky;
-	Mon, 21 Sep 2026 22:36:07 +0000
+	id 1x8mcQ-00000003Zni-3l43;
+	Mon, 21 Sep 2026 22:36:14 +0000
 Received: from mail-westus3azon11011034.outbound.protection.outlook.com ([40.107.208.34] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8mcH-00000003ZiS-0Ya5
+	id 1x8mcI-00000003ZiS-2eLj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 22:36:06 +0000
+	Mon, 21 Sep 2026 22:36:07 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ciVvnL+8tTElKhlx5ysbOtKYO9H5Xi+qD/ZEG8XMjPMPfabjL1pn5h56zf5Yt4vSfjmQX5Mb3vVhUsTDSeIcduZk9j88PVPN7pyO5G2MeJ6S4r5b6Xg+NuBAd3NPUbYFYfm2K9DfGo7uka3NjyFMuMi9+/HV7nSd4JRyTdudQCPqY3i6chWr6ywudOUrxUxMntlZr/mZbobUIB/O+VxWSvnA3YnEUHyMKh1hlAfsVmBvW4e+LP9sQfm0Mv5bjPkcSBRr/GeY4FIyuj9l4BcVqsDwZP6lZvq679/EoxALoVF6BNgQt7lgS1slDlNAkNmzbNP61m+NJki66nLF4/HlJw==
+ b=nKWyIrLMaA9fkoBvrjcGPrxHHoa2l/wbK6tAqysRPTXqDMDhqWs7apvTEL8U8CPh4OtGgzTCJ9itaVp+RtLT4gYpo9NdHJqhNVV1u3edRBycztMe0kRAoR4n09X8FJ5HvzcgnNoSxfySdL53IkT0/LM0sciXRvpHL3o1rnTbtiTOu8oQ7tbT1c+TdrrEhyt6CrUfNEmUx0v18Q2yJURO63yhRppKdou53x5TUTixjgF5zp3DuK0UfXRu97hwcq6F/TZic/CNqZLYY7cWg/iocriSaA2kybF0x7W2tqgs8cbUTbniVFnjv+WQ69DgIFlKZsIP4xZQ1i1qnHl02pVTSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jfe01UndmrkEcZk8OgwaUlUkfvz8EN6XhxiCIShyxKs=;
- b=MfJ1lSXkrj28B4LvnQfI+3PgNddMyzSknrRvmyErxpcdY/0rC5/U85V8sx2bUzP+9z58Ls0TAVQbNavQcqK1V0qvG+yEUA7Qvyw1Aa6AG7Ve2MyDC0stJumaCkvmAEJTlNwCxyB53yhZbWT4MhzrpaB70Ly5nHHzcClKSHoAf7Fy8Nu2rTpuRTU391LHXs4Edm3zcHJfepdN8o4upFcZMgEDWhilcY47LWpHbsZ4bENLR8gXf7G3wbsBvTWKQYuLAo4ih6vYsi5Nx4Uug7qKTxXOvQYX1UU06jTr6xkf37kfoXr+gQ0n+FKxGQFLMW/APMA6JhKreJAtKrUaVmxgmg==
+ bh=FW7Z4YDC3ysJJdOVPNKRrKuMen84++d4RjEZfPoJAi8=;
+ b=xECaGh0Pf+QHf7Slrp1ZLcHWdQDgTKyighOvft46H71rvLgaqJnqapvIWETrHCqsvR65yFOUV6/F/qy2Ag4qSQVSUC0kMTWurpovvxsTSC3fxHhSfwEvOjxAVhPDvtl8PYM93B1uXTa0N4QgF6nO/r45CaA2e1fzvJ1NgkNhPQPVjEf/9J/XQTV791JtZgdxvqD8gK8WWItTh6KGR060oOOLygLGJYmS9gT5Hn7TkEmxQT/6v0JkNTpvE9LvGbDxAk4/bvp/6op/mlyDN7OuBSboZTMZtzMMmEUuuL5GRhSJwW2Ky64rAVCfY2QmkX1qVfzU3T0XrZxCx/uhbc7ohA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jfe01UndmrkEcZk8OgwaUlUkfvz8EN6XhxiCIShyxKs=;
- b=NkPMZ6cpZV4wY42BsoqSEkeXowvwqX3Laj6xOgG0+kGgJNtDB5n26wJA104r8rbNRNy/wcqsOyaDpSG+mBfXw7XBiJaehQvlbPSKcvzQ9NPxYLuenZTa7+HCZiEiBmN7AHYhgcpED2hB3hytq06W62o2KlPoy1AjQWcWJdBeh+FpFoOUgt2TwkpiLFco2AOhTnMJHCkn1cXXeStqlpLqyazSsEWuCa9o4+wO+EoRPwRWWG2qNvX7YY7kUZF3z/nQpNEPfWcM4JazH6JKBnr7FXCKxAhiwNwK+BstFljEvYvIWNKJdAcHMt57V33irv3bXj+IHiH8tYqopL/mrRWZoQ==
+ bh=FW7Z4YDC3ysJJdOVPNKRrKuMen84++d4RjEZfPoJAi8=;
+ b=hi9hNgPvwpwsV4Gf04pft9SBkK6XYBycoJM37+RTHEw7v+uAc1u9JTZv3MGyahNkTcm4ywsU3ZQpDsrsQjfEhIJcaEvz9vhHLmywgx9savcKKG6Wb9rVQTlr3gidiJxRnW8ZMzieVUL5nVGAwBF9v796i8EnpY3/JMG1jfkyjc3zUthl9SUIOTAKBv6TQRWJuZz3hHLl3wWhX5aiGokpaNXdJg7XrcL7IxRt7KDoRCKz7hyvwoEJHf5wWJteIzGXH/EZ/JaI42GJUgUg0dLD5TSFdmYUULrzKJ9dIQFliSH1kN2aKuBeSorp/DFd8W969deFj4ZCmfdIMcWKhpPuAg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by LV3PR12MB9144.namprd12.prod.outlook.com
  (2603:10b6:408:19d::10) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 22:35:52 +0000
+ 2026 22:35:55 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0428.015; Mon, 21 Sep 2026
- 22:35:52 +0000
+ 22:35:55 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alex Williamson <alex@shazbot.org>,
 	David Matlack <dmatlack@google.com>,
@@ -77,9 +77,9 @@ To: Alex Williamson <alex@shazbot.org>,
 	Tariq Toukan <tariqt@nvidia.com>,
 	Zenghui Yu <yuzenghui@huawei.com>
 Cc: patches@lists.linux.dev
-Subject: [PATCH v7 01/10] net/mlx5: Add IFC structures for CQE and WQE
-Date: Mon, 21 Sep 2026 19:35:41 -0300
-Message-ID: <1-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
+Subject: [PATCH v7 05/10] selftests: Add additional kernel functions to tools/include/
+Date: Mon, 21 Sep 2026 19:35:45 -0300
+Message-ID: <5-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
 In-Reply-To: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
@@ -90,57 +90,56 @@ X-ClientProxiedBy: DSSP220CA0009.NAMP220.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV3PR12MB9144:EE_
-X-MS-Office365-Filtering-Correlation-Id: 959c8d67-4769-4ade-43b1-08df1830b128
+X-MS-Office365-Filtering-Correlation-Id: 14ed856f-4bf1-454b-60c4-08df1830b129
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|7416014|921020|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6lPCpVEq+A+tP+g28E8hBx/4VZTk3D/nXPP9Ot3pkT1Lb7T96lxyub2opqJnTFRjro/tKDWpJaMrVBkzgRbrY+jnYtYESUXd9miKZGFepTQKK0vdKphO4Hvef0a1iCzZBwKwh2RuQ2rrZIaHUxPrv4o40iEjyHUV4T7eE+KRpuuadmqwPS+CEjkWXwlEyY+PL418kulFLOtnEYVfoUL1vpu2LGeeIOjMXy4BOa8+DqqaVjuJsGeEUav9XemROnebEeSS0C1HBaWqoqDYLyBVnm4MB4/eFXcIkLplDukzR9RBgFXP/LwpvBJrnDW0t5EaaxRQ9dxuKVADODxqY5YqFtoF/U9bSAyaS98JOtfUnNlkB6tlG1N4THytfBkIBqr1D9Whg6piRv4f1rCU3NL7j3h+Ep5u7YzgMPbjIXXk+3OweCz1lhzonN17Y8Fvu1pnAMpMtDqSxyewZW3xLSuIca0jVPK0Tx89XOipLyM+yyFS8WbHvhw/rZoFFDUUC9bNVAwX43/gQdk59WCI+1pWiTJojKZk5A3jklVpZ61qeAHho33xysOJ6xwrxWAzvryxI+1hQ9A/OcCTvYVTYqQdfA9X0OSI5z6Y7dms2ATvePt725ZJPB/l1TbnIeUdpl0Ge0ImnO8ShWQd8/OqjfhgR157tPtLz6XxSv9XipS2GfiGIeqE3MhYfOk3o9R9xc4YowkKYq06dM8kqxWfbKE/nA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(7416014)(921020)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|7416014|921020|56012099006|6133799003|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: pvzTMLngL8X28vUrWehOQ5Z+YozaA6DwFHeH9gzEolp5Rv3SrvUzXa2uxI7Ue9Bjx4t84tmRgEPjlQa9idhBbP+gairnMbaJ9FGMoAo7Red/ZS8QqTbIThF+4WX4Sx3mHSTfGAq6IFoQd0ulmEj58UBhqvJ4JXbQHSmtTR36MqzpQSARv+gNQgIQZ62jSMMjgw4Y9uZ6UCXyhnH6pVgQV7yorS479NXElcoRnCGpern6Wmizvm50KhKjh5J/hH3CuAYuMwK2BdxY9lOkFuV3EIk/rpP48phGPHECCwaObPLM48/uDrCXdb3n2nPjXjQZfHwNRZfhTK/KUhcBz/3Br6Eg2qfEAN8mxV4cYn1qVfrEQuxsN0oGP4lZMFqI3IEU27XBbjMNbW7EMGzVInagQd/BHg8Em2h1pxLeltGqL7gdzrgz+PKXklqJ1/0LTGybKbtpYzhsnHaDJ45oKpmxlioa6hX9EPSnNaZ3ASm8VZvVP+AAzWWpAF/KHVro2ALmsrctkLVGo3zwEviuUJvj0XpW/f+P1O/2WpUMMhLIk4hHF7+ZSWD9Pys2hMfKIyYXcvZYisNM0aqlgOmL1rsOV/NDlHK9EFgfRA2V3f4YCCqBhVBwmAblQRFqsXX0GBc2LU3jnfub/UW2ChabJn3oSxzz34kSmrCVne/lc8xMKU4EIeKC5gk6YBygFrG0UJOdZzfbska5qgIr/f5EwY/7RQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(7416014)(921020)(56012099006)(6133799003)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xt283Z5jAcY9t3pbl6iOgWgsexsrTIsM7p/9yebkk0VhZP66aORaN+705P0M?=
- =?us-ascii?Q?Nt1h9td7SHH0uK5nFwUTOiHMU16OrYu+7K0UcvrupAim/PWAAaf/5kxkzF+x?=
- =?us-ascii?Q?J/QWEMTo4xyu3V6vxrY0ZNteOYmoCQd9GOtC68aUoXpb9QgVAJ1JBz0t/PKJ?=
- =?us-ascii?Q?pZpworZ9CsdjjWjH3/HG5hdDMHl0vhoo7vu91t+lN20QnN2NnTpVHUu+W7D9?=
- =?us-ascii?Q?zmz5M1Bd+9CSt1ehQFlciPsBPyd5JZ13NJGCsHNEElA4leEZdrsxgEoNpilb?=
- =?us-ascii?Q?yFbTngsv09OBaBfTDLmUMrDJYOq2i87U5OFf/LZfQ5ErAN/KIMOIFvW172dl?=
- =?us-ascii?Q?pqZou66MFDrGugwe9M9sG80+XvAd8vNUnSLIADWQPni8Qeolbcm1vQ78GgZM?=
- =?us-ascii?Q?kYP+WoAaQKBUgum+rfkAwr+J30wVmZsjAfodz3UJGE81mSsZ+sWXpDUDY4Zg?=
- =?us-ascii?Q?J6sDADBveHZhP84n/DYG92PShL3rpL7wnVkeGvWUJSYzicobUwyEvz+CdkoA?=
- =?us-ascii?Q?vgb1vDJSkXEH2laFfqq5wB42jM9Oq5xlC/Mis390xEVZHRlU8GRSTXYUrtxC?=
- =?us-ascii?Q?OoPBKxBe6GKudBBf4aF0hsyd+915Or3fZ1zx7dGDsxsn7LqlKxZmp9sYB78j?=
- =?us-ascii?Q?1tfaJ0vzGr6AKJabeIZvyzFcSfRVBhhUHbctgMq+tO3nuxSdtVCXJNR6YvKF?=
- =?us-ascii?Q?HxgSOxmdldsEKJbct+Upk/UJ1cg1ZCS8aMZ/9dTNCWon8Kj4QNx67Ngjeuga?=
- =?us-ascii?Q?8bfCVQxaHRhWHRYT2FZg2QAMKadSHpQPJmYVzzl/9DW9AiwUS2eJnWTE2k+G?=
- =?us-ascii?Q?wokqn+QedP+g3PRf14BvKBzohkETUt5G2iBOD1GsUV8EjPiJuCfWFXA8jdk4?=
- =?us-ascii?Q?B74E1WZM82ogIP7WtJKN+niiwcUcvShPVMb5GlwKLolE7M3lwL2aw9vAPEVw?=
- =?us-ascii?Q?baR/qBchBOUv5Mya5tmDfOXCGbJmCpsSplJGOBIzVdqdCEcJ6hclQ04QYKss?=
- =?us-ascii?Q?GZ0oY3ERiOz6saTCHweAks7JDFHgt0vvQ+WHBFx1NYRvItNurHCoL96l9aqs?=
- =?us-ascii?Q?Oc6Li80CMENWO3MZ2EePeSZUh9iMMHeTAToraB39j0L5rIhFL6TsGPDNh2E8?=
- =?us-ascii?Q?UcHZEfoNmdfnt+qO0p+CORygVh7dd+oZzsksuYlsy0CyjXL6OG7NDMC2EpPF?=
- =?us-ascii?Q?dGfHKE257PRB9qpn4ugHJg6nuEw70csZ5EHau/SA7VOZdNudPP+7ib8jfirD?=
- =?us-ascii?Q?P4lk2YnAMhOkm7xdYa241jpM9NJmgdhjyDdEmlAzVvixEH+YMjxosXpAPtq3?=
- =?us-ascii?Q?rRU+8SDQnQuPtKiEF3EKAdbxA8FCjACHKIvx/KIPGfU7HbSf1B+pINOdaANW?=
- =?us-ascii?Q?DBxNbndNAz3Y5duSnns7FdDDWLK9NEnDKKwRLTnIYhCvBRxUhE2XMLAVmNkr?=
- =?us-ascii?Q?02n5ieh+mtkrrWYPtZnVMbfPCgus0qqoq74UrD1inEpf6CFrZcoJb538qtB1?=
- =?us-ascii?Q?q6slJrk8RZRGJIeuBDYyS3Opws40jGP/17ytm24oY5Ay0ECISGDJtS2Ri2ki?=
- =?us-ascii?Q?4OGN+tfDk93QXPlE6usTRUlN1pq7CcIo3vRsF+8TaMPWa4OdzOBgQThi7REN?=
- =?us-ascii?Q?ttqfXBuyfNHOVeEk7iZ59v6m1qi70XUL3/htDruSpOxWA1obiLYDfQX5EK9G?=
- =?us-ascii?Q?4AJZmyiHNt034KAfAayjYWb6Rpi3gm2pThR8B5bIEAJm0mfw?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CyDWZKe+VCymwHIgUsEEBZ1TWuoi9ZHUfaj7MqCjHa4MkZTLPUUl3gSCpjqu?=
+ =?us-ascii?Q?7o+AhmPQ5je02bGXzIPfAsqgORGhNs4mgZcIaWV/MqpqaFMJXva2zELMIuG9?=
+ =?us-ascii?Q?kxX0vKFW//ke+uptGQS2UaQzbqXZK/ge1gdk/fvUKHh0w1nelenEog0WJzjk?=
+ =?us-ascii?Q?LwlEi3mApaR1Mj/nOVwHBxxCzFvLUgAPD8hOdXvFxvF82uI7RiqvwXEH5yOZ?=
+ =?us-ascii?Q?w7ci1Px0uPq7gP3ru9wjUeTQ24iBdQHp2Ebq/WKzjYGv0LuIFpBgM91OuS+c?=
+ =?us-ascii?Q?S0JPvu+occlgjrPjdxAL67uFlOVN40g3/JTzpY5w1KEMd6Q2plg79LDUoXi3?=
+ =?us-ascii?Q?tHsT2dJ5VdAEsUqFc9vxc2aoVsQsFEz8fgOvRbWldkVl/YkFFWq9nXAP+DKK?=
+ =?us-ascii?Q?rog6FIVeA78/rwtjeGF/WJBCav3giU8o+11vHKlxhIkSeA+Iyxt3edzsxE7H?=
+ =?us-ascii?Q?RbLGzdpwk/4VcCJVWANTNDEY8IQ2wRXR5gYtVDCOHxjdQhDsK7sm8+uo/KfB?=
+ =?us-ascii?Q?aJgJ2zhlCsn+/nAM9WwLi6arTh5M9XYsYhT/zIezjXISm1ICpLq22pKnAk56?=
+ =?us-ascii?Q?r7qDwCZZzyy59wrJJxsX8i7ab9/1Xh4osR8rC6KyjBB8cMt8XRR6CGorl/e/?=
+ =?us-ascii?Q?PkTfsnRnf8hoI+kGuPVZyfuURM1uZ9LO2KJDhZt8XaCCt7baNfEHgkcbx3fa?=
+ =?us-ascii?Q?MiPXLw1rHkpAM8LCjb6dJRGiTJghNT0vFjdw0grOTpx9WPDvz5Lc4gg/EoBU?=
+ =?us-ascii?Q?AzGxVYsbhBVSokiWc5WtjKevzJ3FHSNGzXP+/2pJhEOWVJMeNmKAh77GqISU?=
+ =?us-ascii?Q?eDqcKQOdw/+BrAGDaXR9poA007cAz2ytDl9YrFNlhmdDShAqNiWSiRSDbIM4?=
+ =?us-ascii?Q?1Ch6seM9cLuMJxSSzDN90B1YqPb5If20h/xMB0tETIT2Rx2e4bE2nU0/e03b?=
+ =?us-ascii?Q?04Vj+m1/+KOijgwu1buIlTodcvm7CHwsWjqC/7K0IISIDSFyHC/bzcHeYXCo?=
+ =?us-ascii?Q?nbaEIz7HW4cy62dlgcSfXU0PeTqWAVZnp2XD/WnJR8hAQKphxlHkyP499iG6?=
+ =?us-ascii?Q?KYR/OdfUfLSsZfMAu3V+bZqW0yv0Kbon68bq9btvvO8hl/vjBtYFQFB4Zm0x?=
+ =?us-ascii?Q?bP3pNFTgiofcv3kgoksvdRYiZ0C9A7IfPIvxyPw0or66YtNnThBfOskDddSq?=
+ =?us-ascii?Q?d0aCEMKtBFErg8JlVv7uL5GCPOqIrNQC+rqO53tLPDarp8/OdZg7ushS7v5y?=
+ =?us-ascii?Q?7GyIYf3nhNNa7mIE8OtM8GBqO6plMhOydgtfCZ6/M/caXa+krzAezqVcSd66?=
+ =?us-ascii?Q?scdIJpBvLBW5VS1hEozTDkS0tYKgdZYwaIcvyO9qqsmoXBq6W0S4jc1sTDLr?=
+ =?us-ascii?Q?4wOwEHGRHrnILkwyjtD91hHG7Wm1bl0RKzA8EHA/9uGQKCX+s8kZQ9JwfR1i?=
+ =?us-ascii?Q?qGTdGut5OBVmOH3km5cf8i9jVVB1YLVRHo3zD0rbzQH3cUNeauCYdfXuLY5l?=
+ =?us-ascii?Q?R5xVzNKQsM1ORIoMOwb5lm5yRUKpTfg0TZHGgh6KnL6WXl7xCqfTWySUZEhh?=
+ =?us-ascii?Q?OJ+4vL5A68B3bHCrTMqfdfNnMedKaO+RZoYRDOSxkAtW2MhpvPMXGzxxOWgb?=
+ =?us-ascii?Q?MfJEtqychecGf17EKcaqGaE0bTZyPl78XYaIA+Wdm/2aRNQ0e/UeLV3gfBfn?=
+ =?us-ascii?Q?4AHgS0Zt+75mkHrug8l86KvOg0s6dFgrHt8LOWiw1ri8n5vO?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 959c8d67-4769-4ade-43b1-08df1830b128
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14ed856f-4bf1-454b-60c4-08df1830b129
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 22:35:52.0834
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 22:35:52.1137
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O1pjLqgfxJJzC+U+hHAWK7+g58G9Xt/zu5n7guHudXbZR0T68DFBo/67htydR9Ij
+X-MS-Exchange-CrossTenant-UserPrincipalName: z+zowVpl0DgLDYwo+syzi+z1NZczfbXTck8cXaUTn1Dh2Y+GvnGE2k6uTZGT7YS+
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_153605_216252_90BC55D8 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_153606_681374_92F35F4A 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,88 +154,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Building the WQE and CQE using the IFC system is easier than with a
-C layout struct. Add definitions for their layout. Structs for:
+These are needed by the VFIO mlx5 selftest in the following patches,
+which includes some headers from mlx5 and also needs a few more
+MMIO-related features.
 
-  - wqe_ctrl_seg_bits (16B): WQE control segment
-  - wqe_raddr_seg_bits (16B): RDMA remote address segment
-  - wqe_data_seg_bits (16B): data segment
-  - cqe64_bits (64B): 64-byte CQE with error syndrome union
+- DECLARE_FLEX_ARRAY in new tools/include/linux/stddef.h (wraps
+  existing __DECLARE_FLEX_ARRAY from uapi/linux/stddef.h)
 
-The VFIO mlx5 selftest will use these.
+- dma_wmb/dma_rmb barriers: x86 uses compiler barrier
+  (DMA-coherent), arm64 uses dmb oshst/oshld (outer-shareable for
+  device visibility), generic fallback uses wmb/rmb
+
+- ioread32be/iowrite32be in tools/include/asm-generic/io.h for
+  big-endian MMIO register access
 
 Assisted-by: Claude:claude-opus-4.6
+Reviewed-by: David Matlack <dmatlack@google.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- include/linux/mlx5/mlx5_ifc.h | 55 +++++++++++++++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
+ tools/arch/arm64/include/asm/barrier.h        |  4 +++
+ tools/arch/x86/include/asm/barrier.h          |  5 ++++
+ tools/include/asm-generic/io.h                | 28 +++++++++++++++++++
+ tools/include/asm/barrier.h                   |  8 ++++++
+ tools/include/linux/stddef.h                  | 10 +++++++
+ .../selftests/kvm/include/arm64/processor.h   |  4 +--
+ 6 files changed, 56 insertions(+), 3 deletions(-)
+ create mode 100644 tools/include/linux/stddef.h
 
-diff --git a/include/linux/mlx5/mlx5_ifc.h b/include/linux/mlx5/mlx5_ifc.h
-index 12b9a81e562146..a3edc5ba1cd4f1 100644
---- a/include/linux/mlx5/mlx5_ifc.h
-+++ b/include/linux/mlx5/mlx5_ifc.h
-@@ -5979,6 +5979,61 @@ struct mlx5_ifc_cqe_error_syndrome_bits {
- 	u8         syndrome[0x8];
- };
+diff --git a/tools/arch/arm64/include/asm/barrier.h b/tools/arch/arm64/include/asm/barrier.h
+index 3b9b41331c4f16..abdc64fc3c70f0 100644
+--- a/tools/arch/arm64/include/asm/barrier.h
++++ b/tools/arch/arm64/include/asm/barrier.h
+@@ -24,6 +24,10 @@
+ #define smp_wmb()	asm volatile("dmb ishst" ::: "memory")
+ #define smp_rmb()	asm volatile("dmb ishld" ::: "memory")
  
-+struct mlx5_ifc_wqe_ctrl_seg_bits {
-+	u8         opmod[0x8];
-+	u8         wqe_index[0x10];
-+	u8         opcode[0x8];
++/* DMA barriers use outer-shareable (osh) for device visibility */
++#define dma_rmb()	asm volatile("dmb oshld" ::: "memory")
++#define dma_wmb()	asm volatile("dmb oshst" ::: "memory")
 +
-+	u8         qp_or_sq[0x18];
-+	u8         reserved_at_38[0x2];
-+	u8         ds[0x6];
+ #define smp_store_release(p, v)						\
+ do {									\
+ 	union { typeof(*p) __val; char __c[1]; } __u =			\
+diff --git a/tools/arch/x86/include/asm/barrier.h b/tools/arch/x86/include/asm/barrier.h
+index 0adf295dd5b6aa..0b51431fa530ea 100644
+--- a/tools/arch/x86/include/asm/barrier.h
++++ b/tools/arch/x86/include/asm/barrier.h
+@@ -43,4 +43,9 @@ do {						\
+ 	___p1;					\
+ })
+ #endif /* defined(__x86_64__) */
 +
-+	u8         signature[0x8];
-+	u8         reserved_at_48[0x10];
-+	u8         fm[0x3];
-+	u8         reserved_at_5b[0x1];
-+	u8         ce[0x2];
-+	u8         se[0x1];
-+	u8         reserved_at_5f[0x1];
++/* x86 is DMA-coherent so DMA barriers are just compiler barriers */
++#define dma_rmb()	barrier()
++#define dma_wmb()	barrier()
 +
-+	u8         imm[0x20];
-+};
-+
-+struct mlx5_ifc_wqe_raddr_seg_bits {
-+	u8         raddr[0x40];
-+
-+	u8         rkey[0x20];
-+	u8         reserved_at_60[0x20];
-+};
-+
-+struct mlx5_ifc_wqe_data_seg_bits {
-+	u8         reserved_at_0[0x1];
-+	u8         byte_count[0x1f];
-+
-+	u8         lkey[0x20];
-+
-+	u8         addr[0x40];
-+};
-+
-+struct mlx5_ifc_cqe64_bits {
-+	u8         reserved_at_0[0x1a0];
-+
-+	union {
-+		u8         reserved_at_1a0[0x20];
-+		struct mlx5_ifc_cqe_error_syndrome_bits error_syndrome;
-+	};
-+
-+	u8         send_wqe_opcode[0x8];
-+	u8         qpn_or_dctn_or_flow_tag[0x18];
-+
-+	u8         wqe_counter[0x10];
-+	u8         signature[0x8];
-+	u8         opcode[0x4];
-+	u8         cqe_format[0x2];
-+	u8         se[0x1];
-+	u8         owner[0x1];
-+};
-+
- struct mlx5_ifc_qp_context_extension_bits {
- 	u8         reserved_at_0[0x60];
+ #endif /* _TOOLS_LINUX_ASM_X86_BARRIER_H */
+diff --git a/tools/include/asm-generic/io.h b/tools/include/asm-generic/io.h
+index e5a0b07ad452a6..0d89decdafb818 100644
+--- a/tools/include/asm-generic/io.h
++++ b/tools/include/asm-generic/io.h
+@@ -479,4 +479,32 @@ static inline void writesq(volatile void __iomem *addr, const void *buffer,
+ }
+ #endif
  
++/*
++ * ioread/iowrite for big-endian MMIO registers.
++ */
++
++#ifndef ioread32be
++#define ioread32be ioread32be
++static inline u32 ioread32be(const volatile void __iomem *addr)
++{
++	return bswap_32(readl(addr));
++}
++#endif
++
++#ifndef iowrite32be
++#define iowrite32be iowrite32be
++static inline void iowrite32be(u32 value, volatile void __iomem *addr)
++{
++	writel(bswap_32(value), addr);
++}
++#endif
++
++#ifndef iowrite64be
++#define iowrite64be iowrite64be
++static inline void iowrite64be(u64 value, volatile void __iomem *addr)
++{
++	writeq(bswap_64(value), addr);
++}
++#endif
++
+ #endif /* _TOOLS_ASM_GENERIC_IO_H */
+diff --git a/tools/include/asm/barrier.h b/tools/include/asm/barrier.h
+index 0c21678ac5e65f..e7e0c7de5a2ffe 100644
+--- a/tools/include/asm/barrier.h
++++ b/tools/include/asm/barrier.h
+@@ -47,6 +47,14 @@
+ # define smp_mb()	mb()
+ #endif
+ 
++#ifndef dma_rmb
++# define dma_rmb()	rmb()
++#endif
++
++#ifndef dma_wmb
++# define dma_wmb()	wmb()
++#endif
++
+ #ifndef smp_store_release
+ # define smp_store_release(p, v)		\
+ do {						\
+diff --git a/tools/include/linux/stddef.h b/tools/include/linux/stddef.h
+new file mode 100644
+index 00000000000000..99182ea4a1419b
+--- /dev/null
++++ b/tools/include/linux/stddef.h
+@@ -0,0 +1,10 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _TOOLS_LINUX_STDDEF_H
++#define _TOOLS_LINUX_STDDEF_H
++
++#include_next <linux/stddef.h>
++
++#define DECLARE_FLEX_ARRAY(TYPE, NAME) \
++	__DECLARE_FLEX_ARRAY(TYPE, NAME)
++
++#endif /* _TOOLS_LINUX_STDDEF_H */
+diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
+index b8a902ba8573da..5878a6abdf20e1 100644
+--- a/tools/testing/selftests/kvm/include/arm64/processor.h
++++ b/tools/testing/selftests/kvm/include/arm64/processor.h
+@@ -12,6 +12,7 @@
+ 
+ #include <linux/stringify.h>
+ #include <linux/types.h>
++#include <asm/barrier.h>
+ #include <asm/brk-imm.h>
+ #include <asm/esr.h>
+ #include <asm/sysreg.h>
+@@ -191,11 +192,8 @@ static inline void cpu_relax(void)
+ #define dsb(opt)	asm volatile("dsb " #opt : : : "memory")
+ #define dmb(opt)	asm volatile("dmb " #opt : : : "memory")
+ 
+-#define dma_wmb()	dmb(oshst)
+ #define __iowmb()	dma_wmb()
+ 
+-#define dma_rmb()	dmb(oshld)
+-
+ #define __iormb(v)							\
+ ({									\
+ 	unsigned long tmp;						\
 -- 
 2.43.0
 
