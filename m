@@ -4,133 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6583EC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980FDC982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqeW/8oLPo23dlDzsDmyDZxSRjp7rbk8aaLe5tLhkJM=; b=NZgVRe7Px/Wg8x+7OYfqnGW+To
-	QIQ11bsSkHYmG1YFIF3hqdTzbNYZVvMTxYg6O4cu+ykBmv1nz6dyyCrMD9JhDJ9NwYGdLrfHYByur
-	7kHO4/tEiidI6hmhMQLTJcuRDYEZcETs1AwUbb8DLT/VdYNae0aADra0UqROvPaZkBIEUPirIZAnk
-	qKSc3taY2wH5Apwx8fFBP+LmNPNaz+X7lUdTH5NcACeM68zdW48E23oozvWS1C8KF89fnAfJkLHXt
-	UZz09eJ/FLS3nWq4qLo5OlHkUBLVMoeYF/EN927qFi9TkbnFPsJSX/4zEjHaEUWB9dD7ioE7mbIhE
-	je8bs73A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yTymEAWaatS3hNs3NMCopMPpShJbhdwWnMcQrP+brXQ=; b=oQvhVe4YYJAUyy
+	2GKR+aFSImwfKvTR4Hd5CzTfKDwHEgkEaDmuxZBc/Ux83tU8WIZqmzJjYmvVuuFKwTJUxDzJJvOLw
+	cKfBvmDrBkg3LbWmKM0DznY2aIT2OW+DWiPekccSkJ1n4mH+VyGjLYhll9ZheUI8iYj9eTgDqQVXH
+	Cg2CAc1oSuTWG+CHRrvoO+WaIbYCsKTilZTdwrewZ28SwzGwF9X2eCAA4jRdKyQkMw4H7nucdMknp
+	SBt8svlvpnkNuiDW4HnLd+l83efDCL7igF4lvOXS0MMq45f3KoWYyOr7QfXL/JM3wyZxSY1toO4Mj
+	KTQ9qbgL5y0tmEvY4MSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8b53-00000001ePD-2Zjy;
-	Mon, 21 Sep 2026 10:17:01 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
+	id 1x8b5Z-00000001ecm-1rXo;
+	Mon, 21 Sep 2026 10:17:33 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8b50-00000001eMT-0A6i;
-	Mon, 21 Sep 2026 10:17:00 +0000
-X-UUID: 8c54aa62b5a511f1b2470fb4f881575f-20260921
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:6b87ed3a-fe19-4839-aff4-ae1b034c58f6,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7f1ae54,CLOUDID:a4c8cc53-b87f-40cd-bc07-4b5160873318,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8c54aa62b5a511f1b2470fb4f881575f-20260921
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1271039431; Mon, 21 Sep 2026 18:16:45 +0800
-X-UUID: 893491bcb5a511f1a9f9c99e036204b4-20260921
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:704c0257-60ec-463a-b8d2-c4e445859fd4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:969e5e7c-2058-4298-90ad-1156c3f1dffd,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 893491bcb5a511f1a9f9c99e036204b4-20260921
-Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg12.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 759258047; Mon, 21 Sep 2026 18:16:40 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Mon, 21 Sep 2026 18:16:38 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a%11]) with mapi id
- 15.02.2562.043; Mon, 21 Sep 2026 18:16:38 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
-	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
-	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "wen-zhi.huang@mediatek.com"
-	<wen-zhi.huang@mediatek.com>, "shi-wei.yeh@mediatek.com"
-	<shi-wei.yeh@mediatek.com>, "Minano.tseng@mediatek.com"
-	<Minano.tseng@mediatek.com>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "horms@kernel.org"
-	<horms@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "Yu. Robert (GSM)"
-	<robert_yu@compal.com>, "Chang. Jeff (GSM)" <Jeff_Chang@compal.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH v8 1/6] net: wwan: t9xx: Add PCIe core
-Thread-Topic: [External Mail] Re: [PATCH v8 1/6] net: wwan: t9xx: Add PCIe
- core
-Thread-Index: AQHdSJJLaGM0kV92g0Gdm74jR+Rse7bY0tUL
-Date: Mon, 21 Sep 2026 10:16:38 +0000
-Message-ID: <7566cc6de157498f800b0c4c9a04a0d7@compal.com>
-References: <20260914-t9xx_driver_v1-v8-1-5206c2e6bea0@compal.com>,<20260919235449.839711-1-kuba@kernel.org>
-In-Reply-To: <20260919235449.839711-1-kuba@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30210.004
-x-tm-as-result: No-10--35.877800-8.000000
-x-tmase-matchedrid: YJd3j4I3X6kuv++HU7VXryRFbfQbCufdN0X64jGy2dbsEpKlvft9qrsf
-	HjOlHNbCq1OKGmdZqMGdDRrahPiL84aCIAWYxgFqninTspVIT9krZaUz4ubTvLswIO3n6P8Fg6e
-	8jsHu3bbeWb7UNFjbzrQkpWVVAXYg9voYj3h+ww14ZqfDdG89LvjrY61sJmW9l2KBmLXt0ep/Dn
-	992hKwkJ8/EI5Q3jWyR9qkyM0+iyQFE1vv0qUjwPe+18RAuG2TvEhqj4eS683Me7IGjQ1FhpTmm
-	bcuR7M/Oa9xoZE786FPUaN1WM6arckB3yZAQWXNqJrbbk7CFoGzG+b2Ah6sZtEOKD7Vsunk9+JB
-	EfjmR+oOvLJCqjUAuXZzxAtgOyJ3UGoWw9e6AQII1pqhes/vCYuvcKpGSDPpWqljB95RRZX4zsy
-	a2fVy0mNaE8u2bBvdfP6VdLX6FgWyS/dEH0AZTHiXIXWXK9St6aYA0i+eCZGKGqfvdmN8aDDHaz
-	mNAtxXZUfTq8A4ybKkEwwiLfZvaUr319MzkuCIYzClpEj0Y6UID8AxYfbEuNThgPE1IHstCKy7s
-	ugXSFKJvGD8sJWllyLDIth9tqI+bTSEpdQLITAXS7bM7P8iGGStUhdkd3nYJ4iG6hGPHcQk1bjD
-	IH97nyvB1BWBSD8PcyE2a5g1KL1C06h/MrqeE5JUMoK5qISXwBLtKYu8bEtCdMn//odzuHdzBI1
-	g/lBglOQgjRlZT8wbf4NbCNvgRSHMNndPIVjVH7WbjGX5tknBGJ0I+OIXw8gRXD+03JOE/nVHIm
-	rmCJlbZV7tmRBELvNpW0e8YzgwCY985mUc8MURLjqoJJt/9frDHrB5YKTLXFAIRSIiEKJxg7svM
-	tapLiJsZ0L4JGotOvT30G5nOJt+3BndfXUhXQ==
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--35.877800-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30210.004
-x-tm-snts-smtp: 3CE67D7E04D77EC0FCF040C68918F8E80FD256F33EE7C5546F0E9C9D0F794E392000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1x8b5S-00000001eW1-29o5;
+	Mon, 21 Sep 2026 10:17:30 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1789985835;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yTymEAWaatS3hNs3NMCopMPpShJbhdwWnMcQrP+brXQ=;
+	b=EXYS5BboGejYrW44OieqtnyMm94j2T21OKVrkkJehGm0rFzaqrNQxsrhOguVprPbxEBLcw
+	Mk4bkb4Ee5H+e9fMmyWIqciwaZnnkRpdyX2YTU1miL5ZWxzObg/1YFMQtLC/h1m7uhlHgx
+	KT9Qab/++IwVQdSJvr6fr2HNHmZq3CgAcIT86PPOPAPJBmW/eLxMJvlIsxeaQyudjBiY8A
+	8JNEX7ZEl8zdTiya0aLRJSouD4/NRp3OaWvCz4TDbZJehR4p7s8B/yEsTB5QdQ90T7gruf
+	f9miQHfCKVxN9NDFcPRx5aDbzgf1i1nnznhJi0rnMpXjXTj0JexPA4/H0f9iJA==
+Subject: [PATCH v2 0/3] spi: Better specification for rx-sample-delay-ns
+ and core parsing
+Date: Mon, 21 Sep 2026 12:16:43 +0200
+Message-Id: <20260921-spi-sample-delay-cleanup-v2-0-b460d572fd32@kontron.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NTQ6CMBBGr0K6dkxbjUZX3sOw6M8go9g2nUIkh
+ LsLeAGXL3nf+ybBmAlZXKtJZByIKYYF9K4SrjXhgUB+YaGlPsmLOgMnAjbv1CF47MwIrkMT+gT
+ GKi8PBqVujFjmKWNDny19r3/MvX2iK2tvNVriEvO4fQ9q9f64GRRIkHhE721jlcPbK4aSY9h7F
+ PU8z19Re1dA0wAAAA==
+X-Change-ID: 20260917-spi-sample-delay-cleanup-ab1d03ae02fa
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2964;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=iIuowXzeOPCff2NgpDNY7AnzrSvtvo0WU3eOtTczGts=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIWsji+xMTgs9+3mRV31iVn1leFaVUX9d9VGm9Zxcr/Puv
+ HOZXPs7SlkYxLgYZMUUWaT4LV7bmsX6yB+rjoKZw8oEMoSBi1MAJpLIx8jQVNiqeto79mL4Z5vf
+ 8dwi3c/+fha21zxe+IrRiUH2lXUKI8NFtefTKmQ5plvuVWJpZkrR6DVen3E8dNfj74mZr/8IW3M
+ CAA==
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_031658_430634_A150A967 
-X-CRM114-Status: GOOD (  38.13  )
+X-CRM114-CacheID: sfid-20260921_031726_905512_F25F8EA7 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,192 +83,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyMCBTZXAgMjAyNiAwNzo1NDowMCArMDgwMCBKYWt1YiBLaWNpbnNraSB3cm90ZToN
-Cg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQo+IFNob3VsZCB0aGUgdGhyZWUgaGVscGVycyBh
-Z3JlZSBvbiB3aGF0IG1ha2VzIGFuIGlycV9pZCB2YWxpZD8NCj4NCj4gbXRrX3BjaV9tYXNrX2ly
-cSgpLCBtdGtfcGNpX3VubWFza19pcnEoKSBhbmQgbXRrX3BjaV9jbGVhcl9pcnEoKSBib3VuZA0K
-PiBpcnFfaWQgYnkgTVRLX0lSUV9DTlRfTUFYIGFuZCBhZGRpdGlvbmFsbHkgcmVxdWlyZQ0KPiBw
-cml2LT5pcnFfdHlwZSA9PSBQQ0lfSVJRX01TSVgsIHdoaWxlIG10a19wY2lfZ2V0X3ZpcnFfaWQo
-KSBib3VuZHMgdGhlDQo+IHNhbWUgdmFsdWUgYnkgcHJpdi0+aXJxX2NudC4gIG10a19wY2lfdW5y
-ZWdpc3Rlcl9pcnEoKSBoYXMgdG8gc2F0aXNmeQ0KPiBib3RoLg0KPg0KPiBPbiB0aGUgcHJvYmUg
-ZmFpbHVyZSBwYXRoIHRoYXQganVtcHMgdG8gZnJlZV9taGNjaWYsIGVpdGhlcg0KPiBwY2lfYWxs
-b2NfaXJxX3ZlY3RvcnMoKSBvciBtdGtfcGNpX3JlcXVlc3RfaXJxX21zaXgoKSBmYWlsZWQsIHNv
-DQo+IHByaXYtPmlycV90eXBlIGlzIDAgYW5kIHByaXYtPmlycV9jbnQgaXMgMC4gIG10a19taGNj
-aWZfZXhpdCgpIHRoZW4NCj4gY2FsbHMgbXRrX3BjaV91bnJlZ2lzdGVyX2lycSgpIC0+IG10a19w
-Y2lfbWFza19pcnEoKSwgd2hpY2ggbG9ncw0KPg0KPiAgICAgICAgIGRldl9lcnIobWRldi0+ZGV2
-LCAiRmFpbGVkIHRvIG1hc2sgaXJxOiBpbnB1dCBpcnFfaWQ9JWRcbiIsIGlycV9pZCk7DQo+DQo+
-IGZvciBpcnFfaWQgMjggZHVyaW5nIG90aGVyd2lzZSBjb3JyZWN0IGNsZWFudXAsIGFuZA0KPiBt
-dGtfcGNpX2dldF92aXJxX2lkKCkgcmVqZWN0cyB0aGUgaWQgdGhlIG90aGVyIGhlbHBlcnMgY29u
-c2lkZXIgaW4NCj4gcmFuZ2UuICBXb3VsZCBpdCBiZSBjbGVhcmVyIHRvIGRvY3VtZW50IHRoZSBp
-cnFfdHlwZSBwcmVjb25kaXRpb24gYW5kDQo+IGhhdmUgdGhlIG1hc2svdW5tYXNrL2NsZWFyIGhl
-bHBlcnMgcmV0dXJuIHF1aWV0bHkgKG9yIHVzZSBkZXZfZGJnKSB3aGVuDQo+IG5vIHZlY3RvcnMg
-YXJlIGFsbG9jYXRlZD8NCg0KV2lsbCBmaXggaW4gdjksIGJ5IGRyb3BwaW5nIHRoZSBwcmVjb25k
-aXRpb24gcmF0aGVyIHRoYW4gZG9jdW1lbnRpbmcgaXQuDQpUaGUgdGhyZWUgaGVscGVycyBlYWNo
-IGRvIG9uZSB3cml0ZSB0byBhIEJBUiAwLzEgcmVnaXN0ZXIsIHdoaWNoIG5lZWRzDQpubyB2ZWN0
-b3IsIHNvIHRoZSBwcml2LT5pcnFfdHlwZSB0ZXJtIGdvZXMgYXdheSBhbmQgb25seSB0aGUgaXJx
-X2lkDQpyYW5nZSBjaGVjayBzdGF5cy4gIHByaXYtPmlycV90eXBlIHRoZW4gaGFzIG5vIHJlYWRl
-ciBsZWZ0IGFuZCBpcw0KcmVtb3ZlZCB3aXRoIGl0Lg0KDQo+IENhbiB0aGlzIGVycm9yIHJldHVy
-biBsZWFrIGJ1ZmZlci5wb2ludGVyPw0KPg0KPiBUaGUgcmVzdWx0IG9iamVjdCBpcyBuZXZlciB1
-c2VkIGhlcmUsIGJ1dCBBQ1BJX0FMTE9DQVRFX0JVRkZFUiBpcw0KPiByZXF1ZXN0ZWQsIGFuZCBh
-Y3BpX2V2YWx1YXRlX29iamVjdCgpIGNhbiBmYWlsIHdpdGggdGhlIGNhbGxlciBidWZmZXINCj4g
-YWxyZWFkeSBhbGxvY2F0ZWQ6DQo+DQo+IElmIGFjcGlfdXRfY29weV9pb2JqZWN0X3RvX2VvYmpl
-Y3QoKSBmYWlscyBhZnRlciB0aGUgYnVmZmVyIHdhcw0KPiBhbGxvY2F0ZWQgKGZvciBleGFtcGxl
-IEFFX05PX01FTU9SWSB3aGlsZSBidWlsZGluZyBhIHBhY2thZ2UpLCB0aGUNCj4gLUVJTyByZXR1
-cm4gaGVyZSBza2lwcyBhY3BpX29zX2ZyZWUoKS4gIFNpbmNlIHRoZSByZXR1cm5lZCBvYmplY3Qg
-aXMNCj4gdW51c2VkLCB3b3VsZCBwYXNzaW5nIE5VTEwgYXMgdGhlIHJldHVybiBidWZmZXIgYmUg
-c2ltcGxlcj8NCg0KV2lsbCBmaXggaW4gdjksIGJ5IHBhc3NpbmcgTlVMTC4gIEJvdGggdGhlIHN0
-cnVjdCBhY3BpX2J1ZmZlciBhbmQgdGhlDQphY3BpX29zX2ZyZWUoKSBnbyBhd2F5IHdpdGggaXQu
-DQoNCj4gQ2FuIHRoaXMgdGFpbCByZS1lbmFibGUgdGhlIE1TSS1YIHNvdXJjZSBhZnRlciB0ZWFy
-ZG93biBoYXMgbWFza2VkIGl0Pw0KPg0KPiBzeW5jaHJvbml6ZV9pcnEoKSBvbmx5IHdhaXRzIGZv
-ciB0aGUgaGFyZGlycSBoYW5kbGVyLCBub3QgZm9yIHRoZQ0KPiBhbHJlYWR5LXJ1bm5pbmcgd29y
-ayBpdGVtLCBhbmQgcHJpdi0+aXJxX3R5cGUgaXMgc3RpbGwgUENJX0lSUV9NU0lYIGF0DQo+IHRo
-YXQgcG9pbnQgc28gdGhlIHVubWFzayB3cml0ZSBnb2VzIHRocm91Z2guICBjYW5jZWxfd29ya19z
-eW5jKCkgdGhlbg0KPiByZXR1cm5zIHdpdGggdGhlIHNvdXJjZSBlbmFibGVkLCBhbmQgdGhlIHJl
-c3Qgb2YgbXRrX3BjaV9yZW1vdmUoKQ0KPiAocGNpX2ZyZWVfaXJxKCksIHBjaV9mcmVlX2lycV92
-ZWN0b3JzKCksIHRoZSByZXNldCkgcnVucyB3aXRob3V0IHRoZQ0KPiAiU2lsZW5jZSBldmVyeSBz
-b3VyY2UgYmVmb3JlIHRlYXJpbmcgYW55dGhpbmcgZG93biIgcHJvcGVydHkgaXQNCj4gYXNzdW1l
-cy4NCj4NCj4gV291bGQgYSByZS1tYXNrIGFmdGVyIGNhbmNlbF93b3JrX3N5bmMoKSwgb3IgYSB0
-ZWFyZG93biBmbGFnIGNoZWNrZWQNCj4gYmVmb3JlIHRoZSBjbGVhci91bm1hc2sgcGFpciwgY2xv
-c2UgdGhpcz8NCg0KV2lsbCBmaXggaW4gdjksIGJ5IHRoZSBmaXJzdCBvcHRpb246IG10a19taGNj
-aWZfZXhpdCgpIG1hc2tzIHRoZSBzb3VyY2UNCmFnYWluIGFmdGVyIGNhbmNlbF93b3JrX3N5bmMo
-KSwgc28gdGhlIHRlYXJkb3duIGlzIHRoZSBsYXN0IHdyaXRlciBvZg0KdGhlIG1hc2suICBOb3Qg
-dGhlIGZsYWcsIHdoaWNoIHdvdWxkIHB1dCBhIGNoZWNrIHRoYXQgaXMgb25seSBldmVyIHRydWUN
-CmR1cmluZyB0ZWFyZG93biBpbnRvIHRoZSBpbnRlcnJ1cHQgcGF0aC4NCg0KPiBUaGlzIGlzbid0
-IGEgYnVnLCBidXQgd291bGQgYSBwY2lfcmVzb3VyY2VfbGVuKCkgc2FuaXR5IGNoZWNrIGhlcmUg
-YmUNCj4gd29ydGggYWRkaW5nPw0KPg0KPiBUaGUgbXRrX3BjaV9tYWNfd3JpdGUzMigpIGFuZCBt
-dGtfcGNpX3dyaXRlMzIoKSBhY2Nlc3NvcnMgaW4gbXRrX3BjaS5oDQo+IGFkZCB0aG9zZSBvZmZz
-ZXRzIHdpdGhvdXQgYW55IHJhbmdlIGVuZm9yY2VtZW50LCBzbyBhIGRldmljZSByZXBvcnRpbmcN
-Cj4gdW5kZXJzaXplZCBCQVJzIHdvdWxkIGJlIHdyaXR0ZW4gb3V0c2lkZSB0aGUgaW9yZW1hcCBt
-YXBwaW5nLiAgVGhlDQo+IHNpYmxpbmcgdDd4eCBkcml2ZXIgaGFzIHRoZSBzYW1lIHBhdHRlcm4s
-IHNvIHRoaXMgaXMgaGFyZGVuaW5nIHJhdGhlcg0KPiB0aGFuIGEgZGVmZWN0Lg0KDQpObyBjaGFu
-Z2UgcGxhbm5lZCwgYnV0IHdlIHdvdWxkIGxpa2UgZ3VpZGFuY2Ugb24gaG93IHRvIHJlY29yZCB0
-aGF0Lg0KDQpPbiB0aGUgY2hlY2sgaXRzZWxmOiB0aGUgZHJpdmVyIGJpbmRzIHR3byBmaXhlZCBQ
-Q0kgSURzLCBzbyBhIGRldmljZQ0KdGhhdCBhbnN3ZXJzIHRoZW0gd2l0aCBhbiB1bmRlcnNpemVk
-IEJBUiBpcyBicm9rZW4gaGFyZHdhcmUgcmF0aGVyIHRoYW4NCmFuIGlucHV0IHRvIHZhbGlkYXRl
-LCBhbmQgd2hhdCBjYW4gYmUgY2F1Z2h0IGdlbmVyaWNhbGx5IGlzIGNhdWdodA0KYWxyZWFkeSAt
-IHBjaW1faW9tYXBfcmVnaW9uKCkgZmFpbHMgb24gYW4gaW52YWxpZCBCQVIgaW5kZXgsIG9uIGEg
-QkFSDQp0aGUga2VybmVsIGNhbm5vdCByZXF1ZXN0LCBhbmQgb24gYSB6ZXJvLWxlbmd0aCBCQVIs
-IGFuZCBib3RoIHJldHVybg0KdmFsdWVzIGFyZSBjaGVja2VkLiAgVGhlIHVwc3RyZWFtaW5nIGd1
-aWRhbmNlIHdlIHdlcmUgcG9pbnRlZCBhdCBpbiB0aGUNCm90aGVyIHRocmVhZCBpcyBleHBsaWNp
-dCBhYm91dCB0aGlzIGNsYXNzIG9mIGNoYW5nZSwgbGluZXMgMTE5LTEyMDoNCg0KICAiQXNzdW1l
-IFBDSS9QQ0llIGRldmljZXMgYmVoYXZlIGNvcnJlY3RseSBhbmQgYXJlIG5vdCBtYWxpY2lvdXMu
-IERvDQogICBub3QgYWRkIGRlZmVuc2l2ZSBjaGVja3MuICBSZXZpZXdlcnMgbWF5IG5vdCBrbm93
-IHRoaXMgcG9saWN5LA0KICAgaWdub3JlIHRoZW0uIg0KDQpUaGUgZGlmZmljdWx0eSBpcyB3aGF0
-IGhhcHBlbnMgbmV4dC4gIHN1Ym1pdHRpbmctcGF0Y2hlcy5yc3QgbGluZXMNCjMxNy0zMTkgc2F5
-Og0KDQogICJSZXZpZXcgY29tbWVudHMgb3IgcXVlc3Rpb25zIHRoYXQgZG8gbm90IGxlYWQgdG8g
-YSBjb2RlIGNoYW5nZQ0KICAgc2hvdWxkIGFsbW9zdCBjZXJ0YWlubHkgYnJpbmcgYWJvdXQgYSBj
-b21tZW50IG9yIGNoYW5nZWxvZyBlbnRyeSBzbw0KICAgdGhhdCB0aGUgbmV4dCByZXZpZXdlciBi
-ZXR0ZXIgdW5kZXJzdGFuZHMgd2hhdCBpcyBnb2luZyBvbi4iDQoNClRoZSBjaGFuZ2Vsb2cgZW50
-cnkgbGl2ZXMgdW5kZXIgdGhlIC0tLSBhbmQgZGlzYXBwZWFycyB3aGVuIHRoZSBwYXRjaCBpcw0K
-YXBwbGllZCwgc28gdGhlIG9ubHkgZm9ybSB0aGF0IHN1cnZpdmVzIGludG8gdGhlIHRyZWUsIGFu
-ZCB0aGVyZWZvcmUgdGhlDQpvbmx5IG9uZSB0aGF0IHN0b3BzIHRoZSBuZXh0IHJldmlld2VyIGZy
-b20gYXNraW5nIGFnYWluLCBpcyBhIGNvZGUNCmNvbW1lbnQuICBCdXQgbGluZSAxMjQgb2YgdGhl
-IHNhbWUgZ3VpZGFuY2Ugc2F5czoNCg0KICAiRG8gbm90IGFkZCBjb2RlIGNvbW1lbnRzIHVubGVz
-cyB5b3UgaGF2ZSB2ZXJ5IGhpZ2ggY29uZmlkZW5jZSB0aGUNCiAgIGNvZGUgd291bGQgYmUgbWlz
-aW50ZXJwcmV0ZWQgd2l0aG91dCB0aGVtLiINCg0KU28gZm9yIGEgZGVjbGluZWQgZGVmZW5zaXZl
-IGNoZWNrIHRoZSB0d28gY2Fubm90IGJvdGggYmUgc2F0aXNmaWVkOiB0aGUNCmNvbW1lbnQgdGhh
-dCBrZWVwcyBpdCBmcm9tIGJlaW5nIHJlLXJhaXNlZCBpcyBpdHNlbGYgYSBjb21tZW50IHdlIGFy
-ZQ0KYXNrZWQgbm90IHRvIGFkZC4gIFVubGVzcyB0b2xkIG90aGVyd2lzZSB3ZSB3aWxsIHRha2Ug
-dGhlIGNoYW5nZWxvZy1vbmx5DQpyb3V0ZSBhbmQgYWNjZXB0IHRoYXQgdGhlIHF1ZXN0aW9uIGNh
-biBjb21lIGJhY2suDQoNCj4gT24gdGhlIGNsZWFyX21hc3RlciBwYXRoLCBpcyB0aGUgb3JkZXJp
-bmcgaGVyZSBpbnZlcnRlZCB3aXRoIHJlc3BlY3QgdG8NCj4gbXRrX3BjaV9yZW1vdmUoKT8NCj4N
-Cj4gbXRrX3BjaV9mcmVlX2lycSgpIHJ1bnMgYmVmb3JlIG10a19taGNjaWZfZXhpdCgpLCBzbyBh
-biBNSENDSUYgd29yaw0KPiBpdGVtIHF1ZXVlZCBieSBtdGtfbWhjY2lmX2lycV9jYigpIGp1c3Qg
-YmVmb3JlIHRoZSBmYWlsdXJlIGNhbiBzdGlsbA0KPiBiZSBydW5uaW5nIHdoZW4gcGNpX2ZyZWVf
-aXJxKCkgYW5kIHBjaV9mcmVlX2lycV92ZWN0b3JzKCkgY29tcGxldGUuDQo+IEl0cyB0YWlsIHRo
-ZW4gZG9lcw0KPg0KPiAgICAgICAgIG10a19wY2lfY2xlYXJfaXJxKG1kZXYsIHByaXYtPm1oY2Np
-Zl9pcnFfaWQpOw0KPiAgICAgICAgIG10a19wY2lfdW5tYXNrX2lycShtZGV2LCBwcml2LT5taGNj
-aWZfaXJxX2lkKTsNCj4NCj4gdG91Y2hpbmcgdGhlIGludGVycnVwdCBtYXNrIHJlZ2lzdGVycyBh
-ZnRlciB0aGUgSVJRIGFjdGlvbiBhbmQgdGhlDQo+IE1TSS1YIHZlY3RvcnMgYXJlIGdvbmUuICBT
-aG91bGQgdGhpcyBwYXRoIGNhbGwgbXRrX21oY2NpZl9leGl0KCkgKHdoaWNoDQo+IHVucmVnaXN0
-ZXJzIHRoZSBjYWxsYmFjayBhbmQgY2FuY2VscyB0aGUgd29yaykgYmVmb3JlDQo+IG10a19wY2lf
-ZnJlZV9pcnEoKSwgdGhlIHdheSBtdGtfcGNpX3JlbW92ZSgpIGRvZXM/DQoNClByb2JlIGlzIHRo
-ZSBzaWRlIHRoYXQgZm9sbG93cyB0aGUgY29udmVudGlvbjogaXQNCmFjcXVpcmVzIG1oY2NpZl9p
-bml0IC0+IHJlcXVlc3RfaXJxIC0+IGRldl9pbml0IC0+IHNldF9tYXN0ZXIgYW5kIHRoZQ0KbGFi
-ZWxzIHJlbGVhc2UgaW4gZXhhY3RseSB0aGUgcmV2ZXJzZSBvcmRlciwgd2hpbGUgcmVtb3ZlKCkg
-aXMgdGhlDQpkZWxpYmVyYXRlIGRldmlhdGlvbiwgZm9yIHRoZSByZWFzb24gaW4gdGhlIGNvbW1l
-bnQgYWJvdmUgaXQgLSB3aXRoIGENCmxpdmUgZGV2aWNlIHRoZSBjYWxsYmFjayBoYXMgdG8gZ28g
-Zmlyc3Qgc28gdGhlIHdvcmsgY2Fubm90IGJlIHJlcXVldWVkDQp3aGlsZSBpdCBpcyBjYW5jZWxs
-ZWQuICBUaGF0IHJlYXNvbiBkb2VzIG5vdCBhcHBseSBkdXJpbmcgcHJvYmUgdW53aW5kOg0KYXQg
-ZXZlcnkgb25lIG9mIHRoZXNlIGxhYmVscyBlaXRoZXIgdGhlIE1TSS1YIHNvdXJjZSBoYXMgbmV2
-ZXIgYmVlbg0KdW5tYXNrZWQsIHNpbmNlIHRoZSB1bm1hc2sgaXMgYWZ0ZXIgdGhlIGxhc3QgZmFp
-bHVyZSB0aGF0IHVzZXMgdGhlbSwgb3INCnRoZSB2ZWN0b3JzIGFyZSBhbHJlYWR5IGdvbmUsIHNv
-IHRoZSB3b3JrIGNhbm5vdCBiZSByZXF1ZXVlZCBpbiBlaXRoZXINCm9yZGVyLg0KDQpUaGUgdHdv
-IHdyaXRlcyBpbiB0aGUgdGFpbCBhcmUgQkFSIHdyaXRlcywgbm90IG9wZXJhdGlvbnMgb24gdGhl
-IGZyZWVkDQp2ZWN0b3JzLCBhbmQgdGhlIEJBUnMgc3RheSBtYXBwZWQgdW50aWwgZGV2cmVzIHJ1
-bnMgYWZ0ZXIgcHJvYmUgcmV0dXJucywNCnNvIHRoZXkgYXJlIGhhcm1sZXNzOyBtdGtfcGNpX2dl
-dF92aXJxX2lkKCkgcmV0dXJucyAtRUlOVkFMIG9uY2UgdGhlDQp2ZWN0b3JzIGFyZSBmcmVlZCBh
-bmQgbXRrX3BjaV91bnJlZ2lzdGVyX2lycSgpIHNraXBzIHN5bmNocm9uaXplX2lycSgpDQphY2Nv
-cmRpbmdseSwgd2hpY2ggaXMgY29ycmVjdCBiZWNhdXNlIHBjaV9mcmVlX2lycSgpIGhhcyBhbHJl
-YWR5DQpzeW5jaHJvbmlzZWQuICBUaGUgb25lIHRoaW5nIHRoYXQgZGlkIG1hdHRlciBoZXJlIC0g
-dGhlIHNvdXJjZSBsZWZ0DQp1bm1hc2tlZCBieSB0aGUgdGFpbCBvZiB0aGUgd29yayAtIGlzIHRo
-ZSByZS1tYXNrIGFib3ZlLCBhbmQgdGhhdCBmaXgNCmNvdmVycyB0aGlzIHBhdGggdG9vLg0KDQo+
-IENhbiB0aGUgIm5vIE1NSU8sIGNvbmZpZyB3cml0ZSBvciBNU0ktWCB0ZWFyZG93biBtYXkgZm9s
-bG93IGl0Ig0KPiBpbnZhcmlhbnQgaG9sZCB3aGlsZSBwcm9iZSB1c2VzIHBjaW1fZW5hYmxlX2Rl
-dmljZSgpPw0KPg0KPiBwY2ltX2VuYWJsZV9kZXZpY2UoKSBpbnN0YWxscyBhIGRldnJlcyBhY3Rp
-b24gdGhhdCB0aGUgZHJpdmVyIGNvcmUgcnVucw0KPiBpbiBkZXZyZXNfcmVsZWFzZV9hbGwoKSwg
-YWZ0ZXIgcmVtb3ZlKCkgcmV0dXJuczoNCj4NCj4gYW5kIHRoYXQgYWN0aW9uIHJlYWNoZXMgZG9f
-cGNpX2Rpc2FibGVfZGV2aWNlKCksIHdoaWNoIGRvZXMgYQ0KPiBQQ0lfQ09NTUFORCBjb25maWcg
-cmVhZCBhbmQsIGlmIHRoZSByZWFkIHNob3dzIFBDSV9DT01NQU5EX01BU1RFUiwgYQ0KPiBjb25m
-aWcgd3JpdGUuICBPbiBhbiBlbmRwb2ludCB0aGF0IHdhcyBqdXN0IHJlc2V0IHRoZSByZWFkIGNh
-biByZXR1cm4NCj4gMHhGRkZGICh3aGljaCBoYXMgdGhhdCBiaXQgc2V0KSwgc28gYSBjb25maWcg
-d3JpdGUgb2YgMHhGRkZCIGlzIHRoZW4NCj4gYXR0ZW1wdGVkIG9uIGEgcG9zc2libHkgbGluay1k
-b3duIGRldmljZS4gIFdvdWxkIG1vdmluZyB0aGUgcmVzZXQgb3V0DQo+IG9mIHRoZSB0YWlsIG9m
-IHJlbW92ZSgpLCBvciB1c2luZyB0aGUgbm9uLW1hbmFnZWQgcGNpX2VuYWJsZV9kZXZpY2UoKQ0K
-PiB3aXRoIGFuIGV4cGxpY2l0IGRpc2FibGUgYmVmb3JlIHRoZSByZXNldCwga2VlcCB0aGUgc3Rh
-dGVkIG9yZGVyaW5nPw0KDQpXaWxsIGZpeCBpbiB2OSwgYnkgdGhlIHNlY29uZCBvcHRpb246IHBj
-aW1fZW5hYmxlX2RldmljZSgpIGJlY29tZXMNCnBjaV9lbmFibGVfZGV2aWNlKCksIHJlbW92ZSgp
-IGNhbGxzIHBjaV9kaXNhYmxlX2RldmljZSgpIGJlZm9yZSB0aGUNCnJlc2V0IGFuZCB0aGUgcHJv
-YmUgZXJyb3IgcGF0aCBnZXRzIGEgbWF0Y2hpbmcgbGFiZWwuICBCQVIgbWFwcGluZyBpcw0KdW5h
-ZmZlY3RlZCwgcGNpbV9pb21hcF9yZWdpb24oKSByZWdpc3RlcnMgaXRzIG93biBkZXZyZXMuDQoN
-Cj4gQSBzZWNvbmQgcXVlc3Rpb24gb24gdGhlIHNhbWUgcGF0aDogbmVpdGhlciByZXNldCB3YWl0
-cyBmb3INCj4gY29tcGxldGlvbi4gIG10a19wY2lfc2VuZF9leHRfZXZ0KCkgb25seSBwZXJmb3Jt
-cyB0d28gcG9zdGVkIEJBUg0KPiB3cml0ZXMgKE1IQ0NJRl9SQzJFUF9TV19CU1kgYW5kIE1IQ0NJ
-Rl9SQzJFUF9TV19UQ0hOVU0pIHdpdGggbm8NCj4gcmVhZGJhY2ssIGFuZCB0aGVyZSBpcyBubyBk
-ZWxheSBvciBwcmVzZW5jZSBwb2xsIGFmdGVyIGVpdGhlciByZXNldA0KPiBiZWZvcmUgcmVtb3Zl
-KCkgcmV0dXJucy4gIEFuIGltbWVkaWF0ZSByZS1iaW5kIHRoZW4gcnVucw0KPiBtdGtfcGNpX3By
-b2JlKCkgLT4gYXRyX2luaXQoKSAtPiBtdGtfcGNpX2F0cl9kaXNhYmxlKCksIHdoaWNoDQo+IHJl
-YWQtbW9kaWZ5LXdyaXRlcyB0aGUgQkFSMCBBVFIgcmVnaXN0ZXJzOg0KPg0KPiBPbiBhIHN0aWxs
-LXJlc2V0dGluZyBkZXZpY2UgdGhlIHJlYWRzIGNvbWUgYmFjayBhcyBhbGwgb25lcyBhbmQgdGhl
-DQo+IHdyaXRlcyBhcmUgZHJvcHBlZCwgeWV0IHByb2JlIHRyZWF0cyB0aGlzIGFzIHN1Y2Nlc3M7
-DQo+IG10a19wY2lfbGlua19jaGVjaygpIGlzIG9ubHkgY29uc3VsdGVkIGxhdGVyLCBhZnRlciBN
-U0ktWCBzZXR1cC4gIEZvcg0KPiBjb21wYXJpc29uLCB0N3h4IHNsZWVwcyBGQVNUQk9PVF9SRVNF
-VF9ERUxBWV9NUyBhZnRlciBpdHMgZXF1aXZhbGVudA0KPiBkb29yYmVsbCBpbiB0N3h4X21vZGVt
-X29wcy5jLiAgU2hvdWxkIHRoaXMgcGF0aCB3YWl0IGZvciB0aGUgZW5kcG9pbnQNCj4gdG8gc2V0
-dGxlPw0KDQpGQVNUQk9PVF9SRVNFVF9ERUxBWV9NUyBpcyBub3QgdDd4eCdzIHJlc2V0IGRlbGF5
-Lg0KSXQgaXMgdXNlZCBpbiBvbmUgYnJhbmNoIG9mIHQ3eHhfcmVzZXRfZGV2aWNlKCksIHRoZSBi
-cmFuY2ggdGhhdCBlbnRlcnMNCmZpcm13YXJlIGRvd25sb2FkIG1vZGU6DQoNCglpZiAodHlwZSA9
-PSBGTERSKSB7DQoJCXJldCA9IHQ3eHhfYWNwaV9yZXNldCh0N3h4X2RldiwgIl9SU1QiKTsNCgl9
-IGVsc2UgaWYgKHR5cGUgPT0gUExEUikgew0KCQlyZXQgPSB0N3h4X2FjcGlfcmVzZXQodDd4eF9k
-ZXYsICJNUlNULl9SU1QiKTsNCgl9IGVsc2UgaWYgKHR5cGUgPT0gRkFTVEJPT1QpIHsNCgkJdDd4
-eF9ob3N0X2V2ZW50X25vdGlmeSh0N3h4X2RldiwgRkFTVEJPT1RfRExfTk9USUZZKTsNCgkJdDd4
-eF9taGNjaWZfaDJkX3N3aW50X3RyaWdnZXIodDd4eF9kZXYsIEgyRF9DSF9ERVZJQ0VfUkVTRVQp
-Ow0KCQltc2xlZXAoRkFTVEJPT1RfUkVTRVRfREVMQVlfTVMpOw0KCX0NCg0KVGhlIHR3byByZXNl
-dCBicmFuY2hlcyAtIGluY2x1ZGluZyB0aGUgIk1SU1QuX1JTVCIgb25lIHRoaXMgcGF0Y2ggdXNl
-cyAtDQpkbyBub3Qgd2FpdCBhdCBhbGwuICBGb3IgYW4gb3JkaW5hcnkgcmVzZXQgdDd4eCBkb2Vz
-IHdoYXQgd2UgZG8sIHNvIHRoZQ0KY29tcGFyaXNvbiBkb2VzIG5vdCBjYXJyeSBvdmVyIHRvIHRo
-aXMgcGF0aC4NCg0KV2hlcmUgdDd4eCB3YWl0cywgdDl4eCB3YWl0cyB0b28uICBUaGUgZmlybXdh
-cmUgZG93bmxvYWQgcGF0aCBpcyBub3QgaW4NCnRoaXMgc2VyaWVzOyBpdCBhcnJpdmVzIHdpdGgg
-bXRrX2RldmxpbmsuYyBpbiB0aGUgc2Vjb25kIG9uZSwgYW5kIHRoZXJlDQp0aGUgcmVib290IGlu
-dG8gZG93bmxvYWQgbW9kZSBpcyB3YWl0ZWQgZm9yOg0KDQoJcmV0ID0gbXRrX2ZzbV9ldnRfc3Vi
-bWl0KGRldmxpbmstPm1kZXYsIEZTTV9FVlRfRkJfUkVTRVQsIEZTTV9GX0RMX0ZCLA0KCQkJCSBO
-VUxMLCAwLCBFVlRfTU9ERV9CTE9DS0lORyk7DQoJLi4uDQoJdGltZW91dF9qaWZmID0gbXNlY3Nf
-dG9famlmZmllcyhNVEtfRkJfV0FJVF9ETF9NT0RFX1RJTUVPVVRfTVMpOw0KCXJldCA9IHdhaXRf
-Zm9yX2NvbXBsZXRpb25fdGltZW91dCgmZGV2bGluay0+ZG93bmxvYWRfY29tcCwgdGltZW91dF9q
-aWZmKTsNCg0KQXMgZm9yIE1SU1QuX1JTVCBpdHNlbGYsIGl0IGlzIGFuIEFDUEkgY29udHJvbCBt
-ZXRob2QsIHNvDQphY3BpX2V2YWx1YXRlX29iamVjdCgpIHJldHVybnMgb25seSBvbmNlIHRoZSBB
-TUwgaGFzIGZpbmlzaGVkOyB0aGUNCnBsYXRmb3JtIG93bnMgdGhhdCB0aW1pbmcuICBBZnRlciBp
-dCwgcmVtb3ZlKCkgb25seSBjYWxscw0KcGNpX2xvYWRfYW5kX2ZyZWVfc2F2ZWRfc3RhdGUoKSwg
-d2hpY2ggdG91Y2hlcyBob3N0IG1lbW9yeSAtIGFuZCB3aXRoDQp0aGUgY2hhbmdlIGFib3ZlLCBk
-ZXZyZXMgbm8gbG9uZ2VyIHRvdWNoZXMgdGhlIGRldmljZSBlaXRoZXIuDQoNCk9uIHRoZSByZS1i
-aW5kIHdpbmRvdzogcHJvYmUgZG9lcyBub3QgdHJlYXQgYSBzdGlsbC1yZXNldHRpbmcgZGV2aWNl
-IGFzDQpzdWNjZXNzLiAgVGhlIEFUUiByZWFkLW1vZGlmeS13cml0ZXMgYXJlIGRyb3BwZWQgYnkg
-YSBkZXZpY2UgdGhhdCBpcyBub3QNCmFuc3dlcmluZywgc28gbm90aGluZyBpcyBtaXMtcHJvZ3Jh
-bW1lZCwgYW5kIG10a19wY2lfbGlua19jaGVjaygpIGlzDQpzdGlsbCByZWFjaGVkIGJlZm9yZSBw
-cm9iZSByZXR1cm5zLCBzbyB0aGUgYmluZCBmYWlscyB3aXRoIC1FTk9MSU5LIGFuZA0KY2FuIGJl
-IHJldHJpZWQuDQoNCj4gc28gJWQgZGVncmFkZXMgdGhlIHNwYXJzZS1yZXN0cmljdGVkIHVuc2ln
-bmVkIHR5cGUgdG8gc2lnbmVkIGludCwgd2hpY2gNCj4gbWFrZSBDPTEgcmVwb3J0cyBhcyAicmVz
-dHJpY3RlZCBwY2lfY2hhbm5lbF9zdGF0ZV90IGRlZ3JhZGVzIHRvDQo+IGludGVnZXIiLiAgV291
-bGQgJXUgd2l0aCBhbiBleHBsaWNpdCBjYXN0IGJlIHByZWZlcmFibGUgaGVyZT8NCg0KV2lsbCBm
-aXggaW4gdjkgLSB0aGUgbGluZSBiZWNvbWVzICV1LCB3aXRob3V0IGEgY2FzdC4NCg0KICAgIA==
+"rx-sample-delay-ns" has been a generic SPI peripheral property since it
+was moved to spi-peripheral-props.yaml, but the core has never looked at
+it, and what it is meant to describe has become blurred along the way.
+
+It was introduced in 2015 for Rockchip, to compensate "boards with
+high-capacitance SPI lines". The wording now in the generic schema came
+later, from a description of a DesignWare register, and lost its
+controller-specific qualifier on the way. It says what the value does to
+the controller, but not what a board should measure to arrive at it.
+
+Patch 1 says what the property describes. Patch 2 parses it in the core,
+so that a controller driver can act on it without open-coding the
+property name, and patch 3 converts spi-dw, its only user that reads it
+from the peripheral node as the binding intends.
+
+Deliberately not converted: spi-rockchip and spi-mtk-snfi read
+"rx-sample-delay-ns" from the *controller* node rather than the
+peripheral node, which contradicts the binding but is what their device
+trees rely on. Converting them would break those boards, so they keep
+their private parsing. The controller-wide default that spi-dw reads
+from its own node is left in place for the same reason - it lives in a
+different node, which is not what the core parses when it looks at a
+peripheral.
+
+This is groundwork for letting SPI devices declare their datasheet
+clock-to-output-valid time so that controllers can move their sampling
+point instead of forcing a lower spi-max-frequency, posted as an RFC at
+
+  https://lore.kernel.org/r/20260303-fsl-qspi-rx-sampling-delay-v1-0-9326bbc492d6@kontron.de
+
+Nothing in that work is needed to read this series, and nothing here
+depends on it: the chip side is a separate quantity that composes with
+this one, which is why patch 1 spends a paragraph on keeping them apart.
+
+Assisted-by: Claude:claude-opus-5
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+Changes in v2:
+- Fix the bindings patch subject prefix
+- Improve commit message for patch 3
+- Link to v1: https://patch.msgid.link/20260917-spi-sample-delay-cleanup-v1-0-0e4eddbfb1ce@kontron.de
+
+---
+Frieder Schrempf (3):
+      spi: dt-bindings: Clarify what rx-sample-delay-ns describes
+      spi: Parse the rx-sample-delay-ns peripheral property in the core
+      spi: dw: Use the rx-sample-delay-ns value parsed by the core
+
+ .../devicetree/bindings/spi/spi-peripheral-props.yaml       |  8 ++++++++
+ drivers/spi/spi-dw-core.c                                   | 13 +++++++------
+ drivers/spi/spi.c                                           |  9 +++++++++
+ include/linux/spi/spi.h                                     |  9 +++++++++
+ 4 files changed, 33 insertions(+), 6 deletions(-)
+---
+base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
+change-id: 20260917-spi-sample-delay-cleanup-ab1d03ae02fa
+
+Best regards,
+--  
+Frieder Schrempf <frieder.schrempf@kontron.de>
+
 
