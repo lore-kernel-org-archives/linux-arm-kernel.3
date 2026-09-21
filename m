@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72DCC982DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A43C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 05:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7MypyNhRhqz8eEmpO3GWyDOktj9B74H0TbEQBusIx0=; b=w2TqdKDgV64Xwm/hFJnn/qBkMq
-	lxxtNx+O6nhA5mU8HHUb/PNbQMh+tvxIkrSCRxdZddL4ef+keaKith9PWLG2G90tOTPf5FXviWJZJ
-	WzFAA1OQOmoH+nSPoDgeCMso9B8Tdv18CFyT0QhrgoA/jc5uk2SIMx8ToaYUB1Nb6YcYqQAK43O6k
-	vnMcNDDXDr6ZgiXMerA4xtifZWYv1EBT72bD/eVLZ3FPLa7XgsL47l+AN2kJ5deKBXy2R7BQQCaKB
-	QUPpg/9K15Heh8N6SY712KiuGSTOFnap7nWyAmlKVMVXu3+3Ew1I3ZRL8IEgddCMg6uz06S4JEGGd
-	EMQyY+hQ==;
+	bh=ZKHClVFFPy5JiCiG2TsrSbAYAz0dgiBEm5Q3hgpAXHY=; b=XGU10/VvcgufNfodOJ+lpa9xUK
+	Zw7NYhjXGf53tzAaVSLT159vP+VIGuuXopXenR+LNsXnKWKA5Qy/3tlmV5bpGqSoKtU6Gh77jN/fa
+	kE2/xdIVv0rvxOtPA8ibE8lNPeFUN7FwMUHJ3rWHmFOJNc0fKA30gDGXBDLzNaYEY8S3QsImdOcSu
+	cYqpxP2QxvkcSIiVTkdMzfUt2J5NvmUxfeEtYcDiupGCWteO1js5SJtdhFrOiuV+bX3QIdGi0Km76
+	JRLUSALw+NEcr+KymG6syN6aURSbs6XVNTxJ5zlTBwGOySReIE1HeTenp4bDdUAei+z7gKLFvW5aZ
+	E0ufWHrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8VZ7-00000000ocf-1zVc;
+	id 1x8VZ7-00000000odh-3INq;
 	Mon, 21 Sep 2026 04:23:41 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8VZ0-00000000oVD-1Npn
+	id 1x8VZ0-00000000oV4-3Vbp
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 21 Sep 2026 04:23:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9725744A06;
-	Mon, 21 Sep 2026 04:23:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5FD7DC4AF18;
+	by sea.source.kernel.org (Postfix) with ESMTP id 16BA444A44;
+	Mon, 21 Sep 2026 04:23:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D3174C2BD05;
 	Mon, 21 Sep 2026 04:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1789964613;
-	bh=wZJacq8lp2xyUvHx/P8R2wnBwb1XTZEAMLxLNmfihS8=;
+	bh=ELqcw3LBSmBtItQm8aQ9QzI3Xq97N7afNTnfipf3dIo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=jyvixlXsv42CK6y6Vs7GUIBsNb/Oj7ZNwIaHWyxhFoMPJ2N6nU3KnnI4L4dS16Gqb
-	 1mRweQrpsGkQK9ghR/R785FFAhEFbbvj54oQj3Dqvp91VRZ0yyB4uZDqLJ2xW7eVN7
-	 irtkN2Ra8ZALN17584kl+5RYf2HF7YuY+AwMSqDG7Uf8JuQSQghQL9BUZ7aUVZH7xw
-	 22683jDVVnkbtYJYSULnM2Tzsd93KoTuL3ufJblpfyFWS30BE4YwVV0EiIQPguigdB
-	 4vcJ3Fm6/xV5oMLCn26IQ47KEhj49CQTt/VjVac6PVK98Y0FY69MRud/t2czhhKWbj
-	 +EWpCoFXOTLBQ==
+	b=hkGrnjqN2EScBr3rFVpYCEeHwdWf8lluL/mfolmfzaLQd+nKWGOHq6/UqRFJNHYHo
+	 HnCthIpUPc3ui/CRtWE3zu9uZMXkKxAvuYmPT18E3tHkGXCZ24kDn/piqp9gJEC2Nh
+	 SE5p4gUk3YhUDFYmnTx4jkXY3LarCfKrnjBRcBIQQHjTo8168MhPlH8RVr1/GSmexn
+	 mYe1FWAPeDhy1ZLIksE1T0MfC3FYWI09qfF7/YYs2iF+/TU0gojBbAve0ReOWklGy3
+	 5BHW9cLdkMtEb0fy16ikJxpfs5AbCQU4YuJVLti3dDJ9aLWA0mKH0oluqfevwt42eU
+	 qNAq4xb4jYp9w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C32EC982F4;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BBEECC982F1;
 	Mon, 21 Sep 2026 04:23:33 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Mon, 21 Sep 2026 12:23:31 +0800
-Subject: [PATCH v8 12/18] gpio: pl061: use cleanup helpers for locks
+Date: Mon, 21 Sep 2026 12:23:33 +0800
+Subject: [PATCH v8 14/18] gpio: pl061: add Ambarella register-layout
+ variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-cv75-v5-v8-12-282ff5d98dda@ambarella.com>
+Message-Id: <20260921-cv75-v5-v8-14-282ff5d98dda@ambarella.com>
 References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
 In-Reply-To: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -73,11 +74,11 @@ Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>,
  linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789964608; l=3385;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789964608; l=3980;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=ii3oagWoRbkwRTyfP9uldtzy1qla8tAAWfRUevUse2E=;
- b=gdrZwOZPCUMN1JNeNnP15TEcY5an0TzacNkglL5E7oj8FKI1dtcC9UZp9WqFecEqc5CAm688Q
- Q0uaB6zaTorDlEmU0Vf6+S4N/q7rtnbd8JEtV0Zq+kzwyKvga4GNKl3
+ bh=UJUD7yvQRDjUnxZn37u+jsf5HE3dcaqrKiM8weupWiY=;
+ b=aqTvGbpbG0JFVzw6uqBtaNBvLqAtjHTQy6aHG8wAteDMBByBZz7cprSPfRRlH3juaq5VzSRDp
+ 6E+eKojrlH8B7Dl98RytohYGgxKU8fs13hdrHdzAU/34rXsnlNtqTZC
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -100,105 +101,139 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Convert raw_spinlock critical sections to guard() from cleanup.h.
+Add a 32-bit, 32-line layout with DAT/DIR/IS/IBE/IEV/IE/MIS/IC plus
+MASK and ENABLE. Probe unmasks the bank and enables the controller.
+IRQ type changes also clear the pending bit. This derivative does not
+need write-after-direction or system suspend save/restore.
 
+Match the part with designer AMBA_VENDOR_AMBARELLA (JEP106 identity
+0x68, bit 7 set) and part number 0x061.
+
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- drivers/gpio/gpio-pl061.c | 19 ++++++-------------
- 1 file changed, 6 insertions(+), 13 deletions(-)
+ drivers/gpio/gpio-pl061.c | 59 +++++++++++++++++++++++++++++++++++++++++++++++
+ include/linux/amba/bus.h  |  1 +
+ 2 files changed, 60 insertions(+)
 
 diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
-index 2913daf46aff..c821a5117eed 100644
+index 604129a68948..fc7269837af4 100644
 --- a/drivers/gpio/gpio-pl061.c
 +++ b/drivers/gpio/gpio-pl061.c
-@@ -10,6 +10,7 @@
-  */
- #include <linux/amba/bus.h>
- #include <linux/bitops.h>
-+#include <linux/cleanup.h>
- #include <linux/device.h>
- #include <linux/errno.h>
- #include <linux/gpio/driver.h>
-@@ -103,11 +104,9 @@ static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
- static int pl061_direction_input(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
--	unsigned long flags;
+@@ -39,6 +39,18 @@
+ #define PL061_MIS		0x418
+ #define PL061_IC		0x41c
  
--	raw_spin_lock_irqsave(&pl061->lock, flags);
-+	guard(raw_spinlock_irqsave)(&pl061->lock);
- 	regmap_update_bits(pl061->regmap, GPIODIR, BIT(offset), 0);
--	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
- }
-@@ -116,10 +115,9 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
- 		int value)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
--	unsigned long flags;
- 	unsigned int mask = BIT(offset);
- 
--	raw_spin_lock_irqsave(&pl061->lock, flags);
-+	guard(raw_spinlock_irqsave)(&pl061->lock);
- 	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
- 		     !!value << offset);
- 	regmap_update_bits(pl061->regmap, GPIODIR, mask, mask);
-@@ -130,7 +128,6 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
- 	 */
- 	regmap_write(pl061->regmap, BIT(offset + PL061_DATA_OFFSET),
- 		     !!value << offset);
--	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
- }
-@@ -160,7 +157,6 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	int offset = irqd_to_hwirq(d);
--	unsigned long flags;
- 	unsigned int gpiois = 0, gpioibe = 0, gpioiev = 0;
- 	unsigned int bit = BIT(offset);
- 
-@@ -176,7 +172,7 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
++#define AMBARELLA_GPIO_NR	32
++#define AMBARELLA_DAT		0x00
++#define AMBARELLA_DIR		0x04
++#define AMBARELLA_IS		0x08
++#define AMBARELLA_IBE		0x0c
++#define AMBARELLA_IEV		0x10
++#define AMBARELLA_IE		0x14
++#define AMBARELLA_MIS		0x20
++#define AMBARELLA_IC		0x24
++#define AMBARELLA_MASK		0x28
++#define AMBARELLA_ENABLE	0x2c
++
+ struct pl061_regs {
+ 	unsigned int dat;
+ 	unsigned int dir;
+@@ -335,6 +347,18 @@ static bool pl061_arm_volatile_reg(struct device *dev, unsigned int reg)
  	}
- 
- 
--	raw_spin_lock_irqsave(&pl061->lock, flags);
-+	guard(raw_spinlock_irqsave)(&pl061->lock);
- 
- 	regmap_read(pl061->regmap, GPIOIEV, &gpioiev);
- 	regmap_read(pl061->regmap, GPIOIS, &gpiois);
-@@ -236,7 +232,6 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 	regmap_write(pl061->regmap, GPIOIBE, gpioibe);
- 	regmap_write(pl061->regmap, GPIOIEV, gpioiev);
- 
--	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
- }
-@@ -269,9 +264,8 @@ static void pl061_irq_mask(struct irq_data *d)
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
- 
--	raw_spin_lock(&pl061->lock);
-+	guard(raw_spinlock)(&pl061->lock);
- 	regmap_update_bits(pl061->regmap, GPIOIE, mask, 0);
--	raw_spin_unlock(&pl061->lock);
- 
- 	gpiochip_disable_irq(gc, d->hwirq);
- }
-@@ -284,9 +278,8 @@ static void pl061_irq_unmask(struct irq_data *d)
- 
- 	gpiochip_enable_irq(gc, d->hwirq);
- 
--	raw_spin_lock(&pl061->lock);
-+	guard(raw_spinlock)(&pl061->lock);
- 	regmap_update_bits(pl061->regmap, GPIOIE, mask, mask);
--	raw_spin_unlock(&pl061->lock);
  }
  
- /**
++static bool pl061_ambarella_volatile_reg(struct device *dev, unsigned int reg)
++{
++	switch (reg) {
++	case AMBARELLA_DAT:
++	case AMBARELLA_MIS:
++	case AMBARELLA_IC:
++		return true;
++	default:
++		return false;
++	}
++}
++
+ static const struct regmap_config pl061_arm_regmap_config = {
+ 	.reg_bits = 16,
+ 	.val_bits = 8,
+@@ -346,6 +370,16 @@ static const struct regmap_config pl061_arm_regmap_config = {
+ 	.use_raw_spinlock = true,
+ };
+ 
++static const struct regmap_config pl061_ambarella_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.max_register = AMBARELLA_ENABLE,
++	.volatile_reg = pl061_ambarella_volatile_reg,
++	.fast_io = true,
++	.use_raw_spinlock = true,
++};
++
+ static const struct pl061_regs pl061_arm_regs = {
+ 	.dir	= PL061_DIR,
+ 	.is	= PL061_IS,
+@@ -356,6 +390,19 @@ static const struct pl061_regs pl061_arm_regs = {
+ 	.ic	= PL061_IC,
+ };
+ 
++static const struct pl061_regs pl061_ambarella_regs = {
++	.dat	= AMBARELLA_DAT,
++	.dir	= AMBARELLA_DIR,
++	.is	= AMBARELLA_IS,
++	.ibe	= AMBARELLA_IBE,
++	.iev	= AMBARELLA_IEV,
++	.ie	= AMBARELLA_IE,
++	.mis	= AMBARELLA_MIS,
++	.ic	= AMBARELLA_IC,
++	.mask	= AMBARELLA_MASK,
++	.enable	= AMBARELLA_ENABLE,
++};
++
+ static const struct pl061_drvdata pl061_arm = {
+ 	.regmap_config		= &pl061_arm_regmap_config,
+ 	.regs			= &pl061_arm_regs,
+@@ -365,6 +412,13 @@ static const struct pl061_drvdata pl061_arm = {
+ 	.reg_mask_xlate		= pl061_arm_reg_mask_xlate,
+ };
+ 
++static const struct pl061_drvdata pl061_ambarella = {
++	.regmap_config		= &pl061_ambarella_regmap_config,
++	.regs			= &pl061_ambarella_regs,
++	.ngpio			= AMBARELLA_GPIO_NR,
++	.clear_irq_on_type	= true,
++};
++
+ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
+ {
+ 	struct device *dev = &adev->dev;
+@@ -533,6 +587,11 @@ static const struct amba_id pl061_ids[] = {
+ 		.mask	= 0x000fffff,
+ 		.data	= (void *)&pl061_arm,
+ 	},
++	{
++		.id	= (AMBA_VENDOR_AMBARELLA << 12) | 0x061,
++		.mask	= 0x000fffff,
++		.data	= (void *)&pl061_ambarella,
++	},
+ 	{ 0, 0 },
+ };
+ MODULE_DEVICE_TABLE(amba, pl061_ids);
+diff --git a/include/linux/amba/bus.h b/include/linux/amba/bus.h
+index 80a74cd2da7e..411533bfa61d 100644
+--- a/include/linux/amba/bus.h
++++ b/include/linux/amba/bus.h
+@@ -98,6 +98,7 @@ enum amba_vendor {
+ 	AMBA_VENDOR_ST = 0x80,
+ 	AMBA_VENDOR_QCOM = 0x51,
+ 	AMBA_VENDOR_LSI = 0xb6,
++	AMBA_VENDOR_AMBARELLA = 0xe8,
+ };
+ 
+ extern const struct bus_type amba_bustype;
 
 -- 
 2.34.1
