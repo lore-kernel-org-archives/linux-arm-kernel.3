@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB7FC982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3360C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TT5lRmym0T1mzXaOaX/8a6/gNfD3HTc1xl19TrAEELM=; b=eWl/Hh1YBDvuTcDgVe6YW0EVj+
-	9e6ASr2PIVEVkutEtrlRrVEiC8rBi3A1q1KJx0dT39BytlwUlXP+F4m2VfavLBrFohBFMBJgAemEd
-	pUOp0OxLY7fBeHn94abMd9gZr91lZPQDNnYxLriwN/KNJNZN2FY+ggZgUO8cdcs3ZJWEO7ux7QMP3
-	w8f7pYhW3TE/zD4VNPE5+lIR3lyO78ll0t+29aofnO7NSi18jFsyFJ3hThyKO/h27J5ztDuTntsH4
-	zyGUpeucOUfedOqYcruFq1B8N58cLwALCbc8V9NkCepbUp3JLXJGZQ21zK60u6Q12YYc3z4KJMDfR
-	hrtfRJRQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zghCP5qddDssD+/Zn2nncsxv0muFxosiwEXR8TK7rAA=; b=L2fR8ND4mC2/rsL/tp8m8V15ko
+	WUtNj7gGpP7GPQTxEGBnNBqHvBKmG7n8krkwNXo35ZUmyxS7rM+nwpwnMCnRhjZNt4izaNQpCyFkO
+	/gQKBaqQFUk73drwBV5qxjpMGgFDP6K/JE5tlo5NzMVQNW4pURYoulMb1fM0gEP+irJ/gSPaRTDqP
+	gq8qqd07duXIJwUBSJsOYHOYu95w1opqul4uqYWbtuc4EJD956STwRNoQrREnuYd5/UxH6CiXrkc6
+	1d5ElSdYHKWCdxQtJ13I040RHgdX3n6Mb8rTtZkNtgLEUgrSQlVG6hqk43jpGa6zn7uKRr8TRi0J4
+	t39aRJ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bDJ-00000001gVa-30Ls;
-	Mon, 21 Sep 2026 10:25:33 +0000
-Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
+	id 1x8bDT-00000001gad-0xfZ;
+	Mon, 21 Sep 2026 10:25:43 +0000
+Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bDG-00000001gTE-3a0t
+	id 1x8bDL-00000001gWF-1U1A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 10:25:32 +0000
-Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-8693af0d7c4so3036748b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 03:25:29 -0700 (PDT)
+	Mon, 21 Sep 2026 10:25:38 +0000
+Received: by mail-pz2-x0c.google.com with SMTP id d2e1a72fcca58-8748f34b1f2so2651612b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 03:25:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789986328; x=1790591128; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TT5lRmym0T1mzXaOaX/8a6/gNfD3HTc1xl19TrAEELM=;
-        b=e5jgnpAh4VVbEfICKqyZDXGmXbO2xLXEJbi5W67ZguFD0j8KT8+8z4ajuP4Ef7ZEdL
-         pps8kX23njl9sRq3oqvAOxwQDHfiaay8SRazbzo191vI+BCpBxTsOE4KSSA5iqVXgNAb
-         fYFeTVrt7U60Itc9BVDgDZtpML3JbPgECGXQCrk7G6eIIa3uUOUVTktIUZCYuWxGR2qj
-         b3ExXSRTbaYq5de478Psz79enWmXaomM0OgzGk0lhpnDPoL5xL05WIpvOk1r0e1cBRzW
-         w3FT/usaT84Yo3iM3bN0fzFO0B0/Sj/RtuFOyagcfQen+jihjORkNn3vlmJwFx31a95h
-         EohA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789986328; x=1790591128;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1789986334; x=1790591134; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TT5lRmym0T1mzXaOaX/8a6/gNfD3HTc1xl19TrAEELM=;
-        b=jbdyoInHedL18NtmbvLkTDpDyaD+pwLPisy9770Mfnic1W0P6lRDfH/tPT5UGFtU+g
-         o16xgv8FLlfwjnwCvo2agTCQcYmhf0qfecCrc0/+yqwZMeLUUMSbdEj5+67zSmC3XU99
-         lkkrJ8u/81MGEV3HhPGHl4jBZwP9ExQgAXMk0SPoLIoCfvxQBBM8MDMpEXTqol6MeuEm
-         abfLPc1U8a5fSSmD2g3pYxb/9NdItVpP0fh9ljLlA3FzfRH7IQj/BxN71WvQt/LDEYZy
-         osgYiw2qOW3QirvDE0MwNZ7TnTTFIeHzZ1JR6nonkYce7TvpZBapZHnnMbyyJHu4notK
-         Xg7Q==
-X-Forwarded-Encrypted: i=1; AKwUvBx6uwydXroDFfSKSC4bQp81HeySHtfIwAtv+Z+6BPw/ezHheKu92+ocwtH7txFc4bvrFpzObK8cr18821e5wuSY@lists.infradead.org
-X-Gm-Message-State: AFuF++lQfAl1o125PXuoQzmuZ7d3dERDaN+IYmJOjmV0rM+EeNED7w0t
-	zhLqWhwiIe/OywXYSgjrDWq8uEyaQ9yoUS9cOUi7xQNo4W6gveOyVSTK
-X-Gm-Gg: AYBFou3THJY66wLPTKpNq6Nnbbp1qsGQJo3IKBlxPnioD55UhIgqy3lNEezuODmKFWM
-	JILo/2Tn8Dzh/rpYnNBGvctgaskFl5Ua2+6AFNj5WkeuXAyWEKy5NxgbLs2XhqSuifagubfw64Z
-	77Ciw88JL54S6IeCEKq3JLysn1X3RSB5lMIHMCI/8pubdcsqVo1Cd1DoIxYcG7ZsP+/Ul1xtar7
-	WU+Dgn5PrSK/EaZvzXNztwfWkY9u5iUypeCwt3xBbmkkyQgVJ9EXiznDHbWJvqAJqXKnjx4xrox
-	Xje0NZWOfpwwFYzqEd4CBcw2+Qf+X5fzahbu0FuRePtxW5BivIH4orVd8D4X/usFACXKWIij2WP
-	3NG3Er0FrGjf7euqi6Zva3xdFZN/E6b5U2odhM0lDNbqtVLsG+fUzwIg//2HbMdw1k0X9Gh5lKn
-	qltJ0ogPTeusP9Nchb/Guyda6N0Xuz7IXP/MbAQ3OJxTGqWA/zIaa0SwQAqboUVyyp8vqIGA8s9
-	l2L5JRIZ7GojJ7act+5IUVZQopb
-X-Received: by 2002:a05:6a00:1911:b0:878:34e7:9a3c with SMTP id d2e1a72fcca58-87834e7a3a3mr7459656b3a.53.1789986328468;
-        Mon, 21 Sep 2026 03:25:28 -0700 (PDT)
+        bh=zghCP5qddDssD+/Zn2nncsxv0muFxosiwEXR8TK7rAA=;
+        b=MXoVq3rCFSVn6c2+zuOQK+G1iUsofgyLm/DR2JAC3fb8ZTh0eivHBTS3Z5wHdKVfHW
+         cvil6FOpmjK6+jAvNu0sbSwpUkYd2pukqXUMCmfn0gofgQ+cfX2E28ppBbxOQh/IGuyE
+         8l5veNINRaEo3PPjZwIKYyG1Na4yqlG8ecKu9EfITDKCuMlhaVJypJiWUMu0Ftxstcpx
+         p57gL/N+Fo/9t6ej6u99YxCWfpwNW+0kNnj81ZXreelx8nhJn84JDT+isw4WMMDUEexL
+         aFEGYJn5b6sX150+WRsLoPioFVoG/KzR4ZYCw0Y6v8gQ13zcL4n81C7IaJgTHiZmd4Na
+         GhzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789986334; x=1790591134;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zghCP5qddDssD+/Zn2nncsxv0muFxosiwEXR8TK7rAA=;
+        b=oqvD0uGSlJJuaHB2C0BTi8cd3bLE0h4IA+LEZrktrIoltpPsAo4lH3nbwTHLQodkVZ
+         CHYKNHAGnNKJNfyz9qGtnFgA1cMIoKctl2TVFple/Pp0+oqI7V1ftqw3gTmrZsFrMHcJ
+         Pd79uFqQMiHzGcyLc6Q7c//q2Z6rxUF0sWTl0aHhkvz7XDPhU6DC6U0ukw2W+RlQZQZd
+         aC8nSZElHqnXrsB0eR8R9/I8mOhTDTKvzQDPW9N5M0uEwjZtQPW0VHQG9sokkNECpW5L
+         icnRG7ToYkbYiVFO9/aXbtk8ZNjIIdu9x1gDthGV7w7+uvYVq295wOzHrmdD/AHlCXB8
+         DORQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxN+Z3/capeUqy4/D8EeM8poCvvW0dCK44ydFV5tvkFtevPgYPQrKCCjZ2Fx+i/4pz+TEhO6TLzSU8LFULGy9vw@lists.infradead.org
+X-Gm-Message-State: AFuF++k86XIccv+2quW6MkmuK9VlnWihWD6QwYzs3SnPndhC1+Jo7PsG
+	EkKCq+v7upFwDoJ7MxJtATDfVkaDz06DKAbJRxH79uxQS2iPHRiNMrY4
+X-Gm-Gg: AYBFou1L7XcU+2diN9aenm4mbZLpINs5deTjUbzYx8xbcJCRaUy1+aNpzVIYLU4zy3v
+	engym+LR+4UXsRpTxLiIClS6hMzC27Ygi4EMyeC2B2ykCCzEFcMrfBkhsYFIlLvfkommBNg4CHp
+	EKlwFS/PzpUXWgHiHfdx4sqI23iX1umW922KCzMAGC0IM5vujUIujaNp9b/XUkG5oymc9F/6sJG
+	vlcLFv+yhJ+m+P6kmf7fvM9O8V8j8EkdzIAUUiZ5MZdxaoxYB6MjRHYrx7l3CQukw5QqFTAOc13
+	P0BIqQJEgLiTPabzoA8FFDLRZVmptdLlZabscSbRuELOlbKWS29I/kdBh9dYjHLkOWGg81qH2LY
+	AzXdlln9ZqFqKOP/J3xcB3SzSthgIObK8OC52MYfUAKmOF5UmAuoo/gRmFCx3EGW77rHqqpL7wz
+	FFKgybG7h2M4eIvztDNcyUjGAtFniKa98+LoFcz1SjODQcW/nNn71As/xGXLuB2D8R5GNWkcfcr
+	d66SYbIyZ2FV4Y3NEyA9Acj2SstoA0xM9+bGF0=
+X-Received: by 2002:a05:6a00:32cb:b0:874:705d:f655 with SMTP id d2e1a72fcca58-874deafb8cfmr14424938b3a.35.1789986334443;
+        Mon, 21 Sep 2026 03:25:34 -0700 (PDT)
 Received: from buffalo-ssd.taila54753.ts.net ([240b:253:4760:f400:1ebf:ceff:fe7f:5e0b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a94f238csm2909174b3a.21.2026.09.21.03.25.25
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-877a94f238csm2909174b3a.21.2026.09.21.03.25.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 03:25:28 -0700 (PDT)
+        Mon, 21 Sep 2026 03:25:34 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney+clk@redhat.com>,
@@ -88,16 +89,17 @@ Cc: Takashi Sakamoto <o-takashi@sakamocchi.jp>,
 	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH 0/6] clk: mediatek: Fix descriptor clock ID allocation
-Date: Mon, 21 Sep 2026 19:25:16 +0900
-Message-ID: <20260921102522.1640072-1-akkun11.open@gmail.com>
+Subject: [PATCH 2/6] clk: mediatek: Fix MT6797 clock onecell IDs
+Date: Mon, 21 Sep 2026 19:25:18 +0900
+Message-ID: <20260921102522.1640072-3-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260921102522.1640072-1-akkun11.open@gmail.com>
+References: <20260921102522.1640072-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_032530_923773_399C1FAE 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_032537_012889_56ABD574 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +114,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several MediaTek clock providers have clock IDs that do not match the
-size of the clock array allocated by the common descriptor-based probe.
+Add the missing dummy clock at ID 0 to the MT6797 image,
+multimedia, VDEC and VENC clock providers.
 
-Add dummy entries for missing IDs so that the allocated onecell data
-covers the complete clock ID space used by each provider.
+This keeps the descriptor-based onecell allocations consistent
+with the binding clock IDs and prevents out-of-bounds accesses.
 
-Akari Tsuyukusa (6):
-  clk: mediatek: Fix MT6779 clock onecell IDs
-  clk: mediatek: Fix MT6797 clock onecell IDs
-  clk: mediatek: Reserve missing MT8167 clock ID
-  clk: mediatek: Reserve missing MT8173 topckgen IDs
-  clk: mediatek: Reserve missing MT8196 MDP clock IDs
-  clk: mediatek: Reserve missing MT8516 top clock IDs
+Assisted-by: GPT-5.6 Luna
+Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+---
+ drivers/clk/mediatek/clk-mt6797-img.c  | 1 +
+ drivers/clk/mediatek/clk-mt6797-mm.c   | 1 +
+ drivers/clk/mediatek/clk-mt6797-vdec.c | 1 +
+ drivers/clk/mediatek/clk-mt6797-venc.c | 1 +
+ 4 files changed, 4 insertions(+)
 
- drivers/clk/mediatek/clk-mt6779-aud.c      | 1 +
- drivers/clk/mediatek/clk-mt6779-cam.c      | 1 +
- drivers/clk/mediatek/clk-mt6779-img.c      | 1 +
- drivers/clk/mediatek/clk-mt6779-ipe.c      | 1 +
- drivers/clk/mediatek/clk-mt6779-mfg.c      | 1 +
- drivers/clk/mediatek/clk-mt6779-mm.c       | 2 ++
- drivers/clk/mediatek/clk-mt6779-vdec.c     | 1 +
- drivers/clk/mediatek/clk-mt6779-venc.c     | 1 +
- drivers/clk/mediatek/clk-mt6779.c          | 1 +
- drivers/clk/mediatek/clk-mt6797-img.c      | 1 +
- drivers/clk/mediatek/clk-mt6797-mm.c       | 1 +
- drivers/clk/mediatek/clk-mt6797-vdec.c     | 1 +
- drivers/clk/mediatek/clk-mt6797-venc.c     | 1 +
- drivers/clk/mediatek/clk-mt8167.c          | 1 +
- drivers/clk/mediatek/clk-mt8173-topckgen.c | 7 +++++++
- drivers/clk/mediatek/clk-mt8196-mdpsys.c   | 2 ++
- drivers/clk/mediatek/clk-mt8516.c          | 2 ++
- 17 files changed, 26 insertions(+)
-
+diff --git a/drivers/clk/mediatek/clk-mt6797-img.c b/drivers/clk/mediatek/clk-mt6797-img.c
+index 338c69234f24..2a42ec0a4b14 100644
+--- a/drivers/clk/mediatek/clk-mt6797-img.c
++++ b/drivers/clk/mediatek/clk-mt6797-img.c
+@@ -20,6 +20,7 @@ static const struct mtk_gate_regs img_cg_regs = {
+ 	GATE_MTK(_id, _name, _parent, &img_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
+ 
+ static const struct mtk_gate img_clks[] = {
++	GATE_DUMMY(CLK_DUMMY, "img_dummy"),
+ 	GATE_IMG(CLK_IMG_FDVT, "img_fdvt", "mm_sel", 11),
+ 	GATE_IMG(CLK_IMG_DPE, "img_dpe", "mm_sel", 10),
+ 	GATE_IMG(CLK_IMG_DIP, "img_dip", "mm_sel", 6),
+diff --git a/drivers/clk/mediatek/clk-mt6797-mm.c b/drivers/clk/mediatek/clk-mt6797-mm.c
+index ddb40b8a1a7d..d2349c1d2a55 100644
+--- a/drivers/clk/mediatek/clk-mt6797-mm.c
++++ b/drivers/clk/mediatek/clk-mt6797-mm.c
+@@ -30,6 +30,7 @@ static const struct mtk_gate_regs mm1_cg_regs = {
+ 	GATE_MTK(_id, _name, _parent, &mm1_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
+ 
+ static const struct mtk_gate mm_clks[] = {
++	GATE_DUMMY(CLK_DUMMY, "mm_dummy"),
+ 	GATE_MM0(CLK_MM_SMI_COMMON, "mm_smi_common", "mm_sel", 0),
+ 	GATE_MM0(CLK_MM_SMI_LARB0, "mm_smi_larb0", "mm_sel", 1),
+ 	GATE_MM0(CLK_MM_SMI_LARB5, "mm_smi_larb5", "mm_sel", 2),
+diff --git a/drivers/clk/mediatek/clk-mt6797-vdec.c b/drivers/clk/mediatek/clk-mt6797-vdec.c
+index d832f48123f5..73339310fb51 100644
+--- a/drivers/clk/mediatek/clk-mt6797-vdec.c
++++ b/drivers/clk/mediatek/clk-mt6797-vdec.c
+@@ -31,6 +31,7 @@ static const struct mtk_gate_regs vdec1_cg_regs = {
+ 	GATE_MTK(_id, _name, _parent, &vdec1_cg_regs, _shift, &mtk_clk_gate_ops_setclr_inv)
+ 
+ static const struct mtk_gate vdec_clks[] = {
++	GATE_DUMMY(CLK_DUMMY, "vdec_dummy"),
+ 	GATE_VDEC0(CLK_VDEC_CKEN_ENG, "vdec_cken_eng", "vdec_sel", 8),
+ 	GATE_VDEC0(CLK_VDEC_ACTIVE, "vdec_active", "vdec_sel", 4),
+ 	GATE_VDEC0(CLK_VDEC_CKEN, "vdec_cken", "vdec_sel", 0),
+diff --git a/drivers/clk/mediatek/clk-mt6797-venc.c b/drivers/clk/mediatek/clk-mt6797-venc.c
+index fd4446f4a9d7..f616d61a0de4 100644
+--- a/drivers/clk/mediatek/clk-mt6797-venc.c
++++ b/drivers/clk/mediatek/clk-mt6797-venc.c
+@@ -22,6 +22,7 @@ static const struct mtk_gate_regs venc_cg_regs = {
+ 	GATE_MTK(_id, _name, _parent, &venc_cg_regs, _shift, &mtk_clk_gate_ops_setclr_inv)
+ 
+ static const struct mtk_gate venc_clks[] = {
++	GATE_DUMMY(CLK_DUMMY, "venc_dummy"),
+ 	GATE_VENC(CLK_VENC_0, "venc_0", "mm_sel", 0),
+ 	GATE_VENC(CLK_VENC_1, "venc_1", "venc_sel", 4),
+ 	GATE_VENC(CLK_VENC_2, "venc_2", "venc_sel", 8),
 -- 
 2.55.0
 
