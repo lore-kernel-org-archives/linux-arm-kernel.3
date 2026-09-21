@@ -4,53 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5C9C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 21:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21EDC982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 22:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFMcHKEkW9VJemIkcZBmOy9eKfMpVkSEhH7a5ywHPrw=; b=hZyNpqros/lfYEWJsvZFM9gOU0
-	NsdS3HIFKqWEisxOLM0k2QJC42Ckp6y2HR9g8kuP6DR/HgW9GYVe/y5OvTP6KuO7YxPikQByMN3kw
-	7UwNvKxF8PbPMqb41djk7UuNbjc5B/5YxFYttMvBCTyWUVkOJh9RhE39LwoT34T9uT5+wAVpPZNg8
-	fY9ZFzqzEa5fDHkTTCaEX3ZqISc659Ifdjk/V+ogInTzUNhdB9vteSiZqSUW9L7ZH9CHgL2j6nKy4
-	ogTR1NBcWg6fthTP0mFHNq0QAcuNt/FdKVPUMmrZlgqySPUAavfLIT9G+DNxtOShfAlrZ4GJR9NJX
-	myHq9MXA==;
+	bh=kIsY3P9pXrWyESUdvHXPJV8L9IlYB5o6HTWVCOxBPec=; b=20cRpSQ1KJhDchEdsaLN7nNzcs
+	+iQpkzeY6zPR1pfkEhwGAIE3A081edilM36ls5/dUWT3g7Xj3rHLiT00l2P9l+12RK3S/HPXxC2OF
+	oBrM3BpMaXXIzhZHdw6WbAoJ4U2CrTClElzGmrzx8W2Pfy0HoOJNS1qJMV4G/+h6p5u1RPtxH8d7x
+	JpxoGNV43DQGb9LJ+rhEyxMS1YzXkdbxbJWhM/GM+FG+wt4XJnqv2U3CIApOFUD6JXqk0SPZIBXlG
+	FRz64giG5eox6dwxo9rVCEDF+6cWKdtHT41CshIwHeBV54bsXjW+aOYjYQr4seQYqJb++u4nZrAbL
+	pMr/F2vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8m33-00000003WTv-0Xs4;
-	Mon, 21 Sep 2026 21:59:41 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1x8m6f-00000003WuE-2RRs;
+	Mon, 21 Sep 2026 22:03:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8m2v-00000003WQQ-3oVs;
-	Mon, 21 Sep 2026 21:59:35 +0000
+	id 1x8m6e-00000003WtP-0Dlv;
+	Mon, 21 Sep 2026 22:03:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=kIsY3P9pXrWyESUdvHXPJV8L9IlYB5o6HTWVCOxBPec=; b=gcHYhl+QqoVLin8sJJgAWhyvL9
+	FP90WgjCLRUs3j2rK8kpnWRi1FG895Ox/TFrYF11jRYFArWZVw//ogRyXWZ0tWPxkEKpBDIcdNbiY
+	DiBNy3Nv3oGb5bv86IffIoH6Esw9i4hFky6Vydhv3e4+ESVeWM7KTe1d/r7nuA75GiTLNOHyTBQhx
+	yKTV91Gv2o4WY+l6/SVH+oGEyzTJ9PwuAF45ypyqyGleVlE5ZDkF6WRCgsFqZMNxnY3ZiLA/Xit0V
+	IufeeiMrIcLgIbEbVyadm570lo5mYZyuNfcDaenHQ1CGolPayVXRB+6mFvTDBuHytOkXdcDfS4oje
+	6jOmjp+w==;
+Received: from mail-centralusazon11010028.outbound.protection.outlook.com ([52.101.61.28] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8m6A-0000000Cro5-09xE;
+	Mon, 21 Sep 2026 22:03:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BabfJQtNODTahRsQJxAZwaUwKVLzNC64MNtFjWwhTv3+FvDMowJejCZ302KLdY31C34/hBBVAmN6hGHWJJeyZyNXBKWVkgyA2ft/1NHPvVSnSXviYBjH0L+nJtk/LeMzZ+1aZfpeskQqMOOVm9OQYYEGXBgpzzOGyWYEXNLuc+wGhLW0Af8KQhFgJ9ot7Gq2+V8j/xbQ7CSz320I8CsbaipyNX//Do7C54+80yQntbE48rTTfirjAdag92529ni7NKyA8uqwP8WppGkAQmUCKN+V95g0hXde3JR/ByU41xEvOcaV03NpWUOpRqbvJiPTPwjOaTd3xpW0R5HvUCkc+w==
+ b=uzWOj4nioa02IUeIoBcsiVbNJ3VwFoevuGXs7ufrNlSZIkeDSy7XOn6p7BmWlbEW1JBxmLvM8Drd+EQVQxM3yNQBvLPg7uv+MkfvIkpBWo6mskuPL/rSQCk3XUWURprd3SRwB1coyRl++nmKO3UCEf5y2ctpnv8wR4xE+1BP5MSB6ZEKDGIPZTqEGd3NQCLhyvAYmY8hwc8Yty4EGzdnH24FhqdVn7Ou2yg9fS48J5WGBqApIHWc+dYmE+LPVEGKYfaDyQT43eyHQqjQXm8BNAKATcwhbfNGK/vLZz//W7ttNI1j4IIEHD+GD6z1lAdgC99u0E/JPz210Ysr4q3IrA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hFMcHKEkW9VJemIkcZBmOy9eKfMpVkSEhH7a5ywHPrw=;
- b=nTGfNG1CQSpmE8l5J15/VqxQdjrk/eAn0Dem46CneH5Vt+IDZm+MisMKY3vGbHt5RVwyWn2n4lOR9mvwt1zjD2ac3kDLcmgKil20m5+S+2ZCXzw4niE6Y/pZworo8Ni9oVeLRyEtMDFX2ua4HyYFTZtqHK+maSo6uYxvMGppXmRnUiPM+Zc+F9FgEb4oeM7lTeePSci431kknKrwoSF1snJ2vGFH8AWr7GepYdkhTS9fxixoQe0Eyxd+q4jQmcwNXT+zNV6BnqnpMqeRxFm7d3Y2G4cFRjxfb1moqbegwlWkIYGWUnlFs2eAjRWASws/ZzuxY8mxA3rS8072bDsfnw==
+ bh=kIsY3P9pXrWyESUdvHXPJV8L9IlYB5o6HTWVCOxBPec=;
+ b=IHUmtfBonDlls2eQHUEn+E26xxqjmmef+VEPx9UyY7IGlrerUK7onp7xgK6oROU8SK+j2xboC29NUAHdMCwFYldIJkC82xdG5hF5HU0w46iJUjxTnw+IKmMB26nHpfTBCQ8yQXtrBV+8RHfUX/WpGYvmDd4y+bcIvtLt7CbgrOp+y0t/DynO5OVrNG7FihKUe1xcRWcUXq1j1Hxcl6AAuUAA3FEGTmzXzYz63T9hhu1xRON3j/SL1LaQMp7rCFybErYuVlsegMAP+RdhgqAii1j0MbYRlUtKIASwSb1UG3tCgNO8xxCf5TZkpDeYx0gnMAF+7tBk/9rHTztslOHkDA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=collabora.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hFMcHKEkW9VJemIkcZBmOy9eKfMpVkSEhH7a5ywHPrw=;
- b=eOliHVanpE4HTIr4nOH9b4Ic65Lgu2BkVPxUTTsXItcAwnturf4D28hDKgLrGlN4USaSPvdem3xII4d5Bp7ThlbzlbPyrpsV028NbRAWreT/GeTBlkRRX1xgMVRLe+Kf/gmgUIsxypqts0InI10ODpuiKLCGQXEck6MleyiRXtw=
-Received: from MW4PR03CA0305.namprd03.prod.outlook.com (2603:10b6:303:dd::10)
- by LV1PR12MB999306.namprd12.prod.outlook.com (2603:10b6:408:3f8::23) with
+ bh=kIsY3P9pXrWyESUdvHXPJV8L9IlYB5o6HTWVCOxBPec=;
+ b=lZUJ0zdaHicwdHU3dqv3ma9Sxgbb8NihpG9eXspyUbPg1P5Mn5kRgfiVAPazNTY4Xe2D9wAh4+sHBDwjceHxc9U+09dKi7b7D8QHMtzIHxAzTK1WrBW76JK3Ovuu6dAIRC8b+fMiKS8qWncyWGfB0LP84jL4/yOCV01dg5RbNY0=
+Received: from MW4PR04CA0107.namprd04.prod.outlook.com (2603:10b6:303:83::22)
+ by MN2PR12MB4208.namprd12.prod.outlook.com (2603:10b6:208:1d0::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Mon, 21 Sep
- 2026 21:59:20 +0000
-Received: from SJ1PEPF000023D8.namprd21.prod.outlook.com
- (2603:10b6:303:dd:cafe::29) by MW4PR03CA0305.outlook.office365.com
- (2603:10b6:303:dd::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.6 via Frontend Transport; Mon, 21
- Sep 2026 21:59:19 +0000
+ 2026 22:02:13 +0000
+Received: from SJ1PEPF000023D5.namprd21.prod.outlook.com
+ (2603:10b6:303:83:cafe::1c) by MW4PR04CA0107.outlook.office365.com
+ (2603:10b6:303:83::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.16 via Frontend Transport; Mon,
+ 21 Sep 2026 22:02:13 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -58,18 +72,22 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF000023D8.mail.protection.outlook.com (10.167.244.73) with Microsoft
+ SJ1PEPF000023D5.mail.protection.outlook.com (10.167.244.70) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.0 via Frontend Transport; Mon, 21 Sep 2026 21:59:19 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ 15.21.451.0 via Frontend Transport; Mon, 21 Sep 2026 22:02:12 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 21 Sep
- 2026 16:59:18 -0500
+ 2026 17:01:51 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 21 Sep
+ 2026 17:01:50 -0500
 Received: from [10.254.92.51] (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Mon, 21 Sep 2026 16:59:16 -0500
-Message-ID: <75b82a61-fe82-4597-bfb5-3c717fbb0dda@amd.com>
-Date: Mon, 21 Sep 2026 17:59:11 -0400
+ Transport; Mon, 21 Sep 2026 17:01:48 -0500
+Message-ID: <8dbfd32d-547c-4b38-b3b3-460c4b666a72@amd.com>
+Date: Mon, 21 Sep 2026 18:01:43 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC 03/25] drm/atomic-helper: Set mode_changed on
@@ -80,10 +98,10 @@ To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, "Borah, Chaitanya
 	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
 	Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Andrzej Hajda
-	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert
- Foss <rfoss@kernel.org>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+	"Robert Foss" <rfoss@kernel.org>, Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, Luca Ceresoli
 	<luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
 	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
 	<andy.yan@rock-chips.com>
@@ -100,28 +118,28 @@ Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D8:EE_|LV1PR12MB999306:EE_
-X-MS-Office365-Filtering-Correlation-Id: 734b0074-17ff-45f6-0b6c-08df182b9686
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D5:EE_|MN2PR12MB4208:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e7a7293-aed9-43ea-5711-08df182bfdca
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|42112799006|7416014|376014|23010399003|1800799024|10067099003|56012099006|18002099003|22082099003|4143699003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: A2VlOXDdR+oPxukfB0Hqba9c+9GWqbnl0DZmjvyady7BHuulT10igfaTNbYAKBIDkpZZnqBGDl6wa7uzrvodf/0Nl22QTyV5AnZBbZP4HX0WJ5nCr+GNfTciA+xZX8rzvbuOKPB0fsH/tsniEjDeK48fhbIo6ofDoHLXkI30x8tfAEb2thYTOTgMoGvM4Wgao12f72IskulUkRaS503ymqQr191c/APW7mJV4zTuxPvsZsZ4d2xSnMEYtW9Qi3V2EE5rryjHQnWKfykaQV67MBddiFwD5MDyzhHlztMrBYZem50IYzHWgHOleq/z7eWeOozzS/NC88UWFibUlAs1E/JvWlSaBgBXxf140a5Vk6D1JpH7G3UxtDwyukP8WvOsl2kYTFJrnUUPni9M3aTSQp4bSGwFXbq7D9T6Atg5iIQ7sYfxA9N2G3Lv1KiOMVI94+RBfwBA8eiQMXzwvIncJmeN5fl+YoUwPNjuNZud4Jt3Car9ksTrnSYhi/4bM3z5YuEU3CXS2iBzI+hKSd+T2TXix7rxDsNLM/iyz8x8kBAyIwkS370JvUS0Qbcbq5RsWNrCJHeY0a/SBvHoKKgXumiIdl87SmEhh81mJszw1zeR3oVAgQlfQ1eeyaQ/aDUNV/ScgbZLjk8sVZfdKhSQ8AFsgqaMk/8SNvtTHkqTs8wiakWaPqmuLdp4v0LcUQq4yYJdktjnLNIO+3IuDUt1eZR7i0YMrZLwEr042QKb/1+nB6RaWL86wQHwGfTGnafq
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(42112799006)(7416014)(376014)(23010399003)(1800799024)(10067099003)(56012099006)(18002099003)(22082099003)(4143699003)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|42112799006|376014|82310400026|23010399003|36860700016|921020|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: nv1FHu48KGmcV7evD5BGx88lYN73sAsLwLRXWyqcsaAwdHyykA37roWT8R0oHy/UnYp+kHHrRMKXJ4Dej/661D+yoe6umVts7KnJETnbzmbyP5PnxWCgJztAsEavBmZagNeRKU7dsFDMcUx49EiEhQ6GgvrvvyCnuUeULDzre/1bWr9v3sK3n6XIAQvakx6AfROt7IwiCrXtf0auQq6HicqCEIwhTcfsTcVunBV3Xz3ffkwsaQP2jnaRp12ptlf5U9ZBDd33V9BhtgppQnccOzoGti3LsSvhB7sBduLaTOpmMC1YG9uTbdAEMlXOZOtvIexzuOlp1vSRj5Yvuda2rJjj6HWrYycN0uKXREvTV5k7j19tQNd3+AGhCZ+kd5O9vV5vVmAoHM85q81LefPFEVYZoqVY7ire+Of+OnJzI8WsOJVYHwU58ZQCC9vPQygi9Zu1LE5NtAOcBa/jgU6PzWxpLJb5dOc9fYdiOjS+AG7/Ms1DfnNF43E698j90eo4qbdxfJzvZmJSBlCxHJuqWf5F52n4ywmekuL5P+niruJhF08r89RYbzKxMIRG5LgkqBx9q+QdfiXN/etdYp5zpd979y+Gd84jXsKIMyM+sa35tQGoj6Pbn1glnbI8pnLw13K5Td0rRXbSLKR2tVYYGLUlh5xvUfhPrDbPHzO88oyWvFxvYRMzFoaK15D3PKyRjO7L5iVQluLJYEF26KNI2jBmLyuI5eJY2OO9p58DuFSLHfpkLhWYueL0mA/HyzC3
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(42112799006)(376014)(82310400026)(23010399003)(36860700016)(921020)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DkDOYVCz2k68aiT/v07088fgbH3ftLGYeOf2JdLn97YLgcaWEuqr21RPwyHktr4hW2hFYjMm5RewL2cAmzKOUBbbFBl/2Ud7ZG7ZoO1UWwzHBjx5W825UhXW7YdanGbgS/DlcckqsM9BARfP+JpwC3gnJUAIR7PEpHr5uL9QTD5XKDsCCS4L0DnWBF/eSZAIK8V0IN8oUCVHA3Dfmrkq3PomDG1SdTFvDX55k/WhKrU0FgBS1cll3lB+G4QcqYY238O73WRXT3zDmoxo7zk7uXM1Z9gpEpRrN2/ex/25eluzTRIOzeNekvGW9DZteByiHPTdx50VJ3c72XduOwPCEiLpwagj2TrIbh74VxbzZC82ySqeN8qJplKoKHqfWe1NVqO/fZUL2Aty4ACDE5xHQB3QlJubtT+UaGZMOg61ryKbMR34Vfti33akTwlfBmsN
+X-MS-Exchange-AntiSpam-MessageData-0: OGZIcnmE6jmUPw4Htb01gzEQi6qShUCr4lbW64bMq2Nxd787Y2jEX3eGLIaj1nceqlL1AM41hFN4+ezBMWeadb0zooPxXhUxcp6O/HLPXAVC2WJCjcrfBOfE7uyhC70+pXtvOlYlPhlB3YPIlnEaQhFIkOLn/9t3Tl9PDF+htLbMG1NkOIRLlx5nx4QACEsTEk1dMoivcfHtzYlQ2oDMKJI666J84YSnXAO9l0vnUz1ASTvVyxKc7Ib9fxRzVpwHJQkIkcUkWIqzz1OEiRzIH4OyCF4WRDlLyFLjFPNEoS9K4Ow0zDMaCmUaABqLab0xW3z9gpEaPm+9/2YGX7NI967OYizv/6+LCmhJmkk+MgobJwi29QoDtW3wHNvB1BCR6Ochu5turjc/7oaBAu2+oUvbzOm02YYzyd4yLwecrAsdTVjIZF2jmW0kdsJPG684
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 21:59:19.6890
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Sep 2026 22:02:12.9463
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 734b0074-17ff-45f6-0b6c-08df182b9686
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e7a7293-aed9-43ea-5711-08df182bfdca
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D8.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D5.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR12MB999306
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_145933_957108_37D5363B 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20260921_230315_329461_03E60C58 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,7 +154,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicholas,
+Hi Nicolas,
 
 Thanks for sending this out. I'm looking into an amdgpu implementation
 and had some comments along the way. Will reply inline on respective
@@ -174,7 +192,7 @@ On 2026-09-21 11:51, Nicolas Frattaroli wrote:
 > +		}
 > +
 
-I don't think this is the case for all hardware, at least not for amdgpu.
+I don't think this is the case for all vendors, at least not for amdgpu.
 The parts in HW that adjust vtotal can be programmed without requiring
 bandwidth recalculations or reprogramming of pipes. 
 
