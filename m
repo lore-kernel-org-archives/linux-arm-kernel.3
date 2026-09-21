@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F02C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:09:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C43C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 09:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h60FEv/IeqHFNTk805m5EhGk1NC7fkBYTFD/7UZcnhA=; b=sbzBrxrZk83KGfL1CELwwGSj1C
-	djLV5IAitXwCWKVxsq2HxuRvuVwcuq9IGWY6H1DoyMLC/RYEp8b77YVYi4yv2QQkN94MyqTXB+cvP
-	G4Rdh4eYyWVtmvcfQ+L1ZFYlPOXKFQMrSOdp+Y5bBaC9wQSkN7HyflvqVXad2ev5d+Bq3OclvnLst
-	5lAe7ZOzmYxS9DtsFhfNoDbWxH6wP0h5Ur663zeYX9ppPq+74mberWaGx46CJJkxk5Do5BGFOzDtu
-	c/WUhvv6dacJR8JhNqcs47dNoeAJ2y8uSq5ExFRRRWvqTZvv4bK4uL8uuFz0ne2IOq0mgcKjuHZbf
-	Oz61E1KA==;
+	bh=yPW2dZAxEbH0+g92u4hCAhJCZWv/yfUo0ZYM9OdlpBM=; b=W7Tn6go0qYNbytrBHqnRpS0rlR
+	99cllXOOXj1ErCAusdWTgtC2r0yUu0y+XWzs9HF711IyyPWxwqQSTYDXnvS6W5HpV4W5imdNvTTrP
+	116bFL6YNWJ/WUpmtghuM0b0u8TiMK6bL7v3Bn7Zv3W/EB4I5/MUKR2Az2TFlPdiN4g09rfLkVspb
+	I82s+JZGICY7NCS9IAnKDDU1ETXW4wXJ+3pTv5XvvLK3furdgVrPdxLfURG/uCAnpR+QTP9pRU6kO
+	/6OxOkBD1gqZD0iezk7ooVjrAr7439uIWH8B2HGzv7DxXE3SCNVxi49wLeUttjAoLSEVDmLAn6C35
+	p/1PCWvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8a1m-00000001Skn-3Cvr;
-	Mon, 21 Sep 2026 09:09:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8a1i-00000001SjM-1gOT
+	id 1x8ZhT-00000001OQi-1HdL;
+	Mon, 21 Sep 2026 08:48:35 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8ZhP-00000001OPd-0hLB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 09:09:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A1CD1D13;
-	Mon, 21 Sep 2026 02:09:20 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 825863F86F;
-	Mon, 21 Sep 2026 02:09:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789981763; bh=NzXT89fT91jRss88v9wu5H7tWKGtVCzsHuCRkJMBwFI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KIlF4TH5rCEyZsursZk865vh+sMS4tSuhkm6t2NtH4/1PDNneEHciBiaLXqvLwMyH
-	 iHDXuOlz64TJYimgzK1yZnb0ziw4VpAI/oT0uaQ9G34qvyt+WcIJp6Tr0kY0LLCK+J
-	 24+7i4E5aN2uOmGV2euDIHnC1OZFX5GkhHsNyIQU=
-Date: Mon, 21 Sep 2026 10:09:15 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Qingfang Deng <qingfang.deng@linux.dev>
-Cc: Russell King <linux@armlinux.org.uk>, Linus Walleij <linusw@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Thomas Weissschuh <thomas.weissschuh@linutronix.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Mon, 21 Sep 2026 08:48:32 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.103.44])
+	by APP-03 (Coremail) with SMTP id rQCowADX2zlW77BqMptFCA--.6452S2;
+	Mon, 21 Sep 2026 16:48:22 +0800 (CST)
+Message-ID: <0da2ef7f08b23e916869d5c08267b3802d5a631d.camel@iscas.ac.cn>
+Subject: Re: [PATCH v7 7/7] drm/verisilicon: fix DC8200 primary plane
+ disable clearing FB_EN
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: errata: document Cortex-A9 r4 as affected by
- erratum 754322
-Message-ID: <arD0O8BgRmhnbvSx@J2N7QTR9R3>
-References: <20260920032926.452884-1-qingfang.deng@linux.dev>
+Date: Mon, 21 Sep 2026 16:48:22 +0800
+In-Reply-To: <b589c197-2297-42c4-b017-3594cdd1cd56@gmail.com>
+References: <20260918030125.315978-1-a0987203069@gmail.com>
+	 <20260918030125.315978-8-a0987203069@gmail.com>
+	 <4a7b271d2a90eff94c27dec3bf24114ce44df1fd.camel@iscas.ac.cn>
+	 <1d988dfb-c930-4c17-ae77-47b93ff9f159@gmail.com>
+	 <cb30f57c0ac124aac85efad32626e6182b9f1369.camel@iscas.ac.cn>
+	 <b589c197-2297-42c4-b017-3594cdd1cd56@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260920032926.452884-1-qingfang.deng@linux.dev>
+X-CM-TRANSID: rQCowADX2zlW77BqMptFCA--.6452S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KFyfCFW8JFyDXFWkKw4fAFb_yoW8Cw15pa
+	9rKas0kr4kXr1Ik397Cw48tayFgrWrJ3y7JryrGr1vk398tr1xJFyrKayfuFW8Grs3Gw1a
+	qF4qyr98CFWDCw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IU56yI5UUUUU==
+X-Originating-IP: [112.94.103.44]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_020931_562646_24C7BC5D 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20260921_014831_582469_D6C15487 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 20, 2026 at 11:29:23AM +0800, Qingfang Deng wrote:
-> The Cortex-A9 r4 Software Developers Errata Notice (ARM UAN 0009D),
-> section 2.3.3, lists erratum 754322 as affecting all r2, r3 and r4
-> revisions. The Kconfig help text currently mentions only r2 and r3.
-> 
-> Add r4p* to the affected revisions so that users configuring Cortex-A9
-> r4 systems know that the workaround also applies to them.
-> 
-> Link: https://documentation-service.arm.com/static/608118675e70d934bc69f143
+=E5=9C=A8 2026-09-21=E4=B8=80=E7=9A=84 15:49 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+>=20
+> Icenowy Zheng =E6=96=BC 2026/9/21 =E4=B8=8B=E5=8D=88 03:30 =E5=AF=AB=E9=
+=81=93:
+> > Maybe it's better to just make it the 2nd patch in this patchset,
+> > just
+> > after the binding change.
+> >=20
+> > Waiting for something into drm-misc-fixes again will need another
+> > fixes
+> > pull and another RC back merge, which can consume weeks and miss
+> > the
+> > current merging window.
+> >=20
+> > In addition, it's possible that `drm/verisilicon: introduce per-
+> > variant
+> > hardware ops table` also gets backported for a more clean primary
+> > plane
+> > atomic_update disabling fix.
+> Understood. I'll fold the FB_EN fix in as patch 2, right after the
+> dt-bindings patch, targeting the current vs_primary_plane.c directly,
+> so the ops-table patch just carries the already-corrected code
+> forward
+> into vs_dc8200.c. Agreed that's faster than round-tripping.
+>=20
+> On primary_plane_disable_ex - I'll keep the "_ex" suffix. DC8200
+> still
+> has a real per-variant operation there (clearing FB_EN + commit),
 
-The document you link to says:
+Well I propose to remove _ex because there's no real non-per-variant
+operation.
 
-	Fault Status: Present in: All r2, r3 and r4 revisions. Open
+Thanks,
+Icenowy
 
-The "Open" part means this isn't fixed, and so we have no idea whether
-this could afect a hypothetical r5, etc. Listing all the affected
-versions is a bad idea as it wil just lead to needless churn...
+> while
+> DC8000 leaves it NULL and does nothing, so the suffix still reflects
+> an actual per-variant difference, not just structure introduced by
+> the
+> refactor.
+>=20
+> While testing the cursor plane, I found the same class of bug there:
+> the disable register write was being triggered from the plane's
+> atomic_update() invisible-branch using the old plane state to look up
+> the CRTC/output, which can be stale or NULL on a plane's very first
+> commit if it's already invisible then. I've fixed it locally by
+> having
+> atomic_update() derive the CRTC/output from the state it already
+> holds
+> before checking visibility, instead of falling through to the
+> old-state-based disable path. Just flagging it here for now -
+> vs_cursor_plane.c isn't touched by any of my patches.
+>=20
+> Thanks.
 
-> Fixes: fcbdc5fe6ebe ("ARM: 6772/1: errata: possible fault MMU translations following an ASID switch")
-
-I don't beleive a fixes tag is necessary. The code works regardless of
-what the documentation says.
-
-> Signed-off-by: Qingfang Deng <qingfang.deng@linux.dev>
-> ---
->  arch/arm/Kconfig | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 0cc289a7184a..c7d631d5242b 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -708,11 +708,12 @@ config ARM_ERRATA_754322
->  	depends on CPU_V7
->  	help
->  	  This option enables the workaround for the 754322 Cortex-A9 (r2p*,
-> -	  r3p*) erratum. A speculative memory access may cause a page table walk
-> -	  which starts prior to an ASID switch but completes afterwards. This
-> -	  can populate the micro-TLB with a stale entry which may be hit with
-> -	  the new ASID. This workaround places two dsb instructions in the mm
-> -	  switching code so that no page table walks can cross the ASID switch.
-> +	  r3p*,r4p*) erratum. A speculative memory access may cause a page table
-> +	  walk which starts prior to an ASID switch but completes afterwards.
-> +	  This can populate the micro-TLB with a stale entry which may be hit
-> +	  with the new ASID. This workaround places two dsb instructions in the
-> +	  mm switching code so that no page table walks can cross the ASID
-> +	  switch.
-
-If you want to change this, you could say "r2p* and later", but TBH I
-think we can just leave this as-is.
-
-Mark.
-
->  
->  config ARM_ERRATA_754327
->  	bool "ARM errata: no automatic Store Buffer drain"
-> -- 
-> 2.43.0
-> 
-> 
 
