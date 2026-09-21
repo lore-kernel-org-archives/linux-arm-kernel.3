@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E22C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E02C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 15:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ziQ3NW1LSgwDZe9di4b6yJwonh0oLPcxYpWPZN+JqI=; b=Zx8pKQClZzKuan1QjhB2Ijtuoy
-	4uH137V4mGU3lrPmszf5vwoGALNuKoaFUxNTRspusoEaLVxkTtiBnOv07XT/p5GljHiYrzhKEUHD9
-	kxS/3oA82uRCRDE6HHbQUNekq69X4XVLsozcspdgh47ZHWCZVF2VSrxyL5tTTEqqhTz+dPbv7Ubx/
-	03T38+i07xCsK8bozhvTLu+slDNutXd5MMOQvdyHyrEkt9faDwh5TIwxP6w2aogwCiMROrnYgMs7P
-	54HCvNXVxY4lwAWWu0aOcwFibVF6SmxrLARzbX1ovxNQ2fm5UW30R4ny0u87n8DUi7AQo7t2AG6zp
-	N7ls2Wjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C9OuFK8krYG5CFJQY5mJoDN0CmcjBiY8Df4psmo7f7k=; b=X3SAl80fKBaLv2LCogvCbfwHWo
+	G1+N/gFNTEj3eXECVHj491Yg/oYebQgGGUIr3xFblL5brHuGMq7JAOiT9uii3wUOHQde+DrWKvfqV
+	8kIbC8gYTcAMccJBYoLv4N4y62bYX4PQco5PXpc2BS1Ju4TS/+uaDWN0aZyQyOKpriNH0JJ5xr9E0
+	CSnuMNqF7EV0XmivzJOi0TDfXvaBiqwLMQmNi3s40k4yduo7PsrzQWdrohORftLl2Y0D+w3NVZJ6m
+	c0xIb2DUazvO6I9Zet5z/q+2IdGkFIG8Giy7Wd3dU+e9j32N64RbZQ/lzi3FQIKqrTMQ/U3ngZuNQ
+	qcNhnSBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fbk-00000002Xpg-2Ah9;
-	Mon, 21 Sep 2026 15:07:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8fc4-00000002Xy1-0VeU;
+	Mon, 21 Sep 2026 15:07:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fbc-00000002Xmh-0JWz;
-	Mon, 21 Sep 2026 15:06:56 +0000
+	id 1x8fc1-00000002Xwu-2QDV;
+	Mon, 21 Sep 2026 15:07:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B56DC43CA1;
-	Mon, 21 Sep 2026 15:06:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA3C91F000FF;
-	Mon, 21 Sep 2026 15:06:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B0E7D600C8;
+	Mon, 21 Sep 2026 15:07:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A58001F000FF;
+	Mon, 21 Sep 2026 15:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790003215;
-	bh=/ziQ3NW1LSgwDZe9di4b6yJwonh0oLPcxYpWPZN+JqI=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=lOrHKfrbJ7ahQcwnnVS4kIP0s3GNfPmgrb5Y5k4SU7coJMk/sM3m7J5uNTGZy+lmM
-	 0ObsoCjw2DRp/0lyLYnfcxU5EmuG93OuYOzlVfvf45toocfFbh4FwxEJo+VtL/R1aL
-	 4bdqbNGArvBVflbHpdfdKJold/G/S1evziVMvUrmrwd9/HWcrOmWCfgIRgW4TgKDhl
-	 wOjKrBLFmkAyh1M4z1ir11oAIaYm+pGCodpG6qgf8l5jKu/0b4akexj8ufqRvrmecn
-	 JZJoeuDKeXgS5XDwMUZfo3fzsaIEKAFekB2/UC5fJhjcYEIHwCREyGJc4DbF7qyvhJ
-	 sB0WK9InErSzA==
-Message-ID: <0e6f063b7e128c3713b68d217342f9f8@kernel.org>
-Date: Mon, 21 Sep 2026 15:06:52 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 02/19] drm: of: remove now unnecessary forward
- declarations
-In-Reply-To: <20260916-drm-bridge-every-panel-v3-2-83afb4f1a707@bootlin.com>
-References: <20260916-drm-bridge-every-panel-v3-2-83afb4f1a707@bootlin.com>
-Cc: asahi@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-tegra@vger.kernel.org, "Albert
- Esteve" <aesteve@redhat.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha
- Srivatsa" <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, "Fabio Estevam" <festevam@gmail.com>, "Frank
- Li" <Frank.Li@nxp.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Inki
- Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jessica Zhang" <jesszhan0024@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>, "Linus
- Walleij" <linusw@kernel.org>, "Lucas Stach" <l.stach@pengutronix.de>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
- Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Paul
- Cercueil" <paul@crapouillou.net>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Randy Dunlap" <rdunlap@infradead.org>, "Robert
- Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Sean
- Paul" <sean@poorly.run>, "Shuah Khan" <skhan@linuxfoundation.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1790003240;
+	bh=C9OuFK8krYG5CFJQY5mJoDN0CmcjBiY8Df4psmo7f7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=C/PKQEwySgSwNGafp4Sed39F3rpKkgJQ9XIP0UYxKqxZvrMvYXyt6ySX5tsVuZxtC
+	 RSIe4qkmkI/8xo5pUSmj+b00/rzYZG/O/+NjmfTYri9F6GQCday5ZSCBk/dZ++SmHi
+	 yDJ5oVf3VsfjfgWRSliRTvrU2goNx1jIs2e+vTPfdHvqAW2uZzlbqr8YyDKiCwp5+K
+	 aODTlXJN+FNQIfmh7Wkcm690cvq4z+0SYEXJJD7z36I2Nre/4NAUYriP8EoES8qcu7
+	 2DmPWmMMg++gdD1uKvCsAj/LuqEtyNTKRF4EDKjEGvWx7mkbwWtXkUsooLBtCMTbQw
+	 6VM9txvXC8xOA==
+Date: Mon, 21 Sep 2026 17:07:17 +0200
+From: krzk@kernel.org
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Yonglong Wu <yonglong.wu@mediatek.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Min Guo <min.guo@mediatek.com>, stable@vger.kernel.org, 
+	Bin Liu <b-liu@ti.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH] usb: musb: mediatek: fix child device leak
+Message-ID: <arFIIXUAYO8OXa_5@quoll>
+References: <20260921085119.308981-1-lgs201920130244@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260921085119.308981-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,17 +71,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 15:45:26 +0200, Luca Ceresoli wrote:
-> These forward declarations are now redundant after having moved
-> drm_of_find_panel_or_bridge():
-> 
->  * struct drm_panel is not referenced in this file
-> 
-> 
-> [ ... ]
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+On Mon, 21 Sep 2026 16:51:19 +0800, Guangshuo Li wrote:
+> mtk_musb_probe() populates child platform devices using
+> of_platform_populate(), but neither the probe error paths nor the
+> driver remove path depopulate them.
+> 
+> If any initialization step after of_platform_populate() fails, the
+> probe returns without unregistering the populated child devices.
+> Likewise, the children remain registered when the driver is later
+> unbound.
+> 
+> Use devm_of_platform_populate() so the populated child devices are
+> automatically depopulated when probe fails or the driver is unbound.
+> 
+> The issue was identified by a static analysis tool I developed and
+> confirmed by manual review.
+> 
+> Fixes: 0990366bab3c ("usb: musb: Add support for MediaTek musb controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/usb/musb/mediatek.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
 
-Thanks!
-Maxime
+
+You sent multiple independent patches, to multiple independent
+subsystems. The amount of these patches clearly suggest this was
+AI generated and most likely not tested.
+
+More importantly, you sent all this work without properly organizing
+relevant patches into patchsets. This makes reviewing difficult
+and might cause multiple reviewers to address the same issue.
+Replying to the entire set is impossible and requires handling each
+patch independently, instead of applying or discarding the set.
+Maintainers also won't see the bigger picture of your work. Quite
+worrying.
+
+This is on the verge of hostile patch: bomb us with so many
+contributions, we won't be able to handle them in efficient manner,
+like responding ONCE to ask you to slow down.  Considering all this
+is untested and LLM generated, I have even more doubts whether this
+should be considered for review.
+
+Please read kernel documentation BEFORE posting more work. It will
+explain you how to identify subsystems, how to organize your work per
+subsystem, how to document usage of LLM and how what you should not
+do if this was posted in a good faith.
+
+Best regards,
+Krzysztof
+
+
+
 
