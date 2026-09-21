@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F3DC982EE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 00:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D850C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 01:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eaf/v3DplFm34AGPV8LWK5kB95r8fuqw5inPfZDB47I=; b=eZxH5wAfLHbPUEWMEtEI/NWfeH
-	Usf67FHPNBjWURG5TVuIJQnnS7gwv487iSVft+XnAb9pmRhIxyCMRD/AcptvRR7jDBiNc5OwmZH2K
-	yh+pBTImPM+pwW6tzPiUOJAZ5AvSbKFLt9u/8RrxAayg4VJpub4EEmIPH8ECvmwJZrNTlQBqDtNS8
-	2uqQAyI/tL9k5Uy/P2rjqmSc9uPr4taYtoKTYXt0TtBXwfu0sI5D2i3/XZXKTfH/m9rri9keLgFhu
-	rS4CkzRwNXWZDpFftDdVwrLB7DhgvgYZJfx3dCm7g8T2s8O2EvDprOS5EzXpWqrRO92tlgsjHU+Ob
-	kiuCzrfA==;
+	bh=HBB22xTvlIdnnUpDmcGb9WM9KBxzgtzh1eAOBEppS6s=; b=fMrNr0o5in2S6vEYn0RzrocLxm
+	s5Pig2ZW5DoRPtcSXpLQ8tl0VTlfg8feaj6fHr8v445xrYEPWoxiXwn7CsELf4zoMepXN/O/VNG/P
+	cMC23Uyj4EQT6ylhakX4bP5wDM3obsLaMpWstEhjcJClMNlhPxGPjnX2Gz+a3lZo/e0gFAVkJ/46e
+	BeBsewgFcNLZyC1m69hrKZWg3A61W4BEWGMxkx6HivXYyX3hNfDyp5c66XCJZAP1m9oC44EytYx1E
+	7Hh8VVKXZx1gslagqqJRDYHYEMmeTnvMQ+VYIil11638poFyFU6N0A5FYT1kC61QST/bIlZZBRKv9
+	HG+jgbpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Rro-00000000dBc-2mq3;
-	Mon, 21 Sep 2026 00:26:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8T24-00000000gx4-1xaq;
+	Mon, 21 Sep 2026 01:41:24 +0000
+Received: from proxy25212.mail.163.com ([103.129.252.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Rrn-00000000dAz-2afa
+	id 1x8T21-00000000gwa-1iDF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 00:26:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A49F44824;
-	Mon, 21 Sep 2026 00:26:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 940D9C2BCFB;
-	Mon, 21 Sep 2026 00:26:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789950402;
-	bh=XcuXphc1NoAzr+3izm2WNxf/h73O4syl9fen+5x9GFE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KOVbqPvq1vBXyqbdqs7PpMq3ThwcQmdWEHSE9qT9JCf56vNzh5yEdjEc7LfkRAgWF
-	 42wc63sz0Z+ST45zGZFrC8F5cmrLG43LQDzn4oOJycnHz69ocswtX7eAQrL2zOhcCy
-	 qQIDeDbnQX6JVSho6Qlrlitqtvhdbcwy9c/ig4slRzWlfK/F3QVSnOQiZ5lsi2XWVJ
-	 Wny75Z8fE6VAAtw28nuXBSGPUtWH/i+8DqT1Xfj40dxYozXx8hopZbiZG3f3EPiN5p
-	 X6v1DD7BfCVxGSS1jP9YssKxe43O33ZNO2CmoonxgVd1U3y3mDhSfgi/MoYq6gc37u
-	 j2EMGdy32Pqlg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 81FC6C982EE;
-	Mon, 21 Sep 2026 00:26:42 +0000 (UTC)
-From: Nicolo Giuliani via B4 Relay <devnull+nicolo.giuliani6.studio.unibo.it@kernel.org>
-Date: Mon, 21 Sep 2026 02:26:43 +0200
-Subject: [PATCH v2 3/3] arm64: dts: marvell: Add Sophos XGS 107w NPU board
+	Mon, 21 Sep 2026 01:41:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=HBB22xTvlIdnnUpDmcGb9WM9KBxzgtzh1eAOBEppS6s=;
+	b=cjkE9x5tD8Olglh0wr6jrDc8SleOEYplfrtufXlmxLuRCPL2flZtr56UuzY4K4
+	XBgNIOkZbYBqKgXEMWdvO55dllBcG3Sc7A1bWe9eGQHsBw9ER2b2Bi4qep+RVXjp
+	f3Yvoj8qb5KYf7wX1+maqszaESRl9N40ufvFqgk7WPHlA=
+Message-ID: <d7ad3298-9d06-4498-9d39-dc7f43eb0efd@126.com>
+Date: Mon, 21 Sep 2026 09:39:45 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: stmmac: request the MDIO reset GPIO only once
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linkui Xiao <xiaolinkui@kylinos.cn>, stable@vger.kernel.org
+References: <20260920054703.1897755-1-xiaolinkui@126.com>
+ <aq-UJEFIq2aHfEee@lore-desk>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <aq-UJEFIq2aHfEee@lore-desk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-send-dt-v2-3-fb6b81002ad7@studio.unibo.it>
-References: <20260921-send-dt-v2-0-fb6b81002ad7@studio.unibo.it>
-In-Reply-To: <20260921-send-dt-v2-0-fb6b81002ad7@studio.unibo.it>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789950401; l=5800;
- i=nicolo.giuliani6@studio.unibo.it; s=20260919; h=from:subject:message-id;
- bh=8wZTzfWWfxJCcfQhfgPWj+G5wLPzig9U9sVX6n8unng=;
- b=jikZ4TlVOrU/oqutu3YHm0CZ1r9460ZPVE66bWr3bSskobA8LRZJN4NPV3CRfRtuucJkd4C9n
- DnWWhORYFGnD4dYHCg+OdFNdfU9wu74yPg24S2fYvRkVgu7ruj/HC/b
-X-Developer-Key: i=nicolo.giuliani6@studio.unibo.it; a=ed25519;
- pk=D652ecdT01GkA1eoFWNFNX85xIg5ZnFwUWyjfestgQw=
-X-Endpoint-Received: by B4 Relay for
- nicolo.giuliani6@studio.unibo.it/20260919 with auth_id=1040
-X-Original-From: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
+X-CM-TRANSID: _____wD3P+vhirBqrK9QBw--.58600S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxKr15uFyxur4DKrWUXFyrJFb_yoWxGr1Up3
+	y5Zay5ArWkJr4Iqws7Xw4UZF9YkFW3tr4UCw1F9rWSyan8KrWSvr1Sqry5ZFy2krWUWFya
+	vr18uFnruF4qyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U4Vb9UUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlAKheGqwiuJbYwAA3F
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_184121_765490_31AE36F3 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,251 +72,160 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: nicolo.giuliani6@studio.unibo.it
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
+Hi Lorenzo,
 
-Add a device tree for the network processing unit (NPU) of the Sophos
-XGS 87/107 desktop firewalls. The appliance pairs an AMD x86 host with the
-NPU, a Marvell Armada CN9130 SoC with its own eMMC and SPI NOR flash that
-runs independently of the host and serves the front panel ports.
+On 2026/9/20 16:07, Lorenzo Bianconi wrote:
+>> From: Linkui Xiao <xiaolinkui@kylinos.cn>
+>>
+>> stmmac_mdio_reset() calls devm_gpiod_get_optional() every time it runs.
+>> A GPIO line can only be requested once, so from the second call on
+>> gpiod_request_commit() returns -EBUSY. devm_gpiod_get_optional() only
+>> turns -ENOENT into NULL, hence the error is passed straight back and
+>> stmmac_mdio_reset() bails out before pulsing "snps,reset" and before
+>> running the STE101P MDC workaround.
+>>
+>> The first call, made by of_mdiobus_register(), succeeds, so the failure
+>> is only visible later on: every resume that does not use WoL goes
+>> through stmmac_resume() -> stmmac_mdio_reset(), and that caller ignores
+>> the return value, so the PHY silently stays un-reset.
+>>
+>> The descriptor used to be requested exactly once: stmmac_mdio_reset()
+>> resolved "snps,reset-gpio" itself and cached the GPIO number in
+>> stmmac_mdio_bus_data::reset_gpio, and commit ae26c1c6cb9b ("stmmac: fix
+>> PHY reset during resume") relies on that cache to reuse the line on
+>> every call. commit 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in
+>> stmmac_mdio_reset") replaced it with a devm_gpiod_get_optional() that
+>> caches nothing, so the request is repeated on every call and fails from
+>> the second one on.
+>>
+>> Request the GPIO in stmmac_mdio_register(), at probe time, and keep the
+>> descriptor in struct stmmac_priv. This is where devm-gpiod is meant to be
+>> used: the line is acquired with the device and released with it, and any
+>> failure to acquire it is reported during probe instead of being ignored
+>> by stmmac_resume(). stmmac_mdio_reset() then only pulses the cached line.
+>>
+>> The request is still gated on mdio_bus_data->needs_reset, which is the
+>> condition that installs the reset callback, and on the device using DT,
+>> as the reset itself is.
+>>
+>> Fixes: 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in stmmac_mdio_reset")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
+>> ---
+>> Changes in v2:
+>> - Do not request the GPIO from stmmac_mdio_reset(); request it once in
+>>    stmmac_mdio_register() at probe time instead. (Maxime Chevallier)
+>>
+>>   drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 ++
+>>   .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 19 ++++++++++---------
+>>   2 files changed, 12 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+>> index 7582fca63741..986fb43db45f 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+>> @@ -25,6 +25,7 @@
+>>   #include <net/xdp.h>
+>>   #include <uapi/linux/bpf.h>
+>>   
+>> +struct gpio_desc;
+>>   struct stmmac_pcs;
+>>   
+>>   struct stmmac_resources {
+>> @@ -287,6 +288,7 @@ struct stmmac_priv {
+>>   
+>>   	unsigned int pause_time;
+>>   	struct mii_bus *mii;
+>> +	struct gpio_desc *mdio_reset_gpio;
+>>   
+>>   	struct stmmac_pcs *integrated_pcs;
+>>   
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+>> index afe98ff5bdcb..346f93f86abe 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+>> @@ -386,15 +386,8 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>>   
+>>   #ifdef CONFIG_OF
+>>   	if (priv->device->of_node) {
+>> -		struct gpio_desc *reset_gpio;
+>>   		u32 delays[3] = { 0, 0, 0 };
+>>   
+>> -		reset_gpio = devm_gpiod_get_optional(priv->device,
+>> -						     "snps,reset",
+>> -						     GPIOD_OUT_LOW);
+>> -		if (IS_ERR(reset_gpio))
+>> -			return PTR_ERR(reset_gpio);
+>> -
+>>   		device_property_read_u32_array(priv->device,
+>>   					       "snps,reset-delays-us",
+>>   					       delays, ARRAY_SIZE(delays));
+> 
+> nit: what about moving even these properties to stmmac_mdio_register()? It
+> seems a bit odd to have half of the parsing in stmmac_mdio_register() and
+> half in stmmac_mdio_reset(). What do you think?
 
-The eight RJ45 ports and the SFP cage are connected through a Marvell
-88E6193X switch on the MDIO bus of the SoC, at address 2. Switch port 0
-is the CPU port, a 10GBASE-R link to the first mvpp2 port. Ports 1 to 8
-are the RJ45 ports, which use the internal PHYs of the switch, and
-port 9 is the SFP cage, connected over 1000BASE-X.
+Agreed, and thanks for pointing it out.
 
-Describe the UART console, the eMMC, the SPI NOR flash that holds the boot
-loader and its environment (read-only), the SFP cage and the switch with
-its ports. The port LEDs, the PCIe link to the x86 host and the USB ports
-are not described.
+v3 reads "snps,reset-delays-us" in stmmac_mdio_register() as well and keeps
+the three values in struct stmmac_priv, next to the descriptor, so the whole
+reset description - the line and its timings - is parsed once, at probe 
+time.
+stmmac_mdio_reset() then only waits and pulses the cached line.
 
-The switch is reset through CP GPIO2 pin 17.
+With the parsing gone, the callback doesn't need its CONFIG_OF/of_node guard
+either, so I dropped that too: stmmac_mdio_reset() no longer looks at the
+device tree at all. Where the description is absent, the cached descriptor
+is NULL and the delays are all zero, so the pulse is a no-op - exactly what
+the of_node check used to make of it. The request and the delays stay gated
+on mdio_bus_data->needs_reset and on the device using DT, in
+stmmac_mdio_register().
 
-Tested on an XGS 107w with Linux 6.18: boot from eMMC, eMMC and SPI NOR
-access, the mvpp2 link to the switch at 10 Gb/s, the 88E6193X probing with
-its eight user ports, and 936 Mbit/s through a front port. The SFP cage is
-untested.
+Nothing else changes: struct stmmac_priv is zeroed when it is allocated, so
+a missing or short "snps,reset-delays-us" still gives the same all-zero
+delays the local initialiser did.
 
-Assisted-by: LLM
-Signed-off-by: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
----
- arch/arm64/boot/dts/marvell/Makefile               |   1 +
- .../boot/dts/marvell/cn9130-sophos-xgs107w.dts     | 188 +++++++++++++++++++++
- 2 files changed, 189 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/marvell/Makefile b/arch/arm64/boot/dts/marvell/Makefile
-index 09d1544041..3e301c8265 100644
---- a/arch/arm64/boot/dts/marvell/Makefile
-+++ b/arch/arm64/boot/dts/marvell/Makefile
-@@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_MVEBU) += ac5x-rd-carrier-cn9131.dtb
- dtb-$(CONFIG_ARCH_MVEBU) += ac5-98dx35xx-rd.dtb
- dtb-$(CONFIG_ARCH_MVEBU) += cn9130-cf-base.dtb
- dtb-$(CONFIG_ARCH_MVEBU) += cn9130-cf-pro.dtb
-+dtb-$(CONFIG_ARCH_MVEBU) += cn9130-sophos-xgs107w.dtb
- dtb-$(CONFIG_ARCH_MVEBU) += cn9131-cf-solidwan.dtb
- dtb-$(CONFIG_ARCH_MVEBU) += cn9132-clearfog.dtb
- 
-diff --git a/arch/arm64/boot/dts/marvell/cn9130-sophos-xgs107w.dts b/arch/arm64/boot/dts/marvell/cn9130-sophos-xgs107w.dts
-new file mode 100644
-index 0000000000..da6a1da1cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/marvell/cn9130-sophos-xgs107w.dts
-@@ -0,0 +1,188 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Device tree for the network processing unit (NPU) of the Sophos XGS 87/107
-+ * firewalls: a Marvell CN9130 SoC with a Marvell 88E6193X switch.
-+ *
-+ * The x86 host on the same board is not described here.
-+ */
-+
-+/dts-v1/;
-+
-+#include "cn9130.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	model = "Sophos XGS 107w (CN9130 NPU)";
-+	compatible = "sophos,xgs107w-npu", "marvell,cn9130";
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	aliases {
-+		ethernet0 = &cp0_eth0;
-+		i2c1 = &cp0_i2c1;
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x80000000>;
-+	};
-+
-+	reserved-memory {
-+		/* OP-TEE, reserved by the firmware */
-+		tee@4400000 {
-+			reg = <0x0 0x4400000 0x0 0x1000000>;
-+			no-map;
-+		};
-+	};
-+
-+	/* Front-panel SFP cage "F1", wired to switch port 9 */
-+	sfp: sfp {
-+		compatible = "sff,sfp";
-+		i2c-bus = <&cp0_i2c1>;
-+		los-gpios = <&cp0_gpio1 1 GPIO_ACTIVE_HIGH>;
-+		tx-fault-gpios = <&cp0_gpio1 2 GPIO_ACTIVE_HIGH>;
-+		mod-def0-gpios = <&cp0_gpio1 3 GPIO_ACTIVE_LOW>;
-+		tx-disable-gpios = <&cp0_gpio1 7 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+/* eMMC on the AP */
-+&ap_sdhci0 {
-+	bus-width = <8>;
-+	non-removable;
-+	mmc-ddr-1_8v;
-+	status = "okay";
-+};
-+
-+/*
-+ * The MPP pin muxing is left as configured by the boot loader; the pin
-+ * controller node only exists to back the GPIO banks.
-+ */
-+&cp0_syscon0 {
-+	cp0_pinctrl: pinctrl {
-+		compatible = "marvell,cp115-standalone-pinctrl";
-+	};
-+};
-+
-+&cp0_i2c1 {
-+	/* I2C bus of the SFP cage */
-+	clock-frequency = <100000>;
-+	status = "okay";
-+};
-+
-+/* 4 MB SPI NOR with U-Boot and its environment, read-only on purpose */
-+&cp0_spi0 {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <40000000>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			partition@0 {
-+				label = "u-boot";
-+				reg = <0x0 0x3f0000>;
-+				read-only;
-+			};
-+
-+			partition@3f0000 {
-+				label = "u-boot-env";
-+				reg = <0x3f0000 0x10000>;
-+				read-only;
-+			};
-+		};
-+	};
-+};
-+
-+&cp0_ethernet {
-+	status = "okay";
-+};
-+
-+/* 10G link to switch port 0 */
-+&cp0_eth0 {
-+	phy-mode = "10gbase-r";
-+	phys = <&cp0_comphy4 0>;
-+	managed = "in-band-status";
-+	status = "okay";
-+};
-+
-+&cp0_mdio {
-+	status = "okay";
-+
-+	switch@2 {
-+		compatible = "marvell,mv88e6190";
-+		reg = <2>;
-+		reset-gpios = <&cp0_gpio2 17 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				ethernet = <&cp0_eth0>;
-+				phy-mode = "10gbase-r";
-+				managed = "in-band-status";
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+				label = "p1";
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+				label = "p2";
-+			};
-+
-+			port@3 {
-+				reg = <3>;
-+				label = "p3";
-+			};
-+
-+			port@4 {
-+				reg = <4>;
-+				label = "p4";
-+			};
-+
-+			port@5 {
-+				reg = <5>;
-+				label = "p5";
-+			};
-+
-+			port@6 {
-+				reg = <6>;
-+				label = "p6";
-+			};
-+
-+			port@7 {
-+				reg = <7>;
-+				label = "p7";
-+			};
-+
-+			port@8 {
-+				reg = <8>;
-+				label = "p8";
-+			};
-+
-+			port@9 {
-+				reg = <9>;
-+				label = "sfp";
-+				phy-mode = "1000base-x";
-+				managed = "in-band-status";
-+				sfp = <&sfp>;
-+			};
-+		};
-+	};
-+};
-
--- 
-2.48.1
-
+Thanks,
+Linkui
+> 
+> Regards,
+> Lorenzo
+> 
+>> @@ -402,11 +395,11 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>>   		if (delays[0])
+>>   			msleep(DIV_ROUND_UP(delays[0], 1000));
+>>   
+>> -		gpiod_set_value_cansleep(reset_gpio, 1);
+>> +		gpiod_set_value_cansleep(priv->mdio_reset_gpio, 1);
+>>   		if (delays[1])
+>>   			msleep(DIV_ROUND_UP(delays[1], 1000));
+>>   
+>> -		gpiod_set_value_cansleep(reset_gpio, 0);
+>> +		gpiod_set_value_cansleep(priv->mdio_reset_gpio, 0);
+>>   		if (delays[2])
+>>   			msleep(DIV_ROUND_UP(delays[2], 1000));
+>>   	}
+>> @@ -608,6 +601,14 @@ int stmmac_mdio_register(struct net_device *ndev)
+>>   	if (!mdio_bus_data)
+>>   		return 0;
+>>   
+>> +	if (mdio_bus_data->needs_reset && dev_of_node(priv->device)) {
+>> +		priv->mdio_reset_gpio =
+>> +			devm_gpiod_get_optional(priv->device, "snps,reset",
+>> +						GPIOD_OUT_LOW);
+>> +		if (IS_ERR(priv->mdio_reset_gpio))
+>> +			return PTR_ERR(priv->mdio_reset_gpio);
+>> +	}
+>> +
+>>   	stmmac_mdio_bus_config(priv);
+>>   
+>>   	new_bus = mdiobus_alloc();
+>> -- 
+>> 2.25.1
+>>
+>>
 
 
