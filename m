@@ -4,101 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053B5C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12725C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 07:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lc3Q5bHjC9Y5EjOyv/5Amr9ZepClgh/msjX52TvdD9I=; b=39CMcHT96vdD90UFvcJFAPuZDe
-	nup73ua2/SGJa/VxGpcqOfbeTTXesq403X3v1mKhj8xCyIfEbu7gtgd975YqfK3dNv5nS8p3HIPOQ
-	paa7i8SxivIprUInw/z8l+xghnkRCC4kj+XGT8XEazofqu/AIWL2RaP6hC+AvQ9DODVjlWBLdIXuJ
-	fNR6RMjnHnMgAHWFRUgAuJ9ULrfMDbLQIk0A4gAZt7MNCJCuSmoVzXqqb1IJhX1jjz8DwCg/0U0D5
-	aksaiGyhd79ORyuV0kUaRDxkM1sMAnhU6/Qk4GHFqrBPUuZHH8DcjjPGWG2+Rsgkg0PPjpZ+bhibU
-	xo6/WIDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ivf16bA8eVGk4xRiswVz/tEyGrtwzJybER8q/jQMd/o=; b=2CALtmZ0qK+2c4/Dk3BvXjo4qT
+	yWzUAdIX5d8TwmMW+PJbyJIPs8H/7/0UuSvCDkjRR+yAnAmFieTM0G1zLvFBKr4ermxsrew4QTM4p
+	LVwnTdlxm65z6CzRxyUg6pUdYK35iXQMzLjuIQujiFEkLzLvIeynS6PpnGlI+RFAjE/iaKNWRvUlC
+	b5dbXQPA8ZlzckU8vVSPbVvcm+B56JmurIijC3qoix1hrkqBYnMRDIfOpKCU1nFn2JgGktkf2izcg
+	jSppRcTHf/Ws1QQDtzRxwsubbbUjUddHfIKV/gNtegB1OP3wlEU0t67Xo84hp5U2CsIkbtabBPESZ
+	K/dSH1wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Y6P-000000019f6-0cpF;
-	Mon, 21 Sep 2026 07:06:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8Y6y-000000019oj-2EX5;
+	Mon, 21 Sep 2026 07:06:48 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Y6L-000000019dl-2zT4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 21 Sep 2026 07:06:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:Cc:Subject:
-	From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lc3Q5bHjC9Y5EjOyv/5Amr9ZepClgh/msjX52TvdD9I=; b=P4ssuQMQymEQ0ViV9Z9FdgHF0N
-	Lb1QY6UckJgZPgKhgeyYe8hykiuyH4SrJ3MuvFPOdqpl/BfR8ssl0BkMLYTJKsyp42vMkTujjZCaA
-	0m1ypZFcDHnDPJkAWEyVR2M/hsyhfwy/rx5P++PAxcmIOxL5I9pWY04p+yG1Or5Ciq0GCOr7JluaZ
-	VHYpQ/D5IZw/tU9LwOSZm2TMj0P6CBreZlZnk1i1DGSFPTU8Ja1+C8yQux1QqZn2j4kYLM/KD8bu4
-	H2Iw11X3z9umHUhpIxLGItgBpfjC47xLsqswq1/GeoHmj6fcqQDLjpgo11ApKfBLT5G27ynEYXoLO
-	ojHmdYWQ==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8Y6F-0000000Buzs-2yIy
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 07:06:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id CB902C2C652;
-	Mon, 21 Sep 2026 07:06:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BC2FD60339;
-	Mon, 21 Sep 2026 07:06:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 79EEC10328ED0;
-	Mon, 21 Sep 2026 09:05:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789974357; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=lc3Q5bHjC9Y5EjOyv/5Amr9ZepClgh/msjX52TvdD9I=;
-	b=oIGWPfNvDSRbuhkeQtz7bxBJxWZYBW2cPZXT+UaEDez5iBFH2fF/5qtRmniX5pWZGz8E3K
-	q74f2AJxyvO54Nw2fgwxH0oY7iv3GFATtVa9GXDdxGNpeQhgcdnuS6q/aZMlIuCUtu+/sb
-	4iQ+/XyCd2B1VnpR+ZPSGkDM+9JVT+5mDsBCyziy25sxPBu9ZcbPg0GoNguKP1G05ucFLL
-	BMFC/U3CxdZw/9Kl6afCteUQDoNtTYjQ7SnsgvWqFB0O14Y0n8Bh2fmJ6XlJf9nitdwE1Z
-	dm61Uq7NAkZqZJzwTtkc5Gro/DbLRu4zBMjgv+5b5LNTZXEZV46O9KlQTh9fTg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 21 Sep 2026 09:05:40 +0200
-Message-Id: <DLKSY3W6CGW1.3C0J6DHKV8P2Z@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v11 13/74] drm/bridge: Fix NULL deref in
- drm_bridge_add() for legacy bridges
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Dave Stevenson"
- <dave.stevenson@raspberrypi.com>, "Dmitry Baryshkov" <lumag@kernel.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>, "Chen-Yu Tsai" <wens@kernel.org>,
- "Samuel Holland" <samuel@sholland.org>, =?utf-8?q?Ma=C3=ADra_Canal?=
- <mcanal@igalia.com>, "Raspberry Pi Kernel Maintenance"
- <kernel-list@raspberrypi.com>, "Raphael Gallais-Pou"
- <rgallaispou@gmail.com>, "Sandy Huang" <hjc@rock-chips.com>,
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Andy Yan"
- <andy.yan@rock-chips.com>, "Algea Cao" <algea.cao@rock-chips.com>, "Daniel
- Stone" <daniels@collabora.com>, "Liu Ying" <victor.liu@nxp.com>, "Phong LE"
- <ple@baylibre.com>, "Helge Deller" <deller@gmx.de>, <kernel@collabora.com>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-rockchip@lists.infradead.org>, <linux-fbdev@vger.kernel.org>,
- "Sashiko" <sashiko-bot@kernel.org>
-To: "Maxime Ripard" <mripard@kernel.org>, "Cristian Ciocaltea"
- <cristian.ciocaltea@collabora.com>
-X-Mailer: aerc 0.22.0
-References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
- <20260901-dw-hdmi-qp-scramb-v11-13-bc12954a0688@collabora.com>
- <ap_Tr_Viqy29f515@houat>
-In-Reply-To: <ap_Tr_Viqy29f515@houat>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1x8Y6u-000000019ku-2r3E;
+	Mon, 21 Sep 2026 07:06:46 +0000
+X-UUID: f72ab270b58a11f1a87c2323a98e90a4-20260921
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:542aed34-3ffe-4e13-b1ea-954a40e62e98,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7f1ae54,CLOUDID:15bd5c7c-2058-4298-90ad-1156c3f1dffd,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f72ab270b58a11f1a87c2323a98e90a4-20260921
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 845946827; Mon, 21 Sep 2026 15:06:28 +0800
+X-UUID: f59cd0d2b58a11f1a9f9c99e036204b4-20260921
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:9d68b3eb-ecc8-47bc-86e0-148128b0111c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:1413f33e-2015-4ac0-848c-dd56b04f9b18,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil
+	,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:
+	0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f59cd0d2b58a11f1a9f9c99e036204b4-20260921
+Received: from sdbmbx12.tpe.compalcomm.com [(10.113.2.136)] by sdmg12.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES256-SHA 256/256)
+	with ESMTP id 33028743; Mon, 21 Sep 2026 15:06:25 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX12.tpe.compalcomm.com (10.113.2.136) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA) id 15.2.2562.43;
+ Mon, 21 Sep 2026 15:06:23 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::d3a3:2665:d306:e36a%11]) with mapi id
+ 15.02.2562.043; Mon, 21 Sep 2026 15:06:23 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
+	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
+ Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Wen-Zhi
+ Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh <shi-wei.yeh@mediatek.com>,
+	"Minano Tseng" <Minano.tseng@mediatek.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "Simon Horman" <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	"Yu. Robert (GSM)" <robert_yu@compal.com>, "Chang. Jeff (GSM)"
+	<Jeff_Chang@compal.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [External Mail] Re: [PATCH v8 1/6] net: wwan: t9xx: Add PCIe core
+Thread-Topic: [External Mail] Re: [PATCH v8 1/6] net: wwan: t9xx: Add PCIe
+ core
+Thread-Index: AQHdSJJBQFFxpFYlr0WIdtg0cV9n2bbYnPye
+Date: Mon, 21 Sep 2026 07:06:23 +0000
+Message-ID: <690e3d6d04ba47efba2b4cda7b18e42e@compal.com>
+References: <20260914-t9xx_driver_v1-v8-0-5206c2e6bea0@compal.com>
+	<20260914-t9xx_driver_v1-v8-1-5206c2e6bea0@compal.com>,<20260919165434.08d026a8@kernel.org>
+In-Reply-To: <20260919165434.08d026a8@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30210.003
+x-tm-as-result: No-10--18.348800-8.000000
+x-tmase-matchedrid: zwpC2WOSP9Uuv++HU7VXryRFbfQbCufdN0X64jGy2dbsEpKlvft9qnHR
+	BdVJXEE0Q9AIZswE7Im8sf/3lUadtLxENwJ2UvCEGG92L3YEEC5ILH3fawhH7DQHeAZCLtjENrZ
+	e+GlFOmnuq1DMO5F4aWrxeeoq6G+ydcaBsQNmVY6HSpOq1C5m8F0iRWBzvhn/Ge0TacJImEMR41
+	St/qTSiI8fvsGG1r6CjGPUz3XtE9EWmVwQ4nb0sCbE4NyCMIorMjLMwAKwNtI+P0BFWEUq1Em6z
+	KX/LJcmL6i+4hIrtWii5iIVX8OUW/zdToSelMHyDH4m2ujwCtt+rvFZ7FWrXG30LxWftKfhr54J
+	Ix46I6T3t3pfLmJRU9vIAMT/07OiB73xunbyKrpX9HM7P8GE6Q==
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--18.348800-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30210.003
+x-tm-snts-smtp: 04D8DC24E44A8B3D5A0BC88503CDD9415739087981A51077E7CBB44370D133782000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_080605_225920_A9AAD9E1 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260921_000644_888181_DF0B4DEA 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,70 +135,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Sep 8, 2026 at 11:24 AM CEST, Maxime Ripard wrote:
-> On Tue, Sep 01, 2026 at 09:50:37PM +0300, Cristian Ciocaltea wrote:
->> Legacy bridge drivers that embed struct drm_bridge in a zero-initialized
->> allocation, rather than obtaining it from devm_drm_bridge_alloc(), never
->> run INIT_LIST_HEAD() on bridge->list, leaving next and prev NULL.
->> list_empty() compares next against &bridge->list, so it reports such a
->> list head as non-empty.  list_del_init() therefore runs and dereferences
->> the NULL pointers, panicking the kernel during probe.  Only builds with
->> CONFIG_DEBUG_LIST survive, with a list corruption report.
->>
->> This affects rk3066_hdmi and the i.MX8 LDB bridges, which still embed a
->> bridge in a devm_kzalloc()'d struct.
->>
->> Initialize the list head when it is found to be NULL, so that the bridge
->> ends up with a valid empty list head and list_del_init() is only reached
->> for bridges that can actually be linked.
->>
->> Fixes: 17805a15d175 ("drm/bridge: add list of removed refcounted bridges=
-")
->> Reported-by: Sashiko <sashiko-bot@kernel.org>
->> Closes: https://lore.kernel.org/all/20260731175016.C5D591F00AC4@smtp.ker=
-nel.org/
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/drm_bridge.c | 9 ++++++++-
->>  1 file changed, 8 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
->> index 2c457ad74f3b..a8b6df5c13ea 100644
->> --- a/drivers/gpu/drm/drm_bridge.c
->> +++ b/drivers/gpu/drm/drm_bridge.c
->> @@ -453,9 +453,16 @@ void drm_bridge_add(struct drm_bridge *bridge)
->>  	 * If the bridge was previously added and then removed, it is now
->>  	 * in bridge_lingering_list. Remove it or bridge_lingering_list will b=
-e
->>  	 * corrupted when adding this bridge to bridge_list below.
->> +	 *
->> +	 * Legacy drivers that allocate the bridge with kzalloc() rather than
->> +	 * devm_drm_bridge_alloc() leave list.next NULL. Such a bridge cannot
->> +	 * be on any list, and list_del_init() would dereference NULL, so
->> +	 * initialize the list head first.
->
-> "legacy" bridges are ambigous and was also used for non-atomic bridges.
-> That being said, it's now *required* that bridges use
-> devm_drm_bridge_alloc() instead of kzalloc, and we warn in
-> drm_bridge_add if it hasn't.
->
-> So I don't think we should merge this patch.
-
-I agree.
-
-I theory all drivers are be already using devm_drm_bridge_alloc() by now.
-
-In practice rk3066_hdmi is actually still using kzalloc, it should be fixed
-to use devm_drm_bridge_alloc(). Are you OK with doing it in v12?
-
-By "i.MX8 LDB" I guess you mean fsl-ldb.c, which was converted in
-9c399719cfb9 ("drm: convert many bridge drivers from devm_kzalloc() to
-devm_drm_bridge_alloc() API").
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+T24gU3VuLCAyMCBTZXAgMjAyNiAwNzo1NDowMCArMDgwMCBKYWt1YiBLaWNpbnNraSB3cm90ZToN
+Cg0KPiA+ICtzdHJ1Y3QgbXRrX2Rldl9vcHMgew0KPiA+ICsgICAgIHUzMiAoKmdldF9kZXZfc3Rh
+dGUpKHN0cnVjdCBtdGtfbWRfZGV2ICptZGV2KTsNClsuLi5dDQo+ID4gKyAgICAgaW50ICgqc2Vu
+ZF9kZXZfZXZ0KShzdHJ1Y3QgbXRrX21kX2RldiAqbWRldiwgdTMyIGRldl9ldnQpOw0KPiA+ICt9
+Ow0KPg0KPiBQbGVhc2UgcmVtb3ZlIHRoZSBhYnN0cmFjdGlvbnMgd2hpY2ggYXJlIG5vdCBuZWNl
+c3NhcnkgaW4gdGhlIGluaXRpYWwNCj4gdmVyc2lvbiBvZiB0aGUgZHJpdmVyLiBJZiB5b3UgaGF2
+ZSBhY2Nlc3MgdG8gYSBnb29kIExMTSB0aGVzZSBwcm9tcHRzDQo+IHdpbGwgcHJvYmFibHkgZG8g
+YSBiZXR0ZXIgam9iIHByZXBhcmluZyB0aGUgcGF0Y2hlcyB0aGFuIHlvdToNCj4NCj4gaHR0cHM6
+Ly9naXRodWIuY29tL2t1YmEtbW9vL2FpLXByb21wdHMvYmxvYi9tYWluL2RyaXZlci11cHN0cmVh
+bWluZy1wcm9tcHRzLm1kDQoNCldpbGwgZml4IGluIHY5LiAgc3RydWN0IG10a19kZXZfb3BzIGhh
+cyBvbmUgaW1wbGVtZW50YXRpb24sIHBjaV9od19vcHMsDQpyZWFjaGVkIHRocm91Z2ggbmluZSBw
+YXNzLXRocm91Z2ggaW5saW5lcyBpbiBtdGtfZGV2Lmg7IGJvdGggZ28gYXdheSBhbmQNCnRoZSBQ
+Q0llIGZ1bmN0aW9ucyBhcmUgY2FsbGVkIGRpcmVjdGx5LiAgU2FtZSB0cmVhdG1lbnQgZm9yDQpj
+bGRtYV9kcnZfb3BzIGFuZCBtdGtfY3RybF9oaWZfb3BzLCBhbHNvIHNpbmdsZS1pbXBsZW1lbnRh
+dGlvbiwgZm9yIHRoZQ0KbXRrX3Q5eHgua28vbXRrX3Q5eHhfcGNpZS5rbyBzcGxpdCwgd2hpY2gg
+ZHJvcHMgbmluZSBFWFBPUlRfU1lNQk9MX0dQTCgpcw0KYW5kIG10a19kZXYuYywgYW5kIGZvciB0
+aGUgdGhyZWUgX205eHggZmlsZXMsIHdoaWNoIHBhcmFtZXRlcmlzZSBhIHNpbmdsZQ0Kc3RydWN0
+IG10a19wY2lfZGV2X2NmZyBzaGFyZWQgYnkgYm90aCBQQ0kgSURzLiAgcG9ydF9vcHMgc3RheXM6
+IHR3bw0KaW1wbGVtZW50YXRpb25zIGhlcmUsIHRocmVlIHdpdGggdGhlIGZvbGxvdy11cCB3b3Jr
+LiAgV2UgY2hlY2tlZCB0aGUNCndob2xlIG91dC1vZi10cmVlIHRyZWUsIG5vdCBqdXN0IHRoaXMg
+c2VyaWVzIC0gbm9uZSBvZiB0aGUgcmVtb3ZlZCBvbmVzDQpnYWlucyBhIHNlY29uZCBpbXBsZW1l
+bnRhdGlvbiBsYXRlci4NCg0KVHdvIHF1ZXN0aW9ucyBvbiB0aGUgcHJvbXB0cyBkb2N1bWVudC4N
+Cg0KQXJlIHRoZSBmb2xsb3dpbmcgaGFyZCByZXF1aXJlbWVudHMgdGhlIHNlcmllcyBoYXMgdG8g
+bWVldCwgb3IgdGFyZ2V0cw0KZm9yIHRoZSB0b29sPw0KDQogLSBsaW5lIDQ0OiAiSWRlYWwgcGF0
+Y2hlcyBhcmUgYmV0d2VlbiAyMDAgYW5kIDcwMCBMb0MgKGFkZGVkICsNCiAgIHJlbW92ZWQsIG5v
+dCBjb3VudGluZyBjb250ZXh0KS4iDQogLSBsaW5lIDQ2OiAiQXZvaWQgc2VyaWVzIGxhcmdlciB0
+aGFuIDIuNWsgTG9DLiBUaGUgZmlyc3Qgc2VyaWVzIGlzDQogICB1c3VhbGx5IGxhcmdlciwgYnV0
+IG11c3Qgbm90IGV4Y2VlZCA0ayBMb0MuIg0KIC0gbGluZXMgNTctNTg6ICJTZXJpZXMgMSBzaG91
+bGQgYWltIHRvIGFkZCB0aGUgc2ltcGxlc3QgcG9zc2libGUNCiAgIHZlcnNpb24gb2YgdGhlIGRy
+aXZlciB3aGljaCBub25ldGhlbGVzcyBjYW4gc2VuZCBhbmQgcmVjZWl2ZSBhDQogICB0cml2aWFs
+IChubyBvZmZsb2FkcykgcGFja2V0LiINCiAtIGxpbmUgMTE3OiAiQXZvaWQgdGhlIHVzZSBvZiBt
+YW5hZ2VkIEFQSXMgKGBgZGV2bV9gYCwgYGBwY2ltX2BgKS4iDQoNCk9uIHRoZSBwYWNrZXQgb25l
+OiB0aGlzIHNlcmllcyBjYXJyaWVzIG5vIG5ldGRldiBiZWNhdXNlIGFuIGVhcmxpZXINCnJldmll
+dyBmb3VuZCB0aGUgZHJpdmVyIHRvbyBsYXJnZSB0byBzdWJtaXQgYXQgb25jZSwgc28gdGhlIG5l
+dHdvcmsNCmZ1bmN0aW9uYWxpdHkgd2FzIHNwbGl0IGludG8gZm9sbG93LXVwIHNlcmllcy4NCg0K
+VGhlIGRvY3VtZW50IGFsc28gYXNrcyBmb3Igbm8gZGVmZW5zaXZlIGNoZWNrcyAobGluZXMgMTE5
+LTEyMCkgYW5kIGZldw0KY29kZSBjb21tZW50cyAobGluZSAxMjQpLiAgVGhhdCBydW5zIGFnYWlu
+c3QgdGhlIGRpcmVjdGlvbiBvZiB0aGUgQUkgcmV2aWV3DQp3ZSBoYXZlIGJlZW4gZ2V0dGluZywg
+d2hlcmUgYm90aCBoYXZlIGJlZW4gZ3Jvd2luZy4gIElzIHRoZSBjdXJyZW50DQpkaXJlY3Rpb24g
+c3RpbGwgZmluZT8NCg0KVGhhbmtzLA0KSmFjaw0KICAgIA==
 
