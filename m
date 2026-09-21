@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41A7C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 01:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2077AC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 01:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9iPlkY3CknuAFyY3M8TOGdUAXhGOxVAJ6BaVRsWDl0M=; b=oZYvIojm0TLMDklSmSSk6pXlz8
-	lcO/CUE7IgQaZDtjOO6CMcB0fnEopuExJM4V/52h0K980sgG5OAMhMH9zj/ojv9c28AlwO5kE3k7c
-	VQLvXRsMJdCS3xuv364FDNfMSuIVGZdjESFK7Gplpx7GDp8NVCEQDEiHBKZXSupzrtESCGKDYFjW7
-	0kFlcEilBHAQBwu+s6+cZ7cICbqvlMXQKBk+xs783aciiNNochG9IYcSEh4T7EZ17F6r+n+GaGgQC
-	T25qzk2DtWPWVxp3hcyot/gLb01MYCzBPYNcRNehCGN8W3kMUtmS1/djojU/gzYGn6yLcd8wt9MpW
-	GmYPHNCg==;
+	bh=8duZ0PDljIuHJwrD+tPi+wEqDcSEi5hndbcMRu3p6IU=; b=e7tXWdnhyUtqRMFF3sjaxR4Tv0
+	YLu/UaGswMh0cWYSPwVk7txfpZEREKVo35j3LSd2GowgSLZK4XlrNoDKxTE2QeL7AOvdwvXZzIIGV
+	L1tFtl9JNZ1MeEXJElT24XZGalYyn9252q7YEaCINWZpTeZNolApGyK68Rwp/NZV8LFwrRiREmYq4
+	jTePcrs7uDkQlj881s60IQOV3XI/iagB1lJoaFWvSD1nAwLFDMTEvGsLdB3ZwYc7wa9odQIKcK7FA
+	wORV8fwu4r6nlcye/7hD+i/NkC0J/cg/SR8ZMBjUUOXYn/PZ3+MjSSm9b/+vvpV3c+iQIHzP2niJg
+	LlhJKbgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TGq-00000000hf9-2SHF;
-	Mon, 21 Sep 2026 01:56:40 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x8TIK-00000000hqP-00TO;
+	Mon, 21 Sep 2026 01:58:12 +0000
+Received: from m16.mail.126.com ([220.197.31.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8TGn-00000000hek-44MW
+	id 1x8TIH-00000000hpz-3T8W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Sep 2026 01:56:39 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-39b9184fa80so2150924a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Sep 2026 18:56:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789955797; x=1790560597; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9iPlkY3CknuAFyY3M8TOGdUAXhGOxVAJ6BaVRsWDl0M=;
-        b=Oy7ZtZ1SwWXBSDvu8g6SRFeU/Kheea04PMHErVRrlWbiUzNrWn3djZPzIsiAtSpNxH
-         6Be4/G3B90fiwirCIgm6Lb+J3OUr5voIIH+NDbBqHjb4EWuKY07iXtdW56WAU3uBkg2q
-         R2AoRQmD44Hld4H/maYQyWXrYCndcFJQL7Tk8KDpUMBCcqoDcmq8wOsaJnSXp41nkQv7
-         8Hil66oCaE3SbzjpEFhA568dE7QSyzeu4xpvte8M7mRkwBxgnrkgScIeaAmrdXq8BZYU
-         gC/42H+XouGUHqGK+xeopkFTpJaneM7ABKVzxyavFIKfgzRtBRRsPLJ8EyDjP+Oqd3Fz
-         tqXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789955797; x=1790560597;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9iPlkY3CknuAFyY3M8TOGdUAXhGOxVAJ6BaVRsWDl0M=;
-        b=ZhSIyHxqm7xkhPECniNJuhtFkEJfcrobjOBJeSrsr+1GafjoEmSLwifie+OOJUHugj
-         8KMEQq0+pi06M+/L9DisjlHlfEqGyZZO08B3JDZ58/mU0Z679T6Aj4V9eTEgUK63heFJ
-         lkfKWMKVwd/2daY2v85kuPJeg4UNoaGkPlw/Eew3h7shDEVNJ4QGHsrYS9lyLDb74I4m
-         NygNt8NO0qrPnPgOjzeHSEUmQHKPAsHtWuGsjNuaIaJbvMd9XBCD5Q+zbyreAN4gII8u
-         0kEBNIGtL8W87wD7bHAfd64ikRVHHyLCeEakwCBMyXMDOLCwjjCgWHhffWonfYHk7Xju
-         lbrw==
-X-Forwarded-Encrypted: i=1; AKwUvBzfoCoqN9pXrM5NN0WYv8Ri9ZfK6U/nWVBsLJz8HhSbkWLFWuLr1b8jfyinZ3Nwh3Dcip935trICUUfmxNWrBz6@lists.infradead.org
-X-Gm-Message-State: AFuF++lcJ0rvhTArcPvSZtW0vw54sTyRUantYMcj8Wakv4quR3bTY1D5
-	mnXWXONeEhi38TjZzW1+/OvGMaB5N46Do3ry2xSEm6DMJqHjMpTi+DH3
-X-Gm-Gg: AYBFou2n9+QOTMn5GpDfhugh9wXNE69t478yI86aipZv0FImnWFvo3NhiRnaKIpu/iG
-	CP2Ykrixr1ERHChwJjVJP3OI85jM4bvzfOadXiRswODM8A2t2By+RHuYrnmNmW/9mpOw3BF88Rp
-	yx6+2YwFo2cx3W+b/P75c4QlVztMBzS7zBD+zHvtw7fD6U4znLkoEDp15Xee9UFUL1ldYVhF8LM
-	SmMJ9w/uKN03guXWpuu5tQ2dr+3mThny2ZfFfhSXfW5Wt01pN9lJKeF6zki+ZJL4XCP1mlZntqr
-	s/Ers2KYj5hvu7KXnG2AAvMDOOoAWLIgSERtWbytrEug0nYkciV6600xl6YQc4hxTn/LzfEX4Vl
-	3JpZZUFM46ZelHOP6RycSWs+o9cOes6COyM9DSDhFk9bWA++EYlli+2J/cVWw11j/ZkvYDWlLDD
-	+mx2xkeUp2R02W5mye05qBzi1EGS6FOGfP1tLxlbUnLs3GzJysJsplZLuAybowLFwCx9G1SCOxa
-	lf0mpPSAFji73F2uWBj6sNTEEf2jQJnPv/lb+qWw0GNv4AH4wy83GtY9BjkyDmk2WfE4eSCdbrz
-	l9zgwykrSUq+AjDj1AB9LRXvBHCI8YrfiwpFWnb9A4ysJolBMfjBD5bDpSY=
-X-Received: by 2002:a17:90a:d2ce:b0:3a0:42a8:b357 with SMTP id 98e67ed59e1d1-3a042a8b394mr2631643a91.4.1789955796847;
-        Sun, 20 Sep 2026 18:56:36 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a041b87bfesm4094223a91.3.2026.09.20.18.56.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Sep 2026 18:56:36 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: devicetree@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM IPROC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: broadcom: rename pl330 DMA nodes to dma-controller
-Date: Sun, 20 Sep 2026 18:56:34 -0700
-Message-ID: <20260921015634.1044454-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Mon, 21 Sep 2026 01:58:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=8d
+	uZ0PDljIuHJwrD+tPi+wEqDcSEi5hndbcMRu3p6IU=; b=A+zT8h0dXjmMz7yDas
+	+jpGIhsglw6kJ3r0qa//5H+xbahOU+sBfGATUInNERN5lApVa6GiSFtbyg6JK+Lm
+	ffTnwtYeFSnVU7OdNP6+HQGzlRmsi3uGAgWAORlK8Pb3qSpL5N3kSk9gg0f6mClX
+	MwUeZxCbSzE1Q0w8ReUXcjwEU=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDnH8wIj7BqSCOmBg--.28307S2;
+	Mon, 21 Sep 2026 09:57:30 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	lorenzo.bianconi@oss.qualcomm.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH net v3] net: stmmac: request the MDIO reset GPIO only once
+Date: Mon, 21 Sep 2026 09:57:27 +0800
+Message-Id: <20260921015727.2643540-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDnH8wIj7BqSCOmBg--.28307S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtw1rXr15Zw45JF43Cr13twb_yoW7Kr1kp3
+	y5Zay5JrykZr1xtw4kJw48ZF9Ykay3tr45Wa109rWSkw45trWYqr1ftry5XFy7trWDWa4a
+	gw18CF1UuF4qyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uo5lnUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqQqsg2qwjwqHJQAA3x
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_185638_067057_F323B1ED 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260920_185810_212181_EC19C308 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +81,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each PL330 device node in the Cygnus, HR2, and Northstar Plus dtsi files
-was named dma or dma@<addr>, which does not follow the generic
-recommended node name for DMA controllers (dma-controller).
+From: Linkui Xiao <xiaolinkui@kylinos.cn>
 
-Rename them accordingly. The phandle labels (dma0/dma) are preserved,
-so existing references via &dma keep working.
+stmmac_mdio_reset() calls devm_gpiod_get_optional() every time it runs.
+A GPIO line can only be requested once, so from the second call on
+gpiod_request_commit() returns -EBUSY. devm_gpiod_get_optional() only
+turns -ENOENT into NULL, hence the error is passed straight back and
+stmmac_mdio_reset() bails out before pulsing "snps,reset" and before
+running the STE101P MDC workaround.
 
-Assisted-by: LLM
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+The first call, made by of_mdiobus_register(), succeeds, so the failure
+is only visible later on: every resume that does not use WoL goes
+through stmmac_resume() -> stmmac_mdio_reset(), and that caller ignores
+the return value, so the PHY silently stays un-reset.
+
+The descriptor used to be requested exactly once: stmmac_mdio_reset()
+resolved "snps,reset-gpio" itself and cached the GPIO number in
+stmmac_mdio_bus_data::reset_gpio, and commit ae26c1c6cb9b ("stmmac: fix
+PHY reset during resume") relies on that cache to reuse the line on
+every call. commit 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in
+stmmac_mdio_reset") replaced it with a devm_gpiod_get_optional() that
+caches nothing, so the request is repeated on every call and fails from
+the second one on.
+
+Parse the whole reset description, the GPIO and "snps,reset-delays-us",
+in stmmac_mdio_register() at probe time, and keep it in struct
+stmmac_priv. This is where devm-gpiod is meant to be used: the line is
+acquired with the device and released with it, and any failure to
+acquire it is reported during probe instead of being ignored by
+stmmac_resume(). stmmac_mdio_reset() then only pulses the cached line,
+with the delays that were read once and for all at probe time.
+
+The request and the delays are still gated on
+mdio_bus_data->needs_reset, which is the condition that installs the
+reset callback, and on the device using DT. stmmac_mdio_reset()
+itself no longer looks at the device tree at all: where the
+description is absent the cached descriptor is NULL and the delays
+are all zero, so the pulse is a no-op, just as the of_node check used
+to make it.
+
+Fixes: 7c86f20d15b7 ("net: stmmac: use GPIO descriptors in stmmac_mdio_reset")
+Cc: stable@vger.kernel.org
+Signed-off-by: Linkui Xiao <xiaolinkui@kylinos.cn>
 ---
- arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi | 2 +-
- arch/arm/boot/dts/broadcom/bcm-hr2.dtsi    | 2 +-
- arch/arm/boot/dts/broadcom/bcm-nsp.dtsi    | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+Changes in v3:
+- Read "snps,reset-delays-us" in stmmac_mdio_register() as well, so that
+  the whole reset description is parsed in one place. (Lorenzo Bianconi)
+- Drop the CONFIG_OF/of_node check from stmmac_mdio_reset(), which no
+  longer needs it now that nothing is parsed there: the callback does not
+  look at the device tree at all.
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi b/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi
-index 07ca0d993c9f..a017e46fd78f 100644
---- a/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm-cygnus.dtsi
-@@ -331,7 +331,7 @@ msi1: msi {
- 			};
- 		};
+Changes in v2:
+- Do not request the GPIO from stmmac_mdio_reset(); request it once in
+  stmmac_mdio_register() at probe time instead. (Maxime Chevallier)
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  3 ++
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 46 +++++++++----------
+ 2 files changed, 24 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 7582fca63741..2bb68e8b6274 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -25,6 +25,7 @@
+ #include <net/xdp.h>
+ #include <uapi/linux/bpf.h>
  
--		dma0: dma@18018000 {
-+		dma0: dma-controller@18018000 {
- 			compatible = "arm,pl330", "arm,primecell";
- 			reg = <0x18018000 0x1000>;
- 			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>,
-diff --git a/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi b/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi
-index 75545b10ef2f..13bc358adcfe 100644
---- a/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm-hr2.dtsi
-@@ -154,7 +154,7 @@ uart1: serial@400 {
- 			status = "disabled";
- 		};
++struct gpio_desc;
+ struct stmmac_pcs;
  
--		dma@20000 {
-+		dma-controller@20000 {
- 			compatible = "arm,pl330", "arm,primecell";
- 			reg = <0x20000 0x1000>;
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
-diff --git a/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi b/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi
-index 6a4482c93167..5f14cd3ce211 100644
---- a/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm-nsp.dtsi
-@@ -201,7 +201,7 @@ uart1: serial@400 {
- 			status = "disabled";
- 		};
+ struct stmmac_resources {
+@@ -287,6 +288,8 @@ struct stmmac_priv {
  
--		dma: dma@20000 {
-+		dma: dma-controller@20000 {
- 			compatible = "arm,pl330", "arm,primecell";
- 			reg = <0x20000 0x1000>;
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
+ 	unsigned int pause_time;
+ 	struct mii_bus *mii;
++	struct gpio_desc *mdio_reset_gpio;
++	u32 mdio_reset_delays[3];
+ 
+ 	struct stmmac_pcs *integrated_pcs;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index afe98ff5bdcb..cf768afd9237 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -384,33 +384,16 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+ 	unsigned int mii_address = priv->hw->mii.addr;
+ 
+-#ifdef CONFIG_OF
+-	if (priv->device->of_node) {
+-		struct gpio_desc *reset_gpio;
+-		u32 delays[3] = { 0, 0, 0 };
++	if (priv->mdio_reset_delays[0])
++		msleep(DIV_ROUND_UP(priv->mdio_reset_delays[0], 1000));
+ 
+-		reset_gpio = devm_gpiod_get_optional(priv->device,
+-						     "snps,reset",
+-						     GPIOD_OUT_LOW);
+-		if (IS_ERR(reset_gpio))
+-			return PTR_ERR(reset_gpio);
++	gpiod_set_value_cansleep(priv->mdio_reset_gpio, 1);
++	if (priv->mdio_reset_delays[1])
++		msleep(DIV_ROUND_UP(priv->mdio_reset_delays[1], 1000));
+ 
+-		device_property_read_u32_array(priv->device,
+-					       "snps,reset-delays-us",
+-					       delays, ARRAY_SIZE(delays));
+-
+-		if (delays[0])
+-			msleep(DIV_ROUND_UP(delays[0], 1000));
+-
+-		gpiod_set_value_cansleep(reset_gpio, 1);
+-		if (delays[1])
+-			msleep(DIV_ROUND_UP(delays[1], 1000));
+-
+-		gpiod_set_value_cansleep(reset_gpio, 0);
+-		if (delays[2])
+-			msleep(DIV_ROUND_UP(delays[2], 1000));
+-	}
+-#endif
++	gpiod_set_value_cansleep(priv->mdio_reset_gpio, 0);
++	if (priv->mdio_reset_delays[2])
++		msleep(DIV_ROUND_UP(priv->mdio_reset_delays[2], 1000));
+ 
+ 	/* This is a workaround for problems with the STE101P PHY.
+ 	 * It doesn't complete its reset until at least one clock cycle
+@@ -608,6 +591,19 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	if (!mdio_bus_data)
+ 		return 0;
+ 
++	if (mdio_bus_data->needs_reset && dev_of_node(priv->device)) {
++		priv->mdio_reset_gpio =
++			devm_gpiod_get_optional(priv->device, "snps,reset",
++						GPIOD_OUT_LOW);
++		if (IS_ERR(priv->mdio_reset_gpio))
++			return PTR_ERR(priv->mdio_reset_gpio);
++
++		device_property_read_u32_array(priv->device,
++					       "snps,reset-delays-us",
++					       priv->mdio_reset_delays,
++					       ARRAY_SIZE(priv->mdio_reset_delays));
++	}
++
+ 	stmmac_mdio_bus_config(priv);
+ 
+ 	new_bus = mdiobus_alloc();
 -- 
-2.55.0
+2.25.1
 
 
