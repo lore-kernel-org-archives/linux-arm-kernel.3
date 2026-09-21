@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74805C982E1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88077C982E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Sep 2026 10:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8sHdE2b+qiUHyLwd+X3ZuaoXII1Ro8aFwyyAine2bGc=; b=HtYsd7+/kdiKDepyZYZsOHg5wh
-	37m9QSHIfhE7j1lQRZDNCWFrphuRq9Q32iM2+XQQEXXGb0JdzoXsUDYUQOp9mpiFMmgIKnIyRc/uN
-	PQC0DOViJPKPbCgNW2fDLvgsRjBCFufBJ8cv+ixzHJvqcua5HcRDaXhr96e21Zq1ynIolcisYwA+H
-	roAsKS8deUWxSxUw+lhLpMUL0mEFr+BUng/wZubBLKuxYteyFlF0h4BwLlBVirUlj76oLAlFOD6KG
-	keUbNAGHYD4eRUNT8v+e4+iLUmkkaTlBit/974OToz5Dn09Mb+pCiiJR8mqFmPFmI5GL9939VjCgJ
-	8bzbqwAQ==;
+	bh=JOIIwBcHwXvhGohwhLmN0ckUZewr1XmsdIkqY7rlIfU=; b=Z7qjGEH0ottatJT32TmJXnb6kU
+	u3WBTi00PjaEhoqAE2SvcUrM2cS1Q1pMwW7AFqlGaFGJ1szBh4zkGdccJBhKee0WjjMlm29P3N0g/
+	NPmtrd8BxUcqpgn1Lt80VU8f4fbn4IFm+5iCafOANh9lxX19/qY8jCbzLzNFZPryLih2vt8cSzCO9
+	DXmmFlutO8EkyeXgzYOlYET2eoXARMcd70mofgvFWSKRPh68MbrbGIkt0wGl3PWHqVvLXtg7O15FR
+	pdIbQRiFhTq2D3U1/BQio7bszDjTjOzHzcAOji4QvE7+VxtpDJqYulDw5B101PQpLFrX1MfEQdC9W
+	uE4AmCiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bcm-00000001kmv-1E7o;
-	Mon, 21 Sep 2026 10:51:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8bcj-00000001kmK-32HN;
-	Mon, 21 Sep 2026 10:51:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1789987907;
-	bh=B7xAGKbm+zUqgFqse1/7beuuqa6SMNRQ6ULAavpm9uA=;
+	id 1x8bfz-00000001lCS-3y8T;
+	Mon, 21 Sep 2026 10:55:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8bfv-00000001lBt-2OIZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Sep 2026 10:55:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23B091570;
+	Mon, 21 Sep 2026 03:55:03 -0700 (PDT)
+Received: from [10.57.83.12] (unknown [10.57.83.12])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1D1C3F86C;
+	Mon, 21 Sep 2026 03:55:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789988106; bh=VeIsaNzzDd9f9NeJzVh3EXPEgrmVN3PnEqsJPHZMPRs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g2eF+tghtShQlmNjeFmqjYC+9ICEz6zMeUMFuAAzj72BOBbXpaKD3xXYm0PY4zwqF
-	 Zqzq+mrP/dLj0yPzxYlTael9GD+uRYOEC6sqTCGrx2d74JpcQrxWnwqeIfz5CvDlU9
-	 u5iEiz3aEI636MIYcXz+d0eK2CjII3nTLlNy45xqUV6g6aPysCgfpjtQsl/FnNYEwI
-	 E0Fe/hyw2jWUn1QbF0lvfjcYnokgaVIMZm137OQD2GYH0ESOLy3sinO9MppOEWAwd9
-	 tnF3utAoDi9BV8EhQD3lZ5bGgsGPl0UCOZNJVcYeY1kTjLA01CycD/rDqV0jddI1/q
-	 BZc8aE1sPBbGg==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F0F7C17E03B6;
-	Mon, 21 Sep 2026 12:51:46 +0200 (CEST)
-Message-ID: <0133cf19-709b-41f0-8f2e-e7ffede3ac1c@collabora.com>
-Date: Mon, 21 Sep 2026 12:51:46 +0200
+	b=TcrqUl2GOeCmADC+jcCe/JsSC8+pdpNPcZ+lZEqkLwHaF82/grSesMT2K8TGrEkh8
+	 Qc3oT/5ZQjSahcQhuvh7uXmdSxiUefczLAMViYr1PQ+k3g3NIwl+tJWn304rX67Hed
+	 cHuJUz2DRzDomCBX+TgkYOUQ70K+qqdbA41d7D/k=
+Message-ID: <9aed35be-a411-4d9d-805c-03c836e9e56a@arm.com>
+Date: Mon, 21 Sep 2026 11:55:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 00/15] usb: enable M.2 E-key slot USB with pwrseq
-To: Chen-Yu Tsai <wenst@chromium.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
- linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Manivannan Sadhasivam <mani@kernel.org>,
- Alan Stern <stern@rowland.harvard.edu>
-References: <20260916075745.3549953-1-wenst@chromium.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260916075745.3549953-1-wenst@chromium.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 0/4] arm64/mm: Convert pgtable READ_ONCE() as pxdp_get()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20260903060657.2717457-1-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260903060657.2717457-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_035150_102407_BC60BBCE 
-X-CRM114-Status: GOOD (  62.24  )
+X-CRM114-CacheID: sfid-20260921_035507_701034_29E8D015 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,296 +75,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/26 09:57, Chen-Yu Tsai wrote:
-> Hi everyone,
+On 03/09/2026 07:06, Anshuman Khandual wrote:
+> Route READ_ONCE() accesses on pgtable entries via level specific generic MM
+> pxdp_get() helpers which platforms could then override when required. These
+> accessors on arm64, will help in ensuring page table accesses are performed
+> in an atomic manner while reading 128 bit page table entries later. But for
+> now they just default to READ_ONCE(), thus preserving existing behaviour on
+> current D64 translation.
 > 
-> This is v9 of my attempt at integrating the power sequencing API into
-> the USB core to support the USB connection on M.2 E-key slots. M.2
-> This series was previously titled "arm64: mediatek: Add M.2 E-key slot
-> on Chromebooks", which caused it to be missed by the USB maintainers.
-> E-key was enabled in v7.1-rc1 with just PCIe and UART supported [1].
-> Hopefully this is the last revision. The fwnode patches need a reviewed-by
-> from the fwnode owners.
+> This is similar to generic MM, where all atomic accesses have already been
+> converted from READ_ONCE() into pgtable level specific accessors.
 > 
-> As for Sashiko's comment about fwnode_get_next_*() not putting the
-> reference to @prev when @node is NULL, I plan to update the kernel-doc
-> for all the functions in a separate patch later.
+> These are preparatory patches for D128 enablement, although standing their
+> own for D64 translation as well. These patches are split from earlier D128
+> V1 series. There are no functional changes here, and besides mm kselftests
+> do not show any regression.
 > 
-> Another one of Sashiko's comments is related to dropping the wakeup-source
-> property from the PCIe node. AFAIK there is no alternative as there is
-> no longer a node to put it in.
+> https://lore.kernel.org/linux-mm/20260729122452.3797443-1-anshuman.khandual@arm.com/
 > 
-> Last, one comment from Qualcomm folks is that the port numbering
-> conflicts with what the dwc3 bindings specify. IMHO the dwc3 bindings
-> should be fixed, as the dwc3 controller embeds a XHCI for host mode,
-> and XHCI port numbering should follow standard USB host hardware port
-> numbering. I will send separate RFC patches for this.
-> 
-> Changes since v8:
-> - Moved Sashiko-related comments from commit message body to footer
-> - Collected tags from Sakari
-> - Dropped USB port related code movement to usb/core/port.[ch]
-> - Link to v8:
->    https://lore.kernel.org/all/20260904084158.1341550-1-wenst@chromium.org/
-> 
-> Changes since v7:
-> - Mention in kernel-doc that the function does not return ports that
->    have no endpoints (Sakari) (patch 1)
-> - Adapted to pwrseq_enable/disable() rename
-> - Link to v7:
->    https://lore.kernel.org/all/20260724084328.3943997-1-wenst@chromium.org/
-> 
-> Changes since v6:
-> - Patch 3 (power: sequencing: Add pwrseq_get_state())
->    - Adopted enum for valid return codes (Bartosz)
-> - Patch 10 (usb hub pwrseq integration)
->    - Added braces ("{}") to for loop in hub_is_port_power_switchable() (Andy)
->    - Adapted usb_port_is_power_on() to new pwrseq_get_state() function
->      return values (Bartosz)
-> - Link to v6:
->    https://lore.kernel.org/all/20260721065413.2306137-1-wenst@chromium.org/
-> 
-> Changes since v5:
-> - Patch 1 (device property: Add fwnode_graph_get_port_by_id())
->    - Dropped left-over declaration in header (Sashiko)
-> - Patch 3 (power: sequencing: Add pwrseq_power_is_on())
->    - Reverted back to returning -EINVAL if descriptor is NULL (Andy /
->      Bartosz)
-> - Patch 6 (usb: hub: Associate port@ fwnode with USB port device)
->    - Added extra |struct fwnode_handle *| local variables to shorten lines (Andy)
->    - Added comment about passing fwnode_graph_get_port_by_id() return value
->      directly to device_set_node() (Andy)
-> - Patch 10 (usb hub pwrseq integration)
->    - Only assign port_dev->pwrseq if successfully retrieved pwrseq
->      descriptor (Andy)
->    - Dropped the pwrseq error pointer check in the release function
->      (Andy)
->    - Added check for port->pwrseq != NULL before calling
->      pwrseq_is_power_on() (API change from patch 3)
-> - Link to v5:
->    https://lore.kernel.org/all/20260715085348.3457359-1-wenst@chromium.org/
-> 
-> Changes since v4:
-> - Added flags parameter to fwnode_graph_get_port_by_id() so users can
->    specify whether incomplete ports are returned or not (Sashiko)
-> - Made pwrseq_power_is_on() return 1 if descriptor is NULL, i.e. if
->    the descriptor is optional, matching the other pwrseq consumer APIs
-> - Added patch to swap out conditional set_bit()/clear_bit() with
->    assign_bit() (split out from "usb: hub: Power on connected M.2 E-key
->    connectors with power sequencing API") (Andy)
-> - Call fwnode_graph_get_port_by_id() with FWNODE_GRAPH_DEVICE_DISABLED
->    so that even incomplete ports can be connected (Sashiko)
-> - Dropped unused |hdev| variable from usb_hub_remove_port_device()
->    (Greg / Sashiko)
-> - Dropped 'extern' from usb_port_is_power_on() header declaration (Andy)
-> 
-> - Patch 10 (usb hub pwrseq integration)
->    - Rewrote usb_port_is_power_on() to better express intent and
->      restrictions of pwrseq API (Andy)
->    - Switched to dev_fwnode() in port_pwrseq_is_supported() (Andy)
->    - Added blank line separating normal variable declarations and __free()
->      type declarations (Andy)
->    - Split out assign_bit() rewrite (Andy)
->    - Moved pwrseq_put() to release function to avoid UAF (Sashiko)
->    - Added back pwrseq_power_off() call in usb_hub_remove_port_device();
->      otherwise power off could be delayed to object release
->    - Don't clear hub->ports[port1 - 1] in main error path;
->      by that time the port device is registered and sysfs attributes are
->      available to userspace (Sashiko)
-> 
-> - Dropped blank line between __free() variable declaration and
->    subsequent use of the variable in conditional (Andy)
-> - Added patch to split Bluetooth pwrseq units (Wei)
-> - Link to v4:
->    https://lore.kernel.org/all/20260709095726.704448-1-wenst@chromium.org/
-> 
-> Changes since v3:
-> - Added missing stub function for !POWER_SEQUENCING (patch 3) (Sashiko)
-> - Added missing fwnode_handle_put() (patch 5) (Sashiko)
-> - Added new patch to move |struct usb_port| related declarations to
->    separate header (patch 6) (Andy)
-> - Patch 9 (usb hub pwrseq integration)
->    - Adapted to move of usb_port_is_power_on() to port.c and port.h
->    - Simplified usb_hub_set_port_pwrseq() (Andy)
->    - Renamed usb_hub_set_port_pwrseq()'s "set" parameter to "on"
->    - Dropped usb_hub_restore_port_pwrseq() (use usb_hub_set_port_pwrseq()
->      with inverted argument)
->    - Fixed off-by-one access in hub_is_port_power_switchable() (Sashiko)
->    - Assign retval from dev_err_probe() instead of the other way around (Andy)
->    - Clear hub->ports[port1 - 1] in USB port error and remove paths to
->      avoid other threads from accidental UAF while the USB hub device is
->      being unwound (Sashiko)
->    - Short-circuit out of helpers if !IS_ENABLED(CONFIG_POWER_SEQUENCING)
->      to avoid errors from stub functions (Sashiko)
-> - Drop redundant device node validity check; device_match_of_node()
->    does it internally (patch 11) (Andy)
-> - Link to v3:
->    https://lore.kernel.org/all/20260703110317.1283411-1-wenst@chromium.org/
-> 
-> Major changes since v2:
-> - Removed changes for MT8192 Asurada family: one of the device is
->    shipped with RTL8822CE-VR, which is PCIe + UART and needs more work.
-> - Removed changes for USB A ports: VBUS one the type A ports on
->    Chromebooks are not directly controllable from the OS and VBUS is
->    modeled as always on. As such the changes I made don't actually
->    change how the system works.
-> - Added new pwrseq_power_is_on() function
-> - Make new pwrseq integration effectively OF only by not assigning the
->    port fwnode if the hub's fwnode is an ACPI node
-> - Added patch to convert remaining instances of directly setting/clearing
->    USB_PORT_FEAT_POWER to usb_hub_set_port_power()
-> - Power sequencing state removed again in favor of state tracking by
->    pwrseq subsystem
-> - Power sequencing descriptor again separately requested for HS and SS
->    ports
-> - Dropped pwrseq_power_off() call before pwrseq_put(); the latter calls
->    the former implicitly if the power state was left on
-> - Squashed DT binding revert and addition into one patch
-> - Link to v2:
->    https://lore.kernel.org/all/20260610084053.2059858-1-wenst@chromium.org/
-> 
-> 
-> Major changes since v1:
-> - No longer adding the "index" parameter the power sequencing API
-> - Switched from OF graph to fwnode graph APIs
-> - Tie "port@" node to usb_port device, and use this device as consumer
->    to acquire power sequencing descriptor
-> - Power sequencing descriptor now only tied to USB 2.0 port to avoid
->    double reference
-> - Power sequencing state tracking added
-> - Link to v1
->    https://lore.kernel.org/all/20260515090149.3169406-1-wenst@chromium.org/
-> 
-> The series is based on next-20260901.
-> 
-> 
-> Patch 1 and 2 add new fwnode graph helpers. These are used by the patch
-> 5 and 8, respectively.
-> 
-> Patch 3 adds a new pwrseq_get_state() for power sequencer consumers
-> to query the current request state. Note that this is not the _actual_
-> state.
-> 
-> Patch 4 swaps out the existing conditional set_bit()/clear_bit() with
-> assign_bit(), which does the same thing.
-> 
-> Patch 5 reworks the USB hub driver to return the actual error code from
-> hub_configure() in hub_probe(). This is needed in the next patch to
-> correctly return -EPROBE_DEFER returned by pwrseq_get() in patch 9.
-> 
-> Patch 6 makes the USB port device associated with a "port@" fwnode if
-> available. This depends on patch 1.
-> 
-> Patch 7 changes usb_port_is_power_on() so that |struct usb_port*| is
-> passed in instead of |struct usb_hub*|. This patch does not change any
-> functionality.
-> 
-> Patch 8 changes some USB hub port power control code that directly
-> toggles USB_PORT_FEAT_POWER to use usb_hub_set_port_power().
-> 
-> Patch 9 lets the USB hub driver look for power sequencers for each port.
-> Currently this only works for M.2 E-key connections, but it could be
-> extended to cover other cases. It should also make port reset via turning
-> off the port VBUS work, even when VBUS is not directly controlled by the
-> hub. This depends on patch 2 and 3 for the new helpers.
-> 
-> Patch 10 reverts an incorrectly modeled OF graph connection for the
-> MediaTek XHCI controller and adds a proper representation.
-> 
-> Patch 11 adds matching pwrseq consumer by "port@" node to the M.2 slot
-> driver. This is only used for the USB target, but there is no attempt
-> to differentiate the connection type. The driver simply tries matching
-> the "port@" node first, then falling back to the port parent or device's
-> node.
-> 
-> Patch 12 reworks the power sequencing targets for the E-key connector in
-> the pcie-m2 driver to add targets for USB and SDIO. The former is used
-> later on in this series.
-> 
-> Patch 13 splits the Bluetooth power sequencing unit so that the USB and
-> serdev consumers can separately toggle the actual state of W_DISABLE#2.
-> This patch is purposefully not squashed into the previous one to provide
-> a clear target for discussions.
-> 
-> Patches 14 and 15 enable the M.2 E-key slots (or slot-like integration)
-> found on MT8195 and MT8188 MediaTek-based Chromebooks.
-> 
-> 
-> This series unfortunately spans multiple trees. The way I see it:
-> 
->    - Patches 1 and 2 go through the driver core, and an immutable tag is
->      provided to be merged together with the USB patches.
-> 
->    - Patch 3 has an ack from Bartosz, and goes through the USB tree. But
->      Bartosz also wants an immutable branch/tag to have a copy in the
->      pwrseq tree.
-> 
->    - Patches 4 through 10 (all the USB related ones) go through the USB
->      tree, along with the dependencies above.
-> 
->    - Patches 11 through 13 go through the power sequencing tree.
-> 
->    - Patches 14 and 15 (device tree only) go through the soc tree via the
->      mediatek tree.
-> 
-> Some of us discussed v1 at Embedded Recipes, and I believe Bartosz, Mani
-> and I agree on this approach. The debate is likely going to be on
-> whether this should be integrated into the USB core or not. I believe it
-> should, so that the power sequencing timing is tied to the USB port
-> being brought up. I do have a fallback option of just enabling the USB
-> power sequencing target inside the M.2 slot driver if a valid OF graph
-> connection is seen. But this is less desired for the reason given above.
-> 
-> I hope we can get this merged in this cycle for v7.4.
-> 
+> This series applies on v3.7-rc1 but after applying the following patches
 
-Series is
+I assume you meant v7.3-rc1 here?
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> related to pgtable entry print standardization posted earlier.
+> 
+> https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
 
-Cheers,
-Angelo
+This applies.
 
 > 
-> Thanks
-> ChenYu
+> https://lore.kernel.org/linux-mm/20260901065454.1906343-1-anshuman.khandual@arm.com/
+
+This fails:
+---8<---
+$ b4 shazam 20260901065454.1906343-1-anshuman.khandual@arm.com
+Grabbing thread from
+lore.kernel.org/all/20260901065454.1906343-1-anshuman.khandual@arm.com/t.mbox.gz
+Checking for newer revisions
+Grabbing search results from lore.kernel.org
+  Added from v3: 3 patches
+  Added from v2: 3 patches
+Analyzing 14 messages in the thread
+Looking for additional code-review trailers on lore.kernel.org
+Will use the latest revision: v3
+You can pick other revisions using the -vN flag
+Checking attestation on all messages, may take a moment...
+---
+  ✓ [PATCH v3 1/2] arm64/mm: Move __check_safe_pte_update()
+  ✓ [PATCH v3 2/2] arm64/mm: Standardize printing for pgtable entries
+  ---
+  ✓ Signed: DKIM/arm.com
+---
+Total patches: 2
+---
+Applying: arm64/mm: Move __check_safe_pte_update()
+Applying: arm64/mm: Standardize printing for pgtable entries
+Patch failed at 0002 arm64/mm: Standardize printing for pgtable entries
+When you have resolved this problem, run "git am --continue".
+If you prefer to skip this patch, run "git am --skip" instead.
+To restore the original branch and stop patching, run "git am --abort".
+error: patch failed: arch/arm64/mm/fault.c:160
+error: arch/arm64/mm/fault.c: patch does not apply
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+---8<---
+
+And as a result I can't apply this series. Any tips?
+
+Thanks,
+Ryan
+
+
 > 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Stoakes <ljs@kernel.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Linu Cherian <linu.cherian@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mm@kvack.org
 > 
-> [1] https://lore.kernel.org/all/20260326-pci-m2-e-v7-0-43324a7866e6@oss.qualcomm.com/
+> Anshuman Khandual (4):
+>   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
+>   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
+>   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
+>   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
 > 
-> Chen-Yu Tsai (15):
->    device property: Add fwnode_graph_get_port_by_id()
->    device property: Add fwnode_graph_get_next_port_endpoint()
->    power: sequencing: Add pwrseq_get_state()
->    usb: hub: Use assign_bit() in usb_hub_set_port_power()
->    usb: hub: Return actual error from hub_configure() in hub_probe()
->    usb: hub: Associate port@ fwnode with USB port device
->    usb: hub: Pass |struct usb_port*| to usb_port_is_power_on()
->    usb: hub: Use usb_hub_set_port_power() to control port power
->      everywhere
->    usb: hub: Power on connected M.2 E-key connectors with power
->      sequencing API
->    dt-bindings: usb: mediatek,mtk-xhci: Switch to ports for USB
->      connections
->    power: sequencing: pcie-m2: support matching on remote "port" node
->    power: sequencing: pcie-m2: Add usb and sdio targets for E-key
->      connector
->    power: sequencing: pcie-m2: Split Bluetooth unit based on interface
->    arm64: dts: mediatek: mt8195-cherry: Add M.2 E-key slot
->    arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
+>  arch/arm64/include/asm/pgtable.h |  6 ++--
+>  arch/arm64/mm/fault.c            |  8 ++---
+>  arch/arm64/mm/fixmap.c           |  6 ++--
+>  arch/arm64/mm/hugetlbpage.c      | 10 +++---
+>  arch/arm64/mm/kasan_init.c       | 18 +++++-----
+>  arch/arm64/mm/mmu.c              | 60 ++++++++++++++++----------------
+>  arch/arm64/mm/pageattr.c         |  8 ++---
+>  arch/arm64/mm/trans_pgd.c        | 14 ++++----
+>  8 files changed, 66 insertions(+), 64 deletions(-)
 > 
->   .../bindings/usb/mediatek,mtk-xhci.yaml       | 17 +++-
->   .../boot/dts/mediatek/mt8188-geralt.dtsi      | 92 ++++++++++++++++++-
->   .../boot/dts/mediatek/mt8195-cherry.dtsi      | 73 ++++++++++++++-
->   drivers/base/property.c                       | 56 +++++++++++
->   drivers/power/sequencing/core.c               | 19 ++++
->   drivers/power/sequencing/pwrseq-pcie-m2.c     | 64 ++++++++++---
->   drivers/usb/Kconfig                           |  1 +
->   drivers/usb/core/hub.c                        | 69 +++++++++-----
->   drivers/usb/core/hub.h                        | 14 ++-
->   drivers/usb/core/port.c                       | 80 +++++++++++++++-
->   include/linux/property.h                      |  4 +
->   include/linux/pwrseq/consumer.h               | 12 +++
->   12 files changed, 447 insertions(+), 54 deletions(-)
-> 
+
 
