@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6DBC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051B3C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ooSDDkrViprypNWUVN/CPwtSDXObDWm+cEGnIgZ9A0=; b=tjRs7gwNaNrpqGy6u9qDuFgYqm
-	GLq9hZTOWN+bulP6hrNXQCL374HkzDDWs9rQIpZwR6s/PCVBUpXSdr+utrEpmcPrD3HKi2wyDHujf
-	UiZKeeLSnLtVzuyP/Bn+de/+Xe188p8RImoCSC6H2Ol4nZ+2IjOBDqqY4I1SI/fXh5v8l2y1NujWw
-	oRNshge7UQYS8+FrjwaWOzrOYr3V76xDi+SiThhW93N6ArY7Co5jIeMZ+7MLdtEeTipF45Wl1lkYA
-	gNO66my7CnINtlBnXq5ZJp2pdhWpKvc8Nkij6FAHOHg+r+KDspgGnJAD17lj5E3qRSmzbenUOopjK
-	OSzXrk7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i/Cfij+Q5hH5r5YCJ8SjzJRHCMas/NePWqksJcwwvao=; b=gmAk0FGxDPrnualzkh6MKj0sWz
+	t7ydSf9XizAHcFnpBOgEzYW2hfWjSNZCiXN9WbO2fgoZzLnUQ8zq3HnN4SJCQE1HK5vPQYyGiWR/X
+	jflXbHcbm2aJfQS6LES0zgfoeU3C4e+IFlkG1p7SBpkBW5iXgNkRjWGq+C5Fudq9Gozn72AujOX17
+	umFIDkreOHRr3V5c8riE/Mo/mxJcqMU3aA9e6bs9/BInUsGhgRh4FkTHOsatlh620UeIGAGLPMKd3
+	rIIP7Ck9wFU2goaUii5eZnd/43OTmuYyEeR91MpW3wtBFKBoNFfZw1qSeQaPqkI7pUkovfw90lwtg
+	ce/e5+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zu3-00000005Lza-1F3o;
-	Tue, 22 Sep 2026 12:47:19 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1x8yvi-00000005DoT-0jh0;
+	Tue, 22 Sep 2026 11:44:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zu0-00000005LyV-2kKu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:47:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790081237; x=1821617237;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=8ZKyqOu0mEmRU4MJJjqfKU5OT/hrxhKmNGxrkJ1omVE=;
-  b=mTfEEfbcREFk4ROgPRcT6SbUNAtVp8sC2n9Z0HY3aKtHOZ0AYIHCjPpi
-   x27+rlIA0QIRmEHoYVxgNkqucme9uAntiuum3liCv+9Yz67hnI5WZLqtX
-   FsFPKwdvwOliYAlCongjUVz+sQrvslDZTzhGyrcvCbj43l7lqs0GKWU9R
-   26CuM56Z0tgHiaO1amRe8wMCscG1ZV2DyCTUCxkdpCHbAOJWpspIKGWda
-   iK0IxzB55RwT1iwJBJmL1TsTY/ns+6+bGZTjFvJYHd+yQuwUTs7Mn3UVu
-   8CI9vt/F0ZZEm5JenJ5LgYiVqEOLTafvmC6PhnlTrWU02YOsNHWo0OzIi
-   g==;
-X-CSE-ConnectionGUID: twmGooohQJeQYwPsd4lekQ==
-X-CSE-MsgGUID: ZQatqDUUSS6lQ9f5l1BR5g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11912"; a="94509134"
-X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
-   d="scan'208";a="94509134"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:47:15 -0700
-X-CSE-ConnectionGUID: ZNKd8pjLSDqm/Bu8+RVLxA==
-X-CSE-MsgGUID: Y5imD72iRmm/cXg8yK2ddw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
-   d="scan'208";a="272318929"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.80])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:47:02 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 22 Sep 2026 15:46:56 +0300 (EEST)
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-cc: Linux ACPI <linux-acpi@vger.kernel.org>, 
-    LKML <linux-kernel@vger.kernel.org>, 
-    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    Mika Westerberg <mika.westerberg@linux.intel.com>, 
-    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-    linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
-    Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org, 
-    Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-    "Joerg Roedel (AMD)" <joro@8bytes.org>, 
-    Mark Pearson <mpearson-lenovo@squebb.ca>, 
-    "Derek J. Clark" <derekjohn.clark@gmail.com>, 
-    Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
-    David Rhodes <david.rhodes@cirrus.com>, 
-    Richard Fitzgerald <rf@opensource.cirrus.com>, 
-    Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-    linux-sound@vger.kernel.org, Shenghao Ding <shenghao-ding@ti.com>, 
-    Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
-    Sen Wang <sen@ti.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
-    Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, 
-    Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-    Cezary Rojewski <cezary.rojewski@intel.com>, 
-    Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-    Bard Liao <yung-chuan.liao@linux.intel.com>, 
-    Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-    Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
-    Binbin Zhou <zhoubinbin@loongson.cn>, 
-    Andreas Noever <andreas.noever@gmail.com>, 
-    Mika Westerberg <westeri@kernel.org>, 
-    Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: Re: [PATCH v1 08/17] platform/x86: x86-android-tablets: Use
- acpi_bus_get_primary_device()
-In-Reply-To: <3912360.MHq7AAxBmi@rafael.j.wysocki>
-Message-ID: <b5e7637d-e189-6ac7-6e47-9f4a21aab2ca@linux.intel.com>
-References: <7995179.EvYhyI6sBW@rafael.j.wysocki> <3912360.MHq7AAxBmi@rafael.j.wysocki>
+	id 1x8yvf-00000005DnN-2RFK;
+	Tue, 22 Sep 2026 11:44:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790077493;
+	bh=W+7CB1tky3BRVS0DPQGa+VxhsQuoLSseXPxz/cl6bvs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TOwCfCesqdcEZrUL30zGh1tottDeXc8EQHe9NfbzsfE0stQOlZiN/Yy9YlHuwkmDM
+	 DScFWtm3IreUeoVxdGRFG9A+fmjGIESxO9G42kDcOxtUKjDCJWEBrPIGhxsFu6th/5
+	 at8iSCo4obkHoPlVsjTMdwqc3pWQWkgyRdEMD77WDPOIGqbP8SkNdXo7e0nZXeHzg9
+	 cwlNJlEnSYUfPC4KmhAvIpRDbJCVNcw40UIRJaw7Uw+ABNbsA+sO85gc5BRx9EkVOj
+	 H8U0y/TD3mDIiXHvPma52E/VqdE2UhQ7KfFHoW6LIFWEXiiXmuK+apqvNptczsFxqs
+	 ZkvYzRW2Vks2g==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3D29A17E03B6;
+	Tue, 22 Sep 2026 13:44:53 +0200 (CEST)
+Message-ID: <4e68e679-f4c8-4a5f-9b06-f1c61dbff7d9@collabora.com>
+Date: Tue, 22 Sep 2026 13:44:52 +0200
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-1698044991-1790081216=:1233"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: arm: mediatek: Fix MT6779 audsys compatible
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Eugen Hristev <ehristev@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260921232819.3137721-1-robh@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260921232819.3137721-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_054716_702718_89E5EB72 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20260922_044455_779710_CE03E899 
+X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,64 +78,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On 9/22/26 01:28, Rob Herring (Arm) wrote:
+> The correct name for the MediaTek MT6779 audsys compatible is
+> "mediatek,mt6779-audio", not "mediatek,mt6779-audsys". The original .txt
+> binding was correct.
+> 
+> Fixes: e97c618234d9 ("dt-bindings: arm: mediatek: convert audsys and mt2701-afe-pcm to yaml")
+> Assisted-by: LLM
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
---8323328-1698044991-1790081216=:1233
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-On Mon, 21 Sep 2026, Rafael J. Wysocki wrote:
-
-> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
->=20
-> Replace acpi_get_first_physical_node() that is slated for removal
-> with acpi_bus_get_primary_device() that takes a reference to the
-> device it is about to return.
->=20
-> This addresses a potential use-after-free that may occur if the
-> device returned by acpi_get_first_physical_node() is removed right
-> after dropping its ACPI companion's physical_node_lock in that
-> function.
->=20
-> Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> ---
->  drivers/platform/x86/x86-android-tablets/core.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/platform/x86/x86-android-tablets/core.c b/drivers/pl=
-atform/x86/x86-android-tablets/core.c
-> index cfff7f5eac5d..2c262f117235 100644
-> --- a/drivers/platform/x86/x86-android-tablets/core.c
-> +++ b/drivers/platform/x86/x86-android-tablets/core.c
-> @@ -390,7 +390,6 @@ static int gpio_secondary_fwnode_init(struct device *=
-parent,
->  {
->  =09const struct software_node *const *swnode;
->  =09struct fwnode_handle *fwnode;
-> -=09struct device *phys_dev;
->  =09int ret;
-> =20
->  =09if (!node_group)
-> @@ -418,7 +417,8 @@ static int gpio_secondary_fwnode_init(struct device *=
-parent,
->  =09=09if (WARN_ON(!fwnode))
->  =09=09=09return -ENOENT;
-> =20
-> -=09=09phys_dev =3D acpi_get_first_physical_node(to_acpi_device(dev));
-> +=09=09struct device *phys_dev __free(put_device) =3D
-> +=09=09=09=09acpi_bus_get_primary_device(to_acpi_device(dev));
->  =09=09if (!phys_dev)
->  =09=09=09return dev_err_probe(parent, -ENODEV,
->  =09=09=09=09=09     "No physical device for ACPI GPIO dev: %pfwP\n",
->=20
-
-Seems to be based on the latest code,
-
-Reviewed-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
-
---=20
- i.
-
---8323328-1698044991-1790081216=:1233--
 
