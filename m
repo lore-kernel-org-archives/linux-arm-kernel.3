@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D733FC982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9916AC982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
 	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HfsmWe18vqaIcsmBURthJcIj9m0ORvWdZMKM+oBDQU=; b=HxvG+lnCc21A2pfphrpSfyP7Jl
-	xTXQO/wn/ykOWT8uWZHCxogNjWm3Zt2HhFqTx0VK5DxkY9hzlVtTx0LF7ezF4v7+hEBnqC2/h5efi
-	c3BdfcadpueNYbQBR7QObue1S+FT6txL7/3sXIZoD/trh572aAv8qRuIGjhn10dhRNXTzf2vW4NRY
-	621IncWiclsl9NMRoL/i1N+7uzWwPLlAJdAAIDosVvIqv4bz5qpPnBFjn1srWMJ7Rt8J2eXCO6Iea
-	rbvva8lyWSyjjk5HsKvHwWLFLEi04oSeIWrrXmAVODMs5L27s619tIFRfsrA/EvvVwIslVr9JneD9
-	cO8Y3R3Q==;
+	bh=chwp6w9U3FXx9HLMVXQesUWvyCF8tGEQzW9vmTXezC4=; b=0jzgmidP7IsRqRJNTv/teT8cuJ
+	WFXh0zQbrljZFmMQJqc2U4P0wLv5apM777CSJy1APOo/XEoP2v2Fw4sRfWn/3JBBoo0Kmkntn62Jy
+	8htyyzLwUSPtBufC22AkjBLxOC+BtlSx1DO6vh9PuYMEL81l/ZIGUiS0aG2OuXdoDNYcHKR55FvsT
+	bToAsePNYVpHh/aWg/FPM71ReOC7InyMsDst5sH1hxskk0MebWdh6ApWmH30LQu1VnGSdj2bFCgUr
+	wgLE9FNq/xgZAOdqnmE/L4nZ2po1dxqTztn0kNp4WPPCC5ymAPdlRmMaRO/R64pK/wKVgm+bytyuJ
+	8fVMT6pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8r5K-000000043xz-18v8;
-	Tue, 22 Sep 2026 03:22:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8r5S-0000000440P-1rce;
+	Tue, 22 Sep 2026 03:22:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8r5I-000000043xn-3f71
+	id 1x8r5M-000000043yM-1DdG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 03:22:20 +0000
+	Tue, 22 Sep 2026 03:22:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0057B60210;
-	Tue, 22 Sep 2026 03:22:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D4EB1F000FF;
-	Tue, 22 Sep 2026 03:22:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD2A543D53;
+	Tue, 22 Sep 2026 03:22:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B3971F000FF;
+	Tue, 22 Sep 2026 03:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790047339;
-	bh=8HfsmWe18vqaIcsmBURthJcIj9m0ORvWdZMKM+oBDQU=;
+	s=k20260515; t=1790047343;
+	bh=chwp6w9U3FXx9HLMVXQesUWvyCF8tGEQzW9vmTXezC4=;
 	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=XyTfXxNihIPoDS6At5q0W54OiorJXa/2PrFWQ6EE1wm23IUj66LZAPhxJYu0pLS2G
-	 1KQZjhatjx2ZifOfHqgECb6+whVG20CsWi8sSEudzSAQ3MdoUES5MLIf3NxVhd0ThN
-	 5GzNifSNQouMiGetl2TsPuvpEgvtEEirDPMdSl9ghr2ywFcO8+224AjtCaqm4kJyJw
-	 Fb9vTSZf+vZNSgjDb7B+tbnyljroqeBVLSISyr35f4625A5jq3aZ4wuPzP6UkDcK02
-	 q+GV/JcbTmjgOs1wouNolcdp6urbu5pgLSJnlwVzoLnq+n5q8zPldDLTTwPELpjK1e
-	 YMffkVBUqWQpg==
-Content-Type: multipart/mixed; boundary="===============5613520125627611600=="
+	b=FaG01oy7Dp1NuIp3NAOKPXeN3uw8XNWovuKFxTeJs2szrVkgfj8DAu+/UoJIaPf8n
+	 JvUu4k6T62ZfVfKVTecEneuDaR09v6aEksgw+khUW7dPISh7y4IM73FOSNGTdCLaKC
+	 YwlVxhcD244lTyTYLoHPCBx4TX8CVf6O3BLRRktWXCg7ywuM+y8kL/t3WomZq1GzzP
+	 dbUmMyLYiCTwIafSoU4MNbLVMWgp5adoCwWQUt2AyQ+pRHICuUX4+sjYMuZTC990V9
+	 yjvIKuf0JrBQvC+ZgpywVyHJU9+cZNBUxXnxpKExgRbUV17hBYOYdPDcQZy4wErvxc
+	 vE23KyR3tfhmw==
+Content-Type: multipart/mixed; boundary="===============2423834593094065684=="
 MIME-Version: 1.0
-Message-Id: <ebf2ee78977b3aae08c12e4ba0a18f48463567e20fd282f25acf11f5af375030@mail.kernel.org>
-In-Reply-To: <20260922-b4-rcu-tasks-preempt-qs-v5-6-410f57770bad@toxicpanda.com>
-References: <20260922-b4-rcu-tasks-preempt-qs-v5-6-410f57770bad@toxicpanda.com>
-Subject: Re: [PATCH v5 06/13] x86/kprobes: Take a Tasks Trace reader in the optprobe template
+Message-Id: <592fd2894ad5ea9edd7bed019d13ebc0eb584faeaa456edd20fa638b636651da@mail.kernel.org>
+In-Reply-To: <20260922-b4-rcu-tasks-preempt-qs-v5-3-410f57770bad@toxicpanda.com>
+References: <20260922-b4-rcu-tasks-preempt-qs-v5-3-410f57770bad@toxicpanda.com>
+Subject: Re: [PATCH v5 03/13] kprobes: Expose the optprobe jump window to Tasks RCU
 From: bot+bpf-ci@kernel.org
 To: josef@toxicpanda.com,paulmck@kernel.org,frederic@kernel.org,ast@kernel.org,rostedt@goodmis.org
 Cc: boqun@kernel.org,mhiramat@kernel.org,mark.rutland@arm.com,peterz@infradead.org,tglx@kernel.org,daniel@iogearbox.net,andrii@kernel.org,puranjay@kernel.org,rcu@vger.kernel.org,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,josef@toxicpanda.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Tue, 22 Sep 2026 03:22:17 +0000 (UTC)
+Date: Tue, 22 Sep 2026 03:22:21 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,37 +66,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============5613520125627611600==
+--===============2423834593094065684==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-> x86/kprobes: Take a Tasks Trace reader in the optprobe template
->
-> The jump-optimized kprobe template calls optimized_callback() from a
-> dynamically allocated slot with preemption enabled, and only Tasks RCU
-> keeps that slot alive under a task preempted in the callback.  For
-> HAVE_RCU_TRAMPOLINE_READERS that means the template must be a Tasks
-> Trace reader across the call, so open-code rcu_read_lock_trace() and
-> rcu_read_unlock_trace() around it as ftrace_64.S does.  The template
-> lives in .rodata and is memcpy()d into each slot without relocation
-> processing, so the references to current_task and
-> rcu_tasks_trace_srcu_struct are absolute (R_X86_64_32S, relocated for
-> KASLR like any other) rather than %rip-relative.  %rax and %rcx have
-> already been saved by SAVE_REGS_STRING and are dead after the call.
->
-> The slot itself is dynamically allocated text, so the instructions
-> before the lock and after the unlock are covered by the irq-exit check.
-> 64-bit only; 32-bit x86 does not take part.
->
-> Assisted-by: LLM
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
+> index e6de7ae55bda..74cc48c04417 100644
+> --- a/include/linux/kprobes.h
+> +++ b/include/linux/kprobes.h
 
-This looks like a bug fix for the preemption issue introduced when commit
-a19b2e3d7839 removed IRQ disabling from optimized kprobes. Should this
-include:
+[ ... ]
 
-  Fixes: a19b2e3d7839 ("kprobes/x86: Remove IRQ disabling from ftrace-based/optimized kprobes")
+> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+> index 6337da5cab9e..e460fba83e4a 100644
+> --- a/kernel/kprobes.c
+> +++ b/kernel/kprobes.c
+> @@ -511,6 +511,48 @@ static struct kprobe *get_optimized_kprobe(kprobe_opcode_t *addr)
+>  	return NULL;
+>  }
+>
+> +/*
+> + * True while kprobe_optimizer() is waiting for its Tasks RCU grace period.
+> + * Only in that window can an interruption inside an optprobe's jump region
+> + * matter to it, so kprobe_in_optimized_region() does no work otherwise.
+> + */
+> +static bool kprobe_optimizer_waiting;
+> +
+> +/**
+> + * kprobe_in_optimized_region - Could @addr be inside bytes a jump-optimized
+> + *	kprobe replaces?
+> + * @addr: kernel text address, typically an interrupted instruction pointer
+> + *
+> + * kprobe_optimizer() relies on synchronize_rcu_tasks() to wait for tasks that
+> + * were interrupted on an instruction boundary inside the region about to be
+> + * overwritten by the optimized jump.  Where Tasks RCU is built on
+> + * reader-marked trampolines that region has no reader, so the irq-exit
+> + * quiescent-state check asks this instead (see rcu_tasks_trampoline_text()).
+> + * This is the lockless, conservative form of get_optimized_kprobe(): it does
+> + * not care whether the kprobe found is, or ever will be, optimized.  May be
+> + * called from any context with preemption disabled; the kprobe hash is
+> + * RCU-protected and every free path waits for a grace period after unhashing.
+> + *
+> + * The hash walk only runs while the optimizer is actually waiting.  A task
+> + * that was preempted in such a region before the flag went up is invisible
+> + * to that check, so the optimizer first waits those out by their recorded
+> + * preemption IP (rcu_tasks_wait_irq_preempted(), whose leading
+> + * synchronize_rcu() also publishes the flag to every check in flight).
+> + */
+> +bool kprobe_in_optimized_region(unsigned long addr)
+> +{
+> +	int i;
+> +
+> +	if (!READ_ONCE(kprobe_optimizer_waiting))
+> +		return false;
+> +
+> +	for (i = 1; i < MAX_OPTIMIZED_LENGTH / sizeof(kprobe_opcode_t); i++)
+> +		if (get_kprobe((kprobe_opcode_t *)addr - i))
+> +			return true;
+> +	return false;
+> +}
+> +NOKPROBE_SYMBOL(kprobe_in_optimized_region);
+
+This isn't a bug, but could the explanation of the kprobe_optimizer_waiting
+window live in one place? The flag comment (lines above), the
+kprobe_in_optimized_region() kernel-doc, and the Step 2 comment in
+kprobe_optimizer() (see below) each describe the same mechanism. A later
+change has to keep three copies in sync.
+
+This isn't a bug, but would a name tied to the pending-optimization window
+read better at the rcu_tasks_trampoline_text() call site? As written,
+'in_optimized_region' suggests an already-optimized probe and hides that
+the answer is false whenever the optimizer is not waiting. Something like
+kprobe_in_pending_jump_region() or kprobe_optimizer_pending_at() might be
+clearer.
+
+The kernel-doc has to explain what the name doesn't convey: "does not care
+whether the kprobe found is, or ever will be, optimized" and "The hash walk
+only runs while the optimizer is actually waiting."
+
+> +
+>  /* Optimization staging list, protected by 'kprobe_mutex' */
+>  static LIST_HEAD(optimizing_list);
+>  static LIST_HEAD(unoptimizing_list);
+> @@ -644,8 +686,16 @@ static void kprobe_optimizer(void)
+>  		 * to 2nd-Nth byte of jump instruction. This wait is for avoiding it.
+>  		 * Note that on non-preemptive kernel, this is transparently converted
+>  		 * to synchronoze_sched() to wait for all interrupts to have completed.
+> +		 * kprobe_optimizer_waiting lets a reader-marked-trampoline Tasks RCU
+> +		 * recognise tasks interrupted in such a region while we wait, and
+> +		 * rcu_tasks_wait_irq_preempted() (a no-op elsewhere) first waits
+> +		 * out any that were preempted there before we said so; see
+> +		 * kprobe_in_optimized_region().
+>  		 */
+> +		WRITE_ONCE(kprobe_optimizer_waiting, true);
+> +		rcu_tasks_wait_irq_preempted(kprobe_in_optimized_region);
+>  		synchronize_rcu_tasks();
+> +		WRITE_ONCE(kprobe_optimizer_waiting, false);
+
+This third description of the same mechanism adds to the maintenance burden
+mentioned above.
+
+[ ... ]
+
+> diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+> index f03be742be48..eb1388dd8a61 100644
+> --- a/kernel/rcu/tasks.h
+> +++ b/kernel/rcu/tasks.h
+> @@ -1005,7 +1005,9 @@ bool __weak arch_rcu_tasks_trampoline_text(unsigned long ip)
+>   *    trampolines, kprobe slots and other dynamically allocated text; this
+>   *    deliberately does not ask is_ftrace_trampoline() and friends, since
+>   *    text being torn down may already be unregistered there);
+> - *  - whatever the architecture adds via arch_rcu_tasks_trampoline_text().
+> + *  - whatever the architecture adds via arch_rcu_tasks_trampoline_text();
+> + *  - the bytes after a kprobe that a pending jump optimization is about to
+> + *    overwrite, the one synchronize_rcu_tasks() user with no trampoline.
+>   *
+>   * A false positive only makes the task a holdout until its next quiescent
+>   * event.  Called with interrupts disabled from the irq-exit path.
+> @@ -1013,8 +1015,11 @@ bool __weak arch_rcu_tasks_trampoline_text(unsigned long ip)
+>  bool rcu_tasks_trampoline_text(unsigned long ip)
+>  {
+>  	if (core_kernel_text(ip))
+> -		return arch_rcu_tasks_trampoline_text(ip);
+> -	return !is_module_text_address(ip);
+> +		return arch_rcu_tasks_trampoline_text(ip) ||
+> +		       kprobe_in_optimized_region(ip);
+> +	if (is_module_text_address(ip))
+> +		return kprobe_in_optimized_region(ip);
+> +	return true;
+>  }
+>  NOKPROBE_SYMBOL(rcu_tasks_trampoline_text);
 
 
 ---
@@ -104,5 +204,5 @@ AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
 See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
 CI run summary: https://github.com/kernel-patches/bpf/actions/runs/35680506278
---===============5613520125627611600==--
+--===============2423834593094065684==--
 
