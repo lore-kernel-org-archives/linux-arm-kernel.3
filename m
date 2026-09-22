@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12665C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE1FC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 22:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H64AJO+QEn2Db/FE2KYiTNv1rxVZnKenKfvHvZ6Jp2c=; b=R/Z7L24hJyP6hLo/3DTm5z32Dc
-	qIaoLr3KNDcxSlVbFHuSsLYC06lvs8f/0j+tmlI6nvcisabsgvFU4jkDh8WbVloLvjJ3iMLQtm9jT
-	JM2oBt5Fjb6MDf+IM1mDSR1l+9hUdF7e23ajNLlgpPBkysBzulCNW4wVNphpcs5IUuG13bTLlegyp
-	QvaohhLh8fFXR99DKWZFGvxl8n38Zaa/hsudoZegWMXLfD+D65iTM+pVasfB4S9VMc+n5zd/tcOLw
-	dfsJAjCMUYI9AiQQV1Df8GOmbWzqmbW3bm/iHGM/YkJM4VpO59F7t9gHKrQNk8OV6vV0WmcDiDgjC
-	0HJ9dhFw==;
+	bh=5Eu9EglNm4iashxzanjdU+17SK0PBj7pwkykuDmCaiA=; b=qv56Ev6C0fwNz0nSxJ/yqHRzrX
+	lFA3CbmQluC89W3yrgUWrsF0qfOULnU4cxqPwI9/zHnBcCikCb7vHNknOwkH054O5xRJtskRRnbt5
+	XoR+laMGnQpiUw1nwtOwRhBrR1Z/Le4ckLUmRQ9c38qvLyddYvVSAyYwF9uc+1r0xaORkzwdEnEO4
+	V0MvY/V8Ub30g24jbnobXyWqZ4rYMQ8iCzr6aoHKOlPVl6ADtkPY/snc2rqtgSDVW5qkOIk6xW04t
+	X8Y3zcmkVHBmXktciHwBkKtcS6GwcIy5yVo7PkGF9UQQHnMzuYS736vDOFEFEKSgA2g1K9dwIQo/t
+	wZS0h1nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98RA-00000006eVu-18qZ;
-	Tue, 22 Sep 2026 21:54:04 +0000
+	id 1x98bc-00000006erw-0sZ3;
+	Tue, 22 Sep 2026 22:04:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98R6-00000006eVN-2uDX
+	id 1x98bY-00000006erZ-2DvL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 21:54:02 +0000
+	Tue, 22 Sep 2026 22:04:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 345A21576;
-	Tue, 22 Sep 2026 14:53:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D76001576;
+	Tue, 22 Sep 2026 15:04:43 -0700 (PDT)
 Received: from [10.57.9.113] (unknown [10.57.9.113])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A78413F86C;
-	Tue, 22 Sep 2026 14:53:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A9ED3F632;
+	Tue, 22 Sep 2026 15:04:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790114037; bh=iEXKQcOzPMWsKYq75EaN1jiHJmAyzN7PwBoNzOtpC8s=;
+	t=1790114687; bh=Pme4KNcFZXJCIoYwtV2Ju4v44jpGiA6KmoFoYffHKlo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Oo+XUytAkDyV7Fg+PyMe7Zxe7vGy6ZfCfXw6bhiHy3FmXwXm3igb53OC7fXqwk2aA
-	 he530u1cUMeV+mpe6hv50rPvo5d7JeAOVBYfRDmkigHtNOUiTluS4EKTFJC3kRrFJY
-	 TFjqq5HT+a5NTBNXq06KQJiu5AtKO/xsciJ3ehWc=
-Message-ID: <528f3c4a-723f-47ad-a387-6e6a4179c96a@arm.com>
-Date: Tue, 22 Sep 2026 22:53:48 +0100
+	b=iUzMrFNN2YDLQ/vBLkf5ziJp0MauZmc6HYaYVirUs9GjhN/W5+KiMaqyM/TSCVOSZ
+	 pNVGncyNZjg1NMBjqp+vvC8eTuIBydnjAOYGnLuEN87pTaXuSNq9gIUFCO49EjZzxL
+	 eUOm6uN1kKE8gf+vWa19FeEJ1R64dIb4XZcoflDY=
+Message-ID: <fa2f4766-0795-464a-80ca-2f3fd1c5140b@arm.com>
+Date: Tue, 22 Sep 2026 23:04:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v19 01/20] KVM: arm64: protected VM: Handle user writes to
@@ -63,8 +63,8 @@ In-Reply-To: <20260922122542.00006868@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_145401_204056_3C67B733 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20260922_150448_673539_F3A06C8E 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,17 +106,6 @@ On 22/09/2026 20:25, Jonathan Cameron wrote:
 > Why?  I don't mind the decision but telling us what was chosen is something
 > we can see in the code - patch description should give us the stuff we
 > can't see.
-
-I have modified the paragraph to :
-
-"Fix this by always "fixing" the timer offsets to 0 and marking that the
-timer offset is set in the kvm->arch.flags at KVM init time for
-protected VMs. This prevents the access to the VM specific vm_offset at
-low cost. A userspace writing to the CNT*CT_EL0 would observe success,
-without any real effect. This is cleaner over spilling *_is_protected()"
-checks and "matches" what we really do in practise. i.e., always run
-with "fixed counter offset of 0".
-
 > 
 > One comment on the comment below.
 >>
@@ -164,7 +153,13 @@ with "fixed counter offset of 0".
 > 	Protected VMs don't allow the offset to be set from userspace,
 > 	whether via writes to the counters or the dedicated ioctl.
 
-Ack, will improve it.
+LLM suggests:
+
+
+    * Protected VMs don't allow userspace to set counter offsets,
+    * either via counter register writes or the dedicated ioctl.
+
+Have updated the comment.
 
 Cheers
 Suzuki
