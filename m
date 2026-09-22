@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8225CC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE95C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=blLJh96waC7iW5pUXAIxKFQ4OfEzeyzBx1zcAO6CSRE=; b=ah2eU2z7A88DyIM0H6pD7a24ZC
-	R2+YfsOK4BXDd2fSkPppt7gUkQ5SgncW4YhWKLv4KwY6As88uF6YytU9YHQIFByM9PNlIPcPUyCdk
-	fdiDW0WVSPKhccjgDCp+QghebPPY8d54/5VLxPDRigF8+SgRjGZWiO+0xiXCq0lJ+rKWrBedZb3Bm
-	lSv/arivXakcm0fE+9XVk9egw7pZqhXyLACH+3x3GXRnL1skm7A2+q6q5zHQaYHdJ4I/8+lnp6TqJ
-	G52IUZ3kyD8avXx0U2Yp/I8YyZYiT4fFMWduT2X8VV/mUDq+I7tAT+s5ROYpQkAgJUPnTYCTZUP6X
-	TrL1foxw==;
+	bh=o2BTihId69pNKRKEIj6fRu8UX989OeLaeww4AA41gyU=; b=l8see0QV6VR6jzZkST0TxFfhD6
+	3VSYdgSVCE+2eRgtLcbEC8ZIoP230MAFm0vzjXEQ2DJTX4yDXomvVPXQd8QqLHYqJE944DiYP3+D/
+	D4TcauTX4L9fu9FIUm9aT1F7x32iNVpo3LdiADZ83Bvme8T6js1i12ZVQL4gRHutkIlY3r/ZThY7p
+	7UyybshJe7v/6RL1Pi6uQvTuf6zgEKWWT+7ZJVDZ8RXLdJlAYO2H14ZumhKzwi9rzr7pzrjAQbTvj
+	MwiaXWOs5e4Mqw7Ca4iWjSYbTDYz7EkD4w4r6UrbcOx0HKGZydnIaH+t39cjuDsp/FyBQYHXZyljv
+	tdaKMgig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ouT-00000003qfl-2ibD;
-	Tue, 22 Sep 2026 01:03:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8oxV-00000003r2D-3zPS;
+	Tue, 22 Sep 2026 01:06:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ouG-00000003qbP-1cOV
+	id 1x8oxU-00000003r1x-1lVj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 01:02:48 +0000
+	Tue, 22 Sep 2026 01:06:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 995A260210;
-	Tue, 22 Sep 2026 01:02:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E99EC2BCB3;
-	Tue, 22 Sep 2026 01:02:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C3BD60210;
+	Tue, 22 Sep 2026 01:06:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B8F5C2BCB3;
+	Tue, 22 Sep 2026 01:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790038967;
-	bh=eLnNgO/rDS2qwwxL5yTUq+zocopo2r2OBj3hkKd83qc=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=bXRsCZwXAI6qxmP+fWjsQcQnf343piN64Y2a6SLHz/60arpazhSZoENh713FHhKQ8
-	 NOcb+RUXb9BoienHuUG1UtCms22rA/coJPNq4F4cXCdG6UuiXDKGdJmoUoSX8SDSyk
-	 dWp426duJC9kLOiAacTmGIIxVzvy1xcDzQXP4G/X4No6EBIDmsuux7gf3D2BvvZoR9
-	 FybunFPgtyjTMnGRHTV7CQMb4rwMqCQEzcS4vQZJMgXVhEQtvid0wGRVqB4eh8oe5X
-	 MlIbRjDmu11QJeREXCmmODD0OPw64XqZU/FixL2O7Fc9jLX1QlVFV8HZTtFNP5ihG5
-	 WDPZMRgBG8s3Q==
+	s=k20201202; t=1790039167;
+	bh=RMXWkvGdIEwp93GUgfpDYE+468V2qJEtbkHzxJhbMfA=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=u27RI+j0+sQpKuom39ZUFfm6cYgn/zgdy7Lxg86JoirbYq7FxRc/orxBNakjwOoVd
+	 PZxaK2cnQMKx5zMgLrlbOkdvzRZJuB8H8dM7Xxb8GRpW2OUPaB24WHaWcpnsd9Q4Gx
+	 /TIIChmQ2U12VsOdyK9NQ2bdsaW088aV6fV5SrZUaKbex8ecCVlXNPJPZ/5TDxrdvR
+	 5wHGjkTzC1ant5AZqDMnhkDPhahH6FhAwI4O0s8O+aGFAcg6BaDm3h8V/lXt/sZNjv
+	 8D8hN888PkfwsNN3PqdNByHxnoC9kkwPT3246xaXklqGIsI7mG2PCV3teCeHgVNuHt
+	 uAGen75vSuS8g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AD2DC982E6;
-	Tue, 22 Sep 2026 01:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02135C982ED;
+	Tue, 22 Sep 2026 01:06:07 +0000 (UTC)
 From: Jaidev Shastri via B4 Relay <devnull+jaidevshastri.vt.edu@kernel.org>
-Subject: [PATCH 0/2] soc: xilinx: zynqmp_power: order callback state
- against probe
-Date: Mon, 21 Sep 2026 21:02:32 -0400
-Message-Id: <20260921-mb-zynqmp-power-v1-0-de6f2eee3f23@vt.edu>
+Date: Mon, 21 Sep 2026 21:06:04 -0400
+Subject: [PATCH] firmware: arm_scpi: publish scpi_ops with release
+ semantics
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKjTsWoC/yXMzQ6CMBAE4Fche3YN/YlEX8VwaMsqNaHUraJAe
- HdbPH6TmVkhEXtKcKlWYJp88mPIEIcKXG/CndB32SBrearPUuBgcZnDc4gYxw8xKt0ZoRqplRa
- QV5Hp5r/747X9O73tg9yr3JSGNYnQsgmuL9HOqTkqZKdh236nOJXRkwAAAA==
-X-Change-ID: 20260921-mb-zynqmp-power-34da13724341
-To: Michal Simek <michal.simek@amd.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jaidev Shastri <jaidevshastri@vt.edu>
+Message-Id: <20260921-mb-arm-scpi-v1-1-6aabb6533a40@vt.edu>
+X-B4-Tracking: v=1; b=H4sIAHvUsWoC/yXMwQrCMBAE0F8pe3YlSaMSf0U8JHG1KzSWXS1C6
+ b+b1OMbZmYBJWFSOHcLCM2s/CoVdtdBHmJ5EPKtGpxxRxOcxTFhlBE1T4zBeOvtoTc+OKiLSej
+ O3+3tcv1bP+lJ+d0uWiNFJUwSSx5atHE+7XuU7GFdf6Msln+PAAAA
+X-Change-ID: 20260921-mb-arm-scpi-904141530492
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Jaidev Shastri <jaidevshastri@vt.edu>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790038966; l=1347;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790039166; l=2387;
  i=jaidevshastri@vt.edu; s=20260921; h=from:subject:message-id;
- bh=eLnNgO/rDS2qwwxL5yTUq+zocopo2r2OBj3hkKd83qc=;
- b=q8wOvkA78pAcCFPujvVLwMILLMubgB/JO4Yfq1mjtANaMC4ZsHUSNsbkRpbm0mTwRLTxEnb4D
- j+OoJd891a/BIFw199Mgl2/xgfz3jWLpGFGZ0Cx7iLoMLtZon4Ws5jB
+ bh=3KVpiTKpwcDUtFqj7qJGHnJiAK8nWMpTrAP15XXF8ko=;
+ b=WDhOMCdo75FVRq3OYDKThPlrywAC6GR+ayE7wD4HqoJ06+9vz7zpkYbw6VB2BhdxF2Tbikr/B
+ HQy2rcdcIPLB+92GFXNt8sIo8leFABkoCWpnS2dc91YZKTY7YNn9raE
 X-Developer-Key: i=jaidevshastri@vt.edu; a=ed25519;
  pk=J7+xYJRlTPds+pv5hbqFFRqGCpDeJDzmZT1ggRwj7/0=
 X-Endpoint-Received: by B4 Relay for jaidevshastri@vt.edu/20260921 with
@@ -86,32 +87,66 @@ Reply-To: jaidevshastri@vt.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-zynqmp_pm_probe() registers the event manager callbacks and the mailbox rx
-callback before it has finished storing the state those callbacks read.
+From: Jaidev Shastri <jaidevshastri@vt.edu>
 
-The first patch closes a real window. mbox_request_channel_byname() starts
-the channel before it returns, so a message the firmware already has pending
-is delivered while rx_chan is still NULL and the IPI is never acknowledged.
-The mailbox API gives the callback no way to reach the channel from its
-struct mbox_client, so the channel is stored under a spinlock shared with the
-callback and the acknowledgement is deferred until probe has published it.
+scpi_probe() stores scpi_info early because scpi_init_versions() sends
+messages through it, and sets scpi_drvinfo->scpi_ops as its last step.
+get_scpi_ops() returns scpi_info->scpi_ops, so the ops pointer is the
+gate that scpi-cpufreq, scpi_pm_domain, clk-scpi and scpi-hwmon test
+before they use the driver.
 
-The second orders the two work-struct pointers that the event manager and
-mailbox callbacks dereference as soon as they run.
+Both accesses to scpi_ops are plain, and a consumer that passes the gate
+reads scpi_info->channels, ->commands, ->num_chans and
+->protocol_version through a fresh load of scpi_info rather than through
+the ops pointer. The version fields are written by scpi_init_versions()
+after scpi_info was published, so a consumer on another CPU can see a
+non-NULL scpi_ops together with stale versions.
+
+Publish scpi_ops with smp_store_release() and read it with
+smp_load_acquire() in get_scpi_ops().
 
 Found with MBCheck, a static herd7-based memory consistency checker.
-Compile-tested on arm64 with W=1, no new warnings.
 
+Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
 ---
-Jaidev Shastri (2):
-      soc: xilinx: zynqmp_power: do not use rx_chan before probe has stored it
-      soc: xilinx: zynqmp_power: publish the callback work pointers
+ drivers/firmware/arm_scpi.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
- drivers/soc/xilinx/zynqmp_power.c | 113 +++++++++++++++++++++++++++-----------
- 1 file changed, 81 insertions(+), 32 deletions(-)
+diff --git a/drivers/firmware/arm_scpi.c b/drivers/firmware/arm_scpi.c
+index 68a730d22..eaf8134d7 100644
+--- a/drivers/firmware/arm_scpi.c
++++ b/drivers/firmware/arm_scpi.c
+@@ -809,7 +809,10 @@ static struct scpi_ops scpi_ops = {
+ 
+ struct scpi_ops *get_scpi_ops(void)
+ {
+-	return scpi_info ? scpi_info->scpi_ops : NULL;
++	struct scpi_drvinfo *info = READ_ONCE(scpi_info);
++
++	/* Pairs with the smp_store_release() of scpi_ops in scpi_probe(). */
++	return info ? smp_load_acquire(&info->scpi_ops) : NULL;
+ }
+ EXPORT_SYMBOL_GPL(get_scpi_ops);
+ 
+@@ -1029,7 +1032,13 @@ static int scpi_probe(struct platform_device *pdev)
+ 			 FIELD_GET(FW_REV_PATCH_MASK,
+ 				   scpi_drvinfo->firmware_version));
+ 
+-	scpi_drvinfo->scpi_ops = &scpi_ops;
++	/*
++	 * scpi_info is already visible (scpi_init_versions() needs it), so the
++	 * scpi_ops field is what get_scpi_ops() callers gate on. Publish it
++	 * with release semantics so that a consumer that sees the ops also
++	 * sees the channels, the command table and the version fields.
++	 */
++	smp_store_release(&scpi_drvinfo->scpi_ops, &scpi_ops);
+ 
+ 	ret = devm_of_platform_populate(dev);
+ 	if (ret)
+
 ---
 base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20260921-mb-zynqmp-power-34da13724341
+change-id: 20260921-mb-arm-scpi-904141530492
 
 Best regards,
 --  
