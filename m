@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8226FC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 23:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D353C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 23:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fo8qKj7nqalMFa6jbEYk2gJc+8qoMJ2aW2aqOsu5f6M=; b=AuA2MT0plUBH9mp+Av7y39KY2C
-	UNUJyE+5QvhZhhL1bikSMKkHtTTkjv/y4ogGRJRAO36Xt+ClMXpQN6Ea2e6ZHGyux8jL5P30cHX09
-	sp3q81rluzckftKh06BOrVKtp6Uk/SD+oOPjDw422DpIzU59EkpMFrVk45oSXhjGU9IWiUZ8/afT5
-	f+nrz6voq5pyFPXPnpROOZpMNBsN0RGyWdlPSh7iEFcZxMp7cblu3QdCIy0gtQD1eAV6XolLci7fp
-	9y3LN7JjZMvKc6plfzmIYXUpqqVw0LPdgaquBtvlrMk9O0cf1fkIDM/OoGBv+p+sspPeeH70m0WZy
-	glilxs/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kElfCnkCFruzVM3SaxHurt7TPit3re6e4vf8FVGEvw4=; b=IL9wVRSsEh/vrGQF3e7HRODIKT
+	q5HpgY++uQB9ubXN8/x1Vy5IhVosBk4kyh4+j6rC3cg1O4sRY9C8BpxBRBjuTLSZ3J1nB2buLTGto
+	ebE8iYkpz1RoaDFLkjHwcuqT9Mbq9hMfhD1MDs4T1nrCXb9xgIOP0wqycsDPtWvEBAzQlg+0qKV8h
+	qftRSs/7ONy5WpaxKC/Ykz1rOdSq73FyXsqN6z8yivBHifnwhQRJSrZDAxBUSmUI3sDZ33AOB3qjX
+	xr4RBIkmlVjHFNPbOyPTnS5so4j+KWDhls/h9J4Zv7MXbnGMXZjQ231tWtNEqLiyKOuIAX9aVzV2g
+	g1Ca6ujQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9AIH-00000006l7O-0G0R;
-	Tue, 22 Sep 2026 23:53:01 +0000
-Received: from smtp5-g21.free.fr ([2a01:e0c:1:1599::14])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9AIC-00000006l6c-2sSO
+	id 1x9ALH-00000006lEg-1kwU;
+	Tue, 22 Sep 2026 23:56:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9ALE-00000006lEI-16eE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 23:52:58 +0000
-Received: from L30177.local (unknown [IPv6:2a01:e0a:ac2:22b0:2cdc:bbe:fc6f:48d1])
-	(Authenticated sender: vjardin@free.fr)
-	by smtp5-g21.free.fr (Postfix) with ESMTPSA id 3A3835FFAA;
-	Wed, 23 Sep 2026 01:52:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1790121169;
-	bh=fOkL1hSKJnjCwTHhXl0OSRfcdCEWcoIUhfY9FGgJdzg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TLu/vrpEkcMTNJsY870IVqM8YtkjChmSCll7W9eE2ihzus8ps7aq8ma9xQL2wwGuQ
-	 rdUUASiduU2FQZL10+kQg6QbsBMQanF9pHlczbJaORSdxeEIaWChzac3GavMoXkvyy
-	 t0gm8oWh8pgmdlRK5OXS03JnhuoWk9XM45oXRSKpAi6wrHcs5oKSUTK2YCW5miikEX
-	 pbu5khiOMfxx9h2H6X5O+22UxRUNT3uvbBsqC9KIZ81e4Cm8sRBnV7Bh+IzFKmHSUv
-	 a2R1bhXF6sBb+epqCHrO6brXNf6BvJ1d+ijWwsJA3hWESgXwPbu8RrnKfbV9pSEjNL
-	 VHvfDukBW4Y5A==
-Date: Wed, 23 Sep 2026 01:52:36 +0200
-From: Vincent Jardin <vjardin@free.fr>
-To: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Carlos Song <carlos.song@nxp.com>
-Subject: Re: [PATCH v2] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
-Message-ID: <arMUxCW5ZTzLT3VN@L30177.local>
-References: <20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr>
- <apcYp0Zc7CrJMiOh@lizhi-Precision-Tower-5810>
- <aqO9SMvI89rqoEGb@L23803.iliad.fr>
+	Tue, 22 Sep 2026 23:56:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A988D1576;
+	Tue, 22 Sep 2026 16:55:58 -0700 (PDT)
+Received: from [10.57.9.113] (unknown [10.57.9.113])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF8233F86C;
+	Tue, 22 Sep 2026 16:55:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790121362; bh=G8e6M2uF5epg0mdfJRhXU7Czxsd8V/rsRUnhd2e/rrY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lXkRV98IlCqEa2C1khLd5C/DO/ZTEFQkQu/n//GoWxoIScMUHPHfA23likhQx/JAJ
+	 Co84JB7vhjPa8oK53a/9h+ii2RGG0r3oaFh9exwYqC+1a6NWsH+GwXXyAilBEt6a2V
+	 kyJYdkk0MkYF/W59YXBGyRub4EhwgWIEmkA+3bz4=
+Message-ID: <84e8bbc0-30de-4741-933c-c24337507edb@arm.com>
+Date: Wed, 23 Sep 2026 00:55:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aqO9SMvI89rqoEGb@L23803.iliad.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 10/20] KVM: arm64: Abstract out memory abort handling
+Content-Language: en-GB
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+ <20260920212845.707-11-suzuki.poulose@arm.com>
+ <20260922153826.000044fb@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260922153826.000044fb@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_165256_885835_C8273764 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260922_165604_452271_C73E5F4E 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,18 +78,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Le 11/09/26 10:35, Vincent Jardin a écrit :
-> Hi Oleskij, Andi,
+On 22/09/2026 23:38, Jonathan Cameron wrote:
+> On Sun, 20 Sep 2026 22:28:35 +0100
+> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 > 
-> It is a "gentle" keepalive on this patch. It has been sent last month and
-> it had been ack'd by NP (both Carlos and Frank).
+>> Move the memory abort handling under VM specific s2 operation.
+>>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > 
-> Is there anything else you need from me to have is applied on i2c/i2c-next ?
+> Trivial comment + request to follow through on adding the local
+> variable for kvm. I think the other places that can be used
+> survive the other changes in this patch set.
+> 
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index d97a4a1bca23f..cf293d09e940a 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+> 
+> 
+>> +static int kvm_vm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>> +{
+>> +	int ret;
+>> +	struct kvm_vcpu *vcpu = s2fd->vcpu;
+>> +
+>> +	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
+>> +			!kvm_is_write_fault(vcpu) &&
+>> +			!kvm_vcpu_trap_is_exec_fault(vcpu));
+>> +
+>> +	if (kvm_slot_has_gmem(s2fd->memslot))
+>> +		ret = gmem_abort(s2fd);
+>> +	else
+>> +		ret = user_mem_abort(s2fd);
+>> +	return ret;
+> 
+> Personal preference but I'd just do
+> 		return gmem_abort(s2fd);
+> 	else
+> 		return user_mem_abort(s2fd);
 
-Please ?
+Ack
 
-Best regards,
-  Vincent
+> 
+> and save a couple of lines. I'd keep the else to make it clear it is
+> an either / or choice rather than an if something true one.
+> 
+>> +}
+>> +
+>>   /* Resolve the access fault by making the page young again. */
+>>   static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+>>   {
+>> @@ -2287,6 +2303,7 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+>>   int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>>   {
+>>   	struct kvm_s2_trans nested_trans, *nested = NULL;
+>> +	struct kvm *kvm = vcpu->kvm;
+> 
+> If introducing this, also use it for the other places vcpu->kvm is used
+> in this function.  Separate patch though to keep down noise.
+> Looks like that's mostly to shorten the chain of dereferences in the
+> locks.
+
+Added a preparatory patch to convert the other users to a local "kvm"
+variable.
+
+Cheers
+Suzuki
+
 
