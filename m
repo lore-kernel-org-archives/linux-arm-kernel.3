@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22536C982FA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22ABC98302
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OX3hsGsxEHoq3RKQiW6IXghSMDrWvO/i3oFhfjDRgB4=; b=iy41/TSqPPmZlwBf1R01W8kvuM
-	wjbfEfZ9kdF8uUjhNny22c9Q9cEDlvuaQuaktZ5TJCAdpsoYzBKufBSaledFcdwHUAOcFK/yNE/b9
-	YsgN5vy1mFFpmsjehrZt0fG29pljHo0nK1x0isTL8JMKtqp+eKK01d/dGHk20HiyjAqoI5dWr2AtW
-	1BJd0DiEhe1iQnjT9f3Lxw8079/G+fcyzc6sg/dkimFFFlF/w4NbKuv0UTzPZxAKULpRxYBroKLQQ
-	Rug3hJZwuAyMb07y1jobX2yDLct3N4IhT5cZOIovC+NL0cH5o5AGn+auJ3M5AffRQVPB0/Rn0QB+T
-	wDbb3nUA==;
+	bh=JbY1k2+sdM/x8N0JZzx9NYdW9GEqUwxxbqwApeCQ1KM=; b=i/n5/esMjj5xkQ2jgxDioJPnaO
+	c+n7Lrr5G/YwQ0zYZ9JXFUwYSe6wlS2TezZNH/9Sr4s0LnCyKgua2N0XOgu86Hh+IgIcQS9/qWmjV
+	Z5UO64oQCZojubu2YTvdfr9J1bKFE8PqTx36VUqF9RZceui/Ysxst0Go5FBf+oyPvOO6ipPx/3+cE
+	as3quJwyJUU3F2au3rxb47fXFWIKT2/rVddbSECTe8a93ljM/JcvsiROz1bkn028VLYUWKI5yCwja
+	5+RCXeHycvrWBfte4IddFOZJbBBh3JThojZu6jjkJ19iu/knD0RBzdazVttqb2cMeMttAI20fG4xh
+	CujUeZmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94Mb-00000006Cyr-1E8c;
+	id 1x94Mb-00000006Cya-0iFs;
 	Tue, 22 Sep 2026 17:33:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94MY-00000006Cwv-0Pun
+	id 1x94MV-00000006CvR-1Rxv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:33:03 +0000
+	Tue, 22 Sep 2026 17:33:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F2AC1AED;
-	Tue, 22 Sep 2026 10:32:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CC811576;
+	Tue, 22 Sep 2026 10:32:54 -0700 (PDT)
 Received: from [127.0.1.1] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 269643F86C;
-	Tue, 22 Sep 2026 10:32:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 633063F86C;
+	Tue, 22 Sep 2026 10:32:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790098381; bh=67NvP4PmpCnowWkBeuojZg3SSMqBMwtXDXBIbaFjYiY=;
+	t=1790098377; bh=xTJL2byDqGx0AB4Z6L+IiKln34gIro0/pV4Ued2u1UM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DgfsXpYXf+AULhg9SSync9g0KRdJYDwFtPkkElJ/a+wWRq0XRp4XhA/+AQcIjVicE
-	 yO9uEDNDRHS6qYUxgDmH4JNy09PlmpfEqfv0MLS+ymlFYbWBDTSK3ieWYmPBLASNUU
-	 5DDokOnKTfjJP4/bugtIcH+JIC+awj5G0TJ4BSC4=
+	b=Rr/9WR4uGteoys9nZHG7+FeU3UTiy8Locu6YSlv8Os75MOwYw1jqPExvnMg9LRzUJ
+	 2y6T0AwNdB9W5yWJSKEUKDK4zrqxaAO4cewAugA1YMhbN8da8UqEMmzaUGtYMbZYGI
+	 8EZouveWU4RVVr0bxL6+D614EYrFlIzanIIkQzLg=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Date: Tue, 22 Sep 2026 18:31:58 +0100
-Subject: [PATCH v2 3/6] arm64: use hw_pte_val for HW PTE loads and stores
+Date: Tue, 22 Sep 2026 18:31:57 +0100
+Subject: [PATCH v2 2/6] arm64: use hw_pte_val for HW PTE atomics
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-pte0_arm-v2-3-a3f1ddff0a8a@arm.com>
+Message-Id: <20260922-pte0_arm-v2-2-a3f1ddff0a8a@arm.com>
 References: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 In-Reply-To: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -66,8 +66,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Muhammad Usama Anjum <usama.anjum@arm.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_103302_192611_66A91D90 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260922_103259_746107_945DEF26 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__ptep_get() returns a SW PTE value, while __set_pte_nosync() accepts
-one. When HW PTE storage uses a distinct hw_pte_t, reading or writing
-*ptep as a pte_t no longer satisfies those interfaces.
+The low-level atomic PTE update paths take the address of
+pte_val(*ptep). That assumes HW PTE storage can be passed directly to
+the SW PTE value accessor and no longer type-checks when hw_pte_t is
+distinct.
 
-Use hw_pte_val() to expose the pteval_t stored in either the hw_pte_t
-wrapper or its pte_t alias. __set_pte_nosync() writes pte_val(pte) to
-that storage, while __ptep_get() reads it and reconstructs a pte_t with
-__pte().
-
-This avoids imposing a generic conversion interface between HW and SW
-PTE representations, which may require architecture-specific context
-in the future.
+Use hw_pte_val() for the lvalues passed to compare-exchange and exchange
+operations. The atomic operations and their ordering are unchanged.
 
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Chagnes in v2:
+- Remove comment change
+- Move hw_pte_val() to generic series
+---
+ arch/arm64/include/asm/pgtable.h | 10 +++++-----
+ arch/arm64/mm/fault.c            |  2 +-
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 4768ec59de555..ce6580ab63128 100644
+index 652ce413be389..4768ec59de555 100644
 --- a/arch/arm64/include/asm/pgtable.h
 +++ b/arch/arm64/include/asm/pgtable.h
-@@ -360,7 +360,7 @@ static inline pte_t pte_clear_uffd(pte_t pte)
+@@ -1303,7 +1303,7 @@ static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 	do {
+ 		old_pte = pte;
+ 		pte = pte_mkold(pte);
+-		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
++		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
+ 					       pte_val(old_pte), pte_val(pte));
+ 	} while (pte_val(pte) != pte_val(old_pte));
  
- static inline void __set_pte_nosync(hw_pte_t *ptep, pte_t pte)
+@@ -1346,7 +1346,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+ 					       hw_pte_t *ptep,
+ 					       unsigned long pgsize)
  {
--	WRITE_ONCE(*ptep, pte);
-+	WRITE_ONCE(hw_pte_val(*ptep), pte_val(pte));
+-	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
++	pte_t pte = __pte(xchg_relaxed(&hw_pte_val(*ptep), 0));
+ 
+ 	switch (pgsize) {
+ 	case PAGE_SIZE:
+@@ -1422,7 +1422,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
+ 	do {
+ 		old_pte = pte;
+ 		pte = pte_wrprotect(pte);
+-		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
++		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
+ 					       pte_val(old_pte), pte_val(pte));
+ 	} while (pte_val(pte) != pte_val(old_pte));
  }
+@@ -1460,7 +1460,7 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
+ 		if (flags & CYDP_CLEAR_DIRTY)
+ 			pte = pte_mkclean(pte);
  
- static inline void __set_pte_complete(pte_t pte)
-@@ -381,7 +381,7 @@ static inline void __set_pte(hw_pte_t *ptep, pte_t pte)
- 
- static inline pte_t __ptep_get(hw_pte_t *ptep)
+-		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
++		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
+ 					       pte_val(old_pte), pte_val(pte));
+ 	} while (pte_val(pte) != pte_val(old_pte));
+ }
+@@ -1830,7 +1830,7 @@ static inline bool ptep_try_set(hw_pte_t *ptep, pte_t new_pte)
  {
--	return READ_ONCE(*ptep);
-+	return __pte(READ_ONCE(hw_pte_val(*ptep)));
- }
+ 	pteval_t old = 0;
  
- extern void __sync_icache_dcache(pte_t pteval);
+-	if (!try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte)))
++	if (!try_cmpxchg(&hw_pte_val(*ptep), &old, pte_val(new_pte)))
+ 		return false;
+ 
+ 	/*
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index b77f4be88e3ea..3322f4e7174dc 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -235,7 +235,7 @@ int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
+ 		pteval ^= PTE_RDONLY;
+ 		pteval |= pte_val(entry);
+ 		pteval ^= PTE_RDONLY;
+-		pteval = cmpxchg_relaxed(&pte_val(*ptep), old_pteval, pteval);
++		pteval = cmpxchg_relaxed(&hw_pte_val(*ptep), old_pteval, pteval);
+ 	} while (pteval != old_pteval);
+ 
+ 	/*
 
 -- 
 2.47.3
