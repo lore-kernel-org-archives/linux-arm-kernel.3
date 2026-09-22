@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B80C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C38C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M301KG+Yn2DPBFpyXd5yWuZOKhpIbr1GRV9O2ajFsG8=; b=QgjjuzzTudiDeyA3tvnW8ruPWl
-	BFv93WO+bWbmQLgvu3k8oQhXmarGrm3naQtA41Y8sWLvAGledDE6rRPuNH2s9TfdqEmYHui3PmicE
-	e7ZQQcc3t/NCJLdbW0eEJxDNcZBwo7d3DCJenQ+xkfQY1X4GGdOAJejSbcanMu4uxjPREH2fdZ5/H
-	bdTFXOPbdmWro3tlfhPNLZLksLOWE0/AXui1PabkJ5Z7SWF4OCj5u3PyR2ely/kdFTxthUWtj67HQ
-	jLsUx0t1ZidXUfMW+acvQPQbYhEEYmg3RE9aYJWzI1WI5oVGz+W1Hf8yMqtlvatazbb2uArFg1DFC
-	iB6zLDmQ==;
+	bh=fWS6VemCJQZVIwP1tf2Y6qbGjMYyL6clHJEnGhczC3U=; b=QCu+5d+z+iio2RxR7gYbYJbUta
+	tfhJZ0hG2s70gohdndwmgsDMRANDFCVfvZCmx8W/l6qxHq5PsgIUPLnqw6UVH+wPEVzqNQD6nBFzT
+	jF/c9hNmxZ+BNWmNdkECkPMj+8v6OYvpzhCBgMHePJskPA9B2840Uk0YMy1w7KvGhxmTsxdi0eX1C
+	JxCsz3cvugA5XOIHviSxJXCTy5q5yHUneGbQHqGlVPiPtHQ29KX+qLj8KKDCxQsOPbJ53DkITrLNX
+	0iNNb6nADxIPQ4TZMprnejtTff16mPSAI6XQ/HuSg3FUcXmtJibfM5y67Rh2br25bLsQlxGv5ZLfi
+	aIyV8VKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uTn-00000004QsW-2Q3Q;
+	id 1x8uTn-00000004Qso-2oZk;
 	Tue, 22 Sep 2026 06:59:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uTU-00000004QkX-2ljW;
-	Tue, 22 Sep 2026 06:59:32 +0000
+	id 1x8uTj-00000004Qr1-1kYC;
+	Tue, 22 Sep 2026 06:59:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AEDE42A89;
-	Tue, 22 Sep 2026 06:59:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C8A1F000FF;
-	Tue, 22 Sep 2026 06:59:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D36866020F;
+	Tue, 22 Sep 2026 06:59:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D09AD1F00893;
+	Tue, 22 Sep 2026 06:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790060372;
-	bh=M301KG+Yn2DPBFpyXd5yWuZOKhpIbr1GRV9O2ajFsG8=;
+	s=k20260515; t=1790060386;
+	bh=fWS6VemCJQZVIwP1tf2Y6qbGjMYyL6clHJEnGhczC3U=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=aiZ+PbTPgJGbXcZlADTpqJYNp41C5ZZ7GqNlt2I/HhsbhwezCOltkNIJvgNuDpQCO
-	 ZOTB4sa7VawsPaFWE8d5ZSgZY8OdVSWa/R3obpbi2Ca/bwN4v1pCGyaQVVTUtt74FG
-	 Wu+hbvpEfaE4hWmoMBPLSK+ezCu/Lawb/VA1JQeVVQyV76IOxH62JmQ3jfCRslUCCx
-	 OaF2VVxkgtLPCwVwNybSaPXGE1C9OMKiPckyx6T1mciPmivusb+SsxrwMCU/Yg7f4J
-	 7teSXT4/m1DgSRROwZQvysEOiKuL+wrUn508OvPqeIJvJcZ3+951GuuFdAWKEpe7sY
-	 euwT19TIVVt3g==
-Message-ID: <e90f4eb03768e503215c0607774b15cf@kernel.org>
-Date: Tue, 22 Sep 2026 06:59:28 +0000
+	b=iVem6NK51SNQhuNU9/3VNzRt45Nh3hNfislWZtoOmfE7THXCD16zsAGGUJgyOvFt3
+	 wdVD0fsrMS30UjrIMWvrKGGrljlPWS1gvpZkoQdsI4LQXmrxXcI4N3FY1DVJmb9dos
+	 mZZqj+HRrg/38SaP7uFPmaDFMG/vuTnQ2niRfpcJGsnMtUme52+dU/Uhc0H3g8gxnN
+	 LClGSi9TVUnwnihRHh/2BhAl0BENTLXhQ7LaucgwzwSe8KJhqox1Td+JU+pskfqrdF
+	 b+/tQn8QyMXE1vyTktB6dkSUcqcYHR0zXRjWPFjHNZf1iW3+3GcQZz5+ywLVPz/YJ4
+	 z8N+D4jV4n2yg==
+Message-ID: <b55e64b4e64d9d39c2417b9713623697@kernel.org>
+Date: Tue, 22 Sep 2026 06:59:43 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 10/19] drm/bridge: waveshare-dsi: don't create a
- panel_bridge
-In-Reply-To: <20260916-drm-bridge-every-panel-v3-10-83afb4f1a707@bootlin.com>
-References: <20260916-drm-bridge-every-panel-v3-10-83afb4f1a707@bootlin.com>
+Subject: Re: [PATCH v3 11/19] drm/mcde: dsi: remove unused includes
+In-Reply-To: <20260916-drm-bridge-every-panel-v3-11-83afb4f1a707@bootlin.com>
+References: <20260916-drm-bridge-every-panel-v3-11-83afb4f1a707@bootlin.com>
 Cc: asahi@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-tegra@vger.kernel.org, "Albert
  Esteve" <aesteve@redhat.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha
  Srivatsa" <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
@@ -82,12 +81,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 15:45:34 +0200, Luca Ceresoli wrote:
-> Now a panel_bridge is automatically created for every drm_panel and the
-> panel-bridge API is just a deprecated wrapper to access it.
+On Wed, 16 Sep 2026 15:45:35 +0200, Luca Ceresoli wrote:
+> The helpers are included but unused.
 > 
-> Update and simplify the code by just getting a reference to the
-> already-existing bridge using of_drm_get_bridge_by_endpoint().
+> However symbols from drm_atomic_helper.h are used, and were previously
+> available as a side effect of drm_atomic_helper.h including
+> drm_atomic_state_helper.h. Add drm_atomic_state_helper.h.
 > 
 > [ ... ]
 
