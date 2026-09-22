@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C623C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12156C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=; b=yF7PL0Wm5GVv+aQ4j+7095Omck
-	UKN8TiEIzgBBZ56UGXhY9K/oVDlZnG7N+GlnyCLnjfREwNY68MkgQp/oMDYPh3ONjNHURC2E4Hcco
-	lcMkKwHqY6aFMSNuX4feybPoY/ShiE8NnXhOreT4lzAXv0xHBkrTZeNEUN++jKV7yxgcFzbf/z0Uh
-	XbKSMPlIgoBQfqzrs77K1GJZp0bvQ8QYV2GNCBMtqkLDX3v/Ui3sHmvcC/Yd7RO5gTFD2QPFlwxVZ
-	KilIQEI98KVdd3/ZPtPcgnAWk4cyqUvxuYht/bmtp9TRmT0Sz2y+27uVEe8F94EeBC/HC4psN+DJv
-	YdbiY6vA==;
+	bh=7irEIIBgzty36UKE5fbvUb/seFCiEiq/bxnIonis9JA=; b=y0b6tlA+vLHG9jYwI0QldktSHp
+	uPdTp+D5BGqbTF8LUtZaqmb79Cg+55OHVH0VnO1HDfxDh8hwDIXCLBRXOko6ayGWGpELvHMjVLtSm
+	hHyX+AvlyXH3v6XZdSyLQVgOMjdFqgHLdk+1uBt88OIaUKjNuGPCJQ/IT+YygGzHSr7ToX0/CRyKh
+	wwsGgmir4S/cFQlJmNQGhnNn46asBCMx7j4+iWTDWjR8enrrJHu+cFrF006XkbhgdkQqV4fYbxHsb
+	Ru5B0bHAtc90RuATDR1yJivlcbWYTJZZ7lRhZ6w47IE8WlUgmWygQ4weVDsNvtz+/c839bulbHw7Z
+	krKbchZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zka-00000005KA3-2Dmu;
-	Tue, 22 Sep 2026 12:37:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8zkh-00000005KCQ-2fx3;
+	Tue, 22 Sep 2026 12:37:39 +0000
+Received: from mail-pz2-x24.google.com ([2607:f8b0:4864:3b::24])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zkZ-00000005K9e-1glj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 12:37:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=; b=GQRYwjXkwpxJ+mj5noEoTNTIza
-	usIFAicxlmZHN48fkgpYbcnEZRzku0mfeFYbx4qI2sCpqxEjFkFm3EEO3TKDKiC1C5alI3LgQ1NSG
-	FhLFwZvaUaDDNLIllFareJp1kWZYacoNWvAHELeV1+Q5eNqP4p+2WVBs7ztdo19cFJQhqYx/QKnWp
-	yiZ2I5uu16xDXgyfKqMAzPHC5ASncBosf9KvgmhCgb/RyFNTQosdU+TNB1ro9UZ5srOtO7nyIhQlF
-	sgXKvpkHvk5+Dxu9SRR0xoxqrk4LTTUWRkK6YrB1HJViptBOtCazBXjOfQkyXSwI8bZSyitgEeUTV
-	JMDbTLaA==;
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8zkW-0000000DYaS-1eij
+	id 1x8zka-00000005KA2-3eLE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:37:30 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccb652d7so3685886a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 05:37:27 -0700 (PDT)
+	Tue, 22 Sep 2026 12:37:34 +0000
+Received: by mail-pz2-x24.google.com with SMTP id 41be03b00d2f7-cc4d04d73b8so3417180a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 05:37:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790080646; x=1790685446; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790080652; x=1790685452; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=;
-        b=LpwUq7UWbxAt5yyQNxqmQ74ivQnIYkfiXmxj4TbtkRFGKl7+WTaytFBuxGfMFbJOMF
-         ml/a97H6aXPDitw/vpjhHP81ZwU6m9P/xrsftEBHcaPCKIISV3Ajm9ncsiX93iJH51lj
-         thTvMoZbvrQVWwdFq8H+BGeik0UNIPOb73qYOzb6OPwz81VLgd0zD3iGSbFZN++bXX3j
-         ieuJwOFG8zfH2S+pkLPRMDORygnHUn/iBlOA7AO3pU4YKsG4Z6DMFRMobN0Fm2a7vaLe
-         CfymmCQseOACWv+U3VjcH7tmzeimQBaviOk5IqAJU3CA7CUyu6Lf+y51sr6+xuPemsLJ
-         O3OA==
+        bh=7irEIIBgzty36UKE5fbvUb/seFCiEiq/bxnIonis9JA=;
+        b=k5FlScr0m8gvrwYhCFcAXUh7zTXU/aZwN9NKVvGNnMuWLzYStda+JBlpzL7Cz2S/Wo
+         bEb6asQZU5uiGzf6xKTEXzVROf6K9tlgG9h8LWgBJCrfGZvmPp+Qp0C/u9r1CaoyirGa
+         eDAlg0/Qs15Uan2UdUPHs6U/+XL11U7YlNzjfbRKjVzacOnT3KpdOsz4B4JP+IJ7wNJ9
+         8NcW0NbJlMe+mSyTUHkNl78n1Bkf4byKDgfxCGCXm9U1hKSkapfsqb0VR+BfppWWcy4M
+         Tb/jrO3Z8Flme3rXZwrvpQph6w7oviNtMsnsxMcZKXp/j6R4/HoAslWWQOuhsnNQeHaV
+         3PXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790080646; x=1790685446;
+        d=1e100.net; s=20260707; t=1790080652; x=1790685452;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AOdg97xUtxa8AhSsk3nKT5LmiSCoT1EL2eRC7gkp05s=;
-        b=jvSoxPhos0Aq4BGWvi/r1B6q2XvWuDT0nE6K0mWoUYLxbNzhohLXu/Az4h+LPBYMZP
-         d9PTjn1zCl0594bWyE4CO+27ROFXuV87sAYvlK/TYzEtur+O4vkPDqkqAN6hRILkxTFJ
-         97S808G07WgSnEzH3Q+7tq0ht86/jPdRQKjP6o/JtdE/ugKdQD+afyvyRjpVr2spG8cN
-         OQssT5JcSRqwyBXGTiUY4U/CcHhxiuH1tt/RvgtWm6CyzrjXOk+GTzoRhU5G5I/aws+0
-         bgTRzoyW2V04QS/qOfQAMc7tZ9DzBAvK/JXomdU2FUqkq4olLHuPCGZ2/RzJKf5SZEkY
-         HAaQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz9lczi+GtGDfz53F9BZoYP33mVVEuuCpyhJfIIGH4Cj9FCIbVzw9f5WOcRvk1j2ha4+dRd9wSmR6tSwf34GOY8@lists.infradead.org
-X-Gm-Message-State: AFuF++nqV2Iq+/h2xscClb0rP0kwbZP1gEK90vr23ZED/hbwKx23+Nix
-	302dx2N7BrjkEiSOSU+88crzt5oTeVRl8ubdUOX4UkoeLguIQGZG3QyC
-X-Gm-Gg: AYBFou0jfKAFTYyIeZTo3wHYGJUoQs8WWMAaev+AHNoiPzzNPYJAo1RGX28i5KwGgvs
-	QU5i+f9clS212Rtpbe0P/OPJpkp2BhpMPysuypbAhAGGB+SlQV1dMG4AHCd3LZQGvc15kDsb2Qg
-	3jQumfqzj5KfgcUb0W/4WvMrEgqiOTowzh2OybV9aYKQGI/i5ywHiHo6PVZm7q94xvWKzPkhZ0C
-	NMWXLp7zPp+9SXZPGwjqNWwffbVY0Cn+0OltCB7kZ8Lb8u6aLF1iJ55jxTQBWn0iO3xUYBaer8O
-	4qK44NfTssOR1FEX6tTw4qy0h5yMowc1+MNERe7R++YPZw/AOLzDIq6cqG0uP6+4HMe47FcHANO
-	fwgXldUCzm0Ew5x4061bVJnAXuvQJbiL9vSZYzLyt2VtJRFZ+1NsGK6Bn/JjZhBvsDwy0OYM0nI
-	uKqu8Ml5TsySDRTCp9zeoV/Lmdp93NM6abh+rSLevqaYGLmnutucXKD9G5e/IXsY0jg8X78k/xf
-	l1aYy6rb2vG1xgv
-X-Received: by 2002:a17:90b:1fcd:b0:39f:d323:c988 with SMTP id 98e67ed59e1d1-3a073241ff2mr1206949a91.48.1790080645673;
-        Tue, 22 Sep 2026 05:37:25 -0700 (PDT)
+        bh=7irEIIBgzty36UKE5fbvUb/seFCiEiq/bxnIonis9JA=;
+        b=A5mvS68+qYK/33zP5UXxQASMrBxnSMu7wS25tuE+6P3BF2Az5UFXWlysRsqaerPxGw
+         rlXSkWOUZR8qA3AdeOyuZ/xqoeM9wLM2xiNE247KFlr1xppPKrOHvRUiaUI7JdfuEYP8
+         PednXQmo23ku5gKr9Z/yPcp/0T2DC0FvUI82kRfuaEY1Tg1uL4PffrYGC9XAnnTvTTIk
+         mJRa382xW4wh4d4EVPsWj60z0H826GrU9QAEggjz3t3uUTo8HTiMmqQuUh1wP8D3cVfv
+         Ju5EgiipqGELGrZtECjfeMW+oNdYYVuOu4QgYoDbiAy+TFeW4q3vTN9ZrzV427ZUxK2S
+         dx+Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwY+qOAxqoawgrws87etTn8yFEuN+Ies6aEniAAasTbzLHb9r243cLRD5T+/Y3bAvLANuxVhxKKiR17BSfh3pFH@lists.infradead.org
+X-Gm-Message-State: AFuF++kSH1mmC6VT3i27LjGyKC2/NakUEZq2YpObCyDT7cq5hkd2soaP
+	eg5dNrOTDO2LmZtF/vR1PSJ2MMIbLLSj1/rztUEhn0h7I8sI7gHfwqSK
+X-Gm-Gg: AYBFou0cnUA1nina2VHww08v+cAhbwOIYmvTq1aXU1pzj7QZJ93dMxaHqA/Rx1wHD81
+	q1IY26Dl4/KuIdh+9D9Ui+s/XLpr4Pw6oPSiW3L4ax3xWpHm1TDcA3T821CyFht6ucftV4jN4EE
+	Z6uOgNI9HbmXsrWHILXA/lKVsuC9ZASmue/LYaA2YI5TKVie0Av+IclGSGtEH1Qm0Op03Ao5UVI
+	yjFpDPmjX/aYE2x9Mj/39RhUbCHR0oJL3Kq5wvX3hYupXRAma01NJbN0YoWVlTalR8aTxK3OL7U
+	BBJwBPK+Q7kHeD5WUhP19wdcpiKodF/3JqBXRW6N0iQq60gnklCjJ/+Bzm70sbMu5h7wGqkWYlc
+	8i9gUpX+EIfIT1xT/lBdaImrJgqUuMjuKLk69oi5O7smCkLHQO8P71q1skbPRIjHSXutc2Z8iQT
+	p9ReYxnV2x8Skqs41qyKlm/fsm3XeJeBvkABFKLaw2S3THr8dV5SulKEHxfoyBsQ0+QAatv4+Gi
+	pi6xzdO+TeDA1g7aiXnbRvphKE=
+X-Received: by 2002:a05:6a20:e290:b0:3dd:a196:9076 with SMTP id adf61e73a8af0-3ddec87d5f9mr1250509637.64.1790080651785;
+        Tue, 22 Sep 2026 05:37:31 -0700 (PDT)
 Received: from debian.prasanth ([103.183.205.140])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e612ccd46sm6453922eec.18.2026.09.22.05.37.21
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e612ccd46sm6453922eec.18.2026.09.22.05.37.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 05:37:25 -0700 (PDT)
+        Tue, 22 Sep 2026 05:37:31 -0700 (PDT)
 From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 To: joel@jms.id.au
 Cc: andrew@codeconstruct.com.au,
@@ -99,20 +84,18 @@ Cc: andrew@codeconstruct.com.au,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v7 1/2] dt-bindings: arm: aspeed: Add ASRock Rack B650D4U
-Date: Tue, 22 Sep 2026 18:04:59 +0530
-Message-ID: <017f5ab1176b12a9d56cbc060f3ccc1d6ce8332e.1790079398.git.prasanth.padarthi10@gmail.com>
+	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Subject: [PATCH v7 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+Date: Tue, 22 Sep 2026 18:05:00 +0530
+Message-ID: <cb05fc2f4158b03d312b94cd9361173fe92ac528.1790079398.git.prasanth.padarthi10@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1790079398.git.prasanth.padarthi10@gmail.com>
 References: <cover.1790079398.git.prasanth.padarthi10@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_133728_630543_2BABC85D 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260922_053732_913225_692EBA38 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,27 +110,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the ASRock Rack B650D4U BMC,
-which is an AST2600-based server motherboard.
+Add the device tree for the ASRock Rack B650D4U BMC, which is
+based on the ASPEED AST2600 SoC.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Describe the BMC memory, SPI NOR flash layout, UART console,
+GPIO line names, video framebuffer memory, I2C EEPROM, and MAC0
+connected to an RTL8211F Ethernet PHY.
+
+Use the EEPROM on I2C7 as the NVMEM provider for the MAC0 address.
+
+Configure MAC0 to use the RTL8211F in RGMII-ID mode.
+
 Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/aspeed/Makefile             |   1 +
+ .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 135 ++++++++++++++++++
+ 2 files changed, 136 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 9ba195b8f22d..4c9e96801c1a 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -81,6 +81,7 @@ properties:
-               - ampere,mtmitchell-bmc
-               - aspeed,ast2600-evb
-               - aspeed,ast2600-evb-a1
-+              - asrock,b650d4u-bmc
-               - asus,ast2600-kommando-ipmi-card
-               - asus,x4tf-bmc
-               - facebook,anacapa-bmc
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index 6b68671f9379..b109491d5c8f 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-ampere-mtmitchell.dtb \
+ 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
+ 	aspeed-bmc-asrock-altrad8.dtb \
++	aspeed-bmc-asrock-b650d4u.dtb \
+ 	aspeed-bmc-asrock-e3c246d4i.dtb \
+ 	aspeed-bmc-asrock-e3c256d4i.dtb \
+ 	aspeed-bmc-asrock-paul-ipmi-card.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+new file mode 100644
+index 000000000000..a4e384588a54
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+@@ -0,0 +1,135 @@
++// SPDX-License-Identifier: GPL-2.0
++/dts-v1/;
++
++#include "aspeed-g6.dtsi"
++
++/ {
++	compatible = "asrock,b650d4u-bmc", "aspeed,ast2600";
++	model = "ASRock Rack B650D4U BMC";
++
++	aliases {
++		serial0 = &uart5;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;
++	};
++
++	reserved-memory {
++		ranges;
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		gfx_memory: framebuffer {
++			compatible = "shared-dma-pool";
++			alignment = <0x01000000>;
++			reusable;
++			size = <0x01000000>;
++		};
++	};
++};
++
++&fmc {
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		label = "bmc";
++		spi-max-frequency = <50000000>;
++		spi-rx-bus-width = <4>;
++		m25p,fast-read;
++
++		status = "okay";
++
++#include "openbmc-flash-layout-64.dtsi"
++	};
++};
++
++&gfx {
++	memory-region = <&gfx_memory>;
++
++	status = "okay";
++};
++
++&gpio0 {
++	gpio-line-names =
++		/* A0-A7 */	"","","","","","","","",
++		/* B0-B7 */	"","","","","","","","",
++		/* C0-C7 */	"","","","","","","","",
++		/* D0-D7 */	"","","","","","","","",
++		/* E0-E7 */	"","","","","","","","",
++		/* F0-F7 */	"","","","","","","","",
++		/* G0-G7 */	"","","","","","","","",
++		/* H0-H7 */	"","","","","","","","",
++		/* I0-I7 */	"","","","","","","","",
++		/* J0-J7 */	"","","","","","","","",
++		/* K0-K7 */	"","","","","","","","",
++		/* L0-L7 */	"","","","","","","","",
++		/* M0-M7 */	"","","","","","","","",
++		/* N0-N7 */	"","","","","","","","",
++		/* O0-O7 */	"","","","","","","","",
++		/* P0-P7 */	"button-reset-n","control-reset-n",
++		"button-power-n","control-power-n",
++		"button-nmi-n","control-nmi-n",
++		"","",
++		/* Q0-Q7 */	"","","","","","","","",
++		/* R0-R7 */	"","","","","","","","",
++		/* S0-S7 */	"","","","","","","","",
++		/* T0-T7 */	"","","","","","","","",
++		/* U0-U7 */	"","","","","","","","",
++		/* V0-V7 */	"","","","","","","","",
++		/* W0-W7 */	"","","","","","","","",
++		/* X0-X7 */	"","","","","","","","",
++		/* Y0-Y7 */	"","","","","","","","",
++		/* Z0-Z7 */	"","","","","","","","";
++};
++
++&i2c7 {
++	status = "okay";
++
++	eeprom@57 {
++		compatible = "atmel,24c128";
++		reg = <0x57>;
++		pagesize = <16>;
++
++		nvmem-layout {
++			compatible = "fixed-layout";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			eth0_macaddress: macaddress@3f80 {
++				reg = <0x3f80 6>;
++			};
++		};
++	};
++};
++
++&mac0 {
++	nvmem-cells = <&eth0_macaddress>;
++	nvmem-cell-names = "mac-address";
++	phy-handle = <&ethphy0>;
++	phy-mode = "rgmii-id";
++	pinctrl-0 = <&pinctrl_rgmii1_default>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
++
++&mdio0 {
++	status = "okay";
++
++	ethphy0: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
++&uart5 {
++	status = "okay";
++};
 -- 
 2.47.3
 
