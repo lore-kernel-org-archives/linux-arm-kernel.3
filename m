@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D179EC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 22:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E14DC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 23:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uazcixllph1AaG+4CN/PpRkvp/6wJ2RJPrO8IuhhZU4=; b=QHa3lMuf5+F1AJ4Lg6dpJeRNpa
-	W2U/XdXTNhBLu5Z5GJEQMNddt2WXQ4xprsgLZCYgAQpaYZAfkit2d0CB2ZDkiPMvD4h7NbX4T1yK/
-	hTHPtSPWe9K/LLJvqY24TWoHxH43DmJDvYSJoopTPiDqxHtX1ej2p4n6mstxYtoh04iTkRLFfawGr
-	KZypDiAWZrjJNrjdyIGxryH1rk8rsXL8TXmksLdNZLQvcWhCP1jR9fMdPNGg6f/ufzpkPsCtnH39H
-	H33LUuj7h2eA7kKNWZs/zQL82J2VGn9zK/ida5FVhFEg+9yHmSWq1vhOD1m20/cX43IZo6mHebqOb
-	wHfoe9xA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/tRbI6XkA8MPG1ny+jKahsxINKgsku5yR+AT0hT9eCM=; b=ed539NFnrTqYyByc3Xh9VeYGOA
+	kD7saNlJb/ASSK25oSqRciL7zCI92G77TfL9FAOFRqe1aDIVb9ma6wUk9FqELLPR7/+n/1eBdrnJV
+	Xzknrxl/7G0TPVWbk35R+w85REnyHgw0anqXVO+0BARF8lXSYwHUdtzOLH+QV0sw71NNfjVmZbCa6
+	i4sY5mgqyYDwPrhnSHTObkGNYberLs6JSmGKsTj0SZfLMHhYX8lO8o4iZMKIo1fR3g7HX/QIIyynn
+	snrIGVbKwZEzZ33IHhoUqCUiOng8iei0AuSIOeUSPLAl7MqdozGk1fvumXBUBm7bcdQOrQy0NrPqU
+	oSU/Q4GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x99P9-00000006i9z-2ilZ;
-	Tue, 22 Sep 2026 22:56:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x99P6-00000006i9b-1Ccr
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 22:56:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 267771576;
-	Tue, 22 Sep 2026 15:55:53 -0700 (PDT)
-Received: from [10.57.9.113] (unknown [10.57.9.113])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A07BB3F632;
-	Tue, 22 Sep 2026 15:55:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790117756; bh=qVCjW+bKUVgRJaxooxblKpYN+hplHE+53CuW6GhbhWg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NYFlzv5R7+kCofQIFQDwJs6xa1Tp35O7ZW6qtSA9fT4Pygzy9yDpBiIqnoRsXfoCU
-	 Iog5eoTK90Q60dmjkNHrvRS3Q5CEV4M8UtI0CW1l5b4iP1hxxa3rR2tGoXJzpqMeaj
-	 c5IADN5feKzMA5TDTPUIgueobeOVzZWzDfkDuvhM=
-Message-ID: <2164b046-bbbb-4cfb-b797-5df27fbe313f@arm.com>
-Date: Tue, 22 Sep 2026 23:55:52 +0100
+	id 1x99Yt-00000006iYZ-21Gn;
+	Tue, 22 Sep 2026 23:06:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x99Ys-00000006iYM-0SSu;
+	Tue, 22 Sep 2026 23:06:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 877A740877;
+	Tue, 22 Sep 2026 23:06:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A6EB1F000FF;
+	Tue, 22 Sep 2026 23:06:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790118365;
+	bh=/tRbI6XkA8MPG1ny+jKahsxINKgsku5yR+AT0hT9eCM=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=lXVfl7756EL7HSGKyR9mbEmgPPWnZRPR+y7JpN/HZlavwjdnB1Z/pgEDvNs9hfS7m
+	 mmGMCU0mm754ETZabpB+yAIXjg6cd44aBfApfjVqey5ZvwSYRIyO/MXSvxPTQV8jRM
+	 5VM68QWqrnGI3hxTbNtACtjUA7nVaqlqZCDVRADbz98iwyF7Sb/a1vCKEmMUh0+b2S
+	 e8qcKrHmlbS56Gi/kSLADZB422ZgCrtRTvsc1Orv2iOrt5IksuzvX/khCSOtY/pjF0
+	 xiAxBMWGk7rtsBe898hzXch3RfVvvKHX1hlJtUzdzzCEVPlHekF3CYFkincVW2ITTn
+	 3qjfQ1wesTwvw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 1306ECE098B; Tue, 22 Sep 2026 16:06:05 -0700 (PDT)
+Date: Tue, 22 Sep 2026 16:06:05 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Bradley Morgan <brads@mainlining.org>, frederic@kernel.org,
+	neeraj.upadhyay@kernel.org, boqun@kernel.org, joelagnelf@nvidia.com,
+	rcu@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+	Vineet Gupta <vgupta@kernel.org>,
+	linux-snps-arc@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/6] sh: Emulate two-byte cmpxchg
+Message-ID: <43815338-7862-4ab1-a078-47161909a246@paulmck-laptop>
+References: <20260911192540.20983-1-brads@mainlining.org>
+ <20260911192540.20983-6-brads@mainlining.org>
+ <1835e3f1b7e936479964f5e40583133484510d25.camel@physik.fu-berlin.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 6/7] firmware: arm_rmm: Ensure the RMM has GPT entries
- for memory
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-7-suzuki.poulose@arm.com>
- <178978126543.2352296.12214136703168879825.b4-review@b4>
- <65b0c03b-36b9-4e60-aa55-c3b4b85e21ee@arm.com>
- <93aea89c-0a05-4b5a-905d-2e8c14a9e894@arm.com>
- <20260921145838.00003b04@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260921145838.00003b04@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_155600_522276_4744F7D0 
-X-CRM114-Status: GOOD (  25.24  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1835e3f1b7e936479964f5e40583133484510d25.camel@physik.fu-berlin.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,164 +79,118 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 22:58, Jonathan Cameron wrote:
+On Wed, Sep 16, 2026 at 09:16:16PM +0200, John Paul Adrian Glaubitz wrote:
+> Hi Bradley,
 > 
->>>>>    static int __init arm64_init_rmi(void)
->>>>>    {
->>>>>        int ret;
->>>>> @@ -786,8 +970,24 @@ static int __init arm64_init_rmi(void)
->>>>>        if (ret) {
->>>>>            pr_err("RMM activate failed\n");
->>>>>            ret = ret < 0 ? ret : -ENXIO;
->>>>> +        return ret;
->>>>
->>>> Why did this change?
->>>
->>> Rebase messed up. I will restore it.
->>
->> Actually this is not. We dont have to check the metadata if
->> we couldn't activate the RMM. Also, the failure path at the
->> bottom has "deactivate", which again is not needed. So
->> it is the right thing to do.
+> On Fri, 2026-09-11 at 19:25 +0000, Bradley Morgan wrote:
+> > SH has no byte or halfword atomic memory operations, so the
+> > __cmpxchg() switch routes case 1 through cmpxchg_emu_u8() and
+> > lets case 2 fall through to __cmpxchg_called_with_bad_pointer(),
+> > which is declared but never defined, so a two-byte cmpxchg()
+> > fails at link time. Route case 2 through the new cmpxchg_emu_u16().
+> > 
+> > Signed-off-by: Bradley Morgan <brads@mainlining.org>
+> > ---
+> >  arch/sh/include/asm/cmpxchg.h | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/sh/include/asm/cmpxchg.h b/arch/sh/include/asm/cmpxchg.h
+> > index 1e5dc5ccf7bf..477d3025a441 100644
+> > --- a/arch/sh/include/asm/cmpxchg.h
+> > +++ b/arch/sh/include/asm/cmpxchg.h
+> > @@ -59,6 +59,8 @@ static inline unsigned long __cmpxchg(volatile void * ptr, unsigned long old,
+> >  	switch (size) {
+> >  	case 1:
+> >  		return cmpxchg_emu_u8(ptr, old, new);
+> > +	case 2:
+> > +		return cmpxchg_emu_u16(ptr, old, new);
+> >  	case 4:
+> >  		return __cmpxchg_u32(ptr, old, new);
+> >  	}
 > 
-> Only after this patch? Not from the previous patch?
+> Odd, I thought this series was merged long time ago. Was there anything holding it back?
 > 
->>
->>>    
->>>>   
->>>>>        }
->>>>> +    ret = rmi_init_metadata();
->>>>> +    if (ret)
->>>>
->>>> And this is hitting another bit of guidance in cleanup.h.
->>>> Functions shouldn't be mixing __free and friends with
->>>> gotos.  Again, not a bug here but there are large ugly
->>>> monsters around this stuff, hence the blanket guidance.
->>>> I haven't thought that hard on how you avoid it here, but
->>>> usually it's a combination of suitable helpers and wrappers
->>>> and resulting code is often more readable as a result.
->>
->> I could change the hunk to something like, but that looks ugly.
->>
->> @@ -1010,20 +1010,12 @@ static int __init arm64_init_rmi(void)
->>                   return ret;
->>           }
->>
->> -       ret = rmi_init_metadata();
->> -       if (ret)
->> -               goto out_deactivate;
->> +       if (!rmi_init_metadata() &&
->> !register_memory_notifier(&rmi_memory_nb)) {
->> +               arm64_rmi_is_available = true;
->> +               pr_info("RMI configured\n");
->> +               return 0;
->> +       }
->>
->> -       ret = register_memory_notifier(&rmi_memory_nb);
->> -       if (ret)
->> -               goto out_deactivate;
->> -
->> -       arm64_rmi_is_available = true;
->> -       pr_info("RMI configured\n");
->> -
->> -       return 0;
->> -
->> -out_deactivate:
->>           WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL,
->> SMC_RMI_RMM_DEACTIVATE));
->>           return ret;
->>    }
->>
->>
->> Either ways, we have to cleanup the object on return, no matter
->> the route we take. So the original form is much more readable
->> for me.
+> Either way:
 > 
-> Agree to more readable, but that fragility of mixing __free() and
-> goto is a real problem that has tripped many folk up - hence
-> the perhaps overly strict guidance.  Rather than avoiding the goto, I'd just
-> not use __free()  - go old school and have two labels for errors
-> and an extra manual free in the good path.
-> 
-> 	pr_info("RMI configured\n:);
-> 	kfree(sro);
-> 
-> 	return 0;
-> 
-> out_deactivate:
-> 	WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, SMC_RMI_RMM_DEACTIVATE));
-> out_free_sro:
-> 	kfree(sro);
-> 	return ret;
-> }
-> 
-> Sometime the new toys aren't the right answer.
+> Acked-by: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
 
-I have the following hunk on top of this patch, that could do the trick.
+Thank you, John!
 
-diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-index bcdbed26cf08d..4385f49068965 100644
---- a/drivers/firmware/arm_rmm/rmi.c
-+++ b/drivers/firmware/arm_rmm/rmi.c
-@@ -1033,20 +1033,19 @@ static int __init arm64_init_rmi(void)
-                 return ret;
-         }
+In my reshuffling, I associated the arch/sh/Kconfig change with the
+cmpxchg.h changes, as shown below.  The idea is to show all the changes
+for a given architecture in one place.  I kept your Acked-by, but please
+let me know if this is in any way problematic.
 
--       ret = rmi_init_metadata();
--       if (ret)
--               goto out_deactivate;
--
--       ret = register_memory_notifier(&rmi_memory_nb);
--       if (ret)
--               goto out_deactivate;
--
--       arm64_rmi_is_available = true;
--       pr_info("RMI configured\n");
--
--       return 0;
--
--out_deactivate:
-+       do {
-+               ret = rmi_init_metadata();
-+               if (ret)
-+                       break;
-+               ret = register_memory_notifier(&rmi_memory_nb);
-+               if (ret)
-+                       break;
-+               arm64_rmi_is_available = true;
-+               pr_info("RMI configured\n");
-+               return 0;
-+       } while (0);
-+
-+       /* De-activate the RMM and reclaim any donated memory */
-         WARN_ON(rmi_sro_memxfer_cmd(sro, GFP_KERNEL, 
-SMC_RMI_RMM_DEACTIVATE));
-         return ret;
+						Thanx, Paul
 
-Cheers
-Suzuki
+------------------------------------------------------------------------
 
-> 
-> Jonathan
-> 
-> 
-> 
-> 
->>
->> Cheers
->> Suzuki
->>
->>>>   
->>>
->>> I will see if I can improve it.
->>>
->>> Cheers
->>> Suzuki
->>>    
->>
-> 
+commit 662151462e30187c342cffcd250834a32a9eb67a
+Author: Bradley Morgan <brads@mainlining.org>
+Date:   Tue Sep 22 17:33:52 2026 +0000
 
+    sh: Emulate two-byte cmpxchg
+    
+    SH has no byte or halfword atomic memory operations, so the __cmpxchg()
+    switch routes case 1 through cmpxchg_emu_u8() and lets case 2 fall
+    through to __cmpxchg_called_with_bad_pointer(), which is declared but
+    never defined, so a two-byte cmpxchg() fails at link time. Route case
+    2 through the new cmpxchg_emu_u16(), which takes the old and new
+    values as unsigned long, so the (unsigned long) casts move off the
+    call and into _old_ and _new_ declarations that type check the old
+    and new arguments against *ptr through (unsigned long)(0 ? *ptr : _o_),
+    the idiom David Laight suggested, so cmpxchg(&p, 4, 5) no longer
+    compiles silently.
+    
+    Acked-by: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+    Signed-off-by: Bradley Morgan <brads@mainlining.org>
+    Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+    Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+    Cc: Rich Felker <dalias@libc.org>
+    Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+    Cc: <linux-sh@vger.kernel.org>
+
+diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+index d60f1d5a94c0..09e556fced01 100644
+--- a/arch/sh/Kconfig
++++ b/arch/sh/Kconfig
+@@ -14,7 +14,7 @@ config SUPERH
+ 	select ARCH_HIBERNATION_POSSIBLE if MMU
+ 	select ARCH_MIGHT_HAVE_PC_PARPORT
+ 	select ARCH_WANT_IPC_PARSE_VERSION
+-	select ARCH_NEED_CMPXCHG_1_EMU
++	select ARCH_NEED_CMPXCHG_1_2_EMU
+ 	select CPU_NO_EFFICIENT_FFS
+ 	select DMA_DECLARE_COHERENT
+ 	select GENERIC_ATOMIC64
+diff --git a/arch/sh/include/asm/cmpxchg.h b/arch/sh/include/asm/cmpxchg.h
+index 1e5dc5ccf7bf..b87f59107b4e 100644
+--- a/arch/sh/include/asm/cmpxchg.h
++++ b/arch/sh/include/asm/cmpxchg.h
+@@ -59,6 +59,8 @@ static inline unsigned long __cmpxchg(volatile void * ptr, unsigned long old,
+ 	switch (size) {
+ 	case 1:
+ 		return cmpxchg_emu_u8(ptr, old, new);
++	case 2:
++		return cmpxchg_emu_u16(ptr, old, new);
+ 	case 4:
+ 		return __cmpxchg_u32(ptr, old, new);
+ 	}
+@@ -70,8 +72,10 @@ static inline unsigned long __cmpxchg(volatile void * ptr, unsigned long old,
+   ({									 \
+      __typeof__(*(ptr)) _o_ = (o);					 \
+      __typeof__(*(ptr)) _n_ = (n);					 \
+-     (__typeof__(*(ptr))) __cmpxchg((ptr), (unsigned long)_o_,		 \
+-				    (unsigned long)_n_, sizeof(*(ptr))); \
++     unsigned long _old_ = (unsigned long)(0 ? *ptr : _o_);	 \
++     unsigned long _new_ = (unsigned long)(0 ? *ptr : _n_);	 \
++     (__typeof__(*(ptr))) __cmpxchg((ptr), _old_,				 \
++				    _new_, sizeof(*(ptr)));	 \
+   })
+ 
+ #include <asm-generic/cmpxchg-local.h>
 
