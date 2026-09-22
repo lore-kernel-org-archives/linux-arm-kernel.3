@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A89C982FD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C188C982FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 02:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEMNftgPUsUp/chMEhUbfGL5eAcx9DDwnaTufeKfD2w=; b=N5qh3BIN18TXIapIfU2dwuvmEc
-	Ip7RIC9OpW8AAgpeBbdshSUsOAOOF9jhfkUEAdnKVFE0KgIWE6YY/LovFo32p5hV88b7mzwvu+ced
-	yMc6K/DIe6z7kTMp4OhKNCb48iPkKyWGeVWUNaKuN1ClO/yzolyGbzSuDCfrOHKAvVPHUrwTxstSl
-	jmy/hNihyRrvEn/spxXYpMAv/KL9uuiCFuPXv6Z14sTn/+OOF1MUqTeVwcWDDSncmwgY5VpCYkiqc
-	V1BWBnQJyoGGjf5UOLUBldgmMa2WjLSlyyaKWfZUqh440VFOngiPZsgD9tUaCaHvMztKg7/gbyITr
-	ZcdzCg3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0ASA5JW6b5bnDhsby8kSTB9776aPdBxV6ZarEwfGUYA=; b=yi/dx2DYydklawHwET2eHbTre0
+	3My/v4bKv99zragFfsUFJdHiNs7DygNvsDzncQrDonZWU5l0UAeO4qCr8Qp7u0BHF60s8M9E5hH1x
+	niXSNxIPdLT8T+Rf+ThzLMVabMLbhXRltQKMqIHDnP9xj3CxOQlO797Qt8y+UksEa5BnnO8ZvshV3
+	feB93Iw5H9BVKV6tWUmf6ffuBIgn/sWVZn24o6LSIf19jiX01Ib86vI5I0CHb2ArjE0R67Yq4in+z
+	FOeKIHDCoO/7qt9icD7TkuyBM7MapP7W42eqi4BqWsw0xLayvk4vAFQ/AeYzms2u3HWAS047+O5Qa
+	7SxRTLqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8pIr-00000003tJg-3phz;
-	Tue, 22 Sep 2026 01:28:13 +0000
-Received: from mail-m81156.xmail.ntesmail.com ([156.224.81.156])
+	id 1x8q32-00000003xI9-2oSh;
+	Tue, 22 Sep 2026 02:15:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8pIo-00000003tIj-32nH;
-	Tue, 22 Sep 2026 01:28:12 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4ea47cc08;
-	Tue, 22 Sep 2026 09:28:05 +0800 (GMT+08:00)
-Message-ID: <86d0a09c-f1e1-4310-aa39-6526268bdc76@rock-chips.com>
-Date: Tue, 22 Sep 2026 09:28:03 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 09/14] pmdomain: rockchip: add optional per-domain
- power-on settle delay
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
- zhangqing@rock-chips.com, Jiaxing Hu <gahing@gahingwoo.com>,
- royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
- sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
- u.kleine-koenig@baylibre.com, diederik@cknow-tech.com, alchark@flipper.net,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260915104328.45901-1-gahing@gahingwoo.com>
- <20260915104328.45901-10-gahing@gahingwoo.com> <15844283.tv2OnDr8pf@phil>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <15844283.tv2OnDr8pf@phil>
-Content-Type: text/plain; charset=UTF-8
+	id 1x8q31-00000003xHv-0YSx;
+	Tue, 22 Sep 2026 02:15:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 832F6406BB;
+	Tue, 22 Sep 2026 02:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72E991F000FF;
+	Tue, 22 Sep 2026 02:15:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790043354;
+	bh=0ASA5JW6b5bnDhsby8kSTB9776aPdBxV6ZarEwfGUYA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PfUGiGY6exW5Q7gji0YFSkvi13LVMyGzTvOjVsTxfVtzbGXGK+rRzSL28X9Wndv0i
+	 C6adaZKgC6jHsvjI1OxafymgqF42Ap5wxVQDJaBqU+oN5IMp0ue/GgFgnva8ya721p
+	 GzmG6hOSdv2AIRKesaUdDG1Abw53zGJeYPNeOgrbWD1GgVSU8OmrmPo2Vh49GdcTJx
+	 fJo1HQ5B60ixEAJihe6wqxxhR6UjIGAVumnoL6IugL5u3vZ/8R2orpkU7C/xvvzP5g
+	 VleMGt9tx2VOUfCdaZqfFbfZbxdWp3i5jwSveShtQpQ9EGMBUFIlzoW9f/SkaaJNJx
+	 ixp+W8dl01Q7g==
+Subject: Re: [PATCH net v2 1/2] net: dsa: mt7530: fix NULL dereference on
+ unbind of MT7531 and MT7621
+From: netdev-bot+sashiko@kernel.org
+To: f@lex.la
+Cc: netdev@vger.kernel.org, chester.a.unal@arinc9.com, daniel@makrotopia.org,
+ andrew@lunn.ch, olteanv@gmail.com, gerg@kernel.org, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Date: Tue, 22 Sep 2026 02:15:52 +0000
+Message-ID: <179004335292.2160803.1657607362233554719@kernel.org>
+In-Reply-To: <20260918015020.2518315-2-f@lex.la>
+References: <20260918015020.2518315-2-f@lex.la>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0c6ba2f2d03a7kunmeb9776bc9d1cf
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSk4eVkxDGR9JGEoYHUhCTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=W0odU1OOloYr55qtR7C7tVj3QAyYPL77i/h4ftBbKvQbI3quKMF5KR+1/q1L6P/K/JX8O6nCNzM53G0WqUmyiLvn/yBNzFcM8m8+KlASYIQ18AARR77yMJC5J/mQMpDGdfyoYrFpsjaJBgVfNbWDNJolVVt1Llx0m7JRklgsMiE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=bEMNftgPUsUp/chMEhUbfGL5eAcx9DDwnaTufeKfD2w=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_182811_585436_CCBCF7BD 
-X-CRM114-Status: GOOD (  17.13  )
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +73,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko, Jiaxing,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-On 9/22/2026 6:06 AM, Heiko Stuebner wrote:
-> Hi,
-> 
-> Am Dienstag, 15. September 2026, 12:43:23 Mitteleuropäische Sommerzeit schrieb Jiaxing Hu:
->> The RK3576 NPU domains need a short settle time after the idle request is
->> released before the registers behind the domain answer. Without it the QoS
->> writes that rockchip_pmu_restore_qos() issues land while the domain is
->> still coming up, and the NPU throws an async SError on the first cold
->> power-on.
-> 
-> are you really really sure, this is the fault of the domain itself?
-> 
-> The regulator also can just need a longer time to bring up the power.
-> Looking at [0], it seems I actually encountered the same thing back
-> on the RK3588.
-> 
-> Only difference is, on RK3588 a fan5355-type regulator normally does
-> provide the npu supply, while on your board it comes from the main pmic.
-> 
-> Can you please try the following:
-> - set your power-domain regulator to always-on in the DT (so it stays
->   on even when the domain gets turned off)
-> - try to reproduce your SError issue and see if it still appears
-> 
-> 
-> And for the other case, look through the pmic datasheet to find the
-> enable-time values and do something similar for the RK806.
-> 
-> 
+Critical: 0 · High: 0 · Medium: 1 (2) · Low: 0 (1)
 
-Thank you for your attention to this series.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Providing some background here: this delay is required by the pmdomain
-design itself, rather than being dependent on the external RK806 state. 
-Taking the NPU as an example, after its pmdomain is powered on, some 
-internal preparation is needed, which takes approximately 15us. 
-And during this period, the QOS registers *must* not be accessed, 
-otherwise it will cause a hang.
+- [Medium] The regulator enable reference is taken in the DSA `.setup`
+  callback (mt7530_setup(), drivers/net/dsa/mt7530.c:2493-2509) but…
+
+Pre-existing issues:
+- [Medium] On the ID_MT7530 path the patch keeps
+  regulator_disable(core_pwr)/regulator_disable(io_pwr) ahead of…
+- [Medium] In mt7530_setup() (drivers/net/dsa/mt7530.c:2494 and :2502)
+  the return values of `regulator_set_voltage(priv->core_pwr, 1000000,…
+- [Low] Binding/driver disagreement about which compatibles the `core-
+  supply`/`io-supply` properties apply to.
+
+--
+
+net: dsa: mt7530: fix NULL dereference on unbind of MT7531 and MT7621
+
+The core and io supplies are only requested for ID_MT7530, but
+mt7530_remove() disabled them unconditionally, so unbinding an MT7531 or
+MT7621 called regulator_disable() on a NULL pointer.  The patch gates the
+two regulator_disable() calls on priv->id == ID_MT7530.
+
+> diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+> index 784dd58a71589..de42f70afcfa1 100644
+> --- a/drivers/net/dsa/mt7530-mdio.c
+> +++ b/drivers/net/dsa/mt7530-mdio.c
+> @@ -227,15 +227,17 @@ mt7530_remove(struct mdio_device *mdiodev)
+>  	if (!priv)
+>  		return;
+>  
+> -	ret = regulator_disable(priv->core_pwr);
+> -	if (ret < 0)
+> -		dev_err(priv->dev,
+> -			"Failed to disable core power: %d\n", ret);
+> -
+> -	ret = regulator_disable(priv->io_pwr);
+> -	if (ret < 0)
+> -		dev_err(priv->dev, "Failed to disable io pwr: %d\n",
+> -			ret);
+> +	if (priv->id == ID_MT7530) {
+
+[Severity: Low]
+This isn't a bug introduced by this patch, but the id test here is now the
+third place that encodes "these supplies belong to ID_MT7530", while the
+binding does not say that.
+
+In Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml both
+core-supply and io-supply are defined as generic top-level properties and
+are only listed under required: for the mediatek,mt7530 branch.  The
+mediatek,mt7531 branch disallows other properties explicitly:
+
+      properties:
+        gpio-controller: false
+        mediatek,mcm: false
+
+but leaves the two supplies permitted, and the mediatek,mt7621 branch only
+adds mediatek,mcm to required:.
+
+So a schema-valid DT with core-supply on compatible = "mediatek,mt7531" has
+that phandle silently ignored, since mt7530_probe() never calls
+devm_regulator_get() for any other id:
+
+	if (priv->id == ID_MT7530) {
+		priv->core_pwr = devm_regulator_get(&mdiodev->dev, "core");
+		...
+	}
+
+Should the binding set core-supply: false / io-supply: false on the
+mt7531 and mt7621 branches so the two sides agree?
+
+> +		ret = regulator_disable(priv->core_pwr);
+> +		if (ret < 0)
+> +			dev_err(priv->dev,
+> +				"Failed to disable core power: %d\n", ret);
+> +
+> +		ret = regulator_disable(priv->io_pwr);
+> +		if (ret < 0)
+> +			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
+> +				ret);
+> +	}
+
+[Severity: Medium]
+Is priv->id the right condition for the disable side?  It records that the
+supplies were requested in mt7530_probe(), not that they were ever enabled.
+The enable happens in a different callback, mt7530_setup() in mt7530.c,
+reached through ds->ops->setup.
+
+Can this produce an unbalanced disable on an ID_MT7530 board?
+mt7530_probe() -> dsa_register_switch() -> dsa_tree_setup() can return
+success without ever running ds->ops->setup:
+
+net/dsa/dsa.c:dsa_tree_setup() {
+	...
+	complete = dsa_tree_setup_routing_table(dst);
+	if (!complete)
+		return 0;
+	...
+}
+
+A later unbind then takes this new ID_MT7530 branch with
+regulator->enable_count still zero:
+
+drivers/regulator/core.c:_regulator_disable() {
+	if (WARN(regulator->enable_count == 0,
+		 "unbalanced disables for %s\n", rdev_get_name(rdev)))
+		return -EIO;
+	...
+}
+
+which also means the dev_err() above prints -EIO.  A tree teardown and
+re-setup cycle, e.g. a peer switch in the same tree unbinding and binding
+again, runs mt7530_setup() and therefore regulator_enable() more than once
+against this single disable.
+
+Does the opposite direction leak the enable reference?  Every error return
+in mt7530_setup() after the core rail is up:
+
+	if (priv->id == ID_MT7530) {
+		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
+		ret = regulator_enable(priv->core_pwr);
+		...
+		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
+		ret = regulator_enable(priv->io_pwr);
+		if (ret < 0) {
+			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
+				ret);
+			return ret;
+		}
+	}
+
+	/* Waiting for MT7530 got to stable */
+	INIT_MT7530_DUMMY_POLL(&p, priv, MT753X_TRAP);
+	ret = readx_poll_timeout(_mt7530_read, &p, val, val != 0,
+				 20, 1000000);
+	if (ret < 0) {
+		dev_err(priv->dev, "reset timeout\n");
+		return ret;
+
+propagates out through mt753x_setup() and dsa_register_switch() to
+mt7530_probe(), so .remove is never called.  The devm release path only
+puts the regulator:
+
+drivers/regulator/core.c:_regulator_put() {
+	...
+	/* Docs say you must disable before calling regulator_put() */
+	WARN_ON(regulator->enable_count);
+	...
+}
+
+so the 1.0 V core and 3.3 V I/O rails stay enabled for the lifetime of the
+system, with a WARN.  The MT7530_CREV id mismatch and the 20 MHz XTAL
+rejection reach the same point.
+
+Would pairing the enable with the existing symmetric hook,
+mt753x_teardown() in mt7530.c, or tracking an explicit "enabled" flag and
+unwinding the mt7530_setup() error paths, cover the NULL case this patch
+targets as well as these two?
+
+>  
+>  	mt7530_remove_common(priv);
+>  
+
+[Severity: Medium]
+This is a pre-existing ordering issue rather than something this patch
+introduces, and the cover text says as much, but it may be worth recording
+here since the ID_MT7530 path keeps it.
+
+Everything mt7530_remove_common() still does runs against a die whose rails
+have just been switched off:
+
+drivers/net/dsa/mt7530.c:mt7530_remove_common() {
+	dsa_unregister_switch(priv->ds);
+
+	mutex_destroy(&priv->reg_mutex);
+}
+
+dsa_unregister_switch() reaches mt753x_teardown(), the per-port
+mt7530_port_disable() PCR read-modify-writes such as
+
+	mt7530_rmw(priv, MT7530_PCR_P(port), PCR_MATRIX_MASK, PCR_MATRIX_CLR);
+
+the mac_link_down() PMCR writes and the internal-PHY suspend writes that go
+through the switch's own MDIO bus.  Are those writes simply lost at that
+point, leaving the driver's bookkeeping describing a state the hardware
+never reached?
+
+Can the MIB poller also read an unpowered die?  mt753x_teardown() is the
+only place the self-rearming stats work is cancelled:
+
+drivers/net/dsa/mt7530.c:mt753x_teardown() {
+	struct mt7530_priv *priv = ds->priv;
+
+	if (priv->bus)
+		cancel_delayed_work_sync(&priv->stats_work);
+}
+
+and it runs from inside dsa_unregister_switch(), i.e. after the disables
+above.  mt7530_stats_poll() re-arms itself unconditionally:
+
+		mt7530_stats_refresh(priv);
+		schedule_delayed_work(&priv->stats_work,
+				      MT7530_STATS_POLL_INTERVAL);
+
+so it can be doing MDIO reads while mt7530_remove() drops the rails,
+folding all-ones reads into the cached per-port counters.
+
+[Severity: Medium]
+This is also pre-existing and untouched by the patch, but while in this
+area: mt7530_setup() in drivers/net/dsa/mt7530.c discards the return value
+of both regulator_set_voltage() calls:
+
+	if (priv->id == ID_MT7530) {
+		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
+		ret = regulator_enable(priv->core_pwr);
+		...
+		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
+		ret = regulator_enable(priv->io_pwr);
+
+If machine constraints do not permit the requested range, or
+REGULATOR_CHANGE_VOLTAGE is not allowed, or a second consumer holds a
+shared rail at another voltage, the rail is still enabled and the driver
+goes on to reset the die, poll MT753X_TRAP and read MT7530_CREV as if the
+1.0 V core / 3.3 V I/O operating points had been applied.  Should these two
+calls be checked so the failure surfaces as an error instead of as
+intermittent register access failures?
 
 -- 
-Best, 
-Chaoyi
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260918015020.2518315-1-f%40lex.la
 
