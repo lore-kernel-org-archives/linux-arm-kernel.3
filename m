@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73456C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 05:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CDAC982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 05:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJG6I5Clw5SCk/1VpkRKC4P7mxnCryzaJv4G7QIe0/Q=; b=vEvyxLnx4duHX5FEx4C6s02GiK
-	rNzuHfPNvmteNggECp1SzRS9n1bzaWT0bNjBXtOIxVO3WZjIakz06HkZxx+I6zPvvpw7C8O/0dRiv
-	vQf5Itpii19CXykTKhcb/MD/kalNQBWLNlRVIbjULgqre3GXifO3uufRzfYUt3aor5O6s0pb9PfDX
-	Xh2lMlzmlafdOcn15Jon8NS2wJii8hJKBdqgp3fseCdUqSEKtgtK4WhGxHoRGo76EFFjkDARkFP7p
-	lPFkz593ELxyIB9PbVh35Uzm5SGmO11yfD1F3/5d3We1qjDcJ/w6ryxvROVAc1Ar9dyS1Iijn8vG8
-	3E0w1IQw==;
+	bh=f9XRDdyjLgW0k9chwHm3s9xJt8elC0xFaH7Yx/Ph070=; b=bIRn7lMTJuhJREwyYxQfLV3Axr
+	xk9Z36Obb+OXBoGitQyVjI/2gvo7U0GacmvgCf8xYlFpkqHS0qbNdxVOakj2Oij7T3XDrbWG1yKlg
+	CSyuaLF5vwZGQ4mRaZPUuG1UnaUjvu/7Oe0ObqKJC9k2gLwVPbf56Z/3XPZfA+VrpoxnZW3LdrzfM
+	JZxidbZpZEgGfuUSBwu2acoc6/KzdzZrL76efhyGhbtAWi7oGZ2cttxefEQlUhaSqsNkdXHSaw6+8
+	0revqi9McWjynay3aoNMP+vIzjyq3dG6WAM7tPYGv7HROaI1CchSsGX/VCtl+hcdzIjZiAs9dNnt3
+	DXrFTriA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8shU-00000004Dno-2GvT;
-	Tue, 22 Sep 2026 05:05:52 +0000
+	id 1x8shh-00000004Dq9-2oOZ;
+	Tue, 22 Sep 2026 05:06:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8shT-00000004Dng-33PO
+	id 1x8shU-00000004Dns-47Q3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 05:05:51 +0000
+	Tue, 22 Sep 2026 05:05:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 010B540DA6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F51543F39;
+	Tue, 22 Sep 2026 05:05:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D38C1F00893;
 	Tue, 22 Sep 2026 05:05:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF2E81F000FF;
-	Tue, 22 Sep 2026 05:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790053550;
-	bh=GJG6I5Clw5SCk/1VpkRKC4P7mxnCryzaJv4G7QIe0/Q=;
+	s=k20260515; t=1790053552;
+	bh=f9XRDdyjLgW0k9chwHm3s9xJt8elC0xFaH7Yx/Ph070=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cxzkTsg6YpwwvdbpuJvSO/ID7WPyYAPxPa9VxLV/seFyHqIQcuYktPfzIZWv3Pn/r
-	 90tVtBDRiq3GJGXjb1/hB65AgHECqvX1kq0ukuddED6Rx+plCtncZ0sz7uLqvrPlXx
-	 vyOjEGpXaKqPZ61meUlQ5uUydsTCKMA6Ltzr0rpDamWSsy14HARnnb1cwOQ/0QMQnL
-	 zOky9+H9ruIRu0xY9YD5vkCA02BYOW63W/3qwbb02+mypTtgNB4nYjsSgKR1TPwTr1
-	 Q3TVsEt28jmOfWRA5KdOa5qh3p25iXvRWMyYc5ZQiuHb5Zy0+gyQJW0FofpPoraiCa
-	 +vdBYJSdico/w==
-Subject: Re: [PATCH net v2 1/3] net: stmmac: propagate platform mac_finish errors
+	b=bxwbdE5/lTwHZ0zgArVkpLAd7b56AMZgp33LR0gXqf92LpnW4L8gAMnYNiq1WBo0P
+	 VnKag45pjnn7xtgHxzUu5UacloTmXGhgaNUP2BGoqqLQw0Kf8TVZbDYRdTxYuyJLp+
+	 +58i9bIElh2JAlDCz3JTQXVcuCHT7Qk26Oe/izsVtLuFltMUgVCjxBzNrPE8SUZwtS
+	 iqQqy4h7QIJaY0oOucChPCdPw7ylilIMTZfYnTJ2x3NYX6UdDMW4HYJYzqkvluOpqG
+	 yGnC2nll+ccZXXnRPlFWi0zWWfsiTFL5gnOBYKcNFomZ8jqha9OEbiTPmy2Zc1vFyx
+	 FZ6UnGqRzWgRQ==
+Subject: Re: [PATCH net v2 2/3] net: stmmac: advertise integrated PCS
+ interfaces to phylink
 From: netdev-bot+sashiko@kernel.org
 To: tom.karpiniec@outlook.com
 Cc: netdev@vger.kernel.org, mohd.anwar@oss.qualcomm.com,
@@ -52,13 +53,13 @@ Cc: netdev@vger.kernel.org, mohd.anwar@oss.qualcomm.com,
  yong.liang.choong@linux.intel.com, brgl@kernel.org, coiaprant@gmail.com,
  linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 22 Sep 2026 05:05:49 +0000
-Message-ID: <179005354933.2160803.8939564905853996739@kernel.org>
-In-Reply-To: =?utf-8?q?=3CSJ2PR11MB8401FFBBECB8FBBA9C002134E4872=40SJ2PR11MB?=
+Date: Tue, 22 Sep 2026 05:05:51 +0000
+Message-ID: <179005355105.2160803.1335027133175434239@kernel.org>
+In-Reply-To: =?utf-8?q?=3CSJ2PR11MB8401D53F5519472525156BA9E4872=40SJ2PR11MB?=
  =?utf-8?q?8401=2Enamprd11=2Eprod=2Eoutlook=2Ecom=3E?=
-References: =?utf-8?q?=3CSJ2PR11MB8401FFBBECB8FBBA9C002134E4872=40SJ2PR11MB8?=
+References: =?utf-8?q?=3CSJ2PR11MB8401D53F5519472525156BA9E4872=40SJ2PR11MB8?=
  =?utf-8?q?401=2Enamprd11=2Eprod=2Eoutlook=2Ecom=3E?=
-X-sashiko-severity: High
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -79,7 +80,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -87,91 +88,131 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Incomplete fix: the bug class the commit message claims to close
-  ('Phylink then treats the interface as successfully configured and can…
-- [Low] Continuation-line misalignment introduced by the patch in
-  stmmac_mac_finish(): after adding 'return ', the open parenthesis of…
+- [Medium] The Fixes tag names 68cff4fff61f ("net: stmmac: add BASE-X
+  support to integrated PCS", 2026-03-18) and the stable Cc is…
+- [Medium] The patch makes PHY_INTERFACE_MODE_1000BASEX runtime-
+  selectable by phylink on every platform with an integrated PCS (the…
 
 --
 
-net: stmmac: propagate platform mac_finish errors
+net: stmmac: advertise integrated PCS interfaces to phylink
 
-stmmac_mac_finish() previously dropped the return value of the platform
-mac_finish callback and always told phylink the configuration succeeded.
-The patch returns the callback result instead, keeping the zero return for
-the case where no platform callback is installed.
+This adds the integrated PCS supported_interfaces bitmap into
+config->supported_interfaces in stmmac_phylink_setup(), so that
+interfaces handled by the integrated PCS are advertised to phylink.
+The stated symptom is SGMII missing from the bitmap on qcom-ethqos when
+firmware selects 2500BASE-X, which makes phylink drop the lower-speed
+modes of a QCA8081.
 
-No Link: tags present in the commit header.
+>     Fixes: 68cff4fff61f ("net: stmmac: add BASE-X support to integrated PCS")
+>     Cc: stable@vger.kernel.org # 7.0+
+
+[Severity: Medium]
+
+Is 68cff4fff61f the right commit to blame here, and is the stable range
+wide enough?
+
+The thing being fixed is that stmmac_phylink_setup() never folded
+priv->integrated_pcs->pcs.supported_interfaces into
+config->supported_interfaces.  Both priv->integrated_pcs and the SGMII bit
+appear to come from 2c81f3357136a ("net: stmmac: convert to phylink PCS
+support"), which already had:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c:stmmac_integrated_pcs_init()
+	__set_bit(PHY_INTERFACE_MODE_SGMII, spcs->pcs.supported_interfaces);
+
+git blame attributes that SGMII line to 2c81f3357136a, while only the
+surrounding 1000BASEX/2500BASEX/support_tbi_rtbi lines come from
+68cff4fff61f.
+
+The described symptom also doesn't seem to need anything 68cff4fff61f
+added.  dwmac-qcom-ethqos implements neither get_interfaces() nor
+select_pcs(), and has no xpcs or hw->phylink_pcs, so
+config->supported_interfaces was just {2500BASEX} via the fallback:
+
+	if (phy_interface_empty(config->supported_interfaces))
+		__set_bit(priv->plat->phy_interface,
+			  config->supported_interfaces);
+
+phylink_validate_phy() then does phy_interface_and() against
+phy->possible_interfaces, and qca808x_fill_possible_interfaces() only sets
+SGMII + 2500BASEX, so the intersection collapsed to {2500BASEX} on kernels
+containing 2c81f3357136a but not 68cff4fff61f as well.
+
+Should the Fixes tag point at 2c81f3357136a and the stable Cc cover the
+corresponding range, so those kernels get the fix too?  The patch applies
+unchanged to any tree containing 2c81f3357136a.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1fb5f804ea23..1350e92943ac 100644
+> index 1350e92943ac..f956e0d2ec64 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1048,8 +1048,8 @@ static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
->  	struct stmmac_priv *priv = netdev_priv(ndev);
+> @@ -1414,6 +1414,12 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
+>  		__set_bit(priv->plat->phy_interface,
+>  			  config->supported_interfaces);
 >  
->  	if (priv->plat->mac_finish)
-> -		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
-> -				       interface);
-> +		return priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
-> +					     interface);
+> +	/* If we have an integrated PCS, add the interfaces it supports. */
+> +	if (priv->integrated_pcs)
+> +		phy_interface_or(config->supported_interfaces,
+> +				 config->supported_interfaces,
+> +				 priv->integrated_pcs->pcs.supported_interfaces);
+> +
 
-[Severity: High]
-The commit message says that without this change "Phylink then treats the
-interface as successfully configured and can report carrier even though the
-SerDes is not ready".  Does that failure mode still remain reachable on the
-Intel mGbE ports after this patch?
+[Severity: Medium]
 
-intel_mac_finish() in dwmac-intel.c is the other in-tree mac_finish
-implementer (installed by ehl_sgmii_data(), ehl_pse0_sgmii1g_data(),
-ehl_pse1_sgmii1g_data() and adln_sgmii_phy0_data()), and it ends with:
+Does this make 1000BASE-X selectable on platforms that cannot program
+their SerDes for it?
 
-drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:intel_mac_finish() {
-	...
-	priv->plat->phy_interface = interface;
+stmmac_integrated_pcs_init() sets the 1000BASEX bit unconditionally, so
+after this change config->supported_interfaces contains 1000BASEX on every
+platform with an integrated PCS.  On qcom-ethqos, though, only SGMII and
+2500BASEX reach the SerDes:
 
-	intel_serdes_powerdown(ndev, intel_priv);
-	intel_serdes_powerup(ndev, intel_priv);
+drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c:ethqos_mac_finish_serdes()
+	if (interface == PHY_INTERFACE_MODE_SGMII ||
+	    interface == PHY_INTERFACE_MODE_2500BASEX)
+		ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
+				       interface);
 
 	return ret;
-}
 
-ret here is the value from intel_set_reg_access(), normally zero, so the
-return value of intel_serdes_powerup() is dropped.  That function has three
-timeout exits fed by serdes_status_poll():
+The SerDes driver does distinguish the rates, so a stale setting is a real
+mismatch rather than a don't-care:
 
-	data = serdes_status_poll(priv, serdes_phy_addr,
-				  SERDES_GSR0,
-				  SERDES_PLL_CLK,
-				  SERDES_PLL_CLK);
+drivers/phy/qualcomm/phy-qcom-sgmii-eth.c:qcom_dwmac_sgmii_phy_calibrate()
+	case PHY_INTERFACE_MODE_SGMII:
+	case PHY_INTERFACE_MODE_1000BASEX:
+		/* 1.25Gbps mode */
+		qcom_dwmac_sgmii_phy_init_1g(data->regmap);
+		break;
+	case PHY_INTERFACE_MODE_2500BASEX:
+		/* 3.125Gbps mode */
+		qcom_dwmac_sgmii_phy_init_2p5g(data->regmap);
 
-	if (data) {
-		dev_err(priv->device, "Serdes PLL clk request timeout\n");
-		return data;
-	}
+So if 1000BASE-X is selected after a 2500BASE-X link, the QSERDES stays at
+3.125 Gb/s while the integrated PCS runs 1000BASE-X at 1.25 Gb/s, and
+ethqos_mac_finish_serdes() still returns 0, so nothing reports an error.
 
-with the other two covering the lane reset reflection and the
-SERDES_PWR_ST_P0 transition.  serdes_status_poll() returns -ETIMEDOUT after
-10 retries.
+One way to reach that selection is an optical 1000BASE-X SFP module, since
+phylink intersects the module's interfaces with the config bitmap:
 
-Since intel_serdes_powerdown() has already dropped the lane to P3, a timeout
-in intel_serdes_powerup() leaves the lane out of P0 or held in reset, yet
-intel_mac_finish() returns 0.  phylink_major_config() only records a failure
-for err < 0, so phylink still sees success and can raise carrier.
+drivers/net/phy/phylink.c:phylink_sfp_config_optical()
+	phy_interface_and(pl->sfp_interfaces, pl->config->supported_interfaces,
+			  pl->sfp_interfaces);
 
-Would it make sense to add a companion change so that intel_mac_finish()
-returns the intel_serdes_powerup() result, so that the propagation added
-here has an effect on this platform too?
+Previously such a module was rejected with "unsupported SFP module: no
+common interface modes".
 
-[Severity: Low]
-This isn't a bug, but the continuation line no longer lines up with the open
-parenthesis after "return " was inserted: the argument list now starts one
-column further right, so "interface);" needs one more space to satisfy
-checkpatch.pl --strict ("CHECK: Alignment should match open parenthesis").
+I could not find an in-tree PHY driver that exports 1000BASEX in
+possible_interfaces, nor a qcom arm64 DT that pairs ethqos with an sfp
+node, so this may not be reachable with in-tree configurations today.  Is
+an ethqos board DT with an SFP cage expected to work here, and if so should
+ethqos_mac_finish_serdes() also handle PHY_INTERFACE_MODE_1000BASEX (or
+should the interface be masked out for platforms that can't program it)?
 
->  
->  	return 0;
->  }
+>  	/* If we have an xpcs, it defines which PHY interfaces are supported. */
+>  	if (priv->hw->xpcs)
+>  		pcs = xpcs_to_phylink_pcs(priv->hw->xpcs);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/SJ2PR11MB8401F5C3A075DE2A0013E063E4872%40SJ2PR11MB8401.namprd11.prod.outlook.com
