@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E14C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8DDC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AfYCWfp7g97xJoNboHuWdS5D3EfKndw6K4xRsgbbf2U=; b=ltAb4kMwN1lGpXLq1Fqc6yI8/O
-	sazd24n4rAm5H4EMaqd9N2r0sCpERQk29o+AaS1z7qF/dhTKrYpuPsyslVqn87Tm7dvm32mfYgP1g
-	LkP4+2C/INrcRecHpBRTE5M05HWUIax1oa3gfjOxW32mgqF0EKNmbJTrXLWPCY2IfZh6GPCNh6plu
-	66BShJMpTboB4ekenwTaTYLlbKUjqd1bop1HX10lNMGbCocWYNFK/2wwxcJarGqOpeAHiukR1+BvC
-	xutf+yzv9nX6W/FEMSQfXm8a7SL18YakeQNxO5YBA4nyvrRVzTHdyExPdf0tjfDAVLXGERtTIZtQk
-	5luxwPEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jIgkbH9tnLjhPK6n9LDroFNkRjLm4eII85arKy/oCjY=; b=IR5oFM3SyID9Ll76cKf+UUCA1Y
+	O9UDelIlsSjomzY2YhMq+ixdfF0zdwly1NNVEU89Z7w/LMRDq6TsDtrwq6knoOlzIj94TwxRB0a33
+	+nwVt2xtFL9VkmBSgIhI1BuxfMmV64pywaMR3EhFbvBuyanXhNjf/Xwv5swKowN+XXhn/Mu5LNuGb
+	ULEwr3saeEMvUhU6DgCygStZ1KRzNBNDLb3uh0xrYkBcXbmA+LPbKD/KjP4qUaGnLFw8LKdxtp2JE
+	YFDNLyNPkazjAQoivOmYI0PDCZTNlZh9ygiIuTzo18GlssPVZHjAHFLxrZ2STq4Kmy1vXpNgoU9Cn
+	G75m76Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yrk-00000005Cv9-1OAk;
-	Tue, 22 Sep 2026 11:40:52 +0000
-Received: from mgamail.intel.com ([192.198.163.6])
+	id 1x8yt7-00000005DLL-328F;
+	Tue, 22 Sep 2026 11:42:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yrf-00000005CrT-46GL
+	id 1x8yt5-00000005DL9-49EF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 11:40:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790077248; x=1821613248;
-  h=date:from:to:cc:subject:message-id;
-  bh=5TQc333qVmMPralxmAyRZIdo1JwEtMEMXbC5oBEkxBM=;
-  b=hOSq1NnRVQalTz7hcDlPNz4Ea3/z4yklc8cdeNUwtcNa4MQS1qyEJamy
-   x9811O/C/sEaf8YXOC/URN7URYqfDuJb74RlSl9dMOlQRz/MXm85YwJkx
-   ZIPg3l1RXXDxpDdh7upgCnHljJtLly+Vc69eqB80p09drJrv2KSB4qscO
-   kxZaqhpxVNHHw1V/Ik1npYnEceIzRC3K4RTJbl8MPNLEntrYSdPs9JL0x
-   xCiu1n5fK4VVnaWTycWSkNLAPhy98RtvCmLd7WGRxySJ6FMSVNmypQQGb
-   0ayE8L2TaXZMaot417fbCaVVMX3bl1pnXojtOnwpSyWrC9gbw3QbCIpj8
-   A==;
-X-CSE-ConnectionGUID: HKjBntzMS3Oghqc4h6Y6ag==
-X-CSE-MsgGUID: Pioc8UCKRduvLMjzJO1e4Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11912"; a="1173494"
-X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
-   d="scan'208";a="1173494"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa116.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 04:40:45 -0700
-X-CSE-ConnectionGUID: j6ynR+SNS8WzooAsTV92ZA==
-X-CSE-MsgGUID: QHhXykWtQ3SqeBk6BhgMxg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
-   d="scan'208";a="299340182"
-Received: from lkp-server01.sh.intel.com (HELO 462990a40a85) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 22 Sep 2026 04:40:44 -0700
-Received: from kbuild by 462990a40a85 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1x8yrZ-00000000FQw-2PvM;
-	Tue, 22 Sep 2026 11:40:41 +0000
-Date: Tue, 22 Sep 2026 19:39:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm:fixes] BUILD SUCCESS
- 4dd1999783d7d12434006289338373e49492dc96
-Message-ID: <202609221941.NW622A91-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_044048_074956_38621400 
-X-CRM114-Status: UNSURE (   6.00  )
-X-CRM114-Notice: Please train this message.
+	Tue, 22 Sep 2026 11:42:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 710474171D;
+	Tue, 22 Sep 2026 11:42:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70A761F000FF;
+	Tue, 22 Sep 2026 11:42:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790077335;
+	bh=jIgkbH9tnLjhPK6n9LDroFNkRjLm4eII85arKy/oCjY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ea6g8zMdHi/HcqVGLiWcHllygfwMVrmVpUzsXt4Glx3D/JbnkQyy1Lj8PrKJrHJ7O
+	 WZNUTEiOPed/swjRqEOiXFRpiQN/s2wXuS00ZAcMH3/BCG+7xkco3KNDjkp+oEFHjY
+	 pRf6rkboa9BD6xSxPWJoFtlJIjI8Llchv4wVOPGboTAq9hvG3hCurvTw5NwpuNWA/K
+	 ihxOThRroBi4KYd91EJiTgULv4pwTqcaxQmGp1bVNS0mO5PESTzn73jnvN7aCDi4gQ
+	 pmBhjH/gym02M5b5SbPoHiK8PixQgYm35yBDvj1/FsUF+fQrpKLE3qp3FkHDzlNWr4
+	 rKBBrgYPmX1Zg==
+Subject: Re: [PATCH net-next] net: stmmac: add tc-mqprio qdisc offload
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, daniel@riscstar.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, dcaratti@redhat.com
+Date: Tue, 22 Sep 2026 11:42:13 +0000
+Message-ID: <179007733391.2160803.15760096543003194202@kernel.org>
+In-Reply-To: <20260918-stmmac-mqprio-prio-offload-v1-1-5328157fcb58@oss.qualcomm.com>
+References: <20260918-stmmac-mqprio-prio-offload-v1-1-5328157fcb58@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,220 +72,396 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 4dd1999783d7d12434006289338373e49492dc96  soc: samsung: exynos-pmu: fix use-after-free of interrupt generator node
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
-elapsed time: 4114m
+Critical: 0 · High: 0 · Medium: 6 (1) · Low: 0
 
-configs tested: 200
-configs skipped: 9
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+- [Medium] One-directional AVB/CBS rejection: tc_setup_dwmac510_mqprio()
+  rejects the mqprio offload if any TX queue is already MTL_QUEUE_AVB…
+- [Medium] The patch narrows an mqprio offload that already existed,
+  breaking configurations the driver accepted before, and the commit…
+- [Medium] The new per-TC offset validation bounds qopt->offset[i]
+  against qopt->num_tc (stmmac_tc.c:1340-1343, extack 'TX queue range…
+- [Medium] Replacing an offloaded mqprio qdisc makes the old qdisc's
+  teardown wipe the replacement's just-installed hardware state.
+- [Medium] The new mqprio setup and teardown paths perform read-modify-
+  write MMIO from ndo_setup_tc without a runtime-PM reference and…
+- [Medium] XGMAC index mismatch: the loop at stmmac_tc.c:1367-1390
+  resolves, for each TX queue index i, the traffic class j that owns…
 
-tested configs:
-alpha                              allnoconfig    gcc-16.1.0
-alpha                             allyesconfig    gcc-16.1.0
-alpha                                defconfig    gcc-16.1.0
-alpha                randconfig-r2102-20260918    gcc-13.4.0 cocci
-alpha                randconfig-r2104-20260918    gcc-8.5.0  cocci
-arc                               allmodconfig    gcc-16.1.0
-arc                                allnoconfig    gcc-16.1.0
-arc                               allyesconfig    gcc-16.1.0
-arc                                  defconfig    gcc-16.1.0
-arc                  randconfig-r2100-20260918    gcc-14.3.0 cocci
-arc                  randconfig-r2101-20260918    gcc-12.5.0 cocci
-arm                                allnoconfig    clang-17
-arm                               allyesconfig    gcc-16.1.0
-arm                                  defconfig    clang-24
-arm                             dove_defconfig    gcc-16.1.0
-arm64                             allmodconfig    clang-24
-arm64                              allnoconfig    gcc-16.1.0
-arm64                                defconfig    gcc-16.1.0
-arm64                 randconfig-1000-20260922    clang-24
-arm64                 randconfig-1001-20260922    gcc-11.5.0
-arm64                 randconfig-1002-20260922    gcc-9.5.0
-arm64                 randconfig-1003-20260922    gcc-11.5.0
-csky                               allnoconfig    gcc-16.1.0
-csky                                 defconfig    gcc-16.1.0
-csky                  randconfig-1000-20260922    gcc-16.1.0
-csky                  randconfig-1001-20260922    gcc-12.5.0
-csky                 randconfig-r1300-20260922    gcc-9.5.0  sparse
-hexagon                           allmodconfig    clang-24
-hexagon                            allnoconfig    clang-24
-hexagon                              defconfig    clang-24
-hexagon               randconfig-1000-20260922    clang-17
-hexagon               randconfig-1001-20260922    clang-17
-hexagon              randconfig-r1301-20260922    clang-17   sparse
-i386                              allmodconfig    gcc-14
-i386                               allnoconfig    gcc-14
-i386        buildonly-randconfig-1000-20260922    clang-22
-i386        buildonly-randconfig-1001-20260922    clang-22
-i386        buildonly-randconfig-1002-20260922    gcc-14
-i386        buildonly-randconfig-1003-20260922    gcc-14
-i386        buildonly-randconfig-1004-20260922    gcc-14
-i386        buildonly-randconfig-1005-20260922    gcc-12
-i386                                 defconfig    clang-22
-i386                  randconfig-1000-20260922    clang-22
-i386                  randconfig-1001-20260922    clang-22
-i386                  randconfig-1002-20260922    clang-22
-i386                  randconfig-1003-20260922    gcc-14
-i386                  randconfig-1004-20260922    gcc-14
-i386                  randconfig-1005-20260922    gcc-14
-i386                  randconfig-1006-20260922    gcc-14
-i386                  randconfig-1007-20260922    clang-22
-i386                  randconfig-1008-20260922    gcc-14
-i386                  randconfig-1009-20260922    gcc-14
-i386                  randconfig-1010-20260922    clang-22
-i386                  randconfig-1011-20260922    gcc-14
-i386                  randconfig-1012-20260922    gcc-13
-i386                  randconfig-1013-20260922    gcc-14
-i386                  randconfig-2100-20260918    clang-22   cocci
-i386                  randconfig-2101-20260918    gcc-14     cocci
-i386                  randconfig-2102-20260918    clang-22   cocci
-i386                  randconfig-2103-20260918    clang-22   cocci
-i386                  randconfig-2200-20260919    clang-22   smatch
-loongarch                         allmodconfig    clang-19
-loongarch                          allnoconfig    clang-20
-loongarch                            defconfig    clang-24
-loongarch             randconfig-1000-20260922    gcc-16.1.0
-loongarch             randconfig-1001-20260922    clang-18
-loongarch            randconfig-r1303-20260922    gcc-16.1.0 sparse
-loongarch            randconfig-r2200-20260918    gcc-13.4.0 smatch
-m68k                               allnoconfig    gcc-16.1.0
-m68k                              allyesconfig    gcc-16.1.0
-m68k                                 defconfig    gcc-16.1.0
-m68k                           hp300_defconfig    gcc-16.1.0
-m68k                        m5235evb_defconfig    gcc-16.1.0
-microblaze                         allnoconfig    gcc-16.1.0
-microblaze                           defconfig    gcc-16.1.0
-mips                              allmodconfig    gcc-16.1.0
-mips                               allnoconfig    gcc-16.1.0
-mips                 randconfig-r1309-20260922    clang-17   sparse
-mips                            rs90_defconfig    gcc-16.1.0
-nios2                          3c120_defconfig    gcc-11.5.0
-nios2                             allmodconfig    gcc-11.5.0
-nios2                              allnoconfig    gcc-11.5.0
-nios2                                defconfig    gcc-11.5.0
-nios2                 randconfig-1000-20260922    gcc-10.5.0
-nios2                 randconfig-1001-20260922    gcc-11.5.0
-nios2                randconfig-r1305-20260922    gcc-11.5.0 sparse
-nios2                randconfig-r2105-20260918    gcc-10.5.0 cocci
-nios2                randconfig-r2106-20260918    gcc-11.5.0 cocci
-openrisc                           allnoconfig    gcc-16.1.0
-openrisc                             defconfig    gcc-16.1.0
-openrisc             randconfig-r2201-20260918    gcc-16.1.0 smatch
-parisc                            allmodconfig    gcc-16.1.0
-parisc                             allnoconfig    gcc-16.1.0
-parisc                            allyesconfig    gcc-16.1.0
-parisc                               defconfig    gcc-16.1.0
-parisc                randconfig-1000-20260922    gcc-12.5.0
-parisc                randconfig-1001-20260922    gcc-10.5.0
-parisc               randconfig-r1307-20260922    gcc-15.2.0 sparse
-parisc64                             defconfig    gcc-16.1.0
-powerpc                           allmodconfig    gcc-16.1.0
-powerpc                            allnoconfig    gcc-16.1.0
-powerpc                         icon_defconfig    gcc-16.1.0
-powerpc                       katmai_defconfig    clang-24
-powerpc               randconfig-1000-20260922    gcc-11.5.0
-powerpc               randconfig-1001-20260922    gcc-8.5.0
-powerpc64             randconfig-1000-20260922    gcc-8.5.0
-powerpc64             randconfig-1001-20260922    gcc-11.5.0
-riscv                             allmodconfig    clang-24
-riscv                              allnoconfig    gcc-16.1.0
-riscv                             allyesconfig    clang-24
-riscv                                defconfig    clang-24
-riscv                 randconfig-1000-20260922    gcc-8.5.0
-riscv                 randconfig-1001-20260922    gcc-13.4.0
-riscv                 randconfig-2000-20260918    gcc-12.5.0
-riscv                 randconfig-2001-20260918    clang-24
-riscv                randconfig-r2107-20260918    gcc-12.5.0 cocci
-s390                              allmodconfig    clang-24
-s390                               allnoconfig    clang-24
-s390                              allyesconfig    gcc-16.1.0
-s390                                 defconfig    clang-18
-s390                  randconfig-1000-20260922    clang-19
-s390                  randconfig-1001-20260922    clang-21
-s390                  randconfig-2000-20260918    gcc-8.5.0
-s390                  randconfig-2001-20260918    clang-17
-s390                 randconfig-r1304-20260922    clang-24   sparse
-s390                 randconfig-r1308-20260922    clang-20   sparse
-sh                                allmodconfig    gcc-16.1.0
-sh                                 allnoconfig    gcc-16.1.0
-sh                                allyesconfig    gcc-16.1.0
-sh                                   defconfig    gcc-16.1.0
-sh                    randconfig-1000-20260922    gcc-10.5.0
-sh                    randconfig-1001-20260922    gcc-16.1.0
-sh                    randconfig-2000-20260918    gcc-13.4.0
-sh                    randconfig-2001-20260918    gcc-11.5.0
-sparc                              allnoconfig    gcc-16.1.0
-sparc                                defconfig    gcc-16.1.0
-sparc                 randconfig-1000-20260922    gcc-14.3.0
-sparc                 randconfig-1001-20260922    gcc-8.5.0
-sparc                 randconfig-2000-20260918    gcc-8.5.0
-sparc                 randconfig-2001-20260918    gcc-11.5.0
-sparc64                           allmodconfig    clang-20
-sparc64                              defconfig    clang-24
-sparc64               randconfig-1000-20260922    gcc-15.2.0
-sparc64               randconfig-1001-20260922    clang-20
-sparc64               randconfig-2000-20260918    gcc-8.5.0
-sparc64               randconfig-2001-20260918    clang-20
-sparc64              randconfig-r1306-20260922    clang-24   sparse
-um                                allmodconfig    clang-17
-um                                 allnoconfig    clang-17
-um                                allyesconfig    gcc-14
-um                                   defconfig    clang-24
-um                              i386_defconfig    gcc-14
-um                              i386_defconfig    gcc-14
-um                    randconfig-1000-20260922    gcc-14
-um                    randconfig-1001-20260922    clang-17
-um                    randconfig-2000-20260918    gcc-14
-um                    randconfig-2001-20260918    gcc-14
-um                            x86_64_defconfig    clang-24
-x86_64                            allmodconfig    clang-22
-x86_64                             allnoconfig    clang-22
-x86_64      buildonly-randconfig-1000-20260922    gcc-14
-x86_64      buildonly-randconfig-1001-20260922    gcc-14
-x86_64      buildonly-randconfig-1002-20260922    gcc-14
-x86_64      buildonly-randconfig-1003-20260922    clang-22
-x86_64      buildonly-randconfig-1004-20260922    clang-22
-x86_64      buildonly-randconfig-1005-20260922    gcc-14
-x86_64                               defconfig    gcc-14
-x86_64                randconfig-1000-20260921    gcc-13
-x86_64                randconfig-1001-20260921    clang-22
-x86_64                randconfig-1002-20260921    gcc-14
-x86_64                randconfig-1003-20260921    gcc-14
-x86_64                randconfig-1004-20260921    clang-22
-x86_64                randconfig-1005-20260921    clang-22
-x86_64                randconfig-1006-20260922    clang-22
-x86_64                randconfig-1007-20260922    gcc-14
-x86_64                randconfig-1008-20260922    clang-22
-x86_64                randconfig-1009-20260922    clang-22
-x86_64                randconfig-1010-20260922    gcc-14
-x86_64                randconfig-1011-20260922    clang-22
-x86_64                randconfig-1012-20260922    clang-22
-x86_64                randconfig-1013-20260922    gcc-14
-x86_64                randconfig-1014-20260922    clang-22
-x86_64                randconfig-1015-20260922    clang-22
-x86_64                randconfig-1016-20260922    gcc-14
-x86_64                randconfig-1017-20260922    clang-22
-x86_64                randconfig-2100-20260918    clang-22   cocci
-x86_64                randconfig-2101-20260918    clang-22   cocci
-x86_64                randconfig-2102-20260918    gcc-14     cocci
-x86_64                randconfig-2103-20260918    clang-22   cocci
-x86_64                randconfig-2200-20260918    gcc-14     smatch
-x86_64               randconfig-r2103-20260918    gcc-14     cocci
-x86_64                           rhel-9.4-rust    clang-22
-xtensa                             allnoconfig    gcc-16.1.0
-xtensa                            allyesconfig    gcc-16.1.0
-xtensa                randconfig-1000-20260922    gcc-12.5.0
-xtensa                randconfig-1001-20260922    gcc-10.5.0
-xtensa                randconfig-2000-20260918    gcc-8.5.0
-xtensa                randconfig-2001-20260918    gcc-13.4.0
-xtensa               randconfig-r1302-20260922    gcc-15.2.0 sparse
-xtensa               randconfig-r2202-20260918    gcc-8.5.0  smatch
+Pre-existing issues:
+- [Medium] The mqprio offload accepts TC_MQPRIO_MODE_CHANNEL with
+  TC_MQPRIO_SHAPER_BW_RATE and returns success while ignoring…
 
 --
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+net: stmmac: add tc-mqprio qdisc offload
+
+The patch implements tc-mqprio offload in stmmac by switching the MTL TX
+scheduler to strict priority and programming each TX queue's PSTQX/PSTC
+priority bitmask from qopt->prio_tc_map. The per-queue masks and the
+scheduling algorithm are cached in the new priv->xmit_qdisc so they can be
+re-applied on reopen, and teardown restores the devicetree configuration.
+
+A few questions below about the new validation and register programming.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> index c889204a7aa5..b6b5ef7c8fc4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> @@ -230,7 +230,7 @@ int dwmac5_fpe_map_preemption_class(struct net_device *ndev,
+>  		if (count == 1)
+>  			continue;
+>  
+> -		if (priv->plat->tx_sched_algorithm == MTL_TX_ALGORITHM_SP) {
+> +		if (priv->xmit_qdisc.algo == MTL_TX_ALGORITHM_SP) {
+>  			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
+>  			return -EINVAL;
+>  		}
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index bf9e7e4cb1c3..0c9083f8846e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+
+[ ... ]
+
+> @@ -3604,7 +3598,7 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
+>  	/* Configure MTL TX algorithms */
+>  	if (tx_queues_count > 1)
+>  		stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
+> -				priv->plat->tx_sched_algorithm);
+> +					      priv->xmit_qdisc.algo);
+>  
+>  	/* Configure CBS in AVB TX queues */
+>  	if (tx_queues_count > 1)
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> index 42a00446e9b4..a2a9680da5c0 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> @@ -1265,6 +1265,23 @@ static int stmmac_reset_tc_mqprio(struct net_device *ndev,
+>  				  struct netlink_ext_ack *extack)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> +	int i;
+> +
+> +	for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
+> +		u32 prio;
+> +
+> +		if (priv->plat->tx_queues_cfg[i].use_prio)
+> +			prio = priv->plat->tx_queues_cfg[i].prio;
+> +		else
+> +			prio = 0;
+> +
+> +		stmmac_tx_queue_prio(priv, priv->hw, prio, i);
+> +		priv->xmit_qdisc.prio[i] = prio;
+> +	}
+> +
+> +	stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
+> +				      priv->plat->tx_sched_algorithm);
+> +	priv->xmit_qdisc.algo = priv->plat->tx_sched_algorithm;
+>  
+>  	netdev_reset_tc(ndev);
+>  	netif_set_real_num_tx_queues(ndev, priv->plat->tx_queues_to_use);
+
+[Severity: Medium]
+Can a qdisc replace end up undoing the offload that was just installed?
+
+For "tc qdisc replace dev X root mqprio ... hw 1" on top of an already
+offloaded mqprio, the core creates and offloads the new qdisc first, and
+only then destroys the old one:
+
+net/sched/sch_api.c:qdisc_graft() {
+	...
+	notify_and_destroy(net, skb, n, classid, old, new, extack);
+
+	if (new && new->ops->attach)
+		new->ops->attach(new);
+}
+
+qdisc_put(old) -> mqprio_destroy() -> mqprio_disable_offload() issues
+num_tc == 0, which tc_setup_dwmac510_mqprio() forwards to
+stmmac_reset_tc_mqprio().  That now rewrites the PSTQX priorities and the
+MTL scheduling algorithm back to the devicetree values, and also resets
+priv->xmit_qdisc, while mqprio_attach() does not re-apply the offload.
+
+The result looks like the replacement qdisc reporting hw offload while the
+MAC is back on the devicetree scheduler and priorities, and the stale
+cached state is re-applied on the next open.  Should the reset path check
+whether an offloaded mqprio is still installed before reprogramming?
+
+[Severity: Medium]
+Is it safe to touch these registers from ndo_setup_tc without a runtime PM
+reference?
+
+stmmac_reset_tc_mqprio() and the setup path both call
+stmmac_tx_queue_prio() and stmmac_prog_mtl_tx_algorithms() unconditionally,
+and those are read-modify-write accesses, e.g.:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:dwmac4_tx_queue_priority() {
+	value = readl(ioaddr + base_register);
+
+	value &= ~GMAC_TXQCTRL_PSTQX_MASK(queue);
+	value |= (prio << GMAC_TXQCTRL_PSTQX_SHIFT(queue)) & ...;
+
+	writel(value, ioaddr + base_register);
+}
+
+The driver drops its PM reference at the end of probe and in
+stmmac_release(), and stmmac_runtime_suspend() gates the bus/CSR clocks via
+stmmac_bus_clks_config(priv, false).  Adding or deleting an mqprio qdisc on
+a down interface therefore reaches these accesses with the MAC clock
+gated, where the readl can return an undefined value that is then written
+back over the other queues' PSTQ fields and the other MTL_Operation_Mode
+bits.
+
+Other stmmac control paths that touch registers outside open (set_mac_address,
+VLAN add/del) wrap the access in pm_runtime_get_sync()/pm_runtime_put().
+Would a similar guard, or a netif_running() check, be appropriate here?
+These writes also look redundant while the device is down, since
+stmmac_mtl_configuration() re-applies priv->xmit_qdisc on the next open.
+
+> @@ -1290,6 +1308,17 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
+>  	if (qopt->num_tc > ARRAY_SIZE(tc_to_txq))
+>  		return -EINVAL;
+>  
+> +	if (!priv->dma_cap.dcben)
+> +		return -EOPNOTSUPP;
+> +
+
+[Severity: Medium]
+This is a pre-existing issue and not introduced by this patch, but since
+the entry validation is being extended here: should mqprio->mode,
+mqprio->shaper, mqprio->min_rate[] and mqprio->max_rate[] be rejected?
+
+net/sched/sch_mqprio.c:mqprio_enable_offload() copies those into
+tc_mqprio_qopt_offload for TC_MQPRIO_MODE_CHANNEL and relies on the driver
+to refuse what it cannot do:
+
+	case TC_MQPRIO_MODE_CHANNEL:
+		mqprio.flags = priv->flags;
+		...
+		if (priv->flags & TC_MQPRIO_F_MAX_RATE)
+			for (i = 0; i < mqprio.qopt.num_tc; i++)
+				mqprio.max_rate[i] = priv->max_rate[i];
+
+tc_setup_dwmac510_mqprio() only consumes qopt and preemptible_tcs, so
+"mode channel shaper bw_rlimit max_rate ... hw 1" returns success and the
+rate limits are echoed back to userspace without any shaping being
+programmed.
+
+[Severity: Medium]
+Does this narrow an offload that already worked?
+
+The baseline tc_setup_dwmac510_mqprio() validated only num_tc == 0 and
+num_tc > ARRAY_SIZE(tc_to_txq).  The new !priv->dma_cap.dcben check, the
+AVB-queue check below, and the count[i] > 1 check make configurations that
+previously succeeded return -EOPNOTSUPP, including the FPE preemptible-TC
+mapping part of the offload which is unrelated to the new priority
+programming.
+
+The count > 1 case looks like it was intentionally supported:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c:dwmac5_fpe_map_preemption_class() {
+	...
+		if (count == 1)
+			continue;
+
+		if (priv->xmit_qdisc.algo == MTL_TX_ALGORITHM_SP) {
+			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
+			return -EINVAL;
+		}
+
+		queue_weight = priv->plat->tx_queues_cfg[offset].weight;
+	...
+}
+
+That weight-checking branch becomes unreachable from the mqprio path now
+that the algorithm is forced to SP before it runs.  Configurations such as
+"mqprio ... queues 2@0 2@2 fp E P hw 1" lose the offload.
+
+Additionally, forcing MTL_TX_ALGORITHM_SP overrides the devicetree
+tx-sched-algorithm and the devicetree per-queue priority masks for every
+mqprio user that is still accepted.  Should the commit message mention
+these behaviour changes for existing users rather than describing them only
+as offload requirements?
+
+> +	/* Forcing strict priority conflicts with the CBS algorithm of AVB
+> +	 * queues, so reject the offload when any queue is configured as AVB.
+> +	 */
+> +	for (i = 0; i < pdata->tx_queues_to_use; i++) {
+> +		if (pdata->tx_queues_cfg[i].mode_to_use == MTL_QUEUE_AVB)
+> +			return -EOPNOTSUPP;
+> +	}
+> +
+
+[Severity: Medium]
+Is this rejection effective in only one direction?
+
+tc_setup_cbs() in the same file has no reciprocal check.  It validates the
+queue index, priv->dma_cap.av and the slope parameters, then converts a DCB
+queue into an AVB queue and programs the shaper:
+
+	mode_to_use = priv->plat->tx_queues_cfg[queue].mode_to_use;
+	if (mode_to_use == MTL_QUEUE_DCB && qopt->enable) {
+		ret = stmmac_dma_qmode(priv, priv->ioaddr, queue, MTL_QUEUE_AVB);
+		...
+		priv->plat->tx_queues_cfg[queue].mode_to_use = MTL_QUEUE_AVB;
+
+Nothing there consults priv->xmit_qdisc.algo or netdev_get_num_tc(), so the
+usual TSN order
+
+  tc qdisc add dev X root mqprio ... hw 1
+  tc qdisc replace dev X parent <mqprio child> cbs ... offload 1
+
+succeeds and leaves the MAC in strict priority with a CBS/AVB queue, which
+is the combination this new check and the commit message declare
+unsupported.
+
+The mismatch also survives a reopen, since stmmac_mtl_configuration()
+programs the cached SP algorithm and then re-applies CBS:
+
+	stmmac_prog_mtl_tx_algorithms(priv, priv->hw, priv->xmit_qdisc.algo);
+	/* Configure CBS in AVB TX queues */
+	if (tx_queues_count > 1)
+		stmmac_configure_cbs(priv);
+
+Should tc_setup_cbs() carry the symmetric check on priv->xmit_qdisc.algo,
+or is the mqprio-side rejection not needed?
+
+> @@ -1299,6 +1328,20 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
+>  		ndev_prio_tc_map[i] = READ_ONCE(ndev->prio_tc_map[i]);
+>  
+>  	for (i = 0; i < qopt->num_tc; i++) {
+> +		/* The offload switches the MTL scheduler to strict priority,
+> +		 * which only supports a 1:1 TC to TX queue mapping.
+> +		 */
+> +		if (qopt->count[i] > 1) {
+> +			NL_SET_ERR_MSG_MOD(extack,
+> +					   "SP sched requires 1:1 TXQ map");
+> +			return -EOPNOTSUPP;
+> +		}
+> +
+> +		if (qopt->offset[i] >= qopt->num_tc) {
+> +			NL_SET_ERR_MSG_MOD(extack, "TX queue range exceeded");
+> +			return -EINVAL;
+> +		}
+> +
+
+[Severity: Medium]
+Should this bound be priv->plat->tx_queues_to_use rather than
+qopt->num_tc?
+
+num_tc is only limited by ARRAY_SIZE(tc_to_txq) here and by the core:
+
+net/sched/sch_mqprio_lib.c:mqprio_validate_queue_counts() {
+	...
+		if (qopt->offset[i] >= dev->real_num_tx_queues ||
+		    last > dev->real_num_tx_queues) {
+	...
+}
+
+stmmac allocates the netdev with MTL_MAX_TX_QUEUES queues and only clamps
+real_num_tx_queues to plat->tx_queues_to_use in stmmac_hw_setup(), so
+before the first open a request like "mqprio num_tc 4 ... queues 1@0 1@1
+1@2 1@3 hw 1" on a device with tx_queues_to_use == 2 passes both checks.
+
+The priority programming loop below is bounded by pdata->tx_queues_to_use,
+so the TCs with offset >= tx_queues_to_use never get a PSTQX/PSTC mask
+while the offload still returns success, and netif_setup_tc() remaps those
+priorities to TC0 at the next open.
+
+The same check also rejects a sparse but otherwise legal map, e.g.
+num_tc 2 with "queues 1@0 1@2".  Is that intentional?
+
+> @@ -1315,14 +1358,44 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
+>  	if (err)
+>  		goto error_reset_tc;
+>  
+> +	priv->xmit_qdisc.algo = MTL_TX_ALGORITHM_SP;
+>  	err = stmmac_fpe_map_preemption_class(priv, ndev, extack,
+>  					      mqprio->preemptible_tcs);
+>  	if (err)
+> -		goto error_reset_num_tx_queues;
+> +		goto error_reset_xmit_algo;
+> +
+> +	for (i = 0; i < pdata->tx_queues_to_use; i++) {
+> +		u32 prio = 0;
+> +		int j;
+> +
+> +		for (j = 0; j < qopt->num_tc; j++) {
+> +			int p;
+> +
+> +			if (qopt->offset[j] != i)
+> +				continue;
+> +
+> +			/* The PSTQX/PSTC priority map is 8 bits wide, so only
+> +			 * priorities 0-7 can be represented in hardware.
+> +			 * Priorities 8-15 are handled in software by the
+> +			 * kernel through the netdev prio_tc_map.
+> +			 */
+> +			for (p = 0; p < 8; p++) {
+> +				if (qopt->prio_tc_map[p] == j)
+> +					prio |= BIT(p);
+> +			}
+> +			break;
+> +		}
+> +
+> +		stmmac_tx_queue_prio(priv, priv->hw, prio, i);
+
+[Severity: Medium]
+Is the last argument the right index on XGMAC?
+
+The mask computed here belongs to traffic class j, but the index passed to
+stmmac_tx_queue_prio() is the queue index i.  For XGMAC the callback is:
+
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_tx_queue_prio() {
+	reg = (queue < 4) ? XGMAC_TC_PRTY_MAP0 : XGMAC_TC_PRTY_MAP1;
+	...
+	value &= ~XGMAC_PSTC(queue);
+	value |= (prio << XGMAC_PSTC_SHIFT(queue)) & XGMAC_PSTC(queue);
+}
+
+XGMAC_PSTC() selects a traffic-class field in MTL_TC_Prty_Map0/1, while the
+queue to TC association is programmed separately in XGMAC_Q2TCMAP:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c:dwxgmac3_fpe_map_preemption_class() {
+	for (u32 i = 0; i < count; i++) {
+		val = readl(priv->ioaddr + XGMAC_MTL_TXQ_OPMODE(offset + i));
+		writel(u32_replace_bits(val, tc, XGMAC_Q2TCMAP), ...);
+}
+
+Both dwxgmac210 and dwxlgmac2 use dwmac510_tc_ops, and a permuted map such
+as "mqprio num_tc 2 map ... queues 1@1 1@0 hw 1" passes both
+intervals_overlap() in the core and the new offset < num_tc check.  In that
+case TC0's mask would be written into the PSTC field of TC1 and vice versa.
+Should the XGMAC path program PSTC using the TC index, or should
+non-identity offsets be rejected?
+
+> +		priv->xmit_qdisc.prio[i] = prio;
+> +	}
+> +
+> +	stmmac_prog_mtl_tx_algorithms(priv, priv->hw, MTL_TX_ALGORITHM_SP);
+>  
+>  	return 0;
+>  
+> -error_reset_num_tx_queues:
+> +error_reset_xmit_algo:
+> +	priv->xmit_qdisc.algo = priv->plat->tx_sched_algorithm;
+>  	if (netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues))
+>  		netdev_warn(ndev, "Failed to restore %u TX queues\n",
+>  			    ndev_num_tx_queues);
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260918-stmmac-mqprio-prio-offload-v1-1-5328157fcb58%40oss.qualcomm.com
 
