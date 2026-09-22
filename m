@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CB0C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30B7C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rXqAA6eqv8sionh8O8cNg0OP7IaRZQLQ2PAG3DzIVPo=; b=Aj8kD6goNkglY2r2n9jiBSjbtX
-	c4R+lzfcMeF9790e0myUnhSBxAiFBhUSuBJ/GN+y/2s4f3BkFLcDlYRsJzDcQWtc1JKHDFTo/K0IX
-	xisDB4rjoLQ5ouU9wuyQe1rnR5Slv77FSOc4+6z+2XqZ0DnU3SX6pVKwZ/FYvBWdEK0gAAGsmR136
-	v8EfbGgCYnjgewXn918DrgD4jZelIJnhO/LiXZ5kB/LT6pTyhyAMI00PiI8V8rS/iP8yW1hHe//d7
-	iaxe2kF62D8og/ZT5jJilwlWOtKeMR9fARkRF7WJtZw/I7xwEBpl7T+LHsdZp9/rs85S5uM1oyjQL
-	Xkuq2Nlw==;
+	bh=n8IQx8HLgG7ebBAe/MKRbXmMwPgQ4SOKyooVL9gjoTY=; b=BrL7Qj1NMDnwW5lW/C60TgI/rt
+	qc+M0godqPH1RY++tAAarXnpFrFJtU1bxeRIEnBdNLQoPHj9SqHiy2JQedi2t73WV0grFlMv0UQgq
+	6s6VLJhcN/enypnPx1nt7bSzEVKNUJXBIw12jVXmfShu0r5uuQ1FnrLkSTiaGDF81B43NFgOLYojo
+	BVqIroMTcIjnNUIsOlYNz/N1O87hvZrN4IOnTWi0hvfIstTKnXNjNr6yI9++bBdjyb6vDj+qoCalh
+	XjXSUrGYbW9yiyZHtI6qpKODhTgtkkBmy15mUt3e7Ur7dSX8caFXgmRNWywCkqr7I6fXZQUAMnEdG
+	VauZyGZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x93ov-000000067hO-3bKh;
-	Tue, 22 Sep 2026 16:58:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x93pQ-000000067nd-46ze;
+	Tue, 22 Sep 2026 16:58:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x93ou-000000067gt-1jer
+	id 1x93pP-000000067nD-2E5U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 16:58:16 +0000
+	Tue, 22 Sep 2026 16:58:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E16404184B;
-	Tue, 22 Sep 2026 16:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 332291F000FF;
-	Tue, 22 Sep 2026 16:58:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EAA4942ADC;
+	Tue, 22 Sep 2026 16:58:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1042C1F000FF;
+	Tue, 22 Sep 2026 16:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790096295;
-	bh=rXqAA6eqv8sionh8O8cNg0OP7IaRZQLQ2PAG3DzIVPo=;
+	s=k20260515; t=1790096326;
+	bh=n8IQx8HLgG7ebBAe/MKRbXmMwPgQ4SOKyooVL9gjoTY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ejyK/swq7jv9XXaZWQ1mvyu/Zpr06HFuYW+qYPcUuysGTx6mEJkqZgljnmzo1Jfev
-	 Jf1GrFLudHhzyPlRyO4eTp8ColKO8GQLlcq2qTHwpj+EXQQ924ZyYAZc88n4ryC9FI
-	 lL7Nzort/dgzd9L6RElfj0cwGARCylKiRgHyOZ5or+Ii3nu/C1dq2MR7QBWRZYR0iQ
-	 ZYYFeCOObOJrORWRL4d/24Vb4guQ8oHULiOJjkb4YtjfgFD2gselJXHkdiOoMKcxWo
-	 ExRNUznCF9dkJvM7v6xIyniRkt0P3SqylsC/fWryuWnvVUme+IHRgz0KGf8FIgFXwo
-	 73QQK+vK/XAPw==
-Message-ID: <ff6ace62-1cd3-4656-a3d7-5c0c78c8a218@kernel.org>
-Date: Tue, 22 Sep 2026 18:58:06 +0200
+	b=AlM6wpc4js5vFABGkGcyFnVGuW7JUSWSMcn5tX+KF3hYbnbmUzlR/hkoAP0xqVDGB
+	 Fq7O+uTF1XknxSNQW/Pb0pjIFaxFgjyewcdquFs5hTAkyMMhCvLNy3UWwfDZFiGvCS
+	 8CuT3tMgnLN9jafAy+9pWsSL1tOdcGXdIeffYG8qmdCMhpWvYSvibpP7bYDGfMViQr
+	 TYIRO3PIvxMMRKgSa/52phLibd1XTQx+W26uSTFqG/+cpfHnPQYL2mfalk6YsAoj8Z
+	 9NKOaTzjFtc1UQ5x5eJdYDcwo9yeO+uZhXztWzf8MvTef3h9E/q3YocCsyOkliB3rf
+	 PRrG3GaynK8SQ==
+Message-ID: <e95c2aaf-8c90-45bc-8e1b-841d180788da@kernel.org>
+Date: Tue, 22 Sep 2026 18:58:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 06/17] platform/x86: serdev_helpers: Switch to use
+Subject: Re: [PATCH v1 07/17] platform/x86: apple-gmux: Switch to use
  acpi_bus_get_primary_device()
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
  Linux ACPI <linux-acpi@vger.kernel.org>
@@ -79,10 +79,10 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
  Andreas Noever <andreas.noever@gmail.com>,
  Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
- <2720286.Lt9SDvczpP@rafael.j.wysocki>
+ <2287208.Mh6RI2rZIc@rafael.j.wysocki>
 From: Hans de Goede <hansg@kernel.org>
 Content-Language: en-US, nl
-In-Reply-To: <2720286.Lt9SDvczpP@rafael.j.wysocki>
+In-Reply-To: <2287208.Mh6RI2rZIc@rafael.j.wysocki>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,22 +124,21 @@ Regards,
 Hans
 
 > ---
->  drivers/platform/x86/serdev_helpers.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+>  include/linux/apple-gmux.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/platform/x86/serdev_helpers.h b/drivers/platform/x86/serdev_helpers.h
-> index 57eac75805e2..20267e1941f1 100644
-> --- a/drivers/platform/x86/serdev_helpers.h
-> +++ b/drivers/platform/x86/serdev_helpers.h
-> @@ -74,8 +74,7 @@ get_serdev_controller(const char *serial_ctrl_hid,
->  		return ERR_PTR(-ENODEV);
->  	}
+> diff --git a/include/linux/apple-gmux.h b/include/linux/apple-gmux.h
+> index 206d97ffda79..d7939c3a08fd 100644
+> --- a/include/linux/apple-gmux.h
+> +++ b/include/linux/apple-gmux.h
+> @@ -109,7 +109,7 @@ static inline bool apple_gmux_detect(struct pnp_dev *pnp_dev, enum apple_gmux_ty
+>  		if (!adev)
+>  			return false;
 >  
-> -	/* get_first_physical_node() returns a weak ref */
-> -	parent = get_device(acpi_get_first_physical_node(adev));
-> +	parent = acpi_bus_get_primary_device(adev);
->  	acpi_dev_put(adev);
->  	if (!parent) {
->  		pr_err("error could not get %s/%s serial-ctrl physical node\n",
+> -		dev = get_device(acpi_get_first_physical_node(adev));
+> +		dev = acpi_bus_get_primary_device(adev);
+>  		acpi_dev_put(adev);
+>  		if (!dev)
+>  			return false;
 
 
