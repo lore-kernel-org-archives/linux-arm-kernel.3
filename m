@@ -4,101 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91147C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F3BC982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nEUSfYy3fMUXK5aMDHvOLpQjElNKnWNceOG4CaIeRdw=; b=xWxfduupd+WONhXwBhUzidygzX
-	66Ih/DlbeBMXNAl+9QOKlSborngolRvMT0FdWGfSLTIW/fQpye65LGGcGI+QvTPUyeAz+wDHYk+D/
-	2d+3DdeP7TcKyIPJCtZA49tyZMPfUy7jdszLDwY1IqFykALIEzsLg5zHFGCNMQuH6nDakKt4tXBFn
-	sYV8rpcW1iSTKXzjeHzOx84zrduBRWVUI7rLHA8dwHxf/4PdgcQRsMutgA0Bl0+8NfNfVDsEqKo+L
-	9heYX3Xmv9u1QQa8HjhKFQSU8A7amjkjEJOiQDHjLrvfvPNKDIIrfBZ3EaYewrphxT+eQztmykzN8
-	m9/2+vjA==;
+	bh=omtP9ok1iojYdMTStCvMewR9KVHMrUfbkgUBxyeLyIk=; b=AXPMgHlnYJqm3s/PdF+UG6W5pp
+	ihDGcXczSMKFSDnhfIOAe9bK/bBIsL+6ddpPBiDySUeWDg5OBdfqkICsuAnWyzt60C4be2l8YO8I4
+	16uZ6+wlUIgO9WGOIjwGFcEQRY8lVDB5/AxSPpC4cDE6FCWZkw0wzpRVvwFzWKcK0rfdgxL5qgFzA
+	z8ne+XiIgtgZugU7AoFaWOj1g4PlBp5H2/Agk+nJptLy7gSkgbbtT0sYkH4fOHHz4yr5FoEsDf9H9
+	yGrajmzVSQ6SU6gVs77jZ/G8QG6edOBfilMugBdKma/iFS0txEoko2dm/lMW3EYGySxLeygGvSx2Z
+	H+eeeoUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x928K-00000005nES-45Ys;
-	Tue, 22 Sep 2026 15:10:12 +0000
-Received: from mail-pj2-x24.google.com ([2607:f8b0:4864:39::24])
+	id 1x928d-00000005nJx-0as5;
+	Tue, 22 Sep 2026 15:10:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x928I-00000005nD8-2ba7
+	id 1x928X-00000005nId-0gF6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:10:12 +0000
-Received: by mail-pj2-x24.google.com with SMTP id d9443c01a7336-2d747f05ffdso30817635ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:10:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790089809; x=1790694609; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nEUSfYy3fMUXK5aMDHvOLpQjElNKnWNceOG4CaIeRdw=;
-        b=jC6zMSNpxpumPVT+5UCTDT6lPxagCfzO5VOP0kr6GmgBQoA16YXR8J5JtfYeb3L5JR
-         gWKFcrPPwuNbiVsIDK0+uhP0F3+TQ9Z9usJuE7uhaL2hdqER1AU+H/FyK5d2hQV6QXBF
-         mnrBrdyUxSlMR0TK6yg6VKvuah+fPZeatWvJt/X4TnVXzTlgCiKXr0XuAjNqlvrBAX0p
-         TsDHxK2Od+LDxjvUilDEf2PGghNm1HLi/BjmInRHxlu6ddOuwzGWjbgGxkzmHgfH1nlY
-         ZsJ23IS3GFDPROx7M5BxU3eLDeDiX6xn0mZuFIFB0gnHmaG9/YzdwGspf9fu9iQG/QC3
-         xRxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790089809; x=1790694609;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nEUSfYy3fMUXK5aMDHvOLpQjElNKnWNceOG4CaIeRdw=;
-        b=KvKMv0TV+402Q/XRm4kwBC3XR0LtpSPO1m88LrUf5NcwoMaC3bJP3EVKxWdyLLEiW8
-         os5FE/iei7RMH8ZIOWcp11uPZDzl6zGf84WSSRI2RhFJ23/QimYeW20ZvCHz2b4tfheo
-         L5nYeYwHWnj/v/Byi+JlSrsx/YDZD/UwbxiaLFpX5UaKu50wX2c2bcYU3wI5+QgFGOap
-         CW2Alcj8z0gjlIEu/9g1Wu0D1AMy/6hSqTQqtfR8Zvr5ZupA0IkRYlCyFMjhbsPhJgC0
-         FMQbnMbcXJF67wGuxx/8+NhikxRs3GKV1ylKKyAk9pJY3UqmKONGZx8cIU8ffZEH3nPU
-         d2yw==
-X-Forwarded-Encrypted: i=1; AKwUvBzSXEqMRQKJ3qeusO/6mI83SuF93/SaPrtzvCOSMo71Bn9MNKBw4207i96ivczfUKteFpvlj01+Z1zQRYhQlN6G@lists.infradead.org
-X-Gm-Message-State: AFuF++ksTBNy0ua2z2P0kePMIMgr5TmG9orYm34ybqXaY6GnrGRb5scd
-	Vs1/dNq7ktuSuLgOFuaPXJtnCCdivLlgK3TdvlP+vqj5xz+jzOyT6KpzPlT6X9EYZpY=
-X-Gm-Gg: AYBFou1ROANtnzbAlYWVe2F6Pn1lIuWHWcYLzHskxDOzr90Y9CK1cZc90/nqQcL3a8u
-	lXwJJIBOBM3PypRYMpcnXtDRaaR8IJMmlX4enGGimLg7kCm/DkgXoPm9Sx1dfyHaWvPm1b4Cukx
-	ElWwQSjlmLi/OSMXt5+nxoMEeqK5SKMA77pZVfpNYoAuYfuheBgpUJVsSy2g0yoBRUQBsZQ6eLr
-	IxA97PI9hnprm4+tc5qX/8XAGtsABLrYAOArKuM5vlbEMBNvIwIL2JaVXmLVnIQElCEFLw/ILzZ
-	T7VeJQ7W2snTYyeC+9d5OrQ4OA6KuhGuHbWtceUG4VAvtsL3aRsjMgil//wPE5DIZL+zoo8c/k+
-	V9T4K2YUE8g3L7a8mYRFYhqCtqUJqbaQKLe7vVlyS3wC2mAuWI3YeYFMaSOQwIEF5vZUqE8zCT1
-	u2qcTdHS5LxOXOSxCuZMx9ollFnVh0OxYaIJpgvqwTRH+bRS//w2oTD5+agQMld7TAatxfdt/Z
-X-Received: by 2002:a17:902:db0f:b0:2dd:76b1:3509 with SMTP id d9443c01a7336-2df609d1b62mr16580265ad.14.1790089809191;
-        Tue, 22 Sep 2026 08:10:09 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:1046:ab8:737c:d2e2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df5d0563eesm11964455ad.69.2026.09.22.08.10.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 08:10:08 -0700 (PDT)
-Date: Tue, 22 Sep 2026 09:10:05 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Francesco Valla <francesco@valla.it>
-Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
-	imx@lists.linux.dev, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 05/12] remoteproc: always report VIRTIO_F_VERSION_1
- feature
-Message-ID: <arKaTaFuNW936nwg@p14s>
-References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <20260916-remoteproc_virtio_map-v1-5-dac8c5eb4aa9@valla.it>
- <arFRqopkkJf7Nlq4@p14s>
- <arIgI4E5rGXq9H0P@bywater>
+	Tue, 22 Sep 2026 15:10:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 329AE60DFF;
+	Tue, 22 Sep 2026 15:10:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A516E1F000FF;
+	Tue, 22 Sep 2026 15:10:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790089823;
+	bh=omtP9ok1iojYdMTStCvMewR9KVHMrUfbkgUBxyeLyIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VIzW9uiOZErgGwpb2MBkx+awxmmwYA78DwwJtiqJZwY5dCV0hNlDcpSr6qG5VMpD1
+	 1OxTgIp9ilrwSCytuBosjm5tBO+jnw1i4RnYv9o7EYft6FUBUAiKRfWE2UZOMJkFQr
+	 2S6v3AfRRGX8eSdG48n1JLmZI+cp50+pbeol/Ioo+750ldPVBkefk4LPUSiPKn/VsG
+	 5J+1/Yfu7IWS9e8LC57iV0y60ieTfPrRKDuSOs3O1qzs/uJWds/1YBdl1PI4l0FMIv
+	 SyaIFUf8vq/v11n+gnUf0MTOCSOpZu9JumCDPkotgaZymL2r2orxQlCkQV8TLEbSMI
+	 cS/zfPYbzB8kQ==
+Date: Tue, 22 Sep 2026 16:10:17 +0100
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v3 12/13] arm64: Kbuild: Remove vestigial big-endian
+ support
+Message-ID: <arKaWVwH5RXKpDTf@willie-the-truck>
+References: <20260918145217.1669-1-will@kernel.org>
+ <20260918145217.1669-13-will@kernel.org>
+ <arEF5IOJSlQyYwX5@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arIgI4E5rGXq9H0P@bywater>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_081010_671563_F62E2D6E 
-X-CRM114-Status: GOOD (  33.49  )
+In-Reply-To: <arEF5IOJSlQyYwX5@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,78 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 08:32:15AM +0200, Francesco Valla wrote:
-> On Mon, Sep 21, 2026 at 09:47:54AM -0600, Mathieu Poirier wrote:
-> > On Wed, Sep 16, 2026 at 11:10:50PM +0200, Francesco Valla wrote:
-> > > There is currently no way to report the VIRTIO_F_VERSION_1 using the
-> > > resource table alone, as the per-vdev feature array is limited to 32
-> > > bits.
-> > > 
-> > > Considering that the VirtIO 1.0 specification is now ~10 years old,
-> > > always report the VIRTIO_F_VERSION_1 feature, as some drivers depend on
-> > > it.
-> > > 
-> > > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > > ---
-> > >  drivers/remoteproc/remoteproc_virtio.c | 10 ++++++----
-> > >  1 file changed, 6 insertions(+), 4 deletions(-)
-> > > 
-> > > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
-> > > index 74e0da970f1d..cfd66d9d1c9e 100644
-> > > --- a/drivers/remoteproc/remoteproc_virtio.c
-> > > +++ b/drivers/remoteproc/remoteproc_virtio.c
-> > > @@ -249,7 +249,7 @@ static u64 rproc_virtio_get_features(struct virtio_device *vdev)
-> > >  
-> > >  	rsc = (void *)rvdev->rproc->table_ptr + rvdev->rsc_offset;
-> > >  
-> > > -	return rsc->dfeatures;
-> > > +	return rsc->dfeatures | (1ULL << VIRTIO_F_VERSION_1);
-> > 
-> > I understand this.
-> > 
-> > >  }
-> > >  
-> > >  static void rproc_transport_features(struct virtio_device *vdev)
-> > > @@ -275,14 +275,16 @@ static int rproc_virtio_finalize_features(struct virtio_device *vdev)
-> > >  	/* Give virtio_rproc a chance to accept features. */
-> > >  	rproc_transport_features(vdev);
-> > >  
-> > > -	/* Make sure we don't have any features > 32 bits! */
-> > > -	BUG_ON((u32)vdev->features != vdev->features);
-> > > +	/* Make sure we don't have any features > 32 bits except VIRTIO_F_VERSION_1 */
-> > > +	if (WARN_ON_ONCE((u32)vdev->features !=
-> > > +			 (vdev->features & ~(1ULL << VIRTIO_F_VERSION_1))))
-> > > +		return -1;
-> > 
-> > And this.
-> > 
-> > >  
-> > >  	/*
-> > >  	 * Remember the finalized features of our vdev, and provide it
-> > >  	 * to the remote processor once it is powered on.
-> > >  	 */
-> > > -	rsc->gfeatures = vdev->features;
-> > > +	rsc->gfeatures = vdev->features & ~(1ULL << VIRTIO_F_VERSION_1);
-> > >  
-> > 
-> > But I'm having trouble with this one.  
-> > 
-> > First bit 32 of vdev->features gets cleared and then bit 0 to 31 are assigned to
-> > rsc->gfeatures.  Why bother with clearing bit 32?
-> >
+On Mon, Sep 21, 2026 at 11:24:36AM +0100, Catalin Marinas wrote:
+> On Fri, Sep 18, 2026 at 03:52:14PM +0100, Will Deacon wrote:
+> > -choice
+> > -	prompt "Endianness"
+> > -	default CPU_LITTLE_ENDIAN
+> > -	help
+> > -	  Select the endianness of data accesses performed by the CPU. Userspace
+> > -	  applications will need to be compiled and linked for the endianness
+> > -	  that is selected here.
+> > -
+> > -config CPU_BIG_ENDIAN
+> > -	bool "Build big-endian kernel"
+> > -	depends on BROKEN
+> > -	help
+> > -	  Say Y if you plan on running a kernel with a big-endian userspace.
+> > -
+> > -config CPU_LITTLE_ENDIAN
+> > -	bool "Build little-endian kernel"
+> > -	help
+> > -	  Say Y if you plan on running a kernel with a little-endian userspace.
+> > -	  This is usually the case for distributions targeting arm64.
 > 
-> Bits > 31 gets silently dropped because rsc->gfeatures is a u32; this
-> was inserted to explicitly drop the flag that has been inserted before
-> and avoid the "silently". It has no real funtional impact and can be
-> safely dropped.
->
+> Running the checks through an LLM found that CONFIG_GVE depends on
+> X86 || CPU_LITTLE_ENDIAN, so it won't be enabled anymore.
+> 
+> I think that's the only positive test of CPU_LITTLE_ENDIAN.
 
-We have come to the same conclusion.
- 
-> > >  	return 0;
-> > >  }
-> > > 
-> > > -- 
-> > > 2.55.0
-> > > 
+Would you like me to add a '|| arm64' in there? I was a bit wary of doing
+so, given that I don't have a way to test it. Removing CPU_LITTLE_ENDIAN
+forces the issue, somewhat.
+
+Will
 
