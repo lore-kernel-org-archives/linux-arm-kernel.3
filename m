@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D49C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720B3C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KLMG7LWk0+A+uvrmJ78op/X5X6IpAwrk4iXchNk6nE=; b=nRcHVOj/1bMHyfapgsLx2sUW1a
-	6ov0eKfAekWjwyaFtqdxjthnotuJUl+PG9tmf/Sa7d8omIS95fEa9EsK8QVqGDzDhb0wvSz3kW9LH
-	rHMgnF3TFuMgtxPcraAKH+kcGMEORdtMfN4T7jh2QMI2nFrfGGuKA4ojj/fPUySdq+m5khO08YvWz
-	uGonR9RTGZ8wLlgb2LvzmRtEi0EujBLL/sfn7wZevnFP1d9p+gIb/NjpNVlOQSvW+IrWd5pJr3opn
-	AIMjp1mUqlOPv9imjJ5xuSsTe2OY81zlhvqyr7SOfLOm6x4fUJiJhGcvolE+V9un87D0S63A1Ot/B
-	u50hu+LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kiu2zTEU4eOPd6KYh9rbDUJ7UJD3txxYyQibAU4/O4U=; b=G7v9Mr5L77HcHx8okLpS4tOtam
+	/4BlDHwt7arT876RnKpoQov2fT10I1rm2ESgZ2fCfgGWouxaZfLeZ9iiglbozNFAAm4MtjVJPrq91
+	PiccVncdOuXEV7kCk7LVGXHU8HqjdCw6kG/94Ya26mq/g32ji1oSjyX7kyOBOecNO2ksOEeg6+Xo6
+	NmGuvqORxzqVkeYDp1QfdGuWtxzwb5pHhJUdSK8vkv5Zp3O6JsVNCsPCQZaEz45PodzA6lQpTGuC0
+	MY64lw1YhOX+QOHjdw/25JXQxXJadtv1W++rTCym45w+h54raQ0B7UeupbULjA9X4RoWTth5E6Waw
+	jFzff37Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ufO-00000004TNU-3cgb;
-	Tue, 22 Sep 2026 07:11:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8ulR-00000004U8H-06PS;
+	Tue, 22 Sep 2026 07:18:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ufL-00000004TMM-1IiN
+	id 1x8ulQ-00000004U8A-2F3d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 07:11:47 +0000
+	Tue, 22 Sep 2026 07:18:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9D10600CB;
-	Tue, 22 Sep 2026 07:11:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 098311F000FF;
-	Tue, 22 Sep 2026 07:11:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CFD74498B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:18:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73A781F008BE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790061106;
-	bh=4KLMG7LWk0+A+uvrmJ78op/X5X6IpAwrk4iXchNk6nE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MgrBn9UPljxQNdik8LXXL9muQ9ay4WcJ6YzghmIufSEbC5kd8VyZKOmmJB7A1fKW6
-	 1Ia05SBqETsNvSzREePrYvOaaVm9JvJIvg2gmYGbiGtnj47/TTCQfCME3NyoBUSwyT
-	 ocjy7FjMuGZW7m9QaJ5S7PZHQEmqaJCoOIE6frn5ASMwiKQ9Zi7Z7I9tm447J+tjPG
-	 pezZ8LhNow7r3/L7gJLlfQ6F7ND79e+UAkUEbeAdbIb6k9bgt3bQc8t7uP9UVJ0Ui4
-	 wAk7WEWVyBYMNms7yUshQ9o4EVuS8hVA4Fz4My3yTtaT5iKatoietEWtIfpykt2QHh
-	 mlBErA/VcUG2Q==
-Date: Tue, 22 Sep 2026 00:11:44 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shannon Zhao <shannon.zhao@linaro.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 20/21] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-Message-ID: <arIqMO-f8X0gCzjA@kernel.org>
-References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
- <20260920-hybrid-v11-20-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+	s=k20260515; t=1790061482;
+	bh=Kiu2zTEU4eOPd6KYh9rbDUJ7UJD3txxYyQibAU4/O4U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=TdgKWF2EpS1w3ADvij2BopLpxhHXGdHIunEVbiZcvtASTMdf/9sUcUsOCpknA/t97
+	 OUDjR9pY9+X6TC0C7nH/sd0n5JKYjOW0JKYTuP8kSz9UyZwWuiPuD1OnzwLncY14m+
+	 z1V4mE8i6JRQJ8xGQB6k1qtTQZeDJ4qv7cs7bLXpyPTP0U9wqBJH/nZLelCYQq7Oe/
+	 oVPXn1WdL76/wYtlx9Psk9Oc9CxpkcIhZFCd2IyFMqmD6QUbOpcXGzpKktQRoSmHOm
+	 ce6l5zgc+wWVOzGg3rCucrtknj4lDC33ancgZfwJYKmtGTfPVghJMT7Jko+pc3V0Te
+	 Uou8jemMlGVvg==
+Received: by mail-lr2-f35.google.com with SMTP id 38308e7fff4ca-3a5e548cd7dso29855291fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 00:18:02 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByvzTyEneJfN0APTfVh6Qf5C/EvxxdT0/i3pGCpwZrDvU/ySAG519DFZIlyWY5eGF8AYA6K+Eq61rrieXBS07jS@lists.infradead.org
+X-Gm-Message-State: AFuF++llqYeuFGRQ2ovOp7w/GTUM9OFe7RaULYT5/mAn63My5WadJfRQ
+	h0ltqYIkKoe009R1FJbDAyGoqO6AVDxhbjVCNfyOEiVvz49NoRRt4UIyY9Xm8AteD9dK2T41MkY
+	UF6X4KG14r8O+F5HFSYEu6kA/siYdvZw=
+X-Received: by 2002:ac2:51c3:0:b0:5b8:bc5e:b572 with SMTP id
+ 2adb3069b0e04-5b8c1845684mr4028396e87.42.1790061480637; Tue, 22 Sep 2026
+ 00:18:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260920-hybrid-v11-20-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com> <20260921-cv75-v5-v8-8-282ff5d98dda@ambarella.com>
+In-Reply-To: <20260921-cv75-v5-v8-8-282ff5d98dda@ambarella.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 22 Sep 2026 09:17:48 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkSfPvuO=ZgqwYnbBBjxuu4ns1EDpHXQxKgWGqK9E130A@mail.gmail.com>
+X-Gm-Features: AclHuK98tk4GqYStUdUYs2m51yzirRsfrNvcnULTogZGKv-tdFHo0QJgErcoW2U
+Message-ID: <CAD++jLkSfPvuO=ZgqwYnbBBjxuu4ns1EDpHXQxKgWGqK9E130A@mail.gmail.com>
+Subject: Re: [PATCH v8 08/18] gpiolib: regmap: add write_data_after_dir quirk
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,212 +90,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 20, 2026 at 08:16:01PM +0900, Akihiko Odaki wrote:
-> Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
-> create a "fixed-counters-only" PMU.
-> 
-> Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
-> attribute provides a getter that facilitates kernel and userspace
-> debugging/testing.
-> 
-> Allow strict PMUv3 vCPUs to initialize the PMU after selecting
-> fixed-counters-only mode, without selecting a VM-wide hardware PMU.
-> 
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-> ---
->  Documentation/virt/kvm/api.rst          |  8 +++++--
->  Documentation/virt/kvm/devices/vcpu.rst | 42 ++++++++++++++++++++++++++-------
->  arch/arm64/include/uapi/asm/kvm.h       |  1 +
->  arch/arm64/kvm/pmu-emul.c               | 34 ++++++++++++++++++++++----
->  tools/arch/arm64/include/uapi/asm/kvm.h |  1 +
->  5 files changed, 71 insertions(+), 15 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 1a90598901c5..a6aef405ef87 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -3531,9 +3531,13 @@ Possible features:
->  
->  	    * Userspace must explicitly select a PMU implementation before
->  	      initializing the PMU or configuring a PMU event filter
-> +	      (KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY also satisfies the
-> +	      initialization requirement; event filtering remains unavailable
-> +	      in that mode)
->  
-> -	    * If the PMU implements FEAT_PMUv3p4, PMMIR_EL1.SLOTS provides the
-> -	      hardware value of the underlying implementation
-> +	    * If a hardware PMU is selected and implements FEAT_PMUv3p4,
-> +	      PMMIR_EL1.SLOTS provides its hardware value. In fixed-counters-only
-> +	      mode, PMMIR_EL1 reads as zero
->  
->  	    * Writes to PMCR_EL0.N via KVM_SET_ONE_REG are ignored
->  
-> diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-> index a3f20a4ee4b1..41f6d708ff43 100644
-> --- a/Documentation/virt/kvm/devices/vcpu.rst
-> +++ b/Documentation/virt/kvm/devices/vcpu.rst
-> @@ -53,9 +53,9 @@ Returns:
->  	 =======  ======================================================
->  	 -EEXIST  Interrupt number already used
->  	 -ENODEV  PMUv3 not supported or GIC not initialized
-> -	 -ENXIO   PMUv3 not supported, missing VCPU feature, missing
-> -                  hardware PMU, or interrupt number not set (non-GICv5
-> -                  guests, only)
-> +	 -ENXIO   PMUv3 not supported, missing VCPU feature,
-> +		  neither hardware PMU nor FIXED_COUNTERS_ONLY selected,
-> +		  or interrupt number not set (non-GICv5 guests only)
->  	 -EBUSY   PMUv3 already initialized
->  	 =======  ======================================================
->  
-> @@ -64,7 +64,8 @@ virtual GIC implementation, this must be done after initializing the in-kernel
->  irqchip.
->  
->  When the KVM_ARM_VCPU_PMU_V3_STRICT vCPU feature is enabled this must be done
-> -after selecting a hardware PMU.
-> +after selecting a hardware PMU or enabling
-> +KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY.
->  
->  1.3 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FILTER
->  -----------------------------------------
-> @@ -78,7 +79,8 @@ after selecting a hardware PMU.
->  	 -ENODEV  PMUv3 not supported or GIC not initialized
->  	 -ENXIO   PMUv3 not properly configured or in-kernel irqchip not
->  	 	  configured as required prior to calling this attribute
-> -	 -EBUSY   PMUv3 already initialized or a VCPU has already run
-> +	 -EBUSY   PMUv3 already initialized, a VCPU has already run or
-> +		  FIXED_COUNTERS_ONLY has already been set
->  	 -EINVAL  Invalid filter range
->  	 =======  ======================================================
->  
-> @@ -123,14 +125,14 @@ after selecting a hardware PMU.
->  
->  :Returns:
->  
-> -	 =======  ====================================================
-> +	 =======  ===========================================================
->  	 -EBUSY   PMUv3 already initialized, a VCPU has already run or
-> -                  an event filter has already been set
-> +                  an event filter or FIXED_COUNTERS_ONLY has already been set
->  	 -EFAULT  Error accessing the PMU identifier
->  	 -ENXIO   PMU not found
->  	 -ENODEV  PMUv3 not supported or GIC not initialized
->  	 -ENOMEM  Could not allocate memory
-> -	 =======  ====================================================
-> +	 =======  ===========================================================
->  
->  Request that the VCPU uses the specified hardware PMU when creating guest events
->  for the purpose of PMU emulation. The PMU identifier can be read from the "type"
-> @@ -172,6 +174,30 @@ explicitly selected, or the number of counters is out of range for the
->  selected PMU. Selecting a new PMU cancels the effect of setting this
->  attribute.
->  
-> +1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-> +------------------------------------------------------
-> +
-> +:Parameters: no additional parameter in kvm_device_attr.addr
-> +
-> +:Returns:
-> +
-> +	 =======  ==================================================
-> +	 -EBUSY   PMUv3 already initialized, a VCPU has already run,
-> +		  an event filter has already been set or
-> +		  a hardware PMU has already been specified
-> +	 -ENXIO   Attempted to get before setting
-> +	 -ENODEV  Attempted to set while PMUv3 not supported
-> +	 =======  ==================================================
-> +
-> +If set, KVM emulates PMUv3 without programmable event counters.
-> +
-> +With KVM_ARM_VCPU_PMU_V3_STRICT, enabling this attribute satisfies the
-> +PMU selection requirement for KVM_ARM_VCPU_PMU_V3_INIT.
-> +
-> +When this attribute is enabled, the vCPU can run on any physical CPU
-> +that has a PMU, regardless of the underlying implementation. This
-> +attribute is VM-scoped.
-> +
->  2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
->  =================================
->  
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 65ee09bd1463..7a6a0af14f5a 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -453,6 +453,7 @@ struct kvm_vgic_v5_ist {
->  #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
->  #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
->  #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
-> +#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY	5
->  #define KVM_ARM_VCPU_TIMER_CTRL		1
->  #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
->  #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 9c1e2f3e41db..ebb648eabdc6 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -1017,8 +1017,8 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu)
->  
->  static int kvm_arm_pmu_v3_init(struct kvm_vcpu *vcpu)
->  {
-> -	/* Only possible when using KVM_ARM_VCPU_PMU_V3_STRICT */
-> -	if (!vcpu->kvm->arch.arm_pmu)
-> +	/* Strict PMUv3 requires a hardware PMU or fixed-counters-only mode. */
-> +	if (!vcpu->kvm->arch.arm_pmu && !kvm_pmu_fixed_counters_only(vcpu->kvm))
->  		return -ENXIO;
->  
->  	if (irqchip_in_kernel(vcpu->kvm)) {
-> @@ -1153,8 +1153,8 @@ int kvm_arm_set_default_pmu(struct kvm *kvm)
->  	 * affines the VMM to a particular cluster of cores.
->  	 *
->  	 * In any case, userspace should just do the sane thing and use the UAPI
-> -	 * to select a PMU type directly. But, be wary of the baggage being
-> -	 * carried here.
-> +	 * to select a PMU type directly, or request fixed-counters-only
-> +	 * emulation. But, be wary of the baggage being carried here.
->  	 */
->  	struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
->  
-> @@ -1179,11 +1179,13 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->  		arm_pmu = entry->arm_pmu;
->  		if (arm_pmu->pmu.type == pmu_id) {
->  			if (kvm_vm_has_ran_once(kvm) ||
-> +			    kvm_pmu_fixed_counters_only(kvm) ||
->  			    (kvm->arch.pmu_filter && kvm->arch.arm_pmu != arm_pmu)) {
->  				ret = -EBUSY;
->  				break;
->  			}
->  
-> +			set_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags);
->  			kvm_arm_set_pmu(kvm, arm_pmu);
->  			cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
->  
-> @@ -1205,6 +1207,22 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->  	return ret;
->  }
->  
-> +static int kvm_arm_pmu_v3_set_pmu_fixed_counters_only(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +
-> +	lockdep_assert_held(&kvm->arch.config_lock);
-> +
-> +	if (kvm_vm_has_ran_once(kvm) || kvm->arch.pmu_filter ||
-> +	    test_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags))
-> +		return -EBUSY;
-> +
-> +	set_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
-> +	kvm->arch.nr_pmu_counters = 0;
-> +
-> +	return 0;
-> +}
-> +
+Hi Long,
 
-I'd rather that FIXED_COUNTERS_ONLY depend on the KVM_ARM_VCPU_PMU_V3_STRICT
-feature flag. The expectation of that flag is that userspace specifies a
-backing PMU implementation; your FIXED_COUNTERS_ONLY could just be seen
-as one such PMU implementation.
+this is starting to look good!
 
-Thanks,
-Oliver
- 
+On Mon, Sep 21, 2026 at 6:23=E2=80=AFAM Long Zhao via B4 Relay
+<devnull+longzhao.ambarella.com@kernel.org> wrote:
+
+> From: Long Zhao <longzhao@ambarella.com>
+>
+> Some controllers ignore data-register writes while a line is still an
+> input. Optionally write the output value again after switching the
+> direction, matching the existing PL061 behaviour.
+>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+(...)
+
+> +++ b/include/linux/gpio/regmap.h
+> @@ -48,6 +48,13 @@ struct regmap;
+>   *                     (Optional) Bitmap representing the fixed directio=
+n of
+>   *                     the GPIO lines. Useful when there are GPIO lines =
+with a
+>   *                     fixed direction mixed together in the same regist=
+er.
+> + * @write_data_after_dir:
+> + *                     (Optional) Write the output value again after
+> + *                     switching a line to output in ->direction_output(=
+).
+> + *                     Needed for hardware which ignores data register
+> + *                     writes while the line is configured as an input.
+> + *                     This is a legacy quirk (e.g. ARM PL061); new hard=
+ware
+> + *                     must not use it. Direction changes will glitch.
+>   * @drvdata:           (Optional) Pointer to driver specific data which =
+is
+>   *                     not used by gpio-remap but is provided "as is" to=
+ the
+>   *                     driver callback(s).
+> @@ -94,6 +101,7 @@ struct gpio_regmap_config {
+>         unsigned int reg_dir_out_base;
+>         int reg_stride;
+>         int ngpio_per_reg;
+> +       bool write_data_after_dir;
+>         struct irq_domain *irq_domain;
+>         unsigned long *fixed_direction_mask;
+>         unsigned long *fixed_direction_output;
+
+1. You have put the kerneldoc in a completely different place in the order
+of thing than where you put the flag in the struct.
+
+2. Put a comment above the behaviour flags because there will
+invariably be more of them! Something like:
+/* Regmap GPIO behaviour flags */
+
+3. Put a newline before & after the flags so they end up in a separate
+section of the struct, so people know where to add them.
+
+I would put them:
+
+        struct device *parent;
+        struct regmap *regmap;
+        struct fwnode_handle *fwnode;
+
+        const char *label;
+        int ngpio;
+        const char *const *names;
+
+HERE
+
+        unsigned int reg_dat_base;
+        unsigned int reg_set_base;
+
+Yours,
+Linus Walleij
 
