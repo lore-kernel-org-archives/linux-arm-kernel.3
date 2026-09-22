@@ -4,87 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66A8C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D769C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pZZpnp9Ii94lfQediVbtRB1HCrD5s3KchpIbsJ2tbsA=; b=D9o9YDhCE8GStXfbjgKYj2GdEH
-	HfMVPLsbR3wN6OkAYs8cZhXJVD/HfhlFRrv3sFIWbixuaX4GZfcOs52aToaTEKg3Pzhcu8WMNqstI
-	wfJoNq3ofMY3nx+7tQ7eNEhkEezj2oPVZWS3KCxd9eyPfeB8Se+QLbXVmp5Wl8w5PTNRvsWEjTKNi
-	o0llkWwaHxtJXN7xCQXco0b2CHRS1m1/ge/2GSUqKRgOtnCasqptlQZrShSmgR/T5XWannRS/3m5Y
-	fCTt90aLP1qVblhucZpdLGzkrYlZ3bRB7RpsUHMPKhZfh2HswGWMzraC4bH65UoRFCJJCnY7IA+bu
-	Xn/xnmhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qwNAof3a5RtKqZApzhvqoO+or4coDp6jtiej3iFk3iQ=; b=biAv17kO1CY/IdzC6kjCspP1o+
+	Bb2Qwe3H7A1RSIWI5Ca9Q+JyAXHW2dcIhJqyMb0P1wMTZhM6BgWeXHtxfGeD3/QIjn6e5kq/Cn5SH
+	YrfOFu5txIPKzMjQsZTsZVoOvaKGUeroAFN7I6gBE4adCaot4HVS3+zHCaIkcx97sysEdRpmWzdJd
+	exZgRKXV1sxmS6+5rVNLOUyRP7xYmUrV/0F5te75kPZTpd389wR4aQXoZqj7w4ORaODDOJr6evgK/
+	QZ72f6LHsDm/r2//eiBMK+AFwHgbzbRFzxdtk7JSmXLVydQRlRaia29h06+bzkd0oM1cGggz9T33Y
+	gqvxZ4RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9105-00000005cDo-36ix;
-	Tue, 22 Sep 2026 13:57:37 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1x912t-00000005cTY-0GpK;
+	Tue, 22 Sep 2026 14:00:31 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9103-00000005cD8-0tTE
+	id 1x912p-00000005cSV-0iTC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:57:36 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-488615e6cfcso369269f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:57:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1790085452; x=1790690252; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pZZpnp9Ii94lfQediVbtRB1HCrD5s3KchpIbsJ2tbsA=;
-        b=Cdg4TGZGmh8g2hHxO+RHxpgj8X8SIYXyegxuP5k+PlNeMKDupG8YiK6G27A97v33nz
-         3SotjT4HDdTL4EpHJU0ekxzqR8SwgtkihOQjvaOPzdaHAilyw3mYxHb2VU53YkNkrNwb
-         HNsTiE3ZmvJSoe2YL6Nt6KX5wxWGjOKmu+twTgionJlFiGcus/mf42saZ22QtWTR3hnO
-         9uGRgDywWv+t5k6ijwUNHRNzmkx3WgX53OuYmQeIgre6lQBnTW0ojn0Y8ILIPfweHzRn
-         Yl8wgny0OHDuuKG8wTQhIGP1KPyYpNg3wWwuu+JhXHHLjkI4qTzef3rYqnA1L6KCur6U
-         1XXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790085452; x=1790690252;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pZZpnp9Ii94lfQediVbtRB1HCrD5s3KchpIbsJ2tbsA=;
-        b=Jk7a3WLLBo40KCiWkmq2vyif7NiHICAieLCg1nDhSabo8Z2gm0y+RvB82xU5uQku8z
-         pHhyo6xBJhNE362UdXO56Qx/BDTYT425nI1QVMVjVj2mwa3am0x5aIeHsFBbroXvo5xe
-         pRBkSuz6CyAD2xIfov//WU1hOIzDuM6n8sMBviPFyVAZTQ54+6lVGJx/jU+/O/Mlr7eU
-         SNBHha94nvHqO7ykiL9WJSXPMd0hvxWYttCDXkeXWSlAhB8TdA/Z/ctSbdO+LyArJHui
-         c6qp1C7FCU/FgtDzeQFaWl+zuJO2bF1jmVzbgAy8UR5PUkNRBAek/TSKmQyemGrEM+sZ
-         349Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxvu2rq46UoKn/xO+irhSXjIaglMvHg/fCx/aFPzjF2q3p13WUvod3B1G/WG/TLiQSSFBeTp6KCo+Og1UGwXWoz@lists.infradead.org
-X-Gm-Message-State: AFuF++llR6y4g3J5TGqKqkFo2pCTr3Sq7LQ4oCyIemkp0lJ31CI70LYy
-	MnBtL+e6Gmu+tVupEO/w3rpb4N86dC+mmEw66PA0gMjoHieEvyi0Et6z0M4YNYpD0kfW4N9lUHs
-	Ws0mUl+Q=
-X-Gm-Gg: AYBFou3TnnsV/MQecUM/2A+w1qULyQBMM7wFz6cFblpvuuhdJwig6vIedDgcpHxV6Mf
-	FecMNF5ReFEn3P3rVpuECHaO0uY4VyJt+F6Z5TKtEFJ7d67mNsE16xDoVr6Ih4bWj2uHdqo+RJ1
-	2MrMRPmm6Y/lyH8ILcT4f2gxpbzJF+3z8pTY1AGnxDGNripQeEKYe6kwIXL2pyhxumybj2a0ghk
-	jxRRhz6aHRrF+pzVAtSUPY7ubBG4olP2Zhav9kcV0HlMo4iCLleokMKNnY0gq6ArI1SoZtmCXR2
-	IxkAu6g/MnHD3T7DdPjSAH096TRNGr6bwaC+5vhJWvNfTuP0tEPkeVDSmkmuPufGFQMgIV5qrjY
-	hqN4R6fQRVK5tm4LayCDkEWiIl0h1tjrHQQFBWaYlfwtPKJh8Uo6LWMOcN7AMXrysO37KmTqv/g
-	NfiTVkRGjejg/G+CWbR4+OPjzwjPctCZMueAMdDd3vx59qL/xk/jgXNbccaeGJXxK2xhut8w==
-X-Received: by 2002:a05:6000:4303:b0:487:9bb:a875 with SMTP id ffacd0b85a97d-48860f7eb5bmr4640032f8f.3.1790085452552;
-        Tue, 22 Sep 2026 06:57:32 -0700 (PDT)
-Received: from localhost ([195.94.147.179])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48862774543sm5865322f8f.11.2026.09.22.06.57.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 06:57:32 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH] arm64: smp: Signal EOI after handling IPI_CPU_STOP*
-Date: Tue, 22 Sep 2026 16:01:09 +0200
-Message-ID: <20260922140109.12780-1-andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
+	Tue, 22 Sep 2026 14:00:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Oy1upvUNouFx/CICNWQ4GAgYO2FDtiDXVHBv8tpIDxcm9bC7BoXA1+50C9bA94FCb9DHAbL5+YHdyBrtBa7cOGSHusZOhfBVWqD3dMTzqYYtugLBEH1GnD4dgWDL5ezNyX5nclErALv92AmpdYhnH0tGD/34HgbRbhgQYye3GpPOSIWaLgAxe3O75bpjcBY/wHcM53Zzo5EAxyW08IU/+bZmCUWrSC4n7mSi3e04w5C3uOWTPNefQsrdx6AN/xSXRQs6o+nUsLavsSobhUbX9X0ECbXrxH2d2aACTraI57+xH0OUFWcRWfs368iLOVhAuxFUdxzsjSeJYolfJMzCHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qwNAof3a5RtKqZApzhvqoO+or4coDp6jtiej3iFk3iQ=;
+ b=CiDVBIuIzaUm3Uv1HlMZNbSRK7RNGs/tp/t3Gc2b52W9ui1iW4ve2mcWVtMhkLyaajxhLEgPs9UfNgmtYPUEOx4kZMKOaw95xrtZHA3/0KkCyaTbLajwlaxq05rX7WQhriXJgluYezpDgN79a3vIKvXXWSL3A2Ti8F9bXK2c3CguC9Gm0doLIw3OEEjNtI4CMUygWoxCxyEMs1PhmExHvMgcCfcEr2z9r6bHCL82o4hwqmqDFOnQrGz3ae+++VRNtiaanulZd4qxE1/ACYSVkB+F8BbBum4CKR7gn5TQnGVI5yK3RqltZNFHYZ+0LddunSepqzMQ420lBteQKiAE2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qwNAof3a5RtKqZApzhvqoO+or4coDp6jtiej3iFk3iQ=;
+ b=On9jUdmZiX7FdY8+yF3LJ/vAnDcVNcxUf2KY9hPYSfiJkluCeLasxv4GybXOiGsUb+tkFa567jqo8gi9K8TH+A8Gpe5gzRAPAgoGDyK3HEAVEvxuwQoTKfhZfmxYq40yuZsMUt76Rt4zPq8pEcMFZPZhnAX54xRDTgvy/Qly9egr/9JNgfBeykxNELRZ364I7ADKY4SCesOIIVJ9wbjwLGZnkfRQHKLDr3NGiDAFyUAUjjG71JGHbHy2oYnXH/ppSZPmeg8To1YPIKDZmMxJugHCVNetiQsGZtHINVmO3aBorn/j7PGvSKu3lQHlKkLscEqql+HB7ONOSOWRZxgUDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by VI1PR04MB7104.eurprd04.prod.outlook.com (2603:10a6:800:126::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Tue, 22 Sep
+ 2026 14:00:18 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
+ 14:00:18 +0000
+Date: Tue, 22 Sep 2026 22:04:39 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC v2 1/4] iommu/arm-smmu-v3: Convert streams from RB
+ tree to XArray
+Message-ID: <arKK9+M85xeknRa9@shlinux89>
+References: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
+ <20260921-smmu-shared-sid-v2-1-4b656ce68178@nxp.com>
+ <arGEXU2GqmYYBBjb@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arGEXU2GqmYYBBjb@nvidia.com>
+X-ClientProxiedBy: SI3PR02CA0008.apcprd02.prod.outlook.com
+ (2603:1096:4:295::16) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VI1PR04MB7104:EE_
+X-MS-Office365-Filtering-Correlation-Id: dadc246e-e27a-4f9d-15ae-08df18b1d558
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|366016|23010399003|6133799003|18002099003|22082099003|11063799006|10067099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: nrG3hoG+avmxud02RZAhK1CQ0WjziXD83jBbYZ6RXdOCtRZ/LB31ox3s6idcaN8ao34iffqLIT58KLN00ooz3fd0RgspWucGE+QSML/TVTQEJBdFCzNqvpKOCdCybJ6Vp/n+fP143FdiEpYxleTcvIYHcDgMOr7PChGi2eEtRp27v46rQt+lJRIQmpKmVRC5MWNGGSQj8UjkIeVgk0TlhMLWtDOndRd/C+XSQEgK3Fa247wKKIqYMeQY9bPUMMgMJcZKOMplO0PT/UOFgJyJ4qzMx8DvLOvL1bNMWboZWo/wcsz3yY5V3Hj05mhSeNoEh7uZqen1T8Gl24zzZb4ZUgWtypPEcUiLUXzjWYij5tnCMryWSSLDi9pb8crQrkJ+hZ/+bToT49Qc6LhTDUeC1cMeb9rjU1gncwcFa7/y4AAWSCFz1SceT9DlJYwP2mOTePcs2eywqBCTGZerMrgdpF7fKF3IdCb/JT6hCkOyGm6VwlY4l7k6LOWQ+6Qlm4TijOOG6FhW8Kin0FTM+ZWI1DrXYC5iJZvo1s0FMPvWP1J1th/Pdj7WL27q3sBstJk54a3QtBMjzgoR5jNLRY0SaU6Jdl8xh/qc4Z1RhDzRZ5CvQXtlg14zqhWZpMNN1raS
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(366016)(23010399003)(6133799003)(18002099003)(22082099003)(11063799006)(10067099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zA84f1UmI+sH16jOKAxILpDkeM+dfPnrnzt4iF8ZyaOR1hvkxC9zyOim6wlG?=
+ =?us-ascii?Q?qxLjPzrBj6fdY6Xw3L78skkk5RNuMbIQ2VcPauClBSNn6Xz5frCyQqM3nAWG?=
+ =?us-ascii?Q?Zef4pSXAdMHBgPQ/xTbsEpXC0HiTh2gftsVExfwQHn2cgdJvjtc1fSBHl25u?=
+ =?us-ascii?Q?cfagAotmv2XVVcssxmXbWFggQbYgMI6/dTqPlGUIPdUXwFauprnZUC3L7e+w?=
+ =?us-ascii?Q?jcQk/+NS7Xd0mcc8eaOqv07q0AvJk+m86vXXMsgLOX0Ll8eZq2F1Zs4dDSuu?=
+ =?us-ascii?Q?972648NduDdpGpU7jtKBCLhHWJR1+NzKbMw3DuVGmuTnp730QfW6iXdk6fPR?=
+ =?us-ascii?Q?qB/pBQs+gsT4Z+aou1642sHVVdZOu4gWTktstybYEM83tCEj+iEpCcmODPBo?=
+ =?us-ascii?Q?SCH0lMxDVWyC4OWAQv/eWbphnEuilM58XG1WECwhY4wc6Jv3T7FmtyfqwnAB?=
+ =?us-ascii?Q?LCEFnFRPUrBbb+981bkkVThuy3DFjHYBOsGWQwG/5XzV/flGQCe/sXEITxYJ?=
+ =?us-ascii?Q?8Gp0kZCeuCx7PaEliW3evRKv9qdH6Ui83j5e8LQtjHeSl86HX3MRSDCmjQSI?=
+ =?us-ascii?Q?OrHziTx/uJvSNwicq2xkmtPcBYFsnk1e3F0/g+e+1YKFAkepQau6kwv35p2G?=
+ =?us-ascii?Q?Bh1dmtJyhZaxP36cbyHJQE8HI/9/kgWwgoEKRQstoQdt2ApAOXVMF2VO99Mx?=
+ =?us-ascii?Q?qKn0MLwl2RJ44H63FoWrQHNbHXkN1pGpyJ/Nvb27XcDsr9A7iIL4Eio0sQl0?=
+ =?us-ascii?Q?JuRpBini+yK6LBm9cW0x9TX2z2LxaA0P/Ml5meG5ad8lBIGmgW7Io8V2IF0V?=
+ =?us-ascii?Q?h56oLWLJA7/ymVjtHRBM/A071kmoEdwCflz9xJgqzax6pzkX8XXL7g6bVX5e?=
+ =?us-ascii?Q?O6oMbhr0xV8m7rp5WGDL4qP48/AsynSSTcy5txoBu8WiHcH5K6jKasXSveKt?=
+ =?us-ascii?Q?Un/Lm8w7osXuMrUvHT4WtW++z4prBuY5lxB/GUKZJDf2xb2F4+E8vfV8d0OJ?=
+ =?us-ascii?Q?FGwUxI1M41zOL7j8frtYU8uqIX2vYsrYNcWRXMO/4+Oi/UblzWrmt77r6cDp?=
+ =?us-ascii?Q?qEuKrThske21RhbSagsO35yi5PNzgtmYsjBLCqH+qn20liOxbc6ICWEoUj5v?=
+ =?us-ascii?Q?Z13/j9qWgdUtyZC+u00qFWMB7TqYhgfDk5OABAOy/vLnb7pg3uFGi5e9Vumu?=
+ =?us-ascii?Q?Oc4zEMFKacYU7qpWfDD+9orfH85F+c8FKC4fLy/j28nH/2meEAxTBwCtCxxT?=
+ =?us-ascii?Q?f5P9fmG4iAJ+/IH2w3ElQRYRhTBOlh7vIacNXAWAb04JzmUW/T9vBtLVr+Aw?=
+ =?us-ascii?Q?aKFJi8IKwfjj0TCA1KfvO34KgtfpydVJn8s781i6iJ80+aytBfanCKLHqYUu?=
+ =?us-ascii?Q?k69CGWhjql9k4vysXRMMHoWN10LUz71ZSdr8rhTINn3DMMr7/dRRwV7u0oGP?=
+ =?us-ascii?Q?FdCd8NVetU/urYJxkzytLlHWGXf6BqbzH8YE5+/Ch4X1pIE76z4VktplUGRB?=
+ =?us-ascii?Q?tDM4qpK7w4UH+i8iXwb7o196bqguNTU9klgynaNHOaywoI8a6Ty2MM+GPdwX?=
+ =?us-ascii?Q?IveilYEHEtODgLGX+K/0ndPwAnjBoJ1hOzp7wc8P94gUtKGz+FyjXg4uOSJq?=
+ =?us-ascii?Q?ljlxI4pJPpei/C0GEv203hjDQaPE32/oHdh3yEBsWrhFqjD+oDhtUHYx7w9z?=
+ =?us-ascii?Q?spoKkqLwp/J0ejeNRFeBd85N4kMMVrvvZaCuh9+6OPOy5j9YxYqOp4LqWC9I?=
+ =?us-ascii?Q?69EixSNc+lvTfku/tA5ygC/25UUbFJmWaF6gm/7arc6iRhHlS2x3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dadc246e-e27a-4f9d-15ae-08df18b1d558
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 14:00:17.8991
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +NNVHs/sQBOdVDsHB0qK46HRXoPLOSczkoefUznyPNlTQG3oGy9HgMOHWN5OihnOQpcf8vLPzisk9/e/NXjJ2EEP+WT/N/IJy+ykLEFs+5HzhJ4ofV1rJbBystwgHCww
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_065735_268351_7EEB9924 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20260922_070027_216893_1C3BB990 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,83 +142,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On kdump/kexec, the boot CPU triggers an IPI_CPU_STOP (and subsequently
-an IPI_CPU_STOP_NMI if the first one does not respond) to the secondary
-CPUs, and the IPI handler eventually calls the firmware to shut down
-each CPU. Since the IPI is never acknowledged via EOI, the interrupt
-remains in an active state when the CPU goes idle.
+Hi Nicolin,
 
-In a virtualized environment, if the hypervisor does not reset the
-interrupt state, this causes the crashkernel (with cmdline option
-maxcpus > 1) to be unable to synchronize between the boot CPU and
-secondary CPUs via IPI_CALL_FUNC, leading the kernel to wait indefinitely
-for the CPUs to respond. This has been observed with the Hyper-V
-implementation.
+Thanks for reviewing.
 
-Both the Linux kernel and the Hyper-V firmware appear to violate the
-PSCI specification:
+On Mon, Sep 21, 2026 at 12:24:13PM -0700, Nicolin Chen wrote:
+>On Mon, Sep 21, 2026 at 07:35:00PM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>> 
+>> Replace the smmu->streams RB tree with an XArray for SID ->
+>> arm_smmu_stream lookups. The existing streams_mutex serialises all
+>> accesses (both xa_store/xa_erase and xa_load), protecting the lifetime
+>> of returned pointers against concurrent arm_smmu_remove_master()
+>> without requiring RCU grace periods. A mutex (rather than xa_lock) is
+>> needed because several paths sleep while the lock is held:
+>> dmam_alloc_coherent(GFP_KERNEL) in arm_smmu_init_sid_strtab(), and
+>> down_read() inside iommu_report_device_fault().
+>
+>The commit message reads very unconvincing.
+>
+>The first paragraph starts with an action "replace" without giving
+>a clear reason for the action.
+>
+>> This removes the RB tree comparators, the rb_node from
+>
+>Then the second paragraph repeats the action...
+>
+>> arm_smmu_stream, and simplifies duplicate-SID handling for bridged PCI
+>> devices.
+>
+>... and slightly mentions "simplifies". Maybe it should write about
+>why this is necessary and how xarray would simplify vs RB tree?
 
-- The PSCI spec states that the OS kernel must migrate any interrupt away
-from the CPU that is about to be shut down via CPU_OFF, which by extension
-implies that no active interrupts are allowed. The kernel does not
-currently do this in the kdump crash path.
+Jean had a comment that "maybe simplify the driver first by moving to a xarray",
+see [1] [2].
 
-- The PSCI spec also states that the PSCI firmware must reset the CPU
-registers to their default values when turning on a CPU via the CPU_ON
-command.
+[1] https://lore.kernel.org/linux-iommu/20230518130459.GA2587493@myrica/
+[2] https://lore.kernel.org/linux-iommu/ecb3725c-27c4-944b-b42c-f4e293521f94@arm.com/#t
 
-Fixing this on the kernel side has the advantage of being
-hypervisor-agnostic.
 
-Signal EOI at the end of the crash handler to prevent the subsequent
-crashkernel from hanging.
+Does below commit message looks good to you?
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- arch/arm64/kernel/smp.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+iommu/arm-smmu-v3: Convert streams from RB tree to XArray
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index a61dc3016a117..cc7f3261fe537 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -988,6 +988,27 @@ void kgdb_roundup_cpus(void)
- }
- #endif
- 
-+static void ipi_eoi(int ipinr)
-+{
-+	unsigned int cpu = smp_processor_id();
-+	struct irq_desc *desc;
-+	struct irq_chip *chip;
-+	struct irq_data *d;
-+
-+	if (ipinr >= MAX_IPI)
-+		return;
-+
-+	desc = get_ipi_desc(cpu, ipinr);
-+
-+	if (desc) {
-+		chip = irq_desc_get_chip(desc);
-+		d = irq_desc_get_irq_data(desc);
-+
-+		if (chip && chip->irq_eoi)
-+			chip->irq_eoi(d);
-+	}
-+}
-+
- /*
-  * Main handler for inter-processor interrupts
-  */
-@@ -1009,6 +1030,7 @@ static void do_handle_IPI(int ipinr)
- 
- 	case IPI_CPU_STOP:
- 	case IPI_CPU_STOP_NMI:
-+		ipi_eoi(ipinr);
- 		arm64_nmi_cpu_stop(get_irq_regs(), true);
- 		break;
- 
--- 
-2.35.3
+As suggested by Jean-Philippe Brucker [1], convert the smmu->streams
+RB tree to an XArray as a preparatory simplification for shared-SID
+support.
 
+A subsequent patch needs to look up an existing stream by SID and
+then decide to share it rather than reject it - two separate
+operations. The RB tree's rb_find_add() fuses lookup and insertion
+atomically: it either inserts or returns the collision, making
+"find, then conditionally share" impossible without restructuring.
+XArray's xa_load() and xa_store() are independent operations that
+naturally support this pattern.
+
+Eliminates the two comparator functions (arm_smmu_streams_cmp_key/node),
+the per-stream rb_node field.
+
+The existing streams_mutex continues to serialise all accesses.  A
+mutex (rather than xa_lock) is needed because several paths sleep
+while the lock is held: dmam_alloc_coherent(GFP_KERNEL) in
+arm_smmu_init_sid_strtab(), and down_read() inside
+iommu_report_device_fault().
+
+No behavioural change.
+
+[1] https://lore.kernel.org/linux-iommu/20230518130459.GA2587493@myrica/#t
+
+
+Thanks,
+Peng
+
+>
+>Nicolin
+>
 
