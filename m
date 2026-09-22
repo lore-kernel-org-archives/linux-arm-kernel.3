@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B6CC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7451C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewu6GvKVf5n/HbW8Bi1PNWEZfgbjZ/Yl5VDBUC4pOnM=; b=CBfk/yYlODVGE909ihgxOaJhmT
-	iiPELF3XdqcO6BkBHyDjbUaJkgNohLO3GMeHz1i1dxqjxCw187+OuFnoRvEW9cXwOiNjY9V3aFcRh
-	ve51vAarSEFbjy/M7QKMj7/zRzCuQCsdqPtd2TRi5QYVo1fLrMg5D8Np8q7/2OJrT6RCM2Ko5zqvL
-	P7dlIWjnLycBTLjfiWxUfrn/UCWV9sfq5PFLIsl7+z2QGFcaulSTe2koTJwGefFynH8DzIWoSmERg
-	WEZZCseiywZWFlDjA0f/sj0YvKs5+Iy9AbzkgGUVnVZb8KeXo0Botz7HZqLUwQpojWN1+Jjc4w2IC
-	nxr77KbQ==;
+	bh=0yx1KVYmcOfYVjEzVIyo9QwiUPN5oXN2wUlmjKnOCc0=; b=IuFcpjS6mT+gHxIK/+CYBCU0ga
+	ZHpTWedB0wVoHHjWW552lUIX3EFwDemIiv0WD3lk2n79gUxtOFo0wMUqg0MBTK+MCVPDezzF0I3i8
+	K9VGgPLzp7Q2WBbHQa9fAtoUGaoY+OQTbsABjBaLKV/n9YabUDJ9DUugj1D8ojoiFGCbvhEmeNkNQ
+	EcLrTaAGKtoNpT8wozHWNIwu9p9wAdk58+nD2/L8SsORAqpD174q6Sgb7kA2pZaZGedTgObywgeZX
+	rMwUDpXtDZ6n2a2YbY+LgVHhtbyEWTGhI9uSpaJPHehtzGJw9IErNHI+11h2H2f8XHpPjFdHOhzRc
+	Nor4XaBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91oK-00000005kAg-3N3L;
-	Tue, 22 Sep 2026 14:49:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91oH-00000005kA8-1yEk
+	id 1x91uh-00000005l70-3QYo;
+	Tue, 22 Sep 2026 14:56:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x91ug-00000005l6l-45gZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:49:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A69931576;
-	Tue, 22 Sep 2026 07:49:23 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95C323F632;
-	Tue, 22 Sep 2026 07:49:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790088567; bh=3ADT03e+3kuTvq3FfT1tH4j9tCOVnK8BWBH0nxFQfxg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XwZBF6rWwzr6nDBg1vFdoiS7Bi2BwNNA+cdlH8IlqYlWxR9hZHb9XOn4BDemjc51L
-	 G+vRlUhQAygN5p69nlZMm8zPr+jmPxRQALLypxDglVnA7UpaVLAxuLjs/Gfv1kLiDB
-	 R5NPr7Gb3xNo9tUx0vL0IHRZlFSpPisAWlx8zHRs=
-Date: Tue, 22 Sep 2026 15:49:22 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	will@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <arKVcjCOJf8p9rWL@arm.com>
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <aqrGPK0lFBFXL2qY@arm.com>
- <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
- <aqvCwM_73qMpqzvV@arm.com>
- <749ab0c9-810d-4989-8fa5-1706124f05bc@arm.com>
+	Tue, 22 Sep 2026 14:56:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B00760052;
+	Tue, 22 Sep 2026 14:56:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8973B1F00893;
+	Tue, 22 Sep 2026 14:56:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790088965;
+	bh=0yx1KVYmcOfYVjEzVIyo9QwiUPN5oXN2wUlmjKnOCc0=;
+	h=Date:From:To:Subject:References:In-Reply-To;
+	b=NC3hIEgSJs/USe6Ql93fEv9ZrzabtkxNqEUZB4aQ2SanG3FKZCPBc+TZiQPr4OO1+
+	 O/6s4bE+yPy8fmQm4C0uovI54n6HOD5kXMGyFVDFMz0p4JyjLJeDN3FsiwdR8cE49m
+	 pRL3TJMlnfzuq3j8KgbL028p7w0xufIWVgMhb9Nvb5EkJpPUqXOWSkwk2N/5ocvPwV
+	 0WeurwzhpDPAgSniGFO3HvgOjhUCfPTFDJ+Tx5GVONm/+U/AHgqsjkCy0ci6hyTZia
+	 6Ofp14oLq8Roe4awmztMutLjIBhCFpEenyJ3ICn2F/EiI/xkjMGnnGw3FQWXK0ozQ/
+	 JPe2j74jLLNgw==
+Date: Tue, 22 Sep 2026 15:55:59 +0100
+From: Will Deacon <will@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
+	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
+	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
+	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
+	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
+Message-ID: <arKW_91EeKA-w96m@willie-the-truck>
+References: <20260921110050.3977591-1-vdonnefort@google.com>
+ <arIYtjmSKCs14SqO@sumit-xelite>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <749ab0c9-810d-4989-8fa5-1706124f05bc@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_074930_156431_EF520749 
-X-CRM114-Status: GOOD (  21.61  )
+In-Reply-To: <arIYtjmSKCs14SqO@sumit-xelite>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,108 +73,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 02:21:13PM +0100, Suzuki K Poulose wrote:
-> I had another look and we could handle this via kvm_fault_is_gmem_abort()
-> see in arch/arm64/kvm/mmu.c:
+On Tue, Sep 22, 2026 at 11:27:10AM +0530, Sumit Garg wrote:
+> On Mon, 21 Sep 2026 at 12:00:42 +0100, Vincent Donnefort wrote:
+> > This series is a follow-up to the discussion that has started here [1].
+> > 
+> > When memory is lent to the Secure world via FF-A, CPU speculative
+> > accesses from NS to the lent pages can still occur as long as it retains
+> > a cacheable mapping to it.
+> > 
+> > Ideally, lent memory would be "no-map" but that would mean giving up
+> > MiBs of useful memory, so let's try to do better with the help of a CMA
+> > pool.
+> > 
+> > On arm64, modifying the direct map at runtime is generally restricted
+> > because the linear map defaults to block mapping and splitting blocks at
+> > runtime may trigger fatal page fault, unless the CPU implements BBML3
+> > or the entire direct map was mapped at page granularity from boot.
+> > Forcing last-level mappings system-wide incurs a severe penalty we want
+> > to avoid. Instead, this series introduces targeted last-level mappings
+> > for designated memory regions, along with the "arm,ffa-lend-pool" CMA
+> > driver to manage unmapping and remapping on lend/reclaim transitions:
+> > 
+> > 1. memblock:
+> >   - Introduce MEMBLOCK_PTEMAP to force PTE mappings only for a specific region.
+> > 
+> > 2. set_memory infrastructure:
+> >   - Introduce can_set_direct_map_range() to check if a specific address
+> >     range is mapped with last-level entries and can be modified safely.
+> >   - Introduce __set_direct_map_*() variants that bypass redundant checks
+> >     when the caller has already validated the range.
+> > 
+> > 3. "arm,ffa-lend-pool" driver
+> >   - Introduce the "arm,ffa-lend-pool" CMA reserved-memory driver, which
+> >     unmaps pages prior to lending (ffa_prepare_lend()) and restores them
+> >     when reclaimed (ffa_lend_reclaimed()).
+> > 
+> > 4. Optee support
+> >   - Hook OP-TEE dynamic protected memory pools to "arm,ffa-lend-pool" for
+> >     both SMC (via DT memory-region phandle) and FF-A (via
+> >     ffa_lend_pool_attach()) transports.
 > 
 > 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 87e49251e0447..af5a4bf961aae 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1731,6 +1731,9 @@ static int gmem_abort(const struct kvm_s2_fault_desc
-> *s2fd)
->         gfn_t gfn;
->         int ret;
+> Thanks for your proposal in trying to solve this hard problem of
+> unmapping pages from kernel linear map. I remember discussing this
+> problem last year at LPC too.
 > 
-> +       if (!kvm_slot_has_gmem(s2fd->memslot))
-> +               return -EINVAL;
+> Have you had a chance to look at a more generic MM proposal around this
+> issue here [1]?
+> 
+> One of the major concern for me with your proposal is tying the
+> protected memory allocation to fixed sized platform specific pool size
+> based on DT. Then the cost of granular mappings/unmapping if the
+> platforms choose to enlarge these pools.
+> 
+> As you maybe aware one of the major use-cases here for protected DMAbufs
+> is the secure media pipeline use-case which is memory intensive
+> workload. IMO, the solution proposed at [1] seems to address it although
+> people have flagged rough edges there but should be addressable.
+> 
+> Can you try a port of [1] for arm64 since the author did all the work
+> with x86 as reference?
+> 
+> [1] https://lore.kernel.org/all/20260726-page_alloc-unmapped-v3-0-6f5729aa9832@google.com/
 
-I wonder whether we should add a KVM_BUG_ON() here. With the rest of the
-changes, we should never get in this situation. Well, to be revisited
-for private devices.
+I spoke to Brendan at LPC (?) last year but this doesn't really work
+for arm64 because it relies on being able to unmap arbitrary parts of
+the linear map, which isn't generally possible unless you force pte-level
+mappings for everything, which is prohibitive for perf/power.
 
-Also maybe move it to the caller, kvm_vm_mem_abort(), and not change
-kvm_fault_is_gmem_abort(). Something like:
+Vincent's series tackles that by using a pool so that only that part of
+memory requires the pte-level mappings in the linear map. That's the
+whole point of it, so I don't think it makes sense to drop it in favour
+of Brendan's approach (which doesn't work).
 
-	if (private_ipa_fault(kvm, s2fd->fault_ipa) &&
-	    KVM_BUG_ON(!kvm_slot_has_gmem(s2fd->memslot), kvm))
-		return -EIO;
-
-To me it makes more sense for gmem_abort() to be called only *if* it's a
-gmem slot. So any inconsistency, avoiding user_mem_abort() for private
-memory, should be done in the caller. I assume the caller will also have
-to route the private device path as well rather than rely on
-gmem_abort().
-
-> +
->         if (!perm_fault) {
->                 memcache = get_mmu_memcache(vcpu);
->                 ret = topup_mmu_memcache(vcpu, memcache);
-> @@ -2277,10 +2280,12 @@ static bool private_ipa_fault(struct kvm *kvm,
-> phys_addr_t fault_ipa);
->  static bool kvm_fault_is_gmem_abort(struct kvm *kvm,
->                                     const struct kvm_s2_fault_desc *s2fd)
->  {
-> -       if (!kvm_slot_has_gmem(s2fd->memslot))
-> -               return false;
->         if (kvm_memslot_is_gmem_only(s2fd->memslot))
->                 return true;
-> +       /*
-> +        * For Realms, all private faults must be backed by GMEM.
-> +        * TODO: Handle Trusted device private memory mappings.
-> +        */
->         if (private_ipa_fault(kvm, s2fd->fault_ipa))
->                 return true;
->         return false;
-> 
-> 
-> Also, I have the following hunk for preventing memslot modifications.
-> I will add this to v20 integration branch, which is almost ready ;-)
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 582b48e34486b..87e49251e0447 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2783,6 +2783,18 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
->         }
->  }
-> 
-> +static bool kvm_prevents_memslot_change(struct kvm *kvm, enum kvm_mr_change change)
-> +{
-> +       /* Cannot modify memslots once a pVM has run or Realm created */
-> +       if (change != KVM_MR_DELETE && change != KVM_MR_MOVE)
-> +               return false;
-> +
-> +       if ((kvm_vm_is_protected_pkvm(kvm) && pkvm_hyp_vm_is_created(kvm)) ||
-> +            kvm_realm_is_created(kvm))
-> +               return true;
-> +       return false;
-> +}
-> +
->  int kvm_arch_prepare_memory_region(struct kvm *kvm,
->                                    const struct kvm_memory_slot *old,
->                                    struct kvm_memory_slot *new,
-> @@ -2791,12 +2803,9 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->         hva_t hva, reg_end;
->         int ret = 0;
-> 
-> -       if (kvm_vm_is_protected_pkvm(kvm)) {
-> -               /* Cannot modify memslots once a pVM has run. */
-> -               if (pkvm_hyp_vm_is_created(kvm) &&
-> -                   (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
-> +       if (kvm_vm_is_protected(kvm)) {
-> +               if (kvm_prevents_memslot_change(kvm, change))
->                         return -EPERM;
-> -               }
-> 
->                 if (new &&
->                     new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
-
-I think this should work.
-
-Thanks.
-
--- 
-Catalin
+Will
 
