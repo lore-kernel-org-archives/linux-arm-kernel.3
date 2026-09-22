@@ -4,83 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A4DC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D712C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSo/cDlJ7ohD2G3UI5KuRXiO2Rxr2FOcqemAL7pGINk=; b=iZiuxhOXmzaR6nVPPgzJwYQDT7
-	L9EE/v6qlarDXGBjC4F6JFCGFqeCxu48UqWSyi2CGkmyhcUEPSsTQ7VSXGtXsmbqnpr7SIcNL3U2A
-	X+FhAkyx53sENc+OE6jqUVbjnEo6rwPIaPvRfLrNHXhcwfnIsNz9I5gctQ7n/r/pZH6wo6S8400LQ
-	p24AcJtpKv+BK7vS/KxNdlS48UZZV/qqa21bwUk3qucEDaRQO3S2ubNYi3dE+k3lbdr1e37Fju55D
-	YhI99sGnYKfORhuti4IhvbM86f2DDkZlP1GRWy9HuvlZO2A13Z45nhfe6xaTeOy3KavXGdF+Bymre
-	pKnCawoQ==;
+	bh=awCRBzfBSO0cm9zEvmZIeCCRXLT0QzBOpw1tpjmmlbQ=; b=3KZo8sAgyV6zd2sxEyzNjNoUQw
+	iQTxbUww146/QY1CFw1AKPWWPoUjLXnSUqMn68w7ZFiF+hmH2E4T/S7Rqzi/rFYhxL1V3ysgHTMpK
+	SG9/bndk9NivX5D5LHe/gGaDzZtF8t2vEF1QT7JcIXPTmOab5X7p8Debhd8j7PoTGPGWUdz2xwv8I
+	7wRQIZrhQPD0ZHRnYf9dEmiOi79SusOeekKUm4522ekOYSmOYdaymUG8NiYrrzzHhBkH+wubQ0+kc
+	S9wh8K+PIld3xM59Ut+yY8mUTxcx+qovFJoh2mJaKKvbjkvAkspFHligBdAzSIe1hef9IHGoq8Xs0
+	3FssyKGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Ji-00000005SiT-3Ean;
-	Tue, 22 Sep 2026 13:13:50 +0000
-Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	id 1x90w0-00000005bft-3c4t;
+	Tue, 22 Sep 2026 13:53:24 +0000
+Received: from mail-ed2-f12.google.com ([74.125.228.76])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90JP-00000005SQb-3bNc
+	id 1x90vy-00000005bfH-2vHF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:13:33 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-49953abe51fso26292695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:31 -0700 (PDT)
+	Tue, 22 Sep 2026 13:53:24 +0000
+Received: by mail-ed2-f12.google.com with SMTP id 4fb4d7f45d1cf-6a6056ac81fso7427989a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:53:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790085200; cv=none;
+        d=google.com; s=arc-20260327;
+        b=S/pdmop3SxiyR5UNWYpLYX45OOYtKbvgUkR8jZit1GGoMIyD7WAv+OxHHHU0d9qdQ9
+         ytWC2gQRNKaXF6eyxuH0Os7juR5MZaxjoxt0fOdJuqHDv4aWOqY0RtIiI4R4RpzQhZQF
+         nwco3NmNTyy9IcWQbfQ0gm2U16MKqHMK0ic/2PXlVkv2iW+8GrMZ1j2DMHYytCtImwFf
+         VPer2znrT4fWwnvUNWPUQj8TJlXT/w5aIkZ6SlfyKD0Y5ex1HP2kPjV80TbwN+XVnM4D
+         YRvUHWc9/lChmm6J/dDTlywzzmgqlObqBUaZwuPw4VfvpBwmGrFseRECKiSPuwDhLBLG
+         I7NA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=awCRBzfBSO0cm9zEvmZIeCCRXLT0QzBOpw1tpjmmlbQ=;
+        fh=yucvavVz1pwwJYdW4pmwa4TzGlfLu0jR4k7D7At76QE=;
+        b=p/Rd8SqdlzsRXvy4gqVcwqM37fHsRsItaOyaAPRYUdh2f16yYZ7OSKc0CWXc8LxkDF
+         LBqq6gVb2dw24ww0u+ukKSWWlPWx2SZKALHHPAxD+CqbPehYfahTcy6uGRPnJdr6yW+0
+         KOYX/Qb+Fjl5OwhJZQCE1k6//1bM2ye6GrwVBxr1Yrbt5gSAgqSd1qyvkKC9a20WKdqZ
+         skVq/V8aid3OsHfeizynKN10/Q2XngFmPTUDRt7NjOQ02a8j8RiHNhE9opF4tZhHkWfM
+         IxTiDMfcYS37iLlRfjiNNevmSRWS2nyXXpxgxVCkp0o5YpYMKywvV/Jc8CdAa5vA0v2l
+         U/JQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790082810; x=1790687610; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1790085200; x=1790690000; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LSo/cDlJ7ohD2G3UI5KuRXiO2Rxr2FOcqemAL7pGINk=;
-        b=CBYKGFwM0QvXAnWfkrIpPjLXU81F8wHleMyXQiXgA62WzLY/Wyne8IOKNQOfd0oU4C
-         1EYwCZL6fjJrQ63ksIlkANkLAcOqlIdxgvUIat4NCCMOvVnNadLMiU8qGjYHgApAIksD
-         HYkorQqYNK+2RXbT0uM66DEz+MfE2+IUFGRwbJ4wjfBQRbJU6+7w1ngiHTX2WJ144Lkw
-         uZLrqT9wyU69jlzPEG+vRwXV0YE7kRM6Xh0blv7pCMfo6iWhsYC86Mk2W3AvnbfwJvUB
-         +638H/Tn4mUodcTsJyrHo+jblS/F7IniB1b30AmNrbk1UYGfpFP7hScueEe3aYgGaUwT
-         4LJw==
+        bh=awCRBzfBSO0cm9zEvmZIeCCRXLT0QzBOpw1tpjmmlbQ=;
+        b=sbxWd312IkQATZ0Ns4w5tXeR86lM96FD+ku0J6QqR7qdOkLFHS/+1nl+760fI8wuOh
+         jnRmxAvdXX2FNQKwZnNGFQyBvS6v3WYljT2UqHSSLXohUInqzbi6euICgqgwgFoyRu1k
+         9YsPS8TT1mVsuIuhFwDbsjMC8iGXu5GH0Az4h1rKQC01GFMgfgCwXa/nzXgUJGc3rLCi
+         8jKDWpt2igH8uUrwxRrBBDyfdxNNz+m4H4TrNFRW6L2RWIXzH6b3CuhvsDryaR750XpG
+         /BYCngjjXDiGew1kod6wDR9WKp6mC+XfPsfqfUMKrNScsCxRKJEtygQdYMvEPjA8rvSN
+         YtMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790082810; x=1790687610;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LSo/cDlJ7ohD2G3UI5KuRXiO2Rxr2FOcqemAL7pGINk=;
-        b=bfMR8NOfoeWXROOMPiUbc4erUgfdTZP9GIrquqDoEM4hPKGZtD6m/s6Jsj24ubSJkF
-         58GdfdwPbTcyjWdSDXi8Yf6xG+UZYdDElqiwuCXLWj2CJFfXbEiC9l4lLMfWVo67NbjI
-         JnQ0y9Zal+5KuxwhgnWz/7i7wQS4M8pRN0H/gMgO+jJf45WlBtKs2kTr2N7BaTMeSINl
-         AvV+yW6G9+nsSWM3mI/8XW0TClha7EmHapJ5TWVG8GYLY2qMMjWlH0fXfQ33Gyf8ojH7
-         lS5ZvrpMiR1PZqrkclyhGp6yi19WR0I3VKscP8ly53rKCKokdUN0kKaByH7dtLBHO8Z2
-         jRiw==
-X-Gm-Message-State: AFuF++nvSjg2NPH9pj8Sfzi2GgWNupGuK/79+J3/59r3Hukm66KiTUOH
-	JlB9t3FiddzDX81+QLWfllFJEajvrmp8Aqgm3rwCdciUwCoCHIm9COR7VHiP2GGV7jqC9UHGJ2l
-	gBpwNeev6+/F1LHdnytuWhoAUGiWgAoXQUDb4tyF0HMlYX4o0rh8H2RMWc8mvI69LzC6YeR5hf3
-	EOXPZKHqn5ewQi3KaNr4bIzBm6CykBEuBnlIzo/x7IyvAxhkEQkd2dyhYkCH803BPrCw==
-X-Received: from wmdd15.prod.google.com ([2002:a05:600c:a20f:b0:49e:78cc:d2e])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3f0b:b0:49d:1df6:2592 with SMTP id 5b1f17b1804b1-49fc5750c61mr171840065e9.21.1790082809523;
- Tue, 22 Sep 2026 06:13:29 -0700 (PDT)
-Date: Tue, 22 Sep 2026 13:12:55 +0000
-In-Reply-To: <20260922131259.2975334-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260922131259.2975334-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922131259.2975334-23-smostafa@google.com>
-Subject: [PATCH v8 22/25] iommu/arm-smmu-v3-kvm: Shadow the CPU stage-2 page table
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca, mark.rutland@arm.com, 
-	qperret@google.com, tabba@google.com, vdonnefort@google.com, 
-	sebastianene@google.com, keirf@google.com, 
-	Mostafa Saleh <smostafa@google.com>
+        d=1e100.net; s=20260707; t=1790085200; x=1790690000;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=awCRBzfBSO0cm9zEvmZIeCCRXLT0QzBOpw1tpjmmlbQ=;
+        b=g6GtBvF4BckH/QSW0kxpE3CY+B+iiVPzkvW1cwm2Gak1qxxhtgS8v/fjtwFUPztopJ
+         NSvrib4ntzVcR1T97OJPzFIqVc9HcBcqyley1WIdFS8W9YDsLcQDSYdr6YLubJXxE+kZ
+         qSLezDwM7vKp6a2Qi0OnLOe6RrZXnfe071XWNBEg5gEXlf/Ci4bVhB301a7R7FLW9Au/
+         kWdsG1dpI2Y6eN2Dqiqa1PD/zk09KtbZCiQoTQLksq8P1AP/ez8lZPPwjhxvCR4erhBg
+         ZiCmCvUGCbnIDJll1yVAnSdYRQnUL58+YN7xefmiBOJH7emnkn+NadgbJ/zkTc4byETM
+         WgyQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzUvP7k3+jHO+fpbcFOj485ix2obua/EhWrj5Rm4a0z+zKWlO38yXvsS4w+GiibEUfpQyW4aZjJGYfon+xkwWGU@lists.infradead.org
+X-Gm-Message-State: AFuF++k8FhxW0TxkTQAJGrU3WD9k79S6GOC7agaL8ijY/KucGabPyZEi
+	+8wH1qmIikH7iIH9EW3vJDna/YAJ6frHFT+ABxaR4+k0+b9Wxk7oJhlOTqtpIKxRDrkKApgd5LZ
+	wVdtw2oJ/O4PnGWBcSnuqx7RawF9utwen6KojgrJYNw==
+X-Gm-Gg: AYBFou3OqjGzv4iCR1QiVGcVI87exe97prT5VJ5NvDWpfBiMM5EHhPC2kMHgoeMZMj5
+	gOTtuGYjZjfdNUpBRnpQ6UdL1NZnNEpMcuLxscElFbAwv71QaADv3Mx1Os1AnOYPIny7RMT8n58
+	kh7WN9CqklbUCV4PmRiS0YV2kMI7n/hO5qCpGSYNZRoFdRwdkYGKjdT2pLj0RcRPxYRRUFD2qn/
+	LRNftONjdj6TPw9XRhGVgLIY8cXiRl9NOcCP8xxJ3E4aRm8XPupNA8uCs6/AXWhqjWEsJ1l0DKN
+	t2JRiMSHKjsSOM5bQqbbxIzprtkgd9uJRvCHaoVpaY6o/ZpjJlTudVNK58u4hzLB02LNiO0jH/+
+	IXQoT7MwhOK2i
+X-Received: by 2002:a05:6402:20c3:20b0:6aa:9210:262 with SMTP id
+ 4fb4d7f45d1cf-6aa92100342mr3351155a12.22.1790085199929; Tue, 22 Sep 2026
+ 06:53:19 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <aq1sooGCYUiWbhMH@p14s> <aq453yukMHiNb1jp@bywater> <CANLsYkySF+eF-FURnnT6UJv7P5Sg2HdfMSBZnZy_BLyCMvuofw@mail.gmail.com>
+ <arIfj-1Ji6HEBHLJ@bywater>
+In-Reply-To: <arIfj-1Ji6HEBHLJ@bywater>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Tue, 22 Sep 2026 07:53:08 -0600
+X-Gm-Features: AcwNN1V0zenE0U1QivuzVoqHQLJIIYIxl9SSuy2ocYOHZBqajP-1AfG4uh0OqKk
+Message-ID: <CANLsYkzaxwx8NJAOki_wkzauL68ourd12qF8PzzVKW++PJXZfw@mail.gmail.com>
+Subject: Re: [PATCH RFC 00/12] remoteproc: add support for any virtio device
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev, 
+	imx@lists.linux.dev, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_061331_968036_25614A8A 
-X-CRM114-Status: GOOD (  29.49  )
+X-CRM114-CacheID: sfid-20260922_065322_769892_2ECB1C34 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,234 +125,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hypervisor calls back into the driver on every change to the host
-stage-2 page table.
-Mirror those changes into an identity mapped stage-2 for the SMMUv3,
-That would be attached to all active SIDs.
+On Tue, 22 Sept 2026 at 00:29, Francesco Valla <francesco@valla.it> wrote:
+>
+> On Sun, Sep 20, 2026 at 09:31:11PM -0600, Mathieu Poirier wrote:
+> > On Sat, 19 Sept 2026 at 01:33, Francesco Valla <francesco@valla.it> wrote:
+> > >
+> > > Hi Mathieu,
+> > >
+> > > On Fri, Sep 18, 2026 at 10:53:54AM -0600, Mathieu Poirier wrote:
+> > > > Hi Francesco,
+> > > >
+> > > > I have started reviewing this set but given the size and implications, it will
+> > > > take me a few days to get through.
+> > >
+> > > I'm going through the review done by sashiko - would you prefer me
+> > > sending a v2 with the trivial errors already ironed out before doing
+> > > a complete review?
+> > >
+> >
+> > We can wait if the errors are trivial.
+> >
+>
+> Not all of them are. I have been a bit to naive about the bounce buffer
+> management w.r.t. what can happen if a memory area is not specified and
+> I will need to rethink/rework that part.
+>
 
-Difference between memory and MMIO handling:
+Ok, I'll keep an eye out for that.  I'm already halfway through your
+work, so there's no need for a new version now.
 
-- Memory is always mapped with PAGE_SIZE. io-pgtable-arm no longer
-  supports split_blk_unmap, so a block cannot be broken into a table
-  once it is mapped, and pages are donated back and forth at PAGE_SIZE
-  granularity. The page table pool is sized to cover all of memory at
-  that granularity.
-
-- MMIO is mapped with the largest block that fits, as it is assumed to
-  cover the whole IAS that is not memory while pKVM only reserves 1G
-  for the page table. MMIO is never donated at runtime, so it is never
-  unmapped and never needs a block to be split.
-
-The TLB maintenance ops are left as stubs, they are implemented in the
-next patch.
-
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 153 +++++++++++++++++-
- 1 file changed, 152 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-index 6e023e968ed3..6f0ea3a4e48d 100644
---- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-@@ -14,6 +14,9 @@
- #include "../arm-smmu-v3.h"
- #include "../arm-smmu-v3-common-lib.h"
- 
-+#include <linux/io-pgtable.h>
-+#include "../../../io-pgtable-arm.h"
-+
- size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
- struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
- 
-@@ -70,6 +73,9 @@ static inline u64 hyp_clock_ns(void)
- 	__ret;								\
- })
- 
-+/* Protected by host_mmu.lock from core code. */
-+static struct io_pgtable *idmap_pgtable;
-+
- static bool is_cmdq_enabled(struct hyp_arm_smmu_v3_device *smmu)
- {
- 	return FIELD_GET(CR0_CMDQEN, smmu->cr0);
-@@ -215,6 +221,24 @@ static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
- 	return smmu_sync_cmd(smmu);
- }
- 
-+static void smmu_tlb_flush_walk(unsigned long iova, size_t size,
-+				size_t granule, void *cookie)
-+{
-+	/* TBD: Invalidate the range in all the SMMUs. */
-+}
-+
-+static void smmu_tlb_add_page(struct iommu_iotlb_gather *gather,
-+			      unsigned long iova, size_t granule,
-+			      void *cookie)
-+{
-+	/* TBD: Invalidate the granule in all the SMMUs. */
-+}
-+
-+static const struct iommu_flush_ops smmu_tlb_ops = {
-+	.tlb_flush_walk = smmu_tlb_flush_walk,
-+	.tlb_add_page	= smmu_tlb_add_page,
-+};
-+
- static int smmu_abort_gbpa(struct hyp_arm_smmu_v3_device *smmu)
- {
- 	int ret;
-@@ -480,6 +504,38 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
- 	return ret;
- }
- 
-+static int smmu_init_pgt(void)
-+{
-+	/* Default values overridden based on SMMUs common features. */
-+	struct io_pgtable_cfg cfg = (struct io_pgtable_cfg) {
-+		.tlb = &smmu_tlb_ops,
-+		.pgsize_bitmap = ~0UL,
-+		.ias = 48,
-+		.oas = 48,
-+		.coherent_walk = true,
-+		.quirks = IO_PGTABLE_QUIRK_NO_WARN,
-+	};
-+	struct hyp_arm_smmu_v3_device *smmu;
-+	struct io_pgtable_ops *ops;
-+
-+	for_each_smmu(smmu) {
-+		cfg.ias = min(cfg.ias, smmu->oas);
-+		cfg.oas = min(cfg.oas, smmu->oas);
-+		cfg.pgsize_bitmap &= smmu->pgsize_bitmap;
-+		cfg.coherent_walk &= !!(smmu->features & ARM_SMMU_FEAT_COHERENCY);
-+	}
-+
-+	/* At least PAGE_SIZE must be supported by all SMMUs */
-+	if ((cfg.pgsize_bitmap & PAGE_SIZE) == 0)
-+		return -EINVAL;
-+
-+	ops = kvm_alloc_io_pgtable_ops(ARM_64_LPAE_S2, &cfg, NULL);
-+	if (!ops)
-+		return -ENOMEM;
-+	idmap_pgtable = io_pgtable_ops_to_pgtable(ops);
-+	return 0;
-+}
-+
- /* Called while is the host is still trusted. */
- static int smmu_init(void)
- {
-@@ -509,7 +565,10 @@ static int smmu_init(void)
- 
- 	BUILD_BUG_ON(sizeof(hyp_spinlock_t) != sizeof(u32));
- 
--	return 0;
-+	ret = smmu_init_pgt();
-+	if (ret)
-+		goto out_reclaim_smmu;
-+	return ret;
- 
- out_reclaim_smmu:
- 	while (smmu != kvm_hyp_arm_smmu_v3_smmus)
-@@ -998,8 +1057,100 @@ static bool smmu_dabt_handler(struct user_pt_regs *regs, u64 esr, u64 addr)
- 	return false;
- }
- 
-+static size_t smmu_pgsize_idmap(size_t size, u64 paddr, size_t pgsize_bitmap)
-+{
-+	size_t pgsizes;
-+
-+	/* Remove page sizes that are larger than the current size */
-+	pgsizes = pgsize_bitmap & GENMASK_ULL(__fls(size), 0);
-+
-+	/* Remove page sizes that the address is not aligned to. */
-+	if (likely(paddr))
-+		pgsizes &= GENMASK_ULL(__ffs(paddr), 0);
-+
-+	WARN_ON(!pgsizes);
-+
-+	/* Return the largest page size that fits. */
-+	return BIT(__fls(pgsizes));
-+}
-+
- static int smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
- {
-+	size_t pgsize = PAGE_SIZE, pgcount, size;
-+	struct io_pgtable *pgtable = idmap_pgtable;
-+	int ret = 0;
-+
-+	end = min(end, BIT(pgtable->cfg.oas));
-+	if (start >= end)
-+		return 0;
-+
-+	size = end - start;
-+	if (prot) {
-+		size_t mapped;
-+
-+		if (!(prot & IOMMU_MMIO))
-+			prot |= IOMMU_CACHE;
-+
-+		while (size) {
-+			mapped = 0;
-+			/*
-+			 * We handle pages size for memory and MMIO differently:
-+			 * - memory: Map everything with PAGE_SIZE, that is guaranteed to
-+			 *   find memory as we allocated enough pages to cover the entire
-+			 *   memory, we do that as io-pgtable-arm doesn't support
-+			 *   split_blk_unmap logic any more, so we can't break blocks once
-+			 *   mapped to tables.
-+			 * - MMIO: Unlike memory, pKVM allocates 1G for all MMIO, while
-+			 *   the MMIO space can be large, as it is assumed to cover the
-+			 *   whole IAS that is not memory, we have to use block mappings,
-+			 *   that is fine for MMIO as it is never donated at the moment,
-+			 *   so we never need to unmap MMIO at the run time triggering
-+			 *   split block logic.
-+			 */
-+			if (prot & IOMMU_MMIO)
-+				pgsize = smmu_pgsize_idmap(size, start, pgtable->cfg.pgsize_bitmap);
-+
-+			pgcount = size / pgsize;
-+			ret = pgtable->ops.map_pages(&pgtable->ops, start, start,
-+						     pgsize, pgcount, prot, 0, &mapped);
-+			size -= mapped;
-+			start += mapped;
-+
-+			if (ret == -EEXIST) {
-+				/*
-+				 * It is possible to get EEXIST when a VM dies with pages
-+				 * in a shared state.
-+				 */
-+				ret = 0;
-+				size -= pgsize;
-+				start += pgsize;
-+				continue;
-+			}
-+			if (!mapped || ret)
-+				break;
-+		}
-+	} else {
-+		struct iommu_iotlb_gather gather;
-+		size_t unmapped;
-+
-+		while (size) {
-+			pgcount = size / pgsize;
-+			iommu_iotlb_gather_init(&gather);
-+			unmapped = pgtable->ops.unmap_pages(&pgtable->ops, start,
-+							    pgsize, pgcount, &gather);
-+			size -= unmapped;
-+			start += unmapped;
-+			if (!unmapped)
-+				break;
-+		}
-+	}
-+
-+	if (ret)
-+		return ret;
-+
-+	if (WARN_ON(size))
-+		return -EINVAL;
-+
- 	return 0;
- }
- 
--- 
-2.55.0.1082.g2b9226bbc0-goog
-
+> Regrads,
+> Francesco
+>
 
