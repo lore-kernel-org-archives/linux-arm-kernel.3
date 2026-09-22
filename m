@@ -4,67 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 452F6C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EFBC98307
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H376EqLxzYGIR1HtxMkEdnt6E0UelkYiOnFTiHSoQvo=; b=tN0zRxhH97AgpG9KMeXwz/KfJw
-	zFr0tMVyKaj0GX1G1PoO3bfhzQCOlBdzqHQNRzMCoh3wrxrrDBTFR0tYXvj1XkBOtt8fKgvRN5VTl
-	TN4sAMeDw7Lcj9Rwo/aYOQK21AmImTkAFrxn8b7Ah1lH87SPYQCfLPTJXVsWcsWut0ZxGc0ncuIR9
-	/jbDrffooAMmpo/TWY0+QZ7QRts1LFLWuB5Zj1Su3/ZICYRtBboc+rrP6J0WB2So45aTCHqLgXIIK
-	pO7U3r2V3MN8wAVqnh8w9x3UgqLNBo0Ze/SrrsScE+cTZAkFuqe1kERcLZH5AWZifb4xwGx2nsouA
-	vwol7ZDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dfrxig7zhSKDLhGOOvPoUHViJ6FfSwVsRqNPifKAURk=; b=F89DRnwE+fpzOY42L0PEQAG3fF
+	dxXJLUfev0PecOCS1MdPu1xPT+pR8gjw5AOEpCuMOXgj3IxazhePGxB/8IEQJyjNdKerjm5khURCZ
+	D1lwRDk+uaIb327MUzxNs9vJyZgFVIUOnvcxtyt5e3CgVw2zcWr3/mJ/FBp5YQrYHk7q4Vk69BwGv
+	Z5GlNZgjcXLY05GfL8bw7IWed9+gBNk0VlHDwEqxXeVLM8AVXhURtIqtHhClGjpRUX5T8BqO0b1lS
+	GUsaLU9x3tn/T61ww7YAvx/l9Ovv9KN9eQo8daNn8HFrJPRhrqSatnTn+U9tvtjpUnfKCbTsN/map
+	2D1KSmIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92xP-00000005zZ1-0ySX;
-	Tue, 22 Sep 2026 16:02:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x92yS-00000005zmw-1rc2;
+	Tue, 22 Sep 2026 16:04:04 +0000
+Received: from mail-yx2-x12.google.com ([2607:f8b0:4864:41::12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92x9-00000005zTo-0MHd
+	id 1x92yP-00000005zmL-1hRd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 16:02:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 85EE560D89;
-	Tue, 22 Sep 2026 16:02:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A2531F00893;
-	Tue, 22 Sep 2026 16:02:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790092962;
-	bh=H376EqLxzYGIR1HtxMkEdnt6E0UelkYiOnFTiHSoQvo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gbg7ccOGOHfyCevLSfueubPZxgRebYPJKVNDKKFzBzw6h0hDOgjuh74QV9DqMmGar
-	 d9IDggV2zjJZA1WhKhXhqTUCs4NUYJ6q3pBmG86/8/jfjfwSF6dF8gIZGTE2vDlRN1
-	 xl8n7BRHobN1FgBfD40kFZMnPh3ro3BGBc0hl57HkcDidW2wjF50yywvQP9JpDGVcr
-	 6ilT7RzMCyMZR8TybQni7mreH86OAvGdw4/PybXdi7O5QEwYnBndHKAGYD2Rc7LC0t
-	 Xb4CEhZWMbv53p80pJKtT65z4Q0flHM8l8h97BPm6pP1apeDo9gyYBvXeChO8IBDPF
-	 3mcPVLOdah0Bg==
-Date: Tue, 22 Sep 2026 11:02:41 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
-Cc: Beleswar Padhi <b-padhi@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
-	Thomas Richard <thomas.richard@bootlin.com>,
-	linux-kernel@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>,
-	devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	Udit Kumar <u-kumar1@ti.com>, Nishanth Menon <nm@ti.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Tero Kristo <kristo@kernel.org>
-Subject: Re: [PATCH v4 1/7] dt-bindings: remoteproc: k3-r5f: Add Jacinto LPM
- memory region
-Message-ID: <179009296069.3521742.6970352626408924376.robh@kernel.org>
-References: <20260921145325.300025-1-richard.genoud@bootlin.com>
- <20260921145325.300025-2-richard.genoud@bootlin.com>
+	Tue, 22 Sep 2026 16:04:02 +0000
+Received: by mail-yx2-x12.google.com with SMTP id 956f58d0204a3-66e4ab19127so4942777d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 09:04:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790093040; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oS+J0dmNVRpM8MizHRTQbgL/p1mlBwqdIDVVFcrAYwiXXk9Y60kk8n2T26YWm+sGha
+         iiokYetA0HfKJYwjEx4oXUQk+coIQK2eQ35mLoxB6cOrWtcf6dRM1egih82ACPeGbVxq
+         GOjFJvI7TKiR61BVK+uMrt9dfkcCchcG75AAcfkBS+W/ggrxSpKAGx6yMSkpABq9+zgx
+         fglvuoa/VJE7RV/dkIw6QAosoYZqgTT96t248gXagQzUo8hOA9wodk94esrrfmelmkq2
+         nRNp0q4wNgmfRyuO+3yYOTVYqk4KnvxW/L86t3H9q5aggZNEdz0q6kXJNQcmvFDX4YDZ
+         8cdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=dfrxig7zhSKDLhGOOvPoUHViJ6FfSwVsRqNPifKAURk=;
+        fh=/29mqJWUp8nIpnEDRmqaOV9jfcvbIZOsiXkr8nGHhnE=;
+        b=bhuI+XlccrYvi5FUWrk9ODKC6Gz6tPLHQCn7+tG+IihoCO1ecR82IwOE/NQWixjppE
+         l2SCAxqzVvyI93Oprh/zRM3ACuZmQFsQxl84IHqzsl5nxZ7JXN895rbwpbPMG7DhjhR/
+         nVZCVBbhoxGxVhYD3NyiXCsnb/7JV4DhmQVk7NKsUaYGgGZwRhbUM1oV3Z5BnPTwIw+u
+         pkPsgFXF6mZnlr+sw2gmA+6Tnwk0ZOFpssb4umVRtYxDyRBQaBa/l+xZ37Zx19EjwDy6
+         Vel6ptRDb2hJurTnSDBwa1UqU/CrmjqPc9nZ0ZNqzWRkqqoTP1/IICuaRpwXrqaU+len
+         FLxg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790093040; x=1790697840; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dfrxig7zhSKDLhGOOvPoUHViJ6FfSwVsRqNPifKAURk=;
+        b=qRR4bd2qy5r8L3X6LMTpIxr4EZcOwfsCUz4x0Q9VszjyPYiEfuip0i1a8+2HxLZQHm
+         +2HFvRVTgzN5n6MCItfk454yiK5SfRwqPD7mOUgJrIrKJU/8PklkiTTeJR3Q9QNgMTYj
+         raUeAHYjIsrR2Al6ndO9vUk8Y7iz8/wZbu3XUPH8S99m/wM7VJd1mtGN2eGKjD/hiiVH
+         bbTwIl7w/CsXhe5QkEnNw8hrpSNnku+knqJ2qF8h6Gf706V24DdYHMJMz/eZtkUhl6LT
+         Fy92KznxyuSckrL1J/e71a9JgBPGfqvftAECwFYVUGTx4q8YOc9iIX73mjvzly1Rb8Pl
+         6kIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790093040; x=1790697840;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dfrxig7zhSKDLhGOOvPoUHViJ6FfSwVsRqNPifKAURk=;
+        b=lYYi5Rln90Eot0qOYuYzyZ4AAEqdvGGLDkZM+m8UBMoQTAOMl8vj9lyx+TICBLaXc/
+         2h9rJ7SS+QYFTBJvyQ7nZFORay+1VYXo0Zsu1fP24apQzRhJ6xQdWGaMWxXgsFnbeI3d
+         /Bq64CiFC3nZ5LgVjp+tMM3P4YZCooQsCEHg/6NR/LHmd5l3ZgIRwY25baGSpLPo9aKo
+         AKOQgUpniEeU3Wz8KG3U/E9LJPOj76/fPMWa/B25UJnn4AFhqpLCGoai1zM7DHX/mhqT
+         VpyUTxFgz0WNIT9P47d6lLEmxXQfXmi3xEv48TB0O/JEnKa7NCgR9BKwXEoYSXOvNAOF
+         CKng==
+X-Forwarded-Encrypted: i=1; AKwUvBxrZ79kuJU4CBubsCQciWqL9fm1Lr0aaqKdOlS6D/XznwJMiHSM/tN0Uxin1DgoiBuXactol+KKMvZGftkANazQ@lists.infradead.org
+X-Gm-Message-State: AFuF++l01Lw7fihjKvA7RvqoULHHWH32LmlvA8xCclaxECe97rCvduUY
+	ZNYwe2wCNqHjugOKzEHEBy35FyeOB4YxzXqfDsMq8i0zo72gSD2Aq3Rrc59bs6X/DaBObgF1Zhb
+	E9yWyAUp5c+qy2H9v6Qwtavdxh6zO/oM=
+X-Gm-Gg: AYBFou1zk5vw0/WcPxOf8sI1NqPMerCDNWE0ooBe+ZRcYzLkV+3KN9g/GWBe9E+ak1n
+	SLias81zwBgliysYurpSOcvIRWqSjEccv0P0R3aggqTcefVnZGGn1gTyJMHb9p18RANrNsmCdB3
+	JFeHqynuBeS5I8gaMMxQw6++NWzvT8n1rshS3AIOgk/9VbA8kpnt/qrQA2v2dZNvlxc849rM6NP
+	nBjRX/mk+leAKzwAkNdtqmtaNEoMTz5Kwvir/y24C7BGYjco21VydhuaymM3YlM8NCCbjEAhZ2C
+	uIOqreFDMivu444S1uwKBleMptYhklLDXAlC8J18dTtUylEy0qKOZkjyGion5VjzQtP6
+X-Received: by 2002:a05:690e:1249:b0:671:502f:dd32 with SMTP id
+ 956f58d0204a3-6717fd6b6a6mr5447023d50.53.1790093039560; Tue, 22 Sep 2026
+ 09:03:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260921145325.300025-2-richard.genoud@bootlin.com>
+References: <cover.1790079398.git.prasanth.padarthi10@gmail.com>
+ <cb05fc2f4158b03d312b94cd9361173fe92ac528.1790079398.git.prasanth.padarthi10@gmail.com>
+ <179008369971.83584.9572254757332285883.b4-review@b4>
+In-Reply-To: <179008369971.83584.9572254757332285883.b4-review@b4>
+From: Prasanth <prasanth.padarthi10@gmail.com>
+Date: Tue, 22 Sep 2026 21:33:48 +0530
+X-Gm-Features: AcwNN1Vb40B7-CxaHaopn8HdM12Pklcn_b9p8jPV7ixD3IPvviwFvarSvM72SF0
+Message-ID: <CAMFFDGhNg7ogv0NYXe5Vga0Tf+XD85n80=MOwa6FgSX7q9D0ew@mail.gmail.com>
+Subject: Re: [PATCH v7 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+To: Tan Siewert <tan.siewert@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, ryan_chen@aspeedtech.com, 
+	billy_tsai@aspeedtech.com, andrew@lunn.ch, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_090401_454861_4E527C20 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +122,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Tan,
 
-On Mon, 21 Sep 2026 16:53:19 +0200, Richard Genoud (TI) wrote:
-> Declare a carveout memory region to store LPM metadata on Jacinto
-> devices.
-> 
-> For Jacinto devices, this memory region is needed for saving ATF context
-> and the certificate information of ATF and OPTEE and DM image. This LPM
-> metadata area is firewalled to be accessed only by TIFS.
-> 
-> U-Boot R5 SPL/TIFS will use this area to save and restore:
-> - ATF context
-> - ATF certificate information
-> - OPTEE certificate information
-> - DM image (which has been copied in memory at boot time by U-Boot
-> R5-SPL)
-> 
-> At resume, U-Boot R5 SPL is executed and detects that the board is
-> resuming (with a flag set in the PMIC), then it:
-> - brings out of retention the DDR
-> - retrieves the LPM memory region from DTS
-> - authenticates certificates from LPM memory region and applies firewalls
-> - asks TIFS to restore TFA and its own minimal context
-> - starts TFA on remote proc
-> - loads back DM image from memory and jumps to DM
-> 
-> https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
-> 
-> NB: This memory region is not part of DM memory (which is not retained
-> at suspend)
-> 
-> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
-> ---
->  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml   | 18 +++++++++++++++---
->  1 file changed, 15 insertions(+), 3 deletions(-)
-> 
+Thank you for the review.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+I have successfully rebuilt the B650D4U DTB using multi_v7_defconfig,
+with CONFIG_ARCH_ASPEED=3Dy and CONFIG_MACH_ASPEED_G6=3Dy.
 
+I'll correct the GPIOP indentation and retain the review trailers if
+another revision is needed.
+
+Thanks,
+Prasanth
+
+On Tue, Sep 22, 2026 at 6:58=E2=80=AFPM Tan Siewert <tan.siewert@9elements.=
+com> wrote:
+>
+> > Add the device tree for the ASRock Rack B650D4U BMC, which is
+> > based on the ASPEED AST2600 SoC.
+> >
+> > Describe the BMC memory, SPI NOR flash layout, UART console,
+> > GPIO line names, video framebuffer memory, I2C EEPROM, and MAC0
+> > connected to an RTL8211F Ethernet PHY.
+> >
+> > Use the EEPROM on I2C7 as the NVMEM provider for the MAC0 address.
+> >
+> > Configure MAC0 to use the RTL8211F in RGMII-ID mode.
+> >
+> > Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+> >
+>
+> *snip*
+>
+> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/a=
+rch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+> > new file mode 100644
+> > index 000000000000..a4e384588a54
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+>
+> *snip*
+>
+> > +&gpio0 {
+> > +     gpio-line-names =3D
+> > +             /* A0-A7 */     "","","","","","","","",
+> > +             /* B0-B7 */     "","","","","","","","",
+> > +             /* C0-C7 */     "","","","","","","","",
+> > +             /* D0-D7 */     "","","","","","","","",
+> > +             /* E0-E7 */     "","","","","","","","",
+> > +             /* F0-F7 */     "","","","","","","","",
+> > +             /* G0-G7 */     "","","","","","","","",
+> > +             /* H0-H7 */     "","","","","","","","",
+> > +             /* I0-I7 */     "","","","","","","","",
+> > +             /* J0-J7 */     "","","","","","","","",
+> > +             /* K0-K7 */     "","","","","","","","",
+> > +             /* L0-L7 */     "","","","","","","","",
+> > +             /* M0-M7 */     "","","","","","","","",
+> > +             /* N0-N7 */     "","","","","","","","",
+> > +             /* O0-O7 */     "","","","","","","","",
+> > +             /* P0-P7 */     "button-reset-n","control-reset-n",
+> > +             "button-power-n","control-power-n",
+> > +             "button-nmi-n","control-nmi-n",
+> > +             "","",
+>
+> Nit: indentation.
+>
+> Other than that:
+>
+> Reviewed-by: Tan Siewert <tan.siewert@9elements.com>
+>
+> --
+> Tan Siewert <tan.siewert@9elements.com>
 
