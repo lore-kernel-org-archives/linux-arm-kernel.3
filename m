@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB1FC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59650C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9SqF1U4AYAmpuF1a0G96/WAnPd35ZdOW84UAYiJBR8=; b=rucg+hjUP+eJ1Mc71BpV7yFUDg
-	93muWA6hlkvfQ5RqX/VQkxJuJgVjOT45PoW8F7uiyZY71jk0DKdK7aV0ajkQSvXBiVnrUZEcbi23v
-	K4PKVpIu9Vnisgv37QETu4eqeq1rnyGEH0ZbmhCSRTYdf2hPbG17gmSumGefvLrOOGmt8NMOsOmVA
-	em3HZswKQdrX9xt6NHvW7kABxHqIzQKmv+X9nNP1N3aK4XKXBJMtGPG4gX6eA3oDFs+LgOYmzaikR
-	DVPTordkbKji7kNqGsu/6lfnZmduJcsq68HeOUhC3r0Mf4TM/71mlxeD+W9i+PeWxr20g/exSdkYo
-	YkbYsEYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PMH22imOcniT9n8fNl/LfwvN4I1qM42v7JXXBlyhKJc=; b=Mel3mjukwbQY2jRqlCrWAVOSfg
+	jogIgTDlQmkNeHmQR72EzpdkWIQPpYeeACehm4hxb27ueCIh+6r73/0yYeEmFiNEJ1QZtHDRH2c6m
+	E1F92YvQHnjtc0coajehcCEPwJxfCAK2hwrByIKaACukZu0cxH28Hfcm0LpXxzjuv3N2qmqchUthd
+	Aav0hBaycyqkl5fxYGreYjZsZJ4wMje29TKh4ysQVLi2malwJDYkpN7oA5y6G9CmdRhajwqRhOIhr
+	pYPaCcf979D67D3hY7bCQMXjiI6qAhb4+8CBJSOhQsvM/4fbtd/sSRWVGLP8slY3omz6f9qnSLILh
+	cFHJs+sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97KJ-00000006Yfx-1U1l;
-	Tue, 22 Sep 2026 20:42:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x97jS-00000006ajJ-1ypM;
+	Tue, 22 Sep 2026 21:08:54 +0000
+Received: from out-75.mta1.migadu.com ([2001:41d0:203:375::4b] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97KH-00000006Yfd-2jb7
+	id 1x97jP-00000006ahr-0rZE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 20:42:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93D9760142;
-	Tue, 22 Sep 2026 20:42:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAB881F0089A;
-	Tue, 22 Sep 2026 20:42:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790109772;
-	bh=b9SqF1U4AYAmpuF1a0G96/WAnPd35ZdOW84UAYiJBR8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ot50nqYa/vsD+HB2q0FRrRNgPARDAPRd+XUlcKbw2C2Nd8GheCjRiCk83nxmTP249
-	 ufuLNrMiPHtEd5o9ypLesJK1Y0+m84SUTp6pnv9gdW5siMF9JpTqBCw97jQTn3wPVg
-	 RYrHcnLnIGwkXgGFhs1tqUY3p1yqpHzemp0QTbhPGQGD9fBVk2Fc0xFeZGjkWfEc7X
-	 zKzOLUsuVaoKiVJRlg0xCX8kLlgnwBNs9tw4J0YUG4rMQiRX1gQ+/NofpzI5iValLl
-	 zPXAL9mERHl+HrEEKrN9FWJBjbLKfQTpjepOrkh0nyr4CPof6O3a+lJIKoKC1qBOeZ
-	 /uukaxJgnIjBA==
-Date: Tue, 22 Sep 2026 13:42:50 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Jack Thomson <jackabt@amazon.com>,
-	Jack Thomson <jackabt.amazon@gmail.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Leo Soares Passos <Leo.Bras@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 00/14] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
-Message-ID: <arLoSiMeCkzPkl9T@kernel.org>
-References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+	Tue, 22 Sep 2026 21:08:53 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=mwU7r2R0iXancqDMVbrNZC/D/wd+eK8OiPSqY0f/ZZ8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790111325; v=1; x=1790716125;
+ b=npD3YMe1TauKwFokkT0upDAePuBU6kkQifazjjuCBbUfwOrNU0L63a7vIm7dPP3tBH0JqU0V
+ 6GXI3A+iyA1U5xJTeMyZ54yGaeFG/33dJW07F4KvU8wy1cjN2KVCNiqjQM7bZRNPJqQ8PQH2Efw
+ c1V4wyVFeD4DNMBz9MqR81zE=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id a0710456afc2675d;
+	Tue, 22 Sep 2026 21:08:44 +0000
+X-Mizu-Trace-ID: a0710456afc2675d
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Manivannan Sadhasivam <mani@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH] PCI: iproc: Use __free(device_node) in iproc_pcie_msi_enable()
+Date: Tue, 22 Sep 2026 22:08:39 +0100
+Message-Id: <20260922210839.3765444-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_140851_768582_747CCF2F 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +78,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 03:17:54PM +0100, Lorenzo Stoakes (ARM) wrote:
-> ---
-> Jack Thomson (3):
->       KVM: arm64: Pass walk flags to kvm_pgtable_get_leaf()
->       KVM: selftests: Enable pre_fault_memory_test for arm64
->       KVM: selftests: Add option for different backing in pre-fault tests
-> 
-> Lorenzo Stoakes (ARM) (11):
->       KVM: Allow architectures to disallow pre-fault
->       arm64: Add ESR fault helpers
->       KVM: arm64: Use ESR helpers in guest abort handling
->       KVM: arm64: Propagate and use esr in s2fd when handling guest aborts
->       KVM: arm64: Propagate and use mmu in s2fd when handling guest aborts
->       KVM: arm64: Propagate and use kvm_s2_fault_result on S2 fault
->       KVM: arm64: Size the stage-2 memcache from the fault MMU
->       KVM: arm64: Propagate EHWPOISON in kvm_s2_fault_pin_pfn()
->       KVM: arm64: Implement KVM_PRE_FAULT_MEMORY
->       Documentation: KVM: document arm64 KVM_PRE_FAULT_MEMORY
->       KVM: selftests: Add nested pre-fault test for arm64
+Declare msi_node with __free(device_node) and drop the out_put_node
+label and its goto: the scoped cleanup puts the MSI controller node on
+every return, as the label did.
 
-Besides the usual nitpicking, this series is looking good to me. Thank
-you for picking this up Lorenzo!
+No functional change intended.
 
-Reviewed-by: Oliver Upton <oupton@kernel.org>
+Suggested-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Link: https://lore.kernel.org/linux-pci/61488ddc-b346-4ba3-b32a-e972a3bd75a4@mailbox.org/
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ drivers/pci/controller/pcie-iproc.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-Thanks,
-Oliver
+diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
+index afb3aa38ac6bb..b4f4e6e1d4b41 100644
+--- a/drivers/pci/controller/pcie-iproc.c
++++ b/drivers/pci/controller/pcie-iproc.c
+@@ -1338,7 +1338,7 @@ static int iproc_pcie_msi_steer(struct iproc_pcie *pcie,
+ 
+ static int iproc_pcie_msi_enable(struct iproc_pcie *pcie)
+ {
+-	struct device_node *msi_node = NULL;
++	struct device_node *msi_node __free(device_node) = NULL;
+ 	int ret;
+ 
+ 	/*
+@@ -1357,18 +1357,14 @@ static int iproc_pcie_msi_enable(struct iproc_pcie *pcie)
+ 	if (pcie->need_msi_steer) {
+ 		ret = iproc_pcie_msi_steer(pcie, msi_node);
+ 		if (ret)
+-			goto out_put_node;
++			return ret;
+ 	}
+ 
+ 	/*
+ 	 * If another MSI controller is being used, the call below should fail
+ 	 * but that is okay
+ 	 */
+-	ret = iproc_msi_init(pcie, msi_node);
+-
+-out_put_node:
+-	of_node_put(msi_node);
+-	return ret;
++	return iproc_msi_init(pcie, msi_node);
+ }
+ 
+ static void iproc_pcie_msi_disable(struct iproc_pcie *pcie)
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+-- 
+2.39.5
+
 
