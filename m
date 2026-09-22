@@ -4,54 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5056C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE5AC982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GHcrmWBbamtMM40zGOq2ru89k4AwG4f3HlOwSmuke7Q=; b=UNpN3wpLXZvv1Sut5b9u/HbKhs
-	sQxwr22jMDZ84iQqGFSPdoig3OcASB7sghHWe3SNSL6Eb96XfFQUg8DKuaQbLGfWq31+wzZtoI8Gn
-	BPYNavQOUBd/b4nTUFqGFgAz9cMMFRtKSUrVsgdb39acgzyOjdI8WbPLIY0Xi1/0XN09U6RKplAJj
-	MuZyIvvcAt0yGm/NKxg+U+XXoasMeciBzG6hcVZhfWaGKUpEs23Tt0/X9B9VJ7dwl823dy2dxhKzF
-	JRz3sGYK3O9jfjaNOQES+MeAa0L1SVNwSK4eGCNHhQ42of1ePEKp/hn9C8iD17rwpjHAhzr8IdFt5
-	nm0OBkIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JDp7kCvGQJv7Gj/mubADb200WD9R0dbypDFk/xuiIQw=; b=ngdViGEntje9UUEZZs+uMRhu7g
+	qotfmXkiiF6g8eLCaKzTB4oGwGJmuv1xGt/L806nlaZhurUWpH2+hrenGwJ+nKfMUPwUC6i1mslUA
+	G6zW3XasfYsEX19DYw++3I3kclzYBfu0gx6/nLh3LL+Vk/TSxKvuNzQ9qltgpzME93XLASnLlZxv8
+	fS07MpB9YdS5XTMWXIRD0Tm1LbluhbhNwhm7rZXjrHCS8WRNFKXSNcRB6gqblOkfl6L9mL+Zg2LaZ
+	yj6yt/1At5nts1j3d91Rvx1TjnmHwX4NL/VgOZw9Pwkh/mzz1QgaZHnUtFAt88r34/S+ChUFuowfj
+	rZLGX55Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8r5S-0000000440h-2VSA;
-	Tue, 22 Sep 2026 03:22:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8r74-000000044KF-49mQ;
+	Tue, 22 Sep 2026 03:24:10 +0000
+Received: from mail-qk2-x0f.google.com ([2607:f8b0:4864:34::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8r5Q-000000043zA-0C0p
+	id 1x8r71-000000044J9-3DzG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 03:22:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78DC343F36;
-	Tue, 22 Sep 2026 03:22:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38D2B1F00898;
-	Tue, 22 Sep 2026 03:22:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790047347;
-	bh=GHcrmWBbamtMM40zGOq2ru89k4AwG4f3HlOwSmuke7Q=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=VU09n4gntRUY5Qnyj5Ppo98GZZVHMTByBzKM7F85C91tIVcW/QYHilwjwVG1+/wei
-	 eim87yjXp7eNYYNEs3igBS//pxis1/j817CndDnXAvKJKE+kGf2JdxefXIjTyyx837
-	 FOpqKO1E3+x4q6U5/d7jtPY2zkIxfNgQVwEqQagTNNW53SUhn+wdIF08lbYWd8PWRi
-	 +D3SCrijVlhfeRH4rsYha0ED7KjOdjbk8Ub77KofqdxGCBDVSewaUoCu8YspzlZGCu
-	 6Z3MIfq7cSd3iJjls38cOSM6JCXHwovZxCn89Ey1JS2usitKwJPk+m9uM1ARSKU4Lf
-	 5ev97SE9J3esg==
-Content-Type: multipart/mixed; boundary="===============6129579292215528045=="
+	Tue, 22 Sep 2026 03:24:08 +0000
+Received: by mail-qk2-x0f.google.com with SMTP id d75a77b69052e-52fb76ef1d0so31268121cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 20:24:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790047446; x=1790652246; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JDp7kCvGQJv7Gj/mubADb200WD9R0dbypDFk/xuiIQw=;
+        b=iMxXAMvnMkxU4W4LgFGzHozWRxUy/xaKoiWArhSykevp2oMT0QHUQ8zEbnQrlGcjfW
+         ewKqcsQLI1Q7Kt1xzkhgxkBwToR8tBrcUou7CjdnIrZy68lx4KL/CdLmUPc0npDqpIC9
+         9TexGMWXk8pPROmlgAFYzSfEiD/XHrVi6m+UbS305YA81g1Ui64UBEzNeNJi1iwxNhkl
+         mFDsuzU7myYBQkiXUTkOgXbZR7WZS75wjSKqkZtj0qTxlArVPaVMz7xo2GoNZARMKU8p
+         g1Zog1Y7nI/C/y1zt2AR0LqIcnxb5LlxXh0QG4qPjbudVpBOti9x4MGk33xRWxy1/2T7
+         HCTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790047446; x=1790652246;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JDp7kCvGQJv7Gj/mubADb200WD9R0dbypDFk/xuiIQw=;
+        b=Wqd9l2k3XJ7i8xBcevpO+hQrWSTmC1M/y6U3fm52B8Ifv+EgnF3ggTPWcoaeLCBBk0
+         XTx1eaTBO3VKB5ruAnGh2fhwfu2e1VCiA3kweNOMOhHO8unKbrUgHVB0M9F8nax/9NxD
+         1KxeAYwiljFwe+JZBwPp1dKm4kxRzMgg/Mf2yv0fava5OsCs9xu64SuLYGmY4SYypqQQ
+         wXEQwqZtFo1x2oDIPUdJBsv7wEDn+ovu6hzvQ/juA//TH+UKUYzzMFRWeJZYEKG14m7t
+         jGDfryDEgtM1FpYuWSnxBHZ9KPcOZrSgggcBo/2W5hXFPDtgSWXqEJkU1q1NLgdESVYB
+         CIug==
+X-Forwarded-Encrypted: i=1; AKwUvBzF1zXJSzXCmE1conT0XEaqGCnv8ROBZ/IwneznlAE/feSA0Pc3LcSPUV0I16AdB5ZM8Tkjozxc/cChVQdEKeXS@lists.infradead.org
+X-Gm-Message-State: AFuF++lN6MKKGTuABtlYgphFkARV78Iz68w4f1ZyDvSKjhx0abD5jM4X
+	9aaPyQg+3eSR2YXAG6raeqhrllhS+8Fj6DIUstQ5Sv8AIwEoBqQXSl0=
+X-Gm-Gg: AYBFou3zjnvSrIke1zZAPQ0wN+4z6lb2bGVq0Ce6qTzagqL7WDLDTUybqQ+bHNwreI8
+	y1pGBPTkHbU6GPEfJXmoXIDHilRZF1ae2Mr+/RC/zcZ++JnzPec0Av/rt4pz2HruqF7r1W1LvKl
+	xSP0Yu7gNENp9rABRdTYrfJqsKhaYW+ymhVePtOTdCuIhea50065K0fNVdgVc/YDoZKPFtOR+EW
+	8QghUe6awGUXqH6bNxK6o1x/jsdQgk1X/9T/3PVj7Nktr+4auhnOZNjgbTx8aiZM+BthYpbnGiE
+	06vwCvpm5nuXudG9Atkz34ER45xEwt386xE/OB7b/4nMaaiRSh76wMSRv9G4KsQMl2CVI89aVLq
+	4eJdlAChYdvqlaIhCiqjkGjzFV+dxPpEjlFpMTePq7tdwb0V2FBFpq4UariqD8mQYYoUW5qGau1
+	gRxvHul7XkaINNsKLVFbSvnykTH5X6Zfcub6SXslNc3Y2/kk0g8gnvrQ0a49u3e+zxnlZvnGMyu
+	lcf4NOxoG573VIGXNH/LRlFg7e2YmdJfRUCCoCx6Sa6D8LXiatPPmy5XesUqLaUEBpfyARqNiBo
+	7uSvTv6x2oB30BPbY7x4BE65On9XcblehBLjqmQ=
+X-Received: by 2002:ac8:5a86:0:b0:531:d21:5021 with SMTP id d75a77b69052e-532d8d35f7dmr36423011cf.13.1790047446387;
+        Mon, 21 Sep 2026 20:24:06 -0700 (PDT)
+Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532e196ef4csm2429671cf.28.2026.09.21.20.24.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 20:24:04 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH] usb: mtu3: Prevent dr_work rearm during teardown
+Date: Mon, 21 Sep 2026 23:23:59 -0400
+Message-ID: <20260922032359.687286-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Message-Id: <7095e52a0212058681c54a929368a018f1c64d8d2650f32310c488483d1fc593@mail.kernel.org>
-In-Reply-To: <20260922-b4-rcu-tasks-preempt-qs-v5-7-410f57770bad@toxicpanda.com>
-References: <20260922-b4-rcu-tasks-preempt-qs-v5-7-410f57770bad@toxicpanda.com>
-Subject: Re: [PATCH v5 07/13] bpf, x86: Take a Tasks Trace reader in the trampoline around its call-outs
-From: bot+bpf-ci@kernel.org
-To: josef@toxicpanda.com,paulmck@kernel.org,frederic@kernel.org,ast@kernel.org,rostedt@goodmis.org
-Cc: boqun@kernel.org,mhiramat@kernel.org,mark.rutland@arm.com,peterz@infradead.org,tglx@kernel.org,daniel@iogearbox.net,andrii@kernel.org,puranjay@kernel.org,rcu@vger.kernel.org,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,josef@toxicpanda.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Tue, 22 Sep 2026 03:22:25 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_202407_833911_A8F669DD 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,84 +102,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============6129579292215528045==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+ssusb_otg_switch_exit() drains otg_sx->dr_work with
+cancel_work_sync().  A later queue_work() from ssusb_set_mode()
+arms it again.  Callers that outlive the cancel are the role-switch
+store, ssusb_id_notifier(), and the manual-DRD debugfs mode file.
+The role switch is unregistered on the next line.  The extcon
+notifier is devm-managed, and extcon_sync() invokes it after
+dropping edev->lock, so unregister is not a barrier.  The mode file
+is removed only after ssusb_gadget_exit(), ssusb_host_exit() and
+ssusb_rscs_exit().
 
-> diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-> index d4a980140b48..93743628b0fa 100644
-> --- a/arch/x86/net/bpf_jit_comp.c
-> +++ b/arch/x86/net/bpf_jit_comp.c
+The late work calls mtu3_stop() or mtu3_start(), writes IPPC
+registers and calls pm_runtime_get_sync().  dr_work is embedded in
+the devm_kzalloc()ed struct ssusb_mtk.
 
-[ ... ]
+disable_work_sync() rejects a later queue_work() and drains an item
+already pending or running.  Exit does not enable the work again.
 
-> @@ -3881,6 +3967,16 @@ static int __arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *rw_im
->  	/* mov QWORD PTR [rbp - rbx_off], rbx */
->  	emit_stx(&prog, BPF_REG_FP, BPF_REG_6, -rbx_off);
->
-> +	/*
-> +	 * Tasks RCU keeps this image alive only while we are a Tasks Trace
-> +	 * reader; the instructions before this point (and after the final
-> +	 * unlock) are covered by the irq-exit IP check.  One reader spans
-> +	 * __bpf_tramp_enter() and the fentry/fmod_ret progs, a second one
-> +	 * the fexit progs and __bpf_tramp_exit(); the original function runs
-> +	 * outside both, with the image pinned by im->pcref instead.
-> +	 */
-> +	emit_trace_rcu_reader(&prog, true);
-> +
+This issue was identified during our ongoing static-analysis research
+while reviewing kernel code.
 
-Does this take the Tasks Trace reader too late for BPF_TRAMP_F_INDIRECT
-trampolines with FineIBT+BHI mitigation?
-
-Looking back at the code around line 3943 (before this reader lock):
-
-    if (flags & BPF_TRAMP_F_INDIRECT) {
-        /*
-         * Indirect call for bpf_struct_ops
-         */
-        emit_cfi(&prog, image,
-                 cfi_get_func_hash(func_addr),
-                 cfi_get_func_arity(func_addr));
-    } else {
-        x86_call_depth_emit_accounting(&prog, NULL, image);
-    }
-
-When CONFIG_FINEIBT_BHI is enabled, emit_cfi() dispatches to
-emit_fineibt(), which emits:
-
-    EMIT_ENDBR();
-    EMIT1_off32(0x2d, hash);            /* sub $hash, %eax */
-    if (cfi_bhi) {
-        EMIT2(0x2e, 0x2e);              /* cs cs */
-        emit_call(&prog, __bhi_args[arity], ip + 11);
-    }
-
-So the very first instructions in the trampoline (around offset 9,
-before the reader is taken at line 3978) include a call out of the
-image into __bhi_args[arity].
-
-__bhi_args lives in .noinstr.text (arch/x86/lib/bhi.S), which is core
-kernel text. It's not covered by arch_rcu_tasks_trampoline_text()
-(arch/x86/kernel/ftrace.c covers only ftrace_caller ranges,
-__return_thunk ranges, and __rethunk_safe ranges).
-
-If a task is preempted (irq-exit reschedule) inside __bhi_args while its
-return address points back into the trampoline image, it is neither
-holding the Tasks Trace reader nor recognized by the IP check. Can
-bpf_struct_ops_map_free() then complete its synchronize_rcu_tasks() and
-free the image via arch_free_bpf_trampoline() before the task resumes
-and returns into freed memory?
-
-Would moving emit_trace_rcu_reader() before the emit_cfi() call close
-this window, or would adding the __bhi_args range to
-arch_rcu_tasks_trampoline_text() be safer?
-
-
+Fixes: 18cfd7b85ced ("usb: mtu3: rebuild role switch flow of extcon")
+Cc: stable@vger.kernel.org # 6.10+
+Assisted-by: LLM
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ drivers/usb/mtu3/mtu3_dr.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/35680506278
---===============6129579292215528045==--
+diff --git a/drivers/usb/mtu3/mtu3_dr.c b/drivers/usb/mtu3/mtu3_dr.c
+index ffa5b9401dad..262922057b13 100644
+--- a/drivers/usb/mtu3/mtu3_dr.c
++++ b/drivers/usb/mtu3/mtu3_dr.c
+@@ -326,6 +326,6 @@ void ssusb_otg_switch_exit(struct ssusb_mtk *ssusb)
+ {
+ 	struct otg_switch_mtk *otg_sx = &ssusb->otg_switch;
+ 
+-	cancel_work_sync(&otg_sx->dr_work);
++	disable_work_sync(&otg_sx->dr_work);
+ 	usb_role_switch_unregister(otg_sx->role_sw);
+ }
+
+base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
+-- 
+2.53.0
 
