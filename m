@@ -4,104 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E8FC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CE5C982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TmixJAuwq8ENbvDysNd8oI5Iik3FUsXX4Zkq+YJZJ3g=; b=0UeaPLcUjgOMgjNAX8xEVkoKGK
-	q0P4wv+BqHJ5fjG+Kgl/AaLSxEFIEH3FStZ9EHwHAUM3lQuQkZCI8opBXs+SNE4nU++VKiA+Nn/F7
-	V5MjzTPLkuqoatF1icqo0KI+eOFstFsqSgc/kPpe2ZKU4CtEp6/ZjwbdgiAuOq0C9TOdUakCvc6OX
-	VT9DTkHfv0nS36zSJG2/L9CzVZxGt3M+omYBtetaj2chf5r8c+4QGFypR6sQZCec5+EwkCojdiVRa
-	sfJTeHbn9DYFBZ97G9LaJ6T4mIyRWUXaXC5jCg1OvQOqTW5Rph7rXhDb67x9UuiAHT6QuDQG2ls6R
-	HETBd9gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+px+gyXVLidkcy+k/uZ//IG8TqK3wgfrhlr6nss3oOM=; b=SnL1FJbPIpP93sTcrb/6jVMRgD
+	1kyIfjblWOr1f0IPKA1Lc5wXfpDtwJe16UsX9vy1exXddRZoAkVmNyQiB5yNavN1yMoKYrQzU9DdF
+	IcRMY79JlbtJ52i0kB2Ef+ekLmUMMdfCyJAYqcSgtefY/UmLD8IOTgFdUZQYlWIPEUj+ySomWa5VR
+	4htNyslmpal8gZ7VBP3mJaeS+pgmBasqNJyJIDWXOmomjyv8zhvsLo3Ef2bZQdCWTH5QY7IXSm9JV
+	B5OXAFWUsCofUAH3SGCLbzfq2v+pQqiEMluMdTZS3b70reGAh30l4rLwxlHfshF+CemE2bUfbhlGa
+	KjYLWrpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8o7a-00000003lT9-3EJu;
-	Tue, 22 Sep 2026 00:12:30 +0000
-Received: from mail-oi2-x10.google.com ([2607:f8b0:4864:32::10])
+	id 1x8oBL-00000003llb-1sy7;
+	Tue, 22 Sep 2026 00:16:23 +0000
+Received: from mail-oa2-x10.google.com ([2607:f8b0:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8o7X-00000003lSg-3A35
+	id 1x8oBJ-00000003ll8-04Tb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 00:12:29 +0000
-Received: by mail-oi2-x10.google.com with SMTP id 46e09a7af769-805c194bc92so3854300a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 17:12:27 -0700 (PDT)
+	Tue, 22 Sep 2026 00:16:22 +0000
+Received: by mail-oa2-x10.google.com with SMTP id 586e51a60fabf-47bc923fe6aso2649564fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 17:16:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790035946; x=1790640746; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TmixJAuwq8ENbvDysNd8oI5Iik3FUsXX4Zkq+YJZJ3g=;
-        b=GI3g3UmfANExuO0BDUIKCVLABdmB4fY28yI4ewQBEkHkZDZt58sAky1zdfy+dTuka2
-         UDeQygiqwcXgUfS4KUUZDhNZ9i0g8yR+BVDWxsBZoMbpB7ckdzgipzqnDXLjqwGDDkTA
-         Mg0pWbwS7f/6fXUcU96HspzVqugehWEJLkQYLl9vF/mWKF8RAFmL3h168wj1QZo9NwKb
-         fTSDVHe64cMRXSpsh6bicLiHgr+kB0J3E5oeyhTi+qw8FEku7gEVLHuZbINz0qcwv2mg
-         CqQiz1GP7G0qtISXxCHLAq9ztr53T5BG6bLfUf2mZYVfonwmxgBVxtqOGxNJhzMJtNgL
-         sJmA==
+        d=gmail.com; s=20251104; t=1790036179; x=1790640979; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+px+gyXVLidkcy+k/uZ//IG8TqK3wgfrhlr6nss3oOM=;
+        b=JJTo9v/cIWFPZ6qXaN24bxqorD/2u00ibcJVhZEHt1Vad9DQummNig0znahtMkgz+3
+         64uQQItPoj1UPPscT/cGo8dq9GthwBf7Q2FpPoLw+25Q+LhHM3DGhyMhJo1MOXxIZiT5
+         r4Lh/OsHDrmd7qHa+483H8WOg6LsR6lqDvHYDutzTnZpxYS6qyeIQ9gfGyyROcZfJfIG
+         Vc4VAEBJ+GVbeAj7e8ZS/UDdlT57z3fANeHa3Ma284hUPc3DsPL71ruVpzr44nX3OCZu
+         Ba+kLnrZhql1+CqveDltBGtif1FvbMq0WcnoDznt8uN7ybpd3g1lekVmiuAhcU8ATpKF
+         8kDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790035946; x=1790640746;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TmixJAuwq8ENbvDysNd8oI5Iik3FUsXX4Zkq+YJZJ3g=;
-        b=tMF8Q1+pN1y/biJMcnrC5E/fNx6+XqHJr7Kdz0H5Yjkz7krKqNSCjToMcX7kt0Uh/d
-         Iz2wAi7AqUiGnRjs7tipaiLvmXUyu7iofmtrKcJFtbGw4a+8DhIJj2EVwsDdpelbkqpb
-         SjLeHREgJDpddfM6kYh9uYVG7Jpnkk2DoFKHXb7l3y3z7Hpp0iGD0IbqzEqvzaJ03pOC
-         cVDWzLC23GrqKF2Q9AvSLjyH4QbqBouapoU3etl4Ol2ck6E3DgYIkzJWp9XPAOgM1V/r
-         g7NLuFwHIYll/4i9cEnsH4IRKAc3DswuNqO352furwdIHLYKfmW/OHkec5cnhzLW6Ozv
-         iOKA==
-X-Forwarded-Encrypted: i=1; AKwUvBzBr/DYxAN5q+YeoyRHmrNpS4QPUQxetN4pbCml3G2AgmZMMcPI/7l0CjC/RosRp8DVmIxSDHoeUvqRtE0ES5nW@lists.infradead.org
-X-Gm-Message-State: AFuF++kRar1R+70nNIN2+CanFdlXX0HpRL4+a018OdLDN3tPjLVJ4M+D
-	7zwsjqJgZtQFHQJJq16h+67m5TGescUoNYeTi0g3DzR1SBVC7lCteEe/kmXiadZa
-X-Gm-Gg: AYBFou021C/ZJ/tlXT4bwdDIiwcVJFgJoVQzdAgE/kKqQWmF/VmixbEaR+w8/Nihy8y
-	h1YjiGKAMlv8jZDyohJmahlrCbLAZVSyXiil/A7p6yB3TihN2FG5fM3MoBb7VbaZ8MeBke+mJNO
-	CPBZilswUs5/q4N4uRFGGAukQc+lMB1KlravCvlNZ00VOVcrVZZeLehyNKRB7/YAxV1qMBVFTDj
-	JsD/ileYwl+4fyWb0FQkJsmE0N0meuv9079j7FEEWkfk6Z1Qc2VDt9393UlDENCSEhzK5WxSIaF
-	crQItkL3CvntuMPidoejDhTd/upXhDZzWljSvud4YS5r/v8IO5xvto5N3LukRf5QiTdXi3uSZOc
-	7Q4HqtA7ih9fn2XW7kcVMxdG4OBo678AbyAQblMxeL8uyVv5WN/9MIjwascws8+p9wjyDdXeH+S
-	+JLGSOyjbLNuzhngV6llvF13eCpQAiMjf84qST+nLMc+qvOYkQ3RuNmOkhl7Vh72oGp3vsfgBIm
-	idGU89uuMqh5xmdPY1g7f2s0VecXmHPz1wtKEQowx8DW8DMUmf4DQr//mjz2ndiPxcqhwiRUwzV
-	DWmT+AENYz/X18riBaV2rwIYVO2yVHu9AGK0X81JtCe23YU8uBR6UNq9cFbubNCo90pJuogFCbI
-	vB8RLaadR/b+jUnuQMts7tQ==
-X-Received: by 2002:a05:6820:f029:b0:6c9:80d8:a1f4 with SMTP id 006d021491bc7-6ca9cb5b1ffmr11821779eaf.49.1790035605893;
-        Mon, 21 Sep 2026 17:06:45 -0700 (PDT)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-48f7280cf14sm801683fac.13.2026.09.21.17.06.43
+        d=1e100.net; s=20260707; t=1790036179; x=1790640979;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+px+gyXVLidkcy+k/uZ//IG8TqK3wgfrhlr6nss3oOM=;
+        b=d3fXoEPgIK928BaVqHrNXhvPzFvG9jIiJju2tNgpVmUa72kZx7ypTowJqZwAZtrzlY
+         wnpF4ocBzP/JWXwVjsLykmYsKn+ps41LqFCPyAEWCHcjRyH9pTLE/buPdoZ9f81F5nW6
+         Dj/q09JA5Iz0tBF7TbLAgVaJfZkcNMntijr8BiHw58OsMkf2i3eLBrSvJpxKMEmTqLVt
+         HLH0C0i/q8vMEVr4NnbNJzHZoiLKiYYOqxgpJ8jhNhnzrVmy3qxcH/4PtaoUMh2oSaTt
+         mWXWzI/7V+vBKmUPCmJbLO0v/x5nuaZt/L1ND3BppAafRPO+82mYDQVfIHKAc4wBDsWV
+         u+cA==
+X-Forwarded-Encrypted: i=1; AKwUvBwNcMlXq9mLc2QxyqT5hY2RjWZwaaM9gyKYGHbOn0+xQRkM9rOtc3UXBhWGJ51OIgUL+O1b1bR7LOSqqBfpXIIS@lists.infradead.org
+X-Gm-Message-State: AFuF++n8YeNWYWV4+HGyZUCzArQ9Kj2sfoeLy1w682veN61jufe5c18A
+	4iqgY5g23MzL3V4f3ck5PgRCQM6Vs85jSN0h7fp6LbFUbkzjKN6rMf2SVWyEu+YJqLN4
+X-Gm-Gg: AYBFou2KG/A3dT3fMwsHlDKrzlAb0mAe4c5y88JxxPY0z++pABJ7KBbCY2Rnp5qqbGJ
+	uJWTDyTMOdZGhxC68s0map9iktKjBITa3AcqisHs9PHmBmL65f8IckGk2mFUTln7HUI+n4E79i5
+	as8LilUCip4UjS1wDceHrHSBsVezxY5dmZl0FQWsXHG58iOQpUI3dDpCLeNdL/NHOU7epSROmGd
+	trfnOERKugCSRjNV0jQeqbM8rfSzpHaeyIlJ+C0aEAuZu3fxSqaNBoRf7f3KJ9GsazOMP5Y0Bje
+	mT40lUIr3oA8jOKrSiW0Pavahq9+eviLswEEYoYzwJelTXtjoyK6f1tPL7lpJZyaaGnHV1F5GqD
+	MsGAC0DjsXdBvgpjmHCTN/Mv4oi0YAtT6ssRW5S1ygGCJGqfkuHn70AhEDnvTKCpDgO+SYl1r83
+	v08U0w7cdvjqWiizUHZ5P9LmGTZ+4kWw0ZlnGcc5rhF6+1RGsDHwxPzC0G8Nh26rheuqfn/mp4T
+	6EU101fdP7K4wOQ+ArqHqh0Mo47JuaJc3SkvNvOidx9gMSC8FRI0Pes1/B0asT+qhh8kxUuQKqb
+	hKu5AtZzL0gq8uV9iH2bCw7I00cY
+X-Received: by 2002:a05:620a:1791:b0:93b:f246:bae8 with SMTP id af79cd13be357-93c15e78ed6mr305051085a.37.1790035759325;
+        Mon, 21 Sep 2026 17:09:19 -0700 (PDT)
+Received: from i4-gl-tmk5904-1.ad.psu.edu ([130.203.156.90])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c19a812d4sm53263785a.22.2026.09.21.17.09.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 17:06:44 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 21 Sep 2026 18:06:31 -0600
-Subject: [PATCH v9 2/5] pwm: sun8i: Add H616 PWM support
+        Mon, 21 Sep 2026 17:09:18 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Myeonghun Pak <mhun512@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH net] net: airoha: npu: cancel wdt_work after releasing the WDT IRQ
+Date: Mon, 21 Sep 2026 20:09:14 -0400
+Message-ID: <20260922000914.542068-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-h616-pwm-v8-v9-2-37bec6201ff5@gmail.com>
-References: <20260921-h616-pwm-v8-v9-0-37bec6201ff5@gmail.com>
-In-Reply-To: <20260921-h616-pwm-v8-v9-0-37bec6201ff5@gmail.com>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Paul Kocialkowski <paulk@sys-base.io>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>, 
- bigunclemax@gmail.com, linux-clk@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_171227_904693_CCA82BB0 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20260921_171621_089299_1E456F6C 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,1172 +107,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Genoud <richard.genoud@bootlin.com>
+airoha_npu_remove() calls cancel_work_sync() on each core's wdt_work,
+but the watchdog IRQ that queues it is requested with devm_request_irq()
+and is freed only after .remove() returns.  airoha_npu_wdt_handler() can
+therefore schedule_work() again once the cancel has returned.  struct
+airoha_npu, which contains the work, is devm_kzalloc()'d and is freed in
+that same unwind, so the late work dereferences freed memory.
 
-Add waveform support for the six-channel Allwinner H616 PWM controller.
-Each pair of outputs shares a source mux, gate and power-of-two divider;
-each channel has its own prescaler and period/duty registers. Model the
-shared pair clocks in CCF and program the channel-local dividers directly.
+Register the work with devm_work_autocancel() before devm_request_irq()
+and drop .remove().  Devres runs in reverse order, so the IRQ is freed
+before cancel_work_sync(), including when probe fails.  A cancel left in
+.remove() cannot get that order.  Initializing the work first also stops
+a pending watchdog interrupt from queuing an uninitialized work item.
+Probe currently calls INIT_WORK() only after devm_request_irq().
 
-Protect the pair rate while a PWM is active. Also check the hardware enable
-bits before retuning or gating a pair, since firmware may have left an
-output running without a Linux consumer. Preserve such outputs until a
-consumer explicitly changes them; do not implement an unused-PWM sweep.
+This issue was identified during our ongoing static-analysis research
+while reviewing kernel code.
 
-Round period, duty and offset in the order required by the waveform API,
-including the hardware bypass path and the 65536-tick period boundary.
-Wait for pending period updates and quiesce the channel when changing its
-clock, prescaler, polarity or bypass mode. Live period updates additionally
-require PCLK to be faster than the PWM clock, as specified by the manual.
-
-Encode the channel register values during waveform conversion. Keep rate
-protection, safe quiescing and clock rollback in one preparation helper,
-leaving the write callback to apply the prepared values. Select candidates
-using one ordered comparison while retaining the bounded divider search.
-
-Pulse and coupled dead-zone modes cannot be represented by this API. Reject
-active unsupported modes, but clear dormant dead-zone configuration before
-programming an ordinary waveform.
-
-Allocate the fixed six-channel topology with the pwm_chip. Register the
-per-device clocks with managed helpers after deasserting reset.
-
-Acquire separate pair-clock consumer handles only while PWMs are requested,
-so internal clock references cannot prevent module removal. Use CCF's
-provider-owned handles for notifiers and rate readback, including readback
-of channels which have not been requested.
-
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-Co-developed-by: James Hilliard <james.hilliard1@gmail.com>
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Fixes: 23290c7bc190 ("net: airoha: Introduce Airoha NPU support")
+Cc: stable@vger.kernel.org # 6.15+
+Assisted-by: LLM
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
- drivers/pwm/Kconfig     |   11 +
- drivers/pwm/Makefile    |    1 +
- drivers/pwm/pwm-sun8i.c | 1080 +++++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 1092 insertions(+)
+ drivers/net/ethernet/airoha/airoha_npu.c | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 729776086879..d87d166e7836 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -748,6 +748,17 @@ config PWM_SUN4I
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-sun4i.
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 5bb4817a898d..4d3195eb00f7 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -5,6 +5,7 @@
+  */
  
-+config PWM_SUN8I
-+	tristate "Allwinner sun8i/sun50i PWM support"
-+	depends on ARCH_SUNXI || COMPILE_TEST
-+	depends on HAS_IOMEM && COMMON_CLK
-+	help
-+	  PWM framework driver for Allwinner controllers whose channels share
-+	  paired source clocks.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-sun8i.
-+
- config PWM_SUNPLUS
- 	tristate "Sunplus PWM support"
- 	depends on ARCH_SUNPLUS || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 5630a521a7cf..9c922b1fd0b4 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -68,6 +68,7 @@ obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
- obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
- obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
- obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
-+obj-$(CONFIG_PWM_SUN8I)		+= pwm-sun8i.o
- obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
- obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
- obj-$(CONFIG_PWM_TH1520)	+= pwm_th1520.o
-diff --git a/drivers/pwm/pwm-sun8i.c b/drivers/pwm/pwm-sun8i.c
-new file mode 100644
-index 000000000000..7e6c39815c18
---- /dev/null
-+++ b/drivers/pwm/pwm-sun8i.c
-@@ -0,0 +1,1080 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Driver for Allwinner sun8i Pulse Width Modulation Controller
-+ *
-+ * (C) Copyright 2025 Richard Genoud, Bootlin <richard.genoud@bootlin.com>
-+ * (C) Copyright 2026 James Hilliard <james.hilliard1@gmail.com>
-+ *
-+ * Based on drivers/pwm/pwm-sun4i.c with Copyright:
-+ *
-+ * Copyright (C) 2014 Alexandre Belloni <alexandre.belloni@bootlin.com>
-+ *
-+ * Channels are paired (0/1, 2/3, 4/5). Each pair shares a clock source and
-+ * first prescaler (div_m), while each channel has its own second prescaler
-+ * (div_k) and bypass path.
-+ *
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/cleanup.h>
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/limits.h>
-+#include <linux/math64.h>
-+#include <linux/module.h>
-+#include <linux/notifier.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/time.h>
-+
-+#define SUN8I_PWM_NPWM			6
-+#define SUN8I_PWM_NPAIRS			(SUN8I_PWM_NPWM / 2)
-+
-+/* PWMCC Pairs Clock Configuration Registers */
-+#define SUN8I_PWM_PCCR(pair)		(0x20 + ((pair) * 0x4))
-+#define SUN8I_PWM_PCCR_SRC_SHIFT	7
-+#define SUN8I_PWM_PCCR_SRC_MASK		GENMASK(1, 0)
-+#define SUN8I_PWM_PCCR_GATE_BIT		4
-+#define SUN8I_PWM_PCCR_GATE		BIT(SUN8I_PWM_PCCR_GATE_BIT)
-+#define SUN8I_PWM_PCCR_BYPASS_BIT(chan)	((chan) % 2 + 5)
-+#define SUN8I_PWM_PCCR_DIV_M_SHIFT	0
-+#define SUN8I_PWM_PCCR_DIV_M_WIDTH	4
-+
-+/* PWM Enable Register */
-+#define SUN8I_PWM_PER			0x40
-+#define SUN8I_PWM_ENABLE(chan)		BIT(chan)
-+
-+/* PWM Control Register */
-+#define SUN8I_PWM_PCR(chan)		(0x60 + (chan) * 0x20)
-+#define SUN8I_PWM_PCR_PRESCAL_K_MASK	GENMASK(7, 0)
-+#define SUN8I_PWM_PCR_ACTIVE_STATE	BIT(8)
-+#define SUN8I_PWM_PCR_MODE		BIT(9)
-+#define SUN8I_PWM_PCR_PULSE_START	BIT(10)
-+#define SUN8I_PWM_PCR_PERIOD_READY	BIT(11) /* 0: ready, 1: busy */
-+#define SUN8I_PWM_PCR_WAVEFORM_MASK	(SUN8I_PWM_PCR_PRESCAL_K_MASK | \
-+					 SUN8I_PWM_PCR_ACTIVE_STATE)
-+
-+/* PWM Period Register */
-+#define SUN8I_PWM_PPR(chan)		(0x64 + (chan) * 0x20)
-+#define SUN8I_PWM_PPR_PERIOD_MASK	GENMASK(31, 16)
-+#define SUN8I_PWM_PPR_DUTY_MASK		GENMASK(15, 0)
-+#define SUN8I_PWM_PPR_PERIOD_VALUE(reg)	(FIELD_GET(SUN8I_PWM_PPR_PERIOD_MASK, reg) + 1)
-+#define SUN8I_PWM_PPR_DUTY_VALUE(reg)	FIELD_GET(SUN8I_PWM_PPR_DUTY_MASK, reg)
-+#define SUN8I_PWM_PPR_PERIOD(prd)	FIELD_PREP(SUN8I_PWM_PPR_PERIOD_MASK, (prd) - 1)
-+#define SUN8I_PWM_PPR_DUTY(dty)		FIELD_PREP(SUN8I_PWM_PPR_DUTY_MASK, dty)
-+#define SUN8I_PWM_PPR_PERIOD_MAX	(FIELD_MAX(SUN8I_PWM_PPR_PERIOD_MASK) + 1)
-+
-+/* PWM pair dead-zone control registers. */
-+#define SUN8I_PWM_PDZCR(pair)		(0x30 + ((pair) * 0x4))
-+#define SUN8I_PWM_PDZCR_ENABLE		BIT(0)
-+
-+#define SUN8I_PWM_PERIOD_READY_MARGIN_US	50
-+#define SUN8I_PWM_PERIOD_READY_MIN_POLL_US	10
-+#define SUN8I_PWM_PERIOD_READY_MAX_POLL_US	10000
-+#define SUN8I_PWM_PERIOD_READY_POLL_COUNT	1024
-+
-+#define SUN8I_PWM_PAIR_IDX(chan)	((chan) >> 1)
-+
-+/*
-+ * Block diagram of the PWM clock controller:
-+ *
-+ *             _____      ______      ________
-+ * OSC24M --->|     |    |      |    |        |
-+ * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> SUN8I_PWM_clock_src_xy
-+ *            |_____|    |______|    |________|
-+ *                               ________
-+ *                              |        |
-+ *                           +->| /div_k |---> SUN8I_PWM_clock_x
-+ *                           |  |________|
-+ *                           |    ______
-+ *                           |   |      |
-+ *                           +-->| Gate |----> SUN8I_PWM_bypass_clock_x
-+ *                           |   |______|
-+ * SUN8I_PWM_clock_src_xy ---+   ________
-+ *                           |  |        |
-+ *                           +->| /div_k |---> SUN8I_PWM_clock_y
-+ *                           |  |________|
-+ *                           |    ______
-+ *                           |   |      |
-+ *                           +-->| Gate |----> SUN8I_PWM_bypass_clock_y
-+ *                               |______|
-+ *
-+ * NB: when the bypass is set, all the PWM logic is bypassed.
-+ * So, the duty cycle and polarity can't be modified (we just have a clock).
-+ * The bypass in PWM mode is used to achieve a 1/2 relative duty cycle with the
-+ * fastest clock.
-+ *
-+ */
-+
-+/* /div_m is a power-of-two divider limited to /256. */
-+static const struct clk_div_table sun8i_pwm_div_m_table[] = {
-+	{ .val = 0, .div = 1 },
-+	{ .val = 1, .div = 2 },
-+	{ .val = 2, .div = 4 },
-+	{ .val = 3, .div = 8 },
-+	{ .val = 4, .div = 16 },
-+	{ .val = 5, .div = 32 },
-+	{ .val = 6, .div = 64 },
-+	{ .val = 7, .div = 128 },
-+	{ .val = 8, .div = 256 },
-+	{ /* sentinel */ }
-+};
-+
-+struct sun8i_pwm_chip;
-+
-+struct sun8i_pwm_pair {
-+	struct clk_mux mux;
-+	struct clk_hw gate_hw;
-+	struct clk_divider divider;
-+	struct clk_hw *hw;
-+	struct notifier_block rate_nb;
-+	struct sun8i_pwm_chip *chip;
-+	unsigned int index;
-+};
-+
-+struct sun8i_pwm_channel {
-+	/* Separate CCF consumer, held only from PWM request to free. */
-+	struct clk *pair_clk;
-+	u64 pending_period_ns;
-+	bool rate_exclusive;
-+};
-+
-+struct sun8i_pwm_chip {
-+	struct sun8i_pwm_pair pairs[SUN8I_PWM_NPAIRS];
-+	struct sun8i_pwm_channel channels[SUN8I_PWM_NPWM];
-+	struct clk *bus_clk;
-+	void __iomem *base;
-+	/* Protects shared registers and rate_exclusive. */
-+	spinlock_t lock;
-+};
-+
-+struct sun8i_pwm_waveform {
-+	u32 pcr;
-+	u32 ppr;
-+	u32 pair_rate;
-+	bool enabled;
-+	bool bypass_en;
-+};
-+
-+static inline struct sun8i_pwm_chip *sun8i_pwm_from_chip(const struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+static unsigned long sun8i_pwm_get_pair_rate(struct sun8i_pwm_chip *sun8i_chip,
-+					     unsigned int idx)
-+{
-+	struct sun8i_pwm_pair *pair = &sun8i_chip->pairs[SUN8I_PWM_PAIR_IDX(idx)];
-+
-+	/* Readback also runs on channels without a PWM request. */
-+	return clk_get_rate(pair->hw->clk);
-+}
-+
-+static inline u32 sun8i_pwm_readl(struct sun8i_pwm_chip *sun8i_chip,
-+				  unsigned long offset)
-+{
-+	return readl(sun8i_chip->base + offset);
-+}
-+
-+static inline void sun8i_pwm_writel(struct sun8i_pwm_chip *sun8i_chip,
-+				    u32 val, unsigned long offset)
-+{
-+	writel(val, sun8i_chip->base + offset);
-+}
-+
-+static void sun8i_pwm_set_bypass_locked(struct sun8i_pwm_chip *sun8i_chip,
-+					unsigned int idx, bool enable)
-+{
-+	unsigned long reg_offset;
-+	u32 val;
-+
-+	lockdep_assert_held(&sun8i_chip->lock);
-+
-+	reg_offset = SUN8I_PWM_PCCR(SUN8I_PWM_PAIR_IDX(idx));
-+	val = sun8i_pwm_readl(sun8i_chip, reg_offset);
-+	if (enable)
-+		val |= BIT(SUN8I_PWM_PCCR_BYPASS_BIT(idx));
-+	else
-+		val &= ~BIT(SUN8I_PWM_PCCR_BYPASS_BIT(idx));
-+
-+	sun8i_pwm_writel(sun8i_chip, val, reg_offset);
-+}
-+
-+static void sun8i_pwm_set_enabled_locked(struct sun8i_pwm_chip *sun8i_chip,
-+					 unsigned int idx, bool enable)
-+{
-+	u32 val;
-+
-+	lockdep_assert_held(&sun8i_chip->lock);
-+
-+	val = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER);
-+	if (enable)
-+		val |= SUN8I_PWM_ENABLE(idx);
-+	else
-+		val &= ~SUN8I_PWM_ENABLE(idx);
-+	sun8i_pwm_writel(sun8i_chip, val, SUN8I_PWM_PER);
-+}
-+
-+static bool
-+sun8i_pwm_channel_is_enabled_locked(struct sun8i_pwm_chip *sun8i_chip,
-+				    unsigned int idx)
-+{
-+	unsigned int pair = SUN8I_PWM_PAIR_IDX(idx);
-+	u32 pccr, per;
-+
-+	lockdep_assert_held(&sun8i_chip->lock);
-+
-+	pccr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCCR(pair));
-+	per = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER);
-+
-+	return (pccr & SUN8I_PWM_PCCR_GATE) &&
-+	       (per & SUN8I_PWM_ENABLE(idx));
-+}
-+
-+static u32 sun8i_pwm_pair_enable_mask(unsigned int pair)
-+{
-+	return GENMASK(pair * 2 + 1, pair * 2);
-+}
-+
-+static inline struct sun8i_pwm_pair *
-+sun8i_pwm_pair_from_gate_hw(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct sun8i_pwm_pair, gate_hw);
-+}
-+
-+static int sun8i_pwm_pair_gate_enable(struct clk_hw *hw)
-+{
-+	struct sun8i_pwm_pair *pair = sun8i_pwm_pair_from_gate_hw(hw);
-+	struct sun8i_pwm_chip *sun8i_chip = pair->chip;
-+	u32 pccr;
-+
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+	pccr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCCR(pair->index));
-+	pccr |= SUN8I_PWM_PCCR_GATE;
-+	sun8i_pwm_writel(sun8i_chip, pccr, SUN8I_PWM_PCCR(pair->index));
-+
-+	return 0;
-+}
-+
-+static void sun8i_pwm_pair_gate_disable(struct clk_hw *hw)
-+{
-+	struct sun8i_pwm_pair *pair = sun8i_pwm_pair_from_gate_hw(hw);
-+	struct sun8i_pwm_chip *sun8i_chip = pair->chip;
-+	unsigned long reg = SUN8I_PWM_PCCR(pair->index);
-+	u32 pccr, per;
-+
-+	/* CCF counts do not include outputs awaiting firmware-state handoff. */
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+	per = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER);
-+	if (!(per & sun8i_pwm_pair_enable_mask(pair->index))) {
-+		pccr = sun8i_pwm_readl(sun8i_chip, reg);
-+		pccr &= ~SUN8I_PWM_PCCR_GATE;
-+		sun8i_pwm_writel(sun8i_chip, pccr, reg);
-+	}
-+}
-+
-+static int sun8i_pwm_pair_gate_is_enabled(struct clk_hw *hw)
-+{
-+	struct sun8i_pwm_pair *pair = sun8i_pwm_pair_from_gate_hw(hw);
-+	struct sun8i_pwm_chip *sun8i_chip = pair->chip;
-+	unsigned long reg = SUN8I_PWM_PCCR(pair->index);
-+
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+
-+	return !!(sun8i_pwm_readl(sun8i_chip, reg) & SUN8I_PWM_PCCR_GATE);
-+}
-+
-+static const struct clk_ops sun8i_pwm_pair_gate_ops = {
-+	.enable = sun8i_pwm_pair_gate_enable,
-+	.disable = sun8i_pwm_pair_gate_disable,
-+	.is_enabled = sun8i_pwm_pair_gate_is_enabled,
-+};
-+
-+static int sun8i_pwm_pair_rate_notifier(struct notifier_block *nb,
-+					unsigned long event, void *data)
-+{
-+	struct sun8i_pwm_pair *pair =
-+		container_of(nb, struct sun8i_pwm_pair, rate_nb);
-+	struct sun8i_pwm_chip *sun8i_chip = pair->chip;
-+	bool active;
-+
-+	if (event != PRE_RATE_CHANGE)
-+		return NOTIFY_DONE;
-+
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+	active = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER) &
-+		 sun8i_pwm_pair_enable_mask(pair->index);
-+
-+	return active ? NOTIFY_BAD : NOTIFY_OK;
-+}
-+
-+static void sun8i_pwm_put_rate(struct sun8i_pwm_chip *sun8i_chip,
-+			       unsigned int idx)
-+{
-+	struct sun8i_pwm_channel *chan = &sun8i_chip->channels[idx];
-+	bool exclusive;
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		exclusive = chan->rate_exclusive;
-+		chan->rate_exclusive = false;
-+	}
-+	/* CCF takes the prepare mutex and may call back into this driver. */
-+	if (exclusive)
-+		clk_rate_exclusive_put(chan->pair_clk);
-+}
-+
-+static int sun8i_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	struct sun8i_pwm_channel *chan = &sun8i_chip->channels[pwm->hwpwm];
-+	unsigned int idx = pwm->hwpwm;
-+	struct clk_hw *parent = sun8i_chip->pairs[SUN8I_PWM_PAIR_IDX(idx)].hw;
-+	bool was_enabled;
-+	int ret;
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		was_enabled =
-+			sun8i_pwm_channel_is_enabled_locked(sun8i_chip, idx);
-+	}
-+
-+	chan->pair_clk = clk_hw_get_clk(parent, NULL);
-+	if (IS_ERR(chan->pair_clk)) {
-+		ret = PTR_ERR(chan->pair_clk);
-+		goto err_clear_clock;
-+	}
-+
-+	if (was_enabled) {
-+		ret = clk_rate_exclusive_get(chan->pair_clk);
-+		if (ret)
-+			goto err_put_clock;
-+		scoped_guard(spinlock_irqsave, &sun8i_chip->lock)
-+			chan->rate_exclusive = true;
-+	}
-+
-+	ret = clk_prepare_enable(chan->pair_clk);
-+	if (ret) {
-+		sun8i_pwm_put_rate(sun8i_chip, idx);
-+		goto err_put_clock;
-+	}
-+
-+	return 0;
-+
-+err_put_clock:
-+	clk_put(chan->pair_clk);
-+err_clear_clock:
-+	chan->pair_clk = NULL;
-+
-+	return ret;
-+}
-+
-+static void sun8i_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	struct sun8i_pwm_channel *chan = &sun8i_chip->channels[pwm->hwpwm];
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		sun8i_pwm_set_enabled_locked(sun8i_chip, pwm->hwpwm, false);
-+		sun8i_pwm_set_bypass_locked(sun8i_chip, pwm->hwpwm, false);
-+	}
-+
-+	sun8i_pwm_put_rate(sun8i_chip, pwm->hwpwm);
-+	clk_disable_unprepare(chan->pair_clk);
-+	clk_put(chan->pair_clk);
-+	chan->pair_clk = NULL;
-+}
-+
-+static int sun8i_pwm_read_waveform(struct pwm_chip *chip,
-+				   struct pwm_device *pwm,
-+				   void *_wfhw)
-+{
-+	struct sun8i_pwm_waveform *wfhw = _wfhw;
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	unsigned int pair = SUN8I_PWM_PAIR_IDX(pwm->hwpwm);
-+	unsigned long pair_rate;
-+	u32 pccr, pcr, pdzcr, per, ppr;
-+
-+	pair_rate = sun8i_pwm_get_pair_rate(sun8i_chip, pwm->hwpwm);
-+	if (pair_rate > U32_MAX)
-+		return -ERANGE;
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		pccr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCCR(pair));
-+		per = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER);
-+		pcr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCR(pwm->hwpwm));
-+		ppr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PPR(pwm->hwpwm));
-+		pdzcr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PDZCR(pair));
-+	}
-+
-+	*wfhw = (struct sun8i_pwm_waveform) {
-+		.enabled = !!(pccr & SUN8I_PWM_PCCR_GATE) &&
-+			   !!(per & SUN8I_PWM_ENABLE(pwm->hwpwm)),
-+		.bypass_en = !!(pccr &
-+				 BIT(SUN8I_PWM_PCCR_BYPASS_BIT(pwm->hwpwm))),
-+		.pcr = pcr & SUN8I_PWM_PCR_WAVEFORM_MASK,
-+		.ppr = ppr,
-+		.pair_rate = pair_rate,
-+	};
-+
-+	/* The waveform API cannot describe coupled dead-zone or pulse mode. */
-+	if (wfhw->enabled && !wfhw->bypass_en &&
-+	    ((pdzcr & SUN8I_PWM_PDZCR_ENABLE) || (pcr & SUN8I_PWM_PCR_MODE)))
-+		return -EOPNOTSUPP;
-+
-+	return 0;
-+}
-+
-+static u64 sun8i_pwm_ticks_to_ns(u32 ticks, u16 div_k, u32 pair_rate)
-+{
-+	return DIV_ROUND_UP_ULL(NSEC_PER_SEC * (u64)ticks * div_k,
-+				pair_rate);
-+}
-+
-+static u64 sun8i_pwm_period_ns(const struct sun8i_pwm_waveform *wfhw)
-+{
-+	if (wfhw->bypass_en)
-+		return DIV_ROUND_UP_ULL(NSEC_PER_SEC, wfhw->pair_rate);
-+
-+	return sun8i_pwm_ticks_to_ns(SUN8I_PWM_PPR_PERIOD_VALUE(wfhw->ppr),
-+		FIELD_GET(SUN8I_PWM_PCR_PRESCAL_K_MASK, wfhw->pcr) + 1,
-+		wfhw->pair_rate);
-+}
-+
-+static void
-+__sun8i_pwm_round_waveform_fromhw(const struct sun8i_pwm_waveform *wfhw,
-+				  struct pwm_waveform *wf)
-+{
-+	u32 pair_rate = wfhw->pair_rate;
-+	u32 period_ticks = SUN8I_PWM_PPR_PERIOD_VALUE(wfhw->ppr);
-+	u32 duty_ticks = SUN8I_PWM_PPR_DUTY_VALUE(wfhw->ppr);
-+	u16 div_k = FIELD_GET(SUN8I_PWM_PCR_PRESCAL_K_MASK, wfhw->pcr) + 1;
-+
-+	wf->duty_offset_ns = 0;
-+
-+	if (!wfhw->enabled || !pair_rate) {
-+		wf->period_length_ns = 0;
-+		wf->duty_length_ns = 0;
-+		return;
-+	}
-+
-+	wf->period_length_ns = sun8i_pwm_period_ns(wfhw);
-+	if (wfhw->bypass_en) {
-+		wf->duty_length_ns =
-+			DIV_ROUND_UP_ULL(NSEC_PER_SEC,
-+					 2ULL * pair_rate);
-+		return;
-+	}
-+
-+	duty_ticks = min(duty_ticks, period_ticks);
-+	if (!(wfhw->pcr & SUN8I_PWM_PCR_ACTIVE_STATE)) {
-+		/* Constant outputs have no edge and therefore no offset. */
-+		if (duty_ticks && duty_ticks < period_ticks)
-+			wf->duty_offset_ns =
-+				sun8i_pwm_ticks_to_ns(duty_ticks, div_k, pair_rate);
-+		duty_ticks = period_ticks - duty_ticks;
-+	}
-+	wf->duty_length_ns = sun8i_pwm_ticks_to_ns(duty_ticks, div_k, pair_rate);
-+}
-+
-+static int sun8i_pwm_round_waveform_fromhw(struct pwm_chip *chip,
-+					   struct pwm_device *pwm,
-+					   const void *_wfhw,
-+					   struct pwm_waveform *wf)
-+{
-+	const struct sun8i_pwm_waveform *wfhw = _wfhw;
-+
-+	__sun8i_pwm_round_waveform_fromhw(wfhw, wf);
-+
-+	dev_dbg(pwmchip_parent(chip),
-+		"pwm#%u: pair-rate=%u, pcr=%#x, ppr=%#x, bypass=%u -> %llu/%llu [+%llu]\n",
-+		pwm->hwpwm, wfhw->pair_rate, wfhw->pcr, wfhw->ppr,
-+		wfhw->bypass_en,
-+		wf->duty_length_ns, wf->period_length_ns,
-+		wf->duty_offset_ns);
-+
-+	return 0;
-+}
-+
-+static bool
-+sun8i_pwm_pair_rate_constrained(struct sun8i_pwm_chip *sun8i_chip,
-+				unsigned int idx)
-+{
-+	unsigned int sibling = idx ^ 1;
-+
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+	return sun8i_chip->channels[sibling].rate_exclusive ||
-+	       sun8i_pwm_channel_is_enabled_locked(sun8i_chip, sibling);
-+}
-+
-+static int sun8i_pwm_clear_idle_deadzone(struct sun8i_pwm_chip *sun8i_chip,
-+					 unsigned int idx)
-+{
-+	unsigned int pair = SUN8I_PWM_PAIR_IDX(idx);
-+	u32 pdzcr, per;
-+
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+	pdzcr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PDZCR(pair));
-+	if (!(pdzcr & SUN8I_PWM_PDZCR_ENABLE))
-+		return 0;
-+
-+	per = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER);
-+	if (per & sun8i_pwm_pair_enable_mask(pair))
-+		return -EOPNOTSUPP;
-+
-+	pdzcr &= ~SUN8I_PWM_PDZCR_ENABLE;
-+	sun8i_pwm_writel(sun8i_chip, pdzcr, SUN8I_PWM_PDZCR(pair));
-+
-+	return 0;
-+}
-+
-+static u64 sun8i_pwm_max_period_ns(struct sun8i_pwm_chip *sun8i_chip,
-+				   unsigned int idx)
-+{
-+	unsigned long pair_rate;
-+	u32 pcr;
-+	u16 div_k;
-+
-+	pair_rate = sun8i_pwm_get_pair_rate(sun8i_chip, idx);
-+	if (!pair_rate || pair_rate > U32_MAX)
-+		return 0;
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		pcr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCR(idx));
-+	}
-+	div_k = FIELD_GET(SUN8I_PWM_PCR_PRESCAL_K_MASK, pcr) + 1;
-+
-+	return sun8i_pwm_ticks_to_ns(SUN8I_PWM_PPR_PERIOD_MAX, div_k,
-+				     pair_rate);
-+}
-+
-+static int sun8i_pwm_wait_period_ready(struct pwm_chip *chip, unsigned int idx)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	struct sun8i_pwm_channel *chan = &sun8i_chip->channels[idx];
-+	unsigned long poll_us;
-+	u64 period_ns, timeout_us;
-+	u32 val;
-+	int ret;
-+
-+	/* PPR contains the pending value, not necessarily the active period. */
-+	period_ns = chan->pending_period_ns;
-+	if (!period_ns)
-+		period_ns = sun8i_pwm_max_period_ns(sun8i_chip, idx);
-+	timeout_us = DIV_ROUND_UP_ULL(period_ns, NSEC_PER_USEC) +
-+		     SUN8I_PWM_PERIOD_READY_MARGIN_US;
-+	poll_us = clamp_t(u64,
-+			  DIV_ROUND_UP_ULL(timeout_us,
-+					   SUN8I_PWM_PERIOD_READY_POLL_COUNT),
-+			  SUN8I_PWM_PERIOD_READY_MIN_POLL_US,
-+			  SUN8I_PWM_PERIOD_READY_MAX_POLL_US);
-+
-+	ret = readl_poll_timeout(sun8i_chip->base + SUN8I_PWM_PCR(idx), val,
-+				 !(val & SUN8I_PWM_PCR_PERIOD_READY), poll_us,
-+				 timeout_us);
-+	if (!ret)
-+		chan->pending_period_ns = 0;
-+	else
-+		dev_err_ratelimited(pwmchip_parent(chip),
-+				    "pwm#%u: update timeout after %llu us\n",
-+				    idx, timeout_us);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Protect the rate and quiesce the output if a live update is unsafe. On
-+ * failure restore the old clock before restarting an output we stopped.
-+ * CCF operations must stay outside the register lock.
-+ */
-+static int sun8i_pwm_prepare_update(struct pwm_chip *chip, unsigned int idx,
-+				    const struct sun8i_pwm_waveform *wfhw,
-+				  struct sun8i_pwm_waveform *old)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	struct sun8i_pwm_channel *chan = &sun8i_chip->channels[idx];
-+	unsigned long rate, bus_rate;
-+	bool had_exclusive, stop;
-+	u32 pccr;
-+	int ret, restore_ret;
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock)
-+		had_exclusive = chan->rate_exclusive;
-+
-+	if (!had_exclusive) {
-+		ret = clk_rate_exclusive_get(chan->pair_clk);
-+		if (ret)
-+			return ret;
-+		scoped_guard(spinlock_irqsave, &sun8i_chip->lock)
-+			chan->rate_exclusive = true;
-+	}
-+
-+	/* Sample the old rate only after excluding other rate changes. */
-+	rate = sun8i_pwm_get_pair_rate(sun8i_chip, idx);
-+	if (!rate || rate > U32_MAX) {
-+		ret = -ERANGE;
-+		goto put_rate;
-+	}
-+	old->pair_rate = rate;
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		old->enabled = sun8i_pwm_channel_is_enabled_locked(sun8i_chip, idx);
-+		pccr = sun8i_pwm_readl(sun8i_chip,
-+				       SUN8I_PWM_PCCR(SUN8I_PWM_PAIR_IDX(idx)));
-+		old->bypass_en = !!(pccr & BIT(SUN8I_PWM_PCCR_BYPASS_BIT(idx)));
-+		old->pcr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCR(idx));
-+		old->ppr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PPR(idx));
-+	}
-+
-+	if (rate != wfhw->pair_rate &&
-+	    sun8i_pwm_pair_rate_constrained(sun8i_chip, idx)) {
-+		ret = -EBUSY;
-+		goto put_rate;
-+	}
-+
-+	/* Live PPR updates require unchanged configuration and a faster PCLK. */
-+	bus_rate = clk_get_rate(sun8i_chip->bus_clk);
-+	stop = old->enabled &&
-+		(old->bypass_en != wfhw->bypass_en || rate != wfhw->pair_rate ||
-+		 (!wfhw->bypass_en &&
-+		  (((old->pcr ^ wfhw->pcr) &
-+		    (SUN8I_PWM_PCR_WAVEFORM_MASK | SUN8I_PWM_PCR_MODE)) ||
-+		   bus_rate <= DIV_ROUND_UP_ULL(wfhw->pair_rate,
-+			FIELD_GET(SUN8I_PWM_PCR_PRESCAL_K_MASK, wfhw->pcr) + 1))));
-+	if (stop) {
-+		scoped_guard(spinlock_irqsave, &sun8i_chip->lock)
-+			sun8i_pwm_set_enabled_locked(sun8i_chip, idx, false);
-+	}
-+
-+	if (rate == wfhw->pair_rate)
-+		return 0;
-+
-+	ret = clk_set_rate(chan->pair_clk, wfhw->pair_rate);
-+	if (!ret && sun8i_pwm_get_pair_rate(sun8i_chip, idx) == wfhw->pair_rate)
-+		return 0;
-+	if (!ret)
-+		ret = -EINVAL;
-+
-+	if (sun8i_pwm_get_pair_rate(sun8i_chip, idx) != rate) {
-+		restore_ret = clk_set_rate(chan->pair_clk, rate);
-+		if (restore_ret || sun8i_pwm_get_pair_rate(sun8i_chip, idx) != rate) {
-+			dev_err(pwmchip_parent(chip),
-+				"pwm#%u: failed to restore pair clock rate %lu\n",
-+				idx, rate);
-+			goto put_rate;
-+		}
-+	}
-+	if (stop) {
-+		scoped_guard(spinlock_irqsave, &sun8i_chip->lock)
-+			sun8i_pwm_set_enabled_locked(sun8i_chip, idx, true);
-+	}
-+put_rate:
-+	if (!had_exclusive)
-+		sun8i_pwm_put_rate(sun8i_chip, idx);
-+
-+	return ret;
-+}
-+
-+static int sun8i_pwm_write_waveform(struct pwm_chip *chip,
-+				    struct pwm_device *pwm, const void *_wfhw)
-+{
-+	const struct sun8i_pwm_waveform *wfhw = _wfhw;
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	struct sun8i_pwm_channel *chan = &sun8i_chip->channels[pwm->hwpwm];
-+	struct sun8i_pwm_waveform old;
-+	u64 old_ns = 0, new_ns;
-+	u32 pcr;
-+	int ret;
-+
-+	if (!wfhw->enabled) {
-+		scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+			sun8i_pwm_set_enabled_locked(sun8i_chip, pwm->hwpwm, false);
-+			sun8i_pwm_set_bypass_locked(sun8i_chip, pwm->hwpwm, false);
-+		}
-+		sun8i_pwm_put_rate(sun8i_chip, pwm->hwpwm);
-+		return 0;
-+	}
-+
-+	if (!wfhw->bypass_en) {
-+		ret = sun8i_pwm_clear_idle_deadzone(sun8i_chip, pwm->hwpwm);
-+		if (ret)
-+			return ret;
-+		ret = sun8i_pwm_wait_period_ready(chip, pwm->hwpwm);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = sun8i_pwm_prepare_update(chip, pwm->hwpwm, wfhw, &old);
-+	if (ret)
-+		return ret;
-+
-+	if (!wfhw->bypass_en) {
-+		/* Apply only waveform fields; never replay status or W1S bits. */
-+		pcr = old.pcr & ~(SUN8I_PWM_PCR_WAVEFORM_MASK |
-+				  SUN8I_PWM_PCR_MODE | SUN8I_PWM_PCR_PULSE_START |
-+				  SUN8I_PWM_PCR_PERIOD_READY);
-+		sun8i_pwm_writel(sun8i_chip, pcr | wfhw->pcr,
-+				 SUN8I_PWM_PCR(pwm->hwpwm));
-+
-+		if (old.enabled && !old.bypass_en)
-+			old_ns = sun8i_pwm_period_ns(&old);
-+		new_ns = sun8i_pwm_period_ns(wfhw);
-+		chan->pending_period_ns = max(old_ns, new_ns);
-+		sun8i_pwm_writel(sun8i_chip, wfhw->ppr, SUN8I_PWM_PPR(pwm->hwpwm));
-+	}
-+
-+	scoped_guard(spinlock_irqsave, &sun8i_chip->lock) {
-+		sun8i_pwm_set_bypass_locked(sun8i_chip, pwm->hwpwm, wfhw->bypass_en);
-+		sun8i_pwm_set_enabled_locked(sun8i_chip, pwm->hwpwm, true);
-+	}
-+
-+	return 0;
-+}
-+
-+struct sun8i_pwm_rounding {
-+	const struct pwm_waveform *requested;
-+	struct sun8i_pwm_waveform best;
-+	struct pwm_waveform best_wf;
-+	u32 current_pair_rate;
-+	bool have_best;
-+};
-+
-+static void
-+sun8i_pwm_choose_waveform(struct sun8i_pwm_rounding *rounding,
-+			  const struct sun8i_pwm_waveform *candidate)
-+{
-+	const struct pwm_waveform *requested = rounding->requested;
-+	const struct pwm_waveform *best = &rounding->best_wf;
-+	struct pwm_waveform wf;
-+	bool better;
-+
-+	__sun8i_pwm_round_waveform_fromhw(candidate, &wf);
-+	/* A zero-duty, zero-offset cycle-mode candidate always exists. */
-+	if (wf.duty_length_ns > requested->duty_length_ns ||
-+	    wf.duty_offset_ns > requested->duty_offset_ns)
-+		return;
-+
-+	if (!rounding->have_best) {
-+		better = true;
-+	} else if (wf.period_length_ns != best->period_length_ns) {
-+		/* Prefer the longest period below the request, else the shortest. */
-+		if (wf.period_length_ns > requested->period_length_ns)
-+			better = wf.period_length_ns < best->period_length_ns;
-+		else
-+			better = best->period_length_ns > requested->period_length_ns ||
-+				 wf.period_length_ns > best->period_length_ns;
-+	} else if (wf.duty_length_ns != best->duty_length_ns) {
-+		better = wf.duty_length_ns > best->duty_length_ns;
-+	} else if (wf.duty_offset_ns != best->duty_offset_ns) {
-+		better = wf.duty_offset_ns > best->duty_offset_ns;
-+	} else {
-+		/* Prefer the current pair rate when waveforms are equivalent. */
-+		better = candidate->pair_rate == rounding->current_pair_rate &&
-+			 rounding->best.pair_rate != rounding->current_pair_rate;
-+	}
-+	if (!better)
-+		return;
-+
-+	rounding->best = *candidate;
-+	rounding->best_wf = wf;
-+	rounding->have_best = true;
-+}
-+
-+static struct sun8i_pwm_waveform
-+sun8i_pwm_round_cycle(const struct pwm_waveform *requested, u32 pair_rate,
-+		      u16 div_k)
-+{
-+	struct sun8i_pwm_waveform candidate = {
-+		.enabled = true,
-+		.pair_rate = pair_rate,
-+		.pcr = FIELD_PREP(SUN8I_PWM_PCR_PRESCAL_K_MASK, div_k - 1),
-+	};
-+	u64 denominator = NSEC_PER_SEC * (u64)div_k;
-+	u64 duty_ticks, period_ticks;
-+	u32 inactive_ticks;
-+
-+	/* Floor division rounds down, except for the minimum one-tick period. */
-+	period_ticks = mul_u64_u64_div_u64(requested->period_length_ns,
-+					   pair_rate, denominator);
-+	period_ticks = clamp_t(u64, period_ticks, 1, SUN8I_PWM_PPR_PERIOD_MAX);
-+	duty_ticks = mul_u64_u64_div_u64(requested->duty_length_ns,
-+					 pair_rate, denominator);
-+	duty_ticks = min(duty_ticks, period_ticks);
-+
-+	/*
-+	 * Zero active ticks encode either constant level. For a toggling
-+	 * waveform, active-low mode places the rising edge after the inactive
-+	 * part, which is the only non-zero offset supported by the hardware.
-+	 */
-+	if (!duty_ticks) {
-+		candidate.pcr |= SUN8I_PWM_PCR_ACTIVE_STATE;
-+	} else if (duty_ticks == period_ticks) {
-+		duty_ticks = 0;
-+	} else {
-+		inactive_ticks = period_ticks - duty_ticks;
-+		if (sun8i_pwm_ticks_to_ns(inactive_ticks, div_k, pair_rate) <=
-+		    requested->duty_offset_ns)
-+			duty_ticks = inactive_ticks;
-+		else
-+			candidate.pcr |= SUN8I_PWM_PCR_ACTIVE_STATE;
-+	}
-+
-+	candidate.ppr = SUN8I_PWM_PPR_PERIOD(period_ticks) |
-+			SUN8I_PWM_PPR_DUTY(duty_ticks);
-+
-+	return candidate;
-+}
-+
-+static void
-+sun8i_pwm_consider_pair_rate(struct sun8i_pwm_rounding *rounding, u32 pair_rate)
-+{
-+	struct sun8i_pwm_waveform candidate;
-+
-+	for (unsigned int div_k = 1; div_k <= 256; div_k++) {
-+		candidate = sun8i_pwm_round_cycle(rounding->requested, pair_rate, div_k);
-+		sun8i_pwm_choose_waveform(rounding, &candidate);
-+	}
-+
-+	candidate = (struct sun8i_pwm_waveform) {
-+		.pair_rate = pair_rate,
-+		.enabled = true,
-+		.bypass_en = true,
-+	};
-+	sun8i_pwm_choose_waveform(rounding, &candidate);
-+}
-+
-+static int sun8i_pwm_round_waveform_tohw(struct pwm_chip *chip,
-+					 struct pwm_device *pwm,
-+					 const struct pwm_waveform *wf,
-+					 void *_wfhw)
-+{
-+	struct sun8i_pwm_chip *sun8i_chip = sun8i_pwm_from_chip(chip);
-+	struct sun8i_pwm_pair *pair =
-+		&sun8i_chip->pairs[SUN8I_PWM_PAIR_IDX(pwm->hwpwm)];
-+	struct sun8i_pwm_waveform *wfhw = _wfhw;
-+	struct sun8i_pwm_rounding rounding = {
-+		.requested = wf,
-+	};
-+	unsigned long current_rate;
-+
-+	if (!wf->period_length_ns) {
-+		*wfhw = (struct sun8i_pwm_waveform) {
-+			.enabled = false,
-+		};
-+		return 0;
-+	}
-+
-+	current_rate = sun8i_pwm_get_pair_rate(sun8i_chip, pwm->hwpwm);
-+	if (!current_rate || current_rate > U32_MAX)
-+		return -ERANGE;
-+	rounding.current_pair_rate = current_rate;
-+
-+	if (sun8i_pwm_pair_rate_constrained(sun8i_chip, pwm->hwpwm)) {
-+		sun8i_pwm_consider_pair_rate(&rounding, current_rate);
-+	} else {
-+		for (unsigned int parent_idx = 0;
-+		     parent_idx < clk_hw_get_num_parents(pair->hw);
-+		     parent_idx++) {
-+			struct clk_hw *parent;
-+			unsigned long parent_rate;
-+
-+			parent = clk_hw_get_parent_by_index(pair->hw, parent_idx);
-+			if (!parent)
-+				continue;
-+			parent_rate = clk_hw_get_rate(parent);
-+			if (!parent_rate)
-+				continue;
-+
-+			for (unsigned int i = 0; sun8i_pwm_div_m_table[i].div;
-+			     i++) {
-+				u16 div_m = sun8i_pwm_div_m_table[i].div;
-+				u64 pair_rate;
-+
-+				pair_rate = DIV_ROUND_UP_ULL(parent_rate, div_m);
-+				if (!pair_rate || pair_rate > U32_MAX)
-+					continue;
-+				sun8i_pwm_consider_pair_rate(&rounding, pair_rate);
-+			}
-+		}
-+	}
-+
-+	if (!rounding.have_best)
-+		return -EINVAL;
-+	*wfhw = rounding.best;
-+
-+	dev_dbg(pwmchip_parent(chip),
-+		"pwm#%u: %llu/%llu [+%llu] -> pair-rate=%u, pcr=%#x, ppr=%#x, bypass=%u\n",
-+		pwm->hwpwm, wf->duty_length_ns, wf->period_length_ns,
-+		wf->duty_offset_ns, wfhw->pair_rate, wfhw->pcr, wfhw->ppr,
-+		wfhw->bypass_en);
-+
-+	return rounding.best_wf.period_length_ns > wf->period_length_ns;
-+}
-+
-+static const struct pwm_ops sun8i_pwm_ops = {
-+	.request = sun8i_pwm_request,
-+	.free = sun8i_pwm_free,
-+	.sizeof_wfhw = sizeof(struct sun8i_pwm_waveform),
-+	.round_waveform_tohw = sun8i_pwm_round_waveform_tohw,
-+	.round_waveform_fromhw = sun8i_pwm_round_waveform_fromhw,
-+	.read_waveform = sun8i_pwm_read_waveform,
-+	.write_waveform = sun8i_pwm_write_waveform,
-+};
-+
-+/* Register the shared mux, gate and /div_m clock for each channel pair. */
-+static int sun8i_pwm_register_pair_clocks(struct device *dev,
-+					  struct sun8i_pwm_chip *sun8i_chip)
-+{
-+	static const struct clk_parent_data parent_data[] = {
-+		{ .index = 0 },
-+		{ .index = 1 },
-+	};
-+
-+	for (unsigned int i = 0; i < SUN8I_PWM_NPAIRS; i++) {
-+		struct sun8i_pwm_pair *pair = &sun8i_chip->pairs[i];
-+		void __iomem *reg = sun8i_chip->base + SUN8I_PWM_PCCR(i);
-+		const char *name;
-+		int ret;
-+
-+		name = devm_kasprintf(dev, GFP_KERNEL,
-+				      "%s#pwm-clk-src%u%u", dev_name(dev),
-+				       i * 2, i * 2 + 1);
-+		if (!name)
-+			return -ENOMEM;
-+
-+		pair->mux.reg = reg;
-+		pair->mux.shift = SUN8I_PWM_PCCR_SRC_SHIFT;
-+		pair->mux.mask = SUN8I_PWM_PCCR_SRC_MASK;
-+		pair->mux.flags = CLK_MUX_ROUND_CLOSEST;
-+		pair->mux.lock = &sun8i_chip->lock;
-+
-+		pair->chip = sun8i_chip;
-+		pair->index = i;
-+
-+		pair->divider.reg = reg;
-+		pair->divider.shift = SUN8I_PWM_PCCR_DIV_M_SHIFT;
-+		pair->divider.width = SUN8I_PWM_PCCR_DIV_M_WIDTH;
-+		pair->divider.table = sun8i_pwm_div_m_table;
-+		pair->divider.lock = &sun8i_chip->lock;
-+
-+		pair->hw = devm_clk_hw_register_composite_pdata(dev, name,
-+								parent_data,
-+								ARRAY_SIZE(parent_data),
-+			&pair->mux.hw, &clk_mux_ops,
-+			&pair->divider.hw, &clk_divider_ops,
-+			&pair->gate_hw, &sun8i_pwm_pair_gate_ops, 0);
-+		if (IS_ERR(pair->hw))
-+			return dev_err_probe(dev, PTR_ERR(pair->hw),
-+					     "Failed to register pair %u clock\n", i);
-+
-+		/* Borrow CCF's handle so registration cannot pin this module. */
-+		pair->rate_nb.notifier_call = sun8i_pwm_pair_rate_notifier;
-+		ret = devm_clk_notifier_register(dev, pair->hw->clk, &pair->rate_nb);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "Failed to protect pair %u clock rate\n", i);
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * A disabled pair gate makes any set PER bits ineffective. Clear those stale
-+ * enables before a clock consumer can turn the shared gate on and expose an
-+ * unrequested output.
-+ */
-+static void
-+sun8i_pwm_sanitize_disabled_pairs(struct sun8i_pwm_chip *sun8i_chip)
-+{
-+	u32 per;
-+
-+	guard(spinlock_irqsave)(&sun8i_chip->lock);
-+	per = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PER);
-+	for (unsigned int pair = 0; pair < SUN8I_PWM_NPAIRS; pair++) {
-+		unsigned int first = pair * 2;
-+		u32 pccr;
-+
-+		pccr = sun8i_pwm_readl(sun8i_chip, SUN8I_PWM_PCCR(pair));
-+		if (pccr & SUN8I_PWM_PCCR_GATE)
-+			continue;
-+
-+		per &= ~sun8i_pwm_pair_enable_mask(pair);
-+		pccr &= ~BIT(SUN8I_PWM_PCCR_BYPASS_BIT(first));
-+		pccr &= ~BIT(SUN8I_PWM_PCCR_BYPASS_BIT(first + 1));
-+		sun8i_pwm_writel(sun8i_chip, pccr, SUN8I_PWM_PCCR(pair));
-+	}
-+	sun8i_pwm_writel(sun8i_chip, per, SUN8I_PWM_PER);
-+}
-+
-+static int sun8i_pwm_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct sun8i_pwm_chip *sun8i_chip;
-+	struct reset_control *rst;
-+	struct pwm_chip *chip;
-+	int ret;
-+
-+	chip = devm_pwmchip_alloc(dev, SUN8I_PWM_NPWM, sizeof(*sun8i_chip));
-+	if (IS_ERR(chip))
-+		return dev_err_probe(dev, PTR_ERR(chip),
-+				     "Failed to allocate pwmchip\n");
-+
-+	sun8i_chip = sun8i_pwm_from_chip(chip);
-+	spin_lock_init(&sun8i_chip->lock);
-+	sun8i_chip->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(sun8i_chip->base))
-+		return dev_err_probe(dev, PTR_ERR(sun8i_chip->base),
-+				     "Failed to get PWM base address\n");
-+
-+	sun8i_chip->bus_clk = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(sun8i_chip->bus_clk))
-+		return dev_err_probe(dev, PTR_ERR(sun8i_chip->bus_clk),
-+				     "Failed to get bus clock\n");
-+
-+	rst = devm_reset_control_get_shared_deasserted(dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(dev, PTR_ERR(rst),
-+				     "Failed to get reset control\n");
-+
-+	chip->ops = &sun8i_pwm_ops;
-+
-+	sun8i_pwm_sanitize_disabled_pairs(sun8i_chip);
-+
-+	ret = sun8i_pwm_register_pair_clocks(dev, sun8i_chip);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_pwmchip_add(dev, chip);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Failed to add PWM chip\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id sun8i_pwm_dt_ids[] = {
-+	{
-+		.compatible = "allwinner,sun50i-h616-pwm",
-+	}, {
-+		/* sentinel */
-+	}
-+};
-+MODULE_DEVICE_TABLE(of, sun8i_pwm_dt_ids);
-+
-+static struct platform_driver sun8i_pwm_driver = {
-+	.driver = {
-+		.name = "sun8i-pwm",
-+		.of_match_table = sun8i_pwm_dt_ids,
-+	},
-+	.probe = sun8i_pwm_probe,
-+};
-+module_platform_driver(sun8i_pwm_driver);
-+
-+MODULE_AUTHOR("Richard Genoud <richard.genoud@bootlin.com>");
-+MODULE_DESCRIPTION("Allwinner sun8i PWM driver");
-+MODULE_LICENSE("GPL");
+ #include <linux/devcoredump.h>
++#include <linux/devm-helpers.h>
+ #include <linux/firmware.h>
+ #include <linux/platform_device.h>
+ #include <linux/of_net.h>
+@@ -751,12 +752,15 @@ static int airoha_npu_probe(struct platform_device *pdev)
+ 		if (irq < 0)
+ 			return irq;
+ 
++		err = devm_work_autocancel(dev, &core->wdt_work,
++					   airoha_npu_wdt_work);
++		if (err)
++			return err;
++
+ 		err = devm_request_irq(dev, irq, airoha_npu_wdt_handler,
+ 				       IRQF_SHARED, "airoha-npu-wdt", core);
+ 		if (err)
+ 			return err;
+-
+-		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
+ 	}
+ 
+ 	/* wlan IRQ lines */
+@@ -803,18 +807,8 @@ static int airoha_npu_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
+-static void airoha_npu_remove(struct platform_device *pdev)
+-{
+-	struct airoha_npu *npu = platform_get_drvdata(pdev);
+-	int i;
+-
+-	for (i = 0; i < ARRAY_SIZE(npu->cores); i++)
+-		cancel_work_sync(&npu->cores[i].wdt_work);
+-}
+-
+ static struct platform_driver airoha_npu_driver = {
+ 	.probe = airoha_npu_probe,
+-	.remove = airoha_npu_remove,
+ 	.driver = {
+ 		.name = "airoha-npu",
+ 		.of_match_table = of_airoha_npu_match,
 
+base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
 -- 
 2.53.0
-
 
