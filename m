@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A09C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3991C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2l5KJwbWdq6FY22U+hCaZW26IsF73VqG+OHmtkN73h8=; b=RyOdpOHlLgCCtFQe4XcXFBxUt1
-	lBq6WCNS9aWY9y59IdQqtUpIJ/lHtYqWfmwFhkRM6UUO14ju6CASStSooyg75bSnxHoRc1zdG8r0b
-	TeIqH19mXTfgqb6ueLjZRmxaCxgQWowUoaLrSPMiaXbuPQ7ot6C8eOFo7VPqp1nMe1qMu4Ik1gBwl
-	r5OmicpeHHbfo04vgDJqj9U+bpDU+7/4LqXC+n0a2RkRtX9wuKTGd47cUVh0NNrc/o1JUSonYVsbT
-	GD1EdnnVM6GZrNWxFM5YnPx/ZLRScBYYaAAVll8E3pNtiZQuI0l+PLWGxhR39s8EeURdFfIDPI9Wl
-	NLWXfqCw==;
+	bh=aegPoYsp2AnoEEWdjQn2RZBVdKkWUQvus+hn1ZEnwSM=; b=Slzlmn+NNacBgMn7AJTXu0eAnG
+	HgnSjN/99jXppTcGticzi/MqIxF9y+CoQ8EpgDU0Az+9iv0rLpn+JwabsYfIjL2XyhcOORI1J9XSi
+	waJPHvBaC6hQOo+PEMzIFfINkdpQCMHDnBilhxGGQIoG2ItJZ5AtO3wgpSUHirEIOcnvu5tfPnyDB
+	o6vtyZHRZfzsNLr9SKJfxnHgu89M1QZ/MMvo+QY9sGzYjp9HwPAiCJHzD6qvk3HkKjJ4scutVz6J8
+	NJY0GDR98CzK4/cQPnsM7onG1gjjCukYkMQUaPfIG+g1L9ZsQSsymBdAwq7gCRhRBMRuWxVxZe73u
+	uZiojyqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97yk-00000006bvz-3jlp;
-	Tue, 22 Sep 2026 21:24:42 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x98FI-00000006dJ0-2XUb;
+	Tue, 22 Sep 2026 21:41:48 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97yi-00000006bvV-2zcO;
-	Tue, 22 Sep 2026 21:24:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790112277;
-	bh=YdbB4HHFr5RiQMEKS7IZDCgTEt//MSoaU0ovnWKgFaY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o5zlNzoTZhj10MvLCN9RERRNk12QLtK1kfvAIFY9TWvY/x0Vx7xXCU4Qz27NEc4Ao
-	 j/ScP5/FJpyAOQuM47UzkcQnjLTVwkbYLodGxtqPQ7VTjmpUvi/L3VDRLToQiAjhfm
-	 VweugPVCerh94lN8/qmLvIRTKDymIrI+NIQL+s738bw7ANjnj9lSQ1qKJHwwrlXJl/
-	 z01fNYmGCkIVtIHgICRqShsBygE0Y7GXKbVYsy59CEygo3B1nk1KZfm6s2feoq9fAi
-	 oKFau036K6gwAaZWkMVz62G1H+DjbV2h3FkOE7erBDjSnwEPf/bNIG03yhO+LqGzrU
-	 6sp7bDQ5Lgqhg==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B185817E006F;
-	Tue, 22 Sep 2026 23:24:30 +0200 (CEST)
-Message-ID: <743283af-753a-40bb-96f3-d05b1e38e186@collabora.com>
-Date: Wed, 23 Sep 2026 00:24:28 +0300
+	id 1x98FF-00000006dIb-0Osv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 21:41:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B089C1A0FD8;
+	Tue, 22 Sep 2026 21:41:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8312060580;
+	Tue, 22 Sep 2026 21:41:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 25E371032802B;
+	Tue, 22 Sep 2026 23:41:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790113296; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=aegPoYsp2AnoEEWdjQn2RZBVdKkWUQvus+hn1ZEnwSM=;
+	b=KMiykFuYrNaFvXZEd7Sbft6hBWsxxzytH0Ys/Xhr0z3bOKFcnVuSdfYw7bD+naDWkWNhYJ
+	n84P5TUGvw1scqI8EfPzuV479LYCgGGk5GUJnCRbY9dUzSaIWb5FipKg7E055phzyBOiqt
+	LhEnakyQ+kOhCC9IEF6I8f7As5nysxntEIyFFryiSBByWYFj+4eQP/+ULmYJd3jCrrk83t
+	VWoU3HBXXQ/MgHCVyvsb91QAmJ0aVtjs2nNRXx4r0b7/KiZxBYgjsyQi1ginViGeLbb4Zz
+	SjyxzOUNbE8xN/WAv+8dtpz6O7eEZSjcMKQ78BKWIs+qjLgCLgaePW0f7Z7z/A==
+Message-ID: <76dafa51-b20a-4bb1-9c2b-38f2a7d83dab@bootlin.com>
+Date: Tue, 22 Sep 2026 23:41:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 13/74] drm/bridge: Fix NULL deref in drm_bridge_add()
- for legacy bridges
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Raphael Gallais-Pou <rgallaispou@gmail.com>, Sandy Huang
- <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>,
- Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>,
- Phong LE <ple@baylibre.com>, Helge Deller <deller@gmx.de>,
- kernel@collabora.com, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org,
- linux-fbdev@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
- <20260901-dw-hdmi-qp-scramb-v11-13-bc12954a0688@collabora.com>
- <ap_Tr_Viqy29f515@houat> <DLKSY3W6CGW1.3C0J6DHKV8P2Z@bootlin.com>
+Subject: Re: [PATCH net] net: stmmac: clear stale buf->page after recycling on
+ skb build failure
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Yanteng Si <si.yanteng@linux.dev>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Furong Xu <0x1207@gmail.com>, Larysa Zaremba <larysa.zaremba@intel.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260921-stmmac-fix-napi-build-skb-error-v1-1-3d54bf6d9bb6@oss.qualcomm.com>
 Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <DLKSY3W6CGW1.3C0J6DHKV8P2Z@bootlin.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260921-stmmac-fix-napi-build-skb-error-v1-1-3d54bf6d9bb6@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_142440_939693_BCF45BDD 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20260922_144145_282404_3406B75A 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,78 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Hi,
 
-On 9/21/26 10:05 AM, Luca Ceresoli wrote:
-> On Tue Sep 8, 2026 at 11:24 AM CEST, Maxime Ripard wrote:
->> On Tue, Sep 01, 2026 at 09:50:37PM +0300, Cristian Ciocaltea wrote:
->>> Legacy bridge drivers that embed struct drm_bridge in a zero-initialized
->>> allocation, rather than obtaining it from devm_drm_bridge_alloc(), never
->>> run INIT_LIST_HEAD() on bridge->list, leaving next and prev NULL.
->>> list_empty() compares next against &bridge->list, so it reports such a
->>> list head as non-empty.  list_del_init() therefore runs and dereferences
->>> the NULL pointers, panicking the kernel during probe.  Only builds with
->>> CONFIG_DEBUG_LIST survive, with a list corruption report.
->>>
->>> This affects rk3066_hdmi and the i.MX8 LDB bridges, which still embed a
->>> bridge in a devm_kzalloc()'d struct.
->>>
->>> Initialize the list head when it is found to be NULL, so that the bridge
->>> ends up with a valid empty list head and list_del_init() is only reached
->>> for bridges that can actually be linked.
->>>
->>> Fixes: 17805a15d175 ("drm/bridge: add list of removed refcounted bridges")
->>> Reported-by: Sashiko <sashiko-bot@kernel.org>
->>> Closes: https://lore.kernel.org/all/20260731175016.C5D591F00AC4@smtp.kernel.org/
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> ---
->>>  drivers/gpu/drm/drm_bridge.c | 9 ++++++++-
->>>  1 file changed, 8 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
->>> index 2c457ad74f3b..a8b6df5c13ea 100644
->>> --- a/drivers/gpu/drm/drm_bridge.c
->>> +++ b/drivers/gpu/drm/drm_bridge.c
->>> @@ -453,9 +453,16 @@ void drm_bridge_add(struct drm_bridge *bridge)
->>>  	 * If the bridge was previously added and then removed, it is now
->>>  	 * in bridge_lingering_list. Remove it or bridge_lingering_list will be
->>>  	 * corrupted when adding this bridge to bridge_list below.
->>> +	 *
->>> +	 * Legacy drivers that allocate the bridge with kzalloc() rather than
->>> +	 * devm_drm_bridge_alloc() leave list.next NULL. Such a bridge cannot
->>> +	 * be on any list, and list_del_init() would dereference NULL, so
->>> +	 * initialize the list head first.
->>
->> "legacy" bridges are ambigous and was also used for non-atomic bridges.
->> That being said, it's now *required* that bridges use
->> devm_drm_bridge_alloc() instead of kzalloc, and we warn in
->> drm_bridge_add if it hasn't.
->>
->> So I don't think we should merge this patch.
+On 9/21/26 16:46, Lorenzo Bianconi wrote:
+> In stmmac_rx(), when napi_build_skb() fails the descriptor page is
+> recycled back to the page pool with page_pool_recycle_direct(), but
+> buf->page is left pointing at the recycled page, unlike every other
+> consumption site in the function which clears the pointer after handing
+> the page away.
 > 
-> I agree.
+> With the stale pointer stmmac_rx_refill() skips the replacement
+> allocation and programs the already-recycled page back into the RX
+> descriptor.
 > 
-> I theory all drivers are be already using devm_drm_bridge_alloc() by now.
+> Clear buf->page on the napi_build_skb() failure path to keep the buffer
+> lifecycle consistent with the other consumption sites.
 > 
-> In practice rk3066_hdmi is actually still using kzalloc, it should be fixed
-> to use devm_drm_bridge_alloc(). Are you OK with doing it in v12?
+> Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path")
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 1fb5f804ea23..11035b7d944e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5887,6 +5887,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  			if (!skb) {
+>  				page_pool_recycle_direct(rx_q->page_pool,
+>  							 buf->page);
+> +				buf->page = NULL;
+>  				rx_dropped++;
+>  				count++;
+>  				goto drain_data;
 
-Yes, I'll send this a separate series, together with the other bridge fixes. 
+I'm not expert in the page_pool API, but this seems correct to me, the
+doc says :
 
-> By "i.MX8 LDB" I guess you mean fsl-ldb.c, which was converted in
-> 9c399719cfb9 ("drm: convert many bridge drivers from devm_kzalloc() to
-> devm_drm_bridge_alloc() API").
+page_pool_recycle_direct() - release a reference on a page pool page
 
-I was actually referring to imx8q*-ldb.c, but it turns out those were converted
-as well - I incorrectly flagged them because the probe functions still contain
+Seems to make sense to cleare the ref from buf->then ?
 
-  imx8qm_ldb = devm_kzalloc(dev, sizeof(*imx8qm_ldb), GFP_KERNEL);
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-I've just realized the struct drm_bridge is not embedded in struct
-imx8qm_ldb,but it's part of struct ldb_channel.  Sorry for the confusion.
+Maxime
 
-Thanks for the reviews & tests!
+> 
+> ---
+> base-commit: 1e24c4f2ee44be0eee94092b5d13cbdb4bdf0d60
+> change-id: 20260921-stmmac-fix-napi-build-skb-error-a02a3e839bd9
+> 
+> Best regards,
 
-Regards,
-Cristian
 
