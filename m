@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E27DC982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C009EC982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDqW6T/eleBg+IVifKo8eY/xxzZd9a5JDL8hnibllLY=; b=FIrZ5I81x1Io7b91onCu+CAmDi
-	LPwbBds2eixaGHmAMwCz6g5TtgyEBB+rXx7VNyE7WIS+a4QLfEjrWWitr3u5l2nkLEwhSkoGN6FAl
-	qybA+VIoiEPNV+A7qLsv4wO4T14zV9QUYi+wkT8fcTEQ9cDnzDAqhFegthEMSMABWBFL/9734qsYx
-	P1pYfuwBC0WWET+oaET3KRSntoSDQed9JIdGNE/rWmQvwdYmORMKg2mBY8lOOP0oxc9OOtO9TWKMJ
-	0fq4Fk+/nOXlLIUozmg+psp6SbxMFGRCpOclkPxRyT0SGuStRv3ewNZnhCvZbaKq8jyLixw/rin9B
-	SknuBsYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kwVjp+9NRkhTrHQ6lOsmCYjRc+NANOmRhBWGOeoo5hI=; b=lAIW/w8Jv2y0+aqKVZodLIH+rj
+	LmSr+z/XHaraI+rb8QXO6KcE3fkixWSka79Qa0tjDT1RJ9TePHXllaUUCj3v/b98q3R4KxWvQFCIv
+	ADIh7vqCc+Ydbf+/c5UCAoohmvqr1od1IDwRXGB3OTJMCJTBOC7X4Za5k1cbvDy8h5RI+GAX1Y+sZ
+	NIggHLbLiq/WWXlXfOZrvcAs4d0wQCwNAIz8U/Kvtx6qAVbPF837IEaQFflTO9hVoh7JKe+KezdoN
+	3DrsQ83Y2muIar5oRBaTbAioDWo0EjlTHrhZLLp7+6OYtRSfGrFwM/4hyW0AMCjejUNQZufP5C6V3
+	lW4iZmkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uxy-00000004Vyu-1lPs;
-	Tue, 22 Sep 2026 07:31:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8uyc-00000004W5V-2eex;
+	Tue, 22 Sep 2026 07:31:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uxx-00000004Vyh-2vrb
+	id 1x8uyb-00000004W5I-233F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 07:31:01 +0000
+	Tue, 22 Sep 2026 07:31:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DCC543C20
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:31:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A7F1F008A3
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:31:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DC98D60210;
+	Tue, 22 Sep 2026 07:31:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3971F000FF;
+	Tue, 22 Sep 2026 07:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790062261;
-	bh=oDqW6T/eleBg+IVifKo8eY/xxzZd9a5JDL8hnibllLY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=g40mb1a26ZyzUuelCX1OT15116nPGtMHhS3st5kgkA5BYA13xkFrwXZ8ZMIjNKgzP
-	 f+8z25rLZezINkew+GWFVkmeLqBqHbo9W4pqzeNB64rGkOa5Nr/kL3ee66cm+trXg/
-	 BjF8gbfJ649PEU0cfdu1HNRsl5nQyLTE4GnTI0AZkxvrHm6GbrLzmy7M1HwD4MzmP8
-	 Ep/8BbY8GVbh9r7NwvcU6i3mAvTdiaVWzkrgRSbq4j4KbdMxSTvy9w7hnC8ptZkL6n
-	 mWQWh3nd1Xped7TnIzYwQUaWXqmOzQH5MwOkjXcQDBMu643kxwjrWJsWVvmU66AOrq
-	 oAEdpl6lTCKEg==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f1e428so1303932e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 00:31:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBztDo4nW15nFmxMDkGQcb8xbKokoqaevRVe3kqdxg6GPP30NQ9CN52flywpI11l7sbZ2+H8YY/qd8gC3McB5z1F@lists.infradead.org
-X-Gm-Message-State: AFuF++kjVHt3jrhuI6GO7r7KcKni30omc1YdLZSyMpmkkck+BqWJkZ1Q
-	KjlwRXsX1LibNysFsE5o/s6MCQ/iPjWndaFn3ZL5ahTg3dsXDfPPn6Rbbn2c6yoB1BtCdAgvxC7
-	pyoD3p0WnaDZh4Xg5JlKur4Fq+EkDUKo=
-X-Received: by 2002:a05:6512:220f:b0:5aa:62df:cd0f with SMTP id
- 2adb3069b0e04-5b8d28f3a47mr591510e87.2.1790062259696; Tue, 22 Sep 2026
- 00:30:59 -0700 (PDT)
+	s=k20260515; t=1790062300;
+	bh=kwVjp+9NRkhTrHQ6lOsmCYjRc+NANOmRhBWGOeoo5hI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BZwa4M/2BNk6kG/mhdHrAj+q70LOVgtLAGXPthMVF4Bd5k6pwtWn+ohSgr4gAebMj
+	 b0DiKpETzRYI35CNcXLDq9LyYACLI6NYt606rcAexy1PjdxYt42I1JGS3Xg1gZSlCm
+	 fVslbiFj91bF5j23VFWjN1ostE5zjl+293ia1Eg1vxhAxaU7pCNR7fmqsR2aF+ftib
+	 MstyVpD4lk5ckWSF3sTjc+BbCgd1T8k51xx5FpFPt0aW+7pNYu2FrPHZoqODsmwGSj
+	 3o8nKMts+Slsqrp9mQOtVnmJA+OKX/37D532XMGRiv2ciVnznw1nZy0Xv9QR/8Lr+b
+	 MybdVeQ4VQ4OA==
+Date: Tue, 22 Sep 2026 08:31:34 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Jack Thomson <jackabt@amazon.com>, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Restore the VM's feature bitmap when
+ kvm_setup_vcpu() fails
+Message-ID: <arIucuNna38Zlf3s@gremlin>
+References: <20260921063718.1604533-1-fuad.tabba@linux.dev>
+ <arDYHSlFHm_XzGvN@kernel.org>
+ <CA+EHjTz0-qS8RRhdT8XjAgWqKhgjjzbRsZ_jwTBVqM-8pXk7Vw@mail.gmail.com>
+ <arEskPHpAPQf5SAb@gremlin>
+ <arF55dt3_i4nxoSA@kernel.org>
 MIME-Version: 1.0
-References: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
-In-Reply-To: <20260915-cv75-v5-v7-0-3297d3fbc9c0@ambarella.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 22 Sep 2026 09:30:46 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkCNkcf-gn0FgvLZZTibLUvbKaH6L+=nRqkNZr2iKFqsQ@mail.gmail.com>
-X-Gm-Features: AclHuK8hX4pHeDwobDyuxDvOk77GoFqK-3FPyH55F8XUpLTG8sIcoklXJFAKFds
-Message-ID: <CAD++jLkCNkcf-gn0FgvLZZTibLUvbKaH6L+=nRqkNZr2iKFqsQ@mail.gmail.com>
-Subject: Re: [PATCH v7 00/15] Ambarella CV75 SoC minimal bring-up
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arF55dt3_i4nxoSA@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,37 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Long,
-
-On Tue, Sep 15, 2026 at 1:15=E2=80=AFPM Long Zhao via B4 Relay
-<devnull+longzhao.ambarella.com@kernel.org> wrote:
-
-> This series adds minimal Ambarella CV75 support for early bring-up with
-> a serial console: DT bindings, RCT clocks, pinctrl, PL061 GPIO via
-> gpio-regmap, 8250_dw UART quirks, ARCH_AMBARELLA, CV75 EVK DT, and
-> MAINTAINERS.
+On Mon, Sep 21, 2026 at 11:39:33AM -0700, Oliver Upton wrote:
+> Hey Lorenzo,
 >
-> This is a single unified series. Please apply via the SoC
-> tree; subsystem maintainers are Cc'd for their pieces.
+> On Mon, Sep 21, 2026 at 02:34:12PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Mon, Sep 21, 2026 at 08:24:56AM +0100, Fuad Tabba wrote:
+> > > Hi Oliver,
+> > >
+> > > On Mon, 21 Sep 2026 00:09:17 -0700, Oliver Upton <oupton@kernel.org> wrote:
+> > > [...]
+> > > > > Nothing in the tree loads a vCPU whose init failed, so this is latent.
+> > > > > The upcoming series that enables KVM_PRE_FAULT_MEMORY for arm64 exposes
+> > > > > it: the generic kvm_vcpu_pre_fault_memory() calls vcpu_load() whether
+> > > > > or not the vCPU has been initialised.
+> > > >
+> > > > That's a bug, not a feature. We should require an initialized vcpu for
+> > > > the ioctl.
+> > >
+> > > That one is for Lorenzo then :) I'll reword the message so the stale
+> > > bitmap comes first and the pre-fault crash is just how it showed up.
+> >
+> > In general this is the behaviour of _generic_ KVM code
+> > (kvm_vcpu_pre_fault_memory()), which itself does not require an initialised
+> > vCPU, and no other arch seems to requires that either in the arch-specific
+> > pre-fault code.
+> >
+> > The actual pre-faulting implementation intentionally only targets the
+> > canonical MMU to fault in S2 page tables, which doesn't need initialisation
+> > to have taken place AFAICT.
+> >
+> > However I could add:
+> >
+> > 	if (!kvm_vcpu_initialized(vcpu))
+> > 		return -ENOEXEC;
+> >
+> > To kvm_arch_vcpu_pre_fault_memory(), which would make this a requirement,
+> > though that would bring us out of line with other archs.
 >
-> GPIO data path uses gpio-regmap with two layouts (ARM PrimeCell and
-> Ambarella). IRQ stays a custom PL061 irqchip: a linear domain is
-> created after gpio_regmap_register(), attached with
-> gpiochip_irqchip_add_domain() via gpio_regmap_get_chip(), and the
-> chained handler uses gpio_chip as chip data. gpio-regmap girq and
-> regmap-irq are not used.
+> Actually, we need this enforcement to happen before the arch-generic
+> implementation calls vcpu_load(). So that would be some amount of
+> kvm_arch_* boilerplate added to the generic code to enforce this
+> requirement like we do on the other vCPU ioctls.
 
-You patchset is big and complex yet you do quick respins.
+Ack, will do!
 
-This indicates you might be using an LLM.
+>
+> I'm not too worried about aligning this with other architectures; the
+> idea of a half-baked vCPU getting loaded is worrying.
 
-It is required by kernel procedures to disclose this
-with:
+Yeah and I don't think anybody in their right mind is relying on being able
+to pre-fault before init anyway.
 
-Assisted-by: LLM
+>
+> > OTOH, I don't see why anybody would pre-fault BEFORE init, feels like
+> > something that should be done later on in VMM bring up right?
+> >
+> > So I doubt doing this would really break any sane user.
+> >
+> > Let me know if you want that change in the series and I can respin it.
+>
+> Please do, thank you for addressing this.
 
-added to each patch, if this is the case.
+No worries, will put a commit or 2 at the start of the series to action
+this and respin.
 
-Yours,
-Linus Walleij
+>
+> Best,
+> Oliver
+
+--
+Cheers, Lorenzo
 
