@@ -4,168 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E94BC982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7554C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UcM6sjLXUgVoan+6RDzPG8Z5mRz/5UvVG1kmv39ptOo=; b=Rm1ZMIaeyN8eSahE2Ujjr3v5FV
-	UEEuUA2Ly2v9Ge6nqRshyTKbK9VMt2Da2h5bd1OrFk3FzJ2W5HAu3glo+x2Ys7yfNyuvnQrdELVif
-	MKmj0BQ+z2glI5T0FGUgYEd14bbSAZKxDvJYFfIXAAbBTdBmvXg3yWPFPks2GBtf1tA8L6rM06SS3
-	Xj3Tf6VvL+GsqKkxLVxBdB2o4DsWcDZaVo0O68jTzYJMmp+KCnvaDKWA6r/+1BG06+9TmSDNqAr7d
-	kyj3oqB2Z6blZsoySEVIpge8E+hLjqtNbhKqf2zprXgp6eFy9DygpyAn5Zf2MJDQEiAGhfI3rRiwQ
-	Y5jhRjew==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=npxqYAoA7IwkUE88Ybw2nQQ/5lB1zYdS7If1dwmwfYs=; b=KJl1qL7hww6ySpFQhnOZHENJRn
+	4sXotx6JvFil2u0deJ6EXArNormtN/3KK3jqDyXJaQ8ekTL1zDdrlMEHYJMCJXAMenOGT2IQJ5Z16
+	2hWj98FYA6KaYi9DuHqzPXXd9bx4romJboiO8Z0Ep3Knz4gwRDZYFfpwyOrmsbEEMYZlROaxIXB0N
+	K3aLMFrQg7SAOwEk8F/aoXkq0RsIN9sfCJY8kR7AlIBL9Atvtwbuyi/pt4I1K0zHfWndVX3fPzFKQ
+	ol76U7sZptQLpkg6awGwvRa1wGvBG4BQnU9rYW8b9mi7bFBnrkD1A0GlVIybFFTHulDfT3dZlEK5E
+	PQYT1gTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xs6-000000054Qk-3Eu7;
-	Tue, 22 Sep 2026 10:37:10 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xrs-000000054JB-2NW4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 10:36:58 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68M8j2ed3143896;
-	Tue, 22 Sep 2026 05:36:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=UcM6sjLXUgVoan+6RDzPG8Z5mRz/5UvVG1kmv39pt
-	Oo=; b=AHlJ98DE8MpJPXR5YZXahTiZyQUXXKWM3SdGhPA6TRClbE7TmpDzz+/TN
-	hEtlLXnbL0w3D6p+lW3OC52Yd4X+8aTJxTeNEnfMBSSdlje7bNsHAPbZps0l8upw
-	LgkMF2cb91izo+4SqydlOnZUIbgmjSf7SfgOOrwWGzl3BiWomvoIe0Cgim2/cwYY
-	PPvN/+MQB0y+XlpxdyWZ06sl7lccWYyKxlKbKQk/bYl31o5Wo13xcDv0Sc6OXEMV
-	2PVZyXZzRLo5mpxJmJdz7xNLBS9J9omRE/gTPAlClL8jrAgK4iFij8LqCMcgNVvV
-	14H4Tpv+TwBnk15Y95Vfza8QbgO7w==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011060.outbound.protection.outlook.com [40.107.208.60])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gupea0gj5-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 22 Sep 2026 05:36:54 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FFFOhZe3gqBjko5UzCwapXQHNxH9ShZbBsQQ+eWhasgTdnHW88oxrsqqVrw85sF2UtjAKyBwXV17/ixCM9xfssAbQHcH8exnlbOn4SNCZ6bCnD6WbZMgXbB/5x0wdq++trpZHxyBLSKBt5xBI3dObvVp0wQaHk0rGPz66aTZR7T8E+9vycpJANHnNfV7aSkzxZh5k4rUN/NbzzK8r2eQL2nLHtUe6fsNaXzvdj3UWUznE71WIjAvTE95ysw94UOFjRd+o6L737GUH9F2W7yW2J8HW4FY2GgE+WtsAbRSqrSSOiwL9Y1+ifoC88ejHKLUhY+o+hqsfXSsrEtAMrjdBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UcM6sjLXUgVoan+6RDzPG8Z5mRz/5UvVG1kmv39ptOo=;
- b=pKJFsXlWbxyGVFrJYxZ5KzTcsGCK153mbcXGD2b2Cj8N0wzvJqfAuWb3eJHvj6RZ6H6s5DkobTYulsbRZx50fg0jRHOzGhf7Zw5bM9jDiDNXfgbnpL9fjkVqATfUA6ncCo6kuqy8hYOU2Z90PvvDZUfGAzip0fBK4aZcP+V+gooxf1ehd9f7jvahU1qTaVBtzadfMroCszzWNJANPhxeSaRoKeTdFlLWnF1oz4LePqBVYsTXm8JlasevdOgiy2xYrJXkwrWets1xlEISsdAv5FsZf3Rnf0oAHJFvyc4zfBClNprv1o+9Fifwd7YFXGZGrcF9FsDdkHMbxG9h+f3Gsg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UcM6sjLXUgVoan+6RDzPG8Z5mRz/5UvVG1kmv39ptOo=;
- b=sYSu1tOYeNwSri28TCaf5z+nR4YtHBECCKfc9QsL2pgD3TMQsRQjhZzozLMVVyBID+eQPWbolkqQpFejrjZ1x2kxTcvtytSAmKIOqKDl0I7o6zAC/EeUPSYuJ4gGoANRYysyM305lKBzAvAhMN5ANByPtnem4rVlndfra938N6k=
-Received: from BY1P220CA0012.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::8)
- by BN0PR10MB4999.namprd10.prod.outlook.com (2603:10b6:408:129::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Tue, 22 Sep
- 2026 10:36:50 +0000
-Received: from MWH0EPF000C618B.namprd02.prod.outlook.com
- (2603:10b6:a03:59d:cafe::8b) by BY1P220CA0012.outlook.office365.com
- (2603:10b6:a03:59d::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Tue,
- 22 Sep 2026 10:36:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000C618B.mail.protection.outlook.com (10.167.249.123) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 10:36:48 +0000
-Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 22 Sep
- 2026 05:36:05 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 22 Sep
- 2026 05:36:05 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 22 Sep 2026 05:36:05 -0500
-Received: from [10.24.53.39] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.53.39])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68MAa1VC3974168;
-	Tue, 22 Sep 2026 05:36:02 -0500
-Message-ID: <adf3f06f-d2c9-424e-966b-9ef9d51e5104@ti.com>
-Date: Tue, 22 Sep 2026 16:06:01 +0530
+	id 1x8xtd-000000054oY-0RSp;
+	Tue, 22 Sep 2026 10:38:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8xta-000000054nj-49Yj;
+	Tue, 22 Sep 2026 10:38:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14ACD1576;
+	Tue, 22 Sep 2026 03:38:38 -0700 (PDT)
+Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3ABA73F632;
+	Tue, 22 Sep 2026 03:38:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790073521; bh=0EIXjeyAI4S9Q4d29IPfXdLZ0TzlUX09hLhqO14gjnM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vIZAJbEWTlXPu/VZ4y7Cm3s/P8h40IGvctRJFvrzCHJ5H+8HiL2pAfQt88fs1Solb
+	 aUxNZE4rOt04rTDkEvhb2lyVfRs71xEZ3VtVdQlZGvJN/mMMyvAA86bEcXA47TNypW
+	 Gm9aNnZh0od7w05bLPzZMzlzG8GTKGWc4tZ1Ctjs=
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: linux-usb@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	chunfeng.yun@mediatek.com,
+	gregkh@linuxfoundation.org,
+	rostedt@goodmis.org,
+	paulmck@kernel.org,
+	mark.rutland@arm.com,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+Subject: [PATCH] usb: mtu3: Fix double dereference in TP_printk
+Date: Tue, 22 Sep 2026 11:37:56 +0100
+Message-Id: <20260922103756.104846-1-vladimir.murzin@arm.com>
+X-Mailer: git-send-email 2.24.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-pinctrl: Add virtual GPIO select
- mux macros
-To: Nishanth Menon <nm@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <sebin.francis@ti.com>,
-        <k-willis@ti.com>
-References: <20260921063505.3986565-1-a-kaur@ti.com>
- <20260921174321.vaf2krmhnuhnmael@record>
-Content-Language: en-US
-From: Akashdeep Kaur <a-kaur@ti.com>
-In-Reply-To: <20260921174321.vaf2krmhnuhnmael@record>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C618B:EE_|BN0PR10MB4999:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b74efa1-8502-4aad-d6fc-08df18956806
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|13003099007|3023799007|6133799003|10067099003|56012099006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: sq/dO2Rx+jwzDalz2zOAOx0hQt24SY4JUjBON7bPVP6pIw2RheiTR7BXACaVf3ZfJHmgVRcLphTl6YHx6sc9z+1oKKTtNpsSzlAWR4HHYeJVW3rt1ivQIUeZ1bzT4DOuxekE/m2NrPyEqb9RbcVBqy62tR/vR+l5z5G8TIiID9SpsQuqyx/t/HLOUOJSf2RXeL1SVgQrFZflmh/43S+j6ncXe0y35s4FtsHCxZSYYAdyBEUi3aCE4uVGlm6sGav1uktPtYrLUAH23GlxeBxmgAiMMNnchuN/yKc3JcTXj+C+LkpPlXU4/SO9Z8U9R+oSIkGZjaLLLaIi2CD0tYxpANkVqWU96sWyz9RHyTbFpoG7lmZKc2uuvdAK01ocvyZh/NDheSg9cNWr1VeH+py1+jeQjUjUdBAR4XRXGPqzn16G7sYaAxqgaOmow3a0TemLlwnB6N+mYvI64p7LyeeeIvmqW059rssYhwHJ+8rSGlI45PL0YXby6fdf7MEAKxodBPjTcxXn9SFBb/4+0Fj2AKPkE/PskFfS6UlcQ6XYCHuR9GVG1cP2iPE4PIGTYMKWhhmjQsvXxxy3KU7pyEfXwwkDq8/rAcfHZr0IG0JSDbfw6A1CpOlBmMDrO+bHItLnfw+Y7XJG5mPxIXRlz2ePUw==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(13003099007)(3023799007)(6133799003)(10067099003)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 351akbLF5Mgo1XQef8gLjn7EnvSL+guavlG35ibD6JnJKaFszGIvhMJYcdezrd8VVoSTLb/MvtROlBsgvfnndDeMpAx3Bhzgd1sd8Axp9yHbV6yh64ZCMOzb37xkuqb2rDgKUAOaLyFm9Gc+vWf5YX1n0bRT9uJEKJscLOGnDQwsGWV7wipkTK6wxjjU5K9eFXZw172hokakPFwzg3YxRNupE4Z1uN3hbJ292o/RR8v1YXDDKkdu9E5RjMf3Zu9UvK63SsbK9TdfDoUc8Zr60q8eGUicc7XjkORILVeOnaVF++pnpr8Kfrq+6AdRTAwaUhBBUuHzd+DHcMfJbYNuCQyVbn1rzUFh2eDTyL6HTt5SqqXNERVBlGd7jk19fHQw7JWfeIHDCGUWKdM0CU3B4DS0JUNL+UuJcpIvUtrKaTxMvbNC4czQiZllZePmMeIo
-X-Exchange-RoutingPolicyChecked: pru5zdyZsfmSWaDMBSJ+yF/cM1bF0ELuWZ20m9/gEhxGBaWEscxnmT7yUm6D7J7LBEyw/2rNsernA7X0oCyuitBpghQwITx2w1yHTiEJeq48FPNFydMqrasXK6DfwN7cnGdwulhEp66nqoaS4fkid22Fy4lv+dZvgd93s56bXc9455bPSlQhM0LW9jt44Uskpn1g3SJ2Y/o5XNAdFW/XpMHdamXw+7JEYYSlIukL4Xwd9dEJDYVIxZuNYqtjkqSOnkzbO3yksCi38Kt/sWlQ3MLXXOUTj0mj8/5TxtqbAX/t8YLRHE5KPD1LpkYxx6+6AT3vb4o92wUKn6NokmT3DQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 10:36:48.3068
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b74efa1-8502-4aad-d6fc-08df18956806
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB4999
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDE1MyBTYWx0ZWRfX1n59GJd0hRCt
- YD7OaxHgRcqgXvhiDrCeSzRWQ5tFFsYyJEhvX865O0RryM1ZB4gUOWtznb3W3HlJ3XN94TA8Bb1
- UhkB9oWs5XPVOveUQYP9oWSsTMfJP+/2Cv4qgh7QGgla6S/aAAMJHMc7RRH/DiLz3HDSmLDEN9n
- HKdm7javLCU1VdibDkRv3IqFpiFyeFC7wZ8Hj93FJjIOpwqaRiN2uNDBgZjoduoOzJWdWLDlzpL
- KZi9F21BUyCSCWGx7nK3oZDcMYezMqMv2DxJSnS00fWXPsZktzqg4jP0T1bRVW3IMEn+Q7sYog9
- vsG9MPZ+6KWY5GzHs5alI1QAFhdNabdmXwDMmJWWea6C+nb4pfdxZDpkX1ra/SWXdCcUdhW34Ah
- xxwn5rLLg+Nj3wqEyCis/sgyR5zO+5e0EGJjB5F5SYnibAfLXpcdXUNpMrjCtAidzuX/gxpfVbe
- 9a6nKtTpoegwuWPfAVA==
-X-Proofpoint-ORIG-GUID: MXt9ICb-mWWOYHb9j4bm-jRAE77DyJR6
-X-Proofpoint-GUID: MXt9ICb-mWWOYHb9j4bm-jRAE77DyJR6
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDE1MyBTYWx0ZWRfXzl1smrhtTLHZ
- qBZNOO3ZV6mYkvF9sMCdN3YwYwcAH9IfX3mHE83v4VVkTILk9zM1NviX/tWekq2xQPj2OMY1B59
- ZkNhHHb92UoHDywZ5vAIph1R0L33lFs=
-X-Authority-Analysis: v=2.4 cv=Mdz5KJ/f c=1 sm=1 tr=0 ts=6ab25a46 cx=c_pps
- a=5tz+rB/kfTqQMEo17N6B4w==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=fQNsR_918SZIXC6XwWwA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-21_07,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 adultscore=0 bulkscore=0 clxscore=1015
- priorityscore=1501 phishscore=0 suspectscore=0 malwarescore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609220153
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_033656_642399_626A78F9 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20260922_033843_147595_61B022B0 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,66 +72,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
+Paul reported kernel splat:
 
-On 21/09/26 23:13, Nishanth Menon wrote:
-> On 12:05-20260921, Akashdeep Kaur wrote:
->> Add virtual GPIO select mux macros for configuring the vgpio_sel
-...
->> @@ -3,11 +3,12 @@
->>    * This header provides constants for pinctrl bindings for TI's K3 SoC
->>    * family.
->>    *
->> - * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
->> + * Copyright (C) 2018-2026 Texas Instruments Incorporated - https://www.ti.com/
-> 
-> Drop this for trivial changes.
+[    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+[    0.000000] WARNING: kernel/trace/trace_events.c:420 at test_double_dereference+0x144/0x14c, CPU#0: swapper/0/0
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.3.0-rc1 #15247 PREEMPT
+[    0.000000] Hardware name: linux,dummy-virt (DT)
+[    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.000000] pc : test_double_dereference+0x144/0x14c
+[    0.000000] lr : test_double_dereference+0x144/0x14c
+[    0.000000] sp : ffffc80aa7633bf0
+[    0.000000] x29: ffffc80aa7633bf0 x28: ffffc80aa7c0f047 x27: 000508b58019388f
+[    0.000000] x26: 0000000000000003 x25: 0000000000000007 x24: ffffc80aa5fceff8
+[    0.000000] x23: ffffc80aa7c0f05a x22: ffffc80aa64edfe8 x21: ffffc80aa7c0fce8
+[    0.000000] x20: ffffc80aa7c0f047 x19: 0000000000000013 x18: 0000000000000001
+[    0.000000] x17: 6572656420656c62 x16: 756f642073616820 x15: 746c61685f746573
+[    0.000000] x14: 0000000000000000 x13: ffff000139d90000 x12: 0000000000000045
+[    0.000000] x11: 00000000000000cf x10: ffff00013f546428 x9 : ffff000139d90000
+[    0.000000] x8 : 3fffffffffffc000 x7 : 0000000000000001 x6 : 0000000000000001
+[    0.000000] x5 : ffff00013f4e6440 x4 : 0000000000000000 x3 : 0000000000000000
+[    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffc80aa764a700
+[    0.000000] Call trace:
+[    0.000000]  test_double_dereference+0x144/0x14c (P)
+[    0.000000]  trace_event_raw_init+0x37c/0x5d8
+[    0.000000]  event_init+0x34/0xc0
+[    0.000000]  trace_event_init+0xec/0x588
+[    0.000000]  trace_init+0x24/0x6e0
+[    0.000000]  start_kernel+0x4a0/0x8ec
+[    0.000000]  __primary_switched+0x88/0x90
+[    0.000000] irq event stamp: 0
+[    0.000000] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+[    0.000000] hardirqs last disabled at (0): [<0000000000000000>] 0x0
+[    0.000000] softirqs last  enabled at (0): [<0000000000000000>] 0x0
+[    0.000000] softirqs last disabled at (0): [<0000000000000000>] 0x0
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_disable has double dereference in TP_printk: &REC->gpd_ring->dma
+[    0.000000] TRACE EVENT ERROR: Event mtu3_gadget_ep_enable has double dereference in TP_printk: &REC->gpd_ring->dma
 
-Done
-> 
->>    */
->>   #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->>   #define DTS_ARM64_TI_K3_PINCTRL_H
->>   
->> +#define VGPIO_SEL_SHIFT         (4)
-> 
-> Tabs like the rest of the macros? I assume checkpatch --strict didn't catch this?
-> 
-> Did you check *all* k3 devices to ensure the offset is the same for all
-> K3? in the next revision, please add that audit in the diffstat section.
+Which also observed by Mark and myself.
 
-Published the audit findings in the diffstat section of v3.
-No, --strict did not catch this. Thanks for the catch! Fixed
-> 
->>   #define WKUP_LVL_EN_SHIFT	(7)
->>   #define WKUP_LVL_POL_SHIFT	(8)
->>   #define DEBOUNCE_SHIFT		(11)
->> @@ -111,6 +112,11 @@
->>   #define PIN_WKUP_EN_LEVEL_HIGH		(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
->>   #define PIN_WKUP_EN			(WKUP_ENABLE | WKUP_ON_EDGE)
->>   
->> +#define PIN_VGPIO_SEL0                  (0 << VGPIO_SEL_SHIFT)
->> +#define PIN_VGPIO_SEL1                  (1 << VGPIO_SEL_SHIFT)
->> +#define PIN_VGPIO_SEL2                  (2 << VGPIO_SEL_SHIFT)
->> +#define PIN_VGPIO_SEL3                  (3 << VGPIO_SEL_SHIFT)
-> 
-> Same - use tabs (consistent with rest of the file) - also add
-> a comment above these to indicate the user should read the trm
-> corresponding to the SoC for the meaning of the values - people are
-> not going to do git log to know these values should be selected
-> carefully based on SoC (same value means different things on different
-> SoCs).
-Added a comment above as recommended. Fixed to use tabs.
-> 
->> +
->>   /* Default mux configuration for gpio-ranges to use with pinctrl */
->>   #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
->>   
->> -- 
->> 2.34.1
->>
-> 
-Thanks and Regards,
-Akashdeep Kaur
+The splat it result of new check introduced by b5cc230af5e5 ("tracing:
+Warn when an event dereferences a pointer in TP_printk()") which
+correctly catches issue with %pad dereferencing the address saved in
+the ring buffer. TP_fast_assign() logic gets executed when the
+tracepoint is triggered, however the TP_printk() is executed when the
+user reads the trace buffer which could be seconds, minutes, hours,
+days, even months later and nothing guarantee that __entry->gpd_ring
+pointer will still be pointing to what it was when it was recorded.
+
+Fix the issue by capturing immediate value of gpd_ring.dma when trace
+point is triggered.
+
+Reported-by: Paul E. McKenney <paulmck@kernel.org>
+Tested-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+---
+ drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+index 89870175d635..9aaa167d69c1 100644
+--- a/drivers/usb/mtu3/mtu3_trace.h
++++ b/drivers/usb/mtu3/mtu3_trace.h
+@@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__field(unsigned int, flags)
+ 		__field(unsigned int, direction)
+ 		__field(struct mtu3_gpd_ring *, gpd_ring)
++		__field(dma_addr_t, gpd_ring_dma)
+ 	),
+ 	TP_fast_assign(
+ 		__assign_str(name);
+@@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__entry->flags = mep->flags;
+ 		__entry->direction = mep->is_in;
+ 		__entry->gpd_ring = &mep->gpd_ring;
++		__entry->gpd_ring_dma = mep->gpd_ring.dma
+ 	),
+ 	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+ 		__get_str(name), usb_ep_type_string(__entry->type),
+ 		__entry->maxp, __entry->slot,
+ 		__entry->mult, __entry->maxburst,
+-		__entry->gpd_ring, &__entry->gpd_ring->dma,
++		__entry->gpd_ring, &__entry->gpd_ring_dma,
+ 		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+ 		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+ 		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+-- 
+2.34.1
 
 
