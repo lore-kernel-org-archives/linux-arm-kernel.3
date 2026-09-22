@@ -4,83 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF1EC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D6AC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NRBroGKsK/EO8xs+s+H8im0EjosulEEiERGNVqEejnQ=; b=krZlsYGPxyp9f52eF9P6QFqtNR
-	GoxibU7MKXmnscH++B5V+Z2i8yRGMMH1LbSDvT59h1tm5m7U7YLkYHcNskgM3iRQQHM+fPwFNtAp0
-	YPVGzpJa4Zf+tj44PSwUCRTTnUfW319jd4y9F6lpnsn380EK7hMHlRE35c0MDVUTJzvuKBp/cAnmv
-	4/oerC98PuJbZQDTKEJr0yVPe7MDFEfFpggCSsl3Ed9A51oeFWxRkYcBP+ZiVMU09juifRYQ6ZiFm
-	5XakkHdqAh5xFh840iVsKBSODpDr7ykGZ1IPbPe1SFCE1gd0jApI6fHmDrMIXXOVyCvkDG1K29afj
-	N5gFihIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rf3NcYvAmItVxbqtkxxzSpUPurh9H42FsWoY744N9zk=; b=L7AvRFftMlZAywowTRKWEsB1VM
+	KUSh0j1GdBsunIkEGcVXX4fSw4kfTmTnBldyT63FVZ/ziHOJ9BVT0jSwL3228sqex4b4Th6NFYaSl
+	1MfRD4K2IiRBUpGY/zrL+0MnIU21MOd39QpomQYggyH22U8JnZAuxszsDaAq9wgOPdx2oAt2d6gX6
+	Kz037gkkG+pRckmFQm+HpYri4NDDJe3IuY2HYtqKDdcJ/Q1J2rdwy7oPi2DX42NZNVZzxe3vmemuF
+	ZVW6zWY+hfCwSNAkUUzPopnBfhrK8lsir5ad0xoP4lkbOR291Zb0r8TBGBTChhlNvtV2vJsk2Q3GV
+	CjSyaHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Ji-00000005Sgz-1Bp5;
-	Tue, 22 Sep 2026 13:13:50 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1x90pv-00000005agd-2Zp0;
+	Tue, 22 Sep 2026 13:47:07 +0000
+Received: from mail-pz2-x0c.google.com ([2607:f8b0:4864:3b::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90JM-00000005SMe-2eEj
+	id 1x90pt-00000005afU-0Gzm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:13:29 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49ccfad90f1so27434735e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:27 -0700 (PDT)
+	Tue, 22 Sep 2026 13:47:06 +0000
+Received: by mail-pz2-x0c.google.com with SMTP id 41be03b00d2f7-cc5256c2a4bso2844779a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:47:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790082806; x=1790687606; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1790084824; x=1790689624; darn=lists.infradead.org;
+        h=content-transfer-encoding:lines:status:content-disposition
+         :content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NRBroGKsK/EO8xs+s+H8im0EjosulEEiERGNVqEejnQ=;
-        b=mXOcG7RGN0Mj7cPyPk8JSzxB2m3myT+Sb6AAT5gmlPxntaR4M0d2v3qApNoWd75202
-         V2fkotO8z4PW3uxEJPJRWrnVArnwosXwQPIM6JmpSa/9wqlBUpFKVSKiPsMGf2WfB/4U
-         vJdU1tszPEjxDWgvwHc1W0D6C3hv7gDJj4NmjZiZFT7rzVWEirtywoYT9kvrqu2rklVj
-         E+uqxaeGYh5BLafmyaGEziz4pfA+0d65I2SPS0MwBWwFXAT1iCsC2wLs5T5MesCJSL57
-         GHWBWZOYIrOtV63RGRmHyhSkiG2je4QdPjGHTfcvQ8leTugibW1FnBKq8MM5d/QitbVo
-         6H5w==
+        bh=rf3NcYvAmItVxbqtkxxzSpUPurh9H42FsWoY744N9zk=;
+        b=i/5wrm6Fp5iCtU1TxIub0W1UYls+TOUusLI0axGG5Fa1/bUIEfOn3GAZRRfMCTExqB
+         Z0FlptCWcmob0YpAaKMfgpyyfVC50kqrB3IAgcprcXQAB2CU7SXeMJMNKuDbWae/2tNf
+         Sf76tP61OTrrkgXoBh56RE6kWj+PCcrQ6MM4jWQ880oQpTiWNuEEazd++k0qIPseoKim
+         PJLtSFCojRyllsrHhRx63OEndh9J/GCNK/dRJh6NWfDU/hInSWDCRYnaZeeXM8Lt5aP5
+         8aAAx3ThCkqiz7mozpA9XYSWjqCho4K0eRt5uSmbTykmWoBLLIEW4Jx6qYlsK3jWSjPw
+         6OuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790082806; x=1790687606;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NRBroGKsK/EO8xs+s+H8im0EjosulEEiERGNVqEejnQ=;
-        b=MXUnN91B/CusaBlD9NAHJaz+h0dPoQn+OjdacnkLtjaP5qPvGqc5faSj9KSuOELJD2
-         YNUiu2UnU2Jkrc4rH8h/CaR9aKkxjl6oyrh8q17bM+/9tocV69T98cF2MvfOV1cFu1dl
-         16dGrdweEK4tTL+ufY3opwi52Ez/gv0jedaqmwBjVIjNO0tqZ9ONTx/SQO3h99V3Qrw5
-         SKCnwy4oUUISvTkSbcxVZr1R1ag5Pq2dqFUiORVxfsoCBrPB2GyEd2G7ATiavxyLfhAy
-         mWom0TnfBNVj3JI8Lkm8R1VjtLCI9WKp8PQ0A3CERBY9HxkSg3FybBvRVmHMRXIp+ZO+
-         7lIw==
-X-Gm-Message-State: AFuF++kRNU5yqWJxBx/H87fsd6EnLSAQuo1+vo++mk14o5B3nD9TjXu8
-	gELSK0MCcZ8Sh7OSk8soCI75uzmIhBbsXpY8C2lvZLR3W1xTUFTtoksBO9jUD/PKTdJbgC+Q02x
-	KPOPNFAg3bbpz3SI3jMrmxMTwyr8QXeW40ZcQHhoSkC4WOoOEV5KnhFs1Ogngan2iRVEHb4nRO6
-	wMeD1qsPO9ljLz7nf/ia3tGOr3Ycwh2bjmv5bkeckEV7lU9xUNg1yDrKCF0DMwZ0LL8A==
-X-Received: from wmga20.prod.google.com ([2002:a05:600c:2d54:b0:49e:6308:e0bf])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:548a:b0:49f:ce73:7ab with SMTP id 5b1f17b1804b1-49fce730859mr138765725e9.34.1790082805696;
- Tue, 22 Sep 2026 06:13:25 -0700 (PDT)
-Date: Tue, 22 Sep 2026 13:12:52 +0000
-In-Reply-To: <20260922131259.2975334-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260922131259.2975334-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922131259.2975334-20-smostafa@google.com>
-Subject: [PATCH v8 19/25] iommu/arm-smmu-v3-kvm: Share other queues
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca, mark.rutland@arm.com, 
-	qperret@google.com, tabba@google.com, vdonnefort@google.com, 
-	sebastianene@google.com, keirf@google.com, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20260707; t=1790084824; x=1790689624;
+        h=content-transfer-encoding:lines:status:content-disposition
+         :content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rf3NcYvAmItVxbqtkxxzSpUPurh9H42FsWoY744N9zk=;
+        b=CVPdIdo5AHLikKST9IMIZBJesvI/4UZ6xiviS6okKgcEKjl4fzocyGL91zFRJfogHF
+         Xp0JM4dKWcWvLSHQrf9WrA6JkfNuyjRlhv/RfFScbbHs5OtMCKQXLL2BLFEUJoaASiMb
+         bwqzupwa5YkQZjX8krQV6Q83kxZxpQG13MghnidmyO8mq4b/tFjrgK0AMwrze0ZvwZdP
+         it95dRA9oPygNdk1RdPoAGvk5Qipl+FQauBChhp2VgoES3cFkZKcdJzPR4QNP69qDG8d
+         dcWpeae8DKALhT8FjV3w6/rI06+sIGqINO/Kw0l5fWUvAFBjh+kB/e9Jw28cg1vv2gIF
+         ZgoQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz4kj7kVAs+O3ds45glNcDfl7u+0GtOmXmWr4xlzuomjH4FYoxzasTPIRac7AeU5rzzurhmtvSgCU2DQQc32hvE@lists.infradead.org
+X-Gm-Message-State: AFuF++lCTEC22HwQAfF/kXa6STJ2Vw7YZCbtQe219XIxlNG7qmcusaaI
+	BzoboGq8mBklcN63J0aEkL1dIUjxNcv7a3MkXzSK65/Cihxfo7KTnykl
+X-Gm-Gg: AYBFou3mVFoJGAKEw3aijC5uPigel5h9G5pMmQ3b4EL4e5doLJJBjGfAGCCtg9O7BFV
+	k8c22tatF2askYy9wMgpngua96jQAK039Us6J4uOJzwpYfidzRGlqDNGlbH/fMCJptbiAy7ltXH
+	lEO2Z0W2AOQ2hiITp316l173fpK3ict9BiXd8e4jgsI2pgDVJs9r0IXMSdjFxAi4HwTCbgdc85H
+	B3FthYHfWBWCG1ZaOWMuP5ojLvQJDLqgwu0P1gKkELQYgt9GRUYK2oVIZgvyeFhUQtscvk8SfpQ
+	rSgzVnAuRfcIVNIojWAw2lp10Om+VqhjX6PJMSQwLWPvVJ/cNFpvQagT63uzIgPkzN8gi/oXcy8
+	YEUxdV7G6/TKnbdTrZpHU17pMrjveAIqMsUIiO5MsnFN7huV5atl8Rvs4o0yRJNZaX2RRRvm+j/
+	qmVlsxhNXZ/wnGtu0OqkNOnfz4k/6GwXTJgM2YkPyHPJFXdcZyS7V9RM2RljzVFF4KlENrHZiuV
+	nf37pXPzOaNRJ90bneTA+3t3Lrlm7YE8Fvq7F0=
+X-Received: by 2002:a17:90b:35cb:b0:39e:6c69:f479 with SMTP id 98e67ed59e1d1-3a073262d85mr1337283a91.56.1790084823601;
+        Tue, 22 Sep 2026 06:47:03 -0700 (PDT)
+Received: from DESKTOP-VNSSJ2S.lan (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a06caf4a73sm1381225a91.2.2026.09.22.06.46.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 06:47:03 -0700 (PDT)
+From: Zhi-Jun You <hujy652@gmail.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: Rex.Lu@mediatek.com,
+	andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	hujy652@gmail.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	lorenzo@kernel.org,
+	matthias.bgg@gmail.com,
+	nbd@nbd.name,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	sujuan.chen@mediatek.com
+Subject: Re: [PATCH net v4 3/3] net: ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
+Date: Tue, 22 Sep 2026 21:46:04 +0800
+Message-ID: <20260922134604.617-1-hujy652@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <179000700034.2160803.10594281691384015089@kernel.org>
+References: <20260917144335.19466-3-hujy652@gmail.com> <179000700034.2160803.10594281691384015089@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: attachment; filename=v4reply
+X-Mutt-References: <179000700034.2160803.10594281691384015089@kernel.org>
+X-Mutt-Fcc: ~/sent
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_061328_705438_330A24FA 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20260922_064705_111621_7524240F 
+X-CRM114-Status: GOOD (  40.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,174 +119,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Other queues as PRIQ and EVTQ do not need to be shadowed. However, we
-need to make sure they are in a state that disallow them to be donated
-to the hypervisor or guests. So, keep track of those and share them when
-they get enabled.
+On Mon, Sep 21, 2026 at 04:10:00PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] In mtk_wed_start()
+>   (drivers/net/ethernet/mediatek/mtk_wed.c:2346-2347) the newly added…
+> 
+> Pre-existing issues:
+> - [Medium] This problem wasn't introduced by this patch, but the patch
+>   widens it: dev->tx_wdma[] descriptor rings are allocated with…
+> 
+> --
+> 
+> net: ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
+> 
+> On a non-DBDC MT7986 only rx_ring[1]/tx_wdma[1] get set up, so
+> WDMA_RING_TX(0) is never programmed even though WED needs it for RX
+> offload.  The patch adds a call to mtk_wed_wdma_tx_ring_setup() for ring 0
+> from mtk_wed_start() when the device is WED v2 and rx_ring[0] was not
+> allocated, passing reset=true when tx_wdma[0] already exists.
+> 
+> > diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+> > index 3f0be70c3f145..3800e602d3c48 100644
+> > --- a/drivers/net/ethernet/mediatek/mtk_wed.c
+> > +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+> > @@ -2339,6 +2339,13 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
+> >  		if (!dev->rx_wdma[i].desc)
+> >  			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
+> >  
+> > +	/*
+> > +	 * non-DBDC MT7986 allocates only rx_ring[1] and tx_wdma[1] during setup
+> > +	 * but tx_wdma[0] is also needed for WED to function.
+> > +	 */
+> > +	if (mtk_wed_is_v2(dev->hw) && !dev->rx_ring[0].desc)
+> > +		mtk_wed_wdma_tx_ring_setup(dev, 0, MTK_WED_WDMA_RING_SIZE, !!dev->tx_wdma[0].desc);
+> 
+> [Severity: Medium]
+> Should the return value of mtk_wed_wdma_tx_ring_setup() be checked here?
+> 
+> On the first start of a non-DBDC v2 device dev->tx_wdma[0].desc is NULL, so
+> reset is false and the helper takes the allocation path:
+> 
+> drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_wdma_tx_ring_setup() {
+> 	wdma = &dev->tx_wdma[idx];
+> 	if (!reset && mtk_wed_ring_alloc(dev, wdma, MTK_WED_WDMA_RING_SIZE,
+> 					 dev->hw->soc->wdma_desc_size, true))
+> 		return -ENOMEM;
+> 	...
+> }
+> 
+> mtk_wed_ring_alloc() does a dma_alloc_coherent() of
+> MTK_WED_WDMA_RING_SIZE * wdma_desc_size (32 KiB on MT7986), and on failure
+> the helper returns before writing MTK_WDMA_RING_TX(0) BASE/COUNT/CPU_IDX/
+> DMA_IDX and before the "if (!idx)" block that programs the WED side
+> MTK_WED_WDMA_RING_TX window.
+> 
+> Since the status is dropped, mtk_wed_start() keeps going through
+> mtk_wed_hw_init(), mtk_wed_configure_irq() and mtk_wed_dma_enable(), which
+> arms MTK_WDMA_GLO_CFG_TX_DMA_EN and, for rx-capable v2,
+> MTK_WED_WDMA_GLO_CFG_TX_DRV_EN | MTK_WED_WDMA_GLO_CFG_TX_DDONE_CHK, and
+> then sets dev->running = true.  Can the hardware then fetch descriptors
+> from a ring whose base register was left at 0 by the preceding
+> mtk_wdma_tx_reset()/mtk_wed_reset(), leaving the WED offload silently
+> non-functional with no message?
+> 
+> The other caller of the same helper propagates the failure:
+> 
+> drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_rx_ring_setup() {
+> 	if (mtk_wed_wdma_tx_ring_setup(dev, idx, MTK_WED_WDMA_RING_SIZE,
+> 				       reset))
+> 		return -ENOMEM;
+> 	...
+> }
+> 
+> and mtk_wed_start() itself already bails out on mtk_wed_rx_buffer_alloc()
+> and mtk_wed_rro_cfg() failures.  Since mtk_wed_ops.start is void and
+> mt7915_dma_start() cannot observe the error, would it make sense to abort
+> the start sequence locally here (skipping mtk_wed_dma_enable() and
+> dev->running = true) and log the failure?
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- .../arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h    |  8 ++
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 81 +++++++++++++++++--
- 2 files changed, 84 insertions(+), 5 deletions(-)
+ACK I will add error messages and return when there's an error.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
-index d4700d3a3c10..ffc57182e57e 100644
---- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
-@@ -32,6 +32,10 @@
-  * @host_ste_cfg	Host stream table config
-  * @host_ste_base	Host stream table base
-  * @strtab_cfg		Stream table as seen by HW
-+ * @evtq_base		Host evtq base reg
-+ * @priq_base		Host priq base reg
-+ * @evtq_shared		Whether the EVTQ was shared
-+ * @priq_shared		Whether the PRIQ was shared
-  */
- struct hyp_arm_smmu_v3_device {
- 	phys_addr_t		mmio_addr;
-@@ -58,6 +62,10 @@ struct hyp_arm_smmu_v3_device {
- 	u64			host_ste_cfg;
- 	u64			host_ste_base;
- 	struct arm_smmu_strtab_cfg strtab_cfg;
-+	u64			evtq_base;
-+	u64			priq_base;
-+	bool			evtq_shared;
-+	bool			priq_shared;
- };
- 
- extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-index cb9aa7e4a394..00528380774f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-@@ -80,6 +80,16 @@ static bool is_smmu_enabled(struct hyp_arm_smmu_v3_device *smmu)
- 	return FIELD_GET(CR0_SMMUEN, smmu->cr0);
- }
- 
-+static bool is_evtq_enabled(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	return FIELD_GET(CR0_EVTQEN, smmu->cr0);
-+}
-+
-+static bool is_priq_enabled(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	return FIELD_GET(CR0_PRIQEN, smmu->cr0);
-+}
-+
- /*
-  * CMDQ, STE host copies are accessed by the hypervisor, we share them to
-  * - Prevent the host from passing protected VM memory.
-@@ -660,6 +670,20 @@ static void smmu_emulate_cmdq_disable(struct hyp_arm_smmu_v3_device *smmu)
- 				   cmdq_size(&smmu->cmdq_host)));
- }
- 
-+static void smmu_emulate_queue(struct hyp_arm_smmu_v3_device *smmu,
-+			       unsigned long q_base, size_t ent_size_shift)
-+{
-+	/* Q_BASE_ADDR_MASK is not enough as the SMMU also ignores bits > OAS */
-+	phys_addr_t base = q_base & Q_BASE_ADDR_MASK & ((1ULL << smmu->oas) - 1);
-+	size_t size = 1UL << (FIELD_GET(Q_BASE_LOG2SIZE, q_base) + ent_size_shift);
-+
-+	/* The host must program the base first and it must be aligned to size. */
-+	if (WARN_ON(!q_base || (base & (size - 1))))
-+		return;
-+
-+	WARN_ON(smmu_share_pages(base, size));
-+}
-+
- static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
- 			     struct user_pt_regs *regs,
- 			     u64 esr, u32 off)
-@@ -764,12 +788,34 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
- 		if (is_write) {
- 			bool last_cmdq_en = is_cmdq_enabled(smmu);
- 			bool last_smmu_en = is_smmu_enabled(smmu);
-+			bool last_evtq_en = is_evtq_enabled(smmu);
-+			bool last_priq_en = is_priq_enabled(smmu);
- 
- 			smmu->cr0 = val;
- 			if (!last_cmdq_en && is_cmdq_enabled(smmu))
- 				smmu_emulate_cmdq_enable(smmu);
- 			else if (last_cmdq_en && !is_cmdq_enabled(smmu))
- 				smmu_emulate_cmdq_disable(smmu);
-+
-+			/*
-+			 * Share PRI and EVTQ to avoid the host using them to write to
-+			 * protected memory. However, do not unshare the queues at disable
-+			 * as that is more complicated, unsharing from here can lead to
-+			 * use-after-unshare issues, and requires ordering with cr0ack.
-+			 * The host can disable those queues during shutdown, but it never
-+			 * changes the base address (even with RPM), so leave the queue
-+			 * shared and assert that multiple host writes do not change it.
-+			 */
-+			if (!last_evtq_en && is_evtq_enabled(smmu) && !smmu->evtq_shared) {
-+				smmu_emulate_queue(smmu, smmu->evtq_base, EVTQ_ENT_SZ_SHIFT);
-+				smmu->evtq_shared = true;
-+			}
-+
-+			if (!last_priq_en && is_priq_enabled(smmu) && !smmu->priq_shared) {
-+				smmu_emulate_queue(smmu, smmu->priq_base, PRIQ_ENT_SZ_SHIFT);
-+				smmu->priq_shared = true;
-+			}
-+
- 			if (!last_smmu_en && is_smmu_enabled(smmu))
- 				smmu_emulate_enable(smmu);
- 			else if (last_smmu_en && !is_smmu_enabled(smmu))
-@@ -792,6 +838,34 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
- 
- 		mask = read_write;
- 		break;
-+	case ARM_SMMU_EVTQ_BASE:
-+		if (len != sizeof(u64))
-+			break;
-+
-+		if (is_write) {
-+			/* See ARM_SMMU_CR0 */
-+			if (is_evtq_enabled(smmu) ||
-+			    (smmu->evtq_shared && (smmu->evtq_base != val)))
-+				break;
-+			smmu->evtq_base = val;
-+		}
-+		mask = read_write;
-+		break;
-+
-+	case ARM_SMMU_PRIQ_BASE:
-+		if (len != sizeof(u64))
-+			break;
-+
-+		if (is_write) {
-+			/* See ARM_SMMU_CR0 */
-+			if (is_priq_enabled(smmu) ||
-+			    (smmu->priq_shared && (smmu->priq_base != val)))
-+				break;
-+			smmu->priq_base = val;
-+		}
-+		mask = read_write;
-+		break;
-+
- 	/* Allowed 32 bit registers. */
- 	case ARM_SMMU_EVTQ_IRQ_CFG1:
- 	case ARM_SMMU_EVTQ_IRQ_CFG2:
-@@ -821,15 +895,12 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
- 	case ARM_SMMU_EVTQ_IRQ_CFG0:
- 	case ARM_SMMU_PRIQ_IRQ_CFG0:
- 	case ARM_SMMU_GERROR_IRQ_CFG0:
-+		if (len != sizeof(u64))
-+			break;
- 		/* These are RES0 as MSI support is hidden. */
- 		val = 0;
- 		if (!is_write)
- 			goto out_update_regs;
--		fallthrough;
--	case ARM_SMMU_EVTQ_BASE:
--	case ARM_SMMU_PRIQ_BASE:
--		if (len != sizeof(u64))
--			break;
- 		mask = read_write;
- 		break;
- 	/* Allowed RO 32 bit registers. */
--- 
-2.55.0.1082.g2b9226bbc0-goog
+> 
+> [Severity: Medium]
+> This isn't a problem introduced by this patch, but does this new call add
+> another leak of dev->tx_wdma[0]?
+> 
+> dev->tx_wdma[] rings are allocated by mtk_wed_ring_alloc() via
+> mtk_wed_wdma_tx_ring_setup(), but the ring-release helpers never free that
+> array:
+> 
+> drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_free_tx_rings() {
+> 	for (i = 0; i < ARRAY_SIZE(dev->tx_ring); i++)
+> 		mtk_wed_free_ring(dev, &dev->tx_ring[i]);
+> 	for (i = 0; i < ARRAY_SIZE(dev->rx_wdma); i++)
+> 		mtk_wed_free_ring(dev, &dev->rx_wdma[i]);
+> }
+> 
+> drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wed_free_rx_rings() {
+> 	mtk_wed_free_rx_buffer(dev);
+> 	mtk_wed_free_ring(dev, &dev->rro.ring);
+> }
+> 
+> __mtk_wed_detach() calls those helpers and then does
+> memset(dev, 0, sizeof(*dev)), so tx_wdma[].desc/desc_phys are discarded and
+> the 32 KiB coherent allocation can no longer be released.
+> 
+> The existing allocation site is mtk_wed_rx_ring_setup(), so the omission
+> predates this change, but non-DBDC MT7986/MT7981 previously never allocated
+> tx_wdma[0] at all, and now every attach/start/detach cycle would leak one
+> more ring.  Would adding dev->tx_wdma[] to mtk_wed_free_tx_rings() be the
+> right way to restore alloc/free symmetry?
+> 
+
+There is a patch in MediaTek SDK fixing this exact issue.
+I will pull the patch from there.
+
+Link:https://github.com/mediatek/mtk-openwrt-feeds/blob/main/25.12/files/target/linux/mediatek/patches-6.12/999-wed-04-Fix-reinsert-wifi-module-cause-memory-leak-issue.patch
+
+Best regards,
+Zhi-Jun
+
+pw-bot: cr
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917144335.19466-1-hujy652%40gmail.com
+> 
 
 
