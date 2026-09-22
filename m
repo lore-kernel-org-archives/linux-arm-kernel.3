@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81390C98305
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C74C98305
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pp6BX0mvVT2CZt7W5iAnQc+T8SkoWRi5DiwXWjU82F8=; b=Pea909ScsvQavfPVkhJKyEmaH0
-	qOMTtb5bx4MkDxPe4np257QeoqAbvkXjB8FijwYQ6K3yWjppsn//axB8+mMM7FWQcooc+bZvxVpdc
-	O8ebVLJjgGoLZFi8G+jcyUNGJ2US4rQpQHVcwyWy6f767RHLTBUH3UNkpm56k/7P86nviw9GPiKH/
-	sFTBxHpgddpHj+4xuzVGUzoc+5OHRdxV0Nj+8mPVw3Qla26bTHfUVAhphiwSN5II04SbqRIsNF6fF
-	rduvyUjDzdYirHHjzDXEhJtHtRQDr0ZJVuLrBYNApt+OZ5GOJZWwbGhBby0g2S6HykMyfkZdjgqeP
-	ydtQYvYA==;
+	bh=uM6eJlIue+3ZnByR9U7PRXrgVvVnosyPWdGdGl87I7k=; b=UwS0JSlXT8j+I8j0+7ND6OO2j0
+	yUdEvqEaHbCGL7tGOyLPv1EPsFrLnHjhLK9wj0kcNzRcItTtHBhaGptJhi6myY4jhudvfihT2InLL
+	SzmdSyQZFlJ9ikDT3tqnTHSlC9nANFcCPMkXZZghgksbuw4Q+NpnLE1ciafF2ZZVjhIZAiHIv0DLc
+	WV4YScibqzHba4lji94f159o13tqzHtX+07zNAf7im/vlFrpV9jQYrFn6jf6UpwHQ6+qdUB+2+PoL
+	obA+NRe2qF/JKjaApbbfBQPdQuw2Gs8axMPWrUXLgDP3VbXXPNQtB6cMgUbqvXOm5CL3Ehq0kj5aY
+	/od1OMEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRa-00000004aHu-2YM4;
+	id 1x8vRa-00000004aHK-1sl4;
 	Tue, 22 Sep 2026 08:01:38 +0000
-Received: from mail-wm2-f13.google.com ([74.125.225.141])
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRV-00000004aDo-2IIN
+	id 1x8vRV-00000004aDT-0ImK
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Sep 2026 08:01:35 +0000
-Received: by mail-wm2-f13.google.com with SMTP id 5b1f17b1804b1-49e6baf77afso1695505e9.2
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b93204449so2951415e9.3
         for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20251104; t=1790064091; x=1790668891; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pp6BX0mvVT2CZt7W5iAnQc+T8SkoWRi5DiwXWjU82F8=;
-        b=gCufh0r1g8f2CHFVRWlsyW1YsjvgpTO4zbf8PtyH+kPGlzG1d5jIOZA01nhdhq4sRg
-         U0k3Zu/Osk82YPmCtTymPJhk24r+8EMhdITUFCTXahO49qbBvmhbNARM2UqVzemJyNtf
-         8mLO7qaZGaP67tUpBXTE7wg1cuRhxrGC6LU67Y924P6Ynffrox17onUqYt3QWbAbNFHY
-         rQmeH4PXxVUPO5zi7PccEAYXulyP3LaVw66z7mGEzf/r4fSW5zE9r3x8pfEEKSfIa5qR
-         ig5NGAENOj8qEmrvgk2adXcRAVVKanUfPU276cvofrfhkU/HwwaXpBNm+gwOSSJ1QH6K
-         gTeQ==
+        bh=uM6eJlIue+3ZnByR9U7PRXrgVvVnosyPWdGdGl87I7k=;
+        b=ZWdBdHLYwz9Gw4GK3GXy+yzN+j+gd67XfIl+KbiCMhbS3uoXK82np6F0LAfizNwx/H
+         CIvQK6LqcV28BPIig6ivfLYllpbvZYZU8IMNK5KHlRpFrjFc23e4YoTrZBKgiAYoIrjq
+         lTlkw6Xj6loJM9gWSGoCHBbEhUzYvkw0YmSZwZUQrF3yFsRni9HEQFuWGUL6XBXteS7Q
+         OQdmuDVb2+z6f7c/dpC/SoKTavA8WjCfL3e+6Kst+gSwjyLsEc3mDqDzgfy95PEOjTH7
+         P/cDIg8EDs/eOfvaQL28L3oNcTCLkbLcKWo1XAh9uGnEHMfoF5KHpiM5creHSdf/7NiN
+         hAKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1790064091; x=1790668891;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pp6BX0mvVT2CZt7W5iAnQc+T8SkoWRi5DiwXWjU82F8=;
-        b=w8YPWpNnhjcqxlBCvwcVybwD2UxaDSP0GnWyU/4SAn+8QdzP4uKxSxY3oHpfJG56HQ
-         P0zBuhic8dN/v9OftkwzucJlli4RIs7b+vqRb4n+XtyQa2ReWs9YkGWnpZXbQ4wUFTvL
-         mfLri5SibLDDOkGAsU6kBxagK88SYnHkDKLnLEbTb3d/TUGXAtmtosbV06IltCUk4ENK
-         plNi/4fEko8Rwr95oQLQaf11ENtRyFPj8A6jF1nVaO+jgSF+dGPUt/UA/P3oDqVfL9UW
-         1VI7mTODIuIx0fjsjiZlCZru5NlSgh7bBri6SEo2BQbxyiFAX5zt02wHIZwxfpB1J03b
-         aOqQ==
-X-Forwarded-Encrypted: i=1; AKwUvByfLZoqmn+I3cv+qsfrC8JJ87ntmdjRsVfVeLQcSz8206gjH376y1pHhK8t5rofccaly29uF/qE+7FMMBL3HLNV@lists.infradead.org
-X-Gm-Message-State: AFuF++lUkUpDKG7lBS6JylBQzxUS5ZJffpu2hHyDZ19cFxjLRpb1zjkF
-	TXyvl3q+4Wt0RWPFYpOZHmPFx7DfaC4apnkLJFH3VbfwXxIqKMdpe+Hp
-X-Gm-Gg: AYBFou2tXvN4Q+Wl+QMkATFo65Yp16RnV3xeFP/bZ2Sj+UsFD2+nS2whohSwzbYPvNc
-	m7t/SX8QLdG1qeXqdviloSJDnbNU1zgrsaUMt7IGAtOsWGB6A4jTU2FthfuBWiMTPxqUwJv8nwV
-	5vnzbAdh6Ll2/0uKnvYb/Vm3K+Vn5pzLTz7v/wqBflJ3WDCXJkTwOaVsCgIUyNMTr6bsWYAwyfH
-	zbVykHJgPcni2xo2cewUnyf7J2giSfjp3V4i02L/2yQDpBVgNcwtrHX2XIIN/FvyV6nIDppcL4L
-	iu7JoZ9gzJa3p0WObmPm6y3Y0Kj/ACl5V2EErK4MPqCsvgco4Q4rSW/6TSMwov4SXciw/4zTKVw
-	/CVZ1BrkLQeP41Aakk1PsSNvzsh/0WBCBlsS+fCMDJdvzWSQO18fDqtUJtVEjjDqrg3ZLbc399y
-	48zkm2rhpnSvNDDuao9tpNbhjPcVXfevDQ0lKsJvvWAOSP4Tudzp/rcL+4SFUuhDU5juQOp4D+n
-	VVWDdU8SUi9tMzGy1GhjFnI+tHCGcd+jy+yGTfks58MosxsdePVatJfdy5Va8O7QYjKnfdbIHQL
-	QY27AhDLl8pg4cg=
-X-Received: by 2002:a05:600c:6992:b0:49b:9241:7ff0 with SMTP id 5b1f17b1804b1-49fc7b7a756mr226927785e9.0.1790064090983;
-        Tue, 22 Sep 2026 01:01:30 -0700 (PDT)
+        bh=uM6eJlIue+3ZnByR9U7PRXrgVvVnosyPWdGdGl87I7k=;
+        b=YoDBp3P4FEAOeK5YGne/jno8FR/WSDqR7dh96PWnq2PBIWk8YxyQHC7hVFGpkRCfaV
+         /8J++l2y0lhZ4VoLlQp1sKoPIME+k5wsb24ReDPTyEtw0YqG7A0zZG4KvfF1ycTiVhmw
+         TrpECRM0FoVZdcm7UW8ZZwNwaGwJOT5yP+O9scXk8ky4C4SNXYPBUOiQ1kFH+N2GYsMy
+         rDx/iY/CMmFaA4c0gIlMzPTwaHO5NA+9xCvEC6sIRS/ouENnLXBwFx+bKtKWIB8qRaWl
+         KFxaXwJOX3Xf3rKNBorrwE2N6TH3BCwDccYkudajetooIkqXyFg+xquk+4LBndNWG4qQ
+         r+rg==
+X-Forwarded-Encrypted: i=1; AKwUvByxjy7DhCAeuj5w8JpD5zaVfzEuygkJTY8bGs8ckmbhfNexmWL1YfWc8XvWfbWU/nCD6kTMtDds2KUVb/MgeMPT@lists.infradead.org
+X-Gm-Message-State: AFuF++l174IQ13uJplGRzWQmzzN/MhNvSyekN/dvPS3F6oggPtBTF2gq
+	jugxQ+z1fMjEeFi1RaquXCQVBWkXM9hgK/GdMkBtM11BjxY/KTiHK6DQ
+X-Gm-Gg: AYBFou0OZ0dikIPwlY8C542jtv0NeijXkeIuT2bOOK/ANqV9681p3valcfQ54ffp5/y
+	PyBoFCWVb9a+p8BE0JabAyvmDprMRp5Qb++/6swnkJcurIx0dkUr9+dvlKw1aUGufbAlFMH2xwg
+	Z1TbP0TMdqcUrx/1YdpWqNW9VyoylwqE2PmAehRP/7CCnTnuKGshr/jefDB5MwbAIIFV24I3mMM
+	15BCdKbV6hKYIGFIEMEVn24wrzAeB7PjJtPgCRet97n0IO7+QDThGYU9jOjC0UUuU331p9uJF7e
+	9AG1HmhyElZSwpQLdzS3Ti6h+P4Rtba1mhY0FanaQutXps7dpBo7y9WgbY9pBs9mh961TZOVIZC
+	DVBHP03rd4YxH8K9z+vPILnex2+YS5ZxKWlbnXL9uZDIZu4KjJ4PAS6psid+iZzV2qP/vfKibi7
+	RrLnhQL3PQAtcyrIWeaoXUoKBfyoif9cZxxJTF4cRBtB87SgcSo1jk0joRJjqOTUWidBZR55617
+	wFKqwlEZJ7KL42LRUbRd2aNjcZe3aXrvYBkug9E3mZC49IvOYcdo7VQqpgzOdA4dRHggVBwtyWX
+	F3yl
+X-Received: by 2002:a05:600c:1d1b:b0:49e:7cc6:ec88 with SMTP id 5b1f17b1804b1-49fc7e00555mr163235615e9.1.1790064089430;
+        Tue, 22 Sep 2026 01:01:29 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B80530056971C6280202175.dsl.pool.telekom.hu. [2001:4c4e:1b80:5300:5697:1c62:8020:2175])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.29
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 01:01:30 -0700 (PDT)
+        Tue, 22 Sep 2026 01:01:29 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
 	Oded Gabbay <ogabbay@kernel.org>,
@@ -94,17 +94,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH v2 04/11] accel/rocket: keep core slots stable across unbind and rebind
-Date: Tue, 22 Sep 2026 10:01:07 +0200
-Message-ID: <20260922080114.44662-5-royalnet026@gmail.com>
+Subject: [PATCH v2 03/11] accel/rocket: search every core slot when looking up a scheduler
+Date: Tue, 22 Sep 2026 10:01:06 +0200
+Message-ID: <20260922080114.44662-4-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260922080114.44662-1-royalnet026@gmail.com>
 References: <20260922080114.44662-1-royalnet026@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_010133_650078_90850649 
-X-CRM114-Status: GOOD (  35.39  )
+X-CRM114-CacheID: sfid-20260922_010133_232283_74DDFBB1 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,286 +119,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rocket_probe() inserts a new core at slot num_cores, and
-rocket_remove() only decrements that counter without clearing the
-slot. That falls apart as soon as one core is unbound while its
-siblings stay bound:
+sched_to_core() walks rdev->cores[] up to rdev->num_cores, and
+rocket_remove() decrements num_cores for every core it removes. Unbind a
+core that is not the last one and the cores behind it fall outside the
+search, so sched_to_core() returns NULL for a core that is still bound and
+still running jobs. Neither caller checks the result:
 
- - the next bind reuses the slot of a still-live core and overwrites
-   it while its IRQ handler (dev_id points into cores[]) and its
-   DRM scheduler are still active;
+  rocket_job_run():      rocket_fence_create(core), core->dev
+  rocket_job_timedout(): dev_err(core->dev, "NPU job timed out")
 
- - rocket_open() unconditionally uses cores[0].dev, which after an
-   unbind of core 0 is a stale pointer to an unbound device.
+Unbinding the middle core of the three on an RK3588 while three clients are
+submitting to all of them faults twice, once from the surviving core's
+job queue and once from its reset work:
 
-On an RK3588 with three cores, unbinding the first one and binding it
-again puts it on top of the third:
-
-  rocket fdab0000.npu: drm_sched_init: scheduler already initialized!
-
-One device now sits in two slots and the third core in none. The next
-unbind of the first core finds its stale slot, torn down already, and
-finishes the same scheduler a second time:
-
-  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-  pc : drm_sched_fini+0x4c/0x1e0 [gpu_sched]
+  KASAN: null-ptr-deref in range [0x0000000000000220-0x0000000000000227]
+  Workqueue: fdad0000.npu drm_sched_run_job_work [gpu_sched]
+  pc : rocket_job_run+0x234/0x838 [rocket]
   Call trace:
-   drm_sched_fini+0x4c/0x1e0 [gpu_sched] (P)
-   rocket_job_fini+0x28/0x60 [rocket]
-   rocket_core_fini+0x4c/0x78 [rocket]
-   rocket_remove+0x78/0x110 [rocket]
-   platform_remove+0x2c/0x68
-   device_remove+0x58/0xc0
-   device_release_driver_internal+0x214/0x2e0
-   device_driver_detach+0x24/0x50
-   unbind_store+0xd8/0xe8
+   rocket_job_run+0x234/0x838 [rocket]
+   drm_sched_run_job_work+0x2cc/0xad8 [gpu_sched]
+   process_one_work+0x640/0x14f0
 
-Make .dev the slot-liveness marker: probe takes the first free slot
-and clears it again if core init fails, remove clears .dev after
-rocket_core_fini() and warns if the core cannot be found, lookups skip
-empty slots, and rocket_open() and rocket_job_open() use only live
-slots. num_cores keeps counting bound cores for the last-core teardown
-check. A missing core is no reason to refuse a new file: the device is
-one core short, not gone, and any bound core will do for the IOMMU
-domain, which is attached to the group of whichever core runs a job.
-With a single core live the scheduler list that drm_sched_entity_init()
-does not keep is freed at once, as rocket_job_close() only frees what
-the entity kept.
+  KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
+  Workqueue: rocket-reset-2 drm_sched_job_timedout [gpu_sched]
+  pc : rocket_job_timedout+0xf0/0x1e0 [rocket]
+  Call trace:
+   rocket_job_timedout+0xf0/0x1e0 [rocket]
+   drm_sched_job_timedout+0x188/0x6a0 [gpu_sched]
 
-Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
+Both are the third core: the workqueue names are its device and its
+core->index, and it was left at slot 2 while num_cores had dropped to 2.
+
+Search all the slots that were allocated, the way find_core_for_dev() now
+does. A core that is still bound is then found, and the two callers get
+the pointer they already assume they have.
+
+This does not make unbinding one core out of several safe. An open client
+keeps an entity pointing at the scheduler of the core that went away:
+drm_sched reports it as not ready for every job that lands on it, and the
+client waits in dma_fence_default_wait for a fence that will never signal.
+Stopping the NULL dereference is what belongs in a fix; the rest wants
+more thought.
+
+Reported-by: Sidong Yang <sidong.yang@furiosa.ai>
+Closes: https://lore.kernel.org/dri-devel/apwUewaRnoTNXHCt@rock-5b-plus/
+Fixes: 0810d5ad88a1 ("accel/rocket: Add job submission IOCTL")
 Cc: stable@vger.kernel.org
 Assisted-by: LLM sparse checkpatch
 Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
 ---
-v3, now in this series:
- - rebased onto the three fixes before it: "accel/rocket: search
-   every core slot when a core is removed", which provides max_cores,
-   "accel/rocket: number the cores by devicetree position, not bind
-   order", so a slot no longer doubles as the hardware number, and
-   "accel/rocket: search every core slot when looking up a scheduler"
- - the crash above: this is what the devfreq patches ran into when
-   tested on a kernel without this one
- - free the scheduler list when a single core is live
- - Cc: stable
-v2: https://lore.kernel.org/r/20260731064933.12548-3-royalnet026@gmail.com
- - also clear the slot's .dev when rocket_core_init() fails (Jiaxing Hu)
- - check .dev in sched_to_core() (Jiaxing Hu)
- - document the synchronous-probe assumption at the slot scan
-v1: https://lore.kernel.org/dri-devel/20260730080355.177422-3-royalnet026@gmail.com/
+Unchanged from the standalone posting, which this series supersedes:
+https://lore.kernel.org/r/20260905150432.7477-1-royalnet026@gmail.com
 
-Unbinding a core that still has jobs in flight, or that an open file
-already holds the scheduler of, has further pre-existing issues that
-are out of scope for this bookkeeping fix. One of them, a use-after-free
-under KASAN, is described in the cover letter. The driver does not
-serialize probe and remove against open; this does not change that.
-For stable, this goes with the three patches before it.
+ drivers/accel/rocket/rocket_job.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Verified on RK3588 (Orange Pi 5 Plus), 7.3.0-rc2 drm-misc-next plus
-this series, in-tree rocket, all three cores enabled: 25 rounds of
-unbinding and rebinding all three cores; 4 rounds of unbinding a single
-core (twice the devicetree-first core, twice the second one), each with
-an inference run while the core was absent and one more after all four;
-5 rmmod/modprobe rounds; 3 unbind/rebind rounds and 1 rmmod with the
-clock raised to the 1 GHz OPP (CRU selector on the PVTPLL before
-each). No "scheduler already initialized" message and no
-oops; the regulator user count returns to its boot value after every
-round. Without this patch the same single-core round oopses in
-drm_sched_fini() on the second unbind, as shown above.
-The single-core, full, rmmod and raised-clock rounds were repeated
-(10 full rounds and 3 rmmod rounds this time) on a KASAN and
-PROVE_LOCKING build of the same tree: no report, and lockdep still
-enabled afterwards.
-
- drivers/accel/rocket/rocket_device.h |  2 +
- drivers/accel/rocket/rocket_drv.c    | 55 +++++++++++++++++++++++-----
- drivers/accel/rocket/rocket_job.c    | 38 ++++++++++++++-----
- 3 files changed, 77 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
-index c62d567010696..abb88a254e569 100644
---- a/drivers/accel/rocket/rocket_device.h
-+++ b/drivers/accel/rocket/rocket_device.h
-@@ -18,7 +18,9 @@ struct rocket_device {
- 	struct mutex sched_lock;
- 
- 	struct rocket_core *cores;
-+	/* Number of currently bound cores. */
- 	unsigned int num_cores;
-+	/* Slot capacity (DT core count); slots with a NULL .dev are free. */
- 	unsigned int max_cores;
- };
- 
-diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-index 7d927bb6b322d..b9b36c578db20 100644
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -68,11 +68,21 @@ rocket_iommu_domain_put(struct rocket_iommu_domain *domain)
- 	kref_put(&domain->kref, rocket_iommu_domain_destroy);
- }
- 
-+static struct rocket_core *rocket_first_live_core(struct rocket_device *rdev)
-+{
-+	for (unsigned int core = 0; core < rdev->max_cores; core++)
-+		if (rdev->cores[core].dev)
-+			return &rdev->cores[core];
-+
-+	return NULL;
-+}
-+
- static int
- rocket_open(struct drm_device *dev, struct drm_file *file)
- {
- 	struct rocket_device *rdev = to_rocket_device(dev);
- 	struct rocket_file_priv *rocket_priv;
-+	struct rocket_core *core;
- 	u64 start, end;
- 	int ret;
- 
-@@ -85,8 +95,18 @@ rocket_open(struct drm_device *dev, struct drm_file *file)
- 		goto err_put_mod;
- 	}
- 
-+	/*
-+	 * Any bound core will do for the domain: it is attached to the group
-+	 * of whichever core runs a job, and the NPU IOMMUs are all the same.
-+	 */
-+	core = rocket_first_live_core(rdev);
-+	if (!core) {
-+		ret = -ENODEV;
-+		goto err_free;
-+	}
-+
- 	rocket_priv->rdev = rdev;
--	rocket_priv->domain = rocket_iommu_domain_create(rdev->cores[0].dev);
-+	rocket_priv->domain = rocket_iommu_domain_create(core->dev);
- 	if (IS_ERR(rocket_priv->domain)) {
- 		ret = PTR_ERR(rocket_priv->domain);
- 		goto err_free;
-@@ -199,10 +219,21 @@ static int rocket_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	unsigned int core = rdev->num_cores;
-+	unsigned int core;
- 
- 	dev_set_drvdata(&pdev->dev, rdev);
- 
-+	/*
-+	 * Take the first free slot: cores can unbind and rebind in any
-+	 * order. The scan-then-claim relies on platform probes running
-+	 * sequentially; revisit if the driver ever enables async probe.
-+	 */
-+	for (core = 0; core < rdev->max_cores; core++)
-+		if (!rdev->cores[core].dev)
-+			break;
-+	if (WARN_ON(core == rdev->max_cores))
-+		return -ENXIO;
-+
- 	rdev->cores[core].rdev = rdev;
- 	rdev->cores[core].dev = &pdev->dev;
- 	rdev->cores[core].index = index;
-@@ -210,13 +241,18 @@ static int rocket_probe(struct platform_device *pdev)
- 	rdev->num_cores++;
- 
- 	ret = rocket_core_init(&rdev->cores[core]);
--	if (ret) {
--		rdev->num_cores--;
-+	if (ret)
-+		goto err_core;
- 
--		if (rdev->num_cores == 0) {
--			rocket_device_fini(rdev);
--			rdev = NULL;
--		}
-+	return 0;
-+
-+err_core:
-+	rdev->cores[core].dev = NULL;
-+	rdev->num_cores--;
-+
-+	if (rdev->num_cores == 0) {
-+		rocket_device_fini(rdev);
-+		rdev = NULL;
- 	}
- 
- 	return ret;
-@@ -229,10 +265,11 @@ static void rocket_remove(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	int core = find_core_for_dev(dev);
- 
--	if (core < 0)
-+	if (WARN_ON(core < 0))
- 		return;
- 
- 	rocket_core_fini(&rdev->cores[core]);
-+	rdev->cores[core].dev = NULL;
- 	rdev->num_cores--;
- 
- 	if (rdev->num_cores == 0) {
 diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
-index 4bc4f9c8ee403..25ee4ab172a82 100644
+index f404355058185..4bc4f9c8ee403 100644
 --- a/drivers/accel/rocket/rocket_job.c
 +++ b/drivers/accel/rocket/rocket_job.c
-@@ -284,7 +284,7 @@ static struct rocket_core *sched_to_core(struct rocket_device *rdev,
+@@ -283,7 +283,7 @@ static struct rocket_core *sched_to_core(struct rocket_device *rdev,
+ {
  	unsigned int core;
  
- 	for (core = 0; core < rdev->max_cores; core++) {
--		if (&rdev->cores[core].sched == sched)
-+		if (rdev->cores[core].dev && &rdev->cores[core].sched == sched)
+-	for (core = 0; core < rdev->num_cores; core++) {
++	for (core = 0; core < rdev->max_cores; core++) {
+ 		if (&rdev->cores[core].sched == sched)
  			return &rdev->cores[core];
  	}
- 
-@@ -511,22 +511,42 @@ void rocket_job_fini(struct rocket_core *core)
- int rocket_job_open(struct rocket_file_priv *rocket_priv)
- {
- 	struct rocket_device *rdev = rocket_priv->rdev;
--	struct drm_gpu_scheduler **scheds = kmalloc_objs(*scheds,
--							 rdev->num_cores);
--	unsigned int core;
-+	struct drm_gpu_scheduler **scheds;
-+	unsigned int core, n = 0;
- 	int ret;
- 
--	for (core = 0; core < rdev->num_cores; core++)
--		scheds[core] = &rdev->cores[core].sched;
-+	scheds = kmalloc_objs(*scheds, rdev->max_cores);
-+	if (!scheds)
-+		return -ENOMEM;
-+
-+	/* Only the cores that are bound right now have a scheduler to offer. */
-+	for (core = 0; core < rdev->max_cores; core++)
-+		if (rdev->cores[core].dev)
-+			scheds[n++] = &rdev->cores[core].sched;
-+
-+	if (!n) {
-+		ret = -ENODEV;
-+		goto err_free;
-+	}
- 
- 	ret = drm_sched_entity_init(&rocket_priv->sched_entity,
- 				    DRM_SCHED_PRIORITY_NORMAL,
--				    scheds,
--				    rdev->num_cores, NULL);
-+				    scheds, n, NULL);
- 	if (WARN_ON(ret))
--		return ret;
-+		goto err_free;
-+
-+	/*
-+	 * drm_sched_entity_init() keeps the list only when it holds more
-+	 * than one scheduler, and rocket_job_close() frees what it kept.
-+	 */
-+	if (n < 2)
-+		kfree(scheds);
- 
- 	return 0;
-+
-+err_free:
-+	kfree(scheds);
-+	return ret;
- }
- 
- void rocket_job_close(struct rocket_file_priv *rocket_priv)
 -- 
 2.43.0
 
