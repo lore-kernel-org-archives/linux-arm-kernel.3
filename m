@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F71AC982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C2CC982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFVfo1v7jirkWu6+NQc0qUUrdWWw/JuSYHwIAeqYUag=; b=tzxYbvJ5LeeSQV+qdwqGWFgFh/
-	dz0wvJHUTHysjpw1zun0Ug5fLO5JYKdxZQXP0m+myYUKJtWI6Ja5AIo86xMTC/7SI9kL80gva07Be
-	trip6MLubtD/n4PAEu0WMKqLZoibcCLsTs7d4sKmTt9FRv2UIUgodo9hx+HcxhbunCfzA9APe/WXd
-	vpPS4PCSIjYYTjcX3Y+Os33a5zxBkrchCRdELWoMWuh393dmoBVf6CwUCVG4ZmGde1j44qxqQvtvA
-	0gmqa03ZcX3lTprWgcX8DqTsAhbGOSKZgg8YvafFk+GHTI9BAuBQJpGTsWH6sD/PrlFYod4nSwVA8
-	NPLBm8zg==;
+	bh=yZ5nQRQZlhW2H+1iGZcEsOBuK6R24/iM/XPygJf+WUs=; b=SDdQtEPSuwgVGQvNZX6HCfh/qY
+	TQvjlE9eWiK8Y9XkL5NaqGK5sCVhPAV5SoA1cN2rMR8iJgDADwUKn4LcVYUJRfl1+eZJDM+iTOSpG
+	YBQXR213hhYe2WypJFDtFfykIHk27wbSgITdlbil5bd4acwT9x0a38tMidSveMBiOP4UkfIxwwyHb
+	jCab+lRP1rTGj8VkLK0mFoaSGQB0E15UYgcMZ5teXchXxF7K4Mm/R4fte8Ru6oLCMojrrQmeLqASH
+	6NcwTZ8FJWzwiOGx5BW/7MfC6bpn6r+Cn+Ei8zqxgrGfLSPX/oMCu6rNW4tGK4JdFDZQUYULpfs3U
+	Arg2LI1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ywI-00000005EFb-0du3;
-	Tue, 22 Sep 2026 11:45:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8yxG-00000005Ecq-2ZaT;
+	Tue, 22 Sep 2026 11:46:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yvu-00000005DyP-0Mh2;
-	Tue, 22 Sep 2026 11:45:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OFVfo1v7jirkWu6+NQc0qUUrdWWw/JuSYHwIAeqYUag=; b=laOLxDGTq6M+SNomLPc6ccTvev
-	z2vVtnAG8FuUuuGCP5fus+EnHnHgknQ6ffJiWM0z5dwK4GZz9nHCOLSQMTHKKHvwKtVC7AB25gCLd
-	CsyOHB7wOpNZeAcMHO2ByG4rkM9UJKJ4QecxwN6BuPnwC9LEJm1AUAMMTuG9tpCpQ83VRQGj5uZqG
-	Ktl+yjJV5MTKS4rX6oJqUrmDB3cgih4yARZmUpMDbUwiGL38ubOiubKK4gjYoxm5XopI2Tdq4ZOck
-	eHKcBFjL1ivU8rzdkApAtBAIh3N/BQXB7EUHuyovMS7ZgMEgezGvMw7iqdMYsI5+SAwi7mmf6d3DT
-	LCy4G+PQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8yvr-0000000DVTp-0DnC;
-	Tue, 22 Sep 2026 11:45:08 +0000
+	id 1x8yxD-00000005EbJ-1SWW;
+	Tue, 22 Sep 2026 11:46:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790077505;
-	bh=nVhD/4MjWM8j1FzDpqCVCao9PsGmI7N0h8F75GJSEFc=;
+	s=mail; t=1790077589;
+	bh=te2JAZugR4Cday7luW0127qIkQZLtCEubZxNQ0OLhgE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Dprtpitr3AspMjmZsaSSq3vHtti7lA6slpnG0Pc2C8+HOHgqCUWk0skdav6PhFB3c
-	 08PoBlmiat1O2ZJ2YfvYw4XQ19XeI41WwppXg74bNUjP5mfxsW+RoqG9GdFyWyf8MW
-	 S6FyR86vOSDVdmYGrvgQcDvfFXGP5nIpH37szugpoBBYsbjiDt3wFaDfLFaywNxFN3
-	 Rrcf+TaCJzEk6YPK4txB8oO7n2Eq61nbFQpWG+fOmVHfkDFmeciSxYuIDnbD4XziY6
-	 +W1DUF6AouXIBaxjHtTyZo2vfRtlAhp3s/vTpdd/PPstwz1+9kJwKAgf4ju8hdWMWg
-	 WyPApt70ss/ow==
+	b=fqdtkySabCRzSaWqtTdrlKXCEer1OK37ujRXvMxkRKNIJY6rgzyDRlSBFHZdA2nh6
+	 bgpJiRyjZOs7/w1/70BIz8HcDfZKbpLFpfSnAXR9wozZ2u3un2EtDTNxK64IovEk3m
+	 8Q+BXqFB35o7swuZsnWwAnYWLZjJ4wEI88pVUK73209oc2sP1/t5bwVsKv+ubs8y3f
+	 4sm69h9eNtRe0PTQTUebmx7L7TuSZW41hPDAKmfr0S8hkBNBBKlboUoT2GbGticQfz
+	 qyNk4P50MkJ4E3qF2zx1E7pSL+4tdkIJrrYPflZ/MG4pssnMNzoYbnqrJb74HbA4TI
+	 ZdfmK44fFJe1Q==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2985C17E03B6;
-	Tue, 22 Sep 2026 13:45:05 +0200 (CEST)
-Message-ID: <bef176a0-7b13-4753-9d9c-494a0bf04cea@collabora.com>
-Date: Tue, 22 Sep 2026 13:45:05 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E410017E03B6;
+	Tue, 22 Sep 2026 13:46:28 +0200 (CEST)
+Message-ID: <433d8c01-ad33-45cc-82a2-0b5f2a14c2a1@collabora.com>
+Date: Tue, 22 Sep 2026 13:46:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: iommu: Describe MT8195 infra IRQs
-To: "Rob Herring (Arm)" <robh@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: iommu@lists.linux.dev, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260921232716.3134140-1-robh@kernel.org>
+Subject: Re: [PATCH v2 2/3] usb: mtu3: add SoC platform data for FIFO quirk
+ handling
+To: rva333@protonmail.com, Chunfeng Yun <chunfeng.yun@mediatek.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260922-6595-mtu3-v2-0-71203a362b36@protonmail.com>
+ <20260922-6595-mtu3-v2-2-71203a362b36@protonmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260921232716.3134140-1-robh@kernel.org>
+In-Reply-To: <20260922-6595-mtu3-v2-2-71203a362b36@protonmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_124507_297837_B96D99A2 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260922_044631_544750_4A8DE4D3 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,86 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/22/26 01:27, Rob Herring (Arm) wrote:
-> The MT8195 infra IOMMU has one fault interrupt per IOMMU bank. Require
-> the five bank interrupts, named bank0 through bank4, for this
-> compatible. Keep other MediaTek IOMMUs limited to one unnamed interrupt.
+On 9/22/26 12:36, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
 > 
-
-Why are you introducing interrupt-names, and why would that be a required property?
-
-I disagree - interrupt names are not necessary here.
-
-Cheers,
-Angelo
-
-> Assisted-by: LLM
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->   .../bindings/iommu/mediatek,iommu.yaml        | 30 ++++++++++++++++++-
->   arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  2 ++
->   2 files changed, 31 insertions(+), 1 deletion(-)
+> Some SoCs, such as mt6595, require specific quirks for the MTU3 to
+> function properly.
 > 
-> diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> index 79c573c47b08..4dc5621c17e1 100644
-> --- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
-> @@ -100,7 +100,11 @@ properties:
->       maxItems: 1
->   
->     interrupts:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  interrupt-names:
-> +    description: Names of IOMMU banks providing fault interrupts.
->   
->     clocks:
->       items:
-> @@ -155,6 +159,30 @@ required:
->     - '#iommu-cells'
->   
->   allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt8195-iommu-infra
-> +    then:
-> +      properties:
-> +        interrupts:
-> +          minItems: 5
-> +        interrupt-names:
-> +          items:
-> +            - const: bank0
-> +            - const: bank1
-> +            - const: bank2
-> +            - const: bank3
-> +            - const: bank4
-> +      required:
-> +        - interrupt-names
-> +    else:
-> +      properties:
-> +        interrupts:
-> +          maxItems: 1
-> +        interrupt-names: false
-> +
->     - if:
->         properties:
->           compatible:
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> index 9aaf8b6edcb5..3e46ffaa44c6 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> @@ -937,6 +937,8 @@ iommu_infra: infra-iommu@10315000 {
->   				     <GIC_SPI 797 IRQ_TYPE_LEVEL_HIGH 0>,
->   				     <GIC_SPI 798 IRQ_TYPE_LEVEL_HIGH 0>,
->   				     <GIC_SPI 799 IRQ_TYPE_LEVEL_HIGH 0>;
-> +			interrupt-names = "bank0", "bank1", "bank2", "bank3",
-> +					  "bank4";
->   			#iommu-cells = <1>;
->   		};
->   
+> The mt6595 IP block doesn't support multiple slots for the FIFO,
+> resulting FIFO wrap.
+> 
+> Fix this by adding platform data with a field to handle FIFO limitation.
+> No functional changes for existing SoCs.
+> 
+> Assisted-by: LLM (debugging)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
