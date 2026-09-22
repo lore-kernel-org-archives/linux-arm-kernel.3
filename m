@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24FFC982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CFEC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zp2Dvto/hyY43E31Wtx7fAoFERGAPqmmPJqfwSGA8eA=; b=xSjHcglb/HDmDU/AXdgsgseusj
-	/cLDbwcheRGsLagXbEbXSsLH1sB9KzEZFbg/JC4gmwvw9EW3MQ9ZPkPbkT3kMz0HYmEMJx6oMx8q0
-	kRyjFDkIBEAuKJ3pnuT0OVbikKOvpRpNoEQFqbSHc0zCsGmWwtL3+jB9ZspJintkzZYJm4llwB9II
-	fkgQajGRliOMq7v2OCwodFQOrb65xyEPJVS4K3KSbNbNIZ8WvGwBGQyOMbt4bGfpl5ekzeGlYLMCC
-	BEz00ZSacZEGXRy0sjycFQKUFoHCHsvgLrA/DdEJj8tXwARlIq3jh35p9hnoR1sejTAuqpgxPpUIZ
-	pU54XecQ==;
+	bh=JIYSRvzS+lTZK1y1XxDKW9rrYSsqjNnfXKv1cTCBldM=; b=ha8hLe0y3e6MH7O95NuH3MqBqr
+	fFwe2ZqkAXTQXjkt6q+j8fUizLrzqNFoej02tALTMOsEszMeALi90l2xT++tbM23xhpuk9guUxBvX
+	ou1iPqoFROWbDJG1Zp2dn9BAmjU5ib1kwwOfzTI95FXmq9+Cq3ZWxUWHdPO4d8TcZm/L5h7iXS3lA
+	yjC9WZiRRJLehSpleIFl8qtFF+yeHYdFgD8a1HPXGJPbHsKJLslyA1gn1bApEmtrMOsJNZW8i4Pfz
+	v3+UqzPQBLZEV4GEBIRgwjMiKFWxpKg8CYFWYJjF3TqflyxpeHcK00DVpDUDMLMOF9lb0sYvZyaUH
+	C+bB+6Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zOY-00000005HFE-4321;
-	Tue, 22 Sep 2026 12:14:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8zPe-00000005Hbh-2g1T;
+	Tue, 22 Sep 2026 12:15:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zOX-00000005HEz-0Xwj
+	id 1x8zPd-00000005HbU-2P4F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:14:45 +0000
+	Tue, 22 Sep 2026 12:15:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D98660DE9;
-	Tue, 22 Sep 2026 12:14:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07AAB1F000FF;
-	Tue, 22 Sep 2026 12:14:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F05441600;
+	Tue, 22 Sep 2026 12:15:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A9C51F00893;
+	Tue, 22 Sep 2026 12:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790079283;
-	bh=Zp2Dvto/hyY43E31Wtx7fAoFERGAPqmmPJqfwSGA8eA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YAOTTa7NAgXD7hgyPo3+uIGZwF11sidibspvv/zqvcyQFHQm7tv/MrN+yfgb9ZAsh
-	 b1H9ivsFhDV2EsPLx15WHEtfAboroYCl4kFkKp1s4AnLg93xqmanBGV/YeyRV8DX3f
-	 Mx66QemYm1Vmhy735nrBmicxVAWNfIVIXWcp5iVYSBnyZB0sPo61Dc1/uSds9zqcFp
-	 zNT7Vw9raLYLBGJYoIe9OxH+U3RvdCOQCN4SlfpI2W3/K/gAYJ7jsdp3HXkxLBD4p/
-	 nN/TPSypSy2wrm8SfNd1vDCAyfkdtF0BKiTAW4+lxnumJYtIRcxcsW7Oew4kj4gWvR
-	 D4UIPeh4rCM7w==
-Subject: Re: [PATCH net-next v3] net: stmmac: fix error path cleanup in DMA
- descriptor ring allocation
-From: netdev-bot+sashiko@kernel.org
-To: dinghui1111@163.com
-Cc: lorenzo.bianconi@oss.qualcomm.com, netdev-bot+sashiko@kernel.org,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dinghui@lixiang.com, xiasanbo@lixiang.com, yangchen11@lixiang.com,
- liuxuanjun@lixiang.com
-Date: Tue, 22 Sep 2026 12:14:42 +0000
-Message-ID: <179007928254.2160803.9473310468138142059@kernel.org>
-In-Reply-To: <20260919121436.1642724-1-dinghui1111@163.com>
-References: <20260919121436.1642724-1-dinghui1111@163.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1790079352;
+	bh=JIYSRvzS+lTZK1y1XxDKW9rrYSsqjNnfXKv1cTCBldM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fj4Nz8fBrlIMtPAwuvyzWYgk2LXF8Lpt0kYzJikISSS2f0gxq5cu91MkPgMyWhjmi
+	 TYz4m2gkgQqLrmbKjfBYcSmLKtH9wodN2/Y73RJQFK/57b5LQAdtG2hb2KfS+yWqCf
+	 uNGH+Od6166rVnHDSiH0YgzkLIKrgic57G4b6NwkebXfJEq90QcRbBTIoiN+jCNjab
+	 YExQKEHAAB7yOuSq+JSzzcGGcPv8ESaG5JOBvLB4k0H0oXfFsb46GRQRjewGO8R2SG
+	 3PR5daWjK6PZ94j72UK/IRJGiA/l4632P8gg4blm110z9uU7grk6wVndtuhCAc7xSE
+	 9eHOmJN2e4u4g==
+Date: Tue, 22 Sep 2026 13:15:48 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Snehal Koukuntla <snehalreddy@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] firmware: arm_ffa: Add FFA_FN64_MEM_RECLAIM2
+ function ID
+Message-ID: <20260922-chubby-cicada-of-exercise-bbb429@sudeepholla>
+References: <20260921164748.2958578-1-snehalreddy@google.com>
+ <20260921164748.2958578-2-snehalreddy@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260921164748.2958578-2-snehalreddy@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,305 +80,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 (2) · Medium: 2 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] alloc_dma_desc_resources() still returns a TX allocation
-  failure without undoing the RX allocations it made immediately before,…
-- [Medium] The patch newly publishes NULL into rx_q->dma_erx/rx_q->dma_rx
-  and tx_q->dma_etx/dma_entx/dma_tx of the long-lived priv->dma_conf,…
-- [Low] The patch fixes crash-class bugs (NULL dereference on the
-  allocation-failure unwind path, and a double-free/use-after-free of…
-
-Pre-existing issues:
-- [High] stmmac_enable_rx_queue() and stmmac_enable_tx_queue() are void
-  and only netdev_err() when __alloc_dma_{rx,tx}_desc_resources() fails,…
-- [High] __free_dma_tx_desc_resources() now clears tx_q->tx_skbuff_dma,
-  tx_q->tx_skbuff/xdpf, tx_q->dma_tx/dma_etx/dma_entx and…
-
---
-
-net: stmmac: fix error path cleanup in DMA descriptor ring allocation
-
-This makes __alloc_dma_rx_desc_resources() and
-__alloc_dma_tx_desc_resources() unwind their own allocations on failure
-instead of leaving partially-initialized queues for the outer free
-helpers, adds NULL guards in dma_free_rx_skbufs(), dma_free_rx_xskbufs(),
-dma_free_tx_skbufs() and stmmac_free_tx_buffer(), and clears the freed
-pointers in __free_dma_rx_desc_resources() and
-__free_dma_tx_desc_resources().
-
-Link: https://lore.kernel.org/netdev/20260905154654.1725313-1-dinghui1111@163.com/
-Link: https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
-
-> Signed-off-by: Ding Hui <dinghui@lixiang.com>
-
-[Severity: Low]
-The trailers only carry Signed-off-by.  Should this have a Fixes: tag?
-
-The bugs being fixed are crash-class: the NULL dereference reached from
-alloc_dma_rx_desc_resources() -> err_dma -> free_dma_rx_desc_resources(),
-which iterates every queue including the one whose kzalloc_objs() just
-failed, and the stale buf_pool/page_pool reuse across XDP open/release.
-
-Two introducing commits look identifiable: the union xdpf/tx_skbuff
-dereference in stmmac_free_tx_buffer() came in with the XDP_TX support,
-and the per-queue buf_pool/page_pool teardown with the refactor that
-introduced __alloc_dma_{rx,tx}_desc_resources() and
-__free_dma_{rx,tx}_desc_resources().
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index bf9e7e4cb1c3..32394a5a83fc 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -2185,13 +2197,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
->  
->  	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-> +	rx_q->dma_erx = NULL;
-> +	rx_q->dma_rx = NULL;
-> +	rx_q->dma_rx_phy = 0;
-
-[Severity: Medium]
-Does publishing NULL into the long-lived priv->dma_conf ring pointers need
-a matching check in the debugfs reader?
-
-stmmac_rings_status_show() only bails out on the interface being down:
-
-	if ((dev->flags & IFF_UP) == 0)
-		return 0;
-
-and then hands rx_q->dma_rx / rx_q->dma_erx (and the TX equivalents)
-straight to sysfs_display_ring(), which dereferences the descriptors in a
-loop with no head check:
-
-	for (i = 0; i < size; i++) {
-		dma_addr = dma_phy_addr + i * desc_size;
-		seq_printf(seq, "%d [%pad]: 0x%x 0x%x 0x%x 0x%x\n",
-				i, &dma_addr,
-				le32_to_cpu(p->des0), le32_to_cpu(p->des1),
-
-dma_rx_size / dma_tx_size are not cleared, so the loop still runs.
-
-The free helpers run with the interface up: stmmac_xdp_enable_pool() does
-napi_disable() then stmmac_disable_rx_queue()/stmmac_disable_tx_queue()
-while netif_running() is true, and IFF_UP is never cleared.  If the
-following stmmac_enable_rx_queue() allocation then fails, the NULL stays
-there indefinitely.
-
-Reading descriptors_status in that window looks like it faults now, where
-before the patch it read freed coherent memory.
-
->  
->  	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
->  		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
->  
->  	kfree(rx_q->buf_pool);
-> -	if (rx_q->page_pool)
-> +	rx_q->buf_pool = NULL;
-> +
-> +	if (rx_q->page_pool) {
->  		page_pool_destroy(rx_q->page_pool);
-> +		rx_q->page_pool = NULL;
-> +	}
->  }
->  
->  static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
-> @@ -2233,9 +2252,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
->  	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
->  
->  	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
-> +	tx_q->dma_etx = NULL;
-> +	tx_q->dma_entx = NULL;
-> +	tx_q->dma_tx = NULL;
-> +	tx_q->dma_tx_phy = 0;
->  
->  	kfree(tx_q->tx_skbuff_dma);
-> +	tx_q->tx_skbuff_dma = NULL;
-> +
->  	kfree(tx_q->tx_skbuff);
-> +	tx_q->tx_skbuff = NULL;
->  }
-
-[Severity: High]
-This isn't a bug introduced by this patch, but are these stores
-synchronized against a concurrent transmit?
-
-One caller, stmmac_disable_tx_queue() (AF_XDP pool enable/disable), takes
-&ch->lock only around stmmac_disable_dma_irq(), drops it, then:
-
-	stmmac_stop_tx_dma(priv, queue);
-	__free_dma_tx_desc_resources(priv, &priv->dma_conf, queue);
-
-There is no netif_tx_stop_queue() and no __netif_tx_lock.  Its caller only
-quiesces NAPI:
-
-	need_update = netif_running(priv->dev) && stmmac_xdp_is_enabled(priv);
-
-	if (need_update) {
-		napi_disable(&ch->rx_napi);
-		napi_disable(&ch->tx_napi);
-		stmmac_disable_rx_queue(priv, queue);
-		stmmac_disable_tx_queue(priv, queue);
-
-stmmac_xmit()/stmmac_xdp_xmit()/stmmac_tx_clean() read tx_skbuff_dma,
-tx_skbuff/xdpf and dma_tx/dma_etx/dma_entx under __netif_tx_lock only, and
-stmmac_set_tx_dma_entry() writes tx_q->tx_skbuff_dma[entry] with no NULL
-test.  The locksets do not intersect and napi_disable() does not stop
-ndo_start_xmit.
-
-The driver's own convention elsewhere stops the queue first:
-
-	netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, chan));
-
-	stmmac_stop_tx_dma(priv, chan);
-	dma_free_tx_skbufs(priv, &priv->dma_conf, chan);
-
-Would the new NULL stores turn the existing dangling-pointer window into a
-deterministic NULL dereference, and should transmit be fenced before
-publishing them?
-
->  
->  static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
-
-[ ... ]
-
-> @@ -2327,10 +2357,22 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
->  	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
->  	if (ret) {
->  		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
-> -		return -EINVAL;
-> +		goto err_free_dma;
->  	}
->  
->  	return 0;
-> +
-> +err_free_dma:
-> +	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-> +	rx_q->dma_erx = NULL;
-> +	rx_q->dma_rx = NULL;
-> +err_free_buf_pool:
-> +	kfree(rx_q->buf_pool);
-> +	rx_q->buf_pool = NULL;
-> +err_destroy_pool:
-> +	page_pool_destroy(rx_q->page_pool);
-> +	rx_q->page_pool = NULL;
-> +	return ret;
->  }
-
-[Severity: High]
-This isn't a bug introduced by this patch, but with the queue now
-guaranteed to be all-NULL after a failure, what protects the fast path
-when stmmac_enable_rx_queue()/stmmac_enable_tx_queue() swallow the error?
-
-Both helpers are void and just log:
-
-	ret = __alloc_dma_rx_desc_resources(priv, &priv->dma_conf, queue);
-	if (ret) {
-		netdev_err(priv->dev, "Failed to alloc RX desc.\n");
-		return;
-	}
-
-	ret = __alloc_dma_tx_desc_resources(priv, &priv->dma_conf, queue);
-	if (ret) {
-		netdev_err(priv->dev, "Failed to alloc TX desc.\n");
-		return;
-	}
-
-stmmac_xdp_enable_pool() and stmmac_xdp_disable_pool() cannot see that, so
-they continue:
-
-		stmmac_enable_rx_queue(priv, queue);
-		stmmac_enable_tx_queue(priv, queue);
-		napi_enable(&ch->rxtx_napi);
-
-		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
-
-and return 0 with the netdev TX queue never stopped.  Since the peer
-queue's init did set an xsk_pool, stmmac_xsk_wakeup()'s
-
-	if (!rx_q->xsk_pool && !tx_q->xsk_pool)
-		return -EINVAL;
-
-check passes and a poll is scheduled on the half-initialized channel.
-
-stmmac_set_tx_dma_entry() then writes into a NULL tx_skbuff_dma:
-
-	tx_q->tx_skbuff_dma[entry].buf = addr;
-	tx_q->tx_skbuff_dma[entry].len = len;
-	tx_q->tx_skbuff_dma[entry].buf_type = type;
-
-and stmmac_rx_zc()/stmmac_tx_clean() hit the same pattern on the RX side.
-
-Should the enable helpers propagate the allocation error and keep the
-queue stopped until it is successfully re-armed?
-
-> @@ -2400,6 +2442,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
->  		tx_q->dma_tx = addr;
->  
->  	return 0;
-> +
-> +err_free_skbuff:
-> +	kfree(tx_q->tx_skbuff);
-> +	tx_q->tx_skbuff = NULL;
-> +err_free_skbuff_dma:
-> +	kfree(tx_q->tx_skbuff_dma);
-> +	tx_q->tx_skbuff_dma = NULL;
-> +	return -ENOMEM;
->  }
-
-[Severity: Medium]
-The commit message states the fix is "making each allocation function
-responsible for undoing its own allocations on error".  Does
-alloc_dma_desc_resources() still miss that rule?
-
-	/* RX Allocation */
-	int ret = alloc_dma_rx_desc_resources(priv, dma_conf);
-
-	if (ret)
-		return ret;
-
-	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
-
-	return ret;
-
-On TX failure the RX side it just allocated is not undone, and the caller
-skips the free:
-
-stmmac_setup_dma_desc():
-	init_error:
-		free_dma_desc_resources(priv, dma_conf);
-	alloc_error:
-		kfree(dma_conf);
-		return ERR_PTR(ret);
-
-The allocation failure lands on alloc_error, so every RX queue's
-page_pool, buf_pool, registered xdp_rxq_info and dma_alloc_coherent()
-ring is leaked with the only pointers to them inside the kfree()d
-dma_conf.
-
-stmmac_xdp_open() has the same shape:
-
-	init_error:
-		free_dma_desc_resources(priv, &priv->dma_conf);
-	dma_desc_error:
-		return ret;
-
-Here the RX half of the long-lived priv->dma_conf stays populated and a
-later open overwrites those pointers.  Should the RX resources be freed
-when alloc_dma_tx_desc_resources() fails?
+On Mon, Sep 21, 2026 at 04:47:47PM +0000, Snehal Koukuntla wrote:
+> FF-A v1.3 ALP5 (DEN0140 rev J) introduces the optional FFA_MEM_RECLAIM2
+> (0xC4000091) ABI, which enables an Owner to reclaim exclusive access to
+> a subset of pages of a memory region without requiring the Relayer to
+> maintain intermediate transaction state.
+> 
+> Add the FFA_FN64_MEM_RECLAIM2 function ID definition to arm_ffa.h.
+> 
+
+Since the spec is still at ALPHA, I suggest to add RFC in the subject
+if you post newer version so that it is *NOT* considered for merging
+until spec reaches *BETA*.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260919121436.1642724-1-dinghui1111%40163.com
+Regards,
+Sudeep
 
