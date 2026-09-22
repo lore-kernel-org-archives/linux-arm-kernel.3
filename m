@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34748C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E750C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwQN7WVhANwtG21qRW2cXhG1KlqZnmnqp3LyL8PiblQ=; b=SUEEhhv80t9/UIXFgOSBDwrcZT
-	hQkyMIpK1uiBHY3WlSlSArJdZllsqbDbEcOmEGe0TWW9BNibFKGJ+0dGeVJy0+1Un06C/7lmm4R2R
-	BR5QDpo2IZCJrKRrS0FSo3Ah26yjCUGyGjXiwV8WrwOLyD+0bEdCiOSAfvHIdQAUAj2Ace+MrpllN
-	7ZD5sR754i7fx39UQB6Sqw0EWDZD93QgG7pv4NSXJ8u09ySSin1tww31Qt2G1cwQ1Fn72DKodhe3T
-	wWDdeU4H3qJeabZ2fGJtimM4j3CRTs7j0dczHdP2xe3xFMS1CEfdh5c06GcyT49mV3UPZjwNeOe5r
-	vACzmeCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YXAQgXk9WXyXBlox7Yojnplh6D8AEqEL+5pp8xq9FJA=; b=d1BYMGpDLHag6RvIBMepT19gjz
+	issj969ywvDiyysbmfAwMT6+d32mmaGP01u6gbFTIJSSBvToLoaQHTqW29A3ZzEbj4RdP9AoJ9tti
+	4OHaXWX/br7NkeT+Oa7quSnc43C5GHOO50RCFxYWmKdw9u+F0R+D+okzLJs95ikZojq6m+xckWf1X
+	/gEBZMyRHadWmeAq2T8EGS6eirKYKPISNOBeDjO2YObtzQQU5X19oizWHlcqTlriz53TnYkmfG2oM
+	PPSSvhxaYJ2fEmI8jAnK/+tEW6UZG3JmK1xSCVZ52/m5uu1Vt8mj1eogLwLiEL0RmqUXTN5O4D+Bw
+	vaY6bRbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x945p-00000006AdT-2WPb;
-	Tue, 22 Sep 2026 17:15:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x949r-00000006B6S-0ZHz;
+	Tue, 22 Sep 2026 17:19:55 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x945n-00000006Ad0-3CJs
+	id 1x949p-00000006B5r-1uMs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:15:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E2BCA6022A;
-	Tue, 22 Sep 2026 17:15:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 904A21F00893;
-	Tue, 22 Sep 2026 17:15:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790097342;
-	bh=KwQN7WVhANwtG21qRW2cXhG1KlqZnmnqp3LyL8PiblQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MGRoPx0gFeoZ620M+h6hVml1cmstZ36RtqWY65JVSsUD5TMarzlFWrri8h+HdC4fV
-	 tb3O2T8Z9k0tiACSeV/L/YdcNDoDkcmo5S6d+2gsXo1v7ZuLSr6xYIWNvegc6TufBK
-	 eg5RUuFKBcIK0G2An7KcyBk/RLadzP4pFEQw7yeQhdN3ofhyFPBi93dJvIyWDpuwMP
-	 BcOeNuR4b1fXl7ZVbsnBNPnyMtaoynBi4uhbqvKUdD5haCJvQJoEPoyLcnb3iFhxCW
-	 iU1VzelR+8iiGNSduR4hDUo+gQfKMHArnhh/H9uEoLVkrxlwAexfAEyPfNAZrT7A4z
-	 VbqQwSaYdEhQQ==
-Date: Tue, 22 Sep 2026 18:15:34 +0100
-From: Will Deacon <will@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-	catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-	joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <arK3tsTV6EDhI-nt@willie-the-truck>
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+	Tue, 22 Sep 2026 17:19:54 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccda24a3so124101a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 10:19:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790097591; x=1790702391; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YXAQgXk9WXyXBlox7Yojnplh6D8AEqEL+5pp8xq9FJA=;
+        b=rvnGfMQYDYKTEM1AAH5vIplxTocSYVORqv6wNL8cO6M1ogwPkAMUIe6rnPMTbTiytH
+         SNa6y6s4g0tkf7r26HgRqabnTaGTpnHCymSTHNUbxLToF55tIk22nxtUSN0aR4xHww18
+         JIcF9YxhnwJNlBOt4qqLRTPQjY/6ZQbnv3PG7uaqrpvZ+sbcDcOQp7XMC9VHPHM4whFZ
+         MJp+B04Az/SXFChfNqik7JfhrEt/4uNtCcveD6yjpe6PW7R3feY3tXM9k2KR6Ajreppt
+         w65vnnUpIhes1RJCNLYB8V1Zn1iiFoFkb4GTzieYPRIEO9MrLCQEzrEn2OCeljbMCMxE
+         Wf7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790097591; x=1790702391;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YXAQgXk9WXyXBlox7Yojnplh6D8AEqEL+5pp8xq9FJA=;
+        b=MdZR4jJ0VexJv6XeqzyUca6tfN2FIErTLNY4boTnFLp19OoOctUDBCrOKsqf7HwEml
+         3vs6FcgrkugImEs/KIWq/AapzBA962hotg4RtCLrTtaUuasWarosgUkrfhHqw87Fn5BJ
+         q4mF7iL/+KcfIrPC4sXuNvAp4Jnlxszaz6mGPT/lglgt2bOGdHLUx0R+pgY7a0uqlXuk
+         ch0Do/6aZXYMk1ys48oDN6JAkSIbnnOvWePygoXKjfd8AJ7Ced7CbMqc0zgH9f0+vylY
+         ymSDfchntNc2wxNn3/Z/sMf6BE9hmdQXEqZ7kQLoSGD0MF8yQGOSqSHMagb6NvWhAjcp
+         DNCA==
+X-Gm-Message-State: AFuF++mMyced8rwQjCNwcQd5um6hG1WKQpby9NNEX8r0k9g3RYBTA97z
+	GhiXZGIREf9v1+nP1lNsiWAsC4Wg273k0xHoFS58mrwlutx07pRvwSRc
+X-Gm-Gg: AYBFou1kXGJrigavMB4Xk+qiRT7b7f0ZtpOZ5QPZWb9mn5KrmezFfzuZ/scAEJPhSkL
+	A+TJQwCpasvwZI2HgMEzLJkNC1rdDUWddRmubuuo3pATvPpE+y0WN4hzMtDGb9u5YU0b4uqJN1d
+	BUSCqiEWM1470ZgeyweksFdhOObyiEp47+4M1Pu9MTK3LjFKzp3msJzbuCaT/ipaFxvCZN0QFrr
+	nox175xZhAu7HDFFCIl+n3Tw7sGunKCNTykMaL9+wlcGQ8ZQHAIriugq17tZlSaIaDpEUNuofph
+	6cnIQb6oi/gZZK3Szrcy4soZYAJIVP+HybJUQtoyzpPyM6Y4RC3a5ASpwOxbO3P1WSEkk8kKmaf
+	CJMsculqq1QxLblIjrjxdMwNtXemaLKQQ3nFqPESFEyIGQDeO0WeicUYq3/833uDpO3mlLOYNKO
+	RpChFysKGrof6YQT3079hdzeReWwoxq13J2DinBFP71d3yw71kB4u3YRgkslbz//DK3YI4f4ss
+X-Received: by 2002:a17:90a:e704:b0:39e:6a81:c923 with SMTP id 98e67ed59e1d1-3a07e642712mr129398a91.22.1790097591215;
+        Tue, 22 Sep 2026 10:19:51 -0700 (PDT)
+Received: from nevers1dd ([118.95.161.132])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07db88298sm438333a91.4.2026.09.22.10.19.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 10:19:50 -0700 (PDT)
+From: Siddharth Karanam <sid9.karanam@gmail.com>
+To: nm@ti.com,
+	vigneshr@ti.com,
+	kristo@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Siddharth Karanam <sid9.karanam@gmail.com>
+Subject: [PATCH] arm64: dts: ti: k3-am62-mcu: Add power-domains property for M4FSS
+Date: Tue, 22 Sep 2026 22:49:42 +0530
+Message-ID: <20260922171942.201947-1-sid9.karanam@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_101953_575010_F6D18B21 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
-> From: Steven Price <steven.price@arm.com>
-> 
-> If the host attempts to access granules that have been delegated for use
-> in a realm these accesses will be caught and will trigger a Granule
-> Protection Fault (GPF).
-> 
-> A fault during a page walk signals a bug in the kernel and is handled by
-> oopsing the kernel. A non-page walk fault could be caused by user space
-> having access to a page which has been delegated to the kernel and will
-> trigger a SIGBUS to allow debugging why user space is trying to access a
-> delegated page.
-> 
-> There is work in progress to unmap the guest_memfd backed private pages from the
-> linear map. Until we get that support, we could get spurious GPFs from within
-> the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v17:
->  * Pass untagged address to die_kernel_fault() - Sashiko
->  * Explicitly check !user_mode() for fixups - Catalin
->  * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
->  * Clarify the commit description about the upcoming work on
->    unmapping guest_memfd backed pages from linear map
-> Changes since v16:
->  * Update the commit description to indicate why we try to fixup GPFs
-> Changes since v10:
->  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> Changes since v2:
->  * Include missing "Granule Protection Fault at level -1"
-> ---
->  arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
->  1 file changed, 24 insertions(+), 6 deletions(-)
+Assign the power domain to the MCU M4FSS (Cortex-M4F) node by following
+the device ids info published in TI-SCI public documentation.
 
-I still don't think we should do this, given that the plan is to unmap
-the memory from the linear map. If this thing fires, it's a kernel bug
-and it should be fatal.
+This will be useful in future patches that will attempt at abstracting
+ti_sci_dev_ops's calls such as get_device and put_device via pm_runtime
+calls.
 
-Will
+Signed-off-by: Siddharth Karanam <sid9.karanam@gmail.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+index 68e906796aefe..1ae0870893c16 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+@@ -181,6 +181,7 @@ mcu_m4fss: m4fss@5000000 {
+ 		      <0x00 0x5040000 0x00 0x10000>;
+ 		reg-names = "iram", "dram";
+ 		resets = <&k3_reset 9 1>;
++		power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
+ 		firmware-name = "am62-mcu-m4f0_0-fw";
+ 		ti,sci = <&dmsc>;
+ 		ti,sci-dev-id = <9>;
+-- 
+2.34.1
+
 
