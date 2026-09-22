@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CFEC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7411C982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JIYSRvzS+lTZK1y1XxDKW9rrYSsqjNnfXKv1cTCBldM=; b=ha8hLe0y3e6MH7O95NuH3MqBqr
-	fFwe2ZqkAXTQXjkt6q+j8fUizLrzqNFoej02tALTMOsEszMeALi90l2xT++tbM23xhpuk9guUxBvX
-	ou1iPqoFROWbDJG1Zp2dn9BAmjU5ib1kwwOfzTI95FXmq9+Cq3ZWxUWHdPO4d8TcZm/L5h7iXS3lA
-	yjC9WZiRRJLehSpleIFl8qtFF+yeHYdFgD8a1HPXGJPbHsKJLslyA1gn1bApEmtrMOsJNZW8i4Pfz
-	v3+UqzPQBLZEV4GEBIRgwjMiKFWxpKg8CYFWYJjF3TqflyxpeHcK00DVpDUDMLMOF9lb0sYvZyaUH
-	C+bB+6Uw==;
+	bh=EXgwaRmrIT1e61CcqNADChnh49sRUzXRY64HlZB1vaw=; b=W3+IgrJu8OPIDvMAAJW6D64yjo
+	RvRQ7Zar0sLzVVYl1KhtT4grCd0ruDlhIahHpd4/5jU0+cXBuAlSsjfe5ha1VFye9O+bL5rM41/kO
+	JecO6r+DCKYPCPeqwT6Dc0YgI/GxHKsIWuEkFeN3CaaqixiYJ+eKsm0B0EYdwQhC6+XsZP9SRwMuR
+	WQbJwluD0obuUoJ6Zig0vYRyi1+/R4AnHn76RgW7a1L7oTeS68D0ZjFrW3F82Sq6MAXeXrNo22cEk
+	umS5077DUTZ4GVqBIGiYf3/q453fP6odKTLp6V5SLlSqcojfE6JTQZh4QfIOy6a0cQZ6I5Q0HAcR9
+	NaRhNX4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zPe-00000005Hbh-2g1T;
-	Tue, 22 Sep 2026 12:15:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8zRV-00000005HuA-0HM4;
+	Tue, 22 Sep 2026 12:17:49 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zPd-00000005HbU-2P4F
+	id 1x8zRS-00000005Htd-2ICV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:15:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F05441600;
-	Tue, 22 Sep 2026 12:15:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A9C51F00893;
-	Tue, 22 Sep 2026 12:15:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790079352;
-	bh=JIYSRvzS+lTZK1y1XxDKW9rrYSsqjNnfXKv1cTCBldM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fj4Nz8fBrlIMtPAwuvyzWYgk2LXF8Lpt0kYzJikISSS2f0gxq5cu91MkPgMyWhjmi
-	 TYz4m2gkgQqLrmbKjfBYcSmLKtH9wodN2/Y73RJQFK/57b5LQAdtG2hb2KfS+yWqCf
-	 uNGH+Od6166rVnHDSiH0YgzkLIKrgic57G4b6NwkebXfJEq90QcRbBTIoiN+jCNjab
-	 YExQKEHAAB7yOuSq+JSzzcGGcPv8ESaG5JOBvLB4k0H0oXfFsb46GRQRjewGO8R2SG
-	 3PR5daWjK6PZ94j72UK/IRJGiA/l4632P8gg4blm110z9uU7grk6wVndtuhCAc7xSE
-	 9eHOmJN2e4u4g==
-Date: Tue, 22 Sep 2026 13:15:48 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Snehal Koukuntla <snehalreddy@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] firmware: arm_ffa: Add FFA_FN64_MEM_RECLAIM2
- function ID
-Message-ID: <20260922-chubby-cicada-of-exercise-bbb429@sudeepholla>
-References: <20260921164748.2958578-1-snehalreddy@google.com>
- <20260921164748.2958578-2-snehalreddy@google.com>
+	Tue, 22 Sep 2026 12:17:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790079466; x=1821615466;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hHj6ryPUb7nCKma00OFgMT3n+REclaknho5AYIRnK5s=;
+  b=GnIR0JxTyA/agIhgmx0Tbz/8nK+aL2e1/HdwjVL+PQ7btsXLXvlIfBfm
+   jIkRTR+RhI81Uerbv22Bb/h5YSdsbJmTvw3wnYX9kpRIVHx8pM/CIGthj
+   TFksYyXxiaUaMNDZZZSoy29jRdgECmAYV6N6HgynXB+to+Xklwrcp2Jv4
+   rvMtqjluP5hEWWdLScZX2GkKfArSlTyrcLLVy8ilYHlq+eiy6cvS/n+8O
+   Ivok0KXxULSgwnkoos+RBFqMOzAi6K5LZNw3d/5VCW0mOQ4y6ij16CIni
+   /dEqslV0bHHt6ehXBSmCQe16hNMcdfTwSFZ8FHA4IX/N2bAKlEOTaqjbL
+   A==;
+X-CSE-ConnectionGUID: eahWwnAFTAeEjg4HEtouXA==
+X-CSE-MsgGUID: 6s+tVmg1Q2KeMmaR8ex8tA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11912"; a="116198220"
+X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
+   d="scan'208";a="116198220"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:17:46 -0700
+X-CSE-ConnectionGUID: c7UPVCiESLqxHGnmfdg0SA==
+X-CSE-MsgGUID: HZklwC3/Qae4HYUIMKmM0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
+   d="scan'208";a="271677477"
+Received: from ettammin-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.93])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:17:38 -0700
+Date: Tue, 22 Sep 2026 15:17:36 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Wentao Liang <vulab@iscas.ac.cn>, Miaoqian Lin <linmq006@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Dong Aisheng <aisheng.dong@nxp.com>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] pmdomain: imx: gpc: remove all initialized power domains
+Message-ID: <arJx4P11hZAqxE0P@ashevche-desk.local>
+References: <20260918031323.3376849-1-lgs201920130244@gmail.com>
+ <aqzqvfbeh653jUce@ashevche-desk.local>
+ <CANUHTR9ipEFUGteK4TTpnpN0yUmxjop1v783aOhyq6AE9cwO0A@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260921164748.2958578-2-snehalreddy@google.com>
+In-Reply-To: <CANUHTR9ipEFUGteK4TTpnpN0yUmxjop1v783aOhyq6AE9cwO0A@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_051746_597362_B5E745B5 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +97,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 04:47:47PM +0000, Snehal Koukuntla wrote:
-> FF-A v1.3 ALP5 (DEN0140 rev J) introduces the optional FFA_MEM_RECLAIM2
-> (0xC4000091) ABI, which enables an Owner to reclaim exclusive access to
-> a subset of pages of a memory region without requiring the Relayer to
-> maintain intermediate transaction state.
-> 
-> Add the FFA_FN64_MEM_RECLAIM2 function ID definition to arm_ffa.h.
-> 
+On Tue, Sep 22, 2026 at 03:41:07PM +0800, Guangshuo Li wrote:
+> On Fri, 18 Sept 2026 at 15:39, Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Fri, Sep 18, 2026 at 11:13:22AM +0800, Guangshuo Li wrote:
 
-Since the spec is still at ALPHA, I suggest to add RFC in the subject
-if you post newer version so that it is *NOT* considered for merging
-until spec reaches *BETA*.
+> How about this:
+
+...
+
+> Does this look OK to you? If so, I'll send a v2.
+
+Looks better, assuming it works as expected I am fine with it.
 
 -- 
-Regards,
-Sudeep
+With Best Regards,
+Andy Shevchenko
+
+
 
