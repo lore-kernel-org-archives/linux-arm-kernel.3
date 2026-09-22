@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2D6C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00B8C982F7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6U6gMjjiMidGvu1pbmgRNC/c937kbAfnCiTglULcvew=; b=zlu8ZtFaJZSpJa0x95pnsjgV3l
-	ppaT8cLpLVsmCke2/lRAbfyLFcpZ1pZc95nBQutgTiPZ3+H6BJcWiSMN7EJ2YWPnxVlp3qQnt5cll
-	+bljt+IlfwBVX7MLerYQd1AXN9Y9+0J1KYsbPMHyX5DPsmDbUGJC2skqWlcSV/c2wY0SpEc7zsNw7
-	tVsdclCq2wggA9JfaOWUQRsQOOSaZIwqvbAHfyoyRES0hmJUdf1rXxOr3UZ0VxHzEJ8Dv+qbTFpvp
-	WbZYwgJb8SO2cgEbodQ96+uDwKkgWtlP+qQswqdLLUtn4tpjEfzEO4o8cCZpYtM8T+U1h6VEoNtfR
-	epJulv5w==;
+	bh=kGWL1z878ebf+A9EjZMoJy8wsy/54nhe3r1ryQUTSu0=; b=JMjH1/gBgdg1aNvYecVAxnERYt
+	/1TC5Jh/sWn+4QMgcEJAobPue8NrCCihpAOWjk42xqm+M1sR600KreQ+V2sP2oLsTMWEomqeJ3HPJ
+	PHhSKGAA9lu230/6+dXVl+nCa72O2iuLyati1h05tw5La1xuczRvi4tM5L55g2pmjHEOReibVXb3h
+	r9jkCMZqj4GNa+mG/qxsA+GSbVnV8uKb5rG+XHl7Ra3OTVMGnw7OlsgtV2f9BwL3Z0rh2wiOxpaxb
+	MA4Slxvy+/qDydqQ8Ea5lwcyYwfpJPuZN2mSCSRycacgglqggT5cfbmsgklXF9oQW182d9JE3h2QO
+	RUJX/aRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8oi4-00000003p82-3Gvd;
-	Tue, 22 Sep 2026 00:50:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8ojT-00000003pKP-06uU;
+	Tue, 22 Sep 2026 00:51:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8oi3-00000003p7k-41Oa
+	id 1x8ojR-00000003pJy-3QTy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 00:50:12 +0000
+	Tue, 22 Sep 2026 00:51:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12A64600CB;
-	Tue, 22 Sep 2026 00:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BB9D3C2BCB3;
-	Tue, 22 Sep 2026 00:50:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4974740133;
+	Tue, 22 Sep 2026 00:51:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2AF38C2BCB3;
+	Tue, 22 Sep 2026 00:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790038210;
-	bh=9edUGcd8chdIGybVJv9rjIZsgeN7lZHGmOVNjMi3idw=;
+	s=k20201202; t=1790038297;
+	bh=sjTzPZ23cOtybM3XpWOTk3CKoukFSTFblLLpPxdGHE0=;
 	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=bA/h5eOZE347xasat/9RITSH/Sz8DAULRq0732mXYvFDEuEHGysTUHaUK+oBb8eom
-	 7WELuqnMvseBa4mIOqgngCJu2TFIjT3uw2xdCkSO100cOwoIRoBtk8JnZouYWss85X
-	 BBt4Vo2DbkU6f9vOyKv0QOe28GpJD8rSMPSo5BzfQ9MV89DSJnXD7UNEBk7PoHx9TV
-	 coU4iPO6CSAZKnHnz5dmj2lfsZp8JS+w8RjWt9VdV00JcnJENA4e3s01dQwFMcjFE/
-	 CuSb4LP909/ul5tD88rzhdceM9c9Iw6bJKPU5S6g7nMwnRIczHJSHru3Q0klYY/eu/
-	 wZU1lrXKsst7A==
+	b=Pc+uVTBhqnbi/FuhYYO+WQNqvJMVN+CYjR3GU+5gHoIw+Qov2XAIkVNDqseIrQ254
+	 8Tz0AOwqsil8VQMjXowO1UwukHK56wmLYzlYTE6JhYKEHtB81+mUfC+VeZ15h3HxES
+	 cpkEXXAXnw310UJIL8Hlgf3XP6X24zgqCWdLU/ZKuiKvPPImq5tBip67ZHb97p2BVl
+	 FJuTZUz21EmA7hgo6RDGaYe/nF1qqQYw6Qc944SqorQs0E26QS7Q6bNJst4LRYP5Xx
+	 QUYUJ/ASaSJ5czqvFr9IgQ6HCTD+vDJ1hwfo7R2nlJHrdZrjxxK0HCwTHMRz6qh1O4
+	 vpvEk4xGGT0uw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B1BAC982ED;
-	Tue, 22 Sep 2026 00:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 01FA0C982F0;
+	Tue, 22 Sep 2026 00:51:36 +0000 (UTC)
 From: Jaidev Shastri via B4 Relay <devnull+jaidevshastri.vt.edu@kernel.org>
-Date: Mon, 21 Sep 2026 20:50:07 -0400
-Subject: [PATCH] soc: fsl: dpio: publish the dpaa2_io object only after it
- is initialised
+Date: Mon, 21 Sep 2026 20:51:35 -0400
+Subject: [PATCH] firmware: imx: scu: publish the SCU IPC handles with
+ release semantics
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-mb-dpio-v1-1-9e24539059c1@vt.edu>
-X-B4-Tracking: v=1; b=H4sIAL7QsWoC/yXMzQqDMBAE4FeRPXdLEqXSvkrpIT8b3UKjZK0Ux
- HdvosdvmJkNhDKTwKPZINPKwlMq0JcG/GjTQMihGIwyN3U3Gj8Ow8wTxjb2wUdFsdNQ2nOmyL/
- j6fk6LV/3Jr/UeW04K4Qu2+THGh1c+2uL2Xew738AeU/5iwAAAA==
-X-Change-ID: 20260921-mb-dpio-f3f7dcf0ef41
-To: Ioana Ciornei <ioana.ciornei@nxp.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, Jaidev Shastri <jaidevshastri@vt.edu>
+Message-Id: <20260921-mb-imx-scu-v1-1-2e2eae4246dd@vt.edu>
+X-B4-Tracking: v=1; b=H4sIABbRsWoC/yXMwQ6CMBAE0F8he3YNLUqDv0I8tMsqa0I1XSEkh
+ H+3xeObzMwGyklY4VZtkHgRlXfMMKcKaPTxyShDNtjatnVnDU4BZVpRaUYeXNe0xnpnr5AHn8Q
+ PWY+z/v63zuHF9C0PpRG8MobkI40lOri4c4OJLrDvPx8cMMGOAAAA
+X-Change-ID: 20260921-mb-imx-scu-ed793612a725
+To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Jaidev Shastri <jaidevshastri@vt.edu>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790038209; l=3325;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790038296; l=4658;
  i=jaidevshastri@vt.edu; s=20260921; h=from:subject:message-id;
- bh=wQTHCaf4jEy7NfQ0KFHxtOmt2diC3tsR4u0sPVS95G0=;
- b=EYwNFa/Y9LJO+l8U8Qu5Ve+uOVx+7ScthfwXG/thxilxOOhjz+LUF7h93j94QS/dHFtb8psGJ
- HKatJQwCKkeBDVb57JSN788q3+DIRuGUGlOgN7bvgpgyAFpcFCvDFYm
+ bh=0RORvg2PXLot2bwSJtUZCYO8QEXAWE0X1XX02gJE4Rc=;
+ b=5B0OQ62kUCr6hzg4bQqVlmfOATttk1UYAXWkEske9/yWnUbQhqgjPXSDLgw9da8Q6JzILEn/v
+ Z5LqaULjNDHD5N38U9jhSWj37uA7QYbPqurec/7H5tiAxmtfOm7QaUV
 X-Developer-Key: i=jaidevshastri@vt.edu; a=ed25519;
  pk=J7+xYJRlTPds+pv5hbqFFRqGCpDeJDzmZT1ggRwj7/0=
 X-Endpoint-Received: by B4 Relay for jaidevshastri@vt.edu/20260921 with
@@ -89,90 +90,129 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jaidev Shastri <jaidevshastri@vt.edu>
 
-dpaa2_io_create() adds the new object to dpio_list and dpio_by_cpu[]
-under dpio_list_lock, but service_select_by_cpu() reads dpio_by_cpu[]
-without the lock on behalf of dpaa2_io_service_select() and
-dpaa2_io_service_register().
+imx_scu_probe() fills struct imx_sc_ipc with the mailbox channels, the
+fast_ipc flag, the mutex and the completion, then stores its address to
+imx_sc_ipc_handle with a plain store. The clk, pinctrl, nvmem, rtc,
+thermal, gpio, reset, pmdomain, remoteproc, fec, flexcan and SOF drivers
+fetch it through imx_scu_get_handle() from their own probe and pass it
+to imx_scu_call_rpc(). Most are not children of the SCU node, so they
+probe from the deferred probe worker or a module load on another CPU
+while imx_scu_probe() is still running.
 
-obj->dev is assigned after the lock is dropped, so a reader can pick the
-object up and pass a NULL supplier to device_link_add(), which fails
-with -EINVAL and fails the consumer's probe. The publication is a plain
-store, so a reader that does not take the lock is also not ordered
-against the stores that set obj->swp, the notification list and the
-object's spinlocks.
+The publication store is not ordered after the stores that built the
+object, so a consumer that passes the NULL check can dereference
+uninitialised channel pointers. The address dependency on the consumer
+side orders its own loads but says nothing about the producer.
 
-dpaa2-eth probes from the deferred probe worker and retries whenever
-another device binds, so it runs while the remaining DPIO objects are
-still being created on multi-core LS2 and LX2 parts.
+imx_sc_irq_ipc_handle has the same shape:
+imx_scu_enable_general_irq_channel() publishes it with a plain store and
+imx_scu_irq_group_enable() uses it as an -EPROBE_DEFER gate for the rtc,
+key and watchdog drivers.
 
-Finish the object before publishing it and store dpio_by_cpu[] with
-smp_store_release(), paired with smp_load_acquire() in
-service_select_by_cpu(). service_select() takes the lock and is
-unchanged.
+Publish both handles with smp_store_release() and read them with
+smp_load_acquire().
 
 Found with MBCheck, a static herd7-based memory consistency checker.
 
 Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
 ---
- drivers/soc/fsl/dpio/dpio-service.c | 27 +++++++++++++++++++--------
- 1 file changed, 19 insertions(+), 8 deletions(-)
+ drivers/firmware/imx/imx-scu-irq.c | 18 +++++++++++++++---
+ drivers/firmware/imx/imx-scu.c     | 14 +++++++++++---
+ 2 files changed, 26 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/soc/fsl/dpio/dpio-service.c b/drivers/soc/fsl/dpio/dpio-service.c
-index 317ca50b0..2dbd14aed 100644
---- a/drivers/soc/fsl/dpio/dpio-service.c
-+++ b/drivers/soc/fsl/dpio/dpio-service.c
-@@ -70,8 +70,12 @@ static inline struct dpaa2_io *service_select_by_cpu(struct dpaa2_io *d,
- 	if (cpu < 0)
- 		cpu = raw_smp_processor_id();
+diff --git a/drivers/firmware/imx/imx-scu-irq.c b/drivers/firmware/imx/imx-scu-irq.c
+index a68d38f89..4f24e3c08 100644
+--- a/drivers/firmware/imx/imx-scu-irq.c
++++ b/drivers/firmware/imx/imx-scu-irq.c
+@@ -143,9 +143,12 @@ int imx_scu_irq_group_enable(u8 group, u32 mask, u8 enable)
+ {
+ 	struct imx_sc_msg_irq_enable msg;
+ 	struct imx_sc_rpc_msg *hdr = &msg.hdr;
++	struct imx_sc_ipc *ipc;
+ 	int ret;
  
--	/* If a specific cpu was requested, pick it up immediately */
--	return dpio_by_cpu[cpu];
+-	if (!imx_sc_irq_ipc_handle)
++	/* Pairs with the smp_store_release() in imx_scu_enable_general_irq_channel(). */
++	ipc = smp_load_acquire(&imx_sc_irq_ipc_handle);
++	if (!ipc)
+ 		return -EPROBE_DEFER;
+ 
+ 	hdr->ver = IMX_SC_RPC_VERSION;
+@@ -158,7 +161,7 @@ int imx_scu_irq_group_enable(u8 group, u32 mask, u8 enable)
+ 	msg.mask = mask;
+ 	msg.enable = enable;
+ 
+-	ret = imx_scu_call_rpc(imx_sc_irq_ipc_handle, &msg, true);
++	ret = imx_scu_call_rpc(ipc, &msg, true);
+ 	if (ret)
+ 		pr_err("enable irq failed, group %d, mask %d, ret %d\n",
+ 			group, mask, ret);
+@@ -201,6 +204,7 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
+ 	struct of_phandle_args spec;
+ 	struct mbox_client *cl;
+ 	struct mbox_chan *ch;
++	struct imx_sc_ipc *ipc;
+ 	int ret = 0, i = 0;
+ 
+ 	if (!of_parse_phandle_with_args(dev->of_node, "mboxes",
+@@ -215,10 +219,18 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
+ 
+ 	mu_resource_id = IMX_SC_R_MU_0A + i;
+ 
+-	ret = imx_scu_get_handle(&imx_sc_irq_ipc_handle);
++	ret = imx_scu_get_handle(&ipc);
+ 	if (ret)
+ 		return ret;
+ 
 +	/*
-+	 * If a specific cpu was requested, pick it up immediately. Pairs with
-+	 * the smp_store_release() in dpaa2_io_create(): the object is only
-+	 * used once every field written before the publication is visible.
++	 * imx_scu_irq_group_enable() tests imx_sc_irq_ipc_handle from other
++	 * drivers' probe paths and then passes it to imx_scu_call_rpc().
++	 * Publish it with release semantics so that the SCU state it points
++	 * to is visible to them.
 +	 */
-+	return smp_load_acquire(&dpio_by_cpu[cpu]);
- }
- 
- static inline struct dpaa2_io *service_select(struct dpaa2_io *d)
-@@ -177,12 +181,6 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_io_desc *desc,
- 	if (obj->dpio_desc.receives_notifications)
- 		qbman_swp_push_set(obj->swp, 0, 1);
- 
--	spin_lock(&dpio_list_lock);
--	list_add_tail(&obj->node, &dpio_list);
--	if (desc->cpu >= 0 && !dpio_by_cpu[desc->cpu])
--		dpio_by_cpu[desc->cpu] = obj;
--	spin_unlock(&dpio_list_lock);
--
- 	obj->dev = dev;
- 
- 	memset(&obj->rx_dim, 0, sizeof(obj->rx_dim));
-@@ -191,6 +189,19 @@ struct dpaa2_io *dpaa2_io_create(const struct dpaa2_io_desc *desc,
- 	obj->bytes = 0;
- 	obj->frames = 0;
- 
-+	/*
-+	 * dpaa2_io_service_select() reads dpio_by_cpu[] without taking
-+	 * dpio_list_lock, so the object must be complete before it is
-+	 * published and the publication needs release semantics.
-+	 */
-+	spin_lock(&dpio_list_lock);
-+	list_add_tail(&obj->node, &dpio_list);
-+	if (desc->cpu >= 0 && !dpio_by_cpu[desc->cpu]) {
-+		/* Pairs with the smp_load_acquire() in service_select_by_cpu(). */
-+		smp_store_release(&dpio_by_cpu[desc->cpu], obj);
-+	}
-+	spin_unlock(&dpio_list_lock);
++	smp_store_release(&imx_sc_irq_ipc_handle, ipc);
 +
- 	return obj;
- }
+ 	cl = devm_kzalloc(dev, sizeof(*cl), GFP_KERNEL);
+ 	if (!cl)
+ 		return -ENOMEM;
+diff --git a/drivers/firmware/imx/imx-scu.c b/drivers/firmware/imx/imx-scu.c
+index 203aac421..e1b9d51a5 100644
+--- a/drivers/firmware/imx/imx-scu.c
++++ b/drivers/firmware/imx/imx-scu.c
+@@ -105,10 +105,13 @@ static inline int imx_sc_to_linux_errno(int errno)
+  */
+ int imx_scu_get_handle(struct imx_sc_ipc **ipc)
+ {
+-	if (!imx_sc_ipc_handle)
++	/* Pairs with the smp_store_release() in imx_scu_probe(). */
++	struct imx_sc_ipc *sc_ipc = smp_load_acquire(&imx_sc_ipc_handle);
++
++	if (!sc_ipc)
+ 		return -EPROBE_DEFER;
  
+-	*ipc = imx_sc_ipc_handle;
++	*ipc = sc_ipc;
+ 	return 0;
+ }
+ EXPORT_SYMBOL(imx_scu_get_handle);
+@@ -345,7 +348,12 @@ static int imx_scu_probe(struct platform_device *pdev)
+ 		return ret;
+ 	init_completion(&sc_ipc->done);
+ 
+-	imx_sc_ipc_handle = sc_ipc;
++	/*
++	 * Consumers fetch the handle from their own probe, possibly on
++	 * another CPU, and then use the channels, the mutex and the completion
++	 * initialised above. Publish it with release semantics.
++	 */
++	smp_store_release(&imx_sc_ipc_handle, sc_ipc);
+ 	ret = devm_add_action_or_reset(dev, imx_scu_clear_handle, sc_ipc);
+ 	if (ret)
+ 		return ret;
 
 ---
 base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20260921-mb-dpio-f3f7dcf0ef41
+change-id: 20260921-mb-imx-scu-ed793612a725
 
 Best regards,
 --  
