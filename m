@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A99C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82A4C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=; b=wRMWjDpXrR+Em+0cv2LD80yAyf
-	jAhZ/x5UEHeJW3/ZPerX8hizoKxSsVT5OmlvY7TndIXr2l+WU3a19xV2ccRTnP4PglAMGeofsuoHx
-	GbV7+k1Gs8qstPDs8NqyvXvMA3nLBIlLVfSGSLQKEF5YylhJ9L/dQ27AVERovHC1OXGK0NwmSzkEd
-	w4nPKl7VP6Ghgs9OjRXKbq0KuvdYWgLi26o+dp9f45rysGl4DicYsxDuQxfz5R6z/CSVN8vc2RBrV
-	laPJdqM0Q5GNc4pPVdJvjJVHE02wUqzu/beMQ+K1QxFOBOaA/9lN7R/DRyeMYpf3G7/w0Y5V8bSM3
-	j8TFrRmQ==;
+	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=; b=2evFzYFR7TPKg1OYr/+HdSJqS4
+	O6jKXTYke2rLEm6PjtyqagZxxgaoBNBRDJAm3AvSo7IymfFWlcpM0/fGSNIsoUEBGiUe3RGkeocZu
+	vgDGaajWaZligQ35m/uSAZP8gRvJOGX7Sxcc3qSW30sij548CX1aGDz5mM1xAP4i4ZH0Uf0XmJ07p
+	HBDEjdTvfqVx5SO+H7Dkvz7TNBfNYr0mVvo7EilJFelsUiGdhDr//Xi2fwDGWGSSrwIU6IKYMU4d8
+	nUf8Di5CzmkdGneDL4A+Hcx2AFRyCGeDl/sUrSMNZvPrUFOvSQdfUdCOKj71ekx1AHY5ekYAPWFwK
+	4eEk7AUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zZd-00000005IaE-2nh3;
-	Tue, 22 Sep 2026 12:26:13 +0000
-Received: from mout-y-209.mailbox.org ([2001:67c:2050:103:465::209])
+	id 1x8zZj-00000005Ibo-3W4g;
+	Tue, 22 Sep 2026 12:26:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zZb-00000005IYa-0clp
+	id 1x8zZe-00000005IaK-36TR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Sep 2026 12:26:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=; b=hBgMdBcNEMXLItiEoAVY814PbC
+	7N4cx9xPD8aJiywMUpVqdxLQk5DwDGpBiuWoF0nm80R2ep71pJzawn3pwSxrkT42Un7lHx/CIDwGs
+	bXlZJMM5sbvpgbVxQohypI/NHYL8BNvFfpVzPItq9MzwUsVHByBiaAUAOy7F/6d8Bsd7c3q82L7QS
+	IqVwtB2PtqJN7oeOhlE5aeGxbH2zovGPuZHA3tPiaeuwc8D+p1DynI4ZePYtVeyeKQyKvSQvflMhT
+	4b2KC+ydecwa6HmyLaM6TS+0kxG/CZC24mbDJBEbWZtHRGkSiGNbS5WVZ/F9mDXXrFk1akwNY3OmF
+	eWYIxt5Q==;
+Received: from mout-y-209.mailbox.org ([91.198.250.237])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8zZb-0000000DXoE-1oU5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:26:12 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	Tue, 22 Sep 2026 12:26:13 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-y-209.mailbox.org (Postfix) with ESMTPS id 4hpzbB66Vhz7t7d;
-	Tue, 22 Sep 2026 14:16:06 +0200 (CEST)
+	by mout-y-209.mailbox.org (Postfix) with ESMTPS id 4hpzQQ3JV3z7t9l;
+	Tue, 22 Sep 2026 14:08:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro; s=MBO0001;
-	t=1790079366;
+	t=1790078910;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding;
 	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=;
-	b=1sXIa/iNpsllNyxwkMqBMBw2hr9u8Pp3ChUwD3OE9mw+HbBoo3L2xitGuyqF9Jo65+Dhn3
-	QggpkO9IzXmQ1pzDuxM2GLL4KrkbBD+goQeKf6fwuJPIo0AaWWQmBAYpkRaEHsmz3FcwJ+
-	OKl8GjYCIwSavNikyt2wJXW1b4G682ig23SP7dBGTeR5+XxWHD5Acugr7VGXRiAwf1Qzkb
-	hxX16r89t70Aalzrx+eaj3Jg14ElzUlwjIyZJ5O5Irs2CTXNjpb/KSnq/3fo1VjbJCmDCp
-	gC0tJXUp6TEnqvmB7R9Ewxw7n73pt5kITWY66EHd7qVHzJW+vO0CRXobfEbz9g==
+	b=qeLr9vST+26kAoPTEP3kbkxBxnqAFhZH3M/tRa70BmsdR63LGw3Wfcw4AoIaDFrAD3BUy7
+	tpWq4W0GdjNlznLL/monasWQxiXXVLX/oQxdQ+XVa3E5wf3/zx020ElKaZE4//QX12XTHa
+	N5BNX3GWzMRkabVbhcbmQkM81XBj6hvSLI085HkwG2FFrypczl+jCPWnmbSE2TRJA4pxsR
+	vGoicRgWNFmNsIf4NUmS2HJv/uR6k+JzQnKT7PSwIUw3XKOZ7xNmGKKhb5bLOE+bV6GPs0
+	dn1n3DZT/3kv3Cy5HjQszhMNLKYRbJ/0MrOwPHFHXvAs9ZQmyoU4wPK3+Yzbrg==
 From: Alexandru Chimac <alex@chimac.ro>
-Date: Tue, 22 Sep 2026 15:15:13 +0300
+Date: Tue, 22 Sep 2026 15:07:35 +0300
 Subject: [PATCH] dt-bindings: pinctrl: samsung: Require clocks for
  Exynos9610 pinctrl nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-exynos9610-pinctrl-patch-v1-1-f6d816696591@chimac.ro>
+Message-Id: <20260922-exynos9610-pinctrl-patch-v1-1-26d8108c1802@chimac.ro>
 X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NQQ6CMBBFr0Jm7Zi2JCBcxbAowyhjpGBbCIZwd
  6u4fMn7728Q2AsHqLMNPC8SZHQJ9CkD6q27M0qXGIwyhaqMQV7fbgxVoRVO4ij6J042Uo+siEq
  tLx1VJaT55Pkm6y99bQ4Oc/tgit/e3/D8mtNnPDRobWCkcRgk1tlSnnP0lEOz7x87AquXqAAAA
@@ -66,16 +81,16 @@ To: Krzysztof Kozlowski <krzk@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790079314; l=1196;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790078856; l=1196;
  i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
  bh=FIDOhx16bKTnLhDsEzKck56HBIFnn9qu9WN0aTyG/g8=;
- b=+yXOurx997N4Jd5a4koBFSR5j4JT4+C0xfTJcebVE2TZYaDznrzmZicOMCcbKqIsfB1XCg+pz
- RY2i4KOLPrjAG53adnbI3g+b4UEwVuKXxMijPYG3jywtUZUGWWboAGs
+ b=kNSA6azedja79SBfwuu7Nch0yZTKElj/5HKy+Z3akWBe/0WYHt4q3hkj0KzayGzzCW65urG7b
+ S31h8FfDFf/BQwxGLk6Pk5YDpZKaB3oLpsL1FebkBV/RXJd70IBy+3W
 X-Developer-Key: i=alex@chimac.ro; a=ed25519;
  pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_052611_359968_992F4E7C 
-X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-CacheID: sfid-20260922_132611_989788_57878572 
+X-CRM114-Status: UNSURE (   8.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
