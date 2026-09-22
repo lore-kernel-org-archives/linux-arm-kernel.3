@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86425C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BDCDC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cBvVBL8PiQGGJIp4cYo3Fqw1/LOaGqErrLlnVJ9YNsg=; b=1u+AQG/jRL6S5vQyiknqjPqKN6
-	nd+QtCY7zRNPUwfkRQdlfiRAHa3bUEgjrZDKlBtZuZs9a/MEEC3GMtoLYH+C5nIXv1KL5xj2yiPlI
-	kQ0dR8rHH/pGjk6GSz/aIv/fcL3AHsNiqZUWWiScEkH+ClVNYE+XgEp65pxSJ656awXzsZIALW2o0
-	a7w+dKI1S4Wb6inHFWBI/w77qcQuk+cFQTAjJUnx3Q9fYavvG74gNSWFy4O0FekTSifHPUrsE0kTB
-	Bcv2uyARIygbX3Exjrb/SZV4mmAcdvc/Emw4FaNXWlAkOrK7CW77EuSNdFbbom2DiDcEcZ0RIQ8mM
-	iSICxkJA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KrULaVwgCCElip4aRKBYaZURAqN1+fYOie+cnf4tKeI=; b=TLp5IGdl3X4Tp/ni9gdN2hOARS
+	WwnaKIAJPi1PnfP/d0L3G9uix3d7O6hxTxu28LCFXZK5vBcvGOilXUK6c7VYPpPJVYlU+hr4QLqWj
+	WRfy+V+54CThM7VKT5+ok8S0qc2dIy7hak4DydqX74p8/65Td3NDx7LmbT+5GXUEATk9xjKSUO5qf
+	sUfRndX12VmWLwqt/Hjyg8jkdafSY1znTZiwKklCJ47QzkVUqWW8ZZS+W4Bijt416ld+XOYYt87vc
+	JQym0MMveFnwb8T7ot2WwiYV3kZox0tr13Mv4d1Jerj1K+Ydv0NtSrYl0x2tfvTj02vend09lXgLh
+	PD5pOJfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uKd-00000004NTF-3vBa;
-	Tue, 22 Sep 2026 06:50:23 +0000
+	id 1x8uKe-00000004NUc-2gsT;
+	Tue, 22 Sep 2026 06:50:24 +0000
 Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uKY-00000004NPK-22Ic
+	id 1x8uKb-00000004NR8-1Jbl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 06:50:21 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68M1pmMo1435618;
-	Tue, 22 Sep 2026 01:50:08 -0500
+	Tue, 22 Sep 2026 06:50:23 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68M2UKot1034864;
+	Tue, 22 Sep 2026 01:50:18 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=cBvVBL8PiQGGJ
-	Ip4cYo3Fqw1/LOaGqErrLlnVJ9YNsg=; b=Q1PgJSdLc8yfzV4ZVROXgLK8ZUCmf
-	DMnj0c+xjbzwgSe4oZgIMV8DryADrBziamFW41j0+69kwHJifhIJsBxdz80XFqhI
-	nu/IBv8EmLRGGyH9xMftab676m4Xi6NmU7Yzjo1m2Up38CvL1D/s69//wmzpqtnh
-	wvQ2sd+rmOHa2DXV36Hkf+FhgPv3Q34QcST2+dHmJjB/FHGvcddiRdcMu8g6VSnO
-	FbJpcf8R/QfSaBfCDTDCmRDHx4SmKVFGztg1w0jLyiLW9xTvNNIB+2wyv6RTAgXv
-	Du9iLCiZ3whIGD/XHBx9nSJtPDRlT93j2mdb30UqqDGhqTad+rAywRoYg==
-Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013060.outbound.protection.outlook.com [40.93.201.60])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gugcsscf5-1
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=KrULaVwgCCElip4aRKBYaZURAqN1+fYOie+cnf4tK
+	eI=; b=nVkGJ081ElBVWLwRzKBAFfHOTWSUmafm8RO+29WJECFsR42amIZ7B6VWm
+	Ebi8CvrGm6KhRkjN4kGB9bn0RZ7ZW1bM1hlZQ9+JcOtSZO1ni3uhX9WEUCMq0ngx
+	zwU6hrlahYl/idw0T1F/Fj0vhRF0+CIgZAyu1vOps7FB4z9ilTGWpivWQmCxw0Rf
+	+C07xLe2m2JKNDlxTvk96Jf0RwNHTXbZNKiYHTZ1UULTdz0MgRKT5aYJ7Eqn8PLu
+	DFMr1mIKdXwYzOxeUmej3bhtAwOeeyUR+wLqSAkFjQaLPHsUoZPqQhjS/ZvGUWRw
+	a/7FHJ9CtqHOvAuHLl3S7vR40Oc5A==
+Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013007.outbound.protection.outlook.com [40.93.196.7])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gugxm16kg-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 22 Sep 2026 01:50:07 -0500 (CDT)
+	Tue, 22 Sep 2026 01:50:17 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o2WD8q56VS6TT/H8TQn6nGlTMGGeM4io7IJyt4hZZElXrhS8ZZQAD2hBaZqp60dOEf+WdON+O3cNjkKnQr5AUlG5BngE2LzLDyA38DM/F4bh7t9vmNqDVrlXhuuEg9KlvtIuRbrqa8/6xXgPXfYWen5t7myAtexi+ZaQ8NhkB/2mLyclNsnmwzrIhmK9tuhwwfYcv9NCZCMSvD8AJLnKW0vMQvqpK5mTHoJHtZS1vULFR7gq7UZMBROwBITxdzHCJkvTkXvJ2ZY00ng3CBiHDIvypvo/xIfRWh8j0W7EJu5Q8G6BpMe00U4RhApZ53CwsOPhTK6/YRNm9XW+Gr4g0A==
+ b=xIM2VX5jr/eIHt35T4iuW29seoTVpkW5g6ZnNOjXxBO/EsKEM2nTcCeM04GMnmpwt0arEY3YPiHtZwhKy3NyrgtngTPB1dARThEirvqr1XdnIX3WU4Rgdu5/QKD2CUhMzQ/IZdsum7Yidt6MEGOMU8fBTbKOIL9eygnRamjvF2Y/9atiH7d9+7pJ3kLwrfhoCHJvGX+VbkmK2ckpf0+SNcJv8phdaqwwNtsZxaJ56OibPCcFhY20lsrw3VEywg5+wM2dt4bCXkFVyKoYBbCU3Z7qAjxZXQ3QQt/2L8afHqF6ksEsfqtDL9syqQGPst3Tov+wrSyWKb4XvKTcSiWRxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cBvVBL8PiQGGJIp4cYo3Fqw1/LOaGqErrLlnVJ9YNsg=;
- b=PMyCYThcFPNC2UjO0HWegbWljZbpcf2jch3Up/xROgkeW8STf0c0ag2KN98W0/uDr4o2d8lsSXYwBqw0Ik0KzqlSYGAIVov257Wns6X/XQL9MJeIB7Uh4YVM0cAsq4HJkPKR9w6waJWzuVWIiGpxNgSbVJPU/j53BzjueUKue0Vu7Zz/8JFf2CXG5tWidSQapCpwH/DyupkRaShkZMrySNX/5FhGHPpXWTCgOkAmyzWYtqZOfsBLuSpnXTdkOICaDeriq0CgXG6bgkS9yEJUbIXGFCVEdx0FchJzUIvTguaEGj7MIySCqNZwkGwrYVnZOaAfxf/8TNFeZKWmekXpkw==
+ bh=KrULaVwgCCElip4aRKBYaZURAqN1+fYOie+cnf4tKeI=;
+ b=AdHu9Qim1TxwO9PZY9c/yyY3eKtz9St4OEE9CH4Yf8pgSlK7qfpWmJkdY/797EYqD5G3H5uHJXrzdNi/LrI/OwJibu8vYVG0N7WM5eqzAAzz6Zp9pMGJSyg+B7VqDPvd8Aib6wwFVa9WN/jJHTIfXU6el0sMzlHhyBcxNuNYqq+0a5na5cV6fpMgDG+geL2sXBCscZJcILHJDzkOaZOhhnGQdvBjOCvOf/folItwTn7WV3MxeV3ACHpL/0t5YY+ajvzRoBYHIobvCU77Na98Xd7nzFBL3DeivcCQqsDeyKof9UryQRN5ZYc+7/d+EHkaMIplMDjvJtO7miVdFaFnew==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
+ 198.47.23.194) smtp.rcpttodomain=nxp.com smtp.mailfrom=ti.com; dmarc=pass
  (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
  (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cBvVBL8PiQGGJIp4cYo3Fqw1/LOaGqErrLlnVJ9YNsg=;
- b=Y2rYiR/77e8oGp/eyP2f0SW1RNReE3pGBTjvJpsSsBd5BI67naU4cn30Lgg0lKPG8yYihZvttTFz9UssypIugrP/eP4nCJ+59K/GKXhFmZqIUakoNizYGug31WL1ua8u2xjkRFtXS9sGtQe4p2OMpf6ngbVvrnZqC7+FYSLxZ10=
-Received: from BYAPR21CA0003.namprd21.prod.outlook.com (2603:10b6:a03:114::13)
- by PH7PR10MB7767.namprd10.prod.outlook.com (2603:10b6:510:2fe::22) with
+ bh=KrULaVwgCCElip4aRKBYaZURAqN1+fYOie+cnf4tKeI=;
+ b=FCWv1pPJLb8ojhJJia+dP2ELureEvaKP87b+cOumvJ7xnfkxxJuv+fuuMyq2iTjG98C54LYCQ/v3EaIKBT0wkjpIaSMveeE1iWAfqnPHYgl7ICnKSHWgrD2M6hYMVBY4iFrd+mcr3xq2ypdnY4C7BuRG11AHxKiPi895CxiKiSw=
+Received: from SJ0PR05CA0116.namprd05.prod.outlook.com (2603:10b6:a03:334::31)
+ by CO1PR10MB4785.namprd10.prod.outlook.com (2603:10b6:303:95::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Tue, 22 Sep
- 2026 06:50:03 +0000
-Received: from CO1PEPF00012E60.namprd05.prod.outlook.com
- (2603:10b6:a03:114:cafe::97) by BYAPR21CA0003.outlook.office365.com
- (2603:10b6:a03:114::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Tue,
- 22 Sep 2026 06:50:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
+ 2026 06:50:13 +0000
+Received: from SJ5PEPF00000203.namprd05.prod.outlook.com
+ (2603:10b6:a03:334:cafe::82) by SJ0PR05CA0116.outlook.office365.com
+ (2603:10b6:a03:334::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Tue,
+ 22 Sep 2026 06:50:13 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CO1PEPF00012E60.mail.protection.outlook.com (10.167.249.69) with Microsoft
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ5PEPF00000203.mail.protection.outlook.com (10.167.244.36) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 06:50:00 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 06:50:13 +0000
+Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 22 Sep
- 2026 01:49:23 -0500
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 01:49:58 -0500
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 22 Sep
- 2026 01:49:23 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 01:49:58 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Tue, 22 Sep 2026 01:49:23 -0500
+ Transport; Tue, 22 Sep 2026 01:49:58 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [10.24.51.254])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68M6nI3q3626771;
-	Tue, 22 Sep 2026 01:49:19 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68M6nI3x3626771;
+	Tue, 22 Sep 2026 01:49:53 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
@@ -101,65 +102,67 @@ To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <vigneshr@ti.com>,
         <Frank.li@nxp.com>, <s-adivi@ti.com>
 CC: <r-sharma3@ti.com>, <gehariprasath@ti.com>
-Subject: [PATCH v9 00/19] dmaengine: ti: Add support for BCDMA v2 and PKTDMA v2
-Date: Tue, 22 Sep 2026 12:17:24 +0530
-Message-ID: <20260922064902.2719979-1-s-adivi@ti.com>
+Subject: [PATCH v9 07/19] dmaengine: ti: k3-udma: Add variant-specific function pointers to udma_dev
+Date: Tue, 22 Sep 2026 12:17:31 +0530
+Message-ID: <20260922064902.2719979-8-s-adivi@ti.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260922064902.2719979-1-s-adivi@ti.com>
+References: <20260922064902.2719979-1-s-adivi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E60:EE_|PH7PR10MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87b52faa-8b92-4182-e393-08df1875b95d
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000203:EE_|CO1PR10MB4785:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71207e83-d5d5-4711-bfcd-08df1875c0ad
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|376014|36860700016|1800799024|23010399003|10067099003|56012099006|921020|6133799003|3023799007|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: 1BomCbvmuC1Ro+XjgM4Hv56w5pEUGY+5OR6dhVnth8aWvCmWOziT1dfqeyvKqY880e4feFnR8nhc+RebNc9aIJbwuuZJOlVdM9uih+VqU3q3SXIBtgS90r3islATdJb6QjVYZ4YzuUfVAUREFEzKztsdkOBFGNAr5Y9GgF4zJD5cttVlMHEEPgvWxl8v7bTq5mdJDWQ4UouSsaLG8I0TW4Mwc+dZ7BDlGpqpkv6rL4KnHjEJPruZQXRowpEycoFmvSB3LmPar2iv4wrCohUmZy+zmICN/tWBAHo3gs2e6GKFfF2LFRqRQzzwGxtUIS09i6Qia/iBbqS+KgKElZdofXeqnxhURqQJpSE6thhLvCIImJeThjl1UCAbnsHoKhyjv8peSTlwuvpn6xuPS92dUsF9SKXT1ecGgRy/rNAa8jezyl4kjzP52qnTrLInxNz7YKIoLSxS+ZHI12u9C4bgfN1Txrb4tB4Lzt0dP+F6Q05SPbrsKwGVR54VFh8cDZHYViXaWFyNBnMkCG15OqGXc+UvGJeCTP339BkZmkwBNWUEyZF3Lm0/eoXG+X8L7Z2WZtkyLfqLyh1N+Aze3pf7N0jAW4mtVx9R/7TCGNZ3/KqTA1s5K/71gqkPkKJ+XF/uNPyt6HHahhJhBPbrLngTDPoSzfFqNDSJq5t5Zy1tg/npf4Lq/oOTBg3wJpfu+/So
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(376014)(36860700016)(1800799024)(23010399003)(10067099003)(56012099006)(921020)(6133799003)(3023799007)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|82310400026|7416014|36860700016|921020|6133799003|10067099003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: KBo4qDI4aQYFrjhyXyj8IwDp+PTRhipDeIpW/294VtWmcHhqoHeT3yh2MythlTtztTitm/qMX8O9FPO74mDe4rsNco1rs4nWn4fUFrP4taGegCzPRe9TFd7BfXw7JphQNoHvh3eJX3h74NCUsIvKZBhEgWrnxJlNFyXTF4zmrTVkwl1duO7KC3WxUcNv4aW+K8XryMOQI/TrVcNiqKnlzBNuswL0QtngaQpO/DTUwAbZ6eR+lHXfkngMOvxB5QZ4/aZ1uAQUKS19rhKduIH8/lGjU6ed66l8HIGNX3d6o+5rUD4g70ttzvRM2SnO3BWHLoil3YfK7lJnEVhFsC0b0hK8weO0EzSbWQETuSN5JAjIAlUFOQzsFDaW8E3hBqoGRgtCczy+KJ1BRdbV6lLapMpPDYrD5qYWakgkLLgw61b0vsZ8le8qX0ztn6lPfCxkAPJS7KVUnmoQR5ox7NwWAwO52u+FpncGYK81q3BYe+cirrF/YGVAysaB14YWlXzXHLD6nNnpAbZ80tuUAqpg4vJSMmuQmuImyDXTdPmq5M/TTktIOaaVynTnMOtZ6bSl1aGSJB23b+LgmFCznrRyi3xcoOc7H/ZeULE4ZFFqUgGnx3pPsngflo3ZqImtqVqb7jGrHJYpEl2sQkXahBJ4dd5CA6RrPUYag0i1TOk/ahfbknMSX/CbCrpUxyNv3eOcb5POK5+QgNGfZ4hJlk4QZ2fi2vNdqkHuHtHGLyaAnw8HerMhfWCXv/6m5H7Jevce
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(82310400026)(7416014)(36860700016)(921020)(6133799003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jJw6tHj0MGexvx7C+uYrYTM9WaMLB20ead1MNGAc80a+AGaQeoHcsKROSBbz5wBEy7/CpiTGQymfuyFMYIc0zdJYNSM5NIcVAaVrha3uqPLcQNNhOzRJTAZ9WNKSTsqqmknORd0gwFXrtQvMhBWEPSBtPGLGqcPBURwCB3O02Glu0tC9N5uWxLcywI99inE8ij6xhhzxlFZcOxnA5KP7/yVE23JQGEolGtHTcAAErtkbnem1fMC0IKtmsX1x10b0D8DLStBzjBxGTgBe3z2Yprc9RsE74PgCqcrnn8kHojX3OsvfarPNbKQsvh7ghalAs93ZN7VptyNdoEDG1nj6htoXeoUfdIhqf2qBHxA8M0EghMlno4Zv8IxYFUya7sCZuZmQweh1SF2BufElWSfgTq2+JAP3KNo1J1l+q4Qg8I0JYlBNdOILsJbrnReQQnyl
-X-Exchange-RoutingPolicyChecked: eIdEqXjCn/Z+P9ZR79jrvcCZ89DVNVKBP5p2g0BlDtAAz2rDZx2Cob4xrkvyrWR7SymRpOHT9Aj0ZqNApkcAMinvsiGk7+Bl9uUjtOa3xQhWbCfY3n/8avtHZdaJlM+s7KZTN/FhirPPzh/7ZqHi67XL8ulr50sUVlpdTKslsvqAugFZyl6rpS0rAy68nzPPN/eFQxM24vJSOhm6wk1AkW1nFJegG+a222tOKVGhnRp9mYSp6b1axjmgVVo25yWSiUw6ZsQUlrK9kDiZYHRcnQ2sSbX0F8K8IzTyaOdUQkj5v7agsDrpzWSKcaMyzveO3XoIvGiiJvG+1J0AHuS0QA==
+X-MS-Exchange-AntiSpam-MessageData-0: NWEzyxGHQJGWd24bbuGndGUmdl4yL3Cl4XHi3cOlvxR3/77SS2p2/VFhkv2WUZvHrmo5+m8TDZpHfmkf0pUvQiH28mNd03cv0UrHqh9uAey/7NK+E9xDLFwumbShmvRc2dYEZX87R0k5dB+IkdVraLHiJN3TRoHQL2EtlRYiBsaYEBzSXR9cW5g+262tEmgefNhvUpzkgCCAk2AwCg1k2KSQNlIBqudR1cNxyUvNXJQ7zI6Glo3Ig8eFFJeWxUPl+UiBYeJKl0bfo7Ix8UVVWV5d+z0WdEAxTiUDl+MeqKwUWc56etXSChWcRf1paq+FcnUZ67AAoAHFvEDo0PMGpNqGSnP8yEms/66avp61VILTv2UeZP2NN3aAZdjKqpRsVBfnHDgkQiLVqTaMKi49/Gv7TQr4ByeoECEmGvqYS2qYa/aIrurtAiAMRM1KHrLU
+X-Exchange-RoutingPolicyChecked: DnYkZvaYzZVWVqQTntV1yFL6dkCmd+G1rOvNiy2NhLy+xwaIWtwHNtomtV326wmpV7a3WnLRgnAP7V8sioyNcQcH958yDmPQYLQzw06MKNK/kycMxDE21REwfQ7J6uDlZ160nxnN5YA3cy1iHOcUsZob+yWo2x6lR7pTxsaiTwhcxlWQwpbPmjzXAJv3ag0irHGXmRd5SdPkaviT7CWyimVkugkgklz50P035ublbhK2V3eVzCMck0P+nqFcZOUSrvo5dAhcOpD+R0bxUjdLPRrnUfPrCCFVhXkbQ/zzlF4vNJoawotdBVtnoU3NqAl5XyZtj4M0k7rmIlLQUm+IGA==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 06:50:00.8811
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 06:50:13.1356
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87b52faa-8b92-4182-e393-08df1875b95d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71207e83-d5d5-4711-bfcd-08df1875c0ad
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E60.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000203.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7767
-X-Proofpoint-GUID: ml6UGvSFy_azV5OBW6c4XF_IWwItKtAd
-X-Authority-Analysis: v=2.4 cv=GI+dgeNK c=1 sm=1 tr=0 ts=6ab2251f cx=c_pps
- a=7wCTOXyfr6KSlQaUtw4X3A==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22
- a=NEAV23lmAAAA:8 a=c92rfblmAAAA:8 a=sozttTNsAAAA:8 a=VwQbUJbxAAAA:8
- a=HBuPRTQpjp8te2fZSmQA:9 a=GvGzcOZaWPEFPQC_NcjD:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDA5NyBTYWx0ZWRfX5Q0xvVtWrPDJ
- 1CjI4kr8YYvxj+D8z026VHVVIGqyUvLfyZZMRgvcYQDKLSahijrJuJqV04GUfv0pjMyjmNEkdRS
- 1EyKZy7YSlY6Zs3MqXrWhLLB3pPAG84=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDA5NyBTYWx0ZWRfX6TPiGcxy8Xd8
- EsR78+K2aCVoGQcvv1Cp/qbHhvM2I2P2V455RXJqbpY4UuBrjWO0HCGejHHbagKUgMGf3F/TsUj
- Sxf4oPvRSmT7rrtqcZ2xtjDcKdqAXTWVrd2BJqxOQJhIF3ULpmEwGK1NQ3MKCRU3EgXILIP1MSO
- 4pDL8FB1ZSwW9v96VytTPJWB8h7qlHyFHpuYigXpvK5L8aqWVWehv+hvHA3uQekAHsEYGrQRZLX
- Y9gyJgnOLUrjxSFCtAXDJCHJlDUyV6suiB4cSlIxqjJHoQMsEog0fEk9Nj6QPdqBbSe/X+egV0v
- o8AILUZUW3R2MMTq+Vq9OIWzGofudwEoxN9noBnuF0JDHuBZREVyTAUkzxvYNNVEiJyyuBX5PTU
- IwsFQKrmtqpdTuSsGXEkIXrxp/GwUOCeSHF0qyGbEiRcSkd9v9IQkfBCEOBEkwVixs9MBL5hdKP
- S8PwtScnSru8btA8JrA==
-X-Proofpoint-ORIG-GUID: ml6UGvSFy_azV5OBW6c4XF_IWwItKtAd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4785
+X-Proofpoint-ORIG-GUID: c0DURkEvOojVAkV3Lx1BA1VOJoQW8Mnj
+X-Proofpoint-GUID: c0DURkEvOojVAkV3Lx1BA1VOJoQW8Mnj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDA5NyBTYWx0ZWRfXyxF+iIZt1LAn
+ Ehc5zHhGtx1YqbDnQSqnV9thBu1+VgPkHTZcgpMr18fM9QyLpK0T8iJT1hk+uYgFo6xayiYQQhZ
+ NvZG9LXK2kZsOn4zg9Guwhaj8C9BCbupM+jTZjl3nvJiwxxZ2sKJnWOnDJTG9DmbQPTlvtKjTqE
+ cN3q9UscOhkQSRSZVYf3GohOhdPszLak4BQlvbSAI7NW7/lpYXZc5hscnGPrZoniIBbs+FJC+b4
+ DKoBmfeLJLkOjRjTpzZCEFfjLbkPVk3Eo0Mumgd3gWxjTOgqqqGhot9Yfn4roEz417ghlqieSZ9
+ XokFKwTlnoNEoQrPaF9ArE7qnEJOTht6wl2VbHH3+nls5NGC7L8wM9rE66N4RxTOmoRUtcdhv1B
+ 22Xsn57xYD/CR+rndgvnVFK/osko+9Arfd8kDPo7PK7tRucAjyCwN4QDbVVaPOyaHaRrpMxkAd2
+ HO7OMcTBFaf5Enx7fEA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDA5NyBTYWx0ZWRfX6zNy6eGMm30O
+ +3AyhrQW9v1lH+ku3jhvL/1f0irn5OKsSR3cVQD8VMs4lEaILJENGg71BfWfGOvlIi8bEa7Fu7B
+ s/jzEklRUG/5GmDq9eoNPY8PkkFPL4A=
+X-Authority-Analysis: v=2.4 cv=INeXmQvG c=1 sm=1 tr=0 ts=6ab22529 cx=c_pps
+ a=B1kIKGfTVomdQYahC0fm5g==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=8AirrxEcAAAA:8 a=sozttTNsAAAA:8
+ a=G_UKfOQgHLmTBcQ1_a4A:9 a=ST-jHhOKWsTCqRlWije3:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-21_07,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 adultscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 spamscore=0
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 adultscore=0 suspectscore=0
+ malwarescore=0 phishscore=0 spamscore=0 clxscore=1015 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609220097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_235018_685997_1F295D80 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20260921_235021_790079_F518C9BA 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,185 +177,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the BCDMA_V2 and PKTDMA_V2 which is
-introduced in AM62L.
+Introduce function pointers in the udma_dev structure to allow
+variant-specific implementations for certain operations.
+This prepares the driver for supporting multiple K3 UDMA variants,
+such as UDMA v2, with minimal code duplication.
 
-The key differences between the existing DMA and DMA V2 are:
-- Absence of TISCI: Instead of configuring via TISCI calls, direct
-  register writes are required.
-- Autopair: There is no longer a need for PSIL pair and instead AUTOPAIR
-  bit needs to set in the RT_CTL register.
-- Static channel mapping: Each channel is mapped to a single peripheral.
-- Direct IRQs: There is no INT-A and interrupt lines from DMA are
-  directly connected to GIC.
-- Remote side configuration handled by DMA. So no need to write to PEER
-  registers to START / STOP / PAUSE / TEARDOWN.
-- Unified Channel Space: Tx and Rx channels share a single register
-  space. Each channel index is specifically fixed in hardware as either
-  Tx or Rx in an interleaved manner.
+No functional changes intended in this commit.
 
-Full tree with device tree patches can be reviewed at:
-https://github.com/sskartheekadivi/linux/tree/dma-upstream-v9
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+---
+ drivers/dma/ti/k3-udma-private.c | 10 ++++-
+ drivers/dma/ti/k3-udma.c         | 66 ++++++++++++++++++--------------
+ drivers/dma/ti/k3-udma.h         | 12 ++++++
+ 3 files changed, 57 insertions(+), 31 deletions(-)
 
-Changes from v8 to v9:
-- [01/19]: Add Fixes tag (Frank Li).
-- [05/19]: Drop redundant "default n" on TI_K3_UDMA_COMMON (Vignesh).
-- [12/19]: Poll for SIZE to clear instead of an unverified comment,
-  rename ring2 to fwd_ring, take an explicit status mask in
-  k3_ringacc_ring_clear_irq() (Vignesh).
-- [13/19], [14/19]: Both carry an extra fix beyond what Krzysztof
-  reviewed in v7 (minItems on interrupt-names had to come back). should
-  have said so in v8's changelog, sorry about that. Krzysztof re-tagged
-  13/19 in v8; 14/19 has no tag since it hasn't been re-reviewed.
-- Fix issues reported by Sashiko which are introduced by this series
-  https://sashiko.dev/#/patchset/20260810151423.1948224-1-s-adivi@ti.com
-  (09/19, 12/19, 15/19, 16/19, 17/19, 18/19)
-link to v8:
-https://lore.kernel.org/all/20260810151423.1948224-1-s-adivi@ti.com/
-
-Changes from v7 to v8:
-- Fix issues reported by Sashiko which are introduced by this series
-  https://sashiko.dev/#/patchset/20260724102115.2854-1-s-adivi@ti.com
-- Remove minItems for interrupts entry in both BCDMA and PKTDMA
-  dt-bindings
-- Update interrupt-names pattern for pktdma from tflow-<n>/rflow-<n> to
-  tx-<n>/rx-<n>.
-link to v7:
-https://lore.kernel.org/all/20260724102115.2854-1-s-adivi@ti.com/
-
-Changes from v6 to v7:
-- Rebase to next-20260721
-- [03/19]: Add missing includes
-- Fix incorrect register bits used when configuring rx flows.
-  Add correct UDMA_CHAN_CFG_FILT_EINFO/PSWORDS and
-  UDMA_FLOWRT_RFA_RX_EINFO/PSINFO_PRESENT bit definitions.
-- Update AM62L BCDMA and PKTDMA dt bindings to remove address cells,
-  redefine dma-cells semantics (mapped channel id for bcdma, hardware
-  flow id for pktdma) and fully enumerate interrupts/interrupt-names
-  with restricted naming patterns.
-- Add fifo select register write support for XYMF channels in the BCDMA
-  v2 driver. Update udma_v2_filter_param to use channel id instead of
-  remote thread id and resolve it via psil_get_ep_config_by_id().
-- Switch channel resource bitmap allocation to devm_bitmap_zalloc() and
-  ring IRQ registration to request_irq()+IRQF_SHARED (channels can now
-  share a PSI-L/IRQ line); fix the ring IRQ handler to return IRQ_NONE
-  for spurious/foreign interrupts instead of unconditionally claiming
-  them.
-link to v6:
-https://lore.kernel.org/all/20260428085202.1724548-1-s-adivi@ti.com/
-
-Changes from v5 to v6:
-- Switch from interrupt-map to interrupts and interrupt-names in the
-  dt-bindings.
-- Reverse the if DMA version checks to check for v1 and else v2.
-- Add new patch [01/19] before refactoring to fix sporadic crash
-  observed on AM62x.
-link to v5:
-https://lore.kernel.org/all/20260218095243.2832115-1-s-adivi@ti.com/
-
-Changes from v4 to v5:
-- Introduce a new version variable in udma_match_data to differentiate
-  between K3 UDMA V1 and K3 UDMA V2. This simplifies the approach for
-  adding any future possible variants avoiding complex if conditions.
-- Fix both K3 BCDMA V2 and PKTDMA V2 dt bindings as per the comments
-  from previous versions.
-- Fix minor nitpicks like following the reverse christmas tree order for
-  variable declarations.
-- Remove the patch [v4 19/19] that switches to synchronous descriptor
-  freeing. With this patch, dma_free_coherent gets called in irq
-  context and hence a WARN().
-link to v4:
-https://lore.kernel.org/all/20260130110159.359501-1-s-adivi@ti.com/
-
-Changes from v3 to v4:
-- Rename the dt-binding files to add "ti," prefix.
-- Update cell description in dt-bindings and add client examples.
-- Update k3_ring_intr_regs reg names
-- Rename soc specific data to bcdma_v2_data and pktdma_v2_data to
-  bcdma_v2_am62l_data and pktdma_v2_am62l_data.
-- Add a new patch [18/19] to fix a null pointer dereference issue when
-  trying to reserve a channel id that is out of bounds in
-  udma_reserve_##res macro. Also fix logging issues in this macro.
-- Add a new patch [19/19] to switch to synchronous descriptor freeing to
-  avoid running out of memory during stress tests.
-- Fix checkpatch warnings.
-link to v3:
-https://lore.kernel.org/linux-arm-kernel/20250623053716.1493974-1-s-adivi@ti.com
-
-Changes from v2 to v3:
-- Fix checkpatch errors & spellings.
-link to v2:
-https://lore.kernel.org/linux-arm-kernel/20250612071521.3116831-1-s-adivi@ti.com
-
-Changes from v1 to v2:
-- Split refactoring of k3-udma driver into multiple commits
-- Fix bcdma v2 and pktdma v2 dt-binding examples
-- Fix compatibles in k3-udma-v2.c
-- move udma_is_desc_really_done to k3-udma-common.c as the difference
-  between k3-udma and k3-udma-v2 implementation is minor.
-- remove udma_ prefix to function pointers in udma_dev
-- reorder the commits to first refactor the existing code completely and
-  then introduce k3-udma-v2 related commits.
-- remove redundant includes in k3-udma-common.c
-- remove ti_sci_ dependency for k3_ringacc in Kconfig
-- refactor setup_resources functions to remove ti_sci_ code from common
-  logic.
-link to v1:
-https://lore.kernel.org/linux-arm-kernel/20250428072032.946008-1-s-adivi@ti.com
-
-Sai Sree Kartheek Adivi (18):
-  dmaengine: ti: k3-udma: move macros to header file
-  dmaengine: ti: k3-udma: move structs and enums to header file
-  dmaengine: ti: k3-udma: move static inline helper functions to header
-    file
-  dmaengine: ti: k3-udma: move descriptor management to k3-udma-common.c
-  dmaengine: ti: k3-udma: move ring management functions to
-    k3-udma-common.c
-  dmaengine: ti: k3-udma: Add variant-specific function pointers to
-    udma_dev
-  dmaengine: ti: k3-udma: move udma utility functions to
-    k3-udma-common.c
-  dmaengine: ti: k3-udma: move resource management functions to
-    k3-udma-common.c
-  dmaengine: ti: k3-udma: refactor resource setup functions
-  dmaengine: ti: k3-udma: move inclusion of k3-udma-private.c to
-    k3-udma-common.c
-  drivers: soc: ti: k3-ringacc: handle absence of tisci
-  dt-bindings: dma: ti: Add K3 BCDMA V2
-  dt-bindings: dma: ti: Add K3 PKTDMA V2
-  dmaengine: ti: k3-psil-am62l: Add AM62Lx PSIL and PDMA data
-  dmaengine: ti: k3-udma-v2: New driver for K3 BCDMA_V2
-  dmaengine: ti: k3-udma-v2: Add support for PKTDMA V2
-  dmaengine: ti: k3-udma-v2: Update glue layer to support PKTDMA V2
-  dmaengine: ti: k3-udma: Validate resource ID and fix logging in
-    reservation
-
-Vignesh Raghavendra (1):
-  dmaengine: ti: k3-udma: Fix sporadic crash on AM62x
-
- .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  |  211 ++
- .../bindings/dma/ti/ti,am62l-dmss-pktdma.yaml |  189 +
- drivers/dma/ti/Kconfig                        |   20 +-
- drivers/dma/ti/Makefile                       |    5 +-
- drivers/dma/ti/k3-psil-am62l.c                |  169 +
- drivers/dma/ti/k3-psil-priv.h                 |    5 +
- drivers/dma/ti/k3-psil.c                      |   78 +-
- drivers/dma/ti/k3-udma-common.c               | 2606 ++++++++++++++
- drivers/dma/ti/k3-udma-glue.c                 |  207 +-
- drivers/dma/ti/k3-udma-private.c              |   37 +-
- drivers/dma/ti/k3-udma-v2.c                   | 1523 ++++++++
- drivers/dma/ti/k3-udma.c                      | 3126 +----------------
- drivers/dma/ti/k3-udma.h                      |  602 ++++
- drivers/soc/ti/k3-ringacc.c                   |  177 +-
- include/linux/dma/k3-psil.h                   |    3 +
- include/linux/soc/ti/k3-ringacc.h             |   21 +
- 16 files changed, 5917 insertions(+), 3062 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
- create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-pktdma.yaml
- create mode 100644 drivers/dma/ti/k3-psil-am62l.c
- create mode 100644 drivers/dma/ti/k3-udma-common.c
- create mode 100644 drivers/dma/ti/k3-udma-v2.c
-
+diff --git a/drivers/dma/ti/k3-udma-private.c b/drivers/dma/ti/k3-udma-private.c
+index 624360423ef17..44c097fff5ee6 100644
+--- a/drivers/dma/ti/k3-udma-private.c
++++ b/drivers/dma/ti/k3-udma-private.c
+@@ -8,13 +8,19 @@
+ 
+ int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+ {
+-	return navss_psil_pair(ud, src_thread, dst_thread);
++	if (ud->psil_pair)
++		return ud->psil_pair(ud, src_thread, dst_thread);
++
++	return 0;
+ }
+ EXPORT_SYMBOL(xudma_navss_psil_pair);
+ 
+ int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+ {
+-	return navss_psil_unpair(ud, src_thread, dst_thread);
++	if (ud->psil_unpair)
++		return ud->psil_unpair(ud, src_thread, dst_thread);
++
++	return 0;
+ }
+ EXPORT_SYMBOL(xudma_navss_psil_unpair);
+ 
+diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+index 6a731fcfc0697..36dcc888815ea 100644
+--- a/drivers/dma/ti/k3-udma.c
++++ b/drivers/dma/ti/k3-udma.c
+@@ -40,7 +40,7 @@ static const char * const mmr_names[] = {
+ 	[MMR_TCHANRT] = "tchanrt",
+ };
+ 
+-static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
++int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+ {
+ 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+ 
+@@ -50,8 +50,8 @@ static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
+ 					      src_thread, dst_thread);
+ }
+ 
+-static int navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
+-			     u32 dst_thread)
++int navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
++		      u32 dst_thread)
+ {
+ 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+ 
+@@ -329,7 +329,7 @@ static int udma_start(struct udma_chan *uc)
+ 	}
+ 
+ 	/* Make sure that we clear the teardown bit, if it is set */
+-	udma_reset_chan(uc, false);
++	uc->ud->reset_chan(uc, false);
+ 
+ 	/* Push descriptors before we start the channel */
+ 	udma_start_desc(uc);
+@@ -521,8 +521,8 @@ static void udma_check_tx_completion(struct work_struct *work)
+ 		if (uc->desc) {
+ 			struct udma_desc *d = uc->desc;
+ 
+-			udma_decrement_byte_counters(uc, d->residue);
+-			udma_start(uc);
++			uc->ud->decrement_byte_counters(uc, d->residue);
++			uc->ud->start(uc);
+ 			vchan_cookie_complete(&d->vd);
+ 			break;
+ 		}
+@@ -554,7 +554,7 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
+ 		}
+ 
+ 		if (!uc->desc)
+-			udma_start(uc);
++			uc->ud->start(uc);
+ 
+ 		goto out;
+ 	}
+@@ -576,8 +576,8 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
+ 				vchan_cyclic_callback(&d->vd);
+ 			} else {
+ 				if (udma_is_desc_really_done(uc, d)) {
+-					udma_decrement_byte_counters(uc, d->residue);
+-					udma_start(uc);
++					uc->ud->decrement_byte_counters(uc, d->residue);
++					uc->ud->start(uc);
+ 					vchan_cookie_complete(&d->vd);
+ 				} else {
+ 					schedule_delayed_work(&uc->tx_drain.work,
+@@ -612,8 +612,8 @@ static irqreturn_t udma_udma_irq_handler(int irq, void *data)
+ 			vchan_cyclic_callback(&d->vd);
+ 		} else {
+ 			/* TODO: figure out the real amount of data */
+-			udma_decrement_byte_counters(uc, d->residue);
+-			udma_start(uc);
++			uc->ud->decrement_byte_counters(uc, d->residue);
++			uc->ud->start(uc);
+ 			vchan_cookie_complete(&d->vd);
+ 		}
+ 	}
+@@ -1654,7 +1654,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 	if (udma_is_chan_running(uc)) {
+ 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		if (udma_is_chan_running(uc)) {
+ 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+ 			ret = -EBUSY;
+@@ -1663,7 +1663,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+ 	}
+ 
+ 	/* PSI-L pairing */
+-	ret = navss_psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
++	ret = ud->psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
+ 	if (ret) {
+ 		dev_err(ud->dev, "PSI-L pairing failed: 0x%04x -> 0x%04x\n",
+ 			uc->config.src_thread, uc->config.dst_thread);
+@@ -1718,7 +1718,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
+ 	uc->irq_num_ring = 0;
+ 	uc->irq_num_udma = 0;
+ err_psi_free:
+-	navss_psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
++	ud->psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
+ 	uc->psil_paired = false;
+ err_res_free:
+ 	udma_free_tx_resources(uc);
+@@ -1821,7 +1821,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 	if (udma_is_chan_running(uc)) {
+ 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		if (udma_is_chan_running(uc)) {
+ 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+ 			ret = -EBUSY;
+@@ -1849,8 +1849,8 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 		uc->use_dma_pool = true;
+ 	} else if (uc->config.dir != DMA_MEM_TO_MEM) {
+ 		/* PSI-L pairing */
+-		ret = navss_psil_pair(ud, uc->config.src_thread,
+-				      uc->config.dst_thread);
++		ret = ud->psil_pair(ud, uc->config.src_thread,
++				    uc->config.dst_thread);
+ 		if (ret) {
+ 			dev_err(ud->dev,
+ 				"PSI-L pairing failed: 0x%04x -> 0x%04x\n",
+@@ -1910,8 +1910,8 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
+ 	uc->irq_num_udma = 0;
+ err_psi_free:
+ 	if (uc->psil_paired)
+-		navss_psil_unpair(ud, uc->config.src_thread,
+-				  uc->config.dst_thread);
++		ud->psil_unpair(ud, uc->config.src_thread,
++				uc->config.dst_thread);
+ 	uc->psil_paired = false;
+ err_res_free:
+ 	bcdma_free_bchan_resources(uc);
+@@ -2014,7 +2014,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 
+ 	if (udma_is_chan_running(uc)) {
+ 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		if (udma_is_chan_running(uc)) {
+ 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
+ 			ret = -EBUSY;
+@@ -2037,7 +2037,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ 	uc->use_dma_pool = true;
+ 
+ 	/* PSI-L pairing */
+-	ret = navss_psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
++	ret = ud->psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
+ 	if (ret) {
+ 		dev_err(ud->dev, "PSI-L pairing failed: 0x%04x -> 0x%04x\n",
+ 			uc->config.src_thread, uc->config.dst_thread);
+@@ -2083,7 +2083,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
+ err_irq_free:
+ 	uc->irq_num_ring = 0;
+ err_psi_free:
+-	navss_psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
++	ud->psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
+ 	uc->psil_paired = false;
+ err_res_free:
+ 	udma_free_tx_resources(uc);
+@@ -2123,7 +2123,7 @@ static void udma_issue_pending(struct dma_chan *chan)
+ 		 */
+ 		if (!(uc->state == UDMA_CHAN_IS_TERMINATING &&
+ 		      udma_is_chan_running(uc)))
+-			udma_start(uc);
++			uc->ud->start(uc);
+ 	}
+ 
+ 	spin_unlock_irqrestore(&uc->vc.lock, flags);
+@@ -2265,7 +2265,7 @@ static int udma_terminate_all(struct dma_chan *chan)
+ 	spin_lock_irqsave(&uc->vc.lock, flags);
+ 
+ 	if (udma_is_chan_running(uc))
+-		udma_stop(uc);
++		uc->ud->stop(uc);
+ 
+ 	if (uc->desc) {
+ 		uc->terminated_desc = uc->desc;
+@@ -2297,11 +2297,11 @@ static void udma_synchronize(struct dma_chan *chan)
+ 			dev_warn(uc->ud->dev, "chan%d teardown timeout!\n",
+ 				 uc->id);
+ 			udma_dump_chan_stdata(uc);
+-			udma_reset_chan(uc, true);
++			uc->ud->reset_chan(uc, true);
+ 		}
+ 	}
+ 
+-	udma_reset_chan(uc, false);
++	uc->ud->reset_chan(uc, false);
+ 	if (udma_is_chan_running(uc))
+ 		dev_warn(uc->ud->dev, "chan%d refused to stop!\n", uc->id);
+ 
+@@ -2355,7 +2355,7 @@ static void udma_free_chan_resources(struct dma_chan *chan)
+ 
+ 	udma_terminate_all(chan);
+ 	if (uc->terminated_desc) {
+-		udma_reset_chan(uc, false);
++		ud->reset_chan(uc, false);
+ 		udma_reset_rings(uc);
+ 	}
+ 
+@@ -2374,8 +2374,8 @@ static void udma_free_chan_resources(struct dma_chan *chan)
+ 
+ 	/* Release PSI-L pairing */
+ 	if (uc->psil_paired) {
+-		navss_psil_unpair(ud, uc->config.src_thread,
+-				  uc->config.dst_thread);
++		ud->psil_unpair(ud, uc->config.src_thread,
++				uc->config.dst_thread);
+ 		uc->psil_paired = false;
+ 	}
+ 
+@@ -3694,6 +3694,14 @@ static int udma_probe(struct platform_device *pdev)
+ 		ud->soc_data = soc->data;
+ 	}
+ 
++	// Setup function pointers
++	ud->start = udma_start;
++	ud->stop = udma_stop;
++	ud->reset_chan = udma_reset_chan;
++	ud->decrement_byte_counters = udma_decrement_byte_counters;
++	ud->psil_pair = navss_psil_pair;
++	ud->psil_unpair = navss_psil_unpair;
++
+ 	ret = udma_get_mmrs(pdev, ud);
+ 	if (ret)
+ 		return ret;
+diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
+index 767b73021390d..16de0b218d8ad 100644
+--- a/drivers/dma/ti/k3-udma.h
++++ b/drivers/dma/ti/k3-udma.h
+@@ -348,6 +348,15 @@ struct udma_dev {
+ 	u32 psil_base;
+ 	u32 atype;
+ 	u32 asel;
++
++	int (*start)(struct udma_chan *uc);
++	int (*stop)(struct udma_chan *uc);
++	int (*reset_chan)(struct udma_chan *uc, bool hard);
++	void (*decrement_byte_counters)(struct udma_chan *uc, u32 val);
++	int (*psil_pair)(struct udma_dev *ud, u32 src_thread,
++			 u32 dst_thread);
++	int (*psil_unpair)(struct udma_dev *ud, u32 src_thread,
++			   u32 dst_thread);
+ };
+ 
+ struct udma_desc {
+@@ -618,6 +627,9 @@ int udma_push_to_ring(struct udma_chan *uc, int idx);
+ int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr);
+ void udma_reset_rings(struct udma_chan *uc);
+ 
++int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
++int navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
++
+ /* Direct access to UDMA low lever resources for the glue layer */
+ int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
+ int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
 -- 
 2.54.0
 
