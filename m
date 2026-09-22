@@ -4,54 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD32C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF11EC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LWf2P5Ys75rAjXmSpn/rwIwvU1jkRlLw5TSKsGJpoII=; b=MwfyI8CQ1CMKQO
-	JedZd1N3fDEtXTbgxxDwRJvMcUdUXFmotehyjqodsvLg3D7Jr78g1vNn5XLtnal9phETEw9NINiaf
-	OoX+ZXfJXFWGIrJSNO4OSiY8dAiSzK1UvHesAJ3dEJT46k7VQpotEdZevToRXBEKisyHrv3heUKa+
-	o7atF5C3Q1XrGErK6b+FEbMKSUp1BNiZq0xkZIAbmL6mt6svK6PIwTe+WSUML2jetVBA4MRZLOxW1
-	at5YscNenHHcWiezNy3/zvnnelpCXiC73WubBcvoy8jW8adOq9jfq186kRbsRaiUkLBFot3OjX0Q8
-	uniQrtaCB/MEYRHvntpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EbrL81ftez1/Lz+4iuhOw9CrE0nMBDsYDdSTGwWCIAA=; b=HHHtzzEbWFTJaaCT86JQ7rDsKw
+	MwobgpUo9PT8/jEi/nxISWKN2Wbi9zXnAk80F33mzJX15y8lkxQW9l7j7P/2felwdsJOnwnoZc/K/
+	5GC2TBiPEGfPecNMfWZRHU5jKhTksYbyqNoa93hPsFqZU1SA8AsHaBQslN+xBZbLjcWLk1tPmJAkT
+	hJQ8dleLUcE+EOV9Zog92W9dPosUP1lWvrCC+Ktosh9EjQdIMOZxRpo3cLfS7vDvKPP6rKukN8lMA
+	L3oJwF6N2sQFqOVgZq97HesHftDXGlC06cjXqma9JY8kdDeQ7Ckv9S1GqxLPa43DQtFXuxkqNTyp5
+	mmAR4Dog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96cW-00000006TCZ-09sJ;
-	Tue, 22 Sep 2026 19:57:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x96f3-00000006TO2-0Rll;
+	Tue, 22 Sep 2026 20:00:17 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96cU-00000006TCH-2JKw
+	id 1x96f0-00000006TNe-428A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 19:57:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09DC5434D4;
-	Tue, 22 Sep 2026 19:57:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8FC81F000FF;
-	Tue, 22 Sep 2026 19:57:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790107057;
-	bh=LWf2P5Ys75rAjXmSpn/rwIwvU1jkRlLw5TSKsGJpoII=;
-	h=From:To:Cc:Subject:Date;
-	b=i5p5eaOEomxZ5KRbEZIx4y6EMe4Ky0fZ1ze7lLcIncPOv+AjkI9a6pPfrbzo+Gv7P
-	 pCHoatm/4wvaJSqLP4iqnnz2af6VOrxTyrf+pJ88C0vF3/XTwFGpCMrUVywKVGJQgH
-	 K61uLSN6nBP/mY97/cENdKrzU2KZc3/hP+A10q8J16kth7bGHgZD8kHhjdiAWrnGcO
-	 OCR65VAfLSITl3ffbY3k70vAFW23QqjYOHMVJCTURhYy9Yrkm+wGl43uZ1n6wvf4UH
-	 mVKtaCKZrpGgKgMi4HOttUeL4gJdKoIC/Q/I30ACWKutDKXw2MdNDMMfmTdV2hRo+x
-	 Y6jsi5cuGGD2Q==
-From: Kees Cook <kees@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: [PATCH] selftests/ptrace: Add PTRACE_SYSEMU_SINGLESTEP syscall-exit-stop test
-Date: Tue, 22 Sep 2026 12:57:20 -0700
-Message-Id: <20260922195719.i.211-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Tue, 22 Sep 2026 20:00:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CJpmkn94o/gBLWhxOrJqhg+P6d7wNufuPzaZbVxUTzBS2gDixo8GdgfNeCZjAKEwL23fEKEanUjS74PkNC0c+kjwWdZ1f7Wt9TwtIVFWFig4yt5WjG9PW99MKci30l5eANRkPAJy9gfbutvwjxxmc7120IB+tZmaxWubs/G2zlGLGJlDpeBvueoxay4PdjRrMLNQjqj7E9xFLgGnhq9iGRGJkKtnW7miMPVu1Ca8uMRuAX17UUuVYNPNRiDrC9sJ5h8/4rokKZ/FIkPOv9SwXF15RewyOO+HWWZpPppPu3/ipcFheO6vtZtd4E1ABW8iOsF7S8spcl2p7r2OPQevGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EbrL81ftez1/Lz+4iuhOw9CrE0nMBDsYDdSTGwWCIAA=;
+ b=NDdz7iOXrNrXNz5fBKrPcTwdVT3Y950DQGT6QtJ5S4B/2HS+Q7vMn2jFEH0SqQV7bStLpZVDuSkaVscfLbaK7Ve9qTSmcvSQg4wituKKVVQvwAYwm+qLCUlDKExADeJvTpMGnDl5/1ue0GsCe3p8ycKCM89sNTXWEKdw0buSFnCSv3UPtQllGMxBgSD+RqRtY+fGsZcfnAhMOuxaUAOG9aNVq1QQzy3TMojyJEK42A6AF+buwvKAT2K6Rx0bnIz9lUt3c6TvTdhJC5ekx8uuCIfLXPagH96mk8iWByAKuICyptsunOXXmYu8wsjhlrAIUoGQD9yJghycLghE5xFcLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EbrL81ftez1/Lz+4iuhOw9CrE0nMBDsYDdSTGwWCIAA=;
+ b=RjjiTIby+IHrtgLpu0ss8D4aOW6HByz87grc4D5KIOAwBbMLxjXayZtV+REh7KPB0wg+fYN5sjUNxaPTxL18MrGjrcmEszDhqe7irx/mC2HaFWnhBUW5EZQA7lk4h7nBtVHR2gqSoHptwtH14iiqpBtLEQF6xsFxNsfCSWlULNjUgoespdDNJD96bWKXYh6zN9NsAgVjg9Uh9MSZtx3oL+QCBMg1ulFNBmCP97eukmPuirzmVhVQhjzLtWM0xDO55Um7HKlJLpZvGuf+rMo3HFnx306CkgTup3pqccxbR7PMngWIUEqIDS5VFPz5JCMgnVeMVt1TE/4t4eAuUZz8nA==
+Received: from BN9PR03CA0138.namprd03.prod.outlook.com (2603:10b6:408:fe::23)
+ by PH0PR12MB8052.namprd12.prod.outlook.com (2603:10b6:510:28b::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 22 Sep
+ 2026 20:00:02 +0000
+Received: from BN3PEPF00022BD4.namprd03.prod.outlook.com
+ (2603:10b6:408:fe:cafe::5e) by BN9PR03CA0138.outlook.office365.com
+ (2603:10b6:408:fe::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Tue,
+ 22 Sep 2026 20:00:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BN3PEPF00022BD4.mail.protection.outlook.com (10.167.248.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 20:00:01 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
+ 2026 12:59:32 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.49; Tue, 22 Sep 2026 12:59:31 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Tue, 22 Sep 2026 12:59:30 -0700
+Date: Tue, 22 Sep 2026 12:59:28 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Mostafa Saleh <smostafa@google.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kvmarm@lists.linux.dev>, <iommu@lists.linux.dev>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <maz@kernel.org>, <oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<joro@8bytes.org>, <jgg@ziepe.ca>, <mark.rutland@arm.com>,
+	<qperret@google.com>, <tabba@google.com>, <vdonnefort@google.com>,
+	<sebastianene@google.com>, <keirf@google.com>
+Subject: Re: [PATCH v8 05/25] iommu/arm-smmu-v3: Move hitless machinery to
+ common code
+Message-ID: <arLeIO20VQZD80nr@nvidia.com>
+References: <20260922131259.2975334-1-smostafa@google.com>
+ <20260922131259.2975334-6-smostafa@google.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9515; i=kees@kernel.org; h=from:subject:message-id; bh=ZZ3/lvXFNs1lg2dDopy2fkY4jeWNeezpAZTvbUBNIwE=; b=owGbwMvMwCVmps19z/KJym7G02pJDFmb7s5/uSQyNuOKZH7YrKpLahc4+i/U7Gp6ZZVWWSfkO 1nKf8nKjlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgImsv8jwz/wex/rrvV3/y88v bpPa4RNwm4P/iwKv1dU9LGsnB66U3Mrwv8JceMUxw8M7PvokFvoreFfZf9dt8ZJPWyvA5yXON8+ XBQA=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260922131259.2975334-6-smostafa@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD4:EE_|PH0PR12MB8052:EE_
+X-MS-Office365-Filtering-Correlation-Id: b37b01eb-ad8a-4211-8f2a-08df18e41685
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|23010399003|82310400026|1800799024|4143699003|56012099006|11063799006|10067099003|22082099003|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: +Vyl0+Ll5m9qQLnbap8TAnXhQhqjO12SETJgCw/8PjwK+UGunwwwRIl3rqi15cOkIOI5EKYb4DIbbNho+cJ8pVSGnXUjWy58sIM5om8pUSBisfk7eyVTjy66Q8GOCFGsgXQnsOmUGAN8rwpWV+0CHSBekfsWSw0a4ALFGZBxgXYBQMQA/BwCrgVHvO6DdyN++01UAhjo6QoNcuSWLuqvVq/+EaCz+HpIy8KdpqWGnmNvn2YcG6P8QQGtO1DuoZVHVDQmIFjp8ayY50xFA2KsE6IpNgm1Gc/9J5jFVsqJxzHRVP6LmPSWvNFABv/Q7Agl5JDIjg9hs6OxxmtyqKA8gpn6Ag2qzjM9eTwTS+JaLGMbQIeaCzLox4JrTYjST4G9jqUzVcVfwOx341Y39GAJgr6Pz2mJ3ahbbYduD5M3jBQo02boQInQKAsvP1i9HQlKWC8Vjxal+if/WXv0E9OoXNx9CaonRUMYws6iRq2XKon+26Qn4Rd7QUwxG+YaEcOqJwWKjMDSMvyFHMhi8vReVNbujZzCxqS5xiuVWuBF0oO6IlkLayYjbNijfnJQDOwyj+dEYNRX+OJcKSoEasRiTcYUyChmtUB6X5JPh2PohV70n6+FOCxJX4Qy3if3KUmLnuvEYvx+PmfOUUlB3Liph7MaG9fZzFJuN8AG7whBhl/2i7cwkwCD0ms/5YoQK3MZUv3CeyMt2KW+T033f8UFCw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(23010399003)(82310400026)(1800799024)(4143699003)(56012099006)(11063799006)(10067099003)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: /4LW693ggD79JcwClr+vnytb4k9cVToN9OwKaPfgoPLjoAY8EBagnBbpQ30Gr+JIg6YoaaveN1GP6MZ3s18oXFE9SumxsJWV08seuSRYMPlGiuRurjJ+1ATQuuajvjAVDc+wHhoN5RClAMSmgHf4HTdkv/scCzGrvfNGOv8/CXrvxQGv3N3NmIsSnOVVVH0LvorSt3nvWp6/yC5qAeJhIt4qgfYCLFvg4vnIz5S7Jp9jhxmsKMOBrqJKojuhcOZoZuzVU5mR09gDKo5RyD9Z8XrNE+j9855tcjSvN01m/a/bZi1U9OhCEwoDSDNG8VOui8aUd0zjIv4Kgj++BAi2Ut3jGtXU5K7po80Mplp+t/mD1eF+e0qCOtGtV+Naxf19ogKUFQdgS+YRMAT8Skzf6iKoOAWC3/d/9H0KD4XyP8b+0+uSCtawWffKkCYwEbgA
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 20:00:01.7616
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b37b01eb-ad8a-4211-8f2a-08df18e41685
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BD4.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8052
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_130015_089613_8247A48C 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,274 +130,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Kees Cook <kees@kernel.org>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, linux-kselftest@vger.kernel.org, will@kernel.org, Shuah Khan <shuah@kernel.org>, peterz@infradead.org, thuth@redhat.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, kmehltretter@gmail.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linusw@kernel.org, oleg@redhat.com, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, yeoreum.yun@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ptrace(2) states that no syscall-exit-stop occurs when a tracee is
-continued with PTRACE_SYSEMU or PTRACE_SYSEMU_SINGLESTEP. arm64 gated
-its syscall-exit report on
+On Tue, Sep 22, 2026 at 01:12:38PM +0000, Mostafa Saleh wrote:
+> Move the hitless STE functions to the common file so it can be
+> reused by the hypervisor.
 
-	flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP)
+s/it/they
 
-and ptrace_resume() clears SYSCALL_TRACE for both SYSEMU requests while
-PTRACE_SYSEMU_SINGLESTEP additionally sets TIF_SINGLESTEP, so the
-single-step bit alone produced a stop that must not exist. Nothing in
-tools/testing/selftests covered this.
+> No functional change.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 
-Detecting the extra stop is less direct than it looks. The report is
-emitted with step=1, so ptrace_report_syscall_exit() dispatches to
-user_single_step_report() rather than ptrace_report_syscall(), and it
-arrives as a plain SIGTRAP indistinguishable by signal from the
-legitimate single-step trap: neither PTRACE_O_TRACESYSGOOD nor
-PTRACE_GET_SYSCALL_INFO separates the two. What does separate them is
-the PC. The redundant report fires before the tracee has moved past the
-syscall instruction, so it lands on the PC of the syscall-entry stop:
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
-	[0] sig=133 SYSCALL-STOP  pc=0x41ec28
-	[1] sig=5   trap          pc=0x41ec28   <-- must not exist
-	[2] sig=5   trap          pc=0x41ec2c
+With some nits:
 
-A fixed kernel reports pc=0x41ec2c already at stop [1]. The test
-therefore asserts that the first stop after the syscall-entry stop is at
-a different PC, which tests the consequence rather than the mechanism
-and does not depend on how many pseudo-step traps follow.
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -59,10 +59,8 @@ enum arm_smmu_msi_index {
+>  	ARM_SMMU_MAX_MSIS,
+>  };
+>  
+> -#define NUM_ENTRY_QWORDS 8
+>  static_assert(sizeof(struct arm_smmu_ste) == NUM_ENTRY_QWORDS * sizeof(u64));
+>  static_assert(sizeof(struct arm_smmu_cd) == NUM_ENTRY_QWORDS * sizeof(u64));
+> -
+>  static phys_addr_t arm_smmu_msi_cfg[ARM_SMMU_MAX_MSIS][3] = {
 
-PTRACE_SYSEMU is used to reach the syscall-entry stop, as single-
-stepping there costs one stop per instruction and takes roughly 200000
-stops. Architectures without a PC accessor here, or without SYSEMU
-support, skip rather than fail.
+This line removal seems unnecessary.
 
-Build tested ARCH=arm64 with GCC aarch64-linux-gnu 16.1.0, ARCH=arm
-with GCC arm-linux-gnueabihf 16.1.0, and ARCH=x86_64 with GCC 16.2.0.
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -1321,6 +1316,8 @@ static inline u64 arm_smmu_tlb_inv_range_enc(u8 num, u8 scale)
+>  		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
+>  }
+>  
+> +#define NUM_ENTRY_QWORDS 8
+> +
 
-Tests passing on ARCH=arm64 under qemu-system-aarch64, and the same
-test fails as expected on v7.3-rc2 without the fix[1]:
+Maybe we should drop the duplicated define in arm-smmu-v3-test.c?
 
-	# entry stop pc=0x41ec28, next stop sig=5 pc=0x41ec28
-	# Expected next_pc (4320296) != entry_pc (4320296)
-	not ok 1 sysemu.no_syscall_exit_stop
-
-An AArch32 build of the same test on an arm64 kernel reproduces the
-failure identically, covering the is_compat_task() path. It also passes
-on x86_64, which already uses generic entry, so the test does not report
-a false positive against a correct implementation.
-
-Link: https://lore.kernel.org/all/20260922035510.1090299-2-ruanjinjie@huawei.com/ [1]
-Assisted-by: LLM
-Signed-off-by: Kees Cook <kees@kernel.org>
----
- tools/testing/selftests/ptrace/Makefile       |   3 +-
- .../selftests/ptrace/sysemu_singlestep.c      | 176 ++++++++++++++++++
- tools/testing/selftests/ptrace/.gitignore     |   1 +
- 3 files changed, 179 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/ptrace/sysemu_singlestep.c
-
-diff --git a/tools/testing/selftests/ptrace/Makefile b/tools/testing/selftests/ptrace/Makefile
-index c5e0b76ba6ac..5284d79e9b71 100644
---- a/tools/testing/selftests/ptrace/Makefile
-+++ b/tools/testing/selftests/ptrace/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
- CFLAGS += -std=c99 -pthread -Wall $(KHDR_INCLUDES)
- 
--TEST_GEN_PROGS := get_syscall_info set_syscall_info peeksiginfo vmaccess get_set_sud
-+TEST_GEN_PROGS := get_syscall_info set_syscall_info peeksiginfo vmaccess get_set_sud \
-+		  sysemu_singlestep
- 
- include ../lib.mk
-diff --git a/tools/testing/selftests/ptrace/sysemu_singlestep.c b/tools/testing/selftests/ptrace/sysemu_singlestep.c
-new file mode 100644
-index 000000000000..f9b16445b3d5
---- /dev/null
-+++ b/tools/testing/selftests/ptrace/sysemu_singlestep.c
-@@ -0,0 +1,176 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Check that PTRACE_SYSEMU_SINGLESTEP does not report a syscall-exit-stop.
-+ *
-+ * ptrace(2), "Syscall-stops":
-+ *
-+ *	If the tracee is continued using any other method (including
-+ *	PTRACE_SYSEMU), no syscall-exit-stop occurs. Note that all mentions of
-+ *	PTRACE_SYSEMU apply equally to PTRACE_SYSEMU_SINGLESTEP.
-+ *
-+ * PTRACE_SYSEMU_SINGLESTEP sets SYSCALL_EMU and enables single-stepping, and
-+ * ptrace_resume() clears SYSCALL_TRACE for it. An architecture that gates its
-+ * syscall-exit report on "single-stepping is enabled" rather than on "the
-+ * tracer asked for syscall stops" reports an extra stop here.
-+ *
-+ * Detecting that extra stop takes some care. The report is emitted with
-+ * step=1, and ptrace_report_syscall_exit() then calls
-+ * user_single_step_report() rather than ptrace_report_syscall(), so it arrives
-+ * as a plain SIGTRAP: PTRACE_O_TRACESYSGOOD and PTRACE_GET_SYSCALL_INFO cannot
-+ * tell it from the legitimate single-step trap. What distinguishes it is the
-+ * PC, which has not yet moved past the syscall instruction. So this asserts
-+ * that the first stop after the syscall-entry stop is at a different PC.
-+ */
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <sys/ptrace.h>
-+#include <sys/uio.h>
-+#include <sys/wait.h>
-+#include <sys/syscall.h>
-+#include <linux/elf.h>
-+#include <linux/ptrace.h>
-+#include "../kselftest_harness.h"
-+
-+/*
-+ * Not every libc declares these, even where the kernel implements them (an
-+ * AArch32 tracer on an arm64 kernel, for instance). The values are ABI.
-+ */
-+#ifndef PTRACE_SYSEMU
-+#define PTRACE_SYSEMU			31
-+#endif
-+#ifndef PTRACE_SYSEMU_SINGLESTEP
-+#define PTRACE_SYSEMU_SINGLESTEP	32
-+#endif
-+
-+/*
-+ * Reading the PC portably would need one regset layout per architecture. Cover
-+ * the ones that implement PTRACE_SYSEMU_SINGLESTEP and can be checked here;
-+ * elsewhere the test skips rather than failing the build or the run.
-+ */
-+#if defined(__aarch64__)
-+#include <asm/ptrace.h>
-+static int tracee_pc(pid_t pid, unsigned long long *pc)
-+{
-+	struct user_pt_regs regs;
-+	struct iovec iov = { &regs, sizeof(regs) };
-+
-+	if (ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &iov))
-+		return -1;
-+	*pc = regs.pc;
-+	return 0;
-+}
-+#elif defined(__arm__)
-+static int tracee_pc(pid_t pid, unsigned long long *pc)
-+{
-+	unsigned long uregs[18];	/* struct user_regs; uregs[15] is PC */
-+	struct iovec iov = { uregs, sizeof(uregs) };
-+
-+	if (ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &iov))
-+		return -1;
-+	*pc = uregs[15];
-+	return 0;
-+}
-+#elif defined(__x86_64__) || defined(__i386__)
-+#include <sys/user.h>
-+static int tracee_pc(pid_t pid, unsigned long long *pc)
-+{
-+	struct user_regs_struct regs;
-+	struct iovec iov = { &regs, sizeof(regs) };
-+
-+	if (ptrace(PTRACE_GETREGSET, pid, (void *)NT_PRSTATUS, &iov))
-+		return -1;
-+#if defined(__x86_64__)
-+	*pc = regs.rip;
-+#else
-+	*pc = regs.eip;
-+#endif
-+	return 0;
-+}
-+#else
-+static int tracee_pc(pid_t pid, unsigned long long *pc)
-+{
-+	return -1;
-+}
-+#define NO_PC_ACCESSOR	1
-+#endif
-+
-+FIXTURE(sysemu)
-+{
-+	pid_t tracee;
-+};
-+
-+FIXTURE_SETUP(sysemu)
-+{
-+	self->tracee = -1;
-+}
-+
-+FIXTURE_TEARDOWN(sysemu)
-+{
-+	/* Reap the tracee however the test ended, including on assert. */
-+	if (self->tracee > 0) {
-+		kill(self->tracee, SIGKILL);
-+		waitpid(self->tracee, NULL, 0);
-+	}
-+}
-+
-+TEST_F(sysemu, no_syscall_exit_stop)
-+{
-+	unsigned long long entry_pc = 0, next_pc = 0;
-+	int status;
-+
-+#ifdef NO_PC_ACCESSOR
-+	SKIP(return, "no PC accessor for this architecture");
-+#endif
-+
-+	self->tracee = fork();
-+	ASSERT_GE(self->tracee, 0);
-+	if (self->tracee == 0) {
-+		if (ptrace(PTRACE_TRACEME, 0, 0, 0))
-+			_exit(1);
-+		raise(SIGSTOP);
-+		/* A raw syscall: a libc wrapper may not issue one. */
-+		syscall(__NR_getpid);
-+		_exit(0);
-+	}
-+
-+	ASSERT_EQ(waitpid(self->tracee, &status, 0), self->tracee);
-+	ASSERT_TRUE(WIFSTOPPED(status));
-+	ASSERT_EQ(ptrace(PTRACE_SETOPTIONS, self->tracee, 0,
-+			 (void *)PTRACE_O_TRACESYSGOOD), 0);
-+
-+	/*
-+	 * PTRACE_SYSEMU reaches the syscall-entry stop in one resume. Getting
-+	 * there by single-stepping would cost one stop per instruction.
-+	 */
-+	if (ptrace(PTRACE_SYSEMU, self->tracee, 0, 0)) {
-+		if (errno == EIO || errno == EINVAL)
-+			SKIP(return, "PTRACE_SYSEMU not supported");
-+		ASSERT_EQ(errno, 0) TH_LOG("PTRACE_SYSEMU: %m");
-+	}
-+	ASSERT_EQ(waitpid(self->tracee, &status, 0), self->tracee);
-+	ASSERT_TRUE(WIFSTOPPED(status));
-+	ASSERT_TRUE(WSTOPSIG(status) & 0x80)
-+		TH_LOG("expected a syscall-entry stop, got signal %d",
-+		       WSTOPSIG(status));
-+	ASSERT_EQ(tracee_pc(self->tracee, &entry_pc), 0);
-+
-+	/* The resume under test. */
-+	if (ptrace(PTRACE_SYSEMU_SINGLESTEP, self->tracee, 0, 0)) {
-+		if (errno == EIO || errno == EINVAL)
-+			SKIP(return, "PTRACE_SYSEMU_SINGLESTEP not supported");
-+		ASSERT_EQ(errno, 0) TH_LOG("PTRACE_SYSEMU_SINGLESTEP: %m");
-+	}
-+	ASSERT_EQ(waitpid(self->tracee, &status, 0), self->tracee);
-+	ASSERT_TRUE(WIFSTOPPED(status));
-+	ASSERT_EQ(tracee_pc(self->tracee, &next_pc), 0);
-+
-+	TH_LOG("entry stop pc=%#llx, next stop sig=%d pc=%#llx",
-+	       entry_pc, WSTOPSIG(status), next_pc);
-+
-+	EXPECT_NE(next_pc, entry_pc)
-+		TH_LOG("redundant syscall-exit-stop reported at the syscall PC");
-+}
-+
-+TEST_HARNESS_MAIN
-diff --git a/tools/testing/selftests/ptrace/.gitignore b/tools/testing/selftests/ptrace/.gitignore
-index f6be8efd57ea..792c81f804c0 100644
---- a/tools/testing/selftests/ptrace/.gitignore
-+++ b/tools/testing/selftests/ptrace/.gitignore
-@@ -4,3 +4,4 @@ get_set_sud
- peeksiginfo
- vmaccess
- set_syscall_info
-+sysemu_singlestep
--- 
-2.34.1
-
+Nicolin
 
