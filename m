@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600DFC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D7FC98307
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9zYC7enUabnf353gSgpk/pWsHG4HeOTH/3kC4e7ynY=; b=BFr9O8MYnHEKTkr88T4O99l7wk
-	tf0iAQRc2L12HNay5pBQ4w+/KSl6xTpUozdi6Eakgi1cHg9WE1FvetpkR+/JJArsbTiq/EYRneZpe
-	xS+ZAHkXQ2LG945TD6Ba+A0RA2wxlNKGLLnkLFXDTg1LK6+xq8TMVS7jPBxaKT2xQXkCgAWJBjXvF
-	Bjph4IQe3l01utKLt6apKv9wsgeF1CDt8qKXJDyoqM8HfGsz2JKVa8ELSgKfUbi09aDg22Ud8PZW6
-	UsW2CUWTWgmje4RfmrMLoQpkgG5mgFbCMwmhhd/216yAfoQnnIiNhGDnBZG/Em0s7qzZJ7psx6r+0
-	VxNMwR4g==;
+	bh=s/0DpvkER5cSeOE09m9iAwElnCK40zRbmR7dCpWAk2Q=; b=xo2gGrwAEDN3ngjNaN3m/OlVr/
+	VZ6k6RN/v3N3WOypttSyne7J05KUQ4WRxf6j7gXrcbcadHfC1Ld4rfyPS3Ip7paKQHb0DbspzxKNW
+	tWermhxiytYA8Uw0tULiwnC9RdaQV3txnY85DeHQ/1NyClAsRFG4vAr4cmhwP8utMt2pVs98AhcE1
+	uDj1FcsGEjmM4qGkV78xsPxbl3pBdjwLORDeyzbqAhGNsVd30pvNpyzPnS5uPN0B4VsYbpWrz6yoG
+	g8L28Z4lRLK5ab9K2xgWzcJlrDCiMwgvZ4OYiAMHZvMppTPLiYIzcAtj/E9azmInHuo2yAOnLBmPE
+	3hQCLdsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x907G-00000005PAF-0lG1;
+	id 1x907G-00000005P9v-0Mjc;
 	Tue, 22 Sep 2026 13:00:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9079-00000005P8h-3lnV
+	id 1x9078-00000005P8D-2elX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:00:51 +0000
+	Tue, 22 Sep 2026 13:00:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AA724005C;
-	Tue, 22 Sep 2026 13:00:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33C131F00893;
-	Tue, 22 Sep 2026 13:00:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E1A8A60DCE;
+	Tue, 22 Sep 2026 13:00:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61C3A1F000FF;
+	Tue, 22 Sep 2026 13:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790082051;
-	bh=w9zYC7enUabnf353gSgpk/pWsHG4HeOTH/3kC4e7ynY=;
+	s=k20260515; t=1790082049;
+	bh=s/0DpvkER5cSeOE09m9iAwElnCK40zRbmR7dCpWAk2Q=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BGYOQ7y7QxC11HqbsgjWRO0zccDz31wFXfq2JixhTtGSTuO+ZLFGaR9FYBGlzcq3R
-	 X3nyxXLal6/MTujKteNN9tBIYDT9jXD0hFlXHHa2UPICk1vIlrWU5aDq10EQ/EVwdk
-	 XMn8DppGInwnK6LrsL4XYAYRypdCeyJy7kMhVo0f2lrGAJ+2xDRg4ehCz/hQHOYQZM
-	 ae+F9TDB0FUdzBSa5l9JOrRJwFnXgRjpCz4fC3Z4/sQpiNiA0rEdaio9OElrVCroFV
-	 DvLCyYChaKjUbuJAyp5S/QJe0WzQianHBfXH0EXFMrTeERvyE5DNyxmBn5QBRVkgTw
-	 UDSSqdK52mJ0g==
-Subject: Re: [PATCH net-next v7 09/14] net: lan966x: add shutdown callback to
- stop the FDMA on reboot
+	b=anp3UBkbdeNEklwwrxIoqKilZH9/dP8mKyLwPdR/6riQTqjYMdyiJzR1CgZngC5I+
+	 fE2DWE+1YkO8UuxzWs4uZ7BOjFkDEabyPudm59jCRp5tov27G2rNpJkbZftC7yT1Vo
+	 ZWVfzIvdCYC7IEK4y3USzIPsA9bbfxTnx7pu7auBLe6AQcSJStBZU04sLOeNRjD1+H
+	 1gJFsR2dpwriZBkpfcnKwAM37MsuV+9pN+5PVjvvxJOHdLGbO5dGVrAAi17W+vP36o
+	 318/nXECNXmsZwEBocBZGdZYR+YBBdRDhqpjaCvxxuwkr/PQn8j/3C0/QMvkHFqnUD
+	 IJWnpMF/eVzoQ==
+Subject: Re: [PATCH net-next v7 08/14] net: lan966x: clear FDMA interrupt
+ stickies after switch reset
 From: netdev-bot+sashiko@kernel.org
 To: daniel.machon@microchip.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -54,10 +54,10 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  gregkh@linuxfoundation.org, mohsin.bashr@gmail.com, richardcochran@gmail.com,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Date: Tue, 22 Sep 2026 13:00:49 +0000
-Message-ID: <179008204979.2160803.8934931337596115008@kernel.org>
-In-Reply-To: <20260918-lan966x-pci-fdma-v7-9-0ecc179c8a2c@microchip.com>
-References: <20260918-lan966x-pci-fdma-v7-9-0ecc179c8a2c@microchip.com>
+Date: Tue, 22 Sep 2026 13:00:47 +0000
+Message-ID: <179008204794.2160803.10149601672320218478@kernel.org>
+In-Reply-To: <20260918-lan966x-pci-fdma-v7-8-0ecc179c8a2c@microchip.com>
+References: <20260918-lan966x-pci-fdma-v7-8-0ecc179c8a2c@microchip.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -82,75 +82,65 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] BASELINE DECISION: false (discarded).
-- [Low] BASELINE DECISION: false (discarded).
-- [Low] The patch fixes an observable pre-existing failure on the
-  already-supported PCIe endpoint configuration (the xtr and ana OIC…
-- [Low] BASELINE DECISION: false (discarded).
-
-Pre-existing issues:
-- [Low] BASELINE DECISION: false (discarded).
+- [Low] Commit message describes the WARN-on-probe failure in the present
+  tense, but at this commit the PCI path cannot request the FDMA IRQ:…
+- [Low] In-code comment under-describes the code it documents.
 
 --
 
-net: lan966x: add shutdown callback to stop the FDMA on reboot
+net: lan966x: clear FDMA interrupt stickies after switch reset
 
-Adds a .shutdown callback to the lan966x switch driver that, on the PCIe
-endpoint instantiation only, frees the xtr/ana/FDMA irqs, masks the
-analyzer interrupt, stops and detaches the netdevs, disables both FDMA
-channels and unmaps the outbound ATU windows. It also restores
-FDMA_INTR_ENA in lan966x_fdma_rx_start() and adds the register defines.
+This adds three register acknowledgements right after the switch reset in
+lan966x_reset_switch(), clearing FDMA_ERRORS, FDMA_INTR_ERR and
+FDMA_INTR_DB so that a spurious sticky latched by the GCB soft reset in PCI
+mode does not make the FDMA handler fire as soon as the IRQ is requested.
+The clear is done unconditionally on both the PCI and platform paths.
 
 > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> index 11094a381ec2..2c1e2bc12024 100644
+> index 6e6c08bb8eea..11094a381ec2 100644
 > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
 > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
-> @@ -1324,9 +1324,65 @@ static void lan966x_remove(struct platform_device *pdev)
-
-[ ... ]
-
-> +	if (!lan966x_is_pci(lan966x))
-> +		return;
-> +
-> +	if (lan966x->xtr_irq > 0)
-> +		devm_free_irq(lan966x->dev, lan966x->xtr_irq, lan966x);
-> +	if (lan966x->ana_irq > 0)
-> +		devm_free_irq(lan966x->dev, lan966x->ana_irq, lan966x);
-> +	if (lan966x->fdma_irq > 0)
-> +		devm_free_irq(lan966x->dev, lan966x->fdma_irq, lan966x);
-> +
-> +	lan_wr(0, lan966x, ANA_ANAINTR);
+> @@ -1067,6 +1067,15 @@ static int lan966x_reset_switch(struct lan966x *lan966x)
+>  
+>  	reset_control_reset(switch_reset);
+>  
+> +	/* When in PCI mode, the GCB soft reset issued by the reset
+> +	 * controller can latch spurious bits in the FDMA error stickies.
+> +	 * Clear them before request_irq hooks up the FDMA IRQ line,
+> +	 * otherwise the handler fires immediately on probe.
+> +	 */
+> +	lan_wr(lan_rd(lan966x, FDMA_ERRORS), lan966x, FDMA_ERRORS);
+> +	lan_wr(lan_rd(lan966x, FDMA_INTR_ERR), lan966x, FDMA_INTR_ERR);
+> +	lan_wr(lan_rd(lan966x, FDMA_INTR_DB), lan966x, FDMA_INTR_DB);
 
 [Severity: Low]
-Should this carry a Fixes: tag?
+This isn't a bug, but should the comment also mention FDMA_INTR_DB?  The
+comment talks only about the "FDMA error stickies", while the code below it
+also acks FDMA_INTR_DB, which is the data-block completion sticky rather
+than an error sticky.
 
-This part of the new callback corrects a failure that already exists on
-the shipping PCIe endpoint configuration, independently of the FDMA work
-in the rest of the series: the xtr and ana OIC sources, plus the analyzer
-enable written unconditionally by lan966x_init()
+In lan966x_fdma.c, lan966x_fdma_irq_handler() consumes it in the non-error
+branch:
 
-  drivers/net/ethernet/microchip/lan966x/lan966x_main.c:lan966x_init() {
-      ...
-      lan_rmw(ANA_ANAINTR_INTR_ENA_SET(1),
-              ANA_ANAINTR_INTR_ENA,
-              lan966x, ANA_ANAINTR);
-      ...
-  }
+	if (db) {
+		lan_wr(0, lan966x, FDMA_INTR_DB_ENA);
+		lan_wr(db, lan966x, FDMA_INTR_DB);
 
-stay armed across a host reboot, and nothing released them at shutdown
-before this patch, so the shared INTx can be asserted before the driver
-re-probes.
+		napi_schedule(&lan966x->napi);
+	}
 
-Without a Fixes: tag, stable tooling and backporters have no way to tell
-which versions are affected. Would the following be the right
-provenance?
+So a latched DB sticky would lead to napi_schedule() rather than the WARN
+described in the comment.
 
-  Fixes: 185686beb464 ("misc: Add support for LAN966x PCI device")
+The commit message does list all three registers, so only the in-code
+comment is out of sync.  Could it be extended to say that the data-block
+sticky is cleared too, so a later cleanup doesn't drop the FDMA_INTR_DB
+write as unrelated?
 
-That is the commit that introduced the PCI endpoint together with its
-persistent OIC/INTx routing.
-
-[ ... ]
+>  
+>  	/* Don't reinitialize the switch core, if it is already initialized. In
+>  	 * case it is initialized twice, some pointers inside the queue system
+>  	 * in HW will get corrupted and then after a while the queue system gets
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c%40microchip.com
