@@ -4,54 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5690C982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940D6C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:42:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WtEJJnI23HMrvJ1nLmsa7kWdStULy778TOJcpNKSbbw=; b=ifBo4W5bWRKg3p1DWocZ+pNYTO
-	Nl+PbOtIIeU+qP6ai1+rNvaTANq1sIDT3CVMziIbmpuJGbvXBPv/KQUvWyukP4K7a0/xpoMeep6D4
-	V4xzEfcyxxURp2PCbvUK7SIX1dtUmDvAXBMeNV1cJbtFNnPDsHBh5Si2mSVyoPjNecnnC9NjgosY9
-	ptvBWBVNDVzBEsQEnGJyXN9LR9EFSrdUMeXYo2IOVlv9RvZdjH8lODxApwCWaEqKvHoQmqS2lju5j
-	Zn/Po/QdQ4MC5TKTnA2PTvSzaSl27RX9j3eZsmiVtAyHMSWdEM+x5pXSzbZ0TH9gp9dpiYZtxCWM6
-	Yo/2wHJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z7TxIVacK4CiPP85Zm/zWINHMIm3Lw/0BaBVswTN6EM=; b=FVFfTZHzy1A4/LIerYiw/Pyj5Y
+	+l8J9gvAjEJspkt7bgYYdDwQOu8bQcqZ4BFBU8bTIHpTmeBNeaO2ol7smA3dKAyLKacx0vzjO1fBU
+	RjEwjm6xTru6gjn2DW6v3YurgH3VWc2wWTgH6CYn6xaq1WJ4hXtl14tEZ60OK8e7d63PeD4tCg2AC
+	ywQAGl5Y9BRGcr0Dj9avQzJIG6T3iTzpUF2uuHjVh7Cu1EivStK6/zS3Xaxw9Nj5XShPjH29cNdwV
+	vv3pVRDr/iEWSkfEjOhzFpgfuWafqG782oIrwHBFPPUvuBuC6fkhmSsiHreCK9CH7xHRaUGynGJbQ
+	CDRWsxuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8rI6-000000045dn-3dgg;
-	Tue, 22 Sep 2026 03:35:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8r3y-000000043dH-47lq;
+	Tue, 22 Sep 2026 03:20:58 +0000
+Received: from mail-pj2-f42.google.com ([74.125.227.170])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8rI5-000000045dV-3fOA
+	id 1x8r3r-000000043ar-3nmo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 03:35:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53387410C0;
-	Tue, 22 Sep 2026 03:35:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52DA1F000FF;
-	Tue, 22 Sep 2026 03:35:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790048133;
-	bh=WtEJJnI23HMrvJ1nLmsa7kWdStULy778TOJcpNKSbbw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=fUKNa/hdOHyAYp1daoHBAx94b+RvDrx0R9Hp5CTaq6b60oFQ59lV4J8Okxeofqpao
-	 kgTZ6GQcYMEXK5UK6Dnu19icDYfUBIr9McTHB3xfjciF5SroVP9m4AIXHYE0ToFc9Y
-	 m/650gxZ5ZnaJTCtGxDfgYCe16zZ7XRLMzT1bqFmSY/a8LOeY3MZfqckQ39jbwVcdt
-	 SeG0xq89Q33ndu0hMf2e3vXGUc6HzoaBSyZVi1gzjMAH1q9KLW7Hk3q/JcAbqIIN8P
-	 lOUJpEaHYN9pqK+VweionZyb+PRU6EDSdmLX7zNglw5+wahlPcbyVdQcuzinDzvvnn
-	 RH9ocCGbXPjOg==
-Content-Type: multipart/mixed; boundary="===============6597116511644733316=="
+	Tue, 22 Sep 2026 03:20:53 +0000
+Received: by mail-pj2-f42.google.com with SMTP id d9443c01a7336-2df4aa80a73so14901235ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 20:20:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790047251; x=1790652051; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z7TxIVacK4CiPP85Zm/zWINHMIm3Lw/0BaBVswTN6EM=;
+        b=Gh1y3rV4aWrhrYSUNV+6Alkzwa/6jyrmdM7aqZLu7nlTH3aR28wKQMZ8mlobaHix1F
+         Q+lCXREo10xmRWAAieWzElZLiUQj9p1182jdTzYvPR10ZM6vOH4zLxWuEhHqYnYCzBtx
+         FCzBMUnH+SXsDFNT5U6Nzshu86z7XD9euSUaM1QFsrSoYnwIMsAuK8z7vuIPQiRE0F5n
+         TR+2chTtwQy/yD7apTIHbeJoweOXkn6Jmfm22TxrM/Ledr4+UhNqA1iajLboHMGJRhNh
+         Uqf1CngrdMNKPUe099eDTfCozwHWiuhHhJhSCuH152fEBZMMDC1gLUTB/aqfocU9NMRu
+         Gg7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790047251; x=1790652051;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Z7TxIVacK4CiPP85Zm/zWINHMIm3Lw/0BaBVswTN6EM=;
+        b=Qbp62LsWVlYnxTBXE1GPh/PNUw1NF1w4fROkjo7fg0RGvh6JeJ/jSyHP8mvDdVi7z+
+         oxZP8TfAs487x3UfYwpt/0rkIW5wGwxukORuqJHzmSugSdc3A9CCCyZYcNq95ysBFz7g
+         HB/JwuzexxhFsDHqy0I3tMjCMuQNKN4WYi0wRq2spKeiA6N0ZCaKyB10Op6v3H+2j7ga
+         FAhG6pr1NEQ6Jq4Lwp78pFHCGPa7h5R3YO5ED7mTrwlPIpZt+d7Tcta6eBpUZHA7yqWt
+         2+WV8Fl/qI4wIMnxEo2lIFuC+muvycOL/5JdU/XNYbhBe+/VuVR6jYUIKOnKbQ2M5w4v
+         6xYA==
+X-Forwarded-Encrypted: i=1; AKwUvBwj6l7+JXyq10MsVNprLv3kovo2R08S32C4WhmDcpz0r4YX+ShJcdQ2nJZin1KjVLssX5o2IvaI15CAPgVPEtuA@lists.infradead.org
+X-Gm-Message-State: AFuF++lUNwsfhpwFqkJQdIxm2MzZOieS0m0rCtQOU7K6m4buUuPzhkRf
+	HfXLL33w97sev3+ySBvhHOkd/VUCpcIrsa829t8jYhwhoUVSp7yuFUhT
+X-Gm-Gg: AYBFou0aAuh0nAFMHH5F/k/QlAKh3lUjkvyTmi2S63sM0zZRJhQ2WD++wyMfhm+Hlez
+	d2SBFSkrqMOaScVLxeBozbrEopAulZDxoHynRx9XBKuI1EUp25+ODBJ6kkSr/S+62wzTdLT/OZJ
+	Ypfy/28EAfeS19tkLl7h7AyOAK7CVqiEXTUMBF1Gz5UMyPRf8NIKAvpk/MI3CU7weyBxdGQOM8u
+	Ct3OO88X4kxLiUs83NTSu12WSkqpxxADbPR9fNmJWHHmV/93bTMcUHW+b2CQWRJgKGczo8qyLKx
+	XWmyXxE+SX8mESQM9ZEQwVnuON6F77lWaBn5phPHiDogxgtSTfYd0eknVzGIaWFxo00MMOIFPLp
+	qx9rEb+sWsVE3aee3yHSU63IrQXwGWlPlwc1Jufrnto9lxF4Nf4itAqMH9tW2Xba8iH/UrSiWN8
+	dX1kDNHUKvu5zciveF+stB+DFfBmmjzATPohd1o4igOlAZb3KN6WGyuU5mRHGfbvFJNbZxdqv0b
+	mL7n7ynvoXA1/rvn6lQq/PG2O2fPV8YNH2H43vk1kfdM9/y8QoLLzC4I0Zrq84P1NXZMImKLOMj
+	x3fMZxE6QmGapUTmrcN6Ubft
+X-Received: by 2002:a17:903:b84:b0:2dd:c053:82fa with SMTP id d9443c01a7336-2ddc053843cmr122847195ad.49.1790047250783;
+        Mon, 21 Sep 2026 20:20:50 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df5cf83512sm1940355ad.5.2026.09.21.20.20.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 20:20:50 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Corentin Labbe <clabbe.montjoie@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	davem@davemloft.net,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Gilad Ben-Yossef <gilad@benyossef.com>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 3/3] crypto: sl3516 - Use pm_runtime_resume_and_get()
+Date: Tue, 22 Sep 2026 10:19:54 +0700
+Message-ID: <20260922031954.320895-4-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260922031954.320895-1-phucduc.bui@gmail.com>
+References: <20260922031954.320895-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-Message-Id: <5de177edfbaed1c26e91a222f2636a56b48a96001cba1d4dab7e37b57e312a0b@mail.kernel.org>
-In-Reply-To: <20260922-b4-rcu-tasks-preempt-qs-v5-10-410f57770bad@toxicpanda.com>
-References: <20260922-b4-rcu-tasks-preempt-qs-v5-10-410f57770bad@toxicpanda.com>
-Subject: Re: [PATCH v5 10/13] samples: ftrace: Make the direct-call trampolines Tasks Trace readers
-From: bot+bpf-ci@kernel.org
-To: josef@toxicpanda.com,paulmck@kernel.org,frederic@kernel.org,ast@kernel.org,rostedt@goodmis.org
-Cc: boqun@kernel.org,mhiramat@kernel.org,mark.rutland@arm.com,peterz@infradead.org,tglx@kernel.org,daniel@iogearbox.net,andrii@kernel.org,puranjay@kernel.org,rcu@vger.kernel.org,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,josef@toxicpanda.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Tue, 22 Sep 2026 03:35:30 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_202051_950048_2E9754DF 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,43 +111,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============6597116511644733316==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-> commit 1deb3b548a13555ffd63d9373f054d6da02ad75e
-> Author: Josef Bacik <josef@toxicpanda.com>
-> Date:   Tue Sep 22 02:23:29 2026 +0000
->
->     samples: ftrace: Make the direct-call trampolines Tasks Trace readers
->
->     The sample direct trampolines are exactly the kind of out-of-line
->     register_ftrace_direct() user whose lifetime depends on Tasks RCU
->     waiting for a task inside them: nothing else stops rmmod while a task is
->     preempted in my_direct_func().  On HAVE_RCU_TRAMPOLINE_READERS
->     architectures that wait only covers Tasks Trace RCU readers, so give the
->     samples a small shared header with rcu_read_lock_trace() and
->     rcu_read_unlock_trace() open-coded as instruction strings for x86-64 and
->     arm64 -- the same sequences as ftrace_64.S and entry-ftrace.S, using
->     caller-saved non-argument scratch registers -- and bracket every
->     call-out with them.  The instructions outside the bracket are module
->     text, covered by ftrace_direct_mark_module().  Other architectures get
->     empty definitions.
->
->     Assisted-by: LLM
->     Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+Replace the open-coded pm_runtime_get_sync() + pm_runtime_put_noidle()
+error handling pattern with pm_runtime_resume_and_get(), which already
+does this internally.
 
-This looks like a bug fix for the direct trampoline lifetime issue.
-Should this include:
+No functional change.
 
-  Fixes: 32999f49426a ("rcu-tasks: Add a Tasks RCU implementation for reader-marked trampolines")
+Found by manual code inspection.
 
-
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ drivers/crypto/gemini/sl3516-ce-cipher.c | 3 +--
+ drivers/crypto/gemini/sl3516-ce-rng.c    | 6 ++----
+ 2 files changed, 3 insertions(+), 6 deletions(-)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/35680506278
---===============6597116511644733316==--
+diff --git a/drivers/crypto/gemini/sl3516-ce-cipher.c b/drivers/crypto/gemini/sl3516-ce-cipher.c
+index 02ec4282333b..eba46aebf176 100644
+--- a/drivers/crypto/gemini/sl3516-ce-cipher.c
++++ b/drivers/crypto/gemini/sl3516-ce-cipher.c
+@@ -331,13 +331,12 @@ int sl3516_ce_cipher_init(struct crypto_tfm *tfm)
+ 		 crypto_tfm_alg_driver_name(&sktfm->base),
+ 		 crypto_tfm_alg_driver_name(crypto_skcipher_tfm(op->fallback_tfm)));
+ 
+-	err = pm_runtime_get_sync(op->ce->dev);
++	err = pm_runtime_resume_and_get(op->ce->dev);
+ 	if (err < 0)
+ 		goto error_pm;
+ 
+ 	return 0;
+ error_pm:
+-	pm_runtime_put_noidle(op->ce->dev);
+ 	crypto_free_skcipher(op->fallback_tfm);
+ 	return err;
+ }
+diff --git a/drivers/crypto/gemini/sl3516-ce-rng.c b/drivers/crypto/gemini/sl3516-ce-rng.c
+index 76931ec1cec5..19af03b03e42 100644
+--- a/drivers/crypto/gemini/sl3516-ce-rng.c
++++ b/drivers/crypto/gemini/sl3516-ce-rng.c
+@@ -24,11 +24,9 @@ static int sl3516_ce_rng_read(struct hwrng *rng, void *buf, size_t max, bool wai
+ 	ce->hwrng_stat_bytes += max;
+ #endif
+ 
+-	err = pm_runtime_get_sync(ce->dev);
+-	if (err < 0) {
+-		pm_runtime_put_noidle(ce->dev);
++	err = pm_runtime_resume_and_get(ce->dev);
++	if (err < 0)
+ 		return err;
+-	}
+ 
+ 	while (read < max) {
+ 		*data = readl(ce->base + IPSEC_RAND_NUM_REG);
+-- 
+2.43.0
+
 
