@@ -4,111 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31BD3C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF1EC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tqTKHOB40XcCnMBIfF1XOtz8msytKJ8dl2VlRBxSVUo=; b=icy6onEa0746F1mMQb1WM19oa8
-	gwpCUz3gEj1fX3pnyS0emRvi5WIM2ySFeSTjyofQd0SofkzCj7CUmxQcZOk+uXmg/8LNMvvu0F91/
-	T3GiaNhwMc4odaGPU+FCb2/rP9BtNwkS4M2V88igLcRv0s5V8cWfQf53JneAHKSUXMcdLMMuWA/nO
-	1dqJ9B/nXVujzCV4r82Air5eda+QUubgvMlyhmEKZF3kAPbqKmfj0lTjADXfYU0G9OnaqRj/N5Dyw
-	VaJtAD3WQB67+too7os4k/BW2yZp/SZq64b2rT/iB0rODMjpuYjNmhr4hBhad0RPLhfOCyGOZhpMz
-	7chsGOCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NRBroGKsK/EO8xs+s+H8im0EjosulEEiERGNVqEejnQ=; b=krZlsYGPxyp9f52eF9P6QFqtNR
+	GoxibU7MKXmnscH++B5V+Z2i8yRGMMH1LbSDvT59h1tm5m7U7YLkYHcNskgM3iRQQHM+fPwFNtAp0
+	YPVGzpJa4Zf+tj44PSwUCRTTnUfW319jd4y9F6lpnsn380EK7hMHlRE35c0MDVUTJzvuKBp/cAnmv
+	4/oerC98PuJbZQDTKEJr0yVPe7MDFEfFpggCSsl3Ed9A51oeFWxRkYcBP+ZiVMU09juifRYQ6ZiFm
+	5XakkHdqAh5xFh840iVsKBSODpDr7ykGZ1IPbPe1SFCE1gd0jApI6fHmDrMIXXOVyCvkDG1K29afj
+	N5gFihIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90nt-00000005aMs-49Mx;
-	Tue, 22 Sep 2026 13:45:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x90Ji-00000005Sgz-1Bp5;
+	Tue, 22 Sep 2026 13:13:50 +0000
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90ns-00000005aM5-0wKx
+	id 1x90JM-00000005SMe-2eEj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:45:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8EF9960200;
-	Tue, 22 Sep 2026 13:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D71F1F00893;
-	Tue, 22 Sep 2026 13:44:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790084699;
-	bh=tqTKHOB40XcCnMBIfF1XOtz8msytKJ8dl2VlRBxSVUo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=A6by66Btcq0oxxz6XeUnbBptKL6e7P+vKxTSRd8BiR1vXllfVIL1v8yZ/52/UBbbY
-	 eAeuXgtI67QiZjmag3TyE6JzFmm1WtUJkI3YZDtBbo0+V8tEOaPK5+Y8peTNt3kKhn
-	 TDdNcW/gaZUQ8qZIviAfUdAVZ3OdT27z+5hPOts2aH/KSViaGseor1uECKJvjYAeTf
-	 Sel3yL7Z+cX6B+iQf31Cn/yYU+7u3hvoeQ2z0MXaQS8i5RxA9x3xq+dsfhWdVoCIat
-	 t321ThOK0x8hwvJ6weWtwpF0M/tMmQBWLDVzFcdub4xhDOyM7K5ICt0TKlC1n8oZy+
-	 Bm9WFvk5XK+xA==
-Message-ID: <c80354c7-0153-4a82-a9a1-9e2fd2929449@kernel.org>
-Date: Tue, 22 Sep 2026 15:44:48 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 03/25] firmware: arm_scmi: Introduce protocol instance
- notifiers
-To: Cristian Marussi <cristian.marussi@arm.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org, james.quinlan@broadcom.com,
- f.fainelli@gmail.com, vincent.guittot@linaro.org, etienne.carriere@st.com,
- peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org,
- elif.topuz@arm.com, lukasz.luba@arm.com, philip.radford@arm.com,
- souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
- puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com,
- Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-References: <20260920091928.2014972-1-cristian.marussi@arm.com>
- <20260920091928.2014972-4-cristian.marussi@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260920091928.2014972-4-cristian.marussi@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Tue, 22 Sep 2026 13:13:29 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49ccfad90f1so27434735e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790082806; x=1790687606; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NRBroGKsK/EO8xs+s+H8im0EjosulEEiERGNVqEejnQ=;
+        b=mXOcG7RGN0Mj7cPyPk8JSzxB2m3myT+Sb6AAT5gmlPxntaR4M0d2v3qApNoWd75202
+         V2fkotO8z4PW3uxEJPJRWrnVArnwosXwQPIM6JmpSa/9wqlBUpFKVSKiPsMGf2WfB/4U
+         vJdU1tszPEjxDWgvwHc1W0D6C3hv7gDJj4NmjZiZFT7rzVWEirtywoYT9kvrqu2rklVj
+         E+uqxaeGYh5BLafmyaGEziz4pfA+0d65I2SPS0MwBWwFXAT1iCsC2wLs5T5MesCJSL57
+         GHWBWZOYIrOtV63RGRmHyhSkiG2je4QdPjGHTfcvQ8leTugibW1FnBKq8MM5d/QitbVo
+         6H5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790082806; x=1790687606;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NRBroGKsK/EO8xs+s+H8im0EjosulEEiERGNVqEejnQ=;
+        b=MXUnN91B/CusaBlD9NAHJaz+h0dPoQn+OjdacnkLtjaP5qPvGqc5faSj9KSuOELJD2
+         YNUiu2UnU2Jkrc4rH8h/CaR9aKkxjl6oyrh8q17bM+/9tocV69T98cF2MvfOV1cFu1dl
+         16dGrdweEK4tTL+ufY3opwi52Ez/gv0jedaqmwBjVIjNO0tqZ9ONTx/SQO3h99V3Qrw5
+         SKCnwy4oUUISvTkSbcxVZr1R1ag5Pq2dqFUiORVxfsoCBrPB2GyEd2G7ATiavxyLfhAy
+         mWom0TnfBNVj3JI8Lkm8R1VjtLCI9WKp8PQ0A3CERBY9HxkSg3FybBvRVmHMRXIp+ZO+
+         7lIw==
+X-Gm-Message-State: AFuF++kRNU5yqWJxBx/H87fsd6EnLSAQuo1+vo++mk14o5B3nD9TjXu8
+	gELSK0MCcZ8Sh7OSk8soCI75uzmIhBbsXpY8C2lvZLR3W1xTUFTtoksBO9jUD/PKTdJbgC+Q02x
+	KPOPNFAg3bbpz3SI3jMrmxMTwyr8QXeW40ZcQHhoSkC4WOoOEV5KnhFs1Ogngan2iRVEHb4nRO6
+	wMeD1qsPO9ljLz7nf/ia3tGOr3Ycwh2bjmv5bkeckEV7lU9xUNg1yDrKCF0DMwZ0LL8A==
+X-Received: from wmga20.prod.google.com ([2002:a05:600c:2d54:b0:49e:6308:e0bf])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:548a:b0:49f:ce73:7ab with SMTP id 5b1f17b1804b1-49fce730859mr138765725e9.34.1790082805696;
+ Tue, 22 Sep 2026 06:13:25 -0700 (PDT)
+Date: Tue, 22 Sep 2026 13:12:52 +0000
+In-Reply-To: <20260922131259.2975334-1-smostafa@google.com>
+Mime-Version: 1.0
+References: <20260922131259.2975334-1-smostafa@google.com>
+X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
+Message-ID: <20260922131259.2975334-20-smostafa@google.com>
+Subject: [PATCH v8 19/25] iommu/arm-smmu-v3-kvm: Share other queues
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca, mark.rutland@arm.com, 
+	qperret@google.com, tabba@google.com, vdonnefort@google.com, 
+	sebastianene@google.com, keirf@google.com, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_061328_705438_330A24FA 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,108 +95,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/20/26 11:19, Cristian Marussi wrote:
-> SCMI Protocol notifications are typically used by SCMI drivers to detect
-> and react to particular conditions: this was the assumption and the classic
-> usage scenario upon which the SCMI notification framework was built.
+Other queues as PRIQ and EVTQ do not need to be shadowed. However, we
+need to make sure they are in a state that disallow them to be donated
+to the hypervisor or guests. So, keep track of those and share them when
+they get enabled.
 
-Was the paragraph supposed to start with "SCMI notifications" ? Because later
-you describe how some protocols might want to reuse the "existing SCMI
-Notifications machinery", and here you talk about the traditional usage.
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ .../arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h    |  8 ++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 81 +++++++++++++++++--
+ 2 files changed, 84 insertions(+), 5 deletions(-)
 
-> -	mutex_lock(&info->protocols_mtx);
-> -	pi = idr_find(&info->protocols, protocol_id);
-> +	scoped_guard(mutex, &info->protocols_mtx) {
-> +		pi = idr_find(&info->protocols, protocol_id);
-> +		if (pi) {
-> +			refcount_inc(&pi->users);
-> +		} else {
-> +			const struct scmi_protocol *proto;
->  
-> -	if (pi) {
-> -		refcount_inc(&pi->users);
-> -	} else {
-> -		const struct scmi_protocol *proto;
-> +			/* Fails if protocol not registered on bus */
-> +			proto = scmi_protocol_get(protocol_id, &info->version);
-> +			if (!proto)
-> +				return ERR_PTR(-EPROBE_DEFER);
->  
-> -		/* Fails if protocol not registered on bus */
-> -		proto = scmi_protocol_get(protocol_id, &info->version);
-> -		if (proto)
->  			pi = scmi_alloc_init_protocol_instance(info, proto);
-> -		else
-> -			pi = ERR_PTR(-EPROBE_DEFER);
-> +			if (IS_ERR(pi))
-> +				return pi;
-> +
-> +			proto_notifier_nb = READ_ONCE(pi->pno.nb);
-> +		}
-> +	}
-> +
-> +	if (proto_notifier_nb) {
-> +		if (scmi_protocol_notifier_register(pi->handle, &pi->pno))
-> +			dev_warn(handle->dev,
-> +				 "Failed to register protocol notifier\n");
-
-
-	if (proto_notifier_nb &&
-	    scmi_protocol_notifier_register(pi->handle, &pi->pno))
-		dev_warn(handle->dev, ...)
-
-As we dropped the mutex, I assume somebody else could move ahead and
-refcount_inc(&pi->users) + return before the notifier was registered? Is that
-expected?
-
-
->  	}
-> -	mutex_unlock(&info->protocols_mtx);
->  
->  	return pi;
->  }
-> @@ -2366,13 +2398,35 @@ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id)
->  void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
->  {
->  	struct scmi_info *info = handle_to_scmi_info(handle);
-> +	struct notifier_block *proto_notifier_nb = NULL;
->  	struct scmi_protocol_instance *pi;
->  
-> -	mutex_lock(&info->protocols_mtx);
-> -	pi = idr_find(&info->protocols, protocol_id);
-> -	if (WARN_ON(!pi))
-> -		goto out;
-> +	scoped_guard(mutex, &info->protocols_mtx) {
-> +		pi = idr_find(&info->protocols, protocol_id);
-> +		if (WARN_ON(!pi))
-> +			return;
->  
-> +		/*
-> +		 * If a protocol notifier was registered and this is the
-> +		 * last istance releasing the protocol, mark the notifier
-
-s/istance/instance/
-
-> +		 * for un-registration: note that the notifier itself counts
-> +		 * as one user, as for any other regular notification, so if a
-> +		 * protocol notifier is registered and there are only 2 users
-> +		 * active we can derive that this is the last protocol
-> +		 * instance de-registering.
-> +		 */
-> +		if (scmi_protocol_notifier_registered(&pi->pno) &&
-> +		    refcount_read(&pi->users) == 2)
-> +			proto_notifier_nb = READ_ONCE(pi->pno.nb);
-> +	}
-> +
-
-We drop the mutex now temporarily. What happens if another instance gets
-registered (incrementing &pi->users) just after we dropped the lock and
-unregister the notifier?
-
-Shouldn't we care about that or why is it ok?
-
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
+index d4700d3a3c10..ffc57182e57e 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
+@@ -32,6 +32,10 @@
+  * @host_ste_cfg	Host stream table config
+  * @host_ste_base	Host stream table base
+  * @strtab_cfg		Stream table as seen by HW
++ * @evtq_base		Host evtq base reg
++ * @priq_base		Host priq base reg
++ * @evtq_shared		Whether the EVTQ was shared
++ * @priq_shared		Whether the PRIQ was shared
+  */
+ struct hyp_arm_smmu_v3_device {
+ 	phys_addr_t		mmio_addr;
+@@ -58,6 +62,10 @@ struct hyp_arm_smmu_v3_device {
+ 	u64			host_ste_cfg;
+ 	u64			host_ste_base;
+ 	struct arm_smmu_strtab_cfg strtab_cfg;
++	u64			evtq_base;
++	u64			priq_base;
++	bool			evtq_shared;
++	bool			priq_shared;
+ };
+ 
+ extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+index cb9aa7e4a394..00528380774f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+@@ -80,6 +80,16 @@ static bool is_smmu_enabled(struct hyp_arm_smmu_v3_device *smmu)
+ 	return FIELD_GET(CR0_SMMUEN, smmu->cr0);
+ }
+ 
++static bool is_evtq_enabled(struct hyp_arm_smmu_v3_device *smmu)
++{
++	return FIELD_GET(CR0_EVTQEN, smmu->cr0);
++}
++
++static bool is_priq_enabled(struct hyp_arm_smmu_v3_device *smmu)
++{
++	return FIELD_GET(CR0_PRIQEN, smmu->cr0);
++}
++
+ /*
+  * CMDQ, STE host copies are accessed by the hypervisor, we share them to
+  * - Prevent the host from passing protected VM memory.
+@@ -660,6 +670,20 @@ static void smmu_emulate_cmdq_disable(struct hyp_arm_smmu_v3_device *smmu)
+ 				   cmdq_size(&smmu->cmdq_host)));
+ }
+ 
++static void smmu_emulate_queue(struct hyp_arm_smmu_v3_device *smmu,
++			       unsigned long q_base, size_t ent_size_shift)
++{
++	/* Q_BASE_ADDR_MASK is not enough as the SMMU also ignores bits > OAS */
++	phys_addr_t base = q_base & Q_BASE_ADDR_MASK & ((1ULL << smmu->oas) - 1);
++	size_t size = 1UL << (FIELD_GET(Q_BASE_LOG2SIZE, q_base) + ent_size_shift);
++
++	/* The host must program the base first and it must be aligned to size. */
++	if (WARN_ON(!q_base || (base & (size - 1))))
++		return;
++
++	WARN_ON(smmu_share_pages(base, size));
++}
++
+ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
+ 			     struct user_pt_regs *regs,
+ 			     u64 esr, u32 off)
+@@ -764,12 +788,34 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
+ 		if (is_write) {
+ 			bool last_cmdq_en = is_cmdq_enabled(smmu);
+ 			bool last_smmu_en = is_smmu_enabled(smmu);
++			bool last_evtq_en = is_evtq_enabled(smmu);
++			bool last_priq_en = is_priq_enabled(smmu);
+ 
+ 			smmu->cr0 = val;
+ 			if (!last_cmdq_en && is_cmdq_enabled(smmu))
+ 				smmu_emulate_cmdq_enable(smmu);
+ 			else if (last_cmdq_en && !is_cmdq_enabled(smmu))
+ 				smmu_emulate_cmdq_disable(smmu);
++
++			/*
++			 * Share PRI and EVTQ to avoid the host using them to write to
++			 * protected memory. However, do not unshare the queues at disable
++			 * as that is more complicated, unsharing from here can lead to
++			 * use-after-unshare issues, and requires ordering with cr0ack.
++			 * The host can disable those queues during shutdown, but it never
++			 * changes the base address (even with RPM), so leave the queue
++			 * shared and assert that multiple host writes do not change it.
++			 */
++			if (!last_evtq_en && is_evtq_enabled(smmu) && !smmu->evtq_shared) {
++				smmu_emulate_queue(smmu, smmu->evtq_base, EVTQ_ENT_SZ_SHIFT);
++				smmu->evtq_shared = true;
++			}
++
++			if (!last_priq_en && is_priq_enabled(smmu) && !smmu->priq_shared) {
++				smmu_emulate_queue(smmu, smmu->priq_base, PRIQ_ENT_SZ_SHIFT);
++				smmu->priq_shared = true;
++			}
++
+ 			if (!last_smmu_en && is_smmu_enabled(smmu))
+ 				smmu_emulate_enable(smmu);
+ 			else if (last_smmu_en && !is_smmu_enabled(smmu))
+@@ -792,6 +838,34 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
+ 
+ 		mask = read_write;
+ 		break;
++	case ARM_SMMU_EVTQ_BASE:
++		if (len != sizeof(u64))
++			break;
++
++		if (is_write) {
++			/* See ARM_SMMU_CR0 */
++			if (is_evtq_enabled(smmu) ||
++			    (smmu->evtq_shared && (smmu->evtq_base != val)))
++				break;
++			smmu->evtq_base = val;
++		}
++		mask = read_write;
++		break;
++
++	case ARM_SMMU_PRIQ_BASE:
++		if (len != sizeof(u64))
++			break;
++
++		if (is_write) {
++			/* See ARM_SMMU_CR0 */
++			if (is_priq_enabled(smmu) ||
++			    (smmu->priq_shared && (smmu->priq_base != val)))
++				break;
++			smmu->priq_base = val;
++		}
++		mask = read_write;
++		break;
++
+ 	/* Allowed 32 bit registers. */
+ 	case ARM_SMMU_EVTQ_IRQ_CFG1:
+ 	case ARM_SMMU_EVTQ_IRQ_CFG2:
+@@ -821,15 +895,12 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
+ 	case ARM_SMMU_EVTQ_IRQ_CFG0:
+ 	case ARM_SMMU_PRIQ_IRQ_CFG0:
+ 	case ARM_SMMU_GERROR_IRQ_CFG0:
++		if (len != sizeof(u64))
++			break;
+ 		/* These are RES0 as MSI support is hidden. */
+ 		val = 0;
+ 		if (!is_write)
+ 			goto out_update_regs;
+-		fallthrough;
+-	case ARM_SMMU_EVTQ_BASE:
+-	case ARM_SMMU_PRIQ_BASE:
+-		if (len != sizeof(u64))
+-			break;
+ 		mask = read_write;
+ 		break;
+ 	/* Allowed RO 32 bit registers. */
 -- 
-Cheers,
+2.55.0.1082.g2b9226bbc0-goog
 
-David
 
