@@ -4,61 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7451C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02706C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0yx1KVYmcOfYVjEzVIyo9QwiUPN5oXN2wUlmjKnOCc0=; b=IuFcpjS6mT+gHxIK/+CYBCU0ga
-	ZHpTWedB0wVoHHjWW552lUIX3EFwDemIiv0WD3lk2n79gUxtOFo0wMUqg0MBTK+MCVPDezzF0I3i8
-	K9VGgPLzp7Q2WBbHQa9fAtoUGaoY+OQTbsABjBaLKV/n9YabUDJ9DUugj1D8ojoiFGCbvhEmeNkNQ
-	EcLrTaAGKtoNpT8wozHWNIwu9p9wAdk58+nD2/L8SsORAqpD174q6Sgb7kA2pZaZGedTgObywgeZX
-	rMwUDpXtDZ6n2a2YbY+LgVHhtbyEWTGhI9uSpaJPHehtzGJw9IErNHI+11h2H2f8XHpPjFdHOhzRc
-	Nor4XaBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w5kdI1ZCWVWioI3fnPr4kUKevXHYurIMQ79y+mAHCK8=; b=odGiES8GINzmAvMBNdcksVG/9S
+	p6CzA3aA6SHAb1xKk8DdemwE6782DXvIOQmsrO03fsZpeY0zzWbrDRqL/vYKtTlpbEKlSx/BsENf6
+	EDeIFQeSX1RdLWk4B7n+deMWeFsD6t/V1hU9gO/rQ1Y+JXjQCnPXi4LbKRvdtHxRwxmgFMaHR7+Ib
+	cGdj0vi/VzqTPc5TPU5PPDGivA09c9NsMq3rOVgAyMssHRAvvr2yWC0tzEKv9BkMbNbPjmaRQlsWd
+	L5rKo8feC4x5jIm2uEeItW59cMA3o4YDAXOVf8LMEQgzQu59mikzcgE2INJnKdRr3r9iMEnEHGsvU
+	SaNQ6FHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91uh-00000005l70-3QYo;
-	Tue, 22 Sep 2026 14:56:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x91ut-00000005l9l-3pv7;
+	Tue, 22 Sep 2026 14:56:19 +0000
+Received: from mail-westeuropeazon11011055.outbound.protection.outlook.com ([52.101.70.55] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91ug-00000005l6l-45gZ
+	id 1x91ur-00000005l8b-2pKP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:56:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B00760052;
-	Tue, 22 Sep 2026 14:56:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8973B1F00893;
-	Tue, 22 Sep 2026 14:56:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790088965;
-	bh=0yx1KVYmcOfYVjEzVIyo9QwiUPN5oXN2wUlmjKnOCc0=;
-	h=Date:From:To:Subject:References:In-Reply-To;
-	b=NC3hIEgSJs/USe6Ql93fEv9ZrzabtkxNqEUZB4aQ2SanG3FKZCPBc+TZiQPr4OO1+
-	 O/6s4bE+yPy8fmQm4C0uovI54n6HOD5kXMGyFVDFMz0p4JyjLJeDN3FsiwdR8cE49m
-	 pRL3TJMlnfzuq3j8KgbL028p7w0xufIWVgMhb9Nvb5EkJpPUqXOWSkwk2N/5ocvPwV
-	 0WeurwzhpDPAgSniGFO3HvgOjhUCfPTFDJ+Tx5GVONm/+U/AHgqsjkCy0ci6hyTZia
-	 6Ofp14oLq8Roe4awmztMutLjIBhCFpEenyJ3ICn2F/EiI/xkjMGnnGw3FQWXK0ozQ/
-	 JPe2j74jLLNgw==
-Date: Tue, 22 Sep 2026 15:55:59 +0100
-From: Will Deacon <will@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
-	rppt@kernel.org, akpm@linux-foundation.org, sudeep.holla@kernel.org,
-	jenswi@kernel.org, robh@kernel.org, mark.rutland@arm.com,
-	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
-	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] arm64: Unmap FF-A lent memory from direct map
-Message-ID: <arKW_91EeKA-w96m@willie-the-truck>
-References: <20260921110050.3977591-1-vdonnefort@google.com>
- <arIYtjmSKCs14SqO@sumit-xelite>
+	Tue, 22 Sep 2026 14:56:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iPZbNMDC91VZjobim8OqcLqSWIlVSaBvNjDBhMPmEospd/yjaMl3D13dI28y2c9RvHusaN3Em8v3WWe8EH3Us2XT3es/QRZ0WjcSu7hSDuHZH5rW474coJsIk37G/au3+adgKwWml4hiKMopKyntT41IfbMo+ld4W2NJHvVeXKuOhYO+RcZnC6k6IYR2Gd52EJQLRXeXvSwZ+k6VqpPXrC9ENlhRopKTZ2Jof+iRrhfEzccpGLQHym3dC0YY6ob88CvvLmD/IwZs0YcRRxD9wvWQ3oj1H3ywQV3rC5c2lTNMAa1yi07kTVUnCZXhLTwCgXhJuC2Z476AYz1RlQMq/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w5kdI1ZCWVWioI3fnPr4kUKevXHYurIMQ79y+mAHCK8=;
+ b=dpveeVKxVrks0GqRV/6JW4L3LkQFMfTu8SGFwxISe2tM6iUN7HTOdKHCs0M2Xhawt2po++eElcjnqQIuQrKE3dgNOx0wz0EDdN0B/RndWWrhv79TYU102KxGoJDNgxbHHo3cU+UwURI4sJGiKRysJOf/pn97UE0Y/dumt5LtoSKgHN3Cj6g569TywhmtdYyR5KNp+pEvV2AdRAhPttC5iWNJJONoAJgZYCbGN2woS0eyzbMAxw+2cFGdVLA0C01hKsPuZ0T8uZYJG/ZvqVZfyioi2bFTwuSsD+UHqjbkQ+Df3antn9UR2TpNFEhYWYMevrDZvgoxkldwES3wTqPPCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w5kdI1ZCWVWioI3fnPr4kUKevXHYurIMQ79y+mAHCK8=;
+ b=AXRReQDpO62X+mobGkv9StO3AlDrJpxAVC/UwuNw1gLSc0jlBwDo3D7ggTj0ZbcQMD79vXDsnaLXEoh9fVoVB/jyDnIZvZ2DPhwQj0hCqQz5zrhRAOlk/tw2NpdfzGZfwpIzSo/29e0WT5sBfljNk5CordQXyZ4PI6EIlN4rZbMiwacOsuf6BE8Vm7fB9Ffd7blx0MdE7AHrzNZdiSfpYAaZHJ08pE7vR6ZWQPlXsthMLFRR2W/ZYbWsq2Jajps1QovRumNy467fpAWaS7c0dV6pkA4bfiNoIzmCdGsRPBxAuqP2Bp5K34Bn8+uE+bmIl8W6W/gFeyJZv6kCpcX+dQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB9994.eurprd04.prod.outlook.com (2603:10a6:150:11a::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
+ 2026 14:56:10 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
+ 14:56:10 +0000
+From: Frank.Li@oss.nxp.com
+To: soc@kernel.org
+Cc: Frank.Li@nxp.com,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	stefano.r@variscite.com,
+	vjardin@free.fr
+Subject: [GIT PULL v2] iMX fixes for 7.3
+Date: Tue, 22 Sep 2026 10:55:59 -0400
+Message-ID: <20260922145600.2249087-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH7P221CA0058.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arIYtjmSKCs14SqO@sumit-xelite>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB9994:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4419fe9c-406f-42d4-0a97-08df18b9a388
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|23010399003|11063799006|56012099006|10067099003|18002099003|41080700001;
+X-Microsoft-Antispam-Message-Info: QF9Vq9WhFqsbmoadoTQf/0Lw17ee+Iqu3FrD1Qh97qKE3u7Ewt67GL+95xQw6782SGgxMAqaT6afMqYPxRWjYyQQ8RYq0QNFknMkIKMuWgsX2HbUSFSFJ8UEp3uOtOaBUZAz54Ua58QXpb6qYwhmjQlQF8Wh5G9ALYv6nc0gFaXcrFWhMPU9SMhqvaig/cYt9CRyyeN3J9t5yJO+Jx9aF/V0d9EuDNBLBtA/wCBvuBdeA+pfuVR1M4bDGneB9N+tqapL84ZtfseYbWepN9MYwMTNPOIZIDHIrCwqRSHxU+7DWHbZ5yWaKvNAjAw09xl0LF/6l18ZTlXZzeUhlc4BGkQb9ksUsRAmLQYiWOm3TT5OnDCxROmJ7qzDED18uZfRyn1V7vaCS7uNO3cKbMjiAn45qhpSlugyLAI8f+/bb+VbOkWOajYKeQZwA1XgeopFGQ79T0q3jSsqHV4jyMgCWR3JTd/JKTSiZ6szAnRggq9ANiZ3W5Bv5L3gAYf/Ae23cMwOJiXti5Ud57NbwTDHU6hSotrG1IWYkGFt0FhK2ZHCFCXqaRQTIHIECtWE3mlQOwso7XyoMNHs1gKLp1RTgbbuGbovqZCiIJXTe6vJMb9kPgfszDVUEVQJCNLFtp9nE4GQHj8C0z5p8MM/HwmDUeEnWSlrzptdJFlzYKbzVI0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(23010399003)(11063799006)(56012099006)(10067099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DK0TOiTuVHPwwGrMlMrx4mjPmMnYnJo4wq2saMLD/sb1R75Zm0iKKMlenpDn?=
+ =?us-ascii?Q?tJp5n7sLL207xe944q1dDsbyB+RZNx1vIV4oKeFUT3zYFw8YM8CnzvVN+sCn?=
+ =?us-ascii?Q?ZNMFsGS+pI5Wo8JK1VNc9PVEyJ8zrxgtYmbfmbG6xuNx62lvo1MHmK65CvHP?=
+ =?us-ascii?Q?6dF626HnP2rPgTM/hh/Xnzk+DK7DT7FcRLGKdWubqPfiSB0syLW1VVlVcOZW?=
+ =?us-ascii?Q?68kGsncI0nLkgzvFVWgdrvo8i9eq0ZXGw6iwYarRQDKgTUO2cm8o0hI6frWK?=
+ =?us-ascii?Q?T8gb/ILG+dPsgqpVP/2QG8S+T8LkcD74ooA19Oyo0yVwF1vBxaA50aHch1Kg?=
+ =?us-ascii?Q?yhJg8ANhZXWtm2RksbboKWnrllBghDgoV1GVNbif+pJqy4trN3Ne5aTlEyjG?=
+ =?us-ascii?Q?6l5zJ/XoFrH3ubDc5D9/M8MgvPqPlAa9wF5VfhjYAtNJNMd3jTLDpptPmT8T?=
+ =?us-ascii?Q?b7GEVgoe0DP28F5nkEbE1LrjWHps+JatZwRp4Kk82OmUkR3kJISycHk7QuBK?=
+ =?us-ascii?Q?sinRA6W7Cs67Ih/VhoFgivF6WDrODmYetf9Z5+R+CXkpghM25+ipJQNNfJcm?=
+ =?us-ascii?Q?2GzIWh4GLVZernv+q4NdLFcaacydOkYvqr9mgcwq8yYrn6RFnHJ2c1mFMlTK?=
+ =?us-ascii?Q?rvIEKb6sTXr/e+jnMAIABo+97osvO1X9KroWjNfcoiycSteePWjXmOc2hjJe?=
+ =?us-ascii?Q?JT5R5pHUid/b6WRVy8TtL94gij7Q1xiSYCyHebDvD2fGHDF+enZT9aNof+9Z?=
+ =?us-ascii?Q?oVtaMbpT4Ju9To0fKWuWoMPheOjvGZceaIW5jk+neRpDC0c+r+Lqwtq6cJhs?=
+ =?us-ascii?Q?iB+S2LhdDst/6RmRV19JdmGoi3p6tdh86Z36U56wBLz1IEP1sRpp0m+3QOWo?=
+ =?us-ascii?Q?nOTTOWy3Nd58GIGdm4CmZBSP0i6qhW9k1qaEPRTWrFw7SGca8kVzlg/TrtWN?=
+ =?us-ascii?Q?OufMpGArNFf7mHjl3gEGnPCBywD5a7sWUho/6m/0HOdrD/fcS/0gUBhuzkQL?=
+ =?us-ascii?Q?dedszEIF/dAK2PFWxA/p8pxbFNm5BWYeqOXYHYF2fqu3GUQvKUao9zFqZUuT?=
+ =?us-ascii?Q?jwgdpHfC+rggeYv0tQBEkyuBZKD+qJSE2kVNGyUsBF/R4b/q+7L+PlV42NEv?=
+ =?us-ascii?Q?rxUbc9m6/esumiZSVZ4rp51Jexqmr3DUfoiWO7nN65fn30JXYKE0l1VEtf25?=
+ =?us-ascii?Q?CrfnKDsSj77UgQnSwHWc2T8Rq1iKgOPuuHX51RhmAlpvtWue5BxNSjbRcr1k?=
+ =?us-ascii?Q?omjmrDUWbzeRpVDOaTUlAO3RNlmLC5i6vKZrSiOzgPfXTDUOdxm/wYAuM56x?=
+ =?us-ascii?Q?XiMR9l9bH3LrfxQPLPwDEtkmHA4I7hvh+UsvaGR8MYgOur36h5e8kYGdDi1L?=
+ =?us-ascii?Q?+9rACAGpj6R3tJpIE50D5LSLIPq/od4KJagzRTxIkZvHuKcXXGpKZWJqFY9J?=
+ =?us-ascii?Q?Adt4MvkgntTPsviox2IMOH6PIbdVJSE+G63UM5NLQyWgjJwTU2SEhSCfNFq/?=
+ =?us-ascii?Q?5pew5e7EYlCbc+LPFAWvYu9YZMav27r0BWbZ+44o5J6IUunzmGOdwmACMXts?=
+ =?us-ascii?Q?wZudKvt62qljSH2hcD9n+rSlVtqg5sldJx8l0oz8Nf81nfhJDRLAgODxz/Y6?=
+ =?us-ascii?Q?7rOrAipQKriyczblSwkljrsdiMxQCJu7s1ohhU/7sIONWeXFrYwl9kvDHcq/?=
+ =?us-ascii?Q?eFp9f3q9qh/w75j8hcs0qNl5N/opu0FzJtkTSOetSdD3HyZUHTuS9WSnK2tK?=
+ =?us-ascii?Q?XAloArdDWN//16wWh3jn5k21lvEY8UaBEDhdrVoycFPGvHeGh3+0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4419fe9c-406f-42d4-0a97-08df18b9a388
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 14:56:10.3754
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZwLIhbR1GAojKKAivny+k1KuEIZJk4KnjbeM0Z9mw4nzSmE33bvLcddaNP+Rgs8PuRr08cCOg+qzRMhbkamY6Mw3NSvAdX/S4NSNsnHS8ZdQJfB+ren5tjXCBxm3SvP5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9994
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_075617_716003_91BF7C66 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,78 +139,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 11:27:10AM +0530, Sumit Garg wrote:
-> On Mon, 21 Sep 2026 at 12:00:42 +0100, Vincent Donnefort wrote:
-> > This series is a follow-up to the discussion that has started here [1].
-> > 
-> > When memory is lent to the Secure world via FF-A, CPU speculative
-> > accesses from NS to the lent pages can still occur as long as it retains
-> > a cacheable mapping to it.
-> > 
-> > Ideally, lent memory would be "no-map" but that would mean giving up
-> > MiBs of useful memory, so let's try to do better with the help of a CMA
-> > pool.
-> > 
-> > On arm64, modifying the direct map at runtime is generally restricted
-> > because the linear map defaults to block mapping and splitting blocks at
-> > runtime may trigger fatal page fault, unless the CPU implements BBML3
-> > or the entire direct map was mapped at page granularity from boot.
-> > Forcing last-level mappings system-wide incurs a severe penalty we want
-> > to avoid. Instead, this series introduces targeted last-level mappings
-> > for designated memory regions, along with the "arm,ffa-lend-pool" CMA
-> > driver to manage unmapping and remapping on lend/reclaim transitions:
-> > 
-> > 1. memblock:
-> >   - Introduce MEMBLOCK_PTEMAP to force PTE mappings only for a specific region.
-> > 
-> > 2. set_memory infrastructure:
-> >   - Introduce can_set_direct_map_range() to check if a specific address
-> >     range is mapped with last-level entries and can be modified safely.
-> >   - Introduce __set_direct_map_*() variants that bypass redundant checks
-> >     when the caller has already validated the range.
-> > 
-> > 3. "arm,ffa-lend-pool" driver
-> >   - Introduce the "arm,ffa-lend-pool" CMA reserved-memory driver, which
-> >     unmaps pages prior to lending (ffa_prepare_lend()) and restores them
-> >     when reclaimed (ffa_lend_reclaimed()).
-> > 
-> > 4. Optee support
-> >   - Hook OP-TEE dynamic protected memory pools to "arm,ffa-lend-pool" for
-> >     both SMC (via DT memory-region phandle) and FF-A (via
-> >     ffa_lend_pool_attach()) transports.
-> 
-> 
-> Thanks for your proposal in trying to solve this hard problem of
-> unmapping pages from kernel linear map. I remember discussing this
-> problem last year at LPC too.
-> 
-> Have you had a chance to look at a more generic MM proposal around this
-> issue here [1]?
-> 
-> One of the major concern for me with your proposal is tying the
-> protected memory allocation to fixed sized platform specific pool size
-> based on DT. Then the cost of granular mappings/unmapping if the
-> platforms choose to enlarge these pools.
-> 
-> As you maybe aware one of the major use-cases here for protected DMAbufs
-> is the secure media pipeline use-case which is memory intensive
-> workload. IMO, the solution proposed at [1] seems to address it although
-> people have flagged rough edges there but should be addressable.
-> 
-> Can you try a port of [1] for arm64 since the author did all the work
-> with x86 as reference?
-> 
-> [1] https://lore.kernel.org/all/20260726-page_alloc-unmapped-v3-0-6f5729aa9832@google.com/
+From: Frank.Li@nxp.com
 
-I spoke to Brendan at LPC (?) last year but this doesn't really work
-for arm64 because it relies on being able to unmap arbitrary parts of
-the linear map, which isn't generally possible unless you force pte-level
-mappings for everything, which is prohibitive for perf/power.
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
-Vincent's series tackles that by using a pool so that only that part of
-memory requires the pte-level mappings in the linear map. That's the
-whole point of it, so I don't think it makes sense to drop it in favour
-of Brendan's approach (which doesn't work).
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 
-Will
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-fixes-7.3
+
+for you to fetch changes up to 7ba5290db6bf365e46fb70bf13dc2a47048165ea:
+
+  arm64: dts: imx8mp-var-dart-sonata: Fix Sonata SD I/O supply (2026-09-11 14:50:09 -0400)
+
+---
+v2 fix tag name, for 7.3, not for 7.2
+
+----------------------------------------------------------------
+iMX fixes for 7.3
+
+- Fix incorrect pinmux values for LX2160A.
+- Fix Sonata SD I/O supply to avoid filesystem I/O errors because the kernel
+  was disabling LDO5 during late init.
+
+----------------------------------------------------------------
+Stefano Radaelli (1):
+      arm64: dts: imx8mp-var-dart-sonata: Fix Sonata SD I/O supply
+
+Vincent Jardin (3):
+      arm64: dts: lx2160a: fix incorrect pinmux
+      arm64: dts: lx2160a: fix IIC1 pinmux submask rejected by pinctrl-single
+      arm64: dts: lx2160a: fix the iic5 spi3 pinmux offset and value
+
+ arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi         | 19 +++++++++++++------
+ .../boot/dts/freescale/imx8mp-var-dart-sonata.dts     |  1 +
+ 2 files changed, 14 insertions(+), 6 deletions(-)
 
