@@ -4,117 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6ABC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41996C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XxcnKx8aTyQRysco9yob8teG0Hm7pIWhDCbbc7ogXSM=; b=MZj+cwrG1sDY1BvjmOXmDlKeZw
-	DnypNrR/biaObX52uUAfuCzXrh94k2E5O2sy5gilDsa2D9Zmxg3gUBA29l92x1IrSQCMWIIqZgbUL
-	HC2ZpxLeXZrqdoUAM6Otm74bqlrUC8KOiGr4ZlNgOxPBtOuDV3IevvWUnUHUAk3zAcc3U1P0pwsM6
-	mSb9o6tcYgODhiVnYBGKw/GbpGvFVjmLMELbrVXs6vUEtpGfyF8KT8pfRgAIKnrOXIedb2NO2r6Xk
-	/ySHKE7tlMU8urs6q7H4SSbjtpZV51QOZque9h2dGgC6bpumuHsU9va+SAJ0xzWIJF4pMrKwEREJ9
-	MBs5+kyg==;
+	bh=pt1Jvyl7y2ucT15n2cP/CxwuiPgjJqJ1dgsK6z+frno=; b=ztssa8wgYKf2+wXhr2pE1cigVd
+	Fo/UJ7Po1hT+nfJatpzsMeKmXTQbcq/rs69IFcIJAoF/4ygFDupO4Ob3lsQdQEVjAwi5vDMKc8TEW
+	Jhs9NKuOU03ps1wgt7Op91rxZ53JNxt5tIijrxY3F3kacJXY1ZopRxhCCByDwRuOvyRQdBvqZ2aJc
+	/pRPrhxwC0gZBue40enKZ8aPvCOy3UxXIeHdpbFu/vY5LvEZfHdGGMdU2RxQWbG94ziM46rjOMISl
+	q6c2s89Cb/s/7+hGRNrkpX+dmOdOOqaqyO5t3CP/5y/ExX7gDfFPoGbXAyXlE3B9iAi4Gev5ahZ4S
+	LZd8oDrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97Br-00000006Xqw-0grH;
-	Tue, 22 Sep 2026 20:34:11 +0000
-Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
+	id 1x97Ht-00000006YOB-3wtZ;
+	Tue, 22 Sep 2026 20:40:25 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97Bo-00000006XpU-2fmW
+	id 1x97Hq-00000006YNW-3aTv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 20:34:09 +0000
-Received: by mail-pz2-x0e.google.com with SMTP id 41be03b00d2f7-cc4c3304784so237945a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 13:34:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790109247; cv=none;
+	Tue, 22 Sep 2026 20:40:24 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4aa0f1a94so187052a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 13:40:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790109622; cv=none;
         d=google.com; s=arc-20260327;
-        b=kVcFKm31YRx7zFVndJidnaYZ+ZEXfIZ6lbNNiWs/CvX8zDU56adsQZ7JCzqMzEQn9T
-         ewHbqP/NKyT2IPYfKiI6LRqMFeOJobOCItjjuSPCxTPUqW5i401zRfZNXAuzngzcCQ1Q
-         zeug2JpInc4+8TWJNUUb1Hz5SHNvyUvfW/ZBlOlZXLJ54ryBkkE01+AlWsDaGNucXUS8
-         L2vEPrmfh4ZkEatdOp57FiQxbd8K6XL4AgcHKK0cCf1MOAKu0B6ORzfIo7Ing2uVCdwt
-         2m+whnizjFQ7dKO2H5+CpBQR3s2qNnHSwAlgKips2eWQHFeqxqfHKuRI3QnRVXKSEAhR
-         2c8Q==
+        b=gZRjWoGRzgjbJlU1EJBdvqywuJ86hguOOAwlFQVlpP3gyVZdgrkp6dqp1To5tVhjoZ
+         sE6nMA47Avc+OLxsA4gKB3am7F9o0aGhKPLt7tZc//62vuhWMsBXrvZFDNnxvxntjDHZ
+         AtF8K4Kde4i7dNQLhea3yFw9Q1f303BhaFoftfCkwB0JXla8VZKiISl6nPfGTUazvDhr
+         dH42y+hLx2vg3pLR3j3Ra6mU7OlYKFdnXgk7kTg9X9ALugjhvC1MCyE4vB7yCtrS2V7Z
+         IDEIYFKPksbib8vV2mXFspuqLRuqFoMG31nvGxvV2dxpzRttluOblRh9RSyQWCof3hXf
+         /yxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=XxcnKx8aTyQRysco9yob8teG0Hm7pIWhDCbbc7ogXSM=;
-        fh=898cGwmNutEc1i1BGMM92LbkL7+9L83ARStAyh3jZtM=;
-        b=fd1Nkn8J8qrnvQIh9SIvzFdNNuqKK3sReRYFTga8d+kVqsOm6G4ILGhc2vd1ttXkHF
-         KkARqqY6Mj4bJ6+mOFZ5WIG//5xfUO7SLPlYt0YBmdK8IFmr5kgbWooZc0wVixd4Sr/P
-         0KS2gBSvjbC2MJ/6D5fZKEFunvgW7ZLBnz5pddZnqcMjHqypTSkuC7PzX9B8CZs3hGkv
-         Pq7cMY/QLxqNhHXKb2rFoWUrDLJDMys+rqrrMqsPqmsifiKpRs20VZ3KtuXLtzZKOOSg
-         SA18XNwLi9NLVHSqQJ98RChGtJrkvCrqOWU7ud80w0/YE8b/DVhJwxz6dGc9IAeK76l5
-         VCCA==;
+        bh=pt1Jvyl7y2ucT15n2cP/CxwuiPgjJqJ1dgsK6z+frno=;
+        fh=YQ2yXEXJcFaqHatj+OkDGR9RdvQ+8TRi3Pc+SpSWpfI=;
+        b=ThfXQ3aH9j6DYBV5sNmRdRw+7SnaigJ+wjxOOpTNhena6kYnbQLDQj4wGHEA9Kk2e3
+         ySKZ8TlUyP5R9ANohsSA2ix5HLQt0DkioteF7awcbHX2o/zQk7w1Y117JqwU+wLSZgrB
+         +KCX2y+meiX+2jeV82TAoUwKdJuPRaNGyHIGwOfRTIdv8HB/ppQ4KZm3myzp1K7bAjXc
+         c0AvL08dgd0pecyfshF5iJIJ+Rk3K3ZPtITaK9v3r89LjqrrEwWCh19MeV6sdFsqD7bM
+         edT6Gv2mP9ceB3yeTSOFWK7sAhrtoBnCWivbzPpvOl4XWQpKjWaTTXVfT33XN6W+KY5z
+         kN9w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790109247; x=1790714047; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790109622; x=1790714422; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=XxcnKx8aTyQRysco9yob8teG0Hm7pIWhDCbbc7ogXSM=;
-        b=FpuogIxpSULpHJkumxAtYJb12lq/WJ6jBEFUa7HYi1KrccJ07v1yolHAs8J75yYiXv
-         2RWoOK+7s+dzitDX6AGUFa0k8OlJcoSlnghqbM7ebfUXzY5HQq1jm1mnRhfidhp2KhQV
-         WLxVHiCx6SqjCs3zWu5wRAVl3R0aDavP5hTlC3AwPPTNu38FSlytJ1tbmZe9AtP7nWY1
-         qDa4Kfiqz4wrube8K1k5+4n7HCQ0VQyPPZA5WihHGJoiqqD4GaDkfh9Up5ARSD6vF5G5
-         805mLtSskRCZ6FpugyiqPJ0JI+oVsFSy119Xb8SDlRkfWPL9RAy3EG84nyQs7EHJbWpa
-         UsvA==
+        bh=pt1Jvyl7y2ucT15n2cP/CxwuiPgjJqJ1dgsK6z+frno=;
+        b=m35Xy7CsHJYEbKV+Ajp5gye0EFkQgF9Lu8+Zoylqx7o+TJV+UgKy9VsCTrNZCmGcFu
+         yF0MjyQkKQZ6tQhlMxhe5UGmfuFWOqv9AXG22VJAENvG0ZUP2JeA9+jZSXBabKrK72YQ
+         DYsWfG3GW+1c8ESuKctkelOtab+8+NMRafdlFuZrgW93nvv+JPcCRdJ1jvuZ6Q3FTYFD
+         U0b4/8aXmZ0YbY0JaeBWTpMp38GnnKyFvPS/u4YKyEo+IYDN5OOOwCtC30EQaYd8/sbF
+         I1gCRAOjK62xpE41126l+8QtUltQE7IjNZTL3RkU1bbeGTYWuQwBQy4TTP9od/1/Kosa
+         l82g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790109247; x=1790714047;
+        d=1e100.net; s=20260707; t=1790109622; x=1790714422;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XxcnKx8aTyQRysco9yob8teG0Hm7pIWhDCbbc7ogXSM=;
-        b=mAcpSitGoNu6o7d6Pl4NMeQYXIRvP+N9MCSpqtW76U6PIAG6kBtGhXFYZVz7SFF9T8
-         U1kRloosfAWbAZOgTAJhTg8C3s98D5/VBwsXnAE72O8PP0QXgc1KfmHBpPjsuK1XYFP2
-         M3Du55IsSS2EkmMA2ktqUtUZrU6S091g0QaBG5dSAWGOwzgM6d+ED5ZlxK6heSy4DzX7
-         vrnXl158Bh0Kg3tRornnCDVLFflEja9b5kFwB/Pnz56KP5y9Sg+9Le6HvO844y7e647m
-         9SruQLjK29cuPLNplA4nYJYwvrS7n8AMuHTmBdP1ZYn4CmDKHT4AlF4kHKxLealGdwo0
-         XPMg==
-X-Forwarded-Encrypted: i=1; AKwUvBwGbi8VjMlOJbqsc8W69S5qSpkshOmgq3ObF12p4denOfi9eGLh0tVpYYWfqpbKKIn46/tDp49hk6n0R9OrKRSK@lists.infradead.org
-X-Gm-Message-State: AFuF++kvXmb2SRuo2LJZ1IxNyxuck7X6qwwGiqflSCuS3brwBHJVx8y/
-	lEyShzJr3W8AO7O103UxX6axYyRKgBG7eAzZ+BpIYklMBvNC9eeQZg3f5Xaz5SccvHNzQldo/FD
-	DEXVJUWWUvc12dd9lDbpnbNFah5nZn7E=
-X-Gm-Gg: AYBFou3yysOKcagNGX8oje/lcb+GY312pMW9G945qHa1lhmyQg2NGwJqTobVTv1j396
-	teOYu3fi852nKM7vuMHwgjel0zRj55ddQ1Qth8dVHOEo23e0ZIw1hliqtIxLrq8VSLR2E4yibIA
-	OBcZ9g0rlk8gvLlFF3cR7FDlg1abPF8exuwm6JU9PWIPMW7H5pGlirb66FdZY5sSeMt6sMHV/ao
-	tBnywF47Hm5rjQXMhsR/sHlgz5N+UV00BdulhadIVzJ1ijbYoQypkkF5ubPeiuZGPHPuqG2nzD8
-	TuK/mGzdsKzu9aj7cqVO8ZByzSjsld4OYW8KLvrs6spQOSF20PY4u34EQf9HXsbF0DHOityDTNC
-	04beLh//HwIi0Nm7cxhN9o4XNExyFPpzIoQbekw9NvKyssH8f3PuDgV5T6bFGEME=
-X-Received: by 2002:a17:90b:4a45:b0:39e:2530:2102 with SMTP id
- 98e67ed59e1d1-3a07e56552cmr499070a91.11.1790109247222; Tue, 22 Sep 2026
- 13:34:07 -0700 (PDT)
+        bh=pt1Jvyl7y2ucT15n2cP/CxwuiPgjJqJ1dgsK6z+frno=;
+        b=e1oLEp7+iTnU1jdXyTMiRWtv6x7xAXPuyKiGWoOPZDe/9dx73QynkDLorzoWmrpVCX
+         cEho9DLMMg5FB3sj1sXPk51h3WFUTmz++578gaWH2OqK+bDniUc+cqMNDqZxRoifCjP1
+         bzrDhQB11guL8IPpOlP7aSs5gnqYlbTLz7+rJ/C3Q4FLUclRRz3o6G1kwlPq9A0lBvQe
+         QynvsZ76it3D7TziT5hdD7ZgMNZ0Ihwp0Pc2f1zcSYDrnFZSpLcevb3vuo/MwAzbobva
+         19UXLGoaocubJ0QiXb6mwA/pBEkyPDkbTKzunFP81yRmN1uN3qiLMTJmYnWmM73vohsr
+         DU0g==
+X-Forwarded-Encrypted: i=1; AKwUvBypheFmW9iVZe6syAzUn3GKPekS3PQUaV0zlPkWaC7d7C5tbJ1IHtCqcb9IQ1jcYyLKGcWZwvSWLsPXlNmu0FXQ@lists.infradead.org
+X-Gm-Message-State: AFuF++mSj/85N3iV5TthddKf7nKiqs0O2VIJmrnLBNX8/lKXUJ4gKxBV
+	IMdLaSf1UKw/q/pqBMTI0uJZu/lkHKP/PIVW9mIDn8rkX/Qg9KXM+V7Fjvug7Vl73CxZNnSeOHF
+	4FYjrfriITZKHOzMyLPtORICu+snhZNc=
+X-Gm-Gg: AYBFou1TKoT5YE6qrwhZ+QGu9UR99OMl3Iimo2zj9tY0O4LXXA6a5KXbY31OblYFN8s
+	DI2UXVm1C2nR7SRbYqlFXjkFrOHcVbYmgaYUip9BgRBkhjbF6FOkVyrTwKGM9CIHXpceUsmwKSD
+	qsUP7HxKfxSbETJ+5MgxJQU6vI8DvlnyMnqsQCBGkkVxlVh/cfKInP/q8rIeqa9MkxU5PTBHWVy
+	yqvmv4h2FHmQC5A8DiZf4Otl09TbleB93TFdgCaZJP7YAI8Na1sjOqoKwRTOPsWGmzHbNbAlGXd
+	MsDEPq+bZ5QAmj8mXDFNrlbd93gZEyDvAEQTK9DJ/vCOkXnKkFI0HRCJNHBKrKpnwRWpCR+jalr
+	0xp7EVZUnmFOD8U36II2eHt5yMv1CyKaUCilov9PGRx8kjToklkxL
+X-Received: by 2002:a17:90b:1dc9:b0:398:9bd5:490b with SMTP id
+ 98e67ed59e1d1-3a07e5e929amr377167a91.18.1790109621759; Tue, 22 Sep 2026
+ 13:40:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260810133540.1947118-1-puranjay@kernel.org> <4f755a7f-0a55-4292-892a-28346ed235a4@huawei.com>
- <CAP-5=fUepMzyctDcUqYNJMG+xBOK0bdUF_cXPtQ43AxfFVL+Zw@mail.gmail.com>
-In-Reply-To: <CAP-5=fUepMzyctDcUqYNJMG+xBOK0bdUF_cXPtQ43AxfFVL+Zw@mail.gmail.com>
+References: <20260810164622.1829843-1-puranjay@kernel.org> <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
+In-Reply-To: <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
 From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Tue, 22 Sep 2026 13:33:52 -0700
-X-Gm-Features: AcwNN1WthkF5BlZ1QMNrqoVSwR9HYVD5IHCsPcWIws_60KwDdxRC38bx-LOITwg
-Message-ID: <CAEf4BzZZOqFvSfjp7YMAvEabQSrziv7j26P_SRwMczKf56WZ4A@mail.gmail.com>
-Subject: Re: [PATCH v7 0/3] perf/core: sched_task() dispatch and branch entry fixes
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>
-Cc: wuyifan <wuyifan50@huawei.com>, Ian Rogers <irogers@google.com>, 
-	Puranjay Mohan <puranjay@kernel.org>, Ravi Bangoria <ravi.bangoria@amd.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	Usama Arif <usama.arif@linux.dev>, Will Deacon <will@kernel.org>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+Date: Tue, 22 Sep 2026 13:40:06 -0700
+X-Gm-Features: AcwNN1VfX9BxvsRTDOPajUz-x6IR-_JlVRJ0qqTEHps-VTBBc72fFFdiYC1A20M
+Message-ID: <CAEf4BzapC=7YM2QLMyKKfyOWGgBTfEJmPPN8e9Jf5xT9SutBTQ@mail.gmail.com>
+Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for bpf_get_branch_snapshot()
+To: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>
+Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay12@gmail.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Shuah Khan <shuah@kernel.org>, 
+	Breno Leitao <leitao@debian.org>, Ravi Bangoria <ravi.bangoria@amd.com>, 
+	Stephane Eranian <eranian@google.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif <usama.arif@linux.dev>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_133408_688086_4156E3AF 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20260922_134022_928401_29ABA35D 
+X-CRM114-Status: GOOD (  52.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,56 +131,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 3:47=E2=80=AFPM Ian Rogers <irogers@google.com> wro=
-te:
+On Tue, Sep 1, 2026 at 6:45=E2=80=AFAM Puranjay Mohan <puranjay12@gmail.com=
+> wrote:
 >
-> On Thu, Sep 3, 2026 at 7:45=E2=80=AFPM wuyifan <wuyifan50@huawei.com> wro=
-te:
-> >
-> > Hi Puranjay,
-> >
-> > On 8/10/2026 9:35 PM, Puranjay Mohan wrote:
-> > > These three fixes were found while adding BRBE support for
-> > > bpf_get_branch_snapshot() on arm64 and were carried in that series un=
-til
-> > > v6 [1]. They do not depend on it, so they go on their own; the versio=
-n
-> > > number continues from that series to avoid two numbering schemes for =
-the
-> > > same patches.
-> > perf record -C <cpu> -b [<command>] triggers a NULL pointer dereference
-> > in armv8pmu_sched_task().
-> >
-> > Commit fa9d27773873 ("perf: arm_pmu: Kill last use of per-CPU cpu_armpm=
-u
-> > pointer") changed armv8pmu_sched_task() from reading the per-CPU
-> > cpu_armpmu variable to dereferencing pmu_ctx->pmu via
-> > to_arm_pmu(pmu_ctx->pmu). Meanwhile, commit bd2756811766 ("perf:
-> > Rewrite core context handling") made __perf_pmu_sched_task() pass
-> > cpc->task_epc to pmu->sched_task(). cpc->task_epc is only non-NULL
-> > while a task context is scheduled in; CPU-bound events do not schedule =
-a
-> > task context, so cpc->task_epc stays NULL. The NULL argument is derefer=
-enced
-> > and crashes.
-> >
-> > With the patches applied, perf record -C <cpu> -b no longer crashes,
-> > and system-wide perf record -b -e <event> -a alongside a task-bound eve=
-nt
-> > on a different CPU runs without any WARN_ON.
-> >
-> > Tested-by: Yifan Wu <wuyifan50@huawei.com>
+> Hi James,
 >
-> Hi,
->
-> Is there anything that needs doing to land this series? Avoiding a
-> perf crash seems worthwhile. I believe Peter and Ingo are best placed
-> to review the changes to kernel/events/core.c.
+> Can you review this version of the patchset? It is implementing what
+> we discussed in the thread on the last version.
 >
 
-another ping... seems like worthwhile problems to fix
+James, do you mind reviewing the patches again, seems like Puranjay
+went with the implementation you suggested, would be nice to review
+and ack, if it looks good to you.
+
+Mark, Will, you guys seems to be designated as maintainers for
+drivers/perf/arm_brbe.c, can you please take a look and give your
+feedback as well? This is important and useful feature for newer arm64
+CPUs, it would be great to get access to this functionality that we
+had on x86-64 side for a long while now. Please help get this upstream
+or, if it's not in the right shape, guide Puranjay towards a better
+implementation. Thank you!
 
 > Thanks,
-> Ian
+> Puranjay
 >
+> On Mon, Aug 10, 2026 at 5:46=E2=80=AFPM Puranjay Mohan <puranjay@kernel.o=
+rg> wrote:
+> >
+> > Changelog:
+> > v5: https://lore.kernel.org/all/20260616155716.2631508-1-puranjay@kerne=
+l.org/
+> > Changes in v6:
+> > - Split the two perf/core patches out into their own series [3]. They
+> >   fix bugs of their own and do not depend on this one.
+> > - Add raw_local_daif_save() and raw_local_daif_restore(), so the
+> >   snapshot can mask exceptions without trace_hardirqs_off() evicting
+> >   the records it is about to read (new patch 1).
+> > - Rework the snapshot. Clear PMCR_EL0.E across the BRBFCR_EL1
+> >   read-modify-write so that a freeze cannot set PAUSED behind the saved
+> >   value, and unpause before restarting the counters, since a paused
+> >   BRBE cannot freeze for its own overflow handler (James Clark).
+> > - Skip the pause entirely when BRBE is disabled or already frozen, and
+> >   invalidate only when the snapshot was the one to pause it.
+> > - Run valid_brbe_version() before masking exceptions; the static call
+> >   is only reached from BPF programs, which run with migration disabled.
+> > - Fold cpu_has_brbe() into valid_brbe_version() and drop the
+> >   arm_brbe_ prefix from the snapshot callback (James Clark).
+> > - Derive the selftest skip threshold from the waste and hit limits it
+> >   depends on, so the two cannot drift apart.
+> >
+> > v4: https://lore.kernel.org/all/20260527121207.2312181-1-puranjay@kerne=
+l.org/
+> > Changes in v5:
+> > - Rework patch 2: drop the UAPI union. Instead rename the helper to per=
+f_clear_branch_entry() and
+> >   clear the entry with a single
+> >         *br =3D (struct perf_branch_entry){ }.
+> >   This stays kernel-internal, with no changes to the uapi/ or tools/ he=
+aders (James Clark).
+> > - Add an isb() to the BRBCR_EL1 =3D=3D 0 early-exit in the snapshot, fo=
+r consistency with the other
+> >   two exit paths (bpf-ci).
+> > - Add Rob Herring's Reviewed-by to patch 3
+> >
+> > v3: https://lore.kernel.org/all/20260413185740.3286146-1-puranjay@kerne=
+l.org/
+> > Changes in v4:
+> > - Fix leaking branch records when scheduled task has an unrelated perf =
+event (Sashiko)
+> > - Update tools/include/uapi/linux/perf_event.h as well for patch 2
+> > - Introduce cpu_has_brbe() and use it in
+> >   arm_brbe_snapshot_branch_stack(0 to make sure we don't run on a CPU
+> >   without BRBE.
+> > - Add explicit isb() after after writing to SYS_BRBFCR_EL1.
+> > - Rebase on latest arm64 tree.
+> >
+> > v2: https://lore.kernel.org/all/20260318171706.2840512-1-puranjay@kerne=
+l.org/
+> > Changes in v3:
+> > - Move NULL pmu_ctx fix from arm_pmuv3.c to perf core (Leo Yan)
+> > - Use union to clear branch entry bitfields instead of per-field
+> >   zeroing (Leo Yan)
+> > - Remove per-CPU brbe_active flag; check BRBCR_EL1 =3D=3D 0 instead (Ro=
+b
+> >   Herring)
+> > - Remove redundant valid_brbidr() check in snapshot path (Rob Herring)
+> > - Introduce for_each_brbe_entry() iterator to deduplicate bank
+> >   iteration (Rob Herring)
+> > - Include perf core maintainers (Leo Yan, Rob Herring)
+> >
+> > v1: https://lore.kernel.org/all/20260313180352.3800358-1-puranjay@kerne=
+l.org/
+> > Changes in v2:
+> > - Rebased on arm64/for-next/core
+> > - Add per-CPU brbe_active flag to guard against UNDEFINED sysreg access
+> >   on non-BRBE CPUs in heterogeneous big.LITTLE systems.
+> > - Fix pre-existing bug in perf_clear_branch_entry_bitfields() that miss=
+ed
+> >   zeroing new_type and priv bitfields, added as a separate patch with
+> >   Fixes tags (new patch 2).
+> > - Use architecture-specific selftest threshold (#if defined(__aarch64__=
+))
+> >   instead of raising the global threshold, to preserve x86 regression
+> >   detection.
+> >
+> > RFC: https://lore.kernel.org/all/20260102214043.1410242-1-puranjay@kern=
+el.org/
+> > Changes from RFC:
+> >  - Fix pre-existing NULL pointer dereference in armv8pmu_sched_task()
+> >    found by Leo Yan during testing (patch 1)
+> >  - Pause BRBE before local_daif_save() to avoid branch pollution from
+> >    trace_hardirqs_off()
+> >  - Use local_daif_save() to prevent pNMI race from counter overflow
+> >    (Mark Rutland)
+> >  - Reuse perf_entry_from_brbe_regset() instead of duplicating register
+> >    read logic, by making it accept NULL event (Mark Rutland)
+> >  - Invalidate BRBE after reading to maintain record contiguity for
+> >    other consumers (Mark Rutland)
+> >  - Adjust selftest wasted_entries threshold for ARM64 (patch 3)
+> >  - Tested on ARM FVP with BRBE enabled
+> >
+> > This series enables the bpf_get_branch_snapshot() BPF helper on ARM64
+> > by implementing the perf_snapshot_branch_stack static call for ARM's
+> > Branch Record Buffer Extension (BRBE).
+> >
+> > bpf_get_branch_snapshot() [1] allows BPF programs to capture hardware
+> > branch records on-demand from any BPF tracing context. This was
+> > previously only available on x86 (Intel LBR) since v5.16. With BRBE
+> > available on ARMv9, this series closes the gap for ARM64.
+> >
+> > Usage model
+> > -----------
+> >
+> > The helper works in conjunction with perf events. The userspace
+> > component of the BPF application opens a perf event with
+> > PERF_SAMPLE_BRANCH_STACK on each CPU, which configures the hardware
+> > to continuously record branches into BRBE (on ARM64) or LBR (on x86).
+> > A BPF program attached to a tracepoint, kprobe, or fentry hook can
+> > then call bpf_get_branch_snapshot() to snapshot the branch buffer at
+> > any point. Without an active perf event, BRBE is not recording and
+> > the buffer is empty.
+> >
+> > On-demand branch snapshots from BPF are useful for diagnosing which
+> > specific code path was taken inside a function. Stack traces only show
+> > function boundaries, but branch records reveal the exact sequence of
+> > jumps, calls, and returns within a function -- making it possible to
+> > identify which specific error check triggered a failure, or which
+> > callback implementation was invoked through a function pointer.
+> >
+> > For example, retsnoop [2] is a BPF-based tool for non-intrusive
+> > mass-tracing of kernel internals. Its LBR mode (--lbr) creates per-CPU
+> > perf events with PERF_SAMPLE_BRANCH_STACK and then uses
+> > bpf_get_branch_snapshot() in its fentry/fexit BPF programs to capture
+> > branch records whenever a traced function returns an error.
+> >
+> > Consider debugging a bpf() syscall that returns -EINVAL when creating
+> > a BPF map with invalid parameters. Running retsnoop on an ARM64 FVP
+> > with BRBE to trace the bpf() syscall and array_map_alloc_check():
+> >
+> >   $ retsnoop -e '*sys_bpf' -a 'array_map_alloc_check' --lbr=3Dany \
+> >              -F -k vmlinux --debug full-lbr
+> >   $ simfail bpf-bad-map-max-entries-array  # in another terminal
+> >
+> > Output of retsnoop:
+> >
+> >   --- fentry BPF program (entries #63-#17) ---
+> >
+> >   [#63-#59] __htab_map_lookup_elem: hash table walk with memcmp        =
+(hashtab.c)
+> >   [#58] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xc850           =
+(hashtab.c:750)
+> >   [#57-#55] ... dump_bpf_prog internal branches ...
+> >   [#54] dump_bpf_prog+0xcab8        -> bpf_get_current_pid_tgid+0x0    =
+(helpers.c:225)
+> >   [#53] bpf_get_current_pid_tgid+0x1c -> dump_bpf_prog+0xcabc          =
+(helpers.c:225)
+> >   [#52-#51] ... dump_bpf_prog -> __htab_map_lookup_elem ...
+> >   [#50-#47] __htab_map_lookup_elem: htab_map_hash (jhash2), select_buck=
+et
+> >   [#46-#42] lookup_nulls_elem_raw: hash chain walk with memcmp         =
+(hashtab.c:717)
+> >   [#41] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xcaf8           =
+(hashtab.c:750)
+> >   [#40-#37] ... dump_bpf_prog -> bpf_ktime_get_ns ...
+> >   [#36] bpf_ktime_get_ns+0x10       -> ktime_get_mono_fast_ns+0x0      =
+(helpers.c:178)
+> >   [#35-#32] ktime_get_mono_fast_ns: tk_clock_read -> arch_counter_get_c=
+ntpct
+> >   [#31] ktime_get_mono_fast_ns+0x9c -> bpf_ktime_get_ns+0x14           =
+(timekeeping.c:493)
+> >   [#30] bpf_ktime_get_ns+0x18       -> dump_bpf_prog+0xcd50            =
+(helpers.c:178)
+> >   [#29-#25] ... dump_bpf_prog internal branches ...
+> >   [#24] dump_bpf_prog+0x11b28       -> __bpf_prog_exit_recur+0x0       =
+(trampoline.c:1190)
+> >   [#23-#17] __bpf_prog_exit_recur: rcu_read_unlock, migrate_enable     =
+(trampoline.c:1195)
+> >
+> >   --- array_map_alloc_check (entries #16-#12) ---
+> >
+> >   [#16] dump_bpf_prog+0x11b38       -> array_map_alloc_check+0x8       =
+(arraymap.c:55)
+> >   [#15] array_map_alloc_check+0x18  -> array_map_alloc_check+0xb8      =
+(arraymap.c:56)
+> >         . bpf_map_attr_numa_node       . bpf_map_attr_numa_node
+> >   [#14] array_map_alloc_check+0xbc  -> array_map_alloc_check+0x20      =
+(arraymap.c:59)
+> >         . bpf_map_attr_numa_node
+> >   [#13] array_map_alloc_check+0x24  -> array_map_alloc_check+0x94      =
+(arraymap.c:64)
+> >   [#12] array_map_alloc_check+0x98  -> dump_bpf_prog+0x11b3c           =
+(arraymap.c:82)
+> >
+> >   --- fexit trampoline overhead (entries #11-#00) ---
+> >
+> >   [#11] dump_bpf_prog+0x11b5c       -> __bpf_prog_enter_recur+0x0      =
+(trampoline.c:1145)
+> >   [#10-#03] __bpf_prog_enter_recur: rcu_read_lock, migrate_disable     =
+(trampoline.c:1146)
+> >   [#02] __bpf_prog_enter_recur+0x114 -> dump_bpf_prog+0x11b60          =
+(trampoline.c:1157)
+> >   [#01] dump_bpf_prog+0x11b6c       -> dump_bpf_prog+0xd230
+> >   [#00] dump_bpf_prog+0xd340        -> brbe_snapshot_branch_stack+0x0  =
+   (arm_brbe.c:814)
+> >
+> >                    el0t_64_sync+0x168
+> >                    el0t_64_sync_handler+0x98
+> >                    el0_svc+0x28
+> >                    do_el0_svc+0x4c
+> >                    invoke_syscall.constprop.0+0x54
+> >     373us [-EINVAL] __arm64_sys_bpf+0x8
+> >                     __sys_bpf+0x87c
+> >                     map_create+0x120
+> >      95us [-EINVAL] array_map_alloc_check+0x8
+> >
+> > The FVP's BRBE buffer has 64 entries (BRBE supports 8, 16, 32, or
+> > 64). Of these, entries #63-#17 (47) are consumed by the fentry BPF
+> > trampoline that ran before the function, and entries #11-#00 (12)
+> > are consumed by the fexit trampoline that runs after. Entry #00
+> > shows the very last branch recorded before BRBE is paused: the call
+> > into brbe_snapshot_branch_stack().
+> >
+> > The 5 useful entries (#16-#12) show the exact path taken inside
+> > array_map_alloc_check(). Record #14 shows a jump from line 56
+> > (bpf_map_attr_numa_node) to line 59 (the if-condition), and #13
+> > shows an immediate jump from line 59 (attr->max_entries =3D=3D 0) to
+> > line 64 (return -EINVAL), skipping lines 60-63. This pinpoints
+> > max_entries=3D=3D0 as the cause -- a diagnosis impossible with stack
+> > traces alone.
+> >
+> > [1] 856c02dbce4f ("bpf: Introduce helper bpf_get_branch_snapshot")
+> > [2] https://github.com/anakryiko/retsnoop
+> > [3] https://lore.kernel.org/all/20260810133540.1947118-1-puranjay@kerne=
+l.org/
+> >
+> > Puranjay Mohan (3):
+> >   arm64: Add raw variants of local_daif_save() and local_daif_restore()
+> >   perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+> >   selftests/bpf: Adjust entry thresholds for ARM64 BRBE
+> >
+> >  arch/arm64/include/asm/daifflags.h            |  41 +++++-
+> >  arch/arm64/kernel/suspend.c                   |   7 +-
+> >  drivers/perf/arm_brbe.c                       | 135 ++++++++++++++----
+> >  drivers/perf/arm_brbe.h                       |   9 ++
+> >  drivers/perf/arm_pmuv3.c                      |   5 +-
+> >  .../bpf/prog_tests/get_branch_snapshot.c      |  28 ++--
+> >  6 files changed, 175 insertions(+), 50 deletions(-)
+> >
+> >
+> > base-commit: 03a2e393994ca27567fe060e066806589c547fbc
+> > --
+> > 2.53.0-Meta
+> >
 
