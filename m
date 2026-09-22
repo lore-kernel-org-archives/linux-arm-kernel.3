@@ -4,120 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22662C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D45BC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2eLmgVZefecU/pTIkEn3jiZi3KwYbQMRJO/PHSRntY=; b=EtiHMdJG9gwWM/jzlMkvCB39P1
-	XgafyG0CS5WH39X4ysQw5JYronXo+ya2hxqpC8aomndSru0gLDgmcLyv/1CXWQMS7cfjtvCm5SB/o
-	zaCZehb8gw8Ge9TMRxlXbu/o2D4H6vD7nB/37VWZn1anxOvsneKuQxHSAPGrL70UIhnjEibuzpY3j
-	4PrFZ9WaqbG3Y4lLSSUQtaLGuDyJs1Rp9F5qbxXh7cvfpAJGlcdGoAuridjxfQRf+Y0vq/suGAquN
-	cHwGWxvB/iqny9UDrkba1crtgm1vINbx4kxhwUQH2GjutoKmdaC9ZEofT4ljDuVUPE2Y7DADqxWo6
-	qo1mFjQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=isSEF0IU9c1OXuHxBNGq9pSATtA3AQIYhgVBzOHtvqs=; b=zvuXsxhfSXzGZBtBLincX96NPs
+	3QQC1ciVFBXulcTB+x2mTLFeAvVEXRl3BhN+IAuyr5cQVsmlvzUmfev6SKqAo9PoM8Tkpgjbt0qXx
+	w3396/XwYcbDNKvTrGHVfkk41ehHFQOh59bASHhwph9cZEErFs2pY5i5noL5tyfT5eenk24HrC1J7
+	5pS7kIIwD/pADXGBL5AIQjilaORO1Z5DGcJB3PprSznpjKagbH4K+MkZI2MSMmewVrgttBG7SKInM
+	HuFDestm8jnCfFshC5MD+g1OpsUSmYlPAKOJQvOx/kxc20fUqOkH1jMxgec7aW7d1eppsq/rQeyj3
+	6PE2af9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96Lj-00000006Qtv-1ibt;
-	Tue, 22 Sep 2026 19:40:19 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.5])
+	id 1x96M8-00000006Qyi-2gn0;
+	Tue, 22 Sep 2026 19:40:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96Lg-00000006Qsy-2l7C
+	id 1x96M5-00000006Qxr-3hFc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 19:40:18 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-h0bm.prod.antispam.mailspamprotection.com; s=arckey; t=1790106016;
-	 b=aadZ3K6oPcDJnG0nuM3NaLgM0KkIQ6p4IPC+lzql9evxC41QnyCu9IDRe6r7yEeBZ+HAicX9my
-	  tq+X2knE+rCm1JXrYmLv46qRs0WgubS4vopMcw9RCs3Vou7RcVBrEIBIJQoXOGkoNPXOjE1JZ4
-	  wBY89P6GLpj/e+qJCrg5sdUGVtPdnHBODmX1PRaDNBga7opGKISFjALp0L4Int+ngeCCn7L3v9
-	  60332orB/SKOjbKKaMnzb86SlCdk3ovZlWGEF289tEN9ziwNCj6ceRI67r9VPx/xLT05kgSPiC
-	  lyQzKXA3FuIu+48+OdtbVOFK1XQq3p/ez1t0kmej4QK2zg==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-h0bm.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-h0bm.prod.antispam.mailspamprotection.com; s=arckey; t=1790106016;
-	bh=8NMs8SB1sdPboxqnoQlVUSrFwxOWYz6MOmmk18xtLCY=;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	  From:Date:DKIM-Signature:DKIM-Signature;
-	b=DmzSaE6dc9+ujBUQdQlMrBd05KRAwImIj7ez3HueI3CmZpR9LDukiV/h074M1rABtC5V7ou1gu
-	  zMo619mYPnvd59BbxZEvz0WsNif8DtfBELPRUHR1WLN2QVf26YAex5anIQfo/ETisieuwIBgQZ
-	  1uPyH9EVafQ3mX2+42fkWuc8jYCfuHzUV9SAWejc5Vw4UZafNU9tvdLBx/CBQrFVSOrVKEG0WQ
-	  u6t4qV+o3AB8/krna+mhG22e/6Ndy9Pxq1NcRP2JhalYmQyef0dX0AJyZahbChvKzBYOx/06mq
-	  /KfbHNYydeNRoAcDSKEfv39H+3lXhfpbipy4DOCTiMNutA==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	List-Unsubscribe:Content-Transfer-Encoding;
-	bh=T2eLmgVZefecU/pTIkEn3jiZi3KwYbQMRJO/PHSRntY=; b=N+v/ONMbWC5civ9/a3uRj+X8DF
-	KZsMmUew/WjZNkrxbFFxVo3+/CGaC6/6jQD1OtjnGRSjnH8DNsUuN0IBZP5F2jS/iNR0zUrDtBseu
-	ubeIn0qa3scLIO7XRaqb+kjagzVSIoQiKKkJYabI8s0g020XROwelv6S5oO42FktchVM=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-h0bm.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <francesco@valla.it>)
-	id 1x96LN-00000003wmE-1j6u
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 19:40:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=T2eLmgVZefecU/pTIkEn3jiZi3KwYbQMRJO/PHSRntY=; b=SvVNZfIOY9NWsp+KfKmmm5nv1Q
-	GbMij94Qjo5jk8NIfoCGK5leBchQYd0VwCEJsoa8N9wVARel1alZpCIE4w5Nmgzoc+CwwWDIZO5Pq
-	UXyADO8Qwn/3gqBCa3/PWcwyF9UvEpIGRqafpBY4nkgUgbinPLwdW/YM1ZgonF7cB/rg=;
-Received: from [79.43.46.244] (port=62406 helo=bywater)
-	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <francesco@valla.it>)
-	id 1x96L0-00000000DJl-0LPt;
-	Tue, 22 Sep 2026 19:39:34 +0000
-Date: Tue, 22 Sep 2026 21:39:31 +0200
-From: Francesco Valla <francesco@valla.it>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 06/12] remoteproc: virtio: add bounce buffering for
- data buffers
-Message-ID: <arLXthhYbKkwZ9zY@bywater>
-References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <20260916-remoteproc_virtio_map-v1-6-dac8c5eb4aa9@valla.it>
- <arKlvZGqu2nt6Ci0@p14s>
+	Tue, 22 Sep 2026 19:40:43 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68MI74he1348898
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 19:40:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	isSEF0IU9c1OXuHxBNGq9pSATtA3AQIYhgVBzOHtvqs=; b=MCpZrl2XliLUV5m+
+	AwX/zkHOD/sII1crCEGtG2U/jgpLCl9R5xl7SrsC9BMPS8yupRZaRWKjoSPcfPr1
+	G+zk8nVeK5HU3gGbbimKtGhjfcB7JoInF0tNJb+6FNetlQpNQBt5qKW7rHavrjBQ
+	kng7Ib17Sxzb4DCO4X0lKQv7HIR0DRlKG41W9jQGC1kpLBZfLxU36+a0/t6N+XvA
+	kx3fALA9mTbiRnv0fp89c0relqYJ1KxDBP1EpWE4H4FCFMukDUHfMMSyo/UcI5jZ
+	ylDWRa5BwwCWg2GQvwmoLWMtT+zUqPbUTBsfFLPwAt3NMJG1jsSw6iLmigngpwMP
+	wU2fSQ==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gux860mt2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 19:40:40 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33310847fcaso232660eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 12:40:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790106040; x=1790710840; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=isSEF0IU9c1OXuHxBNGq9pSATtA3AQIYhgVBzOHtvqs=;
+        b=P8DCYJTRU/eGPU6q1Xg4DYI71k8rvrvQyZFGnjcEQNN0Zqjgt5/jdDvj2otMJlJKZd
+         TnBquJlAo0GAsmK6fWp5cOIpNtmlkiQUCgY+pFx1IRpIpb+Ch09rL094OnpBiFQjYbjL
+         dHob/8J1D9rpnN9jwS+XQtacmvdSh1grOTU3gZUa+VJnYWCkbEsp/dp8wKWdtCa95vVQ
+         BvvIw3lL35/cihq9MCvJtgGUPNzLYbz9/vH7R4RqYbPvCGJT9LxBYf53/h0GLs/+bqLq
+         xLIR6dzQzVSrDpD3qOdxzQ/CknLBFu2CjDkOUSzTaivVUmiShj34xhid/a/FpUqPV7i+
+         s13g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790106040; x=1790710840;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=isSEF0IU9c1OXuHxBNGq9pSATtA3AQIYhgVBzOHtvqs=;
+        b=DEBXMuyWSlORV3kzegOQz/Q3uo72w5Jh470B7msRmURhSvl1xxxeoN63HGDKdI6372
+         VKBHuWJBGH0Ob4wY6+eyuGnbT3CwoznWzf+MLmucnisoGtRHY+R2IX/4adLU+YjSu62t
+         1r2uQPRo4+muygE2M8lCgWZXS8huwP4i1HIkQk4t9ksHH89INOjbZYsH/Stmfyl5ynhA
+         Z8WSrUTtcj7xrqldIBm+5fhiR0xcsyKeXff/RErrlD/mQlJbCg/G57+gdBIudGiNjSnJ
+         cZKweqEDu3yZZd5vulurIjVin4xmJprLPzRMCdZJm1BMIvRyCWt0pAFX5h4C2BwDag2C
+         Rd8w==
+X-Forwarded-Encrypted: i=1; AKwUvBzJVd8Ow4MjZRfhawp5XfeR0yaAwclQjKtDvw/9lz/mgPfxMH2y/ixsLroKxlCyeXwX/JvjSE/E39lZAX8P/Eo/@lists.infradead.org
+X-Gm-Message-State: AFuF++l08OGteJTEZsf/y9ui5PDaJewWZlyTVD/Ok2u3cNSAYavij6iN
+	HF183qg7Yge5ZJ2S/r3R5EYOAtFYpc9B/Zj9RCt15aucJRnMAZVj1MvUblu/EpbYG9EdpmAFF0N
+	LGEyr+YaPfDTnvaEG9/SchGV/DS0kGy2VcT4+JAiVRmYVLpsYOq71MXbvUlMCusAREcPEj3tsxY
+	lgFw==
+X-Gm-Gg: AYBFou0MiIgh/P3g05NxhWSb6Pg+qdE3ibn2yO85p9KhyNYidDZgkV37fNNEHiftxl7
+	d11/+vmFVas3K3lDzV/szp9m51Bb6t3j6bCFedKapABYZGY304FhxF94/3bRt0xJAu5ZPvnBogw
+	w81oeik+O61oAye/A+KuReNmWlFzav4AyvpSzKlKOznfcJ8OvJC10QDihr0z2hC0ytvitlAoG5/
+	ouviqtfW731rDLPs+Q+QFDKLNV0zPMNQRvPaiTq6r4WyLGeVQJlC8+ifdjxGbHFJwmDc0L5TKLj
+	TVgQB4426TjFlenrv8jaNqdK3E6qVSYVYxYd9GdVvW9cH4OcUC2kRgXucqS4a8g7f2TVcS8OJ5X
+	be85Cgopjibp7mKOycYEAbiwRjpt5JaKHUHUpq6Xg8SwbUrRee4GyyA==
+X-Received: by 2002:a05:693c:83c3:10b0:33b:e842:c0ff with SMTP id 5a478bee46e88-33e88b2f9cemr356558eec.0.1790106039634;
+        Tue, 22 Sep 2026 12:40:39 -0700 (PDT)
+X-Received: by 2002:a05:693c:83c3:10b0:33b:e842:c0ff with SMTP id 5a478bee46e88-33e88b2f9cemr356508eec.0.1790106038976;
+        Tue, 22 Sep 2026 12:40:38 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e95c7c63bsm412187eec.10.2026.09.22.12.40.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 12:40:38 -0700 (PDT)
+Date: Tue, 22 Sep 2026 12:40:33 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Subject: Re: [PATCH v19 05/20] KVM: arm64: Track the type of VM in kvm_arch
+Message-ID: <20260922123928.0000443e@oss.qualcomm.com>
+In-Reply-To: <20260920212845.707-6-suzuki.poulose@arm.com>
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+	<20260920212845.707-6-suzuki.poulose@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arKlvZGqu2nt6Ci0@p14s>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 141226f35369d56ad5274b2aa238634a
-X-AntiAbuse: ID - 141226f35369d56ad5274b2aa238634a
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1x96LN-00000003wmE-1j6u-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-h0bm.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: Q8d7jNeIesDom7yntHcD6iitnD-MUKCu
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDI4OCBTYWx0ZWRfX/RcWPXoKszWs
+ LoW52OHtcR6BlvuyXxCu2QQMIVuvwdvHJCFBiSQ7RIDOp5ScoVSJpXpBobTw1vCtgXmA1J80rRS
+ skOSTo8lVPmyP+9anQnmPZxBwH0ufN0=
+X-Proofpoint-ORIG-GUID: Q8d7jNeIesDom7yntHcD6iitnD-MUKCu
+X-Authority-Analysis: v=2.4 cv=eIOGH3p1 c=1 sm=1 tr=0 ts=6ab2d9b8 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Rj_uqbnfv5dchc8eNrcA:9
+ a=CjuIK1q_8ugA:10 a=6Ab_bkdmUrQuMsNx7PHu:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDI4OCBTYWx0ZWRfX7vbOWUAZo5oP
+ Adsxr4M9NI9v7rEmCk+hn7eHZyiW7rhyiUA6ww0rcSfR7ptik5/jn5wqZg/JbLAtJEPp3VofqpA
+ 5FUfwLiYi9pPRvciDXfvTByo3lzGF5Sy39PamVhd0iSQaYj7kBCpNv2/omW4YlV4gXPhfz+s7HB
+ JJrLQrFtEZ3TC3LU+R8394MTJq6gCbU49D8hG/RdQHq8RrtIYg+EdhVf2M8ylh209GtKiOLuo3X
+ v6eLv0uWlW2H/o5XgtgkexOuGjcdTUQDe5Its5xynUhyBguXV2wF51A9suO7KwFDkOgexqS82h/
+ 1Q6pCKxG8rWnuBFjgFT5FgaJAZKKcCtkg0JO2jLKB3k1hBY8v7gvZm5SJT62oS3lTGIhjL39Jyd
+ yub2OjDPEDuG3aeeyKSsU+e7RTQfqIdjZYgx/8tKjY64Ny55Q/ESDcvdbGYI3OiRXQIznp22atL
+ ZNZB33fqJXCsut0qLdQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-22_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0
+ phishscore=0 clxscore=1015 priorityscore=1501 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609220288
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_124016_897603_DE677C05 
-X-CRM114-Status: GOOD (  45.54  )
+X-CRM114-CacheID: sfid-20260922_124042_039261_9329D6A5 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,341 +155,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 09:58:53AM -0600, Mathieu Poirier wrote:
-> On Wed, Sep 16, 2026 at 11:10:51PM +0200, Francesco Valla wrote:
-> > Depending on the driver originating them, data buffers used for virtio
-> > communication can either:
-> > 
-> >   - already be allocated from the coherent memory area that is
-> >     accessible by the remote processor; this is the case of rpmsg
-> >     and the rproc flavor of virtio-console;
-> >   - be allocated from generic kmem, and thus not accessible directly by
-> >     the remote processor.
-> > 
-> > Exploiting the map operations, which are used by the virtio framework
-> > when VIRTIO_F_ACCESS_PLATFORM is part of a vdev's feature flags, add
-> > bounce buffering for the second case: when the map() callback is called
-> > for a buffer, one or more pages of coherent memory are allocated and
-> > data is copied to them, then they are exposed to the remote processor;
-> > the data is  then bounced back on unmap().
-> > 
-> > The first case is not impacted, since buffers already suitable for
-> > remote transmission are passed through.
-> > 
-> > With the bounce buffering in place, any kind of virtio device can be
-> > supported through the remoteproc-virtio transport, at least from a
-> > data exchange standpoint.
+On Sun, 20 Sep 2026 22:28:30 +0100
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+
+> KVM arm64 has different types of VMs with all the different modes in which
+> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
+> protected VM and normal VMs with pKVM. We might soon add other types,
+> e.g., Arm CCA Realm.
+
+Let's have some optimism!  
+
+
 > 
-> Is this _necessary_ for the imx93 platform you are implementing feature for?
->
+> Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
+> checks in the pkvm hyp specific code doesn't need to change, as the only
+> protected guests it deals with is "protected pKVM" guests. To tighten this
+> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
+> supports.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-If I don't want to fundamentally change how the remoteproc integration
-works (i.e.: using buffers only from a pre-shared area), yes. While in
-my test environment the Cortex-M33 serving as remoteproc is able to
-access the whole RAM space, that is not always the case.
-This is even more important for mixed-criticality-ready processors (say:
-i.MX95), where access to different memory areas si defined even before
-the various application cores are started.
+Seems sensible to me.  One trivial thing inline.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
-For the sake of completeness, there *might be* a completely different
-approach that would work: modify every virtio driver to make sure they
-allocate buffers from the pre-shared memory area (that is, the coherent
-memory pool). That approach would even avoid the bounce buffering and
-allow for zero-copy transmission. I even started working on that,
-defining virtio helpers to do the allocations instead of using raw
-kmallocs, but then I dropped the idea because of the magnitude of the
-changes required.
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 22 +++++++++++++++++++---
+>  arch/arm64/include/asm/kvm_pkvm.h |  4 ++--
+>  arch/arm64/kvm/arm.c              | 31 ++++++++++++++++++++++++++-----
+>  arch/arm64/kvm/handle_exit.c      |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++++-
+>  arch/arm64/kvm/mmu.c              |  2 +-
+>  arch/arm64/kvm/pkvm.c             |  6 ++----
+>  7 files changed, 56 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 286489a69dff5..9b1cf9c59e81f 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
+>  	pkvm_handle_t handle;
+>  	struct kvm_hyp_memcache teardown_mc;
+>  	struct kvm_hyp_memcache stage2_teardown_mc;
+> -	bool is_protected;
+>  	bool is_created;
+>  
+>  	/*
+> @@ -306,9 +305,19 @@ enum fgt_group_id {
+>  	__NR_FGT_GROUP_IDS__
+>  };
+>  
+> +enum kvm_arm_vm_flavor {
+> +	VM_NVHE,
+> +	VM_VHE,
+> +	VM_PKVM,		/* Normal guests on pKVM */
+> +	MARKER(__VM_PROTECTED),
+> +	VM_PROTECTED_PKVM,	/* Protected VM */
+> +	VM_FLAVOR_MAX,
+Trivial but given whole point is this is an end marker, drop the
+trailing ,  No point in making it easy to break the ordering!
 
-> > 
-> > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > ---
-> >  drivers/remoteproc/remoteproc_virtio.c | 182 +++++++++++++++++++++++++++++++--
-> >  include/linux/remoteproc.h             |  14 +++
-> >  2 files changed, 190 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
-> > index cfd66d9d1c9e..d21b3b8044df 100644
-> > --- a/drivers/remoteproc/remoteproc_virtio.c
-> > +++ b/drivers/remoteproc/remoteproc_virtio.c
-> > @@ -241,7 +241,14 @@ static void rproc_virtio_reset(struct virtio_device *vdev)
-> >  	dev_dbg(&vdev->dev, "reset !\n");
-> >  }
-> >  
-> > -/* provide the vdev features as retrieved from the firmware */
-> > +/* Provide the vdev features as retrieved from the firmware, plus the following
-> > + * additional ones:
-> > + *   - VIRTIO_F_VERSION_1 that is required by some non-rpmsg virtio devices
-> > + *   - VIRTIO_F_ACCESS_PLATFORM to force usage of the map operations
-> > + */
-> > +#define RPROC_VIRTIO_STATIC_FEATURES \
-> > +	((1ULL << VIRTIO_F_VERSION_1) | (1ULL << VIRTIO_F_ACCESS_PLATFORM))
-> > +
-> >  static u64 rproc_virtio_get_features(struct virtio_device *vdev)
-> >  {
-> >  	struct rproc_vdev *rvdev = vdev_to_rvdev(vdev);
-> > @@ -249,7 +256,7 @@ static u64 rproc_virtio_get_features(struct virtio_device *vdev)
-> >  
-> >  	rsc = (void *)rvdev->rproc->table_ptr + rvdev->rsc_offset;
-> >  
-> > -	return rsc->dfeatures | (1ULL << VIRTIO_F_VERSION_1);
-> > +	return rsc->dfeatures | RPROC_VIRTIO_STATIC_FEATURES;
-> >  }
-> >  
-> >  static void rproc_transport_features(struct virtio_device *vdev)
-> > @@ -275,16 +282,16 @@ static int rproc_virtio_finalize_features(struct virtio_device *vdev)
-> >  	/* Give virtio_rproc a chance to accept features. */
-> >  	rproc_transport_features(vdev);
-> >  
-> > -	/* Make sure we don't have any features > 32 bits except VIRTIO_F_VERSION_1 */
-> > +	/* Make sure we don't have any features > 32 bits */
-> >  	if (WARN_ON_ONCE((u32)vdev->features !=
-> > -			 (vdev->features & ~(1ULL << VIRTIO_F_VERSION_1))))
-> > +			 (vdev->features & ~RPROC_VIRTIO_STATIC_FEATURES)))
-> >  		return -1;
-> >  
-> >  	/*
-> >  	 * Remember the finalized features of our vdev, and provide it
-> >  	 * to the remote processor once it is powered on.
-> >  	 */
-> > -	rsc->gfeatures = vdev->features & ~(1ULL << VIRTIO_F_VERSION_1);
-> > +	rsc->gfeatures = vdev->features & ~RPROC_VIRTIO_STATIC_FEATURES;
-> >  
-> >  	return 0;
-> >  }
-> > @@ -337,6 +344,151 @@ static const struct virtio_config_ops rproc_virtio_config_ops = {
-> >  	.set		= rproc_virtio_set,
-> >  };
-> >  
-> > +static inline unsigned int rproc_virtio_bounce_slot(struct device *dma_dev,
-> > +						    dma_addr_t dma_handle)
-> > +{
-> > +	const dma_addr_t dma_base = dma_dev_coherent_base(dma_dev);
-> > +
-> > +	return (dma_handle - dma_base) >> PAGE_SHIFT;
-> > +}
-> > +
-> > +static dma_addr_t rproc_virtio_map_page(union virtio_map map, struct page *page,
-> > +					unsigned long offset, size_t size,
-> > +					enum dma_data_direction dir,
-> > +					unsigned long attrs)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +	struct rproc_vdev *rvdev = dev_get_drvdata(dev);
-> > +	dma_addr_t dma_base = dma_dev_coherent_base(dev);
-> > +	size_t dma_size = dma_dev_coherent_size(dev);
-> > +	phys_addr_t paddr = page_to_phys(page) + offset;
-> > +	void *vaddr = page_to_virt(page) + offset;
-> > +	struct rproc_map_record *record;
-> > +	dma_addr_t map_handle;
-> > +	void *bounce;
-> > +
-> > +	// No need to allocate a bounce buffer if the memory to map is already
-> > +	// part of the device's coherent pool.
-> > +	if (paddr >= dma_base && paddr < (dma_base + dma_size)) {
-> > +		// The allocation details will be recorded also in this case,
-> > +		// indicating that no bounce buffer was allocated.
-> > +		map_handle = (dma_addr_t)paddr;
-> > +		bounce = NULL;
-> > +	} else {
-> > +		// Allocate bounce buffer from device coherent memory
-> > +		bounce = dma_alloc_coherent(dev, size, &map_handle, GFP_KERNEL | __GFP_ZERO);
-> > +		if (!bounce)
-> > +			return DMA_MAPPING_ERROR;
-> > +
-> > +		// Copy data to bounce buffer
-> > +		memcpy(bounce, vaddr, size);
-> > +	}
-> > +
-> > +	// Save bounce details
-> > +	record = &rvdev->map_records[rproc_virtio_bounce_slot(dev, map_handle)];
-> > +
-> > +	record->original = vaddr;
-> > +	record->size = size;
-> > +	record->bounce = bounce;
-> > +
-> > +	return map_handle;
-> > +}
-> > +
-> > +static void rproc_virtio_unmap_page(union virtio_map map, dma_addr_t map_handle,
-> > +				    size_t size, enum dma_data_direction dir,
-> > +				    unsigned long attrs)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +	struct rproc_vdev *rvdev = dev_get_drvdata(dev);
-> > +	unsigned int slot = rproc_virtio_bounce_slot(dev, map_handle);
-> > +	struct rproc_map_record *record = &rvdev->map_records[slot];
-> > +
-> > +	WARN_ON(size != record->size);
-> > +
-> > +	// If a bounce buffer was used, copy data back to original one
-> > +	if (record->bounce) {
-> > +		memcpy(record->original, record->bounce, record->size);
-> > +
-> > +		dma_free_coherent(dev, record->size, record->bounce, map_handle);
-> > +	}
-> > +
-> > +	record->original = NULL;
-> > +	record->size = 0;
-> > +	record->bounce = NULL;
-> > +}
-> > +
-> > +static void rproc_virtio_sync_single_for_cpu(union virtio_map map,
-> > +					     dma_addr_t map_handle,
-> > +					     size_t size,
-> > +					     enum dma_data_direction dir)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +
-> > +	dma_sync_single_range_for_cpu(dev, (map_handle & PAGE_MASK),
-> > +				      offset_in_page(map_handle), size, dir);
-> > +}
-> > +
-> > +static void rproc_virtio_sync_single_for_device(union virtio_map map,
-> > +						dma_addr_t map_handle,
-> > +						size_t size,
-> > +						enum dma_data_direction dir)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +
-> > +	dma_sync_single_range_for_device(dev, (map_handle & PAGE_MASK),
-> > +					 offset_in_page(map_handle), size, dir);
-> > +}
-> > +
-> > +static void *rproc_virtio_alloc(union virtio_map map, size_t size,
-> > +				dma_addr_t *map_handle, gfp_t gfp)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +
-> > +	return dma_alloc_coherent(dev, size, map_handle, gfp);
-> > +}
-> > +
-> > +static void rproc_virtio_free(union virtio_map map, size_t size, void *vaddr,
-> > +			      dma_addr_t map_handle, unsigned long attrs)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +
-> > +	dma_free_coherent(dev, size, vaddr, map_handle);
-> > +}
-> > +
-> > +static bool rproc_virtio_need_sync(union virtio_map map, dma_addr_t map_handle)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +
-> > +	return dma_need_sync(dev, map_handle);
-> > +}
-> > +
-> > +static int rproc_virtio_mapping_error(union virtio_map map, dma_addr_t map_handle)
-> > +{
-> > +	if (unlikely(map_handle == DMA_MAPPING_ERROR))
-> > +		return -ENOMEM;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static inline size_t rproc_virtio_max_mapping_size(union virtio_map map)
-> > +{
-> > +	struct device *dev = map.dma_dev;
-> > +
-> > +	return dma_dev_coherent_size(dev);
-> > +}
-> > +
-> > +static const struct virtio_map_ops rproc_virtio_map_ops = {
-> > +	.map_page = rproc_virtio_map_page,
-> > +	.unmap_page = rproc_virtio_unmap_page,
-> > +	.sync_single_for_cpu = rproc_virtio_sync_single_for_cpu,
-> > +	.sync_single_for_device = rproc_virtio_sync_single_for_device,
-> > +	.alloc = rproc_virtio_alloc,
-> > +	.free = rproc_virtio_free,
-> > +	.need_sync = rproc_virtio_need_sync,
-> > +	.mapping_error = rproc_virtio_mapping_error,
-> > +	.max_mapping_size = rproc_virtio_max_mapping_size,
-> > +};
-> > +
-> >  /*
-> >   * This function is called whenever vdev is released, and is responsible
-> >   * to decrement the remote processor's refcount which was taken when vdev was
-> > @@ -355,6 +507,8 @@ static void rproc_virtio_dev_release(struct device *dev)
-> >  	of_reserved_mem_device_release(&rvdev->pdev->dev);
-> >  	dma_release_coherent_memory(&rvdev->pdev->dev);
-> >  
-> > +	kvfree(rvdev->map_records);
-> > +
-> >  	put_device(&rvdev->pdev->dev);
-> >  }
-> >  
-> > @@ -429,13 +583,29 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
-> >  		of_reserved_mem_device_init_by_idx(dev, np, 0);
-> >  	}
-> >  
-> > +	/* Allocate one tracking record for each page of the device reserved
-> > +	 * memory. Contiguous memory is not required for this array, which can
-> > +	 * also be quite big (depending on the size of the coherent memory), so
-> > +	 * let's use vmalloc for this allocation.
-> > +	 */
-> > +	rvdev->map_records = kvcalloc(dma_dev_coherent_size(dev) >> PAGE_SHIFT,
-> > +				      sizeof(*rvdev->map_records),
-> > +				      GFP_KERNEL);
-> > +	if (!rvdev->map_records) {
-> > +		dev_err(dev, "failed to allocate memory for map records\n");
-> > +		return -ENOMEM;
-> > +	}
-> > +
-> >  	/* Allocate virtio device */
-> >  	vdev = kzalloc_obj(*vdev);
-> > -	if (!vdev)
-> > +	if (!vdev) {
-> > +		kvfree(rvdev->map_records);
-> >  		return -ENOMEM;
-> > +	}
-> >  
-> >  	vdev->id.device = id;
-> >  	vdev->config = &rproc_virtio_config_ops;
-> > +	vdev->map = &rproc_virtio_map_ops;
-> >  	vdev->dev.parent = dev;
-> >  	vdev->dev.release = rproc_virtio_dev_release;
-> >  
-> > diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
-> > index c3ba51fe9e54..2ff48b505ac0 100644
-> > --- a/include/linux/remoteproc.h
-> > +++ b/include/linux/remoteproc.h
-> > @@ -339,10 +339,23 @@ struct rproc_vring {
-> >  	struct virtqueue *vq;
-> >  };
-> >  
-> > +/**
-> > + * struct rproc_map_record - remoteproc map record
-> > + * @original:	original virtual address
-> > + * @num: allocation size
-> > + * @bounce: bounce buffer virtual address (NULL if not used)
-> > + */
-> > +struct rproc_map_record {
-> > +	void *original;
-> > +	size_t size;
-> > +	void *bounce;
-> > +};
-> > +
-> >  /**
-> >   * struct rproc_vdev - remoteproc state for a supported virtio device
-> >   * @subdev: handle for registering the vdev as a rproc subdevice
-> >   * @pdev: remoteproc virtio platform device
-> > + * @map_records: array of map records
-> >   * @id: virtio device id (as in virtio_ids.h)
-> >   * @node: list node
-> >   * @rproc: the rproc handle
-> > @@ -358,6 +371,7 @@ struct rproc_vdev {
-> >  	unsigned int id;
-> >  	struct list_head node;
-> >  	struct rproc *rproc;
-> > +	struct rproc_map_record *map_records;
-> >  	u32 rsc_offset;
-> >  	u32 index;
-> >  	unsigned int num_vrings;
-> > 
-> > -- 
-> > 2.55.0
-> >
-
-Regards,
-Francesco
-
+> +};
+> +
 
