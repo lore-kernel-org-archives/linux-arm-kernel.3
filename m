@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0161AC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D07C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bexUNSxBam2korKAft1V0IwAYD5mV084XIuY+GXhU+I=; b=vnjIEex3nUSffbEew/Bt9mgfqW
-	RYMJXMkmjYR78wLgU/3fX7HtPXFjwLZV+/kmBHOBsNKCFHCjLysl8XSpxDZt3DMNYF4YxNoYo+lOD
-	k4sgn/IwILr7wIyfYUz/rL6FEmNo4JTtlfWnikKDVcxphdXcEz4E/NojN52lQVlYMeqho6LZrPI4y
-	gRA4BmKVfyp2i9bjZsfonu4JP9SwaJ5ekoyGa57imRomr6yRVhz7zttKktY4T7Na4LrGkkQH+0Wq/
-	lH0RTdqrXsx7yZSdEeRpNEn36TCuWdqzb4EfMG7xZdPypHVpffnYyOl2E9qRyO2/00C3k48Wr0TV+
-	ULqiR9/A==;
+	bh=KBu9oh+TkSTLVV9ZYrPVk83cxnj3jVdJUheu3Z2jp4I=; b=fEjny7VI8bhlYYFCI6DwojZEqn
+	/kBX54dD8itbdVyCrnOuC6+ekNfzohP9qGklYSgK07/dJxmiRoY4zpC8QH+2HUGo/MqjmJNc531Af
+	yu15pUPkEbeSlrPha9AARVzSTSeKRW8DLP3HMaU0rx+h2eFsXtFMIV1RUBKJHBJCQ+XjxLzmmH2CA
+	msOTy6+uvTOFK/4ZdYNR8w/G6BLdF7tAYjthCbuCzOVkCclWUDjfxHPljVY5nS/HC+ts4hBkn5ww9
+	Zu4H1217JI5HN/jkGEckEA/TmX172EnDSw80NWltJWOj0kY7dXf//9DruWd9Lf1NrZnlh7lEdw6ib
+	LZpYD2Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90J7-00000005S8K-3wEv;
-	Tue, 22 Sep 2026 13:13:13 +0000
-Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
+	id 1x90J8-00000005S8p-0C4U;
+	Tue, 22 Sep 2026 13:13:14 +0000
+Received: from mail-ed1-x545.google.com ([2a00:1450:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90J1-00000005S3X-3FwN
+	id 1x90J2-00000005S48-3BJv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:13:08 +0000
-Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c25edb54d22so498364366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:06 -0700 (PDT)
+	Tue, 22 Sep 2026 13:13:09 +0000
+Received: by mail-ed1-x545.google.com with SMTP id 4fb4d7f45d1cf-6a5d57a8d51so5420403a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790082785; x=1790687585; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790082787; x=1790687587; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bexUNSxBam2korKAft1V0IwAYD5mV084XIuY+GXhU+I=;
-        b=e72FZqaN5C+14jKPwldviqqLkIL/tamf7wGpXTkykRgsYvJmfZdhgFGM95PD1j0K3r
-         uxNlF0bCHZw0vunbMm2AiZZRjiTCr7BxxGVkDmpW+k4GaQwVFrP58EpxvhfHoOXBw2DI
-         kiv4PiDol74JsSHG8JyfRg5w/rTB9IMdu5aI+sw/oeLfcoDvDWrKaoHg2cUUBe8NvAbD
-         WSU1uLhZozXfZR7tFAbsridv2m0k+gYwPndS1cSSr5vk794K7eEoYq33mNnxYJde1Ydt
-         K8K7zMsaXxsZsWtAgnyn43v28EGjiivnVjk48vTPVp8BAr1/Ny4rGWjuamHHweRFFuwx
-         x7Cg==
+        bh=KBu9oh+TkSTLVV9ZYrPVk83cxnj3jVdJUheu3Z2jp4I=;
+        b=HnZuSQiRd5tq3KObyTPw+ZgX1BNYn8Bw4Jcyr7vu25NzARNr/o6KtvIkxRbdLnKv6H
+         i617pnUkpyp3EjzRGYMwafvCgE3ezs6fDfH1V6jubPMfudTLK7CoIz62+V2yFYQMQL5q
+         5ihq86fZGmhD7Tj1VeHNfcNvPGG+C7liOKTkGfVDM/6BPTHMjiTnl0qqVHbzyPu7DB5A
+         hvoJFhgvZWKC1lZKwYPn7n/nS1JJDhzrH7Qk4BJrCFABoea6Ibv1pCH2IWzpnMYwO6/S
+         s+4UPrN5j5ouWGaN0GoYniHZ28xZr/zgnrOLo6wGoG3WJdb6W8M5IcGMQIhhwDeOfN3e
+         eupw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790082785; x=1790687585;
+        d=1e100.net; s=20260707; t=1790082787; x=1790687587;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bexUNSxBam2korKAft1V0IwAYD5mV084XIuY+GXhU+I=;
-        b=pT1J2LWLivXlY0EuAoGOukYhLSR8urH7ywxSTr76+yyDbAiFxWGrgHuRrL71xVyG+3
-         yKBMH4lMo028pZTsClp+eDLII7ZmnNpM4P7lQYqTszO4AuMB9K73ofTRD1nu80rZNgzq
-         KBS0dj0nfyjfdLONZJe/KrguPPHFDqgBokhTYFq5xCRbinIlgr1kgiH3RAZ7g7eK7BP1
-         unxzIevTA1y0SkUcOjKxgGPHH57WypNgcYcJJTPN6zL87pxawXA+iNeXCsW5fbJwcnck
-         QuTA3mg6BHDhjDgYf3lYyqLK768W4XI10nMg7YyYpOSG2Xz1fivw7pvSpA/Pq0w7j7xr
-         Xqyg==
-X-Gm-Message-State: AFuF++mLqzelpIDPfK13iq5BG2pcW5EtE+9gfiuAwACrnQra1DgP0cg7
-	rul44IkXvrSpKZgPn6x3cs8wAunuAMcEhSA9DoIU/8wYre1kcGEQJE2+iTxNkSu/G+yYBggNCt/
-	rs2a62sX076sG3KHmQ8VR1ymIBvXG0KmakVMDeB7yjEkjLiDmRXGp1m9cAxZTfjB3la0nfmL3lg
-	FQyxAxkE1D6VSV4J0xoA0MwkFc/nZU0y/VfGzmfTEYSHoqk1gTguPSP7KTuVEaXcccHA==
-X-Received: from ejckb18.prod.google.com ([2002:a17:907:f92:b0:c2a:38b5:a9b1])
+        bh=KBu9oh+TkSTLVV9ZYrPVk83cxnj3jVdJUheu3Z2jp4I=;
+        b=IowpywOCLJY7mC4RcA37LxQw4st2C8oI8iqMExBN8UOwOgp7X72rj94Pnv0M8U5B7F
+         Z+QDrvkNRNqp25zLskv1WCdEOFsTnQ/IA1y8+qgVqplGA71QSer5U+DcaanCrRYZcnNL
+         GEw1YDnNUmVXrh61imOD9I0J2SljEvW66HE0pdhwUHrxhiex3322X7QNPsp2j0pa91oG
+         bnWn2UE0gIPHGq9jFLYhm3uw4ChulcuDJZ48WCmz/bseMKXDY6DjcLwCx0geybhne3rE
+         KRB8AkLgsTLf/9KYAtZq+I4x1Tc0mCLN6mgWFhwd/9JjL9bgTaPKUm4UluS34711Tdps
+         maoQ==
+X-Gm-Message-State: AFuF++nD//dfoh6IVn/vEstkdvFWZwxuVWinj4Km5mnk5+O1hN/8cr3G
+	tDzGlOFPGVlgLnkc+Zjtp1iKJvV/MosZGl/a1C2ZBRR3ZQbWFsD2ZJZrQaCarqZQIwjvFEsczwq
+	/ff5zl3PPbW8frfoDUn9JlWGTcFfmDfIiSOEwgXQ/GPw0sZAEtU6vEFQnjluGMpzRR5e23PuA7g
+	cWKZMXtqm5OezlPfFEcyb+R9MW04MTgftbExssJVguiGGakOERmEseKtwsepEuqWYgIw==
+X-Received: from edxz22.prod.google.com ([2002:aa7:cf96:0:b0:6a9:8583:17bd])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:3e9f:b0:c29:f5d8:9c6f with SMTP id a640c23a62f3a-c2a15802e80mr1246416266b.30.1790082784771;
- Tue, 22 Sep 2026 06:13:04 -0700 (PDT)
-Date: Tue, 22 Sep 2026 13:12:35 +0000
+ 2002:a05:6402:e08:b0:6a9:5669:9b77 with SMTP id 4fb4d7f45d1cf-6aa569b484dmr983240a12.44.1790082786225;
+ Tue, 22 Sep 2026 06:13:06 -0700 (PDT)
+Date: Tue, 22 Sep 2026 13:12:36 +0000
 In-Reply-To: <20260922131259.2975334-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260922131259.2975334-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922131259.2975334-3-smostafa@google.com>
-Subject: [PATCH v8 02/25] iommu/arm-smmu-v3: Move Queue and STE functions to header
+Message-ID: <20260922131259.2975334-4-smostafa@google.com>
+Subject: [PATCH v8 03/25] iommu/arm-smmu-v3: Introduce RangeInval encoding helpers
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_061307_843990_EBDEB031 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260922_061308_813586_568E3DD4 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,182 +95,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The KVM SMMUv3 driver would re-use some of the CMDQ and STE code
-inside the hypervisor. Move those functions to the header file that
-would be shared between the host kernel and the hypervisor.
+Move some of the RIL encodings into helpers so the hypervisor can
+reuse them.
+The hypervisor is going to have its own algorithm to determine the
+sequence of RIL commands needed.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 59 --------------------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 62 +++++++++++++++++++++
- 2 files changed, 62 insertions(+), 59 deletions(-)
+I removed the refactoring from this patch as this code would be
+deleted anyway.
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++-------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 30 +++++++++++++++++++++
+ 2 files changed, 34 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 5732f3ba0122..df1924969212 100644
+index df1924969212..2e54d1ba2566 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -134,33 +134,6 @@ static void parse_driver_options(struct arm_smmu_device *smmu)
- }
+@@ -2418,8 +2418,7 @@ static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
+ 	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
+ 		num_pages = size >> tg;
  
- /* Low-level queue manipulation functions */
--static bool queue_has_space(struct arm_smmu_ll_queue *q, u32 n)
--{
--	u32 space, prod, cons;
--
--	prod = Q_IDX(q, q->prod);
--	cons = Q_IDX(q, q->cons);
--
--	if (Q_WRP(q, q->prod) == Q_WRP(q, q->cons))
--		space = (1 << q->max_n_shift) - (prod - cons);
--	else
--		space = cons - prod;
--
--	return space >= n;
--}
--
--static bool queue_full(struct arm_smmu_ll_queue *q)
--{
--	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
--	       Q_WRP(q, q->prod) != Q_WRP(q, q->cons);
--}
--
--static bool queue_empty(struct arm_smmu_ll_queue *q)
--{
--	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
--	       Q_WRP(q, q->prod) == Q_WRP(q, q->cons);
--}
--
- static bool queue_consumed(struct arm_smmu_ll_queue *q, u32 prod)
- {
- 	return ((Q_WRP(q, q->cons) == Q_WRP(q, prod)) &&
-@@ -179,12 +152,6 @@ static void queue_sync_cons_out(struct arm_smmu_queue *q)
- 	writel_relaxed(q->llq.cons, q->cons_reg);
- }
+-		/* Convert page size of 12,14,16 (log2) to 1,2,3 */
+-		tg_enc = (tg - 10) / 2;
++		tg_enc = arm_smmu_tlb_inv_tg_enc(tg);
  
--static void queue_inc_cons(struct arm_smmu_ll_queue *q)
--{
--	u32 cons = (Q_WRP(q, q->cons) | Q_IDX(q, q->cons)) + 1;
--	q->cons = Q_OVF(q->cons) | Q_WRP(q, cons) | Q_IDX(q, cons);
--}
--
- static void queue_sync_cons_ovf(struct arm_smmu_queue *q)
- {
- 	struct arm_smmu_ll_queue *llq = &q->llq;
-@@ -216,12 +183,6 @@ static int queue_sync_prod_in(struct arm_smmu_queue *q)
- 	return ret;
- }
+ 		/*
+ 		 * Determine what level the granule is at. For non-leaf, both
+@@ -2430,7 +2429,7 @@ static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
+ 		 * where both scale and num could be 0 as well.
+ 		 */
+ 		if (leaf)
+-			ttl = 4 - ((ilog2(granule) - 3) / (tg - 3));
++			ttl = arm_smmu_tlb_inv_ttl(granule, tg);
+ 		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)
+ 			num_pages++;
+ 	}
+@@ -2452,10 +2451,8 @@ static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
+ 			/* Determine how many chunks of 2^scale size we have */
+ 			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
  
--static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
--{
--	u32 prod = (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
--	return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
--}
--
- static void queue_poll_init(struct arm_smmu_device *smmu,
- 			    struct arm_smmu_queue_poll *qp)
- {
-@@ -249,14 +210,6 @@ static int queue_poll(struct arm_smmu_queue_poll *qp)
- 	return 0;
- }
+-			/* Keep the pre-DS 5-bit truncation when scale > 31 */
+ 			cmd->data[0] = orig_data0 |
+-				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
+-				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
++				arm_smmu_tlb_inv_range_enc(num, scale);
  
--static void queue_write(__le64 *dst, u64 *src, size_t n_dwords)
--{
--	int i;
--
--	for (i = 0; i < n_dwords; ++i)
--		*dst++ = cpu_to_le64(*src++);
--}
--
- static void queue_read(u64 *dst, __le64 *src, size_t n_dwords)
- {
- 	int i;
-@@ -1796,18 +1749,6 @@ static void arm_smmu_free_cd_tables(struct arm_smmu_master *master)
- }
+ 			/* range is num * 2^scale * pgsize */
+ 			inv_range = num << (scale + tg);
+@@ -2469,10 +2466,7 @@ static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
+ 		 * command and something would be very broken if iova had them
+ 		 * set.
+ 		 */
+-		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf) |
+-			       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
+-			       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
+-			       (iova & ~GENMASK_U64(11, 0));
++		cmd->data[1] = arm_smmu_tlb_inv_addr(iova, leaf, ttl, tg_enc);
  
- /* Stream table manipulation functions */
--static void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
--					  dma_addr_t l2ptr_dma)
--{
--	u64 val = 0;
--
--	val |= FIELD_PREP(STRTAB_L1_DESC_SPAN, STRTAB_SPLIT + 1);
--	val |= l2ptr_dma & STRTAB_L1_DESC_L2PTR_MASK;
--
--	/* The HW has 64 bit atomicity with stores to the L2 STE table */
--	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
--}
--
- struct arm_smmu_ste_writer {
- 	struct arm_smmu_entry_writer writer;
- 	u32 sid;
+ 		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
+ 		iova += inv_range;
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index dd2fee2f560e..5b23f6ee78d4 100644
+index 5b23f6ee78d4..f3e80d103ba1 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1223,6 +1223,68 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
- 				bool sync);
- bool arm_smmu_erratum_repeat_tlbi_cfgi(void);
+@@ -1285,6 +1285,36 @@ static inline void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
+ 	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
+ }
  
-+/* Queue and STE functions shared between kernel and hyp. */
-+static inline bool queue_has_space(struct arm_smmu_ll_queue *q, u32 n)
++/* Convert page size of 12,14,16 (log2) to 1,2,3 */
++static inline u8 arm_smmu_tlb_inv_tg_enc(size_t tg)
 +{
-+	u32 space, prod, cons;
-+
-+	prod = Q_IDX(q, q->prod);
-+	cons = Q_IDX(q, q->cons);
-+
-+	if (Q_WRP(q, q->prod) == Q_WRP(q, q->cons))
-+		space = (1 << q->max_n_shift) - (prod - cons);
-+	else
-+		space = cons - prod;
-+
-+	return space >= n;
++	return (tg - 10) / 2;
 +}
 +
-+static inline bool queue_full(struct arm_smmu_ll_queue *q)
++/* Only valid for leaf invalidations, non-leaf must use TTL=0 */
++static inline u8 arm_smmu_tlb_inv_ttl(size_t granule, size_t tg)
 +{
-+	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
-+	       Q_WRP(q, q->prod) != Q_WRP(q, q->cons);
++	return 4 - ((ilog2(granule) - 3) / (tg - 3));
 +}
 +
-+static inline bool queue_empty(struct arm_smmu_ll_queue *q)
++static inline u64 arm_smmu_tlb_inv_addr(unsigned long iova, bool leaf, u8 ttl, u8 tg_enc)
 +{
-+	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
-+	       Q_WRP(q, q->prod) == Q_WRP(q, q->cons);
++	return FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf) |
++		FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
++		FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
++		(iova & ~GENMASK_U64(11, 0));
 +}
 +
-+static inline u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
++/*
++ * @num: Number of 2^scale granules, must be >= 1.
++ */
++static inline u64 arm_smmu_tlb_inv_range_enc(u8 num, u8 scale)
 +{
-+	u32 prod = (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
-+
-+	return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
-+}
-+
-+static inline void queue_inc_cons(struct arm_smmu_ll_queue *q)
-+{
-+	u32 cons = (Q_WRP(q, q->cons) | Q_IDX(q, q->cons)) + 1;
-+
-+	q->cons = Q_OVF(q->cons) | Q_WRP(q, cons) | Q_IDX(q, cons);
-+}
-+
-+static inline void queue_write(__le64 *dst, u64 *src, size_t n_dwords)
-+{
-+	int i;
-+
-+	for (i = 0; i < n_dwords; ++i)
-+		*dst++ = cpu_to_le64(*src++);
-+}
-+
-+static inline void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
-+						 dma_addr_t l2ptr_dma)
-+{
-+	u64 val = 0;
-+
-+	val |= FIELD_PREP(STRTAB_L1_DESC_SPAN, STRTAB_SPLIT + 1);
-+	val |= l2ptr_dma & STRTAB_L1_DESC_L2PTR_MASK;
-+
-+	/* The HW has 64 bit atomicity with stores to the L2 STE table */
-+	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
++	/* Keep the pre-DS 5-bit truncation when scale > 31 */
++	return FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
++		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
 +}
 +
  #ifdef CONFIG_ARM_SMMU_V3_SVA
