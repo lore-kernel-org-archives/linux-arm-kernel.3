@@ -4,128 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11CEC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E081EC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcEmOegIQstPE4tx/39/EBfjM/ApKso1D+9TEGy2Uyk=; b=BlBrBvJ2Mq54uwqRvNywaoWXs5
-	Zjk+cCA/GPjnc49sNmx4zbo7ktonjQUgtlOUgo5ZLdvXxf2nRRGkiUovYDcFC3zRpTIOVZq4WnJAT
-	7cNB4c0E6Z7+RDOwU0YqsNoZNlxfAnYeZZcx1aPjgUUdLgrujQ/SNA5IXSnpgXhQ79ERgpbfrJD1m
-	EQJ5D5+MiLXZdG1p/LGjsorpGatV1UiSaFvKRPyYyRmT/1l+WXtEgT28Gn43owU1L3RzhWqnfnOyu
-	dsrnI9wEnAs8ZCTI7eruX4UFzuqIjuVzFO5JbnA/tXP0ttHTS4klo5rradEL16Ll45aDkp7cjz/j4
-	CS0Cu7yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hL0Li77JYhUykO/PcEIaG0Lr5kXBzYPYWXnvLOO0g1s=; b=tvOtlfsiE534c/LGzUN+5zIFoC
+	/Tog2Xe/tBBRLjpjHT3jGOxnurMmtMH5GBQ5Ff8EE07aebKM9CgVhjY3CqO1nl8PGmUIUCxiSgSEb
+	36btX4oxx2M58P4vNL36HmgqBuVLRN/0q/EZZGdMZJuki3ilFhktAUhYJ8OitVaESCoy8amDjRJtq
+	FXDeJ8RP5LVVdgkGDtFvmk4QtN0q0qT9pCdhFiYaGiLWgxP5obb0KViqgIP5Km1uraaI4mvq3zSc2
+	dFaxNv34sju5XOTmDUKc418f3ZiYFmh8gERaV5nkpW0dp5fpGsI4JZFfCCp9GoriG2XCS0UzFEsBk
+	Bb+79T3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91Bp-00000005dU3-17tM;
-	Tue, 22 Sep 2026 14:09:45 +0000
-Received: from mail-francesouthazon11011007.outbound.protection.outlook.com ([40.107.130.7] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x91K7-00000005eAS-23Sj;
+	Tue, 22 Sep 2026 14:18:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91Bn-00000005dTh-0Myx
+	id 1x91K4-00000005e9n-0P2L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:09:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oAUUQLPcxZlSd2Mfc/wSO17+HW56P/FTYRIRgmpIZxcgjitLLlA2fxaQfoI1a/LgeIqHaoYJOsB3/8il2EsA2GF3ibzF8p0L+kP53h/xDq5XpWQnxLmnIq8efkEC5gBWfDlDPtz35qRqUpHZcQaMkFlANrp1JfCe4PlT/omKok3LE2JmgGWE3RRZZTv0f79VgY1KJ0yFOl/lPmAXMg3vZXNJ580laA8I49lHNPc+5+5TtbKFeuEP9VbfbxQX/dRrPaLc3Oc0rqIzf0nlQ2VhsHl/K2rgSHPM9ptowIfuDmDEkwpg/2Mc5UZFQm5NG1NrguMvLM7JytYhYMRUGnN2ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CcEmOegIQstPE4tx/39/EBfjM/ApKso1D+9TEGy2Uyk=;
- b=A6AtLZ8n33bsq+kHdab1G1klGV2v/Cy2vDPhMrjN9ziOAFOlWHJ3o2eKOxlay3PDIBEfG6x1BSHhALKja9dM3oQFfIhyAa/E/XY7b27eWRMjCLTU4/ZQnz11rxMqIZxkS12V9qYfDBUGr7ew8d7VdeMb6nBrx+CkyqNOcDDa+N696zM74KDUlNd0bXEdUstfnKLLJ2fBD7paedf3SPZfHmFHJTwG8MKo8owltjHmPh6dv5OnUtT4IFcm8/uYt0ewJUhRaKaeaAfnSH7ScKmLe8fTlxWn9S2/pnRrgbnC4lFDShz4XSGDqfa3QaYZnQdxhUAopudV07QxEcoUaT10vA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CcEmOegIQstPE4tx/39/EBfjM/ApKso1D+9TEGy2Uyk=;
- b=U2M6NdbDo+/KGGn/gBmAnNsO6IjNHYBMRDaZWAkugLbLxFaY80JoF96FSXl9qb2/C7Bj69UtRYhlanTzXRijrOGH/+/vozs9mC/IMr2yByXWAXIbIqvEIVgrBzeTqe17icJW9GeE/RzgmT9AR3E3/+tyzO5wsCrtThzQcOmLbZc9J9iy4GQKOtvmsBzOGrV8lUkWJvBC9vVTZzozC6uC0A6ahnxHCx1GdtZYhXstFDuyo2QMxiuSVKQX0arIdgYcWmlsxVbV45MD/NIh0xKvuw2bNl6m+L2orwgbntYF0m2YXjN9QCjYLYD9mIFQqWHm0/HSGpXQ3Oz6zTYruUmEiA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by OSKPR04MB11343.eurprd04.prod.outlook.com (2603:10a6:e10:95::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Tue, 22 Sep
- 2026 14:09:36 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
- 14:09:35 +0000
-Date: Tue, 22 Sep 2026 22:13:56 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	peng.fan@nxp.com
-Subject: Re: [PATCH RFC v2 2/4] iommu/arm-smmu-v3: Support shared SIDs in
- insert/remove_master
-Message-ID: <arKNJH2YWQT9KL7x@shlinux89>
-References: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
- <20260921123846.1663580-1-peng.fan@oss.nxp.com>
- <arG6hmng3NddGEHm@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arG6hmng3NddGEHm@nvidia.com>
-X-ClientProxiedBy: MA0PR01CA0107.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:af::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Tue, 22 Sep 2026 14:18:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D5F4843EEF;
+	Tue, 22 Sep 2026 14:18:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1641F00893;
+	Tue, 22 Sep 2026 14:18:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790086695;
+	bh=hL0Li77JYhUykO/PcEIaG0Lr5kXBzYPYWXnvLOO0g1s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=O8GdP5ha9c+k9+oOKFcpcha3fi6tMAnBquRG3oH7rwacA3peCM0pjg53ElzhgR5nc
+	 lb7A6bYwXCU4y+prUCbDS6cE7qV1ezapEQzgCwaDkENa/p56W3Nu8/vTkITVHqxoK/
+	 d4iQfXfHCnWijYTvht/Ww8x9G4fxbfefGFi/9ID54mV3mUCl+lrC6RWm6B8fvRo15u
+	 wq1hZBWxC2uItwjsjOQCTWA66fTBoHKLO53YKPXjOvJrcgwirPVUWrYjSXD63D2PUn
+	 vv+GWtwK0S0K1Qshz2x+hTZ7/MIDwBQ851dNZSkNuIvKnO5z9E3acwy6cDm/U6jE4r
+	 AhJqf0zQnzMWA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 22 Sep 2026 15:17:55 +0100
+Subject: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|OSKPR04MB11343:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8fa7ecef-ce9f-4288-9faa-08df18b321c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|23010399003|18002099003|22082099003|11063799006|10067099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: dnJarWEIPb6WwQse465wJ2dG253u/uUOjNWr61WHuv7MNkkPnaJyjdCV07b53w6q2q25RTvzITNt90ZB1MkZ4Y2AnAvzWOOmqkKTEBlkvw4+r+qyGaM49f7ZzmqRPAST1IqqgBhrQBBDyM392mdbFAuoTbUK6jvTmsR3P/xj60hGFhFiF/Eciwrg1PwTIYDUZifvTTnXxlYCxN7YcNmYJN2CaWO6dPlCByq6b17j2sTNYJpXAOGcJxHqsSRe0Tg0CGA74tMgjpPH8X2JEmjGsqvjvl+rEW4GLfxpG2iEcCNgFlY6EkD6Uoz5UcFZKkxGN4xjfMV/5TYoAaemAnWM3ObnYb60X3SEcYSOWD8xlfNphX/Usi9W8Zwsv2wMYgugfzmSgtVn3FtKkAgo9+2lc5dBQivnU1GgQ6s8iW3ux6VJ81+Q79i1sPVQ+7G0F97VQ4iXK5ybhnTITNrBP5GibPf4W7mwdaYo4lRyq1a03GfA8FqsxCgHchsyWpD05t7PN9i1HORgep62iqu6dDjy4aRnNf0/tNJd7B6ueKQUrghLEqxBkuJPvA/7XDhLx3an+sFW5fArjpNlv1bBkAtp8lGaEIwp4P4bYpC+pDB+FgvWa/V/xWIKmGyiDlMLS6FJw5+/CZ11OTInt0lRbzj2tb6G1GPiSnDKw0Hs/CNxQQo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(11063799006)(10067099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PfAc2O04aeG6ILpWQ38Abjug64jJC7nqaLND5UUltwhZ9PRcUj4YzXwwtnK0?=
- =?us-ascii?Q?AE6n6lBFg6twKd4QTiQrh4AyCKrHo9Jl8OBjB281E1ePAm641H1oz2ChKi+E?=
- =?us-ascii?Q?ZIbvR092dXbRoYrt1QSgA44XJfa6QbwYEYRjPeRZL9ZmvU0pYk7sxXXiYlPJ?=
- =?us-ascii?Q?3jHeHlONyzcNcYNh/IO7S0CDINQcp2QETDv0atagLeTB9zhIiiZnYlM9RT5g?=
- =?us-ascii?Q?aZWA1RMA3h4yJ9P68exuoJi0jiqo3hbcNS0nqUg1vwl4StbI8gYErK/4cFUS?=
- =?us-ascii?Q?5D15aaGHX0vAyDULySjZSYkX1KEbGlcmMzttL/Fk6PqF448Pmz2VzarsY69v?=
- =?us-ascii?Q?7JMtNWzt5StGsL/ZvI4lyQEhn5gH5qw9W8MhqM3QGfujisY7IllVrumfR8VS?=
- =?us-ascii?Q?YqvrxYXXOaa5IpJ5xSgbCqsYO4jkyHAyGQpo/3tDsYfjzjB/eC6uIQov3UTp?=
- =?us-ascii?Q?bmp7Ab9osBQbJ5bmjFRtq7d96lowl77Y1zbNERC5fMmYpGx4ZqPG4qxYumXx?=
- =?us-ascii?Q?9sUAFzj+KeCvM81KN0eUFoEAENSZhpcgylEYIe7em5wvSiSL+CjPBnFoncKK?=
- =?us-ascii?Q?25cMnyl6PqXMYxjV109ZDfT4C5/XYhh3gEP42VL+r8vMCiQ4iVOap8FejoWv?=
- =?us-ascii?Q?wXNt1OavOGJdLMXTMVA5s2nS17cDIUh14Z63d+mR9Wani/2WcLK+j+G65n5T?=
- =?us-ascii?Q?0gEgIHtoVDkJ/FbBGyl9i7uhm7eANGx4+f14ebMe/O0TSRQbUxTPvQ4uiKk4?=
- =?us-ascii?Q?rXhKqCyBqVgYbEyJ2Vt1rjI2V3WMRrdapqmpcmYTIA1u164KCNpx/TAoxrdg?=
- =?us-ascii?Q?3bSGBn3biyoGcTZPkodzqfd1jYQl+qpTPD9Eus4kgX0NmFaNK/JtcZfokZ+X?=
- =?us-ascii?Q?dSA6KBf5AFiV9oStChOPQIMQ153WZEU99BjGHigV9mDXLdWat+XIy0XP9OJI?=
- =?us-ascii?Q?KRmb3tfoavxGtZCXsSZHsWTTX4xjEpb8embkMv3SgG9MyBW4u/479Ux47VtL?=
- =?us-ascii?Q?1DTKb8y8YmLe00um6aYLM6aQSX/CvESSEHPJJzsdoEiov0EvbZkBfcSK83s6?=
- =?us-ascii?Q?tfr7tjMkVXjb1Xi5BhEnSh2x2QVeaiZ4+QVCq1FVsXtzZzpP7Pcp6og4xiJr?=
- =?us-ascii?Q?jRbRbj91VhQnltz4GIi6pjOs9RSQwOqNEz1t8U2cEYUiFkHTBfjl9DoDmh1N?=
- =?us-ascii?Q?ExGi+AxDN2lfGEMra4YgRJltycSm5uLpuC8odjYqfR3L6oTHxCNYLHVU+B2V?=
- =?us-ascii?Q?dzw0IhCX1wDAlBYNasf8TM5eJ4zBJtaBgdqmPGe48Yrmz+qOAZPoIDxBTv1G?=
- =?us-ascii?Q?dLTfNE0rWc1aJWUh/e+dCFUn3lVdthYPN5oPvSqHDleBOOrLBiwpZIfgtCx5?=
- =?us-ascii?Q?bFFrX/YE/qRF+Ys5VyyKkH0KlpxW5mOfYgzDfNBpqXiC9n9f49T4Bf/Fan8H?=
- =?us-ascii?Q?6Ks+Up9EXzFj74KIXm0QvH3TFL/BP+fCR23E0rNFsll+WmlMKgyj5ohzCzp2?=
- =?us-ascii?Q?09sH5qinViQnNektNhtaQX3rJedFazryIgq0sGg9/AEnKeiY6KtmX4XpeVMD?=
- =?us-ascii?Q?VJr61S6ifgD2BX6RchNE8ymCtQAiAYHCfmlJdsCjbBC09RKABfdzT/7Eu9pX?=
- =?us-ascii?Q?qXeDcpYouVjTHyrh8voUMs+PcHPNmpVilcw/zngaZw/NqPAkGMLMRlHHnHAA?=
- =?us-ascii?Q?fNA4qmXeArKys5BomCNsBgJuuv30VKOpnKlrg5KPKVwdpgoq9/Evs+M+53gk?=
- =?us-ascii?Q?c3LSXZvxBL3AS54tCOaVp272t2RW6wC7aIURCCi5p0WsZaGhaZA3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8fa7ecef-ce9f-4288-9faa-08df18b321c5
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 14:09:35.6423
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3lJo7gCWHIfm0ta7365ciGUgwPSFia1Bvx81zl4lJEv8E21x/q60nOH+gXL89/8WSs4si+FZjidCLs+ocSUbj0774rEjqSggpwFnZemZTzsqqvjzSXHh+Rf5V4voY8yz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11343
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_070943_129285_97FB1D32 
-X-CRM114-Status: GOOD (  17.20  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
+References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+In-Reply-To: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Mark Rutland <mark.rutland@arm.com>, 
+ Fuad Tabba <fuad.tabba@linux.dev>, Randy Dunlap <rdunlap@infradead.org>, 
+ Fuad Tabba <fuad.tabba@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Jack Thomson <jackabt@amazon.com>, 
+ Jack Thomson <jackabt.amazon@gmail.com>, 
+ Alexandru Elisei <alexandru.elisei@arm.com>, 
+ Vincent Donnefort <vdonnefort@google.com>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+ Sean Christopherson <seanjc@google.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2328; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=n2iNqrUWXUV6kG9gmr7Ss+/9sq490YsJlL1ITkgMOl8=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI29Ulw6bSX8/x6eEtmwteg4PN61fYFF3fqN35wF6plV
+ 27t8XfuKGVhEONikBVTZHn+RXx/kEjYvM4L/m4wc1iZQIYwcHEKwEQe3WP4Hx5zzc3eN/nUmp8r
+ f0V7M/E+OfLUaslcTmVHk+z5sXX8xYwMTxUEOZ5Hrv+XzLPxnrNLzOT0+pvicvo3H79/9z0+RlK
+ ZFwA=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,92 +94,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 04:15:18PM -0700, Nicolin Chen wrote:
->On Mon, Sep 21, 2026 at 08:38:46PM +0800, Peng Fan (OSS) wrote:
->> @@ -976,6 +976,24 @@ struct arm_smmu_device {
->>  struct arm_smmu_stream {
->>  	u32				id;
->>  	struct arm_smmu_master		*master;
->> +	/*
->> +	 * ref_count > 1 means multiple masters share this SID.  Protected by
->> +	 * smmu->streams_mutex.
->> +	 */
->> +	unsigned int			ref_count;
->> +	/*
->> +	 * When ref_count > 1 the STE has already been written by the first
->> +	 * master; subsequent masters must skip the write.
->> +	 */
->> +	bool				ste_installed;
->> +	/*
->> +	 * Links all arm_smmu_stream objects that share the same SID across
->> +	 * different masters.  The canonical (XArray-stored) entry is the list
->> +	 * head; non-owning sharers are linked into it.  Used to transfer
->> +	 * XArray ownership when the current owner is removed.
->> +	 * Protected by smmu->streams_mutex.
->> +	 */
->> +	struct list_head		shared_link;
->>  };
->
->SID-sharing masters still allocate their own streams. Though the
->SIDs are the same number, they own duplicated streams linked via
->that "shared_link" list.
->
->  master_a->stream[0] --> stream (SID=X) --|
->                                      shared_link
->  master_b->stream[0] --> stream (SID=X) --|
->
->But maybe they could share the stream structure directly? I.e.
->
->  master_a->stream[0] --|
->                        |--> shared stream (SID=X)
->  master_b->stream[0] --|
->
->
->The stream structure would still need a list for shared_masters:
->
->struct arm_smmu_stream {
->[...]
->	/* Every sharing master, ->master included. Empty unless shared */
->	struct list_head shared_masters;
->};
->
->ref_count could be simply !list_empty(&stream->shared_masters).
+Currently kvm_vcpu_pre_fault_memory() is the only place where generic code
+can call vcpu_load() on a vCPU that has not yet been initialised.
 
-Agree.
+This can be problematic, as being uninitialised, a vCPU might not be in a
+state where it is correct to do so.
 
->
->
->Does i.MX need to support SID-sharing with multi-SD device? If not,
->the master could have only a simple shared_masters_elm:
+Provide kvm_arch_vcpu_allow_pre_fault_memory() to allow architectures to
+override this behaviour before the load is attempted.
 
-For i.MX, there is no need to support SID sharing for multi-SID device for now.
-Not sure, in future there are cases that needs SID sharing for multi-SID device.
+Implement it as a __weak symbol defaulting to the current state where it is
+always permitted.
 
-I could update in V3 following your suggestion.
+This lays the foundation for a future change which implements pre-faulting
+for arm64 which will wish to disallow this for uninitialised vCPUs.
 
-Thanks,
-Peng
+As no architecture currently overrides it, no functional change intended.
 
->
->struct arm_smmu_master {
->[....]
->	/* Supports num_streams == 1 only. Empty if SID is not shared */
->	struct list_head shared_masters_elm;
->};
->
->> @@ -1024,6 +1042,11 @@ struct arm_smmu_master {
->>  	bool				ste_ats_enabled : 1;
->>  	bool				stall_enabled;
->>  	bool				ats_always_on;
->> +	/*
->> +	 * True when at least one of this master's SIDs is shared with another
->> +	 * master.  SVA, stall and IOPF are disabled for such masters.
->> +	 */
->> +	bool				shared_sid;
->
->Then, this could be !list_empty(&master->shared_masters_elm).
->
->Nicolin
->
->
+Suggested-by: Oliver Upton <oupton@kernel.org>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ include/linux/kvm_host.h | 1 +
+ virt/kvm/kvm_main.c      | 8 ++++++++
+ 2 files changed, 9 insertions(+)
+
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 03bfc92864b6..c11fda8704a3 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1693,6 +1693,7 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
+ bool kvm_arch_dy_runnable(struct kvm_vcpu *vcpu);
+ bool kvm_arch_dy_has_pending_interrupt(struct kvm_vcpu *vcpu);
+ bool kvm_arch_vcpu_preempted_in_kernel(struct kvm_vcpu *vcpu);
++bool kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu);
+ void kvm_arch_pre_destroy_vm(struct kvm *kvm);
+ void kvm_arch_create_vm_debugfs(struct kvm *kvm);
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 65eb26a0520d..9662baf2bfca 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -3961,6 +3961,11 @@ bool __weak kvm_arch_dy_has_pending_interrupt(struct kvm_vcpu *vcpu)
+ 	return false;
+ }
+ 
++bool __weak kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
++{
++	return true;
++}
++
+ void kvm_vcpu_on_spin(struct kvm_vcpu *me, bool yield_to_kernel_mode)
+ {
+ 	int nr_vcpus, start, i, idx, yielded;
+@@ -4365,6 +4370,9 @@ static int kvm_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+ 	    range->gpa + range->size <= range->gpa)
+ 		return -EINVAL;
+ 
++	if (!kvm_arch_vcpu_allow_pre_fault_memory(vcpu))
++		return -ENOEXEC;
++
+ 	vcpu_load(vcpu);
+ 	idx = srcu_read_lock(&vcpu->kvm->srcu);
+ 
+
+-- 
+2.55.0
+
 
