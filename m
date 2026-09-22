@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BC5C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D834AC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oxn6Ca7Nx4NbYpUu5UoOQ5jCWdGj3GIw0I/CPTd85kY=; b=fDDtTSrR046FWHCzlBQ0OdoCfb
-	wk53fqsRFEHqZn8FeshiDzNGRUAdmShN+X7oB/WhlxfGEJGPfECbt2xeNQ2ORYePQpeHhQBc0R6Ty
-	xwgatbfhHZT7lr5bDEihJiEvPVOA3IFVmAo33Vpuljt5/6O9FMyFzDnS5xUCuQvaj5XzvadxmwCoi
-	LsPxY1MElpeeclK4YQOlKvu1GPAwsI/dWnaf5iRhzxe3kvQtRofM0q8g/ij3IdtL26olHJJZxp96k
-	CqR3oR/EXP1EDf9TGvtFOs7nXmmm5OCDBuDrUDwENKntnA+JJ++EABym1cpGyPP+GiHnVnNulFV93
-	1SrmjIUQ==;
+	bh=bkdY5QoUikW/hUKBv7iWovzBUjrfRCs9UqHmvb30Ogw=; b=LKXozH4S5sBXMWK/K8KhicUgpb
+	Slz9y3uGq2tCIn/Z7jyj9V/R05EDU2l0NkpfYq1Oy43GwOWoF10XGW/McAe0bQVcojkLw1gmJijFm
+	tO6/qpN7+l/UE/Dwr9Z9CGhqP3Z/iVF9ZA9lrP1dAAKPAqmIYN/8Fx5fmZSOq396FlyNlLxEHr+XL
+	8MwkvgPlorLr1e6aZPgn62F3pXSK76vmS/t4ypuSWdkkJtrNS5Ecxz/MHLRhl7YRiq+otJr+roldT
+	nPhe6OtVWHC6sQPoX/yg7oGDIjqDjH6R3g5BwNxI3PSEw48ARNB3nRjOrxtDWRTlB9w0f9n/jt1Ak
+	eBMUiNWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91Kp-00000005eXb-1pGC;
-	Tue, 22 Sep 2026 14:19:03 +0000
+	id 1x91Kx-00000005ebx-2zba;
+	Tue, 22 Sep 2026 14:19:11 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91Ki-00000005eTL-3HqZ
+	id 1x91Kp-00000005eXa-25G5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:18:56 +0000
+	Tue, 22 Sep 2026 14:19:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82C2343F3C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4318E40B25;
+	Tue, 22 Sep 2026 14:19:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFAAD1F000FF;
 	Tue, 22 Sep 2026 14:18:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 226CC1F00893;
-	Tue, 22 Sep 2026 14:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790086736;
-	bh=oxn6Ca7Nx4NbYpUu5UoOQ5jCWdGj3GIw0I/CPTd85kY=;
+	s=k20260515; t=1790086743;
+	bh=bkdY5QoUikW/hUKBv7iWovzBUjrfRCs9UqHmvb30Ogw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=IOlgA7XuqBZ358yrxXULdyure+iaa6Mtuf80OmgbeuqhqCuTB2v0k2F6EiMDUPbPU
-	 3m/CDU838Fx9Cuj3VrRqxb8fOrcMoBWMEOZ0pb0cJgO8/kJAoZNUC1PSR9LhaIy6ke
-	 GfnBpClZfRSYx1HUWJ4TF5XHKGxVsG3ruLkA5eAt/gDJ8XP8uvkYVr2Yg20xDT0rYC
-	 g3/54T4UMrBg4Y6weTH7/dl+lRP4ojPDzGsH/qarwlW19LekWZmT0Yln/H45sNrc0k
-	 r2PRqB/JLYEMYE8b/oo0SiseSOM5+EsL1MJUVbCeeFNO7sOhg01Fi7zbDTFeJAGjTY
-	 sdpA9kHcx5/BA==
+	b=GyCN7jqN/CoIWJFvNoFAxgIBny2D+4pinx0yeYCXlJ0qgkTiWNdHmcfSnABRL27t5
+	 AdKsMarz7IAili5OC/C/c/cpaa1kn+04VIFOlwkG0ssy70FgVpxGxKRLPkePuomdOP
+	 ycZLUgkkIW0WxfelkPC9BQcTN+oE0wsKZxERH4gn733eTpjGd07RdNbeDzWM9j/B2x
+	 IctnTTN779RapU4x/BNVT/m4QLXwtYZTK9ffUeA81HXM3+8v7t/iwdU8uEiwvya2fZ
+	 KORWTYTbAm87j9JgxdDfL+eJYvxa11DYH4wtynt11F6zyE1todu2/6nILg9Lk6sUNQ
+	 VMXtfE3FWcJ3Q==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 22 Sep 2026 15:18:01 +0100
-Subject: [PATCH v3 07/14] KVM: arm64: Size the stage-2 memcache from the
- fault MMU
+Date: Tue, 22 Sep 2026 15:18:02 +0100
+Subject: [PATCH v3 08/14] KVM: arm64: Propagate EHWPOISON in
+ kvm_s2_fault_pin_pfn()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-kvm-arm-prefault-v3-7-787bd3bc7e3f@kernel.org>
+Message-Id: <20260922-kvm-arm-prefault-v3-8-787bd3bc7e3f@kernel.org>
 References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
 In-Reply-To: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,12 +73,12 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
  "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2291; i=ljs@kernel.org;
- h=from:subject:message-id; bh=eoI9LJ1R2FVCS/++1XTnAO/eBVHu+hbr5+7z4vbkU20=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI29UlmLNxokNxRUbu3cJH6rt9+pwqsOXP3nzq3XCh9f
- fS+SQZNHaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE8gQBi5OAZiIsSEjw6UHl3eq3WfOWspR
- xsKxeM/p7uktubm6Vzhf1txPazv+h5nhv8f1a/c/Ojgdtn6zeucc0W8a5dUsJiu7Zz2Y+kTZU/o
- YLy8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1982; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=Wox9mL75hsFbcgIdf6d99gH1zw8jSQZBJjzuXgfg9vQ=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI29UneLW3mulbBneA24fAuw6orzls0shrmCLupdR6Xc
+ GK7flO1o5SFQYyLQVZMkeX5F/H9QSJh8zov+LvBzGFlAhnCwMUpABM5qMjIsG2D+GFX5XeTu6RX
+ fz3DV9nu9Veh/tgWcyb/S46S0fXmexkZLubp7+2RFfnFU64b+YS5/cNMT4bL4vcUV82d+FWNYZY
+ MGwA=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -95,69 +95,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-topup_mmu_memcache() sizes the page-table cache from
-vcpu->arch.hw_mmu, which is the MMU that faulted.
+Currently kvm_s2_fault_pin_pfn() handles a poisoned page directly by
+sending a SIGBUS signal itself.
 
-Pass the target s2fd->mmu instead, so the mmu used can be controlled by the
-caller.
+This is an odd place to do it, the caller should decide what to do with
+errors, so move the handling to the sole caller, user_mem_abort().
 
-For a guest abort this is vcpu->arch.hw_mmu, so this commit introduces no
-functional change in practice.
+This lays the foundation for stage 2 pre-faulting which, arising from a
+synthetic fault, should not send a signal.
 
-However, it's necessary for a future change which introduces stage 2
-pre-faulting which must always target the canonical MMU regardless of the
-vCPU's last-run context.
+In order to do so, check to see if user_mem_abort()'s caller has set result
+- i.e. whether it wants to be informed about the outcome of the fault
+handling.
+
+If it does, then it is implied that it should handle the -EHWPOISON error
+itself. This is the case for pre-faulting.
+
+Otherwise this is real hardware, so send the signal.
 
 No functional change intended.
 
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/mmu.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 5c429065a4fe..221ea069f9bb 100644
+index 221ea069f9bb..2576b967d20e 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1606,9 +1606,9 @@ static void *get_mmu_memcache(struct kvm_vcpu *vcpu)
- 		return &vcpu->arch.pkvm_memcache;
- }
- 
--static int topup_mmu_memcache(struct kvm_vcpu *vcpu, void *memcache)
-+static int topup_mmu_memcache(struct kvm_s2_mmu *mmu, void *memcache)
- {
--	int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
-+	int min_pages = kvm_mmu_cache_min_pages(mmu);
- 
- 	if (!is_protected_kvm_enabled())
- 		return kvm_mmu_topup_memory_cache(memcache, min_pages);
-@@ -1707,7 +1707,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd,
- 
- 	if (!perm_fault) {
- 		memcache = get_mmu_memcache(s2fd->vcpu);
--		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
-+		ret = topup_mmu_memcache(s2fd->mmu, memcache);
- 		if (ret)
- 			return ret;
- 		if (kvm_is_nested_s2_mmu(kvm, pgt->mmu)) {
-@@ -1825,7 +1825,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	int ret;
- 
- 	hyp_memcache = get_mmu_memcache(vcpu);
--	ret = topup_mmu_memcache(vcpu, hyp_memcache);
-+	ret = topup_mmu_memcache(s2fd->mmu, hyp_memcache);
- 	if (ret)
- 		return -ENOMEM;
- 
-@@ -2251,7 +2251,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
- 	memcache = get_mmu_memcache(s2fd->vcpu);
- 	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
- 	    is_protected_kvm_enabled()) {
--		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
-+		ret = topup_mmu_memcache(s2fd->mmu, memcache);
- 		if (ret)
- 			return ret;
+@@ -2016,10 +2016,8 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
+ 				      kvm_s2_fault_is_write(s2fd) ? FOLL_WRITE : 0,
+ 				      &s2vi->map_writable, &s2vi->page);
+ 	if (unlikely(is_error_noslot_pfn(s2vi->pfn))) {
+-		if (s2vi->pfn == KVM_PFN_ERR_HWPOISON) {
+-			kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi->vma_pagesize));
+-			return 0;
+-		}
++		if (s2vi->pfn == KVM_PFN_ERR_HWPOISON)
++			return -EHWPOISON;
+ 		return -EFAULT;
  	}
+ 
+@@ -2261,6 +2259,13 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
+ 	 * get block mapping for device MMIO region.
+ 	 */
+ 	ret = kvm_s2_fault_pin_pfn(s2fd, &s2vi);
++	if (ret == -EHWPOISON) {
++		/* If result is specified, let the caller handle this. */
++		if (result)
++			return -EHWPOISON;
++		kvm_send_hwpoison_signal(s2fd->hva, __ffs(s2vi.vma_pagesize));
++		return 0;
++	}
+ 	if (ret != 1)
+ 		return ret;
+ 
 
 -- 
 2.55.0
