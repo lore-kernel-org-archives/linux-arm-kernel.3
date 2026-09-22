@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BD2C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5176C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4OeW3luyIICrk7TMlGAc08jfnsvhFPtK/vh0dt3e8U=; b=3WHI3G1C/R0CKaZKqTauTTzMa+
-	d87F1V5IxIsnudfOjUTzi6fXgCc0YTtdIMHUbw/zgRwcSWZIibpRJSnUegOmG4CNh6cV44XJAGYso
-	ezHsoXbd0Ex1OqdLIkfyjv7Dqi6jzvkO3os5VAmDrvSg7Cu+DxIRKVBTe00vb9T6WC/7gsOG+7SaV
-	J7fvcFe9l+xJjNlU4YCS7nSa5UDJMAiDY2sx/6s7EnmMsWa1hbf+ysvTV0cRI3HRUz35W2GNR4yDO
-	lAMfss4Ts2yN9ULhjH78vI++Du0fxQU/kBoW001NWK/xlHxr0isHvVr0rxLqZzx36nOX2NPsJbsdl
-	LmJbqK8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zHqiX4YVPMLyO/94siCKbbf5cimWin5hQKiCjYKTOQU=; b=B52wa3zJ8iSdHgc3SXx5II+hr/
+	qZ80LLJCSLxfIbixuKqhGMgPGnck9u3IE62HJyjnqVawLM4jlIydBFYc4yEsBKJ8DrIdukF8EW2JV
+	QHPDuigCd8hvRAoyVQrAMrQyyAoD8YiG7J8vkEzqcuPuKlWgx++2KVQmILx0HL9zlk1bOXy5T1Up3
+	CyRBF8IDIEcI+ruGVHpik1JfsOMprtb6RvoQIEPo5y2E1KUSJLfNwKCFDXo3VHvf7EJ0kJ560EoPC
+	r0MH18o7vuYa8Rl1WhZ6bk2gwJZ5sB6dC2RyCiZi3ZCP0UikubO1oTH9DrFzfWZBMF08or6TqDU9c
+	b97fabug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8pdL-00000003v3Y-254Z;
-	Tue, 22 Sep 2026 01:49:25 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1x8pgN-00000003vR7-3zjr;
+	Tue, 22 Sep 2026 01:52:31 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8pdI-00000003v2U-16Ti
+	id 1x8pgK-00000003vQA-2U04
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 01:49:22 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=u4OeW3luyIICrk7TMlGAc08jfnsvhFPtK/vh0dt3e8U=;
-	b=XEF5AifigFLHzC6vPt7jWVXHWqO7TWWcV78nB/QcHJKH+wQYNSJ4PBgCX/HuDvg+1I0z2IrXa
-	jThMnLDdz1DVJ7xjwM1N2r4i+3rTj7noDOt9HSYkB4YMxcNdPt4j9ZVsyzkGZJjNigM7EHNfuEe
-	W5AohBmvbW1es3JjuhpjoMw=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hpjR63t71zLlXD;
-	Tue, 22 Sep 2026 09:38:10 +0800 (CST)
-Received: from whupemk200014.china.huawei.com (unknown [7.152.185.79])
-	by mail.maildlp.com (Postfix) with ESMTPS id B3C0F4048B;
-	Tue, 22 Sep 2026 09:49:12 +0800 (CST)
-Received: from [10.174.179.24] (10.174.179.24) by
- whupemk200014.china.huawei.com (7.152.185.79) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 22 Sep 2026 09:49:11 +0800
-Subject: Re: [PATCH v2 1/3] firmware: arm_ffa: Split the response out of
- ffa_msg_send_direct_req2()
-To: Jamie Nguyen <jamien@nvidia.com>
-CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
-	<sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
-	<lenb@kernel.org>, Dat Mach <dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260901192906.133670-1-jamien@nvidia.com>
- <20260901192906.133670-2-jamien@nvidia.com>
- <348dfed7-6aa2-77a2-a0a9-3aeed22f46b8@huawei.com>
- <20260921174941.2406319-1-jamien@nvidia.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <bd33caf3-76d0-eff8-23e2-a9e51136d5e3@huawei.com>
-Date: Tue, 22 Sep 2026 09:49:10 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Tue, 22 Sep 2026 01:52:30 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=OqF9kei5qlJSCHIPkD+YpMEInt/xj3tmUHukrVzxAyg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790041945; v=1; x=1790646745;
+ b=j/CNfqX6WGtjEqH6GjAWAmTbRIqv2KdqKGO4WPfyQ/9ySTWn8MadgAyI9NEsK/J0xCfsSJX+
+ Eod2dcWo+gzQgpGsn59d4Rs396UbDt7UwEum/YL/VCr44xSp1FeO+w4OYk38UpulJZWPYlo7PFq
+ gQW7xlADLKvO07vQXIRuXf1M=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id b67e6e7cac50933a;
+	Tue, 22 Sep 2026 01:52:15 +0000
+X-Mizu-Trace-ID: b67e6e7cac50933a
+X-Migadu-Flow: FLOW_OUT
+From: Qingfang Deng <qingfang.deng@linux.dev>
+To: Russell King <linux@armlinux.org.uk>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linusw@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	Thomas Weissschuh <thomas.weissschuh@linutronix.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Qingfang Deng <qingfang.deng@linux.dev>
+Subject: [PATCH v2] ARM: errata: document Cortex-A9 from r2 as affected by erratum 754322
+Date: Tue, 22 Sep 2026 09:52:03 +0800
+Message-ID: <20260922015205.253872-1-qingfang.deng@linux.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20260921174941.2406319-1-jamien@nvidia.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.24]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- whupemk200014.china.huawei.com (7.152.185.79)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_184920_801082_7B7B2CE0 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260921_185228_848746_3E3E52AF 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/9/22 1:49, Jamie Nguyen wrote:
->> The kernel document was updated for this, please update the
->> rest of two patches as well.
-> 
-> I'll update all three patches to use:
-> 
->      Assisted-by: LLM
-> 
->> As you noted in the cover letter, the AML thread will stall here if no
->> response, block the ACPI interpreter and the ACPI global lock when
->> the field is Lock-flagged, so do we have some warnings if that happened?
-> 
-> There's no warning today. Would a rate-limited warning after a prolonged
-> wait be useful here? I'm hesitant because that would also affect non-ACPI
-> callers of this helper, and I don't believe FF-A defines a threshold after
-> which the wait is abnormal.
+The Cortex-A9 r4 Software Developers Errata Notice (ARM UAN 0009D),
+section 2.3.3, lists erratum 754322 as open (unresolved) and affecting
+all r2, r3 and r4 revisions. The Kconfig help text currently mentions
+only r2 and r3.
 
-Let's keep the code as it is.
+Update the help text to include all revisions from r2p0 so that users
+configuring Cortex-A9 r4 systems know that the workaround also applies
+to them.
 
-> 
->> resp_regs[1] is confusing, comment here it links to X1 register
->> is better.
-> 
-> I'll clarify that resp_regs[1] is X2; resp_regs[0] is X1.
+Link: https://documentation-service.arm.com/static/608118675e70d934bc69f143
+Signed-off-by: Qingfang Deng <qingfang.deng@linux.dev>
+---
+v2:
+ Drop fixes tag, and mention that it affects all revisions from r2.
 
-Sorry, but it was confusing me :)
+v1: https://lore.kernel.org/linux-arm-kernel/20260920032926.452884-1-qingfang.deng@linux.dev/
+---
+ arch/arm/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Thanks
-Hanjun
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 0cc289a7184a..ec0c6191161f 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -707,8 +707,8 @@ config ARM_ERRATA_754322
+ 	bool "ARM errata: possible faulty MMU translations following an ASID switch"
+ 	depends on CPU_V7
+ 	help
+-	  This option enables the workaround for the 754322 Cortex-A9 (r2p*,
+-	  r3p*) erratum. A speculative memory access may cause a page table walk
++	  This option enables the workaround for the 754322 Cortex-A9 (r2p* and
++	  later) erratum. A speculative memory access may cause a page table walk
+ 	  which starts prior to an ASID switch but completes afterwards. This
+ 	  can populate the micro-TLB with a stale entry which may be hit with
+ 	  the new ASID. This workaround places two dsb instructions in the mm
+-- 
+2.43.0
+
 
