@@ -4,65 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C388C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 05:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB59C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 05:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6kQbiD1Lcj2OWY/76m82GwPbkC5l7XKW4gKK4kfOBnY=; b=KVNogY+0NV45+EAewLAa4fsYhw
-	8TFKWbcYBSSrLl4xf7fd/bk+Irc1DSPz1mS6Qq7T+S7FX3WLMnhG6ZPIjzDpLJd5NCG7gSdQ1TkNu
-	F/EUZhNDbZd3xok/2+Q3quEKz5qS0ihrgDA6pgm5Sozj8kadBDa2p4UPPnNwhNv1ptS43W+KIcYl7
-	DVR6N86Zy3FlzNxkbHs4hFACEZsdceGtBTehiEwhsQmUZ7JEopAdQy50lKWszmThSixLv3B9rXLgO
-	Uzkxm0jWzlAhRHNJD/WfLNYBShLCgTExf2v5XpafOV2GU37mAhkDGXAlZL+EuF1JyCDezzXswwjik
-	NEup8IOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NlrXH2S4Gx6RyWaX9xgNBU26d2RYRNGe8s5uLAI9foA=; b=BpGWoN0khtQnZ4W4Eb61TI213e
+	IuL1gD9zaNaOl6imG+8Jium4b86vcIYNH5xWxUhgglp2DKMveIKmbp1N/RGQxZAr8ClSOtQ2vuchx
+	4vvCK+qLwBXZaor3cktOHB8rl3+NJRmcjCX0R7iLgG8m2Yjr4u9fXLktODmQe7tCJFSyy2rBd7a1q
+	Q5QQ0vFcgwSK/YBgAHoRv/I2UAexE2r325tlnBuE23stZLU+4RU72hodFgbMEMw/4ZcFUHkJrFnA7
+	QFPlKaYl5z23zTo562+9FdzKoCjGFXzMB9Ce1kHynU3jpsvgu+SKcjLNEZaiiYf+hV18yyTapJkys
+	v69klkcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8shh-00000004DqR-3GbC;
-	Tue, 22 Sep 2026 05:06:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8ssg-00000004EZJ-050n;
+	Tue, 22 Sep 2026 05:17:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8shW-00000004Do4-20x6
+	id 1x8sse-00000004EZ8-2K5w
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Sep 2026 05:17:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=NlrXH2S4Gx6RyWaX9xgNBU26d2RYRNGe8s5uLAI9foA=; b=k2I1uopDORm1eisHjT3k8NpR10
+	cheW8hihmRxxKNey9y1NPODWlCsGvsi0tg4kBYdSXmAIIdQXrknVF+LjLICwcvjyoRvcioOr54MCh
+	rUMP29OvPymxBs+HLIDwNgWjigryuaT9k8CZYQMPjUmUuDhLMM0CYO2k45Y7dHKTQ8myYIdWnSXEB
+	Rs7UFPXTB+E+RUctrY2Rqr2EslFRXtxmD7nNj2LapnuT8QzMRddxcLy6id516Hzuh5de9eoPSgigM
+	eH9KtXVm5a4si0l5R8MX9l7bAESL2+GkSL5jnzvzpIfzHLJLB45UIb2SxPuzbcKFZ2KlIhAmCpQu1
+	XmZGXXhw==;
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8ssY-0000000D74A-235g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 05:05:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2ECE543A3F;
-	Tue, 22 Sep 2026 05:05:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2201B1F000FF;
-	Tue, 22 Sep 2026 05:05:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790053554;
-	bh=6kQbiD1Lcj2OWY/76m82GwPbkC5l7XKW4gKK4kfOBnY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YcT/qu6sl+JMXk1R4lstVDIs3tHiwLFBrWGn5UYrktqxptGWL0IIJOMYY8rdgNM0l
-	 SU3YGWMifg5l1/Qt7f9y71UTNocq7w1SHYz4xVE3M1tPmbzIBFrBW/xDr9HqOtVyk9
-	 DdCAp39crKTJ5oK/LvTKxQESWx3ORivyqFFnoJzAh2sHnt+1YY33pU44RtBmx+zEZi
-	 9/JxOsIx0ZgL0kwoDwlHp1oA5bCKH9V2bd3CIVy73eRjFNsrWc4JNgrLpKhLbty3HP
-	 8U+BrTgri6PpHjemyobkJEYDJzsHArSUWXwqy0F9Q2dHs7HPSz/IrjSDkcQHivrhr0
-	 BDaB5GKzNVKFg==
-Subject: Re: [PATCH net v2 3/3] net: stmmac: qcom-ethqos: enable 2500BASE-X in
- integrated PCS
-From: netdev-bot+sashiko@kernel.org
-To: tom.karpiniec@outlook.com
-Cc: netdev@vger.kernel.org, mohd.anwar@oss.qualcomm.com,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, linux@armlinux.org.uk, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- yong.liang.choong@linux.intel.com, brgl@kernel.org, coiaprant@gmail.com,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 22 Sep 2026 05:05:52 +0000
-Message-ID: <179005355270.2160803.6905383715293377235@kernel.org>
-In-Reply-To: =?utf-8?q?=3CSJ2PR11MB84018DBB1F18F07D79DBC5E3E4872=40SJ2PR11MB?=
- =?utf-8?q?8401=2Enamprd11=2Eprod=2Eoutlook=2Ecom=3E?=
-References: =?utf-8?q?=3CSJ2PR11MB84018DBB1F18F07D79DBC5E3E4872=40SJ2PR11MB8?=
- =?utf-8?q?401=2Enamprd11=2Eprod=2Eoutlook=2Ecom=3E?=
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 22 Sep 2026 05:17:22 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485b1d2874fso1328344f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 22:17:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790054234; x=1790659034; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NlrXH2S4Gx6RyWaX9xgNBU26d2RYRNGe8s5uLAI9foA=;
+        b=JHFRGk9P/VG2UgVZzrKcnIgjkPguUy2JdNLlbVPSEuCSBrfnxK9rRRoRC7ereRqKai
+         zAUfTB2JSMfTYPP6cDmBC2tMhfdICOxdOhOtzFn3lVhuMRSiDRZv+9bRf6s+yR8ID+w/
+         PIoWfm/7fVfP6aHvIaPEkggSOqnr/pAfJs3YKFwyKQxpfvDf+g5OglIV3pH4lTU1YL0X
+         hrU5KMvVFnl7wFcTnSBtg5243aZXSqDPlHafvg9G3jUmDHSUA618lTPZ2brledjkcEPR
+         tvU96i2CwTNfy84rE35Ey036l6yZsJ49QElxJwK4mb65kCDrS5guibHcG/Mq1d8AdN/i
+         7Z7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790054234; x=1790659034;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NlrXH2S4Gx6RyWaX9xgNBU26d2RYRNGe8s5uLAI9foA=;
+        b=VGC0Lb4eLJXPPiFmS+H6zzB689pxfw1ByxgOkzCVGzfkCmKF8dd920Igkd4jKMP7yR
+         /xUxJPtYg839wdejTyWGH6AVuYWNcF+wgGCeMhheaA4+Pd/jVqxS+e8WIXafv97ehzkA
+         /fJ9AJGVyYVhhaHH+1Yg1Vz/i5jjS8EJLLsiDpMV1hR+RJ9T9K3B5FbEozayj27yrxZn
+         y0XuzAEk9hbUwChg7Bg/DYgWs83AsvxfS+KNVRignpDp2sS9/CDaVGub545PFklrGpMJ
+         bgpd7bZYa3GKJTA1+ugZfhjochXg86VK6ECZpc+313g57I5QXi0e9g3OYLcesMT3gBHz
+         /YCg==
+X-Forwarded-Encrypted: i=1; AKwUvBzHA4HoBAcDK6NjqXoitcoBIOY227kA2JCSdW0eG61fHJFLXWKhAD6SPUCoWIm10moveRbidit9vwGAai476z+2@lists.infradead.org
+X-Gm-Message-State: AFuF++kZ6qEsb96l/Un+jxfmIkyvZNE8DgU+WIs4xyvfHrdaUAVX/URE
+	7NosVyDdYyqdLN3ht4htc5bbSLrBCR5dNxcDHZIyfx7hgUPtrOr+1VNkGoSCdd/6
+X-Gm-Gg: AYBFou2hebpMw0MQpkIcEJ8FAl4Dku9IHbhaqht0pGRSBngw6nn7Wyb1Smp/BK/xzap
+	HkMECZdgxhnM2ZjobXUQrZzpYK1C/Lw0KRWsJel14Z6h1IBAq3OsTvfD0xATy0vOZNHgCzAlkHU
+	/eY13aJu4/uF0tAnX8ffQU6VU232lrAePALDrz+DUy/F6kXI+HCC7A4CEJq8FRVx4bUnRJUfXsw
+	Nm+uhZpSH6BJ07tzxeIsOcCQgCJavBKd+kFtkHgSfbxZHY4rGGNBinhpXSA3sOYczjmJHNwPZq0
+	lMy6I5i31AyL4IJjcyyMZYgRqWK05NfxurUQxTZZV3tZa5zqU4gugpkDYoQ4DCIkOktlYKi1ifs
+	HzuGpN2cwIN0hrra9rCDuAJOQZHTTmthmL4zHLSm5oq1DnYdnzu6QxnlwoL/PmSj6PURHcB/p1I
+	DOpkdEiq1raLigkiz0iKWvICpXbFD9EfpEk8LLw29hvJ0sk8dmS1rz4qy41TQU+5Lx8Sbopq8c0
+	FEnqz92EJdp6UN49m2n8WH/nlHJ2LJoVGbNygnlztWyyAturdCWeMk4n6Y7GogdrOfjpSoqmygn
+	Nw3QduFJayTlof/4RQV4bkvTy0sAz0eD7h+N4+meYbQP2Kp6wEWGOAeG7ZYzynS69zgs5EmM8/X
+	Mc50y7w==
+X-Received: by 2002:a05:600c:4f90:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49fd8853515mr26364115e9.3.1790054234219;
+        Mon, 21 Sep 2026 22:17:14 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-a5e6-3401-ecdc-1e24-2e52-02d6.310.pool.telefonica.de. [2a02:3100:a5e6:3401:ecdc:1e24:2e52:2d6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaa99b8bsm17264935e9.1.2026.09.21.22.17.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 21 Sep 2026 22:17:12 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Cyrille Pitchen <cyrille.pitchen@atmel.com>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: atmel: handle authenc requests without plaintext
+Date: Tue, 22 Sep 2026 07:17:04 +0200
+Message-Id: <20260922051705.15329-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_061721_279812_99D971EE 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,139 +120,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Authenc permits a nonempty associated-data string with no plaintext.  The
+Atmel driver accepts such a request, has SHA process the associated data,
+and then unconditionally asks AES DMA to transfer zero bytes.  The Atmel
+DMA engines reject the zero-length descriptor, so the valid request fails,
+normally with -ENOMEM.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Skip the AES transfer when textlen is zero and proceed directly to SHA
+finalization.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Once an HMAC transform has cached its inner and outer states, SHA can
+complete this path synchronously.  The forced ahash completion callback
+then invokes the AES finalizer through a void function and discards its
+return value.  This loses -EBADMSG for a mismatched tag and reports
+successful decryption.
 
-- [Medium] Misattributed Fixes: tag and inconsistent stable range.
-- [Medium] Setting STMMAC_FLAG_SERDES_SUPPORTS_2500M makes
-  stmmac_mac_select_pcs() (stmmac_main.c:1031-1033) return the dwmac…
+For synchronous SHA completion, release the SHA device without invoking
+the ahash callback and call the AES finalizer directly.  Its result then
+propagates through the synchronous call chain.  Keep the existing callback
+path for asynchronous completion.
 
---
+On a SAM9X75, the unpatched driver failed valid AAD-only requests and
+returned success for a bad tag after the transform had been used once. With
+this change, bad tags return -EBADMSG for both fresh and reused transforms.
 
-net: stmmac: qcom-ethqos: enable 2500BASE-X in integrated PCS
+Fixes: 89a82ef87e01 ("crypto: atmel-authenc - add support to authenc(hmac(shaX), Y(aes)) modes")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ drivers/crypto/atmel-aes.c |  2 ++
+ drivers/crypto/atmel-sha.c | 14 ++++++++++++++
+ 2 files changed, 16 insertions(+)
 
-This sets STMMAC_FLAG_SERDES_SUPPORTS_2500M in qcom_ethqos_probe() when the
-optional SerDes phy is present, so that stmmac_integrated_pcs_init() adds
-PHY_INTERFACE_MODE_2500BASEX to the integrated PCS supported_interfaces
-bitmap.
+diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
+index 50d97cef75b89..89594b96e28ce 100644
+--- a/drivers/crypto/atmel-aes.c
++++ b/drivers/crypto/atmel-aes.c
+@@ -1826,6 +1826,8 @@ static int atmel_aes_authenc_transfer(struct atmel_aes_dev *dd, int err,
+ 		dd->is_async = true;
+ 	if (err)
+ 		return atmel_aes_complete(dd, err);
++	if (!rctx->textlen)
++		return atmel_aes_authenc_digest(dd);
+ 
+ 	/* Prepare src and dst scatter-lists to transfer cipher/plain texts. */
+ 	src = scatterwalk_ffwd(rctx->src, req->src, req->assoclen);
+diff --git a/drivers/crypto/atmel-sha.c b/drivers/crypto/atmel-sha.c
+index 48f54b6155042..f1a37d315dd0f 100644
+--- a/drivers/crypto/atmel-sha.c
++++ b/drivers/crypto/atmel-sha.c
+@@ -2383,11 +2383,25 @@ static int atmel_sha_authenc_final_done(struct atmel_sha_dev *dd)
+ {
+ 	struct ahash_request *req = dd->req;
+ 	struct atmel_sha_authenc_reqctx *authctx = ahash_request_ctx(req);
++	atmel_aes_authenc_fn_t cb;
++	struct atmel_aes_dev *aes_dev;
+ 	size_t i, num_words = authctx->digestlen / sizeof(u32);
+ 
+ 	for (i = 0; i < num_words; ++i)
+ 		authctx->digest[i] = atmel_sha_read(dd, SHA_REG_DIGEST(i));
+ 
++	if (!dd->is_async) {
++		/*
++		 * Return the AES finalizer's status directly for synchronous requests.
++		 * The ahash callback cannot propagate it.
++		 */
++		cb = authctx->cb;
++		aes_dev = authctx->aes_dev;
++		dd->force_complete = false;
++		(void)atmel_sha_complete(dd, 0);
++		return cb(aes_dev, 0, false);
++	}
++
+ 	return atmel_sha_complete(dd, 0);
+ }
+ 
 
-A couple of questions about this one.
-
-> Fixes: 61e9be0efbe8 ("net: stmmac: qcom-ethqos: add support for 2.5G BASEX mode")
-> Cc: stable@vger.kernel.org # 7.0+
-
-[Severity: Medium]
-Is this the right commit to blame?  The behaviour being corrected is the
-flag gate in stmmac_integrated_pcs_init():
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c:stmmac_integrated_pcs_init() {
-	...
-	/* Only allow 2500BASE-X if the SerDes has support. */
-	if (priv->plat->flags & STMMAC_FLAG_SERDES_SUPPORTS_2500M)
-		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-			  spcs->pcs.supported_interfaces);
-	...
-}
-
-git show 61e9be0efbe8 only touches dwmac-qcom-ethqos.c (it adds
-qcom_ethqos_speed_mode_2500() and the PHY_INTERFACE_MODE_2500BASEX switch
-case); it does not touch stmmac_pcs.c or include/linux/stmmac.h.
-
-git blame points both the gate above and the
-
-	#define STMMAC_FLAG_SERDES_SUPPORTS_2500M	BIT(16)
-
-definition in include/linux/stmmac.h at 68cff4fff61f ("net: stmmac: add
-BASE-X support to integrated PCS"), which is also where the flag first
-appeared, and no in-tree platform ever set it.  Should the Fixes tag name
-68cff4fff61f instead?
-
-There is also a mismatch between the two tags: 61e9be0efbe8 shipped in
-v6.11, so the Fixes tag nominates trees that predate the code being fixed,
-while the Cc annotation says 7.0+.  Which range is intended?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index ac7d6d3e205a..0e07225a70ca 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -786,6 +786,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->  		plat_dat->host_dma_width = data->dma_addr_width;
->  
->  	if (ethqos->serdes_phy) {
-> +		plat_dat->flags |= STMMAC_FLAG_SERDES_SUPPORTS_2500M;
-
-[Severity: Medium]
-Does setting this flag leave auto-negotiation enabled for 2500BASE-X on
-ethqos?
-
-With 2500BASEX now in the integrated PCS supported_interfaces,
-stmmac_mac_select_pcs() starts returning the integrated PCS for that
-interface instead of NULL (ethqos installs no plat->select_pcs):
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_mac_select_pcs() {
-	...
-	if (priv->integrated_pcs &&
-	    test_bit(interface, priv->integrated_pcs->pcs.supported_interfaces))
-		return &priv->integrated_pcs->pcs;
-	...
-}
-
-That newly routes ethqos through dwmac_integrated_pcs_config():
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c:dwmac_integrated_pcs_config() {
-	bool changed = false, ane = true;
-
-	/* Only configure the advertisement and allow AN in BASE-X mode if
-	 * the core supports TBI/RTBI. ...
-	 */
-	if (phy_interface_mode_is_8023z(interface) &&
-	    spcs->support_tbi_rtbi) {
-		ane = neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
-	...
-	dwmac_ctrl_ane(spcs->base, 0, ane,
-		       spcs->priv->hw->reverse_sgmii_enable);
-}
-
-ethqos is the non-TBI case, per the comment in
-stmmac_integrated_pcs_init():
-
-	/* If the PCS supports extended status, then it supports BASE-X AN
-	 * with a TBI interface to the SerDes. Otherwise, we can support
-	 * BASE-X without AN using SGMII, which is required for qcom-ethqos.
-	 */
-
-So support_tbi_rtbi is false, the branch is skipped, ane stays true, and
-dwmac_ctrl_ane() programs GMAC_AN_CTRL_ANE|GMAC_AN_CTRL_RAN even though
-dwmac_integrated_pcs_inband_caps() reported only LINK_INBAND_DISABLE for
-802.3z on this core and phylink therefore passed an out-of-band neg_mode.
-
-That also leaves two layers writing GMAC_AN_CTRL in opposite directions:
-pcs_config() sets ANE, while the glue clears it later at link up:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c:ethqos_fix_mac_speed_sgmii() {
-	...
-	ethqos_pcs_set_inband(ethqos, interface == PHY_INTERFACE_MODE_SGMII);
-	...
-}
-
-Is correctness then dependent on a mac_link_up() always following
-pcs_config()?  If the interface is configured while the PHY link is down,
-or on a repeated major_config without a link-up, the PCS looks like it is
-left with AN enabled and restarted on a 2500BASE-X link whose SerDes does
-no AN.
-
-Should the ane initialisation in dwmac_integrated_pcs_config() be fixed
-first, and should the now-redundant ethqos_pcs_set_inband() write be
-mentioned in the commit message?
-
+base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/SJ2PR11MB8401F5C3A075DE2A0013E063E4872%40SJ2PR11MB8401.namprd11.prod.outlook.com
+2.53.0
+
 
