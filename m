@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12B7C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FC9C98307
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zp3qbRcMK+qSRdTP5DC3t5nOlTWwJjVKhzB6RRrS/G4=; b=3bSz46boB07y4jVf6OhT8u1Qqw
-	W68MXaeTSwIYaSFQgxNxT4hNybPCUvl/o8dc1yNVUmHJFeP/d4uDpPsWZvB/mgTMB/sMKQ95xTzp6
-	naIX/WYTDa5oDpuO4IjeKHalETWa2DHughJbW7o7K2nXwnvQdBy4ZMWcIx82yWlBrGN7excUF5rTz
-	wOtqTrskDT+4uLSWiWLYwDNaTPgBV4nnhY0jb0akFKNdShFSDsMMFYUqjj7X4tbw5VlbTw4AOje00
-	lwU3c28ejQhBG97Qb/qEfdtqfOrrcU4m+MXU2qLM9aT8b07z7RqTg+hHka+7ROL8Ir4o0oEdVO0Yo
-	FIhUX4fA==;
+	bh=2HjM704yjUPc3oYEkUo0s9e3MpU0+mzXloxkK4JXLZM=; b=4EMHwV5wSljAtyxtxYrYgOBLV5
+	qEsMbo8Vw8e7N2dKaNGpHcMag2325R54lFfRRiLDqdC8OaRIErvOmAs2ipCyuXPZKL0LWSsUuB1Qb
+	9P3t5INYKfWOWXVdKuQ4I3pDPQOBldf69LHcxtFe5kaGGrlnfoyAinT2h6TYXDS36cDaOq0sPysyq
+	shm5uYFqmh3q+8OmUwseRnGoloiJq2Ng8B8eQSBNb0Bsn9KSyoUB1PmM1ZwnCsL5V0lrfRUJuewyo
+	0gC5QkHYmr9dB30AlQ113Q0IQ/H5+/BGOVtDyv3PHH7aRo6T6ZfQ7U7a0E8mkXzJEtrauiSVk7Lne
+	BxNyNHug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92a9-00000005tAp-0yCk;
-	Tue, 22 Sep 2026 15:38:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92a6-00000005t82-1Rws
+	id 1x92bm-00000005uHj-1w9Q;
+	Tue, 22 Sep 2026 15:40:38 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x92bk-00000005uFp-0m3T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:38:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4593B1576;
-	Tue, 22 Sep 2026 08:38:49 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF1F93F86F;
-	Tue, 22 Sep 2026 08:38:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790091532; bh=HrFOMvILt8mde757UBXQoH0Qn6la3KXBni8ZkY+U82c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EZWMOlc5+LWH03p20wnXsaCTXtx5uUx9RUpYepDAs94yOCNGJPmdDx36nIjjwvZs6
-	 iMGwFCxikjdKaJkxfkNuNc3It9gHlRkUGYU1nvAO2Ci6mpHOlooi8wVjjNJxUcHxUn
-	 CkoYeED0HQDySx4myZIdTQKCzbTkNWK2QN1FxjnQ=
-Date: Tue, 22 Sep 2026 16:38:48 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Tue, 22 Sep 2026 15:40:37 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-8633a38df87so19935b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:40:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790091635; x=1790696435; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2HjM704yjUPc3oYEkUo0s9e3MpU0+mzXloxkK4JXLZM=;
+        b=mBRtEZoE+WbQr5vHLlxcDg7O+IbOB3SSXmdXsk1m8E/OfG6HIKWv9zbZo3QKrkzWNc
+         +RB7sUfnQOuFKCjqs1bJUevp5N1PfWP30D/PCkqu6AxR5qr8p03TFVdBARfoAvVlNOWM
+         UouqnOppoSV23LOQEJ8tkuwWgSgo6dVxyd0Sap0FnyAEC3/ns2d14RThFgfe3DW/EHpi
+         qruJClWZ6H7h8yv+engRywuNYKu5OwFIL4xmMPyCaTf2gQVm/KqeLGBw3YkixGcVHTD6
+         hAbcpvJudQ3oYVgHP529NvknsXtfMciDJqhQYP5y6AeqYo3+xfwPvlCjucTlaO5KXGVa
+         6I0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790091635; x=1790696435;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2HjM704yjUPc3oYEkUo0s9e3MpU0+mzXloxkK4JXLZM=;
+        b=FQ++JqZjT+NnUmhTjFKb8rbarB+3yz2LXUBsHWG/WPTtRiBYtvm+ku55k1lfLxDR2m
+         CFG6H35qVacfqnaWjJU6JIfFf2KSXR55kAYgllrkKHFvjHZxdibcFIh7jkHn2CiCqIgB
+         Lcs1jMJBUC1Ag/ToSUPgx8GtbHXyzQ+78Su+qYRbyqANfe8WxezSXalX/9MEYL2kVX1H
+         Gr48J2Es3gK/HiFaTqLUC4vkP3Trl+jfGDOhcIF79syPyp7rEvpvf3fHoDcZywo5l57j
+         Y/T8Hzb3bNo2/nInaoH8RKE6VtB9e6hm/SoKiIF1qcf7Mrvr18tJiXeBTRIHmucSnxJ1
+         KSmA==
+X-Forwarded-Encrypted: i=1; AKwUvBxAGBifo9MrskIKixoKhS0LXcETVxV2ywSwcRwqxlEC5XUEOzR+uOJoHJnV2YT2SqYzWfCATDVItuf4BwIosMwP@lists.infradead.org
+X-Gm-Message-State: AFuF++kd3eAKWDkNJivNJtLM8GteMWgsJYTV3FEOyB1pUdqMjnSi1ZvP
+	un4T6y8oWTJCG4MG10SpOYGJWHG51BWZnxFc3OGkOzFerskIGbpYFFtF8bvQPxIL1G8=
+X-Gm-Gg: AYBFou19jpDcbt5sqSUS3JinaiOssk5YHNT+73L81dc2x6BMstfFJs0PIqv4Lj1YH82
+	xcrsZDroB54+UNcAMX5TM2BuGCk6k4dQr0ufnc7eX1b/S/UzqnKoH/ElPNIIJluFfVAv/ddKIsV
+	jG+704s8qrhS+tI4D7CREKibjrqLfhhZf4KkNLN5QgKPtWTZJqmg9ARuZojds/AZp5p56WWXeOU
+	Vp/lLV3IVWzQB+kqwQcjoQXVq2ju+liN25dxHCg/7RxfJwDlyHLBjMHN08YkTYzVh5d6Az6GMl4
+	3OTuT7FtOzkYqJNZRYl8JYFOb8jsIa41DMMZLiWzpZmwKQbed2uXHTLihmjN0ihOSW3GXY8MAsz
+	Qav53Nb049BYC4TH6MM3ex0y73mh7/cYZkLvzkUPSdpO+hjdv+K7KeLxEM/U/Jq1wDG2KgMFGMM
+	j3XWqrBMnFrdIYn5AJrq9wZN+E9F0IwsDgCcUQjAKIXWXkHbGibQjRSUuzsCI4uxagFDAVhVb0
+X-Received: by 2002:a05:6a00:1393:b0:85b:8606:627f with SMTP id d2e1a72fcca58-87c82f7f151mr1827877b3a.26.1790091635190;
+        Tue, 22 Sep 2026 08:40:35 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:1046:ab8:737c:d2e2])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87c2fc4b581sm1104255b3a.7.2026.09.22.08.40.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 08:40:34 -0700 (PDT)
+Date: Tue, 22 Sep 2026 09:40:31 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	"T.J. Mercier" <tjmercier@google.com>
-Subject: Re: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule
- alignment for cc-shared buffers
-Message-ID: <arKhCKdlqNQwZn8E@arm.com>
-References: <20260918153642.GD11599@ziepe.ca>
- <d8123f21-d5ce-415b-a05a-392d97b8b57d@amd.com>
- <20260918165315.GF11599@ziepe.ca>
- <6115eaf7-21bc-49ce-8a74-08fd37a1e2c9@amd.com>
- <20260921115141.GJ11599@ziepe.ca>
- <45dd7a2f-8474-4388-b383-2dee3ee62206@amd.com>
- <20260921121739.GM11599@ziepe.ca>
- <cd2b32dc-5a80-4ef5-82bc-dd41ea96dc01@amd.com>
- <20260921123725.GN11599@ziepe.ca>
- <yq5a1pam4ocu.fsf@kernel.org>
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	imx@lists.linux.dev, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 08/12] dt-bindings: remoteproc: add remoteproc-virtio
+Message-ID: <arKhbxi3Snbt1_Mn@p14s>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <yq5a1pam4ocu.fsf@kernel.org>
+In-Reply-To: <20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_083854_492840_12A477EA 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260922_084036_256227_1FF04963 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +110,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 08:56:41PM +0530, Aneesh Kumar K.V wrote:
-> Jason Gunthorpe <jgg@ziepe.ca> writes:
+On Wed, Sep 16, 2026 at 11:10:53PM +0200, Francesco Valla wrote:
+> Add a new binding to describe remoteproc-provided virtio devices; while
+> these are discovered through a resource table parsed by the remoteproc
+> infrastructure at runtime, their description can be needed to probe
+> non-discoverable buses (such as I2C) or to link consumers and suppliers.
 > 
-> > On Mon, Sep 21, 2026 at 02:24:21PM +0200, Christian König wrote:
-> >
-> >> I also don't see where mem_cc_shared_granule_size is added?
-> >
-> > Patch 1:
-> >
-> > https://lore.kernel.org/all/20260904103452.1197239-2-aneesh.kumar@kernel.org/
-> >
-> > Aneesh, please be sure to use get_maintainers on series like this so
-> > everyone gets cc'd.
+> Each vdev is described by a dedicated "group" node, which then includes
+> a virtio-device node, which binding is already existent and used by
+> virtio-mmio. Each vdev shall be stattically linked to a "group" node
+> using its index inside the resource table as the reg property of the
+> node; this permits to have multiple instances of the same type of
+> device.
 > 
-> For v7, I included only the maintainer entries because the recipient
-> list was getting too long, but I added the mailing lists.
+> The binding is intended to be generic and adopted by any remoteproc
+> provider.
+> 
+> Signed-off-by: Francesco Valla <francesco@valla.it>
+> ---
+>  .../bindings/remoteproc/remoteproc-virtio.yaml     | 89 ++++++++++++++++++++++
+>  1 file changed, 89 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
+> new file mode 100644
+> index 000000000000..c4a0d84b1460
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
+> @@ -0,0 +1,89 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/remoteproc/remoteproc-virtio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Virtio devices over remoteproc
+> +
+> +description: |
+> +  Virtio devices ("vdevs") can be exposed using the remoteproc infrastructure
+> +  and its resource table. For some of them, a device tree node might be needed
+> +  to describe remote undiscoverable hardware and/or connect consumers and
+> +  providers.
+> +
+> +maintainers:
+> +  - Francesco Valla <francesco@valla.it>
+> +
+> +properties:
+> +  virtio:
+> +    description: Contains a group of Virtio devices exposed by the remoteproc.
+> +
+> +    properties:
+> +      '#address-cells':
+> +        const: 1
+> +
+> +      '#size-cells':
+> +        const: 0
+> +
+> +    patternProperties:
+> +      "^vdev@[0-9a-f]+$":
+> +        type: object
+> +
+> +        properties:
+> +          reg:
+> +            description: Virtio device index inside the resource table.
+> +            maxItems: 1
+> +
+> +        additionalProperties:
+> +          type: object
+> +          $ref: /schemas/virtio/virtio-device.yaml
+> +          maxItems: 1
+> +
+> +        required:
+> +          - reg
+> +
+> +    additionalProperties: false
+> +
+> +    required:
+> +      - '#address-cells'
+> +      - '#size-cells'
+> +
+> +additionalProperties: true
+> +
+> +examples:
+> +  - |
+> +    remoteproc-cm33 {
+> +      virtio {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +
+> +          vdev@0 {
+> +              reg = <0>;
+> +
 
-I could not see Christian in the recipients of v7. Sometimes the list cc
-is enough but my inbox for example is already around 4000 new email, so
-easy to miss.
+Do we need the 'reg' since we already have vdev@X?  I'll let the DT people
+provide their input on this.
 
-Recommendation: add Cc: lines to each patch with the people that must
-ack your changes (the maintainers for those specific patches). You can
-then collate all the cc's from your patches, add them to the cover
-letter and use --cc-cover with git send-email.
+> +              gpio {
+> +                  compatible = "virtio,device29";
+> +
+> +                  gpio-controller;
+> +                  #gpio-cells = <2>;
+> +              };
+> +          };
+> +
+> +          vdev@1 {
+> +              reg = <1>;
+> +
+> +              i2c {
+> +                  compatible = "virtio,device22";
+> +
+> +                  #address-cells = <1>;
+> +                  #size-cells = <0>;
+> +
+> +                  eeprom@50 {
+> +                      compatible = "atmel,24c1025";
+> +                      reg = <0x50>;
+> +                  };
 
-Of course, the list can get large. You can then make a call with who to
-drop: colleagues you talk to regularly can be skipped for example, maybe
-reviewers if there are too many for a subsystem. I would not drop people
-that gave you feedback already on a previous version and not the
-maintainers you need acks from (you can drop them if they already acked
-your patches).
+The previous patch introduced bindings for virtio SPI while the above two are
+for GPIO and I2c, which is very confusing.  I suggest you pick one and apply
+everywhere.
 
--- 
-Catalin
+> +              };
+> +          };
+> +      };
+> +    };
+> +...
+> 
+> -- 
+> 2.55.0
+> 
 
