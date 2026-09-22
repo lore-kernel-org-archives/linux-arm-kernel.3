@@ -4,109 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7044BC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C37C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KdISmA3ixIlNjIAB3K7umMj0lq95tzNubXcY7qdlJJ4=; b=GwWzYzDWHZA0XLGj1JTNn3z2Cg
-	PIvCEX52giBzcnkDpH0Yhx+A6M/YaJhWobSfg1mglvi4MQ5XYTDUYBJ2FxiMjeRUT/WLso4ElMIKz
-	NsrCUNpptlzTJA55YVCh07oy1FtI5hZ4oFPYqkVN2LhyLbd6XXSWzRLTaoJecJD5j7+wwlKWycsTl
-	Jey5aRd4UsKZt0ht+JexZe2ShjC9wj8I61+9plqEWKh+R98lBQOfgvzguxwlD0OZDbiOzyHzL+oNi
-	mi2UDTPdIUXlsL9n0PPWiPWomTdVLl4F99rTGFAkGSkRlrzT3ZRMpkPH3oIhi2iFUTepsMiK4JzWZ
-	Ql16chPQ==;
+	bh=k/eih6V79KGOxd/VUr7lVIHhXKuG7/wdFpn9jH1v8Js=; b=RR4nXPJ8cx4eJ6ILgtGWjMtKf9
+	5vfl7KrD/Uh/bNTME5BhB2bJm3aiQK+cYaC/63U7RkYPOCkGUfU8W0NqQZMkrEd+qdHFM5dlBkIUf
+	lWKCTXtxWzdITNzmfHxqCtLLm85ZZLUPupaKghmlqP06JnH3OKt9W01qH1uAKP4SaoF8coiH7Iu+7
+	ax1upuUpxJslnJW5VUBKd7an/KQjh3m2UWFyp97RMzDBodcmcV/TJ+bbXLiT3uNdTmtwtl3SyismU
+	5eZw1DFga60f+Wx4LFJV+gQ0LJSQF44CPEjdtgY7N6xabFsqmSoo9SpHdejpQVvb5s27rsdIwzVY5
+	QRYI5Cyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91bB-00000005iK7-0C91;
-	Tue, 22 Sep 2026 14:35:57 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1x91iD-00000005j9H-3lCR;
+	Tue, 22 Sep 2026 14:43:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91b8-00000005iJ1-1H0q
+	id 1x91iB-00000005j8h-2lIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:35:55 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6aa13d8d9d0so12138a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:35:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790087751; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bhuWkT72am29e4+61bzoGZnb9zi/ea2JXWoUCOebVN4No0aQ5w2TE1sPpRmGCMS/f9
-         wUpaCzvNdFQ6llG1ZYSBe2Dnkr/oUYqA45MAPO436Sd3BUc62kXLJCRwu7q8XCeEH5kG
-         y9uA0bExaSaNvWfOGqGK1PWLPfdMcCXYBCbDmKmI7vH85IWppyO48URSjmVNFpkPnDjZ
-         DBxvqi1yQBUWnT9HYzTwzzg64KHPpxNjfOD5uP0RCv+htTJgF9hzgGlRkj8gGCK6BvBn
-         9oPefQFpFl5tjO7fRpT/icByCr4Rt6swVCbJujretqVwKQU+ejjpOn7rBIgaPXhW5Slz
-         zWIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KdISmA3ixIlNjIAB3K7umMj0lq95tzNubXcY7qdlJJ4=;
-        fh=Tr9ce0LMpfYQfG4t4TFwv4iGn0DEvt1I2qAIvj+F6yw=;
-        b=SMYMtK43aiVtnXI48+bzICd0rkwc22E5hKZt/cGnWhlMm1bVgcu8GxuLJnCzfUmge3
-         OQvEhyzkiEa1nJ3zL/zv7oTNhrY3CbyxeDt7LB+Ki85FI1ZGwSCk+xjfrYEn5GjB0UGr
-         +n1jDwGX8wrPtDjc4zBcANQTqT2qt5bd/dyeyVL2nZ8NagiisLDdZYtUCfgbgaJcvLgb
-         T3OSCDgrv/fw6Ay0neRL40eYc9sp5UVtTtxVE+NvsqAT32kQHpaeK9fAWF5OLWlkqbGa
-         FDy8Oahq9rbrlRw+iOxqF94YPWaAnU9JVnW78lzx011vlXQSIB0r4WBRscZMY97BJC/v
-         55ng==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790087751; x=1790692551; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KdISmA3ixIlNjIAB3K7umMj0lq95tzNubXcY7qdlJJ4=;
-        b=jxn77giNsQWTipAL9uT9R6Reali9iriyML6jbH0f1/WCYKnohBRJRkhSy4ScnsRGqI
-         qyJ+p0n/u5w9fU9SzUS+sjE2vacOKGbXYJUF9R8rMm73fjb/QfKJG1HSQ/YxV0KNA3l0
-         k6V3n+gq0WS1uwE1gMowCHiP13XYONeRxaZwhQTUMQ/XsUA3O8cWaF9VjU1GHUIK5Oqg
-         hrcUg+lyYdpYckg7R1rGSwui3+NN1khuw4xaSzbJW7MPVmKUARwHk1e9raGmKPNR3bVa
-         5MrcjgDck1dgde9MhSbZLQc6uKwiTwOV1FaRWyL1ehnXsla0rA6n+TnBnosvtrL54wrC
-         ZnQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790087751; x=1790692551;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KdISmA3ixIlNjIAB3K7umMj0lq95tzNubXcY7qdlJJ4=;
-        b=hQK/FCDf68yOtYuK/E3zUUHTvTqvD+UpJgrNx3vkdjwiyodomiYu3i+epIeZflrasX
-         Z2iTPY3Ie37Ss8mao+RjJ+9jImNTq29m+/lkN31+L5AGWitejR/S9We15Y3OFE1U70Jr
-         jRekkuobaO6bMAAU8SdmfGryF/plameBLBXNCD8KARKLvSKrYFyAeIGFik2XhQnep3Ig
-         5DvtvENMdJ15nGxNgn8/uMJ5TWTPYy83jeI/nnx8/beLvDbyw3g/cum8NNgj90YxE099
-         hJBjQETQc6j/wN416N99FbFm0CLnMeRyumRya6SaXujbeoJByT010W55i1Ikb4AYgIdx
-         FzXQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwBUfNjMJuqiaVZ3oWjMLMc7dvIIywejFoGwk87Yo4BygnmLectSH9X6FK/5wqCPCN5fytSe4LogCz79b2SEByM@lists.infradead.org
-X-Gm-Message-State: AFuF++lPoHxkAjDfncU2lFDyPaBx54YjdWk9J2Fgayl1biX3dr6a/Zqf
-	G/6KhV2rEyJKJHgobRoBflUbYPb6JAP8AhlF2PjPf9Ndt5IzeL7Lu1e55XFqS7FxP1mHLX8HIwY
-	pu6df5MW9i7Bj3bOcipxwiXkVkls7gOlx5rcmRygj
-X-Gm-Gg: AYBFou0b65jByUHAqXOtJ0MQ3Uvy/Yg5klrh8f0DzgsVjpnDCHv7ggMYCBStu9pkq+a
-	HYE0kL81W8v4CQMHitvMTdxFyV7PjJXSkmEi/n/RtwycHxwSqYNqwK89GTyu3V30Dq7aHJ3YusH
-	+GC0+xIcZ0dLLar+HVFrMDCkmO80DnxZ87Hte6EwCJI7r/AMREIi2DT+AAIzmjaw0jBJJQ6xzvF
-	qf6h0D/DIh2DjjexPAAcrWB6OOswyGq/oWTgz3hjkW85w/vbCgGAdwHnvEXGt8y6zB2IXodN6qt
-	YXGssV8Sxi9MEotUj6llMbmpwkluNivk16ZOAEVyNsXHmSk++s4ff9lqU4N9hFLeUnyqAgWy/TZ
-	/yMTeSIxkhf31dA==
-X-Received: by 2002:a05:6402:23c8:b0:6a6:f2a5:1b4f with SMTP id
- 4fb4d7f45d1cf-6aaac5924eemr8663a12.4.1790087750560; Tue, 22 Sep 2026 07:35:50
- -0700 (PDT)
+	Tue, 22 Sep 2026 14:43:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15A8743C89;
+	Tue, 22 Sep 2026 14:43:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8EAF1F000FF;
+	Tue, 22 Sep 2026 14:43:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790088191;
+	bh=k/eih6V79KGOxd/VUr7lVIHhXKuG7/wdFpn9jH1v8Js=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=i0oQRPoR2grx2df/MWOgPanqEOnuePmw4f4ocXMvRD2K/a5y2F4+9KVEkqGSWdMJ7
+	 qFITaKXfA6eF+B7nRGKoUtlz3sykyZIEVcQF4j82paWq+G9T6GLOKWDMBHIWl68xcF
+	 ytVKscnXCFzjqT+K9km1qepD7l4J9/4BQ47/Fo0ToJkTcIMomNwBzxw2hwwwtjNLqS
+	 lnyNtWr1QPcJ9dWJCT1Eriohimh+vBtNofNDECnyIkOgozBK+WQNCD/VgqGz6ixtfC
+	 fZ25v7Huqkoo08tkf6Dq9TR3/ZbszP6/Sl4J3cd/tn7Pnp4PC7+jUruschgy0VhMo5
+	 A17DZeFdiO/zA==
+Message-ID: <8fd34672-493b-4d70-a2bd-1fe434b5ccda@kernel.org>
+Date: Tue, 22 Sep 2026 16:42:59 +0200
 MIME-Version: 1.0
-References: <20260715150125.2798116-1-smostafa@google.com>
-In-Reply-To: <20260715150125.2798116-1-smostafa@google.com>
-From: Mostafa Saleh <smostafa@google.com>
-Date: Tue, 22 Sep 2026 15:35:38 +0100
-X-Gm-Features: AclHuK-rurQJCakbPVql7LeaZWXspdhQDHQ-9g658VqXPpUrYK4ePYQ8b4RsihE
-Message-ID: <CAFgf54rT1wvmGqm+8JqrKShhh+5pEWDS0f4FReT9CJBbcjnk1A@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Use consistent type for pool size
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_073554_368309_35265FCB 
-X-CRM114-Status: GOOD (  23.13  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 06/25] firmware: arm_scmi: Add basic Telemetry support
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+ f.fainelli@gmail.com, vincent.guittot@linaro.org, etienne.carriere@st.com,
+ peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org,
+ elif.topuz@arm.com, lukasz.luba@arm.com, philip.radford@arm.com,
+ souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+ puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
+References: <20260920091928.2014972-1-cristian.marussi@arm.com>
+ <20260920091928.2014972-7-cristian.marussi@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260920091928.2014972-7-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,108 +121,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 4:01=E2=80=AFPM Mostafa Saleh <smostafa@google.com>=
- wrote:
->
-> All the pool sizes in the hypervisor are "unsigned long" but when
-> they get passed to hyp_early_alloc_contig() or hyp_pool_init() they get
-> truncated to 32-bits.
->
-> That is not a big problem at the moment as to overflow this we need
-> 4G bytes of carveout (2 TB of host or guest system memory).
->
-> However when new users are added (as IOMMU) it is hard to reason
-> about the carveout size anymore.
->
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+On 9/20/26 11:19, Cristian Marussi wrote:
+> Add SCMIv4.0 Telemetry basic support to enable initialization and resources
+> enumeration: add all the telemetry messages definitions and parsing logic
+> but only a few simple state gathering protocol operations.
 
-Ping, as Sashiko reminded me about this:
-https://lore.kernel.org/all/20260922132359.BB0381F000FF@smtp.kernel.org/
+As someone unfamiliar with the spec, it would be nice to summarize which parts
+of the spec this patch implements, so it's easier to cross-reference.
 
-This has already been reviewed.
+Same for the other patches. :)
 
-Thanks,
-Mostafa
+It's a lot to review. So having a better description to guide the reviewer
+through the patch would really help. I assume we could split this up further, like
 
-> ---
-> For example in the SMMUv3 to avoid this overflow, I add a cap
-> for the pools size to UINT_MAX to work around this:
-> https://lore.kernel.org/linux-iommu/20260715115906.2664882-9-smostafa@goo=
-gle.com/
-> ---
->  arch/arm64/kvm/hyp/include/nvhe/early_alloc.h | 2 +-
->  arch/arm64/kvm/hyp/include/nvhe/gfp.h         | 4 ++--
->  arch/arm64/kvm/hyp/nvhe/early_alloc.c         | 2 +-
->  arch/arm64/kvm/hyp/nvhe/page_alloc.c          | 6 +++---
->  4 files changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h b/arch/arm64/k=
-vm/hyp/include/nvhe/early_alloc.h
-> index dc61aaa56f31..462883c4e325 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
-> @@ -7,7 +7,7 @@
->  void hyp_early_alloc_init(void *virt, unsigned long size);
->  unsigned long hyp_early_alloc_nr_used_pages(void);
->  void *hyp_early_alloc_page(void *arg);
-> -void *hyp_early_alloc_contig(unsigned int nr_pages);
-> +void *hyp_early_alloc_contig(unsigned long nr_pages);
->
->  extern struct kvm_pgtable_mm_ops hyp_early_alloc_mm_ops;
->
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/gfp.h b/arch/arm64/kvm/hyp/i=
-nclude/nvhe/gfp.h
-> index 3766333bace9..3a428dc40b14 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/gfp.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
-> @@ -29,6 +29,6 @@ void hyp_get_page(struct hyp_pool *pool, void *addr);
->  void hyp_put_page(struct hyp_pool *pool, void *addr);
->
->  /* Used pages cannot be freed */
-> -int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
-> -                 unsigned int reserved_pages);
-> +int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned long nr_pages=
-,
-> +                 unsigned long reserved_pages);
->  #endif /* __KVM_HYP_GFP_H */
-> diff --git a/arch/arm64/kvm/hyp/nvhe/early_alloc.c b/arch/arm64/kvm/hyp/n=
-vhe/early_alloc.c
-> index 00de04153cc6..9fef0c7d2185 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/early_alloc.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/early_alloc.c
-> @@ -21,7 +21,7 @@ unsigned long hyp_early_alloc_nr_used_pages(void)
->         return (cur - base) >> PAGE_SHIFT;
->  }
->
-> -void *hyp_early_alloc_contig(unsigned int nr_pages)
-> +void *hyp_early_alloc_contig(unsigned long nr_pages)
->  {
->         unsigned long size =3D (nr_pages << PAGE_SHIFT);
->         void *ret =3D (void *)cur;
-> diff --git a/arch/arm64/kvm/hyp/nvhe/page_alloc.c b/arch/arm64/kvm/hyp/nv=
-he/page_alloc.c
-> index 57f86aa0f82f..51460d420c94 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/page_alloc.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
-> @@ -229,12 +229,12 @@ void *hyp_alloc_pages(struct hyp_pool *pool, u8 ord=
-er)
->         return hyp_page_to_virt(p);
->  }
->
-> -int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
-> -                 unsigned int reserved_pages)
-> +int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned long nr_pages=
-,
-> +                 unsigned long reserved_pages)
->  {
->         phys_addr_t phys =3D hyp_pfn_to_phys(pfn);
->         struct hyp_page *p;
-> -       int i;
-> +       unsigned long i;
->
->         hyp_spin_lock_init(&pool->lock);
->         pool->max_order =3D min(MAX_PAGE_ORDER,
-> --
-> 2.55.0.141.g00534a21ce-goog
->
+a) Add basic definition (mechanical from the spec)
+
+b) Add telemetry stub and hook it up
+
+c) query attributes
+
+d) intialize X
+
+...
+
+Will result in quite some patches .... so I won't suggest that just yet. Maybe
+people familiar with the spec have it easier revieweing this.
+
+
+> +
+> +enum scmi_telemetry_protocol_cmd {
+> +	TELEMETRY_LIST_SHMTI = 0x3,
+> +	TELEMETRY_DE_DESCRIPTION = 0x4,
+> +	TELEMETRY_LIST_UPDATE_INTERVALS = 0x5,
+> +	TELEMETRY_DE_CONFIGURE = 0x6,
+> +	TELEMETRY_DE_ENABLED_LIST = 0x7,
+> +	TELEMETRY_CONFIG_SET = 0x8,
+> +	TELEMETRY_READING_COMPLETE = TELEMETRY_CONFIG_SET,
+
+TELEMETRY_READING_COMPLETE is not really a command but listed as a "delated
+response". Should this be something separate (and not mangled into protocol_cmd
+?). Or is "_cmd" not the right term for this collection?
+
+I have no SCMI experience, so it might be a rather supid queestion.
+
+[...]
+
+> +struct scmi_de_desc {
+> +	__le32 id;
+
+I'll make a couple of generic comments, that should apply to most definitions in
+here.
+
+In the spec some of these things are prefixed by "de" e.g., "de_id".
+
+Was this deliberate? Having the spec match the implementation allows for easier
+grepping of stuff.
+
+> +	__le32 grp_id;
+
+Spec calls this "group_id"
+
+> +	__le32 data_sz;
+
+Spec calls this "de_data_size" etc.
+
+If there is good reason to use slightly different names, best to spell that out
+in the patch description.
+
+> +	__le32 attr_1;
+
+E.g., grepping the spec for "attr_1" I get no hits. So I have to remember that
+the spec might call this "de_attributes_1"
+
+> +#define	IS_NAME_SUPPORTED(d)	(le32_get_bits((d)->attr_1, BIT(31)))
+
+DE_ATTRIBUTES_1_NAME_SPECIFIED would be clearer. in general, spelling out to
+which field a define belongs *might* make it harder to get stuff wrong.
+
+(spec calls it "Named specified" which sounds like a bug)
+
+Same for the other definitions. Again, maybe diverging from the spec is fine.
+
+Personally, I would try to stay as close as possible to the naming in the spec.
+
+[...]
+> +
+> +static void scmi_telemetry_free_tde_put(struct telemetry_info *ti,
+> +					struct telemetry_de *tde)
+> +{
+> +	struct scmi_telemetry_de_info *info;
+> +
+> +	guard(mutex)(&ti->free_mtx);
+> +	/* Save clear and restore */
+> +	info = READ_ONCE(tde->de.info);
+
+Where is the matching WRITE_ONCE? IOW, who is expected to modify this concurrently?
+
+> +	memset(info, 0, sizeof(*info));
+> +	memset(tde, 0, offsetof(struct telemetry_de, mtx));
+> +	tde->de.info = info;
+> +	list_add_tail(&tde->item, &ti->free_des);
+> +}
+> +
+
+[...]
+> +
+> +static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
+> +{
+> +	struct device *dev = ph->dev;
+> +	struct telemetry_info *ti;
+> +	int ret;
+> +
+> +	dev_dbg(dev, "Telemetry Version %d.%d\n",
+> +		PROTOCOL_REV_MAJOR(ph->version), PROTOCOL_REV_MINOR(ph->version));
+> +
+> +	ti = devm_kzalloc(dev, sizeof(*ti), GFP_KERNEL);
+> +	if (!ti)
+> +		return -ENOMEM;
+> +
+> +	ti->ph = ph;
+> +
+> +	ret = scmi_telemetry_protocol_attributes_get(ti);
+> +	if (ret) {
+> +		dev_err(dev, FW_BUG "Cannot retrieve protocol attributes. Abort.\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = scmi_telemetry_instance_init(ti);
+> +	if (ret) {
+> +		dev_err(dev, "Cannot initialize instance. Abort.\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = scmi_telemetry_enumerate_common_intervals(ti);
+> +	if (ret) {
+> +		dev_err(dev, FW_BUG "Cannot enumerate update intervals. Abort.\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = scmi_telemetry_enumerate_shmti(ti);
+> +	if (ret) {
+> +		dev_err(dev, FW_BUG "Cannot enumerate SHMTIs. Abort.\n");
+> +		return ret;
+> +	}
+> +
+> +	ti->info.base.version = ph->version;
+
+I'm surprised that there is nothing to cleanup on the error paths, but at least
+the devm_ stuff is being taken care of I guess.
+
+
+It's a lot of code, so I only managed to skim briefly over most of it.
+
+-- 
+Cheers,
+
+David
 
