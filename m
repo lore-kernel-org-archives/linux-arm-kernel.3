@@ -4,99 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8129C982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CD6C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPF+ayuwPNkxuj/ujS1fxH31P6rprrzyBlOR3aJvTXs=; b=fiBQ1/K53EmTXpQ/9efuXP3bPH
-	Fh2bdxEfwVksgrWaijyocmUSVpbR8tiDHXQMEyxz6jCEuZiaK0z2vpTwacxAx09ykPU5/E5rGHrx5
-	o1chu5BLXMVU/KOLw2EKIOFcoHL4n0btKK29Q5opgSDJEwehUJbtBe6wV/TTkxDaDwSR859/l3IB1
-	wYMgJFDze8G1VSGJ0R30VT9bgDN3N/Rg+yMMT77+lzu6XwZ2iaicmJZHfHMjAVc2SnDfD/z+vb2KP
-	zd5fxSaCifKiwaw+fk3cbypGsf89kxUMqAbfAVy9FLVUILvJ981LRzJS4ISQ0ptyz6a1m9uXnbjdQ
-	dQ4OpEjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pp7mzsLIsbavEPfem5dhuoLyc27UEuONp1Ueoff5SSI=; b=g6+qSqnBOO2gAxZpKziKQ0yp9q
+	hMaBkJdRW/URNcu4cGOzgpqp3yGkxQdT44Pzh6Ih/NAWMeZvjcL3WP04U7XU41RYP6a/YkNJufP76
+	WH9zeJUJ514kNYLZaKcuqXBp+GEdncWhwVyjywNqTQl2S9loYn6i0Di0VhbBpUQZhO2LEvqZnq0NJ
+	tFX3jGf0yZt2oZpPm6Y+7BdKSZZhD/MN5Su93s/f/GRtK+Nk0JTGqUnOARFBTfL4oZAwkcuRRWmIw
+	dWR3qWdjvOntMProz6eGoKD3M6jLl3kjzPCcltTcZv8IFZFstSy4kB8iY8TWvBCvf+viPRMPHrE1X
+	9AuyLTjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zvJ-00000005MIj-39tY;
-	Tue, 22 Sep 2026 12:48:37 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1x8zx2-00000005MZm-041f;
+	Tue, 22 Sep 2026 12:50:24 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zvH-00000005MI5-1tYC
+	id 1x8zwy-00000005MYg-0jxq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:48:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790081315; x=1821617315;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=qpF5www/qPUXSNZo2UHhbjLD5x+pblk2MWF/eef8p7I=;
-  b=ggRV/+t6rkMcSi5yHn4cGG0U2Fon7SDCUFWO0eLQjBmP3h4j17DENuqq
-   2IfALFjN2ZHnHpItjBh7hSpb1WuZI/kXFNbFMb0p5wcXDLlaGKGj5wDu1
-   D2kTCcdsUOtxoUaYM/w1Tkfz0nls7kC+4ssUOj8XGPjInjwfM837nFPOL
-   /1EYotmCXPC9lhfFxOe4QTorb5/kAlZt0sTAX4q3pMuJvGjJzu0rqGD4h
-   6KLnyKHtOA2IBuXfv9RV/jcNIryeAaqHyW7TSkybxwrgK7Fd4q9FxCrkE
-   T2mqR3Y0vcwnfxE0LbOb3WfYF2r0+DlzlP7dCHPSJJQWgmX+E0LHIeLBS
-   A==;
-X-CSE-ConnectionGUID: 2AXAm6rqQvKWWzemttH5Rw==
-X-CSE-MsgGUID: 9uxcwEtrSPOnlKwzpETNKQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11912"; a="90796983"
-X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
-   d="scan'208";a="90796983"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:48:34 -0700
-X-CSE-ConnectionGUID: I61J/lMPR6yWm2SobW9uzQ==
-X-CSE-MsgGUID: Y5GxCWZmT3qY5hE+HY8CAQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
-   d="scan'208";a="301039531"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.80])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:48:21 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 22 Sep 2026 15:48:19 +0300 (EEST)
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-cc: Linux ACPI <linux-acpi@vger.kernel.org>, 
-    LKML <linux-kernel@vger.kernel.org>, 
-    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    Mika Westerberg <mika.westerberg@linux.intel.com>, 
-    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-    linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
-    Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org, 
-    Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-    "Joerg Roedel (AMD)" <joro@8bytes.org>, 
-    Mark Pearson <mpearson-lenovo@squebb.ca>, 
-    "Derek J. Clark" <derekjohn.clark@gmail.com>, 
-    Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
-    David Rhodes <david.rhodes@cirrus.com>, 
-    Richard Fitzgerald <rf@opensource.cirrus.com>, 
-    Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-    linux-sound@vger.kernel.org, Shenghao Ding <shenghao-ding@ti.com>, 
-    Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
-    Sen Wang <sen@ti.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
-    Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, 
-    Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-    Cezary Rojewski <cezary.rojewski@intel.com>, 
-    Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-    Bard Liao <yung-chuan.liao@linux.intel.com>, 
-    Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-    Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
-    Binbin Zhou <zhoubinbin@loongson.cn>, 
-    Andreas Noever <andreas.noever@gmail.com>, 
-    Mika Westerberg <westeri@kernel.org>, 
-    Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: Re: [PATCH v1 06/17] platform/x86: serdev_helpers: Switch to use
- acpi_bus_get_primary_device()
-In-Reply-To: <2720286.Lt9SDvczpP@rafael.j.wysocki>
-Message-ID: <5fa97997-ae1f-0ff3-918c-e3195164c2ef@linux.intel.com>
-References: <7995179.EvYhyI6sBW@rafael.j.wysocki> <2720286.Lt9SDvczpP@rafael.j.wysocki>
+	Tue, 22 Sep 2026 12:50:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6921C4E41035;
+	Tue, 22 Sep 2026 12:50:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 20F0160580;
+	Tue, 22 Sep 2026 12:50:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 645F4103289FC;
+	Tue, 22 Sep 2026 14:49:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790081409; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Pp7mzsLIsbavEPfem5dhuoLyc27UEuONp1Ueoff5SSI=;
+	b=SMWmOhVcC5GkK+X8WZA70hvKKa1Ea1wfG8B8tKZVFCR7esnlKTgnDlY00+AKd/7poPloHR
+	lR4szN4Oz0HMmVM7SP1/j32iV/h2Uq917H6w8dkEjAohMivLHrGDR8Fw+6fUzrnnKNxdjQ
+	4xhNMo2FEdhN08NkltOWX+XkLxiMMc7ufK5UWQhsAdd6lR3tGFmyCoD2TZgRrFK+0I1xcn
+	TURJ6ab/JM9OX1x7Ch01AlIaPajCgUzc6U1MwPCAnwjSMPy8y4AEVW2IeKXCqscj2IIPXj
+	vEq7eaXP0k8jH2rJO/Cw8oKlRfsmb2MZuRrwyqrTY9XcfRn6NR8FbuDvLmERog==
+Message-ID: <033fc935-c37a-4b0f-8b79-68248e45da8f@bootlin.com>
+Date: Tue, 22 Sep 2026 14:49:57 +0200
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-1862122475-1790081299=:1233"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v16 00/12] net: pcs: Introduce support for fwnode
+ PCS
+To: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>,
+ Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev, Coia Prant <coiaprant@gmail.com>
+References: <20260916235200.20712-1-ansuelsmth@gmail.com>
+ <20260921135933.7e8857ba@kernel.org>
+ <CA+_ehUwy9RUKCCHDnqoED3AMVnErgGr9RCrCR4ceg5QONq1wOQ@mail.gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <CA+_ehUwy9RUKCCHDnqoED3AMVnErgGr9RCrCR4ceg5QONq1wOQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_054835_501145_ADBF8E57 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20260922_055020_375864_B24134C5 
+X-CRM114-Status: GOOD (  27.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +94,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hi,
 
---8323328-1862122475-1790081299=:1233
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+On 9/22/26 12:12, Christian Marangi (Ansuel) wrote:
+> Il giorno lun 21 set 2026 alle ore 22:59 Jakub Kicinski
+> <kuba@kernel.org> ha scritto:
+>>
+>> On Thu, 17 Sep 2026 01:51:26 +0200 Christian Marangi wrote:
+>>> This series introduce a most awaited feature that is correctly
+>>> provide PCS with fwnode without having to use specific export symbol
+>>> and additional handling of PCS in phylink.
+>>>
+>>> At times there were 2 different implementation (this and the one
+>>> from Sean) but Sean agreed that this can be picked and used in favor
+>>> of his implementation as long as his case with race condition is
+>>> correctly handled.
+>>
+>> Looks like the review for one of the patches failed so it won't be
+>> emailed out:
+>> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260916235200.20712-2-ansuelsmth@gmail.com
+>>
+>> Are all of the issues invalid?
+> 
+> Only one is relevant, but expected.
+> 
+> The remark on the fwnode patch are invalid. The driver is expected
+> to return those error as probe defer is not supported.
+> (a notifier and late attach/detach is used to align to phylink logic)
+> 
+> For the specific Airoha PCS driver it's really speculation from the AI
+> but HW doesn't work as described by AI.
+> 
+> The only real comment that is valid is about the alternative way
+> to give supported interface with the .get_capabilites OP.
+> 
+> This is currently not supported as there isn't any user and it will
+> be implemented as soon as there will be one. It's really to limit
+> the patch delta of this change and to progress further.
+> 
+> Maybe FIXME might be suitable?
+> 
+>>
+>> Once the AI review is cleared, some human will have to review this
+>> and vouch for you as a maintainer. Better still be your co-maintainer.
+> 
+> I think some revision ago there was Andrew that reviewed some code.
+> Anyway thank a lot for checking this once in a while, I feel it's a pretty
+> important change but I understand it's complex to handle as it does
+> introduce a whole new subsystem.
 
-On Mon, 21 Sep 2026, Rafael J. Wysocki wrote:
+I'm attending a Rust training until thursday, I'll see if I can squeeze in some
+time to re-test on mvpp2 :(
 
-> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
->=20
-> Replace acpi_get_first_physical_node() that is slated for removal
-> with acpi_bus_get_primary_device() that takes a reference to the
-> device it is about to return.
->=20
-> This addresses a potential use-after-free that may occur if the
-> device returned by acpi_get_first_physical_node() is removed right
-> after dropping its ACPI companion's physical_node_lock in that
-> function.
->=20
-> Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> ---
->  drivers/platform/x86/serdev_helpers.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->=20
-> diff --git a/drivers/platform/x86/serdev_helpers.h b/drivers/platform/x86=
-/serdev_helpers.h
-> index 57eac75805e2..20267e1941f1 100644
-> --- a/drivers/platform/x86/serdev_helpers.h
-> +++ b/drivers/platform/x86/serdev_helpers.h
-> @@ -74,8 +74,7 @@ get_serdev_controller(const char *serial_ctrl_hid,
->  =09=09return ERR_PTR(-ENODEV);
->  =09}
-> =20
-> -=09/* get_first_physical_node() returns a weak ref */
-> -=09parent =3D get_device(acpi_get_first_physical_node(adev));
-> +=09parent =3D acpi_bus_get_primary_device(adev);
->  =09acpi_dev_put(adev);
->  =09if (!parent) {
->  =09=09pr_err("error could not get %s/%s serial-ctrl physical node\n",
->=20
+There're a few series pending for rockchip and S32 on stmmac that deal with
+PCS support and their PCS handle. It would be nice to have some stmmac glue
+maintainers that are using complex PCS to help with maintainance or at least
+testing, maybe Coia can help with the tests ?
 
-Reviewed-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+Maxime
 
---=20
- i.
 
---8323328-1862122475-1790081299=:1233--
 
