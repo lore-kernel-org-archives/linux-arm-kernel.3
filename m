@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD6EC982FF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93943C982FA
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,80 +12,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8SSEreitnBFuEXQj3F3dce2S1yQFmhptrw7zyYrACU=; b=gBwGqOWEE2ycSQ5BhTO7B5UQVj
-	d3okuGNzoVUtPiKUT8XG84pMUYgcCsd45F23YcXwlMpj4QE1k1+u9kjyLzpHO3AWrENUVUn8eP+ep
-	aseOdIimwx+hBqTg94QbcJsDroU93VDNNu7IYbwlQcfJx6mF2OPKySetlhk9CCrANbf8cn5XtJ0w4
-	21e3voxiAgK1WlQQjkzBUNn2Ab/8E7YHGHkD2rCF/Fs+6Ltl2ArgJcumi/64YKGJqWrwYA9j9ZH61
-	OOXZ1qtuJ3NZ09OaCA3/jsO+aX3OYVwZMPSmjEz2fSnHPKyYMM0TlAznpCfYYFnT8vhdKXJinGx3V
-	AhnWCyQg==;
+	bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=; b=0w4bW+SMMwbpfhQXuQMMsgUjF5
+	SFRjBT7NXAL25aq5MEjEHxWtr9JkHCL1O9ubLuPvc6JG2JNYXbrh1lyQM9ISlcHNOiXlGY2S97WY/
+	TIi6CwEeS88nTx2ZGNJ6fWdlTyL0MhCplahGK3e2mNNsEXsGqhYCZ3oqIC0otD57XpSMTVAfAwFYz
+	rqeu582f2lLrQjkfMw+Fcz/N+n8ckpLYDRqPbsIN0SbzTzNn5JB1QlBIIfpDSx+usFXg7K/YubAun
+	4yoYoOQ47P0cetE7beqfUGtu4rooyG/v5VI4Um7iAir/hGcmm/l5eX0kt2pyKvMgLSENgfRmhXZWt
+	Z5cRos2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vSm-00000004bK0-0u10;
+	id 1x8vSm-00000004bJe-0Pt7;
 	Tue, 22 Sep 2026 08:02:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRj-00000004aPC-08x5
+	id 1x8vRY-00000004aFx-3aAJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 08:01:47 +0000
+	Tue, 22 Sep 2026 08:01:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=k8SSEreitnBFuEXQj3F3dce2S1yQFmhptrw7zyYrACU=; b=cZPApCYvKyQbhhvW+j3EznfcTz
-	KJpFv7JMnvWqR5dpJrXQDS/3t2g5u+dBYtCZ1h1RCN0iVObqXelqnFvUOA7ggCiBrDNgwEILulSUH
-	OSaALXzUQ5TH93FgbmVBeCg5S42EBZZHfydKzSaAqVGnOR2CzIWe1RDVroOrzzcHTn4ebQjURBdQN
-	ORI/L8wMZm4cxDsIXjxKGaUrtK6b/zgkmrYu9GV3rMf460jsm2ZTHyAEAQRYYn5O6tbO8/uBCRcrd
-	kzuy32rIdfnazBrJ4AFE8iSZjGr5SvUlzA3ZWbtKU/zQsGMW7CWseSNOAPgrGkbYrf/fhWjm5jdkA
-	KwBsz0QQ==;
+	bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=; b=pKm2K3DgFiVdOqCJh1XsIJNUS6
+	VYc6Pqze+MFf3raHN3qzrTAumbR17kEzu+0gCBxXH+HVHhztV7F32NKz0YNi2jEeEdp9P+FdM9pUM
+	eKz1OQUy4MQOfR650lAq6qvzz4lOpWF48EXU4DeDTjhLJZlVwejZQti2KrOAAJBTw82y5V2WEcwdf
+	FY5IxW1XYlYhPLqDgB2/O+wl7si+mM7xnlZON0b8HIltCWkBUskswAIXE5g/VrKfyRv/jlFeJbFxT
+	OG2amHZiEwRb6p4r7G43rjpovzuwNKBDODWvqwZI7jz8O7ZjIEBTd1xC1i46hPp8of82SRVlMaJDk
+	qcK2Ivvw==;
 Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8vRf-0000000DEj2-0kUC
+	id 1x8vRR-0000000DEcv-2uaK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:01:45 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49d0726cdbcso2018155e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:42 -0700 (PDT)
+	Tue, 22 Sep 2026 08:01:33 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49fbca514f8so2712505e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790064101; x=1790668901; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790064088; x=1790668888; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=k8SSEreitnBFuEXQj3F3dce2S1yQFmhptrw7zyYrACU=;
-        b=ofMQn6m8dp7GTbkjmxzTzjCUIjnF6sqKWhw2ibo7ETDlf6/UUzmjbVYFay3F9+YUTH
-         JbYLrvpD2jZleSDtJ4PpT0g3QiCmPLxpniuORsvLBlBHLS9vQl3o+hODKiq5uLH99i47
-         Uj/7+anrHpa0m4ylh6rtllFZwFa5W9aRiXitT9gHGP9PDdzoIqLYIt5Sn9BY17F0xzzX
-         WBQLDBKC+C1P8fTgxXJrx7Yx3uyW1g2xFuE3UDB8Zk3eT84KFyfMlvb5keH4XbUvU4aI
-         4XVeXr/B/QK7z4nlCriN/n2ZojwPANCdzG1Uio5PSnkHX6BM/IT58VIgPMxHFknub2QK
-         f3Tw==
+        bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=;
+        b=QCIkHLVd5fo7ObokPMKPh0TPHfo4cwK/3znDcNNYsphNKAJFu0WxKhDwIIRjkSUZ2f
+         7ZlumTYRtxq9ScNVT5E4BjyDrOrQ+zCij96l/ZxsSgmkgY8mXvkNkeUIMjSpwErXdjSY
+         RQXrZu13vmAYuutsheqTIFUGmHJZC61kT2tK8x+F60MiJzIsuiCMYQyst6EBoDxMXEwe
+         aJ5+UZ9VIf7xV1jGlI/JJt7W74nlUWRdAsdwjpf4q0tbz7nhzKmEQEMHHpQfADXKKMpj
+         6b3DulTklKjGsGZN8aMWZ2bwLusY8re6pTqGGUVtYm8jFJraRl+Uh2PYPxlJ79fqNWol
+         mxRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790064101; x=1790668901;
+        d=1e100.net; s=20260707; t=1790064088; x=1790668888;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=k8SSEreitnBFuEXQj3F3dce2S1yQFmhptrw7zyYrACU=;
-        b=JTY8v03lqaKtvNYHpic6nrbnZgSS/532GQHI/JIgJeATSD0t3YAQqfUvszMeAsIf1q
-         xsZvdTj0Y4rC0bM2LRI8DvB1kPwF4ByAazKbxt59BbjoYa/8pYhm1ma2UgwjHiM0sMjk
-         zreTs14vejVlwcqcATeQYmgmkp2IPUO3bb49KKW+mBEn/ncq+K5lw7t/lCs6SCpcfsiT
-         WP78hHQaVLVrhffvtq950dO25QVWyL++HWyGEJ4dwnxJkEEyWFn7LR7DMcr9lo5vmMFb
-         A6lANCjl6j/xN2rzdQh/Y/LEAT5cF0WRisIsX+WoKP8f39ELO/93QEPjkg7uFH5biACu
-         cHOA==
-X-Forwarded-Encrypted: i=1; AKwUvBxJL9gYSaPz+MRgMlb//wwjjlKk/PFmu1/XQfrgz9uSTxxJ/hrQzyQzPdN3r8UWlLGXmwPEHIF+PVnFsFRZvsxu@lists.infradead.org
-X-Gm-Message-State: AFuF++nh4D/GnjiQuNTTLNRURQd5MyMCILl8ULqzPHyu2yEWe0XZ+YQM
-	vEL7X6HYGEgYY1zEK/ybPrObDxDfcsRPn9ghRV9WK6H/H6AhUiHSthVM
-X-Gm-Gg: AYBFou2oe/NbhTZPrtAx/1PP2dIQhzqdEwyjx/bkkFRCP4elykM22ltHVxfpKWI+ydH
-	lulPqWzXQr3lfBL0Ls5Tms0ncG1T+DlKFWfm61yKMCKMRI5p893RBOKpJlPw4kYExXCtWQOQmXy
-	diPBjMEhTMHBwhIsE1022maRRMEOlmtooqcvAoS7fiZBdzzN9A4IVwLxiteV+qVKoP3B1LCWrz0
-	gNzpbLSXyz6nrxdF4Kfmnk5PZX07zTQ4ZulyXouNG0AsvSgafaswzWzKXwh8AYnkG482L6RzXAy
-	FBz4SOfO9CpAr5p7dXo+PDnGM60Z1DtmwPtvwR69XrRgvGIjJ9rVdH5vtnwVDzV7t0/JA4YjlX8
-	h/JIYEmav7qykioYDOIrvLfjzeZhzzfujr5nkdPdCiJ7hJnaQYZQEIp+//udSP5TDVQRA8M5v5V
-	k93mwDTM9388pE70r6k0v/9tzusjvZOGEuTevkXtYWMKb0ysjqnTxVC8rzcRTgWJuyCG4eUx56M
-	gLHb5uHM9qECATM3TJiT9u4T4P8dWuIjX7aCdxoykjhYesm3uPV+FycwiIPSbrUJfWMGXAu+UdV
-	mOo=
-X-Received: by 2002:a05:600c:6992:b0:49b:9241:7ff0 with SMTP id 5b1f17b1804b1-49fc7b7a756mr226941795e9.0.1790064100738;
-        Tue, 22 Sep 2026 01:01:40 -0700 (PDT)
+        bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=;
+        b=Ul15JH/YTeUyy6BLpc2qt5FNM1y+pmMCKw62Vx8IsLFQxQ81EYafUGrZqzMvFUTUBu
+         zVUaFcygHnTAyVmUyb6ZcNdvzIT81wgu790C8Q1yc9dD+ybx37SbBOk/Cy8lAIRVxQGp
+         5lXX/yQhtMgZQX1tjxKMtJCpfR4yyxIfalUdw0W2Ee3js3vmf3hduxPe3qPYc8/IIbkE
+         maIxVmweZyl+Td6DtL4o53o5QGYCt7JYwlCfIqKIznApw8xCnjK+DbfjUr7AzO9oW1J0
+         3lOgGZZ1PT788itfAkJT/qVrfA+XDE5EvFD67VNJAIvJOyBiZ2V50NoWSaqrc3caQQK8
+         bOFQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw6K7D1KB94I7wdAlxFDWZHlanKfqO1SYVEpZ2pFPMjwdj2v7WeqJNmc7tACFFZhjO5mGkVo9+4b3Zt8MB9ZISe@lists.infradead.org
+X-Gm-Message-State: AFuF++mi8wH+hufSfSiSK2VEKGHXWqmffpjO2mPFK/tIhdZl8BFWm2Tr
+	SytRFV8iQtIYz7DObe5VneCtk55NMEgbjh/o0a83J/c5NnKHkpZVJBbl
+X-Gm-Gg: AYBFou1bXgJFpSWLw2IVDaD38+gflca/ca+UOH6O9H8tu/KTMd6GsRuZvbdD9l9IgH1
+	ZoF+g3zDFcShwYwhimrSgruJYIUHAk0hlAebarSFOn5L1HVekPhEaDs/Noq+YJMeNVPR+hSvBf+
+	xH8e638DwHsyGMM33uiL3UhtOds+TyCkt88DKDQ3zS+e4HhnEihRIS1yCrEUTK+4zJXhH1/1EDL
+	K2mG3iz9ZhzM+p5W75cu5+oqmECKg0ACGYmmS41LMmH663Yxf5kIA+qC8TY7ud+B3ljap+2PITE
+	kb3g2Wo1ZS4RJvdYe3bbwOQ3IjfmIp6L86RTBBWYSl8TlMY+kTOIXTUO95zmUfgSfPPhNaGxKM0
+	9eeEN0BPft5Qp8Zfy1ncSiZYVlRrC2pp6iTiD+ItupDaPtXgtCuZ29rlhhqlN28hn6GI4P5DJmC
+	S3r5gwpzEPUCqvm+m33ivjN6nEsl1WPzhhOmlxroChXRsZa02GGHRFGQm6aqsI1RnP2BVkSvU52
+	HVcO3jqdMMYi6cWduZVSpNIThx6Qu7WyecYdXcXztw14MszA/+IsZCJE04q46cfvdDzhPFq7tgC
+	278=
+X-Received: by 2002:a05:600c:354e:b0:49e:479b:c13b with SMTP id 5b1f17b1804b1-49fc7dff668mr165624765e9.1.1790064085766;
+        Tue, 22 Sep 2026 01:01:25 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B80530056971C6280202175.dsl.pool.telekom.hu. [2001:4c4e:1b80:5300:5697:1c62:8020:2175])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 01:01:40 -0700 (PDT)
+        Tue, 22 Sep 2026 01:01:25 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
 	Oded Gabbay <ogabbay@kernel.org>,
@@ -109,17 +109,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH v2 11/11] arm64: dts: rockchip: rk3588: add passive cooling to the NPU thermal zone
-Date: Tue, 22 Sep 2026 10:01:14 +0200
-Message-ID: <20260922080114.44662-12-royalnet026@gmail.com>
+Subject: [PATCH v2 01/11] accel/rocket: search every core slot when a core is removed
+Date: Tue, 22 Sep 2026 10:01:04 +0200
+Message-ID: <20260922080114.44662-2-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260922080114.44662-1-royalnet026@gmail.com>
 References: <20260922080114.44662-1-royalnet026@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_090144_321241_F7667474 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20260922_090129_922979_A26B0CA8 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,84 +134,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NPU zone has had only a critical trip at 115 degrees, which is a
-shutdown and not a cooling policy. Now that the NPU can be throttled by
-capping its clock, give the zone a passive trip and a cooling map, in the
-same shape and at the same temperatures as the GPU zone right above it:
-85 degrees with 2 degrees of hysteresis, and a 100 ms passive polling
-delay.
+rocket_remove() decrements rdev->num_cores for each core it removes,
+while find_core_for_dev() searches slots 0 to num_cores - 1. Unbinding
+the cores in the order they were bound therefore loses the last one: by
+the time it is removed the search range has already shrunk past its
+slot, so find_core_for_dev() returns -1 and rocket_remove() gives up
+without doing anything.
 
-The #cooling-cells property goes on rknn_core_0, the first of the three
-core nodes, as the one node that stands for the shared clock as a cooling
-device. The other two cores have no clock of their own and cannot be
-throttled independently of it.
+num_cores never reaches zero, rocket_device_fini() never runs, and the
+file-scoped rdev keeps pointing at a device that is going away. Binding
+the cores again starts from that stale count, because rocket_probe()
+takes rdev->num_cores as the slot to fill. On an RK3588, which describes
+three cores, the second round lands on slots 1, 2 and 3 while rdev->cores
+was allocated with room for three:
 
-The cooling map is inert until the driver registers a cooling device:
-thermal_of_should_bind() only resolves a map entry once a matching cdev
-appears, so this patch on its own changes nothing but the trip point. On a
-board that leaves the NPU disabled the passive trip has no cooling device
-to act on and only changes the polling rate above 85 degrees, as the GPU
-zone's trip already does on a board without the GPU.
+  rocket fdab0000.npu: Rockchip NPU core 1 version: 1179210309
+  rocket fdac0000.npu: Rockchip NPU core 2 version: 1179210309
+  rocket fdad0000.npu: Rockchip NPU core 3 version: 1179210309
 
-The thermal path itself has not been exercised on the board this was
-written on. Reaching 85 degrees on an NPU workload with the fan curve here
-has not been possible, so what is verified is that the zone parses and
-binds, not that throttling engages at temperature.
+The write to rdev->cores[3] is past the end of the array.
 
-Assisted-by: LLM checkpatch dtbs_check
+Nothing in tree reads the core array often enough to notice, so the
+overrun is silent today. It turned up while testing a devfreq series on
+top of this, where a worker walks every core a few times a second, and
+UBSAN caught the first bool it read out of the overrun entry:
+
+  UBSAN: invalid-load in drivers/accel/rocket/rocket_devfreq.c:47:10
+  load of value 5 is not a valid value for type '_Bool'
+  Workqueue: devfreq_wq devfreq_monitor
+
+Record how many slots were allocated and search all of them. Every core
+is then found on removal, num_cores reaches zero, the device is torn down
+and a later bind starts from a clean rdev.
+
+This does not make unbinding a single core out of several work: probe
+still takes num_cores as the slot to fill, and rocket_open() still
+reaches for cores[0] whether or not anything is there. The fourth patch
+takes care of both.
+
+Found by unbinding and rebinding all three cores on an Orange Pi 5 Plus.
+With this applied the cores land in slots 0, 1 and 2 every time, whichever
+order they are bound in, and the shared supply goes back to a single user
+after each round.
+
+Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM sparse checkpatch
 Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+Tested-by: Jiaxing Hu <gahing@gahingwoo.com> # RK3576, two cores
+Tested-by: Sidong Yang <sidong.yang@furiosa.ai> # RK3588, 3 cores
 ---
-v2: commit message only: wording for the shared table, and a sentence
-on boards that leave the NPU disabled. The diff is unchanged.
+Two paragraphs changed from the standalone posting, which this series
+supersedes: the one on unbinding a single core now points at patch 4
+instead of saying what is left, and the round counts are dropped from
+the last one. Posting:
+https://lore.kernel.org/r/20260904125936.26234-1-royalnet026@gmail.com
+The two Tested-by tags are from that thread. The round counts were
+taken on a kernel that carried the use-after-free fixed in 8/11; they
+were re-measured with the whole series applied, see the notes on patch
+4 and the cover letter. The single-core unbind and rocket_open() cases
+in that paragraph are 2/2 of the lifecycle series, now rebased into
+this one as patch 4:
+https://lore.kernel.org/r/20260731064933.12548-3-royalnet026@gmail.com
 
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ drivers/accel/rocket/rocket_device.c | 2 ++
+ drivers/accel/rocket/rocket_device.h | 1 +
+ drivers/accel/rocket/rocket_drv.c    | 2 +-
+ 3 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 376ad04e07869..c3d22b08f415b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1162,6 +1162,7 @@ rknn_core_0: npu@fdab0000 {
- 		clock-names = "aclk", "hclk", "npu", "pclk";
- 		assigned-clocks = <&scmi_clk SCMI_CLK_NPU>;
- 		assigned-clock-rates = <200000000>;
-+		#cooling-cells = <2>;
- 		resets = <&cru SRST_A_RKNN0>, <&cru SRST_H_RKNN0>;
- 		reset-names = "srst_a", "srst_h";
- 		power-domains = <&power RK3588_PD_NPUTOP>;
-@@ -3212,17 +3213,31 @@ map0 {
- 		};
+diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+index 46e6ee1e72c5f..efd004194c1af 100644
+--- a/drivers/accel/rocket/rocket_device.c
++++ b/drivers/accel/rocket/rocket_device.c
+@@ -31,6 +31,8 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+ 		if (of_device_is_available(core_node))
+ 			num_cores++;
  
- 		npu_thermal: npu-thermal {
--			polling-delay-passive = <0>;
-+			polling-delay-passive = <100>;
- 			polling-delay = <0>;
- 			thermal-sensors = <&tsadc 6>;
- 
- 			trips {
-+				npu_alert: npu-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
++	rdev->max_cores = num_cores;
 +
- 				npu_crit: npu-crit {
- 					temperature = <115000>;
- 					hysteresis = <0>;
- 					type = "critical";
- 				};
- 			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&npu_alert>;
-+					cooling-device =
-+						<&rknn_core_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
- 		};
- 	};
+ 	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
+ 	if (!rdev->cores)
+ 		return ERR_PTR(-ENOMEM);
+diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
+index ce662abc01d3d..c62d567010696 100644
+--- a/drivers/accel/rocket/rocket_device.h
++++ b/drivers/accel/rocket/rocket_device.h
+@@ -19,6 +19,7 @@ struct rocket_device {
  
+ 	struct rocket_core *cores;
+ 	unsigned int num_cores;
++	unsigned int max_cores;
+ };
+ 
+ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+index 8bbbce594883e..2bcfe4ab3c68f 100644
+--- a/drivers/accel/rocket/rocket_drv.c
++++ b/drivers/accel/rocket/rocket_drv.c
+@@ -223,7 +223,7 @@ static int find_core_for_dev(struct device *dev)
+ {
+ 	struct rocket_device *rdev = dev_get_drvdata(dev);
+ 
+-	for (unsigned int core = 0; core < rdev->num_cores; core++) {
++	for (unsigned int core = 0; core < rdev->max_cores; core++) {
+ 		if (dev == rdev->cores[core].dev)
+ 			return core;
+ 	}
 -- 
 2.43.0
 
