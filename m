@@ -4,122 +4,210 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93943C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF82C982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=; b=0w4bW+SMMwbpfhQXuQMMsgUjF5
-	SFRjBT7NXAL25aq5MEjEHxWtr9JkHCL1O9ubLuPvc6JG2JNYXbrh1lyQM9ISlcHNOiXlGY2S97WY/
-	TIi6CwEeS88nTx2ZGNJ6fWdlTyL0MhCplahGK3e2mNNsEXsGqhYCZ3oqIC0otD57XpSMTVAfAwFYz
-	rqeu582f2lLrQjkfMw+Fcz/N+n8ckpLYDRqPbsIN0SbzTzNn5JB1QlBIIfpDSx+usFXg7K/YubAun
-	4yoYoOQ47P0cetE7beqfUGtu4rooyG/v5VI4Um7iAir/hGcmm/l5eX0kt2pyKvMgLSENgfRmhXZWt
-	Z5cRos2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j7KSLUk7rKqyy72KK4YGR+UvKHMrq/M+XADMiZj5/Wo=; b=keVtIQL5eJZv9boTDmEkXBW2n0
+	OEPTlq3cndDVleqIB6WpTNkA1LJsCWnloafPwPlkm8Ov2RctbuTkn2vfm6S2ckSMI+VgVY0uHmVBV
+	gPiksTF5W36vZQcYAfPN312iI4PD7JJqduccgNvZwKqB8DIC7fmX/vbxcJ0prcTLxsOMHv6nBWPsG
+	RfS7avQnZdl+U372lI8Qd+N7MogSyn8c0v/cabkxHRzmukUTaAJi9BWWN5+CJjXsPe/P+JOuRoEkm
+	zCn8ipUWU175xHmlbk+lmn6DPtLeo6ejeoLot99pyHzJJfbqdfpN/MkzPMZeog0t64evrG3eAzq+K
+	YyToOiQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vSm-00000004bJe-0Pt7;
+	id 1x8vSm-00000004bKh-22b2;
 	Tue, 22 Sep 2026 08:02:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRY-00000004aFx-3aAJ
+	id 1x8vSO-00000004asr-2R4Y
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 08:01:38 +0000
+	Tue, 22 Sep 2026 08:02:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=; b=pKm2K3DgFiVdOqCJh1XsIJNUS6
-	VYc6Pqze+MFf3raHN3qzrTAumbR17kEzu+0gCBxXH+HVHhztV7F32NKz0YNi2jEeEdp9P+FdM9pUM
-	eKz1OQUy4MQOfR650lAq6qvzz4lOpWF48EXU4DeDTjhLJZlVwejZQti2KrOAAJBTw82y5V2WEcwdf
-	FY5IxW1XYlYhPLqDgB2/O+wl7si+mM7xnlZON0b8HIltCWkBUskswAIXE5g/VrKfyRv/jlFeJbFxT
-	OG2amHZiEwRb6p4r7G43rjpovzuwNKBDODWvqwZI7jz8O7ZjIEBTd1xC1i46hPp8of82SRVlMaJDk
-	qcK2Ivvw==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:CC:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=j7KSLUk7rKqyy72KK4YGR+UvKHMrq/M+XADMiZj5/Wo=; b=Jbs3Sq8Jot+Aqtk3uX9p2K5Ksw
+	wzZiv3JtJd1JLRRMeGSXmoHw/Cu+ts9jJmJ1tuTPdPNNyldZzJhKEiF+uOhLKJq9k6XNoUZDP2v/x
+	SCaZWILwhPzdfy3vOlcGcAS3YZ8d/VxzquMRCFK0mizQDJJQEvzWCiJs5b/d4QvXt73psk1/tSbtb
+	IQuiHqIhQV2GC6U5aeZkl338+Y7vCeQE/bro/H1ZmX+6R/WLyJoERMqi3uFNGdrQGCZv4/KwUAK3j
+	mgeimPPZBmNVs+DCM7md+c+7QcSh0eG9YovfyjswtzgGOGgCzTjP/j3fRcWYNNZYubNbdbx9oVCqw
+	LvHYJTcw==;
+Received: from mgamail.intel.com ([192.198.163.5])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8vRR-0000000DEcv-2uaK
+	id 1x8vSJ-0000000DEqL-3PNO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:01:33 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49fbca514f8so2712505e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790064088; x=1790668888; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=;
-        b=QCIkHLVd5fo7ObokPMKPh0TPHfo4cwK/3znDcNNYsphNKAJFu0WxKhDwIIRjkSUZ2f
-         7ZlumTYRtxq9ScNVT5E4BjyDrOrQ+zCij96l/ZxsSgmkgY8mXvkNkeUIMjSpwErXdjSY
-         RQXrZu13vmAYuutsheqTIFUGmHJZC61kT2tK8x+F60MiJzIsuiCMYQyst6EBoDxMXEwe
-         aJ5+UZ9VIf7xV1jGlI/JJt7W74nlUWRdAsdwjpf4q0tbz7nhzKmEQEMHHpQfADXKKMpj
-         6b3DulTklKjGsGZN8aMWZ2bwLusY8re6pTqGGUVtYm8jFJraRl+Uh2PYPxlJ79fqNWol
-         mxRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790064088; x=1790668888;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qmb5ZYsqks7WEIdeRWH6smgklDya3V2PeA5rJDQKGQU=;
-        b=Ul15JH/YTeUyy6BLpc2qt5FNM1y+pmMCKw62Vx8IsLFQxQ81EYafUGrZqzMvFUTUBu
-         zVUaFcygHnTAyVmUyb6ZcNdvzIT81wgu790C8Q1yc9dD+ybx37SbBOk/Cy8lAIRVxQGp
-         5lXX/yQhtMgZQX1tjxKMtJCpfR4yyxIfalUdw0W2Ee3js3vmf3hduxPe3qPYc8/IIbkE
-         maIxVmweZyl+Td6DtL4o53o5QGYCt7JYwlCfIqKIznApw8xCnjK+DbfjUr7AzO9oW1J0
-         3lOgGZZ1PT788itfAkJT/qVrfA+XDE5EvFD67VNJAIvJOyBiZ2V50NoWSaqrc3caQQK8
-         bOFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw6K7D1KB94I7wdAlxFDWZHlanKfqO1SYVEpZ2pFPMjwdj2v7WeqJNmc7tACFFZhjO5mGkVo9+4b3Zt8MB9ZISe@lists.infradead.org
-X-Gm-Message-State: AFuF++mi8wH+hufSfSiSK2VEKGHXWqmffpjO2mPFK/tIhdZl8BFWm2Tr
-	SytRFV8iQtIYz7DObe5VneCtk55NMEgbjh/o0a83J/c5NnKHkpZVJBbl
-X-Gm-Gg: AYBFou1bXgJFpSWLw2IVDaD38+gflca/ca+UOH6O9H8tu/KTMd6GsRuZvbdD9l9IgH1
-	ZoF+g3zDFcShwYwhimrSgruJYIUHAk0hlAebarSFOn5L1HVekPhEaDs/Noq+YJMeNVPR+hSvBf+
-	xH8e638DwHsyGMM33uiL3UhtOds+TyCkt88DKDQ3zS+e4HhnEihRIS1yCrEUTK+4zJXhH1/1EDL
-	K2mG3iz9ZhzM+p5W75cu5+oqmECKg0ACGYmmS41LMmH663Yxf5kIA+qC8TY7ud+B3ljap+2PITE
-	kb3g2Wo1ZS4RJvdYe3bbwOQ3IjfmIp6L86RTBBWYSl8TlMY+kTOIXTUO95zmUfgSfPPhNaGxKM0
-	9eeEN0BPft5Qp8Zfy1ncSiZYVlRrC2pp6iTiD+ItupDaPtXgtCuZ29rlhhqlN28hn6GI4P5DJmC
-	S3r5gwpzEPUCqvm+m33ivjN6nEsl1WPzhhOmlxroChXRsZa02GGHRFGQm6aqsI1RnP2BVkSvU52
-	HVcO3jqdMMYi6cWduZVSpNIThx6Qu7WyecYdXcXztw14MszA/+IsZCJE04q46cfvdDzhPFq7tgC
-	278=
-X-Received: by 2002:a05:600c:354e:b0:49e:479b:c13b with SMTP id 5b1f17b1804b1-49fc7dff668mr165624765e9.1.1790064085766;
-        Tue, 22 Sep 2026 01:01:25 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B80530056971C6280202175.dsl.pool.telekom.hu. [2001:4c4e:1b80:5300:5697:1c62:8020:2175])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 01:01:25 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Sidong Yang <sidong.yang@furiosa.ai>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Jiaxing Hu <gahing@gahingwoo.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	=?UTF-8?q?H=C3=BCseyin=20BIYIK?= <boogiepop@gmx.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH v2 01/11] accel/rocket: search every core slot when a core is removed
-Date: Tue, 22 Sep 2026 10:01:04 +0200
-Message-ID: <20260922080114.44662-2-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260922080114.44662-1-royalnet026@gmail.com>
-References: <20260922080114.44662-1-royalnet026@gmail.com>
+	Tue, 22 Sep 2026 08:02:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790064144; x=1821600144;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=h7WXmbzlEhrH2EvdztPXGL/clsI6K6nxZzDQRA/HTG0=;
+  b=LiaL4BwuVZ5GcPVL4FlYvc2DUwdjd1FnHQxJkG+VJhFubWiSxz/bDa7P
+   RgHN1wwva5v15sWChuLLbnXiL7dA+WPyqxityDQp5CljkrX5K0TsdIPyy
+   gIZ7/NtTJSbEZ0f8wMSXGdU2ExzQowVlL96Dba1VzBasOrm93fVmkpY5e
+   w7V1D2FilifdSvQ5wvhuXtui9CU3GOcqkAdWMUJE8ve01a8K13gTbH38U
+   c3ivCoHhgdYDghdSCSqgrEsQm6qnNfLrfyPjpN8hwEfo0x8GICcu6Cl4e
+   5UsHXtKSuuVHpbJmLIwmqnKxGYpiAEb0nMtVVrNmTNE/6lHnXKoIPedLd
+   A==;
+X-CSE-ConnectionGUID: UYlqe9kXQ32SdZSwA+0Y5A==
+X-CSE-MsgGUID: rrTg8G7mSsuigvUvDqrZ5w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11912"; a="1147313"
+X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
+   d="scan'208";a="1147313"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa115.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 01:02:18 -0700
+X-CSE-ConnectionGUID: X42xkozTQeCxd5kErIKpJA==
+X-CSE-MsgGUID: /hhbHmm3Tp+WhCd7XYT8tA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
+   d="scan'208";a="272227034"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 01:02:17 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Tue, 22 Sep 2026 01:02:17 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46 via Frontend Transport; Tue, 22 Sep 2026 01:02:17 -0700
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.71) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Tue, 22 Sep 2026 01:02:17 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GXYYoPzGiXc4/sC2I6c1zmS4xxnX3JEwblUetrdCmh/g5bBQxwgOsb7ueBiJNODZ2Ywb1APPX2cnn9vynrcUhSckL/Sk0TIgsYtEa4Pmiq5z8nZp23ZoLT7yzjHGJwqRFASFFJQ184NTWW3UNvTW1RbRnpd3/YGqax+gPydlGn9ZU7lGn6fgcHoLVjatC0Ziwd/YsNKEM8exi/dI2HsfV970dwbTV+eMg82AB659VAeVKzFr9yK4XxUeGFnCJIykqwyTIWGnjZeeS/JcMqw/v/7zMzW9ijnhpNJzlUPglnZ1qanxyh/BQ99kjmPDxek5oxzB49rrC77GMyM0vqwUhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j7KSLUk7rKqyy72KK4YGR+UvKHMrq/M+XADMiZj5/Wo=;
+ b=eYIYWTm1s5UJ0fWOsZo+fyBzbkWxhv8vJjh3z82qW+nHh6PA3CotngWgP8KvgZKnu2wr5e79dSVcATpEb3NC6/eyZ90hVA2WQlq/bWDiyIFbSiXVHX32tGktCPtvjDF8SRvIY2jn5b/A6dn47d9F4kG/t2t3n6DjotC5nZnmu9YkBuokwsQf0fww6DBd+IygI2tJIUet+NsF5wmve5wEkeX2cpzCP8+ADwZNPAdqfyAfDs1UicQ8pyd8JCaLLAkHEtUrgZqNx4mqatOYsVRiyEw7VAp6/2JMJHd6LAPgj8/cYL7OdhD5nD3hgOTmMSM2CQAKlLach+86MDRpFv6loQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH7PR11MB6006.namprd11.prod.outlook.com (2603:10b6:510:1e1::13)
+ by PH8PR11MB9856.namprd11.prod.outlook.com (2603:10b6:510:3c4::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
+ 2026 08:02:15 +0000
+Received: from PH7PR11MB6006.namprd11.prod.outlook.com
+ ([fe80::4e2d:28f0:ede9:73bd]) by PH7PR11MB6006.namprd11.prod.outlook.com
+ ([fe80::4e2d:28f0:ede9:73bd%6]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
+ 08:02:15 +0000
+Message-ID: <eda00412-92f6-4fce-b5d9-95e278aca04c@intel.com>
+Date: Tue, 22 Sep 2026 10:02:03 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 15/17] ASoC: intel: boards: Switch to use
+ acpi_bus_get_primary_device()
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+CC: LKML <linux-kernel@vger.kernel.org>, Andy Shevchenko
+	<andriy.shevchenko@linux.intel.com>, Mika Westerberg
+	<mika.westerberg@linux.intel.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, <linux-efi@vger.kernel.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, Mark Pearson <mpearson-lenovo@squebb.ca>,
+	"Derek J. Clark" <derekjohn.clark@gmail.com>, Hans de Goede
+	<hansg@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?=
+	<ilpo.jarvinen@linux.intel.com>, <platform-driver-x86@vger.kernel.org>,
+	"David Rhodes" <david.rhodes@cirrus.com>, Richard Fitzgerald
+	<rf@opensource.cirrus.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+	<tiwai@suse.com>, <linux-sound@vger.kernel.org>, Shenghao Ding
+	<shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu
+	<baojun.xu@ti.com>, Sen Wang <sen@ti.com>, Vijendar Mukunda
+	<Vijendar.Mukunda@amd.com>, Venkata Prasad Potturu
+	<venkataprasad.potturu@amd.com>, Liam Girdwood <lgirdwood@gmail.com>, "Mark
+ Brown" <broonie@kernel.org>, Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>, Kai Vehmanen
+	<kai.vehmanen@linux.intel.com>, Pierre-Louis Bossart
+	<pierre-louis.bossart@linux.dev>, Binbin Zhou <zhoubinbin@loongson.cn>,
+	Andreas Noever <andreas.noever@gmail.com>, Mika Westerberg
+	<westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>, Linux ACPI
+	<linux-acpi@vger.kernel.org>
+References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
+ <15844908.tv2OnDr8pf@rafael.j.wysocki>
+Content-Language: en-US
+From: Cezary Rojewski <cezary.rojewski@intel.com>
+In-Reply-To: <15844908.tv2OnDr8pf@rafael.j.wysocki>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: WA2PEPF000008B6.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d8::689) To PH7PR11MB6006.namprd11.prod.outlook.com
+ (2603:10b6:510:1e1::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR11MB6006:EE_|PH8PR11MB9856:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00a02361-d465-46b6-bba4-08df187fd0b5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|23010399003|376014|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: WM7vzpHu9cuM8cKYLRqyXJYZb/ZBro4sbvbtHzhMDUWurYyAcjG4S9Vr9xzzIc+po3xn6Ck3ng95mrpnmDQoskfu0Iyrng56zLeNcDOnhtsvaDvi6q+s0b74zkCW/vHnPk/bDQefaGFmL0/bOAcl6EoHFu77ycVZL+SRixNqlsMhMlQakjKsXxwDSVmXq+oR/2hg2w/YqLajpkZ/mCvdhG17Yo68aeSblwfD1iWmi/S7Wi63l8wGnkYRLnP3H/KJSM6/nFLWZ7YLzwp+CB/A3XbWGU/zt3ysPaLhZOnFrLRCGdODcIwIzuAtxt1orSkA1UqN6ctklU5BX3ov0ycXRd3zgL0EVjmMBMeOzlTynYZ4l7PeaJk4HTarln/EQpFGt6grzcUrGzn22+8lU0x8JNlJS3JfYZWYJIq053ZezNHhW/vDhPfiEBQPKYGAWqgjlRc3fSusm32+uNIf1jdQ5X3yBSnLTrPg4wMUpJNJwtv9UTpjPt+VApt4A/R2gw1No71TsUYaElM7OqLGFTUmmAX8WobBwU9XBLVCgFRP1jxQfZBSSjuY3fyHBos8bh2Q5OO9RHOwL3tg8F3l7mxNxkzSFggZtJYweDJist76fqAfXMXFNa6JTvM8yy67S7a2Tp2BIrsuJXXeoeI5VODQ1Zbz2K/H/TwXIpeS9vanUPU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6006.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(23010399003)(376014)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTFTbnhuMjB3VUN0YnJ5WlM0L2NnUHRRRG5qOWMvL1Z3RWlsTTVBUy9ESEJm?=
+ =?utf-8?B?UE01clBsb3JFL0JmK2tTelU2bnZTWkgyMjEzeTFRY2IzVkJUbjlndDZIV0xD?=
+ =?utf-8?B?dEJwaHNhN3VUdURtZHlGR2VLWnRtdEpIQ3pZd3MzY3VVc245a3hyN2g4ZVBS?=
+ =?utf-8?B?Y0RwQTB6UjJXY2NFM09McTkyL3hwanZtcUhuN3Bia0t0MnNCT3VCRHJ5SHJx?=
+ =?utf-8?B?R3kzTyswRDMxUGQ1cE93THlKQXRaTzZrekpCL1UwNlczUG81S1JBZDZJam5K?=
+ =?utf-8?B?eWk1UXEzWENxeSt4Q3RodlgyRWNWeHMrOWtzVnhMZkNSYWxmVGhEYXR4WWVw?=
+ =?utf-8?B?Z1ZuOGJXWHY2Um83YmRwRHFsMHZJNU5UYVNISFg0ejJ1ZkZhQ2JKa2ErTjJz?=
+ =?utf-8?B?UHdOdHVHVmpXM2NiNEJLckl5ZU9pa1NqUFFhbXZycEVqVGVVZzFTU01wcmZL?=
+ =?utf-8?B?aDl4dXJCcVN1WU0zMUYwWTczOTBDMmp1bG5BalpuQ3lCZE1tRnRvdzQxWjNo?=
+ =?utf-8?B?ckdDd3pCaDVvcExuRjlaR3BjcS9Qd25KNWxQZnVUUDR1bEprZm1BN3JhL2ZS?=
+ =?utf-8?B?L3ZsOGh2b1ZvS2hRLzZPMy9RYytkQ1g4SHRLNkYzbzNpRXlJR0VrZnJxVkxn?=
+ =?utf-8?B?UnpieFFIV0RYSm4ya3JDOVZrV1pkeHVyaFhUNEI2aHpid3Q1dzd0VXlvUHky?=
+ =?utf-8?B?WFAzT2RVYnFGc3NGSWFmZktjaDhFN2k1NWpNZXB6MTdaTG1LMitwdk93cWNt?=
+ =?utf-8?B?MVY1NFMyb0FvQlRsSGlTTUtFNWVOVmttUjFRVk1uZFFtaE9RM3cxNkRsd3J0?=
+ =?utf-8?B?dlVHNU5uc0tLOUdwbXdEUTdGaFlrVXJISzBkNDhlU1cydWdNVTVrZ0duOXlo?=
+ =?utf-8?B?TmpZZ29PcTZoOTA5azJQeVBBVjhMaVo3R1RiWG9mWUYwVk9rQzRNZ0pYVDkx?=
+ =?utf-8?B?VHMzMkpZTmtLM0hndDZHVmxWUXFJekNBTU9FQ2kyTFk3dXBUWC85aTd5bEtV?=
+ =?utf-8?B?SFBSdmtBOTdTcXBZMnR5MWZNeXdOSnM1dlVUc3RvclRHRlh1ZU96Q2NMczZm?=
+ =?utf-8?B?Vm9zdTlTU093b0hsRXZrNlBTVENsTGN4Y08weGc0M29hUkppMmQ0Uzlqb1dw?=
+ =?utf-8?B?aytKN1g5QTNDcDZ4NFEvc2ppbnphM0ZlZU41Qk1RRDVWaWx0S1lEZzF2anh1?=
+ =?utf-8?B?NGZ3Q1F2RTdTMVpjMnVWQkxlV3VWYjJTampqUHdwQTc3SnB0V09ZMFJaQ0RJ?=
+ =?utf-8?B?RzZnUEJ2R0thUWZQN0xkQW54aUFBd01WM2dxYzZHM2xmSUp5OE9YRTByaktD?=
+ =?utf-8?B?d0padEcveTlmbmlERzltTCtKSTFEZUsxQlFoMDZRdnAxM0tteHNuVGV5RkZo?=
+ =?utf-8?B?alpLTHh5K0gwb0dkNjRXWlFoSnV3WkF0UWxoYmFTN2lpdWVVSkNUWHRVdzhz?=
+ =?utf-8?B?NFNJZCtBTXFYYUo2YXV2cmFLZUd2VTJjTXY1WmZkbDZwQ1hDSm4xSFlKZGFv?=
+ =?utf-8?B?enlyL2Q4YkRxMy9vOHh0NkhtUDRzcDAreHFuOGJsOURKc2ZvMWRuMEQ5dXFu?=
+ =?utf-8?B?b3hvOHhVSTErWGlvekhtNUR0SG1STVNQaGdYYnpTYzc2a0pNYU9salpReWgw?=
+ =?utf-8?B?T3NrUkk0cFlURkxSWnduOTZoMlZsQllPblVqanFsMnVGRFVRclU1N0hQS1VJ?=
+ =?utf-8?B?UXJBcjVsS0UreUFaeENtenBuZ0dLUHlWdzZzUHVXU1FYcGRMdm9VMDNWMU96?=
+ =?utf-8?B?WCs2d09Ub0wzS1cyMU0zYmozcDN0Y0w3T1BEUmFJQXcyNElqNkRDOU9hakpW?=
+ =?utf-8?B?RkN2dGJyK1pnamNsRk13eFJRMlAwaEIvUndpckl2U0d0bzliVmxobmQvZ1Z2?=
+ =?utf-8?B?YXFFcXhsZkFTUkpXRVpnMk9yQ1dIUWE1WTN0aExDdm1BdWtXQlBtUzFoeFFC?=
+ =?utf-8?B?QmZzZUFwL1h0K3FSU0hGTWlSaFZ6Y285dUFnNURJUnEwcnhHNC9VVFNPRzRq?=
+ =?utf-8?B?S3pHbzhNTVNiK2xneHpMSlBBOGhuV3k0bERsNkc4UEVSVjFOSU9MbHF1cmVM?=
+ =?utf-8?B?KzRseHdQb09qSHQ5Smd1ZTBxQXVYVSthSGhnV3Y5K2tuUSt1QmxCSVNLSjlF?=
+ =?utf-8?B?ZXp4ditCODFNYWl4T3VSM0NVMFNWaGx0SHpMSjNoS05yTHRZdjhTRXRxZVNi?=
+ =?utf-8?B?UVNoYkR4T2I5ZE5heHZ3WG5XaWJFY0hZaEozM0szanhzclYyN0RtcEkwY3Fl?=
+ =?utf-8?B?SWZlc2lqM3pjNVJDbmV0NUc1b043S0VJK1I3QStmZVo1WWdGb0xBRDU4bkQ5?=
+ =?utf-8?B?WWM1ZjBzS0ZkdXpYNDBpTTdsYnpQcWMvZzJrQlBmQVYwNWZTUVcrdWJIR3VF?=
+ =?utf-8?Q?3ecueQL5OpFfFoMQ=3D?=
+X-Exchange-RoutingPolicyChecked: vb/Q8pYiUIB2ExgOe3LG1ThWLWhi+Z9UFIfRLT5z4egPaVGQ8GJz/gIgqpeSenk0PFDH1fol80LeRX90V93zUox5dBS0ic7tr06SUXrsXxXhFQHUVX4qeHv/bTBBar0OHSWiG2nu+/0HzoqKP/Ah6rkDXVqpFsEPzOQdr/4ahvVtucnTlwAtjoojCV35kbeQq0ElOxUzN+UX+5DEkog5CCnKo7zeBKYJWNh6X9s7gcLI8nxpMkWgF7pZrwyffA2DrxWgDUMsuGyQtf+qCqVMPRtFi67IGiOtALjojXy35zPSfhJgZk0SpFq4AZv9fpJQHnVHzgh4ODO9FB+s5fHlAA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00a02361-d465-46b6-bba4-08df187fd0b5
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6006.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 08:02:15.3686
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MB6n9VNyjdECST+8c3PwD+WakaOP/Y4wHwdQsPMB9xSfY80YDp0qWvEuisg4frnz4jt0hOSS2W0qlLdBlAQ8zAAMdabg4h091/vbhex9BEs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB9856
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_090129_922979_A26B0CA8 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20260922_090224_748292_6174AD56 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,113 +222,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rocket_remove() decrements rdev->num_cores for each core it removes,
-while find_core_for_dev() searches slots 0 to num_cores - 1. Unbinding
-the cores in the order they were bound therefore loses the last one: by
-the time it is removed the search range has already shrunk past its
-slot, so find_core_for_dev() returns -1 and rocket_remove() gives up
-without doing anything.
-
-num_cores never reaches zero, rocket_device_fini() never runs, and the
-file-scoped rdev keeps pointing at a device that is going away. Binding
-the cores again starts from that stale count, because rocket_probe()
-takes rdev->num_cores as the slot to fill. On an RK3588, which describes
-three cores, the second round lands on slots 1, 2 and 3 while rdev->cores
-was allocated with room for three:
-
-  rocket fdab0000.npu: Rockchip NPU core 1 version: 1179210309
-  rocket fdac0000.npu: Rockchip NPU core 2 version: 1179210309
-  rocket fdad0000.npu: Rockchip NPU core 3 version: 1179210309
-
-The write to rdev->cores[3] is past the end of the array.
-
-Nothing in tree reads the core array often enough to notice, so the
-overrun is silent today. It turned up while testing a devfreq series on
-top of this, where a worker walks every core a few times a second, and
-UBSAN caught the first bool it read out of the overrun entry:
-
-  UBSAN: invalid-load in drivers/accel/rocket/rocket_devfreq.c:47:10
-  load of value 5 is not a valid value for type '_Bool'
-  Workqueue: devfreq_wq devfreq_monitor
-
-Record how many slots were allocated and search all of them. Every core
-is then found on removal, num_cores reaches zero, the device is torn down
-and a later bind starts from a clean rdev.
-
-This does not make unbinding a single core out of several work: probe
-still takes num_cores as the slot to fill, and rocket_open() still
-reaches for cores[0] whether or not anything is there. The fourth patch
-takes care of both.
-
-Found by unbinding and rebinding all three cores on an Orange Pi 5 Plus.
-With this applied the cores land in slots 0, 1 and 2 every time, whichever
-order they are bound in, and the shared supply goes back to a single user
-after each round.
-
-Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM sparse checkpatch
-Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-Tested-by: Jiaxing Hu <gahing@gahingwoo.com> # RK3576, two cores
-Tested-by: Sidong Yang <sidong.yang@furiosa.ai> # RK3588, 3 cores
----
-Two paragraphs changed from the standalone posting, which this series
-supersedes: the one on unbinding a single core now points at patch 4
-instead of saying what is left, and the round counts are dropped from
-the last one. Posting:
-https://lore.kernel.org/r/20260904125936.26234-1-royalnet026@gmail.com
-The two Tested-by tags are from that thread. The round counts were
-taken on a kernel that carried the use-after-free fixed in 8/11; they
-were re-measured with the whole series applied, see the notes on patch
-4 and the cover letter. The single-core unbind and rocket_open() cases
-in that paragraph are 2/2 of the lifecycle series, now rebased into
-this one as patch 4:
-https://lore.kernel.org/r/20260731064933.12548-3-royalnet026@gmail.com
-
- drivers/accel/rocket/rocket_device.c | 2 ++
- drivers/accel/rocket/rocket_device.h | 1 +
- drivers/accel/rocket/rocket_drv.c    | 2 +-
- 3 files changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
-index 46e6ee1e72c5f..efd004194c1af 100644
---- a/drivers/accel/rocket/rocket_device.c
-+++ b/drivers/accel/rocket/rocket_device.c
-@@ -31,6 +31,8 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
- 		if (of_device_is_available(core_node))
- 			num_cores++;
- 
-+	rdev->max_cores = num_cores;
-+
- 	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
- 	if (!rdev->cores)
- 		return ERR_PTR(-ENOMEM);
-diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
-index ce662abc01d3d..c62d567010696 100644
---- a/drivers/accel/rocket/rocket_device.h
-+++ b/drivers/accel/rocket/rocket_device.h
-@@ -19,6 +19,7 @@ struct rocket_device {
- 
- 	struct rocket_core *cores;
- 	unsigned int num_cores;
-+	unsigned int max_cores;
- };
- 
- struct rocket_device *rocket_device_init(struct platform_device *pdev,
-diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-index 8bbbce594883e..2bcfe4ab3c68f 100644
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -223,7 +223,7 @@ static int find_core_for_dev(struct device *dev)
- {
- 	struct rocket_device *rdev = dev_get_drvdata(dev);
- 
--	for (unsigned int core = 0; core < rdev->num_cores; core++) {
-+	for (unsigned int core = 0; core < rdev->max_cores; core++) {
- 		if (dev == rdev->cores[core].dev)
- 			return core;
- 	}
--- 
-2.43.0
-
+On 9/21/2026 9:55 PM, Rafael J. Wysocki wrote:
+> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+> 
+> Replace acpi_get_first_physical_node() that is slated for removal
+> with acpi_bus_get_primary_device() that takes a reference to the
+> device it is about to return.
+> 
+> This addresses a potential use-after-free that may occur if the
+> device returned by acpi_get_first_physical_node() is removed right
+> after dropping its ACPI companion's physical_node_lock in that
+> function.
+> 
+> Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Acked-by: Cezary Rojewski <cezary.rojewski@intel.com>
 
