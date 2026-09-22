@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0732BC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2410EC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ENorQJ/pLh3pPA/2sJg/M7aUt54CHEBCt3OvYkywruk=; b=qHUqM0sG0s/Ovllbf+DX4LQMqg
-	6iPVyEc0FPG4FeK+Da3Ns8PkDjPVeB7chjREx6Yk8g1FJZset7KzBNTJSSbs6vTSIPsXWU2nh6Vhi
-	p4wIdhOAyXUwEyfOIvl9YLIPyaKdrKtH8LMix9TZ6rSDxzeMNPlgQM+bm77RLspFrZDis/zesN/Wo
-	nzBRKrE68sF3GbDVZASAjE/0uNA78AviYsYXy9Rx0WKle2CJBIA3ED3kjcvPaw7hRfibPiz5pxdb1
-	nSDg2Xd+cBGsnsl6Z3r8Os8AOSdC0nT3N4jf8qW2l+8wNiVZx1Zuj3q+HLgFFeVyHMstl9Y7rMDf4
-	w11bO2wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tueEJexz8lLxUgLlyuxH3o7C1CivlVOYsyBZG5CEAVY=; b=HGvI/ZFAUiLDrqYOTv4Fj2kbch
+	UgNKfceeJd2J+CuM12KGbSL8z7k+Ikxu7Zx2Rv59QQAkf5e/un5jX9BqCXTGkNZMFOelN1M+lA6nB
+	tmj/5297kbdnyxD9fu9eLWV2zHf/P5Qhg8XCeaP5JZvfu5P/UdA5CQIYM+vnM416ucgQwKgBGPnnP
+	X/UBQZNaT9aTddx1nPvZKZfDEsHS7g2MZU+bpSMMkeCPRQ6PsKmUSzjvhT9pGnXIfaWBnz6IeiUac
+	ZdTp4kvTEDdto3qusvfu1vVy/P/m6zm0gkWC574bU25nw3yw0ao2hDgSnwRAWbB0qx++gYDNMfW8q
+	d3NCDEPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x938D-000000061GZ-30mK;
-	Tue, 22 Sep 2026 16:14:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x93FM-000000062ER-2TXc;
+	Tue, 22 Sep 2026 16:21:32 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x938C-000000061GF-38Ez
+	id 1x93FJ-000000062Df-1B6M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 16:14:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA20A6024D;
-	Tue, 22 Sep 2026 16:14:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E27ED1F000FF;
-	Tue, 22 Sep 2026 16:14:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790093647;
-	bh=ENorQJ/pLh3pPA/2sJg/M7aUt54CHEBCt3OvYkywruk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KJ3dk0u53UyHdo8MUMbEJc+Q6GjkB7nePEU1r/iUnou6lgcF07QQGKmNPF6owynjA
-	 brmhN9xePWg2kiaOYX5WD/RUONjKLGahkuYAvzfdkH+JrHy+Rm9/AKc8PO9y3v9s22
-	 lf6pNZSh5+eUKN4cl1Xm48r0KKKmvqnprbXx2mgeR+GkrGGDYcZxII3XEs+JIwevr4
-	 pALKzntLFWks4/AW2wPfBDzMit4HYfI2otNErskLQSSDEp2KDI904oSvXH4gEBa1vB
-	 PskLsc9R3M/e7QYq1txbjLLDlPqV8Qow96tVMHG48dVi/LKGTW1uo3XpVWah0U/7hD
-	 OiUjml68PB+8A==
-Date: Tue, 22 Sep 2026 17:14:00 +0100
-From: Will Deacon <will@kernel.org>
-To: Oleg Keri <okerixx@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Beata Michalska <beata.michalska@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ananthu C V <ananthu.cv@oss.qualcomm.com>, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v5] arm64: topology: fix arch_freq_get_on_cpu() overflow
- above 4.19 GHz
-Message-ID: <arKpSGPXOCFF09hM@willie-the-truck>
-References: <20260917182059.2851-1-okerixx@gmail.com>
+	Tue, 22 Sep 2026 16:21:31 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9BF4DC5CD79;
+	Tue, 22 Sep 2026 16:22:12 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C222260580;
+	Tue, 22 Sep 2026 16:21:25 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3053610329134;
+	Tue, 22 Sep 2026 18:21:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790094084; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=tueEJexz8lLxUgLlyuxH3o7C1CivlVOYsyBZG5CEAVY=;
+	b=lZiYlG9ETLEEIJzn1Sfr+mR+MzscyvuHooi/aU6paqgH7Rkl4nltqX8V8CMm7iefDQaYmW
+	oZ1L3ePV2V8qtyH+inEccdDVa8EFjQWX47laMVgBDkn6t4hc/PEuwUz7cOJXSmuK3Mwk9m
+	7j8d3YPiiviT5ZVerJQ4FTs8T6wT+eMzZSvfmYtO+jK+4L1Yl916K+nTXaE8odWZ6fXnwy
+	flI87G8OkWO5/AyHCdC5Ansk/AmjePUE8ba9bLTpRyUGX54WVW0giWc+Yd/J84gjiOJzUL
+	q42Tw4oZSdVh1gYYjRiP+LjdbZGBg02eqJJlXwEpZlobMs/UKfOnSXr+QlTEzA==
+Message-ID: <29f42227-d425-4c57-bfb8-e8f34962cef4@bootlin.com>
+Date: Tue, 22 Sep 2026 18:21:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260917182059.2851-1-okerixx@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+ <20260921152202.64d4c67a@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260921152202.64d4c67a@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_092129_530865_227FE582 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +93,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 08:20:59PM +0200, Oleg Keri wrote:
-> arch_freq_get_on_cpu() computes the product of the frequency scale and
-> the reference frequency as a u64, but assigns it to an unsigned int
-> before shifting it back down:
-> 
-> 	freq = scale * arch_scale_freq_ref(cpu);
-> 	freq >>= SCHED_CAPACITY_SHIFT;
-> 
-> The product is truncated to 32 bits before the shift, so the result
-> wraps once arch_scale_freq_ref() exceeds 2^32 / SCHED_CAPACITY_SCALE,
-> i.e. 4194304 kHz.
-> 
-> On a Snapdragon X2 Elite (Glymur) laptop, whose boost OPP is 4723200
-> kHz, cpuinfo_avg_freq reports 524283 kHz instead of ~4723200 kHz while
-> the CPU demonstrably runs at the boost frequency: a fixed workload
-> completes in 1.72 s at the 4723200 kHz OPP versus 2.01 s at 4032000
-> kHz, matching the 1.171 frequency ratio.
-> 
-> Compute it with cap_scale(), turned into a static inline taking u64 and
-> moved to <linux/sched/topology.h> so it is usable outside kernel/sched.
-> 
-> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
-> Signed-off-by: Oleg Keri <okerixx@gmail.com>
-> ---
-> Changes in v5:
-> - cap_scale() becomes a static inline taking u64 arguments instead of
->   a macro, as Dietmar proposed and Peter agreed, after Peter pointed out
->   that the macro relies on one operand being u64.  It now lives in
->   <linux/sched/topology.h>, where SCHED_CAPACITY_SHIFT is visible,
->   rather than <linux/topology.h>.
-> - Patch 2/2 of v4 is dropped: it duplicated Ananthu C V's series [1],
->   which I tested instead.  This fix is needed with that series, since
->   it puts the reference above 4194304 kHz from boot.
-> - v4: https://lore.kernel.org/all/20260917125112.2283-1-okerixx@gmail.com/
-> 
-> [1] https://lore.kernel.org/all/20260908-schedutil-boost-frequency-handling-v2-0-25312a713699@oss.qualcomm.com/
-> 
->  arch/arm64/kernel/topology.c   | 6 ++----
->  include/linux/sched/topology.h | 5 +++++
->  kernel/sched/sched.h           | 2 --
->  3 files changed, 7 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index d28438f8b83f..39dd7f8575cd 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -19,6 +19,7 @@
->  #include <linux/init.h>
->  #include <linux/percpu.h>
->  #include <linux/sched/isolation.h>
-> +#include <linux/sched/topology.h>
->  #include <linux/xarray.h>
->  
->  #include <asm/cpu.h>
-> @@ -186,7 +187,6 @@ int arch_freq_get_on_cpu(int cpu)
->  	struct amu_cntr_sample *amu_sample;
->  	unsigned int start_cpu = cpu;
->  	unsigned long last_update;
-> -	unsigned int freq = 0;
->  	u64 scale;
->  
->  	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
-> @@ -245,9 +245,7 @@ int arch_freq_get_on_cpu(int cpu)
->  	 * (see amu_scale_freq_tick for details)
->  	 */
->  	scale = arch_scale_freq_capacity(cpu);
-> -	freq = scale * arch_scale_freq_ref(cpu);
-> -	freq >>= SCHED_CAPACITY_SHIFT;
-> -	return freq;
-> +	return cap_scale(arch_scale_freq_ref(cpu), scale);
->  }
->  
->  static void amu_fie_setup(const struct cpumask *cpus)
+Hi Jakub,
 
-The arm64 part looks fine to me, so for that:
+On 9/22/26 00:22, Jakub Kicinski wrote:
+> On Thu, 17 Sep 2026 23:53:31 +0200 Maxime Chevallier wrote:
+>> This is V4 of stmmac selftest fixes, addressing Sashiko's issues over
+>> the MTU patch. This lead to the introduction of a new one. The
+>> dev_add_pack races have been addressed, however the double-vlan issue
+>> stayed there. Ovidiu is actively working on it, let's wait for his work
+>> to land before fixing that.
+>>
+>> Nicolai, I took the liberty of keeping your review tags on affected
+>> patches, let me know if this isn't ok.
+>>
+>> This is another round of stmmac selftest fixes, mostly about the selftests
+>> themselves but a few things were discovered w.r.t MTU and buffer size
+>> handling, see patch 5 anf 6.
+>>
+>> After this is merged, I consider the selftests to be now reliable enough
+>> to run them nightly on every stmmac series that's sent, and I'll be requiring
+>> clean selftests for new glue drivers.
+> 
+> This got to the top of the stack for me, LMK if none of the AI feedback
+> is legit. You mentioned the VLAN one, not sure about the rest.
+> The EEE complaints look like nit picks but also some are easily
+> addressable? LMK..
 
-Acked-by: Will Deacon <will@kernel.org>
+I'd say the AI complaints are legit for EEE, but I have mixed feeling about
+iterating more for that point only.
 
-However...
+AI points bugs that are related to 3 main classes of problems (for EEE but
+other patches as well) :
 
-> diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
-> index b5d9d7c2b8ad..922b2f015e89 100644
-> --- a/include/linux/sched/topology.h
-> +++ b/include/linux/sched/topology.h
-> @@ -234,6 +234,11 @@ static inline void rebuild_sched_domains_energy(void)
->  }
->  #endif
->  
-> +static inline u64 cap_scale(u64 value, u64 scale)
-> +{
-> +	return value * scale >> SCHED_CAPACITY_SHIFT;
-> +}
+ - User reconfigures the interface during the ethtool -t run
+ - The selftest outcome depends on how the link was negotiated (worth for Pause
+   and EEE)
+ - Selftests are sensitive to external traffic being received during the
+   selftests run.
 
-... does this introduce unnecessary 64-bit arithmetic for 32-bit
-architectures that currently pass 'unsigned long' to the existing macro?
+Obviously we don't want the kernel to crash because of ethtool selftests and that
+has been addressed, but for now I'd say ethtool selftests failing because of
+external factors is something we can live with, although we should make them
+more robust.
 
-Will
+The main thing is that we've always been subjected to these problems, and addressing
+that is an entire ordeal in itself. I can followup (my goal is to have all
+green runs here [1], this already proved useful for at least 2 patches in the
+past 2 months that broke selftests), so I'll definitely work on the remaining
+points as followup.
+
+Maxime
+
+[1] : https://minimaxwell.github.io/stmmac-ci/
+
+(These are just custom tests, I want to switch to the real kselftests eventually,
+the runner is currently being stress-tested to iron out the last issues before
+submitting that to netdev-ci)
 
