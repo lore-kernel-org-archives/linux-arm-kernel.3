@@ -4,93 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82A4C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DD9C982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=; b=2evFzYFR7TPKg1OYr/+HdSJqS4
-	O6jKXTYke2rLEm6PjtyqagZxxgaoBNBRDJAm3AvSo7IymfFWlcpM0/fGSNIsoUEBGiUe3RGkeocZu
-	vgDGaajWaZligQ35m/uSAZP8gRvJOGX7Sxcc3qSW30sij548CX1aGDz5mM1xAP4i4ZH0Uf0XmJ07p
-	HBDEjdTvfqVx5SO+H7Dkvz7TNBfNYr0mVvo7EilJFelsUiGdhDr//Xi2fwDGWGSSrwIU6IKYMU4d8
-	nUf8Di5CzmkdGneDL4A+Hcx2AFRyCGeDl/sUrSMNZvPrUFOvSQdfUdCOKj71ekx1AHY5ekYAPWFwK
-	4eEk7AUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WGhuF7CCJrdD1xW3hM2yO3LwiCvTovFux3LbvEaaQS0=; b=u5KWzjSclOtebRFVp7akxvEwpi
+	HHyHFo8x+ghoBZgK/AUbUDmwCUgs3c63rlhKooa2pDESYvTWLkTquxyg0kHjG4EUyupzpNX6c4Zg5
+	KSSQSDO4DWIE99TiRWgC8yMATuu6ka1P5wtouOrYG93KtBSifbSIMVurYGtAaqBWVFPb4SLH4zLIW
+	3Fahgu7IK3EtcTfcKLaP6W55uyNw7CsjnbZ4sQQ9x+RFoQnti9HTIwzddddMxcjSsjZsr8K/C/9n4
+	WSIzMpHP1udWDymIaWK1D2lwg5h7p1Nt6KBGhBgTJtUEXGl0xGa7T0PvRUDvHecRTeJzPJDhc5eAJ
+	49XGp+zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zZj-00000005Ibo-3W4g;
-	Tue, 22 Sep 2026 12:26:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8zaZ-00000005IrF-0zCt;
+	Tue, 22 Sep 2026 12:27:11 +0000
+Received: from mail-westus3azolkn190120000.outbound.protection.outlook.com ([2a01:111:f403:d116::] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zZe-00000005IaK-36TR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 12:26:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=; b=hBgMdBcNEMXLItiEoAVY814PbC
-	7N4cx9xPD8aJiywMUpVqdxLQk5DwDGpBiuWoF0nm80R2ep71pJzawn3pwSxrkT42Un7lHx/CIDwGs
-	bXlZJMM5sbvpgbVxQohypI/NHYL8BNvFfpVzPItq9MzwUsVHByBiaAUAOy7F/6d8Bsd7c3q82L7QS
-	IqVwtB2PtqJN7oeOhlE5aeGxbH2zovGPuZHA3tPiaeuwc8D+p1DynI4ZePYtVeyeKQyKvSQvflMhT
-	4b2KC+ydecwa6HmyLaM6TS+0kxG/CZC24mbDJBEbWZtHRGkSiGNbS5WVZ/F9mDXXrFk1akwNY3OmF
-	eWYIxt5Q==;
-Received: from mout-y-209.mailbox.org ([91.198.250.237])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8zZb-0000000DXoE-1oU5
+	id 1x8zaX-00000005Iq8-270T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:26:13 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-y-209.mailbox.org (Postfix) with ESMTPS id 4hpzQQ3JV3z7t9l;
-	Tue, 22 Sep 2026 14:08:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro; s=MBO0001;
-	t=1790078910;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=TWtGuJsSnA6q09a1WdY7USh/zxzDAqnc0W6q2GxteG0=;
-	b=qeLr9vST+26kAoPTEP3kbkxBxnqAFhZH3M/tRa70BmsdR63LGw3Wfcw4AoIaDFrAD3BUy7
-	tpWq4W0GdjNlznLL/monasWQxiXXVLX/oQxdQ+XVa3E5wf3/zx020ElKaZE4//QX12XTHa
-	N5BNX3GWzMRkabVbhcbmQkM81XBj6hvSLI085HkwG2FFrypczl+jCPWnmbSE2TRJA4pxsR
-	vGoicRgWNFmNsIf4NUmS2HJv/uR6k+JzQnKT7PSwIUw3XKOZ7xNmGKKhb5bLOE+bV6GPs0
-	dn1n3DZT/3kv3Cy5HjQszhMNLKYRbJ/0MrOwPHFHXvAs9ZQmyoU4wPK3+Yzbrg==
-From: Alexandru Chimac <alex@chimac.ro>
-Date: Tue, 22 Sep 2026 15:07:35 +0300
-Subject: [PATCH] dt-bindings: pinctrl: samsung: Require clocks for
- Exynos9610 pinctrl nodes
+	Tue, 22 Sep 2026 12:27:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wp2AHBa200nKZ9DIwT7wuw/8KhJStQvGFppPORo+ccx/HNBJ0x4srIslgU9JdwG8SXjwtAeg46JRXnNPTLZJRdgSKWYPFaFln4jPvOWV1+/Xk91HK9fmnTwS+KqE2mcQZloqfRA5AH7TWC/wG3lQ9OBNMLzUFg+DGs6BWnfLQAzeRWKf4thgEutZM1IyohT7uT5mU67e1dxL5STDPp1CldaEbuuay8/ysZP4SaokNtSrME1Qj2TjBxPEXTLr9J1xAT0Km0vOdqsvQWzL32ZH+tw11QOmS+Df1YYprw0SMagOd0Iav5duxxE38Sv7lcVMA+JhmupsKDwUUPZkwFvU6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WGhuF7CCJrdD1xW3hM2yO3LwiCvTovFux3LbvEaaQS0=;
+ b=ILaDS8l6WZVQ7zUU+yZCYw7Yf0hmmSF+hGRZm3Umqea2x/5WHqpbBSs59xahIDp0nGEMHK8++3IKC8eMiiipF5bzko2Ot4aamT7krJggXqr8EteZlAy15H6jYxFp07xv1IxLfAEOVdrCsdGDwD6UO4JYnTg+xRLJgfJaVzEcrbBPkvzsUt1XF1cvJ1iusRvgDZS6KGWg2zfzQEGP6ValdJf2a4E3fvDgbFrIJrnF/xyzISRyp5usk5GqyB5k58NQYbNPe2t25/FwaB14y0OQRwoNJ6CF8nZJSm77YfDwdfORaLR5erL55uPFqspGXOr5TNDiKcB4Ui6nJ41O/+0Slw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=OUTLOOK.IT;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WGhuF7CCJrdD1xW3hM2yO3LwiCvTovFux3LbvEaaQS0=;
+ b=JP35+9klh1bynioyKhnYo5xkiwTYc8yzX6t2n7mqG1rGUk45DEyuK6IZmhtdWLNF5ji+ZcATqaiKFpvP0uGyhPgIdC498RtLeYP/LPgFyI/nndmtedp9ycpSaMN8iTws2R/EtO8nmxxMyuBPB3As4l6qmMXr+bk9gIc2bDpOp4TuSa6AqECZlpnMK3ZFk8C4aVw/ygCkZVHXikiF3X4nn3d0/3n9jo5JDILlt6sq0R4bQqHkOHaKC13b7OtpDZJBiobbBuICOUY219cF4pmjvR23Z2xdoy1wnPN4ls6NI8GhbOX44B1JMqwa0PN84G79sCtncDevudxa6wghw82oZQ==
+Received: from SN6PR19MB2303.namprd19.prod.outlook.com (2603:10b6:805:56::19)
+ by MW3PR19MB4329.namprd19.prod.outlook.com (2603:10b6:303:4f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
+ 2026 12:27:01 +0000
+Received: from SN6PR19MB2303.namprd19.prod.outlook.com
+ ([fe80::805c:7f80:c69f:876a]) by SN6PR19MB2303.namprd19.prod.outlook.com
+ ([fe80::805c:7f80:c69f:876a%5]) with mapi id 15.21.0451.012; Tue, 22 Sep 2026
+ 12:27:01 +0000
+From: Marco Giunta <marco_giunta@outlook.it>
+To: rafael@kernel.org
+Cc: linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	perex@perex.cz,
+	platform-driver-x86@vger.kernel.org,
+	tiwai@suse.com,
+	Marco Giunta <marco_giunta@outlook.it>
+Subject: Re: [PATCH v1 11/17] ALSA: hda: aw88399: Switch to use acpi_bus_get_primary_device()
+Date: Tue, 22 Sep 2026 14:26:47 +0200
+Message-ID: <SN6PR19MB23030375FC66A5E8F4296C9AFC832@SN6PR19MB2303.namprd19.prod.outlook.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <2568518.jE0xQCEvom@rafael.j.wysocki>
+References: <2568518.jE0xQCEvom@rafael.j.wysocki>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: ZR0P278CA0033.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:1c::20) To SN6PR19MB2303.namprd19.prod.outlook.com
+ (2603:10b6:805:56::19)
+X-Microsoft-Original-Message-ID: <20260922122647.21518-1-marco_giunta@outlook.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-exynos9610-pinctrl-patch-v1-1-26d8108c1802@chimac.ro>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NQQ6CMBBFr0Jm7Zi2JCBcxbAowyhjpGBbCIZwd
- 6u4fMn7728Q2AsHqLMNPC8SZHQJ9CkD6q27M0qXGIwyhaqMQV7fbgxVoRVO4ij6J042Uo+siEq
- tLx1VJaT55Pkm6y99bQ4Oc/tgit/e3/D8mtNnPDRobWCkcRgk1tlSnnP0lEOz7x87AquXqAAAA
- A==
-X-Change-ID: 20260922-exynos9610-pinctrl-patch-e0cc7118dc97
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Tomasz Figa <tomasz.figa@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790078856; l=1196;
- i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
- bh=FIDOhx16bKTnLhDsEzKck56HBIFnn9qu9WN0aTyG/g8=;
- b=kNSA6azedja79SBfwuu7Nch0yZTKElj/5HKy+Z3akWBe/0WYHt4q3hkj0KzayGzzCW65urG7b
- S31h8FfDFf/BQwxGLk6Pk5YDpZKaB3oLpsL1FebkBV/RXJd70IBy+3W
-X-Developer-Key: i=alex@chimac.ro; a=ed25519;
- pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN6PR19MB2303:EE_|MW3PR19MB4329:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5fe0b0eb-8d24-4224-19a4-08df18a4ccce
+X-Microsoft-Antispam: BCL:0;ARA:14566002|25010399006|55001999006|41001999006|24021099003|8022599003|19110799012|15080799012|23021999003|5072599009|8060799015|12091999003|31101999003|2607281247196008|3071699003|440099028|3412199025|1710799026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rcLCBO8HS5dA/K0sfFiqOV3uJvv0hfwHRWeQVvLjX2reI74nt/5KZx8sTHUi?=
+ =?us-ascii?Q?n/62mpv8V9g2E3pmBP0Nqi0yCz8PnsLpUiTxRenbdSEpHjwdFfp4EZ6CviPW?=
+ =?us-ascii?Q?fhsGcyG56igTFgasLLnOon1rDTEmDHn5FnMxtvq3l7sKIJs6JBHW3XYF2WL1?=
+ =?us-ascii?Q?hUIs/5eLzrrLRmF9iaK6pyK56PC5f2TYN2MHSg1PbcXitlaiil81zbY69VCW?=
+ =?us-ascii?Q?RWUyHW6MboJu495EHIfA5izs8jZ6VFozVxxnqxnCqR1oCPXUFK/W20YcOLrZ?=
+ =?us-ascii?Q?WJ7gtRKOLPGYOPOl5ip+72SBMqNxadwtVNNZKPy4a/4ZkeU34fXof7jq9jjt?=
+ =?us-ascii?Q?qb5spOci422AsHKCh66VrzaXXSsY51S1Hei6gFDJXtLLIJt+M84nyGEkQiet?=
+ =?us-ascii?Q?MCuFM0R1MeKyJAqY1oDtyhXlxV+kr7hSOcLBaRckKEm2MNHhohvEZoOEQMSF?=
+ =?us-ascii?Q?Q9W8bUOOJarrI+S14TsaYP2hzQlJOFAyUP8BBPX5KdQItdqgA9l5cEaB8z7g?=
+ =?us-ascii?Q?XQ2gvCb+qj3VlCEuN8PnDlDXCwIG8gwmPUs97OLG3g/bVoZdCTxh6G0I+4ty?=
+ =?us-ascii?Q?Mz90nzfhBYUCDgXgNwk4l2HZ1L8Hi9YQ1ZsQ71KWXjC/o/kSiXnqNpIXbxF4?=
+ =?us-ascii?Q?JU+0DnNTLKZ685/RFVsB8cB3w93LklnC52KB7rumDH0n5I37EOuZkY3k2+An?=
+ =?us-ascii?Q?7OGA+YyOgFrRlvSEKw7LMYnvJ1A7RAIYqt4KZQo5pdFlJGXICx0skPBlAuRh?=
+ =?us-ascii?Q?X8DDwKBYx7x9HrgoqlchUHzSAbZnLUUMDQ7L657on/Nv5bYs6pxhv/Dtv1jk?=
+ =?us-ascii?Q?S5lpdNjL4v7H+/915AZItFXqk17YEGX+KVLLgTDdlQdg0XBLlCUamBnKRy60?=
+ =?us-ascii?Q?xDdV3aTgK6rkwJSDbGJfPeodnsMpYOR+NCj6nYhsCxJY+LItkB5ZrPRqLuoN?=
+ =?us-ascii?Q?3sZDHWItd6CVThBDUeQl1/B1WNqlRl6HjUT1GP0enL68epY3fhCBod40Is2R?=
+ =?us-ascii?Q?NcE2/RpQ3ttdPk0mRK6EINI4a1mjXlq06qPfgmw+Duh59yw0Jv0pDS0zteHD?=
+ =?us-ascii?Q?Hie+W/N04lKpnXSr3O3zrAsjtfC7NA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rZwEDOhBaJWkNt87YHY0pcx/D5j+hF6TwfF3cf84rFEWjhCfuCyiNkTZObWq?=
+ =?us-ascii?Q?6PobSg6rEmb44ksbZ2r0TjlWDqptCGE5G2vBD81yPv7pS/dT9xuGnte6u/MY?=
+ =?us-ascii?Q?/r125T9rBMMBHafQgGwDRgYGVohOyoDWB+PvwZeAaU1RsCo7keIvXZ/mMSAV?=
+ =?us-ascii?Q?t0EyCpOdW2ksYBCrA+WjiGpdwWH7mEPmRlYk33O0nXfbtjgPyCuOsEdMC4QK?=
+ =?us-ascii?Q?k+iKScYxvwtvEvPcLsitVSSgBSLJxCqdMKQW9BbjPr57r5SzXSkf5qi1u7LH?=
+ =?us-ascii?Q?1LG6XR8PsezHZWYhRxSQuS/QVpaGFZ1upCm1iZGQ/B2OOKF2DrlzBkrDKpFJ?=
+ =?us-ascii?Q?66dzjCzzL5qtrzAxQ2hMqPhmA90CHWtUPht/pNFj5Iav8eg0niBzMAbrOexK?=
+ =?us-ascii?Q?Fl+19sg4P6KiIT4AYdhViz9GdEXJpoacf3rvoefeUSu10ck5QEKlfgkUJ1uI?=
+ =?us-ascii?Q?S0Dqic35ko8R3k5vNxk7s8oIrSCoBBEaEAOtY4HaiLQbzwRQovS0TnXCNymN?=
+ =?us-ascii?Q?0dMEijOWkvWM/o4UnA83uK9P62s6BAIEZUkCy8suhhlqnxPjAQFpHt8D8iaJ?=
+ =?us-ascii?Q?XYpi5DnDc85Fd1sHwgann/PM7oEPQqPoA65CyeMQ6mwCb7We3qQGZmluCB73?=
+ =?us-ascii?Q?EepiwMcdg6oO8HsygaSF6mZazYw1VZnTwfRf1fbVX/yvJa6PvMhRAUuMrzJ0?=
+ =?us-ascii?Q?NCeZgp/C2XwbIWGvOqmpzEQQE5SlXNemcclgAeccst7ImlS6akj+v2GkoA0q?=
+ =?us-ascii?Q?zifxL+x6M5YnhReV51f7vagN/ibMM/Eo/j5xf48syvd7kyqeRAPUpjOfydI2?=
+ =?us-ascii?Q?Vq6v4B4OKMc7SDtcHLoC3hhysktEDfHpSqULfxVF19wkOfwuhNsWwALhZIVe?=
+ =?us-ascii?Q?2M6dAFfh4olkMWP5ggxOwywLfGTHPzhe0ZX5Jj0i1qhgQ2uIZu/8Fi3pPIkD?=
+ =?us-ascii?Q?IpmuDGpPxwK90keXkkmDUBAP7govrxniIu7dHzvYkNwgPW4lBhfqZE1BEU5V?=
+ =?us-ascii?Q?vWYq6Takl1m8mgqpdlB9AV+joJ9dMDAhzgpl8NEsUKybVvIQpjlgNBRbJBbq?=
+ =?us-ascii?Q?fe5DNfOpZPw0wfQms3h6WX1vbry356+emJVLlpLY8pJHR0BRLOH6UOXRN5/p?=
+ =?us-ascii?Q?eGUGD9u8KShPILlnFL7wmyBIezN0+XkQx8hu7TiCc9wb7fw96tsFuLzTAmYT?=
+ =?us-ascii?Q?5a+ACWF7gmJt/9Vo7icuF24iVxu+LZKljgs12KJfiE/4fTPgfcR7z+U+hnHw?=
+ =?us-ascii?Q?xsqziWVODxwoN5wiTJCLJPNuTu/JbkWkyDVggZETrjVCvAObs/3Ib9s0X3qu?=
+ =?us-ascii?Q?51AsdtY0db7hi+CpM+g3rBr/tp8Qws+YY63AnZJrWKUOlWTvD3uuL0A+lnMs?=
+ =?us-ascii?Q?neMmlFwlqtdqI4caJqGi/lAmL6kt?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-990eb.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5fe0b0eb-8d24-4224-19a4-08df18a4ccce
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR19MB2303.namprd19.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 12:27:01.2660
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR19MB4329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_132611_989788_57878572 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20260922_052709_549331_C12D700C 
+X-CRM114-Status: UNSURE (   9.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,37 +151,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All Exynos9610 pin controllers (except PINCTRL_TOP) have clocks assigned
-to them, so force the nodes to have clocks assigned to them.
+> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+>
+> Replace acpi_get_first_physical_node() that is slated for removal
+> with acpi_bus_get_primary_device() that takes a reference to the
+> device it is about to return.
+>
+> This addresses a potential use-after-free that may occur if the
+> device returned by acpi_get_first_physical_node() is removed right
+> after dropping its ACPI companion's physical_node_lock in that
+> function.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
----
-Most Samsung Exynos9610 pin controllers (except TOP) have clocks
-designated for them, so allow the device tree node to include clock
-information for the driver.
----
- Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-index 1feb6a6fc690..e4fdedb29631 100644
---- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-@@ -140,6 +140,7 @@ allOf:
-             enum:
-               - google,gs101-pinctrl
-               - samsung,exynos8890-pinctrl
-+              - samsung,exynos9610-pinctrl
-     then:
-       required:
-         - clocks
-
----
-base-commit: c2cd463d6ee7d55a3ec0719d93c49ff99022d58f
-change-id: 20260922-exynos9610-pinctrl-patch-e0cc7118dc97
-
-Best regards,
---  
-Alexandru Chimac <alex@chimac.ro>
-
+Acked-by: Marco Giunta <marco_giunta@outlook.it>
 
