@@ -4,106 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33201C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6643C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nK6JLqXHLE++uLnREJ1y7gZWvzKk3Twpjsn+brZ9AMg=; b=N+3faW5F8pvp+9DYxdMD9T3P9m
-	rQTQvNb1GgPcDP64XnCksPe4juOUwkCm6UAj0L4SZHGtd3eSzpY7LW6+OjP5rUMNVhOsr0P6AJD+r
-	aZvAzds15M72llD9VYmcNlD2PT7gvQHIhV6t89eUq4VKcXEl45EXBGbJAK4nSqfselUJRvB+tqzyC
-	SFDGg9jypkfzMzt8fGk17FdAWkK6RWYBh+YhW74LP4UgOGOou6AyhBFTYaiQE6Gf8L4SHLzoT7jbB
-	nDDBY5FjSEBwVq/qITCZG2DirX9YvcQMJqKT5SK+75dZMSnsMc7hz/NVOsaiXrnXTo+1DFdcY2FVw
-	Hqh/EVAw==;
+	bh=fi3feLtPVMOYDU5sUdusGNlECI2wB3sb2uL66NcRc9k=; b=rqhHZFGf90EJHdIiE1ujMCiDV4
+	IkAevGIkR3H/6A5qUfOI/mA+AbonWNGUy7BT6DDXLTw6Pn6o+FBd1ZukAvFoWWAocQLRf+BfDJ+QX
+	KHtJPUkV4QPG6xxl0vUw++TC0Vcj5oYUzzIJxJglOHXihi8PBx0LnwtMfIuPJK8qhcKKVIP8rIdK7
+	E81xUaKmaDM2mP6/w6pD9MGe9ia1joPg0WlT9YA6Y4v6ib2Zq6roxgn12IevlG3HUOIbSVpvaThdc
+	2OKL9fjscYPL2u7IbO8eVtQOdKmK89Mu9mPao7eVomP4K8vsFePwYok4+Wvb2gA+KPQBaK2afbGwl
+	FhMIxNdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vsp-00000004gYI-1ldw;
-	Tue, 22 Sep 2026 08:29:47 +0000
-Received: from mail-yx2-x0f.google.com ([2607:f8b0:4864:41::f])
+	id 1x8w5Y-00000004iJL-2BFu;
+	Tue, 22 Sep 2026 08:42:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vsn-00000004gXO-11R9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:29:46 +0000
-Received: by mail-yx2-x0f.google.com with SMTP id 956f58d0204a3-66f943b286fso3443257d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:29:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790065784; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ikqAzB+Pb4t4EsO3Cpcr8txCp4wJ+3xw1f3T7korDYZxHBtVUZTnIWxveJScdm5Zj2
-         fXW65D902NMgbvBu1bdRuVkWprhDP1M83vOQvybhGkgzXB1ltfsGxUKnm0dCOeafYRLo
-         BJKBgZ775OCevbVLIF+fGjET2ryRqPMHDE5vIIvxQVTPangwvnpxNmJQMBDLaz5v3dZ7
-         DUyIJeCtqbTJLAUY7E53VjhQgAdXnb3PlnI9K2oQKxiUr5Gg5w3RpGTtQLUTbADQU3ne
-         ObgLQhT91+6kVQPZkdKUCyPaO8XNyCFymUrvuheoFvYxje1hyLgeaj7rdCeVZfTfYMrW
-         eUmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=nK6JLqXHLE++uLnREJ1y7gZWvzKk3Twpjsn+brZ9AMg=;
-        fh=nWgj3VIAPvFBlYhiGps3RYhj4WCcV0dRGQDIuYn/9Jw=;
-        b=kBqhmQGF5Kh4Msg/P1uMFnh6zFl/1OShSxAVFzLgzbMBL5JeCAAP6mdnrK4Fg8wxB3
-         2l1b4Ro/iA1JbG6uKxCdmD0XgV2JOKjK5AM5gmA9C+YBdakhXhHKY644dMjDFKBo1fuO
-         FzC5SB/fIwuLWmtJh17BsTh10m9AmswP2tddqrMFikluKoizx/KlbqnfTR7CoWx2nLUz
-         T08wbQUy7adyIpOgyL+a9FMBwg3IPf/g+5lmidPe3yRqOa5OZWYgqKbOXYHLWkhsfKuz
-         SYP5B6W2TDMaOfZngQyvi802rcR3QVTNbcFg+r7y1myUMRRVRP5fQ3pvkS2TRCF3XRem
-         wkFQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790065784; x=1790670584; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nK6JLqXHLE++uLnREJ1y7gZWvzKk3Twpjsn+brZ9AMg=;
-        b=GH5MM+1M256ZH9Oqnu1pOejQ0NYPbNILNhX/HztNptKXVJdAIpTI8ugUlZMoHAnpoZ
-         2oP7/9lYFtKdL96n8z8MAe3jh3+gJ3ZtTv9+DRtw9Yd+hzJrfuKr9vRTklghsV8IktAG
-         C8XaifdcgKLrZhobnv2crsFpK++D0DE3yQwxlVYGcpp6dFvn+QyWS4SYh+8YgQJnzYFs
-         rmBdU99IeqJQfp9tYpTW+zV5V8OcJGWqs2xs0NBB/VXkYpwKuNYTbTnHCVxmGPP/6ZlS
-         ZyXyRi6PgG1dCgv6sLMGEfdJ6u0DlTKNGn9APOM1+NANVq7Vu+p3MPlCWsggUKCYlWzt
-         ed6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790065784; x=1790670584;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nK6JLqXHLE++uLnREJ1y7gZWvzKk3Twpjsn+brZ9AMg=;
-        b=qrOtIn9F2gZSiyuluV4CxhElsnSCLWNJHMGbAY/MeAJoJa7MFeLBNO0z5Kuuuw9824
-         czfqPF8lBaiWkuIZWWGwil9xqR2fAXjq4Ix1ZKG/6acW0oAFeP0k+F320G4ikvyO3xZk
-         3fz56MSbCY0hnNBmtCzsPbJ/7pcaSetA533OPBpSPX3ZKBCE9DET6/7fQZbz4bwldJJO
-         TIskea/5s7LKyq4oWKi7EL6CvyoJYT8dWy8PTCAL0hd49KnfQ510FdeajBl4Qtmx5DhZ
-         +C1AHZPnBEdYMch5hUHUozDc9VMSDnko8/1ROi/T4GX3In+7RWpw2L7v8F7TygHO6XDk
-         5Edw==
-X-Forwarded-Encrypted: i=1; AKwUvBzgXN88vU5W8T39o6/cUadTJJHuxrGhn2+mGBNbZj5kjgQeKo1pvXI1Mlq0llTG7axFqFHcuWM2qCeNxQ0iBk49@lists.infradead.org
-X-Gm-Message-State: AFuF++l5is/4Cv3upK/f1GfiwmKO0BCYZzu4JlKUf3dUdBMWSngq5/I8
-	QAKZSBqiIeNQX11Dykb4v/SQDlEUE6SKYDKD2bVAVysKZro8YTTgzp0+AST6Lt42+9O3gGLlJAS
-	M5zKF6/TL0Y+zawaCsYQ9YBvo0L0HIFw=
-X-Gm-Gg: AYBFou09uuRSaQsUtX9JyqR3uoI376dS8NtmZXqjnIAoDaLWe1CvHZDSXntQIMOEMI+
-	ljGUPosjVkXsllixPsY7Jt5SoDCaBXKeCKa93pZp+WLDWaJ5iqZ5yrqMYBdYR9EB8WsDEHDlKnq
-	jBXRrXRx7jThmD7c8TEHSrnifCoXIFyuw1ZtsRvL2f5/MkZ1CO5bGxPSBGwLzlMlc+0Jy5jgROF
-	6Kr7aM39r83j3iPlkNwnF+eWc3HwrEv6aAqdDQKig0rXMYke6aOLHGZbH0JNxC7humkkWiwLW3F
-	Qvhg3XlR12sxvSKS2ZwU4aL/IHP4qxZWbPRKbuqf0+Hx+ludM5cxz7klsg==
-X-Received: by 2002:a05:690e:12c7:b0:671:45a4:b282 with SMTP id
- 956f58d0204a3-672c5517fddmr641742d50.99.1790065783701; Tue, 22 Sep 2026
- 01:29:43 -0700 (PDT)
+	id 1x8w5W-00000004iJ6-3R4t;
+	Tue, 22 Sep 2026 08:42:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E11D460200;
+	Tue, 22 Sep 2026 08:42:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C911F000FF;
+	Tue, 22 Sep 2026 08:42:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790066573;
+	bh=fi3feLtPVMOYDU5sUdusGNlECI2wB3sb2uL66NcRc9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BaEsM3dWk6wO/Saa4fIrO+Mh3NPfkoe9ZQcZyG/yXkQGiFFm5tTlbD32I7tzqlbg/
+	 vx2k3Qn1Y6m896KGpgneohI2pxEl7Z0VFM3SUgQbsZ1rY4K6WjWQRgoe6/WZo7R17h
+	 1NXYCUYOU2ubx20DuHLzFF8tcUZmmPgcbRDVrhNC5SndIekDeCDRw9CHN/AixWf8ER
+	 tV80o5arod7lIY6Exk2YSycqkx0xHHFXWta/Ks1pUavYnqisrJIZmVSMrCNJtwGIkI
+	 I8yhuEFrDftHcM8ggvz8sj1yTL+qkmywXYgiFFTBHMzHwNYwxp+KpM1sJp4TtKp8rO
+	 /1Up6/elBhjjQ==
+Date: Tue, 22 Sep 2026 10:42:51 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Myeonghun Pak <mhun512@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH net] net: airoha: npu: cancel wdt_work after releasing
+ the WDT IRQ
+Message-ID: <arI_i_JpOBsXM3ln@lore-desk>
+References: <20260922000914.542068-1-mhun512@gmail.com>
+ <arI5OD8X2Eoz_Ojd@lore-desk>
 MIME-Version: 1.0
-References: <20260921110909.370945-1-lgs201920130244@gmail.com> <20260922074137.GG2348773@google.com>
-In-Reply-To: <20260922074137.GG2348773@google.com>
-From: Guangshuo Li <lgs201920130244@gmail.com>
-Date: Tue, 22 Sep 2026 16:29:30 +0800
-X-Gm-Features: AcwNN1Vv9ooUXHTfX-8aKzoQsfCH4263yxneaXbrNlAHKNAqe0WY7gylNd9nMJc
-Message-ID: <CANUHTR9B84LoCjOtS5N5qGO0KXSXUbZkrKZ3_GFTwXmVoPQ0SA@mail.gmail.com>
-Subject: Re: [PATCH] mfd: ab8500: fix child device leaks on probe failure
-To: Lee Jones <lee@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Samuel Ortiz <sameo@linux.intel.com>, 
-	Mattias Wallin <mattias.wallin@stericsson.com>, 
-	Ludovic Barre <ludovic.barre@stericsson.com>, Alexandre Torgue <alexandre.torgue@st.com>, 
-	Julien Delacou <julien.delacou@stericsson.com>, linux-arm-kernel@lists.infradead.org, 
-	mfd@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_012945_293433_10D3BC7A 
-X-CRM114-Status: GOOD (  28.79  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ROMP+kOHbe7PUdpe"
+Content-Disposition: inline
+In-Reply-To: <arI5OD8X2Eoz_Ojd@lore-desk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,99 +76,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
+--ROMP+kOHbe7PUdpe
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks.
+> > airoha_npu_remove() calls cancel_work_sync() on each core's wdt_work,
+> > but the watchdog IRQ that queues it is requested with devm_request_irq()
+> > and is freed only after .remove() returns.  airoha_npu_wdt_handler() can
+> > therefore schedule_work() again once the cancel has returned.  struct
+> > airoha_npu, which contains the work, is devm_kzalloc()'d and is freed in
+> > that same unwind, so the late work dereferences freed memory.
+> >=20
+> > Register the work with devm_work_autocancel() before devm_request_irq()
+> > and drop .remove().  Devres runs in reverse order, so the IRQ is freed
+> > before cancel_work_sync(), including when probe fails.  A cancel left in
+> > .remove() cannot get that order.  Initializing the work first also stops
+> > a pending watchdog interrupt from queuing an uninitialized work item.
+> > Probe currently calls INIT_WORK() only after devm_request_irq().
+> >=20
+> > This issue was identified during our ongoing static-analysis research
+> > while reviewing kernel code.
+> >=20
+> > Fixes: 23290c7bc190 ("net: airoha: Introduce Airoha NPU support")
+> > Cc: stable@vger.kernel.org # 6.15+
+> > Assisted-by: LLM
+> > Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> > Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> > Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+>=20
+> I guess this is net-next material, it is just an optimization, not a real=
+ fix.
+> Anyway:
 
-On Tue, 22 Sept 2026 at 15:41, Lee Jones <lee@kernel.org> wrote:
->
-> On Mon, 21 Sep 2026, Guangshuo Li wrote:
->
-> > ab8500_probe() registers MFD child devices before completing the
-> > remaining device initialization.
-> >
-> > On AB8540, the main MFD device batch may be registered successfully
-> > before registration of the cut-specific batch fails. In that case,
-> > the probe returns without removing the child devices registered by
-> > the earlier mfd_add_devices() call.
-> >
-> > The same issue occurs when sysfs group creation fails after the MFD
-> > children have been registered. Since the probe returns an error, there
-> > is no later teardown path to unregister those devices.
-> >
-> > Call mfd_remove_devices() on these error paths so that MFD child
-> > devices successfully registered earlier in the probe are properly
-> > unregistered and released.
-> >
-> > The issue was identified by a static analysis tool I developed and
-> > confirmed by manual review.
-> >
-> > Fixes: cca69b67b3ba ("mfd: Export ab8500 chip id to sysfs")
-> > Fixes: 9c717cf3fa16 ("mfd: ab8500-core: Add device for new RTC version for AB8540 cut2")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+Sorry I misread the commit message, this is actually for net, thx for fixin=
+g it.
+
+Regards,
+Lorenzo
+
+>=20
+> Acked-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+>=20
 > > ---
-> >  drivers/mfd/ab8500-core.c | 8 ++++++--
-> >  1 file changed, 6 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/mfd/ab8500-core.c b/drivers/mfd/ab8500-core.c
-> > index f0bc0b5a6f4a..e675223b6023 100644
-> > --- a/drivers/mfd/ab8500-core.c
-> > +++ b/drivers/mfd/ab8500-core.c
-> > @@ -1220,8 +1220,10 @@ static int ab8500_probe(struct platform_device *pdev)
-> >               ret = mfd_add_devices(ab8500->dev, 0, ab8500_devs,
-> >                               ARRAY_SIZE(ab8500_devs), NULL,
-> >                               0, ab8500->domain);
-> > -     if (ret)
-> > +     if (ret) {
-> > +             mfd_remove_devices(ab8500->dev);
->
-> What about switching to devm_*() a.k.a. managed resources?
->
-> >               return ret;
-> > +     }
-> >
-> >       /* Add battery management devices */
-> >       ret = mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
-> > @@ -1243,8 +1245,10 @@ static int ab8500_probe(struct platform_device *pdev)
-> >               ret = sysfs_create_group(&ab8500->dev->kobj,
-> >                                        &ab8505_attr_group);
-> >
-> > -     if (ret)
-> > +     if (ret) {
-> >               dev_err(ab8500->dev, "error creating sysfs entries\n");
-> > +             mfd_remove_devices(ab8500->dev);
-> > +     }
-> >
-> >       return ret;
+> >  drivers/net/ethernet/airoha/airoha_npu.c | 18 ++++++------------
+> >  1 file changed, 6 insertions(+), 12 deletions(-)
+> >=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/eth=
+ernet/airoha/airoha_npu.c
+> > index 5bb4817a898d..4d3195eb00f7 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> > @@ -5,6 +5,7 @@
+> >   */
+> > =20
+> >  #include <linux/devcoredump.h>
+> > +#include <linux/devm-helpers.h>
+> >  #include <linux/firmware.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/of_net.h>
+> > @@ -751,12 +752,15 @@ static int airoha_npu_probe(struct platform_devic=
+e *pdev)
+> >  		if (irq < 0)
+> >  			return irq;
+> > =20
+> > +		err =3D devm_work_autocancel(dev, &core->wdt_work,
+> > +					   airoha_npu_wdt_work);
+> > +		if (err)
+> > +			return err;
+> > +
+> >  		err =3D devm_request_irq(dev, irq, airoha_npu_wdt_handler,
+> >  				       IRQF_SHARED, "airoha-npu-wdt", core);
+> >  		if (err)
+> >  			return err;
+> > -
+> > -		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
+> >  	}
+> > =20
+> >  	/* wlan IRQ lines */
+> > @@ -803,18 +807,8 @@ static int airoha_npu_probe(struct platform_device=
+ *pdev)
+> >  	return 0;
 > >  }
-> > --
-> > 2.43.0
-> >
->
-> --
-> Lee Jones
+> > =20
+> > -static void airoha_npu_remove(struct platform_device *pdev)
+> > -{
+> > -	struct airoha_npu *npu =3D platform_get_drvdata(pdev);
+> > -	int i;
+> > -
+> > -	for (i =3D 0; i < ARRAY_SIZE(npu->cores); i++)
+> > -		cancel_work_sync(&npu->cores[i].wdt_work);
+> > -}
+> > -
+> >  static struct platform_driver airoha_npu_driver =3D {
+> >  	.probe =3D airoha_npu_probe,
+> > -	.remove =3D airoha_npu_remove,
+> >  	.driver =3D {
+> >  		.name =3D "airoha-npu",
+> >  		.of_match_table =3D of_airoha_npu_match,
+> >=20
+> > base-commit: 238650ef6c7c7cca08e032527329424c9fbd70e5
+> > --=20
+> > 2.53.0
+> >=20
 
-Do you mean converting the MFD registrations in ab8500_probe() to
-devm_mfd_add_devices(), so the children are cleaned up automatically on
-probe failure, e.g.:
 
--       ret = mfd_add_devices(ab8500->dev, 0, ab8540_devs,
-+       ret = devm_mfd_add_devices(ab8500->dev, 0, ab8540_devs,
-                              ARRAY_SIZE(ab8540_devs), NULL,
-                              0, ab8500->domain);
 
-        ...
+--ROMP+kOHbe7PUdpe
+Content-Type: application/pgp-signature; name=signature.asc
 
--       ret = mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
-+       ret = devm_mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
-                              ARRAY_SIZE(ab8500_bm_devs), NULL,
-                              0, ab8500->domain);
+-----BEGIN PGP SIGNATURE-----
 
-and likewise for the other MFD batches?
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCarI/iwAKCRA6cBh0uS2t
+rCBBAQDy2x6M/fi6duRrhEFZhDWaiM2e2dJo7Uiggfh389sWAQD/RM73V4pw21iD
+BWMNWNTf6UaF0dWbwvNONop0kmUkHQI=
+=o0gu
+-----END PGP SIGNATURE-----
 
-If so, I'll rework the patch that way for v2.
-
-Thanks,
-Guangshuo
+--ROMP+kOHbe7PUdpe--
 
