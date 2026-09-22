@@ -4,144 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0B5C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6080C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rXe3dZaoeI8L5GZtPHvLYMdVxSYmDQc7uDrT9CBKriU=; b=xf8ZpwjbbRpsYfHSdfOvLWQzBA
-	/tU0HNkErHjjvmuqKV0WNW/w40B64EeHxnnunw3wQ0EZHlR+tcLgr1OEDVYCSZDBYZJDYPOKEs6ei
-	Td7omgQjw28EMpvqkdELFPzHQRauQCeWMw+kAtbwaiOCop2mA4IUuS2JrRyo3A4m19B49d9ELK7fi
-	NLY7oaDTD4ufc9G8AihMYwtJb3axhdb2p8sRarW6PTpJ3kuuGmVeC7Z8knaTSY+bXVe4NWIZsYrFv
-	28evNMSto6GRc2nRoNOQktHAFwDFcDicvBIec2J5SWSCoYt6xOPgbk4VryKKy02cb5Mlre4eF7K+p
-	2h+T4crA==;
+	bh=22qb4IkKc4A4y/WM6dRh1XUq626SL2Lh5OkUO2ttVr4=; b=dqdMQcQiMjqX9mwoMyz3caA7Bw
+	vpKWN99ldXflW5jeEk+5mpTw2TniYD4IW2DbQXF5ZQq2MZDywubcqOSpW1a7WPOtuVmBoEo2rdBfZ
+	oBVbeSMbzqqpK8p4EAP6bUXTXXwyS0KX1Fci+ZWdcLDFpuQmEto+6X69PSUx8cT0pJn0XSHIT9PhS
+	VVZzB+lXZZf+5vC3FcL6wUmYwjMRqAPTolVPWIAD2/xoLT09jtkurHyIkirEJf/2RTNiFDVOn4AZK
+	/LOrttHB0XjTDf/5AiePgij3PmW40kjtuOaDdeO4YgKxf2Wbi8Pr0fXGgJKHt+bu6sW23clWME34f
+	P40BjXMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x95Pv-00000006KMp-3r88;
+	id 1x95Pv-00000006KMl-3WZs;
 	Tue, 22 Sep 2026 18:40:35 +0000
-Received: from mail-northeuropeazon11011062.outbound.protection.outlook.com ([52.101.65.62] helo=DU2PR03CU002.outbound.protection.outlook.com)
+Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x95Pt-00000006KLj-43Rf
+	id 1x95Pt-00000006KLh-1kR3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 18:40:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=smkL9cXaiDCFoPDrV15cn6zFlkWlddyACdej3BL5yevOFTfgRbIntxCdNJNPUEOms3lcI1VX7JFO3jE0JivD/4nuBbiIhzT3RChcFnqUOgCJczWjzN47fvYpGPDzvkqNGEZpoHxvKVxO/rzIZBhwOJMquaZ+1jorgMmqDb4aZTnG/jsIiigoqfS5r8rzb5BisgZW8dQvqLKUIrIbpVkc4k2S3azAS8VeCSf9uQLV5aerQG8G0AqJ23nL/p/2AWFEoTvrY9IqcsBQw6wxbR6qvsprm15ACK9CCjdrx9zEqndBwyDkhUL5DDC+X1ovaKn28r4fXk8tdpPs+d99X1UqMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rXe3dZaoeI8L5GZtPHvLYMdVxSYmDQc7uDrT9CBKriU=;
- b=bnwoT5UFPuQdy2zBtZaGI1kw+3El9VP0ayNcQHoIfr8y3juQTem5CWss6PZKxE+5RVMZt/BZQ3UT6Ej5xrj5M2jGNOcGtbpD+MJinynR20Fo+2cTp6TRJEW9gXGExXjTRHULwxNWq8eWwQwwHjCOWDG/q1oFgSD8SVh8vUAkq2eeISjBtV6rC3/lzwvN053FV3WlcXlFwjMh38PMD8YB6+MqtE/CCsqkChX7Ra2jACiqmmClvk4UYL/BHh2TJB/9tTqiwlCdV1ROw5pPn1Sj70YaxJwRs4JrcLdjR8vHtx3dSG23QqAk/OD+FyFh9t4ssfAjgrz3YNthD0mmK+cmFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rXe3dZaoeI8L5GZtPHvLYMdVxSYmDQc7uDrT9CBKriU=;
- b=REeM+tEZ5nK8RUm0OHJtEymo1OP+5noh02urPk0q1Vn4OFM3QVkLYiHNs+V02gnpz64bX5SfmYN1vgXZ7wl8lwYAAa88OCtbkLwds9jz7v+pmJxoUho9of0dj7OQWMmt2ubroY9QozC6SdN0pd8zrBNbwepeuk1wMbWKMzm3hJqAXHN8Ayzg9MnWHhDfuoxctZBm7r9BryY15AysE+T4FYGB5y4qI1Vl0fSksh9IpQnJ8mkfSyiiJ49yDNFGQ6GONMIylwjIRB706oJ9JWSYu6byL+BKwHAgcC3PShtkgmyfd9I0Lk3k/puC22EPbIshlFBBl/+YtHv+2tP5+XLfXw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PR3PR04MB7481.eurprd04.prod.outlook.com (2603:10a6:102:87::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
- 2026 18:40:28 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
- 18:40:28 +0000
-Date: Tue, 22 Sep 2026 13:40:14 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa <pedrom.sousa@synopsys.com>,
-	Hannes Reinicke <hare@suse.de>,
-	Joao Pinto <Joao.Pinto@synopsys.com>, linux-scsi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, clizzi@redhat.com,
-	aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com
-Subject: Re: [PATCH v5 08/12] scsi: ufs: dwc: Sort CBCRCTRL and CBREFCLKCTRL2
- by offset
-Message-ID: <arLLjqpp0iv1PCxQ@SMW015318>
-References: <20260922073009.1449688-1-larisa.grigore@oss.nxp.com>
- <20260922073009.1449688-9-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260922073009.1449688-9-larisa.grigore@oss.nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0098.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7481:EE_
-X-MS-Office365-Filtering-Correlation-Id: deec1ab4-9517-4de7-c40b-08df18d8f8db
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|19092799006|56012099006|4143699003|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: hR8WLOYQ2SjvvymaD9MqIJ2ExihMiAdEiD5zzKnMpKcnclfsqXWEcwOOvAFNDFkpkICga7jMkxWBA/7n2mD6x2xsIGUU6V5zhJbQBvrrXL8+7+KkWNVkyEYzeX7Wf06tGSkDIiT09x1copRU3u0bcuDiCUOwvXWlH/EsfWvzxLvnkE4CDa7K0elXp30bH5adXx4b5P2LPmU3sWB+3ITgoXOIFAwYoq5l3A9cgQlc9vF5baOBYYGG0ZF26wgtrNuBcVO684xEXx3HWiVZZJxivVauOj5dJqK/vohD8gDRwtHw0+/uIE5lbl8cxqA30GmDti8zFThvAIjLvj5sBewRDxQzTKi8qXXRPmpk1BzoL9+0LOaynUNq+OX5sQ9dY2iCMr3fgNr7u2MQLd9M5ZDD7MZpsUXM98AkJWCkVEq3TrsEmr2N8vCvZciL5ewKhJv3bvE1OhUyDh5Zv1ndq2oBJVoC9iWXLE/GI/6tVgpz1sBj+fan/BHerVuPkYf4ry38TY6ffDwI+FIemH2NxsOzYPEsUo8svHxEe2f7Kg58o1/pS9O2VbsNy78VPNJwJLYO2bo9P+AH6lGadppaIQUGCn05DM/+gpa4eCgqyo4KU5VR0SFB32eOqI0nGrl/3/chBaX9jJhz5FLDSC8xl9H3JcfDLzraFNGDe//NUHe5H9s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(19092799006)(56012099006)(4143699003)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oZrySJYG0lfR6YexXDEwCksMuJu1z2c6IKW9uYpi4vIZapzEklWlncngjKAd?=
- =?us-ascii?Q?dNFYme5MpNopbsM9zj+iruNqCJ1zKFBIjnFMTUGzpRhpEKAUprDHsEOHPV6Y?=
- =?us-ascii?Q?RjqnLiVCPqREKZZWeMZrbZi9+wHR6cOWHky3Uh1H8AhoGDoT+AbXFo90mY3I?=
- =?us-ascii?Q?ckNwHwCMqIksgj2npJqf4rdtqjj+Fc/LN/rM1SDgsB2zTExBGYwhr0sqF5mD?=
- =?us-ascii?Q?LgSQRw3f0WC2v3jO7AXx0T/Br7/zryb5fhHL72PErv/dM3p21AOOU7j6tZMG?=
- =?us-ascii?Q?kH8bf5ZPfZsdmp+HFWUPCPkMk8IqDW+WtE3dbjHnM6nVetllMWV/fDvW98YD?=
- =?us-ascii?Q?EgQ3jG0+u9YGqTpydoXyfaGoWxAaG01NguBlDv9nkyIH0U0BL2iB/6TIWBM9?=
- =?us-ascii?Q?ZPmT2amGabyCPeL2h/IwO35fSmKZ1XSzZai1rSXVZ5hysCgROJPUYKd2yy5A?=
- =?us-ascii?Q?Wb/5aTmeDx9/ZFqtf8TSXQMlJm2wfnFhqeCCndoCqBOfBo5l/jUudcqvxrG4?=
- =?us-ascii?Q?+Kq7FFPCXINpWSd2fGsUCCoVEBXIq6h0avVcybXddye9rQq7kE2iHwB57w+f?=
- =?us-ascii?Q?c7bj0Eas64XMAOb9qI/RhqIUKMsGJZYMigDLcUaham8eVHQ1lWIAAbmawBCg?=
- =?us-ascii?Q?0HB7arzvx0rcqUQbfK8qvYW7UJEdWp22+Y3uD1RgWMgafn/lx1WXweuyOacF?=
- =?us-ascii?Q?xXneTi164Ddlu86ciNyXjiKyPE5vSUTC9F6x21rXXXaCOZ5elO1pOJWU58vs?=
- =?us-ascii?Q?a9o4bCfF8hJFKVJehOiyZH1FTSEGEfFreTEVXGf4qjEdpEM321uU3dWCZM6v?=
- =?us-ascii?Q?hXF9Yh8PUUh3MPC2+0Abu63nkUkV8juBZDdBYhKH1+oMBezNdf6byFsnezxA?=
- =?us-ascii?Q?qhsG8kO3ppdstg7NWYXc31K5Ek28ISrkWi9kdH29wjEWdX12sN8Z+fsAvhDZ?=
- =?us-ascii?Q?pDrj3o4VwoWH+0P6R7KL9L060Pzbt8SZ/FALj8wtjrvNH/iuDgUUPoWwy41K?=
- =?us-ascii?Q?xrkiKX33CtVF0hsGjVOd5/IFF/nUTgDhA5slANi52mcYtqGSXorYwttsk18R?=
- =?us-ascii?Q?3frPGMAJFBy68uWfrSbkTOcJlStTymD5qWZAi9koJ67TGCsbi2TUr5c+sjjp?=
- =?us-ascii?Q?yN7wRCTRkn3q9aewoNYUcj16OfxzEoleyHNoucB8A1wkQ0ndQ8Oy4T6nQbgX?=
- =?us-ascii?Q?JS21abY9IqLhFPmb6QfDNqS3Mjesr6Kgq6mT7sgvALMIrGF/9326ijB2QRYZ?=
- =?us-ascii?Q?OHpXV5n/tmR/ZNUbJJ+UxvyFrxsipF9lK5+CXW928kPQV4jfQaWbA7NHv820?=
- =?us-ascii?Q?kG1U5DGHkF7Unw30q0Quk+ywBmeYT5hpSgHN5uY2iyhXNJ3wCfabva4v9HYe?=
- =?us-ascii?Q?ieUDKVUQEZSOkio4KVu3WqXCNdZe+t9YnUvHjDH6wGAgHmE7QZ+lH6vTYCQt?=
- =?us-ascii?Q?hynl44ZTMrILbhr4dzWo416IHE3kOOyiiVnAV86AXuaeWeW/aVhTDwzx7sUz?=
- =?us-ascii?Q?lzOD64GXRtKVZ/9IMZYsyOkEgfO+kYLQjTwH5y8gqHtXcVW6XtWs4ALOZ2W5?=
- =?us-ascii?Q?hWbtuwsXLpZ/qhuBvOm/J32U7dQA/o0u/gM/Sc9Q324xASXDEmrkaG/ZFYyp?=
- =?us-ascii?Q?spy5vwyiiW3a0UeB7+r6YzZtC3g+ymxIFkMzH6XNPkEI4WqzKBlmLYrumGD6?=
- =?us-ascii?Q?1/bCbVjtmuCBrdhRc0RWVJjf5c7ojFtPBG5DT9s+C1En2q/mFHZF78Mkrfwm?=
- =?us-ascii?Q?AgLQIzS0n/+SHqSwwBKVAAKAr9BQO0a+2FdUy/6sHR36TGG0l/mx?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: deec1ab4-9517-4de7-c40b-08df18d8f8db
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 18:40:28.0652
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nOliPI0DWB5sRkHfvyI7RO7mWMlqx+OdZIiO92o+EzwKbuM1mq1ljb+32+oL4VfsJgdALqNdOBmU09RvwkAQFFY7ST4m83OrHCIQk9b+yZffySyZ1zu+IKgiQ+Z1Nu5e
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7481
+	Tue, 22 Sep 2026 18:40:34 +0000
+Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-8710450f731so159868b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 11:40:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790102431; x=1790707231; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=22qb4IkKc4A4y/WM6dRh1XUq626SL2Lh5OkUO2ttVr4=;
+        b=KAPn6RgG8wADf3uC+Etfo0irmvgkwH2Nb+jS7rrksSU6Yp5LJXhplaizGzokTt8Vaq
+         XmWzmsG8fZjRGqUwCa77zS7OPehDm7bJiKFLfAQfaiJUuT7q5v0a5Z1GkuCsFehaNJcZ
+         a1L5eXLVSTYypPey/4Zxu7MxpLbP3DwJprtjdTEtBo00vdadwpyZrAn4LPAC8eooMXza
+         +OZ1BBKN4bHHPSR6sjVIdtfGoxM3IsELr6g+XCi+doe062ib0Z9mOcYSGsz14rH/CnDE
+         j4bCgT3hRVywAjxjAYAukkkLpsEHiFvJsm2V0aQCsI6OUzrpWAN5i+o/d+uVsPmtq9uJ
+         OenA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790102431; x=1790707231;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=22qb4IkKc4A4y/WM6dRh1XUq626SL2Lh5OkUO2ttVr4=;
+        b=fdoJUNKJwH2O3QIVKGDGxuFvrlApNXFBXHp47lPHjf9utx6lSajLk8MlmMxEnBskxq
+         4chDMci1AjUjoZLPFwUmt6eu2F1W6KvRB1B+zD671ElSkoaomveHJWhCPjmI7f0UOWop
+         I5IkUguSKhkT/5fiLFd7C0VcgxLWNeWpsUTsNn+zYInoh7Rtan31VJaY1CZXS0NZzrYh
+         5uP5EAIIaNw/Aniz4UarplMcYV8sa78LxOazyE16HnnVDW3QutCIdmIAGTTSfGV6D2E5
+         0HesDgtuxhGbt2/O9s5QBzUkdC/jZTBaLwtpDeqJ7uk74/CQ0WibOp36RvrrtbqXDwmA
+         QHTg==
+X-Forwarded-Encrypted: i=1; AKwUvBwLWXZaCN+yRrrCR3k1GKTQM0/8C3VxmgP+UbhEYQ6XNqfI8WGbZlNs//YxWKa3EK4F/xmTxn5MXg7GoZyyHahZ@lists.infradead.org
+X-Gm-Message-State: AFuF++liSqxdJ9wtE0jdczGSJxbCxVR4hyF7e4+OiM3rvCK7olXQqp9c
+	lmsXIVtOcMrQimpUnYyrjaJAGOuxJ1O0wjxsbwnyKUzGxMJSyiD7gaEupIAGvgUw7RAMuEWG9PH
+	hQeUCwg==
+X-Received: from pfbgd10.prod.google.com ([2002:a05:6a00:830a:b0:863:cabd:d30d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4396:b0:878:3507:8d5e
+ with SMTP id d2e1a72fcca58-87d1bfae6abmr510835b3a.37.1790102430559; Tue, 22
+ Sep 2026 11:40:30 -0700 (PDT)
+Date: Tue, 22 Sep 2026 11:40:29 -0700
+In-Reply-To: <arK8-Hec3-5o4jYs@gremlin>
+Mime-Version: 1.0
+References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+ <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org> <arKxjsxuO1F5ExrY@kernel.org>
+ <arK5n9HrbZMCOHOt@google.com> <arK5ynpRi7VbY7Ek@gremlin> <arK8seJVT9wYgVCP@google.com>
+ <arK8-Hec3-5o4jYs@gremlin>
+Message-ID: <arLLnYvkXSFr6f6u@google.com>
+Subject: Re: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
+From: Sean Christopherson <seanjc@google.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Randy Dunlap <rdunlap@infradead.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_114034_050623_22F72462 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20260922_114033_496955_D40C7648 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,49 +102,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 09:30:05AM +0200, Larisa Grigore wrote:
-> The RMMI attribute defines in ufshcd-dwc.h are otherwise listed in
-> ascending register-offset order, but CBREFCLKCTRL2 (0x8132) and
-> CBCRCTRL (0x811F) were placed at the top out of order. Move them down
-> into their sorted position next to the other CBCREG* attributes.
->
-> Pure cleanup, no functional change.
->
-> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
-> ---
+On Tue, Sep 22, 2026, Lorenzo Stoakes (ARM) wrote:
+> On Tue, Sep 22, 2026 at 10:36:49AM -0700, Sean Christopherson wrote:
+> > On Tue, Sep 22, 2026, Lorenzo Stoakes (ARM) wrote:
+> > > On Tue, Sep 22, 2026 at 10:23:43AM -0700, Sean Christopherson wrote:
+> > > > Rather than have kvm_arch_vcpu_allow_pre_fault_memory(), what if we add a more
+> > > > generic kvm_is_vcpu_loadable()?  That way we don't need to worry as much about
+> > > > the return value, the connection to vcpu_load() is obvious, and we don't need to
+> > > > add another pre-check if future (or cleaned-up existing?) ioctls want to do
+> > > > vcpu_load() in common code.
+> > >
+> > > ...this is exactly what I started out with.
+> > >
+> > > But then you are in a pickle, because _really_ you need to do that check in
+> > > vcpu_load(). Which is a void function. Which is called by every single
+> > > architecture all over the place.
+> > >
+> > > So you'd have actually no way of signalling the error back.
+> > >
+> > > Of course those places are arch code and you could say 'arches should know
+> > > better and if they call it it's fine not to call the arch 'can you load'
+> > > function.
+> >
+> > Yes, that's my vote.  It'd be easy enough to clarify that "rule" with a comment
+> > in linux/kvm_host.h.
+> 
+> I note you dodge the actually difficult question of what this wrapper function
+> would look like ;)
 
-Nit: keep b4 review-by order, put it before your signed-off-by if need
-respin patch.
+Oh, I was thinking we wouldn't bother with a wrapper.  Because I agree that
+providing a complement to vcpu_load() would get all kinds of messy.  Though we
+could harden vcpu_load() with a WARN_ON_ONCE(), which in practice would prevent
+the vast majority of violations from making it to a final kernel release. 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > Instead you can make the predicate 'don't prefault on a not-yet-initialised
+> > > vCPU' which is pretty sensible I think, have a specific place to put it and
+> > > all's well with the world.
+> >
+> > But look at it from an x86 perspective.  Pretty much everyone will look at this
+> > and expect:
+> >
+> >   bool kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
+> >   {
+> > 	return vcpu->kvm->arch.pre_fault_allowed;
+> >   }
+> 
+> I'm not sure I really get your point here at all? :)
+> 
+> Why would it matter what people who are too lazy to go check the implementation
+> assume about an arch hook?
 
->  drivers/ufs/host/ufshcd-dwc.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
-> index 53b523ef59df..1abf2b1deac4 100644
-> --- a/drivers/ufs/host/ufshcd-dwc.h
-> +++ b/drivers/ufs/host/ufshcd-dwc.h
-> @@ -13,8 +13,6 @@
->  #include <ufs/ufshcd.h>
->
->  /* RMMI Attributes */
-> -#define CBREFCLKCTRL2		0x8132
-> -#define CBCRCTRL		0x811F
->  #define CBC10DIRECTCONF2	0x810E
->  #define CBRATESEL		0x8114
->  #define CBCREGADDRLSB		0x8116
-> @@ -24,6 +22,8 @@
->  #define CBCREGRDLSB		0x811A
->  #define CBCREGRDMSB		0x811B
->  #define CBCREGRDWRSEL		0x811C
-> +#define CBCRCTRL		0x811F
-> +#define CBREFCLKCTRL2		0x8132
->
->  #define CBREFREFCLK_GATE_OVR_EN		BIT(7)
->
-> --
-> 2.43.0
->
->
+Because I don't hate the people that contribute to KVM, and want to make it as
+easy as possible for them to not make mistakes?
 
