@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C540AC982FD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 02:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4A6C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 02:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7yngsc33kpqZ/ZfiC2TEEvVYs9QbDT9O0cYlk8EaRyg=; b=qukJEVUU5SMW1p
-	+98KwKqnwZb6t8sH+LDi4A6Mn28lnbe3GQWlZZhY2EKJ+lscSCOELapot6sNlnxy+p64yBvy3n5qj
-	qzoXsNmdVgEu780DmG9aiaROKZn2Z/HZNSK+0yzTeAnkmbciFeyvCT0e9zETSvlzU63Mh+iVcKz5x
-	BdaUL8P++G1V9RUOJpFXoay97YGSpOwwaHw5VQEi9DeaaoN+lUEtI/tOYX/hYblZVq5f36O8Bh2/8
-	Evkqa6N7Yi0kY0QOsU5XeJ3E7dmebqt5uDSnRoBflQFT+dak+bfBiPyuIK+Bdvh12Pm5Kk2iHJmS9
-	RClpCBXYJ4JRpXEFxb4Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fr6kFLYx3hqPZHfOilkUN+oxGtJHBsVQ4xuLKdXd4To=; b=BG323h75Q0Sfr87v1lFi+AkImm
+	2OuEAqoh1RqHqDW+koWlHMqXsYLAjEBqKFCFo42b/GkqSuMK9bdefy97S6CDplvA2P4sX9hiuupvm
+	qhhfeUHEY8UB8obJP4KTaYQfBL3xuC0X7zaZ0v4UM3iGpMWewAnkMRxBDXd5uc6uxpjP8Fkh9sJsV
+	VGh3nzskNMi7ZLgNKl35AlvYcdInx0nMEUgT6QVfb1r9Zu6p6N1JBcdcGRGAv6zb+Bx19QMfbNFSp
+	gpSyjINZXppwFQwsljtPZuPEt6BPmiq/n9TbOT4emw0gJ57sPCZMroSPQdBp1DhyRKdaf/sI6ZHiC
+	FZll/mAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8qBr-00000003y5X-3va0;
-	Tue, 22 Sep 2026 02:25:03 +0000
-Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
+	id 1x8qCO-00000003yAe-2eMI;
+	Tue, 22 Sep 2026 02:25:36 +0000
+Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8qBl-00000003y4W-3HMX
+	id 1x8qCJ-00000003y9h-36be
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 02:25:03 +0000
-Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-5308fc4b716so21423321cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 19:24:57 -0700 (PDT)
+	Tue, 22 Sep 2026 02:25:35 +0000
+Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-912355b1bf6so13259456d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 19:25:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1790043896; x=1790648696; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=7yngsc33kpqZ/ZfiC2TEEvVYs9QbDT9O0cYlk8EaRyg=;
-        b=EVuJAxBIwdUPExmuNfwBIGfYwSRTVOvBCaJyVmcBRDWJaLnuOy8IGFB15CoIKOiFd+
-         FmhZkAXH5tPPhPK5zPD27hNQpdC5fM3JVjSQxvRmICtXov126v5M0IfjFdVHreOsQQdM
-         uhRyT/mtNR0eYH9gAckn9VE5F/Uv34a/dRBuFkAov5c+RhHaG9tLFf6A6vCdxe0tfJiD
-         a/tYKaEyEoEdcHnkNICF1QhXMmQ+jkFiPL7p0aZDgpR8YMFMs768aI+W7hHT44uEjdbF
-         /bU2/xdyIJWfTYnh8P8hBBIgPk4mOv9sZ6zZaCqfquvTdANG8MmHg9WLbJmpp0A1Nq4R
-         q7zg==
+        d=toxicpanda.com; s=google; t=1790043930; x=1790648730; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fr6kFLYx3hqPZHfOilkUN+oxGtJHBsVQ4xuLKdXd4To=;
+        b=GaqT6M8s2qZzlhe7B88pMCVBMIN4wWuL/cjTUlX1Tl9mnJ4gIEUAfAyUB6eHVtBd1c
+         zUlrhlOGyJ5crw9fDroX1eZ6c+lJvou05G3Cwt++cBH/o7GcKy/uvkH5LUNwhnxykoFj
+         XkOeF8huJCXAxSwAhnGJ01IiUvx1NtU69HwYeDtgUoz2xIXAqUljg9UL5WnGQbqmSU1a
+         iLYyrE+CHnEpK1D+RLtvRC7r9mNY0yCIcAoUkRGljIjc4vaBvlXa+l8IirsP05J9hQ0U
+         DWlD8I8cf+AvTFt3cl8aeAbC1AUuI/fJbFRtNBN6tMBzZZm1glaiDh955RpH2tSlqkl7
+         D+7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790043896; x=1790648696;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=7yngsc33kpqZ/ZfiC2TEEvVYs9QbDT9O0cYlk8EaRyg=;
-        b=HcnKF2ciSARgClwD/3f/SV/3lhU6SwTJQjV5j1vKE80v9Kl3hlOmUlqF2YcMmxKHiQ
-         CmnvpvS9srwoXN4f1d7lKQbj14DXh+Wh9bO47ryhYgUtFLM/xDHk4QZJavelZ30lI3fn
-         6IUCEM7Ej83OHQD8cmxa9oVKIS3a+mgcGZ1vlqyz1qedBKCHGk2GylZ7PThZSc7ecjJ1
-         9jt2yroV0YqpkErCzuJl3iNDXw7xhCLu7thLulgGm6g/hdTROnLxXAZAPNnZ018DSKXY
-         /vCSmXvpuB2S7gixGKui2z6VAiZIEwWADeXbbXm8VCall+3v4+7dK5bKvKRATciYlokf
-         Dpmg==
-X-Forwarded-Encrypted: i=1; AKwUvBzOFE883Z+ioApNwvAvtJzw+W08dKu+l93nTdJz7+RkqJSimulEnI0ODVJ+zzhaIY3NmrdRnAj4N6AKYWwy3tcH@lists.infradead.org
-X-Gm-Message-State: AFuF++la+JdB1s203TyNdDlFADu8h89mNReDCPqfKWI5pux55kPmCP20
-	Ei4peMxWg9BBKcURqqUEcXs8/HVpPVZ9byMLw/6u416J4gKltPdYkvehTYL47Nd/8Zk=
-X-Gm-Gg: AYBFou2KdgkmO6FWnnjcu5YJYIbWdCpo0aMohmtrCFoU5li7VzlVs6GWJKPGDdq3/9B
-	adWg6oLocK/BSgX0LE0DBon4RZUo2qL+KjxKaIUIGtrUgX4YnVS/Ep4EGNXfnKHljF8pXxf3maB
-	pEG1M7b9dnmQ3L5Yon2pAy1zttmnzQIhaCHHEnvbd3owKFxu/UtcPxYpK0Qh00HTKQJt0WRH59B
-	1zdiAlGMQ4gvjl33IVLTC7H58WoAIIc8bm9GH/Iwd5RnI1D1sZQYnVK13D7VhkujE6n+Lb66Tpc
-	I2n5QccNuVSSULrlzR2qxKczt39yIAFxD59clM8WfoVHjnnfHGb3GSM690Np6bg3pe4gNSJ0ExE
-	uF0mDTelrh8ySfqgeYKCuEXou5L4+4ikgnu2FX/8xiryvFzu5oTzSMd6EiLMgQqXbGX1N7p7Gos
-	PwMyj1oIm/ivAGTcvbYS5Sj3O6JaEmikUflhuwbvBB1cuc8mFafEkaA9BFPTIWzxIqRCRG7fkZb
-	+zNV/pwI4pnUvA=
-X-Received: by 2002:ac8:6906:0:b0:530:faa8:a51c with SMTP id d75a77b69052e-532d8e16e79mr38265931cf.34.1790043896043;
-        Mon, 21 Sep 2026 19:24:56 -0700 (PDT)
-Received: from toxicpanda.com ([153.61.196.243])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532e15b9db9sm2000881cf.0.2026.09.21.19.24.55
+        d=1e100.net; s=20260707; t=1790043930; x=1790648730;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fr6kFLYx3hqPZHfOilkUN+oxGtJHBsVQ4xuLKdXd4To=;
+        b=YeEs3xXp7opDjbzZNkiVialBn3APNFYnA+NFpLZ71BmDVckBgQIU/CPZtSwGsKVCd+
+         LUYsUl2yv00ZplnNZvUJCgwhAl9S2rczj1xkM27KRUJD/3FoPRix9CL7O6SsVv8s97/3
+         HphLAxV/MCEh0M1IrpiGimJ+BgyGp1UXlOHWmdpTsCgknIGf/rZyH5ox9Rp2UhMG2k9i
+         a3mORKEu77AVc3VPLnaja9LTtOgjAkJy+BOPg5uTQsWRxEqRkvOAP/rUE+A3RJSHilD/
+         OXGBwcYKO6kLADI6SEalNm1FZDD6FhrVnZWTKx5iueokF016C/Tvt2WxPu5u9dx5TTZG
+         eQqg==
+X-Forwarded-Encrypted: i=1; AKwUvBwFZkqwJGCL5tb53g+VYEE90oqbfn3Wgq2UCYctbzB0/xVVuW1Ju9YG2Kt581Q0NyHDTiJwXIbIUVoestEPhSYk@lists.infradead.org
+X-Gm-Message-State: AFuF++lF+SCsA9fsYkRQL5cGhJv9HVbEkQ1A7aIy9YW5N8CqHqOaUNm8
+	FTYJ5B/Frr5UWBaXGh3lSmEcmG15lrk5K5O3dBfxCVjPBwskdupgPU6V4yzD9bgj7nY=
+X-Gm-Gg: AYBFou2oak2jzEGs2GyOt2M9h9jInZBcgwYhWLWGrxTDDc3FdoWDaDIS1XRwaKe05t9
+	fz5DtODbOwBVXAAtbbFgCdlNM9twN3c+WfYJ4WpJlSLSp4JWRnEqL7chteTz93U5fQ/Ijmjnn3W
+	zc58tvP96jqusy90Yk2SpEq5J9M+j7JcFJvLvzhWgPwXnnKKzeAh0qGR10JXqTMoGsGdRTeqADw
+	8DA/wVPBHzGv1YqmJbW9YXQ6DjTVYs1t4OpMiYO9cnmKPq/yOtqee7S/xgGXFK9vACp8Q88WYUF
+	hDlA6R3r6V7vFtkAon42CudInQHyxDRgQzrImbptpwpHDUuNpS2HbeXCrY6Ic7qaLeUr9EB7qEN
+	tlihm9LR0auHnkdpWCAbe3bsxsy/T47qd/J3gwTJ0xv+/5lH38tS3MaRm6Nps5G0U7Iz+t9OMTR
+	qXezoy2VYUUqPYrfRMNvlKEghXu2LMtrKWMm4xKH4I7SdWnNQqFyILhusye85x6qav+RRJSetNS
+	KHOnbHjmJOrzF4=
+X-Received: by 2002:ad4:5d44:0:b0:911:2a7e:abbb with SMTP id 6a1803df08f44-913ff001c87mr26718046d6.14.1790043930382;
+        Mon, 21 Sep 2026 19:25:30 -0700 (PDT)
+Received: from toxicpanda.com ([153.61.196.242])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-914025165e2sm4420596d6.46.2026.09.21.19.25.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 19:24:55 -0700 (PDT)
+        Mon, 21 Sep 2026 19:25:29 -0700 (PDT)
 From: Josef Bacik <josef@toxicpanda.com>
-Subject: [PATCH v5 00/13] rcu-tasks: build Tasks RCU on Tasks Trace readers
- in trampolines
-Date: Tue, 22 Sep 2026 02:23:19 +0000
-Message-Id: <20260922-b4-rcu-tasks-preempt-qs-v5-0-410f57770bad@toxicpanda.com>
+Date: Tue, 22 Sep 2026 02:23:20 +0000
+Subject: [PATCH v5 01/13] entry: Pass pt_regs to
+ irqentry_exit_cond_resched()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJjmsWoC/4XPwU6EMBAG4FfZ9GzdFqZd8eR7GA/DdJDqLmDLk
- jUb3t0WLyRCPP7Tzte/dxE5eI7i+XAXgScffd+lYB4Oglrs3ll6l7IoVGFVpZWsQQa6yhHjZ5R
- DYL4Mo/yKEpRuGjBgDZ1E2k5Hjb8t8uvbb47X+oNpzFy+UWNkWQfsqM2j83Cs4bgMtx7IG62PY
- x++l7KTzvL/vSYtlXQAtmqASCv9MvY3TwN2Dh+pv4hcbirWmN7HioQxIlrNrnAIm1i5xsw+ViZ
- MoSsVARnm0yYGa+xpH4OE2bJRXDlbWfv3m/M8/wCHDGV77gEAAA==
-X-Change-ID: 20260910-b4-rcu-tasks-preempt-qs-401ff45465c7
+Message-Id: <20260922-b4-rcu-tasks-preempt-qs-v5-1-410f57770bad@toxicpanda.com>
+References: <20260922-b4-rcu-tasks-preempt-qs-v5-0-410f57770bad@toxicpanda.com>
+In-Reply-To: <20260922-b4-rcu-tasks-preempt-qs-v5-0-410f57770bad@toxicpanda.com>
 To: "Paul E. McKenney" <paulmck@kernel.org>, 
  Frederic Weisbecker <frederic@kernel.org>, 
  Alexei Starovoitov <ast@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
@@ -95,18 +92,18 @@ Cc: Boqun Feng <boqun@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
  linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1790043820; l=12509;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1790043820; l=4297;
  i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=Lun0LDlv1NRasQcxE3cO2Jn1N9Nm2f7VrQlujNHSP0s=;
+ bh=vAWpKfoMcBcYFQiIgPpQZt2gAuw45VdrXu4vr32WnR0=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
  JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QFhqWnWtx/bWe/rk7wwcWGXBEbJgcLkFYUK+H7keA1rCrn5qe1Eajbupz/1VYbYT7Z0yg0hxdIA
- zUKWdn13rFAI=
+ QCPeuFAp5uVxV2kH2vDDmkA4ssSDw+6kXcs/1v8hvtFa+fEUwj418WQRUH5jUvQqcwsIafENDDP
+ 8QcAKkovgmQk=
 X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
  fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_192457_857558_BC7B05C5 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20260921_192534_074659_94624291 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,223 +118,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-v1: https://lore.kernel.org/all/20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com/
-v2: https://lore.kernel.org/all/20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com/
-v3: https://lore.kernel.org/all/20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com/
-v4: https://lore.kernel.org/all/20260918-b4-rcu-tasks-preempt-qs-v4-0-63f0e9d69661@toxicpanda.com/
+The irq-exit preemption path is about to need the interrupted context's
+registers to decide whether the preemption may be reported to Tasks RCU
+as a quiescent state.  irqentry_exit_to_kernel_mode_preempt() already
+has them; hand them down through irqentry_exit_cond_resched(), its
+PREEMPT_DYNAMIC static-call and static-key variants, and
+raw_irqentry_exit_cond_resched().  The only caller outside the generic
+entry code is Xen PV's upcall handler, which has regs as well.
 
-v4->v5:
-- Dropped the RFC tag.
-- JIT emitters: *_off naming and offsetof() for the srcu_ctr counters
-  instead of hardcoded 0/8 (Alexei); note the open-coded copies at
-  rcu_read_lock_trace().
-v3->v4:
-- BPF: the reader is emitted by the x86-64/arm64 JIT around the
-  fentry/fmod_ret and fexit regions instead of taken in the C glue (Alexei).
-- An idle CPU only counts as quiescent while in an RCU EQS (Sashiko).
-- Dropped the rcu_read_lock_trace() lockdep/inline patch; BPF CI bot nits.
-v2->v3:
-- Reworked per Alexei and Paul: trampolines take rcu_read_lock_trace(),
-  and Tasks RCU on x86-64/arm64 becomes a per-CPU pass plus a Tasks Trace
-  grace period instead of a new per-task counter.
-v1->v2:
-- Sashiko/AI review fixes, Paul's and Steve's comments (see v2 changelog).
+No functional change.
 
-What it does now:
-
-Every trampoline whose lifetime Tasks RCU guards (ftrace_caller and its
-copies, the optprobe template, BPF trampolines, out-of-line direct-call
-trampolines) takes rcu_read_lock_trace() around its call-out, open-coded
-in asm / by the JIT. That leaves the few trampoline instructions outside
-the reader, the static ftrace stubs and x86 return thunks that carry a
-trampoline address, and the kprobe jump-optimization window. A task can
-only linger in those by being interrupted there, so on x86-64 and arm64
-the Tasks RCU grace period becomes: wait for every CPU to pass through
-__schedule() or sit in an EQS (the irq-exit preemption checks the
-interrupted IP first and briefly makes a task caught in such text a
-holdout), then synchronize_rcu_tasks_trace(), then one more pass for the
-trailing instructions. It runs from the existing rcu_tasks kthread, so
-call_rcu_tasks() and friends keep their names and callers; there is no
-task-list scan and no dependence on voluntary context switches, and
-cond_resched_tasks_rcu_qs() becomes unnecessary there. Other
-architectures keep the classic implementation.
-
-Testing is still QEMU: x86-64 PREEMPT_LAZY (PREEMPT_RCU=n) and
-PREEMPT_DYNAMIC, PROVE_RCU, lockdep. synchronize_rcu_tasks() against a
-30s in-kernel spinner is 20-70ms (classic: 29.7s), ftrace instance
-teardown ~0.2s, optprobe register+unregister ~0.6s, the direct samples
-cycle in about a second, and fentry+fexit attach/hammer/detach on
-do_sys_openat2 and hrtimer_interrupt runs and detaches in 50-100ms with
-the return-to-user reader assertion quiet. arm64 is build-tested;
-hardware numbers for both are still owed.
-
-Notes:
- - This is the alternate-gp_func-on-the-rcu_tasks-kthread form; folding
-   the IP check into core RCU along the lines Frederic sketched is left as
-   the follow-on Paul suggested.
- - The open-coded reader is ~9 instructions each side in ftrace_caller and
-   at four points in the BPF trampoline. rcu_read_lock_tasks_trace() would
-   be shorter but needs a slot for the cookie; also a possible follow-on.
- - CONFIG_TASKS_TRACE_RCU_NO_MB depends on RCU_EXPERT, so non-expert
-   x86/arm64 builds get the smp_mb() in the reader despite
-   ARCH_WANTS_NO_INSTR; the asm follows the C here.
-
---- Original email (v1) ---
-
-Tasks RCU only treats a voluntary context switch, usermode or idle as a
-quiescent state, because a preempted task may be sitting in a trampoline
-that is about to be freed. That was a fine trade when PREEMPT_NONE
-servers compiled Tasks RCU away and PREEMPT desktops rarely ran
-long-lived in-kernel loops. PREEMPT_LAZY changes both halves at once:
-Tasks RCU is now real on server configs, and cond_resched() is a no-op,
-so a CPU-bound kthread or kworker only ever loses the CPU by being
-preempted, which is exactly the event Tasks RCU refuses to count.
-
-The way this showed up for us was a cgroup writeback worker draining a
-very large cgwb for around eleven minutes on an arm64 box. Nothing wrong
-with that on its own, but a BPF program detach on another CPU went
-bpf_trampoline_update() -> ftrace_shutdown() -> synchronize_rcu_tasks()
-while holding trampoline_mutex, forty-odd tasks piled up behind the
-mutex, and the hung task detector panicked the machine. The kprobe jump
-optimizer is worse in principle: it does synchronize_rcu_tasks() under
-kprobe_mutex, text_mutex and cpus_read_lock(), so one long-running
-kthread can stall static key updates and CPU hotplug for its whole run.
-The current answer is to find each such loop and add
-cond_resched_tasks_rcu_qs() to it, which is the kind of annotation
-PREEMPT_LAZY was supposed to let us stop writing.
-
-This series tries the other direction: have the trampolines say when a
-task is inside them, so that a preemption anywhere else can be a
-quiescent state.
-
- - task_struct grows an int, rcu_tramp_nesting. Every trampoline whose
-   lifetime Tasks RCU guards increments it before calling out and
-   decrements it before returning: ftrace_caller and its dynamic copies,
-   the BPF trampoline (which drops it again around the call to the
-   original function, since im->pcref covers that), the x86 optprobe
-   template, and out-of-line register_ftrace_direct() trampolines. Only
-   current writes it and nested users are balanced, so it is a plain
-   non-atomic inc/dec, one load of current plus one RMW per entry/exit.
-
- - The inc/dec are inside the trampoline, so there is a window of a few
-   instructions on each side where the count is zero but the task is in
-   (or on its way into) trampoline text. Nothing there can be preempted
-   synchronously, only from an interrupt, so the irq-exit preemption path
-   looks at regs->ip and holds the count across preempt_schedule_irq()
-   when the IP is somewhere the counter cannot cover: outside core and
-   module text (all the dynamically allocated trampolines and slots), in
-   the static ftrace stubs or the x86 return thunks that still hold a
-   direct-call target, in a module that hosts its own direct trampoline,
-   or inside the bytes after a kprobe that the jump optimizer may be
-   about to rewrite (the one synchronize_rcu_tasks() user that is not
-   about trampolines at all).
-
- - With those in place, rcu_tasks_classic_qs() also clears the holdout
-   flag on a preemption when the count is zero, on architectures that
-   opt in. x86-64 and arm64 do so here. Everyone else keeps the
-   voluntary-only rule and is untouched apart from the (unused) field.
-
-A running holdout already gets poked via rcu_request_urgent_qs_task(),
-which makes the next tick set NEED_RESCHED, so with this the resulting
-preemption retires it and a Tasks RCU grace period is bounded by roughly
-a tick plus the longest preempt-off section rather than by the longest
-stretch without a voluntary schedule().
-
-Patches 1-12 are scaffolding and change no behaviour on their own; patch
-13 flips the rule and selects the option for the two architectures.
-
-Testing so far is QEMU only: x86-64, PREEMPT_LAZY with PREEMPT_RCU=n,
-PROVE_RCU and lockdep, with and without PREEMPT_DYNAMIC. A kthread
-spinning in-kernel for 30s with the function tracer, an ftrace kprobe,
-an optimized kprobe and fentry/fexit programs attached:
-synchronize_rcu_tasks() goes from 29.7s to 0.1-0.3s, tearing down a
-DYNAMIC ftrace_ops (tracefs instance function -> nop) from 27s to
-0.2-0.8s, and the ftrace-direct sample modules load, fire and unload in
-about 2.5s each while the spinner runs, with no warnings and the new
-return-to-user assertion quiet. arm64 is build-tested only at this
-point; real hardware numbers for both are the obvious next step and I
-did not want to sit on the idea waiting for them.
-
-Things I would particularly like opinions on:
-
- - Whether hooking rcu_tasks_classic_qs() is the right place, or whether
-   Paul would rather see this expressed differently inside Tasks RCU.
- - return_to_handler and the rethook/kretprobe trampolines are not
-   instrumented. Their C callees take the ftrace recursion lock before
-   touching any ops and the trampolines themselves are static text, so I
-   believe they do not need it, but I would like Steven and Masami to
-   confirm.
- - The register_ftrace_direct() contract change: out-of-line direct
-   trampolines now have to maintain the count themselves (the samples
-   are converted). I do not know of out-of-tree users beyond BPF, but
-   this is the one place an existing user could be silently weakened.
- - Whether arm64 folks are comfortable with the ldr/add/str in
-   ftrace_caller and the BPF trampoline, and with treating all of
-   ftrace_caller as trampoline text for the IP check.
- - If this holds up, cond_resched_tasks_rcu_qs() and
-   rcu_softirq_qs_periodic() become unnecessary on the opted-in
-   architectures; I have not touched them here.
-
-Based on v7.3-rc2+ (893e11787f78).
-
+Assisted-by: LLM
+Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 ---
-Josef Bacik (13):
-      entry: Pass pt_regs to irqentry_exit_cond_resched()
-      rcu-tasks: Add a Tasks RCU implementation for reader-marked trampolines
-      kprobes: Expose the optprobe jump window to Tasks RCU
-      ftrace: Mark modules hosting direct-call trampolines for Tasks RCU
-      x86/ftrace: Take a Tasks Trace reader around ftrace_caller's call-out
-      x86/kprobes: Take a Tasks Trace reader in the optprobe template
-      bpf, x86: Take a Tasks Trace reader in the trampoline around its call-outs
-      arm64: ftrace: Take a Tasks Trace reader around ftrace_caller's call-out
-      bpf, arm64: Take a Tasks Trace reader in the trampoline around its call-outs
-      samples: ftrace: Make the direct-call trampolines Tasks Trace readers
-      rcutorture: Make Tasks RCU readers Tasks Trace readers where required
-      rcu-tasks-trace: Assert no reader is held on return to userspace
-      x86, arm64: Build Tasks RCU on Tasks Trace readers in trampolines
+ arch/x86/xen/enlighten_pv.c      |  2 +-
+ include/linux/irq-entry-common.h | 13 +++++++------
+ kernel/entry/common.c            |  6 +++---
+ 3 files changed, 11 insertions(+), 10 deletions(-)
 
- .../RCU/Design/Requirements/Requirements.rst       |  24 ++
- Documentation/RCU/checklist.rst                    |   7 +-
- arch/arm64/Kconfig                                 |   1 +
- arch/arm64/kernel/asm-offsets.c                    |   8 +
- arch/arm64/kernel/entry-ftrace.S                   |  74 ++++
- arch/arm64/kernel/ftrace.c                         |  20 +
- arch/arm64/net/bpf_jit_comp.c                      |  93 ++++
- arch/x86/Kconfig                                   |   1 +
- arch/x86/kernel/asm-offsets.c                      |   8 +
- arch/x86/kernel/ftrace.c                           |  43 ++
- arch/x86/kernel/ftrace_64.S                        |  69 +++
- arch/x86/kernel/kprobes/opt.c                      |  44 ++
- arch/x86/kernel/vmlinux.lds.S                      |   4 +
- arch/x86/net/bpf_jit_comp.c                        | 107 +++++
- arch/x86/xen/enlighten_pv.c                        |   2 +-
- include/linux/irq-entry-common.h                   |  15 +-
- include/linux/kprobes.h                            |   8 +-
- include/linux/module.h                             |   7 +
- include/linux/rcupdate.h                           |  24 +-
- include/linux/rcupdate_trace.h                     |  13 +
- include/linux/sched.h                              |   1 +
- kernel/entry/common.c                              |  14 +-
- kernel/fork.c                                      |   1 +
- kernel/kprobes.c                                   |  50 +++
- kernel/rcu/Kconfig                                 |  28 +-
- kernel/rcu/rcutorture.c                            |  10 +
- kernel/rcu/tasks.h                                 | 476 ++++++++++++++++++++-
- kernel/rcu/update.c                                |   2 +
- kernel/trace/ftrace.c                              |  39 ++
- samples/ftrace/ftrace-direct-modify.c              |   9 +
- samples/ftrace/ftrace-direct-multi-modify.c        |   9 +
- samples/ftrace/ftrace-direct-multi.c               |   5 +
- samples/ftrace/ftrace-direct-too.c                 |   5 +
- samples/ftrace/ftrace-direct.c                     |   5 +
- samples/ftrace/ftrace-direct.h                     | 126 ++++++
- 35 files changed, 1329 insertions(+), 23 deletions(-)
----
-base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
-change-id: 20260910-b4-rcu-tasks-preempt-qs-401ff45465c7
+diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
+index 2c64b388f616..3d85035f5624 100644
+--- a/arch/x86/xen/enlighten_pv.c
++++ b/arch/x86/xen/enlighten_pv.c
+@@ -739,7 +739,7 @@ __visible noinstr void xen_pv_evtchn_do_upcall(struct pt_regs *regs)
+ 
+ 	inhcall = get_and_clear_inhcall();
+ 	if (inhcall && !WARN_ON_ONCE(state.exit_rcu)) {
+-		irqentry_exit_cond_resched();
++		irqentry_exit_cond_resched(regs);
+ 		instrumentation_end();
+ 		restore_inhcall(inhcall);
+ 	} else {
+diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+index 0bb6c03481fa..e19b41ee6b18 100644
+--- a/include/linux/irq-entry-common.h
++++ b/include/linux/irq-entry-common.h
+@@ -343,24 +343,25 @@ typedef struct irqentry_state {
+ 
+ /**
+  * irqentry_exit_cond_resched - Conditionally reschedule on return from interrupt
++ * @regs:	Pointer to pt_regs of interrupted context
+  *
+  * Conditional reschedule with additional sanity checks.
+  */
+-void raw_irqentry_exit_cond_resched(void);
++void raw_irqentry_exit_cond_resched(struct pt_regs *regs);
+ 
+ #ifdef CONFIG_PREEMPT_DYNAMIC
+ #if defined(CONFIG_HAVE_PREEMPT_DYNAMIC_CALL)
+ #define irqentry_exit_cond_resched_dynamic_enabled	raw_irqentry_exit_cond_resched
+ #define irqentry_exit_cond_resched_dynamic_disabled	NULL
+ DECLARE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
+-#define irqentry_exit_cond_resched()	static_call(irqentry_exit_cond_resched)()
++#define irqentry_exit_cond_resched(regs)	static_call(irqentry_exit_cond_resched)(regs)
+ #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
+ DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+-void dynamic_irqentry_exit_cond_resched(void);
+-#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
++void dynamic_irqentry_exit_cond_resched(struct pt_regs *regs);
++#define irqentry_exit_cond_resched(regs)	dynamic_irqentry_exit_cond_resched(regs)
+ #endif
+ #else /* CONFIG_PREEMPT_DYNAMIC */
+-#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
++#define irqentry_exit_cond_resched(regs)	raw_irqentry_exit_cond_resched(regs)
+ #endif /* CONFIG_PREEMPT_DYNAMIC */
+ 
+ /**
+@@ -465,7 +466,7 @@ static inline void irqentry_exit_to_kernel_mode_preempt(struct pt_regs *regs,
+ 		return;
+ 
+ 	if (IS_ENABLED(CONFIG_PREEMPTION))
+-		irqentry_exit_cond_resched();
++		irqentry_exit_cond_resched(regs);
+ }
+ 
+ /**
+diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+index e3d381fd3d25..e4acd50bd81a 100644
+--- a/kernel/entry/common.c
++++ b/kernel/entry/common.c
+@@ -134,7 +134,7 @@ static inline bool arch_irqentry_exit_need_resched(void);
+ static inline bool arch_irqentry_exit_need_resched(void) { return true; }
+ #endif
+ 
+-void raw_irqentry_exit_cond_resched(void)
++void raw_irqentry_exit_cond_resched(struct pt_regs *regs)
+ {
+ 	if (!preempt_count()) {
+ 		/* Sanity check RCU and thread stack */
+@@ -150,11 +150,11 @@ void raw_irqentry_exit_cond_resched(void)
+ DEFINE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
+ #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
+ DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+-void dynamic_irqentry_exit_cond_resched(void)
++void dynamic_irqentry_exit_cond_resched(struct pt_regs *regs)
+ {
+ 	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
+ 		return;
+-	raw_irqentry_exit_cond_resched();
++	raw_irqentry_exit_cond_resched(regs);
+ }
+ #endif
+ #endif
 
-Best regards,
---  
-Josef Bacik <josef@toxicpanda.com>
+-- 
+2.55.0
 
 
