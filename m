@@ -4,120 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8208DC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA5DC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IYy57RCaIbH8AQuOVsCUXkefx88wksD4vGg45jgoXOE=; b=gSGujusBPJkS8/OmyQwzUYmPPh
-	8hLK8hwzPUAjYeWneEQLp9DB0LUPLcpeQeRHUYCAeIZDsZrwHt8XrQFC7Yhqu4VmcaAuojHkkUdmL
-	lVFGSvL9kZxusuugPV6Et2Un63201yESqZ1Tw/CYj4ZeRANjsbAzfkfHTybfqxZ3rAFnbwARR4aVy
-	6CrKe7HlfTZ7HIxMqULLimodDfn713Rjk+7fggBHtyfbOWAsbwpAoV368HisUguafkoMRwNR/5IqQ
-	g01heGTGKc/7CBOmrw0aToH1pMgcBaHfrS6Fac0YBzNvwGiyKqCe8rjtumu9iQGZElUUD9EjwZR9R
-	F3sO4GBg==;
+	bh=XYSOqVERmoLufYUc+VgdIGa26F88+bWdDgX4ohmoDow=; b=xDQG2fl1N606z88le9q1l9pV3N
+	h6qyxRJ2hO+WGK8RF1dzBIi70oGHDI2PyN7bqGTn7eo1eRJcyte1KqiHZMkohnpp+pd/tDFL/TPgf
+	p0IJ0uJbNhi0ssZqi5YQFhdtg2Fp5iTR5raVtXN8BKAdx1rTsDuidR0PlUteXJ5+dHNagV/OqisGL
+	MH+4nMSprhjqZcFmqt0YzNPLI2RODKv7Pv2bu7xCAPOeiToM/nXfZwVCb3w6mc8ONFUci8qURL5lW
+	KWRmfYb74pgEYLxjn7ch5+4j7Oqe42RXpjz/536xC70QqijkP80ZblQuIBeLBm5O2eXj6O6FJJuGw
+	Pb840/mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94al-00000006F0S-2yWE;
-	Tue, 22 Sep 2026 17:47:43 +0000
-Received: from mail-eastusazon11012046.outbound.protection.outlook.com ([52.101.53.46] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1x94oY-00000006G2M-3Une;
+	Tue, 22 Sep 2026 18:01:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94aj-00000006F03-05U6
+	id 1x94oX-00000006G2F-2cAL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:47:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CZr3Bc4sbq6vZnJA7rU8vnHhpb8DGLp+x++AvU/7uJk8eg3V/7+80MzTDgSswdW3gedYruhlNFRhwgcpUpPEhWvqhHMdVo+rgH5uUGxaK7U92CJRLBpFjVuS1hFdQ8vRrjemxM2o5XHV3iKJg7NNH3loo0FJ5yoFS9vmstVUdlS7948xWOQ1zJKzi62QlB8524Ywnxj7QZyhPrWDzW3/AcLJD7sqcInaWXb/d5VE73mzTtujkbVcLFrxPF5Ww88qlznLPqfHScFouW9HxuDbWHfBWd9sW9sMRm0JGggN32gZXf03QG4kahKyZSljRiVj6vNwJ1MEvlMsfpQVpiyrGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IYy57RCaIbH8AQuOVsCUXkefx88wksD4vGg45jgoXOE=;
- b=fbWnBt+G7LPNN0oM35mnEzHxbSupyI9Ftj16M1j6MeV/a0ffb3+sUCld0fzC7tpYRebfS0ht+0l/qBjjhkSwNJdsvAAD573C/T2suVTqZl68JukZfALOVXMgHamhZu0BsY238Cz2ESJUQJotRE0uUS8fzbA6/SJtA5GmOmE7OO36Qisuu0/3cxZXwEtWd78FOkve6VQ3nakcEiWwECg84bRjia/kN+3S45WufCoYZR+irNI/HbBCVNZMI7iYPy4k8+KZz7ioh9IEY5mRs1NRxw0xCKevUPjEfxMPzx3OWY8UskcrwXGhfhhL3x8ROV2VxNe7uSK8P8GjmSKewPA2dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IYy57RCaIbH8AQuOVsCUXkefx88wksD4vGg45jgoXOE=;
- b=AuMsi9uWVMVXopwKrttUrZuGxljdXC7XIr/FWTqMGO+p68Fy6HQxQRl7/I2NwK8jJ71zLlvu6+lb2rCTUFNDg8y2KoaytW2/hltCdw5cnTVg7SUnSV7FYhF74L4dyCVnL+/Ml42k+011lcgBysmgFnIFQ2gHcu005C2rUR3e3OJRJqBsgn7Wkz//HYjFDtlQoLWhfTWLncwCycMd+EjBOQCpbwwnHNt8AHDFeo49ItWHR9rOcP0J9hzVVFWUVv0eSLeItylfV7zeeN+7UJm1oYQJAToV/bP0epBfQ6JFgFS0p4UfmYEkyQGGgwnIoTaXPO68QE3W4UqOmrlCaIyfQw==
-Received: from DS7PR03CA0280.namprd03.prod.outlook.com (2603:10b6:5:3ad::15)
- by CH0PR12MB8531.namprd12.prod.outlook.com (2603:10b6:610:181::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Tue, 22 Sep
- 2026 17:47:31 +0000
-Received: from CH1PEPF0000AD80.namprd04.prod.outlook.com
- (2603:10b6:5:3ad:cafe::51) by DS7PR03CA0280.outlook.office365.com
- (2603:10b6:5:3ad::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.16 via Frontend Transport; Tue,
- 22 Sep 2026 17:47:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH1PEPF0000AD80.mail.protection.outlook.com (10.167.244.90) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 17:47:30 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 10:47:06 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 10:47:06 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Tue, 22 Sep 2026 10:47:04 -0700
-Date: Tue, 22 Sep 2026 10:47:02 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-CC: Peng Fan <peng.fan@oss.nxp.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<jpb@kernel.org>, <jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <peng.fan@nxp.com>
-Subject: Re: [PATCH RFC v2 2/4] iommu/arm-smmu-v3: Support shared SIDs in
- insert/remove_master
-Message-ID: <arK/FoWsg5qJ7G3T@nvidia.com>
-References: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
- <20260921123846.1663580-1-peng.fan@oss.nxp.com>
- <arG6hmng3NddGEHm@nvidia.com>
- <arKNJH2YWQT9KL7x@shlinux89>
- <31be5621-92f6-4101-898f-806335d56155@arm.com>
+	Tue, 22 Sep 2026 18:01:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 10CE64040D;
+	Tue, 22 Sep 2026 18:01:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C74781F000FF;
+	Tue, 22 Sep 2026 18:01:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790100116;
+	bh=XYSOqVERmoLufYUc+VgdIGa26F88+bWdDgX4ohmoDow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cTFAgg2FOfaMX2m8EsEsOewd3kmF8o+nqmZIgHsg1+9dfNvjg7UsJBnBr7cQLe1gc
+	 NRZa7rq/dJvOZbE4iJ8qwH9xFN5HvTNU602lYu19aCdlJ8/ZK8eFBFvjLwON208EmW
+	 XDFJRh666HOdgBM4mCysh18oZxVAtffvfijp+CEreSklJcAeStfU5ZVdmz/W+G1cMw
+	 tvX2+GxoohyHrtHGMZv+Cxrry+VZhichA61P71tzJM/TfaD+SUPE5zsm6ygKShkw1+
+	 aQtV+4k7suG2DbR/RXLPSqzlhNoXCFydrrlCIBti5D3+SZI3a/BwrfTF6KEv229og0
+	 k/Vt3CWjh0zuQ==
+Date: Tue, 22 Sep 2026 19:01:48 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Oliver Upton <oupton@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Randy Dunlap <rdunlap@infradead.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
+Message-ID: <arK8-Hec3-5o4jYs@gremlin>
+References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+ <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
+ <arKxjsxuO1F5ExrY@kernel.org>
+ <arK5n9HrbZMCOHOt@google.com>
+ <arK5ynpRi7VbY7Ek@gremlin>
+ <arK8seJVT9wYgVCP@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <31be5621-92f6-4101-898f-806335d56155@arm.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD80:EE_|CH0PR12MB8531:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5a5f58d-e3a4-4051-dc30-08df18d1932f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|23010399003|18002099003|22082099003|11063799006|10067099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: PGUi9Uz2mmJ5ioLn7xC8wJJ+2HgB1kQCbVpoQIitJyLhgTsr91cNPcwA2dqxW/LeCCqHG3AI3+up103mpwmidCyb0kCrcEx1vBPbzHR4Td3VA9G4elZoGYzPai9d3oo9eY0weJ5BNw6QhhyTMHN6I+VbpbmKycAej+qKcpn9wzRATlm0S2UO7hMfyGIGuuFFgBbwcj5TBiqatDIyEEUbExRy1lL6hZDWKNy0vFeXEa2poiVkekDjSE1wPTr42/FZ7QSOINq7xciM+abUzeJghhS3yi9NqAanYo2NHQEzNO4PB7xrwVXBux+DRF+8Au5nfdVaLAzLffmTHMeNoiSzqkBRTJdpJtF6IHIs0VQgbtfR2/C4myPh1+twc9KDSokIcC5PYsgFQR7q3/qCaUKHAfvuz8y3wBT8oELbfKhA+B1bajQRrOkwQ5Bg+X42o8Ai5Sd6kGnvpUtKVqLBvtIm7dSKrwxTVIAHOLN4KIBX29COyP02tvbsN7tSJeY80r/NoLO+hI3KB/YAqadLcD6COu+QVfMXShcR6JX7HygXcRf5J9ibH1N+D33w03EJitBs+Y8OVxX3Gz9RcbAkyT3Nf2J+aB8BY6c5mpSxDuEobkWTJr/VZMJ/mH2kyVQBaaE2BQn/gT63e61bBmlj47FzVQxYhwlMTe8RZm+UVVmWWexpfr+DYTBc2GHHFNoVEYyMpcGSpxQac7MSjFtngwnTRA==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(23010399003)(18002099003)(22082099003)(11063799006)(10067099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5OD6U2uFaYWqZF0A8wRHkY5Z6wyrrR+nB5Q5lUfW4b+BpC9uDu9DNgaKz1CSqP7LKGcvCVWnw1qJjoKCNVavzRmnzEigkDX02D5ygxkJcjoxcQBytLZpOSs2iG8ki6RAWknMvIkWe3RbyuSgiTMgtgpFqtPxX4LsztF8/tC1zC4n6UqmZ2r56K9lST2M9JhdQCUmN5zhtdJpByGmR/qSWFx9naIFwzQqxp2P6yzImd3QSpyAYQ2HW7jAiPw/bFMhEJOtNKuxCzyfLgEi8EY+iDMunfljfQwa9eZKWkex+GheNRv//L+mZ5TwM91RF7HqRhOtzG2o/HS3fS6SvVx0AYkuvV3HYpbdIbk8+A8sDNRGko8ck2IJ+q3tCo2JlgmAH4GA46SKJTHQQeAY30dfAFzBW4DGEe9v6z7Q207fiH1rC+cNuPWH3pfRl+M33ydp
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 17:47:30.4864
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5a5f58d-e3a4-4051-dc30-08df18d1932f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD80.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8531
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_104741_092255_5E27C3E0 
-X-CRM114-Status: GOOD (  15.55  )
+In-Reply-To: <arK8seJVT9wYgVCP@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,31 +84,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 04:52:35PM +0100, Robin Murphy wrote:
-> On 22/09/2026 3:13 pm, Peng Fan wrote:
-> > On Mon, Sep 21, 2026 at 04:15:18PM -0700, Nicolin Chen wrote:
-> > > Does i.MX need to support SID-sharing with multi-SD device? If not,
-> > > the master could have only a simple shared_masters_elm:
-> > 
-> > For i.MX, there is no need to support SID sharing for multi-SID device for now.
-> > Not sure, in future there are cases that needs SID sharing for multi-SID device.
-> 
-> I have a system meeting those conditions :)
-> 
-> Specifically, I have a physical PCIe-to-PCI bridge board with a couple of
-> ancient cards plugged into it (such that they each end up with their own RID
-> plus the common bridge alias RID) just in case I ever got round to looking
-> at this myself...
+On Tue, Sep 22, 2026 at 10:36:49AM -0700, Sean Christopherson wrote:
+> On Tue, Sep 22, 2026, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Sep 22, 2026 at 10:23:43AM -0700, Sean Christopherson wrote:
+> > > Rather than have kvm_arch_vcpu_allow_pre_fault_memory(), what if we add a more
+> > > generic kvm_is_vcpu_loadable()?  That way we don't need to worry as much about
+> > > the return value, the connection to vcpu_load() is obvious, and we don't need to
+> > > add another pre-check if future (or cleaned-up existing?) ioctls want to do
+> > > vcpu_load() in common code.
+> >
+> > ...this is exactly what I started out with.
+> >
+> > But then you are in a pickle, because _really_ you need to do that check in
+> > vcpu_load(). Which is a void function. Which is called by every single
+> > architecture all over the place.
+> >
+> > So you'd have actually no way of signalling the error back.
+> >
+> > Of course those places are arch code and you could say 'arches should know
+> > better and if they call it it's fine not to call the arch 'can you load'
+> > function.
+>
+> Yes, that's my vote.  It'd be easy enough to clarify that "rule" with a comment
+> in linux/kvm_host.h.
 
-Though in such cases we cannot reject num_streams != 1 any more,
-that bridge can still end up with one single shared stream, e.g.
- alias  = PCI_DEVID(0x02, PCI_DEVFN(0,0)) = 0x0200
- Card A = 02:01.0 -> sorted SIDs { 0x0200, 0x0208 }
- Card B = 02:02.0 -> sorted SIDs { 0x0200, 0x0210 }
+I note you dodge the actually difficult question of what this wrapper function
+would look like ;)
+
+So maybe like:
+
+static int kvm_vcpu_load(struct kvm_vcpu *vcpu)
+{
+	int err;
+
+	err = kvm_arch_allow_vcpu_load(vcpu);
+	if (err)
+		return err;
+
+	vcpu_load(vcpu);
+	return 0;
+}
+
 ?
 
-Hopefully, we won't have to support an ancient PCIe-to-PCI bridge
-connecting with another ancient PCI-to-PCI bridge...
+And I do like that you'd actually gate the right thing, I feel you on that,
+obviously since this kind of predicate is what I started out with.
 
-Nicolin
+But I'm also looking to do the smallest possible thing here that fits the series
+and doesn't preface it with a 'change how core kvm does something'.
+
+But if Oliver/Marc feel this is viable then sure can go with it.
+
+(Also naming is hard, kvm_vcpu_load()? do_vcpu_load()? maybe_vcpu_load()?
+checked_vcpu_load()? vcpu_load_checked()? :P)
+
+>
+> > But you're still stuck with the problem of where exactly you put this check.
+> >
+> > So then do you put that check in a wrapper around it?
+> >
+> > Instead you can make the predicate 'don't prefault on a not-yet-initialised
+> > vCPU' which is pretty sensible I think, have a specific place to put it and
+> > all's well with the world.
+>
+> But look at it from an x86 perspective.  Pretty much everyone will look at this
+> and expect:
+>
+>   bool kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
+>   {
+> 	return vcpu->kvm->arch.pre_fault_allowed;
+>   }
+
+I'm not sure I really get your point here at all? :)
+
+Why would it matter what people who are too lazy to go check the implementation
+assume about an arch hook?
+
+>
+> > > I'd also be tempted to say it can be a macro, not a __weak function.  E.g.
+> >
+> > Yeah it can be many things but why would you want a macro if you could possibly
+> > avoid it? :)
+>
+> Because it allows arch code to dererefence "struct kvm_vcpu" in kvm_host.h,
+> i.e. allows "inlining" the check.
+
+Yeah I mean, micro-optimising a path run on a costly startup operation seems a
+little unnecessary? :)
+
+It seems the convention is __weak but I'm not going to die on this hill.
+
+(C type safety is something of a myth but I do prefer to try to have what
+little protection it offers when possible :)
+
+--
+Cheers, Lorenzo
 
