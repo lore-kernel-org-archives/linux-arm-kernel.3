@@ -4,95 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEFBC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2F9C982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lryHDGBzH0yt6rZeb3UHP0vuOu2NeBF2okLNiTIg9o=; b=TZGZ/Ho70nRdbxFMIXZ6mtCEvf
-	+SfPAq7CGlNDkv+dLGkptPGnm/t96oz6n8iiHFftAaVRTex5K2ve3TkDfG/cSAbC1V4qfWa2MJG8v
-	DzxgEIX1+LCDce9wwcx1IDKKNncNuDNDhA4CUag8HKMFCDwzyRCXvfWM6egIuZgzKNGmXnVnttp/i
-	PO3o4v6vWTBsb+a99QqLemjX1qn3+plD8EscoqY1HkvJKv7AgXeWkMjDMdgq6MACC/DG4kJKzBlCz
-	N0uI8UJLog3IrRW28czUPTQhfsoLRff8RIjCM1lBsH4kUcGY85CQzyJnyCZ57ObyWXNj/5o24zX7f
-	R/iuBwVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=izoFKgiwl1CtFCyEIjGCaDfq4nQekOb5nh2FLPhllwE=; b=pl8+yx6OeBNGZ8l+PbQw75ruhE
+	YvR+15B2CMSR+DiHb22ph1YBe5se0mrTfXrYCSua88/9eKjYP2fhSaXOgmcyR7gwoaPrqSu1IodRD
+	YIF00EBA9Vmr3MmXoEVRuouBlDKhR4ElhdQ9L1DPrgV2Tdw8o2Nz5LRtwAxhinrSH764UGDBREWr0
+	UQe7hqXhOLGbLJndVCVgKZoGsXgzgruLwUrCMKFatZKDboGgk9/tpAZP0dVeOTGIVsAP3AISV8X8T
+	p6OwHp/+fLif1f0OuTy5mcIbjooKrjAf2ocv4uKFy4J0gRRtT32fZ76wc1Tov5cuCRcpC2MqFbnMV
+	d0dyOPYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90RZ-00000005V7h-0180;
-	Tue, 22 Sep 2026 13:21:57 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x90Rr-00000005VBx-0Z0Y;
+	Tue, 22 Sep 2026 13:22:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90RV-00000005V78-2bpW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:21:55 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e83a388f8so24840575e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:21:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1790083311; x=1790688111; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0lryHDGBzH0yt6rZeb3UHP0vuOu2NeBF2okLNiTIg9o=;
-        b=KtRBlkCw2T5TDUJ8O2NYDQJcYR1HpWNEzyKz4ZDjwPDxm4ex69jwghnea1pqEoEHBf
-         hc8divgm2fqewGjnLuNnyjEKt2hvc+WrjcUAlaCXHGfNB+xrO/IoWpXZt3TAeysPgimn
-         CQH2btJ1HPUmH+HzUoOiIScru+ahOggnwpR9nGO+aZN2E0fPyybqinRC5O63K28lJQ03
-         kU3dvSby2FJ1sgGEMGqbRz6MZmrA6QNOfYByvmgcYcFVnCPeNwe33t+rpYm1dor3854q
-         6kqhyL0rT3vIdw0RrvD0GEivOdFSckfGyeDVSqaMF7ofVFTUGPcrik/rhrRqAgRvL3SR
-         LSSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790083311; x=1790688111;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0lryHDGBzH0yt6rZeb3UHP0vuOu2NeBF2okLNiTIg9o=;
-        b=qtb/pa57OElbN1Y74eB27WZcVVdNekJn+B7kU5zSR7E5r1x7mWuu4M/iY6sXwNkeYb
-         en7X7N5okDcx6mKNhJIrT8PkCm1pj184DHtJurYkY1UQD7qa1GAbzNzu0iXde+SjjUNg
-         wTGHRE1Kv3ePudv5OOOt02ILi6bUqVV7QDEB1EfNq+mT6Ivaa1BYMvnXbOnRgwL7Vfxw
-         Sdwo0fefGnTIIl4ofdEw1p+PH6fue3MZNvujOQsR2bixDZBIiYKFA8XoPjsZJq+AGyS2
-         Oe8XuUfhn9Uur7hQpLGEXsaaFdCCZj4YCLpvVV2vxr2+M99BDt6cLrZEVgHSun9bqi8O
-         yBjQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxwQmE/jVjFd1O7r+qgBhVrDvm0Y1IXw8nV5VVXPkoFBwSB32p3LeNGw4tvTO49tDSqoCVwBnH/CtcyfK4khKq2@lists.infradead.org
-X-Gm-Message-State: AFuF++n7ypWX/aGuTFmIjgXRDizHpxWm1Yu6XAwIHAybvM8wzGMmr08D
-	pgU8lJrTuYKkmKG4/Lhn1YbEuBKauW/+DiRZlEvq7qJ5zO2YMMkTm5KQqNusQED/eDY=
-X-Gm-Gg: AYBFou2dBZH+hNeDzwcBxj1wL0iiseeozlP2P51WkPoGluHQDKPKdj0nbuOElwq/8Zm
-	EyknLpMYEURje2rDa8vpMTSibxrzfYXt4Cs2yuaAbe9qfW/htc8g7lEAhTkuYdyvV2e2YXluddN
-	nd178+aVeATzMJHF7WQaiCX5AAM6d7gtiWi/1iqZ8Wfr36Y06gBgWa8I7PNwbKOfnw7XdJ8eLhX
-	HSN8Ly+FFGqE6i/TmH/g7+2Ggqv774/wEXSpOfp88Ztyx2KER/4J6FM4+BKE3q09I5r3RxtBcC8
-	IuHEBP6XhT/ikrCbwzWf8YZxDPk22MBcDhqHaJLYk9DYqxy9MbnqDQ0sq8dGWYt1frsAX5yf+BZ
-	glFnkQxOLTdJl7YuM+LUGjsL4UG57O8QUbMtcCgHEPoHTGSQo0XqPRlY2lBWfmlGPvd/vPBW6tP
-	y+HVClYDXpF897nf9YzUAX7V46/Ip/HkOClIq2+BZonV5vByjB9VQvohEX7w1DXQyED7zUakMLu
-	HNclL5bct/E5zTujW/wlFd9LzgQwjwuvepQWTMNIxoyrMwpauygvjf42/Xjug==
-X-Received: by 2002:a05:600c:8b03:b0:499:a277:e8b5 with SMTP id 5b1f17b1804b1-49fc566e609mr187887745e9.3.1790083311001;
-        Tue, 22 Sep 2026 06:21:51 -0700 (PDT)
-Received: from ?IPV6:2a01:599:842:c46f:7b1d:31f2:7a17:2f4c? ([2a01:599:842:c46f:7b1d:31f2:7a17:2f4c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdad2a3e0sm70823335e9.5.2026.09.22.06.21.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Sep 2026 06:21:50 -0700 (PDT)
-Message-ID: <8cb38ff6-1210-4c5a-b0bc-b0b50dd2b9aa@9elements.com>
-Date: Tue, 22 Sep 2026 15:21:48 +0200
+	id 1x90Rp-00000005VBU-2WRe;
+	Tue, 22 Sep 2026 13:22:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F0A994068C;
+	Tue, 22 Sep 2026 13:22:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 543431F000FF;
+	Tue, 22 Sep 2026 13:22:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790083332;
+	bh=izoFKgiwl1CtFCyEIjGCaDfq4nQekOb5nh2FLPhllwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RqS0wZ6MEt5bZk9R+eKNjlRNCmWaNssWnIKblwHEVt1yhxX+ze4qRQgSdijlnk+u9
+	 x0uj7BswFEX76KgX7c17GHgRy4Qckx0Sx/PiiC1Eb0ER625jj/erLNU2xNNe6T/ltx
+	 V2RiRRALLcVkKzNnXsV3FaSSjjAT03Tf6Ho6/htzaKLwBoA7DXu/HOLeogcfu1cYal
+	 /IaGMln+Avhf92NI250562x/Cv22XLM8bnqAYK28Am/fhb5I4fg6WoukQ8LWNad5Ef
+	 TG8T8MTKfFhq+I45jEqJxtY1TVTGkcKwY3zEkKGZ3sZNnz99fz/nBT+HBhc8F/WX9L
+	 sj2D32JDkes8Q==
+Date: Tue, 22 Sep 2026 15:22:09 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
+	Daniel Stone <daniels@collabora.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Leo Li <sunpeng.li@amd.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	Derek Foreman <derek.foreman@collabora.com>, wayland-devel@lists.freedesktop.org
+Subject: Re: [PATCH RFC 03/25] drm/atomic-helper: Set mode_changed on
+ vrr_enabled change
+Message-ID: <arKAv_CPpmYmcWeg@houat>
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
+ <20260921-vrr-limiter-uapi-v1-3-2fcd7d011646@collabora.com>
+ <75b82a61-fe82-4597-bfb5-3c717fbb0dda@amd.com>
+ <XpLMHDHXSDOKXXVsZyU9Pg@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
- support
-To: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>, joel@jms.id.au
-Cc: andrew@codeconstruct.com.au, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, ryan_chen@aspeedtech.com, billy_tsai@aspeedtech.com,
- andrew@lunn.ch, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <cover.1790079398.git.prasanth.padarthi10@gmail.com>
-Content-Language: en-US
-From: Tan Siewert <tan.siewert@9elements.com>
-In-Reply-To: <cover.1790079398.git.prasanth.padarthi10@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_062153_780815_08C0D5F3 
-X-CRM114-Status: GOOD (  11.31  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="uykltmdeqp3cwq6a"
+Content-Disposition: inline
+In-Reply-To: <XpLMHDHXSDOKXXVsZyU9Pg@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,27 +82,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/22/26 2:34 PM, Prasanth Kumar Padarthi wrote:
-> Add support for the ASRock Rack B650D4U BMC, based on the ASPEED AST2600 SoC.
-> 
-> The series adds the board compatible string and describes the BMC memory, SPI NOR flash layout, UART console, GPIO line names, graphics reserved memory, I2C EEPROM, and MAC0 connected to an RTL8211F Ethernet PHY.
-> 
-> MAC0 obtains its MAC address from the EEPROM on I2C7 and uses RGMII-ID mode.
-> 
-> Changes in v7:
-> 
-> * Correct the GPIOP bank line names for the reset, power and NMI button/control signals according to the confirmed board mapping.
-> * Remove the obsolete GPIOF5 reset-button line name.
-> * Leave the binding patch unchanged.
-> 
-> The B650D4U DTB builds successfully using aspeed_g5_defconfig.
 
-What? The B650D4U has an AST2600, so using `aspeed_g5_defconfig` means 
-you're using a config set for the AST2*5*00...
+--uykltmdeqp3cwq6a
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH RFC 03/25] drm/atomic-helper: Set mode_changed on
+ vrr_enabled change
+MIME-Version: 1.0
 
-Also, please preserve the trailers from previous serieses (i.e. Andrew's 
-Reviewed-by trailer) if you don't change anything significantly for the 
-parts that got reviewed.
+On Tue, Sep 22, 2026 at 02:53:36PM +0200, Nicolas Frattaroli wrote:
+> On Monday, 21 September 2026 23:59:11 Central European Summer Time Leo Li=
+ wrote:
+> > Hi Nicholas,
+> >=20
+> > Thanks for sending this out. I'm looking into an amdgpu implementation
+> > and had some comments along the way. Will reply inline on respective
+> > patches.
+> >=20
+> > On 2026-09-21 11:51, Nicolas Frattaroli wrote:
+> > > A change in whether VRR is enabled or not on a CRTC will be of intere=
+st
+> > > to any VRR implementation, as they may need to recalculate certain
+> > > internal state in response. So far, this was handled ad-hoc in the
+> > > drivers that implement VRR.
+> > >=20
+> > > Handle this in the common DRM atomic core by setting the mode_changed
+> > > flag when this occurs. The rationale for using mode_changed is that V=
+RR
+> > > is deeply intertwined with the current mode with regards to its timin=
+g.
+> > > Consequently, any component that cares about a mode change is likely
+> > > also going to care about VRR being enabled/disabled.
+> > >=20
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/gpu/drm/drm_atomic_helper.c | 6 ++++++
+> > >  1 file changed, 6 insertions(+)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/dr=
+m_atomic_helper.c
+> > > index 9d006f98413a..0664d5779282 100644
+> > > --- a/drivers/gpu/drm/drm_atomic_helper.c
+> > > +++ b/drivers/gpu/drm/drm_atomic_helper.c
+> > > @@ -694,6 +694,12 @@ drm_atomic_helper_check_modeset(struct drm_devic=
+e *dev,
+> > >  			new_crtc_state->active_changed =3D true;
+> > >  		}
+> > > =20
+> > > +		if (old_crtc_state->vrr_enabled !=3D new_crtc_state->vrr_enabled) {
+> > > +			drm_dbg_atomic(dev, "[CRTC:%d:%s] VRR changed\n",
+> > > +				       crtc->base.id, crtc->name);
+> > > +			new_crtc_state->mode_changed =3D true;
+> > > +		}
+> > > +
+> >=20
+> > I don't think this is the case for all hardware, at least not for amdgp=
+u.
+> > The parts in HW that adjust vtotal can be programmed without requiring
+> > bandwidth recalculations or reprogramming of pipes.
+>=20
+> Thanks for pointing this out. I was already unsure of this patch before,
+> and I don't think Rockchip requires these recalculations either. Original=
+ly
+> I added this when I looked at the i915 code iirc and saw them setting it.
+>=20
+> I think in the commit message I also conflate needing to know about VRR
+> being changed with needing to do a full modeset (which is what mode_chang=
+ed
+> basically means).
+>=20
+> I'll drop this patch on the next revision.
 
-Tan
+Alternatively, and since we only have a single driver enabling it (for
+now), I don't think having some driver specific code for now to handle
+all this is that bad.
+
+Helpers only really make sense when we start sharing code between
+drivers.
+
+Maxime
+
+--uykltmdeqp3cwq6a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCarKBAQAKCRAnX84Zoj2+
+dr15AYDf1hNAd+Ezbcn8fIQsts+wOtJnh9OA7o3i3CrBbW3rDk1DvSW+ygwNh/8m
+JmlcHmIBgNLrS0a12gMnSBzONESp+jiggI5QHHajSk3lv1hURiQQRSX119tAwssZ
+27Cpd/5zRw==
+=xdA0
+-----END PGP SIGNATURE-----
+
+--uykltmdeqp3cwq6a--
 
