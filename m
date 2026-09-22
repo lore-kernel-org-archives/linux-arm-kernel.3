@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22ABC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E87C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JbY1k2+sdM/x8N0JZzx9NYdW9GEqUwxxbqwApeCQ1KM=; b=i/n5/esMjj5xkQ2jgxDioJPnaO
-	c+n7Lrr5G/YwQ0zYZ9JXFUwYSe6wlS2TezZNH/9Sr4s0LnCyKgua2N0XOgu86Hh+IgIcQS9/qWmjV
-	Z5UO64oQCZojubu2YTvdfr9J1bKFE8PqTx36VUqF9RZceui/Ysxst0Go5FBf+oyPvOO6ipPx/3+cE
-	as3quJwyJUU3F2au3rxb47fXFWIKT2/rVddbSECTe8a93ljM/JcvsiROz1bkn028VLYUWKI5yCwja
-	5+RCXeHycvrWBfte4IddFOZJbBBh3JThojZu6jjkJ19iu/knD0RBzdazVttqb2cMeMttAI20fG4xh
-	CujUeZmw==;
+	bh=trFjpGYQm/7aTKy/U9BT2hK3u+qGHDDjAWvAmM0cDcw=; b=e9bSFbUxCybezjlA+B/uMvaET3
+	R3xcQH5En955D5nSc4kt23bZ3lQyrhG++E4Ma/kSLSHo2eioNJhIJ0iN4uvJdKFVQyIkIkT6ZtG2q
+	3vgbbwtKK4E9DkIB6VXvSTzWODwGJnstmmG0IeTOxSVSn4dv09BTpbWmoISJPe8M7cKKpmKGKMRUT
+	XHFMjZMiEAw6Tkm0JNuHs6SQso+5dS6tJb8XTa7gwycnXdYONW/HZiF3vzKHHJclADxNX3zDSQZpn
+	6ETReEPvNGt634sY0vzqlhRfUciM99pgGAz3Kq6Xwrz3frhJYdRsE1mHcRTmX7fdz9vOv4506smmk
+	XWgFvFxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94Mb-00000006Cya-0iFs;
-	Tue, 22 Sep 2026 17:33:05 +0000
+	id 1x94Mt-00000006DBv-337j;
+	Tue, 22 Sep 2026 17:33:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94MV-00000006CvR-1Rxv
+	id 1x94Mk-00000006D5c-0AQg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:33:00 +0000
+	Tue, 22 Sep 2026 17:33:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CC811576;
-	Tue, 22 Sep 2026 10:32:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49DA01AED;
+	Tue, 22 Sep 2026 10:33:09 -0700 (PDT)
 Received: from [127.0.1.1] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 633063F86C;
-	Tue, 22 Sep 2026 10:32:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 616B73F86C;
+	Tue, 22 Sep 2026 10:33:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790098377; bh=xTJL2byDqGx0AB4Z6L+IiKln34gIro0/pV4Ued2u1UM=;
+	t=1790098392; bh=PeJQ7fYXLGcw4P0kvfY82twCI/k6VJB344U1K7tkEMM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Rr/9WR4uGteoys9nZHG7+FeU3UTiy8Locu6YSlv8Os75MOwYw1jqPExvnMg9LRzUJ
-	 2y6T0AwNdB9W5yWJSKEUKDK4zrqxaAO4cewAugA1YMhbN8da8UqEMmzaUGtYMbZYGI
-	 8EZouveWU4RVVr0bxL6+D614EYrFlIzanIIkQzLg=
+	b=d3xeuRYT+klOzNDSyNdM3rcbkRZj3fdN5cBa1D1YwCIZyxd+7f7Sy8BgbNUmU5al1
+	 3s/0EsafMWeY/ZZrmT+pw9w6TaZJeLQe8kr+7niH1ZmkhigzCVK9Oe/kkhM5HFTKdQ
+	 LdRNH7rjihzI3dDQ1qhnr2R8GM6p9/Ohat1pmPv0=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Date: Tue, 22 Sep 2026 18:31:57 +0100
-Subject: [PATCH v2 2/6] arm64: use hw_pte_val for HW PTE atomics
+Date: Tue, 22 Sep 2026 18:32:01 +0100
+Subject: [PATCH v2 6/6] arm64: enable a distinct type for HW PTEs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-pte0_arm-v2-2-a3f1ddff0a8a@arm.com>
+Message-Id: <20260922-pte0_arm-v2-6-a3f1ddff0a8a@arm.com>
 References: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 In-Reply-To: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -66,8 +66,9 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Muhammad Usama Anjum <usama.anjum@arm.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_103259_746107_945DEF26 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260922_103314_123464_09707B9B 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,86 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The low-level atomic PTE update paths take the address of
-pte_val(*ptep). That assumes HW PTE storage can be passed directly to
-the SW PTE value accessor and no longer type-checks when hw_pte_t is
-distinct.
+With HW PTE pointers and direct HW PTE accesses converted, arm64 can use
+the generic hw_pte_t wrapper instead of the pte_t alias.
 
-Use hw_pte_val() for the lvalues passed to compare-exchange and exchange
-operations. The atomic operations and their ordering are unchanged.
+Select ARCH_HAS_HW_PTE_T to give HW PTEs and SW PTE values distinct C
+types.
 
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
-Chagnes in v2:
-- Remove comment change
-- Move hw_pte_val() to generic series
----
- arch/arm64/include/asm/pgtable.h | 10 +++++-----
- arch/arm64/mm/fault.c            |  2 +-
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 652ce413be389..4768ec59de555 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1303,7 +1303,7 @@ static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
- 	do {
- 		old_pte = pte;
- 		pte = pte_mkold(pte);
--		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
-+		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
- 					       pte_val(old_pte), pte_val(pte));
- 	} while (pte_val(pte) != pte_val(old_pte));
- 
-@@ -1346,7 +1346,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
- 					       hw_pte_t *ptep,
- 					       unsigned long pgsize)
- {
--	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
-+	pte_t pte = __pte(xchg_relaxed(&hw_pte_val(*ptep), 0));
- 
- 	switch (pgsize) {
- 	case PAGE_SIZE:
-@@ -1422,7 +1422,7 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
- 	do {
- 		old_pte = pte;
- 		pte = pte_wrprotect(pte);
--		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
-+		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
- 					       pte_val(old_pte), pte_val(pte));
- 	} while (pte_val(pte) != pte_val(old_pte));
- }
-@@ -1460,7 +1460,7 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
- 		if (flags & CYDP_CLEAR_DIRTY)
- 			pte = pte_mkclean(pte);
- 
--		pte_val(pte) = cmpxchg_relaxed(&pte_val(*ptep),
-+		pte_val(pte) = cmpxchg_relaxed(&hw_pte_val(*ptep),
- 					       pte_val(old_pte), pte_val(pte));
- 	} while (pte_val(pte) != pte_val(old_pte));
- }
-@@ -1830,7 +1830,7 @@ static inline bool ptep_try_set(hw_pte_t *ptep, pte_t new_pte)
- {
- 	pteval_t old = 0;
- 
--	if (!try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte)))
-+	if (!try_cmpxchg(&hw_pte_val(*ptep), &old, pte_val(new_pte)))
- 		return false;
- 
- 	/*
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index b77f4be88e3ea..3322f4e7174dc 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -235,7 +235,7 @@ int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
- 		pteval ^= PTE_RDONLY;
- 		pteval |= pte_val(entry);
- 		pteval ^= PTE_RDONLY;
--		pteval = cmpxchg_relaxed(&pte_val(*ptep), old_pteval, pteval);
-+		pteval = cmpxchg_relaxed(&hw_pte_val(*ptep), old_pteval, pteval);
- 	} while (pteval != old_pteval);
- 
- 	/*
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 2bbeded33da0d..42841d5e2ed26 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -31,6 +31,7 @@ config ARM64
+ 	select ARCH_HAS_FORTIFY_SOURCE
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_HAS_GIGANTIC_PAGE
++	select ARCH_HAS_HW_PTE_T
+ 	select ARCH_HAS_KCOV
+ 	select ARCH_HAS_KERNEL_FPU_SUPPORT if KERNEL_MODE_NEON
+ 	select ARCH_HAS_KEEPINITRD
 
 -- 
 2.47.3
