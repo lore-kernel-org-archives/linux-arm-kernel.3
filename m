@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4E3C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A04C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZC4mMq3DKFQqjX/ZG1qdHPjVW6sy+jVBBuDu2yt8Pk=; b=gWltHblGLlxdnokHRooBcR5q+e
-	kFO6oUK4+7m/R0wxdkzi1OTGlpo/3nspp2j9xdQq4AMAbgHyTFG4RsqCqo5f2n+whIxWo5ais/vMW
-	GE9SyVp0+w1uyh9i9B+75VGPpQp9OGcbPg4sUsVh/9bJCQw05ywguhR1itnF9apViuB35QgkOeBV6
-	axt57ZhPQcjrRMbk0BnfPeYNkOFW+7kRPADFDv63yj9/9yMxyy0DicOMJb5unNWUeINLCDuWxV4uO
-	tlSswVs3cof+4Dqoer2e6ZxmFPs+JD/D56grDqWGMijg0Nf80X/N0bNqWpySUgVBskS1G7L5tFRjn
-	e3qD0MCA==;
+	bh=XgRHq7+1jqr2wU62ZWV9jXu7/qZx15n3kymagUR1wMA=; b=JyzoFcAgtnnK4CSMBnhEyNvQEo
+	q3zWA//FCQnBuHrM0Y5eH7n2356AE0cBa6GV5riLcG3X3fBsGDWoDEV1OZ/a2d8GtQOic6+J5YJgo
+	Taj8weyFF+EFuXstUtvXESii5Kj2FbgtG4/manROfjSN6xjwQUP/cCfUsxZ3rgRdUoiFgFTFRuXXs
+	t1Tij+80ifJzR1sCvn/GSswEPNKAkblseTKLxqlg9cC8GZnypCqYhSlwvoW5dwvME+mI3emP+0v3O
+	udXD0ICcCe9C59OMAoSu88P2Ov7PG2smd+DcY2S133065AyZkooiXZ5Iaxbp5cpMA0Sedn1w1Uq+e
+	Zn4WUv3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91LP-00000005eoz-1f1B;
-	Tue, 22 Sep 2026 14:19:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x91Lc-00000005ewT-2aAP;
+	Tue, 22 Sep 2026 14:19:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91LH-00000005ekE-0VwC
+	id 1x91LU-00000005esU-2rYg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:19:31 +0000
+	Tue, 22 Sep 2026 14:19:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8FAF260200;
-	Tue, 22 Sep 2026 14:19:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03D621F0089B;
-	Tue, 22 Sep 2026 14:19:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2007B60DFF;
+	Tue, 22 Sep 2026 14:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9009C1F00893;
+	Tue, 22 Sep 2026 14:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790086770;
-	bh=2ZC4mMq3DKFQqjX/ZG1qdHPjVW6sy+jVBBuDu2yt8Pk=;
+	s=k20260515; t=1790086783;
+	bh=XgRHq7+1jqr2wU62ZWV9jXu7/qZx15n3kymagUR1wMA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=MgmC+oljtmTvHpGtA5id/shnuXBzd4HIrciaAH6RpkjBJh3XanouunRjuhtck1C1q
-	 EQZ+AOFOzbH5aY8EcH97B6MYK8Z4+9yXc9WPJCtGCM1bdwAHQP7s4zeTaxAzp4z/fN
-	 2RIoNy/HqjKgH7oH9/CpRiI2wfNhdNRHLIeukUy+FBUFOCCqboV5pmF8waP0cNkw/U
-	 T1/qKFM2jGy43zfUGkYs6FEgQ/UVVNC9jJe+29bXzICWQ8e4eDeprxQepPkNaYl6Yi
-	 1GLqJ1Foqq7PM+lwt6M3rUK27H95TTQs3+vmun0bgVQaCon5iZARxmC099/CWxX0FF
-	 L2W/DJNZrlkOA==
+	b=NsOrsrOxZj0nm/8ucByePfIZhqc68WuUHJjOHYkES9wRrc4MpndRF3nJoWNLEP5/k
+	 n322GbCn3aDp8ur3Q+RP30hbuUSRa+ByiYQgmcwmGZKsvqE3BDslrCo2rd6QF39aaC
+	 1rwYNziaiL+gw9zl7yMw/zQ0XfBEzHw7Mhy3dlBL/DY+7E9riXeIa5mVW19XdEXHT/
+	 HO3V1CIaUXT9gBMLe+jbuwya/ublZOh1w6HafXeIsK+nDEdHSIgRQNPiX59zxCZkzQ
+	 GwmOC2vyCV0g2PB/ahqJ11biazLvAd9rd14aSFOD14MFzaafeSnNEyhvOgEeEDHGzS
+	 9tUjiOx8SPTCg==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 22 Sep 2026 15:18:06 +0100
-Subject: [PATCH v3 12/14] KVM: selftests: Enable pre_fault_memory_test for
+Date: Tue, 22 Sep 2026 15:18:08 +0100
+Subject: [PATCH v3 14/14] KVM: selftests: Add nested pre-fault test for
  arm64
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-kvm-arm-prefault-v3-12-787bd3bc7e3f@kernel.org>
+Message-Id: <20260922-kvm-arm-prefault-v3-14-787bd3bc7e3f@kernel.org>
 References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
 In-Reply-To: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -73,12 +73,12 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
  "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7583; i=ljs@kernel.org;
- h=from:subject:message-id; bh=rm2cJDoVIrHO3Nhr5Rw3H09c1J/xqaAgV691JwGUX10=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI29Ul+1etQ3Wp4L8B1V/bUvpkcM3lc1qexM97oUGpRU
- j55Kfd+RwkLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACbS8ofhf9y/6rSEtrKD3mJM
- stM2rA6ccfXL45T2TbOTFqp0a/W91mb4zMLx4X+IzSdNu3063n9Zt/1b82XhhQt8Oe9mLl3d85e
- HAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6315; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=lYNhvOmtl8x3eG3JzJ1ufKePrvQwLNKR6wf0Cd9MA9E=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI29UnZLmH+dfOn+AMtx7NzFEKWBojkqeusbfuXp7PWV
+ Wr68ZLQjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAEyE+wwjwym5OZKBXIZbNpas
+ +Dht0xUOOxmfpVYXzbdmVjlOFJvnVcPwP/3qkXvPrr9ZmsV4M2R2wePZeeYNp5YL3i7RfR6u96h
+ alR8A
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -95,229 +95,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+Add an arm64 nested-virtualisation selftest for KVM_PRE_FAULT_MEMORY.
 
-Enable the pre_fault_memory_test to run on arm64 by making it work with
-different guest page sizes and testing multiple guest configurations.
+The guest enters vEL2, sets up its EL2 translation configuration into the
+real EL1 registers then ERETs to vEL1 and exits to userspace so its vCPU
+last-run context is nested backed by a shadow stage 2 MMU.
 
-Add an assert on the exit reason, comparing against UCALL_EXIT_REASON so
-the check is portable, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-KVM_EXIT_IO.
+The test then asserts that pre-faulting ignores that and instead targets
+the canonical stage 2 page tables only.
 
-Signed-off-by: Jack Thomson <jackabt@amazon.com>
-[ljs: merge conflict resolution with commit c847704619da, commit message
- accuracy fixup]
+Userspace cannot observe a mistargeted pre-fault, so simply assert that the
+pre-faulting works correctly when the last-run context was nested.
+
+Based on a patch by Jack Thomson with gratitude. The test here is
+simplified and focused on what can be asserted.
+
+Link: https://lore.kernel.org/kvmarm/20260612162354.73378-6-jackabt.amazon@gmail.com/
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
  tools/testing/selftests/kvm/Makefile.kvm           |   1 +
- .../testing/selftests/kvm/pre_fault_memory_test.c  | 117 +++++++++++++++++----
- 2 files changed, 96 insertions(+), 22 deletions(-)
+ .../selftests/kvm/arm64/nv_pre_fault_memory_test.c | 158 +++++++++++++++++++++
+ 2 files changed, 159 insertions(+)
 
 diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 6a1482e3a286..874ff9097384 100644
+index 874ff9097384..908bdc7cf4f5 100644
 --- a/tools/testing/selftests/kvm/Makefile.kvm
 +++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -205,6 +205,7 @@ TEST_GEN_PROGS_arm64 += guest_memfd_test
- TEST_GEN_PROGS_arm64 += mmu_stress_test
- TEST_GEN_PROGS_arm64 += rseq_test
- TEST_GEN_PROGS_arm64 += steal_time
-+TEST_GEN_PROGS_arm64 += pre_fault_memory_test
- 
- TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
- TEST_GEN_PROGS_s390 += s390/memop
-diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-index c57631aab3d3..a5993f8e1feb 100644
---- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
-+++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-@@ -12,19 +12,29 @@
- #include <processor.h>
- #include <pthread.h>
- #include <ucall_common.h>
-+#include <guest_modes.h>
- 
- /* Arbitrarily chosen values */
--#define TEST_SIZE		(SZ_2M + PAGE_SIZE)
--#define TEST_NPAGES		(TEST_SIZE / PAGE_SIZE)
-+#define TEST_BASE_SIZE		SZ_2M
- #define TEST_SLOT		10
- 
-+/* Storage of test info to share with guest code */
-+struct test_config {
-+	u64 page_size;
-+	u64 test_size;
-+	u64 test_num_pages;
-+};
+@@ -178,6 +178,7 @@ TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
+ TEST_GEN_PROGS_arm64 += arm64/hello_el2
+ TEST_GEN_PROGS_arm64 += arm64/host_sve
+ TEST_GEN_PROGS_arm64 += arm64/hypercalls
++TEST_GEN_PROGS_arm64 += arm64/nv_pre_fault_memory_test
+ TEST_GEN_PROGS_arm64 += arm64/external_aborts
+ TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
+ TEST_GEN_PROGS_arm64 += arm64/page_fault_test
+diff --git a/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
+new file mode 100644
+index 000000000000..09c1db303856
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/nv_pre_fault_memory_test.c
+@@ -0,0 +1,158 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * nv_pre_fault_memory_test - Test KVM_PRE_FAULT_MEMORY on a vCPU whose
++ * last-run context is nested.
++ *
++ * The guest enters vEL2, sets up its EL2 translation configuration into the
++ * real EL1 registers then ERETs to vEL1 and exits to userspace so its vCPU
++ * last-run context is nested backed by a shadow stage 2 MMU.
++ *
++ * Assert that pre-faulting ignores that and targets the canonical stage-2
++ * page tables only.
++ */
++#include "kvm_util.h"
++#include "processor.h"
++#include "test_util.h"
++#include "ucall.h"
 +
-+static struct test_config test_config;
++#include <asm/sysreg.h>
++#include <linux/sizes.h>
 +
- static void guest_code(u64 base_gva)
- {
- 	volatile u64 val __used;
-+	struct test_config *config = &test_config;
- 	int i;
- 
--	for (i = 0; i < TEST_NPAGES; i++) {
--		u64 *src = (u64 *)(base_gva + i * PAGE_SIZE);
-+	for (i = 0; i < config->test_num_pages; i++) {
-+		u64 *src = (u64 *)(base_gva + i * config->page_size);
- 
- 		val = *src;
- 	}
-@@ -57,7 +67,7 @@ static void *delete_slot_worker(void *__data)
- 		cpu_relax();
- 
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, data->gpa,
--				    TEST_SLOT, TEST_NPAGES, data->flags);
-+				    TEST_SLOT, test_config.test_num_pages, data->flags);
- 
- 	return NULL;
- }
-@@ -150,8 +160,8 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 base_gpa, u64 offset,
- 	/*
- 	 * Assert success if prefaulting the entire range should succeed, i.e.
- 	 * complete with no bytes remaining.  Otherwise prefaulting should have
--	 * failed due to ENOENT (due to RET_PF_EMULATE for emulated MMIO when
--	 * no memslot exists).
-+	 * failed due to ENOENT (no memslot exists for the GPA; on x86 this
-+	 * surfaces via RET_PF_EMULATE).
- 	 */
- 	if (!expected_left)
- 		TEST_ASSERT_VM_VCPU_IOCTL(!ret, KVM_PRE_FAULT_MEMORY, ret, vcpu->vm);
-@@ -160,39 +170,72 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 base_gpa, u64 offset,
- 					  KVM_PRE_FAULT_MEMORY, ret, vcpu->vm);
- }
- 
--static void __test_pre_fault_memory(unsigned long vm_type, bool private)
-+struct test_params {
-+	unsigned long vm_type;
-+	bool private;
-+};
++#define TEST_MEM_SLOT		10
++#define TEST_MEM_SIZE		SZ_2M
++#define TEST_MEM_GPA		SZ_1G
 +
-+static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
- {
--	gpa_t gpa, gva, alignment, guest_page_size;
-+	gpa_t gpa, gva, alignment, guest_page_size, host_page_size;
-+	struct test_params *p = arg;
- 	const struct vm_shape shape = {
--		.mode = VM_MODE_DEFAULT,
--		.type = vm_type,
-+		.mode = guest_mode,
-+		.type = p->vm_type,
- 	};
- 	struct kvm_vcpu *vcpu;
-+	struct kvm_run *run;
- 	struct kvm_vm *vm;
- 	struct ucall uc;
- 
-+	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(guest_mode));
++static void guest_el1_code(void)
++{
++	u64 offset;
 +
- 	vm = vm_create_shape_with_one_vcpu(shape, &vcpu, guest_code);
- 
--	alignment = guest_page_size = vm_guest_mode_params[VM_MODE_DEFAULT].page_size;
--	gpa = (vm->max_gfn - TEST_NPAGES) * guest_page_size;
-+	guest_page_size = vm_guest_mode_params[guest_mode].page_size;
-+	host_page_size = getpagesize();
++	GUEST_ASSERT_EQ(get_current_el(), 1);
 +
-+	test_config.page_size = guest_page_size;
-+	test_config.test_size = align_up(TEST_BASE_SIZE + test_config.page_size,
-+					 host_page_size);
-+	test_config.test_num_pages = vm_calc_num_guest_pages(vm->mode, test_config.test_size);
++	/* Exit to userspace with the vEL1 (nested) context live. */
++	GUEST_SYNC(1);
 +
-+	gpa = (vm->max_gfn - test_config.test_num_pages) * test_config.page_size;
- 	alignment = SZ_2M;
-+	alignment = max(alignment, host_page_size);
- 	gpa = align_down(gpa, alignment);
- 	gva = gpa & ((1ULL << (vm->va_bits - 1)) - 1);
- 
--	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, gpa, TEST_SLOT,
--				    TEST_NPAGES, private ? KVM_MEM_GUEST_MEMFD : 0);
--	virt_map(vm, gva, gpa, TEST_NPAGES);
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-+				    gpa, TEST_SLOT, test_config.test_num_pages,
-+				    p->private ? KVM_MEM_GUEST_MEMFD : 0);
-+	virt_map(vm, gva, gpa, test_config.test_num_pages);
- 
--	if (private)
--		vm_mem_set_private(vm, gpa, TEST_SIZE);
-+	if (p->private)
-+		vm_mem_set_private(vm, gpa, test_config.test_size);
- 
--	pre_fault_memory(vcpu, gpa, 0, SZ_2M, 0, private);
--	pre_fault_memory(vcpu, gpa, SZ_2M, PAGE_SIZE * 2, PAGE_SIZE, private);
--	pre_fault_memory(vcpu, gpa, TEST_SIZE, PAGE_SIZE, PAGE_SIZE, private);
-+	pre_fault_memory(vcpu, gpa, 0, test_config.test_size, 0, p->private);
-+	/* Retry the same range after the first prefault attempt. */
-+	pre_fault_memory(vcpu, gpa, 0, test_config.test_size, 0, p->private);
-+	pre_fault_memory(vcpu, gpa,
-+			 test_config.test_size - host_page_size,
-+			 host_page_size * 2, host_page_size, p->private);
-+	pre_fault_memory(vcpu, gpa, test_config.test_size,
-+			 host_page_size, host_page_size, p->private);
- 
- 	vcpu_args_set(vcpu, 1, gva);
++	/*
++	 * Touch the prefaulted range. vstage-2 is disabled, so the shadow
++	 * stage-2 is a 1:1 view of the canonical IPA space.
++	 */
++	for (offset = 0; offset < TEST_MEM_SIZE; offset += SZ_4K)
++		READ_ONCE(*(u64 *)(TEST_MEM_GPA + offset));
 +
-+	/* Export the shared variables to the guest. */
-+	sync_global_to_guest(vm, test_config);
-+
- 	vcpu_run(vcpu);
- 
-+	run = vcpu->run;
-+	TEST_ASSERT(run->exit_reason == UCALL_EXIT_REASON,
-+		    "Wanted %s, got exit reason: %u (%s)",
-+		    exit_reason_str(UCALL_EXIT_REASON),
-+		    run->exit_reason, exit_reason_str(run->exit_reason));
-+
- 	switch (get_ucall(vcpu, &uc)) {
- 	case UCALL_ABORT:
- 		REPORT_GUEST_ASSERT(uc);
-@@ -209,16 +252,46 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 
- static void test_pre_fault_memory(unsigned long vm_type, bool private)
- {
-+	struct test_params p = {
-+		.vm_type = vm_type,
-+		.private = private,
-+	};
-+
- 	if (vm_type && !(kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(vm_type))) {
- 		pr_info("Skipping tests for vm_type 0x%lx\n", vm_type);
- 		return;
- 	}
- 
--	__test_pre_fault_memory(vm_type, private);
-+	for_each_guest_mode(__test_pre_fault_memory, &p);
++	GUEST_DONE();
 +}
 +
-+static void help(char *name)
++static void guest_code(void)
 +{
-+	puts("");
-+	printf("usage: %s [-h] [-m mode]\n", name);
-+	puts("");
-+	guest_modes_help();
-+	puts("");
- }
- 
- int main(int argc, char *argv[])
- {
-+	int opt;
++	u64 sp;
 +
-+	guest_modes_append_default();
++	GUEST_ASSERT_EQ(get_current_el(), 2);
 +
-+	while ((opt = getopt(argc, argv, "hm:")) != -1) {
-+		switch (opt) {
-+		case 'm':
-+			guest_modes_cmdline(optarg);
-+			break;
-+		case 'h':
-+		default:
-+			help(argv[0]);
-+			exit(0);
-+		}
++	/*
++	 * Mirror the EL2 translation regime into the real EL1 registers so
++	 * that vEL1 runs on the test's stage-1 page tables. With E2H=1, the
++	 * _EL1 accessors read the EL2 registers, and the _EL12 accessors
++	 * write the real EL1 registers.
++	 */
++	write_sysreg_s(read_sysreg(sctlr_el1), SYS_SCTLR_EL12);
++	write_sysreg_s(read_sysreg(tcr_el1), SYS_TCR_EL12);
++	write_sysreg_s(read_sysreg(ttbr0_el1), SYS_TTBR0_EL12);
++	write_sysreg_s(read_sysreg(mair_el1), SYS_MAIR_EL12);
++	write_sysreg_s(read_sysreg(cpacr_el1), SYS_CPACR_EL12);
++
++	/* Run vEL1 on the same stack. */
++	asm volatile("mov %0, sp" : "=r"(sp));
++	write_sysreg(sp, sp_el1);
++
++	/*
++	 * Drop TGE so that vEL1 is a nested context rather than host EL0.
++	 * KVM backs it with a shadow stage-2 MMU even though vstage-2 is
++	 * disabled (HCR_EL2.VM=0).
++	 */
++	write_sysreg(read_sysreg(hcr_el2) & ~HCR_EL2_TGE, hcr_el2);
++	isb();
++
++	write_sysreg(PSR_MODE_EL1h | PSR_F_BIT | PSR_I_BIT | PSR_A_BIT |
++		     PSR_D_BIT, spsr_el2);
++	write_sysreg((u64)guest_el1_code, elr_el2);
++	asm volatile("eret");
++
++	GUEST_ASSERT(false);
++}
++
++static void pre_fault(struct kvm_vcpu *vcpu, u64 gpa, u64 size)
++{
++	struct kvm_pre_fault_memory range = {
++		.gpa = gpa,
++		.size = size,
++	};
++	int ret;
++
++	do {
++		ret = __vcpu_ioctl(vcpu, KVM_PRE_FAULT_MEMORY, &range);
++	} while ((!ret && range.size) ||
++		 (ret < 0 && (errno == EINTR || errno == EAGAIN)));
++
++	TEST_ASSERT(!ret, "KVM_PRE_FAULT_MEMORY failed, ret: %d errno: %d",
++		    ret, errno);
++	TEST_ASSERT_EQ(range.size, 0);
++}
++
++int main(void)
++{
++	struct kvm_vcpu_init init;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	struct ucall uc;
++	u64 npages;
++
++	TEST_REQUIRE(test_supports_el2());
++	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
++
++	vm = vm_create(1);
++
++	kvm_get_default_vcpu_target(vm, &init);
++	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
++	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
++	kvm_arch_vm_finalize_vcpus(vm);
++
++	npages = TEST_MEM_SIZE / vm->page_size;
++	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, TEST_MEM_GPA,
++				    TEST_MEM_SLOT, npages, 0);
++	virt_map(vm, TEST_MEM_GPA, TEST_MEM_GPA, npages);
++
++	/* Run the guest until it has ERET'd from vEL2 to vEL1. */
++	vcpu_run(vcpu);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_SYNC:
++		TEST_ASSERT_EQ(uc.args[1], 1);
++		break;
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++		break;
++	default:
++		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
 +	}
 +
- 	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
- 
- 	test_pre_fault_memory(0, false);
++	/*
++	 * The vCPU's last-run context is vEL1, so its hw_mmu is a shadow
++	 * stage-2 MMU.
++	 *
++	 * Pre-faulting must ignore that and populate the canonical stage-2.
++	 */
++	pre_fault(vcpu, TEST_MEM_GPA, TEST_MEM_SIZE);
++
++	/* Resume at vEL1 and touch the prefaulted range. */
++	vcpu_run(vcpu);
++	switch (get_ucall(vcpu, &uc)) {
++	case UCALL_DONE:
++		break;
++	case UCALL_ABORT:
++		REPORT_GUEST_ASSERT(uc);
++		break;
++	default:
++		TEST_FAIL("Unhandled ucall: %ld", uc.cmd);
++	}
++
++	kvm_vm_free(vm);
++	return 0;
++}
 
 -- 
 2.55.0
