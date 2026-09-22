@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065C1C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10010C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ux+jnjvPDKFrFGj72qL6Pn667s3hOD+uMkfDVfth4w=; b=rLm17GoG0ir10F3TkefzwUtndb
-	341eIRqrDMW3ZqsCUtL9pbexT417FvGYuPFup67jLKvAraJfaMRGKkgEgfrhyXsYXloiBzvdvk4Ep
-	fgP0JoZWPskPP1gGM4WdRI8SLVecjgI2d69uOnF3nvc1sn5A5+uaS63g1J5XuoKKb7MYHMvF1Jy0D
-	mgnsnxIR82okViZii1/oFwzZ4IpbHb5ccZzE+Ef3ptd5N015phJtGN9PGgenKe7T/K8sygS8YWCRi
-	R+5kiA0ar14Xwc5CYKiKpt94cWNrOnFrrfkNJgxta5kMcP3XtBJCkUVdP3RQriTeD27C1gd/z7dGa
-	3YsH5Dcg==;
+	bh=RlS/01WyyurIPf4QsRysWjeX/pYeyMHVRzkWTplgkuo=; b=tZV6zPOYP1kgujiELXkPgS02OS
+	54XUnSkOXwmJO4zBgtUNllBf347rGiCtfurQ9gA+A5UAbiJMUYiQ6jiNVBUhbxgD38WaRrQEcCLQ9
+	/j2UcKqtzPC2/LhJjY8tv1yDCq7XXBmysTys5zMmJ+IyuDKcK6eoaUklxD9yolDXvf90Up7U43iVU
+	JPcJWrFeV/6fRs4DFx9UF257Ei/CH9r74FFMEPTPqpw+verAFleRf3FTPxsJCJZCq5XwNcZ4LErUz
+	pcIMgzCu5jl1SWsV2W0QZVRLQUD+qW4XUxurcp0uFP5/xRTVShWW8GyVB2W3G31TwB50/M5EhyqoH
+	rnTImXIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uva-00000004VWl-29TA;
-	Tue, 22 Sep 2026 07:28:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8uvp-00000004Vd6-0SIt;
+	Tue, 22 Sep 2026 07:28:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uvZ-00000004VWT-23Vy;
-	Tue, 22 Sep 2026 07:28:33 +0000
+	id 1x8uvn-00000004Vc7-3Rib
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 07:28:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 83BD2600CB;
-	Tue, 22 Sep 2026 07:28:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81BC11F000FF;
-	Tue, 22 Sep 2026 07:28:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 44CE760213
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F05241F00893
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 07:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790062112;
-	bh=3ux+jnjvPDKFrFGj72qL6Pn667s3hOD+uMkfDVfth4w=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=YkjQqzptaJUXFmAbBCfQSoebYMNmQsBJusR+FSLllKUHPSDR/AL2tHFk2zhwxNU7S
-	 ZJbfZu40Jiy9uENTSiPYc64Lcx94x7gvgq4r10P5tkVhjAckhpA4rHtOHP7iC6JGCQ
-	 uruJKSCufdGIu8+GqNCYguivLSOkrO0PYzcv9H55HdbBwhc6XetHqFpIs8Oz8ocKc/
-	 F+pwW6p2nmFAKy1+wl1R8qwJYF0XfLNQ2Ch9HnpJbsXLnOpMgTo8k355OEsqvk9tSx
-	 U6dZz8YsyfwjZP7LWG98ep2jcL/q999EvT9I8Pe5W0ao4g0y1bjIvrcA4zQDS96MGd
-	 aUi2l2X0SuTJg==
-Message-ID: <c66e59d50c98b5bf862c687ff9ec86f5@kernel.org>
-Date: Tue, 22 Sep 2026 07:28:27 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 18/19] drm/tve200: don't create a panel_bridge
-In-Reply-To: <20260916-drm-bridge-every-panel-v3-18-83afb4f1a707@bootlin.com>
-References: <20260916-drm-bridge-every-panel-v3-18-83afb4f1a707@bootlin.com>
-Cc: asahi@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-tegra@vger.kernel.org, "Albert
- Esteve" <aesteve@redhat.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha
- Srivatsa" <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, "Fabio Estevam" <festevam@gmail.com>, "Frank
- Li" <Frank.Li@nxp.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Inki
- Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jessica Zhang" <jesszhan0024@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>, "Linus
- Walleij" <linusw@kernel.org>, "Lucas Stach" <l.stach@pengutronix.de>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
- Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Paul
- Cercueil" <paul@crapouillou.net>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Randy Dunlap" <rdunlap@infradead.org>, "Robert
- Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Sean
- Paul" <sean@poorly.run>, "Shuah Khan" <skhan@linuxfoundation.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1790062127;
+	bh=RlS/01WyyurIPf4QsRysWjeX/pYeyMHVRzkWTplgkuo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=OZp0caBbpefIvj9oDAZUhKHN7HmbUmSQEDEtJyByiNinpZk0O8y4fxtBhC2HvSwG3
+	 nVn3uGo7rfGHO0FJAzg3l8b+9tkirrGKqpKntbc1kLUFH8BTKzyUGr51prwRh0TT8A
+	 jmKeyXJeVqznfFEmqluszLaZuv8CtgzLp19JetSlzAJSToGilc4NUXKXeZrCz2xhe6
+	 X7tA51sgsYuxNEbq10r+KXuYWZYb8M2U1qJxyJC9D5q3iqM8mHzzyusLZ8KQse/rV/
+	 VtDcdTYWoki9oBne42YfmbwPaJv9I98IdOA4Xf4FTY/WfuzkM8U5IDrx7TAxDxmisn
+	 0h0nFQkVVbtYg==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b8c9954ccbso2177305e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 00:28:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzY+NBQDde8NYKbergSpoFPP/12USOJ1x5ldHa+Lqo+oSz4l7TS8NpS/CyxzSY3KDlTfWwUHJQAlXZ4hrnhpBe9@lists.infradead.org
+X-Gm-Message-State: AFuF++nB0XgGVRW6cJOQ7TH0atElEpq+wHW2Y/k0NWg87fSE4zhOq+2n
+	sfuNQSuI/EUTAC7Kl8vTOX01IYmXoRdKbG39FDI6/ylhJG/Lt9N5bzSAOOkphvEoILcCMA2s9W4
+	hIehxzUj8P8gcERuIkbYo7azJr4QEu0I=
+X-Received: by 2002:a05:6512:3d1d:b0:5ae:c8da:6254 with SMTP id
+ 2adb3069b0e04-5b8c18298d5mr3810337e87.22.1790062125682; Tue, 22 Sep 2026
+ 00:28:45 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260921-cv75-v5-v8-0-282ff5d98dda@ambarella.com> <20260921-cv75-v5-v8-15-282ff5d98dda@ambarella.com>
+In-Reply-To: <20260921-cv75-v5-v8-15-282ff5d98dda@ambarella.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 22 Sep 2026 09:28:33 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnL5h2AD5rYvUYGT_TvQ=m9CQd6bh_NT=T28G7hDGFLDw@mail.gmail.com>
+X-Gm-Features: AclHuK_pNJ1evLbofDMJ7O-GTWjLgf41H8iNHME4i3icaRDTTyzpN_Rs6YR6w7U
+Message-ID: <CAD++jLnL5h2AD5rYvUYGT_TvQ=m9CQd6bh_NT=T28G7hDGFLDw@mail.gmail.com>
+Subject: Re: [PATCH v8 15/18] pinctrl: ambarella: add CV75 pin controller
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Sep 2026 15:45:42 +0200, Luca Ceresoli wrote:
-> Now a panel_bridge is automatically created for every drm_panel and the
-> panel-bridge API is just a deprecated wrapper to access it.
-> 
-> Update and simplify the code by just getting a reference to the
-> already-existing bridge using of_drm_get_bridge_by_endpoint().
-> 
-> [ ... ]
+On Mon, Sep 21, 2026 at 6:23=E2=80=AFAM Long Zhao via B4 Relay
+<devnull+longzhao.ambarella.com@kernel.org> wrote:
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+> From: Long Zhao <longzhao@ambarella.com>
+>
+> Add an Ambarella pinmux-only pinctrl driver with CV75 function/group
+> tables. GPIO is handled by the PL061 driver.
+>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
 
-Thanks!
-Maxime
+I feel I could just apply this patch.
+
+> +       select GPIO_PL061
+
+This doesn't matter so much, I can just assume this will appear in
+the merge window.
+
+If some bots complain it we can just ignore it.
+
+Once the bindings are ACKed I will consider just apply the
+bindings and this patch to the pinctrl tree.
+
+Yours,
+Linus Walleij
 
