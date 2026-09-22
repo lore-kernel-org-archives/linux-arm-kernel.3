@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086D2C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 09:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AEBC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 09:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VhqwyCXWCrR9ZsZI79xSj7TfrvM5uh6vx6A8zPKncw8=; b=bp8kXBdfBETekV9V7RXNZRJeQn
-	aSzvtIFhxAl+AfDpS9FkpoScKbsLO4vE+Z1Z9sSg77YfLWx7RcoV10AmbAaX5JPE31LVd09e16m8r
-	RoPsJoz03onsnJIhlcd+RGoYtivREAzZb9d6OW+zOTClsxQLNuC43Gt0w5hQaYumYBzkcWncW3W40
-	hJFP06fdcDFS4WOA1hdi1IqBKcI1bdKO2JXcGkypDxVa2am2uF/8kEqowd2Uc6XEJr5pIeeWkVKAW
-	iQnUnHq+GJ0opndabJr3RV2H0PkpWxZvBLI3Fpnez/HoSBvGn8sL6ujqmAkoRfbsV/xAfkE6LoKug
-	TCKdOviA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NutOSYDLx4tH7KuShcZDI2ZCU5oaHMNdqUgaoku7+KE=; b=mr9IkTlV1x3spx8LSJA5PHkvuW
+	A18YdmuCPQBww0YlLlS2i5tlpB/ceTOFCTbX/g/mM7yt2sOxk2N3ib1SMRw6kIF5BrmnJ9HUf4p0X
+	x3RWY427INYqrFbwz+ZF+4NczvzL/OGcAr5IitAeumibG5OQcbQiJjIF3orfjP91pNN8hZyGm34bW
+	LY9cbdv0ePxsGzMPetifSDgSsZH0fgqm/Hq2Z0teg2Zkt4TEWgF7Wo8hkhRZqR5v+1N4gsQOg3y5a
+	8Jwcs+yBydip95Ea9jRi3AvsDc43TTj4pkJxkCll3QW1PdNM4dAsuE/XX13eIc77MTO93EXe4524f
+	TlQuTZQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8wgf-00000004tyC-0hVk;
-	Tue, 22 Sep 2026 09:21:17 +0000
-Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
+	id 1x8wiS-00000004uCS-1xMI;
+	Tue, 22 Sep 2026 09:23:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8wgc-00000004txR-3iEP
+	id 1x8wiR-00000004uCI-18Gy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 09:21:16 +0000
-Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea4ae2cso3263723a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 02:21:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790068873; x=1790673673; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VhqwyCXWCrR9ZsZI79xSj7TfrvM5uh6vx6A8zPKncw8=;
-        b=l6zHh/0TzevqZsyHSFMQ2TYn4A3lYlU7/bIl82DU/A8fybJvN1phv0Le2QxW1ZFocy
-         LONud1WKVANXY1u6aBpyUAwTiIovD6BQ6Wax+UvT9YJ/bPMpGD4uzPOijIx5FZDZBnXM
-         Df6lPkn6GrQLctWEcKJ+zAXnClhoyboy7N3wuVn0fqxdmt0NMUFY50Q0jD6/jOpTKOBs
-         /LOt9Oao7jYkEr8HqwtWT0Q3wCBuMSSsYDNoDvR83ya9ecBIrstAQUkF2MMYhxIGMXj1
-         dINozlOS1Za5W9862ji1024IolJ3zkWDZYpDUb1B5LgEvuE6lyuoglIa+jUdpnLdqhMd
-         38mQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790068873; x=1790673673;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VhqwyCXWCrR9ZsZI79xSj7TfrvM5uh6vx6A8zPKncw8=;
-        b=feidsImJGhtNjdD/QXftOKVsZDyXDHEzd9fFQX7mPyStpc+pUCT1HRVTkaH0pzvYGO
-         qt7v6WAR4HiRYQiU4s335maMHswsjfel7viJ+b1pewWlY2LjRsf/XLJUqaKuVT6pn6Qk
-         WjFunW14KjL3epZKkNbXYk6Z6DRqixt1LV8XyvMKq83q8N5tAw34UZPW5QW3Xr7bgn3A
-         FHIEMumTfSpA2yTmcjTIcWlVOJmPhzhDahuecGyFH4ebXMWClGHzet+e+5ANv/wXg2qo
-         05nALCloU1jFQDiubhI94onAA3y/JcH6geuUMX9dfBAdZo6GEKJSv9SU4DdaDcMP+DZ+
-         B28w==
-X-Forwarded-Encrypted: i=1; AKwUvBwOol7Hqky2Gg92arz1RT9Pcg8ejdCl0+8qPPC2wdT5H5A9RXqb3mhLXKn0Ws3xVoiNOe91Rf4mHGjAugMfDSl/@lists.infradead.org
-X-Gm-Message-State: AFuF++nPcsdDFLBS6t5ucJ5/PgCSfLx+U0uwuz5tA7QduSkLD98E2CbI
-	M0IIP6mMZi6lC0wny4w273MVbvkKumtCxJBKJUG2vH4SknES4LL/AB/8
-X-Gm-Gg: AYBFou21y3FjHch4FsiEmlOa8AJiM8TM0eQw95sGTCwa0ILEd3FSLPjy+tceppq4lYf
-	o9CMW9gZlCXl7fXyyGNFx9zQLB9EYgfLhLBI2FieRIxu7HbaLa9hk7vgbCTebFkSagiYwEBPJ1f
-	x+oZHN7QC2rcs8pRa/6Ln75sAeQ7eQXMDRxs++FUUkEQsTnygXaTRWzCBh96uW3KtXzh7lYyFj2
-	kyy7DiatoZx1gFnu/ORvaseIoUJOKNHudh6tVprqqZZb0OGSim4e+SKXurMMmvO+8lVFNG8m+fN
-	09k8euXpA/up9EHc8oAxqVEBqXviiBfsrorncVA2zx+ZsfHUXRa6RcYLTwO6Y8ozwN+k03NzuUD
-	cdCLZwny8XW1fmnHORNVD1aFCyzYgtTncHNjdRk/DNXqpNPTxTBS42oODhzPCwgJQ3rtUy8FISZ
-	M8KrNZBXczFFsaWZtic42ZJuBeasqYhsFaRs1yiUhvBbmDp3919HsW1h0lf5/n0XBJ2MCALdjXt
-	oUpmvv1nSN5RHSzdiE=
-X-Received: by 2002:a17:90b:2686:b0:39e:4546:fb26 with SMTP id 98e67ed59e1d1-3a072e96de0mr714758a91.0.1790068873149;
-        Tue, 22 Sep 2026 02:21:13 -0700 (PDT)
-Received: from cfarm424.jing.rocks (cfarm424.jing.rocks. [2600:3c18:e002:2e11::c424])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a06caf4a73sm899819a91.2.2026.09.22.02.21.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 02:21:12 -0700 (PDT)
-From: Ridham Khurana <khurana.ridham222@gmail.com>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Tue, 22 Sep 2026 09:23:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B3CD60200;
+	Tue, 22 Sep 2026 09:23:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A6E1F000FF;
+	Tue, 22 Sep 2026 09:22:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790068986;
+	bh=NutOSYDLx4tH7KuShcZDI2ZCU5oaHMNdqUgaoku7+KE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=dxe2mLJ1DOdNhNV3xzN1UWDf+WAxUJqwBE4m6EJ8NqGqMYw2Un9GqdAuGdl+aORRK
+	 OOuly+6n/2Smj6x6nJ/bOPD3LPqGVwEgru3T9Vb+N85YpEQzsVx7tkk452Eeek4d/v
+	 X2tCmChMlWALczUB/ok3OKDy5Pkriv+suNvrO/+iJyW8AH3cGofJxfWC9J78D8d7Y1
+	 hlBIEb3Pyp1cOg9/cbPJRDn08GOTBEbkvDNtthfYmxt2g83xX9j2cEdBLyAulmkStx
+	 hP52w+r2XFU8Qifn8Fz2BbYPQ8i2S5lOEPECaC6ZD6f2/BSRfM/DG0E3+4HtLwkf4u
+	 9Rucyt3uOjauA==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+	will@kernel.org, catalin.marinas@arm.com,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <shuah@kernel.org>,
-	Jori Koolstra <jkoolstra@xs4all.nl>,
-	Brigham Campbell <me@brighamcampbell.com>,
-	linux-kernel-mentees@lists.linux.dev,
-	Ridham Khurana <khurana.ridham222@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] gpio: zynq: fix runtime PM leak on request error path
-Date: Tue, 22 Sep 2026 09:20:58 +0000
-Message-ID: <20260922092102.1053513-1-khurana.ridham222@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+	oupton@kernel.org, gshan@redhat.com, joey.gouly@arm.com,
+	tabba@google.com, yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com, alpergun@google.com,
+	fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Subject: Re: [PATCH v18 00/23] KVM: arm64: CCA: Add basic plumbing for Realms
+In-Reply-To: <aqrsmUTxDVbKJn8k@p14s>
+References: <20260915160141.3543048-1-suzuki.poulose@arm.com>
+ <aqrsmUTxDVbKJn8k@p14s>
+Date: Tue, 22 Sep 2026 14:52:56 +0530
+Message-ID: <yq5aecel3aj3.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_022114_936778_5CD13CEA 
-X-CRM114-Status: GOOD (  13.89  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pm_runtime_get_sync() leaves the usage counter incremented even when it
-fails, and zynq_gpio_request() returns the error without dropping it.
+Mathieu Poirier <mathieu.poirier@linaro.org> writes:
 
-gpiolib does not call ->free() when ->request() fails, so zynq_gpio_free(),
-which holds the only matching pm_runtime_put(), never runs. The reference
-is leaked and the controller can no longer runtime-suspend, so its clock
-stays enabled.
+> Hi Suzuki,
+>
+> On Tue, Sep 15, 2026 at 05:01:18PM +0100, Suzuki K Poulose wrote:
 
-Switch to pm_runtime_resume_and_get(), which only increments the usage
-counter on success.
+ [ ... 42 lines skipped ... ] 
 
-Fixes: 3242ba117e9b ("gpio: Add driver for Zynq GPIO controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ridham Khurana <khurana.ridham222@gmail.com>
----
-Build-tested on arm64 with CONFIG_GPIO_ZYNQ=m. Not tested on Zynq hardware.
+>> 
+>> [0] Arm CCA KVM Support v16 : https://lore.kernel.org/all/20260803134403.80630-1-steven.price@arm.com
+>> [1] Linux firmware RMI https://lore.kernel.org/all/20260912083611.2513845-1-suzuki.poulose@arm.com
+>> [2] Linux GPF Host https://lore.kernel.org/all/20260913070459.2547407-1-suzuki.poulose@arm.com
+>> [3] https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/kvm-v18/integration
+>> [4] https://support.arm.com/documentation/den0137/2-0bet3/
+>
+> When testing on the FVP model with the above baselines, I get the following
+> error messagaes in a loop, preventing the system from reaching the command line:
+>
+> [    3.112577] Freeing unused kernel memory: 3520K
+> [    3.115398] Run /sbin/init as init process
+> [    3.142926] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.150111] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.177190] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.197194] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.217188] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.237194] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.257181] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.277189] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.297193] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    3.317188] virtio-pci 0000:00:02.0: swiotlb buffer is full (sz: 4096 bytes),
+> total 512 (slots), used 511 (slots)
+> [    8.157185] swiotlb_tbl_map_single: 241 callbacks suppressed
+>
+> I get the same result with v17.  Have you seen this before?  Perhaps a kernel
+> option that needs to be adjusted?
+>
 
- drivers/gpio/gpio-zynq.c | 10 +---------
- 1 file changed, 1 insertion(+), 9 deletions(-)
+This is due to a change in the swiotlb setup.
 
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index 15a79d9a2e9e..13e4c5f0e297 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -798,15 +798,7 @@ static int zynq_gpio_runtime_resume(struct device *dev)
- 
- static int zynq_gpio_request(struct gpio_chip *chip, unsigned int offset)
- {
--	int ret;
--
--	ret = pm_runtime_get_sync(chip->parent);
--
--	/*
--	 * If the device is already active pm_runtime_get() will return 1 on
--	 * success, but gpio_request still needs to return 0.
--	 */
--	return ret < 0 ? ret : 0;
-+	return pm_runtime_resume_and_get(chip->parent);
- }
- 
- static void zynq_gpio_free(struct gpio_chip *chip, unsigned int offset)
--- 
-2.47.3
+https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org
+
+You can increase the swiotlb size using the swiotlb= kernel command-line
+option. I also have a patch series in progress to address this issue:
+
+https://lore.kernel.org/all/20260921063628.362078-1-aneesh.kumar@kernel.org
+
+-aneesh
 
 
