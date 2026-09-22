@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954E9C982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8225CC982E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QtOljOPtT9KqzUyMo9Iln83r6P59j8ygO/AOk2Cp/Yo=; b=Mhm0poqccF0edxxlNCpST4HvIZ
-	w5piFtCX2d9d3vcLE1ZcHoSOKKg5/KJ6JfA0jT8bcjuF9BzU6Cf5m8aVFrvYCbxQxVPUT094kCptH
-	P0YWM77XlBZpTKvvzW55ebqR5NA5JlwheuaqalB5mvIfjoreu7qvk/4mluQQJS1zLMQfoGWLCQsJR
-	2BHU0nUxTVzBQPkP0ANu9njrMovHIoWEpi26Uz+yodEosLrDz3715VQyZkfVhKCEe2cp32oBhKoAU
-	octEHZ7PZF6EpLVnk1OdHS7jtBvC6JybrCR61TDRT+WmabO3VthQzly+eCRn8cy8Os/ZiWuHxctwS
-	vw301Wxw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=blLJh96waC7iW5pUXAIxKFQ4OfEzeyzBx1zcAO6CSRE=; b=ah2eU2z7A88DyIM0H6pD7a24ZC
+	R2+YfsOK4BXDd2fSkPppt7gUkQ5SgncW4YhWKLv4KwY6As88uF6YytU9YHQIFByM9PNlIPcPUyCdk
+	fdiDW0WVSPKhccjgDCp+QghebPPY8d54/5VLxPDRigF8+SgRjGZWiO+0xiXCq0lJ+rKWrBedZb3Bm
+	lSv/arivXakcm0fE+9XVk9egw7pZqhXyLACH+3x3GXRnL1skm7A2+q6q5zHQaYHdJ4I/8+lnp6TqJ
+	G52IUZ3kyD8avXx0U2Yp/I8YyZYiT4fFMWduT2X8VV/mUDq+I7tAT+s5ROYpQkAgJUPnTYCTZUP6X
+	TrL1foxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ouH-00000003qbr-2Fs4;
-	Tue, 22 Sep 2026 01:02:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8ouT-00000003qfl-2ibD;
+	Tue, 22 Sep 2026 01:03:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ouG-00000003qbO-0DLh
+	id 1x8ouG-00000003qbP-1cOV
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Sep 2026 01:02:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86BBB43996;
+	by tor.source.kernel.org (Postfix) with ESMTP id 995A260210;
 	Tue, 22 Sep 2026 01:02:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6937EC2BCF7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E99EC2BCB3;
 	Tue, 22 Sep 2026 01:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1790038967;
-	bh=TM+0ObWQfhhHPat2obBpT3dqypsYaaFwAL9LhDuJcHE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=DeGKs7aebqd2RTTP4l2osk0FTy6sUTMVSx2597LZxnhSLuqItwQeHpR3bD4NGAm/B
-	 zv4qys7DorR3no0CiKxRM7CoLbvsY/mChbdoMnMl/4ado77TDR+2NdxVwk1mQTaiWb
-	 Sts7nkKuzFPqoRiKDr5XBwJC17fHVXMIM0mqSLzXW4nvPw35RJkgkNZzO8IY6W92nR
-	 mdCpdq3GROKKSA5OkGkiycCQHBev2meGDZkFzq8WB+HgfFEhgTUzfhgHuKJ88GOysh
-	 0kw8t1NuhFczauu920K1kD4S0uJcIOgWAGFTRgfg8eUcvelkqDd0TDh8SiiazAV6KX
-	 aFGkmRbBg7fjQ==
+	bh=eLnNgO/rDS2qwwxL5yTUq+zocopo2r2OBj3hkKd83qc=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=bXRsCZwXAI6qxmP+fWjsQcQnf343piN64Y2a6SLHz/60arpazhSZoENh713FHhKQ8
+	 NOcb+RUXb9BoienHuUG1UtCms22rA/coJPNq4F4cXCdG6UuiXDKGdJmoUoSX8SDSyk
+	 dWp426duJC9kLOiAacTmGIIxVzvy1xcDzQXP4G/X4No6EBIDmsuux7gf3D2BvvZoR9
+	 FybunFPgtyjTMnGRHTV7CQMb4rwMqCQEzcS4vQZJMgXVhEQtvid0wGRVqB4eh8oe5X
+	 MlIbRjDmu11QJeREXCmmODD0OPw64XqZU/FixL2O7Fc9jLX1QlVFV8HZTtFNP5ihG5
+	 WDPZMRgBG8s3Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BB8FC982F7;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AD2DC982E6;
 	Tue, 22 Sep 2026 01:02:47 +0000 (UTC)
 From: Jaidev Shastri via B4 Relay <devnull+jaidevshastri.vt.edu@kernel.org>
-Date: Mon, 21 Sep 2026 21:02:34 -0400
-Subject: [PATCH 2/2] soc: xilinx: zynqmp_power: publish the callback work
- pointers
+Subject: [PATCH 0/2] soc: xilinx: zynqmp_power: order callback state
+ against probe
+Date: Mon, 21 Sep 2026 21:02:32 -0400
+Message-Id: <20260921-mb-zynqmp-power-v1-0-de6f2eee3f23@vt.edu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-mb-zynqmp-power-v1-2-de6f2eee3f23@vt.edu>
-References: <20260921-mb-zynqmp-power-v1-0-de6f2eee3f23@vt.edu>
-In-Reply-To: <20260921-mb-zynqmp-power-v1-0-de6f2eee3f23@vt.edu>
+X-B4-Tracking: v=1; b=H4sIAKjTsWoC/yXMzQ6CMBAE4Fche3YN/YlEX8VwaMsqNaHUraJAe
+ HdbPH6TmVkhEXtKcKlWYJp88mPIEIcKXG/CndB32SBrearPUuBgcZnDc4gYxw8xKt0ZoRqplRa
+ QV5Hp5r/747X9O73tg9yr3JSGNYnQsgmuL9HOqTkqZKdh236nOJXRkwAAAA==
+X-Change-ID: 20260921-mb-zynqmp-power-34da13724341
 To: Michal Simek <michal.simek@amd.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Jaidev Shastri <jaidevshastri@vt.edu>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790038966; l=6033;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790038966; l=1347;
  i=jaidevshastri@vt.edu; s=20260921; h=from:subject:message-id;
- bh=0uFwOEgfx+bTjdXpAltvGbFWsfZ9c49O4ntEFzooMNQ=;
- b=FmGyGDP+KUhaDDix5Yik+2dumPHb2k2w3eICtjtgBv7LZr7TRZ3tbItmkoG4lZicMsi/meM8c
- xSfpXC5RZuTDF8hcxbI1dRkrfbvzC6F89HVBACwWpckro5CMC2UD5zb
+ bh=eLnNgO/rDS2qwwxL5yTUq+zocopo2r2OBj3hkKd83qc=;
+ b=q8wOvkA78pAcCFPujvVLwMILLMubgB/JO4Yfq1mjtANaMC4ZsHUSNsbkRpbm0mTwRLTxEnb4D
+ j+OoJd891a/BIFw199Mgl2/xgfz3jWLpGFGZ0Cx7iLoMLtZon4Ws5jB
 X-Developer-Key: i=jaidevshastri@vt.edu; a=ed25519;
  pk=J7+xYJRlTPds+pv5hbqFFRqGCpDeJDzmZT1ggRwj7/0=
 X-Endpoint-Received: by B4 Relay for jaidevshastri@vt.edu/20260921 with
@@ -84,154 +86,36 @@ Reply-To: jaidevshastri@vt.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jaidev Shastri <jaidevshastri@vt.edu>
+zynqmp_pm_probe() registers the event manager callbacks and the mailbox rx
+callback before it has finished storing the state those callbacks read.
 
-zynqmp_pm_probe() allocates and initialises the suspend and restart work
-structures and stores their addresses to the file-scope pointers with
-plain stores, before it registers the event manager callbacks and the
-mailbox channel. suspend_event_callback(),
-subsystem_restart_event_callback() and ipi_receive_callback() read the
-pointers with plain loads from the firmware notification path, on any
-CPU.
+The first patch closes a real window. mbox_request_channel_byname() starts
+the channel before it returns, so a message the firmware already has pending
+is delivered while rx_chan is still NULL and the IPI is never acknowledged.
+The mailbox API gives the callback no way to reach the channel from its
+struct mbox_client, so the channel is stored under a spinlock shared with the
+callback and the acknowledgement is deferred until probe has published it.
 
-Keep the pointers in locals, publish them with smp_store_release() once
-the work is initialised and read them once with smp_load_acquire() in
-the callbacks.
+The second orders the two work-struct pointers that the event manager and
+mailbox callbacks dereference as soon as they run.
 
 Found with MBCheck, a static herd7-based memory consistency checker.
+Compile-tested on arm64 with W=1, no new warnings.
 
-Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
 ---
- drivers/soc/xilinx/zynqmp_power.c | 61 ++++++++++++++++++++++++---------------
- 1 file changed, 38 insertions(+), 23 deletions(-)
+Jaidev Shastri (2):
+      soc: xilinx: zynqmp_power: do not use rx_chan before probe has stored it
+      soc: xilinx: zynqmp_power: publish the callback work pointers
 
-diff --git a/drivers/soc/xilinx/zynqmp_power.c b/drivers/soc/xilinx/zynqmp_power.c
-index a7c1befc5..54c1a40e1 100644
---- a/drivers/soc/xilinx/zynqmp_power.c
-+++ b/drivers/soc/xilinx/zynqmp_power.c
-@@ -77,28 +77,32 @@ static void zynqmp_pm_get_callback_data(u32 *buf)
- 
- static void subsystem_restart_event_callback(const u32 *payload, void *data)
- {
-+	/* Pairs with the smp_store_release() in zynqmp_pm_probe(). */
-+	struct zynqmp_pm_work_struct *work = smp_load_acquire(&zynqmp_pm_init_restart_work);
-+
- 	/* First element is callback API ID, others are callback arguments */
--	if (work_pending(&zynqmp_pm_init_restart_work->callback_work))
-+	if (work_pending(&work->callback_work))
- 		return;
- 
- 	/* Copy callback arguments into work's structure */
--	memcpy(zynqmp_pm_init_restart_work->args, &payload[0],
--	       sizeof(zynqmp_pm_init_restart_work->args));
-+	memcpy(work->args, &payload[0], sizeof(work->args));
- 
--	queue_work(system_dfl_wq, &zynqmp_pm_init_restart_work->callback_work);
-+	queue_work(system_dfl_wq, &work->callback_work);
- }
- 
- static void suspend_event_callback(const u32 *payload, void *data)
- {
-+	/* Pairs with the smp_store_release() in zynqmp_pm_probe(). */
-+	struct zynqmp_pm_work_struct *work = smp_load_acquire(&zynqmp_pm_init_suspend_work);
-+
- 	/* First element is callback API ID, others are callback arguments */
--	if (work_pending(&zynqmp_pm_init_suspend_work->callback_work))
-+	if (work_pending(&work->callback_work))
- 		return;
- 
- 	/* Copy callback arguments into work's structure */
--	memcpy(zynqmp_pm_init_suspend_work->args, &payload[1],
--	       sizeof(zynqmp_pm_init_suspend_work->args));
-+	memcpy(work->args, &payload[1], sizeof(work->args));
- 
--	queue_work(system_dfl_wq, &zynqmp_pm_init_suspend_work->callback_work);
-+	queue_work(system_dfl_wq, &work->callback_work);
- }
- 
- static irqreturn_t zynqmp_pm_isr(int irq, void *data)
-@@ -137,15 +141,17 @@ static void ipi_receive_callback(struct mbox_client *cl, void *data)
- 	memcpy(payload, msg->data, sizeof(msg->len));
- 	/* First element is callback API ID, others are callback arguments */
- 	if (payload[0] == PM_INIT_SUSPEND_CB) {
--		if (work_pending(&zynqmp_pm_init_suspend_work->callback_work))
-+		struct zynqmp_pm_work_struct *work;
-+
-+		/* Pairs with the smp_store_release() in zynqmp_pm_probe(). */
-+		work = smp_load_acquire(&zynqmp_pm_init_suspend_work);
-+		if (work_pending(&work->callback_work))
- 			return;
- 
- 		/* Copy callback arguments into work's structure */
--		memcpy(zynqmp_pm_init_suspend_work->args, &payload[1],
--		       sizeof(zynqmp_pm_init_suspend_work->args));
-+		memcpy(work->args, &payload[1], sizeof(work->args));
- 
--		queue_work(system_dfl_wq,
--			   &zynqmp_pm_init_suspend_work->callback_work);
-+		queue_work(system_dfl_wq, &work->callback_work);
- 
- 		/*
- 		 * Send NULL message to mbox controller to ack the message. The
-@@ -299,6 +305,7 @@ static int register_event(struct device *dev, const enum pm_api_cb_id cb_type, c
- 
- static int zynqmp_pm_probe(struct platform_device *pdev)
- {
-+	struct zynqmp_pm_work_struct *suspend_work, *restart_work;
- 	int ret, irq;
- 	u32 pm_api_version, pm_family_code, node_id;
- 	struct mbox_client *client;
-@@ -320,14 +327,20 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
- 	 * is not available to use) or -ENODEV(Xilinx Event Manager not compiled),
- 	 * then use ipi-mailbox or interrupt method.
- 	 */
--	zynqmp_pm_init_suspend_work = devm_kzalloc(&pdev->dev,
--						   sizeof(struct zynqmp_pm_work_struct),
--						   GFP_KERNEL);
--	if (!zynqmp_pm_init_suspend_work)
-+	suspend_work = devm_kzalloc(&pdev->dev,
-+				    sizeof(struct zynqmp_pm_work_struct),
-+				    GFP_KERNEL);
-+	if (!suspend_work)
- 		return -ENOMEM;
- 
--	INIT_WORK(&zynqmp_pm_init_suspend_work->callback_work,
-+	INIT_WORK(&suspend_work->callback_work,
- 		  zynqmp_pm_init_suspend_work_fn);
-+	/*
-+	 * The event manager and mailbox callbacks registered below
-+	 * dereference the work pointer as soon as they run. Publish it with
-+	 * release semantics; pairs with the smp_load_acquire() there.
-+	 */
-+	smp_store_release(&zynqmp_pm_init_suspend_work, suspend_work);
- 
- 	ret = register_event(&pdev->dev, PM_INIT_SUSPEND_CB, 0, 0, false,
- 			     suspend_event_callback);
-@@ -343,14 +356,16 @@ static int zynqmp_pm_probe(struct platform_device *pdev)
- 		else
- 			return -ENODEV;
- 
--		zynqmp_pm_init_restart_work = devm_kzalloc(&pdev->dev,
--							   sizeof(struct zynqmp_pm_work_struct),
--							   GFP_KERNEL);
--		if (!zynqmp_pm_init_restart_work)
-+		restart_work = devm_kzalloc(&pdev->dev,
-+					    sizeof(struct zynqmp_pm_work_struct),
-+					    GFP_KERNEL);
-+		if (!restart_work)
- 			return -ENOMEM;
- 
--		INIT_WORK(&zynqmp_pm_init_restart_work->callback_work,
-+		INIT_WORK(&restart_work->callback_work,
- 			  zynqmp_pm_subsystem_restart_work_fn);
-+		/* Pairs with the smp_load_acquire() in the event callbacks. */
-+		smp_store_release(&zynqmp_pm_init_restart_work, restart_work);
- 
- 		ret = register_event(&pdev->dev, PM_NOTIFY_CB, node_id, EVENT_SUBSYSTEM_RESTART,
- 				     false, subsystem_restart_event_callback);
+ drivers/soc/xilinx/zynqmp_power.c | 113 +++++++++++++++++++++++++++-----------
+ 1 file changed, 81 insertions(+), 32 deletions(-)
+---
+base-commit: 93f51579e7df248780214094418f205253383cc5
+change-id: 20260921-mb-zynqmp-power-34da13724341
 
--- 
-2.43.0
+Best regards,
+--  
+Jaidev Shastri <jaidevshastri@vt.edu>
 
 
 
