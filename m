@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DA3C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 09:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE80C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 09:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCu96evxf20Dg31cvROXcpI/yYmId/Hxgeu4N2f5f2M=; b=bFW9I/99d1q3ONMp8dpSGJunO4
-	X4YAkaks4BR4jvWD0PQhZrS/RX9AfR5e7UlpgXa+xXsrmXrak+6fhruThtHVlB7sHKCZdn13A1Xb+
-	5tYg+5l3otIh+CzRaUiszJQSkbdxyipy4jB1lbeRVu9K/bgRRp2D/8SyqfVVRHLRDziem4MCBu1JJ
-	GJ9Nwi7ZU5GCQn77oEnq03FdAuBvYxWhuS/qwX5WYZSFgh/7uMQvc4sxeww61gRvZpxvAFaxvqoCe
-	zpsegBfwMfc6z2xCUXkOea+JDZzb5eohtwtKAydl8lXWUECkADewv1xRRpCMnf1eLDw37ksaB+hqZ
-	Ayud2ZLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nARjhrFD1a4uFrGP/wTAfcQAeQqUTGrmqUP9jR7qHek=; b=qR3H6e/50nWNf43kjwPRgwNhdM
+	uokc/WcLVqsQKBaDXJz0yPKQrIj/Yy3QTAy5Em4hq4XyUFuSEn+ebR539HYXLc0/sNf9VgoBvSvWN
+	UU9j6L6KVKyOxQVnXTW0c2uUAhfJB2SNMZ1Pc/CIKte4J5hRCifN4sjJlkkmEkDITAoq3f0Fe6FAL
+	WoPz2OYvVBn9VeyfPYTQgAyGPMlbIgZP+U7yTiuLTo8mI6j0f5odqWwL03h8GzJk/kTzh7Talj1Kg
+	0uWOZ/d3V1P94bTWubZFVY3X0vA3GGvCXpT8uvCyR5VL0vi2cH730MMwrJbIK6b1jOiWWPkfv2slC
+	wmX/5Cfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xBM-00000004yj4-0YRL;
-	Tue, 22 Sep 2026 09:53:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8xBS-00000004ylF-2PaK;
+	Tue, 22 Sep 2026 09:53:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xBK-00000004yii-2OSt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 09:52:58 +0000
+	id 1x8xBR-00000004yko-1KLK;
+	Tue, 22 Sep 2026 09:53:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0241744DEB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 09:52:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDFF71F000FF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 09:52:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD1C360DEE;
+	Tue, 22 Sep 2026 09:53:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338E11F000FF;
+	Tue, 22 Sep 2026 09:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790070777;
-	bh=XCu96evxf20Dg31cvROXcpI/yYmId/Hxgeu4N2f5f2M=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Ch6DM0hAWaNN27ZcRB5nchnPoKUpglKze6AoelpakUm1Eal73BAMd+5rGz3RdAJaf
-	 J1Quz/+Kj+BGL+lGgT9gmzGzRTtwXgBO7no73bL5xE8HxQREtk44PyzqQ/jVmhbw1Q
-	 qv0g1F7BmZnTMzwj1msR6U1RXPC530DEr0Mm0wyKnxz1JNbUk9XhwKxbyiP3z1SoZg
-	 T0uuvUVCXFmzuu+w6TcDFMQdjcv5NaU4e7LsKqYEB/OBkzljXsTIpZJl/I9xNxACTM
-	 j5JisIIzAf/Orw+g/SnQtd1vYdOgSXKwX026rogbPOibRXsaGaiByYOxPo00KdsaKG
-	 JAFYs2xmPgGCg==
-Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a5919af2eeso35671761fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 02:52:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByKVV2jAduc+o3F3Xhcf3SRwFrFMrBNOwQuLZ08ddzAyDLS+3yQL/SJ200nzRKTkNWpwhuSLATIuP6IVu+lTVv4@lists.infradead.org
-X-Gm-Message-State: AFuF++kVJmBSy4k9l9wc2UfkRsDCYlat0Rf9Lk2Pj1cfLtZot5CIL95F
-	lGc29a9zLvdFt49I7gsFj3p3CDj9zTnF5FxrASIHKP3SGkBqEdX5QLwXaDaZ+0ml2j85/iCo0tf
-	Z5cHQuMHZhUxkIkDAPL+xMe9fSMTj6KM=
-X-Received: by 2002:a2e:bc02:0:b0:3a3:364:f797 with SMTP id
- 38308e7fff4ca-3a5fbf024acmr29953651fa.8.1790070775724; Tue, 22 Sep 2026
- 02:52:55 -0700 (PDT)
+	s=k20260515; t=1790070784;
+	bh=nARjhrFD1a4uFrGP/wTAfcQAeQqUTGrmqUP9jR7qHek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nEitEp8XesXa66ohsqaPXQhbL3xF2VPi5jxpeHfvNKIelbcU57N2LlISpDXR4evDD
+	 vWNbSH91JwOgPgmdtya5yFo+mSJVrjLJj3A465KYYbP/dN41QMpwIvWzr/Z4EaQVLB
+	 FI8W5AaB7aug9wFKd8IDgPQ92g22Dd8mLQPvHEQO83K4yoViaHkQjKh5wBmUZZcTlw
+	 OsKFoOoHj9WgXWXEk/y+PFkIsojPUo8YD3iG/fp4lJ7AwCXb5e9Y6Cs/GfQ4KhWley
+	 dl84p0fnYpc9aSNLr5eovi55Wa8ABpuLhiZK7BdLN8Ig9pzkyA13/USzmDMzuA4Djp
+	 6PITUPc2KwKiA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id E17FB1AC56BF; Tue, 22 Sep 2026 10:53:00 +0100 (BST)
+Date: Tue, 22 Sep 2026 11:53:00 +0200
+From: Mark Brown <broonie@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Amit Kucheria <amit.kucheria@linaro.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 11/28] ASoC: ops: Introduce 'snd_soc_deactivate_kctl'
+Message-ID: <arJP_AjGtyaIOg6m@sirena.co.uk>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <20260920-macaudio-v1-11-741cc20a74e5@gmail.com>
 MIME-Version: 1.0
-References: <7995179.EvYhyI6sBW@rafael.j.wysocki> <3717753.iIbC2pHGDl@rafael.j.wysocki>
- <20260922-quiet-heavy-lyrebird-b245ad@sudeepholla>
-In-Reply-To: <20260922-quiet-heavy-lyrebird-b245ad@sudeepholla>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Tue, 22 Sep 2026 11:51:23 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0gcejDUREsJF9W5yCCU1=rBbJ1HtowzB-Y-i0rsyGvRgQ@mail.gmail.com>
-X-Gm-Features: AcwNN1UEF627YybvGpJxDdUgnswJyEKtbD1EyeT6OeXpLE6q86oktnId6WHtw0o
-Message-ID: <CAJZ5v0gcejDUREsJF9W5yCCU1=rBbJ1HtowzB-Y-i0rsyGvRgQ@mail.gmail.com>
-Subject: Re: [PATCH v1 01/17] ACPI: bus: Use acpi/acpi_bus.h without CONFIG_ACPI
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Linux ACPI <linux-acpi@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Mika Westerberg <mika.westerberg@linux.intel.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Hanjun Guo <guohanjun@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Mark Pearson <mpearson-lenovo@squebb.ca>, 
-	"Derek J. Clark" <derekjohn.clark@gmail.com>, Hans de Goede <hansg@kernel.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	platform-driver-x86@vger.kernel.org, David Rhodes <david.rhodes@cirrus.com>, 
-	Richard Fitzgerald <rf@opensource.cirrus.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	linux-sound@vger.kernel.org, Shenghao Ding <shenghao-ding@ti.com>, 
-	Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
-	Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
-	Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Cezary Rojewski <cezary.rojewski@intel.com>, 
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-	Bard Liao <yung-chuan.liao@linux.intel.com>, 
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Binbin Zhou <zhoubinbin@loongson.cn>, 
-	Andreas Noever <andreas.noever@gmail.com>, Mika Westerberg <westeri@kernel.org>, 
-	Yehezkel Bernat <YehezkelShB@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mNc7H9Mf9fLW1Byg"
+Content-Disposition: inline
+In-Reply-To: <20260920-macaudio-v1-11-741cc20a74e5@gmail.com>
+X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +91,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 11:51=E2=80=AFAM Sudeep Holla <sudeep.holla@kernel.=
-org> wrote:
->
-> On Mon, Sep 21, 2026 at 09:45:59PM +0200, Rafael J. Wysocki wrote:
-> > From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-> >
-> > Corrently acpi/acpi_bus.h is included in linux/acpi.h only if
-> > CONFIG_ACPI is set, but it contains declarations that are useful
-> > otherwise too.
-> >
-> > For consistency, modify linux/acpi.h to always include acpi/acpi_bus.h
-> > and update the latter to avoid exposing too much when CONFIG_ACPI is
-> > not set.
-> >
-> > Since acpi_has_method() is called from some code build when
-> > CONFIG_ACPI is unset, add a stub for it to the !CONFIG_ACPI
-> > block in acpi/acpi_bus.h.
-> >
->
-> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
->
-> I was planning to just pull acpi_device_hid() out so that I can get rid
-> of CONFIG_ACPI in [1]. This looks much more elegant. Thanks for doing it.
 
-Anytime, and thank you!
+--mNc7H9Mf9fLW1Byg
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
->
-> [1] https://lore.kernel.org/all/20260915-acpi_scmi_pcc-v5-4-298579e9f359@=
-kernel.org
+On Sun, Sep 20, 2026 at 02:53:50PM +1000, James Calligeros wrote:
+> From: Martin Povi=C5=A1er <povik+lin@cutebit.org>
+>=20
+> The new function can be used to deactivate controls -- either a single
+> one or in bulk by pattern. It is something a machine driver may call in
+> fixup_controls.
+
+> + * Return number of matching controls on success, else error.
+> + * No controls need to match.
+> + */
+> +int snd_soc_deactivate_kctl(struct snd_soc_card *card,
+> +	const char *name, int active)
+
+> +	if (!hits)
+> +		return -EINVAL;
+
+The comment says no controls need to match, but we return an error in
+that case.
+
+--mNc7H9Mf9fLW1Byg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqyT/wACgkQJNaLcl1U
+h9Bvewf+Iop+x5OZDye45hxw6ccSgPW7Odu2Npcda77dIryeRPAjpXLVz6dcrc8K
+4TJrQC+WG0m5H635RmrywLTgJyupe4kIfVxZ/86xfmqvkRBrDFRpSeb/scudUuRp
+zoa9hMGNFAw3qTIa+ppM7BLfb9zrs/ykSC3r+c+fwXEFrh/fnRBbbLtmRbN5rnkD
+OLbvOykV5l8HTXUrB1duSzCZS9dWNoHd9Dyg8b3fFhE1cIXNYbcUUaJ8Yv4Jplx9
+Jfz8kxonRvN8YUbcAL60O7PNAGtFdzOCr02Qv9/d5jrDQi9Ae4UXm63i4/umUXRg
+3gUTHLNhDGEH2e8PtdKXh5uH43Ww/Q==
+=khxA
+-----END PGP SIGNATURE-----
+
+--mNc7H9Mf9fLW1Byg--
 
