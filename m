@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CF5C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0547EC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 07:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Lh8RRN115hHENZhRVI/HJKnLn1gmr4TNfVUEedSzXSE=; b=NG3e0/How6FDt0C8rxtil22nZl
-	tHhgQ/q72NaCBKhQe6FGxkEh7X3LH1cX9t9W8VW299yYNjiZaLnAbN298MwRls9twwrHlSw0SR0n2
-	sli/P+/hc4o6cpb4eVddfPHW4qCrQhGMe30YF4BHc392q6NCHqOLlJzTwyaxaOz4d9OhZCvMc2CEl
-	DUvcixOYh/dIc2bRlj3+H3O4Vh6HvVMhbLdcEAHS8MTvytsnQ32x/hrLaH7HZpR5RW0ln+VMogxsz
-	45EnoCSDqfcUzG94BCX3uLu/XvAO6O1GMrcrBJ7mt1ls8k63KYkdlNaoe37LxMIWwpn+OmON8AZlb
-	vgf1zYiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xnld5ZAMHUPURrcP4qYOF24Z0lpAY4ulw2ms2HEmYd8=; b=CSFrIRdshQGErwcMt0ip3IZMmg
+	NT1wdf7w9cE1TPCPbhizgFut5xnaYtE/H/qFOR+YhPlkjFcpmFJHLSVSz81RjdQNcMDAz30CQAeG7
+	oYSOW/j5c0oFTVDwvxXzX9s2NXkb3xTfKbhkP+1WUf7yC55rDdoScJbpT4KlBr2mL1F0I+26pcuRH
+	nnp7QbsX4d0xYJ7kP5B6cBFaL1AJbq+ilvTb7l2gFzuupJn4hVOla+dF9gmXrA00ESQDqMTMn4Pr8
+	8ebbhdPCpQR44vZV9fHrFrnkOYTutxCZr1V7lyHgHyond7gcMiCadZBZs63tn+1U4yKmAQTF3nEqc
+	ejfXT37g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8udr-00000004Sq9-2fnB;
-	Tue, 22 Sep 2026 07:10:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x8ueG-00000004T1Z-3F4e;
+	Tue, 22 Sep 2026 07:10:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8udg-00000004Sjf-35tX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 07:10:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790061002;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Lh8RRN115hHENZhRVI/HJKnLn1gmr4TNfVUEedSzXSE=;
-	b=beFJvzTkQDtdvShRm4W1pBuYV0esTslJ19uITHPRnGOvaZSQNl8aJLZFEGp1kmsjp+Xto+
-	KxA0BzzUmJR4cijVIEiC7HCRl/HgkGuFBQrsEkhad/zwdP6W9BYOKthr2Gun4+SMWKPEv0
-	H3Ib8onfll4014A9qpK/BOCeuv5y1gA=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-518-h3zLrZ1PPYetoFlWi0zq1A-1; Tue,
- 22 Sep 2026 03:09:56 -0400
-X-MC-Unique: h3zLrZ1PPYetoFlWi0zq1A-1
-X-Mimecast-MFC-AGG-ID: h3zLrZ1PPYetoFlWi0zq1A_1790060995
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 96E351843AD4;
-	Tue, 22 Sep 2026 07:09:54 +0000 (UTC)
-Received: from thuth-p1g4.redhat.corp (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 843B91956041;
-	Tue, 22 Sep 2026 07:09:51 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ARM: BCM7XXX: Replace __ASSEMBLY__ with __ASSEMBLER__
-Date: Tue, 22 Sep 2026 09:09:50 +0200
-Message-ID: <20260922070950.76946-1-thuth@redhat.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: YVlZ6LtPR_7uCh_L13r34DoP9uy4RXCI9IIF43-VyYg_1790060995
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_001004_856208_0B3A3BF9 
-X-CRM114-Status: GOOD (  13.30  )
+	id 1x8ueF-00000004T0a-0Qz8;
+	Tue, 22 Sep 2026 07:10:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C92DB40A5B;
+	Tue, 22 Sep 2026 07:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC8191F000FF;
+	Tue, 22 Sep 2026 07:10:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790061038;
+	bh=xnld5ZAMHUPURrcP4qYOF24Z0lpAY4ulw2ms2HEmYd8=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=USPaOcnFWv5cSz2X1c0SpBHsH2oHo32NC2+C2ZbXrShg0QytM9QurH/SE0bOcaTRW
+	 jg/f1cGV5YAgCDaF2lesr2vUQHNc3aMyhG9dpkDA/tAilEkD8Ez7z1nhiE8OymIxTb
+	 xqJgirCyLz38VVlbOblOhu3xJNpHYJFgX3mu7GFpEPabsy4zaIpI/kPQdEeKpetaKA
+	 G9bCnRlT6kcZ+5SBb4wCaoAGZn4Z7qWBhUZoR29QRZdCckcYnt4gVFvMPHEes77o/T
+	 MWqoPhAZY0gtT7oFrZDexh3CfSP9wlgTfVfQRJMvp4z0kU1mxxSPC3mO7Yxrkz7A4e
+	 8etl154qsjs/g==
+Message-ID: <c19fd59c52783ed9caa767c4bfbbfb32@kernel.org>
+Date: Tue, 22 Sep 2026 07:10:35 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 15/19] drm/bridge: tc358768: don't create a
+ panel_bridge
+In-Reply-To: <20260916-drm-bridge-every-panel-v3-15-83afb4f1a707@bootlin.com>
+References: <20260916-drm-bridge-every-panel-v3-15-83afb4f1a707@bootlin.com>
+Cc: asahi@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-tegra@vger.kernel.org, "Albert
+ Esteve" <aesteve@redhat.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha
+ Srivatsa" <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, "Fabio Estevam" <festevam@gmail.com>, "Frank
+ Li" <Frank.Li@nxp.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Inki
+ Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jessica Zhang" <jesszhan0024@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>, "Linus
+ Walleij" <linusw@kernel.org>, "Lucas Stach" <l.stach@pengutronix.de>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Paul
+ Cercueil" <paul@crapouillou.net>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Randy Dunlap" <rdunlap@infradead.org>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Sean
+ Paul" <sean@poorly.run>, "Shuah Khan" <skhan@linuxfoundation.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While the GCC and Clang compilers already define __ASSEMBLER__ auto-
-matically when compiling assembly code, __ASSEMBLY__ is a macro that
-only gets defined by the Makefiles in the kernel. This can be very
-confusing when switching between userspace and kernelspace coding, or
-when dealing with uapi headers that rather should use __ASSEMBLER__
-instead. Let's standardize now on the __ASSEMBLER__ macro to avoid
-this confusion.
+On Wed, 16 Sep 2026 15:45:39 +0200, Luca Ceresoli wrote:
+> Now a panel_bridge is automatically created for every drm_panel and the
+> panel-bridge API is just a deprecated wrapper to access it.
+> 
+> Update and simplify the code by just getting a reference to the
+> already-existing bridge using of_drm_get_bridge_by_endpoint().
+> 
+> [ ... ]
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- v2: Added Florian's Reviewed-by and fixup up the CC: list
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
- arch/arm/include/asm/hardware/cache-b15-rac.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/include/asm/hardware/cache-b15-rac.h b/arch/arm/include/asm/hardware/cache-b15-rac.h
-index 3d43ec06fd359..b96365bfb2a87 100644
---- a/arch/arm/include/asm/hardware/cache-b15-rac.h
-+++ b/arch/arm/include/asm/hardware/cache-b15-rac.h
-@@ -1,7 +1,7 @@
- #ifndef __ASM_ARM_HARDWARE_CACHE_B15_RAC_H
- #define __ASM_ARM_HARDWARE_CACHE_B15_RAC_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- void b15_flush_kern_cache_all(void);
- 
--- 
-2.55.0
-
+Thanks!
+Maxime
 
