@@ -4,111 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81648C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F30C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdJAnLwrz+/OjIyJtnetxy2JKy8P0MsUYxFs2QuKaus=; b=znmHM/7nbuAGEslt/EGQR1mG83
-	BRXpZ1tKX3Xv0h3iiOEDiKmd/PAdGVEEcUoK78+dM8bX0pnaMLyDtzhxGfjOzKCS71anpA31hjyGh
-	+Dej38EaIbMf+uajojD1I4lcFXdU1d4J1rnW4NgWsLG/qg7kyhYOaG734uclJH+rbqaek1FsvbJvJ
-	8liODsEoMqyeUJ1ymVCPDKnWs5IJrCEJlrK+e4dmnF6kw5vJv4ZDdBkd81cuMMbQcvN7okGaPbvG5
-	jHqeBoZpFFxtwk10IA5b6HxJzK/adgOJCUQTxAlvuUZgnYRZRmRaKfHoPwuQ+oWQljEwUHvmopKbu
-	8OMO10Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eKnrLV23HgV/Tt/v6XD8WD1ByL0WlpYBpZXbv5lCaho=; b=HcXsFmiwpmrOt3Q4zfO67UqhzQ
+	AHziw1+j4ymXHWYBvrriG9uMsWqZmG6evC8ZJNLGwKmTEGpnNOt7BMjoV6TNYwz1kRMAlkjmB6C4K
+	RJ/tosNHVj+SOM/h56rjMwD1CqmCpc8JEDFQKf4OKdfnGeNTPziCzT0aEsMF1kJ1+ZyhkbAgBbIlp
+	+N9jVJAfOWk+ZiFRsfLPbdHsPKLSbIlNqd6OIT9Y7ohFR4aiJBRU/hLM8Zrg4rskRTLv9WiFfSzLD
+	jXuyUuPQgTJJFWTsPyoCZrcV9x2tYV+GUGiAy7ILo6Zci2iwaS+syfbeAMezxF4jR4TWxWK+MQ7e2
+	JVWXBh9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96k6-00000006V78-04dJ;
-	Tue, 22 Sep 2026 20:05:30 +0000
-Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
+	id 1x96yX-00000006WUJ-3Ghy;
+	Tue, 22 Sep 2026 20:20:25 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96jp-00000006UsX-0tnx
+	id 1x96yU-00000006WTs-1NlG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 20:05:16 +0000
-Received: by mail-pj2-x07.google.com with SMTP id d9443c01a7336-2d903e972efso1031775ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 13:05:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790107512; x=1790712312; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bdJAnLwrz+/OjIyJtnetxy2JKy8P0MsUYxFs2QuKaus=;
-        b=E6Uvf3yX1SFo0em446D744Rl436hbZ7ja8t1CqitlxotxKhD345MfXa5XIAbPDy8I5
-         D/UI/Qmiw0HTel1IPuz5PS7DM0RBXUlG1dSZZHyvUT9hwgJdPN0Db049pNfip094zGUM
-         W06YT+MosNdo2cpSupb1nsrlCkCcAISC67v9SBEyUjw0pmZv64Oy+dWGd5LtanTggaMw
-         scUq39loCkAmbXbWrdQYLZSW6AcYpKAtsgC6fq9rB8cDDCSPDA3NasOutUuMa0DY66lK
-         tmQe8Y93rdXrqvu44E1jg1DVbWmpCIIr74JaVsN5nIUuxMCGI82PLCdtXgzshtAcopD3
-         bSgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790107512; x=1790712312;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bdJAnLwrz+/OjIyJtnetxy2JKy8P0MsUYxFs2QuKaus=;
-        b=fpdihN6NZGqvVzO/kt4JsKN9q5zPZF0G6VDOdNFrRB95YVZp0jG5uAHxeNstlSOly2
-         +/QgFvoGMQD8vFbZU0kinas6TaZllzuBq13zqGnztOLw7U3RireUCI/z8dxYj9LkKVo8
-         IdrLiOCnxtRp10OXRkfJbpKXn7M2GZQoe96Pl72i/p7z+S6BlJtZP8GfZxWkckW+/3aB
-         pnFKE3BfGbNTVYiBnte/RdxrYU3iuRVXrte82tTDU5GlIIMKgBV5tXZsmPE3XpUuD+U/
-         TrpECEPKsdz/6oAvX2cQb6FdM2aiBOuZn2pZQ29Kn2cR3/cuDCDvTZoqwQM5gnIVMXc5
-         Zb/Q==
-X-Forwarded-Encrypted: i=1; AKwUvBw/v/35aK7qBmxo1lk575+C5fpLdZo4k0nlCo9bp2e8oPCoxvLlLdbJXted336bXu9KIOHDqrdsVK9GJdnAA3J6@lists.infradead.org
-X-Gm-Message-State: AFuF++lW4e3FGgIYiE7L3cBMWNSqM7z7XECNerrwWSzAcvHLOPCOcgiE
-	KsypeIGy28y6Btuxksz0UGg1y3kyJyH3nMAunArR78lxvPNG2nyyudVO
-X-Gm-Gg: AYBFou1hRm6NhpopRU736qTN0nE5tLbE1HtkgcsdTFx/1o0LJsR0q/OGDaSd7AKyhOQ
-	QYw1Bjksv7VCctsGN4H9tzgWwqQVFLNRVZFjaso2aesjG2jq5TghabeI0EwHQO91BVencCOF/1l
-	vUVsg7wPXbiMiquJyiKxoZ9fRBW+nnJSocMx9ugzA7bIS1/ZJ+4sNduUKbHaBJs2skRWP0jIB0F
-	FwyRjpXdTwOWkByyIKa0tRr2ffyL5b6IyzL7eUfpYd94G9yz8Dc83oqGfXARFVMrjHBNWRoRhfv
-	/g2N4FG6keMHXqcn4+e/cpPfHto68T2e0i1kZWDiT9PHRyAWb+0jBJEKK1RNanUSN+flFh45Zvy
-	NXnqH0ULO6hCSiX+PESbkbJNjBCA+ykrGUgVT5e+3av/YDtqqOE3Pd00RJ/IdgzszbXHt+Ce8L3
-	8KLPeDOV+BwIky82j9fre2uxMoPqBrbxboZowVcOJW/iIE9wnZaBklBlFILUs3cXVq5eNl
-X-Received: by 2002:a17:903:234e:b0:2dc:fcfc:bdeb with SMTP id d9443c01a7336-2df69d3649amr4211185ad.22.1790107512560;
-        Tue, 22 Sep 2026 13:05:12 -0700 (PDT)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a5eea15sm654515ad.64.2026.09.22.13.05.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 13:05:11 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v10 11/11] MAINTAINERS: add entry for Rockchip XPCS driver
-Date: Wed, 23 Sep 2026 04:03:35 +0800
-Message-ID: <20260922200336.2201212-12-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260922200336.2201212-1-coiaprant@gmail.com>
-References: <20260922200336.2201212-1-coiaprant@gmail.com>
+	Tue, 22 Sep 2026 20:20:24 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-3998.prod.antispam.mailspamprotection.com; s=arckey; t=1790108422;
+	 b=Zn4d+Is0F2rxVb4j28TLhz1sqEHz8gzEikrHVmb1zcStY/2hLKV5gz6NPleVZ7WtwCbvjGFntm
+	  4h8ucvW4KH+QRreDoj+v3/XQVa16dCkKpGI8UjZk+rChFYQzPeje4utQtrxsbBHdj3I6/CXl4Y
+	  VpgD4B4sBm5S2SUalyf6ihfWY8vDOohJIlWvbJMB1Nsfo/za0BKNzxkvnw6GpjPX/SEeRiCMQ9
+	  vfEmxYcjNaXpuUwINWvkX6LoogIVUnzpajtRnCAh+7XYxl5Fk4YOLZQR7sRvTozDYiMy/pkSx1
+	  dNT5cTN7TKs2Be17/J3MfPFjo3zsP5xginbvAKdUscVfPg==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-3998.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-3998.prod.antispam.mailspamprotection.com; s=arckey; t=1790108422;
+	bh=0WVIKbcOsdwoXz5omIyem/bJ7sFg+LvjnvYwgCd83rQ=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=q94IeHiMRD4rl7VjiG+qPCUpVyJvdOSMFiF27CybP2YRz8Ob29BvgYuTL9/3FlIbhQmP27HsBw
+	  7kLb8QCgSnBgzmrrstZCTuPdaHO8ZvgJsFzP+mJ1hjkbi249xlfdyktkl1gqJJftOOQ/Gc+/GH
+	  cEZOAH9P1vLrqYvqHk0C1+VsHn2iNTERdabGjC7FnaubeJ3tdYvr6lD/3C+gamm7T0OOQ408+s
+	  0iRFe+6T3TS6hZhnC0z+21N9+QkDjIBndog7kKbOek9TKZRhsfX3FLlBCnuyedXYeSbqCFgad2
+	  6KAgJphgcFVPgpzXo0+E0b/WlY+asuPAd6pLVZzN89fnfA==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=eKnrLV23HgV/Tt/v6XD8WD1ByL0WlpYBpZXbv5lCaho=; b=HmhuUkQPF09qsKDCEqFsb+DBJp
+	g0Fl0IaMMrqGLPYfWJl0szj9/sqYuEvnzTXgx088shgjSsv53L+eryazovVl99HH7T2E0Kty1UjvG
+	m//+KaYNxHA8Rvcu91mTgCw9wl1XPGXctLfGBROkaI6clIuj5d9rkOPlPivTyZeI8i2k=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-3998.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <francesco@valla.it>)
+	id 1x96yP-0000000DwSL-3uXx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 20:20:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=eKnrLV23HgV/Tt/v6XD8WD1ByL0WlpYBpZXbv5lCaho=; b=EpfMWehEBuPf3r4MM/IaAgqfdL
+	vt5NbMHtSb89q+lrYJjXn+wXkZtPuUlklXIMYNDeID8m8kSGbs0RtfVQm5Fvy/JydWJpS6pmLQpUY
+	0UQBM3zyxD3O9XzFYG+D5rR24UPr2Wxf5g2AY0BoWJIIicCE4puC96gknCoAF51ur4Wk=;
+Received: from [79.43.46.244] (port=63142 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <francesco@valla.it>)
+	id 1x96xy-00000000NML-2uZM;
+	Tue, 22 Sep 2026 20:19:50 +0000
+Date: Tue, 22 Sep 2026 22:19:48 +0200
+From: Francesco Valla <francesco@valla.it>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 12/12] PoC: arm64: dts: imx93-11x11-frdm: add
+ multiple vdevs
+Message-ID: <arLawAw6kgFT2e0W@bywater>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-12-dac8c5eb4aa9@valla.it>
+ <arKiOCGrWAKyc-bc@p14s>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arKiOCGrWAKyc-bc@p14s>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: acb24d77a813b580ff65bc9652b10c49
+X-AntiAbuse: ID - acb24d77a813b580ff65bc9652b10c49
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1x96yP-0000000DwSL-3uXx-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-3998.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_130513_366777_11646195 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260922_132022_611773_B6C7C78B 
+X-CRM114-Status: GOOD (  30.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +132,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for the Rockchip RK3568 XPCS platform driver
-and its device tree binding.
+On Tue, Sep 22, 2026 at 09:43:52AM -0600, Mathieu Poirier wrote:
+> On Wed, Sep 16, 2026 at 11:10:57PM +0200, Francesco Valla wrote:
+> > Add rings for multiple vdevs, as well as the required virtio nodes for
+> > I2C, SPI and GPIO functionalities. On top of that, add example
+> > peripherals using all of them.
+> > 
+> > NOTE: this is a Proof-Of-Concept, not meant to be integrated!
+> > 
+> > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 128 +++++++++++++++++++--
+> >  1 file changed, 119 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > index bd14ba28690c..dfa3b122ac5f 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > @@ -53,6 +53,32 @@ button-k3 {
+> >  		};
+> >  	};
+> >  
+> > +	gpio-keys-virtio {
+> > +		compatible = "gpio-keys-polled";
+> > +		poll-interval = <100>;
+> > +
+> > +		button-v1 {
+> > +			label = "Button V1";
+> > +			linux,code = <BTN_3>;
+> > +			gpios = <&v_gpio 23 GPIO_ACTIVE_LOW>;
+> > +		};
+> > +
+> > +		button-v2 {
+> > +			label = "Button V2";
+> > +			linux,code = <BTN_4>;
+> > +			gpios = <&v_gpio 24 GPIO_ACTIVE_LOW>;
+> > +		};
+> > +	};
+> > +
+> > +	leds {
+> > +		compatible = "gpio-leds";
+> > +
+> > +		led {
+> > +			gpios = <&v_gpio 18 GPIO_ACTIVE_HIGH>;
+> > +			label = "LED V";
+> > +		};
+> > +	};
+> > +
+> >  	reg_usdhc2_vmmc: regulator-usdhc2 {
+> >  		compatible = "regulator-fixed";
+> >  		off-on-delay-us = <12000>;
+> > @@ -89,11 +115,6 @@ linux,cma {
+> >  			linux,cma-default;
+> >  		};
+> >  
+> > -		rsc_table: rsc-table@2021e000 {
+> > -			reg = <0 0x2021e000 0 0x1000>;
+> > -			no-map;
+> > -		};
+> > -
+> 
+> Why is the resource table removed?  There is no mention of that in the
+> changelog...
+>
 
-Include the relevant mailing lists (netdev and linux-rockchip) so that
-future patches are properly distributed.
+You are obviously right, the commit message here should have been a
+poem, not a form of hermetic poetry. My bad.
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+The resource table here is causing problems with how Zephyr is managing
+it at its side. If it is kept in a separate memory location and copied
+there at runtime by the remote processor firmware during its startup
+(which is the current Zephyr behavior), then there might be a race
+condition when the aforesaid firmware is loaded and started by Linux
+*and* at least one of the vdev drivers (here including rpmsg_bus) is
+built-in. In this case, the copy of the resource table done by the
+remote processor might - depending on the async execution of the two
+processors - overwrite the status bit set by the Linux driver:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cc3cae2e378b3..085589b8ba65e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23740,6 +23740,15 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/sound/rockchip,rk3576-sai.yaml
- F:	sound/soc/rockchip/rockchip_sai.*
- 
-+ROCKCHIP XPCS DRIVER
-+M:	Coia Prant <coiaprant@gmail.com>
-+L:	netdev@vger.kernel.org
-+L:	linux-rockchip@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
-+F:	drivers/net/pcs/pcs-xpcs-rk.c
-+F:	include/linux/pcs/pcs-xpcs-rk.h
-+
- ROCKER DRIVER
- M:	Jiri Pirko <jiri@resnulli.us>
- L:	netdev@vger.kernel.org
--- 
-2.47.3
+  Firmware load and startup (echo start > /sys/.../state)
+                           |
+			   |
+			   V
+  The vdev devices get registered (by register_virtio_device())
+                           |
+			   |
+			   V
+  If a driver is built-in, it probes and sets the vdev status
+  inside the resource table @rsc-table.
+                           .
+			   . (in the mean time)
+			   .
+  The remote processor starts up and copies the resource table from its
+  dedicated section to @rsc-table.
 
+Depending on the system load and the complexity of the firmware, the two
+operations can happen in whatever sequence, causing a race condition.
+
+This is somewhat masked if vdev drivers are built as modules, as the
+devices does not probe immediately but only after the modules have been
+loaded, giving the remote processor time to start. Note that this is not
+a solution! but a workaround.
+
+If the rsc-table node is not there, the startup logic falls back to the
+classic rproc_elf_find_loaded_rsc_table().
+
+This is specific to i.MX platforms [1] and is probably not normally an
+issue because - as stated in [1] - the offical SDK from NXP seems not
+to check the status inside the resource table.
+
+> >  		vdev0vring0: vdev0vring0@a4000000 {
+> >  			reg = <0 0xa4000000 0 0x8000>;
+> >  			no-map;
+> > @@ -105,12 +126,42 @@ vdev0vring1: vdev0vring1@a4008000 {
+> >  		};
+> >  
+> >  		vdev1vring0: vdev1vring0@a4010000 {
+> > -			reg = <0 0xa4010000 0 0x8000>;
+> > +			reg = <0 0xa4010000 0 0x1000>;
+> > +			no-map;
+> > +		};
+> > +
+> > +		vdev2vring0: vdev2vring0@a4011000 {
+> > +			reg = <0 0xa4011000 0 0x2000>;
+> > +			no-map;
+> > +		};
+> > +
+> > +		vdev2vring1: vdev2vring1@a4013000 {
+> > +			reg = <0 0xa4013000 0 0x2000>;
+> > +			no-map;
+> > +		};
+> > +
+> > +		vdev3vring0: vdev3vring0@a4015000 {
+> > +			reg = <0 0xa4015000 0 0x2000>;
+> > +			no-map;
+> > +		};
+> > +
+> > +		vdev4vring0: vdev4vring0@a4017000 {
+> > +			reg = <0 0xa4017000 0 0x4000>;
+> > +			no-map;
+> > +		};
+> > +
+> > +		vdev5vring0: vdev5vring0@a401B000 {
+> > +			reg = <0 0xa401B000 0 0x2000>;
+> > +			no-map;
+> > +		};
+> > +
+> > +		vdev5vring1: vdev5vring1@a401D000 {
+> > +			reg = <0 0xa401D000 0 0x2000>;
+> >  			no-map;
+> >  		};
+> >  
+> > -		vdev1vring1: vdev1vring1@a4018000 {
+> > -			reg = <0 0xa4018000 0 0x8000>;
+> > +		vdev5vring2: vdev5vring2@a401F000 {
+> > +			reg = <0 0xa401F000 0 0x1000>;
+> >  			no-map;
+> >  		};
+> >  
+> > @@ -149,8 +200,67 @@ &cm33 {
+> >  		 <&mu1 3 1>;
+> >  	mbox-names = "tx", "rx", "rxdb";
+> >  	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+> > -			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+> > +			<&vdev1vring0>, <&vdev2vring0>, <&vdev2vring1>,
+> > +			<&vdev3vring0>, <&vdev4vring0>,
+> > +			<&vdev5vring0>, <&vdev5vring1>, <&vdev5vring2>;
+> 
+> Who is using vdev5 vrings?  
+> 
+
+Another thing that should have been in the commit message. Vdevs are
+defined, in the Zephyr application I am using as PoC, as follows:
+
+ - vdev0: RPMSG (tx and rx vrings)
+ - vdev1: entropy (single request vring)
+ - vdev2: GPIO (request and event vrings)
+ - vdev3: I2C (single request vring)
+ - vdev4: SPI (single request vring)
+ - vdev5: CAN (tx, rx and control vrings)
+
+vdev5 is not represented inside the devicetree because the can-virtio
+driver registers a single CAN network device and has thus no need for
+such representation.
+
+> >  	status = "okay";
+> > +
+> > +	virtio {
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +
+> > +		vdev@2 {
+> > +			reg = <2>;
+> > +
+> > +			v_gpio: gpio {
+> > +				compatible = "virtio,device29";
+> > +				gpio-controller;
+> > +				#gpio-cells = <2>;
+> > +				interrupt-controller;
+> > +				#interrupt-cells = <2>;
+> > +			};
+> > +		};
+> > +
+> > +		vdev@3 {
+> > +			reg = <3>;
+> > +
+> > +			i2c {
+> > +				compatible = "virtio,device22";
+> > +				#address-cells = <1>;
+> > +				#size-cells = <0>;
+> > +
+> > +				eeprom@50 {
+> > +					compatible = "atmel,24c1025";
+> > +					reg = <0x50>;
+> > +				};
+> > +			};
+> > +		};
+> > +
+> > +		vdev@4 {
+> > +			reg = <4>;
+> > +
+> > +			spi {
+> > +				compatible = "virtio,device2d";
+> > +				#address-cells = <1>;
+> > +				#size-cells = <0>;
+> > +
+> > +				sram@0 {
+> > +					compatible = "microchip,mchp23k256";
+> > +					reg = <0>;
+> > +					spi-max-frequency = <20000000>;
+> > +				};
+> > +
+> > +				lcd@1 {
+> > +					compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+> > +					reg = <1>;
+> > +					spi-max-frequency = <10000000>;
+> > +					dc-gpios = <&v_gpio 21 GPIO_ACTIVE_HIGH>;
+> > +					reset-gpios = <&v_gpio 20 GPIO_ACTIVE_HIGH>;
+> > +					rotation = <90>;
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> >  };
+> >  
+> >  &eqos {
+> > 
+> > -- 
+> > 2.55.0
+> >
+
+Thank you!
+
+Regards,
+Francesco
+
+
+[1] https://lore.kernel.org/all/20240719-imx_rproc-v2-2-10d0268c7eb1@nxp.com/
 
