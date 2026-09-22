@@ -4,120 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5BDC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45284C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1N06q9Iqt+n0HPR6BLN3adBn216qx/G71jg+AxnkRRA=; b=oV+culqmkTjqezAFBABanoGWO0
-	5od8MFn4rndbvoLDs2nCGnWqC6uzq9eFAdM1GBhEqRhJYlcjm7DW9oTkoQMxx3u3f77SDgivZ/SbD
-	tznH45fLPsYtSL8+OgbCve5KYfgng1RNXidd3nm/1rj1yX8li/m+eUfZx1t7Ij6+lFmanHsiiolp+
-	hkqdsYXE1ShZFbNXDT90EUz4lw2x0gR0Arxnt+QhZ/OrdwS/F/1R3hzxW5IdVjA6N/t7LLanajvb5
-	Jc4nKMgB1amfNzZbMGkZxRuMpWLN9CuJYhsGzKd0MFkEpEHkVr+ZXky7mDNQ+iEGH7WmDjNbYhNvB
-	H0+AP8Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fKq8Pd+IrYIhmTfjiXM0xc9evQeYupJSgiTwqknNByo=; b=pBYmv+/ZPdeHElOmCD6lMAF0qi
+	tjXoAd5lIVxTBmtEhAB3cRsg0wHtGtH+3r3sO6iVuAAGjSs3SuorqAfie6hKrppLOSa4qsKABCVMr
+	Qiexi26/auwow9gld/Mc8Usp2y4dXBsh3JL5brwjO+9T/koa3gMWQ9fGFrt109u+/tKGjuyrXQdGT
+	HesWtkZB+NEHPse3Mu7Do9Nmx1Jt7S2TbR+D+hlnib4Eqwph8zodrpK0S+f72BwIdPLhzGg93SIDs
+	ajlZ+gX5wo1BgZeoqtzwaqtu1ZoS5b9Gx3eDhSZfa8CnmhQjdVTGVJEQdH6AGKUoEs3iuVUobRuYF
+	FzcjBEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8u5R-00000004LeL-0wvd;
-	Tue, 22 Sep 2026 06:34:41 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.6])
+	id 1x8uCW-00000004MCO-17hd;
+	Tue, 22 Sep 2026 06:42:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8u5L-00000004LdU-2mKz
+	id 1x8uCS-00000004MBx-2AeE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 06:34:37 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com; s=arckey; t=1790058875;
-	 b=Qpchecr0cZSSGtoc0vk3L55wo4MKuiCtmT34cqORrDN5Gt0godpNUvuPrsvvmjUXxzeqM0DrGJ
-	  JrMn6iZM2weWbwCcIINd3hWnLRc2jjrI2OU3xuQZyJeqkgw3c/EHYyoDixOLkwaP7moC0pIkVU
-	  5uD/pakJ5wwbSYI7q+gtpOZHLIHZRgw3FDe8do5+Ft55HKDAHhZADt82fyJCTT5CySUyH8HCSR
-	  WFcjSjH9SEFePIkfkzUnySmFV5PaXQQdXwZSQh1m3Djtn8QSCx91igmFUPMz3DFn/y12qRt/5D
-	  uXOgItq7pEcYBhbdIanDUyC5v6cRQ13Ly/dy/12VadGwag==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com; s=arckey; t=1790058875;
-	bh=KRF7mzrEcefx2cCAz6FPvzYQT9GQwppHdJJE1JW4tjU=;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	  From:Date:DKIM-Signature:DKIM-Signature;
-	b=CuvN+1wq71+VlrcDCRhz3dtYJnb9qoBv6fMQKwOrDRNvC10AcNEDW6RJZ3HlQFbHPNP300mAwE
-	  7rzGnd4dE3hVU9jG6KX9Wy2fZdb6hC22uNN34sIel2/jKMK5WNdrMki7+3XzvhTVuYftMst8L1
-	  jNlGPD/TDPFREQuPdHgV/Yw4yrzqqrIll2W23ueh23Kbruga8RJeIzW1Mf2pOAQacm3YVzuKin
-	  zezEFER61IwwBuFZXIGZkLkkwk5Pza+ublciAT/TOBpmWXFa2IVNbV7gIZ2KWVs/hf3a/c/Zjn
-	  eSWwqUcBCTOQHZJTY/2CZNzEww41wmm/Lk7BjyPc+/CmJA==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	List-Unsubscribe:Content-Transfer-Encoding;
-	bh=1N06q9Iqt+n0HPR6BLN3adBn216qx/G71jg+AxnkRRA=; b=DGp/npwUY1WAxkrCPfDosG/grM
-	XqKMEuI9UL+IVBVN5mN0bMo8ay3r07+F69Eo3/8rjW54G7h9WKgicNP2m+wSkwDQ01KznSq2u38vG
-	vJGPI8aREF6gIxTxOH/4QSR+XtUpx+Y54wsygKVcCfoBo4RSxjEWiHZ88r3rplnjSqd4=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <francesco@valla.it>)
-	id 1x8u54-0000000HBVx-3jUT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 06:34:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=1N06q9Iqt+n0HPR6BLN3adBn216qx/G71jg+AxnkRRA=; b=HEhwwlRP3qLm1x3BiOx6/yErcr
-	96L28DUv90dLTh0ICYZlv0l89z1LKoBL2EJReSJMV5nKubxJKxfixgaZ7M87PYUyWr0yZowCyQJpI
-	IW7lUfbEyr5lOpT1TxOKPf4g6mfNdBq1FffppbX4hO7MlJiY+VMQr+iNf6j8+PILWI0Y=;
-Received: from [79.43.46.244] (port=60174 helo=bywater)
-	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <francesco@valla.it>)
-	id 1x8u37-00000000JK3-0fLD;
-	Tue, 22 Sep 2026 06:32:17 +0000
-Date: Tue, 22 Sep 2026 08:32:15 +0200
-From: Francesco Valla <francesco@valla.it>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 05/12] remoteproc: always report VIRTIO_F_VERSION_1
- feature
-Message-ID: <arIgI4E5rGXq9H0P@bywater>
-References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <20260916-remoteproc_virtio_map-v1-5-dac8c5eb4aa9@valla.it>
- <arFRqopkkJf7Nlq4@p14s>
+	Tue, 22 Sep 2026 06:41:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A926600CB;
+	Tue, 22 Sep 2026 06:41:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 528831F000FF;
+	Tue, 22 Sep 2026 06:41:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790059315;
+	bh=fKq8Pd+IrYIhmTfjiXM0xc9evQeYupJSgiTwqknNByo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=elvscenEAu6o081RV3og1212GNvhKmyX/daXtm1XcRH2EPQp4bfKtFwkpeVA0Kz0j
+	 HwsTmqS67zyLJFRUF0S34sUltwPk6TpgYMbixF6+dVIDt/7hpvU0q/GtoIof3kH9yf
+	 WUn03LXrmE+WTs9TOF50ohjP0VqCaj9rifYv11G3EfxyYfJJOq8k8a4cc4VYiyVNRc
+	 p8Wu+YxG3CT4IkAXfm258ay+t4ODvk2GRbgs6VVVUDIewzt31s0hMPkbMGC6iqXoHz
+	 NPmerFfeVmzcOhHr4bR8UPBWF9kMAE/5hjOTC5smPk7Wbcw3wCxXm6JvHIK7aDQvBZ
+	 FgXWp/sW/aXhQ==
+From: Sven Peter <sven@kernel.org>
+To: Neal Gompa <neal@gompa.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/13] dt-check-style strict fixes for Apple M3, M3 Pro/Max/Ultra
+Date: Tue, 22 Sep 2026 08:41:35 +0200
+Message-ID: <179005928268.4871.7584482094844751159.b4-ty@b4>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
+References: <20260914-apple-dts-m3-dt-style-check-v2-0-e3e89c33f562@jannau.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arFRqopkkJf7Nlq4@p14s>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 7b3e744fa8054856a496c064f424bb39
-X-AntiAbuse: ID - 7b3e744fa8054856a496c064f424bb39
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1x8u54-0000000HBVx-3jUT-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_233435_752390_DD981680 
-X-CRM114-Status: GOOD (  25.92  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,74 +76,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 09:47:54AM -0600, Mathieu Poirier wrote:
-> On Wed, Sep 16, 2026 at 11:10:50PM +0200, Francesco Valla wrote:
-> > There is currently no way to report the VIRTIO_F_VERSION_1 using the
-> > resource table alone, as the per-vdev feature array is limited to 32
-> > bits.
-> > 
-> > Considering that the VirtIO 1.0 specification is now ~10 years old,
-> > always report the VIRTIO_F_VERSION_1 feature, as some drivers depend on
-> > it.
-> > 
-> > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > ---
-> >  drivers/remoteproc/remoteproc_virtio.c | 10 ++++++----
-> >  1 file changed, 6 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
-> > index 74e0da970f1d..cfd66d9d1c9e 100644
-> > --- a/drivers/remoteproc/remoteproc_virtio.c
-> > +++ b/drivers/remoteproc/remoteproc_virtio.c
-> > @@ -249,7 +249,7 @@ static u64 rproc_virtio_get_features(struct virtio_device *vdev)
-> >  
-> >  	rsc = (void *)rvdev->rproc->table_ptr + rvdev->rsc_offset;
-> >  
-> > -	return rsc->dfeatures;
-> > +	return rsc->dfeatures | (1ULL << VIRTIO_F_VERSION_1);
+On Mon, 14 Sep 2026 10:40:30 +0200, Janne Grunau wrote:
+> Hej,
 > 
-> I understand this.
+> this series fixes most dt-check-style issues in strict strict mode for
+> Apple M3 and M3 Pro, Max and Ultra device trees. These device trees are
+> small so fixing most of the issues helps to check that new additions do
+> not introduce new dt-check-style issues.
 > 
-> >  }
-> >  
-> >  static void rproc_transport_features(struct virtio_device *vdev)
-> > @@ -275,14 +275,16 @@ static int rproc_virtio_finalize_features(struct virtio_device *vdev)
-> >  	/* Give virtio_rproc a chance to accept features. */
-> >  	rproc_transport_features(vdev);
-> >  
-> > -	/* Make sure we don't have any features > 32 bits! */
-> > -	BUG_ON((u32)vdev->features != vdev->features);
-> > +	/* Make sure we don't have any features > 32 bits except VIRTIO_F_VERSION_1 */
-> > +	if (WARN_ON_ONCE((u32)vdev->features !=
-> > +			 (vdev->features & ~(1ULL << VIRTIO_F_VERSION_1))))
-> > +		return -1;
-> 
-> And this.
-> 
-> >  
-> >  	/*
-> >  	 * Remember the finalized features of our vdev, and provide it
-> >  	 * to the remote processor once it is powered on.
-> >  	 */
-> > -	rsc->gfeatures = vdev->features;
-> > +	rsc->gfeatures = vdev->features & ~(1ULL << VIRTIO_F_VERSION_1);
-> >  
-> 
-> But I'm having trouble with this one.  
-> 
-> First bit 32 of vdev->features gets cleared and then bit 0 to 31 are assigned to
-> rsc->gfeatures.  Why bother with clearing bit 32?
->
+> [...]
 
-Bits > 31 gets silently dropped because rsc->gfeatures is a u32; this
-was inserted to explicitly drop the flag that has been inserted before
-and avoid the "silently". It has no real funtional impact and can be
-safely dropped.
+Applied to git@github.com:AsahiLinux/linux.git (apple-soc/dt-7.4), thanks!
 
-> >  	return 0;
-> >  }
-> > 
-> > -- 
-> > 2.55.0
-> > 
+[01/13] arm64: dts: apple: t603x: Fix all blank line dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/eaec5e1207c1
+[02/13] arm64: dts: apple: t8122: Fix blank line related dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/aca5ce9bfb0a
+[03/13] arm64: dts: apple: t603x: Fix child-name-order dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/c7513cd44e08
+[04/13] arm64: dts: apple: t8122: Fix child-name-order dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/29cf25245028
+[05/13] arm64: dts: apple: t8122: Fix child-address-order dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/2448980d56e5
+[06/13] arm64: dts: apple: t6031: Fix continuation alignment
+        https://github.com/AsahiLinux/linux/commit/030d45664eb6
+[07/13] arm64: dts: apple: t8122: Fix continuation alignment
+        https://github.com/AsahiLinux/linux/commit/14ed3757881a
+[08/13] arm64: dts: apple: t6030: Fix most property-order dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/bd48cf6ef754
+[09/13] arm64: dts: apple: t603[12]: Fix most property-order dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/d9ac2af8714b
+[10/13] arm64: dts: apple: t8122: Fix most property-order dt-check-style issues
+        https://github.com/AsahiLinux/linux/commit/8578146c48d9
+[11/13] arm64: dts: apple: t6032-j575d: Remove unused "framebuffer0" label
+        https://github.com/AsahiLinux/linux/commit/be0bd5b0d880
+[12/13] arm64: dts: apple: t603x: Break overly long lines
+        https://github.com/AsahiLinux/linux/commit/d8f5ecdd7712
+[13/13] arm64: dts: apple: t8122: Break overly long lines
+        https://github.com/AsahiLinux/linux/commit/6b49aa53f416
+
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
+
 
