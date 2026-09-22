@@ -4,56 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D54C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11CEC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1uzJEWCuEihIVg1G0qTrtMfOkB5irmZnb+n7xMYoe4=; b=b08fhR70SBYkdoQQ3cSadUaAe6
-	+KeA+A/yLgttdbuS5yZqb6hV7Zk3PPiw1WiRAIefdCkHcZapQOT0Qd6Ku17TdKsv0b10uF47er2w0
-	f7e2+LQTvd1E3KAaaTRuT7IM27uTrugVNJlX41SegbkGSF5o0/HK0BNvDukgu3IZJcO0ofVKacyLw
-	WGRJjieAgSiFwRyrwo3kRokVr0sx4/PZDA2zL7QqwdLgwNNRX1Ii0mylW+3bX0JSp5w4Y0MIUxu+8
-	P1KNWVfBwy118UrDns6k4aiZwHJffyeyNY02MjTjc+2xHBafTZz1NzJ8mQWlwyCyMmk6je0sgsxqQ
-	hW/4A2ig==;
+	bh=CcEmOegIQstPE4tx/39/EBfjM/ApKso1D+9TEGy2Uyk=; b=BlBrBvJ2Mq54uwqRvNywaoWXs5
+	Zjk+cCA/GPjnc49sNmx4zbo7ktonjQUgtlOUgo5ZLdvXxf2nRRGkiUovYDcFC3zRpTIOVZq4WnJAT
+	7cNB4c0E6Z7+RDOwU0YqsNoZNlxfAnYeZZcx1aPjgUUdLgrujQ/SNA5IXSnpgXhQ79ERgpbfrJD1m
+	EQJ5D5+MiLXZdG1p/LGjsorpGatV1UiSaFvKRPyYyRmT/1l+WXtEgT28Gn43owU1L3RzhWqnfnOyu
+	dsrnI9wEnAs8ZCTI7eruX4UFzuqIjuVzFO5JbnA/tXP0ttHTS4klo5rradEL16Ll45aDkp7cjz/j4
+	CS0Cu7yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9146-00000005ckZ-1vAK;
-	Tue, 22 Sep 2026 14:01:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9144-00000005ck9-2SG1
+	id 1x91Bp-00000005dU3-17tM;
+	Tue, 22 Sep 2026 14:09:45 +0000
+Received: from mail-francesouthazon11011007.outbound.protection.outlook.com ([40.107.130.7] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x91Bn-00000005dTh-0Myx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:01:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 127A91570;
-	Tue, 22 Sep 2026 07:01:38 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 864723F86F;
-	Tue, 22 Sep 2026 07:01:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790085701; bh=kQrht+5sI9bASKFlgpONBOF4Z/HtyTurJ4XjvrOEmpA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rs8NKWS15R7YDJBqLdcql2VJ8gnH2hZtsm3BC9gVnm5NqpVaHL049U42TsDGlCToN
-	 Xk1jKhjiibZToljgHzBtgaw6dhPmL4WtsEyWV4J3xygPezkGvHi7j8sQj6Zp+8uqoX
-	 LMEhl4/fm57xGK74ixP6dYwvETofqqR+oHzt11Tg=
-Date: Tue, 22 Sep 2026 15:01:37 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 21/21] arm64: Rename 'overflow_stack' and
- OVERFLOW_STACK_SIZE
-Message-ID: <arKKQe9bVo7_HC0d@arm.com>
-References: <20260918161407.2300-1-will@kernel.org>
- <20260918161407.2300-22-will@kernel.org>
-MIME-Version: 1.0
+	Tue, 22 Sep 2026 14:09:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oAUUQLPcxZlSd2Mfc/wSO17+HW56P/FTYRIRgmpIZxcgjitLLlA2fxaQfoI1a/LgeIqHaoYJOsB3/8il2EsA2GF3ibzF8p0L+kP53h/xDq5XpWQnxLmnIq8efkEC5gBWfDlDPtz35qRqUpHZcQaMkFlANrp1JfCe4PlT/omKok3LE2JmgGWE3RRZZTv0f79VgY1KJ0yFOl/lPmAXMg3vZXNJ580laA8I49lHNPc+5+5TtbKFeuEP9VbfbxQX/dRrPaLc3Oc0rqIzf0nlQ2VhsHl/K2rgSHPM9ptowIfuDmDEkwpg/2Mc5UZFQm5NG1NrguMvLM7JytYhYMRUGnN2ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CcEmOegIQstPE4tx/39/EBfjM/ApKso1D+9TEGy2Uyk=;
+ b=A6AtLZ8n33bsq+kHdab1G1klGV2v/Cy2vDPhMrjN9ziOAFOlWHJ3o2eKOxlay3PDIBEfG6x1BSHhALKja9dM3oQFfIhyAa/E/XY7b27eWRMjCLTU4/ZQnz11rxMqIZxkS12V9qYfDBUGr7ew8d7VdeMb6nBrx+CkyqNOcDDa+N696zM74KDUlNd0bXEdUstfnKLLJ2fBD7paedf3SPZfHmFHJTwG8MKo8owltjHmPh6dv5OnUtT4IFcm8/uYt0ewJUhRaKaeaAfnSH7ScKmLe8fTlxWn9S2/pnRrgbnC4lFDShz4XSGDqfa3QaYZnQdxhUAopudV07QxEcoUaT10vA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CcEmOegIQstPE4tx/39/EBfjM/ApKso1D+9TEGy2Uyk=;
+ b=U2M6NdbDo+/KGGn/gBmAnNsO6IjNHYBMRDaZWAkugLbLxFaY80JoF96FSXl9qb2/C7Bj69UtRYhlanTzXRijrOGH/+/vozs9mC/IMr2yByXWAXIbIqvEIVgrBzeTqe17icJW9GeE/RzgmT9AR3E3/+tyzO5wsCrtThzQcOmLbZc9J9iy4GQKOtvmsBzOGrV8lUkWJvBC9vVTZzozC6uC0A6ahnxHCx1GdtZYhXstFDuyo2QMxiuSVKQX0arIdgYcWmlsxVbV45MD/NIh0xKvuw2bNl6m+L2orwgbntYF0m2YXjN9QCjYLYD9mIFQqWHm0/HSGpXQ3Oz6zTYruUmEiA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by OSKPR04MB11343.eurprd04.prod.outlook.com (2603:10a6:e10:95::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Tue, 22 Sep
+ 2026 14:09:36 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
+ 14:09:35 +0000
+Date: Tue, 22 Sep 2026 22:13:56 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
+	jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	peng.fan@nxp.com
+Subject: Re: [PATCH RFC v2 2/4] iommu/arm-smmu-v3: Support shared SIDs in
+ insert/remove_master
+Message-ID: <arKNJH2YWQT9KL7x@shlinux89>
+References: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
+ <20260921123846.1663580-1-peng.fan@oss.nxp.com>
+ <arG6hmng3NddGEHm@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260918161407.2300-22-will@kernel.org>
+In-Reply-To: <arG6hmng3NddGEHm@nvidia.com>
+X-ClientProxiedBy: MA0PR01CA0107.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::15) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|OSKPR04MB11343:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8fa7ecef-ce9f-4288-9faa-08df18b321c5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|23010399003|18002099003|22082099003|11063799006|10067099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: dnJarWEIPb6WwQse465wJ2dG253u/uUOjNWr61WHuv7MNkkPnaJyjdCV07b53w6q2q25RTvzITNt90ZB1MkZ4Y2AnAvzWOOmqkKTEBlkvw4+r+qyGaM49f7ZzmqRPAST1IqqgBhrQBBDyM392mdbFAuoTbUK6jvTmsR3P/xj60hGFhFiF/Eciwrg1PwTIYDUZifvTTnXxlYCxN7YcNmYJN2CaWO6dPlCByq6b17j2sTNYJpXAOGcJxHqsSRe0Tg0CGA74tMgjpPH8X2JEmjGsqvjvl+rEW4GLfxpG2iEcCNgFlY6EkD6Uoz5UcFZKkxGN4xjfMV/5TYoAaemAnWM3ObnYb60X3SEcYSOWD8xlfNphX/Usi9W8Zwsv2wMYgugfzmSgtVn3FtKkAgo9+2lc5dBQivnU1GgQ6s8iW3ux6VJ81+Q79i1sPVQ+7G0F97VQ4iXK5ybhnTITNrBP5GibPf4W7mwdaYo4lRyq1a03GfA8FqsxCgHchsyWpD05t7PN9i1HORgep62iqu6dDjy4aRnNf0/tNJd7B6ueKQUrghLEqxBkuJPvA/7XDhLx3an+sFW5fArjpNlv1bBkAtp8lGaEIwp4P4bYpC+pDB+FgvWa/V/xWIKmGyiDlMLS6FJw5+/CZ11OTInt0lRbzj2tb6G1GPiSnDKw0Hs/CNxQQo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(11063799006)(10067099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PfAc2O04aeG6ILpWQ38Abjug64jJC7nqaLND5UUltwhZ9PRcUj4YzXwwtnK0?=
+ =?us-ascii?Q?AE6n6lBFg6twKd4QTiQrh4AyCKrHo9Jl8OBjB281E1ePAm641H1oz2ChKi+E?=
+ =?us-ascii?Q?ZIbvR092dXbRoYrt1QSgA44XJfa6QbwYEYRjPeRZL9ZmvU0pYk7sxXXiYlPJ?=
+ =?us-ascii?Q?3jHeHlONyzcNcYNh/IO7S0CDINQcp2QETDv0atagLeTB9zhIiiZnYlM9RT5g?=
+ =?us-ascii?Q?aZWA1RMA3h4yJ9P68exuoJi0jiqo3hbcNS0nqUg1vwl4StbI8gYErK/4cFUS?=
+ =?us-ascii?Q?5D15aaGHX0vAyDULySjZSYkX1KEbGlcmMzttL/Fk6PqF448Pmz2VzarsY69v?=
+ =?us-ascii?Q?7JMtNWzt5StGsL/ZvI4lyQEhn5gH5qw9W8MhqM3QGfujisY7IllVrumfR8VS?=
+ =?us-ascii?Q?YqvrxYXXOaa5IpJ5xSgbCqsYO4jkyHAyGQpo/3tDsYfjzjB/eC6uIQov3UTp?=
+ =?us-ascii?Q?bmp7Ab9osBQbJ5bmjFRtq7d96lowl77Y1zbNERC5fMmYpGx4ZqPG4qxYumXx?=
+ =?us-ascii?Q?9sUAFzj+KeCvM81KN0eUFoEAENSZhpcgylEYIe7em5wvSiSL+CjPBnFoncKK?=
+ =?us-ascii?Q?25cMnyl6PqXMYxjV109ZDfT4C5/XYhh3gEP42VL+r8vMCiQ4iVOap8FejoWv?=
+ =?us-ascii?Q?wXNt1OavOGJdLMXTMVA5s2nS17cDIUh14Z63d+mR9Wani/2WcLK+j+G65n5T?=
+ =?us-ascii?Q?0gEgIHtoVDkJ/FbBGyl9i7uhm7eANGx4+f14ebMe/O0TSRQbUxTPvQ4uiKk4?=
+ =?us-ascii?Q?rXhKqCyBqVgYbEyJ2Vt1rjI2V3WMRrdapqmpcmYTIA1u164KCNpx/TAoxrdg?=
+ =?us-ascii?Q?3bSGBn3biyoGcTZPkodzqfd1jYQl+qpTPD9Eus4kgX0NmFaNK/JtcZfokZ+X?=
+ =?us-ascii?Q?dSA6KBf5AFiV9oStChOPQIMQ153WZEU99BjGHigV9mDXLdWat+XIy0XP9OJI?=
+ =?us-ascii?Q?KRmb3tfoavxGtZCXsSZHsWTTX4xjEpb8embkMv3SgG9MyBW4u/479Ux47VtL?=
+ =?us-ascii?Q?1DTKb8y8YmLe00um6aYLM6aQSX/CvESSEHPJJzsdoEiov0EvbZkBfcSK83s6?=
+ =?us-ascii?Q?tfr7tjMkVXjb1Xi5BhEnSh2x2QVeaiZ4+QVCq1FVsXtzZzpP7Pcp6og4xiJr?=
+ =?us-ascii?Q?jRbRbj91VhQnltz4GIi6pjOs9RSQwOqNEz1t8U2cEYUiFkHTBfjl9DoDmh1N?=
+ =?us-ascii?Q?ExGi+AxDN2lfGEMra4YgRJltycSm5uLpuC8odjYqfR3L6oTHxCNYLHVU+B2V?=
+ =?us-ascii?Q?dzw0IhCX1wDAlBYNasf8TM5eJ4zBJtaBgdqmPGe48Yrmz+qOAZPoIDxBTv1G?=
+ =?us-ascii?Q?dLTfNE0rWc1aJWUh/e+dCFUn3lVdthYPN5oPvSqHDleBOOrLBiwpZIfgtCx5?=
+ =?us-ascii?Q?bFFrX/YE/qRF+Ys5VyyKkH0KlpxW5mOfYgzDfNBpqXiC9n9f49T4Bf/Fan8H?=
+ =?us-ascii?Q?6Ks+Up9EXzFj74KIXm0QvH3TFL/BP+fCR23E0rNFsll+WmlMKgyj5ohzCzp2?=
+ =?us-ascii?Q?09sH5qinViQnNektNhtaQX3rJedFazryIgq0sGg9/AEnKeiY6KtmX4XpeVMD?=
+ =?us-ascii?Q?VJr61S6ifgD2BX6RchNE8ymCtQAiAYHCfmlJdsCjbBC09RKABfdzT/7Eu9pX?=
+ =?us-ascii?Q?qXeDcpYouVjTHyrh8voUMs+PcHPNmpVilcw/zngaZw/NqPAkGMLMRlHHnHAA?=
+ =?us-ascii?Q?fNA4qmXeArKys5BomCNsBgJuuv30VKOpnKlrg5KPKVwdpgoq9/Evs+M+53gk?=
+ =?us-ascii?Q?c3LSXZvxBL3AS54tCOaVp272t2RW6wC7aIURCCi5p0WsZaGhaZA3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fa7ecef-ce9f-4288-9faa-08df18b321c5
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 14:09:35.6423
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3lJo7gCWHIfm0ta7365ciGUgwPSFia1Bvx81zl4lJEv8E21x/q60nOH+gXL89/8WSs4si+FZjidCLs+ocSUbj0774rEjqSggpwFnZemZTzsqqvjzSXHh+Rf5V4voY8yz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11343
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_070144_668360_5930C36C 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260922_070943_129285_97FB1D32 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,35 +137,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Arnd Bergmann <arnd@arndb.de>, Marc Zyngier <maz@kernel.org>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, Mostafa Saleh <smostafa@google.com>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 05:14:05PM +0100, Will Deacon wrote:
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 9d734cd09f62..7e9b26cf1bdc 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -327,43 +327,43 @@ static void debug_exception_exit(struct pt_regs *regs)
->  }
->  NOKPROBE_SYMBOL(debug_exception_exit);
->  
-> -static void noinstr el1h_64_check_overflow_stack(struct pt_regs *regs)
-> +static void noinstr el1h_64_check_exception_stack(struct pt_regs *regs)
->  {
->  	unsigned long sp = kernel_stack_pointer(regs) - sizeof(*regs);
-> -	unsigned long ovf_stack = (unsigned long)this_cpu_ptr(overflow_stack);
-> +	unsigned long exc_stack = (unsigned long)this_cpu_ptr(kernel_exception_stack);
->  
->  	/*
-> -	 * We're in big trouble if we've overflowed the overflow stack
-> +	 * We're in big trouble if we've overflowed the exception stack
->  	 * so perform a best-effort check before we proceed. If our SP
-> -	 * is outside of the overflow stack for this CPU then presumably
-> +	 * is outside of the exceptoin stack for this CPU then presumably
-			     ^^^^^^^^^
-Nit: "exception"
+On Mon, Sep 21, 2026 at 04:15:18PM -0700, Nicolin Chen wrote:
+>On Mon, Sep 21, 2026 at 08:38:46PM +0800, Peng Fan (OSS) wrote:
+>> @@ -976,6 +976,24 @@ struct arm_smmu_device {
+>>  struct arm_smmu_stream {
+>>  	u32				id;
+>>  	struct arm_smmu_master		*master;
+>> +	/*
+>> +	 * ref_count > 1 means multiple masters share this SID.  Protected by
+>> +	 * smmu->streams_mutex.
+>> +	 */
+>> +	unsigned int			ref_count;
+>> +	/*
+>> +	 * When ref_count > 1 the STE has already been written by the first
+>> +	 * master; subsequent masters must skip the write.
+>> +	 */
+>> +	bool				ste_installed;
+>> +	/*
+>> +	 * Links all arm_smmu_stream objects that share the same SID across
+>> +	 * different masters.  The canonical (XArray-stored) entry is the list
+>> +	 * head; non-owning sharers are linked into it.  Used to transfer
+>> +	 * XArray ownership when the current owner is removed.
+>> +	 * Protected by smmu->streams_mutex.
+>> +	 */
+>> +	struct list_head		shared_link;
+>>  };
+>
+>SID-sharing masters still allocate their own streams. Though the
+>SIDs are the same number, they own duplicated streams linked via
+>that "shared_link" list.
+>
+>  master_a->stream[0] --> stream (SID=X) --|
+>                                      shared_link
+>  master_b->stream[0] --> stream (SID=X) --|
+>
+>But maybe they could share the stream structure directly? I.e.
+>
+>  master_a->stream[0] --|
+>                        |--> shared stream (SID=X)
+>  master_b->stream[0] --|
+>
+>
+>The stream structure would still need a list for shared_masters:
+>
+>struct arm_smmu_stream {
+>[...]
+>	/* Every sharing master, ->master included. Empty unless shared */
+>	struct list_head shared_masters;
+>};
+>
+>ref_count could be simply !list_empty(&stream->shared_masters).
 
--- 
-Catalin
+Agree.
+
+>
+>
+>Does i.MX need to support SID-sharing with multi-SD device? If not,
+>the master could have only a simple shared_masters_elm:
+
+For i.MX, there is no need to support SID sharing for multi-SID device for now.
+Not sure, in future there are cases that needs SID sharing for multi-SID device.
+
+I could update in V3 following your suggestion.
+
+Thanks,
+Peng
+
+>
+>struct arm_smmu_master {
+>[....]
+>	/* Supports num_streams == 1 only. Empty if SID is not shared */
+>	struct list_head shared_masters_elm;
+>};
+>
+>> @@ -1024,6 +1042,11 @@ struct arm_smmu_master {
+>>  	bool				ste_ats_enabled : 1;
+>>  	bool				stall_enabled;
+>>  	bool				ats_always_on;
+>> +	/*
+>> +	 * True when at least one of this master's SIDs is shared with another
+>> +	 * master.  SVA, stall and IOPF are disabled for such masters.
+>> +	 */
+>> +	bool				shared_sid;
+>
+>Then, this could be !list_empty(&master->shared_masters_elm).
+>
+>Nicolin
+>
+>
 
