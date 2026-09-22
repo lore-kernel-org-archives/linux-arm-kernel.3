@@ -4,121 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FA5C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 22:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE388C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 22:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/9BGW/xnK94pJuq2EdJbER8yTbRXmGlKEp6TiS1lsk=; b=ePxty/3lFx5cnBO+31PsFRULiU
-	qFOMn5qqVVYOMHP7pggt0eoW4g0imYyuibDAbem7GplPJQZK1ZqXEO4NYD8xjhhLgmq78yTPoIGXU
-	83dpG3Wfd0T7b0v/818fzrswhc1jCUdJKxvdW3a/nwjtGGV6m6v2Rwgf6Urs3MG3IgRu63UkrHL6D
-	t7ZpaQTJ6c7RrGu7MAptChVD5Ys89kzMyT9YLZGlOCqZnMfm0/Gzckv7VvtXIMV0T0DFHGnZJcP0w
-	2wPhiiNjmBxPI9FGVoOOkUaXbgWnF/bdO1Ou+1BzQYPX9xgHr/IIhtjYUwjizRfMeXJ6d5Wi+PACV
-	HKbXPuXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2xvk7yaRvmx3POKolJ3kCG15kscgZd6Hbrm/vBfl0Qo=; b=3m/G2nBnXeMyfHOnxS8oCMe9Xl
+	t5D6OMj0kU8+et7Ma9TPkrF3Q+FqEe8qNfmxBuObVzQ85wifNAX9dKN+l6bUQONqAe+eVcUV9Tn01
+	FbZH/khgsac2Ut6O12P8lCYIey1yqrhAOzXQq1hcnySuUr+mvWZPmM3MWthKu2D2O2Ivf/H8PcH5s
+	Gs4EEbTkAX+KvFf3/EcKtBfEoanmR2Fzpf3m8hg98VlQAbNajo+GBX9EIIVwZGQ1GwsWcIGcKBMy5
+	5O/1uA+SIgWxNTEx4Xf6ludfWR84wNIkTVA+BpI4ZDFUGtunNYu/9QcTXGezMLWbAh4ICrbw/YUo6
+	Fodob4Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x999J-00000006h3w-1GTU;
-	Tue, 22 Sep 2026 22:39:41 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x99C0-00000006hMV-3Zba;
+	Tue, 22 Sep 2026 22:42:28 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x999H-00000006h3c-0RWB
+	id 1x99Bx-00000006hLz-3zXT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 22:39:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cOeSuYAeJOllcskoJVx17HDD1Iv1HhdRCxMJGo3wueNc2qAzCE7WaFdfMjGUgucIGXEgnRg/w5lIR3G6635xzdoBLsmrDXgDE4rUx4yHvAmtrAoMU0nLmS070bYXozeRYUnpnp/Uo5+6vZ2sekE3ZVDpuuy8h9TBC6GZ/O0T4w9tADQ0Hcby4ga+ougWP7TmltINnWbm9i6+9J61hra/yUPQYESgT5FIBd0dV2aPbKZ22HHa0NqUZrGZABu6eGcec1dJy1EB7oHzMe2EBqehnLzX+5nGiGJiTEUxuM0zQDUg5TKWS7rppRNGdQIkp6E/q1MeM9C26JsfxY7gw25prg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O/9BGW/xnK94pJuq2EdJbER8yTbRXmGlKEp6TiS1lsk=;
- b=c14ytp6eawvNOTyy3cZsUslvXw1BehRMpS/6owsRjikP2fw37ny/oWv8wm5zu+k6BzBZdERgWFQ5HlxmhMaU6AA2qmu3k52zoiQrDVcvUW8qaB5B2WgJuOO8kFcF0IBiKsm3DYeZShnxlQRTHYM2KP1CzNiGMh8i/MqouHIDgVjC0BlixGtdih0acZUZTaZp44C6iHufczBs4BPXHurZQ8sqkk1mr/1Nl9KKXS3Mi27583h8/rTv4DSynePHRO7WrrnRxHddKZ9PbCvaEmVDwamyd1lFCtd/dZdfiLuBuqMLiE+BOlE2oLAjPUMccrZKUmEbtQA5SuxFoi9yeWsJXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O/9BGW/xnK94pJuq2EdJbER8yTbRXmGlKEp6TiS1lsk=;
- b=ONOsVIAT/A3l2BtnjQnQlB52L0aU4KD5sw5v/LqEUT9tbQ7cpAh5G51AH2h7s5f9plhJDzAQ4hw9iYgvnA05l5nijoNd3XqcsRJ6dnLqBdWpcpAkyKeSH8sGOD1MMHJsAMrGuYZOwLvPhAYIj1GfCxIyA8+J4CcDjoTLqELTg3NwhUp4thzgS7kGI1V2JJOQ4va6VPxcGlkfBdFyJC0nmaipxgxWSSfUT6kFIKUCs9hrTKSjexZg2GnQGZH6Ipiiz7AVlkWv+VLQ/wxYkkwQY9k0w/ReIG8GJKfQ7T+7w1p7ilIpK6Q4+471lugXLaGmpXODOZHBNWx8zayqVzHfoQ==
-Received: from CH2PR17CA0019.namprd17.prod.outlook.com (2603:10b6:610:53::29)
- by CY5PR12MB6384.namprd12.prod.outlook.com (2603:10b6:930:3c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Tue, 22 Sep
- 2026 22:39:31 +0000
-Received: from CH2PEPF0000013C.namprd02.prod.outlook.com
- (2603:10b6:610:53:cafe::6c) by CH2PR17CA0019.outlook.office365.com
- (2603:10b6:610:53::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Tue,
- 22 Sep 2026 22:39:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH2PEPF0000013C.mail.protection.outlook.com (10.167.244.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 22:39:31 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 15:39:08 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 15:39:07 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Tue, 22 Sep 2026 15:39:06 -0700
-Date: Tue, 22 Sep 2026 15:39:04 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kvmarm@lists.linux.dev>, <iommu@lists.linux.dev>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <maz@kernel.org>, <oliver.upton@linux.dev>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<joro@8bytes.org>, <jgg@ziepe.ca>, <mark.rutland@arm.com>,
-	<qperret@google.com>, <tabba@google.com>, <vdonnefort@google.com>,
-	<sebastianene@google.com>, <keirf@google.com>, Jean-Philippe Brucker
-	<jean-philippe@linaro.org>
-Subject: Re: [PATCH v8 10/25] iommu/arm-smmu-v3-kvm: Add SMMUv3 driver
-Message-ID: <arMDiPHiMvHVHsBr@nvidia.com>
-References: <20260922131259.2975334-1-smostafa@google.com>
- <20260922131259.2975334-11-smostafa@google.com>
+	Tue, 22 Sep 2026 22:42:27 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68MI7U8d900517
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 22:42:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2xvk7yaRvmx3POKolJ3kCG15kscgZd6Hbrm/vBfl0Qo=; b=my4HTeXumBECvXzV
+	j4c3b7Ko5e6iN9r2j3NaIr1WpIryDMswNKztKULaiH8U/S7ed7WOZ7+wYlE1HGpZ
+	Hjt7hlE+tqLbaKwoCMBzhnekwiW98RiuAjhMEWROURtje/dnsQNi5K9t8cLsfksg
+	OK5dM07a0eZwN2xql6E+x7ZfZEREKFLZPhzP9ZLMIgCam6nPMdqMyypmmVAAAYrv
+	cun2124+4GbE74oUkP+6ObMz39ad7IIGsV7TCdtRhCrD78bkU6Z2gexaPF3J59kR
+	LDm5IvrdJQsW9cIS9LhubQ23adBqpJUs9wuxdR6EaJcni9Eeo5LQzoGg++obw/VM
+	PV28Qg==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gunjyv56b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 22:42:24 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-331b2ec616fso1091624eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 15:42:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790116944; x=1790721744; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=2xvk7yaRvmx3POKolJ3kCG15kscgZd6Hbrm/vBfl0Qo=;
+        b=eYmnQM2gyCVgGeIukDXetZ2XaHND6C9KNQqAcoQ4l5VchmP4/09AP5ol1R9oP53XWA
+         QwpCf9UjQpHCdBS6H1IMOZnTYowBIeUel1WMDlLyNU2WZEAG4Lfd86tNfz9/EHRTAY04
+         zfQY7prEXDrDZZJHQ7vur17w5WK/mOSx7jFh7gplV3qSUsSIK/M8qK3rJcusHsy0JY2N
+         F+dSc+f62xMLrCW4xbGPtoRMEkgmkxsKJt/A6IboRxvW4zFToEB5x7vhNytZrAUDbPt9
+         IDN4u7bojlOnWfbtVdqcIt7WP8iODfiEY2ib76dqrZ9vczEbQ3cehPX2NnA5LykCvTIt
+         xV1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790116944; x=1790721744;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2xvk7yaRvmx3POKolJ3kCG15kscgZd6Hbrm/vBfl0Qo=;
+        b=TtTgEiZZyT6VGtxpHELfn1JokI1Dj42GOFTwuMAry/Xbv4ic6ESN3ecNTTmHZQWZKt
+         76J7NbL0m+oqMIK6JaeEfnYhLi4lRHQ7IsOriSpNI+JcJJJwMGZTeZLLKYwKKmzfno+u
+         lS/37rx9Ye9kIdSPQ8Qhoc1h+dXXAClPuuZt9KePpI0x/SML5d8Q4Pf49OpMcDnlqDhl
+         PVNmx0nHkESEtVT0c7DyVqgyiD8eoFedj099U3hBQ5bEdlF+PAXjlFWsIfTBGZ3DdgGB
+         F5PjqKuRh+nL4O4hxCw3fTrwL8Ntb832hD4s1BQd1QgBGrkJ9gqAaYrhkkAO9gv4obo7
+         xcTg==
+X-Forwarded-Encrypted: i=1; AKwUvBx/IFXtPIFYRigzQDIFfq4YnllKkFxXHfOOa1UPsN6vIw1nvIViXZdYmnJO+bWkIKKxUziLZ+PzMPadZSqtgcHR@lists.infradead.org
+X-Gm-Message-State: AFuF++lukxMUKvVU09aiH8BvwffPGWcsJrlXac1rd8dMtEARv7LKIjqb
+	jfiuaT9CIwPpKZFproM1XtFlzL8gJPsz+Ijy2+V2mN858Cl+Ol5LNe0eftKZS3thNjw6sRptUKE
+	7f1+mJ3tL9NsPd2E22e44+3hhVD5xvzJy+J/c01sc71I448HG3QJs9YbW2gLgSc38z4jFQbVYbb
+	EYvQ==
+X-Gm-Gg: AYBFou3ho9AS/FuX9eW6DbDAPyl3NyMdj7uIo50a/X9AkZpais5XDfZXUYLAkyMn7Fq
+	uEHus1J+LJ2gVjCAVTdRdbmVXx02kMPApNWU10SAAXoMpVV0P9ygEgC/+tciim108bbizB9PH93
+	VSZqUT7b66BdbqtEAFHsMiReCucF7qQKWIBz/iwhHXVD/XLyrw3iKJw70wkd5ef6MfDFeG9/Epe
+	qKcWRJaREbD2YP/5m2VRNBrCe9Dtj+1csyJAw60Emu84gf7Fx0jvOd7mI2osslNJTYwz1wxwoYB
+	a1VQQqBf4mltFnwgqCKVndk4dhOZ58doe6ExsIYqpQ2EWZpIgBkLCVXGiY11/3B8vqa5ASzVgvI
+	/G2KsDszOmzXtVN7KjmKwZg8dSyBLmltRZYt4v7LTiT5K+NnHZTLfJ5I=
+X-Received: by 2002:a05:693c:6211:b0:33b:de13:9574 with SMTP id 5a478bee46e88-33e8dbc4479mr743985eec.19.1790116943603;
+        Tue, 22 Sep 2026 15:42:23 -0700 (PDT)
+X-Received: by 2002:a05:693c:6211:b0:33b:de13:9574 with SMTP id 5a478bee46e88-33e8dbc4479mr743958eec.19.1790116942985;
+        Tue, 22 Sep 2026 15:42:22 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e96e48e3esm1266199eec.26.2026.09.22.15.42.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 15:42:22 -0700 (PDT)
+Date: Tue, 22 Sep 2026 15:42:19 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Subject: Re: [PATCH v19 11/20] KVM: arm64: Mandate VGIC v3 for for VMs
+ running on hyp that don't trust the host
+Message-ID: <20260922154219.00000999@oss.qualcomm.com>
+In-Reply-To: <20260920212845.707-12-suzuki.poulose@arm.com>
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+	<20260920212845.707-12-suzuki.poulose@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260922131259.2975334-11-smostafa@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000013C:EE_|CY5PR12MB6384:EE_
-X-MS-Office365-Filtering-Correlation-Id: f1d5748e-ea1e-4efa-d00e-08df18fa5e5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|7416014|23010399003|6133799003|22082099003|18002099003|3023799007|11063799006|10067099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: fATAxxF4Wko01zPMWe6J8TuQAW8jb4UZaLk6UsHnkC6U5gZcU+FmoOed9MFs5x/CZgjdmvqO3oscigsbWcW1HYLuUmh4FpCxZhoJxK/qPZXDShAWUeJMqEzDFz0nnVJH4T1fZf2EYDy6eb4o8PRHJZb5cqOXFX8aaolnfIA60T9dyChjpZs7ySTobRToJ0sEOqWts8Bf1tRgxUPugwr4Vf781UxsNngvTF1QAOOc2pogPx1H78DD8ESmiNbLB+VOASpQIXGLsF8biQTHKwvHCKlnAtQc2v1DPzZ+32xWjIRxDvzAz2wk7VVhwFOgUF7Ar+c4qntym5AUQnvGhaMoZwrRLmYItjz5U0mHeDYJ3cfLGA8pszXA+/8LkfJlLhSs55rJd2c5W5AGfEmKw20xmuG1L2CzFJZ/FQAGjZbo5K4NpYa/wqL3utois2NF2S32e4pZsBOAdNYmNNYgI6zJC46Who16WOFgVF00ymL3z9wNSbFKSVAETx2/4S6sCeGbG9+Qfy0F+T1S+Muk4ePdjgopHEq9T0BgNhCgNZ386NVdtDujkIvweyHrVhPEkNsGc5JycMbHinJVOTwu8t7n3DO1209XwsbObpzHNOnKHpFwlaX/UCR8Kyjl34RJ2ez1N40x1/qNeSWAV0DMe7iEXyzMPkZbLmyWwNeExA+dbvHVaIP8KD4zOrikSMvXGrluJyEHcWQk0E1mzj0Ao3pCdQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(7416014)(23010399003)(6133799003)(22082099003)(18002099003)(3023799007)(11063799006)(10067099003)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: juHhOFJJ+oEyFzZtJn95p2InWRJLJlsMoDHNif/X6Lu77tPLd26UWTX0jzElus2r0nUtNS6NhxJNiCOQ9vmOkREtmbVbIq7TRQPZEepaB/TQGeV0OGsxM33M7UNNxwhh36EnJ36IS/FN5cszx/m0hDWQFEDWERwhP4tMuUdXAYcWPGixfctc2ATAt7cQBSWhss5otOQ8CQKKP1BEDA5ZQSiosimTS86arJ9OnILiJ7eE0HCArziDoKRcfOPpLdW3cBKZ/qA1OCSvKjllyfkjwMxPZzHdEQZo5Qm+rZD76mkSi+9WB1REc2WQaUPGH6lTAxvo8JWoDgT5xIWJyRBvojRx69hTy/H+8jReUPvgifxsGbBuAxMt/86qade5lAK0L/5jjjnP400TyOArUlSlgcRY3FCaUVin0pRti8Vhachg3jQaZuNnJYnC9EddWmzn
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 22:39:31.2389
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1d5748e-ea1e-4efa-d00e-08df18fa5e5e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013C.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6384
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: EOnIsFwL83t2SjS5gqWzf8qYEM4P0yqA
+X-Authority-Analysis: v=2.4 cv=KqHYSmWN c=1 sm=1 tr=0 ts=6ab30450 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=7nvTRwv7b12_b2Z3:21 a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=99P15FIpgWgLHUSX_UoA:9 a=CjuIK1q_8ugA:10
+ a=scEy_gLbYbu1JhEsrz4S:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDMwMyBTYWx0ZWRfX7Pd+/mwSS7+S
+ oYgVtMmwYQ/zmGZfqcvOhpRek8tsPYgP0bnpGZhTEz/eD0IPRtBS6Y1w+4s46VvA7ulHKJIs/O/
+ maBwCRcsxQM6gsaiHJkeiOWmFTjgX6LTTbrsYfc+lI8AcLzBvBme2HpR8uT1HVaRbQh8Dd0kDzQ
+ SU9yHl6GQ3Db2Hb2eyj4t9pCR7TroAUilil3s8+FuoALyUElpC7GCIWGWlqaWe3O/bF5Gd58COl
+ mCDasLR8f3qS3qT2gc6fZOjZBJakCqpxfsO6m2ob2rbHqRkpUKwiW9EU4cU/m6Udin6hoP/Cwnr
+ mCF5s8uo/rn/vSJetetr3zaFIttGKDCbnHkyOugDYqTITWaMSNEPk1JcgtbRUO9NES593FMb1pr
+ Tn+C9/X96VozrqwojykTuQ3HGxR1910dP/utTy/mjOO2CN8Eq9+L2vL6PD4U43p7YNJ7tgg9Tw3
+ NNrxHzNu+1vkKU9+FPA==
+X-Proofpoint-ORIG-GUID: EOnIsFwL83t2SjS5gqWzf8qYEM4P0yqA
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDMwMyBTYWx0ZWRfXzDTlLk6/R2ma
+ KbCg8jsPUUG8yMx5IHtoMcclXMY0IPep6m30h82luP6I+Dm1984Le44vHdiFH6o/WO0z/7Nncky
+ 38XLMVd3yvZnCDZJC4yvvZqqm/vL2IY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-22_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 bulkscore=0 priorityscore=1501 phishscore=0
+ malwarescore=0 suspectscore=0 clxscore=1015 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609220303
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_153939_165910_B2F39FCB 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20260922_154226_108870_2B2E5E85 
+X-CRM114-Status: GOOD (  24.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,74 +156,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 01:12:43PM +0000, Mostafa Saleh wrote:
-> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+On Sun, 20 Sep 2026 22:28:36 +0100
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+
+> pKVM and RMM, both do not trust the host. Add a helper to detect the VMs
+
+Maybe don't mention RMM yet, or make it clear that isn't here in this
+patch.
+
+> that have "distrusting" hyp. Use this for blocking ioremap of vgic-v2 into
+> stage2 and prevent creation of VGIC other than v3.
 > 
-> Add the skeleton for an Arm SMMUv3 driver at EL2.
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+
+Other than minor comments, it feels to me like these first 11
+patches are good cleanup even without the RMM stuff that follows.
+Perhaps can get these upstream faster than the rest?
+
+Jonathan
+
+> ---
+> Changes since v18:
+>  - Cover pKVM guests for VGIC v3 mandate.
+>  - Merge the VGIC mandate check in here.
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 3 +++
+>  arch/arm64/kvm/mmu.c              | 2 +-
+>  arch/arm64/kvm/vgic/vgic-init.c   | 2 ++
+>  3 files changed, 6 insertions(+), 1 deletion(-)
 > 
-> The driver rely on an array of SMMUv3s on the system, where at
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 3211543a85b38..bb156a633ab75 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -328,6 +328,8 @@ enum fgt_group_id {
+>  enum kvm_arm_vm_flavor {
+>  	VM_NVHE,
+>  	VM_VHE,
+> +	/* VMs running on a hyp that doesn't trust */
+> +	MARKER(__VM_DISTRUSTING_HYP),
+>  	VM_PKVM,		/* Normal guests on pKVM */
+>  	MARKER(__VM_PROTECTED),
+>  	VM_PROTECTED_PKVM,	/* Protected VM */
+> @@ -1546,6 +1548,7 @@ struct kvm *kvm_arch_alloc_vm(void);
+>  #define kvm_vm_is_unprotected_pkvm(kvm)		\
+>  	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
+>  
+> +#define kvm_vm_hyp_is_distrusting(kvm)	((kvm)->arch.vm_flavor >= __VM_DISTRUSTING_HYP)
+>  
+>  int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+>  bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index cf293d09e940a..413c4b114d75d 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1251,7 +1251,7 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+>  				     KVM_PGTABLE_PROT_R |
+>  				     (writable ? KVM_PGTABLE_PROT_W : 0);
+>  
+> -	if (is_protected_kvm_enabled())
+> +	if (kvm_vm_hyp_is_distrusting(kvm))
+>  		return -EPERM;
+>  
+>  	size += offset_in_page(guest_ipa);
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 4012df6002ea6..874025513afcc 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -84,6 +84,8 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+>  		!kvm_vgic_global_state.can_emulate_gicv2)
+>  		return -ENODEV;
+>  
+> +	if (kvm_vm_hyp_is_distrusting(kvm) && type != KVM_DEV_TYPE_ARM_VGIC_V3)
+> +		return -ENODEV;
+>  	/*
+>  	 * Ensure mutual exclusion with vCPU creation and any vCPU ioctls by:
+>  	 *
 
-s/rely/relies
-
-> +++ b/drivers/iommu/arm/Kconfig
-> @@ -141,3 +141,15 @@ config QCOM_IOMMU
->  	select ARM_DMA_USE_IOMMU
->  	help
->  	  Support for IOMMU on certain Qualcomm SoCs.
-> +
-> +config ARM_SMMU_V3_PKVM
-> +	bool "ARM SMMUv3 support for protected Virtual Machines"
-> +	depends on KVM && ARM_SMMU_V3=y
-
-Should it depend on OF?
-
-> +	help
-> +	  Enable a SMMUv3 driver in the KVM hypervisor, to protect VMs against
-
-s/a SMMUv3/an SMMUv3
-
-> +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
-> @@ -0,0 +1,31 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __KVM_ARM_SMMU_V3_HYP_H
-> +#define __KVM_ARM_SMMU_V3_HYP_H
-> +
-> +#include <asm/kvm_asm.h>
-> +
-> +/*
-> + * Parameters from the trusted host:
-> + * @mmio_addr		base address of the SMMU registers
-> + * @mmio_size		size of the registers resource
-
-Are these still in the host's physical address space or guest's?
-
-If it's still "host" (though trusted), what's different from the
-ioaddr in the main driver?
-
-> +size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
-> +struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
-
-Should kvm_hyp_arm_smmu_v3_smmus be __ro_after_init as well?
-
-> +
-> +#define for_each_smmu(smmu) \
-> +	for ((smmu) = kvm_hyp_arm_smmu_v3_smmus; \
-> +	     (smmu) != &kvm_hyp_arm_smmu_v3_smmus[kvm_hyp_arm_smmu_v3_count]; \
-> +	     (smmu)++)
-
-"smmu" sounds too generic. Maybe for_each_pkvm_smmu?
-
-> +/* Called while is the host is still trusted. */
-> +static int smmu_init(void)
-
-s/while is/while
-
-> +/* Shared with the kernel driver in EL1 */
-> +struct pkvm_iommu_ops smmu_ops = {
-> +	.init				= smmu_init,
-> +	.host_stage2_idmap		= smmu_host_stage2_idmap,
-
-Can we add a "pvkm_arm_smmu_" prefix for the ops and functions here?
-
-Nicolin
 
