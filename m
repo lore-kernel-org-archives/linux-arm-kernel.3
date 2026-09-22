@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB240C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62357C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtUcIYS68y1afCRJ7EGhHRzm775hNsRrdlPZxwjTWb8=; b=zDtbVlYCVhpgsH8NOl4TCPF4lM
-	4ylFfqAEHZmvz6QKUuCHbEatZgk4H/gjP4CHxoyUH9CvkOIXjZjZdGFENYFHzyV1/Axa2kdJyvUJF
-	YX/iK8m89U+fzj003UlQGKiKaucq78JNic3gJTI9PhDK2MmN+SxxqPY1/uOOKQ+EmNZ1/IfWiIMVL
-	a8QQBbthDwToR86NBOp7xsPbt1+TDiteVvwK7zTVn1G9kSvpR94FBHA/HTKhklvNfuW2yZJaUhNMc
-	TMd+Sw4hZ+MKT39rRnKEVPzm6CviMdmmJnQG5qQOb60cdGM9h9GwdHdGB/whlgPQINnOjFHXgr+/r
-	vZ/NY4HQ==;
+	bh=b6TM6uu+FM58oALQCRrt4iHL681e2T+gM7AtXU+yYTA=; b=p8+GQbNxgzPHIVOCBQAUI/lbi8
+	Yy8WOT+Z/b7PyQ3p/xp0Q4Wa/uwE415iSRasG2DRdtnDpuhcIhcXU6JUWeIHCmnDjSveVb5OX2BeH
+	N+mY/A8xidgn4By31rLN1tV299osxsi/mX4uqVvMAjxhWRtUJ6q821m+7gRLBe3OzostzCEFXKdNh
+	aM+x76PeXxZVZCpXW/bQ9Jv7TByGkTjesmtQm5TeSORneVTLQ+MT5gTulrdyCyOq1v/utfYYFmzGO
+	9BEDg+IyIENt/HZ3AFL6mdHqBeqZ1xQrjUJr/RVCyzlOSf9K95lZP3B701OvRS7mwiCwDK3VKAlI8
+	thZPRyfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x967H-00000006P7c-0Zu8;
-	Tue, 22 Sep 2026 19:25:23 +0000
+	id 1x967W-00000006PDq-1RBC;
+	Tue, 22 Sep 2026 19:25:38 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x967D-00000006P5d-1LAJ
+	id 1x967U-00000006PCb-0vbu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 19:25:21 +0000
+	Tue, 22 Sep 2026 19:25:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790105118;
+	s=mimecast20190719; t=1790105135;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HtUcIYS68y1afCRJ7EGhHRzm775hNsRrdlPZxwjTWb8=;
-	b=Xx4JhJpH8W0hp9M/Tmw4L7lasf2LJmHvhd7vCXzaiwTqtbAeu4wNYsQf3HuLEial+Up93M
-	V0OJt/t+KKb3sVURxA1/BxRYD4Db5IksVCdvw2fioEhegmTtdp4Dm2du2ulxUR2RxrrZid
-	MpdVsRRWVESEve56OPeAe0Bj1ywtzBg=
+	bh=b6TM6uu+FM58oALQCRrt4iHL681e2T+gM7AtXU+yYTA=;
+	b=enSPBWStDCedeIpPnclpQw2TLSNOmiIha3fobhI6UUrCb7/pzVqh3zw8F4b2iLdvjAS+nC
+	tk/8vbF9HakAMweqQqiWhmbszpRiCxG/68QZjPwgD3tL1TgkEZ7EAsunoW1x8xSf3GwyEZ
+	ccEdGGxowh3fH6KyPteKiDkVOOy9Bu4=
 Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-411-Arzj8FT-PFuOUEU0fp97OQ-1; Tue,
- 22 Sep 2026 15:25:14 -0400
-X-MC-Unique: Arzj8FT-PFuOUEU0fp97OQ-1
-X-Mimecast-MFC-AGG-ID: Arzj8FT-PFuOUEU0fp97OQ_1790105108
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-133-IRN1w4lsMay6e_AHh4r-gw-1; Tue,
+ 22 Sep 2026 15:25:28 -0400
+X-MC-Unique: IRN1w4lsMay6e_AHh4r-gw-1
+X-Mimecast-MFC-AGG-ID: IRN1w4lsMay6e_AHh4r-gw_1790105124
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A3AA71800BCE;
-	Tue, 22 Sep 2026 19:25:08 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 209BD1809C98;
+	Tue, 22 Sep 2026 19:25:24 +0000 (UTC)
 Received: from wsxc.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 36BEB30001B9;
-	Tue, 22 Sep 2026 19:24:51 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 281A830001B9;
+	Tue, 22 Sep 2026 19:25:08 +0000 (UTC)
 From: Ricardo Robaina <rrobaina@redhat.com>
 To: audit@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -98,20 +98,20 @@ Cc: paul@paul-moore.com,
 	peterz@infradead.org,
 	luto@kernel.org,
 	Ricardo Robaina <rrobaina@redhat.com>
-Subject: [PATCH v3 13/14] xtensa: pass pt_regs to audit_syscall_entry()
-Date: Tue, 22 Sep 2026 16:20:05 -0300
-Message-ID: <84d1ceabecaa1ddb22600e1b58ea9341c612680b.1790088067.git.rrobaina@redhat.com>
+Subject: [PATCH v3 14/14] audit: rename audit_syscall_entry_regs() to audit_syscall_entry()
+Date: Tue, 22 Sep 2026 16:20:06 -0300
+Message-ID: <0bb32d256099870f3f9ca2632cccf58538f882ed.1790088067.git.rrobaina@redhat.com>
 In-Reply-To: <cover.1790088067.git.rrobaina@redhat.com>
 References: <cover.1790088067.git.rrobaina@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: Xhxl4uDEHBzxyhn_XmOu3oD8LZ3GHD2E3jYX0KmJeJk_1790105108
+X-Mimecast-MFC-PROC-ID: TaJdsOvvsyj44ARpz68MifT_h8qVyJH3Gd4NiQmZWyI_1790105124
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_122520_013191_37B349C5 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260922_122536_448163_1E8DD8C3 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,30 +126,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-audit_syscall_entry() now takes a pointer to pt_regs and extracts
-the syscall arguments itself via syscall_get_arguments(). Drop the
-individual argument registers from the call and pass regs instead.
+Now that every architecture has been converted to the pt_regs-based
+audit_syscall_entry_regs(), the legacy audit_syscall_entry() and
+__audit_syscall_entry() helpers that took the individual syscall
+argument registers (a0-a3) no longer have any callers.
 
+Remove those legacy helpers and rename audit_syscall_entry_regs() and
+__audit_syscall_entry_regs() back to audit_syscall_entry() and
+__audit_syscall_entry(), restoring the original naming.
+
+The _regs variants were introduced separately, and the architectures
+converted one per patch, specifically so this final rename is the only
+step that removes the old prototype. That keeps the series bisectable:
+every commit builds, and no caller is ever left referencing a helper
+that has been removed.
+
+Suggested-by: Will Deacon <will@kernel.org>
 Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
 ---
- arch/xtensa/kernel/ptrace.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/arm/kernel/ptrace.c        |  2 +-
+ arch/arm64/kernel/ptrace.c      |  2 +-
+ arch/csky/kernel/ptrace.c       |  2 +-
+ arch/microblaze/kernel/ptrace.c |  2 +-
+ arch/mips/kernel/ptrace.c       |  2 +-
+ arch/openrisc/kernel/ptrace.c   |  2 +-
+ arch/parisc/kernel/ptrace.c     |  4 +--
+ arch/sh/kernel/ptrace_32.c      |  2 +-
+ arch/sparc/kernel/ptrace_64.c   |  2 +-
+ arch/um/kernel/ptrace.c         |  2 +-
+ arch/xtensa/kernel/ptrace.c     |  2 +-
+ include/linux/audit.h           | 21 +++---------
+ kernel/auditsc.c                | 58 ++-------------------------------
+ kernel/entry/syscall-common.c   |  2 +-
+ 14 files changed, 19 insertions(+), 86 deletions(-)
 
-diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
-index 364e4fdabb00..86e4679b5869 100644
---- a/arch/xtensa/kernel/ptrace.c
-+++ b/arch/xtensa/kernel/ptrace.c
-@@ -561,9 +561,7 @@ int do_syscall_trace_enter(struct pt_regs *regs)
+diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
+index 3c5d7fd733ec..e103ec2661cd 100644
+--- a/arch/arm/kernel/ptrace.c
++++ b/arch/arm/kernel/ptrace.c
+@@ -868,7 +868,7 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, scno);
+ 
+-	audit_syscall_entry_regs(scno, regs);
++	audit_syscall_entry(scno, regs);
+ 
+ 	return scno;
+ }
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 2bcbeafe26a3..65532b2a8cd4 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2476,7 +2476,7 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, regs->syscallno);
+ 
+-	audit_syscall_entry_regs(regs->syscallno, regs);
++	audit_syscall_entry(regs->syscallno, regs);
+ 
+ 	return regs->syscallno;
+ }
+diff --git a/arch/csky/kernel/ptrace.c b/arch/csky/kernel/ptrace.c
+index e61b1408737c..5c3051bcd78c 100644
+--- a/arch/csky/kernel/ptrace.c
++++ b/arch/csky/kernel/ptrace.c
+@@ -329,7 +329,7 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
  	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
  		trace_sys_enter(regs, syscall_get_nr(current, regs));
  
--	audit_syscall_entry(regs->syscall, regs->areg[6],
--			    regs->areg[3], regs->areg[4],
--			    regs->areg[5]);
-+	audit_syscall_entry_regs(regs->syscall, regs);
+-	audit_syscall_entry_regs(regs_syscallid(regs), regs);
++	audit_syscall_entry(regs_syscallid(regs), regs);
+ 	return 0;
+ }
+ 
+diff --git a/arch/microblaze/kernel/ptrace.c b/arch/microblaze/kernel/ptrace.c
+index d0a540b7370f..5fe9e3a150f4 100644
+--- a/arch/microblaze/kernel/ptrace.c
++++ b/arch/microblaze/kernel/ptrace.c
+@@ -147,7 +147,7 @@ asmlinkage unsigned long do_syscall_trace_enter(struct pt_regs *regs)
+ 		 */
+ 		ret = -1L;
+ 
+-	audit_syscall_entry_regs(regs->r12, regs);
++	audit_syscall_entry(regs->r12, regs);
+ 
+ 	return ret ?: regs->r12;
+ }
+diff --git a/arch/mips/kernel/ptrace.c b/arch/mips/kernel/ptrace.c
+index c6f4e801cfae..7a09b4671a54 100644
+--- a/arch/mips/kernel/ptrace.c
++++ b/arch/mips/kernel/ptrace.c
+@@ -1338,7 +1338,7 @@ asmlinkage long syscall_trace_enter(struct pt_regs *regs)
+ 	if (unlikely(test_thread_flag(TIF_SYSCALL_TRACEPOINT)))
+ 		trace_sys_enter(regs, regs->regs[2]);
+ 
+-	audit_syscall_entry_regs(current_thread_info()->syscall, regs);
++	audit_syscall_entry(current_thread_info()->syscall, regs);
+ 
+ 	/*
+ 	 * Negative syscall numbers are mistaken for rejected syscalls, but
+diff --git a/arch/openrisc/kernel/ptrace.c b/arch/openrisc/kernel/ptrace.c
+index 78294c84e4de..eca613b84ff8 100644
+--- a/arch/openrisc/kernel/ptrace.c
++++ b/arch/openrisc/kernel/ptrace.c
+@@ -301,7 +301,7 @@ asmlinkage long do_syscall_trace_enter(struct pt_regs *regs)
+ 		 */
+ 		ret = -1L;
+ 
+-	audit_syscall_entry_regs(regs->gpr[11], regs);
++	audit_syscall_entry(regs->gpr[11], regs);
+ 
+ 	return ret ? : regs->gpr[11];
+ }
+diff --git a/arch/parisc/kernel/ptrace.c b/arch/parisc/kernel/ptrace.c
+index 4e62d6bd6466..948e0cf29ba4 100644
+--- a/arch/parisc/kernel/ptrace.c
++++ b/arch/parisc/kernel/ptrace.c
+@@ -359,10 +359,10 @@ long do_syscall_trace_enter(struct pt_regs *regs)
+ 
+ #ifdef CONFIG_64BIT
+ 	if (!is_compat_task())
+-		audit_syscall_entry_regs(regs->gr[20], regs);
++		audit_syscall_entry(regs->gr[20], regs);
+ 	else
+ #endif
+-		audit_syscall_entry_regs(regs->gr[20] & 0xffffffff, regs);
++		audit_syscall_entry(regs->gr[20] & 0xffffffff, regs);
+ 
+ 	/*
+ 	 * Sign extend the syscall number to 64bit since it may have been
+diff --git a/arch/sh/kernel/ptrace_32.c b/arch/sh/kernel/ptrace_32.c
+index c82d336611ef..e138f529ee7e 100644
+--- a/arch/sh/kernel/ptrace_32.c
++++ b/arch/sh/kernel/ptrace_32.c
+@@ -466,7 +466,7 @@ asmlinkage long do_syscall_trace_enter(struct pt_regs *regs)
+ 	if (unlikely(test_thread_flag(TIF_SYSCALL_TRACEPOINT)))
+ 		trace_sys_enter(regs, regs->regs[0]);
+ 
+-	audit_syscall_entry_regs(regs->regs[3], regs);
++	audit_syscall_entry(regs->regs[3], regs);
+ 
+ 	return 0;
+ }
+diff --git a/arch/sparc/kernel/ptrace_64.c b/arch/sparc/kernel/ptrace_64.c
+index 6197de10b45c..b162585b4a74 100644
+--- a/arch/sparc/kernel/ptrace_64.c
++++ b/arch/sparc/kernel/ptrace_64.c
+@@ -1098,7 +1098,7 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
+ 	if (unlikely(test_thread_flag(TIF_SYSCALL_TRACEPOINT)))
+ 		trace_sys_enter(regs, regs->u_regs[UREG_G1]);
+ 
+-	audit_syscall_entry_regs(regs->u_regs[UREG_G1], regs);
++	audit_syscall_entry(regs->u_regs[UREG_G1], regs);
+ 
+ 	return ret;
+ }
+diff --git a/arch/um/kernel/ptrace.c b/arch/um/kernel/ptrace.c
+index 17c285e49ddc..bdc1b18bb342 100644
+--- a/arch/um/kernel/ptrace.c
++++ b/arch/um/kernel/ptrace.c
+@@ -123,7 +123,7 @@ static void send_sigtrap(struct uml_pt_regs *regs, int error_code)
+  */
+ int syscall_trace_enter(struct pt_regs *regs)
+ {
+-	audit_syscall_entry_regs(UPT_SYSCALL_NR(&regs->regs), regs);
++	audit_syscall_entry(UPT_SYSCALL_NR(&regs->regs), regs);
+ 
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, UPT_SYSCALL_NR(&regs->regs));
+diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
+index 86e4679b5869..327e00c2ebde 100644
+--- a/arch/xtensa/kernel/ptrace.c
++++ b/arch/xtensa/kernel/ptrace.c
+@@ -561,7 +561,7 @@ int do_syscall_trace_enter(struct pt_regs *regs)
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, syscall_get_nr(current, regs));
+ 
+-	audit_syscall_entry_regs(regs->syscall, regs);
++	audit_syscall_entry(regs->syscall, regs);
  	return 1;
  }
  
+diff --git a/include/linux/audit.h b/include/linux/audit.h
+index 22ffad5b2060..9ce5962bc537 100644
+--- a/include/linux/audit.h
++++ b/include/linux/audit.h
+@@ -323,9 +323,7 @@ extern int  audit_alloc(struct task_struct *task);
+ extern void __audit_free(struct task_struct *task);
+ extern void __audit_uring_entry(u8 op);
+ extern void __audit_uring_exit(int success, long code);
+-extern void __audit_syscall_entry(int major, unsigned long a0, unsigned long a1,
+-				  unsigned long a2, unsigned long a3);
+-extern void __audit_syscall_entry_regs(int major, struct pt_regs *regs);
++extern void __audit_syscall_entry(int major, struct pt_regs *regs);
+ extern void __audit_syscall_exit(int ret_success, long ret_value);
+ extern void __audit_getname(struct filename *name);
+ extern void __audit_inode(struct filename *name, const struct dentry *dentry,
+@@ -374,17 +372,10 @@ static inline void audit_uring_exit(int success, long code)
+ 	if (unlikely(audit_context()))
+ 		__audit_uring_exit(success, code);
+ }
+-static inline void audit_syscall_entry(int major, unsigned long a0,
+-				       unsigned long a1, unsigned long a2,
+-				       unsigned long a3)
++static inline void audit_syscall_entry(int major, struct pt_regs *regs)
+ {
+ 	if (unlikely(audit_context()))
+-		__audit_syscall_entry(major, a0, a1, a2, a3);
+-}
+-static inline void audit_syscall_entry_regs(int major, struct pt_regs *regs)
+-{
+-	if (unlikely(audit_context()))
+-		__audit_syscall_entry_regs(major, regs);
++		__audit_syscall_entry(major, regs);
+ }
+ static inline void audit_syscall_exit(void *pt_regs)
+ {
+@@ -617,11 +608,7 @@ static inline void audit_uring_entry(u8 op)
+ { }
+ static inline void audit_uring_exit(int success, long code)
+ { }
+-static inline void audit_syscall_entry(int major, unsigned long a0,
+-				       unsigned long a1, unsigned long a2,
+-				       unsigned long a3)
+-{ }
+-static inline void audit_syscall_entry_regs(int major, struct pt_regs *regs)
++static inline void audit_syscall_entry(int major, struct pt_regs *regs)
+ { }
+ static inline void audit_syscall_exit(void *pt_regs)
+ { }
+diff --git a/kernel/auditsc.c b/kernel/auditsc.c
+index 89f5c518c6f0..cf45c782b03d 100644
+--- a/kernel/auditsc.c
++++ b/kernel/auditsc.c
+@@ -1974,60 +1974,6 @@ void __audit_uring_exit(int success, long code)
+ /**
+  * __audit_syscall_entry - fill in an audit record at syscall entry
+  * @major: major syscall type (function)
+- * @a1: additional syscall register 1
+- * @a2: additional syscall register 2
+- * @a3: additional syscall register 3
+- * @a4: additional syscall register 4
+- *
+- * Fill in audit context at syscall entry.  This only happens if the
+- * audit context was created when the task was created and the state or
+- * filters demand the audit context be built.  If the state from the
+- * per-task filter or from the per-syscall filter is AUDIT_STATE_RECORD,
+- * then the record will be written at syscall exit time (otherwise, it
+- * will only be written if another part of the kernel requests that it
+- * be written).
+- */
+-void __audit_syscall_entry(int major, unsigned long a1, unsigned long a2,
+-			   unsigned long a3, unsigned long a4)
+-{
+-	struct audit_context *context = audit_context();
+-	enum audit_state     state;
+-
+-	if (!audit_enabled || !context)
+-		return;
+-
+-	WARN_ON(context->context != AUDIT_CTX_UNUSED);
+-	WARN_ON(context->name_count);
+-	if (context->context != AUDIT_CTX_UNUSED || context->name_count) {
+-		audit_panic("unrecoverable error in audit_syscall_entry()");
+-		return;
+-	}
+-
+-	state = context->state;
+-	if (state == AUDIT_STATE_DISABLED)
+-		return;
+-
+-	context->dummy = !audit_n_rules;
+-	if (!context->dummy && state == AUDIT_STATE_BUILD) {
+-		context->prio = 0;
+-		if (auditd_test_task(current))
+-			return;
+-	}
+-
+-	context->arch	    = syscall_get_arch(current);
+-	context->major      = major;
+-	context->argv[0]    = a1;
+-	context->argv[1]    = a2;
+-	context->argv[2]    = a3;
+-	context->argv[3]    = a4;
+-	context->context = AUDIT_CTX_SYSCALL;
+-	context->current_state  = state;
+-	ktime_get_coarse_real_ts64(&context->stamp.ctime);
+-}
+-
+-/**
+- * __audit_syscall_entry_regs - fill in an audit record at syscall entry
+- * @major: major syscall type (function)
+  * @regs: the task's register state at syscall entry
+  *
+  * Fill in audit context at syscall entry.  This only happens if the
+@@ -2038,7 +1984,7 @@ void __audit_syscall_entry(int major, unsigned long a1, unsigned long a2,
+  * will only be written if another part of the kernel requests that it
+  * be written).
+  */
+-void __audit_syscall_entry_regs(int major, struct pt_regs *regs)
++void __audit_syscall_entry(int major, struct pt_regs *regs)
+ {
+ 	struct audit_context *context = audit_context();
+ 	enum audit_state     state;
+@@ -2049,7 +1995,7 @@ void __audit_syscall_entry_regs(int major, struct pt_regs *regs)
+ 	WARN_ON(context->context != AUDIT_CTX_UNUSED);
+ 	WARN_ON(context->name_count);
+ 	if (context->context != AUDIT_CTX_UNUSED || context->name_count) {
+-		audit_panic("unrecoverable error in audit_syscall_entry_regs()");
++		audit_panic("unrecoverable error in audit_syscall_entry()");
+ 		return;
+ 	}
+ 
+diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
+index 70941008beb6..471db2a8e09d 100644
+--- a/kernel/entry/syscall-common.c
++++ b/kernel/entry/syscall-common.c
+@@ -23,6 +23,6 @@ void syscall_enter_audit(struct pt_regs *regs)
+ {
+ 	long syscall = syscall_get_nr(current, regs);
+ 
+-	__audit_syscall_entry_regs(syscall, regs);
++	__audit_syscall_entry(syscall, regs);
+ }
+ #endif
 -- 
 2.55.0
 
