@@ -4,63 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E395C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08C2C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 19:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Nb71XVGxN3R2MxtTDnL6kdmJZRIDV18V8tQLOUcQmgg=; b=CCf024S/hkS/0MK9rjMo6oI8fJ
-	cKoYHpenhuBo/8vVTT+8V6lsxKx0EeAQmy5589tTjvbRbI4tJ0nfHPusOevDem0vGc1SCqNzgekRY
-	Gbcl7Qp/seSKYEoUYriREQPQK1C2vLHXcpGa7zS/sAGop/P94ZLPOyHxCqiReOMzwqbROfDc4XiSw
-	hHQTJQp0Q2dicn0CCsccWzY/wFQE+dQjPsUKI74UGEvY4fXUHBG7oxllnI/FSVrGpwx7YpyIsf1ZT
-	3jhSgqCgRdDKQ4XUhCveNLIl2n/7G9t/r9c6bjo4exzCUdLwJv8hR2Jl9/bdJ/n+/cevZ8bYVdzI1
-	0x9RbI3w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+kCerQCZAd/icfcStrsOSRarPahcPdmJx1Sv0aBlf8A=; b=gR7DFVk9xCOPjcAEMrymAT5kJY
+	d/RI8gKGC9do7ozB7H/1ZwmWYqMItiYV/JJF0mv2djD7fMFH8kgCkgg+OwR1kMm0DIUq1T19sP2zS
+	Ul1fQ53S9wg6yY9AebjEXnfVboLwJ84gr1mn/dF1E+/+THqDGt1JN1cHbiO8/6X4335gpn5MqSMsc
+	/CaAO1NaIa+swLCu9Q29yPll7Dj4x/e0UIuph7wSLhFc1oCi0bocQoCrl7ezazzdjb+S4Vb3qWiDe
+	yDbUobpCd/FI8Z6gtHw2tgVmMUHUz0+Ja+cC8GB9SOydfR2WpPVW0O7cedolxFKo3cFF69+hYONJo
+	AsTu9TLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96a8-00000006SmW-0jk7;
-	Tue, 22 Sep 2026 19:55:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x96cM-00000006TB9-3vtx;
+	Tue, 22 Sep 2026 19:57:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96a5-00000006Slm-3v1R;
-	Tue, 22 Sep 2026 19:55:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D997602CA;
-	Tue, 22 Sep 2026 19:55:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF8651F000FF;
-	Tue, 22 Sep 2026 19:55:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790106909;
-	bh=Nb71XVGxN3R2MxtTDnL6kdmJZRIDV18V8tQLOUcQmgg=;
-	h=From:To:Cc:Subject:Date;
-	b=owJgOB2/8rdgNyaNK1+qLqitv68/0OEjLdptIlSe/fdtbMnHxe+DjD7HkrWuGsRHl
-	 o83W2Oa0KeBipjmt/+/g+lycb7TKtzwGispk8Q402idhuHmX3aL7VSC2ncW8VMqjDy
-	 nrVXy9WdZ5ro8nYW6pgRyMm1pSSJDZ9phRrghE0+aps3WnoIBg8NbYJ5GonJB/nXtv
-	 Xb/feolKhIxsLeeWw5NsPf1mObD6z48NrzmZUxewYadXHhaDytKeTBPvbXFpL1DigA
-	 8vL4M9gV/gQ0KCsA81gDcZDWcgZoRg8wOOeMTC/txLeIn0D5AvUN+xYJ5fXPK5OYx1
-	 ZU88eKGOd2uMQ==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Flora Fu <flora.fu@mediatek.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] regulator: dt-bindings: Convert mediatek,mt6380-regulator to DT schema
-Date: Tue, 22 Sep 2026 14:55:01 -0500
-Message-ID: <20260922195502.818012-1-robh@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	id 1x96cL-00000006TAk-0jhq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 19:57:30 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68MJCwM71166709
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 19:57:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	+kCerQCZAd/icfcStrsOSRarPahcPdmJx1Sv0aBlf8A=; b=d0uPXZoHzbyscvk9
+	Fui+SId+pi+/38DYBmJ4SUmJj3TBIOl02UaIYHzThs7bokVlSzJZkfGbSRFsL68/
+	cZ/uP/7WOGeXAlcTU4vmV+HflDvNyN5Z0fnAcM7nU/XcvaTETkXOUSJ2f1ZojAc4
+	0zLDZ8ltivPnVLqpPWKKeqfPg3JacgZQKAOB6RcwGV524NRBSIUWLShhBgtt/L5r
+	7FvnTgzpCnyqgX+bp9PyoWBEh/mB7BrjGXjBo4j1BWeuUZUdClE0HfyiaD9y3FRZ
+	4UMgUMuzREVwjn8607kyf0+UyBgezQRsBNMpLq9Jd/sUhd3kjkArdqLJu7ivd9Kp
+	BNfMeA==
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4guymw07d1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 19:57:27 +0000 (GMT)
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-14373747468so245536c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 12:57:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790107047; x=1790711847; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=+kCerQCZAd/icfcStrsOSRarPahcPdmJx1Sv0aBlf8A=;
+        b=Xc5KTx5IhfxkqqumP9VuRN2WnYfL2a7z6HIej5lFpJc0dF4d9RFgeFkisD/rNgXUaQ
+         RYyXoLh9jq+0xXinwK99zqxGfVbYPsSLWL/ylzYa1pnKZGk5jAjKaYioM0UipOe7wMRG
+         Tk00gJdcZgMzwS0FiLxM5Ftgy6wAcmgcexJ3ZaxNb/X5+RMQzFEJj5mt140zVHMyfo0S
+         z19aYEMI0LizYAB06WqsRcWiIiIus/cS2/SmFLZeyRka9Jh4A2Ax+exz49p2hmjydWxz
+         ZVsNk82b3vSAvmO0RTtwFg2/WMY8JneGYpDXssOJfkj/wNF76K0stRthAJAuCmuiyeHN
+         hpbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790107047; x=1790711847;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+kCerQCZAd/icfcStrsOSRarPahcPdmJx1Sv0aBlf8A=;
+        b=uiXjnxkAdGemkCJ2cOcdqfYNzOq61zRVj1zaYyhji51WBrbYu5XgI58Can4ys/3Cd2
+         26M3/5p4kY3JkU8fcOweb+lyv0tFUJFlmGID+/8xeyc2yapk/L6CfWEv8wUDedDyJ/I/
+         deTunkmXC/74istgCaAjHg3sDVcKg+XhGE9CrSL+Xf/Iv8Js0CmZPBRclxcKYllZum/k
+         Dxm/ID5oVYiocMoKy/ndHcHcipl0dAgX76yTXnZmnQbQmCHSuJdcz+3tEV6BzBaWrCd3
+         NvYbEk4RjsRg7MjLloJD3a4CHgkRRyYbCOezWnqjy+bN16Wz3IDNZ1wyMX6NQtN8veqK
+         lDrQ==
+X-Forwarded-Encrypted: i=1; AKwUvBylt1shDnCdHgsNGD5icwTIYz/tgf8BzE6LeX8/r/VO6lu6CTyJsgGqAq2RrF2I5StRDb80lRKeri9Y2LXRkV1j@lists.infradead.org
+X-Gm-Message-State: AFuF++nvZj/DPn//Di36FVZLCso9aLNbxyzZIzq3THoxaBD8Q0Nkr2P1
+	QeLbIMkh4asW4uKQBkOtldhntGB9RTjDCR5pcRnnjXvEqs9dovdmA4WpyxJ24oOGwkQf9eeUXHn
+	4pXzcCp7pCfNK/Ptn/oNnIvmqdO4bkK8lVwUoBzZxbyVg0edlS+C6PFfKx+3gXmyy+fFmAL4AQ7
+	Pb9w==
+X-Gm-Gg: AYBFou0SZA34pB1veaijSegTNerA2dUPymg2VB1t4Ep9Ef/6OjZPHbRLeHLgJWKCZXG
+	w6YWASHRF0UTZbVdKkWRlD1Sxp/LHXbjk0LhyLg2NFTisPgZD9qcZT/mCmtkF/XeXWjt6l5FYYd
+	+t1k5oaAeAKTyufkbScKXxsnhFKeB1Uywow4ta3BRjDuMbnwo8ZQmH5bYHl3flqyHeU+52eqmWZ
+	FA+OyisUzL8KgNi39rpvGhKDZZBnox6qXscGfbhiHUVx8LAAyfxxq/JMPv5tu9tT1KPGMDXABfs
+	54E+RxntmkYmuawEU/FLlxAfsM3SdV24+zRxDeg8mQ5/dJYF1P0o7m8atAE6TUAsg7QOcfkmYA0
+	+riOtWjoilsslrRfst+h6kcM6ORkvJ3mpZOuAjA4Q29Bpaf+zwBVTIQ==
+X-Received: by 2002:a05:7022:1582:b0:144:dfc1:9aa with SMTP id a92af1059eb24-144f91372a3mr551666c88.10.1790107046948;
+        Tue, 22 Sep 2026 12:57:26 -0700 (PDT)
+X-Received: by 2002:a05:7022:1582:b0:144:dfc1:9aa with SMTP id a92af1059eb24-144f91372a3mr551637c88.10.1790107046436;
+        Tue, 22 Sep 2026 12:57:26 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e96258204sm448771eec.11.2026.09.22.12.57.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 12:57:26 -0700 (PDT)
+Date: Tue, 22 Sep 2026 12:57:22 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Subject: Re: [PATCH v19 06/20] KVM: arm64: Refactor the vcpu_load to allow
+ for VM specific callbacks
+Message-ID: <20260922125722.00006b2e@oss.qualcomm.com>
+In-Reply-To: <20260920212845.707-7-suzuki.poulose@arm.com>
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+	<20260920212845.707-7-suzuki.poulose@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDI5MSBTYWx0ZWRfXxpfNBth3T970
+ BMyEVq/PjXXQyPEbkuvRDVN8gBqlq950gu4pL+OEEJCKgdBuPQfC+JKoez2inBaPVx3Bw1zD7eQ
+ Ils+FjRZBT03/Y5wuuuAW/YqE65iCZwIEToL9BElD6exnCGpE5R3RuY/1xkj0bLztlvfcxxWyOF
+ NFv4q8F17rEVm0iZbD27yOROyKLoLPydWd6xS35TSf5SFPyu10HEZmaZoY40+LfUHGgY+s5qx5E
+ CpsK0NX4b6TF/4GzhdX23ETjKkzuUEnfpdfGS4TD13qInaOEC+4RLFqfEm0Kbe5vilJaHnl0hUU
+ I2qdKwTdBBEGq5RVMY50VaOF/n9Uwo6hoifYvP6wBdDTC57W6IXcabZzBKMHcXOcdhudcYR/fda
+ oRIeHPyeSCWodKjaoV7o5f4x+iaZJ1yqTQQ/Yq/TKcbNsKnfHCmM0QqmtoRtiJPcgFqVjlMHhu/
+ h1BNNdJUbsz7/OYcqbg==
+X-Authority-Analysis: v=2.4 cv=feI4WEQF c=1 sm=1 tr=0 ts=6ab2dda7 cx=c_pps
+ a=JYo30EpNSr/tUYqK9jHPoA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=7CQSdrXTAAAA:8 a=20KFwNOVAAAA:8 a=X9DOVUd_aP98ggfEJksA:9 a=CjuIK1q_8ugA:10
+ a=Fk4IpSoW4aLDllm1B1p-:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: PH1UxtkDEkMnXOSeG1XpNwWy249k1-aW
+X-Proofpoint-ORIG-GUID: PH1UxtkDEkMnXOSeG1XpNwWy249k1-aW
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDI5MSBTYWx0ZWRfX9a+Hku9F2ifn
+ C4ZiOOIEpdPoTfyikwyG5vJhoTyUJjmcFBsyyZd3MKl8sTy2M94NDkVp7wEMT0eJrAxrvuoTxjJ
+ 7sXirQF1lWzmwrYwPOJnfkhtSoDC7CA=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-22_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 phishscore=0 spamscore=0 suspectscore=0 lowpriorityscore=0
+ clxscore=1015 impostorscore=0 malwarescore=0 priorityscore=1501 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609220291
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_125729_261309_DFF93F8C 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,254 +156,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the MediaTek mediatek,mt6380-regulator binding to DT schema
-format. It's a straight forward conversion.
+On Sun, 20 Sep 2026 22:28:31 +0100
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 
-The regulators are part of the "pwrap" block, so add a $ref to them.
+> To keep the VCPU load/put handling cleaner with the different kinds of VM
+> types, we are about to introduce VM specific callbacks to do just the right
+> thing. In preparation for that, make some refactoring to add the change
+> easier.
+> 
+> No functional changes intended. Based on a work by Marc Zyngier.
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Assisted-by: LLM
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../regulator/mediatek,mt6380-regulator.yaml  | 117 ++++++++++++++++++
- .../bindings/regulator/mt6380-regulator.txt   |  89 -------------
- .../bindings/soc/mediatek/mediatek,pwrap.yaml |   3 +
- 3 files changed, 120 insertions(+), 89 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6380-regulator.yaml
- delete mode 100644 Documentation/devicetree/bindings/regulator/mt6380-regulator.txt
+Trivial stuff inline + maybe one blob that should be in previous patch?
 
-diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6380-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6380-regulator.yaml
-new file mode 100644
-index 000000000000..0b3c604da727
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6380-regulator.yaml
-@@ -0,0 +1,117 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/mediatek,mt6380-regulator.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT6380 Regulator
-+
-+maintainers:
-+  - Sean Wang <sean.wang@mediatek.com>
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt6380-regulator
-+
-+patternProperties:
-+  '^buck-(vcore1?|vrf)$':
-+    description: BUCK regulators
-+    $ref: regulator.yaml#
-+    unevaluatedProperties: false
-+
-+    required:
-+      - regulator-min-microvolt
-+      - regulator-max-microvolt
-+      - regulator-ramp-delay
-+
-+  '^ldo-v([mat]|phy|ddr)$':
-+    type: object
-+    description: LDO regulators
-+    $ref: regulator.yaml#
-+    unevaluatedProperties: false
-+
-+    required:
-+      - regulator-min-microvolt
-+      - regulator-max-microvolt
-+      - regulator-ramp-delay
-+
-+required:
-+  - compatible
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    regulators {
-+        compatible = "mediatek,mt6380-regulator";
-+
-+        buck-vcore1 {
-+            regulator-name = "vcore1";
-+            regulator-min-microvolt = <600000>;
-+            regulator-max-microvolt = <1393750>;
-+            regulator-ramp-delay = <6250>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+
-+        buck-vcore {
-+            regulator-name = "vcore";
-+            regulator-min-microvolt = <600000>;
-+            regulator-max-microvolt = <1393750>;
-+            regulator-ramp-delay = <6250>;
-+        };
-+
-+        buck-vrf {
-+            regulator-name = "vrf";
-+            regulator-min-microvolt = <1200000>;
-+            regulator-max-microvolt = <1575000>;
-+            regulator-ramp-delay = <0>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+
-+        ldo-vm {
-+            regulator-name = "vm";
-+            regulator-min-microvolt = <1050000>;
-+            regulator-max-microvolt = <1400000>;
-+            regulator-ramp-delay = <0>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+
-+        ldo-va {
-+            regulator-name = "va";
-+            regulator-min-microvolt = <2200000>;
-+            regulator-max-microvolt = <3300000>;
-+            regulator-ramp-delay = <0>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+
-+        ldo-vphy {
-+            regulator-name = "vphy";
-+            regulator-min-microvolt = <1800000>;
-+            regulator-max-microvolt = <1800000>;
-+            regulator-ramp-delay = <0>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+
-+        ldo-vddr {
-+            regulator-name = "vddr";
-+            regulator-min-microvolt = <1240000>;
-+            regulator-max-microvolt = <1840000>;
-+            regulator-ramp-delay = <0>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+
-+        ldo-vt {
-+            regulator-name = "vt";
-+            regulator-min-microvolt = <2200000>;
-+            regulator-max-microvolt = <3300000>;
-+            regulator-ramp-delay = <0>;
-+            regulator-always-on;
-+            regulator-boot-on;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/regulator/mt6380-regulator.txt b/Documentation/devicetree/bindings/regulator/mt6380-regulator.txt
-deleted file mode 100644
-index 0058441f16d2..000000000000
---- a/Documentation/devicetree/bindings/regulator/mt6380-regulator.txt
-+++ /dev/null
-@@ -1,89 +0,0 @@
--MediaTek MT6380 Regulator
--
--All voltage regulators provided by the MT6380 PMIC are described as the
--subnodes of the MT6380 regulators node. Each regulator is named according
--to its regulator type, buck-<name> and ldo-<name>. The definition for each
--of these nodes is defined using the standard binding for regulators at
--Documentation/devicetree/bindings/regulator/regulator.txt.
--
--The valid names for regulators are:
--BUCK:
--  buck-core1, buck-vcore, buck-vrf
--LDO:
--  ldo-vm ,ldo-va , ldo-vphy, ldo-vddr, ldo-vt
--
--Example:
--
--	regulators {
--		compatible = "mediatek,mt6380-regulator";
--
--		mt6380_vcpu_reg: buck-vcore1 {
--			regulator-name = "vcore1";
--			regulator-min-microvolt = < 600000>;
--			regulator-max-microvolt = <1393750>;
--			regulator-ramp-delay = <6250>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--
--		mt6380_vcore_reg: buck-vcore {
--			regulator-name = "vcore";
--			regulator-min-microvolt = <600000>;
--			regulator-max-microvolt = <1393750>;
--			regulator-ramp-delay = <6250>;
--		};
--
--		mt6380_vrf_reg: buck-vrf {
--			regulator-name = "vrf";
--			regulator-min-microvolt = <1200000>;
--			regulator-max-microvolt = <1575000>;
--			regulator-ramp-delay = <0>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--
--		mt6380_vm_reg: ldo-vm {
--			regulator-name = "vm";
--			regulator-min-microvolt = <1050000>;
--			regulator-max-microvolt = <1400000>;
--			regulator-ramp-delay = <0>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--
--		mt6380_va_reg: ldo-va {
--			regulator-name = "va";
--			regulator-min-microvolt = <2200000>;
--			regulator-max-microvolt = <3300000>;
--			regulator-ramp-delay = <0>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--
--		mt6380_vphy_reg: ldo-vphy {
--			regulator-name = "vphy";
--			regulator-min-microvolt = <1800000>;
--			regulator-max-microvolt = <1800000>;
--			regulator-ramp-delay = <0>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--
--		mt6380_vddr_reg: ldo-vddr {
--			regulator-name = "vddr";
--			regulator-min-microvolt = <1240000>;
--			regulator-max-microvolt = <1840000>;
--			regulator-ramp-delay = <0>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--
--		mt6380_vt_reg: ldo-vt {
--			regulator-name = "vt";
--			regulator-min-microvolt = <2200000>;
--			regulator-max-microvolt = <3300000>;
--			regulator-ramp-delay = <0>;
--			regulator-always-on;
--			regulator-boot-on;
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-index e7c4a3984c60..79b755858bad 100644
---- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-+++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-@@ -105,6 +105,9 @@ properties:
-   pmic:
-     type: object
- 
-+  regulators:
-+    $ref: /schemas/regulator/mediatek,mt6380-regulator.yaml#
-+
- required:
-   - compatible
-   - reg
--- 
-2.53.0
+
+> ---
+>  arch/arm64/kvm/arm.c | 48 ++++++++++++++++++++++++++------------------
+>  1 file changed, 29 insertions(+), 19 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 8c784b266a8e8..c74706ed9a531 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+
+> +
+> +static void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
+> +{
+> +	if (kvm_vcpu_should_clear_twe(vcpu))
+> +		vcpu->arch.hcr_el2 &= ~HCR_TWE;
+> +	else
+> +		vcpu->arch.hcr_el2 |= HCR_TWE;
+> +
+> +	if (kvm_vcpu_should_clear_twi(vcpu))
+> +		vcpu->arch.hcr_el2 &= ~HCR_TWI;
+> +	else
+> +		vcpu->arch.hcr_el2 |= HCR_TWI;
+
+You could use FIELD_MODIFY() for these but maybe not worth it.
+
+> +}
+> +
+> +static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
+> +{
+> +	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+> +		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+> +}
+> 
+> @@ -772,7 +782,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>  		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+>  
+>  		/* __pkvm_vcpu_put implies a sync of the state */
+> -		if (!kvm_vm_is_protected(vcpu->kvm))
+> +		if (kvm_vm_is_unprotected_pkvm(vcpu->kvm))
+>  			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+
+Why in this patch?
+
+>  	}
+>  
 
 
