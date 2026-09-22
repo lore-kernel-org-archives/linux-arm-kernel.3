@@ -4,83 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25BDC982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292A8C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXSrQeMyHW+MKEBO/LMvcq3vJUhSUVerpVL28o1KObI=; b=oqWYIjH38mqchrBZyBmnVygyw2
-	+RB+KvJaaLB02F5J9Fzhmia+Smhu5LUj4SljJGLwmsMpMQHEG+wJq5WDS0nQxnqMujoIP46K1sCHw
-	HiIVMaYEpA5+O4xog/4bazeCgw5uf8zc+C5T5h/slo/ku+oJ+S5CbdLkV13HuIsU5xyEkbDPptFPa
-	Wn+mTLmFusU+WYGI4Q3SZqcCLKuutgrry7IAxwUYxznwKfLZPTm4airR4+VAticKVOUQ3Iaql0EMm
-	uWMEEmnfLPOQTJ92ifTh70a9J5h4jmWB6nh/DXV6uSQ4mRSYhzXrsKKhRBBmCTMisHrBON+g60Kve
-	4+qtxv8Q==;
+	bh=vuuA2brUqiYLcSf09l0VtIoQPLhmGaiGcN5kGGoFxiU=; b=3kqOJRkZ4fjdOdCTb1/Queiorm
+	4/l+ykS/5iYXavc2PBFMzUCoIwTKw5RRQ7EjT6RHgeXHTpTufI+7q/I7bjglBjqjiiUp+KSwp7JDp
+	GJP8+8obm7mRjlFXMMgPnOGp/v19oRqJPOMcpyCScfnlJJh4VXnEKlEQwKBTmtZjGRRoZi6+atLQ5
+	aIQ8voGIoX7lHSfrUyuJPJcVT7Fr49yrwDzR8UXz4uBdDlw2RpWqxpTKEOizOid+mFyl2R0bdQ90T
+	pJgiSZGOO1vdvMFfCYRqTKQH14Hc4Mjmq6DhDtYHzBnUtQyiu9ozoxhBu1oEYfYcmSez2C3ZfywMS
+	Svk4IuiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yUl-000000059lX-3gFf;
-	Tue, 22 Sep 2026 11:17:07 +0000
-Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
+	id 1x8yZh-00000005A9s-2kua;
+	Tue, 22 Sep 2026 11:22:13 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yUc-000000059je-0Hf0
+	id 1x8yZe-00000005A87-0ItA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 11:16:59 +0000
-Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-49e6683d48fso40716155e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 04:16:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790075815; x=1790680615; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cXSrQeMyHW+MKEBO/LMvcq3vJUhSUVerpVL28o1KObI=;
-        b=P2P2GWtH0UU75e9tLAVB1Lhji+Ft2izBBN3dCeWPKWBudk8ra8pw+x5K7iU4td6UND
-         bjBLGDbVY+HrIsYu5Eez4eyziMI7UDZhWhGgNTw1EXcMKOmwQAnL11OwXIN4E8L5bxn/
-         buN3eAJk3KchurTgmflumsh8Uzx774liLgazwios8Ckty3Un3Cl7lpq58N7rx/87fZFQ
-         WWwr46its0HOX905obb5uYNsushXl795nVcqINNOZDY4NVX7IU1XAGDqIW8pta34L+cf
-         mB5DBCmvnvAHkT/YOK70WMhuSAPkxj0HPJ2iS1dSEufL8h1Ve9rQnjeLIf2J/S6MAZxf
-         RbHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790075815; x=1790680615;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cXSrQeMyHW+MKEBO/LMvcq3vJUhSUVerpVL28o1KObI=;
-        b=tIXroVUjrw4azzkhI6GpTHhu5l14jwq+EA3wReYG6NDO2x2/3QosG910UKlnt+QH0G
-         ikPG4hXOH2yl5B9DBxm/WZUVCYSeH5w7SP8WIPxzw/p7hjOXJeHJHBSMRIWTRkgGViLB
-         2lialaSWb8e121xXdMn3hNmQC16dDpGW4nXIMUEbgYp8fZW8AYe/AGlJQtUjVVAneLWQ
-         PuoJf0q2LK2fReRdqasl+QdpBC7zuxrNVNrqLR/3CwODBiuexr13d1uRPIpr5AvKKDIo
-         hOXseTd4DxFHt9ufAsKSz5MxN2sHcRPnXw+SD1FyEQFxoCj1poYfC+YizuMbQOYk2IsC
-         XgwA==
-X-Forwarded-Encrypted: i=1; AKwUvBySSi1WDJwco9vIc//bAPd1tVQ3Uid2iWh4w93BnIgzhlBRvwtPTbFNby5uxbgZyFba7e+r0sCI+d3UXXMka9HR@lists.infradead.org
-X-Gm-Message-State: AFuF++nSHG4680zAEm2D+CLFq6sA6wKFhARkygGRr31c74Ah76s1zybl
-	SDwb48uKFu0UjeWR2oi2SibgTRUtQVXrq8BdpQEUROqFN04gziciiByO1Uks5BNX6qLfopDdmjP
-	Wg8uZRzSH98XBxki/ONImTTOzuQ==
-X-Received: from wmbju2.prod.google.com ([2002:a05:600c:56c2:b0:499:b2d6:1572])
- (user=snehalreddy job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1c1a:b0:49d:1de5:ce0a with SMTP id 5b1f17b1804b1-49fc56d4238mr237637205e9.13.1790075815186;
- Tue, 22 Sep 2026 04:16:55 -0700 (PDT)
-Date: Tue, 22 Sep 2026 11:16:54 +0000
-In-Reply-To: <arJTf9C-dr3eMnsW@google.com>
-Mime-Version: 1.0
-References: <arJTf9C-dr3eMnsW@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922111654.1024808-1-snehalreddy@google.com>
-Subject: Re: [PATCH 2/2] KVM: arm64: Support FFA_FN64_MEM_RECLAIM2 in host handler
-From: Snehal Koukuntla <snehalreddy@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Sebastian Ene <sebastianene@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Snehal Koukuntla <snehalreddy@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 22 Sep 2026 11:22:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WG9Rn7qAVDjPyfL5yHZLh9IPazFwGD/ZWCbbi+x7N7u2KCboIqjiUdHaKXJH1OFoaijcFNGCX9C6kmh6SsLNU8L7px3T3aM6RUOtzF+HJxF/bNskd28AGBvn8/2ncuT+VjkIA0QlHnWSNLRMffSBmlrSxaEWVm9AJHe8WpMgf++SIjTFTw3mIegTA3Rjm1wCYnseWJHjWHrb9AE9Vy1G1lvqYGGv+/BAtJf3iBqn3tOpkHqZMp78NRoq3Go5ZdYGNmhndndnPt3XJoAfU3FouTU27PnBKkQNkCzB/DPEVvjnLkCPfODYm+YUcWJye12zHFtceP5iHtjTQgOohYr+uw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vuuA2brUqiYLcSf09l0VtIoQPLhmGaiGcN5kGGoFxiU=;
+ b=Tua/zqUrztlP3c2oDWDhuOCIKNFTREaplAt6Q6syhdaceA7hz61qQ0ZG4gm96SexYb4Mp8HChbiVyaiA12JS7ueIcvREPpY6i2OECAQhBLl8aczlQzzD1p8cptokWbdVzt3X8mSrMjnvCg0e6vVfeFfhqCYbRI6p+Z7lyquucpw1DJRXDlRh4B8pUnFCVzGELFwrl0e41PHk43Xql8ngv4d9IX3zX3Val7c+ujShLkcarophpQ8/CLulX0qqv68wu2rdl/eEBmKiaSKWgfZWWdB9s40cSgkZ3CV4AvllKUqRSDvL1SPM18QnxemuUmAu7F0bMcws4Sa6Wbpz6O6OOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR02CA0011.apcprd02.prod.outlook.com (2603:1096:4:194::20)
+ by KUZPR06MB8967.apcprd06.prod.outlook.com (2603:1096:d10:86::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Tue, 22 Sep
+ 2026 11:21:55 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:194:cafe::65) by SI2PR02CA0011.outlook.office365.com
+ (2603:1096:4:194::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Tue,
+ 22 Sep 2026 11:21:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 11:21:55 +0000
+Received: from cix (unknown [172.18.64.61])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id CEC2940920E2;
+	Tue, 22 Sep 2026 19:21:54 +0800 (CST)
+From: joakim.zhang@cixtech.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	p.zabel@pengutronix.de
+Cc: cix-kernel-upstream@cixtech.com,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joakim Zhang <joakim.zhang@cixtech.com>
+Subject: [PATCH 3/4] ASoC: dt-bindings: Add Cadence I2S-MC controller
+Date: Tue, 22 Sep 2026 19:21:33 +0800
+Message-ID: <20260922112134.4167305-4-joakim.zhang@cixtech.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
+References: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|KUZPR06MB8967:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 7bdf7a7d-554f-4490-2a18-08df189bb5b0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|36860700016|82310400026|1800799024|6133799003|3023799007|10067099003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ZGopu2BXMrkL4MTjwjEocugTZYro3z1C6o1xGcWXfSXOaxoj5VYrbtjFMDcC8K+ofS5a6fWH0nH5WNjf7pcp1TsTFHiqnlFNKuF4XqC2xFLTINVUalOrtI76xvADb0qA22HgFC/a0/xjNYcNCmcoadzldWwX3cnsz/4aVdYeEzslA2bw+E4xqfn2Z88doLdfUD68IzFjJyM5xEb7jEAScxlbCBpO7FI7eES1xdCeod1jD88ygaxt/AqY0RzS9KGxzfAFiYpF42wbrOSy8bboVEWuj8NSfINa0XByjap0E/QHBAPCygFX2TykNciXsnkbZxgu3rH445Y84oCITIe5snhY3Zfq6QqT+7eGbz6jR+JQHqOlgKinZ3pqyQ8oMx085JmZedwixiJ0Zn0rMsGe705fHkATdMF2ArfnRMTyN6CLrn8gbByIYszo9PKFp/pRMTqjZp4TjGJ4CQJSoW2YMbQUL/Uq7EK7nO9x/pMoDmxD6qCyIfELUC5vuVvsGkJYmzeRUqcSjnG3vgnEHLXe9xOLoXhaF4KCdsk/7GWKgBZS3tpEgbkGVGvkTS+4OCfbMPfeVS/xpb2nyhssVRP8Ecb5Tegb12CsO574cCMvSlxYU1M19RtX2L6HEh5b3UbYvjo18X2VbCUCaHXY66nUUg==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(36860700016)(82310400026)(1800799024)(6133799003)(3023799007)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 3bSMrv5pgiPVUf4+fARoFfi8aHvAgEEOtpUbNmuL0OMg/cU6JxGRITO4KitfQNzEFGXv05XLH1WrAT7sNwaChNhbHJK1+SiMJ6Rk1wmsZGjvhi+/SVfLBB6MxYcBcQ8jaEvHTqi59wJSM7W6nUbM2PTdC1tM1PTmtXulnt5PtTD6aNnIc0mYURgh65KGRKN5JH/R7h11PZ6+sNYylkVbivR03QrV8KO8Tkvie+kDq3m5ihkBptR38e8V4Ums2vcNe/39Zc7NBRHXuRjnHTJRizUYiee8IzGXAyCXnOBhhDyPpHeYagKgJKSdiUsnXNhokdjuh37EpSSsnKVRTrJapHvkm7w+YmoL1wNMPUXLTSrncITZjGEm07wR33DSsZseQm8lSCmduPu+vJS9f7GvaNYD/lOJLuZcpXdzOmu+jfZPYzeEIyobD7ZsrMWl6cyM
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 11:21:55.5295
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7bdf7a7d-554f-4490-2a18-08df189bb5b0
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUZPR06MB8967
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_041658_126569_ACD60598 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20260922_042210_128475_3977A954 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +123,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-On Tue, Sep 22, 2026 at 10:07:27AM +0000, Vincent Donnefort wrote:
-> > +	if (ffa_check_unused_args_sbz(ctxt, 6) || (flags & ~1ULL) || (x4 >> 32)) {
-> 
-> nit: (flags > 1) ?
+Add the DT binding for the Cadence I2S-MC multi-channel controller
+integrated in the CIX SKY1 audio subsystem. The controller exposes a
+transmit DAI and a receive DAI and moves audio through a configurable
+set of its 8 data pins. Which pins are wired out and in which
+direction is fixed by the board design and described by the
+cix,pin-out-num, cix,pin-rx-mask and cix,pin-tx-mask properties.
 
-Ack, will update in v2.
+Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+---
+ .../bindings/sound/cix,sky1-i2s-mc.yaml       | 124 ++++++++++++++++++
+ 1 file changed, 124 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-mc.yaml
 
-> > +	if (offset % desc_size != 0) {
-> 
-> nit: 
-> 
-> if (offset % desc_size) is enough
+diff --git a/Documentation/devicetree/bindings/sound/cix,sky1-i2s-mc.yaml b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-mc.yaml
+new file mode 100644
+index 000000000000..a5160f2c2332
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-mc.yaml
+@@ -0,0 +1,124 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/cix,sky1-i2s-mc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cadence I2S-MC controller
++
++maintainers:
++  - Joakim Zhang <joakim.zhang@cixtech.com>
++
++description: |
++  The Cadence I2S-MC multi-channel controller integrated in the CIX SKY1
++  audio subsystem. It provides up to 8-channel playback and capture through
++  a configurable number of I2S data pins, and exposes two DAIs: a transmit
++  DAI and a receive DAI.
++
++allOf:
++  - $ref: dai-common.yaml#
++
++properties:
++  compatible:
++    const: cix,sky1-i2s-mc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 4
++
++  clock-names:
++    items:
++      - const: hst
++      - const: i2s
++      - const: audio-clk0
++      - const: audio-clk2
++
++  resets:
++    maxItems: 1
++
++  dmas:
++    minItems: 1
++    maxItems: 2
++    description:
++      One DMA channel for instances wired for a single direction, either
++      "tx" or "rx", or two channels for both transmit and receive.
++
++  dma-names:
++    minItems: 1
++    maxItems: 2
++    items:
++      enum: [ tx, rx ]
++
++  "#sound-dai-cells":
++    const: 1
++    description:
++      Cell selects the DAI, 0 for the transmit DAI (i2s-mc-aif1) and
++      1 for the receive DAI (i2s-mc-aif2).
++
++  cix,pin-out-num:
++    $ref: /schemas/types.yaml#/definitions/uint8
++    minimum: 1
++    maximum: 8
++    description:
++      Number of I2S data output pins wired on this instance. Which of
++      the 8 controller data pins are wired out is fixed by the board
++      design and can be any subset.
++
++  cix,pin-rx-mask:
++    $ref: /schemas/types.yaml#/definitions/uint8
++    description:
++      Bit mask of I2S data pins used for capture, bit N selects data
++      pin N.
++
++  cix,pin-tx-mask:
++    $ref: /schemas/types.yaml#/definitions/uint8
++    description:
++      Bit mask of I2S data pins used for playback, bit N selects data
++      pin N. The rx and tx masks must not overlap, and the number of
++      set bits must not exceed cix,pin-out-num.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - dmas
++  - dma-names
++  - "#sound-dai-cells"
++  - cix,pin-out-num
++  - cix,pin-rx-mask
++  - cix,pin-tx-mask
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    audss_dmac: dma-controller {
++        compatible = "cix,sky1-audss-dmac";
++        #dma-cells = <1>;
++    };
++
++    i2s@7050000 {
++        compatible = "cix,sky1-i2s-mc";
++        reg = <0x7050000 0x10000>;
++        interrupts = <GIC_SPI 222 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&audss_cru 17>, <&audss_cru 27>,
++                 <&scmi_clk 100>, <&scmi_clk 101>;
++        clock-names = "hst", "i2s", "audio-clk0", "audio-clk2";
++        resets = <&audss_cru 1>;
++        dmas = <&audss_dmac 2>, <&audss_dmac 3>;
++        dma-names = "tx", "rx";
++        #sound-dai-cells = <1>;
++        cix,pin-out-num = /bits/ 8 <2>;
++        cix,pin-rx-mask = /bits/ 8 <0x1>;
++        cix,pin-tx-mask = /bits/ 8 <0x2>;
++    };
+-- 
+2.50.1
 
-Ack.
-
-> > +	if (offset >= (u64)req_desc_cnt * desc_size) {
-> > +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-> > +		return;
-> > +	}
-> 
-> Not sure I understand what Sashiko means here offset can not be bigger than the
-> number of constituents we have...
-> 
-> > +
-> > +	hyp_spin_lock(&host_buffers.lock);
-> > +	if (!host_buffers.tx) {
-> > +		ret = FFA_RET_INVALID_PARAMETERS;
-> > +		goto out_unlock;
-> > +	}
-> > +
-> > +	memcpy(hyp_buffers.tx, host_buffers.tx, (u64)req_desc_cnt * desc_size);
-> 
-> Either I or Sashiko is confused here. The invocation will not do more than
-> req_desc_cnt will it?
-
-Agreed. Per [S0039] and [S0047] in the spec, req_desc_cnt is the total
-count of constituent descriptors in the TX buffer array starting at
-offset 0, and offset indexes into that array so callers can advance
-offset on subsequent invocations without repopulating the array.
-
-> > +
-> > +	range = (void *)hyp_buffers.tx + offset;
-> > +	if (page_index >= range->pg_cnt) {
-> > +		ret = FFA_RET_INVALID_PARAMETERS;
-> > +		goto out_unlock;
-> > +	}
-> 
-> Should we also verify total_pages here?
-
-Good catch. I will add a check in v2 to verify that the sum of pg_cnt
-across the constituent descriptors matches total_pages (without
-overflowing) before forwarding the call.
-
-Thanks,
-Snehal
 
