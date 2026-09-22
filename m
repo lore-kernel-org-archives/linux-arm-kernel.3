@@ -4,62 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E2AC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49047C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4VKp8BPpudiuKa1U2dBNHICwuRelag7fHLm76D5sWX8=; b=oR8l32UWUSS31dWBXSmCCAy8rm
-	hIA0mRuIdj6liYVjZqt/inQzPRUwCOfcqM+MLeNn5AUSi8P9gntZE9FkfZ9epgV5tntMja4TLWv5A
-	Z97M2+VKQpS1DC7Z3e8skFPEUwn+j/kuFMSOATh19q2cYu+fgpFTDfxQXmOCtfu3y//oluWG/etyY
-	g3IySB47R+CRuGhU0PJ1b33b4egHZDQrozvCB6XU6O1kJwVq6eeYDfBW9uOadlfb7pbyxP1dQndm6
-	VyUFL3mDLbUHiJ/7Gikm8w1dbKcXIye4gsJqc/G3G1CHJm7CbO2Ht1pEsqAmsQnCl8vjcj8E0u20v
-	qooLmIpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vyxky55saR20D8RVWroa4976RydiqaqM5jdSo6aQQVE=; b=n4ZIGo541l9+4yn0VA4H8zpelk
+	cdrzluZLDzRQ2kWIi8Ddi/y5B9AH+2APhnD0UA+iVWx31IhTJZMJaFD5TShebK5opdQ5MAjx9Cd+U
+	+oHt8FYVc4IUvR/I6nUUFe5MMtHrjCNSpcJ5NaGGJFrYf2MnEnFJi+1GAiKLw9KKLINK57D7t4kR9
+	kJQzZEEk/230YPrXZubJJsYJ1RSr9DFHFFIsJ/pyxWHP26cabTHLpTAPV7fdvxyIQMUl1NkGJuxQv
+	LVEtyGpQJt2J+fOuBxARnODz59ebHhJQkfU9FuTP/k90pY3TvALFABYt0SKwRmEYcIObwrHPDcfaN
+	R02O4Ldw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92nU-00000005woY-2Kl6;
-	Tue, 22 Sep 2026 15:52:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92nR-00000005wnC-3BR8
+	id 1x92nf-00000005wtN-3DRn;
+	Tue, 22 Sep 2026 15:52:55 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x92nc-00000005wra-2pt8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:52:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6D231576;
-	Tue, 22 Sep 2026 08:52:34 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39CF83F86F;
-	Tue, 22 Sep 2026 08:52:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790092358; bh=QXkqCPySi5pz7XgdaRzbBeXXq0xzGh50Y6EVmcAY8zY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oZix9XUP55kqOWVW+bfYG9UjgcMAazDK3HOVVEbFE3DS3uNXTOXe520r1mUw6E6lo
-	 20jvGUvIZtXOrhSY+gykvbq9ah2h0pYuQyUF+IHtdmoHFiK2hXDtWVL34VCdra+7Xz
-	 jzeycyKKbWFEKl6P58faJ33saYp+8eGTfCsMCwYk=
-Message-ID: <31be5621-92f6-4101-898f-806335d56155@arm.com>
-Date: Tue, 22 Sep 2026 16:52:35 +0100
+	Tue, 22 Sep 2026 15:52:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jXAMs0W9jhIOTCMnsIAR8DRC9f9a4ynIGfQIxsrhFzXF1ZaMZYaS4HlORle1oVtv0DLgzu3xjc2IcH7AlRd55Tc9NQu9ToKY+16vDaKoO08Kr+r1Ofa6+hbwT6K1MzGJGNb5OgySibCi3UKGU/Au0LXfxMWzZXTKy95nrZJswcQdGRq89yyE9wNA4hj4LR50EcatZJwRDrzyPxPAr31iKeoPVx6nEO0eqjxZeB9E8zOvBb5WgEAPaBq8yGq4KFZOutpZoEUBNjBZCu3zosL2d7Cwq6NcXpmHXfDuS9otrubZqCa8wXkpv0HMp81FtPBjm/yXm816xU6jZm6D1EZcHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vyxky55saR20D8RVWroa4976RydiqaqM5jdSo6aQQVE=;
+ b=KJNL+xGPch3qqQ1Ncw7CI5K/IiiEj3zgyngeJVSk5J1a1KMfmYycT7pMhV3zMw7PfFaC4h7tqWtEjHSjc1Y3ED94P3cLp2i6oj2BIgi05LSv2sJRAhTNV2npKDbNQPdKj6fOn2MP2howvjHwqP/VsShf1fg9f4YnE3paWFqQ839EZTjaATgXRsSYpolc0MCKxMUSWAUce0aYwLmrv4Ly6cfAmEQz8qmgdm4zglmD0sNurQ+SwjdrgHBo+ixlgCm5qZhjNwzdOFWG/KwNtud3fhibMdJJ/PD4S4itnUasIN+lNs3B5ZTmW4rx36XRwy+FAkuJycqYHGEsM3zcHkzESA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vyxky55saR20D8RVWroa4976RydiqaqM5jdSo6aQQVE=;
+ b=m1nJ5Gk6EdK7dtzi3VN3zTzOiBmXNVCO9pnfQXsYgZj999iTzTkLghADREL3uVgG0T5xBS5vHmNprCkoDjUlWQpG04eS4211DZq9ZO8uNoeO5GkohBHc3e5ui9yBvMx1Ee2tA/0woj/Jnv4TwOlskYagBWH5rgBMW35wfPMF5KQBaCSjOEw/znL4L7CqlssfN9KWtOuGwjKugrzf7d5TQGk0c+TeSbuBhI3fHsE6oi2yYl4C0WiuSRu/NbjO9MlIoylZeXNqKIvgGE80tl07wPM9k0DDcXwyfu3/eD3EHM12Ghg16aC4z75LGYxiYMBJ9TN4Ai//iT7TEjTuvRsMJw==
+Received: from BN0PR04CA0136.namprd04.prod.outlook.com (2603:10b6:408:ed::21)
+ by IA0PR12MB7577.namprd12.prod.outlook.com (2603:10b6:208:43e::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Tue, 22 Sep
+ 2026 15:52:41 +0000
+Received: from BN3PEPF00022BDA.namprd03.prod.outlook.com
+ (2603:10b6:408:ed:cafe::6c) by BN0PR04CA0136.outlook.office365.com
+ (2603:10b6:408:ed::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Tue,
+ 22 Sep 2026 15:52:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF00022BDA.mail.protection.outlook.com (10.167.248.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 15:52:41 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
+ 2026 08:52:12 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
+ 2026 08:52:11 -0700
+Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Tue, 22 Sep 2026 08:52:11 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+CC: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Dat Mach
+	<dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
+Date: Tue, 22 Sep 2026 08:52:11 -0700
+Message-ID: <20260922155211.676134-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla>
+References: <20260901192906.133670-1-jamien@nvidia.com> <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 2/4] iommu/arm-smmu-v3: Support shared SIDs in
- insert/remove_master
-To: Peng Fan <peng.fan@oss.nxp.com>, Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, joro@8bytes.org, jpb@kernel.org, jgg@ziepe.ca,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, peng.fan@nxp.com
-References: <20260921-smmu-shared-sid-v2-0-4b656ce68178@nxp.com>
- <20260921123846.1663580-1-peng.fan@oss.nxp.com> <arG6hmng3NddGEHm@nvidia.com>
- <arKNJH2YWQT9KL7x@shlinux89>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <arKNJH2YWQT9KL7x@shlinux89>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BDA:EE_|IA0PR12MB7577:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2f367d70-681b-4fa2-1632-08df18c1891f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|1800799024|36860700016|82310400026|6133799003|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: jrGHwinW5yyIaE6hisvvyZgxwhSZsgDmUOZu77F/KKBDGyIP7MzIAIJR+SLspIMcPf4shw5AruAApGYNVOsFdLeMiIt0HO5G+/cF18SmuF24/kLX55sCMM8ufOScGBdVjGimMDiDMBMitAUlKm8DHavJPtiyIKO0vuEph5kCBDl0ze3t4M/u02tExdh3TjlWaKmVkOLtbevShTfUXBim1Kg9muOhQAVIzaQu1R11RH0d92HoD4qsxL2Jixv7cA4PnY3oTCywMBudtGgIkqZ8jujbSiz9vFUQJPulJ6p9lOBtiwa1cfPLCYfU03pYlTiKzQjFECObYzSO1opO5Y8A96ZEO7yBYzQ6zAfqu15l3PsmUaSJE84N5UoHnt74UHnqZwsgc5SXanE4ICk5gtKXfI19+e4qn1VPkC/rGBBQp3ulvEIma7R4wrqS3DqmQj3baodEW3VRDysDCjq9kBtzZAhBHiu5OHlLAfHxlfP7due51F7caYr5RlTNmXOatGWzh81e06X9rL39P6AjdWaCkFcaYN0hJSWoU/XVM7yE8HgRNrzbWQMaAGFL1Vf8z6hVHgtE2wO68HQvxQtWl0fiquQKXwXSdmMpPlsXFnLgvJ88am3qxi1tIMnsFLlHHxEgx3PlNhzlw8GNe+0P+zht1x2YK4nQXPfRJr8pLnHzmcpAYXk6eAaxlZ/8EXO7frVNNki3XKuJwtiVtnOrfSZAbQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(1800799024)(36860700016)(82310400026)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bN15vzE9wnMIM0GROtawBhJYDUXMCW0pWJ1MK73Y8TulqVFs4Xg98FGaX/CMvECDjrivW1HrFTSIhTjytffWCUcAyxDoDU9SsdBPW/1fD/3lVCI+K8gljL0Uqfmo/3mCJxAYwa7w44IRlTj3J85e4r2FBtWpee7oQT7fiYC9JCCDgCOE8ZRiVAmJnLM0cI6MO+5DxSg8d5pC6vLVzF7ZU3dwLjUnfm7OEjeNLlN5xIS8WLFwHAl1xXZRDNuojE6yQmfrAguEHZKRDg30WaPsiSFjhIXKlTFQ12JrVWHtD+0UNa8F9XvAYPXWoIgATilIEUmMKpgo8IcyS+f6mL2Asu570cgIRkIz3xrQqspPkMR1UZv+y2rt0ACx2mwBrH6Qv+V6pdlBOQ3osufGlY4M1Ja8Q+S7UpdKa1XpdAKiT7AvFQKg9SEm8U2olDGRgCe9
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 15:52:41.6284
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f367d70-681b-4fa2-1632-08df18c1891f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BDA.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7577
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_085241_892756_A85EA5B3 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20260922_085252_738338_78830A56 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,109 +131,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/09/2026 3:13 pm, Peng Fan wrote:
-> On Mon, Sep 21, 2026 at 04:15:18PM -0700, Nicolin Chen wrote:
->> On Mon, Sep 21, 2026 at 08:38:46PM +0800, Peng Fan (OSS) wrote:
->>> @@ -976,6 +976,24 @@ struct arm_smmu_device {
->>>   struct arm_smmu_stream {
->>>   	u32				id;
->>>   	struct arm_smmu_master		*master;
->>> +	/*
->>> +	 * ref_count > 1 means multiple masters share this SID.  Protected by
->>> +	 * smmu->streams_mutex.
->>> +	 */
->>> +	unsigned int			ref_count;
->>> +	/*
->>> +	 * When ref_count > 1 the STE has already been written by the first
->>> +	 * master; subsequent masters must skip the write.
->>> +	 */
->>> +	bool				ste_installed;
->>> +	/*
->>> +	 * Links all arm_smmu_stream objects that share the same SID across
->>> +	 * different masters.  The canonical (XArray-stored) entry is the list
->>> +	 * head; non-owning sharers are linked into it.  Used to transfer
->>> +	 * XArray ownership when the current owner is removed.
->>> +	 * Protected by smmu->streams_mutex.
->>> +	 */
->>> +	struct list_head		shared_link;
->>>   };
->>
->> SID-sharing masters still allocate their own streams. Though the
->> SIDs are the same number, they own duplicated streams linked via
->> that "shared_link" list.
->>
->>   master_a->stream[0] --> stream (SID=X) --|
->>                                       shared_link
->>   master_b->stream[0] --> stream (SID=X) --|
->>
->> But maybe they could share the stream structure directly? I.e.
->>
->>   master_a->stream[0] --|
->>                         |--> shared stream (SID=X)
->>   master_b->stream[0] --|
->>
->>
->> The stream structure would still need a list for shared_masters:
->>
->> struct arm_smmu_stream {
->> [...]
->> 	/* Every sharing master, ->master included. Empty unless shared */
->> 	struct list_head shared_masters;
->> };
->>
->> ref_count could be simply !list_empty(&stream->shared_masters).
-> 
-> Agree.
-> 
->>
->>
->> Does i.MX need to support SID-sharing with multi-SD device? If not,
->> the master could have only a simple shared_masters_elm:
-> 
-> For i.MX, there is no need to support SID sharing for multi-SID device for now.
-> Not sure, in future there are cases that needs SID sharing for multi-SID device.
+On Tue, Sep 22, 2026 at 09:46:59AM +0100, Sudeep Holla wrote:
+> Could you clarify how the build and runtime behavior are protected when
+> the FF-A driver is disabled?
 
-I have a system meeting those conditions :)
+There is no build-time dependency from ACPI FFH to the FF-A driver. The
+registration direction is from FF-A into FFH: the FF-A driver registers an
+optional backend after probe and unregisters it on removal.
 
-Specifically, I have a physical PCIe-to-PCI bridge board with a couple 
-of ancient cards plugged into it (such that they each end up with their 
-own RID plus the common bridge alias RID) just in case I ever got round 
-to looking at this myself...
+With CONFIG_ARM_FFA_TRANSPORT=n, no backend is registered and an offset 2
+access returns FFH_FFA_NOT_SUPPORTED. With CONFIG_ACPI_FFH=n, the
+registration functions are static inline stubs.
 
-(And for added fun, one of the cards only supports 31-bit DMA and the 
-machine doesn't have any RAM low enough for it to work without the SMMU 
-at all)
+I have also built CONFIG_ACPI_FFH=y with CONFIG_ARM_FFA_TRANSPORT=n.
+The W=1 build and full vmlinux link are clean, with no unresolved
+references to the FF-A transport driver. I'll mention this case in the v3
+cover letter.
 
-Cheers,
-Robin.
+> Are there any other technical justifications for this tight coupling?
 
-> 
-> I could update in V3 following your suggestion.
-> 
-> Thanks,
-> Peng
-> 
->>
->> struct arm_smmu_master {
->> [....]
->> 	/* Supports num_streams == 1 only. Empty if SID is not shared */
->> 	struct list_head shared_masters_elm;
->> };
->>
->>> @@ -1024,6 +1042,11 @@ struct arm_smmu_master {
->>>   	bool				ste_ats_enabled : 1;
->>>   	bool				stall_enabled;
->>>   	bool				ats_always_on;
->>> +	/*
->>> +	 * True when at least one of this master's SIDs is shared with another
->>> +	 * master.  SVA, stall and IOPF are disabled for such masters.
->>> +	 */
->>> +	bool				shared_sid;
->>
->> Then, this could be !list_empty(&master->shared_masters_elm).
->>
->> Nicolin
->>
->>
+FFA_MSG_SEND_DIRECT_REQ2 requires FF-A state already owned by the driver:
+the selected SMC or HVC conduit, the sender endpoint ID from FFA_ID_GET,
+UUID-to-endpoint resolution through the partition discovery ABIs, REQ2
+feature detection, and FFA_RUN handling after FFA_YIELD or FFA_INTERRUPT.
 
+Open-coding those operations in ffh.c would duplicate FF-A initialization
+and state management. The ops registration lets FFH use that state when the
+driver is available while degrading cleanly when it is not.
 
