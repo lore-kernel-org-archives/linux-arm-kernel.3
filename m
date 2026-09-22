@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D285C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36354C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pU5MDTrWcIPn0f9bdi37/3G3L8QSWUVNbMpQbtysNeQ=; b=e+jOwjOvLHXV79kUss1JJ+4ZFD
-	WljExxDx4ajlOATihSbzABZc0taBvecFSnYYkxX/JW3V7LUUNiJvLwCat/D2OSQhNO+jqYE4uOyeK
-	629naO83YtZYWg2aL0VvYEICuOWLjlNfQbYbEv6cHxvEAtOb9nnrrdQgjStd7jc1SlnNtqnN7Tp+t
-	7iaNoY2Hk+D0T4XGAdfL8gBLsSCvtdSdvzeNxFDj2XhPOcuV9Y31hwNLnXb/xgPZsO9FIfhc+1Gmz
-	nNEkKP/ZWi3WeoFYlnSG9wfqxjT9veO8Wg/kr02tFITJNkDJG+DsjZ/CJcN/ZTLnmoHPtwAHmhmBk
-	bfXfaNpw==;
+	bh=4UHOpcSqjjWJpu1pvY9X0OQD7LAKUy71PpdLDexaDwQ=; b=cPoXK5PfHl2gw5PnfeU2gpjq9v
+	9Ul+6ION9g0loU+glaWJY5ZLQN1SQzUGOYbm8zFW9Cq7QLmLdSzVwmCUDmk9aCvbjNz+tKQbL4m1M
+	w/bAzeI5SdkeVxH56L2LjIcL0j7z3iVYJ/lmR4O79lVPHOhUUHcreFRuUi7xdBtxB/HJZ3GnaJHdk
+	NTx1NuQ+QSBxUhKOpRW4OmrwiHbtLZpLaPR4ZJQ/RK99oJypvR+vad4i9p+ivuYX1a7/wPi0NF/Me
+	kUCPOAnD9pra+LGZlvR0Iv+t072+mt7e+IBST1/E0EyiaK01CzhVpyYPdJIDF5Oslv+ALwpsvh4qQ
+	Tu2Om8FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94LI-00000006Cbp-2HVf;
-	Tue, 22 Sep 2026 17:31:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94LG-00000006CbB-2FFg
+	id 1x94Lr-00000006Cmg-2r44;
+	Tue, 22 Sep 2026 17:32:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x94Lp-00000006Ckz-2E9C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:31:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DE8943768;
-	Tue, 22 Sep 2026 17:31:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C24721F000FF;
-	Tue, 22 Sep 2026 17:31:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790098302;
-	bh=pU5MDTrWcIPn0f9bdi37/3G3L8QSWUVNbMpQbtysNeQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e3bN9/IlMT809Q8HNhWzBbshsNy89YNRI7T0pc1ajitGhILxYyiV98IR/ZSzJM8lp
-	 CZI38mav8zQha53451wcKYvERML7esM1Yxop/8fbqA6r7r5aZW+qerhlbuDm/BZDfZ
-	 /7TgtU8BOaElRXDXXaoO0piTUuQjVhQIEgdtbJRDfcBaQ0+ss2CrbTTT3l2xXmVNVO
-	 v0UHqAr+pPOon07E45yUbrlCPQzXGTanAqhi9FcceO6ADqo9AxTCnbJqXX/d6SLyjp
-	 2NP6u7BByvQ7WsFllI7WWRHl9pQM8jd4l/neE6SD31Y02FHkvV3ryeiz9e+xmUdHh0
-	 nnl2rOwNAtBxw==
-Date: Tue, 22 Sep 2026 18:31:33 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Mark Rutland <mark.rutland@arm.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Randy Dunlap <rdunlap@infradead.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
-Message-ID: <arK7auq5X5TzViWO@gremlin>
-References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
- <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
- <arKxjsxuO1F5ExrY@kernel.org>
+	Tue, 22 Sep 2026 17:32:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2AA11576;
+	Tue, 22 Sep 2026 10:32:09 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2098E3F86C;
+	Tue, 22 Sep 2026 10:32:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790098333; bh=i8rmnA+nlrHeWzx7kNMPhnc4iJcDtyjqy8ekHSFBfJY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hM/SET1P+KLwfCcF/EmK7kBGpnTtJ6hib/jI+FsscMVotyP6SnC2oSDprj3ksYReb
+	 wWYK8dWDStfaOmXBNeCfNteQ1qqOXodtyrT6riUez3skCE13fAFlmdYDlib7zf8Bq4
+	 PBWsxMfEsVHadBHn2P0w6yO1bCNyHnz6bpbKWWfo=
+Date: Tue, 22 Sep 2026 18:32:00 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
+	lukasz.luba@arm.com, philip.radford@arm.com,
+	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH v12 01/25] firmware: arm_scmi: Add new SCMIv4.0 error
+ codes definitions
+Message-ID: <arK7kLlrg491EsMf@pluto>
+References: <20260920091928.2014972-1-cristian.marussi@arm.com>
+ <20260920091928.2014972-2-cristian.marussi@arm.com>
+ <88138b8e-42cf-405f-a5ee-519271dbd4f4@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arKxjsxuO1F5ExrY@kernel.org>
+In-Reply-To: <88138b8e-42cf-405f-a5ee-519271dbd4f4@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_103217_643248_42766F87 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 09:49:18AM -0700, Oliver Upton wrote:
-> Hi Lorenzo,
->
-> On Tue, Sep 22, 2026 at 03:17:55PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > +bool __weak kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
-> > +{
-> > +	return true;
-> > +}
-> > +
-> >  void kvm_vcpu_on_spin(struct kvm_vcpu *me, bool yield_to_kernel_mode)
-> >  {
-> >  	int nr_vcpus, start, i, idx, yielded;
-> > @@ -4365,6 +4370,9 @@ static int kvm_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> >  	    range->gpa + range->size <= range->gpa)
-> >  		return -EINVAL;
-> >
-> > +	if (!kvm_arch_vcpu_allow_pre_fault_memory(vcpu))
-> > +		return -ENOEXEC;
-> > +
->
-> nit: it'd be better to let the arch hook return an error of its choosing
-> but in reality this is only going to be used by arm64.
->
-> Not worth a respin on its own though.
+On Tue, Sep 22, 2026 at 02:20:20PM +0200, David Hildenbrand (Arm) wrote:
+> On 9/20/26 11:19, Cristian Marussi wrote:
+> > SCMIv4.0 introduces a couple of new possible protocol error codes: add
+> > the needed definitions and mappings to Linux error values.
 
-Ack will fix up if there's a respin for something else!
+Hi David,
 
->
-> Thanks,
-> Oliver
+thanks for having a look...
 
---
-Cheers, Lorenzo
+> > 
+> > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> > v4 --> v5
+> >  - map SCMI_ERR_IN_USE to EBUSY as natural
+> > ---
+> >  drivers/firmware/arm_scmi/common.h | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> > index fe8c22cfb9f7..6f89ba96493d 100644
+> > --- a/drivers/firmware/arm_scmi/common.h
+> > +++ b/drivers/firmware/arm_scmi/common.h
+> > @@ -48,6 +48,8 @@ enum scmi_error_codes {
+> >  	SCMI_ERR_GENERIC = -8,	/* Generic Error */
+> >  	SCMI_ERR_HARDWARE = -9,	/* Hardware Error */
+> >  	SCMI_ERR_PROTOCOL = -10,/* Protocol Error */
+> > +	SCMI_ERR_IN_USE = -11,  /* In Use Error */
+> > +	SCMI_ERR_PARTIAL = -12, /* Partial Error */
+> >  };
+> >  
+> >  static const int scmi_linux_errmap[] = {
+> > @@ -63,6 +65,8 @@ static const int scmi_linux_errmap[] = {
+> >  	-EIO,			/* SCMI_ERR_GENERIC */
+> >  	-EREMOTEIO,		/* SCMI_ERR_HARDWARE */
+> >  	-EPROTO,		/* SCMI_ERR_PROTOCOL */
+> > +	-EBUSY,			/* SCMI_ERR_IN_USE */
+> > +	-EINVAL,		/* SCMI_ERR_PARTIAL */
+> >  };
+> >  
+> >  static inline int scmi_to_linux_errno(int errno)
+> 
+> So far we had unique mappings. Now EBUSY and EINVAL could be due to two SCMI_ERR
+> each.
+> 
+> I assume in the later usage there is no need to distinguish them for now? Might
+> be worth stating that in the patch description.
+
+Mmmm....indeed this was added to the spec last minute and while
+ERR_IN_USE (probably) does NOT necessarily need special treatment (so it
+can share -EBUSY), PARTIAL_ERROR must definitely be handled specially ...
+
+Good catch...
+
+I am indeed already handling properly the side-effects of PARTIAL-ERROR
+but I will have to properly handle the status code itself in READING_COMPLETE
+and in the NOTIFICATION....as a consequence it needs to be distinguishable...
+
+Problem is...there are NOT so many not-already-used error-codes that could
+signify such an ambiguos error condition, by the spec:
+
+"The platform returns PARTIAL_ERROR to indicate that some of the telemetry
+data could not be collected."
+
+I will use -EBADMSG (but any other advice is welcome) and fix its usage where
+needed for DRESP and NOTIF in v13.
+
+Thanks,
+Cristian
+
 
