@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDF0C982FA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274CDC98302
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JI7EXFtD8nct3k80/WZ56pI4cZh/f9aZ7DXMwMK2D/8=; b=fRXqMKZYpwfIIcI2eA7LEskP7T
-	9td+ws5VLqnpYHSriJYBm1/a+SA70O5PAVoo9Bz9t6Z6Zhyc2JqOh6Zlva+QXD0evrck3/09HqDiF
-	I31hyWib0c1l+XNzEXtfSuYgjV88wgnYNY/bej6DOPV0mAfw9JvWlwiYSiB+287XpZjtZ5MRROf/s
-	CgQpaeBzEkAN7+BklBpVQBTSG40V7TgDukRpgBawZfmp1Nipxjo7miQWhItgVm17kOwhinqhAackP
-	zASk6dweSm3hwO9JPCt//Q7RktJjbdb65sBzirQsHnaWSWu6NCCrF4CvEpa8q7DsfZzAB8BXI5LPq
-	cUxV9yPw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6rXdzRPRFaAkzJK2CTbotf/X0PgO5pvJQVZtTI8XXN4=; b=XyfZi7dz1evXsikAZPnvHTaUnt
+	KCrX9M97GnksUuLTh+5FoRn6aWoae1hmzKicnkZZuLEdbeu4Z2czxGZT6n0zfZErz6YQ07YoLCbzs
+	nYiP2zPziTdxF8lUpKKpHTWoMMJyR/gX9hNxri4hYSDNvwW6IuxLIS8kVwXXJqoAFEw2JKyp/u/LE
+	tozmhFBXDFlZQmtZjb62BL4k+6GsSR+UANAY5I2yHAP6epSC7q41QvYHeS94oqU1FIB+ZJRD7/UUk
+	/URRY9LmPE0yJ0ZWNUn9jIOulZ+EZ+P6tOSRaya73o5YHk05jWSOYv6c5Hsj/BUoqmW/IFujeB+by
+	R/RqJWtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98Ft-00000006dPS-3SnV;
+	id 1x98Ft-00000006dPo-3y29;
 	Tue, 22 Sep 2026 21:42:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98Ft-00000006dP8-1vTP
+	id 1x98Ft-00000006dP6-1vs1
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Sep 2026 21:42:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0738643E88;
-	Tue, 22 Sep 2026 21:42:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73E91F0089B;
+	by sea.source.kernel.org (Postfix) with ESMTP id D812741288;
+	Tue, 22 Sep 2026 21:42:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B717C1F000FF;
 	Tue, 22 Sep 2026 21:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1790113344;
-	bh=JI7EXFtD8nct3k80/WZ56pI4cZh/f9aZ7DXMwMK2D/8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Ya5A6rHNx7hQ40SvIJCp08q5QFMGYTTckXXph4KY2gDu6gfBuo6pHbHVE55FRlIIK
-	 0FJs516x3zbPr2H+VdN8uEi1zr0nfGid8ZCspHmR6U161Ctkfy/D6YH828AjbOLe6h
-	 0QeBr+NdsmNa4mnM1KzdjZx4boKNVUhZFL/i7z8SVzo7bpaO3AAaqHKg7jNu1cQecE
-	 HTjRa2VzBv/wxCJNbjzzM50SGRDCamXOxv8ZGFQK39twt9M8+shLLpioS30vm5kmE9
-	 uR5B6VdwRXK9HFlb5CehheG2vDKePB7Y3LnhRt9V5e6+y+giEo/Joripla93AIcoJ7
-	 koAKtD6ed0Xhg==
+	bh=6rXdzRPRFaAkzJK2CTbotf/X0PgO5pvJQVZtTI8XXN4=;
+	h=From:To:Cc:Subject:Date;
+	b=esjP7qAaLzUReZuUkYkPuocF/yKfoJxpuO0zFP9b3dxw4ydnOI1aEZzI7EOLOKs8O
+	 V9/trT+ZtO3X2bVXgc7+SoOEKd8RWDlbg/rPOBqyvOlT/KJM1mkOTlJo8hdJtm/91O
+	 hOpf8olk23q1yQtTDvHNYJkZ++BBuKfiiQ2uDOhpeOysm/QG01zLDqTAsVWEkC7aU2
+	 2WSGEwCRIHPC+1ApnXsijAvmshnwgF77BrHUUqou6mmceN44RU9homJK3CfkfWJarO
+	 f7wSfZAQfi9oq2MjKSjxjxaw4wuerk406DH6s7YebmqCLEvO/oMk+0yF2wYe+hj2M+
+	 xAezx+rJD8tlQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x98Fr-0000000CFxJ-0Ehb;
-	Tue, 22 Sep 2026 21:42:23 +0000
+	id 1x98Fq-0000000CFxJ-1mQv;
+	Tue, 22 Sep 2026 21:42:22 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -58,12 +58,10 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
 	Yuchao Zhang <ndaugoing@gmail.com>
-Subject: [PATCH 3/3] KVM: arm64: vgic: Stop the VM when disabling LPIs
-Date: Tue, 22 Sep 2026 22:42:12 +0100
-Message-ID: <20260922214212.3327146-4-maz@kernel.org>
+Subject: [PATCH 0/3] KVM: arm64: vgic-v3: Make LPI disabling robust
+Date: Tue, 22 Sep 2026 22:42:09 +0100
+Message-ID: <20260922214212.3327146-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260922214212.3327146-1-maz@kernel.org>
-References: <20260922214212.3327146-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -84,49 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Disabling LPIs is pretty nasty, as it directly messes with the AP list
-of the affected CPU, which could be running... This has the potential to
-lead to really bad behaviours, and we should not be doing that.
+Yuchao Zhang reported that disabling LPIs on one CPU from another
+could result in UAFs and other horrors.
 
-Take example on the way the Active state is handled and simply pause all
-the vcpus so that we are sure they are all in a quiescent state, and the
-state be safely manipulated.
+There are two reasons for this:
 
-Nobody has any expectation of performance for this anyway.
+- the last_lr_irq pointer does not contribute to LPI refcount, and
+  that LPI being removed results in a dangling pointer
 
-Fixes: 96085b949672d ("KVM: arm/arm64: vgic-v3: Retire pending interrupts on disabling LPIs")
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
----
+- LPIs can be deleted from a remote vcpu by disabling them while that
+  vcpu is actually running, and has LPIs in its LRs.
+
+Address the two issues in one go, by actively taking a refcount on all
+IRQs referenced by last_lr_irq, and making sure that disabling LPIs
+force all vcpus to be paused, making it safe.
+
+Marc Zyngier (3):
+  KVM: arm64: vgic: Allow last_lr_irq to be NULL when LRs are not
+    overflowing
+  KVM: arm64: vgic: Take a refcount on IRQs referenced by last_lr_irq
+  KVM: arm64: vgic: Stop the VM when disabling LPIs
+
  arch/arm64/kvm/vgic/vgic-mmio-v3.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v2.c      |  6 ++++--
+ arch/arm64/kvm/vgic/vgic-v3.c      |  6 ++++--
+ arch/arm64/kvm/vgic/vgic.c         | 21 ++++++++++++++++-----
+ 4 files changed, 34 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index 5913a20d83019..adefc42964732 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -303,9 +303,19 @@ static void vgic_mmio_write_v3r_ctlr(struct kvm_vcpu *vcpu,
- 		if (ctlr != GICR_CTLR_ENABLE_LPIS)
- 			return;
- 
-+		/*
-+		 * Yes, disabling LPIs is painful, since it can be done from
-+		 * a *remote* vcpu! So let's not take any chance, and make
-+		 * sure that everybody has written their LRs back to the irq
-+		 * structures, and release any reference they would have.
-+		 *
-+		 * If it hurts, don't do it.
-+		 */
-+		kvm_arm_halt_guest(vcpu->kvm);
- 		vgic_flush_pending_lpis(vcpu);
- 		vgic_its_invalidate_all_caches(vcpu->kvm);
- 		atomic_set_release(&vgic_cpu->ctlr, 0);
-+		kvm_arm_resume_guest(vcpu->kvm);
- 	} else {
- 		ctlr = atomic_cmpxchg_acquire(&vgic_cpu->ctlr, 0,
- 					      GICR_CTLR_ENABLE_LPIS);
 -- 
 2.47.3
 
