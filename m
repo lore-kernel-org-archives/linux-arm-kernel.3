@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A5DC982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0161AC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eWCrskNiAleudFFxBYgMjk1A9BS0wLHQijBLHdv5uys=; b=YyOgdZdp09lnb9HI5zmekDhyj0
-	QloWARnwaU1KJKsIikWrJCCd0naMzRmw6CUwyNukjJjWLbBPT4ZD7NhKhs1cMT7ZaszkFfg4uR5hZ
-	O5G0g2FAWiAleCnClkel6UJAgTV7piAu+UW2Ye8K3zaiqtBY5syP2d0dr9C8pSX0UCWG1NzpA758e
-	tDX7njJO4FW+Th7YGDjagpUe1lgEeIWJn/dZZjhEJ/Pwa2rfdPsPRVK0GGXtzyAlqTD1D+QFoYu5n
-	65JztRX+5vM87fplU8E7zOoUmvTvBnSVmjHvcn2dONl2HsUzdnoMqemtP2FRHg19mW9tBVbPamrXd
-	SDgAaKdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bexUNSxBam2korKAft1V0IwAYD5mV084XIuY+GXhU+I=; b=vnjIEex3nUSffbEew/Bt9mgfqW
+	RYMJXMkmjYR78wLgU/3fX7HtPXFjwLZV+/kmBHOBsNKCFHCjLysl8XSpxDZt3DMNYF4YxNoYo+lOD
+	k4sgn/IwILr7wIyfYUz/rL6FEmNo4JTtlfWnikKDVcxphdXcEz4E/NojN52lQVlYMeqho6LZrPI4y
+	gRA4BmKVfyp2i9bjZsfonu4JP9SwaJ5ekoyGa57imRomr6yRVhz7zttKktY4T7Na4LrGkkQH+0Wq/
+	lH0RTdqrXsx7yZSdEeRpNEn36TCuWdqzb4EfMG7xZdPypHVpffnYyOl2E9qRyO2/00C3k48Wr0TV+
+	ULqiR9/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90J1-00000005S4K-2jXp;
-	Tue, 22 Sep 2026 13:13:07 +0000
-Received: from mail-ed1-x545.google.com ([2a00:1450:4864:20::545])
+	id 1x90J7-00000005S8K-3wEv;
+	Tue, 22 Sep 2026 13:13:13 +0000
+Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Iz-00000005S2j-0f7W
+	id 1x90J1-00000005S3X-3FwN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:13:06 +0000
-Received: by mail-ed1-x545.google.com with SMTP id 4fb4d7f45d1cf-6a125f5b317so5489909a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:04 -0700 (PDT)
+	Tue, 22 Sep 2026 13:13:08 +0000
+Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c25edb54d22so498364366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790082783; x=1790687583; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:mime-version:date:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=eWCrskNiAleudFFxBYgMjk1A9BS0wLHQijBLHdv5uys=;
-        b=LrQWTefbPuSZT/X81FQ/NI4BiwGRWcZSWjW4wFhnlSCM6khH8efels6yiv0QgSD/pn
-         SzxgqayJpZA3MLsgPOlXwNXtJBeoiClntkT47rTUEVcpUl51eAnD+I6RLL1vrIn1xcMn
-         NrjnnxmZ/1Wp7fHNmkAE8Tbop/vcD276W6js7fJSgQLoqRtQJbrLH9t6TApm2FmPeUKf
-         50Em2t4Q96CCCE2IfVMOIje9hI5Ma3OpzJU4sFDALLVqN+BzdY3QFbrCsS7bYHKhS+TI
-         ukQMSHQ5OKVSi1gDLhG4xdd0TI0R4x6F/kvErepPhlUohj3V+f/P4wC+pCLuoHFeTLzr
-         b9Mw==
+        d=google.com; s=20251104; t=1790082785; x=1790687585; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bexUNSxBam2korKAft1V0IwAYD5mV084XIuY+GXhU+I=;
+        b=e72FZqaN5C+14jKPwldviqqLkIL/tamf7wGpXTkykRgsYvJmfZdhgFGM95PD1j0K3r
+         uxNlF0bCHZw0vunbMm2AiZZRjiTCr7BxxGVkDmpW+k4GaQwVFrP58EpxvhfHoOXBw2DI
+         kiv4PiDol74JsSHG8JyfRg5w/rTB9IMdu5aI+sw/oeLfcoDvDWrKaoHg2cUUBe8NvAbD
+         WSU1uLhZozXfZR7tFAbsridv2m0k+gYwPndS1cSSr5vk794K7eEoYq33mNnxYJde1Ydt
+         K8K7zMsaXxsZsWtAgnyn43v28EGjiivnVjk48vTPVp8BAr1/Ny4rGWjuamHHweRFFuwx
+         x7Cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790082783; x=1790687583;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:mime-version:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=eWCrskNiAleudFFxBYgMjk1A9BS0wLHQijBLHdv5uys=;
-        b=zGo0JwfomC/LnpT+uAWCVlwIHYCWF/li/v3pNM4WxeI95e2NLqukmG6r7N6gnrL+rD
-         EaUTFmrfMBiY+F4RrsEOYH5QF97s8WWBBKLB6GMu1xjwvHFmW7ZgxywgY2q+vJ5uHM6Y
-         T74O+2VZlGu0O51Y7QGyq5H0vR69RD36qnzXKvn2cnUCm9Hp+UUxi5sUlLpita41QAV3
-         nokAgSXSPIUzH7ducQ6cM+GGI1OrD6uXhZyvkGYwlx/inxW/gEwSLTGlw7mCXDBsMNN6
-         b4IGyWrEQqlkY8iKY8an5k6/wIyqErYWbOGCZua/sayTNtDnQasRkgKT+qo/GfhcIu7Z
-         4YbQ==
-X-Gm-Message-State: AFuF++lsY/Y42K4ufAvJ8NpFsfY23tAqOroSn5M6ZDpkLGH2xV9tNTvQ
-	CCGee2PmfSN3ttXEeSynMGPbkYBuBxUqIc7ISjQTUAaf3XJX37AAXSpOnrM+q3yldqZNj9J0GWo
-	oYypLCtckTFZelxQ/enwA1FaX+51eFsiS1FsFCRVOcNMZtxPVzcloZHJ1Ntv5EN3TlyuM9SD5qB
-	GFuP3E9ZFqYLgiSFVkZJDdnEsiMTPYs5XIv5qhIZsUBoajWuMCnzXq+4il+iJJO3v1Lw==
-X-Received: from edvt20.prod.google.com ([2002:a05:6402:214:b0:6a3:64db:ff2])
+        d=1e100.net; s=20260707; t=1790082785; x=1790687585;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bexUNSxBam2korKAft1V0IwAYD5mV084XIuY+GXhU+I=;
+        b=pT1J2LWLivXlY0EuAoGOukYhLSR8urH7ywxSTr76+yyDbAiFxWGrgHuRrL71xVyG+3
+         yKBMH4lMo028pZTsClp+eDLII7ZmnNpM4P7lQYqTszO4AuMB9K73ofTRD1nu80rZNgzq
+         KBS0dj0nfyjfdLONZJe/KrguPPHFDqgBokhTYFq5xCRbinIlgr1kgiH3RAZ7g7eK7BP1
+         unxzIevTA1y0SkUcOjKxgGPHH57WypNgcYcJJTPN6zL87pxawXA+iNeXCsW5fbJwcnck
+         QuTA3mg6BHDhjDgYf3lYyqLK768W4XI10nMg7YyYpOSG2Xz1fivw7pvSpA/Pq0w7j7xr
+         Xqyg==
+X-Gm-Message-State: AFuF++mLqzelpIDPfK13iq5BG2pcW5EtE+9gfiuAwACrnQra1DgP0cg7
+	rul44IkXvrSpKZgPn6x3cs8wAunuAMcEhSA9DoIU/8wYre1kcGEQJE2+iTxNkSu/G+yYBggNCt/
+	rs2a62sX076sG3KHmQ8VR1ymIBvXG0KmakVMDeB7yjEkjLiDmRXGp1m9cAxZTfjB3la0nfmL3lg
+	FQyxAxkE1D6VSV4J0xoA0MwkFc/nZU0y/VfGzmfTEYSHoqk1gTguPSP7KTuVEaXcccHA==
+X-Received: from ejckb18.prod.google.com ([2002:a17:907:f92:b0:c2a:38b5:a9b1])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:5003:b0:6a9:dfd4:811f with SMTP id 4fb4d7f45d1cf-6aa579997a6mr11277387a12.42.1790082782443;
- Tue, 22 Sep 2026 06:13:02 -0700 (PDT)
-Date: Tue, 22 Sep 2026 13:12:33 +0000
+ 2002:a17:907:3e9f:b0:c29:f5d8:9c6f with SMTP id a640c23a62f3a-c2a15802e80mr1246416266b.30.1790082784771;
+ Tue, 22 Sep 2026 06:13:04 -0700 (PDT)
+Date: Tue, 22 Sep 2026 13:12:35 +0000
+In-Reply-To: <20260922131259.2975334-1-smostafa@google.com>
 Mime-Version: 1.0
+References: <20260922131259.2975334-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922131259.2975334-1-smostafa@google.com>
-Subject: [PATCH v8 00/25] KVM: arm64: SMMUv3 driver for pKVM (trap and emulate)
+Message-ID: <20260922131259.2975334-3-smostafa@google.com>
+Subject: [PATCH v8 02/25] iommu/arm-smmu-v3: Move Queue and STE functions to header
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -76,10 +78,9 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	sebastianene@google.com, keirf@google.com, 
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_061305_248113_8D49CA3B 
-X-CRM114-Status: GOOD (  34.44  )
+X-CRM114-CacheID: sfid-20260922_061307_843990_EBDEB031 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,237 +95,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes from v7:
-v7: https://lore.kernel.org/all/20260715115906.2664882-1-smostafa@google.co=
-m/
-- Use pfn, nr_pages instead of addr, size in MMIO functions [Vincent]
-- Inline system timer handling in the driver [Vincent]
-- Update comments [Fuad]
-- Remove TLB invalidation re-use and introduce helpers instead [Jason]
-- Implement  a different TLB algorithm for the hypervisor based on 2
-  overlapping commands as currently on the list.
-- Rely on macro tricks to reuse more functions between drivers [Jason]
-- Use the hitless machinery for the hypervisor STE updates [Jason]
-- Fixed an issue with small command queue sizes.
-- Update and rename patches message to be more clear.
+The KVM SMMUv3 driver would re-use some of the CMDQ and STE code
+inside the hypervisor. Move those functions to the header file that
+would be shared between the host kernel and the hypervisor.
 
-Notes about Sashiko
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-I ran Sashiko locally and it was helpful in discovering problems in
-the series. However, it still shows large number of critical and high
-severity issues, I went through them and I believe they are false
-positives, mainly because (in the order of frequently reported):
-- It doesn't understand WARNs are fatal in the hypervisor.
-- It doesn't understand that a malicious host can DoS the system and
-  pKVM doesn't guarantee availability
-- It doesn't understand the SMMUv3 spec and makes stuff up (eg. about
-  CMD_SYC CS field it makes up an non-existent encoding or wrong
-  semantics for the gbpa register)
-- It seems to look at one patch at a time and not the whole series, and
-  as the series is written in a way to be bisectable that confuses it.
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 59 --------------------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 62 +++++++++++++++++++++
+ 2 files changed, 62 insertions(+), 59 deletions(-)
 
-Design:
-=3D=3D=3D=3D=3D=3D=3D
-Assumptions:
-------------
-One of the important points, is that this doesn=E2=80=99t emulate the full
-SMMUv3 architecture, but only the parts used by Linux kernel.
-That=E2=80=99s why enablement of this (ARM_SMMU_V3_PKVM) depends on
-(ARM_SMMU_V3=3Dy) so we are sure of the driver behaviour.
-
-Any new change in the driver will likely trigger a WARN_ON ending up
-in panic, that will require to support also in the hypervisor.
-
-Most notable assumptions:
-- Changing of stream table format/size or l2 pointers is not allowed
-  after initialization.
-- leaf=3D0 CFGI is not allowed.
-- CFGI_ALL with any value but 31 is not allowed.
-- Some commands which are not used are not allowed.
-- Values set in ARM_SMMU_CR1 are hardcoded and don't change.
-
-Emulation logic mainly targets:
-
-1) Command Queue
-----------------
-At boot time, the hypervisor will allocate a shadow command queue
-(doesn't need to match the host size) which then sets up in HW, then
-it will trap access to
-
-i) ARM_SMMU_CMDQ_BASE
-That can only be written when the cmdq is disabled. Then on enable,
-the hypervisor will put the host command queue in a shared state to
-avoid transition into the hypervisor or VMs. It will be unshared with
-the cmdq is disabled
-
-ii) ARM_SMMU_CMDQ_PROD
-Trigger emulation code, where the hypervisor will copy the commands
-between cons and prod, of the host queue and sanitise them (mostly
-WARNs if the host is malicious and issuing commands it shouldn't)
-then eagerly consume them, updating the host cons.
-
-iii) ARM_SMMU_CMDQ_CONS
-No much logic, just return the emulated cons + error bits.
-
-2) Stream table
----------------
-Similar to the command queue, the first level is allocated at boot
-with max possible size, then the hypervisor  will trap access to:
-i) ARM_SMMU_STRTAB_BASE/ARM_SMMU_STRTAB_BASE_CFG: Keep track of
-   the stream table to put it in a shared state.
-
-On CFGI_STE, the hypervisor will read the STE in scope from the host
-copy, shadow L2 pointers if needed and attach stage-2.
-
-3) GBPA
--------
-The hypervisor will set GBPA to abort at boot, then any read from the
-host will return ABORT and writes are ignored.
-If the host tries to clear GBPA, it will look like GBPA is refusing
-to update and time out.
-
-4) EVTQ and PRIDQ
-No shadowing needed for those queues, but the hypervisor needs to keep
-track of them to put them in a shared state so they can=E2=80=99t be used b=
-y
-the host or the hypervisor.
-
-Bisectibility:
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-I wrote the patches where most of them are bisectable at run time (so
-we can run with a prefix of the series till MMIO emulation, cmdq
-emulation, STE or full nested) that was very helpful in debugging,
-and I kept it like this to make debugging easier.
-
-Constraints:
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-1) Discovery:
--------------
-Only device trees are supported at the moment.
-I don=E2=80=99t usually use ACPI, but I can look into adding that later.
-(not make this series bigger)
-
-2) Shadow page table
---------------------
-Uses page granularity (leaf) for memory, that's because of the lack
-of split_block_unmap() logic.
-
-Boot and Probe ordering:
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-The main SMMUv3 MUST be only bound/probed after KVM fully initialises
-so it can set up the MMIO emulation.
-
-The KVM SMMUv3 driver is loaded early before KVM init so it can
-register itself, during that point it will probe all the SMMUs from the
-platform bus and bind them to the driver.
-
-Then at a later init call it will create an auxiliary device per SMMU,
-that the main driver will probe. The main driver still relies on this
-device(parent) for all driver activity. (Check comment in patch 14.
-
-Future work
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-1) Sharing page tables will be an interesting optimization, but
-   has many challenges, I have a prototype for that I plan to send
-   it will be group related series, starting with BBML3 which is
-   already posted [1]. I also have a talk in the KVM MC in LPC 2026
-   about this.
-
-2) There is currently ongoing work to enable RPM, that will possibly
-   enable/disable the SMMU frequently, we might need some optimizations
-   to avoid re-shadowing the CMDQ/STE unnecessarily.
-
-3) Add support for non-coherent SMMUs.
-
-4) Optimizations (as using block mappings for memory).
-
-Patches overview
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-The patches are split as follows:
-
-Patches 01: Core hypervisor: Dealing with MMIO and timers.
-Patches 02-05: Refactoring of io-pgtable-arm and SMMUv3 driver.
-Patches 06-09: Hypervisor IOMMU core: pagetable management, dabts.
-Patches 10-25: KVM SMMUv3 code.
-
-Tested on Lenovo IdeaCentre mini X and Qemu.
-
-A development branch can be found at [2]
-
-[1] https://lore.kernel.org/all/20260904132855.638117-1-smostafa@google.com=
-/
-[2] https://android-kvm.googlesource.com/linux/+/refs/heads/kvm-smmu-v8
-
-Jean-Philippe Brucker (1):
-  iommu/arm-smmu-v3-kvm: Add SMMUv3 driver
-
-Mostafa Saleh (24):
-  KVM: arm64: Donate MMIO to the hypervisor
-  iommu/arm-smmu-v3: Move Queue and STE functions to header
-  iommu/arm-smmu-v3: Introduce RangeInval encoding helpers
-  iommu/arm-smmu-v3: Move IDR parsing to common functions
-  iommu/arm-smmu-v3: Move hitless machinery to common code
-  KVM: arm64: iommu: Introduce IOMMU driver infrastructure
-  KVM: arm64: iommu: Shadow host stage-2 page table
-  KVM: arm64: iommu: Add memory pool
-  KVM: arm64: iommu: Support DABT for IOMMU
-  iommu/arm-smmu-v3-kvm: Add the kernel driver
-  iommu/arm-smmu-v3-kvm: Probe SMMU HW
-  iommu/arm-smmu-v3-kvm: Add MMIO emulation
-  iommu/arm-smmu-v3-kvm: Shadow the command queue
-  iommu/arm-smmu-v3-kvm: Add CMDQ functions
-  iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
-  iommu/arm-smmu-v3-kvm: Shadow stream table
-  iommu/arm-smmu-v3-kvm: Shadow STEs
-  iommu/arm-smmu-v3-kvm: Share other queues
-  iommu/arm-smmu-v3-kvm: Emulate GBPA
-  iommu/io-pgtable-arm: Support io-pgtable-arm in the hypervisor
-  iommu/arm-smmu-v3-kvm: Shadow the CPU stage-2 page table
-  iommu/arm-smmu-v3-kvm: Invalidate the SMMU TLBs
-  iommu/arm-smmu-v3-kvm: Enable nesting
-  KVM: arm64: Add documentation for pKVM DMA isolation
-
- .../admin-guide/kernel-parameters.txt         |    5 +
- Documentation/virt/kvm/arm/pkvm.rst           |   23 +-
- arch/arm64/include/asm/kvm_host.h             |    6 +
- arch/arm64/include/asm/kvm_pgtable.h          |    1 +
- arch/arm64/kvm/Makefile                       |    2 +-
- arch/arm64/kvm/hyp/include/nvhe/iommu.h       |   24 +
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |    7 +
- arch/arm64/kvm/hyp/nvhe/Makefile              |    9 +-
- arch/arm64/kvm/hyp/nvhe/iommu.c               |  174 ++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  135 +-
- arch/arm64/kvm/hyp/nvhe/setup.c               |   19 +
- arch/arm64/kvm/hyp/pgtable.c                  |   11 +-
- arch/arm64/kvm/iommu.c                        |   64 +
- arch/arm64/kvm/pkvm.c                         |    1 +
- drivers/iommu/arm/Kconfig                     |   12 +
- drivers/iommu/arm/arm-smmu-v3/Makefile        |    3 +-
- .../arm/arm-smmu-v3/arm-smmu-v3-common-lib.c  |  416 +++++
- .../arm/arm-smmu-v3/arm-smmu-v3-common-lib.h  |   41 +
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   |  231 +++
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |    1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  561 +------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  107 +-
- .../arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h    |   79 +
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 1430 +++++++++++++++++
- .../arm/arm-smmu-v3/pkvm/io-pgtable-arm-hyp.h |   86 +
- drivers/iommu/io-pgtable-arm.c                |   14 +-
- drivers/iommu/io-pgtable-arm.h                |    9 +
- 27 files changed, 2960 insertions(+), 511 deletions(-)
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/iommu.h
- create mode 100644 arch/arm64/kvm/hyp/nvhe/iommu.c
- create mode 100644 arch/arm64/kvm/iommu.c
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-lib.c
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-lib.h
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3-hyp.h
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/io-pgtable-arm-hyp.h
-
-
-base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
---=20
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 5732f3ba0122..df1924969212 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -134,33 +134,6 @@ static void parse_driver_options(struct arm_smmu_device *smmu)
+ }
+ 
+ /* Low-level queue manipulation functions */
+-static bool queue_has_space(struct arm_smmu_ll_queue *q, u32 n)
+-{
+-	u32 space, prod, cons;
+-
+-	prod = Q_IDX(q, q->prod);
+-	cons = Q_IDX(q, q->cons);
+-
+-	if (Q_WRP(q, q->prod) == Q_WRP(q, q->cons))
+-		space = (1 << q->max_n_shift) - (prod - cons);
+-	else
+-		space = cons - prod;
+-
+-	return space >= n;
+-}
+-
+-static bool queue_full(struct arm_smmu_ll_queue *q)
+-{
+-	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
+-	       Q_WRP(q, q->prod) != Q_WRP(q, q->cons);
+-}
+-
+-static bool queue_empty(struct arm_smmu_ll_queue *q)
+-{
+-	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
+-	       Q_WRP(q, q->prod) == Q_WRP(q, q->cons);
+-}
+-
+ static bool queue_consumed(struct arm_smmu_ll_queue *q, u32 prod)
+ {
+ 	return ((Q_WRP(q, q->cons) == Q_WRP(q, prod)) &&
+@@ -179,12 +152,6 @@ static void queue_sync_cons_out(struct arm_smmu_queue *q)
+ 	writel_relaxed(q->llq.cons, q->cons_reg);
+ }
+ 
+-static void queue_inc_cons(struct arm_smmu_ll_queue *q)
+-{
+-	u32 cons = (Q_WRP(q, q->cons) | Q_IDX(q, q->cons)) + 1;
+-	q->cons = Q_OVF(q->cons) | Q_WRP(q, cons) | Q_IDX(q, cons);
+-}
+-
+ static void queue_sync_cons_ovf(struct arm_smmu_queue *q)
+ {
+ 	struct arm_smmu_ll_queue *llq = &q->llq;
+@@ -216,12 +183,6 @@ static int queue_sync_prod_in(struct arm_smmu_queue *q)
+ 	return ret;
+ }
+ 
+-static u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
+-{
+-	u32 prod = (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
+-	return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
+-}
+-
+ static void queue_poll_init(struct arm_smmu_device *smmu,
+ 			    struct arm_smmu_queue_poll *qp)
+ {
+@@ -249,14 +210,6 @@ static int queue_poll(struct arm_smmu_queue_poll *qp)
+ 	return 0;
+ }
+ 
+-static void queue_write(__le64 *dst, u64 *src, size_t n_dwords)
+-{
+-	int i;
+-
+-	for (i = 0; i < n_dwords; ++i)
+-		*dst++ = cpu_to_le64(*src++);
+-}
+-
+ static void queue_read(u64 *dst, __le64 *src, size_t n_dwords)
+ {
+ 	int i;
+@@ -1796,18 +1749,6 @@ static void arm_smmu_free_cd_tables(struct arm_smmu_master *master)
+ }
+ 
+ /* Stream table manipulation functions */
+-static void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
+-					  dma_addr_t l2ptr_dma)
+-{
+-	u64 val = 0;
+-
+-	val |= FIELD_PREP(STRTAB_L1_DESC_SPAN, STRTAB_SPLIT + 1);
+-	val |= l2ptr_dma & STRTAB_L1_DESC_L2PTR_MASK;
+-
+-	/* The HW has 64 bit atomicity with stores to the L2 STE table */
+-	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
+-}
+-
+ struct arm_smmu_ste_writer {
+ 	struct arm_smmu_entry_writer writer;
+ 	u32 sid;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index dd2fee2f560e..5b23f6ee78d4 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1223,6 +1223,68 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+ 				bool sync);
+ bool arm_smmu_erratum_repeat_tlbi_cfgi(void);
+ 
++/* Queue and STE functions shared between kernel and hyp. */
++static inline bool queue_has_space(struct arm_smmu_ll_queue *q, u32 n)
++{
++	u32 space, prod, cons;
++
++	prod = Q_IDX(q, q->prod);
++	cons = Q_IDX(q, q->cons);
++
++	if (Q_WRP(q, q->prod) == Q_WRP(q, q->cons))
++		space = (1 << q->max_n_shift) - (prod - cons);
++	else
++		space = cons - prod;
++
++	return space >= n;
++}
++
++static inline bool queue_full(struct arm_smmu_ll_queue *q)
++{
++	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
++	       Q_WRP(q, q->prod) != Q_WRP(q, q->cons);
++}
++
++static inline bool queue_empty(struct arm_smmu_ll_queue *q)
++{
++	return Q_IDX(q, q->prod) == Q_IDX(q, q->cons) &&
++	       Q_WRP(q, q->prod) == Q_WRP(q, q->cons);
++}
++
++static inline u32 queue_inc_prod_n(struct arm_smmu_ll_queue *q, int n)
++{
++	u32 prod = (Q_WRP(q, q->prod) | Q_IDX(q, q->prod)) + n;
++
++	return Q_OVF(q->prod) | Q_WRP(q, prod) | Q_IDX(q, prod);
++}
++
++static inline void queue_inc_cons(struct arm_smmu_ll_queue *q)
++{
++	u32 cons = (Q_WRP(q, q->cons) | Q_IDX(q, q->cons)) + 1;
++
++	q->cons = Q_OVF(q->cons) | Q_WRP(q, cons) | Q_IDX(q, cons);
++}
++
++static inline void queue_write(__le64 *dst, u64 *src, size_t n_dwords)
++{
++	int i;
++
++	for (i = 0; i < n_dwords; ++i)
++		*dst++ = cpu_to_le64(*src++);
++}
++
++static inline void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
++						 dma_addr_t l2ptr_dma)
++{
++	u64 val = 0;
++
++	val |= FIELD_PREP(STRTAB_L1_DESC_SPAN, STRTAB_SPLIT + 1);
++	val |= l2ptr_dma & STRTAB_L1_DESC_L2PTR_MASK;
++
++	/* The HW has 64 bit atomicity with stores to the L2 STE table */
++	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
++}
++
+ #ifdef CONFIG_ARM_SMMU_V3_SVA
+ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
+ void arm_smmu_sva_notifier_synchronize(void);
+-- 
 2.55.0.1082.g2b9226bbc0-goog
 
 
