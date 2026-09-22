@@ -4,98 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FC9C98307
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D26C4C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2HjM704yjUPc3oYEkUo0s9e3MpU0+mzXloxkK4JXLZM=; b=4EMHwV5wSljAtyxtxYrYgOBLV5
-	qEsMbo8Vw8e7N2dKaNGpHcMag2325R54lFfRRiLDqdC8OaRIErvOmAs2ipCyuXPZKL0LWSsUuB1Qb
-	9P3t5INYKfWOWXVdKuQ4I3pDPQOBldf69LHcxtFe5kaGGrlnfoyAinT2h6TYXDS36cDaOq0sPysyq
-	shm5uYFqmh3q+8OmUwseRnGoloiJq2Ng8B8eQSBNb0Bsn9KSyoUB1PmM1ZwnCsL5V0lrfRUJuewyo
-	0gC5QkHYmr9dB30AlQ113Q0IQ/H5+/BGOVtDyv3PHH7aRo6T6ZfQ7U7a0E8mkXzJEtrauiSVk7Lne
-	BxNyNHug==;
+	bh=NGKku8nyry7LJ3cQ2W+BxzqUbPO2qtN0RpKOVM2oOc8=; b=gpLaSFogGvmgiWO8ZAQxDo2lWT
+	Vwcwl3voUeOI4ywj1O7MQrioUUX1YjiccaIzJSIZVX18ZLzFRahRoSRk5AT40bxWzdXN5mgzgC0zZ
+	gO2BXqy5RSxG/uKOgSD2X/ld7dsQdxu5miDvKXMfCxY9tQz6ibc1Eb6bW4eH5k+QgDMnsr/LvTO21
+	aXYNxvVjUHmsuLuTrBa+U3ezPP2Lw9/gT2dNKwzA3Hz7wMDaItkPVM76He74WAZBlnacJp9BXhvHq
+	eJY/3jlekGWMFES0Hge6Yr0c542DVpC5kGTClkexW7UKzBrQfantTJevStNqDWQkut7q6LP8r1my7
+	0bMe6jEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92bm-00000005uHj-1w9Q;
-	Tue, 22 Sep 2026 15:40:38 +0000
-Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	id 1x92eC-00000005v87-0oor;
+	Tue, 22 Sep 2026 15:43:08 +0000
+Received: from mail-qk2-x0d.google.com ([2607:f8b0:4864:34::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92bk-00000005uFp-0m3T
+	id 1x92e8-00000005v7S-3yZB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:40:37 +0000
-Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-8633a38df87so19935b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:40:36 -0700 (PDT)
+	Tue, 22 Sep 2026 15:43:06 +0000
+Received: by mail-qk2-x0d.google.com with SMTP id d75a77b69052e-532d63f434fso583461cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:43:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790091635; x=1790696435; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=toxicpanda.com; s=google; t=1790091783; x=1790696583; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=2HjM704yjUPc3oYEkUo0s9e3MpU0+mzXloxkK4JXLZM=;
-        b=mBRtEZoE+WbQr5vHLlxcDg7O+IbOB3SSXmdXsk1m8E/OfG6HIKWv9zbZo3QKrkzWNc
-         +RB7sUfnQOuFKCjqs1bJUevp5N1PfWP30D/PCkqu6AxR5qr8p03TFVdBARfoAvVlNOWM
-         UouqnOppoSV23LOQEJ8tkuwWgSgo6dVxyd0Sap0FnyAEC3/ns2d14RThFgfe3DW/EHpi
-         qruJClWZ6H7h8yv+engRywuNYKu5OwFIL4xmMPyCaTf2gQVm/KqeLGBw3YkixGcVHTD6
-         hAbcpvJudQ3oYVgHP529NvknsXtfMciDJqhQYP5y6AeqYo3+xfwPvlCjucTlaO5KXGVa
-         6I0Q==
+        bh=NGKku8nyry7LJ3cQ2W+BxzqUbPO2qtN0RpKOVM2oOc8=;
+        b=KWs7iOm1vezm347iwEUI94m0pESdORZx0b1oj81m61HbAgX5OahoJHXvOSthLW3ZNf
+         4epNbfaqw4huHG7PQEVgxpy0D6oWF61jt/i6SgY9i1KxTaf3BHPz3Ldyae/6hXLWHZpJ
+         Cen1c2kmzdLVHVyFJlAj9nsReEBnER5SZlYis7KimdB+/WQlaNZJoB6kuNQR91DLiuip
+         +rkt23+GX+3lLzoqu4ADehvDMiCf4tzwKaaqwmVCNFmqAO810BynJ2hiObhOTiaJdR1l
+         4B8V81X0LG5OXy84hcP7ayRV7f1kVwnofvQLDwrc//JOet/2V8llPauts0awVBc6kKfC
+         pzyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790091635; x=1790696435;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1790091783; x=1790696583;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2HjM704yjUPc3oYEkUo0s9e3MpU0+mzXloxkK4JXLZM=;
-        b=FQ++JqZjT+NnUmhTjFKb8rbarB+3yz2LXUBsHWG/WPTtRiBYtvm+ku55k1lfLxDR2m
-         CFG6H35qVacfqnaWjJU6JIfFf2KSXR55kAYgllrkKHFvjHZxdibcFIh7jkHn2CiCqIgB
-         Lcs1jMJBUC1Ag/ToSUPgx8GtbHXyzQ+78Su+qYRbyqANfe8WxezSXalX/9MEYL2kVX1H
-         Gr48J2Es3gK/HiFaTqLUC4vkP3Trl+jfGDOhcIF79syPyp7rEvpvf3fHoDcZywo5l57j
-         Y/T8Hzb3bNo2/nInaoH8RKE6VtB9e6hm/SoKiIF1qcf7Mrvr18tJiXeBTRIHmucSnxJ1
-         KSmA==
-X-Forwarded-Encrypted: i=1; AKwUvBxAGBifo9MrskIKixoKhS0LXcETVxV2ywSwcRwqxlEC5XUEOzR+uOJoHJnV2YT2SqYzWfCATDVItuf4BwIosMwP@lists.infradead.org
-X-Gm-Message-State: AFuF++kd3eAKWDkNJivNJtLM8GteMWgsJYTV3FEOyB1pUdqMjnSi1ZvP
-	un4T6y8oWTJCG4MG10SpOYGJWHG51BWZnxFc3OGkOzFerskIGbpYFFtF8bvQPxIL1G8=
-X-Gm-Gg: AYBFou19jpDcbt5sqSUS3JinaiOssk5YHNT+73L81dc2x6BMstfFJs0PIqv4Lj1YH82
-	xcrsZDroB54+UNcAMX5TM2BuGCk6k4dQr0ufnc7eX1b/S/UzqnKoH/ElPNIIJluFfVAv/ddKIsV
-	jG+704s8qrhS+tI4D7CREKibjrqLfhhZf4KkNLN5QgKPtWTZJqmg9ARuZojds/AZp5p56WWXeOU
-	Vp/lLV3IVWzQB+kqwQcjoQXVq2ju+liN25dxHCg/7RxfJwDlyHLBjMHN08YkTYzVh5d6Az6GMl4
-	3OTuT7FtOzkYqJNZRYl8JYFOb8jsIa41DMMZLiWzpZmwKQbed2uXHTLihmjN0ihOSW3GXY8MAsz
-	Qav53Nb049BYC4TH6MM3ex0y73mh7/cYZkLvzkUPSdpO+hjdv+K7KeLxEM/U/Jq1wDG2KgMFGMM
-	j3XWqrBMnFrdIYn5AJrq9wZN+E9F0IwsDgCcUQjAKIXWXkHbGibQjRSUuzsCI4uxagFDAVhVb0
-X-Received: by 2002:a05:6a00:1393:b0:85b:8606:627f with SMTP id d2e1a72fcca58-87c82f7f151mr1827877b3a.26.1790091635190;
-        Tue, 22 Sep 2026 08:40:35 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:1046:ab8:737c:d2e2])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87c2fc4b581sm1104255b3a.7.2026.09.22.08.40.32
+        bh=NGKku8nyry7LJ3cQ2W+BxzqUbPO2qtN0RpKOVM2oOc8=;
+        b=rmLVztsNhIM4eFLckVzG8QwRxIQkTqU3V+Rkkn8EuV0BUY9RPyKNSgdaZbL6LJFrt5
+         +vJsptamcZXwBdxntU6Fyshh39wggevCdVnL80qRmLqOQ4NRLN0sifFkyn9AtZ4o/8tn
+         pBjxhwKe0xn1dFRcJtUBmIoxLnesPbBvuApF2O+1AwmEpG6ZFJjtoUX80k92uNl+qwvi
+         +Ikr1OF0OmOzE9KuCLNls1tqGkUOFoge6p9XzflFv8x8lHfIAaqQq626wWvxbDw3naqj
+         WN2PlE9vKFIvHky0NvmjGQC9aboieJOVLUDTLqadMIhIq7Cyuxbo8JkJP8CLb6XiXRBO
+         vnFQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxTcJ3cJ2s+mxNk/5EMmOv/t2GdSxeF8fGqh3ztOccC6hQXvVMjwZK6TF4aqAddHzGZfOoGztvwzKMRSRFZH5E+@lists.infradead.org
+X-Gm-Message-State: AFuF++kZdRZIjJtHl71QTtNArrOdN5EKpZ1j+/BGgkxRmAnvGksQkI7Z
+	lH98AS0wRBszgS6pLVvtLogHjyBMvTQnMerxznEBhCfLndgNW6g/FjZ2skQ+3WYfJ5A=
+X-Gm-Gg: AYBFou3Tk4BYUXe0utSDRAmHrDZs2Km5Ke51H6chKyb6/cbDk/R5x6+LhqkjaJXrFBk
+	iUim16m3byGaetG4MATIEXdEF50l8EHzI9Czi34D10WF+v1g+HBYJvDweR9AO6MnghMunEiW+is
+	poAhu4ybJ+40fjqhI3K+FdGSZvRbkC/cD2ycQJeOS1fdqMIqKKBdofJcNLpc0ZYpnI4uPsLEd8B
+	x5fPtZPU/dplDH/OdBtl6vsDlR87wq6CdaN2/GWA2dfNTE2dOAA1sDTUmCeyPgiVYT0gm5OSjsZ
+	zpin5P67IuakS1QByrarayWMBpZ1zos9qrPGgkV2xTJpXwD3HzQ1NNsCYlLt05caCF4d5Kk5r+d
+	78HtCXw4FWio+BDo4ipQUoZK0yvhlC3thkxGa5zgGjay0STGHI+wPARbUjzeB3UTERf0pSIYflm
+	q7mqv6A8dZJJwD8PpeyGVvdUXPkMPlkckHIIxMjs+rqwJVu3F2Mg96yQmgUhc7FJSRXY2/y5iyw
+	TKEi8WMTVTTUsk=
+X-Received: by 2002:a05:620a:6006:b0:93b:d79f:d955 with SMTP id af79cd13be357-93c15f2e6e5mr588176085a.74.1790091783184;
+        Tue, 22 Sep 2026 08:43:03 -0700 (PDT)
+Received: from toxicpanda.com ([153.61.196.243])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c2485dce4sm1063585a.23.2026.09.22.08.43.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 08:40:34 -0700 (PDT)
-Date: Tue, 22 Sep 2026 09:40:31 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Francesco Valla <francesco@valla.it>
-Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
-	imx@lists.linux.dev, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 08/12] dt-bindings: remoteproc: add remoteproc-virtio
-Message-ID: <arKhbxi3Snbt1_Mn@p14s>
-References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it>
+        Tue, 22 Sep 2026 08:43:01 -0700 (PDT)
+Date: Tue, 22 Sep 2026 15:42:15 +0000
+Message-ID: <d36fdaad78296f3c43f84bc9c5b15a36.josef@toxicpanda.com>
+From: Josef Bacik <josef@toxicpanda.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>, Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, linux-kernel@vger.kernel.org, rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation for reader-marked trampolines
+In-Reply-To: <aqxLgT41UyA-bV5J@pavilion.home>
+References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com> <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com> <aqxLgT41UyA-bV5J@pavilion.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260916-remoteproc_virtio_map-v1-8-dac8c5eb4aa9@valla.it>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_084036_256227_1FF04963 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20260922_084305_013815_7E463CCF 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,133 +99,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 16, 2026 at 11:10:53PM +0200, Francesco Valla wrote:
-> Add a new binding to describe remoteproc-provided virtio devices; while
-> these are discovered through a resource table parsed by the remoteproc
-> infrastructure at runtime, their description can be needed to probe
-> non-discoverable buses (such as I2C) or to link consumers and suppliers.
-> 
-> Each vdev is described by a dedicated "group" node, which then includes
-> a virtio-device node, which binding is already existent and used by
-> virtio-mmio. Each vdev shall be stattically linked to a "group" node
-> using its index inside the resource table as the reg property of the
-> node; this permits to have multiple instances of the same type of
-> device.
-> 
-> The binding is intended to be generic and adopted by any remoteproc
-> provider.
-> 
-> Signed-off-by: Francesco Valla <francesco@valla.it>
-> ---
->  .../bindings/remoteproc/remoteproc-virtio.yaml     | 89 ++++++++++++++++++++++
->  1 file changed, 89 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
-> new file mode 100644
-> index 000000000000..c4a0d84b1460
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/remoteproc/remoteproc-virtio.yaml
-> @@ -0,0 +1,89 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/remoteproc/remoteproc-virtio.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Virtio devices over remoteproc
-> +
-> +description: |
-> +  Virtio devices ("vdevs") can be exposed using the remoteproc infrastructure
-> +  and its resource table. For some of them, a device tree node might be needed
-> +  to describe remote undiscoverable hardware and/or connect consumers and
-> +  providers.
-> +
-> +maintainers:
-> +  - Francesco Valla <francesco@valla.it>
-> +
-> +properties:
-> +  virtio:
-> +    description: Contains a group of Virtio devices exposed by the remoteproc.
-> +
-> +    properties:
-> +      '#address-cells':
-> +        const: 1
-> +
-> +      '#size-cells':
-> +        const: 0
-> +
-> +    patternProperties:
-> +      "^vdev@[0-9a-f]+$":
-> +        type: object
-> +
-> +        properties:
-> +          reg:
-> +            description: Virtio device index inside the resource table.
-> +            maxItems: 1
-> +
-> +        additionalProperties:
-> +          type: object
-> +          $ref: /schemas/virtio/virtio-device.yaml
-> +          maxItems: 1
-> +
-> +        required:
-> +          - reg
-> +
-> +    additionalProperties: false
-> +
-> +    required:
-> +      - '#address-cells'
-> +      - '#size-cells'
-> +
-> +additionalProperties: true
-> +
-> +examples:
-> +  - |
-> +    remoteproc-cm33 {
-> +      virtio {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          vdev@0 {
-> +              reg = <0>;
-> +
+On Thu, 17 Sep 2026 22:20:17 +0200, Frederic Weisbecker wrote:
+> > +	lockdep_assert_irqs_disabled();
+> > +	WRITE_ONCE(t->rcu_tasks_irq_ip, ip);
+> > +	t->rcu_tasks_exit_cpu = smp_processor_id();
+> > +	raw_spin_lock_rcu_node(rtpcp);
+> > +	list_add(&t->rcu_tasks_exit_list, &rtpcp->rtp_exit_list);
+> > +	raw_spin_unlock_rcu_node(rtpcp);
+>
+> I don't think we can do that. This is too much unconditional overhead
+> on the hot preemption path. rcu_tasks_trampoline_text() should be
+> a condition here.
 
-Do we need the 'reg' since we already have vdev@X?  I'll let the DT people
-provide their input on this.
+Sorry, I missed this one before sending v4/v5. Agreed, and it is gone
+for v6: the hook is now just the WRITE_ONCE() of the IP plus the
+rcu_tasks_trampoline_text() check, and the exit side a single store.
 
-> +              gpio {
-> +                  compatible = "virtio,device29";
-> +
-> +                  gpio-controller;
-> +                  #gpio-cells = <2>;
-> +              };
-> +          };
-> +
-> +          vdev@1 {
-> +              reg = <1>;
-> +
-> +              i2c {
-> +                  compatible = "virtio,device22";
-> +
-> +                  #address-cells = <1>;
-> +                  #size-cells = <0>;
-> +
-> +                  eeprom@50 {
-> +                      compatible = "atmel,24c1025";
-> +                      reg = <0x50>;
-> +                  };
+The IP store itself has to stay unconditional because of the kprobe
+jump optimizer: its window is ordinary text, so a task parked there
+before the optimizer decided to patch was not "trampoline text" when it
+was preempted, and the optimizer needs to find it afterwards.
 
-The previous patch introduced bindings for virtio SPI while the above two are
-for GPIO and I2c, which is very confusing.  I suggest you pick one and apply
-everywhere.
+> And do we really need to maintain both lists? I understand that they
+> have different purposes.
+[...]
+> Can the latter replace the former?
 
-> +              };
-> +          };
-> +      };
-> +    };
-> +...
-> 
-> -- 
-> 2.55.0
-> 
+With the above there is only the holdout list left. The optimizer's
+rcu_tasks_wait_irq_preempted() now does what classic does for its scan:
+walk the task list plus the per-CPU exit lists (exit_tasks_rcu_start()
+and friends stay shared between the two flavors for that), checking each
+task's recorded IP. That is a slow path that only kprobe optimization
+hits.
+
+And thanks for picking up the core-RCU follow-on.
+
+Josef
 
