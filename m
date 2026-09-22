@@ -4,55 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CBBC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22536C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q7mc5rE1gQW0RRDNm86nGn4GcNeBbnQk6KAZPcwbRqI=; b=oq6k4JasFcN6ZK
-	qHfWk+c1b5juHYX9ptigr66HK/9Y3ozipYLeumrCIo4y48u4Pfy+06JqqPdwVNK1Fkl0JpZXEJrhz
-	Li1P6gYuhdWTpLt4CLj86WPBgABPNZAw9tIBhNlvhhEbWwxyxQob6t/0zpZPH38Rda9k8tBtjx0Sk
-	XDNd80xOEN69E6l/F8ZjBNng4m69iBwoyPyB/T2m7BEfJuBfxNuk33+NHVHQbdDrAqzLaxUynr6oH
-	Vg7BSDQZve4G4GSvsm/8XJAzX3ULhtiuJptaVXykZIk6wxxaIrkVxvcZOjZ48qZSBFjkLj1eMrWbx
-	h8fsvh1FjM7xUoHI05Fg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OX3hsGsxEHoq3RKQiW6IXghSMDrWvO/i3oFhfjDRgB4=; b=iy41/TSqPPmZlwBf1R01W8kvuM
+	wjbfEfZ9kdF8uUjhNny22c9Q9cEDlvuaQuaktZ5TJCAdpsoYzBKufBSaledFcdwHUAOcFK/yNE/b9
+	YsgN5vy1mFFpmsjehrZt0fG29pljHo0nK1x0isTL8JMKtqp+eKK01d/dGHk20HiyjAqoI5dWr2AtW
+	1BJd0DiEhe1iQnjT9f3Lxw8079/G+fcyzc6sg/dkimFFFlF/w4NbKuv0UTzPZxAKULpRxYBroKLQQ
+	Rug3hJZwuAyMb07y1jobX2yDLct3N4IhT5cZOIovC+NL0cH5o5AGn+auJ3M5AffRQVPB0/Rn0QB+T
+	wDbb3nUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94MS-00000006Cuc-3pEA;
-	Tue, 22 Sep 2026 17:32:56 +0000
+	id 1x94Mb-00000006Cyr-1E8c;
+	Tue, 22 Sep 2026 17:33:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94MQ-00000006Ctj-1gaQ
+	id 1x94MY-00000006Cwv-0Pun
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:32:55 +0000
+	Tue, 22 Sep 2026 17:33:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 882C71576;
-	Tue, 22 Sep 2026 10:32:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F2AC1AED;
+	Tue, 22 Sep 2026 10:32:58 -0700 (PDT)
 Received: from [127.0.1.1] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C8B23F86C;
-	Tue, 22 Sep 2026 10:32:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 269643F86C;
+	Tue, 22 Sep 2026 10:32:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790098370; bh=+Su2l1Ft0WBIXjZQ/cFjqH8CISUnq3bv3Vk6lON45EY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=CLvRHaG0VyM0revKNsxvp8O1elOZLQpJ6DZ/UqshepIIeiFSTz9Cvbo1Bi1RsOx1U
-	 8EaiMzAhvfYdAUN/o0PB9bBvwOXciKqWtNyWKjdw8/ifa495+DcTdpxoDTKvE9pwHx
-	 DnO9RWv/nE2LTlquxhGKLaA4/gNOjwqqlKJzSX7Q=
+	t=1790098381; bh=67NvP4PmpCnowWkBeuojZg3SSMqBMwtXDXBIbaFjYiY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DgfsXpYXf+AULhg9SSync9g0KRdJYDwFtPkkElJ/a+wWRq0XRp4XhA/+AQcIjVicE
+	 yO9uEDNDRHS6qYUxgDmH4JNy09PlmpfEqfv0MLS+ymlFYbWBDTSK3ieWYmPBLASNUU
+	 5DDokOnKTfjJP4/bugtIcH+JIC+awj5G0TJ4BSC4=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH v2 0/6] arm64: distinguish HW PTE pointers from SW PTE
- value pointers
-Date: Tue, 22 Sep 2026 18:31:55 +0100
-Message-Id: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
+Date: Tue, 22 Sep 2026 18:31:58 +0100
+Subject: [PATCH v2 3/6] arm64: use hw_pte_val for HW PTE loads and stores
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIy7smoC/0WP0W7DIAxFfyXieUwGFgx92n9M1QSOWXlI00IWb
- ary76N02t58Lesc35uoXDJXcRhuovCWa17OLeinQdApnD9Y5qlloUFb8ErJy8rwHsosk4o4JSS
- IoxLt/FI45a+Oejs+cuHrZyOuj6WYudbQiU3QeVp3ntyMBDlahOgoehj9azM80zLfwTFUlm2e8
- 3oYOEwIQAERyGllMSSjrdaUXLSOfHJIhpDE/YVTrutSvnu5TfUffnu8/PfYVHPHOJporWHj7Z/
- 7uO/7D/xl6R8hAQAA
-X-Change-ID: 20260911-pte0_arm-f1b7df7c0b51
+Message-Id: <20260922-pte0_arm-v2-3-a3f1ddff0a8a@arm.com>
+References: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
+In-Reply-To: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
@@ -71,8 +66,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Muhammad Usama Anjum <usama.anjum@arm.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_103254_520301_6B0E7DC1 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20260922_103302_192611_66A91D90 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,98 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+__ptep_get() returns a SW PTE value, while __set_pte_nosync() accepts
+one. When HW PTE storage uses a distinct hw_pte_t, reading or writing
+*ptep as a pte_t no longer satisfies those interfaces.
 
-The generic series introduces hw_pte_t for HW PTEs, while SW PTE values
-use pte_t. This series enables the distinct type on arm64 so the
-compiler can distinguish HW PTE pointers (hw_pte_t *) from SW PTE value
-pointers (pte_t *).
+Use hw_pte_val() to expose the pteval_t stored in either the hw_pte_t
+wrapper or its pte_t alias. __set_pte_nosync() writes pte_val(pte) to
+that storage, while __ptep_get() reads it and reconstructs a pte_t with
+__pte().
 
-The conversion updates HW PTE pointers and accessors, including atomic
-updates, fixmap, and early page-table construction, before selecting
-ARCH_HAS_HW_PTE_T. Higher-level entry types remain out of scope, and
-shared helpers retain explicit casts.
+This avoids imposing a generic conversion interface between HW and SW
+PTE representations, which may require architecture-specific context
+in the future.
 
-The linked generic series is a prerequisite. Its cover contains the
-Coccinelle script used for most pointer conversions; the remaining sites
-were converted by hand.
-
-Testing:
-Testing was performed with and without the series on both x86_64 and
-arm64. KUnit and the MM kselftests produced matching before-and-after
-results problems or regressions. Fastpath performance testing was also
-completed on arm64. No regression was found.
-
-Link: https://lore.kernel.org/all/20260922-pte0-v3-0-5670b8cb9059@arm.com  
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
-Changes in v2:
-- Move hw_pte_val() to the generic series and drop an unrelated comment
-  change from the atomic-access patch.
-- Use raw PTE values instead of generic HW/SW conversion helpers.
-- Drop a comment and add testing resutls in the cover letter
-- Add Reviewed-by tags.
-- Link to v1: https://patch.msgid.link/20260914-pte0_arm-v1-0-bb53b663e396@arm.com
+ arch/arm64/include/asm/pgtable.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-To: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-To: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-To: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-To: Alexander Potapenko <glider@google.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-To: Dmitry Vyukov <dvyukov@google.com>
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: usama.anjum@arm.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-efi@vger.kernel.org
-Cc: kasan-dev@googlegroups.com
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 4768ec59de555..ce6580ab63128 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -360,7 +360,7 @@ static inline pte_t pte_clear_uffd(pte_t pte)
+ 
+ static inline void __set_pte_nosync(hw_pte_t *ptep, pte_t pte)
+ {
+-	WRITE_ONCE(*ptep, pte);
++	WRITE_ONCE(hw_pte_val(*ptep), pte_val(pte));
+ }
+ 
+ static inline void __set_pte_complete(pte_t pte)
+@@ -381,7 +381,7 @@ static inline void __set_pte(hw_pte_t *ptep, pte_t pte)
+ 
+ static inline pte_t __ptep_get(hw_pte_t *ptep)
+ {
+-	return READ_ONCE(*ptep);
++	return __pte(READ_ONCE(hw_pte_val(*ptep)));
+ }
+ 
+ extern void __sync_icache_dcache(pte_t pteval);
 
----
-Muhammad Usama Anjum (6):
-      arm64: use hw_pte_t for HW PTE pointers
-      arm64: use hw_pte_val for HW PTE atomics
-      arm64: use hw_pte_val for HW PTE loads and stores
-      arm64: use hw_pte_t for fixmap HW PTEs
-      arm64: use HW PTE accessors in early map_range()
-      arm64: enable a distinct type for HW PTEs
-
- arch/arm64/Kconfig                |   1 +
- arch/arm64/include/asm/hugetlb.h  |  19 ++++----
- arch/arm64/include/asm/pgalloc.h  |   2 +-
- arch/arm64/include/asm/pgtable.h  | 157 ++++++++++++++++++++++++++++++++++------------------------------
- arch/arm64/include/asm/vmalloc.h  |   2 +-
- arch/arm64/kernel/efi.c           |   3 +-
- arch/arm64/kernel/pi/map_kernel.c |   4 +-
- arch/arm64/kernel/pi/map_range.c  |  20 +++++----
- arch/arm64/kernel/pi/pi.h         |   3 +-
- arch/arm64/mm/contpte.c           |  49 ++++++++++----------
- arch/arm64/mm/fault.c             |   7 +--
- arch/arm64/mm/fixmap.c            |   8 ++--
- arch/arm64/mm/hugetlbpage.c       |  48 ++++++++++----------
- arch/arm64/mm/kasan_init.c        |   4 +-
- arch/arm64/mm/mmu.c               |  46 +++++++++++--------
- arch/arm64/mm/pageattr.c          |   4 +-
- arch/arm64/mm/trans_pgd.c         |   4 +-
- 17 files changed, 207 insertions(+), 174 deletions(-)
----
-base-commit: ead700ca770c82167af32622cf8b68c9f87c3c7c
-change-id: 20260911-pte0_arm-f1b7df7c0b51
-prerequisite-message-id: 20260922-pte0-v3-0-5670b8cb9059@arm.com
-prerequisite-patch-id: 0114fcc6ab0dbb739b5bb6fc0fe6b1c8f1fa37a1
-prerequisite-patch-id: 09fcf65970074620dd3a9cce6850b901beb01db8
-prerequisite-patch-id: 9b2fdab97c99effabb85526fa7f141c933b3aa23
-prerequisite-patch-id: 1aa309a26d98a1e93a54742705a03567ee93be71
-prerequisite-patch-id: ebe32f52c95ad0542982f0b37798d209595e25e1
-prerequisite-patch-id: 22950028c3d2060de8acd3fe4a73d755b18215e3
-prerequisite-patch-id: a60d249f52d092524176851b2570d7245bb24434
-prerequisite-patch-id: 81ebd1378e25d40a1771b53973abcc4defa87535
-prerequisite-patch-id: d982f2b00c5eddb2459f69008a73e4f4ae4d8299
-
-Best regards,
---  
-Usama
+-- 
+2.47.3
 
 
