@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090B4C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30C6C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0+frf5uGMOG8IhgswPbNTXkuM7AfsFPrGxJW++isdDs=; b=HxIP+GeGqJ60Tkmxiegu564zHW
-	JUt5NEjvv5TsDCtxngRcZhBiv7oU9eTv1FomjSv0PWVCpYkwv/uQanthEGRVXtYZbNK9DF/NeB5ei
-	eqkq4/5IzTbyEwtBAD9uybam0qQt8S7BS6sIZABC9x5OEe8VsQ7/gKWAjsPAV+yINjRF/Ny9f1Gex
-	bELYrkXU+rNHgcs9SSPWF1CTc9lU6vwPGhm+jlbca+26atwbYgmbdCiSkxWE50ZBNFqRUIRjGsHOk
-	mB2V9vKnV4tyYEOgS8ckvicjSVBB0wQLliCo6c2qomBtVg2j+BAbDjMwtfLwedomI9ert3oINvg6k
-	YdHN3Cjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bn78rIl0UMN/Etf6kRxoCTI1Ti4PPNnvK//KgYHJgyU=; b=uvC/oDLYpemOutVhfq+nV1TR8r
+	k+mRta1fMCVNN1Xv1knryRQYRHLg1J4XJ3njpWMuvlJhv432h2gwS732ixyzvc/RgiKbhBWFFy1gt
+	0q1ZCY+1d0lR4ghnWiY69TN6BLp2x84dIsjWJAxTgqI7GJkkLdzJn9aoBZQXM5Q1HombQR5QGgd5Q
+	S4gaOUQRQvJjJ1rXeo8DshduUOYc6WNMg8GiNdTxJ4ErCXntEdrjaTnK6UuAtsNfCJa4p7W3lGx25
+	BVGajiH/K9cfF88VF59X32SthFna/LuIEil1DOHVPwHUYygY87gw6glcqgtLp3lYzCIe8e5pycLKH
+	aRGYm3pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92D1-00000005o8y-0d7U;
-	Tue, 22 Sep 2026 15:15:03 +0000
+	id 1x92Ff-00000005oRD-29bc;
+	Tue, 22 Sep 2026 15:17:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92Cy-00000005o8D-3MaK
+	id 1x92Fd-00000005oQq-2Toc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:15:02 +0000
+	Tue, 22 Sep 2026 15:17:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D06C41576;
-	Tue, 22 Sep 2026 08:14:55 -0700 (PDT)
-Received: from [10.57.9.253] (unknown [10.57.9.253])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 778833F86F;
-	Tue, 22 Sep 2026 08:14:56 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D7771576;
+	Tue, 22 Sep 2026 08:17:39 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F0863FA32;
+	Tue, 22 Sep 2026 08:17:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790090099; bh=qfLhNMxLDQamnRL3jBZjojzJCuPyPkvcYSCFDpX/jF8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=id03qeF4VWrD2FyYassCVvtscxdW55gRzwGJdpvJgtyiQ3TdEIEUt2WyO0ePxhU9Y
-	 a0+jXmaJ6rch0a6KggX/v5JwO/mQ+8LlpGzR+8c3+f5YGW2Ev3f+HJI9gRU3IdaDPz
-	 2wjKveDSTNbtxF9X/+0KOXnvUQJF2YXWpFvlcBww=
-Message-ID: <359c7adb-e18e-423d-a5a1-6031eb17e421@arm.com>
-Date: Tue, 22 Sep 2026 16:14:54 +0100
+	t=1790090262; bh=qcQAZi3C9KEKVCBrKlQm5wPF/QzOabtzbyH89pFNqKQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c7KOIxYw+wpS/RrOBtHZPEoa57VsVibuLFGNxbuxwd5gOZ0PyKUaEoISzKjUkGm+O
+	 cRnFupxuwJe0JyM2CbdZiq/dPP8ao0o7SFv2+hYk1oun7k8V+WaxzzZjfFLG9EUXEY
+	 OuYRrdnKbDr0QYRRHufbQIooq5EOPRgeXMonIamE=
+Date: Tue, 22 Sep 2026 16:17:35 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v3 12/13] arm64: Kbuild: Remove vestigial big-endian
+ support
+Message-ID: <arKcDyE6pkBI9YVt@arm.com>
+References: <20260918145217.1669-1-will@kernel.org>
+ <20260918145217.1669-13-will@kernel.org>
+ <arEF5IOJSlQyYwX5@arm.com>
+ <arKaWVwH5RXKpDTf@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <aqrGPK0lFBFXL2qY@arm.com> <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
- <aqvCwM_73qMpqzvV@arm.com> <749ab0c9-810d-4989-8fa5-1706124f05bc@arm.com>
- <arKVcjCOJf8p9rWL@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <arKVcjCOJf8p9rWL@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arKaWVwH5RXKpDTf@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_081500_939532_435C6B59 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20260922_081745_671030_148F7A03 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,118 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/09/2026 15:49, Catalin Marinas wrote:
-> On Tue, Sep 22, 2026 at 02:21:13PM +0100, Suzuki K Poulose wrote:
->> I had another look and we could handle this via kvm_fault_is_gmem_abort()
->> see in arch/arm64/kvm/mmu.c:
->>
->>
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 87e49251e0447..af5a4bf961aae 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1731,6 +1731,9 @@ static int gmem_abort(const struct kvm_s2_fault_desc
->> *s2fd)
->>          gfn_t gfn;
->>          int ret;
->>
->> +       if (!kvm_slot_has_gmem(s2fd->memslot))
->> +               return -EINVAL;
+On Tue, Sep 22, 2026 at 04:10:17PM +0100, Will Deacon wrote:
+> On Mon, Sep 21, 2026 at 11:24:36AM +0100, Catalin Marinas wrote:
+> > On Fri, Sep 18, 2026 at 03:52:14PM +0100, Will Deacon wrote:
+> > > -choice
+> > > -	prompt "Endianness"
+> > > -	default CPU_LITTLE_ENDIAN
+> > > -	help
+> > > -	  Select the endianness of data accesses performed by the CPU. Userspace
+> > > -	  applications will need to be compiled and linked for the endianness
+> > > -	  that is selected here.
+> > > -
+> > > -config CPU_BIG_ENDIAN
+> > > -	bool "Build big-endian kernel"
+> > > -	depends on BROKEN
+> > > -	help
+> > > -	  Say Y if you plan on running a kernel with a big-endian userspace.
+> > > -
+> > > -config CPU_LITTLE_ENDIAN
+> > > -	bool "Build little-endian kernel"
+> > > -	help
+> > > -	  Say Y if you plan on running a kernel with a little-endian userspace.
+> > > -	  This is usually the case for distributions targeting arm64.
+> > 
+> > Running the checks through an LLM found that CONFIG_GVE depends on
+> > X86 || CPU_LITTLE_ENDIAN, so it won't be enabled anymore.
+> > 
+> > I think that's the only positive test of CPU_LITTLE_ENDIAN.
 > 
-> I wonder whether we should add a KVM_BUG_ON() here. With the rest of the
-> changes, we should never get in this situation. Well, to be revisited
-> for private devices.
+> Would you like me to add a '|| arm64' in there? I was a bit wary of doing
+> so, given that I don't have a way to test it. Removing CPU_LITTLE_ENDIAN
+> forces the issue, somewhat.
 
-Sure, I could add that
+Or turn the dependency into X86 || !CPU_BIG_ENDIAN.
 
-> 
-> Also maybe move it to the caller, kvm_vm_mem_abort(), and not change
-> kvm_fault_is_gmem_abort(). Something like:
-> 
-> 	if (private_ipa_fault(kvm, s2fd->fault_ipa) &&
-> 	    KVM_BUG_ON(!kvm_slot_has_gmem(s2fd->memslot), kvm))
-> 		return -EIO;
-> 
-> To me it makes more sense for gmem_abort() to be called only *if* it's a
-> gmem slot. So any inconsistency, avoiding user_mem_abort() for private
-> memory, should be done in the caller. I assume the caller will also have
-> to route the private device path as well rather than rely on
-> gmem_abort().
+Was arm64 the only one to define CPU_LITTLE_ENDIAN before?
 
-Agree.
-
-> 
->> +
->>          if (!perm_fault) {
->>                  memcache = get_mmu_memcache(vcpu);
->>                  ret = topup_mmu_memcache(vcpu, memcache);
->> @@ -2277,10 +2280,12 @@ static bool private_ipa_fault(struct kvm *kvm,
->> phys_addr_t fault_ipa);
->>   static bool kvm_fault_is_gmem_abort(struct kvm *kvm,
->>                                      const struct kvm_s2_fault_desc *s2fd)
->>   {
->> -       if (!kvm_slot_has_gmem(s2fd->memslot))
->> -               return false;
->>          if (kvm_memslot_is_gmem_only(s2fd->memslot))
->>                  return true;
->> +       /*
->> +        * For Realms, all private faults must be backed by GMEM.
->> +        * TODO: Handle Trusted device private memory mappings.
->> +        */
->>          if (private_ipa_fault(kvm, s2fd->fault_ipa))
->>                  return true;
->>          return false;
->>
->>
->> Also, I have the following hunk for preventing memslot modifications.
->> I will add this to v20 integration branch, which is almost ready ;-)
->>
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 582b48e34486b..87e49251e0447 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -2783,6 +2783,18 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
->>          }
->>   }
->>
->> +static bool kvm_prevents_memslot_change(struct kvm *kvm, enum kvm_mr_change change)
->> +{
->> +       /* Cannot modify memslots once a pVM has run or Realm created */
->> +       if (change != KVM_MR_DELETE && change != KVM_MR_MOVE)
->> +               return false;
->> +
->> +       if ((kvm_vm_is_protected_pkvm(kvm) && pkvm_hyp_vm_is_created(kvm)) ||
->> +            kvm_realm_is_created(kvm))
->> +               return true;
->> +       return false;
->> +}
->> +
->>   int kvm_arch_prepare_memory_region(struct kvm *kvm,
->>                                     const struct kvm_memory_slot *old,
->>                                     struct kvm_memory_slot *new,
->> @@ -2791,12 +2803,9 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->>          hva_t hva, reg_end;
->>          int ret = 0;
->>
->> -       if (kvm_vm_is_protected_pkvm(kvm)) {
->> -               /* Cannot modify memslots once a pVM has run. */
->> -               if (pkvm_hyp_vm_is_created(kvm) &&
->> -                   (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
->> +       if (kvm_vm_is_protected(kvm)) {
->> +               if (kvm_prevents_memslot_change(kvm, change))
->>                          return -EPERM;
->> -               }
->>
->>                  if (new &&
->>                      new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
-> 
-> I think this should work.
-
-Cheers
-Suzuki
-
-> 
-> Thanks.
-> 
-
+-- 
+Catalin
 
