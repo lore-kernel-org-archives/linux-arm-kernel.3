@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8F8C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 09:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E90C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 09:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bluJB05dMB2jV3Y6fJ6wm8ws1q2ZyISwGm5FF9gkYIU=; b=W20YzjRryh3cicByPKb596EkPS
-	VXtFJ0sDP3KBM7G4CEJljw2ONyJctK8ykoPlcT9umaFoxuEAmKbJE4DcdOL/YW5B41i8sJGvj4JE0
-	+6J9yg+uA7MoV06zft3rj8idkV3HBnd0zecOfP7M3KC++WpkM5EN3YajYhJmm+ICXv2a4CtTW6Ngn
-	4WHu4HgfDnD0PMyWElBpQOOdkQXBCS0f2ij890pMdwPjf8ky5Jps3DswaTPwAlk4t3T520k+e4XQj
-	i95vQytt8Nszt+0/+qTvpilBLIoQGPrPYYo4B+t0IeFLipYv5v/nrJeKcNYHr8z0Lxeg2nQnXfWLj
-	7pHmE1tw==;
+	bh=XsLswjZySdqIFqF2ilbCxdY4qgyZ6CXrVVKDQsk1y4g=; b=kbMAF8gOXyyKzHxUEkPXDgRFsV
+	EGK2O8iwNGU6zGnopZt8snTP/E4KV92JWarz4I5RdvhPfgszUW+/Zfcvy6QXIrrtgmGpvTa8WNJmu
+	Xgb2/RzAfkNWwpAPi0Xy/vfVT13c6JsMr3VmbV6ll9IKzqwj9gN3v4PDLahSYWz01t5+yyMkbv13C
+	KmWiJ5QALRRR6Zdvq2wt1G2wNvl9KeBlLI/pLRl6tg+5dR6882VNgRcNWy0P7m/J6lo70KPKJox9k
+	qxx4nXcRNBEfMdnwcfrTr5hajorUiHfRv280o4Dk3Or2uy0E3uBwMuDSGuK/94wwvQJhIlptF+7Ed
+	+n37/4tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8x9Y-00000004yJw-321x;
-	Tue, 22 Sep 2026 09:51:08 +0000
+	id 1x8xAQ-00000004yYb-46At;
+	Tue, 22 Sep 2026 09:52:02 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8x9X-00000004yJe-42Yx
+	id 1x8xAP-00000004yYG-34EA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 09:51:07 +0000
+	Tue, 22 Sep 2026 09:52:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73D8A403F6;
-	Tue, 22 Sep 2026 09:51:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C61D1F000FF;
-	Tue, 22 Sep 2026 09:50:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 791FF4377A;
+	Tue, 22 Sep 2026 09:52:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C923A1F00893;
+	Tue, 22 Sep 2026 09:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790070667;
-	bh=bluJB05dMB2jV3Y6fJ6wm8ws1q2ZyISwGm5FF9gkYIU=;
+	s=k20260515; t=1790070721;
+	bh=XsLswjZySdqIFqF2ilbCxdY4qgyZ6CXrVVKDQsk1y4g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D3fHZaw7Nl8F58LiaT1FS4IcwtpHChTuSO0a7tIJqVvw8hqUBj1tygbfSikWcBzwm
-	 dnv4LcQJt5S26njBaX6+xsZsJJ4bL67N/7NAWoGkM+FNwibvIeHWXNub6khFdheAx0
-	 8doSkK+QfUddRYgxZ1+j8howiCXMpNN3P09QScNRy3gOE1/cLLXYD3n32bLj8U4BOn
-	 V6pJM9DIjH2QJHA6gV+AbCsOwvd6HZbsfyRkbQHA+IcKRnj83Ofn/J9cEMsjsYewo9
-	 bvSv1sCyUDORess5rRIjQAs7VUGR7mJzg0Rn2ny+MyTSaXnOl0fBDR8OMjW9ZVwWl0
-	 TIfXjHGGp1dHg==
-Date: Tue, 22 Sep 2026 10:50:57 +0100
+	b=LMT8gm1AoEFT7gGBv+UHvLcfX07spj9zLtsGDHX0ve90f6yq0SZFLZPQpvEq8/N4m
+	 MI6iTv11VPAo1J4kauwU+6zLxtDIwXUC964L4C7g1YLJq8FrypYsPFmf/vUt/mVbiP
+	 MnY6xODa9WZzv2IDSSTqS+KAbdW0T+BfhD8qMxdeGpLgGm79CWChCpiZXc+Kje8zYk
+	 A0xGKSz8y/wbQdh3N8uwV8KtmAdX/bn+y57m6j7PtFH0CVrZsXlsUCIv38/XsRX0ff
+	 mge0QwP7f3UNAjRSJaRSYzeyHBU9CEx6vTG2iVg+TMffw61IvtKlPc89c/3inA5WLE
+	 9GcGsuZ/Emhhg==
+Date: Tue, 22 Sep 2026 10:51:52 +0100
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>
 Cc: Linux ACPI <linux-acpi@vger.kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
 	LKML <linux-kernel@vger.kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Mika Westerberg <mika.westerberg@linux.intel.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -81,15 +81,15 @@ Cc: Linux ACPI <linux-acpi@vger.kernel.org>,
 	Andreas Noever <andreas.noever@gmail.com>,
 	Mika Westerberg <westeri@kernel.org>,
 	Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: Re: [PATCH v1 01/17] ACPI: bus: Use acpi/acpi_bus.h without
- CONFIG_ACPI
-Message-ID: <20260922-quiet-heavy-lyrebird-b245ad@sudeepholla>
+Subject: Re: [PATCH v1 02/17] ACPI: amba: Switch to use
+ acpi_bus_get_primary_device()
+Message-ID: <20260922-tiny-pompous-stork-30beeb@sudeepholla>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
- <3717753.iIbC2pHGDl@rafael.j.wysocki>
+ <3362405.5fSG56mABF@rafael.j.wysocki>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3717753.iIbC2pHGDl@rafael.j.wysocki>
+In-Reply-To: <3362405.5fSG56mABF@rafael.j.wysocki>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +104,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 09:45:59PM +0200, Rafael J. Wysocki wrote:
+On Mon, Sep 21, 2026 at 09:46:37PM +0200, Rafael J. Wysocki wrote:
 > From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
 > 
-> Corrently acpi/acpi_bus.h is included in linux/acpi.h only if
-> CONFIG_ACPI is set, but it contains declarations that are useful
-> otherwise too.
+> Replace acpi_get_first_physical_node() that is slated for removal
+> with acpi_bus_get_primary_device() that takes a reference to the
+> device it is about to return.
 > 
-> For consistency, modify linux/acpi.h to always include acpi/acpi_bus.h
-> and update the latter to avoid exposing too much when CONFIG_ACPI is
-> not set.
-> 
-> Since acpi_has_method() is called from some code build when
-> CONFIG_ACPI is unset, add a stub for it to the !CONFIG_ACPI
-> block in acpi/acpi_bus.h.
-> 
+> This addresses a potential use-after-free that may occur if the
+> device returned by acpi_get_first_physical_node() is removed right
+> after dropping its ACPI companion's physical_node_lock in that
+> function.
+>
 
 Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-
-I was planning to just pull acpi_device_hid() out so that I can get rid
-of CONFIG_ACPI in [1]. This looks much more elegant. Thanks for doing it.
 
 -- 
 Regards,
 Sudeep
-
-
-[1] https://lore.kernel.org/all/20260915-acpi_scmi_pcc-v5-4-298579e9f359@kernel.org
 
