@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8601AC982ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C06C982ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 00:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HBa5w8rn6n5q6nIjE/xoBY1iFxR1GQJhuiQahknSOvA=; b=EYQ+hQzF2BSBxiQs1xfrCKs30M
-	RlVv0jfSrv7PDXp7yuEobBuqRt4Ctr7EaT84A80M4jPe5pV4eXrCEXWYnWjt8/jIXli52nfmy3TTc
-	QejLGk10NeKzDIiqnVTCiEnCHbdWc3+mmrjrPZ5sNZ8rtHM9o9V59QxQ8jJKf0RLB9+hiTSMhAw0g
-	fYoHwZCi5d8mHhfqkfmPAiIg9I5jcMWJhtClwjggkzpdekzRTjO042p2jzpRue/89J7Jn8ayMyISg
-	Oh5p9Gd2jeBQm+YiFvH88rI2h/FOxFB81NcqMEZlbAfN7ZjlssQ9jkGE6HGyFUdCg8qjnkTAzzGS/
-	7hq2qelg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ghe12W3xx27L6Gp05sVA/Am+5fUdjvtLgHXnKRFlSdc=; b=WjO4it28r2QM7tXEGWUO4MDoEx
+	8xKVkXL3JosfLMLfqX6KML+XFKXR65FfGlqeUkQnfjhFRJ6CRK/4BaBLiliPPV2D2hjLFZNWt+zHL
+	RI8uGnRB5UUECC2IYCAFhMa89A7CozRKHqSPFJFl62NzpAsWtPwd+VAJzVZrdeuVO5Um68YhddLH2
+	yCd6bl2M3HwHfP1yMHOfzU02TKRoHdliYQWktXnLqtG2NVg+fMGMFCGSG5cnoi4BoTw0DL/d86oMs
+	YOYbWr6TwEZICotrYHYWRqN1rUqxuhe4qbzWH9rnlLZ3YWAnDxDyC2YuMk6gc9SYWGMKyccnmGsz5
+	srqNPGVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ofE-00000003oZ7-1bvi;
-	Tue, 22 Sep 2026 00:47:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8ofc-00000003ofA-374I;
+	Tue, 22 Sep 2026 00:47:40 +0000
+Received: from mail-m254100.xmail.ntesmail.com ([103.129.254.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8ofB-00000003oYf-2259
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 00:47:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C2B0600CB;
-	Tue, 22 Sep 2026 00:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 41B0EC2BCB3;
-	Tue, 22 Sep 2026 00:47:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790038032;
-	bh=452/KNCUURSgjMedDMBpiqj9H72IvWfvsOiu7TvyjnY=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=rJGUe2gzfh04UChRK8sSTFRVort4kkCClHWcm5MbcYSXebjK4Ce7sWw1h0pid4x7X
-	 XhhvaKkhDY3Z7ZfIxcPD1gImPlN5QKwLeGAAW36/VFLuK1rqfrim+R9KNDGHC61/9f
-	 iR4E0OuV6xgrCz1PJQRyGuuYLXAKOETFQK78OIQYx5MROuUz7YdThDoka+8sAVCpdC
-	 9V6z7WROyc+ZVAKUFqDWeM7pT97NVU6QwnguycIYVp8BHFJ5Xu5pAxlKq+dk5Nhuwx
-	 okwBIAKDob3GfaNaCGEH+oZS41n1kyaRZrxeAkuG9Zb3wm1SP5vO+5OhOHEh774uwr
-	 e1M6LIuLvSJ6A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 12895C982ED;
-	Tue, 22 Sep 2026 00:47:12 +0000 (UTC)
-From: Jaidev Shastri via B4 Relay <devnull+jaidevshastri.vt.edu@kernel.org>
-Date: Mon, 21 Sep 2026 20:47:08 -0400
-Subject: [PATCH] soc: fsl: qbman: order the probed flags with
- release/acquire
+	id 1x8ofZ-00000003oe4-1cxX;
+	Tue, 22 Sep 2026 00:47:39 +0000
+Received: from [172.16.12.48] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4ea2fa38f;
+	Tue, 22 Sep 2026 08:47:32 +0800 (GMT+08:00)
+Message-ID: <1d8950b4-315f-44a4-9fc8-fcb35ac33043@rock-chips.com>
+Date: Tue, 22 Sep 2026 08:47:28 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-mb-qbman-v1-1-35f3321aa330@vt.edu>
-X-B4-Tracking: v=1; b=H4sIAAvQsWoC/yXMQQ7CMAwEwK9UPmOUhlAKX0Ec4uBQIzWAAxVS1
- b+TlOOsdneGzCqc4dTMoDxJlkcqaDcNhMGnG6Nci8Ea25mjbXEkfNHoE/Yu7juOJvYuQKk/laN
- 816vz5e/8oTuHd93XBvnMSOpTGGq0cjpsd6jBwbL8APRh8cuMAAAA
-X-Change-ID: 20260921-mb-qbman-84f56ef0f84c
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Jaidev Shastri <jaidevshastri@vt.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790038031; l=5060;
- i=jaidevshastri@vt.edu; s=20260921; h=from:subject:message-id;
- bh=fT0InRMlMFbZ9CKVfdOgEtwLmnpvFnvqHzVcYJmm3RA=;
- b=dfSMjLLaNzAGsFr3S0RP9Qjbm7gVRjFVsP27ngUULTv6uXzFilh88P58W/+zlBX4bIuxmW63r
- m/PPbt94y/+BJ1+VKHc5/9AurqvVnFu/NlOkiHhF/JBjoaZ+uOYOS8F
-X-Developer-Key: i=jaidevshastri@vt.edu; a=ed25519;
- pk=J7+xYJRlTPds+pv5hbqFFRqGCpDeJDzmZT1ggRwj7/0=
-X-Endpoint-Received: by B4 Relay for jaidevshastri@vt.edu/20260921 with
- auth_id=1044
-X-Original-From: Jaidev Shastri <jaidevshastri@vt.edu>
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Caesar Wang <wxt@rock-chips.com>,
+ Kevin Hilman <khilman@linaro.org>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pmdomain: rockchip: fix domain check in
+ rockchip_pm_add_one_domain()
+To: Sergey Shtylyov <s.shtylyov@auroraos.dev>, Ulf Hansson <ulfh@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-pm@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20260920175928.42566-1-s.shtylyov@auroraos.dev>
+ <ee8bf4cf-b2bd-4cbd-ba8c-2e7a871203e1@rock-chips.com>
+ <140e4538-d493-40a7-a682-00be091332f0@auroraos.dev>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <140e4538-d493-40a7-a682-00be091332f0@auroraos.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa0c6950c8a03a4kunm3e415e16385fee
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZThhOVkIfH0lMSU0eQh5MS1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=XAkuUZhYuUHOcfG+P85pveAV24xvDwuRb0lJU9e7eK/kScso69+2Lq8WQeGjE51x/7bQGcRZV5XUKSZhvQqRqjAxIVpPlT6qPlpRH4UrHKP0av1dYvr6KNibIhaFqZWfRuDeYuCq6kxOAicRpJGc08cUP8KbZW3wPY5JlufWAjU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Ghe12W3xx27L6Gp05sVA/Am+5fUdjvtLgHXnKRFlSdc=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_174737_936936_BEFAB575 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,149 +71,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jaidevshastri@vt.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jaidev Shastri <jaidevshastri@vt.edu>
+在 2026/09/22 星期二 0:13, Sergey Shtylyov 写道:
+> On 9/21/26 9:36 AM, Shawn Lin wrote:
+> 
+> [...]
+> 
+>>> In rockchip_pm_add_one_domain(), there's the check (most probably for
+>>> the case where the "reg" prop has an unexpected value?) which doesn't
+>>
+>> Agreed that check indeed makes little sense. But "most probably for the
+>> case where the reg prop has an unexpected value" does not hold: an
+> 
+>     I tried to guess what the check in question was actually intended for
+> (despite making a little sense as it is now)...
+> 
+>> out-of-range reg value is already rejected by the "id >= pmu->info-
+>>> num_domains" check above, and num_domains equals
+> 
+>     I noticed. :-)
+> 
+>> ARRAY_SIZE(domain_info) for every SoC, so there are no holes in the
+>> table that the new check could catch with the current data. AFAICT, this
+> 
+>     Oh, there are holes! :-)
+>     If you look at (and behind) the indexed initializers of *_pm_domains[],
+> you'll see that the indexes don't always start at 0, and so the arrays are
+> actually sparse...
 
-dpaa_eth, caam and the portal drivers poll qman_is_probed(),
-bman_is_probed(), qman_portals_probed() and bman_portals_probed() before
-they touch the state the probe functions set up: qman_ip_rev, the CCSR
-and portal register maps, the FQD and PFDR bases, affine_portals and the
-pool allocators.
+Looked more closely by each one, you're right.
 
-Each flag is set with a plain store at the end of its probe function and
-read with a plain load in the exported accessor. The stores that build
-the state are not ordered before the store to the flag, and the
-consumer's load of the flag is not ordered before its loads of the
-state. A consumer probing on another CPU can see the flag set and then
-read state that is still stale or zeroed, and program the hardware with
-it.
+> 
+>> patch does not change any runtime behaviour; it only turns dead code
+>> into a defensive check on the match-data tables.
+> 
+>     I hope you see now that this defensive check makes a bit more sense...
+> 
+>>> make much sense as the variable pd_info will be NULL iff pmu->info->
+>>> domain_info is NULL and the variable id is 0.  What does make sense
+>>> there is checking pd_info->pwr_mask and pd_info->req_mask which (as
+>>> seems to follow from the code) can't both be 0 for a valid domain...
+>>
+>> That means there is no bug being fixed here, should we drop the fixes tag?
+> 
+>     I'd like to keep it (but that's up to the maintainers, of course)...
 
-Set the flags with smp_store_release() and read them with
-smp_load_acquire(). The error paths storing -1 keep their plain stores:
-a consumer that sees -1 fails its own probe without touching the state.
+Sure, it's  Ulf's call. Anyway, feel free to add
 
-Found with MBCheck, a static herd7-based memory consistency checker.
+Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
 
-Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
----
- drivers/soc/fsl/qbman/bman_ccsr.c   |  6 ++++--
- drivers/soc/fsl/qbman/bman_portal.c |  6 ++++--
- drivers/soc/fsl/qbman/qman_ccsr.c   | 11 +++++++++--
- drivers/soc/fsl/qbman/qman_portal.c |  6 ++++--
- 4 files changed, 21 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/soc/fsl/qbman/bman_ccsr.c b/drivers/soc/fsl/qbman/bman_ccsr.c
-index b0f26f6f7..c5be35aba 100644
---- a/drivers/soc/fsl/qbman/bman_ccsr.c
-+++ b/drivers/soc/fsl/qbman/bman_ccsr.c
-@@ -180,7 +180,8 @@ static irqreturn_t bman_isr(int irq, void *ptr)
- 
- int bman_is_probed(void)
- {
--	return __bman_probed;
-+	/* Pairs with smp_store_release() in fsl_bman_probe(). */
-+	return smp_load_acquire(&__bman_probed);
- }
- EXPORT_SYMBOL_GPL(bman_is_probed);
- 
-@@ -279,7 +280,8 @@ static int fsl_bman_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	__bman_probed = 1;
-+	/* Order bm_ccsr_start, bman_ip_rev and the pool allocator before the flag. */
-+	smp_store_release(&__bman_probed, 1);
- 
- 	return 0;
- };
-diff --git a/drivers/soc/fsl/qbman/bman_portal.c b/drivers/soc/fsl/qbman/bman_portal.c
-index 4d7b9caee..056fe3fbb 100644
---- a/drivers/soc/fsl/qbman/bman_portal.c
-+++ b/drivers/soc/fsl/qbman/bman_portal.c
-@@ -90,7 +90,8 @@ static int bman_online_cpu(unsigned int cpu)
- 
- int bman_portals_probed(void)
- {
--	return __bman_portals_probed;
-+	/* Pairs with smp_store_release() in bman_portal_probe(). */
-+	return smp_load_acquire(&__bman_portals_probed);
- }
- EXPORT_SYMBOL_GPL(bman_portals_probed);
- 
-@@ -157,7 +158,8 @@ static int bman_portal_probe(struct platform_device *pdev)
- 	spin_lock(&bman_lock);
- 	cpu = cpumask_first_zero(&portal_cpus);
- 	if (cpu >= nr_cpu_ids) {
--		__bman_portals_probed = 1;
-+		/* All CPU-bound portals are initialised and in affine_bportals. */
-+		smp_store_release(&__bman_portals_probed, 1);
- 		/* unassigned portal, skip init */
- 		spin_unlock(&bman_lock);
- 		goto check_cleanup;
-diff --git a/drivers/soc/fsl/qbman/qman_ccsr.c b/drivers/soc/fsl/qbman/qman_ccsr.c
-index aa5348f49..b46cfb964 100644
---- a/drivers/soc/fsl/qbman/qman_ccsr.c
-+++ b/drivers/soc/fsl/qbman/qman_ccsr.c
-@@ -711,7 +711,8 @@ static int qman_resource_init(struct device *dev)
- 
- int qman_is_probed(void)
- {
--	return __qman_probed;
-+	/* Pairs with smp_store_release() in fsl_qman_probe(). */
-+	return smp_load_acquire(&__qman_probed);
- }
- EXPORT_SYMBOL_GPL(qman_is_probed);
- 
-@@ -864,7 +865,13 @@ static int fsl_qman_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	__qman_probed = 1;
-+	/*
-+	 * Publish the flag only after every store made above (qman_ip_rev,
-+	 * qm_ccsr_start, the FQD/PFDR bases, the work queue) is visible to
-+	 * the consumers that poll qman_is_probed() and then call into
-+	 * qman_set_sdest(), qman_liodn_fixup(), qman_alloc_*().
-+	 */
-+	smp_store_release(&__qman_probed, 1);
- 
- 	return 0;
- }
-diff --git a/drivers/soc/fsl/qbman/qman_portal.c b/drivers/soc/fsl/qbman/qman_portal.c
-index 456ef5d5c..181c0f373 100644
---- a/drivers/soc/fsl/qbman/qman_portal.c
-+++ b/drivers/soc/fsl/qbman/qman_portal.c
-@@ -175,7 +175,8 @@ static int qman_online_cpu(unsigned int cpu)
- 
- int qman_portals_probed(void)
- {
--	return __qman_portals_probed;
-+	/* Pairs with smp_store_release() in qman_portal_probe(). */
-+	return smp_load_acquire(&__qman_portals_probed);
- }
- EXPORT_SYMBOL_GPL(qman_portals_probed);
- 
-@@ -251,7 +252,8 @@ static int qman_portal_probe(struct platform_device *pdev)
- 	spin_lock(&qman_lock);
- 	cpu = cpumask_first_zero(&portal_cpus);
- 	if (cpu >= nr_cpu_ids) {
--		__qman_portals_probed = 1;
-+		/* All CPU-bound portals are initialised and in affine_portals. */
-+		smp_store_release(&__qman_portals_probed, 1);
- 		/* unassigned portal, skip init */
- 		spin_unlock(&qman_lock);
- 		goto check_cleanup;
-
----
-base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20260921-mb-qbman-84f56ef0f84c
-
-Best regards,
---  
-Jaidev Shastri <jaidevshastri@vt.edu>
-
+> 
+>>> Found by Linux Verification Center (linuxtesting.org) with the Svace
+>>> static analysis tool.
+>>>
+>>> Fixes: 7c696693a4f5 ("soc: rockchip: power-domain: Add power domain driver")
+>>> Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+> 
+> [...]
+> 
+> MBR, Sergey
+> 
+> 
 
 
