@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91C2C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A09C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLzoHhwTaHnhjMBvx7XPbj3yAjurmamgiA97xqI13vA=; b=kV5OarmuamPs33mYqMAtrxY+L5
-	pRCF+RXgkpQ86wGnsEexK71zYgQ1hAntCIp8MauTYCVtVacg/5JSYAOEpIJcEFMckHpF1J4Yps7Na
-	iM8L6lfZDIGy1lZG48LkZiXeZ2UtXmaHMZST4hOHmIR05ASOTAz0umm2RvUO3JQNxY4qITP7m3L/E
-	Do02Qlb6ctdmwNcU+9tyOCbCa1AmyJexH/8cjhoukScIrI+JUzTaqspQHX0yWUE9+/I2vKLi4jHYO
-	HWRvmBR6dccueoWftfeTdRJ2x23Jwfu/uF5aTtobIKdsON/k+tztTK0ZfLPqm2AJCNJE7yQ2LlW/g
-	38Nz3PMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2l5KJwbWdq6FY22U+hCaZW26IsF73VqG+OHmtkN73h8=; b=RyOdpOHlLgCCtFQe4XcXFBxUt1
+	lBq6WCNS9aWY9y59IdQqtUpIJ/lHtYqWfmwFhkRM6UUO14ju6CASStSooyg75bSnxHoRc1zdG8r0b
+	TeIqH19mXTfgqb6ueLjZRmxaCxgQWowUoaLrSPMiaXbuPQ7ot6C8eOFo7VPqp1nMe1qMu4Ik1gBwl
+	r5OmicpeHHbfo04vgDJqj9U+bpDU+7/4LqXC+n0a2RkRtX9wuKTGd47cUVh0NNrc/o1JUSonYVsbT
+	GD1EdnnVM6GZrNWxFM5YnPx/ZLRScBYYaAAVll8E3pNtiZQuI0l+PLWGxhR39s8EeURdFfIDPI9Wl
+	NLWXfqCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97l4-00000006awn-2lWV;
-	Tue, 22 Sep 2026 21:10:34 +0000
-Received: from out-99.mta1.migadu.com ([2001:41d0:203:375::63] helo=mta1.migadu.com)
+	id 1x97yk-00000006bvz-3jlp;
+	Tue, 22 Sep 2026 21:24:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x97l2-00000006awL-227Q
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 21:10:33 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ZLzoHhwTaHnhjMBvx7XPbj3yAjurmamgiA97xqI13vA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790111430; v=1; x=1790716230;
- b=JvyVaJajPn6oCPqwzZo0n1qYB2+2bfMifzQV2gk36kUt1/Jm6CaDQnEum2vHTxtUNoKbRg23
- 2M28/6rOQzgXpuE30O480Bz9QmOk6oBsG+Nox6DQta4ONpt7JJLqcV9oWVk6NUu87ctvRggAVCc
- S/yjnAhWstFYltSrc00hzPsE=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b90c56194a9dc0a4;
-	Tue, 22 Sep 2026 21:10:14 +0000
-X-Mizu-Trace-ID: b90c56194a9dc0a4
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso797e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 14:10:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwhNf8gRLvMXuexE1hukFqzODr7NAThH4ZayRfd9/hPdqYTFSj4uz8XuHyibeWkIDW71KHR4xFChbNkr1OFSrV5@lists.infradead.org
-X-Gm-Message-State: AFuF++kktpW+V0H6T8Y+0KqT35D6h/YYO/te7mvhRat7fzLTUBkZpmSh
-	n9zh08zYbEWSTo2CWOHpWOBjUJdPZqFX1xfEnJsCXqve+DZFmb+vCeMhjjYt2wNSsJVNFJgtDc4
-	6VnREAhfhtYJE11WT6xNoFyjh9zaO7YY/OiZaOHBI
-X-Received: by 2002:a05:6512:a84:b0:5b1:ca0b:25d2 with SMTP id
- 2adb3069b0e04-5b8d87fcb57mr47663e87.4.1790111413647; Tue, 22 Sep 2026
- 14:10:13 -0700 (PDT)
+	id 1x97yi-00000006bvV-2zcO;
+	Tue, 22 Sep 2026 21:24:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790112277;
+	bh=YdbB4HHFr5RiQMEKS7IZDCgTEt//MSoaU0ovnWKgFaY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o5zlNzoTZhj10MvLCN9RERRNk12QLtK1kfvAIFY9TWvY/x0Vx7xXCU4Qz27NEc4Ao
+	 j/ScP5/FJpyAOQuM47UzkcQnjLTVwkbYLodGxtqPQ7VTjmpUvi/L3VDRLToQiAjhfm
+	 VweugPVCerh94lN8/qmLvIRTKDymIrI+NIQL+s738bw7ANjnj9lSQ1qKJHwwrlXJl/
+	 z01fNYmGCkIVtIHgICRqShsBygE0Y7GXKbVYsy59CEygo3B1nk1KZfm6s2feoq9fAi
+	 oKFau036K6gwAaZWkMVz62G1H+DjbV2h3FkOE7erBDjSnwEPf/bNIG03yhO+LqGzrU
+	 6sp7bDQ5Lgqhg==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B185817E006F;
+	Tue, 22 Sep 2026 23:24:30 +0200 (CEST)
+Message-ID: <743283af-753a-40bb-96f3-d05b1e38e186@collabora.com>
+Date: Wed, 23 Sep 2026 00:24:28 +0300
 MIME-Version: 1.0
-References: <20260922181430.3532371-1-fuad.tabba@linux.dev> <arLbbtuRuOrxlh1Y@kernel.org>
-In-Reply-To: <arLbbtuRuOrxlh1Y@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 22 Sep 2026 22:09:37 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx8JsXfrjKUbhhrfSmFPrWxyYaTbKqMeYAJPt-vqGfLvA@mail.gmail.com>
-X-Gm-Features: AclHuK98e37nffnaw1F9q5cHTfaeClpU9qBwO_qQHRPF451CnbaMSkO3wxXcRx0
-Message-ID: <CA+EHjTx8JsXfrjKUbhhrfSmFPrWxyYaTbKqMeYAJPt-vqGfLvA@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64/boot: Disable trapping of PMZR_EL0 writes to EL2
-To: Oliver Upton <oupton@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Rob Herring <robh@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <skhan@linuxfoundation.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 13/74] drm/bridge: Fix NULL deref in drm_bridge_add()
+ for legacy bridges
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maxime Ripard <mripard@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Raphael Gallais-Pou <rgallaispou@gmail.com>, Sandy Huang
+ <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>,
+ Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>,
+ Phong LE <ple@baylibre.com>, Helge Deller <deller@gmx.de>,
+ kernel@collabora.com, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org,
+ linux-fbdev@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
+ <20260901-dw-hdmi-qp-scramb-v11-13-bc12954a0688@collabora.com>
+ <ap_Tr_Viqy29f515@houat> <DLKSY3W6CGW1.3C0J6DHKV8P2Z@bootlin.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <DLKSY3W6CGW1.3C0J6DHKV8P2Z@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_141032_674917_5CF5F611 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260922_142440_939693_BCF45BDD 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +97,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+Hi Luca,
 
-On Tue, 22 Sep 2026 20:47:58 +0100, Oliver Upton <oupton@kernel.org> wrote:
-[...]
-> We can trim 3 instructions from this by using the read-trap bits as the
-> starting point for the write-trap bits, like below. It also makes clear
-> the point that most of our trap bits are symmetrical for read and write.
+On 9/21/26 10:05 AM, Luca Ceresoli wrote:
+> On Tue Sep 8, 2026 at 11:24 AM CEST, Maxime Ripard wrote:
+>> On Tue, Sep 01, 2026 at 09:50:37PM +0300, Cristian Ciocaltea wrote:
+>>> Legacy bridge drivers that embed struct drm_bridge in a zero-initialized
+>>> allocation, rather than obtaining it from devm_drm_bridge_alloc(), never
+>>> run INIT_LIST_HEAD() on bridge->list, leaving next and prev NULL.
+>>> list_empty() compares next against &bridge->list, so it reports such a
+>>> list head as non-empty.  list_del_init() therefore runs and dereferences
+>>> the NULL pointers, panicking the kernel during probe.  Only builds with
+>>> CONFIG_DEBUG_LIST survive, with a list corruption report.
+>>>
+>>> This affects rk3066_hdmi and the i.MX8 LDB bridges, which still embed a
+>>> bridge in a devm_kzalloc()'d struct.
+>>>
+>>> Initialize the list head when it is found to be NULL, so that the bridge
+>>> ends up with a valid empty list head and list_del_init() is only reached
+>>> for bridges that can actually be linked.
+>>>
+>>> Fixes: 17805a15d175 ("drm/bridge: add list of removed refcounted bridges")
+>>> Reported-by: Sashiko <sashiko-bot@kernel.org>
+>>> Closes: https://lore.kernel.org/all/20260731175016.C5D591F00AC4@smtp.kernel.org/
+>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>> ---
+>>>  drivers/gpu/drm/drm_bridge.c | 9 ++++++++-
+>>>  1 file changed, 8 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+>>> index 2c457ad74f3b..a8b6df5c13ea 100644
+>>> --- a/drivers/gpu/drm/drm_bridge.c
+>>> +++ b/drivers/gpu/drm/drm_bridge.c
+>>> @@ -453,9 +453,16 @@ void drm_bridge_add(struct drm_bridge *bridge)
+>>>  	 * If the bridge was previously added and then removed, it is now
+>>>  	 * in bridge_lingering_list. Remove it or bridge_lingering_list will be
+>>>  	 * corrupted when adding this bridge to bridge_list below.
+>>> +	 *
+>>> +	 * Legacy drivers that allocate the bridge with kzalloc() rather than
+>>> +	 * devm_drm_bridge_alloc() leave list.next NULL. Such a bridge cannot
+>>> +	 * be on any list, and list_del_init() would dereference NULL, so
+>>> +	 * initialize the list head first.
+>>
+>> "legacy" bridges are ambigous and was also used for non-atomic bridges.
+>> That being said, it's now *required* that bridges use
+>> devm_drm_bridge_alloc() instead of kzalloc, and we warn in
+>> drm_bridge_add if it hasn't.
+>>
+>> So I don't think we should merge this patch.
+> 
+> I agree.
+> 
+> I theory all drivers are be already using devm_drm_bridge_alloc() by now.
+> 
+> In practice rk3066_hdmi is actually still using kzalloc, it should be fixed
+> to use devm_drm_bridge_alloc(). Are you OK with doing it in v12?
 
-I did consider that, and went the other way for two reasons.
+Yes, I'll send this a separate series, together with the other bridge fixes. 
 
-The read side has three bits with no write-side counterpart
-(nPMSSDATA, nSPMDEVAFF_EL1, nSPMID), so copying x0 into x2 writes ones
-into three RES0 bits of HDFGWTR2_EL2. Harmless today, but it's this
-bug in reverse: the first revision that defines one of those positions
-in the write register turns the copy into a silent behaviour change.
-Building each mask from its own register's names can't do that.
+> By "i.MX8 LDB" I guess you mean fsl-ldb.c, which was converted in
+> 9c399719cfb9 ("drm: convert many bridge drivers from devm_kzalloc() to
+> devm_drm_bridge_alloc() API").
 
-It also matches __init_el2_fgt, which already keeps x0 and x2 apart
-for HDFGRTR_EL2 and HDFGWTR_EL2. And even in that form the copy would
-have to sit just before the msr_s, after the SPE block, or
-nPMSDSFR_EL1 only lands in x0.
+I was actually referring to imx8q*-ldb.c, but it turns out those were converted
+as well - I incorrectly flagged them because the probe functions still contain
 
-Cheers,
-/fuad
+  imx8qm_ldb = devm_kzalloc(dev, sizeof(*imx8qm_ldb), GFP_KERNEL);
+
+I've just realized the struct drm_bridge is not embedded in struct
+imx8qm_ldb,but it's part of struct ldb_channel.  Sorry for the confusion.
+
+Thanks for the reviews & tests!
+
+Regards,
+Cristian
 
