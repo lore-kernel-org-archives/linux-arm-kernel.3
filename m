@@ -4,61 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C188C982FD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 02:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C540AC982FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 02:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ASA5JW6b5bnDhsby8kSTB9776aPdBxV6ZarEwfGUYA=; b=yi/dx2DYydklawHwET2eHbTre0
-	3My/v4bKv99zragFfsUFJdHiNs7DygNvsDzncQrDonZWU5l0UAeO4qCr8Qp7u0BHF60s8M9E5hH1x
-	niXSNxIPdLT8T+Rf+ThzLMVabMLbhXRltQKMqIHDnP9xj3CxOQlO797Qt8y+UksEa5BnnO8ZvshV3
-	feB93Iw5H9BVKV6tWUmf6ffuBIgn/sWVZn24o6LSIf19jiX01Ib86vI5I0CHb2ArjE0R67Yq4in+z
-	FOeKIHDCoO/7qt9icD7TkuyBM7MapP7W42eqi4BqWsw0xLayvk4vAFQ/AeYzms2u3HWAS047+O5Qa
-	7SxRTLqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7yngsc33kpqZ/ZfiC2TEEvVYs9QbDT9O0cYlk8EaRyg=; b=qukJEVUU5SMW1p
+	+98KwKqnwZb6t8sH+LDi4A6Mn28lnbe3GQWlZZhY2EKJ+lscSCOELapot6sNlnxy+p64yBvy3n5qj
+	qzoXsNmdVgEu780DmG9aiaROKZn2Z/HZNSK+0yzTeAnkmbciFeyvCT0e9zETSvlzU63Mh+iVcKz5x
+	BdaUL8P++G1V9RUOJpFXoay97YGSpOwwaHw5VQEi9DeaaoN+lUEtI/tOYX/hYblZVq5f36O8Bh2/8
+	Evkqa6N7Yi0kY0QOsU5XeJ3E7dmebqt5uDSnRoBflQFT+dak+bfBiPyuIK+Bdvh12Pm5Kk2iHJmS9
+	RClpCBXYJ4JRpXEFxb4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8q32-00000003xI9-2oSh;
-	Tue, 22 Sep 2026 02:15:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8qBr-00000003y5X-3va0;
+	Tue, 22 Sep 2026 02:25:03 +0000
+Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8q31-00000003xHv-0YSx;
-	Tue, 22 Sep 2026 02:15:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 832F6406BB;
-	Tue, 22 Sep 2026 02:15:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72E991F000FF;
-	Tue, 22 Sep 2026 02:15:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790043354;
-	bh=0ASA5JW6b5bnDhsby8kSTB9776aPdBxV6ZarEwfGUYA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PfUGiGY6exW5Q7gji0YFSkvi13LVMyGzTvOjVsTxfVtzbGXGK+rRzSL28X9Wndv0i
-	 C6adaZKgC6jHsvjI1OxafymgqF42Ap5wxVQDJaBqU+oN5IMp0ue/GgFgnva8ya721p
-	 GzmG6hOSdv2AIRKesaUdDG1Abw53zGJeYPNeOgrbWD1GgVSU8OmrmPo2Vh49GdcTJx
-	 fJo1HQ5B60ixEAJihe6wqxxhR6UjIGAVumnoL6IugL5u3vZ/8R2orpkU7C/xvvzP5g
-	 VleMGt9tx2VOUfCdaZqfFbfZbxdWp3i5jwSveShtQpQ9EGMBUFIlzoW9f/SkaaJNJx
-	 ixp+W8dl01Q7g==
-Subject: Re: [PATCH net v2 1/2] net: dsa: mt7530: fix NULL dereference on
- unbind of MT7531 and MT7621
-From: netdev-bot+sashiko@kernel.org
-To: f@lex.la
-Cc: netdev@vger.kernel.org, chester.a.unal@arinc9.com, daniel@makrotopia.org,
- andrew@lunn.ch, olteanv@gmail.com, gerg@kernel.org, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Date: Tue, 22 Sep 2026 02:15:52 +0000
-Message-ID: <179004335292.2160803.1657607362233554719@kernel.org>
-In-Reply-To: <20260918015020.2518315-2-f@lex.la>
-References: <20260918015020.2518315-2-f@lex.la>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x8qBl-00000003y4W-3HMX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 02:25:03 +0000
+Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-5308fc4b716so21423321cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 19:24:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1790043896; x=1790648696; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=7yngsc33kpqZ/ZfiC2TEEvVYs9QbDT9O0cYlk8EaRyg=;
+        b=EVuJAxBIwdUPExmuNfwBIGfYwSRTVOvBCaJyVmcBRDWJaLnuOy8IGFB15CoIKOiFd+
+         FmhZkAXH5tPPhPK5zPD27hNQpdC5fM3JVjSQxvRmICtXov126v5M0IfjFdVHreOsQQdM
+         uhRyT/mtNR0eYH9gAckn9VE5F/Uv34a/dRBuFkAov5c+RhHaG9tLFf6A6vCdxe0tfJiD
+         a/tYKaEyEoEdcHnkNICF1QhXMmQ+jkFiPL7p0aZDgpR8YMFMs768aI+W7hHT44uEjdbF
+         /bU2/xdyIJWfTYnh8P8hBBIgPk4mOv9sZ6zZaCqfquvTdANG8MmHg9WLbJmpp0A1Nq4R
+         q7zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790043896; x=1790648696;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7yngsc33kpqZ/ZfiC2TEEvVYs9QbDT9O0cYlk8EaRyg=;
+        b=HcnKF2ciSARgClwD/3f/SV/3lhU6SwTJQjV5j1vKE80v9Kl3hlOmUlqF2YcMmxKHiQ
+         CmnvpvS9srwoXN4f1d7lKQbj14DXh+Wh9bO47ryhYgUtFLM/xDHk4QZJavelZ30lI3fn
+         6IUCEM7Ej83OHQD8cmxa9oVKIS3a+mgcGZ1vlqyz1qedBKCHGk2GylZ7PThZSc7ecjJ1
+         9jt2yroV0YqpkErCzuJl3iNDXw7xhCLu7thLulgGm6g/hdTROnLxXAZAPNnZ018DSKXY
+         /vCSmXvpuB2S7gixGKui2z6VAiZIEwWADeXbbXm8VCall+3v4+7dK5bKvKRATciYlokf
+         Dpmg==
+X-Forwarded-Encrypted: i=1; AKwUvBzOFE883Z+ioApNwvAvtJzw+W08dKu+l93nTdJz7+RkqJSimulEnI0ODVJ+zzhaIY3NmrdRnAj4N6AKYWwy3tcH@lists.infradead.org
+X-Gm-Message-State: AFuF++la+JdB1s203TyNdDlFADu8h89mNReDCPqfKWI5pux55kPmCP20
+	Ei4peMxWg9BBKcURqqUEcXs8/HVpPVZ9byMLw/6u416J4gKltPdYkvehTYL47Nd/8Zk=
+X-Gm-Gg: AYBFou2KdgkmO6FWnnjcu5YJYIbWdCpo0aMohmtrCFoU5li7VzlVs6GWJKPGDdq3/9B
+	adWg6oLocK/BSgX0LE0DBon4RZUo2qL+KjxKaIUIGtrUgX4YnVS/Ep4EGNXfnKHljF8pXxf3maB
+	pEG1M7b9dnmQ3L5Yon2pAy1zttmnzQIhaCHHEnvbd3owKFxu/UtcPxYpK0Qh00HTKQJt0WRH59B
+	1zdiAlGMQ4gvjl33IVLTC7H58WoAIIc8bm9GH/Iwd5RnI1D1sZQYnVK13D7VhkujE6n+Lb66Tpc
+	I2n5QccNuVSSULrlzR2qxKczt39yIAFxD59clM8WfoVHjnnfHGb3GSM690Np6bg3pe4gNSJ0ExE
+	uF0mDTelrh8ySfqgeYKCuEXou5L4+4ikgnu2FX/8xiryvFzu5oTzSMd6EiLMgQqXbGX1N7p7Gos
+	PwMyj1oIm/ivAGTcvbYS5Sj3O6JaEmikUflhuwbvBB1cuc8mFafEkaA9BFPTIWzxIqRCRG7fkZb
+	+zNV/pwI4pnUvA=
+X-Received: by 2002:ac8:6906:0:b0:530:faa8:a51c with SMTP id d75a77b69052e-532d8e16e79mr38265931cf.34.1790043896043;
+        Mon, 21 Sep 2026 19:24:56 -0700 (PDT)
+Received: from toxicpanda.com ([153.61.196.243])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532e15b9db9sm2000881cf.0.2026.09.21.19.24.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 19:24:55 -0700 (PDT)
+From: Josef Bacik <josef@toxicpanda.com>
+Subject: [PATCH v5 00/13] rcu-tasks: build Tasks RCU on Tasks Trace readers
+ in trampolines
+Date: Tue, 22 Sep 2026 02:23:19 +0000
+Message-Id: <20260922-b4-rcu-tasks-preempt-qs-v5-0-410f57770bad@toxicpanda.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJjmsWoC/4XPwU6EMBAG4FfZ9GzdFqZd8eR7GA/DdJDqLmDLk
+ jUb3t0WLyRCPP7Tzte/dxE5eI7i+XAXgScffd+lYB4Oglrs3ll6l7IoVGFVpZWsQQa6yhHjZ5R
+ DYL4Mo/yKEpRuGjBgDZ1E2k5Hjb8t8uvbb47X+oNpzFy+UWNkWQfsqM2j83Cs4bgMtx7IG62PY
+ x++l7KTzvL/vSYtlXQAtmqASCv9MvY3TwN2Dh+pv4hcbirWmN7HioQxIlrNrnAIm1i5xsw+ViZ
+ MoSsVARnm0yYGa+xpH4OE2bJRXDlbWfv3m/M8/wCHDGV77gEAAA==
+X-Change-ID: 20260910-b4-rcu-tasks-preempt-qs-401ff45465c7
+To: "Paul E. McKenney" <paulmck@kernel.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Alexei Starovoitov <ast@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+Cc: Boqun Feng <boqun@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Andrii Nakryiko <andrii@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+ rcu@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openssh-sha256; t=1790043820; l=12509;
+ i=josef@toxicpanda.com; h=from:subject:message-id;
+ bh=Lun0LDlv1NRasQcxE3cO2Jn1N9Nm2f7VrQlujNHSP0s=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
+ JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QFhqWnWtx/bWe/rk7wwcWGXBEbJgcLkFYUK+H7keA1rCrn5qe1Eajbupz/1VYbYT7Z0yg0hxdIA
+ zUKWdn13rFAI=
+X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
+ fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_192457_857558_BC7B05C5 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,241 +121,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+v1: https://lore.kernel.org/all/20260910-b4-rcu-tasks-preempt-qs-v1-0-d4469f4cc101@toxicpanda.com/
+v2: https://lore.kernel.org/all/20260911-b4-rcu-tasks-preempt-qs-v2-0-eaaa61ed2da4@toxicpanda.com/
+v3: https://lore.kernel.org/all/20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com/
+v4: https://lore.kernel.org/all/20260918-b4-rcu-tasks-preempt-qs-v4-0-63f0e9d69661@toxicpanda.com/
 
-Critical: 0 · High: 0 · Medium: 1 (2) · Low: 0 (1)
+v4->v5:
+- Dropped the RFC tag.
+- JIT emitters: *_off naming and offsetof() for the srcu_ctr counters
+  instead of hardcoded 0/8 (Alexei); note the open-coded copies at
+  rcu_read_lock_trace().
+v3->v4:
+- BPF: the reader is emitted by the x86-64/arm64 JIT around the
+  fentry/fmod_ret and fexit regions instead of taken in the C glue (Alexei).
+- An idle CPU only counts as quiescent while in an RCU EQS (Sashiko).
+- Dropped the rcu_read_lock_trace() lockdep/inline patch; BPF CI bot nits.
+v2->v3:
+- Reworked per Alexei and Paul: trampolines take rcu_read_lock_trace(),
+  and Tasks RCU on x86-64/arm64 becomes a per-CPU pass plus a Tasks Trace
+  grace period instead of a new per-task counter.
+v1->v2:
+- Sashiko/AI review fixes, Paul's and Steve's comments (see v2 changelog).
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+What it does now:
 
-- [Medium] The regulator enable reference is taken in the DSA `.setup`
-  callback (mt7530_setup(), drivers/net/dsa/mt7530.c:2493-2509) but…
+Every trampoline whose lifetime Tasks RCU guards (ftrace_caller and its
+copies, the optprobe template, BPF trampolines, out-of-line direct-call
+trampolines) takes rcu_read_lock_trace() around its call-out, open-coded
+in asm / by the JIT. That leaves the few trampoline instructions outside
+the reader, the static ftrace stubs and x86 return thunks that carry a
+trampoline address, and the kprobe jump-optimization window. A task can
+only linger in those by being interrupted there, so on x86-64 and arm64
+the Tasks RCU grace period becomes: wait for every CPU to pass through
+__schedule() or sit in an EQS (the irq-exit preemption checks the
+interrupted IP first and briefly makes a task caught in such text a
+holdout), then synchronize_rcu_tasks_trace(), then one more pass for the
+trailing instructions. It runs from the existing rcu_tasks kthread, so
+call_rcu_tasks() and friends keep their names and callers; there is no
+task-list scan and no dependence on voluntary context switches, and
+cond_resched_tasks_rcu_qs() becomes unnecessary there. Other
+architectures keep the classic implementation.
 
-Pre-existing issues:
-- [Medium] On the ID_MT7530 path the patch keeps
-  regulator_disable(core_pwr)/regulator_disable(io_pwr) ahead of…
-- [Medium] In mt7530_setup() (drivers/net/dsa/mt7530.c:2494 and :2502)
-  the return values of `regulator_set_voltage(priv->core_pwr, 1000000,…
-- [Low] Binding/driver disagreement about which compatibles the `core-
-  supply`/`io-supply` properties apply to.
+Testing is still QEMU: x86-64 PREEMPT_LAZY (PREEMPT_RCU=n) and
+PREEMPT_DYNAMIC, PROVE_RCU, lockdep. synchronize_rcu_tasks() against a
+30s in-kernel spinner is 20-70ms (classic: 29.7s), ftrace instance
+teardown ~0.2s, optprobe register+unregister ~0.6s, the direct samples
+cycle in about a second, and fentry+fexit attach/hammer/detach on
+do_sys_openat2 and hrtimer_interrupt runs and detaches in 50-100ms with
+the return-to-user reader assertion quiet. arm64 is build-tested;
+hardware numbers for both are still owed.
 
---
+Notes:
+ - This is the alternate-gp_func-on-the-rcu_tasks-kthread form; folding
+   the IP check into core RCU along the lines Frederic sketched is left as
+   the follow-on Paul suggested.
+ - The open-coded reader is ~9 instructions each side in ftrace_caller and
+   at four points in the BPF trampoline. rcu_read_lock_tasks_trace() would
+   be shorter but needs a slot for the cookie; also a possible follow-on.
+ - CONFIG_TASKS_TRACE_RCU_NO_MB depends on RCU_EXPERT, so non-expert
+   x86/arm64 builds get the smp_mb() in the reader despite
+   ARCH_WANTS_NO_INSTR; the asm follows the C here.
 
-net: dsa: mt7530: fix NULL dereference on unbind of MT7531 and MT7621
+--- Original email (v1) ---
 
-The core and io supplies are only requested for ID_MT7530, but
-mt7530_remove() disabled them unconditionally, so unbinding an MT7531 or
-MT7621 called regulator_disable() on a NULL pointer.  The patch gates the
-two regulator_disable() calls on priv->id == ID_MT7530.
+Tasks RCU only treats a voluntary context switch, usermode or idle as a
+quiescent state, because a preempted task may be sitting in a trampoline
+that is about to be freed. That was a fine trade when PREEMPT_NONE
+servers compiled Tasks RCU away and PREEMPT desktops rarely ran
+long-lived in-kernel loops. PREEMPT_LAZY changes both halves at once:
+Tasks RCU is now real on server configs, and cond_resched() is a no-op,
+so a CPU-bound kthread or kworker only ever loses the CPU by being
+preempted, which is exactly the event Tasks RCU refuses to count.
 
-> diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-> index 784dd58a71589..de42f70afcfa1 100644
-> --- a/drivers/net/dsa/mt7530-mdio.c
-> +++ b/drivers/net/dsa/mt7530-mdio.c
-> @@ -227,15 +227,17 @@ mt7530_remove(struct mdio_device *mdiodev)
->  	if (!priv)
->  		return;
->  
-> -	ret = regulator_disable(priv->core_pwr);
-> -	if (ret < 0)
-> -		dev_err(priv->dev,
-> -			"Failed to disable core power: %d\n", ret);
-> -
-> -	ret = regulator_disable(priv->io_pwr);
-> -	if (ret < 0)
-> -		dev_err(priv->dev, "Failed to disable io pwr: %d\n",
-> -			ret);
-> +	if (priv->id == ID_MT7530) {
+The way this showed up for us was a cgroup writeback worker draining a
+very large cgwb for around eleven minutes on an arm64 box. Nothing wrong
+with that on its own, but a BPF program detach on another CPU went
+bpf_trampoline_update() -> ftrace_shutdown() -> synchronize_rcu_tasks()
+while holding trampoline_mutex, forty-odd tasks piled up behind the
+mutex, and the hung task detector panicked the machine. The kprobe jump
+optimizer is worse in principle: it does synchronize_rcu_tasks() under
+kprobe_mutex, text_mutex and cpus_read_lock(), so one long-running
+kthread can stall static key updates and CPU hotplug for its whole run.
+The current answer is to find each such loop and add
+cond_resched_tasks_rcu_qs() to it, which is the kind of annotation
+PREEMPT_LAZY was supposed to let us stop writing.
 
-[Severity: Low]
-This isn't a bug introduced by this patch, but the id test here is now the
-third place that encodes "these supplies belong to ID_MT7530", while the
-binding does not say that.
+This series tries the other direction: have the trampolines say when a
+task is inside them, so that a preemption anywhere else can be a
+quiescent state.
 
-In Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml both
-core-supply and io-supply are defined as generic top-level properties and
-are only listed under required: for the mediatek,mt7530 branch.  The
-mediatek,mt7531 branch disallows other properties explicitly:
+ - task_struct grows an int, rcu_tramp_nesting. Every trampoline whose
+   lifetime Tasks RCU guards increments it before calling out and
+   decrements it before returning: ftrace_caller and its dynamic copies,
+   the BPF trampoline (which drops it again around the call to the
+   original function, since im->pcref covers that), the x86 optprobe
+   template, and out-of-line register_ftrace_direct() trampolines. Only
+   current writes it and nested users are balanced, so it is a plain
+   non-atomic inc/dec, one load of current plus one RMW per entry/exit.
 
-      properties:
-        gpio-controller: false
-        mediatek,mcm: false
+ - The inc/dec are inside the trampoline, so there is a window of a few
+   instructions on each side where the count is zero but the task is in
+   (or on its way into) trampoline text. Nothing there can be preempted
+   synchronously, only from an interrupt, so the irq-exit preemption path
+   looks at regs->ip and holds the count across preempt_schedule_irq()
+   when the IP is somewhere the counter cannot cover: outside core and
+   module text (all the dynamically allocated trampolines and slots), in
+   the static ftrace stubs or the x86 return thunks that still hold a
+   direct-call target, in a module that hosts its own direct trampoline,
+   or inside the bytes after a kprobe that the jump optimizer may be
+   about to rewrite (the one synchronize_rcu_tasks() user that is not
+   about trampolines at all).
 
-but leaves the two supplies permitted, and the mediatek,mt7621 branch only
-adds mediatek,mcm to required:.
+ - With those in place, rcu_tasks_classic_qs() also clears the holdout
+   flag on a preemption when the count is zero, on architectures that
+   opt in. x86-64 and arm64 do so here. Everyone else keeps the
+   voluntary-only rule and is untouched apart from the (unused) field.
 
-So a schema-valid DT with core-supply on compatible = "mediatek,mt7531" has
-that phandle silently ignored, since mt7530_probe() never calls
-devm_regulator_get() for any other id:
+A running holdout already gets poked via rcu_request_urgent_qs_task(),
+which makes the next tick set NEED_RESCHED, so with this the resulting
+preemption retires it and a Tasks RCU grace period is bounded by roughly
+a tick plus the longest preempt-off section rather than by the longest
+stretch without a voluntary schedule().
 
-	if (priv->id == ID_MT7530) {
-		priv->core_pwr = devm_regulator_get(&mdiodev->dev, "core");
-		...
-	}
+Patches 1-12 are scaffolding and change no behaviour on their own; patch
+13 flips the rule and selects the option for the two architectures.
 
-Should the binding set core-supply: false / io-supply: false on the
-mt7531 and mt7621 branches so the two sides agree?
+Testing so far is QEMU only: x86-64, PREEMPT_LAZY with PREEMPT_RCU=n,
+PROVE_RCU and lockdep, with and without PREEMPT_DYNAMIC. A kthread
+spinning in-kernel for 30s with the function tracer, an ftrace kprobe,
+an optimized kprobe and fentry/fexit programs attached:
+synchronize_rcu_tasks() goes from 29.7s to 0.1-0.3s, tearing down a
+DYNAMIC ftrace_ops (tracefs instance function -> nop) from 27s to
+0.2-0.8s, and the ftrace-direct sample modules load, fire and unload in
+about 2.5s each while the spinner runs, with no warnings and the new
+return-to-user assertion quiet. arm64 is build-tested only at this
+point; real hardware numbers for both are the obvious next step and I
+did not want to sit on the idea waiting for them.
 
-> +		ret = regulator_disable(priv->core_pwr);
-> +		if (ret < 0)
-> +			dev_err(priv->dev,
-> +				"Failed to disable core power: %d\n", ret);
-> +
-> +		ret = regulator_disable(priv->io_pwr);
-> +		if (ret < 0)
-> +			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
-> +				ret);
-> +	}
+Things I would particularly like opinions on:
 
-[Severity: Medium]
-Is priv->id the right condition for the disable side?  It records that the
-supplies were requested in mt7530_probe(), not that they were ever enabled.
-The enable happens in a different callback, mt7530_setup() in mt7530.c,
-reached through ds->ops->setup.
+ - Whether hooking rcu_tasks_classic_qs() is the right place, or whether
+   Paul would rather see this expressed differently inside Tasks RCU.
+ - return_to_handler and the rethook/kretprobe trampolines are not
+   instrumented. Their C callees take the ftrace recursion lock before
+   touching any ops and the trampolines themselves are static text, so I
+   believe they do not need it, but I would like Steven and Masami to
+   confirm.
+ - The register_ftrace_direct() contract change: out-of-line direct
+   trampolines now have to maintain the count themselves (the samples
+   are converted). I do not know of out-of-tree users beyond BPF, but
+   this is the one place an existing user could be silently weakened.
+ - Whether arm64 folks are comfortable with the ldr/add/str in
+   ftrace_caller and the BPF trampoline, and with treating all of
+   ftrace_caller as trampoline text for the IP check.
+ - If this holds up, cond_resched_tasks_rcu_qs() and
+   rcu_softirq_qs_periodic() become unnecessary on the opted-in
+   architectures; I have not touched them here.
 
-Can this produce an unbalanced disable on an ID_MT7530 board?
-mt7530_probe() -> dsa_register_switch() -> dsa_tree_setup() can return
-success without ever running ds->ops->setup:
+Based on v7.3-rc2+ (893e11787f78).
 
-net/dsa/dsa.c:dsa_tree_setup() {
-	...
-	complete = dsa_tree_setup_routing_table(dst);
-	if (!complete)
-		return 0;
-	...
-}
+---
+Josef Bacik (13):
+      entry: Pass pt_regs to irqentry_exit_cond_resched()
+      rcu-tasks: Add a Tasks RCU implementation for reader-marked trampolines
+      kprobes: Expose the optprobe jump window to Tasks RCU
+      ftrace: Mark modules hosting direct-call trampolines for Tasks RCU
+      x86/ftrace: Take a Tasks Trace reader around ftrace_caller's call-out
+      x86/kprobes: Take a Tasks Trace reader in the optprobe template
+      bpf, x86: Take a Tasks Trace reader in the trampoline around its call-outs
+      arm64: ftrace: Take a Tasks Trace reader around ftrace_caller's call-out
+      bpf, arm64: Take a Tasks Trace reader in the trampoline around its call-outs
+      samples: ftrace: Make the direct-call trampolines Tasks Trace readers
+      rcutorture: Make Tasks RCU readers Tasks Trace readers where required
+      rcu-tasks-trace: Assert no reader is held on return to userspace
+      x86, arm64: Build Tasks RCU on Tasks Trace readers in trampolines
 
-A later unbind then takes this new ID_MT7530 branch with
-regulator->enable_count still zero:
+ .../RCU/Design/Requirements/Requirements.rst       |  24 ++
+ Documentation/RCU/checklist.rst                    |   7 +-
+ arch/arm64/Kconfig                                 |   1 +
+ arch/arm64/kernel/asm-offsets.c                    |   8 +
+ arch/arm64/kernel/entry-ftrace.S                   |  74 ++++
+ arch/arm64/kernel/ftrace.c                         |  20 +
+ arch/arm64/net/bpf_jit_comp.c                      |  93 ++++
+ arch/x86/Kconfig                                   |   1 +
+ arch/x86/kernel/asm-offsets.c                      |   8 +
+ arch/x86/kernel/ftrace.c                           |  43 ++
+ arch/x86/kernel/ftrace_64.S                        |  69 +++
+ arch/x86/kernel/kprobes/opt.c                      |  44 ++
+ arch/x86/kernel/vmlinux.lds.S                      |   4 +
+ arch/x86/net/bpf_jit_comp.c                        | 107 +++++
+ arch/x86/xen/enlighten_pv.c                        |   2 +-
+ include/linux/irq-entry-common.h                   |  15 +-
+ include/linux/kprobes.h                            |   8 +-
+ include/linux/module.h                             |   7 +
+ include/linux/rcupdate.h                           |  24 +-
+ include/linux/rcupdate_trace.h                     |  13 +
+ include/linux/sched.h                              |   1 +
+ kernel/entry/common.c                              |  14 +-
+ kernel/fork.c                                      |   1 +
+ kernel/kprobes.c                                   |  50 +++
+ kernel/rcu/Kconfig                                 |  28 +-
+ kernel/rcu/rcutorture.c                            |  10 +
+ kernel/rcu/tasks.h                                 | 476 ++++++++++++++++++++-
+ kernel/rcu/update.c                                |   2 +
+ kernel/trace/ftrace.c                              |  39 ++
+ samples/ftrace/ftrace-direct-modify.c              |   9 +
+ samples/ftrace/ftrace-direct-multi-modify.c        |   9 +
+ samples/ftrace/ftrace-direct-multi.c               |   5 +
+ samples/ftrace/ftrace-direct-too.c                 |   5 +
+ samples/ftrace/ftrace-direct.c                     |   5 +
+ samples/ftrace/ftrace-direct.h                     | 126 ++++++
+ 35 files changed, 1329 insertions(+), 23 deletions(-)
+---
+base-commit: 893e11787f78e43b534e252249ac3fff4d1333f8
+change-id: 20260910-b4-rcu-tasks-preempt-qs-401ff45465c7
 
-drivers/regulator/core.c:_regulator_disable() {
-	if (WARN(regulator->enable_count == 0,
-		 "unbalanced disables for %s\n", rdev_get_name(rdev)))
-		return -EIO;
-	...
-}
+Best regards,
+--  
+Josef Bacik <josef@toxicpanda.com>
 
-which also means the dev_err() above prints -EIO.  A tree teardown and
-re-setup cycle, e.g. a peer switch in the same tree unbinding and binding
-again, runs mt7530_setup() and therefore regulator_enable() more than once
-against this single disable.
-
-Does the opposite direction leak the enable reference?  Every error return
-in mt7530_setup() after the core rail is up:
-
-	if (priv->id == ID_MT7530) {
-		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
-		ret = regulator_enable(priv->core_pwr);
-		...
-		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
-		ret = regulator_enable(priv->io_pwr);
-		if (ret < 0) {
-			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
-				ret);
-			return ret;
-		}
-	}
-
-	/* Waiting for MT7530 got to stable */
-	INIT_MT7530_DUMMY_POLL(&p, priv, MT753X_TRAP);
-	ret = readx_poll_timeout(_mt7530_read, &p, val, val != 0,
-				 20, 1000000);
-	if (ret < 0) {
-		dev_err(priv->dev, "reset timeout\n");
-		return ret;
-
-propagates out through mt753x_setup() and dsa_register_switch() to
-mt7530_probe(), so .remove is never called.  The devm release path only
-puts the regulator:
-
-drivers/regulator/core.c:_regulator_put() {
-	...
-	/* Docs say you must disable before calling regulator_put() */
-	WARN_ON(regulator->enable_count);
-	...
-}
-
-so the 1.0 V core and 3.3 V I/O rails stay enabled for the lifetime of the
-system, with a WARN.  The MT7530_CREV id mismatch and the 20 MHz XTAL
-rejection reach the same point.
-
-Would pairing the enable with the existing symmetric hook,
-mt753x_teardown() in mt7530.c, or tracking an explicit "enabled" flag and
-unwinding the mt7530_setup() error paths, cover the NULL case this patch
-targets as well as these two?
-
->  
->  	mt7530_remove_common(priv);
->  
-
-[Severity: Medium]
-This is a pre-existing ordering issue rather than something this patch
-introduces, and the cover text says as much, but it may be worth recording
-here since the ID_MT7530 path keeps it.
-
-Everything mt7530_remove_common() still does runs against a die whose rails
-have just been switched off:
-
-drivers/net/dsa/mt7530.c:mt7530_remove_common() {
-	dsa_unregister_switch(priv->ds);
-
-	mutex_destroy(&priv->reg_mutex);
-}
-
-dsa_unregister_switch() reaches mt753x_teardown(), the per-port
-mt7530_port_disable() PCR read-modify-writes such as
-
-	mt7530_rmw(priv, MT7530_PCR_P(port), PCR_MATRIX_MASK, PCR_MATRIX_CLR);
-
-the mac_link_down() PMCR writes and the internal-PHY suspend writes that go
-through the switch's own MDIO bus.  Are those writes simply lost at that
-point, leaving the driver's bookkeeping describing a state the hardware
-never reached?
-
-Can the MIB poller also read an unpowered die?  mt753x_teardown() is the
-only place the self-rearming stats work is cancelled:
-
-drivers/net/dsa/mt7530.c:mt753x_teardown() {
-	struct mt7530_priv *priv = ds->priv;
-
-	if (priv->bus)
-		cancel_delayed_work_sync(&priv->stats_work);
-}
-
-and it runs from inside dsa_unregister_switch(), i.e. after the disables
-above.  mt7530_stats_poll() re-arms itself unconditionally:
-
-		mt7530_stats_refresh(priv);
-		schedule_delayed_work(&priv->stats_work,
-				      MT7530_STATS_POLL_INTERVAL);
-
-so it can be doing MDIO reads while mt7530_remove() drops the rails,
-folding all-ones reads into the cached per-port counters.
-
-[Severity: Medium]
-This is also pre-existing and untouched by the patch, but while in this
-area: mt7530_setup() in drivers/net/dsa/mt7530.c discards the return value
-of both regulator_set_voltage() calls:
-
-	if (priv->id == ID_MT7530) {
-		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
-		ret = regulator_enable(priv->core_pwr);
-		...
-		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
-		ret = regulator_enable(priv->io_pwr);
-
-If machine constraints do not permit the requested range, or
-REGULATOR_CHANGE_VOLTAGE is not allowed, or a second consumer holds a
-shared rail at another voltage, the rail is still enabled and the driver
-goes on to reset the die, poll MT753X_TRAP and read MT7530_CREV as if the
-1.0 V core / 3.3 V I/O operating points had been applied.  Should these two
-calls be checked so the failure surfaces as an error instead of as
-intermittent register access failures?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260918015020.2518315-1-f%40lex.la
 
