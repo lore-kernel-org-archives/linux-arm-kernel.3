@@ -4,129 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3E4C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0732BC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQyGkfzhwklEkBQo+2E5KgVDjHcqnex+q7xadudm5e4=; b=PAEL1pcgV5sOYzXSqP0eW36XIV
-	aQAPa+HxvnB9lRzDIZxbsHIsBAO5nkhkrnVIq4GfZVhvPXbKNbD8i5SDSy93XyTZASST2p7dACLyf
-	FAIusrLuUI0KU20PquXbM8QcLoqWH9JIB+jezcMw6djzPhGE8H/UD+QrRy3p92vxfRbbGBgGw8KWT
-	Jo8TXsynFVM+psidzrOSennc6gg7fwMB3ZVQ/cTmzf3EuUH26v2svwkNY1IT1X7Rz19LnPelrXROi
-	kc+MQHg4UA3wZ80rwhkbKBnAHyeelhLHBsWRQ5VYUR80At9jXsZzEjSgKE/1xV6BkazPVmT1h9qBg
-	2YPGU0Aw==;
+	bh=ENorQJ/pLh3pPA/2sJg/M7aUt54CHEBCt3OvYkywruk=; b=qHUqM0sG0s/Ovllbf+DX4LQMqg
+	6iPVyEc0FPG4FeK+Da3Ns8PkDjPVeB7chjREx6Yk8g1FJZset7KzBNTJSSbs6vTSIPsXWU2nh6Vhi
+	p4wIdhOAyXUwEyfOIvl9YLIPyaKdrKtH8LMix9TZ6rSDxzeMNPlgQM+bm77RLspFrZDis/zesN/Wo
+	nzBRKrE68sF3GbDVZASAjE/0uNA78AviYsYXy9Rx0WKle2CJBIA3ED3kjcvPaw7hRfibPiz5pxdb1
+	nSDg2Xd+cBGsnsl6Z3r8Os8AOSdC0nT3N4jf8qW2l+8wNiVZx1Zuj3q+HLgFFeVyHMstl9Y7rMDf4
+	w11bO2wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x932I-000000060Th-2D9Z;
-	Tue, 22 Sep 2026 16:08:02 +0000
-Received: from mail-northeuropeazon11011032.outbound.protection.outlook.com ([52.101.65.32] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x938D-000000061GZ-30mK;
+	Tue, 22 Sep 2026 16:14:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x932F-000000060Sn-3Q06
+	id 1x938C-000000061GF-38Ez
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 16:08:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eVrVMIUcGHYh+IgR5/AoUoe0KfSD1XPRle14/3NDKYD9kAHiw0vJe2RUYyPyAV8Bt9Ff7TB6FWQs8cxEdd7hskUdKjzuBAKBOcIk1zGdSfComKwnuKbM8tbE5poSHmc6SwjwUzLA6KbDDM/PaK7YsLZjwzB6cTNbVG9roPbrSIL0c9fdh7EZh3eG8VNuVHW1FdV97TjK9VYR9LcbzGURAWJ2kQ8QzlPIUeZWAPIVnYoJdk/Bd5Rw/dvr4+4eBpAkl/HmrFfiuJz1FXIckRKcAjMztsoSfVip0E/zrBByp/UDfruMl5LqhYd+QmufL41o07jplJzV1kO1TQrhL+i1AQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yQyGkfzhwklEkBQo+2E5KgVDjHcqnex+q7xadudm5e4=;
- b=ODn4xzkJHByMGyeMSLyg3a0okccnx+l4RGYFPjOw+1Xx5CC1xHqiZolYrqzAjoZAu+0Ohabb2zgzM3gLSLAecUhTQsrqoTZvMKUy+EzlrbG5QrP2yMIT6/u711fkeMf3OcIkMb9wa2rm6v+6cvyR/Th4wuW//j9OQJwbpO/woHYHoPYNCD3cIunTjuUQaun3mdqkJ33+0jYXsmDlNhjQ5tEU1S/ELrFEorTHmKGRIfcyvpHv0PooBCJRTk464dr2akCKyQp7S2+WT81/haXaWAV++KeOXc2UCb6nly4R4vNHIkHMptTJ/6QIzxqyJW5hn94IXI8FaWB+qiERXtxHKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yQyGkfzhwklEkBQo+2E5KgVDjHcqnex+q7xadudm5e4=;
- b=uMjRbW1c/Q5rgoiZ357SCkTwS1+2tTOuaU1lDDXbB9Qqys/KCMlm6tiwjuq8bx+v/jzJ3zIoCmgdBOWLlTSQupzISWm6Z++R+5HYR9scCAA5YKoQWiwEQX6ZNz09OLLx8967Ohwb8sQPUQUkXlwVah6ieuoyN/+DcF8yF74E14SO80IGTBw2kO8UvwgkNeG548FDSJ+sXfdCeEfH3Jp8mBKRET9paBEVkBsZou79lShfelzwYLY3CjAnIMW4vDQRTy78d4tfIFaMCWNuvhyQEBX0+x9HhzkFR8S3T53q4MvWha2X0a0OlplEeA5H0drLBiFRa13v5mT1DqUSlcpT7Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB11195.eurprd04.prod.outlook.com (2603:10a6:800:291::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
- 2026 16:07:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
- 16:07:53 +0000
-Date: Tue, 22 Sep 2026 11:07:44 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
-Subject: Re: [PATCH 0/4] arm64: dts: freescale: Add Toradex iMX95 overlays
-Message-ID: <arKn0LhC5fty7dHN@SMW015318>
-References: <20260922-v1-imx95-overlays-v1-0-694100afb4bc@toradex.com>
+	Tue, 22 Sep 2026 16:14:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DA20A6024D;
+	Tue, 22 Sep 2026 16:14:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E27ED1F000FF;
+	Tue, 22 Sep 2026 16:14:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790093647;
+	bh=ENorQJ/pLh3pPA/2sJg/M7aUt54CHEBCt3OvYkywruk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KJ3dk0u53UyHdo8MUMbEJc+Q6GjkB7nePEU1r/iUnou6lgcF07QQGKmNPF6owynjA
+	 brmhN9xePWg2kiaOYX5WD/RUONjKLGahkuYAvzfdkH+JrHy+Rm9/AKc8PO9y3v9s22
+	 lf6pNZSh5+eUKN4cl1Xm48r0KKKmvqnprbXx2mgeR+GkrGGDYcZxII3XEs+JIwevr4
+	 pALKzntLFWks4/AW2wPfBDzMit4HYfI2otNErskLQSSDEp2KDI904oSvXH4gEBa1vB
+	 PskLsc9R3M/e7QYq1txbjLLDlPqV8Qow96tVMHG48dVi/LKGTW1uo3XpVWah0U/7hD
+	 OiUjml68PB+8A==
+Date: Tue, 22 Sep 2026 17:14:00 +0100
+From: Will Deacon <will@kernel.org>
+To: Oleg Keri <okerixx@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Beata Michalska <beata.michalska@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ananthu C V <ananthu.cv@oss.qualcomm.com>, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v5] arm64: topology: fix arch_freq_get_on_cpu() overflow
+ above 4.19 GHz
+Message-ID: <arKpSGPXOCFF09hM@willie-the-truck>
+References: <20260917182059.2851-1-okerixx@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260922-v1-imx95-overlays-v1-0-694100afb4bc@toradex.com>
-X-ClientProxiedBy: CYXPR03CA0045.namprd03.prod.outlook.com
- (2603:10b6:930:d2::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB11195:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27b1b30b-a1b5-4d67-c903-08df18c3a886
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|19092799006|7416014|6133799003|11063799006|10067099003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: dJKgqS5HcAevq1XOA44VzhQ1vOz8t3N/Nuu0BE94Mp+FVHpx7KoL96iFgSeFHXmCw8G26ogiGZhCwJVT5k/Silr254kKz4ss2QChQtpzyQIAFafs1Y/uNmZC948Z5a8mSIMIhaQmqRRJlpKNxWzrKhzREQgp3KLbQVQjKKZegs77suo/R3FwJVQQiBT5pd7UwFCdaxN9MaPvMeUq4lQne6niK31xcXBJTro1CctgEu9JzZyUj2KGQHRIjdVylSs/pri0vPEBBLUTdw0oKsny9KJgymh/HuRv/VJoHlnWF3Rf5FOB7CFGuzoUIv3UpWxjEFkl2dlxiuYqjeUjY2SYSHWXribKpBNHo9tARoiJ44g+FUCzJoW5IDx75XbeblxXzqe3Iq3bSDz3ldXy7vast6gPCxJb6U2ziyZPBcDlj5DV5lQ3TiG5khLatluIHTNVS36+bQHjobQFKc69IZyGE1dnC4vygtg1iVp4VAqjPOs0iEg0qtGd0ZH11G70Kn8KmwEdFknMff8dHZnMRu8ihkXyhZY7EE268/o0wz0f3g9NhR24+2m0/b6GA9b+SIU61ocFQvCeoAWTWNaXir65q3v6E+Efd8MRZxxSoB4JfJCS095bA0QAdsVuQWjEujj6wnolILVL4+DA9IopKdpYyfoabCqFsU/gv+6HqHVWCok=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(19092799006)(7416014)(6133799003)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WQ/y2rtWALdjZoI/KjlMroXoSTJzXZPyV7idTYm9JKoWBULDhVYnDKFmbDoR?=
- =?us-ascii?Q?ty+LOv51znga383afKcsRsmuAv7KgnZkOa3D9c4iFvP0EMVOae6qGzmzs1Hq?=
- =?us-ascii?Q?5O4R5ZAOlDfSPgfkBQLvLZHraukblmh55cZgJuQdjs4XASDl4eSTlGt6RDwN?=
- =?us-ascii?Q?2HXKls//6BzRmc1XFE4/KCbbjxmjpoEFXpjr0ekt8PbQeFyoLsgSdHZykcuF?=
- =?us-ascii?Q?luFt5/lnJzLzRfoNBssUWmuMUzdsgRqhBDhB+yJpH+KiObaDCGUbo4s3iZyd?=
- =?us-ascii?Q?2l+nXHdi3E5oX+pUPjjsu+38TlWG3mUNGaVA6PTUjIECwDHvndPsQIUJ3Bp7?=
- =?us-ascii?Q?RqI7pAx+bVvafHKNcMs1xaRTTPNslrCH13QtJK8P+VoUbv+h2mmg54DB0WXA?=
- =?us-ascii?Q?fBcnNezxT95yWsZDegQD+mtWyxVvCccXNud+EICJEL2ZWsZm64n7EB0tf7Nj?=
- =?us-ascii?Q?daTGmA9Q7NnfpHDCUTlbNfGembqtmrmR8JFxJOciBCmQeGDiPHaGtpLMCCy/?=
- =?us-ascii?Q?Te+98d26xx8dR+r6If6ZxFDGqEcbVpdy4ilwZdwJDMNiWspmiPERHOTJHcls?=
- =?us-ascii?Q?Crwrq4vcGLyjSiuOa/cVXbWH2GQ5qtwxLtqnzk3IxL9oFuC2SJAO5URIvOyT?=
- =?us-ascii?Q?TqqitOBm4gRwAsPQ6rJJi41suR/Eli/LenO/o0sya8uo0OCwYBxgskWk+rwd?=
- =?us-ascii?Q?VwiHPPFUOKAkNLyIutnDza5YIenDj7PLCTtnbC7I/rmlIHJxIpKub4KZN9bf?=
- =?us-ascii?Q?/Szl445q0SgQjuadWDaMU1OKoQ7ZKRV60yW4b4F0rkNJGYPnSOVLBzIatHMG?=
- =?us-ascii?Q?HRJvOEKRhBNi9Dyd+QlZFRYOs3ULWLlQI7YKnM6eBg3qFrY5Y4e7u9VtaU9O?=
- =?us-ascii?Q?sRjMroWAWgQEF9xkPc2ZzNhcm3w4o0jvPNobjwxzr2pGQ7jYwBZ83ig9tF2F?=
- =?us-ascii?Q?An8PwI09G4mETcOzV4/C5++texsvTUJwAvMCtr46FnTtINph6RCdlEp6qFIC?=
- =?us-ascii?Q?O+kfLMRLLNnBCID5C/qls05LrDVtLy5eHlI6ILkcklG9TmfON8aLHkgUE6LW?=
- =?us-ascii?Q?IIIK7LctIPuGC4YtvZk1sZsWRi7u3rLHU5zqV6ip/I48MrTkXSMGlSxMyb1s?=
- =?us-ascii?Q?hStRHXkM6HiijIjE9gszYSHnFFBjgdIbyNs3ZgD9oj61F+YC6JLH5U5Umitd?=
- =?us-ascii?Q?vMD4J4Z6LPug7LkuvNrC+IWCLx/dC0xtAoJYsZIkhfld3SN1lwfSrhD7BcNO?=
- =?us-ascii?Q?DTySfZBvuL+iEfc5Db3azPb7CsirDEh13SPDhm7b+gDe2gy8a+XYfFArhFRl?=
- =?us-ascii?Q?/yhHIKX0hX05SOwfUo0pTgI9lCE+eoxyfoxnBd124Ut4RwdBXScZyJj8/t+t?=
- =?us-ascii?Q?BD9h+2VsoStzm6+tGuK2mr+CI+P27v1qyyiXcYOu2b/q5+OKW0hEEKu60Xni?=
- =?us-ascii?Q?2398HgG58rIjNDRCRbfD0GcLZif6j/+2nOyG9+2iNaLzELsN9MfHrEK6+qjx?=
- =?us-ascii?Q?lZMNp8GGbu8XrzXLjMl5ZKMyvSPpSiao6/0/mZ2RyXatxZZmyhwVfFkRVLBA?=
- =?us-ascii?Q?Xz1sFrh/Xya1/NSg76+WE9kfb+4UtQYUt08UtLn20bOuAba1nBFz4I1jnszS?=
- =?us-ascii?Q?mwdbOzWbtv39e7Ckod1wBLBsrNzfgATcmm/LVO79WOF3YKpREnV4OkhRgtgC?=
- =?us-ascii?Q?pZi7qtq9/+f8rDAcKLMs9FRMXQcgNHNoT2pUM0oT2uUljbrwQaAYR0PaTXXt?=
- =?us-ascii?Q?gLNQlOE0DO9iJVRkFyz/ZQS8vlgBrFKO+5Vh3JRtgBHcrHhtEy3R?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27b1b30b-a1b5-4d67-c903-08df18c3a886
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 16:07:53.8369
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2NzJsR93CLy7tr6J1CjeFMvxc7Iz/OgJU2XxJFDWTPsb2tbWLOUUPtxG6jcsayOipsEnp/7d2Qaj6o7wHJ2EB3Y7BPxv3DEdB4aAVkcBjjP57wBfro+zq6MPd5dlVXE4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11195
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_090759_868271_C41415EA 
-X-CRM114-Status: GOOD (  14.21  )
+In-Reply-To: <20260917182059.2851-1-okerixx@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,47 +82,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 04:33:45PM +0200, Ernest Van Hoecke wrote:
-> This series adds device tree overlays for the Toradex Verdin, Aquila,
-> and SMARC iMX95 SoMs.
->
-> The series adds support for:
-> - NAU8822 Bridge Tied Load configuration on the Verdin Development Board
-> - UART_4 reservation for Cortex-M7 firmware on Verdin and Aquila
-> - SER0 reservation for Cortex-M7 firmware on SMARC
->
-> The UART overlays mark the port as reserved so Linux does not claim it.
-> Firmware remains responsible for configuring the UART and its pads.
->
-> The Makefile entries build standalone DTBOs and ready-to-use composed
-> DTBs for the corresponding Development Boards.
->
-> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+On Thu, Sep 17, 2026 at 08:20:59PM +0200, Oleg Keri wrote:
+> arch_freq_get_on_cpu() computes the product of the frequency scale and
+> the reference frequency as a u64, but assigns it to an unsigned int
+> before shifting it back down:
+> 
+> 	freq = scale * arch_scale_freq_ref(cpu);
+> 	freq >>= SCHED_CAPACITY_SHIFT;
+> 
+> The product is truncated to 32 bits before the shift, so the result
+> wraps once arch_scale_freq_ref() exceeds 2^32 / SCHED_CAPACITY_SCALE,
+> i.e. 4194304 kHz.
+> 
+> On a Snapdragon X2 Elite (Glymur) laptop, whose boost OPP is 4723200
+> kHz, cpuinfo_avg_freq reports 524283 kHz instead of ~4723200 kHz while
+> the CPU demonstrably runs at the boost frequency: a fixed workload
+> completes in 1.72 s at the 4723200 kHz OPP versus 2.01 s at 4032000
+> kHz, matching the 1.171 frequency ratio.
+> 
+> Compute it with cap_scale(), turned into a static inline taking u64 and
+> moved to <linux/sched/topology.h> so it is usable outside kernel/sched.
+> 
+> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
+> Signed-off-by: Oleg Keri <okerixx@gmail.com>
 > ---
-> Ernest Van Hoecke (4):
->       arm64: dts: freescale: imx95-verdin: Add NAU8822 Bridge Tied Load
->       arm64: dts: freescale: imx95-verdin: Add Cortex-M7 UART_4 overlay
->       arm64: dts: freescale: imx95-aquila: Add Cortex-M7 UART_4 overlay
+> Changes in v5:
+> - cap_scale() becomes a static inline taking u64 arguments instead of
+>   a macro, as Dietmar proposed and Peter agreed, after Peter pointed out
+>   that the macro relies on one operand being u64.  It now lives in
+>   <linux/sched/topology.h>, where SCHED_CAPACITY_SHIFT is visible,
+>   rather than <linux/topology.h>.
+> - Patch 2/2 of v4 is dropped: it duplicated Ananthu C V's series [1],
+>   which I tested instead.  This fix is needed with that series, since
+>   it puts the reference above 4194304 kHz from boot.
+> - v4: https://lore.kernel.org/all/20260917125112.2283-1-okerixx@gmail.com/
+> 
+> [1] https://lore.kernel.org/all/20260908-schedutil-boost-frequency-handling-v2-0-25312a713699@oss.qualcomm.com/
+> 
+>  arch/arm64/kernel/topology.c   | 6 ++----
+>  include/linux/sched/topology.h | 5 +++++
+>  kernel/sched/sched.h           | 2 --
+>  3 files changed, 7 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index d28438f8b83f..39dd7f8575cd 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/init.h>
+>  #include <linux/percpu.h>
+>  #include <linux/sched/isolation.h>
+> +#include <linux/sched/topology.h>
+>  #include <linux/xarray.h>
+>  
+>  #include <asm/cpu.h>
+> @@ -186,7 +187,6 @@ int arch_freq_get_on_cpu(int cpu)
+>  	struct amu_cntr_sample *amu_sample;
+>  	unsigned int start_cpu = cpu;
+>  	unsigned long last_update;
+> -	unsigned int freq = 0;
+>  	u64 scale;
+>  
+>  	if (!amu_fie_cpu_supported(cpu) || !arch_scale_freq_ref(cpu))
+> @@ -245,9 +245,7 @@ int arch_freq_get_on_cpu(int cpu)
+>  	 * (see amu_scale_freq_tick for details)
+>  	 */
+>  	scale = arch_scale_freq_capacity(cpu);
+> -	freq = scale * arch_scale_freq_ref(cpu);
+> -	freq >>= SCHED_CAPACITY_SHIFT;
+> -	return freq;
+> +	return cap_scale(arch_scale_freq_ref(cpu), scale);
+>  }
+>  
+>  static void amu_fie_setup(const struct cpumask *cpus)
 
-both reserved lpuart2, can you share one dtso?
+The arm64 part looks fine to me, so for that:
 
-Frank
+Acked-by: Will Deacon <will@kernel.org>
 
->       arm64: dts: freescale: imx95-toradex-smarc: Add Cortex-M7 SER0 overlay
->
->  arch/arm64/boot/dts/freescale/Makefile                    | 15 +++++++++++++++
->  arch/arm64/boot/dts/freescale/imx95-aquila-uart4-mcu.dtso | 14 ++++++++++++++
->  .../boot/dts/freescale/imx95-toradex-smarc-ser0-mcu.dtso  | 14 ++++++++++++++
->  .../boot/dts/freescale/imx95-verdin-dev-nau8822-btl.dtso  | 14 ++++++++++++++
->  arch/arm64/boot/dts/freescale/imx95-verdin-uart4-mcu.dtso | 14 ++++++++++++++
->  5 files changed, 71 insertions(+)
-> ---
-> base-commit: 478f68c644732750f8386e4de7c909c5ffb26ab2
-> change-id: 20260922-v1-imx95-overlays-89b3a9185b93
->
-> Best regards,
-> --
-> Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
->
->
+However...
+
+> diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
+> index b5d9d7c2b8ad..922b2f015e89 100644
+> --- a/include/linux/sched/topology.h
+> +++ b/include/linux/sched/topology.h
+> @@ -234,6 +234,11 @@ static inline void rebuild_sched_domains_energy(void)
+>  }
+>  #endif
+>  
+> +static inline u64 cap_scale(u64 value, u64 scale)
+> +{
+> +	return value * scale >> SCHED_CAPACITY_SHIFT;
+> +}
+
+... does this introduce unnecessary 64-bit arithmetic for 32-bit
+architectures that currently pass 'unsigned long' to the existing macro?
+
+Will
 
