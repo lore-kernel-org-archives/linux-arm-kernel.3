@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051B3C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8129C982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/Cfij+Q5hH5r5YCJ8SjzJRHCMas/NePWqksJcwwvao=; b=gmAk0FGxDPrnualzkh6MKj0sWz
-	t7ydSf9XizAHcFnpBOgEzYW2hfWjSNZCiXN9WbO2fgoZzLnUQ8zq3HnN4SJCQE1HK5vPQYyGiWR/X
-	jflXbHcbm2aJfQS6LES0zgfoeU3C4e+IFlkG1p7SBpkBW5iXgNkRjWGq+C5Fudq9Gozn72AujOX17
-	umFIDkreOHRr3V5c8riE/Mo/mxJcqMU3aA9e6bs9/BInUsGhgRh4FkTHOsatlh620UeIGAGLPMKd3
-	rIIP7Ck9wFU2goaUii5eZnd/43OTmuYyEeR91MpW3wtBFKBoNFfZw1qSeQaPqkI7pUkovfw90lwtg
-	ce/e5+uA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QPF+ayuwPNkxuj/ujS1fxH31P6rprrzyBlOR3aJvTXs=; b=fiBQ1/K53EmTXpQ/9efuXP3bPH
+	Fh2bdxEfwVksgrWaijyocmUSVpbR8tiDHXQMEyxz6jCEuZiaK0z2vpTwacxAx09ykPU5/E5rGHrx5
+	o1chu5BLXMVU/KOLw2EKIOFcoHL4n0btKK29Q5opgSDJEwehUJbtBe6wV/TTkxDaDwSR859/l3IB1
+	wYMgJFDze8G1VSGJ0R30VT9bgDN3N/Rg+yMMT77+lzu6XwZ2iaicmJZHfHMjAVc2SnDfD/z+vb2KP
+	zd5fxSaCifKiwaw+fk3cbypGsf89kxUMqAbfAVy9FLVUILvJ981LRzJS4ISQ0ptyz6a1m9uXnbjdQ
+	dQ4OpEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yvi-00000005DoT-0jh0;
-	Tue, 22 Sep 2026 11:44:58 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x8zvJ-00000005MIj-39tY;
+	Tue, 22 Sep 2026 12:48:37 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yvf-00000005DnN-2RFK;
-	Tue, 22 Sep 2026 11:44:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790077493;
-	bh=W+7CB1tky3BRVS0DPQGa+VxhsQuoLSseXPxz/cl6bvs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TOwCfCesqdcEZrUL30zGh1tottDeXc8EQHe9NfbzsfE0stQOlZiN/Yy9YlHuwkmDM
-	 DScFWtm3IreUeoVxdGRFG9A+fmjGIESxO9G42kDcOxtUKjDCJWEBrPIGhxsFu6th/5
-	 at8iSCo4obkHoPlVsjTMdwqc3pWQWkgyRdEMD77WDPOIGqbP8SkNdXo7e0nZXeHzg9
-	 cwlNJlEnSYUfPC4KmhAvIpRDbJCVNcw40UIRJaw7Uw+ABNbsA+sO85gc5BRx9EkVOj
-	 H8U0y/TD3mDIiXHvPma52E/VqdE2UhQ7KfFHoW6LIFWEXiiXmuK+apqvNptczsFxqs
-	 ZkvYzRW2Vks2g==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3D29A17E03B6;
-	Tue, 22 Sep 2026 13:44:53 +0200 (CEST)
-Message-ID: <4e68e679-f4c8-4a5f-9b06-f1c61dbff7d9@collabora.com>
-Date: Tue, 22 Sep 2026 13:44:52 +0200
+	id 1x8zvH-00000005MI5-1tYC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 12:48:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790081315; x=1821617315;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=qpF5www/qPUXSNZo2UHhbjLD5x+pblk2MWF/eef8p7I=;
+  b=ggRV/+t6rkMcSi5yHn4cGG0U2Fon7SDCUFWO0eLQjBmP3h4j17DENuqq
+   2IfALFjN2ZHnHpItjBh7hSpb1WuZI/kXFNbFMb0p5wcXDLlaGKGj5wDu1
+   D2kTCcdsUOtxoUaYM/w1Tkfz0nls7kC+4ssUOj8XGPjInjwfM837nFPOL
+   /1EYotmCXPC9lhfFxOe4QTorb5/kAlZt0sTAX4q3pMuJvGjJzu0rqGD4h
+   6KLnyKHtOA2IBuXfv9RV/jcNIryeAaqHyW7TSkybxwrgK7Fd4q9FxCrkE
+   T2mqR3Y0vcwnfxE0LbOb3WfYF2r0+DlzlP7dCHPSJJQWgmX+E0LHIeLBS
+   A==;
+X-CSE-ConnectionGUID: 2AXAm6rqQvKWWzemttH5Rw==
+X-CSE-MsgGUID: 9uxcwEtrSPOnlKwzpETNKQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11912"; a="90796983"
+X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
+   d="scan'208";a="90796983"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:48:34 -0700
+X-CSE-ConnectionGUID: I61J/lMPR6yWm2SobW9uzQ==
+X-CSE-MsgGUID: Y5GxCWZmT3qY5hE+HY8CAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,116,1787036400"; 
+   d="scan'208";a="301039531"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.80])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2026 05:48:21 -0700
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Tue, 22 Sep 2026 15:48:19 +0300 (EEST)
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+cc: Linux ACPI <linux-acpi@vger.kernel.org>, 
+    LKML <linux-kernel@vger.kernel.org>, 
+    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+    Mika Westerberg <mika.westerberg@linux.intel.com>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+    linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
+    Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org, 
+    Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+    "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+    Mark Pearson <mpearson-lenovo@squebb.ca>, 
+    "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+    Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
+    David Rhodes <david.rhodes@cirrus.com>, 
+    Richard Fitzgerald <rf@opensource.cirrus.com>, 
+    Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+    linux-sound@vger.kernel.org, Shenghao Ding <shenghao-ding@ti.com>, 
+    Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+    Sen Wang <sen@ti.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>, 
+    Venkata Prasad Potturu <venkataprasad.potturu@amd.com>, 
+    Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+    Cezary Rojewski <cezary.rojewski@intel.com>, 
+    Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+    Bard Liao <yung-chuan.liao@linux.intel.com>, 
+    Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+    Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
+    Binbin Zhou <zhoubinbin@loongson.cn>, 
+    Andreas Noever <andreas.noever@gmail.com>, 
+    Mika Westerberg <westeri@kernel.org>, 
+    Yehezkel Bernat <YehezkelShB@gmail.com>
+Subject: Re: [PATCH v1 06/17] platform/x86: serdev_helpers: Switch to use
+ acpi_bus_get_primary_device()
+In-Reply-To: <2720286.Lt9SDvczpP@rafael.j.wysocki>
+Message-ID: <5fa97997-ae1f-0ff3-918c-e3195164c2ef@linux.intel.com>
+References: <7995179.EvYhyI6sBW@rafael.j.wysocki> <2720286.Lt9SDvczpP@rafael.j.wysocki>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: arm: mediatek: Fix MT6779 audsys compatible
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Eugen Hristev <ehristev@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260921232819.3137721-1-robh@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260921232819.3137721-1-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="8323328-1862122475-1790081299=:1233"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_044455_779710_CE03E899 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260922_054835_501145_ADBF8E57 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +111,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/22/26 01:28, Rob Herring (Arm) wrote:
-> The correct name for the MediaTek MT6779 audsys compatible is
-> "mediatek,mt6779-audio", not "mediatek,mt6779-audsys". The original .txt
-> binding was correct.
-> 
-> Fixes: e97c618234d9 ("dt-bindings: arm: mediatek: convert audsys and mt2701-afe-pcm to yaml")
-> Assisted-by: LLM
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+--8323328-1862122475-1790081299=:1233
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
+On Mon, 21 Sep 2026, Rafael J. Wysocki wrote:
+
+> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+>=20
+> Replace acpi_get_first_physical_node() that is slated for removal
+> with acpi_bus_get_primary_device() that takes a reference to the
+> device it is about to return.
+>=20
+> This addresses a potential use-after-free that may occur if the
+> device returned by acpi_get_first_physical_node() is removed right
+> after dropping its ACPI companion's physical_node_lock in that
+> function.
+>=20
+> Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> ---
+>  drivers/platform/x86/serdev_helpers.h | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/platform/x86/serdev_helpers.h b/drivers/platform/x86=
+/serdev_helpers.h
+> index 57eac75805e2..20267e1941f1 100644
+> --- a/drivers/platform/x86/serdev_helpers.h
+> +++ b/drivers/platform/x86/serdev_helpers.h
+> @@ -74,8 +74,7 @@ get_serdev_controller(const char *serial_ctrl_hid,
+>  =09=09return ERR_PTR(-ENODEV);
+>  =09}
+> =20
+> -=09/* get_first_physical_node() returns a weak ref */
+> -=09parent =3D get_device(acpi_get_first_physical_node(adev));
+> +=09parent =3D acpi_bus_get_primary_device(adev);
+>  =09acpi_dev_put(adev);
+>  =09if (!parent) {
+>  =09=09pr_err("error could not get %s/%s serial-ctrl physical node\n",
+>=20
+
+Reviewed-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+
+--=20
+ i.
+
+--8323328-1862122475-1790081299=:1233--
 
