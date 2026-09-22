@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D26C4C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FB6C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGKku8nyry7LJ3cQ2W+BxzqUbPO2qtN0RpKOVM2oOc8=; b=gpLaSFogGvmgiWO8ZAQxDo2lWT
-	Vwcwl3voUeOI4ywj1O7MQrioUUX1YjiccaIzJSIZVX18ZLzFRahRoSRk5AT40bxWzdXN5mgzgC0zZ
-	gO2BXqy5RSxG/uKOgSD2X/ld7dsQdxu5miDvKXMfCxY9tQz6ibc1Eb6bW4eH5k+QgDMnsr/LvTO21
-	aXYNxvVjUHmsuLuTrBa+U3ezPP2Lw9/gT2dNKwzA3Hz7wMDaItkPVM76He74WAZBlnacJp9BXhvHq
-	eJY/3jlekGWMFES0Hge6Yr0c542DVpC5kGTClkexW7UKzBrQfantTJevStNqDWQkut7q6LP8r1my7
-	0bMe6jEA==;
+	bh=M3+7e8iXJEjn74p0MvD+DqdSnpalQ9TYucgtTBbjy+c=; b=s6H0Yd1zejsjlIf1JkXOFKf4ko
+	hBd1tldCeZwu7+fqouZinkBhc5E/1Zl3yEQAoxUpvFMnnSAjfKC7bbvywgtJvHZ7+AsbjdiY6fsaW
+	61afImGhd9t/LhuJgp2fLkdSN2QhR7rv7u/d+y47ipN4CDV4rHPOeRcNHX9KEt411i/yjW/1RHZ6W
+	apDgKhzP8JiEsP40j14Mo+uENJL2GW7aODVzjpOcEBE9ILVBRSaC4NSHtREjGRyfaiZOCBwe4Z2EH
+	2EWrcd3KRAfBXG+h9SNIeFtQX/YHWEvrpeSyOde0UI2zM0P4Vhw23PnNu1zlhCv1wVVeWZ3+6dD17
+	I8HcBy6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92eC-00000005v87-0oor;
-	Tue, 22 Sep 2026 15:43:08 +0000
-Received: from mail-qk2-x0d.google.com ([2607:f8b0:4864:34::d])
+	id 1x92f2-00000005vGf-1s3t;
+	Tue, 22 Sep 2026 15:44:00 +0000
+Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92e8-00000005v7S-3yZB
+	id 1x92ez-00000005vFy-0h53
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:43:06 +0000
-Received: by mail-qk2-x0d.google.com with SMTP id d75a77b69052e-532d63f434fso583461cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:43:04 -0700 (PDT)
+	Tue, 22 Sep 2026 15:43:58 +0000
+Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccda24a3so48882a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:43:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1790091783; x=1790696583; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+        d=linaro.org; s=google; t=1790091836; x=1790696636; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=NGKku8nyry7LJ3cQ2W+BxzqUbPO2qtN0RpKOVM2oOc8=;
-        b=KWs7iOm1vezm347iwEUI94m0pESdORZx0b1oj81m61HbAgX5OahoJHXvOSthLW3ZNf
-         4epNbfaqw4huHG7PQEVgxpy0D6oWF61jt/i6SgY9i1KxTaf3BHPz3Ldyae/6hXLWHZpJ
-         Cen1c2kmzdLVHVyFJlAj9nsReEBnER5SZlYis7KimdB+/WQlaNZJoB6kuNQR91DLiuip
-         +rkt23+GX+3lLzoqu4ADehvDMiCf4tzwKaaqwmVCNFmqAO810BynJ2hiObhOTiaJdR1l
-         4B8V81X0LG5OXy84hcP7ayRV7f1kVwnofvQLDwrc//JOet/2V8llPauts0awVBc6kKfC
-         pzyg==
+        bh=M3+7e8iXJEjn74p0MvD+DqdSnpalQ9TYucgtTBbjy+c=;
+        b=xctlq+OZsq3Wu3PJmYKf8CNyvKXY5b0OBxQLzzrGV8nL2asEz5VGJxXHwx5SlAupq/
+         IBNoOq4iOc//0ARN/MyoSx2XGB6nPT2oTXzMUZ7lBWnowBYVkPvtsjeCcPXILtTvCvJ1
+         q4ZROkBsdU2G/FWAgfsDaLtXKOXY8Nr2apTUslwBvFWctN3qr4vzonKVxwIQcrjdTR8A
+         YxFJ8n05QQ29z8TyyMkklqfvqm53YXDXobF+kMYgPnT1k43IdkOwe/qkHID6k2VhFL0X
+         Wq4K8v+qQDa1ZofH9P0VHU2mDZsw/TaPP4ihg+LuoZMe2HGi7xNxB+uurjRMrVBa5aik
+         FqPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790091783; x=1790696583;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1790091836; x=1790696636;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NGKku8nyry7LJ3cQ2W+BxzqUbPO2qtN0RpKOVM2oOc8=;
-        b=rmLVztsNhIM4eFLckVzG8QwRxIQkTqU3V+Rkkn8EuV0BUY9RPyKNSgdaZbL6LJFrt5
-         +vJsptamcZXwBdxntU6Fyshh39wggevCdVnL80qRmLqOQ4NRLN0sifFkyn9AtZ4o/8tn
-         pBjxhwKe0xn1dFRcJtUBmIoxLnesPbBvuApF2O+1AwmEpG6ZFJjtoUX80k92uNl+qwvi
-         +Ikr1OF0OmOzE9KuCLNls1tqGkUOFoge6p9XzflFv8x8lHfIAaqQq626wWvxbDw3naqj
-         WN2PlE9vKFIvHky0NvmjGQC9aboieJOVLUDTLqadMIhIq7Cyuxbo8JkJP8CLb6XiXRBO
-         vnFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxTcJ3cJ2s+mxNk/5EMmOv/t2GdSxeF8fGqh3ztOccC6hQXvVMjwZK6TF4aqAddHzGZfOoGztvwzKMRSRFZH5E+@lists.infradead.org
-X-Gm-Message-State: AFuF++kZdRZIjJtHl71QTtNArrOdN5EKpZ1j+/BGgkxRmAnvGksQkI7Z
-	lH98AS0wRBszgS6pLVvtLogHjyBMvTQnMerxznEBhCfLndgNW6g/FjZ2skQ+3WYfJ5A=
-X-Gm-Gg: AYBFou3Tk4BYUXe0utSDRAmHrDZs2Km5Ke51H6chKyb6/cbDk/R5x6+LhqkjaJXrFBk
-	iUim16m3byGaetG4MATIEXdEF50l8EHzI9Czi34D10WF+v1g+HBYJvDweR9AO6MnghMunEiW+is
-	poAhu4ybJ+40fjqhI3K+FdGSZvRbkC/cD2ycQJeOS1fdqMIqKKBdofJcNLpc0ZYpnI4uPsLEd8B
-	x5fPtZPU/dplDH/OdBtl6vsDlR87wq6CdaN2/GWA2dfNTE2dOAA1sDTUmCeyPgiVYT0gm5OSjsZ
-	zpin5P67IuakS1QByrarayWMBpZ1zos9qrPGgkV2xTJpXwD3HzQ1NNsCYlLt05caCF4d5Kk5r+d
-	78HtCXw4FWio+BDo4ipQUoZK0yvhlC3thkxGa5zgGjay0STGHI+wPARbUjzeB3UTERf0pSIYflm
-	q7mqv6A8dZJJwD8PpeyGVvdUXPkMPlkckHIIxMjs+rqwJVu3F2Mg96yQmgUhc7FJSRXY2/y5iyw
-	TKEi8WMTVTTUsk=
-X-Received: by 2002:a05:620a:6006:b0:93b:d79f:d955 with SMTP id af79cd13be357-93c15f2e6e5mr588176085a.74.1790091783184;
-        Tue, 22 Sep 2026 08:43:03 -0700 (PDT)
-Received: from toxicpanda.com ([153.61.196.243])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c2485dce4sm1063585a.23.2026.09.22.08.43.01
+        bh=M3+7e8iXJEjn74p0MvD+DqdSnpalQ9TYucgtTBbjy+c=;
+        b=nU7yt9A46kwk4Me6tiL87y5zyP5LPG1hdVbGLpVPl9AHlHtXlbZ1qEp4ulvCaI6psx
+         uH2ZZrzWF3beTL0Ug+YGCJFG79kLaNPUaA3DEvcA9PY9wroQQMunnaj7MzszUy9/131n
+         yTvDJfuvuDaT5YFcVKEm3VB+Aowys8EsQGVWS0sizmEDXLPcB/jN8HhJJMZ6SCob6yhr
+         T3mk2Mn3WztI7Bs7o6HRbueOo77uggSUU2XghkOd394dx4bkAfxnqkMVEA9e4IZV0w+C
+         h9AwzVAe9TmSLq1Gvdsu3k+/X8ciLtRR4GXaX6vieIlqvZ0H02qI4WNeMsDWMMzOnoh9
+         aP2w==
+X-Forwarded-Encrypted: i=1; AKwUvBxhyWCs8wOGTX1YeLyXMEFYba2k3OpbAnD/nz/T086ZxXlufCeFWYMWpzQ6ofz4iajvuac9CD2mHL7IcH4dwA8h@lists.infradead.org
+X-Gm-Message-State: AFuF++kgv8tRpReYEk5LeFU9VhYL1wDNwaXeNAyxkHr7GzyKhwvPXKmb
+	6eLjEFxJAiKSkafq0MU3SGgSFE/IUg9P4xc4RmJZrTihIfrtJzCzlNz9AGurD05VE0g=
+X-Gm-Gg: AYBFou1D/dKcv5U2LKHXWSh+mmDARmkh4560doYOvd7AOnn3HU+osFsb/UnWfNqbiTz
+	x9mUCDFwd+JjOTW4GPpyF+F2rIizDkeQBUpCJrdKScczeJOqWseO2a5oV6aB39wJWW+h0+TkO0Y
+	o6LFmIxqStG+qlwg0OTBVcylXo368C8DfNCAp0wCkE6g01gCmudVCTp7ieWRsNbB1DqTHSxpK1l
+	YTg5HwvomQAmQU4eNR4Eu8PQb0m+MRZV13flufZNfrQ338ptxbVm1COCiwYPvLn+2PklRhvazvn
+	lDX7Z0lgidVr1rzUGFr4P7g5J8iXyI1/tkZ6aUfGDCJYkgxQTJ5QgpxNFMti0pkQA16c6Vav9tN
+	4k/SfN/OEgYiZNZRuErgk1sw6Nb05WC//o07DuDEFGdWyQnG+3g/nwymId6TUn+dDeuUthRvhXj
+	jatz3Nwree2C0vA4TXNbKEhHbWsYP28feMVX25+H8saOHAzZ36+iLGKwbyCXcKaJvh87WtVNbiT
+	0hh55xSZRA=
+X-Received: by 2002:a17:90b:1d48:b0:39d:efa9:cd25 with SMTP id 98e67ed59e1d1-3a07306c5d9mr1633442a91.2.1790091835796;
+        Tue, 22 Sep 2026 08:43:55 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:1046:ab8:737c:d2e2])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07dbf69f0sm34882a91.8.2026.09.22.08.43.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 08:43:01 -0700 (PDT)
-Date: Tue, 22 Sep 2026 15:42:15 +0000
-Message-ID: <d36fdaad78296f3c43f84bc9c5b15a36.josef@toxicpanda.com>
-From: Josef Bacik <josef@toxicpanda.com>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Boqun Feng <boqun@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, linux-kernel@vger.kernel.org, rcu@vger.kernel.org, linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v3 03/13] rcu-tasks: Add a Tasks RCU implementation for reader-marked trampolines
-In-Reply-To: <aqxLgT41UyA-bV5J@pavilion.home>
-References: <20260915-b4-rcu-tasks-preempt-qs-v3-0-0ad30c4c5ee7@toxicpanda.com> <20260915-b4-rcu-tasks-preempt-qs-v3-3-0ad30c4c5ee7@toxicpanda.com> <aqxLgT41UyA-bV5J@pavilion.home>
+        Tue, 22 Sep 2026 08:43:55 -0700 (PDT)
+Date: Tue, 22 Sep 2026 09:43:52 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	imx@lists.linux.dev, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 12/12] PoC: arm64: dts: imx93-11x11-frdm: add
+ multiple vdevs
+Message-ID: <arKiOCGrWAKyc-bc@p14s>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-12-dac8c5eb4aa9@valla.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260916-remoteproc_virtio_map-v1-12-dac8c5eb4aa9@valla.it>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_084305_013815_7E463CCF 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260922_084357_223207_14447077 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +112,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026 22:20:17 +0200, Frederic Weisbecker wrote:
-> > +	lockdep_assert_irqs_disabled();
-> > +	WRITE_ONCE(t->rcu_tasks_irq_ip, ip);
-> > +	t->rcu_tasks_exit_cpu = smp_processor_id();
-> > +	raw_spin_lock_rcu_node(rtpcp);
-> > +	list_add(&t->rcu_tasks_exit_list, &rtpcp->rtp_exit_list);
-> > +	raw_spin_unlock_rcu_node(rtpcp);
->
-> I don't think we can do that. This is too much unconditional overhead
-> on the hot preemption path. rcu_tasks_trampoline_text() should be
-> a condition here.
+On Wed, Sep 16, 2026 at 11:10:57PM +0200, Francesco Valla wrote:
+> Add rings for multiple vdevs, as well as the required virtio nodes for
+> I2C, SPI and GPIO functionalities. On top of that, add example
+> peripherals using all of them.
+> 
+> NOTE: this is a Proof-Of-Concept, not meant to be integrated!
+> 
+> Signed-off-by: Francesco Valla <francesco@valla.it>
+> ---
+>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 128 +++++++++++++++++++--
+>  1 file changed, 119 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> index bd14ba28690c..dfa3b122ac5f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> @@ -53,6 +53,32 @@ button-k3 {
+>  		};
+>  	};
+>  
+> +	gpio-keys-virtio {
+> +		compatible = "gpio-keys-polled";
+> +		poll-interval = <100>;
+> +
+> +		button-v1 {
+> +			label = "Button V1";
+> +			linux,code = <BTN_3>;
+> +			gpios = <&v_gpio 23 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		button-v2 {
+> +			label = "Button V2";
+> +			linux,code = <BTN_4>;
+> +			gpios = <&v_gpio 24 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led {
+> +			gpios = <&v_gpio 18 GPIO_ACTIVE_HIGH>;
+> +			label = "LED V";
+> +		};
+> +	};
+> +
+>  	reg_usdhc2_vmmc: regulator-usdhc2 {
+>  		compatible = "regulator-fixed";
+>  		off-on-delay-us = <12000>;
+> @@ -89,11 +115,6 @@ linux,cma {
+>  			linux,cma-default;
+>  		};
+>  
+> -		rsc_table: rsc-table@2021e000 {
+> -			reg = <0 0x2021e000 0 0x1000>;
+> -			no-map;
+> -		};
+> -
 
-Sorry, I missed this one before sending v4/v5. Agreed, and it is gone
-for v6: the hook is now just the WRITE_ONCE() of the IP plus the
-rcu_tasks_trampoline_text() check, and the exit side a single store.
+Why is the resource table removed?  There is no mention of that in the
+changelog...
 
-The IP store itself has to stay unconditional because of the kprobe
-jump optimizer: its window is ordinary text, so a task parked there
-before the optimizer decided to patch was not "trampoline text" when it
-was preempted, and the optimizer needs to find it afterwards.
+>  		vdev0vring0: vdev0vring0@a4000000 {
+>  			reg = <0 0xa4000000 0 0x8000>;
+>  			no-map;
+> @@ -105,12 +126,42 @@ vdev0vring1: vdev0vring1@a4008000 {
+>  		};
+>  
+>  		vdev1vring0: vdev1vring0@a4010000 {
+> -			reg = <0 0xa4010000 0 0x8000>;
+> +			reg = <0 0xa4010000 0 0x1000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev2vring0: vdev2vring0@a4011000 {
+> +			reg = <0 0xa4011000 0 0x2000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev2vring1: vdev2vring1@a4013000 {
+> +			reg = <0 0xa4013000 0 0x2000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev3vring0: vdev3vring0@a4015000 {
+> +			reg = <0 0xa4015000 0 0x2000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev4vring0: vdev4vring0@a4017000 {
+> +			reg = <0 0xa4017000 0 0x4000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev5vring0: vdev5vring0@a401B000 {
+> +			reg = <0 0xa401B000 0 0x2000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev5vring1: vdev5vring1@a401D000 {
+> +			reg = <0 0xa401D000 0 0x2000>;
+>  			no-map;
+>  		};
+>  
+> -		vdev1vring1: vdev1vring1@a4018000 {
+> -			reg = <0 0xa4018000 0 0x8000>;
+> +		vdev5vring2: vdev5vring2@a401F000 {
+> +			reg = <0 0xa401F000 0 0x1000>;
+>  			no-map;
+>  		};
+>  
+> @@ -149,8 +200,67 @@ &cm33 {
+>  		 <&mu1 3 1>;
+>  	mbox-names = "tx", "rx", "rxdb";
+>  	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+> -			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+> +			<&vdev1vring0>, <&vdev2vring0>, <&vdev2vring1>,
+> +			<&vdev3vring0>, <&vdev4vring0>,
+> +			<&vdev5vring0>, <&vdev5vring1>, <&vdev5vring2>;
 
-> And do we really need to maintain both lists? I understand that they
-> have different purposes.
-[...]
-> Can the latter replace the former?
+Who is using vdev5 vrings?  
 
-With the above there is only the holdout list left. The optimizer's
-rcu_tasks_wait_irq_preempted() now does what classic does for its scan:
-walk the task list plus the per-CPU exit lists (exit_tasks_rcu_start()
-and friends stay shared between the two flavors for that), checking each
-task's recorded IP. That is a slow path that only kprobe optimization
-hits.
-
-And thanks for picking up the core-RCU follow-on.
-
-Josef
+>  	status = "okay";
+> +
+> +	virtio {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		vdev@2 {
+> +			reg = <2>;
+> +
+> +			v_gpio: gpio {
+> +				compatible = "virtio,device29";
+> +				gpio-controller;
+> +				#gpio-cells = <2>;
+> +				interrupt-controller;
+> +				#interrupt-cells = <2>;
+> +			};
+> +		};
+> +
+> +		vdev@3 {
+> +			reg = <3>;
+> +
+> +			i2c {
+> +				compatible = "virtio,device22";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				eeprom@50 {
+> +					compatible = "atmel,24c1025";
+> +					reg = <0x50>;
+> +				};
+> +			};
+> +		};
+> +
+> +		vdev@4 {
+> +			reg = <4>;
+> +
+> +			spi {
+> +				compatible = "virtio,device2d";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				sram@0 {
+> +					compatible = "microchip,mchp23k256";
+> +					reg = <0>;
+> +					spi-max-frequency = <20000000>;
+> +				};
+> +
+> +				lcd@1 {
+> +					compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+> +					reg = <1>;
+> +					spi-max-frequency = <10000000>;
+> +					dc-gpios = <&v_gpio 21 GPIO_ACTIVE_HIGH>;
+> +					reset-gpios = <&v_gpio 20 GPIO_ACTIVE_HIGH>;
+> +					rotation = <90>;
+> +				};
+> +			};
+> +		};
+> +	};
+>  };
+>  
+>  &eqos {
+> 
+> -- 
+> 2.55.0
+> 
 
