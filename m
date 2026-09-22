@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73508C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350DBC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXpVSnMgs3Z7izHUy03zYCf6znjQJnlKV3nqic4hNd8=; b=FQBpZY1pWsNU50qNfzqAaO+Rp/
-	yCj/ljQyQbu+ghLq3clwx4J0T/qD6H653iWesoo29dZzPCGgLDpkKhLKy6B/dRxEmou92zP/czaOV
-	jQ6R6M+W4nGrKuhL8ScbVm2NdeX+rlWO7Os3vk+/wPziNd2yakDVZIVvIqSx9ktfBVPO0t3Bzg/+i
-	9D0vuu17nrulv24c7vhlAU3KEWwzuqVe8gKVkg51PtHW+lucPFzOUYQImDGbURgintVGQzCM1V/PT
-	g347a2MU9le0xKJfc1edsz5+0iC9+qKePAP3qNKAVdeEede/nPRjxNqzFKRrvhn05jKyUGkV48m30
-	PI3IiqQw==;
+	bh=fMv2HRQWdI7L1EwnVqaI+B6hRyZmxW7nfB0fpJ4Rdio=; b=sB6tJ29KvQgZzEZcsmjpa2RPvG
+	sXyi+MgLAcWEMmfESTGf2o5FVXWa23n7LMfZDJWCcCilYo9iSeHZCSKezUOLkNRdJhpvkumF5qG4V
+	uzkvKERZ4QHIWp+jpycktBusvW52tS3kqEF/4rxKzZheRCGIFku7UB7BwXqMbXDqGC6a9jbIKAnFV
+	6AAQpC1fL+Jm3EpsHb+Pi2y0OdOc69Mr6gXHyhrb1WhJht8/ia8cWUVaPZeDFHGYEydZpJbnEMtTJ
+	U4jMzxeYEZv1d0Lxj5189C8HNzP9W4xhn3XlAY3WEKKth3r5h9rBREoQfnAuyLCSyutyVyu8G/v5d
+	PAdTj3/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x95bm-00000006Ljl-2YGz;
-	Tue, 22 Sep 2026 18:52:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x95dU-00000006Lyn-0B6c;
+	Tue, 22 Sep 2026 18:54:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x95bk-00000006Lja-3uIz
+	id 1x95dS-00000006LyW-3X5s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 18:52:49 +0000
+	Tue, 22 Sep 2026 18:54:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CC2660142;
-	Tue, 22 Sep 2026 18:52:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4B081F000FF;
-	Tue, 22 Sep 2026 18:52:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F30640C45;
+	Tue, 22 Sep 2026 18:54:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7D671F0089A;
+	Tue, 22 Sep 2026 18:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790103168;
-	bh=MXpVSnMgs3Z7izHUy03zYCf6znjQJnlKV3nqic4hNd8=;
+	s=k20260515; t=1790103274;
+	bh=fMv2HRQWdI7L1EwnVqaI+B6hRyZmxW7nfB0fpJ4Rdio=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hMiZHKSa7U2bacA1JtdlXZZKizxqaV55VvMSi9xha2q/7AZ+JiVih9cjUTQUctOl7
-	 QAlEn6eljWYbWC+Fz4EXb9rmE5ojWeeBrSGbHLk4fDkR9lbzMqbH23B6hBcShNnyYz
-	 /8clYd3RYb46IaI1HeC0/uWpcX3FhktX1Q9z22DTqUH9UV8WpXXcYdYiCrCNdx/BXh
-	 xr1U9hzn+VpFq508+U8fd8gbqrNJdSOefDdl4iRccuM7WLEMiYhu5gnzPvZ2NzB31/
-	 MiK9ENsSDmNW3uPiDtkVtsuHJpVogFYliYjrZk9qmhMIvjeFpebZmmpVkUYrfOEQ8l
-	 lwtZHgf2NRE8A==
-Date: Tue, 22 Sep 2026 19:52:39 +0100
+	b=jXm+/bDndA1K7nV2TVA2OZew3t2LMKoY2U41Xm37ETzJXswGN7qSuV2hjBBflMwyK
+	 axDrW6s7WkRuuSTt1eseU+bUHh+18gEbk9yHlwDhLxTsZ9Buj2TaWQs1a4t7kJcChc
+	 inCyrVZOg63PPJEFjnEDiOe/fsVPfJqgXYR+7Lbx7mpp9vvfhUF1KmoRv7P0SKnIWu
+	 I3Grt4Lc/l48/koMYkNzv7/dm4OxPWMqkL+mLE5sk29TUcavHAmcA6TWWdzarBHyR4
+	 WtV96sN96nZg/PT9N2jxlxzs7R/XWwRZaHt2YGz5YIh5v/HTdhiWTCTqy8l29MOjYI
+	 HwtBQcXixVirA==
+Date: Tue, 22 Sep 2026 19:54:25 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: Sean Christopherson <seanjc@google.com>
 Cc: Oliver Upton <oupton@kernel.org>, 
@@ -59,19 +59,20 @@ Cc: Oliver Upton <oupton@kernel.org>,
 	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
 	Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>
 Subject: Re: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
-Message-ID: <arLNQJ2ZbcZ6xivb@gremlin>
+Message-ID: <arLOn49vQ4EA1brY@gremlin>
 References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
  <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
  <arKxjsxuO1F5ExrY@kernel.org>
  <arK5n9HrbZMCOHOt@google.com>
  <arK5ynpRi7VbY7Ek@gremlin>
  <arK8seJVT9wYgVCP@google.com>
- <arK8-Hec3-5o4jYs@gremlin>
- <arLLnYvkXSFr6f6u@google.com>
+ <arLD-eZ6dRvfZ52q@kernel.org>
+ <arLJ4AbNN9Y_IUna@gremlin>
+ <arLM-vJDoO7gQJXM@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arLLnYvkXSFr6f6u@google.com>
+In-Reply-To: <arLM-vJDoO7gQJXM@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,26 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 11:40:29AM -0700, Sean Christopherson wrote:
-> > > But look at it from an x86 perspective.  Pretty much everyone will look at this
-> > > and expect:
+On Tue, Sep 22, 2026 at 11:46:18AM -0700, Sean Christopherson wrote:
+> On Tue, Sep 22, 2026, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Sep 22, 2026 at 11:07:53AM -0700, Oliver Upton wrote:
+> > > On Tue, Sep 22, 2026 at 10:36:49AM -0700, Sean Christopherson wrote:
+> > > > On Tue, Sep 22, 2026, Lorenzo Stoakes (ARM) wrote:
+> > > > > On Tue, Sep 22, 2026 at 10:23:43AM -0700, Sean Christopherson wrote:
+> > > > > > Rather than have kvm_arch_vcpu_allow_pre_fault_memory(), what if we add a more
+> > > > > > generic kvm_is_vcpu_loadable()?  That way we don't need to worry as much about
+> > > > > > the return value, the connection to vcpu_load() is obvious, and we don't need to
+> > > > > > add another pre-check if future (or cleaned-up existing?) ioctls want to do
+> > > > > > vcpu_load() in common code.
+> > > > >
+> > > > > ...this is exactly what I started out with.
+> > > > >
+> > > > > But then you are in a pickle, because _really_ you need to do that check in
+> > > > > vcpu_load(). Which is a void function. Which is called by every single
+> > > > > architecture all over the place.
+> > > > >
+> > > > > So you'd have actually no way of signalling the error back.
+> > > > >
+> > > > > Of course those places are arch code and you could say 'arches should know
+> > > > > better and if they call it it's fine not to call the arch 'can you load'
+> > > > > function.
+> > > >
+> > > > Yes, that's my vote.  It'd be easy enough to clarify that "rule" with a comment
+> > > > in linux/kvm_host.h.
 > > >
-> > >   bool kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
-> > >   {
-> > > 	return vcpu->kvm->arch.pre_fault_allowed;
-> > >   }
-> >
-> > I'm not sure I really get your point here at all? :)
-> >
-> > Why would it matter what people who are too lazy to go check the implementation
-> > assume about an arch hook?
+> > > I feel like trying to make this generic will wind up under-documenting
+> > > the single example we have with the pre fault ioctl. Putting the comment
+> > > into a header practically guarantees that nobody will read it either.
+> > >
+> > > I'd favor doing something like below and sticking the comment inline in
+> > > the ioctl handler. Unless I'm missing something blatantly obvious, I
+> > > don't see why the x86 or s390 pre-conditions can't be tested early too.
 >
-> Because I don't hate the people that contribute to KVM, and want to make it as
-> easy as possible for them to not make mistakes?
+> Oh, they definitely can.  I'm a-ok with using kvm_arch_pre_fault_allowed() on
+> s390 and x86, the only option I am against is adding kvm_arch_pre_fault_allowed()
+> but then not using it on architectures that obviously perform that exact check.
+>
+> > > --- a/virt/kvm/kvm_main.c
+> > > +++ b/virt/kvm/kvm_main.c
+> > > @@ -3961,6 +3961,11 @@ bool __weak kvm_arch_dy_has_pending_interrupt(struct kvm_vcpu *vcpu)
+> > >  	return false;
+> > >  }
+> > >
+> > > +int __weak kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
+> > > +{
+> > > +	return 0;
+> > > +}
+>
+> There should be no need for a __weak placeholder since this code is guarded by
+> CONFIG_KVM_GENERIC_PRE_FAULT_MEMORY=y.  I.e. force architectures to define the
+> API.  I don't think it's a coincidence that all of arm64, s390, and x86 ended up
+> with restrictions; pre-faulting is far from a simple operation.
+>
+> Actually, that's an argument for a dedicated kvm_arch_pre_fault_allowed() versus
+> a generic kvm_is_vcpu_loadable(): it helps force future architectures to actually
+> think about when exactly pre-faulting is safe.
 
-Haha well I think I misunderstood you here, I see the point that you might
-assume some state like this rather than an explicit conditional, and the inline
-comment suggested by Oliver makes things a bit clearer.
+Ack on all and I agree __weak is not necessary in this case and probably quite
+useful to make arches define it.
+
+Will take this approach on respin thanks all!
 
 --
 Cheers, Lorenzo
