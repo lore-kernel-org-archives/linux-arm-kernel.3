@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2093C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFE3C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EvmHxqXCLy9EWZ/6cZQhXtH5A4Fz3V8fxmDhtm5wIEY=; b=K2VgiXFB9T3Jbs5d/aGJkp5DRT
-	1pJ7s331WcqFgLWrSXKSw444ojIVyB/VE8vtkUp/2bvZgFYNkBf6cnG98g+AMIBnd4rENAvGmP7dS
-	+t6DtNW459a1v34aPuiCxWrqdKBzSEc+2zLsQv22032zhpqG/UUPaT4Pt/7geNeXIbprn/SMWUjiY
-	ZcVMK/lKTY3a+ro/HRXebo+I8Daau+tWABCKuiBD1Ogd7NzdNn5bhg/O0tAfzsIAeGLp1eLAmDpAR
-	4MbkveNhkpZ4ENbKI1VT55ffTwudNh5KA971MJYtYMWBacpSq13rXrVmqxU6kLDUb6K4lZMBiOoB4
-	HSIMelgw==;
+	bh=2X1OCcip9WdRidK88ayPzdYka+btvJ/3z+Cw7Fhbf18=; b=MKtRlAaaJeuJU5vAnMH4orwQqt
+	moKr9rkXSN/811it+CBjiIqqv37nXprRLAJIR83Z+I4bjqFpTlyeAoiVRmwfUR/n9p3TAHWKixej1
+	hIxSQVYGmyiJVluLyqBGCJdeRCz+Y+lI3xxMRy7PBeFmUUJ+3XJgN/tsjy1KSgWwyPzNdUqNE3G1V
+	QdDFQ00OT+65juGGkrBrlMzR1FhJFmGyueOvQl++RidCP/JZ0r6CacOsE/HsJCC3YqRXkMC2bzzCW
+	jtPAp/DOxnaOY+zo9VdeksFGiX+Vyj0cQmCduEEsE7qzQpXY5yDESTQUEhozGYU//0rla/MaJmhSI
+	xvkLcloA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vlr-00000004ewa-2bIZ;
-	Tue, 22 Sep 2026 08:22:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8vp7-00000004fPy-1JNt;
+	Tue, 22 Sep 2026 08:25:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vlq-00000004ewS-2ksO
+	id 1x8vp6-00000004fPn-2lN6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:22:34 +0000
+	Tue, 22 Sep 2026 08:25:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1EE2B60DE9
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:22:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C712F1F008A1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 08:22:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 37FEB41526;
+	Tue, 22 Sep 2026 08:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291641F000FF;
+	Tue, 22 Sep 2026 08:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790065353;
-	bh=EvmHxqXCLy9EWZ/6cZQhXtH5A4Fz3V8fxmDhtm5wIEY=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=eUQDEo/VyBbty7zYwjUEuWbUnVXyxrpFbehq+ywlN21JMUY5QY5LQyol2y8nxGy6M
-	 IFq4nNCNdU3YaoVEDrvipjNLXDzlOYWXTZ/bwFUEKnefzc+jvK2Z6XWkQf0o4BjWWv
-	 pL7h6Q14BIpmO8cuK2ybx54SzbuJpYlhtycA9cGoks05pERHJf/B71L/kpcz1oYBQi
-	 usl1PJNdfmXOYVJPWQN2SQuT6t7r0mXXHizDxoOU1pKAy2UXkdOlR7f2BOij2nL/Jf
-	 z62oKFFafcy3tUsGkSIkPhMt4u6pGgkXRVBmfCilFJ8FhC1nOhA0pioIvsbao0Kmmq
-	 EWvYD8/FEBiGg==
-Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a2ff176d5eso33610081fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:22:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwnFCjVIKbw0Z8PTnk3L1+JeZMwnoOe99sX6OcwRt18gGUY2PDcBZzcYikaZ2QQaeYdMg2cVcJu0nErX6mH4Haw@lists.infradead.org
-X-Gm-Message-State: AFuF++mLROpyJGYzRe5cNb/uPYP4ZrGMlFVVDh4ZHTxpwYEvibIAzf0/
-	+ELhHD3exKHbekF/uUqdKYghOilkAQG9vCMeulNxJiSFfES1TpMT7JzBvm3bXf2Mr9t6LZFfCHB
-	kqFLZZSpHlBBlEojO/4cv7reBarnYXaPIOJmSS5TQOw==
-X-Received: by 2002:a2e:bc16:0:b0:3a4:95f0:c5b7 with SMTP id
- 38308e7fff4ca-3a5fbebf807mr28969311fa.3.1790065352455; Tue, 22 Sep 2026
- 01:22:32 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 22 Sep 2026 01:22:31 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 22 Sep 2026 01:22:31 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260921-qce-fix-self-tests-v8-0-107537869a72@oss.qualcomm.com>
+	s=k20260515; t=1790065556;
+	bh=2X1OCcip9WdRidK88ayPzdYka+btvJ/3z+Cw7Fhbf18=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ibi/Fk9W0CqbMvTkKEtatnrtBLseWmGefLP53I3Ejo4mg2mGDL0gokqO+sGacaYvB
+	 6aGSVfnVYGxajwp9QIriZ0v04JrczoAaUBU8ry+YlFjyQlIa7mMydU8EeoEGpz0a0X
+	 gKh3PYysPYERP7+wRqeTK4X76nCWuIaNaEfjf2U7Pz+4E+sCZ5YM1V/JFWYlTKehSU
+	 31j9r9OL1qVq2PBMaKcDfADSlBlMpwHZu03k8TnSb1Ahhkgb0nmdbMr0C1v37RUB8e
+	 2evBLmSfWKu85Bvs33SPNXNvWqJKuo+McNvY1D9DxDcqJB3TMb9XLftLZ6Bj3htfMQ
+	 jrIgteyJHt11Q==
+Subject: Re: [PATCH v4 net-next 3/8] ptp: netc: export
+ netc_timer_get_current_time() for cross-driver use
+From: netdev-bot+sashiko@kernel.org
+To: wei.fang@oss.nxp.com
+Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ richardcochran@gmail.com, linusw@kernel.org, linux@armlinux.org.uk,
+ wei.fang@nxp.com, imx@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Tue, 22 Sep 2026 08:25:54 +0000
+Message-ID: <179006555469.2160803.8873313402765313889@kernel.org>
+In-Reply-To: <20260918072852.501420-4-wei.fang@oss.nxp.com>
+References: <20260918072852.501420-4-wei.fang@oss.nxp.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20260921-qce-fix-self-tests-v8-0-107537869a72@oss.qualcomm.com>
-Date: Tue, 22 Sep 2026 01:22:31 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MdWZhLy7AXd2OiVsaT92xTh1EF+B+LNo2b-1D2TO3rAmA@mail.gmail.com>
-X-Gm-Features: AcwNN1VBTSPEWx1h-ie8zLso64KBEpFrX6miRGn5DdROKODYpn6wzkN3-uBIp-k
-Message-ID: <CAMRc=MdWZhLy7AXd2OiVsaT92xTh1EF+B+LNo2b-1D2TO3rAmA@mail.gmail.com>
-Subject: Re: [PATCH v8 00/14] crypto: qce - Fix crypto self-test failures
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, brgl@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Stanimir Varbanov <svarbanov@mm-sol.com>, 
-	Eneas U de Queiroz <cotequeiroz@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Eric Biggers <ebiggers@kernel.org>, Demi Marie Obenour <demiobenour@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +75,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Sep 2026 14:58:09 +0200, Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> said:
-> This iteration - in addition to the previous fixes - proposes to split
-> the QCE driver into a core part necessary to bind to the QCE DT node and
-> enable runtime power management in order to allow to drop the
-> interconnect votes, and the crypto part registering the crypto
-> algorithms. The core module is then enabled in arm64 defconfig while the
-> crypto part stays disabled by default. In addition: the actual
-> registration of crypto algos is gated with a module parameter that
-> default to false.
->
-> Note that remaining reported bugs will still be fixed in follow-up
-> series. This series addresses self-tests and disables the algos by
-> default.
->
-> The QCE hardware crypto engine has several limitations that cause it to
-> produce incorrect results or stall on certain inputs. This series fixes
-> several bugs and adds workaround allowing the deiver to pass crypto
-> self-tests.
->
-> The failures addressed are:
->
-> - HMAC self-test failures for empty messages
-> - AES-XTS returning success on zero-length input (should be -EINVAL)
-> - AES-CTR: partial final block causes the engine to stall, output IV
->   derivation was incorrect
-> - AES-XTS with key1 == key2 is not supported by the CE
-> - AES-CCM: partial final block and fragmented payload both stall the
->   engine
->
-> All fixes were tested on an SM8650 QRD board with
-> CONFIG_CRYPTO_SELFTESTS=y and CONFIG_CRYPTO_SELFTESTS_FULL=y.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Herbert: Sashiko still says it fails to apply. I have no idea why, it applies
-fine on top of current linux-next.
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
 
-Bart
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] netc_timer_get_current_time()
+  (drivers/ptp/ptp_netc.c:1050-1082) takes the module-global…
+- [Medium] netc_timer_get_current_time() treats membership in
+  netc_timer_list as proof that TMR_CUR_TIME can be read, and returns 0…
+- [Low] Concern that the exported netc_timer_get_current_time() and its
+  list/lock infrastructure have no in-tree consumer.
+- [Low] Concern that netc_timer_get_current_time() keys its lookup on an
+  unreferenced caller-supplied 'struct pci_dev *' (tmp->pdev == pdev at…
+- [Low] include/linux/fsl/netc_global.h — a header that otherwise
+  contains only trivial MMIO accessor inlines…
+
+--
+
+ptp: netc: export netc_timer_get_current_time() for cross-driver use
+
+This adds netc_timer_get_current_time() to the NETC Timer driver and exports
+it so the NETC Switch driver, which is a separate PCIe function with its own
+driver, can read TMR_CUR_TIME. Each probed Timer is tracked in a
+module-private list keyed by its pci_dev, and one global spinlock covers both
+the list lookup and the register read so that an unbind cannot free priv
+under an in-flight read.
+
+A few questions about the new helper and the header change below.
+
+> diff --git a/drivers/ptp/ptp_netc.c b/drivers/ptp/ptp_netc.c
+> index aa9be8e2a630..1211aa9a37d3 100644
+> --- a/drivers/ptp/ptp_netc.c
+> +++ b/drivers/ptp/ptp_netc.c
+
+[ ... ]
+
+> @@ -123,8 +123,12 @@ struct netc_timer {
+>  	u8 fs_alarm_num;
+>  	u8 fs_alarm_bitmap;
+>  	struct netc_pp pp[NETC_TMR_FIPER_NUM]; /* periodic pulse */
+> +	struct list_head node;
+>  };
+>  
+> +static LIST_HEAD(netc_timer_list);
+> +static DEFINE_SPINLOCK(netc_timer_list_lock);
+> +
+>  #define netc_timer_rd(p, o)		netc_read((p)->base + (o))
+>  #define netc_timer_wr(p, o, v)		netc_write((p)->base + (o), v)
+>  
+> @@ -985,6 +989,10 @@ static int netc_timer_probe(struct pci_dev *pdev,
+>  
+>  	enable_irq(priv->irq);
+>  
+> +	spin_lock_bh(&netc_timer_list_lock);
+> +	list_add(&priv->node, &netc_timer_list);
+> +	spin_unlock_bh(&netc_timer_list_lock);
+> +
+>  	return 0;
+>  
+>  free_msix_irq:
+> @@ -999,6 +1007,10 @@ static void netc_timer_remove(struct pci_dev *pdev)
+>  {
+>  	struct netc_timer *priv = pci_get_drvdata(pdev);
+>  
+> +	spin_lock_bh(&netc_timer_list_lock);
+> +	list_del(&priv->node);
+> +	spin_unlock_bh(&netc_timer_list_lock);
+> +
+>  	disable_irq(priv->irq);
+>  	ptp_clock_unregister(priv->clock);
+>  	netc_timer_wr(priv, NETC_TMR_TEMASK, 0);
+
+[ ... ]
+
+> @@ -1021,5 +1033,54 @@ static struct pci_driver netc_timer_driver = {
+>  };
+>  module_pci_driver(netc_timer_driver);
+>  
+> +/**
+> + * netc_timer_get_current_time - read the current PTP time from the NETC Timer
+> + * @pdev: PCI device of the NETC Timer
+> + * @ns: Output, the current PTP clock time in nanoseconds
+> + *
+> + * Read TMR_CUR_TIME from the NETC Timer bound to @pdev. The lookup and read
+> + * run under netc_timer_list_lock, so the Timer cannot be unbound and its priv
+> + * freed during the read.
+> + *
+> + * Context: Process or softirq context. Must not be called from hardirq.
+> + *
+> + * Return: 0 on success, -ENODEV if the Timer is not present (not yet probed
+> + *         or already removed).
+> + */
+> +int netc_timer_get_current_time(struct pci_dev *pdev, u64 *ns)
+> +{
+> +	struct netc_timer *priv = NULL;
+> +	struct netc_timer *tmp;
+> +	unsigned long flags;
+> +	int err = 0;
+> +
+> +	/* Serialize against driver unbind, so holding it here ensures that
+> +	 * priv remains valid for the entire duration of the register read.
+> +	 */
+> +	spin_lock_bh(&netc_timer_list_lock);
+
+[Severity: Medium]
+Is it necessary to hold the module-global netc_timer_list_lock across the
+MMIO access, rather than only across the lookup?
+
+priv->lock is taken from hardirq context with a plain spin_lock() in
+netc_timer_isr(), and that handler can spin in the register drain loop in
+netc_timer_handle_etts_event():
+
+drivers/ptp/ptp_netc.c:netc_timer_handle_etts_event() {
+	while (netc_timer_rd(priv, NETC_TMR_STAT) & TMR_STAT_ETS_VLD(index))
+		etts = netc_timer_rd64(priv, NETC_TMR_ETTS_L(index));
+}
+
+So while CPU A sits in netc_timer_get_current_time() waiting on
+spin_lock_irqsave(&priv->lock) with softirqs disabled and the global list lock
+held, CPU B can be inside netc_timer_isr() holding priv->lock for a period
+bounded only by hardware. During that window every other Timer's probe(),
+remove() and every other time query is serialized behind
+netc_timer_list_lock. The same applies if the target function is unreachable
+and the non-posted read stalls until the PCIe completion timeout.
+
+Would an RCU-protected lookup (with the priv free deferred in remove()), or
+taking a reference on the Timer, give the same lifetime guarantee without
+holding a global lock across the register access?
+
+Related to that: the BH-only requirement makes the exported symbol illegal
+from hardirq or with interrupts disabled, but that constraint appears only in
+the kerneldoc and is not visible at the prototype in
+include/linux/fsl/netc_global.h, and nothing but an eventual WARN from
+__local_bh_enable_ip() catches a violation. Is there a reason not to drop the
+context restriction by using a lookup scheme that does not disable BH?
+
+> +
+> +	list_for_each_entry(tmp, &netc_timer_list, node) {
+> +		if (tmp->pdev == pdev) {
+> +			priv = tmp;
+> +			break;
+> +		}
+> +	}
+
+[Severity: Low]
+This isn't a bug, but the lookup is a bare pointer comparison on a
+caller-supplied struct pci_dev *, so its soundness depends on the caller
+holding a reference on @pdev. The in-tree consumer does hold one
+(netc_get_ptp_timer() obtains it with pci_get_domain_bus_and_slot() and
+drops it with pci_dev_put()), so nothing is broken today.
+
+Could the kerneldoc and the exported prototype state that the caller must
+hold a reference on @pdev? Without it, a future caller that caches a raw
+pci_dev pointer has no hint that a freed and recycled pointer could match a
+different Timer's entry.
+
+> +
+> +	if (!priv) {
+> +		err = -ENODEV;
+> +		goto netc_timer_list_unlock;
+> +	}
+> +
+> +	spin_lock_irqsave(&priv->lock, flags);
+> +	*ns = netc_timer_cur_time_read(priv);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+
+[Severity: Medium]
+Can this return 0 together with a meaningless timestamp when the Timer
+function is not accessible?
+
+List membership only proves the pci_dev is bound to this driver: the entry is
+added at the end of netc_timer_probe() and removed only in
+netc_timer_remove(). netc_timer_driver registers no PM callbacks, so system
+suspend takes the PCI core default path and the function is disabled and put
+into D3 while the list entry stays live, and nothing re-programs
+TMR_CTRL[TE], CK_SEL, TMR_ADD or TMR_CNT on resume. The driver already
+documents the constraint in netc_timer_init():
+
+drivers/ptp/ptp_netc.c:netc_timer_init() {
+	/* Software must enable timer first and the clock selected must be
+	 * active, otherwise, the registers which are in the timer clock
+	 * domain are not accessible.
+	 */
+}
+
+The same holds for a surprise-removed function or one contained by DPC/AER,
+where the read returns all-ones. In those cases the helper still reports
+success, and the switch side consumes the value verbatim as the one-step Sync
+originTimestamp in netc_port_onestep_work():
+
+drivers/net/dsa/netc/netc_ptp.c:netc_port_onestep_work() {
+	NETC_SKB_CB(skb)->tstamp = tstamp;
+}
+
+Would it make sense to gate the read on pdev->current_state == PCI_D0 and
+!pci_channel_offline(pdev), or on TMR_CTRL[TE], and return an error instead
+of a successful-looking value? The missing PM support is not introduced by
+this patch, but the new export is what turns an inaccessible-device read into
+a timestamp handed to another driver.
+
+> +
+> +netc_timer_list_unlock:
+> +	spin_unlock_bh(&netc_timer_list_lock);
+> +
+> +	return err;
+> +}
+> +EXPORT_SYMBOL_GPL(netc_timer_get_current_time);
+> +
+>  MODULE_DESCRIPTION("NXP NETC Timer PTP Driver");
+>  MODULE_LICENSE("Dual BSD/GPL");
+> diff --git a/include/linux/fsl/netc_global.h b/include/linux/fsl/netc_global.h
+> index 5b8ff528d369..d4a26c17f99a 100644
+> --- a/include/linux/fsl/netc_global.h
+> +++ b/include/linux/fsl/netc_global.h
+> @@ -6,6 +6,7 @@
+>  
+>  #include <linux/io.h>
+>  #include <linux/io-64-nonatomic-lo-hi.h>
+> +#include <linux/pci.h>
+
+[Severity: Low]
+This isn't a bug, but is the full <linux/pci.h> needed here? The prototype
+and the stub only name struct pci_dev *, so a forward declaration of
+struct pci_dev plus <linux/errno.h> for -ENODEV would be enough.
+
+netc_global.h otherwise holds only the netc_read()/netc_write()/netc_read64()
+inlines, and it is included by drivers/net/dsa/netc/netc_switch.h,
+drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c,
+drivers/net/ethernet/freescale/enetc/ntmp.c and drivers/ptp/ptp_netc.c, so
+all four now pull in the PCI API.
+
+Would a separate header such as include/linux/fsl/netc_timer.h be a better
+home for an inter-driver service API than the register accessor header?
+
+>  
+>  static inline u32 netc_read(void __iomem *reg)
+>  {
+> @@ -22,4 +23,13 @@ static inline u64 netc_read64(void __iomem *reg)
+>  	return ioread64(reg);
+>  }
+>  
+> +#if IS_REACHABLE(CONFIG_PTP_NETC_V4_TIMER)
+> +int netc_timer_get_current_time(struct pci_dev *pdev, u64 *ns);
+> +#else
+> +static inline int netc_timer_get_current_time(struct pci_dev *pdev, u64 *ns)
+> +{
+> +	return -ENODEV;
+> +}
+> +#endif
+> +
+>  #endif
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260918072852.501420-1-wei.fang%40oss.nxp.com
 
