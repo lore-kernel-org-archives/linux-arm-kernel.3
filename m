@@ -4,67 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CA6C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06553C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqQKW3z5hnKtOh1Yrt4+LANIYob4MMKL9Db4+xJiKME=; b=Pa2+xiYiBjMAJi8NsAhuqpwUSw
-	FM0UJUkL2gFa4JMUekIW1C7Ais0Bp1csdzD2PEplBNIqQ3JTdbL/0X1lyZ6edxiSQvorw5pTSeqV9
-	J2GoSJBVuQ0qQLmJsdz9J00jf9dZx725jHYnr5lsy2RkhytWZPKqwwnZjiO+Ai5c9eNhwrOvnsrYR
-	ik0MkGDkSKg770si9K+YbdYWBxcEuXs1RHKn6JqUT9IGYhKzw/2wo9hZ6aqnFx97T6A22UoAkcNbB
-	XQdSUo5mebcGpzZbQwrDNS9/GN1PGjnQDEKO9ZUrIL+DscDLidmQgeqWYb0Ydww/HKqjFG0IDYeW3
-	OkhohpOg==;
+	bh=mdCpsV3oeBbM/txrF6zviMQFbYf9Gv0D67sVl5aM3Fk=; b=yf7Qzqmwf+6itMp2wWDTtnSWp7
+	yXT3hNrAl/FKnNntmY1A+HEFqzMo0ILXjKmXlofCk1ZHONititcIXv6ddy6lzc7UOFnAqSamVzAtS
+	3tJEQHfaP+talCGZjdFHJt9G1s7+Yj3XqmtUz/mAb2Xj+Jo/VX06a4BKCtPqdLPjMF+cLG7ADaF4U
+	GS6eZdnACCqhQed6hWuuqq3Ux5/bHYgVLCNzFFKaewH9VQbwL/UCJwzJoqZkY+j0V5p+rivrOYrcJ
+	vwAZ2KNW2WfQ2P/WtThq6eH/fPGG+kV9qI3JnGDsdU2jrZ6W+FLVrDL7C4SybU82ZTng00SzntkkJ
+	Raait67A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xvU-000000055Ff-2b0C;
-	Tue, 22 Sep 2026 10:40:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xvR-000000055Ei-3GP3;
-	Tue, 22 Sep 2026 10:40:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 081181476;
-	Tue, 22 Sep 2026 03:40:33 -0700 (PDT)
-Received: from [10.0.152.207] (e121487-lin.cambridge.arm.com [10.0.152.207])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9F083F632;
-	Tue, 22 Sep 2026 03:40:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790073636; bh=6SHOXZRwGSLZUhiOFQuc5mbQU1ywz+XYMnYI1L3G3jg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gq6DozBfbVooCvSLzrCn05HPEV9yYD5seyMJI6wgjyrWj+9DV1MaiHQt7kvPhWL4Z
-	 DF4RfOOj2MaZoW9zqpStsUdXgD8DoSBMHYjrIQaiu39hBciSiW8RNvJ0yDjxmvrF53
-	 N6wni7Sz1iYBcVCFCgbmy6Syk007BX7q62oyBGJk=
-Message-ID: <8ca7bd18-ad17-4aa2-b184-9fd13921828f@arm.com>
-Date: Tue, 22 Sep 2026 11:40:33 +0100
+	id 1x8y7y-000000057BG-2hly;
+	Tue, 22 Sep 2026 10:53:34 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8y7w-000000057Ai-1Zsh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Sep 2026 10:53:33 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469a3490bso4142704b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 03:53:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790074411; x=1790679211; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mdCpsV3oeBbM/txrF6zviMQFbYf9Gv0D67sVl5aM3Fk=;
+        b=MfKKbV33TWpS6k5TK+KZRS37zTM//acECo7GibU+ny92zHhAzLUBG0C16ovu/Vf984
+         7QPUaxWAltpOfXSpCIQIJisRvf7WRGfZaI1ahcm/1rOxknmLgbo0DEoGP5t6GuVZ4PXN
+         eyQgSzMexgSsjkCnWhp8kD/eSE295GesZ/p/ZNHbHJYNquBXkLRaFPwWwt8/Fz3O0SQ6
+         zwQsF8NjrFDRl0N7CUipZkpNi+kPCXBi4VrkXmj8LKNFHSezcA4kwNT50BQxE8bec0jp
+         1ced27op/TE8OsRuPuG1DMSIUpBh6DNOAEQRGh0GgbGGMwbm6uUr0dImgWSmWk7mB9XS
+         Ux4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790074411; x=1790679211;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mdCpsV3oeBbM/txrF6zviMQFbYf9Gv0D67sVl5aM3Fk=;
+        b=k66jKlDrWwsrY6bw4XHLowwuYZoI4joJWw/kExnThbPuQuZONzGnEHF++m70R3xdvs
+         Vh+rp65WWP7c0vfZN/Kt6xm0IIIUzJXfsdez+Cvq5wIbckXlewJcVfMEzrxF1GTcWUlq
+         mk08YFFIQ+yD/If9jMi3CPgD+Z4dOx1zs2p3nZfR8maZqZaAK39rOeErJCDNr35tY9Gk
+         HL/evymiKUCeE02RC5ft7iWQlnR6ouM3DUnvbm2i6R8ichl4tMQnSe2POdjCSqUHQS/l
+         hnSZAnry423sUSzryIsCQA3V5hyU+x67bN4xyxHjGRm0RQo5E8BtvA+SqYURENUIbSS8
+         CFSg==
+X-Forwarded-Encrypted: i=1; AKwUvBy1dEX3hUJXAc3OWNrckNqI/nRyB5CwrxPqeT6s1/oa0oiJ6G8WCJZLfrhn2rTKunOBLqXN+00+maVHixbA4tGZ@lists.infradead.org
+X-Gm-Message-State: AFuF++nrwLD0pIbKMIwbN1IHTkWvQFiI6Ba7UMqPK3N8wLmNZVMLPsHH
+	ufZd9jAsmeMtS3+i8qWQo0P6ejj85kcXp4N90uh1YB5HkrSAx6As5/1v
+X-Gm-Gg: AYBFou3ZqVaB/rcfVQ5Oonyef0nl8GxmbbX/kuklA1at+nQZ6SsCDwmCXYyv/eDP0gK
+	c8wnc1TJXx02EaEEFXWo/nzdwRIguo4oYygD5wxxlVUTxx547Rr5tGylsZeBLryGnxNO/IsqDNS
+	W02PZb3zDIgw83edk1ZoURSbThuEBTIA9RXq6kWAJycsVu6hdSAnoOe8L00lA98eM3jCtRUtvsh
+	iQMCSNMDtzM/5XLWLNwQVnlfbwYjg3H65nM2mOaHaPxKnl4qHs1rFTjrHvXYXxl1AbyklcFrrIn
+	VNv8pGg3Ogmm0NFvlvmKTdVWgH8exiX50rP4Sao5rpZD7ARbPyYohepuMJBOWDGgMtumfXZRPyv
+	8KGGvPlWxV6n3ir+2e8/nh2Dz/+lshnM1rt6ZR1+7MdNpv7FPh39Q8J08+X9u8tNiMFkerFYdXv
+	bWVuBqdk4SJkMlontEJ5capkR2xXF9FmHvZh+aEvZg/lG3XGIade9/VC5wd/v0iFMfuUp0Ou9Ck
+	Lbpxrl/zsg4UoZzDeYenLIQ86pcMcxdOp4xe58=
+X-Received: by 2002:a05:6a00:1743:b0:879:ffd9:1282 with SMTP id d2e1a72fcca58-87c819bc726mr913524b3a.8.1790074411386;
+        Tue, 22 Sep 2026 03:53:31 -0700 (PDT)
+Received: from localhost.localdomain ([2409:8a1e:2e81:7320:e5f5:eb9b:fe8e:9197])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87cd584f183sm2302b3a.41.2026.09.22.03.53.27
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 22 Sep 2026 03:53:30 -0700 (PDT)
+From: Yuchao Zhang <ndaugoing@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	sashiko-reviews@lists.linux.dev,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuchao Zhang <ndaugoing@gmail.com>
+Subject: Re: [PATCH] KVM: selftests: arm64: Add test for cross-vCPU LPI disable race
+Date: Tue, 22 Sep 2026 18:53:22 +0800
+Message-ID: <20260922105322.40484-1-ndaugoing@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260922102959.41FFA1F000FF@smtp.kernel.org>
+References: <20260922102959.41FFA1F000FF@smtp.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [BUG/PATCH] drivers/usb/mtu3: Work around mtu3_log_ep
- double-indirection issue
-To: paulmck@kernel.org, Mark Rutland <mark.rutland@arm.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
- Chunfeng Yun <chunfeng.yun@mediatek.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <a3ee0655-d818-48e0-84d1-475e6c16c991@paulmck-laptop>
- <d7bb2cf4-11c3-468c-8749-99cc408299c7@arm.com>
- <b6c621eb-6d20-4e00-ac05-af122b630ca5@paulmck-laptop>
- <aae79c1c-8738-4b97-b1b9-d82d19d82d49@arm.com>
- <20260909093524.249c2a1a@gandalf.local.home>
- <arE4jcn4dCD9gos_@J2N7QTR9R3.cambridge.arm.com>
- <297673dd-6bcc-471a-9db0-980da3242339@paulmck-laptop>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <297673dd-6bcc-471a-9db0-980da3242339@paulmck-laptop>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_034037_916706_429100FE 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20260922_035332_417787_EBBBD638 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,66 +111,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/21/26 17:14, Paul E. McKenney wrote:
-> On Mon, Sep 21, 2026 at 03:00:45PM +0100, Mark Rutland wrote:
->> On Wed, Sep 09, 2026 at 09:35:24AM -0400, Steven Rostedt wrote:
->>> On Wed, 9 Sep 2026 11:31:28 +0100
->>> Vladimir Murzin <vladimir.murzin@arm.com> wrote:
->>>
->>>> I've done a little bit massaging and here is what worked for me
->>>>
->>>>
->>>> diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
->>>> index 89870175d635..4d4bae25fa1f 100644
->>>> --- a/drivers/usb/mtu3/mtu3_trace.h
->>>> +++ b/drivers/usb/mtu3/mtu3_trace.h
->>>> @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
->>>>                 __field(unsigned int, flags)
->>>>                 __field(unsigned int, direction)
->>>>                 __field(struct mtu3_gpd_ring *, gpd_ring)
->>>> +               __field(dma_addr_t, gpd_ring_dma)
->>>>         ),
->>>>         TP_fast_assign(
->>>>                 __assign_str(name);
->>>> @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
->>>>                 __entry->flags = mep->flags;
->>>>                 __entry->direction = mep->is_in;
->>>>                 __entry->gpd_ring = &mep->gpd_ring;
->>>> +               __entry->gpd_ring_dma = mep->gpd_ring.dma;
->>>>         ),
->>>>         TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
->>>>                 __get_str(name), usb_ep_type_string(__entry->type),
->>>>                 __entry->maxp, __entry->slot,
->>>>                 __entry->mult, __entry->maxburst,
->>>> -               __entry->gpd_ring, &__entry->gpd_ring->dma,
->>>> +               __entry->gpd_ring, &__entry->gpd_ring_dma,
->>>>                 __entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
->>>>                 __entry->flags & MTU3_EP_STALL ? 'S' : 's',
->>>>                 __entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
->>> LGTM,
->>>
->>> Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
->> On v7.3-rc4 I still see the splat Paul reported initially, and the above
->> fixes that, so FWIW:
->>
->> Tested-by: Mark Rutland <mark.rutland@arm.com>
->>
->> Steve, I assume you were expecting someone to send the above as a full
->> patch.
->>
->> Paul, do you intend to send a v2, or should Vladimir send out his
->> version as its own patch? I assume you're happy with a Reported-by, if
->> he does that?
-> I figure that Vladimir's patch supersedes my hack, and so I would be
-> quite happy with Vladimir sending a formal patch with my Reported-by.
-> 
-> 							Thanx, Paul
-> 
+Thanks for the Sashiko review. All three points are legitimate; v2 addresses them:
 
-Thanks everyone, formal patch is out
+1. INVALL/SYNC on unmapped collection:
+Agreed - INVALL for collection 1 was a command error that stalls the
+virtual ITS queue. v2 only sends INVALL and SYNC for TARGET_VCPU_ID
+(the only mapped collection and the only vCPU receiving ITS commands);
+unmapped collections and untouched vCPUs are skipped.
 
-https://lore.kernel.org/linux-arm-kernel/20260922103756.104846-1-vladimir.murzin@arm.com/T/#u
+2. configure_lpis() overflow via -e:
+Agreed. v2 bounds-checks the -e argument in main() (must fit in one 64K
+ITT page) and adds an explicit assertion in configure_lpis() that
+nr_lpis <= SZ_64K to guarantee the property table is never overrun.
 
-Cheers
-Vladimir
+3. Silently ignored KVM_SIGNAL_MSI failures:
+Agreed in spirit. Injection failures are expected during the brief
+window where the disable path has invalidated the ITS caches and the
+guest has not yet remapped them. v2 counts successful injections
+(checking KVM_SIGNAL_MSI return value > 0) and asserts at the end
+that at least one succeeded, so a permanently broken environment can
+no longer yield a false pass.
+
+Additionally, v2 re-establishes the ITS mappings after every
+EnableLPIs toggle. Without this, the disable path's cache invalidation
+kills all mappings after the first iteration and the MSI flood goes
+silent - now the overflow window exists on every iteration, matching
+the re-initialisation sequence a real guest performs on re-enable.
+
+Tested status is unchanged: no KVM-capable hardware available, so
+compile- and TCG-plumbing-tested only; no Tested-by.
+
+pw-bot: cr
+
+Thanks,
+Yuchao
 
