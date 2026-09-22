@@ -4,83 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01EB9C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8728C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9k+hwbqCNy5PVLo73PwdABXDaZg+KPi4NbbBgA/NyFU=; b=BQkRwp9DmGNmj0Nk59qjCUq1Xn
-	zjJC1nV8CajRlbUBHroFIs1Vql4dleFecJsQGTKZqjOl9di2HOUjuV96rTLcuhrj34HQ1GpECkRG6
-	v84wfZei1OE5yxoc/9W7Kba6HV1XT4BTT9EVESqV7zolX9FBje5NAhA9vSYH/RcJWL2m8zDw/x6Zk
-	QpcVfG8Uxlairsahfhndmwc2SLnNuZ3cytqH62HKQv5XTpGUPbn8YCMUP6Ew0dBfTm8zWBnWx2/cl
-	OQqu1cVkcywPEbDLhCuqSjwz5Qm4e4HptjgzSsooAdETOZu5YyA54L1XoshzW31dtP8jBThMHi5Lf
-	yIYJYzpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CpoW39srNxONPYDDUz/TIq2+ZKIxJUqkkB951WdQmPQ=; b=T6w9uO3TH6xjfD2O6IQxr2Rbya
+	2/91p2gJ5sA/xGfvcn1yWMZcGgHtsb8IBehRe/R12msfDVqUo2nolPIYkEE71yAt7gi/WVWgHmQop
+	GYCElOQGv+3lAw8Aw8IIhNJdi4LPhO8uxLGVbAMjr4hr8jtQ+23gmbytcFR4Gr9/yAYk+SjZXrnMy
+	D3XOFwpVZzQMMHrLch09ZbWCVwvMuL68wKvRGASuNSXAPYSvXTgGYvbnn6BMKiKDh+I8Q8d2P/Ke4
+	5KYDtB3zQ7ngSN8poNOuPvCI2zfqErf/r1RH7Xz5IL9TA1k2OwrYC5XUmLjn1YKm/50eJrpkOOlG4
+	WmG5enTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90J7-00000005S7z-3ViQ;
-	Tue, 22 Sep 2026 13:13:13 +0000
-Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
+	id 1x90Lx-00000005UFC-1foZ;
+	Tue, 22 Sep 2026 13:16:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90J0-00000005S2n-1sAZ
+	id 1x90Lv-00000005UE2-2ue0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:13:07 +0000
-Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6a9b5240fb3so5216623a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:13:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790082784; x=1790687584; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9k+hwbqCNy5PVLo73PwdABXDaZg+KPi4NbbBgA/NyFU=;
-        b=ipAyKZbhX945HE+fzMGswM7QotFiKhQ5/MkzbWBPk788jAwy7/XWiBLKFchtpiLIQt
-         tfZYgfIbRrg35JgEweFJd3fi0Qs+vtOOyog7IqX9cNk6bvcRLXH6Q+KVTZ3BxteSncmV
-         GnHPVWQBtmqPcq7otPOUcLWXvy4e/VfCtJAlciLHcDYDEGgGTQ0ZaYQXb4wzz5P6o6AH
-         tt1cJv3mwWJOuODNasPqMj7nes3ePAg4yhIEP2A74D/7rTenNp5jIUqSHOD59v8RtxYM
-         4zsQ+H7RbcIn61mZ/zNt+jB7fQDGMyjIlC/1uWNSBRyqGuYclqq4/hnluF3G1wA2FYW+
-         Ni1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790082784; x=1790687584;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9k+hwbqCNy5PVLo73PwdABXDaZg+KPi4NbbBgA/NyFU=;
-        b=YMZnakpwvVPKTLwNj3IunapiZ8QRrrXN1/bib4ljulgtauRm9ELJOuX4wH7SNS8G9e
-         /hw/FxAPPMQPIvRMBDvyTSWQiP6KFXcCjVwKdtfZrquEm701EBmpl2lMfTVcPDaDXn7Q
-         xtQkFx1VOSdu8sankh5obkkTBEsgkOSAr9fEtJLQJumWiZMZBsLNHJUO2pFCG7l88Hv8
-         705OKCo50wSIHVRZQPSheWXBxpNQ7vWQI5T7CzbzoNza4KWR7/FMn5xLwrOcCmVstWBK
-         dISGzi98ke+q1HDweAwv1jx9W1xpijo4XT1o0RYdhjtQNGm9wKv9Us+FpGqANccbqy8t
-         R2uQ==
-X-Gm-Message-State: AFuF++kleGkN7uDfX3Qnb+ulEZK0OA7wGS6cM4KoI8Ovg3Zj7kmLjG4p
-	VceTa0KwlAqmfAuv0kp6D/1+eyJvdaD6uCJraCvIpTZ2Bw7GWhnccak23eKctFQUZ42igWbkdcR
-	pqwU+Rgg1GbhyhmaRXBCsNrn4znWqupH6IAalGv4jaKI8QkejCH3QOi7WBWlKR8UmxgygAqlb/J
-	BFzOZ1qqRmHNE1EC3TyCfCpNZriEfXYQT4awvjuXbk4Jlju3ZJV/Z2/3CDdyTe7QtcHw==
-X-Received: from edqi12.prod.google.com ([2002:aa7:c70c:0:b0:6a6:8910:5903])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:354f:b0:6a6:21d9:541f with SMTP id 4fb4d7f45d1cf-6aa57808b40mr13962900a12.6.1790082783578;
- Tue, 22 Sep 2026 06:13:03 -0700 (PDT)
-Date: Tue, 22 Sep 2026 13:12:34 +0000
-In-Reply-To: <20260922131259.2975334-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260922131259.2975334-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922131259.2975334-2-smostafa@google.com>
-Subject: [PATCH v8 01/25] KVM: arm64: Donate MMIO to the hypervisor
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev
-Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca, mark.rutland@arm.com, 
-	qperret@google.com, tabba@google.com, vdonnefort@google.com, 
-	sebastianene@google.com, keirf@google.com, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_061306_523483_DB242261 
-X-CRM114-Status: GOOD (  26.06  )
+	Tue, 22 Sep 2026 13:16:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E27D160200;
+	Tue, 22 Sep 2026 13:16:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDD861F000FF;
+	Tue, 22 Sep 2026 13:16:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790082966;
+	bh=CpoW39srNxONPYDDUz/TIq2+ZKIxJUqkkB951WdQmPQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Q/dBf3NT/Ww+wRcc5uIHgrhtruBIFGlacnFvR7ih8VMAa7hijobiF9dvVF7dhvzZl
+	 n39/4D1yuLsOy1Ul9HczA19TRaq0OArc3EocFRog4HWjQg46B93Jsnz1nVFzMJ4zNN
+	 ELWifKxNMlpGjDhfVWJ2HyvpFVRg3yFsj+h+VfwlDBPTFcnhF6kPqgwDXAO3WkEeG1
+	 ei10QNgeiD1sj5fFTk7IO75osGIsVO0jTCdukJ30XsTym+1VUSNjAnyy3B+RJKXhm9
+	 b3/iN7ikP8P4ZLatk5n9VpJzC1lCEd6+fobw95uX8hsZbBZ38q4WTrUu+zjnYXqIbz
+	 TLzAQpbyGxjlQ==
+Message-ID: <2135509e-2689-4258-ab00-011d47f4b172@kernel.org>
+Date: Tue, 22 Sep 2026 15:15:55 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 02/25] firmware: arm_scmi: Allow registration of
+ unknown-size events/reports
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+ f.fainelli@gmail.com, vincent.guittot@linaro.org, etienne.carriere@st.com,
+ peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org,
+ elif.topuz@arm.com, lukasz.luba@arm.com, philip.radford@arm.com,
+ souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+ puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+References: <20260920091928.2014972-1-cristian.marussi@arm.com>
+ <20260920091928.2014972-3-cristian.marussi@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260920091928.2014972-3-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,197 +123,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
-drivers can protect and access the MMIO of IOMMUs.
+On 9/20/26 11:19, Cristian Marussi wrote:
+> Allow protocols to register events with build-time unknown sizes: such
+> events can be declared zero-sized and let the core SCMI stack perform the
+> needed safe-net boundary checks based on the configured transport size.
 
-As donating MMIO is very rare, and we don't need to encode the full
-state, it's reasonable to have a separate function to do this.
-It will init the host s2 page table with an invalid leaf with the owner ID
-to prevent the host from mapping the page on faults.
+ok, so we have a maximum message size defined by the transport. We'll use that
+as payload size, and the report size just gets the additional ktime_t.
 
-Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
-stage-2 PTEs, as this can be triggered from recycle logic under memory
-pressure. There is no code relying on this, as all ownership changes are
-done via host_stage2_set_owner_locked().
 
-For the error path in IOMMU drivers, add a function to donate MMIO
-back from hyp to host. However, that leaks the hypervisor virtual
-address range which should be acceptable as this is quite rare and
-it matches the behaviour of fix_map/block.
+>  	pd = scmi_allocate_registered_events_desc(ni, proto_id, ee->queue_sz,
+> @@ -807,7 +821,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+>  		mutex_init(&r_evt->sources_mtx);
+>  
+>  		r_evt->report = devm_kzalloc(ni->handle->dev,
+> -					     evt->max_report_sz, GFP_KERNEL);
+> +					     evt->max_report_sz ?: max_report_sz,
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/include/asm/kvm_pgtable.h          |  1 +
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 93 ++++++++++++++++++-
- arch/arm64/kvm/hyp/pgtable.c                  | 11 +--
- 4 files changed, 105 insertions(+), 7 deletions(-)
+Having two similarly named variables is a bit confusing. I wonder if you can
+somehow make it clearer in the latter case that it is the max_report_sz
+according to the transport.
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb..223072b3e2cd 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -712,6 +712,7 @@ int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
-  * containing the cleared entry is decremented, with unreferenced pages being
-  * freed. Unmapping a cacheable page will ensure that it is clean to the PoC if
-  * FWB is not supported by the CPU.
-+ * This function can't be used to clear invalid counted PTEs (annotations).
-  *
-  * Return: 0 on success, negative error code on failure.
-  */
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 29935c7da1de..072f4b0e72c2 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -36,6 +36,13 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
- int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
- int __pkvm_host_unshare_hyp(u64 pfn);
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
-+/*
-+ * Donate MMIO range to the hypervisor, it will be mapped in the hypervisor's
-+ * private range and unmapped from the host stage-2.
-+ */
-+int __pkvm_host_donate_hyp_mmio(u64 pfn, u64 nr_pages, unsigned long *haddr);
-+/* Remaps MMIO range in the host, typically used in error path. */
-+int __pkvm_hyp_donate_host_mmio(u64 pfn, u64 nr_pages);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
- int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
- int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 39aa8911f62c..c1a8fd811c0f 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -385,7 +385,11 @@ static int host_stage2_unmap_dev_all(void)
- 	u64 addr = 0;
- 	int i, ret;
- 
--	/* Unmap all non-memory regions to recycle the pages */
-+	/*
-+	 * Unmap all non-memory regions to recycle the pages.
-+	 * That relies on kvm_pgtable_stage2_unmap() not clearing
-+	 * counted PTEs which include hypervisor MMIO.
-+	 */
- 	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
- 		reg = &hyp_memory[i];
- 		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
-@@ -1126,6 +1130,93 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
- 	return ret;
- }
- 
-+int __pkvm_host_donate_hyp_mmio(u64 pfn, u64 nr_pages, unsigned long *haddr)
-+{
-+	u64 phys = hyp_pfn_to_phys(pfn);
-+	u64 size = PAGE_SIZE * nr_pages;
-+	kvm_pte_t pte;
-+	u64 offset;
-+	int ret;
-+
-+	/* Only before de-privilege. */
-+	if (static_branch_unlikely(&kvm_protected_mode_initialized))
-+		return -EPERM;
-+
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
-+	ret = __pkvm_create_private_mapping(phys, size, PAGE_HYP_DEVICE, haddr);
-+	if (ret)
-+		return ret;
-+
-+	host_lock_component();
-+	for (offset = 0; offset < size; offset += PAGE_SIZE) {
-+		if (addr_is_memory(phys + offset)) {
-+			ret = -EINVAL;
-+			goto unlock;
-+		}
-+		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys + offset, &pte, NULL);
-+		if (ret)
-+			goto unlock;
-+		if (pte && !kvm_pte_valid(pte)) {
-+			ret = -EPERM;
-+			goto unlock;
-+		}
-+	}
-+	/*
-+	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
-+	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
-+	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
-+	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
-+	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
-+	 */
-+	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
-+			      phys, size, &host_s2_pool,
-+			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
-+			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
-+unlock:
-+	host_unlock_component();
-+	return ret;
-+}
-+
-+int __pkvm_hyp_donate_host_mmio(u64 pfn, u64 nr_pages)
-+{
-+	u64 phys = hyp_pfn_to_phys(pfn);
-+	u64 size = PAGE_SIZE * nr_pages;
-+	kvm_pte_t pte;
-+	u64 offset;
-+	int ret = 0;
-+
-+	if (static_branch_unlikely(&kvm_protected_mode_initialized))
-+		return -EPERM;
-+
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
-+	host_lock_component();
-+	for (offset = 0; offset < size; offset += PAGE_SIZE) {
-+		if (addr_is_memory(phys + offset)) {
-+			ret = -EINVAL;
-+			goto unlock;
-+		}
-+		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys + offset, &pte, NULL);
-+		if (ret)
-+			goto unlock;
-+		if (!pte || kvm_pte_valid(pte)) {
-+			ret = -EINVAL;
-+			goto unlock;
-+		}
-+		if (FIELD_GET(KVM_HOST_DONATION_PTE_OWNER_MASK, pte) != PKVM_ID_HYP) {
-+			ret = -EPERM;
-+			goto unlock;
-+		}
-+	}
-+	WARN_ON(host_stage2_idmap_locked(phys, size, PKVM_HOST_MMIO_PROT));
-+unlock:
-+	host_unlock_component();
-+	return ret;
-+}
-+
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
- {
- 	u64 phys = hyp_pfn_to_phys(pfn);
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd..25af105855e5 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1161,13 +1161,12 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	kvm_pte_t *childp = NULL;
- 	bool need_flush = false;
- 
--	if (!kvm_pte_valid(ctx->old)) {
--		if (stage2_pte_is_counted(ctx->old)) {
--			kvm_clear_pte(ctx->ptep);
--			mm_ops->put_page(ctx->ptep);
--		}
-+	/*
-+	 * This check ignores stage2_pte_is_counted() instead of clearing
-+	 * the PTE as it might be MMIO owned by the hypervisor.
-+	 */
-+	if (!kvm_pte_valid(ctx->old))
- 		return 0;
--	}
- 
- 	if (kvm_pte_table(ctx->old, ctx->level)) {
- 		childp = kvm_pte_follow(ctx->old, mm_ops);
+> +					     GFP_KERNEL);
+>  		if (!r_evt->report)
+>  			return -ENOMEM;
+>  
+> diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
+> index f18f98c5ab3b..c2eb4844c7db 100644
+> --- a/drivers/firmware/arm_scmi/notify.h
+> +++ b/drivers/firmware/arm_scmi/notify.h
+> @@ -18,8 +18,12 @@
+>  /**
+>   * struct scmi_event  - Describes an event to be supported
+>   * @id: Event ID
+> - * @max_payld_sz: Max possible size for the payload of a notification message
+> - * @max_report_sz: Max possible size for the report of a notification message
+> + * @max_payld_sz: Max possible size for the payload of a notification message.
+> + *		  Set to zero to use the maximum payload size allowed by the
+> + *		  transport.
+
+"maximum payload size" is ph->hops->get_max_msg_size(ph) ? Should we call this
+"maximum message size" then?
+
+> + * @max_report_sz: Max possible size for the report of a notification message.
+> + *		   Set to zero to use the maximum payload size allowed by the
+> + *		   transport plus the additional ktime_t timestamp.
+
+Same here.
+
 -- 
-2.55.0.1082.g2b9226bbc0-goog
+Cheers,
 
+David
 
