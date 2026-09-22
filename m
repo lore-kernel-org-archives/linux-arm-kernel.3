@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4A3C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C039BC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HcOkEm8qqnkDKNinM/lYYnC2iu4jAqLUF2hwPidYcKg=; b=e5ogFlN38Tg/u7XSBe2YW/OCwr
-	pJCxy982DSPREhZSb2RCCRgoUMF6nBrIo/WPWN70Dbi5ihdS2ir3GFvYbA73tDYyiYcLsFu68yF7d
-	n3+JGpQrsp3qFFxz8vXQqpcVKffYtAyLbgUlxZSWCfo4amjf2bnReZ6akQLQ+gdR8q9TCjGAhGcuC
-	D3CU9C45Ysh22TVONL7HuetmHkHaaw+kNDAcGuBqe8uOmlquLcaNcml8cUDC7x4NDgLIoR1k3Vi9Y
-	ZvAfCCl1sM5dah9PsQnVUDMCG5lbJIJoK1cs6mpuj5fpoFxGz1Hwr7EvRK0iXnjN8O9cP/FHW/10a
-	WVDNRc1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R4AexOQ3ACPOmP3EG8HHzPByHhgFEckUB6lzdNEoOVg=; b=ZlQ3qS2GphAciUgV3r3kzQiJ9A
+	PLuZ+LYpqnu04pYevL11KTZV/4KaNBgkDZ/RVa7aowkBx2IJkxMf2X/Lemq+FQyaInRFRR0HNQ0jz
+	aCIxhLf8EqUbWnrY9uw1pwEv/214mOFWi5AwlL/7SDq/0h9iyqcVFQ23+txTiFm4U07YrY9vcCOuT
+	Bd3T0FlxV2pzVolgL5rdxcRKqRhuOD3fUFc+RsZJ7lG8CSJGG9tdJUX3c+0eBxTNAKa/CSyxS7MDc
+	U7lo3Wdl/h7H/drBZz2s1k8mvPxILp282UNtbWnDt9zzoI/gbPGo28jx8xj1LFOStQfnt2gugozng
+	WS6jIICQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92rM-00000005xt8-0rRQ;
-	Tue, 22 Sep 2026 15:56:44 +0000
-Received: from sender6-op-o12.zoho.com ([165.173.180.12])
+	id 1x93gJ-000000066OX-1vUB;
+	Tue, 22 Sep 2026 16:49:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92rJ-00000005xsO-213A
+	id 1x93gH-000000066OC-2uQ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:56:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790092590; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SBNSYRLDyn0P37lpEGHmWsi9paZfOeq3PlN3XSnJDHvL/N+A02GAo8dOcPTx2meHwg6lDLrJX+x00lZuA+PHD1jfHrZopnXvcx+pMwxHAGwIx6wRKckBfmW9H4JT1rAmS8cbp8dvo55wyqSU1c/kBCy0nOnFpzq85fTnf8RETAU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790092590; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=HcOkEm8qqnkDKNinM/lYYnC2iu4jAqLUF2hwPidYcKg=; 
-	b=BRCINSej5gYImZZZBFideTeHtJ490z6zhhv5G0GM1E4V23dHBPGHI5b7fYI1MZuAZysHqg5amQsWCmzpxy8wxtZaRUBcpsbqhROmon2LgqfTWkxjz8VS6iZqJRJjdVhxP/SiLfM53CpxUnuk8oAK9NU0Kn9yu3PhO6aXmJDla3k=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790092590;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:In-Reply-To:Reply-To;
-	bh=HcOkEm8qqnkDKNinM/lYYnC2iu4jAqLUF2hwPidYcKg=;
-	b=ILEHrA5r8EbBQVLFetBKDax6gRjI9cFrWXgJ9vLYIKqFjUnxHsXRwmwtaL6JiM1+
-	vLKrFHIS4fXI5RYXHOQwoh++I5lCMriG+FfjNOnjLHlKHImtZEUfKgqDnWgHiUwnmC1
-	FysxFmuN9FFjgi1o9167W+6f/IBQFQKCm3QeGIaw=
-Received: by smtp.zohomail.com with SMTPS id 1790092587188860.0530086011092;
-	Tue, 22 Sep 2026 08:56:27 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 22 Sep 2026 23:56:20 +0800
-Message-Id: <DLLYUYMR3CZT.17I8APGBH9H8S@pigmoral.tech>
-Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney"
- <bmasney+clk@redhat.com>, "Jerome Brunet" <jbrunet+clk@baylibre.com>,
- "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, "Andre
- Przywara" <andre.przywara@arm.com>, <linux-clk@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 7/8] clk: sunxi-ng: a733: Add bus clock gates
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Enzo Adriano" <enzo.adriano.code@gmail.com>, <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.22.0
-References: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech>
- <20260921-a733-clk-v4-7-9c184ebe9ac1@pigmoral.tech>
- <20260921200512.3179109-1-enzo.adriano.code@gmail.com>
-In-Reply-To: <20260921200512.3179109-1-enzo.adriano.code@gmail.com>
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_085642_032148_8532FE3C 
-X-CRM114-Status: GOOD (  23.26  )
+	Tue, 22 Sep 2026 16:49:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A4ED96022A;
+	Tue, 22 Sep 2026 16:49:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A231F000FF;
+	Tue, 22 Sep 2026 16:49:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790095760;
+	bh=R4AexOQ3ACPOmP3EG8HHzPByHhgFEckUB6lzdNEoOVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DI4wOHa1jlK/tZ5Aohia2c4vC/sHBoYOV9lXGW5rdftXypESRR6UQTmXvokxO+0ST
+	 jOKi/wnZW31ZepETxPHNJABRK2qKpaizlemVBP1OZFMUizMAXM0XK1KsWR5BL8D1g8
+	 5m1jdNshgWjb94mV6ixKg2nVbUzZGQTXrYcA8T5hDQvy7RAa/amsAsjuB5F+I5m16Y
+	 M2Q3xlmgjCkFSt2RwjYS7Dl3/nfeljdJpacgDE0pEUddYmHhL578RG/Iq2txVLYeAJ
+	 nUtZFx/YPSggq+ZMlbJLVN/ujZIZyyrsSRCrxvZqAxTrsg+K1NT3pX5+jGFMUT5hK+
+	 HIyhaHcp1jzAQ==
+Date: Tue, 22 Sep 2026 09:49:18 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Jack Thomson <jackabt@amazon.com>,
+	Jack Thomson <jackabt.amazon@gmail.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Leo Soares Passos <Leo.Bras@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: Re: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
+Message-ID: <arKxjsxuO1F5ExrY@kernel.org>
+References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
+ <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Enzo,
-Thanks for testing and for the feedback.
+Hi Lorenzo,
 
-On Tue Sep 22, 2026 at 4:05 AM CST, Enzo Adriano wrote:
-> Hi Junhui,
->
-> I tested the exact v4 series on a Radxa Cubie A7S. I used v7.3-rc1,
-> applied the four-patch A523 single-divider prerequisite, this eight-patch
-> series, and Andre's current seven-patch A733 pinctrl series. The test DT =
-is
-> a minimal Cubie A7S harness with the main and R CCUs, RTC, pinctrl, UART0=
-,
-> and MMC0. The Image, DTB, and initramfs were loaded into RAM from U-Boot.
->
-> The exact posted stack starts all eight CPUs, probes the RTC and the A733
-> pinctrl driver, and binds UART0. Serial output then stops immediately aft=
-er
-> the 8250 driver replaces the boot console:
->
->   sun60i-a733-pinctrl 2000000.pinctrl: initialized sunXi PIO driver
->   printk: console [ttyS0] disabled
->   2500000.serial: ttyS0 MMIO32:0x0000000002500000 ... is a 16550A
->   printk: console [ttyS0] enabled
->   printk: legacy bootconsole [uart8250] disabled
->
-> It never reaches the initramfs `/bin/sh` readiness line. There is no pani=
-c or
-> oops in the captured output.
->
-> As a private comparator, I changed only `ahb_cpus_clk` at 0x5c0 bit 28 to
-> `CLK_IS_CRITICAL`. That advances the same build to:
->
->   clk: Disabling unused clocks
+On Tue, Sep 22, 2026 at 03:17:55PM +0100, Lorenzo Stoakes (ARM) wrote:
+> +bool __weak kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
+> +{
+> +	return true;
+> +}
+> +
+>  void kvm_vcpu_on_spin(struct kvm_vcpu *me, bool yield_to_kernel_mode)
+>  {
+>  	int nr_vcpus, start, i, idx, yielded;
+> @@ -4365,6 +4370,9 @@ static int kvm_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+>  	    range->gpa + range->size <= range->gpa)
+>  		return -EINVAL;
+>  
+> +	if (!kvm_arch_vcpu_allow_pre_fault_memory(vcpu))
+> +		return -ENOEXEC;
+> +
 
-I reproduced the ahb-cpus issue on a Cubie A7A. After disabling
-ahb-cpus, accessing registers in the CPUS domain causes the system to
-hang. Marking it critical allows the A7A to pass clk_disable_unused()
-and reach PID 1.
+nit: it'd be better to let the arch hook return an error of its choosing
+but in reality this is only going to be used by arm64.
 
-I will mark ahb_cpus_clk as CLK_IS_CRITICAL in the next version.
+Not worth a respin on its own though.
 
->
-> but serial output stops there and PID 1 is still not reached. I also adde=
-d
-> private begin/done tracing around each individual enabled clock in
-> `clk_disable_unused_subtree()`. Neither trace marker appears, so the seco=
-nd
-> loss occurs before the first individual unused-clock disable is attempted=
-.
-
-However, I could not reproduce this second failure on the Cubie A7A,
-even after disabling all peripherals except UART0, including MMC0. The
-board passes clk_disable_unused() and reaches PID 1, so I am not sure
-whether the second failure is related to the clock driver.
-
-Could you also try adding `clk_ignore_unused` to the kernel command
-line? This would help confirm whether the second failure is caused by
-disabling an unused clock.
-
->
-> Each run used the same RAM-only payload and was followed by an
-> identity-checked 120-second power recovery. The board returned to its exa=
-ct
-> vendor kernel and eMMC root after all three runs.
->
-> So I cannot add a Tested-by for v4 as posted. The `ahb-cpus` gate appears=
- to
-> be one issue, but marking it critical is not sufficient on this board. Co=
-uld
-> you please check the CPUS/AHB dependency and the path entered immediately
-> after `clk: Disabling unused clocks`? I can retest a focused change or v5=
- on
-> the Cubie A7S.
->
-> Assisted-by: Codex:gpt-5
-> I reviewed this report and take responsibility for its contents.
->
-> Regards,
-> Enzo
-
---=20
-Best regards,
-Junhui Liu
+Thanks,
+Oliver
 
