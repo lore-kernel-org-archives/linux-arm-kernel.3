@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3991C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDF0C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aegPoYsp2AnoEEWdjQn2RZBVdKkWUQvus+hn1ZEnwSM=; b=Slzlmn+NNacBgMn7AJTXu0eAnG
-	HgnSjN/99jXppTcGticzi/MqIxF9y+CoQ8EpgDU0Az+9iv0rLpn+JwabsYfIjL2XyhcOORI1J9XSi
-	waJPHvBaC6hQOo+PEMzIFfINkdpQCMHDnBilhxGGQIoG2ItJZ5AtO3wgpSUHirEIOcnvu5tfPnyDB
-	o6vtyZHRZfzsNLr9SKJfxnHgu89M1QZ/MMvo+QY9sGzYjp9HwPAiCJHzD6qvk3HkKjJ4scutVz6J8
-	NJY0GDR98CzK4/cQPnsM7onG1gjjCukYkMQUaPfIG+g1L9ZsQSsymBdAwq7gCRhRBMRuWxVxZe73u
-	uZiojyqA==;
+	bh=JI7EXFtD8nct3k80/WZ56pI4cZh/f9aZ7DXMwMK2D/8=; b=fRXqMKZYpwfIIcI2eA7LEskP7T
+	9td+ws5VLqnpYHSriJYBm1/a+SA70O5PAVoo9Bz9t6Z6Zhyc2JqOh6Zlva+QXD0evrck3/09HqDiF
+	I31hyWib0c1l+XNzEXtfSuYgjV88wgnYNY/bej6DOPV0mAfw9JvWlwiYSiB+287XpZjtZ5MRROf/s
+	CgQpaeBzEkAN7+BklBpVQBTSG40V7TgDukRpgBawZfmp1Nipxjo7miQWhItgVm17kOwhinqhAackP
+	zASk6dweSm3hwO9JPCt//Q7RktJjbdb65sBzirQsHnaWSWu6NCCrF4CvEpa8q7DsfZzAB8BXI5LPq
+	cUxV9yPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98FI-00000006dJ0-2XUb;
-	Tue, 22 Sep 2026 21:41:48 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x98Ft-00000006dPS-3SnV;
+	Tue, 22 Sep 2026 21:42:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98FF-00000006dIb-0Osv
+	id 1x98Ft-00000006dP8-1vTP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 21:41:47 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B089C1A0FD8;
-	Tue, 22 Sep 2026 21:41:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8312060580;
-	Tue, 22 Sep 2026 21:41:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 25E371032802B;
-	Tue, 22 Sep 2026 23:41:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790113296; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=aegPoYsp2AnoEEWdjQn2RZBVdKkWUQvus+hn1ZEnwSM=;
-	b=KMiykFuYrNaFvXZEd7Sbft6hBWsxxzytH0Ys/Xhr0z3bOKFcnVuSdfYw7bD+naDWkWNhYJ
-	n84P5TUGvw1scqI8EfPzuV479LYCgGGk5GUJnCRbY9dUzSaIWb5FipKg7E055phzyBOiqt
-	LhEnakyQ+kOhCC9IEF6I8f7As5nysxntEIyFFryiSBByWYFj+4eQP/+ULmYJd3jCrrk83t
-	VWoU3HBXXQ/MgHCVyvsb91QAmJ0aVtjs2nNRXx4r0b7/KiZxBYgjsyQi1ginViGeLbb4Zz
-	SjyxzOUNbE8xN/WAv+8dtpz6O7eEZSjcMKQ78BKWIs+qjLgCLgaePW0f7Z7z/A==
-Message-ID: <76dafa51-b20a-4bb1-9c2b-38f2a7d83dab@bootlin.com>
-Date: Tue, 22 Sep 2026 23:41:26 +0200
+	Tue, 22 Sep 2026 21:42:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0738643E88;
+	Tue, 22 Sep 2026 21:42:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73E91F0089B;
+	Tue, 22 Sep 2026 21:42:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790113344;
+	bh=JI7EXFtD8nct3k80/WZ56pI4cZh/f9aZ7DXMwMK2D/8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Ya5A6rHNx7hQ40SvIJCp08q5QFMGYTTckXXph4KY2gDu6gfBuo6pHbHVE55FRlIIK
+	 0FJs516x3zbPr2H+VdN8uEi1zr0nfGid8ZCspHmR6U161Ctkfy/D6YH828AjbOLe6h
+	 0QeBr+NdsmNa4mnM1KzdjZx4boKNVUhZFL/i7z8SVzo7bpaO3AAaqHKg7jNu1cQecE
+	 HTjRa2VzBv/wxCJNbjzzM50SGRDCamXOxv8ZGFQK39twt9M8+shLLpioS30vm5kmE9
+	 uR5B6VdwRXK9HFlb5CehheG2vDKePB7Y3LnhRt9V5e6+y+giEo/Joripla93AIcoJ7
+	 koAKtD6ed0Xhg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x98Fr-0000000CFxJ-0Ehb;
+	Tue, 22 Sep 2026 21:42:23 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Yuchao Zhang <ndaugoing@gmail.com>
+Subject: [PATCH 3/3] KVM: arm64: vgic: Stop the VM when disabling LPIs
+Date: Tue, 22 Sep 2026 22:42:12 +0100
+Message-ID: <20260922214212.3327146-4-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260922214212.3327146-1-maz@kernel.org>
+References: <20260922214212.3327146-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: clear stale buf->page after recycling on
- skb build failure
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Yanteng Si <si.yanteng@linux.dev>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Furong Xu <0x1207@gmail.com>, Larysa Zaremba <larysa.zaremba@intel.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260921-stmmac-fix-napi-build-skb-error-v1-1-3d54bf6d9bb6@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260921-stmmac-fix-napi-build-skb-error-v1-1-3d54bf6d9bb6@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_144145_282404_3406B75A 
-X-CRM114-Status: GOOD (  16.95  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, ndaugoing@gmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Disabling LPIs is pretty nasty, as it directly messes with the AP list
+of the affected CPU, which could be running... This has the potential to
+lead to really bad behaviours, and we should not be doing that.
 
-On 9/21/26 16:46, Lorenzo Bianconi wrote:
-> In stmmac_rx(), when napi_build_skb() fails the descriptor page is
-> recycled back to the page pool with page_pool_recycle_direct(), but
-> buf->page is left pointing at the recycled page, unlike every other
-> consumption site in the function which clears the pointer after handing
-> the page away.
-> 
-> With the stale pointer stmmac_rx_refill() skips the replacement
-> allocation and programs the already-recycled page back into the RX
-> descriptor.
-> 
-> Clear buf->page on the napi_build_skb() failure path to keep the buffer
-> lifecycle consistent with the other consumption sites.
-> 
-> Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1fb5f804ea23..11035b7d944e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5887,6 +5887,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  			if (!skb) {
->  				page_pool_recycle_direct(rx_q->page_pool,
->  							 buf->page);
-> +				buf->page = NULL;
->  				rx_dropped++;
->  				count++;
->  				goto drain_data;
+Take example on the way the Active state is handled and simply pause all
+the vcpus so that we are sure they are all in a quiescent state, and the
+state be safely manipulated.
 
-I'm not expert in the page_pool API, but this seems correct to me, the
-doc says :
+Nobody has any expectation of performance for this anyway.
 
-page_pool_recycle_direct() - release a reference on a page pool page
+Fixes: 96085b949672d ("KVM: arm/arm64: vgic-v3: Retire pending interrupts on disabling LPIs")
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Seems to make sense to cleare the ref from buf->then ?
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> 
-> ---
-> base-commit: 1e24c4f2ee44be0eee94092b5d13cbdb4bdf0d60
-> change-id: 20260921-stmmac-fix-napi-build-skb-error-a02a3e839bd9
-> 
-> Best regards,
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 5913a20d83019..adefc42964732 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -303,9 +303,19 @@ static void vgic_mmio_write_v3r_ctlr(struct kvm_vcpu *vcpu,
+ 		if (ctlr != GICR_CTLR_ENABLE_LPIS)
+ 			return;
+ 
++		/*
++		 * Yes, disabling LPIs is painful, since it can be done from
++		 * a *remote* vcpu! So let's not take any chance, and make
++		 * sure that everybody has written their LRs back to the irq
++		 * structures, and release any reference they would have.
++		 *
++		 * If it hurts, don't do it.
++		 */
++		kvm_arm_halt_guest(vcpu->kvm);
+ 		vgic_flush_pending_lpis(vcpu);
+ 		vgic_its_invalidate_all_caches(vcpu->kvm);
+ 		atomic_set_release(&vgic_cpu->ctlr, 0);
++		kvm_arm_resume_guest(vcpu->kvm);
+ 	} else {
+ 		ctlr = atomic_cmpxchg_acquire(&vgic_cpu->ctlr, 0,
+ 					      GICR_CTLR_ENABLE_LPIS);
+-- 
+2.47.3
 
 
