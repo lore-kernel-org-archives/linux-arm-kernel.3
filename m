@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDAAC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81390C98305
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KlrTUdxs01E/pA1z3Pr9MJkC0zDiUUzoqp93jYKaJpE=; b=oFiXfyohvOS+8oFN9IkUO6dgyC
-	nv6tQdtNyhvfnbTnEXzorTmkLO8SpVs0eWeOd9lBbS5xd80HJn2i1PuRbyBobhmabZhOitSKjfEZN
-	gGnfrR8NwkewFpYed7OvbMe9m5oGZEW44DZKZgJlc+Bc/jkq/Bb+6PmmWHYMMT0TSiLQ6lj5tIvsl
-	KffXg+eYpOpiES2hALxDaVI2LVDake4HNnX0DD/GnLuPKBUaK3RMR7Kf15RH8daN0NxKtCLa7e5ud
-	OU5CO8ufipcQFWMUS1CVW/4x2lfb2vXRcpyyX8epSqSEx+X51MW4S4f8XK2vVAkij+k3NLPIJvpOf
-	KKMvVKLw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pp6BX0mvVT2CZt7W5iAnQc+T8SkoWRi5DiwXWjU82F8=; b=Pea909ScsvQavfPVkhJKyEmaH0
+	qOMTtb5bx4MkDxPe4np257QeoqAbvkXjB8FijwYQ6K3yWjppsn//axB8+mMM7FWQcooc+bZvxVpdc
+	O8ebVLJjgGoLZFi8G+jcyUNGJ2US4rQpQHVcwyWy6f767RHLTBUH3UNkpm56k/7P86nviw9GPiKH/
+	sFTBxHpgddpHj+4xuzVGUzoc+5OHRdxV0Nj+8mPVw3Qla26bTHfUVAhphiwSN5II04SbqRIsNF6fF
+	rduvyUjDzdYirHHjzDXEhJtHtRQDr0ZJVuLrBYNApt+OZ5GOJZWwbGhBby0g2S6HykMyfkZdjgqeP
+	ydtQYvYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRS-00000004aCw-1476;
-	Tue, 22 Sep 2026 08:01:30 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x8vRa-00000004aHu-2YM4;
+	Tue, 22 Sep 2026 08:01:38 +0000
+Received: from mail-wm2-f13.google.com ([74.125.225.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRP-00000004aBe-1Qpt
+	id 1x8vRV-00000004aDo-2IIN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:01:28 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b0dd3e1d0so1719005e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:26 -0700 (PDT)
+	Tue, 22 Sep 2026 08:01:35 +0000
+Received: by mail-wm2-f13.google.com with SMTP id 5b1f17b1804b1-49e6baf77afso1695505e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790064085; x=1790668885; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KlrTUdxs01E/pA1z3Pr9MJkC0zDiUUzoqp93jYKaJpE=;
-        b=dqRLUKJ21uNCCM8jIfN9oA3VWoU5I72yWU9BnWGSB+tpaj7AKJjMYHSak5ZqESfoBf
-         Y801V046jN/by/+P7NhK1YjE6y73w8etFJ7yMdQBgTMAHHtjnVqHbAFzvF2zBGpFHrsp
-         ZOUucAOQ3JFYCoqTVuRHrNGS0gGWKtXioD6YSrWFGzhCMnTiKL2aGaPPJcgqwjLOnWKA
-         J2vNCtZuEOBwXV/fVWA6PHORZTISzi6KLNC3HHe7CdkwQn4j0T0L/cQgBTpVv+IxfchY
-         +GB2akqualbBV4Y1V9Y+3BzPOPfXPmuwEg8pYXvWjbjf6iTFGccb6PbFveKPcqP85MGU
-         pvKQ==
+        d=gmail.com; s=20251104; t=1790064091; x=1790668891; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pp6BX0mvVT2CZt7W5iAnQc+T8SkoWRi5DiwXWjU82F8=;
+        b=gCufh0r1g8f2CHFVRWlsyW1YsjvgpTO4zbf8PtyH+kPGlzG1d5jIOZA01nhdhq4sRg
+         U0k3Zu/Osk82YPmCtTymPJhk24r+8EMhdITUFCTXahO49qbBvmhbNARM2UqVzemJyNtf
+         8mLO7qaZGaP67tUpBXTE7wg1cuRhxrGC6LU67Y924P6Ynffrox17onUqYt3QWbAbNFHY
+         rQmeH4PXxVUPO5zi7PccEAYXulyP3LaVw66z7mGEzf/r4fSW5zE9r3x8pfEEKSfIa5qR
+         ig5NGAENOj8qEmrvgk2adXcRAVVKanUfPU276cvofrfhkU/HwwaXpBNm+gwOSSJ1QH6K
+         gTeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790064085; x=1790668885;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KlrTUdxs01E/pA1z3Pr9MJkC0zDiUUzoqp93jYKaJpE=;
-        b=eRXRMErjL6qmiT7O+2xrYLcQ9hWNc4j01POVpzPo3B/rORC0IqJI7uddC8AyWn/+uI
-         KQ67eBL4fUeLFhC75Jd82tdLq/tPMHceEH74NR+fIzMvAc0maV3nvlVwib/Hf2+gLabI
-         PCxszZhrqolgP9G+Fs9Pi51kaI+YtVpOC/FxkQJQFxCG2Hfjo97dr1PX7Mzy3Cb5XDFG
-         5N4ZlwwXzGfMrShEjKLKeZuDQCSUPhYWztefxR0bmsRRelLecOO8nqcR0RzXnHx3DVKo
-         owjn9Pac0z58vP/QOC0Agedyi/bFgd8n14Tx29+0TckwQJmdf1MkXdR9FxE+XXHhAnKM
-         ZzGQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwAw64+nmsajEr6mbpQGXzhR1yq/jLrbAFAAjCrMBQlj7q5zv5kA4FYKxKcXvsU/9Z5cR7i/2YAAFu/COCbBb66@lists.infradead.org
-X-Gm-Message-State: AFuF++mB8ZBkne0YoqbKo4HSxBB10LGIAqbb71P7SfqMAXu47NWNzF3x
-	RPcsZHbqOooBBKcoZzvscoYbTL28SnGKhpfF+zB+a8+hbX1D4Ka4SN0s
-X-Gm-Gg: AYBFou0InY+tYraRWmWGbto/fACRL4NzEsbDHnpKDZOqR8Zvi5WrByFqFIg9XoG7Xjq
-	6/GLHVfnyzaklqg8FNVB9ZUIXWSEDDHxyWjrUj+ZniF4MFHXW+XfBEffQEbEYYtTxlixkCeVQ24
-	j+jNr9/3HrGgyOsxjnWXTLQmgKGgZYaMnzl9PKmzDcSfWkHDTYwfzGEo0YqxT90Z8wVofZ/oZSM
-	E3Ur2EsJfsVrRmvdMf8zjGENBl6yI++PkNcaSdYWKC13yhoUjrPHwiI96f4mFlDt8fEqlOOz6dC
-	1+9WCmcJo9A/DUVp8iZBugOSc4bGZN6Zqwwc91NIF0lDM0Q2IsSTi5HybGAWZzB0eO6idU3yasb
-	bV+usa5H+ZubdOYzwlJPj8H3z1ehYmVHc79HNQTVIATx3n8laDYya6fi9Nn7EtDi/zbslufemFS
-	zXYYX4Aew8uCSkf29+aq5ozL6QIaMoj7zIhTAfvgYeF+v6Ynd/vJLSt6exZqboNb/7mlaZch6Jf
-	8e/fI/eIFuMURETBxFAOxUtcT8XO2aDjuFr0ttX5CGyO6jhs+2dwwwoGXaWRxqrh+UFINRnVmRN
-	2II=
-X-Received: by 2002:a05:600c:a00a:b0:499:d95a:41f with SMTP id 5b1f17b1804b1-49fc7b83237mr163719885e9.0.1790064084425;
-        Tue, 22 Sep 2026 01:01:24 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790064091; x=1790668891;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pp6BX0mvVT2CZt7W5iAnQc+T8SkoWRi5DiwXWjU82F8=;
+        b=w8YPWpNnhjcqxlBCvwcVybwD2UxaDSP0GnWyU/4SAn+8QdzP4uKxSxY3oHpfJG56HQ
+         P0zBuhic8dN/v9OftkwzucJlli4RIs7b+vqRb4n+XtyQa2ReWs9YkGWnpZXbQ4wUFTvL
+         mfLri5SibLDDOkGAsU6kBxagK88SYnHkDKLnLEbTb3d/TUGXAtmtosbV06IltCUk4ENK
+         plNi/4fEko8Rwr95oQLQaf11ENtRyFPj8A6jF1nVaO+jgSF+dGPUt/UA/P3oDqVfL9UW
+         1VI7mTODIuIx0fjsjiZlCZru5NlSgh7bBri6SEo2BQbxyiFAX5zt02wHIZwxfpB1J03b
+         aOqQ==
+X-Forwarded-Encrypted: i=1; AKwUvByfLZoqmn+I3cv+qsfrC8JJ87ntmdjRsVfVeLQcSz8206gjH376y1pHhK8t5rofccaly29uF/qE+7FMMBL3HLNV@lists.infradead.org
+X-Gm-Message-State: AFuF++lUkUpDKG7lBS6JylBQzxUS5ZJffpu2hHyDZ19cFxjLRpb1zjkF
+	TXyvl3q+4Wt0RWPFYpOZHmPFx7DfaC4apnkLJFH3VbfwXxIqKMdpe+Hp
+X-Gm-Gg: AYBFou2tXvN4Q+Wl+QMkATFo65Yp16RnV3xeFP/bZ2Sj+UsFD2+nS2whohSwzbYPvNc
+	m7t/SX8QLdG1qeXqdviloSJDnbNU1zgrsaUMt7IGAtOsWGB6A4jTU2FthfuBWiMTPxqUwJv8nwV
+	5vnzbAdh6Ll2/0uKnvYb/Vm3K+Vn5pzLTz7v/wqBflJ3WDCXJkTwOaVsCgIUyNMTr6bsWYAwyfH
+	zbVykHJgPcni2xo2cewUnyf7J2giSfjp3V4i02L/2yQDpBVgNcwtrHX2XIIN/FvyV6nIDppcL4L
+	iu7JoZ9gzJa3p0WObmPm6y3Y0Kj/ACl5V2EErK4MPqCsvgco4Q4rSW/6TSMwov4SXciw/4zTKVw
+	/CVZ1BrkLQeP41Aakk1PsSNvzsh/0WBCBlsS+fCMDJdvzWSQO18fDqtUJtVEjjDqrg3ZLbc399y
+	48zkm2rhpnSvNDDuao9tpNbhjPcVXfevDQ0lKsJvvWAOSP4Tudzp/rcL+4SFUuhDU5juQOp4D+n
+	VVWDdU8SUi9tMzGy1GhjFnI+tHCGcd+jy+yGTfks58MosxsdePVatJfdy5Va8O7QYjKnfdbIHQL
+	QY27AhDLl8pg4cg=
+X-Received: by 2002:a05:600c:6992:b0:49b:9241:7ff0 with SMTP id 5b1f17b1804b1-49fc7b7a756mr226927785e9.0.1790064090983;
+        Tue, 22 Sep 2026 01:01:30 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B80530056971C6280202175.dsl.pool.telekom.hu. [2001:4c4e:1b80:5300:5697:1c62:8020:2175])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 01:01:23 -0700 (PDT)
+        Tue, 22 Sep 2026 01:01:30 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
 	Oded Gabbay <ogabbay@kernel.org>,
@@ -94,16 +94,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH v2 00/11] accel/rocket: DVFS for the RK3588 NPU
-Date: Tue, 22 Sep 2026 10:01:03 +0200
-Message-ID: <20260922080114.44662-1-royalnet026@gmail.com>
+Subject: [PATCH v2 04/11] accel/rocket: keep core slots stable across unbind and rebind
+Date: Tue, 22 Sep 2026 10:01:07 +0200
+Message-ID: <20260922080114.44662-5-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260922080114.44662-1-royalnet026@gmail.com>
+References: <20260922080114.44662-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_010127_462727_B60C2730 
-X-CRM114-Status: GOOD (  31.74  )
+X-CRM114-CacheID: sfid-20260922_010133_650078_90850649 
+X-CRM114-Status: GOOD (  35.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,261 +119,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The rocket driver runs the NPU at whatever rate the devicetree pinned
-it to: 200 MHz on the RK3588, out of the 1 GHz the hardware reaches.
-This series adds devfreq, the OPP table and the thermal plumbing that
-go with it.
+rocket_probe() inserts a new core at slot num_cores, and
+rocket_remove() only decrements that counter without clearing the
+slot. That falls apart as soon as one core is unbound while its
+siblings stay bound:
 
-v1: https://lore.kernel.org/r/20260904130858.27803-1-royalnet026@gmail.com
+ - the next bind reuses the slot of a still-live core and overwrites
+   it while its IRQ handler (dev_id points into cores[]) and its
+   DRM scheduler are still active;
 
-As Tomeu asked [1], the slot-search fix now leads the series, with the
-two rocket fixes this builds on and, as patch 4, 2/2 of my July
-lifecycle series [2], without which v2 oopsed when one core was unbound,
-bound and unbound again. KASAN found that v1 4/7 (now 8) kept a clk
-handle that unbinding freed; the notes under each --- list the rest.
+ - rocket_open() unconditionally uses cores[0].dev, which after an
+   unbind of core 0 is a stale pointer to an unbound device.
 
-Hardware constraint
--------------------
+On an RK3588 with three cores, unbinding the first one and binding it
+again puts it on top of the third:
 
-The three cores share one clock and one supply. The clock comes from a
-PVTPLL inside the NPU power islands: for a PVTPLL rate the firmware
-programs NPU GRF registers inside the islands, for the 200 MHz boot rate
-it only switches CRU selectors to GPLL (clk_npu_set_rate() in
-plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c, TF-A v2.12.0, which
-Nicolas pointed me to). An island powered up while the clock is above
-the boot rate never acknowledges the power-on, and the next register
-access into it takes an asynchronous SError. Returning to the boot rate
-is safe at any time; raising the clock is not, so while it is above the
-boot rate every core is held runtime resumed and no island can
-transition. Unbinding any core takes devfreq down until all are bound
-again.
+  rocket fdab0000.npu: drm_sched_init: scheduler already initialized!
 
-The firmware accepts only the nine rates of its rk3588_npu_pvtpll_table,
-300 to 1000 MHz in 100 MHz steps plus 200 MHz, and refuses any other.
-The refusal never reaches the caller: clk_change_rate() ignores what
-->set_rate() returns, so clk_set_rate() reports success and the clock
-stays put. Hence patch 7 names exactly those nine.
+One device now sits in two slots and the third core in none. The next
+unbind of the first core finds its stale slot, torn down already, and
+finishes the same scheduler a second time:
 
-The table is on all three cores with opp-shared (Nicolas's review);
-the one devfreq device sits on rknn_core_0, the lowest devicetree index.
-Patch 9 explains the maximum over the cores and why runtime suspend
-does not call devfreq_suspend_device().
+  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+  pc : drm_sched_fini+0x4c/0x1e0 [gpu_sched]
+  Call trace:
+   drm_sched_fini+0x4c/0x1e0 [gpu_sched] (P)
+   rocket_job_fini+0x28/0x60 [rocket]
+   rocket_core_fini+0x4c/0x78 [rocket]
+   rocket_remove+0x78/0x110 [rocket]
+   platform_remove+0x2c/0x68
+   device_remove+0x58/0xc0
+   device_release_driver_internal+0x214/0x2e0
+   device_driver_detach+0x24/0x50
+   unbind_store+0xd8/0xe8
 
-Testing
--------
+Make .dev the slot-liveness marker: probe takes the first free slot
+and clears it again if core init fails, remove clears .dev after
+rocket_core_fini() and warns if the core cannot be found, lookups skip
+empty slots, and rocket_open() and rocket_job_open() use only live
+slots. num_cores keeps counting bound cores for the last-core teardown
+check. A missing core is no reason to refuse a new file: the device is
+one core short, not gone, and any bound core will do for the IOMMU
+domain, which is attached to the group of whichever core runs a job.
+With a single core live the scheduler list that drm_sched_entity_init()
+does not keep is freed at once, as rocket_job_close() only frees what
+the entity kept.
 
-Orange Pi 5 Plus, 7.3.0-rc2 (drm-misc-next 3afbeb6b99dd) plus this
-series, in-tree rocket, BL31 v2.12.0-10-g70d814213: the edk2-rk3588 TF-A
-branch with upstream d2d6928641ba, so that it reports the PVTPLL rate it
-measures. MobileNetV1 through Teflon, 3 x 20 s per arm, one thread
-pinned to one CPU, CPUs on the performance governor, a bit-exact oracle
-on every inference, polling_interval at the driver's 50 ms, core 0's
-interrupt on a CPU with its deep idle state disabled.
+Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM sparse checkpatch
+Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+---
+v3, now in this series:
+ - rebased onto the three fixes before it: "accel/rocket: search
+   every core slot when a core is removed", which provides max_cores,
+   "accel/rocket: number the cores by devicetree position, not bind
+   order", so a slot no longer doubles as the hardware number, and
+   "accel/rocket: search every core slot when looking up a scheduler"
+ - the crash above: this is what the devfreq patches ran into when
+   tested on a kernel without this one
+ - free the scheduler list when a single core is live
+ - Cc: stable
+v2: https://lore.kernel.org/r/20260731064933.12548-3-royalnet026@gmail.com
+ - also clear the slot's .dev when rocket_core_init() fails (Jiaxing Hu)
+ - check .dev in sched_to_core() (Jiaxing Hu)
+ - document the synchronous-probe assumption at the slot scan
+v1: https://lore.kernel.org/dri-devel/20260730080355.177422-3-royalnet026@gmail.com/
 
-cur_freq is only the driver's request and scmi_clk_npu on the GPLL path
-echoes the last accepted rate, so the CRU selector is the witness
-(CLKSEL_CON74 bit 0 = PVTPLL, CLKSEL_CON73 = GPLL divider), read once a
-second:
+Unbinding a core that still has jobs in flight, or that an open file
+already holds the scheduler of, has further pre-existing issues that
+are out of scope for this bookkeeping fix. One of them, a use-after-free
+under KASAN, is described in the cover letter. The driver does not
+serialize probe and remove against open; this does not change that.
+For stable, this goes with the three patches before it.
 
-  200 MHz OPP, userspace     91.15 inf/s   CRU GPLL/6 = 198 MHz, 700 mV
-  1000 MHz OPP, userspace   234.45 inf/s   CRU PVTPLL (BL31 1 GHz), 850 mV
-  simple_ondemand           232.88 inf/s   OPPs 200-1000 MHz
-  200 MHz OPP again          90.87 inf/s   drift 0.997
+Verified on RK3588 (Orange Pi 5 Plus), 7.3.0-rc2 drm-misc-next plus
+this series, in-tree rocket, all three cores enabled: 25 rounds of
+unbinding and rebinding all three cores; 4 rounds of unbinding a single
+core (twice the devicetree-first core, twice the second one), each with
+an inference run while the core was absent and one more after all four;
+5 rmmod/modprobe rounds; 3 unbind/rebind rounds and 1 rmmod with the
+clock raised to the 1 GHz OPP (CRU selector on the PVTPLL before
+each). No "scheduler already initialized" message and no
+oops; the regulator user count returns to its boot value after every
+round. Without this patch the same single-core round oopses in
+drm_sched_fini() on the second unbind, as shown above.
+The single-core, full, rmmod and raised-clock rounds were repeated
+(10 full rounds and 3 rmmod rounds this time) on a KASAN and
+PROVE_LOCKING build of the same tree: no report, and lockdep still
+enabled afterwards.
 
-That is 2.57x pinned and 2.55x under the governor, 0.7 % below pinned;
-the oracle and the interrupts per inference were the same in all four
-arms.
+ drivers/accel/rocket/rocket_device.h |  2 +
+ drivers/accel/rocket/rocket_drv.c    | 55 +++++++++++++++++++++++-----
+ drivers/accel/rocket/rocket_job.c    | 38 ++++++++++++++-----
+ 3 files changed, 77 insertions(+), 18 deletions(-)
 
-Three clients, each with its own oracle, all three cores computing
-together, output bit-exact and identical to a single-client control:
-
-  OPP                one client   three clients              total
-  900 MHz, 800 mV      234.42     199.33 + 198.95 + 199.19   597.47 inf/s
-  1000 MHz, 850 mV     240.49     203.16 + 203.01 + 203.46   609.63 inf/s
-
-After 25 s of load the governor is at the 200 MHz OPP from the first
-sample (0.24 s apart) through the 60 s idle window: CRU 198 MHz in all
-60 one-second samples, rail 700 mV. The islands were power-cycled five
-times at 700 mV and powered down once more after a raise to 1000 MHz.
-All six bind orders give bit-exact output, with devfreq and cooling back
-on rknn_core_0 after every rebind.
-
-Unbind and reload: 25 rounds of all three cores, 4 of a single core with
-an inference while it was gone, 5 rmmod rounds, and 3 unbinds plus 1
-rmmod with the clock raised (CRU on the PVTPLL before each). Without
-patch 4 the single-core round oopses, as its commit message shows.
-
-On a KASAN, kmemleak and PROVE_LOCKING build of the same tree the unbind
-(no client submitting), reload, three-client and island tests gave no
-report and kmemleak nothing from this driver, and a lockdep run through
-the governor, cooling, three clients, and unbind and rmmod with the
-clock raised to the 1 GHz OPP left lockdep enabled.
-
-Build: the series was rebased onto drm-misc-next 8ef59ee79407 to send
-it; apart from one comment corrected in 9 (rocket_devfreq.o is
-byte-identical), the patches are the ones tested above. On that base,
-arm64, gcc 13.3: each patch that touches drivers/accel/rocket builds
-with W=1 and no warning, and sparse reports nothing in
-drivers/accel/rocket; 9, 10 and 11 also build with W=1 and no warning
-with CONFIG_DEVFREQ_THERMAL=n. dt_binding_check at 6 and 11, and
-CHECK_DTBS on rk3588-orangepi-5-plus, rk3588s-orangepi-5 and
-rk3588-edgeble-neu6b-io at the base, 7 and 11, give no schema warning.
-A full Image, modules and dtbs build at 11 completes with no warning
-from drivers/accel/rocket. checkpatch --strict flags only the 75-column
-oops line in 4 and MAINTAINERS for the new files in 9, which
-F: drivers/accel/rocket/ covers.
-
-Two corrections to my reply of 9 September [3]: the supply could have
-come down to the 200 MHz voltage even had the clock change failed, since
-the refusal is not reported, so the CRU selector is the witness now; and
-the v1 governor arm was the governor running, not limits pinned by hand.
-
-Not done
---------
-
-- Unbinding a core while clients submit is still unsafe. Patch 3 notes
-  that an open file keeps an entity on the departed core's scheduler;
-  on the KASAN build (three clients running, then as root
-  "echo fdac0000.npu > /sys/bus/platform/drivers/rocket/unbind") that
-  is a use-after-free:
-
-    BUG: KASAN: slab-use-after-free in _raw_spin_lock+0xb4/0x118
-     drm_sched_rq_remove_entity+0x94/0x2b0 [gpu_sched]
-     drm_sched_entity_select_rq+0x1f4/0x698 [gpu_sched]
-     drm_sched_job_arm+0x50/0x258 [gpu_sched]
-     rocket_job_push+0x2f8/0x6b8 [rocket]
-     rocket_ioctl_submit+0x888/0xd28 [rocket]
-    Freed by: drm_sched_fini <- rocket_job_fini <- rocket_core_fini <-
-              rocket_remove
-
-  then a soft lockup: drm_sched_fini() frees the run queues while the
-  entity still points at one. drm-misc-next has the same path (read,
-  not run): rocket_job_open() builds the entity over every core, and
-  rocket_remove() ignores open files. The fixes I see are policy,
-  suppress_bind_attrs (undoing patch 4) or unplugging the DRM device
-  when any core goes. Tomeu, which would you prefer? I will write it.
-- Probe and remove are not serialised against open, and a file opened
-  while a core probes can see its scheduler uninitialised; both predate
-  this series.
-- Lifecycle 1/2 [2] (a devres leak that moves the accel minor up after
-  every full unbind and rebind, invisible to kmemleak) builds on
-  Guangshuo Li's "accel/rocket: clear rdev on device init failure" [4],
-  which is not in drm-misc-next. Sashiko's other pre-existing findings
-  on the standalone slot-search patch, which I agreed with [5], stand
-  unless patch 4 covers them.
-- Not exercised: a devicetree without the OPP table or without
-  assigned-clock-rates (code-read only), throttling at 85 degrees (not
-  reachable here), system suspend (s2idle does not resume on this board,
-  for reasons outside the NPU), kexec from a raised clock, and any other
-  board. No milliwatt figure, no energy model.
-
-Routing
--------
-
-Patches 1-4 are fixes with Cc: stable and 9 builds on 1, 2 and 4, so the
-simplest route is all but the two dts patches through drm-misc-next. The
-binding (6) must land before those (7 and 11, Heiko's tree), which I can
-resend once the rest is in. 1-3 supersede their standalone postings
-(links under each ---); 5 is also 01/14 of Jiaxing Hu's RK3576 series,
-and whichever lands first, the other drops it. I have not rebased onto
-that series.
-
-Questions
----------
-
-Q1. DT maintainers: is opp-shared on all three cores the right
-    description of one clock and one supply? v2 leaves opp-suspend out;
-    Nicolas found it "not 100% fit" for 200 MHz but not unfit either,
-    and asked for your view [6].
-Q2. Maximum over the cores, or a summed busy count? And no OPP table
-    means no devfreq and no error, as in panfrost and lima: the policy
-    you want?
-Q3. assigned-clock-rates stays on all three nodes. Jiaxing reports that
-    on the RK3576 it hangs the board before the console when set on the
-    SCMI clock, and that the vendor driver never writes that rate from
-    DT [7]. I have not booted this board without it. Keep it, or drop it
-    in a patch on top?
-
-Nicolas also floated the component framework; I have not tried it.
-
-Credits
--------
-
-Nicolas Dufresne: review, opp-shared, the TF-A pointer, and a proof of
-concept with the same rates and voltages. Tomeu Vizoso agreed to the
-full-range table [8]. Jiaxing Hu: the RK3576 multi-core corruption the
-three-client test answers, a test and a review. Sidong Yang: the report
-behind patch 3 and a test.
-
-Jonas Karlman pointed me at his GPU approach, a .config_clks() that
-checks pm_runtime_suspended() [9][10], and warned that "just reading
-clk_summary to read SCMI clock rate can issue SError or a freeze" [11].
-From the code, not a test: ->get_cur_freq() returns the last request,
-probe reads the boot rate with the domain on, and with the in-tree
-devicetree every set_rate that reaches the firmware, re-read included,
-runs with the cores held.
-
-Hüseyin BIYIK wrote TF-A commit d2d6928641ba, which makes BL31 report
-the PVTPLL rate it measures rather than the one asked for, and guessed
-early that the clock framework ignores what SCMI answers [12]; for a
-refused set_rate it does.
-
-The Assisted-by: LLM tags are Claude (Fable 5.1 and Opus 5; the v1
-cover named only Opus 5, though Fable 5.1 worked on v1 too). We wrote
-the code and these messages together, including the v3 changes to patch
-4; it also found the silent refusal with me in the clock, OPP and TF-A
-code, wrote and adversarially reviewed the test scripts, and analysed
-the crash patch 4 fixes and the one under Not done. I threw out plenty
-of what it proposed. The board, every boot and measurement, the decision
-to send this and the responsibility for it are mine.
-
-[1] https://lore.kernel.org/r/CAPsqS2QXQda2ftbEJb_-Qeva9ay4+4ysdpUtj8jAvbyAsYiAJw@mail.gmail.com
-[2] https://lore.kernel.org/r/20260731064933.12548-1-royalnet026@gmail.com
-[3] https://lore.kernel.org/r/20260909091825.10838-1-royalnet026@gmail.com
-[4] https://lore.kernel.org/r/20260708062845.716487-1-lgs201920130244@gmail.com
-[5] https://lore.kernel.org/r/20260904135938.8757-1-royalnet026@gmail.com
-[6] https://lore.kernel.org/r/9af28de2a07f7965300b898994481ccf194a30da.camel@ndufresne.ca
-[7] https://lore.kernel.org/r/20260904110853.85150-1-gahing@gahingwoo.com
-[8] https://lore.kernel.org/r/CAPsqS2RRUyG1vz5Nm7990yd0hcKR5E-SWhbt0ishaVYvCqQftw@mail.gmail.com
-[9] https://lore.kernel.org/r/ad1e526e-a4cf-4c34-88ff-1884ef2f3dfe@kwiboo.se
-[10] https://github.com/Kwiboo/linux-rockchip/commits/next-20260619-rk35xx-scmi-gpu-clk/
-[11] https://lore.kernel.org/r/82c8b17e-7215-45ea-84d1-9991ba6fb541@kwiboo.se
-[12] https://lore.kernel.org/r/20260903185147.49411-1-royalnet026@gmail.com
-
-Igor Paunovic (11):
-  accel/rocket: search every core slot when a core is removed
-  accel/rocket: number the cores by devicetree position, not bind order
-  accel/rocket: search every core slot when looking up a scheduler
-  accel/rocket: keep core slots stable across unbind and rebind
-  accel/rocket: request the core clocks by name
-  dt-bindings: npu: rockchip: allow DVFS and thermal properties
-  arm64: dts: rockchip: rk3588: add an OPP table for the NPU
-  accel/rocket: restore the NPU clock boot rate before powering the
-    cores down
-  accel/rocket: add devfreq support
-  accel/rocket: register a devfreq cooling device
-  arm64: dts: rockchip: rk3588: add passive cooling to the NPU thermal
-    zone
-
- .../npu/rockchip,rk3588-rknn-core.yaml        |  10 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  17 +-
- arch/arm64/boot/dts/rockchip/rk3588-opp.dtsi  |  54 ++
- drivers/accel/rocket/Kconfig                  |   2 +
- drivers/accel/rocket/Makefile                 |   1 +
- drivers/accel/rocket/rocket_core.c            |  14 +
- drivers/accel/rocket/rocket_core.h            |  16 +
- drivers/accel/rocket/rocket_devfreq.c         | 525 ++++++++++++++++++
- drivers/accel/rocket/rocket_devfreq.h         |  67 +++
- drivers/accel/rocket/rocket_device.c          |   2 +
- drivers/accel/rocket/rocket_device.h          |  21 +
- drivers/accel/rocket/rocket_drv.c             | 192 ++++++-
- drivers/accel/rocket/rocket_job.c             |  47 +-
- 13 files changed, 945 insertions(+), 23 deletions(-)
- create mode 100644 drivers/accel/rocket/rocket_devfreq.c
- create mode 100644 drivers/accel/rocket/rocket_devfreq.h
-
-
-base-commit: 8ef59ee794076e2b58cff357b12de2ba5d441271
+diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
+index c62d567010696..abb88a254e569 100644
+--- a/drivers/accel/rocket/rocket_device.h
++++ b/drivers/accel/rocket/rocket_device.h
+@@ -18,7 +18,9 @@ struct rocket_device {
+ 	struct mutex sched_lock;
+ 
+ 	struct rocket_core *cores;
++	/* Number of currently bound cores. */
+ 	unsigned int num_cores;
++	/* Slot capacity (DT core count); slots with a NULL .dev are free. */
+ 	unsigned int max_cores;
+ };
+ 
+diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+index 7d927bb6b322d..b9b36c578db20 100644
+--- a/drivers/accel/rocket/rocket_drv.c
++++ b/drivers/accel/rocket/rocket_drv.c
+@@ -68,11 +68,21 @@ rocket_iommu_domain_put(struct rocket_iommu_domain *domain)
+ 	kref_put(&domain->kref, rocket_iommu_domain_destroy);
+ }
+ 
++static struct rocket_core *rocket_first_live_core(struct rocket_device *rdev)
++{
++	for (unsigned int core = 0; core < rdev->max_cores; core++)
++		if (rdev->cores[core].dev)
++			return &rdev->cores[core];
++
++	return NULL;
++}
++
+ static int
+ rocket_open(struct drm_device *dev, struct drm_file *file)
+ {
+ 	struct rocket_device *rdev = to_rocket_device(dev);
+ 	struct rocket_file_priv *rocket_priv;
++	struct rocket_core *core;
+ 	u64 start, end;
+ 	int ret;
+ 
+@@ -85,8 +95,18 @@ rocket_open(struct drm_device *dev, struct drm_file *file)
+ 		goto err_put_mod;
+ 	}
+ 
++	/*
++	 * Any bound core will do for the domain: it is attached to the group
++	 * of whichever core runs a job, and the NPU IOMMUs are all the same.
++	 */
++	core = rocket_first_live_core(rdev);
++	if (!core) {
++		ret = -ENODEV;
++		goto err_free;
++	}
++
+ 	rocket_priv->rdev = rdev;
+-	rocket_priv->domain = rocket_iommu_domain_create(rdev->cores[0].dev);
++	rocket_priv->domain = rocket_iommu_domain_create(core->dev);
+ 	if (IS_ERR(rocket_priv->domain)) {
+ 		ret = PTR_ERR(rocket_priv->domain);
+ 		goto err_free;
+@@ -199,10 +219,21 @@ static int rocket_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	unsigned int core = rdev->num_cores;
++	unsigned int core;
+ 
+ 	dev_set_drvdata(&pdev->dev, rdev);
+ 
++	/*
++	 * Take the first free slot: cores can unbind and rebind in any
++	 * order. The scan-then-claim relies on platform probes running
++	 * sequentially; revisit if the driver ever enables async probe.
++	 */
++	for (core = 0; core < rdev->max_cores; core++)
++		if (!rdev->cores[core].dev)
++			break;
++	if (WARN_ON(core == rdev->max_cores))
++		return -ENXIO;
++
+ 	rdev->cores[core].rdev = rdev;
+ 	rdev->cores[core].dev = &pdev->dev;
+ 	rdev->cores[core].index = index;
+@@ -210,13 +241,18 @@ static int rocket_probe(struct platform_device *pdev)
+ 	rdev->num_cores++;
+ 
+ 	ret = rocket_core_init(&rdev->cores[core]);
+-	if (ret) {
+-		rdev->num_cores--;
++	if (ret)
++		goto err_core;
+ 
+-		if (rdev->num_cores == 0) {
+-			rocket_device_fini(rdev);
+-			rdev = NULL;
+-		}
++	return 0;
++
++err_core:
++	rdev->cores[core].dev = NULL;
++	rdev->num_cores--;
++
++	if (rdev->num_cores == 0) {
++		rocket_device_fini(rdev);
++		rdev = NULL;
+ 	}
+ 
+ 	return ret;
+@@ -229,10 +265,11 @@ static void rocket_remove(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	int core = find_core_for_dev(dev);
+ 
+-	if (core < 0)
++	if (WARN_ON(core < 0))
+ 		return;
+ 
+ 	rocket_core_fini(&rdev->cores[core]);
++	rdev->cores[core].dev = NULL;
+ 	rdev->num_cores--;
+ 
+ 	if (rdev->num_cores == 0) {
+diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
+index 4bc4f9c8ee403..25ee4ab172a82 100644
+--- a/drivers/accel/rocket/rocket_job.c
++++ b/drivers/accel/rocket/rocket_job.c
+@@ -284,7 +284,7 @@ static struct rocket_core *sched_to_core(struct rocket_device *rdev,
+ 	unsigned int core;
+ 
+ 	for (core = 0; core < rdev->max_cores; core++) {
+-		if (&rdev->cores[core].sched == sched)
++		if (rdev->cores[core].dev && &rdev->cores[core].sched == sched)
+ 			return &rdev->cores[core];
+ 	}
+ 
+@@ -511,22 +511,42 @@ void rocket_job_fini(struct rocket_core *core)
+ int rocket_job_open(struct rocket_file_priv *rocket_priv)
+ {
+ 	struct rocket_device *rdev = rocket_priv->rdev;
+-	struct drm_gpu_scheduler **scheds = kmalloc_objs(*scheds,
+-							 rdev->num_cores);
+-	unsigned int core;
++	struct drm_gpu_scheduler **scheds;
++	unsigned int core, n = 0;
+ 	int ret;
+ 
+-	for (core = 0; core < rdev->num_cores; core++)
+-		scheds[core] = &rdev->cores[core].sched;
++	scheds = kmalloc_objs(*scheds, rdev->max_cores);
++	if (!scheds)
++		return -ENOMEM;
++
++	/* Only the cores that are bound right now have a scheduler to offer. */
++	for (core = 0; core < rdev->max_cores; core++)
++		if (rdev->cores[core].dev)
++			scheds[n++] = &rdev->cores[core].sched;
++
++	if (!n) {
++		ret = -ENODEV;
++		goto err_free;
++	}
+ 
+ 	ret = drm_sched_entity_init(&rocket_priv->sched_entity,
+ 				    DRM_SCHED_PRIORITY_NORMAL,
+-				    scheds,
+-				    rdev->num_cores, NULL);
++				    scheds, n, NULL);
+ 	if (WARN_ON(ret))
+-		return ret;
++		goto err_free;
++
++	/*
++	 * drm_sched_entity_init() keeps the list only when it holds more
++	 * than one scheduler, and rocket_job_close() frees what it kept.
++	 */
++	if (n < 2)
++		kfree(scheds);
+ 
+ 	return 0;
++
++err_free:
++	kfree(scheds);
++	return ret;
+ }
+ 
+ void rocket_job_close(struct rocket_file_priv *rocket_priv)
 -- 
 2.43.0
 
