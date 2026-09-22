@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4FBC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E65DC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ryw1ckC0LyGtXZnUSGqqdSw6vPzJYJA+e+eu0aiWzDk=; b=tWEUi8bnDl1pHLhpSPkCEOMpMt
-	wL/1gv1I7qALseZHIfOA5zEXFjfXhkIBoxTIEliC7DacXBq54WhraQVQv/9YB8BGAHLfi3xMgHCJ2
-	TRihcS+Ed6PA3g7lNDOAWrIu8HRggK4d+fMM1NU9XnnOHRjSHbVJJw7UPWPehR37Y4V9vbUq0ZFtp
-	Zaumt69Gvt3ni9FJsal1eN2ZtQddMXiGbsEXfYYQ98/uQknhni3XiBqq9fGq7wb9wW9u4qk/TsxmK
-	JnW2vliEBYLyD+Sw/8sQElB7ohJPDKZ2n+sruyc4jwKkms4FbzrtgVoWD3fEhOjYnADDEoRLHLafY
-	5vOE7LNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y0RaZjhg7p918DG4B83V3Lyvof2PLvieks4Sm8hX9pg=; b=aZr4C8iow24BUcyy6dbXohVgT7
+	ZnsHMnR0Q7CHZ/azd1ALj7+3DcOFZDTfe5JUD9lKgHHWpmAjBV+V+6Vx4Ak5z72HA2QNDp0J3+4VR
+	tLHeNrFtTckAdsq2K9bFAFZzB3nAyK5gHDjuw+clEJrDAaLOQDX6Pm01KCp7tLBPY5cN+A6xXBfdp
+	RnVFn+g4weKiJunC5Tl8xF9JJPMZnSA9WEaNo5IAi+nW0BpKD6ty+jGzo+hPJ2iwamHurxg7B/0Li
+	RbTlGR5m/RFQa5gNAXPS1Bir7I4Br26a6ii6AwVO1b4iERZtmWsV+RaQNMAmoQRGt7mMNnizO0gOv
+	bZ0ZE6SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x93uv-000000068tv-2qIB;
-	Tue, 22 Sep 2026 17:04:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x93vY-0000000691X-3mTQ;
+	Tue, 22 Sep 2026 17:05:08 +0000
+Received: from out-131.mta1.migadu.com ([2001:41d0:203:375::83] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x93ut-000000068tf-2tAX
+	id 1x93vV-000000068zx-2k9y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:04:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 245EC60142;
-	Tue, 22 Sep 2026 17:04:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81CFC1F000FF;
-	Tue, 22 Sep 2026 17:04:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790096666;
-	bh=ryw1ckC0LyGtXZnUSGqqdSw6vPzJYJA+e+eu0aiWzDk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LK58FBnokT4BZd7z9MJoSe+sT22fZ4uH11pNVyD5Mnf8sptKicd3R4Zy+yyywjppT
-	 J90leobk6npQIuX5A0tV/IzBrkt4ZNNTa243Me6IPtmqpiqe6ofOajL93TiDPqXRX0
-	 2OnMiHswX+S0rOndPrdHpznYnCEDLgnxjfZSFEBlEXgEMM1dUVsFti5Xm0slJ2lrgd
-	 HxAdDBlD5XtmyX2jQ5+ln5rKRBYM28oPRj6AViczIoSJd9L9szwCYaGRYxxWhP8+De
-	 I63x0txaW69cubtyDEF1Hd9JBWsiGVKOjk/J8WgRotBkoq/Xv/hjdFDWO5/y0wMGkD
-	 LE6F0fBW7CD3g==
-Date: Tue, 22 Sep 2026 18:04:22 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	Frank.Li@kernel.org, robin.murphy@arm.com,
-	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 3/5] dt-bindings: dma: Add CIX Sky1 DMA-350 integration
-Message-ID: <20260922-perky-absently-2590fe901176@spud>
-References: <aqE42NzerAiD2U1E@squawk>
- <20260920051501.3620794-1-Jelly.Jia@cixtech.com>
+	Tue, 22 Sep 2026 17:05:07 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=Y0RaZjhg7p918DG4B83V3Lyvof2PLvieks4Sm8hX9pg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790096702; v=1; x=1790701502;
+ b=h93VQnMqqSdogkSW7EqkkRsk3uxkx23YeJc4jSptg6s4nRqntm4xlaVXqJku/323A0EPtUli
+ KU+E8yF8Bk7FwTSyY95nNyxN5E8dlonOSajlUtPOfm/4rG7N5uI5GM8V5pw2jBnikpaudh6Tmgj
+ 4mNaAU2pu1VxrMCDCeIhDv0I=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 405ad137f488e4a9;
+	Tue, 22 Sep 2026 17:05:01 +0000
+X-Mizu-Trace-ID: 405ad137f488e4a9
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Yuchao Zhang <ndaugoing@gmail.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v3 0/1] KVM: arm64: vgic: Drop last_lr_irq and serialize overflow EOI replay
+Date: Tue, 22 Sep 2026 18:05:00 +0100
+Message-Id: <20260922170500.3210708-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <87bj9r4h9z.wl-maz@kernel.org>
+References: <20260918040214.85580-1-ndaugoing@gmail.com> <20260920014911.58616-1-ndaugoing@gmail.com> <87bj9r4h9z.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5dgaYu8dXVKiJatw"
-Content-Disposition: inline
-In-Reply-To: <20260920051501.3620794-1-Jelly.Jia@cixtech.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_100505_845612_D497919B 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---5dgaYu8dXVKiJatw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Marc,
 
-On Sun, Sep 20, 2026 at 01:15:01PM +0800, Jelly Jia wrote:
-> Hi Conor,
->=20
-> Thanks, understood: with the SoC-specific compatible scoping the
-> integration code, other platforms are unaffected either way.
->=20
-> For v2 my preference is to keep the wrapper, since it leaves the
-> generic arm-dma350 driver and its binding untouched. Does that work
-> for you, or would you rather see the dma-350 node itself carry a
-> device-specific compatible, with the clocks, resets and
-> memory-region described on it? I'd also like Robin's take on the
-> arm-dma350 side before restructuring that far.
+On Mon, 21 Sep 2026 00:47:20 +0100, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> I only boot tested a small nested guest (L1 + L2) with lockdep on my
+> laptop, and nothing caught fire. Please give it a go.
 
-The latter, since that's what we do for almost every other device under
-the sun. Robin's take would probably be worth hearing, but you removed
-all the context while replying which makes that more difficult...
+FWIW, looks good to me. Tested on QEMU (VHE and nVHE hosts, KASAN and
+lockdep on) and on an M4 (pKVM nVHE host on Apple's nested virt): the
+pKVM guest boots are fine and Yuchao's selftest passes, though the
+selftest passes on plain rc3 as well, so it doesn't exercise the fix
+yet. I'll reply on the selftest thread with why.
 
->=20
-> Best regards,
-> Jelly
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 
---5dgaYu8dXVKiJatw
-Content-Type: application/pgp-signature; name=signature.asc
+Cheers,
+/fuad
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarK1FgAKCRB4tDGHoIJi
-0lGvAP4lmnDtOzTWLgbDhWbJVyNZ2BlGz/EtLftum4ZCqwvKLgEAgauaEkmh9CkC
-pA8yWGCGYUl0y/3PxtT6G5PsRZq1Agw=
-=X7Es
------END PGP SIGNATURE-----
-
---5dgaYu8dXVKiJatw--
 
