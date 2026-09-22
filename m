@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BDFC982E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5DDC982FB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rhKm2X7pjgoKgoH15/yfKCP0mtCLBxv0oDI/yTMOl5M=; b=woS57C9WKMq5/gUCz5ml5AdM5q
-	OmqDlsDCa23+Emwf7ghNhfsauGpzm3dXF8ioNJDkZVR9NXxjqO9SYdZdqAI+fdYh8tm+3M2FgW7AI
-	xkBzk91KsSnMMjlj62HP4rpG14UIaxQayxB9fRBZ8bGUwza1HIEaYo5cx+kblKzTFeOqoEznsJB+1
-	vv8o8W/Dgv2z4skeceiRPajieFO0OYB7yayw+5jApeq4N8xR9uWKtecJN1wVYDuQw7C4gGUbefngM
-	tWbFoXEIMhLpxeMZd8eITDnc2G1rvSbIr8K0UqLCvWm4IKixCPCHJkpO4rEX5o9/ldb5uDnARpOJk
-	dMx9852w==;
+	bh=hsXXHTt/F3CzSZoKQdsqanQABifE4XgtI3g2DS04rwE=; b=ecciqV7dAOVgxdDDIQDIP7kVGx
+	muYWELiO3580utbRKJXjmV3NwZafQyU4+d5IxZ4pdTM2NprTR+K2YxwIcKqMl9YKgaOAgd7jrdE7X
+	QrcvAgRCNc7SSPUxZtHJRSGZMZa+d9aEXfWz93JBzxzpDZjpg1yRzLzpPcPyZ6Ep2cGR1E41KvFQ1
+	Y4FYSpIRYnOnjz8oIKm5a3rFItYBGIqu21YvEgDzwOrUBVx3Bu3DYljOm044uJkv6zk3OqfAxU1W6
+	JsVREHS02rG6oVQN0Vm20HAh/LuCRpp7asB+6w5kjQsoY/XH5lfL31IF1bCA8vNRz0sDd6Hk1OXjq
+	qlnOJNAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8p5z-00000003s0F-3w2t;
-	Tue, 22 Sep 2026 01:14:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8pCA-00000003saE-36x6;
+	Tue, 22 Sep 2026 01:21:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8p5z-00000003s07-0soU
+	id 1x8pC9-00000003sa1-1lqC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 01:14:55 +0000
+	Tue, 22 Sep 2026 01:21:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0C3A42E31;
-	Tue, 22 Sep 2026 01:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 82C0BC2BCB3;
-	Tue, 22 Sep 2026 01:14:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 91E0260210;
+	Tue, 22 Sep 2026 01:21:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3D9D4C2BCB3;
+	Tue, 22 Sep 2026 01:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790039694;
-	bh=m3LsZOYKXpBxu2jAlB5YJTHDy68xjmQ8m4RqAnY7buc=;
+	s=k20201202; t=1790040076;
+	bh=AGoA4/iwqNxIvbkM9m87fuPgQXFSWC2djc1JB6O1P2w=;
 	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=OshD3BQfh9BhJu5uNQp2FG3/KqPInw+5i8WTKaJ43CSjwpWEPppk+JHwKLD0tV2DK
-	 WXO0iN3LmPo0mA7JMoLS1p/28CSZeD6A5yg6pk+GsaaICj5V/uiahLdjodn4FXKrkz
-	 rWkV8Fl66NWLd38Pk7Ek98gf97OqNm82xcqM+3EsoHnClZRC8u2cJN660XLz/ErUvU
-	 +Ks9wMJjqOkbBz74Z3af6x7EB3aUxKIlXypXYt0CgwvCuMUPl99pgshozZQ/QJVFzl
-	 SYdPYY/U/vXye+/ACk5m5r9cm8aQLhE3fuCoNMmc8mriV7rGF8fI1g9dciTFd1zOSe
-	 w50U7GrIVY+MQ==
+	b=HG6C+lS6tONxVEtjmomvH142ZZZH44Zv+Nu8LHiVRHhVtzkTkQRHqo3TRLH3oe3FC
+	 EBCUzhXbXelUOfj1n93SLFGcpuZtTDUHkCZvknkLmeNoP0hgz2+eypSgPpWOogKDnc
+	 QTmR9MWzjFuvE9vJb9JikkQjOKBv+zruvqqAwp4sF6Tc7lukamIIIK1Vg9WRHfT6UZ
+	 U2z0plvkAMsMO64PnaNSAOQGn0C4L54DIjTax9o5TuIq2/J2O8aPMUDTU8ykAqeDDr
+	 /2ZPvOQo/Ded5e26ZzqEDHFGXiYKNklV49fm/+ZpLOhEp5xteqXL1WFHiv/Ry5e7Ym
+	 KNTdOM1jsFOLA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E744C982FB;
-	Tue, 22 Sep 2026 01:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 29EA6C982F0;
+	Tue, 22 Sep 2026 01:21:16 +0000 (UTC)
 From: Jaidev Shastri via B4 Relay <devnull+jaidevshastri.vt.edu@kernel.org>
-Date: Mon, 21 Sep 2026 21:14:52 -0400
-Subject: [PATCH] firmware: arm_sdei: publish sdei_entry_point with release
+Date: Mon, 21 Sep 2026 21:21:13 -0400
+Subject: [PATCH] serial: xilinx_uartps: publish console_port with release
  semantics
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-mb-arm-sdei-v1-1-6d12d12a7cba@vt.edu>
-X-B4-Tracking: v=1; b=H4sIAIvWsWoC/yXMzQrCMBAE4Fcpe3YljVKNryIe8rOxKzTKrhah9
- N1N6vEbZmYBJWFSuHQLCM2s/CwV/a6DOPpyJ+RUDdbYwTjb4xTQy4SaiDEPLjtjw7k3CeriJZT
- 5u71db3/rJzwovttFawSvhEF8iWOLNs6n/QElHmFdf6MD9r+PAAAA
-X-Change-ID: 20260921-mb-arm-sdei-f69f902b810d
-To: James Morse <james.morse@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jaidev Shastri <jaidevshastri@vt.edu>
+Message-Id: <20260921-mb-uartps-v1-1-9fc2f3d4b1a5@vt.edu>
+X-B4-Tracking: v=1; b=H4sIAAjYsWoC/yXM0Q6CMAyF4VchvbaGDaLiqxgvulJlJk7SAjEhv
+ LsbXn4nJ/8KJhrF4FqtoLJEi5+U4Q4V8EDpKRj7bPC1P9Wdd/gOOJNOoyGLC47Jd3RpIP9HlUf
+ 87q3b/W+bw0t4KoHyCGSCQSnxUKady/nYoHIL2/YDZzaMOY0AAAA=
+X-Change-ID: 20260921-mb-uartps-ce1b1ca29a83
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Jaidev Shastri <jaidevshastri@vt.edu>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790039693; l=3316;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790040075; l=2025;
  i=jaidevshastri@vt.edu; s=20260921; h=from:subject:message-id;
- bh=kwRV/aHBCufpjFjA3xGTlvIAqmYK7kG+Dzi8qsvpfdU=;
- b=Fgbe9A5j8oOXTX+D4bvOXfcOfpfGlHrCYiIHUVy5lzThSYDd/gVtl2n+KkwU/cSS5swWUe4rz
- cfIXERHDaG2CXS+vG1wOV/wF4ctaKXQuHdeBN2m3d9IcRLLINEGmlme
+ bh=+qMMTlUnAlo5wMcrO/0fIIBY+h1Jroi7pkVqcuiqtuM=;
+ b=Jh8+BFE5Ah6Lj6zvIelxnqC4MWlNXWoUGsODf6eaUwkm2e5X7Q9/8eLbZR4lYiM+l6uTGR6ms
+ cUuaLI+lyEqAVStd+mqyXzmD5TpCCIAFT2Ay4mSDu9KTEZvMDEG4puJ
 X-Developer-Key: i=jaidevshastri@vt.edu; a=ed25519;
  pk=J7+xYJRlTPds+pv5hbqFFRqGCpDeJDzmZT1ggRwj7/0=
 X-Endpoint-Received: by B4 Relay for jaidevshastri@vt.edu/20260921 with
@@ -88,94 +89,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jaidev Shastri <jaidevshastri@vt.edu>
 
-sdei_probe() stores the SDEI entry point to the file-scope
-sdei_entry_point with a plain store after the platform reset.
-sdei_event_register(), the cross-call helper _local_event_register() and
-the re-registration path pass it to the firmware with plain loads.
+cdns_uart_probe() assigns the first probed port to console_port with a
+plain store once the port is set up. cdns_uart_console_write() and
+cdns_uart_console_setup() read it with plain loads.
 
-Keep it in a local and publish it with smp_store_release(). Read it
-through a new sdei_get_entry_point() accessor at the three call sites.
+Store it with smp_store_release() and read it with smp_load_acquire().
 
 Found with MBCheck, a static herd7-based memory consistency checker.
 
 Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
 ---
- drivers/firmware/arm_sdei.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ drivers/tty/serial/xilinx_uartps.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/firmware/arm_sdei.c b/drivers/firmware/arm_sdei.c
-index e8dd2f0f3..a75203469 100644
---- a/drivers/firmware/arm_sdei.c
-+++ b/drivers/firmware/arm_sdei.c
-@@ -43,6 +43,12 @@ static asmlinkage void (*sdei_firmware_call)(unsigned long function_id,
- /* entry point from firmware to arch asm code */
- static unsigned long sdei_entry_point;
- 
-+static unsigned long sdei_get_entry_point(void)
-+{
-+	/* Pairs with the smp_store_release() in sdei_probe(). */
-+	return smp_load_acquire(&sdei_entry_point);
-+}
-+
- static int sdei_hp_state;
- 
- struct sdei_event {
-@@ -582,7 +588,7 @@ static void _local_event_register(void *data)
- 	struct sdei_crosscall_args *arg = data;
- 
- 	reg = per_cpu_ptr(arg->event->private_registered, smp_processor_id());
--	err = sdei_api_event_register(arg->event->event_num, sdei_entry_point,
-+	err = sdei_api_event_register(arg->event->event_num, sdei_get_entry_point(),
- 				      reg, 0, 0);
- 
- 	sdei_cross_call_return(arg, err);
-@@ -612,7 +618,7 @@ int sdei_event_register(u32 event_num, sdei_event_callback *cb, void *arg)
- 	cpus_read_lock();
- 	if (event->type == SDEI_EVENT_TYPE_SHARED) {
- 		err = sdei_api_event_register(event->event_num,
--					      sdei_entry_point,
-+					      sdei_get_entry_point(),
- 					      event->registered,
- 					      SDEI_EVENT_REGISTER_RM_ANY, 0);
- 	} else {
-@@ -650,7 +656,7 @@ static int sdei_reregister_shared(void)
- 
- 		if (event->reregister) {
- 			err = sdei_api_event_register(event->event_num,
--					sdei_entry_point, event->registered,
-+					sdei_get_entry_point(), event->registered,
- 					SDEI_EVENT_REGISTER_RM_ANY, 0);
- 			if (err) {
- 				pr_err("Failed to re-register event %u\n",
-@@ -978,6 +984,7 @@ static int sdei_get_conduit(struct platform_device *pdev)
- 
- static int sdei_probe(struct platform_device *pdev)
+diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
+index a072b75db..59e0d388d 100644
+--- a/drivers/tty/serial/xilinx_uartps.c
++++ b/drivers/tty/serial/xilinx_uartps.c
+@@ -1371,7 +1371,8 @@ static struct uart_port *console_port;
+ static void cdns_uart_console_write(struct console *co, const char *s,
+ 				unsigned int count)
  {
-+	unsigned long entry_point;
- 	int err;
- 	u64 ver = 0;
- 	int conduit;
-@@ -1007,12 +1014,14 @@ static int sdei_probe(struct platform_device *pdev)
- 	if (err)
- 		return err;
+-	struct uart_port *port = console_port;
++	/* Pairs with the smp_store_release() in cdns_uart_probe(). */
++	struct uart_port *port = smp_load_acquire(&console_port);
+ 	unsigned long flags;
+ 	unsigned int imr, ctrl;
+ 	int locked = 1;
+@@ -1414,7 +1415,8 @@ static void cdns_uart_console_write(struct console *co, const char *s,
+  */
+ static int cdns_uart_console_setup(struct console *co, char *options)
+ {
+-	struct uart_port *port = console_port;
++	/* Pairs with the smp_store_release() in cdns_uart_probe(). */
++	struct uart_port *port = smp_load_acquire(&console_port);
  
--	sdei_entry_point = sdei_arch_get_entry_point(conduit);
--	if (!sdei_entry_point) {
-+	entry_point = sdei_arch_get_entry_point(conduit);
-+	if (!entry_point) {
- 		/* Not supported due to hardware or boot configuration */
- 		sdei_mark_interface_broken();
- 		return 0;
+ 	int baud = 9600;
+ 	int bits = 8;
+@@ -1812,7 +1814,8 @@ static int cdns_uart_probe(struct platform_device *pdev)
+ 	 */
+ 	if (!console_port) {
+ 		cdns_uart_console.index = id;
+-		console_port = port;
++		/* Pairs with the smp_load_acquire() in the console callbacks. */
++		smp_store_release(&console_port, port);
  	}
-+	/* Pairs with the smp_load_acquire() in sdei_get_entry_point(). */
-+	smp_store_release(&sdei_entry_point, entry_point);
- 
- 	err = cpu_pm_register_notifier(&sdei_pm_nb);
- 	if (err) {
+ #endif
+ 	if (cdns_uart_data->port->rs485.flags & SER_RS485_ENABLED)
 
 ---
 base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20260921-mb-arm-sdei-f69f902b810d
+change-id: 20260921-mb-uartps-ce1b1ca29a83
 
 Best regards,
 --  
