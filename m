@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BEFBC982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DFCC982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 12:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLoR3dFRtXbr6vPpFSReD2HvpuUUBOOt3jsnT9F9Frc=; b=HePC4FWZLj8mlDyfbMlIrwTAD+
-	gwZijNCFW/CkWAFs6arpwfWLbG9YBixy1r319WgRtJ3TIKmDMs3/CTymwFpE9RzTSfd7EEwwvX3I2
-	it0DpRuV4ARdC0q8uaaO1ieF6OZXaXMgagZdvI8KKMMYUWXIO5TTMXJmTJCel5hm31bqUMa3CgeIV
-	qQmja+pFLwNUObCfjBGduY5tb9Jq6rF1Yv0nFuPEZDGAVKfgINhL2eatLFfZwrQbOl4+8BEJhRoxj
-	UjHND93G15xcFQ5uDF0XrwE8Mqcx9/YehGqQh80vtngF1QnuVlfIOrlgKQn6LS34J0T0QWWqnnq4R
-	aP4VWR9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UQMVZR7bVQz/sE2rQ7Oi7HxPrv/jQ3e7sAgi8F8An/U=; b=AbG/mmz2ipjFvj4SeZdm3bI4VV
+	NAoFiC1O9ikhva1dsuGq3YXQJrfinbt4WlSAz02efjytQN6iro5Zs/iyLOAi5hAkvWxuXFGbey+j/
+	auOeq122lRqT8AdkVMezn6exstSRQkLOAygmSOXfj3TVzsjEqixXsq0KEavQ3hGttudlL99eWrg6M
+	5NGjNlU118P/a3WcUDTaLxUX/1JwyrL4fV7hgYNn7NoRooJEugBHymI+EbnblZp0lrqtSMwY/s5St
+	jAKp44VJu9GLFiUaYKv3EXQ0HSH1qu64yOX86g5Smg2Xkx94zkZHfTBMDH59cKLdSyzopVHZLX4UV
+	tN2tYHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zmR-00000005KZY-0Kzw;
-	Tue, 22 Sep 2026 12:39:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8zpa-00000005L4c-2V5g;
+	Tue, 22 Sep 2026 12:42:42 +0000
+Received: from m16.mail.126.com ([117.135.210.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8zmQ-00000005KZP-3IF2
+	id 1x8zpW-00000005L3G-3OgC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 12:39:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C76E6021C;
-	Tue, 22 Sep 2026 12:39:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84D8D1F000FF;
-	Tue, 22 Sep 2026 12:39:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790080765;
-	bh=QLoR3dFRtXbr6vPpFSReD2HvpuUUBOOt3jsnT9F9Frc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V/ALuN3qgtC+lokrz/DCEpCcDSste1zqnFoX4pmZehexTIOWOFBFVS1aiaLgfyJUc
-	 OcWssi2r7yLhioNqQBYCTSBeqKtT8uuyppAgvT2hawe0ePTfHfR29/e+Ngsep1lAMX
-	 gusO8DXlswjpkpxl66a0hdxCWlEE1KxWdkvmS1/sVJP+2uBeIaiBFeevEf6pRr/z7t
-	 cDHvGOSNoKyWCy/LUjRyyZJhsikQb9ARRUk18/4qv4liZvOPKjbWeyYxGMuBA6NrZ/
-	 SZ1+yY+pwsHt7JR3QQtQMcebZr9ZQewRLwL7xOvlPpiGuqpGGzMwEkZcOBDXahcrvF
-	 exvVbjRBnAFvA==
-Date: Tue, 22 Sep 2026 14:39:18 +0200
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Chen Pei <cp0613@linux.alibaba.com>, peterz@infradead.org,
-	mingo@redhat.com, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	adrian.hunter@intel.com, james.clark@linaro.org,
-	john.g.garry@oracle.com, will@kernel.org, mike.leach@arm.com,
-	leo.yan@linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf test: Fix a leaked map reference in the arch dwarf
- unwind tests
-Message-ID: <arJ29sSmeze39D0R@x2>
-References: <20260914121903.1212-1-cp0613@linux.alibaba.com>
- <CAP-5=fVW6nJXoh8qf4e_jkLXGUzCGCTCg9YivHkN9kkVJmMa-A@mail.gmail.com>
+	Tue, 22 Sep 2026 12:42:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=UQMVZR7bVQz/sE2rQ7Oi7HxPrv/jQ3e7sAgi8F8An/U=;
+	b=bL6aXDMrst6lk2NFKD6Ol0yi5HnAthxMTQGNKz/L1lzaf/SFtIGtLmRJq6JFgF
+	IsbpJAPLexX6oLZIXKcvOhB30Liap0aRj6cTeoUe5lunRMgvCCKxdC4ME2GskHbf
+	jakLG7O5nlEVjaBpcbS1EoDFFAbvsmy4VMv1KLZNiy86c=
+Message-ID: <6ee07707-a1f2-4f3d-8ff7-d309e94c3dd6@126.com>
+Date: Tue, 22 Sep 2026 20:41:35 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: stmmac: do not cache the new TSO MSS before
+ it reaches the DMA
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ xiaolinkui@kylinos.cn, stable@vger.kernel.org
+References: <20260920061609.1919876-1-xiaolinkui@126.com>
+ <178997153300.2160803.9722094587431911734@kernel.org>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <178997153300.2160803.9722094587431911734@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fVW6nJXoh8qf4e_jkLXGUzCGCTCg9YivHkN9kkVJmMa-A@mail.gmail.com>
+X-CM-TRANSID: _____wD3955_d7JqnfIhAA--.28161S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWruw1DWr1rAw1DuFW5tFy3CFg_yoWDKwc_ur
+	yay3srG34UGF9agFn29rn8ZrW29FWj9ry7tw1kJayIgrWxXa95uFZ7Wr92vr17A3yYyr9r
+	CryYq3Wfur13ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1hID7UUUUU==
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqB9EG2qyd3-d8QAA3U
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_054240_036697_C967583F 
+X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +77,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 12:35:23PM -0700, Ian Rogers wrote:
-> On Mon, Sep 14, 2026 at 5:19 AM Chen Pei <cp0613@linux.alibaba.com> wrote:
-> >
-> > maps__find() has returned a reference to the map it finds since
-> > commit 42fd623b58db ("perf maps: Get map before returning in
-> > maps__find"), which updated arch/x86/tests/dwarf-unwind.c but missed
-> > the arm, arm64 and powerpc copies. Release the map after reading its
-> > end, as x86 does. All other callers of maps__find() already release
-> > what they get.
-> >
-> > Fixes: 42fd623b58db ("perf maps: Get map before returning in maps__find")
-> > Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-> 
-> Reviewed-by: Ian Rogers <irogers@google.com>
+- [Medium] The commit message of "net: stmmac: do not cache the new TSO
+   MSS before it reaches the DMA" describes a failure mode that cannot…
 
-Thanks, applied to perf-tools-next, for v7.4.
+Agreed -- thanks for the analysis, the on-the-wire symptom I described
+cannot happen. After a mapping failure the abandoned context descriptor
+stays at OWN=0, the error paths never advance the tail pointer, and once
+a later xmit publishes it the DMA suspends on the not-owned descriptor;
+stmmac_tx_clean() reclaims the slot in software but pins dirty_tx at the
+first descriptor the DMA still owns, so no later frame is ever segmented
+at all -- stale MSS or otherwise. The real pre-patch consequence is the
+wedged TX ring you describe, recovered only by the reset path
+(stmmac_tx_err() -> stmmac_reset_tx_queue(), which also clears the stale
+tx_q->mss; reachable from both the watchdog and the DMA error interrupt).
 
-- Arnaldo
+I will respin with the commit message rewritten to describe the stall;
+the code change is unchanged (keeping tx_q->cur_tx on the context slot
+and releasing it on the error paths is what prevents the wedge).
+
+pw-bot: cr
+
 
