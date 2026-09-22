@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCD4C98305
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0502C982FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqiXccAHsUrIMDsLkLXR6P0dTgO5nQzYlI6kaXLWWHg=; b=yNvstbwXSwCE8XN5pi8+uZLkxe
-	MB6sGube8phe8hg1MoTb+ipEy+sOkzaXcBpU+lgKeXTcwAS3j7v59Avz5y9qmuL+31XsbIcKVOhre
-	e9ZpPwmp/yew8RakSiZbIbQ8hdrxBNG+HfU0v7kq4zYUCbWYHNGUFInTPVM0rLqzwIVxe6dmb2vj7
-	LtxOrxRmnfM/+okNxgNA5GM7DWGaOo3VJkoqykMwkZ9skOuxOEOeLDdi8tyNaaPqRLXh7PhKEAisJ
-	CR9dC3sNqB4StNVbgBwg6T4i5vSJgghqUXRAroznwJ8wiCzRuwHx4qQQIJ0WBs8Us3PZOfeEDC9WA
-	V5uAnZSw==;
+	bh=cUwmXn/jLJ9RJT7pjA9WmiefPpGzIu17sEQJkrs8eXE=; b=sc/bndQsVoguYwFXWjsYuAyS61
+	GTxPnYC3ruiW1I64w0+R0GyGwpeHRIlakPKo+d4AvGEYYVPQHasNDCeOhKO1CotEsspL9IVGDj/+A
+	2B93jzjh4fHfpwky8tu+LyxhHc00YJeSgN0dE9Lr0b1S73fMAxKSqRXdl/jpiQ4+xJA33pp3dINiP
+	aNoPNpV51eV62tP+eW2yCbJf11JoUEC/IxD57O5feyLvxE7Sy/khdr19NT/RJvYgaG5P8NwNjzK/O
+	pRPYZdfD6BRRVG7aBqFkqIiQ2RPj/yjGQCTkycnWfisBZHFLvpY+Fal4oy8Z99Ty6x3ZKmP0aHfCC
+	PJ4Gt9zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vSK-00000004aqL-2Ejp;
-	Tue, 22 Sep 2026 08:02:24 +0000
+	id 1x8vSY-00000004b5N-1nAz;
+	Tue, 22 Sep 2026 08:02:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vRe-00000004aKZ-1Jpf
+	id 1x8vRh-00000004aNu-1lXL
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 08:01:42 +0000
+	Tue, 22 Sep 2026 08:01:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=YqiXccAHsUrIMDsLkLXR6P0dTgO5nQzYlI6kaXLWWHg=; b=Iy+1BGtMLDKaMtoRWCO1appBXy
-	sOY64TnoO3HvZpwI3LtauIcuyZPJH8w3lTZVlja0SKmVf6WRptRF5/mbgVDIrI6HGIs+O3Jo6KmVd
-	LkuC+FvMfnbYRgO5q1ucZuIvjYW7kNLumwMAX90TWR9H5dlYoaAKjpBDLTbdnlR12TKwJa+NIqeN5
-	vu9KEx1+ml/dJiYBy99ho1WFupUklEvlV3mGa/xPizLIXgBhSLhGpJDcyhOSr2dtyg8I30XFI7gO3
-	CMWMnsniwNpn6kmdRdCF3uCOQYL/Mr+fA5Ubeg2nZeemLaQrwJbqiGtKFn5xGyCnmm/+WXvqdU8ZY
-	e24HjwUA==;
+	bh=cUwmXn/jLJ9RJT7pjA9WmiefPpGzIu17sEQJkrs8eXE=; b=GNJdHcPQ8OIeX8pEQexlpzlD0f
+	Xqj8dXmP38yh9CREAqiAxC0nR42+fDoJbGPX8gHsb3kY+4eH25iafZlWGhzmC0mPuP6wI3Nc0fXeM
+	+sHBF5OuOjaOMT9xKfAB2Wk7DSTGDXgF1HqeB7VZeWWtyaKga5HZkadAyzV97NOuCZ02KQM7ZTUI5
+	52wTBFpXTyKF3v0x9l3SUL72tZbAcj2YdxWB4gsffoVC9M3D4biZezJEsEH/ZpDRK7h0vznaW1nPz
+	Waq/rSQ6KUIW04e0vHIbuDo+IWfeh5DrZ2rDGFlu/phYVpgp7kiBjAjUi9Dp6EyHE/MW2GSAlKM3z
+	bK13Zb8A==;
 Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8vRZ-0000000DEgl-3acV
+	id 1x8vRc-0000000DEiL-2sXu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:01:40 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49d1331ce1bso2265985e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:37 -0700 (PDT)
+	Tue, 22 Sep 2026 08:01:42 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b93204449so2951505e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 01:01:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790064097; x=1790668897; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790064099; x=1790668899; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YqiXccAHsUrIMDsLkLXR6P0dTgO5nQzYlI6kaXLWWHg=;
-        b=UZGIkju60Z7DhGvdwcRcr6y/NU4pO6qVoyFTRWzLsU6tvK33TuvORv/mBiHbOYqIog
-         gKZ42jeGVH2DEdF8ZafC4HuZGB5s9bwav30DVKCQTM+TKMv45/axopQT0SFvVl/JH/s1
-         r8SN8BXCrYwad5ZCNirTmGnjxQgFirvrpn5u8DzAwFiVflC4WdwjHRAWgRIt/59e+Ko9
-         hPMD5QdeG3kNIlolXPJKZLXFJRZsYvO/4WW6ZQy4jOC6u/ar02+xm/rnBZjYFln6eHc2
-         t/KuMUL4ZJQhPb+BZQ9K2/RJa0pLi6xfJovcEbmdQFuZs1qdP4QIzaLO45z1hTBJQjFf
-         0rcg==
+        bh=cUwmXn/jLJ9RJT7pjA9WmiefPpGzIu17sEQJkrs8eXE=;
+        b=RLKlwz+yxCr6bUbWduC48lUDOvF7yk+NLSBvCxeVp3oxXj5F/yV+2uDC0rYsVYWaIN
+         jBfOuUjhm+npzTjLHW5SPh1c8nnT+HojZcxlRIWfzXn3jh3Vii8bIToNcAGGjjHKuAyf
+         q4XzrWlbwzWRkNBneaZ/wtCEjrrS/gKpc9APbBg9/p/MS5U1db22z9IYGGxpnZFtGoll
+         orDvjxW6Xlic4+Ow50R+lUlA6UtoOI/y61ZT+VaZa9Ed0HV26T7jFwvD59tff+17f7qV
+         i04Fx0zkfan5bsXH87gOHQhKGtYmX/+rgx8Go5igkf8SANNymnmXw9aUOxSGlfxyaW6V
+         ka2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790064097; x=1790668897;
+        d=1e100.net; s=20260707; t=1790064099; x=1790668899;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YqiXccAHsUrIMDsLkLXR6P0dTgO5nQzYlI6kaXLWWHg=;
-        b=JjOa/K/L79xB6MW8qtW4Ro6zlnrUXyM7zd75tzu7yxBg4B4Tj/KvY+rwvvRwyWLTyS
-         peGrK7wfn1a5C3CtzKe1Sh3UQNxMIN4eH+9wHyi90NArrKvqLM79R2enpMqDEgOZc8ap
-         pXI2BKq9C1bIcQPOCNAuRR6EGDvTbqh1o5NKSKVS2tVb5gThYseOhteEfLKLlEOMpPTW
-         rfrYm9I+KvFTYSgJidDpdXg9PbnVCJB4+SQ6zCjA3omXIj70GRD2zoCmoU/aIBwMg7au
-         +xklDN6JcmDQje18RI6CxeiPC52l4QbmxScdMgxXbdBSHO7rQDpTyO7yBkirM0oDWOju
-         8LbA==
-X-Forwarded-Encrypted: i=1; AKwUvBypI4dN8SXQD6mXySlDerkKTZTfgnogE3H1s+hrJLnjw8d5TiJVGSlLRKAFgWR3Eo5ZEew7WLfnqnkEAw53Ub0z@lists.infradead.org
-X-Gm-Message-State: AFuF++kZ7eibviIHH5K/45cyt0inyxTT/1Cyw48fdzM/HoSVB3SBHZCr
-	G4bhQKXaImxt1ujFSHO+cg865wQzRxJSTNEdCZZXYuObt9JSd/B5x2w7
-X-Gm-Gg: AYBFou01NoPpXiKkC+KzxdzV2Ozae98YiPL/k5muaJNQpUsF/EkVlv4Hvhr0FJRs1rL
-	PvGxC9rNusNEV9+0aASl8Rft8TqO6uZw4LyqgF8TVV1AhbNWiVLkvozDXybWH1fw8hWwbGFmd25
-	mFbS+R5cl92GRHqir4n9imwvPTuF31AhuTWO6MXH0aPZVEIqGhYCV/Si9k7GJjVfx+Zi3txpKJz
-	QGAU67F4RSSddIme7ndia4ebo6kqNMvlMwRFLnxjIDObDTLIVJYxDoqZVaUA5Ra5eOlA6Cb/xAG
-	X+BlNe+TAOyl1bdZlg7Brix6891bPS8ndjGP4XRZZnyjaKXaXjnlo1k/eiNLiDQeIpswsgQEmId
-	uqqbrKhSOucdrJEXRiK6j67+BbD6jmxevkzXMPr0L2yNxjrMYeDoC3mhmwcw6zBxbTWjfEtyD+p
-	Y0ZT3A2NjU6BA+Hmbzde3wL3C2yXOQdKp8fsdi094dvuN28UaQT43FTsTQtR2/doBCVEq/+b0DB
-	7s1dA8gCdY3zoWFQOKI1YA9dmY18a6cl3ZHFwwS02VA/tnCl+msFnAlv8ZKfvYqlFjEw7EpNLLy
-	76U=
-X-Received: by 2002:a05:600c:3b99:b0:49e:6683:d227 with SMTP id 5b1f17b1804b1-49fc7bbfe4bmr199180665e9.0.1790064096621;
-        Tue, 22 Sep 2026 01:01:36 -0700 (PDT)
+        bh=cUwmXn/jLJ9RJT7pjA9WmiefPpGzIu17sEQJkrs8eXE=;
+        b=xxRkiwSU0PISddi3qDH581vzKXxUsjBlRML2BWbpMhfLSs7iPUjeJgFnASw69Lt7Pr
+         bo7HWpecot+6Oph/jv3p8ILRSxg32Ptm3coS08H3H1T6bDYlWo4yV9ZZ2R47fmNTyyzJ
+         tW6uBPyAVofOmsDIBP6YCueApBFJfkQMyOozDKqTHq+5HcHkLyqW1otf8QG9qj93tOJz
+         +camSYck9UPbvBOqXlipqvUNmOynbW/ZT4GrjQDNmyw11gBck7/1I0Lf9+Vv2QkfMGbe
+         AMqR0gvMjVZfgXKwxZFeg6OSm+RrK8M1+naoPjXZgcRI6daS/IbZ8nw6GI/76sS+8S0T
+         f5Tw==
+X-Forwarded-Encrypted: i=1; AKwUvBwshv9iU1dlFF/CWadX1CWKhm6VZVrr3h2h1Fa12uM+9cKF4vN8qKCR5Vs3mmA2zBLT/f5PTbBewSobAf8nvmfO@lists.infradead.org
+X-Gm-Message-State: AFuF++lj8MB/Xu6EbZmVUJ+U3FH44DewufsES81T4bI7zmvfb6y5xt4V
+	2RtxNKjzczEU4KZCrZ2YUpEHAfr2I5ybtC3lVu9zveFumdrtYYkoVehi
+X-Gm-Gg: AYBFou2yuUQGXZGEKHvx2QECrtTKOm98VI4fnHYHz1zMKbeH/qPbEEZeyjt0788mZur
+	9mG9u3GZ+/nZXHa98YCtiZhu6IskN7wMAw5miUGhhVxsZ2ErmbS1Pke3K6yKCElfgMbK+r6jlqZ
+	1UbXsYoYw6YSf9NZT/BJuGMMYXXSHCFrCfnlnWT8xblCIKKbHOyv2EIeBZ6muh+Eh8+HdP+oiWe
+	QEh2aItklDP5fcg7F9cVlzjC6BM2/bdDjeWjZ6jN7nW8078uCTVXUAl8nLIDu8R79nuNebGvdD3
+	gI5qw4vAxCLls/EdC0HYv0ot/RBmhRSwJvh7GNA42wyBK4r7i7+vfaRbwlz7BLd3hKGhkHxRy1a
+	96h8V9iwvfDW021pb+0HC48IJAolt2/wNt1Ucnadh+8GX0Jx5Z6+dzcfHz/ULZno9PO+IrMqUDK
+	a0vldTG2j+RBafI5GSd8TOEgxtdcoYhHBzSjFfnZ/zQk+ZXGwCKPtFRQgHTBqtV3QrZL/nvIniC
+	vb5LVq1AE5w6HXuvDBgjVyqLnccYbIDNtS8z9hGIoDbNPag30HgLBlxqCAlTMTt7mtYHUB2hDsn
+	duk=
+X-Received: by 2002:a05:600c:a00a:b0:499:d95a:41f with SMTP id 5b1f17b1804b1-49fc7b83237mr163730805e9.0.1790064099450;
+        Tue, 22 Sep 2026 01:01:39 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B80530056971C6280202175.dsl.pool.telekom.hu. [2001:4c4e:1b80:5300:5697:1c62:8020:2175])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdaaf97e2sm18248625e9.2.2026.09.22.01.01.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 01:01:36 -0700 (PDT)
+        Tue, 22 Sep 2026 01:01:39 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
 	Oded Gabbay <ogabbay@kernel.org>,
@@ -109,17 +109,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH v2 08/11] accel/rocket: restore the NPU clock boot rate before powering the cores down
-Date: Tue, 22 Sep 2026 10:01:11 +0200
-Message-ID: <20260922080114.44662-9-royalnet026@gmail.com>
+Subject: [PATCH v2 10/11] accel/rocket: register a devfreq cooling device
+Date: Tue, 22 Sep 2026 10:01:13 +0200
+Message-ID: <20260922080114.44662-11-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260922080114.44662-1-royalnet026@gmail.com>
 References: <20260922080114.44662-1-royalnet026@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_090138_077877_5737D140 
-X-CRM114-Status: GOOD (  36.87  )
+X-CRM114-CacheID: sfid-20260922_090141_348728_79E1BDD5 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,188 +134,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The compute clock is generated by a PVTPLL that lives inside the NPU power
-island. Powering an island up while that clock is above the rate the
-bootloader left it at does not work: the domain never acks the power-on,
-and the first register access into it afterwards takes an asynchronous
-SError. So the rate has to be back down before the last core goes away.
+With devfreq driving the NPU clock, a thermal zone can now throttle the NPU
+by capping that clock. Register the cooling device so a devicetree can bind
+it to a zone.
 
-Nothing in the driver raises the clock today, which makes this a no-op on
-its own, but it is the guard that has to be in the tree before anything
-does, and the next patches do. The .shutdown hook is the same guard for the
-handover: once devfreq is driving the clock, a kexec would otherwise pass
-the raised rate to the next kernel, which powers the islands up before it
-looks at it. What this cannot do is rescue a rate it did not set - the rate
-read at probe is taken as the boot rate whatever it is.
+The _em variant is used, not because there is an energy model today but so
+that there will be one the day a power coefficient for this NPU is
+measured. There is none now: the NPU core nodes carry no
+dynamic-power-coefficient, Rockchip does not publish one, and a made-up
+number would be worse than no number. devfreq_cooling_em_register() logs
+the missing model at debug level and registers the cooling device anyway,
+so what this gets today is step-wise throttling with no power model for the
+IPA governor to use. Measuring the coefficient is follow-up work.
 
-The rate is read at probe rather than hardcoded. Mainline pins the RK3588
-cores at 200 MHz with assigned-clock-rates, but that is a devicetree
-property, not a property of the hardware, and a SoC whose devicetree does
-not set it would be left running at a rate this driver had invented.
-
-All three cores share the clock, so only the last core to suspend may lower
-it; the others just drop the count. Lowering it is safe with the islands
-already down as long as the boot rate is one the firmware serves from GPLL,
-which on the RK3588 is the 200 MHz the devicetree pins: for that rate the
-firmware writes only CRU clock selectors, never a register inside the NPU.
+Registration is allowed to fail. A kernel built without DEVFREQ_THERMAL
+gets a stub that returns an error, and losing throttling is not a reason to
+refuse to drive the NPU at all, so the failure is logged and probe carries
+on. The cooling device is unregistered by hand before the devfreq device it
+is attached to goes away.
 
 Assisted-by: LLM sparse checkpatch
 Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
 ---
-v2: v1 of this patch kept a struct clk handle in struct rocket_device,
-taken from the devres of the first core to probe, and used it from the
-runtime suspend of whichever core went down last. Unbinding the cores
-freed the handle underneath it: KASAN reported a slab-use-after-free in
-clk_set_rate() during a ten-round unbind/rebind test on this board after
-v1 was posted. No handle is kept any more; the callback uses the handle of
-the core it runs for, which is bound for as long as the call lasts.
-"A reboot" is dropped from the kexec sentence and the comment: whether the
-clock selectors survive the global reset the firmware does on reboot has
-not been checked. The argument that lowering the rate is safe is now
-limited to a boot rate the firmware serves from GPLL, which on the RK3588
-is the 200 MHz the devicetree pins.
+v2: wording only, for the shared table.
 
- drivers/accel/rocket/rocket_core.c   | 10 ++++++
- drivers/accel/rocket/rocket_device.h | 15 +++++++++
- drivers/accel/rocket/rocket_drv.c    | 47 ++++++++++++++++++++++++++++
- 3 files changed, 72 insertions(+)
+ drivers/accel/rocket/rocket_devfreq.c | 25 +++++++++++++++++++++++++
+ drivers/accel/rocket/rocket_devfreq.h |  2 ++
+ 2 files changed, 27 insertions(+)
 
-diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
-index 5dd260bacbff6..c736537cf28f6 100644
---- a/drivers/accel/rocket/rocket_core.c
-+++ b/drivers/accel/rocket/rocket_core.c
-@@ -12,6 +12,7 @@
- #include <linux/reset.h>
+diff --git a/drivers/accel/rocket/rocket_devfreq.c b/drivers/accel/rocket/rocket_devfreq.c
+index 871fa370eb432..c81887734de77 100644
+--- a/drivers/accel/rocket/rocket_devfreq.c
++++ b/drivers/accel/rocket/rocket_devfreq.c
+@@ -3,6 +3,7 @@
  
- #include "rocket_core.h"
-+#include "rocket_device.h"
- #include "rocket_job.h"
- 
- int rocket_core_init(struct rocket_core *core)
-@@ -36,6 +37,15 @@ int rocket_core_init(struct rocket_core *core)
- 	if (err)
- 		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", core->index);
- 
-+	/*
-+	 * Record what the compute clock was running at before anything here
-+	 * touched it, on the first core to probe. Reading it rather than
-+	 * hardcoding a rate keeps this working on a SoC whose devicetree does
-+	 * not pin the clock with assigned-clock-rates.
-+	 */
-+	if (!core->rdev->npu_boot_rate)
-+		core->rdev->npu_boot_rate = clk_get_rate(core->clks[2].clk);
-+
- 	core->pc_iomem = devm_platform_ioremap_resource_byname(pdev, "pc");
- 	if (IS_ERR(core->pc_iomem)) {
- 		dev_err(dev, "couldn't find PC registers %ld\n", PTR_ERR(core->pc_iomem));
-diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
-index abb88a254e569..ba7c977cd6951 100644
---- a/drivers/accel/rocket/rocket_device.h
-+++ b/drivers/accel/rocket/rocket_device.h
-@@ -22,6 +22,21 @@ struct rocket_device {
- 	unsigned int num_cores;
- 	/* Slot capacity (DT core count); slots with a NULL .dev are free. */
- 	unsigned int max_cores;
-+
-+	/*
-+	 * The cores have no clock of their own: one clock feeds all of them,
-+	 * so any core's handle refers to the same thing. No handle is kept
-+	 * here: each one belongs to the devres of the core that asked for it
-+	 * and dies with that core's unbind, while this structure outlives any
-+	 * single core. Whoever needs the clock uses the handle of the core it
-+	 * was called for, which is bound for as long as the call lasts.
-+	 *
-+	 * npu_boot_rate is the rate the clock was left at before the driver
-+	 * touched it, and active_cores counts the cores that are runtime
-+	 * resumed right now.
-+	 */
-+	unsigned long npu_boot_rate;
-+	atomic_t active_cores;
- };
- 
- struct rocket_device *rocket_device_init(struct platform_device *pdev,
-diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-index b9b36c578db20..8f03de1af488c 100644
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -297,6 +297,30 @@ static int find_core_for_dev(struct device *dev)
- 	return -1;
- }
- 
-+/*
-+ * Put the compute clock back where the bootloader had it. The cores share
-+ * this clock, so this is only correct once none of them is running any more.
-+ *
-+ * Lowering the rate is safe with the power islands down as long as the boot
-+ * rate is one the firmware serves from GPLL, which on the RK3588 is the
-+ * 200 MHz the devicetree pins: for that rate the firmware touches only the
-+ * CRU clock selectors, none of the NPU's own registers.
-+ */
-+static void rocket_npu_restore_boot_rate(struct rocket_core *core)
-+{
-+	struct rocket_device *rdev = core->rdev;
-+	int err;
-+
-+	if (!rdev->npu_boot_rate)
-+		return;
-+
-+	err = clk_set_rate(core->clks[2].clk, rdev->npu_boot_rate);
-+	if (err)
-+		dev_warn(core->dev,
-+			 "failed to restore the NPU boot rate of %lu Hz: %d\n",
-+			 rdev->npu_boot_rate, err);
-+}
-+
- static int rocket_device_runtime_resume(struct device *dev)
- {
- 	struct rocket_device *rdev = dev_get_drvdata(dev);
-@@ -312,6 +336,8 @@ static int rocket_device_runtime_resume(struct device *dev)
- 		return err;
+ #include <linux/clk.h>
+ #include <linux/devfreq.h>
++#include <linux/devfreq_cooling.h>
+ #include <linux/ktime.h>
+ #include <linux/minmax.h>
+ #include <linux/of.h>
+@@ -446,6 +447,25 @@ int rocket_devfreq_init(struct rocket_device *rdev)
+ 		goto err_remove_table;
  	}
  
-+	atomic_inc(&rdev->active_cores);
++	/*
++	 * Thermal throttling is optional, so a kernel built without
++	 * DEVFREQ_THERMAL keeps a working NPU rather than a failed probe.
++	 *
++	 * The _em variant is used so that the driver is ready for an energy
++	 * model the day a power coefficient for this NPU is measured. There is
++	 * none today: the NPU core nodes have no dynamic-power-coefficient,
++	 * the vendor does not publish one, and inventing a number would be
++	 * worse than having none. Without it the EM registration inside is
++	 * skipped and throttling is step-wise, with no power model for IPA to
++	 * use.
++	 */
++	rdevfreq->cooling = devfreq_cooling_em_register(rdevfreq->devfreq, NULL);
++	if (IS_ERR(rdevfreq->cooling)) {
++		dev_info(dev, "no devfreq cooling device (%pe), NPU will not be throttled\n",
++			 rdevfreq->cooling);
++		rdevfreq->cooling = NULL;
++	}
 +
  	return 0;
- }
  
-@@ -328,6 +354,9 @@ static int rocket_device_runtime_suspend(struct device *dev)
+ err_remove_table:
+@@ -468,6 +488,11 @@ void rocket_devfreq_fini(struct rocket_device *rdev)
  
- 	clk_bulk_disable_unprepare(ARRAY_SIZE(rdev->cores[core].clks), rdev->cores[core].clks);
+ 	dev = rdevfreq->owner->dev;
  
-+	if (atomic_dec_and_test(&rdev->active_cores))
-+		rocket_npu_restore_boot_rate(&rdev->cores[core]);
++	if (rdevfreq->cooling) {
++		devfreq_cooling_unregister(rdevfreq->cooling);
++		rdevfreq->cooling = NULL;
++	}
 +
- 	return 0;
- }
+ 	devfreq_remove_device(rdevfreq->devfreq);
+ 	rdevfreq->devfreq = NULL;
  
-@@ -336,9 +365,27 @@ EXPORT_GPL_DEV_PM_OPS(rocket_pm_ops) = {
- 	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
- };
+diff --git a/drivers/accel/rocket/rocket_devfreq.h b/drivers/accel/rocket/rocket_devfreq.h
+index 65a9de6d37389..26a3749078b9f 100644
+--- a/drivers/accel/rocket/rocket_devfreq.h
++++ b/drivers/accel/rocket/rocket_devfreq.h
+@@ -10,9 +10,11 @@
  
-+/*
-+ * A kexec hands the next kernel whatever rate is set here, and that kernel
-+ * will power the islands up before it looks at the clock.
-+ */
-+static void rocket_shutdown(struct platform_device *pdev)
-+{
-+	struct rocket_device *rdev = dev_get_drvdata(&pdev->dev);
-+	int core;
-+
-+	if (!rdev)
-+		return;
-+
-+	core = find_core_for_dev(&pdev->dev);
-+	if (core >= 0)
-+		rocket_npu_restore_boot_rate(&rdev->cores[core]);
-+}
-+
- static struct platform_driver rocket_driver = {
- 	.probe = rocket_probe,
- 	.remove = rocket_remove,
-+	.shutdown = rocket_shutdown,
- 	.driver	 = {
- 		.name = "rocket",
- 		.pm = pm_ptr(&rocket_pm_ops),
+ struct rocket_core;
+ struct rocket_device;
++struct thermal_cooling_device;
+ 
+ struct rocket_devfreq {
+ 	struct devfreq *devfreq;
++	struct thermal_cooling_device *cooling;
+ 	struct devfreq_simple_ondemand_data gov_data;
+ 
+ 	/*
 -- 
 2.43.0
 
