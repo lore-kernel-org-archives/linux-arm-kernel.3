@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8054BC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB1EC982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 15:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DNuqR6h7lMBYLpc3OWPx94AN2/jHBwLOhY3RRj1IfnM=; b=np6+dseZ4xucIsB0lMjcxAKT5g
-	kMxYZnK6wKYAz9YjE5KSQegzfe1zAeNr1AIAOUCrnIWmy1hy7QaRCOnfvV+6jcCqd3mDJZSeHV7Ss
-	g/y7GNa4/snR+8psdaBUd5IVtxcaOtDS8jRaV0dtHw90w+WKW6WBgDzGpY5h78Cijmbh5+WbzTT46
-	HRJwIA4nS9HTiDlFp9xwKndvoYPMxp2hmpDMacUzLt6MWdfdae90dQNXOt37gfSVlhNwu/kcq2bll
-	v0kgeFyd/kXRDq6iC0LL/BCLk4pbni6ssb/ueH2wA1+Q0VMmHDypB/3xZmSHDQdf3YaWxukf/FJyL
-	ZMrZwrDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T56DLp6EDZvMJducyX5eXxcY81Xx5bfBfBpjulakHeo=; b=MzdbiWPr5FO7Ro8uD3MQqMyjpf
+	lN4nDjxLCg/RmFaeRoyeetp6hsX/U1lJDluEia0D2PuL6HKWib//2DS8JOoDcdEFg+NaS2UZdHxN7
+	+qG+bFyZUKxiMAS+sTTmj+EUBzYqL8sIr8t31C8OBwI0nvtJqvdm/F1wP+a0ibnh5hrQCVg6R9eY9
+	arHM2gmI0f7f6Ka4TpNsVSQGnN6GIQyESPeeQJ0rnfQSksf5vJhEWxF/+dqrlOukV2wHqzyMVliqm
+	WyMEyYdE5pZ1e30hrYwVKxrMTLW7jDVNf1SHuxlvipAQfLhRoNjLLeFjL6vJnn2PX7mwOhLAZXkfl
+	yAmctiMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92Nu-00000005pL1-1Eoo;
-	Tue, 22 Sep 2026 15:26:18 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1x92PO-00000005peJ-2OUk;
+	Tue, 22 Sep 2026 15:27:50 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92Ne-00000005pF2-1Jqu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 15:26:04 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 2C01A22B7D;
-	Tue, 22 Sep 2026 17:26:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1790090760;
-	bh=DNuqR6h7lMBYLpc3OWPx94AN2/jHBwLOhY3RRj1IfnM=; h=From:To:Subject;
-	b=yEC5MUUO35xVfwfGxJRYp/5MPkNrbAkfOcOqC7PqKuD0hKjjzJGZFM48z2kiDIdAC
-	 MiyuYm1BLdUS5C5l8yGnVY7tArv4j0+EvUUJToCGHCYsfXtwCH/FvuYMymbOf0zZaC
-	 zx18+kWiQOPyCGJFCIWevoZ2GZadDFJRhVqz1jb3iwGSr9XkDsBk8+CMym85lGre7l
-	 qqcJG3S0pM9lHjAJQkFnorqRz72xf7dIBoNs3iWeTkD+rlO331SfvAvf0Yw56dz0Vc
-	 LIthRFoNccp+6TPbCfaWvvttbGatuSOj0q6ym6hvgKrfg2gr1vvJqCbSBJsHqXfwTb
-	 GUHkgKeXtG80Q==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] arm64: dts: ti: k3-am62-verdin-zinnia: fix main_gpio0/main_gpio1 line names size
-Date: Tue, 22 Sep 2026 17:25:49 +0200
-Message-ID: <20260922152551.270845-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260922152551.270845-1-francesco@dolcini.it>
-References: <20260922152551.270845-1-francesco@dolcini.it>
+	id 1x92PL-00000005pd6-2Pgp;
+	Tue, 22 Sep 2026 15:27:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790090822; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Myif/PNyMXUnkRgDKqLcox5iJF5e7V8oMQjn5MkgqQcF93CAJGgHwDb30szTrF2EB2f2dtsOuWMokM9pxj1/3bvPMk9Ylr06qQIufsZ3SKwl9RpLzxM2Ac+57B81pQyXv6wY35P9GuDtIX/n/2h8gE9oNVyjkpt0EqGFi3KkthM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790090822; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=T56DLp6EDZvMJducyX5eXxcY81Xx5bfBfBpjulakHeo=; 
+	b=B2KVTyXBt2ftgVLn+I7vYbrwD4LChQQqf0gjmzA1jvPlBCD5TKGDsGovi53R/82fbpdC50khB2fCRm7xOfXlrcCKnU8RvMmebgmIn4hh8wxJFKP7rmuIhMY1YlZI62zHYqZI85EfIwZt+posTV8YumaVBJtma1ZysZ3nL9r83e8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790090822;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=T56DLp6EDZvMJducyX5eXxcY81Xx5bfBfBpjulakHeo=;
+	b=dc6duuugsNFnFFvjjciYjvFC/tQxbd16Gs6MqbCDailWEysxfhXROvSHLELdKY12
+	wQzU/lCSScoc61GMrWMr7GvicySYptOITHtyska0nSJSFc0AjDcHWDOYW+XmaUDKhso
+	HU3K+6HU20HWZQMNHCom80bGbFYJlxL13WAbwkRY=
+Received: by smtp.zohomail.com with SMTPS id 1790090820807532.2535788313991;
+	Tue, 22 Sep 2026 08:27:00 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
+ Daniel Stone <daniels@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Leo Li <sunpeng.li@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ Derek Foreman <derek.foreman@collabora.com>,
+ wayland-devel@lists.freedesktop.org
+Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
+Date: Tue, 22 Sep 2026 17:26:53 +0200
+Message-ID: <VERVf-aJRRKsBOI_3dpScg@collabora.com>
+In-Reply-To: <0226527e-ee38-40ab-a2a8-1ae62013b950@amd.com>
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
+ <20260921-vrr-limiter-uapi-v1-13-2fcd7d011646@collabora.com>
+ <0226527e-ee38-40ab-a2a8-1ae62013b950@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_082602_515286_345FF2D3 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260922_082747_684468_77C498B7 
+X-CRM114-Status: GOOD (  50.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,79 +91,323 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Tuesday, 22 September 2026 00:23:30 Central European Summer Time Leo Li wrote:
+> 
+> On 2026-09-21 11:51, Nicolas Frattaroli wrote:
+> > Userspace may wish to set a target frame rate for the Variable Refresh
+> > Rate mechanism. There are multiple possible ways such a target could be
+> > communicated.
+> > 
+> > It's desirable for userspace to not only set a fixed target, but a
+> > target range within which VRR may operate. This is because even if a
+> > sink advertises a certain range as supported, said range may not be the
+> > ideal range to use, as numbers on the extreme end of the range may
+> > induce flickering or other glitches.
+> > 
+> > There's four choices to how one bracketing value for the target range
+> > could be communicated:
+> > 1. Target frame rate in something like millihertz
+> > 2. Target frame period in something like usecs
+> > 3. Target vtotal value
+> > 4. Target frame rate as a fraction expressed by two integers
+> > 
+> > Choice 1 is unpleasant as it would introduce some amount of rounding to
+> > common broadcast framerates like 24/1.001, which seems minor except that
+> > exact matches to standard framerates would rely on making all userspace
+> > and kernel agree on a specific method of rounding. This is sure to go
+> > wrong, so is disqualified.
+> > 
+> > Choice 2 has the same problem as 1, with the added complication that
+> > the EDID's VRR range is expressed in frames per second, and other HDMI
+> > features express things in frames per second as well, which would
+> > require possibly imprecise computations.
+> > 
+> > Choice 3 is disqualified as mechanisms other than VRR, such as FVA, may
+> > also modify the vtotal value. Additionally, it has the same drawbacks of
+> > choice 2 and 1.
+> > 
+> > Choice 4 is therefore what's implemented. The frame rate 24/1.001Hz, for
+> > example, is expressed as nominator=24000 and denominator=1001. As there
+> > is both a minimum and a maximum, there are 4 properties in total: two
+> > numerators, and two denominators. A fixed rate with no variability is
+> > expressed by setting the minimum fractional and the maximum fractional
+> > properties to the same value.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/drm_atomic_uapi.c | 24 +++++++++++++++++++++
+> >  drivers/gpu/drm/drm_connector.c   | 45 +++++++++++++++++++++++++++++++++++++++
+> >  drivers/gpu/drm/drm_crtc.c        |  8 +++++++
+> >  drivers/gpu/drm/drm_mode_config.c | 20 +++++++++++++++++
+> >  include/drm/drm_crtc.h            |  4 ++++
+> >  include/drm/drm_mode_config.h     | 45 +++++++++++++++++++++++++++++++++++++++
+> >  6 files changed, 146 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+> > index 1eebcf6f5e05..c9eb01d740b3 100644
+> > --- a/drivers/gpu/drm/drm_atomic_uapi.c
+> > +++ b/drivers/gpu/drm/drm_atomic_uapi.c
+> > @@ -420,6 +420,22 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
+> >  		return ret;
+> >  	} else if (property == config->prop_vrr_enabled) {
+> >  		state->vrr_enabled = val;
+> > +	} else if (property == config->prop_vrr_min_numerator) {
+> > +		if (val > U32_MAX)
+> > +			return -EINVAL;
+> > +		state->vrr_state.vrr_min_n = val;
+> > +	} else if (property == config->prop_vrr_min_denominator) {
+> > +		if (val > U32_MAX)
+> > +			return -EINVAL;
+> > +		state->vrr_state.vrr_min_d = val;
+> > +	} else if (property == config->prop_vrr_max_numerator) {
+> > +		if (val > U32_MAX)
+> > +			return -EINVAL;
+> > +		state->vrr_state.vrr_max_n = val;
+> > +	} else if (property == config->prop_vrr_max_denominator) {
+> > +		if (val > U32_MAX)
+> > +			return -EINVAL;
+> > +		state->vrr_state.vrr_max_d = val;
+> >  	} else if (property == config->degamma_lut_property) {
+> >  		const size_t elem_size = sizeof(struct drm_color_lut);
+> >  		u64 lut_size;
+> > @@ -505,6 +521,14 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
+> >  		*val = (state->mode_blob) ? state->mode_blob->base.id : 0;
+> >  	else if (property == config->prop_vrr_enabled)
+> >  		*val = state->vrr_enabled;
+> > +	else if (property == config->prop_vrr_min_numerator)
+> > +		*val = state->vrr_state.vrr_min_n;
+> > +	else if (property == config->prop_vrr_min_denominator)
+> > +		*val = state->vrr_state.vrr_min_d;
+> > +	else if (property == config->prop_vrr_max_numerator)
+> > +		*val = state->vrr_state.vrr_max_n;
+> > +	else if (property == config->prop_vrr_max_denominator)
+> > +		*val = state->vrr_state.vrr_max_d;
+> >  	else if (property == config->degamma_lut_property)
+> >  		*val = (state->degamma_lut) ? state->degamma_lut->base.id : 0;
+> >  	else if (property == config->ctm_property)
+> > diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+> > index fc7d9fcf9d9f..5c07bd221977 100644
+> > --- a/drivers/gpu/drm/drm_connector.c
+> > +++ b/drivers/gpu/drm/drm_connector.c
+> > @@ -2579,6 +2579,51 @@ EXPORT_SYMBOL(drm_mode_create_scaling_mode_property);
+> >   *
+> >   *	The driver may place further restrictions within these minimum
+> >   *	and maximum bounds.
+> > + *
+> > + * VRR Limiter/Target Properties
+> > + * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > + *
+> > + * The ``VRR_{MIN,MAX}_{NUMERATOR,DENOMINATOR}`` properties expose a mechanism
+> > + * through which userspace can control the desired range of refresh rates in
+> > + * which VRR is allowed to operate. Each rate is expressed as a
+> > + * numerator/denominator fraction of refresh rates in Hz, allowing for rational
+> > + * target rates like 24/1.001 Hz with no loss of precision or ambiguity.
+> > + *
+> > + * If the minimum and maximum rate are set to the same value (and not 0), they
+> > + * are understood as a fixed target rate. This is especially useful for media
+> > + * playback, where the content's frame rate is both constant and known in
+> > + * advance. In such cases, a refresh rate that is not an integer multiple of the
+> > + * content's frame rate will introduce judder, since not every frame is
+> > + * displayed for the same amount of time. A modeset of the display with a
+> > + * compatible rate may in those cases be either undesirable or impossible, but
+> > + * the rate can still effectively be reached through VRR.
+> > + *
+> > + * .. _VRR-MIN-NUMERATOR:
+> > + *
+> > + * "VRR_MIN_NUMERATOR":
+> > + *	Default &drm_crtc integer property forming the numerator of a
+> > + *	numerator/denominator pair of a frame rate to set as the minimum VRR
+> > + *	target rate. Set to 0 to disable.
+> > + *
+> > + * "VRR_MIN_DENOMINATOR":
+> > + *	Default &drm_crtc integer property forming the denominator of a
+> > + *	numerator/denominator pair of a frame rate to set as the minimum VRR
+> > + *	target rate. If :ref:`VRR_MIN_NUMERATOR <VRR-MIN-NUMERATOR>` is not
+> > + *	zero, it must be non-zero.
+> > + *	Otherwise, must also be zero.
+> > + *
+> > + * .. _VRR-MAX-NUMERATOR:
+> > + *
+> > + * "VRR_MAX_NUMERATOR":
+> > + *	Default &drm_crtc integer property forming the numerator of a
+> > + *	numerator/denominator pair of a frame rate to set as the maximum VRR
+> > + *	target rate. Set to 0 to disable.
+> > + *
+> > + * "VRR_MAX_DENOMINATOR":
+> > + *	Default &drm_crtc integer property forming the denominator of a
+> > + *	numerator/denominator pair of a frame rate to set as the maximum VRR
+> > + *	target rate. If :ref:`VRR_MAX_NUMERATOR <VRR-MAX-NUMERATOR>` is not
+> > + *	zero, it must be non-zero. Otherwise, must also be zero.
+> >   */
+> 
+> If VRR_MIN_NUMERATOR == 0 && VRR_MAX_NUMERATOR > 0, do we interpret that as
+> vrr limiting is disabled?
 
-zinnia redefines gpio-line-names for main_gpio0/main_gpio1, sized
-87/88 entries instead of the SoC's actual 92/52 ti,ngpio. Resize both
-arrays to match, keeping every existing label at its original index.
+You can picture VRR limiting as always being active, but with a limit rational
+of 0 it uses the display's limit as per the EDID, which is what unlimited game
+mode is. So with how it's implemented right now in hdmi_validate_vrr(), your
+example would set a maximum target, but leave the minimum at whatever the
+display defaults to.
 
-Fixes: 4abc2f22e469 ("arm64: dts: ti: k3-am62-verdin: Add Zinnia")
-Assisted-by: LLM
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- .../boot/dts/ti/k3-am62-verdin-zinnia.dtsi    | 41 +++----------------
- 1 file changed, 5 insertions(+), 36 deletions(-)
+Now that I'm thinking through this, a possible problem is that
+drm_crtc_helper_vrr_is_fixed_rate() operates on the user supplied limits, but
+if the display supplied lower limit is equal to the user supplied upper limit,
+then we have a fixed rate scenario without recognising it as such. I think I
+need to have a ponder on what the least surprising behaviour for userspace
+is in that instance. The display limit stuff gets a bit complex due to
+CinemaVRR and QMS TFRmin/TFRmax.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin-zinnia.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin-zinnia.dtsi
-index 0ce8357797ed..f399764b05cf 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-verdin-zinnia.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-verdin-zinnia.dtsi
-@@ -274,6 +274,11 @@ &main_gpio0 {
- 		"",
- 		"",
- 		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 90 */
- 		"";
- };
- 
-@@ -330,42 +335,6 @@ &main_gpio1 {
- 		"",
- 		"",
- 		"", /* 50 */
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"", /* 60 */
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"", /* 70 */
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
--		"", /* 80 */
--		"",
--		"",
--		"",
--		"",
--		"",
--		"",
- 		"";
- };
- 
--- 
-2.47.3
+I'll improve the documentation on the next revision to make the meanings more
+explicit.
+
+> >  
+> >  /**
+> > diff --git a/drivers/gpu/drm/drm_crtc.c b/drivers/gpu/drm/drm_crtc.c
+> > index 63ead8ba6756..9244fbf97029 100644
+> > --- a/drivers/gpu/drm/drm_crtc.c
+> > +++ b/drivers/gpu/drm/drm_crtc.c
+> > @@ -322,6 +322,14 @@ static int __drm_crtc_init_with_planes(struct drm_device *dev, struct drm_crtc *
+> >  					   config->prop_out_fence_ptr, 0);
+> >  		drm_object_attach_property(&crtc->base,
+> >  					   config->prop_vrr_enabled, 0);
+> > +		drm_object_attach_property(&crtc->base,
+> > +					   config->prop_vrr_min_numerator, 0);
+> > +		drm_object_attach_property(&crtc->base,
+> > +					   config->prop_vrr_min_denominator, 0);
+> > +		drm_object_attach_property(&crtc->base,
+> > +					   config->prop_vrr_max_numerator, 0);
+> > +		drm_object_attach_property(&crtc->base,
+> > +					   config->prop_vrr_max_denominator, 0);
+> 
+> Would it be better to let vendors attach these properties themselves? That way,
+> they will only exist if supported. Otherwise, I'm not sure what would be the
+> expected behavior if they're attached, but not supported.
+
+Hmmm, yeah. For some background context, an earlier version of my code had
+these as part of the connector properties, and I intended to just make it
+mandatory for any HDMI state helper using driver that implements VRR to also
+implement limiters because there's no hardware limitation that'd prevent this
+iirc. But now that it's part of the general CRTC properties, this definitely
+shouldn't be attached for CRTCs that don't do VRR, and definitely also not
+for those that don't have the limiting code as part of their code paths.
+
+Thanks for the responses!
+
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> - Leo
+> >  	}
+> >  
+> >  	return 0;
+> > diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+> > index 48a56f23dadb..da967d60f832 100644
+> > --- a/drivers/gpu/drm/drm_mode_config.c
+> > +++ b/drivers/gpu/drm/drm_mode_config.c
+> > @@ -535,6 +535,26 @@ static int drm_mode_create_standard_properties(struct drm_device *dev)
+> >  		return -ENOMEM;
+> >  	dev->mode_config.prop_vrr_enabled = prop;
+> >  
+> > +	prop = drm_property_create_range(dev, 0, "VRR_MIN_NUMERATOR", 0, U32_MAX);
+> > +	if (!prop)
+> > +		return -ENOMEM;
+> > +	dev->mode_config.prop_vrr_min_numerator = prop;
+> > +
+> > +	prop = drm_property_create_range(dev, 0, "VRR_MIN_DENOMINATOR", 0, U32_MAX);
+> > +	if (!prop)
+> > +		return -ENOMEM;
+> > +	dev->mode_config.prop_vrr_min_denominator = prop;
+> > +
+> > +	prop = drm_property_create_range(dev, 0, "VRR_MAX_NUMERATOR", 0, U32_MAX);
+> > +	if (!prop)
+> > +		return -ENOMEM;
+> > +	dev->mode_config.prop_vrr_max_numerator = prop;
+> > +
+> > +	prop = drm_property_create_range(dev, 0, "VRR_MAX_DENOMINATOR", 0, U32_MAX);
+> > +	if (!prop)
+> > +		return -ENOMEM;
+> > +	dev->mode_config.prop_vrr_max_denominator = prop;
+> > +
+> >  	prop = drm_property_create(dev,
+> >  			DRM_MODE_PROP_BLOB,
+> >  			"DEGAMMA_LUT", 0);
+> > diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+> > index 9d58158af459..df37f4ebb58e 100644
+> > --- a/include/drm/drm_crtc.h
+> > +++ b/include/drm/drm_crtc.h
+> > @@ -67,6 +67,10 @@ struct drm_crtc_vrr_state {
+> >  	u8 vic;
+> >  	u16 cur_vtotal;
+> >  	u16 max_vtotal;
+> > +	u32 vrr_min_n;
+> > +	u32 vrr_min_d;
+> > +	u32 vrr_max_n;
+> > +	u32 vrr_max_d;
+> >  	u16 base_vtotal;
+> >  	bool dynamic;
+> >  };
+> > diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+> > index 084517beb924..c8d5286f9267 100644
+> > --- a/include/drm/drm_mode_config.h
+> > +++ b/include/drm/drm_mode_config.h
+> > @@ -702,6 +702,51 @@ struct drm_mode_config {
+> >  	 */
+> >  	struct drm_property *prop_vrr_enabled;
+> >  
+> > +	/**
+> > +	 * @prop_vrr_min_numerator: Default atomic CRTC property to indicate the
+> > +	 * numerator of a numerator/denominator variable refresh rate minimum
+> > +	 * target frame rate.
+> > +	 *
+> > +	 * If not zero, @prop_vrr_min_numerator divided by
+> > +	 * @prop_vrr_min_denominator must result in a frame rate above the
+> > +	 * sink's minimum VRR rate.
+> > +	 */
+> > +	struct drm_property *prop_vrr_min_numerator;
+> > +
+> > +	/**
+> > +	 * @prop_vrr_min_denominator: Default atomic CRTC property to indicate
+> > +	 * the denominator of a numerator/denominator variable refresh rate
+> > +	 * minimum target frame rate.
+> > +	 *
+> > +	 * If @prop_vrr_min_numerator is set, @prop_vrr_min_denominator must not
+> > +	 * be 0, and @prop_vrr_min_numerator divided by @prop_vrr_min_denominator
+> > +	 * must result in a frame rate above the minimum VRR rate.
+> > +	 */
+> > +	struct drm_property *prop_vrr_min_denominator;
+> > +
+> > +	/**
+> > +	 * @prop_vrr_max_numerator: Default atomic CRTC property to indicate the
+> > +	 * numerator of a numerator/denominator variable refresh rate maximum
+> > +	 * target frame rate range.
+> > +	 *
+> > +	 * The fraction expressed by this property divided by its corresponding
+> > +	 * denominator must be equal to or greater than the value of
+> > +	 * @prop_vrr_min_numerator.
+> > +	 */
+> > +	struct drm_property *prop_vrr_max_numerator;
+> > +
+> > +	/**
+> > +	 * @prop_vrr_max_denominator: Default atomic CRTC property to indicate
+> > +	 * the denominator of a numerator/denominator variable refresh rate
+> > +	 * maximum target frame rate range.
+> > +	 *
+> > +	 * If @prop_vrr_max_numerator is set, @prop_vrr_max_denominator must not
+> > +	 * be 0, and @prop_vrr_max_numerator divided by @prop_vrr_max_denominator
+> > +	 * must result in a frame rate equal to or above @prop_vrr_min_numerator
+> > +	 * divided by @prop_vrr_min_denominator.
+> > +	 */
+> > +	struct drm_property *prop_vrr_max_denominator;
+> > +
+> >  	/**
+> >  	 * @dvi_i_subconnector_property: Optional DVI-I property to
+> >  	 * differentiate between analog or digital mode.
+> > 
+> 
+> 
+
+
+
 
 
