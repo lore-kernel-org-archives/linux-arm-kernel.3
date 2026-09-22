@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA5DC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240BFC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYSOqVERmoLufYUc+VgdIGa26F88+bWdDgX4ohmoDow=; b=xDQG2fl1N606z88le9q1l9pV3N
-	h6qyxRJ2hO+WGK8RF1dzBIi70oGHDI2PyN7bqGTn7eo1eRJcyte1KqiHZMkohnpp+pd/tDFL/TPgf
-	p0IJ0uJbNhi0ssZqi5YQFhdtg2Fp5iTR5raVtXN8BKAdx1rTsDuidR0PlUteXJ5+dHNagV/OqisGL
-	MH+4nMSprhjqZcFmqt0YzNPLI2RODKv7Pv2bu7xCAPOeiToM/nXfZwVCb3w6mc8ONFUci8qURL5lW
-	KWRmfYb74pgEYLxjn7ch5+4j7Oqe42RXpjz/536xC70QqijkP80ZblQuIBeLBm5O2eXj6O6FJJuGw
-	Pb840/mQ==;
+	bh=OTAnb6Oq272HngWK1zOxdvaL3eZ6qI/PfUaNGme30Jc=; b=ImwQRqRmTg3gSlh0fFQMvsEPGu
+	iOFO1/NnPeX1h40zlH82T5Lxn9CwY1aZXd9kiANFts5QnCPy9zKkiGJ/OM/7s0R7Z9MkDM48V07KG
+	t/crcjhPHxDrex+PXVnuVwdRxa7SA3F5tdp1azXO+VSpWxwzF8kNygJHS1W78zKEfTQY9TGlMpeq6
+	RPaz3DsLU3xA52NERdEUbhSJfoxtqnYEeo/XwlSEoY4z7gucsQ6DksVezqpBgvHgcZMlZ9VKTwZ9F
+	dKXADWnxhIsrLkt8tYJog3I4KRTFnMNDceAPk9dfdXnIFSM+z0TBohGYR2qefiMsR6o/eXogElfTY
+	kH8vc52w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94oY-00000006G2M-3Une;
-	Tue, 22 Sep 2026 18:01:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x94sa-00000006GH0-1TPQ;
+	Tue, 22 Sep 2026 18:06:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94oX-00000006G2F-2cAL
+	id 1x94sZ-00000006GGi-0Xkp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 18:01:57 +0000
+	Tue, 22 Sep 2026 18:06:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10CE64040D;
-	Tue, 22 Sep 2026 18:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C74781F000FF;
-	Tue, 22 Sep 2026 18:01:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2915E60232;
+	Tue, 22 Sep 2026 18:06:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E5E71F000FF;
+	Tue, 22 Sep 2026 18:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790100116;
-	bh=XYSOqVERmoLufYUc+VgdIGa26F88+bWdDgX4ohmoDow=;
+	s=k20260515; t=1790100365;
+	bh=OTAnb6Oq272HngWK1zOxdvaL3eZ6qI/PfUaNGme30Jc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cTFAgg2FOfaMX2m8EsEsOewd3kmF8o+nqmZIgHsg1+9dfNvjg7UsJBnBr7cQLe1gc
-	 NRZa7rq/dJvOZbE4iJ8qwH9xFN5HvTNU602lYu19aCdlJ8/ZK8eFBFvjLwON208EmW
-	 XDFJRh666HOdgBM4mCysh18oZxVAtffvfijp+CEreSklJcAeStfU5ZVdmz/W+G1cMw
-	 tvX2+GxoohyHrtHGMZv+Cxrry+VZhichA61P71tzJM/TfaD+SUPE5zsm6ygKShkw1+
-	 aQtV+4k7suG2DbR/RXLPSqzlhNoXCFydrrlCIBti5D3+SZI3a/BwrfTF6KEv229og0
-	 k/Vt3CWjh0zuQ==
-Date: Tue, 22 Sep 2026 19:01:48 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 01/14] KVM: Allow architectures to disallow pre-fault
-Message-ID: <arK8-Hec3-5o4jYs@gremlin>
-References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
- <20260922-kvm-arm-prefault-v3-1-787bd3bc7e3f@kernel.org>
- <arKxjsxuO1F5ExrY@kernel.org>
- <arK5n9HrbZMCOHOt@google.com>
- <arK5ynpRi7VbY7Ek@gremlin>
- <arK8seJVT9wYgVCP@google.com>
+	b=npJDBT4wWkW2y8a1n1T/o3bcwHAdPw8oZ3marPpQHY9BkRPrdN/Y1Rf6zZVjKkn7T
+	 otgcVGuutqCTfZtChmaxyuTlNMRoLDbgYCG4xR/Ced4PtVjHVUiCO1WFgHdfjvxtNs
+	 CSbpAamDUES09D8m9Vk1T0a6kVhnuZiJE0wC5I4rQq1IjM9WZsEX8G2IVpqKy7QgEw
+	 K/cOmg/HLObeNiC4k0ini/42I0D+PZrexs0AXSpH2a9HtIqOL7lKD6NRZdQdSDTTb3
+	 wWrM4uHe/MPPkvY8sVwD5DyUtT133teqRInbjSSvIxs36XA8z2X5F7A9l1a+KImSbt
+	 foLsCnS6JCslQ==
+Date: Tue, 22 Sep 2026 19:06:02 +0100
+From: Conor Dooley <conor@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Wei Xu <xuwei5@hisilicon.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: soc: hisilicon: Add HIP05 CPLD
+Message-ID: <20260922-cheer-reference-c31fc6fb946d@spud>
+References: <20260921232540.3128596-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xoDyum+tpwGqygp3"
 Content-Disposition: inline
-In-Reply-To: <arK8seJVT9wYgVCP@google.com>
+In-Reply-To: <20260921232540.3128596-1-robh@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,99 +71,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 10:36:49AM -0700, Sean Christopherson wrote:
-> On Tue, Sep 22, 2026, Lorenzo Stoakes (ARM) wrote:
-> > On Tue, Sep 22, 2026 at 10:23:43AM -0700, Sean Christopherson wrote:
-> > > Rather than have kvm_arch_vcpu_allow_pre_fault_memory(), what if we add a more
-> > > generic kvm_is_vcpu_loadable()?  That way we don't need to worry as much about
-> > > the return value, the connection to vcpu_load() is obvious, and we don't need to
-> > > add another pre-check if future (or cleaned-up existing?) ioctls want to do
-> > > vcpu_load() in common code.
-> >
-> > ...this is exactly what I started out with.
-> >
-> > But then you are in a pickle, because _really_ you need to do that check in
-> > vcpu_load(). Which is a void function. Which is called by every single
-> > architecture all over the place.
-> >
-> > So you'd have actually no way of signalling the error back.
-> >
-> > Of course those places are arch code and you could say 'arches should know
-> > better and if they call it it's fine not to call the arch 'can you load'
-> > function.
->
-> Yes, that's my vote.  It'd be easy enough to clarify that "rule" with a comment
-> in linux/kvm_host.h.
+--xoDyum+tpwGqygp3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I note you dodge the actually difficult question of what this wrapper function
-would look like ;)
+On Mon, Sep 21, 2026 at 06:25:39PM -0500, Rob Herring (Arm) wrote:
+> Add schema for the hisilicon,hip05-cpld node on the HIP05 D02 board. The
+> node only contains the compatible string and one register window on the
+> local bus.
+>=20
+> Assisted-by: LLM
 
-So maybe like:
+Guidance to the LLM should probably include including the reason that
+this is being added to the commit message.
 
-static int kvm_vcpu_load(struct kvm_vcpu *vcpu)
-{
-	int err;
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../soc/hisilicon/hisilicon,hip05-cpld.yaml   | 35 +++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/hisilicon/hisil=
+icon,hip05-cpld.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hi=
+p05-cpld.yaml b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,h=
+ip05-cpld.yaml
+> new file mode 100644
+> index 000000000000..f9d48b871a4b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpl=
+d.yaml
+> @@ -0,0 +1,35 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/hisilicon/hisilicon,hip05-cpld.ya=
+ml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: HiSilicon HIP05 CPLD registers
+> +
+> +maintainers:
+> +  - Wei Xu <xuwei5@hisilicon.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: hisilicon,hip05-cpld
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    local-bus {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <1>;
+> +
+> +        cpld@100000000 {
+> +            compatible =3D "hisilicon,hip05-cpld";
+> +            reg =3D <1 0x0 0x100>;
 
-	err = kvm_arch_allow_vcpu_load(vcpu);
-	if (err)
-		return err;
+Also what's with this example? 1 0x0 0x100 should be 0x1 0x0 0x100?
 
-	vcpu_load(vcpu);
-	return 0;
-}
+> +        };
+> +    };
+> --=20
+> 2.53.0
+>=20
 
-?
+--xoDyum+tpwGqygp3
+Content-Type: application/pgp-signature; name=signature.asc
 
-And I do like that you'd actually gate the right thing, I feel you on that,
-obviously since this kind of predicate is what I started out with.
+-----BEGIN PGP SIGNATURE-----
 
-But I'm also looking to do the smallest possible thing here that fits the series
-and doesn't preface it with a 'change how core kvm does something'.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarLDigAKCRB4tDGHoIJi
+0p2IAP9yPdaLLZo9WKjprTpW7sb6ElXBhBJPZ5GD7K6+q1E94QD+LYi5JSelMhBi
+L0I/pBM9fXFBHCeHUv4kgJhw1QYUNAQ=
+=Virt
+-----END PGP SIGNATURE-----
 
-But if Oliver/Marc feel this is viable then sure can go with it.
-
-(Also naming is hard, kvm_vcpu_load()? do_vcpu_load()? maybe_vcpu_load()?
-checked_vcpu_load()? vcpu_load_checked()? :P)
-
->
-> > But you're still stuck with the problem of where exactly you put this check.
-> >
-> > So then do you put that check in a wrapper around it?
-> >
-> > Instead you can make the predicate 'don't prefault on a not-yet-initialised
-> > vCPU' which is pretty sensible I think, have a specific place to put it and
-> > all's well with the world.
->
-> But look at it from an x86 perspective.  Pretty much everyone will look at this
-> and expect:
->
->   bool kvm_arch_vcpu_allow_pre_fault_memory(struct kvm_vcpu *vcpu)
->   {
-> 	return vcpu->kvm->arch.pre_fault_allowed;
->   }
-
-I'm not sure I really get your point here at all? :)
-
-Why would it matter what people who are too lazy to go check the implementation
-assume about an arch hook?
-
->
-> > > I'd also be tempted to say it can be a macro, not a __weak function.  E.g.
-> >
-> > Yeah it can be many things but why would you want a macro if you could possibly
-> > avoid it? :)
->
-> Because it allows arch code to dererefence "struct kvm_vcpu" in kvm_host.h,
-> i.e. allows "inlining" the check.
-
-Yeah I mean, micro-optimising a path run on a costly startup operation seems a
-little unnecessary? :)
-
-It seems the convention is __weak but I'm not going to die on this hill.
-
-(C type safety is something of a myth but I do prefer to try to have what
-little protection it offers when possible :)
-
---
-Cheers, Lorenzo
+--xoDyum+tpwGqygp3--
 
