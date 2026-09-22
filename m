@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62C7C982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7917C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 11:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MizCmCUxlU5NRRsV3+UmDYunYOUkLSZ0PgH9fogu3VA=; b=aCMa3dO4nYRxXOVB8VLh8pylrb
-	ulwOzqrSeCYeI0k6IESq6ARHb5Fk2DZ2Z2Mn1UKeQ9cUTA7CWqKhFMrmYrLrhPK5pijY8O2UI3pP0
-	LNCHiars4RHFhGFz3U8cuNt+f8m6Kxxo2B0Ls+ibqHq7nI7eyn2o9cUyWjyczAHQlRqsGb1w/fsar
-	2jEmHE/U14VBZisLWEIQl4AN6yTpivHSv5s3keY/5H1YJwK9p6Ga1d+0+VA3XwwJKv2I8Dgm2ZB+3
-	q47xabOrR6jL4gctO/IPZgvldUk0ly9w0sGk7dTcI/TA1jmdjud4dD/dxeImIC3ojoz6HrxQ+IrbQ
-	qusDCZcw==;
+	bh=dX4FoIb0HdwM+Nydh05KmQqez7a6NenPujktGM+GEVk=; b=HGXa4JXsvz04pxzAMgB4kVo0Bx
+	iVjTv6xsgn1PtxE0TLf69IQjklzlAjsh20Kxkm3wvRjj2hHspaDhHmfNNncju+jTnXG2mWF8Dn6vT
+	ubj+7wGbU5yNqBaUqLJCrs3RCG7eevS/m4CNC1htajmRmFQcxS9qTKtZOnzfLuzNLRNRCf4l5uGX4
+	SOY0NNNTt5jAg+Ax0RI4minXA+yYjKJ7HStQi5h/PEW7pNxN7o3bu9LTsP9c+CQ3WCV+9pLhezLIE
+	LC3hKjLJP/uZgBgx/csBRZJ6esQpNbTXedes+1MaqYRZZERYJhIWR1RGpOK8eLqZEG+eFbpOZvhvD
+	4p2eRTyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yZh-00000005AAY-3bmm;
+	id 1x8yZh-00000005AAG-3AI2;
 	Tue, 22 Sep 2026 11:22:13 +0000
-Received: from mail-japaneastazon11022085.outbound.protection.outlook.com ([52.101.126.85] helo=TYPPR03CU001.outbound.protection.outlook.com)
+Received: from mail-japaneastazon11023095.outbound.protection.outlook.com ([52.101.127.95] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8yZd-00000005A84-0Eua
+	id 1x8yZe-00000005A8O-1xxR
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Sep 2026 11:22:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TucmMECtKsHVzzIQwEnuu3IicrzDdBMT/NgEZUZpJefYWg5+14glzjUdJFsh7zJIMqEbhm7Z/3RdbNwFY52DPdYEqnzUFzXycok4VmyeSLdftmMFyHx39c4cUJSVUJSq64zVBAJNjhbMGUp2k701XgZHw95fkx4mjzx/As6JrslEJl7znBx9PK9scc4OhubkuHQfLgCHUuwIVwHhLkn+OzwqNPH4JRwrqfjj16OvcBidpV6WTAKuQKKwwrAA0/uumLzK7OzCFfmLR1Xnl+Xybu0iJTuHJFKsK66rXCf2/z74LeywhG6H0XOZkrWkGFZUioXBLS0jWl14ek7uv+fneA==
+ b=Qw6vazNDkDSimZReaXheshFwbNZq4pDcJaM33CSJWGAGGEYmAN7p5EG8t6jRYUnbrkNKYeqDulSZcqosMBTqasTN6Zo5Ck72hlVEC2FLyM+AUELlCH06I1ow3ONN1QevmIcCpLYLtleuuVQgiVsqmb447Gm3IMuhqZs5GGPQV4v1TGbJ0VQzbmgv00Ue2KAr+REXfHThghzQsqZssUVHIcHc2/TPEhCbPZbDCLHlpPmadz/69xlPZjUvF1JQ8mG9SYvIvNzh7a26jJpQ5akUYMNm35VFqeoRtTU3k8EoyQ+ZL3uWCDRyJngqhz4tp8aLVTS/Kg6ejMsA+1p55eFVXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MizCmCUxlU5NRRsV3+UmDYunYOUkLSZ0PgH9fogu3VA=;
- b=enuU+e9L4zq80snDa0QLY/xEvHZOgUoKCNpp1u+w1QPNNs4iIqcrBGyavSEDLiqJNb0KWxeuCfBYaEugczsqL8q09d1LNo0UbN/+TZBNhArsDoTlwlyZibUKjOHIwvnh3VKFto5LMJooe/NmcVTGXn6A7lTckis6QTtNobAGxfgkOh9z0nuLyXwEtc4pqf6aqEgej4dv3PwG2Bslz0YBLwFlOg8WqAJQu+gQ4cMur59ibtvpUAeAHLzJRVpG7rYYhoN/pdFRaivLu/eHuk+B7x+kBUQHd6cZHPALs+g/dfXOJUlpuSfPkCBa5no6fKOozi+54eXsobd9HEQzqNW2jA==
+ bh=dX4FoIb0HdwM+Nydh05KmQqez7a6NenPujktGM+GEVk=;
+ b=ApXspFmRFMSKOhmWMiwAvuQPSBROsyenT29Fq0OVQ6nOQb20+fY9Lio2QwXofHLk4EsMu02sI5gxqpVlBXYemPR+BDVZQ3KO5koOE8Pqnz/yLPQNBSkKRJsJR48Fnia1hRqkPH/qXadUkAYYy7J3bGTHfb+ygaH9tQ4VbSLOhTavoEn0S7dztDWcS2tF8ACS9UeNfGp86Wkw0K2L9wB3ejtxeC2reGWB/wdi+o8WtzpSsZlNsB8xfGgaRJ6/vC3pDdA88IHbkvjDqY5UjR3ScDb0maKxNudblUO3yB32kUEtBV6XwA3NldHIIwXQ3g8OQoD7yd6B/5t5Xy6I0DBRMA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI2PR01CA0051.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::6) by SE3PR06MB9139.apcprd06.prod.outlook.com
- (2603:1096:101:31e::23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.14; Tue, 22 Sep
- 2026 11:21:56 +0000
-Received: from OSA0EPF000000C7.apcprd02.prod.outlook.com
- (2603:1096:4:193:cafe::4e) by SI2PR01CA0051.outlook.office365.com
- (2603:1096:4:193::6) with Microsoft SMTP Server (version=TLS1_3,
+Received: from SG2PR01CA0190.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:189::11) by TYUPR06MB6220.apcprd06.prod.outlook.com
+ (2603:1096:400:35c::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
+ 2026 11:21:58 +0000
+Received: from SG1PEPF000082E6.apcprd02.prod.outlook.com
+ (2603:1096:4:189:cafe::e) by SG2PR01CA0190.outlook.office365.com
+ (2603:1096:4:189::11) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.16 via Frontend Transport; Tue,
- 22 Sep 2026 11:21:56 +0000
+ 22 Sep 2026 11:21:57 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C7.mail.protection.outlook.com (10.167.240.53) with Microsoft
+ SG1PEPF000082E6.mail.protection.outlook.com (10.167.240.5) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 11:21:55 +0000
 Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id A532C40920E1;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 809E3427F202;
 	Tue, 22 Sep 2026 19:21:54 +0800 (CST)
 From: joakim.zhang@cixtech.com
 To: lgirdwood@gmail.com,
@@ -76,9 +76,9 @@ Cc: cix-kernel-upstream@cixtech.com,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH 2/4] ASoC: cdns: Add Cadence I2S-SC controller driver
-Date: Tue, 22 Sep 2026 19:21:32 +0800
-Message-ID: <20260922112134.4167305-3-joakim.zhang@cixtech.com>
+Subject: [PATCH 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
+Date: Tue, 22 Sep 2026 19:21:31 +0800
+Message-ID: <20260922112134.4167305-2-joakim.zhang@cixtech.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
 References: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
@@ -86,29 +86,29 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C7:EE_|SE3PR06MB9139:EE_
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E6:EE_|TYUPR06MB6220:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 33fffb39-c6a0-41a4-309d-08df189bb5ca
+X-MS-Office365-Filtering-Correlation-Id: 0b7a9767-9167-4644-ae3a-08df189bb585
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|82310400026|36860700016|6133799003|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: aO1gllwiElbPB+IKik1hoUmMf3L5QVeYT7aSw7/Z5grVypocO7tk2y2f5LZ/W7+zSTc9TVus/JtDz10iTWpHN4OHSr3ucgw+74md7VPH7TyH0tU5YRCIdcpgxrUgKU5F/qDrvjv0uS656aYGmswZADsSVeqDQ/wFB1wcCFfO7LL6nxY64Vo//AppxZNk/Y3myA/xt+k0Mx4x2EQiCLm8ScZI41tc2ROhXV8DFuJPmrc3E5sGb7Goeh8llzorxnQ3NWjhnK4/Wk4vISzZuLDL51IcELGxdS0RJeK2OD8Qf0SQ+WLX1rP/IBOKiHPtoGjtuZ3tZxU/B+AuWf2NvUE4C6KHzk/CXFAUgYhjhlTtHCW5so7hpffocYD4SCmAgMoPb9T7pHGtdhb+Oc5k9shn8CLI2Cjp7F0wN9W5pNGmqvrvMeU8TQH6l1Y0ynENJ57dqemEXoHtxZY0UEPiKmiLK10f47tmW9ZfZ6W2dXoFoy2zEK0lYeWtQkrPXb8LTT4rXQMq1ClRRjNM10WDpphsGcSHpGxFpqDGB9YwXE7Ii7aomyezpATnNWes+aKoxmnfVUXnC0JTwyZSJQ9icE/bS23e+C7x30lUrCv+S4ecCa2GNTCpnZ2ajoqs5fZtVpAryhBoSO1hCqWY46C2uFkemFTUlHzDd4Rd9BSVSKHvIuBtAJ8joYAFoRfB/t5OqckEmG2g0tyXf4DcmUDW0QN53g==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(82310400026)(36860700016)(6133799003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|36860700016|82310400026|3023799007|10067099003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: V9PDg2W6pPdtNzb1+ufJN2HObPKN7wju904/CNv/z5y5ubLpYxwocBKvLzR/zhoed8z0wKCVv74GDhAPOC1mEEe0QmVU+KgHOxBLJlhzLxaTScctoKvti3/gVMA++qfQDQhjAJMyGS5bBybdn/BnIfS0TJcaynbypWdhH+UzCFsZB5Hj57JVSIgI9tFCBBp74nMkMVrocb+Z0RiTKtZe0QN09Bn7z7cZunQt5s0Lsa65U2Meb97sbHOfzMT2oIpAM36B3SV6mzQbWE7SA1JRSoLqHEDqEW+i2M01CgbnMubslS2VnphYzbBrvWCIr5BASKIokevgjszDx6qqyo9448MMUQh9C5mDKWgiVBJ+9NkWFK3aV4aWghflVAgYfkcNM9kWTwDkZ9fqr1k2ma8PBaTKe8+/tdoIzLT6dLtQRSa6+BboFIDH6+Fizu7u0XJWYBIkyNJLT4eOwjtzbOWDuAR8NaNaGmDATv4Lf114q3zjCsqiFPbkmj/s7HLO6HcXSNplNkXTn6QyM94yLJaphCrQ8fUPKve1LE/6HotYDIVjSdJrbomIB7zPZd7avnEOhQrtGxhVb6tdAQAz4MESB8b2h2iF3dzrDY9n7n9Jrlwa1M9+l+H1ojWRyxCfqnKXF/tki4mvV2yPq6etSLO9dA==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(36860700016)(82310400026)(3023799007)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: EBY9ymOBRjtRH5+ys2DAKmREo4Yb1l8gwLuItRKQiF3cs2xyDTro8unWa5TW5p/IyiFxjTkqnYZyGyCQE8GSbssQeJYM4fbVPV3ovcifJCW24PgX8plfjWowXyCs6Ph/yO2sEy5ap+Hyu8ug4mNd9Q9T8195sjFyf10y22mwYeMjeG+choh9v0lHxTh0y/loNITgM8CBRxLKs0VdsupLulLlSiVTFJRqYCEItgboLT5xyV0tfIYHS1A43KNR7IdG94MmP2aHTZS5NMEI2+ryToZIvEbIif96++NXlkjZEglxClJP1F3EQqUmUgDmXVrY/cC5l7lZF20MenwSURSRYOfyYfR+JwyPLZw6Uem3k0beTXdLC9wo9f0FnuNQAs5Y4kkgro0sTjD4reFS7WLsPQZ59+2H24GqGrdtMXkmhQHO3MV7dCQhxTkVu1rYyJbU
+X-MS-Exchange-AntiSpam-MessageData-0: duZOe3B2mqZYe/PeYwhm2kGunxiACNjb9ffZEVDp//C3htMs8aeizukTPeeobi25s6qguMflo2E77iA0PU/yFtRjbdIVO1w/sYjD059Zkw6ZxIeFcUeXCSrt7sFZlP9nQ7WCj7IPN45neU8JRq5ihBlx7PCSG4S5Y6iRPSguuK27b5uoc4jLjAjbZxnleQQf82NZKGu7QAg48+kvqpaFO2HzWEZsFfXc4w/POdmgYsz/9fRqPE2vL90go/t2hyEpylscrNCBaHR2iTHIdsh7T8TzboUpwhgCgGde9t04ICmehcA86pc7LTyOVH6LVnnOTqtDFUDvttzt5AZWD+Ni6Z2GmQ2743HSwJMS1Dsfhu99intHRRjAQsYCfVsREwDJmsGrIX2HoQY00LEhCvd3YXR6tLVe9Jra2z/ietu+S6bY4UGaWqN8aSsFi4zUwCea
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 11:21:55.6410
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 11:21:55.2640
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33fffb39-c6a0-41a4-309d-08df189bb5ca
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b7a9767-9167-4644-ae3a-08df189bb585
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C7.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E6.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB9139
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB6220
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_042209_335852_B0FFDD52 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20260922_042210_511068_16CA1E85 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,1247 +125,117 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-Add support for the Cadence I2S-SC controller found in the CIX SKY1
-audio subsystem.
-
-The controller provides full-duplex stereo playback and capture in
-standard I2S, left/right-justified and DSP modes, with mono operation
-mapped onto the left audio channel. It also supports TDM operation
-with up to 16 slots per frame, where the PCM channels map onto the
-active slots of the stream direction while the bit clock covers the
-whole frame.
-
-The transmitter and receiver share the transceiver enable sequence,
-so the start/stop state machine is serialized with a spinlock against
-independently triggered playback and capture PCMs. The driver
-registers the dmaengine PCM helper, selects the audio reference clock
-parent for the 8 kHz or 11.025 kHz sample rate family and keeps the
-minimum functional-clock to bit-clock ratio required for safe clock
-domain crossing. Runtime and system suspend/resume restore the
-registers through the regcache.
+Add the DT binding for the Cadence I2S-SC controller integrated in
+the CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo
+controller supporting standard I2S, left/right-justified and DSP
+formats, plus TDM operation with up to 16 slots.
 
 Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 ---
- sound/soc/Kconfig            |    1 +
- sound/soc/Makefile           |    1 +
- sound/soc/cdns/Kconfig       |   11 +
- sound/soc/cdns/Makefile      |    4 +
- sound/soc/cdns/cdns-i2s-sc.c | 1153 ++++++++++++++++++++++++++++++++++
- 5 files changed, 1170 insertions(+)
- create mode 100644 sound/soc/cdns/Kconfig
- create mode 100644 sound/soc/cdns/Makefile
- create mode 100644 sound/soc/cdns/cdns-i2s-sc.c
+ .../bindings/sound/cix,sky1-i2s-sc.yaml       | 94 +++++++++++++++++++
+ 1 file changed, 94 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
 
-diff --git a/sound/soc/Kconfig b/sound/soc/Kconfig
-index edfdcbf734fe..d9b746ffd701 100644
---- a/sound/soc/Kconfig
-+++ b/sound/soc/Kconfig
-@@ -108,6 +108,7 @@ source "sound/soc/apple/Kconfig"
- source "sound/soc/atmel/Kconfig"
- source "sound/soc/au1x/Kconfig"
- source "sound/soc/bcm/Kconfig"
-+source "sound/soc/cdns/Kconfig"
- source "sound/soc/cirrus/Kconfig"
- source "sound/soc/dwc/Kconfig"
- source "sound/soc/fsl/Kconfig"
-diff --git a/sound/soc/Makefile b/sound/soc/Makefile
-index 21d8406767fc..ee97f57a0969 100644
---- a/sound/soc/Makefile
-+++ b/sound/soc/Makefile
-@@ -42,6 +42,7 @@ obj-$(CONFIG_SND_SOC_ACPI) += snd-soc-acpi.o
- obj-$(CONFIG_SND_SOC_USB) += soc-usb.o
- 
- obj-$(CONFIG_SND_SOC)	+= snd-soc-core.o
-+obj-$(CONFIG_SND_SOC)	+= cdns/
- obj-$(CONFIG_SND_SOC)	+= codecs/
- obj-$(CONFIG_SND_SOC)	+= generic/
- obj-$(CONFIG_SND_SOC)	+= apple/
-diff --git a/sound/soc/cdns/Kconfig b/sound/soc/cdns/Kconfig
+diff --git a/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
 new file mode 100644
-index 000000000000..631e2e0764cb
+index 000000000000..413e2ade4664
 --- /dev/null
-+++ b/sound/soc/cdns/Kconfig
-@@ -0,0 +1,11 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+config SND_SOC_CDNS_I2S_SC
-+	tristate "Cadence I2S-SC controller support"
-+	depends on ARCH_CIX || COMPILE_TEST
-+	select SND_SOC_GENERIC_DMAENGINE_PCM
-+	help
-+	  Say Y or M if you want to add support for the Cadence I2S-SC
-+	  controller found in the CIX SKY1 audio subsystem. It provides
-+	  full-duplex stereo playback and capture in standard I2S and
-+	  TDM modes with up to 16 slots.
-diff --git a/sound/soc/cdns/Makefile b/sound/soc/cdns/Makefile
-new file mode 100644
-index 000000000000..60e69993116d
---- /dev/null
-+++ b/sound/soc/cdns/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+obj-$(CONFIG_SND_SOC_CDNS_I2S_SC) += snd-soc-cdns-i2s-sc.o
-+snd-soc-cdns-i2s-sc-objs := cdns-i2s-sc.o
-diff --git a/sound/soc/cdns/cdns-i2s-sc.c b/sound/soc/cdns/cdns-i2s-sc.c
-new file mode 100644
-index 000000000000..54c819493e3e
---- /dev/null
-+++ b/sound/soc/cdns/cdns-i2s-sc.c
-@@ -0,0 +1,1153 @@
-+// SPDX-License-Identifier: GPL-2.0
-+// Copyright 2026 Cix Technology Group Co., Ltd.
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/module.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+#include <sound/dmaengine_pcm.h>
-+#include <sound/pcm_params.h>
-+#include <sound/soc.h>
-+
-+/* Special Function Registers */
-+/* Control Register */
-+#define I2S_CTRL				0x00
-+#define I2S_CTRL_LR_PACK			BIT(31)
-+#define I2S_CTRL_FIFO_AFULL_MASK		BIT(30)
-+#define I2S_CTRL_FIFO_FULL_MASK			BIT(29)
-+#define I2S_CTRL_FIFO_AEMPTY_MASK		BIT(28)
-+#define I2S_CTRL_FIFO_EMPTY_MASK		BIT(27)
-+#define I2S_CTRL_I2S_MASK			BIT(26)
-+#define I2S_CTRL_INTREQ_MASK			BIT(25)
-+#define I2S_CTRL_I2S_STB			BIT(24)
-+#define I2S_CTRL_HOST_DATA_ALIGN		BIT(23)
-+#define I2S_CTRL_DATA_ORDER			BIT(22)
-+#define I2S_CTRL_DATA_ALIGN			BIT(21)
-+#define I2S_CTRL_DATA_WS_DEL			GENMASK(20, 16)
-+#define I2S_CTRL_WS_POLAR			BIT(15)
-+#define I2S_CTRL_SCK_POLAR			BIT(14)
-+#define I2S_CTRL_AUDIO_MODE			BIT(13)
-+#define I2S_CTRL_MONO_MODE			BIT(12)
-+#define I2S_CTRL_WS_MODE			GENMASK(11, 8)
-+#define I2S_CTRL_CHN_WIDTH			GENMASK(7, 5)
-+#define I2S_CTRL_CHN_WIDTH_8			0
-+#define I2S_CTRL_CHN_WIDTH_12			1
-+#define I2S_CTRL_CHN_WIDTH_16			2
-+#define I2S_CTRL_CHN_WIDTH_18			3
-+#define I2S_CTRL_CHN_WIDTH_20			4
-+#define I2S_CTRL_CHN_WIDTH_24			5
-+#define I2S_CTRL_CHN_WIDTH_28			6
-+#define I2S_CTRL_CHN_WIDTH_32			7
-+#define I2S_CTRL_FIFO_RST			BIT(4)
-+#define I2S_CTRL_SFR_RST			BIT(3)
-+#define I2S_CTRL_MS_CFG				BIT(2)
-+#define I2S_CTRL_DIR_CFG			BIT(1)
-+#define I2S_CTRL_I2S_EN				BIT(0)
-+
-+/* Full-Duplex Mode Control Register */
-+#define I2S_CTRL_FDX				0x04
-+#define I2S_CTRL_FDX_RFIFO_AFULL_MASK		BIT(30)
-+#define I2S_CTRL_FDX_RFIFO_FULL_MASK		BIT(29)
-+#define I2S_CTRL_FDX_RFIFO_AEMPTY_MASK		BIT(28)
-+#define I2S_CTRL_FDX_RFIFO_EMPTY_MASK		BIT(27)
-+#define I2S_CTRL_FDX_RI2S_MASK			BIT(26)
-+#define I2S_CTRL_FDX_RFIFO_RST			BIT(4)
-+#define I2S_CTRL_FDX_I2S_FRX_EN			BIT(2)
-+#define I2S_CTRL_FDX_I2S_FTX_EN			BIT(1)
-+#define I2S_CTRL_FDX_FULL_DUPLEX		BIT(0)
-+
-+/* Sample Resolution Register */
-+#define I2S_SRES				0x08
-+#define I2S_SRES_RESOLUTION			GENMASK(4, 0)
-+
-+/* Full-Duplex Mode Receive Sample Resolution Register */
-+#define I2S_SRES_FDR				0x0c
-+#define I2S_SRES_FDR_RRESOLUTION		GENMASK(4, 0)
-+
-+/* Transceiver Sample Rate Register */
-+#define I2S_SRATE				0x10
-+#define I2S_SRATE_SAMPLE_RATE			GENMASK(19, 0)
-+
-+/* Status Flags Register */
-+#define I2S_STAT				0x14
-+#define I2S_STAT_RFIFO_AFULL			BIT(19)
-+#define I2S_STAT_RFIFO_FULL			BIT(18)
-+#define I2S_STAT_RFIFO_AEMPTY			BIT(17)
-+#define I2S_STAT_RFIFO_EMPTY			BIT(16)
-+#define I2S_STAT_FIFO_AFULL			BIT(5)
-+#define I2S_STAT_FIFO_FULL			BIT(4)
-+#define I2S_STAT_FIFO_AEMPTY			BIT(3)
-+#define I2S_STAT_FIFO_EMPTY			BIT(2)
-+#define I2S_STAT_RDATA_OVERR			BIT(1)
-+#define I2S_STAT_TDATA_UNDERR			BIT(0)
-+
-+/* FIFO Level Register (read only) */
-+#define I2S_FIFO_LEVEL				0x18
-+
-+/* FIFO Almost Empty Level Register */
-+#define I2S_FIFO_AEMPTY				0x1c
-+
-+/* FIFO Almost Full Level Register */
-+#define I2S_FIFO_AFULL				0x20
-+
-+/* Full-Duplex Mode Receiver FIFO Level Register (read only) */
-+#define I2S_FIFO_LEVEL_FDR			0x24
-+
-+/* Full-Duplex Mode Receiver FIFO Almost Empty Level Register */
-+#define I2S_FIFO_AEMPTY_FDR			0x28
-+
-+/* Full-Duplex Mode Receiver FIFO Almost Full Level Register */
-+#define I2S_FIFO_AFULL_FDR			0x2c
-+
-+/* Time Division Multiplexing Control Register */
-+#define I2S_TDM_CTRL				0x30
-+#define I2S_TDM_CTRL_CHN_EN			GENMASK(31, 16)
-+#define I2S_TDM_CTRL_CHN_NO			GENMASK(4, 1)
-+#define I2S_TDM_CTRL_TDM_EN			BIT(0)
-+
-+/* Time Division Multiplexing Full-Duplex Mode Channels Direction Register */
-+#define I2S_TDM_FD_DIR				0x34
-+#define I2S_TDM_FD_DIR_CHN_RXEN			GENMASK(31, 16)
-+#define I2S_TDM_FD_DIR_CHN_TXEN			GENMASK(15, 0)
-+
-+/* Transmit And Receive FIFOs Address */
-+#define I2S_FIFO_ADDRESS			0x40
-+
-+/*
-+ * The I2S functional clock must run at a minimum ratio above the audio
-+ * bit clock to safely cross clock domains, regardless of whether the
-+ * bit clock is generated internally or externally. See the controller
-+ * reference manual, section 3.3 "Clocks and Clock Domain Crossing".
-+ */
-+#define I2S_CLK_RATIO_MIN			6
-+
-+#define DRV_NAME	"cdns-i2s-sc"
-+
-+enum {
-+	AUDIO_CLK0,
-+	AUDIO_CLK2,
-+	AUDIO_CLK_NUM,
-+};
-+
-+static const char *cdns_i2s_sc_clk_pll_names[AUDIO_CLK_NUM] = {
-+	[AUDIO_CLK0] = "audio-clk0",
-+	[AUDIO_CLK2] = "audio-clk2",
-+};
-+
-+struct cdns_i2s_sc_devtype_data {
-+	u32 rx_fifo_aempty_threshold;
-+	u32 rx_fifo_afull_threshold;
-+	u32 tx_fifo_aempty_threshold;
-+	u32 tx_fifo_afull_threshold;
-+};
-+
-+struct cdns_i2s_sc_tdm_config {
-+	unsigned int tx_mask;
-+	unsigned int rx_mask;
-+	int slots;
-+	int slot_width;
-+};
-+
-+struct cdns_i2s_sc_priv {
-+	struct device *dev;
-+	struct regmap *regmap;
-+	struct reset_control *i2s_rst;
-+
-+	int irq;
-+
-+	struct clk *clk_hst;
-+	struct clk *clk_i2s;
-+	struct clk *clks[AUDIO_CLK_NUM];
-+
-+	struct snd_dmaengine_dai_dma_data capture_dma_data;
-+	struct snd_dmaengine_dai_dma_data playback_dma_data;
-+
-+	const struct cdns_i2s_sc_devtype_data *devtype_data;
-+	struct cdns_i2s_sc_tdm_config tdm_config;
-+
-+	bool is_master_mode;
-+	bool is_tdm_mode;
-+	bool is_mono_in_i2s_mode;
-+
-+	/* Serializes the transmitter/receiver start/stop state machine below */
-+	spinlock_t lock;
-+
-+	/*
-+	 * NOTE:
-+	 * I2S_CTRL_FDX[I2S_FTX_EN] = 1 && I2S_CTRL[I2S_EN] = 1 to enable transmitter
-+	 * I2S_CTRL_FDX[I2S_FRX_EN] = 1 && I2S_CTRL[I2S_EN] = 1 to enable receiver
-+	 * We can dynamically switch of the transmitter and receiver enable separately,
-+	 * but need always enable I2S transceiver, so I2S-SC controller hopes to start
-+	 * the transmitter and receiver together, also to stop them when they are both
-+	 * try to stop.
-+	 *
-+	 * The playback and capture PCMs trigger independently (the PCM core holds
-+	 * only each substream's own lock), so tx_start/rx_start and the shared
-+	 * transceiver registers must be accessed under &lock.
-+	 */
-+	bool rx_start;
-+	bool tx_start;
-+};
-+
-+static int cdns_i2s_sc_clks_enable(struct cdns_i2s_sc_priv *i2s_sc_priv)
-+{
-+	int ret;
-+
-+	ret = clk_prepare_enable(i2s_sc_priv->clk_hst);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(i2s_sc_priv->clk_i2s);
-+	if (ret)
-+		clk_disable_unprepare(i2s_sc_priv->clk_hst);
-+
-+	return ret;
-+}
-+
-+static void cdns_i2s_sc_clks_disable(struct cdns_i2s_sc_priv *i2s_sc_priv)
-+{
-+	clk_disable_unprepare(i2s_sc_priv->clk_hst);
-+	clk_disable_unprepare(i2s_sc_priv->clk_i2s);
-+}
-+
-+static void cdns_i2s_sc_rxtx_common_config(struct cdns_i2s_sc_priv *i2s_sc_priv, bool on)
-+{
-+	if (on) {
-+		/* Full-duplex mode enable */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_FULL_DUPLEX, I2S_CTRL_FDX_FULL_DUPLEX);
-+
-+		if (i2s_sc_priv->is_tdm_mode) {
-+			/* TDM mode enable */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL,
-+					   I2S_TDM_CTRL_TDM_EN, I2S_TDM_CTRL_TDM_EN);
-+
-+			/* Number of supported audio channels in TDM mode */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL,
-+					   I2S_TDM_CTRL_CHN_NO,
-+					   FIELD_PREP(I2S_TDM_CTRL_CHN_NO,
-+						      i2s_sc_priv->tdm_config.slots - 1));
-+
-+			/* TDM mode channels enable */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL, I2S_TDM_CTRL_CHN_EN,
-+					   FIELD_PREP(I2S_TDM_CTRL_CHN_EN,
-+						      i2s_sc_priv->tdm_config.rx_mask |
-+						      i2s_sc_priv->tdm_config.tx_mask));
-+		}
-+
-+		/* Transceiver clock enable */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_I2S_STB, 0);
-+
-+		/* All interrupt requests unmask */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_INTREQ_MASK, I2S_CTRL_INTREQ_MASK);
-+	} else {
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_INTREQ_MASK, 0);
-+
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_I2S_STB, I2S_CTRL_I2S_STB);
-+
-+		if (i2s_sc_priv->is_tdm_mode) {
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL,
-+					   I2S_TDM_CTRL_TDM_EN, 0);
-+
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL,
-+					   I2S_TDM_CTRL_CHN_NO, 0);
-+
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL,
-+					   I2S_TDM_CTRL_CHN_EN, 0);
-+		}
-+
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_FULL_DUPLEX, 0);
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_I2S_EN, 0);
-+	}
-+}
-+
-+static void cdns_i2s_sc_tx_config(struct cdns_i2s_sc_priv *i2s_sc_priv, bool on)
-+{
-+	u32 irq_mask = 0;
-+
-+	irq_mask |= I2S_CTRL_I2S_MASK;
-+
-+	if (on) {
-+		cdns_i2s_sc_rxtx_common_config(i2s_sc_priv, on);
-+
-+		/* Transmitter data underrun interrupt unmask */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL, irq_mask, irq_mask);
-+
-+		if (i2s_sc_priv->is_tdm_mode) {
-+			/* TDM mode channels transmit enable */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_FD_DIR,
-+					   I2S_TDM_FD_DIR_CHN_TXEN,
-+					   FIELD_PREP(I2S_TDM_FD_DIR_CHN_TXEN,
-+						      i2s_sc_priv->tdm_config.tx_mask));
-+		} else {
-+			/*
-+			 * I2S mode mono/stereo selection
-+			 * audio_mode: HIGH = only one channel active
-+			 * mono_mode: LOW = left channel, HIGH = right channel
-+			 */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+					   I2S_CTRL_AUDIO_MODE | I2S_CTRL_MONO_MODE,
-+					   i2s_sc_priv->is_mono_in_i2s_mode ?
-+					   I2S_CTRL_AUDIO_MODE : 0);
-+		}
-+
-+		/* Full-duplex mode transmitter enable */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_I2S_FTX_EN, I2S_CTRL_FDX_I2S_FTX_EN);
-+
-+		/* Transceiver enable */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_I2S_EN, I2S_CTRL_I2S_EN);
-+
-+		i2s_sc_priv->tx_start = true;
-+	} else {
-+		i2s_sc_priv->tx_start = false;
-+
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_I2S_FTX_EN, 0);
-+
-+		if (i2s_sc_priv->is_tdm_mode)
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_FD_DIR,
-+					   I2S_TDM_FD_DIR_CHN_TXEN, 0);
-+
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL, irq_mask, 0);
-+
-+		if (!i2s_sc_priv->rx_start)
-+			cdns_i2s_sc_rxtx_common_config(i2s_sc_priv, on);
-+	}
-+}
-+
-+static void cdns_i2s_sc_rx_config(struct cdns_i2s_sc_priv *i2s_sc_priv, bool on)
-+{
-+	u32 irq_mask = 0;
-+
-+	irq_mask |= I2S_CTRL_FDX_RI2S_MASK;
-+
-+	if (on) {
-+		cdns_i2s_sc_rxtx_common_config(i2s_sc_priv, on);
-+
-+		/* Receiver data overrun interrupt unmask */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX, irq_mask, irq_mask);
-+
-+		if (i2s_sc_priv->is_tdm_mode) {
-+			/* TDM mode channels receive enable */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_FD_DIR,
-+					   I2S_TDM_FD_DIR_CHN_RXEN,
-+					   FIELD_PREP(I2S_TDM_FD_DIR_CHN_RXEN,
-+						      i2s_sc_priv->tdm_config.rx_mask));
-+		} else {
-+			/*
-+			 * I2S mode mono/stereo selection
-+			 * audio_mode: HIGH = only one channel active
-+			 * mono_mode: LOW = left channel, HIGH = right channel
-+			 */
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+					   I2S_CTRL_AUDIO_MODE | I2S_CTRL_MONO_MODE,
-+					   i2s_sc_priv->is_mono_in_i2s_mode ?
-+					   I2S_CTRL_AUDIO_MODE : 0);
-+		}
-+
-+		/* Full-duplex mode receiver enable */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_I2S_FRX_EN, I2S_CTRL_FDX_I2S_FRX_EN);
-+
-+		/* Transceiver enable */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_I2S_EN, I2S_CTRL_I2S_EN);
-+
-+		i2s_sc_priv->rx_start = true;
-+	} else {
-+		i2s_sc_priv->rx_start = false;
-+
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_I2S_FRX_EN, 0);
-+
-+		if (i2s_sc_priv->is_tdm_mode)
-+			regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_FD_DIR,
-+					   I2S_TDM_FD_DIR_CHN_RXEN, 0);
-+
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX, irq_mask, 0);
-+
-+		if (!i2s_sc_priv->tx_start)
-+			cdns_i2s_sc_rxtx_common_config(i2s_sc_priv, on);
-+	}
-+}
-+
-+static irqreturn_t cdns_i2s_sc_isr(int irq, void *devid)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = (struct cdns_i2s_sc_priv *)devid;
-+	struct device *dev = i2s_sc_priv->dev;
-+	u32 stat;
-+
-+	regmap_read(i2s_sc_priv->regmap, I2S_STAT, &stat);
-+
-+	stat &= I2S_STAT_TDATA_UNDERR | I2S_STAT_RDATA_OVERR;
-+	if (!stat)
-+		return IRQ_NONE;
-+
-+	/* Clear the status */
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_STAT, stat, 0);
-+
-+	/* Transmitter status */
-+	if (stat & I2S_STAT_TDATA_UNDERR)
-+		dev_dbg(dev, "isr: tx data underrun\n");
-+
-+	/* Receiver status */
-+	if (stat & I2S_STAT_RDATA_OVERR)
-+		dev_dbg(dev, "isr: rx data overrun\n");
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int cdns_i2s_sc_set_tdm_slot(struct snd_soc_dai *cpu_dai, unsigned int tx_mask,
-+				    unsigned int rx_mask, int slots, int slot_width)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = snd_soc_dai_get_drvdata(cpu_dai);
-+	struct device *dev = i2s_sc_priv->dev;
-+
-+	dev_dbg(dev, "tx_mask = 0x%x, rx_mask = 0x%x, slots = %d, slot_width = %d\n",
-+		tx_mask, rx_mask, slots, slot_width);
-+
-+	if (slots < 1 || slots > 16) {
-+		dev_err(i2s_sc_priv->dev, "TDM mode supports 1 to 16 slots\n");
-+		return -EINVAL;
-+	}
-+
-+	if (slot_width < 8 || slot_width > 32) {
-+		dev_err(i2s_sc_priv->dev, "TDM slot width must be 8 to 32 bits\n");
-+		return -EINVAL;
-+	}
-+
-+	if ((tx_mask >> slots) || (rx_mask >> slots)) {
-+		dev_err(i2s_sc_priv->dev, "TDM slot mask has bits outside the slots\n");
-+		return -EINVAL;
-+	}
-+
-+	i2s_sc_priv->tdm_config.slots = slots;
-+	i2s_sc_priv->tdm_config.slot_width = slot_width;
-+	i2s_sc_priv->tdm_config.rx_mask = rx_mask;
-+	i2s_sc_priv->tdm_config.tx_mask = tx_mask;
-+
-+	i2s_sc_priv->is_tdm_mode = true;
-+
-+	return 0;
-+}
-+
-+static int cdns_i2s_sc_set_fmt(struct snd_soc_dai *cpu_dai, unsigned int fmt)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = snd_soc_dai_get_drvdata(cpu_dai);
-+	struct device *dev = i2s_sc_priv->dev;
-+	u32 ctrl = 0, ctrl_mask = 0;
-+
-+	dev_dbg(dev, "format = 0x%x\n", fmt);
-+
-+	/* DAI hardware audio formats */
-+	switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
-+	case SND_SOC_DAIFMT_I2S:
-+		ctrl |= FIELD_PREP(I2S_CTRL_WS_MODE, 1) |
-+			FIELD_PREP(I2S_CTRL_DATA_WS_DEL, 1);
-+		ctrl &= ~(I2S_CTRL_DATA_ALIGN | I2S_CTRL_DATA_ORDER);
-+		break;
-+	case SND_SOC_DAIFMT_RIGHT_J:
-+		ctrl |= FIELD_PREP(I2S_CTRL_WS_MODE, 1) |
-+			FIELD_PREP(I2S_CTRL_DATA_WS_DEL, 0) |
-+			I2S_CTRL_DATA_ALIGN;
-+		ctrl &= ~I2S_CTRL_DATA_ORDER;
-+		break;
-+	case SND_SOC_DAIFMT_LEFT_J:
-+		ctrl |= FIELD_PREP(I2S_CTRL_WS_MODE, 1) |
-+			FIELD_PREP(I2S_CTRL_DATA_WS_DEL, 0);
-+		ctrl &= ~(I2S_CTRL_DATA_ALIGN | I2S_CTRL_DATA_ORDER);
-+		break;
-+	case SND_SOC_DAIFMT_DSP_A:
-+		ctrl |= FIELD_PREP(I2S_CTRL_WS_MODE, 0) |
-+			FIELD_PREP(I2S_CTRL_DATA_WS_DEL, 1);
-+		ctrl &= ~(I2S_CTRL_DATA_ALIGN | I2S_CTRL_DATA_ORDER);
-+		break;
-+	case SND_SOC_DAIFMT_DSP_B:
-+		ctrl |= FIELD_PREP(I2S_CTRL_WS_MODE, 0) |
-+			FIELD_PREP(I2S_CTRL_DATA_WS_DEL, 0);
-+		ctrl &= ~(I2S_CTRL_DATA_ALIGN | I2S_CTRL_DATA_ORDER);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* DAI hardware signal polarity */
-+	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
-+	case SND_SOC_DAIFMT_NB_NF:
-+		/* both normal clocks */
-+		ctrl |= I2S_CTRL_SCK_POLAR;
-+		ctrl &= ~I2S_CTRL_WS_POLAR;
-+		break;
-+	case SND_SOC_DAIFMT_NB_IF:
-+		/* invert frame clock */
-+		ctrl |= I2S_CTRL_SCK_POLAR;
-+		ctrl |= I2S_CTRL_WS_POLAR;
-+		break;
-+	case SND_SOC_DAIFMT_IB_NF:
-+		/* invert bit clock */
-+		ctrl &= ~I2S_CTRL_SCK_POLAR;
-+		ctrl &= ~I2S_CTRL_WS_POLAR;
-+		break;
-+	case SND_SOC_DAIFMT_IB_IF:
-+		/* invert both clocks */
-+		ctrl &= ~I2S_CTRL_SCK_POLAR;
-+		ctrl |= I2S_CTRL_WS_POLAR;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* DAI hardware clock masters */
-+	switch (fmt & SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) {
-+	case SND_SOC_DAIFMT_CBC_CFC:
-+		ctrl &= ~I2S_CTRL_MS_CFG;
-+		i2s_sc_priv->is_master_mode = false;
-+		break;
-+	case SND_SOC_DAIFMT_CBP_CFP:
-+		ctrl |= I2S_CTRL_MS_CFG;
-+		i2s_sc_priv->is_master_mode = true;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	ctrl_mask |= I2S_CTRL_WS_MODE | I2S_CTRL_DATA_WS_DEL | I2S_CTRL_DATA_ALIGN |
-+		     I2S_CTRL_DATA_ORDER | I2S_CTRL_SCK_POLAR | I2S_CTRL_WS_POLAR |
-+		     I2S_CTRL_MS_CFG;
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL, ctrl_mask, ctrl);
-+
-+	return 0;
-+}
-+
-+static int cdns_i2s_sc_prepare(struct snd_pcm_substream *substream,
-+			       struct snd_soc_dai *cpu_dai)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = snd_soc_dai_get_drvdata(cpu_dai);
-+
-+	/* Transceiver clock enable */
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL, I2S_CTRL_I2S_STB, 0);
-+
-+	/*
-+	 * FIFO reset should meet two requirements
-+	 * 1) after i2s_stb clock on
-+	 * 2) before dma ready to receive trigger
-+	 */
-+	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
-+		/*
-+		 * Transmitter FIFO reset
-+		 * When LOW, FIFO pointer is reset to zero. Threshold levels for
-+		 * FIFO are unchanged. This bit is automatically set to HIGH after
-+		 * one clock cycle.
-+		 * Deassert then assert this bit here, since I2S_CTRL register is not
-+		 * volatile, would not read from hardware any longer. If not, it would
-+		 * clear tx fifo every time when write this register.
-+		 */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL, I2S_CTRL_FIFO_RST, 0);
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+				   I2S_CTRL_FIFO_RST, I2S_CTRL_FIFO_RST);
-+
-+		/* Transmitter FIFO threshold set */
-+		regmap_write(i2s_sc_priv->regmap, I2S_FIFO_AEMPTY,
-+			     i2s_sc_priv->devtype_data->tx_fifo_aempty_threshold);
-+		regmap_write(i2s_sc_priv->regmap, I2S_FIFO_AFULL,
-+			     i2s_sc_priv->devtype_data->tx_fifo_afull_threshold);
-+	} else {
-+		/*
-+		 * Receiver FIFO reset
-+		 * When '0', RFIFO pointer is reset to zero. Threshold levels for RFIFO
-+		 * are unchanged. The bit is automatically set to '1' after one clock cycle.
-+		 * Deassert then assert this bit here, since I2S_CTRL_FDX register is not
-+		 * volatile, would not read from hardware any longer. If not, it would
-+		 * clear rx fifo every time when write this register.
-+		 */
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX, I2S_CTRL_FDX_RFIFO_RST, 0);
-+		regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+				   I2S_CTRL_FDX_RFIFO_RST, I2S_CTRL_FDX_RFIFO_RST);
-+
-+		/* Receiver FIFO threshold set */
-+		regmap_write(i2s_sc_priv->regmap, I2S_FIFO_AEMPTY_FDR,
-+			     i2s_sc_priv->devtype_data->rx_fifo_aempty_threshold);
-+		regmap_write(i2s_sc_priv->regmap, I2S_FIFO_AFULL_FDR,
-+			     i2s_sc_priv->devtype_data->rx_fifo_afull_threshold);
-+	}
-+
-+	return 0;
-+}
-+
-+static int cdns_i2s_sc_hw_params(struct snd_pcm_substream *substream,
-+				 struct snd_pcm_hw_params *params,
-+				 struct snd_soc_dai *cpu_dai)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = snd_soc_dai_get_drvdata(cpu_dai);
-+	struct device *dev = i2s_sc_priv->dev;
-+	u32 slots, slot_width, resolution, val;
-+	u32 rate, sample_rate, frame_slots;
-+	unsigned long i2s_clk_rate;
-+	struct clk *clk_parent;
-+	int ret;
-+
-+	/* Set sample slots, slot width and resolution */
-+	slots = params_channels(params);
-+	resolution = params_width(params);
-+	dev_dbg(dev, "slots = %d, resolution = %d\n", slots, resolution);
-+
-+	if (i2s_sc_priv->is_tdm_mode) {
-+		unsigned int mask, nch;
-+
-+		if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
-+			mask = i2s_sc_priv->tdm_config.tx_mask;
-+		else
-+			mask = i2s_sc_priv->tdm_config.rx_mask;
-+
-+		nch = hweight32(mask);
-+		if (slots != nch) {
-+			dev_err(i2s_sc_priv->dev,
-+				"Channel number does not match active tdm slots: %d\n", nch);
-+			return -EINVAL;
-+		}
-+
-+		if (resolution != i2s_sc_priv->tdm_config.slot_width) {
-+			dev_err(i2s_sc_priv->dev,
-+				"Sample width does not match with specified tdm slot width\n");
-+			return -EINVAL;
-+		}
-+
-+		slot_width = i2s_sc_priv->tdm_config.slot_width;
-+
-+		frame_slots = i2s_sc_priv->tdm_config.slots;
-+	} else {
-+		/*
-+		 * I2S mode: mono maps onto the left audio channel, while
-+		 * the frame still carries two slots.
-+		 */
-+		if (slots == 1) {
-+			i2s_sc_priv->is_mono_in_i2s_mode = true;
-+			slots = 2;
-+		} else if (slots == 2) {
-+			i2s_sc_priv->is_mono_in_i2s_mode = false;
-+		} else {
-+			dev_warn(i2s_sc_priv->dev,
-+				 "I2S mode supports up to two channels\n");
-+			return -EOPNOTSUPP;
-+		}
-+
-+		slot_width = 32;
-+
-+		frame_slots = slots;
-+	}
-+
-+	dev_dbg(dev, "slot_width = %d\n", slot_width);
-+
-+	if (slot_width == 8) {
-+		val = I2S_CTRL_CHN_WIDTH_8;
-+	} else if (slot_width == 12) {
-+		val = I2S_CTRL_CHN_WIDTH_12;
-+	} else if (slot_width == 16) {
-+		val = I2S_CTRL_CHN_WIDTH_16;
-+	} else if (slot_width == 18) {
-+		val = I2S_CTRL_CHN_WIDTH_18;
-+	} else if (slot_width == 20) {
-+		val = I2S_CTRL_CHN_WIDTH_20;
-+	} else if (slot_width == 24) {
-+		val = I2S_CTRL_CHN_WIDTH_24;
-+	} else if (slot_width == 28) {
-+		val = I2S_CTRL_CHN_WIDTH_28;
-+	} else if (slot_width == 32) {
-+		val = I2S_CTRL_CHN_WIDTH_32;
-+	} else {
-+		dev_err(i2s_sc_priv->dev, "Slot width is invalid value\n");
-+		return -EINVAL;
-+	}
-+
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL, I2S_CTRL_CHN_WIDTH,
-+			   FIELD_PREP(I2S_CTRL_CHN_WIDTH, val));
-+
-+	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
-+		regmap_write(i2s_sc_priv->regmap, I2S_SRES,
-+			     FIELD_PREP(I2S_SRES_RESOLUTION, (resolution - 1)));
-+	else
-+		regmap_write(i2s_sc_priv->regmap, I2S_SRES_FDR,
-+			     FIELD_PREP(I2S_SRES_FDR_RRESOLUTION, (resolution - 1)));
-+
-+	rate = params_rate(params);
-+	dev_dbg(dev, "rate = %d\n", rate);
-+
-+	/* switch clk mux to select the appropriate clk parent */
-+	if (rate % 8000 == 0) {
-+		/* Sampling rate is a multiple of 8KHz, select "audio-clk0" */
-+		clk_parent = i2s_sc_priv->clks[AUDIO_CLK0];
-+
-+		ret = clk_set_parent(i2s_sc_priv->clk_i2s, clk_parent);
-+	} else if (rate % 11025 == 0) {
-+		/* Sampling rate is a multiple of 11.025KHz, select "audio-clk2" */
-+		clk_parent = i2s_sc_priv->clks[AUDIO_CLK2];
-+
-+		ret = clk_set_parent(i2s_sc_priv->clk_i2s, clk_parent);
-+	} else {
-+		dev_err(i2s_sc_priv->dev, "Invalid sample rate\n");
-+		return -EINVAL;
-+	}
-+	if (ret) {
-+		dev_err(i2s_sc_priv->dev, "Failed to set i2s clock parent\n");
-+		return ret;
-+	}
-+
-+	i2s_clk_rate = clk_get_rate(i2s_sc_priv->clk_i2s);
-+	dev_dbg(dev, "i2s clk rate = %lu\n", i2s_clk_rate);
-+
-+	if (i2s_clk_rate < rate * slot_width * frame_slots * I2S_CLK_RATIO_MIN) {
-+		dev_err(i2s_sc_priv->dev,
-+			"clk freq %lu is too low, must >= (%d * %d * %d * %d = %d)\n",
-+			i2s_clk_rate, rate, slot_width, frame_slots, I2S_CLK_RATIO_MIN,
-+			rate * slot_width * frame_slots * I2S_CLK_RATIO_MIN);
-+		return -EINVAL;
-+	}
-+
-+	/* Set sample rate */
-+	if (i2s_sc_priv->is_master_mode) {
-+		sample_rate = DIV_ROUND_CLOSEST(i2s_clk_rate, (rate * frame_slots * slot_width));
-+		regmap_write(i2s_sc_priv->regmap, I2S_SRATE,
-+			     FIELD_PREP(I2S_SRATE_SAMPLE_RATE, sample_rate));
-+	}
-+
-+	return 0;
-+}
-+
-+static int cdns_i2s_sc_trigger(struct snd_pcm_substream *substream,
-+			       int cmd, struct snd_soc_dai *cpu_dai)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = snd_soc_dai_get_drvdata(cpu_dai);
-+
-+	switch (cmd) {
-+	case SNDRV_PCM_TRIGGER_START:
-+	case SNDRV_PCM_TRIGGER_RESUME:
-+	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-+		scoped_guard(spinlock_irqsave, &i2s_sc_priv->lock) {
-+			if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
-+				cdns_i2s_sc_tx_config(i2s_sc_priv, true);
-+			else
-+				cdns_i2s_sc_rx_config(i2s_sc_priv, true);
-+		}
-+		break;
-+	case SNDRV_PCM_TRIGGER_STOP:
-+	case SNDRV_PCM_TRIGGER_SUSPEND:
-+	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
-+		scoped_guard(spinlock_irqsave, &i2s_sc_priv->lock) {
-+			if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
-+				cdns_i2s_sc_tx_config(i2s_sc_priv, false);
-+			else
-+				cdns_i2s_sc_rx_config(i2s_sc_priv, false);
-+		}
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int cdns_i2s_sc_dai_probe(struct snd_soc_dai *cpu_dai)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = snd_soc_dai_get_drvdata(cpu_dai);
-+	u32 ctrl = 0;
-+
-+	/*
-+	 * Transceiver disable
-+	 * Transceiver clock disable
-+	 * All interrupts masked
-+	 */
-+	ctrl &= ~(I2S_CTRL_I2S_EN | I2S_CTRL_INTREQ_MASK);
-+	ctrl |= I2S_CTRL_I2S_STB;
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL,
-+			   I2S_CTRL_I2S_EN | I2S_CTRL_INTREQ_MASK |
-+			   I2S_CTRL_LR_PACK | I2S_CTRL_I2S_STB,
-+			   ctrl);
-+
-+	/*
-+	 * Full-duplex mode disable
-+	 * Full-duplex mode transmitter disable
-+	 * Full-duplex mode receiver disable
-+	 */
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_CTRL_FDX,
-+			   I2S_CTRL_FDX_FULL_DUPLEX | I2S_CTRL_FDX_I2S_FTX_EN |
-+			   I2S_CTRL_FDX_I2S_FRX_EN,
-+			   0);
-+
-+	/* TDM mode disable, default works in standard stereo I2S mode */
-+	regmap_update_bits(i2s_sc_priv->regmap, I2S_TDM_CTRL, I2S_TDM_CTRL_TDM_EN, 0);
-+
-+	snd_soc_dai_init_dma_data(cpu_dai, &i2s_sc_priv->playback_dma_data,
-+				  &i2s_sc_priv->capture_dma_data);
-+
-+	snd_soc_dai_set_drvdata(cpu_dai, i2s_sc_priv);
-+
-+	return 0;
-+}
-+
-+static const struct snd_soc_dai_ops cdns_i2s_sc_dai_ops = {
-+	.probe = cdns_i2s_sc_dai_probe,
-+	.set_tdm_slot = cdns_i2s_sc_set_tdm_slot,
-+	.set_fmt = cdns_i2s_sc_set_fmt,
-+
-+	.hw_params = cdns_i2s_sc_hw_params,
-+	.prepare = cdns_i2s_sc_prepare,
-+	.trigger = cdns_i2s_sc_trigger,
-+};
-+
-+static struct snd_soc_dai_driver cdns_i2s_sc_dai = {
-+	.name = "i2s-sc-aif",
-+	.playback = {
-+		.stream_name = "I2S-SC-Playback",
-+		.channels_min = 1,
-+		.channels_max = 16,
-+		.rates = SNDRV_PCM_RATE_8000_192000,
-+		.formats = (SNDRV_PCM_FMTBIT_S16_LE |
-+			    SNDRV_PCM_FMTBIT_S24_LE |
-+			    SNDRV_PCM_FMTBIT_S32_LE),
-+	},
-+	.capture = {
-+		.stream_name = "I2S-SC-Capture",
-+		.channels_min = 1,
-+		.channels_max = 16,
-+		.rates = SNDRV_PCM_RATE_8000_192000,
-+		.formats = (SNDRV_PCM_FMTBIT_S16_LE |
-+			    SNDRV_PCM_FMTBIT_S24_LE |
-+			    SNDRV_PCM_FMTBIT_S32_LE),
-+	},
-+	.ops = &cdns_i2s_sc_dai_ops,
-+	.symmetric_rate = 1,
-+	.symmetric_channels = 1,
-+};
-+
-+static const struct snd_soc_component_driver cdns_i2s_sc_component = {
-+	.name = DRV_NAME,
-+	.legacy_dai_naming = 1,
-+};
-+
-+static const struct reg_default cdns_i2s_sc_reg_defaults[] = {
-+	{I2S_CTRL, 0x000001b8},
-+	{I2S_CTRL_FDX, 0x00000010},
-+	{I2S_SRES, 0x00000000},
-+	{I2S_SRES_FDR, 0x00000000},
-+	{I2S_SRATE, 0x00000000},
-+	{I2S_STAT, 0x0003000c},
-+	{I2S_FIFO_LEVEL, 0x00000000},
-+	{I2S_FIFO_AEMPTY, 0x00000000},
-+	{I2S_FIFO_AFULL, 0x0000000f},
-+	{I2S_FIFO_LEVEL_FDR, 0x00000000},
-+	{I2S_FIFO_AEMPTY_FDR, 0x00000000},
-+	{I2S_FIFO_AFULL_FDR, 0x0000000f},
-+	{I2S_TDM_CTRL, 0xffff0000},
-+	{I2S_TDM_FD_DIR, 0x0000ffff},
-+};
-+
-+static bool cdns_i2s_sc_readable_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case I2S_CTRL:
-+	case I2S_CTRL_FDX:
-+	case I2S_SRES:
-+	case I2S_SRES_FDR:
-+	case I2S_SRATE:
-+	case I2S_STAT:
-+	case I2S_FIFO_LEVEL:
-+	case I2S_FIFO_AEMPTY:
-+	case I2S_FIFO_AFULL:
-+	case I2S_FIFO_LEVEL_FDR:
-+	case I2S_FIFO_AEMPTY_FDR:
-+	case I2S_FIFO_AFULL_FDR:
-+	case I2S_TDM_CTRL:
-+	case I2S_TDM_FD_DIR:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static bool cdns_i2s_sc_writeable_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case I2S_CTRL:
-+	case I2S_CTRL_FDX:
-+	case I2S_SRES:
-+	case I2S_SRES_FDR:
-+	case I2S_SRATE:
-+	case I2S_STAT:
-+	case I2S_FIFO_AEMPTY:
-+	case I2S_FIFO_AFULL:
-+	case I2S_FIFO_AEMPTY_FDR:
-+	case I2S_FIFO_AFULL_FDR:
-+	case I2S_TDM_CTRL:
-+	case I2S_TDM_FD_DIR:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static bool cdns_i2s_sc_volatile_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case I2S_STAT:
-+	case I2S_FIFO_LEVEL:
-+	case I2S_FIFO_LEVEL_FDR:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static const struct regmap_config cdns_i2s_sc_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+
-+	.max_register = I2S_TDM_FD_DIR,
-+	.reg_defaults = cdns_i2s_sc_reg_defaults,
-+	.num_reg_defaults = ARRAY_SIZE(cdns_i2s_sc_reg_defaults),
-+	.readable_reg = cdns_i2s_sc_readable_reg,
-+	.writeable_reg = cdns_i2s_sc_writeable_reg,
-+	.volatile_reg = cdns_i2s_sc_volatile_reg,
-+	.cache_type = REGCACHE_FLAT,
-+};
-+
-+static void cdns_i2s_sc_rst(struct cdns_i2s_sc_priv *i2s_sc_priv)
-+{
-+	/* reset */
-+	reset_control_assert(i2s_sc_priv->i2s_rst);
-+
-+	usleep_range(1, 2);
-+
-+	/* release reset */
-+	reset_control_deassert(i2s_sc_priv->i2s_rst);
-+}
-+
-+static int cdns_i2s_sc_probe(struct platform_device *pdev)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv;
-+	struct resource *res;
-+	void __iomem *base;
-+	int i, irq, ret;
-+
-+	i2s_sc_priv = devm_kzalloc(&pdev->dev, sizeof(*i2s_sc_priv), GFP_KERNEL);
-+	if (!i2s_sc_priv)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&i2s_sc_priv->lock);
-+
-+	platform_set_drvdata(pdev, i2s_sc_priv);
-+
-+	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	i2s_sc_priv->dev = &pdev->dev;
-+	i2s_sc_priv->devtype_data = device_get_match_data(&pdev->dev);
-+
-+	i2s_sc_priv->regmap = devm_regmap_init_mmio(&pdev->dev, base,
-+						    &cdns_i2s_sc_regmap_config);
-+	if (IS_ERR(i2s_sc_priv->regmap))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s_sc_priv->regmap),
-+				     "Failed to initialize managed register map\n");
-+
-+	i2s_sc_priv->clk_hst = devm_clk_get(&pdev->dev, "hst");
-+	if (IS_ERR(i2s_sc_priv->clk_hst))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s_sc_priv->clk_hst),
-+				     "Failed to get hst clock\n");
-+
-+	i2s_sc_priv->clk_i2s = devm_clk_get(&pdev->dev, "i2s");
-+	if (IS_ERR(i2s_sc_priv->clk_i2s))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s_sc_priv->clk_i2s),
-+				     "Failed to get i2s clock\n");
-+
-+	for (i = 0; i < AUDIO_CLK_NUM; i++) {
-+		i2s_sc_priv->clks[i] = devm_clk_get(&pdev->dev,
-+						    cdns_i2s_sc_clk_pll_names[i]);
-+		if (IS_ERR(i2s_sc_priv->clks[i]))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(i2s_sc_priv->clks[i]),
-+					     "Failed to get %s clock\n",
-+					     cdns_i2s_sc_clk_pll_names[i]);
-+	}
-+
-+	i2s_sc_priv->i2s_rst = devm_reset_control_get_exclusive(&pdev->dev, NULL);
-+	if (IS_ERR(i2s_sc_priv->i2s_rst))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s_sc_priv->i2s_rst),
-+				     "Failed to get reset control\n");
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+	i2s_sc_priv->irq = irq;
-+
-+	ret = devm_request_irq(&pdev->dev, irq, cdns_i2s_sc_isr, 0,
-+			       dev_name(&pdev->dev), i2s_sc_priv);
-+	if (ret) {
-+		dev_err(&pdev->dev, "Failed to request irq: %d\n", ret);
-+		return ret;
-+	}
-+
-+	i2s_sc_priv->playback_dma_data.addr = res->start + I2S_FIFO_ADDRESS;
-+	/* Buswidth will be set by framework at runtime */
-+	i2s_sc_priv->playback_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_UNDEFINED;
-+	i2s_sc_priv->playback_dma_data.maxburst = 4;
-+
-+	i2s_sc_priv->capture_dma_data.addr = res->start + I2S_FIFO_ADDRESS;
-+	/* Buswidth will be set by framework at runtime */
-+	i2s_sc_priv->capture_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_UNDEFINED;
-+	i2s_sc_priv->capture_dma_data.maxburst = 4;
-+
-+	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "Failed to register dmaengine component\n");
-+
-+	pm_runtime_get_noresume(&pdev->dev);
-+	pm_runtime_set_active(&pdev->dev);
-+	pm_runtime_enable(&pdev->dev);
-+
-+	ret = cdns_i2s_sc_clks_enable(i2s_sc_priv);
-+	if (ret) {
-+		dev_err_probe(&pdev->dev, ret, "Failed to enable clocks\n");
-+		pm_runtime_disable(&pdev->dev);
-+		pm_runtime_put_noidle(&pdev->dev);
-+		return ret;
-+	}
-+
-+	cdns_i2s_sc_rst(i2s_sc_priv);
-+
-+	/*
-+	 * Let pm_runtime_put_sync() disable the clocks, and take regcache effect.
-+	 * If CONFIG_PM is not enabled, the clock will stay powered.
-+	 */
-+	pm_runtime_put_sync(&pdev->dev);
-+
-+	ret = devm_snd_soc_register_component(&pdev->dev, &cdns_i2s_sc_component,
-+					      &cdns_i2s_sc_dai, 1);
-+	if (ret) {
-+		dev_err_probe(&pdev->dev, ret, "Failed to register soc component\n");
-+		pm_runtime_disable(&pdev->dev);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void cdns_i2s_sc_remove(struct platform_device *pdev)
-+{
-+	if (!pm_runtime_status_suspended(&pdev->dev))
-+		pm_runtime_force_suspend(&pdev->dev);
-+	pm_runtime_disable(&pdev->dev);
-+}
-+
-+static int __maybe_unused cdns_i2s_sc_runtime_suspend(struct device *dev)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = dev_get_drvdata(dev);
-+
-+	regcache_cache_only(i2s_sc_priv->regmap, true);
-+	disable_irq(i2s_sc_priv->irq);
-+	cdns_i2s_sc_clks_disable(i2s_sc_priv);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused cdns_i2s_sc_runtime_resume(struct device *dev)
-+{
-+	struct cdns_i2s_sc_priv *i2s_sc_priv = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = cdns_i2s_sc_clks_enable(i2s_sc_priv);
-+	if (ret) {
-+		dev_err(dev, "Failed to enable clocks:%d\n", ret);
-+		return ret;
-+	}
-+
-+	cdns_i2s_sc_rst(i2s_sc_priv);
-+
-+	enable_irq(i2s_sc_priv->irq);
-+
-+	regcache_cache_only(i2s_sc_priv->regmap, false);
-+	regcache_mark_dirty(i2s_sc_priv->regmap);
-+
-+	ret = regcache_sync(i2s_sc_priv->regmap);
-+	if (ret) {
-+		dev_err(dev, "Failed to sync regcache: %d\n", ret);
-+		disable_irq(i2s_sc_priv->irq);
-+		regcache_cache_only(i2s_sc_priv->regmap, true);
-+		cdns_i2s_sc_clks_disable(i2s_sc_priv);
-+	}
-+
-+	return ret;
-+}
-+
-+static int __maybe_unused cdns_i2s_sc_system_suspend(struct device *dev)
-+{
-+	int ret;
-+
-+	ret = pm_runtime_force_suspend(dev);
-+	if (ret)
-+		return ret;
-+
-+	pinctrl_pm_select_sleep_state(dev);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused cdns_i2s_sc_system_resume(struct device *dev)
-+{
-+	int ret;
-+
-+	pinctrl_pm_select_default_state(dev);
-+
-+	ret = pm_runtime_force_resume(dev);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops cdns_i2s_sc_pm_ops = {
-+	SET_RUNTIME_PM_OPS(cdns_i2s_sc_runtime_suspend,
-+			   cdns_i2s_sc_runtime_resume, NULL)
-+	SET_SYSTEM_SLEEP_PM_OPS(cdns_i2s_sc_system_suspend,
-+				cdns_i2s_sc_system_resume)
-+};
-+
-+static const struct cdns_i2s_sc_devtype_data sky1_devtype_data = {
-+	.rx_fifo_aempty_threshold = 4,
-+	.rx_fifo_afull_threshold = 12,
-+	.tx_fifo_aempty_threshold = 4,
-+	.tx_fifo_afull_threshold = 12,
-+};
-+
-+static const struct of_device_id cdns_i2s_sc_of_match[] = {
-+	{ .compatible = "cix,sky1-i2s-sc", .data = &sky1_devtype_data},
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, cdns_i2s_sc_of_match);
-+
-+static struct platform_driver cdns_i2s_sc_driver = {
-+	.probe = cdns_i2s_sc_probe,
-+	.remove = cdns_i2s_sc_remove,
-+	.driver = {
-+		.name = DRV_NAME,
-+		.pm = &cdns_i2s_sc_pm_ops,
-+		.of_match_table = cdns_i2s_sc_of_match,
-+	},
-+};
-+module_platform_driver(cdns_i2s_sc_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Joakim Zhang <joakim.zhang@cixtech.com>");
-+MODULE_DESCRIPTION("Cadence I2S-SC Controller Driver");
++++ b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
+@@ -0,0 +1,94 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/cix,sky1-i2s-sc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cadence I2S-SC controller
++
++maintainers:
++  - Joakim Zhang <joakim.zhang@cixtech.com>
++
++description: |
++  The Cadence I2S-SC controller integrated in the CIX SKY1 audio subsystem.
++  It supports full-duplex stereo playback and capture in standard I2S,
++  left/right-justified and DSP modes, as well as TDM operation with up to
++  16 slots. The transmitter and receiver are started and stopped together
++  by the controller.
++
++allOf:
++  - $ref: dai-common.yaml#
++
++properties:
++  compatible:
++    const: cix,sky1-i2s-sc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 4
++
++  clock-names:
++    items:
++      - const: hst
++      - const: i2s
++      - const: audio-clk0
++      - const: audio-clk2
++
++  resets:
++    maxItems: 1
++
++  dmas:
++    minItems: 1
++    maxItems: 2
++    description:
++      One DMA channel for instances wired for a single direction, either
++      "tx" or "rx", or two channels for both transmit and receive.
++
++  dma-names:
++    minItems: 1
++    maxItems: 2
++    items:
++      enum: [ tx, rx ]
++
++  "#sound-dai-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - dmas
++  - dma-names
++  - "#sound-dai-cells"
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    audss_dmac: dma-controller {
++        compatible = "cix,sky1-audss-dmac";
++        #dma-cells = <1>;
++    };
++
++    i2s@7020000 {
++        compatible = "cix,sky1-i2s-sc";
++        reg = <0x7020000 0x10000>;
++        interrupts = <GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&audss_cru 16>, <&audss_cru 26>,
++                 <&scmi_clk 100>, <&scmi_clk 101>;
++        clock-names = "hst", "i2s", "audio-clk0", "audio-clk2";
++        resets = <&audss_cru 0>;
++        dmas = <&audss_dmac 0>, <&audss_dmac 1>;
++        dma-names = "tx", "rx";
++        #sound-dai-cells = <0>;
++    };
 -- 
 2.50.1
 
