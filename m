@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274CDC98302
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A23FAC98304
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 21:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6rXdzRPRFaAkzJK2CTbotf/X0PgO5pvJQVZtTI8XXN4=; b=XyfZi7dz1evXsikAZPnvHTaUnt
-	KCrX9M97GnksUuLTh+5FoRn6aWoae1hmzKicnkZZuLEdbeu4Z2czxGZT6n0zfZErz6YQ07YoLCbzs
-	nYiP2zPziTdxF8lUpKKpHTWoMMJyR/gX9hNxri4hYSDNvwW6IuxLIS8kVwXXJqoAFEw2JKyp/u/LE
-	tozmhFBXDFlZQmtZjb62BL4k+6GsSR+UANAY5I2yHAP6epSC7q41QvYHeS94oqU1FIB+ZJRD7/UUk
-	/URRY9LmPE0yJ0ZWNUn9jIOulZ+EZ+P6tOSRaya73o5YHk05jWSOYv6c5Hsj/BUoqmW/IFujeB+by
-	R/RqJWtQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iA22YnUtIcv1KaIC572i8+H/hJXB2ylgtwm/SjWDh5A=; b=WXpdZI0c+TVHDVtjtCl5Nranr0
+	gdP/g7RfMqcFzVi2lwpU6V1CuVhJY8Kr3YOnTlUCeeoon2rC1g0wa/ZTYo9Un25RUBWfhlTkl9zFv
+	UaN8E6zXSiF6sITSEDe08IDmSrtD++pSvby89Zhay3FrB017nw7VrSo+HiEGjgVZU+UHPC1vqZZRL
+	YAAnha0rnJPa6GuIz9M0c7THXkSZgMD+ApROzBoJoA43V8CtP03mgiINeF4PtUEjuxzKnUSrAIHeV
+	CVvaa004bfK1lX9H+NbaKa7ntAP/z95FQk+GOZq1tUuR2OcbfP5ORkVqvzYeqf+mnlYdSFZumMcBf
+	TCkDtiSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98Ft-00000006dPo-3y29;
-	Tue, 22 Sep 2026 21:42:25 +0000
+	id 1x98Fu-00000006dQN-0XUR;
+	Tue, 22 Sep 2026 21:42:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x98Ft-00000006dP6-1vs1
+	id 1x98Ft-00000006dP7-1vUB
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 22 Sep 2026 21:42:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D812741288;
+	by sea.source.kernel.org (Postfix) with ESMTP id D9D7F43E2F;
 	Tue, 22 Sep 2026 21:42:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B717C1F000FF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B989E1F00893;
 	Tue, 22 Sep 2026 21:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1790113344;
-	bh=6rXdzRPRFaAkzJK2CTbotf/X0PgO5pvJQVZtTI8XXN4=;
-	h=From:To:Cc:Subject:Date;
-	b=esjP7qAaLzUReZuUkYkPuocF/yKfoJxpuO0zFP9b3dxw4ydnOI1aEZzI7EOLOKs8O
-	 V9/trT+ZtO3X2bVXgc7+SoOEKd8RWDlbg/rPOBqyvOlT/KJM1mkOTlJo8hdJtm/91O
-	 hOpf8olk23q1yQtTDvHNYJkZ++BBuKfiiQ2uDOhpeOysm/QG01zLDqTAsVWEkC7aU2
-	 2WSGEwCRIHPC+1ApnXsijAvmshnwgF77BrHUUqou6mmceN44RU9homJK3CfkfWJarO
-	 f7wSfZAQfi9oq2MjKSjxjxaw4wuerk406DH6s7YebmqCLEvO/oMk+0yF2wYe+hj2M+
-	 xAezx+rJD8tlQ==
+	bh=iA22YnUtIcv1KaIC572i8+H/hJXB2ylgtwm/SjWDh5A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=A0RqsZ1DPb87+r55lcOxquYoRHIjAVabDJY/tFh3pdh1Fclip7K/G2yXByFVzSPJe
+	 TJ5j7F0k13Hc2BnPeig+ZJ3sH9GyGCk2yPzhc4ry6aEvoR4aF3eMzCVsSQZ75xg+CZ
+	 0kDlYz1Bptkc5AVDw2/Nky0bHrhEQdB5f+SpNF/34FkXjER/JSATKviMvjTFRGF+aY
+	 WV46AK10FVS7ukci2/7R4/66UoNw6mH+07lE1QHxArYfm7rjZg2+ZtwU0+oK3u+Bnp
+	 bTWhqjWpMD029jav0pFByUbYqafhHAGoa6mYjqT86PdMWNrH0N8hDSyDx6iKVczgjM
+	 GtmHgyr07e6Zg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x98Fq-0000000CFxJ-1mQv;
+	id 1x98Fq-0000000CFxJ-2kHw;
 	Tue, 22 Sep 2026 21:42:22 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,10 +58,12 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
 	Yuchao Zhang <ndaugoing@gmail.com>
-Subject: [PATCH 0/3] KVM: arm64: vgic-v3: Make LPI disabling robust
-Date: Tue, 22 Sep 2026 22:42:09 +0100
-Message-ID: <20260922214212.3327146-1-maz@kernel.org>
+Subject: [PATCH 1/3] KVM: arm64: vgic: Allow last_lr_irq to be NULL when LRs are not overflowing
+Date: Tue, 22 Sep 2026 22:42:10 +0100
+Message-ID: <20260922214212.3327146-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260922214212.3327146-1-maz@kernel.org>
+References: <20260922214212.3327146-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -82,33 +84,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Yuchao Zhang reported that disabling LPIs on one CPU from another
-could result in UAFs and other horrors.
+last_lr_irq is always populated when there is any interrupt populated in
+the AP list. Not only this is not necessary (it is only useful when we
+completely fill the LRs), but this is in the way of further fixes.
 
-There are two reasons for this:
+Make sure last_lr_irq is kept to NULL when we LRs are not completely
+full.
 
-- the last_lr_irq pointer does not contribute to LPI refcount, and
-  that LPI being removed results in a dangling pointer
+Fixes: 6da5e537f5afe ("KVM: arm64: vgic: Pick EOIcount deactivations from AP-list tail")
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/vgic/vgic-v2.c | 6 ++++--
+ arch/arm64/kvm/vgic/vgic-v3.c | 6 ++++--
+ arch/arm64/kvm/vgic/vgic.c    | 8 +++-----
+ 3 files changed, 11 insertions(+), 9 deletions(-)
 
-- LPIs can be deleted from a remote vcpu by disabling them while that
-  vcpu is actually running, and has LPIs in its LRs.
-
-Address the two issues in one go, by actively taking a refcount on all
-IRQs referenced by last_lr_irq, and making sure that disabling LPIs
-force all vcpus to be paused, making it safe.
-
-Marc Zyngier (3):
-  KVM: arm64: vgic: Allow last_lr_irq to be NULL when LRs are not
-    overflowing
-  KVM: arm64: vgic: Take a refcount on IRQs referenced by last_lr_irq
-  KVM: arm64: vgic: Stop the VM when disabling LPIs
-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c | 10 ++++++++++
- arch/arm64/kvm/vgic/vgic-v2.c      |  6 ++++--
- arch/arm64/kvm/vgic/vgic-v3.c      |  6 ++++--
- arch/arm64/kvm/vgic/vgic.c         | 21 ++++++++++++++++-----
- 4 files changed, 34 insertions(+), 9 deletions(-)
-
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index 7182f63fc9382..70cc53ba810ad 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -122,6 +122,10 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
+ 	for (int lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++)
+ 		vgic_v2_fold_lr(vcpu, cpuif->vgic_lr[lr]);
+ 
++	cpuif->used_lrs = 0;
++	if (!irq)
++		return;
++
+ 	/* See the GICv3 equivalent for the EOIcount handling rationale */
+ 	list_for_each_entry_continue(irq, &vgic_cpu->ap_list_head, ap_list) {
+ 		u32 lr;
+@@ -144,8 +148,6 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
+ 		vgic_v2_fold_lr(vcpu, lr);
+ 		eoicount--;
+ 	}
+-
+-	cpuif->used_lrs = 0;
+ }
+ 
+ void vgic_v2_deactivate(struct kvm_vcpu *vcpu, u32 val)
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index 726e20a1da6e7..346bacb3198f2 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -155,6 +155,10 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
+ 	for (int lr = 0; lr < cpuif->used_lrs; lr++)
+ 		vgic_v3_fold_lr(vcpu, cpuif->vgic_lr[lr]);
+ 
++	cpuif->used_lrs = 0;
++	if (!irq)
++		return;
++
+ 	/*
+ 	 * EOIMode=0: use EOIcount to emulate deactivation. We are
+ 	 * guaranteed to deactivate in reverse order of the activation, so
+@@ -188,8 +192,6 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
+ 		vgic_v3_fold_lr(vcpu, lr);
+ 		eoicount--;
+ 	}
+-
+-	cpuif->used_lrs = 0;
+ }
+ 
+ void vgic_v3_deactivate(struct kvm_vcpu *vcpu, u64 val)
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index b25303d9919fd..425503e0c5825 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -866,9 +866,6 @@ static void vgic_fold_state(struct kvm_vcpu *vcpu)
+ 		return;
+ 	}
+ 
+-	if (!*host_data_ptr(last_lr_irq))
+-		return;
+-
+ 	if (kvm_vgic_global_state.type == VGIC_V2)
+ 		vgic_v2_fold_lr_state(vcpu);
+ 	else
+@@ -1021,11 +1018,12 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+ 		scoped_guard(raw_spinlock,  &irq->irq_lock) {
+ 			if (likely(vgic_target_oracle(irq) == vcpu)) {
+ 				vgic_populate_lr(vcpu, irq, count++);
+-				*host_data_ptr(last_lr_irq) = irq;
++				if (count == kvm_vgic_global_state.nr_lr)
++					*host_data_ptr(last_lr_irq) = irq;
+ 			}
+ 		}
+ 
+-		if (count == kvm_vgic_global_state.nr_lr)
++		if (*host_data_ptr(last_lr_irq))
+ 			break;
+ 	}
+ 
 -- 
 2.47.3
 
