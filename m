@@ -4,116 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDEEC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E818C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ESDSZM667q7EB0r3pmeL1vJBKH8ckNK36jbuGzw9rQ=; b=kqFlZwSnKx4F91whXrozLGMsuO
-	ivaygelLyHEYn/LoaUNESjYqSi8hW5ImKRxo3kMhr7ThSMuAFxALBr7iq1nPIM2e1GgfQKO6RyeUl
-	nHz+miWRh3MKcQH3jvr1DI7rzXXcEM4gMGgXLGJGyKgY3yvJXO6C7bDhdaZdMICA2cLzDkwSTts84
-	4ZxTBuL13/klXSf5PgONorQ1CtsxMPG/TCt7wGYwnq+LIsjuAB4ahyVujRyFZhlgdJo8fjGxP8Kcf
-	pcv4wPXecMV2MjzQg+uisJSIQE1a7il7Y8YGRuQtmaFooaiP9j0YG9+jtWQJo7YmxJrjZqdzW7N0X
-	qFnveQvQ==;
+	bh=4BNeBv2Xk9F1CB1cgKUVArUM1oX+ebQd47lsZ5uxxag=; b=QjaKEFqlnE6nG7ZDyHflpX66Iu
+	NXZYKHlqs4Gqs5slDbAStSLlgUwSn+fk83Cnc+WFYVD2NO6+YD1sBJvHFKw7CYRqgnsQyPLWP4uM8
+	lJ0YZ28eoz7wQg0fMSes1NEcW7Ev8aqAcoxF5LZlB8PVcWI+ykO8MUEisRgBDkchmN1TXLmQf1lWJ
+	LDFIzPChlMaWBU43kEzDqehv4tzRge7lp2PRc6T5vzRZRbtJ+diNg/+OJU7Ow49I6d08g6wk7NRj4
+	23HoC065MyI7AV1j1ajNgy4vKGgITUsIzr/e8/COAUvXFmIiKWsP+LnMFuqAwowSLl/Y7pvy7rHlX
+	E4ScMOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xWI-000000051fn-2dFw;
-	Tue, 22 Sep 2026 10:14:38 +0000
-Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
+	id 1x8xYB-000000051u1-41dL;
+	Tue, 22 Sep 2026 10:16:35 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xWG-000000051et-0Xg5
+	id 1x8xY9-000000051tS-20xH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 10:14:37 +0000
-Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfcbe208so47091816d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 03:14:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790072074; cv=none;
-        d=google.com; s=arc-20260327;
-        b=R7j1jscABZXrjxBjerAwEDJ1FoEejOdDAx5EQ4qe7Npx5og93B0wa91FHPbFFhR1X/
-         0H0+W2DTyXLyd1znFAYLIwUfynfN5mRv+18uHQWRQeslKnuKJyNFZvaJ9OF9zwSSKZ5N
-         /FNChi+eW184Wg89iBZDUNjySJ7GH2sKxnQjmq84D8O+kj7ClxGoe6kzbqwgAuzYJj3R
-         u/zatCILgiNlfb6DpDnFNuX1oeUAgdsvfrV1ZqPdwMuhDsqehlbMzcCrfNejl3BDfHrn
-         t8HJLU7rctK1J0+waX67V36Qd9mmbYchqU5V+tPbQBDYd3OrS22s87n0WsUkV7X6/tJx
-         JEYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2ESDSZM667q7EB0r3pmeL1vJBKH8ckNK36jbuGzw9rQ=;
-        fh=NNSRAgkN8oRz/nFMNYcD5y3zPBg5mxfCvwBcNxxnsHc=;
-        b=JwAMtPdWzMSbb/qYYFQ2iPYITudI4YBKKM6/CpEZGmOwAwLd0ycR2DOojTt9wzhlly
-         98juTN8o0yEBlUWFtMRIjCoB0jhSOCayJDoWU56cMLAn/txZ2gwsOFBl/cOy6WmSEqOE
-         pQen9HpQX18jEF9jl1c6+4rEq4fpY0NcJzmMqapZykdN18XXq3UpO5rwScHizsty8RUA
-         st6ry21ZVnfyN3ZgjRkAr8LzOSuSwOWOhLldEt+ebNPklonJyZt4c5ypj8t41NdrsEXf
-         bPTSyGso2Vb0U2hBjhoqILTJzrMCrykW5c1V4o+mJO8AwUJ8/Nd1raaoBFEOKqU65Yyd
-         pYpA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 22 Sep 2026 10:16:34 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469d249c4so3503340b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 03:16:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790072074; x=1790676874; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1790072192; x=1790676992; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=2ESDSZM667q7EB0r3pmeL1vJBKH8ckNK36jbuGzw9rQ=;
-        b=AG4pAUIM8kdzWFW6t1eJ7r7a4XR5NpaHb0IaOIWXBFSZFSzCBB9omiMO4NlI9EKaHR
-         PXDlZ3jF2ROekisE8Qz8T8r/4O0mm6ADezf+uq0foURS38rH4p3oDveY1SQwZG/ZU+1y
-         LLdY/BNwCLQZUZoOSY9caBkb48tgeDbDsqyKtK+PcRScENxRkU6ScpcEqUusD8ZTDHyU
-         hTwkbayV2iwrHjS1Ijysf9glAa8x3YQg9QJFyh/+LZY/2eBK891JsvHNopJ4FqW54Zfd
-         v/VtzlVXfmWVM0k7rCW8jOTfxxoMeSccoKqs4H7kR/uipzRhPQ66q44arJq6hN+FN5pp
-         MDjw==
+        bh=4BNeBv2Xk9F1CB1cgKUVArUM1oX+ebQd47lsZ5uxxag=;
+        b=Eq+YK4QI4TOMBuYGG8SOfrn3NAIodbASN8/rbCIh8iaM17Sy5dT2TdYpwl94GjQPsL
+         kqMPBbpi0bBSIsKouKJcPZaGZRJN34xmrq6yt5c2/3H4zVKQscRCcWACThyxD0LfURrl
+         Pkd6smGl7VzRwsZaymy0yZyauDGKmTDHmwMKKVqWmJuablnTKSKx8QHurhMkGIiwRNL/
+         IBWBxp8H1GXRlovRciLC71Hd3JGW3dP5smAqsz31tvDVSJW6j7TdyjcGJ6m0t0Kg/jnc
+         8cZNPK39XWTp8oz1izlVOqFoHrmzWSzqQzYpUOen8Svg6OM6vB6W6yBiL0jto7KB/ML8
+         3yuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790072074; x=1790676874;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1790072192; x=1790676992;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2ESDSZM667q7EB0r3pmeL1vJBKH8ckNK36jbuGzw9rQ=;
-        b=XrMx7DToiGXFh8E2r5iZARwHVho1GmVUb+CJ7yXf/ZD7Roxlap5vrsSDmEBhKe4IPH
-         PTUcigrx3LBVwd9WcmW8oNci/R5mNwamHlPGXk8BEgObOk2PIYy/9jLeW6o3QVsAElvX
-         9NeOCygePlS+0PFpVLFD5U4tsymm18t/kijWSdjXE73KRVFyH9v0Fu8pYuxsmXfeG0h+
-         taw0MOlIVWsqzGGP952Ry/6cUZlezdbGJFUa0CREE0tShM02JGF6KKne5NebHB3aYjiN
-         Kr8o6fS6peO5kT/koLLNoxvRCExBoq/sIpLLsnpHnC8HFESWl6amZ0pVZx6HJLSUFZ8J
-         9BHw==
-X-Forwarded-Encrypted: i=1; AKwUvBwxH0qD/T582pF9/11iGZN9TxIPSMcEIIMBN3W+IQhIR5iD6vkyBsnigyfaNN/G5mB1dOgnHyVPPII66zbRF4ef@lists.infradead.org
-X-Gm-Message-State: AFuF++nfhKmT3p9QAzJzD1UkRpcs9iFtDenBAoiHcJd5qyyMi2CcNZ7D
-	5b0jfqbnasnC+tZgwkt/YDGri1twanWQh7YMCdaZgw6LoJMnnyAA6xTAfMx7AXVy9Ff1aBTu+4j
-	NJlYfqZlSqUeZSSzWySjUxNXGnIeoIuc=
-X-Gm-Gg: AYBFou1xHJd0FxTxXfInOaGk/p0/cA2SE6E1VR5xDZAicZad5mNVPtFmurqIlQvrVmM
-	UeKwwXON4lBPJ2XCnssENwhZExFRL2VLKjkJoeJRc1OcKJtOUbM9l0VXvA6bL7MPYnJ+Ae7zGK1
-	oqMLXiEZ8liT5276J/HOObPw5wedqpWeyrGTVGdZ9Y7oFd3tBdAGu2Fmq4WCHzt72Fe8uMmsaJe
-	GbcilC1sfRiyVwZlyPNWiYrZlLKQsg3Q+omo0BV2lTaV8gQXuv8DqM43/Ayqd6Lj+ryyl9g1lWJ
-	VX8BWz7pRtmc9F6UjpnEUml5BeH2mcDYyeh3v3sfECDsngSymrfImzM=
-X-Received: by 2002:a05:6214:d63:b0:913:fa79:99c3 with SMTP id
- 6a1803df08f44-913fc94b160mr46562816d6.43.1790072074583; Tue, 22 Sep 2026
- 03:14:34 -0700 (PDT)
+        bh=4BNeBv2Xk9F1CB1cgKUVArUM1oX+ebQd47lsZ5uxxag=;
+        b=rUxlZQBr7WyfhW8OlEhLEoJdhXL1VxYieCpj44aRGqC4jcQi2AHASfm2bP8Yhc6nF+
+         2ta533m/++LgwiAX0SRALmJqQSIXj6l8F35qNGDKDzIYLD8uxVo9FEN3DzvaiYEI4TvK
+         ntQTUgrAuwWxpIMXf3jX2ClmJffgaP8iqvD8BGZQVyPZ4GfjI5VxeNjwrO/uy9M7sdor
+         Y4Rf1/8/j8pYVmkzxppIhykv0YN1DOoFZuLH8eHF6S+S2B7i++BX6ruCkpZqCYAC7h79
+         56hIZj6wzZA31fvh2xbnhYWmKwBp7OhKE1QfvIKwvTY3/QrzWKnPM70+4s2U3jd3AqyQ
+         0ePA==
+X-Forwarded-Encrypted: i=1; AKwUvBxNTnej8zvUWQOQ1+FaxLQrCbuCRhkINfIheLJGP2Eu6pr9YXWzMaqZs/JVDVp4DfyoXnILLXiqGARdGSVCVExi@lists.infradead.org
+X-Gm-Message-State: AFuF++mcxAznWLpdm2WogzUr2mdlQM0SynUfINyZVM0edeLob2NhsZKM
+	73UJ3xTMGGWsBIGWD/uubaddBxpfA1E0KJ8V1s5jgNid4lQpz7Ra/SGd
+X-Gm-Gg: AYBFou0I6uy4T2cO82EQgRxtkkQenokaJDP1hZ9GIdtXgOMxPsUzirikBWL/J+0GP2b
+	4lEEsiVETL5Yj6MSeVs3puI7Dou8q+fsG/4Vrxirj9zfZrSH8B9KqJq0/6DDnCAIG5AVMcs2qSZ
+	QR9tDUwGp+/Z1+LMXUDjRurwjIesJA6i8uCUQNQ/yewWY9MTU+yoNFfnDhs1ItEqPsaJNl4axzv
+	/HWOKBY/nt6GBu3bIYx4KJ8PGrL60lSRJ3vc4QIegfbpVy/3l/KrgVIlvPvh6NjYingg7qzKrO6
+	hw/ZmRhou9e/sfh26h3fVsGyNIsiO0+FonyK2e2yDfBnscUjTOj+7h1cRm+VT6zCR6at1asCi37
+	8ifMdKjXQiZFIOXC5hVZP2LBNirHC7u49+0uTcSywp6XeX2+qxsYRjUYmQwTkVn+wWBoTn/skVd
+	OZnfWyYqdx/+LMb2NEfObd0ACCeb6dXMd2IjRxkpzCYr+nbLFWlY6/UM1pJlbSUyqJlVHaGXzJi
+	Vmp7aizOk4S4erJULQblORtDcR6mwgUH8rJ5A==
+X-Received: by 2002:a05:6a20:c91a:b0:3cc:faf3:331a with SMTP id adf61e73a8af0-3ddec5fa40fmr927062637.10.1790072192035;
+        Tue, 22 Sep 2026 03:16:32 -0700 (PDT)
+Received: from localhost.localdomain ([2409:8a1e:2e81:7320:4d0:75ae:9920:3973])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc756a30002sm679379a12.13.2026.09.22.03.16.28
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 22 Sep 2026 03:16:31 -0700 (PDT)
+From: Yuchao Zhang <ndaugoing@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuchao Zhang <ndaugoing@gmail.com>
+Subject: Re: [PATCH v3 0/1] KVM: arm64: vgic: Drop last_lr_irq and serialize overflow EOI replay
+Date: Tue, 22 Sep 2026 18:16:23 +0800
+Message-ID: <20260922101623.39468-1-ndaugoing@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <87bj9r4h9z.wl-maz@kernel.org>
+References: <87bj9r4h9z.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20260915123812.14747-1-ansuelsmth@gmail.com> <20260915123812.14747-5-ansuelsmth@gmail.com>
- <20260921134410.13a7173c@kernel.org>
-In-Reply-To: <20260921134410.13a7173c@kernel.org>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Tue, 22 Sep 2026 12:14:22 +0200
-X-Gm-Features: AcwNN1WQadm9kZulSu2D2w98S17OkpHd-MeZLtXiKqWwHyLw9Fh6tPwUuh65TfY
-Message-ID: <CA+_ehUyFH_ZSsjhp-U9WBFoRZR-ZMWnNQ5pY5vAy1LxUU5hSsw@mail.gmail.com>
-Subject: Re: [PATCH net-next v22 4/9] mfd: an8855: Add support for Airoha
- AN8855 Switch
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, 
-	Vladimir Oltean <olteanv@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"Chester A. Unal" <chester.a.unal@arinc9.com>, Daniel Golle <daniel@makrotopia.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_031436_176244_6CF1E351 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20260922_031633_519259_2E069B0D 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,49 +110,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il giorno lun 21 set 2026 alle ore 22:44 Jakub Kicinski
-<kuba@kernel.org> ha scritto:
->
-> On Tue, 15 Sep 2026 14:38:01 +0200 Christian Marangi wrote:
-> > Add support for Airoha AN8855 Switch that provide support for a DSA
-> > switch and a NVMEM provider.
-> >
-> > Also make use of the mdio-regmap driver and register a regmap for each
-> > internal PHY of the switch.
-> > This is needed to handle the double usage of the PHYs as both PHY and
-> > Switch accessor.
->
-> GCC spews warnings:
->
-> drivers/mfd/airoha-an8855.c: In function =E2=80=98an8855_mdio_register=E2=
-=80=99:
-> drivers/mfd/airoha-an8855.c:438:48: warning: =E2=80=98-phy=E2=80=99 direc=
-tive output may be truncated writing 4 bytes into a region of size between =
-1 and 61 [-Wformat-truncation=3D]
->   438 |         snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-phy%d", priv->bus=
-->id, addr);
->       |                                                ^~~~
-> In function =E2=80=98an8855_phy_bus_register=E2=80=99,
->     inlined from =E2=80=98an8855_mdio_register=E2=80=99 at ../drivers/mfd=
-/airoha-an8855.c:469:9:
-> drivers/mfd/airoha-an8855.c:438:45: note: using the range [-2147483648, 2=
-147483647] for directive argument
->   438 |         snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-phy%d", priv->bus=
-->id, addr);
->       |                                             ^~~~~~~~~~
-> drivers/mfd/airoha-an8855.c:438:9: note: =E2=80=98snprintf=E2=80=99 outpu=
-t between 6 and 76 bytes into a destination of size 61
->   438 |         snprintf(mrc.name, MII_BUS_ID_SIZE, "%s-phy%d", priv->bus=
-->id, addr);
->       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~~~~~~~~
->
+Hi Marc,
 
-Hi,
+Thank you for the candid feedback and for cutting right to the heart of
+the problem with the 3-patch series on your branch.
 
- I also didn't receive the email for the AI review... Did it broke also her=
-e?
-If everything else is ok, should I send new revision or maybe we can pick t=
-his
-and I can send followup for this warning?
+Your series is vastly simpler and elegant:
+1. Only caching last_lr_irq when LRs are genuinely full eliminates the
+   overhead for non-overflow exits.
+2. Holding a proper reference on last_lr_irq and releasing it under
+   ap_list_lock in vgic_prune_ap_list() cleanly addresses the lifetime
+   hazard without introducing lock-order inversions during folding.
+3. Halting the VM (kvm_arm_halt_guest) on remote GICR_CTLR.EnableLPIs=0
+   completely avoids cross-vCPU concurrency for an event that almost
+   never happens in practice.
+
+As requested, I wrote a KVM arm64 selftest for this scenario:
+tools/testing/selftests/kvm/arm64/vgic_lpi_disable.c
+
+The test:
+- Configures an ITS with multiple LPIs targeting vCPU 0.
+- Keeps vCPU 0 in guest mode with EOImode=0 while injecting bursts of
+  MSIs to force its List Registers to overflow into the ap_list.
+- Concurrently, vCPU 1 repeatedly toggles GICR_CTLR.EnableLPIs on
+  vCPU 0's redistributor.
+
+Regarding testing: I currently no longer have access to KVM-capable
+hardware (my test setup is no longer available), so I cannot provide
+a Tested-by for your series. The race itself was originally identified
+through code inspection rather than a standalone reproducer, which is
+why I turned the theoretical scenario directly into this selftest.
+
+The selftest builds cleanly as part of the full arm64 kvm selftest
+suite, and its framework plumbing was smoke-tested under QEMU TCG,
+which by construction cannot exercise the race itself. I'd be grateful
+if you could give it a spin on your setup.
+
+The selftest patch is based on top of your kvm-arm64/vgic-last_lr_irq-fixes
+branch and has been sent in reply to this thread.
+
+Thanks,
+Yuchao
 
