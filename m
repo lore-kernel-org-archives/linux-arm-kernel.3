@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6040C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66A8C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hG2I/HuDKXt1ra2aKJOzjd3ZnRb0UiNU2P36VE8WR8I=; b=RVI1ZMXseQwPOuWPXnnganhmqN
-	21zUJLWV1Q/elChCkPNR+TBWqgb13PfpobIrjbxh3qdSSPlg08CG8aRmUhC/41v4w3/z5ge5p7Bfn
-	OyZh8ubdoc39lmlg3vMYKTFjMjkuJeKeuoUIgVuM1UVkkoUQYVLb+nn28p7Xk6FKhSYVbG5gLtKpi
-	HRQ7qxTGQ2CMI77l8ozXSo0iJr4WoSDcLpYbbOVbYo3chRih2Qwv/5N5y4EFuY6xVUTVvS5UPEyCi
-	eSsDvNdofr2KSyKj4sX+2AwdSgfha4thOrxNCraakh6oCCPYm7j9SEO6mkVQ8Z/4QWEsZU8BA4gAl
-	tqyODa9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pZZpnp9Ii94lfQediVbtRB1HCrD5s3KchpIbsJ2tbsA=; b=D9o9YDhCE8GStXfbjgKYj2GdEH
+	HfMVPLsbR3wN6OkAYs8cZhXJVD/HfhlFRrv3sFIWbixuaX4GZfcOs52aToaTEKg3Pzhcu8WMNqstI
+	wfJoNq3ofMY3nx+7tQ7eNEhkEezj2oPVZWS3KCxd9eyPfeB8Se+QLbXVmp5Wl8w5PTNRvsWEjTKNi
+	o0llkWwaHxtJXN7xCQXco0b2CHRS1m1/ge/2GSUqKRgOtnCasqptlQZrShSmgR/T5XWannRS/3m5Y
+	fCTt90aLP1qVblhucZpdLGzkrYlZ3bRB7RpsUHMPKhZfh2HswGWMzraC4bH65UoRFCJJCnY7IA+bu
+	Xn/xnmhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90wa-00000005bnR-0JoJ;
-	Tue, 22 Sep 2026 13:54:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9105-00000005cDo-36ix;
+	Tue, 22 Sep 2026 13:57:37 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90wY-00000005bn8-1yBv
+	id 1x9103-00000005cD8-0tTE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:53:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E52E36020F;
-	Tue, 22 Sep 2026 13:53:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C814E1F00893;
-	Tue, 22 Sep 2026 13:53:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790085237;
-	bh=hG2I/HuDKXt1ra2aKJOzjd3ZnRb0UiNU2P36VE8WR8I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ca4lFUr4euo5Xgp+dxMXJWCi3lA8/uwBp63YGXdeyD2+IG4aq7L8gIgiMT4Y/qXMj
-	 aijgAN5hfihe11qkkucgrH9nINl9UYRCTXzJQW6SIbsubyoMrtVzm3xq1PscSFYwki
-	 C5VZ87jdxDps8LjRNU/8veWcP5WTuwNVu3jX8Z9gqEYZsxNuPYSVVkB2CPIYpnEnKR
-	 IrJIjoxwcwBJJn9M+fcY0eA6uCBzGDKAKdH2vr8IRLcwlkiA/w6CG0Lc+15xYifxez
-	 hM4ykAYUtmEDmSZqcP7SU0Oq80FVlc8TSWj1SuluJyPp+iVKjDhLF14n0Y3ipbGtUL
-	 oYl5fr01HKnDw==
-Date: Tue, 22 Sep 2026 14:53:49 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Sean Christopherson <seanjc@google.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Leo Soares Passos <Leo.Bras@arm.com>
-Subject: Re: [PATCH v2 00/13] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
-Message-ID: <arKB2imOcg4MhXMF@gremlin>
-References: <20260914-kvm-arm-prefault-v2-0-26fb47f74b73@kernel.org>
- <yq5abj9p38vq.fsf@kernel.org>
- <arJ1BDEzY5CANjjB@gremlin>
- <yq5a8q4t305j.fsf@kernel.org>
+	Tue, 22 Sep 2026 13:57:36 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-488615e6cfcso369269f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:57:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1790085452; x=1790690252; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pZZpnp9Ii94lfQediVbtRB1HCrD5s3KchpIbsJ2tbsA=;
+        b=Cdg4TGZGmh8g2hHxO+RHxpgj8X8SIYXyegxuP5k+PlNeMKDupG8YiK6G27A97v33nz
+         3SotjT4HDdTL4EpHJU0ekxzqR8SwgtkihOQjvaOPzdaHAilyw3mYxHb2VU53YkNkrNwb
+         HNsTiE3ZmvJSoe2YL6Nt6KX5wxWGjOKmu+twTgionJlFiGcus/mf42saZ22QtWTR3hnO
+         9uGRgDywWv+t5k6ijwUNHRNzmkx3WgX53OuYmQeIgre6lQBnTW0ojn0Y8ILIPfweHzRn
+         Yl8wgny0OHDuuKG8wTQhIGP1KPyYpNg3wWwuu+JhXHHLjkI4qTzef3rYqnA1L6KCur6U
+         1XXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790085452; x=1790690252;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pZZpnp9Ii94lfQediVbtRB1HCrD5s3KchpIbsJ2tbsA=;
+        b=Jk7a3WLLBo40KCiWkmq2vyif7NiHICAieLCg1nDhSabo8Z2gm0y+RvB82xU5uQku8z
+         pHhyo6xBJhNE362UdXO56Qx/BDTYT425nI1QVMVjVj2mwa3am0x5aIeHsFBbroXvo5xe
+         pRBkSuz6CyAD2xIfov//WU1hOIzDuM6n8sMBviPFyVAZTQ54+6lVGJx/jU+/O/Mlr7eU
+         SNBHha94nvHqO7ykiL9WJSXPMd0hvxWYttCDXkeXWSlAhB8TdA/Z/ctSbdO+LyArJHui
+         c6qp1C7FCU/FgtDzeQFaWl+zuJO2bF1jmVzbgAy8UR5PUkNRBAek/TSKmQyemGrEM+sZ
+         349Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxvu2rq46UoKn/xO+irhSXjIaglMvHg/fCx/aFPzjF2q3p13WUvod3B1G/WG/TLiQSSFBeTp6KCo+Og1UGwXWoz@lists.infradead.org
+X-Gm-Message-State: AFuF++llR6y4g3J5TGqKqkFo2pCTr3Sq7LQ4oCyIemkp0lJ31CI70LYy
+	MnBtL+e6Gmu+tVupEO/w3rpb4N86dC+mmEw66PA0gMjoHieEvyi0Et6z0M4YNYpD0kfW4N9lUHs
+	Ws0mUl+Q=
+X-Gm-Gg: AYBFou3TnnsV/MQecUM/2A+w1qULyQBMM7wFz6cFblpvuuhdJwig6vIedDgcpHxV6Mf
+	FecMNF5ReFEn3P3rVpuECHaO0uY4VyJt+F6Z5TKtEFJ7d67mNsE16xDoVr6Ih4bWj2uHdqo+RJ1
+	2MrMRPmm6Y/lyH8ILcT4f2gxpbzJF+3z8pTY1AGnxDGNripQeEKYe6kwIXL2pyhxumybj2a0ghk
+	jxRRhz6aHRrF+pzVAtSUPY7ubBG4olP2Zhav9kcV0HlMo4iCLleokMKNnY0gq6ArI1SoZtmCXR2
+	IxkAu6g/MnHD3T7DdPjSAH096TRNGr6bwaC+5vhJWvNfTuP0tEPkeVDSmkmuPufGFQMgIV5qrjY
+	hqN4R6fQRVK5tm4LayCDkEWiIl0h1tjrHQQFBWaYlfwtPKJh8Uo6LWMOcN7AMXrysO37KmTqv/g
+	NfiTVkRGjejg/G+CWbR4+OPjzwjPctCZMueAMdDd3vx59qL/xk/jgXNbccaeGJXxK2xhut8w==
+X-Received: by 2002:a05:6000:4303:b0:487:9bb:a875 with SMTP id ffacd0b85a97d-48860f7eb5bmr4640032f8f.3.1790085452552;
+        Tue, 22 Sep 2026 06:57:32 -0700 (PDT)
+Received: from localhost ([195.94.147.179])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48862774543sm5865322f8f.11.2026.09.22.06.57.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 06:57:32 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Andrea della Porta <andrea.porta@suse.com>
+Subject: [PATCH] arm64: smp: Signal EOI after handling IPI_CPU_STOP*
+Date: Tue, 22 Sep 2026 16:01:09 +0200
+Message-ID: <20260922140109.12780-1-andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5a8q4t305j.fsf@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_065735_268351_7EEB9924 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,108 +99,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 06:37:04PM +0530, Aneesh Kumar K.V wrote:
-> "Lorenzo Stoakes (ARM)" <ljs@kernel.org> writes:
->
-> > On Tue, Sep 22, 2026 at 03:28:33PM +0530, Aneesh Kumar K.V wrote:
-> >> > This is because pKVM instantiates vCPUs upon run,
-> >> >
-> >>
-> >> Can pKVM instantiate the hyp vCPU during pre-faulting ?
-> >
-> > It would be an unusual and unexpected thing to do - suddenly a pre-fault
-> > operation is initialising a vCPU explicitly for pKVM.
-> >
-> > A caller is not going to reasonably expect this and might treat a failure to
-> > pre-alloc as fine to carry on whereas in fact it was a failure to initailised a
-> > pKVM vCPU.
-> >
-> > It'd also require significant changes to how pKVM is set up, right now it's
-> > hardcoded to be done unconditionally at run via kvm_arch_vcpu_run_pid_change()
-> > -> pkvm_create_hyp_vcpu(), so all that would have to change and be checked and
-> > tested and... that'd be really out of scope I think :)
-> >
-> > And pre-faulting really makes most sense BEFORE you run a VM. It doesn't make so
-> > much sense mid-run.
-> >
-> > But more fundamentally, the stage 2 page tables, as I understand it, are owned
-> > by pKVM and so aren't really available to be pre-faulted.
-> >
-> > Maybe unprotected-under-pKVM VMs but then it's questionable as to how useful
-> > that would be given that it would be confusing to users vs. how it works for
-> > other VMs.
-> >
-> > So in general, no I don't think it's a good idea.
-> >
-> > And even if we wanted to pursue some version of this, it's _definitely_ out
-> > of scope for the initial pre-faulting bring-up series.
-> >
-> >>
-> >>
-> >> > but pre-faulting is  typically performed before a vCPU is run.  It would be confusing and
-> >> > inconsistent to error out on non-running vCPUs but to pre-fault running
-> >> > ones.
-> >>
-> >>
-> >> I use KVM pre-faulting when transitioning pages from shared to private
-> >
-> > You mean you'd prefer to use? Or you are using it on another arch?
-> >
-> >> with CoCo guest. This ensures that a trusted device can DMA to private
-> >> memory before the guest accesses it.
-> >
-> > Hm what do you mean by private memory?
-> >
-> > I see:
-> >
-> > #ifndef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> > static inline bool kvm_arch_has_private_mem(struct kvm *kvm)
-> > {
-> > 	return false;
-> > }
-> > #endif
-> >
-> > And only x86 selects KVM_GENERIC_MEMORY_ATTRIBUTES?
-> >
-> > Do you mean something else?
-> >
->
-> I am using this with ARM CCA-DA, based on the patch series from Jack Thomson <jackabt.amazon@gmail.com>.
->
-> https://gitlab.arm.com/linux-arm/kvmtool-cca/-/commit/80e7aad61c5639de2f0cb4a5525dad0c96156428
->
-> We do this while the VM is running.
+On kdump/kexec, the boot CPU triggers an IPI_CPU_STOP (and subsequently
+an IPI_CPU_STOP_NMI if the first one does not respond) to the secondary
+CPUs, and the IPI handler eventually calls the firmware to shut down
+each CPU. Since the IPI is never acknowledged via EOI, the interrupt
+remains in an active state when the CPU goes idle.
 
-Right, that's a non-mainline kernel I guess? Which presumably implements private memory.
+In a virtualized environment, if the hypervisor does not reset the
+interrupt state, this causes the crashkernel (with cmdline option
+maxcpus > 1) to be unable to synchronize between the boot CPU and
+secondary CPUs via IPI_CALL_FUNC, leading the kernel to wait indefinitely
+for the CPUs to respond. This has been observed with the Hyper-V
+implementation.
 
-Jack himself experienced a panic with his pKVM code, so the code you're using is
-not upstreamable, unfortunately. And he'd already shelved pKVM support AFAICT.
+Both the Linux kernel and the Hyper-V firmware appear to violate the
+PSCI specification:
 
-And reviewers pointed out actually implementing the pKVM stuff properly would be
-quite involved, even if you wanted to do that (hence follow-up).
+- The PSCI spec states that the OS kernel must migrate any interrupt away
+from the CPU that is about to be shut down via CPU_OFF, which by extension
+implies that no active interrupts are allowed. The kernel does not
+currently do this in the kdump crash path.
 
-Also you end up stuck with the same problems as I mentioned above - you can't
-sanely bring the vCPU pre-run, so now you have extremely weird behaviour - only
-pre-faults if vCPU initialised, running, and unprotected pKVM.
+- The PSCI spec also states that the PSCI firmware must reset the CPU
+registers to their default values when turning on a CPU via the CPU_ON
+command.
 
-Protected pKVM support is a whole other layer of complexity and it's not obvious
-that you're really achieving what pre-fault is supposed to.
+Fixing this on the kernel side has the advantage of being
+hypervisor-agnostic.
 
-In any case Oliver literally just asked me to _simplify_ weird edge cases for
-this series :) so I am not sure something like that is going to be accepted.
+Signal EOI at the end of the crash handler to prevent the subsequent
+crashkernel from hanging.
 
-Are you sure you're actually running in pKVM mode btw? CCA doesn't AFAICT? In
-which case this series _should_ work fine for you.
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ arch/arm64/kernel/smp.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-Anyway, if we really do need to add something for pKVM it needs to be a follow
-up. Let's get the basics working first :)
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index a61dc3016a117..cc7f3261fe537 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -988,6 +988,27 @@ void kgdb_roundup_cpus(void)
+ }
+ #endif
+ 
++static void ipi_eoi(int ipinr)
++{
++	unsigned int cpu = smp_processor_id();
++	struct irq_desc *desc;
++	struct irq_chip *chip;
++	struct irq_data *d;
++
++	if (ipinr >= MAX_IPI)
++		return;
++
++	desc = get_ipi_desc(cpu, ipinr);
++
++	if (desc) {
++		chip = irq_desc_get_chip(desc);
++		d = irq_desc_get_irq_data(desc);
++
++		if (chip && chip->irq_eoi)
++			chip->irq_eoi(d);
++	}
++}
++
+ /*
+  * Main handler for inter-processor interrupts
+  */
+@@ -1009,6 +1030,7 @@ static void do_handle_IPI(int ipinr)
+ 
+ 	case IPI_CPU_STOP:
+ 	case IPI_CPU_STOP_NMI:
++		ipi_eoi(ipinr);
+ 		arm64_nmi_cpu_stop(get_irq_regs(), true);
+ 		break;
+ 
+-- 
+2.35.3
 
-(Note that kvmtool will need to be updated to retry pre-fault on -EAGAIN, -EINTR
- as this series can, albeit unlikely, return -EAGAIN.)
-
->
-> -aneesh
-
---
-Cheers, Lorenzo
 
