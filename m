@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82065C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5BDC982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5TziHwaXDLNZErCA1Nv3YhRq2q9+6p4PN2Do0dxKr38=; b=gBNy4rX2Ajdo3deIQR93L5MZLf
-	ZtQEzzBQpDSSDBNNz5cxf95md7lmhwd9/Yp9GI71czReu9LGFcmXnbmMp8A2cCb+BH2uEpE1f/6Ew
-	nD/5SUivEYYM5q825t9Rq4BgxPLZuui1SvWYyAaRxJMeWvZQ2EbZGQlhQc2wEqPa7OTHQFM0M3dMU
-	pXhbqOFaHHTtVPxMJW6hWeAiLPZti2oFBr5Q0lrS0DYkdjOqsTLZKsRLvnnhYmB8L3hdYx5cwlIIX
-	0XZF7qcLJkTWn9GwpXr1WAHE2OGKsgRRrt5HEmZ1Aa6IRrDiyxmcV2EG/8S/Nfp04rSNll9mf+78D
-	zsQIWtUQ==;
+	bh=1N06q9Iqt+n0HPR6BLN3adBn216qx/G71jg+AxnkRRA=; b=oV+culqmkTjqezAFBABanoGWO0
+	5od8MFn4rndbvoLDs2nCGnWqC6uzq9eFAdM1GBhEqRhJYlcjm7DW9oTkoQMxx3u3f77SDgivZ/SbD
+	tznH45fLPsYtSL8+OgbCve5KYfgng1RNXidd3nm/1rj1yX8li/m+eUfZx1t7Ij6+lFmanHsiiolp+
+	hkqdsYXE1ShZFbNXDT90EUz4lw2x0gR0Arxnt+QhZ/OrdwS/F/1R3hzxW5IdVjA6N/t7LLanajvb5
+	Jc4nKMgB1amfNzZbMGkZxRuMpWLN9CuJYhsGzKd0MFkEpEHkVr+ZXky7mDNQ+iEGH7WmDjNbYhNvB
+	H0+AP8Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8u10-00000004LGi-2kp2;
-	Tue, 22 Sep 2026 06:30:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8u5R-00000004LeL-0wvd;
+	Tue, 22 Sep 2026 06:34:41 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8u0z-00000004LGB-0mUG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 06:30:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5TziHwaXDLNZErCA1Nv3YhRq2q9+6p4PN2Do0dxKr38=; b=CQTUywESDy4RriK2fIMMAozkg2
-	DLYmXuc+FMJZvcRmZr9d7cmFseh5bh7xUzrF6Nh8ZrtOWQ9SWmLZgBr/FjsDFxhljqR7Llxc8y+6j
-	sgJOwdu+n2E1YyRlu6oRGSELByOMiGt+SI5NTdM6jeZ/fAojCWK26PoE4ZxdMNm4JoY8Cro8jgti7
-	zGDBSEHHpFALlYOv0vz7GqHI4z1e32O9FKn3KWpv0E5wTxhBBdZsoFGXDd1SZ8SWLhOd+OZx/qTGe
-	rXE+GmKUPeeMA51vFkI5e9dyOwp/o46OPaln06xIAROoho7O3HZqlp1t2hZGcg2h5kYdZYiwXKCCW
-	BYYnYDuQ==;
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.3])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8u0l-0000000D9wI-2Ojk
+	id 1x8u5L-00000004LdU-2mKz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 06:30:00 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-f940.prod.antispam.mailspamprotection.com; s=arckey; t=1790058591;
-	 b=Vrot1U70ZnOaJkn22R7CEdHRDGfW5KsiGYadVQN/NnzRHZ2vpjtlFX9HV+qQpuZAbeM/Heh1Ss
-	  27/BKlHUx6tDbzFqoumPZRz7PwnSCeQQ1AOf8K+pxdZOxOLhbn+7+Ko9Z3nanP1SGn5p+QyVBu
-	  CbOEIPJjpmnISNiaeT2VVQKwx8TdinQlk2Uu5UIYxRmpe1TnDdKRjkhNimnhclOBEPo/ZUWpI8
-	  eo3Vkhw+RqZQefbjym1zq21SvzfjUBZP9P427IW/2A7pfuwk0Czwkqy+evH76MLokrnxggRhyL
-	  sAQZIHVPEBhzIxmU3VoetAWALp255ccRIzaMlIrN7yTcwA==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-f940.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	Tue, 22 Sep 2026 06:34:37 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com; s=arckey; t=1790058875;
+	 b=Qpchecr0cZSSGtoc0vk3L55wo4MKuiCtmT34cqORrDN5Gt0godpNUvuPrsvvmjUXxzeqM0DrGJ
+	  JrMn6iZM2weWbwCcIINd3hWnLRc2jjrI2OU3xuQZyJeqkgw3c/EHYyoDixOLkwaP7moC0pIkVU
+	  5uD/pakJ5wwbSYI7q+gtpOZHLIHZRgw3FDe8do5+Ft55HKDAHhZADt82fyJCTT5CySUyH8HCSR
+	  WFcjSjH9SEFePIkfkzUnySmFV5PaXQQdXwZSQh1m3Djtn8QSCx91igmFUPMz3DFn/y12qRt/5D
+	  uXOgItq7pEcYBhbdIanDUyC5v6cRQ13Ly/dy/12VadGwag==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
 	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
 	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
 	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
 	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-f940.prod.antispam.mailspamprotection.com; s=arckey; t=1790058591;
-	bh=0Y/NG4nMOalFGTSNp/BfF0N3WtHCZpwOLy9J6i30EqE=;
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com; s=arckey; t=1790058875;
+	bh=KRF7mzrEcefx2cCAz6FPvzYQT9GQwppHdJJE1JW4tjU=;
 	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
 	  From:Date:DKIM-Signature:DKIM-Signature;
-	b=tJxzL7ocf+uf1sjz6fkwnCSBz+AqbcFAjqG+ia4MYz/YDKAqWVfoMMqsayVLyFk7amVn1hXfFQ
-	  UhtH+HTezI8bzfZWGFsW5xdz5r4tX15emRXacuO1BiFLqI9oWzLgtf8X9uX2zyx/fv6W2Hgqjs
-	  oyT6gxHKMIc/B+vYFI+0xzUbolntroq0WIS55P2ztyNy6VGDKXn/aqDOKyemlHBF5lsSlpfBMV
-	  dhqKIkh3rd/U20W2JT9H3C9sHQUYJSBVkGUTHBSfXG3oH1/IqN08mguTLe7QbqqVhPKe3zSXNF
-	  mFizEle1RZ9328Be+phGNwqPZKFoLJ9td0w5l3EFOqcdCg==;
+	b=CuvN+1wq71+VlrcDCRhz3dtYJnb9qoBv6fMQKwOrDRNvC10AcNEDW6RJZ3HlQFbHPNP300mAwE
+	  7rzGnd4dE3hVU9jG6KX9Wy2fZdb6hC22uNN34sIel2/jKMK5WNdrMki7+3XzvhTVuYftMst8L1
+	  jNlGPD/TDPFREQuPdHgV/Yw4yrzqqrIll2W23ueh23Kbruga8RJeIzW1Mf2pOAQacm3YVzuKin
+	  zezEFER61IwwBuFZXIGZkLkkwk5Pza+ublciAT/TOBpmWXFa2IVNbV7gIZ2KWVs/hf3a/c/Zjn
+	  eSWwqUcBCTOQHZJTY/2CZNzEww41wmm/Lk7BjyPc+/CmJA==;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
 	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	List-Unsubscribe:Content-Transfer-Encoding;
-	bh=5TziHwaXDLNZErCA1Nv3YhRq2q9+6p4PN2Do0dxKr38=; b=km35Byi9DpxLmDJoY8WB6crPoF
-	Wp2zJlH9dWa+5QMhWWbwefRNynu1XLZEbY1WQ3LYsEIrnvqvFln8f7Dac6d0RhtWMR8JyWHff2157
-	FWTO/O9ASnQ/jPbhYlS0BApqdDwhimU+LOM0lewSv+a5mJFDt+WTilIk3M+Btsl1zsH8=;
+	bh=1N06q9Iqt+n0HPR6BLN3adBn216qx/G71jg+AxnkRRA=; b=DGp/npwUY1WAxkrCPfDosG/grM
+	XqKMEuI9UL+IVBVN5mN0bMo8ay3r07+F69Eo3/8rjW54G7h9WKgicNP2m+wSkwDQ01KznSq2u38vG
+	vJGPI8aREF6gIxTxOH/4QSR+XtUpx+Y54wsygKVcCfoBo4RSxjEWiHZ88r3rplnjSqd4=;
 Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-f940.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	by instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.5)
 	(envelope-from <francesco@valla.it>)
-	id 1x8u08-0000000G7l4-3kJg
+	id 1x8u54-0000000HBVx-3jUT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 06:29:33 +0000
+	Tue, 22 Sep 2026 06:34:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
 	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
 	list-subscribe:list-post:list-owner:list-archive;
-	bh=5TziHwaXDLNZErCA1Nv3YhRq2q9+6p4PN2Do0dxKr38=; b=T5UqOveDeSk52U3za0f9ytME7m
-	zSVTX1ALLKtdubMCZNXtEZz3wf/27Dn9KwpzimGgCV3BJ9XriUrJYEKbSc+CYOb6rZxWE4+/+xnTL
-	Vlfj3qwDvFZqXE45GDc0jKkhkeLenT+u4HxOrUuAXVusycaW9qvA1txxbpcC7QJPHlAM=;
-Received: from [79.43.46.244] (port=63244 helo=bywater)
+	bh=1N06q9Iqt+n0HPR6BLN3adBn216qx/G71jg+AxnkRRA=; b=HEhwwlRP3qLm1x3BiOx6/yErcr
+	96L28DUv90dLTh0ICYZlv0l89z1LKoBL2EJReSJMV5nKubxJKxfixgaZ7M87PYUyWr0yZowCyQJpI
+	IW7lUfbEyr5lOpT1TxOKPf4g6mfNdBq1FffppbX4hO7MlJiY+VMQr+iNf6j8+PILWI0Y=;
+Received: from [79.43.46.244] (port=60174 helo=bywater)
 	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.5)
 	(envelope-from <francesco@valla.it>)
-	id 1x8tzG-00000000GBl-2f8i;
-	Tue, 22 Sep 2026 06:28:18 +0000
-Date: Tue, 22 Sep 2026 08:28:16 +0200
+	id 1x8u37-00000000JK3-0fLD;
+	Tue, 22 Sep 2026 06:32:17 +0000
+Date: Tue, 22 Sep 2026 08:32:15 +0200
 From: Francesco Valla <francesco@valla.it>
 To: Mathieu Poirier <mathieu.poirier@linaro.org>
 Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
@@ -99,16 +84,16 @@ Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
 	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
 	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 00/12] remoteproc: add support for any virtio device
-Message-ID: <arIfj-1Ji6HEBHLJ@bywater>
+Subject: Re: [PATCH RFC 05/12] remoteproc: always report VIRTIO_F_VERSION_1
+ feature
+Message-ID: <arIgI4E5rGXq9H0P@bywater>
 References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
- <aq1sooGCYUiWbhMH@p14s>
- <aq453yukMHiNb1jp@bywater>
- <CANLsYkySF+eF-FURnnT6UJv7P5Sg2HdfMSBZnZy_BLyCMvuofw@mail.gmail.com>
+ <20260916-remoteproc_virtio_map-v1-5-dac8c5eb4aa9@valla.it>
+ <arFRqopkkJf7Nlq4@p14s>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CANLsYkySF+eF-FURnnT6UJv7P5Sg2HdfMSBZnZy_BLyCMvuofw@mail.gmail.com>
+In-Reply-To: <arFRqopkkJf7Nlq4@p14s>
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
 X-AntiAbuse: Primary Hostname - esm19.siteground.biz
 X-AntiAbuse: Original Domain - lists.infradead.org
@@ -117,22 +102,22 @@ X-AntiAbuse: Sender Address Domain - valla.it
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-SGantispam-id: ae99b43f2537b67729474c70d40173c8
-X-AntiAbuse: ID - ae99b43f2537b67729474c70d40173c8
+X-SGantispam-id: 7b3e744fa8054856a496c064f424bb39
+X-AntiAbuse: ID - 7b3e744fa8054856a496c064f424bb39
 AntiSpam-DLS: false
 AntiSpam-DLSP: 
 AntiSpam-DLSRS: 
 AntiSpam-TS: 1.0
 CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1x8u08-0000000G7l4-3kJg-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-f940.prod.antispam.mailspamprotection.com;
+CFBL-Feedback-ID: 1x8u54-0000000HBVx-3jUT-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-xhtg.prod.antispam.mailspamprotection.com;
 	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
 	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
 	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
 	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_072958_666692_E31C1398 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20260921_233435_752390_DD981680 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,30 +132,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 20, 2026 at 09:31:11PM -0600, Mathieu Poirier wrote:
-> On Sat, 19 Sept 2026 at 01:33, Francesco Valla <francesco@valla.it> wrote:
-> >
-> > Hi Mathieu,
-> >
-> > On Fri, Sep 18, 2026 at 10:53:54AM -0600, Mathieu Poirier wrote:
-> > > Hi Francesco,
-> > >
-> > > I have started reviewing this set but given the size and implications, it will
-> > > take me a few days to get through.
-> >
-> > I'm going through the review done by sashiko - would you prefer me
-> > sending a v2 with the trivial errors already ironed out before doing
-> > a complete review?
-> >
+On Mon, Sep 21, 2026 at 09:47:54AM -0600, Mathieu Poirier wrote:
+> On Wed, Sep 16, 2026 at 11:10:50PM +0200, Francesco Valla wrote:
+> > There is currently no way to report the VIRTIO_F_VERSION_1 using the
+> > resource table alone, as the per-vdev feature array is limited to 32
+> > bits.
+> > 
+> > Considering that the VirtIO 1.0 specification is now ~10 years old,
+> > always report the VIRTIO_F_VERSION_1 feature, as some drivers depend on
+> > it.
+> > 
+> > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > ---
+> >  drivers/remoteproc/remoteproc_virtio.c | 10 ++++++----
+> >  1 file changed, 6 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
+> > index 74e0da970f1d..cfd66d9d1c9e 100644
+> > --- a/drivers/remoteproc/remoteproc_virtio.c
+> > +++ b/drivers/remoteproc/remoteproc_virtio.c
+> > @@ -249,7 +249,7 @@ static u64 rproc_virtio_get_features(struct virtio_device *vdev)
+> >  
+> >  	rsc = (void *)rvdev->rproc->table_ptr + rvdev->rsc_offset;
+> >  
+> > -	return rsc->dfeatures;
+> > +	return rsc->dfeatures | (1ULL << VIRTIO_F_VERSION_1);
 > 
-> We can wait if the errors are trivial.
+> I understand this.
 > 
+> >  }
+> >  
+> >  static void rproc_transport_features(struct virtio_device *vdev)
+> > @@ -275,14 +275,16 @@ static int rproc_virtio_finalize_features(struct virtio_device *vdev)
+> >  	/* Give virtio_rproc a chance to accept features. */
+> >  	rproc_transport_features(vdev);
+> >  
+> > -	/* Make sure we don't have any features > 32 bits! */
+> > -	BUG_ON((u32)vdev->features != vdev->features);
+> > +	/* Make sure we don't have any features > 32 bits except VIRTIO_F_VERSION_1 */
+> > +	if (WARN_ON_ONCE((u32)vdev->features !=
+> > +			 (vdev->features & ~(1ULL << VIRTIO_F_VERSION_1))))
+> > +		return -1;
+> 
+> And this.
+> 
+> >  
+> >  	/*
+> >  	 * Remember the finalized features of our vdev, and provide it
+> >  	 * to the remote processor once it is powered on.
+> >  	 */
+> > -	rsc->gfeatures = vdev->features;
+> > +	rsc->gfeatures = vdev->features & ~(1ULL << VIRTIO_F_VERSION_1);
+> >  
+> 
+> But I'm having trouble with this one.  
+> 
+> First bit 32 of vdev->features gets cleared and then bit 0 to 31 are assigned to
+> rsc->gfeatures.  Why bother with clearing bit 32?
+>
 
-Not all of them are. I have been a bit to naive about the bounce buffer
-management w.r.t. what can happen if a memory area is not specified and
-I will need to rethink/rework that part.
+Bits > 31 gets silently dropped because rsc->gfeatures is a u32; this
+was inserted to explicitly drop the flag that has been inserted before
+and avoid the "silently". It has no real funtional impact and can be
+safely dropped.
 
-Regrads,
-Francesco
-
+> >  	return 0;
+> >  }
+> > 
+> > -- 
+> > 2.55.0
+> > 
 
