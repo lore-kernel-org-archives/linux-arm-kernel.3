@@ -4,114 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1940BC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C192AC98308
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 18:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rbTpVqSdLfiImzM60AVTajEWpu2PRiqcYfs1wecYkGI=; b=X5yQXZ25m7Fk14P0HC0cSmQ8XA
-	n+nVqB2yfAmWt7DmJvBopChcttGqII2PLcMWNhIw+cxAFgdOqDD5rE5XZEZn5AcaBb1zbn3sYuy2n
-	LEg0pThdmaMQvg9fJEAU3hx44w6IA93CkyDraGIfiC5fhOkuItS6l9UB0QLO1tNuUvWUrTz5e1CXr
-	TyD8R4GWCY3opsVVp7frAAPEf6wpx26NCiuVZUrFe0rk7bxGXmYT2cZlsiYCiJUJUTh3DNoQZvyk4
-	rctI5kopKb1LFPYE6rGDCWEgXmwhAeP+vNduTvPFbXw0k/SEzwMpkkelq71OE0HiM7gqLGxuFMgUI
-	lndwpF9Q==;
+	bh=oBIP+G64F5OiMSJQGN5nNWKW32IgtbGQCt9PYXqIS7Y=; b=lMdmxp32Bz6i1JUsmtXND1kun9
+	/1D+fu4qAauywd0AqQwlJTN95IympfQ1xnQxCPyH1tVZhXP0kadFF/TPzl1KGq6VtGB9QDFkjzBDs
+	0Epb1dmqfo3DL2EZTZVk+pez2x2mjMDzAV6Rv3Rtfc6aOGXpbe59PZO13wTSTh7AXBenmTJgxQ66H
+	ZRtgcvCCGS4aJm3JzZqvqkRW+XZjijt2AGyiliZOXTnkQFlDXcNqu0IbTqWBLKt2gHMSO7/fJzSHV
+	A0KhDpuEpXX/B32pkQF4Jbni7oFNAyoDl0c4UVBcr1FpANo75qSilJnQ3sHCEy7fo/9OFIgqDf6pE
+	6KdynV4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9586-00000006Hqd-1clx;
-	Tue, 22 Sep 2026 18:22:10 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1x95FW-00000006Ikn-1pH4;
+	Tue, 22 Sep 2026 18:29:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9581-00000006Hop-104I
+	id 1x95FV-00000006IkJ-363Z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 18:22:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yIsIc0MAgPzT62GkJjNwRntx21MK5kRdQXntxeMW1Df//tsB4obdJ3gfmaaQyKYxUB/DmfmHnn/GUAbLC5XQ9jw14pHBJrLUuePbvuUgThK2h/IBZSyCOtB/WOUXqip/jENWGERB0rDWZWhC80TJBji5oAoxNsSTDi4wAg6BifVEkXUWNhhuK7OgHK2b5Uj10NJ1pWu4T9fKiV/oFTH2rV3eJICFJ7z4H+JiC+at9kPyytZpOB7m3aEP6OudD6Khc/antma6tOzinW1Gmu/lRqlBFZEeOatIsJSgXBupUMa9OxqqVbljZ+Sd+0VzgA7BejjPUlQS5/hUUQnHq99XXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rbTpVqSdLfiImzM60AVTajEWpu2PRiqcYfs1wecYkGI=;
- b=xn6+E5jpVhSemTOYProYe0BfoO73/23Ubgb8raUnpwJMFIweBrV6loOpxP2cIpMecG1MzlfvFH7UsDaJwFHGtmIVqbUPGrV493ZxPKRZ6mtzWvfF98FSSzA4bL0x9Xc3ps1PRNN6aljXDrwVDZccAYtlcsLUk739zOx/nk3qAZTZoNp0tYJ6U6pz6Mxf5VN1cvpal7lfUwC2zETwfkGRfQT6IdobxgWmo4qpMU2zak9p4l9yjryJdIZLIKlZpymR93PV2pPAAGiituDc7z25i4OywPg2Hen1mzPOsSbd1Z9IAn6KBVlY87GZNB9ZQh/mAdZaqh7ajXfFBkuvz1UhzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rbTpVqSdLfiImzM60AVTajEWpu2PRiqcYfs1wecYkGI=;
- b=hNMp4uwazHxkg/l7c167zqcFFDMBlvCNjxz1q71LPie1egZav+0IRDIzlgvHY0faZdx/IzPDY6Gn9QYsZ57Dai4GHuPlsAgfrOOF1SXxdL7SOlWfrBZ+anlIf1GkNYVJFVRGkBFw4t7swfPCai0K2jevxdG69b4/k8WpbkzHJdE=
-Received: from IA1P220CA0006.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:461::11)
- by LV3PR12MB9096.namprd12.prod.outlook.com (2603:10b6:408:198::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Tue, 22 Sep
- 2026 18:22:00 +0000
-Received: from BN6PEPF00000072.namprd03.prod.outlook.com
- (2603:10b6:208:461:cafe::78) by IA1P220CA0006.outlook.office365.com
- (2603:10b6:208:461::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Tue,
- 22 Sep 2026 18:21:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN6PEPF00000072.mail.protection.outlook.com (10.167.248.199) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 18:21:59 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 13:21:51 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 13:21:51 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
- Transport; Tue, 22 Sep 2026 13:21:48 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
-	<michal.simek@amd.com>, <p.zabel@pengutronix.de>
-CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>, <stable@vger.kernel.org>
-Subject: [PATCH v2 2/3] usb: dwc3: xilinx: re-assert resets on ZynqMP init error paths
-Date: Tue, 22 Sep 2026 23:51:24 +0530
-Message-ID: <20260922182125.11067-3-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260922182125.11067-1-radhey.shyam.pandey@amd.com>
-References: <20260922182125.11067-1-radhey.shyam.pandey@amd.com>
+	Tue, 22 Sep 2026 18:29:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BB2F4600E2;
+	Tue, 22 Sep 2026 18:29:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68F761F0089D;
+	Tue, 22 Sep 2026 18:29:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790101788;
+	bh=oBIP+G64F5OiMSJQGN5nNWKW32IgtbGQCt9PYXqIS7Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=feZOstNiuNlWphAJLMUycquPL0TsTFl2x6jc5F5Pwaap7BAIB0JCR/d/ij11UI5q0
+	 eYYzQXofciOnfc/bxtJv84X1ppqt3yUhd4Isse8vHRsyylysQcNR4j7Qz5RPPffY99
+	 DYBu9APvh6r8PA51C3mPexRv3m8OGIj3+WHheqBVEemBKS2cPJhb/4JCMF0IyopqpX
+	 Q4R6KQIfxXCsYJyJIdNkwcZDk80EambzOA8KsCGsjHVAEWmbepNprhHs41Zz2rSbGf
+	 ODgjmf+6ih27KvMZXhlSW8ZOxOcPthGUroZo4aoapC7kYY1GpfBO2huCHUcSx+3Fgn
+	 Xf6p+N8aXEieg==
+Date: Tue, 22 Sep 2026 11:29:48 -0700
+From: Kees Cook <kees@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Subject: Re: [PATCH v19 00/14] arm64: entry: Convert to Generic Entry
+Message-ID: <202609221129.B5E13A7@keescook>
+References: <20260922035510.1090299-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN6PEPF00000072:EE_|LV3PR12MB9096:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1491e538-207a-4ca6-922f-08df18d66453
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|23010399003|18002099003|22082099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 6wCKFotcGKQCQkuOWGb4aNA2WKBiDaoINgmntx43rKJ+4VVfjnfOAiiwBP0CAvsnINtNT1gsJOqk6E5d/oGIo2HFTEPFMF7Kg23+u9GXKqOmeV7uzfLvnnIFAF1lgDnPoHxJDjQpVfgQ75hNSKhItNAtC5cQBLsPuWYMiFWmsSxHo5DmoP/zH8Qkgnh87ktbe5IbbSYHvvPWMQPvliu6pnsL6kinUC9Lg5e3yhhdGa6daihu3Yb/vUQDTtyc7gT6uZprTtna8Vl0GDuQZwQqkjZKoJ3WZ6ys4aMH66jFhLrI7HJgg1GI1E8kuGJgzZd0gl80IAxul1+9RVoflu6JUMhkE7OM+WK896p0f4uo861TKO9p+t153pzpCf46UB+8/lTSFF+jUscHzz7vPZqz2pmiWeuwKVqMNezAszuzuD4AaE7KYHj7YD6IOxq/dK9cBTUxOS56W1i7hV1CZry8swRtfNhV483U7W7AhK5yaZFcsNqsb03aneaaNAekPWstSmpt/zbgB8rLad4G2XlgW0apMOcyIXRu1K5sBqvq/2n8YexOvwZPE2hIV5of2Or0K1a7h41mkI7AENsOTcVmcFu1RlHyWabfSgJy92yIfsCc1DlCUGI52U+is7BxC02knHF6I52Bhu0oCD2shBEoHmStL1OMqHqEjfzFQV8EASwBS49iVdcn42xF9TFgTCjdKfi7YKjBuVUwLmyZeJhLeg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(23010399003)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5aC24urWkeSgsxOZ1EM17cAwu+SoFrx5IJGya4CmugwD5YNPeEefGSYSQty34XbwcMJs50i91AwwsBbsrO3e3Anjlq2bORs/2t+Xldusshj1I8F6VlcYgFkuTDrPVvdhzJwH4Sx9XO0nzd+83RIoeI/Fs2nGbyKP+30WTRW6B7QjjP50Jsop189IOqgOx2MubcyFo8uUY3a1sJ1EDT/TiWH68Ej5ImSvj4QMUORAmOpw/ZhlWFsWhKjBRdh5N9qxJPEnnTjXhH8b3YBho6eVioPKwDzdD3A1c88mucOaHl/OBsoNxLW5NEDe/mG1ifYRigCwSx7Dm/Qzfm6tpvRiWAoqK/Bu0FmPtZ+UT2c+aIdJ85CLup6D8fwzkxtLf7u9QlPENZ1GM7afrJEQc3noAjXBaSe3o+pIE0zI2cmoqNRl9HLUCoNNtbb0h5IxnsiB
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 18:21:59.3878
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1491e538-207a-4ca6-922f-08df18d66453
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN6PEPF00000072.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9096
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_112205_293823_D463E238 
-X-CRM114-Status: GOOD (  17.03  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260922035510.1090299-1-ruanjinjie@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,168 +63,161 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, will@kernel.org, thuth@redhat.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, kmehltretter@gmail.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linusw@kernel.org, oleg@redhat.com, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, yeoreum.yun@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If reset deassert or PHY setup fails partway through
-dwc3_xlnx_init_zynqmp(), re-assert any resets that were already
-released before unwinding the PHY. Use fall-through error labels so
-unwind matches how far init progressed, for both USB2 and USB3 paths.
+On Tue, Sep 22, 2026 at 11:54:56AM +0800, Jinjie Ruan wrote:
+> This series converts arm64 to the generic entry infrastructure.
 
-Save the ZynqMP reset handles in driver private data so later probe
-teardown can re-assert released resets.
+With my trusty LLM driving a bunch of orchestration, I gave this
+a fairly wide before/after run under qemu-system-aarch64, trying
+to cover things beyond the ptrace/breakpoints/abi/fp/vDSO list in
+the cover letter. But since this is all emulated, it's mainly basic
+correctness coverage, without any meaningful concurrency coverage. I
+just wanted to find stuff that maybe hadn't been exercised yet.
 
-Fixes: 84770f028fab ("usb: dwc3: Add driver for Xilinx platforms")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
-Changes in v2:
-- Split out of the combined five patch series; see patch 1.
-- Reordered ahead of the platform-data cleanups.
-- Added Cc: stable.
-- No functional change to the patch itself.
+tl;dr: the only behavioral difference I could find anywhere is what
+patch 1 fixed, and I found no meaningful regressions.
 
- drivers/usb/dwc3/dwc3-xilinx.c | 49 +++++++++++++++++++++-------------
- 1 file changed, 30 insertions(+), 19 deletions(-)
+Setup: the series applies cleanly to v7.3-rc2 (I only noticed later
+the series was actually based on -rc4), so "base" is v7.3-rc2 and
+"patched" is the same tree plus the 14 patches, with each pair built
+from the same config with GCC 16.1.0. The guest was QEMU 11.1.0:
 
-diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index 8c63e02575f1..d18d3e364381 100644
---- a/drivers/usb/dwc3/dwc3-xilinx.c
-+++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -48,6 +48,10 @@ struct dwc3_xlnx {
- 	void __iomem			*regs;
- 	int				(*pltfm_init)(struct dwc3_xlnx *data);
- 	struct phy			*usb3_phy;
-+	struct reset_control		*usb_crst;
-+	struct reset_control		*usb_hibrst;
-+	struct reset_control		*usb_apbrst;
-+	bool				usb_resets_released;
- };
- 
- static void dwc3_xlnx_mask_phy_rst(struct dwc3_xlnx *priv_data, bool mask)
-@@ -112,7 +116,6 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *priv_data)
- static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- {
- 	struct device		*dev = priv_data->dev;
--	struct reset_control	*crst, *hibrst, *apbrst;
- 	struct gpio_desc	*reset_gpio;
- 	int			ret = 0;
- 
-@@ -124,25 +127,25 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
- 
--	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
--	if (IS_ERR(crst)) {
--		ret = PTR_ERR(crst);
-+	priv_data->usb_crst = devm_reset_control_get_exclusive(dev, "usb_crst");
-+	if (IS_ERR(priv_data->usb_crst)) {
-+		ret = PTR_ERR(priv_data->usb_crst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get core reset signal\n");
- 		goto err;
- 	}
- 
--	hibrst = devm_reset_control_get_exclusive(dev, "usb_hibrst");
--	if (IS_ERR(hibrst)) {
--		ret = PTR_ERR(hibrst);
-+	priv_data->usb_hibrst = devm_reset_control_get_exclusive(dev, "usb_hibrst");
-+	if (IS_ERR(priv_data->usb_hibrst)) {
-+		ret = PTR_ERR(priv_data->usb_hibrst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get hibernation reset signal\n");
- 		goto err;
- 	}
- 
--	apbrst = devm_reset_control_get_exclusive(dev, "usb_apbrst");
--	if (IS_ERR(apbrst)) {
--		ret = PTR_ERR(apbrst);
-+	priv_data->usb_apbrst = devm_reset_control_get_exclusive(dev, "usb_apbrst");
-+	if (IS_ERR(priv_data->usb_apbrst)) {
-+		ret = PTR_ERR(priv_data->usb_apbrst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get APB reset signal\n");
- 		goto err;
-@@ -156,19 +159,19 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	 * absent.
- 	 */
- 	if (priv_data->usb3_phy) {
--		ret = reset_control_assert(crst);
-+		ret = reset_control_assert(priv_data->usb_crst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert core reset\n");
- 			goto err;
- 		}
- 
--		ret = reset_control_assert(hibrst);
-+		ret = reset_control_assert(priv_data->usb_hibrst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert hibernation reset\n");
- 			goto err;
- 		}
- 
--		ret = reset_control_assert(apbrst);
-+		ret = reset_control_assert(priv_data->usb_apbrst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert APB reset\n");
- 			goto err;
-@@ -179,7 +182,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	if (ret < 0)
- 		goto err;
- 
--	ret = reset_control_deassert(apbrst);
-+	ret = reset_control_deassert(priv_data->usb_apbrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release APB reset\n");
- 		goto err_phy_exit;
-@@ -195,21 +198,21 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
- 	}
- 
--	ret = reset_control_deassert(crst);
-+	ret = reset_control_deassert(priv_data->usb_crst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release core reset\n");
--		goto err_phy_exit;
-+		goto err_apbrst_assert;
- 	}
- 
--	ret = reset_control_deassert(hibrst);
-+	ret = reset_control_deassert(priv_data->usb_hibrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release hibernation reset\n");
--		goto err_phy_exit;
-+		goto err_crst_assert;
- 	}
- 
- 	ret = phy_power_on(priv_data->usb3_phy);
- 	if (ret < 0)
--		goto err_phy_exit;
-+		goto err_hibrst_assert;
- 
- 	/* ulpi reset via gpio-modepin or gpio-framework driver */
- 	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-@@ -226,10 +229,18 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 
- 	dwc3_xlnx_set_coherency(priv_data, XLNX_USB_TRAFFIC_ROUTE_CONFIG);
- 
-+	priv_data->usb_resets_released = true;
-+
- 	return 0;
- 
- err_phy_power_off:
- 	phy_power_off(priv_data->usb3_phy);
-+err_hibrst_assert:
-+	reset_control_assert(priv_data->usb_hibrst);
-+err_crst_assert:
-+	reset_control_assert(priv_data->usb_crst);
-+err_apbrst_assert:
-+	reset_control_assert(priv_data->usb_apbrst);
- err_phy_exit:
- 	phy_exit(priv_data->usb3_phy);
- err:
+  -M virt,gic-version=max,mte=on -cpu max,pauth-impdef=on -smp 4
+
+I used four kernel configs, each built for both base and patched:
+
+  plain    defconfig + SECCOMP, USER_NS, AUDITSYSCALL, KUNIT_ALL_TESTS
+  lockdep  plain + PROVE_LOCKING, TRACE_IRQFLAGS, PROVE_RCU,
+             DEBUG_ATOMIC_SLEEP, DEBUG_PREEMPT
+  hooks    lockdep + the options that add work to syscall entry/exit:
+             FTRACE_SYSCALLS, KSTACK_ERASE, LKDTM, NO_HZ_FULL,
+             CONTEXT_TRACKING_USER (booted nohz_full=2-3)
+  rt       hooks + PREEMPT_RT
+
+and ran userspace tests from both an AArch64 and an AArch32 (armhf)
+userspace, since the latter takes the is_compat_task() side of
+ptrace_save_reg() and the cover letter didn't mentioned COMPAT.
+
+Results were identical on base and patched (pass/fail/skip):
+
+  seccomp_bpf                   98/1/12 (AArch64), 94/2/15 (AArch32)
+  ptrace selftests              get/set_syscall_info, peeksiginfo,
+                                vmaccess: no change
+  breakpoint_test_arm64         213/0/0
+  rseq basic, percpu_ops        pass
+  KUnit (KUNIT_ALL_TESTS)       ~1500 results, no change
+  MTE selftests                 117/0/0 (but see below)
+  strace 6.18 test suite        81/6/0 (ptrace/seccomp tests)
+  audit (a0 filter)             pass
+  syscall tracepoints           pass (argument recorded correctly)
+  lkdtm KSTACK_ERASE            pass
+  lkdtm stack-entropy.sh        7 bits
+  lockdep/RCU                   0 splats in lockdep, hooks, and rt
+
+The only delta I could find was the expected one:
+
+  sysemu_singlestep (new test)  FAIL on base, pass on patched
+
+So patch 1 fixes the described bug, but it had no in-tree test, so I
+wrote one. I'll send that separately.
+
+Various things I noticed along the way:
+
+- The set of traceable symbols on the syscall path changes:
+
+    removed: syscall_trace_enter, syscall_trace_exit,
+             el0_svc_common.constprop.0
+    added:   trace_syscall_enter, trace_syscall_exit,
+             syscall_enter_audit
+
+  These aren't ABI, and the new names are the same ones x86,
+  riscv, loongarch, and s390 already expose, so this is really an
+  improvement. But it might be worth a sentence in the cover letter,
+  since patch 13's "[Compatibility]" note could be read as "nothing
+  observable changes", which isn't _strictly_ true. :)
+
+- Syscall-path stack use grows by 48 bytes. Base do_el0_svc() has a
+  16-byte frame and calls el0_svc_common() with a 48-byte frame; with
+  patch 14 inlining it (plus the __always_inline generic enter/exit
+  helpers), do_el0_svc() grows from 48 to 808 bytes and 1 to 13 calls,
+  with a single 112-byte frame: 112 - 64 = 48. lkdtm KSTACK_ERASE with
+  randomize_kstack_offset=off confirms exactly that at runtime (2288 vs
+  2336 bytes, ten samples, no variance), on both userspaces and in
+  both the hooks and rt configs. It's small, but it's not mentioned as
+  a (minor) trade-off for patch 14's ~1% speedup. Other size deltas:
+  .text +12K, ptrace.o -3.6K, and +3.1K of shared
+  kernel/entry/syscall-common.o (all seems expected/unremarkable).
+
+- Patch 14 also moves that inlined code into .noinstr.text (+896
+  bytes). Since arm64 doesn't have objtool noinstr validation like x86,
+  I checked the images directly: no calls from .noinstr.text to
+  instrumentation outside the noinstr range, and no __mcount_loc entry
+  falls inside it, on either kernel. But we don't seem to have anything
+  that will continue to enforce this?
+
+- CONFIG_DEBUG_RSEQ "depends on ... && !GENERIC_ENTRY", so patch 13
+  makes it unselectable on arm64 and rseq_syscall() becomes the no-op
+  stub. Patches 5 and 9 carefully reposition that call, and then patch
+  13 removes its effect. Not a bug (generic entry does the equivalent
+  via rseq_debug_enabled, and I can see __rseq_debug_syscall_return()
+  called from the new do_el0_svc()), but patch 5 reads like a
+  standalone fix that disappears eight patches later, so a note in the
+  cover letter might help make sense of this?
+
+- The cover letter includes the gvisor SUD numbers, but SUD needs
+  ARCH_SUPPORTS_SYSCALL_USER_DISPATCH (as well as GENERIC_ENTRY),
+  and with the SUD patch dropped in v18, arm64 doesn't select it,
+  so CONFIG_SYSCALL_USER_DISPATCH can't be enabled yet. (rseq slice
+  extension is similarly blocked on HAVE_GENERIC_TIF_BITS.) A reader
+  could take those numbers as something this series delivers.
+
+- arm64 defconfig has FTRACE_SYSCALLS=n, which means
+  SYSCALL_WORK_SYSCALL_TRACEPOINT can never be set and the tracepoint
+  paths touched by patches 2, 3, and 9 aren't even built. So anyone
+  testing with defconfig isn't exercising those; you may want to test
+  with it enabled. (Also, compat tasks never hit syscall tracepoints
+  on arm64 at all, due to ARCH_TRACE_IGNORE_COMPAT_SYSCALLS, so that
+  path can only be covered by native tasks, but that's unchanged by
+  the series.)
+
+- I verified that the entry work ordering is unchanged. It looks
+  correct to me: arm64 did ptrace, seccomp, tracepoint, audit; generic
+  entry does the same. (It also checks SUD and rseq-slice before those,
+  but neither can be enabled on arm64 yet.)
+
+Suggestions:
+
+- rr: Since you have real hardware, could you also run the rr test
+  suite? rr has been the most sensitive ptrace user I've encountered,
+  and it depends on exactly the syscall-stop and single-step behavior
+  this series touches. I couldn't run it: QEMU's TCG PMU exposes PMUv3
+  but only counts CPU_CYCLES (BR_RETIRED always reads 0, on every
+  CPU model I tried), so rr aborts in check_working_counters(). If
+  you do, note that you'll need "proc_mem.force_override=always" (or
+  CONFIG_PROC_MEM_ALWAYS_FORCE=y), or three rr tests fail for unrelated
+  reasons (rr-debugger/rr#4093). Build and test instructions are here:
+  https://github.com/rr-debugger/rr/wiki/Building-And-Installing#tests
+
+- MTE: I didn't see MTE in the cover letter's test list, and it seems
+  relevant since patch 13 puts _TIF_MTE_ASYNC_FAULT into
+  ARCH_EXIT_TO_USER_MODE_WORK, so an async tag check fault lands
+  on the reworked exit path. The MTE selftests showed no differences,
+  but a third of them don't actually run for me under QEMU, so they'd
+  be worth running on your hardware. (Testing MTE under QEMU saw
+  check_mmap_options hang at test 5, the first test with tag checking
+  on, and check_child_memory never produces output, on both base and
+  patched, so only 117 of the 183 planned MTE tests ran. But this is,
+  of course, a QEMU/selftest issue unrelated to the generic entry.)
+
+So, for the series:
+
+Tested-by: Kees Cook <kees@kernel.org>
+
+-Kees
+
 -- 
-2.43.0
-
+Kees Cook
 
