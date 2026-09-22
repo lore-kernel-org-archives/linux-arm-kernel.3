@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D4BC982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190EEC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aHQl5p9sQAY9/zxya+ObUaa13h85sMUF9P0ssFuwzDg=; b=r0GeQ/jP7VMrKA14TEmXbRLBJX
-	tzLrZYmvvaR2TAnGWwIvg4h9JxzV7Rm+t45G5pv6qemBamVXjCPQJ5rsjzSs/Zu/IsvhaU/dlknUR
-	MDca/LlMOZz/VQ+IlXZ1fF6MJ2PlXxm5GO3Rvr+ZRiR59piyXna8ayfrpEWRXnDjYK0ykYt+mxtYc
-	OyOdVcwAz/t2YvaQ3sNlajX0r9Xg3KpsTG9gvL3fQ1tJiQhDl3SDMmX6Q0svFQyCZFb5VllyXE3qp
-	+9SISso5CLKT5Zq/RskldIbWGekbxKJUJ4kNG4dky1HWOsuw82X3nCbLfUESLretGcud5QMbRvDJM
-	JdcR0dpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ilx8e+rSH9u6ZnDUv38L7O/GoBWQdLqlZUaHwlvmxkY=; b=ir+iJRKix4EHWvWXAnsVPQqJZy
+	UkbnpVSRrpFJGlkJ0e/azZ8mGSskYNhXIgzqwI/fjmLvXi+HFEcIccGRudxjmm8TPo9PH3CcSgdIU
+	nWFoafgOXmFDBk+OjwLJC7Bt8LrdWlfdxBXolqiHWvweN/D2u9dp2SjePAB5Wuj5LcaN98DGEPdGe
+	zFpxF1M8+G8x6v6446ylcyvZ8IYwlH+zEsiu4z9iqLgOMwyTFAFxsIUOzUR2UFqEzG2X0SmTkadwC
+	m8MV54ThkSmq+v4Z0f9papKnf3sTb+iiSH/hsu1sS9UPIk0cRi/FFGmMEeSZ41nO7+jkzx2MzrBzU
+	pVHK4g6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90DP-00000005QeZ-1Ifj;
-	Tue, 22 Sep 2026 13:07:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x90EZ-00000005Qyc-23dU;
+	Tue, 22 Sep 2026 13:08:31 +0000
+Received: from mail-wr1-x446.google.com ([2a00:1450:4864:20::446])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90DO-00000005Qdn-0ei7
+	id 1x90EX-00000005QxM-0DSg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:07:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1AB916024D;
-	Tue, 22 Sep 2026 13:07:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DAA91F000FF;
-	Tue, 22 Sep 2026 13:07:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790082436;
-	bh=aHQl5p9sQAY9/zxya+ObUaa13h85sMUF9P0ssFuwzDg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=VdlNOHdACDAc7b8xtcwHdLrXhTtZt4/tmONM2O45OuWA7k2PW4mXWxpcwjlhGX88y
-	 7pr64y+yxcXtSN3h+sK4hYTZDVwzHIg55H+1w3jq5kqYDVCneoxOoWzpv4JduwXmtZ
-	 y+z5DcDaFbJ79zNbKjIlE9ac2nM2KzSwQ6Hv//SM5hKcQMZH6Q2sGrta3SjQ5z6I48
-	 O7vcq0cxQ1Tje0vwIkNYafgq/ZKpgxBKRKmMVm91o7gj8nRG63agpj3JY25N9m2PRH
-	 cNdG0i6LALMT4QJsSVsmulhpujl0s1R9YKGExxkyvs91i65ihDH+YW/zHMM9WYQuiR
-	 dXYIbA1dolPZg==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Jack Thomson <jackabt@amazon.com>,
-	Jack Thomson <jackabt.amazon@gmail.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Leo Soares Passos <Leo.Bras@arm.com>
-Subject: Re: [PATCH v2 00/13] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
-In-Reply-To: <arJ1BDEzY5CANjjB@gremlin>
-References: <20260914-kvm-arm-prefault-v2-0-26fb47f74b73@kernel.org>
- <yq5abj9p38vq.fsf@kernel.org> <arJ1BDEzY5CANjjB@gremlin>
-Date: Tue, 22 Sep 2026 18:37:04 +0530
-Message-ID: <yq5a8q4t305j.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Tue, 22 Sep 2026 13:08:30 +0000
+Received: by mail-wr1-x446.google.com with SMTP id ffacd0b85a97d-4870af30a85so640298f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:08:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790082506; x=1790687306; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ilx8e+rSH9u6ZnDUv38L7O/GoBWQdLqlZUaHwlvmxkY=;
+        b=UnVy0EPc5O7yryK+ZiLSnT0OSB9fOAJHd7nc83taGmoaqsmJTnr/+1UCPQmmDxuges
+         o5G2cdT31h7u1KQ3HIbO92gmDaFer8GlP5U7F5obAEmW+XlrXrqHu/OXzr/6Xq+tgo6j
+         8opVSwtRwnHSfyEZY+up2PGt4OOQFguRN6A/NHNL5PgPl8jHS8FC8bFHsz6f50ZxZcMT
+         B9PdaVBqQLN5T3utj0fz6eByEnhIOSwz25849LE87K8TnTirw2xjamCXMEvo6CxgxuK6
+         qI26b/avpMPSPdSHolS3YL5/tqbOnBP8oYnpLUUMc0BQuJYWmLMxd+glGrluakxBkrp4
+         2g+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790082506; x=1790687306;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ilx8e+rSH9u6ZnDUv38L7O/GoBWQdLqlZUaHwlvmxkY=;
+        b=vX/D+bZQtZEi62W9AijpJYkBxkDuDfg8EG7e9o68tCAb5YjrtMvDxlta5rBD9PwK+2
+         ajLkZjx7QU6TMybRipnY7wk+XT9mBob3oExtb2PsKhWElr2cbV/qSig8WN1sa/yzhT8l
+         wVBSbxPXi32bvkhRh/JXTwnPA6vFsnf0w6AbzlQNHBMXaBRaYCGwOwA1sd73bxTEJu/D
+         Zpk+tQTB9P4YVB4ew5NnrhiGi5aBEHgdBmj0O3IvQaavtnnCbValTU1nvuk3y+zKH7d3
+         5nPwXktktLZNf5xBk8U7b0eENSGYFckMV//bU5pWjBoRpfGNWGTKNQ+nZhCvOeIbGJa5
+         iS+Q==
+X-Forwarded-Encrypted: i=1; AKwUvByOZTG5rbz7IZjzcB5CU3hNpN+SEjsaXWa97NgkP987/w/0PqIFjAitEI+gbARJ5Fsar1pVmN3+013r6+MKMvJu@lists.infradead.org
+X-Gm-Message-State: AFuF++l5a5z5wsTub33VRNxD9KbaLK4OoF5bu/qYBFDLuCS6IBFabsbD
+	oOuApOQ6FU+rZ5oLAuqwlZZe80tKhTWMhq/rJXpMtuB+XiMxKbi6roo+SvLS7L2eH+021Rm/WW5
+	XnHZmxz4HHiEga7LDs2rgzA==
+X-Received: from wrwu1.prod.google.com ([2002:a5d:6ac1:0:b0:488:3cea:199f])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:420d:b0:484:361a:1c7b with SMTP id ffacd0b85a97d-48860f8a582mr4928028f8f.7.1790082505714;
+ Tue, 22 Sep 2026 06:08:25 -0700 (PDT)
+Date: Tue, 22 Sep 2026 14:08:15 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
+Message-ID: <20260922130821.1666713-1-vdonnefort@google.com>
+Subject: [PATCH v1 0/6] Fix guest_memfd and protected VMs on systems with
+ pages larger than 4K
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_060829_095664_B745AE2D 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Lorenzo Stoakes (ARM)" <ljs@kernel.org> writes:
+This series allows booting protected VMs and guest_memfd-back VMs on
+systems with a page size larger than 4K.
 
-> On Tue, Sep 22, 2026 at 03:28:33PM +0530, Aneesh Kumar K.V wrote:
->> > This is because pKVM instantiates vCPUs upon run,
->> >
->>
->> Can pKVM instantiate the hyp vCPU during pre-faulting ?
->
-> It would be an unusual and unexpected thing to do - suddenly a pre-fault
-> operation is initialising a vCPU explicitly for pKVM.
->
-> A caller is not going to reasonably expect this and might treat a failure to
-> pre-alloc as fine to carry on whereas in fact it was a failure to initailised a
-> pKVM vCPU.
->
-> It'd also require significant changes to how pKVM is set up, right now it's
-> hardcoded to be done unconditionally at run via kvm_arch_vcpu_run_pid_change()
-> -> pkvm_create_hyp_vcpu(), so all that would have to change and be checked and
-> tested and... that'd be really out of scope I think :)
->
-> And pre-faulting really makes most sense BEFORE you run a VM. It doesn't make so
-> much sense mid-run.
->
-> But more fundamentally, the stage 2 page tables, as I understand it, are owned
-> by pKVM and so aren't really available to be pre-faulted.
->
-> Maybe unprotected-under-pKVM VMs but then it's questionable as to how useful
-> that would be given that it would be confusing to users vs. how it works for
-> other VMs.
->
-> So in general, no I don't think it's a good idea.
->
-> And even if we wanted to pursue some version of this, it's _definitely_ out
-> of scope for the initial pre-faulting bring-up series.
->
->>
->>
->> > but pre-faulting is  typically performed before a vCPU is run.  It would be confusing and
->> > inconsistent to error out on non-running vCPUs but to pre-fault running
->> > ones.
->>
->>
->> I use KVM pre-faulting when transitioning pages from shared to private
->
-> You mean you'd prefer to use? Or you are using it on another arch?
->
->> with CoCo guest. This ensures that a trusted device can DMA to private
->> memory before the guest accesses it.
->
-> Hm what do you mean by private memory?
->
-> I see:
->
-> #ifndef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> static inline bool kvm_arch_has_private_mem(struct kvm *kvm)
-> {
-> 	return false;
-> }
-> #endif
->
-> And only x86 selects KVM_GENERIC_MEMORY_ATTRIBUTES?
->
-> Do you mean something else?
->
+Currently, the fault handling assumes 4K alignment, as HPFAR_EL2
+provides the IPA minus the bottom 12 bits regardless of the system page
+size. This leads to mapping failures on 16K and 64K systems.
 
-I am using this with ARM CCA-DA, based on the patch series from Jack Thomson <jackabt.amazon@gmail.com>.
+This series addresses the alignment mismatch by relying on struct
+kvm_s2_fault_vma_info in both gmem_abort() and pkvm_mem_abort() to
+retrieve correctly page-aligned addresses.
 
-https://gitlab.arm.com/linux-arm/kvmtool-cca/-/commit/80e7aad61c5639de2f0cb4a5525dad0c96156428
+This series bundles the following previously discussed fixes:
 
-We do this while the VM is running.
+ 1. https://lore.kernel.org/all/20260915091606.2111217-1-vdonnefort@google.com
+ 2. https://lore.kernel.org/all/20260915084438.2076072-1-vdonnefort@google.com
 
--aneesh
+Fuad Tabba (2):
+  KVM: arm64: Move gmem_abort()
+  KVM: arm64: Use kvm_s2_fault_vma_info in gmem_abort()
+
+Vincent Donnefort (4):
+  KVM: arm64: Fix MMFR0 TGRAN advertisement for pVMs
+  KVM: arm64: Pass kvm_s2_fault_desc to
+    fault_supports_stage2_huge_mapping()
+  KVM: arm64: Move pkvm_mem_abort()
+  KVM: arm64: Use kvm_s2_fault_vma_info in pkvm_mem_abort()
+
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c |   3 +
+ arch/arm64/kvm/mmu.c               | 357 +++++++++++++++--------------
+ arch/arm64/kvm/pkvm.c              |   3 +
+ 3 files changed, 186 insertions(+), 177 deletions(-)
+
+
+base-commit: 93f51579e7df248780214094418f205253383cc5
+-- 
+2.55.0.1082.g2b9226bbc0-goog
+
 
