@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A57C982FA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A88C98302
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 13:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,73 +12,89 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RnwZ0cT1VSP253hz9gmCiW8/GwJgIh7mpYiKx6W5pXA=; b=d62xCaenabQWlD90gyV52pcUgy
-	S3ZmT9B6L/5vrMll0+Q7pb0aCwY7H692aGFHcutr3UtBe/5pqyMvrfEA5kLpy8EtEw3Ohzuf23Rxw
-	B82mjbTBKUc7CvFnngcUf9xnGfGmcmvCAqboQSty+drxG+UaTSdfAiD2fbJ4AP3oNiRQQJ/HtCarn
-	Hq00VLXs7cT9SeuQeEsSpR+wC0S39tV0qS/nLBlG1yuRUurZmJn1XYn5ukneSbJg41PWcU22EHQ/Z
-	6l9ZP7MIBgdHJBHIMVzf/JVvvYZzmczOHvxvFrcVO25G8Hbg/+8aTV1nAoaW5Tyx0yOH3pyL9pp19
-	yEXDnTnA==;
+	bh=hRT4LKrWmlIEgB+8kAa2SxHNKz3rcwa3j5wHsFjjrzo=; b=j97oPmVKC5AP4TnYdQxViwfpNp
+	vE3UxVsCZmUQdx4vc5l8THU93ucQs2/iOwP5nN1gNPQm6uMKI7LSPgSysC34gz5GYGuRNGYSqVRdW
+	q9uSXyPRkevVC883V3zCm2oHK4uAf14+Mhw6ep4NnLahWRvHGvifZpsX17oMUo18B1q6Bk1Ngivv6
+	2hHKZoh+Wg/Lp6wHuIhIzytyAnn2B20FPAjeEKwVwByVIjnAe/F2lgN8fOwfZn+eBCUgsmKWPFSzO
+	u3NZ9ZKmr7cgEv1phKe3mHDo7Xcs/D27q6ciWnaNRFN3VuqySu0KqHH4bKuGC44ArcPTW3k3FWc7p
+	OccfJPKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Eg-00000005R1w-3UgZ;
-	Tue, 22 Sep 2026 13:08:38 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1x90Eh-00000005R2b-0KSI;
+	Tue, 22 Sep 2026 13:08:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Eb-00000005QyX-1ETU
+	id 1x90Ee-00000005R0Y-21xD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Sep 2026 13:08:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=hRT4LKrWmlIEgB+8kAa2SxHNKz3rcwa3j5wHsFjjrzo=; b=QGOY/7zFQg8LwShztWzE2lfDw/
+	iLNAmM+ZJJ9wysfmqmwIr1WvtuQa23CboC26AiqSdwzhyy/uQevJdjyE1KH0sTs2ZRFsr9RLzDvie
+	prHX8nqBDE4PghcdR8IRPrkGTLzwIR+gpRkvP3imaeQuWXho1O6G5csfJmJ0gigXjhc9SpskRO24i
+	XcWIECcbwDDGpDObyOdHU2eG3XcQNJLl4L5nKLC0Bd0pZBnzPa7/4PxSnQLvk6i4qGDIWeYVJvymG
+	DX3U000AbgCHYKxuDaqF2Aa50wYv34WdGxRoClk27oAWw319gguNg9WfnZTEGmKyopzI4OZUQm5M9
+	yhSdH/qg==;
+Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x90Eb-0000000DbCp-0wf6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 13:08:34 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49e735659b7so33293965e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:08:31 -0700 (PDT)
+	Tue, 22 Sep 2026 13:08:35 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-490a767b782so32697765e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 06:08:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790082510; x=1790687310; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790082512; x=1790687312; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RnwZ0cT1VSP253hz9gmCiW8/GwJgIh7mpYiKx6W5pXA=;
-        b=FcueZUSMQQ8Xq/c9VRksfofBjkbHjRYbKhNJDRvLtjA9S5AS7kdswcDY7LndIA71La
-         oXdotvexn5ApMzjl1iSU1fLCRPeocw1qzBcGBcyVROx8BGO62J0tbEU9OEL8jeo32uAe
-         jxIUp9FK1NkgeD7CAZPjfu1LEWFyBvCLvgmHqXW+xjQVHapIEGmhlzx0WNUidv7ZKanh
-         JmClzdWsJllC/3bXrpPjnWA0/NwhIjFHgH3u8Txm0IDXYMQtovjgYek4p4GA9sW3RloE
-         ge3W4ncGN+qogPZXGRNyn/UpJC2xfdi6RLk+5gRqDEKTKHpCPtDsLUavR4ar5UqcCM1K
-         7s8A==
+        bh=hRT4LKrWmlIEgB+8kAa2SxHNKz3rcwa3j5wHsFjjrzo=;
+        b=VK00sfrt7oqTPpHIPc9IINpEYK7taB9gKSQEYj/zJS69EE8vv0vV244WUPdT4I9ox7
+         XycSTqxq9rHrTFu45YjvHpPA+nMqg/YgCVljSEWfBbUM0lJtJJpCbrraijCkfrsgTzN0
+         Kc2aWNju67VoRG7QrOHR0fXuRQfQHzeQwgn5KTRStMvinLYzvx2Olm0s9l8qokUwRTXh
+         yhjVpdGc1UrWsn5I505+pplTFxS4SuGNuSq4t01rCXTBdVksFGnCk3wDb9sPKzR3c89F
+         9aKNV9nSu7VY/bYBjgH43mjxz2eV+joLdhKwvsbC+k+yhg7mYUrTFmqIH3lLTHdofN4s
+         k6mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790082510; x=1790687310;
+        d=1e100.net; s=20260707; t=1790082512; x=1790687312;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RnwZ0cT1VSP253hz9gmCiW8/GwJgIh7mpYiKx6W5pXA=;
-        b=iwKqghD0WS0DtpGC2NJS85kxeDjeUGtBI4clBCNQ0YWPLdm2cLOLZ6CeiHJRYHzoHL
-         bVZYA6qPrSDJg3uKpKN1UvBlYdE+qiBYEsfsn8Sa9Pdo7zJaoPiDxMVxEky0F+/yWmJV
-         uFNAPlfo6UzCcjLUaJNjXiPm96IdDZWwN0h/Bn7ls06bflLr8fDXemLdsjNbEtqoMP0V
-         7iLdX70hZa8mCkbvQNTAxH85VHHF7h2p1k9NVMA4t/OEUGTIVpAZPrZvBySD1giW+5q7
-         NerS2pq9Lq+KoO2TkcfwQ8kxOsXLeaOjgBJJWb5gBmCsRZVVWtlcCsEu9WDnm4XokFM9
-         bdIg==
-X-Forwarded-Encrypted: i=1; AKwUvBx8GF90dLFOyMvPYQeE20kZCF7KciESRJRmVA29Gf+qZb2MYM5JmB/ewdMLL9U0EyhELYcplj6LpY1+Q4nyhd22@lists.infradead.org
-X-Gm-Message-State: AFuF++mKdren+N/q2MwCQW8/ihE0N5EryUMIC4KXAU+ASRIHfIpG5/M7
-	l/vEaMz9mwssAuogYZCoy/FujUi8om5Nbbl1VcVldCQlpEmWbo3+EqcckIRHX0eXv+KdPgFHtrc
-	G4KoBzMp9Nw4wp3pxIWQ5lA==
-X-Received: from wmix7-n2.prod.google.com ([2002:a05:600c:e547:20b0:49e:602d:8036])
+        bh=hRT4LKrWmlIEgB+8kAa2SxHNKz3rcwa3j5wHsFjjrzo=;
+        b=p7PzJbWGQnThsP+UnQWbm7AUtwelgFyRFC+S9QsW4yTIPinVoKXzo44OQdVY8QQovK
+         GCGxu18ppurKDy6NbRoro8NpO98JmKAaZf0uOK0sJgzEM1PRqCF96uv/QW2qxdlqJ+oS
+         ih2Ymf3qv1oJw6oa9U5yYpbfdPwvnQg9o22gbBuiwWS5adsivmP/JG1Sp6oOgRzWy5Fa
+         ihDmnO/+s/TuFaogMXgjgmviucpr/QwMsg3Bd8fPy3VlV6fKrnTS24TnE47yyw8ue5+6
+         F4oVajeGyKGog/OtUoqcGajENYQlfElO9DKHWPBWMVFf52P5AGGFF/sH22tI4zUWqWNz
+         EoTw==
+X-Forwarded-Encrypted: i=1; AKwUvByEnSTMvp935mquEdfnPUfMLYzfEzXDgjYMXxFMMVf5l3WnsgbMAvSPWdXay4+db0BNHnV+9rNyKEODWwQTShUk@lists.infradead.org
+X-Gm-Message-State: AFuF++kHczDdP3WRveqa1YK5c+0mvB3uGuOgZczq5hkwv3ip4UOuc1ft
+	g++ZSkMMgLOQYmFgPvhtf02UvVwR5Mdi+UgkgvGlDUkgXfufGxB7rOLU6hpIqt18JFA11ei28za
+	o09o6MaDpNCtxlMC6vWQSZg==
+X-Received: from wmbgv5.prod.google.com ([2002:a05:600c:80c5:b0:49e:6a1d:16af])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:314a:b0:49f:ce73:7aa with SMTP id 5b1f17b1804b1-49fce730865mr141981295e9.35.1790082510224;
- Tue, 22 Sep 2026 06:08:30 -0700 (PDT)
-Date: Tue, 22 Sep 2026 14:08:19 +0100
+ 2002:a05:600c:1e24:b0:49c:fc6e:a3d2 with SMTP id 5b1f17b1804b1-49fc574f74bmr191646085e9.17.1790082511588;
+ Tue, 22 Sep 2026 06:08:31 -0700 (PDT)
+Date: Tue, 22 Sep 2026 14:08:20 +0100
 In-Reply-To: <20260922130821.1666713-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260922130821.1666713-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260922130821.1666713-5-vdonnefort@google.com>
-Subject: [PATCH v1 4/6] KVM: arm64: Move gmem_abort()
+Message-ID: <20260922130821.1666713-6-vdonnefort@google.com>
+Subject: [PATCH v1 5/6] KVM: arm64: Use kvm_s2_fault_vma_info in gmem_abort()
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
 Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
 	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
 	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org, 
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_060833_366997_F5EA7155 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20260922_140833_545741_0798EA9F 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,205 +111,108 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fuad Tabba <fuad.tabba@linux.dev>
 
-Move gmem_abort() below get_canonical_gfn() so that the next patch can
-use it without a forward declaration.
+gmem_abort() maps at s2fd->fault_ipa, which HPFAR_EL2 holds at 4K
+granularity whatever the page size. The generic page-table code aligns
+it, but pkvm_pgtable_stage2_map() looks up existing mappings over
+[addr, addr + size), so on a pKVM host with pages larger than 4K a
+guest_memfd-backed guest that faults past the first 4K of a page can
+find its neighbour's mapping, get -EAGAIN and take the same fault
+forever.
 
-No functional change intended.
+Take the addresses from kvm_s2_fault_vma_info instead, as
+user_mem_abort() does, and report the gfn kvm_gmem_get_pfn() failed on
+in the memory fault exit. kvm_s2_fault_get_vma_info() itself isn't
+called: a guest_memfd memslot's userspace_addr doesn't need to be
+backed by a VMA.
 
+Fixes: a7b57e0995927 ("KVM: arm64: Handle guest_memfd-backed guest page faults")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/r/20260913175105.A57AC1F000FF@smtp.kernel.org
+Cc: stable@vger.kernel.org
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/kvm/mmu.c | 170 +++++++++++++++++++++----------------------
- 1 file changed, 85 insertions(+), 85 deletions(-)
+ arch/arm64/kvm/mmu.c | 28 +++++++++++++---------------
+ 1 file changed, 13 insertions(+), 15 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 242f63066252..5aac624b0442 100644
+index 5aac624b0442..ee0fcca838c1 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1606,91 +1606,6 @@ static enum kvm_pgtable_prot adjust_nested_exec_perms(struct kvm *kvm,
- 	return prot;
- }
- 
--static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
--{
--	bool write_fault, exec_fault;
--	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
--	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
--	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
--	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+@@ -1953,11 +1953,9 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
 -	unsigned long mmu_seq;
 -	struct page *page;
--	struct kvm *kvm = s2fd->vcpu->kvm;
--	void *memcache = NULL;
++	struct kvm_s2_fault_vma_info s2vi = {};
+ 	struct kvm *kvm = s2fd->vcpu->kvm;
+ 	void *memcache = NULL;
 -	kvm_pfn_t pfn;
--	gfn_t gfn;
--	int ret;
--
--	if (!perm_fault) {
--		memcache = get_mmu_memcache(s2fd->vcpu);
--		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
--		if (ret)
--			return ret;
--	}
--
+ 	gfn_t gfn;
+ 	int ret;
+ 
+@@ -1968,23 +1966,22 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 			return ret;
+ 	}
+ 
 -	if (s2fd->nested)
 -		gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
 -	else
 -		gfn = s2fd->fault_ipa >> PAGE_SHIFT;
--
--	write_fault = kvm_is_write_fault(s2fd->vcpu);
--	exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu);
--
--	VM_WARN_ON_ONCE(write_fault && exec_fault);
--
++	s2vi.vma_pagesize = PAGE_SIZE;
++	s2vi.gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi.vma_pagesize) >> PAGE_SHIFT;
++	gfn = get_canonical_gfn(s2fd, &s2vi);
+ 
+ 	write_fault = kvm_is_write_fault(s2fd->vcpu);
+ 	exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu);
+ 
+ 	VM_WARN_ON_ONCE(write_fault && exec_fault);
+ 
 -	mmu_seq = kvm->mmu_invalidate_seq;
--	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
--	smp_rmb();
--
++	s2vi.mmu_seq = kvm->mmu_invalidate_seq;
+ 	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
+ 	smp_rmb();
+ 
 -	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
--	if (ret) {
++	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &s2vi.pfn, &s2vi.page, NULL);
+ 	if (ret) {
 -		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
--					      write_fault, exec_fault, false);
--		return ret;
--	}
--
--	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
--		prot |= KVM_PGTABLE_PROT_W;
--
--	if (s2fd->nested)
--		prot = adjust_nested_fault_perms(s2fd->nested, prot);
--
--	if (exec_fault || cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
--		prot |= KVM_PGTABLE_PROT_X;
--
--	if (s2fd->nested)
--		prot = adjust_nested_exec_perms(kvm, s2fd->nested, prot);
--
--	kvm_fault_lock(kvm);
++		kvm_prepare_memory_fault_exit(s2fd->vcpu, gfn_to_gpa(gfn), s2vi.vma_pagesize,
+ 					      write_fault, exec_fault, false);
+ 		return ret;
+ 	}
+@@ -2002,7 +1999,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		prot = adjust_nested_exec_perms(kvm, s2fd->nested, prot);
+ 
+ 	kvm_fault_lock(kvm);
 -	if (mmu_invalidate_retry(kvm, mmu_seq)) {
--		ret = -EAGAIN;
--		goto out_unlock;
--	}
--
--	if (perm_fault) {
--		/*
--		 * Drop the SW bits in favour of those stored in the
--		 * PTE, which will be preserved.
--		 */
--		prot &= ~KVM_NV_GUEST_MAP_SZ;
++	if (mmu_invalidate_retry(kvm, s2vi.mmu_seq)) {
+ 		ret = -EAGAIN;
+ 		goto out_unlock;
+ 	}
+@@ -2013,16 +2010,17 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		 * PTE, which will be preserved.
+ 		 */
+ 		prot &= ~KVM_NV_GUEST_MAP_SZ;
 -		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
--								 prot, flags);
--	} else {
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(s2vi.gfn),
+ 								 prot, flags);
+ 	} else {
 -		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
 -							 __pfn_to_phys(pfn), prot,
--							 memcache, flags);
--	}
--
--out_unlock:
--	kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
--	kvm_fault_unlock(kvm);
--
--	if ((prot & KVM_PGTABLE_PROT_W) && !ret)
--		mark_page_dirty_in_slot(kvm, s2fd->memslot, gfn);
--
--	return ret != -EAGAIN ? ret : 0;
--}
--
- struct kvm_s2_fault_vma_info {
- 	unsigned long	mmu_seq;
- 	long		vma_pagesize;
-@@ -2031,6 +1946,91 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
- 	return 0;
- }
++		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(s2vi.gfn),
++							 s2vi.vma_pagesize,
++							 __pfn_to_phys(s2vi.pfn), prot,
+ 							 memcache, flags);
+ 	}
  
-+static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
-+{
-+	bool write_fault, exec_fault;
-+	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
-+	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
-+	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
-+	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
-+	unsigned long mmu_seq;
-+	struct page *page;
-+	struct kvm *kvm = s2fd->vcpu->kvm;
-+	void *memcache = NULL;
-+	kvm_pfn_t pfn;
-+	gfn_t gfn;
-+	int ret;
-+
-+	if (!perm_fault) {
-+		memcache = get_mmu_memcache(s2fd->vcpu);
-+		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (s2fd->nested)
-+		gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
-+	else
-+		gfn = s2fd->fault_ipa >> PAGE_SHIFT;
-+
-+	write_fault = kvm_is_write_fault(s2fd->vcpu);
-+	exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu);
-+
-+	VM_WARN_ON_ONCE(write_fault && exec_fault);
-+
-+	mmu_seq = kvm->mmu_invalidate_seq;
-+	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
-+	smp_rmb();
-+
-+	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
-+	if (ret) {
-+		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
-+					      write_fault, exec_fault, false);
-+		return ret;
-+	}
-+
-+	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
-+		prot |= KVM_PGTABLE_PROT_W;
-+
-+	if (s2fd->nested)
-+		prot = adjust_nested_fault_perms(s2fd->nested, prot);
-+
-+	if (exec_fault || cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
-+		prot |= KVM_PGTABLE_PROT_X;
-+
-+	if (s2fd->nested)
-+		prot = adjust_nested_exec_perms(kvm, s2fd->nested, prot);
-+
-+	kvm_fault_lock(kvm);
-+	if (mmu_invalidate_retry(kvm, mmu_seq)) {
-+		ret = -EAGAIN;
-+		goto out_unlock;
-+	}
-+
-+	if (perm_fault) {
-+		/*
-+		 * Drop the SW bits in favour of those stored in the
-+		 * PTE, which will be preserved.
-+		 */
-+		prot &= ~KVM_NV_GUEST_MAP_SZ;
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
-+								 prot, flags);
-+	} else {
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
-+							 __pfn_to_phys(pfn), prot,
-+							 memcache, flags);
-+	}
-+
-+out_unlock:
-+	kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
-+	kvm_fault_unlock(kvm);
-+
-+	if ((prot & KVM_PGTABLE_PROT_W) && !ret)
-+		mark_page_dirty_in_slot(kvm, s2fd->memslot, gfn);
-+
-+	return ret != -EAGAIN ? ret : 0;
-+}
-+
- static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
- {
- 	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+ out_unlock:
+-	kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
++	kvm_release_faultin_page(kvm, s2vi.page, !!ret, prot & KVM_PGTABLE_PROT_W);
+ 	kvm_fault_unlock(kvm);
+ 
+ 	if ((prot & KVM_PGTABLE_PROT_W) && !ret)
 -- 
 2.55.0.1082.g2b9226bbc0-goog
 
