@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC9BC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2B0C98307
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 17:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YV43xe2l6HV1crSikFZkZsSOAepK1RGDdx6y7YuuxyE=; b=pabiYm58iRZJJfveXLRMYQNWGW
-	o4K3fL/5zi5Gsem0zeSDgzGc1wqqWJGxYZLmiCSDHUCEqK201QYCTJAQr8fE3saW1p0eQdGK/z8hU
-	NWiH0RLnAL0OrePgXowCe2HXpvWyHW4V++x3thvjkLrMrr3qa0npqcnwOQvsZasIbbxbFXiS8z/lL
-	C9oRwIF/X28IwrfytAMa/0PS5a/lCZ+SWrLdNywAQ3vZ8Fyz2GcYURR5GP5NXilbUgiTfaytJdTFx
-	qjxtGzlmhXXL7EvUd8xpjVje3ZnOdNefmzHCkm9qdz/8954I5ymypz6he8zljY3WMlXFV3GxnCgdc
-	Yu6LCWPQ==;
+	bh=6uBN0ZQwvtsGp1jKgpj+hxjeJ464MZfPKqor1IPMdG4=; b=pA0UKspVHxNMRVRIL7c+ru9eR6
+	pw5AVSyPuu3Uf/u436WW7IZuvkgk4xR5ivEI+RSr5gScQkB9DoPm/Oqyy/K7rSb71PjC8O9Wumzmc
+	ORUf7VsBljpKTAud1Nnbz2UhSrKlSwuC2yAy/RgWrWfw7M/TEs/cAsi0JtFlZ6KaA99pr8hB0nj1k
+	Ur3ysD8N5aMKMNns9nUKR6DVKK1GoTKby1KGnQg7unBVK4bLjHPRhLN5iGmYJjG9+Z/5U0EhuGF7r
+	qBXExaPr6DNqajHB0C3EUrvOdZ73F4omGWyss6LgFeDflTpONa4EZ+fB1zqzqpvsiZMReAaBP5Crj
+	OKkGQDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94Mt-00000006DBc-2dpR;
+	id 1x94Mt-00000006DBE-2EmQ;
 	Tue, 22 Sep 2026 17:33:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94Mg-00000006D2n-2jFW
+	id 1x94Mc-00000006Czf-0bp4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 17:33:12 +0000
+	Tue, 22 Sep 2026 17:33:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85DBA1576;
-	Tue, 22 Sep 2026 10:33:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4C601595;
+	Tue, 22 Sep 2026 10:33:01 -0700 (PDT)
 Received: from [127.0.1.1] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EBCD3F86C;
-	Tue, 22 Sep 2026 10:33:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD49E3F86C;
+	Tue, 22 Sep 2026 10:33:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790098389; bh=lGoyQT/IUQtR3cNCOID4as8wOLQ/VDmkytsu/6BddYQ=;
+	t=1790098385; bh=shLHKCHn3ZdXre7hsjCS5Jwr6cqRreukZfraeH8Cy3s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=mNoQ9q5BtvoMd+Rw12q0kZB49nZuw7UiCE1KeciQ3TnFAZnWIjbD+UV3pSFN6VIrW
-	 HiDynCz+zSRp1JmOxEnCoMWiBzqNZqS42/vU0/wJuCDlZ01zEtC5LxR2cFN0m6O57w
-	 DIbzipLnMXJ/EX/qZe4oH777ESIeNsTvQu0X9Inw=
+	b=SgM0Qx+n9SIyEwK6aMAq6Ppwz1dhcVVmU+Lr/ToZEX+hmzKievt4rrjFlrNonyWHj
+	 Kx0OuVjhvw7BEYioGKvMfa7FL7lAcKc8dmLMmbyM40JqkH/qOYzITwD4t/d5FVCOgL
+	 ym3nNFw6xAU08NSMAjwa2v6IMkLgy4NQLbeBKLcY=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Date: Tue, 22 Sep 2026 18:32:00 +0100
-Subject: [PATCH v2 5/6] arm64: use HW PTE accessors in early map_range()
+Date: Tue, 22 Sep 2026 18:31:59 +0100
+Subject: [PATCH v2 4/6] arm64: use hw_pte_t for fixmap HW PTEs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260922-pte0_arm-v2-5-a3f1ddff0a8a@arm.com>
+Message-Id: <20260922-pte0_arm-v2-4-a3f1ddff0a8a@arm.com>
 References: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 In-Reply-To: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -66,8 +66,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Muhammad Usama Anjum <usama.anjum@arm.com>
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_103311_078901_6F1C5EF8 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260922_103306_238375_36A7DB08 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-map_range() uses HW PTE pointers to build early translation tables at
-each level. Directly testing, decoding, or assigning *tbl treats an
-HW PTE as a SW PTE value, which requires explicit conversion once
-hw_pte_t becomes distinct.
+fixmap_pte() returns a pointer into bm_pte, and early_fixmap_init_pte()
+installs those arrays as page tables. Their elements are therefore
+HW PTEs.
 
-Use __ptep_get() to load a SW PTE value for the empty-entry check and
-child-table address, and __set_pte_nosync() to convert SW PTE values to
-HW PTEs on stores. The no-sync helper performs WRITE_ONCE() without
-adding the completion barriers used by __set_pte().
+Change the element type of bm_pte to hw_pte_t so it matches the HW PTE
+pointers returned and passed to the accessors. This is needed before
+ARCH_HAS_HW_PTE_T makes HW PTEs and SW PTE values distinct types; the
+array dimensions and placement are unchanged.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
- arch/arm64/kernel/pi/map_range.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ arch/arm64/mm/fixmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index 94f06da76e333..9c4c8060c5df4 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -51,19 +51,21 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
+diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+index 237a9136bc73b..709a97fe327d8 100644
+--- a/arch/arm64/mm/fixmap.c
++++ b/arch/arm64/mm/fixmap.c
+@@ -31,7 +31,7 @@ static_assert(NR_BM_PMD_TABLES == 1);
  
- 	while (start < end) {
- 		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
-+		pte_t entry = __ptep_get(tbl);
+ #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
  
- 		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
- 			/*
- 			 * This chunk needs a finer grained mapping. Create a
- 			 * table mapping if necessary and recurse.
- 			 */
--			if (pte_none(*tbl)) {
--				*tbl = __pte(__phys_to_pte_val(*pte) |
-+			if (pte_none(entry)) {
-+				entry = __pte(__phys_to_pte_val(*pte) |
- 					     PMD_TYPE_TABLE | PMD_TABLE_UXN);
--				*pte += PTRS_PER_PTE * sizeof(pte_t);
-+				__set_pte_nosync(tbl, entry);
-+				*pte += PTRS_PER_PTE * sizeof(hw_pte_t);
- 			}
- 			map_range(pte, start, next, pa, prot, level + 1,
--				  (hw_pte_t *)(__pte_to_phys(*tbl) + va_offset),
-+				  (hw_pte_t *)(__pte_to_phys(entry) + va_offset),
- 				  may_use_cont, va_offset);
- 		} else {
- 			/*
-@@ -81,7 +83,8 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
- 				protval &= ~PTE_CONT;
+-static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
++static hw_pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
+ static pmd_t bm_pmd[PTRS_PER_PMD] __bss_pgtbl __maybe_unused;
+ static pud_t bm_pud[PTRS_PER_PUD] __bss_pgtbl __maybe_unused;
  
- 			/* Put down a block or page mapping */
--			*tbl = __pte(__phys_to_pte_val(pa) | protval);
-+			entry = __pte(__phys_to_pte_val(pa) | protval);
-+			__set_pte_nosync(tbl, entry);
- 		}
- 		pa += next - start;
- 		start = next;
 
 -- 
 2.47.3
