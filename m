@@ -4,85 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE93FC982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBA0C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 03:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MKL1A4R3bj6tzU6UGWcVJABH4EcohmMeq3pEKdS+EU=; b=ixr26yV/JDz9ZPpWmb8VwyUXSc
-	hRpsfeorLci4r7wUfR4YOW5Tj0kEUEYV7V8MA3PncI8BcGM9WfG+uwOjfBtTd1tA5Xh0NsdtHbKqa
-	XTcunlOrCxmjCfmyBbHNNMrKW8Rpj6ens1SQTTOhygZkGfkHL2qaDAp7eAaVLyHw09v1l4ozmMk3r
-	PSIGcb443NGMGfdvUwHdfUKA3nfDiA7qCyAdJSMPmurWHuUvCV9DS12SKlc2NkKY+OZgMD657/8eF
-	xy7TrVk0WgSNwEdAVuWZsaHCl+oFkIsYRUf3Ge08k43vD8IKlZTrvttlogrNsand527OXesm1qcL4
-	exbXybiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AJoHTp8J0uzmIlfrfln9mMPGZu9ifn6RaYx8B2B0mpM=; b=azK5N32+aftaKbKZObG6Hy+DOf
+	9OwP4DryvsvzL9qctHsGO1mKev6ZluT+l93C9aaj6t87IXPH0e+nWWVe0n70e5wW9Z4OLZUpubrr5
+	o2TSx91TaBHdWl4JQurUbNo7G+8fWL5wVgzA4IANDEtXbKxHTgK3SSGZSL7ShySaKKPDbjZyL9G+7
+	hbJXOdGARyEBKYp9o/DfTw3xyxuGKjpaiqGqrb5s2jKL7SJcm9IUFSwNhZ+QbLibwSs14zTMTZpmr
+	SDzcVFr5aKmBxjTyvbyUqM9IxthrNt2SLchcdnZuqKQAkAlAU/ONjEdr9XvKr1CUFD0rWZaj51VFG
+	RQPJCvvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8r2v-000000043SQ-2B8m;
-	Tue, 22 Sep 2026 03:19:53 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1x8r3F-000000043VA-2fXR;
+	Tue, 22 Sep 2026 03:20:13 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8r2s-000000043Rk-145o
+	id 1x8r3C-000000043UV-3RFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 03:19:52 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 954BF40E015B;
-	Tue, 22 Sep 2026 03:19:36 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id i5h7Is0JHuso; Tue, 22 Sep 2026 03:19:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1790047165; bh=+MKL1A4R3bj6tzU6UGWcVJABH4EcohmMeq3pEKdS+EU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NROCxi8fKsSU5IFC5pckp3DPHy9lgrZwR6J26wTEgFH/HwUnuPD3FNMhS92LThXNG
-	 HskeP4nn7sNjj9GYR8pv3Esnu1UNHdBo3dxhO71FQcEletNh1Rgy1rebPJWnfLByBw
-	 VEEsepMpRLcKdFy3+kZid9tjgwOIX2o1cPNqoPHxmA2NjWzZag+H5/bOLESWmoxXW+
-	 iSiJ0FWPQ5HtN9XRgOlwt/fSgEd/BFsTIbJdTdNlwPLjWjJXA8zNMcUMaJ+rsJYJIw
-	 D/2vpEENdbpqZMymCObP+AzuiXozkVhyu8N95wbT7EjxK6/OeoJDXzUGJRs7J6SvWO
-	 K5PbDwNkWAKcRoRLqFRQJ2+iAbalbbn0azBTZZR37yVkl71V28Bz5ds80C73DbDVVk
-	 nsrJPlvyNVIWTcaqe+k5e36AtCVWXl5zn9diINp8pM8SEKUGyFJ5jrxJtSj+blqbwv
-	 z2CCJChpG+oOiJcWHpXUTgKzImbuOf2zlsf+63pPv7Pu4lT6YuvWjjus70JN4L8skN
-	 CyjsI787KZhSthXEwrfuascYjcq1R9b1XNkMJxNYp+u4G4lvGjCw286RwMNpSzHWGh
-	 2/x0kGdCxOeLIv/BM5W6b5vylt/DgfRh4KuoDNc3kMgiG2AwaHyEAk4yNGs94xV/sw
-	 ro3pa+y+mHLTMUL7ogGaZyw8=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id DF31F40E00E5;
-	Tue, 22 Sep 2026 03:19:08 +0000 (UTC)
-Date: Mon, 21 Sep 2026 20:19:05 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Tony Luck <tony.luck@intel.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
-	Borislav Petkov <bp@suse.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH v3 0/9] Add Aspeed AST2700 SDRAM EDAC support
-Message-ID: <20260922031905.GEarHzqf56ypqALDHi@fat_crate.local>
-References: <20260916-edac-v3-0-23e9ed2fbdf9@aspeedtech.com>
- <TY2PPF5CB9A1BE6D0247845980A7BD60E60F2832@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	Tue, 22 Sep 2026 03:20:11 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2db710396ffso4493185ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Sep 2026 20:20:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790047210; x=1790652010; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AJoHTp8J0uzmIlfrfln9mMPGZu9ifn6RaYx8B2B0mpM=;
+        b=E8dbu+MsOVegkXmNEJO40u+8uPnYx1w+iWk4CHQdkogBLFgM12DL2mSwfgH1+7cCyZ
+         x6UYiX9Y6msOBBXoc0Xzih7ll7CT1RYxqfboonVXu6ASB9KqBWZAzzfRhbel8lc6quu2
+         Ie6aO/ygMEVSmgfWOpjjzbaUz34UK/ATwAZ57JOGhPTJBporwWK5KKdbei/1n6T0nBJ5
+         PZvEEHu1fKHgcvAfNBE4HSuKMP72riZek/8i9EEZ9tXyuiX8USEikaC+8v3Dp/AZS/Xk
+         hK3vQAYZNgo2MvPubrI48Synb6o1xAukheBtgXyAKtwhuf4KshSUOhiyEOQ6KIK1Lhmo
+         wF5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790047210; x=1790652010;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AJoHTp8J0uzmIlfrfln9mMPGZu9ifn6RaYx8B2B0mpM=;
+        b=f1r2Al9EK0GEJFqM2kPICLnOXT+z9e0sSF68cSThr31Y51LSRe2xFrkY3ul5tEkm4o
+         J0YuZNTtnOzmQ5skMC6XWi0eemTHufObpbx9F7MNr1LlMqhhjeTQUlIy4FUHwXLe0FI5
+         x0m5effFEYk4RSAV+iUKXA4bkkKu1W7qwFJKyGFoT6cXBq7f4wlEIKO3+hpLbNtT9kzb
+         gxTlwyW5p0KWwjYB4bRd2QuCpCfUg4mwM0Oqnbnt67/hrx7yxms+7yaZCElqrCa09VOq
+         FYbH+Hw29tYPw1iQ98UBedz24T1pfiB2LPCTBj6iA+hIwcbM20vyiCmb7x+/LeZDbDQk
+         7PbQ==
+X-Forwarded-Encrypted: i=1; AKwUvByj6IBekPti+vNA8FY4XZ6tN/RAzjyyv0nC+HYDl8lS6SZAbsyb+rcabL/Y0J/gzvEZoKz2qUsHWFOQ5aKdVtpb@lists.infradead.org
+X-Gm-Message-State: AFuF++mikIdmWi8iPoNWd1w4atyGgHj9gIeNke92rJEupv0G8TSlFRMm
+	dj15l1QJAqMhd9Rxa23UA93mAqb9VgaGUv06mbt/W4ECA+EjVzl15xih
+X-Gm-Gg: AYBFou3e7zz8G3/hN5I1jEQ0bv+rREoGjW3u+G9BQ/09MxCQApl/HepUieBUUSmy32I
+	JaBZEg+rL6gaYVMs0drYf42Ssq7Z3hZQQ3sgAvFBT1bLP7NIiclflGXTXCnrRWQEMEHe1cHdoie
+	ol6hPDzrKHeIs4BAr/9XxnkvLAM3KX9sX0hTXWvULN5bj3s3iKxJ0Yh7QkEV0Rn8FlqDLxY1SsL
+	1RVXgqqkbaXwrvBEv6dGc20NKbobdHKHNk64KeI5OhGBK/hxVRRi6F1qFibSzdL07a8svLCQ2+7
+	mj3byUvS565lLHTQoyZ2IcugD35RNysQVB12X2YQoeuO0cIYoWxbgtjy1ZsTw7z29RBGUqFABd0
+	mU7QK1sN97zvySV3ng2baUGr0RE2D1wbu4jB7YWaSa5HFlAHH0loXRxz5zIjUTer2tAwren7Uzv
+	3AuglmQ/IpuculMABO2fpfwKD69PfqXzMb6p6qi3GTL45EeNMl6TZsWUK/cEjxvMMzguKhOmJhb
+	siAnQwYNfr1kpK+3KWUOnIY/1iKqH2VHHQElzhXe9ehp9lAqCt2SytfpaZn8ROOI3jw6wokdpFM
+	dwwx6xu4Ylx5qGRkBSj+LDPH
+X-Received: by 2002:a17:903:4b2f:b0:2df:34c0:7303 with SMTP id d9443c01a7336-2df59ad92afmr12464055ad.40.1790047209771;
+        Mon, 21 Sep 2026 20:20:09 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df5cf83512sm1940355ad.5.2026.09.21.20.20.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Sep 2026 20:20:08 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Corentin Labbe <clabbe.montjoie@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	davem@davemloft.net,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Gilad Ben-Yossef <gilad@benyossef.com>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/3] crypto: Use pm_runtime_resume_and_get()
+Date: Tue, 22 Sep 2026 10:19:51 +0700
+Message-ID: <20260922031954.320895-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <TY2PPF5CB9A1BE6D0247845980A7BD60E60F2832@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_201950_465189_C7CD3189 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20260921_202010_888299_5353928F 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,48 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On Tue, Sep 22, 2026 at 02:53:27AM +0000, Ryan Chen wrote:
-> Stefan has resigned from the EDAC entry:
-> 
->   https://lkml.org/lkml/2026/9/20/1295
+Hi all,
 
-Please do not use rando pages from search engines for pointing to patches, we
-have lore.kernel.org for that.
+This series replaces open-coded pm_runtime_get_sync() and
+pm_runtime_put_noidle() error handling with
+pm_runtime_resume_and_get() in several crypto drivers.
 
-Also, please do not top-post on public MLs but put your text under the text
-you're replying to.
+No functional change intended.
 
-We have the whole development process explained here, please take some time to
-read the most important points:
+Best regards,
+Phuc
 
-https://www.kernel.org/doc/html/latest/process/development-process.html
+bui duc phuc (3):
+  crypto: sun8i-ss - Use pm_runtime_resume_and_get()
+  crypto: ccree - Use pm_runtime_resume_and_get()
+  crypto: sl3516 - Use pm_runtime_resume_and_get()
 
-> That leaves his patch and 9/9 of this series touching the same lines,
-> and the entry ending up with a reviewer and no maintainer.
-> 
-> You suggested a reviewer entry first, and I understood the reasoning.
-> But with Stefan gone the choice is now between orphaning the driver and
-> someone taking it, so I'd rather ask again: I'm happy to take the M:
-> line. I work on these SoCs at ASPEED and have the hardware and the
-> documentation for all four variants.
-
-That's much appreciated but you don't have to worry - the driver won't be
-orphaned and you'll be the reviewer and tester of patches for it. And I'll
-simply add Stefan's patch at the end and amend the hunk marking the driver as
-orphan and instead add your hunk which is making you a reviewer.
-
-> If you'd still rather not, that's fine - tell me and I'll respin 9/9 so
-> the entry reflects reality instead.
-
-Let's see how we work together this way first.
-
-Thx.
+ drivers/crypto/allwinner/sun8i-ss/sun8i-ss-hash.c | 3 +--
+ drivers/crypto/ccree/cc_pm.c                      | 8 +-------
+ drivers/crypto/gemini/sl3516-ce-cipher.c          | 3 +--
+ drivers/crypto/gemini/sl3516-ce-rng.c             | 6 ++----
+ 4 files changed, 5 insertions(+), 15 deletions(-)
 
 -- 
-Regards/Gruss,
-    Boris.
+2.43.0
 
-https://people.kernel.org/tglx/notes-about-netiquette
 
