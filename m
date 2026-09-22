@@ -4,81 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E60C982F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D429CC982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VidAClHy3r+mM3EB/dXgzKIrsJmEfnLTZT/80R3B5TI=; b=YFHxrmGsQF6GdiRoW0gTNN7hvz
-	ejrhP59TaGbkDvaIBp6e1ln/X9Ic+HSFRJWQ5+OKQhJMeSmQ6x26wf08LGV+7+REqK0nVDzZ7H7BV
-	8a+0Ow2pts08KYYSNPgjRIzhejxmbYlTEZpRq+o1Wsvn9W065BnuApRgYr5sVtfxY/LavMXJoxQ2c
-	z7Se/jAPOxdHn7kXgEVVN8RDOlrhHqVghNDFjRjeChNGMb8dEl4HzbJYfbQ2koBPmjejDclqxnR8X
-	0A+3znZ4DkUcx1YXCL3w5MtECr1vSqAg6He4yOpVWXwQrYJc9vnf+Voi5SJhiWVn9MCoVkyLU4ntY
-	N+O0An8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HC4/JUWknuRlDmTPWvUCZL5/IBX6KNizhyFicMFHfRI=; b=s/Cjy0hSY+6q7HVxjGOdB4dWPt
+	tBRiIG3/WqFJGbZhhBRfgT6VV5gAAXhjeMSv7EBjkL9QhCZyF/NbGU29uOgcuoM4qyJIFG11lbzrS
+	WSyXnY1QLIYrhdzJk2TxL18H5DvSTzJclOFcUJHU2bi0Hu6yVzyJHjcftMpY2MrG2KAcJlbPjS+Ec
+	HQz09RKFIehK4SRTfXCDBGVT2igQlnzOmFdo5zc1YxdHRQ5lygM+1Qibml7V+xwnvdixYSehP93ZP
+	K3zawHNw823xwzg38XDxNiCHs5vojBgnsrEkTaGLLF0iWwKN6qljZsp5G9Z5rB0nB20DBXTWIBkoP
+	5lWXQhLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vgW-00000004du0-0Sfu;
-	Tue, 22 Sep 2026 08:17:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8viv-00000004eFe-2f4s;
+	Tue, 22 Sep 2026 08:19:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vgU-00000004dtX-3Dyv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Sep 2026 08:17:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VidAClHy3r+mM3EB/dXgzKIrsJmEfnLTZT/80R3B5TI=; b=lcJGkC8wFkl8Fp5MFrAXAgD9Lq
-	i2jiAu0pUXFFcq1KBBnO/zg2DuDHJ+6oX2IuFd5xuY4+3+Pq5I6UzSUsAqsfLkKdxH7s8cSNZni9D
-	NNv3z8zthvZvdcoVHbeou3RyWiiHokLRyHlDwlqg1aGVKsWKjc9aLAYuC1VsvMaNDus/ts/3gNwjc
-	2cETyZz8LmOnewzBIYdeimiTlLFswwnLdW1T9PXXp8/Bat7GM952jY9luJKY1J8r2uBuBcKZ2qaEC
-	5pxmziwigoJXjj6ar/LrMbubkPJWGdJEY45BFQAo4z5Ey13dd5NK0DmHgtGA4TYGY0SYyBcb7vh7F
-	sYE4Vjvw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8vgR-0000000DFnC-1LLI
+	id 1x8viu-00000004eFV-1Vr7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:17:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD6ED1576;
-	Tue, 22 Sep 2026 01:16:52 -0700 (PDT)
-Received: from [10.0.128.141] (unknown [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A0DD83F632;
-	Tue, 22 Sep 2026 01:16:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790065016; bh=4HbwZEfa+cRQWF9f/+A2Lw6siv1Umc8ka3GRgBT5ZFY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gsyPGIOzdWO+7ye4dvf4hgM8YlaXqCY8aW4qTmiRM4liCZm/4j7epoLXFMjUuyYgq
-	 22WHSurfxTtl16xdShGOI671c4pDflaXqa3NWYCEcvA9GEWQUsd9G7fGYZt/KyixOz
-	 Au29k3hFlPbdtvH21rGaxqyuBdOyF7JuWcqA4Fnk=
-Message-ID: <beee950f-0659-43dd-9c5e-0a51722ea54a@arm.com>
-Date: Tue, 22 Sep 2026 09:16:52 +0100
+	Tue, 22 Sep 2026 08:19:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E71BB4197A;
+	Tue, 22 Sep 2026 08:19:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A981F000FF;
+	Tue, 22 Sep 2026 08:19:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790065171;
+	bh=HC4/JUWknuRlDmTPWvUCZL5/IBX6KNizhyFicMFHfRI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Kvig3ccl5HE4pxQr3PQ2Fbl5qfBzi54hak7xsY46yImVe9s8c6x3djMYojEOALfc0
+	 6cwbAzDbCILc13LrY0PwRYfva+uonCbGzp8K3ZGUhtwVNL9AYUnM+U/7AbH1zH/4kj
+	 1tBuWYOEbdZbpUyzfiss20T3dkcLRgUip8z/ulamXJ1wvlccDStjqDP6Kha0AiR0ru
+	 vOSlGl5adOaekke3rvueLgeDd2tksdbcz0mdLxT/2sVEeEA4Wc0jYZMSLLFyvgYRJi
+	 YWCtGNvZzgZNq1OvqzUI+kjRr9z2ctehrcb1iisCCbv0FLWYrdMppb+CTT0Uepua2s
+	 mTZZgAIbPGgUA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 029161AC56A7; Tue, 22 Sep 2026 09:19:27 +0100 (BST)
+Date: Tue, 22 Sep 2026 10:19:27 +0200
+From: Mark Brown <broonie@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Linux ACPI <linux-acpi@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-efi@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Mark Pearson <mpearson-lenovo@squebb.ca>,
+	"Derek J. Clark" <derekjohn.clark@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	platform-driver-x86@vger.kernel.org,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org, Shenghao Ding <shenghao-ding@ti.com>,
+	Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>,
+	Sen Wang <sen@ti.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>,
+	Venkata Prasad Potturu <venkataprasad.potturu@amd.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>
+Subject: Re: [PATCH v1 13/17] ASoC: amd: acp-es8336: Switch to use
+ acpi_bus_get_primary_device()
+Message-ID: <arI6Dz3lQiiSzWkl@sirena.co.uk>
+References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
+ <2063881.yKVeVyVuyW@rafael.j.wysocki>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <aqrGPK0lFBFXL2qY@arm.com> <985520fa-99b0-4620-bfee-8e6321b36104@arm.com>
- <aqvCwM_73qMpqzvV@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aqvCwM_73qMpqzvV@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_091659_876590_B465A539 
-X-CRM114-Status: GOOD (  24.89  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="g9wLfpB3a5wcy/uF"
+Content-Disposition: inline
+In-Reply-To: <2063881.yKVeVyVuyW@rafael.j.wysocki>
+X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,97 +107,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2026 11:36, Catalin Marinas wrote:
-> Hi Suzuki,
-> 
-> On Thu, Sep 17, 2026 at 10:03:14AM +0100, Suzuki K Poulose wrote:
->> On 16/09/2026 17:39, Catalin Marinas wrote:
->>> On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
->>>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->>>> index 75c3e463df2ef..dc3a87902a60c 100644
->>>> --- a/arch/arm64/mm/fault.c
->>>> +++ b/arch/arm64/mm/fault.c
->>>> @@ -914,6 +914,24 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
->>>>    	return 0;
->>>>    }
->>>> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
->>>> +{
->>>> +	const struct fault_info *inf = esr_to_fault_info(esr);
->>>> +	unsigned long addr = untagged_addr(far);
->>>> +
->>>> +	die_kernel_fault(inf->name, addr, esr, regs);
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
->>>> +{
->>>> +	if (!user_mode(regs) && !is_el1_instruction_abort(esr) &&
->>>> +	    fixup_exception(regs, esr))
->>>> +		return 0;
->>>> +
->>>> +	return 1;
->>>> +}
->>>
->>> We discussed briefly offline. With the latest patches around, would we
->>> ever end up with private memory mapped in the VMM and hence the GPF? If
->>> not, I would still keep this handling but add a
->>> WARN_ON_ONCE(user_mode(regs)).
->>>
->>> However, can we end up delegating a non-guest_memfd memslot page as
->>> protected?
->>>
->>> I played a bit with codex and it reckons it's possible if a guest_memfd
->>> memslot is deleted after its IPA range has been initialised with
->>> RIPAS=RAM. Removing the memslot unmaps and undelegates any data pages
->>> but leaves the RMM state as RAM. The VMM can then install an ordinary
->>> memslot over the same GPA range.
->>
->> This should be prevented by the following predicates:
->>
->> 1) Realms only support guest_memfd backed memslots for mappable memory.
->> 2) Memslots cannot be created after the Realm is created, as is with the
->> protected VMs. (This check seems to have been lost over the iterations,
->>   but should be reinstated).
-> 
-> If that's the intended model, I think it should work. But v18 doesn't
-> enforce either of them. I noticed the second predicate for pKVM only -
-> your 'Widen the scope of "protected" VMs' patch makes this restriction
-> explicit to pKVM.
 
-Yes, like I said, that seems to have lost. I will put that back in. This
-is not in the v18/v19, but will add it for the next iteration.
+--g9wLfpB3a5wcy/uF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> For the first one, if !kvm_slot_has_gmem(), it simply continues with the
-> registration.
-> 
->>> A subsequent private-IPA S2 fault sees the non-guest_memfd slot, takes
->>> user_mem_abort(), GUPs the user page and passes it to
->>> realm_map_protected(). The userspace mapping remains present, so a later
->>> EL0 access can generate a GPF.
->>
->> The Realm mem abort code should prevent this by ensuring that the
->> memslot is backed by gmem for private_faults. With the mandate of
->> in-place conversion, even the shared pages must come from the
->> gmem backed memslots.
-> 
-> IIUC this only works if the memslot is gmem but I can't see what
-> prevents ordinary slots from being assigned to realms. I think we can
-> enter the user_mem_abort() -> realm_map_ipa() for ordinary slots unless
-> we prevent the deletion of the original slots and enforce gmem only
-> slots early.
+On Mon, Sep 21, 2026 at 09:53:51PM +0200, Rafael J. Wysocki wrote:
+> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+>=20
+> Replace acpi_get_first_physical_node() that is slated for removal
+> with acpi_bus_get_primary_device() that takes a reference to the
+> device it is about to return.
 
-Correct. For CCA, we can mandate that the private faults are only
-faulted in from gmem memslots or the "trusted device private" memslots
-when we eventually get the DA support.
+Acked-by: Mark Brown <broonie@kerenl.org>
 
-I will address this for v20 of the integration series
+--g9wLfpB3a5wcy/uF
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Cheers
-Suzuki
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqyOg8ACgkQJNaLcl1U
+h9AtUAf/WrIx+1IBC/UCxyrfh6fRaiYU9rQ+OYNSO1bYP7b5ypcETGIH5hluHriB
+80NoC7AO1Jgl6ZA30C8zMRGGlAw8r92sskZ51+sFEv3SzOegWgM0emRP2hM0H30v
+0O4wZVu32zEC6aerkzPsGSthKygZa7hcl0Hy0oD9s6u4OmP7c8+LHadujlcD0uob
+slUDG1TpAhDS4Uu5YKUTvqc1yMxvr2O8DfzIPiGHDh0aEeocrtbe5cgnrxQwGJBJ
++pj46e7cPjW3IKg0q8uOEyliL63BAeAaw1VQ49CoIDt2/LE93qGx9DUO1njPeZ9z
+Llty1bZVqnhIOR0frCQwA1pyak3New==
+=lFHR
+-----END PGP SIGNATURE-----
 
-
-> 
-
+--g9wLfpB3a5wcy/uF--
 
