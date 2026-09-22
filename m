@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FFDC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BD2C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 01:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=reCe8tkPjWBCUBO2JZeQ/bCdYwRlHVLorXz3IFsXRm0=; b=jmD+tAxE/jFsQgFSE2D6q0xLQJ
-	3WmLduQC/XEIGP6y3FRB/yMbOvpTUEoKEYUe3/xhClEZD19yrFaXfUGCiM9/3IQTwJKqBHCx8UKJT
-	tJ9WFVfS/4lFGt7Erl2lsy6fuK9TkPoyPXPCP+KB8C7TLmzwfn/55MOe0QIYWTjDFl7gOZID99elB
-	TnOW6KCj9Rxso6aJsEaBJL6O+7dHbnxu7U9Uzi3Y4GHIPHDwB7f3fD6TFMEP5QyO5wjQSR9OEzsgy
-	Qrbp2gwL4wtjUZ/NYAZgf1VE8eUwnDFaCkEdH6iGB+1LgmUcb97AmSasjTGFs6H4shcBTP4ui+hjC
-	ONyvat3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u4OeW3luyIICrk7TMlGAc08jfnsvhFPtK/vh0dt3e8U=; b=3WHI3G1C/R0CKaZKqTauTTzMa+
+	d87F1V5IxIsnudfOjUTzi6fXgCc0YTtdIMHUbw/zgRwcSWZIibpRJSnUegOmG4CNh6cV44XJAGYso
+	ezHsoXbd0Ex1OqdLIkfyjv7Dqi6jzvkO3os5VAmDrvSg7Cu+DxIRKVBTe00vb9T6WC/7gsOG+7SaV
+	J7fvcFe9l+xJjNlU4YCS7nSa5UDJMAiDY2sx/6s7EnmMsWa1hbf+ysvTV0cRI3HRUz35W2GNR4yDO
+	lAMfss4Ts2yN9ULhjH78vI++Du0fxQU/kBoW001NWK/xlHxr0isHvVr0rxLqZzx36nOX2NPsJbsdl
+	LmJbqK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8pA2-00000003sMa-1ecL;
-	Tue, 22 Sep 2026 01:19:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x8pdL-00000003v3Y-254Z;
+	Tue, 22 Sep 2026 01:49:25 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8p9z-00000003sM8-3Swq
+	id 1x8pdI-00000003v2U-16Ti
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 01:19:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 776DA60210;
-	Tue, 22 Sep 2026 01:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 21749C2BCF6;
-	Tue, 22 Sep 2026 01:19:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790039942;
-	bh=2p+Gq7ah2QKJmZfE/XuzuuJW3qj0Kbm2NKfdOURDWwY=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=mSpNDMsAwoeLy4iZblAVKUcS+prFNqiuW3LJPLM9YGlUzhoLPuikjAUvr0W+ATmyO
-	 cNDdW0B8x/msLWgGjrj17JeMJfhGB5NvuIrchCzteBVxVwZJizWCG7jLrsuyExIL5G
-	 3Tzz7zBI4z8HZ6opdzCoXZF3c4UzRegBtBh5BbQFc4DEYWqlUDy74T+jkqfiMz1sp6
-	 0jbH6xBNNG+2T0GK6gziYj7Z3Q79mDa92aHrITGeGsZ57kPTDyykSk1VsUDphlBWr7
-	 NW8QXkHVW9NoltZLZgPLR833Iw0xijaMtgFRqQge9crJrqEKkfNBQ0NN8kkVRbq4Up
-	 zkQHkLrCZ9zbQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C7CEC982FB;
-	Tue, 22 Sep 2026 01:19:02 +0000 (UTC)
-From: Jaidev Shastri via B4 Relay <devnull+jaidevshastri.vt.edu@kernel.org>
-Date: Mon, 21 Sep 2026 21:19:01 -0400
-Subject: [PATCH] cpufreq: scmi: publish perf_ops with release semantics
+	Tue, 22 Sep 2026 01:49:22 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=u4OeW3luyIICrk7TMlGAc08jfnsvhFPtK/vh0dt3e8U=;
+	b=XEF5AifigFLHzC6vPt7jWVXHWqO7TWWcV78nB/QcHJKH+wQYNSJ4PBgCX/HuDvg+1I0z2IrXa
+	jThMnLDdz1DVJ7xjwM1N2r4i+3rTj7noDOt9HSYkB4YMxcNdPt4j9ZVsyzkGZJjNigM7EHNfuEe
+	W5AohBmvbW1es3JjuhpjoMw=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hpjR63t71zLlXD;
+	Tue, 22 Sep 2026 09:38:10 +0800 (CST)
+Received: from whupemk200014.china.huawei.com (unknown [7.152.185.79])
+	by mail.maildlp.com (Postfix) with ESMTPS id B3C0F4048B;
+	Tue, 22 Sep 2026 09:49:12 +0800 (CST)
+Received: from [10.174.179.24] (10.174.179.24) by
+ whupemk200014.china.huawei.com (7.152.185.79) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 22 Sep 2026 09:49:11 +0800
+Subject: Re: [PATCH v2 1/3] firmware: arm_ffa: Split the response out of
+ ffa_msg_send_direct_req2()
+To: Jamie Nguyen <jamien@nvidia.com>
+CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
+	<sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Dat Mach <dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260901192906.133670-1-jamien@nvidia.com>
+ <20260901192906.133670-2-jamien@nvidia.com>
+ <348dfed7-6aa2-77a2-a0a9-3aeed22f46b8@huawei.com>
+ <20260921174941.2406319-1-jamien@nvidia.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <bd33caf3-76d0-eff8-23e2-a9e51136d5e3@huawei.com>
+Date: Tue, 22 Sep 2026 09:49:10 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+In-Reply-To: <20260921174941.2406319-1-jamien@nvidia.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260921-mb-scmi-cpufreq-v1-1-934da6400a26@vt.edu>
-X-B4-Tracking: v=1; b=H4sIAITXsWoC/yXMwQ6CMBAE0F8he3ZNqSjqrxgP7bqVmlBhV4gJ4
- d9t8fgmM7OAskRWuFYLCM9R4ztl1LsKqHPpyRgf2WCNPZmLrbH3qNRHpGEKwiOS84H9sTkb20J
- eDcIhfrfH2/1vnfyL6VNuSsM7ZfTiEnUl2ji3+wMKNbCuP0ocyMyTAAAA
-X-Change-ID: 20260921-mb-scmi-cpufreq-cabfeb548027
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Jaidev Shastri <jaidevshastri@vt.edu>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790039941; l=3406;
- i=jaidevshastri@vt.edu; s=20260921; h=from:subject:message-id;
- bh=kGiX3bmrLMhZziNSbG0jyDiENr+zWQckZ25mLKshmo0=;
- b=nym2ybqGNPJA//+pWRCqx70dzBAwF7qdlvhnG6trOfnI+wgWRXp5XleSQEOp4Fyg3M06r8Flg
- GNU600DOkyEDXCpirkcdR4Q0AsdbZ4/frGUT1IqYypo92FpuzU1iT7U
-X-Developer-Key: i=jaidevshastri@vt.edu; a=ed25519;
- pk=J7+xYJRlTPds+pv5hbqFFRqGCpDeJDzmZT1ggRwj7/0=
-X-Endpoint-Received: by B4 Relay for jaidevshastri@vt.edu/20260921 with
- auth_id=1044
-X-Original-From: Jaidev Shastri <jaidevshastri@vt.edu>
+X-Originating-IP: [10.174.179.24]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ whupemk200014.china.huawei.com (7.152.185.79)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_184920_801082_7B7B2CE0 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,102 +83,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jaidevshastri@vt.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jaidev Shastri <jaidevshastri@vt.edu>
+On 2026/9/22 1:49, Jamie Nguyen wrote:
+>> The kernel document was updated for this, please update the
+>> rest of two patches as well.
+> 
+> I'll update all three patches to use:
+> 
+>      Assisted-by: LLM
+> 
+>> As you noted in the cover letter, the AML thread will stall here if no
+>> response, block the ACPI interpreter and the ACPI global lock when
+>> the field is Lock-flagged, so do we have some warnings if that happened?
+> 
+> There's no warning today. Would a rate-limited warning after a prolonged
+> wait be useful here? I'm hesitant because that would also affect non-ACPI
+> callers of this helper, and I don't believe FF-A defines a threshold after
+> which the wait is abnormal.
 
-scmi_cpufreq_probe() stores the SCMI performance protocol ops pointer to
-the file-scope perf_ops with a plain store and then registers the
-cpufreq driver. The callbacks read perf_ops with plain loads, starting
-with scmi_cpufreq_init() on whichever CPU brings up a policy.
+Let's keep the code as it is.
 
-Keep the pointer in a local, publish it with smp_store_release() and
-read it with smp_load_acquire() in scmi_cpufreq_init(), the first
-callback invoked for a policy.
+> 
+>> resp_regs[1] is confusing, comment here it links to X1 register
+>> is better.
+> 
+> I'll clarify that resp_regs[1] is X2; resp_regs[0] is X1.
 
-Found with MBCheck, a static herd7-based memory consistency checker.
+Sorry, but it was confusing me :)
 
-Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
----
- drivers/cpufreq/scmi-cpufreq.c | 21 +++++++++++++++------
- 1 file changed, 15 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index 4edb4f7a8..c394f63cc 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -197,6 +197,8 @@ static int scmi_limit_notify_cb(struct notifier_block *nb, unsigned long event,
- 
- static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- {
-+	/* Pairs with the smp_store_release() in scmi_cpufreq_probe(). */
-+	const struct scmi_perf_proto_ops *ops = smp_load_acquire(&perf_ops);
- 	int ret, nr_opp, domain;
- 	unsigned int latency;
- 	struct device *cpu_dev;
-@@ -252,7 +254,7 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- 	  */
- 	nr_opp = dev_pm_opp_get_opp_count(cpu_dev);
- 	if (nr_opp <= 0) {
--		ret = perf_ops->device_opps_add(ph, cpu_dev, domain);
-+		ret = ops->device_opps_add(ph, cpu_dev, domain);
- 		if (ret) {
- 			dev_warn(cpu_dev, "failed to add opps to the device\n");
- 			goto out_free_cpumask;
-@@ -293,14 +295,14 @@ static int scmi_cpufreq_init(struct cpufreq_policy *policy)
- 	/* SCMI allows DVFS request for any domain from any CPU */
- 	policy->dvfs_possible_from_any_cpu = true;
- 
--	latency = perf_ops->transition_latency_get(ph, domain);
-+	latency = ops->transition_latency_get(ph, domain);
- 	if (!latency)
- 		latency = CPUFREQ_DEFAULT_TRANSITION_LATENCY_NS;
- 
- 	policy->cpuinfo.transition_latency = latency;
- 
- 	policy->fast_switch_possible =
--		perf_ops->fast_switch_possible(ph, domain);
-+		ops->fast_switch_possible(ph, domain);
- 
- 	policy->transition_delay_us =
- 		scmi_get_rate_limit(domain, policy->fast_switch_possible);
-@@ -443,6 +445,7 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
- 	int ret;
- 	struct device *dev = &sdev->dev;
- 	const struct scmi_handle *handle;
-+	const struct scmi_perf_proto_ops *ops;
- 
- 	handle = sdev->handle;
- 
-@@ -451,9 +454,15 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
- 
- 	scmi_cpufreq_driver.driver_data = sdev;
- 
--	perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
--	if (IS_ERR(perf_ops))
--		return PTR_ERR(perf_ops);
-+	ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
-+	if (IS_ERR(ops))
-+		return PTR_ERR(ops);
-+	/*
-+	 * The cpufreq callbacks read perf_ops after cpufreq_register_driver()
-+	 * below. Publish it with release semantics so that ph and the ops are
-+	 * visible together.
-+	 */
-+	smp_store_release(&perf_ops, ops);
- 
- #ifdef CONFIG_COMMON_CLK
- 	/* dummy clock provider as needed by OPP if clocks property is used */
-
----
-base-commit: 93f51579e7df248780214094418f205253383cc5
-change-id: 20260921-mb-scmi-cpufreq-cabfeb548027
-
-Best regards,
---  
-Jaidev Shastri <jaidevshastri@vt.edu>
-
-
+Thanks
+Hanjun
 
