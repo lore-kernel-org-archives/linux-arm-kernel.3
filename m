@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0690CC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94653C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 08:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MjXcqMOa9aaX+GA+SOvHHXfb0ZNPyUilydrg52FvFzs=; b=p+aqmjSQvTdIEipcQASTJQG8Oc
-	WiBiMJpPTcNQl+hErQLAm/7DW7NuNk0iOS6xEGziyZASTqKkRO2gcAD+gLko6YAVX7Cr5d1o/+Vc9
-	azYc/ge/FoDMtovvW9dtsa4UY7umK5QnMMg5sGKqXtpDySXUGxnvO/+M6aGc03THb4KGN/JxThZwV
-	NJF11LONi2ZYhhrFMqUyj3CZD8f7v5ktao2L2WiV7w4A1wiwHTk0PV2PAnLJPduFWqJ1vuN9rHCQF
-	SJOoaashVGGMGwf+OPiYzjU5fGcJQzldH8QAnIXuTLTZsgeXCNvLmGnXbqgJTXiLU1w+SEZ5zfAsW
-	U8kalu8A==;
+	bh=0IORuiq+y7bk4+ibcdt0oVfIzdyoZqyiyPnSEWbGyQ4=; b=il/1uoVPD3ORiySU1N0i7BzdSI
+	rqNgGP4EJDm/y9xt55w1SCtA+IJyob0t8rdVsYLfZI08+fFiivbj8Yudvw7ch85dbouHAu5679aN3
+	7d8qnxQFj2fLqFvViE/4/Sc3WLeJZ7uAOqc1OeMUTDjG75ODOHyEfgsq/8h6yL3JxjNdeWqHiaNGP
+	ZMiSk1PhBHNK8TnrJsrleLFI7CJR5KzyvkS4Rn+4iqlpA3ULA30qt+hEsnJrU6ILF/TAoP4ovAKqS
+	KaJP6rDqVOQFIBWZj0WdfNY7xs5OsFLhjopyZ1SEUqmZFJxzgMhffKXeeB78oE3JddLo9qqAHMD9O
+	NxHwGhhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vji-00000004eSC-40z7;
-	Tue, 22 Sep 2026 08:20:22 +0000
+	id 1x8vkA-00000004ebF-0mLE;
+	Tue, 22 Sep 2026 08:20:50 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vjh-00000004eRS-0e4v
+	id 1x8vk9-00000004eb3-2OG7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 08:20:21 +0000
+	Tue, 22 Sep 2026 08:20:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 620D660DCE;
-	Tue, 22 Sep 2026 08:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E14B81F000FF;
-	Tue, 22 Sep 2026 08:20:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 069F660213;
+	Tue, 22 Sep 2026 08:20:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E0031F000FF;
+	Tue, 22 Sep 2026 08:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790065220;
-	bh=MjXcqMOa9aaX+GA+SOvHHXfb0ZNPyUilydrg52FvFzs=;
+	s=k20260515; t=1790065248;
+	bh=0IORuiq+y7bk4+ibcdt0oVfIzdyoZqyiyPnSEWbGyQ4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BHq0UfbyfXC3CsFAWicoq8LHwkSmHcsYAHHGrfrWMUyluipj6vz6ijaTKolEMEM1J
-	 Nw8k+knsmJKNBRA0PAh/aY26f2NBhp5/aYkikclayWzHwHIKNNDcK/2EkY4trtOhBT
-	 zoNVU4xcJ973Tkh3rx1h2rz0/771pIacFf/zqW3Bq9+jeM8Nw0JK7LljbNJFNK4a89
-	 clh1tMUeIjQoeS+//Z73TU2t1RIYck6Ikwa62GNdjCklIlnBTsJuKZB9HX2mNY9qzj
-	 DeAwnCjRTpAyMZqU3sUXq4XjlK6DCkJGm4iAhJeAf97OpVmO74+NjYahdp9yWQj67s
-	 ielpV/G+29gtQ==
+	b=iYhnLHaZoo+UgLgpJ3WSIc07Kf408OFArco3q9ul+K9KDCpP8da4Zf3BjgvfmoCzX
+	 P1pKGzazd/Xsm7mOkuD/BEaxBkzHN6Z2SsGZwk2P2Vliqp6mHUr/mSYAgvN3AvPyNi
+	 azukjnjjKv2QaCei2fF3iRnW9bgkK7q4UZS5+1pAkiMsAhVKpsvwS0LZe8V0XUHqVs
+	 BaYnC9YvVfP5VHBRsZntUEKc6XrIS2oOb3dcPUCuvY/LEnh4/VNisgfa5bfk/6/Z6X
+	 UxAxHaCFxpL89oHqCm8t36uwsybKmFPA5tj3DlpwM286wv7wBBQC3trIMsij851wPt
+	 BcoJLqyFxdGxA==
 Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 765281AC56A7; Tue, 22 Sep 2026 09:20:16 +0100 (BST)
-Date: Tue, 22 Sep 2026 10:20:16 +0200
+	id C2E741AC56A7; Tue, 22 Sep 2026 09:20:44 +0100 (BST)
+Date: Tue, 22 Sep 2026 10:20:44 +0200
 From: Mark Brown <broonie@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>
 Cc: Linux ACPI <linux-acpi@vger.kernel.org>,
@@ -82,16 +82,16 @@ Cc: Linux ACPI <linux-acpi@vger.kernel.org>,
 	Andreas Noever <andreas.noever@gmail.com>,
 	Mika Westerberg <westeri@kernel.org>,
 	Yehezkel Bernat <YehezkelShB@gmail.com>
-Subject: Re: [PATCH v1 15/17] ASoC: intel: boards: Switch to use
+Subject: Re: [PATCH v1 16/17] ASoC: loongson: Switch to use
  acpi_bus_get_primary_device()
-Message-ID: <arI6QPLCu5zU0N3j@sirena.co.uk>
+Message-ID: <arI6XGheDLqcM5h2@sirena.co.uk>
 References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
- <15844908.tv2OnDr8pf@rafael.j.wysocki>
+ <2796562.BddDVKsqQX@rafael.j.wysocki>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="F5HyqqGHFH+LIPBo"
+	protocol="application/pgp-signature"; boundary="vZ4DAFp8EW84+teb"
 Content-Disposition: inline
-In-Reply-To: <15844908.tv2OnDr8pf@rafael.j.wysocki>
+In-Reply-To: <2796562.BddDVKsqQX@rafael.j.wysocki>
 X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,34 +108,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---F5HyqqGHFH+LIPBo
+--vZ4DAFp8EW84+teb
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Sep 21, 2026 at 09:55:15PM +0200, Rafael J. Wysocki wrote:
+On Mon, Sep 21, 2026 at 09:55:56PM +0200, Rafael J. Wysocki wrote:
 > From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
 >=20
 > Replace acpi_get_first_physical_node() that is slated for removal
 > with acpi_bus_get_primary_device() that takes a reference to the
 > device it is about to return.
 
-Acked-by: Mark Brown <broonie@kernel.org>
+Acked-by: Mark Brown <broonie@kerenl.org>
 
---F5HyqqGHFH+LIPBo
+--vZ4DAFp8EW84+teb
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqyOj8ACgkQJNaLcl1U
-h9Bx+Qf/XQKqT8zAAypC4QDplX84kvvsAuOBYTwqfb7dF3Dw7ytXEeNRU3I4BLOm
-WtgQ9XPLDynBgy2oYWyeQrAXf+LILRzJzH5IOT4uSkKBpqhZPlKLiN5IOaI533yf
-CXEY+C5CQJc8f7RGWm5TZvjJ0yFdUsaHKwiW4NY+znI0ff4cytSD5pbOIg0e4apq
-sYDmAXVgOBOff0Brn55XAi9P3Do1BuMdCfESVLVGIUrJtVJ4ivqwCU9TYBEE3moe
-6zNf5I9zG/zB+mrTrIMccaCakwoEuBlSTod32q6bobVfYweKmudduwme+sjVtS3t
-1uijSSXPHA4q8BFE/4fF7SM1yeWNnQ==
-=4Q3T
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqyOlsACgkQJNaLcl1U
+h9BVVgf+NHmKV8A+2Q/nOEOuw2I3+zdga+JgwoRwtArRjRtR+bVOUgnM+X/kaToi
+CsUmvFtABRvEvzsgqGvp4PTPNYf8n3gJGHJfEOM+3EsqZpBX/cvoantUcu48VFYe
+IkWVDka+uVjmEIHEeeSNWHd0+ZCFDuHqcvKpaPYsnv88TamcFUzsTYrkVgvMUJGy
+fW4sEBYc4XGr/FqvffKLTO5E2CAQ/qhiXn3cFFMvadcm6YY2bEicWLlz7sKlcOmG
+vkD//KecfKS8WmW3l9OYlCpUxTDA17e/ntdmTrBa4BHSP5wMGsS4Mf9qzQ9u6fUb
+BR+eawjJR4XvFkhhblvxCW80tj3pIQ==
+=FR2A
 -----END PGP SIGNATURE-----
 
---F5HyqqGHFH+LIPBo--
+--vZ4DAFp8EW84+teb--
 
