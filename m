@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30B7C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3C3C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 16:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n8IQx8HLgG7ebBAe/MKRbXmMwPgQ4SOKyooVL9gjoTY=; b=BrL7Qj1NMDnwW5lW/C60TgI/rt
-	qc+M0godqPH1RY++tAAarXnpFrFJtU1bxeRIEnBdNLQoPHj9SqHiy2JQedi2t73WV0grFlMv0UQgq
-	6s6VLJhcN/enypnPx1nt7bSzEVKNUJXBIw12jVXmfShu0r5uuQ1FnrLkSTiaGDF81B43NFgOLYojo
-	BVqIroMTcIjnNUIsOlYNz/N1O87hvZrN4IOnTWi0hvfIstTKnXNjNr6yI9++bBdjyb6vDj+qoCalh
-	XjXSUrGYbW9yiyZHtI6qpKODhTgtkkBmy15mUt3e7Ur7dSX8caFXgmRNWywCkqr7I6fXZQUAMnEdG
-	VauZyGZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=epLKlfGDykDfXkk+Y0D/AaucwRf+XcEMpU10b13wknc=; b=Hk8uguL7pJ+v7YNIFlV4Th6wiN
+	8umuarN8SprxmHdFE7GTXydqXKLhPXrJ3tBvkuVK5UDYl9ACUBwOLqNOdHR3F6Ei5WAuleMaFMos+
+	+z/cHcMJit5crnCPn7JyPdceMsZY/SMOCY7g6jlZJJ3ICPWoQXl/OkwqNmCqWTK7L+/i/ctgID9uw
+	hJOEfUAMVX+OD8T5ZUn/T/CGM0p22nb5B3dCL+qB9uEH65APAhWp7j1VetUJSu1PZ5sJ8bdk1u0UL
+	XqXTKBIsL8PtTvG0NAXc1377o12UbFFdVbq52yyZS1PkZK4RjU7p5epKvNmJpYmG9X6zmjvC05Vr0
+	au+W8pnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x93pQ-000000067nd-46ze;
-	Tue, 22 Sep 2026 16:58:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x93pe-000000067rx-0UgL;
+	Tue, 22 Sep 2026 16:59:02 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x93pP-000000067nD-2E5U
+	id 1x93pZ-000000067qB-2FWq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 16:58:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EAA4942ADC;
-	Tue, 22 Sep 2026 16:58:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1042C1F000FF;
-	Tue, 22 Sep 2026 16:58:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790096326;
-	bh=n8IQx8HLgG7ebBAe/MKRbXmMwPgQ4SOKyooVL9gjoTY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AlM6wpc4js5vFABGkGcyFnVGuW7JUSWSMcn5tX+KF3hYbnbmUzlR/hkoAP0xqVDGB
-	 Fq7O+uTF1XknxSNQW/Pb0pjIFaxFgjyewcdquFs5hTAkyMMhCvLNy3UWwfDZFiGvCS
-	 8CuT3tMgnLN9jafAy+9pWsSL1tOdcGXdIeffYG8qmdCMhpWvYSvibpP7bYDGfMViQr
-	 TYIRO3PIvxMMRKgSa/52phLibd1XTQx+W26uSTFqG/+cpfHnPQYL2mfalk6YsAoj8Z
-	 9NKOaTzjFtc1UQ5x5eJdYDcwo9yeO+uZhXztWzf8MvTef3h9E/q3YocCsyOkliB3rf
-	 PRrG3GaynK8SQ==
-Message-ID: <e95c2aaf-8c90-45bc-8e1b-841d180788da@kernel.org>
-Date: Tue, 22 Sep 2026 18:58:37 +0200
+	Tue, 22 Sep 2026 16:59:00 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 0AA241F92A;
+	Tue, 22 Sep 2026 18:58:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1790096330;
+	bh=epLKlfGDykDfXkk+Y0D/AaucwRf+XcEMpU10b13wknc=; h=From:To:Subject;
+	b=Lzr3WnjzMEoqpcPP57y5SsFciig28SHwKyy+I6I+JDMjQoaef6jD15UUc8J1C7Br/
+	 TMy/3GQIVQIrl/hTL65VS6e+OdSpjnBibdwoD+ctPBMHpOYJHFSJHkvbuwYU3ahAW8
+	 3vgXewCPty8SG1LcqN8fEy1M5f6tfpGRURU6yzlglWVjqmWbFzd8nbT2jAXoTFeKRp
+	 i21MRpZPpGSVssTEjR0rNi2iAqiRkl6MfCpBnHHa4syn5U9Iw8YePqJ/3WHj3K4r50
+	 uDRo+tKf+gOtUABO/RGmJwfGtPTK9gLUhRDscWU1sE4NnX/5lfTWg+bc3bVVEv7a7R
+	 cqxo4wUbYVVIw==
+Date: Tue, 22 Sep 2026 18:58:46 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 0/4] arm64: dts: freescale: Add Toradex iMX95 overlays
+Message-ID: <20260922165846.GA290956@francesco-nb>
+References: <20260922-v1-imx95-overlays-v1-0-694100afb4bc@toradex.com>
+ <arKn0LhC5fty7dHN@SMW015318>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 07/17] platform/x86: apple-gmux: Switch to use
- acpi_bus_get_primary_device()
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
- Linux ACPI <linux-acpi@vger.kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Mika Westerberg <mika.westerberg@linux.intel.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>,
- Mark Pearson <mpearson-lenovo@squebb.ca>,
- "Derek J. Clark" <derekjohn.clark@gmail.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- platform-driver-x86@vger.kernel.org, David Rhodes <david.rhodes@cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, Shenghao Ding <shenghao-ding@ti.com>,
- Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>,
- Sen Wang <sen@ti.com>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>,
- Venkata Prasad Potturu <venkataprasad.potturu@amd.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Cezary Rojewski <cezary.rojewski@intel.com>,
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
- Bard Liao <yung-chuan.liao@linux.intel.com>,
- Kai Vehmanen <kai.vehmanen@linux.intel.com>,
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
- Binbin Zhou <zhoubinbin@loongson.cn>,
- Andreas Noever <andreas.noever@gmail.com>,
- Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat <YehezkelShB@gmail.com>
-References: <7995179.EvYhyI6sBW@rafael.j.wysocki>
- <2287208.Mh6RI2rZIc@rafael.j.wysocki>
-From: Hans de Goede <hansg@kernel.org>
-Content-Language: en-US, nl
-In-Reply-To: <2287208.Mh6RI2rZIc@rafael.j.wysocki>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arKn0LhC5fty7dHN@SMW015318>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_095857_739863_C8E18DB4 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 21-Sep-26 21:49, Rafael J. Wysocki wrote:
-> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+On Tue, Sep 22, 2026 at 11:07:44AM -0500, Frank Li wrote:
+> On Tue, Sep 22, 2026 at 04:33:45PM +0200, Ernest Van Hoecke wrote:
+> > This series adds device tree overlays for the Toradex Verdin, Aquila,
+> > and SMARC iMX95 SoMs.
+> >
+> > The series adds support for:
+> > - NAU8822 Bridge Tied Load configuration on the Verdin Development Board
+> > - UART_4 reservation for Cortex-M7 firmware on Verdin and Aquila
+> > - SER0 reservation for Cortex-M7 firmware on SMARC
+> >
+> > The UART overlays mark the port as reserved so Linux does not claim it.
+> > Firmware remains responsible for configuring the UART and its pads.
+> >
+> > The Makefile entries build standalone DTBOs and ready-to-use composed
+> > DTBs for the corresponding Development Boards.
+> >
+> > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > ---
+> > Ernest Van Hoecke (4):
+> >       arm64: dts: freescale: imx95-verdin: Add NAU8822 Bridge Tied Load
+> >       arm64: dts: freescale: imx95-verdin: Add Cortex-M7 UART_4 overlay
+> >       arm64: dts: freescale: imx95-aquila: Add Cortex-M7 UART_4 overlay
 > 
-> Replace acpi_get_first_physical_node() that is slated for removal
-> with acpi_bus_get_primary_device() that takes a reference to the
-> device it is about to return.
-> 
-> This addresses a potential use-after-free that may occur if the
-> device returned by acpi_get_first_physical_node() is removed right
-> after dropping its ACPI companion's physical_node_lock in that
-> function.
-> 
-> Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+> both reserved lpuart2, can you share one dtso?
 
-Thanks, patch looks good to me:
+The comment in the DT file must be different because it's important to
+reference the actual board it applies to.
 
-Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+So to fulfill this request we would need to add a common dtsi, include
+it from two different dtso files.
 
-Regards,
+This to save 2 lines of duplicated code, `&lpuart2 { status = "reserved"; };`.
 
-Hans
+To me this is just worst than the current proposal.
 
-> ---
->  include/linux/apple-gmux.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/apple-gmux.h b/include/linux/apple-gmux.h
-> index 206d97ffda79..d7939c3a08fd 100644
-> --- a/include/linux/apple-gmux.h
-> +++ b/include/linux/apple-gmux.h
-> @@ -109,7 +109,7 @@ static inline bool apple_gmux_detect(struct pnp_dev *pnp_dev, enum apple_gmux_ty
->  		if (!adev)
->  			return false;
->  
-> -		dev = get_device(acpi_get_first_physical_node(adev));
-> +		dev = acpi_bus_get_primary_device(adev);
->  		acpi_dev_put(adev);
->  		if (!dev)
->  			return false;
+Francesco
+
 
 
