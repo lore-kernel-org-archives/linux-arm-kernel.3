@@ -4,59 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5459C982FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885D2C982F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 10:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LOJp4blY5phc9Vv5SsCAuVuk6WuoBNzFXQ+AbRV2dCA=; b=CvdkPPoceY8n4kUwnQOZ3wIy+u
-	C0VnJoTDASozkZitdn+1bUl+7qAnnwn1l/XNcObf+aorBNLvS6WMOiL0QXzhaRkRsqf2rEsWjp8Wg
-	hhUWpiNuK4oQD/J16+MTNq56lFoatoRQnmxRKcIoI4QU3XsivW727xndrgqqILTn7B5ij013C5/bM
-	a8vQ4OE+0AAB3tsIVJ8MPHkgm6BcWNBkhqI7CsHaYJLXzDrSIZWYRRtUPPZ8C+l3ems7zaralCCOo
-	rdOpW7qR7efRMmE736ekWJlUDaB3ugY0WX+ttoyqXD+vMOKIHIREBLuaH5Zjw5YAdUF6ffEyj+gKf
-	q8RoljAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a8tNNnkZ/m1cx3dyVgQ2tecPL9EX8kBmQqkLFAkQtFM=; b=LRf/EqBB2+GAEGttHRdMuF3wK2
+	NlKqfZjjh1DhbwHsx9T0zL9KaDKnpBIT+I9m001ztWLoBLlOvUyP/9jjkCzONJ9YiM2nK/LmUXmxA
+	CnGFCZPmgISeKgVrzuFKPhuypyWimJWxp8dj9gmDfKCVjO834r2ueuLyq9FbimRylxAg1afYC8h9D
+	0LJAETzvRz/PIoD9u3nUcmA0YSBrdgrqVii1PtJJ9zPf5UZrN9CDmDvB6SKkG40ZeZES1W2l5ZFex
+	jpbCc2q1PeZ0hgKZMplbdl11UseSPXa3kkZcLzCptLx35UkzAvCo2JFj9f3sVtzmW5oIFMof9Pb15
+	MLTrADmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xjV-000000052w5-3aGa;
-	Tue, 22 Sep 2026 10:28:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x8xpx-000000053c7-26Ni;
+	Tue, 22 Sep 2026 10:34:57 +0000
+Received: from mail-swedencentralazon11013006.outbound.protection.outlook.com ([52.101.83.6] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8xjU-000000052vt-1ZbA
+	id 1x8xpv-000000053bW-1Geu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 10:28:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87568601F7;
-	Tue, 22 Sep 2026 10:28:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6371F000FF;
-	Tue, 22 Sep 2026 10:28:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790072895;
-	bh=LOJp4blY5phc9Vv5SsCAuVuk6WuoBNzFXQ+AbRV2dCA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=fnYBUmgRgs+DrsVZ4E7rNjAcBrnd55YcN/xtuScQWsatNfiAK8CaVLVsalX3VbpUU
-	 eNkioZbKquxGIoNHlQ7nqM0jpOUdzZH0J+duAdiQESUtuvBz/gRJVJju43DDfkdx0c
-	 gZzSSLz63VkeapKrh7dhYaDqtES+j9Avm5vKFp9sITBwDo2tVuZCqh99EQfBo6szyV
-	 qCRg19zxrNl9cSUSFHHdaN1c7FR3ysLbmT0alDo2qHpi5LIuANCwx6XPf+Kr2GU1R1
-	 NfnYw5z5if634DwpeVaRGRJoOiBF2kD9dDlQYp1JLCqMUBW7iuBvt8l54XN1v6Mmmr
-	 kQ2acyT8DnXww==
-Message-ID: <0a35cf00-32ba-4a21-b05c-edd44d3ca219@kernel.org>
-Date: Tue, 22 Sep 2026 12:28:12 +0200
+	Tue, 22 Sep 2026 10:34:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bMxq6rOAfCAilMqn06rlKmQFxm0C16VVNnFzwwrL6yKi2a0t0P8gmF+RAbeBPjkM2SgN+yqonGxHrnnVjaXpTCthV3GzimPDLraRkbnVkgDslJpuDizSgv0adl72KMX0HQzxWp5IbL/o7oKhdhJw8sZgYz/I6Vm1LEqbtEjDYi06C0K+QOkjK/qyFf93gcKdvFfCOu+wNpJvDu5Kw4GTeLhNV8HpdWtEI54w/eV4R9s9Pd6ktxI1z1Gg5NsUSXRGU8xMKIv/NgkD27icKUuJ4VLwQFfDCO6nHxyF7zorKlvAcVKiFIRiP+MhjZUOYdmNikQjKqrYb/XzIND/fTp03w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=a8tNNnkZ/m1cx3dyVgQ2tecPL9EX8kBmQqkLFAkQtFM=;
+ b=luzKoPCXW09y6CRIMn9rv+BW0lHVRqzjKulN7aXcoNlVNC2FHj7IqKqTwWNu/k7GvvHcTNvBN4TXDEy1V2dh9zNj+5qpuBC8YyDQdaabqEzBzDQB0s5SAd/rvLuiwtn8oyrg/esN2DkSIddf8f13VzAaurktBOl8DdEypSc5N9Zw+Wn//y1ep/xMFkiMnAepQrqxNu0cyumVk6h8qdsEr2D4rMHXRfMnx4kId9ZmXrJqLruWAngi5D/gESF0LBLMt2WkePIHARCciRcU4f4Oq343slw8CbclPtysF4KOeUWuBX69GRFtMiNdYkgET00UMnvwM9W3ZT2TO3KY4GyCcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=a8tNNnkZ/m1cx3dyVgQ2tecPL9EX8kBmQqkLFAkQtFM=;
+ b=QgWmjR4cu9tFsGDp3HmMhshHWtidD5KVu1WAajqJ+WvO0WOHmMUDdfJJk5ybhYslyxeZqmwV0CGWp9pOpq99NcBE+ixp6HZHTePAf27Sd2JV2RT5fyrmyl+mhG+KLSm1XAPANDRS5sFBZ3luzv9XNvUKKF12fxYZwQDNC1+Gawg6ZlLtwd26cLPycBesxmfpOCHylwNM2oB801BfCZsx/cJhcPZSS/iQ/js480EwSWA+kzieETAXgVJpulW862q0h1JvKOSC0z3uLaFk0xXqKaURfiEQkWpQuO+GIc/LSW6Mnc0/jw/CMeSHZUuHGKorh3xhuOj88fhUTEg9Vni7Dw==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by VI1PR04MB7197.eurprd04.prod.outlook.com (2603:10a6:800:129::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Tue, 22 Sep
+ 2026 10:34:49 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%6]) with mapi id 15.21.0428.015; Tue, 22 Sep 2026
+ 10:34:49 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
+ (OSS)" <wei.fang@oss.nxp.com>
+CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
+	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v4 net-next 5/8] net: dsa: netc: check return value of
+ ntmp_ipft_delete_entry()
+Thread-Topic: [PATCH v4 net-next 5/8] net: dsa: netc: check return value of
+ ntmp_ipft_delete_entry()
+Thread-Index: AQHdRz7atl5Aa7Z4IEGFbkUNOuNk1LbaSXwAgAAcwWA=
+Date: Tue, 22 Sep 2026 10:34:49 +0000
+Message-ID: <AS4PR04MB93384B139F7957A2755DB00E88832@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20260918072852.501420-6-wei.fang@oss.nxp.com>
+ <179006555627.2160803.12045711758819504557@kernel.org>
+In-Reply-To: <179006555627.2160803.12045711758819504557@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|VI1PR04MB7197:EE_
+x-ms-office365-filtering-correlation-id: 9d605d4d-89dc-468d-0a17-08df189520f4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|376014|7416014|366016|38070700021|6133799003|10067099003|5023799004|11063799006|4143699003|56012099006|18002099003|22082099003;
+x-microsoft-antispam-message-info: Gz7C88pVMcXYaM/zAKNl056R3XfN+RGsUarto8IXYJ4LZAfw28/jxXMnu2mUk2+qpHLDki3MMqZU6Lb5ebf7L7Ca8Yh1/PAwZtIRiK8u4nYH/9i3fPxeAMwXcG6KIzl9CYtndaZtrDiNbn4YVxOy4KciYhTSSy+lusycIWGE/hiMDUt0htV+aPJ14CkNUXK3ay7J2Wktq3nP9tVJdwwF6kK/v6XW5VJSuRmSSxHUurPNPlIx7C1y5rVB3lnizkmXrze6KAkLB0rxYSbbatnq4aCri+18KBWhKQCoht/5Pguni9OFyvE048gTFnjN7/pB1ocB7TQu1YZmE1ULhsrVsJVgWKLrRlE0z0BnbwCcjiBxnJV4nCfVoaLcTZ7PbMoXH0hHqah8t4w+WVgr2WqzjFepSFdy4a5L6J/UV5F+IMZJEP/UfiMu9q/tVV1bxom6rNhLguvQgqOMhH6C6m00pzVGKRBVO/f/cqgO0BvAQ6ApfffAM1L+tXUrJavjLsTTFCg9S6bJkNMV5JW54nWZZjEPGXI6/fvQ8fXFE9POACNWhF1NABb7LyKqz1CsMagL+kdycjZP9nbyr2J/C9TLLhJToZrXHFv76B2C4N1IxNcODJIwKFdoF5szMlmGg/OpyWzD865dzPuYw0jHhGGX9AFwh4g4UvSBDlEtEbNclN0N0LmUscWvpA0HMikunkVh8X1GMk0UHfONI61AdwMhugcq5Wn+HipFWK/Kx8GTUhs=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(376014)(7416014)(366016)(38070700021)(6133799003)(10067099003)(5023799004)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?SvrnGP9UVzP1i96E5qxRqLG8eXiIikQWEGJ/YRVYznVmiwRIMVkkCdVnrGYp?=
+ =?us-ascii?Q?f1JIT2baVB2+m+IF5bVumaFZd8YFKabO3wKAZ0hsdrYTiMIyZ4TW0shHH58G?=
+ =?us-ascii?Q?YE6eHRMw9Thf28qqjr7cwmTJHM80/kWwGp8k3DSQRdKfkl+m8tM/FXGt0ni1?=
+ =?us-ascii?Q?RjWmPQzv7Bp2yyAhAMbnjZe6+ZwWM6xK1wpup0iWs9WjVOtcN85yZc9iIXls?=
+ =?us-ascii?Q?Aas3MXFaQy9mJX9Nn/mCyAo39u+8uSCPZBeSexV3vrudxRz1rl0kQ4S4/H65?=
+ =?us-ascii?Q?szltgK5yWc4/384YybdFLrLKkc0j3bBy1J/CWkHcDNTqFH3VONCusn4kJzRn?=
+ =?us-ascii?Q?n+YKe3azNz2kdaVXw2LjodI9058bXKD6C+oeFL0/bG4FFsDKluBjWv7Ix6hd?=
+ =?us-ascii?Q?odH4qGwICAvShjzcl4TTaRAHPIBcvtACtzd/e6pn9jkdQzYHTX51zKOWWGfz?=
+ =?us-ascii?Q?DOL2yVKdLCW3o6nQnvZ67SwjTFdVFiOCiCcgsrH8lJO+aDEXpuwM4gbLHns3?=
+ =?us-ascii?Q?5qwIbbgW/YDItD/fTILGsbluS+/3C/G3QrtuLGxCg+qncLRlYc1+Gau9WH1c?=
+ =?us-ascii?Q?KDEAYH0wRcYG6+CXHNaaI9ssG4PuVoEYRJ+mSfP/jtC1Fp0Q9v/6c/vkzb5c?=
+ =?us-ascii?Q?NTilnyY2PSSNY8YFfwADnvfGVSoPaEpwuXm/S16UU5wEmhoVPgSwNNzKUStj?=
+ =?us-ascii?Q?yqcTtOgtL7BU4HFtzfoAFusYoHy+BjhrVXhu/LlNewXq86XYeAYkSe7hinbq?=
+ =?us-ascii?Q?eXhQVI+ih9i+yIJVjGJazYpEoKFh7Y05dlBC/aDCTOgEQ0e9/WTcUAk5F+oN?=
+ =?us-ascii?Q?Q3IRx0wgnUV7G2PKaPurVIjvvi7ZAjARn9FBGXlSqbVt8JebBVfl6HH2vXE2?=
+ =?us-ascii?Q?VD7Rx4JBfppiX9uZt444zHQpyQytYcrm8d36Iz8Z7Nkk6RZZQj/Oqcoa96rN?=
+ =?us-ascii?Q?7R3jj6vsXzMgBFgXkhBwbAoxd68uG0z8NQ+9g0MhG9i7FznhkNocHn38CXvo?=
+ =?us-ascii?Q?d7h7q1PcIzFtxnILd4uinjiVGgupW7WeP1SzmXfsD3YZUJZk/DGn2DmFllgx?=
+ =?us-ascii?Q?3IkOdaBzN8mBXo2cwqfSVHd5YioXLW+3lsC98dfhwJSVFvYTptr0avosXKs6?=
+ =?us-ascii?Q?dpv90Q9RPouxJa3fvkFLbUU8T1NwuE+tAUht5ABcHCNrX4l1afGE2DkJSz1h?=
+ =?us-ascii?Q?w5OkZzSGKt8FnDAN1dxk8qXnwCBArSC2DKbcHUgKJ+m/by71LP3O/WHj9Rda?=
+ =?us-ascii?Q?6/Sq5e+SN6Tnldytu4DWxXKRh+fT7vk5HkMhFJ08ld6wE+RpfW+l0NJYZlsC?=
+ =?us-ascii?Q?78fHNk4sS391tH1kx7q/0ac6S6K3bjns+prw9hN8s/MVW3ElR2qb/o4k8ZsP?=
+ =?us-ascii?Q?oKyRAfcsOkrckWYSUrJBkDMn8VMM4reb9tYZoMWDI+aIzTRMJ+JVjBeb+jfR?=
+ =?us-ascii?Q?c2KFxuqAlF4AONriUDdAf8tqeQrEfqiCMSJWydhfwr5716P1EBkEVzJ9j0wd?=
+ =?us-ascii?Q?E1FlH49ECwwcBYRG1wUBj6MS18wvlRsXaHHdJHsLIpV1dwxwAoax4gT6vX/c?=
+ =?us-ascii?Q?naKx47J8ArX2u34cBDR0/Hg7DigTL6fDcW3b1LVybHhcSxftAKURoYb+XHym?=
+ =?us-ascii?Q?pE/tDNIsNrV3jc5kLDyEMtUxl/3q52mJxlyXZw1I4nZbaLJNw3uYcjTHSFfn?=
+ =?us-ascii?Q?jIBaMWbNQHQFRvEAXHoQWnf5NPMgidpLc3SySdWcrOiVAd1M?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qbman: order the probed flags with
- release/acquire
-To: jaidevshastri@vt.edu
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260921-mb-qbman-v1-1-35f3321aa330@vt.edu>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260921-mb-qbman-v1-1-35f3321aa330@vt.edu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d605d4d-89dc-468d-0a17-08df189520f4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Sep 2026 10:34:49.1846
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8MQytAxI0BLZN5iyyYYNdoYOfV/0U+sbhmSMKBCvoFky0Vn3DG/XSbZVV+B5Q9ha0wWgCxaPj8+bQVOGIVZMSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7197
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_033455_529588_D6B3CCC7 
+X-CRM114-Status: GOOD (  43.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,158 +151,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> > ntmp_ipft_delete_entry() may fail, but the driver ignored its return
+> > value, so a failed deletion left the IPFT entry untracked and
+> > impossible to clean up later. This is harmless today because the port
+> > also disables its ingress port filter table lookup, so the leftover
+> > entry is never matched.
+>=20
+> [Severity: Medium]
+> Is the "harmless today" statement accurate for the replacement path that
+> this patch reorders?
 
-Le 22/09/2026 à 02:47, Jaidev Shastri via B4 Relay a écrit :
-> [Vous ne recevez pas souvent de courriers de devnull+jaidevshastri.vt.edu@kernel.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> From: Jaidev Shastri <jaidevshastri@vt.edu>
-> 
-> dpaa_eth, caam and the portal drivers poll qman_is_probed(),
-> bman_is_probed(), qman_portals_probed() and bman_portals_probed() before
-> they touch the state the probe functions set up: qman_ip_rev, the CCSR
-> and portal register maps, the FQD and PFDR bases, affine_portals and the
-> pool allocators.
-> 
-> Each flag is set with a plain store at the end of its probe function and
-> read with a plain load in the exported accessor. The stores that build
-> the state are not ordered before the store to the flag, and the
-> consumer's load of the flag is not ordered before its loads of the
-> state. A consumer probing on another CPU can see the flag set and then
-> read state that is still stale or zeroed, and program the hardware with
-> it.
-> 
-> Set the flags with smp_store_release() and read them with
-> smp_load_acquire(). The error paths storing -1 keep their plain stores:
-> a consumer that sees -1 fails its own probe without touching the state.
-> 
-> Found with MBCheck, a static herd7-based memory consistency checker.
+The harmless meaning here is that when host flooding is disabled, even if
+hardware entries are not deleted, the flooding rules that have not been
+deleted will not take effect because IPFT lookup is disabled. I will improv=
+e
+the commit message to make it clear.
 
-Sashiko made comments, can you have a look ?
+>=20
+> In the pre-patch netc_port_set_host_flood(), the new rule was added
+> first, which sets np->ipft_hf_eid to the new entry ID and writes
+> NETC_PIPFCR =3D PIPFCR_EN, and only afterwards was the old ID deleted:
+>=20
+> 	old_entry_id =3D np->ipft_hf_eid;
+>=20
+> 	if (netc_port_add_host_flood_rule(np, uc, mc)) {
+> 	...
+> 	/* Remove the old host flood entry */
+> 	netc_port_remove_host_flood(np, old_entry_id);
+>=20
+> The old helper only disabled the lookup when the deleted ID matched the
+> tracked one:
+>=20
+> 	if (np->ipft_hf_eid =3D=3D entry_id)
+> 		disable_host_flood =3D true;
+>=20
+> Since np->ipft_hf_eid had already been updated to the new entry, that
+> condition was false here, so NETC_PIPFCR =3D 0 was never written.  Doesn'=
+t
+> that mean a failed delete left an active, untracked IPFT redirect entry
+> with the lookup still enabled, rather than an entry that "is never
+> matched"?
+>=20
+> For the promisc to allmulti-only transition (uc=3D1,mc=3D1 to uc=3D0,mc=
+=3D1) the
+> stale entry has an empty DMAC mask, so it matches every frame from that
+> source port and redirects it to the host.  Would the port then stay
+> effectively promiscuous after userspace disabled promiscuous mode, with
+> the ternary IPFT entry leaked permanently because its ID is no longer
+> recorded anywhere?
+>=20
+> The delete can fail in practice: ntmp_ipft_delete_entry() ->
+> ntmp_delete_entry_by_id() -> ntmp_alloc_data_mem() can return -ENOMEM
+> from dma_alloc_coherent(GFP_KERNEL), and netc_xmit_ntmp_cmd() can
+> return
+> -EBUSY, -ETIMEDOUT (read_poll_timeout() on cbdr->regs.cir) or -EIO.
+>=20
+> Could the changelog be updated to describe the actual impact?
+>=20
+> > Signed-off-by: Wei Fang <wei.fang@nxp.com>
+>=20
+> [Severity: Low]
+> Should this carry a Fixes: tag?  The ignored return value together with
+> the add-before-delete ordering came in with commit
+> 46d6407692c80b258ecba3af831130a6f6e2feea ("net: dsa: netc: add FDB,
+> STP, MTU, port setup and host flooding support"), which is already in
+> the tree, and the effect described above (a port keeping a redirect the
+> current RX flags no longer request, plus a leaked TCAM entry) is user
+> visible.
 
-https://sashiko.dev/#/patchset/20260921-mb-qbman-v1-1-35f3321aa330@vt.edu
+This is only a theoretical issue; we haven't encountered this problem in
+practice. I think it's acceptable as an improvement rather than a bug fix.
 
-Christophe
+>=20
+> > diff --git a/drivers/net/dsa/netc/netc_main.c
+> b/drivers/net/dsa/netc/netc_main.c
+> > index c590931a4e1b..082ed9405868 100644
+> > --- a/drivers/net/dsa/netc/netc_main.c
+> > +++ b/drivers/net/dsa/netc/netc_main.c
+>=20
+> [ ... ]
+>=20
+> > @@ -1761,32 +1755,31 @@ static int netc_port_add_host_flood_rule(struct
+> netc_port *np,
+> >  	return err;
+> >  }
+> >
+> > -static void netc_port_remove_host_flood(struct netc_port *np, u32 entr=
+y_id)
+> > +static int netc_port_remove_host_flood(struct netc_port *np)
+> >  {
+> >  	struct netc_switch *priv =3D np->switch_priv;
+> > -	bool disable_host_flood =3D false;
+> > +	u32 entry_id =3D np->ipft_hf_eid;
+> > +	int err;
+> >
+> >  	if (entry_id =3D=3D NTMP_NULL_ENTRY_ID)
+> > -		return;
+> > +		return 0;
+> >
+> > -	if (np->ipft_hf_eid =3D=3D entry_id)
+> > -		disable_host_flood =3D true;
+> > +	err =3D ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
+> > +	if (err)
+> > +		return err;
+> >
+> > -	ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
+> > +	np->ipft_hf_eid =3D NTMP_NULL_ENTRY_ID;
+> > +	np->uc =3D false;
+> > +	np->mc =3D false;
+> > +	netc_port_wr(np, NETC_PIPFCR, 0);
+>=20
+> [ ... ]
+>=20
+> > @@ -1803,19 +1801,24 @@ static void netc_port_set_host_flood(struct
+> dsa_switch *ds, int port,
+> >  		return;
+> >
+> >  	/* IPFT does not support in-place updates to the KEYE element,
+> > -	 * we need to add a new entry and then delete the old one. So
+> > -	 * save the old entry ID first.
+> > +	 * we need to delete the old one and then add the new rule. If
+> > +	 * the deletion fails, return immediately.
+> >  	 */
+> > -	old_entry_id =3D np->ipft_hf_eid;
+> > -
+> > -	if (netc_port_add_host_flood_rule(np, uc, mc)) {
+> > -		dev_err(ds->dev, "Failed to add host flood rule on port %d\n",
+> > +	if (netc_port_remove_host_flood(np)) {
+> > +		dev_err(ds->dev,
+> > +			"Failed to delete old host flood rule on port %d\n",
+> >  			port);
+> > +
+> >  		return;
+> >  	}
+> >
+> > -	/* Remove the old host flood entry */
+> > -	netc_port_remove_host_flood(np, old_entry_id);
+> > +	/* Restoring the previous configuration is pointless because
+> > +	 * .port_set_host_flood() returns void, so the upper layer cannot
+> > +	 * detect the error and the RX flags have changed.
+> > +	 */
+> > +	if (netc_port_add_host_flood_rule(np, uc, mc))
+> > +		dev_err(ds->dev,
+> > +			"Failed to add host flood rule on port %d\n", port);
+>=20
+> [Severity: Medium]
+> With the new ordering, what happens to host flooding when the add fails?
+>=20
+> netc_port_remove_host_flood() has already deleted the entry and cleared
+> the tracked state:
+>=20
+> 	np->ipft_hf_eid =3D NTMP_NULL_ENTRY_ID;
+> 	np->uc =3D false;
+> 	np->mc =3D false;
+> 	netc_port_wr(np, NETC_PIPFCR, 0);
+>=20
+> netc_port_add_host_flood_rule() can then fail on kzalloc_obj() returning
+> NULL, or on ntmp_ipft_add_entry() returning -ENOMEM/-EBUSY/-ETIMEDOUT/
+> -EIO from the command BD transaction.  In that case the port ends up
+> with no host flood entry at all while the netdev still has IFF_PROMISC
+> or IFF_ALLMULTI set, and only a dev_err() is emitted.
+>=20
+> Before this change the add ran first, so an add failure left the
+> previous working rule installed and np->uc/np->mc untouched.
+>=20
+> Since .port_set_host_flood() is void and is only reached from
+> dsa_user_change_rx_flags() -> dsa_user_manage_host_flood(), nothing
+> reports or retries the failure.  Does host unicast/multicast flooding
+> for that port then stay silently off until userspace toggles the RX
+> flags again?
+>=20
+> The comment says restoring the previous configuration is pointless.  For
+> the common promisc to allmulti transition the old rule is a superset of
+> what is now requested, so wouldn't keeping it still satisfy the new
+> request and be better than delivering nothing?
 
-> 
-> Signed-off-by: Jaidev Shastri <jaidevshastri@vt.edu>
-> ---
->   drivers/soc/fsl/qbman/bman_ccsr.c   |  6 ++++--
->   drivers/soc/fsl/qbman/bman_portal.c |  6 ++++--
->   drivers/soc/fsl/qbman/qman_ccsr.c   | 11 +++++++++--
->   drivers/soc/fsl/qbman/qman_portal.c |  6 ++++--
->   4 files changed, 21 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/soc/fsl/qbman/bman_ccsr.c b/drivers/soc/fsl/qbman/bman_ccsr.c
-> index b0f26f6f7..c5be35aba 100644
-> --- a/drivers/soc/fsl/qbman/bman_ccsr.c
-> +++ b/drivers/soc/fsl/qbman/bman_ccsr.c
-> @@ -180,7 +180,8 @@ static irqreturn_t bman_isr(int irq, void *ptr)
-> 
->   int bman_is_probed(void)
->   {
-> -       return __bman_probed;
-> +       /* Pairs with smp_store_release() in fsl_bman_probe(). */
-> +       return smp_load_acquire(&__bman_probed);
->   }
->   EXPORT_SYMBOL_GPL(bman_is_probed);
-> 
-> @@ -279,7 +280,8 @@ static int fsl_bman_probe(struct platform_device *pdev)
->                  return ret;
->          }
-> 
-> -       __bman_probed = 1;
-> +       /* Order bm_ccsr_start, bman_ip_rev and the pool allocator before the flag. */
-> +       smp_store_release(&__bman_probed, 1);
-> 
->          return 0;
->   };
-> diff --git a/drivers/soc/fsl/qbman/bman_portal.c b/drivers/soc/fsl/qbman/bman_portal.c
-> index 4d7b9caee..056fe3fbb 100644
-> --- a/drivers/soc/fsl/qbman/bman_portal.c
-> +++ b/drivers/soc/fsl/qbman/bman_portal.c
-> @@ -90,7 +90,8 @@ static int bman_online_cpu(unsigned int cpu)
-> 
->   int bman_portals_probed(void)
->   {
-> -       return __bman_portals_probed;
-> +       /* Pairs with smp_store_release() in bman_portal_probe(). */
-> +       return smp_load_acquire(&__bman_portals_probed);
->   }
->   EXPORT_SYMBOL_GPL(bman_portals_probed);
-> 
-> @@ -157,7 +158,8 @@ static int bman_portal_probe(struct platform_device *pdev)
->          spin_lock(&bman_lock);
->          cpu = cpumask_first_zero(&portal_cpus);
->          if (cpu >= nr_cpu_ids) {
-> -               __bman_portals_probed = 1;
-> +               /* All CPU-bound portals are initialised and in affine_bportals. */
-> +               smp_store_release(&__bman_portals_probed, 1);
->                  /* unassigned portal, skip init */
->                  spin_unlock(&bman_lock);
->                  goto check_cleanup;
-> diff --git a/drivers/soc/fsl/qbman/qman_ccsr.c b/drivers/soc/fsl/qbman/qman_ccsr.c
-> index aa5348f49..b46cfb964 100644
-> --- a/drivers/soc/fsl/qbman/qman_ccsr.c
-> +++ b/drivers/soc/fsl/qbman/qman_ccsr.c
-> @@ -711,7 +711,8 @@ static int qman_resource_init(struct device *dev)
-> 
->   int qman_is_probed(void)
->   {
-> -       return __qman_probed;
-> +       /* Pairs with smp_store_release() in fsl_qman_probe(). */
-> +       return smp_load_acquire(&__qman_probed);
->   }
->   EXPORT_SYMBOL_GPL(qman_is_probed);
-> 
-> @@ -864,7 +865,13 @@ static int fsl_qman_probe(struct platform_device *pdev)
->          if (ret)
->                  return ret;
-> 
-> -       __qman_probed = 1;
-> +       /*
-> +        * Publish the flag only after every store made above (qman_ip_rev,
-> +        * qm_ccsr_start, the FQD/PFDR bases, the work queue) is visible to
-> +        * the consumers that poll qman_is_probed() and then call into
-> +        * qman_set_sdest(), qman_liodn_fixup(), qman_alloc_*().
-> +        */
-> +       smp_store_release(&__qman_probed, 1);
-> 
->          return 0;
->   }
-> diff --git a/drivers/soc/fsl/qbman/qman_portal.c b/drivers/soc/fsl/qbman/qman_portal.c
-> index 456ef5d5c..181c0f373 100644
-> --- a/drivers/soc/fsl/qbman/qman_portal.c
-> +++ b/drivers/soc/fsl/qbman/qman_portal.c
-> @@ -175,7 +175,8 @@ static int qman_online_cpu(unsigned int cpu)
-> 
->   int qman_portals_probed(void)
->   {
-> -       return __qman_portals_probed;
-> +       /* Pairs with smp_store_release() in qman_portal_probe(). */
-> +       return smp_load_acquire(&__qman_portals_probed);
->   }
->   EXPORT_SYMBOL_GPL(qman_portals_probed);
-> 
-> @@ -251,7 +252,8 @@ static int qman_portal_probe(struct platform_device *pdev)
->          spin_lock(&qman_lock);
->          cpu = cpumask_first_zero(&portal_cpus);
->          if (cpu >= nr_cpu_ids) {
-> -               __qman_portals_probed = 1;
-> +               /* All CPU-bound portals are initialised and in affine_portals. */
-> +               smp_store_release(&__qman_portals_probed, 1);
->                  /* unassigned portal, skip init */
->                  spin_unlock(&qman_lock);
->                  goto check_cleanup;
-> 
-> ---
-> base-commit: 93f51579e7df248780214094418f205253383cc5
-> change-id: 20260921-mb-qbman-84f56ef0f84c
-> 
-> Best regards,
-> --
-> Jaidev Shastri <jaidevshastri@vt.edu>
-> 
-> 
+The failure mode you describe is real, but it's a deliberate trade-off:
+
+IPFT does not support in-place updates to the KEYE element, so the old
+entry must be deleted before the new one is added. Keeping the "add-first,
+delete-later" order would force each port to track two or more host flood
+rules when the old deletion fails, which this patch intentionally moves awa=
+y
+from - especially since IPFT will soon serve other features (PTP trapping,
+flow policing) where disabling the port's whole lookup is no longer accepta=
+ble.
+
+The impact is bounded. An add failure only happens under memory pressure
+or a command-BD error (rare), and the effect is that the port's host floodi=
+ng is
+temporarily off until userspace toggles the RX flags again - a recoverable
+functional degradation, not a memory-safety issue.
+
+>=20
+> [Severity: Low]
+> Separately, is the window with no rule installed a concern even when
+> both operations succeed?  Between the delete and the add the port has no
+> host flood redirect, and the gap covers a full synchronous NTMP command
+> BD transaction for the delete (dma_alloc_coherent(GFP_KERNEL) plus
+> netc_xmit_ntmp_cmd() polling through read_poll_timeout()), a
+> kzalloc_obj() that may enter direct reclaim, and a second command BD
+> transaction for the add, which only re-arms the redirect at the end:
+>=20
+> 	err =3D ntmp_ipft_add_entry(&priv->ntmp, host_flood);
+> 	if (err)
+> 		goto free_host_flood;
+> 	...
+> 	/* Enable ingress port filter table lookup */
+> 	netc_port_wr(np, NETC_PIPFCR, PIPFCR_EN);
+>=20
+> During that interval, frames that only reach the CPU through the host
+> flood redirect (multicast under IFF_ALLMULTI when going from
+> (uc=3D0,mc=3D1) to (uc=3D1,mc=3D1), or unknown-DA unicast under IFF_PROMI=
+SC)
+> are dropped.  The old add-then-delete ordering kept a matching entry
+> armed at every instant.
+
+Yes, the window is real, but I suppose it is acceptable when switching the
+configuration. As stated above, the "delete-first, add-later" order is a
+trade-off. Otherwise, each port may need to track two or more host flood
+rules when the old deletion fails.
+
+>=20
+> [ ... ]
+>=20
+> > @@ -2015,6 +2024,11 @@ static int netc_port_bridge_join(struct
+> dsa_switch *ds, int port,
+> >  disable_mlo:
+> >  	netc_port_set_mlo(np, MLO_DISABLE);
+> >
+> > +	if (netc_port_add_host_flood_rule(np, uc, mc))
+> > +		dev_err(ds->dev,
+> > +			"Failed to restore host flood rule on port %u\n",
+> > +			port);
+>=20
+> [Severity: Low]
+> This isn't a bug, but port is declared int by the .port_bridge_join
+> prototype, and the two other messages added by this patch use %d for
+> the same value ("Failed to delete old host flood rule on port %d" and
+> "Failed to add host flood rule on port %d").  Should this one use %d as
+> well?
+
+Yes, this should be improved.
 
 
