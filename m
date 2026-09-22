@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F1FC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F3AC982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 06:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLtGitIi2OiQg65dHRRJxop72DcmDI+o2e1E/zKQ5w4=; b=IuhJzxIKzvnhNlbKU6rJiAODWr
-	7DcZFI635U7huKBK3zCwt3fY9j1HVr+cNvAcPiXPB0xYiTtre0G8gr/+N7InWcKNfx92Aoc76+yjD
-	4WqrOCi7uTRAaNvlsoddtwL3DNj3ahlMwl8K9Y0o0HtENITo+N2RmYdyFn8coQxvJw3sTxLAoOAzV
-	fjX6Ux7n6Np+DT2rWkPe1CqUuBcGXBS1wkR6W6xJKQSBmAn7wydmz4g5AR+oKZjUvJI/XeN8MfTvI
-	SJbqOwWQJZ4b3H7yp7zPwEIAf/34zkA1SE+4hVm/A5+0wV6ALGdAmcIo/gLoXi8cZ/xDxAIRYwflT
-	kUf35jAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1d/dvcHxVamna9owaFeoSOXs3fDbPWjgtvVHJ9x58IE=; b=0utMUQUvzhW6zQTmyj1O0Ly0bg
+	N/0QthwWK3WbicnkBk6GhBKkUmDtk4gk+bjthDIt+YaRaIRccoYT8k1SNtLSulMqR9wcLL6QK4AW2
+	jg8SOxnwUy8+XsOzAyXw1z/+0umGfk6rMs0ZaFxgjB+wvzwNk6Ey25X+L9D9pNC+BW4cfUmTXh7iN
+	YPoDzuRDZlE6alxqNoNGTvXJuMDMbN8jmUAwqOg8fxMT3vfEYl/z8BsEGx+2Q0hNamsJzptMJn5OG
+	Z4pIAk/9rglPyk64z01VJNkzUYswdyLqO8l8MFc25pq/dVv9aK1YK1SiicJwK0AdVZF3DltHYdUO/
+	RTK3rH3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uP8-00000004PUZ-05qp;
-	Tue, 22 Sep 2026 06:55:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8uR7-00000004PlV-1GtP;
+	Tue, 22 Sep 2026 06:57:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8uP7-00000004PUF-1oNS
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 06:55:01 +0000
+	id 1x8uR6-00000004PlK-1VYV;
+	Tue, 22 Sep 2026 06:57:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1355340508;
-	Tue, 22 Sep 2026 06:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D001F000FF;
-	Tue, 22 Sep 2026 06:55:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DDD1543C09;
+	Tue, 22 Sep 2026 06:57:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14B991F00898;
+	Tue, 22 Sep 2026 06:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790060100;
-	bh=wLtGitIi2OiQg65dHRRJxop72DcmDI+o2e1E/zKQ5w4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y+XhOINwZrcWlKpSEiXQdt3+zD3L2auPC/GvaE9XFlhSeO55CilXFon618dPN5Bdv
-	 uxufpsWcq93lGy2ApXIVLgqzT4PjyICZ1lbQpGF0GOaBTqi6nWl6MQ3RkEIcLDiE2U
-	 1ckswNCmhQBlLRHZCgtcbzXOGstotD8lln9xpOUS9r9QXeAGj/Cm0nBiV9oCKAxQFl
-	 eQYTiy4mTW3KSjJdc6ebQ7N+m3pkfwVFX4ENoNkHpVEfIwmu2f0wj+6X8n/yRhXl4c
-	 TPqME9qdENyh0vk1zkBEOzJMe9tLlQXGXnxJ2lbdnHBmDNjtmshkXm0g8gZfz0evXa
-	 ErmpPYPKqeVTQ==
-Date: Mon, 21 Sep 2026 23:54:59 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shannon Zhao <shannon.zhao@linaro.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 09/21] KVM: arm64: PMU: Recreate events after
- MDCR_EL2 changes
-Message-ID: <arImQ6SG7s1k9uJk@kernel.org>
-References: <20260920-hybrid-v11-0-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
- <20260920-hybrid-v11-9-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260920-hybrid-v11-9-03618771b0e1@rsg.ci.i.u-tokyo.ac.jp>
+	s=k20260515; t=1790060223;
+	bh=1d/dvcHxVamna9owaFeoSOXs3fDbPWjgtvVHJ9x58IE=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=TDo0ofYbNdfgzlG8qaMtA+hOaXzI2f+8O7RhKvtC64oAxw5fY99+Xnmpn4wuSn1k/
+	 UFu1OOvp2Y+3cDkZCdyu8ToN+hSihOfZ6cIqvShfoUL3SY+CbYSlsweV1In9DuAobn
+	 STQEIh6E7UqqP0lkiUPyBOVRhKndm6Dg5wROir+eZsX5I+1nyyew2NF26rf7yj3rRE
+	 vIkNS3s0GDFHUxy2TYFchLghJvCIFbA6HR/9eZOTUGyPoP4f1wgH1CTIXFhybpxNEM
+	 GMK6KQfYL+R/4HGOjBKfQN89DJMtXwJEDfsFr4ODWV1iocn/bH64X/PssKOFOp6jIC
+	 6rraVpPj7OLzg==
+Message-ID: <3925411c892a96d8e72872191a915deb@kernel.org>
+Date: Tue, 22 Sep 2026 06:56:59 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 05/19] drm/panel: embed a drm_bridge into every
+ drm_panel
+In-Reply-To: <20260916-drm-bridge-every-panel-v3-5-83afb4f1a707@bootlin.com>
+References: <20260916-drm-bridge-every-panel-v3-5-83afb4f1a707@bootlin.com>
+Cc: asahi@lists.linux.dev, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-tegra@vger.kernel.org, "Albert
+ Esteve" <aesteve@redhat.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Anusha
+ Srivatsa" <asrivats@redhat.com>, "David Airlie" <airlied@gmail.com>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, "Fabio Estevam" <festevam@gmail.com>, "Frank
+ Li" <Frank.Li@nxp.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Inki
+ Dae" <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jessica Zhang" <jesszhan0024@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Laurentiu Palcu" <laurentiu.palcu@oss.nxp.com>, "Linus
+ Walleij" <linusw@kernel.org>, "Lucas Stach" <l.stach@pengutronix.de>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maxime
+ Ripard" <mripard@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Paul
+ Cercueil" <paul@crapouillou.net>, "Paul Kocialkowski" <paulk@sys-base.io>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Randy Dunlap" <rdunlap@infradead.org>, "Robert
+ Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Sean
+ Paul" <sean@poorly.run>, "Shuah Khan" <skhan@linuxfoundation.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,64 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 20, 2026 at 08:15:50PM +0900, Akihiko Odaki wrote:
-> +void kvm_pmu_apply_mdcr(struct kvm_vcpu *vcpu, u64 old, u64 val)
-> +{
-> +	u64 changed = old ^ val;
-> +
-> +	/*
-> +	 * HPMN determines which counters HPMD and HLP apply to. Changes to
-> +	 * these fields require new perf event filters and sample periods.
-> +	 */
-> +	if (changed & (MDCR_EL2_HPMN | MDCR_EL2_HPMD | MDCR_EL2_HLP))
-> +		kvm_pmu_request_recreate(vcpu);
-> +	else if (changed & MDCR_EL2_HPME)
-> +		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +}
-> +
+On Wed, 16 Sep 2026 15:45:29 +0200, Luca Ceresoli wrote:
+> Adding a drm_panel does currently not add a panel_bridge wrapping
+> it. Usually the panel_bridge creation happens later, when some other driv=
+er
+> (e.g. the previous bridge or the encoder) calls *_of_get_bridge() and the
+> following element in the pipeline is a panel.
+>=20
+>=20
+> [ ... ]
 
-Urgh... I'm not a fan of this. Can you just modify kvm_vcpu_reload_pmu()
-to discard all backing perf events and recompute them only for enabled
-PMCs? We set KVM_REQ_RELOAD_PMU pretty rarely.
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
->  	__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, &=, mask);
->  	__vcpu_rmw_sys_reg(vcpu, PMINTENSET_EL1, &=, mask);
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 75624725adf1..7dd2cafce247 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3114,17 +3114,22 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
->  	}
->  
->  	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
-> -
-> -	/*
-> -	 * Request a reload of the PMU to enable/disable the counters
-> -	 * affected by HPME.
-> -	 */
-> -	if ((old ^ val) & MDCR_EL2_HPME)
-> -		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +	kvm_pmu_apply_mdcr(vcpu, old, val);
->  
->  	return true;
->  }
-
-> +static int set_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-> +		    u64 val)
-> +{
-> +	u64 old = __vcpu_sys_reg(vcpu, MDCR_EL2);
-> +
-> +	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
-> +	kvm_pmu_apply_mdcr(vcpu, old, val);
-> +
-> +	return 0;
-> +}
-> +
-
-Just keep the old ^ new test inline for access_mdcr() and set the
-request unconditionally from set_mdcr(). In the usual case
-KVM_REQ_RELOAD_PMU is already set on a vCPU that userspace is restoring.
-
-Thanks,
-Oliver
+Thanks!
+Maxime
 
