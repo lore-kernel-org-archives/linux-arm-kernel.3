@@ -4,64 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734ADC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33964C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 14:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ly2pXhe/Sa/cBSQyrIeNJRWXh0gmta1ocy1JJ2ys6wQ=; b=cC2TAyh4QSQ3Zs/DX69+b4XmWg
-	Pxmg/N7d9emMzhf86GN9JwkHE39DKdhbF4NCDR3MMJdYRja6Kf7lbmc2+b+ItAshFyGWtDak0htoI
-	+HBK4V6ahWOLQ5uMRq3tQRXRHbSxvgN2NhGIVwwH9vR2Alq7Yc3CTypUMJVbw9JUC0dFR4/l54Rm7
-	PI4f/X2CMsraxQk6gbyWLuRhILmnLK4XXYYnCgsc9gL/iquOBbPD8a5folh9yZlGHlcg6QrCZvPRb
-	y4FWGsxKkwSU2Qn0rYjciiwUzv0ukhXd9p0i7NAVS5oBB87B9LoQ61tV8gGDfCdR+QdE1tRAyeIXC
-	qPpg9OQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZqXYRXc9e9cgoGbEMUIgOOz7rEsW/LXxdJ5mHxL7UXE=; b=g+McrMxSagcHLAd87P6kXkPvyD
+	oOIv6MyJqtRDuIJHIYdfRICRR92ZqgWrJUBhdHeOeVcA0W6Z7OtfNo8ikRLTXaeuCBgB5dhbHHzOJ
+	1Sn7tZzY6B8P+Qk4VVR3N2IyEHLnY2F0qReplt5lrxLdt4oPisInFQbVk1dmZr9+IYNSxU0q2BIse
+	6IfUKIlhRjFuAkcJWSgLuczHsdlLDIOBWmKlO4ZrAJ4EyZnyftv4UcJPBfif/9JFbBtVJK+DnaTmU
+	Hw+GAEGFKPky2YrgIfgbtRqlMifB+M+LlUbXIvJiQCXFWHl8MlAuBf/A3LGlF807mQGCAyrbj1Dtg
+	oh26r/HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91PZ-00000005fia-1QF7;
-	Tue, 22 Sep 2026 14:23:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x91Qo-00000005g2I-05J0;
+	Tue, 22 Sep 2026 14:25:14 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x91PV-00000005fhs-0Rk8
+	id 1x91Ql-00000005g1p-1z8s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 14:23:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3799F60E05;
-	Tue, 22 Sep 2026 14:23:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CB251F000FF;
-	Tue, 22 Sep 2026 14:23:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790087031;
-	bh=Ly2pXhe/Sa/cBSQyrIeNJRWXh0gmta1ocy1JJ2ys6wQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Jz7rmf5av2MA4moOZ2rh+BkTmQFJ308+vC8s56Vemcm6jUo2xGQVtmAfjlFbAv7dE
-	 Et2VMG1mgdfqvcMnGcNVdLfvnTYIiNRLmpK5U1CgdJSr3quVMCjxwqjC7ze8/jpdx6
-	 nfk6ZOchs08d+l/lQtK2xgpx8hWd1HWs9xWPxQBJPmu8oaIZzC/7sZIHnPjIbLuoFn
-	 pFtUiFZnLskFLtHrKuv9OyGKEVGce3LWg4KJ4Ram6wtrHSXNz++b65g3k/U7Ne3deF
-	 9iIfBjiZFAjHW4gPMxRxC4N9TPqwlr3JtL8dCpAX4B/cOItQskfIdgrNv+NpQ9CoN0
-	 bLiqcJVuWyPkQ==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 4EDF91AC56C6; Tue, 22 Sep 2026 15:23:48 +0100 (BST)
-Date: Tue, 22 Sep 2026 16:23:48 +0200
-From: Mark Brown <broonie@kernel.org>
-To: joakim.zhang@cixtech.com
-Cc: lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, perex@perex.cz, tiwai@suse.com,
-	p.zabel@pengutronix.de, cix-kernel-upstream@cixtech.com,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
-Message-ID: <arKPdM4bYsAeAKtr@sirena.co.uk>
-References: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
- <20260922112134.4167305-2-joakim.zhang@cixtech.com>
+	Tue, 22 Sep 2026 14:25:12 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68MBOsDi3446392;
+	Tue, 22 Sep 2026 09:24:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=ZqXYRXc9e9cgoGbEMUIgOOz7rEsW/LXxdJ5mHxL7U
+	XE=; b=FfEl5QiwGmQvdYhSoy2LIWhpPLxBLgs97reiJZrfN5AelT6ERqeWvEsyn
+	offq3lBQ89WkfrKnrvpku3xULTDaTPrK8HY449HUINXgLxHlnOgD9NwI6luj+ZtB
+	uUeJ9gfiCOzBTyhHuUZHKDf5JiXuIXUADepapOf2NvOyj7a56G8vlTNso9fmaiKz
+	+79shennVbn4jzMa2IakKF7fT+f0oysoaUoqRytw+tFMSJvtJ0V81rKptc9Bc7Tw
+	/QwRkQfPzkmQET1+bR1YqAWYKNang79sO1hyl0CfFSeNjwTg48TaXA1e9CVFf5tX
+	jSLT6RQpkGKoJQ9zio7JndWjkUQ3w==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011000.outbound.protection.outlook.com [52.101.62.0])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gupea1sgv-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 22 Sep 2026 09:24:50 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x4LDCYd2JG1RX3jLrabj7QOBStbx0UgtjtO70TJKN+YtlAwAixST6s4Lux09JqsvQ8gSA5h0qdzyQ4rHHjkSIOLQT7iVkDjSwxlDR4u0bOxgqTNG5dDUvbw5wuES09dkERS4zT7316PUJPIXnfACInXdeEb2JKh5CtQu9SN4e+940eHpznq2dLcDp1iyJOFeJaT+Xf75I6FSr6+7+4CFoIh1BBkk+iTY/RQvR489IOp3+0vE8Uyee3cBKwKpPZ8lPoDu3ws8i8Er4WRcRRltzY8AB1K+0eLbN3yzghF94Qo2IPaMWGpZISCaqtpVC1xi25CZFl6VNSQo7DrBMv1oxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZqXYRXc9e9cgoGbEMUIgOOz7rEsW/LXxdJ5mHxL7UXE=;
+ b=LKlEL049GwdoUEOM2p0UYJvJ2IL65HSbu4GLIamwpwf+XJ97cRl9AtUKwx6aS27gMhFs4Pl0q3f1zdUj+EdKFwOrOfdxChOz7bYvSzAdFsItrTD8AsR+h5CoYk19DeEmBLx6rdIhzSuBiQpP9TC3ie0CxFfL85TN0F8JXtpWMc8egdcu8qpuXtgNA/9COYlL9P4XYYXWsMR5MJjSqyOpMbVS7raxJEXvGbfslJKZVRMubNJQ6YL4JFIDZdlcpKRwR4q/BEhEsR8PbmqKCe4lE02C8rFs+t2fyiMSXZ8wrfqhSDS3/hcpRrAvcbr0/8Y7OnawCyneWPBNPcuQUBRNWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZqXYRXc9e9cgoGbEMUIgOOz7rEsW/LXxdJ5mHxL7UXE=;
+ b=XuST4DmCnrePnn7ngIq5RnBEpqwOnaFb+ugIbOb3SMvtZkrwO7S46g8RvPP2sH5anQblfioHodfFK7v6tGKCeKMny599NwfhsATFpCUyTKSkmD3dqHPtgYL19FjtF8QQNG7YUCkQVPnbvB7Yb4Zr/vUbtvg5IbdhozRHlfSfRWs=
+Received: from BN9PR03CA0908.namprd03.prod.outlook.com (2603:10b6:408:107::13)
+ by IA0PR10MB7326.namprd10.prod.outlook.com (2603:10b6:208:40d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Tue, 22 Sep
+ 2026 14:24:37 +0000
+Received: from BN3PEPF0000B06B.namprd21.prod.outlook.com
+ (2603:10b6:408:107:cafe::95) by BN9PR03CA0908.outlook.office365.com
+ (2603:10b6:408:107::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Tue,
+ 22 Sep 2026 14:24:37 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BN3PEPF0000B06B.mail.protection.outlook.com (10.167.243.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.0 via Frontend Transport; Tue, 22 Sep 2026 14:24:37 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 22 Sep
+ 2026 09:24:08 -0500
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 22 Sep
+ 2026 09:24:07 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 22 Sep 2026 09:24:07 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68MEO7eU126768;
+	Tue, 22 Sep 2026 09:24:07 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Judith Mendez <jm@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Garrett Giordano <ggiordano@phytec.com>,
+        Wadim Egorov
+	<w.egorov@phytec.de>,
+        Robert Nelson <robertcnelson@gmail.com>,
+        Tony Lindgren
+	<tony@atomide.com>,
+        Nora Schiffer <nora.schiffer@ew.tq-group.com>,
+        "Stefano
+ Radaelli" <stefano.r@variscite.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah
+	<m-shah@ti.com>
+Subject: Re: [PATCH v4 00/15] MMC pinmux configuration fixes
+Date: Tue, 22 Sep 2026 09:24:06 -0500
+Message-ID: <179008697417.4042199.9574159763053470223.b4-ty@b4>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20260909214743.899477-1-jm@ti.com>
+References: <20260909214743.899477-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UbH3tjqyzUf1AEj7"
-Content-Disposition: inline
-In-Reply-To: <20260922112134.4167305-2-joakim.zhang@cixtech.com>
-X-Cookie: Too clever is dumb.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06B:EE_|IA0PR10MB7326:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34f7ed20-2b8c-4729-ddb6-08df18b53ba5
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|82310400026|36860700016|23010399003|13003099007|3023799007|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: I90RUzEvFzkxnZan8zVQjcHK7JdsGv7YVUdLaRu5fscltoNOUtUpGitRXgqDRRFQaHBjVzIphWwvI0n9nrItC7ormg/IebHIRtzdSw++10onqD8z+oxAzYl3YzNE1e3Z0h8XHMeJ+uaNVPSCA+X8zrJbTTUMSM+WuDhs3hrKJuM4FNO8pSAvO3LgOHRhrKB6ex4obCfednN9vmJAwhaR1TblO9N5rIavpPpw0QEcx7STVNPyw0WA5TFMKx7Vc4AbKsTWcL5XEM+KPHGemYv+jDMm0s93qGueg3GfLlbioABAO8hximlswDHctSdnEJvXmTe+pDdmXkufiQhfEfWZUAwO4IbTr2kzUMrTuHAoiX4LwgRAEjIXDtLMXUHRTp2fRORRuyA4K2AGZUdYuslfr78/4NxZv21UuV3Wt8SxN1kS+wbsraZ1T5PB9hXEqpGwB6VUR6MzlOCXR3qj05PeA42J9eQ4N8cQEVXutDZhqVCtNua6efTYvQVTeOg3b/fNf/ERo/wzoDoVHr01w+aOF75lbM21v5FLEkGK7d+EK4BHvO59SCGESJp3W21Tei2TAVfWiK0e10PsKpve3d9hGmYg4bjyoh4iG21/oyT7ELDrW/+CgFhSfvYBVAbiLDV60+rG+FMfKqQbcdf5rqfvxo2kai5ExQwlF1wDQyih0WdhV0/jty0+yKtCKGFvlplo98hKN/vlBB2q+5t3pVnudQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(82310400026)(36860700016)(23010399003)(13003099007)(3023799007)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: z69LhTKFbEsZOAqoK3abpT6vnF6xKqcEhwR1b4ldwvb4mWliWGTwjK7oqzqsy/BPDAa3B1WtEvni0LPsK+wZRvOmEX+3hbHuUqTDlnAclnkIS8I98tMKKfoSoT62CgALVCwa/FwhWmqWLt/HbI7lksKda9tJDvXAbeb7V/+xWBQafFGM4+pvvSZYVcpDVQaSXu3Fka0uc9MCul0PAqun3P260Pwq+XcABweakP5rPUc9it1WA0xc7Yx3Ta+tzjgckQRANte136WFMYEnBcXVgxV0gTlDnp6wkYK/qwdaXo3ZtHqMhmoOFrS93TeEyJwyiHjtBK40EDKxkl4GGwt598jPWNn/ZqnL8iFhIkvWOynealTL0vTNe2xfZawEKhPTl/aX3/KM7okUXjZEfrcnUarMCD7YJhWqszYtmSU6Sh+8nWZ358wY7/6xLnQO1c7w
+X-Exchange-RoutingPolicyChecked: dtaq5tnQgc5zuOiYI4UTb9iWJ4MbCx1ExVpJrB/twETzH44HJZ9G8TSsd5ldgsdDP6m0b2NnM7tnVWNRBgmly6rf1mQVlElhGePHfQNON8sycrSnfApaYTjxtCKYa37W2rBHZ1d1w3ckWwkN9j5VHU5DyDgRf/+DiQCWZxLubCdwTX6M4Mcq1+djdXuOnsfL6wqVz/4N0ulXot2JqyRd99Wa/64FXg2VlIu0JPIWJPo3/kC5OZD/mW3d/0K5VdSZvak3a2BMoXkcgQyi08Dii3G6pDefYmGm6a0kOQcgWFZELXC4m62aUMZwTYn29FmbQdSMbSVVQbuDhFh8iJZ9sg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 14:24:37.7535
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34f7ed20-2b8c-4729-ddb6-08df18b53ba5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06B.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB7326
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIyMDIwOSBTYWx0ZWRfXxs54WeNdDq/Z
+ PUWDvD3xZdPCjhZDjmtr370pRrPlNL6iJm5vmJ2XWteCqj7C6JEzzKkypQwJU83nIKhgRXj+gl3
+ JncgN9DKI2upYY8ZexilXopv7zLrcg8i4bL92YRsVOL0rIEnfOwtcnuZpFg+t7Mh3Js9clo2Keu
+ IKkqypJlCnJqBhZStAkEzCHTUPT8IditV8yJlhGbtzXrkEPOYxFHCsHRf8thE44yFhWvJ9rTfB8
+ IcAA73eYly8X03FCZHaP7QTnmycUkrUQduiHla38GvreGIef5rVRoQb6Km4q5cFWuNJDyXiLSUf
+ 9Avoor7vzXRw+RiMbHb2D7j5J+T/f5kFnUTFA9FtNWFx6J+qnQJdz4QTJYJ1R0IhgDpy+DWhTQk
+ Yb4Wo69B5QH4W/GfyXovZxhiPEWm7DScIcBrRnnMh3/JvjLv+pVTaysaXg4GZQ/W/8RgkFeXDW1
+ kOwSygdkvxp23gtpkaQ==
+X-Proofpoint-ORIG-GUID: jRpqFZKYu1B-7UxoV425yEWmb4GzyAY_
+X-Proofpoint-GUID: jRpqFZKYu1B-7UxoV425yEWmb4GzyAY_
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIyMDIwOSBTYWx0ZWRfX9vvyfP/6keL6
+ pTcbJNSeFXOPXsMMGnoWH94qbR9R/4RG6my+Jiesbxq8W+XawqdcJhYo51RvYjp++opo4Mb1Cjh
+ Ql0ud3qtIpjGXKa5bw0rjGYryxZ6o10=
+X-Authority-Analysis: v=2.4 cv=Mdz5KJ/f c=1 sm=1 tr=0 ts=6ab28fb2 cx=c_pps
+ a=6BiUERe1gyZkJgaADwpG2w==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8
+ a=sozttTNsAAAA:8 a=TGqDKbB73TRB4Q5Cm4YA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-22_01,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 adultscore=0 bulkscore=0 clxscore=1011
+ priorityscore=1501 phishscore=0 suspectscore=0 malwarescore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609220209
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_072511_518081_F9933722 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +191,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Judith Mendez,
 
---UbH3tjqyzUf1AEj7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Wed, 09 Sep 2026 16:47:28 -0500, Judith Mendez wrote:
+> This series fixes MMC pin input/output and pullup/pulldown settings
+> across AM62*, AM62AX, and AM62LX boards.
+> 
+> All patches have been tested on their appropriate SK & EVM boards.
+> BeaglePlay and Pocketbeagle boards have also been tested.
+> 
+> Changes since v3:
+> - Include PIN_OUTPUT fixes for missing third-party boards as per Sashiko
+>   review [0]
+> - Split out squashed patches into separate commits as per Nishanth's
+>   review [1]
+> 
+> [...]
 
-On Tue, Sep 22, 2026 at 07:21:31PM +0800, joakim.zhang@cixtech.com wrote:
+I have applied the following to branch ti-k3-dts-next on [1].
 
-> Add the DT binding for the Cadence I2S-SC controller integrated in
-> the CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo
-> controller supporting standard I2S, left/right-justified and DSP
-> formats, plus TDM operation with up to 16 slots.
+Just a future note for cover-letter $subject, use "arm64: dts: ti:" as prefix
 
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-i2s-sc
+Thank you!
 
-Should there be some general Cadence fallback for this if it's a Cadence
-IP?
+[01/15] arm64: dts: ti: k3-am62a: Fix MMC0_CLK register address
+        commit: 9852f2badc438de82b6828c11c80ef0a656f1d4d
+[02/15] arm64: dts: ti: k3-am62l-evm: Remove unnecessary internal pullups for MMC0
+        commit: dfba8329b8ebd49807ed1c1b336992e5791c7e48
+[03/15] arm64: dts: ti: k3-am62a7-sk: Set eMMC clock pin as OUTPUT
+        commit: aa7d5b1efa75e58c9d440dfd720205045fe6a806
+[04/15] arm64: dts: ti: k3-am62a7-sk: Set SD clock pin as OUTPUT
+        commit: cfad4f39124b218c2cbbbe17e742971abc9ac8b4
+[05/15] arm64: dts: ti: k3-am62a-phycore-som: Set eMMC clock pin as OUTPUT
+        commit: 4834050197f205a649e36661ca150e6ac8295008
+[06/15] arm64: dts: ti: k3-am62-lp-sk: Set eMMC clock pins as OUTPUT
+        commit: 156f4c2208c8e5e04002402494de28c21c0afcbc
+[07/15] arm64: dts: ti: k3-am62-pocketbeagle2: Set SD clock pin as OUTPUT
+        commit: 843c4d171975059eaa1436c8403d9a29f677a75c
+[08/15] arm64: dts: ti: k3-am625-beagleplay: Set MMC clock pins as OUTPUT
+        commit: c074abebc76f0e59d13dea499f582806c6a3d94d
+[09/15] arm64: dts: ti: k3-am62x-sk-common: Set SD clock pin as OUTPUT
+        commit: 1e2e5016bda94b2bcd86258b5eb77fe3006639a0
+[10/15] arm64: dts: ti: k3-am625-sk-common: Set eMMC clock pin as OUTPUT
+        commit: 8ef8a0e38d1377c6d51c06f95c64d87641b2c717
+[11/15] arm64: dts: ti: k3-am62-phycore-som: Set eMMC clock pin as OUTPUT
+        commit: a3c2b6c52e02d58941c0b91bfba052788aeff890
+[12/15] arm64: dts: ti: k3-am625-tqma62xx: Set MMC clock pins as OUTPUT
+        commit: f9a93fe78d8737860a8fb786d17c9dff20782b7d
+[13/15] arm64: dts: ti: k3-am625-var-som-symphony: Set SD clock pins as OUTPUT
+        commit: dbe55d5f2930b27e9a3ce71f0c9b1bb0ad91a012
+[14/15] arm64: dts: ti: k3-am625-var-som: Set MMC clock pins as OUTPUT
+        commit: b489fa1808ea807c4467def7947c83d896dfc355
+[15/15] arm64: dts: ti: k3-am62x-phyboard-lyra: Set SD clock pin as OUTPUT
+        commit: 1d62ef8d47b535d31fb9cf38e5c36eb55b0189a4
 
---UbH3tjqyzUf1AEj7
-Content-Type: application/pgp-signature; name="signature.asc"
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
------BEGIN PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqyj2kACgkQJNaLcl1U
-h9CZRwf9Gcsnlbj3mDtspOE3KBPkeWdgWIwa6rSz/vI8UVuV18xOBbS2PYroKi4u
-GhYAQIEI3QnfB0hVZ01CBV4uJGwTdxIZHNxcq/sG90iYvGLmWM5WWcAKyyboX+Tu
-bUdeCMu6Uk6XUO43DmbJ9JTjhH4rGAeJgY/MLjnxsib6NzN8g7PuzmxyERWJgeQf
-G7D8UZgwM2Noe438uIihYU/hQQfZcn4pk1xkAyPHPvysKNw38RI97GfR9N1rHfdF
-r9DT5DpOC+SKcVWWeoAGc/Wnom3jBMc158U+bLHX0ilbH+Y/3xW0KpIsz941/F1X
-dN/c+oy3rIz9MtqSOJ6WrwEAvqWu2w==
-=fhHX
------END PGP SIGNATURE-----
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
---UbH3tjqyzUf1AEj7--
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
+
 
