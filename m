@@ -4,121 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF11EC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0441C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Sep 2026 20:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbrL81ftez1/Lz+4iuhOw9CrE0nMBDsYDdSTGwWCIAA=; b=HHHtzzEbWFTJaaCT86JQ7rDsKw
-	MwobgpUo9PT8/jEi/nxISWKN2Wbi9zXnAk80F33mzJX15y8lkxQW9l7j7P/2felwdsJOnwnoZc/K/
-	5GC2TBiPEGfPecNMfWZRHU5jKhTksYbyqNoa93hPsFqZU1SA8AsHaBQslN+xBZbLjcWLk1tPmJAkT
-	hJQ8dleLUcE+EOV9Zog92W9dPosUP1lWvrCC+Ktosh9EjQdIMOZxRpo3cLfS7vDvKPP6rKukN8lMA
-	L3oJwF6N2sQFqOVgZq97HesHftDXGlC06cjXqma9JY8kdDeQ7Ckv9S1GqxLPa43DQtFXuxkqNTyp5
-	mmAR4Dog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tLf44y0wjXekRKRabcqObNjHMHH8+Vthi1ry2XuMnz0=; b=LatfQlORT38hCAK4vFPd6buxyl
+	tErs5udP8rocOQJQQxUM7kzRqU3U0Db6oVJfyJM0HYcmnlvZ0nzZiHXlQ8ATy+djFgVVWdtSM52oi
+	N1W4Zs+FhFhfat5UwLW6CP/QF6RFq+edWK20RgVZWFPpBJGjP3NG0/jgWQrF49Pth4Qab+2IAhS57
+	6nxNRi2PcchO47h30Ap/IUct5RjkZXav+PyyZLsVk/9YPwcjfu1bBPj2/GdwVTnZSDQJLnvS2h/WW
+	1bCWyQNRPjtY/qYZVJiTouegKlBL8YZ8gnVuL6Oi4QKq+huJiGCqCkhFTzb7uUoJlRRm4aGP0glRw
+	laxpnNFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96f3-00000006TO2-0Rll;
-	Tue, 22 Sep 2026 20:00:17 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1x96iW-00000006TfR-2wOD;
+	Tue, 22 Sep 2026 20:03:52 +0000
+Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x96f0-00000006TNe-428A
+	id 1x96iT-00000006Te5-1iE3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Sep 2026 20:00:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CJpmkn94o/gBLWhxOrJqhg+P6d7wNufuPzaZbVxUTzBS2gDixo8GdgfNeCZjAKEwL23fEKEanUjS74PkNC0c+kjwWdZ1f7Wt9TwtIVFWFig4yt5WjG9PW99MKci30l5eANRkPAJy9gfbutvwjxxmc7120IB+tZmaxWubs/G2zlGLGJlDpeBvueoxay4PdjRrMLNQjqj7E9xFLgGnhq9iGRGJkKtnW7miMPVu1Ca8uMRuAX17UUuVYNPNRiDrC9sJ5h8/4rokKZ/FIkPOv9SwXF15RewyOO+HWWZpPppPu3/ipcFheO6vtZtd4E1ABW8iOsF7S8spcl2p7r2OPQevGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EbrL81ftez1/Lz+4iuhOw9CrE0nMBDsYDdSTGwWCIAA=;
- b=NDdz7iOXrNrXNz5fBKrPcTwdVT3Y950DQGT6QtJ5S4B/2HS+Q7vMn2jFEH0SqQV7bStLpZVDuSkaVscfLbaK7Ve9qTSmcvSQg4wituKKVVQvwAYwm+qLCUlDKExADeJvTpMGnDl5/1ue0GsCe3p8ycKCM89sNTXWEKdw0buSFnCSv3UPtQllGMxBgSD+RqRtY+fGsZcfnAhMOuxaUAOG9aNVq1QQzy3TMojyJEK42A6AF+buwvKAT2K6Rx0bnIz9lUt3c6TvTdhJC5ekx8uuCIfLXPagH96mk8iWByAKuICyptsunOXXmYu8wsjhlrAIUoGQD9yJghycLghE5xFcLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EbrL81ftez1/Lz+4iuhOw9CrE0nMBDsYDdSTGwWCIAA=;
- b=RjjiTIby+IHrtgLpu0ss8D4aOW6HByz87grc4D5KIOAwBbMLxjXayZtV+REh7KPB0wg+fYN5sjUNxaPTxL18MrGjrcmEszDhqe7irx/mC2HaFWnhBUW5EZQA7lk4h7nBtVHR2gqSoHptwtH14iiqpBtLEQF6xsFxNsfCSWlULNjUgoespdDNJD96bWKXYh6zN9NsAgVjg9Uh9MSZtx3oL+QCBMg1ulFNBmCP97eukmPuirzmVhVQhjzLtWM0xDO55Um7HKlJLpZvGuf+rMo3HFnx306CkgTup3pqccxbR7PMngWIUEqIDS5VFPz5JCMgnVeMVt1TE/4t4eAuUZz8nA==
-Received: from BN9PR03CA0138.namprd03.prod.outlook.com (2603:10b6:408:fe::23)
- by PH0PR12MB8052.namprd12.prod.outlook.com (2603:10b6:510:28b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 22 Sep
- 2026 20:00:02 +0000
-Received: from BN3PEPF00022BD4.namprd03.prod.outlook.com
- (2603:10b6:408:fe:cafe::5e) by BN9PR03CA0138.outlook.office365.com
- (2603:10b6:408:fe::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Tue,
- 22 Sep 2026 20:00:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN3PEPF00022BD4.mail.protection.outlook.com (10.167.248.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Tue, 22 Sep 2026 20:00:01 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 22 Sep
- 2026 12:59:32 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.49; Tue, 22 Sep 2026 12:59:31 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Tue, 22 Sep 2026 12:59:30 -0700
-Date: Tue, 22 Sep 2026 12:59:28 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kvmarm@lists.linux.dev>, <iommu@lists.linux.dev>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <maz@kernel.org>, <oliver.upton@linux.dev>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<joro@8bytes.org>, <jgg@ziepe.ca>, <mark.rutland@arm.com>,
-	<qperret@google.com>, <tabba@google.com>, <vdonnefort@google.com>,
-	<sebastianene@google.com>, <keirf@google.com>
-Subject: Re: [PATCH v8 05/25] iommu/arm-smmu-v3: Move hitless machinery to
- common code
-Message-ID: <arLeIO20VQZD80nr@nvidia.com>
-References: <20260922131259.2975334-1-smostafa@google.com>
- <20260922131259.2975334-6-smostafa@google.com>
+	Tue, 22 Sep 2026 20:03:50 +0000
+Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2cb3f5bb19aso497685ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 13:03:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790107428; x=1790712228; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tLf44y0wjXekRKRabcqObNjHMHH8+Vthi1ry2XuMnz0=;
+        b=kPDhM2+8VkO1MCfxQlrh3IyQCW0O9lrk/r3wA6amjsHkt+Tf8D+1hGtEM+nsG7m6zw
+         hTmlyf80NicPBavNp2JZw/PqowZ77vNt74DMb6R/z6tmulCmvwE8LmXG6GU5B3Ecbs32
+         q4hjVJWFX+4ZkfwVr3FoQwH+VHPmC64uO9TL+kf5W1JwFMx7pyq3c0Z9F7gtc2+FAvLc
+         393DHADG2+fKZdUYq8W2fosu7UpetfiBzUtM6kCQnkE7nQYsaBRXXjS97B1A9PIBZzQs
+         JSp9ML3jOKkfvfkalM9jE+qjFdbN0Hc64ce0pa4rgjnHF3pXsPkRNU7uz8HK8Ga52kos
+         6EVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790107428; x=1790712228;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tLf44y0wjXekRKRabcqObNjHMHH8+Vthi1ry2XuMnz0=;
+        b=JidVGev+QcTILMs2dYXD3Wx6GrXv2f97Xtq53GEkbmbVnpaKMmMMPWWUDwJmvD+GD+
+         JCt9EMHTjoNd9PiTG1sYlTUdLnH6ORQCTeaiRptUqcnWRdY3sD2FHko2a22FFQMKUft8
+         0DyGcwduoTnZwGIaDv0jAJeDb8zxI83140NzOtAx8+nroYBJ/l09QrS/B/Wg7QFgmwap
+         bZ5L6nXTH8O18gd/H3vrodVtNeR0MblLdt+iRMqHjYiushHN87nmD8slQGrHRUDBXCBx
+         4JpH2oKbU+MzQIl9GlZRn22PgZxIzQp0Fo68d/Rj4uHCBCipmGRtITmejh58R3O6+qZi
+         cSYQ==
+X-Forwarded-Encrypted: i=1; AKwUvByysARZg9YIEC1L5KSaLLfaAjk6EBMpvqjYN1T3NP9jWYVA6Eiav7f4wyhToH3XzbIua3qdF4AQCwMhsUiOVkxz@lists.infradead.org
+X-Gm-Message-State: AFuF++mZSL5fYwyKZEhH1lwQ9NkcQPrAO4dJU89qw8tQVb7WPX4NKvqs
+	hgkoYDgsq+tUfiYsOvU9MsJYKbRGauUwn3ReL2069P0W00vMfKCutaWs
+X-Gm-Gg: AYBFou1g4KC7dyPl6Fsvz21DPKrf5KoQq1hHyD7yKdNeVSJxyS+B3T3RTxhCnaPSEFe
+	3xhcwTdpF7N8sH4/lMnnV9RTaS3Mw35j5EMYGNUqgMtXC9CSVmT8JeEjjYyjUfOv94KYlEhP9P1
+	OZJJbBr3Iqm7TunPpdD6H1f5n5M9I7JZfx18P1b9vjhyMnKC7zmJUdknUVGxPUShC1iJ3i8urJs
+	xVD8QHRTJ5qMtxPlJG6onXEvlMFl10x1RbA8hxQSQCWg7qZw3Gz2Ed3hyZaxCaCzSNI1ZCS1Nxz
+	BOMY34XW8V+IqWUiWvj42mvm0RwLctqYNWz0PW5uvVMpr6TUrrBQ23f3n5BrYsmJ6leDqkUqOXI
+	fDoebBPtIYmB/esuIwxkzmPU5MOCCYh490pkFh6kAtsAdxLWqgVS0PJDYkSNUcWl2SPZ7tp67W3
+	IfTVpQY4a3hFJ1ZlodGKy1KTBnc0qZhTGQlLn06r2ZTdu22b3kn5A9pUfT58aw+bY2+JEM2Zu8s
+	RgBPWu4d4ArK0Xeag==
+X-Received: by 2002:a17:902:fc4c:b0:2dd:c053:e0f7 with SMTP id d9443c01a7336-2df69ddf21cmr4274665ad.38.1790107427896;
+        Tue, 22 Sep 2026 13:03:47 -0700 (PDT)
+Received: from server.lan ([168.138.199.194])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a5eea15sm654515ad.64.2026.09.22.13.03.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 13:03:47 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Coia Prant <coiaprant@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	David Heidelberg <david@ixit.cz>,
+	netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH net-next v10 00/11] net: pcs: add basic support for RK3568 XPCS
+Date: Wed, 23 Sep 2026 04:03:24 +0800
+Message-ID: <20260922200336.2201212-1-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260922131259.2975334-6-smostafa@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD4:EE_|PH0PR12MB8052:EE_
-X-MS-Office365-Filtering-Correlation-Id: b37b01eb-ad8a-4211-8f2a-08df18e41685
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|23010399003|82310400026|1800799024|4143699003|56012099006|11063799006|10067099003|22082099003|6133799003|18002099003;
-X-Microsoft-Antispam-Message-Info: +Vyl0+Ll5m9qQLnbap8TAnXhQhqjO12SETJgCw/8PjwK+UGunwwwRIl3rqi15cOkIOI5EKYb4DIbbNho+cJ8pVSGnXUjWy58sIM5om8pUSBisfk7eyVTjy66Q8GOCFGsgXQnsOmUGAN8rwpWV+0CHSBekfsWSw0a4ALFGZBxgXYBQMQA/BwCrgVHvO6DdyN++01UAhjo6QoNcuSWLuqvVq/+EaCz+HpIy8KdpqWGnmNvn2YcG6P8QQGtO1DuoZVHVDQmIFjp8ayY50xFA2KsE6IpNgm1Gc/9J5jFVsqJxzHRVP6LmPSWvNFABv/Q7Agl5JDIjg9hs6OxxmtyqKA8gpn6Ag2qzjM9eTwTS+JaLGMbQIeaCzLox4JrTYjST4G9jqUzVcVfwOx341Y39GAJgr6Pz2mJ3ahbbYduD5M3jBQo02boQInQKAsvP1i9HQlKWC8Vjxal+if/WXv0E9OoXNx9CaonRUMYws6iRq2XKon+26Qn4Rd7QUwxG+YaEcOqJwWKjMDSMvyFHMhi8vReVNbujZzCxqS5xiuVWuBF0oO6IlkLayYjbNijfnJQDOwyj+dEYNRX+OJcKSoEasRiTcYUyChmtUB6X5JPh2PohV70n6+FOCxJX4Qy3if3KUmLnuvEYvx+PmfOUUlB3Liph7MaG9fZzFJuN8AG7whBhl/2i7cwkwCD0ms/5YoQK3MZUv3CeyMt2KW+T033f8UFCw==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(23010399003)(82310400026)(1800799024)(4143699003)(56012099006)(11063799006)(10067099003)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /4LW693ggD79JcwClr+vnytb4k9cVToN9OwKaPfgoPLjoAY8EBagnBbpQ30Gr+JIg6YoaaveN1GP6MZ3s18oXFE9SumxsJWV08seuSRYMPlGiuRurjJ+1ATQuuajvjAVDc+wHhoN5RClAMSmgHf4HTdkv/scCzGrvfNGOv8/CXrvxQGv3N3NmIsSnOVVVH0LvorSt3nvWp6/yC5qAeJhIt4qgfYCLFvg4vnIz5S7Jp9jhxmsKMOBrqJKojuhcOZoZuzVU5mR09gDKo5RyD9Z8XrNE+j9855tcjSvN01m/a/bZi1U9OhCEwoDSDNG8VOui8aUd0zjIv4Kgj++BAi2Ut3jGtXU5K7po80Mplp+t/mD1eF+e0qCOtGtV+Naxf19ogKUFQdgS+YRMAT8Skzf6iKoOAWC3/d/9H0KD4XyP8b+0+uSCtawWffKkCYwEbgA
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 20:00:01.7616
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b37b01eb-ad8a-4211-8f2a-08df18e41685
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BD4.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8052
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_130015_089613_8247A48C 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260922_130349_459770_96470501 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,42 +123,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 01:12:38PM +0000, Mostafa Saleh wrote:
-> Move the hitless STE functions to the common file so it can be
-> reused by the hypervisor.
+This series adds proper SGMII support for the Rockchip RK3568 SoC
+using the integrated Synopsys DesignWare XPCS, along with necessary
+fixes and refactoring in the stmmac core and XPCS driver.
 
-s/it/they
+Motivation
+==========
+The RK3568 integrates a DW XPCS accessed via APB3 and connected to
+a Naneng Combo SerDes PHY.  Several boards (e.g., Ariaboard
+Photonicat) use this interface for Gigabit Ethernet.  However, the
+current upstream stmmac driver does not support this configuration,
+and the XPCS driver has issues in SGMII poll mode that cause the
+link to be reported incorrectly.
 
-> No functional change.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+This series addresses these issues by:
+- Refactoring stmmac PCS lifetime management to allow platform drivers
+  full control over PCS creation/destruction
+- Fixing the XPCS driver's SGMII link recovery
+- Adding a Rockchip XPCS platform glue driver and wiring it up in
+  dwmac-rk
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Series overview
+===============
 
-With some nits:
+Generic:
+  Patch 1: move XPCS lifetime management to platform drivers
 
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -59,10 +59,8 @@ enum arm_smmu_msi_index {
->  	ARM_SMMU_MAX_MSIS,
->  };
->  
-> -#define NUM_ENTRY_QWORDS 8
->  static_assert(sizeof(struct arm_smmu_ste) == NUM_ENTRY_QWORDS * sizeof(u64));
->  static_assert(sizeof(struct arm_smmu_cd) == NUM_ENTRY_QWORDS * sizeof(u64));
-> -
->  static phys_addr_t arm_smmu_msi_cfg[ARM_SMMU_MAX_MSIS][3] = {
+PHY:
+  Patch 2: DT binding for Naneng Combo PHY SGMII MAC selection
+  Patch 3: implement the PHY SGMII MAC selection in driver
 
-This line removal seems unnecessary.
+RK3568 XPCS/SGMII:
+  Patch 4: DT binding for Rockchip RK3568 XPCS
+  Patch 5: add XPCS and fixed-clock nodes to rk3568.dtsi
+  Patch 6: add ANRESTART support for SGMII link recovery
+  Patch 7: implement the Rockchip XPCS platform glue driver
+  Patch 8: DT binding for Rockchip DWMAC PCS
+  Patch 9: wire up SGMII support in dwmac-rk
+  Patch 11: update MAINTAINERS
 
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -1321,6 +1316,8 @@ static inline u64 arm_smmu_tlb_inv_range_enc(u8 num, u8 scale)
->  		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale & 0x1f);
->  }
->  
-> +#define NUM_ENTRY_QWORDS 8
-> +
+Board enablement:
+  Patch 10: enable SGMII LAN port on Photonicat board
 
-Maybe we should drop the duplicated define in arm-smmu-v3-test.c?
+Changelog
+=========
 
-Nicolin
+Changes since v9:
+
+Patch 5 (arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes)
+- Move the two fixed-clock nodes (clk_gmac0_xpcs_mii and
+  clk_gmac1_xpcs_mii) from between the XPCS node and pipe_phy_grf0 to
+  the top of the root node, alongside the other non-reg nodes, and
+  sort them alphabetically. This addresses a DT coding style violation
+  reported by the Sashiko AI review. No functional change.
+
+Patch 7 (net: pcs: xpcs: add Rockchip RK3568 platform glue driver)
+- Add system suspend/resume callbacks and switch from
+  DEFINE_RUNTIME_DEV_PM_OPS to _DEFINE_DEV_PM_OPS so that system
+  suspend and runtime suspend can use different callbacks.
+- Mark the XPCS as part of the wakeup path in system suspend via
+  device_set_wakeup_path(). PD_PIPE is shared with SATA and PCIe;
+  without this, genpd would power the domain down once every consumer
+  is suspended, killing the SerDes and breaking MAC WoL. Runtime PM
+  behaviour is unchanged: the runtime callbacks only gate the CSR
+  clock, and dev_pm_genpd_rpm_always_on() already keeps PD_PIPE on at
+  runtime.
+- Clarify the comment above the power domain access: the XPCS lives in
+  PD_PIPE, and the domain must be powered before any register access.
+
+Key design decisions
+====================
+- The stmmac core now delegates XPCS creation entirely to platform
+  drivers via pcs_init/pcs_exit.  This is necessary because the
+  generic XPCS creation logic would override any XPCS set up by the
+  platform driver.
+
+- The Rockchip XPCS driver creates a virtual MDIO bus over the APB3
+  registers and implements address remapping.  The generic XPCS core
+  handles all PCS configuration via phylink_pcs_ops.
+
+- On RK3568 in SGMII mode, the MAC clock is fixed at 125 MHz and
+  cannot be dynamically changed.  In-band mode is used, and the
+  generic stmmac set_clk_tx_rate callback is disabled to prevent
+  incorrect clock updates that would break RX.
+
+- The SerDes and power domain are attached to the XPCS device tree
+  node rather than the MAC node. This reflects the actual hardware
+  topology and simplifies the dwmac-rk driver by keeping all PCS-related
+  resources self-contained. It also prepares for possible future QSGMII
+  support, where a single SerDes serves multiple MACs and would be
+  more naturally managed under the XPCS node.
+
+Testing
+=======
+Board: Ariaboard Photonicat (RK3568)
+OS: Armbian (trixie)
+Kernel: 6.18 (backports)
+Result: The SGMII interface obtains an IP address, SSH works, and
+        ping traffic passes without loss.
+
+Notes
+=====
+- When testing out-band mode with set_clk_tx_rate, only 1000Mbps
+  works on both TX/RX; 10/100Mbps only works on TX side.
+
+Dependencies
+============
+None. All patches apply cleanly on top of torvalds master tree (v7.3).
+
+Acknowledgments
+===============
+This work was inspired by and builds upon the excellent work of others:
+- Serge Semin's Synopsys DesignWare XPCS platform driver (pcs-xpcs-plat.c)
+- Clément Léger's Renesas MIIC driver (pcs-rzn1-miic.c)
+- The Rockchip TRM and downstream OEM drivers
+
+Thanks in advance,
+Coia Prant
+---
+Coia Prant (11):
+  net: stmmac: move XPCS lifetime management to platform drivers
+  dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel
+    property
+  phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+  dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
+  arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
+  net: pcs: xpcs: add ANRESTART support for SGMII link recovery
+  net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+  dt-bindings: net: rockchip-dwmac: document pcs-handle
+  net: stmmac: dwmac-rk: add SGMII support for RK3568
+  arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
+  MAINTAINERS: add entry for Rockchip XPCS driver
+
+ .../net/pcs/rockchip,rk3568-xpcs.yaml         | 110 ++++
+ .../bindings/net/rockchip-dwmac.yaml          |  18 +
+ .../phy/phy-rockchip-naneng-combphy.yaml      |  13 +
+ MAINTAINERS                                   |   9 +
+ .../boot/dts/rockchip/rk3568-photonicat.dts   |  74 ++-
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi      |  45 ++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c |  44 +-
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      |   7 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 130 +++-
+ .../net/ethernet/stmicro/stmmac/dwmac-rzn1.c  |   7 +-
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   7 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c |  39 +-
+ drivers/net/pcs/Kconfig                       |  25 +
+ drivers/net/pcs/Makefile                      |   5 +-
+ drivers/net/pcs/pcs-xpcs-rk.c                 | 619 ++++++++++++++++++
+ drivers/net/pcs/pcs-xpcs.c                    |  35 +-
+ .../rockchip/phy-rockchip-naneng-combphy.c    |   8 +
+ include/linux/pcs/pcs-xpcs-rk.h               |  11 +
+ 19 files changed, 1135 insertions(+), 72 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/rockchip,rk3568-xpcs.yaml
+ create mode 100644 drivers/net/pcs/pcs-xpcs-rk.c
+ create mode 100644 include/linux/pcs/pcs-xpcs-rk.h
+
+-- 
+2.47.3
+
 
