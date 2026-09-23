@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C122FC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5357CC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGszQV0nGiNlfF+iK72ZuVu4nUMw1rB7BjMe4OW5x/w=; b=gCgCuL3rheb9FAfYZoWU/pCGQ0
-	6Y3oGGYdoHbatN4tGe258p1Mj4P3srkCpMI0WlhhHL+Hfr0X17Zk1bgIsOLoXE08OjwkRSsOefcRY
-	61+qW/QjJMJlgDdZ2R9Vpt7oPrKkIbnYL1OyWm28OfL+K2T570TQRnP/Pxsgqup6PfyshbKOSOB33
-	mydAjIovvcaQI54kGlz/Ew5AvSyegEP5sv2FgHlJnfs/RjZEqcCQp4WHI3XEPjK3agHweVcYVqxb0
-	+ajY+iiSfR8RoXvQ8xfcWJJzC7qwsaegDSko6QLNCbAXdNAoYeV4B2+D8YCDLfxMYg4yg86lfSe/n
-	rKwMwkuQ==;
+	bh=KZejlpT1iTHcM7Y0p78xZSmQziylNIvIayj2zaG29LQ=; b=lOwDal9PpHSJACXjWf26S1ouPp
+	Tm7CDb4QoXz+2o6dkFz4GW+fVfWLW7qfHtF1IFUTwKcW6gnDLi/Uc+V4O+KN9/UcwA64TW0oktvF3
+	i68Y9DJ/Fz0oDx8RTzyV/Ps1JiKSPUzm7wAbPiYHcCRRBB14R1Y1hZbGT1sPAzi7AtsyPr6l92J60
+	LHNm1MThzcWwAPaaKsDNawVEr9mzvM1BCv5WrAMR2LBBj5NiwKvWhlTcuGxXGRPHXAKZc66xJ95iw
+	MRekLiy7fjuL+7tqfp6go6l4lZiexhf8vhzujjG7EhzrtDPVJUzc3aVog/1oCiohl8VyjEuFQEKgB
+	Bu31ACaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JQ4-00000007kx9-2FPJ;
-	Wed, 23 Sep 2026 09:37:40 +0000
+	id 1x9JQP-00000007l85-1fLa;
+	Wed, 23 Sep 2026 09:38:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JQ1-00000007kva-0j5j
+	id 1x9JQ5-00000007kxo-3l5t
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 09:37:37 +0000
+	Wed, 23 Sep 2026 09:37:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xGszQV0nGiNlfF+iK72ZuVu4nUMw1rB7BjMe4OW5x/w=; b=SeLWrvJ3J8Zxc4Y6zqOda/n2gW
-	7TMXj4K3M3WIAfIWGk5xn6fTsbIL4IIc542bWxkAwkmm/xdYXaLnj7NVIFiPmWnHXXWydstU4chF2
-	IBuN2ofmOAtbEUbIJpyGWrEm5wA4loiLCRmHcfHKArtPkp50eUmBKkxQBrqk+Icadtd0YPVY12YTQ
-	zlQbVNIS5HhUyKujjCXs1PpPAP+tJi4cIbe2WAlKZaVFSQBqvmqnnX4RrHuZj5us9aa0FHoH1Vjxf
-	0peNtzP0J8kYY3vTDfDdwN4EYLliDKHDnCc/QvB9HPrlVmmRo+KklzuHZ+TDtZtFxLYLtfKDhTmUT
-	E0oPMOUA==;
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	bh=KZejlpT1iTHcM7Y0p78xZSmQziylNIvIayj2zaG29LQ=; b=QBgOFTMNb7oFZDaLEG5iOqoDvK
+	7evoF26ScDgiN1m62J/I9N/8l9HnS2lvayryDrH4TZqlYMcrdONIfpIfJhp6h/b9WdbBsURnPfe8N
+	VbsXggy97VprDZa/dTTfnhfSxCM4XSR6WZUAVUFSf68YXNg6kDVy5wdDokfCu2Q0ktPcntBlwhJa4
+	pSI7HpSsJNc3CZ6xaduzTxLGw2VWlogHi0B+Ct/UoBYbKPfoO2ABRHFw7mmt4RuHQdlYCZ8fji9JD
+	OkPhfmyJgQ1AVwzidqz6FPIUrNm53iAC/lrBOy6ticLUUc4qMd4x/oRs73wcw7Ui7JGqXGlfmkYfY
+	zbRTTaiA==;
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9JPw-0000000EapT-3q5F
+	id 1x9JQ2-0000000Ear3-0KBp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:37:35 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68N8N9oI1611710;
-	Wed, 23 Sep 2026 04:37:21 -0500
+	Wed, 23 Sep 2026 09:37:40 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68N8J98p299789;
+	Wed, 23 Sep 2026 04:37:26 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=xGszQV0nGiNlfF+iK72ZuVu4nUMw1rB7BjMe4OW5x
-	/w=; b=UiGxD9xBDl1ZSwf82vrb/pN3qlQiorF7cT4dpoWsj0vOwggc7/Vr/SXUO
-	LheONxmOuONQyj61FO75g0cepuYMj/IOE1j3maxJA/m8UBBfkIvqt97CjYw4D5je
-	8C4Na12F//lkck6qXLqxxbggdjz8eE6Q4VYgk0ERqmOjJxddA+YHzEJlguwxx6QS
-	dOzc0nMk/GP0ApkvD+Da76DSKhiB0HjpUqy371nnSLR2pYzd3txWxrThnFHvDEA7
-	idvpQwJ8ETTwcLXC7N8TpXY0lOCqwG5QWkEchUvMy6Vn63nAJz5Sa9QJMY4coGPj
-	j/lkkXpJG6bnHIzRg8pjxp0LPcakg==
-Received: from bn8pr05cu002.outbound.protection.outlook.com (mail-eastus2azon11011012.outbound.protection.outlook.com [52.101.57.12])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gvb77rdcc-1
+	proofpoint-05-2026; bh=KZejlpT1iTHcM7Y0p78xZSmQziylNIvIayj2zaG29
+	LQ=; b=kBycuTSHI4i8J4zhe+HeM23HuISZd5oaNryh8gywvgkj7telkCU+heURz
+	viR5ZOmNsNd5qDLUFzl56/8xNtqCvjSSbchcmB1dcf6FSZgKnoPLcHeY5gG/++gb
+	kQXcY1xfVb5JK4PA9mUX0aIduwuBsLa7EcAWMgLXsf/zvegHB8z7PfTvtiLh0p3L
+	WgHd2ueWizrkBtcyu0QdkCLuy/EETihHAt93WZEp/qMg+oSYZw8+Yrsr9VWyMjPY
+	GclmWLfbQfRm+EaB4g7R8+TxTuYHcl+yIVlVuQPYxa5cIz5ACxw4OxJpz5KdxmNE
+	oTQxu3wfJyjkOci5N1qt55E9YqrcQ==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013033.outbound.protection.outlook.com [40.93.201.33])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gv54tjcpg-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 23 Sep 2026 04:37:21 -0500 (CDT)
+	Wed, 23 Sep 2026 04:37:26 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r3hCQTTtd3GBbstIoPd3WrEjoHcv0/HjwRKhq7BMu3p8F12WZTS7LlhM1HXN0I3FP6ukubXr37G3l2Btv3sONHEL4D9rCyLQFY0jeoLgzrs3OC+KtTGz0FDD/VLg2X4TFWy2azYfU7DQDpvBKxY1s9w1adJ2XCVo4jTbWaVl8v6hTl+PYRLO7aV1kAo40cu0QrGdt2IWnpki6fn29carOF2fD1deu+shxpW4zMyqDZjur8/bnLH+lsFI5ep9U08Z1hAVAT0BG1waUreqQPRCyVSZUvTI3cKF6BCNwLpJ8zMQ8acze1aaFwHXlGTFiC76pohaJaEE6+VN5c7GofAX7g==
+ b=wqRNoVkIWEpGD9ZOF2Xz/NT46h7qyIV9tZSJs/al83Iog7BI2K5xB/OCQG/2Ga0RolJv8C7w41+MCXzl8UykkacwLCRqG8YvdZLBEbc3sy5rebPVI2Px0rpjDBEBTqB+kR5Nlz1HN2Lk2B/G4DJzNIJa52vn6e59JYyD3+xBISoJb0emPCFw5BNF5iFA9zhzXsNlwgYmQqzZHEsGbyctCmtUjib15juQtPfzE5JeSACfWD+T47SuAt6iCLDNaiJLGtuvQZpCOq8bHZTZIKzmvl0zV+7dLBHrbF4oia3JmSY2fh9bZCAcE3QS3akPdUCcbd+IMGyjQGYUU3kBMwVAGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xGszQV0nGiNlfF+iK72ZuVu4nUMw1rB7BjMe4OW5x/w=;
- b=uyhx1NiosWDHVp6fzPSlXJvVAt+fFLK764WFVUxJYJYP3BCzNJz/XUP3UgGrIEpu+L6c7fbQCjF2X93Gyn1Mn+yROaV1lwnhJRxw0RrAGlU/yOL5/vS8rIh5tcvU1MrIl9iPieC2YxUf+Ud6ZXO9nZnT5droqlm5H5LGUqWQPkwC2ctJJ/qDcGLq/6Jos3EadhFuXZs4BOLVPmRux4aG4VwrazJGJf0nU6BuJQB01MizB1h7QbzHpg0x0K6jG+hlFw7FGZjTPcfKcTQB59yo+eI56PME72kBxegkGPtCRT/EvZO2m2mwVpsAkK42hEjk4DXdDA4qQjW24zt/7cDURw==
+ bh=KZejlpT1iTHcM7Y0p78xZSmQziylNIvIayj2zaG29LQ=;
+ b=PGrXu4xAqady6DfRKd5+MiBuVOt+HGWekRQipGF6rPXDgFz/muEZyzXq96ivLhz3Em8INkuucJghZOLikhbMFOIqO4SMM4MvbhyN/chVPjAEig69uDAKIfV1xjt2LBi1gJUHCnu0EM9+TWnrj3MGnIIHB9m/+BDlORXEgdTuAP1LxOusY5swPuNji0qwSmlQUU6Qn4NaC+BtBPFYmPmScVHvRdI8HLHsM+LKKiwGrcIom91gdpPFBQFc5jMk3J0/byU5Tc/nyIHDfkKbmj5Zq0rO/nMeeE1wYmZEL95wuF4iBBTjBTCeLcrHu9aZHg/DhR9XAz8SIO9I2HmHMQmDZw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.23.194) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xGszQV0nGiNlfF+iK72ZuVu4nUMw1rB7BjMe4OW5x/w=;
- b=i/Kalj6U69aS0eR38IzNsJhZ9DzSuj+pyR7zA5q/HHuQTVcqXu6lc/rXwNn9q+pCpFhpqACJ+SnWL5ymQT2zfARvVq5aNnsoGRw4uvLFFTF18KzkC55SxT59Pfgy4hSZlxBcYKw5cqKpFIToujWjtaCsBiNiSDzbMOZSg3bLC0U=
-Received: from BN9PR03CA0450.namprd03.prod.outlook.com (2603:10b6:408:113::35)
- by PH8PR10MB6388.namprd10.prod.outlook.com (2603:10b6:510:1c3::22) with
+ bh=KZejlpT1iTHcM7Y0p78xZSmQziylNIvIayj2zaG29LQ=;
+ b=KPrvim95rFKRxujjOU4uZZ8RBxa9jM5FtX6pe2BJmmeczMnhQWDO3GkutirQGmB9iQl17efjF+efFNa6ICGCRnMfJvIIPRxdwHdSIvKQ/1sULstEWBjUacPY/M43n59xRoNNSbGOuCsblcOV6ATKBa61Yf4FSPKHfp5rtIu3J/A=
+Received: from BN9PR03CA0426.namprd03.prod.outlook.com (2603:10b6:408:113::11)
+ by IA1PR10MB6709.namprd10.prod.outlook.com (2603:10b6:208:41a::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Wed, 23 Sep
- 2026 09:37:16 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
+ 2026 09:37:23 +0000
 Received: from BL02EPF00029928.namprd02.prod.outlook.com
- (2603:10b6:408:113:cafe::1f) by BN9PR03CA0450.outlook.office365.com
- (2603:10b6:408:113::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.16 via Frontend Transport; Wed,
- 23 Sep 2026 09:37:15 +0000
+ (2603:10b6:408:113:cafe::62) by BN9PR03CA0426.outlook.office365.com
+ (2603:10b6:408:113::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.13 via Frontend Transport; Wed,
+ 23 Sep 2026 09:37:23 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=ti.com;
@@ -93,22 +93,22 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
 Received: from lewvzet200.ext.ti.com (198.47.23.194) by
  BL02EPF00029928.mail.protection.outlook.com (10.167.249.53) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 09:37:14 +0000
-Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet200.ext.ti.com
+ 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 09:37:23 +0000
+Received: from DLEE209.ent.ti.com (157.170.170.98) by lewvzet200.ext.ti.com
  (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 23 Sep
- 2026 04:37:02 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:37:10 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 23 Sep
- 2026 04:37:02 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:37:09 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 23 Sep 2026 04:37:02 -0500
+ Transport; Wed, 23 Sep 2026 04:37:09 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [10.24.51.219])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68N9Z3Wc1760658;
-	Wed, 23 Sep 2026 04:36:55 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68N9Z3Wd1760658;
+	Wed, 23 Sep 2026 04:37:03 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
@@ -120,9 +120,9 @@ CC: <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
         <r-donadkar@ti.com>, <devarsht@ti.com>, <u-kumar1@ti.com>
-Subject: [PATCH v3 14/18] arm64: dts: ti: k3-j722s-evm: Add overlay for J7EXPA01EVM Fusion2
-Date: Wed, 23 Sep 2026 15:04:55 +0530
-Message-ID: <20260923093459.28125-15-y-abhilashchandra@ti.com>
+Subject: [PATCH v3 15/18] arm64: dts: ti: k3-j721s2: Add overlay for DS90UB954-Q1EVM
+Date: Wed, 23 Sep 2026 15:04:56 +0530
+Message-ID: <20260923093459.28125-16-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260923093459.28125-1-y-abhilashchandra@ti.com>
 References: <20260923093459.28125-1-y-abhilashchandra@ti.com>
@@ -131,55 +131,55 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00029928:EE_|PH8PR10MB6388:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7205c59-5516-4944-35b5-08df19564090
+X-MS-TrafficTypeDiagnostic: BL02EPF00029928:EE_|IA1PR10MB6709:EE_
+X-MS-Office365-Filtering-Correlation-Id: b8c4c085-a6b4-4791-4b25-08df19564574
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|7416014|82310400026|23010399003|10067099003|5023799004|56012099006|3023799007|18002099003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info: DU5xlt0HNIuAjL6J6thwIbw9nHVRhVU+F6DoEgj6Tu+YHdq9u3oeEt5S1yXGxLyuXkHC4CKuxzKlCXaclA9UJxhdr793XLycmOl3NdZ06zNDQuFdzKdykiV13/QvvTLWBmChOpKQm7sAw14BDJ9x5ww9szQcy9APNQdeRkCepkq+2VlPbvkyF2AKGNX8S/906UQKJQzNUT0EsISssRLe9fTfx3+m2XIxS1IfjN8xbj6JwlmIoCPGgD44bFz1TJC+OKtrjf7vHul+TPGRuqShXwXQlJshVvtQLqpFfH5zC//1F661VjWCaBq2Of/cs75MCCmfL10M9AU0qmczJKMbYYVwM6R0//34GX4m37mKbxz6zXuknyAJw/pycs5NQnv1jGuyELC85gjaCgL6g9U5j1Muc1e+WMr4KD4E/E7/5VPJHZnsw0kvu53PwWCOvJIY8IUuE8fCoruVtZveI/dJOmCwMBmBrkHYGkSoFAit3M0LWBoHjYtn9kj8DYhNzD69ERvODkTHMM5+SniI96ZMwTZvVosKx9czeZhBlT4EHzButYcUyEbjZYrcAWkwYJnpl+BVxOIT4GITBnIT0zjskto78sFfeYn86MV7S4cKHvAzuiwOLKkU/OGqadMi8QRCBme7ucKSOQ1x1SI9JxaBNg==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(7416014)(82310400026)(23010399003)(10067099003)(5023799004)(56012099006)(3023799007)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|82310400026|36860700016|13003099007|3023799007|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: S4V6Wbfm4+Dd68Wmrf9Jew7GdX6F+2w0eKMoY+8V+SiiJatH0nV13cdtqMhqEKZE9bkvmQFeBQ0oEvqVQ3CpWEwaZJ/CrNKb7OkvpQ+75GF+ROjWHCBViqLvxUzoj89LjU1QIQCy0/bfSHa1bMDw1f8UJZQO1RGaavpYxINxcpAPkKAX4nrrh4fB/024/N5CApKuPu5cZ54A3kTlgAjzjjb0/qHvMhDyhPSPmMnLk/2EuE4DrFwAqm+iMYmBw/OKic/BrBb81W2xAQRHl33Pop7w8Oo0zBO/ZEfLv+ZRxloBOdQfGe7mSE9vtupbTWtS8vGEdQfgtnXQhUZ9IWEaAkJTJvId2+FFFOn8hhBoIMmwBBZdyObgQ7Rvxb/wRLt/FK8qBywROZt32ConfksdK87R2eTEvC8j6DVnwx26QIqzqaDborZJbI5FnQXNu5/5K2IKPIvjYCG6kQ60VEVtLpZkVilTZKQF1TrrWUd3WzJ/n5rBZDp++PGY9cXPnbI2tJq6ElY9wwyu5NJAqpZVu97J8FVhcLxcYRle/GSf46C7fHsm0Xb1R77tY3Q98tkLBkZq7N9Fi+luGZnhiccXjtbdcFiJAOnIG7sTyD4ZwDwK/UHMrDWdtHmQlEc1PVHFN9C4c1sScqUa5fTZfSSgmg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(82310400026)(36860700016)(13003099007)(3023799007)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XTzXR00D0tMyQvEzudfiQQHGYZQagpDcdIVtcpr6fdqRY3xt02MrpqXaaRGdD1rN8iAIrFFIabajrNZW8Eei6BpFPZ1OUSF7RlFCZ+NCru8QPS18KvUE9ATyWGMFTfTqIOuUl3VF465k8jxlUISu5zjg1xec/SNZ5nKuFeUMkvrgpZWxT6797etRHhWGUms2AN2SgNnJU/VWI8N0hKjMt5oOWqwn9OVVa3iwgCN+9jlLIK82AbPNHYM3/NvAB3npTAKMP2a9ss8cey2qPu62cyDq5ct4GvrCcHhrNQ0AtJ6RaOIsm9Qr4h+mbZAfJMFpydp/9L1Glq0mLO9yIrixAb5qtoNieSVN9P7vYnr8JQoLSiraIs568ZYEmY/sHYs3qh+ZpZZkSw9UmHf2jWBrop3onpq88MG67LCoXBQIX6jF9RrxjpKtZO4PkwU7ldle
-X-Exchange-RoutingPolicyChecked: fFNeO2mElZcrgSRwwpacTSESRDTtdNhuAYe2g+ff+JOeD1lOwnUerkRsQMYcw/D7Oof8jKjyBVicPC9EDHQzCnbOUGCsrK/YFh59bPP20zkxpnt9hhBF0tzZP0ux8Yry/uBDig1LjggEuxtUn+f3Wbx1Gd/8ZrKAuPWeOtAwvPpmeTifRQlTc7wDhpujkiYxI5DE6AAuYP6cSj0W5OB+owmOYS2q+71VKzxx0bgziUPKghD16kqawbcrMYROD1RvZIp0YokD1sEf/Kkta12CNoKYh6qsXK9SgZIDguX90vknsnx/7bMlNt9OUs9utm1ucmgZwRdKutVbTtzTMR5wLA==
+X-MS-Exchange-AntiSpam-MessageData-0: 02K059Cpv2stJ35ot0TlPzDZlJ6B6xwKY6HthbAreuHMOE705FGpUpuI8WDkypI7oY17cR7ppIezOpESWpf9trOn6dTDvNt8bd/NNnic85tzwe/Ec4q900WPwtuRaDldbDo6i8mBB40r7BoFahp4pEWTaIzkuuSbLnxlst0w3m6jUG5NDZt6wp+NKr2EbB/rnWVJfFIuvZU3QbQ4LVa1oP2wTtwOpavzewn30xIDViKww955E70gvcXiptM45JAZFAo9GfEEChcuAsDLbRjFRUSW/ZecZoE+MNyVOAOK/Krmsf/pet5yKi1Jlu2KOR34Hk5aYRnj2EI/xEbP3l3Ugop9W3pWwcy38UQOMKX7JZYdjQZcaE0D/uZ5g0M1sUzXDEjos5XiuG9xESe5nV1VhQMWc0YHtlVxtAOe6l+po9+QIrC7OVTrW3ZJzVVhB48w
+X-Exchange-RoutingPolicyChecked: g5oCbBdhWduqv6iiZk8w3y5mpdfAjOlvc0zZ7DdPno0nhUkZKuXzeJCVv8deTwN5CjV//Vm0i5qXUbwurid/xTUK9pQNxHDOKfKKir3ENqVPaLaDhx4MWj+5i9TJ/lMrzGaxAyDIHCS6K43jxXuJerQX+H97UTbdK7LKEtFjMs94qQv2fj0qsEQC/YHIElOzTOKQg1LTgEgFgBpylGwbntUuNhht8hNP4nsr89EBWf385G4bDijDk6BcPMdBeu0bhYgLEC3AJyrSQi5mZe82KLU+dEZHgZgc3aJOyWaQAS767ZD97olWimdYr3v1yxl4s5xRtyDDUgxM9xH7wl7bsw==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 09:37:14.9807
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 09:37:23.1901
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7205c59-5516-4944-35b5-08df19564090
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8c4c085-a6b4-4791-4b25-08df19564574
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
 X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00029928.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR10MB6388
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAzOCBTYWx0ZWRfXyqpxQL/mRzJ8
- z5xq/hC2s2Z3xaZXTT4oLUUJmaXofP3TJmE8NrHo9nFnLMhpoXyIi4de6BMZ42gnBDdGogrNINT
- dsvROxsecG9EbShWnODefAouWwcOc8Vx+xbmsC4LGpWqT3kAVT9WIldZC7FY5LRF76Iy/dQoJZB
- B0Y3WWhMYO987TKZJs9d7dOqt2qLjEdTjTSLpjXaRQ3UKZ6r3NT5zsC9maspm5zwx3Qm7AeRnog
- wi+6sVa8N50iHIpviEirgpmTk95wnY/Eojc6VR8inWYinX76z5bnqnezUlCm0zaH5f33jvr6Dgq
- EY6as0Z9b/64dt6lT89C7GEMvZaHCvCFQtwzOyISFqdYmC1kCRVMkyUwVQDVsMlm1bk8MzI//8P
- +sB4mWCVL4Rrm31N7/vNMtR0WOuscaHEx44HrOxHYLFYP86CsFZccyCqLEttpNMW8LUyK1Mxrz3
- 7MNvMIFfP2hgqJQJAOw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAzOCBTYWx0ZWRfX3YDEOonEbMp0
- ViVhA0P44npTFXrLWazZcIos9j624tqnb8Y6D55UbgaC0okH3/GUM6a66ZXjqfQvpyE16V1GSsL
- 0qN7Fw+al1f8qMg29Z5Guoe18Vn+x48=
-X-Proofpoint-GUID: NZigiN9Xbu4dlLFA7G6VnbiQfQMMfevV
-X-Proofpoint-ORIG-GUID: NZigiN9Xbu4dlLFA7G6VnbiQfQMMfevV
-X-Authority-Analysis: v=2.4 cv=cPt1IVeN c=1 sm=1 tr=0 ts=6ab39dd1 cx=c_pps
- a=6brTJxCCefizds7ERwDNzw==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6709
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAzOCBTYWx0ZWRfX1YUL6SXigtIy
+ cqoIvcCCfTCnak1qAOrbPaE4VpbRSuyZ9HhxPCNADOjtCmDtKz2oof6PUeAeyyrACC2DwdkH2/2
+ rO3EthsYuEEkOXXx4l/27TARUyMBQy4=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAzOCBTYWx0ZWRfX5UhZ3bozrVUz
+ cawhuHUuxUlbZik4Ak1dDAZzoiwBT9kaXMno3P0U3SIPun3C262ar2RIALIfAvjwXWQaseI3CSE
+ 7FmNhZyKaLZzmPbWV2Y16+A9plADuz7ieIxjwRcg3RdA+bImal9NwONazPURHF5eII6E/XLEciL
+ jSFOx7SgcRMpaR92ilygrDkgguU8av3EqenrThgwzfxi0Z+sNXvgritNedQSdDLZ5y6diR2GGm4
+ FI9vqgoIMAyOLzRpPvvRqADT8xwHRT1SyxLUfTQkwgjjIzwqjcRBVyS20cv61zWw1P3L6ZUvfAp
+ bAHY01R8NRMJNV03RXjb2PPg3mNxSdWbVgqRAo/4725LsD+leqq0voZpLp0Y4fkTG2X3hfJjDd9
+ ZXkXW15vYo8kTNjdDoSWk0tXxYNKtGu43bwSeaGFmPCsuPFWctkEkyZtJykXpc3eg72yaHb7m4f
+ gOfmVnd4mwJI1E5WInQ==
+X-Proofpoint-ORIG-GUID: cr2pJRw2QlujtPOQASEv-OAko5SXpqoe
+X-Authority-Analysis: v=2.4 cv=TpFzFzXh c=1 sm=1 tr=0 ts=6ab39dd6 cx=c_pps
+ a=ZRTQSBiCf/ik28kxSsFIIQ==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
  a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=-ataLAZeJnTW1ooz-NYA:9
+ a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=dddYAUS7GpBDi4dWB1gA:9
+X-Proofpoint-GUID: cr2pJRw2QlujtPOQASEv-OAko5SXpqoe
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- impostorscore=0 phishscore=0 suspectscore=0 clxscore=1015 spamscore=0
+ lowpriorityscore=0 malwarescore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ spamscore=0 priorityscore=1501 phishscore=0 impostorscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_103733_866137_7F47C957 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260923_103738_796249_11C9727E 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,11 +194,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-J7EXPA01EVM Fusion2 serial capture expansion board features 3 UB9702
-deserializers, each capable of aggregating data from up to 4x cameras
-over the FPDLink-IV interface. Add support for the same on J722S-EVM.
+DS90UB954-Q1EVM consists of a DS90UB954 deserializer which aggregates
+data from up to 2x cameras over the FPDLink-III interface, and can be
+used to connect FPDLink-III based sensors to TI EVMs.
 
-EVM schematics and design files: https://www.ti.com/tool/J7EXPA01EVM
+Add an overlay to support it on J721S2-EVM. CSI2RX connectivity on
+J784S4-EVM and J742S2-EVM is the same as that of J721S2-EVM, hence the
+same overlay can be reused.
+
+Link: https://www.ti.com/tool/DS90UB954-Q1EVM
 
 Reviewed-by: Rishikesh Donadkar <r-donadkar@ti.com>
 Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
@@ -207,64 +211,92 @@ Changes in v3:
 - Rename fixed-clock node to the generic clock-<frequency> form
   (Krzysztof)
 - Also rename fixed-clock label to lowercase
-- Override CSI2RX ports using &csiN_port0 labels instead of the full
-  &cdns_csi2rxN node path, and drop duplicated properties (Krzysztof)
-- Fix minor DTS coding style issues (Sashiko)
+- Override CSI2RX port using &csi0_port0 label instead of the full
+  &cdns_csi2rx0 node path, and drop duplicated properties (Krzysztof)
 - Update copyright year to 2026 (Udit)
 
- arch/arm64/boot/dts/ti/Makefile               |   4 +
- .../ti/k3-j722s-evm-fpdlink-iv-fusion.dtso    | 275 ++++++++++++++++++
- 2 files changed, 279 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-fpdlink-iv-fusion.dtso
+ arch/arm64/boot/dts/ti/Makefile               | 10 +++
+ .../boot/dts/ti/k3-j721s2-evm-ub954.dtso      | 83 +++++++++++++++++++
+ 2 files changed, 93 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j721s2-evm-ub954.dtso
 
 diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index ed8966694d63..44ee01c7ff99 100644
+index 44ee01c7ff99..a66d11359bd4 100644
 --- a/arch/arm64/boot/dts/ti/Makefile
 +++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -212,6 +212,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-fpdlink-fusion.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-fpdlink-iv-fusion.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-v3link-fusion.dtbo
+@@ -201,6 +201,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-gesi-exp-board.dtbo
+ k3-j721s2-evm-dtbs := k3-j721s2-common-proc-board.dtb k3-j721s2-evm-gesi-exp-board.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-ub954.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
  
- # Boards with J784s4 SoC
-@@ -441,6 +442,8 @@ k3-j722s-evm-csi2-quad-tevi-ov5640-dtbs := k3-j722s-evm.dtb \
- 	k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
- k3-j722s-evm-fpdlink-fusion-dtbs := k3-j722s-evm.dtb \
- 	k3-j722s-evm-fpdlink-fusion.dtbo
-+k3-j722s-evm-fpdlink-iv-fusion-dtbs := k3-j722s-evm.dtb \
-+	k3-j722s-evm-fpdlink-iv-fusion.dtbo
- k3-j722s-evm-v3link-fusion-dtbs := k3-j722s-evm.dtb \
+ # Boards with J722s SoC
+@@ -434,6 +435,8 @@ k3-j721s2-evm-fpdlink-fusion-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-fusion.dtbo
+ k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtbo
++k3-j721s2-evm-ub954-dtbs := k3-j721s2-common-proc-board.dtb \
++	k3-j721s2-evm-ub954.dtbo
+ k3-j721s2-evm-usb0-type-a-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-usb0-type-a.dtbo
+ k3-j722s-evm-csi2-quad-rpi-cam-imx219-dtbs := k3-j722s-evm.dtb \
+@@ -448,6 +451,8 @@ k3-j722s-evm-v3link-fusion-dtbs := k3-j722s-evm.dtb \
  	k3-j722s-evm-v3link-fusion.dtbo
  k3-j742s2-evm-fpdlink-fusion-dtbs := k3-j742s2-evm.dtb \
-@@ -550,6 +553,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j721s2-evm-fusion.dtbo
++k3-j742s2-evm-ub954-dtbs := k3-j742s2-evm.dtb \
++	k3-j721s2-evm-ub954.dtbo
+ k3-j742s2-evm-usb0-type-a-dtbs := k3-j742s2-evm.dtb \
+ 	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ k3-j784s4-evm-fpdlink-fusion-dtbs := k3-j784s4-evm.dtb \
+@@ -458,6 +463,8 @@ k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtbo
++k3-j784s4-evm-ub954-dtbs := k3-j784s4-evm.dtb \
++	k3-j721s2-evm-ub954.dtbo
+ k3-j784s4-evm-usb0-type-a-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
+ k3-j784s4-evm-usxgmii-exp1-exp2-dtbs := k3-j784s4-evm.dtb \
+@@ -549,6 +556,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j721e-sk-v3link-fusion.dtb \
+ 	k3-j721s2-evm-fpdlink-fusion.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtb \
++	k3-j721s2-evm-ub954.dtb \
+ 	k3-j721s2-evm-usb0-type-a.dtb \
  	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
  	k3-j722s-evm-csi2-quad-tevi-ov5640.dtb \
- 	k3-j722s-evm-fpdlink-fusion.dtb \
-+	k3-j722s-evm-fpdlink-iv-fusion.dtb \
+@@ -556,11 +564,13 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j722s-evm-fpdlink-iv-fusion.dtb \
  	k3-j722s-evm-v3link-fusion.dtb \
  	k3-j742s2-evm-fpdlink-fusion.dtb \
++	k3-j742s2-evm-ub954.dtb \
  	k3-j742s2-evm-usb0-type-a.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm-fpdlink-iv-fusion.dtso b/arch/arm64/boot/dts/ti/k3-j722s-evm-fpdlink-iv-fusion.dtso
+ 	k3-j784s4-evm-fpdlink-fusion.dtb \
+ 	k3-j784s4-evm-fpdlink-iv-fusion.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
++	k3-j784s4-evm-ub954.dtb \
+ 	k3-j784s4-evm-usb0-type-a.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-evm-ub954.dtso b/arch/arm64/boot/dts/ti/k3-j721s2-evm-ub954.dtso
 new file mode 100644
-index 000000000000..bb20bb925681
+index 000000000000..3c3eb16031ed
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-fpdlink-iv-fusion.dtso
-@@ -0,0 +1,275 @@
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-evm-ub954.dtso
+@@ -0,0 +1,83 @@
 +// SPDX-License-Identifier: GPL-2.0-only OR MIT
 +/*
-+ * DT Overlay for FPDLink IV UB9702 Deserializer on J722S
-+ * https://www.ti.com/tool/J7EXPA01EVM
++ * DT Overlay for DS90UB954-Q1EVM FPDLink-III deserializer board on J721S2, J784S4 and J742S2 EVM
++ * https://www.ti.com/tool/DS90UB954-Q1EVM
 + *
 + * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/
 + */
 +
 +/dts-v1/;
 +/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "k3-pinctrl.h"
 +
 +&{/} {
 +	clk_fusion_25mhz: clock-25000000 {
@@ -274,196 +306,47 @@ index 000000000000..bb20bb925681
 +	};
 +};
 +
-+&main_pmx0 {
-+	csi_expansion_interface_reset: csi-expansion-interface-reset-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x114, PIN_OUTPUT, 7) /* (G26) GPIO0_68 */
-+		>;
-+	};
-+};
-+
-+&main_gpio0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&csi_expansion_interface_reset>;
-+
-+	line68-hog {
-+		gpio-hog;
-+		gpios = <68 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI2_EXP_RSTZ";
-+	};
-+};
-+
-+&pca9543_0 {
++&main_i2c5 {
 +	#address-cells = <1>;
 +	#size-cells = <0>;
 +	status = "okay";
 +
-+	i2c@0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0>;
++	deser@3d {
++		compatible = "ti,ds90ub954-q1";
++		reg = <0x3d>;
++		clock-names = "refclk";
++		clocks = <&clk_fusion_25mhz>;
++		i2c-alias-pool = <0x4a 0x4b 0x4c 0x4d 0x4e 0x4f>;
 +
-+		deser@3d {
-+			compatible = "ti,ds90ub9702-q1";
-+			reg = <0x3d>;
-+			clocks = <&clk_fusion_25mhz>;
-+			clock-names = "refclk";
-+			i2c-alias-pool = <0x4a 0x4b 0x4c 0x4d 0x4e 0x4f>;
++		deserializer_0_ports: ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
-+			deserializer_0_ports: ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					status = "disabled";
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+					status = "disabled";
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+					status = "disabled";
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+					status = "disabled";
-+				};
-+
-+				/* CSI-2 TX */
-+				port@4 {
-+					reg = <4>;
-+					ds90ub970_0_csi_out: endpoint {
-+						clock-lanes = <0>;
-+						data-lanes = <1 2 3 4>;
-+						link-frequencies = /bits/ 64 <800000000>;
-+						remote-endpoint = <&csi2_phy0>;
-+					};
-+				};
-+
-+				port@5 {
-+					reg = <5>;
-+					status = "disabled";
-+				};
++			port@0 {
++				reg = <0>;
++				status = "disabled";
 +			};
 +
-+			deserializer_0_links: links {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++			port@1 {
++				reg = <1>;
++				status = "disabled";
++			};
++
++			/* CSI-2 TX */
++			port@2 {
++				reg = <2>;
++				ds90ub960_0_csi_out: endpoint {
++					data-lanes = <1 2 3 4>;
++					clock-lanes = <0>;
++					link-frequencies = /bits/ 64 <800000000>;
++					remote-endpoint = <&csi2_phy0>;
++				};
 +			};
 +		};
 +
-+		deser@30 {
-+			compatible = "ti,ds90ub9702-q1";
-+			reg = <0x30>;
-+			clocks = <&clk_fusion_25mhz>;
-+			clock-names = "refclk";
-+			i2c-alias-pool = <0x5a 0x5b 0x5c 0x5d 0x5e 0x5f>;
-+
-+			deserializer_1_ports: ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					status = "disabled";
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+					status = "disabled";
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+					status = "disabled";
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+					status = "disabled";
-+				};
-+
-+				/* CSI-2 TX */
-+				port@4 {
-+					reg = <4>;
-+					ds90ub970_1_csi_out: endpoint {
-+						clock-lanes = <0>;
-+						data-lanes = <1 2 3 4>;
-+						link-frequencies = /bits/ 64 <800000000>;
-+						remote-endpoint = <&csi2_phy1>;
-+					};
-+				};
-+
-+				port@5 {
-+					reg = <5>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			deserializer_1_links: links {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
-+
-+		deser@32 {
-+			compatible = "ti,ds90ub9702-q1";
-+			reg = <0x32>;
-+			clocks = <&clk_fusion_25mhz>;
-+			clock-names = "refclk";
-+			i2c-alias-pool = <0x6a 0x6b 0x6c 0x6d 0x6e 0x6f>;
-+
-+			deserializer_2_ports: ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					status = "disabled";
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+					status = "disabled";
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+					status = "disabled";
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+					status = "disabled";
-+				};
-+
-+				/* CSI-2 TX */
-+				port@4 {
-+					reg = <4>;
-+					ds90ub970_2_csi_out: endpoint {
-+						clock-lanes = <0>;
-+						data-lanes = <1 2 3 4>;
-+						link-frequencies = /bits/ 64 <800000000>;
-+						remote-endpoint = <&csi2_phy2>;
-+					};
-+				};
-+
-+				port@5 {
-+					reg = <5>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			deserializer_2_links: links {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
++		deserializer_0_links: links {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +		};
 +	};
 +};
@@ -472,31 +355,7 @@ index 000000000000..bb20bb925681
 +	status = "okay";
 +
 +	csi2_phy0: endpoint {
-+		remote-endpoint = <&ds90ub970_0_csi_out>;
-+		bus-type = <4>; /* CSI2 DPHY */
-+		clock-lanes = <0>;
-+		data-lanes = <1 2 3 4>;
-+		link-frequencies = /bits/ 64 <800000000>;
-+	};
-+};
-+
-+&csi1_port0 {
-+	status = "okay";
-+
-+	csi2_phy1: endpoint {
-+		remote-endpoint = <&ds90ub970_1_csi_out>;
-+		bus-type = <4>; /* CSI2 DPHY */
-+		clock-lanes = <0>;
-+		data-lanes = <1 2 3 4>;
-+		link-frequencies = /bits/ 64 <800000000>;
-+	};
-+};
-+
-+&csi2_port0 {
-+	status = "okay";
-+
-+	csi2_phy2: endpoint {
-+		remote-endpoint = <&ds90ub970_2_csi_out>;
++		remote-endpoint = <&ds90ub960_0_csi_out>;
 +		bus-type = <4>; /* CSI2 DPHY */
 +		clock-lanes = <0>;
 +		data-lanes = <1 2 3 4>;
@@ -509,22 +368,6 @@ index 000000000000..bb20bb925681
 +};
 +
 +&dphy0 {
-+	status = "okay";
-+};
-+
-+&ti_csi2rx1 {
-+	status = "okay";
-+};
-+
-+&dphy1 {
-+	status = "okay";
-+};
-+
-+&ti_csi2rx2 {
-+	status = "okay";
-+};
-+
-+&dphy2 {
 +	status = "okay";
 +};
 -- 
