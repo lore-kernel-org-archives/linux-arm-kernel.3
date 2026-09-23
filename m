@@ -4,99 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268D9C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8B6C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t1Z4i78iFUVYmXdwkSYq7EkiOAX8N+OcOOj8F5FsldA=; b=flOTRRlmA05upeKuOwmBSPesdT
-	HpgGyG9qnniBgDWiT2Xh24OF0auKEshoJNvJZIGE5ELxEBg+UoFx8tnhFBEEJMT2l8jNEjj/z/nBn
-	SWVXNV7+a6sdJkGcZerKfOi8S43UelKhfXUsPGLMnhV8IQKWDXheJiGQLCdRkUsHAaM8tI0cHluhU
-	YNZuwBFsEwhJK9by9TH4DWGAoZQKnzXgrGj0ceC4e4CikjND5TQZgRLzGJhOIY96zLmczgfenHu/A
-	9GIbbjkoL0s1dU65j3b+h7LhO+irU63MwdD9WmdFjWIMN+LkpzP1tKPShlL7LTosYLw3y6+XoyMf4
-	OhfAaqvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mIg+mGPTkJrwKZp7jh3Yx1UEWvB7j/FRVm3hT3LKHP0=; b=Br4oLNBQczYvAXn0kIBrtynKNU
+	ASbl9bjNmkwjhMui0c5red0/ohmDuaVI97lESTGNpKMS8D0sT4r435Grw9IHmQvO/ReN+IjntENeS
+	vAfY8Iz3hyLa/PnWdBod6UtTpeInCdpKm58NYZm4IccWQedc3AbzyB8Ir+YxhmVRmEen7NgZ6j3t5
+	WF+woGBOtkLtie6quo0+bM0jcmf4mw/PynNowbvE6HKuGtgWIG19qP0Q7ZFXHAcdVWtPJahu7Jyn4
+	wDZA9GLv5llEqRUsa8mkALUAbBHuFrB1Zi9OtmPWkWdUlpRv+yKLtEtYxJ/jLYVxkomsuuRCYIovx
+	qr3LBoRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KWw-00000007wOn-3yez;
-	Wed, 23 Sep 2026 10:48:50 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1x9KXM-00000007wTM-0ESj;
+	Wed, 23 Sep 2026 10:49:16 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KWu-00000007wOG-2Wjm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:48:49 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c29703cb796so99912666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:48:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790160526; x=1790765326; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=t1Z4i78iFUVYmXdwkSYq7EkiOAX8N+OcOOj8F5FsldA=;
-        b=ULKzLn/U4higYR5QNi8L5Ic/b4YboH5Q0B0h8tLYOnBsK/eBVmDRADJSfcquKw9cWS
-         +aJWmCpshqF9otj379dqgWBVJmKgsue2DS8GfO/LmbEiBeSOWuxJnT3Q5Nlyq6iMplNo
-         /9ziBKg7an9L1PfOkzHQtqxafPNptxvHWYrNU0+qTfKAnlBsfwaB9qQ6SJ1/DAIuo5ps
-         9W/geTU2LNo27AmMXbd/xYqgmYaNo6C4Np+UBc/bo4GevAdhFckP/s4YlQw3C7QA40rK
-         fHZQuTkzvjhlpHo+IHJgADPdJi7n+69wP4hpJtQ4w6kryi//cfr+sSwX/cuxexT2XG4+
-         nYYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790160526; x=1790765326;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=t1Z4i78iFUVYmXdwkSYq7EkiOAX8N+OcOOj8F5FsldA=;
-        b=WKfudkl5NtdnxsuJvyewhWTvoNRp5lxCjTHYfmVVItwVWyPc/eg58idhe1iq+Qu2CM
-         QR8UCL8oS+X0/tNdJcf3amI1gPd47uS32Ch70CwTPuJiZE5VovR+hj5WS40bpdHQLyqd
-         HzxgoGrRtDAJUva6XVIXlC8AR+7rOiE8baLwzoP5knIsAl8HwTI+XcwuMOoFM91jbfb5
-         1akGNu162XBN82F6AiQeXhl1Iv0gHEnrZPlg8lMwAJ+KPxeLhTtvZ9TSPcj1yXi6Zmqd
-         OQ89D5CpJg0l742Em/xuzVqFszVja9AVkKMzZyW/OZVADv8JALciTP+JLtsGuJWQUO9F
-         D3Tw==
-X-Forwarded-Encrypted: i=1; AKwUvBxPtXKcbFdsno8B4NlhG3kf1VT7o9xhnAPebZjPYFGRQnxwRAkjS2IjEQH4EZ9Z0g0DCWLXHmGo6rtKTYcv+fnu@lists.infradead.org
-X-Gm-Message-State: AFuF++nPBYwUzzx1zXR3+fjAlp5uvqe0WTZg8st30a3J85SwI7gYzlMX
-	fi1QfhuSClEWO57pQlh+huQInuVwJNapvrJSUYWMxzMivbTFV2F2hoFAJn6tzfOT
-X-Gm-Gg: AYBFou021M5JYZibMaxnrN9vVpUaucVlC3IhQkihjkjsgfE9gF6bG81TiUpGGZ1gsaX
-	mb0opJUQ0h7fqqPpJLiz6prm57RsraSGhJsqnDE0i3Q5O+TNzymVjYmkJjKjYIpfzlbz0WZo13K
-	XX02DCFxpp6s4LleRVX/Ec7IkScvaktv/rHNeHVSsqRsO9kbnA03T0J/iDl7FN/nadY7ZTYvXc7
-	1WP7WhlmmPfrXY0Tjp7JuIWxQd6GlBsLFzkT/y2R0R/GvvwJSOBzDi9aKBFvYnXRVs7mSPabdGx
-	qQm/FVR9T9mK+jHuQ4iuV9EpbYUmwPu7LPv6xQ72F0InYnasGopbSz2J6a/p9LfjE4dHTx5nZ7K
-	EkR6wwratVyUZ7naYgHIWvhmGZGMcW3dXgVZAONYMkPMYcwo6yVrDQp9GV3/fWy/Cgry2mEIYVq
-	XciUYO8SU7RxkQXIgwf/OuORmGxF2090CSsWhmjYAY7d7Mtr3WJmzi/eifiNMOYQFL1Xclf+AAf
-	Dl0DQART4bJp77tdwPWMY7E6jCpOlwQigQ=
-X-Received: by 2002:a5d:64cc:0:b0:487:81c:6de with SMTP id ffacd0b85a97d-48867093ce7mr3896298f8f.34.1790160194918;
-        Wed, 23 Sep 2026 03:43:14 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-488687791cdsm5534038f8f.22.2026.09.23.03.43.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 03:43:14 -0700 (PDT)
-Date: Wed, 23 Sep 2026 11:43:13 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Bradley Morgan <brads@mainlining.org>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, frederic@kernel.org,
- neeraj.upadhyay@kernel.org, boqun@kernel.org, joelagnelf@nvidia.com,
- rcu@vger.kernel.org, "Andrew Morton" <akpm@linux-foundation.org>, "Arnd
- Bergmann" <arnd@arndb.de>, linux-arch@vger.kernel.org, "Vineet Gupta"
- <vgupta@kernel.org>, linux-snps-arc@lists.infradead.org, "Russell King"
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, "Guo Ren"
- <guoren@kernel.org>, linux-csky@vger.kernel.org, "Yoshinori Sato"
- <ysato@users.sourceforge.jp>, "Rich Felker" <dalias@libc.org>, "John Paul
- Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, linux-sh@vger.kernel.org,
- "Chris Zankel" <chris@zankel.net>, "Max Filippov" <jcmvbkbc@gmail.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] lib: Add two-byte cmpxchg emulation function
-Message-ID: <20260923114313.75494970@pumpkin>
-In-Reply-To: <20260911192540.20983-2-brads@mainlining.org>
-References: <20260911192540.20983-1-brads@mainlining.org>
-	<20260911192540.20983-2-brads@mainlining.org>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1x9KXK-00000007wSq-04Sn;
+	Wed, 23 Sep 2026 10:49:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790160504; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=FygdenF/a3cqko2v1rNYJGgc3uugEJLQnWzFHloFqqxc1H/pLjBxY4bBdoqXPAHy6lXi7FA7lZwb6bf4RW2VKg4JuZiT6sGDbtLIn6A96htNbISnIFZtzheMDj1ErNJFJfzFBV4elrJT/VYKP/McQg00MeDlADIDCEFjKbIm8m4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790160504; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=mIg+mGPTkJrwKZp7jh3Yx1UEWvB7j/FRVm3hT3LKHP0=; 
+	b=SkIH6qhXY6y8z7JgEy5AYF96UL8JZCp1C2PchQjedzrY+BKBq95nm107sll5GyYF+0KSf55Lintw2y4TU1BjKh5+5LWEtbcycAAd2N3aYIk4sMMv9SVhIxmSng0voD/wDIFcoPtXoOXXmTLk9TLHpJCE12f9Wmxoct51pfN6Eec=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790160504;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=mIg+mGPTkJrwKZp7jh3Yx1UEWvB7j/FRVm3hT3LKHP0=;
+	b=ES763K8e7KJG7NL47SgY7vc05zHwXHwoNSAQS9VFTb7dYKFHRvNpmI3nYs8BQ9wD
+	taFNsy/YIBgdS5RfE/4ACVbJkpqcJreLXdQGUtRvPHzCvg9fvA6vkhaBmsFmYzAaNW+
+	fmrKephj8NJSd8ik//DrNaedeGo0yFDlNhIk6tc0=
+Received: by smtp.zohomail.com with SMTPS id 1790160499035326.40614265928457;
+	Wed, 23 Sep 2026 03:48:19 -0700 (PDT)
+Message-ID: <7ebad26d21afabbf02e39d25c4491b1815a18865.camel@collabora.com>
+Subject: Re: [PATCH net-next 5/6] net: stmmac: mediatek: add support for TX
+ deallocation adjustment feature
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni	 <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Richard Cochran	 <richardcochran@gmail.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Biao Huang
+ <biao.huang@mediatek.com>, Maxime Coquelin	 <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: rmk+kernel@armlinux.org.uk, kernel@collabora.com,
+ netdev@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Date: Wed, 23 Sep 2026 12:48:08 +0200
+In-Reply-To: <e390664dc439043a43b6ded3c50c9a2bb5bbd2f6.camel@collabora.com>
+References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
+		 <20260707-dwmac-mediatek-mt8189-v1-5-17f345eaaca3@collabora.com>
+		 <2a421449-01eb-4066-8c19-d554ff8e4f6e@bootlin.com>
+	 <e390664dc439043a43b6ded3c50c9a2bb5bbd2f6.camel@collabora.com>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_034848_662225_9D9030C0 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20260923_034914_094600_2D9EE0D0 
+X-CRM114-Status: GOOD (  37.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,56 +94,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Sep 2026 19:25:34 +0000
-Bradley Morgan <brads@mainlining.org> wrote:
+Hi Maxime,
 
-> cmpxchg_emu_u8() emulates one-byte cmpxchg() in terms of four-byte
-> cmpxchg() for the architectures lacking native one-byte atomics.
-> The same architectures also lack native two-byte cmpxchg(), where
-> such an operation is not supported and either fails to compile via
-> BUILD_BUG() or fails to link, because the bad pointer sentinels
-> these architectures declare are never defined.
-> 
-> Add cmpxchg_emu_u16(), the two-byte sibling. It reads the enclosing
-> word with READ_ONCE(), splices the two target bytes through a union
-> and loops on cmpxchg() of the full word until the compare succeeds.
-> Like cmpxchg_emu_u8() it is fully ordered.
-> 
-> The Kconfig symbol gating this file is renamed from
-> ARCH_NEED_CMPXCHG_1_EMU to ARCH_NEED_CMPXCHG_1_2_EMU, as it now
-> selects both the one-byte and the two-byte emulation.
-> 
-> Suggested-by: Paul E. McKenney <paulmck@kernel.org>
-> Signed-off-by: Bradley Morgan <brads@mainlining.org>
-> ---
->  arch/Kconfig                |  2 +-
->  arch/arc/Kconfig            |  2 +-
->  arch/arm/Kconfig            |  2 +-
->  arch/csky/Kconfig           |  2 +-
->  arch/sh/Kconfig             |  2 +-
->  arch/xtensa/Kconfig         |  2 +-
->  include/linux/cmpxchg-emu.h |  1 +
->  lib/Makefile                |  2 +-
->  lib/cmpxchg-emu.c           | 35 ++++++++++++++++++++++++++++++++---
->  9 files changed, 40 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 3bb2e568f5b1..d56064797e09 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -1817,7 +1817,7 @@ config CC_HAS_SANE_FUNCTION_ALIGNMENT
->  	# strict alignment always, even with -falign-functions.
->  	def_bool CC_HAS_MIN_FUNCTION_ALIGNMENT || CC_IS_CLANG
->  
-> -config ARCH_NEED_CMPXCHG_1_EMU
-> +config ARCH_NEED_CMPXCHG_1_2_EMU
+On Wed, 2026-07-08 at 14:28 +0200, Louis-Alexis Eyraud wrote:
+> Hi Maxime,
+>=20
+> On Tue, 2026-07-07 at 11:11 +0200, Maxime Chevallier wrote:
+> > Hi,
+> >=20
+> > On 7/7/26 10:21, Louis-Alexis Eyraud wrote:
+> > > The MT8189 SoC has in the Ethernet control 0 register from the
+> > > peripheral configuration (pericfg) additional bits to adjust the
+> > > TX
+> > > deallocation.
+> > >=20
+> > > In preparation of MT8189 SoC support, add its definition, use in
+> > > the
+> > > set_delay_v2 callback, and a support flag in the platform data.
+> >=20
+> > Can you elaborate a bit on this ? I don't quite get what you mean
+> > by
+> > "tx deallocation", this seems to have to do with RGMII timings from
+> > the register access pattern, but the local boolean flag for the
+> > feature
+> > is named "use_stage_fine", I'm failing to connect all the dots here
+> > with the different terminology in use :(
+> >=20
+> The data sheets I have, don't have info regarding this register, so
+> I'll try to get more and improve commit and/or code description.
+>=20
+> I'll also check if the register definition name is consistent
+> (downstream driver and upstream u-boot use this stage fine term).
+> use TXC phase shift control bit (bit 22, MT8195_RGMII_TXC_PHASE_CTRL)
+> to insert the 2ns delay=20
+> The use_stage_fine feature flag could be renamed anyway to match what
+> it does.
+>=20
+Sorry for the delay on this topic.=C2=A0
+I did not get answers from Mediatek on this register until very
+recently and as you have suspected, the description I got on these bits
+the first time was incorrect and their usage was also incorrect.
 
-Is it actually worth the churn of changing the name?
-Maybe just a comment that say it adds both 1 and 2 byte emulation?
+These bits allow to insert a delay on TXC signal, to adjust the RGMII
+timings. The bits 6 to 10 are used to value step (100ps per step) and
+bit 11 to enable. So this patch inserts unconditionally this TX delay
+with max value in MT8189 case and that is wrong.
 
-David
+There is an alternative way to insert this delay, as the MT8195 SoC
+also provides a different set of bits (bits 0 to 5) which support is
+already implemented in the driver (represented by
+MT8195_DLY_GTXC_ENABLE and MT8195_DLY_GTXC_STAGES definitions). The
+difference with the stage fine ones lies in the stage step value (280ps
+per stage for MT8195), thus the fine term use for the new bits.
+The MT8189 SoC also has these bits too but the stage step value is
+different for this SoC (180ps per stage). The equivalent bits for
+inserting a delay on RXC signal also have this same new stage
+step value.
 
->  	bool
->  
-...
+After discussing about these register bits use with a Mediatek
+engineer, I was recommended not to use these new stage fine bits but
+rather use the coarse ones (bit 0 to 5). I was also advised, that in
+RGMII cases, when the link speed is 1Gbits, to prefer the use of TXC
+phase shift control bit (bit 22, MT8195_RGMII_TXC_PHASE_CTRL) to insert
+a fixed 2ns delay, and use the tx delay bits otherwise (for 10M/100M).
+So, I'll drop this patch for v2.
+
+Instead, I'll add new patches to rework the TX and RX delay handling,
+to allow variants stage step values (the MT8195 stage step value use is
+hardcoded in the MT8195 callbacks), and add the TXC phase shift control
+use too.
+
+Regards,
+Louis-Alexis
+
+> > >=20
+> > > Signed-off-by: Louis-Alexis Eyraud
+> > > <louisalexis.eyraud@collabora.com>
+> > > ---
+> > > =C2=A0.../net/ethernet/stmicro/stmmac/dwmac-mediatek.c=C2=A0=C2=A0 | =
+25
+> > > ++++++++++++++++------
+> > > =C2=A01 file changed, 19 insertions(+), 6 deletions(-)
+> > >=20
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> > > b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> > > index bcc0baef3f71..6b0a42b5839f 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
+> > > @@ -37,7 +37,8 @@
+> > > =C2=A0#define ETH_FINE_DLY_RXC	BIT(0)
+> > > =C2=A0
+> > > =C2=A0/* Peri Configuration register for mt8189 */
+> > > -#define MT8189_CTRL0_TXC_OUT_OP		BIT(20)
+> > > +#define MT8189_CTRL0_TXC_OUT_OP			BIT(20)
+> >=20
+> > Extra whitespace inserted here :)
+> >=20
+> Oops, to be fixed in v2
+>=20
+> Regards,
+> Louis-Alexis
+>=20
+> > Thanks,
+> >=20
+> > Maxime
 
