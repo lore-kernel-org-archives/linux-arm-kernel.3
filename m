@@ -4,143 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473A9C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 17:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46452C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 17:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
-	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mr9woqzfYbqxeZnpqupRyVXNn84DTPQKrjh3dY/imAg=; b=nPyzrPG0fEnnct7X2Liw8ig51i
-	WGKGPnjxtHTFZc2Ap3BZpHSHmEiW3kgr/+5SmgvcP7pyvpEMxW3E0EsCX7gtc+4eA8lTGf4kQW3MA
-	UumrJAXXPx+e024o9PlBGubxFyj+sWpZwx6r/PGvoGI7iIYSDC/0lcbFz5WTtXuCq76+/TTcT7DI0
-	p1C9Vl+vXxfU+iToGB9SNmDoWLUY5xFlCHpAYXbAfCUVgdykABBOtm3qmhkocW9Chpyw3Rm0mBhMv
-	6mVTVyRt8sc4s8+T9IdXLNEYccGyTFF64mFRZ/DTACCL0ret62SV6qEZpmzMv7tEU2cUci/6M7w11
-	Cs7lECYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+sWyggwBV1D9IUYjZa6aLkPXJtAz+OTvh2XpzdjOSmY=; b=JbXKwllf4OMJwArxGz8+OgM9bB
+	hflK5R59ncjDz5eaVMkQfclLUp5t+ZohMXnyQEnl00hdBZH+TX8kKOnppDw8JMs2KG3u52kBRkt3Z
+	9HtS9oAyVdom/wJ2YhQ+3nAgutOXxg9eCQ6HNEZSXlJY+ePtCqswnv6sTxz+U6lcbklfitbT1TiNE
+	rd2vQiXFSRhCqAdgOwFnfMso5D3Z/yYXMZpFNIe01f6qN8iHykQEOEKe/VuJqVuGWf+19V0zpEKK8
+	j4ipxTAqWvF9yUUHofriuP1z0ZxmiVetZbPluU5PEjeNrISODJ0WvECdf8bXufHGioBfREXjUPoLl
+	9/KM1uXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QOZ-00000008xje-3Wem;
-	Wed, 23 Sep 2026 17:04:35 +0000
-Received: from mail-eastusazon11011036.outbound.protection.outlook.com ([52.101.52.36] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1x9QRz-00000008yJ8-1gfj;
+	Wed, 23 Sep 2026 17:08:07 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QNq-00000008xbv-3wDG
+	id 1x9QRw-00000008yIT-0X2g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 17:03:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=suUFYKub0KNgpT+OZDdH6wpnhUMBmGat3zGtLvaQ34uYetDLzcIMHQH4k6ZKSqhcrorRYdYEb5HzbxccuYGcAtcqRGA2HUUF5+7ZgHHMsjzguhGpUeUyouezgSxT0MTnPT8Y7usslDziw8HVTWDs8h+pkqPCxBzhypj8+RUNDeK+E7PVHETRhdjgoDKzgiN+yuh+cyM0BeMuwYffwjv/KUm7ck1qwMcy9HtcgaxXzmWlauNqqP33JcxPIJ9srvVe2WDoA8GiyJn+hN57fIAHLdF7aQu7m8pGOFrKJkVfUXWc80G/y75chHImjPXIzwy25Tr3eEsRAYChW1a+aDzxAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mr9woqzfYbqxeZnpqupRyVXNn84DTPQKrjh3dY/imAg=;
- b=KO71TMMcwPoBxHO+rL3s/eZmGecf4OWWgV9ZI2a81/QtYVV5vD086E2p+WUZEOh21k7NDN00koTltiDLiyJ0zIc/4Gydz06ZC5jNjBJ3LYE2LvrACvUtcQTPp7j3wxxBGADXehUOF9ZxxQZkz7VSCE6OGELgII+UWCozWPl6gLGUvd3OZKIVNMY6vJquo37muCdyPurSsmV52ZtbTLtuvGOovjuq4kKpnfYkydqjO+p4BKYU7kRivzlvQzDCoGfOx7Du/s2liGuWWfI0aTCseYj2Zgvg3v/eNyP4WXK/ERQ82Oi3dN+44Q2PGEsSOJOiHyqIQGP10oiW9ytQ8NoRbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mr9woqzfYbqxeZnpqupRyVXNn84DTPQKrjh3dY/imAg=;
- b=X2odByberU1lI3OWeWibKhnTyeBKb/Lu581hTfZAB5Pb3LXUNfdyiI8fAi13basboEpFLrJ9No4nYranqSA+cLWEoNzLP7X1s1Rw5Iib3TcRvnhnPhfUtfmzfxO5D9vj9ueL6h5dcemKUjkM2b/pEUNymMxIYXPMQ1zvKWgbpxGxsRZJ9/I96vYAtJig+pzDbnJmPSN6F7U8+FLqrwm9X+4xTxD9AXZIQ00dW9IlqUuSZ37+ySdQ1yw3NXPZMpe4lu2me3+7CrClAc78H1NUMSgTSJ2sPpt1haqguIISZeHpG69edQi7QBOdMqZ/XBwJ6Fk6ciRN5YO5JpkJjuNDyA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LY0PR12MB325698.namprd12.prod.outlook.com
- (2603:10b6:408:3bb::14) by DM4PR12MB7574.namprd12.prod.outlook.com
- (2603:10b6:8:10e::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
- 2026 17:03:39 +0000
-Received: from LY0PR12MB325698.namprd12.prod.outlook.com
- ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
- ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
- 17:03:39 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v6 1/2] iommu/arm-smmu-v3: Add a cmdq_max_n_shift
- module parameter
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>, 
- Jason Gunthorpe <jgg@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
- Mostafa Saleh <smostafa@google.com>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Krishna Reddy <vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
- Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
- Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com, 
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260909095228.2174031-2-kas@kernel.org>
-References: <20260909095228.2174031-1-kas@kernel.org>
- <20260909095228.2174031-2-kas@kernel.org>
-Date: Wed, 23 Sep 2026 14:03:36 -0300
-Message-Id: <179018301689.3334538.1783583175230817305.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-ClientProxiedBy: CH5PR05CA0010.namprd05.prod.outlook.com
- (2603:10b6:610:1f0::22) To LY0PR12MB325698.namprd12.prod.outlook.com
- (2603:10b6:408:3bb::14)
+	Wed, 23 Sep 2026 17:08:05 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49e6425f96eso765e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 10:08:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790183282; x=1790788082; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+sWyggwBV1D9IUYjZa6aLkPXJtAz+OTvh2XpzdjOSmY=;
+        b=r/H5f1BcTcdlmZtTMyquh9b/og2n71+qfyuCJRyAZr3h3FvyQhCR8p2ZH/xlLi7Stk
+         V3Lt863Kme5DI38jsLgpwRKW5CU9S1qTUmGQP3B74aySdjzeg54797tMX2g1efc67Q3V
+         C+ki8QADnBD8tF4nFfLFgPVjm8Yq12Ce+YsE96kpQ1HR5ef/sSUH6LjfP2yuvac4yhdL
+         SiBF2VwiTwpF29d9DdrAMAf6GOCe037wbbolmx+2UM5KdXVK3Rf+V9x9WZQXL5rj7J62
+         a/Mn1MZpsVEipFWb/lefnj30Wgl7cvvGMpa9iW1JQL5MvMcM6DngCU8cKMi4ilLcnqbo
+         0EyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790183282; x=1790788082;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+sWyggwBV1D9IUYjZa6aLkPXJtAz+OTvh2XpzdjOSmY=;
+        b=UHz/4JehkdgXiMJ2g0X9FbC302bFSwC6sBoTxSKR/ko/dCRqztUu8/Z2SrbCeTMJft
+         WaTCOCXfmT2y66cqh73E4UJLl7hAH4y160YPbamYOMu0IurR1wU2VxgxEeQ5lDlb/wQo
+         Kh6U2/VgeQxpseTu/IkIjtfKOsSHcxcnpXcq3Zr2TJAUVysDni/ja+pTelHtq3cos81Z
+         ZkYTG4OmKwsD7fmFa+Cpm5Ei4SflZQY+qd+plPi9l6lGFSTZCoz+yvjE9LB4QZH/ZZev
+         bDnhwfe1pRcBtVJR8insTDVZ4aRivwQqU8Aqp7VdHFa3ysAALa/yAjxftw75ZHqOlFU1
+         e6ag==
+X-Forwarded-Encrypted: i=1; AKwUvBw2qi9H3KfpSVOvK5rNb3ZXYTnTOkrNfhKQ1gpn0spD4VBW0jLTpXSF1FWwjaT03W7NQz8JjHUakhXuHPkXexeD@lists.infradead.org
+X-Gm-Message-State: AFuF++n/gzMiS035o9ABcUd51rzwVKZZMS8Olh1Y7gsWbSHBTXDm90GT
+	n2edvmhJNqvYkYljnfXNy3n3IoxMa8yY0EMJdc7tQdWX4cwK/Op5NTa2CuQiiYNHsQ==
+X-Gm-Gg: AYBFou0SLCK0ge+6eqwVwhbUsepkcADmtPLwIYUkrBTwZLlEzAOs6KMnEUN7WEU3dNS
+	dJIJJvOfiHDbZgTKAygZecFUoZ8dujXegu1Dm0aHqjQwRzgIxncq6Nwlz9E0r9tSECOanBQFgwZ
+	r3tp7Bk4kbu0yMNCRquDLxF5LJvJCTsoZWudNSIT8cic2zY3eNrwUSh0g3VDLQXsfmTxhY2MzGx
+	judNOs2lNWiiSG6KvXrN+4rvhfRkZL5M4LluC3cnyYUzpzUMjNphOWhyE23vM7LNxIuCjSegxdO
+	pbeOCQLV+qI7wfyy7aeEkEmXA94U69Retf8H/m8gCtVpkDZ/Q6I7H/1gfPOvEbQvMKyK4fpTuO5
+	Let6fPxxmQ064mSwEA9QiKXSfdhUG8cJGNqwNPeawAglMIMPEa56idOifPZ82/MADSD8bAwqMxP
+	HIS4pUJQ5H80yS2T+uHozgPbGZiraFKJIPBzX/AtwTN/4qQEdqZ9DvWVTmP/XDc3lGbpclznTzv
+	ZPxwk4auD0oOBXi3w0JD9NFdYBSXopffc7Fsz4S
+X-Received: by 2002:a05:600c:4e8a:b0:49f:e185:f3ae with SMTP id 5b1f17b1804b1-49fe55e13a1mr140635e9.2.1790183281720;
+        Wed, 23 Sep 2026 10:08:01 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5bae53dsm575695e9.4.2026.09.23.10.07.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 10:08:00 -0700 (PDT)
+Date: Wed, 23 Sep 2026 17:07:54 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Nicolin Chen <nicolinc@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, mark.rutland@arm.com,
+	qperret@google.com, tabba@google.com, vdonnefort@google.com,
+	sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v8 11/25] iommu/arm-smmu-v3-kvm: Add the kernel driver
+Message-ID: <arQHamIHuaUqlJyy@google.com>
+References: <20260922131259.2975334-1-smostafa@google.com>
+ <20260922131259.2975334-12-smostafa@google.com>
+ <arMbxX+sqTS3gByB@nvidia.com>
+ <arO9hGmEx7c9mZAj@google.com>
+ <20260923155507.GJ1540250@ziepe.ca>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|DM4PR12MB7574:EE_
-X-MS-Office365-Filtering-Correlation-Id: a524c4ee-3c6c-454a-ed09-08df19949d31
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|6133799003|3023799007|22082099003|18002099003|56012099006|11063799006|10067099003|4143699003;
-X-Microsoft-Antispam-Message-Info: HriS0LjZzGWCYGA7Uu99GbYxgogfiO8mC5K8gli8iw6Z8lj7LWUOq5RVSJkI22F514j41O7P4wAsGiuR/WHWl3/xdaA5/Q41dYjAVp6SFy45MgEuopUq5I+43i0PaFUFaqW64oi4nrwEhZKlTsVvfgNUovWzXT8LTLliglWFr3fmJJ/86IbuLtAZ7s0wmJsJ2JN+AgGQShBVbfjlmRBYg2GY9557alUSBoPhI4mAB2wYWmaJh2AaLDxAdT9FY0F2j9oIVWGrQy4NH7WaOse+S7DhycEMQV3MNSeOoDO+ADO6KstZXbo52DxkZCV2EL+dawdlmMuqDd9tKtC4gJlyxmXODSRNnmo8op17AfQU6PMuwJPH74/99Sczv4uBa/J4bEaqZVfhuTq94zPURsPJmn3DHAjupxWWGJeNhrxsPc706/EAYdjdp3GSuQqbV2taCwIzf8h3uHTnt66bB44mOs5YL8u9ALM/ulWpt/UTFvGXRhQf3lPLk4Zfo+dt2MV9v5ZGA4YIRdgYyeSDnPAYcelvLL6q7dprU0PAZOFqxnU1D10duMbCVmuV1+8mxa8d8RVlNd4pjBaK8rnw6Y2JM6JVXLgKp9rKD+E7M5VMVpBQp1Ian+7kgmTK2CXVSLTKPnZUytCp5q9pPBHixKOB8G0MjaUUljS9Q7WjitUGkKg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(6133799003)(3023799007)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bzJVSC9zUEF1empvc3B4aVJjOXZYYVdzRUpFL0M3cDBzTkVqbFY3OTFieTJU?=
- =?utf-8?B?Y0tuUFhFN09hWGVUZFhZVUtNTG9vOUs2Uy9WQ1hMd3p5NnNQeDBra1lkMVl1?=
- =?utf-8?B?bU9kakZLK2RmRnNUTXMrMWdjRXJ5UVdWZzRDOGFrYlVuMWlSWEtoNWxYZXF2?=
- =?utf-8?B?ZE5QRmFHTWYwai96cTNQTEdtdUJaaE5hVDRaaEdIMFFQbHdhcHh5Sk9ncWhh?=
- =?utf-8?B?UEE4REI3d0RRNmFlRlBETWFISXpUZTZlTkVRMVVubE5OM1VSN1NHVVg3emdi?=
- =?utf-8?B?ZFFvVHNqZFVkTCsxTXN2cHNlR0dMekpNSkJMTDNxeU1qbG9KRFlLWGdoZmIr?=
- =?utf-8?B?MjNHVkZBdjVmYmdtWDVJbCtNR1lRVmJHQURON0F6RWZEMnoxV3ZqWlhYS3dN?=
- =?utf-8?B?UzJnekJrOVJvTEY1SXhhN2VxTGE5dEVPQjhLZS9iZVRDRmw3NUNWQkJEdDZt?=
- =?utf-8?B?QU90eHYrVWs1cTNyNEZsWVpGcG9XaU12aWIralRlMFlUZ1QyaUNSWm0zSEln?=
- =?utf-8?B?ZjR3SlVBQ3NtZ1ByNlFTWmF4QitIY1d0N1FhS2l5MGZYU0dEQW9NK3NKOEJi?=
- =?utf-8?B?SWFqVXpkUmMrSE81S3krQTRVTU9XazVvQmVMM2VLUmE0cFhDVnpaZnZROXEr?=
- =?utf-8?B?MERLQXlPMm1RWC9KUS8rekdEWXE0RXBKWHU3K3MzQW0zTElZL2Rxc0YzUVRX?=
- =?utf-8?B?MmF0ZnhsR3M3UG1XUTZiend4RkNmdjhUS1loMTVyeEV0Yk5IbjNZMEJ3V09t?=
- =?utf-8?B?RDZrb0tEc0JSSU0rczVQa1pIREVxWEo5WDdFUmZIUWFhVE8wcElDdWZiaHdy?=
- =?utf-8?B?MHgzRFBBeUlPQUgzcmRzOExNWmhZRC9XNEY3ZFQ0aUNPS1ZLUE1ORzBXMDRs?=
- =?utf-8?B?VVlBei9zWTU4U1V4ZDFEREpYcXI3bHAvaVZUbm5EMFVEZSsyUWFQM01iQWJM?=
- =?utf-8?B?U0dFZjFWMVVmWlJxUzQ4NlU5a1lmZk9NNUV3dDk3YUxQRGFldUxJL3BON1Jx?=
- =?utf-8?B?UlBKSStYSEZ3ajBZK2tvb3pMYklySjRUZ3YwNFlRRk9mOFNQbkloMDJCL1N3?=
- =?utf-8?B?bmJ6MVZ5QitsY2ROZWV6UkhMZjdsNVpQWFlPWG5WTkZEVW9vNWl6VVZWMnU5?=
- =?utf-8?B?dGlrVHZiVWM4MWIyeGcvczRmYncxVkljb3ptZHE0SGJrejVKWW5jSXRXY0R5?=
- =?utf-8?B?Wm1ibnA3SnEzaHNYc09wejhoRnRyUFltQ3ZRSnVBSkdyUk5VeWxUaEUraTJu?=
- =?utf-8?B?YkgrSnJ1RWwwT1pqTUpVYmExc1JyTDZxRFd6MHpLdTNDOW5JN2YveVZZKzNP?=
- =?utf-8?B?SndQT2d6RGlmQ3RnZ1lRcVAva250c1p4REs3bzdmbHA4Ykx6dEJWRWlsbEVF?=
- =?utf-8?B?QmlMTThxZkNBRnRiWU1Ed2k0R1RFbjdleHF0Y1NpYUFGZVA0cE5pWEoxUWo0?=
- =?utf-8?B?Wk01eUFPNnQvU0hEcndiZVE2MWVsSWZYU3o4LzljbUhzVUo5VWdZV2NXRWdx?=
- =?utf-8?B?MGJJMDhUUGVCYzZqa1l2SHN5bUVVMjlTWVZabGw0NE9CL0s4c2l5T2xwVTBv?=
- =?utf-8?B?MHZiRUJMcUFTK2R1T0hXMEV4TkUvRmlxZ1ZHZ3VQUStXNmUwRjdjZnNuOXkx?=
- =?utf-8?B?MC8raTI1aGRrRk5wV1d5bFBybnhlcTV5eWo2elFQaTlJQldwMUlSak5iSDM1?=
- =?utf-8?B?bmZaaWFyRVdqei8raVFNM2tZL01YdjkvVUpEaE1PcjF3OWhhcGg4RGdRT3Fi?=
- =?utf-8?B?dm1vd0JDK3NhQ2g4Y21zUGI5MTZaQUNqNzVEeUFoNHB0ZHZqcTZRMUtNVlNp?=
- =?utf-8?B?NHdldE9FN0ZtbzRHZ2ZRMzlNTEd3dHlpZkZDelFJbG1iVlNodlNWd1VKUmtq?=
- =?utf-8?B?YmR6NUhkNjNPZ21XMDMvQUFKVURoY1dlQUd5WGpxTjJ3YnlmZTJFQzUxM2Fs?=
- =?utf-8?B?MGU3S3RKRjZ1SUtndFRQdy8zbGhOa21sOHFFdmJTWUJhcW5nMFJCN2l2UjlW?=
- =?utf-8?B?RWRkOEhwK0JhUDhlQ3IweVRRRkVTV2V4eEMvYW84YmlaOHNUbnM5cjBMbUVs?=
- =?utf-8?B?Q2FHS3pHeUlFc3RwKzQzSVFINGxKT05uYWVpYUJndGFJdlN3OFovSVFwMlZ0?=
- =?utf-8?B?RTVTLytSYmNQblp4NzB5cUZ5K2V3aGlGVlRLRHczUTFYYS9zNHJRVVVoSmg1?=
- =?utf-8?B?bXpnNzR1ZTdVL0FuM09oMGZnN0FzeGVRWTMrcU5acTdvdGw1T05JK1VZREVW?=
- =?utf-8?B?aEZZbVlSWmRiaWcyYWd6dzJ5d3NvS3dVMnVGcll4NUN1aENBTXN3ZDhOcklE?=
- =?utf-8?Q?5D7Zpg00ikR3qfgqnA?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a524c4ee-3c6c-454a-ed09-08df19949d31
-X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 17:03:39.3877
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 59B+EOprCOEZZcrjqhg37ZKNdrScffwFgX5x6nI3UDEbdYclKoeB0LqvYqC6aHKj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7574
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923155507.GJ1540250@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_100351_294063_30F8E9B1 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260923_100804_278710_BACD02D3 
+X-CRM114-Status: GOOD (  38.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,69 +110,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> [ ... 34 lines skipped ... ]
-> @@ -40,6 +40,11 @@ module_param(disable_msipolling, bool, 0444);
->  MODULE_PARM_DESC(disable_msipolling,
->  	"Disable MSI-based polling for CMD_SYNC completion.");
->  
-> +static unsigned int cmdq_max_n_shift;
-> +module_param(cmdq_max_n_shift, uint, 0444);
-> +MODULE_PARM_DESC(cmdq_max_n_shift,
-> +	"Cap on the command queue depth, as log2 of the number of entries. Zero means the hardware maximum; the queue never shrinks below one page.");
+On Wed, Sep 23, 2026 at 12:55:07PM -0300, Jason Gunthorpe wrote:
+> On Wed, Sep 23, 2026 at 11:52:36AM +0000, Mostafa Saleh wrote:
+> > I can add more info in the cover letter about the code split. Mainly:
+> > - arm-smmu-v3-kvm.c: Is the kernel driver for KVM SMMUv3 (this runs in
+> >   EL1 and can use all the kernel functions).
+> >   The main job of this driver is for discovery, it doesn't do anything
+> >   else in the runtime.
+> 
+> Maybe call this el1 stub or something like that?
+> 
+> guest_pkvm_stub.c
+> pkvm/hyp.c
+> 
 
-The patch looks ok
+It is not really a stub and I was following the convention of
+arm-smmu-v3-(iommufd/test/sva) I think for the pkvm/ one it can be:
+- pkvm/arm-smmu-v3-pkvm.c
+- pkvm/arm-smmu-v3-nested.c
+- pkvm/arm-smmu-v3-el2.c
+- pkvm/arm-smmu-v3-hyp.c
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+All of those are fine and for the other one:
+- arm-smmu-v3-{pkvm, nested, el2, hyp}-init.c
+- arm-smmu-v3-pkvm-el1.c
 
-But I'd rather use lg2 as name, especially user visible, instead of
-n_shift. "shift" is a word for bitwise stuff, this is a 2**N log2
-encoded value.
+Anything along this lines, otherwise it's too vague IMHO.
 
-> [ ... 9 lines skipped ... ]
-> +/**
-> + * arm_smmu_queue_max_n_shift() - pick the log2 depth of a queue
-> + * @ceiling: default log2 depth ceiling of the queue
-> + * @ent_sz_shift: log2 of the queue entry size in bytes
-> + * @shift: log2 depth asked for, or zero for the default
-> + *
-> + * @shift is floored at one page, because coherent DMA is page granular: a
-> + * shallower queue occupies the same memory as one that fills the page, and
-> + * arm_smmu_init_one_queue() stops shrinking at a page too.
-> + */
-> +static u32 arm_smmu_queue_max_n_shift(u32 ceiling, u32 ent_sz_shift, u32 shift)
+> ?
+> 
+> > > > +extern struct pkvm_iommu_ops kvm_nvhe_sym(smmu_ops);
+> > > > +
+> > > > +static size_t				kvm_arm_smmu_count;
+> > > > +static struct hyp_arm_smmu_v3_device	*kvm_arm_smmu_array;
+> > > > +static size_t				kvm_arm_smmu_cur;
+> > > 
+> > > That spaces/tabs in those two lines look a bit odd..
+> > > 
+> > 
+> > These are tabs to indent the variables, similar cases exist in the
+> > SMMUv3 driver, check arm_smmu_cmdq and friends for example.
+> 
+> Personally I hate this style, it is a huge PITA for maintenance and
+> makes diffs bigger than they need to do. I remove it whenever I have
+> the chance :)
 
-These names took me a while to figure out. Something like this seems
-much clearer:
+No strong opinion I can change it.
 
- hw_max_lg2
- ent_size_lg2
- user_limit_lg2
+> 
+> > TBH, this is a bit of a hack. The hypervisor can not allocate memory
+> > at the runtime. All of the hypervisor memory comes from a carveout
+> > allocated at boot (see kvm_hyp_reserve())
+> > 
+> > So we allocate the worst case for memory mapping with leaf granule. But
+> > the hypervisor also need to allocate L2 pointers and the SID space can
+> > be massive making the upper limit for this too large.
+> > 
+> > However, smmu_hyp_pgt_pages() defines the minimum pages required,
+> > actual allocation comes from the command line, so it is possible to
+> > tune the system without re-compiling the kernel.
+> > 
+> > Thinking about it now, we can just drop the 500 as this is the lower
+> > bound, earlier versions of this series would allocate the carveout
+> > based on this size, but it is not needed anymore.
+> 
+> I see, and you can't scan the ACPI to figure out all the SIDs used at
+> this point to get an exact estimation?
 
-And the flow can be simplified alot:
+I thought about it, but it is complicated to scan the DT/ACPI/platform
+bus and I don't think a driver should be doing that; going through each
+device with IOMMUs, duplicating existing logic...
 
-static u32 arm_smmu_queue_max_lg2(u32 hw_max_lg2, u32 ent_sz_lg2,
-				  u32 user_limit_lg2)
-{
-	u32 floor_lg2 = PAGE_SHIFT - ent_sz_lg2;
+And even with that, things as PCI won't be there as they are dynamic.
 
-	if (is_kdump_kernel())
-		return min(hw_max_lg2, floor_lg2);
-	user_limit_lg2 = max(user_limit_lg2, floor_lg2);
-	return min(hw_max_lg2, user_limit_lg2);
+I think the best way is to remove the 500 as it is hacky, and rely
+on the command line option.
 
-Just pass the MAX's as the user limit:
+> 
+> Not being able to manage memory after boot is rather an extreme
+> limitation.. But a huge amount of RMM's API complexity comes from its
+> granular memory management so I can't really fault that..
+> 
 
-static inline u32 arm_smmu_evtq_max_n_shift(u32 ceiling)
-{
-	return arm_smmu_queue_max_lg2(ceiling, EVTQ_ENT_SZ_SHIFT,
-				      EVTQ_MAX_SZ_SHIFT);
-With only one min:
+Yes, that was one of the main sources of complexity with the
+para-virtual approach also.
 
-	return arm_smmu_queue_max_lg2(ceiling, CMDQ_ENT_SZ_SHIFT,
-				      min(CMDQ_MAX_SZ_SHIFT, cmdq_max_n_shift));
+Thanks,
+Mostafa
 
-Jason
-
--- 
-Jason
+> Jason
 
