@@ -4,73 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05BBC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADB8C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9oVka1MTkYLJyYEXxEVGc8usytEu4OISAfUOoUqqfxE=; b=hqQyBOKYL8npMrzq8zfkg/lX8Q
-	4gxONcdgEgWSLXAG7aS6gztEtBvy4pWPSiiSi5WADw2WROpvA+fsrBTGvE6OdRdSAsG4nxA84P6vz
-	uo44T+mEHRoUZUOynTIAuQfW3cR2DKLz13PXqvwCg99zwjYCLb2FSnzGi2xYovZZ6sAfxIYnPmFiF
-	W1YZ/uTyXDUoAzZa11Wa4vRk2IAYafOzuGajZOJ+awqXKbsvdbkpR3zpDhaexPMPGQKlXiv+wr+FH
-	ACogXxn/2aqh6hx5ApR5hVqFPxHiQWWnmbKAdlIVu/aTZDT/kvW7jbGkwrP1XqhssPOcX9rhfKlBc
-	kwyaccBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PS2sI9UkmHC+157QJRhoi9K5j3T9szzKe4hMK9xu6V8=; b=vkrNYSQMAC4arbSbFjfLOCsjrO
+	ZtZTFO7Xv/jEQrYBsOiLSlSsb8KrJa0/8biovo/n3xNHdZRNwJhjoZZmTjp57qpaeQ6GZ9RzNmICz
+	lvpZGj4XgNIIzz+YfwIyMy9Jlgr1CdbsLQRs+4xZtRynH7jd0aRCFJIPEQuNNgjN+zrXYD4y7fewY
+	UL5aWsoJtXfE5Mg0HJMsdqVN0Gc35tPWGdMnU1aX59OWrzPW75LK6mz5wWSJEZCm+b1CRgPtcSFce
+	JI03nsPRKWyiiuUI1nZ948WkV+CMMApyi0KQXKA1NXAswflmVnCl3ZIDqWrUsNdQvbW6CRsICJiUl
+	p4pp1/4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ILP-00000007WaF-0b7S;
-	Wed, 23 Sep 2026 08:28:47 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1x9J2z-00000007gsx-3qIh;
+	Wed, 23 Sep 2026 09:13:49 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ILK-00000007WYs-2MVw
+	id 1x9J2x-00000007gqY-04YN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:28:45 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=9oVka1MTkYLJyYEXxEVGc8usytEu4OISAfUOoUqqfxE=;
-	b=bZte0lkp3UMXEL24UQm0EdyQHRIFnrEo7BU8EDhLthwSY2Zwgew3HwIqZSfZQDTG+143l4ypW
-	tAzcGu1hqwVJc+yh7PHipuiJ+cGPObrwvDaQmzJZO1PRMWl6Lw1XvhNmTbolpAfErEMS2n9N93b
-	pFCyMEdNm6KGcM4/sOTY1LY=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hqVD75nCXzLlTm;
-	Wed, 23 Sep 2026 16:16:23 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2FC4C40561;
-	Wed, 23 Sep 2026 16:28:29 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 23 Sep 2026 16:28:28 +0800
-Message-ID: <40c729ba-8df0-4ec4-9987-e4096106e968@huawei.com>
-Date: Wed, 23 Sep 2026 16:28:27 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 01/14] arm64: ptrace: Fix redundant syscall exit stop
- for PTRACE_SYSEMU_SINGLESTEP
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<oleg@redhat.com>, <kees@kernel.org>, <luto@amacapital.net>,
-	<wad@chromium.org>, <peterz@infradead.org>, <ada.coupriediaz@arm.com>,
-	<linusw@kernel.org>, <yeoreum.yun@arm.com>, <kevin.brodsky@arm.com>,
-	<anshuman.khandual@arm.com>, <james.morse@arm.com>, <thuth@redhat.com>,
-	<vladimir.murzin@arm.com>, <tglx@kernel.org>, <broonie@kernel.org>,
-	<liqiang01@kylinos.cn>, <ryan.roberts@arm.com>, <pengcan@kylinos.cn>,
-	<kmehltretter@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260922035510.1090299-1-ruanjinjie@huawei.com>
- <20260922035510.1090299-2-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260922035510.1090299-2-ruanjinjie@huawei.com>
+	Wed, 23 Sep 2026 09:13:48 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 4F2D6201CEF;
+	Wed, 23 Sep 2026 11:13:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1790154823;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PS2sI9UkmHC+157QJRhoi9K5j3T9szzKe4hMK9xu6V8=;
+	b=EWEvmaggRytp4w+VexO1vp7Ii4h01iDFSl6Rk1FY5bMIZ6OYOWnYzWTiYBBqpdlfSE9Tyi
+	MpOivle8AT1X6zZNgGxLUNfhZ6GhhYNz3QQ6BfhIzE3Gar/7fRDGfVeWQ7SkWFqDminL2r
+	1tR7e2FlNc9thj7YZ8MMP0cCAU6mGcS/deWUHK/XwP8oVNvxRBhq6dFeHxoYzCPpfVE0zY
+	tXNHtnB54KiYKDApQlajLDpYN4acGXDNp3qmwp54ESJ298Rg03Vq7VZxLPzAW7REEFg22K
+	ssTPmM17FCB7gpZtn+IyjZcOfEG8hRDV/l4fdo7rhUExltqwHs2TQ+YDwiA3rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1790154823;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PS2sI9UkmHC+157QJRhoi9K5j3T9szzKe4hMK9xu6V8=;
+	b=P0+33uyLO+y4AEiD1puLoXrZvB1E2pq4deNWdg+mg1GS1/RzafdZUPUt+D4iqVnkc84bSa
+	wWi5lcUSWK0ePQ7hzdKTjiQgtzG1AAoH+lbXJjfeSsmGi5FT39dvmoouSbd52bkzO7Rewp
+	z9R6+8PP1/rkvysn6AAOkhVNfp6nYdbHsfB09068sG1x12UQkGYXwJVZe3IAUA8CVkrKbw
+	WMIp8RoogzKhwwgsM9xHtVpNH9N03KZHBABfHWJp20JvaJwFowjaH1w/MxBp8LX7B4f4X8
+	PTqU2LSAnB6JrEd6oF9M8Hxa/eLboliL7bRbDwtRzHv8i2FbhvcH2DT6ip25Pw==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1790154823; a=rsa-sha256;
+	cv=none;
+	b=TBoRXXLaPGSPk37AIej7rZWoVLc1YZ7gBNbRSiY4iiqASKB/PcCm6LJ+Vriwsoo/7uzkeA
+	ukDKQDzdfVjR5x+J2JJbFhAwRFgves8lI94/jThopcAm/8ptXfc1f3gzZxzP4RUPuu9zdq
+	ZDeZHuYAo5ZTtVwiqVVC1+d/498O4Xr2BBhe5MzaYeyiXRyK9wzBGc1skc8mE68m8O90jN
+	tcE1Ie57BDFz9vpZlx5dFe0gDo9wbL+w9ZkEmcNYzdKSheJjKFZiq2IseONvfFQ/0QrBJ9
+	rj4EBK8a3OccAXYYbumtTD635TzzCrYsDzWIqXxcv79nob2XA8ZMoRWJjGluuw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+Message-ID: <7bfea0211710cc1cdab9ac7235c4f283f2c6d8ad.camel@pengutronix.de>
+Subject: Re: [PATCH v2 2/3] usb: dwc3: xilinx: re-assert resets on ZynqMP
+ init error paths
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
+	Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, michal.simek@amd.com
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Date: Wed, 23 Sep 2026 11:13:43 +0200
+In-Reply-To: <20260922182125.11067-3-radhey.shyam.pandey@amd.com>
+References: <20260922182125.11067-1-radhey.shyam.pandey@amd.com>
+	 <20260922182125.11067-3-radhey.shyam.pandey@amd.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_012843_226585_5635318F 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260923_021347_216115_1F7BD744 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,77 +98,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Will fix the pseudo-singlestep problem as sashiko pointed as below.
-
-https://sashiko.dev/#/patchset/20260922035510.1090299-1-ruanjinjie%40huawei.com
-
-在 2026/9/22 11:54, Jinjie Ruan 写道:
-> PTRACE_SYSEMU_SINGLESTEP sets both _TIF_SYSCALL_EMU and _TIF_SINGLESTEP.
-> arm64 currently reports a syscall exit stop whenever _TIF_SINGLESTEP is
-> set, regardless of emulation state.
-> 
-> This violates the ptrace man page (Syscall-stops section):
-> 
-> 	"If the tracee was restarted by PTRACE_SYSCALL or PTRACE_SYSEMU,
-> 	the tracee enters syscall-enter-stop just prior to entering any
-> 	system call (which will not be executed if the restart was using
-> 	PTRACE_SYSEMU, regardless of any change made to registers at this
-> 	point or how the tracee is restarted after this stop). ...
-> 	If the tracee is continued using any other method (including
-> 	PTRACE_SYSEMU), no syscall-exit-stop occurs. Note that all mentions
-> 	PTRACE_SYSEMU apply equally to PTRACE_SYSEMU_SINGLESTEP."
-> 
-> Fix by introducing report_single_step(), which returns false when
-> _TIF_SYSCALL_EMU is set, skipping the redundant exit stop.
-> 
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Oleg Nesterov <oleg@redhat.com>
-> Fixes: ac2081cdc4d9 ("arm64: ptrace: Consistently use pseudo-singlestep exceptions")
-> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+On Di, 2026-09-22 at 23:51 +0530, Radhey Shyam Pandey wrote:
+> If reset deassert or PHY setup fails partway through
+> dwc3_xlnx_init_zynqmp(), re-assert any resets that were already
+> released before unwinding the PHY. Use fall-through error labels so
+> unwind matches how far init progressed, for both USB2 and USB3 paths.
+>=20
+> Save the ZynqMP reset handles in driver private data so later probe
+> teardown can re-assert released resets.
+>=20
+> Fixes: 84770f028fab ("usb: dwc3: Add driver for Xilinx platforms")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 > ---
->  arch/arm64/kernel/ptrace.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index f743cbec1c3a..96462de75d4b 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -2482,16 +2482,26 @@ int syscall_trace_enter(struct pt_regs *regs)
->  	return regs->syscallno;
->  }
->  
-> +static inline bool report_single_step(unsigned long flags)
-> +{
-> +	if (flags & _TIF_SYSCALL_EMU)
-> +		return false;
-> +
-> +	return flags & _TIF_SINGLESTEP;
-> +}
-> +
->  void syscall_trace_exit(struct pt_regs *regs)
+> Changes in v2:
+> - Split out of the combined five patch series; see patch 1.
+> - Reordered ahead of the platform-data cleanups.
+> - Added Cc: stable.
+> - No functional change to the patch itself.
+>=20
+>  drivers/usb/dwc3/dwc3-xilinx.c | 49 +++++++++++++++++++++-------------
+>  1 file changed, 30 insertions(+), 19 deletions(-)
+>=20
+> diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilin=
+x.c
+> index 8c63e02575f1..d18d3e364381 100644
+> --- a/drivers/usb/dwc3/dwc3-xilinx.c
+> +++ b/drivers/usb/dwc3/dwc3-xilinx.c
+> @@ -48,6 +48,10 @@ struct dwc3_xlnx {
+>  	void __iomem			*regs;
+>  	int				(*pltfm_init)(struct dwc3_xlnx *data);
+>  	struct phy			*usb3_phy;
+> +	struct reset_control		*usb_crst;
+> +	struct reset_control		*usb_hibrst;
+> +	struct reset_control		*usb_apbrst;
+> +	bool				usb_resets_released;
+>  };
+> =20
+>  static void dwc3_xlnx_mask_phy_rst(struct dwc3_xlnx *priv_data, bool mas=
+k)
+> @@ -112,7 +116,6 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *pr=
+iv_data)
+>  static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
 >  {
->  	unsigned long flags = read_thread_flags();
-> +	bool step;
->  
->  	audit_syscall_exit(regs);
->  
->  	if (flags & _TIF_SYSCALL_TRACEPOINT)
->  		trace_sys_exit(regs, syscall_get_return_value(current, regs));
->  
-> -	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
-> +	step = report_single_step(flags);
-> +	if (step || flags & _TIF_SYSCALL_TRACE)
->  		report_syscall_exit(regs);
->  
->  	rseq_syscall(regs);
+>  	struct device		*dev =3D priv_data->dev;
+> -	struct reset_control	*crst, *hibrst, *apbrst;
+>  	struct gpio_desc	*reset_gpio;
+>  	int			ret =3D 0;
+> =20
+> @@ -124,25 +127,25 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
+priv_data)
+>  		goto err;
+>  	}
+> =20
+> -	crst =3D devm_reset_control_get_exclusive(dev, "usb_crst");
+> -	if (IS_ERR(crst)) {
+> -		ret =3D PTR_ERR(crst);
+> +	priv_data->usb_crst =3D devm_reset_control_get_exclusive(dev, "usb_crst=
+");
+> +	if (IS_ERR(priv_data->usb_crst)) {
+> +		ret =3D PTR_ERR(priv_data->usb_crst);
+>  		dev_err_probe(dev, ret,
+>  			      "failed to get core reset signal\n");
+>  		goto err;
+>  	}
+> =20
+> -	hibrst =3D devm_reset_control_get_exclusive(dev, "usb_hibrst");
+> -	if (IS_ERR(hibrst)) {
+> -		ret =3D PTR_ERR(hibrst);
+> +	priv_data->usb_hibrst =3D devm_reset_control_get_exclusive(dev, "usb_hi=
+brst");
+> +	if (IS_ERR(priv_data->usb_hibrst)) {
+> +		ret =3D PTR_ERR(priv_data->usb_hibrst);
+>  		dev_err_probe(dev, ret,
+>  			      "failed to get hibernation reset signal\n");
+>  		goto err;
+>  	}
+> =20
+> -	apbrst =3D devm_reset_control_get_exclusive(dev, "usb_apbrst");
+> -	if (IS_ERR(apbrst)) {
+> -		ret =3D PTR_ERR(apbrst);
+> +	priv_data->usb_apbrst =3D devm_reset_control_get_exclusive(dev, "usb_ap=
+brst");
+> +	if (IS_ERR(priv_data->usb_apbrst)) {
+> +		ret =3D PTR_ERR(priv_data->usb_apbrst);
+>  		dev_err_probe(dev, ret,
+>  			      "failed to get APB reset signal\n");
+>  		goto err;
+> @@ -156,19 +159,19 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
+priv_data)
+>  	 * absent.
+>  	 */
+>  	if (priv_data->usb3_phy) {
+> -		ret =3D reset_control_assert(crst);
+> +		ret =3D reset_control_assert(priv_data->usb_crst);
+>  		if (ret < 0) {
+>  			dev_err(dev, "Failed to assert core reset\n");
+>  			goto err;
+>  		}
+> =20
+> -		ret =3D reset_control_assert(hibrst);
+> +		ret =3D reset_control_assert(priv_data->usb_hibrst);
+>  		if (ret < 0) {
+>  			dev_err(dev, "Failed to assert hibernation reset\n");
+>  			goto err;
+>  		}
+> =20
+> -		ret =3D reset_control_assert(apbrst);
+> +		ret =3D reset_control_assert(priv_data->usb_apbrst);
+>  		if (ret < 0) {
+>  			dev_err(dev, "Failed to assert APB reset\n");
+>  			goto err;
+> @@ -179,7 +182,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *pr=
+iv_data)
+>  	if (ret < 0)
+>  		goto err;
+> =20
+> -	ret =3D reset_control_deassert(apbrst);
+> +	ret =3D reset_control_deassert(priv_data->usb_apbrst);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to release APB reset\n");
+>  		goto err_phy_exit;
+> @@ -195,21 +198,21 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
+priv_data)
+>  		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
+>  	}
+> =20
+> -	ret =3D reset_control_deassert(crst);
+> +	ret =3D reset_control_deassert(priv_data->usb_crst);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to release core reset\n");
+> -		goto err_phy_exit;
+> +		goto err_apbrst_assert;
+>  	}
+> =20
+> -	ret =3D reset_control_deassert(hibrst);
+> +	ret =3D reset_control_deassert(priv_data->usb_hibrst);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to release hibernation reset\n");
+> -		goto err_phy_exit;
+> +		goto err_crst_assert;
+>  	}
+> =20
+>  	ret =3D phy_power_on(priv_data->usb3_phy);
+>  	if (ret < 0)
+> -		goto err_phy_exit;
+> +		goto err_hibrst_assert;
+> =20
+>  	/* ulpi reset via gpio-modepin or gpio-framework driver */
+>  	reset_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
 
--- 
-Best regards,
-Jinjie
+Are the resets asserted if this fails?
 
+Same question about if probe fails after pltfm_init() succeeded.
+
+> @@ -226,10 +229,18 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
+priv_data)
+> =20
+>  	dwc3_xlnx_set_coherency(priv_data, XLNX_USB_TRAFFIC_ROUTE_CONFIG);
+> =20
+> +	priv_data->usb_resets_released =3D true;
+> +
+>  	return 0;
+> =20
+>  err_phy_power_off:
+>  	phy_power_off(priv_data->usb3_phy);
+> +err_hibrst_assert:
+> +	reset_control_assert(priv_data->usb_hibrst);
+> +err_crst_assert:
+> +	reset_control_assert(priv_data->usb_crst);
+> +err_apbrst_assert:
+> +	reset_control_assert(priv_data->usb_apbrst);
+>  err_phy_exit:
+>  	phy_exit(priv_data->usb3_phy);
+>  err:
+
+Rather than storing usb_resets_released state, and then having
+conditional teardown in the next patch, this could be handled via
+devm_add_action_or_reset.
+
+regards
+Philipp
 
