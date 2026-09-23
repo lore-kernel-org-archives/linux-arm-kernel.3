@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D856C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DACBC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PckSLxc5fmGOmfYCwGJBVkV6mStQJhnt+07SFJ6nFvw=; b=Gp7xcGoMzHr60p5yG8/YI4SLra
-	lA+k9E+d3fgj1zfvK8qzJDJhpbeIMPm7NdRkOh4vBtCCCvbvVIt4KoQ2j4nrLp5/lEgb/+Vn4+4Py
-	nGtiro8PokTWdLUK8NNutblaxKgtg9+R4qyXFuiPpp0GSfIKsB2EBxBcPaUxRn0L7B0ExkWqf6823
-	Fx/QMwOhq+KCmBdI1mGHlM/e9sWm4+aBr5FocgNxzQvslrA53sSyhWaoO1dPTkHE7smeKrx6EtFIp
-	c/HAlor3x5TBRWwXwE4IwP6ifuREFfMD4E+JVhcOpPZ/Rtzv29rAumlkr9P1OeAq/y/ii18yn4bX1
-	bAs8CoZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bygnlyduWNX9bGl+OAOhRpG2bzPfJz7Wo7gATpHhbZ0=; b=krRLKqLlAoty1NMRHVb375dFAx
+	LMPJPUfIZ2luXW5nqMLL2ox+zP5EssiFaiEJh/YjMxzzh/c/Wri3qBG1csjwkbUYYBsrqqBnQrLmo
+	tw+DUsxcfauWtMmdFCZ6qY4Vu8ETP4Tl9+5jiJxl5NfO6oTYx8IUKuqXxJ2fAgelzPJW2FINYOWu6
+	ttBTnjO4vbgpR8Rx/KxjC04hENBIdj2xvTWbGS9aZfrsNOsO60zFsdwY+ZHWzc2nX50dgY6X9du1A
+	lq/bMsbRWXubyQr63UH/GIhU5Uhc+l6oIGARAGmz52qAiOq+jvUCpw6PTclRnxfydAdMqwh1TGXjj
+	J47rlDZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MYI-00000008JzF-1Q35;
-	Wed, 23 Sep 2026 12:58:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9MaC-00000008KBk-3Jk8;
+	Wed, 23 Sep 2026 13:00:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MYG-00000008Jyf-3r4q
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 12:58:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PckSLxc5fmGOmfYCwGJBVkV6mStQJhnt+07SFJ6nFvw=; b=oqEX/PI+Upq7e1A6mCfI6mUpEG
-	h2NNcyVn1VOtO3pI277z7aQitbnhwDTrpGItPJWJb53Z3eZRZdMJon0wN60rPj6iKXnAf6KE+Duo7
-	eqKDC3yrdIG8Hh2tacYfwRgIZYtlIMqxIoj3OdqS57GcS7Pj+qkzYvFhBvntwZ8RM38nFEcS2ffGX
-	ItefpxbSvudE2l36Ej7rvHiWk6wBdXRBTR/mebEDf97xdifg1jkMXELCDt9xmiR1FRcXZcWL6cxk6
-	JKjv24/YFlw/CPPjTMtwTXKF6xM4vPewsh1ATDEKLoqBAGptn5Cq9N943Ax7HoVYu8lg+qCvpZcuS
-	aVONz2dA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9MYD-0000000EmFk-38wf
+	id 1x9MaA-00000008KB6-03KR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:58:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=PckSLxc5fmGOmfYCwGJBVkV6mStQJhnt+07SFJ6nFvw=; b=k9TLKfi5As9IyHEAGalTESGe/4
-	bybHd2PePTKD1Bk5p5O02g5B7jyQD+36uOqgxA8kT12BBLYOQYz50sh7MLEQ/umPCNAF4Vftsk8Ie
-	qhuR2Y/PgpA3dyDg5H11vT/HfovN7jttiJTWuSygCAcY39TLQsTjjHMIyrggM5OGyGoU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9MY3-006o5K-Uy; Wed, 23 Sep 2026 14:58:07 +0200
-Date: Wed, 23 Sep 2026 14:58:07 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
-Cc: shengchao.guo@oss.qualcomm.com, bartosz.golaszewski@oss.qualcomm.com,
-	mohd.anwar@oss.qualcomm.com, maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, hkallweit1@gmail.com,
-	linux@armlinux.org.uk, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] net: stmmac: support low-speed USXGMII validation
-Message-ID: <828e6cff-79d2-4349-805f-cca927f7b908@lunn.ch>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
- <20260923084921.3942100-1-zhangfei.gao@oss.qualcomm.com>
- <20260923084921.3942100-2-zhangfei.gao@oss.qualcomm.com>
+	Wed, 23 Sep 2026 13:00:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 27BF1601FB;
+	Wed, 23 Sep 2026 13:00:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B46E81F000FF;
+	Wed, 23 Sep 2026 13:00:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790168416;
+	bh=bygnlyduWNX9bGl+OAOhRpG2bzPfJz7Wo7gATpHhbZ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=GSejrNXcWpOIhzmDIgz77w5u8mRJlnIHTcFuakWa+LN4RJ/GWzRCYCTlaKyEaF6qh
+	 PFH8GvS+RkCjHo3jXbZ85iR5PV3EJt52wNg798gUdjROejL9ssUTX6aNMzk/MHy2+U
+	 IzZ+xAtk2Ph9TZJ6mtcCLJV2GjYWOF2T0LmrddSAfa1Ug6MlPcTxwYcAg8ZS+pIn0x
+	 zb4NoK17FNt7tZcwSLyBA6ylQD9yDixwXpDn71N+jWgTXUG+WX30ry0KJ/HXt9yA4x
+	 DGDOAt+Oobz74m4tH66qILPGlbrizeNTrHE1A8RS+MZB4Y5sMBkw9/yBr0uIIA97qB
+	 ArMpJjI90PiAQ==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: mark.rutland@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64/boot: Disable trapping of PMZR_EL0 writes to EL2
+Date: Wed, 23 Sep 2026 14:00:05 +0100
+Message-ID: <179016687079.3278822.12341361045842371613.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260922181430.3532371-1-fuad.tabba@linux.dev>
+References: <20260922181430.3532371-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260923084921.3942100-2-zhangfei.gao@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_135818_342777_65E31B13 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-> index 091c9b57388fa..58ca296fc4420 100644
-> --- a/drivers/net/pcs/pcs-xpcs.c
-> +++ b/drivers/net/pcs/pcs-xpcs.c
-> @@ -23,6 +23,12 @@ static const int xpcs_usxgmii_features[] = {
->  	ETHTOOL_LINK_MODE_Pause_BIT,
->  	ETHTOOL_LINK_MODE_Asym_Pause_BIT,
->  	ETHTOOL_LINK_MODE_Autoneg_BIT,
-> +	ETHTOOL_LINK_MODE_10baseT_Full_BIT,
-> +	ETHTOOL_LINK_MODE_100baseT_Full_BIT,
-> +	ETHTOOL_LINK_MODE_1000baseT_Full_BIT,
-> +	ETHTOOL_LINK_MODE_2500baseT_Full_BIT,
-> +	ETHTOOL_LINK_MODE_5000baseT_Full_BIT,
-> +	ETHTOOL_LINK_MODE_10000baseT_Full_BIT,
+On Tue, 22 Sep 2026 19:14:30 +0100, Fuad Tabba wrote:
+> __init_el2_fgt2() writes one mask to both HDFGRTR2_EL2 and HDFGWTR2_EL2.
+> PMZR_EL0 is write-only, so its trap bit, nPMZR_EL0, exists only in
+> HDFGWTR2_EL2 and is therefore never set: a PMZR_EL0 write from the host
+> traps to EL2, where the nVHE hypervisor has no handler and BUG()s. The
+> kernel never writes PMZR_EL0, but kernel.perf_user_access=1 has the PMU
+> driver set PMUSERENR_EL0.UEN for a task with a user-read event, so a
+> write from EL0 reaches the trap and takes the host down without a panic
+> message.
+> 
+> [...]
 
-What does T in 10000baseT mean?
+Applied to arm64 (for-next/fixes), thanks!
 
->  	ETHTOOL_LINK_MODE_1000baseKX_Full_BIT,
->  	ETHTOOL_LINK_MODE_10000baseKX4_Full_BIT,
->  	ETHTOOL_LINK_MODE_10000baseKR_Full_BIT,
+[1/1] arm64/boot: Disable trapping of PMZR_EL0 writes to EL2
+      https://git.kernel.org/arm64/c/2bc6b218717b
 
-Compare and contract with KX.
+Cheers,
+-- 
+Will
 
-	Andrew
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
