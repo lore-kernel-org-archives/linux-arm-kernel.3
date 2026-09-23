@@ -4,130 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB3BC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F1AC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLbf5wdEcfSfArgGglezKU7/4be8aZs+31yfBhWP598=; b=KauHvIfh/td8C6cmdo7sCdx8zO
-	XZbL9ymNsCH0Fky7j8zVGvYq5TYGqzDfCeyuN2FgNC30cGypTR/K5FcdDqRY+hPyxEpq8HFUZ1HUp
-	XjE/Sn4zOiFDhsk3Y7KIYj49NqrmXq/gguJxemq5KGbecWU2kk1Zf06yvpf5YfMwElN1YDg7zLopO
-	xKhZH0/k9WwqTNa6wnHtwVSSVSQRmmA54gJT/8mo4KZh2X+TNyTx/lTjIGmxtEp5A6J+jvDc7SrHo
-	XASKlKQ6Eqle71mTCQ9xa8UpyBB7HF7xooaNC/2DYBYRFuOzszp+QVcE1/dAyLZGCEPJkQ6dOcvtQ
-	K6W3KohA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ti51N+CuvD4iSnniqj/uYeUpf/AuXGfZRMFg9bMB8o=; b=BsWlVL9u1lDFou/ZP7S7kaAVgt
+	KI2o2n1dkGDkK46WVn1fu3cVRHXbS0KWGLknyCVC/NrkF6Xck8Ox9MuF2CgsLh7Z6LsZYkWzoH1XH
+	rTr94P8TabvYMbtk3GPu8ZuKJBnof8mYpofNMGDdxrMcn8kO+tCgRltRUWBBjqDRGiCpnRA/FTbg6
+	3lp/AuHo77Xh0YzwqkyItMEZ/cHh/zSd5ztrD22E1MpvwmK+jUSjALyhSAt36C0tQBgEGsJkWYA5Z
+	6RqW7B828BhrqZ1QKd68IRJrXEirSf7x7LKFVjBaHDA64hGFCseM0IsfiSfiDSQpcNp+rlXRcOrDB
+	n/ELzb4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IOe-00000007XGT-06xt;
-	Wed, 23 Sep 2026 08:32:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IOc-00000007XFM-1TI6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 08:32:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hLbf5wdEcfSfArgGglezKU7/4be8aZs+31yfBhWP598=; b=Ck/ld4nsHYcckA/WDk8QIDn3DU
-	8n/C+2+1+0/+4agprgTITTbTFyADvXD/Ts59NwiKEiaQQ70M55CafNK2AWVitXDy0BveyW/9BqD7d
-	/EuURfL0YhT1E2KvzbYx6ZhPqv7+42u6Vg+YEzgd56dwou6lepcIiNQmwEzS4M4dkdOOgmUJOFXun
-	VQ2U2slfMt9D0+TOqyxn8V4iQmn2+wNL0Hlo4GEuknMC+t0nm4DBypYTNy18Twzge8+by9NV5rkzm
-	TlLV7kELLFD2EdvkFDtRMFpKWcZtoZHi5UOfA5VS0anFf43PAux1yniMu4NHV7T/Xa7/9YsjgeOMx
-	Q7OZFMmg==;
-Received: from mail-qv2-x10.google.com ([2607:f8b0:4864:33::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9IOY-0000000EWqM-47lE
+	id 1x9IOx-00000007XKY-1Fse;
+	Wed, 23 Sep 2026 08:32:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9IOu-00000007XJn-0N7i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:32:05 +0000
-Received: by mail-qv2-x10.google.com with SMTP id 6a1803df08f44-90cdfc9b6ebso5343626d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:32:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790152321; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DJszzAJ+gSScmtjZLeqoWsogneSGgQP2Rqj6BLADyZzXS+OcWuD4oHa67HJh2YI3ir
-         YvFumVKhi8LtT2y/xPaJUs7nmDunaCx0+OSXTY6w5VOBjzE0kXZNhgMiP9DT9FiE4Yr9
-         cMLNPINeGy0xKxFo4MxvlSE/Y7FQZcUTQBXUB2KKMdXhVuFQTBXv52AnWrbCqrCLvGuC
-         ZPxXgtgHdVvXTy7RtYpPwHT0sobZXkczPAir3BrhUga15HqnbAQ7dfVUF1SnQrjBppeF
-         ZwWaUjOvF52zAAUM2ArS/LwAJ667IE+jdj93W/yY7yN2itxFyNgxiIN4wG5VqU83sNkS
-         9irQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=hLbf5wdEcfSfArgGglezKU7/4be8aZs+31yfBhWP598=;
-        fh=vRHiDu+FZk4QEvi4/CUEJM6POvPmVJJl6jeuj+uamwU=;
-        b=HiozmNCJC07T3bpkLEMavWhg204y1rJ9JxEo4QNWmppTkXXkm9NAIa1bvnApBbXPlL
-         BPjUk8brq71rSLkIlHRhxFyB5w+yviwOsQBdx7vTNRW1nJnXz9R9OvgAXOr3tjtFrUZ+
-         5yhp46dgIU0gHZV0ug12gQm/LEiefeKHfx1997Mb7rWSBiSfJ1j5q5Vp3ifPm3Hwh6kE
-         Y4VcDGcB0sefw/vlMdo+TEGKB6Zzk0Tvrbpaytc7gE/PwbuRairXhJuxEdrZ7Os8fZIv
-         FXvABEEJ35zVy/xa9I9IE96ajBoO3BUpynCdP5QDCfDWC+5K1jCi6jlRMkR8w59aAHR2
-         Cwgw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790152321; x=1790757121; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hLbf5wdEcfSfArgGglezKU7/4be8aZs+31yfBhWP598=;
-        b=NqWt8RxW06nXG1ZVVVsVdVsi+9wp5z9m5jQ1OAqTTkQQag4pv3B/7Fgppx+xbfm7lX
-         IXG4ZXUpfXI0RSXchlcjuFWW4SAlxoLRauSbmnbsqU3p/VrycFn5kAUpDyNfRfUqHZX3
-         BE2a5aAKdNrzDcMJroxox1H3XKNsnj8GFSxOYZ5F2o04cSlG3D3CsuypWz4Q4GRVz9Py
-         oWXCNrD2ThLeClh/OCaE9Ie5ctQYGBcRDM8OkuHDHr0IC8By0noHFmeslMkBTraCxHhX
-         WXeEl3iv0Cc78JuWffqmWs7YmQW5Y9U1pIwU8YkdarqMNRjVzONEDtDp/O/eZdTVP9fV
-         Z0xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790152321; x=1790757121;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=hLbf5wdEcfSfArgGglezKU7/4be8aZs+31yfBhWP598=;
-        b=01KnaoMy3+s1pMPNxNPYeooC8ssPKsvFLdKH0oYFO78HQxxk2AIbiXs5u+SBUY3Obt
-         TIW9q58vYYOHJIheBOjz9stP0mjQ6pOtlAQhS5/7ThlZPhN6lMpTfqp/noPlVRRBIKTH
-         cQdEsLtpedfGUzhYN4lZ3BLqytSzV3vdJ04Q4RcPsv/JqEXyqnbVKd0fxsvVVwXiVwyx
-         nXsHEvnTthW0S0teffg8TU2UOf9XLoUzK8rZihrWWOOq+WPqKOz68jJxJuk+zUtPG/3g
-         Gz7WAJr5soWYoK0wHIBGWHBlz5fvAbkTE8fkETBvAcTrtvzeIjqfaxst1bMmdlfli/VA
-         joDA==
-X-Forwarded-Encrypted: i=1; AKwUvBwvqBRwg3kmkrauaF+ZvcL44Dlk60Uu9pcn3w3gwCogIJz+jHQGHuY5a62WMtB5OXEIhD1afWubLsxutWnaRnyi@lists.infradead.org
-X-Gm-Message-State: AFuF++lWpQ+S3QMQ852cMNzsHAIxaLGyj111F5r3mDQjJYAl1M5YDHsw
-	AT+WJbkosAANG56KFr0twm2lF4L0HLcH2NDlYPsrcqamA29psEJd9ppN6qMihCSFT0pmY2CYUOD
-	17mW2QFJ7dB0XuiUAfB7HDAZa/1mHD/Y=
-X-Gm-Gg: AYBFou2H87r1pIXJiog1LkoFii7517PZKX8G8qU22EJkj9iJkU/nUP5gcZu3XuYsTh5
-	5g5QL66Cx3EJXm7vP9QAu16wJ5ScmGXFt2qeUvzC0KTNulmQExUSLYkSEUevFQvasacHkX/NVTZ
-	2BBgiiuSF1S+LQJ08zVfKV1DpzqUvYcVVnKb1gp02R6pt7ljLXKykVVQ3ehheYHT91v5uYE8zSp
-	kpKrBZXq/1/7MwNvjTQp2KPwtbzUjsd/ekmOyIbJWVyPW/icqIWsCkuMI2FbRLmJYBwuavotnoD
-	2C0A1GSENlhD3mQEVfKhjvOtoCb82stpLEaphOcJXVMf6jMYEt96X9+kPeQr15Du
-X-Received: by 2002:a05:620a:6017:b0:93a:2d15:f84 with SMTP id
- af79cd13be357-93c2511c2b1mr290767285a.33.1790152321118; Wed, 23 Sep 2026
- 01:32:01 -0700 (PDT)
+	Wed, 23 Sep 2026 08:32:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44F581570;
+	Wed, 23 Sep 2026 01:32:19 -0700 (PDT)
+Received: from [10.0.138.135] (XHFQ2J9959-5.cambridge.arm.com [10.0.138.135])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C80563F86C;
+	Wed, 23 Sep 2026 01:32:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790152342; bh=zzvJxrToN+5AqlqU0CvwWYmRdJMMAE6EqK1QaTzSNoY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=t8ia1hWnCTKF6BgRjNTh6Q94B8/wFBEFP1mNHioecYtl12XVSfSCern/A1uvo/OZU
+	 TiCDYoVmCM3MzNfdFbfDWzlLLfsu5csrVYQMg3i2gkYqyGCYyFxz29vQWHWJDFa8Ha
+	 +uBVE/omKsioocOpkO9vW2NLdXR82bDe/iVQmYnM=
+Message-ID: <212067fe-1b16-4b87-87a7-4ce50847eb24@arm.com>
+Date: Wed, 23 Sep 2026 09:32:17 +0100
 MIME-Version: 1.0
-References: <20260916235200.20712-1-ansuelsmth@gmail.com> <20260921135933.7e8857ba@kernel.org>
- <CA+_ehUwy9RUKCCHDnqoED3AMVnErgGr9RCrCR4ceg5QONq1wOQ@mail.gmail.com> <20260922172514.7feb6e7c@kernel.org>
-In-Reply-To: <20260922172514.7feb6e7c@kernel.org>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Wed, 23 Sep 2026 10:31:49 +0200
-X-Gm-Features: AclHuK8jGec2XT5CWPXvYVvV1bFvl8hmA75zakqIakpr84shp0cAZGnoi6_G1Gs
-Message-ID: <CA+_ehUyFKZzd0uP4akgZxaLLJTwcvGGKz5ppCYsB++fn92Dn9w@mail.gmail.com>
-Subject: Re: [PATCH net-next v16 00/12] net: pcs: Introduce support for fwnode PCS
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 1/4] arm64/mm: Use pmdp_get() for PMD accesses
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Mark Rtland <mark.rtland@arm.com>,
+ linx-arm-kernel@lists.infradead.org, linx-kernel@vger.kernel.org,
+ kasan-dev@googlegrops.com
+References: <20260922061638.3967467-1-anshuman.khandual@arm.com>
+ <20260922061638.3967467-2-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260922061638.3967467-2-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_093203_490890_785D9686 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20260923_013224_222695_0CC65242 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,30 +78,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il giorno mer 23 set 2026 alle ore 02:25 Jakub Kicinski
-<kuba@kernel.org> ha scritto:
->
-> On Tue, 22 Sep 2026 12:12:56 +0200 Christian Marangi (Ansuel) wrote:
-> > The remark on the fwnode patch are invalid. The driver is expected
-> > to return those error as probe defer is not supported.
-> > (a notifier and late attach/detach is used to align to phylink logic)
-> >
-> > For the specific Airoha PCS driver it's really speculation from the AI
-> > but HW doesn't work as described by AI.
-> >
-> > The only real comment that is valid is about the alternative way
-> > to give supported interface with the .get_capabilites OP.
-> >
-> > This is currently not supported as there isn't any user and it will
-> > be implemented as soon as there will be one. It's really to limit
-> > the patch delta of this change and to progress further.
-> >
-> > Maybe FIXME might be suitable?
->
-> FWIW no preference here, I defer to the human reviewer.
-> We can treat the AI review as a hint if human reviewer thinks the code
-> is fine as is.
+On 22/09/2026 07:16, Anshuman Khandual wrote:
+> Replace READ_ONCE() with pmdp_get() for PMD accesses in preparation for
+> supporting both D64 and D128 translation table formats.
+> 
+> READ_ONCE() cannot currently be used for 128-bit page table entries on
+> arm64 because it does not provide the required 128-bit single-copy
+> atomicity, causing builds to fail for accesses wider than 64 bits.
+> 
+> Although LDP/STP provide the required atomicity when FEAT_LSE is
+> available (as required by FEAT_D128), extending READ_ONCE() to support
+> 128-bit accesses is undesirable. READ_ONCE() is a general-purpose API,
+> so doing so could encourage other 128-bit users that would either fail
+> to build in configurations without D128 support or, if D128 becomes a
+> runtime option, silently permit tearing on systems without the required
+> hardware support.
+> 
+> Instead, standardize PMD accesses on the existing page-table helpers.
+> These can be overridden on arm64 to provide 128-bit single-copy
+> atomicity when required. No functional change intended.
 
-Soo should I send v17 to fix AI that failed review?
-I think I didn't got this detail.
+I notice you have an unconverted READ_ONCE(*pmdp) in
+pmdp_test_and_clear_young(). Is that intentional?
+
+Thanks,
+Ryan
+
+
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rtland <mark.rtland@arm.com>
+> Cc: linx-arm-kernel@lists.infradead.org
+> Cc: linx-kernel@vger.kernel.org
+> Cc: kasan-dev@googlegrops.com
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/include/asm/pgtable.h |  3 ++-
+>  arch/arm64/mm/fault.c            |  2 +-
+>  arch/arm64/mm/fixmap.c           |  2 +-
+>  arch/arm64/mm/hugetlbpage.c      |  2 +-
+>  arch/arm64/mm/kasan_init.c       |  4 ++--
+>  arch/arm64/mm/mmu.c              | 22 +++++++++++-----------
+>  arch/arm64/mm/pageattr.c         |  2 +-
+>  arch/arm64/mm/trans_pgd.c        |  2 +-
+>  8 files changed, 20 insertions(+), 19 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 763c5a411d64..b953ea0ba3ed 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -811,7 +811,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>  }
+>  
+>  /* Find an entry in the third-level page table. */
+> -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
+> +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
+> +					 pte_index(addr) * sizeof(pte_t))
+>  
+>  #define pte_set_fixmap(addr)		((pte_t *)set_fixmap_offset(FIX_PTE, addr))
+>  #define pte_set_fixmap_offset(pmd, addr)	pte_set_fixmap(pte_offset_phys(pmd, addr))
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 2cecf6ba6df7..2757ee0c4300 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -188,7 +188,7 @@ static void show_pte(unsigned long addr)
+>  			break;
+>  
+>  		pmdp = pmd_offset_lockless(pudp, pud, addr);
+> -		pmd = READ_ONCE(*pmdp);
+> +		pmd = pmdp_get(pmdp);
+>  		ptval_to_str(pxd_str, pmd_val(pmd));
+>  		pr_cont(", pmd=%s", pxd_str);
+>  		if (pmd_none(pmd) || pmd_bad(pmd))
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index f66a0016dd02..3cdac8021d4f 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -42,7 +42,7 @@ static inline pte_t *fixmap_pte(unsigned long addr)
+>  
+>  static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
+>  {
+> -	pmd_t pmd = READ_ONCE(*pmdp);
+> +	pmd_t pmd = pmdp_get(pmdp);
+>  	pte_t *ptep;
+>  
+>  	if (pmd_none(pmd)) {
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 8e799c1fe0aa..cdaa4500faf9 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -304,7 +304,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
+>  		addr &= CONT_PMD_MASK;
+>  
+>  	pmdp = pmd_offset(pudp, addr);
+> -	pmd = READ_ONCE(*pmdp);
+> +	pmd = pmdp_get(pmdp);
+>  	if (!(sz == PMD_SIZE || sz == CONT_PMD_SIZE) &&
+>  	    pmd_none(pmd))
+>  		return NULL;
+> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
+> index 45fbdce684c8..7ca833c5de5e 100644
+> --- a/arch/arm64/mm/kasan_init.c
+> +++ b/arch/arm64/mm/kasan_init.c
+> @@ -62,7 +62,7 @@ static phys_addr_t __init kasan_alloc_raw_page(int node)
+>  static pte_t *__init kasan_pte_offset(pmd_t *pmdp, unsigned long addr, int node,
+>  				      bool early)
+>  {
+> -	if (pmd_none(READ_ONCE(*pmdp))) {
+> +	if (pmd_none(pmdp_get(pmdp))) {
+>  		phys_addr_t pte_phys = early ?
+>  				__pa_symbol(kasan_early_shadow_pte)
+>  					: kasan_alloc_zeroed_page(node);
+> @@ -138,7 +138,7 @@ static void __init kasan_pmd_populate(pud_t *pudp, unsigned long addr,
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+>  		kasan_pte_populate(pmdp, addr, next, node, early);
+> -	} while (pmdp++, addr = next, addr != end && pmd_none(READ_ONCE(*pmdp)));
+> +	} while (pmdp++, addr = next, addr != end && pmd_none(pmdp_get(pmdp)));
+>  }
+>  
+>  static void __init kasan_pud_populate(p4d_t *p4dp, unsigned long addr,
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index e589fb00d1e3..95621913679e 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -200,7 +200,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  			       int flags)
+>  {
+>  	unsigned long next;
+> -	pmd_t pmd = READ_ONCE(*pmdp);
+> +	pmd_t pmd = pmdp_get(pmdp);
+>  	pte_t *ptep;
+>  
+>  	BUG_ON(pmd_leaf(pmd));
+> @@ -257,7 +257,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  	unsigned long next;
+>  
+>  	do {
+> -		pmd_t old_pmd = READ_ONCE(*pmdp);
+> +		pmd_t old_pmd = pmdp_get(pmdp);
+>  
+>  		next = pmd_addr_end(addr, end);
+>  
+> @@ -272,7 +272,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  			 * only allow updates to the permission attributes.
+>  			 */
+>  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
+> -						      READ_ONCE(pmd_val(*pmdp))));
+> +						      pmd_val(pmdp_get(pmdp))));
+>  		} else {
+>  			int ret;
+>  
+> @@ -282,7 +282,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  				return ret;
+>  
+>  			VM_WARN_ON_ONCE(pmd_val(old_pmd) != 0 &&
+> -					pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
+> +					pmd_val(old_pmd) != pmd_val(pmdp_get(pmdp)));
+>  		}
+>  		phys += next - addr;
+>  	} while (pmdp++, addr = next, addr != end);
+> @@ -293,7 +293,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  static bool pmd_range_has_valid_noncont(pmd_t *pmdp)
+>  {
+>  	for (int i = 0; i < CONT_PMDS; i++) {
+> -		pte_t pte = pmd_pte(READ_ONCE(pmdp[i]));
+> +		pte_t pte = pmd_pte(pmdp_get(pmdp + i));
+>  
+>  		if (pte_valid(pte) && !pte_cont(pte))
+>  			return true;
+> @@ -1553,7 +1553,7 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+>  		pmdp = pmd_offset(pudp, addr);
+> -		pmd = READ_ONCE(*pmdp);
+> +		pmd = pmdp_get(pmdp);
+>  		if (pmd_none(pmd))
+>  			continue;
+>  
+> @@ -1708,7 +1708,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+>  		pmdp = pmd_offset(pudp, addr);
+> -		pmd = READ_ONCE(*pmdp);
+> +		pmd = pmdp_get(pmdp);
+>  		if (pmd_none(pmd))
+>  			continue;
+>  
+> @@ -1729,7 +1729,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+>  	 */
+>  	pmdp = pmd_offset(pudp, 0UL);
+>  	for (i = 0; i < PTRS_PER_PMD; i++) {
+> -		if (!pmd_none(READ_ONCE(pmdp[i])))
+> +		if (!pmd_none(pmdp_get(pmdp + i)))
+>  			return;
+>  	}
+>  
+> @@ -1881,7 +1881,7 @@ int pmd_set_huge(pmd_t *pmdp, phys_addr_t phys, pgprot_t prot)
+>  	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), mk_pmd_sect_prot(prot));
+>  
+>  	/* Only allow permission changes for now */
+> -	if (!pgattr_change_is_safe(READ_ONCE(pmd_val(*pmdp)),
+> +	if (!pgattr_change_is_safe(pmd_val(pmdp_get(pmdp)),
+>  				   pmd_val(new_pmd)))
+>  		return 0;
+>  
+> @@ -1906,7 +1906,7 @@ int pud_clear_huge(pud_t *pudp)
+>  
+>  int pmd_clear_huge(pmd_t *pmdp)
+>  {
+> -	if (!pmd_leaf(READ_ONCE(*pmdp)))
+> +	if (!pmd_leaf(pmdp_get(pmdp)))
+>  		return 0;
+>  	pmd_clear(pmdp);
+>  	return 1;
+> @@ -1917,7 +1917,7 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>  	pte_t *table;
+>  	pmd_t pmd;
+>  
+> -	pmd = READ_ONCE(*pmdp);
+> +	pmd = pmdp_get(pmdp);
+>  
+>  	if (!pmd_table(pmd)) {
+>  		VM_WARN_ON(1);
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index bbe98ac9ad8c..0ca07bd5ded9 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -414,7 +414,7 @@ bool kernel_page_present(struct page *page)
+>  		return pud_valid(pud);
+>  
+>  	pmdp = pmd_offset(pudp, addr);
+> -	pmd = READ_ONCE(*pmdp);
+> +	pmd = pmdp_get(pmdp);
+>  	if (pmd_none(pmd))
+>  		return false;
+>  	if (pmd_leaf(pmd))
+> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
+> index cca9706a875c..b27b2d2c20c3 100644
+> --- a/arch/arm64/mm/trans_pgd.c
+> +++ b/arch/arm64/mm/trans_pgd.c
+> @@ -74,7 +74,7 @@ static int copy_pmd(struct trans_pgd_info *info, pud_t *dst_pudp,
+>  
+>  	src_pmdp = pmd_offset(src_pudp, start);
+>  	do {
+> -		pmd_t pmd = READ_ONCE(*src_pmdp);
+> +		pmd_t pmd = pmdp_get(src_pmdp);
+>  
+>  		next = pmd_addr_end(addr, end);
+>  		if (pmd_none(pmd))
+
 
