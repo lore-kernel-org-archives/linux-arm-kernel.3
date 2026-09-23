@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94057C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC67DC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xR9vza9etr0IGm3u7jG2NZTFoxUW0CkCe02O6iSs7bc=; b=wDYL8+mTLAru27wAmnexS6mTf4
-	eDMBE7wgZRkw+Im7L702Wtm5QWFGOF6TNYNSLx6hEf9SqTEwPD3yWVH5egBscBkXoX7EuT1sW+3S1
-	cIANoMh2KlJefYxnxjVaHzon9WLzqySGLpCi0keOSl4KvNxdsGUYLjWHRMwu48E24DQoayhd7lEKI
-	SAF2Tg0mD6T0gd5l67lcqixAdEyBWW6Ba0jsnrI7WD23+Yl8/aPiFwaJPoeXy8F/0ZquLuZ8r7SS7
-	j3L6VCF0CUoBe0wJW6bIka5rEK7x78faaJXLk1w2pr/KHP1xFhiony7pzUAhcOp98l2JZ507NRV4K
-	9KfWzGOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S/KaJ4uoOUinEh73MmdUTlZkerQq9iWPfc11MN39MGQ=; b=Ha47cyD6sNZ7hNjDas4QAKe2cT
+	i0ChGr/ASBvkUlpcOhBBVD/OaY6i5I6l9FVfvphTKYeSOQADmsaGyC3H8ntjyfUJLeFgrYxIYHnYJ
+	mb8lgM3NQ+KojMBzi5HPyb7/Zc1DErZivKPPmvrSXd1mEDYoXLcSOYLsefD4WCfT35ZFsS81LoqF4
+	hI1U+ZvZPzslTeEV6g73/Mh0ZofwyNW4RYr994gJ91FDPAiangTEmAgR5ujeW6L5NZnd/zctRUFLh
+	jGugt5lI+0nAzhmK1sCND24ul0Fwoc6Xm0KMHMwEu4rMZsGyadRZyZ0F0E86CzV1HdqMdggl8x3iU
+	uLJX24og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RPH-000000098rl-24Ob;
-	Wed, 23 Sep 2026 18:09:23 +0000
-Received: from out-216.mta0.migadu.com ([2001:41d0:1004:224b::d8] helo=mta0.migadu.com)
+	id 1x9RPl-000000098zO-35B4;
+	Wed, 23 Sep 2026 18:09:54 +0000
+Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RPF-000000098r1-09Rx
+	id 1x9RPg-000000098x0-43RN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:09:22 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=hp4x+ywzXvafJkCdP8u0POUn9g1o98sJr1Tn/DdIbhA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790186959; v=1; x=1790791759;
- b=Ks4cYNxs0v5y4HoWkW2mo/kiu2QZyoOLphuMcl8dKfcyqvumwn92aVth+JA8lDG6FZ1mmS8m
- 8LKj3ySLdRwicpLusisFpdycwmzs4O2AYShzJbdDCTkfTF9AOBj53qhmeNx+crCPKDLSbtHVknt
- ffsBwCH92j2NaZZ8YsexskZU=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c6de37e8e8ea2e44;
-	Wed, 23 Sep 2026 18:09:19 +0000
-X-Mizu-Trace-ID: c6de37e8e8ea2e44
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b778bdb5b8so877e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:09:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzvW1BPCv8r9kg3CnkMFOOGnL4QDRGsrdB604I6faXc0vFAPsSUkLJsg8qZxnEwOhU0yh5nAQyJlb1ZpvArvX+Q@lists.infradead.org
-X-Gm-Message-State: AFuF++kTGTMAcHqO9UroUH1SVuCttbDJTJNpX6mJshMSujwh7dBCbH7h
-	sRoFf8z0EaUAzztArXTv3bs+Cm5nnkLpegR4n3sfv86CIgwZn0+svI8PZB+phXNWyHVhivcbKdt
-	eo0FUvW2ffwAeRRnGACeaKDfZ2cRXj7rulTkRpZuS
-X-Received: by 2002:a05:6512:124d:b0:5b8:c230:1241 with SMTP id
- 2adb3069b0e04-5b8dda17fd1mr39666e87.10.1790186953248; Wed, 23 Sep 2026
- 11:09:13 -0700 (PDT)
+	Wed, 23 Sep 2026 18:09:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1790186977;
+	bh=S/KaJ4uoOUinEh73MmdUTlZkerQq9iWPfc11MN39MGQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kOMDRUbnzVWko/FkTNKx9yqS9+9W0T25Y1LU+b5s+jZaDtjUGzkobAwdBUpmwqr7M
+	 ZMPdgm090MEuB6hsdDmAtIYdY7fQEVakgW0b7tf5HabL0NxJRFon0nhLJMap1LVZAd
+	 GWMEFzpSOXWynn5KT7D1W1qCtkjqYcLnMA0hAa/w=
+Received: from LAPTOP-TKBJAGN4.localdomain ([2408:8256:2d02:1501:3c58:684b:8f28:d14e])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id 25D9783F; Thu, 24 Sep 2026 02:09:29 +0800
+X-QQ-mid: xmsmtpt1790186969timzp5gnx
+Message-ID: <tencent_8D2E80A7E2ACFB8ADB2BDBBF14CA10C8A409@qq.com>
+X-QQ-XMAILINFO: NnYhxYSyuBnL4Rd1vVVKfORU2nclknIy3CX3LAvPdYYXt+64NubK7N8aPmtj44
+	 QizFsQHmqJBLHpXZU2dtws320R0qNwmhK/66837ATAakV6w9Ssxl3caGYTi8hnzxvaAcRfFsAPv5
+	 uV6DDnF8EijQ7/xx5cfrnc7AbjcWyrdDOqhp6tVLOyXb3oj9WJ98HIxopvIeA0N7yD/sLdnKgVOn
+	 QnYz7q8F3B8TURCgDneMD8Tq5rc4iuBcRBH+cIyVWEQ/gx90EiR5jQM4AbIQbVSI1uqzYucuSTSN
+	 wZOl0JjndXop5AszXIrTKWYgAQhpxvKFLOyqjs8F9j95+9Tyo8DNyrLx/1wPmpE0cW7E/F4a7DgF
+	 tALuhuxgpeJI8CTMny9aG+Csp2aQNIaZ2iDIAJYzE/AJCM20g8bVkuU6t99Y99LtSW3e8Sl8D752
+	 apaia1tUcGzWT8aPHeBst/uL8zRSPVwBiJXf8DqPIo6cFjaWjRxFhEWF0ptU57eWJpJv0qYNMOXp
+	 hfQAHyG4Hr3wGWk4BNhkwgQGStjNalLdR/oJWlDhWvBRmB0U/IEr9Ah+gBdg61Y80sR6WfQjYhdw
+	 BS4VAlXqwbpf8sT1Mf0XkskJRWHCLkNB1kt+ZP2Kki7m8AYnxrnMm6Qlyl/u5yAK8BRkSfWBQ+7C
+	 liu1TsMxoNAsV2IkJaoWiJDAg3RLVYF6g1ETVzFzrNucxbCChfs7SXINg22bbRjKnOqMPm2oi4c3
+	 i6FO8KpIjShIxuhcGg/5II5X6kXr5bjYX2qS39D9JTM+vVacxU62uW2dgIWX8dq6pMZcmsANbNZH
+	 FfFrFOE5oaJ5YBpJEzWyfTr/Vfpx4cizRBDB+GLPcQG6ovod5qlloCnwBed2ekPzJHiu4PBEkkh5
+	 x6bn6Yl4UG+mKnaXxJHTpSL73uWZ52IWwc905nE6SyUOK1GG6xaO3bHJZKPoIOoRdY36R7RgaIGk
+	 72lwHHK3tXQ3Z6gXM3MyvxOEtRGkw3QgAsEvaBPcOt2sO3zVOWycA/ZrxpgjidgjTkqpNS/UBCab
+	 p34Eeosj+eIv+HBDBVkjb1pBHIz6e0Do1byJhVxY/6c5A45je3Cszv8E0FqDT1PShKCsFg26JFQ5
+	 9q7XSa2zx28130roTJH0B6x695yd7p+R0r5btskDA3EUd+7XY=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+From: Haobin Jiang <lemonoutput@foxmail.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Haobin Jiang <lemonoutput@foxmail.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Carlos Song <carlos.song@oss.nxp.com>,
+	dillon.minfei@gmail.com,
+	Vincent Jardin <vjardin@free.fr>,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de
+Subject: Re: [PATCH v3] i2c: imx: honour I2C_M_IGNORE_NAK
+Date: Thu, 24 Sep 2026 02:09:26 +0800
+X-OQ-MSGID: <20260923180926.3706-1-lemonoutput@foxmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <tencent_342A87BFCECA70C9982E68A79AAD878B6909@qq.com>
+References: <tencent_342A87BFCECA70C9982E68A79AAD878B6909@qq.com>
 MIME-Version: 1.0
-References: <20260922210839.3765444-1-fuad.tabba@linux.dev> <20260923093433.00006cab@oss.qualcomm.com>
-In-Reply-To: <20260923093433.00006cab@oss.qualcomm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 23 Sep 2026 19:08:36 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxcXmOk-kvQQtrT1mku=gmn4P4RdZXU2iAQhj+hn7Hjtg@mail.gmail.com>
-X-Gm-Features: AclHuK_L10VanL22RC296bQJntGVijw67vDS6niPFFu4Q6Xzn6rsFFWvoeRnmqs
-Message-ID: <CA+EHjTxcXmOk-kvQQtrT1mku=gmn4P4RdZXU2iAQhj+hn7Hjtg@mail.gmail.com>
-Subject: Re: [PATCH] PCI: iproc: Use __free(device_node) in iproc_pcie_msi_enable()
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Rob Herring <robh@kernel.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, bcm-kernel-feedback-list@broadcom.com, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_110921_262454_BA11D9B4 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260923_110949_561321_3EF80DF8 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +97,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi,
 
-On Wed, 23 Sept 2026 at 17:34, Jonathan Cameron
-<jonathan.cameron@oss.qualcomm.com> wrote:
-[...]
-> Hi Fuad,
->
-> See the guidance notes in cleanup.h.   Linus has stated a couple
-> of times that he really never wants to see = NULL pattern miles
-> from where it is allocated.  Best you can do here is shift
-> it down to immediately before of_msi_xlate(). It is fine to declare
-> variables with destructors like this inline (i.e. not at top of function).
->
-> Admittedly if the scope shown here had gone a few lines further this
-> would look less bad!
+A gentle keepalive on this v3. It applies on top of Vincent's
+I2C_M_REV_DIR_ADDR / I2C_M_NOSTART series:
 
-Done: https://lore.kernel.org/all/20260923180703.3901185-1-fuad.tabba@linux.dev/
+  https://lore.kernel.org/linux-i2c/20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr/
 
-Cheers,
-/fuad
+Should I wait for that series to land before doing anything further?
+If so, I am happy to wait. And if there is any additional work you
+would like me to do in the meantime, I would be glad to do it.
 
->
->
-> > ---
-> >  drivers/pci/controller/pcie-iproc.c | 10 +++-------
-> >  1 file changed, 3 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
-> > index afb3aa38ac6bb..b4f4e6e1d4b41 100644
-> > --- a/drivers/pci/controller/pcie-iproc.c
-> > +++ b/drivers/pci/controller/pcie-iproc.c
-> > @@ -1338,7 +1338,7 @@ static int iproc_pcie_msi_steer(struct iproc_pcie *pcie,
-> >
-> >  static int iproc_pcie_msi_enable(struct iproc_pcie *pcie)
-> >  {
-> > -     struct device_node *msi_node = NULL;
-> > +     struct device_node *msi_node __free(device_node) = NULL;
-> >       int ret;
-> >
-> >       /*
-> > @@ -1357,18 +1357,14 @@ static int iproc_pcie_msi_enable(struct iproc_pcie *pcie)
-> >       if (pcie->need_msi_steer) {
-> >               ret = iproc_pcie_msi_steer(pcie, msi_node);
-> >               if (ret)
-> > -                     goto out_put_node;
-> > +                     return ret;
-> >       }
-> >
-> >       /*
-> >        * If another MSI controller is being used, the call below should fail
-> >        * but that is okay
-> >        */
-> > -     ret = iproc_msi_init(pcie, msi_node);
-> > -
-> > -out_put_node:
-> > -     of_node_put(msi_node);
-> > -     return ret;
-> > +     return iproc_msi_init(pcie, msi_node);
-> >  }
-> >
-> >  static void iproc_pcie_msi_disable(struct iproc_pcie *pcie)
-> >
-> > base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
->
+Best regards,
+  Haobin
+
 
