@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12668C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1715BC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MMrTWA/cK4iFg9NfdW/xvRzKZHKELCHs+UzWlZTmsiw=; b=T1/iRSOlJO+KKNeXjYgwM+vdc4
-	HBr3G9g7MSMsROMHdOOCnvgbSJM9x9lDdhSE0SwNsnV91nKISP0ButyFDYgLfGoayJPeiA5CO/9Uv
-	VFZ3sUWanMLr0uRVHCW5vEa9gRGKmcodlET4lpRJM2MmWjlVT9XXKgSe614FdFAYQilFow+nkkF/H
-	9YaVWKdsMYzs5y2tW6UUf0hmqV13+PR0kfGXBddJRuMloTasL1OBkQY+8WVBZ5kGhxNF00VRY+dVC
-	wNyQ4fVGgf3Ibnyay1n+7/abeaXxZWWeR12vtVvKqs3dtTsCBo5AzUeztjDyPOV0BuaTQ//SqgWGY
-	Q9dYLc/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LoDof0Bw8itQa6OT3DY4OPRHM5yrJMsSi1RNSka17X8=; b=LuPNfCX5Dc5lreNSPdzJyO7cmK
+	S/4XvtVpGHLz/fn8DBKrK9eKl8ArbmYNG09nAMKx1byWs05/o3iTnrcjNO/Ok1oPgN2arySdGpgJE
+	7ArtMlOK8WOU35X87m8BvXt8wpdIKyeAEXPj6ZZagg9NIdhJWlEQpPfWK57fXneW5+qMGzxlO4KE2
+	zBJoy4u8TvMrOoxvronwx+rC7X2AcnZ2KFHny+1cbq20tyrKQV2mhPzXfDdglfUkIJ3hR8qGP0rRO
+	mgPHfT2aA4HjAskL/n41JMECuRmOlJ1gNBN5xwkeF1WgNEhkOtdTaaUmV7I8xjB223iVXrUlbQ1/M
+	i3qViCKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9L1W-0000000839u-3HUa;
-	Wed, 23 Sep 2026 11:20:26 +0000
-Received: from mail-lf2-x11.google.com ([2a00:1450:4864:36::11])
+	id 1x9L2R-000000083Nu-0J77;
+	Wed, 23 Sep 2026 11:21:23 +0000
+Received: from smtp1.tecnico.ulisboa.pt ([193.136.128.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9L1L-00000008365-0q6g
+	id 1x9L2N-000000083Lu-19HG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 11:20:19 +0000
-Received: by mail-lf2-x11.google.com with SMTP id 2adb3069b0e04-5b5e4f1651bso584204e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:20:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790162413; x=1790767213; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MMrTWA/cK4iFg9NfdW/xvRzKZHKELCHs+UzWlZTmsiw=;
-        b=FBkufBCNdO5ktBltlFiQqhJyWGrjXjCCOKs4o4GGd5yz+RzfzctAhJQjLni9acQ1EW
-         8fWmwa35aNBKDz23GXQk4G2Sa0Osm512UO+tSQu3j+BDdx7etkD4VVfLC0ZCgg2MmBx3
-         /aDuR5hx7YMvw+Np0zkrS1XqLPEpLkvA06N2gYk+ynkRJn0pDbj1NJMgt5tUGQxRS8Jj
-         rVof09Hdk1Vki1+DDSDs/1IkVC7dgW1fcam02lyLn7aAeTnr4BNFlocKMtQuHorgLYBH
-         7orkvs5C4ukC+Q7mTVwjVG5EfFKM8Xo00CjHKeyu316zUfcVzZzWUHZmFysqA8uFHCWS
-         /xbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790162413; x=1790767213;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MMrTWA/cK4iFg9NfdW/xvRzKZHKELCHs+UzWlZTmsiw=;
-        b=kdIozet90pZby1WCapWKzvcjEV/7MZk4FcQ7Pi2VjD/vzHABHyQbDWnsYv3VHt301Y
-         ypvTpyv8SaxpFXJexofFhYCgEFxOI2QbxI3+gNCGcbDLc6lVfcZ6hMsueldggEFGJ4gu
-         1wc7CIj3ixeEkOsAtZGMm9tqtP7wd1fyr1Jbp48AAomFhKjiyoLVVpKsd76ZCbjxAMo9
-         1RY8TVDr4opJ82ln6qG7VbmbSFNE0kqIC3JeRTsjhNLEVC3MuoQ0xnRPbNyqyKAB/hob
-         UIBfv83QEAiNs/yeiBah0TM/vo+yA/ihGimrTMPhrCp/X2wrvRckYv+629nXfeYYeTeN
-         lWSg==
-X-Forwarded-Encrypted: i=1; AKwUvBy179h88hpxW4U2M0SQzTdrj1wTE/6xXYL7zPCsOUFJYEcNm6Vzl4mw4c0olj3CbN1sKmHCOrtScw8202zhy3RE@lists.infradead.org
-X-Gm-Message-State: AFuF++ntbaxVa5Dh/aIGM4y+l+rG6DHFHn3vA0Dbvkj1tyneS/irxE+q
-	dxdevIkNiksZWTHGiuWFxk4HS9remnRmHGjAfvowOGgFecaSQAe45eX4
-X-Gm-Gg: AYBFou3L9+A19tcF4GliBQd9b1j+XdQm41aAcjgVfy0LykU4KojyuH1b0nXPh5qzz54
-	chHGm6rhiyCCcoT3IPjwQAnS0a7Z82VGfuA6pj6UB94xajffeg+xErBEQv7TGKKYaCqFIBdZdZ4
-	j65VyqYZA/SD+TKxfPMzEdB0Acknz9sgrlokapeJh1fLADqT7mCplNxfUljj7fCLGM0GzR8JrpU
-	CAkIZjFMUqV28xD4jMJkttulgQ3xtoHRsAsojW5QgzuWOKPg9ZRZLd6gUSn/jypi+KhVQtS+/EM
-	v6MEhVkxnktnhXmpTj0ae4HseAQKonDIPWxLAKz6WUPwbgmFTeXUQ8IEE21Uu0c3H4wXe5TUxrJ
-	djiZNF/5hvOxKW6XS7GSB/7uAZdY3b3nCDLucBpORFfKc/iNC82LKGuFqtR1t9eNPlN05KjLgpe
-	t82bjzvZk7JinM86XO5GR8JznqMaLj0Dk+qaRxoipE4yKJJlPHNhN3E1/EBABq2IyeZ7544ajOg
-	mrdjHRMmHrQ6zub+O4=
-X-Received: by 2002:a05:6512:3091:b0:5b6:4ae:3ff4 with SMTP id 2adb3069b0e04-5b8d8967f46mr778397e87.28.1790162412004;
-        Wed, 23 Sep 2026 04:20:12 -0700 (PDT)
-Received: from DESKTOP-7GRJKK0 ([188.226.104.175])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b8d8595cb6sm516505e87.82.2026.09.23.04.20.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 04:20:11 -0700 (PDT)
-From: Vladimir <anykey196@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v3 1/2] arm64: dts: allwinner: h616: orangepi-zero2w: add 24-pin expansion overlay
-Date: Wed, 23 Sep 2026 16:20:07 +0500
-Message-ID: <20260923112009.1062-1-anykey196@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.3
+	Wed, 23 Sep 2026 11:21:21 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id 16BB26005402;
+	Wed, 23 Sep 2026 12:12:59 +0100 (WEST)
+X-Virus-Scanned: by amavis-2.13.0 (20230106) (Debian) at tecnico.ulisboa.pt
+Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
+ by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavis, port 10025)
+ with LMTP id kaF9eFl8NHYT; Wed, 23 Sep 2026 12:12:57 +0100 (WEST)
+Received: from mail1.tecnico.ulisboa.pt (mail1.ist.utl.pt [IPv6:2001:690:2100:1::b3dd:b9ac])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id 67AFF6003C2E;
+	Wed, 23 Sep 2026 12:12:56 +0100 (WEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tecnico.ulisboa.pt;
+	s=mail2; t=1790161977;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=LoDof0Bw8itQa6OT3DY4OPRHM5yrJMsSi1RNSka17X8=;
+	b=qnKP6yunEOJBZYBV5BQY4QdQngrse7Hc7qIzRxmiwLdvYhPzEXcqGr0ipBAAS3lDbi47KX
+	TDK+OkN2fl5VK6tpMIdh1uT2y1VrpOx5R5KJEfYqVLi4hXVeJ/wfIPxnkcBSfhBYy4x2VB
+	TY4Rlyt/KHLbJyjlg2qlk82XQvwf31EniEF4TplobHWmGdloBietOHrg9fNomctp1XDF9c
+	YjRf0832bOxGSGwwXvqxoiWbr3NNtVSa5ohSfv6XxLBfultzXp4DwM5ZVFyk/Zz6xyPpj3
+	2HWTh9UL6M1+3I5J4Kgql6qg1jJDc4ClmC6iCxg5a9FufgRKVx4nRDLbWer8Tw==
+Received: from [192.168.1.82] (unknown [IPv6:2001:8a0:67f3:eb00:ee56:8d5c:4e29:8df0])
+	(Authenticated sender: ist187313)
+	by mail1.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 92B3936011C;
+	Wed, 23 Sep 2026 12:12:55 +0100 (WEST)
+From: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+Date: Wed, 23 Sep 2026 12:12:06 +0100
+Subject: [PATCH] firmware/psci: Convert poweroff to the sys-off handler API
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260923-firmware-psci-v1-1-430646653fc6@tecnico.ulisboa.pt>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDU2MD3bTMotzyxKJU3YLi5EzdNBNDc0tLA8MUY9MUJaCegqLUtMwKsHn
+ RsRB+cWlSVmpyCcgQpdpaAI2+Sh1xAAAA
+X-Change-ID: 20260530-firmware-psci-f4179901d35d
+To: Mark Rutland <mark.rutland@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790161975; l=4801;
+ i=diogo.ivo@tecnico.ulisboa.pt; s=20240529; h=from:subject:message-id;
+ bh=l4sOiiVRttsVL1yIB+otV+BHBVDymLyP6LIpmQAcZLs=;
+ b=t4oG8XG/Xv/3slE8pRy8WfYjuA+Q2q11pecjWS7qQziZQAJlKoXfNu+v4+26VNYop6XECU58O
+ syAyeYNgjRXBlb3MYILgijnG46VHNCqKBvpS698HJt/v/k/+DIZE4cq
+X-Developer-Key: i=diogo.ivo@tecnico.ulisboa.pt; a=ed25519;
+ pk=BRGXhMh1q5KDlZ9y2B8SodFFY8FGupal+NMtJPwRpUQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_042015_673304_C0DC40B0 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260923_042119_734931_A881C68D 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,85 +92,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The optional 24-pin expansion board carries two buttons on LRADC channel 0
-and an IR receiver.  Keep them out of the base board .dts: with the board
-detached the LRADC input and the IR receiver pin are not driven and float,
-which can produce phantom key presses and interrupt storms.
+The PSCI poweroff handler is currently registered via pm_power_off,
+which fires as the last SYS_OFF_PRIO_DEFAULT handler. However, there
+are two problems with this approach: PSCI is a firmware mechanism, so
+its priority should be SYS_OFF_PRIO_FIRMWARE, and the point of the
+sys-off API is to eliminate pm_power_off and make the ordering and
+priority between shutdown mechanisms explicit.
 
-Provide them as a devicetree overlay instead, following the existing
-sun8i-orangepi-zero-interface-board.dtso approach.
+This patch converts PSCI to register_sys_off_handler() so that its
+position in the shutdown sequence is explicit and governed by priority.
 
-Tested on: OrangePi Zero 2W (Allwinner H618) with the 24-pin expansion board.
+In an ideal world PSCI would always be registered at SYS_OFF_PRIO_FIRMWARE
+since it is a firmware mechanism. However, this approach would lead to
+several problems:
 
-Signed-off-by: Vladimir <anykey196@gmail.com>
+ - On platforms with ACPI/EFI and PSCI there would be a clash at FIRMWARE
+   level, and the first to register would prevail.
+
+ - Not all platforms have a functional PSCI SYSTEM_OFF callback. This
+   happens for example in some Tegra X1 platforms, where shutdown needs
+   to be handled by the PMIC driver, explicitly marked as a
+   system-power-controller.
+
+As such, the approach here is:
+
+ - On ACPI systems EFI (SYS_OFF_PRIO_FIRMWARE + 1) and ACPI
+   (SYS_OFF_PRIO_FIRMWARE) already handle poweroff at higher
+   priorities. PSCI registers at SYS_OFF_PRIO_DEFAULT as a fallback
+   that runs after both.
+
+ - On DT systems with no system-power-controller, PSCI is the primary
+   firmware poweroff path and registers at SYS_OFF_PRIO_FIRMWARE.
+
+ - On DT systems where a system-power-controller node is present, a
+   dedicated platform driver is responsible for poweroff. PSCI
+   registers at SYS_OFF_PRIO_DEFAULT - 1 so that driver takes
+   precedence while PSCI still acts as a backstop.
+
+Signed-off-by: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
 ---
- arch/arm64/boot/dts/allwinner/Makefile        |  2 +
- .../sun50i-h618-orangepi-zero2w-24pin.dtso    | 42 +++++++++++++++++++
- 2 files changed, 44 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w-24pin.dtso
+---
+ drivers/firmware/psci/psci.c | 44 +++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 41 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index d1f768dd646..e4576030276 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -57,6 +57,8 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h616-orangepi-zero2.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h616-x96-mate.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-longanpi-3h.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero2w.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero2w-24pin.dtb
-+sun50i-h618-orangepi-zero2w-24pin-dtbs := sun50i-h618-orangepi-zero2w.dtb sun50i-h618-orangepi-zero2w-24pin.dtbo
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero3.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-transpeed-8k618-t.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-yuzukihd-chameleon.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w-24pin.dtso b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w-24pin.dtso
-new file mode 100644
-index 00000000000..2d7e98e4b66
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w-24pin.dtso
-@@ -0,0 +1,42 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR X11)
-+/*
-+ * Device tree overlay for the Orange Pi Zero 2W 24-pin expansion board.
-+ *
-+ * The expansion board provides two buttons wired to LRADC channel 0 and an
-+ * IR receiver.  These are only present when the board is attached, so they
-+ * are deliberately kept out of the base .dts: on a bare board the LRADC
-+ * input and the IR receiver pin are not driven and float, which can cause
-+ * phantom key presses and interrupt storms.
-+ *
-+ * Apply on top of:
-+ *   arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-+ */
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index e73bae6cb23a..fc7986b7f12f 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -13,7 +13,6 @@
+ #include <linux/errno.h>
+ #include <linux/linkage.h>
+ #include <linux/of.h>
+-#include <linux/pm.h>
+ #include <linux/printk.h>
+ #include <linux/psci.h>
+ #include <linux/reboot.h>
+@@ -79,6 +78,8 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
+ static u32 psci_cpu_suspend_feature;
+ static bool psci_system_reset2_supported;
+ static bool psci_system_off2_hibernate_supported;
++static bool psci_system_off_supported __initdata;
++static bool is_dt __initdata;
+ 
+ static inline bool psci_has_ext_power_state(void)
+ {
+@@ -329,9 +330,11 @@ static struct notifier_block psci_sys_reset_nb = {
+ 	.priority = 129,
+ };
+ 
+-static void psci_sys_poweroff(void)
++static int psci_sys_poweroff(struct sys_off_data *data)
+ {
+ 	invoke_psci_fn(PSCI_0_2_FN_SYSTEM_OFF, 0, 0, 0);
 +
-+/dts-v1/;
-+/plugin/;
++	return NOTIFY_DONE;
+ }
+ 
+ #ifdef CONFIG_HIBERNATION
+@@ -665,6 +668,40 @@ static void __init psci_init_smccc(void)
+ 
+ }
+ 
++static int __init psci_poweroff_init(void)
++{
++	int priority = is_dt ? SYS_OFF_PRIO_FIRMWARE : SYS_OFF_PRIO_DEFAULT;
++	struct sys_off_handler *handler;
++	struct device_node *np;
 +
-+#include <dt-bindings/input/input.h>
++	if (!psci_system_off_supported)
++		return 0;
 +
-+&lradc {
-+	vref-supply = <&reg_vcc3v3>;
-+	status = "okay";
-+	wakeup-source;
++	if (is_dt) {
++		/*
++		 * If a system-power-controller is designated in DT, a dedicated
++		 * driver should handle power-off; in that case register PSCI at
++		 * SYS_OFF_PRIO_DEFAULT - 1 as a fallback. This covers both the
++		 * case where that driver fails to power-off the system and the
++		 * case where it fails to register its own handler.
++		 */
++		np = of_find_node_with_property(NULL, "system-power-controller");
++		if (np) {
++			priority = SYS_OFF_PRIO_DEFAULT - 1;
++			of_node_put(np);
++		}
++	}
 +
-+	button-1000 {
-+		label = "KEY_1";
-+		linux,code = <KEY_1>;
-+		channel = <0>;
-+		voltage = <1000000>;
-+	};
++	handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF, priority,
++					   psci_sys_poweroff, NULL);
++	if (IS_ERR(handler))
++		pr_err("Failed to register PSCI power-off handler: %ld\n",
++		       PTR_ERR(handler));
 +
-+	button-1600 {
-+		label = "KEY_ENTER";
-+		linux,code = <KEY_ENTER>;
-+		channel = <0>;
-+		voltage = <1600000>;
-+	};
-+};
++	return PTR_ERR_OR_ZERO(handler);
++}
++subsys_initcall(psci_poweroff_init);
 +
-+&ir {
-+	status = "okay";
-+};
--- 
-2.55.0.windows.3
+ static void __init psci_0_2_set_functions(void)
+ {
+ 	pr_info("Using standard PSCI v0.2 function IDs\n");
+@@ -681,7 +718,7 @@ static void __init psci_0_2_set_functions(void)
+ 
+ 	register_restart_handler(&psci_sys_reset_nb);
+ 
+-	pm_power_off = psci_sys_poweroff;
++	psci_system_off_supported = true;
+ }
+ 
+ /*
+@@ -822,6 +859,7 @@ int __init psci_dt_init(void)
+ 	init_fn = (psci_initcall_t)matched_np->data;
+ 	ret = init_fn(np);
+ 
++	is_dt = true;
+ 	of_node_put(np);
+ 	return ret;
+ }
+
+---
+base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
+change-id: 20260530-firmware-psci-f4179901d35d
+
+Best regards,
+--  
+Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
 
 
