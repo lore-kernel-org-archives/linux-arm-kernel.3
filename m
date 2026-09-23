@@ -4,74 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0988C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 406F0C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0UgemaKsCxL7NgY0GfCbHgSsetKZN08mxyxF7mZd1o=; b=ET7nCgdsjpxX3DV6BURh2Ss6zY
-	zOZCsx1K2DgxnT3fRPFtAlofwMrDRnGjj1jvo+M1Swh016lXvEpSjRbRSDm+PK8lS5v6qqOn0RV9G
-	q18Pc8/ZuhAFeVtxmCsvhQzyEIXijfTuGKArk1OWjIzDBim0hHdU5puqrDRrMhe/Ry8iqj5tw9x79
-	GXTL0vZMWwCAu0JFFoyG9BExsAvOGZnInbn58fA5df982nLCE5tlNt8w+EQHVF6oVfIzT6np67HSF
-	0WzKoOtHHPqW6sbIatIhZCHm3QqBZuOdi1hYcH8qEbSkZ2EoiP0E+76u4LuYkc917fFbYu1AvBnXW
-	T0WXtovw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2tSma755doQXgisFXpc1rjnkqUYE4hLhMKOMVJp038k=; b=WOwhcwKU+AhCERi0baSau7hN4B
+	aVoID/XUljLR4L+C7W8t2/Unpgqf/Rc18nT2b33dLIsWoC/71gR6RNsqfjrIFRW2hcFALDLX8R9O4
+	AKRQNvssivWkUVNrumksTHZRdRkDuj7swP1Wi65xHbW2Rde9gZxp3BYwdhBYf4v4JcQHE0p7I227o
+	yn8l3NoZqfsgo11fTOju0iKWhtCL2rjTCC9Ff7Ry9US39jh2KzeVO+iv0A8BNDYm7X8Hh0qpAQyQt
+	M+nWxo4iOjcZO+rouEz0fBA6ZsCun6Vyg/jBviorx7rhNC4f62U6QjOSvp9HHK/vnfimc4X3I6qet
+	9GszdKpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OP4-00000008bVs-0cK0;
-	Wed, 23 Sep 2026 14:56:58 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1x9OQW-00000008bow-0FIi;
+	Wed, 23 Sep 2026 14:58:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OOy-00000008bUt-2J7K;
-	Wed, 23 Sep 2026 14:56:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790175412; x=1821711412;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+NoCwNQno1x3g8OGbl0mW+5uJcHCveny72+JeTY7Ez0=;
-  b=XoollXcBmiNB2tb/4PVotc1uiAkUbWHHKxwE/y/F8xD28x1sH+2uRSNC
-   qkC+4CAVrFuLsR0xq2yBylAPPO6zHxgrAZ3pLQ5jc5qeZqhqtzcfw2t0G
-   pddtB+kOJb7oeSehdWWUYVPhOgrqq3Lo6FjyLoslv+EL5fiWAmY4Gvvur
-   szWOW8j9nvPbcp6vngQqGB7ZL9HSpoHHvYKZu7IeYfce2+pE8WiK97NYc
-   GqHSS8o8ULiuN/n0pY7IwHsX+AX3RGHEPAajIpqncOvRXuZN1qJOPSmhg
-   J3B3yRqFW46/pCXL9Ou5jSyaIGyPtClPec/QecDmStwD5r2EMlzNY4ris
-   A==;
-X-CSE-ConnectionGUID: +cypgvSkRUep44/PtZte1Q==
-X-CSE-MsgGUID: a6yvdw5MTFW+aFL3Yqxyfg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11913"; a="90994725"
-X-IronPort-AV: E=Sophos;i="6.27,118,1787036400"; 
-   d="scan'208";a="90994725"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 07:56:51 -0700
-X-CSE-ConnectionGUID: Ttchn/a4TTCaFMrPmeaoOQ==
-X-CSE-MsgGUID: olsR4xbuTqq4VohNXYcoVg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,118,1787036400"; 
-   d="scan'208";a="4730903"
-Received: from cpetruta-mobl1.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.244.54])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 07:56:49 -0700
-Date: Wed, 23 Sep 2026 16:56:41 +0200
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: Amin Gattout <amin.gattout@gmail.com>
-Cc: Michael Riesch <michael.riesch@collabora.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/5] arm64: dts: rockchip: add vicap node to rk3576
-Message-ID: <arPoWFbmckTv3m2H@mdjait-mobl>
-References: <20260921-vicap-rk3576-v2-0-0a4582e20c72@gmail.com>
- <20260921-vicap-rk3576-v2-5-0a4582e20c72@gmail.com>
+	id 1x9OQV-00000008bog-29RG
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 14:58:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B43240646;
+	Wed, 23 Sep 2026 14:58:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FBDD1F00893;
+	Wed, 23 Sep 2026 14:58:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790175506;
+	bh=2tSma755doQXgisFXpc1rjnkqUYE4hLhMKOMVJp038k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=QlXCLtMXO0lx6ggG/M32bSj/9SaDsDMcW83bC/TW4iomSPcy0kvYOgMTc2GkgUTS9
+	 GYBrpX7pZjOfh3Sw077GPFQ0dVKMG5wbRehQSNe4XLv1LjqMMp3vc/CwG+v5I94A1g
+	 sNxAr8LbqxGymdK5mPplTXTrsjFooxuZpLysZHunwIxWdr50GBQ+DbGM26HqQSUrxc
+	 hCZ270/ADiSUkWvZZXBoase7pGIDs3sjAugxFyN2wOz2JlIC03tzJLIKgTBmElLFPa
+	 4HPEia0scyAmqbsERKXr8/tORk9PV9fK+nCzrNEU1AYi7qoSxukoiRVqyE6TorUyNO
+	 yVQhMuguqlwRg==
+Message-ID: <d679c0e9-febe-4069-9c2f-a2173a5218aa@kernel.org>
+Date: Wed, 23 Sep 2026 16:58:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260921-vicap-rk3576-v2-5-0a4582e20c72@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_075652_786788_BAB980A2 
-X-CRM114-Status: GOOD (  17.35  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: pinctrl: samsung: Require clocks for
+ Exynos9610 pinctrl nodes
+To: Alexandru Chimac <alex@chimac.ro>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Tomasz Figa <tomasz.figa@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260922-exynos9610-pinctrl-patch-v1-1-f6d816696591@chimac.ro>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20260922-exynos9610-pinctrl-patch-v1-1-f6d816696591@chimac.ro>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Amin,
-
-Thank you for the patch!
-
-On Mon, Sep 21, 2026 at 05:30:01PM +0200, Amin Gattout wrote:
-> Add the device tree node for the Video Capture (VICAP) unit of the
-> RK3576 and its IOMMU, and connect the VICAP to the two MIPI CSI-2
-> receivers that are usable with the MIPI D-PHYs in full mode.
+On 22/09/2026 14:15, Alexandru Chimac wrote:
+> All Exynos9610 pin controllers (except PINCTRL_TOP) have clocks assigned
+> to them, so force the nodes to have clocks assigned to them.
 > 
-
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-
-> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-> Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
+> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 83 ++++++++++++++++++++++++++++++++
->  1 file changed, 83 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> index cbf8b70cc15a..0c46accf5657 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1323,6 +1323,81 @@ vdec_mmu: iommu@27b00800 {
->  			rockchip,disable-mmu-reset;
->  			#iommu-cells = <0>;
->  		};
+> Most Samsung Exynos9610 pin controllers (except TOP) have clocks
+> designated for them, so allow the device tree node to include clock
 
-small nit:
-Maybe add a blank line before vicap.
+I don't understand above. It's contradictory to commit msg which says
+ALL. Here you say most.
 
-> +		vicap: video-capture@27c10000 {
-> +			compatible = "rockchip,rk3576-vicap";
-> +			reg = <0x0 0x27c10000 0x0 0x800>;
-> +			interrupts = <GIC_SPI 318 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>,
-> +				 <&cru DCLK_VICAP>,
-> +				 <&cru CLK_VICAP_I0CLK>, <&cru CLK_VICAP_I1CLK>,
-> +				 <&cru CLK_VICAP_I2CLK>, <&cru CLK_VICAP_I3CLK>,
-> +				 <&cru CLK_VICAP_I4CLK>;
 
-[..]
+Why two commit msgs?
 
---
-Kind Regards
-Mehdi Djait
+> information for the driver.
+
+that's ABI break without reason.
+
+
+Best regards,
+Krzysztof
 
