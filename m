@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D65C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D6BC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIj/Dbom+J7aqmlKPZ1y/Va/8sNR/cU9PEm7aCseVZY=; b=ncoHETMJIIeHaKDmU9FrXGwucO
-	5ithQh/APOVoDivLxiMpckwGHcKMtwZIZzOqnGq+khcYC1uHexlniEN+fVSUMIUWX77ykDCQq+H6u
-	4SdyHhlel1V8vstzFusIsYfmDRThDBfMUAULTd/VA1jqdKsxgLT9c4JtrB8inI7Kg9WEqLU7OHM7R
-	DHPFMSzK+90iA/M7j6hLrhTwM73F+QE90G/OreH5ZCCuGc2rvo63d95tlJuRtsFKcrw74+s+jHugm
-	ItSVYVwmUtch1aOsxLQY7qZT6JHbCOmzvRxm4kSBR/9bVUrXl5Pu1r5zOCX/f4b0ZAQzEKXgIS3zJ
-	ZykpBMTw==;
+	bh=9vm32az2LnuV8WaiAacxm+CnjVstWYf+Y/eufVTbi0o=; b=4++XDPYO2Z6cJd0B5JpX567MPy
+	op3gNIZKT/n2pxbJAXjI/B4AJgP++CG6ngSpk336pfpepbpfFkbwxv1YsigI0ASQA+MgT7Azo7ZWW
+	kt7B6bKTXpv+V55heJDtu+HVZw3LDMMEBoqo1gkwHuuL5mfYUvOmPSiNzthLuT7+HmF1PwFiClTTM
+	UWgJsb0r44sXQXlzbWLuVCEYBBsztshJvaHSR9QKLJyiSZuZ7kdHvZFLFOacwE92ceXJD021QsdRS
+	fkdzEjWiQKEDi2ISNOcjqLpftNoUgA+Jg6oxYV3Mo6wFQTBhB+i1AL349YIDg1V2bm78vXXPfLxo1
+	Ui2JurEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Oix-00000008gTm-1vGr;
-	Wed, 23 Sep 2026 15:17:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9OjB-00000008gbj-3hne;
+	Wed, 23 Sep 2026 15:17:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Oil-00000008gNj-3TKs
+	id 1x9Oj5-00000008gY3-1ZG9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:17:19 +0000
+	Wed, 23 Sep 2026 15:17:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41309600AA;
-	Wed, 23 Sep 2026 15:17:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FC691F000FF;
-	Wed, 23 Sep 2026 15:17:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 21BED42ABF;
+	Wed, 23 Sep 2026 15:17:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BE141F00898;
+	Wed, 23 Sep 2026 15:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790176639;
-	bh=lIj/Dbom+J7aqmlKPZ1y/Va/8sNR/cU9PEm7aCseVZY=;
+	s=k20260515; t=1790176659;
+	bh=9vm32az2LnuV8WaiAacxm+CnjVstWYf+Y/eufVTbi0o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KDDYhmpmlsVAjJkAyXEb9XNgBOi5awscdP44AJxhJS714JM6QR8D+WRdP64lXdmd5
-	 JtZ04/3c0luLG0blYnW37xVmymeRHUAT3Q/Z0ZTv0Teaoq9UYGJE4/bY+gHRK2q05V
-	 equ2sRiRk/5n9/K9O6ty9gJfxmDpCSxwO03/UtlvHhuWyTKtMBctgm8aRcw6spmzoh
-	 seDOmQREwnoDS/X2TrYiPUQORBHY54q9eaXYiHAhMFk2NDEnHKJtDwg5AjHJumu0XP
-	 vvAuMBMzevekDmmpZcuRIDxxV9xObG8lxZ7kM8Zt7tylKhcSbXSf6nbl/KBI+nZWzn
-	 Df1WgBWKCzITg==
+	b=MXtbzQ7I1JHpjbHGy0JZp3RUIguxeDgIO3H3rII9bJogVlw+XyPbgOpxl9U7FoQYi
+	 eQSr8qILD04P6lR7UnN5QIM1ACiCrnY0g5NDVY9Cit73pYHbOz3YeJf1rEnDWXwGDn
+	 j4XtfuHD+FAAsA6Nyo2nLuD1JukBTCu+EKKi6TD0i/Zt30Fy41f0DUu1KW2NpRABy+
+	 SPcoQe8NPmByOeaU4ao/uufEfcK+2xPR/l0CRzf2rIEghFOXLliluBVsJxeO1e9gWn
+	 062fvxKab7VdxkpFLEl27ifUqIXs7KPcvJwxFZymyIyyZ4nCytPiqeTu1bNzODnKm6
+	 c2n98XdRm8TRQ==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Wed, 23 Sep 2026 16:15:50 +0100
-Subject: [PATCH v4 07/14] KVM: arm64: Size the stage-2 memcache from the
- fault MMU
+Date: Wed, 23 Sep 2026 16:15:52 +0100
+Subject: [PATCH v4 09/14] KVM: arm64: Pass walk flags to
+ kvm_pgtable_get_leaf()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-kvm-arm-prefault-v4-7-d4b0b4dfa8c3@kernel.org>
+Message-Id: <20260923-kvm-arm-prefault-v4-9-d4b0b4dfa8c3@kernel.org>
 References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 In-Reply-To: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -81,12 +81,12 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
  linux-s390@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2386; i=ljs@kernel.org;
- h=from:subject:message-id; bh=pAPxUpZtqgJo3haFZqrljwVWvDJLRFxgQ5QDLtB5gZo=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9UVEa47Nz1esedi48qAiOPWP2U21uzcNsFsNQfLw
- 8sXp/zI7ChlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEHjxlZPi3huOpwnIF7wuP
- wuuDPkf13hTrfPwucPmKqMIMuzf/PWQZ/nBp/m65yOtw5dydCLk90u+PmeolTyw70vOegbOz5i/
- XQhYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6199; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=/7gESZ5TmmiQJgL7YNm2fLECXkI/ScMMb7OHCu5WcGA=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9UNC8/jbLj5TPbrriO2PitLPf4eTEzblit97F/U5
+ pc3A9P2dpSyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiZ3sZGT5l2wRWp5x7+fdj
+ 4eKYmdpGE70TOl49eyD4gSk8UNc6vIaR4eb8+IO3J635/9lJM+DtlG0r5C4t1RRjk1p2SefX3g2
+ ar9kA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -103,71 +103,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-topup_mmu_memcache() sizes the page-table cache from
-vcpu->arch.hw_mmu, which is the MMU that faulted.
+From: Jack Thomson <jackabt@amazon.com>
 
-Pass the target s2fd->mmu instead, so the mmu used can be controlled by the
-caller.
+Allow callers of kvm_pgtable_get_leaf() to specify the page-table walk
+flags, in preparation for performing walks under the MMU read lock.
 
-For a guest abort this is vcpu->arch.hw_mmu, so this commit introduces no
-functional change in practice.
+Reading a stage-2 leaf while only holding the read lock requires
+KVM_PGTABLE_WALK_SHARED: parallel faults (which also only hold the read
+lock) can unlink table pages and free them via RCU, so the walker must
+be inside an RCU read-side critical section, which the shared walk flag
+provides via kvm_pgtable_walk_begin().
 
-However, it's necessary for a future change which introduces stage 2
-pre-faulting which must always target the canonical MMU regardless of the
-vCPU's last-run context.
+All existing callers either hold the write lock, walk with interrupts
+disabled, or run at hyp where shared walks are rejected; they keep the
+current behaviour by passing no flags.
 
 No functional change intended.
 
+Signed-off-by: Jack Thomson <jackabt@amazon.com>
+[ljs: fixup new kvm_pgtable_get_leaf() invocation]
 Reviewed-by: Oliver Upton <oupton@kernel.org>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_pgtable.h  |  5 ++++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 10 +++++-----
+ arch/arm64/kvm/hyp/nvhe/mm.c          |  2 +-
+ arch/arm64/kvm/hyp/pgtable.c          |  5 +++--
+ arch/arm64/kvm/mmu.c                  |  2 +-
+ arch/arm64/kvm/nested.c               |  2 +-
+ 6 files changed, 15 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index ee2a4f0faa14..cd4bc1d1bcdb 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1606,9 +1606,9 @@ static void *get_mmu_memcache(struct kvm_vcpu *vcpu)
- 		return &vcpu->arch.pkvm_memcache;
- }
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 20d12da3d28e..589db1d6405f 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -859,6 +859,8 @@ int kvm_pgtable_walk(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  * @addr:	Input address for the start of the walk.
+  * @ptep:	Pointer to storage for the retrieved PTE.
+  * @level:	Pointer to storage for the level of the retrieved PTE.
++ * @flags:	Flags to control the page-table walk
++ *		(see struct kvm_pgtable_visit_ctx).
+  *
+  * The offset of @addr within a page is ignored.
+  *
+@@ -869,7 +871,8 @@ int kvm_pgtable_walk(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  * Return: 0 on success, negative error code on failure.
+  */
+ int kvm_pgtable_get_leaf(struct kvm_pgtable *pgt, u64 addr,
+-			 kvm_pte_t *ptep, s8 *level);
++			 kvm_pte_t *ptep, s8 *level,
++			 enum kvm_pgtable_walk_flags flags);
  
--static int topup_mmu_memcache(struct kvm_vcpu *vcpu, void *memcache)
-+static int topup_mmu_memcache(struct kvm_s2_mmu *mmu, void *memcache)
- {
--	int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
-+	int min_pages = kvm_mmu_cache_min_pages(mmu);
- 
- 	if (!is_protected_kvm_enabled())
- 		return kvm_mmu_topup_memory_cache(memcache, min_pages);
-@@ -1707,7 +1707,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd,
- 
- 	if (!perm_fault) {
- 		memcache = get_mmu_memcache(s2fd->vcpu);
--		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
-+		ret = topup_mmu_memcache(s2fd->mmu, memcache);
- 		if (ret)
- 			return ret;
- 		if (kvm_is_nested_s2_mmu(kvm, pgt->mmu)) {
-@@ -1827,7 +1827,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ /**
+  * kvm_pgtable_stage2_pte_prot() - Retrieve the protection attributes of a
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index a6a47c1e058b..443ee433119e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -540,7 +540,7 @@ static int host_stage2_adjust_range(u64 addr, struct kvm_mem_range *range)
  	int ret;
  
- 	hyp_memcache = get_mmu_memcache(vcpu);
--	ret = topup_mmu_memcache(vcpu, hyp_memcache);
-+	ret = topup_mmu_memcache(s2fd->mmu, hyp_memcache);
+ 	hyp_assert_lock_held(&host_mmu.lock);
+-	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr, &pte, &level);
++	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr, &pte, &level, 0);
  	if (ret)
- 		return -ENOMEM;
+ 		return ret;
  
-@@ -2253,7 +2253,7 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
- 	memcache = get_mmu_memcache(s2fd->vcpu);
- 	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
- 	    is_protected_kvm_enabled()) {
--		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
-+		ret = topup_mmu_memcache(s2fd->mmu, memcache);
- 		if (ret)
- 			return ret;
+@@ -930,7 +930,7 @@ static int get_valid_guest_pte(struct pkvm_hyp_vm *vm, u64 ipa, kvm_pte_t *ptep,
+ 	s8 level;
+ 	int ret;
+ 
+-	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
++	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level, 0);
+ 	if (ret)
+ 		return ret;
+ 	if (guest_pte_is_poisoned(pte))
+@@ -979,7 +979,7 @@ int __pkvm_vcpu_in_poison_fault(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	ipa |= FAR_TO_FIPA_OFFSET(kvm_vcpu_get_hfar(&hyp_vcpu->vcpu));
+ 
+ 	guest_lock_component(vm);
+-	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
++	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level, 0);
+ 	if (ret)
+ 		goto unlock;
+ 
+@@ -1335,7 +1335,7 @@ static int host_stage2_get_guest_info(phys_addr_t phys, struct pkvm_hyp_vm **vm,
+ 		return -EPERM;
  	}
+ 
+-	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, &level);
++	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, &level, 0);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1564,7 +1564,7 @@ static int __check_host_shared_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ip
+ 	s8 level;
+ 	int ret;
+ 
+-	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
++	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level, 0);
+ 	if (ret)
+ 		return ret;
+ 	if (!kvm_pte_valid(pte))
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 29ab5ee9d57f..bcf2fd1ddd75 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -486,7 +486,7 @@ static int check_page_ownership(phys_addr_t phys)
+ 			return -EPERM;
+ 	}
+ 
+-	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
++	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL, 0);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index b74dd5ce1efd..347eec3957d6 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -298,12 +298,13 @@ static int leaf_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ }
+ 
+ int kvm_pgtable_get_leaf(struct kvm_pgtable *pgt, u64 addr,
+-			 kvm_pte_t *ptep, s8 *level)
++			 kvm_pte_t *ptep, s8 *level,
++			 enum kvm_pgtable_walk_flags flags)
+ {
+ 	struct leaf_walk_data data;
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb	= leaf_walker,
+-		.flags	= KVM_PGTABLE_WALK_LEAF,
++		.flags	= flags | KVM_PGTABLE_WALK_LEAF,
+ 		.arg	= &data,
+ 	};
+ 	int ret;
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 476a98cbe05d..5bfc4cf76f22 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -895,7 +895,7 @@ static int get_user_mapping_size(struct kvm *kvm, u64 addr)
+ 	 * IPI-ing threads).
+ 	 */
+ 	local_irq_save(flags);
+-	ret = kvm_pgtable_get_leaf(&pgt, addr, &pte, &level);
++	ret = kvm_pgtable_get_leaf(&pgt, addr, &pte, &level, 0);
+ 	local_irq_restore(flags);
+ 
+ 	if (ret)
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index ec754a865a00..cd868af63b1b 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -662,7 +662,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 		return 0;
+ 
+ 	tmp &= ~(sz - 1);
+-	if (kvm_pgtable_get_leaf(mmu->pgt, tmp, &pte, NULL))
++	if (kvm_pgtable_get_leaf(mmu->pgt, tmp, &pte, NULL, 0))
+ 		goto again;
+ 	if (!(pte & PTE_VALID))
+ 		goto again;
 
 -- 
 2.55.0
