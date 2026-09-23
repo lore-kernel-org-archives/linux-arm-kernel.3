@@ -4,66 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98294C982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C931C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 01:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrTLmJOH3qQHlf8D5JBVUOsbPmlvEiygci/2Qr0+388=; b=MIpX2FxYGNiQ1KFlrsye4e5OLf
-	UB2GQcJ6YMPvloXd6WRdUi3ueVRHC5g2HFel7LNkS3XsMjWV+UeyLVzE6zJ6o+uMday+wE0/W7ocb
-	DzWC572V2eKn+WAeDff+eTUV1tYS2tMoXXWHr4u9Xdizs+twaASmc7j6FBxKEgci94ohRZC/MKPOg
-	fXVX474wxdcFcNKdk3lMkzr6TEKkETaSYtH3w2t373Elm6ybSw+W0TZsp2sWH/+5VkHZ82EG8Ph6Z
-	YwCDNkT9GXa0ZOvfa62fV3JW4svWmNK6BzGGBPIRGCftnrf8wE2O7FKF8RjrS2pCP7TLyB/dcFuzh
-	cd8WVdvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JGoyxRWmZCHMD3A/caoBoHDEKS871mDH4i6spaluJNo=; b=OmtUHLxSUT9l7T
+	pc34EzsNXFKoaIKVT97aAbeYoh7338sbXZ57wxMrJVDptct+ehsPnc5ck2f/ejYklRN1Q0BAzw/Qd
+	Ur9rVnttQD4hH8+C86HCUdkr9VpzPiteqla1u2Fxn7Tt62vwzPrMTg1Uhzs55dyzuIgxmTy73Zlms
+	A9OVlCiM9HfDiREiDyv2haacm2JD6dYWs0cdKz4gIq+YUgN8nxbYFmHgnKdEIF3JoVipUqQDye2F3
+	2LkFtkCuZqU7A/d8KTZxjc9V5a0xl8iQrcyvhjrLY2/kfUrzo/obsV9KAdETbbCV3Fe3PYp5BmO3w
+	/PEwdqadZHGpdKyTiWKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9B9a-00000006oVA-1hwp;
-	Wed, 23 Sep 2026 00:48:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9BSz-00000006pC5-0vVK;
+	Wed, 23 Sep 2026 01:08:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9B9V-00000006oUG-3A9B
+	id 1x9BSw-00000006pBj-3jso
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 00:48:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A8BE4480B;
-	Wed, 23 Sep 2026 00:48:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4F611F0089A;
-	Wed, 23 Sep 2026 00:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790124481;
-	bh=KrTLmJOH3qQHlf8D5JBVUOsbPmlvEiygci/2Qr0+388=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WXZixN5ay+uv5TCtRe5igg5k7wZscJ5KFpll5JYdYwCu/ZyaG8VDHN51irbkMyDTE
-	 50rLG2MgS2u9JUhkl44j81Wjd2+CXPwjXru7ndwlVjEz38RosdzjhwKW6oGqbc3lHG
-	 1dMPCgcyvXZ+giRUfMORZXh41nUJLUSQ+QJb8hTmvFOsVSvUx4abiTK84ru26By1gO
-	 JnXywmUX9WMeZpkOGqIVOQ9iPzKKOx8HIMGYjY5igH67eGcLLUauUnf3GZqr9ebZO+
-	 DpGrVy+yYCpZ9z4qg0O8eN1hWGJf2IxDtSw1K/5tRPX6sIeMt/yRURgYA7k9oWB//b
-	 4m+EiYJo6snfw==
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: sun8i: add support for
- Allwinner H616 EMAC1
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: richard.genoud@bootlin.com, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, wens@kernel.org, jernej.skrabec@gmail.com,
- samuel@sholland.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- clabbe.montjoie@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, peppe.cavallaro@st.com, joabreu@synopsys.com,
- alastair@d-silva.org, mripard@kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, andre.przywara@arm.com
-Date: Wed, 23 Sep 2026 00:47:59 +0000
-Message-ID: <179012447945.2160803.2360278915736082504@kernel.org>
-In-Reply-To: <20260921-submit-h616-emac1-v1-v5-3-ada661ed9e9b@gmail.com>
-References: <20260921-submit-h616-emac1-v1-v5-3-ada661ed9e9b@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Sep 2026 01:08:08 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68N0EbMt2645824
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:08:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=JGoyxRWmZCHMD3A/caoBoH
+	DEKS871mDH4i6spaluJNo=; b=oy8ScgO8WcSKr7Nrz2gJkgQjzkDZz2WAwAHe3C
+	ZSZ3MK0hlGGv7en1LCLhos7eKPog43BQLwYnlYwrf8R6AXfxa+toIGrNukXRnI9t
+	Cbs7vCaPQSeTgNo8EtoYbZp7QxCvghiVcw3uOy+z9yYc5KI6l1+X80U3hgaU9MOD
+	2xZrLsxH/WfCZPgyyiaPbVEsFLcH9TxEWwsp0kI6Bt1VEdUdXojEFUy/l+TJD2RV
+	4+DeFkbktcGYhAh5i+CJEAyrX3SMC5/t/WlqxOjq9ewE6FhTYwyTz9lm3OEbqj8R
+	RIbnYLyzPm+VOQ2WzpGIq/JF2c2lnvM47awYOTCUEbz8vA5A==
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gv428r4ww-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:08:05 +0000 (GMT)
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-14371f7ba1eso580062c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 18:08:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790125685; x=1790730485; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=JGoyxRWmZCHMD3A/caoBoHDEKS871mDH4i6spaluJNo=;
+        b=gBGNAevl3rBIWTlHIqn0XNz8HN958Fp3WkV5ulmtImt4gCG4DMhOaCMMAQ9nfMS6OD
+         P4rTYd5X1D3ks4HzPZGQImhb5EXWiw5LGIeBEPH1bYNhOxtjyaKarUR+oOvHM1bnmufa
+         FVP9qoClXojY7q9bvV1YXj4JZNmAmfmXS2wDIwP7RlBdWfH7fPwK4uiSLIv3dtBIgCNZ
+         UOmKg0s8eDaDv/XiQmjsH8wxtWzYLKrf/brrlVET+9LNwKdi55vKrUsETBpjg+s0dAC0
+         1Z9uSQwrJTjgbb/k3/TA07Jx/K2DKWa6JPR/xdo8fTsjOZndqCzOTXQvbQdg2kO6JDTI
+         f0EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790125685; x=1790730485;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JGoyxRWmZCHMD3A/caoBoHDEKS871mDH4i6spaluJNo=;
+        b=b/QxX6lWLrYfCjQc9NcU1nv2aHY5wmmknW++a2zWL5IuDA2xQtT06MheOFmRZIUZ8Z
+         PRNMKTcXD71bpvfAISGROKk9KvZGb1ZsmEpYGw3Xsvx1vzgd/850nsLf+7JxHEwn1jHs
+         LAf0jCezcCEyg2ECoBL8hN75JyKXYiqtW/VPoNzO7KaGZhb0duqb+7tFuiqTiF/2Ft8d
+         MSRP1eAOuf65LdcTBbzXR6Q05HkxP8YrhmFYXqWsHPGQVuU4L75iXreN4FtMO6w2hUbK
+         oEXLbAm0J/cZAP9i2FXfncKAqFi//mJz/5NBgTkbNUQEP46UltXvMw/vT369Prvh7RrW
+         JyMQ==
+X-Forwarded-Encrypted: i=1; AKwUvBynTvBNleH0VBE6W86GSP8ej+DRsTZAzpoaVUpwTF5g5MhWVs8MOxQu56I5DHQROgW6VT+cBuMiHwQGLzyS1iq6@lists.infradead.org
+X-Gm-Message-State: AFuF++n9EtpVBvSpAjkx62BpGYL9S2V98ipTVWyz/5UcQIz6mFR8INe0
+	NPz6viuXfdlFKdp0Omw5XD8Qr9v9YZpuicx7l9+OYmMTnQvzOh1NlnugAF7ssAsif9EPRJIaz45
+	OwRH4/b6nHCw94xLZahfsxsOty5SX/hADKnMteFz3PZzFAwQJGnImssdG0Kvh+0PzG3GiXz7rrR
+	7O9Q==
+X-Gm-Gg: AYBFou3MNNiBxBzKaBzPb8kRg5ycp21pDJlmCF11R1PSgNj30esnWIFDKgbxJQ51qna
+	MAaYbWvnu6velzfenEfVLs1DrgUbpYC0B1c8wiN8l3Eudr0CYPW3AWNQ/DJXhXgroqdtTO18iax
+	6BqSqBk7ZvlG3KzCC3ZH7r3BUjPca0GabOGjRuvrj5PwPMxsZ+5xpH3YrHxqIHnB+glzPGrMP42
+	sPCGfg8skZzTOQsUwxRgHIM/tnVBedhbt5Uu2hx3luqcwwBCsfd2sGfjWQmho1K7IzTmbJ6xKuD
+	I3GDws5rxMYRrzI1PZtrNOGlP0iXaXNWcIxyUhVG5V66pELMT9meklf5QkX5nbLU6xRYgWAUPVW
+	A6mxbuv4/RqoyCWjAo9AjspP3JBBL
+X-Received: by 2002:a05:701b:4206:20b0:143:72b1:9004 with SMTP id a92af1059eb24-144f91721cdmr1164653c88.45.1790125684378;
+        Tue, 22 Sep 2026 18:08:04 -0700 (PDT)
+X-Received: by 2002:a05:701b:4206:20b0:143:72b1:9004 with SMTP id a92af1059eb24-144f91721cdmr1164606c88.45.1790125683728;
+        Tue, 22 Sep 2026 18:08:03 -0700 (PDT)
+Received: from hu-mohdayaa-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144f98ca0edsm1651831c88.15.2026.09.22.18.07.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 18:08:03 -0700 (PDT)
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Subject: [PATCH RFC net-next 0/9] net: introduce Qualcomm XPCS support and
+ add Nord Ethernet plumbing
+Date: Wed, 23 Sep 2026 06:37:26 +0530
+Message-Id: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE4ms2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDSyNj3cLk/Nz4ioLk4vi8/KKU+NTcxGTdpDQjS7PUJBOLVJMkJaDOgqL
+ UtMwKsKnRSkFuzgp5qSW6eakVJUqxtbUAGdwXLHMAAAA=
+X-Change-ID: 20260923-qcom_xpcs_nord_emac-bf296eb48e4b
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Serge Semin <fancer.lancer@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+        Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+        Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
+        Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
+        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790125674; l=5546;
+ i=mohd.anwar@oss.qualcomm.com; s=20250907; h=from:subject:message-id;
+ bh=Ci4TmBLiMpoXjBSFDZQyPnrK6xcPv6skVJDuumYU+gw=;
+ b=mPxelajzt4OzX4pwVyzuH4GuJc8WRk1XziZsAh78ZzoDSlH+Sw2qgtHAh/OPsxsRKrG/uUVCD
+ Z/SVyHwWktMApVUGkKJaJr5KgP68GKcGrNZ/RTXr98xpWBnXoYn4V5s
+X-Developer-Key: i=mohd.anwar@oss.qualcomm.com; a=ed25519;
+ pk=7JNY72mz7r6hQstsamPYlUbLhQ5+W64pY4LgfSh9DJU=
+X-Authority-Analysis: v=2.4 cv=EZdd0/mC c=1 sm=1 tr=0 ts=6ab32675 cx=c_pps
+ a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=Q-fNiiVtAAAA:8 a=EUspDBNiAAAA:8 a=_sE-PX45xJdWcABC03UA:9
+ a=QEXdDO2ut3YA:10 a=vBUdepa8ALXHeOFLBtFW:22
+X-Proofpoint-ORIG-GUID: 4tWxYv9zN-XdhU4JePZOGkgq0hX1wxHc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAwNCBTYWx0ZWRfX8RyemNRFowfv
+ 5eAxGel60refjhl0lfEuwCwD+m/kEoe/lgz2aHIkdpGzbRl61c/RONTMNxOhA8tqDbrPL9hoo9u
+ sAOv+FQsau+N1+TawXIMfJ5VEXKbNB2StOqN0yGtB2oX0MgJWS7oLDfxoPI06No8V6u0SwbZA1J
+ uWKu02eTbvp+7iO5radgb5aW66pMq4nNAeAH/tZFeSN1nJDffbNdNkF9oCUa0Y734RYWKmtiddu
+ otJ0UOyN5bEXOBVFFMEX7twbIKuoGPXUmL/Ey4JhCIF+/sbNCdKgOUeu1j4rPEeTnwoTRvBgjPr
+ bDdG+0mE5X5SaA8a1X0zL04blaFH3sVVsTGK1XIUD7iO/Mizp+20IkogtRPRAtXU07UCHRfeXH8
+ vleXBmd51tePdusTtxbPaovpbJ908LVX5NotByT12lIGHm8GwmV2t80GkDvyTCk5BJ9Ah4UWyeJ
+ D6HcNfd9lKfquZbLKzg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAwNCBTYWx0ZWRfX47I4t5uFJIoP
+ PXg2YK0IFSj3wY6ZZuzryn3oQQHZWrdGaLQWR/rMQeswa9VvvRx8hqdjyu499x0uMAaME0mZyMf
+ q6LRzqxeLktJ2zFGlk1zOVe4yAdkcCk=
+X-Proofpoint-GUID: 4tWxYv9zN-XdhU4JePZOGkgq0hX1wxHc
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-22_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 bulkscore=0 adultscore=0 spamscore=0
+ lowpriorityscore=0 phishscore=0 priorityscore=1501 impostorscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609230004
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_180806_989029_AE0EC7A3 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,108 +179,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi,
 
-Low priority / nit picks for your consideration:
+This is an early RFC which adds the XPCS and ETHQOS plumbing required
+to enable 10 Gigabit Ethernet on the Qualcomm Nord SoC. This is the
+first time USXGMII together with an external PCS is being supported by
+the dwmac-qcom-ethqos driver.
 
-- [Low] The new `emac_variant_h616_emac1`
-  (drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:153-158) expresses…
+This platform was somewhat tricky to work on, with several new pieces
+having to come together across the MAC, XPCS and SerDes layers. Any
+feedback would be appreciated, particularly around the XPCS modelling
+and the generic stmmac register-layout changes.
 
---
+The overall hardware path looks like this:
 
-net: stmmac: sun8i: add support for Allwinner H616 EMAC1
+  +------------------+      +------------------+      +------------------+      +------------------+
+  |    DW25GMAC      | ---> |  Synopsys XPCS   | ---> | QCOM SGMII PHY   | ===> | Ext PHY / Switch |
+  | + QCOM ETHQOS    |      | + QCOM wrapper   |      |    (SerDes)      |      | USX/10GBASE-R    |
+  +------------------+      +------------------+      +------------------+      +------------------+
 
-Adds an emac_variant for the H616 secondary EMAC, using a dedicated
-system-control clock register at offset 0x34 and declaring RMII-only
-support, plus the matching allwinner,sun50i-h616-emac1 compatible entry.
+The series can be broadly divided into two areas:
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 9598c386bb216..0ea1860cf2031 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -81,6 +81,13 @@ static const struct reg_field sun8i_syscon_reg_field = {
->  	.msb = 31,
->  };
->  
-> +/* EMAC1 clock register @ 0x34 in the "system control" address range */
-> +static const struct reg_field sun8i_syscon_reg_field_emac1 = {
-> +	.reg = 0x34,
-> +	.lsb = 0,
-> +	.msb = 31,
-> +};
-> +
+1. Qualcomm XPCS support
 
-[ ... ]
+Nord integrates a Synopsys DesignWare XPCS, but exposes the PCS,
+PMA/PMD and MII MMD register regions through separate direct-MMIO
+windows instead of the standard contiguous or indirect XPCS mappings.
+Patches 1 through 5 add the binding, generic platform register-access
+hooks, the Qualcomm MMD-to-MMIO translation, and the runtime-PM handling
+needed for the CSR clock.
 
-> @@ -143,6 +150,13 @@ static const struct emac_variant emac_variant_h6 = {
->  	.tx_delay_max = 7,
->  };
->  
-> +static const struct emac_variant emac_variant_h616_emac1 = {
-> +	.syscon_field = &sun8i_syscon_reg_field_emac1,
-> +	/* The co-packaged AC200/AC300 PHY does not use the H3 PHY controls. */
-> +	.soc_has_internal_phy = false,
-> +	.support_rmii = true,
-> +};
-> +
+The XPCS also uses Clause 37 control and status for USXGMII, while the
+generic XPCS support currently handles USXGMII using Clause 73. Patch 2
+adds the required Clause 37 USXGMII configuration and link-state path.
 
-[Severity: Low]
-The commit message says the variant "supports only RMII at 10/100 Mbps"
-and that the change will "enable only RMII", but does .support_rmii
-actually restrict anything at runtime?
+Using a small Qualcomm-specific access layer around the existing XPCS
+core was the most straightforward way I could find to model this IP.
+The core already uses synthetic IDs for the NXP integrations and has
+vendor-specific hooks for other XPCS implementations, so this series
+follows a similar approach. I am very much open to suggestions if there
+is a cleaner way to represent the non-standard register mapping.
 
-Grepping drivers/net/ethernet/stmicro/stmmac/ finds 21 references to
-support_mii/support_rmii/support_rgmii, and all of them are the kernel-doc
-block, the struct emac_variant member declarations and the per-variant
-initializers. Nothing in the driver ever reads these fields.
+2. DW25GMAC and Qualcomm ETHQOS support
 
-The only place the interface mode is checked is the variant-independent
-switch in sun8i_dwmac_set_syscon():
+Patches 6 through 9 add the Nord ETHQOS binding and driver support. The
+Nord integration has sparse, platform-specific MTL queue and DMA channel
+addresses, as well as a relocated timestamp register bank. The series
+therefore adds optional XGMAC register-layout data while preserving the
+standard layout for existing platforms.
 
-	switch (plat->phy_interface) {
-	case PHY_INTERFACE_MODE_MII:
-		/* default */
-		break;
-	case PHY_INTERFACE_MODE_RGMII:
-	case PHY_INTERFACE_MODE_RGMII_ID:
-	case PHY_INTERFACE_MODE_RGMII_RXID:
-	case PHY_INTERFACE_MODE_RGMII_TXID:
-		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
-		break;
-	case PHY_INTERFACE_MODE_RMII:
-		reg |= SYSCON_RMII_EN | SYSCON_ETCS_EXT_GMII;
-		break;
-	default:
-		dev_err(dev, "Unsupported interface mode: %s",
-			phy_modes(plat->phy_interface));
-		return -EINVAL;
-	}
+The ETHQOS driver then selects the XPCS provided through pcs-handle and
+adds the Nord wrapper programming required for USXGMII, including the
+EEE clock vote needed for PCS link-up and the platform-specific SerDes
+loopback control.
 
-	regmap_field_write(gmac->regmap_field, reg);
+This series has an obvious dependency on Jitendra Vegiraju's DW25GMAC
+work:
+https://lore.kernel.org/netdev/20260402213629.1996133-1-jitendra.vegiraju@broadcom.com/
 
-So with compatible = "allwinner,sun50i-h616-emac1" and phy-mode = "mii" or
-"rgmii" in the device tree, does probe succeed while the EMAC1 clock
-register at syscon offset 0x34 gets programmed for a pad mode and TX clock
-source this instance does not implement, leaving a silently dead interface
-rather than an error?
+I understand that a v10 of that series is planned. While bringing up
+Nord, I also needed a few fixes on top of the DW25GMAC series. Those are
+not included here; I will share them separately with Jitendra in case
+they are useful for the next revision.
 
-The driver also installs no phylink get_interfaces/supported_interfaces
-callback, so stmmac takes the firmware-selected mode as supported.
+Testing:
+Initial testing was done on the Nord Ride SX platform, where both
+Ethernet ports connect to the on-board MV-Q6223 switch using fixed-link
+USXGMII at 10 Gbps. The testing tree included the DW25GMAC dependency
+and the additional fixups mentioned above.
 
-In practice the restriction is only enforced by the binding, via the
-allOf if compatible contains allwinner,sun50i-h616-emac1 then phy-mode
-const: rmii clause in
-Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml, so a
-device tree that passes dt_binding_check cannot reach the MII/RGMII cases.
-The unread flags are an existing convention in this file (emac_variant_v3s
-sets only .support_mii yet RMII and RGMII are accepted for it too).
+Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+---
+Mohd Ayaan Anwar (9):
+      dt-bindings: net: pcs: add Qualcomm Nord XPCS
+      net: pcs: xpcs: add USXGMII Clause 37 autoneg support
+      net: pcs: xpcs: add custom platform register accessors
+      net: pcs: xpcs: add Qualcomm Nord platform support
+      net: pcs: xpcs: initialize runtime PM as suspended
+      dt-bindings: net: qcom,ethqos: add Qualcomm Nord
+      net: stmmac: support custom XGMAC register layouts
+      net: stmmac: qcom-ethqos: support external PCS
+      net: stmmac: qcom-ethqos: add Qualcomm Nord support
 
-Would it be worth either making sun8i_dwmac_set_syscon() consult
-gmac->variant->support_* before writing the register, or rewording the
-commit message so it does not claim the driver enables only RMII?
+ .../devicetree/bindings/net/pcs/snps,dw-xpcs.yaml  |  17 +++
+ .../devicetree/bindings/net/qcom,ethqos.yaml       |  57 ++++++--
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   2 +
+ drivers/net/ethernet/stmicro/stmmac/common.h       |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 162 ++++++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     |  94 ++++++++----
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    |  34 +++--
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 128 +++++++++-------
+ drivers/net/ethernet/stmicro/stmmac/hwif.c         |   5 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   |   5 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c   |  15 +-
+ drivers/net/pcs/Makefile                           |   3 +-
+ drivers/net/pcs/pcs-xpcs-plat.c                    |  47 +++++-
+ drivers/net/pcs/pcs-xpcs-qcom.c                    |  86 +++++++++++
+ drivers/net/pcs/pcs-xpcs-qcom.h                    |  16 ++
+ drivers/net/pcs/pcs-xpcs.c                         | 126 ++++++++++++++++
+ drivers/net/pcs/pcs-xpcs.h                         |  15 ++
+ include/linux/pcs/pcs-xpcs.h                       |   2 +
+ include/linux/stmmac.h                             |  11 ++
+ 20 files changed, 707 insertions(+), 121 deletions(-)
+---
+base-commit: 6598456d72e48d779445bfec8f72114747f8b8d7
+change-id: 20260923-qcom_xpcs_nord_emac-bf296eb48e4b
 
+Best regards,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260921-submit-h616-emac1-v1-v5-0-ada661ed9e9b%40gmail.com
+Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+
 
