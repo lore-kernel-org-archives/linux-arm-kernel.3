@@ -4,156 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30A9C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51116C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QoU2sou/2NEY59DVI3hWXvNKjx2hz4p0U4PpxsOoZ3U=; b=JGzW3R1RTrj+k1hOtIviZ0WSSf
-	fz5X+aMT2SxOGQ3J1J63jhN2bggTRuolLRBRg22rpzbd97AiYSHW25CC3wcLr9taF/p/Iy2lsIEW3
-	KEFB93ZA6NN+OHMn4vH2g2jSYdzKBGmzlTYH7uuO0ofLUr1eGhC+7dCE0/elwJvLbEoTZlieqOSAd
-	wvq0fpVAtrGbjArpC1sKcyeJ+gpFePPl3Oyv4s42Fjao0skNeZNQjToYgSDEckgVFh4diBjfmVoTI
-	nI59+i3Sirm8ofHvOhaqkcoPKI+nhcocDik4QvYGn7ViYLC32eXp1m21RCZlFrocQsRI9M57QYIt6
-	sjxrYgJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DUHuqGEWOOeL/Scqhd6mGhvk6nURogoQs+2z9NAzpcY=; b=TNW2V893L8Nz8/HBwHPLm5kgQl
+	Pa+PRtjUTOP60/u+qn5aGaPfaWhQnzrje/mdPaMSMvz5ajcsHMQYeiocxtIZtn6yZkiCmC/GfBxUB
+	W1OQc8TLySCXnInfydee6p8iRnbz+KZRmkHitp38f89ovxnTGYNdAUi2ihgyowMs7JFwBAChi2myN
+	ctrm1qIf1DkDvkHkpkr4S490CkKaYEJSvEdIv72LDUVTNlAkuf8TwZn4uKRTp5jqNMoZXPnXVZeRT
+	H0zQY9Dm+5K1WcnZRp2uwwahiZBLSOIswn8NRy5cKMa2XHh3TOQh4FLdrtfS8qJpMIM4gu+coNf+P
+	BA33ZE1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Q4D-00000008uUI-3zL2;
+	id 1x9Q4D-00000008uUE-3cYo;
 	Wed, 23 Sep 2026 16:43:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Q3w-00000008uSK-1OUq
+	id 1x9Q2X-00000008u5l-3T6k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 16:43:20 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NGTZFU740268
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:43:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QoU2sou/2NEY59DVI3hWXvNKjx2hz4p0U4PpxsOoZ3U=; b=hA3I+ydrYlOFql4X
-	JxWFom9ApvGFxIhW4iJAVmHcOlr4cRb3xmzkr+vaEQCjobOzbQgcXZIJw5QXx6mA
-	HRgAb8OtcT9QYxPnXB/uSwR5OYu+A90dBDS4mxKJe5utoT0RLlSQK+2zTV2NPzKH
-	7yhsmARmBg8enrgp25pv444D9bfSod249/l04RP7LOyFpv5leqIqnDign7vVxOIH
-	GBPFdJ4bCbOnKPh9FTNSFNHNUQb6cbePrxD+69dggHrzrKIxMH/5voHOvWOcJlYF
-	uO9EbOPPdi8bwl/t/Tqz9m13OePvNio0dtFsXosSlWU/0JfzW8kurZFj+jXCuggC
-	ue/a6g==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvfjsgy0v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:43:15 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39e3dad7ab3so1039649a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:43:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790181795; x=1790786595; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=QoU2sou/2NEY59DVI3hWXvNKjx2hz4p0U4PpxsOoZ3U=;
-        b=CKvqFb9ZE+RUIpv51AFfPgLtCeccKFzc3ae3KDBkmhixDRSDepKM98zZygzpTaUHeY
-         015lcDwow317QwLgBQy2V9DcKer+MZhMV3SmgfGPMSm1npKoJZ5YcSqB8mDEwPqZ+0f2
-         yxArzSKI9WnJ+mhO0xrHxQkIhJTJOQACT5tZp5GgGmYEAYmVs/9xSXK7EMJ0rz1sQ6ho
-         1n5kH/8qnaqV+nBHIKNUdOrjbzFtTyfpGket2LcEbveu3ToBeNqVwmIsPMYAGnUF1DeY
-         TwlvGaRvqjF/17vKUQfPxfcOmixJl6Auol7kduC9fYDhT1gnTt942NePa6oiZLd5WFOQ
-         0s4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790181795; x=1790786595;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QoU2sou/2NEY59DVI3hWXvNKjx2hz4p0U4PpxsOoZ3U=;
-        b=r29tbUzti47klF1zlPeclYBcMelvb+MHWBuEsOMmzz/44XZ17SpYPIloUBonCbs4wZ
-         p5t+zyV8NoyPk/EA1XBgt2//QORWZXmQfzvfImoQXHLF3Bs2t/WW0P9/Zk7jmnNML8VD
-         HB0Dtb0sJ6gJdpx7GG8Us+PZl/xmnwPfHyKs5qHTp3RPvU9nokMVB+PHsRhbknPtjtyd
-         mz8TiHaUfhanvQTN5THVoeJRG1GTol/kXmHJ4fC+94e7taoCD7CyW7LawqWqlmE+0Lu8
-         6n2jHnutPpQQxg3L6HHnZidJ778eBtZwvsdNIZ/cb5o19/TOT4bcL3KVOMDxhRpEoNyO
-         8WXQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxiF08hS+XuWlPxRBOyqLTNMwi3ELMEN32sYO16YIPo8OlRZXReb8NUMamumENu4FcmZj9rYqJOt+MFq1Qajg3G@lists.infradead.org
-X-Gm-Message-State: AFuF++miFhNV07jn6BLqBxpsxV1mEUcrNGbyNYIImhNDk8JiTX5CB6Cb
-	oNU2Ci08x2qaiYk5ekr3lGJm0NTJHW2pmcAMOyHPaWk/vI4ET9mCsasZCk/6m6PiMLehFSAgehH
-	nYE640EdaOegBcUf0vKCA2VYoEFi2//7Qm+zPWF5kDPyHzn0jmJoavRFuf6q2yN0rxmTwy+S5HW
-	yd+g==
-X-Gm-Gg: AYBFou3Jydv99kdViyIwyypQg7XXliPRpmYGWsvT6s/wyEqld/gfNG+0y6NBFJp/tBF
-	672kiyAfgNUePicf/eQidKS+iK6gUdnJQipqfMGSeg5XxF6tbnQ8DMt6ogSIrfRhf2LCaZgbluE
-	uFLLTFRyu0tG+sy3v3W9paWmt6oIsAPteE1e9jp571DA+m4p7ZPNQipPB+dfjKNksvmVs5V3Ems
-	aGfr/Xrti8EODbHRPqokhSah1WoZUJJxpEG9rQhd1VzyW3CUz9yr+T72YwzFyhQYPGH7G4HPVmw
-	Q5Xk3hZY0MazyYCgWJ71Ok1/hQHuA4NzoMipIUYlTWzm5PSj8pPa+B9KT2U7TzR8a75Kcq+GHTd
-	6p+STc7N1TwaGjH39CoCkqoiPMs7X7e0FJygBAnm6vdAQZQFSFv0QYA==
-X-Received: by 2002:a17:90b:3c11:b0:3a0:7d5b:8d55 with SMTP id 98e67ed59e1d1-3a07e4e41acmr2957145a91.8.1790181794884;
-        Wed, 23 Sep 2026 09:43:14 -0700 (PDT)
-X-Received: by 2002:a17:90b:3c11:b0:3a0:7d5b:8d55 with SMTP id 98e67ed59e1d1-3a07e4e41acmr2957115a91.8.1790181794393;
-        Wed, 23 Sep 2026 09:43:14 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a082a0edaesm2135555a91.1.2026.09.23.09.43.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 09:43:14 -0700 (PDT)
-Date: Wed, 23 Sep 2026 09:43:10 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, linux-coco@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Greg KH <gregkh@linuxfoundation.org>,
-        Jeremy Linton
- <jeremy.linton@arm.com>,
-        Jonathan Cameron <jic23@kernel.org>,
-        Lorenzo
- Pieralisi <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-        Steven
- Price <steven.price@arm.com>,
-        Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-        Andre Przywara <andre.przywara@arm.com>,
-        Sudeep Holla
- <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v11 1/7] firmware: smccc: Add an Arm SMCCC bus
-Message-ID: <20260923094310.00001d5a@oss.qualcomm.com>
-In-Reply-To: <20260915114601.GQ3968357@nvidia.com>
-References: <20260914060511.277948-1-aneesh.kumar@kernel.org>
-	<20260914060511.277948-2-aneesh.kumar@kernel.org>
-	<20260914133249.00007d35@oss.qualcomm.com>
-	<20260914222836.GO3968357@nvidia.com>
-	<yq5ao6dy27jt.fsf@kernel.org>
-	<20260915114601.GQ3968357@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Wed, 23 Sep 2026 16:41:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E32F401EC;
+	Wed, 23 Sep 2026 16:41:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 132D91F000FF;
+	Wed, 23 Sep 2026 16:41:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790181709;
+	bh=DUHuqGEWOOeL/Scqhd6mGhvk6nURogoQs+2z9NAzpcY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fufJ+aIXbklBpgPFeTiHKgZ4SP61lqR5+OXDRzftNF/yQQvtTZOQMwGo/6ROkFxsU
+	 ohyBPHQ26vexHvwDjsxe4ZPjWToS6/ch+38DTetWWvjwI9KrGTUMDi9cednUJ3YjdX
+	 7YD9dagHjzsgTvRDNcCgEqYwC29bn0l5WpB3LX3mpLpC+jGn5KyFd9btlF2wWOduuY
+	 jFmr9z5XIdjxg74SQTtqYIUu2j5IMfrBTCXZgNjJw00z2xG9MVWQoYeDTyVoBkvux8
+	 BsOV1l+LMPaJedGBYwDsIO3iF/AzBnOsdiFgnq2367EM8ZGCPHwcIfrXN5hlfyl+U8
+	 UwgD7VWTk/YXA==
+Date: Wed, 23 Sep 2026 17:41:44 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Tushar Nimkar <tushar.nimkar@amd.com>
+Cc: Anirudha Sarangi <anirudha.sarangi@amd.com>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, git@amd.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: Add Xilinx
+ Versal NET SMMU CSR
+Message-ID: <20260923-grafted-undergrad-9356739dd2b5@spud>
+References: <20260923-smmu-changes-v2-v3-0-87bd09ba9605@amd.com>
+ <20260923-smmu-changes-v2-v3-1-87bd09ba9605@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA2NiBTYWx0ZWRfX9Mx5blA4N2+X
- MnarVQPrgOGCFTrCJtGxFCYJHDMvOyLynJP4A5go1ufz344tfg321OUb+3G8mkaxbV4JiopDUoz
- IoZ4bP1TA7x1BUgQTSwF+ZJj1ZcQWR9B+XDa9QgSCN9q5i/f+bLWEMGsrRDsq8CYTjj75zzBeIT
- +0HvSeNgzCNhUlsT+dWzWmaxcCkPlPhjyCX6hdGSlbEYnd6FTITyG0NzITMo987nKIPNfcEWJ+V
- bNwiSISZdHWq/8o0afEo8BvdKdFBVw0+LFC0ITJEyubbF29wsJZ/DCO37FWV7Bs3iCVGCq+4i7I
- wL2qVwhgC2gy27w3oakpRBdt178HQm7NWtSUl8i/3Rg7ZwsWkMNJB6UPczQk59v4MqcZne4H/n9
- ed8TXGaF439XxUxhAejECV9dn+yJuXEx9+kw1rnzs6EnnaqQnu9K/XkXEOCg1crpUr06F46lls7
- wxYW93D4LgSb85dLVVA==
-X-Proofpoint-GUID: UFoWv39gPbmnzyXiI0lR8NRDHx3gVGjf
-X-Proofpoint-ORIG-GUID: UFoWv39gPbmnzyXiI0lR8NRDHx3gVGjf
-X-Authority-Analysis: v=2.4 cv=K4+3jCWI c=1 sm=1 tr=0 ts=6ab401a3 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=Ikd4Dj_1AAAA:8 a=xhGKRIyCQN_Pw0lyfhkA:9 a=CjuIK1q_8ugA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA2NiBTYWx0ZWRfX46cgxNE2p/s3
- rf32fYcpUVqGxIYDMZWciRDr1DIKWyDuTeF5473eT7vpZ7ZsWa416EQQUwKWDk8pYPiK6kHMEY/
- n0N7oY7erNEvgTxG22YiE+Zd1rjOSW8=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 suspectscore=0 priorityscore=1501 spamscore=0
- lowpriorityscore=0 malwarescore=0 adultscore=0 bulkscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230066
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_094316_405361_BD7581EF 
-X-CRM114-Status: GOOD (  20.48  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S144mpyO4atM9GmT"
+Content-Disposition: inline
+In-Reply-To: <20260923-smmu-changes-v2-v3-1-87bd09ba9605@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,29 +77,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026 08:46:01 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
+--S144mpyO4atM9GmT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On Tue, Sep 15, 2026 at 02:52:14PM +0530, Aneesh Kumar K.V wrote:
-> 
-> > > Yes, but as written it is OK, and this is a common pattern in the
-> > > kernel. I agree it is fragile tricky..
-> > >
-> > > Still it isn't an urgent reason to change it around, but the best
-> > > pattern is to put the allocate, dev.release=, and device_initialize()
-> > > in one 'alloc' function. Then the other function calls it and always
-> > > unwinds with put_device. Use device_add().
-> > >
-> > > This avoids mixing the different kfree/put_device error unwind regimes
-> > > into the same function..
-> > >  
-> > 
-> > Something like  
-> 
-> Yeah, this is the safest way I know to use these interfaces
-> 
-Agreed.
+On Wed, Sep 23, 2026 at 12:46:31PM +0530, Tushar Nimkar wrote:
+> From: Anirudha Sarangi <anirudha.sarangi@amd.com>
+>=20
+> Add a device tree binding schema for the Xilinx Versal NET SMMU CSR
+> (Control and Status Register) interrupt controller.
 
-> Jason
+This sounds like a very odd name for an interrupt controller.
+What else does this block do?
 
+You've actually got a 0x1000 carve out in the example, starting at a
+round number, so I suspect this is "fine" and if there's other features
+required later you've not painted yourself into a corner by defining a
+device for one register. The driver having a starting offset of 0x24 is
+another point in your favour.
+
+I'm inclined to ack this, I just want to see an answer first.
+
+Cheers,
+Conor.
+>=20
+> The SMMU CSR block acts as a vendor-specific interrupt controller
+> in front of the ARM SMMUv3, providing registers to enable and clear
+> standard SMMU interrupts such as EVENTQ, CMDQ_SYNC, GERROR and PRIQ.
+> Interrupts must be acknowledged in this block before being forwarded
+> to the parent interrupt controller (e.g. GIC).
+>=20
+> Signed-off-by: Anirudha Sarangi <anirudha.sarangi@amd.com>
+> Co-developed-by: Tushar Nimkar <tushar.nimkar@amd.com>
+> Signed-off-by: Tushar Nimkar <tushar.nimkar@amd.com>
+> ---
+>  .../xlnx,versal-net-smmu-csr.yaml                  | 75 ++++++++++++++++=
+++++++
+>  1 file changed, 75 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/xlnx,=
+versal-net-smmu-csr.yaml b/Documentation/devicetree/bindings/interrupt-cont=
+roller/xlnx,versal-net-smmu-csr.yaml
+> new file mode 100644
+> index 000000000000..38b63e51b732
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/xlnx,versal-=
+net-smmu-csr.yaml
+> @@ -0,0 +1,75 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/xlnx,versal-net-=
+smmu-csr.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Xilinx Versal NET SMMU CSR Interrupt Controller
+> +
+> +maintainers:
+> +  - Anirudha Sarangi <anirudha.sarangi@amd.com>
+> +  - Tushar Nimkar <tushar.nimkar@amd.com>
+> +
+> +description: |
+> +  The Versal NET platform includes a Xilinx-specific SMMU CSR (Control a=
+nd
+> +  Status Register) block that acts as an intermediate interrupt controll=
+er
+> +  for ARM SMMUv3.
+> +
+> +  The block provides registers to enable, disable and clear the
+> +  standard SMMUv3 interrupt sources (EVENTQ, CMDQ_SYNC, GERROR and PRIQ)
+> +  before forwarding them to the parent interrupt controller,
+> +  typically a GIC.
+> +
+> +  The controller receives one parent interrupt and demultiplexes CSR
+> +  status bits into the following child interrupt identifiers
+> +    0 - EVENTQ
+> +    1 - CMDQ_SYNC
+> +    2 - GERROR (GLOBAL)
+> +    3 - PRIQ
+> +
+> +allOf:
+> +  - $ref: /schemas/interrupt-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: xlnx,versal-net-smmu-csr
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
+> +    const: 1
+> +    description: |
+> +     Single cell containing the child interrupt identifier
+> +      0 - EVENTQ
+> +      1 - CMDQ_SYNC
+> +      2 - GERROR (GLOBAL)
+> +      3 - PRIQ
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +  - interrupts
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    interrupt-controller@eca10000 {
+> +        compatible =3D "xlnx,versal-net-smmu-csr";
+> +        reg =3D <0xeca10000 0x1000>;
+> +        interrupt-controller;
+> +        #interrupt-cells =3D <1>;
+> +        interrupt-parent =3D <&gic>;
+> +        interrupts =3D <GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>;
+> +    };
+>=20
+> --=20
+> 2.34.1
+>=20
+
+--S144mpyO4atM9GmT
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarQBSAAKCRB4tDGHoIJi
+0gnoAPoD3niCRrEz3R9dI5MIGi63vf8m0m0eKQOF+5uIjSSbigEA7r8IYj1Yc3b2
+vwFXT9PUkBcVaflI98VTHUvDvvDP3w8=
+=Qk+h
+-----END PGP SIGNATURE-----
+
+--S144mpyO4atM9GmT--
 
