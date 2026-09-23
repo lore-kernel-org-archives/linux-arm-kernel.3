@@ -4,141 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B914C9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20D7C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06VbYZm2c2dgaMlmuXOAPIhraea7b4AXiREe1cU/gaM=; b=ZGZuThOSRyEsL3NicfOBaxz/gn
-	7+s6wRWrkDBHHSQKJ2lPvClXllzvimd/vCuxQCaJSeGGMywS4znfoldt+atApJFJqmmrPKaYfVNaJ
-	yMQ4KWt73DEDlinPeMkVhsk9HEH5B8Y/Sf1VCq0iTtVeZaxRmB63G+41pBzM0vk2sxi8ALx5SGvZR
-	tg69L3lAGGO6DMbPwx6MxS5/bbPrwqB5eccZg4toedfCv2cZX1GjK/PeHUXq3GTQtzZjDQtCRY9T6
-	xmtbFRsPc5CwGMjiQllzW+OqLq04CQZm5Y1P1El9+z1e/pofXpkwJdaxA4oyNr5NUAdEzomvtYGOf
-	+TnG74dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI3g=; b=Z8hG/A7WGM1qO/rPOVfI0vpl3P
+	df01+xt6VnWZpaEmOWwOy5//FyWg5tVTm+4B2fWi1HqsYd/F1635sszcBqmCnnBzroW0WNUehLceq
+	LedxRonv6ulxPy9XXrIITyRG7aVJTqM5/LIXvQRD50p57MxKODypswxP+gFN7AqALriWwgWZoHsq3
+	qb1/ItHjc0qCztzd87N1foCMzqSr/IDFvXP921a5s6EvcZxZKCGg6vw5LnZKDeLQh2Vdx2cTqRj8c
+	mwyjDoaeQWeblK8OLKoLjc1+EGr9l1MqTlTnW7YssLzA7joHRe+iCBQtQ0PZuUGRNbTY7UNgtGbUs
+	s3QsAz4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MdT-00000008Ka5-01bc;
-	Wed, 23 Sep 2026 13:03:43 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1x9Me3-00000008KkD-0vxJ;
+	Wed, 23 Sep 2026 13:04:19 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MdO-00000008KYi-2X5W;
-	Wed, 23 Sep 2026 13:03:40 +0000
+	id 1x9Me0-00000008Kjb-3obR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 13:04:18 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68N8NKCf1611932;
+	Wed, 23 Sep 2026 08:04:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI
+	3g=; b=SvVu6SZJ5tBJfx57QB20eHlPOuBd15GzOKsvDg0I0Cy/55pasqfblndyc
+	46yJrV5n4dnx41mD6K8p1Vx/EGNAXuUGaFzJLg3lJ6PMZp413wNlN5ez3TpDxMjL
+	6ymOWF9IRidf22Ej9FB6Wsorv4M3c/JRkJRd1BZp6zbQwRCbnax0w0xR0psZnYWW
+	33KAtwt8BVU5HtTCYyRRo8hLRNvVKm5slmG74utaz3xThBcKAZ/3SWIcKXifSYB/
+	+d40Frzc1QFaxVew6LlP0h7tkTqu6m3DiiqZbjy9shhGajUoOUail/eFuMp6gCsz
+	w8BYa+gfCXesVEW8Dmyla5ffh47+A==
+Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010005.outbound.protection.outlook.com [52.101.193.5])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gvb77sftb-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 23 Sep 2026 08:04:12 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CbnHkB2H+D1c+6ulpga6m7LDcKZtjseeZ2De0J0s6RD81iB1ZXO6/OeqNqb9jX3GGY1Wj9a9qlhJuUHl7riRRP7iXlaXDJGPC9I9KEG00eRKaDjCdWEJ7Dg2VY038nKAHNqLtkWDvJZ2iI1V7z1U194KWENpbNaKXx0Vwc1I7fiY/v1OiMpAmVo5IrRCPHir5Mic/mVnTjLkKB/VPLhO3J1vF0nLqVQ66NvKJ3S1JGf9B8wd2+dt3Db2K4ZsJCJb37KvB3fXuqoZxdFF/LeMt61g9HT+j5VwnpFGbaDsexDFZzUeNo6LFAH86E42Bs4K43IolN7z2VSW+IhOAVZq6w==
+ b=BYGTl0YD9gj3HKljm5k5zSPCOhzGcMaj2At2cDptnGyAdsOtM7DOx5KmtUUGo9aECCYABRIcs9bdMdMVbQyESQPVX72spgDrIkbrN1P7+60w0oMv4djQNj7QP0cuKjO4Ewx25al+9UdUaB5W/LPyN6INju3/nmsCARUJJlPKvi+IN+A/164c0IqmeWatNKn3ObUc/dcP9RjNuiBwwT5uCBhRhBnPvzkyyQY4f5dJeyYVH0kdMHyWhQq25UvDAApZQxkSWx4jOTc9uvK3LgSp8NYyliTE7mLhkexxXWBpJbk0ExWKt4SH/eKiJ+B7+eBbXWvlbhv+RDnwRJlYzupgwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=06VbYZm2c2dgaMlmuXOAPIhraea7b4AXiREe1cU/gaM=;
- b=sSIp0KRki89XjoWuc6UErFSwfmRHoNaIwn3Usni7iZjbUKbgDGSkGzCZ0bswmJyDOqJ59FHbpxhF5EnwmFQtIzQ7rfKNVVEfav+tcaIlhwZ6QelVLFFtOmrRW8HUA7883BvbZkDbP/6dWAMdKD5nK/oTlxm8U36nQkXkZgYdaRrhQEHcuR8QZ534S0RdWHuYsz+M30Qv9OvnsvZdMCVTcH1VPhM1nW2B+R1n/SklGOhasmifwkauqwdF5DujWjnBSgMbaGF4pzD1WSblpIM3/X1aFmboU6Vo1giSTywrQRDgSDfDYL31Qze10UMX2jjLqU1qvDlthRK46InVcRXXrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI3g=;
+ b=B7trpsuMshg5IJLspddHNLb6RnSfhMAIHlK8ZWZwuL4EGeWaQFm9Rl1Otr9Diagi1vgMKNJYP2bZZWA/JFSVbTqYzJKAvGJzJzeIGrIbBwl/ExPY10XlzPaZf8CVmLOi8l3ydzjtNYo0DzjyTRv6f3T2QE5GV4npA8NmqD96hC//sMvsTGTI9ep/+W6yDlgpz06jdImZU1pP/aqVtTOMQCv3KfXKkJZcJkKR3qtd0dVGlWhHBfcIb0DP2gi5bbUGpkgJZa9dmfFp9vxFROmPCErmBcpZSRk4sUEDXtmsk9cqPHOql8Qdw603p23F1/DYHWKvXZRYU2Fv7zac4Ec5Ng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=06VbYZm2c2dgaMlmuXOAPIhraea7b4AXiREe1cU/gaM=;
- b=LPM8FXeuUXhu0WLRiF2PtaGppBn/GdMC790zHfgmvC2tyLt6fGwCzXZMhZIN6+dr3PuhP6VcrvRSoIhHr0C9eYAUeaN6xstgkpIC7gijsoMrazBLq1Dtg9+o9bSYQquxjaz5xRxM1PjDYfmoaB5c/3a3Gn1aPmxhGAErIufzI8E=
-Received: from BN9PR12MB5146.namprd12.prod.outlook.com (2603:10b6:408:137::16)
- by DM4PR12MB6397.namprd12.prod.outlook.com (2603:10b6:8:b4::10) with
+ bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI3g=;
+ b=a52slzO0wFN6K0N+e812fJnpV4jDNyTXlOX9xWMiwRw/UP9UB8Gt5G4HSyCPwio50a8QUZc15+pRSTG5rdjIlAsXvnDz0Gldu6j0r4LEUrR+oC9i7JBrpdXL2a8ZrpQoZMCfLURvD1kL+ttSPDYFdgSMscFNvzNtMi6yI2Hzhjs=
+Received: from MN2PR20CA0054.namprd20.prod.outlook.com (2603:10b6:208:235::23)
+ by IA0PR10MB6819.namprd10.prod.outlook.com (2603:10b6:208:438::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
- 2026 13:03:21 +0000
-Received: from BN9PR12MB5146.namprd12.prod.outlook.com
- ([fe80::535a:591e:27f6:c23]) by BN9PR12MB5146.namprd12.prod.outlook.com
- ([fe80::535a:591e:27f6:c23%7]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
- 13:03:20 +0000
-From: "Deucher, Alexander" <Alexander.Deucher@amd.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, "jfalempe@redhat.com"
-	<jfalempe@redhat.com>, "javierm@redhat.com" <javierm@redhat.com>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"mripard@kernel.org" <mripard@kernel.org>, "airlied@gmail.com"
-	<airlied@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>
-CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-samsung-soc@vger.kernel.org"
-	<linux-samsung-soc@vger.kernel.org>, "intel-gfx@lists.freedesktop.org"
-	<intel-gfx@lists.freedesktop.org>, "intel-xe@lists.freedesktop.org"
-	<intel-xe@lists.freedesktop.org>, "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>, "freedreno@lists.freedesktop.org"
-	<freedreno@lists.freedesktop.org>, "nouveau@lists.freedesktop.org"
-	<nouveau@lists.freedesktop.org>, "linux-rockchip@lists.infradead.org"
-	<linux-rockchip@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "sashiko-reviews@lists.linux.dev"
-	<sashiko-reviews@lists.linux.dev>
-Subject: RE: [PATCH 0/2] drm/fbdev: Move helpers to clients/ subdirectory
-Thread-Topic: [PATCH 0/2] drm/fbdev: Move helpers to clients/ subdirectory
-Thread-Index: AQHdS0uH+iQ747HqqkGBKqmkqQ+jWbbcIRKw
-Date: Wed, 23 Sep 2026 13:03:20 +0000
-Message-ID: <BN9PR12MB5146DC3299C804856C42C79AF7822@BN9PR12MB5146.namprd12.prod.outlook.com>
-References: <20260923110537.451614-1-tzimmermann@suse.de>
-In-Reply-To: <20260923110537.451614-1-tzimmermann@suse.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_2d0b1989-8fc8-4a69-bcac-d46889461ba5_Enabled=True;MSIP_Label_2d0b1989-8fc8-4a69-bcac-d46889461ba5_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_2d0b1989-8fc8-4a69-bcac-d46889461ba5_SetDate=2026-09-23T13:02:52.0000000Z;MSIP_Label_2d0b1989-8fc8-4a69-bcac-d46889461ba5_Name=AMD
- Public
- v26;MSIP_Label_2d0b1989-8fc8-4a69-bcac-d46889461ba5_ContentBits=3;MSIP_Label_2d0b1989-8fc8-4a69-bcac-d46889461ba5_Method=Privileged
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR12MB5146:EE_|DM4PR12MB6397:EE_
-x-ms-office365-filtering-correlation-id: 5f6c4c56-fc47-4320-2b03-08df19730b12
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|38070700021|3023799007|10067099003|11063799006|56012099006|18002099003|22082099003;
-x-microsoft-antispam-message-info: HCt9EvYhTcDqPNVBM8vsGBR/zSYhqc2J7okknJlntDsfWfMM8PQW74SLVU4PslyV2WXGO4V7zZoshLts9ViZgpcz2xL3iQQmyGweyXZl7g7rVnQ+JGE/PDXf3kE/RXCPXmNsfSVqqMVjenFPdv9cKC3t5+ps42KXdSdHcStW5q0K36QFDQOA1CYmccp/6dorf6MeecMdIFkCWsdvrJ46UjSvLujpK+hncRArDWFg6w7e6hWatGlntjWz/Q1D3xV9DMuQhQBLEBus2+L52DRH1oqLm0TJMcsFwV8jK57Et/RHEsxXMd00Dmr2AKN1FjaRipg30Jzifl8fXdv0+eP6UIoQb9BHbOR5LPkTLZIKVVx99rPomXTfDPB/NKp0ej7Xg8bI3WCLbdaghBJsCB4yJmf6p5AsKoyobgLNCutWvtQOWZh2NECe7QkTSM1gJFDZDLq5QhwYF5mlXL+vhMg8M2R+TsNWG0WNXh+gRQN6iyG9gzM5jru6AUEakwf6JcEdla4VoXWy/d/A9Ka3bSYi2lOJDuTew/qjrke0k9947SvMoXMZhsQ5ZrmMItDvBD/4G4XgIeZDs/C5njYTSD++C0yABjYv6xBAp2ugTjtjZ46/Dqi4LEMByDvif5p0Frp0DKotmxsDIpELE2a/D+op74DaYSRnIGa62Z/ZKe3V/h+bmy7Um9Ov2ZpHvEXJZqtLNwGnWHrbhtn/6snj6esP7BkCSdMXUHF5Tex/ydvJZAE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5146.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(38070700021)(3023799007)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?j56/wEpydSEHQlPMgpCx+C5AUn3KkNUT44saIQHFK8LEsr+AHoX55WPzSMeR?=
- =?us-ascii?Q?1us20JfSyUlOp3qkGwL6DTJDP6sEsmmps8XnrGahcz8m4HUC0d6qDIebJBQ8?=
- =?us-ascii?Q?x5jVXCndMrSsB5pfkW3L6QdQFMXcGJHTn4xyYSMpMQIDpriXAvc7GGgE9brF?=
- =?us-ascii?Q?NdnM+X/FbwCDlg9Af55/P5mRI9pfJjtRx2o6nhxRWUsGAwPEMAB7WhEeSIc+?=
- =?us-ascii?Q?Tj06gmj2yyRnKEwXm9BCMRIDjEZX86ePHuUJ8prKQnVZE1C1o5kvXekIzpnA?=
- =?us-ascii?Q?kTwoLlpyB1J7sCTROm0tLKD96fQmulAsttBt/bkHnFrsL2RG17JUel+aKXgC?=
- =?us-ascii?Q?T2aE3qFvPj3CxDgUEU+VstKbeuuG0dyxa3/9VPywx564sRLsnnU5iqnphhAs?=
- =?us-ascii?Q?UnhZgpPNbDKDUAxQ2EZT+SUDs2AD4JODUzAB0WGAQJsZXHgtsjO4DYkPfyuC?=
- =?us-ascii?Q?Zfb8c0Ts0NY2Af7B3CIUx0EIjTRlNkv8GnziXmYyot1HykHPiGaCzj7i0zYm?=
- =?us-ascii?Q?+D1EHpqDz2oQ3H9v/zjZ3v1ajJI6mbRx1CVOnoGQbRjKLhRQf3bc2biTVLlO?=
- =?us-ascii?Q?Qz26MG2IywCFMQYW+KoTBkq69ikteeOeGRISdUWrOPPBm+kcxuHR/+5/44H5?=
- =?us-ascii?Q?ttKoogVqotewe90LNC6H0+rY3LbnNGtmhxmQ/4LI41x0JSOkyhaLT5aRf7yJ?=
- =?us-ascii?Q?i50k4dNurx2BOydLtnsPcACgCSisc5frin8fyX+fMK1YpN3VauniMGFmkvqY?=
- =?us-ascii?Q?Hls06Js5EZQYccsCTRgtkMn2M+FQ2HRcZtFnsQdFSHZCf9OPZHYjEaQ/ma4w?=
- =?us-ascii?Q?iSDQ4lVmvZw857ODOBUNi+Obey/RwTQAXV1qBkhRj2obAlPXWQSdngFQ5u6I?=
- =?us-ascii?Q?fFW3h1uqxtn+YDUGH33uHDOu1/72wyPLfyfZm8r5beB2wf/67nXbBqKrPfqa?=
- =?us-ascii?Q?UJF5i0BjoElLotO0w2d43lrrUBsmHYu3yf85JAgqYxE/PmG1hsWPVambCvqe?=
- =?us-ascii?Q?IPLgK4zDuNt900TC3BW13hoorcAV/b3/B2wxt6JMg6lfRv87x9D0e6uIoO6k?=
- =?us-ascii?Q?zn3i7SA/Gb2H9jRivYB3LuCG5S6+QJkZQqVxaRi576db4L+2nM5PF9MS9M2S?=
- =?us-ascii?Q?6J/0HoGR+QU6MLsqkhbPJwqmJMVE3Z21qeizNl+E5Qx6ODkw19xEuMAltIr8?=
- =?us-ascii?Q?+zuk1O2+181UFWhNUPhP3dLBbS3xLw7MKafyZRzorvQt9Ex9aP5p49ixvnaJ?=
- =?us-ascii?Q?UUYpkWm4zNORKOW7HMFv/qpDWrWzZ8XGL76i/ynqj5Z+4pSHOqKrdgr5WY6a?=
- =?us-ascii?Q?QNpPk8mKPvGt+UnfM7I/PV91wjb/houUzSkFuAaghMnG0hLNKGyBrJgBCjSQ?=
- =?us-ascii?Q?JuW8CQShe82G977ei+go1/SATrYNoCBv1LUQdv2pAT7slQsaW0b3CWmaSXLJ?=
- =?us-ascii?Q?RHo0rlfM+bljb2NejydR3/DxeqQIizXIOAIvY2XXWpPyI+It0dqaXlQik94n?=
- =?us-ascii?Q?yZOvwZ+RD2u0LyChyWHBFf65edsXnoFi1qQYgXia25dalUmbfdf0qA/W6Xk8?=
- =?us-ascii?Q?GWGWgRAc7gzsWkwHQHzPh0OF7btgyPpfe39+xqHbAdRM5y9pxIKrc9f0Otij?=
- =?us-ascii?Q?zXS7kPmHHDvlezRJ63PR/Q1e4e64lYw7xO2QyqWl7Own+B2zYeYESwX+A7Au?=
- =?us-ascii?Q?CpKEKT3asbn2jaG+qAJ6CKB92YOJnOUvctXa7FV7ke6wgRrM?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.5; Wed, 23 Sep
+ 2026 13:04:09 +0000
+Received: from BN7PEPF000000A6.namprd05.prod.outlook.com
+ (2603:10b6:208:235:cafe::28) by MN2PR20CA0054.outlook.office365.com
+ (2603:10b6:208:235::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Wed,
+ 23 Sep 2026 13:04:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN7PEPF000000A6.mail.protection.outlook.com (10.167.245.230) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 13:04:06 +0000
+Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 23 Sep
+ 2026 08:03:19 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 23 Sep
+ 2026 08:03:19 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 23 Sep 2026 08:03:19 -0500
+Received: from [10.249.135.178] ([10.249.135.178])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68ND3F5i2961458;
+	Wed, 23 Sep 2026 08:03:16 -0500
+Message-ID: <40b6706d-fa68-43d3-8abd-bd8b70e4cb89@ti.com>
+Date: Wed, 23 Sep 2026 18:33:15 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5146.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f6c4c56-fc47-4320-2b03-08df19730b12
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2026 13:03:20.7255
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] soc: ti: k3-ringacc: Fix DMA ring initialization
+ kernel-doc
+To: Karl Mehltretter <kmehltretter@gmail.com>, Nishanth Menon <nm@ti.com>,
+        Santosh Shilimkar <ssantosh@kernel.org>
+CC: Grygorii Strashko <grygorii.strashko@ti.com>,
+        Peter Ujfalusi
+	<peter.ujfalusi@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>
+References: <20260923061658.20140-1-kmehltretter@gmail.com>
+ <20260923061658.20140-2-kmehltretter@gmail.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260923061658.20140-2-kmehltretter@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000A6:EE_|IA0PR10MB6819:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8591745d-3727-42e8-09f9-08df1973264b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|10067099003|56012099006|6133799003|18002099003|22082099003|4143699003;
+X-Microsoft-Antispam-Message-Info: wEVhTAYrElFLghn+QSDjim+QHtpcWzxGZn3k1jXGkLwkaZPRRrxzeJJ67DdNZMr29b/npyOkDCRx8Uo6bIJPoQiZaiIsfO7sIcD63fd1A7Pvo/W+qq9bIdTCyl9YnMnE9boYiunGcqm3Afi0h98PTsuDzwBO2b4OZxCdBnJT+1ayy6KoSz20F7w0dSrpRDniO09xJj1D7Cfp27aMmEhYDlbPK25B5Kvwe7w4J8v0jSl/UA1M1odDHR7PU9T01Y6BPnjsiBpv7TwFLu62UxSxyZlNL1SwZ3iNsez5ypX6aNJnDnLxHQJoV48ub6JEictty07UkCs1vo9nm0jX+Li0vS4aJPszoQu6I+JR60vUK7qDp4BIwCxvj8YyLg6HkHWwKJzRHgn8lGUyOfhpavO/NBTKUi7BzPYCrmKEtkDoZRmFQsEHcodFm8A0edWI/U7ebk6FmCagbk98WtspCx26gd36n9gse9KpT0ONyACFnI/hHDoyylDxYj+fJnrPkq7uyaxhgsgs6lLnnyGiuIogmD4kaPQlVlpeyhbXIhrD4noWtY44ODoh+EwvIKp9Ek3Qz+AzY5A5HpM3KeNuFs9ZUUzjBgIKvN1Xgecz/jop0iDgywisrtYJyvoJZcavSkL6cqaU5H8tvSPOST4KT1MEo0Za5LB+05z/SAjmp7/wSXg=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(10067099003)(56012099006)(6133799003)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: H22Qh/Qiv2eCRobCalmrNZPFjRtr/hv6PaevMOMdFCS1WrAP08+Xys3fqBFD43/Wusqj/ehXeR3/Ekwd2OYRno6Ffwq/jKj4LxSznH6tdViHcLHOs6fGy/tIzlLjchrbJeni452mf32jnayWFztmUDwhwQukX9hPwJqfLybTSITPCxyGkOeqU7ITk/gt+bnNnLzqpcMpyqRE429kUET6bS4gJQt6mz19YVlJLMMM4Fp+O/j05SHz1Vq3TsCtaQwnhXFsHXdwJbvXMG66IH8oCFjaQ78H5uFlvipwzsTDul/QemfIbuE7E3uE5HRcELCHjCwAUJr0MVxxVs/HuSA4AWLSTmQSdLG1XmCvROAcZ8dNcIc9sFDhYvL1LO3l9/MvqeaXejqs28Hr+SMbeie+JMffLnD/jJ3NzRxZBpl1pD2kcMWlEc1CtJI9WVJelCyU
+X-Exchange-RoutingPolicyChecked: JQ6AWiH3E+NYqSF6elIvEIQt3VyCRxtuCFVWjvHOJuSF5yXZsqRYvWe7g9DwQhdrJZZ3wzkfpbFKJpBc0/aU9BRD+jHRe3UCYykD2fsIsbkUZKcjIRZFn3MmiiQU8PjuGknxB6PdZGFPrOC0AjnTWiOCxBD6hHLYqZ8jvPv0VlA4Nqx/lYSGJusg33/zyW1m0WWZXNq92EAdKFhXCPfZJ/AAYp6vgCxcYAcIdalhlX+J9S4p25YEHX7RusHoL1yJHYUSPy4k3DyQvCcW+hrRz1glw4w8sbOyEP5Csmki2+GLNAdZ+B9NhWVWbegzlv/VtX2gE8e39N144I3ive+duA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 13:04:06.3046
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: UbLTPpYio30FP5JxNnc9EZw2f8tgThqsY6rkwNtE/VnLPsusWfX3hbhFFymiCdkg9rM44XO0vzcoEnVMOu+hSg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6397
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8591745d-3727-42e8-09f9-08df1973264b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF000000A6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6819
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA1MSBTYWx0ZWRfX1/Y+it1FkQgk
+ Z5zv38+9CdbARJyhphJ6RzLjDtZiHLvx5qGR48C15CgufW6s3IeU0UyBJuVi31ZqW93Rdtx9boU
+ jpMCvN8vZd6cXOeMq6PfBfzAwTmNQPfB/bAIDHM5KbepStBORrShv2A92gQ3vrou2ezCdk+ISDh
+ p+bEgtI437GB1Qx8No1FlJEq9+TeIm7Y8YBlI32+qSVQ94hNb9PwEDXS2vtTHFkWUAEmefvV2nL
+ DtMdfgCdm7/q5b1VVelt7N4UdcrzSxPxDhalFMN56+3fMu2QRIRbnYWQyfVWFCrtkdqq9DLX0Zq
+ Omgh46HvZoXPJsvld4EMv2YmDRK72a2eKTDWyGewzhBTcfSIdf2TX9o5Ll74eTfISqiQk5S+/hk
+ foJ7EfzerW+r736iuKL69/Z0h4wased8rKkuXudQyu7+9J5drJVqg51nQIlcODYOLkg7V/9pjrU
+ 8X/iltGyq+r4n0U9Tyw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA1MSBTYWx0ZWRfX1bNCy0+AG9AW
+ hOKox8etmbeI5ZsY/hEL6Yg3K/ixDyRfSThHbRViVv4Tnpy3ftso07DVES8QAbpjeKrSI7ySmU1
+ HemLGDcCEgU33uB4tlloN3len9CFj0Y=
+X-Proofpoint-GUID: 6bq6vaeGijii3OD7EzTf9XHaO7V67Tex
+X-Proofpoint-ORIG-GUID: 6bq6vaeGijii3OD7EzTf9XHaO7V67Tex
+X-Authority-Analysis: v=2.4 cv=cPt1IVeN c=1 sm=1 tr=0 ts=6ab3ce4c cx=c_pps
+ a=v0elvT+g34jhj2ItdigShQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=sozttTNsAAAA:8
+ a=zHeEaGkxK0QNAutOGoIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
+ impostorscore=0 phishscore=0 suspectscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_060338_944671_DEF581AB 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20260923_060416_961630_F6D78F21 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,79 +180,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Public
 
-> -----Original Message-----
-> From: amd-gfx <amd-gfx-bounces@lists.freedesktop.org> On Behalf Of
-> Thomas Zimmermann
-> Sent: Wednesday, September 23, 2026 6:59 AM
-> To: jfalempe@redhat.com; javierm@redhat.com;
-> maarten.lankhorst@linux.intel.com; mripard@kernel.org; airlied@gmail.com;
-> simona@ffwll.ch
-> Cc: dri-devel@lists.freedesktop.org; amd-gfx@lists.freedesktop.org; linux=
--
-> arm-kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; intel-
-> gfx@lists.freedesktop.org; intel-xe@lists.freedesktop.org; linux-arm-
-> msm@vger.kernel.org; freedreno@lists.freedesktop.org;
-> nouveau@lists.freedesktop.org; linux-rockchip@lists.infradead.org; linux-
-> tegra@vger.kernel.org; sashiko-reviews@lists.linux.dev; Thomas Zimmermann
-> <tzimmermann@suse.de>
-> Subject: [PATCH 0/2] drm/fbdev: Move helpers to clients/ subdirectory
->
-> Helpers for fbdev emulation are still linked into drm_kms_helper.ko, whic=
-h is
-> for mode setting. Move the source and header files to the clients/ subdir=
-ectory
-> and link them into drm_client_lib.ko. This has some fallout throughout dr=
-ivers,
-> but it's all trivial.
->
-> There are 3 module parameters to drm_kms_helper.ko that control fbdev
-> emulation. For compatibility with existing installations, leave them in t=
-his
-> module.
->
-> Thomas Zimmermann (2):
->   drm/fbdev: Move fbdev module parameters next to module init
->   drm/fbdev: Move fbdev helpers into client library
 
-Series is:
-Reviewed-by: Alex Deucher <alexander.deucher@amd.com>
+On 9/23/2026 11:46 AM, Karl Mehltretter wrote:
+> The heading for k3_ringacc_init_data repeats struct, so kernel-doc
+> cannot match it to the declaration. Its three fields are also missing
+> descriptions.
+> 
+> Use the structure name and describe the firmware handle, device ID,
+> and total number of available rings used during DMA ring initialization.
+> 
+> Fixes: d782298c6f6b ("soc: ti: k3-ringacc: add AM64 DMA rings support.")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> 
+> Notes (ti-ringacc-v2):
+>     Changes in v2:
+>     - Describe num_rings as the total number of available rings in the
+>       comment and commit message, as pointed out by Udit Kumar.
+>     
+>     Patch 1 is unchanged.
+>     
+>     v1: https://lore.kernel.org/r/20260919163721.89044-1-kmehltretter@gmail.com/
+> 
+>  include/linux/soc/ti/k3-ringacc.h | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
+> index 2de6031b9424..7b7fc237c08f 100644
+> --- a/include/linux/soc/ti/k3-ringacc.h
+> +++ b/include/linux/soc/ti/k3-ringacc.h
+> @@ -254,7 +254,10 @@ u32 k3_ringacc_get_tisci_dev_id(struct k3_ring *ring);
+>  struct ti_sci_handle;
+>  
+>  /**
+> - * struct struct k3_ringacc_init_data - Initialization data for DMA rings
+> + * struct k3_ringacc_init_data - Initialization data for DMA rings
+> + * @tisci: TI SCI firmware handle
+> + * @tisci_dev_id: TI SCI device ID of the DMA controller
+> + * @num_rings: Total number of available rings
+>   */
 
->
->  drivers/gpu/drm/Makefile                      |  1 -
->  drivers/gpu/drm/amd/amdgpu/amdgpu_display.c   |  2 +-
->  drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c       |  2 +-
->  drivers/gpu/drm/clients/Makefile              |  3 +-
->  drivers/gpu/drm/clients/drm_fbdev_client.c    |  2 +-
->  .../drm_fbdev_helper.c}                       | 34 +---------------
->  drivers/gpu/drm/drm_crtc_helper_internal.h    |  9 +++++
->  drivers/gpu/drm/drm_fbdev_dma.c               |  2 +-
->  drivers/gpu/drm/drm_fbdev_shmem.c             |  2 +-
->  drivers/gpu/drm/drm_fbdev_ttm.c               |  2 +-
->  drivers/gpu/drm/drm_kms_helper_common.c       | 39
-> +++++++++++++++++++
->  drivers/gpu/drm/exynos/exynos_drm_fbdev.c     |  2 +-
->  drivers/gpu/drm/gma500/fbdev.c                |  2 +-
->  drivers/gpu/drm/i915/display/intel_fbdev.c    |  2 +-
->  drivers/gpu/drm/msm/msm_debugfs.c             |  2 +-
->  drivers/gpu/drm/msm/msm_fbdev.c               |  2 +-
->  drivers/gpu/drm/nouveau/dispnv50/disp.c       |  1 -
->  drivers/gpu/drm/omapdrm/omap_debugfs.c        |  2 +-
->  drivers/gpu/drm/omapdrm/omap_fbdev.c          |  2 +-
->  drivers/gpu/drm/radeon/radeon_device.c        |  2 +-
->  drivers/gpu/drm/radeon/radeon_fbdev.c         |  2 +-
->  drivers/gpu/drm/rockchip/rockchip_drm_gem.c   |  2 +-
->  drivers/gpu/drm/sitronix/st7571.c             |  1 -
->  drivers/gpu/drm/tegra/fbdev.c                 |  2 +-
->  drivers/gpu/drm/vboxvideo/vbox_mode.c         |  2 +-
->  .../drm_fbdev_helper.h}                       |  4 +-
->  26 files changed, 72 insertions(+), 56 deletions(-)  rename
-> drivers/gpu/drm/{drm_fb_helper.c =3D> clients/drm_fbdev_helper.c} (97%)
-> rename include/drm/{drm_fb_helper.h =3D> clients/drm_fbdev_helper.h} (99%=
-)
->
-> --
-> 2.55.0
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+
+>  struct k3_ringacc_init_data {
+>  	const struct ti_sci_handle *tisci;
 
 
