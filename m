@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DF7C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB78C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LTAIXVJXCFSZKTwdE8QBtzo/vzIU7ZlldrSNSkWoIJI=; b=cP2NFz2WzrWnsiA07lvUKWDR6K
-	/MXG9fo78yXPJed2esA4Ih23tm1HWyeAmTgTp6qM6yFyab1Yp679GSCrUdvVkdTaz3v9qhwHDl68L
-	MZrOeiq7vKe3uXfZrk0Ohl/pXsERf/XdVFqeSoeWDr/1+D6SCrJU+5BWmgHKlPWI67zzhXg8JYrVx
-	gw2GUyqu2Fzegt9otOfpoEwd6YZch3K3QjrkqjNMFr/TZSBUqQoLVWfQrfP59OKBEG9iXUr0lgArn
-	CUPooNmnzs/Iz4T/fXuP6Cr2s9AULzslddDbjT4bBIESDleI9TPi2U/xRyHPJ6R1QBpTotYHxrm5a
-	GJ8+vZhw==;
+	bh=LiwqucL+kKkfewVxHL3Ys40QpkTVafZgydC3I7lW70o=; b=tSj8Q4hRTAQd2xqG4CuPLxM8l6
+	TmBTzDiQ86+DKNx7nNNepWvLttLqDDenMrUxZB9IePJdqLBEmlfH5aFufGG7HfDUZbCi1LKjoij9U
+	kbZz9/rSZznVFpGCUVE45MhPf6uhV0TOw66zEEqUz0kX/Ci7YDT1tbRxIEm2wXOMUCzbw9CP97PqM
+	8Xxk31QczG8BoOExpJnUuAiC2V7DtN9bJdaR6k2BA2qaJyyhQzcOMGHFsoWnN/KC18tNqSc5zTeyX
+	zpyBN5UKV6YMi8SIC6AYsRIsVpdNMZ5WnqrTUz40MqkHZ/qW2QB8TmUPy6J2JWrwHqM+dgCJ/vaZo
+	0i0oigyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9M02-00000008EiC-2sF4;
-	Wed, 23 Sep 2026 12:22:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9M00-00000008Ehd-0PX8
+	id 1x9M27-00000008F5A-2eVT;
+	Wed, 23 Sep 2026 12:25:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9M26-00000008F4j-1IIg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:22:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CAC351570;
-	Wed, 23 Sep 2026 05:22:50 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98B633F86C;
-	Wed, 23 Sep 2026 05:22:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790166174; bh=fybh03wdLDUBfM1mCw7IcFTO9lMUmLVoP4htnADqzIE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JHClZnLPaJqC0rxp3J+GWmS3peEKH96Cr/myTKnRM8Iq2ecs8HOhdHsZqkCIUKqxy
-	 LyZhw1Nb3U5O+1LZQ5tYi9fA400pZm7PCr9S9r+DnrQ5w+VAM+JSeL26FdZQhEph9G
-	 N11aI3CavViGBw5+rahFfFiiuP/QPmnTPvPJRyt4=
-Date: Wed, 23 Sep 2026 17:52:50 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, Mark Rtland <mark.rtland@arm.com>, 
-	linx-arm-kernel@lists.infradead.org, linx-kernel@vger.kernel.org, kasan-dev@googlegrops.com
-Subject: Re: [PATCH V2 1/4] arm64/mm: Use pmdp_get() for PMD accesses
-Message-ID: <7dn5t2m2fzuwxj2anuycz245hnctqc5mgaj5vdx7ybfql7arwv@6ac363txw3ff>
-References: <20260922061638.3967467-1-anshuman.khandual@arm.com>
- <20260922061638.3967467-2-anshuman.khandual@arm.com>
- <212067fe-1b16-4b87-87a7-4ce50847eb24@arm.com>
- <m72rpspdg5cv7xptent4tglgd25zehx462nfmcx5uyjwi2ag7p@bc6hvhosgtfb>
- <bce043cc-0f69-4297-8f31-92dcfbc0061d@arm.com>
+	Wed, 23 Sep 2026 12:25:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE1CF4325A;
+	Wed, 23 Sep 2026 12:25:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78C961F000FF;
+	Wed, 23 Sep 2026 12:25:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790166305;
+	bh=LiwqucL+kKkfewVxHL3Ys40QpkTVafZgydC3I7lW70o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TRJ9qmxcGPvpSsc0buv/SlcBc0cW/NbwRsNyGaaFLyJRSH9R+9kJymp8L3Xoxn4MP
+	 mp5wXCkBEEUxvmsH/fUetvB/RB7dEkhorbiDpn7+yIXCCm+WGdzfnGnOtIjR2LThi8
+	 l8Oq1YkcAdizIcyJ1ivsqmpU/2hI0dJNnMhf7Nf/CPM08gl7Ed8j94kdFaKVhhI2U2
+	 JDY9BWYwWm2LIp6gGlbTRHis3YjNmeHAnXoBtB0Zbp8rrjBLO5tNnA7rPJf8htkovD
+	 eNvDfEFTPjPOrw6xjGytWxeQO+OuZnvC5cZac/tbIIS508M8NMsYZvAk9mNLvfNLRZ
+	 hhXmQscJUVNmQ==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id D949B1AC5739; Wed, 23 Sep 2026 13:25:00 +0100 (BST)
+Date: Wed, 23 Sep 2026 14:25:00 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com
+Subject: Re: [PATCH 2/2] spi: ma35d1: Add Nuvoton MA35D1 SPI controller
+ support
+Message-ID: <arPFHNrYR_kWl8vs@sirena.co.uk>
+References: <20260923041926.425551-1-cwweng.linux@gmail.com>
+ <20260923041926.425551-3-cwweng.linux@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZB52rXGD0UANJKv6"
 Content-Disposition: inline
-In-Reply-To: <bce043cc-0f69-4297-8f31-92dcfbc0061d@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_052256_264174_84796BD5 
-X-CRM114-Status: GOOD (  41.77  )
+In-Reply-To: <20260923041926.425551-3-cwweng.linux@gmail.com>
+X-Cookie: Too clever is dumb.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,338 +76,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 12:31:42PM +0100, Ryan Roberts wrote:
-> On 23/09/2026 12:01, Anshuman Khandual wrote:
-> > On Wed, Sep 23, 2026 at 09:32:17AM +0100, Ryan Roberts wrote:
-> >> On 22/09/2026 07:16, Anshuman Khandual wrote:
-> >>> Replace READ_ONCE() with pmdp_get() for PMD accesses in preparation for
-> >>> supporting both D64 and D128 translation table formats.
-> >>>
-> >>> READ_ONCE() cannot currently be used for 128-bit page table entries on
-> >>> arm64 because it does not provide the required 128-bit single-copy
-> >>> atomicity, causing builds to fail for accesses wider than 64 bits.
-> >>>
-> >>> Although LDP/STP provide the required atomicity when FEAT_LSE is
-> >>> available (as required by FEAT_D128), extending READ_ONCE() to support
-> >>> 128-bit accesses is undesirable. READ_ONCE() is a general-purpose API,
-> >>> so doing so could encourage other 128-bit users that would either fail
-> >>> to build in configurations without D128 support or, if D128 becomes a
-> >>> runtime option, silently permit tearing on systems without the required
-> >>> hardware support.
-> >>>
-> >>> Instead, standardize PMD accesses on the existing page-table helpers.
-> >>> These can be overridden on arm64 to provide 128-bit single-copy
-> >>> atomicity when required. No functional change intended.
-> >>
-> >> I notice you have an unconverted READ_ONCE(*pmdp) in
-> >> pmdp_test_and_clear_young(). Is that intentional?
-> > 
-> > Converting the above READ_ONCE() instances as pmdp_get() cuases a build
-> > failure as pmpd_get() which is defined in generic pgtable header is not
-> > visible inside platform specific pgtable header, even with a forward
-> > declaration.
-> > 
-> > In D128 V2 series these conversions were performed later in the series,
-> > when platform specific pxdp_get() overrides were added via ptval_get(). 
-> > 
-> > But to avoid this, we could just move pmdp_test_and_clear_young() inside
-> > arch/arm64/mm/mmu.c file instead. Folding in the following change builds.
-> 
-> I'm not sure if/how this might affect performance? Probably not significant
-> since they are for higher levels, so not called as frequently as pte helpers.
 
-Right, should not have much performance impact.
+--ZB52rXGD0UANJKv6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Another option would be to implement arm64-specific pxdp_get() helpers in
-> asm/pgtable.h to override the generic versions?
+On Wed, Sep 23, 2026 at 12:19:26PM +0800, Chi-Wen Weng wrote:
+> From: Chi-Wen Weng <cwweng@nuvoton.com>
+>=20
+> Add support for the SPI controller found in the Nuvoton MA35D1 SoC.
 
-For now those will still be based on READ_ONCE() just like the default ones.
-Although trying to drop similar redundancies from other platforms :)
+This looks pretty good, almost all of the comments below are just
+stylistic things due to duplicating work that the core already does but
+there's one query about possibly excessively turning the controller on
+and off.
 
-https://lore.kernel.org/linux-mm/20260923043226.331880-1-anshuman.khandual@arm.com/
+> +struct nuvoton_spi {
+> +	void __iomem *regs;
+> +	struct clk *clk;
+> +	struct device *dev;
+> +
+> +	/* Protects read-modify-write accesses to the SSCTL register. */
+> +	spinlock_t ssctl_lock;
 
-But given D128 is going to define pxdp_get() anyway it might make sense to
-define them now and withdraw the above series :) Seems like s390 platform
-also has similar situation.
+It's not clear what this is protecting, all the users look to be called
+=66rom the SPI core in a single threaded way.
 
->
-> Thanks,
-> Ryan
-> 
-> > 
-> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> > index ae41946c54f26..13ca85ec89f6a 100644
-> > --- a/arch/arm64/include/asm/pgtable.h
-> > +++ b/arch/arm64/include/asm/pgtable.h
-> > @@ -1289,14 +1289,8 @@ static inline bool __ptep_clear_flush_young(struct vm_area_struct *vma,
-> > 
-> >  #if defined(CONFIG_TRANSPARENT_HUGEPAGE) || defined(CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG)
-> >  #define __HAVE_ARCH_PMDP_TEST_AND_CLEAR_YOUNG
-> > -static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
-> > -               unsigned long address, pmd_t *pmdp)
-> > -{
-> > -       /* Operation applies to PMD table entry only if FEAT_HAFT is enabled */
-> > -       VM_WARN_ON(pmd_table(READ_ONCE(*pmdp)) && !system_supports_haft());
-> > -       return __ptep_test_and_clear_young(vma, address, (pte_t *)pmdp);
-> > -}
-> > -#endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
-> > +bool pmdp_test_and_clear_young(struct vm_area_struct *vma, unsigned long address, pmd_t *pmdp);
-> > +#endif
-> > 
-> >  static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
-> >                                                unsigned long address,
-> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > index 76d8d320aeedf..b3fd06a623db5 100644
-> > --- a/arch/arm64/mm/mmu.c
-> > +++ b/arch/arm64/mm/mmu.c
-> > @@ -2440,4 +2440,15 @@ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
-> >                      __func__, pte_str_old, pte_str);
-> >  }
-> >  #endif /* CONFIG_DEBUG_VM */
-> > +
-> > +#if defined(CONFIG_TRANSPARENT_HUGEPAGE) || defined(CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG)
-> > +#define __HAVE_ARCH_PMDP_TEST_AND_CLEAR_YOUNG
-> > +bool pmdp_test_and_clear_young(struct vm_area_struct *vma, unsigned long address, pmd_t *pmdp)
-> > +{
-> > +       /* Operation applies to PMD table entry only if FEAT_HAFT is enabled */
-> > +       VM_WARN_ON(pmd_table(pmdp_get(pmdp)) && !system_supports_haft());
-> > +       return __ptep_test_and_clear_young(vma, address, (pte_t *)pmdp);
-> > +}
-> > +#endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
-> > +
-> >  #endif
-> > 
-> >>
-> >> Thanks,
-> >> Ryan
-> >>
-> >>
-> >>>
-> >>> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> >>> Cc: Will Deacon <will@kernel.org>
-> >>> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> >>> Cc: Mark Rtland <mark.rtland@arm.com>
-> >>> Cc: linx-arm-kernel@lists.infradead.org
-> >>> Cc: linx-kernel@vger.kernel.org
-> >>> Cc: kasan-dev@googlegrops.com
-> >>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> >>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> >>> ---
-> >>>  arch/arm64/include/asm/pgtable.h |  3 ++-
-> >>>  arch/arm64/mm/fault.c            |  2 +-
-> >>>  arch/arm64/mm/fixmap.c           |  2 +-
-> >>>  arch/arm64/mm/hugetlbpage.c      |  2 +-
-> >>>  arch/arm64/mm/kasan_init.c       |  4 ++--
-> >>>  arch/arm64/mm/mmu.c              | 22 +++++++++++-----------
-> >>>  arch/arm64/mm/pageattr.c         |  2 +-
-> >>>  arch/arm64/mm/trans_pgd.c        |  2 +-
-> >>>  8 files changed, 20 insertions(+), 19 deletions(-)
-> >>>
-> >>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> >>> index 763c5a411d64..b953ea0ba3ed 100644
-> >>> --- a/arch/arm64/include/asm/pgtable.h
-> >>> +++ b/arch/arm64/include/asm/pgtable.h
-> >>> @@ -811,7 +811,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
-> >>>  }
-> >>>  
-> >>>  /* Find an entry in the third-level page table. */
-> >>> -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
-> >>> +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
-> >>> +					 pte_index(addr) * sizeof(pte_t))
-> >>>  
-> >>>  #define pte_set_fixmap(addr)		((pte_t *)set_fixmap_offset(FIX_PTE, addr))
-> >>>  #define pte_set_fixmap_offset(pmd, addr)	pte_set_fixmap(pte_offset_phys(pmd, addr))
-> >>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> >>> index 2cecf6ba6df7..2757ee0c4300 100644
-> >>> --- a/arch/arm64/mm/fault.c
-> >>> +++ b/arch/arm64/mm/fault.c
-> >>> @@ -188,7 +188,7 @@ static void show_pte(unsigned long addr)
-> >>>  			break;
-> >>>  
-> >>>  		pmdp = pmd_offset_lockless(pudp, pud, addr);
-> >>> -		pmd = READ_ONCE(*pmdp);
-> >>> +		pmd = pmdp_get(pmdp);
-> >>>  		ptval_to_str(pxd_str, pmd_val(pmd));
-> >>>  		pr_cont(", pmd=%s", pxd_str);
-> >>>  		if (pmd_none(pmd) || pmd_bad(pmd))
-> >>> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> >>> index f66a0016dd02..3cdac8021d4f 100644
-> >>> --- a/arch/arm64/mm/fixmap.c
-> >>> +++ b/arch/arm64/mm/fixmap.c
-> >>> @@ -42,7 +42,7 @@ static inline pte_t *fixmap_pte(unsigned long addr)
-> >>>  
-> >>>  static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
-> >>>  {
-> >>> -	pmd_t pmd = READ_ONCE(*pmdp);
-> >>> +	pmd_t pmd = pmdp_get(pmdp);
-> >>>  	pte_t *ptep;
-> >>>  
-> >>>  	if (pmd_none(pmd)) {
-> >>> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> >>> index 8e799c1fe0aa..cdaa4500faf9 100644
-> >>> --- a/arch/arm64/mm/hugetlbpage.c
-> >>> +++ b/arch/arm64/mm/hugetlbpage.c
-> >>> @@ -304,7 +304,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
-> >>>  		addr &= CONT_PMD_MASK;
-> >>>  
-> >>>  	pmdp = pmd_offset(pudp, addr);
-> >>> -	pmd = READ_ONCE(*pmdp);
-> >>> +	pmd = pmdp_get(pmdp);
-> >>>  	if (!(sz == PMD_SIZE || sz == CONT_PMD_SIZE) &&
-> >>>  	    pmd_none(pmd))
-> >>>  		return NULL;
-> >>> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-> >>> index 45fbdce684c8..7ca833c5de5e 100644
-> >>> --- a/arch/arm64/mm/kasan_init.c
-> >>> +++ b/arch/arm64/mm/kasan_init.c
-> >>> @@ -62,7 +62,7 @@ static phys_addr_t __init kasan_alloc_raw_page(int node)
-> >>>  static pte_t *__init kasan_pte_offset(pmd_t *pmdp, unsigned long addr, int node,
-> >>>  				      bool early)
-> >>>  {
-> >>> -	if (pmd_none(READ_ONCE(*pmdp))) {
-> >>> +	if (pmd_none(pmdp_get(pmdp))) {
-> >>>  		phys_addr_t pte_phys = early ?
-> >>>  				__pa_symbol(kasan_early_shadow_pte)
-> >>>  					: kasan_alloc_zeroed_page(node);
-> >>> @@ -138,7 +138,7 @@ static void __init kasan_pmd_populate(pud_t *pudp, unsigned long addr,
-> >>>  	do {
-> >>>  		next = pmd_addr_end(addr, end);
-> >>>  		kasan_pte_populate(pmdp, addr, next, node, early);
-> >>> -	} while (pmdp++, addr = next, addr != end && pmd_none(READ_ONCE(*pmdp)));
-> >>> +	} while (pmdp++, addr = next, addr != end && pmd_none(pmdp_get(pmdp)));
-> >>>  }
-> >>>  
-> >>>  static void __init kasan_pud_populate(p4d_t *p4dp, unsigned long addr,
-> >>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> >>> index e589fb00d1e3..95621913679e 100644
-> >>> --- a/arch/arm64/mm/mmu.c
-> >>> +++ b/arch/arm64/mm/mmu.c
-> >>> @@ -200,7 +200,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
-> >>>  			       int flags)
-> >>>  {
-> >>>  	unsigned long next;
-> >>> -	pmd_t pmd = READ_ONCE(*pmdp);
-> >>> +	pmd_t pmd = pmdp_get(pmdp);
-> >>>  	pte_t *ptep;
-> >>>  
-> >>>  	BUG_ON(pmd_leaf(pmd));
-> >>> @@ -257,7 +257,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> >>>  	unsigned long next;
-> >>>  
-> >>>  	do {
-> >>> -		pmd_t old_pmd = READ_ONCE(*pmdp);
-> >>> +		pmd_t old_pmd = pmdp_get(pmdp);
-> >>>  
-> >>>  		next = pmd_addr_end(addr, end);
-> >>>  
-> >>> @@ -272,7 +272,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> >>>  			 * only allow updates to the permission attributes.
-> >>>  			 */
-> >>>  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
-> >>> -						      READ_ONCE(pmd_val(*pmdp))));
-> >>> +						      pmd_val(pmdp_get(pmdp))));
-> >>>  		} else {
-> >>>  			int ret;
-> >>>  
-> >>> @@ -282,7 +282,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> >>>  				return ret;
-> >>>  
-> >>>  			VM_WARN_ON_ONCE(pmd_val(old_pmd) != 0 &&
-> >>> -					pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
-> >>> +					pmd_val(old_pmd) != pmd_val(pmdp_get(pmdp)));
-> >>>  		}
-> >>>  		phys += next - addr;
-> >>>  	} while (pmdp++, addr = next, addr != end);
-> >>> @@ -293,7 +293,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> >>>  static bool pmd_range_has_valid_noncont(pmd_t *pmdp)
-> >>>  {
-> >>>  	for (int i = 0; i < CONT_PMDS; i++) {
-> >>> -		pte_t pte = pmd_pte(READ_ONCE(pmdp[i]));
-> >>> +		pte_t pte = pmd_pte(pmdp_get(pmdp + i));
-> >>>  
-> >>>  		if (pte_valid(pte) && !pte_cont(pte))
-> >>>  			return true;
-> >>> @@ -1553,7 +1553,7 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
-> >>>  	do {
-> >>>  		next = pmd_addr_end(addr, end);
-> >>>  		pmdp = pmd_offset(pudp, addr);
-> >>> -		pmd = READ_ONCE(*pmdp);
-> >>> +		pmd = pmdp_get(pmdp);
-> >>>  		if (pmd_none(pmd))
-> >>>  			continue;
-> >>>  
-> >>> @@ -1708,7 +1708,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
-> >>>  	do {
-> >>>  		next = pmd_addr_end(addr, end);
-> >>>  		pmdp = pmd_offset(pudp, addr);
-> >>> -		pmd = READ_ONCE(*pmdp);
-> >>> +		pmd = pmdp_get(pmdp);
-> >>>  		if (pmd_none(pmd))
-> >>>  			continue;
-> >>>  
-> >>> @@ -1729,7 +1729,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
-> >>>  	 */
-> >>>  	pmdp = pmd_offset(pudp, 0UL);
-> >>>  	for (i = 0; i < PTRS_PER_PMD; i++) {
-> >>> -		if (!pmd_none(READ_ONCE(pmdp[i])))
-> >>> +		if (!pmd_none(pmdp_get(pmdp + i)))
-> >>>  			return;
-> >>>  	}
-> >>>  
-> >>> @@ -1881,7 +1881,7 @@ int pmd_set_huge(pmd_t *pmdp, phys_addr_t phys, pgprot_t prot)
-> >>>  	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), mk_pmd_sect_prot(prot));
-> >>>  
-> >>>  	/* Only allow permission changes for now */
-> >>> -	if (!pgattr_change_is_safe(READ_ONCE(pmd_val(*pmdp)),
-> >>> +	if (!pgattr_change_is_safe(pmd_val(pmdp_get(pmdp)),
-> >>>  				   pmd_val(new_pmd)))
-> >>>  		return 0;
-> >>>  
-> >>> @@ -1906,7 +1906,7 @@ int pud_clear_huge(pud_t *pudp)
-> >>>  
-> >>>  int pmd_clear_huge(pmd_t *pmdp)
-> >>>  {
-> >>> -	if (!pmd_leaf(READ_ONCE(*pmdp)))
-> >>> +	if (!pmd_leaf(pmdp_get(pmdp)))
-> >>>  		return 0;
-> >>>  	pmd_clear(pmdp);
-> >>>  	return 1;
-> >>> @@ -1917,7 +1917,7 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> >>>  	pte_t *table;
-> >>>  	pmd_t pmd;
-> >>>  
-> >>> -	pmd = READ_ONCE(*pmdp);
-> >>> +	pmd = pmdp_get(pmdp);
-> >>>  
-> >>>  	if (!pmd_table(pmd)) {
-> >>>  		VM_WARN_ON(1);
-> >>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> >>> index bbe98ac9ad8c..0ca07bd5ded9 100644
-> >>> --- a/arch/arm64/mm/pageattr.c
-> >>> +++ b/arch/arm64/mm/pageattr.c
-> >>> @@ -414,7 +414,7 @@ bool kernel_page_present(struct page *page)
-> >>>  		return pud_valid(pud);
-> >>>  
-> >>>  	pmdp = pmd_offset(pudp, addr);
-> >>> -	pmd = READ_ONCE(*pmdp);
-> >>> +	pmd = pmdp_get(pmdp);
-> >>>  	if (pmd_none(pmd))
-> >>>  		return false;
-> >>>  	if (pmd_leaf(pmd))
-> >>> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-> >>> index cca9706a875c..b27b2d2c20c3 100644
-> >>> --- a/arch/arm64/mm/trans_pgd.c
-> >>> +++ b/arch/arm64/mm/trans_pgd.c
-> >>> @@ -74,7 +74,7 @@ static int copy_pmd(struct trans_pgd_info *info, pud_t *dst_pudp,
-> >>>  
-> >>>  	src_pmdp = pmd_offset(src_pudp, start);
-> >>>  	do {
-> >>> -		pmd_t pmd = READ_ONCE(*src_pmdp);
-> >>> +		pmd_t pmd = pmdp_get(src_pmdp);
-> >>>  
-> >>>  		next = pmd_addr_end(addr, end);
-> >>>  		if (pmd_none(pmd))
-> >>
-> 
+> +static int nuvoton_spi_set_speed(struct nuvoton_spi *nspi,
+> +				 struct spi_transfer *xfer, u32 speed_hz)
+> +{
+> +	unsigned long clk_rate;
+> +	unsigned int divisor;
+> +	u32 clkdiv;
+> +	int ret;
+> +
+> +	clk_rate =3D clk_get_rate(nspi->clk);
+> +	if (!clk_rate) {
+> +		dev_err(nspi->dev, "failed to get clock rate\n");
+> +		return -EINVAL;
+> +	}
+
+You probably don't need to do this on every transfer, the driver doesn't
+change the rate and it's not the cheapest call.
+
+> +static int nuvoton_spi_configure_transfer(struct nuvoton_spi *nspi,
+> +					  struct spi_device *spi,
+> +					  struct spi_transfer *xfer,
+> +					  u8 bpw)
+> +{
+> +	u32 speed_hz =3D xfer->speed_hz ?: spi->max_speed_hz;
+
+The core will ensure the transfer has a speed set.
+
+> +static int nuvoton_spi_txrx(struct nuvoton_spi *nspi,
+> +			    struct spi_transfer *xfer, u8 bpw)
+> +{
+> +	unsigned int bytes_per_word;
+> +	unsigned int offset;
+> +	u32 val;
+> +	int ret;
+> +
+> +	bytes_per_word =3D spi_bpw_to_bytes(bpw);
+> +	if (!bytes_per_word)
+> +		return -EINVAL;
+> +
+> +	if (xfer->len % bytes_per_word)
+> +		return -EINVAL;
+
+The core ensures these too.
+
+> +static int nuvoton_spi_transfer_one(struct spi_controller *ctlr,
+> +				    struct spi_device *spi,
+> +				    struct spi_transfer *xfer)
+> +{
+> +	struct nuvoton_spi *nspi =3D spi_controller_get_devdata(ctlr);
+> +	u8 bpw =3D xfer->bits_per_word ?: spi->bits_per_word;
+> +	int disable_ret;
+> +	int ret;
+> +
+> +	if (!xfer->len)
+> +		return 0;
+> +
+> +	if (!bpw)
+> +		bpw =3D NUVOTON_SPI_DEFAULT_BPW;
+> +
+> +	if (bpw < 8 || bpw > 32)
+> +		return -EINVAL;
+
+Again the core is checking this stuff.
+
+> +	ret =3D nuvoton_spi_enable(nspi);
+> +	if (ret) {
+> +		dev_err(nspi->dev, "failed to enable controller\n");
+> +		goto out_disable;
+> +	}
+
+Do you need to enable and disable on every transfer, or could this be
+done once per message?  If you need to disable to reconfigure it's a bit
+more complicated, but otherwise it's overhead to bounce the controller
+on and off.  Potentially it might glitch the data lines.
+
+> +static int nuvoton_spi_probe(struct platform_device *pdev)
+> +{
+
+> +	ctlr->dev.of_node =3D dev->of_node;
+
+The core does this for you.
+
+--ZB52rXGD0UANJKv6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqzxRsACgkQJNaLcl1U
+h9Dowwf+P5lvGbuT1j6bl3yknYnmKZn1hPviVZUoXiZIZMyBnPWYZZx5j34x4i8G
+cQlZFx6Yfp6DYVlnEdC+XLdiehKa/ziNdPl5ibnbaZSi1a+WgqRfeU9Zc1pWNIzq
+pMSA80n12/V/LfaWwIoGY2YGG4Si1r6FgxvAfWYbabcammdwmpv2BMZVAxoPbrvt
+D6qOgQiEvtn0Ps3GsLRanO7uFJFplK/LBF3ldamkv/c2/Vjr91UcfA2nqrD42Irl
+h6H6HzutJmlVGh4WHbmWjMh5XDkKh7MbfgsijrhGSUzAgvRu40W26w9ASf3/IiSb
+6wF/X0XJdCwnKjOWfwmE/YcgDxW8Pg==
+=b4vA
+-----END PGP SIGNATURE-----
+
+--ZB52rXGD0UANJKv6--
 
