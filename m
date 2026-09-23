@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63516C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 02:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB668C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 02:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H//0L15NF9Hg36hxkG5YrT92KjkouCTlUR4u5ZBrdks=; b=4D+KYSjsp3LhBfmfPt/kGrAF1P
-	w+bOmTRPnJyO+BbB/6rOd+cFEimODmu5oaSgCUCqBMxEO3H/2jRMuGCCQm4nh4Q1cr+18UtY49wEn
-	bMmTiMRGukbK5DmJC5q/RuX4RpXq6+esuMLsMTV2K6teZtV6IJtZFXiWrnnbmWvq3TuWDQhuhVPyQ
-	ZI7STbzgDBrSlk/ip8dxyiFdUrZ+OBnQPJeS7DoetNQ4VpTVsscLe3Byo1kLGBpgDvFf6PPbaUAkt
-	51c2Jv0Ga7krAsZ1G0y7dVvKHykv90WVZQhsOpjX+K7UEUD5hn9NdbOHrsbbjwQMjPqFHe8+PuJBj
-	Q2VsfmbA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eKK7cLX2tCod48o8HN+nrBMshyoyneBxydRfhPU+VUU=; b=BLajqz0iboUq1fhF99HB3DtYXt
+	iWIP91T8Te7Z5Ry0hSv4GN+RGaXmu/RLDYYkSGYpIZSq92wleedfquFAOBc6ZCqjOEHDNvPhfC3FS
+	siKXHAAwpK2IoROTytk8kBNsw3hTwmOJtYZXmjOvlCxtNKYKlwL9IQCioLiaCpqiEn/e7bOlItFm7
+	qI/1afRvPPzLWgDnItn7sysqIk9+p7f5XlvPihdMEg+5k7GFZsW6DFQABPQvMzEhjw9cAY6EZPokl
+	zecFvf3of2BRS2PQiiMLjLDtkO6lumpHcB2x2d1WuNv/4avQYAvZu8WE0QTwFz3Wteplg5xy1LNNN
+	DUtvmeIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CeJ-00000006vap-2vYE;
-	Wed, 23 Sep 2026 02:23:55 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CeF-00000006va8-0BGY;
-	Wed, 23 Sep 2026 02:23:53 +0000
-Received: from zju.edu.cn (unknown [10.98.66.117])
-	by mtasvr (Coremail) with SMTP id _____wB3migtOLNq4vsvAQ--.4161S3;
-	Wed, 23 Sep 2026 10:23:42 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.98.66.117])
-	by mail-app4 (Coremail) with SMTP id zi_KCgAH7DQtOLNqzObNAw--.61111S2;
-	Wed, 23 Sep 2026 10:23:41 +0800 (CST)
-From: Fan Wu <fanwu01@zju.edu.cn>
-To: Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>
-Cc: Neal Gompa <neal@gompa.dev>,
-	linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Song Li <songl@zju.edu.cn>
-Subject: [PATCH] nvme: apple: don't unbind the driver on reset failure
-Date: Wed, 23 Sep 2026 02:22:46 +0000
-Message-Id: <20260923022246.396036-1-fanwu01@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1x9CfF-00000006vrT-1K6Y;
+	Wed, 23 Sep 2026 02:24:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9CfD-00000006vqK-1zvF;
+	Wed, 23 Sep 2026 02:24:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 891C56022F;
+	Wed, 23 Sep 2026 02:24:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C06401F000FF;
+	Wed, 23 Sep 2026 02:24:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790130290;
+	bh=eKK7cLX2tCod48o8HN+nrBMshyoyneBxydRfhPU+VUU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=S1VH6KZgzj+BfWsFvrsKHP/NHEfJPw7zaa2Lu3jbqKgkT+Hb5Yo8NWf/mBen9uump
+	 AwWxlozzIuyDkOd1IPMAtQ/7uZ1Yq3EVz7eJ+CDXyCGVEL+cHmM4JBEFdvooCwrvOH
+	 Cc7cDKHvySBEZ3z7qctXXxYURvMSuZAzci2UREjZo/7OKZpaIyYyYTXLTvkCcG9lUE
+	 rYGCYIqnegmSTep/tKDXH93ZrzpwcomL39lEjoTMOZaCfEtuYPzxeRy7b1f4btKf2P
+	 XEIIGFLwH/7KWjbr29FMeVeU9RpRmTImCY1Qy+wAriWHzXtU1U7DJfknoFo137WdKH
+	 qiJ1O/clPCVEg==
+Date: Tue, 22 Sep 2026 19:24:49 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Tao <gongtao0607@gmail.com>
+Cc: netdev@vger.kernel.org, "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, =?UTF-8?B?QXLEsW7DpyA=?=
+ =?UTF-8?B?w5xOQUw=?= <arinc.unal@arinc9.com>, Lorenzo Bianconi
+ <lorenzo@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net 2/2] net: dsa: mt7530: trap frames to conduit in MFC
+ on EN7581 and AN7583
+Message-ID: <20260922192449.568e2b71@kernel.org>
+In-Reply-To: <20260919065214.31604-3-gongtao0607@gmail.com>
+References: <20260919065214.31604-1-gongtao0607@gmail.com>
+	<20260919065214.31604-3-gongtao0607@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zi_KCgAH7DQtOLNqzObNAw--.61111S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?o5En3QXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfnXz+g1OQfMo27QHy5TwQyZx14AC2V9q43cqIiEB7VCKWQgzTF47xQDkI8NAgYzF2bFu/
-	H+AHJg4+1EcSoEokfq2p9E6mavGmQbzmcFsnzP86
-X-Coremail-Antispam: 1Uk129KBj93XoWxZF18CFWxCry8tw43JFWftFc_yoW5Wr1kpF
-	4rWasI9rZrWr1Dtr1UJr4DuF98uw1fJryUJryIgw4rur1FqryrZ3s8KFyY9FW5Ar9Yva13
-	ZFWrJw15CF1kJFcCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Cr1j6rxdM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6rxl6s0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6x
-	kI12xvs2x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v2
-	6r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2
-	Ij64vIr41lF7xvr2IYc2Ij64vIr40E4x8a64kEw24lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
-	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAK
-	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F
-	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
-	6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7gAwDUUUU
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_192351_212744_FA0F6ECB 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,78 +77,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When apple_nvme_reset_work() fails it queues anv->remove_work, whose
-callback apple_nvme_remove_dead_ctrl_work() unbinds the driver through
-device_release_driver(). The work is embedded in the devm-allocated
-apple_nvme, but apple_nvme_remove() only flushes ctrl.reset_work, so an
-external unbind while the work is pending frees anv through
-devres_release_all() before the callback runs, and it operates on freed
-memory.
+On Sat, 19 Sep 2026 06:52:12 +0000 Tao wrote:
+> On MT7531 and MT7988 switches, trapped frames forwarding is directed to
+> CPU ports specified in the MT7531_CFC (0x04) CPU_PMAP bitmap. When support
+> for EN7581 was introduced, it was assumed to follow the MT7531 model.
 
-Fix this by not unbinding from a work item at all, mirroring commit
-c7c16c5b1967 ("nvme-pci: don't unbind the driver on reset failure"):
-on reset failure, disable the controller, mark the namespaces dead and
-leave the controller in the dead state instead of queueing the deferred
-unbind. The device stays bound and can be recovered by unbinding and
-rebinding the driver. apple_nvme_disable() is now passed shutdown=true,
-as in the final disable in apple_nvme_remove(), so entered requests are
-completed.
-
-Draining the work from apple_nvme_remove() is not an option: that path
-holds the device lock the callback blocks on, so waiting would deadlock.
-
-This issue was found by an in-house static analysis tool.
-
-Fixes: 5bd2927aceba ("nvme-apple: Add initial Apple SoC NVMe driver")
-Cc: stable@vger.kernel.org
-Co-developed-by: Song Li <songl@zju.edu.cn>
-Signed-off-by: Song Li <songl@zju.edu.cn>
-Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
----
- drivers/nvme/host/apple.c | 2 insertions(+), 15 deletions(-)
-
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -193,7 +193,6 @@
- 	mempool_t *iod_mempool;
- 
- 	struct nvme_ctrl ctrl;
--	struct work_struct remove_work;
- 
- 	struct apple_nvme_queue adminq;
- 	struct apple_nvme_queue ioq;
-@@ -1224,20 +1223,9 @@
- out:
- 	dev_warn(anv->ctrl.device, "Reset failure status: %d\n", ret);
- 	nvme_change_ctrl_state(&anv->ctrl, NVME_CTRL_DELETING);
--	nvme_get_ctrl(&anv->ctrl);
--	apple_nvme_disable(anv, false);
-+	apple_nvme_disable(anv, true);
- 	nvme_mark_namespaces_dead(&anv->ctrl);
--	if (!queue_work(nvme_wq, &anv->remove_work))
--		nvme_put_ctrl(&anv->ctrl);
--}
--
--static void apple_nvme_remove_dead_ctrl_work(struct work_struct *work)
--{
--	struct apple_nvme *anv =
--		container_of(work, struct apple_nvme, remove_work);
--
--	nvme_put_ctrl(&anv->ctrl);
--	device_release_driver(anv->dev);
-+	nvme_change_ctrl_state(&anv->ctrl, NVME_CTRL_DEAD);
- }
- 
- static int apple_nvme_reg_read32(struct nvme_ctrl *ctrl, u32 off, u32 *val)
-@@ -1531,7 +1519,6 @@
- 	}
- 
- 	INIT_WORK(&anv->ctrl.reset_work, apple_nvme_reset_work);
--	INIT_WORK(&anv->remove_work, apple_nvme_remove_dead_ctrl_work);
- 	spin_lock_init(&anv->lock);
- 
- 	ret = apple_nvme_queue_alloc(anv, &anv->adminq);
+This patch does not apply, please make sure you rebase on net/main
+and repost
 -- 
-2.39.5
-
+pw-bot: cr
 
