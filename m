@@ -4,148 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D375C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81233C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AnelVJ8olU9idlBWC1fqEqI2VSPQZITIRrueqq/XOik=; b=DMXl6loGZmNjM4QUx047QrthMD
-	PxfGf8jcC8qCjNm3pwuZiNLQcDCrCLZM/MDKtj+xzlsKlhb6z/V0dgavT/leqLfeNP91k+BOsII4T
-	IS5BTnh2a0CuKQ+f4gipqLx7I2l+Vpfysij+2VmylTgFJyS8dYp0pZAJTHfe9pPJIaRAMBC0sv0aU
-	Fj+rtIALfsXUWcyoJ1qMBkd1SY/kfQ0S4nWB1YFnY0oYN1G+HivjNgncI3rwySi1MJyyxNpFIa56M
-	+8OMIZvRqf/Mt8EDzY64U27Me5vU6MxpSN+DJYNBcnPqyIS4q5txwKfvsLMRv+V+bIQVp5UaVbqZ+
-	91hQ3tGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n3FvWARqg72aWnUzHblnwiGVGsneg3hSheGSpG4/Uzw=; b=kIR/+Vq2wrWXJeP3x1O9e9xOxd
+	zGD9jJrvTH0K9szMARCLeZN94ZZrp1L/gNRWMF8l+uxkgsWFdhMA90BandB9wP9bSiCSCQZtg7HRC
+	+IWYiVrFKbnYPffiIDAvBbgbBlncUhwgKWbqcsWSg6TuYkRh4hx3PV3A357AmP+KtjjnzWA6kXkwx
+	XyRep/tYi1bcoUWLU6T6XLas6l7ESPoD5B4cFwF2iBuSHw6gkbBgeYKTOo0uF417g9dAGmdLMeexo
+	lsRvfRhrMly1YrSWR6AWJv946XwxOdig0xQQZP6iDi7K1PPqpEmjKv5h7qBtSG48q1u2OlCeDEw2U
+	BYgVDV6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TU2-00000009ReT-43HQ;
-	Wed, 23 Sep 2026 20:22:26 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x9TUa-00000009Rko-1cOf;
+	Wed, 23 Sep 2026 20:23:00 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TTz-00000009Rdr-1SUc
+	id 1x9TUV-00000009Rja-0jr8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:22:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SZaS3zx7rbQ0DMBqx/H0KiMuwxz+zr9h1h3V/J1Pd3qPBXzOvEwZjV0S7mF8Z7xT6Z5BxpstyrMMsRmxDYvdzhR3nm3ZkFaGxpOlJfOneOmN09KS9NWACPpDb8SuSXt/Y3KTg72hBjFBQ4MwzkK+7d+1JedPXK+/8zZ3IzwkmhHHcNSKk1te/MCDH+8MemNcuDuskjqBWqkG+ZzDDX4vgTf33T6Ed6B7yjNtRvVHxJ50Wlvn3kWcDMOGQcAgkdsQGKRUo8jKE+KFDLuOVmdC9/pBr6iGz/+deHB66u/6EIVqZYixRzUOo7uZ40gcBP3qjns7wb5xTAONTwGLK6YgnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AnelVJ8olU9idlBWC1fqEqI2VSPQZITIRrueqq/XOik=;
- b=RztJu1FApoXlnDT0jlRQRJsGDBGyqp2Xx6LXuevJIfLb9LOSeTBBvimTXKlQHvihUYZqbqtc52mI5nlbinXRrETO6SK3syb/UKUhyIwPJdMefWX3KcR2zqdvfdhvqvsdqhQj7AaqQH5tEknOPdqX++KsV9BbpvQ4MzatFt3mzZScFpFmi3vDSz3OSGYeh0c9bv08kamfcC1tsEJQCxXgawvzPygpOZUKU9fDcSw8Y+LAf5jNqz0Q/UgkLj5GxLBww57iNeii8fcfR45QqWtfkZBYUwddey/Wt4l40Z72jOf4EyGbRCpPbtBGPfMU5Xm9fIIoZ/Q3BEWdAgDUX8bQ/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AnelVJ8olU9idlBWC1fqEqI2VSPQZITIRrueqq/XOik=;
- b=ElMYFLj11HQIQtIcEJ4sEMFd1Ieyqa5aWf5Z3XdeMC/u1G+HH+AkDNG2z8czNXYaEcff6oVRLhPgFntarEGpFXVKwDV84Egi8kWf40dO2RydUe4RAtF5OwzTqEsIA7eWaS+LmxLpiucrZO5aUkO4MOSdpIGliXEzQx4DI9kBwSr8Jh87lFVC4clurXI+BDv08rXw9DRmCzmrV/+CtmSJGvAQJgZDPdKtUA3vX5cUCZb29+aQ27FW00oMNdTVvZZbcQKMUIQvYK7ZHaNNdFKOf56MF8mtRco6IDwuTpA5qKL9hI0OvGGkYnoVl78uUWQTl75lUj0o/CZHYeJqYeO5Lg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB9183.eurprd04.prod.outlook.com (2603:10a6:150:27::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
- 2026 20:22:15 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
- 20:22:15 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Frieder Schrempf <frieder@fris.de>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Wed, 23 Sep 2026 20:22:58 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f9f7dbfso160372666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 13:22:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790194973; x=1790799773; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=n3FvWARqg72aWnUzHblnwiGVGsneg3hSheGSpG4/Uzw=;
+        b=RdnHbQ+uqMQvrAf8z5WsMqV6K3468fKmDCzuDpiAYB+/Tf3fF2pHsdfynCeM0DKUOf
+         yYZPE+HwzlH+vBirbbXbSnIHgd3bpHnKhMTd+0FiW9uP2qKsOIbijL0Cxo1lylwoW8wh
+         v1wtrX7NzmH61KukLEvaR0TgyO8AQ8HmpKzXjWR7bUmswn9veWL6LALb8aAHLoJ50pCZ
+         3r9/TCGutN01493ylXq/Umx8fQ/2YPUxBVVLChhK1+Znvci/8D3NnqmaiWvILS8WQIv7
+         hHn4dRiWGPLD8C22WcUU/7z1X/6EgK2xVtGB7Iu7kTgUoNujLKfSLzVz3v+ru2DbIT21
+         GMVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790194973; x=1790799773;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=n3FvWARqg72aWnUzHblnwiGVGsneg3hSheGSpG4/Uzw=;
+        b=EZz3y8Q69FvibHfmbrde+55T4wTJOednqOU3Y6fZOQs2uGa31vLU7Eub20HqvYuqaB
+         HqLIEfoxOOVWnrP69W+UPRSvgy6btWjgAxU+87QNjoCxesdbVQYrWbo5aSzFjKutVAjQ
+         sJXJyjrX8PTIR5mWNgh+BmOSXcq7LlzXW6PXJNfaBU9chGRr60la0o0txrioxUdgUWy/
+         IEBX/fznOkpMKjYZWRFsltYS4X62xY9ZDTrxbPHxBAWY44/OcA1pgzdexcmEcpIl+Dy6
+         X/+3GiIE0tCioL5LxSb7N4cSTHucXrcokUB8v8dIk1cscw3I3SnUE4yr+dlR4lN3NplJ
+         t5gQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzBRgxMy6fmOaAJpIKUMGQOo5DAEdta+D6RXgLZ0tnB47T2uubyfEAZZYKANr9MLNCka3UC7JAivpUE1yQOlj39@lists.infradead.org
+X-Gm-Message-State: AFuF++mCf1jVkVeohG+BdHmBR6EEDnPq3uVF8yp6jsbob0TLlkLdiKxa
+	wft2H3fVJaHMVDymrxacm+g/oWlw6SwdxVyfWL44oAwmGS8jMGyC0tFp
+X-Gm-Gg: AYBFou0Drz5ZZnxeiKi9A7yxeVLnpsSorI28jm5lUBaQk1G1bMyFEpIXttLgXBiHmiJ
+	H/VG1LCQ1jkFq9Urer1KL3874huAU21jpvZcrYtU2S9X1QYmFa0Yxeap3cSsaBXrDCvxLWeVf9T
+	sOys3BmRXOYNsMVztJ7g+s7ruuBHnzrHr7493E8n6mP701b4iUrX757tXvyCn2kBgj/InoFcXsY
+	8ZNvQnA0dKwwpAJlRQMPd0sJKlMAm70E009aFRyk5TkntbvvPjoNbetFJzmhSacQCW+OqKznNfd
+	C7MR0mnKzCmPSSrQJAqmuD4G3FVuNpuDuZaCqQYDkevjGGqqz8fYzMmoBnlZKft9am1JH1Ewzbf
+	l5m5fKJ3kfcJPVkIidRO75NGfaaNkRQ42XumpXp64rT6pqIJTEScTRSiwuaTIl4R2+QMsiCDF87
+	8lHMbTTagFuucKHKxgDWA+ivqL2iVslGr5d9AWL/xWYWpKW6vvcKMl+O10nCDe6A93LU+H2V1qj
+	9ER+l66NeuTAbomhe3KPMzt1KFnW61dFUuIcN/VYjZDM/x6E1xX/Q==
+X-Received: by 2002:a17:907:9809:b0:c29:5b0c:1b44 with SMTP id a640c23a62f3a-c2ac25ef39cmr23038366b.37.1790194973206;
+        Wed, 23 Sep 2026 13:22:53 -0700 (PDT)
+Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2aae5c8a44sm177243566b.20.2026.09.23.13.22.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 13:22:52 -0700 (PDT)
+From: Pablo Mazzini <pmazzini@gmail.com>
+To: Brian Masney <bmasney+clk@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Pablo Mazzini <pmazzini@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Eberhard Stoll <eberhard.stoll@kontron.de>,
-	Oualid Derouiche <oualid.derouiche@kontron.de>
-Subject: Re: (subset) [PATCH v2 0/9] Misc Kontron i.MX DT improvements
-Date: Wed, 23 Sep 2026 16:22:08 -0400
-Message-ID: <179019492254.3751725.4468513390400686623.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-0-8e12bc5f1f10@kontron.de>
-References: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-0-8e12bc5f1f10@kontron.de>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8PR07CA0033.namprd07.prod.outlook.com
- (2603:10b6:510:2cf::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v1 02/11] clk: sunxi-ng: add Allwinner B288 CCU driver
+Date: Wed, 23 Sep 2026 21:16:52 +0100
+Message-ID: <20260923201701.43391-2-pmazzini@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260923201701.43391-1-pmazzini@gmail.com>
+References: <20260923201701.43391-1-pmazzini@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB9183:EE_
-X-MS-Office365-Filtering-Correlation-Id: 15735207-7096-48d7-72db-08df19b05b5d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|19092799006|366016|11063799006|56012099006|10067099003|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: E2pBkTex9ASPtCkn541C4ediPHpSXUB8V+Ds2J71P27+V32POEkbTBo3hFuN5YUkItZODUrp+pKCC6zVgnzxOEqX6UQfhLQu7+2vACV1LjGbUY06YW9LwSM17DpvDjWb6tTgM40UWvYDe1Zn4kJBvRHrBp3xsToTRd/W5ABfL/l+0dnM3Jw4+bd/3q1eqv89hdBDL0TjBRGGPKWvgKpedTQxiSHh+H6xbwVo6XhKQvfFRreQ8Lc55WrlIWzROFgfI/mkWXTP7IP26Wyj9I9HogF+smOiLuidh1ip7AG5RM27pqeKLkM5kGf1MP1zUTYRKU7l/VLPzb/JMmrocFWHAF0HY4fenD70gguD99yaSRFNr6VrMv/Q9Dtpp4a4LV6SVj0axBoJd5hS5B0MV8n73cqhM7Fiw+dNOh3M0fSiwbSB0o6AYOnGyB1lFH2oEBsPXiVQVcMMT0es7sZN8toxUSUleI7dckyQK9ZqdjrNA14ypiibNItdEFMvkm1D56+ARGtkClrKMePPXmManyika9WGr8NKf5q1Q2aFYci/Lhw7/sqUxPDOf1DDSFNJgRKgJT887tMyccvX3xkTC3uFPguGzid2QCTr6uKALp/2990=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(19092799006)(366016)(11063799006)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VDJlV2xHNE96cms2SWNhYWpZalJPbitvMllNdEd4ZEpNSXZpZTZVczI0UHp3?=
- =?utf-8?B?UVd2aGNXZURSNHF3RWpqdUFzaGZkMFBmQnFvWEVtS0h6bGQraUxKQkltUFBj?=
- =?utf-8?B?bHlIMml6bEVFUzBORTVIQ0RPWDdKWjNMZ1N2ZDNBZjAwaSttNjlQUVpWc2Ir?=
- =?utf-8?B?aVZtY29QNTlVUlVNMWo5bjlXZ1ptMjN5SVkyaHpEVmM3V1BwNUhPMi9CaEJZ?=
- =?utf-8?B?d0VhMGxxSENCK2ZNZCtNejNldEpBMThHL1IwaUdoRUl6OUVJZ3RDdGZ5R3JL?=
- =?utf-8?B?eU44WGhkeUhQRlFOdXdENkhSUmxCVVFJY2RjNWpadWFERUpkN25TR1ZsQWxG?=
- =?utf-8?B?ODJxdm9qbzBlTkphc0x0bVlLNUE4aUY2ZFdzQ2JWdEdTa0ZKS2M4cU5MV3d1?=
- =?utf-8?B?R0dXSmVPOE82MzFDTEE0Z3dkTmlpMC9BMW10bk5RVEwzTHpIYnB5aHh1OWlo?=
- =?utf-8?B?eWRuclBzcWV0TkVQRFNmcTdFUTJaVGswdmdwUEczUmpDZUN1SkRxaDJsK1FX?=
- =?utf-8?B?dDl0SzU5L2w3VzNXd3IvbXJlZkl3TkRZSHhsLy95YjNGYmhmczZHNUlNem5m?=
- =?utf-8?B?ZEhQR2hwWWdmb3p5UjI1Z3VSR3BEZE9TVHlhSk5sT0pCZEZqOFZiakVWc004?=
- =?utf-8?B?SVlRdDdUSXkzbUNsRGtmR0toU1FuUTV4RkVmKzgwNDZaL293ZGJVQVhqVERZ?=
- =?utf-8?B?WTRwRFRFdDhnc0RWS2hybU9mZnVxSEJ5eVhjRmhjblVtUjNQeGgvS0RFdno3?=
- =?utf-8?B?TkN3b2tFQnZYRjFwdUdGNVhoaldIaGkralJHb2cyUTltbXVLUU55dWtPYlVW?=
- =?utf-8?B?MmsyTjd6T2VwcUp1QmE0TnhJU1lkY3dnSmg3OWJyaURWKzlZLzJGcmV2TVNv?=
- =?utf-8?B?RlNHWkdCTFg3dlVCeHdOcGpJQm5TRWNhejc5Smh3QWhCR3owU21sZldpVmtD?=
- =?utf-8?B?bk00REJQS1p5V1FnUHZXRFIyMDVYTFpQaDJ3TkVUcTZDVXJadHA0RHhGZ2xX?=
- =?utf-8?B?RklIYTVMOTg5MTJMck1ONmNtcmdSd1NtK2YzOWlCWGt4c0VrQUM2QzllVDg2?=
- =?utf-8?B?SXNYWFJTVTFaOTFxMFc5Q2xya2RNZlVIbXdwc3cvMU5nUlpVYUZkYlhUcFNi?=
- =?utf-8?B?WjlDQlRGRFBMRXNwL0c0QitBWWFIdGgzb0pBcTY5d2F5bjh6aU50VWZZeFVH?=
- =?utf-8?B?YXFCVWZXTEx5ajBnQVo3dlc2TFVLckJkaU1iUlpwYWptakpKc1ZjZ0RQTWlu?=
- =?utf-8?B?NWFYMms0SHlCRHE3OVphTk5qQXF1TUlLeUlkb3U5WXJBdS9uU01PUHY3T0d4?=
- =?utf-8?B?Nnk2RmpEWC8vSXJXRitlQXY0TlpjcTdKMm5sSW9ZZytmeTZoQ3hQYjJMOS91?=
- =?utf-8?B?cmFXaUlST2NwbElWRURwQ0FsTXk0ZXd0OEZJNytIekpTeWFBSGxyWlo4eVlj?=
- =?utf-8?B?UXVMNnBFTXBwS0R4M0tVMVMwN3R3c0Q4MWtyd0N4MFc3SUN6Z3AxSUtyZUJX?=
- =?utf-8?B?Ui92YVI1dDh4bEFwN29qUStUOVp1d09QbnpMTUNFbFIxUmtjOEp0VnJKclBm?=
- =?utf-8?B?L2VWREFZL0Y1cFAyZjJ3Vk0rYnFuRGQzaG50UTgvZVRrMWJzdFNXZFJ4MEha?=
- =?utf-8?B?VFFwdTBPZVVsRlJyQ0xtaXgwMSsycHk5QnJGNHZxcTYwS3ZTQkF3MzNuN1Ni?=
- =?utf-8?B?SnREUHZTeW1UVmxyOE9TeFNuQm4yOG0wK3pheE1xZ2k5WlJIWXBiUXFncExr?=
- =?utf-8?B?a2ZPdk9rLys4SFJPclRzYmlCQ1lWZ2xZa0VnMDNzT3VOcUdSRUVYWS9PdUps?=
- =?utf-8?B?eHJLME93d2NhbTlNZ0FOYTJaRVlTbXQrdnlmaTZXMlJzWVlJUm4raUo4b094?=
- =?utf-8?B?bGlHS0E0dWQ0cjZ6aUllTjZZanN1MDY2ZmF0Mi9rS3BNMCt1ZUxKa05xRHBX?=
- =?utf-8?B?MlM4MUhrUFprOTlQS2JKOGlZZXZoSGFXQ1BTbVRKdGZsOUtkY24vaXRoY01t?=
- =?utf-8?B?d3ZJYTJxT3ZrYUYyUXAwc1NZQnd6cDQxRTFjVmQwY3pieTI4NUJaaDhzNWNr?=
- =?utf-8?B?cXFMU09GYVhMZWZsajlXbTY2NVZFMkE4VXh1bFpnQytnM2MyRWp2ZXlxY3NK?=
- =?utf-8?B?cE1uVXpnb3Y3UnhCZ2pSU1ArNTh3cDNhZUJFL3d0OW1uZ3JBSENCVEluaTc1?=
- =?utf-8?B?NGdCdnN0OW1NOUpHQzNwU0l5ZWxZamVtWEtVdzVYazhZUWVxb3orN3lMR0JR?=
- =?utf-8?B?Mlc3WDIzcDc2ZDZPallzQlJDTCtJVTBGZUoxMDQrZDJRSDRLNVBQL1J2cGJO?=
- =?utf-8?B?VTJQRyt0UWFSeFByQmdDUmRSZUo3OWVoM2QzOG1tNitFYTkxZENUbDNYY2xX?=
- =?utf-8?Q?sZuTXokmLtHhKV6uTq6X+uH6LUufQHwOtyI2O?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15735207-7096-48d7-72db-08df19b05b5d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 20:22:14.9365
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8YVJIJIg1WVQJkMNpYuz7cqfJ1VAE6ofTSavj5T9kIXtr9wr0JdXxyXuuFMRrih18VhYcP3wOkRgjB11PJV/8EgDjEFNkoN9INKOgJbHVQI9BD9no+GQZjMlFpEhqCZq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9183
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_132223_400538_68D089C4 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_132256_926420_F862FFBC 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,24 +107,739 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Covers the PLLs, the CPU/AHB/APB tree, the module clocks and the bus
+gates and resets.
 
+Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+---
+ drivers/clk/sunxi-ng/Kconfig          |   5 +
+ drivers/clk/sunxi-ng/Makefile         |   1 +
+ drivers/clk/sunxi-ng/ccu-sun8i-b288.c | 669 ++++++++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun8i-b288.h |  10 +
+ 4 files changed, 685 insertions(+)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-b288.h
 
-On Mon, 14 Sep 2026 15:46:08 +0200, Frieder Schrempf wrote:
-> Changes in v2:
-> - Patch 1 and 8: Improve commit message (Frank)
-> - Link to v1: https://patch.msgid.link/20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de
-
-Applied, thanks!
-
-[1/9] ARM: dts: imx6ul-kontron-bl-common: Replace UART3 with DIP switch GPIOs
-      commit: b2e2c41c398d6aa097203e70c7acf82ba4c5a6a0
-[2/9] ARM: dts: imx6ul-kontron-bl-common: Add GPIO labels
-      commit: 27408de30b6e5bb93dfb99af508a670abd787b00
-[3/9] ARM: dts: imx6ul-kontron-bl-common: Fix USB OTG1 ID pin configuration
-      commit: d3b1ebe5a7a1f345fdc75a657ae725af0a0bbdbd
-
-Best regards,
+diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
+index 6af2d020e03e..5bdfb8574794 100644
+--- a/drivers/clk/sunxi-ng/Kconfig
++++ b/drivers/clk/sunxi-ng/Kconfig
+@@ -88,6 +88,11 @@ config SUN6I_RTC_CCU
+ 	default ARCH_SUNXI
+ 	depends on MACH_SUN8I || ARM64 || RISCV || COMPILE_TEST
+ 
++config SUN8I_B288_CCU
++	tristate "Support for the Allwinner B288 CCU"
++	default ARCH_SUNXI
++	depends on MACH_SUN8I || COMPILE_TEST
++
+ config SUN8I_A23_CCU
+ 	tristate "Support for the Allwinner A23 CCU"
+ 	default ARCH_SUNXI
+diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefile
+index a1c4087d7241..dcc377a09ccc 100644
+--- a/drivers/clk/sunxi-ng/Makefile
++++ b/drivers/clk/sunxi-ng/Makefile
+@@ -40,6 +40,7 @@ obj-$(CONFIG_SUN4I_A10_CCU)	+= sun4i-a10-ccu.o
+ obj-$(CONFIG_SUN5I_CCU)		+= sun5i-ccu.o
+ obj-$(CONFIG_SUN6I_A31_CCU)	+= sun6i-a31-ccu.o
+ obj-$(CONFIG_SUN6I_RTC_CCU)	+= sun6i-rtc-ccu.o
++obj-$(CONFIG_SUN8I_B288_CCU)	+= ccu-sun8i-b288.o
+ obj-$(CONFIG_SUN8I_A23_CCU)	+= sun8i-a23-ccu.o
+ obj-$(CONFIG_SUN8I_A33_CCU)	+= sun8i-a33-ccu.o
+ obj-$(CONFIG_SUN8I_A83T_CCU)	+= sun8i-a83t-ccu.o
+diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-b288.c b/drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+new file mode 100644
+index 000000000000..4c3ce02878d2
+--- /dev/null
++++ b/drivers/clk/sunxi-ng/ccu-sun8i-b288.c
+@@ -0,0 +1,669 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Clock Control Unit driver for the Allwinner B288 (sun8iw10p1).
++ *
++ * Closely related to the A64: nine of eleven PLLs are bit-identical.
++ * Transcribed from the BSP clk-sun8iw10.{c,h} and cross-checked against
++ * ccu-sun50i-a64.c; divergences are called out inline.
++ *
++ * The audio clock tree (i2s/spdif/dsd/dmic/adda) is not implemented.
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++
++#include "ccu_common.h"
++#include "ccu_reset.h"
++
++#include "ccu_div.h"
++#include "ccu_gate.h"
++#include "ccu_mp.h"
++#include "ccu_mult.h"
++#include "ccu_nk.h"
++#include "ccu_nkm.h"
++#include "ccu_nkmp.h"
++#include "ccu_nm.h"
++#include "ccu_phase.h"
++
++#include "ccu-sun8i-b288.h"
++
++/*
++ * PLL_CPU @ 0x000 -- N[12:8] K[5:4] M[1:0] P[17:16], gate 31, lock 28.
++ * Identical to sun50i-a64.
++ */
++static struct ccu_nkmp pll_cpux_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 5),
++	.k		= _SUNXI_CCU_MULT(4, 2),
++	.m		= _SUNXI_CCU_DIV(0, 2),
++	.p		= _SUNXI_CCU_DIV_MAX(16, 2, 4),
++	.common		= {
++		.reg		= 0x000,
++		.hw.init	= CLK_HW_INIT("pll-cpux", "osc24M",
++					      &ccu_nkmp_ops,
++					      CLK_SET_RATE_UNGATE),
++	},
++};
++
++/*
++ * PLL_AUDIO @ 0x008 -- N[14:8] M[4:0], gate 31, lock 28.
++ * The vendor also writes a sigma-delta pattern at PLL_AUDIOPAT (0x284);
++ * not transcribed, so plain NM here.
++ */
++static SUNXI_CCU_NM_WITH_GATE_LOCK(pll_audio_base_clk, "pll-audio-base",
++				   "osc24M", 0x008,
++				   8, 7,	/* N */
++				   0, 5,	/* M */
++				   BIT(31),	/* gate */
++				   BIT(28),	/* lock */
++				   CLK_SET_RATE_UNGATE);
++
++/* PLL_VIDEO0 @ 0x010 -- identical to sun50i-a64. */
++static SUNXI_CCU_NM_WITH_FRAC_GATE_LOCK(pll_video0_clk, "pll-video0",
++					"osc24M", 0x010,
++					8, 7,		/* N */
++					0, 4,		/* M */
++					BIT(24),	/* frac enable */
++					BIT(25),	/* frac select */
++					270000000,	/* frac rate 0 */
++					297000000,	/* frac rate 1 */
++					BIT(31),	/* gate */
++					BIT(28),	/* lock */
++					CLK_SET_RATE_UNGATE);
++
++/*
++ * PLL_DDR0 @ 0x020 -- DIVERGES FROM A64, which is NKM with N[12:8] K[5:4].
++ * The B288 has a 7-bit N and no K, confirmed on hardware: with DRAM up,
++ * PLL_DDR1 reads 0x90003700, i.e. N[14:8] = 55 -> 56 x 24MHz = 1344MHz,
++ * half of which is the 672MHz boot0 configures. Bit 13 is set, so the
++ * value cannot be expressed in A64's 5-bit N field at all.
++ *
++ * The vendor's bit-30 apply/update has no mainline equivalent and is not
++ * modelled, nor are the sigma-delta patterns at 0x2ac..0x2b8.
++ */
++static SUNXI_CCU_NM_WITH_GATE_LOCK(pll_ddr0_clk, "pll-ddr0",
++				   "osc24M", 0x020,
++				   8, 7,	/* N */
++				   0, 2,	/* M */
++				   BIT(31),	/* gate */
++				   BIT(28),	/* lock */
++				   CLK_SET_RATE_UNGATE);
++
++/* PLL_PERIPH0 @ 0x028 -- identical to sun50i-a64, incl. fixed post-div 2. */
++static struct ccu_nk pll_periph0_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 5),
++	.k		= _SUNXI_CCU_MULT_MIN(4, 2, 2),
++	.fixed_post_div	= 2,
++	.common		= {
++		.reg		= 0x028,
++		.features	= CCU_FEATURE_FIXED_POSTDIV,
++		.hw.init	= CLK_HW_INIT("pll-periph0", "osc24M",
++					      &ccu_nk_ops, 0),
++	},
++};
++
++/* PLL_VIDEO1 @ 0x030 -- same layout as PLL_VIDEO0. */
++static SUNXI_CCU_NM_WITH_FRAC_GATE_LOCK(pll_video1_clk, "pll-video1",
++					"osc24M", 0x030,
++					8, 7,		/* N */
++					0, 4,		/* M */
++					BIT(24),	/* frac enable */
++					BIT(25),	/* frac select */
++					270000000,	/* frac rate 0 */
++					297000000,	/* frac rate 1 */
++					BIT(31),	/* gate */
++					BIT(28),	/* lock */
++					CLK_SET_RATE_UNGATE);
++
++/*
++ * PLL_24M @ 0x034 -- B288 only, no a64 equivalent.
++ * Vendor: N[14:8] K[20:16] M[1:0] P[7:4]. The unusual K position means the
++ * generic NKMP macro cannot be used; declared longhand.
++ */
++static struct ccu_nkmp pll_24m_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 7),
++	.k		= _SUNXI_CCU_MULT(16, 5),
++	.m		= _SUNXI_CCU_DIV(0, 2),
++	.p		= _SUNXI_CCU_DIV(4, 4),
++	.common		= {
++		.reg		= 0x034,
++		.hw.init	= CLK_HW_INIT("pll-24m", "osc24M",
++					      &ccu_nkmp_ops,
++					      CLK_SET_RATE_UNGATE),
++	},
++};
++
++/* PLL_PERIPH1 @ 0x044 -- identical to sun50i-a64. */
++static struct ccu_nk pll_periph1_clk = {
++	.enable		= BIT(31),
++	.lock		= BIT(28),
++	.n		= _SUNXI_CCU_MULT(8, 5),
++	.k		= _SUNXI_CCU_MULT_MIN(4, 2, 2),
++	.fixed_post_div	= 2,
++	.common		= {
++		.reg		= 0x044,
++		.features	= CCU_FEATURE_FIXED_POSTDIV,
++		.hw.init	= CLK_HW_INIT("pll-periph1", "osc24M",
++					      &ccu_nk_ops, 0),
++	},
++};
++
++/* PLL_DE @ 0x048 -- identical to sun50i-a64. */
++static SUNXI_CCU_NM_WITH_FRAC_GATE_LOCK(pll_de_clk, "pll-de",
++					"osc24M", 0x048,
++					8, 7,		/* N */
++					0, 4,		/* M */
++					BIT(24),	/* frac enable */
++					BIT(25),	/* frac select */
++					270000000,	/* frac rate 0 */
++					297000000,	/* frac rate 1 */
++					BIT(31),	/* gate */
++					BIT(28),	/* lock */
++					CLK_SET_RATE_UNGATE);
++
++/* PLL_DDR1 @ 0x04c -- B288 only. Same layout; this is the one feeding DRAM. */
++static SUNXI_CCU_NM_WITH_GATE_LOCK(pll_ddr1_clk, "pll-ddr1",
++				   "osc24M", 0x04c,
++				   8, 7,	/* N */
++				   0, 2,	/* M */
++				   BIT(31),	/* gate */
++				   BIT(28),	/* lock */
++				   CLK_SET_RATE_UNGATE);
++
++/*
++ * Multiplied PLL outputs. pll_periph{0,1} carry a fixed /2 post-divider, so
++ * the "2x" clocks the vendor's periphx2_parents refer to are the raw outputs.
++ */
++static CLK_FIXED_FACTOR_HW(pll_periph0_2x_clk, "pll-periph0-2x",
++			   &pll_periph0_clk.common.hw,
++			   1, 2, 0);
++static CLK_FIXED_FACTOR_HW(pll_periph1_2x_clk, "pll-periph1-2x",
++			   &pll_periph1_clk.common.hw,
++			   1, 2, 0);
++
++/*
++ * CPU_CFG @ 0x050 -- mux[17:16], CPUAPB divider [9:8], AXI divider [1:0].
++ * Same layout as the H3 and the A64.
++ */
++/* vendor: cpu_parents */
++static const char * const cpux_parents[] = { "osc32k", "osc24M",
++					     "pll-cpux", "pll-cpux" };
++static SUNXI_CCU_MUX(cpux_clk, "cpux", cpux_parents,
++		     0x050, 16, 2, CLK_IS_CRITICAL | CLK_SET_RATE_PARENT);
++
++static SUNXI_CCU_M(axi_clk, "axi", "cpux", 0x050, 0, 2, 0);
++static SUNXI_CCU_M(cpuapb_clk, "cpuapb", "cpux", 0x050, 8, 2, 0);
++
++/*
++ * AHB1_CFG @ 0x054 -- mux[13:12], AHB1 P2 divider [5:4], PLL_PERIPH0-only
++ * pre-divider [7:6], APB1 divider [9:8].
++ */
++/* vendor: ahb1_parents, with pll_periphahb0 folded into the prediv */
++static const char * const ahb1_parents[] = { "osc32k", "osc24M",
++					     "axi", "pll-periph0" };
++static const struct ccu_mux_var_prediv ahb1_predivs[] = {
++	{ .index = 3, .shift = 6, .width = 2 },
++};
++
++static struct ccu_div ahb1_clk = {
++	.div		= _SUNXI_CCU_DIV_FLAGS(4, 2, CLK_DIVIDER_POWER_OF_TWO),
++
++	.mux		= {
++		.shift	= 12,
++		.width	= 2,
++
++		.var_predivs	= ahb1_predivs,
++		.n_var_predivs	= ARRAY_SIZE(ahb1_predivs),
++	},
++
++	.common		= {
++		.reg		= 0x054,
++		.features	= CCU_FEATURE_VARIABLE_PREDIV,
++		.hw.init	= CLK_HW_INIT_PARENTS("ahb1",
++						      ahb1_parents,
++						      &ccu_div_ops,
++						      0),
++	},
++};
++
++static struct clk_div_table apb1_div_table[] = {
++	{ .val = 0, .div = 2 },
++	{ .val = 1, .div = 2 },
++	{ .val = 2, .div = 4 },
++	{ .val = 3, .div = 8 },
++	{ /* Sentinel */ },
++};
++
++static SUNXI_CCU_DIV_TABLE(apb1_clk, "apb1", "ahb1",
++			   0x054, 8, 2, apb1_div_table, 0);
++
++/*
++ * APB2_CFG @ 0x058 -- M[4:0] P[17:16] mux[25:24]. The divider matches the
++ * H3, but mux index 2 selects PLL_24M here rather than PLL_PERIPH0_2X.
++ */
++/* vendor: apb2_parents */
++static const char * const apb2_parents[] = { "osc32k", "osc24M",
++					     "pll-24m", "pll-periph0-2x" };
++static SUNXI_CCU_MP_WITH_MUX(apb2_clk, "apb2", apb2_parents, 0x058,
++			     0, 5,	/* M */
++			     16, 2,	/* P */
++			     24, 2,	/* mux */
++			     0);
++
++/* vendor: periphx2_parents */
++static const char * const mod0_parents[] = { "osc24M", "pll-periph0-2x",
++					     "pll-periph1-2x" };
++/* vendor: de_parents */
++static const char * const de_parents[] = { "pll-periph0-2x", "pll-de" };
++/* vendor: tcon0_parents */
++static const char * const tcon0_parents[] = { "pll-video0", "pll-video1" };
++/* vendor: mbus_parents */
++static const char * const mbus_parents[] = { "osc24M", "pll-periph0-2x",
++					     "pll-ddr0", "pll-ddr1" };
++/* vendor: sdram_parents */
++static const char * const dram_parents[] = { "pll-ddr0", "pll-ddr1",
++					     "pll-periph0-2x" };
++
++/* NAND_CFG @ 0x080 -- M[3:0] P[17:16] mux[25:24] gate 31 */
++static SUNXI_CCU_MP_WITH_MUX_GATE(nand_clk, "nand", mod0_parents, 0x080,
++				  0, 4,		/* M */
++				  16, 2,	/* P */
++				  24, 2,	/* mux */
++				  BIT(31),	/* gate */
++				  0);
++
++/*
++ * SD{0..3}_CFG @ 0x088/0x08c/0x090/0x094 -- same layout as NAND.
++ *
++ * The four controllers are not the same IP. The vendor device tree calls
++ * mmc0 and mmc1 "sunxi-mmc-v4p1x" and mmc3 "sunxi-mmc-v4p5x" (mmc2 is a
++ * different block again). The v4p1x pair run in the old timing mode: no
++ * internal halving, so no post-divider, and they need the sample and output
++ * phase clocks. mmc2 and mmc3 use the new timing mode like the A64, where
++ * the module clock is internally halved -- hence the post-divider of two.
++ */
++static SUNXI_CCU_MP_WITH_MUX_GATE(mmc0_clk, "mmc0", mod0_parents, 0x088,
++				  0, 4,		/* M */
++				  16, 2,	/* P */
++				  24, 2,	/* mux */
++				  BIT(31),	/* gate */
++				  0);
++static SUNXI_CCU_PHASE(mmc0_sample_clk, "mmc0_sample", "mmc0", 0x088, 20, 3, 0);
++static SUNXI_CCU_PHASE(mmc0_output_clk, "mmc0_output", "mmc0", 0x088, 8, 3, 0);
++
++static SUNXI_CCU_MP_WITH_MUX_GATE(mmc1_clk, "mmc1", mod0_parents, 0x08c,
++				  0, 4,		/* M */
++				  16, 2,	/* P */
++				  24, 2,	/* mux */
++				  BIT(31),	/* gate */
++				  0);
++static SUNXI_CCU_PHASE(mmc1_sample_clk, "mmc1_sample", "mmc1", 0x08c, 20, 3, 0);
++static SUNXI_CCU_PHASE(mmc1_output_clk, "mmc1_output", "mmc1", 0x08c, 8, 3, 0);
++static SUNXI_CCU_MP_WITH_MUX_GATE_POSTDIV(mmc2_clk, "mmc2", mod0_parents,
++					  0x090, 0, 4, 16, 2, 24, 2,
++					  BIT(31), 2, 0);
++static SUNXI_CCU_MP_WITH_MUX_GATE_POSTDIV(mmc3_clk, "mmc3", mod0_parents,
++					  0x094, 0, 4, 16, 2, 24, 2,
++					  BIT(31), 2, 0);
++
++/* SPI{0..2}_CFG @ 0x0a0/0x0a4/0x0a8 -- same layout as NAND. */
++static SUNXI_CCU_MP_WITH_MUX_GATE(spi0_clk, "spi0", mod0_parents, 0x0a0,
++				  0, 4, 16, 2, 24, 2, BIT(31), 0);
++static SUNXI_CCU_MP_WITH_MUX_GATE(spi1_clk, "spi1", mod0_parents, 0x0a4,
++				  0, 4, 16, 2, 24, 2, BIT(31), 0);
++static SUNXI_CCU_MP_WITH_MUX_GATE(spi2_clk, "spi2", mod0_parents, 0x0a8,
++				  0, 4, 16, 2, 24, 2, BIT(31), 0);
++
++/* DRAM_CFG @ 0x0f4 -- M[1:0] mux[21:20] gate 31 */
++static SUNXI_CCU_M_WITH_MUX_GATE(dram_clk, "dram", dram_parents, 0x0f4,
++				 0, 2,		/* M */
++				 20, 2,		/* mux */
++				 BIT(31),	/* gate */
++				 CLK_IS_CRITICAL);
++
++/* DE_CFG @ 0x104, EE_CFG @ 0x108, EDMA_CFG @ 0x10c -- M[3:0] mux[26:24] gate 31 */
++static SUNXI_CCU_M_WITH_MUX_GATE(de_clk, "de", de_parents, 0x104,
++				 0, 4, 24, 3, BIT(31), CLK_SET_RATE_PARENT);
++static SUNXI_CCU_M_WITH_MUX_GATE(ee_clk, "ee", de_parents, 0x108,
++				 0, 4, 24, 3, BIT(31), CLK_SET_RATE_PARENT);
++static SUNXI_CCU_M_WITH_MUX_GATE(edma_clk, "edma", de_parents, 0x10c,
++				 0, 4, 24, 3, BIT(31), CLK_SET_RATE_PARENT);
++
++/* TCON_CFG @ 0x118 -- mux[26:24] gate 31, no divider */
++static SUNXI_CCU_MUX_WITH_GATE(tcon0_clk, "tcon0", tcon0_parents, 0x118,
++			       24, 3,		/* mux */
++			       BIT(31),		/* gate */
++			       CLK_SET_RATE_PARENT);
++
++/* MBUS_CFG @ 0x15c -- M[2:0] mux[25:24] gate 31 */
++static SUNXI_CCU_M_WITH_MUX_GATE(mbus_clk, "mbus", mbus_parents, 0x15c,
++				 0, 3, 24, 2, BIT(31), CLK_IS_CRITICAL);
++
++static SUNXI_CCU_GATE(bus_ths_clk, "bus-ths", "apb1",
++		      0x068, BIT(8), 0);
++static SUNXI_CCU_GATE(bus_nand_clk, "bus-nand", "ahb1",
++		      0x060, BIT(13), 0);
++static SUNXI_CCU_GATE(bus_sdmmc0_bus_clk, "bus-sdmmc0-bus", "ahb1",
++		      0x060, BIT(8), 0);
++static SUNXI_CCU_GATE(bus_sdmmc1_bus_clk, "bus-sdmmc1-bus", "ahb1",
++		      0x060, BIT(9), 0);
++static SUNXI_CCU_GATE(bus_sdmmc2_bus_clk, "bus-sdmmc2-bus", "ahb1",
++		      0x060, BIT(10), 0);
++static SUNXI_CCU_GATE(bus_sdmmc3_bus_clk, "bus-sdmmc3-bus", "ahb1",
++		      0x060, BIT(11), 0);
++static SUNXI_CCU_GATE(bus_spi0_clk, "bus-spi0", "ahb1",
++		      0x060, BIT(20), 0);
++static SUNXI_CCU_GATE(bus_spi1_clk, "bus-spi1", "ahb1",
++		      0x060, BIT(21), 0);
++static SUNXI_CCU_GATE(bus_spi2_clk, "bus-spi2", "ahb1",
++		      0x060, BIT(22), 0);
++static SUNXI_CCU_GATE(bus_i2s0_clk, "bus-i2s0", "apb1",
++		      0x068, BIT(12), 0);
++static SUNXI_CCU_GATE(bus_i2s1_clk, "bus-i2s1", "apb1",
++		      0x068, BIT(13), 0);
++static SUNXI_CCU_GATE(bus_spdif_clk, "bus-spdif", "apb1",
++		      0x068, BIT(1), 0);
++static SUNXI_CCU_GATE(bus_dsd_clk, "bus-dsd", "apb1",
++		      0x068, BIT(2), 0);
++static SUNXI_CCU_GATE(bus_dmic_clk, "bus-dmic", "apb1",
++		      0x068, BIT(3), 0);
++static SUNXI_CCU_GATE(bus_usbohci0_clk, "bus-usbohci0", "ahb1",
++		      0x060, BIT(29), 0);
++static SUNXI_CCU_GATE(bus_usbehci0_clk, "bus-usbehci0", "ahb1",
++		      0x060, BIT(26), 0);
++static SUNXI_CCU_GATE(bus_usbotg_clk, "bus-usbotg", "ahb1",
++		      0x060, BIT(24), 0);
++static SUNXI_CCU_GATE(bus_de_clk, "bus-de", "ahb1",
++		      0x064, BIT(12), 0);
++static SUNXI_CCU_GATE(bus_ee_clk, "bus-ee", "ahb1",
++		      0x064, BIT(13), 0);
++static SUNXI_CCU_GATE(bus_tcon0_clk, "bus-tcon0", "ahb1",
++		      0x064, BIT(4), 0);
++static SUNXI_CCU_GATE(bus_csi_s_clk, "bus-csi-s", "ahb1",
++		      0x064, BIT(8), 0);
++static SUNXI_CCU_GATE(bus_csi_m_clk, "bus-csi-m", "ahb1",
++		      0x064, BIT(8), 0);
++static SUNXI_CCU_GATE(bus_csi_misc_clk, "bus-csi-misc", "ahb1",
++		      0x064, BIT(8), 0);
++static SUNXI_CCU_GATE(bus_adda_clk, "bus-adda", "apb1",
++		      0x068, BIT(0), 0);
++static SUNXI_CCU_GATE(bus_sdram_clk, "bus-sdram", "ahb1",
++		      0x060, BIT(14), 0);
++static SUNXI_CCU_GATE(bus_psram_clk, "bus-psram", "ahb1",
++		      0x060, BIT(15), 0);
++static SUNXI_CCU_GATE(bus_dma_clk, "bus-dma", "ahb1",
++		      0x060, BIT(6), 0);
++static SUNXI_CCU_GATE(bus_uart0_clk, "bus-uart0", "apb2",
++		      0x06c, BIT(16), 0);
++static SUNXI_CCU_GATE(bus_uart1_clk, "bus-uart1", "apb2",
++		      0x06c, BIT(17), 0);
++static SUNXI_CCU_GATE(bus_uart2_clk, "bus-uart2", "apb2",
++		      0x06c, BIT(18), 0);
++static SUNXI_CCU_GATE(bus_uart3_clk, "bus-uart3", "apb2",
++		      0x06c, BIT(19), 0);
++static SUNXI_CCU_GATE(bus_uart4_clk, "bus-uart4", "apb2",
++		      0x06c, BIT(20), 0);
++static SUNXI_CCU_GATE(bus_uart5_clk, "bus-uart5", "apb2",
++		      0x06c, BIT(21), 0);
++static SUNXI_CCU_GATE(bus_twi0_clk, "bus-twi0", "apb2",
++		      0x06c, BIT(0), 0);
++static SUNXI_CCU_GATE(bus_twi1_clk, "bus-twi1", "apb2",
++		      0x06c, BIT(1), 0);
++static SUNXI_CCU_GATE(bus_twi2_clk, "bus-twi2", "apb2",
++		      0x06c, BIT(2), 0);
++static SUNXI_CCU_GATE(bus_pio_clk, "bus-pio", "apb1",
++		      0x068, BIT(5), 0);
++static SUNXI_CCU_GATE(bus_gpadc_clk, "bus-gpadc", "apb1",
++		      0x068, BIT(10), 0);
++static SUNXI_CCU_GATE(bus_keyadc_clk, "bus-keyadc", "apb1",
++		      0x068, BIT(9), 0);
++/* losc_out: reg LOSC_OUT_GATE=0x1c20460 lies outside the CCU window; belongs to another block */
++
++static const struct ccu_reset_map sun8i_b288_ccu_resets[] = {
++	[RST_BUS_THS]	= { 0x2d0, BIT(8) },
++	[RST_BUS_NAND]	= { 0x2c0, BIT(13) },
++	[RST_BUS_MMC0]	= { 0x2c0, BIT(8) },
++	[RST_BUS_MMC1]	= { 0x2c0, BIT(9) },
++	[RST_BUS_MMC2]	= { 0x2c0, BIT(10) },
++	[RST_BUS_MMC3]	= { 0x2c0, BIT(11) },
++	[RST_BUS_SPI0]	= { 0x2c0, BIT(20) },
++	[RST_BUS_SPI1]	= { 0x2c0, BIT(21) },
++	[RST_BUS_SPI2]	= { 0x2c0, BIT(22) },
++	[RST_BUS_I2S0]	= { 0x2d0, BIT(12) },
++	[RST_BUS_I2S1]	= { 0x2d0, BIT(13) },
++	[RST_BUS_SPDIF]	= { 0x2d0, BIT(1) },
++	[RST_BUS_DSD]	= { 0x2d0, BIT(2) },
++	[RST_BUS_DMIC]	= { 0x2d0, BIT(3) },
++	[RST_USBPHY0]	= { 0x0cc, BIT(0) },
++	[RST_BUS_OHCI0]	= { 0x2c0, BIT(29) },
++	[RST_BUS_EHCI0]	= { 0x2c0, BIT(26) },
++	[RST_BUS_OTG]	= { 0x2c0, BIT(24) },
++	[RST_BUS_DE]	= { 0x2c4, BIT(12) },
++	[RST_BUS_EE]	= { 0x2c4, BIT(13) },
++	[RST_BUS_TCON0]	= { 0x2c4, BIT(4) },
++	[RST_BUS_CSI]	= { 0x2c4, BIT(8) },
++	[RST_BUS_ADDA]	= { 0x2d0, BIT(0) },
++	[RST_BUS_WLAN]	= { 0x2c4, BIT(1) },
++	[RST_MBUS]	= { 0x0fc, BIT(31) },
++	[RST_BUS_DRAM]	= { 0x2c0, BIT(14) },
++	[RST_BUS_PSRAM]	= { 0x2c0, BIT(15) },
++	[RST_BUS_DMA]	= { 0x2c0, BIT(6) },
++	[RST_BUS_UART0]	= { 0x2d8, BIT(16) },
++	[RST_BUS_UART1]	= { 0x2d8, BIT(17) },
++	[RST_BUS_UART2]	= { 0x2d8, BIT(18) },
++	[RST_BUS_UART3]	= { 0x2d8, BIT(19) },
++	[RST_BUS_UART4]	= { 0x2d8, BIT(20) },
++	[RST_BUS_UART5]	= { 0x2d8, BIT(21) },
++	[RST_BUS_I2C0]	= { 0x2d8, BIT(0) },
++	[RST_BUS_I2C1]	= { 0x2d8, BIT(1) },
++	[RST_BUS_I2C2]	= { 0x2d8, BIT(2) },
++	[RST_BUS_GPADC]	= { 0x2d0, BIT(10) },
++	[RST_BUS_KEYADC]	= { 0x2d0, BIT(9) },
++};
++
++static struct ccu_common *sun8i_b288_ccu_clks[] = {
++	&pll_cpux_clk.common,
++	&pll_audio_base_clk.common,
++	&pll_video0_clk.common,
++	&pll_ddr0_clk.common,
++	&pll_periph0_clk.common,
++	&pll_video1_clk.common,
++	&pll_24m_clk.common,
++	&pll_periph1_clk.common,
++	&pll_de_clk.common,
++	&pll_ddr1_clk.common,
++	&cpux_clk.common,
++	&axi_clk.common,
++	&cpuapb_clk.common,
++	&ahb1_clk.common,
++	&apb1_clk.common,
++	&apb2_clk.common,
++	&nand_clk.common,
++	&mmc0_clk.common,
++	&mmc0_sample_clk.common,
++	&mmc0_output_clk.common,
++	&mmc1_clk.common,
++	&mmc1_sample_clk.common,
++	&mmc1_output_clk.common,
++	&mmc2_clk.common,
++	&mmc3_clk.common,
++	&spi0_clk.common,
++	&spi1_clk.common,
++	&spi2_clk.common,
++	&dram_clk.common,
++	&de_clk.common,
++	&ee_clk.common,
++	&edma_clk.common,
++	&tcon0_clk.common,
++	&mbus_clk.common,
++	&bus_ths_clk.common,
++	&bus_nand_clk.common,
++	&bus_sdmmc0_bus_clk.common,
++	&bus_sdmmc1_bus_clk.common,
++	&bus_sdmmc2_bus_clk.common,
++	&bus_sdmmc3_bus_clk.common,
++	&bus_spi0_clk.common,
++	&bus_spi1_clk.common,
++	&bus_spi2_clk.common,
++	&bus_i2s0_clk.common,
++	&bus_i2s1_clk.common,
++	&bus_spdif_clk.common,
++	&bus_dsd_clk.common,
++	&bus_dmic_clk.common,
++	&bus_usbohci0_clk.common,
++	&bus_usbehci0_clk.common,
++	&bus_usbotg_clk.common,
++	&bus_de_clk.common,
++	&bus_ee_clk.common,
++	&bus_tcon0_clk.common,
++	&bus_csi_s_clk.common,
++	&bus_csi_m_clk.common,
++	&bus_csi_misc_clk.common,
++	&bus_adda_clk.common,
++	&bus_sdram_clk.common,
++	&bus_psram_clk.common,
++	&bus_dma_clk.common,
++	&bus_uart0_clk.common,
++	&bus_uart1_clk.common,
++	&bus_uart2_clk.common,
++	&bus_uart3_clk.common,
++	&bus_uart4_clk.common,
++	&bus_uart5_clk.common,
++	&bus_twi0_clk.common,
++	&bus_twi1_clk.common,
++	&bus_twi2_clk.common,
++	&bus_pio_clk.common,
++	&bus_gpadc_clk.common,
++	&bus_keyadc_clk.common,
++};
++
++static struct clk_hw_onecell_data sun8i_b288_hw_clks = {
++	.hws	= {
++		[CLK_PLL_CPUX]		= &pll_cpux_clk.common.hw,
++		[CLK_PLL_AUDIO_BASE]	= &pll_audio_base_clk.common.hw,
++		[CLK_PLL_VIDEO0]	= &pll_video0_clk.common.hw,
++		[CLK_PLL_DDR0]		= &pll_ddr0_clk.common.hw,
++		[CLK_PLL_PERIPH0]	= &pll_periph0_clk.common.hw,
++		[CLK_PLL_VIDEO1]	= &pll_video1_clk.common.hw,
++		[CLK_PLL_24M]		= &pll_24m_clk.common.hw,
++		[CLK_PLL_PERIPH1]	= &pll_periph1_clk.common.hw,
++		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
++		[CLK_PLL_DDR1]		= &pll_ddr1_clk.common.hw,
++		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.hw,
++		[CLK_PLL_PERIPH1_2X]	= &pll_periph1_2x_clk.hw,
++		[CLK_CPUX]	= &cpux_clk.common.hw,
++		[CLK_AXI]	= &axi_clk.common.hw,
++		[CLK_CPUAPB]	= &cpuapb_clk.common.hw,
++		[CLK_AHB1]	= &ahb1_clk.common.hw,
++		[CLK_APB1]	= &apb1_clk.common.hw,
++		[CLK_APB2]	= &apb2_clk.common.hw,
++		[CLK_NAND]	= &nand_clk.common.hw,
++		[CLK_MMC0]	= &mmc0_clk.common.hw,
++		[CLK_MMC0_SAMPLE]	= &mmc0_sample_clk.common.hw,
++		[CLK_MMC0_OUTPUT]	= &mmc0_output_clk.common.hw,
++		[CLK_MMC1]	= &mmc1_clk.common.hw,
++		[CLK_MMC1_SAMPLE]	= &mmc1_sample_clk.common.hw,
++		[CLK_MMC1_OUTPUT]	= &mmc1_output_clk.common.hw,
++		[CLK_MMC2]	= &mmc2_clk.common.hw,
++		[CLK_MMC3]	= &mmc3_clk.common.hw,
++		[CLK_SPI0]	= &spi0_clk.common.hw,
++		[CLK_SPI1]	= &spi1_clk.common.hw,
++		[CLK_SPI2]	= &spi2_clk.common.hw,
++		[CLK_DRAM]	= &dram_clk.common.hw,
++		[CLK_DE]	= &de_clk.common.hw,
++		[CLK_EE]	= &ee_clk.common.hw,
++		[CLK_EDMA]	= &edma_clk.common.hw,
++		[CLK_TCON0]	= &tcon0_clk.common.hw,
++		[CLK_MBUS]	= &mbus_clk.common.hw,
++		[CLK_BUS_THS]	= &bus_ths_clk.common.hw,
++		[CLK_BUS_NAND]	= &bus_nand_clk.common.hw,
++		[CLK_BUS_SDMMC0_BUS]	= &bus_sdmmc0_bus_clk.common.hw,
++		[CLK_BUS_SDMMC1_BUS]	= &bus_sdmmc1_bus_clk.common.hw,
++		[CLK_BUS_SDMMC2_BUS]	= &bus_sdmmc2_bus_clk.common.hw,
++		[CLK_BUS_SDMMC3_BUS]	= &bus_sdmmc3_bus_clk.common.hw,
++		[CLK_BUS_SPI0]	= &bus_spi0_clk.common.hw,
++		[CLK_BUS_SPI1]	= &bus_spi1_clk.common.hw,
++		[CLK_BUS_SPI2]	= &bus_spi2_clk.common.hw,
++		[CLK_BUS_I2S0]	= &bus_i2s0_clk.common.hw,
++		[CLK_BUS_I2S1]	= &bus_i2s1_clk.common.hw,
++		[CLK_BUS_SPDIF]	= &bus_spdif_clk.common.hw,
++		[CLK_BUS_DSD]	= &bus_dsd_clk.common.hw,
++		[CLK_BUS_DMIC]	= &bus_dmic_clk.common.hw,
++		[CLK_BUS_USBOHCI0]	= &bus_usbohci0_clk.common.hw,
++		[CLK_BUS_USBEHCI0]	= &bus_usbehci0_clk.common.hw,
++		[CLK_BUS_USBOTG]	= &bus_usbotg_clk.common.hw,
++		[CLK_BUS_DE]	= &bus_de_clk.common.hw,
++		[CLK_BUS_EE]	= &bus_ee_clk.common.hw,
++		[CLK_BUS_TCON0]	= &bus_tcon0_clk.common.hw,
++		[CLK_BUS_CSI_S]	= &bus_csi_s_clk.common.hw,
++		[CLK_BUS_CSI_M]	= &bus_csi_m_clk.common.hw,
++		[CLK_BUS_CSI_MISC]	= &bus_csi_misc_clk.common.hw,
++		[CLK_BUS_ADDA]	= &bus_adda_clk.common.hw,
++		[CLK_BUS_SDRAM]	= &bus_sdram_clk.common.hw,
++		[CLK_BUS_PSRAM]	= &bus_psram_clk.common.hw,
++		[CLK_BUS_DMA]	= &bus_dma_clk.common.hw,
++		[CLK_BUS_UART0]	= &bus_uart0_clk.common.hw,
++		[CLK_BUS_UART1]	= &bus_uart1_clk.common.hw,
++		[CLK_BUS_UART2]	= &bus_uart2_clk.common.hw,
++		[CLK_BUS_UART3]	= &bus_uart3_clk.common.hw,
++		[CLK_BUS_UART4]	= &bus_uart4_clk.common.hw,
++		[CLK_BUS_UART5]	= &bus_uart5_clk.common.hw,
++		[CLK_BUS_TWI0]	= &bus_twi0_clk.common.hw,
++		[CLK_BUS_TWI1]	= &bus_twi1_clk.common.hw,
++		[CLK_BUS_TWI2]	= &bus_twi2_clk.common.hw,
++		[CLK_BUS_PIO]	= &bus_pio_clk.common.hw,
++		[CLK_BUS_GPADC]	= &bus_gpadc_clk.common.hw,
++		[CLK_BUS_KEYADC]	= &bus_keyadc_clk.common.hw,
++	},
++	.num	= CLK_NUMBER,
++};
++
++static const struct sunxi_ccu_desc sun8i_b288_ccu_desc = {
++	.ccu_clks	= sun8i_b288_ccu_clks,
++	.num_ccu_clks	= ARRAY_SIZE(sun8i_b288_ccu_clks),
++
++	.hw_clks	= &sun8i_b288_hw_clks,
++
++	.resets		= sun8i_b288_ccu_resets,
++	.num_resets	= ARRAY_SIZE(sun8i_b288_ccu_resets),
++
++};
++
++static int sun8i_b288_ccu_probe(struct platform_device *pdev)
++{
++	void __iomem *reg;
++
++	reg = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(reg))
++		return PTR_ERR(reg);
++
++	return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun8i_b288_ccu_desc);
++}
++
++static const struct of_device_id sun8i_b288_ccu_ids[] = {
++	{ .compatible = "allwinner,sun8i-b288-ccu" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, sun8i_b288_ccu_ids);
++
++static struct platform_driver sun8i_b288_ccu_driver = {
++	.probe	= sun8i_b288_ccu_probe,
++	.driver	= {
++		.name			= "sun8i-b288-ccu",
++		.suppress_bind_attrs	= true,
++		.of_match_table		= sun8i_b288_ccu_ids,
++	},
++};
++module_platform_driver(sun8i_b288_ccu_driver);
++
++MODULE_IMPORT_NS("SUNXI_CCU");
++MODULE_DESCRIPTION("Allwinner B288 (sun8iw10p1) CCU driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-b288.h b/drivers/clk/sunxi-ng/ccu-sun8i-b288.h
+new file mode 100644
+index 000000000000..805df2d6d99c
+--- /dev/null
++++ b/drivers/clk/sunxi-ng/ccu-sun8i-b288.h
+@@ -0,0 +1,10 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _CCU_SUN8I_B288_H_
++#define _CCU_SUN8I_B288_H_
++
++#include <dt-bindings/clock/sun8i-b288-ccu.h>
++#include <dt-bindings/reset/sun8i-b288-ccu.h>
++
++#define CLK_NUMBER		(CLK_MMC1_OUTPUT + 1)
++
++#endif /* _CCU_SUN8I_B288_H_ */
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.53.0
+
 
