@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB9AC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C36DC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4AqH3BG39Ccw9rat1s2LDjmKzSlLDWMcVufSeoX/Lk=; b=F3ldoTaK9XMT5244cvoNTIEPvj
-	i2po88vgQPge/SkkD8wgjh1wyz8y3nCkIlNAD2Vws9zcjzAoWMn02Z6usScv28iItwwpGuQprYERA
-	wELlGlTIYJN9q9gf5nHOQYo7CfO/SiOiNHjubeS6Df2e4UouYIAyQeBVCisgGahpCNZK0xTpConZi
-	clG2G8djLFpuDNOseOx2lUy97KSWQCxlwf4B4oRg+1TP/DwvU0eRstOHLu6uq6SBrf9sT9KzFnlqb
-	TFdbJlWFi+ACDczaUOXtzXO3ODjteg91KYiwkfjPVfHysosTsLMXvtkoOtSCI0CWh3JrSh3v6Zjzs
-	iyAMGb+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RmWPw9HQP1XagMM9TGKgOpF0w9bX79g0MmpHkabvFyc=; b=rOZiXkyCT/eU93qd4FBVIIMjTr
+	sEZmPWT7F1sEnxcnHQfIiajLjN+M8l5gzxElfl00uO3e8hbTuupFMDJQY1U4vspGtQY2pMyAXYDaF
+	Ch8G9iMRWJkEzn4jJg2tWZxBvRNicVe3+WaAQTngG8Lgktms0Cd8wANQjvRXJMpmn+YKjAjZ9ZiOP
+	KWOOIKmRq9iWQfVL7yZgLtAtsHOyan/RcFQvLaiPRKYEgNVTCZhed49ylPvYQfipS0lxGrF69xXOg
+	ADEo9kefxIQA8rnODO7lErYBzfzfrsx3d5SEkaJsJneZE7YzXO2QllaP+Oi4n31qo8R+Ovz9T0hI1
+	dUsLROlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ovh-00000008k54-1hi4;
-	Wed, 23 Sep 2026 15:30:41 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x9OzZ-00000008kc0-3wGy;
+	Wed, 23 Sep 2026 15:34:41 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ove-00000008k4B-13eg
+	id 1x9OzW-00000008kah-3cYG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:30:39 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-39dacf053eeso613379a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:30:37 -0700 (PDT)
+	Wed, 23 Sep 2026 15:34:40 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4cdc0d663so566214a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:34:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1790177437; x=1790782237; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W4AqH3BG39Ccw9rat1s2LDjmKzSlLDWMcVufSeoX/Lk=;
-        b=bgYcIVFVNN0tzbZHaVjFFmAWaf+30myK170vRBpO1WIHh8QyYJy2SpB+JhHeqmnxjP
-         71ws9Y3kGghSOTia4G+e28GnMK41BP3QQZgfiRcC4Qo0HoZsTGxiDVtu2I8FqSeFXZ9T
-         yrbUHMDzhAx4vSiOgOC7o4+f/RJpnVTMZYVB7qWRebmgNUVkCOgovZTe/z2madVX4tpv
-         a/X1pIIgqjqYYZUUz+Rj45ATuuQL5BGJ3lpPWJJ3cNuHygJ97oubkBrLCQLjaKKQSUeK
-         gjGeqq0gXdBuwf7sCTjB/6DdOncVd4EjXnhf2FeiGoLvpYu28euoOpY8k8Afyft26OmQ
-         yeZw==
+        d=gmail.com; s=20251104; t=1790177677; x=1790782477; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RmWPw9HQP1XagMM9TGKgOpF0w9bX79g0MmpHkabvFyc=;
+        b=ML7KaoHugJtPwtdoh7QBF+Sbfuqm1FQJqZbyms1Q73PfHIk4vfdgtJhUftQ3an51X9
+         ah0L4O1KXjAEKF2zry6u3c6ENiXqbn+riYn+EkxkOhxn0X/PpOqJLMG29kdAPmri3otQ
+         jmZHT6Gg3EyJ6QTsCLdNwvJSwnkERRjp8bHekkW0rbAXWqvAiGi8917uPi+YgAKHm3T7
+         PKjpxsvAWQQz6WNdMlPy34KX83UPlB/uxZD5VRgyg7RcN48mOUywfsSsautEg7XLbhAv
+         UhmDvmvX8wk87dSoS/CkHK1G4tcXt1TieorCGTEMUrLNY5tDa+dE3Dgr36d66T8MaNwR
+         Iz4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790177437; x=1790782237;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W4AqH3BG39Ccw9rat1s2LDjmKzSlLDWMcVufSeoX/Lk=;
-        b=Qhvfh9Si15imJx7KLIg/0aTCctiM+WUIYYM68lxKsGGqAxie2fveQjvMYN+hGJl9Z3
-         cKfz/qZrXWNMdt7u2hCL9Zclc8/QgkVQHB6E7TIGzRCPJd4yyo9dHuRlfW4cHtkGTzwW
-         O2pM+guJNh1ZYWYv4ASXo7qawt/gmUUpuZXyZB9XvN0jO4yZWKrSl7LLZkc1rQr6s/GY
-         l1eMsCTmNpATl78l5ewPCQkuSIqwla4u0a8TDMZjAkb7wDhUmzOQSnEjhGKbaVpFRAl9
-         hncunUoOKXod8Pd33s6Dp62xuXryDY0ueeO2xKu5k7RN/LBPSOrMrIvcmWi6IiQUP/hC
-         KEKw==
-X-Forwarded-Encrypted: i=1; AKwUvBwOF3wZrNnF9BUnRYNr35lstfPwuc97v7SaTUrD9JZqHteJ+sAHtfsB8JsTRZx0Kd2fruu5utcNtKLQxYZV0l2N@lists.infradead.org
-X-Gm-Message-State: AFuF++lVOzRsAI39RToumnlnKuCWsTQIf9B9al3h2dSVS/pZj/GWKxTj
-	dacJLLgmWleqEqz4JV61zpfbj8t/ubBwpmh7D3Ew4bJXJHjWT3UOhuui0H3bwzGocwQ=
-X-Gm-Gg: AYBFou144rsbNlUgNNEUTr20qcO7UVZ7GYh8GmpoFjpXwI8Qldk7crOv+2zfXOhyHul
-	wIB9Dh2fmU3JPZJSQUyvlnrRfuU4MfhCPS4tsRx2u+Nz3eVUk/RpCcwPeiaAjdIfuH/aJMr7O/m
-	6mQ33BY8DMDHpJ/0cloFQ8URvy7LP/x+YT+Do0nFA+48cavIbm0W75OjEuF14bPkAbY3thTMtoN
-	S8wQ+ib9kvWpAggies/RnY9MgBrAHVhsNQEnZ6/gXe2RG+8kdC+JRzQiklitsJNMYBeCxAEkNSI
-	ukd1XPTBv68P97fBhpDvm/gyjEoysZNFshdguQgNSrr1OwILz1UabYkbqalFUrcLjP3Fnjcb6Al
-	Q+ImH1XUHAQlrtzTOkDEUcUN8UWuw3YIWStcLlMl8QH4bX3Rur0ESj7txqFHB9bj8JMGMltXcNM
-	9OZ2MIBo0+0/BM426MDKKUqhJr/ySwpVfzLiX6LjCgIF0rZjlqy0Q68qeB+pvf6KNOg2fSqTQ=
-X-Received: by 2002:a17:90b:4d0e:b0:39e:6a7e:ee19 with SMTP id 98e67ed59e1d1-3a07e6540e2mr2620920a91.37.1790177436748;
-        Wed, 23 Sep 2026 08:30:36 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:b4a:dc6a:68e:2592])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07ddf1cf3sm5652074a91.9.2026.09.23.08.30.34
+        d=1e100.net; s=20260707; t=1790177677; x=1790782477;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RmWPw9HQP1XagMM9TGKgOpF0w9bX79g0MmpHkabvFyc=;
+        b=Kp3OA3vYx5ugzxYAei2fE1tjbZ8YhFLKTa40jUsGm7vioY7SP5UPmDEipsBR2Eb0Kd
+         TL2j1SH/C6PFgIQoP8rBHyR+MsIrNhIlY06HfA9C5fHZ5DBVkVfAzUYdMjAvuLyXRSNw
+         xrRZCOPOI+o3rXHGs8xbq1Whc6yAbR21c+M7/+bfSMs+6E79TPv1yJx+hRDXpiJGLjp1
+         LHPFV8Hz32FakRuxfmoM0buBeXrIIpzx2gEbkqAMITFDSuO9XSAHFyqH8rLLmIdHDHGE
+         RdwAOCf93jnjyHabu+xDMgo3a0ZhdEISNNkELKaocasKlfZ+hUPHoVZ9fdrBBwWG2uRz
+         e8Tw==
+X-Forwarded-Encrypted: i=1; AKwUvByISJ+OmoobRMbU+iVvbQT0VapANTzLR5Ogi3gc4lx2pEyXUYmIddsDwH5hEHV5WBESzW1O6r7+6HMLejt+jn9D@lists.infradead.org
+X-Gm-Message-State: AFuF++kMCvmuPnIakwS1ZozM7O8RspevUFFjpeeDpaSuY7Hcs31iB9ur
+	/9VQW5T465TuVIZOFTl3u2CCwL0fArm8eL1sufIkEFwbNtZ2nnkHhM8q
+X-Gm-Gg: AYBFou1JteMk1TxkE3aQCGubTyXAxHYXq4xCGczzn2E40j8sX2K8jxaOy0EmJtDAgr7
+	tZTq1Y1jbv3CrAAeNdQFE6ZXGawVM5o9NaRxm3KRu624Ih2UAiubtta3V7WkF1+AZl+kQUlEE/z
+	DY6DR64FSzJTAjuGYodWGtukZ5LpioAz9dHgUv57nkMGTSTX9O8HICXcvabKPGDz/+1eE/XOStr
+	z7u0sbqBKd3HREwj/R3z54kQ7TfYiEJnkYFQyyYLdRCh2p1ee5zY+aB5kKuExezBDWBjV1ncmfe
+	QOYOgoNaBx87IeZFkZwQshj7toPvXtqnfaZYS84DHJpOVWPIfEP1mNPsfzEszS/liZ38wsNva2e
+	JO0MJYNIWpyqan1NbCa0lEresol1OCBn4OxTqFfrRmU4dd133XpVWbhnjzN7KinVFZJEutu25iM
+	fX+BxYJYv8FjbrOb6lcmAVEEBH9XVu28KODYXF00bpOidbV67h2QtmjepWqHRZh52KgM2jh+can
+	CV/uDeEIXgNl0G6qW+i0XSD1h6B2EyTk7n2/XNH45s=
+X-Received: by 2002:a05:6a20:c70e:b0:3dd:a197:7360 with SMTP id adf61e73a8af0-3ddf8296639mr2981172637.57.1790177676973;
+        Wed, 23 Sep 2026 08:34:36 -0700 (PDT)
+Received: from arch.localdomain (123202092053.ctinets.com. [123.202.92.53])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc75f3f5e79sm1318844a12.25.2026.09.23.08.34.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 08:30:35 -0700 (PDT)
-Date: Wed, 23 Sep 2026 09:30:33 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: remoteproc: Fix MT8188 SCP regs
-Message-ID: <arPwmV6I6e2hCqo6@p14s>
-References: <20260921232520.3127457-1-robh@kernel.org>
+        Wed, 23 Sep 2026 08:34:36 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Jun Yan <jerrysteve1101@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] drm/bridge: analogix_dp: use devm_phy_optional_get() for the DP PHY
+Date: Wed, 23 Sep 2026 23:34:22 +0800
+Message-ID: <20260923153423.804759-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260921232520.3127457-1-robh@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_083038_331623_ED50AB34 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260923_083438_950361_124AFA02 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,91 +111,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 06:25:19PM -0500, Rob Herring (Arm) wrote:
-> Allow single-register MT8188 SCP dual nodes with only the cfg
-> region. Keep two-register and three-register requirements for the
-> other MediaTek SCP variants that need SRAM and L1TCM regions.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../bindings/remoteproc/mtk,scp.yaml          | 22 ++++++++++++++++---
->  1 file changed, 19 insertions(+), 3 deletions(-)
->
+The DP PHY is optional: the Rockchip RK3399 eDP controller (used as the
+internal eDP port) has no separate PHY device and relies on its built-in
+PHY, which is programmed directly through the GRF registers, so its DT
+node carries no "phys"/"phy-names" property.
 
-Applied.
+Requesting the PHY with devm_phy_get() therefore returns -ENODEV (or
+-ENOSYS when CONFIG_GENERIC_PHY is disabled) and the driver logs a
+misleading "no DP phy configured" error at probe time before falling back
+to a NULL phy.
 
-Thanks,
-Mathieu
+Use devm_phy_optional_get() instead, which returns NULL when the PHY is
+absent and otherwise behaves identically, and drop the manual -ENODEV/
+-ENOSYS handling. This also removes the spurious error message.
+
+Assisted-by: Claude:deepseek-v4-flash
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+---
+ .../gpu/drm/bridge/analogix/analogix_dp_core.c | 18 +++---------------
+ 1 file changed, 3 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 18e76d1e78e1..28eb668d3e3f 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1427,21 +1427,9 @@ analogix_dp_probe(struct device *dev, struct analogix_dp_plat_data *plat_data)
+ 	if (ret)
+ 		return ERR_PTR(ret);
  
-> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> index bdbb12118da4..2f0a28c7a24c 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> @@ -28,11 +28,11 @@ properties:
->      description:
->        Should contain the address ranges for memory regions SRAM, CFG, and,
->        on some platforms, L1TCM.
-> -    minItems: 2
-> +    minItems: 1
->      maxItems: 3
->  
->    reg-names:
-> -    minItems: 2
-> +    minItems: 1
->      maxItems: 3
->  
->    clocks:
-> @@ -171,6 +171,7 @@ allOf:
->      then:
->        properties:
->          reg:
-> +          minItems: 2
->            maxItems: 2
->          reg-names:
->            items:
-> @@ -185,6 +186,7 @@ allOf:
->      then:
->        properties:
->          reg:
-> +          minItems: 3
->            maxItems: 3
->          reg-names:
->            items:
-> @@ -195,17 +197,31 @@ allOf:
->        properties:
->          compatible:
->            enum:
-> -            - mediatek,mt8188-scp-dual
->              - mediatek,mt8195-scp-dual
->      then:
->        properties:
->          reg:
-> +          minItems: 2
->            maxItems: 2
->          reg-names:
->            items:
->              - const: cfg
->              - const: l1tcm
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - mediatek,mt8188-scp-dual
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 1
-> +          maxItems: 1
-> +        reg-names:
-> +          items:
-> +            - const: cfg
-> +
->  additionalProperties: false
->  
->  examples:
-> -- 
-> 2.53.0
-> 
+-	dp->phy = devm_phy_get(dp->dev, "dp");
+-	if (IS_ERR(dp->phy)) {
+-		dev_err(dp->dev, "no DP phy configured\n");
+-		ret = PTR_ERR(dp->phy);
+-		if (ret) {
+-			/*
+-			 * phy itself is not enabled, so we can move forward
+-			 * assigning NULL to phy pointer.
+-			 */
+-			if (ret == -ENOSYS || ret == -ENODEV)
+-				dp->phy = NULL;
+-			else
+-				return ERR_PTR(ret);
+-		}
+-	}
++	dp->phy = devm_phy_optional_get(dp->dev, "dp");
++	if (IS_ERR(dp->phy))
++		return ERR_CAST(dp->phy);
+ 
+ 	dp->clock = devm_clk_get(&pdev->dev, "dp");
+ 	if (IS_ERR(dp->clock)) {
+-- 
+2.55.0
+
 
