@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BC3C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34071C98308
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OJAIYFB0Pq0xQIj+dC5hkrLurY9BfpoClTZUrf7laGs=; b=AKOFWX6vLq1lbNd3ZDkQQ1aY4+
-	AK6gLtBsBwy8lxW6qJF6mrdvrZ/vcxl2nowTA8OEq3Lbq0TjWf+y5WAgccer0pQEtV/7WfCc/gYPm
-	KGsc5FAxFV+rFkH3orlhww/1bR1rTPlQKqodk1zqSgteU7PCYp57765vEgQrI+OYzi3GgraWzjWQz
-	85oEjxCbcTRGgXK3yYabB7K4qi1YLQfyn8Nd36vHar3t7c07Ss12ZeX2XvWjckASdnOeL5v1SJe0K
-	d2eGNuUz/s+CSo/xfuePXD9fpP+8YORo5nrXvO69lNiHM69k2xaUPp7cxRYeoARAv4wAq/8HbgUG9
-	HKDWL4Ug==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t8d9Oa1HHLgScLhFX7FghI4hEpWrd7oGGjdeIlvI0bM=; b=j0Y9FbeHG2Et16VdXpIQ156vnF
+	3m7dSJfEzgLfhenAiDVju8iaXD08zqbhxq0iPHbnLEM6jh6baT0p96HbJhg9N9TOuYW+cr+WRQ0Aj
+	olKvQWfRqAiygEKudDTrD3BK2Wf0uPxqhqvrtGQZUl8WRRYqExE9DjqIHdtCYhFuhZ+Vu1qyt7O2R
+	VynRM/np2zG4QqkaJemQdXdbireXbAhFx8Nh4YrwzdS/d8gQtOJt7cspOi7EQANqbdF8zA79Kha1F
+	GRQr3aR6cBw77mtDq8sQqsLg1s1mSglI9ZNjs2l17e2sDalin8vR+rBgKlY9uv6Ay0OJCBKIJ97aM
+	7+OM52JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IL8-00000007WX9-47Og;
-	Wed, 23 Sep 2026 08:28:31 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IL5-00000007WW2-1Fk5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:28:29 +0000
-Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
-	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwAnCX6ojbNqD5oWAA--.12016S2;
-	Wed, 23 Sep 2026 16:28:24 +0800 (CST)
-Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
-	by mail (Coremail) with SMTP id AQAAf8DwSnOijbNq5NjbAA--.47885S3;
-	Wed, 23 Sep 2026 16:28:18 +0800 (CST)
-From: Zhu Ling <zhuling2709@phytium.com.cn>
-To: maz@kernel.org,
-	tglx@kernel.org
-Cc: radu@rendec.net,
-	zenghui.yu@linux.dev,
+	id 1x9IN4-00000007Wmq-24jm;
+	Wed, 23 Sep 2026 08:30:30 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9IN1-00000007Wm8-0wqb;
+	Wed, 23 Sep 2026 08:30:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=t8
+	d9Oa1HHLgScLhFX7FghI4hEpWrd7oGGjdeIlvI0bM=; b=KbgDl74zW09IbIfs4t
+	Alt5dsVbLnJbZEchl5O0LwG5ur8UEhJBB2Uyw0HZZ5I9LB0EZLVlodYS1T6/ss3r
+	dFGTI73euPEZ216GJBKPJ8AXrbsE0c1lkiORFs2dSLbt0qlKVaz++TgWkP+NJhHr
+	3Oly6+FCsdx1SHsi4KhRP+8q8=
+Received: from chaosheng-ASUS-TUF-Gaming-F16-FX607JV-FX607JV.lan (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wDn13cTjrNqJr0uAQ--.12348S2;
+	Wed, 23 Sep 2026 16:30:12 +0800 (CST)
+From: Quchaosheng <quchaosheng000406@163.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Chris Zhong <zyw@rock-chips.com>,
+	Zhang Qing <zhangqing@rock-chips.com>,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Zhu Ling <zhuling2709@phytium.com.cn>
-Subject: [PATCH v3] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
-Date: Wed, 23 Sep 2026 16:28:04 +0800
-Message-ID: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
+	quchaosheng000406@163.com
+Subject: [PATCH v5] dt-bindings: mfd: rockchip,rk805: Convert pinctrl to DT schema
+Date: Wed, 23 Sep 2026 16:30:01 +0800
+Message-ID: <20260923083001.606935-1-quchaosheng000406@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
-References: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: AQAAf8DwSnOijbNq5NjbAA--.47885S3
-X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQAHAWqy10oDhAAAsF
-Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=zhuling270
-	9@phytium.com.cn;
-X-Coremail-Antispam: 1Uk129KBjvJXoWxXrWxKw45Gr1kXrW8uFW5GFg_yoW5tryxpF
-	W5J34Iyr4Iy3WjgF4DCF1DZry5t3ZakrZFkrWxJasxZry5Gas5Aayavr9aq3WqqrZrCa45
-	Cw4aqF1Uu3WUAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
-	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
-	UUUUU
+X-CM-TRANSID: _____wDn13cTjrNqJr0uAQ--.12348S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuw47tr47ArWkZry7KFW5trb_yoWfCF4xpF
+	ZxAFs3Jrn2gF45uw48tw18Cw1fuFs7Ar47Gw1jgryvqan8uryjyr13Kw1rZFyDGFW0v34a
+	vF15Wr98JwnrC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUj2NZUUUUU=
+X-CM-SenderInfo: xtxfxtprvkv0bjqqikiqw6il2tof0z/xtbC5BQwpWqzjhRfRQAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_012827_479315_2408F809 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260923_013027_741000_8088F002 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +78,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running with UBSAN enabled, enabling a GPIO controller that uses a
-GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
+pinctrl-rk805.txt describes the pinmux controller that is part of the
+Rockchip RK805 PMIC. The PMIC itself is already described by
+rockchip,rk805.yaml, so the pinmux part belongs there as well: the
+pinctrl node is a child of the PMIC node, not a separate device.
 
-  shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
-  left shift of 2 by 30 places cannot be represented in type 'int'
+Fold the pinmux description into rockchip,rk805.yaml and drop the
+standalone text binding.
 
-Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
-drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
-same signed-shift pattern. These masks are generated by shifting signed
-integer constants, which invokes undefined behavior when bit 31 is
-selected.
+While doing so, add the missing child node schema. The rockchip,rk805.yaml
+schema ends with 'additionalProperties: false' but did not describe the pin
+configuration child nodes at all, so a valid pinmux node like the one shown
+in pinctrl-rk805.txt was rejected:
 
-Use BIT() to generate the masks with an unsigned type and make their
-intent explicit.
+    pmic@18 (rockchip,rk805): 'rk805-default-pins' does not match any of
+    the regexes: '^pinctrl-[0-9]+$'
 
-Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
+The pin configuration nodes require 'pins'; without it a node that names
+no pin is accepted silently, while the text binding it replaces listed
+'pins' as required. The RK805 exposes two output-only GPIOs, so 'pins' is
+an enum of gpio0 and gpio1 and a typo such as "gpio2" is caught.
+
+The nodes may be direct children of the PMIC, or sit one level deeper
+inside a "pinmux" grouping node, which is the layout the example of the
+text binding used. pinctrl-bindings.txt allows the configuration nodes to
+be grandchildren of the pin controller, and the driver reaches both
+layouts: pinconf_generic_dt_node_to_map() parses the referenced node and
+then walks its children. The example shows both.
+
+The example also regains the gpio-controller and #gpio-cells lines that the
+example of the text binding had.
+
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://sashiko.dev/#/patchset/20260923034245.396417-1-quchaosheng000406@163.com?part=1
+Link: https://sashiko.dev/#/patchset/20260923062746.516666-1-quchaosheng000406@163.com?part=1
+Link: https://sashiko.dev/#/patchset/20260923074337.575122-1-quchaosheng000406@163.com?part=1
+Assisted-by: LLM
+Signed-off-by: Quchaosheng <quchaosheng000406@163.com>
 ---
+Changes in v5:
+- The child nodes of the "pinmux" node were matched with a patternProperties
+  entry guarded by "if: type: object". That has no "else", so a non-object
+  property of the grouping node, a misspelled "typo = <1>;" for instance,
+  matched the pattern and passed. Match them with additionalProperties
+  against the same definition instead. dtschema puts phandle and status into
+  the allowed properties there, so the grouping node keeps the phandle that
+  pinctrl-0 points at, and every other property has to be a pin
+  configuration node.
+
+Changes in v4:
+- Describe the pin configuration nodes both as direct children and inside a
+  "pinmux" grouping node. Only the flat form was described, so the layout
+  used by the example of the text binding this replaces was still rejected:
+
+    pmic@18 (rockchip,rk805): 'pinmux' does not match any of the regexes:
+      '-pins$', '^pinctrl-[0-9]+$'
+
+  The nodes are now one definition referenced from both places, and the
+  example shows the flat node and a "pinmux" node holding one.
+- Name the binding in the summary, as
+  Documentation/devicetree/bindings/submitting-patches.rst shows for a
+  conversion ("dt-bindings: iio: adc: adi,ad7476: Convert to DT schema").
+
 Changes in v3:
-- Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
-  helpers, as pointed out by Zenghui.
+- Capitalize the summary phrase. dt-bindings: mfd: titles are capitalized
+  after the subsystem prefix (Add 61, Convert 20 against convert 6).
+- Add gpio-controller and #gpio-cells to the example, which the text
+  binding's example had and the conversion dropped.
+- gpio-controller and #gpio-cells are deliberately *not* added to the
+  required list. rv1108-evb, rv1108-elgin-r1 and rk3328-a1 do not set
+  them, so requiring them breaks three in-tree boards:
+
+    rv1108-evb.dtb: pmic@18 (rockchip,rk805): 'gpio-controller' is a required property
+
+  No rk8xx PMIC schema requires the pair, and gpio.yaml already enforces
+  that they appear together ("'#gpio-cells' is a dependency of
+  'gpio-controller'"). The pinctrl driver calls devm_gpiochip_add_data()
+  unconditionally, so the property is not what makes the GPIO controller
+  work either.
 
 Changes in v2:
-- Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
-- Drop the redundant introductory text from the email.
-- Update the author email address.
-
-Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
+- Require 'pins' in the pin configuration nodes. Without it a node that
+  names no pin passes validation, while the text binding listed 'pins'
+  as required.
 ---
- drivers/irqchip/irq-gic-common.c | 2 +-
- drivers/irqchip/irq-gic-v3.c     | 4 ++--
- drivers/irqchip/irq-gic.c        | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ .../bindings/mfd/rockchip,rk805.yaml          | 60 +++++++++++++++++-
+ .../bindings/pinctrl/pinctrl-rk805.txt        | 63 -------------------
+ 2 files changed, 59 insertions(+), 64 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
 
-diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
-index c776f9142610..8bd1eaa54295 100644
---- a/drivers/irqchip/irq-gic-common.c
-+++ b/drivers/irqchip/irq-gic-common.c
-@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
- int gic_configure_irq(unsigned int irq, unsigned int type,
- 		       void __iomem *base)
- {
--	u32 confmask = 0x2 << ((irq % 16) * 2);
-+	u32 confmask = BIT(((irq % 16) * 2) + 1);
- 	u32 confoff = (irq / 16) * 4;
- 	u32 val, oldval;
- 	int ret = 0;
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 6e1fa5b247fc..15110d47ddb0 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
- 	u32 index, mask;
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+index da2391530c16..ecd9846dffec 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
+@@ -77,6 +77,16 @@ properties:
+     description:
+       The input supply for LDO_REG3.
  
- 	offset = convert_offset_index(d, offset, &index);
--	mask = 1 << (index % 32);
-+	mask = BIT(index % 32);
++  # pinctrl-bindings.txt allows the pin configuration nodes to be grandchildren
++  # of the pin controller, and the text binding this replaces used that layout:
++  # a "pinmux" node holding the nodes that carry "pins". The driver reaches both
++  # layouts, because pinconf_generic_dt_node_to_map() parses the referenced node
++  # and then walks its children.
++  pinmux:
++    type: object
++    additionalProperties:
++      $ref: '#/$defs/rk805-pin-config'
++
+   regulators:
+     type: object
+     patternProperties:
+@@ -86,6 +96,38 @@ properties:
+         unevaluatedProperties: false
+     unevaluatedProperties: false
  
- 	if (gic_irq_in_rdist(d))
- 		base = gic_data_rdist_sgi_base();
-@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
- 	u32 index, mask;
++$defs:
++  rk805-pin-config:
++    type: object
++    description:
++      The RK805 has two output-only GPIOs which can be muxed to the GPIO
++      function and driven low or high at boot.
++    additionalProperties: false
++
++    properties:
++      pins:
++        description:
++          List of GPIO pins to configure.
++        items:
++          enum: [gpio0, gpio1]
++        minItems: 1
++        maxItems: 2
++
++      function:
++        description:
++          The RK805 only supports the GPIO function.
++        enum: [gpio]
++
++      output-low: true
++      output-high: true
++
++    required:
++      - pins
++
++patternProperties:
++  '-pins$':
++    $ref: '#/$defs/rk805-pin-config'
++
+ allOf:
+   - if:
+       properties:
+@@ -125,9 +167,11 @@ examples:
+             interrupt-parent = <&gpio2>;
+             interrupts = <RK_PA6 IRQ_TYPE_LEVEL_LOW>;
+             pinctrl-names = "default";
+-            pinctrl-0 = <&pmic_int_l>;
++            pinctrl-0 = <&pmic_int_l>, <&rk805_default>, <&rk805_grouped>;
+             rockchip,system-power-controller;
+             wakeup-source;
++            gpio-controller;
++            #gpio-cells = <2>;
+             #clock-cells = <0>;
  
- 	offset = convert_offset_index(d, offset, &index);
--	mask = 1 << (index % 32);
-+	mask = BIT(index % 32);
+             vcc1-supply = <&vcc_sys>;
+@@ -137,6 +181,20 @@ examples:
+             vcc5-supply = <&vcc_io>;
+             vcc6-supply = <&vcc_io>;
  
- 	if (gic_irq_in_rdist(d))
- 		base = gic_data_rdist_sgi_base();
-diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
-index f6bc29f515fb..fb7a55f5b394 100644
---- a/drivers/irqchip/irq-gic.c
-+++ b/drivers/irqchip/irq-gic.c
-@@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_data *d)
-  */
- static void gic_poke_irq(struct irq_data *d, u32 offset)
- {
--	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
-+	u32 mask = BIT(irqd_to_hwirq(d) % 32);
- 
- 	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4);
- }
- 
- static int gic_peek_irq(struct irq_data *d, u32 offset)
- {
--	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
-+	u32 mask = BIT(irqd_to_hwirq(d) % 32);
- 
- 	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4) & mask);
- }
++            rk805_default: rk805-default-pins {
++                pins = "gpio0";
++                function = "gpio";
++                output-high;
++            };
++
++            rk805_grouped: pinmux {
++                gpio01 {
++                    pins = "gpio1";
++                    function = "gpio";
++                    output-low;
++                };
++            };
++
+             regulators {
+                 vdd_logic: DCDC_REG1 {
+                     regulator-name = "vdd_logic";
+diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt b/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
+deleted file mode 100644
+index 6ad49e51c72e..000000000000
+--- a/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
++++ /dev/null
+@@ -1,63 +0,0 @@
+-Pincontrol driver for RK805 Power management IC.
+-
+-RK805 has 2 pins which can be configured as GPIO output only.
+-
+-Please refer file <devicetree/bindings/pinctrl/pinctrl-bindings.txt>
+-for details of the common pinctrl bindings used by client devices,
+-including the meaning of the phrase "pin configuration node".
+-
+-Optional Pinmux properties:
+---------------------------
+-Following properties are required if default setting of pins are required
+-at boot.
+-- pinctrl-names: A pinctrl state named per <pinctrl-bindings.txt>.
+-- pinctrl[0...n]: Properties to contain the phandle for pinctrl states per
+-		<pinctrl-bindings.txt>.
+-
+-The pin configurations are defined as child of the pinctrl states node. Each
+-sub-node have following properties:
+-
+-Required properties:
+-------------------
+-- #gpio-cells: Should be two. The first cell is the pin number and the
+-  second is the GPIO flags.
+-
+-- gpio-controller: Marks the device node as a GPIO controller.
+-
+-- pins: List of pins. Valid values of pins properties are: gpio0, gpio1.
+-
+-First 2 properties must be added in the RK805 PMIC node, documented in
+-Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
+-
+-Optional properties:
+--------------------
+-Following are optional properties defined as pinmux DT binding document
+-<pinctrl-bindings.txt>. Absence of properties will leave the configuration
+-on default.
+-	function,
+-	output-low,
+-	output-high.
+-
+-Valid values for function properties are: gpio.
+-
+-There are also not customised properties for any GPIO.
+-
+-Example:
+---------
+-rk805: rk805@18 {
+-	compatible = "rockchip,rk805";
+-	...
+-	gpio-controller;
+-	#gpio-cells = <2>;
+-
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pmic_int_l>, <&rk805_default>;
+-
+-	rk805_default: pinmux {
+-		gpio01 {
+-			pins = "gpio0", "gpio1";
+-			function = "gpio";
+-			output-high;
+-		};
+-	};
+-};
 -- 
 2.43.0
 
