@@ -4,119 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE473C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F504C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYhzfOA6SCO7uTNbvN7IrLA5gsM9sl+9GrMf5cq1964=; b=b9gnHURd+N4ugcy9L0kl6fn0BK
-	Psls4b3IeaoflR0krqQhVKt8wQskvmBu8DE8IHsAUXJKp4g442+kkIh3Er+4y1UvMeFgSOCSuNDUA
-	ssNi64r5yNnGL6gejW+zRW4CuhNQCLiwQpfV1jL3lDh4+7XRAnTtOoiTl+W/6HLvmfME7VL8/LyrF
-	LMBRNQxGC0zIhRcveSj4VegWuxWWLQLFbtY/aVh/RIDVPNsJWYA7QWdporYYRpdIIPXf0H4cwn2s4
-	ukWkysmHiuy01hGrddke3WazvcwxOkF3T5KlUt9KtOtvLUykUkPs5hUGf6vIS0+v0o5Igx3u1sBL9
-	uPVSvWFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C1YzIONclGffYiuKAtKSov4mynmH/WVEWrAQXrYls7g=; b=Ihr/HQL0+RhI9STqJ8atvSlWR0
+	Ju4m+kavj5Vp+sKjDL5/imBo5Ryrenn/XH0NAp6SgU1FrWPNS7tx8jY3Wu8f3SXupi94fJGKLN3zi
+	1px/vUj3VHKV3o9Lu/YhLl34PVGL8HLZjCxi78Bu7GtptmPINL6tE1HsLO+hpBvxNASHkX8/qJEfg
+	Ugbzs4RyT0nSf/qzvnRKnnlFgMQewLWLL7XzR4PuX+Gw0LYogMqxkvGqnR+BtONtpZ6QLPrKw2e0k
+	0Z/MbeJ6DfOsMgm5lOb6/9nmruHzMZwK49LJ5UBoWfU+uiV7NUoij+8jdCYiK4ot38TPz9XEApD9w
+	l28G9IMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TMV-00000009Qk0-3lO4;
-	Wed, 23 Sep 2026 20:14:39 +0000
-Received: from mail-ua2-x25.google.com ([2a00:1450:4864:39::25])
+	id 1x9TOe-00000009R4m-1g1f;
+	Wed, 23 Sep 2026 20:16:52 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TLt-00000009QWE-1mDo
+	id 1x9TOc-00000009R4J-0uvm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:14:02 +0000
-Received: by mail-ua2-x25.google.com with SMTP id a1e0cc1a2514c-982db8d3b79so449048241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 13:14:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790194440; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OLZ4LcemxWp3Usv9lrVRpLkbyOb0mtGuj8AiP4hKTcWn+L+dpCMeLVDCITPgtaf6QA
-         nP+SR13MwYCvH/AiYJz4MLoTg6DmYYub9HtFsn4uY55NXqzBY8E93LKSPg9P82W1Jz9b
-         OVVLZpx9pfgkRZ/hlYSFIDlO4sItxNIruRbsuHCxkKDfKOXn7Ly2UvwFDaLgUJwQLeSm
-         gIgjJw8ggcyvglP1sZAdBsjeTSpKcHY8Bb/kKotEVxnfmVlNkFVxFxjFgkfDPGDWpxSD
-         hB32GqENLzoRmHbBuXZYTqrcm2K9vMS9q4husnMRBbJ/UTtP4AUM7O3WkxV4I6NT6i17
-         MgzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=yYhzfOA6SCO7uTNbvN7IrLA5gsM9sl+9GrMf5cq1964=;
-        fh=KWZN7VN46wav5J/oii/6cLNIzkcPp01QG2pTyjCbcuw=;
-        b=fzylbFnafP2tcUo+JAKYgohddGm74dH9gWgsYpyzNr/DDB/0194u60bfPGVu7lXXZ4
-         p+gFbAYeWo4UvzVM+tLqaLGOYcrk+T5Yk5dJih5n+MGV0QiD2IaHLB9QR5BTxHq0Vyat
-         Q6iU/vJkrUuaUf1jP2HBO59oSmwwruo5j6D6toL52l7aXhWgn/khFPAcBUD0SoL1yCwi
-         fn0FijV1lqggsDRQ5krEfGRQ9koPs8V2FQSV884xGximUjt7aquBwvljD8dh1Dia5DDE
-         SEjn5KXSEiuXNMHQSPZDmygAgnk9Ci2pTXn6OPaPePoWv+hNZpgdwqNad0EPepz7tN9w
-         hxtw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790194440; x=1790799240; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=yYhzfOA6SCO7uTNbvN7IrLA5gsM9sl+9GrMf5cq1964=;
-        b=LJtIf5jYFUiCx+Jhc+WWtq/odrZOm4OEi29k77LkVkJDnOQRAgM42Djd1BxUwEpUwy
-         ibnBRlOn7tMGrUmW/wDoKbWTmqPloXZxMdNvTpAEG4ByZymtDdPl2D/yswMj4BxlhHS7
-         jNCfQz5schchGMlvP7bIqpp1aNhlSBZS7aOOoJBqAsov9e+Q7zfWVshyySrHt1UjzT80
-         xrrv9m9m4/+A9kOsAs+tAeuEm8Po/eXZVOXo9PWi3Izla9O/R7FW26BAOufMInVnkzbP
-         PacPsjddR0ZB8dnwS+v1oexmQcMEpgKgjRh0KSDZMeryZV759DHXG/EDNZlYe8+sbJv4
-         qSsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790194440; x=1790799240;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yYhzfOA6SCO7uTNbvN7IrLA5gsM9sl+9GrMf5cq1964=;
-        b=gCNIiTRNXnp9NOPOVCZw62VtN4gR9RWmQgPl8iIHLV3JPXOG6nmINsKJV28uDUJjog
-         LSd0WKMQIh+dQz8/Jw8KTqkg1p4ujaBmE0t43ynxTpRPTqFMAtmOJIqovlcRVzF7WDMR
-         Uaj/CIOGlhoXq0i9JI/MQBlHPaYeviCZiEcizUMwf3o2W0UF+Iv3aY4hWBctLG/ved2y
-         3J42G7tH+x/9La6lCsRi0YuPyGoZBQHsqUlgPkJICCONka9CViaRm1pF9HFpWgUN80P8
-         91e/w+mOn7oScqnrJ3j1Za80z/nH08Y7CRJUNS/G2ly/CelMVcNpfc7JLKDBGRhi81yK
-         3Wrw==
-X-Forwarded-Encrypted: i=1; AKwUvBz+cG1RhAoh3kbR1pAVrPhSoORTTe7m5GOQl6i/eZ2+4mikMWb66pEIr5pj/x8ypN7dIipR5wkYTc71maMWAPSm@lists.infradead.org
-X-Gm-Message-State: AFuF++lzpWNcLZTIplEOtwEqSTpJiCVbSq6MvAb1s/KdZEgsuLxbrrwJ
-	LzLjj/cMV5rN3eIU3bQFD5KDKlJiCLti1rAnmAuwO8DR/AktMq+bClIskYkZwfYd3N1BTxEkUoV
-	qs5KgSslnke9T5zrcwSupkEKvQz9Gn7Q=
-X-Gm-Gg: AYBFou0EoYAJqaW9/0rRBg3TivQjiQ0OC8kSzU/2gLNGqCvSCSZp73V4YfxyhzxFWGt
-	SgjenZnlGjInKA91sOBNG+NWrRJKaB8NAwW7Pnlw2OI/BEB4YbDRGSDCVUZw+DeRuEGZ20+0tot
-	7KcG9x0svUo+KwhaRgizglkUBl8esIDd0rnIdATP4pEXbA00x1iaY/S/yDsumbkxmgWzG4QoZpM
-	YDYpnZGumC8cdJKbAA2AhOSzMwRBaI955Om5pC/omPGwB0Iuvs+oS7zvB+v1E1DwoJE7hUw/FZc
-	A+AjBIxXGEXavnB4f7MtrVOGvMOlG9n6q1SzrUprKDzqrG0fMFTsX7ES/F4HbHgZ0CLPg4WL8uv
-	mpMXLvCWjkGrL3AEYPGgwNoAUq6HQS6xDo5H3jUO1tQvtJMpy7uz1M7p0cOyK3yRlbfrEo5tKk0
-	PbOulAfe4uZFFzvf9HYQCSBx5lDmio2jY1XtrGJmfpJjBp
-X-Received: by 2002:a05:6102:548b:b0:7a6:d11b:16ea with SMTP id
- ada2fe7eead31-7af1c7a036amr305798137.6.1790194439982; Wed, 23 Sep 2026
- 13:13:59 -0700 (PDT)
+	Wed, 23 Sep 2026 20:16:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q8vxcB5/K+zcC7gP6b5YfHBJmbwDnGH1WY89vOic+qN2UkD9lJBqXpr9PHA0k9EOjFHfBtD4iPdl7U5veQGwkaKDVWglW4xW2yWRG/yO7kxBejwo7omNtnqT9JZ3Hk8XCenh1N4jKJLBq2DkHRbbd3XQhjspIBPWJYybSQCbRlt7P6zClckiB68ZuR48HH6a2X6YAX49g54ZAOH4H5H4OAGExNjmsw/L3xWSZ1haO04aMezAcgeayAw6VAI6o0Ccr9Z7GI5fZSCi0R14AdWAK4zPSksNRlIN4fPS1C0nBwsmbE/LLBlZMIDgyfYDklDM2j92VcB35sufoSrpiSqZ8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C1YzIONclGffYiuKAtKSov4mynmH/WVEWrAQXrYls7g=;
+ b=zTioLhCqQJl6AFMJ6ntWacuD8ljg/2D1ekDS53iJsUOALMiT7ziekmackKqS8WxLe3EAjegYcZX3h1UFtFYnD2VFnecsQuYXYU82AzRBHxNR9iE+4Hp8bSKt2SbfvRUY+YAm1kwo4E8ERq1b1BsRtOMnhYolB4Mgz/svRgfTpS8xjH4opLvj213ragwT1buhICOeM2dQKElb612hcYFv2sj/wDjaY/S/7U6GGNzE/EeS/SgjIvomDftRWu+XlG+ulg4nnzpx3pnLc/TNAK16raO1ucsh7IdwaBOv0ZCYI8RRjVvTjCW+6eL/5MhEfS8sNOjHg/3XdSwpWN7tIeHMPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C1YzIONclGffYiuKAtKSov4mynmH/WVEWrAQXrYls7g=;
+ b=HuCP2dCkPLBruKOh1FI2uQcGSD7LSDjiHyxhb3Q8uaU+5br2jg6kElQDmGspWqHCD0OLxNnBjh2GgTV84+dIwal1fxDCAsg7i1DH4E2ngqCAqP4ZtuJ5C4OTMC6B0ejRNVJIqaULG7bmFhZwBDG0gulxa1F+WvcLK155/zDn622rVhafPEvttQT/HTQvOs6HpqiR9PR8ABrGd6zXPqltc2tP1FnR6xNL4VZWfy3NUH387NHWlezBIfVYmKPUFqW47Tr+Q7WkO8BPoYU34Ro/d/rci5fwnBXYaaNctmyb5xC5gUA6GGPlz1u3FCDWVHGR3DkufBKIJFvhUjbqXjrEtw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Wed, 23 Sep
+ 2026 20:16:43 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
+ 20:16:43 +0000
+Date: Wed, 23 Sep 2026 16:16:34 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/7] arm64: dts: freescale: Add Toradex Lino and OSM
+ iMX91/iMX93
+Message-ID: <arQzon7UJ8tA6L8u@lizhi-Precision-Tower-5810>
+References: <20260911091952.96233-1-francesco@dolcini.it>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260911091952.96233-1-francesco@dolcini.it>
+X-ClientProxiedBy: PH7P220CA0087.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260804-h616-pwm-v8-v8-0-db37ab8624ae@gmail.com>
- <20260804-h616-pwm-v8-v8-2-db37ab8624ae@gmail.com> <arFMta6PPwmzSk86@monoceros>
- <CADvTj4r1sFjPko7G5DwrPUw9x1tPzQspJhCUmHSMtrudn7SXEQ@mail.gmail.com>
- <33e760ca-2bb4-4f1d-a736-7e74a97e60c4@bootlin.com> <CADvTj4rBUNF6EaKXbsy5t1cS0iakpWVdpQ5sQF2qLS4YyHM2aQ@mail.gmail.com>
- <58145d8f-dd16-4cc2-b2ea-d475462241ab@bootlin.com> <arOif-bN6JgLeWd3@monoceros>
-In-Reply-To: <arOif-bN6JgLeWd3@monoceros>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 23 Sep 2026 14:13:48 -0600
-X-Gm-Features: AclHuK9uNvVaV2VJoRguaZ7pkecy04Hwe0dR9Nt2OWuOrBNW9SpmIsO_os_jzFg
-Message-ID: <CADvTj4q4G5doa-br_SvvcuSF0sMA6Vb3K8ogZL7xe=auEd_s+g@mail.gmail.com>
-Subject: Re: [PATCH v8 2/4] pwm: sun8i: Add H616 PWM support
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Richard GENOUD <richard.genoud@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Paul Kocialkowski <paulk@sys-base.io>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, John Stultz <jstultz@google.com>, 
-	Joao Schim <joao@schimsalabim.eu>, bigunclemax@gmail.com, linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8510:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94e8f51b-1018-478a-da52-08df19af9578
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|19092799006|22082099003|18002099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: 61fAPIGXisDUITkLBoj/KsXHygXy5EsCZQUUuNgTJCJaHvBw0yonfRgl5CEj90pFcr3fKmRBulym75RPc9w9vxACr3Rk4eElsdt4WkJq8NkRgo2H7/4kpzR0M7sOfP6Zd95BxsbnPshGpi6zwqUQxAdQJuZjsu6p3sY+XXkKBGu/VGjpnyIwB1daHllJlaYnmTeG1kdb/0QJ5wxbX92Nmjn6Ug3qvSSXxynAKLybNwOUIJIrAWsx9xzwG/Sz4l6JDzXLV7xGhTFmEolh67KIdQJAKmvnHpeuCc20xfsx85yw75KUG2twpiXXovrPPjsRj9DOGywrP0U8kzqdxAHWo82bnt8YO2BzHFk7ETKG2dRAEjdELl38jgBzOlhxgcuHb9G3fcGeAFS9O9KQO9MtRO5SpxkOLLtS8XSvBOA7L4xamlsFBoNRpLrjkPAK1ywr4mOwUs3whGDkwTROiZ5Mq7mlbHciJNJB7ZQ0UauNTGx24k8TIzxNTwiuju+ZhAUMr9OYF8AKc2RAhwOfVhf5BjSBoxwwvZl+eK671DB3NEq+r5fV7cpIrNcSWN+9cKNYXezkTNUdMxhJjCRoRPVqtW75FV5VxT2XpSBq6j1n0BI69dTXkKWAc7v169a4FnslVEjfpg4qHyQK0SefHJyDCabCLPWK2mLgW35O2VIyMuU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(19092799006)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GbECbL1R1lp0p4MTYsm2uIAJV8vAGeDKzTohyiN9e/uxBPp6evrmJ1cFgbn1?=
+ =?us-ascii?Q?hECVqYLGPNSZj4/E8N/efenpH6SbMjoSY/90CjXj0SZ6HUAmYpQCIrsNG0W/?=
+ =?us-ascii?Q?jGfPoYBhBhih8XgjC8dnXaPoNiF0zpT4YXiBZIK3und54G2sMJkwn1Wq3XEM?=
+ =?us-ascii?Q?f+Xfogk16sCrVQeAl8/1oGUTA+FNmdPaJ6gz8I0Mkga5H7w+Witd3pv1myGW?=
+ =?us-ascii?Q?llZSc6ccC6pXJma7l3zDD/4wMkDHehaMiexarF90jVOIb5R0WtXni6v/6R8b?=
+ =?us-ascii?Q?qN3OA+/la5w1UkqpMA6PN8A7d9CdI0hHlxt2AVlSmGlMYGprCXQv9gqd7QyK?=
+ =?us-ascii?Q?rN8oFluE86kAuHxMOi86okeHwFZIsw+xFq+Fbbd9Ghp+Pj4EQKHoL7IiR4z3?=
+ =?us-ascii?Q?b8FRZHWHn7KD/kGoFCEjTCBiNUNulup9VBys6xawk+e0XPR12B0DGeKKvZeU?=
+ =?us-ascii?Q?C6vCGXRxpI8wsuCHIrhMens8Lqx52hG156uc8A6Fmy85UJpva6N0/sIgpFKm?=
+ =?us-ascii?Q?LHVKw/bEfejn7xH1rcRh+4r6RmB8CLUxJ2+Dp8bJ/kns+VJPu23kEIx0c5fr?=
+ =?us-ascii?Q?jcPUE2Tqgk8pT1oy4CVoZZje0HcmuprBdsrMvwE2Po5b6M/logaYYuhMD21j?=
+ =?us-ascii?Q?xwRSSk83r8UUgKrJP+2sFGftibq8vt6zvvMH3kfEIETmvX8EKOidtQx1ehBJ?=
+ =?us-ascii?Q?L7O7XFHGjjBKgcmZz/4e4GEw+SSgV2uCvVe4Y2lX38+ZO5TtDLwPJEVM0W6Y?=
+ =?us-ascii?Q?jQAT1GOxosCAV5930j01lMJcFruZ10PQ5bfDWH1Jmxzs8XXqIIfd9kAlB8Ft?=
+ =?us-ascii?Q?B8/bK1LeZUv3ptHkceGDqYGQsI5FPIB8Q+WPgz7AhlBomMcA2Pim6o6H+9Oa?=
+ =?us-ascii?Q?GefBQ5brSpEQNLch8DWTgaayWsWQkgBeuQfdfnN7wxz2haXeY0in2GjXvRNw?=
+ =?us-ascii?Q?8oLa1ESfofGtH05ZGUGczBfD6/isvbcOsUsfMSREoDzehkw8e+iKUiv9SSF4?=
+ =?us-ascii?Q?LW5pNw/vi8v3SEL5m0gfXsAINNSXNwEZlBiL3A2bpGOpaiG1wa1ZtoX4Rauy?=
+ =?us-ascii?Q?cJFFzAhZxc7WZ0T/boxxDEtTIKn4z4h8tTBEmKLDU33/dKE5A8lgRxnTklo7?=
+ =?us-ascii?Q?RFtV01oz8DqGvhxzOIDiIDrZZVD7XWKoAjmuKYKs9yFUol/yevugSewDjqL0?=
+ =?us-ascii?Q?z1FrIeNxBb4OgniuKHez60ZXxn4BVQRVamCg87874CjmAomtdl0FS0jIgzEd?=
+ =?us-ascii?Q?BpwHzFWNOcwxCDsy2mBSSnjub0AK5BTUQWOA6NEgiNhWarwGP+DIN1s4zOzC?=
+ =?us-ascii?Q?iwRYuciFu8MEEE1WwwTx6UvFzNyxYrURlMEraOY6O2eKcSdbfqsHNhse8oHS?=
+ =?us-ascii?Q?LoHKvtNe7JtowTer6coXE5bfJreCoohE5EuvsrkD2+yIgufcvww9DO9i8Wqx?=
+ =?us-ascii?Q?WivMCgVmbftS2xyWu4Tz3+rIq+u8V6BvAte//1OIFDQZHAH3r6U68cjINlZw?=
+ =?us-ascii?Q?pMFqGDihSELZ/bDoks1g2EcVZQoB7BZv8BRPJ+ZjqT/RFs3ue/78irvRwoTu?=
+ =?us-ascii?Q?RmpVegmqyMMYlrhkMTudOcH54BaGzPMAuYWTfe8OqnWmN29Zw1WzF1fUdEzK?=
+ =?us-ascii?Q?czjgh8J9RtdNgVbRMQAZCHSvJeK/aMcyp35iGtqXIEZbpddAsUgufFqK83M9?=
+ =?us-ascii?Q?gMR1sX9rNgXYi9tdFacabOJ9ebFFtIs05f+gGFYi6jyQgFYjkRQnS1eDA2CA?=
+ =?us-ascii?Q?gk78ELHukKIQFUyjf3cWTruqIuCzBIV7IxrnmN8A5bM01aVHsZS7?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94e8f51b-1018-478a-da52-08df19af9578
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 20:16:42.9121
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7O1TW6r/eeGoTKIqYkhcFjO+uubFTNww14yDU5j9YU4IUzOIoabfMxu8Aln+kaWe00xuPGZojL6V+UYhEz5smJWrg3zcz6Lm5rWABczFOVWs2ZyF2fbaa4R3XQnSQ2Ca
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_131401_516965_D05DAE6A 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20260923_131650_281825_E8ED22EB 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,62 +143,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 4:11=E2=80=AFAM Uwe Kleine-K=C3=B6nig <ukleinek@ker=
-nel.org> wrote:
+On Fri, Sep 11, 2026 at 11:19:43AM +0200, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 >
-> On Wed, Sep 23, 2026 at 09:16:28AM +0200, Richard GENOUD wrote:
-> > Le 22/09/2026 =C3=A0 17:46, James Hilliard a =C3=A9crit :
-> > > The resolution tradeoff is real, but the waveform API currently speci=
-fies
-> > > the ordering: choose the largest period not exceeding the request, th=
-en
-> > > the largest compatible duty length not exceeding the request, then th=
-e
-> > > offset. That's the ordering implemented in v9.
-> >
-> > The ordering stated by pwm_round_waveform_might_sleep() documentation i=
-s
-> > period_length_ns, duty_length_ns and then duty_offset_ns, but what abou=
-t
-> > duty steps?
-> > It's not stated in there because it's not a user input, but still, it's=
- a
-> > quite important value for a pulse width *modulator*.
+> Add Device Tree support for the Toradex Lino and OSM SoM families,
+> based on the NXP i.MX91 and i.MX93 SoCs.
 >
-> From my POV as someone who cares about many PWM lowlevel drivers, it
-> would be ideal if there would be a generic function that only relies on
-> conforming and ideally simple lowlevel drivers and work out a good
-> period that makes the required amount of duty steps available.
+> Both families are available with either i.MX91 or i.MX93 on the same
+> PCB. Since the two SoCs are pin compatible, common Device Tree files
+> are used to share the hardware description between the two variants.
 >
-> When I designed the requirements for the round-to-hw function I had in
-> mind that it should be possible to find the next higher possible period
-> for a given lower bound (and that works, only lacks implementation).
-> Working out a period that has finegrained duty steps is harder but
-> doable:
+> For the Lino family, add support for the Lino-Verdin Adapter, which
+> allows Lino modules to be used with Verdin-compatible carrier boards.
+> This series supports the Verdin Development Board and Dahlia carrier
+> board.
 >
-> But something like that should work:
->
->  - Pick a period P
->  - P*, D*, _ =3D round_to_hw(period=3DP, duty_cycle=3DP-1, duty_offset=3D=
-0)
->  - Either take P* - D* as a measure for the finegrainedness, or continue
->    to research available steps using round_to_hw(period=3DP*,
->    duty_cycle=3DP*-1, duty_offset=3D0)
->  - If there are too little steps pick a different P and retry.
+> For the OSM family, add support for the OSM Development Board.
 
-Thanks, that makes sense. A generic helper could build on the existing
-rounding contract to select a period with the required duty resolution.
+Please rebase.
 
-That looks fairly involved to get right across different controllers,
-particularly defining the resolution requirement and keeping the search
-bounded. I'd prefer to tackle it as a separate follow-up after the H616
-series is merged, if that separation sounds reasonable to you.
-
-For this series, I'll keep the driver following the existing period,
-duty-length and offset rounding rules. Do you see any remaining issues
-with v10 that need to be addressed before it can be merged?
-
+Frank
 >
-> Best regards
-> Uwe
+> v2:
+>  - add acked-by
+>  - removed #.*cells properties that are already set in the soc dtsi
+> v1: https://lore.kernel.org/all/20260910101616.139270-1-francesco@dolcini.it/
+>
+> Francesco Dolcini (7):
+>   dt-bindings: arm: fsl: Add Lino iMX91/iMX93
+>   dt-bindings: arm: fsl: Add Toradex OSM iMX91/iMX93
+>   arm64: dts: freescale: Add Lino iMX93
+>   arm64: dts: freescale: imx93-lino: Add dahlia
+>   arm64: dts: freescale: Add Lino iMX91
+>   arm64: dts: freescale: Add Toradex OSM iMX93
+>   arm64: dts: freescale: Add Toradex OSM iMX91
+>
+>  .../devicetree/bindings/arm/fsl.yaml          |  30 +
+>  arch/arm64/boot/dts/freescale/Makefile        |   8 +
+>  .../freescale/imx91-lino-verdin-dahlia.dts    |  24 +
+>  .../dts/freescale/imx91-lino-verdin-dev.dts   |  24 +
+>  arch/arm64/boot/dts/freescale/imx91-lino.dtsi | 305 ++++++++++
+>  .../dts/freescale/imx91-toradex-osm-dev.dts   |  22 +
+>  .../boot/dts/freescale/imx91-toradex-osm.dtsi | 303 ++++++++++
+>  .../freescale/imx93-imx91-lino-common.dtsi    | 536 ++++++++++++++++++
+>  .../imx93-imx91-lino-verdin-common.dtsi       | 175 ++++++
+>  ...imx93-imx91-lino-verdin-dahlia-common.dtsi | 198 +++++++
+>  .../imx93-imx91-lino-verdin-dev-common.dtsi   | 216 +++++++
+>  .../imx93-imx91-toradex-osm-common.dtsi       | 526 +++++++++++++++++
+>  .../imx93-imx91-toradex-osm-dev-common.dtsi   | 324 +++++++++++
+>  .../freescale/imx93-lino-verdin-dahlia.dts    |  24 +
+>  .../dts/freescale/imx93-lino-verdin-dev.dts   |  24 +
+>  arch/arm64/boot/dts/freescale/imx93-lino.dtsi | 359 ++++++++++++
+>  .../dts/freescale/imx93-toradex-osm-dev.dts   |  22 +
+>  .../boot/dts/freescale/imx93-toradex-osm.dtsi | 357 ++++++++++++
+>  18 files changed, 3477 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino-verdin-dahlia.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino-verdin-dev.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-lino.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dahlia-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-lino-verdin-dev-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-imx91-toradex-osm-dev-common.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dahlia.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino-verdin-dev.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-lino.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-toradex-osm-dev.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-toradex-osm.dtsi
+>
+> --
+> 2.47.3
+>
 
