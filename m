@@ -4,103 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8B3C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB677C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14/vh+QzZPhsx5uvQM0Uz7p1ZDkGwAb8ilKyyQwVJng=; b=F3IrsGWKQqREkFsl4HKoOrI8Yx
-	1p1cmakdXlbdr94wF5Lk0KKe957UkbqIFY24Red0q8Wns6lJttnM06/G7caPWqLTXiATqihiReXgK
-	8nit1/XAtkI1XVkr2H4NDyGzdP0DG1ktMtz4eeOOTgfkFlcv1sAoFtgyIUvoThoPQNlDxSsp2YY+f
-	owZzlb7IVXyC8unBZh/QPBSqc8IHPxCzcDpRfgjQAxo3MRYjTzCop/jFvw9MKYXr+mGKr0W5/z4rq
-	PdzxzkV/K7EGvvPASppII2qfWC6g+lANXM86yx/zVMI27plbAhpCTIS8c+1weXprxmnLEi/AJkju6
-	g5hv1Syg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EQU5pR+SfoNYpqsu1yMb6Y4AvkPOKGuTiJW7N1CVBjQ=; b=UYrCj7xzWF1TeL5XZbhx47iQGh
+	LDjU4JmoR8+Fn5+OeSZlLTsXnbNIW9I9JPYZCSNKtgR2EDy0Vocq/c+S+JGCtHMO1kNyPf34IAGwj
+	Uzj1Gt3wEvsHCx9mm7hrjKe7Pml7iYniaoLPFooo2B5mmoMZnFkP6OuAPgAVDtiONOe31FaWUrzhY
+	5I6w3yKDhh/eKJPF7kJ11VHXgMKKHhR4U8HUL7ZaKCqgGoP270SyFlXNbUvWFJmYt2Kz+lS+9qFCr
+	l6lir3bwQz3YbXXVlRZW7e0XJNI/yLmL1dqIucUhsJuQor+Cp9jWOrVkdIA6BzuggmcJ44dvKnCXb
+	NXE41Bog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JU8-00000007mC1-3ept;
-	Wed, 23 Sep 2026 09:41:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JU7-00000007mBR-3Erp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 09:41:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=14/vh+QzZPhsx5uvQM0Uz7p1ZDkGwAb8ilKyyQwVJng=; b=EPim5ej5xyMk5Z7mRNb1p2cgez
-	77ussZOJu7O9H1VuxE/ma8BwVCushrdMygB7wokH0tAfnyFt1y/r2MJocBtqeBnjs/sqoVF1du3I3
-	ROMPtEWfSvVCKVucGUl+mBRMAkQ6U0eJ7Igkv3+7tRZLCOhAl+gGnwgjTggnvNf1jo1qfJT9NE5xn
-	lMKMIU/U2jSuBXLfzUtBxEQkvNMmP9OutPLalPtnyiuB1+4ZjAlVhk97YBhWSaDTmx2nEc0oR2mGt
-	Mz6y3YKkdl9xk6WOt9/zNzIiVlqcZ/8ksZCh11526Wner4IPJefQXro8zgTJt8+9AAsWIf3jF0c0C
-	oQ6+UMZQ==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9JU4-0000000EbAm-1GeU
+	id 1x9JV3-00000007mPp-1iba;
+	Wed, 23 Sep 2026 09:42:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9JV0-00000007mP0-3xXb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:41:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D628C1A0FE8;
-	Wed, 23 Sep 2026 09:41:37 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 941C460580;
-	Wed, 23 Sep 2026 09:41:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11D91103293EF;
-	Wed, 23 Sep 2026 11:41:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790156495; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=14/vh+QzZPhsx5uvQM0Uz7p1ZDkGwAb8ilKyyQwVJng=;
-	b=OLRLlN9lAltV/1QbWWGR8Pkwn1w2rOSYmM9jOs/uT+NrrfciKSQQCasv29uuO5DEMaFR58
-	kiPMFvNV8H6IE3jBlcPiiCjNNx/R/Nqr7q04XX0GiAX23f/h6yviJEx+jFfsPPAqEmwuyY
-	a4SYRoP6aAFTY11A/ccCU1un7OFtTElsmd2lrlkZC5q9iPcW9SWiZ2VatsdINJfOxhKkgm
-	E3GL4eyV5t89ETSfKPYSgaPcJGOaWJlASpKxlHRm6aZhaBnOD95TDLcy11Cl565UDL4dnK
-	Z7zC92+KvlCltjZzeUQtLgh1HOnkzmlDpGYVQ6ysLRtkFvkjkVGCoyg1+HiMbg==
-Message-ID: <5135e15d-b6ac-476c-9a7d-b7d64e4eed5c@bootlin.com>
-Date: Wed, 23 Sep 2026 11:41:14 +0200
+	Wed, 23 Sep 2026 09:42:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17E0A1516;
+	Wed, 23 Sep 2026 02:42:42 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 890353F86F;
+	Wed, 23 Sep 2026 02:42:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790156565; bh=ovmViFUKy6MLk0NrlYXc5n5zxje+qUS5YdjUVeCmo3A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EqrxHpMU3y3q09p7ZwC3F7pnYhUAukhhWF6HkPPmq/150OiZcTwdjrlGOeBN8pNBQ
+	 ViYlHj7XxBiCoU3LYoeEyZ1FOUfVcJxbQ/TAUCtCU/Xb1Gv0B6KDlzCogBgLoCrn9N
+	 2KeYP3En8k33E1CffATf2xeYK+Rk4KTPNkAHQoT0=
+Date: Wed, 23 Sep 2026 10:42:39 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, Andrew Morton <akpm@linux-foundation.org>,
+	christian.koenig@amd.com, Jason Gunthorpe <jgg@ziepe.ca>,
+	Joerg Roedel <joro@8bytes.org>, Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	linux-media@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [RFC PATCH v7 02/13] mm: Add an allocator for CoCo shared memory
+Message-ID: <arOfD6syXOgQhZYA@arm.com>
+References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
+ <20260921144847.501151-3-aneesh.kumar@kernel.org>
+ <arKsFofudnTYpXj1@arm.com>
+ <yq5aik3w344o.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC net-next 0/9] net: introduce Qualcomm XPCS support and
- add Nord Ethernet plumbing
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- Richard Cochran <richardcochran@gmail.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Coia Prant
- <coiaprant@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>,
- "Jose.Abreu@synopsys.com" <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Shawn Guo <shengchao.guo@oss.qualcomm.com>,
- Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
- Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5aik3w344o.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_104148_642113_DB65FED4 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_024247_075673_D51527FE 
+X-CRM114-Status: GOOD (  28.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,41 +82,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 9/23/26 03:07, Mohd Ayaan Anwar wrote:
-> Hi,
+On Wed, Sep 23, 2026 at 11:23:27AM +0530, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> > On Mon, Sep 21, 2026 at 08:18:36PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> +int alloc_cc_shared_pages_node(int nid, gfp_t gfp,
+> >> +		size_t requested, struct cc_shared_pages *mem)
+> >> +{
+> >> +	struct cc_shared_layout layout;
+> >> +	struct page *page;
+> >> +	unsigned int order;
+> >> +	bool zero = gfp & __GFP_ZERO;
+> >> +	int ret;
+> >> +
+> >> +	if (!mem)
+> >> +		return -EINVAL;
+> >> +
+> >> +	ret = cc_shared_calc_layout(requested, &layout);
+> >> +	if (ret)
+> >> +		return ret;
+> >> +
+> >> +	order = get_order(layout.shared_size);
+> >> +	if (order > MAX_PAGE_ORDER)
+> >> +		return -EINVAL;
+> >> +
+> >> +	/*
+> >> +	 * State transitions require a linear-map address and may modify memory.
+> >> +	 * Allocate from low memory and defer requested zeroing until afterwards.
+> >> +	 */
+> >> +	gfp &= ~(__GFP_HIGHMEM | __GFP_ZERO);
+> >> +	if (nid == NUMA_NO_NODE)
+> >> +		page = alloc_pages(gfp, order);
+> >> +	else
+> >> +		page = alloc_pages_node(nid, gfp, order);
+> >> +	if (!page)
+> >> +		return -ENOMEM;
+> >> +
+> >> +	ret = cc_make_shared(page_address(page), layout.shared_size);
+> >> +	if (ret) {
+> >> +		if (!cc_make_private(page_address(page), layout.shared_size))
+> >> +			__free_pages(page, order);
+> >> +		else
+> >> +			pr_warn_ratelimited("leaking %zu bytes with uncertain shared state\n",
+> >> +					    layout.shared_size);
+> >> +		return ret;
+> >> +	}
+> >> +
+> >> +	if (zero)
+> >> +		memset(page_address(page), 0, layout.shared_size);
+> >
+> > Does the memset() post sharing logic work for pKVM as well? If nothing
+> > clears it, we have a small window where guest data is leaked to the
+> > host.
+> >
+> > Is there a case where we *do not* need the memory cleared? If not, maybe
+> > we can move the logic in the arch set_memory_decrypted().
+> >
 > 
-> This is an early RFC which adds the XPCS and ETHQOS plumbing required
-> to enable 10 Gigabit Ethernet on the Qualcomm Nord SoC. This is the
-> first time USXGMII together with an external PCS is being supported by
-> the dwmac-qcom-ethqos driver.
+> I don't think every architecture or platform can unconditionally zero
+> memory in set_memory_decrypted(). Some callers may need to share valid
+> contents with the host.
 
-There are currently 3 in-flight series that adds glues to DW XPCS and stmmac: 
+Is there any? That would be a bad assumptions in the caller. Most
+set_memory_* backends don't preserve the content as they change the
+encryption key. So properly written code shouldn't rely on this unless
+it knows specifically it's only running on pKVM for example. The only
+use-case I see to avoid explicit zeroing is when the caller doesn't care
+about the page initialisation and wants to save some cycles. The
+encryption key change would take care of the security aspect.
 
-This one,
-The Rockchip one from Coia [1]
-The S32 one from Jan [2]
+> Also, if zeroing is added only to the CCA implementation, the allocator
+> must retain __GFP_ZERO for platforms such as pKVM. This would cause the
+> memory to be zeroed twice on CCA.
 
+What I meant is that we change the set_memory_decrypted() contract to
+always zero, assuming that all callers need to zero the pages anyway. If
+we do have cases where zeroing is not needed, we could make it explicit
+via a flag.
 
-[1] : https://lore.kernel.org/netdev/20260922200336.2201212-1-coiaprant@gmail.com/
-[2] : https://lore.kernel.org/netdev/20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com/
+> How about extending cc_make_shared() with a flag indicating that the
+> memory must be zeroed, and passing that requirement down to the
+> architecture-specific implementation? The implementation could then zero
+> the memory at the appropriate point: before sharing for pKVM and after
+> the destructive transition for CCA.
 
-MAINTAINERS entry for XPCS says :
+On pKVM, we want set_memory_decrypted() to zero the buffer
+before the host can access it (I guess currently relying on __GFP_ZERO
+allocations). Since no cryptographic encryption takes place, there's not
+much point in memset'ing again after the operation as the content was
+already zeroed.
 
-SYNOPSYS DESIGNWARE ETHERNET XPCS DRIVER
-L:      netdev@vger.kernel.org          
-S:      Orphan                          
-F:      drivers/net/pcs/pcs-xpcs.c      
-F:      drivers/net/pcs/pcs-xpcs.h      
-F:      include/linux/pcs/pcs-xpcs.h    
+I don't think cc_make_shared() has the right information on how to
+safely and efficiently do the zeroing. That's only known to the
+set_memory_* backend. So you'd have to propagate the flag down.
 
-It would nice if some of you could help maintain the core XPCS driver, and make sure
-these series aren't stepping on one another :( I personnaly don't have any XPCS HW
-for tests.
-
-You don't have to do it alone, multiple people can co-maintain that :) Maybe
-Synopsys folks can also chime in ?
-
-Maxime
+-- 
+Catalin
 
