@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10F6C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 04:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BB3C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 04:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FSBnzQPFA3sp+acWAbZYd7ni8m80ai0yOy1PIw/qr5E=; b=BFw/D+FrO2vgA1sBjMG6YwNWJY
-	pLPzeJw+92R813D+lFZUNSTwgNIm4oMEsg9V6OoVC87MoURvmu1TQp0swemaZOdXSY/YU8YbJtjAW
-	Zl5cYReG44FwJpJeT6tTSBlIzEW4G9eswCxa6rqdp5CbWWwtl7JfuicVEVkknSHGqgAmh6/ktMU1A
-	wgOceGLuTvsWrY7zMv++y2Hp8M5yHNsf2pcE+rkKLaW9KizLD4X1SUqvNyMErMMDnJV8f3rCQrLPQ
-	Z/2zan5kPJDMyQXnNUYly/VY1xrTQrrJxy8UYdVpKL9J+gJ0H2azyKOuQ5B2dGmkyqtRLekf8afQ1
-	hq36hwEQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UUGLxOvF7mywRs9buCfM5BiPX8wZpsZsunHJCACFyEg=; b=KY1CwtuMLiZ5CNClCao7bh9aiC
+	x3up7Wx5bH8D6cBTLFUw6OWxSJFG2QgWlODPqwAsRi5PFNdBR4DiVss6TLI0FnpPoEX72k2Dxdd6k
+	/3aaNn13CTbw2wb7cm6cu8CKOA+EBH8L6MkDhHN9WY87rgNEYRyEWRqEjA47pJyMzzfVXLjHXE0ui
+	xEf2C2aIIPsfdIWeo/Mj51o0jO3AzqpBQdEfs9Pokg7/dczGxSyQi3tugJnhbb3f6ex5lxYH0LCXb
+	+Gab31qGkcS768dI6ndDm0MQkGedIvY7K2XjvdvVY1Cn8sQb+T+OmftylvHxWJDHeAenBY3t/Q+Vk
+	7kxqlWmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ESP-000000076Oi-2Dzn;
-	Wed, 23 Sep 2026 04:19:45 +0000
+	id 1x9ESV-000000076Q1-2glK;
+	Wed, 23 Sep 2026 04:19:51 +0000
 Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ESN-000000076OM-1tN0
+	id 1x9ESQ-000000076P6-3RX7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 04:19:44 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccb1a98fso405596a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 21:19:42 -0700 (PDT)
+	Wed, 23 Sep 2026 04:19:48 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-398c066106cso317567a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 21:19:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790137182; x=1790741982; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FSBnzQPFA3sp+acWAbZYd7ni8m80ai0yOy1PIw/qr5E=;
-        b=o6vnLB0uXKO9zb8MRHaglMC3aUXAav7qAlqYqXtcWuFYttNWBOVM2b9Q9wqZ7B3SpR
-         auejnXBlr3mY+2jbzC/fK6JKOgPo0NWrZmGSwg45p6ZhYMsXBSDvEU96JtXDWrn9edAs
-         g4C6EwH8N2dW4wcloWOH1ce2jv+7w/yHeDaNpRh7EVksbz4WTQzGkv1lBSqsJ26MV2d5
-         lMQkflQf5wCYnLV474BntcJI6NeHzFlEnA8ZPF8+8a2Dq17eK6dlKHl76EDDKnTTd8XT
-         zXAnyXGSr4cff4L4c3iXPw9MmUqZsB/5RS96RAfiMNbZfgALYiFVge00/b8R5rFDmuos
-         4ZZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790137182; x=1790741982;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1790137186; x=1790741986; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FSBnzQPFA3sp+acWAbZYd7ni8m80ai0yOy1PIw/qr5E=;
-        b=bltZW0oLDvtBbNE0yQAuSjKY2OSmXqXkEIMYNl7G5zODmlNTkCUDnQcPMa5c/jKhiO
-         CG3z/KkdSXV1NkosF4ybIY9b/4zvghGWQT2GRvZuul3wCJC1R51yHzW1n/5w/fGfoPV8
-         FvF2pHtqYCBHD46HXgddslL87L+bFOon7izVY9pUPonIim4MVmSUWJGr9CpOcIdbxnOM
-         cnyNlDXFumwRns5HE9NVIaHm46jb0UhSrm3b4vVr+gYoDJF2fNjdheoByBUaDQEst4yS
-         CaTG/Ewx3YbSFyL6M6Zorlf0R30AL8j3+AUxqbGf9NCKiLquLViZyHlA1n6aLeEV09wC
-         3Deg==
-X-Gm-Message-State: AFuF++kDiNI8mVHcNhSxfXzu/gHVHlG+Jq4I0C/NyGUcNDSCvG5MbIRM
-	fDOF/Km35cQlWomjQOBgvlreT0/0TsvWaspuW+a5sfhX/hTiTMDeMITgl94e5A==
-X-Gm-Gg: AYBFou1o337moQWE2lCT8T6NjfC6hTU42UirjWel9kxSabhCbGFfvIV5f7TlOR9J70Q
-	S0oD0FknYCuIWc+AfBU1/f+LsvpnOqCnBgroU9I3Ry2XDxiV2m6mHrFjt8vgy32M5CNeFua4tJC
-	udw5rbWitFopbok2sztipwFdDvTXFj+bYfti4WCdYUxfRIQDDHbDFpAZbLlW62EpQI2BQoszXvK
-	ORVJmTZ1wO+DE3bNYWAcyDauvOoNXqJiZy4aXoDotyArRcUwHWFDT4PfSGAdVRYJTzLBW7hRALm
-	JzGfJOEAvJohFhmjvW08R0F/dOPxHmrf+7GJ+cMloICdrUnhQwq12xzK+8ZNrW/WZPWVmifBEII
-	2H3BMkr3v9PP09gfDgtgTr7cjaghEHI+FD7u1JcKBuD4+arA3X0r2zV0zKqaOpg5w6BTj2HjYkQ
-	JINwd7oua3gRqKyCUHF8GUNJ6fjcS/nwVpopECefYFUjWyzNW7ItvySTCz2RJ1fl6wxQcQubzqS
-	DqmBmnLlXNpzERmVaMSij9M/9u9oFIJU/HzzB3kbj19sLul8u0k2tXfwcUoB1tg/QwlVsY=
-X-Received: by 2002:a17:90b:3843:b0:3a0:50bf:d497 with SMTP id 98e67ed59e1d1-3a07e4a2525mr1289494a91.3.1790137181650;
-        Tue, 22 Sep 2026 21:19:41 -0700 (PDT)
+        bh=UUGLxOvF7mywRs9buCfM5BiPX8wZpsZsunHJCACFyEg=;
+        b=r9MC/OpXVvDMZOGhx7ujhOa9HH7AhQ4kFe2gVRXvjR9GvQHWyBxiQOTiVXZaTOyqzO
+         0KGhtZ5juw0UyJ1cmrHJkzl81PksEjRP4aNCGCxHmzsIfray927SKykeY2MZZVEJaI0l
+         CGbLqKFPUx61dUubxpqGoqXAsxllqPkHtiSTAJyVwxMH5YZb0An0Iz7krGptSEmS4n3P
+         0hdqpEAq+QdZXeDm3ZlU2LT84e61xyaY22A1ddCOkbDZ+IyKYCaKfESggU+H9lIirz2a
+         k6r218yf7hfZ0ftTnAhsdWNV3sS5xQkETegRQGipv634fYUBTQF7Y/Vpyl7B5MZ1oIoj
+         S7iQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790137186; x=1790741986;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UUGLxOvF7mywRs9buCfM5BiPX8wZpsZsunHJCACFyEg=;
+        b=1m+NgxdGcGbIpexozeScQ4o85z7DuxuwKOAVA7cRZk7HIvObsEfZEN0w20EodO/lnp
+         vhqAvSkSRZUwvTPA/wzvIbIhMwE4FTMYEefghsexT7DmHWwhWwlB4jnRSgmgRh8R2GGn
+         9KWxyctbr5gIyLLbSWJj2+ISf6OkNBar/auslmLTlk+JZdI48WCXDMR9sTe2S2CxA7rB
+         ZHl2+tR0t7totKaGmHBQzlOtAhYZTPZgPmEOr/F1iuJWha+eq+rrZGWfKNdWwHykB6xb
+         7uhRv0Bbp/FOMaDUIpaso4HMLzTHzVxVY9h0SbQWxj/h6ElXsjZgpzgG17mSTuKBCUid
+         Y9xQ==
+X-Gm-Message-State: AFuF++mH43drarqZOEUgonVq9oeeQ7VsXzxYjP2+YSqS4+105/n/AqvQ
+	Gf31xRC6yBZfQXr7/5HIFAMkfV+oxrKNBqgqPEVBsipGGEvU0JzLVVpT
+X-Gm-Gg: AYBFou3fExIodssocZ9H8PsycLOvfeJPHNnPxLiGFw76YOCStd2SzO82sJO4oNvYmlW
+	7BCk/vp9slmzudHJOKd00mA5dK8aEdAklbkOMyP+7etUygAhU7lT1rYHn9UmnBU6SKSAceILNew
+	1p07v8hs2oLlsJQnMNkUCyktOOBiMe/Q3F94eVWh5I3k6030q1KKBmdZJNAxTwEdaWm+T1bCeNL
+	Eh07R2PGbtE6WV4UP8ukpMXMW4V4Pvqex1sB1qvb5jO5+doxs/kI7kp6yPGT7pZ2iORvU6FzP5B
+	TSfxnM2Cg/AFLqtdmxs/W7HEn2Hc+EqYBo/OIbc48Fhj2iSQruKeJjETPDf3z0n7pHUFslImKHo
+	0uWuBoJjjypuF0khV1jhWBm3YAcsJK4/zwwKtARWYYkad/BD59lvUlwsgGgp6Hb0S4DJe9bSmRa
+	EE2fEIkS73r1XZe98DSLettofCP+2kmNN0YJTe9jfKHVVHw+8Aqr3fA4fJ2jRdUE45UIK4l+lcu
+	0nJiN0H0M9SPRV6+Pk3AfOPNwKeUzfNM3uo/NivbZ6iPFTfzp2/X045v0rr
+X-Received: by 2002:a17:90b:4d0f:b0:39e:6a81:c922 with SMTP id 98e67ed59e1d1-3a07e641099mr1375383a91.21.1790137186121;
+        Tue, 22 Sep 2026 21:19:46 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07ddae723sm2510243a91.5.2026.09.22.21.19.39
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07ddae723sm2510243a91.5.2026.09.22.21.19.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 21:19:41 -0700 (PDT)
+        Tue, 22 Sep 2026 21:19:45 -0700 (PDT)
 From: Chi-Wen Weng <cwweng.linux@gmail.com>
 To: broonie@kernel.org,
 	robh@kernel.org,
@@ -79,15 +80,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	cwweng@nuvoton.com,
 	cwweng.linux@gmail.com
-Subject: [PATCH 0/2] spi: ma35d1: Add Nuvoton MA35D1 SPI controller support
-Date: Wed, 23 Sep 2026 12:19:24 +0800
-Message-Id: <20260923041926.425551-1-cwweng.linux@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: spi: nuvoton,ma35d1-spi: Add Nuvoton MA35D1 SPI controller
+Date: Wed, 23 Sep 2026 12:19:25 +0800
+Message-Id: <20260923041926.425551-2-cwweng.linux@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260923041926.425551-1-cwweng.linux@gmail.com>
+References: <20260923041926.425551-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_211943_511641_114D62EE 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20260922_211946_915142_D7828375 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +107,98 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-This series adds Devicetree binding and driver support for the SPI
-controller found in the Nuvoton MA35D1 SoC.
+Add a Devicetree binding for the SPI controller found in the
+Nuvoton MA35D1 SoC.
 
-The driver implements SPI host mode using polling-based PIO transfers.
-It supports SPI modes 0 through 3, LSB-first operation, and word sizes
-from 8 to 32 bits.
+The controller provides two native chip-select outputs and supports
+additional GPIO chip selects through the generic SPI controller
+binding.
 
-The controller provides two native chip-select outputs. GPIO chip
-selects are also supported through the SPI core GPIO descriptor
-infrastructure.
+Describe the controller register region, clock, reset, and optional
+interrupt resources.
 
-The driver programs the clock divider according to the hardware
-requirement that only odd CLKDIV register values are valid, and rounds
-the divisor so that the generated SPI clock does not exceed the
-requested transfer frequency.
-
-DMA, target mode, half-duplex, 3-wire operation, FIFO threshold
-interrupt transfers, and the I2S function sharing the same hardware
-block are not included in this initial version.
-
-Patch 1 adds the Devicetree binding.
-Patch 2 adds the MA35D1 SPI controller driver.
-
-Chi-Wen Weng (2):
-  dt-bindings: spi: nuvoton,ma35d1-spi: Add Nuvoton MA35D1 SPI
-    controller
-  spi: ma35d1: Add Nuvoton MA35D1 SPI controller support
-
- .../bindings/spi/nuvoton,ma35d1-spi.yaml      |  70 ++
- drivers/spi/Kconfig                           |  11 +
- drivers/spi/Makefile                          |   1 +
- drivers/spi/spi-ma35d1.c                      | 701 ++++++++++++++++++
- 4 files changed, 783 insertions(+)
+Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+---
+ .../bindings/spi/nuvoton,ma35d1-spi.yaml      | 70 +++++++++++++++++++
+ 1 file changed, 70 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/spi/nuvoton,ma35d1-spi.yaml
- create mode 100644 drivers/spi/spi-ma35d1.c
 
+diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-spi.yaml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-spi.yaml
+new file mode 100644
+index 000000000000..4e1afbdb195d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-spi.yaml
+@@ -0,0 +1,70 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spi/nuvoton,ma35d1-spi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Nuvoton MA35D1 SPI Controller
++
++description: |
++  The Nuvoton MA35D1 SPI controller supports host and target operation and
++  provides two native chip-select outputs. GPIO chip selects are supported
++  through the generic SPI controller binding.
++
++maintainers:
++  - Chi-Wen Weng <cwweng@nuvoton.com>
++
++allOf:
++  - $ref: /schemas/spi/spi-controller.yaml#
++
++properties:
++  compatible:
++    const: nuvoton,ma35d1-spi
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  num-cs:
++    minimum: 1
++    maximum: 2
++    default: 2
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        spi@40600000 {
++            compatible = "nuvoton,ma35d1-spi";
++            reg = <0x0 0x40600000 0x0 0x10000>;
++            interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&clk SPI0_GATE>;
++            resets = <&sys MA35D1_RESET_SPI0>;
++
++            #address-cells = <1>;
++            #size-cells = <0>;
++        };
++    };
++...
 -- 
 2.25.1
 
