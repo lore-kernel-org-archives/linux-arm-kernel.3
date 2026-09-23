@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7205C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89176C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ptp1S6PEvwhlOiXeXKp9TFp5hhbpIwPkATNA+GKV8f0=; b=vGmh8kQ+agUog7Er4PGA3a95il
-	1EMOVaRxYFILaQEGLpS92d8gxmjjQHKfcj79SzufGzkysIuDTjyN/DaY4uY8NTRMpQiHr48dfN3lB
-	EO6CCIsNkGhddcyDq/ZqORqWC1pngUu9TF3qsbk6BE29coHXRZIYV7hoir+JRY1KoxzgRNpJhqhLB
-	qOuPEmVeoZdJ5oTpqz+VRqa2+geL62K25yDmQT5ArcwgOVfDvUZH+kBnCM5otzYnKVKUPHs5mJSNa
-	cpMqpek9jfG4PfRB4eUSIosjwIuJISkqAz3E4/1OmRdB3C4Xu4tG8KR9TfUqPH/5cR0fBeFd6p1g7
-	G0QtlJLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f88CVqVwH3EoaYY9ZjzBSzc+5VV8bsMvTs1N/tjI6Fk=; b=S8netUXMIIB/J7RQktVeN5SaP4
+	8BK4pvcZHfYrGAdXTS9H9a4NKIVRFOgGyZNdbGzLRVK9zf50KrA7xKmoZCTZDa5MH9fng5Xude6hZ
+	bD2gWt+JJ1uTuxbXyi9S7/YeLlRJ/iqSMnMpcavEY5dIQbcgh3wunMvy/xrRVZEk/cZIxwFK/SHRE
+	yHgxTcdkxV0aJtTMFjSsAkAYMZze3Le1ZrktAaO31hbfmdGk087K4z+Uovm7jO0ufBDA4J4xotgSk
+	lg/7/IeDOdt00u00I8zb40YZobEF2hIDFO/HhfMhuGcfu0ICtQlEo4lu4ksiCACUU2HX6T7f8KbTf
+	4m6gO7Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Pai-00000008qd7-2IVU;
-	Wed, 23 Sep 2026 16:13:05 +0000
-Received: from mail-qk2-f43.google.com ([74.125.230.235])
+	id 1x9Pc5-00000008qmF-11hP;
+	Wed, 23 Sep 2026 16:14:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Pad-00000008qcA-1ki4
+	id 1x9Pc4-00000008qm8-1z9x
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 16:14:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=f88CVqVwH3EoaYY9ZjzBSzc+5VV8bsMvTs1N/tjI6Fk=; b=aZDJRN3r+76vQicCAi9K/LV4wu
+	X204+EUKLtZqEGao6ONxIDHHd77Z64AtEhgNnOQ3l436FiEFCxFb9buGxB0VplyfyjMMdrA8ySPA4
+	wuTCAy6cFcM/lDMZ9gLX2MctpkBvKNYq93nD4N76nWI5QNPAtcbMuweiJVMpVNAYJ40+dI+CuBC9E
+	IZi7R+Kx9svMNqOVMBmsnRuMNaRCP9F9WI/fokWbnxAuvqElFGy/5UswT4F5AJw/RwM0vYGF7DfNk
+	4BOQY6YXbkHfRXwww6wAHGqiGutZZ3r3BMP1Q+JQ4EDImpqpIqG9jEtv7/3oKdE+nhE8NOgYvxCJ5
+	2isH7KfQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9Pby-0000000EzzG-2cCD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 16:13:01 +0000
-Received: by mail-qk2-f43.google.com with SMTP id d75a77b69052e-530301ff353so15136751cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:12:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790179976; x=1790784776; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ptp1S6PEvwhlOiXeXKp9TFp5hhbpIwPkATNA+GKV8f0=;
-        b=oABxZBfI9wyJG/hGmv+A6I76LXIYYjNQTsYzg1sYd/ftvqy5SGIGClpgDw9hglgIkE
-         UiJrB8COBD2orbrtMijl7voR0KMJvrIwbz9llHJQ0gJyugUCsgL9qstdePU0zBgHBhuO
-         okJ0Ngw458+X34xuBAlLn+9g1lXrXcf6eUo5mjw/hnSONNCdDfDv2gq0T3qLl3Znrw/W
-         ohq32jsHNgdsUvtALGP1wY1rFNviGGIf/8izOD86CSJ/mptudJj7LLMrpzhSczB+o0El
-         Nga7CEG9i96XJLuXh/gWZymUhhxEXkiKrSjqIrQn+1lOw2QJHVmHYKgaFyatT77YayN8
-         EaKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790179976; x=1790784776;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ptp1S6PEvwhlOiXeXKp9TFp5hhbpIwPkATNA+GKV8f0=;
-        b=gMVQ7Qu8JIwHSEoY4XaIJp1dTLOr9JpefbL9w1fNxs63Jnu72bnFPekl0HITa9dM/K
-         SuELN8TZID0J9QGiqEo1AM2KZS1KgBvxaxhrT7SAO+GgvVXxUGSII9Et6ONFJNNAoGPe
-         Z0zz+D1ZzLYJdmHvn0zolTN11i20QtYkC+EA43YrayyMZXh9ZlozQjtwoTYw1pJJphAL
-         7NOhtvRrYqeEJR1qiE29dtWXC+kpCx0aG0NboMpcw/OheyN/UpWitOUDC6La8iEOK78i
-         BCVkJUiaxeJFbSCfWt6tOJiR3vZDsMgQKzBT7FWSk0oRquBJSfHy81OL1sr1pa8BoEqj
-         Ph2w==
-X-Forwarded-Encrypted: i=1; AKwUvBylIig3H7DYSVHolCgKwxra1z93eureFAyMK829C8ZwtkQ3Kp4/Pp95J15yd33QLjaRyskAYqu9QFSV/WRdmlfQ@lists.infradead.org
-X-Gm-Message-State: AFuF++nfF4zMbYpyunENKKp06bjzIrVC35cPBw8tgpdf/cMpXEpRdcUT
-	tCqelSY4eoT4ZY1wlfUkzMai7BylhHNE+jtXbcJZIUOkBuTaRVyA8x/U
-X-Gm-Gg: AYBFou0q+QB+13ukjAWe+yI8Zxr71qqnjsZ3+tz9MdHXyxBZ+Say2yz98SCk6JqU3Af
-	r5IxAUO2pWOD3LT6WVm3JNyQqjSVmddp4/o4Jn1Dk0DMmy2OcDwSgRjAApZLFlnOSTyZXWyPMH/
-	6rpTcrVoAdd0lbQ9sL2JauPY4aM16+c8oQG2mnhv2ail/qFE0H6BsiT1y5+TSEuhgikM9kNrVcN
-	ArD4NZy1vpAMgr7c0avk4EYMEySqH/ArDY6sASWdb1SG3izaK9buld/iqYqsZEL3AngQzUjpINt
-	lhiBMXIUwBf+laj+lKZ9U4q4P7LEdDnQ6nMt3qn0CmHfhbrt4o+HL16o/P2s71s/95Ov1T5ZqK4
-	LToNDVmw5QZ8YgfAmGDxLPrHD/nuvPZvqykkcZdKGWDxhHqMC7khJhDyuW4ah7MteBAvwYlQaVv
-	Nne4ohhqXcphSpT4foUzV98Y24PQcfvzrdQ1kNSo5CBnuQXEb7xINdPPCNKfj8Ogej39mVATqb/
-	cFe+ak0AU0sEmnyZ29E0LHrpGaszNlE+w==
-X-Received: by 2002:a05:620a:370d:b0:93b:d7a0:d9db with SMTP id af79cd13be357-93c2520e6a4mr500584785a.53.1790179975757;
-        Wed, 23 Sep 2026 09:12:55 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c248223dbsm259134385a.10.2026.09.23.09.12.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 09:12:55 -0700 (PDT)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Dinh Nguyen <dinguyen@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH v1] ARM: socfpga: Fix OF node refcount leaks in sysmgr init
-Date: Wed, 23 Sep 2026 12:12:37 -0400
-Message-ID: <20260923161248.586695-1-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 23 Sep 2026 16:14:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECBAE1570;
+	Wed, 23 Sep 2026 09:14:16 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5E003F86C;
+	Wed, 23 Sep 2026 09:14:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790180060; bh=9EBIGd9e2m8HBAqkNbb+EjJdoUI8yMILNRtqw6GVPOM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=feFCPkW3shidAGRi0gtGaIPg3jJgWeecq0pXz59fMYfi8toH2Aqe7aKu0CfWK44oP
+	 rdyQJRrd761lAhO9YIBPaZxDGNYUb43W0pIcLL53BP5YZz8ZiFXjk9lM6W/bw5dIXS
+	 U20QZqzwHUbjqAFoAi6n3VA4EwUl+Nb3TJo3eSs0=
+Date: Wed, 23 Sep 2026 17:14:15 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Linus Walleij <linusw@kernel.org>, Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Usama Anjum <usama.anjum@arm.com>
+Subject: Re: [PATCH v2] arm64: clear_page[s] using memset
+Message-ID: <arP619hd9Rx8Vlrx@arm.com>
+References: <20260916-aarch64-clear-pages-c-v2-1-0393769f7912@kernel.org>
+ <aqq1sxdQNZ93oV9A@LeoBrasDK>
+ <aqq7oZzutLP82WYB@LeoBrasDK>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aqq7oZzutLP82WYB@LeoBrasDK>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_091259_910728_ACA1B170 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260923_171425_674894_4EB5FD5A 
+X-CRM114-Status: GOOD (  26.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +90,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-socfpga_sysmgr_init() looks up the sys manager, reset manager, and
-SDR controller nodes with of_find_compatible_node(). The returned node
-references are used to read properties and map registers, but none of
-them are released before np is reused or the function returns.
+On Wed, Sep 16, 2026 at 04:54:09PM +0100, Leonardo Bras wrote:
+> On Wed, Sep 16, 2026 at 04:28:51PM +0100, Leonardo Bras wrote:
+> > On Wed, Sep 16, 2026 at 12:03:56PM +0200, Linus Walleij wrote:
+> > > There is no need to try to second-guess the compiler when
+> > > clearing memory. Just call memset() like everyone else.
+> > > 
+> > > Since memset() already has an architecture-local MOPS
+> > > optimization, we do not need to do anything else to preserve
+> > > the MOPS optimization.
+> > > 
+> > > While at it, implement the shorthand for directly calling
+> > > the new prototype clear_pages() for larger page chunks.
+> > > 
+> > > No performance regressions can be seen, the fastpath
+> > > benchmarks differences are in the noise.
+> > > 
+> > > Usama Anjum tested next-20260821 with one warm-up and three repeats
+> > > in four sessions, for a total of 12 measured runs. The commands were:
+> > > 
+> > >   perf bench mem memset -k 1GB -f default -s 16GB
+> > >   perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
+> > >   perf bench mem mmap -p 4KB -f demand -s 32GB -l 5
+> > > 
+> > > The results were:
+> > > 
+> > > aws-m7g.metal:
+> > >   Benchmark    Base bytes/sec   Change with patch
+> > >   memset 1GB   63932542232.12                1.92%
+> > >   mmap 1GB     63272579168.03               -0.57%
+> > >   mmap 4KB     49692830849.48               -1.11%
+> > > 
+> > > cesw-aarch64-ampereone-1s-a192-32x:
+> > >   Benchmark    Base bytes/sec   Change with patch
+> > >   memset 1GB   33895562998.71                0.25%
+> > >   mmap 1GB     34338454210.17                1.16%
+> > >   mmap 4KB     25687107580.90               -0.85%
+[...]
+> > Looking on that, I see that the memset() implementation uses setp, setm, 
+> > sete, while the clear_page()'s uses setpn, setmn, setn for the case with 
+> > MOPS. But then, reading into the docs, the instructions seem pretty much 
+> > the same thing. 
+[...]
+> Oh, I browsed a bit here, and IIUC none of the tested machines have 
+> FEAT_MOPS, is that right?
+> 
+> If that's the case, the tests are exactly to what is different between 
+> patched and current versions. There should be no impact on MOPS version as 
+> the instructions are basically the same.
 
-Drop each reference after the corresponding mapping attempt. The MMIO
-mappings do not depend on keeping the device node references held.
+Logically, yes, they are the same. From a performance perspective, there
+may be a difference between the temporal and non-temporal variants,
+depending on the usage.
 
-Fixes: 9c4566a117a6 ("ARM: socfpga: Enable SMP for socfpga")
-Fixes: 44fd8c7d4005 ("ARM: socfpga: support suspend to ram")
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
- arch/arm/mach-socfpga/socfpga.c | 3 +++
- 1 file changed, 3 insertions(+)
+I think it would be good to run the benchmarks with the current
+implementation without DC ZVA. I don't think we have an easy way to do
+this on the command line, so we can simply hard-code the DZP=1 check and
+fall back to the STP or STNP in both cases.
 
-diff --git a/arch/arm/mach-socfpga/socfpga.c b/arch/arm/mach-socfpga/socfpga.c
-index 4332af2d8b862..663765280d0c9 100644
---- a/arch/arm/mach-socfpga/socfpga.c
-+++ b/arch/arm/mach-socfpga/socfpga.c
-@@ -34,12 +34,15 @@ static void __init socfpga_sysmgr_init(void)
- 	sync_cache_w(&socfpga_cpu1start_addr);
- 
- 	sys_manager_base_addr = of_iomap(np, 0);
-+	of_node_put(np);
- 
- 	np = of_find_compatible_node(NULL, NULL, "altr,rst-mgr");
- 	rst_manager_base_addr = of_iomap(np, 0);
-+	of_node_put(np);
- 
- 	np = of_find_compatible_node(NULL, NULL, "altr,sdr-ctl");
- 	sdr_ctl_base_addr = of_iomap(np, 0);
-+	of_node_put(np);
- }
- 
- static void __init socfpga_init_irq(void)
+Otherwise I'm fine with the patch as well, good clean-up.
 
-base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
 -- 
-2.43.0
-
+Catalin
 
