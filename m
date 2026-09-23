@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E62C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E537C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aefF/PiYK1b4Z/D8ikpDUgUaGPgIxFbZ+BKtTsI/MQI=; b=tD3qBaVQXcfvobH+XFlaxMIRvY
-	cKlIiN39K8Ci+b4ZcVX4+biQ7FIWzLaMg2ifWyXE5WhxolWElIV8Ifp+h/6ITSpK7uDyijge+juDB
-	gD3raD+yU9Ho+mB+veAHNwml/TMaozVxK8Kd6TFNMGRYWfbK5aZfo2cK5ExQxM9XTJz+ce9COaHUs
-	G/vWEUWbv00zuROMTkJNyA9hsktYJD+bVL5TWsyCmt4nE7dwhHeBtLA3drLgkDd5adeJgzWYOfDT3
-	8TbbYTotaIqpDHxs5GgY5Vv0zl9mGL4aFsGNCYnUsF1EZqJF49za0Uf698Rz15hEuJ3DzSUX9KwRG
-	USGkuzEg==;
+	bh=8Y5i9c/b4TYc01Xqc0JU1jpnublj/HzO6uENI1sGzb8=; b=2fmHZ5+y1Ewgeccxjqvl7mEQ0W
+	H0EL0vkbBV0/k7XprheUTaKKqtU9I9jzEpDyk3bUytrt9CtrV3ZrmmCw45BEiApqg7Bdpl9LzqlHa
+	w6DdjGp04dhgfNpbsIehukNO+Dus/W4jdyxRrZJiwunAZALEQRCabCllk7GVQQFuVYiqzLM+5bZuL
+	rBOYch/Qu2gBYjF2SkJf4n6x82h7zVbpnmO8y0d96BFM/8ndAwdHYcpelr0+rZiUrO8V9oP/BaXD0
+	Cpj2XUHMA+tpPmXrOBLfqQbuBBU58SucpjGB5/xEmAY0decldj7RM2kHZbYuhligCWhrl7kv0XmGt
+	uK9ij4EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Iio-00000007c3O-3Br5;
-	Wed, 23 Sep 2026 08:52:58 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1x9IXb-00000007Z5F-0not;
+	Wed, 23 Sep 2026 08:41:23 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Iim-00000007c2G-1eQ3
+	id 1x9IXX-00000007Z4U-2MMk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:52:57 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49e65a8f70eso26885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:52:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790153574; x=1790758374; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aefF/PiYK1b4Z/D8ikpDUgUaGPgIxFbZ+BKtTsI/MQI=;
-        b=GZMCZ6G//ucB/IdbcLA0Y/QtVjbW19htSxdi6rN3aZ3gMS6kU8fwfLCoFz0IqutW+b
-         ianZonFwrSyBGTEV33Ra4GBXFQfOsa6bRaDIM3Bl+tTj8oAp57waXPXgvTqOjWIZiie2
-         ESy3J5cBSpzmmaI9JDdrf4EDlTVHkH9dnXCNWuZaqMUnbkEt1jrwLHECRvg4IxlTQ64+
-         gAHWeo/7C9KjQhgx6agP3CwIW+1FBB2AfaCQxUX5Jqe9Z/sbU5Ep03YqTBe30brOI2VS
-         /jjrB5AZfghgdUhb4uAsavVblck3ZGRuA49Z97DDe/2Jvz0oXugcfHb4FyuGfp8OJAeU
-         KEOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790153574; x=1790758374;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aefF/PiYK1b4Z/D8ikpDUgUaGPgIxFbZ+BKtTsI/MQI=;
-        b=Vnq5TrcMNZ5drTVreJiCe6MLijIP0sh7s2ug6GgEqB/3qi0QGzk+u8/7lSRIG3sI6i
-         Hi7JkkzY2DcthUQCYeZj8fQthqKQg5Bqt4k/me0jjSUH2EkIvTlgADHOH4Jt5LjpJ4MI
-         cdo3C1x1kEmeaqhyFUIrRBkg0HORbO1iA8596MvrfgZCZ736SAgdn2E8G2tIO2bMYv3Q
-         AMe65iBT+/r7aAhiY+I5RhVOS6ifum7XpuoWWXFY0Oqy07wJ4DuO2OY0s9THQQ95bJrk
-         a+awG9N2SjCoz1fKvN/FFaJSYNYBT3i9z6/FEYSzFTGO0folfLERLFqSzcFv5KjPllgB
-         oQDw==
-X-Gm-Message-State: AFuF++lhShqHfuYvMsDgxGXkSIUO5GTb7Q0gzg0H/XF6Za6042Q/R0I9
-	6HA+t2pkk29aU+VJa19Y5FspyoMWw9TLSj9OT2sDWLYSNZhGdzP4BRum3pQQd+D4cw==
-X-Gm-Gg: AYBFou0k/kdTWyBeb1I7h2PXz8K0QrMde0SgXRlPllKFa26rXIVSu29hNvJ4GrPe+6x
-	HceGhBMqEBWno8yXTEanKTQTTddAbVbipWArCDlGi+RmPB/fERkS3vNc0qqvP7BI0kx/IohgY2Z
-	KrDqBd8Iqpdjg+KLLG4YrE558yILvF4kP5IVIYPrbjqCDfOJA9czLIiGTtlXS5nhIExR83T4QH+
-	nc4TH1bLg64jd2xnOgEyXbZL66zxyBBzU8aG4tCd2pned6Unp56THV+owylhlAZZDQ//2HTLtCp
-	Q/+gGCCr6nG8T2+WgOyr7nPKefOYriRw/+KoVlU0/2eJ8NQDUYP6W+6UmzUCHLtCW/9F3D10QgW
-	BcO5ZQwIkL7UEPUOGtrJ/4ddyaJiCdEZwUrdqZhZV7QbVpAKG+9WhN+3XqnaaKQAMjXd1rhTBYz
-	qSrRVy7uVfjCUsYg9a30E7LxkkBtn/U4SIJo3xSY4h5A2DPUt1/JjoyUL7tA1Vb7CVGS7xgNwxR
-	phKgW7JFQEia+NtZS9rXn0JONCQqzzLKggGDzQ1aQ==
-X-Received: by 2002:a05:600c:35c3:b0:49d:24e2:5454 with SMTP id 5b1f17b1804b1-49fe0c4a230mr735295e9.13.1790153574217;
-        Wed, 23 Sep 2026 01:52:54 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fde18a8a0sm60265885e9.5.2026.09.23.01.52.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 01:52:53 -0700 (PDT)
-Date: Wed, 23 Sep 2026 08:52:49 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v8 00/25] KVM: arm64: SMMUv3 driver for pKVM (trap and
- emulate)
-Message-ID: <arOTYREAT_JEyp9U@google.com>
-References: <20260922131259.2975334-1-smostafa@google.com>
- <arLD1qj8E+tE2MYw@nvidia.com>
+	Wed, 23 Sep 2026 08:41:22 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 23BB920183;
+	Wed, 23 Sep 2026 10:41:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1790152875;
+	bh=8Y5i9c/b4TYc01Xqc0JU1jpnublj/HzO6uENI1sGzb8=; h=From:To:Subject;
+	b=x1Avj4a12eFSUsPZsD1djDgeS5gYKxM7uCO0L1tgYjmDm03qNKjEzVZWwtJCH34uG
+	 A1zYjTj+FzQvp0/7yWVtObnO1iPb4bbqijf/jnKCHFcbxdDQjjUtlcm9lu/N9waqJn
+	 tEftFjnNDitFws9DIcL23vqjkWqINbkWG28+vtQiArhGeG3lb1o+vRO6NbhogTx0L1
+	 M7yxvtuIFX21K5+orZtH651vLCXuVG0HpWUaY47CfgJ32CWxIV1LxMARlqC115c8n0
+	 WYDZv4LjfyMSYlb9FkIW8cojL1CB/xr9JcjAHKDiKXez9We0kfFtilST/qqpM0XT+A
+	 BeUMWexYWafCA==
+Date: Wed, 23 Sep 2026 10:41:11 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 0/4] arm64: dts: freescale: Add Toradex iMX95 overlays
+Message-ID: <20260923084111.GA460930@francesco-nb>
+References: <20260922-v1-imx95-overlays-v1-0-694100afb4bc@toradex.com>
+ <arKn0LhC5fty7dHN@SMW015318>
+ <20260922165846.GA290956@francesco-nb>
+ <arLJl3jyyytfS_Qw@SMW015318>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arLD1qj8E+tE2MYw@nvidia.com>
+In-Reply-To: <arLJl3jyyytfS_Qw@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_015256_454219_576D4AA1 
-X-CRM114-Status: GOOD (  27.57  )
+X-CRM114-CacheID: sfid-20260923_014120_655859_50BE9DFA 
+X-CRM114-Status: GOOD (  31.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,54 +79,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 11:07:18AM -0700, Nicolin Chen wrote:
-> On Tue, Sep 22, 2026 at 01:12:33PM +0000, Mostafa Saleh wrote:
-> > Notes about Sashiko
-> > ===================
-> > I ran Sashiko locally and it was helpful in discovering problems in
-> > the series. However, it still shows large number of critical and high
-> > severity issues, I went through them and I believe they are false
-> > positives, mainly because (in the order of frequently reported):
-> > - It doesn't understand WARNs are fatal in the hypervisor.
-> > - It doesn't understand that a malicious host can DoS the system and
-> >   pKVM doesn't guarantee availability
-> > - It doesn't understand the SMMUv3 spec and makes stuff up (eg. about
-> >   CMD_SYC CS field it makes up an non-existent encoding or wrong
-> >   semantics for the gbpa register)
+Hello Frank,
+
+On Tue, Sep 22, 2026 at 01:31:51PM -0500, Frank Li wrote:
+> On Tue, Sep 22, 2026 at 06:58:46PM +0200, Francesco Dolcini wrote:
+> > On Tue, Sep 22, 2026 at 11:07:44AM -0500, Frank Li wrote:
+> > > On Tue, Sep 22, 2026 at 04:33:45PM +0200, Ernest Van Hoecke wrote:
+> > > > This series adds device tree overlays for the Toradex Verdin, Aquila,
+> > > > and SMARC iMX95 SoMs.
+> > > >
+> > > > The series adds support for:
+> > > > - NAU8822 Bridge Tied Load configuration on the Verdin Development Board
+> > > > - UART_4 reservation for Cortex-M7 firmware on Verdin and Aquila
+> > > > - SER0 reservation for Cortex-M7 firmware on SMARC
+> > > >
+> > > > The UART overlays mark the port as reserved so Linux does not claim it.
+> > > > Firmware remains responsible for configuring the UART and its pads.
+> > > >
+> > > > The Makefile entries build standalone DTBOs and ready-to-use composed
+> > > > DTBs for the corresponding Development Boards.
+> > > >
+> > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > ---
+> > > > Ernest Van Hoecke (4):
+> > > >       arm64: dts: freescale: imx95-verdin: Add NAU8822 Bridge Tied Load
+> > > >       arm64: dts: freescale: imx95-verdin: Add Cortex-M7 UART_4 overlay
+> > > >       arm64: dts: freescale: imx95-aquila: Add Cortex-M7 UART_4 overlay
+> > >
+> > > both reserved lpuart2, can you share one dtso?
+> >
+> > The comment in the DT file must be different because it's important to
+> > reference the actual board it applies to.
+> >
+> > So to fulfill this request we would need to add a common dtsi, include
+> > it from two different dtso files.
 > 
-> Just my two cents here:
+> No, direct use one dtso. see
 > 
-> From my experience, making commit messages or inline notes slightly
-> clearer against the findings that Sashiko reported could simply help
-> it understand things better and mute most of the false positives.
+> https://elixir.bootlin.com/linux/v7.3-rc3/source/arch/arm64/boot/dts/freescale/imx-pcie0-ep.dtso
 > 
+> And makefile to check how apply the same dtso for difference boards
 
-I try to do that also, it helps to a certain level, then the code
-becomes too verbose and the comments will be trivial :/
+imx-pcie0-ep.dtso works as a single shared file because its content is
+generic, there is no board name anywhere in it, and nobody needs to
+apply that specific dtbo by hand to know what it is for.
 
+These overlays are different: they are meant to be picked up and applied
+directly by the end user, in addition to also being combined in-tree
+into a ready DTB. Put yourself in that user's shoes: they have a Verdin
+board, they want to free up UART_4 for their Cortex-M7 firmware, and
+they go looking in arch/arm64/boot/dts/freescale/ for the overlay that
+does that for their board. What they need at that point is a file name
+that says "this is for Verdin" and "this is the UART_4 one", and once
+they open it, a comment that confirms both: which board and which
+specific UART. That is the whole point of shipping the overlay
+separately from a combined DTB: it is meant to be readable and
+applicable on its own by someone who is not a DT expert.
 
-> Otherwise, the number of the findings is a bit scaring; reviewers
-> would have to go through the long list of findings to check whether
-> each of them fits into one of the false-positive categories :-/
-> 
+There is also a second, even more constrained user: the one who never
+looks at the kernel sources at all, and only gets the compiled .dtbo as
+deployed on their distribution, e.g. under /boot/overlays/ on the
+target, or the more generic paths used by distributions like Debian
+(/boot/firmware/overlays/) or Armbian (user_overlays= in
+armbianEnv.txt), picking it by name from an overlay list or a U-Boot
+env variable. Comments do not survive dtc compilation, so for that user
+the file name is the only information available, there is no comment to
+fall back on.
 
-My strategy is to reply to Sashiko on the list to save reviewers time.
-But my main concern was the large number of false positives might
-discourage reviewers thinking there will be a newer version with
-fixes.
+A single dtso shared between Verdin and Aquila fails that on both
+counts: the name has to become something generic like
+imx95-verdin-aquila-uart4-mcu.dtso (immediately confusing: which board
+is it really for? can I use it on either?), and the comment inside can
+no longer say which board it targets either. That is worse for the
+person using it, for the sake of avoiding 2 lines of duplication:
 
-> > - It seems to look at one patch at a time and not the whole series, and
-> >   as the series is written in a way to be bisectable that confuses it.
-> 
-> Yea, that happens too. Usually I would add a line at the end of the
-> commit message "a subsequent change will do X", which could clarify.
+  &lpuart2 {
+  	status = "reserved";
+  };
 
-There were a lot of those when I ran locally. However the one on
-sashiko.dev does better.
+It also does not reduce the Makefile churn: we need the same number of
+Makefile lines/combos either way, one dtso reused for two boards or two
+dedicated ones. And this file will not change once merged, so there is
+no maintenance overhead from keeping it per board.
 
-Thanks,
-Mostafa
+We agree that avoiding duplication is generally the right call. When
+there is real, growing duplication across dtso files, the right fix is
+a shared dtsi included by the dtso files, not merging them into one. In
+this case the duplication is 2 lines that will not change, so it does
+not meet that bar either way.
 
-> 
-> Nicolin
+We would like to keep the two dedicated dtso files.
+
+Francesco
 
