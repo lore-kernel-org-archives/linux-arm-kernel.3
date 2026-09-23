@@ -4,98 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7923C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D375C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HgPtV1IXszkLhG6uHST7dgneJNufVJJ9/BLgDeMeRlk=; b=mzDfYbE3ItL0H4mHCUSLDR6wyI
-	EpX3vuA/WrBmZSq8XVbWFS2mEACCrWDNcLXDv28FbHsMi98SdS2JIh9Tin4QFOi7AjeOukyN/CZeW
-	lLKg8diOafM9r4EfRQRW8uk6bCKg4bv63o4u22XO3Xz7pXK0rtsCnpL803JwBdXGmys/T24F+ygNl
-	RaT1SaqXqIUBtPrpqtjwp1PZwKQk4dFyPCzazulQPsZGNFlASGd8j+2mh+Y7HwSoEec2YwPlt+qcF
-	Md3PGMWF/Cal7GrtqPoEfRdHdvoICiPZ3Yjt7Vah6A537JJF9ITUFyiE7NCA9ri9HyUYbuEskKPFN
-	KcmVoiHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AnelVJ8olU9idlBWC1fqEqI2VSPQZITIRrueqq/XOik=; b=DMXl6loGZmNjM4QUx047QrthMD
+	PxfGf8jcC8qCjNm3pwuZiNLQcDCrCLZM/MDKtj+xzlsKlhb6z/V0dgavT/leqLfeNP91k+BOsII4T
+	IS5BTnh2a0CuKQ+f4gipqLx7I2l+Vpfysij+2VmylTgFJyS8dYp0pZAJTHfe9pPJIaRAMBC0sv0aU
+	Fj+rtIALfsXUWcyoJ1qMBkd1SY/kfQ0S4nWB1YFnY0oYN1G+HivjNgncI3rwySi1MJyyxNpFIa56M
+	+8OMIZvRqf/Mt8EDzY64U27Me5vU6MxpSN+DJYNBcnPqyIS4q5txwKfvsLMRv+V+bIQVp5UaVbqZ+
+	91hQ3tGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TPT-00000009REU-2OYM;
-	Wed, 23 Sep 2026 20:17:43 +0000
-Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
+	id 1x9TU2-00000009ReT-43HQ;
+	Wed, 23 Sep 2026 20:22:26 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TPN-00000009RCa-23eR
+	id 1x9TTz-00000009Rdr-1SUc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:17:41 +0000
-Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c254f9f7db0so161721366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 13:17:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790194654; x=1790799454; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HgPtV1IXszkLhG6uHST7dgneJNufVJJ9/BLgDeMeRlk=;
-        b=QFYBlpNdhEL9IBbirqkzQZjyh3JPC78IOAkj87hw5E3NB1yzPClifVwcFsSS2Ak4vk
-         Uma1WJcQE+ZIw/fFnfE/8/ng+/5kxg5TlatndFY8/1q2gCuShksbNIOrdYTgv5RuVWzc
-         Qz3hfVUJsS2vV1PoibtjIS9eKXZHJUHR5Sg1ExsGLSyozH0vS+FXnqUVAMRVyKVU1lxb
-         b9tjj8ssJGY85IdTC/yrmSHBsxho7fIfeZGatPQ8QYaNqHd/6I8mts7Lnufk6AlFnq/K
-         fucDYhs9K+wSwRrC1LSC98E+eaeYq/YQCE0/gDyQIm5hnSRVYkfBJFzJ3M1e/Jz5ZAPF
-         NA/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790194654; x=1790799454;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HgPtV1IXszkLhG6uHST7dgneJNufVJJ9/BLgDeMeRlk=;
-        b=2X92kmV0wt9u+mzq4UvbxiLztHvmJhKzNXbNBsvSGdQTe4hnwuAcHKrHAKMhS65l0x
-         jWf4DkHzkU7SuJ2L3q5KyCW0qTvYJGOK5HK8UFh1tccoQbAFCj3d505Z3e9bBwbZFDBa
-         twLybnvooSpBZUVIqJtAWKq7gBIC9JZMbGepk+2d+F1vGfVkg67CEyZ2b9LA2G5AehIf
-         3FxNBx8QiREoYDZd5ekYUOdR9ZymU/cWhuMCC88Y3TIBx77EOy59pqEVh+46t2Rm9t51
-         6q+HO3B8VOW51duxzHYqEv16r2ESKlb8yshtF2axwaXPmkakukXTnEvsj0TZcAjuwnsB
-         x00Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwz22FvbQfLtda0C8rTFcfFVdOGlZjj+R2RdqflrPxTWW8K5p7sBelekIhSUuA0X4sioL1eWnPfM7oYUjA/1BxV@lists.infradead.org
-X-Gm-Message-State: AFuF++nOJ+oY5Eec0VR3wW1OLBxHdo4ea9Do54M6EUZRqFkioxXnL6pI
-	ocYV4A56ECq5nW+h/7JgQO44cEzTE/zHWr8mL0ICgffHRpp/aHI0u1St
-X-Gm-Gg: AYBFou0kdRbkrKj/TJ8HoPOypi218vX4c+wVXYXV7PIJb1qeZcsD5vcJ7CFY0j3wFEd
-	GDViOcAJmWG/15fYI4AueyARz+qrjfOBLqZyPmW1xqVZGEIepi15Ixeb/du09hRqbRJwYT6tQ1b
-	IbGBEVzOJasmLknaunLf1+FeiEJSAHrv0esvBEKF5ygPWT4G+N0ZfjSbHBUjPgOre6qMEWfhbJN
-	twbQV0IJ+/Nj0KALV0YX26V5R3NdSVFLpUYVL55+dMe1L/KwoPZm4w4vRbMLK2M+v8FwzG7O1+1
-	MXO9GilKk4ugVFCZwmAcAb+zJZih+xrzLtltuXoxGjnvMKwty6t2Fbm6IFdzXS8dAleMmTa4gEp
-	VQg01kAXZP9i13JHRRNRz3c9BrGG3e3eqPbTUWlbt+zOojZU1i+WBj8EVZ9ImZ6o0Hkcg/+snpr
-	x7IVzrAOdiqkh7w7Hy/SXMpgXD0u5rFi7z1oPPdlnj8xR5KId63LQfGK0n3gOCVblV11R04out9
-	+UhUeUsVf08nJgBKDNwTfp1cVctocyi
-X-Received: by 2002:a17:907:9452:b0:c29:4b79:e41a with SMTP id a640c23a62f3a-c2ac24cf5c4mr18473566b.20.1790194654447;
-        Wed, 23 Sep 2026 13:17:34 -0700 (PDT)
-Received: from debian (ip-78-137-176-146.broadband.digiweb.ie. [78.137.176.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2aae5c8a44sm177243566b.20.2026.09.23.13.17.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 13:17:33 -0700 (PDT)
-From: Pablo Mazzini <pmazzini@gmail.com>
-To: Brian Masney <bmasney+clk@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Wed, 23 Sep 2026 20:22:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SZaS3zx7rbQ0DMBqx/H0KiMuwxz+zr9h1h3V/J1Pd3qPBXzOvEwZjV0S7mF8Z7xT6Z5BxpstyrMMsRmxDYvdzhR3nm3ZkFaGxpOlJfOneOmN09KS9NWACPpDb8SuSXt/Y3KTg72hBjFBQ4MwzkK+7d+1JedPXK+/8zZ3IzwkmhHHcNSKk1te/MCDH+8MemNcuDuskjqBWqkG+ZzDDX4vgTf33T6Ed6B7yjNtRvVHxJ50Wlvn3kWcDMOGQcAgkdsQGKRUo8jKE+KFDLuOVmdC9/pBr6iGz/+deHB66u/6EIVqZYixRzUOo7uZ40gcBP3qjns7wb5xTAONTwGLK6YgnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AnelVJ8olU9idlBWC1fqEqI2VSPQZITIRrueqq/XOik=;
+ b=RztJu1FApoXlnDT0jlRQRJsGDBGyqp2Xx6LXuevJIfLb9LOSeTBBvimTXKlQHvihUYZqbqtc52mI5nlbinXRrETO6SK3syb/UKUhyIwPJdMefWX3KcR2zqdvfdhvqvsdqhQj7AaqQH5tEknOPdqX++KsV9BbpvQ4MzatFt3mzZScFpFmi3vDSz3OSGYeh0c9bv08kamfcC1tsEJQCxXgawvzPygpOZUKU9fDcSw8Y+LAf5jNqz0Q/UgkLj5GxLBww57iNeii8fcfR45QqWtfkZBYUwddey/Wt4l40Z72jOf4EyGbRCpPbtBGPfMU5Xm9fIIoZ/Q3BEWdAgDUX8bQ/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AnelVJ8olU9idlBWC1fqEqI2VSPQZITIRrueqq/XOik=;
+ b=ElMYFLj11HQIQtIcEJ4sEMFd1Ieyqa5aWf5Z3XdeMC/u1G+HH+AkDNG2z8czNXYaEcff6oVRLhPgFntarEGpFXVKwDV84Egi8kWf40dO2RydUe4RAtF5OwzTqEsIA7eWaS+LmxLpiucrZO5aUkO4MOSdpIGliXEzQx4DI9kBwSr8Jh87lFVC4clurXI+BDv08rXw9DRmCzmrV/+CtmSJGvAQJgZDPdKtUA3vX5cUCZb29+aQ27FW00oMNdTVvZZbcQKMUIQvYK7ZHaNNdFKOf56MF8mtRco6IDwuTpA5qKL9hI0OvGGkYnoVl78uUWQTl75lUj0o/CZHYeJqYeO5Lg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB9183.eurprd04.prod.outlook.com (2603:10a6:150:27::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
+ 2026 20:22:15 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
+ 20:22:15 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Pablo Mazzini <pmazzini@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Frieder Schrempf <frieder@fris.de>
+Cc: Frank Li <Frank.Li@nxp.com>,
 	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v1 01/11] dt-bindings: clock: add Allwinner B288 CCU
-Date: Wed, 23 Sep 2026 21:16:51 +0100
-Message-ID: <20260923201701.43391-1-pmazzini@gmail.com>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
+	Eberhard Stoll <eberhard.stoll@kontron.de>,
+	Oualid Derouiche <oualid.derouiche@kontron.de>
+Subject: Re: (subset) [PATCH v2 0/9] Misc Kontron i.MX DT improvements
+Date: Wed, 23 Sep 2026 16:22:08 -0400
+Message-ID: <179019492254.3751725.4468513390400686623.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-0-8e12bc5f1f10@kontron.de>
+References: <20260914-upstreaming-v7-2-imx-dt-improvements-08-26-v2-0-8e12bc5f1f10@kontron.de>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8PR07CA0033.namprd07.prod.outlook.com
+ (2603:10b6:510:2cf::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB9183:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15735207-7096-48d7-72db-08df19b05b5d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|19092799006|366016|11063799006|56012099006|10067099003|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: E2pBkTex9ASPtCkn541C4ediPHpSXUB8V+Ds2J71P27+V32POEkbTBo3hFuN5YUkItZODUrp+pKCC6zVgnzxOEqX6UQfhLQu7+2vACV1LjGbUY06YW9LwSM17DpvDjWb6tTgM40UWvYDe1Zn4kJBvRHrBp3xsToTRd/W5ABfL/l+0dnM3Jw4+bd/3q1eqv89hdBDL0TjBRGGPKWvgKpedTQxiSHh+H6xbwVo6XhKQvfFRreQ8Lc55WrlIWzROFgfI/mkWXTP7IP26Wyj9I9HogF+smOiLuidh1ip7AG5RM27pqeKLkM5kGf1MP1zUTYRKU7l/VLPzb/JMmrocFWHAF0HY4fenD70gguD99yaSRFNr6VrMv/Q9Dtpp4a4LV6SVj0axBoJd5hS5B0MV8n73cqhM7Fiw+dNOh3M0fSiwbSB0o6AYOnGyB1lFH2oEBsPXiVQVcMMT0es7sZN8toxUSUleI7dckyQK9ZqdjrNA14ypiibNItdEFMvkm1D56+ARGtkClrKMePPXmManyika9WGr8NKf5q1Q2aFYci/Lhw7/sqUxPDOf1DDSFNJgRKgJT887tMyccvX3xkTC3uFPguGzid2QCTr6uKALp/2990=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(19092799006)(366016)(11063799006)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VDJlV2xHNE96cms2SWNhYWpZalJPbitvMllNdEd4ZEpNSXZpZTZVczI0UHp3?=
+ =?utf-8?B?UVd2aGNXZURSNHF3RWpqdUFzaGZkMFBmQnFvWEVtS0h6bGQraUxKQkltUFBj?=
+ =?utf-8?B?bHlIMml6bEVFUzBORTVIQ0RPWDdKWjNMZ1N2ZDNBZjAwaSttNjlQUVpWc2Ir?=
+ =?utf-8?B?aVZtY29QNTlVUlVNMWo5bjlXZ1ptMjN5SVkyaHpEVmM3V1BwNUhPMi9CaEJZ?=
+ =?utf-8?B?d0VhMGxxSENCK2ZNZCtNejNldEpBMThHL1IwaUdoRUl6OUVJZ3RDdGZ5R3JL?=
+ =?utf-8?B?eU44WGhkeUhQRlFOdXdENkhSUmxCVVFJY2RjNWpadWFERUpkN25TR1ZsQWxG?=
+ =?utf-8?B?ODJxdm9qbzBlTkphc0x0bVlLNUE4aUY2ZFdzQ2JWdEdTa0ZKS2M4cU5MV3d1?=
+ =?utf-8?B?R0dXSmVPOE82MzFDTEE0Z3dkTmlpMC9BMW10bk5RVEwzTHpIYnB5aHh1OWlo?=
+ =?utf-8?B?eWRuclBzcWV0TkVQRFNmcTdFUTJaVGswdmdwUEczUmpDZUN1SkRxaDJsK1FX?=
+ =?utf-8?B?dDl0SzU5L2w3VzNXd3IvbXJlZkl3TkRZSHhsLy95YjNGYmhmczZHNUlNem5m?=
+ =?utf-8?B?ZEhQR2hwWWdmb3p5UjI1Z3VSR3BEZE9TVHlhSk5sT0pCZEZqOFZiakVWc004?=
+ =?utf-8?B?SVlRdDdUSXkzbUNsRGtmR0toU1FuUTV4RkVmKzgwNDZaL293ZGJVQVhqVERZ?=
+ =?utf-8?B?WTRwRFRFdDhnc0RWS2hybU9mZnVxSEJ5eVhjRmhjblVtUjNQeGgvS0RFdno3?=
+ =?utf-8?B?TkN3b2tFQnZYRjFwdUdGNVhoaldIaGkralJHb2cyUTltbXVLUU55dWtPYlVW?=
+ =?utf-8?B?MmsyTjd6T2VwcUp1QmE0TnhJU1lkY3dnSmg3OWJyaURWKzlZLzJGcmV2TVNv?=
+ =?utf-8?B?RlNHWkdCTFg3dlVCeHdOcGpJQm5TRWNhejc5Smh3QWhCR3owU21sZldpVmtD?=
+ =?utf-8?B?bk00REJQS1p5V1FnUHZXRFIyMDVYTFpQaDJ3TkVUcTZDVXJadHA0RHhGZ2xX?=
+ =?utf-8?B?RklIYTVMOTg5MTJMck1ONmNtcmdSd1NtK2YzOWlCWGt4c0VrQUM2QzllVDg2?=
+ =?utf-8?B?SXNYWFJTVTFaOTFxMFc5Q2xya2RNZlVIbXdwc3cvMU5nUlpVYUZkYlhUcFNi?=
+ =?utf-8?B?WjlDQlRGRFBMRXNwL0c0QitBWWFIdGgzb0pBcTY5d2F5bjh6aU50VWZZeFVH?=
+ =?utf-8?B?YXFCVWZXTEx5ajBnQVo3dlc2TFVLckJkaU1iUlpwYWptakpKc1ZjZ0RQTWlu?=
+ =?utf-8?B?NWFYMms0SHlCRHE3OVphTk5qQXF1TUlLeUlkb3U5WXJBdS9uU01PUHY3T0d4?=
+ =?utf-8?B?Nnk2RmpEWC8vSXJXRitlQXY0TlpjcTdKMm5sSW9ZZytmeTZoQ3hQYjJMOS91?=
+ =?utf-8?B?cmFXaUlST2NwbElWRURwQ0FsTXk0ZXd0OEZJNytIekpTeWFBSGxyWlo4eVlj?=
+ =?utf-8?B?UXVMNnBFTXBwS0R4M0tVMVMwN3R3c0Q4MWtyd0N4MFc3SUN6Z3AxSUtyZUJX?=
+ =?utf-8?B?Ui92YVI1dDh4bEFwN29qUStUOVp1d09QbnpMTUNFbFIxUmtjOEp0VnJKclBm?=
+ =?utf-8?B?L2VWREFZL0Y1cFAyZjJ3Vk0rYnFuRGQzaG50UTgvZVRrMWJzdFNXZFJ4MEha?=
+ =?utf-8?B?VFFwdTBPZVVsRlJyQ0xtaXgwMSsycHk5QnJGNHZxcTYwS3ZTQkF3MzNuN1Ni?=
+ =?utf-8?B?SnREUHZTeW1UVmxyOE9TeFNuQm4yOG0wK3pheE1xZ2k5WlJIWXBiUXFncExr?=
+ =?utf-8?B?a2ZPdk9rLys4SFJPclRzYmlCQ1lWZ2xZa0VnMDNzT3VOcUdSRUVYWS9PdUps?=
+ =?utf-8?B?eHJLME93d2NhbTlNZ0FOYTJaRVlTbXQrdnlmaTZXMlJzWVlJUm4raUo4b094?=
+ =?utf-8?B?bGlHS0E0dWQ0cjZ6aUllTjZZanN1MDY2ZmF0Mi9rS3BNMCt1ZUxKa05xRHBX?=
+ =?utf-8?B?MlM4MUhrUFprOTlQS2JKOGlZZXZoSGFXQ1BTbVRKdGZsOUtkY24vaXRoY01t?=
+ =?utf-8?B?d3ZJYTJxT3ZrYUYyUXAwc1NZQnd6cDQxRTFjVmQwY3pieTI4NUJaaDhzNWNr?=
+ =?utf-8?B?cXFMU09GYVhMZWZsajlXbTY2NVZFMkE4VXh1bFpnQytnM2MyRWp2ZXlxY3NK?=
+ =?utf-8?B?cE1uVXpnb3Y3UnhCZ2pSU1ArNTh3cDNhZUJFL3d0OW1uZ3JBSENCVEluaTc1?=
+ =?utf-8?B?NGdCdnN0OW1NOUpHQzNwU0l5ZWxZamVtWEtVdzVYazhZUWVxb3orN3lMR0JR?=
+ =?utf-8?B?Mlc3WDIzcDc2ZDZPallzQlJDTCtJVTBGZUoxMDQrZDJRSDRLNVBQL1J2cGJO?=
+ =?utf-8?B?VTJQRyt0UWFSeFByQmdDUmRSZUo3OWVoM2QzOG1tNitFYTkxZENUbDNYY2xX?=
+ =?utf-8?Q?sZuTXokmLtHhKV6uTq6X+uH6LUufQHwOtyI2O?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15735207-7096-48d7-72db-08df19b05b5d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 20:22:14.9365
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8YVJIJIg1WVQJkMNpYuz7cqfJ1VAE6ofTSavj5T9kIXtr9wr0JdXxyXuuFMRrih18VhYcP3wOkRgjB11PJV/8EgDjEFNkoN9INKOgJbHVQI9BD9no+GQZjMlFpEhqCZq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_131737_578995_79283EBB 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260923_132223_400538_68D089C4 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,227 +160,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The B288 (sun8iw10p1) is a dual Cortex-A7 SoC used in e-book readers.
+From: Frank Li <Frank.Li@nxp.com>
 
-Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
----
- .../clock/allwinner,sun8i-b288-ccu.yaml       | 55 ++++++++++++
- include/dt-bindings/clock/sun8i-b288-ccu.h    | 90 +++++++++++++++++++
- include/dt-bindings/reset/sun8i-b288-ccu.h    | 45 ++++++++++
- 3 files changed, 190 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml
- create mode 100644 include/dt-bindings/clock/sun8i-b288-ccu.h
- create mode 100644 include/dt-bindings/reset/sun8i-b288-ccu.h
 
-diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml
-new file mode 100644
-index 000000000000..22b59d5b652c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml
-@@ -0,0 +1,55 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/allwinner,sun8i-b288-ccu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Allwinner B288 Clock Control Unit
-+
-+maintainers:
-+  - Chen-Yu Tsai <wens@csie.org>
-+  - Maxime Ripard <mripard@kernel.org>
-+
-+properties:
-+  "#clock-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+  compatible:
-+    const: allwinner,sun8i-b288-ccu
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: High Frequency Oscillator
-+      - description: Low Frequency Oscillator
-+
-+  clock-names:
-+    items:
-+      - const: hosc
-+      - const: losc
-+
-+required:
-+  - "#clock-cells"
-+  - "#reset-cells"
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    ccu: clock-controller@1c20000 {
-+        compatible = "allwinner,sun8i-b288-ccu";
-+        reg = <0x01c20000 0x400>;
-+        clocks = <&osc24M>, <&osc32k>;
-+        clock-names = "hosc", "losc";
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/sun8i-b288-ccu.h b/include/dt-bindings/clock/sun8i-b288-ccu.h
-new file mode 100644
-index 000000000000..3dc1704d001e
---- /dev/null
-+++ b/include/dt-bindings/clock/sun8i-b288-ccu.h
-@@ -0,0 +1,90 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+#ifndef _DT_BINDINGS_CLK_SUN8I_B288_H_
-+#define _DT_BINDINGS_CLK_SUN8I_B288_H_
-+
-+#define CLK_PLL_CPUX	0
-+#define CLK_PLL_AUDIO_BASE	1
-+#define CLK_PLL_VIDEO0	2
-+#define CLK_PLL_DDR0	3
-+#define CLK_PLL_PERIPH0	4
-+#define CLK_PLL_VIDEO1	5
-+#define CLK_PLL_24M	6
-+#define CLK_PLL_PERIPH1	7
-+#define CLK_PLL_DE	8
-+#define CLK_PLL_DDR1	9
-+
-+#define CLK_PLL_PERIPH0_2X	10
-+#define CLK_PLL_PERIPH1_2X	11
-+#define CLK_CPUX	12
-+#define CLK_AXI	13
-+#define CLK_CPUAPB	14
-+#define CLK_AHB1	15
-+#define CLK_APB1	16
-+#define CLK_APB2	17
-+
-+#define CLK_NAND	18
-+#define CLK_MMC0	19
-+#define CLK_MMC1	20
-+#define CLK_MMC2	21
-+#define CLK_MMC3	22
-+#define CLK_SPI0	23
-+#define CLK_SPI1	24
-+#define CLK_SPI2	25
-+#define CLK_DRAM	26
-+#define CLK_DE	27
-+#define CLK_EE	28
-+#define CLK_EDMA	29
-+#define CLK_TCON0	30
-+#define CLK_MBUS	31
-+
-+#define CLK_BUS_THS	32
-+#define CLK_BUS_NAND	33
-+#define CLK_BUS_SDMMC0_BUS	34
-+#define CLK_BUS_SDMMC1_BUS	35
-+#define CLK_BUS_SDMMC2_BUS	36
-+#define CLK_BUS_SDMMC3_BUS	37
-+#define CLK_BUS_SPI0	38
-+#define CLK_BUS_SPI1	39
-+#define CLK_BUS_SPI2	40
-+#define CLK_BUS_I2S0	41
-+#define CLK_BUS_I2S1	42
-+#define CLK_BUS_SPDIF	43
-+#define CLK_BUS_DSD	44
-+#define CLK_BUS_DMIC	45
-+#define CLK_BUS_USBOHCI0	46
-+#define CLK_BUS_USBEHCI0	47
-+#define CLK_BUS_USBOTG	48
-+#define CLK_BUS_DE	49
-+#define CLK_BUS_EE	50
-+#define CLK_BUS_TCON0	51
-+#define CLK_BUS_CSI_S	52
-+#define CLK_BUS_CSI_M	53
-+#define CLK_BUS_CSI_MISC	54
-+#define CLK_BUS_ADDA	55
-+#define CLK_BUS_SDRAM	56
-+#define CLK_BUS_PSRAM	57
-+#define CLK_BUS_DMA	58
-+#define CLK_BUS_UART0	59
-+#define CLK_BUS_UART1	60
-+#define CLK_BUS_UART2	61
-+#define CLK_BUS_UART3	62
-+#define CLK_BUS_UART4	63
-+#define CLK_BUS_UART5	64
-+#define CLK_BUS_TWI0	65
-+#define CLK_BUS_TWI1	66
-+#define CLK_BUS_TWI2	67
-+#define CLK_BUS_PIO	68
-+#define CLK_BUS_GPADC	69
-+#define CLK_BUS_KEYADC	70
-+
-+/*
-+ * mmc0 and mmc1 are v4p1x controllers driven in the old timing mode, which
-+ * needs the sample and output phase clocks. mmc2 and mmc3 are newer blocks
-+ * that do their own delay calibration and have none.
-+ */
-+#define CLK_MMC0_SAMPLE	71
-+#define CLK_MMC0_OUTPUT	72
-+#define CLK_MMC1_SAMPLE	73
-+#define CLK_MMC1_OUTPUT	74
-+
-+#endif
-diff --git a/include/dt-bindings/reset/sun8i-b288-ccu.h b/include/dt-bindings/reset/sun8i-b288-ccu.h
-new file mode 100644
-index 000000000000..675145654548
---- /dev/null
-+++ b/include/dt-bindings/reset/sun8i-b288-ccu.h
-@@ -0,0 +1,45 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+#ifndef _DT_BINDINGS_RST_SUN8I_B288_H_
-+#define _DT_BINDINGS_RST_SUN8I_B288_H_
-+
-+#define RST_BUS_THS	0
-+#define RST_BUS_NAND	1
-+#define RST_BUS_MMC0	2
-+#define RST_BUS_MMC1	3
-+#define RST_BUS_MMC2	4
-+#define RST_BUS_MMC3	5
-+#define RST_BUS_SPI0	6
-+#define RST_BUS_SPI1	7
-+#define RST_BUS_SPI2	8
-+#define RST_BUS_I2S0	9
-+#define RST_BUS_I2S1	10
-+#define RST_BUS_SPDIF	11
-+#define RST_BUS_DSD	12
-+#define RST_BUS_DMIC	13
-+#define RST_USBPHY0	14
-+#define RST_BUS_OHCI0	15
-+#define RST_BUS_EHCI0	16
-+#define RST_BUS_OTG	17
-+#define RST_BUS_DE	18
-+#define RST_BUS_EE	19
-+#define RST_BUS_TCON0	20
-+#define RST_BUS_CSI	21
-+#define RST_BUS_ADDA	22
-+#define RST_BUS_WLAN	23
-+#define RST_MBUS	24
-+#define RST_BUS_DRAM	25
-+#define RST_BUS_PSRAM	26
-+#define RST_BUS_DMA	27
-+#define RST_BUS_UART0	28
-+#define RST_BUS_UART1	29
-+#define RST_BUS_UART2	30
-+#define RST_BUS_UART3	31
-+#define RST_BUS_UART4	32
-+#define RST_BUS_UART5	33
-+#define RST_BUS_I2C0	34
-+#define RST_BUS_I2C1	35
-+#define RST_BUS_I2C2	36
-+#define RST_BUS_GPADC	37
-+#define RST_BUS_KEYADC	38
-+
-+#endif
+On Mon, 14 Sep 2026 15:46:08 +0200, Frieder Schrempf wrote:
+> Changes in v2:
+> - Patch 1 and 8: Improve commit message (Frank)
+> - Link to v1: https://patch.msgid.link/20260908-upstreaming-v7-2-imx-dt-improvements-08-26-v1-0-4d0e8a75db79@kontron.de
+
+Applied, thanks!
+
+[1/9] ARM: dts: imx6ul-kontron-bl-common: Replace UART3 with DIP switch GPIOs
+      commit: b2e2c41c398d6aa097203e70c7acf82ba4c5a6a0
+[2/9] ARM: dts: imx6ul-kontron-bl-common: Add GPIO labels
+      commit: 27408de30b6e5bb93dfb99af508a670abd787b00
+[3/9] ARM: dts: imx6ul-kontron-bl-common: Fix USB OTG1 ID pin configuration
+      commit: d3b1ebe5a7a1f345fdc75a657ae725af0a0bbdbd
+
+Best regards,
 -- 
-2.53.0
-
+Frank Li <Frank.Li@nxp.com>
 
