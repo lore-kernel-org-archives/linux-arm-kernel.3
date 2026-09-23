@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB1FC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8B3C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2luf5FpXldw90OHT8OQuHmYGfdfhlpHFtUCjoFB6wc=; b=XUAvbZruuPJ650hUg6yHsV9vmK
-	eJTCwNUQeAYVEz8OA7fXdoSvf63csmMFdLjtmyWolgUUw/3eQle92vterDhNmydNLOPnfg2F1o+Ws
-	cH8Rg0tgITt7eRfqhN5fvgg5nT67XPlNDD56pTt1sMXJMPZSbhMbhDrgUpabylMbkXxOAqVQ7XjX0
-	mRH/HyPwKI52dHZzOV/5+eLenKqcqDmmehS+cPfb69ED4hoPuU4vuoSUo27d0iGvr46U6pB5bF9Rm
-	nNK4z3/l3cKIlGFZnzMQna1AWhS7J3ixGcofg1IMVFCOrQYkxEhvMYJN0D0g3x0Fv/n0dIKyeORpx
-	dXmpQTSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=14/vh+QzZPhsx5uvQM0Uz7p1ZDkGwAb8ilKyyQwVJng=; b=F3IrsGWKQqREkFsl4HKoOrI8Yx
+	1p1cmakdXlbdr94wF5Lk0KKe957UkbqIFY24Red0q8Wns6lJttnM06/G7caPWqLTXiATqihiReXgK
+	8nit1/XAtkI1XVkr2H4NDyGzdP0DG1ktMtz4eeOOTgfkFlcv1sAoFtgyIUvoThoPQNlDxSsp2YY+f
+	owZzlb7IVXyC8unBZh/QPBSqc8IHPxCzcDpRfgjQAxo3MRYjTzCop/jFvw9MKYXr+mGKr0W5/z4rq
+	PdzxzkV/K7EGvvPASppII2qfWC6g+lANXM86yx/zVMI27plbAhpCTIS8c+1weXprxmnLEi/AJkju6
+	g5hv1Syg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JR7-00000007laD-3TJJ;
-	Wed, 23 Sep 2026 09:38:45 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x9JU8-00000007mC1-3ept;
+	Wed, 23 Sep 2026 09:41:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JR1-00000007lUi-2EdS;
-	Wed, 23 Sep 2026 09:38:41 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 48EA120075E;
-	Wed, 23 Sep 2026 11:38:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790156316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R2luf5FpXldw90OHT8OQuHmYGfdfhlpHFtUCjoFB6wc=;
-	b=Fk5qHw/GwqojBgyM1RAsKEQvGJucuqJl/0K53H7wYOYFLQEsSFQCBZLaR3HVk0JavRUzQx
-	BDOaWCv9djjPVI0cvvZ49K5A4QFYTv7ORPCSaPaXhoXxP56e50tVgTIGb1kUxoPXSBkBU6
-	GCCOBYj5yGEZVtjV3Q//z8UKXKQ6dMnQRALOqsH6GVAKIq3R0KOISskMJex/xso53LCkD2
-	8WChiNSoe6Nh2+l6DMoozM1PUyZ2VajBkETLws1+HMsPxre7dgQhjbpVs3xrzTS5lTcvkP
-	yatb8pORlgr/M6vTPbAw6Yv1DjUlEc7MXRLu50JkRqGMLqdFCazS0cU8qDgf9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790156316;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R2luf5FpXldw90OHT8OQuHmYGfdfhlpHFtUCjoFB6wc=;
-	b=IYeUJbujtGMKfxIRx+ZRlWuuIQglCiRl4RXQgNtwRZ1lzJsgig9Te8S+noB+NPNwJ2aMoe
-	qkOFQmxHwynWl4EnyticqudML3Cg4fqsqNoWGZgZtsEFrlGwb47pYKb+2MLS+IUdRy/3hU
-	CKj5DcbLhYlNiAD2KujUscOdJd0D9+yab3v0tiOo1nCjzg7A13suYmjV4MKKVeWmGbLYZN
-	sNQ82kWdjn0E41UhxS/zQTkM2jSu6anePzGxQ0D+PaQU11+WuiZcoeilpueNjFsMemeMB1
-	r+q565QdrZ7OOom+c1TpncU7jtTk5bz1EaI+3lUeywuAXBGt1hRvk6TKauOz5A==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1790156316; a=rsa-sha256;
-	cv=none;
-	b=LhQiXJpCcP6Ida7LESO4TzKQ2rW8h48dHwyT1Easm9Mf7RsEPcNmfXqqHdFAoiiTX/wIvf
-	xuxiakYloC4ZwThB24fkXpkzk+JHi9xFYOFAUBBtPko+JddH80S0vJ1fUXlD6qGcR46v8q
-	bv7ualU7GxkuR0nc6d5vUKw/a2ibICzOZFmcBVjMA0YCXK4I7HtngA+st+QsgYxWUvB5tz
-	Aj4nujaQKReuzomiMjrPihuriCalMwTsuQA2SPdRqsnN+d1sU3JFCK+z2wBN+ssFKJRXWQ
-	sQ8ATgRmyXcxNdGZ9AdImiRfHNhU5zO1nEW5vyyCmuKhlbcuJVhFdQAhGzqOKw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-Message-ID: <bbecbfd1c2e465f5daa6476e8555f373a6e1bd0b.camel@pengutronix.de>
-Subject: Re: [PATCH v13 10/14] pmdomain: rockchip: cycle optional
- power-domain resets on power-on
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
- heiko@sntech.de, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- joro@8bytes.org, 	will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org,
- ogabbay@kernel.org, 	zhangqing@rock-chips.com
-Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com, 
-	sebastian.reichel@collabora.com, sidong.yang@furiosa.ai, 
-	u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com, 
-	diederik@cknow-tech.com, alchark@flipper.net,
- dri-devel@lists.freedesktop.org, 	linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, 	linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 23 Sep 2026 11:38:36 +0200
-In-Reply-To: <20260915104328.45901-11-gahing@gahingwoo.com>
-References: <20260915104328.45901-1-gahing@gahingwoo.com>
-	 <20260915104328.45901-11-gahing@gahingwoo.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1x9JU7-00000007mBR-3Erp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 09:41:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=14/vh+QzZPhsx5uvQM0Uz7p1ZDkGwAb8ilKyyQwVJng=; b=EPim5ej5xyMk5Z7mRNb1p2cgez
+	77ussZOJu7O9H1VuxE/ma8BwVCushrdMygB7wokH0tAfnyFt1y/r2MJocBtqeBnjs/sqoVF1du3I3
+	ROMPtEWfSvVCKVucGUl+mBRMAkQ6U0eJ7Igkv3+7tRZLCOhAl+gGnwgjTggnvNf1jo1qfJT9NE5xn
+	lMKMIU/U2jSuBXLfzUtBxEQkvNMmP9OutPLalPtnyiuB1+4ZjAlVhk97YBhWSaDTmx2nEc0oR2mGt
+	Mz6y3YKkdl9xk6WOt9/zNzIiVlqcZ/8ksZCh11526Wner4IPJefQXro8zgTJt8+9AAsWIf3jF0c0C
+	oQ6+UMZQ==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9JU4-0000000EbAm-1GeU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 09:41:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D628C1A0FE8;
+	Wed, 23 Sep 2026 09:41:37 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 941C460580;
+	Wed, 23 Sep 2026 09:41:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11D91103293EF;
+	Wed, 23 Sep 2026 11:41:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790156495; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=14/vh+QzZPhsx5uvQM0Uz7p1ZDkGwAb8ilKyyQwVJng=;
+	b=OLRLlN9lAltV/1QbWWGR8Pkwn1w2rOSYmM9jOs/uT+NrrfciKSQQCasv29uuO5DEMaFR58
+	kiPMFvNV8H6IE3jBlcPiiCjNNx/R/Nqr7q04XX0GiAX23f/h6yviJEx+jFfsPPAqEmwuyY
+	a4SYRoP6aAFTY11A/ccCU1un7OFtTElsmd2lrlkZC5q9iPcW9SWiZ2VatsdINJfOxhKkgm
+	E3GL4eyV5t89ETSfKPYSgaPcJGOaWJlASpKxlHRm6aZhaBnOD95TDLcy11Cl565UDL4dnK
+	Z7zC92+KvlCltjZzeUQtLgh1HOnkzmlDpGYVQ6ysLRtkFvkjkVGCoyg1+HiMbg==
+Message-ID: <5135e15d-b6ac-476c-9a7d-b7d64e4eed5c@bootlin.com>
+Date: Wed, 23 Sep 2026 11:41:14 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC net-next 0/9] net: introduce Qualcomm XPCS support and
+ add Nord Ethernet plumbing
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Coia Prant
+ <coiaprant@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>,
+ "Jose.Abreu@synopsys.com" <Jose.Abreu@synopsys.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+ Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
+ Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_023839_732083_231F4046 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20260923_104148_642113_DB65FED4 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,64 +115,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Di, 2026-09-15 at 22:43 +1200, Jiaxing Hu wrote:
-> Some Rockchip domains come out of power-on with their bus interface in an
-> undefined state. On the RK3576 NPU this shows up as a hang on the first
-> register access after the domain is switched on, and pulsing the domain's
-> resets at this point clears it.
->=20
-> Take the domain node's resets if it has any, and pulse them between
+Hi,
 
-Why 'resets' plural? The binding specifies maxItems: 1.
+On 9/23/26 03:07, Mohd Ayaan Anwar wrote:
+> Hi,
+> 
+> This is an early RFC which adds the XPCS and ETHQOS plumbing required
+> to enable 10 Gigabit Ethernet on the Qualcomm Nord SoC. This is the
+> first time USXGMII together with an external PCS is being supported by
+> the dwmac-qcom-ethqos driver.
 
-> releasing idle and restoring QoS. The resets are optional, so domains tha=
-t
-> do not list any are unaffected.
->=20
-> The cycle goes before the settle delay 9/14 adds, not after it. A domain
-> that asks for both is asking to settle before the QoS registers answer, a=
-nd
-> a reset deasserted after the delay would leave nothing between the deasse=
-rt
-> and rockchip_pmu_restore_qos(). On RK3576 PD_NPU0 and PD_NPU1 ask for bot=
-h,
-> and the reset they cycle is SRST_A_RKNN0/1_BIU, the bus interface those Q=
-oS
-> writes go through.
->=20
-> It only runs when the domain actually changes state: rockchip_pd_power()
-> returns early when the hardware already reads the state being asked for. =
-A
-> bootloader that leaves the NPU powered would therefore skip both this and
-> the delay, which is why 9/14 gives RK3576_PD_NPU need_regulator and force=
-s
-> the domain off at probe.
->=20
-> No in-tree DTS puts resets in a power-domain node today, so every other
-> Rockchip SoC takes the optional get's NULL and is unchanged.
->=20
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> ---
->  drivers/pmdomain/rockchip/pm-domains.c | 27 ++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
->=20
-> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/ro=
-ckchip/pm-domains.c
-> index 39988efd8..6cc8d6efd 100644
-> --- a/drivers/pmdomain/rockchip/pm-domains.c
-> +++ b/drivers/pmdomain/rockchip/pm-domains.c
-[...]
-> @@ -861,6 +878,14 @@ static int rockchip_pm_add_one_domain(struct rockchi=
-p_pmu *pmu,
->  	if (error)
->  		goto err_put_clocks;
-> =20
-> +	pd->resets =3D of_reset_control_array_get_optional_exclusive(node);
+There are currently 3 in-flight series that adds glues to DW XPCS and stmmac: 
 
-This should be of_reset_control_get_optional_exclusive() if there is
-only a single reset.
+This one,
+The Rockchip one from Coia [1]
+The S32 one from Jan [2]
 
-regards
-Philipp
+
+[1] : https://lore.kernel.org/netdev/20260922200336.2201212-1-coiaprant@gmail.com/
+[2] : https://lore.kernel.org/netdev/20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com/
+
+MAINTAINERS entry for XPCS says :
+
+SYNOPSYS DESIGNWARE ETHERNET XPCS DRIVER
+L:      netdev@vger.kernel.org          
+S:      Orphan                          
+F:      drivers/net/pcs/pcs-xpcs.c      
+F:      drivers/net/pcs/pcs-xpcs.h      
+F:      include/linux/pcs/pcs-xpcs.h    
+
+It would nice if some of you could help maintain the core XPCS driver, and make sure
+these series aren't stepping on one another :( I personnaly don't have any XPCS HW
+for tests.
+
+You don't have to do it alone, multiple people can co-maintain that :) Maybe
+Synopsys folks can also chime in ?
+
+Maxime
 
