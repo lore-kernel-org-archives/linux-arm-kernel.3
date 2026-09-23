@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F25C98307
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233E0C98307
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kFjPPVTiTU44/Rc2PKmvKJZjxEZERC4DkD/eRB6BvE=; b=fgkmiWQp7RB7GB0Jz0sM49nxjQ
-	yHGfBEBpaggRKn/OPJbau/JotqRQKGhfxuv/0nPaDZY9sGNVj+C7KfTXElG2G/PYMvEZZe30p7Mgf
-	Wq4lFsuxmVoXYr8UReQb2KPpJYs9OpwnKN+Mr1onojhIxfF7H9Pi4V3j24CxAJVLnhblOvRgRnf1Y
-	bLuEvycsP2hUlLKkg9tNjUEqxYoqHIhdlJxy+UUc5QTOtJ7YNaaHbnWoXngRyrbY77YkZYxbql/pN
-	EYa1el8geBIz8EnkeO25ROsfMyrbatLZbjGOYni5TczjAwlw/Cbaf0di2dGWsJHnzqL+vP2hkiwls
-	GA1CrY8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6OWssQdGeKsyE+yPPzL9NID088rXE6n1NT7d9aLNuLU=; b=HVVGwFM2b3FranJTCyA9jYCCu2
+	PVR32G9T8AhdFzmKu24L1sxgStRSGVqCZXVWE4r8P5KM6Tn4soy0vGtdMPQ3RaWjR9xQfLhxfPW6E
+	UcZo7OCQCHdYaotDAibxf9x09RNOuCX9NNh20IeNY/Tq6FQpgDUlXTY7yTVnBAsaTnoqoOkHtjex3
+	z6822Xl8h29dHqq33+FiRAqqotMKyvjRETjLHJFgtNKyH82olz4Qw/WvN+b5B5B3UZ3e4Xf8GmvQf
+	hmYVLb5lLJiF5NKB97iRuT33cXc4KVRsCzZHmoSj0RfUgg8Xm7U1RE2SK3xt4oSrfwtGOpUjD/Xca
+	eq+CVO7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ku4-000000080tr-1tXN;
-	Wed, 23 Sep 2026 11:12:44 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x9Kum-0000000814V-2ty4;
+	Wed, 23 Sep 2026 11:13:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ku2-000000080sh-0COu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 11:12:43 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d91a931f66so4062345ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:12:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790161961; x=1790766761; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4kFjPPVTiTU44/Rc2PKmvKJZjxEZERC4DkD/eRB6BvE=;
-        b=Nf81lhgbeTqWb6J0EA+q6+2zx7nQeoP1lZHcBXndaPEKq2Z8oxFXVDW0jpfrLZNaDk
-         igz6qnKd01J/OlqYqi4PxwwEswPdjTd9PrlmupZAaPhr1RJy/mgHMPUN5yAoCapxNosN
-         qw/an8VC5g/Z8Itcp3B+QELvAhkLXLNvImR9SFHkfalmM+QrIXsori/IBzMXSXKxtIe5
-         cPcCkoty/epG9dfUE2i94RlfIoR8UB15XnYRNA4nE6mgBxajGsJLCscajDDiRM7FV0hX
-         XJO/C0N5IFtQVqMufTHUkIiDtCyBICpRZ92eyuIq9MGYlotsj3iws+f4b8mU4DcWJdVq
-         JV/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790161961; x=1790766761;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4kFjPPVTiTU44/Rc2PKmvKJZjxEZERC4DkD/eRB6BvE=;
-        b=R709Ux7a7sI7qF8cPM+9G9ET9hm4Rn2JGrmcvAEOU6h2Zos+aYdFgWo2nD+M0fdMzs
-         rIjrsofXFd1za+h72bzPtCYTgD5JJcWooCp7P+vor7vKqOqFhselExAl7aP/e82Q+Ip0
-         7ZmS78Aq/QfOpWRQvDHZ/cGSGB12RxpQgsRdUTpWPKqwErRLT6jwt+P2N7gp9I5iRddh
-         0OoWEbjqwuyzG3W5GuHaiE/koITXvRr4vOQmIhu/1GUbMjmBXiGa84Avn0ewEJ5rRYqZ
-         rK0mBMxXZaE43hm7gGh9cIFA1/Z0RKYalZrdYfbuaefEX44ueIHyBSPGCnK+5V4+tU33
-         iTGA==
-X-Forwarded-Encrypted: i=1; AKwUvBxgcMy0Avom0He+sDJHIf+0T/5k6qMaWAy1/mqVqaOe6ovosktTMF50Nw/lSK9gZASq/pBhgX68hIPjLAiGrNi5@lists.infradead.org
-X-Gm-Message-State: AFuF++nunX/Dm3GKuRfBz3Fwk2993YO+ju+Srxv6I2PDJCHMKxuDLLtc
-	6z+EkBhtxDz3KfiOBn6J85ZHy8Hp32Lp+TL/4Hy6rwYIHFTQKKHIbB3P
-X-Gm-Gg: AYBFou2pl4EBmM3P377D7qA++0l22aaFdo8IjCeJb1ddCOuYtFEWKaAadBrq65qZKq5
-	HI3lfo8rKAluR7Md31+0YJuSzlSz/KYZCdtWCRdpJiFbipgP1AmztkNMr9m+7yWWvuxitxDWXyo
-	OW5jRYDS7gzHp21zj1XXApi97JfZmSG0BLEipuHOX2fjdM2NYzSiUlkYZgY1X9GsajxcOLYtrnu
-	strryGavuqOGv/q7F/fJ7IKSSqWdkhD9G3MH58BsaweMpsxyPWTQQTxOT9CKUndBcuA2Q7tkALS
-	3PwWydMYJGO38oil5XnoDwSbFX7YQms8Zg8DGOEDw/Vpns+aB6Zc+o+b9zwmOFwcjuwcx1L/hl6
-	qrSO5NqLtFP8elu8BX8L+kpQ1l7/Lo6ZtilIfayU0ziJioMyIEh5W/6ecix1GeNs9bizHauENFB
-	V6A1YbCJAeDmrvfTQ9izvrPmTwaSsJRjxA2C4X6CIFYH/FuZwwmhyLH3rdwKZMwxVsjhJBjDKLX
-	FXvqeDmPqzOtx4xiA4LSPFCUCechm3nN6Dp6BaN5dngWn/nDXjKxrJi8X3mZVJ4jiqOq3deMy78
-	CN+2WJDkOur5mS/Dh7GmDxtNOnsBZYtwb89ZjUIh1K4W82bjlmg=
-X-Received: by 2002:a17:902:d54a:b0:2dd:c053:d739 with SMTP id d9443c01a7336-2df69dacfb9mr19455635ad.32.1790161960734;
-        Wed, 23 Sep 2026 04:12:40 -0700 (PDT)
-Received: from setsuna.localnet ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a5f5886sm8814555ad.72.2026.09.23.04.12.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 04:12:40 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
- Charles Keepax <ckeepax@opensource.cirrus.com>
-Cc: Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, David Rhodes <david.rhodes@cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
- James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 10/28] ASoC: ops: Accept patterns in snd_soc_limit_volume
-Date: Wed, 23 Sep 2026 21:12:29 +1000
-Message-ID: <EVVfptRVTru_6AKB_uY-lw@gmail.com>
-In-Reply-To: <arFa+frv9QcL4b36@opensource.cirrus.com>
-References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
- <arFM5QGrJx1aYhGK@sirena.co.uk> <arFa+frv9QcL4b36@opensource.cirrus.com>
+	id 1x9Kul-0000000813w-0sRE;
+	Wed, 23 Sep 2026 11:13:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B1B33415F7;
+	Wed, 23 Sep 2026 11:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65E821F000FF;
+	Wed, 23 Sep 2026 11:13:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790162006;
+	bh=6OWssQdGeKsyE+yPPzL9NID088rXE6n1NT7d9aLNuLU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=f255DHjPL7qcmuNQwMipvzvnDX+7hQ2EPoy15lFc3RlpueYEfKHfvnoUqEYqM1sNb
+	 NWBIafoReygqiJurrwkepfMrWtm4dmdciZcGPHZj/UXcGVhT/gUEj9o7ycAyOsvv1H
+	 VqqSVjZjXHtHcvciU24arw2rlEWeASuZ4V6Pee7xW62cur2hfF2P1a2knuHbqR+q42
+	 gMBblt0TMmXcHqNunum5Arm0/pdXZWQDgCJyQiuCPlGnyePwTCIA4Udngv9vfkhOae
+	 NuuKuLY3Qe+HkhbVscCeNe2wrBS53RY93ZrUlKLi0/K3QG2Yu63tslB35MvSjcWKk7
+	 qFkKtFqTPodkg==
+From: Lee Jones <lee@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ mfd@lists.linux.dev
+In-Reply-To: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
+References: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
+Subject: Re: (subset) [PATCH v12 0/6] Add VIM4 MCU/FAN support
+Message-Id: <179016200216.3991538.9729498500468458301.b4-ty@b4>
+Date: Wed, 23 Sep 2026 12:13:22 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_041242_093953_AB38F2E1 
-X-CRM114-Status: GOOD (  14.53  )
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,29 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 22 September 2026 2:27:37=E2=80=AFam Australian Eastern Standar=
-d Time=20
-Charles Keepax wrote:
-> Are you using the wildcard mostly to skip the component prefix
-> stuff? I wonder if adding an option to match without that might
-> be more explicit.
+On Thu, 17 Sep 2026 09:58:59 +0200, Ronald Claveau wrote:
+> The Khadas VIM4 board features a different MCU variant compared to
+> previous VIM boards.
+> While it shares the same I2C-based communication model,
+> it differs in some ways:
+> 
+>   - A distinct register map with its own volatile/writeable register set
+>   - A fan control with 0–100 levels instead of the 0–3 levels previously
+>   - A fan power supply gated through a regulator
+> 
+> [...]
 
-We use it in two places. The first is as part of the speaker protection
-system, to ensure that all the relevant kctrls have been locked by
-the same owner (us). This one just matches without the component prefix.
-We also use this facility to eliminate duplication across left and right
-channels, matching partially on the component prefix but without "Left"
-or "Right" in the string. The second use case is rather superfluous so
-I am happy to get rid of that. I think at that point it would make more
-sense to just construct the full kctrl name in the driver and pass that
-in to the existing API in the one place this actually remains necessary.
+Applied, thanks!
 
->=20
-> Thanks,
-> Charles
+[1/6] mfd: khadas-mcu: Add per-variant configuration infrastructure and VIM4 support
+      commit: 6277c3cd74f54c26bf4d5e88182a378ee7190d90
+[2/6] mfd: khadas-mcu: Use MFD_CELL_* macros for cell declarations
+      commit: f9f61c21b942ac387acd7fb3ef1f950cba59755f
+[3/6] mfd: khadas-mcu: Add support for VIM4 MCU variant
+      commit: c94c97f8c97e684d44ef5483d7f2ad6b3dfa55ac
+[4/6] thermal: khadas-mcu-fan: Add fan config from platform data Add regulator support
+      commit: dad6f7897a93b4e1614664dbbcae0f61e57d1ac0
 
-James
-
-
+--
+Lee Jones [李琼斯]
 
 
