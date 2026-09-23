@@ -4,66 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE7EC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1999C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/8Nvh5bkBLZuY2PKnKJSsFqUHKWMsYZE2mq7qIOgKc=; b=oQ0EhoBr3PcS0KuB0gH/uRoJfB
-	tz8KEFIn25zW8U9XtqB1n6B5z8DNfaDgsFiKdECPksGtvY63sBQfQpYZ+EI5OdEZcLO1KszWpQari
-	+FH1sCbtsTc+3yTNmhCOfz8AVeumvAU0J/NKZwltL/aAmn85iDqf24dOneOSqtj25NKZMGyC2yvHD
-	OjACQHoQqwJ01vayzL4MM9P0qWZ+lgKcUOaxpmv+wpPvSelOmogfQAfAKyFw10Ej+m3g01NIWoqA+
-	8WypJnmEW+Y8xo2EiAC/7yrw917GDgggblvvWYnwdCVlXfMXidUxosJjSuA75DX1mpAJFHcauHFRW
-	bP+PsK1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efvDDmFd0U8WBzJlviu8phus6moO634rZNL/3W/1XFk=; b=AhEfXS1OksbXQDeE8xQ3t+cSao
+	Evmd9iYGOQnzL+cklBt6KSJ6zXcHk90VlAG7kuT+uuM1iLKhVBxtewEG3MqHt9ECjqcddGZBNTVhw
+	GVSmV3Ye42hGLTyslg3A35r3VgFQOuTPRqVyrGWBducAOVuke1PfV02VhcDTxjsFDehvu85Gfrpjg
+	DR4IVDDk9mrhKzEmtKJ3zpoL+DDHLvCL4Zyz7l7y+XcUs3C4WTWrb56QID19mKnZbjJz27LMjXnNw
+	ly2Qd4wKvQlYcfzg994J/chiZFBw7cmVMWs0/5fUT24YmtlJWAMWVWTqVlaCyiA70YUdb+s0o4JdY
+	3ImxHKhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9K9R-00000007syG-18k8;
-	Wed, 23 Sep 2026 10:24:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9K9P-00000007sxi-0cEq
+	id 1x9KAu-00000007tDH-2PWH;
+	Wed, 23 Sep 2026 10:26:04 +0000
+Received: from mail-westcentralusazon11023126.outbound.protection.outlook.com ([40.93.201.126] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9KAs-00000007tCi-1wl2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:24:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58BBA1570;
-	Wed, 23 Sep 2026 03:24:26 -0700 (PDT)
-Received: from [10.0.128.141] (unknown [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FDCE3F86C;
-	Wed, 23 Sep 2026 03:24:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790159069; bh=NK2B1apxE4ck6GlDTUfY/2Mr2y4xPRerx9D86U3VCeU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rahwRS75EeAbdFvUVWvEh7ZNh9lgfg2/lrb05+mXw/vM0n2MrsIHjkBoqWJ1bK4+X
-	 bxl1XY7rCxei4uJJh5UOs1Iy9M/jViSIwPePeWVqfheJ2cl704IY4XQzVRRArksH5u
-	 9NnaFwVFH0iayeu2Arniiag8KBkBsSM78Ooe4Mrc=
-Message-ID: <672c4905-09c9-4e40-97ea-c87a987bda19@arm.com>
-Date: Wed, 23 Sep 2026 11:24:25 +0100
-MIME-Version: 1.0
+	Wed, 23 Sep 2026 10:26:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eAwb0IYFjY6JUrp7pd3jspoU5EC6EWhiSYsn4VxwdMtdSAbo7QkmgIT7wIql5srnjGFEZwv/NXOZPr71Ww7h8yTum8uqa4U0G3mswfpxSuDMlYjh5GKwGxByjmu647UYXcAjSwnsZi8Am2n6AZsMVPFgW6v7unSXlvIL1iwRE85/0f6WFiUb5CRoPVtf5UQ6mpWx4dmP4vFPa9xfjwwBVbquLi0XJki0ScVYHn2H44PLbcx/FXV45WfqAu5+adKFYg5co3zgZHgVWasuKnHptps3Sb/X6xsEiM2z3gaTzxJsLdeF6Pj6q3uz3doNxRLxiYCPQRCC32wLk1bWS9fxXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=efvDDmFd0U8WBzJlviu8phus6moO634rZNL/3W/1XFk=;
+ b=CnEwCFvWbvg8/rzvJiYQRkdMncRlwM4JfEmC/vOpQbCgkGraOGWDhRHdj3aFIn01p5fwzqZx0rZXlhgoPBnl10tYuOQ9o9Sc6fxQiEftfglGDA5OE5xe4ZA+/vjkMa472AaUB+HIYvzjQUGqGzdzXyab8F9H42iyRfcuduLBq7ADdfebuTiil1OB5x2Omn8eij9sGFV342OTr9fy0oFyGiiX8tMgNPgOAIwXhakLQpRjcCPj2b6hyGNT2ezcos+KtWK0MSzdo/tgXeMBWF885KDsu3oejkYOtLLznUaWdAKCtIKcFqdGRq0uJrM0HfQjP9cExVO9JUZEJ6M9u8BARw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
+ dkim=pass header.d=axiado.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=efvDDmFd0U8WBzJlviu8phus6moO634rZNL/3W/1XFk=;
+ b=peCrqTfvM8fvlW/v7Ow44tuXcT9VTp0JYhvl2N61bICrzeyK0jjgwEnC4XJHphPwMpoDCwUc23SBm8dZMf1CXRWjTNvsTXaCdw6q9vHfun13vLObmRED07wol7zp8tSBkpRtOlFFuKVuMNVllqqGDiFDKU6VKhMf5kgWWZOFvPJE1V65OnL7jEBbQmDl5TPhtuvhEGet9PY6zUeECwXXk8o81LYIep0dnfuYcoFDhAeLSkWsPZIsJyxbuA01Ubjzs/8mSmSjN33BzxYJgXUV78Zr/kNFYvQbHWIbK5PZPOTLbyeQxkCsiLBysHqg42zanwjlEZN2i5kW+cpOyBi9/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received: from DM4PR18MB4144.namprd18.prod.outlook.com (2603:10b6:5:38b::8) by
+ DS7PR18MB6387.namprd18.prod.outlook.com (2603:10b6:8:255::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.428.16; Wed, 23 Sep 2026 10:25:57 +0000
+Received: from DM4PR18MB4144.namprd18.prod.outlook.com
+ ([fe80::cb97:ca8a:e55a:b11]) by DM4PR18MB4144.namprd18.prod.outlook.com
+ ([fe80::cb97:ca8a:e55a:b11%6]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
+ 10:25:57 +0000
+Message-ID: <654a7c50-86f1-489f-9542-f77d63550ea4@axiado.com>
+Date: Wed, 23 Sep 2026 12:25:52 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 05/20] KVM: arm64: Track the type of VM in kvm_arch
+Subject: Re: [PATCH v5 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, Conor Dooley <conor.dooley@microchip.com>
+References: <20260921-axiado-ax3000-pwm-v5-0-202aad28e129@axiado.com>
+ <20260921-axiado-ax3000-pwm-v5-1-202aad28e129@axiado.com>
+ <arFAj7yU2x42-76G@monoceros>
 Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
- <20260920212845.707-6-suzuki.poulose@arm.com>
- <69ff265b-a110-46c5-a061-a875b2f86c03@redhat.com>
- <e1bd3155-acb2-4c80-b963-6cd7865c9ce3@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <e1bd3155-acb2-4c80-b963-6cd7865c9ce3@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Petar Stepanovic <pstepanovic@axiado.com>
+In-Reply-To: <arFAj7yU2x42-76G@monoceros>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0011.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c8::8) To DM4PR18MB4144.namprd18.prod.outlook.com
+ (2603:10b6:5:38b::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR18MB4144:EE_|DS7PR18MB6387:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7e2556a-19b6-4848-5d9d-08df195d0e6f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|56012099006|4143699003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: JO1lhFdkbUnDj5wDUBmmCBliVHhjusyrb69zLpV55IOjrSHTQpl1SJ96NmgGHaxdobTBE5R9sKmBQ11B2Mz5kS7Bssg85PoxdjkErwIcCJJrtdqlSkuxTG1VNc+tQRsHSHm+B/9mEdRAkIsvlt+sfLL5MUtxjPrAxYhnjnIhjg84s+fPUuHqvHl0RBbqz/y6cPmK2tNOI7vx3YuN49N6wKEa/leGf2A30j5V4spJS7DrEn4ZbdY1ni5kmGFMTaqEPKwyxWNd7b50iPzuutQrb1SQ3uAe/ZKbz5Xo4/aWPDwhMreNBl3ZN1GI1TQi/wsdGsObzjZYBtRIHLHYbsJSOiPor4VLffVtZcm+U150YPmPhhopmlAP0E2lcDhfYuo4/WO/W9+taDB57TNep3Xc75Tfc8Y0hC7b1Nh9n67CF/x4vCSv09jDd+geDur1KyVJ/8qVNFWdWfFXh8ModhH8r1idkkSQyjZCqL4bjcpNiRdPhqlUe4spo0Hh3+FJmTVEvOE/4qBDdmrEEGS7BM+/TWIjLvezT+coJhOm8EYscf9MXnw1KpypcFjME2YVtNKIo23SA1M9LJO59Xr7G+4+jpvy3c2gZVBCftefthemRYB+A7GmkyPdNxE8PxeifMDnKjVqNWOu+Tq1bnECfzHhrKvfg/MVkfYPCIg/V9qGuLk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR18MB4144.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGUrTUpURFpLdEd2TGxHZ2tlTUZGb1pyaWp4K1hqUWhQNlJuUHkyZVhzNktU?=
+ =?utf-8?B?dXAvV0dTRG12Q2phclB5UENkUUtNR3l4NU5ETTk2RjI1TDc2SVM1Q2txcWI0?=
+ =?utf-8?B?OXlxUk1acjVXSVlPa3BVazZ5RWFtY3JyVlBzMFVEby9ZSTBTRW1DUW5rKzBJ?=
+ =?utf-8?B?bVZGdDZxTXRLdWllUVdOcW1TWVVldGNFVzNGVHJoODdDeGFVeHpvZTdxZTVm?=
+ =?utf-8?B?WFV1Y2ltNkxJRXZOWFh2VzN3QkxiQ21waUU0azd0WDc2MjFTTllZUFpaK2VH?=
+ =?utf-8?B?MEFnL2dCSVRJcTVwZW51Nlk2ekdhOWpQVysxcWkzUTNBSklMYTkvRTdyc3dK?=
+ =?utf-8?B?bXhaM0FzN093cnhUelY0NzlrNmZLa2t5a1dGbGdWSXVpdlF2ZEMxcm0wVmF1?=
+ =?utf-8?B?N29xOTAvQ2VvMW4vTXhrUktpWHp2VVdSK2hMRHZHdTZGaU1GMlArRGoxVFA5?=
+ =?utf-8?B?Zm13U0drMFd5UHFhUUVrTGFranlabndXSDVObnRjZDdvbGM5OTJhZEE1emYv?=
+ =?utf-8?B?VVlGUmRsUGplVU40NlcwNEc4RWNyZjZvOTM3NnliaytKVHNjNEo4RDk2cHMz?=
+ =?utf-8?B?QlU1dVFNczFOY2hXcjUrVlV4ZlFBaHZJV3N4K0lxVkh0TCtlcDNTTFA2R2t6?=
+ =?utf-8?B?bmlXaWRiYWcvOW9mNFpISldTaXRHOUpHSDUxbVBwQXE2NG1kRWJEbCtBaGVR?=
+ =?utf-8?B?YWRSRXVubFdiRWFLYVdYWTVIMGxrTTRlNi92YzN3RkJqNGp4d0VVS0VlQ3Ev?=
+ =?utf-8?B?d3FTN3VoUUZKVzk1Y05Sa3psVzNjMXhoa3lLa2Rnc1lKMUprWmVIdERJL1V4?=
+ =?utf-8?B?OXNIV3U5VkVWNG9Oa2VtekcvWFdTc29ObGpHa1ZrZkluckVYV0lWczBVdFdu?=
+ =?utf-8?B?U2J5M25ocTBQUktqYkpZZmxhbnV5UVhDdEw1UHdoaUNJTVJ3aVlYR1llTHhU?=
+ =?utf-8?B?ZkVXRlhBL2ZXZ2duT1FIQlJQNVdKM3RrRXh0dFBUaVgzcnR0aTFvK3dFb0pJ?=
+ =?utf-8?B?MENqNGRyNjg3R2ZZMnNhdXNsYWd5UklvR0QwMEp6dnlNQ3VtZ0RsS1UyYTE2?=
+ =?utf-8?B?Zjh6VEFKQzZydGxUdlhsQzZZWFRIbDJ2TXNKdzREd0NNRng3a2laaEQ3UWJJ?=
+ =?utf-8?B?NC9HTThrQWYvZ0RSdUxRRVVaUlZUQXh3Sk1rRW9xNlhjYVRPODNWLy9yczJl?=
+ =?utf-8?B?R3p2Q1p6bjhXanJ1YnlJYTYyVUlFditZTXdwQ1J0RWlWNExBYjR1cmNYWkY5?=
+ =?utf-8?B?aGtjWGpsaDN2SVZQSGYya3pvMWNmSEhEbGJOTUx5RHcyZ1JsS3k4RGNidFlC?=
+ =?utf-8?B?T2JZeVB5M2hEMjhsZkFIb0dKZDN0NjdEK2tmc0ZpL0tDalMzaDI1VjU0aXpa?=
+ =?utf-8?B?ZFVEZUlUYmVIcWtWSVlOK1Q2cG5jY2dXS1cwWWw5UXFIQXRVeVpqNTl5WWw2?=
+ =?utf-8?B?d3R1dnd0R3VVMnp4Mm1lenNmT2dsMzhvdE1mbDVGNytBREtEdnRSWVE0RmZ4?=
+ =?utf-8?B?YlR1ZFk5bUVXZ25zQ2M3YlVIaWpuVVZUVFRxQ0s4YVZOdHJkbFZjZ2ZBV3By?=
+ =?utf-8?B?aVNVV0FaUVdONzNtaEJqcGhKcjRKSDVOZUljZXNROXM1YVpTV1JTSXNuSDV1?=
+ =?utf-8?B?N05aV0h1VGZEN0hIbldJUTFhOFJ2RDI3SmtpRmZMQjQ0S1dHNG1LVkZETjN1?=
+ =?utf-8?B?ZVkycXhuSEYxS0U3elg4SmVKT3FZQ0tzM1RWR1BCYlZVZU5pQUV1QW9PR0pk?=
+ =?utf-8?B?djFyakU4OHcrQ09NUWhLdnJ6Vm5GR3lST2VEUXdOQkE3MkZGRURZYlNVRWVq?=
+ =?utf-8?B?WStBWUYrWFExbERTdG5IMG0yVlkxNHlDVlE5SVBsMlJtSmlvaWt2d1YzZFhK?=
+ =?utf-8?B?VnBrWXVGQndnRmZoZEJrdkd1Y0xNMXpidE5zYjVOQ0RSQWdUeWI3UDhSR1Qw?=
+ =?utf-8?B?LzRYdFJUblpLU0tNR25NWkVkam56eUViYXZRa0tvcmhvT0NYSTZHN1JZUk5n?=
+ =?utf-8?B?NllHdmx0TjVWcjJwNytYSnRxWUtuWjQ5ekxtaW4zdmliMVcwZmZoWEllNnov?=
+ =?utf-8?B?WnlJOVR0OHZ0aFJhQ3djeUV1Q0VFZTNNSlpZWXkweVRKVkxkSktPQTBRVENK?=
+ =?utf-8?B?dnJRZGs3QXRMSmFuMytjMHZNUG5INTlZdzJpSUthcm8vRGVFUlJta3NiZmhl?=
+ =?utf-8?B?TVZTVXR5NnJoNnRrV05CNlpzRzBMNGllNWdVNkZqQ3REOEVON2lKVENEYnBi?=
+ =?utf-8?B?NmMxbFAzeStmUXczU2c5M0lsR25LaWFlREhZRUlVbHBOMTBKbGdnT3Vvdk82?=
+ =?utf-8?B?L3NmWlNiUTMwaUk2VDNzK1UwbjNXOHZQM2ZZRitNY0RLc0ptaFNldz09?=
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7e2556a-19b6-4848-5d9d-08df195d0e6f
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR18MB4144.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 10:25:57.7751
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /R9S5JRpKWnouNXSsKetxAgYUxBdgTAacm4WVrMd5b4tRJQU/vpIduMXQGWV98vT0VbDaQB/tEqVcQkWn7BLnA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR18MB6387
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_032431_288888_FBCF9210 
-X-CRM114-Status: GOOD (  30.24  )
+X-CRM114-CacheID: sfid-20260923_032602_503618_DF8C90FD 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,449 +152,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2026 07:19, Gavin Shan wrote:
-> On 9/23/26 4:05 PM, Gavin Shan wrote:
->> On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
->>> KVM arm64 has different types of VMs with all the different modes in 
->>> which
->>> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
->>> protected VM and normal VMs with pKVM. We might soon add other types,
->>> e.g., Arm CCA Realm. So in an effort to make the handling of these
->>> different types of VMs a bit more friendly to the eyes, add a VM 
->>> flavor to
->>> the kvm_arch and we could then add handlers for different operations 
->>> based
->>> on the VM type.
->>>
->>> Keep the flavor initialisation at the beginning to allow for the 
->>> detection
->>> early enough and fail out on any unsupported requests.
->>>
->>> With that, add wrappers for checking the "type" of a VM and replace the
->>> existing users with the new wrappers.
->>>
->>> Given we already have the construct of "kvm_vm_is_protected" in the core
->>> KVM code, use that for all confidential compute guests including Realms
->>> that we are about to add.
->>>
->>> Adds __VM_PROTECTED marker vm flavor to generalize kvm_vm_is_protected()
->>> to predicate all confidential guests running on KVM. In later 
->>> patches, we
->>> would add Realm VMs, which would also be classified as protected.
->>>
->>> Add explicit helper to detect if a given VM is a "protected" VM under 
->>> pKVM.
->>> Change the existing users that precisely want to check the VM type. 
->>> These
->>> include :
->>>    - kvm_arch_prepare_memory_region - For preventing memslot changes 
->>> after
->>>      pVM creation.
->>>
->>> All the others are retained as a wider check for confidential guest VMs.
->>> These are:
->>>   - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
->>>     configuration
->>>   - io_mem_abort for dabt handling without valid syndrome information
->>>
->>> Both of which are true for Realms too.
->>>
->>> Realms support is restricted to VHE host and thus 
->>> "kvm_vm_is_protected()"
->>> checks in the pkvm hyp specific code doesn't need to change, as the only
->>> protected guests it deals with is "protected pKVM" guests. To tighten 
->>> this
->>> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the 
->>> ones it
->>> supports.
->>>
->>> Suggested-by: Marc Zyngier <maz@kernel.org>
->>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> ---
->>> Changes since v18:
->>>   - Merge the __VM_PROTECTED marker and the widening of 
->>> kvm_vm_is_protected()
->>>     to this patch.
->>>   - Merge the use of kvm_vm_is_unprotected_pkvm() for ! 
->>> kvm_vm_is_protected()
->>>     given the scope changes here.
->>>   - Drop Fuad's review tag, as this patch has multiple merges
->>>   - Restrict the VM flavors to the supported types in 
->>> init_pkvm_hyp_vm().
->>>   - Drop kvm_vm_hyp_is_pkvm() and revert to is_protected_kvm_enabled()
->>>   - Use is_protected_kvm_enabled() to make the pKVM guest flavor checks.
->>>   - s/PKVM/pKVM for commit descriptions too
->>>
->>> Changes since v17:
->>>   * s/PKVM/pKVM for the comments
->>>   * Drop type argument for pkvm_init_host_vm and also drop protected 
->>> variable.
->>>   * Add helpers for checking if the VM is running on pKVM 
->>> (kvm_vm_hyp_is_pkvm())
->>>   * Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() 
->>> with valid
->>>     kvm instance
->>> ---
->>>   arch/arm64/include/asm/kvm_host.h | 22 +++++++++++++++++++---
->>>   arch/arm64/include/asm/kvm_pkvm.h |  4 ++--
->>>   arch/arm64/kvm/arm.c              | 31 ++++++++++++++++++++++++++-----
->>>   arch/arm64/kvm/handle_exit.c      |  2 +-
->>>   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++++-
->>>   arch/arm64/kvm/mmu.c              |  2 +-
->>>   arch/arm64/kvm/pkvm.c             |  6 ++----
->>>   7 files changed, 56 insertions(+), 17 deletions(-)
->>>
->>
->> This causes broken nVHE mode. I applied PATCH[01-05] to v7.3.rc4 whose 
->> head commit
->> is f0100363d8c3, and kselftests/kvm/guest_print causes host crash (as 
->> below). I don't
->> see the crash if only PATCH[01-04] are applied.
->>
->> host$ cat /proc/cmdline | grep kvm-arm\.mode
->> BOOT_IMAGE=(hd0,gpt2)/vmlinuz-7.3.0-rc4-gavin+ root=/dev/mapper/ 
->> rhel_nvidia--grace--hopper--01-root ro 
->> crashkernel=2G-4G:406M,4G-64G:470M,64G-:726M rd.lvm.lv=rhel_nvidia- 
->> grace-hopper-01/root rd.lvm.lv=rhel_nvidia-grace-hopper-01/swap 
->> video=simplefb:off kvm-arm.mode=nvhe
->>
->> host$ cd linux/tools/testing/selftests/kvm
->> host$ ./guest_print_test
->> Random seed: 0x193a0ed3
->> [  192.754328] kvm [6674]: nVHE hyp panic at: [<ffff8000811da044>] 
->> __kvm_nvhe___timer_enable_traps+0x4/0x160!
->> [  192.754338] kvm [6674]: nVHE call trace:
->> [  192.754339] kvm [6674]:  [<ffff8000811dcf34>] 
->> __kvm_nvhe_hyp_panic+0xb4/0xe0
->> [  192.754342] kvm [6674]:  [<ffff8000811dcba4>] 
->> __kvm_nvhe___kvm_vcpu_run+0x164/0x440
->> [  192.754344] kvm [6674]:  [<ffff8000811dfe90>] 
->> __kvm_nvhe_handle___kvm_vcpu_run+0x40/0x1f0
->> [  192.754346] kvm [6674]:  [<ffff8000811e0238>] 
->> __kvm_nvhe_handle_trap+0x158/0x280
->> [  192.754347] kvm [6674]:  [<ffff8000811dd8fc>] 
->> __kvm_nvhe___skip_pauth_save+0x4/0x4
->> [  192.754348] kvm [6674]: ---[ end nVHE call trace ]---
->> [  192.754350] Code: d2818002 17fffff7 d503201f f9400001 (b94a6821)
->> [  192.754350] kvm [6674]: Hyp Offset: 0xfffeb0d7fe2e0000
->> [  192.754351] Kernel panic - not syncing: HYP panic:
->> [  192.754351] PS:834003c9 PC:0000cf2882efa044 ESR:0000000096000004
->> [  192.754351] FAR:ffff00009b286a68 HPFAR:8000000000000000 
->> PAR:1d00ec7edbadc8de
->> [  192.754351] VCPU:0000cf011848a350
->> [  192.845154] CPU: 12 UID: 0 PID: 6674 Comm: guest_print_tes Kdump: 
->> loaded Not tainted 7.3.0-rc4-gavin+ #7 PREEMPT(full)
->> [  192.856182] Hardware name:  GH200 P5042, BIOS 02.04.01 20250422
->> [  192.862231] Call trace:
->> [  192.864725]  show_stack+0x20/0x38 (C)
->> [  192.868471]  dump_stack_lvl+0x88/0xb8
->> [  192.872215]  dump_stack+0x18/0x30
->> [  192.875598]  vpanic+0x280/0x498
->> [  192.878806]  panic+0x68/0x70
->> [  192.881745]  nvhe_hyp_panic_handler+0x184/0x190
->> [  192.886372]  kvm_arm_vcpu_enter_exit+0x24/0x100
->> [  192.891003]  kvm_arch_vcpu_ioctl_run+0x254/0x7c0
->> [  192.895726]  kvm_vcpu_ioctl+0x174/0xb40
->> [  192.899645]  __arm64_sys_ioctl+0xb0/0x120
->> [  192.903745]  invoke_syscall.constprop.0+0xa8/0x100
->> [  192.908639]  do_el0_svc+0xb8/0xe0
->> [  192.912022]  el0_svc+0x48/0x1f8
->> [  192.915228]  el0t_64_sync_handler+0xa0/0xe8
->> [  192.919500]  el0t_64_sync+0x1ac/0x1b0
->> [  192.923243] SMP: stopping secondary CPUs
->> [  192.927653] Starting crashdump kernel...
->> [  192.931658] Bye!
->>
-> 
-> With the following changes applied after PATCH[01-05] on top of 
-> v7.3.rc4, the crash
-> is avoided.
-> 
-> In arch/arm64/include/asm/kvm_host.h:
-> 
-> -#define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= 
-> __VM_PROTECTED)
-> +#define kvm_vm_is_protected(kvm)       \
-> +       (is_protected_kvm_enabled() && (kvm)->arch.vm_flavor >= 
-> __VM_PROTECTED)
 
-That only papers over the problem. We can't use the vcpu_is_*
-constructs from nvhe hyp, without converting the vcpu->kvm to
-the hyp address, before accessing it. The fix is a bit more
-involved. One option is to define the vcpu_is_* helpers only
-for the !NVHE hyp code in the kvm_host.h (to avoid pulling
-in the asm/kvm_mmu.h in to kvm_host.h and then make a mess
-with header dependencies) and define the NVHE version in
-asm/kvm_hyp.h. Something like :
+On 9/21/2026 4:35 PM, Uwe Kleine-König wrote:
+> Hello Petar,
+>
+> On Mon, Sep 21, 2026 at 12:21:30AM -0700, Petar Stepanovic wrote:
+>> +  "#pwm-cells":
+>> +    const: 2
+> Can you please make this 3?
 
+Hello Uwe,
 
-diff --git a/arch/arm64/include/asm/kvm_host.h 
-b/arch/arm64/include/asm/kvm_host.h
-index 46a7f6c1e426c..4016d09ed39c3 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1545,11 +1545,14 @@ struct kvm *kvm_arch_alloc_vm(void);
-  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+Sure, I’ll update |#pwm-cells|to 3 and adjust the DT example accordingly.
 
-  #define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= 
-__VM_PROTECTED)
-+
-+#ifndef __KVM_NVHE_HYPERVISOR__
-  #define vcpu_is_protected(vcpu) 
-kvm_vm_is_protected((vcpu)->kvm)
-+#define vcpu_is_protected_pkvm(vcpu) 
-kvm_vm_is_protected_pkvm((vcpu)->kvm)
-+#endif
-
-  #define kvm_vm_is_protected_pkvm(kvm)          \
-         (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == 
-VM_PROTECTED_PKVM))
--#define vcpu_is_protected_pkvm(vcpu)   kvm_vm_is_protected_pkvm(vcpu->kvm)
-
-  #define kvm_vm_is_unprotected_pkvm(kvm)                \
-         (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
-diff --git a/arch/arm64/include/asm/kvm_hyp.h 
-b/arch/arm64/include/asm/kvm_hyp.h
-index 4974492744cc8..3bf87e81af430 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -137,6 +137,19 @@ int __pkvm_init(phys_addr_t phys, unsigned long 
-size, unsigned long *per_cpu_bas
-  void __noreturn __host_enter(struct kvm_cpu_context *host_ctxt);
-  #endif
-
-+#ifdef __KVM_NVHE_HYPERVISOR__
-+#define vcpu_is_protected(vcpu) 
-        \
-+       ({                                                              \
-+               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
-+               __kvm && kvm_vm_is_protected((kern_hyp_va(__kvm)));     \
-+       })
-+#define vcpu_is_protected_pkvm(vcpu)                                   \
-+       ({                                                              \
-+               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
-+               __kvm && kvm_vm_is_protected_pkvm((kern_hyp_va(__kvm)));\
-+       })
-+#endif
-+
-
-
-Or explicitly convert all nvhe accessors to a new "nvhe_vcpu_is_protected"
-
-The second one sounds like a better option to me.
-
-Cheers
-Suzuki
-> 
-> 
-> Thanks,
-> Gavin
-> 
->>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/ 
->>> asm/kvm_host.h
->>> index 286489a69dff5..9b1cf9c59e81f 100644
->>> --- a/arch/arm64/include/asm/kvm_host.h
->>> +++ b/arch/arm64/include/asm/kvm_host.h
->>> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
->>>       pkvm_handle_t handle;
->>>       struct kvm_hyp_memcache teardown_mc;
->>>       struct kvm_hyp_memcache stage2_teardown_mc;
->>> -    bool is_protected;
->>>       bool is_created;
->>>       /*
->>> @@ -306,9 +305,19 @@ enum fgt_group_id {
->>>       __NR_FGT_GROUP_IDS__
->>>   };
->>> +enum kvm_arm_vm_flavor {
->>> +    VM_NVHE,
->>> +    VM_VHE,
->>> +    VM_PKVM,        /* Normal guests on pKVM */
->>> +    MARKER(__VM_PROTECTED),
->>> +    VM_PROTECTED_PKVM,    /* Protected VM */
->>> +    VM_FLAVOR_MAX,
->>> +};
->>> +
->>>   struct kvm_arch {
->>>       struct kvm_s2_mmu mmu;
->>> +    enum kvm_arm_vm_flavor vm_flavor;
->>>       /*
->>>        * Fine-Grained UNDEF, mimicking the FGT layout defined by the
->>>        * architecture. We track them globally, as we present the
->>> @@ -1504,10 +1513,17 @@ struct kvm *kvm_arch_alloc_vm(void);
->>>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
->>> -#define kvm_vm_is_protected(kvm)    (is_protected_kvm_enabled() && 
->>> (kvm)->arch.pkvm.is_protected)
->>> -
->>> +#define kvm_vm_is_protected(kvm)    ((kvm)->arch.vm_flavor >= 
->>> __VM_PROTECTED)
->>>   #define vcpu_is_protected(vcpu)        kvm_vm_is_protected((vcpu)- 
->>> >kvm)
->>> +#define kvm_vm_is_protected_pkvm(kvm)        \
->>> +    (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == 
->>> VM_PROTECTED_PKVM))
->>> +#define vcpu_is_protected_pkvm(vcpu)    
->>> kvm_vm_is_protected_pkvm(vcpu->kvm)
->>> +
->>> +#define kvm_vm_is_unprotected_pkvm(kvm)        \
->>> +    (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
->>> +
->>> +
->>>   int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
->>>   bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
->>> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/ 
->>> asm/kvm_pkvm.h
->>> index 54a618d887fa4..e4ea80711bec6 100644
->>> --- a/arch/arm64/include/asm/kvm_pkvm.h
->>> +++ b/arch/arm64/include/asm/kvm_pkvm.h
->>> @@ -17,7 +17,7 @@
->>>   #define HYP_MEMBLOCK_REGIONS 128
->>> -int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
->>> +int pkvm_init_host_vm(struct kvm *kvm);
->>>   int pkvm_create_hyp_vm(struct kvm *kvm);
->>>   bool pkvm_hyp_vm_is_created(struct kvm *kvm);
->>>   void pkvm_destroy_hyp_vm(struct kvm *kvm);
->>> @@ -49,7 +49,7 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm 
->>> *kvm, long ext)
->>>       case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
->>>           return false;
->>>       default:
->>> -        return !kvm || !kvm_vm_is_protected(kvm);
->>> +        return !kvm || kvm_vm_is_unprotected_pkvm(kvm);
->>>       }
->>>   }
->>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>> index db36815630790..8c784b266a8e8 100644
->>> --- a/arch/arm64/kvm/arm.c
->>> +++ b/arch/arm64/kvm/arm.c
->>> @@ -214,6 +214,26 @@ static int kvm_arm_default_max_vcpus(void)
->>>       return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->>>   }
->>> +static int kvm_init_vm_flavor(struct kvm *kvm, unsigned long type)
->>> +{
->>> +    bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
->>> +
->>> +    if (is_protected_kvm_enabled()) {
->>> +        if (protected)
->>> +            kvm->arch.vm_flavor = VM_PROTECTED_PKVM;
->>> +        else
->>> +            kvm->arch.vm_flavor = VM_PKVM;
->>> +    } else if (protected) {
->>> +        return -EINVAL;
->>> +    } else if (has_vhe()) {
->>> +        kvm->arch.vm_flavor = VM_VHE;
->>> +    } else {
->>> +        kvm->arch.vm_flavor = VM_NVHE;
->>> +    }
->>> +
->>> +    return 0;
->>> +}
->>> +
->>>   /**
->>>    * kvm_arch_init_vm - initializes a VM data structure
->>>    * @kvm:    pointer to the KVM struct
->>> @@ -236,6 +256,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned 
->>> long type)
->>>       mutex_unlock(&kvm->lock);
->>>   #endif
->>> +    ret = kvm_init_vm_flavor(kvm, type);
->>> +    if (ret)
->>> +        return ret;
->>> +
->>>       kvm_init_nested(kvm);
->>>       ret = kvm_share_hyp(kvm, kvm + 1);
->>> @@ -257,12 +281,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned 
->>> long type)
->>>            * If any failures occur after this is successful, make 
->>> sure to
->>>            * call __pkvm_unreserve_vm to unreserve the VM in hyp.
->>>            */
->>> -        ret = pkvm_init_host_vm(kvm, type);
->>> +        ret = pkvm_init_host_vm(kvm);
->>>           if (ret)
->>>               goto err_uninit_mmu;
->>> -    } else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
->>> -        ret = -EINVAL;
->>> -        goto err_uninit_mmu;
->>>       }
->>>       kvm_vgic_early_init(kvm);
->>> @@ -985,7 +1006,7 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu 
->>> *vcpu)
->>>       if (is_protected_kvm_enabled()) {
->>>           /* Start with the vcpu in a dirty state */
->>> -        if (!kvm_vm_is_protected(vcpu->kvm))
->>> +        if (kvm_vm_is_unprotected_pkvm(vcpu->kvm))
->>>               vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
->>>           ret = pkvm_create_hyp_vm(kvm);
->>>           if (ret)
->>> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
->>> index db37678dcb05c..384c5d258c7f8 100644
->>> --- a/arch/arm64/kvm/handle_exit.c
->>> +++ b/arch/arm64/kvm/handle_exit.c
->>> @@ -490,7 +490,7 @@ static void handle_exit_pkvm_state(struct 
->>> kvm_vcpu *vcpu, int exception_index)
->>>   {
->>>       int exception_code = ARM_EXCEPTION_CODE(exception_index);
->>> -    if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
->>> +    if (!kvm_vm_is_unprotected_pkvm(vcpu->kvm))
->>>           return;
->>>       /*
->>> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/ 
->>> nvhe/pkvm.c
->>> index 459bd9eb7e4bc..57e2eef6d7426 100644
->>> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
->>> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->>> @@ -432,7 +432,11 @@ static void init_pkvm_hyp_vm(struct kvm 
->>> *host_kvm, struct pkvm_hyp_vm *hyp_vm,
->>>       hyp_vm->host_kvm = host_kvm;
->>>       hyp_vm->kvm.created_vcpus = nr_vcpus;
->>> -    hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm- 
->>> >arch.pkvm.is_protected);
->>> +    if (kvm_vm_is_protected(host_kvm))
->>> +        hyp_vm->kvm.arch.vm_flavor = VM_PROTECTED_PKVM;
->>> +    else
->>> +        hyp_vm->kvm.arch.vm_flavor = VM_PKVM;
->>> +
->>>       hyp_vm->kvm.arch.flags = 0;
->>>       pkvm_init_features_from_host(hyp_vm, host_kvm);
->>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->>> index 9ba86450fe4af..0f4e8b71fa85d 100644
->>> --- a/arch/arm64/kvm/mmu.c
->>> +++ b/arch/arm64/kvm/mmu.c
->>> @@ -2624,7 +2624,7 @@ int kvm_arch_prepare_memory_region(struct kvm 
->>> *kvm,
->>>       hva_t hva, reg_end;
->>>       int ret = 0;
->>> -    if (kvm_vm_is_protected(kvm)) {
->>> +    if (kvm_vm_is_protected_pkvm(kvm)) {
->>>           /* Cannot modify memslots once a pVM has run. */
->>>           if (pkvm_hyp_vm_is_created(kvm) &&
->>>               (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
->>> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
->>> index 8e4c6e4bec123..8e9176a700926 100644
->>> --- a/arch/arm64/kvm/pkvm.c
->>> +++ b/arch/arm64/kvm/pkvm.c
->>> @@ -229,10 +229,9 @@ void pkvm_destroy_hyp_vm(struct kvm *kvm)
->>>       mutex_unlock(&kvm->arch.config_lock);
->>>   }
->>> -int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
->>> +int pkvm_init_host_vm(struct kvm *kvm)
->>>   {
->>>       int ret;
->>> -    bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
->>>       /* Reserve the VM in hyp and obtain a hyp handle for the VM. */
->>>       ret = kvm_call_hyp_nvhe(__pkvm_reserve_vm);
->>> @@ -240,8 +239,7 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned 
->>> long type)
->>>           return ret;
->>>       kvm->arch.pkvm.handle = ret;
->>> -    kvm->arch.pkvm.is_protected = protected;
->>> -    if (protected) {
->>> +    if (kvm_vm_is_protected(kvm)) {
->>>           pr_warn_once("kvm: protected VMs are experimental and for 
->>> development only, tainting kernel\n");
->>>           add_taint(TAINT_USER, LOCKDEP_STILL_OK);
->>>       }
->>
-> 
+Best regards,
+Petar
 
 
