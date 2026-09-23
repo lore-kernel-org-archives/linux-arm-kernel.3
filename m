@@ -4,158 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40651C98308
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6ACC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nIV5BrLbaelpGrDb/+/9Cd2ytJ3jtLQA2lmfnleQxbk=; b=dzIs/Z8qGCENPKgDtPfvUjbI9e
-	IlAg0GQMBhdxrb4fEQox9Gn3zNcuXf/KLXNvcUbPAlJ5Onko6z+FHkIpCWOAI5mXN36iOXjLG39CA
-	wp6b2CFo6+XWXOTz8Cla5//TO+GBl+RomxLZpNBlZQ110c01ENjNQuFtZ0IBSWkk/ybPMR8elvqbO
-	ejAK8udW/FU0FaYgRN5aG7GjCidEuXijW6/gDk0YJNBbJYd2lAx274B4k6yEG73R5/CFXcxng2WO+
-	YsM7mFmanvSaJY3SS4NfKr8LEHU2Z48WuP3m25UeXOxS2sQQGYRmO5ULw0uZLk+Lwj2dtObgGlrnI
-	1DGDIeaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=asbYkGVb9jA+B/klFq9ejQsyZ8c7kCESU+4zn4DVTs4=; b=nplAf8OPj0MYtSOxrBTECxH452
+	Vk/4WOFCpZJUmaesfhuphOuQ3uwGiIgTKnudvsHv6GQbzdF1VhOr1uyn6psyWym5pjfzfMXX2WXQ1
+	oLtIWrrKgf6VtIq9wQAx067SEbq8f7KJT3cG7ekgLi93svrhlAumS57uQJ8xZPVW59yDeKl1HiHZk
+	v7vRjl2CQT5SRuYEWLxTsT1zMeE0UCrnGX8wPjN4jppjRd2ZNMbwEPbuQzW+QmwbUDXLWmU6q7FQj
+	JjVQyW3TYZYD9pApZ+/LziT2TjMorI+lpE40GaKlW9b1XO8uYNhI4jVSxU9BlTz+L7QaG31hcZc0n
+	RptXCdyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9I7H-00000007UNx-2OgZ;
-	Wed, 23 Sep 2026 08:14:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9IAd-00000007V5Y-42Lf;
+	Wed, 23 Sep 2026 08:17:39 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9I7G-00000007UN5-08Lg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 08:14:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nIV5BrLbaelpGrDb/+/9Cd2ytJ3jtLQA2lmfnleQxbk=; b=eubqV63QU2rmRoWdfXi5YJ+MMU
-	s4yzoka8i/y1zZbfaJFXZrGh1HIOXNCU23EFjtA36Dgi/sazSIhC2e2Unqt6c+93Afw6ZY+BznqCp
-	RsnpLHl9DljLqE64LRIdKRONyv36fqHEFrX39JwovPXA543uw9vNYm3JQSW+aY8mM/rkYEvCe8OgH
-	IsRVEw1VoSAO8swdgSdwRLeUmbjL4Y5bmpB3xYAOz3fI/CnaLyK6KlvJlNsQ/Z4rsJAOgmQ8rFqMi
-	ZPV3DGzd+i0b7Bl5gYDXMQUSK/mEkKIOSIGB4kdkOnDFnttHE8RUv0+sIrffg+3VXipwsy4GsUGj+
-	H90Isbpw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9I78-0000000EVoB-0r6C
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:14:07 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68N79jiS1232014
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:13:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	nIV5BrLbaelpGrDb/+/9Cd2ytJ3jtLQA2lmfnleQxbk=; b=Pc5nEqxjyffDYNoL
-	tCcYpKJMosbu75RawY+Dy8ZYulqkAZflg/y6Oy7BWAHRGabEX3UExzWlyyrDKS2v
-	+U0kLdTnitIgjKeznvUsuP45A7vKa+gXh21xgveKaswqj0dkQFHDKYQxcxCJ+AOO
-	jRmgaF7CV9A/K5FmndAcZGU0gsocGLj5XdsnogVlLSN3XQXa7c24JaL1osIvNdiW
-	MEwyDIhbhRJe2uZcNmOYVgcwA+X/26gesM5C9X6yPwywAm1cbXYvaLsQRbSgTIxx
-	AesRnxzogbCvjmiVjbD7AdKR1ICPfjTBJGSkBbE5LoZ0ilWlP7IFM7PL92/0Gx5r
-	db0C1w==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4guyma2te2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:13:59 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-90cddf4f59eso14339846d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:13:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790151239; x=1790756039; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nIV5BrLbaelpGrDb/+/9Cd2ytJ3jtLQA2lmfnleQxbk=;
-        b=FshsZwbDY4Pkth7q1RepqZHBgar5sBWqo7bDJrYWqV5sbDr9JjuXUQ79+ecGtTJx9B
-         PTtkPaKGTod0Z4exzW/T3SzUyj3iFR3eyinIloSItbytoVBTtk4URvokh2g75UeQmPe4
-         SKeMHjEClm9f+rVJZjy7Ma4+jP+V/f2nfGPf/n7bThf1AHwADB5jtkRucP290mNuYM6v
-         yBhhYuLX0glYncDbiym4rvp6yENxifpQNeqnLsGrYSmo1DnJcWldyskdJJ3kC8gdBhLQ
-         MAsWFVRaUM7XEKnQalQvUfqHnsdtrfB9K1ZVXxasKxiEecsM2kLD2KdbpCtw7xSiwmA4
-         ZpBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790151239; x=1790756039;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nIV5BrLbaelpGrDb/+/9Cd2ytJ3jtLQA2lmfnleQxbk=;
-        b=T6R6tBoq2Ip1YXKvAVh18uk/gUX8orKOPSAQW9phcZdM2oxPGZKrpdtjT3KT+wb1Bm
-         48dqb+LnhEq3y3eRrK0i+eJ9jyQULwMDnbSgeOgJEZK+9ZSH2rGgzR45noDAZn86iwnV
-         SFA2jXEsTXx9soaxy2B09DBEZDUVkCRf+LX+U3oQk0oew6BjGeLjQ3+a9hfbH3StVShv
-         DOFYcJtLmt/O4JtIbRmllE4lZRyDcSd8/mmUsMi8vioLYYT1TMhCxgHNWe/D5207V+/9
-         G/i+cOxkiQyk/+MgFOQBXKMIR9GBH3O0X+44rts2jORdoEWvmfptYN84V9UDuM60GNPP
-         D/bA==
-X-Forwarded-Encrypted: i=1; AKwUvBw9Vu10i8QUsZWn6QAslGUf70Op2QyfvCW5HUSn4E076g1NsFmjMu7hOBOiTjOMd/AfBpEX8QGPQ1dXGxaxRIOW@lists.infradead.org
-X-Gm-Message-State: AFuF++lcXeVIkQdWOfLEkEQO9I32lkupGwfqNlgBbqVzko3aBhQV71Nh
-	I52kccq8rQ9Rg1PNvtlWD7x5zzi42qpdL5ACKAdvRPhaOVkS6Wvl00xDQ9MFHUThTKQRef1/uEc
-	djlxOCBWDhp1MDHeh7SuU3IQiibyQc0uu1ouKIQ4P5LIsRRKse9DFXYVz71kBweFLZAMBX1BdgS
-	XCBA==
-X-Gm-Gg: AYBFou32YR+ohTMfq5lXTF9dNVBHcNBBj2GAVXfWIksvgZaMY4HsweHE+rCx2D0U6fY
-	IkoQblbb49gLLQBl6Az/8OUMmGQPCeO3ICAr//GItAPGWYqy2V6mCZgNtuUm9rg09atAuCz/rex
-	yh5aBy1/EHZ1XTM5s9saT8a17yjrfod/igOCqtACA+VKn6zJc2DjQ4e7Q2ijW47I9PROZod1nR1
-	xid23GLWeditPanTG5GmSTrPGPSeljkIc2cJj44iuALjQiJTi1l/3tKAakVZM0dPzSTypRV4DRf
-	FWnyBjDViG0tzbf3Bp+PatmnhqNWx21uMyoYPyUcjJGrI3CSDmZ74sQZiXXE4pK46fJm332yJ3i
-	/MDw9cuDJuL7Ffl5RrSDbtk34Yq4=
-X-Received: by 2002:a05:620a:701b:b0:93a:83d:1d0e with SMTP id af79cd13be357-93c251fc9cbmr279979985a.38.1790151238616;
-        Wed, 23 Sep 2026 01:13:58 -0700 (PDT)
-X-Received: by 2002:a05:620a:701b:b0:93a:83d:1d0e with SMTP id af79cd13be357-93c251fc9cbmr279977485a.38.1790151238276;
-        Wed, 23 Sep 2026 01:13:58 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:34c6:dbd6:5b58:a3fe])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdf9691e2sm50454405e9.1.2026.09.23.01.13.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 01:13:57 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-        Linus Walleij <linusw@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Ridham Khurana <khurana.ridham222@gmail.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Srinivas Neeli <srinivas.neeli@amd.com>,
-        Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Shuah Khan <shuah@kernel.org>, Jori Koolstra <jkoolstra@xs4all.nl>,
-        Brigham Campbell <me@brighamcampbell.com>,
-        linux-kernel-mentees@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] gpio: zynq: fix runtime PM leak on request error path
-Date: Wed, 23 Sep 2026 10:13:54 +0200
-Message-ID: <179015123239.7939.12868400217735279583.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260922092102.1053513-1-khurana.ridham222@gmail.com>
-References: <20260922092102.1053513-1-khurana.ridham222@gmail.com>
+	id 1x9IAc-00000007V4g-17be;
+	Wed, 23 Sep 2026 08:17:39 +0000
+X-UUID: 3aac73f6b72711f1afed4741b24580c9-20260923
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=asbYkGVb9jA+B/klFq9ejQsyZ8c7kCESU+4zn4DVTs4=;
+	b=Cupta3+Cd0ZtDMsHj8ADX3Kqh6+mPUt8o+V8AeL6jO0mTHTHoR+HmH1usf6y3jNjc6CIG6AxjZdE1FVPgE9bXcm1X6T4oHoc2X2RnbxC4jyHSn6d/0HHaGgt1wf94zO/gNq4/vBCRHl2G63EC6KnVUmpJnkZp0OYWR+7cqCI8WQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:885ad1d6-b189-42c2-95f5-9712f7a5e4c5,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:5f0d3003-5a2a-4553-bb50-070593e932a7,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 3aac73f6b72711f1afed4741b24580c9-20260923
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1919121157; Wed, 23 Sep 2026 01:17:34 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 23 Sep 2026 16:17:31 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 23 Sep 2026 16:17:25 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
+ Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
+	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Subject: [PATCH v10 06/10] media: mediatek: vcodec: Fix vp9 4096x2176 fail for profile2
+Date: Wed, 23 Sep 2026 16:17:23 +0800
+Message-ID: <20260923081723.268263-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: Uzoi1rQZIlDWdjqrOww2kLZIZjBSUd4r
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAzMiBTYWx0ZWRfX3/lOKHILjnkz
- rVKIKVU9SkWHDt3yhdN5cS8wLtxM4Vmf5qDdae32kSsLDHxvakbPQRII51svd5DSBPAsiA8Y0dC
- Qj9jHP853tjsyzQpN8hjipX1XoE8aPk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAzMiBTYWx0ZWRfX8TTX6kme5suo
- 3bSm0olLsNHjRW9mRyL/EZHg9h2dB0W1/SDToNlYbUtZ7qNYKfC6rsfgXudVBVSwVw3AphmV2GE
- FKcnjUcHFBUUYvCZFfRRSmKX/sHEYKQ7um6ZgrQl6Vu8G+lqhSBmnBU942niuhGQaBluL8kMfo/
- PDTCf90dUq4N/jwHW7rKXUIzlDgeh4aSzBkrnCF8qmoJbqI7FxLQqF1HqJHreJA3obw0TbA3ABT
- JE51uwvn8ipLsFksl8sK7nGqM+qVAgvE/J8yNoGgQTe73M9fXZnVc0hIkkz/Pwgfw2QjKZ0BKHc
- 0Gm0gfGwn/EZbtfIPMvHRpm8PjWcjoY3Due9v0zoCWRyZnz5OWO8v6qao57OKfOV7GSTgjxbW1z
- j+3IPjBFTlT0Y9sHHAOIBNAF1QcQ97RXqOnlhgOgOF1/eN5OquvzupakzpInELNjhsest/9IAgB
- aJSMBgO84+iWVjfnapQ==
-X-Authority-Analysis: v=2.4 cv=N828hG9B c=1 sm=1 tr=0 ts=6ab38a47 cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=ZA4Iygp0GN2kJPZu5X8A:9 a=QEXdDO2ut3YA:10
- a=1HOtulTD9v-eNWfpl4qZ:22
-X-Proofpoint-GUID: Uzoi1rQZIlDWdjqrOww2kLZIZjBSUd4r
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
- impostorscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230032
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_091405_218836_3AB97370 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260923_011738_310848_23A77D4E 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,24 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The DRAM address of the VP9 decoder tile info buffers may require
+as much as 36bits for 4096x2176 resolution. Fold the 4 most significant
+bits into the lower (padding) four bits of address.
 
-On Tue, 22 Sep 2026 09:20:58 +0000, Ridham Khurana wrote:
-> pm_runtime_get_sync() leaves the usage counter incremented even when it
-> fails, and zynq_gpio_request() returns the error without dropping it.
-> 
-> gpiolib does not call ->free() when ->request() fails, so zynq_gpio_free(),
-> which holds the only matching pm_runtime_put(), never runs. The reference
-> is leaked and the controller can no longer runtime-suspend, so its clock
-> stays enabled.
-> 
-> [...]
+Fixes: 5d418351ca8f1 ("media: mediatek: vcodec: support stateless VP9 decoding")
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+---
+ .../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-Applied, thanks!
-
-[1/1] gpio: zynq: fix runtime PM leak on request error path
-      https://git.kernel.org/brgl/c/e9438ab5328a177c9c0e5df87eb92a7162841e98
-
-Best regards,
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
+index d08be051d0ab..b32f5e942501 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
+@@ -1134,9 +1134,17 @@ static int vdec_vp9_slice_setup_tile_buffer(struct vdec_vp9_slice_instance *inst
+ 					return -EINVAL;
+ 			}
+ 			tiles->size[i][j] = size;
++			/*
++			 * If the system supports 64-bit DMA addresses, the upper 4 bits
++			 * of the address are also encoded into the buffer entry.
++			 * The buffer pointer (tb) is incremented after each entry is written.
++			 */
+ 			if (tiles->mi_rows[i]) {
+ 				*tb++ = (size << 3) + ((offset << 3) & 0x7f);
+-				*tb++ = pa & ~0xf;
++				*tb = pa & GENMASK(31, 4);
++				if (IS_ENABLED(CONFIG_ARCH_DMA_ADDR_T_64BIT))
++					*tb |= (pa >> 32) & GENMASK(3, 0);
++				tb++;
+ 				*tb++ = (pa << 3) & 0x7f;
+ 				mi_row = (tiles->mi_rows[i] - 1) & 0x1ff;
+ 				mi_col = (tiles->mi_cols[j] - 1) & 0x3f;
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+2.51.0.windows.2
+
 
