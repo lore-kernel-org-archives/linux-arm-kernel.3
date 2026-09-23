@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1163C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67160C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJF4/vr5y5VcWETmgrbJDPEEq5BFKEqJfgmd5Y2tQcQ=; b=YZdvevfd3BV/odRjFJwIUruHPS
-	BlMaeKyyWse6pqdwXbJ859XzlAj1DWxKoceSmuChXJToNETIle57ahmktcAEagLPgVVhSxd9g9mpn
-	gVJgqd0mxAkZLzmjzpLUzpGTBrTxL6Rt97dZIJl6+U/VlUM/AIGbrKbylGfpdtqCLbgy2CLUS3qAo
-	Ynm3IkVvTLa6vCG+iXSFmgfdgjRDjGyK8CpvD0kN9Y3Q1SmiWpzVNBH1kqKEtuXqu04ZPTA+tI46G
-	dzfsjXoH4mIuHTXST6gN1C7DHaY7NyFowvYf5FGZ6MeyNsr4YZSAmuftobcmEi6cnLa7psdt+Lnb9
-	AVEN2z8w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=umACWFaazc12UAjleCpDrWJBtxSe0mv/jfhX0ARVviA=; b=i9M2mog7RCKRfV4zB7sgC64Q3s
+	cbIzUgqICYbTi7Otg3s6SnuwID9OAObeauFu4zDibuEQ0pfBGWHwc19njU47cuWaEedj9M9FED86N
+	vlCtbNRR8SJm6F6vZ4RvXysqilpEsEcpgtLCOLr3U7pcxUisM+iDEHtK3s70tFVb49ueAojM4M+cV
+	X7/hZp4dGSYEE2S3Bdcw2NcB3X6GI3kYavF09WJWu1U74LXWcivWUO4Gaij2bCpDMmV3T1k0GxDq0
+	lSxCAAckwNGAFDm7cyPZCgxOXBB7hhb4oEcNWc9U4hAkug+EIsF7EJHI/0KT4kRveZE2f4cW8Ichr
+	r6NJOoPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IYG-00000007ZGp-2OfP;
-	Wed, 23 Sep 2026 08:42:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9IaK-00000007Zqi-1hFl;
+	Wed, 23 Sep 2026 08:44:12 +0000
+Received: from mail-pz2-x16.google.com ([2607:f8b0:4864:3b::16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IYF-00000007ZG8-0Rvb
+	id 1x9IaI-00000007Zpg-1KOr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:42:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D83BF43592;
-	Wed, 23 Sep 2026 08:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E169A1F000FF;
-	Wed, 23 Sep 2026 08:41:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790152922;
-	bh=VJF4/vr5y5VcWETmgrbJDPEEq5BFKEqJfgmd5Y2tQcQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=H8jS0hY4lKcJBzeLTpK4BQQqUSaDV5pSY42s2J2J/9E/8UyXF8r39ELo8ION0kD0c
-	 Jhk50GZshpDQ10AQGyrLFVpcH76Z7mHe7nnynn3pNX2PyzAI/cMrILI/bBFkfNKLRl
-	 VTuxW/+ixSerK/Z3pSo57HhZvG/E9dtkHeCk4WB29ABXkbkp6iqQl8NQqE5HOCKmdl
-	 SulfDHaNWAfHDZtfd+9TLZA/nRjUuXZtWABwjsbXvBHWmmr227uZAm0FjiDORGMt++
-	 uBqcNBAHd3GiqOldPMfNugTZrIWuTZ4MGA67E/uCfLnxOeWhLNHWnh2bOwPA5Yhl7K
-	 xq2nOcnyciqBw==
-Message-ID: <ead48f50-5d37-406c-b51e-d754c2c512f8@kernel.org>
-Date: Wed, 23 Sep 2026 11:41:57 +0300
+	Wed, 23 Sep 2026 08:44:11 +0000
+Received: by mail-pz2-x16.google.com with SMTP id 41be03b00d2f7-cc4bdf8abaaso561148a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:44:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790153049; x=1790757849; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=umACWFaazc12UAjleCpDrWJBtxSe0mv/jfhX0ARVviA=;
+        b=AfszeG/uX24skQ4a+eVkWxiruFY2a3R1pSYG7ahkISAwr6s8HcEiT3PxmXKO6vG93l
+         vG0/wYXR2h8SlwMr+JQYGeS/p/AftUqj6N6H3URDrTxA5+L2WId0R2DcmJhj1DYw0Zj/
+         cjl7cwNow0ogtNnslGEgHn8IsqnNPmUc1TqZrBuD8Ag5oeeAcA0qzBz/OZQ7DkChW0da
+         r+Mi9dMPtZrhWQqTpL/qKxLRmO7qHoDkaxsOCejtfI79+6qrQQOGJRVZMpLWf8PQ5YMm
+         MUs1Q4fmzzWg6yl5R0eDLXXbZPC2vY/cBTGu2/Ah3HEfmt2PsBC/twoCvKPsBa9QUUR3
+         umjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790153049; x=1790757849;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=umACWFaazc12UAjleCpDrWJBtxSe0mv/jfhX0ARVviA=;
+        b=MofEMPsb2+mLMpNC9X8OXfyQv63z5hCf92t9qpmu7OtNKGJTLhIL/MQbsj2CHIc0va
+         HfwwvG0m74urjimptktx46ttpQz/qSGTPorN6OjlTMmGFRmISrDYk17/a8NLCqmOP9cB
+         YPnZYzZmt265qJY8yJbXo4dmrEaKbtUP9fcYq/Ca9bf7ESGgpvv7slkvmhY879JScosq
+         uTuWfyzJcoQGwIS4bIP0janF3kLQ7hqdM7fzfpSHA5bjlGG/genf5BlN7IPCcVHUZ/Ft
+         uFELQQE6S3uwJ8P3XzKY+N5HgB9o3X94wgv4b/lRKxzso6NXUXvSRwJSuGVGRhKQp0HA
+         +PuQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwbVmi3dX0jn5ogD28ZqITcfIhcAJVFizQbLrCGZd7U4W44GPFH6JG2/T5M3QP2nPlWgxYONCPBctk1vYYpYaUn@lists.infradead.org
+X-Gm-Message-State: AFuF++lMdCSz8VbHuJ0L1UU7z/e+7zsBUbuUuCIxZUEmOW2/AzLIpJGT
+	6a5eI0hfFhXpk2tUXwyL3Mg2TKQ9PMrg//BVG21Ys4MjoJRvzcZzrzCH
+X-Gm-Gg: AYBFou2nLsnY/kFIu6mZBwcA4clE5IJmDXX6B9W9sKWaLoHXELTIV6vdcqncf3Efc9p
+	q6Mj7APO78qMVaExAB+E8Rkw2pm9aA3deETm0xDWe0rGLMTkXrE2/f+l/4in83VlAZiO1y0USgp
+	bql+AklLZUy1ACbSSvMMqP2cy1vCUOxEFnkORttFVLy8tEjjgX+bUEVLK6my3p87Kw6niTM1DgF
+	j9cPkj9cyBxrSCoDrWhz7yCleuK02sKki3yy4bV9OMO3s4VK8HYzJbArnXbSR3oUOd/f+vWWV22
+	xdN05XMH9ME1zTW/CQlS+zVPXx+e63i3kbkyjFXzOElNy7/AVYHhA242OK8M/s2zma8IH2IHuol
+	Dw6cxh+AYa2lQJZcvK3A+XDAWz1JJexGBjQY29kjanQuX3DyczIA2fV/tupxzDeoX1KRycG+LpJ
+	4+N5j0pLPvQyUPlYxevgsjspSul4YPU2XokibaH9zRUDnHHEX4zp0VAEvI2XA/fhVBvp0PjLqGT
+	8pzfca+jE9hHEloUh+wviIhfoMXxnEUDbXLta94n5ZmcXg72u2PGmFva0B46BK1LW8MDtMhD3vu
+	nA==
+X-Received: by 2002:a17:90b:5825:b0:39e:6c68:c77d with SMTP id 98e67ed59e1d1-3a07e6b5b65mr1774611a91.51.1790153049477;
+        Wed, 23 Sep 2026 01:44:09 -0700 (PDT)
+Received: from localhost.localdomain (ec2-13-212-242-176.ap-southeast-1.compute.amazonaws.com. [13.212.242.176])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a088cf5b02sm1534349a91.14.2026.09.23.01.44.07
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 23 Sep 2026 01:44:08 -0700 (PDT)
+From: Ginger Li <ginger.jzllee@gmail.com>
+To: claudiu.beznea@tuxon.dev,
+	broonie@kernel.org
+Cc: linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: mchp-spdiftx: Fix a deadlock with the interrupt handler
+Date: Wed, 23 Sep 2026 16:44:01 +0800
+Message-ID: <20260923084401.65336-1-ginger.jzllee@gmail.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: sdhci-of-at91: disable selectively clocks on pm
- runtime
-To: Aubin Constans <aubin.constans@microchip.com>,
- Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Eugen Hristev <ehristev@kernel.org>,
- Romain Sioen <romain.sioen@microchip.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Robert Marko <robert.marko@sartura.hr>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Ryan Wanner <ryan.wanner@microchip.com>, linux-mmc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260918153414.909333-1-aubin.constans@microchip.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@kernel.org>
-In-Reply-To: <20260918153414.909333-1-aubin.constans@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_014410_368175_6ADE201B 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,156 +99,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Aubin,
+mchp_spdiftx_interrupt() is a hardirq handler and takes ctrl->lock to
+serialize the user data and channel status updates, while
+mchp_spdiftx_trigger() takes the same lock with spin_lock() from process
+context.
 
-On 9/18/26 18:34, Aubin Constans wrote:
-> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> 
-> SAMA7G5's SDMMC run-time clock disabling is not supported.
-> Add support to avoid this scenario for SAMA7G5.
-> 
-> [Amended with a fix from Romain Sioen below this line]
+Interrupts stay enabled while the lock is held in mchp_spdiftx_trigger(), so
+if an SPDIFTX interrupt is delivered on the CPU that is inside that critical
+section, the hardirq handler spins on a lock that the interrupted code is
+holding and can never release.
 
-This should go close to the Romain's SoB.
+Take ctrl->lock with spin_lock_irqsave() in mchp_spdiftx_trigger(), like the
+other process context users of this lock in the driver already do.
 
-> 
-> Sama7 boards are impacted by an unbalanced prepare/unprepare
-> and enable/disable clock management in sdhci driver due to
-> the lack of support for SDMMC clock runtime disabling,
-> managed instead by the PMC driver.
-> 
-> Add conditions in the preset function to manage clock
-> depending on if the board support runtime clock disabling
-> and if we come from the probing or restoring procedure.
-> 
-> Add boolean start_clks variable to manage condition
-> in preset function.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Fixes: 06ca24e98e6b ("ASoC: mchp-spdiftx: add driver for S/PDIF TX Controller")
+Signed-off-by: Ginger Li <ginger.jzllee@gmail.com>
+---
+ sound/soc/atmel/mchp-spdiftx.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Maybe better use the @microchip.com emails, even though that is not available 
-anymore, to give Microchip credit for that and avoid any legal issues, if any. 
-There is a mailmap for claudiu.beznea@microchip.com available in the .mailmap 
-file, if any.
-
-Thank you,
-Claudiu
-
-> Co-developed-by: Romain Sioen <romain.sioen@microchip.com>
-> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
-> Signed-off-by: Aubin Constans <aubin.constans@microchip.com>
-> ---
->   drivers/mmc/host/sdhci-of-at91.c | 36 ++++++++++++++++++++++++--------
->   1 file changed, 27 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of-at91.c
-> index 7c4ac65f247d..399856643e57 100644
-> --- a/drivers/mmc/host/sdhci-of-at91.c
-> +++ b/drivers/mmc/host/sdhci-of-at91.c
-> @@ -39,6 +39,7 @@ struct sdhci_at91_soc_data {
->   	const struct sdhci_pltfm_data *pdata;
->   	bool baseclk_is_generated_internally;
->   	unsigned int divider_for_baseclk;
-> +	bool pm_runtime_disable_clks;
->   };
->   
->   struct sdhci_at91_priv {
-> @@ -149,12 +150,14 @@ static const struct sdhci_pltfm_data sdhci_sama5d2_pdata = {
->   static const struct sdhci_at91_soc_data soc_data_sama5d2 = {
->   	.pdata = &sdhci_sama5d2_pdata,
->   	.baseclk_is_generated_internally = false,
-> +	.pm_runtime_disable_clks = true,
->   };
->   
->   static const struct sdhci_at91_soc_data soc_data_sam9x60 = {
->   	.pdata = &sdhci_sama5d2_pdata,
->   	.baseclk_is_generated_internally = true,
->   	.divider_for_baseclk = 2,
-> +	.pm_runtime_disable_clks = true,
->   };
->   
->   static const struct of_device_id sdhci_at91_dt_match[] = {
-> @@ -164,7 +167,7 @@ static const struct of_device_id sdhci_at91_dt_match[] = {
->   };
->   MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
->   
-> -static int sdhci_at91_set_clks_presets(struct device *dev)
-> +static int sdhci_at91_set_clks_presets(struct device *dev, bool start_clks)
->   {
->   	struct sdhci_host *host = dev_get_drvdata(dev);
->   	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -174,7 +177,14 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
->   	unsigned int			gck_rate, clk_base_rate;
->   	unsigned int			preset_div;
->   
-> -	clk_prepare_enable(priv->hclock);
-> +	/*
-> +	 * Manage clock prepare/enable procedure depending on if the board
-> +	 * support runtime clock disabling and if we come from the probing
-> +	 * or restoring procedure (for backup+self refresh).
-> +	 */
-> +	if (start_clks)
-> +		clk_prepare_enable(priv->hclock);
-> +
->   	caps0 = readl(host->ioaddr + SDHCI_CAPABILITIES);
->   	caps1 = readl(host->ioaddr + SDHCI_CAPABILITIES_1);
->   
-> @@ -223,8 +233,11 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
->   	writew(SDHCI_AT91_PRESET_COMMON_CONF | preset_div,
->   	       host->ioaddr + SDHCI_PRESET_FOR_DDR50);
->   
-> -	clk_prepare_enable(priv->mainck);
-> -	clk_prepare_enable(priv->gck);
-> +	/* Same clock management as for hclock */
-> +	if (start_clks) {
-> +		clk_prepare_enable(priv->mainck);
-> +		clk_prepare_enable(priv->gck);
-> +	}
->   
->   	return 0;
->   }
-> @@ -254,9 +267,11 @@ static int sdhci_at91_runtime_suspend(struct device *dev)
->   	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
->   		mmc_retune_needed(host->mmc);
->   
-> -	clk_disable_unprepare(priv->gck);
-> -	clk_disable_unprepare(priv->hclock);
-> -	clk_disable_unprepare(priv->mainck);
-> +	if (priv->soc_data->pm_runtime_disable_clks) {
-> +		clk_disable_unprepare(priv->gck);
-> +		clk_disable_unprepare(priv->hclock);
-> +		clk_disable_unprepare(priv->mainck);
-> +	}
->   
->   	return 0;
->   }
-> @@ -269,7 +284,7 @@ static int sdhci_at91_runtime_resume(struct device *dev)
->   	int ret;
->   
->   	if (priv->restore_needed) {
-> -		ret = sdhci_at91_set_clks_presets(dev);
-> +		ret = sdhci_at91_set_clks_presets(dev, priv->soc_data->pm_runtime_disable_clks);
->   		if (ret)
->   			return ret;
->   
-> @@ -277,6 +292,9 @@ static int sdhci_at91_runtime_resume(struct device *dev)
->   		goto out;
->   	}
->   
-> +	if (!priv->soc_data->pm_runtime_disable_clks)
-> +		goto out;
-> +
->   	ret = clk_prepare_enable(priv->mainck);
->   	if (ret) {
->   		dev_err(dev, "can't enable mainck\n");
-> @@ -344,7 +362,7 @@ static int sdhci_at91_probe(struct platform_device *pdev)
->   		return dev_err_probe(&pdev->dev, PTR_ERR(priv->gck),
->   				     "failed to get multclk\n");
->   
-> -	ret = sdhci_at91_set_clks_presets(&pdev->dev);
-> +	ret = sdhci_at91_set_clks_presets(&pdev->dev, true);
->   	if (ret)
->   		return ret;
->   
+diff --git a/sound/soc/atmel/mchp-spdiftx.c b/sound/soc/atmel/mchp-spdiftx.c
+--- a/sound/soc/atmel/mchp-spdiftx.c
++++ b/sound/soc/atmel/mchp-spdiftx.c
+@@ -306,10 +306,11 @@ static int mchp_spdiftx_trigger(struct snd_pcm_substre
+ {
+ 	struct mchp_spdiftx_dev *dev = snd_soc_dai_get_drvdata(dai);
+ 	struct mchp_spdiftx_mixer_control *ctrl = &dev->control;
++	unsigned long flags;
+ 	int ret;
+ 
+ 	/* do not start/stop while channel status or user data is updated */
+-	spin_lock(&ctrl->lock);
++	spin_lock_irqsave(&ctrl->lock, flags);
+ 	switch (cmd) {
+ 	case SNDRV_PCM_TRIGGER_RESUME:
+ 	case SNDRV_PCM_TRIGGER_START:
+@@ -335,7 +336,7 @@ static int mchp_spdiftx_trigger(struct snd_pcm_substre
+ 	default:
+ 		ret = -EINVAL;
+ 	}
+-	spin_unlock(&ctrl->lock);
++	spin_unlock_irqrestore(&ctrl->lock, flags);
+ 	if (ret)
+ 		dev_err(dev->dev, "unable to start/stop TX: %d\n", ret);
+ 
+-- 
+2.43.0
 
 
