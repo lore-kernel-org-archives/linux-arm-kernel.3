@@ -4,86 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A88C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E9FC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c4ROB5gmPay6sdQJPjpG61DXTR2zRREmvWIvdqy7Ui4=; b=SNzEHg3Xqbwh55StPBx+zjuqYt
-	HsLst67KZ551vzotN2yqcOFJJCqzycCtpphs74NTinjB4H5Bwdyxvtqc20eUNV+5oSP/G71Fr65Vs
-	avNKdgMnBaA1d2X6yV46Cu7bbwbyDfa3wu0VEeyXwTIIIYg3M6PVg6qkMGsG6rCj2OXKI2I3lMUb8
-	PwZA+TNa3LTRAiNQNlsGjYboBcwx8bPVElO4hRJgTUkOr6KbFRapUX28m4WTI4d3qO70JeWMjQqGZ
-	d144k03MfEL12JcQAXcKLpZzug8ZJpkeHypppaVGgfJTAVPoTMeK/XzWNyJZp+iIplzU4l+RyUw9H
-	qRoTfI6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CZIA5ePGlTpEIKFyAUN7CPZp3Kr0IYcWKcmwyEbriD4=; b=tHav06wij0UbFwEMAzDGBh/gD1
+	85jzBYFirszjlVWPdety/ZTbxvtUHU6mEyxrml0+9C0NDF8mP7DClink0b+6IhXuwzBUJhLvrUAof
+	Soelj1ugaMGZvm03Tq6/WuqzvT9TS54I+5kQMGWHH4boAGj6HmU76kg8Yvt4clLoGiwlpIVVPjCNF
+	PUPZBWGUk8yMVnjrP8F1HSDPyacFjICUwkLvnP1GBz4Iy/+AEoRqukzOpJwCep1dM8zjrrZsVYOS6
+	n3XnX3JtAT8j2Y3zhnbGmNZQhwQs2QbPje+aqDjQO6/SEs2f37tfPKet97dAlekCw1rFOh8a1PNoB
+	E0rKHA4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Vg0-00000009fJg-2jux;
-	Wed, 23 Sep 2026 22:42:56 +0000
-Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
+	id 1x9VgD-00000009fLm-3FLr;
+	Wed, 23 Sep 2026 22:43:09 +0000
+Received: from mail-pj2-x0e.google.com ([2607:f8b0:4864:39::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Vfy-00000009fIk-0B6D
+	id 1x9VgA-00000009fKv-3O8G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 22:42:55 +0000
-Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-3965ba1ba3eso1128981a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 15:42:53 -0700 (PDT)
+	Wed, 23 Sep 2026 22:43:09 +0000
+Received: by mail-pj2-x0e.google.com with SMTP id 98e67ed59e1d1-39e4a0daf4eso232100a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 15:43:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790203372; x=1790808172; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c4ROB5gmPay6sdQJPjpG61DXTR2zRREmvWIvdqy7Ui4=;
-        b=CjBDk4WwixJGHIA8e8eGF5F4jrrGdwcjN2w2pz2eihWJc2ttoAfT2cpNVXLbuBEOb6
-         4TRBontRIYKq2EjKnVrtUFm9Kb7lJo8dM6Lu+YRVa8o7CWBXZ25Lahnl3x82KZpCjUGk
-         1Bi2LSFCA86J3lwifU4Z2wIpNFXGQNVVHlvhM3ZxZRk2RPdLbppw4BzMoeoxbtjGtZRw
-         3BLlUG5UXb3Ys9/RqV3ath3oPdRxnVZFjXgJgoFRmZu5YpuI59Fh8XichPGZjJPwhnAj
-         s/DkKDdBQEXWdCbEsrz4z1ak5zJ2/Oqp/Y1kzsIHx1vkhYLXFxFKY2F6bGJSzQ8ckLUd
-         BuKQ==
+        d=gmail.com; s=20251104; t=1790203385; x=1790808185; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=CZIA5ePGlTpEIKFyAUN7CPZp3Kr0IYcWKcmwyEbriD4=;
+        b=BP0fNcTE6syn7YvuYMLNXjE8SviowN8CuRCjdwSwFbRdlgjDUjiYtTUL4SXQ6I2XJ3
+         jKb91F6LF4U4Rz3xOEx2nADnvVxpvcXGdOzA3TBRxwsNZXsfFF0ejb1lkPSyPxXXyk8v
+         ehjV+w7cqs8kZ41Q3vKvM5YXF/wqr/LNMi1wmvbNV/02WHw3hefxbnKSckLrZC7R7UMW
+         t+J3QscY9WQRoPiNmCzF3u1Jpv8bAGfe9Dad8Cj3EoTF4UER5rYDirbWxhTC9Z0D5Sah
+         mkNKMrZDkNXx1J6+ouO2BZpyGOefzdntkgdbc20RlHe+IjbvvkwykxTMnpOtaGj5ayPF
+         Aj1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790203372; x=1790808172;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c4ROB5gmPay6sdQJPjpG61DXTR2zRREmvWIvdqy7Ui4=;
-        b=GHVrtJ4xzfmfivKczPCkvhp7XTrfj8lq6hcFk86FQ21dFj3SDCXnTdV6TZB3/0KWTk
-         axMoThoWw/uQJQN3QNi0jzYqDmqqEM4OmMaAqH+8691hSt34UQmreSSa+iWoDM3SV/Je
-         mCmi4vBgzwB7IJD7TzjHKvsnzwPH8PEKV6jdzholK8n00goYAXbSV7obQEQq2XDOZlix
-         0eFg/1pzt+dtn5wtM8vSyz+KpC5W5ZXOzrHr70eIzKYj6XjA625gPIyVSt19WosZ9Eh6
-         YcH8VvzSJVsNX7DTfGdbE23Wsa7l7yIHV3KhtSrFizZM4roZH0MMaDHDh2dJqDzaNvVs
-         WMzg==
-X-Forwarded-Encrypted: i=1; AKwUvBxJdOldUbgJSpfoF8tJ/GgRjdSFg42ZQ+Ixi4hjNV1mfYuBYf1E151xDORm1ovl+k9rt6K+CM9g1O4ZEFsLQGqt@lists.infradead.org
-X-Gm-Message-State: AFuF++n4RKXQjM4DWk/50ubxdCIp5mfsy4TuXK5fuwu1/DGDHw3mvW6s
-	6B72+S6W6aeAIAkh2HuHA+1bFzblx+CW4y9Zd9V2H6WnP1FRLOv58O4EykHVdp0UW4KqbELQrJ9
-	EjG0svg==
-X-Received: from pjbbh7.prod.google.com ([2002:a17:90b:487:b0:3a0:8315:fa7b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3f87:b0:398:a486:81ec
- with SMTP id 98e67ed59e1d1-3a0985b8f01mr435176a91.11.1790203372353; Wed, 23
- Sep 2026 15:42:52 -0700 (PDT)
-Date: Wed, 23 Sep 2026 15:42:51 -0700
-In-Reply-To: <6-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
-Mime-Version: 1.0
-References: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com> <6-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
-Message-ID: <arRV6y-d1rkRV2Fa@google.com>
-Subject: Re: [PATCH v7 06/10] vfio: selftests: Allow drivers to specify
- required region size
-From: Sean Christopherson <seanjc@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alex Williamson <alex@shazbot.org>, David Matlack <dmatlack@google.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, Leon Romanovsky <leon@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Mark Bloch <mbloch@nvidia.com>, 
-	netdev@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Saeed Mahameed <saeedm@nvidia.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Shuah Khan <shuah@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Tariq Toukan <tariqt@nvidia.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, patches@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20260707; t=1790203385; x=1790808185;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=CZIA5ePGlTpEIKFyAUN7CPZp3Kr0IYcWKcmwyEbriD4=;
+        b=aolCmEIuSy0WGfi4N3iTGT9y2xpRHptBIIbjdSXS+py7Y2Rm8hwiy/y5/II2RfGWf4
+         EJG+AA8YivOvWbVG02KiNvb8g4Eep2zs/uuvD3J7kHJzfaorasxY4wOl6fiuy52ZS33v
+         ksHmj60t0Mah5sLy9if7lwNV57aPriLAeuP1dxcVVhPc8lxm8JgrB4MyYs/ILX9gbGz1
+         QMnpEU4Gn0WirewRS8ZLGOb0H4y5tYmoQY9W59lppa0ZkyshBLsNOLQTI617KYehhJjM
+         hQrFjvb9FqxkNdKh+gu2KjwZHCmtOH9FAg1aCzCjg0K7XLxd+wMvktG8A78lxvsgMilN
+         iynQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwbc6OXlvCHynIXuSoAv+BMbrYzNnNBYbfvfdz4OW+dZp+amPrBLMVJyMJIBzBmsDRCarZaVRVQFCg7RA5tCYJy@lists.infradead.org
+X-Gm-Message-State: AFuF++kPmL+ZB3ddKXPaVRlK9EOoNRKr8J6byaciakeHtTVP20G5stN0
+	hJzm74Xv3e3v1wuG+2jodHW+k7veZ9eeovoHQ30Kg+YDn7w9ArI2Py8a
+X-Gm-Gg: AYBFou3OevPjoAWZh7Dms8P2sGxLoCogt14jx/RS+eOKGn53fApkPxFBhJH1FZH0lgH
+	aJLcqyzDxsmpXfQ807M4u34iU+kA4aC8g3318okqP4FJH25DBXVLrxSDens1tSCfpMIDc3S4vYv
+	sP5LAThH+nyGjAXJw4rQLKAmqG6Y69uNklWR8nTn1tsX8DVbOcdgkhdqcEPpHZp7w0AfanANYzk
+	q3ywOW1G1oKHg4eb/oPfnKrR3unshe8nMueS6KR+kcv3fZnqAu8MUZ6lSBqpzkFud1tXQi1mIrb
+	hvKh4i37pQBVleu1kPKq0z0uO5cpyRuFqalm46Ob+6CMbjS9vpSBMKnRm75rmuhZzINL8/QrXhe
+	aEavOKCPqBQrX0yTCLGvy/Oo4FATGDhzDDRAOLkz8bR6pvr3kAFtp2lbvLT/vlrve0+BYYGIcrX
+	9/1WjhSFLQORAYLxE4IEkinxXidyxVd6gN2AomCvHwrIzDJZQu6YHxuPV5Zsy+Fsaag/yDU5kO7
+	igx8RE=
+X-Received: by 2002:a17:90b:3143:b0:3a0:60c0:7f8f with SMTP id 98e67ed59e1d1-3a098643a13mr786844a91.0.1790203385314;
+        Wed, 23 Sep 2026 15:43:05 -0700 (PDT)
+Received: from [10.197.48.252] ([2409:40c2:5047:8a3f:9ef:734:1515:aac8])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a09738f2absm1106830a91.14.2026.09.23.15.42.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 15:43:03 -0700 (PDT)
+From: Bhargav Joshi <j.bhargav.u@gmail.com>
+Date: Thu, 24 Sep 2026 04:12:40 +0530
+Subject: [PATCH v5] spi: dt-bindings: ti,davinci-spi: Convert to DT schema
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260924-ti-davinci-spi-v5-1-ed811dc6cd89@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33Mz4rCMBDH8VeRnDeSTJNp62nfY/GQPxMdWFtpJ
+ CjSdzftRVF2mdNv4PO9i0wTUxa7zV1MVDjzONRhvzYiHN1wIMmxbgEKUHUa5YVldIWHwDKfWRI
+ aqtd59CgqOk+U+LoGf/Z1Hzlfxum29otevn+mipZKujbZNqZoAeH7cHL8uw3jSSypAv9zqBwDJ
+ qtbbQD8O29eefvBm8qh6YwJyVtC987Nk/dKf3BTeQ/UB+WBdDSvfJ7nBxbqHohpAQAA
+X-Change-ID: 20260816-ti-davinci-spi-e64e4e48b6b6
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ goledhruva@gmail.com, m-chawdhry@ti.com, daniel.baluta@gmail.com, 
+ simona.toaca@nxp.com, j.bhargav.u@gmail.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790203367; l=11160;
+ i=j.bhargav.u@gmail.com; h=from:subject:message-id;
+ bh=mlJx9ThzJFLUhajDVUTvdhWrZvQwfqaHhk1+paidAG8=;
+ b=ybD9wA5D8ZVdWrWWvhexlX1Z2bDFJJt/EfuOXmMAk0ig5EeGChOs3c57muOtvruVAkjExsm1R
+ W1S/2UXJ5ZHADbUVHS8YvxgToHmOvzhF5NILBgESrxIuTs53PEr61MY
+X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
+ pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_154254_091182_3700429A 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260923_154306_892642_E634BA8E 
+X-CRM114-Status: GOOD (  27.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,18 +115,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026, Jason Gunthorpe wrote:
-> Add a region_size field to struct vfio_pci_driver_ops so drivers can
-> declare how much DMA-mapped region they need. The mlx5 driver will need
-> ~18MB for firmware pages. Existing drivers pass in the sizeof their state
-> struct. Since drivers all use only their declared state we can use the
-> value directly and remove the SZ_2M hard coding.
-> 
-> Assisted-by: Claude:claude-opus-4.6
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
+Convert the TI DaVinci/Keystone SPI controller binding from text format
+to DT schema.
 
-The KVM test still runs, and in David I trust:
+Changes during the conversion:
+- Create a separate ti,davinci-spi-peripheral-props.yaml schema to
+  properly define the ti,spi-wdelay peripheral property.
+- Add missing dmas and dma-names properties.
+- Add constraints to ti,spi-wdelay based on the 6-bit width
+  of the SPIFMTn.WDELAY hardware register field.
 
-Acked-by: Sean Christopherson <seanjc@google.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
+---
+Changes in v5:
+- Drop applied patch 1.
+- Use items in compatibles in if/then for ti,keystone-spi.
+- Rebased to latest mainline RC
+- Link to v4: https://lore.kernel.org/r/20260901-ti-davinci-spi-v4-0-92e9c0b2e1d4@gmail.com
+
+Changes in v4:
+- Fixed spacing in example.
+- Fixed commit title.
+- Rebasesd to latest mainline rc.
+- Link to v3: https://lore.kernel.org/r/20260817-ti-davinci-spi-v3-0-23844cfb5e6a@gmail.com
+
+Changes in v3:
+- patch 2: since old text binding required num-cs, #address-cells, and
+  #size-cells mark them as required
+- patch 2: davinci-spi don't work as spi-slave i.e address-cells 0 is
+  not applicable and spi-controller permits both 0 and 1 so explicitely
+  define #address-cells as 1
+- Link to v2: https://lore.kernel.org/r/20260816-ti-davinci-spi-v2-0-6c6f5171422b@gmail.com
+
+Changes in v2:
+
+- patch 1: Instead of deleting ti,davinci-spi-num-cs, renamed it to
+  num-cs to properly preserve the hardware's intended chip select
+  limits 
+- patch 2: Removed  maximum: 6 constraint from num-cs.
+- patch 2: Add standalone support for ti,dm6441-spi in compatibles.
+- Link to v1: https://lore.kernel.org/r/20260816-ti-davinci-spi-v1-0-a7f57dfd5262@gmail.com
+---
+ .../devicetree/bindings/spi/spi-davinci.txt        | 100 -----------------
+ .../bindings/spi/spi-peripheral-props.yaml         |   1 +
+ .../spi/ti,davinci-spi-peripheral-props.yaml       |  25 +++++
+ .../devicetree/bindings/spi/ti,davinci-spi.yaml    | 125 +++++++++++++++++++++
+ 4 files changed, 151 insertions(+), 100 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/spi/spi-davinci.txt b/Documentation/devicetree/bindings/spi/spi-davinci.txt
+deleted file mode 100644
+index f012888656eca..0000000000000
+--- a/Documentation/devicetree/bindings/spi/spi-davinci.txt
++++ /dev/null
+@@ -1,100 +0,0 @@
+-Davinci SPI controller device bindings
+-
+-Links on DM:
+-Keystone 2 - https://www.ti.com/lit/ug/sprugp2a/sprugp2a.pdf
+-dm644x - https://www.ti.com/lit/ug/sprue32a/sprue32a.pdf
+-OMAP-L138/da830 - http://www.ti.com/lit/ug/spruh77a/spruh77a.pdf
+-
+-Required properties:
+-- #address-cells: number of cells required to define a chip select
+-	address on the SPI bus. Should be set to 1.
+-- #size-cells: should be zero.
+-- compatible:
+-	- "ti,dm6441-spi" for SPI used similar to that on DM644x SoC family
+-	- "ti,da830-spi" for SPI used similar to that on DA8xx SoC family
+-	- "ti,keystone-spi" for SPI used similar to that on Keystone2 SoC
+-		family
+-- reg: Offset and length of SPI controller register space
+-- num-cs: Number of chip selects. This includes internal as well as
+-	GPIO chip selects.
+-- ti,davinci-spi-intr-line: interrupt line used to connect the SPI
+-	IP to the interrupt controller within the SoC. Possible values
+-	are 0 and 1. Manual says one of the two possible interrupt
+-	lines can be tied to the interrupt controller. Set this
+-	based on a specific SoC configuration.
+-- interrupts: interrupt number mapped to CPU.
+-- clocks: spi clk phandle
+-          For 66AK2G this property should be set per binding,
+-          Documentation/devicetree/bindings/clock/ti,sci-clk.yaml
+-
+-SoC-specific Required Properties:
+-
+-The following are mandatory properties for Keystone 2 66AK2G SoCs only:
+-
+-- power-domains:	Should contain a phandle to a PM domain provider node
+-			and an args specifier containing the SPI device id
+-			value. This property is as per the binding,
+-
+-Optional:
+-- cs-gpios: gpio chip selects
+-	For example to have 3 internal CS and 2 GPIO CS, user could define
+-	cs-gpios = <0>, <0>, <0>, <&gpio1 30 0>, <&gpio1 31 0>;
+-	where first three are internal CS and last two are GPIO CS.
+-
+-Optional properties for slave devices:
+-SPI slave nodes can contain the following properties.
+-Not all SPI Peripherals from Texas Instruments support this.
+-Please check SPI peripheral documentation for a device before using these.
+-
+-- ti,spi-wdelay : delay between transmission of words
+-	(SPIFMTn.WDELAY, SPIDAT1.WDEL) must be specified in number of SPI module
+-	clock periods.
+-
+-	delay = WDELAY * SPI_module_clock_period + 2 * SPI_module_clock_period
+-
+-Below is timing diagram which shows functional meaning of
+-"ti,spi-wdelay" parameter.
+-
+-             +-+ +-+ +-+ +-+ +-+                           +-+ +-+ +-+
+-SPI_CLK      | | | | | | | | | |                           | | | | | |
+-  +----------+ +-+ +-+ +-+ +-+ +---------------------------+ +-+ +-+ +-
+-
+-SPI_SOMI/SIMO+-----------------+                           +-----------
+-  +----------+ word1           +---------------------------+word2
+-             +-----------------+                           +-----------
+-                                          WDELAY
+-                                <-------------------------->
+-
+-Example of a NOR flash slave device (n25q032) connected to DaVinci
+-SPI controller device over the SPI bus.
+-
+-spi0:spi@20bf0000 {
+-	#address-cells			= <1>;
+-	#size-cells			= <0>;
+-	compatible			= "ti,dm6446-spi";
+-	reg				= <0x20BF0000 0x1000>;
+-	num-cs				= <4>;
+-	ti,davinci-spi-intr-line	= <0>;
+-	interrupts			= <338>;
+-	clocks				= <&clkspi>;
+-
+-	flash: flash@0 {
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+-		compatible = "st,m25p32";
+-		spi-max-frequency = <25000000>;
+-		reg = <0>;
+-		ti,spi-wdelay = <8>;
+-
+-		partition@0 {
+-			label = "u-boot-spl";
+-			reg = <0x0 0x80000>;
+-			read-only;
+-		};
+-
+-		partition@1 {
+-			label = "test";
+-			reg = <0x80000 0x380000>;
+-		};
+-	};
+-};
+diff --git a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
+index 880a9f6245667..cb5d608998e18 100644
+--- a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
+@@ -155,5 +155,6 @@ allOf:
+   - $ref: fsl,dspi-peripheral-props.yaml#
+   - $ref: samsung,spi-peripheral-props.yaml#
+   - $ref: nvidia,tegra210-quad-peripheral-props.yaml#
++  - $ref: ti,davinci-spi-peripheral-props.yaml#
+ 
+ additionalProperties: true
+diff --git a/Documentation/devicetree/bindings/spi/ti,davinci-spi-peripheral-props.yaml b/Documentation/devicetree/bindings/spi/ti,davinci-spi-peripheral-props.yaml
+new file mode 100644
+index 0000000000000..1060f176c6cbd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spi/ti,davinci-spi-peripheral-props.yaml
+@@ -0,0 +1,25 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spi/ti,davinci-spi-peripheral-props.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: TI DaVinci/Keystone SPI Peripheral Properties
++
++maintainers:
++  - Bartosz Golaszewski <brgl@kernel.org>
++
++description:
++  Peripheral-specific properties for SPI devices attached to a TI
++  DaVinci/Keystone SPI controller.
++
++properties:
++  ti,spi-wdelay:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 0
++    maximum: 63
++    description:
++      delay between transmission of words (SPIFMTn.WDELAY, SPIDAT1.WDEL)
++      must be specified in number of SPI module clock periods.
++
++additionalProperties: true
+diff --git a/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml b/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml
+new file mode 100644
+index 0000000000000..1c7544d31fb96
+--- /dev/null
++++ b/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml
+@@ -0,0 +1,125 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/spi/ti,davinci-spi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: TI DaVinci/Keystone SPI Controller
++
++maintainers:
++  - Bartosz Golaszewski <brgl@kernel.org>
++
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - ti,da830-spi
++          - ti,keystone-spi
++          - ti,dm6441-spi
++      - items:
++          - const: ti,keystone-spi
++          - const: ti,dm6441-spi
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++    description:
++      Should contain a phandle to a PM domain provider node
++      and an args specifier containing the SPI device id
++      value.
++
++  num-cs:
++    minimum: 1
++    default: 1
++    description:
++      Number of chip selects supported by the controller. This
++      includes both internal and GPIO chip selects.
++
++  ti,davinci-spi-intr-line:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1]
++    description:
++      Interrupt line used to connect the SPI IP to the interrupt
++      controller within the SoC.  The SPI peripheral can route its
++      interrupt output to one of two lines (INT0 or INT1). Set
++      this based on the SoC-specific wiring to the interrupt
++      controller.
++
++  dmas:
++    items:
++      - description: RX DMA channel
++      - description: TX DMA channel
++
++  dma-names:
++    items:
++      - const: rx
++      - const: tx
++
++  "#address-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - ti,davinci-spi-intr-line
++  - num-cs
++  - "#address-cells"
++  - "#size-cells"
++
++allOf:
++  - $ref: spi-controller.yaml#
++  - if:
++      properties:
++        compatible:
++          items:
++            - const: ti,keystone-spi
++    then:
++      required:
++        - power-domains
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    spi@20bf0000 {
++        compatible = "ti,keystone-spi", "ti,dm6441-spi";
++        reg = <0x20bf0000 0x1000>;
++        num-cs = <4>;
++        ti,davinci-spi-intr-line = <0>;
++        interrupts = <338>;
++        clocks = <&clkspi>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        flash@0 {
++            compatible = "jedec,spi-nor";
++            spi-max-frequency = <25000000>;
++            reg = <0>;
++            ti,spi-wdelay = <8>;
++        };
++    };
++
++  - |
++    spi@41000 {
++        compatible = "ti,da830-spi";
++        reg = <0x41000 0x1000>;
++        num-cs = <6>;
++        ti,davinci-spi-intr-line = <1>;
++        interrupts = <20>;
++        dmas = <&edma0 14 0>, <&edma0 15 0>;
++        dma-names = "rx", "tx";
++        clocks = <&psc0 4>;
++        power-domains = <&psc0 4>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++    };
+
+---
+base-commit: fe2ec83746e501645709761605c2464a44fd2929
+change-id: 20260816-ti-davinci-spi-e64e4e48b6b6
+
+Best regards,
+-- 
+Bhargav
+
 
