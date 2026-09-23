@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 163D4C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F0CC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzxngQQwI02VxKfYyElZhuR9khNH3IJDh9D/mIorTkA=; b=wkgLBW4HjRt6gHAgaiU3xnVtwV
-	LVCaUWjynl6XhTyLSevKMxomDMwjITtH1u1Tr8w+twGgDB48xBLrKkUs+rif2jFwOXBI18TmCHCyt
-	uNToQsMWVWXPbxs4URAMH091tXsegCufhEg+jiRZZHoKCQBtMFEx08mciwGNUiRFffGCwzYbvTqIH
-	N2kVN58dYqiT4dlT/njDFmTNIHVy8gXY4vyRxhwtIJILBtS9FKn0WP6IcAquvXJXho989+HWs5uq7
-	gwx4/+CJWrTgiXjXhNQfn517VA8Q/7GuPULS74AXSPixQjDo+IJpaJU/FeK2syURun1f1+j7jkecb
-	Si3m/zfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wU3cdglOMO4fNUbFU6VE7Bg9T8/+Nhjntbc1rLwcCxk=; b=d1Ian/rX6EioDlRD5S7+yhuaoE
+	KcKWhPoDyGz/jJ4ia7UVo0pFeCN31sSsIUyV3yHJHUNwIaBz6FhExFFXEaebUWstR08bFVkZ1A2fK
+	6ZXKuwk1I83eLGc93Yy4HLYfFFSqVXjByxRoD9UxFhKsa7Q3VBlB8tuZ3z7r8pawtDlnDq/URSHMC
+	LRabDBLbvrVyc5w8B63c1WiV92pefNxWeqxDSIrgFjiu4K9e/Psp0SwFZVG4Iu+pCc8nb3L+CyprV
+	Hnz8mizwn/SWDTCHCqt8JFjw2jLvW68AI2ZUWnOUawu3kNonUa2aGSa9SyA2pzpk/1i2SsodeBACA
+	68QNduMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ke2-00000007xpF-2y9z;
-	Wed, 23 Sep 2026 10:56:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ke0-00000007xoL-2edx
+	id 1x9Kfp-00000007y6V-0KAu;
+	Wed, 23 Sep 2026 10:58:01 +0000
+Received: from mail-lr2-x10.google.com ([2a00:1450:4864:38::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9Kfm-00000007y5Z-1BDc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:56:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E97BF143D;
-	Wed, 23 Sep 2026 03:56:03 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 047343F86C;
-	Wed, 23 Sep 2026 03:56:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790160967; bh=s5eK6czV54tLMgQyspEsKT5FhzSt1Pt79xGUDPqztro=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LogV7v5ul2kJACpBHby8srql67OXX0Bled1I/EPPVwAmKpYNSZLzGG8ySoD5aiAqb
-	 z8+RgMj8cMWr4Pz2TESQ5GlrSOcy/prdB3nggxKbZkvpFNJLKUt7KD6SYEbTQptlAs
-	 Rr0b9Xa0retjD23OCp/6aqD0SFUfPj8MEmIOOIfo=
-Date: Wed, 23 Sep 2026 11:55:49 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
-	lukasz.luba@arm.com, philip.radford@arm.com,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: Re: [PATCH v12 02/25] firmware: arm_scmi: Allow registration of
- unknown-size events/reports
-Message-ID: <arOv8aLJaRQjhkaF@pluto>
-References: <20260920091928.2014972-1-cristian.marussi@arm.com>
- <20260920091928.2014972-3-cristian.marussi@arm.com>
- <2135509e-2689-4258-ab00-011d47f4b172@kernel.org>
+	Wed, 23 Sep 2026 10:57:59 +0000
+Received: by mail-lr2-x10.google.com with SMTP id 38308e7fff4ca-3a5d4688decso6945171fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:57:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790161076; x=1790765876; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wU3cdglOMO4fNUbFU6VE7Bg9T8/+Nhjntbc1rLwcCxk=;
+        b=ca+gtx7ZNIea3i8nPrp631o/3y/anYlUSnlt52yU20qbABsUXaKOUH6KgiG9nHwuT2
+         MnXhScwjN8mcq79gmIU3urd1ICDlEvBW7X+sTAZx1ubT2i6cBe9tAPqi8vAn8lIqEBdw
+         Z+2AlQUIV+Wu4M1U9r0+fRzBkbV0K1ON359MYGj6Czy+RHiGffmYfkHKKoUMh+CJPbuI
+         iXLtI4Pt8Dq5zcSnlQb4sUjg0OssxiprDGmO0rfILsABqE57oF+rPwWlHXqx3K02VJLQ
+         yYXwhu+6wtPUrjFHF0cV15hac4KbjG+ammN7doqNegYRme09wpOH5gfsR146jFlGco/E
+         eQ9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790161076; x=1790765876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wU3cdglOMO4fNUbFU6VE7Bg9T8/+Nhjntbc1rLwcCxk=;
+        b=0aKW+MB1qvTJ4pm4TV52Nilb8/H8n0GsMBm1M0aXOCRXANWnPWUs1/RZ4ljp9JHE5u
+         duD04ywuqtmf0NL78lUq5tr17/kJSKspjf4VMnw0af+YSO7XoqYa+ZZCdekniOjXTw9M
+         6wjGc+p9M5VezNyIaQpF4NPGGR2VHtcJMRVUwSdhWaqUi9Np01mQHBRLbLfK3ktV04oB
+         p1VB1TXCGTbFfq+AsR0QsdtJZpxSe7Vn0kdHv0utooqOxySM3RA/xvSPuV2VExGJv0Sa
+         0JfcVveTiOQpO/cWDnvSYftscwze1C/WWH2BlerBHYlkPFHNRpkQyKZxMRKbHIUsqkbA
+         zcvQ==
+X-Forwarded-Encrypted: i=1; AKwUvByBPXG0q778JNaB1rHtUaAK5QHPY1h2ZsRmt1qaJr+gTdXDO1KuTCKFo1t/653/tpHVWO5yUKO84CK2beXXg5Q+@lists.infradead.org
+X-Gm-Message-State: AFuF++l3L2RRSBy/QwMi9AZ/kJHnmG2ck632LGCmU2CC3ViWW+GWSfUL
+	HpIgkIbjW6vI6yc1Bj42A5BDKq84pfKZg863hRz+KLzXtq8el6IIZzSy
+X-Gm-Gg: AYBFou3SI5DVp1suaRITbP9PU1yCyzOZZ4m12hLvy+qOKRgttao4CkTEcgbeMYQdIYi
+	UxpcCWE6Jgwz8JUcBOJ8IdUK4DV0QGORJOspkcND7Zce64frUFRhGjGW3LjqYvsu7UnUuXDcQ64
+	k0W9UERy12gPLRV/1dDA3hGCD9CiaviNBfniLhJ9zbmYi3OP+Ruq2aQUkgcaOoARw1M83/iYn2n
+	gQf8LtRcf2S2EWGzJcs6NL5BADneZ5CTmzwjCHZ8Jfb63PnoN3rAA8hG7yyVJW3/RbDpC++Itth
+	ZdYnCpBflPFOnGZGse0I6ym56L5+7xmKfhzJBnQ3NQea901fMj9H4C3UhytR4FJzBIUSGmw5pNl
+	+CSe1sbBx7tDVUjwYtuQ7nRrl9AqCIOQfwTMlhkszG1kwFAaltFnFj9FZknL8B8eN+ZCF1rUcAo
+	fC7Fo1ODuNuETeQkZmJ6TnYJ9pSjvcfCNYQ1c1nUDO6KmNBjPFx7ZeVLuMI4AXjI5F6gt6UXLBR
+	7xpoiSX+6dRjn7emanUL7oRqcVGPQ==
+X-Received: by 2002:a2e:be9f:0:b0:3a3:368:fb9f with SMTP id 38308e7fff4ca-3a63069666bmr5961811fa.13.1790161075789;
+        Wed, 23 Sep 2026 03:57:55 -0700 (PDT)
+Received: from DESKTOP-7GRJKK0 ([188.226.104.175])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b8d857873asm506392e87.17.2026.09.23.03.57.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 03:57:55 -0700 (PDT)
+From: Vladimir <anykey196@gmail.com>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Vladimir <anykey196@gmail.com>
+Subject: [PATCH 2/3] arm64: dts: allwinner: h616: orangepi-zero2w: add 24-pin expansion buttons and IR
+Date: Wed, 23 Sep 2026 15:57:50 +0500
+Message-ID: <20260923105751.435-1-anykey196@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2135509e-2689-4258-ab00-011d47f4b172@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_035608_810091_D6C3DE5F 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260923_035758_337673_27E1E293 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,67 +100,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 03:15:55PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/20/26 11:19, Cristian Marussi wrote:
-> > Allow protocols to register events with build-time unknown sizes: such
-> > events can be declared zero-sized and let the core SCMI stack perform the
-> > needed safe-net boundary checks based on the configured transport size.
-> 
-> ok, so we have a maximum message size defined by the transport. We'll use that
-> as payload size, and the report size just gets the additional ktime_t.
-> 
-> 
-> >  	pd = scmi_allocate_registered_events_desc(ni, proto_id, ee->queue_sz,
-> > @@ -807,7 +821,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
-> >  		mutex_init(&r_evt->sources_mtx);
-> >  
-> >  		r_evt->report = devm_kzalloc(ni->handle->dev,
-> > -					     evt->max_report_sz, GFP_KERNEL);
-> > +					     evt->max_report_sz ?: max_report_sz,
-> 
-> Having two similarly named variables is a bit confusing. I wonder if you can
-> somehow make it clearer in the latter case that it is the max_report_sz
-> according to the transport.
+The optional 24-pin expansion board exposes two LRADC buttons and an IR
+receiver. KEY1/KEY2 are on LRADC channel 0 (measured ~1.0 V / ~1.6 V) and are
+wired to KEY_1 / KEY_ENTER; the IR receiver is on the SoC ir controller (PH10).
 
-Ok I'll do.
+Tested on: OrangePi Zero 2W (Allwinner H618).
 
-> 
-> > +					     GFP_KERNEL);
-> >  		if (!r_evt->report)
-> >  			return -ENOMEM;
-> >  
-> > diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
-> > index f18f98c5ab3b..c2eb4844c7db 100644
-> > --- a/drivers/firmware/arm_scmi/notify.h
-> > +++ b/drivers/firmware/arm_scmi/notify.h
-> > @@ -18,8 +18,12 @@
-> >  /**
-> >   * struct scmi_event  - Describes an event to be supported
-> >   * @id: Event ID
-> > - * @max_payld_sz: Max possible size for the payload of a notification message
-> > - * @max_report_sz: Max possible size for the report of a notification message
-> > + * @max_payld_sz: Max possible size for the payload of a notification message.
-> > + *		  Set to zero to use the maximum payload size allowed by the
-> > + *		  transport.
-> 
-> "maximum payload size" is ph->hops->get_max_msg_size(ph) ? Should we call this
-> "maximum message size" then?
->
-Ok 
-> > + * @max_report_sz: Max possible size for the report of a notification message.
-> > + *		   Set to zero to use the maximum payload size allowed by the
-> > + *		   transport plus the additional ktime_t timestamp.
-> 
-> Same here.
->
+Signed-off-by: Vladimir <anykey196@gmail.com>
+---
+ .../allwinner/sun50i-h618-orangepi-zero2w.dts | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+index ff9b40352..1b690e3cd 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+@@ -10,6 +10,7 @@
  
-Ok
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/input/input.h>
+ #include <dt-bindings/leds/common.h>
+ 
+ / {
+@@ -189,3 +190,31 @@ &usbphy {
+ 	usb1_vbus-supply = <&reg_vcc5v>;
+ 	status = "okay";
+ };
++
++/*
++ * Buttons and IR receiver on the optional 24-pin expansion board.
++ * KEY1 -> KEY_1, KEY2 -> KEY_ENTER (LRADC channel 0).
++ */
++&lradc {
++	vref-supply = <&reg_vcc3v3>;
++	status = "okay";
++	wakeup-source;
++
++	button-1000 {
++		label = "KEY_1";
++		linux,code = <KEY_1>;
++		channel = <0>;
++		voltage = <1000000>;
++	};
++
++	button-1600 {
++		label = "KEY_ENTER";
++		linux,code = <KEY_ENTER>;
++		channel = <0>;
++		voltage = <1600000>;
++	};
++};
++
++&ir {
++	status = "okay";
++};
+-- 
+2.53.0
 
-Thanks,
-Cristian
-
-> -- 
-> Cheers,
-> 
-> David
 
