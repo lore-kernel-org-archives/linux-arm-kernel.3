@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB38C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD55C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XLS6K5yNkNKdGDkQFfdRpx4/MjK91Sar/Xvn4H+27fE=; b=AKfK3NGZbxwk6G/OhUTP3dGuH3
-	+Wn1Qvmue3axhlptDYQTnXGyrzYE8i6pP9ZMufx5mJzIcpHD0y5JpN/RSUNRLFxwBHPD71t+Y5GYt
-	3jMPLBOlOioaBHkDWLh8EC87HERRojE4ot0nUw44LmW2V32YBLXdoECVDzREu1n5ouPN1ZPjKBJYx
-	AxAQL96hNQWDfJNBNK68p5MI7jor2ms/nORvfe1/bHDt3GsLFabh/rrke8V0DFhxoRjBSGTLEMIYG
-	p6W+wdAg52TAdMEK803C7w6w9PiZCfcd+QdYJN+Y1T5WpKldftFxJlz4YFc3DzVzx1SR+bbxaIBKY
-	dMf1KpcQ==;
+	bh=Lzwi0Mawi31RemVumzSqchu9DrI7b9hCSXz46KflOoA=; b=mDBfF5RoH3N/Fzqswh3mwEXBvQ
+	9PRfCJZu4o1cHxWQOKGdo38DmooMNk17GAhmlNxLT6gE6UqIrH/Mf4EdAxDEAEe7Yh5+5DqXgPlB7
+	Gvy240dYrhSe8KY3qCp5T2+wCjunGOCw6hLj0IVSc6zLNf+PUwh/qHpI5DAESPl2udwWfeHfCcY84
+	0LJs2+PbVm0bypfRYvopCHspin4Ek7ZjEtmCq36F0R+Q+ymKF7nFhSvrM++K9GaOXw+sX9NCLC7dc
+	8a7d8CXdUQJKcBpJ2Bt/dgkAHnRjb3VRqxmB27pu0Zxx98cOLX8QD6vzlqBRDB6M4lFQh7tt/BR4o
+	ekyfwvTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Jw5-00000007r4T-1hhi;
-	Wed, 23 Sep 2026 10:10:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Jvz-00000007r3a-2coW
+	id 1x9Jx1-00000007rDa-46Lb;
+	Wed, 23 Sep 2026 10:11:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9Jx0-00000007rDB-1UaW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:10:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8480152B;
-	Wed, 23 Sep 2026 03:10:34 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 146163F86C;
-	Wed, 23 Sep 2026 03:10:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790158238; bh=aJd5PwgdVPJ9tE7A7OasMy/wKrzLGbTgJY/jXplpFIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N3sYQlebo9JuaPrX/aY4BYXg4kl12bBh2l+dg5S1TpD/sd1OrXwH32xGOiPW5K434
-	 UuBzqurGcjPFaH0amX7WpALPGj4+fE2hTuRxrmfBQJcpZcj2x3NVvhpckvNi+KxnQI
-	 AtUULuSivZdyBUiepK0KoTPupOCiWcVRdZmElWyM=
-Date: Wed, 23 Sep 2026 11:10:32 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Andrew Morton <akpm@linux-foundation.org>,
-	christian.koenig@amd.com, Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>, Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	linux-media@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [RFC PATCH v7 02/13] mm: Add an allocator for CoCo shared memory
-Message-ID: <arOlmBBWdZTi8Xre@arm.com>
-References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
- <20260921144847.501151-3-aneesh.kumar@kernel.org>
- <arKsFofudnTYpXj1@arm.com>
- <yq5aik3w344o.fsf@kernel.org>
- <yq5afqz02wtv.fsf@kernel.org>
+	Wed, 23 Sep 2026 10:11:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id 033D741A91;
+	Wed, 23 Sep 2026 10:11:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5AF7F1F00893;
+	Wed, 23 Sep 2026 10:11:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790158301;
+	bh=Lzwi0Mawi31RemVumzSqchu9DrI7b9hCSXz46KflOoA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VuKt3nUvlo/v/IzT+Tj47tvuL6nA4HV3Q7NBHHdCS/G6dVIGJM0CxYOYjHPdAOtaS
+	 +i/+FuwrpRzaq2oBfaxfyeApTyHcdp5v87ynMCNYRiGhMf7uLOZP1YwenSYSNYQq+s
+	 8X5GmDzrvjIA/Aj0uAYCVm7Foyz8wV1RBm+OelSBSSO9n+IYA6NLrqoh1dH8vOj8OH
+	 nO07S6eJ90f4pDGHhtHOFuMqIUiMOFhJJ65YhsNkWCmQFwSx1cfvOWsuulqZA/lbGe
+	 0JS9c3Q2tTA9Idu3LlClILtxjjSKSeeOxmUGgnpXVvOOYmfE2ZEez2exncC2AbhmVj
+	 8g5oWxnfs5hoA==
+Date: Wed, 23 Sep 2026 12:11:39 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Richard GENOUD <richard.genoud@bootlin.com>
+Cc: James Hilliard <james.hilliard1@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Paul Kocialkowski <paulk@sys-base.io>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>, bigunclemax@gmail.com, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v8 2/4] pwm: sun8i: Add H616 PWM support
+Message-ID: <arOif-bN6JgLeWd3@monoceros>
+References: <20260804-h616-pwm-v8-v8-0-db37ab8624ae@gmail.com>
+ <20260804-h616-pwm-v8-v8-2-db37ab8624ae@gmail.com>
+ <arFMta6PPwmzSk86@monoceros>
+ <CADvTj4r1sFjPko7G5DwrPUw9x1tPzQspJhCUmHSMtrudn7SXEQ@mail.gmail.com>
+ <33e760ca-2bb4-4f1d-a736-7e74a97e60c4@bootlin.com>
+ <CADvTj4rBUNF6EaKXbsy5t1cS0iakpWVdpQ5sQF2qLS4YyHM2aQ@mail.gmail.com>
+ <58145d8f-dd16-4cc2-b2ea-d475462241ab@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fd6ngstaj7r33ymy"
 Content-Disposition: inline
-In-Reply-To: <yq5afqz02wtv.fsf@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_031040_728664_720C91D7 
-X-CRM114-Status: GOOD (  12.18  )
+In-Reply-To: <58145d8f-dd16-4cc2-b2ea-d475462241ab@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +84,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 02:01:08PM +0530, Aneesh Kumar K.V wrote:
-> I was pointed to this email thread:
-> 
-> https://lore.kernel.org/all/c25502d3-35c6-4281-a9ec-856f789fb1b4@arm.com
-> 
-> This makes a stronger case for having a CoCo shared memory allocator
-> that captures all these restrictions. It also means that
-> alloc_cc_shared_pages_node() needs:
-> 
-> 	if (WARN_ON_ONCE(!gfpflags_allow_blocking(gfp)))
-> 		return -EINVAL;
-> 
-> 	might_sleep();
 
-I think gfpflags_allow_blocking() is the wrong predicate. It checks for
-__GFP_DIRECT_RECLAIM but we have callers like dma-buf which clear the
-flag (see HIGH_ORDER_GFP). ITS allocations also use GFP_NOWAIT, so
-they'll fail here.
+--fd6ngstaj7r33ymy
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 2/4] pwm: sun8i: Add H616 PWM support
+MIME-Version: 1.0
 
-I'd just keep a might_sleep() in cc_make_*() and ignore gfp flags
-checking. Passing a no-blocking GFP flag doesn't necessarily mean the
-caller cannot sleep. It might also happen early enough (like its_init())
-not to care - __might_resched() skips the warning if SYSTEM_BOOTING.
+On Wed, Sep 23, 2026 at 09:16:28AM +0200, Richard GENOUD wrote:
+> Le 22/09/2026 =E0 17:46, James Hilliard a =E9crit=A0:
+> > The resolution tradeoff is real, but the waveform API currently specifi=
+es
+> > the ordering: choose the largest period not exceeding the request, then
+> > the largest compatible duty length not exceeding the request, then the
+> > offset. That's the ordering implemented in v9.
+>
+> The ordering stated by pwm_round_waveform_might_sleep() documentation is
+> period_length_ns, duty_length_ns and then duty_offset_ns, but what about
+> duty steps?
+> It's not stated in there because it's not a user input, but still, it's a
+> quite important value for a pulse width *modulator*.
 
--- 
-Catalin
+=46rom my POV as someone who cares about many PWM lowlevel drivers, it
+would be ideal if there would be a generic function that only relies on
+conforming and ideally simple lowlevel drivers and work out a good
+period that makes the required amount of duty steps available.
+
+When I designed the requirements for the round-to-hw function I had in
+mind that it should be possible to find the next higher possible period
+for a given lower bound (and that works, only lacks implementation).
+Working out a period that has finegrained duty steps is harder but
+doable:
+
+But something like that should work:
+
+ - Pick a period P
+ - P*, D*, _ =3D round_to_hw(period=3DP, duty_cycle=3DP-1, duty_offset=3D0)
+ - Either take P* - D* as a measure for the finegrainedness, or continue
+   to research available steps using round_to_hw(period=3DP*,
+   duty_cycle=3DP*-1, duty_offset=3D0)
+ - If there are too little steps pick a different P and retry.
+
+Best regards
+Uwe
+
+--fd6ngstaj7r33ymy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqzpdkACgkQj4D7WH0S
+/k7BfQgAr7KMuPAtN/IKDLW/9x3RqwTMy0tlPrFOQzqERY7t/kxB0cw+TGg3fkiZ
+oInOoNbriO+IGxdXHfBaVdmzS3XSF/EnOW4xETeqEsIqjRLnB14+38m9iF8Spi7t
+/2lHC5ceG7fFfdLEI96+DUY179JZ83zzy5JgLWXXs6uQNrY+Lo7+ApQDip3IeV9m
+apd+gqxBpPvAoytV6ffgVSga/pffZArLfoKStB0PfeNKFi5S07gBSL1FzCjd82c9
+hLWzLR5dA3gtIGDOOVH1SOOrgcElqzIYbaHed30mEy4W62fifUEHexz0oe9VzbqV
+JR5xSciGikOWhpchtrzM0b8rIfy4bQ==
+=LEUc
+-----END PGP SIGNATURE-----
+
+--fd6ngstaj7r33ymy--
 
