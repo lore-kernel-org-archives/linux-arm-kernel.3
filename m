@@ -4,175 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37693C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F73C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwqrr5YcknBVVx+rZGdCo6L8R95M6EOo6myZTngecug=; b=pRrWo7Q1vDZZ5s1XfvDoSyYJXW
-	DBSdHFNhO1qt8/HKZDRv4EwV1DKUbDDVg6n335xLSJOWAcvG3B1NAsQPh+0VbsZuZhFl4e6f4f6Zg
-	TCH0XbYPDLsVH2lkl5ggKv0JzrTShyRxqN5de0hYF0gJHFe6Vza18yiOYv1ZnN1cv4a5TQSZTi2gT
-	oEtvWQo27IUw5H10TBrTUPQr+94QraupL0BqDxIs9lG1ZZK2+zuZFo1C0FhJvzT4xuYRZjJ2JhIqm
-	Kbgs9USOlY5ynbRaqyvjOz6vG5p0FFF/vKAMazRsUqFzGDYXQC9v6lqU+E6+xAmmrHqyYgXvBL1HD
-	+F4w7Vyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rZ+t0r04A9n4IJdQ/W6j5U+mLAScXuxePRrybklmGrA=; b=ZXJsFnODz4Nyh+bgCRdOceTLVh
+	jN5P8pRam7aYRBLjAjnpLTT7iusD2HTBdgiy1ASnWGcad4sCiWBtJe1utzprqkkXiatucmpuLiPP5
+	AfEZINydZ03Nf+NrYC42FpHAkre1+A8KnxXWblnPv/2/3lxmhirGV0FwDgs51tWHG4Ou0YbaS5yFm
+	D6mqdMVJmrlmlWsOtQ06uyLgdLyO0neupvl2qGsPxJ1gN0/bVh08FeAM6Pd/Gw/h+LjIJtKRRIDOq
+	uTtexB+myg84+CtmQdh/fvAAJdkxb5fkeC7VHw/45GoYw3Yezjer+Ur/nfJjjlaQ6qWnGWkOg1Ahd
+	qoN+EUSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Lsy-00000008Df1-1bJl;
-	Wed, 23 Sep 2026 12:15:40 +0000
+	id 1x9Lvx-00000008E11-3MKc;
+	Wed, 23 Sep 2026 12:18:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Lsw-00000008De3-3HKd
+	id 1x9Lvt-00000008E0P-2ReO
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 12:15:38 +0000
+	Wed, 23 Sep 2026 12:18:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xwqrr5YcknBVVx+rZGdCo6L8R95M6EOo6myZTngecug=; b=U6XG7h5+qGsYjTJgY4DX7oCdVD
-	6mbK21R5g/Nwy8rrNe+Olt0JNAhQP/BCeGOhlBfRTXuQlMQG1htXzdGx6Z/SXJHRczPeCqOD6AL8O
-	xIdrwoNQin+TThn7a7gHfrXXVXvWo48VDkYfg3c7p/WcfJc+6iSjRcOJ4X0n6FS8di2IhH6bITyC9
-	altZHD0WiWyn4Z5Oblleta/tJkEfxmmVeoY+CkEglwyd1eL37upvK1CGc84uYfFBhs70yC71O7Veq
-	6qzqNdglhwyooK8+5O6/Pha4o4lC3QsKXGvbsF+ZtE729TiqULExdoJ64WhTQWczK7do+rtpb2rvN
-	kE+NKjMQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=rZ+t0r04A9n4IJdQ/W6j5U+mLAScXuxePRrybklmGrA=; b=XxVN8P+O3R81HeCYbf0axeYl5D
+	1Yi3ZTORlkadk2VwAHCOB1VQzJTh3XjFAnInxmVpAYLHXlAgHv+sfR8+o//RkCKdZkBZ2qRSORt64
+	b8ITCTINov8ZSRlI7O0w/C3ACuh4GrC/+G1QaTBymgebq6Kob31PHxkc3EKAoh8xSUfgFhFKTJiUb
+	wzpAnDLKLNgWG/zX89pEDxOQ2OIjl9nNFR3j0PNlAfxkQlewSG426p6lAEg2JXGpenXI0EMi0sKLl
+	wov8e3Hta8+Ps+voQsqHf9Sd5+47G2rfydDArpLBFwaCpg/H7jdBwhGIvWD6kW+oxAWVpEgxCkdOB
+	58jSV2lw==;
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9Lss-0000000EkAW-0Dmu
+	id 1x9Lvq-0000000EkKU-0waU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:15:37 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NBbVmO3616406
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 12:15:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xwqrr5YcknBVVx+rZGdCo6L8R95M6EOo6myZTngecug=; b=WKz+l+81SIY+I4oS
-	44zECxavKPfTQl2Ns1Sv4L2Pn0/8Um+wFPtB/28MmwIY6yj2odPRvm/KTXW/ek/D
-	I6GetvLF6GlwfekM0XS2dvgEy272WAZfO3MXK3ijOSBQw3UxZz5tzmgw815dDdu6
-	uptlzcNi4faF0Jn1s7rX68LpQPyYpSPXh2o3PmQtyQfzEYn4P8mtcbZFjfgMSnF0
-	P/082aJeYcp84krLOma+xfMW3d/ozdR8bnL6qqFL/5SxQelHa4rf17v0x0VDAeLt
-	nmdLdzn2yHYmtmAdVSBWF7qa1spMbHxYrbQu5H5VZ/GbFlN9laX0jZQSoo1BJtdp
-	5KIgUw==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gux8649r5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 12:15:29 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2df5a65671eso9348655ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 05:15:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790165729; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qjF397W7/tQpL2eV4PeTYuVdIqQyzmddNvnkyRawzZvTu2ToxcH18fE45sKTt7R/NS
-         3RfkZ+0JHTXiKChnyizdNlgLHgsrdJ2kUSyMdTwF5HVUPdnOw3nv7gEfBfYoAOWwhvci
-         m+TMRdkl41x7jrmTQL5ITmkDZCyXxZc71+V2WpiVMym1m6SbLsoU7N4aCTEzH+EAUfXy
-         8t/mghLKg8Mah35qkXqzAaaouE7DlXHrExYdVl4TFlNHEYzSIawfFnYq4vi3FPVR6OVl
-         Eh26hX/TBQH1AS1uXIp7S3HXSEjuZxR+BYfFDSWAhoHEHvrhcA10E2ivO+2CGvZJq6RU
-         wMhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xwqrr5YcknBVVx+rZGdCo6L8R95M6EOo6myZTngecug=;
-        fh=tORFCxOeCVA6MF56mRjaDV0j6vRx72qacFWKmX02cPE=;
-        b=BFc+wCM84+vkTNIdJ8ixkC6bCn+KhhTuykStYegqbYW0ad63rNRrPq+LosG9LptP+4
-         znCh07yxZRbGOraTGr948uW8zaHhodIwrQ1AB1f3LdbyhS6jKw0WvC8JSVUJiHo5Ee9Z
-         9MMta3CQLfbITKCVo6a2aerBufROP+jNHFXEn2zdxsYRsdaJFR19WrXcrgrvF0Cq+N8z
-         VzVpBTaQ2gIF7/Oj3h/iFjaAl6OlfNkvlwtoS2vexEnNZ4ldGC8cTaTjQx1mgzYb8qMq
-         ByTX2xSKAeAQhEAa8gKcoT/R5X5K5Qt71KIOyBUaC3s5walZDwU7PPfaiXzqQ3GD8YfP
-         EkaA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790165729; x=1790770529; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xwqrr5YcknBVVx+rZGdCo6L8R95M6EOo6myZTngecug=;
-        b=J0ORbswtx+HJj17Tmv8/uHoYbnI8MdCP1ew/8EJiWVhbraa2mfwFzhcg2uRmP8rYWj
-         +KLKFKJG0cx3AboP9jaN2JUtoDjIXKmsiSpqIkYjAoOvEcBaIT6AI0dz5YQvSxBgmvVB
-         43VUr1JClO8JT9CuiqU2Btm/l96BcqYGX8YkM7fg1+NKOS+g2dlBFtatrowT4LksG+la
-         DBk16ZCZ7nOkuCakZNmRbrIT0g0uFEW9JVJfbkkh49FyYKJS6x6L5LIduQwMPQGiR3Dg
-         oV5sdnImR+19bneiMUm4G1TmBvVpppSA2ypeGCeonYYRKm/CznnDg3PVmhtxi+zfD/8I
-         u6jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790165729; x=1790770529;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xwqrr5YcknBVVx+rZGdCo6L8R95M6EOo6myZTngecug=;
-        b=xqR1kCI9OfQ7HFmHnbKzMNaextn+rZUYiYmzrLYrO53byvGH7bGwdUnCBVV/Kt1q84
-         EG8ngx99TxP531NvZCDwdJ5Of+HQhFTMm44UuCRenV0RQBFoKh66RpvZh2QatEan3bxV
-         +tsM4OkI1QTNKaHHbs6Ol8tI19JuhHTmB7uMHofunH2qS1F3QBTHsnJCGwTSplvlkTVn
-         lXE42DDOrEv9UO0Eg9k7TfDJNFG2amBplcnFZ5HcdrxPb9caPUkUdjA2NU0ETTSjMGr0
-         QttuTwisDhcoWsajEuc7cmq6QDgcdWS+TxwNke2VQbKZziY+6D4xVbV+hNQ6IlGU9Kb9
-         i7xQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxK89vO25PFvj3b6VbIfnz94WoTw9oDQQGT5PfVWbDrCaOaSrWM/CPTx5UKScyIwCRk+Eh3EdTAuQZQafv5D2tm@lists.infradead.org
-X-Gm-Message-State: AFuF++mMVKTPWHpDP+tJ9ga6firTjxQtEW2eUpykbW11y0SHS1JNnYtG
-	SMGsl6Ne/5hiYarLraKqO/oeLmibke0GwbyPaNMkCdKFGNwGcHJHpRaEwzAERnDQnsrG6obfo0D
-	UXI7uaULk2htMu+PhOM7kaqDfGnSmzP7pKgBOtsC3RV3GL4nH4Jl5p13EPGJJ3pCBiejWED/zYX
-	qhGGhh5dBxUTHm1VFQzu9yj5Tuicjj8CWaFqU8GAXMpVDRbKmbM8jG
-X-Gm-Gg: AYBFou0ivIY8YxaNzG71Aau64VoeiYQ0Ey7Gw5P/S8gBTQA3jFji727PuwoNf/e3Pvw
-	WB4z2DtZL1UKJlv0v6KcdKJHCySakWumAnwOlG6kJHj47bFPx3GgCVMg4KUbpV3FSofLodu9XpI
-	YaqqmrBsNKMErh2+JNAkQZmJ3CM8mnB6murk97VGhlt009hF0dsy3bJ01izndvvGFxA+ye
-X-Received: by 2002:a17:902:fc44:b0:2d7:5da6:2af4 with SMTP id d9443c01a7336-2df609dab94mr31311565ad.4.1790165723860;
-        Wed, 23 Sep 2026 05:15:23 -0700 (PDT)
-X-Received: by 2002:a17:902:fc44:b0:2d7:5da6:2af4 with SMTP id
- d9443c01a7336-2df609dab94mr31311365ad.4.1790165723390; Wed, 23 Sep 2026
- 05:15:23 -0700 (PDT)
+	Wed, 23 Sep 2026 12:18:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rZ+t0r04A9n4IJdQ/W6j5U+mLAScXuxePRrybklmGrA=; b=MvwxdJ8TIg3NSfmiO5iN5pdkZG
+	JUO4RZhctuuY1g0lTouZ0uOHLv5w4RqCHLbA0DXxhwDKOGAocM5rWmVIifmRXQC+WIXDbh9MzSf6e
+	JF5C/3399TTWE7+MtoK8/EZDaYwMlJY8BXK2d9zhvyB4vO75g25SqsCYQFIt8vH/Dxr4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x9LvV-006nYe-3Q; Wed, 23 Sep 2026 14:18:17 +0200
+Date: Wed, 23 Sep 2026 14:18:17 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+	Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
+	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+Subject: Re: [PATCH RFC net-next 3/9] net: pcs: xpcs: add custom platform
+ register accessors
+Message-ID: <be09d6dc-c1c0-4a0c-9836-2b686ad096f4@lunn.ch>
+References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
+ <20260923-qcom_xpcs_nord_emac-v1-3-4b1c682af70f@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20260921033708.14433-1-phucduc.bui@gmail.com>
-In-Reply-To: <20260921033708.14433-1-phucduc.bui@gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Wed, 23 Sep 2026 14:15:11 +0200
-X-Gm-Features: AcwNN1VsaeqV92H7KEZC7boQTZb58RsMU14eBT7KgfgQJPOV9CTm7Q_Kcg0tGjo
-Message-ID: <CAPx+jO_RAw54HMsgCSaxghtgakJ0rANSY-WY35SE1i766mMsvw@mail.gmail.com>
-Subject: Re: [PATCH 0/3] pmdomain: imx: Use pm_runtime_resume_and_get()
-To: phucduc.bui@gmail.com
-Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, rafael.j.wysocki@intel.com,
-        Jacky Bai <ping.bai@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-        Peng Fan <peng.fan@nxp.com>, Xu Yang <xu.yang_2@nxp.com>,
-        Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-        Ming Qian <ming.qian@oss.nxp.com>, u.kleine-koenig@baylibre.com,
-        Marco Felsch <m.felsch@pengutronix.de>,
-        Alexander Stein <alexander.stein@ew.tq-group.com>,
-        Guoniu Zhou <guoniu.zhou@oss.nxp.com>, linux-pm@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: s9WvNbcS31Z9kefAN2kvT3jdwGB-0UzU
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA0OCBTYWx0ZWRfX1rHORfDsx+wr
- oWmeauB2+0cYfNVDusjQseuHHD4OomTbHBhpKkUNWdXrt6m7ffNUfTa8kFOw9ro7m2UUE+Lgdsm
- 43jK6bpKq2tT3J8Jjnl3LFzn14YzP5E=
-X-Proofpoint-ORIG-GUID: s9WvNbcS31Z9kefAN2kvT3jdwGB-0UzU
-X-Authority-Analysis: v=2.4 cv=eIOGH3p1 c=1 sm=1 tr=0 ts=6ab3c2e1 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_glEPmIy2e8OvE2BGh3C:22 a=pGLkceISAAAA:8 a=B7rF2LB79GkdTgAebh8A:9
- a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA0OCBTYWx0ZWRfXyDVlwPYJLjhv
- hUqslZIOkzEvk+AvQO4bHISiYKQ9koxrMs1K/ovlzAEdsQ684lx/8EVXKBknWxFdsLod7jcGS9J
- p80vVPApak/LyF78L5r3V/xwQGzp6xTnrtTnX2Fi0Hlx385lNu1UXG3plvOSavK/TPOcwWMYc8J
- yqbn5XjE2oE2f215cZBk/l5lcobjLTyC9SjqDBBS3srI3hb8tdLDCHBEhJQaQcz6KSUwVhyML3h
- VgiTgAhwdYQ5QPKfe0H/0/nthjxRo4SmGKewek03cvnXsFdhBinIAJVJpSbvmA+LfPE6EWJgT74
- 7/yZBrPIf95FiEj1sNrvrD1i4sVvj/Th+hRHG8y33BbzfrzC2ZXbDgr+3HUMbiLuMtEQ1ealBJi
- bX0rP18TV+YXXyqzSa8RHiMsTBH/wpV6SU1jKZUBGkwzteZAHJAqSMbqXGy7MiLW588c1JJInJ+
- uyvLM2BbUQMGrMSjWJA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0
- phishscore=0 clxscore=1015 priorityscore=1501 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230048
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923-qcom_xpcs_nord_emac-v1-3-4b1c682af70f@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_131535_013845_7C1D691D 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20260923_131838_749222_F3E63123 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,39 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 5:37=E2=80=AFAM <phucduc.bui@gmail.com> wrote:
->
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> Hi all,
->
-> This series replaces open-coded pm_runtime_get_sync() and
-> pm_runtime_put_noidle() error handling with
-> pm_runtime_resume_and_get() in the i.MX power domain drivers.
->
-> No functional change.
->
-> Found by manual code inspection.
->
-> Best regards,
-> Phuc
->
-> bui duc phuc (3):
->   pmdomain: imx: gpcv2: Use pm_runtime_resume_and_get()
->   pmdomain: imx8m-blk-ctrl: Use pm_runtime_resume_and_get()
->   pmdomain: imx93-blk-ctrl: Use pm_runtime_resume_and_get()
->
->  drivers/pmdomain/imx/gpcv2.c          | 16 +++-------------
->  drivers/pmdomain/imx/imx8m-blk-ctrl.c | 15 +++++----------
->  drivers/pmdomain/imx/imx93-blk-ctrl.c |  3 +--
->  3 files changed, 9 insertions(+), 25 deletions(-)
->
-> --
-> 2.43.0
->
+On Wed, Sep 23, 2026 at 06:37:29AM +0530, Mohd Ayaan Anwar wrote:
+> Some XPCS integrations do not expose the standard direct or indirect
+> register layout. Allow the platform driver to use optional register read
+> and write callbacks for both Clause 22 and Clause 45 accesses, while
+> retaining the existing access paths when no callbacks are supplied.
+> 
+> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+> ---
+>  drivers/net/pcs/pcs-xpcs-plat.c | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+> 
+> diff --git a/drivers/net/pcs/pcs-xpcs-plat.c b/drivers/net/pcs/pcs-xpcs-plat.c
+> index e669a7b248ac4677aeb5cd1874108f5c87f837d2..e78a233fb198d940951064a71e8597c6c666bc9d 100644
+> --- a/drivers/net/pcs/pcs-xpcs-plat.c
+> +++ b/drivers/net/pcs/pcs-xpcs-plat.c
+> @@ -24,8 +24,16 @@
+>  /* Page select register for the indirect MMIO CSRs access */
+>  #define DW_VR_CSR_VIEWPORT		0xff
+>  
+> +struct dw_xpcs_plat_ops {
+> +	int (*reg_read)(struct platform_device *pdev, void __iomem *reg_base,
+> +			int dev, int reg);
+> +	int (*reg_write)(struct platform_device *pdev, void __iomem *reg_base,
+> +			 int dev, int reg, u16 val);
+> +};
+> +
+>  struct dw_xpcs_plat {
+>  	struct platform_device *pdev;
+> +	const struct dw_xpcs_plat_ops *ops;
+>  	struct mii_bus *bus;
+>  	bool reg_indir;
+>  	int reg_width;
+> @@ -169,6 +177,10 @@ static int xpcs_mmio_read_c22(struct mii_bus *bus, int addr, int reg)
+>  	if (addr != 0)
+>  		return -ENODEV;
+>  
+> +	if (pxpcs->ops)
+> +		return pxpcs->ops->reg_read(pxpcs->pdev, pxpcs->reg_base,
+> +					    MDIO_MMD_VEND2, reg);
+> +
+>  	if (pxpcs->reg_indir)
+>  		return xpcs_mmio_read_reg_indirect(pxpcs, MDIO_MMD_VEND2, reg);
+>  	else
 
-The series applied for next, thanks!
+Ugly.
 
-Kind regards
-Uffe
+How about changing pxpcs->reg_indir to an enum, with values indirect, direct.
+
+One patch.
+
+Then look at
+
+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "direct") ?:
+	      platform_get_resource_byname(pdev, IORESOURCE_MEM, "indirect");
+	if (!res) {
+		dev_err(dev, "No reg-space found\n");
+		return -EINVAL;
+	}
+
+	if (!strcmp(res->name, "indirect"))
+		pxpcs->reg_indir = true;
+
+	if (pxpcs->reg_indir)
+		spc_size = pxpcs->reg_width * SZ_256;
+	else
+		spc_size = pxpcs->reg_width * SZ_2M;
+
+Look how easy it is to cleanly extend this with a new resource name?
+And add accessors using the funky mapping your device has. Another
+patch.
+
+    Andrew
+
+---
+pw-bot: cr
 
