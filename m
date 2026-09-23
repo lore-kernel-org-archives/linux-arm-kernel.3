@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EBE2C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA00C9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HKxy5ppVh+ZVi5LdabeSqcQhssdmIldVntZe+JHVqHo=; b=NYR6owyV9I+h8KlDQJqIJA3Unl
-	eV0cCVRVwDbycl6N71bX3wxrwu7Btx4mJNn7rzf30yQbbekI110MIDDjzQl4t0JQUK+av3X34iJ94
-	cKl9ceMa0wvz7uctBrFoJEEv2/TTHuDcB7m3kPhnKqnTNAs/JzdVN1re9xbKNyx+ptI4QLs4S7enm
-	zEHXwos88GSsqxfkAaQVwUG3A2CwVeLfNqs4SKqxoKLzKwt8o1lznFcWfOZT3CllUBADuKToPaE28
-	zhTLVFzAUjQrv26xY8aeEOjNOsvkpEF15wm3VnhMUOlOKf6KxGU/NLo3u9NwbYDCCP5r6CVu8r7+S
-	glx33f6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yygsGnFltgurq/BUs7NOEEkRqO4i/4yT2EM6Ffixt0I=; b=Z/rBj9GoO1ev14c5w8NIKpgga8
+	/liScOYGBrC8BVYbxSFtfzysDdKRw/iIEOG0nKQOqfaKDbAE07onGk8Ht2VETBabHUs/EpoCHfbmF
+	3p+ZMZJUz5l9qmA4KZDJ7CJlR7PHDSicS/e57Q+ZrEKpUm5JJlv2MxmafrKU+Z51fPypHe7QuI0uP
+	hdSFihrnUk63KQQO4JdIdS3Bq2SAw/2CqKsVXS1jM76aBPIE+BHWSktvxBMLNMu/f1XbRUnp9dR3e
+	hL+fsO11seRm1wn7V0/WCElANbL4+r+rWLbeiDyccyq/5wQnK7LrCb6pPimWp0fR2zBb5tAZN8mQx
+	d3wsINdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9N25-00000008OO6-49Fz;
-	Wed, 23 Sep 2026 13:29:09 +0000
+	id 1x9N2J-00000008ORV-0Mot;
+	Wed, 23 Sep 2026 13:29:23 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9N24-00000008ONm-3dWj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 13:29:08 +0000
+	id 1x9N2H-00000008ORB-21V7;
+	Wed, 23 Sep 2026 13:29:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 65A89414C0;
-	Wed, 23 Sep 2026 13:29:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2832A1F000FF;
-	Wed, 23 Sep 2026 13:29:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 38292402B3;
+	Wed, 23 Sep 2026 13:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDF3B1F00898;
+	Wed, 23 Sep 2026 13:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790170148;
-	bh=HKxy5ppVh+ZVi5LdabeSqcQhssdmIldVntZe+JHVqHo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eEYHECZLL4YnROp24IFvxK5oqs4Thdn064/2WlM7Tose8DQWMJ0ePy8zG/6y6ezX+
-	 2Vy00VkkmXSyzsZFfBMRHcSypqZQlPuF1HiP1tQcYdePlFyW2d49Ngvevx2WK+vnFy
-	 ogzbX9WKDjakM3jBbTgJYL7l0g6ZO6ITb6ojwnlErR5mCQY6Lt5psTNkrUw+LzxxJl
-	 Kv0IadWBvXRpCef9XC0XEbAWuS5jzmfHRjEhTJKc6FDmbH7GXi/LjHEuXQLOXKE6Yq
-	 fNYOniMZgeEdw8I3tMDVXQyV0tT6iVDwZVjzNisq9/FeOu+P2svrYqIlHx77LHK+Qs
-	 jciqEW9G7sHew==
-Date: Wed, 23 Sep 2026 14:28:59 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Mark Rutland <mark.rutland@arm.com>, Randy Dunlap <rdunlap@infradead.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: Re: [PATCH v3 10/14] KVM: arm64: Implement KVM_PRE_FAULT_MEMORY
-Message-ID: <arPTt4WuVxcdvThs@gremlin>
-References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org>
- <20260922-kvm-arm-prefault-v3-10-787bd3bc7e3f@kernel.org>
- <CA+EHjTyCc=T+HkvWv1g2Fg3OxGaa1i8Hdv296ivPc94jQqZq9g@mail.gmail.com>
+	s=k20260515; t=1790170161;
+	bh=yygsGnFltgurq/BUs7NOEEkRqO4i/4yT2EM6Ffixt0I=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=PQLKHnVwZUq992EwT9XxYunWy7StzJ8SDWlJuS6BXUx2ML2YcVcWa8deQ5S5+I1qm
+	 /f2tkB1o6819IlcnaM5Gl301ugGwLD4ytjK+wD2/7YwAaboC9Mntgpg8zsFuI64UrB
+	 cO8Bxns1uZSVecWG91i37F2kclYWFWxlsWBuKgOhC6FplmQXNC5YIG/XI/qT8F/3aj
+	 aaL6OLWfwoXSrgiCDQ5gZ6kEI8+cYSSfmsMyyR3O4L1GYZ7MtyD1UipwV9yGuwXpJn
+	 nqL9EI+ZzKHi+ue9YNWdd1kcNhgpY1vsLc6Grbl7h8YH0Lu1o9Aly+G37aGPVxbLW3
+	 wR56MBWFjAbdg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Eugen Hristev <ehristev@kernel.org>, "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20260922183121.289108-1-robh@kernel.org>
+References: <20260922183121.289108-1-robh@kernel.org>
+Subject: Re: [PATCH] ASoC: dt-bindings: mediatek: Fix MT7622 clock count
+Message-Id: <179015857689.322763.9242441046352881202.b4-ty@b4>
+Date: Wed, 23 Sep 2026 12:16:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTyCc=T+HkvWv1g2Fg3OxGaa1i8Hdv296ivPc94jQqZq9g@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1125; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=gpCZr8u03L/1mMISk72o+fynNoTXxe+xC6jgX+XjSHc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqs9QpI9twB4Gv9+NN/M39J9ZkvXSaphDuMFk1D
+ LUDWGKB4Q6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCarPUKQAKCRAk1otyXVSH
+ 0BkHB/0emvTrVyY0TSqs/nlBVFZ1EdFmOq368Cx57Hemx9emyUYCl5jzvH02iZv5hWg1FPvo1hT
+ id0Yhv0pXJpOYzoCnIIl+UQiPQ/OrCecp2QV44XCpcrXRvFwb6jHjeaypIILZ5oLkWx2bmo0CDC
+ L1+tLjqO0hvP9F7mBevuMNtD2pwRtOhfL+h6tf+3B4tRA8l1XCDMXUXRQgnN3FVgiOQtHjYsmG2
+ JXBX3mZyYF6HXNDdkg5yDFZ6peiYPfpDNFqjzrxXOPBTZc2Yc/wLF8FjwLM4W3uAuqk2J1W/4/m
+ EofulVVN8f5l4dIRpUqwEVjDynkS0Z/R2qS/gT9QgSEP0SCA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 12:18:10PM +0100, Fuad Tabba wrote:
-> Hi Lorenzo,
->
-> On Tue, 22 Sep 2026 15:18:04 +0100, "Lorenzo Stoakes (ARM)"
-> <ljs@kernel.org> wrote:
-> [...]
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> [...]
-> > +static long __pre_fault_s2(struct kvm_s2_mmu *mmu, struct kvm_vcpu *vcpu,
-> > +                           gpa_t gpa, struct kvm_memory_slot *memslot, s8 level)
-> [...]
-> > +        if (is_gmem)
-> > +                ret = gmem_abort(&s2fd, &result);
-> > +        else
-> > +                ret = user_mem_abort(&s2fd, &result);
->
-> When kvm_gmem_get_pfn() fails, gmem_abort() calls
-> kvm_prepare_memory_fault_exit() before returning, which on this path
-> writes vcpu->run's exit_reason and memory_fault fields outside
-> KVM_RUN. If that happens on a vCPU between its KVM_EXIT_MMIO and its
-> next KVM_RUN, kvm_arch_vcpu_ioctl_run() reads KVM_EXIT_MEMORY_FAULT
-> instead, skips kvm_handle_mmio_return(), and the guest repeats the
-> access. Could gmem_abort() skip that exit when result is set?
-> user_mem_abort() never writes kvm_run.
+On Tue, 22 Sep 2026 13:31:20 -0500, Rob Herring (Arm) wrote:
+> ASoC: dt-bindings: mediatek: Fix MT7622 clock count
 
-Ack yeah we shouldn't be updating vcpu->run like that in that case, will
-update to avoid doing that in v4.
+Applied to
 
->
-> Cheers,
-> /fuad
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
---
-Cheers, Lorenzo
+Thanks!
+
+[1/1] ASoC: dt-bindings: mediatek: Fix MT7622 clock count
+      https://git.kernel.org/broonie/sound/c/2a2d659b835c
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
