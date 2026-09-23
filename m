@@ -4,86 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADB8C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55750C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PS2sI9UkmHC+157QJRhoi9K5j3T9szzKe4hMK9xu6V8=; b=vkrNYSQMAC4arbSbFjfLOCsjrO
-	ZtZTFO7Xv/jEQrYBsOiLSlSsb8KrJa0/8biovo/n3xNHdZRNwJhjoZZmTjp57qpaeQ6GZ9RzNmICz
-	lvpZGj4XgNIIzz+YfwIyMy9Jlgr1CdbsLQRs+4xZtRynH7jd0aRCFJIPEQuNNgjN+zrXYD4y7fewY
-	UL5aWsoJtXfE5Mg0HJMsdqVN0Gc35tPWGdMnU1aX59OWrzPW75LK6mz5wWSJEZCm+b1CRgPtcSFce
-	JI03nsPRKWyiiuUI1nZ948WkV+CMMApyi0KQXKA1NXAswflmVnCl3ZIDqWrUsNdQvbW6CRsICJiUl
-	p4pp1/4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mV/gojTVmImKJZBOpC9s0FdYNTfJGxjHgrYf43x+M0Y=; b=kCmP6AjM3g9CSblnlr32j3/LfX
+	ngHZO5mHz9Zu4eGnDPsQBPkQR1jJOHTVcsbYyin8vx5vuZVV5auv6jm9AN3KxUKamTGG0jXs+5ebp
+	zq1nfKOM0K7P46+/tUhCMDzXxEfICVix1soxxOE12evPdBAgxkdF/xU0SkOTwROuM9PGdXj4UV20Q
+	Ksriynsjy2X8ghYf3MxCApZmTPfyiHV2IjvyNBPvr/FsVw/eZlTsIL+6GxJSOiJv5L2RnjBm5BcG8
+	XS7vv15pR8BcgoBXtwdpHTpxgb+MAmqoZHbnNKwpaElfgmQ43nUzhd9xC7aJOt8OTmGnPZ59qr6od
+	5U4J5ErQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9J2z-00000007gsx-3qIh;
-	Wed, 23 Sep 2026 09:13:49 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x9J3M-00000007h3m-0Fpr;
+	Wed, 23 Sep 2026 09:14:12 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9J2x-00000007gqY-04YN
+	id 1x9J3I-00000007h0J-0ozy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:13:48 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 4F2D6201CEF;
-	Wed, 23 Sep 2026 11:13:43 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790154823;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PS2sI9UkmHC+157QJRhoi9K5j3T9szzKe4hMK9xu6V8=;
-	b=EWEvmaggRytp4w+VexO1vp7Ii4h01iDFSl6Rk1FY5bMIZ6OYOWnYzWTiYBBqpdlfSE9Tyi
-	MpOivle8AT1X6zZNgGxLUNfhZ6GhhYNz3QQ6BfhIzE3Gar/7fRDGfVeWQ7SkWFqDminL2r
-	1tR7e2FlNc9thj7YZ8MMP0cCAU6mGcS/deWUHK/XwP8oVNvxRBhq6dFeHxoYzCPpfVE0zY
-	tXNHtnB54KiYKDApQlajLDpYN4acGXDNp3qmwp54ESJ298Rg03Vq7VZxLPzAW7REEFg22K
-	ssTPmM17FCB7gpZtn+IyjZcOfEG8hRDV/l4fdo7rhUExltqwHs2TQ+YDwiA3rg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1790154823;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PS2sI9UkmHC+157QJRhoi9K5j3T9szzKe4hMK9xu6V8=;
-	b=P0+33uyLO+y4AEiD1puLoXrZvB1E2pq4deNWdg+mg1GS1/RzafdZUPUt+D4iqVnkc84bSa
-	wWi5lcUSWK0ePQ7hzdKTjiQgtzG1AAoH+lbXJjfeSsmGi5FT39dvmoouSbd52bkzO7Rewp
-	z9R6+8PP1/rkvysn6AAOkhVNfp6nYdbHsfB09068sG1x12UQkGYXwJVZe3IAUA8CVkrKbw
-	WMIp8RoogzKhwwgsM9xHtVpNH9N03KZHBABfHWJp20JvaJwFowjaH1w/MxBp8LX7B4f4X8
-	PTqU2LSAnB6JrEd6oF9M8Hxa/eLboliL7bRbDwtRzHv8i2FbhvcH2DT6ip25Pw==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1790154823; a=rsa-sha256;
-	cv=none;
-	b=TBoRXXLaPGSPk37AIej7rZWoVLc1YZ7gBNbRSiY4iiqASKB/PcCm6LJ+Vriwsoo/7uzkeA
-	ukDKQDzdfVjR5x+J2JJbFhAwRFgves8lI94/jThopcAm/8ptXfc1f3gzZxzP4RUPuu9zdq
-	ZDeZHuYAo5ZTtVwiqVVC1+d/498O4Xr2BBhe5MzaYeyiXRyK9wzBGc1skc8mE68m8O90jN
-	tcE1Ie57BDFz9vpZlx5dFe0gDo9wbL+w9ZkEmcNYzdKSheJjKFZiq2IseONvfFQ/0QrBJ9
-	rj4EBK8a3OccAXYYbumtTD635TzzCrYsDzWIqXxcv79nob2XA8ZMoRWJjGluuw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-Message-ID: <7bfea0211710cc1cdab9ac7235c4f283f2c6d8ad.camel@pengutronix.de>
-Subject: Re: [PATCH v2 2/3] usb: dwc3: xilinx: re-assert resets on ZynqMP
- init error paths
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
-	Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, michal.simek@amd.com
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Wed, 23 Sep 2026 11:13:43 +0200
-In-Reply-To: <20260922182125.11067-3-radhey.shyam.pandey@amd.com>
-References: <20260922182125.11067-1-radhey.shyam.pandey@amd.com>
-	 <20260922182125.11067-3-radhey.shyam.pandey@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 23 Sep 2026 09:14:10 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68N8JbdM2028414
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:14:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mV/gojTVmImKJZBOpC9s0FdYNTfJGxjHgrYf43x+M0Y=; b=A40Ok8AwRaKC9w11
+	n2SO8xlP+PGzlB9ZLgRSgTrzACaV4xim6erL7C1YtmK8VrepFEzHKBjf+pHGGwNo
+	J/M/7v5lWvo8Wg+fl2HGrqE+tYKgAP5Gblm7PlwrEuWToxWdGAKcLPy0pgX6ujqk
+	6Rguh63qxor+yU4w3D+2ED+Pnzhp5Q5O2uucFk/Qo8uKwjI49s0o1hJEN+WLantb
+	jBjc8MVNlQOQlC3rxoNoOz7X8XQD73zWaWV5cNqElWYiawfdvvvLUGM/lWeUG7by
+	PsiQ4XHpE0pmDc7kktKLqtHxQwtt2n4qtoHBdOZaRO/s4iqYc/92gMCWHwPK8dL7
+	Zf+uxw==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4guy2c37d5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:14:07 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-9106a836457so1881606d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 02:14:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790154846; x=1790759646; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mV/gojTVmImKJZBOpC9s0FdYNTfJGxjHgrYf43x+M0Y=;
+        b=OIPHiDNeKnh8AvZV/n6Yo2jNLgTlQe//2jDOrUKc3hZZW4z13XeWyEyuOZApTMon9n
+         azUtAns5iiQP4nufmuG9LDuzU2BiyZZ4i+HoUl8/yD0uQo8o5/Pb7G5ntx/TShDuB9sO
+         tMHEtQkpRRZHnlHF2zkfRtFAX204BRVzmbnZRpwUXvUmuQmPSiP2MYNCyVUkJ2PH7Jeg
+         gpTXmTzrPDgXY1KVSx1S5/+dkMjS5HiyNnYe4aiBs66JG8q/ho7ahRWNPNu+duKmdg+3
+         FuE7YUW5QOqmLEsDJUFD7wJcscY0MIgMmcgfg2VX+SCs4+MLdkYZaxcE9smyaKqUP/bE
+         ksXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790154846; x=1790759646;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mV/gojTVmImKJZBOpC9s0FdYNTfJGxjHgrYf43x+M0Y=;
+        b=kOYLRJs6XJg3ORnEGno9V5TSUik0J+d2zVXyIvGZejoRXllitM+UOp+CTEWARJ5JPY
+         /UK1KU25MCngGJvSkGDqw0C4iYup945EF/N81zT30U0U5TCdFv2TwgMi24dkmmMF3uD8
+         PKZGg5mp4vou4OFnzxWpC9zoEwyr5078ih970FLtixLioTw5XmaQHlyh1+s7hHZ+xrnc
+         tzLLNur4cjlBfInxinrQsPz0irozuHIesgDTj91mFEoEwKQqTU0VELhSUcLlbF9qNqYp
+         XpFEGlRQBNp6D+BjG9zqOooi2vuelfF7MonZuZHP1MdopnAcMlQVTd9cEhKWfnWFLeHO
+         ClAg==
+X-Forwarded-Encrypted: i=1; AKwUvBzAOqRC5R1MeTpSrFD+H+6VTXVCDShi7wPFI0aJkB6iUDWNVjs6iWp+Yj2guHAnS9lCG2WH5mSMy+YF52sXX2XN@lists.infradead.org
+X-Gm-Message-State: AFuF++ltJ1l+rbDVSiOyopEsTNpc/n3hsrzW023w6Th2Pz2RDc+2TMsB
+	ahiIQ06CW1cLg5aH9gJdQ8/5VKpuysg7CEUjUPleVZt/k+nkSFpawXF5tfOLSFb4aYEgkrJIv0s
+	hQE7Zp/PjVdWeFOS7UObk5li17XCsb7etRueWOpg2UMF868CGXQWtkATglral8rBzzkC5pW+ZFc
+	IdXw==
+X-Gm-Gg: AYBFou0tyCgTJ9cs3JvRsuNlqhseRykW4FGoWikFDq9aaiQ4L5w/NKT+LOvY3IEBHP4
+	feWOJDVPi3vXGks503xr/va/WdsAzB+JoR++otL9cNwbWxClaHnAk7Yhx/YoFDIj7PrZAZs8zn+
+	xVnMcVkB/lyVNw9yb5ZEokOPydE3miS89xdKio8WdkCcP0ifLgWSaD+ZQOm2WAv0P8rpKD8XO3i
+	CCtgYhjEX6RjkveZqWQJ52+58gzE7PbdCNTegXoOnbilV4mVXZseW5HBmBvVfmpL16RBNPbKczQ
+	2WYRWRilULSiMtZ5uF32R/f13dzrpI73+y/k7npSb0DilpulAuHyjo7XwsFQfNiX/q645NkQRt+
+	LPFx1WYjhHcKQ6VVVv/otow==
+X-Received: by 2002:a05:6214:1307:b0:90e:8d21:714 with SMTP id 6a1803df08f44-9140c3d4acdmr34671266d6.2.1790154846493;
+        Wed, 23 Sep 2026 02:14:06 -0700 (PDT)
+X-Received: by 2002:a05:6214:1307:b0:90e:8d21:714 with SMTP id 6a1803df08f44-9140c3d4acdmr34671086d6.2.1790154846102;
+        Wed, 23 Sep 2026 02:14:06 -0700 (PDT)
+Received: from [192.168.202.12] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab37eadd4sm1201464a12.1.2026.09.23.02.14.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Sep 2026 02:14:05 -0700 (PDT)
+Message-ID: <0d04e028-39e1-4798-a0a1-22997e2b1499@oss.qualcomm.com>
+Date: Wed, 23 Sep 2026 11:14:02 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 14/14] arm: multi_v7_defconfig: enable the Qualcomm
+ Crypto Engine core driver
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>,
+        Stanimir Varbanov <svarbanov@mm-sol.com>,
+        Eneas U de Queiroz <cotequeiroz@gmail.com>,
+        Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+        Eric Biggers <ebiggers@kernel.org>,
+        Demi Marie Obenour <demiobenour@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Russell King
+ <linux@armlinux.org.uk>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, brgl@kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260922-qce-fix-self-tests-v9-0-b1aa742e79af@oss.qualcomm.com>
+ <20260922-qce-fix-self-tests-v9-14-b1aa742e79af@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260922-qce-fix-self-tests-v9-14-b1aa742e79af@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: kx-JVxzK0UVgkCJ6Wpy57ovSQtEF7OuG
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAzNiBTYWx0ZWRfX4S8OX9jkSFej
+ bQAONRkKTveNpM/D8+t8RBTpNiMlZ23hsDfb2R/4HuhOpJxzn9Swc1LrlDI5oWhYyiAln6g7+NS
+ QXMSg2JI1mn2rJ+iZ9N7tPnLIE3pP0s=
+X-Authority-Analysis: v=2.4 cv=Zsh4uN7G c=1 sm=1 tr=0 ts=6ab3985f cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=pb4zj8aKiTCSHAFuSYYA:9 a=QEXdDO2ut3YA:10
+ a=iYH6xdkBrDN1Jqds4HTS:22
+X-Proofpoint-ORIG-GUID: kx-JVxzK0UVgkCJ6Wpy57ovSQtEF7OuG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAzNiBTYWx0ZWRfX+4P8JuxalZIU
+ GLwYT7+XlEjc5Ay3Adh8G4OXsoqCaPzCoWcZZNVoT+d3LVjqhJDGrgW4l5amp0dGOfUtU375YQA
+ EIK0rww+YzrdLEIb0vTS1OxslYibnKqlNpW4aQH3jor19j4TOo5b6+U+68ylwdz2NXbg8KvgB9l
+ 9Pn896cmf/w8jLjxmUeM2VjcEMI/w7Ea8b6clYKdAYt4xqhRfeJLfpMduK9kThGhZtRcUWl/Q0I
+ aSO32EH36KVCLpP+49cxtWV2lxr8xfMH5NtnBWwUcRWsHz8lJkwBk5UgY/GSM+LcOry7QDgIdot
+ 0K6POOZ9ql63m1chda4lnqzJjp8o5zbiIN1MokZwHlMRlyKp1Lnuwwi1HkpjxoARTuMR1p4vS3u
+ +Hf2x9KtRewKQVyDGRx5whxJb5XFdpUlvM+HqB+PcKJdTADCM7RUxDyYCo5g23LQhbEDuYcwulk
+ RSQ2OA0AwhKn1fFou0Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ bulkscore=0 suspectscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_021347_216115_1F7BD744 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20260923_021408_422295_6E6C9C08 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,186 +164,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Di, 2026-09-22 at 23:51 +0530, Radhey Shyam Pandey wrote:
-> If reset deassert or PHY setup fails partway through
-> dwc3_xlnx_init_zynqmp(), re-assert any resets that were already
-> released before unwinding the PHY. Use fall-through error labels so
-> unwind matches how far init progressed, for both USB2 and USB3 paths.
->=20
-> Save the ZynqMP reset handles in driver private data so later probe
-> teardown can re-assert released resets.
->=20
-> Fixes: 84770f028fab ("usb: dwc3: Add driver for Xilinx platforms")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-opus-5
-> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+On 9/22/26 2:57 PM, Bartosz Golaszewski wrote:
+> The QCE core driver should be enabled by default as it binds to the qce
+> device node and scales down the interconnects if no child auxiliary
+> driver is using the IP. Add it to the multi_v7_defconfig. Disable the
+> crypto part of the driver by default.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 > ---
-> Changes in v2:
-> - Split out of the combined five patch series; see patch 1.
-> - Reordered ahead of the platform-data cleanups.
-> - Added Cc: stable.
-> - No functional change to the patch itself.
->=20
->  drivers/usb/dwc3/dwc3-xilinx.c | 49 +++++++++++++++++++++-------------
->  1 file changed, 30 insertions(+), 19 deletions(-)
->=20
-> diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilin=
-x.c
-> index 8c63e02575f1..d18d3e364381 100644
-> --- a/drivers/usb/dwc3/dwc3-xilinx.c
-> +++ b/drivers/usb/dwc3/dwc3-xilinx.c
-> @@ -48,6 +48,10 @@ struct dwc3_xlnx {
->  	void __iomem			*regs;
->  	int				(*pltfm_init)(struct dwc3_xlnx *data);
->  	struct phy			*usb3_phy;
-> +	struct reset_control		*usb_crst;
-> +	struct reset_control		*usb_hibrst;
-> +	struct reset_control		*usb_apbrst;
-> +	bool				usb_resets_released;
->  };
-> =20
->  static void dwc3_xlnx_mask_phy_rst(struct dwc3_xlnx *priv_data, bool mas=
-k)
-> @@ -112,7 +116,6 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *pr=
-iv_data)
->  static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
->  {
->  	struct device		*dev =3D priv_data->dev;
-> -	struct reset_control	*crst, *hibrst, *apbrst;
->  	struct gpio_desc	*reset_gpio;
->  	int			ret =3D 0;
-> =20
-> @@ -124,25 +127,25 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
-priv_data)
->  		goto err;
->  	}
-> =20
-> -	crst =3D devm_reset_control_get_exclusive(dev, "usb_crst");
-> -	if (IS_ERR(crst)) {
-> -		ret =3D PTR_ERR(crst);
-> +	priv_data->usb_crst =3D devm_reset_control_get_exclusive(dev, "usb_crst=
-");
-> +	if (IS_ERR(priv_data->usb_crst)) {
-> +		ret =3D PTR_ERR(priv_data->usb_crst);
->  		dev_err_probe(dev, ret,
->  			      "failed to get core reset signal\n");
->  		goto err;
->  	}
-> =20
-> -	hibrst =3D devm_reset_control_get_exclusive(dev, "usb_hibrst");
-> -	if (IS_ERR(hibrst)) {
-> -		ret =3D PTR_ERR(hibrst);
-> +	priv_data->usb_hibrst =3D devm_reset_control_get_exclusive(dev, "usb_hi=
-brst");
-> +	if (IS_ERR(priv_data->usb_hibrst)) {
-> +		ret =3D PTR_ERR(priv_data->usb_hibrst);
->  		dev_err_probe(dev, ret,
->  			      "failed to get hibernation reset signal\n");
->  		goto err;
->  	}
-> =20
-> -	apbrst =3D devm_reset_control_get_exclusive(dev, "usb_apbrst");
-> -	if (IS_ERR(apbrst)) {
-> -		ret =3D PTR_ERR(apbrst);
-> +	priv_data->usb_apbrst =3D devm_reset_control_get_exclusive(dev, "usb_ap=
-brst");
-> +	if (IS_ERR(priv_data->usb_apbrst)) {
-> +		ret =3D PTR_ERR(priv_data->usb_apbrst);
->  		dev_err_probe(dev, ret,
->  			      "failed to get APB reset signal\n");
->  		goto err;
-> @@ -156,19 +159,19 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
-priv_data)
->  	 * absent.
->  	 */
->  	if (priv_data->usb3_phy) {
-> -		ret =3D reset_control_assert(crst);
-> +		ret =3D reset_control_assert(priv_data->usb_crst);
->  		if (ret < 0) {
->  			dev_err(dev, "Failed to assert core reset\n");
->  			goto err;
->  		}
-> =20
-> -		ret =3D reset_control_assert(hibrst);
-> +		ret =3D reset_control_assert(priv_data->usb_hibrst);
->  		if (ret < 0) {
->  			dev_err(dev, "Failed to assert hibernation reset\n");
->  			goto err;
->  		}
-> =20
-> -		ret =3D reset_control_assert(apbrst);
-> +		ret =3D reset_control_assert(priv_data->usb_apbrst);
->  		if (ret < 0) {
->  			dev_err(dev, "Failed to assert APB reset\n");
->  			goto err;
-> @@ -179,7 +182,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *pr=
-iv_data)
->  	if (ret < 0)
->  		goto err;
-> =20
-> -	ret =3D reset_control_deassert(apbrst);
-> +	ret =3D reset_control_deassert(priv_data->usb_apbrst);
->  	if (ret < 0) {
->  		dev_err(dev, "Failed to release APB reset\n");
->  		goto err_phy_exit;
-> @@ -195,21 +198,21 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
-priv_data)
->  		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
->  	}
-> =20
-> -	ret =3D reset_control_deassert(crst);
-> +	ret =3D reset_control_deassert(priv_data->usb_crst);
->  	if (ret < 0) {
->  		dev_err(dev, "Failed to release core reset\n");
-> -		goto err_phy_exit;
-> +		goto err_apbrst_assert;
->  	}
-> =20
-> -	ret =3D reset_control_deassert(hibrst);
-> +	ret =3D reset_control_deassert(priv_data->usb_hibrst);
->  	if (ret < 0) {
->  		dev_err(dev, "Failed to release hibernation reset\n");
-> -		goto err_phy_exit;
-> +		goto err_crst_assert;
->  	}
-> =20
->  	ret =3D phy_power_on(priv_data->usb3_phy);
->  	if (ret < 0)
-> -		goto err_phy_exit;
-> +		goto err_hibrst_assert;
-> =20
->  	/* ulpi reset via gpio-modepin or gpio-framework driver */
->  	reset_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
 
-Are the resets asserted if this fails?
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Same question about if probe fails after pltfm_init() succeeded.
-
-> @@ -226,10 +229,18 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *=
-priv_data)
-> =20
->  	dwc3_xlnx_set_coherency(priv_data, XLNX_USB_TRAFFIC_ROUTE_CONFIG);
-> =20
-> +	priv_data->usb_resets_released =3D true;
-> +
->  	return 0;
-> =20
->  err_phy_power_off:
->  	phy_power_off(priv_data->usb3_phy);
-> +err_hibrst_assert:
-> +	reset_control_assert(priv_data->usb_hibrst);
-> +err_crst_assert:
-> +	reset_control_assert(priv_data->usb_crst);
-> +err_apbrst_assert:
-> +	reset_control_assert(priv_data->usb_apbrst);
->  err_phy_exit:
->  	phy_exit(priv_data->usb3_phy);
->  err:
-
-Rather than storing usb_resets_released state, and then having
-conditional teardown in the next patch, this could be handled via
-devm_add_action_or_reset.
-
-regards
-Philipp
+Konrad
 
