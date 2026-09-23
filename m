@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50109C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF60C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4XQMf7fL8GqZ+hyH3y/jkvSb5OnhiiRm88OJeVNfblo=; b=tPJSuPNoADuzFnNBO8fn2Z3QJU
-	UxoPBCcGh7MiPPzXkEl1sykF9EdzxkfDras0/pOEZT+a/QovLhXHU83JGlE9JBpDNvbtR+//4IycG
-	0bnDbTO48qkPjjfJNS0DdTBqq4OOQ6fm/H1lVl68b2gbGYi2DcDukOzGjiqqmhfMQRXrO8N3OuLyo
-	DR+x36sUEXFOOx/Yi1rZBrpNUgDB0qeuNBMhLFYtpksoq7z3oT44mU60+bGV6m6vYVNhUsr/otFBW
-	r7+LwvsHECH5X5kT/8CfWJDoenlQm5L8sFH/XHOTb5SfssnR5aDl1ko6Yx03QyRfLI5V3Y+5vr+K1
-	gB/mWH0g==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/jSDbvU+sSMPsR3FEFzrekZHW/2D9icHxMI/p6LU5cc=; b=R5eq9tUu5IkS26YJu2Da3Xlyhx
+	OtK65VDvg02dqUmlGAmSg6/ORLMrjcCcAr5sl+0mKqbGq6xjKT++IQ3JyHwB8PMMTjmbH8QuERNen
+	HGatk3+RUHxsL4ZAWdDN7wilveZ38iQxyhOU7+i4LAZ44WGUd3BpifNZL0I9YwfigEztrBCVO7eoT
+	OaIzBw8V381pq3ImSXKNXYsBsPaUlh70IPU5jovNbJ8zzLmiNQrsuKCT4kPRpYQA98ZRkVU2O4oAh
+	BwzZC2wN4k42j2c8Yp/4uyJudA9c7jtvfZL/nUu8IdMblrARu4xMX7ql/G9DRXZvhFjlI6bUDijqa
+	9BCkieqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ITf-00000007YFs-1Lmz;
-	Wed, 23 Sep 2026 08:37:19 +0000
-Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
+	id 1x9ITo-00000007YJq-2nZ6;
+	Wed, 23 Sep 2026 08:37:28 +0000
+Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ITd-00000007YEs-0gA7
+	id 1x9ITi-00000007YGJ-2UTo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:37:18 +0000
+	Wed, 23 Sep 2026 08:37:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1790152637; x=1821688637;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=4XQMf7fL8GqZ+hyH3y/jkvSb5OnhiiRm88OJeVNfblo=;
-  b=hk+aINoGFHLIIi5NjL/i1V4B+OfV1jde9ShEw7PuThZw8D/MSkVOlt9n
-   hQZJapjTa8LkxbmmCiIX+sihjNgylplA1Ly3cYzRKapcwL2GkzuB9MVW1
-   piHp/EBkTunpOCfYNgRy9LqRG8nGSRjENjcymS6pZujCtI3I9919Kp1Q4
-   ekr6AnXqrdSNCo0HCbrXNE5oATJrwfd8uJQk9ShZDGdV1XRhZcgHFFaji
-   s5urPv0tmZmp/8TIA6qVzCnhiVXBbat6pSWtClFi2eQu5zQ7qvCBOHToV
-   4aFwGAxtHiQcN/pN6D5SGNHt4ysuFRxD6rxmtZaGQym5am/wgPxe+SBS3
-   w==;
-X-CSE-ConnectionGUID: YAz1xdkPSGK+mW0YPGAcGg==
-X-CSE-MsgGUID: TbPHEv0RQXiMJQEwCYt4ZA==
+  t=1790152642; x=1821688642;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=/jSDbvU+sSMPsR3FEFzrekZHW/2D9icHxMI/p6LU5cc=;
+  b=VA9DSYOUIDfqsLiHTGczUCV0CBQ2wbNDzqQnjFkYZAfyYoD8tQux/53b
+   BImBjfTMGuIQXz63GkX8uTwV+28TchXmPdrFr+7DGYWS1TuarwrmGLQYm
+   R8p9eTQGwuNUZHr3EOuUuRH0YCqVWRdnW6bM7d3hYUDCWWAYNJv1555sb
+   ctcTCIDXZmtd1JlgTKXnT0QHwXfq7BVPwrkrSdbSEICSNDTXfyF+PfXG5
+   uFYUYdee2VuWcb0CY0GZ9rcLYUWb7FEo0v+qn1NBqefn4+iRJbQ9zGDC4
+   TeFmuPmhgzAavjx7Ayllj55+WCMK2Oj5haRTkJnm2AH5JSsuBD881HkEz
+   Q==;
+X-CSE-ConnectionGUID: ZTYL8/TwQVGnN2kzN0LScw==
+X-CSE-MsgGUID: fylhUUF5QD2JNtkfbl1ZLg==
 X-IronPort-AV: E=Sophos;i="6.27,118,1787011200"; 
-   d="scan'208";a="29200393"
+   d="scan'208";a="29208088"
 Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 08:37:11 +0000
-Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:32074]
+  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 08:37:13 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:25436]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.1.232:2525] with esmtp (Farcaster)
- id 995c8aff-5054-40eb-a43b-590ecd4d2368; Wed, 23 Sep 2026 08:37:10 +0000 (UTC)
-X-Farcaster-Flow-ID: 995c8aff-5054-40eb-a43b-590ecd4d2368
+ id ec2c215a-e1d5-4a75-8e4e-823d276dbc87; Wed, 23 Sep 2026 08:37:13 +0000 (UTC)
+X-Farcaster-Flow-ID: ec2c215a-e1d5-4a75-8e4e-823d276dbc87
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49;
- Wed, 23 Sep 2026 08:37:10 +0000
+ Wed, 23 Sep 2026 08:37:13 +0000
 Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com
  (172.19.116.181) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.49; Wed, 23 Sep 2026
- 08:37:09 +0000
+ 08:37:12 +0000
 From: Eliav Farber <farbere@amazon.com>
 To: Thomas Gleixner <tglx@kernel.org>, Antoine Tenart <atenart@kernel.org>
 CC: Radu Rendec <radu@rendec.net>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Eliav Farber <farbere@amazon.com>
-Subject: [PATCH 0/4] irqchip/alpine-msi: Cleanups and debug logging
-Date: Wed, 23 Sep 2026 08:36:59 +0000
-Message-ID: <20260923083703.38974-1-farbere@amazon.com>
+Subject: [PATCH 2/4] irqchip/alpine-msi: Drop redundant asm/msi.h include
+Date: Wed, 23 Sep 2026 08:37:01 +0000
+Message-ID: <20260923083703.38974-3-farbere@amazon.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260923083703.38974-1-farbere@amazon.com>
+References: <20260923083703.38974-1-farbere@amazon.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -74,8 +76,9 @@ X-Originating-IP: [172.19.116.181]
 X-ClientProxiedBy: EX19D033UWA004.ant.amazon.com (10.13.139.85) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_013717_279591_6922778F 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260923_013722_688911_7F88AB00 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +93,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series contains a few small cleanups for the Alpine MSIX irqchip
-driver, followed by the addition of some optional debug logging.
+The driver already includes <linux/msi.h>, which itself pulls in
+<asm/msi.h>, so the explicit arch include is redundant. Remove it;
+checkpatch also flags the direct use of the asm header in favour of
+the linux one. No functional change.
 
-Patches 1-3 are trivial, no-functional-change cleanups that address
-the coding-style issues checkpatch reports for the file: convert the
-license boilerplate to an SPDX identifier, drop the redundant
-<asm/msi.h> include (already pulled in via <linux/msi.h>), and fix the
-missing space after a comma in a GENMASK_ULL() invocation.
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+ drivers/irqchip/irq-alpine-msi.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Patch 4 adds an info message on successful initialisation and debug
-messages on the MSI interrupt allocation and free paths, to make it
-easier to follow the driver flow when debugging.
-
-Build-tested for arm64 with the aarch64 toolchain and KCFLAGS=-Werror.
-The driver is used by the Alpine V2, Alpine V3 and AL8 SoCs.
-
-Eliav Farber (4):
-  irqchip/alpine-msi: Use SPDX-License-Identifier
-  irqchip/alpine-msi: Drop redundant asm/msi.h include
-  irqchip/alpine-msi: Add missing space after comma in GENMASK_ULL
-  irqchip/alpine-msi: Add debug logging for MSI allocation
-
- drivers/irqchip/irq-alpine-msi.c | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
-
+diff --git a/drivers/irqchip/irq-alpine-msi.c b/drivers/irqchip/irq-alpine-msi.c
+index 0d97abb85e16..20f1f7f7612b 100644
+--- a/drivers/irqchip/irq-alpine-msi.c
++++ b/drivers/irqchip/irq-alpine-msi.c
+@@ -21,7 +21,6 @@
+ #include <linux/slab.h>
+ 
+ #include <asm/irq.h>
+-#include <asm/msi.h>
+ 
+ /* MSIX message address format: local GIC target */
+ #define ALPINE_MSIX_SPI_TARGET_CLUSTER0		BIT(16)
 -- 
 2.47.3
 
