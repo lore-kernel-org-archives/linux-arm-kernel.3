@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAAC0C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A40C98308
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KbqWqmQzqJ0KcYvjL3DybqekU4MQKHRA2UF8b+yGbE=; b=AhDvndUWyyEQKb85AHchy+fUMD
-	sOIuc987ilpit6HJ9mwjBHgVY72cXKzQMslSGUdoBOgQGWyk7llhMgVMxcQquogd5dPqap3amxR0I
-	p7NdjpY2qzbTMG3Q28mNJJNKb0inubj9JXuAPsYuaYS9OqccCh6HwQ8aABj383tXHvcu1n+of4PaC
-	vb2sJn63gqCBrmnHEPefOjzxccbFZGv+PfGqcQoGdeb7j5oeUH3BWRRUuGuqnma3Mei+j1PREBQv3
-	uiReULHbtHMSWVep74xuk0bxki6u2CcffDKFLKZJv437pkLYf0j8se8d5qdOXppOIbYpRrp6wpwXv
-	QCFj9KSw==;
+	bh=kls9Aeh3ft2h2p7XC+gtGs+6aohVBMrr1+4HHRXk/ks=; b=a8u97UZTjimhykgP9mafFZ4iDb
+	Y4uDkx8L4sxOjXXj+h16+6eBOmhcHbjYvlpVo3B2aAZrae+RXdfww9QF/GJG8nmTMDTR5SEtoY4LO
+	3hDwQap1wutw7PKEyqtgUZ7K8WTqSdu+H70iO7dcZWLJIpZQW+vQ8PRPo2ksYzzvbx8oPdxH8uCCF
+	0kfJxx3kUoq5yws5vLQ8b/QOWe5DVjzelfr3Lvnqdqq6SHYoZlznKg7/LDHAl9KlYkKGMr74GxRtT
+	mbn7r+eC4xmpZbsK/OMLxWuqS2OlxcfdQBIXqJOPauXiG346SJ8TqsB/YI5SyfofPfFdc2hEdQH1+
+	N28t6EvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9AnU-00000006n5n-3IPd;
-	Wed, 23 Sep 2026 00:25:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9AnU-00000006n5X-149v;
-	Wed, 23 Sep 2026 00:25:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A49FE42A40;
-	Wed, 23 Sep 2026 00:25:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7A091F000FF;
-	Wed, 23 Sep 2026 00:25:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790123115;
-	bh=7KbqWqmQzqJ0KcYvjL3DybqekU4MQKHRA2UF8b+yGbE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Xd28X2XeSPP+Rn/cZCMrm77oAKf+Sdr+oWN4XQjNJetJjdSXcrVLA2EMQNHNzF/vC
-	 YEN1rZ4QkAWRRFVbUzxSj5mES14BeichIdqMAIHeASVf12HVOf+ImWO7/+n9Q13T2c
-	 lGZyHUI7DH4L2oQVKcKIifsSxcFYnDa6a2dvGpfCQLIjX9neqF1bI12IZ9vWCbBVKQ
-	 T9/Mqb2aXlIvFIAh+I7SjIzEkc/gSU6Tz1LoXi7NqiwdleXHtEJxToHizU/keS1g7M
-	 t43TDDSymi6bkLvRmnJnZNc1WZPix156+fOJQ5r/8i0Er6RQyUvrrJRjlXpqHT4cOP
-	 nVy46neei02PQ==
-Date: Tue, 22 Sep 2026 17:25:14 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Lorenzo Bianconi <lorenzo@kernel.org>, Heiner
- Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Bill
- Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- llvm@lists.linux.dev
-Subject: Re: [PATCH net-next v16 00/12] net: pcs: Introduce support for
- fwnode PCS
-Message-ID: <20260922172514.7feb6e7c@kernel.org>
-In-Reply-To: <CA+_ehUwy9RUKCCHDnqoED3AMVnErgGr9RCrCR4ceg5QONq1wOQ@mail.gmail.com>
-References: <20260916235200.20712-1-ansuelsmth@gmail.com>
-	<20260921135933.7e8857ba@kernel.org>
-	<CA+_ehUwy9RUKCCHDnqoED3AMVnErgGr9RCrCR4ceg5QONq1wOQ@mail.gmail.com>
+	id 1x9AvN-00000006nbS-2dql;
+	Wed, 23 Sep 2026 00:33:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9AvL-00000006nb3-1t6G
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 00:33:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 223E51576;
+	Tue, 22 Sep 2026 17:33:18 -0700 (PDT)
+Received: from [10.57.9.113] (unknown [10.57.9.113])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2AE63F86C;
+	Tue, 22 Sep 2026 17:33:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790123601; bh=77i3zYEPqhl4Ykq7WhP+J7mIM1DnI3AO6zla9d0ZiPw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oRgWkLcQ31WqXE0HZzy2oda8oXCF5KyAJJ1hOCVglmH0esN1QobUgRqjxsKQ0rnUF
+	 HcEHi0aN57b3J02f+zBZVVZvI20ki3Y3HdxMh4KN/vl1I33mR4KWfrvwABIFz7re3G
+	 vAjp9bLwL/VO4cIRYlc8jfWw+ejPv0v1LHN4Olh4=
+Message-ID: <19c4acf0-bc5a-4856-96c7-bf19c2d989e7@arm.com>
+Date: Wed, 23 Sep 2026 01:33:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v7 02/13] mm: Add an allocator for CoCo shared memory
+Content-Language: en-GB
+To: Jason Gunthorpe <jgg@ziepe.ca>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, Andrew Morton <akpm@linux-foundation.org>,
+ christian.koenig@amd.com, Joerg Roedel <joro@8bytes.org>,
+ Marc Zyngier <maz@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Robin Murphy <robin.murphy@arm.com>, Steven Price <steven.price@arm.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>, Thomas Gleixner <tglx@kernel.org>,
+ Will Deacon <will@kernel.org>, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org, linux-media@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
+ <20260921144847.501151-3-aneesh.kumar@kernel.org> <arKsFofudnTYpXj1@arm.com>
+ <20260922165147.GD1540250@ziepe.ca>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260922165147.GD1540250@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_173323_531110_57A53356 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,24 +81,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Sep 2026 12:12:56 +0200 Christian Marangi (Ansuel) wrote:
-> The remark on the fwnode patch are invalid. The driver is expected
-> to return those error as probe defer is not supported.
-> (a notifier and late attach/detach is used to align to phylink logic)
+On 22/09/2026 17:51, Jason Gunthorpe wrote:
+> On Tue, Sep 22, 2026 at 05:25:58PM +0100, Catalin Marinas wrote:
+>> Does the memset() post sharing logic work for pKVM as well? If nothing
+>> clears it, we have a small window where guest data is leaked to the
+>> host.
 > 
-> For the specific Airoha PCS driver it's really speculation from the AI
-> but HW doesn't work as described by AI.
-> 
-> The only real comment that is valid is about the alternative way
-> to give supported interface with the .get_capabilites OP.
-> 
-> This is currently not supported as there isn't any user and it will
-> be implemented as soon as there will be one. It's really to limit
-> the patch delta of this change and to progress further.
-> 
-> Maybe FIXME might be suitable?
+> Same question for RMM? Or did they define that the RMM zeros on these
+> transitions?
 
-FWIW no preference here, I defer to the human reviewer.
-We can treat the AI review as a hint if human reviewer thinks the code
-is fine as is.
+RMM doesn't "define" what exactly is written when a granule is 
+transitioned to "DELEGATED" or "UNDELEGATED". But does guarantee that 
+the contents are wiped after the transition. This may be:
+  * RMM writing random bytes or 0s
+  * Changing the MEC of the location.
+
+See section A2.3.8 Granule wiping DEN0137 2.0-bet3
+
+Cheers
+
+Suzuki
 
