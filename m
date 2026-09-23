@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81083C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC21AC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lcshcCFgPieIG5e8bwiFJkZupH8EGx8PYrfbPTGlSIU=; b=PUxkrcFwdgHSDbLeiBgAHRMEks
-	7dcj1na6qgt0XZwhTB50nBWcom6zmuodviB5AaWHy4x4ZKebY3+kcXL+K5bNgaPmKb6Un8Zjmi+Jw
-	ZAZsbzN4q6v2HfAnJH2jdS6UrGGkjEqx77Yod5a0q4rQ3Ghe6VhgQasY7eH95GeSbhCFqnIAkF+jx
-	MrIFjr4F+pGY13QieIOmC1WzyV+WldGnnH/6gRLCTDy9On8M7KdMLE7tiMRIkB8NaPmqTQ1n6cd71
-	Nx9xV46pX8e25+Ll+Q2OGa9hwuGaI3p1BK/rbmawrofNT2czHU0rTfbm4fWt1zry6ATN46Dzxbt6o
-	wi3pnp7g==;
+	bh=oE3OEoYevlk4Yjt/6I/AvnVnFGqG12SZyee0YOPOltQ=; b=CgAzymFFFvdWh8o0OaVhvAT+bX
+	8mGfT0lc7WVaiurMtCaIRE6fQEMKAyUf+isVHiS5anWXIUt74Q0kQOD1noT9IQYdQQl0mWIbXPnUU
+	pNZ/8GxBUNUqLHSjr9MxG03j6lbeXabMdenyMbn43hOLCwblz4nbrdBhC+5Tuop8bd4+/GOFqW1SD
+	Z7xZPKKKbsQ/PHHJc201nI6fWfsE46/JCFOpt/QlEnguHTQEtK1AmhkwJjhqEfb+q73il821u4clf
+	U6XZw4UH/iNQJfB+s6Fa3VeSaYkzqCsYM2Ij5UX0xOIFKyI8uwT7gc4y3pOGNhzHUdX33hzjsz7XI
+	cjSySMHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RjG-00000009CFk-2nFo;
-	Wed, 23 Sep 2026 18:30:03 +0000
+	id 1x9Rjb-00000009CW9-1gvR;
+	Wed, 23 Sep 2026 18:30:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Rj0-00000009C7l-2FD0
+	id 1x9RjZ-00000009CTr-0hd8
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 18:29:46 +0000
+	Wed, 23 Sep 2026 18:30:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=lcshcCFgPieIG5e8bwiFJkZupH8EGx8PYrfbPTGlSIU=; b=Wd+Lk6grTp7x7/7BBKCxHdHRZz
-	Jb1LCsqxtXnFjhbUhpXk1CfQU70BFxLQsKWkvdQPhoUIwVMzr3zeOsol1u42K3rjB8G+7Lf4QBtIH
-	5ICD3AdL2CziCwcXdtQf/+W9sNjZXt++en7fqBmnE3JJwhF6FybSzkDZgmun23a8TZFHD4r76PI9V
-	+v0Z15S8TJ+POMT+zKv5QAYSVUiDHS1KuJmhs4AjXNex60Xa0ofdOYxxVLeNah760vi9NsiViNuZ+
-	u8Q/K9wxIZJsw+FKoK+6lVFSbj/7Qs1Y/IoX+mYsZmX8McsxksbjZqqcGn85abpky+0m1MmVpD5nz
-	WVKhMcag==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	bh=oE3OEoYevlk4Yjt/6I/AvnVnFGqG12SZyee0YOPOltQ=; b=IfwHLzu1OwW0MpOtEupFNhnoan
+	6MauH+Fk5ZE0ZjS8SQeJ/Gg6V4WroHYIeKN2EfoLggvq6y1xNDE6jXRlggKXU0KmDZrkmjD2kg3dI
+	P1+Lbyp0Dd/KUTPneth2PQNL3HmJruHUNpDBpD7h5oAIBwRoIUEcd+RPr0jJe7P3WtEdMALrNuSGT
+	UvOcACzp9T2mj+6gBolk5m2wb7N1u+upAQ8VWfpwQajNBOQqVhlPupNs6bp/KEmcRgLV7sZc+NOgR
+	jsK/vwTJ2iJYKz8FYbGuLCw/Z95O18hfQjlE73hm51ygwsEgk81+5AGfPo8HzkrbsDUyVuzmpnUs3
+	7Q1XX5cQ==;
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9Rix-0000000F9da-2ySX
+	id 1x9RjW-0000000F9mh-1Gya
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:29:45 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e721b5503so11131585e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:29:43 -0700 (PDT)
+	Wed, 23 Sep 2026 18:30:20 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49ccfd61ecaso10055745e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:30:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790188182; x=1790792982; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790188217; x=1790793017; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lcshcCFgPieIG5e8bwiFJkZupH8EGx8PYrfbPTGlSIU=;
-        b=Eedwt6NE8Ytv8qEE0nMGAxYLIN6ednKdYSUmyQtVSoQSu2FedI6oUDxhnJAs1YnI9Y
-         pZk/43tAj3gkdtbN1X4VCdHNOjXuwyXvnOWMF0BNeZinx7rp6CMJR4CpYwI+VWXGMt+x
-         BGsrLtUObJTb4ZLW32+RpQ9o3L5L2nQ9dO5b2DVNHW8I7O6umKqiwnlrvtqElljI2Z3m
-         SAQbQf+JzOhpwV8ioyfY0nnUyPoNrk+NHvgnyLlJ5VOn3RXotBAin+tgQ6K5QTZ6uXh3
-         pTpqewYHVayROUv8SID6Y5jgGriXae6aymJGO4dVwVcg3yCzT24hc7Z6z/1biFBr1FCp
-         2XNA==
+        bh=oE3OEoYevlk4Yjt/6I/AvnVnFGqG12SZyee0YOPOltQ=;
+        b=V3sfwQ20ASH2N/ZptObQAYDKtTjxpV2D3CFYRoCLYBZlOh13CYCgImA3f0ea27zicJ
+         dZ1w2BvFKHljCIqSjmCgyNGsqgvYpeMoxlSsJP7P3EU5LXF2rMFO7JjEJ3M2JDZjTWbr
+         Sl8NuQsJbgGj8KNFbKkB4g3SuRchrn5P7v12DPFokXPhtk7k95pLLGjQOqWbcU0doGEh
+         3DRFJpmJrN5HKlJTdarZQs3xU4S/GmEIWqJRMC2QzHNnHW57GzuGj/tIzbfwimgCgt3c
+         U/mWCqtXbAqNZs2FVPzwTyRQZLqMjpq4g1+4TNvCiUkeKFzITE0JewGoTu/Zn84pUP2N
+         Cp2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790188182; x=1790792982;
+        d=1e100.net; s=20260707; t=1790188217; x=1790793017;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lcshcCFgPieIG5e8bwiFJkZupH8EGx8PYrfbPTGlSIU=;
-        b=pTBMu9p8ffGYpbMGVJZtMDFZT78yWVmzDPPa5mOLHxUM++SFdiIGBESjHOtF2imWxI
-         vJsDJmHFFGHVecXd+ncKAA75jJz7Pi8GfWSo92Y6lzkSrAPvvpKJadTy+YJ3j6PV8W+o
-         H+CVmUBUO1/yzkQqnpOtbqYj14DHVea1gpcVuvN8N6L6xhZ7D2KFGvKYJIJhYXABc7nW
-         gTa9SZJZKGqUc8AuurZzzk5vUmOr5ov9Bt2T1HFywnyf3+Z14eoB06S11zJM7c2Yn4J6
-         RhbbQn9K15cTnDpvxcqBQIoMNmgyrr71HGx85ik7pEhtbZKaGvcCIGmP0B3Pr0Gr3VxY
-         1bJg==
-X-Forwarded-Encrypted: i=1; AKwUvBxe/fHubRt6PoPVxK8ZKs4KFhAahbgeXauW3FtO67IPGzSBlL7B4y7ac2YAEVFfve9S1qJLw+EpS298kvrbqV/X@lists.infradead.org
-X-Gm-Message-State: AFuF++lD8GO3Zbo5fzl2beAInR6LO2jqRFEMCtrDudh28yESaBQJPRrq
-	pGQq3w5Nsd7XNM8dzb/rRY8oLzz/yjqBm5uP5yVLw5As4fIc8w77VIvL
-X-Gm-Gg: AYBFou3d5n6xT9nohSB3tUIfgN4hmgLSqOp47qLd1mN08fbKqTod5s6ixcFki3Ul78C
-	GWQSMZ81TpSK13Hvu0fKI63l/XgpLnm8ezyhiMrAGMQQMzmCxPKznddmVpZMWq4BJ9ADCNpWvqg
-	58fSrQwGrCGbPrhHPi060nWGK1BFmfCxcQNcwH8TBcChAtHKyycE04Yvhi7dSBRPaXMz/h28ELb
-	KVrG/NCf1QHY2KdCwXSUpwnc/qVN4nNFBKuW72SwrvuaqwDMz0/XZcS5vuWI9mMMoPraACPkQQe
-	7Lr4RhXZ0z5JM26unygfYPlH7Ig22CXPHaSRT9thS3r6P+SfhQuSJXLg4B/fNCbQTUndDAP6twa
-	t/kg45x8nCfKUU2vVdPqZ+rtSUyX6wzzc2Ns6J5XR+yytj55zxKeHCVJpQeOHRGPavno4N91ITc
-	D+9s2MUDWHVq57C2b0kO/dD1yYORshcgHO8CvJ2X6EK7Ms7oKUVBBXfTfuXp2XmNqUXn9XsYLL9
-	cIG
-X-Received: by 2002:a05:600c:34d4:b0:499:79b9:e220 with SMTP id 5b1f17b1804b1-49fe66d1279mr1377135e9.10.1790188182438;
-        Wed, 23 Sep 2026 11:29:42 -0700 (PDT)
+        bh=oE3OEoYevlk4Yjt/6I/AvnVnFGqG12SZyee0YOPOltQ=;
+        b=NWAwYO74n8lzuupXz9R23dMt9A23HnKvPplfyALjpPWzO35Er9uBBtTx2/cLE0P5F2
+         NERF7x9kpkcdDlWZ7sZXPrus1z31HQ/Ns5gTL5R5mmq2NTpV3vRi3hF9tS/041Xh5K3+
+         Y3+F9uEvgqyB5OQygxXnq1Y8/UiBHW1EmJz2aZaeXqwfTAm6aeCY5siBvcbHWSPvi3td
+         h4rEwDiuvMSVQwpHUUtwzj5FmQFE5FJY3VX3dih0/A7hPOPj8SxpSm5MA158Tx1Zh8Pv
+         ULM8Nj8HDTJUzVG/1HspGGmWUvhsiO/IcEokEp6gIcum+zsZxyNzZuxTBVfdxUJQmiar
+         9TUw==
+X-Forwarded-Encrypted: i=1; AKwUvBymiVChbChzzQ7+sbcGsgBRQnECGzw7VjnsMeS2iT9q4CM365aGOROexIVP6BtNEGr2FbJFesCNWyTANOewll60@lists.infradead.org
+X-Gm-Message-State: AFuF++nvlmO9qfNqdy34ZMt0M4dvKTUSt0EfPzJlYxtwu/Bq0uW2lLD6
+	d3FUZKQybFZCrsv/Y/oxwVQg3RSob/YxJOeB7HKIBseTUpOPpPtokbZY
+X-Gm-Gg: AYBFou1G425xNWENT4AgAcIDOo9gWy+oSczXrrTUBB5040MC24wHOiJ79xMFj//7uGB
+	4xIi7MTYzMCALEvak1fQ97Qkj15Vmzqr9gJ8BgRTGRPixztVw3MnpEuTsLqmW8H3StV5CyJrMkJ
+	p/BCPWs/r2YzDziNZqTi7oxZ6gDLvulrdi7IcAEps3YxQlLlIHnVyUMiB8a1rLbg0WalltGjNc6
+	IPcBV8WSPPqA8LVEIA3KqwdCaEiNheiq15xxMm5g97BcXbUAPFhrpu3mR6lbQCeP596jeUA4+1e
+	S8jxbr5gb37Oe8MC+NsE5hGivHmikEJp7CG1LNvQXLulhl6bnJRaNFjsq73p5+nOji/4vHCQ0z1
+	reEkhj+kGVXDmZtrskQ+KeAcL0Bh/VMRnNNbDVY4bgwuPMzHz4gevcA19NDRR9ncdHFNZYid/sx
+	S68phEEFnLHMcAt5KhpQ6HThP4ed7ElEkRtfKzl+QcsGHc0JTENMJW5C271Iuwf6qOTgPLgBtqm
+	5Zvpg==
+X-Received: by 2002:a05:600c:35ca:b0:49e:8184:f619 with SMTP id 5b1f17b1804b1-49fe66f14dcmr1207045e9.22.1790188216941;
+        Wed, 23 Sep 2026 11:30:16 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.51.38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5cd3d5csm4711835e9.14.2026.09.23.11.29.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5cd3d5csm4711835e9.14.2026.09.23.11.30.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 11:29:41 -0700 (PDT)
+        Wed, 23 Sep 2026 11:30:16 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Wed, 23 Sep 2026 21:28:51 +0300
-Subject: [PATCH v12 05/12] clk: zte: Add Clock registration infrastructure
+Date: Wed, 23 Sep 2026 21:28:56 +0300
+Subject: [PATCH v12 10/12] clk: zte: Introduce a driver for zx297520v3 LSP
+ clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260923-zx29clk-v12-5-9c243796b6d2@gmail.com>
+Message-Id: <20260923-zx29clk-v12-10-9c243796b6d2@gmail.com>
 References: <20260923-zx29clk-v12-0-9c243796b6d2@gmail.com>
 In-Reply-To: <20260923-zx29clk-v12-0-9c243796b6d2@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -110,26 +111,26 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=15712;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=14750;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=ofd8rVoz0p52QzPz9+SkZywnce00Yrxb97abl1XuDdk=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqtBpuFtBzCl8Ov/qlCBR4Dtxs3iIbzdBgZvkcR
- Ytb5C98qKmJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCarQabhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJZ/xAAlmatuZTD+iQ1xOXN+cKc7/9RnLvdEuO
- D1E3j0mfd3tTdj/0WwESy+pGtil5h4lW5+XEpNkcu92pSxNjY7TBBcjVqVNcMByhHVP2YWQNHD1
- JSNCNGm0kiOnCDGgBht6oAWEW3LdGRwg7U9Jmscby2ZnBeazirvB3HhqFUGNXa2Sos2/PGrdQFC
- TmYRLWNT3evYcBuLJiAlk5/+ZAcu0PEeU4IojfBACCSM5w00vayvglQzZM0iyrbMjMDog+URrQx
- ohJhx3huCP+8L7ImHCztTs/hyJzf4JgLP/nVFsTWVAJ06ImVuia1ilVCCO8q/2Vfs/gs1sAiBKE
- byzt1VZNxXg8mOT3VfsN9ViKPK6IuBaj27AeVBvk2IR1PmpbyfhGwMvf53ti1L/mW7Rsaw5ZqqC
- BKDly5bL38bYcHtae9yLNRVePyrwO1ZdTi2SFU8GYIZT9K76rWgy9UOglHjCpnoWZK6p9md416u
- 8TJv7Osk2HUI1kX3Qu4r9xoK58zoAzJ8wBYC0j/DLWlaW2sQqXLFmzkp5lhPVvfo0iJcT37xV4K
- K9pmFznhpa/1PThZLnmeaWWixBXmht706FhGJPCFm5Mr2yvvIoK7Czl6YrMizBGKWBZiXH6Ehxo
- QzXHLWpoOODBX+xZ8m6R0VaHoCEZvWJ2MHANQUpR9A9ewrqdlt9g=
+ bh=e5vURplPv76LFBefjkBp0jM3JSuP6xp0XUzyXxZIumo=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqtBpuXfRZWIOfUdMyEfgrQop2YHb9WTw9zQXR5
+ MwGJiizj+iJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCarQabhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJPOQ//QchR/JyezVA6EfN2RJK86qYlSuZt/WK
+ PP/IGERWzy0MZNMoP5/Tmxddvx9ofdKQ9i9VZIQLKgGuR39ev3UWFvsDdJNp3un0aCF+lCht0WS
+ R9xL/xrWXnWHxO0iA5MtAg0XgE5Ca9yJLtCl2xOi2ff24NZp+HLEtc6Slir7JWjaNv2ckofb2/B
+ rd0o/OLxBp7QZJyvZO7AjPQ4x+myfkYxk8h/WB0FtWI9XE0eYGs+WJ3/W6D0JOM0ks8GLQY+etI
+ uQ1I6uLakVqoZ16XMEPZGZjWMAHReL05a74OvrnIF+Vpz+WuS02H99q7z1ge1lnP7e/iXDhIrUe
+ g52JCgq1Fd21XzIyvX6N0KV693bu4W9jVJVkvTDtLYiSwOrUKzSJ9xYzUf7/A9mj3PWOxWXkgsH
+ 88YDQQkmCCrtuSXjSNtbdMEuQevfV/QErRe3dLPXx8uoVhJf5WXpbZOQi7Y2LruEo0CanCJMv2W
+ j2RSZEX1WjYRyOC9EZSB0FI1z4yUzSuDLW//YeXj4bwnZ1PYENACni+0QUYqnsGHIlsR9rjp2/L
+ Ef12woBnF3iUilkqorSOrigBpmKaORBoq3By8vu2yDl2KIM1gOCwZe/RVDAydjUgXfAOJLGNgcg
+ 9Nu8BeYkDnQi0yfr6tbq+FF8CkKTFbrBH/Gbx1QojuZ8ivJC9QVI=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_192943_955753_E9E0AB36 
-X-CRM114-Status: GOOD (  35.21  )
+X-CRM114-CacheID: sfid-20260923_193018_506788_A883B171 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,556 +145,354 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The next patches will implement the regmap clocks and PLL driver. The
-actual hardware specific clock listing will live in a separate module.
+"LSP" is ZTE's term for this part of the SoC, I suspect it stands for
+"low speed peripherals". The main UART is here, together with the flash
+controller and more surplus proprietary timers.
+
+It also has one more I2C controller that supposedly connects to a
+battery charger, SPI for displays and I2S for analog telephones. The
+boards I have don't have any of these components though.
 
 Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 ---
 
-Version 11, 12: Unchanged
-
-@Sashiko: I think your concern about a NULL of_node in the call to
-devm_clk_hw_register_fixed_factor_fwname is a false positive. The CCF
-code looks for of_nodes in dev and dev->parent.
-
-Version 10 (Brian):
-Remove unused struct zx_clk_export
-Remove a stray semicolon from switch/case in zx_get_parent
-Explain the rationale for the validation code and discourage copying it
-into other clock drivers
-Make the exports array const (Sashiko)
+Versions 10, 11, 12: Unchanged
 
 Version 9:
-Rework parent matching and clock export control. Most of the changes
-will be in the next patches. The visible change here is that the clock
-array is unified with single clocks having a type rather than one array
-per type.
+Link internal parents by an (internal) clock ID rather than names.
 
-Depend on HAS_IOMEM, similarly to Sashiko's flagged issue in the Reset
-patch
+One intentional clock tree change: The PWM device's parent is the 104
+MHz mpll-d6 input. With some manual experimentation I managed to make
+the WiFi led blink with PWM, so I could confirm which matrixcrm bit
+gates off its parent.
 
-ZX297520V3_CLK_NO_EXPORT is gone again.
+Update the comments to say that the device at lspcrm+0x4000 is indeed a
+Pulse Width Modulator.
 
-The explicit clock input array and enabling of LSP's pclk is removed
-from the clock driver. The MFD parent takes care of this instead. The
-clock driver does some sanity checking on the static clock data though.
+@Sashiko: If you find any other clock tree changes compared to version
+8, they are unintentional and likely bugs.
 
 Version 8:
-Use ZX297520V3_CLK_NO_EXPORT=(~0u) for unexported clocks. While using 0,
-and starting clock indices at 1, is a common pattern in existing
-drivers, it exposes a driver implementation detail in the hardware
-binding interface.
-
-If desired, I can change the special index to a separate field in the
-structs.
-
-Fix the return value if the ->init() callback fails. (Sashiko)
+Double-checked pclk and wclk. They were the wrong way around in previous
+submissions. Pclk is bit 0, wclk is bit 1.
 
 Version 7:
-*) Add fixed dividers to handle PLL subdivisions
-*) Never register PLLs directly as exported clocks - everything on this
-SoC goes through a gate before it leaves a controller.
+Underscore in clock names to dashes
 
 Version 6:
-*) Remove auxdev now that LSP clocks also use MFD
-*) Error codepath fixes pointed out by Sashiko.
+use MFD for LSP too
 
 Version 5:
-
-*) Pass the static clk data instead of calling get_match_data to prepare
-for operating as an MFD child.
-
-*) Don't use devm_kzalloc to allocate the auxiliary_device
-structure. I guess Sashiko is right, and that's what "Because once the
-device is placed on the bus the parent driver can not tell what other
-code may have a reference to this data" is trying to tell me.
-
-*) Fix error check for device_node_to_regmap.
+Removed unused tdm_lsp_sel. Fix zx297529 vs zx297520 typo.
+Adjusted .compatible to zte,zx297520v3-lspcrm
 ---
- MAINTAINERS                  |   1 +
- drivers/clk/Kconfig          |   1 +
- drivers/clk/Makefile         |   1 +
- drivers/clk/zte/Kconfig      |  17 ++++
- drivers/clk/zte/Makefile     |   5 ++
- drivers/clk/zte/clk-regmap.c |  32 ++++++++
- drivers/clk/zte/clk-zx.c     | 192 +++++++++++++++++++++++++++++++++++++++++++
- drivers/clk/zte/clk-zx.h     | 137 ++++++++++++++++++++++++++++++
- drivers/clk/zte/pll-zx.c     |  18 ++++
- 9 files changed, 404 insertions(+)
+ drivers/clk/zte/clk-zx297520v3.c | 285 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 285 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 41c287316d0e..cf4e8c48ddfc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3927,6 +3927,7 @@ F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
- F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
- F:	arch/arm/boot/dts/zte/
- F:	arch/arm/mach-zte/
-+F:	drivers/clk/zte/
- F:	drivers/mfd/zte-zx297520v3-crm.c
- F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
- F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 252f6a1f21b8..ca4869c4e5e1 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -548,6 +548,7 @@ source "drivers/clk/uniphier/Kconfig"
- source "drivers/clk/visconti/Kconfig"
- source "drivers/clk/x86/Kconfig"
- source "drivers/clk/xilinx/Kconfig"
-+source "drivers/clk/zte/Kconfig"
- source "drivers/clk/zynqmp/Kconfig"
+diff --git a/drivers/clk/zte/clk-zx297520v3.c b/drivers/clk/zte/clk-zx297520v3.c
+index 92b56571b155..3240f8a18897 100644
+--- a/drivers/clk/zte/clk-zx297520v3.c
++++ b/drivers/clk/zte/clk-zx297520v3.c
+@@ -1333,6 +1333,287 @@ static const struct zx_clk_data zx297520v3_matrixclk_data = {
+ 	.num_exports = ARRAY_SIZE(zx297520v3_matrix_exports),
+ };
  
- # Kunit test cases
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index 2d8f60254373..91b73be31707 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -182,5 +182,6 @@ ifeq ($(CONFIG_COMMON_CLK), y)
- obj-$(CONFIG_X86)			+= x86/
- endif
- obj-y					+= xilinx/
-+obj-$(CONFIG_COMMON_CLK_ZTE)		+= zte/
- obj-$(CONFIG_ARCH_ZYNQ)			+= zynq/
- obj-$(CONFIG_COMMON_CLK_ZYNQMP)         += zynqmp/
-diff --git a/drivers/clk/zte/Kconfig b/drivers/clk/zte/Kconfig
-new file mode 100644
-index 000000000000..152c2423b8f0
---- /dev/null
-+++ b/drivers/clk/zte/Kconfig
-@@ -0,0 +1,17 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# ZTE Clock Drivers
-+#
-+
-+config COMMON_CLK_ZTE
-+	tristate "Clock driver for ZTE SoCs"
-+	depends on HAS_IOMEM
-+	depends on ARCH_ZTE || COMPILE_TEST
-+	default ARCH_ZTE
-+	select MFD_SYSCON
-+	help
-+	  This option selects common clock infrastructure for ZTE based SoCs.
-+	  You will need to enable one or more SoC specific drivers to make use
-+	  of this.
-+
-+	  Enable this if you are building a kernel for a ZTE designed board.
-diff --git a/drivers/clk/zte/Makefile b/drivers/clk/zte/Makefile
-new file mode 100644
-index 000000000000..27db07293165
---- /dev/null
-+++ b/drivers/clk/zte/Makefile
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_COMMON_CLK_ZTE) += clk-zte.o
-+
-+clk-zte-y += clk-zx.o pll-zx.o clk-regmap.o
-diff --git a/drivers/clk/zte/clk-regmap.c b/drivers/clk/zte/clk-regmap.c
-new file mode 100644
-index 000000000000..80332dba97f6
---- /dev/null
-+++ b/drivers/clk/zte/clk-regmap.c
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (c) 2026 Stefan Dösinger
++ * LSP clock entries have a common pattern: Bit 0 for pclk, Bit 1 for wclk. Bit 4 (and sometimes
++ * more) for wclk mux.
++ *
++ * Bit 8 and 9 are resets handled by the reset-zte-zx297520v3 driver.
++ *
++ * Bits 15:12 can be a divisor, but not all clocks have it. Some clocks have a divisor in 19:16.
++ *
++ * The ID given in this table is the first register in the device's MMIO space. ZTE's drivers
++ * usually call this a version register, but it looks more like a device identifier.
++ *
++ * It looks like the registers map to devices like this:
++ *
++ * CRM Reg	function	div	dev offset(lsp + xxxx)	ID
++ * 0x0: Read-only, probably device identifier			0x00752100
++ * 0x4:		timer_l1	Y	0x1000			0x02020000
++ * 0x8:		watchdog_l2	Y	0x2000			0x02020000
++ * 0xc:		watchdog_l3	Y	0x3000			0x02020000
++ * 0x10:	pwm		N	0x4000			0x01020000
++ * 0x14:	i2s0		Yh	0x5000			0x01030000
++ * 0x18:	always 0	-	-			-
++ * 0x1c:	i2s1		Yh	0x6000			0x01030000
++ * 0x20:	always 0	-	-			-
++ * 0x24:	qspi		N	0x7000			0x01040000
++ * 0x28:	uart1		N	0x8000			0x01060000
++ * 0x2c:	i2c1		N	0x9000			0x01020000
++ * 0x30:	spi0		Y	0xa000			0x01040000
++ * 0x34:	timer_lb	Y	0xb000			0x02020000
++ * 0x38:	timer_lc	Y	0xc000			0x02020000
++ * 0x3c:	uart2		N	0xd000			0x01060000
++ * 0x40:	watchdog_le	Y	0xe000			0x02020000
++ * 0x44:	timer_lf	Y	0xf000			0x02020000
++ * 0x48:	spi1		Y	0x10000			0x01040000
++ * 0x4c:	timer_l11	Y	0x11000			0x02020000
++ * 0x50:	tdm		Yh	0x12000			0x01040000
++ *
++ * Registers 0x58, 0x5c, 0x60, 0x64, 0x68 seem to contain more controls for i2s and tdm.
++ *
++ * The device at offset 0x4000 (clk reg 0x10) is a PWM device. The ID matches that of i2c, it has a
++ * larger register set. ZTE's kernel does not operate it at all. The old upstream pwm-zx.c driver
++ * provided enough instructions to blink the Wifi led and isolate the parent.
 + */
 +
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/errno.h>
-+#include <linux/regmap.h>
++enum lsp_clock_ids {
++	ZX_CLK_TIMER_L1_MUX,
++	ZX_CLK_WDT_L2_MUX,
++	ZX_CLK_WDT_L3_MUX,
++	ZX_CLK_I2S0_MUX,
++	ZX_CLK_I2S1_MUX,
++	ZX_CLK_QSPI_MUX,
++	ZX_CLK_UART1_MUX,
++	ZX_CLK_I2C1_MUX,
++	ZX_CLK_SPI0_MUX,
++	ZX_CLK_TIMER_LB_MUX,
++	ZX_CLK_TIMER_LC_MUX,
++	ZX_CLK_UART2_MUX,
++	ZX_CLK_WDT_LE_MUX,
++	ZX_CLK_TIMER_LF_MUX,
++	ZX_CLK_SPI1_MUX,
++	ZX_CLK_TIMER_L11_MUX,
 +
-+#include "clk-zx.h"
++	ZX_CLK_TIMER_L1_DIV,
++	ZX_CLK_WDT_L2_DIV,
++	ZX_CLK_WDT_L3_DIV,
++	ZX_CLK_I2S0_DIV,
++	ZX_CLK_I2S1_DIV,
++	ZX_CLK_SPI0_DIV,
++	ZX_CLK_TIMER_LB_DIV,
++	ZX_CLK_TIMER_LC_DIV,
++	ZX_CLK_WDT_LE_DIV,
++	ZX_CLK_TIMER_LF_DIV,
++	ZX_CLK_SPI1_DIV,
++	ZX_CLK_TIMER_L11_DIV,
++	ZX_CLK_TDM_DIV,
 +
-+struct clk_hw *zx_clk_register_gate(struct device *dev, struct regmap *regmap,
-+				    const struct zx_gate_desc *desc,
-+				    struct clk_hw * const *clocks)
-+{
-+	return ERR_PTR(-ENODEV);
-+}
-+
-+struct clk_hw *zx_clk_register_divider(struct device *dev, struct regmap *regmap,
-+				       const struct zx_div_desc *desc,
-+				       struct clk_hw * const *clocks)
-+{
-+	return ERR_PTR(-ENODEV);
-+}
-+
-+struct clk_hw *zx_clk_register_mux(struct device *dev, struct regmap *regmap,
-+				   const struct zx_mux_desc *desc,
-+				   struct clk_hw * const *clocks)
-+{
-+	return ERR_PTR(-ENODEV);
-+}
-diff --git a/drivers/clk/zte/clk-zx.c b/drivers/clk/zte/clk-zx.c
-new file mode 100644
-index 000000000000..aef0f7c753e6
---- /dev/null
-+++ b/drivers/clk/zte/clk-zx.c
-@@ -0,0 +1,192 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Stefan Dösinger
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/errno.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+
-+#include "clk-zx.h"
-+
-+static struct clk_hw *zx_clk_register_fixed_div(struct device *dev,
-+						const struct zx_fixed_divider_desc *desc,
-+						struct clk_hw * const *clocks)
-+{
-+	const struct zx_parent_desc *p = &desc->parent;
-+
-+	switch (p->type) {
-+	case ZX_PARENT_FW:
-+		return devm_clk_hw_register_fixed_factor_fwname(dev, NULL, desc->name, p->fw_name,
-+								CLK_SET_RATE_PARENT, 1, desc->div);
-+
-+	case ZX_PARENT_ID:
-+		return devm_clk_hw_register_fixed_factor_parent_hw(dev, desc->name, clocks[p->id],
-+								   CLK_SET_RATE_PARENT, 1,
-+								   desc->div);
-+	}
-+	WARN_ON_ONCE(1);
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int zx_clk_validate(struct device *dev, struct device_node *of_node,
-+			   const struct zx_clk_data *data)
-+{
-+	const struct zx_parent_desc *parents;
-+	unsigned int i, p, num_parents;
-+	struct clk *clk;
-+
-+	/*
-+	 * Sanity check: Make sure all parents are there and write a clear message rather than
-+	 * leave potential orphans.
-+	 *
-+	 * This check is unusual in clock drivers. It is in this driver because the clock tree is
-+	 * based on manual reverse engineering rather than generated from a SoC datasheet.
-+	 */
-+	for (i = 0; i < data->num_clocks; ++i) {
-+		switch (data->clocks[i].type) {
-+		case ZX_CLOCK_PLL:
-+			parents = data->clocks[i].pll.parents;
-+			num_parents = data->clocks[i].pll.num_parents;
-+			break;
-+
-+		case ZX_CLOCK_FIXED_DIV:
-+			parents = &data->clocks[i].fixed_div.parent;
-+			num_parents = 1;
-+			break;
-+
-+		case ZX_CLOCK_MUX:
-+			parents = data->clocks[i].mux.parents;
-+			num_parents = data->clocks[i].mux.num_parents;
-+			break;
-+
-+		case ZX_CLOCK_DIV:
-+			parents = &data->clocks[i].div.parent;
-+			num_parents = 1;
-+			break;
-+
-+		case ZX_CLOCK_GATE:
-+			parents = &data->clocks[i].gate.parent;
-+			num_parents = 1;
-+			break;
-+
-+		default:
-+			return dev_err_probe(dev, -EINVAL, "Invalid clock entry %u\n", i);
-+		}
-+
-+		for (p = 0; p < num_parents; ++p) {
-+			switch (parents[p].type) {
-+			case ZX_PARENT_FW:
-+				clk = of_clk_get_by_name(of_node, parents[p].fw_name);
-+				if (IS_ERR(clk))
-+					return dev_err_probe(dev, PTR_ERR(clk),
-+							     "Input clk %s failure\n",
-+							     parents[p].fw_name);
-+				clk_put(clk);
-+				break;
-+
-+			case ZX_PARENT_ID:
-+				if (parents[p].id >= i)
-+					return dev_err_probe(dev, -EINVAL,
-+							     "Clock %u has parent %u\n",
-+							     i, parents[p].id);
-+				break;
-+
-+			default:
-+				return dev_err_probe(dev, -EINVAL,
-+						     "Clock %u has unexpected parent of type %u\n",
-+						     i, parents[p].type);
-+			}
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+int zx_clk_common_probe(struct device *dev, struct device_node *of_node,
-+			const struct zx_clk_data *data)
-+{
-+	struct clk_hw_onecell_data *exports;
-+	struct clk_hw **clocks;
-+	struct regmap *map;
-+	unsigned int i;
-+	int res;
-+
-+	res = zx_clk_validate(dev, of_node, data);
-+	if (res)
-+		return res;
-+
-+	map = device_node_to_regmap(of_node);
-+	if (IS_ERR(map))
-+		return PTR_ERR(map);
-+
-+	clocks = devm_kcalloc(dev, data->num_clocks, sizeof(*clocks), GFP_KERNEL);
-+	if (!clocks)
-+		return -ENOMEM;
-+
-+	if (data->init) {
-+		res = data->init(map);
-+		if (res)
-+			return res;
-+	}
-+
-+	for (i = 0; i < data->num_clocks; ++i) {
-+		struct clk_hw *hw;
-+
-+		switch (data->clocks[i].type) {
-+		case ZX_CLOCK_PLL:
-+			hw = zx_clk_register_pll(dev, map, &data->clocks[i].pll, clocks);
-+			break;
-+
-+		case ZX_CLOCK_FIXED_DIV:
-+			hw = zx_clk_register_fixed_div(dev, &data->clocks[i].fixed_div, clocks);
-+			break;
-+
-+		case ZX_CLOCK_MUX:
-+			hw = zx_clk_register_mux(dev, map, &data->clocks[i].mux, clocks);
-+			break;
-+
-+		case ZX_CLOCK_DIV:
-+			hw = zx_clk_register_divider(dev, map, &data->clocks[i].div, clocks);
-+			break;
-+
-+		case ZX_CLOCK_GATE:
-+			hw = zx_clk_register_gate(dev, map, &data->clocks[i].gate, clocks);
-+			break;
-+
-+		default:
-+			return -EINVAL;
-+		}
-+
-+		if (IS_ERR(hw))
-+			return dev_err_probe(dev, PTR_ERR(hw), "Failed to register clk %u\n", i);
-+
-+		clocks[i] = hw;
-+	}
-+
-+	exports = devm_kzalloc(dev, struct_size(exports, hws, data->num_exports), GFP_KERNEL);
-+	if (!exports)
-+		return -ENOMEM;
-+	exports->num = data->num_exports;
-+
-+	for (i = 0; i < data->num_exports; ++i) {
-+		if (data->exports[i] >= data->num_clocks)
-+			return dev_err_probe(dev, -EINVAL,
-+					     "Export %u points to out of range clock %u\n",
-+					     i, data->exports[i]);
-+
-+		exports->hws[i] = clocks[data->exports[i]];
-+	}
-+
-+	devm_kfree(dev, clocks);
-+
-+	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, exports);
-+}
-+EXPORT_SYMBOL_NS_GPL(zx_clk_common_probe, "ZTE_CLK");
-+
-+MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
-+MODULE_DESCRIPTION("ZTE common clock driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/zte/clk-zx.h b/drivers/clk/zte/clk-zx.h
-new file mode 100644
-index 000000000000..8137185f497f
---- /dev/null
-+++ b/drivers/clk/zte/clk-zx.h
-@@ -0,0 +1,137 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Stefan Dösinger
-+ */
-+
-+#ifndef __DRV_CLK_ZX_H
-+#define __DRV_CLK_ZX_H
-+
-+#include <linux/clk-provider.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/types.h>
-+
-+#define CLK_ZX_PLL_PREPARE_IS_ENABLE	1
-+#define CLK_ZX_MAX_PARENTS		8
-+
-+enum zx_parent_type {
-+	ZX_PARENT_FW,
-+	ZX_PARENT_ID,
++	ZX_CLK_TIMER_L1_PCLK,
++	ZX_CLK_TIMER_L1_WCLK,
++	ZX_CLK_WDT_L2_PCLK,
++	ZX_CLK_WDT_L2_WCLK,
++	ZX_CLK_WDT_L3_PCLK,
++	ZX_CLK_WDT_L3_WCLK,
++	ZX_CLK_PWM_PCLK,
++	ZX_CLK_PWM_WCLK,
++	ZX_CLK_I2S0_PCLK,
++	ZX_CLK_I2S0_WCLK,
++	ZX_CLK_I2S1_PCLK,
++	ZX_CLK_I2S1_WCLK,
++	ZX_CLK_QSPI_PCLK,
++	ZX_CLK_QSPI_WCLK,
++	ZX_CLK_UART1_PCLK,
++	ZX_CLK_UART1_WCLK,
++	ZX_CLK_I2C1_PCLK,
++	ZX_CLK_I2C1_WCLK,
++	ZX_CLK_SPI0_PCLK,
++	ZX_CLK_SPI0_WCLK,
++	ZX_CLK_TIMER_LB_PCLK,
++	ZX_CLK_TIMER_LB_WCLK,
++	ZX_CLK_TIMER_LC_PCLK,
++	ZX_CLK_TIMER_LC_WCLK,
++	ZX_CLK_UART2_PCLK,
++	ZX_CLK_UART2_WCLK,
++	ZX_CLK_WDT_LE_PCLK,
++	ZX_CLK_WDT_LE_WCLK,
++	ZX_CLK_TIMER_LF_PCLK,
++	ZX_CLK_TIMER_LF_WCLK,
++	ZX_CLK_SPI1_PCLK,
++	ZX_CLK_SPI1_WCLK,
++	ZX_CLK_TIMER_L11_PCLK,
++	ZX_CLK_TIMER_L11_WCLK,
++	ZX_CLK_TDM_PCLK,
++	ZX_CLK_TDM_WCLK,
 +};
 +
-+struct zx_parent_desc {
-+	enum zx_parent_type		type;
-+	union {
-+		const char		*fw_name;
-+		unsigned int		id;
-+	};
++static const struct zx_parent_desc timer_lsp_sel[] = {
++	PARENT_FW("osc32k"),
++	PARENT_FW("osc26m"),
 +};
 +
-+#define PARENT_FW(_name) { .type = ZX_PARENT_FW, .fw_name = (_name) }
-+
-+#define PARENT_ID(_id) { .type = ZX_PARENT_ID, .id = (_id) }
-+
-+static inline struct clk_parent_data zx_get_parent(const struct zx_parent_desc *p,
-+						   struct clk_hw * const *clocks)
-+{
-+	struct clk_parent_data ret = {};
-+
-+	switch (p->type) {
-+	case ZX_PARENT_FW:
-+		ret.fw_name = p->fw_name;
-+		ret.index = -1;
-+		return ret;
-+
-+	case ZX_PARENT_ID:
-+		ret.hw = clocks[p->id];
-+		ret.index = -1;
-+		return ret;
-+	}
-+
-+	WARN_ON_ONCE(1);
-+	return ret;
-+}
-+
-+struct zx_pll_desc {
-+	const char			*name;
-+	const struct zx_parent_desc	*parents;
-+	unsigned int			num_parents;
-+	unsigned long			rate;
-+	u16				reg;
-+	u16				flags;
++static const struct zx_parent_desc uart_lsp_sel[] = {
++	PARENT_FW("osc26m"),
++	PARENT_FW("mpll-d6"),
 +};
 +
-+struct zx_fixed_divider_desc {
-+	const char			*name;
-+	struct zx_parent_desc		parent;
-+	unsigned int			div;
++static const struct zx_parent_desc i2s_lsp_sel[] = {
++	PARENT_FW("osc26m"),
++	PARENT_FW("dpll-d4"),
++	PARENT_FW("mpll-d6"),
++	/* Unknown */
 +};
 +
-+struct zx_mux_desc {
-+	const char			*name;
-+	const struct zx_parent_desc	*parents;
-+	unsigned int			num_parents;
-+	u16				reg;
-+	u8				shift, size;
++static const struct zx_parent_desc spi_lsp_sel[] = {
++	PARENT_FW("osc26m"),
++	PARENT_FW("mpll-d4"),
++	PARENT_FW("mpll-d6"),
++	/* Unknown */
 +};
 +
-+struct zx_div_desc {
-+	const char			*name;
-+	struct zx_parent_desc		parent;
-+	u16				reg;
-+	u8				shift, size;
++static const struct zx_parent_desc qspi_lsp_sel[] = {
++	PARENT_FW("osc26m"),
++	PARENT_FW("mpll-d4"),
++	PARENT_FW("mpll-d5"),
++	PARENT_FW("mpll-d6"),
++	PARENT_FW("mpll-d8"),
++	PARENT_FW("mpll-d12"),
++	PARENT_FW("osc26m"),
++	PARENT_FW("osc26m"),
 +};
 +
-+struct zx_gate_desc {
-+	const char			*name;
-+	struct zx_parent_desc		parent;
-+	unsigned long			flags;
-+	u16				reg;
-+	u8				shift;
++static const struct zx_clock zx297520v3_lsp_clocks[] = {
++	[ZX_CLK_TIMER_L1_MUX]     = MUX("timer-l1-mux",   timer_lsp_sel,    0x04,  4, 1),
++	[ZX_CLK_WDT_L2_MUX]       = MUX("wdt-l2-mux",     timer_lsp_sel,    0x08,  4, 1),
++	[ZX_CLK_WDT_L3_MUX]       = MUX("wdt-l3-mux",     timer_lsp_sel,    0x0c,  4, 1),
++	/* PWM: No mux bit can be set */
++	[ZX_CLK_I2S0_MUX]         = MUX("i2s0-mux",       i2s_lsp_sel,      0x14,  4, 2),
++	/* 0x18: Always 0 */
++	[ZX_CLK_I2S1_MUX]         = MUX("i2s1-mux",       i2s_lsp_sel,      0x1c,  4, 2),
++	/* 0x20: Always 0 */
++	[ZX_CLK_QSPI_MUX]         = MUX("qspi-mux",       qspi_lsp_sel,     0x24,  4, 3),
++	[ZX_CLK_UART1_MUX]        = MUX("uart1-mux",      uart_lsp_sel,     0x28,  4, 1),
++	[ZX_CLK_I2C1_MUX]         = MUX("i2c1-mux",       uart_lsp_sel,     0x2c,  4, 1),
++	[ZX_CLK_SPI0_MUX]         = MUX("spi0-mux",       spi_lsp_sel,      0x30,  4, 2),
++	[ZX_CLK_TIMER_LB_MUX]     = MUX("timer-lb-mux",   timer_lsp_sel,    0x34,  4, 1),
++	[ZX_CLK_TIMER_LC_MUX]     = MUX("timer-lc-mux",   timer_lsp_sel,    0x38,  4, 1),
++	[ZX_CLK_UART2_MUX]        = MUX("uart2-mux",      uart_lsp_sel,     0x3c,  4, 1),
++	[ZX_CLK_WDT_LE_MUX]       = MUX("wdt-le-mux",     timer_lsp_sel,    0x40,  4, 1),
++	[ZX_CLK_TIMER_LF_MUX]     = MUX("timer-lf-mux",   timer_lsp_sel,    0x44,  4, 1),
++	[ZX_CLK_SPI1_MUX]         = MUX("spi1-mux",       spi_lsp_sel,      0x48,  4, 2),
++	[ZX_CLK_TIMER_L11_MUX]    = MUX("timer-l11-mux",  timer_lsp_sel,    0x4c,  4, 1),
++	/* TDM: No mux in LSP. Instead, it is in matrix with a separate clk line to LSP */
++
++	[ZX_CLK_TIMER_L1_DIV]     = DIV("timer-l1-div", PARENT_ID(ZX_CLK_TIMER_L1_MUX),
++					0x04, 12, 4),
++	[ZX_CLK_WDT_L2_DIV]       = DIV("wdt-l2-div", PARENT_ID(ZX_CLK_WDT_L2_MUX), 0x08, 12, 4),
++	[ZX_CLK_WDT_L3_DIV]       = DIV("wdt-l3-div", PARENT_ID(ZX_CLK_WDT_L3_MUX), 0x0c, 12, 4),
++	/* PWM: No div */
++	[ZX_CLK_I2S0_DIV]         = DIV("i2s0-div", PARENT_ID(ZX_CLK_I2S0_MUX), 0x14, 16, 4),
++	/* 0x18: Always 0 */
++	[ZX_CLK_I2S1_DIV]         = DIV("i2s1-div", PARENT_ID(ZX_CLK_I2S1_MUX), 0x1c, 16, 4),
++	/* 0x20: Always 0 */
++	/* qspi, uart1, i2c1: No div */
++	[ZX_CLK_SPI0_DIV]         = DIV("spi0-div", PARENT_ID(ZX_CLK_SPI0_MUX), 0x30, 12, 4),
++	[ZX_CLK_TIMER_LB_DIV]     = DIV("timer-lb-div", PARENT_ID(ZX_CLK_TIMER_LB_MUX),
++					0x34, 12, 4),
++	[ZX_CLK_TIMER_LC_DIV]     = DIV("timer-lc-div", PARENT_ID(ZX_CLK_TIMER_LC_MUX),
++					0x38, 12, 4),
++	/* uart2: No div */
++	[ZX_CLK_WDT_LE_DIV]       = DIV("wdt-le-div", PARENT_ID(ZX_CLK_WDT_LE_MUX), 0x40, 12, 4),
++	[ZX_CLK_TIMER_LF_DIV]     = DIV("timer-lf-div", PARENT_ID(ZX_CLK_TIMER_LF_MUX),
++					0x44, 12, 4),
++	[ZX_CLK_SPI1_DIV]         = DIV("spi1-div", PARENT_ID(ZX_CLK_SPI1_MUX), 0x48, 12, 4),
++	[ZX_CLK_TIMER_L11_DIV]    = DIV("timer-l11-div", PARENT_ID(ZX_CLK_TIMER_L11_MUX),
++					0x4c, 12, 4),
++	[ZX_CLK_TDM_DIV]        = DIV("tdm-div", PARENT_FW("tdm-wclk"), 0x50, 16, 4),
++
++	[ZX_CLK_TIMER_L1_PCLK]  = GATE("timer-l1-pclk", PARENT_FW("pclk"), 0x04, 0, 0),
++	[ZX_CLK_TIMER_L1_WCLK]  = GATE("timer-l1-wclk", PARENT_ID(ZX_CLK_TIMER_L1_DIV), 0x04, 1, 0),
++	[ZX_CLK_WDT_L2_PCLK]    = GATE("wdt-l2-pclk", PARENT_FW("pclk"), 0x08, 0, 0),
++	[ZX_CLK_WDT_L2_WCLK]    = GATE("wdt-l2-wclk", PARENT_ID(ZX_CLK_WDT_L2_DIV), 0x08, 1, 0),
++	[ZX_CLK_WDT_L3_PCLK]    = GATE("wdt-l3-pclk", PARENT_FW("pclk"), 0x0c, 0, 0),
++	[ZX_CLK_WDT_L3_WCLK]    = GATE("wdt-l3-wclk", PARENT_ID(ZX_CLK_WDT_L3_DIV), 0x0c, 1, 0),
++	[ZX_CLK_PWM_PCLK]       = GATE("pwm-pclk", PARENT_FW("pclk"), 0x10, 0, 0),
++	[ZX_CLK_PWM_WCLK]       = GATE("pwm-wclk", PARENT_FW("mpll-d6"), 0x10, 1, 0),
++	[ZX_CLK_I2S0_PCLK]      = GATE("i2s0-pclk", PARENT_FW("pclk"), 0x14, 0, 0),
++	[ZX_CLK_I2S0_WCLK]      = GATE("i2s0-wclk", PARENT_ID(ZX_CLK_I2S0_DIV), 0x14, 1, 0),
++	/* 0x18: Always 0 */
++	[ZX_CLK_I2S1_PCLK]      = GATE("i2s1-pclk", PARENT_FW("pclk"), 0x1c, 0, 0),
++	[ZX_CLK_I2S1_WCLK]      = GATE("i2s1-wclk", PARENT_ID(ZX_CLK_I2S1_DIV), 0x1c, 1, 0),
++	/* 0x20: Always 0 */
++	[ZX_CLK_QSPI_PCLK]      = GATE("qspi-pclk", PARENT_FW("pclk"), 0x24, 0, 0),
++	[ZX_CLK_QSPI_WCLK]      = GATE("qspi-wclk", PARENT_ID(ZX_CLK_QSPI_MUX), 0x24, 1, 0),
++	[ZX_CLK_UART1_PCLK]     = GATE("uart1-pclk", PARENT_FW("pclk"), 0x28, 0, 0),
++	[ZX_CLK_UART1_WCLK]     = GATE("uart1-wclk", PARENT_ID(ZX_CLK_UART1_MUX), 0x28, 1, 0),
++	[ZX_CLK_I2C1_PCLK]      = GATE("i2c1-pclk", PARENT_FW("pclk"), 0x2c, 0, 0),
++	[ZX_CLK_I2C1_WCLK]      = GATE("i2c1-wclk", PARENT_ID(ZX_CLK_I2C1_MUX), 0x2c, 1, 0),
++	[ZX_CLK_SPI0_PCLK]      = GATE("spi0-pclk", PARENT_FW("pclk"), 0x30, 0, 0),
++	[ZX_CLK_SPI0_WCLK]      = GATE("spi0-wclk", PARENT_ID(ZX_CLK_SPI0_DIV), 0x30, 1, 0),
++	[ZX_CLK_TIMER_LB_PCLK]  = GATE("timer-lb-pclk", PARENT_FW("pclk"), 0x34, 0, 0),
++	[ZX_CLK_TIMER_LB_WCLK]  = GATE("timer-lb-wclk", PARENT_ID(ZX_CLK_TIMER_LB_DIV), 0x34, 1, 0),
++	[ZX_CLK_TIMER_LC_PCLK]  = GATE("timer-lc-pclk", PARENT_FW("pclk"), 0x38, 0, 0),
++	[ZX_CLK_TIMER_LC_WCLK]  = GATE("timer-lc-wclk", PARENT_ID(ZX_CLK_TIMER_LC_DIV), 0x38, 1, 0),
++	[ZX_CLK_UART2_PCLK]     = GATE("uart2-pclk", PARENT_FW("pclk"), 0x3c, 0, 0),
++	[ZX_CLK_UART2_WCLK]     = GATE("uart2-wclk", PARENT_ID(ZX_CLK_UART2_MUX), 0x3c, 1, 0),
++	[ZX_CLK_WDT_LE_PCLK]    = GATE("wdt-le-pclk", PARENT_FW("pclk"), 0x40, 0, 0),
++	[ZX_CLK_WDT_LE_WCLK]    = GATE("wdt-le-wclk", PARENT_ID(ZX_CLK_WDT_LE_DIV), 0x40, 1, 0),
++	[ZX_CLK_TIMER_LF_PCLK]  = GATE("timer-lf-pclk", PARENT_FW("pclk"), 0x44, 0, 0),
++	[ZX_CLK_TIMER_LF_WCLK]  = GATE("timer-lf-wclk", PARENT_ID(ZX_CLK_TIMER_LF_DIV), 0x44, 1, 0),
++	[ZX_CLK_SPI1_PCLK]      = GATE("spi1-pclk", PARENT_FW("pclk"), 0x48, 0, 0),
++	[ZX_CLK_SPI1_WCLK]      = GATE("spi1-wclk", PARENT_ID(ZX_CLK_SPI1_DIV), 0x48, 1, 0),
++	[ZX_CLK_TIMER_L11_PCLK] = GATE("timer-l11-pclk", PARENT_FW("pclk"), 0x4c, 0, 0),
++	[ZX_CLK_TIMER_L11_WCLK] = GATE("timer-l11-wclk", PARENT_ID(ZX_CLK_TIMER_L11_DIV),
++				       0x4c, 1, 0),
++	[ZX_CLK_TDM_PCLK]       = GATE("tdm-pclk", PARENT_FW("pclk"), 0x50, 0, 0),
++	[ZX_CLK_TDM_WCLK]       = GATE("tdm-wclk", PARENT_ID(ZX_CLK_TDM_DIV), 0x50, 1, 0),
 +};
 +
-+enum zx_clock_type {
-+	ZX_CLOCK_INVALID = 0,
-+	ZX_CLOCK_PLL,
-+	ZX_CLOCK_FIXED_DIV,
-+	ZX_CLOCK_MUX,
-+	ZX_CLOCK_DIV,
-+	ZX_CLOCK_GATE,
++static const unsigned int zx297520v3_lsp_exports[] = {
++	[ZX297520V3_TIMER_L1_WCLK] =	ZX_CLK_TIMER_L1_WCLK,
++	[ZX297520V3_TIMER_L1_PCLK] =	ZX_CLK_TIMER_L1_PCLK,
++	[ZX297520V3_WDT_L2_WCLK] =	ZX_CLK_WDT_L2_WCLK,
++	[ZX297520V3_WDT_L2_PCLK] =	ZX_CLK_WDT_L2_PCLK,
++	[ZX297520V3_WDT_L3_WCLK] =	ZX_CLK_WDT_L3_WCLK,
++	[ZX297520V3_WDT_L3_PCLK] =	ZX_CLK_WDT_L3_PCLK,
++	[ZX297520V3_PWM_WCLK] =		ZX_CLK_PWM_WCLK,
++	[ZX297520V3_PWM_PCLK] =		ZX_CLK_PWM_PCLK,
++	[ZX297520V3_I2S0_WCLK] =	ZX_CLK_I2S0_WCLK,
++	[ZX297520V3_I2S0_PCLK] =	ZX_CLK_I2S0_PCLK,
++	[ZX297520V3_I2S1_WCLK] =	ZX_CLK_I2S1_WCLK,
++	[ZX297520V3_I2S1_PCLK] =	ZX_CLK_I2S1_PCLK,
++	[ZX297520V3_QSPI_WCLK] =	ZX_CLK_QSPI_WCLK,
++	[ZX297520V3_QSPI_PCLK] =	ZX_CLK_QSPI_PCLK,
++	[ZX297520V3_UART1_WCLK] =	ZX_CLK_UART1_WCLK,
++	[ZX297520V3_UART1_PCLK] =	ZX_CLK_UART1_PCLK,
++	[ZX297520V3_I2C1_WCLK] =	ZX_CLK_I2C1_WCLK,
++	[ZX297520V3_I2C1_PCLK] =	ZX_CLK_I2C1_PCLK,
++	[ZX297520V3_SPI0_WCLK] =	ZX_CLK_SPI0_WCLK,
++	[ZX297520V3_SPI0_PCLK] =	ZX_CLK_SPI0_PCLK,
++	[ZX297520V3_TIMER_LB_WCLK] =	ZX_CLK_TIMER_LB_WCLK,
++	[ZX297520V3_TIMER_LB_PCLK] =	ZX_CLK_TIMER_LB_PCLK,
++	[ZX297520V3_TIMER_LC_WCLK] =	ZX_CLK_TIMER_LC_WCLK,
++	[ZX297520V3_TIMER_LC_PCLK] =	ZX_CLK_TIMER_LC_PCLK,
++	[ZX297520V3_UART2_WCLK] =	ZX_CLK_UART2_WCLK,
++	[ZX297520V3_UART2_PCLK] =	ZX_CLK_UART2_PCLK,
++	[ZX297520V3_WDT_LE_WCLK] =	ZX_CLK_WDT_LE_WCLK,
++	[ZX297520V3_WDT_LE_PCLK] =	ZX_CLK_WDT_LE_PCLK,
++	[ZX297520V3_TIMER_LF_WCLK] =	ZX_CLK_TIMER_LF_WCLK,
++	[ZX297520V3_TIMER_LF_PCLK] =	ZX_CLK_TIMER_LF_PCLK,
++	[ZX297520V3_SPI1_WCLK] =	ZX_CLK_SPI1_WCLK,
++	[ZX297520V3_SPI1_PCLK] =	ZX_CLK_SPI1_PCLK,
++	[ZX297520V3_TIMER_L11_WCLK] =	ZX_CLK_TIMER_L11_WCLK,
++	[ZX297520V3_TIMER_L11_PCLK] =	ZX_CLK_TIMER_L11_PCLK,
++	[ZX297520V3_TDM_WCLK] =		ZX_CLK_TDM_WCLK,
++	[ZX297520V3_TDM_PCLK] =		ZX_CLK_TDM_PCLK,
 +};
 +
-+struct zx_clock {
-+	enum zx_clock_type type;
-+	union {
-+		struct zx_pll_desc pll;
-+		struct zx_fixed_divider_desc fixed_div;
-+		struct zx_mux_desc mux;
-+		struct zx_div_desc div;
-+		struct zx_gate_desc gate;
-+	};
++static const struct zx_clk_data zx297520v3_lspclk_data = {
++	.clocks = zx297520v3_lsp_clocks,
++	.num_clocks = ARRAY_SIZE(zx297520v3_lsp_clocks),
++	.exports = zx297520v3_lsp_exports,
++	.num_exports = ARRAY_SIZE(zx297520v3_lsp_exports),
 +};
 +
-+struct clk_hw *zx_clk_register_pll(struct device *dev, struct regmap *regmap,
-+				   const struct zx_pll_desc *desc,
-+				   struct clk_hw * const *clocks);
-+struct clk_hw *zx_clk_register_mux(struct device *dev, struct regmap *regmap,
-+				   const struct zx_mux_desc *desc,
-+				   struct clk_hw * const *clocks);
-+struct clk_hw *zx_clk_register_divider(struct device *dev, struct regmap *regmap,
-+				       const struct zx_div_desc *desc,
-+				       struct clk_hw * const *clocks);
-+struct clk_hw *zx_clk_register_gate(struct device *dev, struct regmap *regmap,
-+				    const struct zx_gate_desc *desc,
-+				    struct clk_hw * const *clocks);
-+
-+struct zx_clk_data {
-+	int (*init)(struct regmap *map);
-+	const struct zx_clock *clocks;
-+	unsigned int num_clocks;
-+	const unsigned int *exports;
-+	unsigned int num_exports;
-+};
-+
-+int zx_clk_common_probe(struct device *dev, struct device_node *of_node,
-+			const struct zx_clk_data *data);
-+
-+#endif /* __DRV_CLK_ZX_H */
-diff --git a/drivers/clk/zte/pll-zx.c b/drivers/clk/zte/pll-zx.c
-new file mode 100644
-index 000000000000..fc76c6524a16
---- /dev/null
-+++ b/drivers/clk/zte/pll-zx.c
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Stefan Dösinger
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/errno.h>
-+#include <linux/regmap.h>
-+
-+#include "clk-zx.h"
-+
-+struct clk_hw *zx_clk_register_pll(struct device *dev, struct regmap *regmap,
-+				   const struct zx_pll_desc *desc,
-+				   struct clk_hw * const *clocks)
-+{
-+	return ERR_PTR(-ENODEV);
-+}
+ static int clk_zx297520v3_probe(struct platform_device *pdev)
+ {
+ 	const struct platform_device_id *id = platform_get_device_id(pdev);
+@@ -1353,6 +1634,10 @@ static const struct platform_device_id clk_zx297520v3_ids[] = {
+ 		.name = "zx297520v3-matrixclk",
+ 		.driver_data = (kernel_ulong_t)&zx297520v3_matrixclk_data,
+ 	},
++	{
++		.name = "zx297520v3-lspclk",
++		.driver_data = (kernel_ulong_t)&zx297520v3_lspclk_data,
++	},
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(platform, clk_zx297520v3_ids);
 
 -- 
 2.55.0
