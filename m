@@ -4,82 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74952C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C34C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7q0qqqJnTCoZ+0yWGua74Jg4GmWW3lH6BFFaZ7C7e+I=; b=UX/94QaXhFmR+kAQIHd0bBbTIJ
-	vhnO48ytiJ46BUMQaF2qRcs4dcXXrdir/pGnfpG99Ekuk6FMSbpwgqQ1Lo+Pe0zqL9NvLESjcMeQw
-	naZjXZxuZCxBXL+XDJGKnhdFczqmvLUH/jxxU3pY/yJ6ju9ZpzLAh4Rm02ri+Rj9kAm7bcEjaRgwX
-	qTPW50FIfPO6fCWJVdMZaZajHGjfTi8vxe48fN081i4jTeO7KuHttVODuTk0hyd8l5J+S2vf7Pz0/
-	zh0iV5D9GNEcaqZSFuRCc/nSVrWfVLUNJVsNCyhTxMpgG43fFshl5B4We2ioSGm1GG2Mpw4bB+Ett
-	TzFvWl7Q==;
+	bh=GohInIqirjYYa/duetd2rVvAUWin9LORinG9jEAHnng=; b=guNwIxxY0B+oWH3osIgSpwxoII
+	0kqYelE4yj8vZFK4GmL/c/3WEMds8KroL/xOUQLUcvdWGOqMwXnMMvHaD6jd7yPfiKAig2aFSZ4f+
+	aRY0OH5a4uyesIeZnCXsZcWeTijfMQOjxQvilTbNTSUMW0HgonDUqxJPirBmw2UN0QevKwDyIMIm9
+	0uHTIROJK2us3b9C1qRhTAdhViz4TN3PNreX6NIk9IJq4JHu6agpIZ+cMKXfv71jzYZe8trs29PD7
+	i7wl9ZICkoKsxjZlo31PiRk3zFHx97GQlaqdma16+kWgt4E4okP3yJvoM9kEI/n+2bbJ55XJb/NIj
+	zZhl5VjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TJz-00000009PJh-1Yik;
-	Wed, 23 Sep 2026 20:12:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1x9TKR-00000009POs-29th;
+	Wed, 23 Sep 2026 20:12:31 +0000
+Received: from mail-eastusazon11012069.outbound.protection.outlook.com ([52.101.53.69] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TJx-00000009PJH-0Aeh
+	id 1x9TKP-00000009PO1-0rbn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790194320; x=1821730320;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xjbIiGtnPGGNdB7Cp4RtxhvrfWalzWVLJYOsERWZ//k=;
-  b=V3fk2OlOGlzZh4UCBuF7tjhx/0ES7DZggODkTDghZikAlnCY5pKslJrJ
-   5VrOG0CsUI5qh9phTMb6jX00EbBgKAghBPW2do1ivOHAMfRPpPxx3MiLZ
-   HSToLBGGdcOMTN96PXomV0/POTY8mqjLlGQCA/erFftM0POXfe7TGQAFG
-   OS5/tc7lFpjsutIZpEliOM2QeRi0utJUkqMXklqhe3u4MtY9iRctg6ZOH
-   ZDJfIF5083v1p6bDxMNxJKCYSjBX/adh0T1XHRZrL+pvPTSWkyMFUpjy6
-   UI9KOM5TRydHVAq64qK2h3yKRYarzzYCVjrhqZnKQwrEcAATHb5R2R0os
-   A==;
-X-CSE-ConnectionGUID: c8w4xk0VQIK9kL7RzabfGg==
-X-CSE-MsgGUID: PlFzdfUORdq11vQkFWPh5g==
-X-IronPort-AV: E=Sophos;i="6.27,119,1787036400"; 
-   d="scan'208";a="74202281"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 13:12:00 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Wed, 23 Sep 2026 13:11:59 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 23 Sep 2026 13:11:55 -0700
-Date: Wed, 23 Sep 2026 22:11:55 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Simon Horman <horms@kernel.org>
-CC: <netdev-bot+sashiko@kernel.org>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
-	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
-	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v7 10/14] net: lan966x: add PCIe FDMA support
-Message-ID: <20260923201155.lbbbtx22adz2ilhg@DEN-DL-M70577.microsemi.net>
-References: <20260918-lan966x-pci-fdma-v7-10-0ecc179c8a2c@microchip.com>
- <179008205148.2160803.12818321368571406375@kernel.org>
- <20260923084538.wgkw2nt5ergoxcot@DEN-DL-M70577>
- <20260923180730.GV13925@horms.kernel.org>
+	Wed, 23 Sep 2026 20:12:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=omWjrhq1CeNHUWoWj8BI7Gvuh7ccHuZMhPS+ibdhmDnainOpNWGSuFy3shNkcyz8JkP5Jozd3ylpllef19jM+t07w4Mpn1iHbDjwo6B1/sbF3wOzBnfL0e8vZzZGcbEShLKPsKFbYLf1bM5rQj7fI2GPhiTf7LkAIf5xODkQmWEyPaiCdO1LIOK12C1r1bOo2IEYV7INYGyRbmEe89UdiJjxvpbB/R+Nn+9EM2BQPz28h/yBoHTYVvbd33pvRbuIqDZ+vUkoWx8wYE/qAINQpd4cIhZUqqrSkQf0pStNT+tqiEFZh+2hS+FlLEb+RYUY9GuOx2SRVaWAQ4RDuRpXaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GohInIqirjYYa/duetd2rVvAUWin9LORinG9jEAHnng=;
+ b=Km0IlXhP6pPkMNki5yqUzi5G5mDRc3Wx+WdNvaTjObxYi+VZC6wl8ln6wjOj4/34pCLARUQRloyG2Kd/l6SLNOXXIyiDFZxtt3khfVr9Kx2uJtDppfuAyC21lIKeHveApIYZz0zJLo4MjCtfsrgHtQtnY4ySvZqJGltdhx2cyD6tykq/IADWZ1A1Jlcih3Cs4AsLCCVlU6jcIVHyuaQVWRQ7ktrk9xVYBlq6D3JDl+wcf5BZ94+p1eUGELESnpRHdVAeYaDyLgayPEwm3IfjTumTP0WDuVkTh5nl/HaeD0rQZUI6NRvso1VaFZEPM7Xy4W+GbM/pIUkrNB/f4LeoWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GohInIqirjYYa/duetd2rVvAUWin9LORinG9jEAHnng=;
+ b=QOROB0pnSf9efjCsKPazJmd/2osZTpSPNJvllwLyw8B+1Y6RQAb1gCcEbZVSiBLMeZqBBCafTJc7/00b48kFP0fBhMkJum6diIUVYymgbtBaqT1fx8OtX5+l9bdCxPT+duGJ0+iZOfeyNcUc3Iww1P4haTxFyhpLDmxDk7Cz/YXW83lM9tBAQYOEvv9HzXv5ScUbTp4JaWdqMjqL2e6Jj0CQsu9Y5ej/yn5+Xj772p+1LHx93BqNDaTkbPZVaGhjFYpaf1YoM6dERCtaKN+50fjc3fvl58lVhQdp8mUoT85kJ5UQyIOtU1k3EyvpoUcTyRr9IpVaZhtvTWQ3kmsZoA==
+Received: from MW4PR03CA0232.namprd03.prod.outlook.com (2603:10b6:303:b9::27)
+ by LV5PR12MB9756.namprd12.prod.outlook.com (2603:10b6:408:2fd::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
+ 2026 20:12:22 +0000
+Received: from CO1PEPF00012E64.namprd05.prod.outlook.com
+ (2603:10b6:303:b9:cafe::77) by MW4PR03CA0232.outlook.office365.com
+ (2603:10b6:303:b9::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.16 via Frontend Transport; Wed,
+ 23 Sep 2026 20:12:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CO1PEPF00012E64.mail.protection.outlook.com (10.167.249.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 20:12:21 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
+ 2026 13:11:53 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
+ 2026 13:11:53 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.49 via Frontend
+ Transport; Wed, 23 Sep 2026 13:11:52 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
+ Gunthorpe" <jgg@nvidia.com>
+CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <linux-cxl@vger.kernel.org>,
+	<vsethi@nvidia.com>, Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: [PATCH v6 02/17] PCI/CXL: Probe the underlying bus reset in cxl_reset_bus_function()
+Date: Wed, 23 Sep 2026 13:11:21 -0700
+Message-ID: <a05695c1dcb0682425bad7b8387cd24ad71e2d9d.1790188510.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1790188510.git.nicolinc@nvidia.com>
+References: <cover.1790188510.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260923180730.GV13925@horms.kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E64:EE_|LV5PR12MB9756:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95044287-51ab-4ea6-a223-08df19aefa18
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|376014|82310400026|1800799024|18002099003|22082099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: r4kQjJUfcwdcvApxlrCvdgaAhdbVSy5Y4a/PPyHGSFTL7vNmt1s0BFl31H6dHw7pVHDecsUSUgBvQWXH9rObCZGiITQrLeHYvoAnBKZecRTieJFz9b4cNNXzTVOyeW/GnDPhuee7sx3QStqVZrkH5qAE0khN5ealVxupDmg87JgKIRYO/ikq8WUjonMZRZLPxUlSip3WrS+6kgIbA5MQFV6dnUAon9lLA5qrqqiX1Wkggah2aGetm3F//YbHKToD//aujhBfjrrYWqAI4Zx1Y0zXA3V4cHFHMDzsTXpOUNIFIDu7Um68rzy0ShoW+yPk8eq3HIyLzQ8H4UEz3xIgdUv1eCiNEQwFPXob6M2Hl9pepZjLz1nexd1SDtx2UU+fIZjBMuyUDcYEmKk9+ndLPzh/sXH8wBsnT0YWEMJMhBpU2+gdlN34V0wiaGjjCUpUm8lr7zwJKEmn5YOorUErTHOuwe1KH1ZJEttrf1SSYb2CR7fjidHFmcqPnB+p9PP7vVmz1uKus8xGdPAfHY77UkyM9Fl4za/UZcKXd6AjMsKEQWdnAUjefTF8OFdOGV9G6rDfvIy3HZRpTfDD6RtL8s2tObo1an6RrCSxTUDFkz4WolC7U/UIEZAIq4EWX0rOVVib74E3zUhKzMiv/79iTIe78la3K6nVh2oDl/BZmVmmckKbcf4fWPVDBRNEJDhd
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(376014)(82310400026)(1800799024)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: DSZJO0cEFib6zJkz2Xsosiga6+6Bzq6K/8u3nyxt2gXeXYpkoHS7bMz600r55kznc7gdUWo4EQ7bLDSNBHvpynulf/1e/O41Oym4tJFiefnZo7uQWhNDRQOLcvz209117V0HQpMwJp7Pzd+JKT0587JTY9BLeUu1gvdVB6IgoRZ0YpANbKuxDprPtQbnBQTR1cdjMH8wK2OObXQhQAqqPJwEwaxAOWjE/e49CI4HJ/B6PDny55yxC7KDncjCXGJ2n4LmnHkxJ+Z3360Vr/uWcd07ZZ4OPLIecn3wPxu2lNShyvmEmD/WWgsGUGxCpurj/WxaEhalscE5sr6VA0/pWspAwdG2uXpxmnJ2NSCNUjqRVJWzlpAOPmPQIHuwVTtIGjdWPLIUeYHgT2VcZ4VxAjdvilW+1lbqKdisQbIEW696oTEcn0kJIgfWpaj1f9JF
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 20:12:21.9730
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95044287-51ab-4ea6-a223-08df19aefa18
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E64.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR12MB9756
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_131201_091870_C0B7A27E 
-X-CRM114-Status: GOOD (  39.42  )
+X-CRM114-CacheID: sfid-20260923_131229_251822_08C3DC17 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,95 +133,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Sep 23, 2026 at 10:45:38AM +0200, Daniel Machon wrote:
-> 
-> ...
-> 
-> > > [Severity: Medium]
-> > > Is this path expected to work on a big-endian host?
-> > >
-> > > Until now the descriptor producer and the FDMA engine were both on the
-> > > little-endian SoC, so the native-endian descriptor layout in
-> > > drivers/net/ethernet/microchip/fdma/fdma_api.h was fine:
-> > >
-> > >   struct fdma_db {
-> > >         u64 dataptr;
-> > >         u64 status;
-> > >   };
-> > >
-> > >   struct fdma_dcb {
-> > >         u64 nextptr;
-> > >         u64 info;
-> > >         struct fdma_db db[FDMA_DB_MAX];
-> > >   };
-> > >
-> > > With PCIe FDMA the descriptors live in host memory and are fetched by the
-> > > endpoint, so the host and the engine can disagree on byte order. The
-> > > translated addresses written here, and the status/info words written by
-> > > __fdma_db_add()/__fdma_dcb_add(), all go out in host byte order, and the
-> > > HW-written DONE/BLOCKL fields are read back the same way in
-> > > lan966x_fdma_pci_get_next_dcb() and lan966x_fdma_pci_rx_check_frame().
-> > >
-> > > CONFIG_MCHP_LAN966X_PCI in drivers/misc/Kconfig only has
-> > >
-> > >   depends on PCI
-> > >   depends on OF_OVERLAY
-> > >
-> > > so a big-endian host (e.g. powerpc) can select it. On such a host, would
-> > > the engine see byte-swapped nextptr/dataptr and length fields, i.e. would
-> > > RX/TX not work at all? Should the descriptor fields become explicit
-> > > little-endian types with accessors at the hardware boundary, or should the
-> > > Kconfig entry gain a little-endian dependency?
-> >
-> > Hmm. Never tested on PowerPC, not this driver nor the DT overlay mechanism it
-> > relies on for PCI deployment, which has only been exercised on ARM and x86 so
-> > far (AFAICT) [1].
-> >
-> > [1] https://lore.kernel.org/all/20240430183301.46568e35@bootlin.com/
-> 
-> I don't think that the baseline expectation is that drivers are tested
-> on big-endian systems, but rather that reasonable effort is made to ensure
-> that byte-order usage is correct.
-> 
-> In this case I suggest that will involve using __le64 instead of u64,
-> coupled with calling le64_to_cpu() and cpu_to_le64() as appropriate.
-> 
-> Sparse can aid with getting this right.
+cxl_reset_bus_function() reports "supported" to a probe after checking only
+that the upstream bridge carries a CXL port DVSEC. The underlying bus reset
+can still be unavailable, e.g. on a bus shared with other devices, so both
+the reset_methods[] array and the reset_method sysfs node end up listing a
+"cxl_bus" that is guaranteed to fail with -ENOTTY when it is attempted.
 
-Ack.
+Probe the underlying pci_dev_reset_slot_function() and then, if it is not
+applicable, pci_parent_bus_reset(). These are the same two checks that the
+actual reset runs, so a shared-bus CXL device no longer advertises a method
+that can never succeed.
 
-I am a little reluctant, when I cant really test it properly. Sashiko gives
-another solution - adding a LE dependency to the Kconfig of the misc PCI driver,
-maybe that'll do?
+Probing via pci_reset_bus_function() would not work: its cxl_sbr_masked()
+check rejects every CXL port with a masked SBR, while the do-reset path in
+this function unmasks the SBR before resetting. Such a port would wrongly
+probe as unsupported.
 
-> 
-> ...
-> 
-> > > [Severity: Medium]
-> > > Is rx_bytes meant to count the frame as it arrived on the wire?
-> > >
-> > > By the time this runs, skb->len has already been reduced twice: the
-> > > skb_trim() above drops ETH_FCS_LEN, and eth_type_trans() pulls the
-> > > MAC header out of the linear region, so skb->len is short by at least
-> > > ETH_HLEN. If lan966x_hw_offload() ends up untagging a VLAN header,
-> > > that is another four bytes gone. So every packet delivered through
-> > > lan966x_fdma_pci_rx_get_frame() undercounts rx_bytes by 14 bytes or
-> > > more, which is visible to userspace via ip -s link.
-> > >
-> > > The frame length is available before any of that surgery happens --
-> > > data_len from FDMA_DCB_STATUS_BLOCKL(db->status), or skb->len right
-> > > after the skb_pull(skb, IFH_LEN_BYTES) -- so accounting could be done
-> > > there instead.
-> > >
-> > > I realise this mirrors what the existing register/page path in
-> > > lan966x_fdma.c does, so if the intent is to keep the two backends
-> > > byte-for-byte consistent, please say so; otherwise it would be good
-> > > not to copy the miscount into the new file.
-> >
-> > Not only lan966x, but sparx5 and lan969x does the exact same thing, increasing
-> > rx_bytes after headers are pulled.  The undercount is real, but not visible to
-> > userspace. Both implementations (platform and PCI) read hardware counters directly
-> 
-> I'm a little unsure, but if it's consistent then I guess that is ok.
-> It's an old interface anyway.
+Move the port control register read above the probe branch as well, so that
+probe runs the same checks. That read asserts no reset, and a failure means
+the device cannot be reset this way, which is a probe-time answer.
+
+Also pass an explicit PCI_RESET_DO_RESET at the do-reset call site, since
+probe is always false at that point.
+
+Fixes: 53c49b6e6dd2e ("PCI/CXL: Add 'cxl_bus' reset method for devices below CXL Ports")
+Assisted-by: LLM
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/pci/pci.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index 1eba412b7e0de..a6e0ecfd207a7 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -5029,13 +5029,21 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
+ 	if (!dvsec)
+ 		return -ENOTTY;
+ 
+-	if (probe)
+-		return 0;
+-
+ 	rc = pci_read_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL, &reg);
+ 	if (rc)
+ 		return -ENOTTY;
+ 
++	/*
++	 * Do not probe via pci_reset_bus_function(), which would reject a
++	 * masked SBR that the do-reset path below unmasks before resetting.
++	 */
++	if (probe) {
++		rc = pci_dev_reset_slot_function(dev, PCI_RESET_PROBE);
++		if (rc != -ENOTTY)
++			return rc;
++		return pci_parent_bus_reset(dev, PCI_RESET_PROBE);
++	}
++
+ 	rc = pci_dev_reset_iommu_prepare(dev);
+ 	if (rc) {
+ 		pci_err(dev, "failed to stop IOMMU for a PCI reset: %d\n", rc);
+@@ -5050,7 +5058,7 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
+ 				      val);
+ 	}
+ 
+-	rc = pci_reset_bus_function(dev, probe);
++	rc = pci_reset_bus_function(dev, PCI_RESET_DO_RESET);
+ 
+ 	if (reg != val)
+ 		pci_write_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL,
+-- 
+2.43.0
+
 
