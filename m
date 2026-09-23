@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BE1C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56638C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=woi6xHIfPsARY6TAraovKfAogTZcwZGDkQDkJXYsi7M=; b=LS1fqxvrzsxGQDJysU6h3lNBN1
-	5b4nivZVvm/d1SF6+Wc4RIIc7psRYKUjLhZ+Jl0HjXeuOjj9FEVXVbGepwjncEN9yVtQnM0QuvZ9C
-	N9yE2pTtkD2APMbWm74bWqNpkAJoVi289BR0Y7ZUCSYq5XRc2Ov4RTQR/iXi4/AkGsokAuJL5knIo
-	c0GoJExZMMtJ6K8G/Qhw5KFYACjNiyUHZLNLW3sSmRx6gYsAeD+gIfh9H5ZTzk239wMqOYKy99tEU
-	wHRb/r8bFIiYU7c8JP28NwKf/Z5jWSBKOON1/DUkaLd3Yf6sDCoAqH7S/li3zw2/adUljzJrSdP0F
-	mfdx/zvA==;
+	bh=Ctpe/eDRlFVbZnthdNX29MzI4lYShyW2hkRWR1MzG1k=; b=CR0FSG88Xv7i21ShW2g6Cw1ki/
+	NnL6nhySSjOm8N42G6ufBHfTFxVHwA8+ve3Me0lQczQ7829jKWcM7A299EX+iJfIF8t4SxsRin3+6
+	lYhjilOWTqvICToMm6hIh4i/3ho0PGkMfkZ4qmrRIndbQxubaBK5gkOyKjmnzh90TT5JbmQfpPcOv
+	CF/jW/TcAYL7ipIuYSkJnkrOQopHqv1J6mc5tfM54LwwjMx2vkQMSu0oxxELa2mV+xyuj6z+f3CQW
+	WWlX8oRWHTFMwn6aM2iwG9RG4ro+3FEeVx0xwam562EqYy0wIZZenMJXU37ix8foMcJfKH5N0v3MK
+	UKbOHe2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9NbN-00000008URj-1285;
-	Wed, 23 Sep 2026 14:05:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9Neg-00000008Ur0-2tqt;
+	Wed, 23 Sep 2026 14:09:02 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9NbL-00000008UQu-3ryg
+	id 1x9Nec-00000008UqR-2Ldi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 14:05:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5F6EF60210;
-	Wed, 23 Sep 2026 14:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 696381F00898;
-	Wed, 23 Sep 2026 14:05:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790172335;
-	bh=woi6xHIfPsARY6TAraovKfAogTZcwZGDkQDkJXYsi7M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HR6Q90vPfYQYUBbKLL/si7wucgPhWMcqErv9Tj3pv1VgVq1cTUokE+larAwdj46xE
-	 M2SWCuUcSFSRSK6e3PubTLFkrnkfI7DXa+Orr2/9WquTJODWOcY6kBJ1i9gNllRvKV
-	 NNHsR0nE07Nj1fSQd6zFvRl3CJH1bVsNwi1rpkA4W40iGVMerxL8i597mi+45zbvke
-	 uzCl9hSYGcQZjznFowvizfS+Pm8bW+xP4wfinbpGFyTVCjJnhrT7v96Pn/9cLyj6gv
-	 tZ3yzy++kqdrhbORi3EhyAXJEDznOaTQ62UYR265+65YrG/Xhq11tcxVkoIAlCO8/K
-	 Si0QUVv7nnkAA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: [PATCH v13 8/8] coco: guest: arm64: Remove dummy CCA platform device
-Date: Wed, 23 Sep 2026 19:34:05 +0530
-Message-ID: <20260923140405.1111554-9-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260923140405.1111554-1-aneesh.kumar@kernel.org>
-References: <20260923140405.1111554-1-aneesh.kumar@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Sep 2026 14:09:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790172521; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=F33g7b5uYY27Q/HKONhzqRoX1yUZngW8GLRy99QeATGs7iVLa6fXFXFp+bmphC2YZ65T2wOgeWVDVXReGszvhdESQBIL5SWn9E+vGgzhX2CosPnkLkv7VkczfP9OK/gmNuacDdKoXFF6KySJab3bDZH3rZotX5TdXPLalF6lCX4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790172521; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Ctpe/eDRlFVbZnthdNX29MzI4lYShyW2hkRWR1MzG1k=; 
+	b=HDaNTViRqXcfimQKW7Gkp/dOXuanyH9mP+muyqnjCYgnCZBesP4BiMPr2P2HTfhF7qrVlQig+rCWw7FBxG99AOtaHMD2WBq5duxApQHWIculYwFfaNw6RknZYMcfoKhuIjuhrjLMpPVqidyh1bCoQvsBVjzW5j9OBQaHii/LHAY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790172521;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:In-Reply-To:Reply-To;
+	bh=Ctpe/eDRlFVbZnthdNX29MzI4lYShyW2hkRWR1MzG1k=;
+	b=RK6rMu5if1UbA5uX8z+2XGVInBdJp5M94kYTk6BurTgShWL3qbYSj2gIirk1b0ym
+	X/12L8NCQvCdkpT2l2rmrnVAduQ69ZVSqtKoGEZG4du3SGql67Q6BS0oqWIs+YZKGqw
+	BgPEUD5zcFVmDoOgqslEaUVdTenyC8WmmpPTD+yU=
+Received: by smtp.zohomail.com with SMTPS id 1790172518026689.0899152113249;
+	Wed, 23 Sep 2026 07:08:38 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 23 Sep 2026 22:08:30 +0800
+Message-Id: <DLMR6Y4BCAEJ.1QOAOOJRGJIN5@pigmoral.tech>
+Cc: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Brian Masney"
+ <bmasney@redhat.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel
+ Holland" <samuel@sholland.org>, <linux-clk@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH RFT 0/2] clk: sunxi-ng: fix A523/T527 single-divider
+ clocks
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Enzo Adriano" <enzo.adriano.code@gmail.com>, <andre.przywara@arm.com>,
+ "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Chen-Yu Tsai" <wens@kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20260723004856.55158e84@ryzen.lan>
+ <20260812201502.264919-1-enzo.adriano.code@gmail.com>
+ <20260921200617.3180471-1-enzo.adriano.code@gmail.com>
+In-Reply-To: <20260921200617.3180471-1-enzo.adriano.code@gmail.com>
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_070859_822296_C8077D40 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SMCCC firmware driver now creates the arm_smccc bus and instantiates
-the CCA RSI device once the RSI ABI is discovered. The arm64-specific
-arm-cca-dev platform device stub is therefore no longer needed.
+Hi Enzo,
 
-Userspace now has /sys/firmware/cca/realm_guest as a dedicated CCA Realm
-guest indicator. Remove the dummy arm-cca-dev registration.
+On Tue Sep 22, 2026 at 4:06 AM CST, Enzo Adriano wrote:
+> Hi all,
+>
+> This RFT series has been superseded by Junhui Liu's tested four-patch
+> series:
 
-Link: https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- drivers/firmware/arm_rmm/rsi.c | 16 ----------------
- 1 file changed, 16 deletions(-)
+I just realized that you had already posted an equivalent fix before I
+sent mine. I have been quite busy recently and missed your series, so I
+ended up posting a duplicate. I am sorry about that.
 
-diff --git a/drivers/firmware/arm_rmm/rsi.c b/drivers/firmware/arm_rmm/rsi.c
-index 29eeb90ffc6b..0fcc4e33bd92 100644
---- a/drivers/firmware/arm_rmm/rsi.c
-+++ b/drivers/firmware/arm_rmm/rsi.c
-@@ -7,7 +7,6 @@
- #include <linux/memblock.h>
- #include <linux/psci.h>
- #include <linux/swiotlb.h>
--#include <linux/platform_device.h>
- #include <linux/arm-rsi-cmds.h>
- #include <linux/kobject.h>
- #include <linux/sysfs.h>
-@@ -216,18 +215,3 @@ static int __init realm_sysfs_init(void)
- 	return ret;
- }
- device_initcall(realm_sysfs_init);
--
--static struct platform_device rsi_dev = {
--	.name = "arm-cca-dev",
--	.id = PLATFORM_DEVID_NONE
--};
--
--static int __init arm64_create_dummy_rsi_dev(void)
--{
--	if (is_realm_world() &&
--	    platform_device_register(&rsi_dev))
--		pr_err("failed to register rsi platform device\n");
--	return 0;
--}
--
--arch_initcall(arm64_create_dummy_rsi_dev)
--- 
-2.43.0
+I will make sure to check the mailing list more carefully before posting
+patches in the future.
 
+>
+>   https://lore.kernel.org/r/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pig=
+moral.tech
+>
+> That series implements the M-only and P-only clock conversions, was teste=
+d
+> on the Radxa Cubie A5E, and has been applied to sunxi/clk-for-7.4. Please
+> disregard this RFT series.
+>
+> Thanks to Junhui for completing and testing the fix.
+>
+> Assisted-by: Codex:gpt-5
+> I reviewed this reply and take responsibility for its contents.
+>
+> Regards,
+> Enzo
+
+--=20
+Best regards,
+Junhui Liu
 
