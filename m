@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56638C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD4C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ctpe/eDRlFVbZnthdNX29MzI4lYShyW2hkRWR1MzG1k=; b=CR0FSG88Xv7i21ShW2g6Cw1ki/
-	NnL6nhySSjOm8N42G6ufBHfTFxVHwA8+ve3Me0lQczQ7829jKWcM7A299EX+iJfIF8t4SxsRin3+6
-	lYhjilOWTqvICToMm6hIh4i/3ho0PGkMfkZ4qmrRIndbQxubaBK5gkOyKjmnzh90TT5JbmQfpPcOv
-	CF/jW/TcAYL7ipIuYSkJnkrOQopHqv1J6mc5tfM54LwwjMx2vkQMSu0oxxELa2mV+xyuj6z+f3CQW
-	WWlX8oRWHTFMwn6aM2iwG9RG4ro+3FEeVx0xwam562EqYy0wIZZenMJXU37ix8foMcJfKH5N0v3MK
-	UKbOHe2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=OzhuWVvi6ylIFalbJUtNaxu1PqHlN/XiMXr2kWsThCg=; b=3o4RSh5Hqj/kx3
+	GMo4B2MaVIKqu/y0fEmWbVY/iRhkEcRLaP5GUlemX41L/yd7bZndQFiK8a6rlz49tYzk7AJ68HmGL
+	uxdSMuVZvJouLR26xqKTGdbbsrzGBiAJEoh0vcHBbcot68vhK5uRjb/tdEZKjHhixDaHdyFy53wxr
+	YP9HKiD0Yq2FIv0xZV17SZ0MoBFz8WCdp5QyA/J0vTEageAkGE0cCApWu5kBxnL1xX9QPe18nKAdb
+	O6cYxppgOs56g5BMeQrnPv2juXyI8/1CV5i2EBXPKCkbJ7OyGT2TTADt97bHOfCUzC29ucd1Jrc1K
+	getvzphnfbEKP4camY0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Neg-00000008Ur0-2tqt;
-	Wed, 23 Sep 2026 14:09:02 +0000
-Received: from sender6-op-o15.zoho.com ([165.173.180.15])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Nec-00000008UqR-2Ldi
+	id 1x9NmA-00000008VTe-3XqF;
+	Wed, 23 Sep 2026 14:16:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9Nm7-00000008VTJ-45xf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 14:09:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790172521; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=F33g7b5uYY27Q/HKONhzqRoX1yUZngW8GLRy99QeATGs7iVLa6fXFXFp+bmphC2YZ65T2wOgeWVDVXReGszvhdESQBIL5SWn9E+vGgzhX2CosPnkLkv7VkczfP9OK/gmNuacDdKoXFF6KySJab3bDZH3rZotX5TdXPLalF6lCX4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790172521; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Ctpe/eDRlFVbZnthdNX29MzI4lYShyW2hkRWR1MzG1k=; 
-	b=HDaNTViRqXcfimQKW7Gkp/dOXuanyH9mP+muyqnjCYgnCZBesP4BiMPr2P2HTfhF7qrVlQig+rCWw7FBxG99AOtaHMD2WBq5duxApQHWIculYwFfaNw6RknZYMcfoKhuIjuhrjLMpPVqidyh1bCoQvsBVjzW5j9OBQaHii/LHAY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790172521;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:In-Reply-To:Reply-To;
-	bh=Ctpe/eDRlFVbZnthdNX29MzI4lYShyW2hkRWR1MzG1k=;
-	b=RK6rMu5if1UbA5uX8z+2XGVInBdJp5M94kYTk6BurTgShWL3qbYSj2gIirk1b0ym
-	X/12L8NCQvCdkpT2l2rmrnVAduQ69ZVSqtKoGEZG4du3SGql67Q6BS0oqWIs+YZKGqw
-	BgPEUD5zcFVmDoOgqslEaUVdTenyC8WmmpPTD+yU=
-Received: by smtp.zohomail.com with SMTPS id 1790172518026689.0899152113249;
-	Wed, 23 Sep 2026 07:08:38 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 23 Sep 2026 22:08:30 +0800
-Message-Id: <DLMR6Y4BCAEJ.1QOAOOJRGJIN5@pigmoral.tech>
-Cc: "Junhui Liu" <junhui.liu@pigmoral.tech>, "Brian Masney"
- <bmasney@redhat.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, <linux-clk@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH RFT 0/2] clk: sunxi-ng: fix A523/T527 single-divider
- clocks
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Enzo Adriano" <enzo.adriano.code@gmail.com>, <andre.przywara@arm.com>,
- "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Chen-Yu Tsai" <wens@kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20260723004856.55158e84@ryzen.lan>
- <20260812201502.264919-1-enzo.adriano.code@gmail.com>
- <20260921200617.3180471-1-enzo.adriano.code@gmail.com>
-In-Reply-To: <20260921200617.3180471-1-enzo.adriano.code@gmail.com>
-X-ZohoMailClient: External
+	Wed, 23 Sep 2026 14:16:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7320D152B;
+	Wed, 23 Sep 2026 07:16:37 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 551B43F86C;
+	Wed, 23 Sep 2026 07:16:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790173001; bh=pjn94+QqUnplTf/Lw8dWChtvZoqbVQzZ8y3uw2QFkK0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Gx8orI2ClszWd17W6QarNcdz4HjWcAVSUfocdkWWupY7BYnCdOl1+ghmFEZznYJ7X
+	 rZUKyAfbgqhAIeBAo+EAgkpUgGl63WGXSVl8onWaaUU6DzMO8L3XdhAqijee00jNWV
+	 IDeczs3B4hH++oOrlYSfwTCms1AeMaB4V4aEJ8qI=
+Date: Wed, 23 Sep 2026 15:16:36 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>
+Subject: Re: [PATCH] arm64: enable HAVE_SHARED_GPIOS for all ARM64 platforms
+Message-ID: <arPfRFC5jzVaSQvq@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260907-arm64-have-shared-gpios-v1-1-31af942ab30f@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_070859_822296_C8077D40 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260923_071644_074860_4B98119A 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Enzo,
+On Mon, Sep 07, 2026 at 04:50:34PM +0200, Bartosz Golaszewski wrote:
+> Shared GPIO management provided by the GPIO shared proxy module has been
+> enabled for Qualcomm platforms for some time. By extension of the
+> defconfig, it's been effectively enabled for all ARM64 platforms when
+> using the default configuration. Bugs discovered initially after the
+> feature was first enabled, were fixed and I haven't seen any new reports
+> for several months. Make the feature enabled by default for all ARM64
+> platforms officially, which will allow us to continue the removal of the
+> deprecated GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from the kernel.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  arch/arm64/Kconfig           | 1 +
+>  arch/arm64/Kconfig.platforms | 2 --
+>  2 files changed, 1 insertion(+), 2 deletions(-)
 
-On Tue Sep 22, 2026 at 4:06 AM CST, Enzo Adriano wrote:
-> Hi all,
->
-> This RFT series has been superseded by Junhui Liu's tested four-patch
-> series:
+Since it touches more lines in Kconfig.platforms (2 vs 1), I'd leave
+this to the arm-soc people to merge (I also got a minor conflict in
+Kconfig.platforms).
 
-I just realized that you had already posted an equivalent fix before I
-sent mine. I have been quite busy recently and missed your series, so I
-ended up posting a duplicate. I am sorry about that.
-
-I will make sure to check the mailing list more carefully before posting
-patches in the future.
-
->
->   https://lore.kernel.org/r/20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pig=
-moral.tech
->
-> That series implements the M-only and P-only clock conversions, was teste=
-d
-> on the Radxa Cubie A5E, and has been applied to sunxi/clk-for-7.4. Please
-> disregard this RFT series.
->
-> Thanks to Junhui for completing and testing the fix.
->
-> Assisted-by: Codex:gpt-5
-> I reviewed this reply and take responsibility for its contents.
->
-> Regards,
-> Enzo
-
---=20
-Best regards,
-Junhui Liu
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
