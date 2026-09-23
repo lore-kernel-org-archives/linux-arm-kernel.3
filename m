@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD25C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC28C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vLFmHvbQXYvoYcWtfzf4oZn8T9dzsaVPpx0h/eFUVSA=; b=1YGV2I1VzR/v38HkEnPwtama30
-	JyqSBseFlv/MJ7I3dnic0uGpIMeMm54yYUzgDOZR1j490A2miarrdFVGuqi7Bec45UhQapNBlUXVN
-	NIUjJS2VGSsnx4DQ0bdb0B3bLyt+ywVpaRAUFKNmGAgDCQv4V6sZytiTeQARLc/dYFizEyEkBp4qo
-	sGC7ktI02Horl8FUKrfZqbqhNyyAiRQbQXTKllMKfbCWQ1cl8r57tla0jL61zGKtHlXtsR96e4ikn
-	FnvzI1HUKbV9RbhNftcaeIM8huZnK4Z4Qx4GRiMfNHGwRN7GxGG4NMVRhkKC9r5dv93Uln+LqiS0I
-	eBugmEfw==;
+	bh=aSqztCcECESUkqvZpzq1siSkYDE7+KUwAFIzzdqJRNk=; b=YPbAFAOfxkpzxPo7zawQNeXLyF
+	fM5bH/d64zAhzaMGZAi978mL5SP3RVx36Y5Uff7iHYf7YOSpvyYukKDlkJWaT4B6EdH9ToyeJIW7L
+	ciW4cLX3FQ3OqtOG6/lm9zBhdo79As8VFP0WksBSWiGlKH0LSlEW3NPKnd0geAhhBE7SkizJ9ekqA
+	7ht9/oQc9Ay+3vSlj1WkkZ1optFFP4Pq7L3TgVOgr82rQMjljbWujB5d/4oFUpZJqY3VHGWGo1VVR
+	78BWMgWzvqN5PSVvIyvQmZYC0uEyQq6RriSn/hzvrA1AIvJeFdrutgm/9Mvk5ne+dvShYqjU1rAMv
+	rJAocy9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ont-00000008i6r-07Dj;
-	Wed, 23 Sep 2026 15:22:37 +0000
+	id 1x9Oo2-00000008iD8-2ErW;
+	Wed, 23 Sep 2026 15:22:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OnT-00000008hsQ-2T6y
+	id 1x9OnR-00000008hpJ-1kV0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:22:13 +0000
+	Wed, 23 Sep 2026 15:22:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9321B1CE2;
-	Wed, 23 Sep 2026 08:22:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B0FD1CE0;
+	Wed, 23 Sep 2026 08:22:05 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D99793F86F;
-	Wed, 23 Sep 2026 08:22:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4FE953F86F;
+	Wed, 23 Sep 2026 08:22:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790176931; bh=SnVKOKvRTdz5QhlRrwDJN/1IPX5DokfIgkiOL4pojQY=;
+	t=1790176928; bh=sDZ3zCmdsg/NDDnz3ZYjdtSiVUMhALulqSJXMlTIm4k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H/vxQG0ONNOz61LdE1YH0bQ8RYYezfLsQZhTuSf1Bdq5/MgX8LMyp6YxmZMMYzYo6
-	 47g7jV1Tfb4fPu5bmH1lRiAYKz071imoljTCA1IZK5XcXMC19P19307zrko2phXdzn
-	 OHHYZhytjS5VNorhgiIgdv1f0hXkj1cBydqKofYk=
+	b=lo/9NyxKyHnGlMV3zrAqgx2HIQcW8WAKeqNcS3QPYlRNALJ5SC7hfrg8NDvGn2sle
+	 mFYzLSScIAjANPdgcjaCSeTonMNB3NsFTDk2kSWHmCJng98fWbjesJOuy0jfFcfcdx
+	 5aAe/3lPNnWQQlP4JksM1gK7iEutmDNF4DVKlZ/Y=
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 23 Sep 2026 16:21:46 +0100
-Subject: [PATCH v2 06/14] perf cs-etm: Mark branches that were not taken
+Date: Wed, 23 Sep 2026 16:21:45 +0100
+Subject: [PATCH v2 05/14] perf cs-etm: Use the recorded instruction size
+ for A32 and A64
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-perf_cs_etm_fix_non_taken-v2-6-6ab8c07a5455@arm.com>
+Message-Id: <20260923-perf_cs_etm_fix_non_taken-v2-5-6ab8c07a5455@arm.com>
 References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
 In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -58,16 +59,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790176913; l=1907;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790176913; l=1132;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=SnVKOKvRTdz5QhlRrwDJN/1IPX5DokfIgkiOL4pojQY=;
- b=1yzQkRkAzFWtYer8yI+mq4vpBJ3bRr3SIBqwniIx2H8n/EskoPkDm6Ytax33rd2/0T4faCcus
- O9+tsnsiezNCadzV71HTR0n5jpz3+c/iAYu9EnjDYCkpj9hlGBZivkA
+ bh=sDZ3zCmdsg/NDDnz3ZYjdtSiVUMhALulqSJXMlTIm4k=;
+ b=aXxBtmOiw7igZ8rNNHw3nOoekoZ794ac+lyLnnnKlVfrKJwvH3th/RqpxkBY1MLhOgPY3npEe
+ pU6YBbVUmJ6Bb43A1u2myH1E8pUGLyJmTDmMyx6AHAprPbzTrYvpmX+
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_082211_755587_8843201A 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260923_082209_509359_95E184FC 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An exception can transfer execution to the kernel after any instruction.
-When this creates a trace boundary, perf may attribute the trace-end
-sample to the last instruction in the range. If that instruction is an
-untaken branch, reporting only its branch type can make the transfer look
-like a taken branch.
+Use packet->last_instr_size in cs_etm__instr_size() instead of a
+hard-coded value, allowing the decoder to supply the instruction size.
 
-Set PERF_IP_FLAG_NOT_TAKEN for branch ranges when
-last_instr_taken_branch is false. This records the decoded branch
-outcome independently of exception entry.
-
-For a discontinuity without an exception element, perf script previously
-reported an untaken B.LS as:
-
-  tr end  jcc             4000f8 => 0       b.ls #0x400118
-  tr strt jmp                  0 => 4000fc
-
-With the not-taken flag set:
-
-  tr end  jcc/not_taken/  4000f8 => 0       b.ls #0x400118
-  tr strt jmp                  0 => 4000fc
-
-Here, 4000f8 remains the last traced instruction and 4000fc is the trace
-restart address. These boundary samples do not establish an IRQ entry or
-an exception return; the not_taken flag records only the branch outcome.
+Keep per-address decoding for T32. A range can mix 16-bit and 32-bit
+instructions, so last_instr_size describes only the final instruction
+and cannot determine the size at an arbitrary address in the range.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ tools/perf/util/cs-etm.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 0163d93ac2d537a2190536e77d24628b4d707751..c54218aeef53e8420447e9a2bee6e98d8225e335 100644
+index 2d1ab34f7b6b5a6331005c16c6a418d123c815eb..0163d93ac2d537a2190536e77d24628b4d707751 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -2415,6 +2415,11 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
- 			packet->flags = PERF_IP_FLAG_BRANCH |
- 					PERF_IP_FLAG_RETURN;
+@@ -1358,8 +1358,7 @@ static inline int cs_etm__instr_size(struct cs_etm_queue *etmq,
+ 	if (packet->isa == CS_ETM_ISA_T32)
+ 		return cs_etm__t32_instr_size(etmq, tidq, packet, addr);
  
-+		/* Report branch that is not taken */
-+		if ((packet->flags & PERF_IP_FLAG_BRANCH) &&
-+		    !packet->last_instr_taken_branch)
-+			packet->flags |= PERF_IP_FLAG_NOT_TAKEN;
-+
- 		/*
- 		 * Decoder might insert a discontinuity in the middle of
- 		 * instruction packets, fixup prev_packet with flag
+-	/* Otherwise, 4-byte instruction size for A32/A64 */
+-	return 4;
++	return packet->last_instr_size;
+ }
+ 
+ static inline u64 cs_etm__first_executed_instr(struct cs_etm_packet *packet)
 
 -- 
 2.34.1
