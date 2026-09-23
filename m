@@ -4,139 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A781C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 17:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98874C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 17:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9mhMgPy0NdyeMrRrzvm3C/TebfdiGs7bXMmAUtAocDI=; b=RIIVd0iRmUJAAc92pRv9B1Lr9S
-	EQgzkP4aCw1QvGrgk7XJ/dXiwh7EX9HDRtscmh9nZ4G20ZdYvchcebvwp3SNDU9XfOua1+GQjd0NM
-	U7qvkY1S/zuvmDMdijkr+cfmhFsrNces1gUe/1F8b7qotzxmX+7BuwIDlZA20TyIEYRU8msw9WoB4
-	pcqIELJORn2EyPGO9dAhOR7fOLqjNYtnuv7d3qN5H9O5H6EHTDrlmcI8llDcaWLmEBj2mO8H8sWBR
-	r13tzn+drY1nRqwhSpzgqt7/HjtN5e916he9LU1f6EZPwwmruglA7+pZj7iosQ00NF31NDwUO6/Hh
-	Nu0TGj0Q==;
+	bh=O4INAnpTAQOse2IZjd5NvaJguY5G0/CHe/sG8hphz9c=; b=A6xJTwYX668iqhraWMn6apSlic
+	66o0f/t7Xm9ck+h3fs6S74KvJOzkMvoT1c47wdfTNhTP3kS2k8Z0lZdokIxfMA8mIaNdXUPOXqMLY
+	cdlABzk8gf+pLTley+0Q0TSLLYjpVAkYbJwgsIUabolMrltZtT9Yp5HgAA2XWd78V17zb3JCjD7d6
+	6x/4vSVU3cHPUe30A+D6EGz+HzEV9jeKGTgrrF9ZboNDS6NtUoEAATCh/15wX+qW8v48SMc67qHAt
+	JEedDe1qL7fH9+PRjxhKgkJZQPtuuNOFdnBPexge1BLgLwHOtPVVOr8uRe2ccH7YgQtPXQwN1Giey
+	1XLndZhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QUN-00000008yXz-3gct;
-	Wed, 23 Sep 2026 17:10:36 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x9QZQ-00000008zBz-30Xq;
+	Wed, 23 Sep 2026 17:15:48 +0000
+Received: from out-6.mta1.migadu.com ([95.215.58.6] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QUJ-00000008yXO-444r
+	id 1x9QZJ-00000008zAI-0qQX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 17:10:34 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NGThh22470172
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 17:10:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9mhMgPy0NdyeMrRrzvm3C/TebfdiGs7bXMmAUtAocDI=; b=ft5VuPmYL51lxpZ0
-	4GAQ3LMXuo4MZIC+nTmJG1iBYfzA6d3atgbfi8aG1C9GDd71+o7PQxn5O1uRiXQD
-	oQD4dERlABtQlZY+XT1gmPmk+XPAJ4uWDdC/8+tgd9kpoaKFxStnlLzsGzJNThRa
-	Z5vBx6+uEGv0uCl51DGJp3einpnNixtpQF2hEgNhGGjnuTHlduCy7G7S8HxGosIA
-	f+xOvRlEs6QhYb3u5qEYeXUv9Oj1DXkPzClvvTDohofc4AibpkGwgi3AvqXUTzEF
-	wnrbhTqOrlf4/NonzQGAjEMnQfqHV8k5g0ziTsgMDwqWypydk2N9PHDt/UTpV0Bv
-	TZbI/A==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvfjv12ba-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 17:10:31 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-39e18af9f48so64917a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 10:10:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790183431; x=1790788231; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=9mhMgPy0NdyeMrRrzvm3C/TebfdiGs7bXMmAUtAocDI=;
-        b=Tdl7OaTe+l/kH3s5gBbyUkl5ApEDE4iH0WGymNzxSZTsx+yIfmxgz3KCrOZgcC7kDN
-         l6q0SsQJHYl5RDKeKt7HIhgDKp+hbTAAsLJCygsv0kVEeQZ1patd6XVq2csjVncwCu5X
-         u3dHPLBinZt54U6+zhBkPsFofut0HA5ggN8h+gmM5eS6SdJSbo6pqWsAQit1mbBl2w4J
-         i4bB9TqK7Rk/NTy6ZzyJH5VeJqUFpwfGYyst4KCykpq+cD3tegg58KdBzTJQ+0CixMHU
-         WCfjM6d10nNT2es/OSp7/PSqQZih4AbiS/rQv2TS53j+DzHuLYxLU6A2Vj2FbrUejGPM
-         Bmuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790183431; x=1790788231;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9mhMgPy0NdyeMrRrzvm3C/TebfdiGs7bXMmAUtAocDI=;
-        b=1NFeXZ9QfAvdTHSoNUSoI4aBzKLsLHwPxIXaN4fcj5HUH9QDdnuosGthRyX2kmZ/5p
-         PZhBzNhuuCHbZyWKVYAVgwdBcbocbBkPaotj7e49E/ia2aCcIX179RV78kIjrqKqGAiV
-         hxiVLFQYwfe2e86XvloeWuUn9cCcS9LOVdDxHOjVT6YZgAx7Xuh7uaYgLggD52jSOpnQ
-         gJcn+5auPfh6FZJZCILEBO7pcnc49JST93juQlpyK7chf5dpxjw/3MvISSDz5sCZkB1A
-         03s/9eAR4GgxqT65lHk/JnBDv6IHGReNsXFuv742XEPdAECgobllhvvlyRhRHr+siKq3
-         ge9Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzjSXn21d0f4lciXTl2nhlF0NJkUzhZAcHbvjYuKhqebq3wtFRzQOPTN7dbKnrMnNasBpJG1NiqAaTRxSMaRbHJ@lists.infradead.org
-X-Gm-Message-State: AFuF++nASjebTqhlqsqTzO9B4aAq8+6pbELassjWmx4W9BAEPhC6nQU+
-	9ov2pU9vVQaeoOVbV1/O187giMqIgUWCCC+ZNZeqMFL/l4KHS/tcxL0Ebwxn8suM/2xR0m/Dfrg
-	OlX5puowfROig2hddW6OICsbwR1O7CrimMxQC4UmtHF7unw/mCNifjf+0xP6rU156NH/MOFWmwP
-	D79Q==
-X-Gm-Gg: AYBFou3yc7tdDJax4thDZ1sg0tc0lCD5ESuk7YtMpe6jkNFKnIHZS6GkZ4qdo5b3aYg
-	+5J9dQCrztZL4/tdxgEs29kRm0Yxgqj+Ypb7umdIznjzUNmL5gIh9gliNd6QnDL16OA77LWdjra
-	K5Q7si0u4H+EXZPU+O79Ftx/Kn9jz6mv380+HTs+pERGaV0ZJgVsDzM0fVE8Sq7K8ybLYz/v+Se
-	5BHbBHdGt7na1XzvNV68NgOWw0qFtZ3rvKVeM0WfcLAASeTxZeocT59G3mxZXPk71rRySQTbz4P
-	WCjeUC2BvRSrU/hgYIKiZSBRpD595DOZBBMw4K+AiVs08WWsUK0TL1jBl8s7iNTnAOTxhdY84AM
-	Ew+nMejkUNdfjLrCk5Ki1NHfN6oWJL00V/Ed8GM1p32ZrhP4IZaFFEg==
-X-Received: by 2002:a17:90b:4a0a:b0:39e:16e3:44f7 with SMTP id 98e67ed59e1d1-3a07308cedamr4172363a91.6.1790183430470;
-        Wed, 23 Sep 2026 10:10:30 -0700 (PDT)
-X-Received: by 2002:a17:90b:4a0a:b0:39e:16e3:44f7 with SMTP id 98e67ed59e1d1-3a07308cedamr4172334a91.6.1790183429947;
-        Wed, 23 Sep 2026 10:10:29 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc75f409f96sm1480850a12.32.2026.09.23.10.10.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 10:10:29 -0700 (PDT)
-Date: Wed, 23 Sep 2026 10:10:26 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Yuho Choi <oss.patchbox@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Radu Rendec <radu@rendec.net>, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] irqchip/gic-v3-its: Drop ITS node reference on
- its_of_probe() errors
-Message-ID: <20260923101026.000034ea@oss.qualcomm.com>
-In-Reply-To: <20260923165447.619477-1-oss.patchbox@gmail.com>
-References: <20260923165447.619477-1-oss.patchbox@gmail.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA2OCBTYWx0ZWRfX6fTyHfS/r3y0
- TBVnFn1zmDdK4QEPGl5cA0MKRxSc67pIORguzoy5HH9Tl6hXEhx4GQ+C9lzeuhUInpEvhu3ETwQ
- snKcapjmZL8KU8omj2/Ag1Noz1FYVv+aQFUX2V4QgE5GOfn8379RkPGfRURffIAznzq48IOYxoI
- dINbfnzlkea2VnAlU+UhNvcVmpDc+Wg2qNuVmB8gs/nyQwmqqqt33yxpY6AbA9ecQblEwteFKux
- y6fFzOLibReHMfjSMA+K8iJwOwOjpHfKqld1RFd6G+JnpJSBGD6xLcn9yx6vB5dRNPXOVREtezt
- IUr2agzCoiTIdSPyTA0COHs+gGBQURYxsCLyQu+DiylCyHKfw8fKjx83RP5zHCYeZvM8m4Z8kw3
- +LhqyZISk+y1tOKPkSfvZ8ofBdcCs3iQNEG78Eihq1wNYbxIGztzZB20vWmKw1dwejdaj57jkdd
- /t0tQNPvuoKCK/cie/w==
-X-Authority-Analysis: v=2.4 cv=aIxlOr9m c=1 sm=1 tr=0 ts=6ab40807 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=pGLkceISAAAA:8 a=4U-m-mCS_-ka2SPo4XkA:9 a=CjuIK1q_8ugA:10
- a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-GUID: 1WYkYWG1-9YQ3pJ_hTgzlDlR47rE_YoE
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA2OCBTYWx0ZWRfX0YjHHAw3KAta
- RU24hiM2al7AUEwN5ZgnAsuAZGbmgLotKr62XMawUTmO8AdH6W6hPpuaoXIoeYnQjI0NYvO7LlB
- ZKOJBOhLEslnKq6IzOSsnPMcUQNWPN0=
-X-Proofpoint-ORIG-GUID: 1WYkYWG1-9YQ3pJ_hTgzlDlR47rE_YoE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 priorityscore=1501 spamscore=0 phishscore=0
- malwarescore=0 lowpriorityscore=0 adultscore=0 bulkscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230068
+	Wed, 23 Sep 2026 17:15:44 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=jxGuprUYi106B5t11FFkgi+yqb+rQeyTVQAW+p12YwA=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790183736; v=1; x=1790788536;
+ b=ZVe0P3h1vL/8qbgOqkx72olxY4ujSROqjM5GA/cl7qJF6JFSNt2gDq2Pzo1UvKljCgDNsOkA
+ u0rlqhNm2fR3+NuPptvnQV1bAWCpK6jEUOqfEW/oqZ95g9e/cmfCSQs1u7f8QfvAfT1b8Xsbjde
+ B0BNy5tQfRQSRdFPaJ6bmH7++YW9IyvUL+eMHXgaBBbBUiqSey1YABoPxKuX03yKhxhypFrd1Xg
+ Yn/ldhH/mCSv4TOFo+JpYYMZ1w7fFKLyEE25rzRj5s5RT6+eOt2QL2u8EUkEK6Gaae0GHzoJzbr
+ 2ThwUJ0DqxwMQkKG6K5FDaxBmAskcbxYzBMGFbqUlrvTg==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 6f9c8085352aaf04;
+	Wed, 23 Sep 2026 17:15:17 +0000
+X-Mizu-Trace-ID: 6f9c8085352aaf04
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 23 Sep 2026 19:15:13 +0200
+Message-Id: <DLMV5WTF5TR1.BXDY94L4J4H7@cknow-tech.com>
+Cc: "Sebastian Reichel" <sebastian.reichel@collabora.com>,
+ <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, "Jonas Karlman" <jonas@kwiboo.se>
+Subject: Re: [PATCH v5 5/7] arm64: dts: rockchip: describe PCIe RTL8125
+ Ethernet on NanoPi R5S
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: <ricardo@pardini.net>, "Heiner Kallweit" <hkallweit1@gmail.com>,
+ <nic_swsd@realtek.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
+X-Mailer: aerc 0.22.0-24-g39041fd9f179
+References: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net> <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-5-c1b9e5f10cd6@pardini.net>
+In-Reply-To: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-5-c1b9e5f10cd6@pardini.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_101032_088458_3B1F6D5F 
-X-CRM114-Status: GOOD (  25.81  )
+X-CRM114-CacheID: sfid-20260923_101541_824230_8D52A05A 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,72 +80,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sep 2026 12:54:40 -0400
-Yuho Choi <oss.patchbox@gmail.com> wrote:
+Hi,
 
-> its_of_probe() walks the ITS nodes with of_find_matching_node(), which
-> drops the reference on the previous node and returns the next one with
-> its reference count raised.  The loops are balanced when they run to the
-> end, but the three error returns (a failed its_reset_one(), a failed
-> its_node_init() and a failed its_probe_one()) leave with the current
-> node still referenced.
-> 
-> Drop it before returning.
-> 
-> Fixes: c733ebb7cb67 ("irqchip/gic-v3-its: Reset each ITS's BASERn register before probe")
-> Fixes: 9585a495ac93 ("irqchip/gic-v3-its: Split allocation from initialisation of its_node")
-> Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
-
-I only took a very quick look but why can't this use for_each_matching_node()
-
-That doesn't solve your problem but it would be easy to add a for_each_matching_node_scoped()
-in similar spirit to for_each_child_of_node_scoped() I think and that would give you a cleaner fix here.
-
-There may well be other places such a macro would benefit. I just haven't looked!
-
-Jonathan
-
-
+On Thu Sep 10, 2026 at 10:07 PM CEST, Ricardo Pardini via B4 Relay wrote:
+> From: Ricardo Pardini <ricardo@pardini.net>
+>
+> The FriendlyElec NanoPi R5S (rk3568) carries two on-board Realtek
+> RTL8125 NICs behind pcie2x1 and pcie3x1, alongside the existing gmac0
+> RGMII PHY.
+>
+> Describe the fixed function nodes and attach ethernet1/ethernet2
+> aliases (ethernet0 stays mapped to gmac0), so that U-Boot's
+> fdt_fixup_ethernet() can inject mac-address properties from its
+> eth1addr/eth2addr env, for stable MACs across boots that both U-Boot
+> and the kernel agree on.
+>
+> Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 > ---
-> Compile-tested only (arm64 defconfig, W=1).
-> 
->  drivers/irqchip/irq-gic-v3-its.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index e9807af23537..6361d20bd920 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -5579,8 +5579,10 @@ static int __init its_of_probe(struct device_node *node)
->  			continue;
->  
->  		err = its_reset_one(&res);
-> -		if (err)
-> +		if (err) {
-> +			of_node_put(np);
->  			return err;
-> +		}
->  	}
->  
->  	for (np = of_find_matching_node(node, its_device_id); np;
-> @@ -5602,12 +5604,15 @@ static int __init its_of_probe(struct device_node *node)
->  
->  
->  		its = its_node_init(&res, &np->fwnode, of_node_to_nid(np));
-> -		if (!its)
-> +		if (!its) {
-> +			of_node_put(np);
->  			return -ENOMEM;
-> +		}
->  
->  		err = its_probe_one(its);
->  		if (err)  {
->  			its_node_destroy(its);
-> +			of_node_put(np);
->  			return err;
->  		}
->  	}
-> 
-> base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
+>  arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 30 ++++++++++++++++=
+++++++
+>  1 file changed, 30 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/ar=
+m64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+> index 90ce6f0e1dcff..9ed11663c31c9 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+> @@ -15,6 +15,8 @@ / {
+> =20
+>  	aliases {
+>  		ethernet0 =3D &gmac0;
+> +		ethernet1 =3D &rtl_eth1;
+> +		ethernet2 =3D &rtl_eth2;
+>  	};
+
+With my NanoPi-R5S I'm still getting the following warning:
+
+  r8169 0001:11:00.0: can't read MAC address, setting random one
+
+```
+root@nanopi-r5s:~# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DE=
+FAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: end1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state =
+DOWN mode DEFAULT group default qlen 1000
+    link/ether 4e:52:85:9e:22:f9 brd ff:ff:ff:ff:ff:ff
+    altname enp1s0
+    altname enx4e52859e22f9
+3: end2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state =
+DOWN mode DEFAULT group default qlen 1000
+    link/ether 12:e5:47:9e:e2:f1 brd ff:ff:ff:ff:ff:ff
+    altname enP1p17s0
+4: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode =
+DEFAULT group default qlen 1000
+    link/ether 4e:52:85:9e:22:f8 brd ff:ff:ff:ff:ff:ff
+    altname enx4e52859e22f8
+```
+
+I did not do anything (explicitly) in U-Boot, but it seems it created a
+non-random MAC address for end0 and end1 ... and then stopped.
+AFAIK gmac0=3Dend0 already had a non-random MAC address and I hoped/expecte=
+d
+it would create non-random addresses for end1 and end2, which would've made
+the above warning go away too.
+
+Is this an issue with this patch, with U-Boot or me?
+
+Full details:
+https://paste.sr.ht/~diederik/8ae7d354985afcd1c3464e3a4ad81da1b4442364
+
+Side note:
+I wonder how 'random' those addresses are as during testing ``ssh rock5b``
+landed me on another device (NanoPC-T6 Plus), f.e. My router has DHCP
+reservations based on MAC addresses and it looks like it got confused ;-)
+
+Cheers,
+  Diederik
+
+>  	gpio-keys {
+> @@ -107,6 +109,20 @@ &pcie2x1 {
+>  	num-lanes =3D <1>;
+>  	reset-gpios =3D <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
+>  	status =3D "okay";
+> +
+> +	pcie@0,0 {
+> +		reg =3D <0x000000 0 0 0 0>;
+> +		#address-cells =3D <3>;
+> +		#size-cells =3D <2>;
+> +		ranges;
+> +		device_type =3D "pci";
+> +		bus-range =3D <0x00 0x0f>;
+> +
+> +		rtl_eth1: ethernet@0,0 {
+> +			compatible =3D "pci10ec,8125";
+> +			reg =3D <0x010000 0 0 0 0>;
+> +		};
+> +	};
+>  };
+> =20
+>  &pcie30phy {
+> @@ -119,6 +135,20 @@ &pcie3x1 {
+>  	reset-gpios =3D <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
+>  	vpcie3v3-supply =3D <&vcc3v3_pcie>;
+>  	status =3D "okay";
+> +
+> +	pcie@0,0 {
+> +		reg =3D <0x100000 0 0 0 0>;
+> +		#address-cells =3D <3>;
+> +		#size-cells =3D <2>;
+> +		ranges;
+> +		device_type =3D "pci";
+> +		bus-range =3D <0x10 0x1f>;
+> +
+> +		rtl_eth2: ethernet@0,0 {
+> +			compatible =3D "pci10ec,8125";
+> +			reg =3D <0x110000 0 0 0 0>;
+> +		};
+> +	};
+>  };
+> =20
+>  &pcie3x2 {
+
 
 
