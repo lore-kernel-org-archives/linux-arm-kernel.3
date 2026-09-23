@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3FCC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52559C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3iALwKhweGWgTgs/ynHjahU+T6YJ3fzthsWNjuqcpg=; b=VWe1+6/A1HT2gqN/pR3u6571W0
-	TOkyhC2QEbN6aFJ/sCjeUTLnJuB+pVaCvWhrYfp7W+6LNK17La0G/tLSp0xujOs/SLzhQsh6CEkWG
-	THWfCawOYnJHTa+dNbgokJ1lPV+LJYKhXn2K5QM+JU3aLnQeh/j95o25aD+AbsxTIQESy1M1kWkq9
-	gGIpgtDW1hdXHuYPlOZMnzMAY/IbMKrr3Ygr3bufQA+a2x4bnoPbaFQXprPkuCD4hx/uXNLMM2m32
-	FYiTxSkbK8wBAPhmAr7vhWikUTRau1s+7ip4NW9CPj+19Ybur7RQXtEsT7G7p/hmNh//4paZL7Ee6
-	U8Fiba7w==;
+	bh=246+YFY0hcM1gZTyJYBwDA5GnPdAK2YN+khCzJ9w3xk=; b=hFok6opaoqlqapxbF2xhcXPXEZ
+	7E4/WAUTC52yj65N61PFN0TTpIvlgG53fSqPH2+BVTO4RCYg9UpfulUlgIab5aXndavaTnUidmcM1
+	PiIEC240iBTqsCP26ldguoTletLo/+eJF8xKxYdqgbCfmfBURq7wxgJuaNe0LJ9TMzuDoGhRO4tD5
+	YlXnaixcC/fMy2Gv7uI3tLo8TyWrexfDV0R1D+B63VccJ9LurrqSPmZoj3LdaE38SeIme4O77Cow1
+	P7CgXHVwzR3BJWE/sAftk7s0NVBoe/EoeBFos39s7MZa+l7Wh7ZXnaDDKPUMTH4HTRu0hjwTdhG8F
+	Km0aKD1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ir4-00000007eK4-3jyq;
-	Wed, 23 Sep 2026 09:01:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9IsK-00000007edT-1TxX;
+	Wed, 23 Sep 2026 09:02:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ir4-00000007eJa-00M9
+	id 1x9IsI-00000007ed0-1ipo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:01:30 +0000
+	Wed, 23 Sep 2026 09:02:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7255D601FB;
-	Wed, 23 Sep 2026 09:01:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B18C1F000FF;
-	Wed, 23 Sep 2026 09:01:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E43B442D9F;
+	Wed, 23 Sep 2026 09:02:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A19F1F000FF;
+	Wed, 23 Sep 2026 09:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790154089;
-	bh=C3iALwKhweGWgTgs/ynHjahU+T6YJ3fzthsWNjuqcpg=;
+	s=k20260515; t=1790154165;
+	bh=246+YFY0hcM1gZTyJYBwDA5GnPdAK2YN+khCzJ9w3xk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KQDVBRwgaZwcyX5kpUVev23cDupF4Yh0z/fQO5qma/hc1uSWR8aM3MyA/UoS0L4Xo
-	 bzk2Kxuq/oqwzFX1QgelXBLrA3Si7Ttj7nClPFH9WklMhJN+O0Ik3wOZxjNuQ1ueoi
-	 Snw0YyzBU0UJZNACEiSNy2w5aeGPhmI1Ncdv0uUrN5tA9RD9GHHPP+78+sSxbbXBmr
-	 fn9OLDprYrYuhrQNcL6V7CkdphZZJ65tn1kdFp9R3qHl/Kx/Bvv6hHt/SGsm8lRhz+
-	 wytn/6x4dJlHU+gzet1xW3w2o7CsJUu9jfW3j8X/p/jq60GgcUg+OofmGnWbjRMiHc
-	 9UZk/FFH3rBzw==
-Date: Wed, 23 Sep 2026 10:01:23 +0100
+	b=fx1fzDL6n++zlKFba/TD6ua1TazikVupjqJ+tpB2waBe7XVD+F+lnJbkIVvRrElwe
+	 S+6he4ANapJNJ/Ze0HxDGEOX0yxjravBL7HOehd2Ex37FDQdCd00tCSRZ87cd4+Mnr
+	 sHiwZNMR2k6fi2LEZxorZKO3qiD5Q6FU9xnQ/d/dkX7dfB2m/5/WRYl8d3qN8F4c1M
+	 aFBYXnwpbUfP2IQ5PCKADXrW+0GRtrH6rNknOYwlabC4oWP5WDznRFal9akAaOCPkV
+	 USdsJUQTxiFkVJ0ZgmYOCOI6FbZlYB3tL2HLq/xebrNN/GcEVjrkC5rqm9ifYSaGu2
+	 epfs3ppNEngXQ==
+Date: Wed, 23 Sep 2026 10:02:10 +0100
 From: Simon Horman <horms@kernel.org>
 To: Daniel Machon <daniel.machon@microchip.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -63,16 +63,15 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 08/14] net: lan966x: clear FDMA interrupt
- stickies after switch reset
-Message-ID: <20260923090123.GQ13925@horms.kernel.org>
+Subject: Re: [PATCH net-next v7 09/14] net: lan966x: add shutdown callback to
+ stop the FDMA on reboot
+Message-ID: <20260923090210.GR13925@horms.kernel.org>
 References: <20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c@microchip.com>
- <20260918-lan966x-pci-fdma-v7-8-0ecc179c8a2c@microchip.com>
+ <20260918-lan966x-pci-fdma-v7-9-0ecc179c8a2c@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260918-lan966x-pci-fdma-v7-8-0ecc179c8a2c@microchip.com>
+In-Reply-To: <20260918-lan966x-pci-fdma-v7-9-0ecc179c8a2c@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,19 +86,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 01:34:00PM +0200, Daniel Machon wrote:
-> When in PCI mode, the GCB soft reset issued by the reset controller
-> can latch spurious bits in the FDMA error stickies. The latched bits
-> sit in FDMA_INTR_ERR until the FDMA IRQ is requested later in probe,
-> at which point the handler fires immediately and WARNs.
+On Fri, Sep 18, 2026 at 01:34:01PM +0200, Daniel Machon wrote:
+> As a PCIe endpoint, lan966x is not reset by a host reboot: its FDMA
+> channels and interrupt sources stay armed, and the OIC ORs every
+> source into the shared PCIe INTx, asserted before the driver has
+> re-probed. A still-active channel also keeps write access to host
+> memory the next kernel will reuse.
 > 
-> Clear FDMA_ERRORS, FDMA_INTR_ERR and FDMA_INTR_DB right after the
-> switch reset so the FDMA comes out clean and the IRQ handler does not
-> see ghost errors on probe.
+> Add a shutdown callback that:
+> - frees the ana, xtr and FDMA irqs, masking and unmapping them at
+>   the OIC (disable_irq() would leave both set - the OIC has no
+>   irq_disable())
+> - masks the analyzer source, armed unconditionally by lan966x_init()
+>   and re-armed by the MAC table's age timer
+> - stops and detaches the netdevs, draining in-flight xmit and
+>   clearing netif_device_present() so ndo_open/ndo_change_mtu cannot
+>   re-enter the FDMA against a disabled NAPI
+> - disables both FDMA channels and masks their interrupts
+> - unmaps the outbound ATU windows, leaving none armed
 > 
-> The clear runs on both the PCI and platform paths. On the platform
-> path it has no effect — there are no spurious stickies to clear — but
-> keeping it unconditional avoids a PCI-specific code path here.
+> NAPI is skipped when fdma_ndev is unset (a probed switch with no
+> usable port never adds one), and XDP attach cannot re-enter either,
+> since lan966x_xdp_setup() returns early on PCIe before touching the
+> FDMA.
+> 
+> Only the PCIe instantiation needs this - the SoC one resets with the
+> chip - so the callback returns early on a platform device; the check
+> is at runtime since .shutdown belongs to the driver, and a
+> PCIe-enabled kernel binds both.
+> 
+> FDMA_INTR_ENA persists across a warm reboot, so also restore the
+> full enable in lan966x_fdma_rx_start(), run after both rings are
+> allocated, re-arming both backends from one site.
 > 
 > Tested-by: Herve Codina <herve.codina@bootlin.com>
 > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
