@@ -4,145 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B4EC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08FECC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KaNTlX9FU+epr6GjR21phgJRbalGPA8peFjdpZ3/LY=; b=JqpCIJXyzlIsFcQP/zmpOxAOAM
-	HE+yAx+293l/fHy5PtnmTuMFDY3hlC7wGmwj0Ow0Msmog1GbPCW5dpr25p24hK6SC6wzdwqSIKm1G
-	Ukx4KlB9jP8Dn89aZJbcc0Ugkg0xrefC6HEhTRgZVojAJkYAo5YKfxRyOQvWM1z21oYpdUsG0Cru4
-	Tf+V32d20Nwxc0QxrKDlfNQo+XmEqMstrfzL1f5fIvpxTondPlcmlgiXnh+lQtklNk43KlfYgSyPo
-	g79YkGxNwAoUy+YOpo2aKblwXZz6q9vPxfpvI7hj8gdooc62ggL8LiebJ/gOEY8ad0oNSaSWxEw9L
-	XlTLDwyw==;
+	bh=UxBSgv2Zak5VMQD4b180vo8UnD1ECyVDt1KdwAJyxFE=; b=DxMU6SDHf1tVl6+FNKiaB9udaN
+	5v0xcPKmZQ7orTcUcLjOL8P6QWqBAO7jsZkw2f7RUv/ZBmdFt897DSSSdAu1Xirl+Jt3khzIR6glY
+	ZXTFSk1xtgfpl6pWoKeoJ5y4UaD2U+rq3DGuKLEmLyufNT1beDw5ViXlDDoeEc6JhUGE/UjhDyld4
+	rm9P8qGILp0McCVyH5Iu3lHQKgDwI5iqSgKwLu3arT9huVZm+UqB496d7xDn5YhdT5ALMJlA3hUOo
+	GPHa4U+KUcE1rc+185ePjlaoj2LszdBmO1ohXtIBvtcDJCgFqmpOuKHKg5Yuu7loFB2a7r73rEJoC
+	/lFVoXQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Jde-00000007oCK-43cf;
-	Wed, 23 Sep 2026 09:51:43 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x9JeI-00000007oSE-1bMp;
+	Wed, 23 Sep 2026 09:52:22 +0000
+Received: from out-62.mta0.migadu.com ([2001:41d0:1004:224b::3e] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JdH-00000007o6z-2OGq
+	id 1x9JeE-00000007oPi-1H1f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:51:37 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=JqlRY4ZZQb3OFJGas+XME5X1N0yJWLOlMO++e2QSVz4MhZyzSx2MpNHQ45Va9Ok6J6s5Y5GMVZQsrXcixFddv1AfE/P6WQ/Bt5rOsLu81QxEa1l71mEUDxuWdNyosfXILTaG/YQIH2OA1z7I8oEPvHlscLumQOE/x9kvRb3UOdBnnEUuGwlWQcCphdwvfx5NZ8PHe7mzSukIsh5IZmOBcaQAjtVDQ4rQK7ljHCJfC8r0SfrwBvC+TWKcGGLcze8dDDhmPKQjfMhjIHDPGAug5NwKTvQowgjbo4D36Dp/SOTDDNxtnHlzc+V8NA3YiVRbfM9PFFJlSH4OUIOds755nA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9KaNTlX9FU+epr6GjR21phgJRbalGPA8peFjdpZ3/LY=;
- b=B842NvSXalMweRktFE7NztA8goLjCmJ6TSsdIG1UsWtGXPkqdlKXF7msxrriBzdo4jXHyQxGpyZw/yUAdYANvLWMmkdDAtDQ4I8ZX+wZ7rPWUxJDTau70a8a5jmgd2waopfJ3cI49Uqp2luCV+4S8V32sjIG4AXaw8xNed46BJhEcgsLD5f/erfACRRIr1s9P1v6F7uEIHdKU8JMXPiVdkFd6lhp7nr115rJF/TfcwaU2fJL/MtlqXR0DbtGzmkojHULcM7eWRW+HtLuAiJ7tHn4/xcLPOQPVDqszPUD2mIsYT49Zp1ucjUvKOdSCYCK9hT0RZRDQnmTGXTErKyV6w==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9KaNTlX9FU+epr6GjR21phgJRbalGPA8peFjdpZ3/LY=;
- b=FQgazqZx3zW2DaBSNtOpoicwVVfGzR8IZCnrmqilgCigTO9EIEI7EvPZKaa7/R4ZEeGSaEfmdRztiE49ETiF05EXhgfW/hY4XOM5w4AHlG7H7K+v9fnbhlewQu/BKTt579Wl49PgyvG1iv80lvK6fbNR7ysMoDCNZ+qTGjd1zCQ=
-Received: from DU2P251CA0027.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:230::33)
- by GV2PR08MB9422.eurprd08.prod.outlook.com (2603:10a6:150:dd::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 09:51:03 +0000
-Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
- (2603:10a6:10:230:cafe::6c) by DU2P251CA0027.outlook.office365.com
- (2603:10a6:10:230::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Wed,
- 23 Sep 2026 09:51:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.8
- via Frontend Transport; Wed, 23 Sep 2026 09:51:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MVlY+jPUn7iSdsmO9FtZZW+2AtWWKB69CM5a50lj7h/SFAKtXUkMVRf+Ud03B+VzIikWjyQ5bJzI9l8VxEvJos3dl4srkdJJUuhhHBgMxwMvLso49fx+/H34ziTw2gmPpb8QFQ/oTGl5/Ykjmo/Ybo6TnsPecr1lUKxQNRJGSqMK9FAW1QobzI0o2s4erE/h/dfeimqTgfHE7DHq80hbcFsZVcpCXWtiWOp2Kj6pd+Gf9Ht5d9vjRtPC0+fYitJ8DBAOkm6NgoMMf8grmfkhTWVK/LzbgqCt5dMN3DdcUEVG5vp8YgFTsGU3n7B1PedBErzTQERQv6hB/Ckywnn4Aw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9KaNTlX9FU+epr6GjR21phgJRbalGPA8peFjdpZ3/LY=;
- b=nlp0vW7pCCpFvSBLvO+KAeeCM0j08+GrANX2FdYWVDqTfgAfHmTS6Sxqe3GW6AYeZqLToVBwU9rz2TSoKwhs7EkFpi7ukR1uFvX2DX6E3vZtS/5MQ8hsh99x4JVuoPpL5oVO0ZV/z79K6NKiVPPBMQbkRYyZCriT86ZBZ+8Pbf0ebPi101WB4deo8jb9v0utweJtECm3gcn0n1OU5wTcuI6SFd8LwDHFyI8FfrBnw3GXE8SYzo7HG2wVD++UDd98HpgH4AN2tvoY8Wa+coL0ONeAMZTff3Nlz4SO5iHs3iPIugZe6u8jmgrtSt7Tx8R7CaMvSBgLRHSC4es2q7BM1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9KaNTlX9FU+epr6GjR21phgJRbalGPA8peFjdpZ3/LY=;
- b=FQgazqZx3zW2DaBSNtOpoicwVVfGzR8IZCnrmqilgCigTO9EIEI7EvPZKaa7/R4ZEeGSaEfmdRztiE49ETiF05EXhgfW/hY4XOM5w4AHlG7H7K+v9fnbhlewQu/BKTt579Wl49PgyvG1iv80lvK6fbNR7ysMoDCNZ+qTGjd1zCQ=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAVPR08MB9674.eurprd08.prod.outlook.com (2603:10a6:102:31d::14)
- by DUYPR08MB12014.eurprd08.prod.outlook.com (2603:10a6:10:65f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 09:50:30 +0000
-Received: from PAVPR08MB9674.eurprd08.prod.outlook.com
- ([fe80::6f25:3681:7c97:ea2e]) by PAVPR08MB9674.eurprd08.prod.outlook.com
- ([fe80::6f25:3681:7c97:ea2e%5]) with mapi id 15.21.0451.012; Wed, 23 Sep 2026
- 09:50:30 +0000
-Message-ID: <8bfd64e2-5201-4eef-a32a-b118b2804fce@arm.com>
-Date: Wed, 23 Sep 2026 10:50:29 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: cti: Add const to con_groups allocation type
-To: Kees Cook <kees@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Kees Cook <kees+treewide@kernel.org>, James Clark
- <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, nd@arm.com
-References: <20260917211428.i.947-kees@kernel.org>
-Content-Language: en-US
-From: Mike Leach <mike.leach@arm.com>
-In-Reply-To: <20260917211428.i.947-kees@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P265CA0141.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c4::11) To PAVPR08MB9674.eurprd08.prod.outlook.com
- (2603:10a6:102:31d::14)
+	Wed, 23 Sep 2026 09:52:21 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=y0Zfn+vuryRfSe4jRJZRjxTw9KOrecVJz7A4RSM8JcE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790157136; v=1; x=1790761936;
+ b=ELEPVMCoKHw2ekfzGBhyqswdsjHBtZDkb40gEerwGbC1KB52eQ1bjrR7ktbuxXgJc9Zmq/mu
+ buPQsU6U8qXuPPM0C5lYRXQ3/r4AFyDr8ieF4DLfdpqwwuGRPWODJTC1qGfpInhEfhxznK6s/Mu
+ hBX0Y4F46e468xU0KqAklFnM=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id ff7a0d3c7850c673;
+	Wed, 23 Sep 2026 09:52:15 +0000
+X-Mizu-Trace-ID: ff7a0d3c7850c673
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso4079e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 02:52:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxfyivMAo/vyEzFrVGWHZ1WznxmC01MNTPeEPDdGB2xMADVqebiVVV9ydo3ohAg2s4FYu0qij97Xcm2SyqHjVvR@lists.infradead.org
+X-Gm-Message-State: AFuF++n+jaelPHnf/tBYYyW95YBBz1dJfYWvzXgskwSJnuTw2BlyBJhW
+	WdCgRf6UnghoLLVIJ01sa3XppSe7Kx8qy2RrZWY3bXPnqJ1+Wu8lI5jqLdmG00qpYNCrcG1vH+2
+	TbUtVDIrnb7KzdiHaxl2SgFXpLv0trJUn5vOMfEAb
+X-Received: by 2002:a05:6512:648a:b0:5b6:4ad:d6ba with SMTP id
+ 2adb3069b0e04-5b8d91673a2mr92022e87.15.1790157131043; Wed, 23 Sep 2026
+ 02:52:11 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAVPR08MB9674:EE_|DUYPR08MB12014:EE_|DB3PEPF0000885D:EE_|GV2PR08MB9422:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d45d8ca-dba6-4160-4552-08df19582e07
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: fKwySk98TGr++ZEZAD7xJasd0I6et93gblOIds8gWthr1P8EA3c66x6I9yJrKID40LGJ8HS00N4DebyxjyyM79zXsn9EqSI0SO/sG1xHKOKMdjlLYykfy+KFrpcc5uiACDtCwVV7g3PJf9U5LeWIUyZikAzj2xzNgOvZjoWcXlBM/bjrGwCGY6bg3vUVGuP8vyvBeLh+ueXE9JoZzQy+QKZDYfkdb19S2RToWwgzL5wN1pVZz2rk+WbeWqLCWHe+yhGGZrJ/tnz8bXMFbxw5PirokHVLijlIw9n6Ctmjs/pcnGr37+giH/48HrmyOp2AlpWcYf42rOBz7J1tW6ZKNArgd6CyXSCebHdZM15bpvoBaeGNBOAvg8PNDqlHNdadoW4/YLIhXoa/KXslPzbNk075Ef0uxdj2yTjJi+T9Y2N/AwePvqkEe4Dm3MN9uptnCZn8hJ2mMOOKD274u7kvZfsorvEJ61nKBAgEG43k3uZp+rNKOX0vpinsycO3kRui+XSDrLBQI/yog+26uDyHX+xdu7IBYVlDC4vqcLu6YUkM9AbTl8Nj6Ujs+IyqNgxAYBa9b/6HH9OsgdS6ZduzqCSLjGnOODeer/jxUmHvughtw6FZC/idK3Xdf4At5BEW02+DoTG48a7EwhFALnK8K3CT6/AZbeRM/NQBlddhr4g=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR08MB9674.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: eNZwg/5mbHXtMhJMVhVqnhicYhgmiRzsD+KcSnoTrQCl+VdmuMSEAGbeR1bIN1eO0a95kAmdEHFpvsH+J5u+7bNzqx9fvwpyaX3ZyYVdaRzOVJzcGD+bEu2RCOsEIAAV3AVN1SqtckG6G0jM8QVe3GbmteXPq7Id0Y9ECX8l+3TqEXuCqc255Fub0Xb06gUTLS3tYm4q7XQRSM5gOK5JsczGdm2HwEH/S+moMK2CSes3ZrX00YbcyTZ1qRG6ggvGDTngzTI8OAwDn7VyG4B96TEpvAu0UiIVYEv6xQkIaIfzSTNWo+0Z5jEf6PuX2EEUeT9CcOiza7c0frgVCuT2ug==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUYPR08MB12014
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885D.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 13c0a9e1-dc60-4a70-fc96-08df19581a40
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|14060799003|23010399003|36860700016|82310400026|35042699022|376014|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: nN1Vb7eSNSJRvefpnYOscglDCKz2abyKw9LYfbuzeRtXriLiD3MrHCuoO+wcuhuJQIrD6EKqwc9UiLp1C1318ms5xH1xAiZfLPx01nbeYPev/gA9fj5gzXquuNO23zeCsxBMntVZpyuHptaghU3it4UsTi6y2zb3uvebj24W4KIuBOsTn82vL2P+oORR99boHyx5F3Q/dtKYxzkZxjEBpMBD7Y6hqspm6a2C4DGnLpRWrmvH1qtIubgimdbZnZx3cgRWgydZrN0ArDyrS61I81/UR4OVnZn5V4qjTY3WUwpotturzfpX/Yc1gafHTDZrgBrmoiMHdxDCl0IoP/Azjp11L++ku94wiCScSm8ZkTNw1gKiBYOg2sJ4fbCFgP0j3+LRAo+FS+SrTNgrCE7WN23LxrP/kePybHQyBvJZQYwzWNUk3XgC/qb0Jlo0XDK/AwGiu0EFd/CgTZWoGfriXA4kRh0KDpkgGQta6Al4gVN5aAzo4DHxei43uvfebAsvM1fAAK3Cfuw3YvdksiK8XJ2WRyoPqq5OcJevfBtsGClcK3P5lur1yKlOYoYID4RePt/gTDKWBBajD92sujcSg4eXAL4BKqK8pgNZUwzdDXuOqXNgaAiW4Ohl2+GhnfEmVl3BXWur9/yMQ1NpNrOMfcPh7r9eL84kTT+6Mlt8yJQ85OOkH43o4bn1Sb7W5pMLhZbhZY35cFY66faf/tdgYQ==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(14060799003)(23010399003)(36860700016)(82310400026)(35042699022)(376014)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Lj8STNOhwdEsdnDt0V1QAxLSTshjdImdkA0OYb+A92Cem2Y+G38uVMChobu1GylodTay1VbNF609PK7sQu6nQYE5ka1iAAj/NwJXu+SUcyIHZRoafcJ+dRi62LntMGBqEB/gEumg3S0xWh/c6EFFkDXi0gKSN5ln0iIgJSKCLqj1rjo58awiR5RC24T4AEFxjCWbOMbU7QjDACl49JeWmaFI2Qpf641xf6SBPo/0rfL7yNF9onFHMnlxFMUeNLNrge32E13Jaicz6CtMKJCjXJFVNXs0wUVoRydt5r00tR4Kr9PDMuwzrz3kEia02upDWIppiiwYWzmeUUywPRmBqVrhquCjsw7kDjFYsmDiOeeutKrkE3yLiNxmUSabP+tODmlG6wANm3xcEdN9YhHaygmDPjCw1jvVsyMF3lrBXtKKl1h8dI+wBCg0P9xgavUi
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 09:51:02.8854
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d45d8ca-dba6-4160-4552-08df19582e07
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885D.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB9422
+References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-11-fuad.tabba@linux.dev>
+ <arK1tHUEJsCQEKzn@google.com>
+In-Reply-To: <arK1tHUEJsCQEKzn@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 23 Sep 2026 10:51:34 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx+foVF4CRU5D8bQv8bAqDphMN12UrV+_doUryn2ow6bg@mail.gmail.com>
+X-Gm-Features: AclHuK-NnDCO6wvOJ2rcUaq9EYT0pUNanoAkAkxTjQCgkBqgiKvCWE_D10-iu1k
+Message-ID: <CA+EHjTx+foVF4CRU5D8bQv8bAqDphMN12UrV+_doUryn2ow6bg@mail.gmail.com>
+Subject: Re: [PATCH v3 10/18] KVM: arm64: Handle PSCI calls for protected VMs
+ at EL2
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, steven.price@arm.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_025121_004676_3945336F 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20260923_025218_550491_EB133D14 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,53 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Mike Leach <mike.leach@arm.com>
+Hi Vincent,
 
+> > +/*
+> > + * Returns true when handled at EL2, false when the host must stop scheduling
+> > + * the vCPU.
+> > + */
+> > +static bool pvm_psci_vcpu_off(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +{
+> > +        /* No other writer runs while this vCPU is ON and executing. */
+> > +        WARN_ON(READ_ONCE(hyp_vcpu->power_state) != PSCI_0_2_AFFINITY_LEVEL_ON);
+> > +
+> > +        /*
+> > +         * Orders pkvm_reset_vcpu()'s clear of reset_state.reset before OFF, so
+> > +         * a CPU_ON that wins on OFF republishes after it. Pairs with the
+> > +         * cmpxchg in pvm_psci_vcpu_on().
+> > +         */
+> > +        smp_store_release(&hyp_vcpu->power_state, PSCI_0_2_AFFINITY_LEVEL_OFF);
+>
+> Is there an issue either with the comment or with pvm_psci_vcpu_on()? the
+> cmpxchg is relaxed. I would have expected cmpxchg_acquire().
 
-On 9/17/26 22:14, Kees Cook wrote:
-> From: Kees Cook <kees+treewide@kernel.org>
-> 
-> In preparation for making the devm_kmalloc family of allocators type
-> aware, we need to make sure that the returned type from the allocation
-> matches the type of the variable being assigned. (Before, the allocator
-> would always return "void *", which can be implicitly cast to any
-> pointer type.)
-> 
-> The assigned type is "const struct attribute_group **", but the
-> converted allocation type would be "struct attribute_group **", which is
-> the same type without the const qualifier. As there is no general way to
-> safely add const qualifiers, take the size from the assignment target
-> instead. No change in allocation size results.
-> 
-> Build tested ARCH=arm64 allmodconfig with GCC aarch64-linux-gnu 16.1.0:
-> drivers/hwtracing/coresight/coresight-cti-sysfs.o
-> 
-> Assisted-by: LLM coccinelle
-> Signed-off-by: Kees Cook <kees+treewide@kernel.org>
-> ---
-> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Cc: Mike Leach <mike.leach@arm.com>
-> Cc: James Clark <james.clark@linaro.org>
-> Cc: Leo Yan <leo.yan@arm.com>
-> Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> Cc: <coresight@lists.linaro.org>
-> Cc: <linux-arm-kernel@lists.infradead.org>
-> ---
->   drivers/hwtracing/coresight/coresight-cti-sysfs.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index 3fe2c916d228..2ed5d8eb1dda 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -1132,7 +1132,7 @@ static int cti_create_cons_groups(struct device *dev, struct cti_device *ctidev)
->   	/* nr groups = dynamic + static + NULL terminator */
->   	nr_groups = ctidev->nr_trig_con + CORESIGHT_CTI_STATIC_GROUPS_MAX;
->   	ctidev->con_groups = devm_kcalloc(dev, nr_groups,
-> -					  sizeof(struct attribute_group *),
-> +					  sizeof(*ctidev->con_groups),
->   					  GFP_KERNEL);
->   	if (!ctidev->con_groups)
->   		return -ENOMEM;
+It's the comment. The ordering it describes holds with the relaxed
+cmpxchg. The release of OFF orders the clear before OFF. The winner's
+smp_store_release(&reset_state->reset, true) orders its cmpxchg before
+that store. So the clear can't land after the republish. The comment
+should name that store-release as the pair, not the cmpxchg.
 
+You're right about the acquire though, for the plain stores to
+reset_state.{pc, r0, be} after the cmpxchg. I'll make it
+cmpxchg_acquire() in v4 and reword both comments.
+
+Cheers,
+/fuad
 
