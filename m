@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73094C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC9DC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BL+WnRgTUR3lxWEoLwPKnupRU+QV+lSqW+henCEvPZA=; b=1/zq0Whxl/N6s0Q4hMCI5Mb7Ve
-	cn1cO6zvUWFpkJAgO16JwJc7mvBn5V1hAoPINYrDHpDAo13WFIgWXdZzwjA9ESHL+5c13g3niLhaC
-	jY2otb2wwACYc9QFNnvqB5TuJda0jm9A8hXn6YVFD8ItiRUt9CET7eu/mLpsxv8/BOX75WpAkuktS
-	5qQo7o9ykazoWgP0aMbKa5oUIjGTnxt3ptQH45/HizrH1lpFTDeNPwT5nhsq3N/pHyOYSnLonqckS
-	sRjD2e+gvLblWHzYcV3BLjCMU1TY3s5Xf8AeA7iQe49QjC6fwiHX31QDWdRzmVyfkeKBgwvXpa5tN
-	Kko0/oGA==;
+	bh=EBwjIZDKfun2zrL9E4dNc/T4J4zF9FUO6dKyh0B3FjE=; b=EnRGMC+HDSOhWNL44Yf1eixNE2
+	IezWPE9Ej2ObTgV9v9HFkq21MtybcKHuS3Ru2xMrpFXFw+i9jebzarr9LmBKFb87gK8tmPZzZVUwE
+	H54mBGRngnjIrXGEYjZ2VScB5eXKBjmtyc+Z3iGeXyMK6nJjszY/FhQ8Gan8AjOhTb7hsPonire7z
+	MHixrFbfFGoFlGYRRYo00CAHffkH9GLkXul1UyYrvxlKx63GhJGRy7XFqtB7jHnqyJ7sGOBc3ohSH
+	p5CMGuf1f8EzjzcGrOML5zmK3aMVyPwyqifiTAd7ozfY0fulmTOtDiolqrcvzA4nDYeJ4lhVb4ePD
+	SqGIp3TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OVt-00000008cbV-3e3p;
-	Wed, 23 Sep 2026 15:04:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9OW6-00000008cfw-0M5A;
+	Wed, 23 Sep 2026 15:04:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OVs-00000008caT-0oJL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 15:04:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=BL+WnRgTUR3lxWEoLwPKnupRU+QV+lSqW+henCEvPZA=; b=eEViGsOpSVpPEoAkYK1/IKQV+R
-	lL8O+NYmMQx1Z8TT5h3acDSBgMFNoaTfpvInc2GTLPGQYCCNFYVLtTLSFZn/sO+2kBJLUOTOECXc7
-	PyMwMwVE1KiV4PjxoQU+Q4GFQ9zSfN1ctRmrjNcgkMjDSGwEqyqwj/CpX4keHhzJmNeM7GkPC8BqJ
-	DXdmQjFzP6aKWohlFyPaIAwWE8CacbYg8Q1AVkQlfbrIcj4BWY7d/kh/F1+OZNTDKCVXBHJ84bbvt
-	oLZuHdMYoSY5+7ZsKn/6TzKPQuzF3NaUtKAi0uQaf+c3qEbJeFTTt7zGVaqqk92qfq7Qh1h5rlYfw
-	iP5HgsGg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9OVm-0000000EtmN-0jri
+	id 1x9OW3-00000008cf6-3ncX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:03:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C412C1570;
-	Wed, 23 Sep 2026 08:03:46 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C95553F86F;
-	Wed, 23 Sep 2026 08:03:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790175830; bh=0/Lj5CUiANscmDe5noqB4vYNxkuMu46O/4p4y5g+oM8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mlj83BjIHBZYjSrBtJmqIr+9CLtBC7UmNQlFU8rEIHE/TUvAVxz8URr5clFDN5JhL
-	 Eqzi1JZ36x6RqiJ/O+SNUS02F4fDI4y1KcltMRlvOovoWnQYuFkTlLI9Qf9pXLSIan
-	 dT5QpURCYu+VIG7cFsGk47C8C5k5+fkYRNVQbU1A=
-Date: Wed, 23 Sep 2026 16:03:42 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
-	lukasz.luba@arm.com, philip.radford@arm.com,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: Re: [PATCH v12 03/25] firmware: arm_scmi: Introduce protocol
- instance notifiers
-Message-ID: <arPqThLW7jjbLRJO@pluto>
-References: <20260920091928.2014972-1-cristian.marussi@arm.com>
- <20260920091928.2014972-4-cristian.marussi@arm.com>
- <c80354c7-0153-4a82-a9a1-9e2fd2929449@kernel.org>
+	Wed, 23 Sep 2026 15:04:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 05DCA6021A;
+	Wed, 23 Sep 2026 15:04:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DCBE1F000FF;
+	Wed, 23 Sep 2026 15:04:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790175850;
+	bh=EBwjIZDKfun2zrL9E4dNc/T4J4zF9FUO6dKyh0B3FjE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NCTa9NLGFZRIWCIe1CzcwAWNx7b/8EYkY9lKFagdQvCwYIz1XSrjFaGXEfivEPSLU
+	 gBd3eFL9t7JZe4K0Yl4ZIcd+TjgH2//fXhi6us4SKoiZCm47DsxM7KsADJHMjGaYzr
+	 pT2eWqe4Eqi7+uRBsFkAb1Urxra6w+zsdncC94Z5QsPIUZHUxpZ9lU6Pmenn+DGn8H
+	 bDrww/sOyZMwE8vYh5YMlskX8zEYJC7v6N//s7ec/rH8uAVa6HSZ1bgafifYO/nHG0
+	 hXXoUItPc2Q/ofoWzq2WPhauKOz3DpRUV3Av+ltK877NQzYa/aGbX6TwBcHtJVHeg4
+	 G5KXF3IlLDSHQ==
+Date: Wed, 23 Sep 2026 10:04:09 -0500
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Wei Xu <xuwei5@hisilicon.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: soc: hisilicon: Add HIP05 CPLD
+Message-ID: <20260923150409.GD27237-robh@kernel.org>
+References: <20260921232540.3128596-1-robh@kernel.org>
+ <20260922-cheer-reference-c31fc6fb946d@spud>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c80354c7-0153-4a82-a9a1-9e2fd2929449@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_160355_733324_017007AD 
-X-CRM114-Status: GOOD (  24.78  )
+In-Reply-To: <20260922-cheer-reference-c31fc6fb946d@spud>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,119 +71,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 03:44:48PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/20/26 11:19, Cristian Marussi wrote:
-> > SCMI Protocol notifications are typically used by SCMI drivers to detect
-> > and react to particular conditions: this was the assumption and the classic
-> > usage scenario upon which the SCMI notification framework was built.
+On Tue, Sep 22, 2026 at 07:06:02PM +0100, Conor Dooley wrote:
+> On Mon, Sep 21, 2026 at 06:25:39PM -0500, Rob Herring (Arm) wrote:
+> > Add schema for the hisilicon,hip05-cpld node on the HIP05 D02 board. The
+> > node only contains the compatible string and one register window on the
+> > local bus.
+> > 
+> > Assisted-by: LLM
 > 
-> Was the paragraph supposed to start with "SCMI notifications" ? Because later
-> you describe how some protocols might want to reuse the "existing SCMI
-> Notifications machinery", and here you talk about the traditional usage.
+> Guidance to the LLM should probably include including the reason that
+> this is being added to the commit message.
 
-Indeed.
+Not sure what you are looking for... I told it to convert all the .txt 
+bindings to schema. Then I told it fix all the errors. Then I fixed some 
+things throughout the 900 commit branch upstreaming things bit by bit.  
+Then it mostly sat for a year and I told a new model to review them and 
+fix these common problems a, b and c. Then I said fix all the 
+dtbs_checks warnings on arm64. Then I said there's still warnings, do it 
+again. Repeated that ~10 times. Now I'm going thru to weed out all the 
+wrong and sometimes unnecessary changes.
 
-> 
-> > -	mutex_lock(&info->protocols_mtx);
-> > -	pi = idr_find(&info->protocols, protocol_id);
-> > +	scoped_guard(mutex, &info->protocols_mtx) {
-> > +		pi = idr_find(&info->protocols, protocol_id);
-> > +		if (pi) {
-> > +			refcount_inc(&pi->users);
-> > +		} else {
-> > +			const struct scmi_protocol *proto;
-> >  
-> > -	if (pi) {
-> > -		refcount_inc(&pi->users);
-> > -	} else {
-> > -		const struct scmi_protocol *proto;
-> > +			/* Fails if protocol not registered on bus */
-> > +			proto = scmi_protocol_get(protocol_id, &info->version);
-> > +			if (!proto)
-> > +				return ERR_PTR(-EPROBE_DEFER);
-> >  
-> > -		/* Fails if protocol not registered on bus */
-> > -		proto = scmi_protocol_get(protocol_id, &info->version);
-> > -		if (proto)
-> >  			pi = scmi_alloc_init_protocol_instance(info, proto);
-> > -		else
-> > -			pi = ERR_PTR(-EPROBE_DEFER);
-> > +			if (IS_ERR(pi))
-> > +				return pi;
+So LLM did all the easy parts and I did everything that requires any 
+judgement. The hardest part is typically just figuring out the 
+correct maintainers...
+
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> >  .../soc/hisilicon/hisilicon,hip05-cpld.yaml   | 35 +++++++++++++++++++
+> >  1 file changed, 35 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
+> > new file mode 100644
+> > index 000000000000..f9d48b871a4b
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
+> > @@ -0,0 +1,35 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/soc/hisilicon/hisilicon,hip05-cpld.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > > +
-> > +			proto_notifier_nb = READ_ONCE(pi->pno.nb);
-> > +		}
-> > +	}
+> > +title: HiSilicon HIP05 CPLD registers
 > > +
-> > +	if (proto_notifier_nb) {
-> > +		if (scmi_protocol_notifier_register(pi->handle, &pi->pno))
-> > +			dev_warn(handle->dev,
-> > +				 "Failed to register protocol notifier\n");
-> 
-> 
-> 	if (proto_notifier_nb &&
-> 	    scmi_protocol_notifier_register(pi->handle, &pi->pno))
-> 		dev_warn(handle->dev, ...)
-> 
-> As we dropped the mutex, I assume somebody else could move ahead and
-> refcount_inc(&pi->users) + return before the notifier was registered? Is that
-> expected?
->
-
-It is more of a problem on the release path...in fact...these limit
-condition are an open residual issues...
- 
-> 
-> >  	}
-> > -	mutex_unlock(&info->protocols_mtx);
-> >  
-> >  	return pi;
-> >  }
-> > @@ -2366,13 +2398,35 @@ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id)
-> >  void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
-> >  {
-> >  	struct scmi_info *info = handle_to_scmi_info(handle);
-> > +	struct notifier_block *proto_notifier_nb = NULL;
-> >  	struct scmi_protocol_instance *pi;
-> >  
-> > -	mutex_lock(&info->protocols_mtx);
-> > -	pi = idr_find(&info->protocols, protocol_id);
-> > -	if (WARN_ON(!pi))
-> > -		goto out;
-> > +	scoped_guard(mutex, &info->protocols_mtx) {
-> > +		pi = idr_find(&info->protocols, protocol_id);
-> > +		if (WARN_ON(!pi))
-> > +			return;
-> >  
-> > +		/*
-> > +		 * If a protocol notifier was registered and this is the
-> > +		 * last istance releasing the protocol, mark the notifier
-> 
-> s/istance/instance/
-> 
-> > +		 * for un-registration: note that the notifier itself counts
-> > +		 * as one user, as for any other regular notification, so if a
-> > +		 * protocol notifier is registered and there are only 2 users
-> > +		 * active we can derive that this is the last protocol
-> > +		 * instance de-registering.
-> > +		 */
-> > +		if (scmi_protocol_notifier_registered(&pi->pno) &&
-> > +		    refcount_read(&pi->users) == 2)
-> > +			proto_notifier_nb = READ_ONCE(pi->pno.nb);
-> > +	}
+> > +maintainers:
+> > +  - Wei Xu <xuwei5@hisilicon.com>
 > > +
+> > +properties:
+> > +  compatible:
+> > +    const: hisilicon,hip05-cpld
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    local-bus {
+> > +        #address-cells = <2>;
+> > +        #size-cells = <1>;
+> > +
+> > +        cpld@100000000 {
+> > +            compatible = "hisilicon,hip05-cpld";
+> > +            reg = <1 0x0 0x100>;
 > 
-> We drop the mutex now temporarily. What happens if another instance gets
-> registered (incrementing &pi->users) just after we dropped the lock and
-> unregister the notifier?
-> 
-> Shouldn't we care about that or why is it ok?
+> Also what's with this example? 1 0x0 0x100 should be 0x1 0x0 0x100?
 
-I'll try a slight different approach for this...till now I was looking for the
-least possible invasive ways of dealing with the fact that the core SCMI mechanisms
-were NOT originally designed to deal with in-protocol users but just with
-external SCMI drivers...
+Shrug. Sure. Honestly, I think the example can just be dropped.
 
-Thanks,
-Cristian
+I'm converting all the crap no one cares enough about to convert. That's 
+pretty much all of the HiSilicon stuff. Mediatek needs some renewed 
+public shaming too. I only care about getting arm64 down to no warnings.
+
+Rob
 
