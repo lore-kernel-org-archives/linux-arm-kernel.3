@@ -4,66 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40958C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C423C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUpR6KucoaXcTmvkRCZmv7J89mCoV6ylg9YObbtt/Sc=; b=Ko2yy1vN844qXWYJAYv841zqXw
-	zyPQ5YuekCSaN3IWl6CXJoQRK75WKwTloyy0aVe1qvQp/rVLcLzHBiQn/3XtPJLVsJplkrl0o6G/I
-	ZcN7GapelvISjIuGDDoHXlarXl32Nhvq3BzkjwI/BMR9gsMSrfF3sohjcYTjCm818KtA2ygVYbyLZ
-	dJA/JuNEUJAmPZhO/JyBywRLj0V//4AALgaVICD29ZZbeQzOY8B7/ckDvqTDyRkxCW/csC2ENPZb9
-	tIFnKp4jZkJtuPtQrfdcTmVUn49Co3OUediPc5yr9L88oCalg3Mubm+/RYFWdDl19PWIHEnJaBwZT
-	tpeEyxAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QjVZsgjafxWHbInP82QtXw3nvYZsQ/D+Rt9D0nwnywk=; b=XhF4t3k0Dub6x1fXSfP7+WGM62
+	BGYSG+FiDAhpBUGUjgotlIG5PACuTNU/ejQcTU3FALww8wdbdMP/nT64tba9Fqmxy5+CLD+mtCGWe
+	0m9dkg6WcYkkC3IxKpfH+n/OJy7T0VNTbYbLgHaQPk0u7u0knjXTxQ1W5TgQfheD4kq88A3cRaqEV
+	tSGtQmVEGfreFmCXgceKSWZm9/SfmWQ7FK0TpI4WxLpLCi1t+g0sZ1XTRNMTMH3sWSO65U+zSfcIH
+	QVyt61ERwGE35goEOy/fBnoGNpxx65XGcUAkhjlBS7MlXu8TlQ4RVs08qmu88G0kFZTncOtRzD6T9
+	ekvdnOlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9VVb-00000009e9S-1aow;
-	Wed, 23 Sep 2026 22:32:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9VVY-00000009e90-30CI
+	id 1x9VX1-00000009eL3-2VNj;
+	Wed, 23 Sep 2026 22:33:39 +0000
+Received: from mail-eastusazon11012068.outbound.protection.outlook.com ([52.101.53.68] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9VWz-00000009eKD-0YLd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 22:32:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FBAE152B;
-	Wed, 23 Sep 2026 15:32:03 -0700 (PDT)
-Received: from [10.57.8.94] (unknown [10.57.8.94])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 222A43F632;
-	Wed, 23 Sep 2026 15:32:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790202727; bh=1XPyZl7KcJ8iUJW3sUKhc204l0JzqrgROESCE9y4KLE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T4zvA616YRMKkA/8qFynJksx3CL52m7SBaF34fky4Pck+og5+fqKvcASybEilKkot
-	 ijT6stRUsS4dTQlogQOwuIs9kbZG0d1MrlloV46j/ZTIBReieWJvP7OicSZGg4OjML
-	 X6BvciaDfsJxBOwHqKV7/Vvo++g94RrgMOcXkVhc=
-Message-ID: <12024d6c-b8df-434c-8b63-29f5780a13a0@arm.com>
-Date: Wed, 23 Sep 2026 23:31:57 +0100
+	Wed, 23 Sep 2026 22:33:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XbGNgZjfHMhpRXxUsoQ6cnWeUVzl59+bYTOBHbmQw5KE0T/o5MQri28tJnFEWzC7OW79zVP6gw1dkX6fMEXKsokysE3+EgH2YTSXRt4VO59lcTbzvcx25hbT+a0Aqe/zEddfE2z3y3gEIif3Ny0+8DtaBCvkk/gW/yaAJWa0GQudn/pTydp+xQ0LTmvu1N9gNChp1nU5L37YqBY/t7q9iK/nluJ/yj/i4pg/FrFQDmlL4QSkslhHx/U+1+KGZxuXbOITDFFyVT6vLgv99qEMqGLUu8Zfm+96CAEwNFmEvHz5q0XoPpSbznR284tb86ep9adTJFAMNt77w9eCI4Cu4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QjVZsgjafxWHbInP82QtXw3nvYZsQ/D+Rt9D0nwnywk=;
+ b=hn4eGKWmdLZRyCIQ6uwR/ly8kcMHft7Y3ZP+Kk2JvvpQCH5ZMrIsQbtwZIJG+1o+2HQcdmVR5tBUlmd2VW0TEXgO8MUgE2HqvCDpzZFCdgqrnEbjvwEeLCDpZeFOmbgoffTe9plXJ9rn+rGKdF3Z7mc+2TbeMc94LofCgywqpPVh0qm22WyyzbHm96ohplWIUU5vK8Qj5c2JfjOnZeKNoupd2no7a/pIkHB9yaQB3du+ste8OMTxMM5/a5ZUkOtH99x7qNby2pvqOw/iYX5WcwuCAG9ZrXqSNJ//oc2fybSwisn1NmRwofr60wiEq12FRPdZ/zsSH761EbSBzZYn2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QjVZsgjafxWHbInP82QtXw3nvYZsQ/D+Rt9D0nwnywk=;
+ b=LVQRduWwpepK/Lz/QNJB64dLlEIOdJgGOkuy750JMFlH2BDGPkBFPd019yMz8Rol4i/Rlg2QFSSQIx1TyXqxz7a9MI4BYY/7MFzfrJCYp+5noIaHfsAcEZ95fFUsqOXnBsjEVc7Uxqtus2SqzMKG+BWKdZy5mx5KpgI0AGoYTH6eRbCeakW7V66kqTUW1ymbTU8XbEQdrYa4zWkk62rOAoakfs4uj4xUwuzx89zRRo6+Jr044KlqrhGXKgs6OjjJ+Iq0TbLEikst2FtdTkosTxF31up8ylIGETt/hDjjONR0KNMrx6DVYUIc60cwJNe3PxKlncJDNZLvlrREfsDKEQ==
+Received: from PH7PR17CA0033.namprd17.prod.outlook.com (2603:10b6:510:323::7)
+ by PH0PR12MB8800.namprd12.prod.outlook.com (2603:10b6:510:26f::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.22; Wed, 23 Sep
+ 2026 22:33:27 +0000
+Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
+ (2603:10b6:510:323:cafe::b) by PH7PR17CA0033.outlook.office365.com
+ (2603:10b6:510:323::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Wed,
+ 23 Sep 2026 22:33:27 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 22:33:27 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
+ 2026 15:33:10 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
+ 2026 15:33:10 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Wed, 23 Sep 2026 15:33:08 -0700
+Date: Wed, 23 Sep 2026 15:33:06 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, Jonathan Cameron
+	<jonathan.cameron@oss.qualcomm.com>, <joro@8bytes.org>,
+	<bhelgaas@google.com>, <praan@google.com>, <kevin.tian@intel.com>,
+	<kees@kernel.org>, <smostafa@google.com>, <baolu.lu@linux.intel.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>, Eric Auger <eric.auger@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
+	<bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
+Subject: Re: [PATCH v5 04/15] iommu/arm-smmu-v3: Drain in-flight fault events
+ on domain detach
+Message-ID: <arRTojIlWBOF57zO@nvidia.com>
+References: <cover.1789446520.git.nicolinc@nvidia.com>
+ <cc7eabdd07e7705c84e30b04c85271d4ddf66055.1789446520.git.nicolinc@nvidia.com>
+ <179018862538.3334538.17643821143626392419.b4-review@b4>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 2/7] firmware: arm_rmm: Check for RMI support at init
-Content-Language: en-GB
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-3-suzuki.poulose@arm.com>
- <20260914-nano-narwhal-of-blizzard-dbc6a0@sudeepholla>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260914-nano-narwhal-of-blizzard-dbc6a0@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <179018862538.3334538.17643821143626392419.b4-review@b4>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|PH0PR12MB8800:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad6e62ab-f8c8-4216-cee2-08df19c2afae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700016|23010399003|6133799003|22082099003|18002099003|56012099006|11063799006|5023799004|10067099003|4143699003;
+X-Microsoft-Antispam-Message-Info: 7LuFV1otp2NNgkH5qFGpBBp/fBMJm5Qw5d2Ab7+p3Sy3LcG3onzj+PXj5GkA83pqPXPGhxakppdLmq9RXbcVQkl6GM8Dl4LSV67m6v7990xmTYb2ZrA/WlK5dyRo2Q+wVmcsdlMP9FmzlJkrodp+vPC4ttxlNYRqxiHQW3/Yto3UWx5lzos2X4Y9k1Mnka7mNnQ2mC5oCbfg4OR2HVwDpfzCM5WGHXqgxS2ztN6LNFUalG9UywpNS5ATJLO64rBpQqjmFhfCvujfB9yaR0SbzFHW20FD07i6ULprY+EMD+NqrpWAnrQgMGgyto4GMoKKtwA6qcqNFXKt0Qi/z1+s+OocENkGetUGukeGaPa86x7P6SMXDHOIb77wTQ7lv8oPWVZTfNj+P3dUuYxp0Mp2faQjSEokfu4gu/R3p0VRMTmgqqDBkV2mxPSTx7GkJ86q7apw2RbdO5jFWJgiECGsM10e96+phpW+ZW3ssUkBlLdkIWnvlFzcBsW4Tm/HMlH2cQcwpsoSWDKjru1PxDlD2tjRYoyjbzTQYGU33dFOqGpfjaDMuUuiLxdop4P4InubbN7AFU2GGZ76owk2jxxwSTdm2borXBlr99t6GUwLH6FpQnNJmVMPYG0ASAtiQH3BQnIZ8u16zh8jx/I3CrVKF0fbt/qSWk/gYLD3r++V8u/Qqy2xKXXsElH9kqS0icxuCKnG7JmVz64IVpsr7H92bQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700016)(23010399003)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006)(5023799004)(10067099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MhwNzTtx3SrISKL0d7o04hRRbfOsl0JIIABWvrzR6CTU3u0MmOQHwTWB5j3ypj7Om4WtQko2ivGRsRBUwGljc/NZBTvGx8vI6vCdrtUpIVGIpi2gALAnwB9GYiLQe/1TOmiAp1ZGGWCuL1l/u4OW2BOBqF14b0g3duKc+126lbaK0lt5yKs80wuXDytH7s7/J27U2pdnGCzuz4q1ZBvZZFnDoKyUHFS1uJAcyf81iMsKcb/x9K0j9qFwZyAPdTopP0qLWc2lsG+9jqapaXqp33YOJLDmhf7dAh7fouZhiWnM9bU3aZaF+rpYVeNez/KosjpTPOIzJDAaFy1p/4o4IjozLi/1cz/5ZJ7D53ZszV0WGbEoHO+ToLpS4MA6tAvVSKqVKdGRrbMJGNnaH0RbTHo2SK+Td+1uhsOSZqotoPsrTyV2chkGmGTmxMUdqIUS
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 22:33:27.1453
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad6e62ab-f8c8-4216-cee2-08df19c2afae
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_153208_911383_F18D1DDB 
-X-CRM114-Status: GOOD (  33.48  )
+X-CRM114-CacheID: sfid-20260923_153337_178268_CF6C9688 
+X-CRM114-Status: GOOD (  37.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,145 +136,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
-
-Apologies, this one took longer to address. Thanks for raising this,
-response inline.
-
-On 14/09/2026 11:27, Sudeep Holla wrote:
-> On Sat, Sep 12, 2026 at 09:36:05AM +0100, Suzuki K Poulose wrote:
->> From: Steven Price <steven.price@arm.com>
->>
->> Query the RMI version number and check if it is a compatible version.
->> The first two feature registers are read and exposed for future code to
->> use.
->>
->> We only support this for Little Endian kernels, the Big Endian kernel
->> support is anyway marked BROKEN and is being removed.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-> [...]
+On Wed, Sep 23, 2026 at 03:37:05PM -0300, Jason Gunthorpe wrote:
+> > [ ... 73 lines skipped ... ]
+> > +static int arm_smmu_wait_for_queue_drained(struct arm_smmu_device *smmu,
+> > +					   struct arm_smmu_queue *q,
+> > +					   bool until_empty)
+> > +{
 > 
->> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
->> new file mode 100644
->> index 0000000000000..9792bf0e00cb9
->> --- /dev/null
->> +++ b/include/linux/arm-rmi-cmds.h
->> @@ -0,0 +1,36 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2026 ARM Ltd.
->> + */
->> +
->> +#ifndef __LINUX_ARM_RMI_CMDS_H_
->> +#define __LINUX_ARM_RMI_CMDS_H_
->> +
->> +#include <linux/arm-smccc-rmi.h>
->> +#include <linux/bug.h>
->> +#include <linux/processor.h>
->> +#include <linux/types.h>
->> +
->> +
->> +/*
->> + * rmi_smccc_invoke: Invoke the RMI call and return the results in @regs_out
->> + * @regs_in: Registers with the arguments filled in.
->> + * @regs_out: Ouptput results from the call.
->> + */
->> +static inline void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs)
->> +{
->> +	struct arm_smccc_1_2_regs args = *regs;
->> +	unsigned long status;
->> +
->> +	while (1) {
->> +		arm_smccc_1_2_invoke(&args, regs);
->> +		status = RMI_RETURN_STATUS(regs->a0);
->> +		if (status != RMI_BUSY && status != RMI_BLOCKED)
->> +			break;
->> +		cpu_relax();
->> +	}
->> +}
+> Nothing uses until_empty = false ?
+
+This series (PRIQ/EVTQ) use until_empty=false.
+
+> Is that for the power management series? How does it make sense?
+> Shouldn't we already know the queue is not seeing new entries in that
+> case?
+
+The RPM series (CMDQ) uses until_empty=true, as it knows that there
+are no new entries.
+
+> > +	ktime_t timeout = ktime_add_us(ktime_get(), ARM_SMMU_POLL_TIMEOUT_US);
+> > +	u32 cons, prod, pending;
+> > +	u32 drained = 0;
+> > +
+> > +	might_sleep();
+> > +
+> > +	cons = readl_relaxed(q->cons_reg);
+> > +	prod = readl_relaxed(q->prod_reg);
+> > +	/* The exit target: the number of entries in the queue at entry */
+> > +	pending = Q_DIFF(&q->llq, cons, prod);
+> > +
+> > +	while (true) {
+> > +		u32 prev, undrained;
+> > +		bool expired;
+> > +
+> > +		/*
+> > +		 * Sample the deadline ahead of the queue state it judges, but
+> > +		 * break only after the exit conditions below, so a queue that
+> > +		 * drained during a long preemption still exits with a success.
+> > +		 */
+> > +		expired = ktime_compare(ktime_get(), timeout) > 0;
+> > +
+> > +		/* Accumulate the entries consumed since the last poll */
+> > +		prev = cons;
+> > +		cons = readl_relaxed(q->cons_reg);
+> > +		drained += Q_DIFF(&q->llq, prev, cons);
+> > +
+> > +		prod = readl_relaxed(q->prod_reg);
+> > +		undrained = Q_DIFF(&q->llq, cons, prod);
 > 
-> I haven't done a detailed review, this is just a drive through comment.
-> The while(1) gained my attention.
+> I'm not sure how this all can work, the queue is running on its own
+> with some other CPU handling interrupts.
 > 
-> Should RMI_BLOCKED be returned to the caller instead of retried here?
+> You can't do this sort of Q_DIFF math unless you've somehow guaranteed
+> one side of the queue is stable for this logic. If both pointers are
+> moving forward then the points pointers can progress and wrap without
+> this noticing that happened. That will lock up.
 
-Short answer yes, to be safe.
+One side of the queue (pointers) is actually stable. EVTQ/PRIQ uses
+the snapshot mode (until_empty=false):
 
+ * With @until_empty == false (for EVTQ/PRIQ), exit once "drained" reaches its
+ * target: "pending" (i.e. prod0 - cons0, frozen at the entry time):
+ *
+ *   cons0                cons                 prod0         (prod)
+ *     |<---- drained ---->|                     |             |
+ *  ---+###################+=====================+=============+--->
+ *     |<--------------- pending --------------->|
+
+
+"cons0", "prod0", and "pending" are frozen/stable at the start; the
+function only needs to track a moving "cons".
+
+
+Arguably the other model for CMDQ (until_empty=true) does have two
+moving pointers in theory:
+
+ * With @until_empty == true (for CMDQ), exit once the queue is observed empty:
+ *
+ *   cons0                cons                                prod
+ *     |                   |                                   |
+ *  ---+###################+===================================+--->
+ *                         |<--------- undrained==0? --------->|
+
+But in its practical use case (RPM), as you pointed out, there would
+not be new entries. IOW, its "prod" is fixed/stable; only "cons" is
+moving.
+
+> Can you just replace this whole function with:
 > 
-> RMM spec defines RMI_BLOCKED as persisting until the Host takes action.
-> It also says it is returned when another SRO on the same context is
-> incomplete. You may be running it on different CPUs and hence different
-
-I agree this is poorly documented and we are working on improving the
-documentation on this front.
-
-RMI_BLOCKED is a side effect of an incomplete operation (in other
-words long running) that has turned some "resource" into an
-intermediate state. e.g.
-
-The following operations could put objects into an intermediate
-state until the RMM completes it, to ensure correctness.
-
-  * Unmap a large IPA range triggering SMMU TLB invalidations.
-    For KVM, we serialize the unmap S2 with kvm->mmu_lock with
-    write lock. So two operations could not race (even a map
-    at the same location).
-
-  * Delegate/Undelegate, which again could end up in SMMU GPC
-    invalidations.
-    The only case where we race and do parallel "delegate" is
-    while handling concurrent VCPU faults on two different physical
-    CPUs. Even there a failing thread handles this by returning
-    to the guest and taking the fault again (if it wasn't
-    resolved by the other thread). We could additionally tighten
-    this by using write lock for the fault (just like pKVM).
-
-  * Change the tracking region granularity. e.g, convert from FINE
-    granulartiy to COARSE or INTERMEDIATE, causing all granules in
-    the target region to be locked. This is not something we do
-    in Linux. We mandate the firmware maintains FINE granularity,
-    at least for now. Even with dynamic tracking, we don't expect
-    to fold the tracking granularity for regions with "mixed"
-    entries (which would fail anyway due to the mismatch).
-
-  * An object bound SRO handle is active, while another SRO initiating
-    operation is issued. This possible with a buggy host.
-    e.g., RMI_REALM_ACTIVATE is called while RMI_RTT_INIT_RIPAS is
-    in progress. In KVM we serialize this with kvm->arch.config_lock.
-
-For all practical purposes the above operations should complete in
-a single try and another command observing the RMI_BLOCKED should
-be able to make progress. That said, for Linux it is better to
-return the RMI_BLOCKED back to the caller after an arbitrary
-tiny number of times. So I have updated the code to try for
-3 times for RMI_BLOCKED and return back to the caller.
-
-We could even drop that and just return back immediately to
-the caller. Like I described above, the only case where
-we expect to hit the RMI_BLOCKED in Linux is for parallel
-faults, which could be handled and/or prevented in Linux.
-
-
-
-> context I assume. But this loop takes no such action and hides the status
-> from the caller, so a command issued against that context if that can
-> happen can spin indefinitely while the operation which would unblock it
-> cannot run. Ignore me if it taken care not to happen elsewhere. I am
-> just looking at this in isolation.
+> static void arm_smmu_irq_thread_fence(struct arm_smmu_device *smmu,
+> 				      unsigned int irq)
+> {
+> 	if (!irq)
+> 		return;
+> 	irq_wake_thread(irq, smmu);
+> 	synchronize_irq(irq);
+> }
 > 
-> Could this retry only RMI_BUSY and propagate RMI_BLOCKED so that the caller
-> can arrange for the incomplete operation to make progress if the above
-> scenario is possible ?
-
-Ack. I have made the changes in the next version.
-
-Cheers
-Suzuki
-
-
+> ?
 > 
+> This forces the thread to run and waits for it to finish. Since the
+> thread fully drains the queue at the moment it starts, that should be
+> sufficient?
 
+Ah, that seems legit to me. The point is to make sure no pending IRQ
+on the HW queues, so everything is drained. And this likely suffices.
+
+Yea, I will try that one!
+
+> But I wonder if the point of this has been lost? Prior to calling the
+> driver attach functions the core code already changes the xarray:
+> 
+> 	curr = xa_cmpxchg(&group->pasid_array, pasid, NULL,
+> 			  XA_ZERO_ENTRY, GFP_KERNEL);
+> 
+> That immediately makes the threaded IRQ safe since it calls
+> iommu_attach_handle_get() which now fails.
+
+I am not sure about that. Looking at iommufd_hwpt_replace_device(),
+there can be a old_handle != NULL, in which case the cmpxchg() would
+not change the xarray?
+
+> So all that is needed is to synchronize_irq() to make sure the irq
+> thread sees the xa update
+> 
+> Then to flush the workqueue that iommu_report_device_fault() pushes
+> into.
+> 
+> We don't need to do anything with the HW queue.
+
+FWIW, the idea of HW drain came from intel_iommu_drain_pasid_prq()..
+
+Nicolin
 
