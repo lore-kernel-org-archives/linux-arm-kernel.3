@@ -4,65 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6F2C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C9CAC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8DBmCwTPj1HLJxixk1IybieKhVRtaJzcM/QTZMWWjU=; b=PRbKp57Dlp0sGCCI59+/sPDYly
-	fBQjo5LX143EaJN+r7hDhMlRRLvW6usUjRA0WHqeCleqcnfyhENJB0TFOPxL6VNu9oh4sWmAxs3k+
-	GdR/tksWysKdyCnFZpX0thutP+mFPXXY62I4fZHAarPbg4kMErPmd7Y7EfhwuuONS6Uk8FunJDR72
-	GyL3kB/mSLRdxNuy5VFRE6VfEZ4K9x2VHdPqDDhDfksygep+kATDG6QPio9Y7o8pArS6Q9BIxbaSr
-	XYxQU1Iqexiawr6p94vGidbEoJfRNldZi755ePT+QMOWel40W4aKMpnPY/0GyQuIQIvE6SSu8ZBbB
-	pO3YhONQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
+	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZRPz9TFtrzX344YNm+0128pl8GAEqUQ2BeDyRzDy3yk=; b=MgxW8lrQK2MccchlsxYVHp0G9Y
+	IkEyzEhHKhYwh1DnseHnqJqWccXMNP/f/5tVCLtPHYbM4kroeEDv7EJkhWpMSnh7lWUS1UEePJebx
+	3x1PdXPA9HsNckVgFBnBTQfJtrrBnb5/8O8Eb4lHeUHbNeVzSJSeTv+tagIDxO6ULU52kGNxpE8Ae
+	b4aCH5CwpLM7jHgiRKe5LYQkkbfDjnoLBvuMC9MYp8YpBszIlWlIe3Mp0pnk8stjJuRBqFTDc8SZV
+	CL/Rlg+XR3w3CgwE5y9gZ5JRrPgjpNUi3UbhFgvVOnUEhwF3fTKFSi3uJUUjZcgeIU/NO/C+xzxUk
+	tvmGEZSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Py3-00000008tEJ-3Xv0;
-	Wed, 23 Sep 2026 16:37:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9Q0H-00000008tWG-35Zc;
+	Wed, 23 Sep 2026 16:39:30 +0000
+Received: from mail-northcentralusazon11013037.outbound.protection.outlook.com ([40.107.201.37] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Py1-00000008tDz-0ka0;
-	Wed, 23 Sep 2026 16:37:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CF2E406AA;
-	Wed, 23 Sep 2026 16:37:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 318FC1F00898;
-	Wed, 23 Sep 2026 16:37:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790181428;
-	bh=m8DBmCwTPj1HLJxixk1IybieKhVRtaJzcM/QTZMWWjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OQf4pIblBoaTwNI1vgYOnKhNp/sI31yk//Xw9BqFUy7G/htBaC1NWTmeOya/KJSKj
-	 K/NGiYIvAia/lMUsHtjNHNqpTfO9nq7hthRnvWANp0ndLdh59OVduYheLv3N+uZ/XC
-	 nOWOeHDaKX7dly2b5WUSdcmPgt4b8tXszQwP+xye9ctzkZGhP60mIBypeIeqjq2H7A
-	 /3Lnb0i65OdNrEN8SFXtvowiX4I66P+1EVPVHx4+F2HLUpCoya2FenCeBqg+xrgdgx
-	 M1TfReFrPG/QDzCLMNMCX0ZAaWQ+8TjhgNMiRAKgqhFW47l7p+9gw22AIaUiyhqRkK
-	 pku6EJq0GyryQ==
-Date: Wed, 23 Sep 2026 17:37:04 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Sander Speetjens <sander.speetjens@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: rtc: Add property for Raspberry Pi 5
- RTC
-Message-ID: <20260923-browbeat-judgingly-b047721f5cb3@spud>
-References: <20260923131323.1099979-1-sander.speetjens@gmail.com>
- <20260923131323.1099979-2-sander.speetjens@gmail.com>
+	id 1x9Q0F-00000008tVX-163C
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 16:39:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZRjsmSeE7FyoJbatvAALYob5X+vlFGutzTLrKpaWCLnXaskrTYWuoRYYafEmVUOqjsM+wAGbeOsvWXu3ojo+Q3oeNhvLSyJ6ZrpJQJnWvKLhjps2Xw501gQsMFkvuobSwtCOeoAxksabmJR3Rfn3iqDYqlRSftLzrQEZairGFVQylhUTQjo4OJHErgdKN/B2TNMozY/ZqRYLEj6cHyWBC1bjIjquEtkVJHwssIxAUl2zyaCr13l073/0XHimYbMgCxxl76HB8jNDiFOhBf4RejiaK9qH3LA4DJl3bWGSSt2j4qTD+UAYyljgBeUhN3Sl3wNxrG44tfETS1gnxQsXJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZRPz9TFtrzX344YNm+0128pl8GAEqUQ2BeDyRzDy3yk=;
+ b=BzCNObKIcFiEaFrPrwU1klX9PQtd+UQl0S2xaXZq3WRRAryXVqiKgpg2ittOK+lZIrHLvZVzBvh1SO57IVxkXshwriLKtnnVl0tTkx2cJ37amkgZ6dzzn2McPmQmZhDRcR1C35pJdE/HqfeTIrIJlQy7eA1QrFWfSGPVMoe4UltlcE3ok5XUjxTcmFMpsit/1lMkKCVt7Zay91oUhOBSxBlfJPBg3JZTTp94AkMfZLRzgpzcuMx2tRLlGFznyQzd7qAntY6308J533OPq8riQB070mIovBQPfVI/3v/wY9w3/LdICWYm6OugxoU1N/FYCLGXRld0cgts8gfx8IMdPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZRPz9TFtrzX344YNm+0128pl8GAEqUQ2BeDyRzDy3yk=;
+ b=tpcdQn/pyVZr0CJLTIsZVRX/7bjn/KKYwt68OeVQm7whZ+BAk3U7jlvcsnQS1CZedKnBChkvMEZcLsKayf5JAbI0vxtEl7lVoKhBJ6H+wU1hnOFnVx3unAmE5RH8x+jULqA2ETK0emVi9Y30w0XarZ5q/rF0N3dah24W5H6+Q2LFkgCzNXZbt9KoPcpOnfEoh1xj8Uk7qybI3WcKKTMgbg3qgWNX8Kz81FCsWDt19MmpQ9/9AWwk42wW16o2onmN/f9yHYafm/YBBw2oKExIAnQ78aARMw7FFYOJ3YYbtJSyDCMKClq95t9CUOBSfrhVSHrH5S61AnaQcj4wVYwYmA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14) by SN7PR12MB8170.namprd12.prod.outlook.com
+ (2603:10b6:806:32c::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
+ 2026 16:39:20 +0000
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
+ 16:39:20 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v10 03/13] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ
+ for the event queue
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org, 
+ praan@google.com, kevin.tian@intel.com, smostafa@google.com, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org
+In-Reply-To: <b6493aeece86f44195e8afb6fb8b3497cc237dc2.1788130528.git.nicolinc@nvidia.com>
+References: <cover.1788130528.git.nicolinc@nvidia.com>
+ <b6493aeece86f44195e8afb6fb8b3497cc237dc2.1788130528.git.nicolinc@nvidia.com>
+Date: Wed, 23 Sep 2026 13:39:16 -0300
+Message-Id: <179018155687.3334538.11821786319865196859.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-ClientProxiedBy: SJ2P221CA0011.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5db::7) To LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JCSrJm94KekIipH6"
-Content-Disposition: inline
-In-Reply-To: <20260923131323.1099979-2-sander.speetjens@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|SN7PR12MB8170:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8bc950f2-1c3a-46fe-f88b-08df199137d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|7416014|10067099003|4143699003|6133799003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 9PiIqhpXRUoIgZNa/2ggH/eT8eXxmofD27tzFebONBFRCfz+u7iDR/SrcpLYmhyrINIH2UTJFwQIeIIzXV4UOJi1s8dBBE735bulAGdyPEjW1OXKQV9McmV/IlH6bRqVt6KBnd3CdLtxbSAOBIqESbhm1BPFGrcsUctYv+kMijUVXTnuZ8QTzS9X4ge3qFXkSeKU5BZf/AKdyVg67ZaK03b43Zq+Ued4e90rke1SnTiwkL0H0q5nyT/BWvCh9QNgxUJslzQEhquI8yv7pgcZTm0CkDLtsxRkqATKflLJitUJREk7TloI9yJsdxIkqzlxK6KFl929dQYlagCwhUFqFR958Y4xdgkSfKtrJjyLx+mvu/zL/KjVweAfSfcCw/VJZvUDOxs9WW5UqaOFx1lyrWXT3G+K1upKY8NBRJVkgUJO/JHjEujv7oA9fbk3xm86wcUndnKlc4XB+LcPb+k59Yr/xdZL30YtuHL3NseL75fFIyAGsP5yB/MDaS13gtWgBYgw4F+dXLvTHviMY0JHBbU+jw6lVuDstt/1MESHXSXraDdrQGSLDtRGeo5lNmsKai73BPwHdBfch5yFLHGfJTnJSca9j9b0IoTlXsrdK3yfPYMc1C1bRGzc8hBLjaK9HCCtHr/hNiw9anjuAU5rt2OAP01C/Uchl8gBp2+5BKA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(7416014)(10067099003)(4143699003)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cEFrc09jQml4a2ZHUW0rdkhRVDhMMG1hU3hTM1hnenJGQTFJMUhIZE9YVTV6?=
+ =?utf-8?B?dFhkTHRpVUpTTmc3QkZYUk1tUUJvLzBYaklqN2dLMTg0bkpYY01zeis4enE0?=
+ =?utf-8?B?ajVBK1lGcE5RbmZqRnRCdU1Ba2ZNajBzNjZTWnZ4N3lpdUxZbFpMT0JNK0hl?=
+ =?utf-8?B?bG9ONVQ0UlJOajNmWW9ha2lnOFhZMlVZbGlkUGdnaEVibFdyZExsSlR5RkRE?=
+ =?utf-8?B?UG5VYUZuLzlVM0cvaUtLd2pwRFlRN3h6VHFzbExJbWF6MWlnNCtGZnJiZEM3?=
+ =?utf-8?B?dUVUUnk5cUFZdUJmTUp1VGFRWUdETHFOOXFZd1hVUHZxQWs0T3BneEpkVmJL?=
+ =?utf-8?B?WHF3NnpzN1JDL1JMRWxSVmloL01iOGxtTjlaWkNjZ1FuclA4NkMyQnNrVm9V?=
+ =?utf-8?B?a0ZXVWdLZC8vTTFlelMxRDEvbDAxakVicWNWZS9GRGpONlNPVXZBUDJpc0RJ?=
+ =?utf-8?B?eERCNlZUa0JyZzY5OVE1K29vTWJGb2VndERlRy9SbTdxai8zUWRZWHp3UE9O?=
+ =?utf-8?B?WTlMVkN3OTNsN0ppZUFiODJhS3lQdTNQZElPa0lRRW92NXJnZGJaNkJuS1d3?=
+ =?utf-8?B?QWRqVStiZzV1aXBEUGh1anN2MDVhUzl5QzJNNzdqNkkzbWJtZ1dGa3hhZ0Ix?=
+ =?utf-8?B?aEFZWWdIN3lWRUcvc00xRkEvUkoxT3pVbVdxT2FNcm1hYWNxc2VCblhDUzg1?=
+ =?utf-8?B?VlVYVktQRURHSHlFVWxVWjdZSVNLZFZSU2NQRm9ycTBYTWRla2pINWV4UmFQ?=
+ =?utf-8?B?U25Db2N2alV0S2tMbDBnRGt3VGxMaDRHQURwRkljRTk1aWZKd1V3blNYRHpP?=
+ =?utf-8?B?U0E2dVZjS2M5dzFTOS9ob1h0cWxwOXhJRHFGR0NXcGR1MWJJYnpaaitUNy9j?=
+ =?utf-8?B?d0JOZWlNdnNZNWtZcEhKVDJoVVIrZmdGdFRJdkhWSDFtV1cxM2dqOGJJbDVr?=
+ =?utf-8?B?V0NtSWZLRUhibGVjUk42MFNpbEw2cVJzRUE5NUx2Ri9WQWNzMTFqVHMvNCtY?=
+ =?utf-8?B?dkE3b3RGK0Y5UUVyV21hSkg1NjRpS0wxNFk4Q2NYZk1BSnZIQkNPV0J3UjR0?=
+ =?utf-8?B?dVpNUEhnK2wyeUxrQ01pTWtQbUtwT2RKMjR4K3QzMWN1azdWOElGZG90WnFM?=
+ =?utf-8?B?dTZKNGJ4S3dXOE04NW55MVZFNWxLZUhPRys3bG5YaEtIVURFbnFJWFNlcElm?=
+ =?utf-8?B?UzQwcjQ0SXUyVUxqWEl3dUY5TWxicFFoYWNPODFRVEhGcjk5R2R3aXB3dFRl?=
+ =?utf-8?B?TW5FRi9yMjRKUTlUV1lpNVJzaHVhUVJvbTZoZ2tpN2ZIWi9STUpyVVZpcHNa?=
+ =?utf-8?B?R3BFMWc1ZGhVMTdjbWhIcFE4UEFETlFHZUp4aloxTTBySGZUVlhCWDRJU3pM?=
+ =?utf-8?B?YVA1R2tJZ1l6Y3N1MFFnYmVYbXNYSUsxOEtIQ25qVXZnbnM1K1ZNTlMxNlZs?=
+ =?utf-8?B?WlJJVDh5UkJMNHlMS2o1aHZQZ1lkQmhZS1A1QklIZWVKMFRSVFVWOTFZTUtY?=
+ =?utf-8?B?S1FwcXMyN1piUlE1Q29zQTdweWtDN05GS1ZZK0tLNnh1YjFTQWhlQ0ZvemZj?=
+ =?utf-8?B?RUxzS3BiWmtjbS9wK1IyRDRWbjZFU0w4UEw3d2lxazlaZFkyOGlvY2N0a2hj?=
+ =?utf-8?B?N1VaUkFLM1FCRCt6QURkVWo2SjdXaWpIeWduMTB1SzFzMU0wOEVuRkZCb2M0?=
+ =?utf-8?B?dFZFc2ZOR013TzQ2Q0Q2MHlGdTBvNStUbzE4UDI3aG1wMGJWU09kc1k4bEJ1?=
+ =?utf-8?B?MXpyVm85VG5IK2V5WTh5UTRmWE9kQzQ2KzBxK0M4NHgyb0lOY0MwZ05DWTNO?=
+ =?utf-8?B?d3JRS1dzK0RQUHQ3Z1JFVFFaS2NvSHlDNTNheTJYQ2lTZ2M3akNwZnRrUlA2?=
+ =?utf-8?B?V25KbGFScFJvbXRCYkVJbC92dzdNd28ydXJhY0lQZFhkUWhLU3FkRVVLT1dH?=
+ =?utf-8?B?SFh5bHZDSnVXTG1rNXpOd1kvVm1iRzdtV1ZFRjNaME1NczJvR3dvRzYrOTFz?=
+ =?utf-8?B?aEllYnJYU2tpSzJjQzNrT1F2OHd3TGhvMHhBdE9zS1hSb1RTV2xmN1NkRVdq?=
+ =?utf-8?B?d0J2djdPZGt3UUZPeEROWDVHcEhub2pIREVvUDQvL21MQ05hWDhSVDM3djcx?=
+ =?utf-8?B?ZUxXNHAzVUFqbkxvcDlRbTUxV0NiTkN6NU9mSDM0Vmo5N01XMTJZZzNnNzg1?=
+ =?utf-8?B?R2pxZy9wOWlKdVNwblBUeEhxNW01eDliclVnMVZIOCs2UjFwTU1TTmpKMHA5?=
+ =?utf-8?B?L0VSOW9Xc3k3TVkxalJ2M2JqTXlyeFNkZlZjRjFPVEE3SDNFVWVQTEZZZFRR?=
+ =?utf-8?Q?iNuWqeNu2N3EDSkjPr?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bc950f2-1c3a-46fe-f88b-08df199137d1
+X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 16:39:20.8154
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7qyWA245r4/SiYOA3Y0QP+QZ0FZvMe0rVOLhZxUf1AYiOVCLc7CRW6v1+yBuIQaK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8170
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_093927_325915_EE2B2270 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,82 +150,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---JCSrJm94KekIipH6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Sun, 30 Aug 2026 16:18:04 -0700, Nicolin Chen <nicolinc@nvidia.com> wrote:
+> The driver programs and enables the event queue unconditionally, while the
+> PRI queue has an ARM_SMMU_FEAT_PRI gating each of its touch points. Yet a
+> kdump kernel wants to leave both of the queues alone, which would take an
+> is_kdump_kernel() test at every one of those places.
+> 
+> Add an ARM_SMMU_FEAT_EVTQ that the probe always sets, as the event queue is
+> architecturally mandatory, and gate the queue's allocation, its interrupt
+> and its CR0 and IRQ_CTRL enables on it, so that a later change can turn the
+> queue off in a single place.
+> 
+> [...]
 
-On Wed, Sep 23, 2026 at 03:13:22PM +0200, Sander Speetjens wrote:
-> The Raspberry Pi 5 has a built-in RTC that can be battery-backed
-> via the VBAT pin. When a rechargeable coin cell is used, the
-> hardware requires a trickle-charge voltage to keep the battery
-> topped up.
->=20
-> Expose the trickle-voltage-millivolt DT property so the driver can
-> program the correct charge voltage for board specific configurations with
-> the attached battery.
->=20
-> Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
-> ---
-> V3 -> V4: Add a reff to uint32
->=20
-> V2 -> V3: Fixed the firmware property naming
->=20
-> V1 -> V2: As discussed with Krzysztof Kozlowski, this property is folded =
-into
-> the existing raspberrypi,bcm2835-firmware properties.
->=20
->  .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml    | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm283=
-5-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm=
-2835-firmware.yaml
-> index 983ea80eaec9..9349fc8908a5 100644
-> --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmw=
-are.yaml
-> +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmw=
-are.yaml
-> @@ -133,6 +133,13 @@ properties:
->      required:
->        - compatible
-> =20
-> +  trickle-voltage-millivolt:
-> +    allOf:
-> +      - $ref: /schemas/rtc/rtc.yaml#/properties/trickle-voltage-millivolt
-> +      - $ref: /schemas/types.yaml#/definitions/uint32
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Is this actually needed? Shouldn't the type of uint32 come from the same
-source that the type in rtc.yaml does? Or is this missing in dt-schema?
-
-> +      - minimum: 1300
-> +        maximum: 5000
-> +
->  required:
->    - compatible
->    - mboxes
-> @@ -144,6 +151,7 @@ examples:
->      firmware {
->          compatible =3D "raspberrypi,bcm2835-firmware", "simple-mfd";
->          mboxes =3D <&mailbox>;
-> +        trickle-voltage-millivolt =3D <3300>;
-> =20
->          firmware_clocks: clocks {
->              compatible =3D "raspberrypi,firmware-clocks";
-> --=20
-> 2.55.0
->=20
-
---JCSrJm94KekIipH6
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarQAMAAKCRB4tDGHoIJi
-0uyDAQCECFdvo/mCsj8XGZ3LnWxt/mRzZS/C+eKt/t7T7Cvr2wD/WTdqT56+5e32
-CI1NMazHWbLAWGdFQqbYmY5B9BJXrAo=
-=FVJW
------END PGP SIGNATURE-----
-
---JCSrJm94KekIipH6--
+-- 
+Jason
 
