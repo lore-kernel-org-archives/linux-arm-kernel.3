@@ -4,68 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC2FC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:31:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F275C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uVpelPQu0kHBYTe/lBpyNAjQyPAvCHTrYh2IRw2PzEo=; b=328CGMBBcl0OJafPkv2o4R+f8c
-	cOtdvhLlVvIt0/dcbKtjDMoyBm6tpPV2e5ESXPh7KlcTll8TbHVZwsrzQGfcGmwiYvcQZg13x7Pen
-	dKERFp+aDUESRsrlBseAn/JJCO58NQ4qwCj25cA79ak3xzcFF+BPRz7BUu5xh7TrzkcShKIjoOg6B
-	pex8Wghcg2kqH8ZKeS+d7LHXS0Pe8XznzSXtx5jvaigydFEQlDNim+mv7RWlVEBeK3J9mwaCaoNLW
-	WmgmsLC3jvuA16hNxIyR6ovX3qseFRNYhwhg4gi1HVUW2QBZnFbd66EmBHsKeFQ4jZvmYtW8RRn0p
-	UotP4pKQ==;
+	bh=HWPmCJVdQ8/Io06Lqs84cx0oI6m8O1OgDfmt/Vbbcoo=; b=YmLQ17y+Xopg2a9U52Nz+EzRNK
+	D7zceIDh3JXMe7hIB2SaupaBr7bFU41b2BAe8CJ4fRBs1KCPzFotXEv1XeMXo/jPr36rBEeMh81n+
+	HJuAljfZCj6DFQLknB8P/XrOwARcYxc9tOYxMwwavYhFJWNz/ZbHFq/TN/G+UIa/C2XLDB4PfquZe
+	ikoECIHrjC1Ihf85fV+dmMhlxbB7hc2T7JN52yff34jkU+jR6SoPSJbhhK9amMo5aEy7nDmZ3VHa6
+	cHcMwDSfqFo6JeS92x7cwBO7QRHwF53MdjqO4aWuq8vgDWFMKGPd+xonFNaauy6bIkeGpm+c19jVJ
+	SPLY71/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9LCZ-0000000855V-2gjx;
-	Wed, 23 Sep 2026 11:31:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9LCW-0000000854z-21wh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 11:31:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3BD3152B;
-	Wed, 23 Sep 2026 04:31:43 -0700 (PDT)
-Received: from [10.0.138.135] (XHFQ2J9959-5.cambridge.arm.com [10.0.138.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B3E053F86F;
-	Wed, 23 Sep 2026 04:31:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790163107; bh=84cNSNsZOe2ZUMhr4KA+M+5D9qaRj52wt8bKz1KgUhU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AR3cDxi9CqyejEzK5yReljLrrtRhQfGl5UotrR3Bhg8Q5bGd2LkK2RZj80cgDgMUI
-	 uR8CTF3NsWoXgMD/8Uc81g6W25a9t3DlFJS2W6+aTpCmdh/cew0+jGA/c3SpTyjdfk
-	 ncR2EZRZIIgUEf2XNhW4Yzrd69tGkC01feV5JmO4=
-Message-ID: <bce043cc-0f69-4297-8f31-92dcfbc0061d@arm.com>
-Date: Wed, 23 Sep 2026 12:31:42 +0100
+	id 1x9LGK-000000085ob-48d1;
+	Wed, 23 Sep 2026 11:35:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9LGJ-000000085oC-2S2l;
+	Wed, 23 Sep 2026 11:35:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B005A601F0;
+	Wed, 23 Sep 2026 11:35:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48F751F000FF;
+	Wed, 23 Sep 2026 11:35:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790163342;
+	bh=HWPmCJVdQ8/Io06Lqs84cx0oI6m8O1OgDfmt/Vbbcoo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=jpOtDXFNSeiiCWZZABz4Ju4Bb6iHITZbiOuKKGf2noe0o3c1+Z/zLiRVnyVyHCSrM
+	 jORXJN97VJEh/lx5+7qAXBRt96rtPSoKm6WKGOPcmLkllqAWSyIBYcJPeY0hzP/P2o
+	 arV9DfNgPc3wgVhWvERpgIlu9nK6ItFDIgG+TLNaXX53hTLz0oamXRKeuMt2zg73y/
+	 rpk4dnQsRSMSRhSWTetnXZzSfs0B9v99V3uoylQYadMBDC9gGQP639EDRvHYIZ8122
+	 mtGhYWzLXknD0gVWHyRPV38gTRp3FyrYEQHqUxzQ/2fCn8HIb3kWUVaFRw4xsY1Czd
+	 Zkv/+ptynn8Tg==
+Message-ID: <b1cd8166-2ede-4a47-88fe-e9d46f881000@kernel.org>
+Date: Wed, 23 Sep 2026 13:35:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 1/4] arm64/mm: Use pmdp_get() for PMD accesses
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Mark Rtland <mark.rtland@arm.com>,
- linx-arm-kernel@lists.infradead.org, linx-kernel@vger.kernel.org,
- kasan-dev@googlegrops.com
-References: <20260922061638.3967467-1-anshuman.khandual@arm.com>
- <20260922061638.3967467-2-anshuman.khandual@arm.com>
- <212067fe-1b16-4b87-87a7-4ce50847eb24@arm.com>
- <m72rpspdg5cv7xptent4tglgd25zehx462nfmcx5uyjwi2ag7p@bc6hvhosgtfb>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <m72rpspdg5cv7xptent4tglgd25zehx462nfmcx5uyjwi2ag7p@bc6hvhosgtfb>
+Subject: Re: [PATCH 01/28] dt-bindings: sound: Add Apple Macs sound
+ peripherals
+To: James Calligeros <jcalligeros99@gmail.com>,
+ =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ David Rhodes <david.rhodes@cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+ James Schulman <james.schulman@cirrus.com>
+Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com,
+ Takashi Iwai <tiwai@suse.de>, linux-mediatek@lists.infradead.org
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <20260920-macaudio-v1-1-741cc20a74e5@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260920-macaudio-v1-1-741cc20a74e5@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_043148_629343_A46CCB6F 
-X-CRM114-Status: GOOD (  29.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,324 +132,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2026 12:01, Anshuman Khandual wrote:
-> On Wed, Sep 23, 2026 at 09:32:17AM +0100, Ryan Roberts wrote:
->> On 22/09/2026 07:16, Anshuman Khandual wrote:
->>> Replace READ_ONCE() with pmdp_get() for PMD accesses in preparation for
->>> supporting both D64 and D128 translation table formats.
->>>
->>> READ_ONCE() cannot currently be used for 128-bit page table entries on
->>> arm64 because it does not provide the required 128-bit single-copy
->>> atomicity, causing builds to fail for accesses wider than 64 bits.
->>>
->>> Although LDP/STP provide the required atomicity when FEAT_LSE is
->>> available (as required by FEAT_D128), extending READ_ONCE() to support
->>> 128-bit accesses is undesirable. READ_ONCE() is a general-purpose API,
->>> so doing so could encourage other 128-bit users that would either fail
->>> to build in configurations without D128 support or, if D128 becomes a
->>> runtime option, silently permit tearing on systems without the required
->>> hardware support.
->>>
->>> Instead, standardize PMD accesses on the existing page-table helpers.
->>> These can be overridden on arm64 to provide 128-bit single-copy
->>> atomicity when required. No functional change intended.
->>
->> I notice you have an unconverted READ_ONCE(*pmdp) in
->> pmdp_test_and_clear_young(). Is that intentional?
-> 
-> Converting the above READ_ONCE() instances as pmdp_get() cuases a build
-> failure as pmpd_get() which is defined in generic pgtable header is not
-> visible inside platform specific pgtable header, even with a forward
-> declaration.
-> 
-> In D128 V2 series these conversions were performed later in the series,
-> when platform specific pxdp_get() overrides were added via ptval_get(). 
-> 
-> But to avoid this, we could just move pmdp_test_and_clear_young() inside
-> arch/arm64/mm/mmu.c file instead. Folding in the following change builds.
-
-I'm not sure if/how this might affect performance? Probably not significant
-since they are for higher levels, so not called as frequently as pte helpers.
-
-Another option would be to implement arm64-specific pxdp_get() helpers in
-asm/pgtable.h to override the generic versions?
-
-Thanks,
-Ryan
-
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index ae41946c54f26..13ca85ec89f6a 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1289,14 +1289,8 @@ static inline bool __ptep_clear_flush_young(struct vm_area_struct *vma,
-> 
->  #if defined(CONFIG_TRANSPARENT_HUGEPAGE) || defined(CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG)
->  #define __HAVE_ARCH_PMDP_TEST_AND_CLEAR_YOUNG
-> -static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
-> -               unsigned long address, pmd_t *pmdp)
-> -{
-> -       /* Operation applies to PMD table entry only if FEAT_HAFT is enabled */
-> -       VM_WARN_ON(pmd_table(READ_ONCE(*pmdp)) && !system_supports_haft());
-> -       return __ptep_test_and_clear_young(vma, address, (pte_t *)pmdp);
-> -}
-> -#endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
-> +bool pmdp_test_and_clear_young(struct vm_area_struct *vma, unsigned long address, pmd_t *pmdp);
-> +#endif
-> 
->  static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
->                                                unsigned long address,
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 76d8d320aeedf..b3fd06a623db5 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -2440,4 +2440,15 @@ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
->                      __func__, pte_str_old, pte_str);
->  }
->  #endif /* CONFIG_DEBUG_VM */
+On 20/09/2026 06:53, James Calligeros wrote:
+> index 000000000000..bd844c9928c9
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/sound/apple,macaudio.yaml
+> @@ -0,0 +1,235 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/sound/apple,macaudio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +#if defined(CONFIG_TRANSPARENT_HUGEPAGE) || defined(CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG)
-> +#define __HAVE_ARCH_PMDP_TEST_AND_CLEAR_YOUNG
-> +bool pmdp_test_and_clear_young(struct vm_area_struct *vma, unsigned long address, pmd_t *pmdp)
-> +{
-> +       /* Operation applies to PMD table entry only if FEAT_HAFT is enabled */
-> +       VM_WARN_ON(pmd_table(pmdp_get(pmdp)) && !system_supports_haft());
-> +       return __ptep_test_and_clear_young(vma, address, (pte_t *)pmdp);
-> +}
-> +#endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+> +title: Sound peripheral integration for Apple Silicon Macs
 > +
->  #endif
-> 
->>
->> Thanks,
->> Ryan
->>
->>
->>>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>> Cc: Mark Rtland <mark.rtland@arm.com>
->>> Cc: linx-arm-kernel@lists.infradead.org
->>> Cc: linx-kernel@vger.kernel.org
->>> Cc: kasan-dev@googlegrops.com
->>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>> ---
->>>  arch/arm64/include/asm/pgtable.h |  3 ++-
->>>  arch/arm64/mm/fault.c            |  2 +-
->>>  arch/arm64/mm/fixmap.c           |  2 +-
->>>  arch/arm64/mm/hugetlbpage.c      |  2 +-
->>>  arch/arm64/mm/kasan_init.c       |  4 ++--
->>>  arch/arm64/mm/mmu.c              | 22 +++++++++++-----------
->>>  arch/arm64/mm/pageattr.c         |  2 +-
->>>  arch/arm64/mm/trans_pgd.c        |  2 +-
->>>  8 files changed, 20 insertions(+), 19 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->>> index 763c5a411d64..b953ea0ba3ed 100644
->>> --- a/arch/arm64/include/asm/pgtable.h
->>> +++ b/arch/arm64/include/asm/pgtable.h
->>> @@ -811,7 +811,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->>>  }
->>>  
->>>  /* Find an entry in the third-level page table. */
->>> -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
->>> +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
->>> +					 pte_index(addr) * sizeof(pte_t))
->>>  
->>>  #define pte_set_fixmap(addr)		((pte_t *)set_fixmap_offset(FIX_PTE, addr))
->>>  #define pte_set_fixmap_offset(pmd, addr)	pte_set_fixmap(pte_offset_phys(pmd, addr))
->>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->>> index 2cecf6ba6df7..2757ee0c4300 100644
->>> --- a/arch/arm64/mm/fault.c
->>> +++ b/arch/arm64/mm/fault.c
->>> @@ -188,7 +188,7 @@ static void show_pte(unsigned long addr)
->>>  			break;
->>>  
->>>  		pmdp = pmd_offset_lockless(pudp, pud, addr);
->>> -		pmd = READ_ONCE(*pmdp);
->>> +		pmd = pmdp_get(pmdp);
->>>  		ptval_to_str(pxd_str, pmd_val(pmd));
->>>  		pr_cont(", pmd=%s", pxd_str);
->>>  		if (pmd_none(pmd) || pmd_bad(pmd))
->>> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
->>> index f66a0016dd02..3cdac8021d4f 100644
->>> --- a/arch/arm64/mm/fixmap.c
->>> +++ b/arch/arm64/mm/fixmap.c
->>> @@ -42,7 +42,7 @@ static inline pte_t *fixmap_pte(unsigned long addr)
->>>  
->>>  static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
->>>  {
->>> -	pmd_t pmd = READ_ONCE(*pmdp);
->>> +	pmd_t pmd = pmdp_get(pmdp);
->>>  	pte_t *ptep;
->>>  
->>>  	if (pmd_none(pmd)) {
->>> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
->>> index 8e799c1fe0aa..cdaa4500faf9 100644
->>> --- a/arch/arm64/mm/hugetlbpage.c
->>> +++ b/arch/arm64/mm/hugetlbpage.c
->>> @@ -304,7 +304,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
->>>  		addr &= CONT_PMD_MASK;
->>>  
->>>  	pmdp = pmd_offset(pudp, addr);
->>> -	pmd = READ_ONCE(*pmdp);
->>> +	pmd = pmdp_get(pmdp);
->>>  	if (!(sz == PMD_SIZE || sz == CONT_PMD_SIZE) &&
->>>  	    pmd_none(pmd))
->>>  		return NULL;
->>> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
->>> index 45fbdce684c8..7ca833c5de5e 100644
->>> --- a/arch/arm64/mm/kasan_init.c
->>> +++ b/arch/arm64/mm/kasan_init.c
->>> @@ -62,7 +62,7 @@ static phys_addr_t __init kasan_alloc_raw_page(int node)
->>>  static pte_t *__init kasan_pte_offset(pmd_t *pmdp, unsigned long addr, int node,
->>>  				      bool early)
->>>  {
->>> -	if (pmd_none(READ_ONCE(*pmdp))) {
->>> +	if (pmd_none(pmdp_get(pmdp))) {
->>>  		phys_addr_t pte_phys = early ?
->>>  				__pa_symbol(kasan_early_shadow_pte)
->>>  					: kasan_alloc_zeroed_page(node);
->>> @@ -138,7 +138,7 @@ static void __init kasan_pmd_populate(pud_t *pudp, unsigned long addr,
->>>  	do {
->>>  		next = pmd_addr_end(addr, end);
->>>  		kasan_pte_populate(pmdp, addr, next, node, early);
->>> -	} while (pmdp++, addr = next, addr != end && pmd_none(READ_ONCE(*pmdp)));
->>> +	} while (pmdp++, addr = next, addr != end && pmd_none(pmdp_get(pmdp)));
->>>  }
->>>  
->>>  static void __init kasan_pud_populate(p4d_t *p4dp, unsigned long addr,
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index e589fb00d1e3..95621913679e 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -200,7 +200,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->>>  			       int flags)
->>>  {
->>>  	unsigned long next;
->>> -	pmd_t pmd = READ_ONCE(*pmdp);
->>> +	pmd_t pmd = pmdp_get(pmdp);
->>>  	pte_t *ptep;
->>>  
->>>  	BUG_ON(pmd_leaf(pmd));
->>> @@ -257,7 +257,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->>>  	unsigned long next;
->>>  
->>>  	do {
->>> -		pmd_t old_pmd = READ_ONCE(*pmdp);
->>> +		pmd_t old_pmd = pmdp_get(pmdp);
->>>  
->>>  		next = pmd_addr_end(addr, end);
->>>  
->>> @@ -272,7 +272,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->>>  			 * only allow updates to the permission attributes.
->>>  			 */
->>>  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
->>> -						      READ_ONCE(pmd_val(*pmdp))));
->>> +						      pmd_val(pmdp_get(pmdp))));
->>>  		} else {
->>>  			int ret;
->>>  
->>> @@ -282,7 +282,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->>>  				return ret;
->>>  
->>>  			VM_WARN_ON_ONCE(pmd_val(old_pmd) != 0 &&
->>> -					pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
->>> +					pmd_val(old_pmd) != pmd_val(pmdp_get(pmdp)));
->>>  		}
->>>  		phys += next - addr;
->>>  	} while (pmdp++, addr = next, addr != end);
->>> @@ -293,7 +293,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->>>  static bool pmd_range_has_valid_noncont(pmd_t *pmdp)
->>>  {
->>>  	for (int i = 0; i < CONT_PMDS; i++) {
->>> -		pte_t pte = pmd_pte(READ_ONCE(pmdp[i]));
->>> +		pte_t pte = pmd_pte(pmdp_get(pmdp + i));
->>>  
->>>  		if (pte_valid(pte) && !pte_cont(pte))
->>>  			return true;
->>> @@ -1553,7 +1553,7 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
->>>  	do {
->>>  		next = pmd_addr_end(addr, end);
->>>  		pmdp = pmd_offset(pudp, addr);
->>> -		pmd = READ_ONCE(*pmdp);
->>> +		pmd = pmdp_get(pmdp);
->>>  		if (pmd_none(pmd))
->>>  			continue;
->>>  
->>> @@ -1708,7 +1708,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
->>>  	do {
->>>  		next = pmd_addr_end(addr, end);
->>>  		pmdp = pmd_offset(pudp, addr);
->>> -		pmd = READ_ONCE(*pmdp);
->>> +		pmd = pmdp_get(pmdp);
->>>  		if (pmd_none(pmd))
->>>  			continue;
->>>  
->>> @@ -1729,7 +1729,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
->>>  	 */
->>>  	pmdp = pmd_offset(pudp, 0UL);
->>>  	for (i = 0; i < PTRS_PER_PMD; i++) {
->>> -		if (!pmd_none(READ_ONCE(pmdp[i])))
->>> +		if (!pmd_none(pmdp_get(pmdp + i)))
->>>  			return;
->>>  	}
->>>  
->>> @@ -1881,7 +1881,7 @@ int pmd_set_huge(pmd_t *pmdp, phys_addr_t phys, pgprot_t prot)
->>>  	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), mk_pmd_sect_prot(prot));
->>>  
->>>  	/* Only allow permission changes for now */
->>> -	if (!pgattr_change_is_safe(READ_ONCE(pmd_val(*pmdp)),
->>> +	if (!pgattr_change_is_safe(pmd_val(pmdp_get(pmdp)),
->>>  				   pmd_val(new_pmd)))
->>>  		return 0;
->>>  
->>> @@ -1906,7 +1906,7 @@ int pud_clear_huge(pud_t *pudp)
->>>  
->>>  int pmd_clear_huge(pmd_t *pmdp)
->>>  {
->>> -	if (!pmd_leaf(READ_ONCE(*pmdp)))
->>> +	if (!pmd_leaf(pmdp_get(pmdp)))
->>>  		return 0;
->>>  	pmd_clear(pmdp);
->>>  	return 1;
->>> @@ -1917,7 +1917,7 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->>>  	pte_t *table;
->>>  	pmd_t pmd;
->>>  
->>> -	pmd = READ_ONCE(*pmdp);
->>> +	pmd = pmdp_get(pmdp);
->>>  
->>>  	if (!pmd_table(pmd)) {
->>>  		VM_WARN_ON(1);
->>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->>> index bbe98ac9ad8c..0ca07bd5ded9 100644
->>> --- a/arch/arm64/mm/pageattr.c
->>> +++ b/arch/arm64/mm/pageattr.c
->>> @@ -414,7 +414,7 @@ bool kernel_page_present(struct page *page)
->>>  		return pud_valid(pud);
->>>  
->>>  	pmdp = pmd_offset(pudp, addr);
->>> -	pmd = READ_ONCE(*pmdp);
->>> +	pmd = pmdp_get(pmdp);
->>>  	if (pmd_none(pmd))
->>>  		return false;
->>>  	if (pmd_leaf(pmd))
->>> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
->>> index cca9706a875c..b27b2d2c20c3 100644
->>> --- a/arch/arm64/mm/trans_pgd.c
->>> +++ b/arch/arm64/mm/trans_pgd.c
->>> @@ -74,7 +74,7 @@ static int copy_pmd(struct trans_pgd_info *info, pud_t *dst_pudp,
->>>  
->>>  	src_pmdp = pmd_offset(src_pudp, start);
->>>  	do {
->>> -		pmd_t pmd = READ_ONCE(*src_pmdp);
->>> +		pmd_t pmd = pmdp_get(src_pmdp);
->>>  
->>>  		next = pmd_addr_end(addr, end);
->>>  		if (pmd_none(pmd))
->>
+> +description:
+> +  This binding represents the overall machine-level integration of sound
 
+Please rephrase to describe not what binding describes (circular) but
+just say what this device is.
+
+> +  peripherals on Apple Silicon Macs, starting with the M1 series.
+> +
+> +maintainers:
+> +  - James Calligeros <jcalligeros99@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - description: First-of-their-kind machines
+> +        items:
+> +          - enum:
+> +              - apple,j180-macaudio
+> +              - apple,j274-macaudio
+> +              - apple,j293-macaudio
+> +              - apple,j313-macaudio
+> +              - apple,j314-macaudio
+> +              - apple,j316-macaudio
+> +              - apple,j375-macaudio
+> +              - apple,j413-macaudio
+> +              - apple,j415-macaudio
+> +              - apple,j473-macaudio
+> +              - apple,j456-macaudio
+> +              - apple,j457-macaudio
+> +          - const: apple,macaudio
+
+As pointed out by Sven, please use specific compatible as fallback.
+Descriptions will be also redundant in such case, since the fllback will
+tell what is compatible with what.
+
+
+> +      - description: Machines compatible with J293
+> +        items:
+> +          - enum:
+> +              - apple,j493-macaudio
+> +          - const: apple,j293-macaudio
+> +          - const: apple,macaudio
+> +      - description: Machines compatible with J314
+> +        items:
+> +          - enum:
+> +              - apple,j414-macaudio
+> +              - apple,j504-macaudio
+> +              - apple,j514-macaudio
+> +          - const: apple,j314-macaudio
+> +          - const: apple,macaudio
+> +      - description: Machines compatible with J316
+> +        items:
+> +          - enum:
+> +              - apple,j416-macaudio
+> +              - apple,j516-macaudio
+> +          - const: apple,j316-macaudio
+> +          - const: apple,macaudio
+> +      - description: Machines compatible with J375
+> +        items:
+> +          - enum:
+> +              - apple,j475-macaudio
+> +              - apple,j575-macaudio
+> +          - const: apple,j375-macaudio
+> +          - const: apple,macaudio
+> +      - description: Machines compatible with J413
+> +        items:
+> +          - enum:
+> +              - apple,j613-macaudio
+> +          - const: apple,j413-macaudio
+> +          - const: apple,macaudio
+> +      - description: Machines compatible with J415
+> +        items:
+> +          - enum:
+> +              - apple,j615-macaudio
+> +          - const: apple,j415-macaudio
+> +          - const: apple,macaudio
+> +      - description: Machines compatible with J473
+> +        items:
+> +          - enum:
+> +              - apple,j474-macaudio
+> +          - const: apple,j473-macaudio
+> +          - const: apple,macaudio
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +  model:
+> +    description:
+> +      Model name for presentation to users
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +
+> +patternProperties:
+> +  "^dai-link(@[0-9a-f]+)?$":
+> +    description: |
+> +      Node for each sound peripheral such as the speaker array, headphones jack,
+> +      or microphone.
+> +    type: object
+> +    $ref: tdm-slot.yaml#
+> +
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +
+> +      link-name:
+> +        description: |
+> +          Name for the peripheral, expecting 'Speaker' or 'Speakers' if this is
+> +          the speaker array.
+
+If there is actual expectation, please encode it as schema, e.g.
+
+enum: [ Speaker, Speakers ]
+
+You can also drop | from description.
+
+> +        $ref: /schemas/types.yaml#/definitions/string
+> +
+> +      cpu:
+> +        type: object
+> +
+> +        properties:
+> +          sound-dai:
+> +            description: |
+> +              DAI list with CPU-side I2S ports involved in this peripheral.
+> +            minItems: 1
+> +            maxItems: 2
+> +
+> +        required:
+> +          - sound-dai
+> +
+> +      codec:
+> +        type: object
+> +
+> +        properties:
+> +          sound-dai:
+> +            minItems: 1
+> +            maxItems: 8
+> +            description: |
+> +              DAI list with the CODEC-side DAIs connected to the above CPU-side
+> +              DAIs and involved in this sound peripheral.
+> +
+> +              The list is in left/right order if applicable. If there are more
+> +              than one CPU-side DAIs (there can be two), the CODECs must be
+> +              listed first those connected to the first CPU, then those
+> +              connected to the second.
+> +
+> +              In addition, on some machines with many speaker codecs, the CODECs
+> +              are listed in this fixed order:
+> +
+> +              Four speakers: Left Front, Left Rear, Right Front, Right Rear
+> +              Six speakers: Left Woofer 1, Left Tweeter, Left Woofer 2,
+> +                            Right Woofer 1, Right Tweeter, Right Woofer 2
+> +
+> +        required:
+> +          - sound-dai
+> +
+> +    patternProperties:
+> +      "^dai-tdm-idle-mode-[0-9]$":
+> +        $ref: tdm-slot.yaml#/properties/dai-tdm-idle-mode
+> +
+> +      "^dai-tdm-slot-tx-idle-mask-[0-9]$":
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        description: Idle slot mask. A bit being set to 1 indicates
+> +          that the corresponding TDM slot is inactive/idle.
+> +
+> +    required:
+> +      - reg
+> +      - cpu
+> +      - codec
+> +
+> +required:
+> +  - compatible
+> +  - model
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    mca: mca@9b600000 {
+> +      compatible = "apple,t6000-mca", "apple,mca";
+> +      reg = <0x9b600000 0x10000>,
+> +            <0x9b500000 0x20000>;
+> +
+> +      clocks = <&nco 0>, <&nco 1>, <&nco 2>, <&nco 3>;
+> +      power-domains = <&ps_audio_p>, <&ps_mca0>, <&ps_mca1>,
+> +                      <&ps_mca2>, <&ps_mca3>;
+> +      dmas = <&admac 0>, <&admac 1>, <&admac 2>, <&admac 3>,
+> +             <&admac 4>, <&admac 5>, <&admac 6>, <&admac 7>,
+> +             <&admac 8>, <&admac 9>, <&admac 10>, <&admac 11>,
+> +             <&admac 12>, <&admac 13>, <&admac 14>, <&admac 15>;
+> +      dma-names = "tx0a", "rx0a", "tx0b", "rx0b",
+> +                  "tx1a", "rx1a", "tx1b", "rx1b",
+> +                  "tx2a", "rx2a", "tx2b", "rx2b",
+> +                  "tx3a", "rx3a", "tx3b", "rx3b";
+> +
+> +      #sound-dai-cells = <1>;
+> +    };
+> +
+
+Other nodes rarely need to be in the example. It's not even referenced
+(although that also does not matter). Please drop.
+
+
+> +    sound {
+> +      compatible = "apple,j416-macaudio", "apple,j316-macaudio", "apple,macaudio";
+> +      model = "MacBook Pro J416";
+> +
+> +      #address-cells = <1>;
+> +      #size-cells = <0>;
+> +
+> +      dai-link@0 {
+> +        reg = <0>;
+> +        link-name = "Speakers";
+> +
+> +        dai-tdm-idle-mode-0 = "zero";
+> +        dai-tdm-idle-mode-3 = "zero";
+> +        dai-tdm-slot-tx-idle-mask-0 = <0xf0f0f0>;
+> +        dai-tdm-slot-tx-idle-mask-3 = <0x0f0f0f>;
+> +
+> +        cpu {
+> +          sound-dai = <&mca 0>, <&mca 1>;
+> +        };
+> +
+> +        codec {
+> +          sound-dai = <&speaker_left_woof1>,
+> +                      <&speaker_left_tweet>,
+> +                      <&speaker_left_woof2>,
+> +                      <&speaker_right_woof1>,
+> +                      <&speaker_right_tweet>,
+> +                      <&speaker_right_woof2>;
+> +        };
+> +      };
+> +
+> +      dai-link@1 {
+> +        reg = <1>;
+> +        link-name = "Headphones Jack";
+> +
+> +        cpu {
+> +          sound-dai = <&mca 2>;
+> +        };
+> +        codec {
+> +          sound-dai = <&jack_codec>;
+> +        };
+> +      };
+> +    };
+> 
+
+
+Best regards,
+Krzysztof
 
