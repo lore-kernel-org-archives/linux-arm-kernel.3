@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2160FC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15348C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMYt9oFhqXpjirBtpyW/TCCP8bfINjjpZ9L580NW+Ak=; b=qFi+bllwo/55hZFHuX76pKItTO
-	wm4UvJIYL3Q30wdEvYBjoQcC8R4o+2tWxo6wreCgKOQrba/ctTpzRJOQvgacKyQnI8GV+bj83JMCq
-	O2C22lG2hY27MsJ3bCeAEptWxQilHfjbpCWPXgJ/Yx69RxP67oSrBLnOrILoDFGAgNPx8y+rDlqxF
-	Bv120vBnfTVVSE5JzlhDd31MPdllOWCUT5WAZl2z42A3ao5FQilP2Fif+YBr20s2fK5BlbzJPWTA8
-	7O0nOJDOX9rzxOT94kml8FTg5Fh1uvKBTl9j4ga53cW+kGJp2t2JxQapUi7apXz8hQUq+B2vn1ZDK
-	C+Qa+siA==;
+	bh=zMpQIzSE1A4gQGE0gs74srF8YkorVeLnRriYevmcCrQ=; b=GrJyP++c1TXuaVEk2qUqKGCTSq
+	nlZr8d7Gnw63lqvU7BICx5tl69oEN5405JAn5LhyNWdIIfvZMn/Qk1q/a5Rjr/o/I3Xfe14NsxMFJ
+	jDhMDgwKqv039S8SVTlUsHZbJAFYlpFzTJYfzuCTW/HTuMBdOG4TBb5Bxyttx0AK8Ucqi5IHImDy9
+	pi4H3303rinaXK1Sw/X4graLwnhxMJ+3vDM2TQ1AZpuCAFG3e3qYCxeKxCeYG3tzbOpMCsWyhIS2I
+	6CX2u4r5gkHH2UPJeASKr5kqwKCMB/ciuU4LIFhxAtRxIW6fnWAdycp+adCWH6e45qXl0+eBjf91p
+	1xm1/NOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9NUZ-00000008TJP-4C88;
-	Wed, 23 Sep 2026 13:58:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9NUX-00000008TJ2-1eOt
+	id 1x9NW7-00000008TPK-1mnp;
+	Wed, 23 Sep 2026 14:00:11 +0000
+Received: from smtp1.tecnico.ulisboa.pt ([193.136.128.21])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9NW2-00000008TOw-4ABh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 13:58:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 826DA1516;
-	Wed, 23 Sep 2026 06:58:28 -0700 (PDT)
-Received: from [10.57.8.59] (unknown [10.57.8.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E356B3F86F;
-	Wed, 23 Sep 2026 06:58:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790171912; bh=seaxJTJr1QFSqstIVULiAM2ADNpuuFzk/qAkkHE/eoE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tJnXnP8Sxw1bW2f63cbHT/VB+QmCDJS/5cq6JlJRa/8qvbrrspWASzx3O0ihYVwsH
-	 63upJJ8K+2t80zCYxPFRKVG5oq1raYhdy+IRaILEI5SiuMAuzjrGE3wYeNp+wcKg1s
-	 Nh76mlizhUwBnVEEN88rbm+lTBnCJghfvxEzNOVc=
-Message-ID: <b01154aa-16be-4dbb-861f-d4a70da7ad83@arm.com>
-Date: Wed, 23 Sep 2026 15:58:29 +0200
+	Wed, 23 Sep 2026 14:00:09 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id BB4936005419;
+	Wed, 23 Sep 2026 15:00:02 +0100 (WEST)
+X-Virus-Scanned: by amavis-2.13.0 (20230106) (Debian) at tecnico.ulisboa.pt
+Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
+ by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavis, port 10025)
+ with LMTP id TtYfAO6D5TEG; Wed, 23 Sep 2026 15:00:01 +0100 (WEST)
+Received: from mail1.tecnico.ulisboa.pt (mail1.ist.utl.pt [193.136.128.10])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id D0B006005407;
+	Wed, 23 Sep 2026 15:00:00 +0100 (WEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tecnico.ulisboa.pt;
+	s=mail2; t=1790172000;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zMpQIzSE1A4gQGE0gs74srF8YkorVeLnRriYevmcCrQ=;
+	b=jO182K02CqwApINj+AWQmz5NNVEY44Mo0hNPMAUWKpoRLquA8SEMo4UvA5ZWmekKbygN8Q
+	1gv1wruFEzR68HxmkGOwnSjIArYYNGKsL/A3dr967Pdl2xZ+DuzJn6KzgcP5MPH9oQwn5v
+	kk5oZpVlgyxuSIj7mWww3C3wLzoxxKtyMg3rReE2C/qWBzjYQ3Ks45aB8tx4msuvTHi4OE
+	YdM7tyIN5i2UTir07MBS06UwyrBA7I/1NLc58CrbSwKtDqsQM9qaSOWtcBnTRxxf0VWreC
+	rDTWgIltPXthrdTwwJwUJeeK60bFNRJZexQDeQGb+PZ+oIULBEGF9176lcqqYA==
+Received: from [IPV6:2001:8a0:67f3:eb00:ee56:8d5c:4e29:8df0] (unknown [IPv6:2001:8a0:67f3:eb00:ee56:8d5c:4e29:8df0])
+	(Authenticated sender: ist187313)
+	by mail1.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 3DC4B360133;
+	Wed, 23 Sep 2026 15:00:00 +0100 (WEST)
+Message-ID: <60094a20-d034-4029-94ea-c4bcbe1edf02@tecnico.ulisboa.pt>
+Date: Wed, 23 Sep 2026 15:00:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: allwinner: h616: orangepi-zero2w: add
- SDIO WiFi/BT (AW859A)
-To: Vladimir <anykey196@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20260923112009.1062-1-anykey196@gmail.com>
- <20260923112009.1062-2-anykey196@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260923112009.1062-2-anykey196@gmail.com>
+Subject: Re: [PATCH] firmware/psci: Convert poweroff to the sys-off handler
+ API
+To: Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260923-firmware-psci-v1-1-430646653fc6@tecnico.ulisboa.pt>
+Content-Language: en-US
+From: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+In-Reply-To: <20260923-firmware-psci-v1-1-430646653fc6@tecnico.ulisboa.pt>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_065833_542989_3808ED98 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20260923_070007_619997_4E8EAE90 
+X-CRM114-Status: GOOD (  37.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,96 +85,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-your threading looks somewhat off, and you are missing a cover letter, 
-so I am a bit lost in here. But just jumping in here:
 
-On 9/23/26 13:20, Vladimir wrote:
-> Enable the SDIO bus (mmc1) and power the on-board AW859A (UWE5622)
-> WiFi/BT combo through an mmc-pwrseq-simple that resets WL_REG_ON (PG18) and
-> gates the RTC 32 kHz fanout clock (PG10), with the 3.3 V and 1.8 V supplies.
+On 9/23/26 12:12, Diogo Ivo wrote:
+> The PSCI poweroff handler is currently registered via pm_power_off,
+> which fires as the last SYS_OFF_PRIO_DEFAULT handler. However, there
+> are two problems with this approach: PSCI is a firmware mechanism, so
+> its priority should be SYS_OFF_PRIO_FIRMWARE, and the point of the
+> sys-off API is to eliminate pm_power_off and make the ordering and
+> priority between shutdown mechanisms explicit.
 > 
-> The pwrseq clock must be named "ext_clock" (what mmc-pwrseq-simple requests)
-> and its output pin must be muxed to the clock function, as done for the other
-> H616/H618 boards.
+> This patch converts PSCI to register_sys_off_handler() so that its
+> position in the shutdown sequence is explicit and governed by priority.
 > 
-> Tested on: OrangePi Zero 2W (Allwinner H618) with the out-of-tree uwe5622 driver.
+> In an ideal world PSCI would always be registered at SYS_OFF_PRIO_FIRMWARE
+> since it is a firmware mechanism. However, this approach would lead to
+> several problems:
 > 
-> Signed-off-by: Vladimir <anykey196@gmail.com>
+>   - On platforms with ACPI/EFI and PSCI there would be a clash at FIRMWARE
+>     level, and the first to register would prevail.
+> 
+>   - Not all platforms have a functional PSCI SYSTEM_OFF callback. This
+>     happens for example in some Tegra X1 platforms, where shutdown needs
+>     to be handled by the PMIC driver, explicitly marked as a
+>     system-power-controller.
+> 
+> As such, the approach here is:
+> 
+>   - On ACPI systems EFI (SYS_OFF_PRIO_FIRMWARE + 1) and ACPI
+>     (SYS_OFF_PRIO_FIRMWARE) already handle poweroff at higher
+>     priorities. PSCI registers at SYS_OFF_PRIO_DEFAULT as a fallback
+>     that runs after both.
+> 
+>   - On DT systems with no system-power-controller, PSCI is the primary
+>     firmware poweroff path and registers at SYS_OFF_PRIO_FIRMWARE.
+> 
+>   - On DT systems where a system-power-controller node is present, a
+>     dedicated platform driver is responsible for poweroff. PSCI
+>     registers at SYS_OFF_PRIO_DEFAULT - 1 so that driver takes
+>     precedence while PSCI still acts as a backstop.
+> 
+> Signed-off-by: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
 > ---
->   .../allwinner/sun50i-h618-orangepi-zero2w.dts | 42 +++++++++++++++++++
->   1 file changed, 42 insertions(+)
+> ---
+>   drivers/firmware/psci/psci.c | 44 +++++++++++++++++++++++++++++++++++++++++---
+>   1 file changed, 41 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-> index ff9b40352a5..39f580af15b 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-> @@ -189,3 +189,45 @@ &usbphy {
->   	usb1_vbus-supply = <&reg_vcc5v>;
->   	status = "okay";
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index e73bae6cb23a..fc7986b7f12f 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -13,7 +13,6 @@
+>   #include <linux/errno.h>
+>   #include <linux/linkage.h>
+>   #include <linux/of.h>
+> -#include <linux/pm.h>
+>   #include <linux/printk.h>
+>   #include <linux/psci.h>
+>   #include <linux/reboot.h>
+> @@ -79,6 +78,8 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
+>   static u32 psci_cpu_suspend_feature;
+>   static bool psci_system_reset2_supported;
+>   static bool psci_system_off2_hibernate_supported;
+> +static bool psci_system_off_supported __initdata;
+> +static bool is_dt __initdata;
+>   
+>   static inline bool psci_has_ext_power_state(void)
+>   {
+> @@ -329,9 +330,11 @@ static struct notifier_block psci_sys_reset_nb = {
+>   	.priority = 129,
 >   };
+>   
+> -static void psci_sys_poweroff(void)
+> +static int psci_sys_poweroff(struct sys_off_data *data)
+>   {
+>   	invoke_psci_fn(PSCI_0_2_FN_SYSTEM_OFF, 0, 0, 0);
 > +
-> +/ {
-> +	reg_vcc33_wifi: vcc33-wifi {
-> +		/* Always-on 3.3V regulator for WiFi and BT */
-
-Why is this a separate regulator? Looking at the schematics, the WiFi 
-chip seems supplied by VCC-WIFI, which is connected to DCDCE/VDD33, 
-which is already modelled as reg_vcc3v3, in the .dts file.
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc33-wifi";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_vcc5v>;
-> +	};
+> +	return NOTIFY_DONE;
+>   }
+>   
+>   #ifdef CONFIG_HIBERNATION
+> @@ -665,6 +668,40 @@ static void __init psci_init_smccc(void)
+>   
+>   }
+>   
+> +static int __init psci_poweroff_init(void)
+> +{
+> +	int priority = is_dt ? SYS_OFF_PRIO_FIRMWARE : SYS_OFF_PRIO_DEFAULT;
+> +	struct sys_off_handler *handler;
+> +	struct device_node *np;
 > +
-> +	reg_vcc_wifi_io: vcc-wifi-io {
-> +		/* Always-on 1.8V regulator for WiFi and BT IO */
-
-Same here, VCC-WIFI-IO, which is supplied by aldo1. It's naturally the 
-same voltage as the PortG supply, already specified in the "pio" node.
-
-So I think those two regulators can go, and ...
-
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc-wifi-io";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-always-on;
-> +		vin-supply = <&reg_vcc33_wifi>;
-> +	};
+> +	if (!psci_system_off_supported)
+> +		return 0;
 > +
-> +	wifi_pwrseq: wifi-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		clocks = <&rtc CLK_OSC32K_FANOUT>;
-> +		clock-names = "ext_clock";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&x32clk_fanout_pin>;
-> +		reset-gpios = <&pio 6 18 GPIO_ACTIVE_LOW>;	/* PG18 */
-> +		post-power-on-delay-ms = <200>;
-> +	};
-> +};
+> +	if (is_dt) {
+> +		/*
+> +		 * If a system-power-controller is designated in DT, a dedicated
+> +		 * driver should handle power-off; in that case register PSCI at
+> +		 * SYS_OFF_PRIO_DEFAULT - 1 as a fallback. This covers both the
+> +		 * case where that driver fails to power-off the system and the
+> +		 * case where it fails to register its own handler.
+> +		 */
+> +		np = of_find_node_with_property(NULL, "system-power-controller");
+
+Sashiko flagged a valid point here, where if the first node containing
+"system-power-controller" is actually disabled in DT we will still
+demote PSCI to SYS_OFF_PRIO_DEFAULT - 1. To fix this I will send a v2
+with the check
+		if (np && of_device_is_available(np)) {
+> +		if (np) {
+> +			priority = SYS_OFF_PRIO_DEFAULT - 1;
+> +			of_node_put(np);
+> +		}
+> +	}
 > +
-> +&mmc1 {
-> +	vmmc-supply = <&reg_vcc33_wifi>;
-> +	vqmmc-supply = <&reg_vcc_wifi_io>;
-
-... be replaced here with &reg_vcc3v3 and &aldo1, respectively.
-
-And this is all depending on that we actually make DT changes for 
-devices which don't have a binding, and for which we don't specify a 
-child node in here.
-
-Cheers,
-Andre
-
-> +	mmc-pwrseq = <&wifi_pwrseq>;
-> +	bus-width = <4>;
-> +	non-removable;
-> +	mmc-ddr-1_8v;
- > +	status = "okay";> +};
-
+> +	handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF, priority,
+> +					   psci_sys_poweroff, NULL);
+> +	if (IS_ERR(handler))
+> +		pr_err("Failed to register PSCI power-off handler: %ld\n",
+> +		       PTR_ERR(handler));
+> +
+> +	return PTR_ERR_OR_ZERO(handler);
+> +}
+> +subsys_initcall(psci_poweroff_init);
+> +
+>   static void __init psci_0_2_set_functions(void)
+>   {
+>   	pr_info("Using standard PSCI v0.2 function IDs\n");
+> @@ -681,7 +718,7 @@ static void __init psci_0_2_set_functions(void)
+>   
+>   	register_restart_handler(&psci_sys_reset_nb);
+>   
+> -	pm_power_off = psci_sys_poweroff;
+> +	psci_system_off_supported = true;
+>   }
+>   
+>   /*
+> @@ -822,6 +859,7 @@ int __init psci_dt_init(void)
+>   	init_fn = (psci_initcall_t)matched_np->data;
+>   	ret = init_fn(np);
+>   
+> +	is_dt = true;
+>   	of_node_put(np);
+>   	return ret;
+>   }
+> 
+> ---
+> base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
+> change-id: 20260530-firmware-psci-f4179901d35d
+> 
+> Best regards,
+> --
+> Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
 
