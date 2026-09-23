@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B31C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8ED1C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJyyu1D+f+Mwklxj3+Vx6E5Q7zHjO6Zps4podbwnTiU=; b=wNGJDfCTq57OB00RPNlz4JGh9I
-	kT7pMmOUcVHr1zMafHBEY59fy0QSVlzWdDzspCYBDgaD9FsgnwxU4+XnNX0I/uZp3juJ7hPLxnWQo
-	HW4NEOf1eiUSvm4Ob6r5NcvJEGZ5MVJj51DBSdqUHlcDrgDL4hDRFMc0ytfT3FfVKRJUiIxb1al2S
-	bHjTa3OK4/v9a4kND7zUbILb44HrdxVgXX0Zel4fJfbnyNL+UIOc3o5Qo8szlkQwBuWDMdcNUJxSO
-	YrJ+YKzjjf8kjchfoVm4fI3JegUe1YAyf/86WeZT9l0Cun8R2/1vnpmQtTtbXkHKCRErrZNlvbPG3
-	//ZXA1TQ==;
+	bh=3sDw77gq+/zApOBj/SeOj43aIsx3ralvfsruYvgF0zY=; b=z0eWj2e6MC49SOR4KCOHL3eAMl
+	aABN2ZOFFpSq9Qr0ku+QxHrXAkJXGT0Y8zG0ehtLsEGlo1hjp1TvCKZxX6xwlmuWXbST1MJ/ie9ku
+	4WwXXuuylIPc3ZZG1VK3tktkt6qzJNPWjeakMUI++FFoM56luWmQlZYZG1nB24Lm2dmTSJiHBpRI/
+	ZQkLR7Teyjl7utA04fpY0wGQQvNzhMdiykb0rFI0JPTdYFNoRnzrn1Ltj10H8qIixhIjYoz1mfCQ9
+	qHqxT6ep469GMeHIqeSbsjLFq8jJN5xeis5xyI4yrpSH/DcGQjWrwh4d7ZpJG6JYucoA1sXFzPUok
+	TmTLia7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ReD-00000009B2J-2oXj;
-	Wed, 23 Sep 2026 18:24:49 +0000
-Received: from out-247.mta1.migadu.com ([95.215.58.247] helo=mta1.migadu.com)
+	id 1x9ReZ-00000009B9n-3TQK;
+	Wed, 23 Sep 2026 18:25:11 +0000
+Received: from out-28.mta1.migadu.com ([95.215.58.28] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Re8-00000009B0h-2OMI
+	id 1x9ReW-00000009B8a-1KVr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:24:46 +0000
+	Wed, 23 Sep 2026 18:25:09 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Y9cNY9EVhpGWLF8ouVsemVx73ft+TAzzfsFY52UKAAQ=;
+DKIM-Signature: a=rsa-sha256; bh=icKpVwDolFVv+1u7uqlBuvsRyBBd3V2KuR/bENnyVWA=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790187882; v=1; x=1790792682;
- b=n7ts0s0Hdoh3uh7WWjdfayD/G7JaXuokkx4fsZZhd0qV9zuT0CX2z/bnZ6BMyA3YBLPvs8C1
- 6Gg13Kxq12v2HJxrSEdEmo5tGR8HabMNY/HmwLN82ZQaV/m0NIJ+BP8eCGBONQwk+UIAWm6DrqV
- iDoRkVMoeqeKN9s8wgGvpVgg=
+ t=1790187906; v=1; x=1790792706;
+ b=h0QgylwVLjykmRRPmruNziwsoR+DhGaMGhqlkPQtDmLpd2/gHbI6vlaHi2k+qAxS79+oLab6
+ Uzxjv3QhCKIxtKpeQPYI3AkgXDDwhPBpCMHr0NMRaTJaxkIZmL/DoWFUrAnrx02IGpxFS4nzGEk
+ t1d9eYH/GCp50ho2t1NUErXA=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4c24db9ff7925fa6;
-	Wed, 23 Sep 2026 18:24:42 +0000
-X-Mizu-Trace-ID: 4c24db9ff7925fa6
+Received: by smtp.migadu.com with ESMTPS id adbbe3c3f6e4aaba;
+	Wed, 23 Sep 2026 18:25:06 +0000
+X-Mizu-Trace-ID: adbbe3c3f6e4aaba
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso994e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:24:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx7O4l8mENGMTtCePasUen08cuBkZJEY3s8G7iZP7WFDpoXMDN80bNh+xOVB9TBsxzjTykaeAS67OQ1k9eGNW/f@lists.infradead.org
-X-Gm-Message-State: AFuF++mDMD2kHEksOzpnGfy/JDzUJydyym3lDckvKdfyPQITw4UF+yHu
-	JIgEtCfNi01k7nGTq8zbOHhB0EhUOqn1qh4jzqu4wFatDkkFkyU6ul5z7rpepL4eaYMTAsFpvGF
-	oj1ybuX+K2gStziowA3FDBkP7iG9NKwAS1bNE7Pmq
-X-Received: by 2002:a05:6512:1358:b0:5b2:a967:c0e1 with SMTP id
- 2adb3069b0e04-5b8dd6d2b18mr46663e87.0.1790187881652; Wed, 23 Sep 2026
- 11:24:41 -0700 (PDT)
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso1009e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:25:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzUY36UYlKUE2FnffWhZ5gUL6six+nXCnUR5QOkKkvfylMrGJsb9bpGFtlpq4Z4qx4WgRbUGLX92HHfjEmqC6Ji@lists.infradead.org
+X-Gm-Message-State: AFuF++mbdFCHTROKP+MZBBPpnbi0GL4//24Lcks/A+xvS19YUaZTWNh3
+	4Wdeq5/61MNw9LJ7KrOWO+YGu/vYGT780J8+fiNACherJ8nIqNp4HtAWNmGCf/7MNtroKDpzd/N
+	N5WN22sI/SdGbhYfM3s77/FJGQg0GwasAAczQhyXo
+X-Received: by 2002:a05:6512:2348:b0:5b8:c8f2:16c4 with SMTP id
+ 2adb3069b0e04-5b8dda16356mr41989e87.10.1790187904131; Wed, 23 Sep 2026
+ 11:25:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org> <20260923-kvm-arm-prefault-v4-4-d4b0b4dfa8c3@kernel.org>
-In-Reply-To: <20260923-kvm-arm-prefault-v4-4-d4b0b4dfa8c3@kernel.org>
+References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org> <20260923-kvm-arm-prefault-v4-5-d4b0b4dfa8c3@kernel.org>
+In-Reply-To: <20260923-kvm-arm-prefault-v4-5-d4b0b4dfa8c3@kernel.org>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 23 Sep 2026 19:24:05 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwFTu1xGM6KBC8sXiHFqwTyynB+0_DTtpb+7BsUc1ervA@mail.gmail.com>
-X-Gm-Features: AclHuK8Z8GjELqKo_KOGvxxJrDlIp-LJq9-fwgXmkezmX3voRH420SsqXo68zc8
-Message-ID: <CA+EHjTwFTu1xGM6KBC8sXiHFqwTyynB+0_DTtpb+7BsUc1ervA@mail.gmail.com>
-Subject: Re: [PATCH v4 04/14] KVM: arm64: Propagate and use esr in s2fd when
+Date: Wed, 23 Sep 2026 19:24:27 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwP60W9Hbh+QXnzO0jp2WLuBDFHgAMpOh7NJjtBPvMHMA@mail.gmail.com>
+X-Gm-Features: AclHuK9tcjGuGMhNzNDTCbr0CDkbARnDYHgYTOmN_66FCQTilOlmgllNeI6N8aU
+Message-ID: <CA+EHjTwP60W9Hbh+QXnzO0jp2WLuBDFHgAMpOh7NJjtBPvMHMA@mail.gmail.com>
+Subject: Re: [PATCH v4 05/14] KVM: arm64: Propagate and use mmu in s2fd when
  handling guest aborts
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -81,8 +81,8 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, linux-s390@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_112444_891311_FA73271F 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20260923_112508_623014_EAA44293 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,25 +97,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sept 2026 at 16:16, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+On Wed, 23 Sept 2026 at 16:17, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
 >
 > kvm_handle_guest_abort() establishes a kvm_s2_fault_desc data structure,
 > s2fd, to store and propagate state to either pkvm_mem_abort(), gmem_abort()
 > or user_mem_abort() handlers.
 >
-> Each of these, however, examines the Exception Syndrome Register (ESR) via
-> s2fd->vcpu.
+> Each of these, however, examines the state of the stage 2 MMU via
+> vcpu->arch.hw_mmu.
 >
-> Introduce an s2fd->esr field to abstract this and propagate it to callers.
+> Introduce an s2fd->mmu field to abstract this and propagate it to callers.
 >
-> The value of this (beyond refactoring) is to be able to later generate
-> faults with a synthetic esr, specifically to implement stage 2 page table
+> Similar to adding the esr field, this allows injection of synthetic faults
+> with the ultimate intention of implementing stage 2 page table
 > pre-faulting.
->
-> Abort handlers which use kvm_s2_fault_desc - gmem_abort() and
-> user_mem_abort() - now only reference s2fd->esr and do not look it up in
-> any other way, which makes it safe to pass a synthetic s2fd->esr value to
-> these functions.
 >
 > No functional change intended.
 >
@@ -128,62 +123,99 @@ Cheers,
 /fuad
 
 > ---
->  arch/arm64/kvm/mmu.c | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
+>  arch/arm64/kvm/mmu.c | 19 +++++++++++--------
+>  1 file changed, 11 insertions(+), 8 deletions(-)
 >
 > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 5e10a4cd31ea..cb677ab76484 100644
+> index cb677ab76484..9d799f7c1e62 100644
 > --- a/arch/arm64/kvm/mmu.c
 > +++ b/arch/arm64/kvm/mmu.c
-> @@ -1655,21 +1655,22 @@ struct kvm_s2_fault_desc {
->         struct kvm_s2_trans     *nested;
+> @@ -1656,6 +1656,7 @@ struct kvm_s2_fault_desc {
 >         struct kvm_memory_slot  *memslot;
 >         unsigned long           hva;
-> +       unsigned long           esr;
+>         unsigned long           esr;
+> +       struct kvm_s2_mmu       *mmu;
 >  };
 >
 >  static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
+> @@ -1689,7 +1690,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+>         bool perm_fault = kvm_s2_fault_is_perm(s2fd);
+>         enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+>         enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+> -       struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+> +       struct kvm_pgtable *pgt = s2fd->mmu->pgt;
+>         struct kvm_guest_s2_mapping *mapping = NULL;
+>         unsigned long mmu_seq;
+>         struct page *page;
+> @@ -1805,7 +1806,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
 >  {
-> -       return esr_fsc_is_permission_fault(kvm_vcpu_get_esr(s2fd->vcpu));
-> +       return esr_fsc_is_permission_fault(s2fd->esr);
->  }
+>         unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
+>         struct kvm_vcpu *vcpu = s2fd->vcpu;
+> -       struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
+> +       struct kvm_pgtable *pgt = s2fd->mmu->pgt;
+>         struct mm_struct *mm = current->mm;
+>         struct kvm *kvm = vcpu->kvm;
+>         void *hyp_memcache;
+> @@ -2121,7 +2122,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>         gfn_t gfn;
+>         int ret;
 >
->  static bool kvm_s2_fault_is_exec(const struct kvm_s2_fault_desc *s2fd)
->  {
-> -       return esr_abt_is_exec_fault(kvm_vcpu_get_esr(s2fd->vcpu));
-> +       return esr_abt_is_exec_fault(s2fd->esr);
->  }
->
->  static bool kvm_s2_fault_is_write(const struct kvm_s2_fault_desc *s2fd)
->  {
-> -       return esr_abt_is_write_fault(kvm_vcpu_get_esr(s2fd->vcpu));
-> +       return esr_abt_is_write_fault(s2fd->esr);
->  }
->
->  static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
-> @@ -1678,7 +1679,7 @@ static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
->
->         if (!kvm_s2_fault_is_perm(s2fd))
->                 return 0;
-> -       level = kvm_vcpu_get_esr(s2fd->vcpu) & ESR_ELx_FSC_LEVEL;
-> +       level = s2fd->esr & ESR_ELx_FSC_LEVEL;
->         return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
->  }
->
-> @@ -2067,7 +2068,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
->          * and trigger the exception here. Since the memslot is valid, inject
->          * the fault back to the guest.
->          */
-> -       if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(s2fd->vcpu))) {
-> +       if (esr_fsc_is_excl_atomic_fault(s2fd->esr)) {
->                 kvm_inject_dabt_excl_atomic(s2fd->vcpu, kvm_vcpu_get_hfar(s2fd->vcpu));
->                 return 1;
+> -       if (kvm_is_nested_s2_mmu(kvm, s2fd->vcpu->arch.hw_mmu)) {
+> +       if (kvm_is_nested_s2_mmu(kvm, s2fd->mmu)) {
+>                 mapping = kmalloc_obj(struct kvm_guest_s2_mapping,
+>                                       GFP_KERNEL_ACCOUNT);
+>                 if (!mapping) {
+> @@ -2131,7 +2132,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
 >         }
-> @@ -2518,6 +2519,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->                 .nested         = nested,
+>
+>         kvm_fault_lock(kvm);
+> -       pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+> +       pgt = s2fd->mmu->pgt;
+>         ret = -EAGAIN;
+>         if (mmu_invalidate_retry(kvm, s2vi->mmu_seq))
+>                 goto out_unlock;
+> @@ -2363,6 +2364,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  {
+>         struct kvm_s2_trans nested_trans, *nested = NULL;
+>         unsigned long esr = kvm_vcpu_get_esr(vcpu);
+> +       struct kvm_s2_mmu *mmu = vcpu->arch.hw_mmu;
+>         phys_addr_t fault_ipa; /* The address we faulted on */
+>         phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
+>         struct kvm_memory_slot *memslot;
+> @@ -2392,7 +2394,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>                 }
+>
+>                 /* Falls between the IPA range and the PARange? */
+> -               if (fault_ipa >= BIT_ULL(VTCR_EL2_IPA(vcpu->arch.hw_mmu->vtcr))) {
+> +               if (fault_ipa >= BIT_ULL(VTCR_EL2_IPA(mmu->vtcr))) {
+>                         fault_ipa |= FAR_TO_FIPA_OFFSET(kvm_vcpu_get_hfar(vcpu));
+>
+>                         return kvm_inject_sea(vcpu, is_iabt, fault_ipa);
+> @@ -2429,8 +2431,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>          * nothing to walk and we treat it as a 1:1 before going through the
+>          * canonical translation.
+>          */
+> -       if (kvm_is_nested_s2_mmu(vcpu->kvm,vcpu->arch.hw_mmu) &&
+> -           vcpu->arch.hw_mmu->nested_stage2_enabled) {
+> +       if (kvm_is_nested_s2_mmu(vcpu->kvm, mmu) &&
+> +           mmu->nested_stage2_enabled) {
+>                 u32 esr;
+>
+>                 ret = kvm_walk_nested_s2(vcpu, fault_ipa, &nested_trans);
+> @@ -2505,7 +2507,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>         }
+>
+>         /* Userspace should not be able to register out-of-bounds IPAs */
+> -       VM_BUG_ON(ipa >= kvm_phys_size(vcpu->arch.hw_mmu));
+> +       VM_BUG_ON(ipa >= kvm_phys_size(mmu));
+>
+>         if (esr_fsc_is_access_flag_fault(esr)) {
+>                 handle_access_fault(vcpu, fault_ipa);
+> @@ -2520,6 +2522,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
 >                 .memslot        = memslot,
 >                 .hva            = hva,
-> +               .esr            = esr,
+>                 .esr            = esr,
+> +               .mmu            = mmu,
 >         };
 >
 >         if (kvm_vm_is_protected(vcpu->kvm)) {
