@@ -4,61 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE688C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78106C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSvIUUVPs3vpcQNZgqtwmOeR8QwxCnzKrnKsdXZdJDg=; b=lPQo/uZSWUuBn8KbgzH4+m4C3U
-	rW8yBqJgYkE17PF0k52RnKdrNXnk6+2loWWT/ak9uXlBKfBr88Iw3w36bsjcerVGYWnMFT88PCCtn
-	adlk2Kl3u+vvTmHQ1WgqbMoXv/HoU/Sw0LrMWoVNDd5I8+RikfWn69S3RPz2b1GF+dqgnCk3k1Zfq
-	XI/dUotxd6f5l50ojGwuAdnhve6SEtEYgAuXMOWmERxTQCSITjR7RxS2Qa6Apo1j9TD3hhfhcgIEP
-	ahIDO/PCrj4csEMvOogD34vULj7R7+j9IxAm4j8sYf8plq2yi2exsEOo91Fglp7zjl2AxnUPDkHkk
-	cbmyxFiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FLaNzmeUxVe7oHCirWr50+xtXpo5WRTIGAcIx75e3pA=; b=2shC2iXsowkL2q7b1iznn12yqL
+	HdFK7ZhJ1p0nztrSf/GrUXs3AdImHCtN8+gcA3LQ/TA+TIMFtCTRPfOqaZzkQtvUgX9IxqtGiH15h
+	HOJxEy0N0FykutrFng8j3lnFNBjTqZV9RZFwW54RtFcTNmVX7zdVtqv8+KSlyoddkjmNZ/Pxn3R7u
+	5Ka4NT97FmHdMP0pAJH6VBHJ33RIhZ6uSCDdCFhTvaWFnJ4pgBwFugK12+WGf+sECmjubF+JQoy9r
+	zr5yh0ry5thDOcUvJwQzMK6AEG0vWAmt3wxIk7zoHPoA8Gi3XqitE72T8erg9NSagm57UlfHgNOXO
+	RAHGD1ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Mrz-00000008N55-18sj;
-	Wed, 23 Sep 2026 13:18:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9Mwn-00000008Nj0-0gWj;
+	Wed, 23 Sep 2026 13:23:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Mrx-00000008N4g-1dm2
+	id 1x9Mwk-00000008NiS-26Nf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 13:18:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AB3360210;
-	Wed, 23 Sep 2026 13:18:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B241F000FF;
-	Wed, 23 Sep 2026 13:18:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790169520;
-	bh=BSvIUUVPs3vpcQNZgqtwmOeR8QwxCnzKrnKsdXZdJDg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=RwYzPxCkykj0IQENtEr3Mgo85N/GX2p1skjSQ4ANKdJkqYfdVQh7kVFHnpxNTROV0
-	 T0Payhqnn1InAdkRxmaEkOiJKPuaTbWVfa2qLODC+gwaISmG13z4GQ453hhYTfZUZt
-	 qcsPbOrclw5jrzxLf+P/eeMMoexYuctB0NWfR+bFw5cqZnklQdJzj/1dp2R6FUsy2x
-	 xFYVvkuIXiJP54SVzfZMN6dftT2kLHUBKJmeS1TQjyKjNzpZDbD3xvARUvSCchF5ku
-	 voAuzgCEGKVcBRZKDxtm4ZHzQqyjR2j+9vpfRrioUr1Xd8E2g+upIqHdawZUJyVO6s
-	 NUlFqjuJcBJxA==
-Subject: Re: [PATCH net v8 2/2] net: stmmac: remove software VLAN tag stripping
-From: netdev-bot+sashiko@kernel.org
-To: peilinhe2020@163.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- he.peilin@zte.com.cn
-Date: Wed, 23 Sep 2026 13:18:38 +0000
-Message-ID: <179016951891.2160803.13955157449938739742@kernel.org>
-In-Reply-To: <20260919125413.18058-3-peilinhe2020@163.com>
-References: <20260919125413.18058-3-peilinhe2020@163.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Sep 2026 13:23:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790169817;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FLaNzmeUxVe7oHCirWr50+xtXpo5WRTIGAcIx75e3pA=;
+	b=N55nIu79IIehWGSCF1QvMGI8t1+SrPo/+hrQupXmXaGOCWIN2XytTc3xP4/6CL/IvHW6gR
+	fP11oCxAbJurt2Z5ow+uxG9HqXPBCSPY2Z7f8TQ6FV6f7lAwYwxw1KfkglZ7Cnn2/pCxQC
+	n7vDDcQl8nwX+sC3YpR++y1jvb/WJjo=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-202-jgqc2l50N0qZlujtDIy2eQ-1; Wed, 23 Sep 2026 09:23:35 -0400
+X-MC-Unique: jgqc2l50N0qZlujtDIy2eQ-1
+X-Mimecast-MFC-AGG-ID: jgqc2l50N0qZlujtDIy2eQ_1790169815
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2dd188e16a2so7528465ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 06:23:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790169814; x=1790774614;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FLaNzmeUxVe7oHCirWr50+xtXpo5WRTIGAcIx75e3pA=;
+        b=x+ccLlSkCXVo2cCT+1etVhn8dKwSbPiXi7goIlCzP5ZA8zEscDgX+SUe0UGFLKMbUO
+         dSTEW+fr0rTNraVuujHTAW/3LK7Xpmb7E3ev+GsSF0/iYfI/EPJWqmWv4BOG3b6vaZbF
+         m5pfqWiECXKSFrUIMjXCIQEjAy5ckp687NFBjh94c4cRFlt1Nc8FLoado6a09Klyo2V6
+         o70zknCdUjONWThdVjD/z4EEfG5eDqoiQsQoHw2nUddrj+Jc/ZnVgpfIovAWamIJpR8O
+         16AXe7ZpDW7dQYe7gQzDshUsgkzlXvl3vM9l3o1lntJ88GKPSKG+S/4dHERQ6DQ17smp
+         7NNQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw2FroOcaRD6FiuCakVOFXs2uYEVguJ8KiDEHXooOGx285kpGCVIY6t/prmcsS3hA82/wcxAFZXqkLEOY+kM7ev@lists.infradead.org
+X-Gm-Message-State: AFuF++mARHmzhgF+kAfymUnI6zZubkoPtehU5urMkkgCXyAmLTDHymYQ
+	i8YHhYdk3hPnYdqUzVvV66QRpV3Xq9/xYO8j82RIkkR3q7e1maRy2kxwZvKThn0Qd33OSZE8q2/
+	bjdZXfsqHfQrCGC0rLc6R4J470LkNG+FA73JxPGrDJIpO3risbRmCq8GfsK+iWHkCFAXIcsBiY4
+	OF
+X-Gm-Gg: AYBFou0Jhg95k5TlkjIFGGH2VutdizZDCQImzK220BnOm+MSrHFgSmxBzfWtmiPkUb1
+	oIu+xo4B0p7t2+vC09oI9tehC/E4oJ298X9t3tVV+EcYjJ7viK38KM+BzK1WAGKRvJKGTSHOiC0
+	LuWB0bM3kriC9K27sj7VkCsmOjjTCypJ3BFz6LrPjgy64SxO10r2ZG1LP8hWi0j/zQT9FfEweEc
+	qBYg8Dl/3aohta/ji+oK7A96M+2aW314I7hcVM13pUo28dzJVdhoFfsspaGCGQHyCBEs6sj3bHI
+	K+HsBnmUksDz2OxN6mkMQNc0V1F4PJSzPbLFkxp10UzKrP7M2eoqXtmIgcmY6bdy+O9kitcg9qj
+	DYfnvZkoxjRKiIbbrOXHanHove815pPUQ/Nmunvbhqw==
+X-Received: by 2002:a17:903:28e:b0:2dd:c100:4b84 with SMTP id d9443c01a7336-2df69e06244mr20770055ad.59.1790169809458;
+        Wed, 23 Sep 2026 06:23:29 -0700 (PDT)
+X-Received: by 2002:a17:903:28e:b0:2dd:c100:4b84 with SMTP id d9443c01a7336-2df69e06244mr20769775ad.59.1790169808912;
+        Wed, 23 Sep 2026 06:23:28 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6afc80easm10412065ad.30.2026.09.23.06.23.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Sep 2026 06:23:25 -0700 (PDT)
+Message-ID: <0ddf1529-a198-413d-bffb-1dbc7b6ee25f@redhat.com>
+Date: Wed, 23 Sep 2026 23:23:18 +1000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 05/20] KVM: arm64: Track the type of VM in kvm_arch
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+ <20260920212845.707-6-suzuki.poulose@arm.com>
+ <69ff265b-a110-46c5-a061-a875b2f86c03@redhat.com>
+ <e1bd3155-acb2-4c80-b963-6cd7865c9ce3@redhat.com>
+ <672c4905-09c9-4e40-97ea-c87a987bda19@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <672c4905-09c9-4e40-97ea-c87a987bda19@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 66LybyULpg2M1kWa9XIa0UqK8AbBqTXphjLajD2J6Rw_1790169815
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_062338_719622_A7451884 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,333 +121,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
-
-Critical: 0 · High: 3 · Medium: 0 (1) · Low: 1 (1)
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] stmmac_has_ip_ethertype() parses the VLAN chain at the wrong
-  offset on RX, so widening the bound from `depth <= ETH_HLEN` to `depth…
-- [High] The same helper is the TX gate: stmmac_features_check()
-  (ndo_features_check) clears NETIF_F_IP_CSUM/NETIF_F_IPV6_CSUM when…
-- [High] The widened `depth <= VLAN_ETH_HLEN` bound removes the last
-  software guard that kept the driver from claiming CHECKSUM_UNNECESSARY…
-- [Low] The patch silently fixes a live, user-visible feature-
-  advertisement bug on DWXLGMAC but carries no Fixes: tag.
-
-Pre-existing issues:
-- [Medium] Removing NETIF_F_HW_VLAN_STAG_RX from the advertised features
-  does not stop the MAC from stripping S-tags and reporting them as…
-- [Low] priv->hw->hw_vlan_en is a plain bool flipped from process context
-  in stmmac_set_features() (under rtnl) while it is read concurrently by…
-
---
-
-net: stmmac: remove software VLAN tag stripping
-
-This removes stmmac_rx_vlan() and its two call sites, relaxes the depth
-check in stmmac_has_ip_ethertype() so a single in-payload VLAN tag is
-tolerated, and changes the RX VLAN feature advertisement in
-__stmmac_dvr_probe() to depend on the presence of .set_hw_vlan_mode and
-.rx_hw_vlan.
-
-A few questions below.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1fb5f804ea23..232b1e7e031c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4769,7 +4769,11 @@ static bool stmmac_has_ip_ethertype(struct sk_buff *skb)
->  	proto = __vlan_get_protocol(skb, eth_header_parse_protocol(skb),
->  				    &depth);
->  
-> -	return (depth <= ETH_HLEN) &&
-> +	/* Software VLAN stripping is gone, so a single VLAN tag may
-> +	 * still be present. The MAC RX checksum result still applies
-> +	 * to the inner IP packet.
-> +	 */
-> +	return (depth <= VLAN_ETH_HLEN) &&
->  		(proto == htons(ETH_P_IP) || proto == htons(ETH_P_IPV6));
->  }
-
-[Severity: High]
-On the RX side, is the VLAN chain parsed at the right offset here?  Both
-RX callers advance skb->data before calling this helper:
-
-	skb->protocol = eth_type_trans(skb, priv->dev);
-
-	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
-	    (status & csum_none))
-
-eth_type_trans() calls eth_skb_pull_mac(), which is just:
-
-	static inline struct ethhdr *eth_skb_pull_mac(struct sk_buff *skb)
-	{
-		struct ethhdr *eth = (struct ethhdr *)skb->data;
-
-		skb_pull_inline(skb, ETH_HLEN);
-		return eth;
-	}
-
-and it never assigns skb->mac_len.  The skb is built with
-napi_build_skb()/napi_alloc_skb() so mac_len is still 0 at this point;
-skb_reset_mac_len() only runs later in __netif_receive_skb_core(), after
-napi_gro_receive().
-
-__vlan_get_protocol() passes mac_offset 0, and the walk then does:
-
-net/core/skbuff.c:__vlan_get_protocol_offset() {
-	unsigned int vlan_depth = skb->mac_len, parse_depth = VLAN_MAX_DEPTH;
-
-	if (vlan_depth) {
-		...
-		vlan_depth -= VLAN_HLEN;
-	} else {
-		vlan_depth = ETH_HLEN;
-	}
-		vh = skb_header_pointer(skb, mac_offset + vlan_depth,
-					sizeof(vhdr), &vhdr);
-	...
-}
-
-With mac_len == 0 the first VLAN header is expected at skb->data +
-ETH_HLEN, but after the pull the real tag sits at skb->data + 0, so the
-read lands 14 bytes too far.  For a tagged IPv4 frame
-h_vlan_encapsulated_proto is then read from IP header bytes 12..13, i.e.
-the first two bytes of the source address; for IPv6 it is source address
-bytes 4..5, and for a tagged ARP frame it is sender-MAC bytes 4..5.
-
-That leads to two effects.  First, the ordinary tagged IPv4/IPv6 frame
-fails the proto comparison, so the MAC RX checksum result is still
-discarded and dwmac100/dwmac1000 lose CHECKSUM_UNNECESSARY for the VLAN
-traffic that previously got it via stmmac_rx_vlan() with depth 0.  Does
-that contradict the commit message claim:
-
-    "Adjust stmmac_has_ip_ethertype() to tolerate a single in-payload
-    VLAN tag so that the MAC RX checksum offload result is still used
-    for tagged IPv4/IPv6 frames on cores without MAC-level stripping."
-
-Second, when those mis-read bytes do happen to equal 0x0800 or 0x86DD
-(for instance a tagged frame with a source address in 8.0.0.0/16, which
-the sender chooses), depth becomes 18 and the new bound accepts it, so
-CHECKSUM_UNNECESSARY is set for frames whose real EtherType is not IP.
-The old depth <= ETH_HLEN bound could not reach that state because a
-VLAN walk always yields 18.
-
-Would it work to run the helper before eth_type_trans(), or to pass an
-explicit mac_offset that accounts for the ETH_HLEN pull?
-
-> @@ -5049,24 +5053,6 @@ static netdev_features_t stmmac_features_check(struct sk_buff *skb,
->  	return vlan_features_check(skb, features);
->  }
-
-[Severity: High]
-stmmac_has_ip_ethertype() is also the TX gate in stmmac_features_check():
-
-	if (priv->plat->tx_queues_cfg[queue].coe_unsupported ||
-	    !stmmac_has_ip_ethertype(skb))
-		features &= ~(NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM);
-
-Unlike the RX side, the parse offset is correct there, because
-__dev_queue_xmit() has done skb_reset_mac_header() and mac_len is either
-0 or 18, so depth 18 is genuinely accepted after this change.  That
-re-enables hardware checksum (and therefore TSO, via
-harmonize_features()) for frames that already carry one VLAN tag in the
-payload when ndo_features_check runs: DSA tag_8021q frames such as
-sja1105 in VLAN-aware mode, and bridged/forwarded tagged
-CHECKSUM_PARTIAL frames from tap/vhost guests.  vlan_features_check()
-only masks multi-tagged frames, so a single in-payload tag passes
-through.
-
-Isn't that the class of frames that commit c2945c435c99 ("net: stmmac:
-Prevent DSA tags from breaking COE") excluded with depth <= ETH_HLEN, on
-the grounds that "on TX these tagged frames are ignored by the checksum
-offload engine and IP header checker of some stmmac cores"?  If the COE
-does not skip the tag, the descriptor CIC request is ignored and the
-frame goes out with the pseudo-header sum still in the L4 checksum
-field, and there is no TX-side fallback.
-
-Was this TX effect intended?  The changelog only describes the RX
-rationale, and c2945c435c99 carried a Fixes: tag and went to stable.
-
->  
-> -static void stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
-> -{
-> -	struct vlan_ethhdr *veth = skb_vlan_eth_hdr(skb);
-> -	__be16 vlan_proto = veth->h_vlan_proto;
-> -	u16 vlanid;
-> -
-> -	if ((vlan_proto == htons(ETH_P_8021Q) &&
-> -	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
-> -	    (vlan_proto == htons(ETH_P_8021AD) &&
-> -	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
-> -		/* pop the vlan tag */
-> -		vlanid = ntohs(veth->h_vlan_TCI);
-> -		memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
-> -		skb_pull(skb, VLAN_HLEN);
-> -		__vlan_hwaccel_put_tag(skb, vlan_proto, vlanid);
-> -	}
-> -}
-> -
->  /**
->   * stmmac_rx_refill - refill used skb preallocated buffers
->   * @priv: driver private structure
-> @@ -5435,9 +5421,7 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
->  	if (priv->hw->hw_vlan_en)
->  		/* MAC level stripping. */
->  		stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
-> -	else
-> -		/* Driver level stripping. */
-> -		stmmac_rx_vlan(priv->dev, skb);
+On 9/23/26 8:24 PM, Suzuki K Poulose wrote:
+> On 23/09/2026 07:19, Gavin Shan wrote:
+>> On 9/23/26 4:05 PM, Gavin Shan wrote:
+>>> On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
+>>>> KVM arm64 has different types of VMs with all the different modes in which
+>>>> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
+>>>> protected VM and normal VMs with pKVM. We might soon add other types,
+>>>> e.g., Arm CCA Realm. So in an effort to make the handling of these
+>>>> different types of VMs a bit more friendly to the eyes, add a VM flavor to
+>>>> the kvm_arch and we could then add handlers for different operations based
+>>>> on the VM type.
+>>>>
+>>>> Keep the flavor initialisation at the beginning to allow for the detection
+>>>> early enough and fail out on any unsupported requests.
+>>>>
+>>>> With that, add wrappers for checking the "type" of a VM and replace the
+>>>> existing users with the new wrappers.
+>>>>
+>>>> Given we already have the construct of "kvm_vm_is_protected" in the core
+>>>> KVM code, use that for all confidential compute guests including Realms
+>>>> that we are about to add.
+>>>>
+>>>> Adds __VM_PROTECTED marker vm flavor to generalize kvm_vm_is_protected()
+>>>> to predicate all confidential guests running on KVM. In later patches, we
+>>>> would add Realm VMs, which would also be classified as protected.
+>>>>
+>>>> Add explicit helper to detect if a given VM is a "protected" VM under pKVM.
+>>>> Change the existing users that precisely want to check the VM type. These
+>>>> include :
+>>>>    - kvm_arch_prepare_memory_region - For preventing memslot changes after
+>>>>      pVM creation.
+>>>>
+>>>> All the others are retained as a wider check for confidential guest VMs.
+>>>> These are:
+>>>>   - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
+>>>>     configuration
+>>>>   - io_mem_abort for dabt handling without valid syndrome information
+>>>>
+>>>> Both of which are true for Realms too.
+>>>>
+>>>> Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
+>>>> checks in the pkvm hyp specific code doesn't need to change, as the only
+>>>> protected guests it deals with is "protected pKVM" guests. To tighten this
+>>>> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
+>>>> supports.
+>>>>
+>>>> Suggested-by: Marc Zyngier <maz@kernel.org>
+>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>> ---
+>>>> Changes since v18:
+>>>>   - Merge the __VM_PROTECTED marker and the widening of kvm_vm_is_protected()
+>>>>     to this patch.
+>>>>   - Merge the use of kvm_vm_is_unprotected_pkvm() for ! kvm_vm_is_protected()
+>>>>     given the scope changes here.
+>>>>   - Drop Fuad's review tag, as this patch has multiple merges
+>>>>   - Restrict the VM flavors to the supported types in init_pkvm_hyp_vm().
+>>>>   - Drop kvm_vm_hyp_is_pkvm() and revert to is_protected_kvm_enabled()
+>>>>   - Use is_protected_kvm_enabled() to make the pKVM guest flavor checks.
+>>>>   - s/PKVM/pKVM for commit descriptions too
+>>>>
+>>>> Changes since v17:
+>>>>   * s/PKVM/pKVM for the comments
+>>>>   * Drop type argument for pkvm_init_host_vm and also drop protected variable.
+>>>>   * Add helpers for checking if the VM is running on pKVM (kvm_vm_hyp_is_pkvm())
+>>>>   * Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() with valid
+>>>>     kvm instance
+>>>> ---
+>>>>   arch/arm64/include/asm/kvm_host.h | 22 +++++++++++++++++++---
+>>>>   arch/arm64/include/asm/kvm_pkvm.h |  4 ++--
+>>>>   arch/arm64/kvm/arm.c              | 31 ++++++++++++++++++++++++++-----
+>>>>   arch/arm64/kvm/handle_exit.c      |  2 +-
+>>>>   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++++-
+>>>>   arch/arm64/kvm/mmu.c              |  2 +-
+>>>>   arch/arm64/kvm/pkvm.c             |  6 ++----
+>>>>   7 files changed, 56 insertions(+), 17 deletions(-)
+>>>>
+>>>
+>>> This causes broken nVHE mode. I applied PATCH[01-05] to v7.3.rc4 whose head commit
+>>> is f0100363d8c3, and kselftests/kvm/guest_print causes host crash (as below). I don't
+>>> see the crash if only PATCH[01-04] are applied.
+>>>
+>>> host$ cat /proc/cmdline | grep kvm-arm\.mode
+>>> BOOT_IMAGE=(hd0,gpt2)/vmlinuz-7.3.0-rc4-gavin+ root=/dev/mapper/ rhel_nvidia--grace--hopper--01-root ro crashkernel=2G-4G:406M,4G-64G:470M,64G-:726M rd.lvm.lv=rhel_nvidia- grace-hopper-01/root rd.lvm.lv=rhel_nvidia-grace-hopper-01/swap video=simplefb:off kvm-arm.mode=nvhe
+>>>
+>>> host$ cd linux/tools/testing/selftests/kvm
+>>> host$ ./guest_print_test
+>>> Random seed: 0x193a0ed3
+>>> [  192.754328] kvm [6674]: nVHE hyp panic at: [<ffff8000811da044>] __kvm_nvhe___timer_enable_traps+0x4/0x160!
+>>> [  192.754338] kvm [6674]: nVHE call trace:
+>>> [  192.754339] kvm [6674]:  [<ffff8000811dcf34>] __kvm_nvhe_hyp_panic+0xb4/0xe0
+>>> [  192.754342] kvm [6674]:  [<ffff8000811dcba4>] __kvm_nvhe___kvm_vcpu_run+0x164/0x440
+>>> [  192.754344] kvm [6674]:  [<ffff8000811dfe90>] __kvm_nvhe_handle___kvm_vcpu_run+0x40/0x1f0
+>>> [  192.754346] kvm [6674]:  [<ffff8000811e0238>] __kvm_nvhe_handle_trap+0x158/0x280
+>>> [  192.754347] kvm [6674]:  [<ffff8000811dd8fc>] __kvm_nvhe___skip_pauth_save+0x4/0x4
+>>> [  192.754348] kvm [6674]: ---[ end nVHE call trace ]---
+>>> [  192.754350] Code: d2818002 17fffff7 d503201f f9400001 (b94a6821)
+>>> [  192.754350] kvm [6674]: Hyp Offset: 0xfffeb0d7fe2e0000
+>>> [  192.754351] Kernel panic - not syncing: HYP panic:
+>>> [  192.754351] PS:834003c9 PC:0000cf2882efa044 ESR:0000000096000004
+>>> [  192.754351] FAR:ffff00009b286a68 HPFAR:8000000000000000 PAR:1d00ec7edbadc8de
+>>> [  192.754351] VCPU:0000cf011848a350
+>>> [  192.845154] CPU: 12 UID: 0 PID: 6674 Comm: guest_print_tes Kdump: loaded Not tainted 7.3.0-rc4-gavin+ #7 PREEMPT(full)
+>>> [  192.856182] Hardware name:  GH200 P5042, BIOS 02.04.01 20250422
+>>> [  192.862231] Call trace:
+>>> [  192.864725]  show_stack+0x20/0x38 (C)
+>>> [  192.868471]  dump_stack_lvl+0x88/0xb8
+>>> [  192.872215]  dump_stack+0x18/0x30
+>>> [  192.875598]  vpanic+0x280/0x498
+>>> [  192.878806]  panic+0x68/0x70
+>>> [  192.881745]  nvhe_hyp_panic_handler+0x184/0x190
+>>> [  192.886372]  kvm_arm_vcpu_enter_exit+0x24/0x100
+>>> [  192.891003]  kvm_arch_vcpu_ioctl_run+0x254/0x7c0
+>>> [  192.895726]  kvm_vcpu_ioctl+0x174/0xb40
+>>> [  192.899645]  __arm64_sys_ioctl+0xb0/0x120
+>>> [  192.903745]  invoke_syscall.constprop.0+0xa8/0x100
+>>> [  192.908639]  do_el0_svc+0xb8/0xe0
+>>> [  192.912022]  el0_svc+0x48/0x1f8
+>>> [  192.915228]  el0t_64_sync_handler+0xa0/0xe8
+>>> [  192.919500]  el0t_64_sync+0x1ac/0x1b0
+>>> [  192.923243] SMP: stopping secondary CPUs
+>>> [  192.927653] Starting crashdump kernel...
+>>> [  192.931658] Bye!
+>>>
+>>
+>> With the following changes applied after PATCH[01-05] on top of v7.3.rc4, the crash
+>> is avoided.
+>>
+>> In arch/arm64/include/asm/kvm_host.h:
+>>
+>> -#define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+>> +#define kvm_vm_is_protected(kvm)       \
+>> +       (is_protected_kvm_enabled() && (kvm)->arch.vm_flavor >= __VM_PROTECTED)
+> 
+> That only papers over the problem. We can't use the vcpu_is_*
+> constructs from nvhe hyp, without converting the vcpu->kvm to
+> the hyp address, before accessing it. The fix is a bit more
+> involved. One option is to define the vcpu_is_* helpers only
+> for the !NVHE hyp code in the kvm_host.h (to avoid pulling
+> in the asm/kvm_mmu.h in to kvm_host.h and then make a mess
+> with header dependencies) and define the NVHE version in
+> asm/kvm_hyp.h. Something like :
+> 
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 46a7f6c1e426c..4016d09ed39c3 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1545,11 +1545,14 @@ struct kvm *kvm_arch_alloc_vm(void);
+>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+> 
+>   #define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= __VM_PROTECTED)
 > +
->  	skb->protocol = eth_type_trans(skb, priv->dev);
->  
->  	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
+> +#ifndef __KVM_NVHE_HYPERVISOR__
+>   #define vcpu_is_protected(vcpu) kvm_vm_is_protected((vcpu)->kvm)
+> +#define vcpu_is_protected_pkvm(vcpu) kvm_vm_is_protected_pkvm((vcpu)->kvm)
+> +#endif
+> 
+>   #define kvm_vm_is_protected_pkvm(kvm)          \
+>          (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+> -#define vcpu_is_protected_pkvm(vcpu)   kvm_vm_is_protected_pkvm(vcpu->kvm)
+> 
+>   #define kvm_vm_is_unprotected_pkvm(kvm)                \
+>          (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
+> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> index 4974492744cc8..3bf87e81af430 100644
+> --- a/arch/arm64/include/asm/kvm_hyp.h
+> +++ b/arch/arm64/include/asm/kvm_hyp.h
+> @@ -137,6 +137,19 @@ int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long *per_cpu_bas
+>   void __noreturn __host_enter(struct kvm_cpu_context *host_ctxt);
+>   #endif
+> 
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+> +#define vcpu_is_protected(vcpu)        \
+> +       ({                                                              \
+> +               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
+> +               __kvm && kvm_vm_is_protected((kern_hyp_va(__kvm)));     \
+> +       })
+> +#define vcpu_is_protected_pkvm(vcpu)                                   \
+> +       ({                                                              \
+> +               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
+> +               __kvm && kvm_vm_is_protected_pkvm((kern_hyp_va(__kvm)));\
+> +       })
+> +#endif
+> +
+> 
+> 
+> Or explicitly convert all nvhe accessors to a new "nvhe_vcpu_is_protected"
+> 
+> The second one sounds like a better option to me.
+> 
 
-[Severity: High]
-Can the relaxed bound make the driver claim CHECKSUM_UNNECESSARY for
-frames the COE never validated?  In this zero-copy path the descriptor
-status is not consulted at all:
+We just need to include "asm/kvm_mmu.h" to "arch/arm64/mmio.c". With it,
+we can have unified functions (macros) in kvm_host.h to accomodate all
+cases, like below.
 
-	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
-		skb_checksum_none_assert(skb);
-	else
-		skb->ip_summed = CHECKSUM_UNNECESSARY;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 9b1cf9c59e81..b9c9a9f203f9 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1514,11 +1514,36 @@ struct kvm *kvm_arch_alloc_vm(void);
+  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+  
+  #define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+-#define vcpu_is_protected(vcpu)                kvm_vm_is_protected((vcpu)->kvm)
++#define vcpu_is_protected(vcpu)                                                \
++       ({                                                              \
++               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
++               bool __protected = false;                               \
++                                                                       \
++               if (__kvm) {                                            \
++                       if (is_nvhe_hyp_code())                         \
++                               __kvm = kern_hyp_va(__kvm);             \
++                       __protected = kvm_vm_is_protected(__kvm);       \
++               }                                                       \
++                                                                       \
++               __protected;                                            \
++        })
++
+  
+  #define kvm_vm_is_protected_pkvm(kvm)          \
+         (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+-#define vcpu_is_protected_pkvm(vcpu)   kvm_vm_is_protected_pkvm(vcpu->kvm)
++#define vcpu_is_protected_pkvm(vcpu)                                   \
++       ({                                                              \
++               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
++               bool __protected = false;                               \
++                                                                       \
++               if (__kvm) {                                            \
++                       if (is_nvhe_hyp_code())                         \
++                               __kvm = kern_hyp_va(__kvm);             \
++                       __protected = kvm_vm_is_protected_pkvm(__kvm);  \
++               }                                                       \
++                                                                       \
++               __protected;                                            \
++        })
+  
+  #define kvm_vm_is_unprotected_pkvm(kvm)                \
+         (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
+diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+index d1c3a352d5a2..ab1d2fef9a52 100644
+--- a/arch/arm64/kvm/mmio.c
++++ b/arch/arm64/kvm/mmio.c
+@@ -6,6 +6,7 @@
+  
+  #include <linux/kvm_host.h>
+  #include <asm/kvm_emulate.h>
++#include <asm/kvm_mmu.h>
+  #include <trace/events/kvm.h>
+  
+  #include "trace.h"
 
-and in stmmac_rx() the extra status term cannot express "not checked":
+Thanks,
+Gavin
 
-drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c:dwmac4_wrback_get_rx_status() {
-	if (rdes1 & RDES1_IP_HDR_ERROR) { x->ip_hdr_err++; ret |= csum_none; }
-	if (rdes1 & RDES1_IP_CSUM_BYPASSED)
-		x->ip_csum_bypassed++;
-	...
-	if (rdes1 & RDES1_IP_PAYLOAD_ERROR) { x->ip_payload_err++; ret |= csum_none; }
-}
-
-RDES1_IP_CSUM_BYPASSED is only counted, never mapped to csum_none, so
-status & csum_none stays clear for a frame the engine skipped.  Before
-this change, any frame whose payload still began with a VLAN header gave
-depth 18 > ETH_HLEN and was downgraded to CHECKSUM_NONE; now depth 18 is
-accepted.  Cases where the COE legitimately bypasses include an
-802.1ad/QinQ frame whose inner tag remains after the outer one is
-stripped, and IP fragments.
-
-Combined with the offset question above, the accept on RX is reached via
-the mis-read EtherType, i.e. from payload bytes the sender picks, so a
-corrupt L4 checksum can be handed to the stack as verified.  Should the
-descriptor bypass bit be consulted before setting
-CHECKSUM_UNNECESSARY, at least in the zero-copy path?
-
-> @@ -5929,9 +5913,6 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
->  		if (priv->hw->hw_vlan_en)
->  			/* MAC level stripping. */
->  			stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
-> -		else
-> -			/* Driver level stripping. */
-> -			stmmac_rx_vlan(priv->dev, skb);
->  
->  		skb->protocol = eth_type_trans(skb, priv->dev);
->  
-
-[Severity: Low]
-This is a pre-existing issue and not introduced by this patch, but after
-the else branch is gone, priv->hw->hw_vlan_en becomes the only gate for
-recovering the VLAN ID from the descriptor.  The flag is a plain bool
-written from process context in stmmac_set_features():
-
-	if (features & NETIF_F_HW_VLAN_CTAG_RX)
-		priv->hw->hw_vlan_en = true;
-	else
-		priv->hw->hw_vlan_en = false;
-
-	phylink_rx_clk_stop_block(priv->phylink);
-	stmmac_set_hw_vlan_mode(priv, priv->hw);
-
-and read from softirq context in stmmac_rx() and
-stmmac_dispatch_skb_zc(), with no READ_ONCE/WRITE_ONCE, no barrier and
-no NAPI quiescing between the flag update and the MAC strip-mode
-register write.  On the disable transition the flag is cleared first, so
-frames whose tag the MAC already stripped are delivered with
-stmmac_rx_hw_vlan() skipped and the VLAN ID lost.  Is it worth making
-the flag update and the register write ordered while this code is being
-touched?
-
-> @@ -7990,9 +7971,10 @@ static int __stmmac_dvr_probe(struct device *device,
->  	ndev->features |= ndev->hw_features | NETIF_F_HIGHDMA;
->  	ndev->watchdog_timeo = msecs_to_jiffies(watchdog);
->  #ifdef STMMAC_VLAN_TAG_USED
-> -	/* Both mac100 and gmac support receive VLAN tag detection */
-> -	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
-> -	if (dwmac_is_xmac(priv->plat->core_type)) {
-> +	if (priv->hw->vlan &&
-> +	    priv->hw->vlan->set_hw_vlan_mode &&
-> +	    priv->hw->vlan->rx_hw_vlan) {
-> +		ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
->  		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
->  		priv->hw->hw_vlan_en = true;
->  	}
-
-[Severity: Low]
-This ops-presence check also fixes a live advertisement bug on DWXLGMAC.
-The ops table there provides neither callback:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-	const struct stmmac_vlan_ops dwxlgmac2_vlan_ops = {
-		.update_vlan_hash = dwxgmac2_update_vlan_hash,
-		.enable_vlan = vlan_enable,
-	};
-
-so with the old dwmac_is_xmac() test that core advertised
-rx-vlan-offload and set hw_vlan_en while rx_hw_vlan was a no-op and the
-MAC was never programmed to strip.  That is the same problem
-8eb301bd7b0f4 ("net: stmmac: enable HW-accelerated VLAN stripping for
-gmac4 only") addressed for gmac/xgmac, and 534df0c1724b7 ("net: stmmac:
-dwxgmac2: Add support for HW-accelerated VLAN stripping") reintroduced
-for XLGMAC by widening the condition to all xmac cores.  Should this
-carry a Fixes: 534df0c1724b7 tag, or be split into its own patch so it
-can be backported separately from the cleanup?
-
-[Severity: Medium]
-This is a pre-existing issue rather than something this patch
-introduces, but does dropping NETIF_F_HW_VLAN_STAG_RX actually change
-what the hardware does?  hw_vlan_en is still set here, and
-stmmac_set_features() derives it from the single C-tag bit, after which:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c:vlan_set_hw_mode() {
-	if (hw->hw_vlan_en)
-		/* Always strip VLAN on Receive */
-		value |= VLAN_TAG_STRIP_ALL;
-	...
-}
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c:vlan_rx_hw() {
-	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
-		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
-
-		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
-	}
-}
-
-Once an 802.1ad VLAN is configured, vlan_update_hash() sets VLAN_ESVL /
-VLAN_EDVLP / VLAN_DOVLTC, so an outer S-tag is recognised, stripped by
-VLAN_TAG_STRIP_ALL and then reported as ETH_P_8021Q on an interface that
-now declares S-tag RX offload unsupported.  The S-VID can then land on an
-802.1Q upper device with the same VID.  Since the commit message gives
-this as a motivation:
-
-    "NETIF_F_HW_VLAN_STAG_RX is no longer advertised, as the hardware
-    reports stripped S-tags as C-tags."
-
-would it be clearer to state that the strip/report behaviour itself is
-unchanged and only the feature bit is removed?  The driver selftest
-validator still expects ETH_P_8021AD metadata for an outer S-tag.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260919125413.18058-1-peilinhe2020%40163.com
 
