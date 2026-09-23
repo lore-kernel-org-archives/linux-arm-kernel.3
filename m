@@ -4,92 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0432C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC34C98307
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=te0jTNRuKHVovCSM6AumUlGdx32zhFv1qUdk3kswgDc=; b=e+R0i6Y6e0TewBJg8Hl6JLsNOO
-	E8+4Yq+xk4mdl6SLqN1sId0P5v1xERKsC/+OABRSg+FnpsUSvDwdj0qjSeviMUqTyeTikBTz5+f1H
-	TvcQaI7Yg0xa1YmzwDy6+fSP6dAjNvHdkplt/nSmQc1wzSXt3BxUs1oAwh/aJYGYtk1VBgRNuuzEw
-	WQCGY2az3DsSn7G0Iew2Vjz20CXJBFZSBt8XIK9y+LqXbJ2M2m/KmYk0EIkfHC0NiuEmhEKVIUFea
-	MEy6ClncjpksEcqRWnY6onH2YQemajOxcWrGLVnntd4+pQpvhbr8FrPf4wQqUfZIZPtx03kqiYf+w
-	trpYnA6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=45V0B3OBBYivwpaJQHAgs+9x48rtFnlk7Yohidx4IhI=; b=iKrF/A8wIADK0IgXakn6dEkSPn
+	OqFWaa1ntP9Ag8vyWPRmMUoZsJDm3sgik59/oUFTYPPdoxctdfm4ICDx4x2MDWjcD7llbTHSksz58
+	EwjdKp2ebnyX28aiZxuLTFkjOTOmv39Rbvzm127hNRXUcfX8vk3Gs2gFeGWF+SONANC0PhYbO3nzp
+	jdB3f70DcyuAjpjzjf8XCFldrb464Pu1puCuHKECHMvk+lYnUsdzVEtYRwvXfdDDlsIOTBkWkVA+1
+	RCLlwizNYxJ2Nm+Dr1Nt5O7VQIGSdQ17Y8TxTJYAxXlin8TWVn8J+spiB9SmktyK76x/zbNxzr94z
+	zyvbbFOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KaP-00000007x3e-3iBb;
-	Wed, 23 Sep 2026 10:52:25 +0000
-Received: from mail-lf2-x10.google.com ([2a00:1450:4864:36::10])
+	id 1x9KaW-00000007x6m-0e4P;
+	Wed, 23 Sep 2026 10:52:32 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KaH-00000007x0R-21us
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:52:18 +0000
-Received: by mail-lf2-x10.google.com with SMTP id 2adb3069b0e04-5b899413537so1003386e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:52:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790160735; x=1790765535; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=te0jTNRuKHVovCSM6AumUlGdx32zhFv1qUdk3kswgDc=;
-        b=DRW7l6oluDInhb6jaAKQdWCGKS42gFe58XgQAQ84vUyjKoeKmOSsJwzrX3CpdBnN1B
-         fjDn9EcnIefw2WFLd9b4bte4314taCCWYgb2gwcsfoi7/UiTrGBopOHuuMS89Lm5Kg7Y
-         Xk0R1w5UYJL3Wj3VE3MfmJo8Wd0Qstvw2mb8tWwHR8uzePP1LaGIwBkrhbWP+3NNeLkF
-         MDd53dUbXg/rx7qwfEkNx2CFZvk9h4rs5wPJm0OqR+XpSj8Lp/s3abCcXut405vTokT9
-         9gptl6Ppm5A0iwEPAPEbe2dgCptzUfP4Tcd5eO84vlyjywJHGMoHZ/mPKs9Uzpy+TE1u
-         ERgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790160735; x=1790765535;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=te0jTNRuKHVovCSM6AumUlGdx32zhFv1qUdk3kswgDc=;
-        b=sp51+KbVc+FgWUmfuD8TDd7nHDEbYF9IeBKCbBI1hPqxylfjm+WpcL5Le0J2szTK/q
-         r8Wl6yM6x8CDqupnOZPwoWxR0prdqzyXgHPjE0FeCD31GhEHP8H1+cmrnrwvrAYrlZl0
-         eGbtAbBT9JZlkC0IkE9zMlovn9HJ9AGyvhacmjRLD4aQDPQ6YMvmDJPC3u6xcUNk4RHw
-         WgqTMQ+HB5T0vVsMb7XOV9tZKwZrA4Zl4kQeaOkvlIHVomQV9mkjkyrvcRaKnDblc9Xv
-         JVdmvIT9UY2sRh8rs4z/N0tweZ1t6Azlyy+4rEEi2m3uGSMn1pdX90ad7t07og2MHvhp
-         kmcQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzUWTxz9FY4Dqc19OV5iPEhjamW+NgKO3n9FifLL083niblmfL+1IcHYkLogF7bjxj4j4DFW/wngqjp4wEUfTUd@lists.infradead.org
-X-Gm-Message-State: AFuF++m8L2IQu+wgPwu0sRnwm2/5VhWEl4FPSQytxYhXqb0NcjznG/m5
-	4RWvViXafSC/Y2/HLeD54BofA0ILTmUfVZgtwM8KMMBg5QtP42Tz2R+7
-X-Gm-Gg: AYBFou02RJ9GzRMu8P5lzFiD/isQ32iJEm/20e4C0KhsrKNA3SDHcJTxDIMbjYT0emU
-	7tQQV+hc8MpRoRtJ+olhk9fJk32qY5wSDJxt/urCx9GokMDdfZq+Uk2GBPfvkN6ALfcCAX2H71/
-	BPRcmwgyt3PxSRX4sK5g9J1LkMRlpKyFhCyAWweCAAnFF6zr7H4PxIw1jFfcirGxICw05lbRZHS
-	wL2LRgJaBVuE9/7AXxasUlZQF93RjaFjXMQjZtiq3FjKxTHjQ+YlsG3CWAUQqIyYsPHKB7pfz7i
-	KuJINEZPblCP87R+2Adin1+h7HcrNM7jaV4raSNu+3B14ntykZ8FE5tyi+ZLLN8cQsPCakxhBuF
-	EFiOvsYhGm597q+TT+sDgxM29ErJoV3qkH9Sb+JlFi8SPIlEaAlOqHp9JtR3JUnrsPlhlN3HK5n
-	maFGMWgqA8bw4zQoFbGjk1IW31o3u5n1yapEh0Ey3e9HwwbYQ08BbGXUi+uGdfA1T0rURSMJre0
-	B3b+dOSKkZ2J/L7QyvMr8WhZp6oHA==
-X-Received: by 2002:a05:6512:a344:b0:5b6:183b:d214 with SMTP id 2adb3069b0e04-5b8d89cf47bmr634761e87.59.1790160734896;
-        Wed, 23 Sep 2026 03:52:14 -0700 (PDT)
-Received: from DESKTOP-7GRJKK0 ([188.226.104.175])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b8d8552dafsm497428e87.7.2026.09.23.03.52.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 03:52:14 -0700 (PDT)
-From: Vladimir <anykey196@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev,
+	id 1x9KaH-00000007x0O-2SEk;
+	Wed, 23 Sep 2026 10:52:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R5eIz7cpLn8j8lJZn23iH2zSHOmTFz3tI3BDbQXHQcT5yr2/sjevX9Aykemtc1XJyv3ztwjAirMBw2wAMV4p8HjudKum4Niy4v1Uxcw512umL6Janev2w9/3gOJmp96KbUaEgFxEsn9HLpLH/C0K6u8MZ02Ljvu5nziEaQzor+zUxIvXlIfuRZKLONGOFTkTGxRy84bx0jsWmvYWQKPmPz6fKsHSLqklYGqUkAmMb7E2hR4KZCT+22tAqpV6fCF5oS4yLcbPgWVR71EA5x6vpHwZbkOE/Zms0uDRHcBUkZUTmC8xy11rxG6raLOtFxKwo8dA0jiAvYGh1as8wRZ1ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=45V0B3OBBYivwpaJQHAgs+9x48rtFnlk7Yohidx4IhI=;
+ b=HWU1dZkeiJvB89p5tXgFJYJcVvuSF+/0EIvpbY4ymr8OwLeGsfdsAMuLdyE41TlacBk/aWmCc5VxJpztSTl39H5rQavflw43SRkthAyKk8jAv7Nb123kAz7G6bMdWCZTi7Yf3t0cHKlFoHc4Yj1WmC+e82pKLDJagj5aqehoBkN+6XJfvMSq02NtZhrpqIhDUX8SSRjZjDMLWI8WlOmAeAtHxqSIon0NvGPFDQKBIhFmqdnBCcNSsjjzRH3vtco6fOwT+pKQFdREcvqKG1rwuAtHeIgC6/a5iDUJszDlPd66JNAUQWgyfsPSRfI20Bl9LhfbzbjXHhQuA02EHmuWlA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=inmusicbrands.com; dmarc=pass action=none
+ header.from=inmusicbrands.com; dkim=pass header.d=inmusicbrands.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=inmusicbrands.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=45V0B3OBBYivwpaJQHAgs+9x48rtFnlk7Yohidx4IhI=;
+ b=NVhQkYNfFx7DgjogmJk73Igyrp7BPDLlDIDwtm27xqiPthfsHR3q33K8FMhsVVa2ps3P814cstjcb6qap1H1D8+vYB3YV91ZTGys5mvcb1yRzFxmbPCZwXw+bssKGKVUbYcheNRe7ittytKifMvkG/ZmjjGjE90jkab1tG4NcY8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=inmusicbrands.com;
+Received: from IA3PR08MB10274.namprd08.prod.outlook.com
+ (2603:10b6:208:537::11) by LV8PR08MB10759.namprd08.prod.outlook.com
+ (2603:10b6:408:297::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Wed, 23 Sep
+ 2026 10:52:09 +0000
+Received: from IA3PR08MB10274.namprd08.prod.outlook.com
+ ([fe80::fa40:1ea3:1e72:703b]) by IA3PR08MB10274.namprd08.prod.outlook.com
+ ([fe80::fa40:1ea3:1e72:703b%6]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
+ 10:52:09 +0000
+From: John Keeping <jkeeping@inmusicbrands.com>
+To: linux-media@vger.kernel.org
+Cc: John Keeping <jkeeping@inmusicbrands.com>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Vladnwx <vladnwx@users.noreply.github.com>
-Subject: [PATCH] arm64: dts: allwinner: h616: orangepi-zero2w: add SDIO WiFi/BT (AW859A)
-Date: Wed, 23 Sep 2026 15:52:08 +0500
-Message-ID: <20260923105208.198-2-anykey196@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.3
-In-Reply-To: <20260923105208.198-1-anykey196@gmail.com>
-References: <20260923105208.198-1-anykey196@gmail.com>
-MIME-Version: 1.0
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: rockchip: rga: fix rotation on rev0 hardware
+Date: Wed, 23 Sep 2026 11:51:31 +0100
+Message-ID: <20260923105131.2111476-1-jkeeping@inmusicbrands.com>
+X-Mailer: git-send-email 2.55.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: VI1P194CA0042.EURP194.PROD.OUTLOOK.COM
+ (2603:10a6:803:3c::31) To BY1PR08MB10263.namprd08.prod.outlook.com
+ (2603:10b6:a03:5ad::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA3PR08MB10274:EE_|LV8PR08MB10759:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd51002f-6f93-4e69-93b5-08df1960afca
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|23010399003|366016|1800799024|38350700014|56012099006|5023799004|10067099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: 3GU4HynEP5sUoxuaZP3Dlozj1vgl+Js+ocesTsuRTmgJwor3bcOuzaTMY1UUTE8SQIGc5Z9rWr+L9MJNFaNLdfNs/fnNCEMiZkOEFG54UYOHtTiB34DrtvHdNwt0Hu4toZIvQ/k81a7rdpU4PSFDxlSS2tahz2iH6yYvDXZtX7SwpfIzZ2++k/cv1El5cP63JjEHIfHBRLdEw4yfq+b2tIUewhSulefuEhqh3Bde7r5mcYIXRNTxI5JQDLeH1n1x/aIGUzF/3swFRGc3GDTlA2ePZGkeVInvA+PW99eLvEsydqUoPC82AevkoHfjHQR34EUHKeDW6nHZH5ooFGJT7c7tl2+xcZQbX/TgaTIcpEHxRllADZ03bCBxGPm/QC7wb72H6ZtzrhPBPgzl0YqvpkhJuTsmWSf/7dn+3QuQSZyGX9X+gBtwcKJ9L2UwEQfS5N40Nawco2WcpB+h0IqNlOj+numtVAOPqwp6UX2Cf4vvuaLwlaLOBBtHJQseyLPNRM2FnuiwB9kJ1PvInDhSflFO4nryC9GdxQLyqVvykBb+N2xGKfLnAYD2A/mLEKE61lxIPMi1DNur527UbpyHjazZZtgTJgzLjniDaBURagVfy+Kt83DD5IfJqFAr6hIgRGRAiSCyYaDuwzIZpn9e6QizKZKzKq0fN02VJT6uHqN2uj73MQS9TgGhB/FUYNqQkede58lQBSKzittH1U4ubfojW4V+PpxEvJvwprwdbGA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR08MB10274.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(23010399003)(366016)(1800799024)(38350700014)(56012099006)(5023799004)(10067099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RlGhShXYh+RoubUZccMaZ8WV8YFZgPKdOOzQWFYnodmbnuVvVYYY+gtdXOIE?=
+ =?us-ascii?Q?stVacmoQDw89KKoN0Y+53O2spfloaA4kNmK8q9HQgrc7w0rUFerUrHxTCapt?=
+ =?us-ascii?Q?pKEhBDPF7y+F+jyvUSXTMiBiJyUezXcjmX3PtFETUvGsVfLrlnYBZLF7hbpj?=
+ =?us-ascii?Q?MkilINgmsc97Aab4UZIHht3R4TlrX9W1BUXPzHetbaGBbm/vEHE8qJsBGD5A?=
+ =?us-ascii?Q?j4+B9GRk2lmSmU2wWoWY/fpAnLXXJgZrKi2llk31cCGL9Bj67B8nMlrCMuhq?=
+ =?us-ascii?Q?nB7QrKkN8vOV2sqeZgSbtBCZRP0hLqTO0Aove8s0AwSlhilfjCpIdEdj0qEV?=
+ =?us-ascii?Q?u1kqj/BKFcEcTgGwIGklYhfVmfO8kb+/0vT3h4r2MQI8bIoyvEwhW+nB7emn?=
+ =?us-ascii?Q?pJQPYXQyx6Zd3ksx2T3tg1w2BBeZ/k+2SVrhD9hhLXAf6e5f1BECwDytgz0X?=
+ =?us-ascii?Q?RondDExD81CDyJ/lMSVLptt0TU4EZz+/2DRJttH0a+YrY6KY5y1wZQG5I0nV?=
+ =?us-ascii?Q?5bwJrxazKzCfE7b6y/VsVqFjUpN37L4BcuaN0Exc/FtIg6Nexe8vEyF78VxE?=
+ =?us-ascii?Q?7c1QjE6ST9OQ1uH34dtq/RQzMq+PUxAT1B5zi1cI0tWt4no3EpYZbPzDYYSU?=
+ =?us-ascii?Q?xpyvPkKhNcetX4kgphwsKebM9sbnr86fo4gjWIxWkar1a5aR5dwc+j03ZnHj?=
+ =?us-ascii?Q?zeGywn1u3mlGKOVx67dUD5ZBB+zVK/39Z6L/5a5QLcalfXoKL7SyyWCf73io?=
+ =?us-ascii?Q?h1MvgblOG+DEQI2B+B/lSUPsksNBdv45qD+Sm2DIhpkC/te6v4e5A+C7F2sG?=
+ =?us-ascii?Q?ptl5Caoyfot+H+njUfklSQXoNAnoeiLaEIeQW617WzT42s+r8a9cjrIcX0pF?=
+ =?us-ascii?Q?4rAYIxioSwMzLOZF9rQZ+bIBQYG9njCMHT9cf0f0cIFiWpUmIj0LgMqTl2r+?=
+ =?us-ascii?Q?zEfpywI9/rQefEhcQFZzOUHbXwWHROkSN6MSqNIkVm6JOC99JV0EtI+Kr9iX?=
+ =?us-ascii?Q?3YW7Vgs9fvIN2fd6KIjpbmFEIgzhDGEvYQGjP8P7Bu3XkBsctlisAFKsCRB3?=
+ =?us-ascii?Q?lDq+kwDMeAchevUxseZu1O1VJtcEp6GNkKcB4CEkcna/kmCUoBrpO0E7HsCu?=
+ =?us-ascii?Q?78kKGcvMaqeveJudNEMBFAOgcpNMj+tLfw6epA5PCDxdlcnQpsYOdT2wJZ63?=
+ =?us-ascii?Q?PQYCMHK4/hX9wFaNKqc37sBAZ89hD4K2arSMgYQHqu+9lBO7oA4WjxR75XCW?=
+ =?us-ascii?Q?3GnQCRxzqwFEyMi86NA5jGk29zLhUYs/vPPfBEDg8eIRNtyZY/sbotEFajun?=
+ =?us-ascii?Q?KGp5/qO0TkwWRFwvZaE7frA5bb7EmwZLRWPO5SvEwBR08AvZLU3ZS77tNhM0?=
+ =?us-ascii?Q?VwGhAPB3I/6zcaXGHGeEqerfEMbEVLEpqHOIB7TixTaXbzErXc99gKx9OYmq?=
+ =?us-ascii?Q?jEmii6JpGqw0h/07mpzPKqq9t0pGSLU7x3vAmSvRj0jXjV3scoiPHB2j3Ief?=
+ =?us-ascii?Q?/RbqniGhbL5nRiZwgGKCaJtktlseBwu/b/L7l+fVSZ+PQ9neCjGPED5z2jDY?=
+ =?us-ascii?Q?K7eN/qXAQ828mho5iVZ4PJqkgaiHV5qWoF51vDDuNY3rHyL3iqTviNlORK4H?=
+ =?us-ascii?Q?1HaGM7VPwZRNYGtC1c3lJ7UhycoJvHlWcJZCuk2n17LGDp5ltPQC+YYymVgO?=
+ =?us-ascii?Q?BPUzRZDweGJy6WdkoZ0wyKhvDKX37xbjxQCZDgMxWUItmI/CP6B3HRDugL0R?=
+ =?us-ascii?Q?ddDd1h8olSGbSH0XlY/GFq8oTXjjSiQ=3D?=
+X-OriginatorOrg: inmusicbrands.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd51002f-6f93-4e69-93b5-08df1960afca
+X-MS-Exchange-CrossTenant-AuthSource: BY1PR08MB10263.namprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 10:52:09.4577
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 24507e43-fb7c-4b60-ab03-f78fafaf0a65
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: neJDfISbfKqstSE97JNaj2VSlSZIS1sNzSSUQGvsLBWwTBw7hgSH1i4Q6Q5blhTb1SqVpTx4HnMuHa0PBUJOk/WyoKKzT40ADY47ip7chLQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR08MB10759
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_035217_540799_8A4CEDD7 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_035217_640942_B954084C 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +139,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vladnwx <vladnwx@users.noreply.github.com>
+On RK3288 where the RGA reports version zero [1], rotating a buffer
+gives corrupt output where one edge will be truncated.  This is a result
+of some adjustment done specifically for hardware revision zero.  But it
+seems this is not necessary and there is no evidence for why this
+adjustment should be applied on these hardware revisions.
 
-Enable the SDIO bus (mmc1) and power the on-board AW859A (UWE5622)
-WiFi/BT combo through an mmc-pwrseq-simple that resets WL_REG_ON (PG18), with
-the 3.3 V and 1.8 V supplies and the RTC 32 kHz clock.
+Comparing the TRMs between RK3288 with revision zero and RK3588 with
+revision 3.2 there is evidence of new features supported by later
+hardware, but nothing indicating any difference in behaviour for
+rotation which is supported by all hardware revisions.
 
-Tested on: OrangePi Zero 2W (Allwinner H618) with the out-of-tree uwe5622 driver.
+The logic here looks wrong anyway, since it's bizarre that minor
+revision zero would need the adjustment for _all_ major revisions.  This
+was added with the initial version of the driver in commit f7e7b48e6d796
+("[media] rockchip/rga: v4l2 m2m support") so there is no detail in the
+Git history to indicate why this special-case might be needed.
 
-Signed-off-by: Vladnwx <vladnwx@users.noreply.github.com>
+[1] Comparing with the vendor code, it seems this is actually 1.3 with
+    the hardware reporting zero more by coincidence than design since the
+    version register is not defined for RK3288.
+
+Signed-off-by: John Keeping <jkeeping@inmusicbrands.com>
 ---
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-@@ -218,3 +218,43 @@
- &ir {
- 	status = "okay";
- };
-+
-+/ {
-+	reg_vcc33_wifi: vcc33-wifi {
-+		/* Always-on 3.3V regulator for WiFi and BT */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc33-wifi";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_vcc5v>;
-+	};
-+
-+	reg_vcc_wifi_io: vcc-wifi-io {
-+		/* Always-on 1.8V regulator for WiFi and BT IO */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-wifi-io";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_vcc33_wifi>;
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rtc 1>;
-+		clock-names = "osc32k-out";
-+		reset-gpios = <&pio 6 18 GPIO_ACTIVE_LOW>;	/* PG18 */
-+		post-power-on-delay-ms = <200>;
-+	};
-+};
-+
-+&mmc1 {
-+	vmmc-supply = <&reg_vcc33_wifi>;
-+	vqmmc-supply = <&reg_vcc_wifi_io>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	bus-width = <4>;
-+	non-removable;
-+	mmc-ddr-1_8v;
-+	status = "okay";
-+};
+ drivers/media/platform/rockchip/rga/rga-hw.c | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index be1bc8ddbd03b..a7920b3dcc576 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -251,13 +251,6 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+ 	 */
+ 	if (src_info.data.rot_mode == RGA_SRC_ROT_MODE_90_DEGREE ||
+ 	    src_info.data.rot_mode == RGA_SRC_ROT_MODE_270_DEGREE) {
+-		if (rga->version.major == 0 || rga->version.minor == 0) {
+-			if (dst_w == src_h)
+-				src_h -= 8;
+-			if (abs(src_w - dst_h) < 16)
+-				src_w -= 16;
+-		}
+-
+ 		scale_dst_h = dst_w;
+ 		scale_dst_w = dst_h;
+ 	} else {
 -- 
-2.45.0
+2.55.0
+
 
