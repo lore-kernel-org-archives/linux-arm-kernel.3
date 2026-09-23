@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB6FC98307
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CE5C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4RfQtrFJ309a+fLrqfO5VDKsk1rCknVTQEk2e9GBuqM=; b=N4amHZJfJtZzXRodw+gHb4tYaP
-	mWIxXbN3JBlGiG2+I2yF6sReNubYQn/VADcTvRfDsv+hQumYi4IQCr3j4vohcqTb3wp+0tPXPAWlJ
-	bCeixZNahqc8950RMapFWnS4KT5QMkjWCZHJj4aq/f1GSKIh3Wje91cMSLBLV8c91fhln3ljOYbQO
-	80WDYxg642OG2zKaQonxjf7q+rrlLePJ3cYaO/PsFYjKWfVs5Pf/Ol434sTHCEUumrjaiWqtFnRMi
-	1LScyBwa7ue04RjnzrggfZzJlQwQryxk/cWCQIUazop6gWrOY0t0xK4mMlSm0Ytlndk4ZGZNZ3gDS
-	76tT1ssA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nXFx24uHxr9xP0FU0RdXpsSyEvVzbxC7Cx4KbtNOMGc=; b=SV4vFojFV+D/EAfPAuYgHpJqwy
+	eg5ADPLEsAAuT9tWkxnNsNzyA+2CnfWegH2HCHvaZkRYPh07HvY2XWpy8nNIxM2PXREVsqwiEYQK2
+	L9du6TlI3ayfUOAEcPIJdK71pJ+yhyLwHyEKUgV7AXlXlSFh9AeBFSStdn7QDS2Oqn4l6UXGtZjwQ
+	RITfVa+rv4nT8OulsRQGo5nl0WKZyPYY5RHF3P95uFVty4IeYvxBUu06GX2ulOw5GDel3W2iuniQd
+	qNTjgHkEzEVTzCuuoHk6IjytFu/lrg2+qn0lmNolZuWzODJNXLeGX3FnuVbHFfozio+/eHYSSfPTi
+	/azCQN5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9I5P-00000007Tg7-3elw;
-	Wed, 23 Sep 2026 08:12:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9I6B-00000007To5-0KXv;
+	Wed, 23 Sep 2026 08:13:03 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9I5P-00000007Tfz-1D1t
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:12:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A093E40C37;
-	Wed, 23 Sep 2026 08:12:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81B6A1F000FF;
-	Wed, 23 Sep 2026 08:12:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790151134;
-	bh=4RfQtrFJ309a+fLrqfO5VDKsk1rCknVTQEk2e9GBuqM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V12ssdVBZdEg1YgzOEHBZ1L0Xf4ZbdwzSmtDM5u5ui74Ilhs7xqj9/dmT8mCt1Fov
-	 33Gx7Wqkss8Vl/Zo5PMtWEcd5qK01uB16Hou0XgjVLfpwdFONElOxBW3P0vxQLHEqU
-	 us3w4q85mbYaZkM1BZmDbLwNvBK/9Dnx7FSuu2oAZuNo3BgKfxIG/mQTC2VcWxrVI7
-	 6KLxmACk1DP13sFF3MWN6bY1wtoEgg/Fj+hwOqc9xsBzUNywG3pS4LEVtoXLKLSKuC
-	 suEE/hK/yuepyHS7V/YiFgUkrKEtE1lYUm+KWA/OxK8K2paI6mDe2oQykyeuLJ5m8G
-	 x9tDwla2KMpWQ==
-Date: Wed, 23 Sep 2026 01:12:14 -0700
-From: Kees Cook <kees@kernel.org>
-To: Bill Wendling <morbo@google.com>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	llvm@lists.linux.dev, codemender-patching+linux@google.com
-Subject: Re: [PATCH] bus: fsl-mc: Annotate fsl_mc_io.portal_virt_addr with
- __counted_by_ptr
-Message-ID: <202609230106.7960C12@keescook>
-References: <20260922223538.2287676-1-morbo@google.com>
+	id 1x9I68-00000007TmT-0cmh;
+	Wed, 23 Sep 2026 08:13:01 +0000
+X-UUID: 931974eab72611f1acbe4559397dec65-20260923
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=nXFx24uHxr9xP0FU0RdXpsSyEvVzbxC7Cx4KbtNOMGc=;
+	b=ryd/mHfL4NNyI4I5IXU0czBURmvlTKvyis5VMHYWK0JjCVAEpn88AFt4pyuyBiF2fPNskH/xXOnr9UGnvjsN8IVabiX18Ff0WPDM+nDqqTDlbC7zRqLoqHt/QVcSj9oVQ8J4XmHPszbgvBPBHrZbpxq66MZQt+eq9pjFSI7N+hw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:90e99337-713e-4565-98d8-a03d64db9862,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:1ae7e108-d10d-41b3-a8f1-bc707284d0ce,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 931974eab72611f1acbe4559397dec65-20260923
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 339583002; Wed, 23 Sep 2026 01:12:52 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 23 Sep 2026 16:12:50 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 23 Sep 2026 16:12:48 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
+ Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
+	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Subject: [PATCH v10 00/10] Enable video decoder & encoder for MT8189
+Date: Wed, 23 Sep 2026 16:12:36 +0800
+Message-ID: <20260923081246.268182-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260922223538.2287676-1-morbo@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_011300_211851_1446EFB7 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,69 +94,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 10:35:38PM +0000, Bill Wendling wrote:
-> The GCC and Clang compilers provide the __counted_by_ptr attribute,
-> which is used by KASAN and compiler bounds-checking to detect
-> out-of-bounds accesses to pointer fields.
-> 
-> In "struct fsl_mc_io", the "portal_virt_addr" pointer points to the MC
-> command portal virtual address. The size of this allocated portal in
-> bytes is tracked by the "portal_size" field within the same structure.
-> 
-> Annotate the "portal_virt_addr" pointer field with
-> "__counted_by_ptr(portal_size)" to enable compiler bounds-checking and
-> harden against potential out-of-bounds accesses.
+It adds the MT8189 decoder and encoder bindings and compatible data,
+updates the decoder capability data, and fixes two existing decoder
+issues.  Patch 3 moves decoder firmware selection from optional DT
+properties into platform data, matching the encoder implementation.
 
-Another one where I hope things agree. :)
+Patch layout:
+  1  Add the MT8189 decoder binding.
+  2  Add decoder platform-data support.
+  3  Move decoder firmware selection to platform data.
+  4-5  Refactor decoder profile, level, and VP9 probability-size data.
+  6  Fix VP9 4K profile-2 decoding.
+  7  Add the MT8189 decoder compatible data.
+  8  Fix the media-device node number.
+  9-10  Add the MT8189 encoder binding and compatible data.
 
-        mc_portal_size = resource_size(dpmcp_dev->regions);
+This series depends on:
+  [1] MT8196 decoder/VCP v7
+      https://patchwork.linuxtv.org/project/linux-media/cover/20260923024258.257846-1-kyrie.wu@mediatek.com/
+  [2] MT8196 encoder v8
+      https://patchwork.linuxtv.org/project/linux-media/cover/20260914073423.16131-1-irui.wang@mediatek.com/
 
-        error = fsl_create_mc_io(&mc_bus_dev->dev,
-                                 mc_portal_phys_addr,
-                                 mc_portal_size, dpmcp_dev,
-                                 mc_io_flags, &mc_io);
-...
+Testing on MT8189:
 
-        mc_io->portal_size = mc_portal_size;
-	...
-        mc_portal_virt_addr = devm_ioremap(dev,
-                                                   mc_portal_phys_addr,
-                                                   mc_portal_size);
-	...
-        mc_io->portal_virt_addr = mc_portal_virt_addr;
+H.264:
+  ./fluster.py run -d GStreamer-H.264-V4L2SL-Gst1.0 -j2 -t 90
+  JVT-AVC_V1: 96/135 tests passed
 
-But it actually reminds me that I still want a warning for having
-compile-time warning about pointers being stripped from their counter:
+VP9:
+  ./fluster.py run -d GStreamer-VP9-V4L2SL-Gst1.0 -j2 -t 90
+  VP9-TEST-VECTORS: 276/305 tests passed
 
-                status = mc_read_response(mc_io->portal_virt_addr, cmd);
-...
-static inline enum mc_cmd_status mc_read_response(struct fsl_mc_command __iomem
-                                                  *portal,
-                                                  struct fsl_mc_command *resp)
-{
-        int i;
-        enum mc_cmd_status status;
+v4l2-compliance:
+  mtk-vcodec-enc (/dev/video2): 46/47 passed, 1 failed, 0 warnings
+  mtk-vcodec-dec (/dev/video3): 48/48 passed, 0 failed, 0 warnings
 
-        /* Copy command response header from MC portal: */
-        resp->header = cpu_to_le64(readq_relaxed(&portal->header));
+SCP upstream link:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20250811015922.32680-1-huayu.zong@mediatek.com/
 
-Not only is mc_io->portal_virt_addr separated from mc_io->portal_size
-via getting passed to mc_read_response(), but it then immediately gets
-cast to struct fsl_mc_command.
+DTSI upstream link:
+https://lore.kernel.org/linux-mediatek/20251030134541.784011-12-jh.hsu@mediatek.com/T/#m847e35de0a5b18fac0ca0624a8559d84964ad5c7
 
-We should get the __singleton attribute so we can mark function arg
-pointers as "not an array", and then these kinds of casts could generate
-a run-time check at function call time to check
-sizeof(struct fsl_mc_command) against mc_io->portal_size when
-__singleton was there, or kick up a warning that the counter got
-stripped.
+Changes compared with v9:
+  - Rebased on the latest media tree.
+  - Rebased on MT8196 decoder/VCP v7 and encoder v8.
+  - Add a separate decoder firmware-platform-data patch following review.
 
-Because as-is, this patch is a no-op: nothing dereferences
-mc_io->portal_virt_addr with the counter in context.
+Changes compared with v8:
+--Rebased on top of the latest media tree
 
+Changes compared with v7:
+--relocate the patches set
+--refactor decoder platform data patch
+--fix commit message errors
 
--Kees
+Changes compared with v6:
+--refactor the patches of set compatible data, profile and level
+--add reviewer to commit messages
+--fix commit message errors
+
+Changes compared with v5:
+--refactor the patches of set compatible data, profile and level
+--add reviewer to commit messages
+--fix commit message errors
+
+Changes compared with v4:
+--update H264 & vp9 fluster test results
+--update vp9 single core decoder prob size setting and commit messages
+
+Changes compared with v3:
+--add reviewer to commit messages
+--Rebased on top of the latest media tree
+
+Changes compared with v2:
+--add H264 fluster test results
+--reorder compatible string for dt-bindings
+
+Changes compared with v1:
+--add v4l2-compliance test results
+--add scp upstream link
+--add HW difference discriptions for dt-bindings commit messages
+
+Kyrie Wu (10):
+  dt-bindings: media: mediatek: decoder: Add MT8189
+    mediatek,vcodec-decoder
+  media: mediatek: decoder: Add a new platform data member
+  media: mediatek: decoder: Move firmware selection to platform data
+  media: mediatek: vcodec: Refactor Decoder profile & level Handling
+  media: mediatek: vcodec: Add VP9 Probability Size Configuration
+  media: mediatek: vcodec: Fix vp9 4096x2176 fail for profile2
+  media: mediatek: vcodec: add decoder compatible to support MT8189
+  media: mediatek: vcodec: Fix media device node number
+  dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
+  media: mediatek: encoder: Add MT8189 encoder compatible data
+
+ .../media/mediatek,vcodec-encoder.yaml        |   2 +
+ .../media/mediatek,vcodec-subdev-decoder.yaml |   5 +-
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec.c  |   2 +-
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec.h  |   6 +
+ .../vcodec/decoder/mtk_vcodec_dec_drv.c       |  68 ++---
+ .../vcodec/decoder/mtk_vcodec_dec_drv.h       |  42 +--
+ .../vcodec/decoder/mtk_vcodec_dec_hw.c        |   2 +-
+ .../vcodec/decoder/mtk_vcodec_dec_stateful.c  |  16 ++
+ .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 253 ++++++++++++------
+ .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c |  14 +-
+ .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  17 ++
+ 11 files changed, 279 insertions(+), 148 deletions(-)
 
 -- 
-Kees Cook
+2.51.0.windows.2
 
