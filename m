@@ -4,103 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EBFC9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 02:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473BBC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 02:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//owg7OEMyVxO/3VIixuh7H85LdPBrT7rj/CvOA5Iuo=; b=K6MoQNlRdtbQVXX9q2NAfgDRsa
-	ef2D3SyL6qzjqxHRCwTjrPPgpyUErEOp5Ff2XwbIWygQJRIOP6IwL1CzyZ7R1DGlp+lGffqIpKao8
-	9l85KXCJIk1QQKKHoTfcfIFxthlEJ3V9koKLktAMwOGU5Wqer8aIO+OKVvpKoDUKxv2VJWDskk6nS
-	y3JWZFun9+QfPRqHf4/NzGl1Uxkn7hU6HUPiRRFhOXQu0jsdeXCybuSpXXCytYgVxt0BXNoj5fA8h
-	8BEGyS4BSMbPfFBnRa7Svj95FimFWbglrE3mnV4i3RdJ/EfZcvM1MmsZebibACeCdu54RdnDmuS0Y
-	0Dt8yj0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7ONYe/7w2EXW8py/4ztuf5woebx//EOScMOnkClgYt0=; b=wkDKZYhN7W//4SqrFCGR0peiBB
+	eLcaGVUDTYbMWavLwqPXDex0Umo6l9dKhR219b+pKlvcc1NQpcsDnmEw62tfGWX8xc7f/0dkJeftT
+	dwiXxQpT5vt3+GasEzEmrS1fK6STlRyluxdLg1KLuUnsd+psgtCQJmtqy2nyqDwmGeB1SyVGT3WPP
+	3abT1cqDTvob1UwjNpfD64RhQi1ywlhdBaIZb5UW3z6UfpgtGb5bfuf/9ikYDuh7wdSMaU+Y4KuLx
+	vrqTCOdZkHyU+CzrE11202ZvaT1dV79Uj96jjzNSlX2SWp70s4bIujOot3PpdX9wfDpNXP9Kuu7Iz
+	x7qcMcfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CyG-00000006yD3-0Tq5;
-	Wed, 23 Sep 2026 02:44:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Cx9-00000006xQX-01L6;
-	Wed, 23 Sep 2026 02:43:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=//owg7OEMyVxO/3VIixuh7H85LdPBrT7rj/CvOA5Iuo=; b=R6qzysQ9lUB7BOVtjjiXLC5UPH
-	0S1TOtw55puK7K0gqIU9j5mQ0K93qNBNgDlCg2H43JecWsiZNrcks8DMExZ9ef4y6ZKXHg/mjfHf9
-	FEhDN7Ts1T5bUWcdF/w9gk0YTEa6EU3aGN39Q+XhsqlQzfpOW47UOTF09Ywu3HdorNbC4owJRuHTm
-	adiuYNKZzo37nffu0mi814QAOaidxLhViHAPxMxVgi4UjvwMx09NsPTTCoWBWVZqBtDHcd60xNAcz
-	OSERoa6B6hhzxGL9WQBhufP0PKO8njFW9BoRVOfHzG9IQewJyZMyKw3OVh+VE7ngcHvx+2MpLima5
-	5y6DCKfA==;
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9Cx5-0000000EI9G-3wLU;
-	Wed, 23 Sep 2026 02:43:21 +0000
-X-UUID: 86795a08b6f811f1acbe4559397dec65-20260922
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=//owg7OEMyVxO/3VIixuh7H85LdPBrT7rj/CvOA5Iuo=;
-	b=uLwrVnFeqERWin60EGdemzkSLRnJNakQp1hq4QvJ2IKv29HanAQRkxcshFZXqFhedL7Yd+O82c74O1I/vtwZUQOcW8H7s1e0ItSdNtm3pnI2oN2cSNoDTo77VqJQXNIRr5raYhmCAgyho96x6bsiyxlQUrG0K1VYUVECPgKIEno=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:9b002de4-49c8-42f2-8fcb-3497d3533c65,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:a16cde08-d10d-41b3-a8f1-bc707284d0ce,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL
-	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 86795a08b6f811f1acbe4559397dec65-20260922
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1136875657; Tue, 22 Sep 2026 19:43:14 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 23 Sep 2026 10:43:12 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 23 Sep 2026 10:43:11 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Ricardo Ribalda
-	<ribalda@chromium.org>, Kees Cook <kees@kernel.org>, Hans Verkuil
-	<hverkuil+cisco@kernel.org>, Fei Shao <fshao@chromium.org>, Haoxiang Li
-	<haoxiang_li2024@163.com>, Chen-Yu Tsai <wenst@chromium.org>, Laurent
- Pinchart <laurent.pinchart+renesas@ideasonboard.com>, Tomasz Figa
-	<tfiga@chromium.org>, Philipp Zabel <p.zabel@pengutronix.de>, Benjamin
- Gaignard <benjamin.gaignard@collabora.com>, Qianfeng Rong
-	<rongqianfeng@vivo.com>, Irui Wang <irui.wang@mediatek.com>, Jacopo Mondi
-	<jacopo.mondi@ideasonboard.com>, Fan Wu <fanwu01@zju.edu.cn>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Sakari Ailus <sakari.ailus@linux.intel.com>
-Subject: [PATCH v7 07/14] media: mediatek: vcodec: send share memory address to vcp
-Date: Wed, 23 Sep 2026 10:42:50 +0800
-Message-ID: <20260923024258.257846-8-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260923024258.257846-1-kyrie.wu@mediatek.com>
-References: <20260923024258.257846-1-kyrie.wu@mediatek.com>
+	id 1x9D31-00000006z8m-2tGC;
+	Wed, 23 Sep 2026 02:49:27 +0000
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9D2z-00000006z8V-1gRL;
+	Wed, 23 Sep 2026 02:49:25 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-doc@vger.kernel.org
+Subject: [PATCH] docs/ABI: testing: aspeed-uart-routing: use literal block for console commands
+Date: Tue, 22 Sep 2026 19:49:18 -0700
+Message-ID: <20260923024918.840039-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_034320_330042_AE39B04C 
-X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,48 +58,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The share memory is allocated in kernel for vcp architecture, it's
-different with vpu which share memors is reserved in vpu micro
-processor. Need to send share memory address to vcp.
+Use a literal block for console I/O so that the lines aren't merged
+together in the produced output.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 ---
- drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h | 2 ++
- drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c  | 2 ++
- 2 files changed, 4 insertions(+)
+Cc: Joel Stanley <joel@jms.id.au>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-doc@vger.kernel.org
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h b/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h
-index 47070be2a..097561a1e 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec_ipi_msg.h
-@@ -67,11 +67,13 @@ struct vdec_vpu_ipi_ack {
-  * @msg_id	: AP_IPIMSG_DEC_INIT
-  * @codec_type	: codec fourcc
-  * @ap_inst_addr	: AP video decoder instance address
-+ * @shared_iova	: reserved share memory address
-  */
- struct vdec_ap_ipi_init {
- 	uint32_t msg_id;
- 	u32 codec_type;
- 	uint64_t ap_inst_addr;
-+	u64 shared_iova;
- };
- 
- /**
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-index cdb673e6b..3a10b32be 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
-@@ -236,6 +236,8 @@ int vpu_dec_init(struct vdec_vpu_inst *vpu)
- 	msg.msg_id = AP_IPIMSG_DEC_INIT;
- 	msg.ap_inst_addr = (unsigned long)vpu;
- 	msg.codec_type = vpu->codec_type;
-+	if (mtk_vcodec_fw_get_type(vpu->ctx->dev->fw_handler) == VCP)
-+		msg.shared_iova = vpu->ctx->dev->fw_handler->vcp->iova_addr;
- 
- 	mtk_vdec_debug(vpu->ctx, "vdec_inst=%p", vpu);
- 
--- 
-2.51.0.windows.2
+ Documentation/ABI/testing/sysfs-driver-aspeed-uart-routing |    7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
+--- linux-next-20260921.orig/Documentation/ABI/testing/sysfs-driver-aspeed-uart-routing
++++ linux-next-20260921/Documentation/ABI/testing/sysfs-driver-aspeed-uart-routing
+@@ -8,9 +8,10 @@ Description:	Selects the RX source of th
+ 		selected option marked by brackets "[]". The list of available options
+ 		depends on the selected file.
+ 
+-		e.g.
+-		cat /sys/bus/platform/drivers/aspeed-uart-routing/\*.uart_routing/uart1
+-		[io1] io2 io3 io4 uart2 uart3 uart4 io6
++		E.g.::
++
++		  cat /sys/bus/platform/drivers/aspeed-uart-routing/\*.uart_routing/uart1
++		  [io1] io2 io3 io4 uart2 uart3 uart4 io6
+ 
+ 		In this case, UART1 gets its input from IO1 (physical serial port 1).
+ 
 
