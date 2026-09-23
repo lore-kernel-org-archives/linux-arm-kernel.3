@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D899C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0FEC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ll3bdjdwyApVAippyrGuNHUcJWXRQNFwtW3g+Z+tm0s=; b=DCDQ84izvWkinLBXIQqgBqm95p
-	wBkWcAz7WcKkSUk5JdoiNDW6EQhs91cpEzg3P3szg5jjPxfqDbed4kvvR9JpwIJ1Tk0bflcYsXKox
-	HZOQsr1ji/E+SHEFo0igRaTcaPqlNuKQLbY1drryRF1QocCeyqVpmhQH5MMm6btLZCSoOqkqEL4vG
-	Sp3k1BD+t5w20C5ViZAn2yfYbBQ09FReZYQI2xpUn5QL5tt3M77eJH4A0kC7LzEIJ11OCrlxL4j3x
-	KurgBZYCESvaYcocJowsN/CAe6HGEpiEhXpFN4kl4dJoiJtobp5JzK/J4GZgr1OYerEyTfPndMqoQ
-	AlVLfmUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jI0vAlJKhDmiOEB6Q23h3G6CLXMXdX46480mhO3rjOk=; b=wWKbJRXpIHUqoekhi68rp/VVFM
+	xiM+rVnATcfKGJB9wGD6ThyzGDFEje8bwsArDF/YVwGuJLEmsjLpZqW1cGNniZHlLrGu2NsjIOqJX
+	M22JHc4u1d4Dd6ldEElg7IDIZ271QyAN4OojwTqeFrmoehRqbcBxqhSApH8eUnyiHTrlr8NR2TSpX
+	1Uut5Pfjpjjcf+ihRHBKQlJG2yarVcwYbmkyvrE99BZAR93AMmqd0oSQJI7OpbboFpkDwRwPaNDGi
+	uymmkUjMGH77HZ4w/Tx/Onmfzlk2lG+J32gR+ye812xzIckKyOPp2sRp0uAy76OcyqbzYTObDLF4i
+	hfPHUG3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9LS5-000000087cA-1XQe;
-	Wed, 23 Sep 2026 11:47:53 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1x9LUB-00000008845-0t3R;
+	Wed, 23 Sep 2026 11:50:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9LRw-000000087ZD-48g1
+	id 1x9LUA-0000000883u-1dsL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 11:47:47 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 8B865240028
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 13:47:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1790164059;
-	bh=Ll3bdjdwyApVAippyrGuNHUcJWXRQNFwtW3g+Z+tm0s=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:From;
-	b=PgU5xVYmUKjaObEFzn+jcgMtbSANWdXrhY3cHkR+l0EiC9bn27GlRSxwV696Om0l1
-	 ZYRPVBJBgrTkpMIG/A82cUOD+R/qf7knVhi0zk2KIyiStFr6wDlZ7HA70ETD2Zv08q
-	 5Ts+M/DZdW65fe46Fgz+RQHozBKCgtYfs5LdcgUFwd5WauW4Hg/8DzMSRPwjLKHqkw
-	 7oSN9bF2El5h6SN0lCem1SODwwF+HomEMs0gDZfTZj8s0HISS8x85XoxKJSD6yb7HZ
-	 JS7lXNuyIm/dMPWK0GzbCkw4ZjKXTDMjYxP/jei7xZm2Guxt4YFyeX4ynG4VV3N3QF
-	 W7iu0waW3HHnw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hqZvs6DWsz9rxK;
-	Wed, 23 Sep 2026 13:47:37 +0200 (CEST)
-From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Wed, 23 Sep 2026 11:50:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 05F5940A5F;
+	Wed, 23 Sep 2026 11:50:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D332E1F000FF;
+	Wed, 23 Sep 2026 11:49:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790164201;
+	bh=jI0vAlJKhDmiOEB6Q23h3G6CLXMXdX46480mhO3rjOk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=j3QZjKt2RDG++7vwN6aJe3RA7jXlLMR25KRKluo6b+e2fpyRs/pTz6vg3MeMVgz3Y
+	 H/uFrc3+3pyN38Avf0YeUAxm/S/O+UYkxoG1yg2hevAJ7xtnMPU4ruJWSG/bl4vDRu
+	 a2+E5u83/YxSpGaDgPepX4M+KVq5eQWV3LxaqaNvqgJ0xF/Xh37LMhSBpaanlugiGi
+	 a6+IqmVFl9eTuZSg2ZqPukR9Tb5u+HfSSew9/Q5ZdNFqsJuWTV56233K9JINsg6JB4
+	 SaDj00V23Bhf5UDAvsQeyU1kxlfysMR0sLQ47c99jCokiOgVXxgydYh+6zjRxefc3x
+	 m/QmnRG8vSOaA==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mateusz Nowicki <mateusz.nowicki@posteo.net>
-Subject: [PATCH v2 1/2] arm64: dts: st: add sdmmc2 pins_b for stm32mp25
-Date: Wed, 23 Sep 2026 11:47:39 +0000
-Message-ID: <20260923114714.140842-2-mateusz.nowicki@posteo.net>
-In-Reply-To: <20260923114714.140842-1-mateusz.nowicki@posteo.net>
-References: <20260923114714.140842-1-mateusz.nowicki@posteo.net>
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Andrew Morton <akpm@linux-foundation.org>,
+	christian.koenig@amd.com, Jason Gunthorpe <jgg@ziepe.ca>,
+	Joerg Roedel <joro@8bytes.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, linux-media@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v7 06/13] dma-contiguous: Accept an explicit minimum
+ alignment
+In-Reply-To: <arOrgRfi1k12clT7@arm.com>
+References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
+ <20260921144847.501151-7-aneesh.kumar@kernel.org>
+ <arOrgRfi1k12clT7@arm.com>
+Date: Wed, 23 Sep 2026 17:19:52 +0530
+Message-ID: <yq5a33v02nmn.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_044745_320648_47B5B6F4 
-X-CRM114-Status: GOOD (  10.05  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,100 +85,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a second variant of the SDMMC2 default and open-drain pin groups,
-with the same pins and bias as the _a variant but faster output speeds:
-very high on CK, high on CMD and D0-D7. These are the OSPEEDR values
-given in the STM32MP25 datasheet for 120 MHz and 166 MHz operation.
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-On the STM32MP257F-DK, the eMMC returns corrupted data in HS200 mode
-at 100 MHz with the _a groups, and no CRC error is reported. With the
-_b groups, four consecutive 1 GiB reads return the same data as a read
-at 50 MHz.
+> On Mon, Sep 21, 2026 at 08:18:40PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> @@ -125,7 +126,8 @@ static inline int dma_contiguous_reserve_area(phys_addr_t size,
+>>  	return -ENOSYS;
+>>  }
+>>  static inline struct page *dma_alloc_from_contiguous(struct device *dev,
+>> -		size_t count, unsigned int order, bool no_warn)
+>> +		size_t count, unsigned int order, unsigned int required_order,
+>> +		bool no_warn)
+>>  {
+>>  	return NULL;
+>>  }
+>> @@ -136,7 +138,7 @@ static inline bool dma_release_from_contiguous(struct device *dev,
+>>  }
+>>  /* Use fallback alloc() and free() when CONFIG_DMA_CMA=n */
+>>  static inline struct page *dma_alloc_contiguous(struct device *dev, size_t size,
+>> -		gfp_t gfp)
+>> +		gfp_t gfp, unsigned int align_order)
+>
+> Can we not just bake the alignment further down in these functions
+> rather than getting the callers to pass the {required,align}_order?
+>
 
-The sleep groups are shared with the _a variant.
+But, we need this to be conditional on CoCo shared allocations. We could
+derive that from attrs and pass attrs instead of align_order, i.e.
+something like:
 
-Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
----
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 58 +++++++++++++++++++
- 1 file changed, 58 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-index 68cc89cbe754..d9fd1ae632c9 100644
---- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-@@ -681,6 +681,51 @@ pins {
- 		};
- 	};
+ struct page *dma_alloc_from_contiguous(struct device *dev, size_t count,
+-		unsigned int align, unsigned int required_align, bool no_warn)
++		unsigned int align, unsigned long attrs, bool no_warn)
+ {
+-	if (required_align > CONFIG_CMA_ALIGNMENT)
++	if (!dma_contiguous_resolve_alignment(attrs, &align))
+ 		return NULL;
+-	align = min(max(align, required_align), CONFIG_CMA_ALIGNMENT);
  
-+	/omit-if-no-ref/
-+	sdmmc2_b4_pins_b: sdmmc2-b4-1 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('E', 13, AF12)>, /* SDMMC2_D0 */
-+				 <STM32_PINMUX('E', 11, AF12)>, /* SDMMC2_D1 */
-+				 <STM32_PINMUX('E', 8, AF12)>, /* SDMMC2_D2 */
-+				 <STM32_PINMUX('E', 12, AF12)>, /* SDMMC2_D3 */
-+				 <STM32_PINMUX('E', 15, AF12)>; /* SDMMC2_CMD */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 14, AF12)>; /* SDMMC2_CK */
-+			slew-rate = <3>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	sdmmc2_b4_od_pins_b: sdmmc2-b4-od-1 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('E', 13, AF12)>, /* SDMMC2_D0 */
-+				 <STM32_PINMUX('E', 11, AF12)>, /* SDMMC2_D1 */
-+				 <STM32_PINMUX('E', 8, AF12)>, /* SDMMC2_D2 */
-+				 <STM32_PINMUX('E', 12, AF12)>; /* SDMMC2_D3 */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 14, AF12)>; /* SDMMC2_CK */
-+			slew-rate = <3>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+		pins3 {
-+			pinmux = <STM32_PINMUX('E', 15, AF12)>; /* SDMMC2_CMD */
-+			slew-rate = <2>;
-+			drive-open-drain;
-+			bias-pull-up;
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	sdmmc2_d47_pins_a: sdmmc2-d47-0 {
- 		pins {
-@@ -704,6 +749,19 @@ pins {
- 		};
- 	};
- 
-+	/omit-if-no-ref/
-+	sdmmc2_d47_pins_b: sdmmc2-d47-1 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 10, AF12)>, /* SDMMC2_D4 */
-+				 <STM32_PINMUX('E', 9, AF12)>, /* SDMMC2_D5 */
-+				 <STM32_PINMUX('E', 6, AF12)>, /* SDMMC2_D6 */
-+				 <STM32_PINMUX('E', 7, AF12)>; /* SDMMC2_D7 */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	spi1_pins_a: spi1-0 {
- 		pins1 {
--- 
-2.55.0
+ 	return cma_alloc(dev_get_cma_area(dev), count, align, no_warn);
+ }
 
+
+with
+
++static bool dma_contiguous_resolve_alignment(unsigned long attrs,
++					     unsigned int *align)
++{
++	unsigned int required_align = 0;
++
++	if (attrs & __DMA_ATTR_ALLOC_CC_SHARED)
++		required_align = get_order(cc_shared_granule_size());
++	if (required_align > CONFIG_CMA_ALIGNMENT)
++		return false;
++
++	*align = min(max(*align, required_align), CONFIG_CMA_ALIGNMENT);
++	return true;
++}
++
+
+-aneesh
 
