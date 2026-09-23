@@ -4,74 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2243C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE67EC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=moOLRtl3B7HRHlFtZpcGMhBGtQIVrDlmkD6QtGKrT/g=; b=GWFSntN0XalwGU156/T8yRxPaP
-	qDthfew70jbTaccZWjLyax6vNcl661L3nCn3+muaahNJr8KsRceLf7ZA3P92ChEpFqW9g98BD/mZS
-	nv702hZ7lCdjJLltDC9wlXmQHS8Zw13qLH9ysJ4LtCtFZW56PfSRNJxn76ywamd6fgAVbhjwLCd3d
-	3kUf2aEqwSwapBnYODHnhkD+8rKRf5Xa7FD3wFbNw52jLsDM98P10c1fvQKBu6/WF9k/oU/Js6xB3
-	8yrFskS3ZnvLM3mqOzv7UpDDHF4XXJFzFtvznzdtNfhdnum+F6CchfLONt8q30XKg08r8cYn+Gz2h
-	hEDmHHRg==;
+	bh=fONU01jydHR4DKzstpQamxQnf6IvXt+cW08C/ElpZ0c=; b=CDJfWuwGUmh7thAHOZKyNcenIf
+	wIJXyp3B8COM0dI6aqPYwbpsuLNlTLqBT8D+n4lmjiJh5wkkNgzBop28tIMJ8+Im9HNA8ltVpMy0p
+	cMm+qWsO0DEx/66x4WvFpfFFGdQ8N088EyEqnHs+3WNAjwLtbkv4K3sHzHCQNsBeVnnrP3O0ieMh+
+	xHQA6qt/mOnAcfR93QX7K6+ZTx66+99DwYbQqpHplRq2MEzuwk87FozQ+ypOTu3YV6zz/4QYvBAVn
+	XvccTHCJfdjnCOe6kEeWGSeZ2bvOt0sFNBZsQvlZPARQv85UadifivztrGBtk2gkKBHbav67f6nBh
+	LtJ/ZC4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IPE-00000007XPl-1owP;
-	Wed, 23 Sep 2026 08:32:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9IR9-00000007Xh8-136J;
+	Wed, 23 Sep 2026 08:34:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IPB-00000007XPF-3XLZ
+	id 1x9IR7-00000007Xgu-3Fbb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:32:42 +0000
+	Wed, 23 Sep 2026 08:34:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 316DF60200;
-	Wed, 23 Sep 2026 08:32:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B501F000FF;
-	Wed, 23 Sep 2026 08:32:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 27BAA41404;
+	Wed, 23 Sep 2026 08:34:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20281F000FF;
+	Wed, 23 Sep 2026 08:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790152360;
-	bh=moOLRtl3B7HRHlFtZpcGMhBGtQIVrDlmkD6QtGKrT/g=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=RS3N/efXIphFUEtBFsza67Ka1RwMr4BLxzOiJOdBGwr+rjJ5oDOXrPT0on7sTmLx3
-	 JyhOwCb33yYBvYRbUQ5PLQCKXU3jd53OjIGNCFMNuouzBC9DaX4bbWLJ3lJ/uZDxg8
-	 MMM3rhmaiFkgIz4Dxh006YZUNjXJiRcDZit047rpIbXt4IZGBuzWpa+aPmOkKwnsXe
-	 ooKtmh12qMBFhPlEqo+a1tG2pddPoc+TTdTiu04cbk4s+AFqE9jzH4eWs8KcaCuAUV
-	 gVqxn0Z3erPq5J+5aeyUtucbtJ3ofv4HU7U1z+vpHmAuvb/WcDVz2kvYICHYEHRAjs
-	 CTjSmBCM1IcjA==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	Andrew Morton <akpm@linux-foundation.org>,
-	christian.koenig@amd.com, Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>, dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org, linux-media@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [RFC PATCH v7 12/13] dma-buf: system_heap: Allocate shared
- buffers using CoCo shared memory allocator
-In-Reply-To: <arKvKME-_wNeW7ea@arm.com>
-References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
- <20260921144847.501151-13-aneesh.kumar@kernel.org>
- <arKvKME-_wNeW7ea@arm.com>
-Date: Wed, 23 Sep 2026 14:02:31 +0530
-Message-ID: <yq5acxu42wrk.fsf@kernel.org>
+	s=k20260515; t=1790152481;
+	bh=fONU01jydHR4DKzstpQamxQnf6IvXt+cW08C/ElpZ0c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=aJ/OovWTX+MAupdejZ0JhdViOFsf6gaDxoq7MmZ2wjypNfIDLbqxlT8aLlxRcEkRj
+	 sr/heJ+KLZgJe49f52h6P6Z9yQnZlrZAgbJ9iQrZKPoUW7nzojHLcDtPmL3G8yYMBJ
+	 OoUuCIyx0EpqwitZokHysqgahB75slQifGcz6Rgeh4w07pJ/UI1Nr+bfSEx7FerVzq
+	 8+W1Mdpg9eT73brThAmQng0Tk34uPlansAoT0/IzqnLBMmvOHxFHW+z62bw1/S4OR3
+	 9PpMUQcya2WtdhZO9Sq+lCRatNPWQIFULSLwFXis+VLcCq5DRfb9no455z56Ll2zTR
+	 c2Myo6SUouxhQ==
+Message-ID: <e835bdca-cea9-4e55-8df6-cb8bb22bb74d@kernel.org>
+Date: Wed, 23 Sep 2026 10:34:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/5] dt-bindings: dma: Add CIX Sky1 DMA-350 integration
+To: Conor Dooley <conor@kernel.org>, Jelly Jia <Jelly.Jia@cixtech.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org, Frank.Li@kernel.org,
+ robin.murphy@arm.com, cix-kernel-upstream@cixtech.com,
+ dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <aqE42NzerAiD2U1E@squawk>
+ <20260920051501.3620794-1-Jelly.Jia@cixtech.com>
+ <20260922-perky-absently-2590fe901176@spud>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260922-perky-absently-2590fe901176@spud>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +118,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+On 22/09/2026 19:04, Conor Dooley wrote:
+> On Sun, Sep 20, 2026 at 01:15:01PM +0800, Jelly Jia wrote:
+>> Hi Conor,
+>>
+>> Thanks, understood: with the SoC-specific compatible scoping the
+>> integration code, other platforms are unaffected either way.
+>>
+>> For v2 my preference is to keep the wrapper, since it leaves the
+>> generic arm-dma350 driver and its binding untouched. Does that work
+>> for you, or would you rather see the dma-350 node itself carry a
+>> device-specific compatible, with the clocks, resets and
+>> memory-region described on it? I'd also like Robin's take on the
+>> arm-dma350 side before restructuring that far.
+> 
+> The latter, since that's what we do for almost every other device under
+> the sun. Robin's take would probably be worth hearing, but you removed
+> all the context while replying which makes that more difficult...
 
-> On Mon, Sep 21, 2026 at 08:18:46PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> @@ -405,6 +396,7 @@ static struct dma_buf *system_heap_allocate(struct d=
-ma_heap *heap,
->>  {
->>  	struct system_heap_buffer *buffer;
->>  	DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
->> +	struct cc_shared_layout layout;
->>  	unsigned long size_remaining =3D len;
->>  	unsigned long sg_remaining =3D len;
->>  	unsigned int max_order =3D orders[0];
->> @@ -417,6 +409,14 @@ static struct dma_buf *system_heap_allocate(struct =
-dma_heap *heap,
->>  	struct page *page, *tmp_page;
->>  	int i, ret =3D -ENOMEM;
->>=20=20
->> +	if (cc_shared) {
->> +		ret =3D cc_shared_calc_layout(len, &layout);
->
-> You should not override 'ret' here, it was set to -ENOMEM for a reason.
-> cc_shared_calc_layout() succeeds resetting 'ret' and some further down
-> allocation failure, goto free will return ERR_PTR(0).
+Following DWC USB example, I think wrappers are discouraged. The
+integration of a block is together with that block an entire device.
+Integration is not something separate, at least usually. If it is,
+author should provide some arguments in terms of hardware. The arguments
+of driver are unconvincing.
 
+And to prove this is same device (integration = block), the MMIO is the
+same.
 
-Agreed. I=E2=80=99ll fix this in the next revision.
-
--aneesh
+Best regards,
+Krzysztof
 
