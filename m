@@ -4,94 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0E8C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5BDC98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BOfeQ15b3E2+kaWVk7ZQ6pHBUpc05XcoB8FmwWmuDUo=; b=uOwZ9BYzjAVRdQXv2/HNsNJXgP
-	lD4DxQO35ofRJTeqMfD4f34oyZbVmDdqWiY8aIEMxRDr5OpM2bS1XMs2mzwCCJb0KhwJ/PNmMZYy2
-	wdUJNlrZ4YLzjbLapcBTXZze6WH1ye/D2X5OxDg1uSOsHY88tg0yPD+5UJXUR2sC0/0a/4zTz1K4e
-	c7YiXXpkMQFDt5MiNfPTlbqWl3eXuRlTGEWr3/EeT/bWxyp+1zIuo82ZS6B9X923uOzMM8hAZmiB/
-	5j8TZyuFajmFuDi2cJz/o4mDMPJ+vVdWFMOhGUvwUY5JG3W8G3Cjb0JM1WvBrSxNLW5HAz8SWwIP2
-	SOzXcm7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NSXBaJC1J6EVZ1QqVNTOfVwobtuz0UgwCZPnXHETa9w=; b=MgKPh8G21+TFBlyV0vj+rPF3nz
+	6YVQIYLP3MRH2KLha3OcdJcQtqmMrxB9sTYhTT03MHu8rjWBk6059uy83kKVQIEml6yw3Yg8P+mKp
+	g+TsVMbq/rPdBM2MOaKYXR5irGu/w7bw0ZiyXfGn0kc5XJ0RyYT9fipsbXHe9vTmPmFQU1RLkhD0r
+	8ws5bKpVlr1H+4nH8RxBcsNIN07Jiq2NXLg1fcI93Cq9w5jchJNGCgJ+Ud3Q4hNC1h1pU7DGm3QiO
+	buJV5rr78a3C48uA9omDpAoULHc/koPbkHD0FR1t0zaBgzwYycdRJvcDjERygXIMVFIR9b0R1AN1z
+	9IgmUxkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RyF-00000009GZR-1bIp;
-	Wed, 23 Sep 2026 18:45:32 +0000
-Received: from mail-ua2-x23.google.com ([2a00:1450:4864:39::23])
+	id 1x9S33-00000009H1M-2GOU;
+	Wed, 23 Sep 2026 18:50:29 +0000
+Received: from mail-westeuropeazon11011047.outbound.protection.outlook.com ([52.101.70.47] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RyC-00000009GYH-1U97
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:45:29 +0000
-Received: by mail-ua2-x23.google.com with SMTP id a1e0cc1a2514c-97e96e461feso454529241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:45:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790189125; x=1790793925; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BOfeQ15b3E2+kaWVk7ZQ6pHBUpc05XcoB8FmwWmuDUo=;
-        b=JV1H2A5shp7CoQAhS0u2/d6b9fswkGadxjWleMpFWxbcJPnTsfIZNIxQIgL2H4igRH
-         d028MyD2O6HoYHw1/q4YV7A4tSUVUivBTYv1MaIyA92edCYcAlu648TYS4qkbql1Ts5T
-         SGIGkJTNLHRB6TQqcJDw5tThlqQYZRQYXR9KbhvH9QMC4EQE3TrwURXjxYlRc7WqCFZk
-         EteSVKhj+S724Z+pDiZD27grDv0Q6lVwoNIDcbSO6OvbLLB2TbAVXFQ+AUoTVHT9glPZ
-         7P7/JtJRqm7uIDgyt0CiDQ8q0dG2rLhf2aj7VQga1S/+IGxlA2jjozCHuw/CzLXRFhXN
-         f78Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790189125; x=1790793925;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BOfeQ15b3E2+kaWVk7ZQ6pHBUpc05XcoB8FmwWmuDUo=;
-        b=XMkYt68zKNJyf3elTV7fJqh14BPFePd62PGzAy1mUcxL8Q49IsgDAkgOECY7u5S3/5
-         CBgGlp5cKjY4PoE8Lhy2Tb4WQmnYJtlea15uS38UNAs5yG2V0lRPRTrNaiUrrWuV33Zy
-         XkryLCDrF0Z6EkzurIrcRv3/h/lcnuQzyZaawss2mMVwBcLiJ64bQfAJLAWA16vKY0/h
-         bom0F9/rpHpUrVETYglpfazFipKXgRJcozXu5ePC0nfEh2tl3cCuYAeyQv2pASNuZRHb
-         VV7xjys6yWnZ78vJ1gNE8XbliViP34wkJ3t+/GUiMeW/gOm/7Vq7dHkSZwOfXjzkSBVf
-         l0hg==
-X-Forwarded-Encrypted: i=1; AKwUvByuhEI+KBYc+lvaKbdTm5W1+wfmwNOt892Cwzhor4Xb5pwDfsWRpnEQ+cJU80w4sZ9onDxTBCLklMt6Hoh+1giG@lists.infradead.org
-X-Gm-Message-State: AFuF++nrcMIlWjbKSqPt12CBBad0Mf48W9nloTc+VCPdkJ1nqivRVQSG
-	W1hyNdv63iEnJVKzUa1NoQiOy1SrrrNyvwgp3BJPqu3hvXtFxJHwrVJn
-X-Gm-Gg: AYBFou2A+gGffTrR+fQRsQg67adgYNbZwAGJieH4F1RTtjseoyY6/OVDmXWkEQpyLvs
-	rla/ApXznjAB/QUO07ZRWEoAdEG9Bdk+ROGDkWLtUU4zUIrROt5vjUsX0rKYk3c4DqiNoTRCkHx
-	rpV8uIhsUuR2fqo+tNXAhz9nEM2oPo9h5RXpXlpyNviCV0f4L1XHFyppkBCwjldHETupyEXzxsN
-	uCz+y4FH55D7F+DDV0PdAzQ1ZXkebB9BkecpCzvSlEwEk5RBnNKJHGjpG4/ke4C/G5at3j2MtT/
-	HahXh25V/yOs11McXZY5OQhvEG67zERaxctMlIvuQmt9EhPueIySyjZzv+2eWp1SEbXtNqxTH2c
-	dDL7GHiAEbJnIdlSmFMxDhtaPzeACB3yII5RD7lyetDLPLgxUvx6ILxqD2uQOSihS9QcEzayQ85
-	dV4J5jHYHx1nJrReKWghSkkKaeWUF8f+E4NN56414q+luLv8S+LAEqwrpC/TfemsncMyqSCsrRu
-	4q69Qlp1yfTo5kmFETc0aaP0CLikH/xgD9AEyl94yU47iZ+tdZwgzUZLa13qHsinrl4n1obQVEI
-	AYg4Tcilzday5b215UxolYqnBpYQMqRtpqvh5sP8CmhF01BoHDYGdryX
-X-Received: by 2002:a05:6102:41a9:b0:7a8:3fba:361a with SMTP id ada2fe7eead31-7af1f3f6a52mr75793137.37.1790189125139;
-        Wed, 23 Sep 2026 11:45:25 -0700 (PDT)
-Received: from ututo.. ([2803:9810:87dd:de10:d33a:69d6:aa79:a5ec])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c9f0582b6bsm4303825e0c.18.2026.09.23.11.45.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 11:45:24 -0700 (PDT)
-From: Lucas Costa <2000.costalucas@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-spi@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lucas Costa <2000.costalucas@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
-Date: Wed, 23 Sep 2026 15:44:50 -0300
-Message-ID: <20260923184450.135601-1-2000.costalucas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x9S2z-00000009H0W-2xCN;
+	Wed, 23 Sep 2026 18:50:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oGPdq7ke+0MQSGcZpIvhqMEQUJF1+iGxEQvo3nJM9QTR9CxQFfoAe8GdlQLgpQr2GjSmlFLrCppdwHuDKRXBkc1nPOkIeXZMEb21XfFuwTeod0VjD2IqvQE3uSphSVATJroGSAGcmT96Y/gxoXFZJac5HS0PSwy3lkobn6k8MngqLIB4YPJ2YZXO4EL36CUUimzSCx/DOTC9x8Zay1bPZwb7r/7jKOQQoA31Jv4zn3dZkshA0E11FJqiXHHHOXProH5/CZCNbkZJtrUVnsgw4XkE+p5M5RoPeLuwBlrJA8AR1HI7f08jjQPbj20PvF3szUwRhiz4Di2DlfBfpnyStw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NSXBaJC1J6EVZ1QqVNTOfVwobtuz0UgwCZPnXHETa9w=;
+ b=rsIY5/et8LqUa2hsKoZKHPxVLCiIWdMO/fMSI352ido8mcGw1uq3UfV9z14WuVMxeywhvufrtRnNakIfCn1W0yqBIc76Yr5DQt+dFV90M3e/nkZY5tkuD5GibiJjQVurWcbYr5N9/lhNE7+GnLzfrOQIXX3BuUNOFI3TaRz/i0X4cdcYf2I2Qfx2ZPzdMJFTkkC+dkWf4JDuNSMZnMeTdynNddbsVKscoBC3kvyn+Kv+JFdxrvvl6lXEbCur81DAhjIqfmcVz1Tb9nQKGyAg+8rMqQ3d6Y5OIMb7HX6UlArAoMNjXcEksEKQz2Nu4ytFK6we6aTkgkJ4OLi33toIkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NSXBaJC1J6EVZ1QqVNTOfVwobtuz0UgwCZPnXHETa9w=;
+ b=QnQNmsSZbv0HIvu1hBUS6rDWhLnKGbLyUbjFNdISWAuzLfv81Oorub5sy4+dmo5ZfhDKkrdu6ebDHIlk1hjhfeejQ8MsaOdekqlK6KypvKEYkMyPGp4hz5PMeku5WvwkW+mTQJ7qLE6OivIyg2od2BCt9z5JMFEP2Lzx3FGV4PVLXie9L2n2PIGR8KVWGkm5R7jGGowrFYuCMgVmzBAg4cJmYmP2OkdknCZQjukkcM4sxCVYxfLld4eNoe6SnIMj9epTcvWhqziOOrXsYvgR9AHF5bpZkF+CnJbprHr0m7/bAKGcjaIVqS528oHEXgctqMV4Kz4ViqeK5ikpNO9oCw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by BR0PR04MB823501.eurprd04.prod.outlook.com (2603:10a6:2c8:33::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
+ 2026 18:50:20 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
+ 18:50:20 +0000
+Date: Wed, 23 Sep 2026 14:50:06 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Ulf Hansson <ulfh@kernel.org>,
+	Aubin Constans <aubin.constans@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>, Arnd Bergmann <arnd@arndb.de>,
+	Johan Hovold <johan@kernel.org>, Ge Gordon <gordon.ge@bst.ai>,
+	Vinod Koul <vkoul@kernel.org>,
+	Albert Yang <yangzh0906@thundersoft.com>,
+	Jared Kangas <jkangas@redhat.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>, Fan Wu <fanwu01@zju.edu.cn>,
+	Rosen Penev <rosenp@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
+	Zhan Xusheng <zhanxusheng1024@gmail.com>,
+	Pan Chuang <panchuang@vivo.com>, Khalid Aziz <khalid@kernel.org>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Rakuram Eswaran <rakuram.e96@gmail.com>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..." <imx@lists.linux.dev>,
+	"open list:OMAP MMC SUPPORT" <linux-omap@vger.kernel.org>,
+	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
+	"open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>,
+	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>
+Subject: Re: [PATCH v4 1/1] mmc: use dmaengine_get_dma_device() instead of
+ chan->device->dev
+Message-ID: <arQfXjYbtNhv9__S@lizhi-Precision-Tower-5810>
+References: <20260923184612.3583132-1-Frank.Li@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923184612.3583132-1-Frank.Li@oss.nxp.com>
+X-ClientProxiedBy: CYZPR12CA0005.namprd12.prod.outlook.com
+ (2603:10b6:930:8b::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|BR0PR04MB823501:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5574a39a-326a-4375-57ca-08df19a38486
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|23010399003|366016|921020|56012099006|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: C8ktyfdTMEpTvH2KzWaN1a28hiuSCh0XsDL9TiZRwkn16alMwbc0QVDS51xdVm2Vq6xcENhsi9AAk1F40z275lHd/vrZcXXIwkMxMUKq9V0wbD7IDE8wcWppLsZB9THa9HmVdrYm2sviL4yNILDd1pLP9FVNwX86DpjFwV32enxxh4CNYahgTCybYETtu33+J2z2NX0eKz1R774d2HwturqB9gOAAvDxcHtnhIv7JVD0YyyCUA8I52gat+yRx99ncYMO4LIthMv4s165Lhl+W/X7b1NlG7YULnwHnEzPwMWGczrTGbpuuoxuMxneDP7YxOn8ae9uuaXktJn7v/CdaoLcq4Fc+IqaIuC1jLKJQmGJDrLMEPuR4JTWZEB+WHgO9XLRLMQh+ezguEFsDw+1xtH+icMCO//81nW17PxqRdcgHn6SFVCapVvp9bq1qyH1kJIxLZ3W1YqDwDCcsPMbG3wtad6SPhJ/HHkOIoT+ZyX6uY9vwu6mCphUgL2/6rJT80GlZl6QoNhuiphlP1CPTTkVvkRIhz+zRRCm+kGO/qvWrtOqqhip9e2VUz7qc7XNmQNHZ5CDf0PuejSdrGOrqh6741vPnvgc3D6yh8yyPBBdHZKfoQh9hDBiWjxKWb4xqkT9wjIYUdg0Gh/+XynLMoLzRS3R2MCwWWrEPkacNjkCNofgM0LcVQ/a8wrQU5IHUjbPPgeEpTuvJGfKA9ZDbg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(23010399003)(366016)(921020)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jv0fo0D93FZYziqBOVJVdW75ETbDwFXHaK3zYCXkvfkmAlxRD3uVo49TYnpV?=
+ =?us-ascii?Q?tYH3BirT3wYk7qIRqPEGxKSaJGO0sWeVrmdvSCXOwgNGURc9LiWXrEdgP1Oz?=
+ =?us-ascii?Q?tgr6oZHHo28Q5tsbrItF9aOu2vwexMvo8lWaCpZwBncj1XCfspt0qY7JOklm?=
+ =?us-ascii?Q?ZeRnlZPzN5XKaBZ1wEwA3ZFB7gVRNGCnQJGLWsDtwdLy/tTZUvTbrxtRMSLS?=
+ =?us-ascii?Q?dwR5JWYpfn2gYbHppLT3lyvEZuOgnF+fRG9WX48EH4F8zBgdgwh7p7YNx0Pe?=
+ =?us-ascii?Q?KxUONL8obfstioCqo+NmHqzMk6fjAB9DI/RMuUEHCz38hX1IATq5btoGjKF2?=
+ =?us-ascii?Q?LK3xeZRftbhXD+/efNFbGc9VDOOMILyUd/rbar5lWltq63m0VdXFwC787vk8?=
+ =?us-ascii?Q?dqMV0JHk6Bjf6S/q8hgj4wpvcXPN5/2Khzh4Umne3H5KxLZtSD4RWSYDm0Z+?=
+ =?us-ascii?Q?eRG9BKE1jZ1nBXWPE/S/UVXUNII5pRVOdYxSYq7KUDRhhhitLcfG9gYKDDHj?=
+ =?us-ascii?Q?5EMPIShspAWq9jQPELzdj3toXRhUCj0IWXLbxerPysv4QjDT26nlexskrubp?=
+ =?us-ascii?Q?sY3L7N1qNEpBuUp362qP0KjDM2JBl842fgH/2Y3pwDkHp7gfshZ0mOSeDrGU?=
+ =?us-ascii?Q?/AqoqpZZDo90lq0lUmMDOd9UoDCRpqAxIgRXpEsUSUmWphkHrVNoYDG3gWMc?=
+ =?us-ascii?Q?r4WnRR1JLKybrprO+OuPXrfn+zE052qJiS/RJxed7RuO3ckj+e44ynwjzfa8?=
+ =?us-ascii?Q?RZwiB5lNuWD8tDsOTP/S0utzLVzfou9Dqi/l31/UdzH4FVPqq00+BQZrT3mb?=
+ =?us-ascii?Q?KckFa8l4mMDJdGvlLD4mZZUu4n5qWwAu641PgpESjMojr27MMTdXOShnCodv?=
+ =?us-ascii?Q?TWtlhKWlbs5iH/ACTPpzqaKwysUWENXH/J2MyIP9Wkuywe6vA8+3Y17TuATB?=
+ =?us-ascii?Q?Xn5DVHHAzUmdBR78ONj1mizEs9PEiMwbgurRPtF9F/6yVgqA0W4lTz1jQbwG?=
+ =?us-ascii?Q?4BPY4pD0KFkzEsIyGywWdt+BUdt9SfG7xMA7FQ1j3zAoOlo22psTYzDSr9Vw?=
+ =?us-ascii?Q?h55E71kG8QbeA8tKyC9nhzraKmypPhZjrnC5nXP5/vGUNHAsyw/Mr874mAwz?=
+ =?us-ascii?Q?xRBqs2+U0XXIMLpcZ3CiS+g4j+OvKZiyt140JJwz1Zl7x5Xgf+gLSEqlXFzP?=
+ =?us-ascii?Q?L7axtvaJkwg1aD/YsaoM5o0SlCVhbNM3aguxgKHJXxKNVJHio/MNsALKp8zr?=
+ =?us-ascii?Q?EDT59C/HGdcJsGUqwunzjzRdX+Y6Hnul8OkxLsaI66HshPK0p8W8k7EbpmiS?=
+ =?us-ascii?Q?kgcqeExhjs/LgFsToFESkCUBV9ACji6Gj1+NCIhz37wXkck23WksmbiScm2Z?=
+ =?us-ascii?Q?FOZkSE7ooG+tbtix36m2Ql+I88wkAztb0GeXesUzjubcXG5o0JJrabI6jmIs?=
+ =?us-ascii?Q?ewK5+bUGlOf7kStrzkCqZRS9maNHnNTgX5DJ3UmFo6FC96Uv2ojU6LKUq/85?=
+ =?us-ascii?Q?1lcp3o22hZ7Ozk0kPXhB0RLy4+PbOXI4/HxvZb2RdDIoNCmdOgkWH9bW21ho?=
+ =?us-ascii?Q?OmHTmXBxPq5sMk3i9ukumhBefcFwjkA5F8P6o4GrPuvPUb066A88kJ+S5Nm7?=
+ =?us-ascii?Q?nqstjw+j7yjzVINGmyElZMAQ7ibykG3m3I2LBQRgvtI6HS5p84VhFqJiVDe4?=
+ =?us-ascii?Q?jhBLE2rjwgThYI/tizgIPCYxhXZRwqFegFGtUvzPyn6t9ho7zIEXpSYkmS3m?=
+ =?us-ascii?Q?FQrcqCnbq83MMuRu/FCkAuyQnDq8/fA20AiAvUVNNaR73Yi+UHM2?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5574a39a-326a-4375-57ca-08df19a38486
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 18:50:20.5598
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IP0E6KA4vTsKTV6GtSYJCTtzOne2X0pIQiDUi9HGuEvNAqB8Ws6UIwsOiuoI5tyUUVORer6SF/2qiGG2OxdPd18MljdanwY/qAudurza234ufpMWY2Qm1y0NZZXDS4hh
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB823501
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_114528_405299_5B6F224C 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260923_115025_998687_A4C64E9A 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +175,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_find_compatible_node() returns a device_node with its reference count
-incremented, but the function bcm2835_spi_setup() uses the ret value
-in the loop to check a condition and never releases it.
+On Wed, Sep 23, 2026 at 02:45:47PM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+>
+> Replace direct dma_chan::device::dev access with the proper
+> dmaengine_get_dma_device() for consumer API
+>
+> chan->device->dev is not always the device used for DMA mapping.
+> Some DMA engines support per-channel IOMMU mappings, so different
+> channels may use different DMA devices.  dmaengine_get_dma_device()
+> returns the correct device for each channel.
+>
+> This also prepares for making the DMA engine provider data structures
+> private. DMA consumers should not access DMA engine internals directly.
+>
+> mxs-mmc.c wrong use mmc host device when do DMA map. Fix it by use
+> dmaengine_get_dma_device().
+>
+> Assisted-by: LLM
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Reviewed-by: Vinod Koul <vkoul@kernel.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Change in v4
+> - Fix miss "R" at Reviewed-by tags.
+> - Fix error path unmap dev at mxs-mmc.c (sashakio reported)
+> - move dmaengine_get_dma_device(host->dma) after mxcmci_use_dma() to avoid
+> defer host->dma if use pio mode (sashakio reported)
+>
+> Change in v3
+> - add Linus Walleij and Vinod Koul's review by tags
+> - Add missed omap and mxs-mmc.c (sashakio reported)
+>
+> Change in v2
+> - find more place, which use device->dev for dma mapping. This time should
+> clean all.
+> - Reviewed-by: Linus Walleij <linusw@kernel.org>
+>
+> Cc: imx@lists.linux.dev
+> Cc: vkoul@kernel.org
+> ---
+>  drivers/mmc/host/Kconfig                 |  2 +-
 
-Store the returned node and drop it with of_node_put() before breaking
-out of the loop.
+Please forget this version, I make misstake to include a debug code, sorry
+for annoise.
 
-Fixes: e19c1272c80a ("spi: bcm2835: Restore native CS probing when pinctrl-bcm2835 is absent")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lucas Costa <2000.costalucas@gmail.com>
----
- drivers/spi/spi-bcm2835.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
-index 8f8715809c7c..8909757c94e3 100644
---- a/drivers/spi/spi-bcm2835.c
-+++ b/drivers/spi/spi-bcm2835.c
-@@ -1226,6 +1226,7 @@ static int bcm2835_spi_setup(struct spi_device *spi)
- 	struct bcm2835_spi *bs = spi_controller_get_devdata(ctlr);
- 	struct bcm2835_spidev *target = spi_get_ctldata(spi);
- 	struct gpiod_lookup_table *lookup __free(kfree) = NULL;
-+	struct device_node *np;
- 	static const char * const pinctrl_compats[] = {
- 		"brcm,bcm2835-gpio",
- 		"brcm,bcm2711-gpio",
-@@ -1297,8 +1298,11 @@ static int bcm2835_spi_setup(struct spi_device *spi)
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(pinctrl_compats); i++) {
--		if (of_find_compatible_node(NULL, NULL, pinctrl_compats[i]))
-+		np = of_find_compatible_node(NULL, NULL, pinctrl_compats[i]);
-+		if (np) {
-+			of_node_put(np);
- 			break;
-+		}
- 	}
- 
- 	if (i == ARRAY_SIZE(pinctrl_compats))
--- 
-2.43.0
-
+Frank
 
