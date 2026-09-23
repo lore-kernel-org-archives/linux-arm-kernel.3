@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6534C9830B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F225C98304
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,73 +12,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NLzzVKxNDn2ENtNLz5RF0HuOFGSUxWDx/tiLwjYhuM=; b=mYFD1AGiEFLWGvT2zKbj+21HPP
-	sxhME+RJv6K/MtfAhir6Gl01nUau0a1Bk3LDsXAYFnEw0xQfu4vzg6IHd7gGYGwwnkSfj3QNATvqJ
-	NwLCbbfEv12i6EMOuYi1oVYSakRIXz2z4xMga6qFH9f6VtgoAbNPSW/J5vV8TPmI1WNgNjXJGvmGr
-	KzigSyuMjF0Nm3lNPeBSmhpvACDN+9bWWemhB1nG+LjJ+9f88j8xn3oQQy2ns+BbzLw2J1MrsD7RU
-	v1cTdjUigVbtZZ1wowiAxFxjQKJLF+NE+k87VB4XqoEqRkkjgyDqYHYxu/6HVA/vB7/j9uKHMtEGc
-	qMHvBcyw==;
+	bh=Q38gPulPuKur3IEZF2LFNkQp+BQq6YW8/OlTIlhL7Jo=; b=Y+tk/UI7s4ZiErZdrYzSkAbpel
+	itDr9XRcVVOUBj3VtTaPeqBTFQroEzPo/JsgCNRNrrljoD/+Y9u12UtdcWLAxIUVHWaOpXZD2qoxy
+	zoLl4ntYjh47Utd1Tu8lZR9MAshbMDVIygbCVkpelwNoFALzqm0XNUjWKl/+bo0G/nXN0+PZjYRDJ
+	kE+8yaaEmXI+zXq+927QwlPlTVUspkIrAXkWVqHTV+jVZcNHxCKtxhWmaUAHo+p6MyvEoRXbRhgKL
+	1qQGXA7NTXXafxOswmeZPJNv8VcCYSNHJo/KwEb6FjZrCw+VcoO5a8Sb+8RfatEfarC6EA4zP2ZIk
+	Wb4VdfcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Tsh-00000009VRW-34aD;
-	Wed, 23 Sep 2026 20:47:55 +0000
-Received: from mail-wr2-f35.google.com ([74.125.225.99])
+	id 1x9Tsi-00000009VRr-1IoA;
+	Wed, 23 Sep 2026 20:47:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Tsb-00000009VOt-0eQr
+	id 1x9Tsf-00000009VQp-2edE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 20:47:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Q38gPulPuKur3IEZF2LFNkQp+BQq6YW8/OlTIlhL7Jo=; b=XEd6UrwjCLR89Dik7HAlc8QqWW
+	P1AchKtR2al0BffDJ9NxmATD6zZy4ltbcNiUTqwys49Px5Aev9TiuE2DjDt9WgPSJESTfKgdEi4V0
+	WXch+qsuPmsApYHbc/KzfijxPXXoD5OmEbdIF0CJwyNkGVX0412sLj3u03/KAT78z6Ge7wNVGqhBP
+	g2qrpyfnVK+F6KIEuodv/EZ6enizdtp97b8NhiPc+TDqM2rytWmf2QF4WryLT3E0Ty07jxaCLOvkJ
+	e3w3VGJOHvxhLYJtAdoW8NK3c997C4J3EzkaA5wXAyrBc+QmYF9YS7ASHpWf1WJjejr/Yqeb7EJhJ
+	tkc6VoyQ==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9TsZ-0000000FGlg-2flW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:47:50 +0000
-Received: by mail-wr2-f35.google.com with SMTP id ffacd0b85a97d-4885a1480a2so803038f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 13:47:48 -0700 (PDT)
+	Wed, 23 Sep 2026 20:47:51 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49cd4ba9f68so15421575e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 13:47:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790196467; x=1790801267; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1790196466; x=1790801266; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/NLzzVKxNDn2ENtNLz5RF0HuOFGSUxWDx/tiLwjYhuM=;
-        b=fFK6MwUufOAV5cM7kj/NIBRGGfAaW3+tNoyHGUfhTgtR9E2kZT48AF9rMmbHWrGRmc
-         TvVfAB5Z9pcsG+WtH0OgyKJLRmZhd8QzTp4InY28PQOZMwhYK1rxOjZ9HjH20UbZp8AM
-         GakPKS0y6XxMPrEOD7vtMNkN707z1pPKrKcmkx9GX8KndpC4VpsRrB7SVvVw0yJbA7aE
-         Ehed9YUgOhatjEieJle++Q/QtEOlB07pmCLkmUuSE+3QApedUM0qeEWrnVwrW7RdWm6u
-         qdoMMGMPr7k4bUJWItyx4JSos85sqR/GzVhLJUKOOyXbADS42bh/dyF6dMYSW4rXqYNV
-         v1Lw==
+        bh=Q38gPulPuKur3IEZF2LFNkQp+BQq6YW8/OlTIlhL7Jo=;
+        b=D6ZCu4tiFuk3L9f5V2myfH6uZsgmQ5zlpLqEHQsOJq+XI60Z83IjIAV8mqmtrYu8m/
+         3kGzl6pyTj8foyR58lVlvOSgpBUeealoEI/3f6T11uONPCIkvZ+MVUZs1wVppITihqu1
+         dK+FRpJiQV8ADbOdN0iwSwurdViDRQOf1uaINo9C4O7gnphhmVyCfW92c7FxFjJZBlwD
+         Y6icsIpn16gQgZbywIVyoZ2QKPQE3LuuTRXTmBLukEKx0JQKv0pULRZgERctqZJObLuF
+         Q8h4IvByKtwSfrW3oz7/QI48HcOWbNuy7Ef8YrSo6FPvZ+vpsTL+S7C0ab2gR3YVuRDl
+         swDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790196467; x=1790801267;
+        d=1e100.net; s=20260707; t=1790196466; x=1790801266;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/NLzzVKxNDn2ENtNLz5RF0HuOFGSUxWDx/tiLwjYhuM=;
-        b=Vn4eEZJX6+SNla7UG72cF5UF/ZhwL1oVl0/EIpZeY+2JCLsuABSbDihKCZuBZCaWXl
-         ez3Dx8Vmw1Bj7sm6QUFx27pWtvoijjKjI0tL40/lMmGTFU9zMZtx1W9IEkCaWpbIGHz5
-         JXIFnz00cpI3u5UdzwM4fV5QmcW3LxB//J2YNb4+SUOycdJOo0xeS5PI+A4PnbNckuil
-         63RtUneUOczk1labpDhV4GMVy4aQnm3wgHv/XTUa3Tp1UP8PX0ipq+ptc3MW7CdrMIpS
-         g0LcDHlfixQrrtlIAceow0amRT2UFjK30iGJ7CXZFeO+RRhLP+b9hAAqcHWNUB12fYTt
-         yz/w==
-X-Forwarded-Encrypted: i=1; AKwUvByQ98a6y/SlM4el2Bhtk9WIEgjfGVv8cmgHM+JDMUetb0PRz7Yj+bcjIEQgHMXWBJcqVhiqRLDbzsCBgPV85KAg@lists.infradead.org
-X-Gm-Message-State: AFuF++mWfYwlCHt2DqFcFL9EZAezE1aojQRAz9IS4GomLmou2xBAj2El
-	uCG7if0ECR+AmUEVN4YwvIt7gOVqyjuH5G60oH/2EWbSuTBIaeY6EnE2aXglBcx69ak=
-X-Gm-Gg: AYBFou3m7WuQJ4D6SDcbxBGcIfwzQsumXJg8JlqBirP65QFevbNL5Ug6pC5tn5nEndX
-	DfDfSbjBeL84HOp/TN5Atc6tHtQaanWVahvTeObThkc2k8matyq/2sd9RCFk5FrbsNqTU55JX3A
-	vsbZpECIxJMxbE45xgaR1E+2Zf8hRC+RXTD9TVGHZneMj03dogfoIC09jy+v3ixRio7O9hAnCTU
-	0O/OZ+OqCrBMr7PMZVI6UlhGuGm9EHuV4f21abb3xQ832SzcPkOPrgQthQN/KJ2C1HGYWbMXrWO
-	h9bC/Zp38qUN9dYFrtLyV9o8je8qEgmgYibe1axLHwzGCywYPcrfa0YkrCRtnqwwv+yLoDQGYts
-	s500Dt4aEv6ccohlPbcTbY3O4o74nO/UZmSl+uI4cIaaXddJe2nfjMn67BDZLlgMvaP22ZJ1EHM
-	7DayU4REpDsuB6IEF49m3xnmlIH+r7+If6CMTRDm+aot9GRfct4VIjEh9dKHdBDCeSOL9zMSCdf
-	z1VmUbTblLRYtWOng==
-X-Received: by 2002:a05:6000:71a:b0:487:40d:af29 with SMTP id ffacd0b85a97d-488716f76edmr444910f8f.36.1790196467054;
-        Wed, 23 Sep 2026 13:47:47 -0700 (PDT)
+        bh=Q38gPulPuKur3IEZF2LFNkQp+BQq6YW8/OlTIlhL7Jo=;
+        b=v0CAZ5XD53PVNcnaWoTqny1jqhOtRVfdogF6RvoZxFhR+3901T5RXxxmeRClOqcZXs
+         oGK03yM4bCpSx9enWlmmkS/EbrTrPqVx5czplBocLfw4hg4iwrdVJ8tQMQijc2fNAeuE
+         PgbZnMeHobphIgwT/p48K0adnj6Jvfa/hj4INUasP3oHdyVlfGgLbSN58WhbVEqsJWQM
+         EbZytGQ3r3txKxyksNDUFtiJKmFJQ+nw8TdNidcxgSZHsEIM5OAyKyyTkEjQhvcJma/m
+         1su83lkSSmvwYN1WSbq9YQpbP1dA1rkorVqLaD6vYqqmIEeqULfFr8Z3v9ELuPmVmxdK
+         +1TA==
+X-Forwarded-Encrypted: i=1; AKwUvBzdBOamd7HYjK4gvmjwhb1wrpN3no8SuZ0rVQBDJ0a2f43bla6w0XhfBEDJmH84IXd5ohgk0h1L2FDIzwt+1ewp@lists.infradead.org
+X-Gm-Message-State: AFuF++mrNlqUpDYzSI3D8SjSxDAdG8R1UEcWLMiLjDfiyDX6GKMHupf3
+	LdMeobEE5zJ9GiYnK8mGGWRZW+iiQl4GMIGYCJdYVOSxUPNgx+kDOWWaJGqTAqJijas=
+X-Gm-Gg: AYBFou3B5TbaEyekS7dwGDzr1VhNofv984tumL85FYgtafbZjxduDy2gDXFe0lhCjCr
+	oLMM1YsWF8zuIT0isoHuWMGtgX5jWVmRdF71qab0dSCXcS183fGVkS+w/QgfsEKfKmD+J8akUbj
+	QKJRVr21hEDCKpFOnoCSy0Vv2u5SCSvVVqCungNcTHGf6fNLrkqvrT59+bAw7rYrlcX0l1+8Sn6
+	prO5Ax4T483VMO8cz1VNPoFo+77qmnOvlvHJJwzD9gZCx+n3iVZiNK+CAQWw1OqOvdOD3sTW6yl
+	wRDVQW75BZ7XhvHnjBUVAg7QqqZzi00herODxhLzbIaeLOeZMqw12IjDquIBg4wxMbUxa7PkYc8
+	sitFCJfZrzQ+KlaWQTCscnODkD4NYlYVsqzGLulRZCTFn117UmuuulNVXrChaXiq5EbY3Ii8rh8
+	IBGhKfMiP/W4tDlaZIubEtqKrKaHtE5xDOkvnoWba1f6bRyhdMer1rM/OX4MT29TPzpUW3Jurml
+	wEBy4awA2kZ0/tl3A==
+X-Received: by 2002:a05:600c:1c0b:b0:49c:fc6e:8cb4 with SMTP id 5b1f17b1804b1-49fe66dfe1amr7799915e9.24.1790196465888;
+        Wed, 23 Sep 2026 13:47:45 -0700 (PDT)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48868889337sm9555748f8f.34.2026.09.23.13.47.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5df44f9sm11367675e9.11.2026.09.23.13.47.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 13:47:46 -0700 (PDT)
+        Wed, 23 Sep 2026 13:47:45 -0700 (PDT)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Wed, 23 Sep 2026 22:47:33 +0200
-Subject: [PATCH net-next v3 3/5] net: stmmac: sun55i: Make the delay step
- configurable
+Date: Wed, 23 Sep 2026 22:47:32 +0200
+Subject: [PATCH net-next v3 2/5] net: stmmac: sun55i: Add per-compatible
+ match data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-allwinner-a733-gmac-support-v3-3-15735155a789@baylibre.com>
+Message-Id: <20260923-allwinner-a733-gmac-support-v3-2-15735155a789@baylibre.com>
 References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
 In-Reply-To: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -100,17 +115,17 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  Andre Przywara <andre.przywara@arm.com>, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3766; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=u9upVCC3m/gwC2XGPIk9ZtnVEycENGqh8TgoKKLgrfg=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlbrN5++fKN4ddvzswl7GeD9uxYOzue282oeJfBhyx2d
- Xbd7V47OkpZGMS4GGTFFFlquKvF30lqfZk1Xec2zBxWJpAhDFycAjCRaD1GhmnNNr1V5r77khQ4
- HbX25/9bvu3Dzwuyn7OsgrnebXjtspyRYdbv72zn5HrC7edE8K44+fH1tYCm98+630TxzXNqrpr
- /ghEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4588; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=DYM49ne6atEAPBbwp7MW6XIu2N107jKi+6HoBXrWSjs=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlbrN66bpWrmPz5JntSyopU3pdTNryr12g0buPx2RphV
+ zNNfNP2jlIWBjEuBlkxRZYa7mrxd5JaX2ZN17kNM4eVCWQIAxenAEyEM5eRYf7qmbuZ5Q3skvb5
+ ZNtkmHIU7X2ubZlgtU9wQ6y2xfYHVxn+J69n1tIWZfwm0hWTqKwxVf0Y28P2zvazHA1199pWmxl
+ wAgA=
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_134749_230898_DCF4B079 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260923_214748_768259_D42D34EA 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,115 +140,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver assumes a 100ps step for both TX and RX clock delays, which
-does not match the A733 GMAC210.
+The A733 GMAC210 glue registers are in a dedicated MMIO region of the
+controller rather than in a syscon, at a different offset.
 
-Move the TX and RX delay steps to the match data and factor the delay
-validation into a helper. The A523 keeps the 100ps step to preserve the DT
-ABI, although the vendor reports actual steps of 180ps for TX and 530ps
-for RX.
+Add per-compatible match data holding the glue resource init callback, the
+stmmac flags and the glue register offset to prepare the support for the
+A733.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c | 58 +++++++++++++++-------
- 1 file changed, 39 insertions(+), 19 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c | 68 +++++++++++++++++-----
+ 1 file changed, 54 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-index c4df53285007..e759311f40fc 100644
+index 862df173d963..c4df53285007 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-@@ -42,6 +42,8 @@ struct sun55i_gmac_data {
- 	int (*init_resources)(struct platform_device *pdev,
- 			      struct sun55i_gmac *gmac);
- 	unsigned int flags;
-+	u32 txdly_step_ps;
-+	u32 rxdly_step_ps;
- 	u32 offset;
- };
+@@ -16,6 +16,7 @@
+ #include <linux/of.h>
+ #include <linux/phy.h>
+ #include <linux/platform_device.h>
++#include <linux/property.h>
+ #include <linux/regmap.h>
+ #include <linux/regulator/consumer.h>
+ #include <linux/stmmac.h>
+@@ -23,8 +24,6 @@
+ #include "stmmac.h"
+ #include "stmmac_platform.h"
  
-@@ -62,38 +64,47 @@ static int sun55i_gmac200_init_resources(struct platform_device *pdev,
- 	return 0;
- }
+-#define SYSCON_REG		0x34
+-
+ /* RMII specific bits */
+ #define SYSCON_RMII_EN		BIT(13) /* 1: enable RMII (overrides EPIT) */
+ /* Generic system control EMAC_CLK bits */
+@@ -37,18 +36,40 @@
+ #define SYSCON_ETCS_EXT_GMII	0x1
+ #define SYSCON_ETCS_INT_GMII	0x2
  
-+static int sun55i_gmac200_validate_delay(struct device *dev, const char *dir,
-+					 u32 *val, u32 step, u32 max)
+-static int sun55i_gmac200_set_syscon(struct device *dev,
+-				     struct plat_stmmacenet_data *plat)
++struct sun55i_gmac;
++
++struct sun55i_gmac_data {
++	int (*init_resources)(struct platform_device *pdev,
++			      struct sun55i_gmac *gmac);
++	unsigned int flags;
++	u32 offset;
++};
++
++struct sun55i_gmac {
++	const struct sun55i_gmac_data *data;
++	struct regmap *regmap;
++};
++
++static int sun55i_gmac200_init_resources(struct platform_device *pdev,
++					 struct sun55i_gmac *gmac)
 +{
-+	if (*val % step)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "%s-delay must be a multiple of %ups\n", dir, step);
-+	max *= step;
-+	if (*val > max)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "%s clock delay exceeds maximum (%ups > %ups)\n",
-+				     dir, *val, max);
-+	*val /= step;
-+	dev_dbg(dev, "set %s-delay to %x\n", dir, *val);
++	gmac->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
++						       "syscon");
++	if (IS_ERR(gmac->regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(gmac->regmap),
++				     "Unable to map syscon\n");
 +
 +	return 0;
 +}
 +
- static int sun55i_gmac200_setup(struct device *dev,
- 				struct plat_stmmacenet_data *plat,
- 				const struct sun55i_gmac *gmac)
++static int sun55i_gmac200_setup(struct device *dev,
++				struct plat_stmmacenet_data *plat,
++				const struct sun55i_gmac *gmac)
  {
  	struct device_node *node = dev->of_node;
--	u32 val, reg = 0;
-+	u32 val, step, max, reg = 0;
+-	struct regmap *regmap;
+ 	u32 val, reg = 0;
  	int ret;
  
+-	regmap = syscon_regmap_lookup_by_phandle(node, "syscon");
+-	if (IS_ERR(regmap))
+-		return dev_err_probe(dev, PTR_ERR(regmap), "Unable to map syscon\n");
+-
  	if (!of_property_read_u32(node, "tx-internal-delay-ps", &val)) {
--		if (val % 100)
--			return dev_err_probe(dev, -EINVAL,
--					     "tx-delay must be a multiple of 100ps\n");
--		val /= 100;
--		dev_dbg(dev, "set tx-delay to %x\n", val);
--		if (!FIELD_FIT(SYSCON_ETXDC_MASK, val))
--			return dev_err_probe(dev, -EINVAL,
--					     "TX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
--					     val, FIELD_MAX(SYSCON_ETXDC_MASK));
-+		step = gmac->data->txdly_step_ps;
-+		max = FIELD_MAX(SYSCON_ETXDC_MASK);
-+		ret = sun55i_gmac200_validate_delay(dev, "tx", &val, step, max);
-+		if (ret)
-+			return ret;
- 
- 		reg |= FIELD_PREP(SYSCON_ETXDC_MASK, val);
+ 		if (val % 100)
+ 			return dev_err_probe(dev, -EINVAL,
+@@ -95,7 +116,7 @@ static int sun55i_gmac200_set_syscon(struct device *dev,
+ 				     phy_modes(plat->phy_interface));
  	}
  
- 	if (!of_property_read_u32(node, "rx-internal-delay-ps", &val)) {
--		if (val % 100)
--			return dev_err_probe(dev, -EINVAL,
--					     "rx-delay must be a multiple of 100ps\n");
--		val /= 100;
--		dev_dbg(dev, "set rx-delay to %x\n", val);
--		if (!FIELD_FIT(SYSCON_ERXDC_MASK, val))
--			return dev_err_probe(dev, -EINVAL,
--					     "RX clock delay exceeds maximum (%u00ps > %lu00ps)\n",
--					     val, FIELD_MAX(SYSCON_ERXDC_MASK));
-+		step = gmac->data->rxdly_step_ps;
-+		max = FIELD_MAX(SYSCON_ERXDC_MASK);
-+		ret = sun55i_gmac200_validate_delay(dev, "rx", &val, step, max);
-+		if (ret)
-+			return ret;
+-	ret = regmap_write(regmap, SYSCON_REG, reg);
++	ret = regmap_write(gmac->regmap, gmac->data->offset, reg);
+ 	if (ret < 0)
+ 		return dev_err_probe(dev, ret, "Failed to write to syscon\n");
  
- 		reg |= FIELD_PREP(SYSCON_ERXDC_MASK, val);
- 	}
-@@ -175,6 +186,15 @@ static const struct sun55i_gmac_data sun55i_a523_gmac200_data = {
- 	.init_resources = sun55i_gmac200_init_resources,
- 	.flags = STMMAC_FLAG_SPH_DISABLE,
- 	.offset = 0x34,
-+	/*
-+	 * The actual delay steps reported by the manufacturer are:
-+	 * - Tx: 180ps
-+	 * - Rx: 530ps
-+	 *
-+	 * Correcting them would break the DT ABI of the published DTs.
-+	 */
-+	.txdly_step_ps = 100,
-+	.rxdly_step_ps = 100,
- };
+@@ -107,22 +128,34 @@ static int sun55i_gmac200_probe(struct platform_device *pdev)
+ 	struct plat_stmmacenet_data *plat_dat;
+ 	struct stmmac_resources stmmac_res;
+ 	struct device *dev = &pdev->dev;
++	struct sun55i_gmac *gmac;
+ 	struct clk *clk;
+ 	int ret;
  
++	gmac = devm_kzalloc(dev, sizeof(*gmac), GFP_KERNEL);
++	if (!gmac)
++		return -ENOMEM;
++
++	gmac->data = device_get_match_data(dev);
++	if (!gmac->data)
++		return -EINVAL;
++
+ 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+ 	if (ret)
+ 		return ret;
+ 
++	ret = gmac->data->init_resources(pdev, gmac);
++	if (ret)
++		return ret;
++
+ 	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+ 	if (IS_ERR(plat_dat))
+ 		return PTR_ERR(plat_dat);
+ 
+-	/* BSP disables it */
+-	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
++	plat_dat->flags |= gmac->data->flags;
+ 	plat_dat->host_dma_width = 32;
+ 
+-	ret = sun55i_gmac200_set_syscon(dev, plat_dat);
++	ret = sun55i_gmac200_setup(dev, plat_dat, gmac);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -138,8 +171,15 @@ static int sun55i_gmac200_probe(struct platform_device *pdev)
+ 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+ }
+ 
++static const struct sun55i_gmac_data sun55i_a523_gmac200_data = {
++	.init_resources = sun55i_gmac200_init_resources,
++	.flags = STMMAC_FLAG_SPH_DISABLE,
++	.offset = 0x34,
++};
++
  static const struct of_device_id sun55i_gmac200_match[] = {
+-	{ .compatible = "allwinner,sun55i-a523-gmac200" },
++	{ .compatible = "allwinner,sun55i-a523-gmac200",
++	  .data = &sun55i_a523_gmac200_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, sun55i_gmac200_match);
 
 -- 
 2.53.0
