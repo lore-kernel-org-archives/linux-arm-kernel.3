@@ -4,69 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C4EC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E0DC98311
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Evj7Zo2fxX/UmQ9+DQ953T2vayoIk7bt8x9oTEtyaA=; b=ekh7B35dg8dWKe0FKHesJzTb++
-	Jxq0/ootdUN2Dec0CwTnePjjmneMV58rRqdD5JHMnalgl3KyUKEvD9jYpW3OfDv7x3SZOO7jpYPDf
-	0Ux+rt99XhdPDigduoKvFnYznYpt6ZVBjCB1fi3/NJ4os3qllAtK+TpQv7Cz9uSGhW47L/9ZsQcUJ
-	iTKBbqMjK2nUCtZWnPZNQiSk73pKU5tj+H7vGvzQqhHYfZ6r01mwctrYeoYirBgeBt/SKhDpxNyAu
-	nGiK9Av6MCxHvKAn9SBTWdpvXd99IOK/vEHdk2ZWeMjQ2iyYtjCMYflZQB04BrPGme1xf+KnCHIw8
-	irFR8gSQ==;
+	bh=uksp8NEMMONI77zNPQYkgJlajaAnPtQHDaqlgAf0/EA=; b=hO7hnTmtUSdCx2AbYslT5w91Ma
+	z+7KxmyuPVgz9oQKJoq1dtuxQ4CxjKtjECcWF8aqAISHbMMKWcFx3BELUf9/Xmv5Fr97nu7sHr0Tj
+	K3JSp/fjk05uvpdJ1Ruz0GyNMRQodQ5uyamTBDADYHcssntv3Y6TyRgO7dPyH9F+MQ4fPpCJGzARt
+	v2WhXtHKLvYTH91kkS1yBx6YbgCj0UAUKg7mF5SY12hIQhkN9LDZwexQDodZb4j+s74cy7pm/JJYd
+	vG0ywDL3te+r+qmMw+TYkcs0zwSRrt4kuccrVKkkuyTtiUiz5nOAKQ42ObnwIWs6O+CZ1KgaUF9f4
+	KbS1YcgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Rv6-00000009FY2-1h5E;
-	Wed, 23 Sep 2026 18:42:16 +0000
-Received: from out-129.mta0.migadu.com ([2001:41d0:1004:224b::81] helo=mta0.migadu.com)
+	id 1x9RvU-00000009Fcz-3U8f;
+	Wed, 23 Sep 2026 18:42:40 +0000
+Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Rtv-00000009F9S-43wp
+	id 1x9RvR-00000009Fbj-0qOc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:41:06 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=KHltIsP16/D58QoS2DV7BJ0dfwy+AgfodY00vY+4j2w=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790188861; v=1; x=1790793661;
- b=TeeSLU4NvuC/dI9yBAt3y7YJRQJgoJiBDSsT45OfJ2+raldAQL3xacJT4VO5+WOtjrU5SKE5
- uKaH1Hs7X63tyw3onkOeKCXhfvtALMBaGbmA2sx5a3Dt5d0RoNT2G5liQgThN6r+h5XBmhQfAYn
- dqDafJu71Gsgx9sm1Kd91aABRy7qVHmR/8e8+rW/gc47jp3HDwjCSWu+0ho1CJg3YSWdzsFPyVo
- ZK993pPO/yDEb3ESNzUY0u6cNL97wzCuvgg9kHDoXFECkdykhV87DDx/ktLaSz4mCsVZEs4x0Wz
- qxTeTUE3Qtaih8vM87HAqppV9+Hx2JHBcE5W8es2NqfMg==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b3c24cb28d2361dc;
-	Wed, 23 Sep 2026 18:40:51 +0000
-X-Mizu-Trace-ID: b3c24cb28d2361dc
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 23 Sep 2026 20:40:50 +0200
-Message-Id: <DLMWZGK72FK2.22X7CQ2WIY9A@cknow-tech.com>
-Cc: "Sebastian Reichel" <sebastian.reichel@collabora.com>,
- <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, "Jonas Karlman" <jonas@kwiboo.se>
-Subject: Re: [PATCH v5 5/7] arm64: dts: rockchip: describe PCIe RTL8125
- Ethernet on NanoPi R5S
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Ricardo Pardini" <ricardo@pardini.net>, "Diederik de Haas"
- <diederik@cknow-tech.com>, "Heiner Kallweit" <hkallweit1@gmail.com>,
- <nic_swsd@realtek.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>
-X-Mailer: aerc 0.22.0-24-g39041fd9f179
-References: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net> <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-5-c1b9e5f10cd6@pardini.net> <DLMV5WTF5TR1.BXDY94L4J4H7@cknow-tech.com> <12e5e5ad-7d55-469d-a63e-d19e3279c6c1@pardini.net>
-In-Reply-To: <12e5e5ad-7d55-469d-a63e-d19e3279c6c1@pardini.net>
+	Wed, 23 Sep 2026 18:42:38 +0000
+Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a9adea43b6so1848373a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:42:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pardini.net; s=google; t=1790188955; x=1790793755; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uksp8NEMMONI77zNPQYkgJlajaAnPtQHDaqlgAf0/EA=;
+        b=EjzjAhF94ToCJEs5I3SzHWZhIAYdPeGZwmj7BOz/OjGONMshKc/FROU/VVhxVQnZ5E
+         vyDss0lAkQn4sjEG9qk9mRHkx0RKine6fB/VnHrwDh1lBcubhxqN71AWDtgeXUpNdJaQ
+         lpLpQW6RRcapxBL6ZV/qKdKso4dfrwNDIcCg5cw/wdrC8E2wiyFF/Mfi3zIMkhyzE0v1
+         FC1ApTE9qwGNTP79SHmDhH59/QfQXvN4Va1eK271P2uargrzROV0EXWtw7rgaSVCe/5H
+         D4irG3HCOGAew3a4biQ99nWfmaQniCtY140eZzzhUiPgBwD6sbfVePRDBqjRx/WJZioE
+         d7xA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790188955; x=1790793755;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uksp8NEMMONI77zNPQYkgJlajaAnPtQHDaqlgAf0/EA=;
+        b=x3GwFI63smlwcGpfLfIbpeYHhOVBZ09uiV9YzEd+dQ3e6BMGlrag8SsYVgS5sAhu5+
+         fqxRG5pyWvrTNKaxwKSiF5pJ92GRvZioWtjXy4tBBjFldf4KPqvchmbSB81yh/2TnxZL
+         jBlrykK/+g0rn+fsWPAVjP1iK41oX/rDuIZNrQ62H2ltjkljdVtJHXT8LyUG7xaahzWq
+         KOdYoNPVbFGhmMBP2daib3ZTuUXcNrtnarabmUsvQY93MBPmw3bBle8ETGEOLCcjnZWd
+         pwT7j7fpQNb+sRM9/258BAFrGG0DR6ei8kkABp22UtAjAfm4gwVYQMMlVJ/veVR7NNqv
+         S2eQ==
+X-Forwarded-Encrypted: i=1; AKwUvByKJEokJ5vMFW0fnzqN/jfPdoGRwm+umX0NkxulD6jelifBBDcwLMmseIa1XLB3RNMxGoKKuvCUpqPqpBlCtYYF@lists.infradead.org
+X-Gm-Message-State: AFuF++lsR7x+iF1KQoSF6/347zTw3nh5ensxhbDtOmIW1Ls5OVgo/r2h
+	RsWYzehYob3Pgjl3JJAuPG6SC+kyFgUf6bNfmmMucwif8K3LlN6ka8JcrfnbZ7FbKQ==
+X-Gm-Gg: AYBFou2BvuVBGRMFtiO+TJzIJUHdZJ1ssWlwevrPjeaRP1qOsmDwtQbKoN2Ks6ITBGZ
+	Iz81NEAn95KlQdnCscOjBXzJPYQG+XjNXnV35jBftu8+wcAuhBdUNK/C+6PMMCbImAbT7qBTzOy
+	DzZ66HDadC308XRhviREWFupsP+J/ZKMiZL7HL6JJsoTtQLtwO+sUnqTiOT/mq3dmKfIdGEiH0G
+	iyMN8etcILDDc9tda1r4M59d7+KI2NtUDN2OPiyjUa/7zxeTPRexiIPo+bVyn5MpfGU8bGYeNAW
+	LGjeDNOWe5o0Q8sJI8NK+BrlXD03kn+8Q4Wk/oqwtKVDSOCjKa0Lg23qsvmj95Aul0e4/LHxhAX
+	NmXnf9KRPLEULNklMsriDks6nLqgiUxHl6pRAI1q9Hh3trKWK4IwxSIYovkLkToSUGuYHNOUXxC
+	iWEHrEeUgCYR8m2nG6Lfsp6sN1EZeEZJan5N+5Mt1jmmJQflYM2FqI4Wbnc+oG/fkiNonOjThXs
+	tHBGJ7NWxExuJotPWRqBLEBCrMxtKbrePtKg9kH979o0Oj9SFJ65LnDWdjkh2+HYZXzwkR+95dC
+	XearBJ0b82Z3qJtwJK3NFblqjBFtQS6eWiuzZZVl64ioCA==
+X-Received: by 2002:a05:6402:13ce:b0:6aa:c767:ab47 with SMTP id 4fb4d7f45d1cf-6aac90b04ebmr66607a12.35.1790188955272;
+        Wed, 23 Sep 2026 11:42:35 -0700 (PDT)
+Received: from ?IPV6:2a02:a466:4d7a:0:1072:bb1c:c0f3:280f? (2a02-a466-4d7a-0-1072-bb1c-c0f3-280f.fixed6.kpn.net. [2a02:a466:4d7a:0:1072:bb1c:c0f3:280f])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab37eaab7sm2367557a12.4.2026.09.23.11.42.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Sep 2026 11:42:34 -0700 (PDT)
+Message-ID: <e166f6e2-05b3-4f36-a1c3-b75861618c75@pardini.net>
+Date: Wed, 23 Sep 2026 20:42:32 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/7] describe RTL8125 PCIe NICs on Rockchip boards (and
+ add DT binding)
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20260910-rk3588-dts-rtl-eth-describe-dt-alias-v5-0-c1b9e5f10cd6@pardini.net>
+ <CAMuHMdXMjxgj+pT5A=jd_A5BVQctHXJqeiU4EhPA_ZSANZAAmQ@mail.gmail.com>
+Content-Language: en-US
+From: Ricardo Pardini <ricardo@pardini.net>
+In-Reply-To: <CAMuHMdXMjxgj+pT5A=jd_A5BVQctHXJqeiU4EhPA_ZSANZAAmQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_114104_267987_F448B624 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20260923_114237_250016_9F15AD80 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,192 +113,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ricardo,
+On 22/09/2026 11:17, Geert Uytterhoeven wrote:
+> Hi Ricardo,
+> 
+> On Thu, 10 Sept 2026 at 22:08, Ricardo Pardini via B4 Relay
+> <devnull+ricardo.pardini.net@kernel.org> wrote:
+>> Several Rockchip rk35xx boards carry on-board Realtek RTL8125 2.5GbE
+>> NICs whose PCI function nodes are not described in the DT. Describing
+>> them allows for stable ethernetN aliases (matching the GMAC alias
+>> convention on these boards) and lets U-Boot's fdt_fixup_ethernet()
+>> inject mac-address properties from its ethaddr/ethNaddr env, so MACs
+>> stay stable across boots and U-Boot and kernel MAC match.
+>>
+>> Tested on a NanoPC-T6: /sys/bus/pci/devices/0004:41:00.0/of_node ->
+>> /sys/firmware/devicetree/base/pcie@fe190000/pcie@0,0/ethernet@0,0 and
+>> u-boot correctly adds local-mac-address property there which is
+>> correctly picked up kernel-side:
+> 
+> Have you tested this at 2.5Gbps? With which firmware?
+> I am asking because I have problems at 2.5Gbps using the firmware from
+> linux-firmware (on a different platform, though)
+> https://lore.kernel.org/CAMuHMdXPAeHoeaQbM9rXbXukoMbFV+0k28n6sRMw8XF8720WUA@mail.gmail.com
 
-On Wed Sep 23, 2026 at 8:02 PM CEST, Ricardo Pardini wrote:
-> On 23/09/2026 19:15, Diederik de Haas wrote:
->> On Thu Sep 10, 2026 at 10:07 PM CEST, Ricardo Pardini via B4 Relay wrote=
-:
->>> From: Ricardo Pardini <ricardo@pardini.net>
->>>
->>> The FriendlyElec NanoPi R5S (rk3568) carries two on-board Realtek
->>> RTL8125 NICs behind pcie2x1 and pcie3x1, alongside the existing gmac0
->>> RGMII PHY.
->>>
->>> Describe the fixed function nodes and attach ethernet1/ethernet2
->>> aliases (ethernet0 stays mapped to gmac0), so that U-Boot's
->>> fdt_fixup_ethernet() can inject mac-address properties from its
->>> eth1addr/eth2addr env, for stable MACs across boots that both U-Boot
->>> and the kernel agree on.
->>>
->>> Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
->>> ---
->>>   arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 30 +++++++++++++=
-+++++++++
->>>   1 file changed, 30 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/=
-arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->>> index 90ce6f0e1dcff..9ed11663c31c9 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
->>> @@ -15,6 +15,8 @@ / {
->>>  =20
->>>   	aliases {
->>>   		ethernet0 =3D &gmac0;
->>> +		ethernet1 =3D &rtl_eth1;
->>> +		ethernet2 =3D &rtl_eth2;
->>>   	};
->>=20
->> With my NanoPi-R5S I'm still getting the following warning:
->>=20
->>    r8169 0001:11:00.0: can't read MAC address, setting random one
->>=20
->> ```
->> root@nanopi-r5s:~# ip link
->> 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode=
- DEFAULT group default qlen 1000
->>      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
->> 2: end1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel sta=
-te DOWN mode DEFAULT group default qlen 1000
->>      link/ether 4e:52:85:9e:22:f9 brd ff:ff:ff:ff:ff:ff
->>      altname enp1s0
->>      altname enx4e52859e22f9
->> 3: end2: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel sta=
-te DOWN mode DEFAULT group default qlen 1000
->>      link/ether 12:e5:47:9e:e2:f1 brd ff:ff:ff:ff:ff:ff
->>      altname enP1p17s0
->> 4: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mo=
-de DEFAULT group default qlen 1000
->>      link/ether 4e:52:85:9e:22:f8 brd ff:ff:ff:ff:ff:ff
->>      altname enx4e52859e22f8
->> ```
->>=20
->> I did not do anything (explicitly) in U-Boot, but it seems it created a
->> non-random MAC address for end0 and end1 ... and then stopped.
->> AFAIK gmac0=3Dend0 already had a non-random MAC address and I hoped/expe=
-cted
->> it would create non-random addresses for end1 and end2, which would've m=
-ade
->> the above warning go away too.
->>=20
->> Is this an issue with this patch, with U-Boot or me?
->
-> Hi Diederik, in this case (3 ethernet's) I think it's down to U-boot.
-> Check the output of `printenv` in u-boot, you'll probably find it only=20
-> pre-computes 2 MAC addresses, and doesn't feed the ethernet2 alias=20
-> during its fdt_fixup_ethernet().
+Hi Geert, yes, the RTL8125's on those boards work at 2.5gbps just fine 
+(both with and without the fixed-function nodes in this series). They do 
+get quite warm at 2.5gbps. I'm using one of those el-cheapo 8-port 
+2.5gbps switches.
 
-It's indeed what I suspected. I don't dabble in U-Boot very often, but I se=
-em
-to recall it has fixed room for 2 MAC addresses and that would explain the
-symptom/problem I described.
+Currently:
 
-> Try doing `setenv eth2addr xx:xx...` in u-boot before booting -- it=20
-> should work. I think that's what I did when testing the R5S with this=20
-> series, but it has been a very long time ago.
+[    3.254450] r8169 0002:21:00.0 eth0: RTL8125B, 8e:b4:90:97:32:30, XID 
+641, IRQ 124
+...
+[   10.480872] r8169 0002:21:00.0 end0: Link is Up - 2.5Gbps/Full - flow 
+control rx/tx
 
-I'm going to give it a try and see what happens.
+# sensors r8169_2_2100:00-mdio-0
+r8169_2_2100:00-mdio-0
+Adapter: MDIO adapter
+temp1:        +52.0°C  (high = +120.0°C)
 
-> One way around this (without u-boot) would be to use Alexey's series [1]=
-=20
-> which could compute as many MACs as needed out of the CPU serialnum -=20
-> but that also won't work as-sent vs rk356x, I believe he's checking an=20
-> alternative proposed.
->
-> [1]=20
-> https://lore.kernel.org/linux-rockchip/20260902-rk3576-otp-cpuid-mac-v2-0=
--e4b7fe2ab13f@flipper.net/
+I'm using whatever is in Armbian's armbian-firmware package:
 
-Haha! You linked in that thread to Heiko's RK356X OTP patch set and I teste=
-d
-that hoping/assuming that could help with generating unique MAC addresses.
-I see (or think I do) pieces of the puzzle, but I don't know how they all
-fit together.
+# ethtool -i end0 | grep -i firmware
+firmware-version: rtl8125b-2_0.0.2 07/13/20
 
->> Full details:
->> https://paste.sr.ht/~diederik/8ae7d354985afcd1c3464e3a4ad81da1b4442364
->>=20
->> Side note:
->> I wonder how 'random' those addresses are as during testing ``ssh rock5b=
-``
->> landed me on another device (NanoPC-T6 Plus), f.e. My router has DHCP
->> reservations based on MAC addresses and it looks like it got confused ;-=
-)
->
-> Interesting. I dunno what seed is used, as I've been fully set on making=
-=20
-> it non-random, but I wouldn't discard the possibility of conflicts=20
-> across different machines. One more reason to have this series ;-)
+# sha256sum /lib/firmware/rtl_nic/rtl8125b-2.fw
+529bf1c25c97ff52b401090d00ff89cc22351012336e5a0c9662728a3ee909ef 
+/lib/firmware/rtl_nic/rtl8125b-2.fw
 
-They all use the RTL8125BG and I suspect that plays a role in it.
 
-> I'll soon send a v6 to linux-rockchip/dt (with small fixes Sashiko found=
-=20
-> to DTs, and without the binding) and split a single-patch v1 to net-next=
-=20
-> with only the binding, collecting Rob's review. If and when those land,=
-=20
-> we'd have open road both for u-boot local-mac-address and Alexey's=20
-> nvmem-cells for the RTLs.
+mvg,
+Ricardo
 
-Awesome, thanks :-)
-
-Cheers,
-  Diederik
-
-> Regards,
-> Ricardo
->
->
->>=20
->> Cheers,
->>    Diederik
->>=20
->>>   	gpio-keys {
->>> @@ -107,6 +109,20 @@ &pcie2x1 {
->>>   	num-lanes =3D <1>;
->>>   	reset-gpios =3D <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
->>>   	status =3D "okay";
->>> +
->>> +	pcie@0,0 {
->>> +		reg =3D <0x000000 0 0 0 0>;
->>> +		#address-cells =3D <3>;
->>> +		#size-cells =3D <2>;
->>> +		ranges;
->>> +		device_type =3D "pci";
->>> +		bus-range =3D <0x00 0x0f>;
->>> +
->>> +		rtl_eth1: ethernet@0,0 {
->>> +			compatible =3D "pci10ec,8125";
->>> +			reg =3D <0x010000 0 0 0 0>;
->>> +		};
->>> +	};
->>>   };
->>>  =20
->>>   &pcie30phy {
->>> @@ -119,6 +135,20 @@ &pcie3x1 {
->>>   	reset-gpios =3D <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
->>>   	vpcie3v3-supply =3D <&vcc3v3_pcie>;
->>>   	status =3D "okay";
->>> +
->>> +	pcie@0,0 {
->>> +		reg =3D <0x100000 0 0 0 0>;
->>> +		#address-cells =3D <3>;
->>> +		#size-cells =3D <2>;
->>> +		ranges;
->>> +		device_type =3D "pci";
->>> +		bus-range =3D <0x10 0x1f>;
->>> +
->>> +		rtl_eth2: ethernet@0,0 {
->>> +			compatible =3D "pci10ec,8125";
->>> +			reg =3D <0x110000 0 0 0 0>;
->>> +		};
->>> +	};
->>>   };
->>>  =20
->>>   &pcie3x2 {
->>=20
-
+> 
+> Thanks!
+> 
+> Gr{oetje,eeting}s,
+> 
+>                          Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                  -- Linus Torvalds
 
 
