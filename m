@@ -4,132 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA0AC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB826C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
+	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YO7civX8MGJPH4ILny1DZ3vkVbAWd1DfDXfWosRBdpk=; b=SulS8v2zWX9p6sgQw7VaoYW3vq
-	IKn3B+Dq0VYg831tCokqMQzOo1ga/WeHn1wJIXKDNSPLrfPrvtJfntYgPcQpwX2llCgzj7+ES7puL
-	Tpdoi21u0DaZusPCO/o0jYTXPyRXZAEq4lXlVO8JxI4T0mQHebH19Y0FVzoPX06boG/syUh5Ms2Mg
-	n99HmGjQZA47EnYrywugiWwHubgTEn7g0bBXS8m8v/yKLf+BbhUs35pE1fxUPa8NV8wJtj0xhDFuN
-	Rj4D2F/Vy4cwJqCpTfT08KxRapjCyj/XRNp3Ot+YRt4b3qI4BCdvyqeAnVwXfqElUfuMi/BaMnWRc
-	lIa0NxGg==;
+	bh=zYcUTrtXNaAYJHbYCbWQDuLzyH9YrLNc+pi4eeV1bJI=; b=Pb44hl2cB4tD7DLubg87UF3Bu6
+	Bgg8Zt7OI3cM63L0p0MN/EZfPCHcBFkcZNXhuGCBAIf5aoN+kQcp0XiKccfhHkutezQSQAVNv4JgI
+	2oEP38CjEzi1PJYOpYjkBbuSYe4HUCBKU1a8CYrNGlQw0nDObwJIsNnaargOeOskPgcWiQb7RXFY3
+	Sxf4QsSMcX7iq0qsYbZV7PO/i33s5ZgzRVMq6/Yxik7Fj+Dtg07nR4g4gTsp1hoQIlcdYNviuVuYg
+	1qegF+d/EZvhMWxwjaYGEtrhcfx5CzFKgPfM1rN0rL9Zv61XqSjZq8+9Qt5ktLHS0OoCnMQTIfx5n
+	Ynw/W3tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RjS-00000009CNQ-03yh;
-	Wed, 23 Sep 2026 18:30:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9Rqf-00000009DsV-0wm6;
+	Wed, 23 Sep 2026 18:37:41 +0000
+Received: from mail-westcentralusazon11010055.outbound.protection.outlook.com ([40.93.198.55] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RjE-00000009CEM-2Erg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 18:30:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=YO7civX8MGJPH4ILny1DZ3vkVbAWd1DfDXfWosRBdpk=; b=dKpKaj9Oa1ZE+ICV6jQWUYoYz3
-	15kZxNdZr32RdjB0K9hLhyFz3HMHAZyCL3sutvixoSTtqCaPzOlI3I+f0XsUaIlwcC+oaUIL/3JpV
-	nBpGa5571BoQgu1drrNZzXpqYbYq5GEYxezCEpqCQXMGE5FieZ+LZ2/9RJ7U/ZBQ4nYR7grZcps+5
-	slYwTMbYT+OHNejs7GmmHfuUAoZjhqk6KZw6Yn1kB6OmG+tFeJULe82m0tskFtvudJtN9t11jx51w
-	kHytGWHntYZzWs4Sl+cJEzq0c8qQBnsJ1fTYiFdTpMqTrOHxLnfc+y2Ix8MHf2X25+NqN6zyvAb/g
-	b4ynzDmQ==;
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9RjB-0000000F9ha-32sk
+	id 1x9RqK-00000009Dks-0M47
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:29:59 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49cd5462b69so7219015e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:29:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790188196; x=1790792996; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YO7civX8MGJPH4ILny1DZ3vkVbAWd1DfDXfWosRBdpk=;
-        b=EE0CaMy31xGwsWPyETQCXGI1BDn+kWR0ltuiZIROwH8c8ClHWgxr/dqJkNk0N0x7Wo
-         WBo4x2NMkx5mWr6Kc9WmCGG8UiTYf8rFnQ7XVX6gCXnxwdBGQwQAO2VJ1uEgYhKOgBwv
-         /Rio6hlYPXXlq3k3ckPlM7ayrKl2T9/r6AzuSn6LND2G62KBHcjvbW8JHUcetHXyADOz
-         ZK19GWwAGY6HUw9OSUQu1v/BB7TL2e3c+0zw+r/tPNSpiVwwferZs9tlLxj2QF2PxYpI
-         G0t50uIRheqZQwDzvMH589q9aFp7WmPCDijzKjrFjK1CPFHkut5NEXHcqvs5c+d4VTkM
-         Mk0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790188196; x=1790792996;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YO7civX8MGJPH4ILny1DZ3vkVbAWd1DfDXfWosRBdpk=;
-        b=ZHN/dTIKjKejLHMfUMwVpndtLGkJ03OaPsc/u11fUSA07zbASJfmwTH2drihA7BLbG
-         PUOwiMLaAQD2aZ+0/dZZM3hcZlWQr0ngkG8c3fKC85PrlQxolfoRwFaPAMK6x4ScoYLd
-         A2ixz+bijpNyCSAQEb5RBWwiw/IzmBo5kxH2mLG3f2i7JamW0RnLUTB6hefKUn9rNeG6
-         Je56nl6DpYp7IrAMQM3/Wh0wUJAsumrFVPLnfc87/CVqCviNBhx6CUdjgi9a8AVkxoXA
-         SEcpxptUECoegUGRi4L3mqCYvm/hkzcCMEoT76oFz3o65wzNirh7Fln9oa1S3QvJR13v
-         aTkA==
-X-Forwarded-Encrypted: i=1; AKwUvBzURg4xvm60+VDXF1qJFa3FTzQ+DFE3Y6uC4V9w5qaWJjjPf56Q23NSjWdMnWnoXrY71YJi4R13jwlMyDK4P9Nl@lists.infradead.org
-X-Gm-Message-State: AFuF++mJaD2n1OcRqYVQQ3dI353bj29Spn3dYprgSrZwfm96sU6yUEh6
-	ulLVABs8VjHejLfRZn1rxWMoRR7hk0GdXXrFWDEfnH68+4dbgatH+C9O
-X-Gm-Gg: AYBFou3A+8wdurtUHe2snNFs8M9aZIeq7APvR/OnZ8qTGEWnbLMofBTMGaeUhx971Rt
-	QjMMVB+uCT+iyLXRY5/9VILsZ30jh3ToWNjaPT3iJI1oaJIdivNNGwpk/G1xEJTYk0XGj4ACMqv
-	P9X3w7mDZkmMhxo9D143YUJ5lvMbRf7hlfwkd9bTx91xj0Z3/0yk9FyM1c5DJWnbAJE2JQhXmBQ
-	XYnAMAZ01oI04FWCgCsoS0N91oQ+9jJumd+teaYpDMSQBopyDhvfgrYMpPWs1yPXv85ZyOo7XGH
-	XwtIAWnVn/SInekLPr/GpD01k85xVrXVSmBVpr8U3FFdgHv7GADjXNsDbWG0uplFmHwsQ42gXi4
-	1yDoZV4j9HvTxNgHXlhC7+def64DjQBZY4ZB61k9LxIecmLGcEutCdmLNEUDNeJEl0diRcfG5el
-	Zn669ocvxtGCvBE1TSZ3ZBcEKxkVZ/lUSMgNJX6DDaFbKeiDA3GBYTp8pzaPCQa1WKIclHP/GpJ
-	yEto5RNvtQHNyBb
-X-Received: by 2002:a05:600c:1c25:b0:49f:ce78:3561 with SMTP id 5b1f17b1804b1-49fe66f19demr1194485e9.18.1790188196090;
-        Wed, 23 Sep 2026 11:29:56 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.51.38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5cd3d5csm4711835e9.14.2026.09.23.11.29.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 11:29:55 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Wed, 23 Sep 2026 21:28:53 +0300
-Subject: [PATCH v12 07/12] clk: zte: Add zx PLL support infrastructure
-MIME-Version: 1.0
+	Wed, 23 Sep 2026 18:37:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=urorojCkjGtdLXD2LPwI0ydyawY3RLy2ep3GGusPQZmnsK0jTeYx/7oi+LikWB30j0jBgHhlWEdWsik02F1xTbvTeT+9qvUx0ot3uuSoQWHJLO2HvEIHvZnJmIHyr5ysbtYse+mlgFE+1nSLaaaMBD1w6WZKrmMmfTDXZM5SoRIDYewDsFemP5tT+/g51PkPubmnJQ9vGatCo4JS4pB+35J7QOd8XNeEnzhWQkIEQHr5clWAOa9qbVRnQA6nomd+FDUxsDkgGKEqKiccA44/oGPBwdbyxRBC+8d78Ob7mRIQ52jQYl0TipIN0+Q6jsnic6EqdSXLB3IYHDnc2YTWMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zYcUTrtXNaAYJHbYCbWQDuLzyH9YrLNc+pi4eeV1bJI=;
+ b=frUzKgwjVkDTlfPjtbsPnyZcGqMsOfNRTSPn1Rmk6uHNEzrHqX7NoMpmb0gi2rxCNWSqur4KA3bXJak/aMknmUTWbtR3LRHI1kOwn6QAZE0ms8VlKM5NEMc+mfWVq2xvyyY1lmbw18jKfzn5XY7YNL0V+ncD0Rlr3f5ZWiLP1L2N8CUkmia+/byTyKceLof2xoxHnD1NJUq2Qkf2hyuDHn2z/lnrfGZhX77QH5b71pmB8darfDwipLz9MdQjQ0uUsCBBMSFYkE1Wt3ue0p03HdKMd85Vp7WZoDSiyQq/vrlSmZAtc+62QgJwrtjbihmrjGHh962cq5w2Sh631lIbJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zYcUTrtXNaAYJHbYCbWQDuLzyH9YrLNc+pi4eeV1bJI=;
+ b=CknhsPhFHN6vIhevS9uZOZ9Iys7N72tzgqpqwjuOIUCQWz6+N+9QkvXr0bcWslPXRWVXFlzEcMsZu5bRBhq0rnDzxqcGkJm24ztQPQmcrsTRu67beejJOpyuJkfG/nJV0YLjib1cl8mxJp2uQaELLA5UMl8Wbxu9Th6tXUyzDhkxz1dZw2MHV3bpU61VsU5ke2igUnjoJXkVUK/NFSBuJr7lNyn7K11ZuXXlyNZV/AmLAqf2wXZKxp44MdNpna7YLuQ7iW5axXUsJm+t5/yg/KX7pGt8hmVSAt16VxnpdNIQodFy8aes0tUbCuC/TrURZeYQg4ayGUX/YQ/9wFwicg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14) by CH1PR12MB9646.namprd12.prod.outlook.com
+ (2603:10b6:610:2af::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
+ 2026 18:37:10 +0000
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
+ 18:37:10 +0000
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260923-zx29clk-v12-7-9c243796b6d2@gmail.com>
-References: <20260923-zx29clk-v12-0-9c243796b6d2@gmail.com>
-In-Reply-To: <20260923-zx29clk-v12-0-9c243796b6d2@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=23750;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=sbLJ0u4oUa7S2k0ecc0xf8M8SDdDseo5IJY3miTfvzI=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqtBpuSxzhqLCe9cIm9gxyltqx+F2nlJqToOtuP
- DWX3bX6/4KJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCarQabhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiK3gA/8D7yU/QeTIpFS+iCyQSOdr+78EOEEwvw
- CEgJ8W9TDLYMUWeRFJos3OGjoQMd8zrki21QTrCZ9+QcUNwyzU8GQQJNw4cSAG1ycknwNF8xeXv
- 1MsS36Kk2ACsfl142lp7ZjwS9pjYj5YIApTHM4ohVxh4tUUav9zwvde7tDqBKhBXTeGVJVh4Znp
- w9bnElrrOg9rUxx22YIjBasA9JUXMwBWU2jJCHulzaUs/8At6WcBWIk/W0llyT5n9f5ZOdKsZAJ
- JMPJDEMkkXJTNtpYAC0yo/HYyQfPVvm+5lIyKRyuJAk61OkVEaKLLFB4YDtiF3NM6GlclkeLRRn
- tFQWIYbkIXIO9hAANqpn9Smm7pB5H8nl8YbZRT3qeFhUc7J+raWNvKIoBXooBSAtfZl8Jvl4+5e
- cAd3oi88QYUAUxmLb4kYtJfz+lvcFU2fFuN5OdnJznJd2mMA9uuebAMEyek6SirwNbHqJKYRjI2
- V6bJzQKwzQMCucDn3WE+MY0/EfxWkdLb7uYuepODDMaG1FxjrgpRGPlFBW+DXF6r5ZFd0zRt110
- lcdY1IVGoydExilmnzy/WAlvM7rHjKQJX2VCqFJHGTC1qRFQ79SjhZ+ymnWaO8Smk4OAbvmW+tZ
- uiYVh6EaRWb2yzbqDK1GhOmCh5IJU7ty6c4s7Ou7PkTQjlrMUaU8=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v5 08/15] iommu/arm-smmu-v3: Disable the queue IRQs
+ before disabling the SMMU
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, 
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, joro@8bytes.org, 
+ bhelgaas@google.com, praan@google.com, kevin.tian@intel.com, 
+ kees@kernel.org, smostafa@google.com, baolu.lu@linux.intel.com, 
+ Jean-Philippe Brucker <jpb@kernel.org>, Eric Auger <eric.auger@redhat.com>, 
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+ skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com, 
+ bbiber@nvidia.com, harsha.v@oss.qualcomm.com
+In-Reply-To: <0ca69e93a9370e4e172e4335104859648b8755c2.1789446520.git.nicolinc@nvidia.com>
+References: <cover.1789446520.git.nicolinc@nvidia.com>
+ <0ca69e93a9370e4e172e4335104859648b8755c2.1789446520.git.nicolinc@nvidia.com>
+Date: Wed, 23 Sep 2026 15:37:05 -0300
+Message-Id: <179018862539.3334538.4925881940702512638.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-ClientProxiedBy: MN2PR06CA0028.namprd06.prod.outlook.com
+ (2603:10b6:208:23d::33) To LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|CH1PR12MB9646:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c501d0f-07de-4637-edf2-08df19a1acc1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|7416014|376014|3023799007|7136999003|10067099003|5023799004|11063799006|56012099006|4143699003|11062099010|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: mgTtDWFuGMHGg4KtDLRK1eKScdNGU0cGYzrFC7BycV3dWf8A8EEWOmXNOeIx723A9HlT/L5TFWl2AyEBoXwR7eE1ORmgAQYzU2+dFW880HPgeohzgo9/dmGi7h8BNDAMhiNF6qnvMMxr6WQdHTP/F6R4zz+YfxJ+jelUcBn+n3ePSBiQOr7e6lIAn2C4G+hIl6tpLbCFJLVZir+uZSZqJZjqYpIDZGxElx8itD78TYW5WUE4KGT/L2TmabUd6Y1nCG61lhyaGmLTqnn/YGKxSxIKyyHaEyiNNexQu9Q7sr92dRf9XS7mu/VtaoadpuZErQgfFj4fP0epsnbcWmBiSfN0jLivY4yQh2xbUg8ziZvouFTAJ7Ki7XM1o6QmiyMLhmJF+sLcJLAsq+v5NPiL4v8VkzgWa2MKbS2KxCTAcSn3edK0uoN9Ic0rlfb1QCW7jrVFajEX9b+VUOG1TOdJNWQTsPYY0A7ipLuVFdpcDwwMquked/mrP8iJ3+3CY6XoOKlveF18D2ZMo9BNe9tioH3DCecueH3JFC1WDuCQsbc31GxKFd36SFKOHvJWg4RAlvCEEaQ5gIryASi5t2plWyuCf1l9yVQPLlV61LRSK+w9a2Gw/EaqnuChed+w6gT1LvAnFYpmIhsvLz5xGEgo2q5Dy+y4mfFTyjkYVaVhDHY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(7416014)(376014)(3023799007)(7136999003)(10067099003)(5023799004)(11063799006)(56012099006)(4143699003)(11062099010)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmNUcnpkZEcwZzZvLzVEYVBhR3hJL0JsQkVzNW5yUjlYS1FjdGZ5b1NkMjVy?=
+ =?utf-8?B?VzJIQUt6RlU3NzhIR2FrSFd4Z01yZ0NuWVJZSWFqdGNOcTFJRGxWa25tOFF0?=
+ =?utf-8?B?d0prZjZIb0NaSUx3VktCeERNNDM0d1ZrcU1aT2hlRlU0alhLdFo4RVJyODFk?=
+ =?utf-8?B?aUZlMmxKSUc5eHExcjhWNU51TTFCUy9hdXV6SjMrWGs5M094Z1dsekZqQWZT?=
+ =?utf-8?B?WnZDbVQ1eFVQcWVTMDNuc25nRjlUb1JrdGRxbFR3bTV3KzRPelMvb3hBeXY5?=
+ =?utf-8?B?UTZabGdRaEcwSDd4dS9HNXhwQW5MQnB3NVNXU1h6REU5cHVnR1VKRGZTMG05?=
+ =?utf-8?B?b1VHVE1qbFg2ZXJ4MjAreDhyeFNkdWxaSk1sYWMzd0dyeU5Ob2xSNmhWY3Ar?=
+ =?utf-8?B?c2tVZjJoQnlrQ0Y2c0NCTGNTSEkwWDRZalFNYk1EOHZ3MzA1KzRObGpUVE50?=
+ =?utf-8?B?SVVCbFg5eWhzQW43T3RGcUpJWmlWNzBHWWE4c3gvRy9lN0Ric0o0UVlqbUVN?=
+ =?utf-8?B?amVLMHBwRmpUOUMwSTIxemQ0Y3BUYVJBb0hPakRyRG1yZi9pTEdjeWZvbTJV?=
+ =?utf-8?B?Nkt2YzNIalN3eTZQK0tKS0F6blVZZFNvS1FsdEhmWFRVZ0NrZG1iTk1kcDRR?=
+ =?utf-8?B?ZTlKdm4vK0RnNC9tbkFJdkVPa1VDREdxcGladXA3a1F6Q1JSOHBJR1NNUkNT?=
+ =?utf-8?B?Ky83dURqMCt4ekhpZ2hvNHRReHgxYU5sQXZFbHI4M2JCanY2VVR3bDNVNkkw?=
+ =?utf-8?B?VjJZcEFreDZMOEx0ZnhlN012VHZtQzFJb0VzWlA4dkVRUUtrWFZmdTc2ZWVH?=
+ =?utf-8?B?R2FINVhEYm5KTzRsSVFFV0lOVFFlY2s2Y3lHMndPMGN2enE4cHc3VFNvc2ZW?=
+ =?utf-8?B?OHZucDFjQmxVNU9STTU2dmpkajdDRFI5VHVGV2ZQKzJETzhEL0R4L3hybFF2?=
+ =?utf-8?B?dCtmRkpzYVVSdCthaTF1dmw2NjhKOTJyV0F1S1AwYnJTdXUyb0U0YWJYcWxB?=
+ =?utf-8?B?OWdydzNHWVdqbytiZ0ovNWlremRINnUxMDQxNG1ZU3JKKzRHd0ZqWkdGQnBS?=
+ =?utf-8?B?MWl2QTNSaW8xeEQrRURZdmdSYkt0cDVUNlNzTGNZNkFPZGxDbkJRSHZMa1Bz?=
+ =?utf-8?B?dlBvNFR2ZUxuZHltYld6dFRwNmYydXdJSFBCNDlXdlhyUm0zNDBDeVh1VHhT?=
+ =?utf-8?B?UzBJdTZieFlabENTNVNNL0MvTnp5UEp5ckgrb0xISGhrcDI5UGtDekNOQlhs?=
+ =?utf-8?B?T2pRYjFnYmlKdXRoWi93ZkVYUmNXNUp2YmU1YU5LaVRxdFdwcVNYODJZNjNF?=
+ =?utf-8?B?MXRlaW0weG1JK1dXVXlLUFhnaXZ5SGE3RHc3ZHl6UjhQMjNjR2NGMjRXVGh0?=
+ =?utf-8?B?bnhiSi9Yb0FGMXFkWEhoZEEvTExCTEs0UCt0M2lnT2VDRTJRQVcxNHE2cUNY?=
+ =?utf-8?B?cldDcko4VUh5M0R3a3UxclhrTE9JVXd2aUFreFkySTAvZGpNaGFwbjNtQkkr?=
+ =?utf-8?B?T2ZYbzZKdXRwbFNIVm5pcWpPUHBXNWVuYkZXTXFrZHVjQ0pFSVZDM3VqcUxn?=
+ =?utf-8?B?NXgrU01WUGc4R3VTS2E1MUhZTDdLWExQdW9ackw2OHhjQU52RG1PU2lablYx?=
+ =?utf-8?B?a1pOdzR2cmZpbGZVTUI3anlXT05UZFM1R1U5NkhiV2hzTVgxOHUzYlpsWmF3?=
+ =?utf-8?B?aVBaaFJjanAxY01sN09qTHBUajJaRFVOMFFTSm1UOGdPdU50VjF2bnZUMG5C?=
+ =?utf-8?B?bHc1SjlMTFo1SU85SGkzYW1HN0xVekttSS8zclJkZURUZnJzdG1odU9Zb1o1?=
+ =?utf-8?B?em5RNlBXblhVb1ZUa2swVDB6K0dDMzJhK3BybjRqcHFuWkVIN2M5Q0RqK0Vx?=
+ =?utf-8?B?UjFZNzFIaVpvSm5Ta3d1V2dKWXBlYWtOT2xreVlyQ0syV3duaGhpNEp3OTlB?=
+ =?utf-8?B?ZEY0MlRaZldmeVNXUHNPM0pNamNuM3B6cjJXN2tZL09DOEcwdjdidUFPRENi?=
+ =?utf-8?B?Znl4NEZ1MnlDdHRRRVdsQzNJSGt4UDNMWHdCSFVsWGpYY21kOVN1QzQzYmlP?=
+ =?utf-8?B?NUNUcEdsRzVhVE9ZRTZ5cVlDRFpDRUxXSFR0RGxzZ2pxY0V6cGpUQkkxSjhy?=
+ =?utf-8?B?OEI2SGp4d0R3KzFXWHRLTFJYdmJzbE92c2NkYWQyaktxTEM3MStLOGhmeHlh?=
+ =?utf-8?B?dUNJeG9aeFBIZm8vZ1F2U3I4QVNMODNDSndwSUVyclV3NC93WW43M3BPVndX?=
+ =?utf-8?B?a3ovT2NncWdtT0FpOG9HTU9BOC9uSVZFUDltWVp6aXdGRFZja29aZEFXa1dG?=
+ =?utf-8?Q?U3e46L5uWmAAHmOTSW?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c501d0f-07de-4637-edf2-08df19a1acc1
+X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 18:37:08.9238
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FNRS/Pa8O5yBG9fVe1TE6q1nI6//++pFiRPEOWezJt0tBci4Up77qTnE6/IG8LYL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9646
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_192957_936110_A2ED2FFD 
-X-CRM114-Status: GOOD (  44.51  )
+X-CRM114-CacheID: sfid-20260923_113720_134866_3C2AC7F9 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,654 +154,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds code to decode and program PLL settings on ZTE's
-zx297520v3 SoC. The PLLs on this SoC are usually programmed to static
-values by the boot loader. The only situation where .set_rate matters is
-dpll, which is not programmed in some cases. The bootloader always sets
-fixed rates though: 624 MHz for mpll, 200 for gpll, 480 for upll.
+> The EVTQ, PRIQ and combined IRQ handlers are threaded and issue commands of
+> their own, e.g. a CMDQ_OP_PRI_RESP for a page request. Disabling the SMMU
+> while one is in flight hands that command to a queue consuming nothing, so
+> its poll waits out a full timeout.
 
-Parsing the bootloader-programmed values allows the clock driver to fill
-the clock tree with appropriately clocked parent clocks instead of
-registering fixed clocks with hardcoded rates.
+This seems like a sashiko hallucination?
 
-I only tested the code on zx297520v3. From looking at the hardcoded PLL
-values in the old zx296702 / zx296718 code I believe that these PLLs use
-the same encoding, so the code added by this patch should be reusable
-and the file has a relatively generic name pll-zx.c.
+There are no PRIs during probe. The initial STE table does not permit
+it.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
+> Two paths disable the SMMU while those IRQs are still requested: a failing
+> arm_smmu_device_reset() returns to a probe that disables the device itself,
+> and arm_smmu_disable_action() covers an unbind or any later probe failure.
+> Both can run after arm_smmu_setup_irqs() requested the IRQs.
 
-Version 11, 12: Unchanged
+That's fscking devm again. Do not mix devm and non devm CALLS. It
+doesn't work:
 
-Version 10:
-Use FIELD_GET / FIELD_PREP, remove now redundant _SHIFT defines.
+	ret = arm_smmu_device_reset(smmu);
+	if (ret) {
+		arm_smmu_device_disable(smmu);   <-------------------
+		return ret;
+	}
 
-Version 9:
-*) Take req->min_rate and req->max_rate into account when looking for
-possible PLL configurations (sashiko). In practice the code will still
-only ever encounter a fixed request to set dpll to 491.52 MHz.
+	/* Register last so it unwinds first, while the CMDQ is still up. */
+	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_disable_action, smmu);
+	if (ret)
+		return ret;
 
-*) The same code style changes Brian requested on the other clk patches.
+When devm is devm'ing properly the existing devm irq handlers will be
+torn down before disable_action and we don't need to open code a
+disable_irq
 
-Version 8:
-*) Document the behavior of unlocked PLLs better: They don't pass
-through their reference/parent, but pass through the fixed clock-26m
-oscillator, even if their reference clock is something else.
-*) dpll has working fractionals. Add this in the comment, but there is
-no actual code support for it - the LTE hardware doesn't need it.
+That just leaves shutdown, and I'm not sure how that is supposed to
+work, we can't just halt the SMMU while there are any threads running
+around still poking at it. I forget the context shutdown runs in, but
+if concurrency is shut down already then its fine to not disable the
+irqs.
 
-As for Sashiko's comments on the .set_rate implementation: In practice
-.set_rate will only ever set one rate, 491.52 MHz for dpll. All other
-PLLs are bootloader configured. Dpll could be handled by writing a magic
-constant into its config.
+If not, it doesn't work safely for lots of reasons, and disable_irq is
+not going to fix it enough.
 
-I want to have the rate finding code as documentation, and maybe there
-is more elaborate future use for it (e.g. more flexible underclocking),
-but attempts to handle eventualities like rate searches or misconfigured
-bootloader values would be dead code.
-
-Version 7:
-*) Always keep unknownpll enabled when prepared so dpll can acquire a
-lock in its prepare() function.
-*) Clean up error reporting a bit (Sashiko)
-
-Version 6:
-*) Use abs_diff to compare target and candidate PLL rate (Sashiko).
-*) Use req->best_parent_rate in zx29_pll_determine_rate. Add a TODO
-comment about the parent rate flexibility.
-
-Version 5: Fix some issues pointed out by Sashiko: NULL dev,
-zx29_pll_recalc_rate error handling, disable PLL again on enable error.
----
- drivers/clk/zte/pll-zx.c | 564 ++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 561 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/clk/zte/pll-zx.c b/drivers/clk/zte/pll-zx.c
-index fc76c6524a16..d3687495d06c 100644
---- a/drivers/clk/zte/pll-zx.c
-+++ b/drivers/clk/zte/pll-zx.c
-@@ -3,16 +3,574 @@
-  * Copyright (C) 2026 Stefan Dösinger
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk-provider.h>
-+#include <linux/clk.h>
-+#include <linux/container_of.h>
- #include <linux/device.h>
-+#include <linux/err.h>
- #include <linux/errno.h>
-+#include <linux/math.h>
-+#include <linux/rational.h>
- #include <linux/regmap.h>
-+#include <linux/types.h>
-+#include <linux/units.h>
- 
- #include "clk-zx.h"
- 
-+/*
-+ * This code has only been tested with zx297520v3 PLLs, but from reading the zx296718 clock code it
-+ * looks like PLL registers are similar. ZTE's sources explain the PLL register contents only in a
-+ * .cmm file (A Lauterbach TRACE32 script) and some unused headers in their U-Boot code dump, which
-+ * may not be accurate. When calculating the frequencies from the default PLL configuration the
-+ * results match the fixed rate clocks from their clock driver.
-+ *
-+ * The 26 MHz and 32 kHz clocks can be easily observed with the timers. The 104 MHz output can be
-+ * observed through the UART. One 122.88 MHz clock can be observed through the TDM device. All
-+ * others can only be indirectly inferred, e.g. by comparing CPU speed or SDIO transfer rate between
-+ * the fixed 26 MHz oscillator and the provided PLL frequency.
-+ *
-+ * The formula to calculate the clock is ((ref / refdiv) * fbdiv) / postdiv1 / postdiv2. The masks
-+ * are given below. There are a few control flags:
-+ *
-+ * Bit 31: Disables the PLL, but passes clock-26m through unmodified. Whether POSTDIV_OUT_DISABLE
-+ *         still matters is different between PLLs.
-+ * Bit 30: Returns if the PLL is locked
-+ * Bit 29: Not named in ZTE's code, but can be set. There is no obvious impact. Lock times are
-+ *         unchanged, so it doesn't influence or bypass lock detection. It doesn't raise any IRQs or
-+ *         influence GPIOs.
-+ * Bit 27: Given its name it likely disables the Delta-Sigma Modulator, if one exists at all. The
-+ *         boot ROM sets it on every PLL. Unsetting it marginally decreases the time it takes to
-+ *         lock to the reference clock (from ~400 us to ~300 us).
-+ * Bit 24: Bypasses the VCO, but still applies refdiv and postdiv. Doesn't matter if PLL_DISABLE=1.
-+ *
-+ * NB: Some PLLs have an automatic bypass logic that forwards clock-26m (REGARDLESS of reference)
-+ * when they don't have a lock, regardless of reason. This can be triggered by disabling the PLL,
-+ * setting an out-of-spec VCO frequency or disabling the parent. This shouldn't matter in regular
-+ * operation, but caused me some confusion when reverse engineering the clock tree. E.g. clock-26m->
-+ * unknownpll(disabled) -> dpll(enabled) counterintuitively results in a 26 MHz output clock.
-+ */
-+
-+#define ZX29_PLL_DISABLE			BIT(31)
-+#define ZX29_PLL_LOCKED				BIT(30)
-+#define ZX29_PLL_LOCK_FILTER			BIT(29)
-+#define ZX29_PLL_DSM_DISABLE			BIT(27)
-+#define ZX29_PLL_PARENT_MASK			GENMASK(26, 25)
-+#define ZX29_PLL_BYPASS				BIT(24)
-+#define ZX29_PLL_REFDIV_MASK			GENMASK(23, 18)
-+#define ZX29_PLL_FBDIV_MASK			GENMASK(17, 6)
-+#define ZX29_PLL_POSTDIV1_MASK			GENMASK(5, 3)
-+#define ZX29_PLL_POSTDIV2_MASK			GENMASK(2, 0)
-+
-+/*
-+ * The second register has a 24 bit fractional value, which only matters when ZX29_PLL_DSM_DISABLE
-+ * is not set, and only seems to matter for dpll. ZTE's firmware does not make use of the fractional
-+ * and it is unimplemented in this driver. Experimental testing confirms that it has an impact on
-+ * dpll.
-+ *
-+ * Bits 27:24 contain more flags:
-+ *
-+ * Bit 27: Setting ZX29_PLL_DACAP slows down the lock time and obviates the speed gained from
-+ *         !DSM_DISABLE. No other effect observed.
-+ *
-+ * Bit 26: ZX29_PLL_4PHASE_OUT_DISABLE is set on some PLLs on boot but not on others. It is set on
-+ *         boot on mpll and upll, but not gpll, dpll or unknownpll. I am not sure what it does
-+ *         either. The SDIO devices break if they are fed from gpll with this flag set, but they
-+ *         work OK if they are fed from mpll without this flag set.
-+ *
-+ * Bit 25: ZX29_PLL_POSTDIV_OUT_DISABLE seems to disable the PLL output entirely. Whether it is
-+ *         bypassed by PLL_DISABLE differs between PLLs. gpll still produces an output clock if
-+ *         PLL_DISABLE = 1 and POSTDIV_DISABLE = 1, but produces no output if PLL_DISABLE = 0 and
-+ *         POSTDIV_DISABLE = 1. The dpll feeder ("unknownpll") at 0x100 produces no output clock if
-+ *         both PLL_DISABLE and POSTDIV_DISABLE are set to 1.
-+ *
-+ * Bit 24: ZX29_PLL_VCO_OUT_DISABLE probably disables the output of the VCO clock without
-+ *         post-VCO-dividers, but the raw VCO output is not a possible parent of any consumer clock,
-+ *         so I could not confirm this. It does not disable the VCO entirely - that's what
-+ *         PLL_DISABLE does.
-+ *
-+ * A spinlock should not be needed. PLLs don't share their registers with anything else and the
-+ * global prepare mutex and enable spinlock should be enough. Beware of conflicts in reg2 between
-+ * POSTDIV_OUT_DISABLE and the fractional value in case you find out how fractional dividers work
-+ * and add support for them.
-+ */
-+#define ZX29_PLL_REG2_OFFSET			4
-+#define ZX29_PLL_DACAP				BIT(27)
-+#define ZX29_PLL_4PHASE_OUT_DISABLE		BIT(26)
-+#define ZX29_PLL_POSTDIV_OUT_DISABLE		BIT(25)
-+#define ZX29_PLL_VCO_OUT_DISABLE		BIT(24)
-+#define ZX29_PLL_FRACT				GENMASK(23, 0)
-+
-+/*
-+ * The VCO's frequency range is limited. The stock settings run the VCO between 960 and 1248 MHz.
-+ * Ad-hoc testing with gpll suggests that at least this PLL remains stable down to about 7 MHz and
-+ * up to 2 GHz and produces a clock that can be used by the SDIO controller. Attempting to run the
-+ * mpll VCO at 624 MHz and setting postdiv1 = postdiv2 = 1 - which should result in the same output
-+ * frequency - or running it at 1872 MHz with an effective post divider of 3 crashes the CPU. Most
-+ * likely the PLLs become unstable outside their core range and the SDIO controller is much more
-+ * forgiving than CPU and DRAM are.
-+ */
-+#define ZX29_PLL_VCO_MAX_FREQ			(1300 * HZ_PER_MHZ)
-+#define ZX29_PLL_VCO_MIN_FREQ			(900 * HZ_PER_MHZ)
-+
-+struct zx29_clk_pll {
-+	struct clk_hw	hw;
-+	struct device	*dev;
-+	struct regmap	*map;
-+	u16		reg;
-+};
-+
-+static inline struct zx29_clk_pll *to_zx29_clk_pll(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct zx29_clk_pll, hw);
-+}
-+
-+static int zx29_pll_is_prepared(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	int res;
-+
-+	res = regmap_test_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res < 0)
-+		return res;
-+
-+	return !res;
-+}
-+
-+static int zx29_pll_prepare(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 val = 0;
-+	int res;
-+
-+	res = regmap_clear_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res < 0)
-+		return res;
-+
-+	/* Lock duration is usually between 300 us and 500 us */
-+	res = regmap_read_poll_timeout(pll->map, pll->reg, val, val & ZX29_PLL_LOCKED, 50, 2000);
-+	if (res) {
-+		regmap_set_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+		dev_err(pll->dev, "%s: PLL prepare failed: %d. Config value 0x%08x\n",
-+			clk_hw_get_name(&pll->hw), res, val);
-+	}
-+	return res;
-+}
-+
-+static void zx29_pll_unprepare(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+
-+	regmap_set_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+}
-+
-+static int zx29_pll_is_enabled(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	int res;
-+
-+	res = regmap_test_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+			       ZX29_PLL_POSTDIV_OUT_DISABLE);
-+	if (res < 0)
-+		return res;
-+
-+	return !res;
-+}
-+
-+static int zx29_pll_enable(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+
-+	return regmap_clear_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+				 ZX29_PLL_POSTDIV_OUT_DISABLE);
-+}
-+
-+static void zx29_pll_disable(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+
-+	regmap_set_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+			ZX29_PLL_POSTDIV_OUT_DISABLE);
-+}
-+
-+static unsigned long zx29_pll_get_rate(const struct zx29_clk_pll *pll, unsigned long parent_rate,
-+				       u32 setting)
-+{
-+	unsigned long refdiv, fbdiv, postdiv1, postdiv2, freq;
-+	const char *name = clk_hw_get_name(&pll->hw);
-+	u64 vco;
-+
-+	refdiv = FIELD_GET(ZX29_PLL_REFDIV_MASK, setting);
-+	fbdiv = FIELD_GET(ZX29_PLL_FBDIV_MASK, setting);
-+	postdiv1 = FIELD_GET(ZX29_PLL_POSTDIV1_MASK, setting);
-+	postdiv2 = FIELD_GET(ZX29_PLL_POSTDIV2_MASK, setting);
-+	dev_dbg(pll->dev, "%s: reference clock %lu Hz, PLL setting 0x%08x\n",
-+		name, parent_rate, setting);
-+
-+	if (!refdiv || !postdiv1 || !postdiv2) {
-+		dev_err(pll->dev, "%s: divide by zero (%lu, %lu, %lu)\n", name, refdiv, postdiv1,
-+			postdiv2);
-+		return 0;
-+	}
-+
-+	vco = div_u64((u64)parent_rate * fbdiv, refdiv);
-+	freq = div_u64(div_u64(vco, postdiv1), postdiv2);
-+	dev_dbg(pll->dev, "%s: refdiv %lu fbdiv %lu\n", name, refdiv, fbdiv);
-+	dev_dbg(pll->dev, "%s: postdiv1 %lu postdiv2 %lu\n", name, postdiv1, postdiv2);
-+
-+	dev_dbg(pll->dev, "%s: %lu MHz\n", name, freq / HZ_PER_MHZ);
-+
-+	return freq;
-+}
-+
-+static unsigned long zx29_pll_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 val;
-+	int res;
-+
-+	res = regmap_read(pll->map, pll->reg, &val);
-+	if (res < 0) {
-+		dev_err(pll->dev, "%s: Failed to read PLL settings\n", clk_hw_get_name(&pll->hw));
-+		return 0;
-+	}
-+
-+	return zx29_pll_get_rate(pll, parent_rate, val);
-+}
-+
-+static u32 zx29_pll_calc_values(const struct zx29_clk_pll *pll, unsigned long parent_rate,
-+				unsigned long rate, unsigned long min_rate, unsigned long max_rate)
-+{
-+	const unsigned int postdiv1_max = (1 << hweight32(ZX29_PLL_POSTDIV1_MASK)) - 1;
-+	const unsigned int postdiv2_max = (1 << hweight32(ZX29_PLL_POSTDIV2_MASK)) - 1;
-+	unsigned long fbdiv, refdiv, best_fbdiv = 0, best_refdiv = 0;
-+	u32 postdiv1 = 0, postdiv2 = 0, i, j, setting;
-+	const char *name = clk_hw_get_name(&pll->hw);
-+	long best = LONG_MAX;
-+
-+	/*
-+	 * This code produces the same VCO settings that the boot loader and stock firmware use for
-+	 * the standard frequencies. It has seen only very little manual testing beyond that.
-+	 *
-+	 * The goal is to find a VCO setting that gets us as close as possible to the desired output
-+	 * rate, while being within the VCO's operating limits and achievable with the input value
-+	 * range. It is iterating over possible post-VCO divider values (1-7)*(1-7) to look for
-+	 * valid VCO target frequencies and then looks for refdiv and fbdiv values to achieve the
-+	 * VCO frequency from the reference frequency.
-+	 */
-+	for (j = 1; j <= postdiv2_max; j++) {
-+		for (i = 1; i <= postdiv1_max; i++) {
-+			u64 vco = (u64)rate * i * j;
-+			unsigned long out;
-+
-+			if (vco > ZX29_PLL_VCO_MAX_FREQ || vco < ZX29_PLL_VCO_MIN_FREQ)
-+				continue;
-+
-+			rational_best_approximation(vco, parent_rate,
-+						    (1 << hweight32(ZX29_PLL_FBDIV_MASK)) - 1,
-+						    (1 << hweight32(ZX29_PLL_REFDIV_MASK)) - 1,
-+						    &fbdiv, &refdiv);
-+			setting = FIELD_PREP(ZX29_PLL_FBDIV_MASK, fbdiv);
-+			setting |= FIELD_PREP(ZX29_PLL_REFDIV_MASK, refdiv);
-+			setting |= FIELD_PREP(ZX29_PLL_POSTDIV1_MASK, i);
-+			setting |= FIELD_PREP(ZX29_PLL_POSTDIV2_MASK, j);
-+			out = zx29_pll_get_rate(pll, parent_rate, setting);
-+
-+			if (out < min_rate || out > max_rate)
-+				continue;
-+
-+			if (abs_diff(out, rate) > best)
-+				continue;
-+
-+			if (abs_diff(out, rate) < best) {
-+				postdiv1 = i;
-+				postdiv2 = j;
-+				best_fbdiv = fbdiv;
-+				best_refdiv = refdiv;
-+				best = abs_diff(out, rate);
-+
-+				if (!best)
-+					goto search_done;
-+			}
-+		}
-+	}
-+search_done:
-+
-+	if (!postdiv1) {
-+		dev_err(pll->dev, "Did not find a setting for %lu Hz, parent %lu Hz\n",
-+			rate, parent_rate);
-+		return 0;
-+	}
-+
-+	dev_dbg(pll->dev, "%s: parent rate %lu\n", name, parent_rate);
-+	dev_dbg(pll->dev, "%s: found VCO dividers %u and %u\n", name, postdiv1, postdiv2);
-+	dev_dbg(pll->dev, "%s: VCO target rate %lu\n", name, rate * postdiv1 * postdiv2);
-+
-+	dev_dbg(pll->dev, "%s: Got fbdiv = %lu refdiv = %lu\n", name, best_fbdiv, best_refdiv);
-+
-+	setting = FIELD_PREP(ZX29_PLL_FBDIV_MASK, best_fbdiv);
-+	setting |= FIELD_PREP(ZX29_PLL_REFDIV_MASK, best_refdiv);
-+	setting |= FIELD_PREP(ZX29_PLL_POSTDIV1_MASK, postdiv1);
-+	setting |= FIELD_PREP(ZX29_PLL_POSTDIV2_MASK, postdiv2);
-+	dev_dbg(pll->dev, "%s: Final setting 0x%08x\n", name, setting);
-+
-+	return setting;
-+}
-+
-+static int zx29_pll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	unsigned long new_rate;
-+	u32 setting;
-+
-+	/*
-+	 * TODO: DPLL can switch between two parents, one of which is another PLL. Take this into
-+	 * account when searching the config space and set req->best_parent_rate.
-+	 *
-+	 * In practice it shouldn't matter though. Dpll is always configured to a fixed frequency
-+	 * and is the only clock with a switchable parent.
-+	 */
-+	if (!req->best_parent_rate) {
-+		dev_err(pll->dev, "Did not expect best_parent_rate=0\n");
-+		return -EINVAL;
-+	}
-+
-+	setting = zx29_pll_calc_values(pll, req->best_parent_rate, req->rate, req->min_rate,
-+				       req->max_rate);
-+	if (!setting)
-+		return -EINVAL;
-+
-+	new_rate = zx29_pll_get_rate(pll, req->best_parent_rate, setting);
-+	if (new_rate != req->rate) {
-+		dev_dbg(pll->dev, "Did not find an exact match. Want %lu, got %lu\n",
-+			req->rate, new_rate);
-+		req->rate = new_rate;
-+	}
-+
-+	return 0;
-+}
-+
-+static int zx29_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			     unsigned long parent_rate)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 setting;
-+
-+	/*
-+	 * TODO: Implement gradual PLL rate change. PLLs can be changed while they are running and
-+	 * downstream hardware is generally fine with that. The exception is DRAM, which reads
-+	 * incorrect values if changed too fast.
-+	 *
-+	 * Changing the mpll rate is potentially useful for over/underclocking. Gating mpll is
-+	 * unrealistic because too many devices depend on it.
-+	 */
-+	setting = zx29_pll_calc_values(pll, parent_rate, rate, rate, rate);
-+	if (!setting)
-+		return -EINVAL;
-+
-+	dev_dbg(pll->dev, "%s: Setting new configuration: 0x%08x\n", clk_hw_get_name(hw), setting);
-+
-+	return regmap_update_bits(pll->map, pll->reg, 0x00ffffff, setting);
-+}
-+
-+static u8 zx29_pll_get_parent(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 val;
-+	int res;
-+
-+	res = regmap_read(pll->map, pll->reg, &val);
-+	if (res < 0)
-+		return 0xff;
-+
-+	val = FIELD_GET(ZX29_PLL_PARENT_MASK, val);
-+	dev_dbg(pll->dev, "%s: Parent 0x%x\n", clk_hw_get_name(hw), val);
-+
-+	return val;
-+}
-+
-+static int zx29_pll_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 parent = FIELD_PREP(ZX29_PLL_PARENT_MASK, index);
-+	int res;
-+	u32 val;
-+
-+	res = regmap_update_bits(pll->map, pll->reg, ZX29_PLL_PARENT_MASK, parent);
-+	if (res < 0)
-+		return res;
-+
-+	res = regmap_read(pll->map, pll->reg, &val);
-+	if (res < 0)
-+		return res;
-+
-+	if ((val & ZX29_PLL_PARENT_MASK) != parent) {
-+		dev_err(pll->dev, "Hardware rejected PLL parent %u\n", index);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int zx29_pll_init(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	const char *name = clk_hw_get_name(hw);
-+	int res;
-+	u32 val;
-+
-+	dev_dbg(pll->dev, "%s: initializing\n", name);
-+
-+	/*
-+	 * The fractional value is not yet implemented. It works at least with dpll, but I have
-+	 * never seen it used on actual hardware.
-+	 */
-+	res = regmap_read(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET, &val);
-+	if (res < 0)
-+		return res;
-+
-+	if (val & ZX29_PLL_FRACT) {
-+		dev_warn(pll->dev, "%s: unsupported nonzero fractional value 0x%08lx\n",
-+			 name, val & ZX29_PLL_FRACT);
-+	}
-+
-+	/*
-+	 * Remove the bypass flag so we don't have to bother with it in enable/disable. I have never
-+	 * seen it set by the earlier boot stages anyhow.
-+	 */
-+	res = regmap_clear_bits(pll->map, pll->reg, ZX29_PLL_BYPASS);
-+	if (res < 0)
-+		return res;
-+
-+	res = regmap_test_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res > 0) {
-+		/*
-+		 * Set ZX29_PLL_POSTDIV_OUT_DISABLE for PLLs that have ZX29_PLL_DISABLE for
-+		 * consistency with .enable and .prepare. This ensures that .prepare doesn't
-+		 * inadvertently enable PLLs without .enable being called.
-+		 */
-+		res = regmap_set_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+				      ZX29_PLL_POSTDIV_OUT_DISABLE);
-+	}
-+
-+	return res;
-+}
-+
-+static const struct clk_ops zx29_pll_ops = {
-+	.init		= zx29_pll_init,
-+	.is_prepared	= zx29_pll_is_prepared,
-+	.prepare	= zx29_pll_prepare,
-+	.unprepare	= zx29_pll_unprepare,
-+	.is_enabled	= zx29_pll_is_enabled,
-+	.enable		= zx29_pll_enable,
-+	.disable	= zx29_pll_disable,
-+	.recalc_rate	= zx29_pll_recalc_rate,
-+	.determine_rate = zx29_pll_determine_rate,
-+	.get_parent	= zx29_pll_get_parent,
-+	.set_parent	= zx29_pll_set_parent,
-+	.set_rate	= zx29_pll_set_rate,
-+};
-+
-+/*
-+ * A PLL that can be a parent of another PLL needs to produce an output signal when prepared,
-+ * otherwise the downstream PLL's prepare() will fail to acquire a lock.
-+ */
-+static int zx29_pll_nodisable_init(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	const char *name = clk_hw_get_name(hw);
-+	int res;
-+	u32 val;
-+
-+	dev_dbg(pll->dev, "%s: initializing, prepare-is-enabled\n", name);
-+
-+	res = regmap_read(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET, &val);
-+	if (res < 0)
-+		return res;
-+
-+	if (val & ZX29_PLL_FRACT) {
-+		dev_warn(pll->dev, "%s: unsupported nonzero fractional value 0x%08lx\n",
-+			 name, val & ZX29_PLL_FRACT);
-+	}
-+
-+	res = regmap_clear_bits(pll->map, pll->reg, ZX29_PLL_BYPASS);
-+	if (res < 0)
-+		return res;
-+
-+	return regmap_clear_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+				 ZX29_PLL_POSTDIV_OUT_DISABLE);
-+}
-+
-+static const struct clk_ops zx29_pll_nodisable_ops = {
-+	.init		= zx29_pll_nodisable_init,
-+	.is_prepared	= zx29_pll_is_prepared,
-+	.prepare	= zx29_pll_prepare,
-+	.unprepare	= zx29_pll_unprepare,
-+	.recalc_rate	= zx29_pll_recalc_rate,
-+	.determine_rate = zx29_pll_determine_rate,
-+	.get_parent	= zx29_pll_get_parent,
-+	.set_parent	= zx29_pll_set_parent,
-+	.set_rate	= zx29_pll_set_rate,
-+};
-+
- struct clk_hw *zx_clk_register_pll(struct device *dev, struct regmap *regmap,
--				   const struct zx_pll_desc *desc,
--				   struct clk_hw * const *clocks)
-+				   const struct zx_pll_desc *desc, struct clk_hw * const *clocks)
- {
--	return ERR_PTR(-ENODEV);
-+	struct clk_parent_data parents[CLK_ZX_MAX_PARENTS];
-+	struct clk_init_data init = {};
-+	struct zx29_clk_pll *pll;
-+	unsigned int i;
-+	int res;
-+
-+	pll = devm_kzalloc(dev, sizeof(*pll), GFP_KERNEL);
-+	if (!pll)
-+		return ERR_PTR(-ENOMEM);
-+
-+	if (desc->flags & CLK_ZX_PLL_PREPARE_IS_ENABLE)
-+		init.ops = &zx29_pll_nodisable_ops;
-+	else
-+		init.ops = &zx29_pll_ops;
-+
-+	if (WARN_ON(desc->num_parents > ARRAY_SIZE(parents)))
-+		return ERR_PTR(-EINVAL);
-+
-+	for (i = 0; i < desc->num_parents; ++i)
-+		parents[i] = zx_get_parent(&desc->parents[i], clocks);
-+
-+	init.name = desc->name;
-+	init.parent_data = parents;
-+	init.num_parents = desc->num_parents;
-+
-+	/*
-+	 * Disallow live reparent, but allow rate changes. PLLs can handle gradual changes fine, but
-+	 * large ones cause a temporary incorrect output, which can break downstream devices.
-+	 * See zx29_pll_set_rate for considerations on that.
-+	 */
-+	init.flags = CLK_SET_PARENT_GATE;
-+	pll->hw.init = &init;
-+	pll->dev = dev;
-+	pll->map = regmap;
-+	pll->reg = desc->reg;
-+
-+	res = devm_clk_hw_register(dev, &pll->hw);
-+	if (res)
-+		return ERR_PTR(res);
-+
-+	/*
-+	 * Set the PLL rate only if the bootloader left it disabled. Keep the bootloader setup
-+	 * otherwise.
-+	 */
-+	res = regmap_test_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res < 0)
-+		return ERR_PTR(res);
-+
-+	if (res > 0 && desc->rate) {
-+		dev_dbg(pll->dev, "%s: setting to %lu Hz\n", desc->name, desc->rate);
-+		res = clk_set_rate(pll->hw.clk, desc->rate);
-+		if (res)
-+			return ERR_PTR(dev_err_probe(dev, res, "%s: failed to set rate\n",
-+						     desc->name));
-+	}
-+
-+	return &pll->hw;
- }
+Maybe that is something to tackle after the power management series as
+shutdown is sort of like power down.
 
 -- 
-2.55.0
-
+Jason
 
