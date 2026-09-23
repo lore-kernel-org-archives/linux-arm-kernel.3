@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52559C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF6FC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=246+YFY0hcM1gZTyJYBwDA5GnPdAK2YN+khCzJ9w3xk=; b=hFok6opaoqlqapxbF2xhcXPXEZ
-	7E4/WAUTC52yj65N61PFN0TTpIvlgG53fSqPH2+BVTO4RCYg9UpfulUlgIab5aXndavaTnUidmcM1
-	PiIEC240iBTqsCP26ldguoTletLo/+eJF8xKxYdqgbCfmfBURq7wxgJuaNe0LJ9TMzuDoGhRO4tD5
-	YlXnaixcC/fMy2Gv7uI3tLo8TyWrexfDV0R1D+B63VccJ9LurrqSPmZoj3LdaE38SeIme4O77Cow1
-	P7CgXHVwzR3BJWE/sAftk7s0NVBoe/EoeBFos39s7MZa+l7Wh7ZXnaDDKPUMTH4HTRu0hjwTdhG8F
-	Km0aKD1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g3t0rqIk6q5csxKdXt8Okf8D1slDFkmCRGV2qSYVss0=; b=WgbdKlbqNpZmpCofMrwXTG8P8Y
+	QWsls0UyP832cGvT6ZDRdMAA8B4NV6KeckyPJtG6UUD2hwy42Xd0YiL1QhGvWFHAh2dL27a0tiV/8
+	XSvp8Ylo9Vkka5dQ70+Kv7Mxedg/0xNelFySw7TR+a2vezcr7PCqS3GrRcv5nHG50hoahECuKvZE3
+	RtVO7QUE3reBNJsMVPHcMUW6rv7gBwBHiw7cIjmOVlTPKbCSbIvhEZYoF4EC0cgxmp5G9YZISYD54
+	ksI7K2K5kGbjSowZHhjKj4jRSkXWvZbGuXmdVK0edBENdpm9ZegJkNBW88frD0qbdkrYWjw0heZOw
+	PG+FXtzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IsK-00000007edT-1TxX;
-	Wed, 23 Sep 2026 09:02:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9Iso-00000007ejb-241o;
+	Wed, 23 Sep 2026 09:03:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IsI-00000007ed0-1ipo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:02:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E43B442D9F;
-	Wed, 23 Sep 2026 09:02:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A19F1F000FF;
-	Wed, 23 Sep 2026 09:02:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790154165;
-	bh=246+YFY0hcM1gZTyJYBwDA5GnPdAK2YN+khCzJ9w3xk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fx1fzDL6n++zlKFba/TD6ua1TazikVupjqJ+tpB2waBe7XVD+F+lnJbkIVvRrElwe
-	 S+6he4ANapJNJ/Ze0HxDGEOX0yxjravBL7HOehd2Ex37FDQdCd00tCSRZ87cd4+Mnr
-	 sHiwZNMR2k6fi2LEZxorZKO3qiD5Q6FU9xnQ/d/dkX7dfB2m/5/WRYl8d3qN8F4c1M
-	 aFBYXnwpbUfP2IQ5PCKADXrW+0GRtrH6rNknOYwlabC4oWP5WDznRFal9akAaOCPkV
-	 USdsJUQTxiFkVJ0ZgmYOCOI6FbZlYB3tL2HLq/xebrNN/GcEVjrkC5rqm9ifYSaGu2
-	 epfs3ppNEngXQ==
-Date: Wed, 23 Sep 2026 10:02:10 +0100
-From: Simon Horman <horms@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	UNGLinuxDriver@microchip.com, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mohsin Bashir <mohsin.bashr@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 09/14] net: lan966x: add shutdown callback to
- stop the FDMA on reboot
-Message-ID: <20260923090210.GR13925@horms.kernel.org>
-References: <20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c@microchip.com>
- <20260918-lan966x-pci-fdma-v7-9-0ecc179c8a2c@microchip.com>
+	id 1x9Ism-00000007ehb-0Iyn;
+	Wed, 23 Sep 2026 09:03:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790154192;
+	bh=ELuyAkQgxdFhKJt4yeIbM3DoiWg1n7T0T6wH0WdkcJ8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=QfuOjIhCOMGnDcbq82IpoZzvW9kkbfm5pGTLiCBKjrMgouZnJY4+lYmotkPNfagLW
+	 Ii4E1GK78crXuRdq7qA7eWJYZGmcNEKO5w1J+gS35ijjLlRuu6uuPK9YMNPGrKVljB
+	 fqczpKG/LRDD9D0Fo6q9/veYUc4lUhZkrqkPCbTV5Y03MYJKC9+OZ5ih/ygnIrUnCz
+	 nO8XLrWmCL+iRLS5OTPknrXymhsHyyGPKiORKauS1ShpoA6LlPZroNxtzgq0sS6KKi
+	 mbEq0ielNCIWJO0FQFk6O0gmtRy7T6F2RaTGAP4EyAQpguf/fpQVxSPsiToAlw484r
+	 1tXpAXmnytHQQ==
+Received: from benjamin-XPS-13-9310 (unknown [100.64.1.43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6E7F217E03D5;
+	Wed, 23 Sep 2026 11:03:12 +0200 (CEST)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: nicolas.dufresne@collabora.com,
+	benjamin.gaignard@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel@collabora.com
+Subject: [PATCH 0/2] Remove unused variant and code clean up
+Date: Wed, 23 Sep 2026 11:03:05 +0200
+Message-ID: <20260923090307.49959-1-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918-lan966x-pci-fdma-v7-9-0ecc179c8a2c@microchip.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_020316_264943_E5B66894 
+X-CRM114-Status: UNSURE (   6.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 01:34:01PM +0200, Daniel Machon wrote:
-> As a PCIe endpoint, lan966x is not reset by a host reboot: its FDMA
-> channels and interrupt sources stay armed, and the OIC ORs every
-> source into the shared PCIe INTx, asserted before the driver has
-> re-probed. A still-active channel also keeps write access to host
-> memory the next kernel will reuse.
-> 
-> Add a shutdown callback that:
-> - frees the ana, xtr and FDMA irqs, masking and unmapping them at
->   the OIC (disable_irq() would leave both set - the OIC has no
->   irq_disable())
-> - masks the analyzer source, armed unconditionally by lan966x_init()
->   and re-armed by the MAC table's age timer
-> - stops and detaches the netdevs, draining in-flight xmit and
->   clearing netif_device_present() so ndo_open/ndo_change_mtu cannot
->   re-enter the FDMA against a disabled NAPI
-> - disables both FDMA channels and masks their interrupts
-> - unmaps the outbound ATU windows, leaving none armed
-> 
-> NAPI is skipped when fdma_ndev is unset (a probed switch with no
-> usable port never adds one), and XDP attach cannot re-enter either,
-> since lan966x_xdp_setup() returns early on PCIe before touching the
-> FDMA.
-> 
-> Only the PCIe instantiation needs this - the SoC one resets with the
-> chip - so the callback returns early on a platform device; the check
-> is at runtime since .shutdown belongs to the driver, and a
-> PCIe-enabled kernel binds both.
-> 
-> FDMA_INTR_ENA persists across a warm reboot, so also restore the
-> full enable in lan966x_fdma_rx_start(), run after both rings are
-> allocated, re-arming both backends from one site.
-> 
-> Tested-by: Herve Codina <herve.codina@bootlin.com>
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+"nxp,imx8mq-vpu" variant has been tagged as deprecated since 4 years
+now. This series remove it and make some context's fields useless so
+remove them too.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Benjamin Gaignard (2):
+  media: verisilicon: Remove deprecated variant
+  media: verisilicon: Remove useless internal fields
+
+ .../bindings/media/nxp,imx8mq-vpu.yaml        |  2 -
+ drivers/media/platform/verisilicon/hantro.h   |  8 +--
+ .../media/platform/verisilicon/hantro_drv.c   | 21 ++-----
+ .../media/platform/verisilicon/imx8m_vpu_hw.c | 60 -------------------
+ 4 files changed, 7 insertions(+), 84 deletions(-)
+
+-- 
+2.53.0
 
 
