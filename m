@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2AFC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2583C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Bd6czkO45GCnh+x0rZQde+5ow2qqkq1hEyPhw5kvHI=; b=aXe9j07Bj3Rf7IoKKlWLpkqpQn
-	sQQDvHicvkvxc//Byg9Q+13Ki7SSQUAUKJu9yktN6vXFRWydWyWSaKi7q0l77TFUjkUEJzMk1/kNW
-	TccIiDIDxw7OPqrdatnTS0/8cEe6xUk3bBliTDSBRZDumOPygQ98oVenIyQBGH52jN8ncpKglDA64
-	YPyYyyFZyjyckuw9MlWt2tnxDbBoICDEwVsHPjKGMoapCOaYd27lyViW7KsighTkATQuyCS1DE7dW
-	Bg5iN6XHWN60r1zknIJTeIrBn1SpLhWMWBkGM9tY1TdAjdKBZNr7zfGXWaHjeYqHg6V3SD+wqCbEO
-	YQ3j90Bw==;
+	bh=urjJV9cwlFxNv7KbCDA3FefKThqBp2XiJBexrbouUOU=; b=v1wIe6tkclTQ73LVio/ph9hKKT
+	yxnlJlW3rz5+ibm2zaP9JX4iywU82IF5jjVmFclRfM9/QX7wwIomxh4zcab4RgAjR2J1ysq5tTy4K
+	kRi1vdsBxKGGR7cxbNI+ijpCpl/Zel8QATbPgKgm2DOaTKjeftlmMO2jdjcvYnU2nUDcGx+dZyY6c
+	6zDQh1uT6EDGJyPsLnFmWdjR1deTW3eQ9FA95eGgZILBLblALvQ4G7qytA9KF9I5Upi865gl2skIL
+	tJiO3g7oGmGrQ/F5DO3bAbjnKEaCRjonxNAJcLs+KHGUo6cbyLgHAnY2K+IdcAk97aMnmvd1gtSKw
+	rz+M0aOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9U5U-00000009Wvy-0kgw;
-	Wed, 23 Sep 2026 21:01:08 +0000
-Received: from mail-pj2-x0e.google.com ([2607:f8b0:4864:39::e])
+	id 1x9U7Q-00000009XGs-2LYA;
+	Wed, 23 Sep 2026 21:03:08 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9U5Q-00000009WvO-1Rsb
+	id 1x9U7P-00000009XGJ-0Hbq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 21:01:06 +0000
-Received: by mail-pj2-x0e.google.com with SMTP id 98e67ed59e1d1-396ccda24afso821223a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 14:01:04 -0700 (PDT)
+	Wed, 23 Sep 2026 21:03:08 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-398c066106cso854188a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 14:03:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790197263; x=1790802063; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790197386; x=1790802186; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:sender:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=8Bd6czkO45GCnh+x0rZQde+5ow2qqkq1hEyPhw5kvHI=;
-        b=eJh6DOPniyCCMbs8DqA499L75prOqIVLYcqywwrHvB2w3gYZ1tL4yJ+iS1wZlVrvHy
-         fPteK+NjXbzArjlV/0xa9LUVPfPRzjNL84Em1ayE+SlNo0VMNZU+eXitNxE1AdW29eu9
-         kuF6ixtQsNarxPOVasBrhWI+nl2GGXYgYNwwjjspWsARVrvbPqhoZw9hLzz77y5oAfmV
-         WzAfDtM744BfI3pT5vfvxXZ9KuQgEWN6Mkl2vGK9Pe6EkzX5d1IMYU22+e/KqT/xvPAu
-         rmj/S6QIWCGsMHqKMZpK9nYKjDhkICWFPK29PHviTa7g3eUNaEx5yGC3Bgy0jJ4Znp89
-         XWbg==
+        bh=urjJV9cwlFxNv7KbCDA3FefKThqBp2XiJBexrbouUOU=;
+        b=BrgVxa1xzq+pOq3Gu/mw0aU8sZazg098JJ3rHkDUjcgcgDC7M4c6eaTZMo2VCKSdpi
+         Z2nQLSrGDVPV1htvzfB3IUyQkPnX6T2p1u+f7G+5JPWKyzvyMbXCUS9iSKQ/LHnrnNwU
+         C4PDO/MsB5lzhv9tW8JQ11Y027t9OozuWaUIBUu1TNIK8Lgf3bSuaK5AMez2gnE1KSAh
+         VWTIX+6fJTx7bYKGtPuKlYX8M3r34HMrok7KeuQCwWCsG9JX3C5Za4GjLH+cbxEHio3X
+         DwSz4sGCL771V3IXhjA5JKcWR3+Q3pAAz30KSUyfpZQZKzUPBq9TP7jjblkYHnsHG/iR
+         Rx3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790197263; x=1790802063;
+        d=1e100.net; s=20260707; t=1790197386; x=1790802186;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8Bd6czkO45GCnh+x0rZQde+5ow2qqkq1hEyPhw5kvHI=;
-        b=kqer6WnnhA9WsuSpcSdVeuoc3jiTduQuPllVAbD71aiY/q52xjx8SnhejLjiFPPXRW
-         ZsU1Ei8EBcN0kgLWx3r/rjeXdAFFZhvvQ5nxIStcG7qGGXAgblbanTJObJV10tkO0MFg
-         FYSs3jaFcilaWgg+aL19g6fAkxgewLRao3EaxPHcLOcSNMEHMo13hqWItKMutDwEaRAy
-         aeQOIiKLFIEWUcsQQ1UH7WtSRNW/+TTri2VPm2o0nWj/dd3GGEGRYYFTuWcb23pF5ziQ
-         aA/N72m6vSzl7X7/B2mtR6ZVwpJp2PgAgFJ/yhGT0+xgzK2eZOdY2QNbIGLaw5CqhdM9
-         74tg==
-X-Forwarded-Encrypted: i=1; AKwUvBySI7edDPsRnDOt4AHv5C9qqdWCD0wKU17W+2RpukLvweDc5E/h7teqIGKiaYxk4MIoMti6wbWw5YV/B9NHnmVn@lists.infradead.org
-X-Gm-Message-State: AFuF++n/dTg3KHgQxGNLycq1jzX5SwZcoHYQhWA/Dg6oNlsqybM2gFLd
-	arAhaNf41xpxF9FnluibFw9DsZFig/LDBzlrKudCapKkvVVYDTDD1HE+
-X-Gm-Gg: AYBFou1OmU65w5J+S2LTqMk3PoHfUtEmmbSA1IzC4ia1D/TfmAXYqgylj7DBc/IdHHa
-	gf5VH/X0G7V9tTd9jn6bQFe18vDNuF2As7cb1wLyiR+2v2CnjRRUZf1mJhXlMZdoFTjyHSwCkyX
-	A63gOPzfL8ZYRkzLqtfW8JHFoRQKo9B90pUBOm7JndqqQXL0hKyQ286kIydU0Akv4F7VoMD7CKA
-	3k3WGw2NkeoFfS1q/e1HBYPzuUdByKNuaP9h2tZGYkSF2JbfpcSdDjTLYOZWUa0OipFrZigUMBV
-	OOgJPqFAO4/UY9qMDZMHnsqj+coTV8xuLnrH1Zakh1mU7LX3MRzUE2tUuGi6EFzmTE7WfRO/h8f
-	giTV7XVRJaDOYOyNHjGov/FJD3A5UQIjYOO+A5Q9IDlNXynoxvDiDK0ecWNq4n9ZO+7z113NGDQ
-	EkMH+R2svwVgBntmEwNW/aTg3n/bwsOuxbiGUDKE5lRZYaNivA9TEEljqeSwKjvkzjb1bjQ0MDq
-	P/zUhm7ixD+
-X-Received: by 2002:a17:90a:d406:b0:39e:6a81:c922 with SMTP id 98e67ed59e1d1-3a09872c528mr260420a91.21.1790197263197;
-        Wed, 23 Sep 2026 14:01:03 -0700 (PDT)
+        bh=urjJV9cwlFxNv7KbCDA3FefKThqBp2XiJBexrbouUOU=;
+        b=zvMY2R0yIdLbEfJzTZz3oLCOTqh4pQ0BzxvLlv+fQzmqcnmQPAcDUqZhTY5JpV4QFZ
+         OO8cIxz1ervig6K3kewepKO/zWDS/2q7QuhA3LmWh9vpRsreReS1tDRAbirh7l/wBpmK
+         5ttm5CCdnWkmag5ZOupA1JLfoIiCJK+Ap4T78JroMl8TvC3CdtPJiejQ79mo1yXv7/P+
+         Vps4fpuh78xFl+eBWF5alhGI6d2znN6TMsyU0HuPoerDEHH5Cvvdu9FciVd/TWE3sTHN
+         X629PXaIBPkmNZQQS30sFhZcffn8WZwbw1+mhkMaPntggcvqwzrwTM3RQ+J59MdMTx9k
+         q7pQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxWlt8LODBdAZSgGAveh0hjbPb4pCC43ti1N8ECW48AnOo1wFZWY3ayUvvBcuj2UcO7b64sXS+TLk+VccwHWm3Z@lists.infradead.org
+X-Gm-Message-State: AFuF++nUdePVNgG5st5sD1zlv73Qc5Am/t5XPc2/JQvIxaydH+tngMdP
+	pd72+lnr1dyriuEAca+pQDpYJbxIiV5/vDfY4NExGYNJe+2y9Af9sF93
+X-Gm-Gg: AYBFou3TH/fIb5V8MjC8m+NSDaIqSmzq+nCAvQMbWRgiX5NLHvpkmY3Kjqil3x8AA4l
+	H0UErO8V7T0R+NN9k1MxUhuVv+d7pKNFwSpDo2JXoKHi5XjbKVa6bJ+hrDVTtxBFbKDRRCtDJCo
+	xBMNqbhn9im+dX56GwxGVND5kgGsLL+KYGLigLozZLGAe9Z2BYaM6r5pi9Bj1dS7S63pf618Kf+
+	SVOWY2f62u4csLAoPnlytEsYo8BczxJlt9ch/ZGS4G5hLJf15bnpxLiLDJGiR1S9LpWc5iMyVO4
+	XGDX7gUr/qS8SoGVJJDYrmxaWLQ76hlJUvnS4QazZrl4QZ2JQdd6wII991seDurlkGYvflTZjN8
+	wCEIF+9ZwhI62X01XzGR7HK6hXA4PIH4/L1x9cjG89yD+Pl5Wv6PQlGUkPxVu/Ay9zjI0u6Ifwj
+	XmCzEVb3NDgRdmtkYjJsbNm8gueQrfJFjOMIkI8skxgVle/IP3YFArrXwkhMF5UQEY6xXBneROv
+	h0wta3IAPN4
+X-Received: by 2002:a17:90b:4c82:b0:39e:6c68:1552 with SMTP id 98e67ed59e1d1-3a09896ee0fmr243012a91.26.1790197385901;
+        Wed, 23 Sep 2026 14:03:05 -0700 (PDT)
 Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a097344841sm850282a91.10.2026.09.23.14.01.01
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0972b15f1sm848270a91.2.2026.09.23.14.03.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 14:01:02 -0700 (PDT)
-Date: Wed, 23 Sep 2026 14:01:00 -0700
+        Wed, 23 Sep 2026 14:03:04 -0700 (PDT)
+Date: Wed, 23 Sep 2026 14:03:04 -0700
 From: Guenter Roeck <linux@roeck-us.net>
 To: Primoz Fiser <primoz.fiser@norik.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,16 +87,17 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	mfd@lists.linux.dev, linux-watchdog@vger.kernel.org,
 	upstream@lists.phytec.de, andrej.picej@norik.com
 Subject: Re: [PATCH 3/4] watchdog: da9062: reset board on watchdog timeout
-Message-ID: <146c3502-3205-43ce-9d1c-c58b936d160e@roeck-us.net>
+Message-ID: <10de1304-577b-494b-b8d6-3792ebd1bbf3@roeck-us.net>
 References: <20260923111719.2032012-1-primoz.fiser@norik.com>
  <20260923111719.2032012-4-primoz.fiser@norik.com>
+ <146c3502-3205-43ce-9d1c-c58b936d160e@roeck-us.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260923111719.2032012-4-primoz.fiser@norik.com>
+In-Reply-To: <146c3502-3205-43ce-9d1c-c58b936d160e@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_140104_391783_C465356B 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20260923_140307_109744_A7807FCB 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,109 +112,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 01:17:18PM +0200, Primoz Fiser wrote:
-> From: Andrej Picej <andrej.picej@norik.com>
+On Wed, Sep 23, 2026 at 02:01:03PM -0700, Guenter Roeck wrote:
+> On Wed, Sep 23, 2026 at 01:17:18PM +0200, Primoz Fiser wrote:
+> > From: Andrej Picej <andrej.picej@norik.com>
+> > 
+> > Implement a method to change watchdog timeout configuration based on DT
+> > binding ("dlg,wdt-sd"). There is a possibility to change the behaviour
+> > of watchdog reset. Setting WATCHDOG_SD bit enables SHUTDOWN mode, and
+> > clearing it enables POWERDOWN mode on watchdog timeout.
+> > 
+> > If no DT binding is specified the WATCHDOG_SD bit stays in default
+> > configuration, not breaking behaviour of devices which might depend on
+> > default fuse configuration.
+> > 
+> > Note: This patch requires that the config register CONFIG_I is
+> > configured as writable in the da9061/2 multi function device.
+> > 
 > 
-> Implement a method to change watchdog timeout configuration based on DT
-> binding ("dlg,wdt-sd"). There is a possibility to change the behaviour
-> of watchdog reset. Setting WATCHDOG_SD bit enables SHUTDOWN mode, and
-> clearing it enables POWERDOWN mode on watchdog timeout.
+> Please reword to something like:
 > 
-> If no DT binding is specified the WATCHDOG_SD bit stays in default
+> Implement a method to change watchdog timeout configuration based on the
+> "dlg,wdt-sd" devicetree property. Setting the WATCHDOG_SD bit enables
+> SHUTDOWN mode, and clearing it enables POWERDOWN mode on watchdog timeout.
+> 
+> If no devicetree property is specified, the WATCHDOG_SD bit stays in default
 > configuration, not breaking behaviour of devices which might depend on
 > default fuse configuration.
 > 
-> Note: This patch requires that the config register CONFIG_I is
-> configured as writable in the da9061/2 multi function device.
+> Specifically, "There is a possibility ..." should not be part of the
+> description at all, and "Note:" should not be part of the description
+> and be moved below "---".
 > 
+Also, the subject is wrong. The patch does not "reset board on watchdog
+timeout", it implements support for "dlg,wdt-sd".
 
-Please reword to something like:
-
-Implement a method to change watchdog timeout configuration based on the
-"dlg,wdt-sd" devicetree property. Setting the WATCHDOG_SD bit enables
-SHUTDOWN mode, and clearing it enables POWERDOWN mode on watchdog timeout.
-
-If no devicetree property is specified, the WATCHDOG_SD bit stays in default
-configuration, not breaking behaviour of devices which might depend on
-default fuse configuration.
-
-Specifically, "There is a possibility ..." should not be part of the
-description at all, and "Note:" should not be part of the description
-and be moved below "---".
-
-> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-> Tested-by: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-> Reviewed-by: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
-> Acked-by: Guenter Roeck <linux@roeck-us.net>
-> Reviewed-by: Guenter Roeck <linux@roeck-us.net>
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> ---
->  drivers/watchdog/da9062_wdt.c | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
-> 
-> diff --git a/drivers/watchdog/da9062_wdt.c b/drivers/watchdog/da9062_wdt.c
-> index 3d7bf2f351db..7ceef8cd7425 100644
-> --- a/drivers/watchdog/da9062_wdt.c
-> +++ b/drivers/watchdog/da9062_wdt.c
-> @@ -204,8 +204,11 @@ static int da9062_wdt_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
->  	unsigned int timeout;
-> +	unsigned int mask;
->  	struct da9062 *chip;
->  	struct da9062_watchdog *wdt;
-> +	int ret;
-> +	u32 val;
->  
->  	chip = dev_get_drvdata(dev->parent);
->  	if (!chip)
-> @@ -245,6 +248,30 @@ static int da9062_wdt_probe(struct platform_device *pdev)
->  		set_bit(WDOG_HW_RUNNING, &wdt->wdtdev.status);
->  	}
->  
-> +	/*
-> +	 * Configure what happens on watchdog timeout. Can be specified with
-> +	 * "dlg,wdt-sd" dt-binding (0 -> POWERDOWN, 1 -> SHUTDOWN).
-> +	 * If "dlg,wdt-sd" dt-binding is NOT set use the default.
-
-This is not really what he code below does.
-It sets the mode to shutdown if val is != 0, not if it is 1.
-
-> +	 */
-> +	ret = device_property_read_u32(dev, "dlg,wdt-sd", &val);
-> +	if (!ret) {
-> +		if (val)
-> +			/* Use da9062's SHUTDOWN mode */
-> +			mask = DA9062AA_WATCHDOG_SD_MASK;
-> +		else
-> +			/* Use da9062's POWERDOWN mode. */
-> +			mask = 0x0;
-> +
-> +		ret = regmap_update_bits(wdt->hw->regmap,
-> +						DA9062AA_CONFIG_I,
-> +						DA9062AA_WATCHDOG_SD_MASK,
-> +						mask);
-
-CHECK: Alignment should match open parenthesis
-#157: FILE: drivers/watchdog/da9062_wdt.c:266:
-+               ret = regmap_update_bits(wdt->hw->regmap,
-+                                               DA9062AA_CONFIG_I,
-
-Also, this does not require an additional variable.
-
-		ret = regmap_update_bits(wdt->hw->regmap,
-					 DA9062AA_CONFIG_I,
-					 DA9062AA_WATCHDOG_SD_MASK,
-					 val ? DA9062AA_WATCHDOG_SD_MASK : 0);
-
-> +
-> +		if (ret)
-> +			dev_err(dev, "failed to set wdt reset mode: %d\n",
-> +				ret);
-
-			return dev_err_probe(dev, ret,
-					     "failed to set wdt reset mode\n");
-
-Thanks,
 Guenter
 
