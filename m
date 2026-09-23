@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB60C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1163C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EXbSGsIQhnYrKzjXbGFYKzBLzFjvGzG09DHmjM/EATA=; b=PLhj9Xv2V55WvdqNsVG82RbM82
-	pFBHnOooOcHE0GII2QbR58BZucow5HondM4XdcUqJ7TuiVj7/6H+gSJWrOceKLYRNRxTVqi9LQrbj
-	7RzubfuJaar0CeBphFj5fVZf8uUS0GY5ig+oMpyML3wr2WdxOMEEhNz5hSXubuxmKQvtcJb1P2WbH
-	nWkMsOmtgoYcGqTjmppLuXD5ZPvNajOu8V1pSkl2sc+S+Ap8JCHK7sIlK5J6VVE4fnzpSdItnnLJZ
-	3vEMkVebfLxT2sMboOzdUTQcxnoohmHGHCZjs3dfN331QewZbyj/u19NVS/mLdXouJF1h0Ann8R6w
-	W/A9W/2w==;
+	bh=VJF4/vr5y5VcWETmgrbJDPEEq5BFKEqJfgmd5Y2tQcQ=; b=YZdvevfd3BV/odRjFJwIUruHPS
+	BlMaeKyyWse6pqdwXbJ859XzlAj1DWxKoceSmuChXJToNETIle57ahmktcAEagLPgVVhSxd9g9mpn
+	gVJgqd0mxAkZLzmjzpLUzpGTBrTxL6Rt97dZIJl6+U/VlUM/AIGbrKbylGfpdtqCLbgy2CLUS3qAo
+	Ynm3IkVvTLa6vCG+iXSFmgfdgjRDjGyK8CpvD0kN9Y3Q1SmiWpzVNBH1kqKEtuXqu04ZPTA+tI46G
+	dzfsjXoH4mIuHTXST6gN1C7DHaY7NyFowvYf5FGZ6MeyNsr4YZSAmuftobcmEi6cnLa7psdt+Lnb9
+	AVEN2z8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IXy-00000007ZAW-1ddI;
-	Wed, 23 Sep 2026 08:41:46 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x9IYG-00000007ZGp-2OfP;
+	Wed, 23 Sep 2026 08:42:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IXw-00000007Z9Y-0gmf;
-	Wed, 23 Sep 2026 08:41:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790152901;
-	bh=kX7iAJmyO1bpwYb9DvfVL8/FEwVM8F0j/LnFmfaVzfg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CLbDwQrsmHZlSe9YtZAqw5iEfdQV50RBuBtDTODU9KZDn7ZTbkKDblU27B+7o8Qg7
-	 FyGJ1MSGJBNqhiKIIawa2c3dHM0OMxLxCrtrSlIqc7yCR2idaEZzXtt3NWNUDIMy6X
-	 F0+0+6OdoTifPeq+93kTxhC35vmyoRZZSxk9NNpgiaV5a5F/zlv+BrbS0IJ+g03wx8
-	 nS8B8kTe69po8si22A5IqAuh5BJ1ZUQZf7pvARJ4ZjC0vpY/rlW53pX594jx9tH3Tq
-	 BMq5QgGroEmQZxZqWKZX1pg5A48vlcYYBE7qRerErMqYoUJypM5hxa5xWMiTMs2e2K
-	 lwH5dfiU2S9Gw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E1D8B17E020C;
-	Wed, 23 Sep 2026 10:41:40 +0200 (CEST)
-Message-ID: <452ebde8-d2e8-467e-8121-69c96d7dd0e5@collabora.com>
-Date: Wed, 23 Sep 2026 10:41:40 +0200
+	id 1x9IYF-00000007ZG8-0Rvb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 08:42:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D83BF43592;
+	Wed, 23 Sep 2026 08:42:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E169A1F000FF;
+	Wed, 23 Sep 2026 08:41:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790152922;
+	bh=VJF4/vr5y5VcWETmgrbJDPEEq5BFKEqJfgmd5Y2tQcQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=H8jS0hY4lKcJBzeLTpK4BQQqUSaDV5pSY42s2J2J/9E/8UyXF8r39ELo8ION0kD0c
+	 Jhk50GZshpDQ10AQGyrLFVpcH76Z7mHe7nnynn3pNX2PyzAI/cMrILI/bBFkfNKLRl
+	 VTuxW/+ixSerK/Z3pSo57HhZvG/E9dtkHeCk4WB29ABXkbkp6iqQl8NQqE5HOCKmdl
+	 SulfDHaNWAfHDZtfd+9TLZA/nRjUuXZtWABwjsbXvBHWmmr227uZAm0FjiDORGMt++
+	 uBqcNBAHd3GiqOldPMfNugTZrIWuTZ4MGA67E/uCfLnxOeWhLNHWnh2bOwPA5Yhl7K
+	 xq2nOcnyciqBw==
+Message-ID: <ead48f50-5d37-406c-b51e-d754c2c512f8@kernel.org>
+Date: Wed, 23 Sep 2026 11:41:57 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: pinctrl: Fix MT6797 pin nodes
-To: "Rob Herring (Arm)" <robh@kernel.org>, Sean Wang <sean.wang@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Andy Teng <andy.teng@mediatek.com>
-Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260922222439.1682749-1-robh@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH] mmc: sdhci-of-at91: disable selectively clocks on pm
+ runtime
+To: Aubin Constans <aubin.constans@microchip.com>,
+ Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Eugen Hristev <ehristev@kernel.org>,
+ Romain Sioen <romain.sioen@microchip.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ Robert Marko <robert.marko@sartura.hr>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Ryan Wanner <ryan.wanner@microchip.com>, linux-mmc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260918153414.909333-1-aubin.constans@microchip.com>
 Content-Language: en-US
-In-Reply-To: <20260922222439.1682749-1-robh@kernel.org>
+From: Claudiu Beznea <claudiu.beznea@kernel.org>
+In-Reply-To: <20260918153414.909333-1-aubin.constans@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_014144_791358_50A83109 
-X-CRM114-Status: UNSURE (   5.89  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,15 +78,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/23/26 00:24, Rob Herring (Arm) wrote:
-> Allow MT6797 pinctrl state nodes named *-pins directly under the
-> pinctrl controller. The existing mt6797.dtsi uses nodes such as
-> i2c0-pins and uart0-pins, each with pins-* child nodes, while the
-> conversion only allowed numbered state nodes such as foo-0.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Hi, Aubin,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On 9/18/26 18:34, Aubin Constans wrote:
+> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> 
+> SAMA7G5's SDMMC run-time clock disabling is not supported.
+> Add support to avoid this scenario for SAMA7G5.
+> 
+> [Amended with a fix from Romain Sioen below this line]
+
+This should go close to the Romain's SoB.
+
+> 
+> Sama7 boards are impacted by an unbalanced prepare/unprepare
+> and enable/disable clock management in sdhci driver due to
+> the lack of support for SDMMC clock runtime disabling,
+> managed instead by the PMC driver.
+> 
+> Add conditions in the preset function to manage clock
+> depending on if the board support runtime clock disabling
+> and if we come from the probing or restoring procedure.
+> 
+> Add boolean start_clks variable to manage condition
+> in preset function.
+> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+
+Maybe better use the @microchip.com emails, even though that is not available 
+anymore, to give Microchip credit for that and avoid any legal issues, if any. 
+There is a mailmap for claudiu.beznea@microchip.com available in the .mailmap 
+file, if any.
+
+Thank you,
+Claudiu
+
+> Co-developed-by: Romain Sioen <romain.sioen@microchip.com>
+> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
+> Signed-off-by: Aubin Constans <aubin.constans@microchip.com>
+> ---
+>   drivers/mmc/host/sdhci-of-at91.c | 36 ++++++++++++++++++++++++--------
+>   1 file changed, 27 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of-at91.c
+> index 7c4ac65f247d..399856643e57 100644
+> --- a/drivers/mmc/host/sdhci-of-at91.c
+> +++ b/drivers/mmc/host/sdhci-of-at91.c
+> @@ -39,6 +39,7 @@ struct sdhci_at91_soc_data {
+>   	const struct sdhci_pltfm_data *pdata;
+>   	bool baseclk_is_generated_internally;
+>   	unsigned int divider_for_baseclk;
+> +	bool pm_runtime_disable_clks;
+>   };
+>   
+>   struct sdhci_at91_priv {
+> @@ -149,12 +150,14 @@ static const struct sdhci_pltfm_data sdhci_sama5d2_pdata = {
+>   static const struct sdhci_at91_soc_data soc_data_sama5d2 = {
+>   	.pdata = &sdhci_sama5d2_pdata,
+>   	.baseclk_is_generated_internally = false,
+> +	.pm_runtime_disable_clks = true,
+>   };
+>   
+>   static const struct sdhci_at91_soc_data soc_data_sam9x60 = {
+>   	.pdata = &sdhci_sama5d2_pdata,
+>   	.baseclk_is_generated_internally = true,
+>   	.divider_for_baseclk = 2,
+> +	.pm_runtime_disable_clks = true,
+>   };
+>   
+>   static const struct of_device_id sdhci_at91_dt_match[] = {
+> @@ -164,7 +167,7 @@ static const struct of_device_id sdhci_at91_dt_match[] = {
+>   };
+>   MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
+>   
+> -static int sdhci_at91_set_clks_presets(struct device *dev)
+> +static int sdhci_at91_set_clks_presets(struct device *dev, bool start_clks)
+>   {
+>   	struct sdhci_host *host = dev_get_drvdata(dev);
+>   	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> @@ -174,7 +177,14 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
+>   	unsigned int			gck_rate, clk_base_rate;
+>   	unsigned int			preset_div;
+>   
+> -	clk_prepare_enable(priv->hclock);
+> +	/*
+> +	 * Manage clock prepare/enable procedure depending on if the board
+> +	 * support runtime clock disabling and if we come from the probing
+> +	 * or restoring procedure (for backup+self refresh).
+> +	 */
+> +	if (start_clks)
+> +		clk_prepare_enable(priv->hclock);
+> +
+>   	caps0 = readl(host->ioaddr + SDHCI_CAPABILITIES);
+>   	caps1 = readl(host->ioaddr + SDHCI_CAPABILITIES_1);
+>   
+> @@ -223,8 +233,11 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
+>   	writew(SDHCI_AT91_PRESET_COMMON_CONF | preset_div,
+>   	       host->ioaddr + SDHCI_PRESET_FOR_DDR50);
+>   
+> -	clk_prepare_enable(priv->mainck);
+> -	clk_prepare_enable(priv->gck);
+> +	/* Same clock management as for hclock */
+> +	if (start_clks) {
+> +		clk_prepare_enable(priv->mainck);
+> +		clk_prepare_enable(priv->gck);
+> +	}
+>   
+>   	return 0;
+>   }
+> @@ -254,9 +267,11 @@ static int sdhci_at91_runtime_suspend(struct device *dev)
+>   	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
+>   		mmc_retune_needed(host->mmc);
+>   
+> -	clk_disable_unprepare(priv->gck);
+> -	clk_disable_unprepare(priv->hclock);
+> -	clk_disable_unprepare(priv->mainck);
+> +	if (priv->soc_data->pm_runtime_disable_clks) {
+> +		clk_disable_unprepare(priv->gck);
+> +		clk_disable_unprepare(priv->hclock);
+> +		clk_disable_unprepare(priv->mainck);
+> +	}
+>   
+>   	return 0;
+>   }
+> @@ -269,7 +284,7 @@ static int sdhci_at91_runtime_resume(struct device *dev)
+>   	int ret;
+>   
+>   	if (priv->restore_needed) {
+> -		ret = sdhci_at91_set_clks_presets(dev);
+> +		ret = sdhci_at91_set_clks_presets(dev, priv->soc_data->pm_runtime_disable_clks);
+>   		if (ret)
+>   			return ret;
+>   
+> @@ -277,6 +292,9 @@ static int sdhci_at91_runtime_resume(struct device *dev)
+>   		goto out;
+>   	}
+>   
+> +	if (!priv->soc_data->pm_runtime_disable_clks)
+> +		goto out;
+> +
+>   	ret = clk_prepare_enable(priv->mainck);
+>   	if (ret) {
+>   		dev_err(dev, "can't enable mainck\n");
+> @@ -344,7 +362,7 @@ static int sdhci_at91_probe(struct platform_device *pdev)
+>   		return dev_err_probe(&pdev->dev, PTR_ERR(priv->gck),
+>   				     "failed to get multclk\n");
+>   
+> -	ret = sdhci_at91_set_clks_presets(&pdev->dev);
+> +	ret = sdhci_at91_set_clks_presets(&pdev->dev, true);
+>   	if (ret)
+>   		return ret;
+>   
 
 
