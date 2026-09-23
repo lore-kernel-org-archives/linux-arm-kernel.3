@@ -4,62 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D76C98308
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AA9C98302
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 04:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1dORtqh9tfuV7OLMSLjdAMnWKy3PkAytnsZmL2OHJl4=; b=4+ywSPbkmj/iBIj9KJoXTW9Q/q
-	TOt3D/b3e9F4pABxvcaEHTj26BYOOuXv0KDQmIPsdcvDQ9wINhap5SXv1UP6Ndl7vFBpYxHK1GFub
-	jyW+X1XdRT5WvKxND2fT4oqLGoumqiP9XfX4DmGaDHYAdzIQv+R04GUXwJR/ioEgZuqkVRDPeQ0UF
-	4SL6uO1Jv3c+JMvuYouBhkD2VgPmmZCFd5fARTC/OCQTx4hRqzeltgT82S9l69T7IybUmXfujZfj2
-	J28BeMFFtx1rqiscF3jpscr16vfSSHADw+BQzqxRNzwQ4QFckJfVD4ynFZn2ZLPlZLrVszvVIQkpA
-	N7/dQUVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EHd2P9cWUvhze37CjDGU3L2BOGNEXwJl3rNmq74c3F8=; b=cDkiyAH1QYf7c7bRKTIAS5i8AR
+	f8Q72Ofpds5Lg3NdAhYKfcRWYjPe56c57GiDhDTsMtdZYzCco79HOuJkWWcmMs8xqT07eO/z3QxW6
+	Z/s31icwPOM2SfsA2nzEDIaJu1zVEIjZUQqha8T4HBxd8/AfMX/wufHPxajcarhJKgMLYIgXj0AJf
+	y7i4cnCvkFwi7VN8Ssild0UyNM8t5biaCbPVvyNTLI9GDIoiQ7qjmap7hMZbpl4TuixpHDU9AsMCe
+	mjm0cuWt8v8c9lMm20e8HLiv/9LIfVJ8x3LO2F0uOAW5W5+EzZvnGldLcdzzwR/Y9hbiCaP3VZL/v
+	CvbVX/4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9F3r-000000078ug-49Bn;
-	Wed, 23 Sep 2026 04:58:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9F3s-000000078vV-1RUS;
+	Wed, 23 Sep 2026 04:58:28 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9F3V-000000078nO-3Mxk
+	id 1x9F3l-000000078sE-38Od
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 04:58:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F15B6020A;
-	Wed, 23 Sep 2026 04:58:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B57B1F0089E;
-	Wed, 23 Sep 2026 04:58:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790139485;
-	bh=1dORtqh9tfuV7OLMSLjdAMnWKy3PkAytnsZmL2OHJl4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CvUZBnEg5EP5DUYtilhOLkycsGUBlM693L6TcGCrD3NafaX6FCt7sksUHeCKMp9nG
-	 ONI3cGIyM6DqsXf6VH1o4EXH7Xog6rTW4aJkqgQ1Xrt+ZzoTaOoOVGpl4BYhfAIIlY
-	 LVnB315+V7to/qANZ55TFOj4axoV/WUqHqFy2m9JjZHLEc6i+P9AJlXhW9xOnmqNLB
-	 FhWHl/pymrT221hc5t/cjPFZCfW29iK1/a7ypoMmeaoZo3cWAcx8WRI4kvugbmPPwp
-	 JBRNkaRlWLbtyfkpLIuLjM5OG0bAnlgFl2eWLT43g3uSacXaWl9S1+S2VpsshJqgbQ
-	 22LnPV86bEv3A==
-Subject: Re: [PATCH net v3 2/2] net: stmmac: fix a divide by zero in
- stmmac_xdp_xmit_xdpf()
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaolinkui@kylinos.cn, stable@vger.kernel.org
-Date: Wed, 23 Sep 2026 04:58:03 +0000
-Message-ID: <179013948372.2160803.7295436112506257329@kernel.org>
-In-Reply-To: <20260921135716.218420-2-xiaolinkui@126.com>
-References: <20260921135716.218420-2-xiaolinkui@126.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Sep 2026 04:58:23 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68N3quRL2389855
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:58:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	EHd2P9cWUvhze37CjDGU3L2BOGNEXwJl3rNmq74c3F8=; b=DXYahJ0l2Hg6a69F
+	2zEWGrrAclr0wW7n42JSPe9jHalMww94TJpkgjcocSRy82+GdRQC+p76xmWsNazX
+	+9yoRFhLBoR0lLphKaIARShtVT7CfircgFBs4iG96k/FKE6CmE4QWBTEXq64YjoZ
+	TmAmLrRMk+Fmsqv6tFSJ0hWd/Ds+msdoaShzlf9fzoexCVzFoHaIUZkeK5AmxeWB
+	K+E3iazp/mouKjPyb6bhpJJHzYTVV3JI7MHAAU2qYu2OcTB2LS71RwRTflTG2zhh
+	Cu8v2TGyh8AVstEX2xKzeLl2Qhc9SZGmLoJyziuPuLx5GbUPo6oJm4VAbuzAkuGi
+	S0LeGg==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gv78n06h7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:58:20 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-30f1b904861so669095eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 21:58:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790139500; x=1790744300; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EHd2P9cWUvhze37CjDGU3L2BOGNEXwJl3rNmq74c3F8=;
+        b=H5Yl2eXbCX5LllNNJQTlcOHzg/EOv0XsKZj49Y0OKKDBFVww7fjlovnqFQ59sUMK2G
+         ckIVNIBHvBz6MoeOgIw2wM63lx+BZ+v84SDorARrsC/JUIMOa4NhXvk2VGgikK/vqlwU
+         jFvX53Rw8ArteaqLiI/lSWqX4rDn13jI7Sr8PGhJaa3zsS3enAC5xmQ7Sn6rz/3OS4j2
+         MZ/AwxT4p+DA+UX3iARI8tIRIn/EFaKwZ13CLiGVqVX+z1zLkAhq3kACQIFSwQifeQtW
+         awALH8xxKu1yiSV3BVxJEw2ecLnc6LtSU8xvnch2cq2SDbLHuNAnxPtiHRiVPYYjkIY/
+         IGeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790139500; x=1790744300;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EHd2P9cWUvhze37CjDGU3L2BOGNEXwJl3rNmq74c3F8=;
+        b=IPp2Q7bDR+UmdxG+THyLad022Jixtlf/DcXxE344E2N2jVwvuJkbrjQTLNAf8SsuuT
+         Ja9Sr/Vo1uoRimDDCb6uQBLpHQQQxVilYOoH3nHyp/kWODIE1Kn0LuIEoDZw+TbVIFih
+         9kQT6E77+7u5qu3hZxac8HVtKztrKGCAMr0BMDPvZsQlH1cL/5KApHjN7e/e42rwca2x
+         kyIO5noVzWwgzQI7c6qQVe097mLw7EVPzhFelvFwXCyJK8ADIM8JGq8e0ldqo85nUu5w
+         g/geRaukd9wqSWpeJ2sxY8RGFeNxLxGV0GV7igVlQ2lesxk8d2JdON/h+L7MC4eiP+xi
+         InSA==
+X-Forwarded-Encrypted: i=1; AKwUvBzJhJLF3S7RHgvhG+goJT25BJjfgOEtr3CZHDY18aZQm0XeTBUypDJO3+MCZSCWhgkE4vpEiQuIoWky6qDNwHO6@lists.infradead.org
+X-Gm-Message-State: AFuF++l5UkxuYpZSC6wKJLpe4xcICSKdDOEzbIGitI08yjcnYGAS3G9u
+	iKOWhjWSM/qMn3qoiplcSbdk/QdeOFV1kxHOXnoz4lyPNie/zAIMChLin7xBYxkp+x4dS/hm5tC
+	X+tvtxiQMY0ckB8ERYwevzMfnx9yFF20jlqXU1vY6F3k7n/F2jl7mNGC6wNB+R1aVL5EAxE/jW3
+	/3kg==
+X-Gm-Gg: AYBFou20qlDTmGLRHjSTJY2LIunxzciKfxG6Eb/r+fJsPW6cUzJle5glNs3d8Fm06DO
+	+JDKkhi2LMXrJaoUV20mHIOXiKLFsRXvwgmx/9/OonLZKo2wU5edJLxhmv80XnSXmpm+LKX3pmY
+	3w0CtPB6TDnhLIwB0FBF/+1jvDwQIOXoQtlbVCZ0O7qZEWJ1JJdG6XhfPkgWBxzFnnFrYy8pqo5
+	HJDyzfDJDWoZwK6VZprlk9vQ7yON0Uf0ur3gB4a3WQQMdJKDF80CWD7vIch5qqUrthA05i+B61K
+	mpluA1Bwi8T5tKBbh8khLNxf+w6vrPcawUCMhSnHpPImC/1IbQXmZWWC43wucL4AzNvgeftSnyj
+	8LcE0eBwr7o33NIhDGk14by9spKMI0A==
+X-Received: by 2002:a05:693c:41c1:10b0:339:7f8c:7f9d with SMTP id 5a478bee46e88-33e8d8d21d5mr1625659eec.28.1790139499475;
+        Tue, 22 Sep 2026 21:58:19 -0700 (PDT)
+X-Received: by 2002:a05:693c:41c1:10b0:339:7f8c:7f9d with SMTP id 5a478bee46e88-33e8d8d21d5mr1625617eec.28.1790139498947;
+        Tue, 22 Sep 2026 21:58:18 -0700 (PDT)
+Received: from hu-nihalkum-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e96e48e3esm3168907eec.26.2026.09.22.21.58.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 21:58:18 -0700 (PDT)
+From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Date: Wed, 23 Sep 2026 10:27:31 +0530
+Subject: [PATCH v9 4/5] arm64: dts: qcom: shikra-cqm-cqs-evk-imx577-camera:
+ Add DT overlay for Shikra
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260923-shikra-camss-review-v9-4-09f5fbea1309@oss.qualcomm.com>
+References: <20260923-shikra-camss-review-v9-0-09f5fbea1309@oss.qualcomm.com>
+In-Reply-To: <20260923-shikra-camss-review-v9-0-09f5fbea1309@oss.qualcomm.com>
+To: Bryan O'Donoghue <bod@kernel.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Suresh Vankadara <quic_svankada@quicinc.com>,
+        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
+        Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790139451; l=3710;
+ i=nihal.gupta@oss.qualcomm.com; s=20260608; h=from:subject:message-id;
+ bh=QqOCZ4UANNvHsyhOiWOL6rnrRj4uZgu6LeQYl7gibVE=;
+ b=pIzV70UO2zPoKcDhrQ6FQbygzEHdlH1iw245DkaluIP89rCOLf883v9OozqlaODuL8Pf9KxCr
+ lHSKKmoXfa7BSy+pOkUAIuuBrzT0xAyJKA3SpitFDKQ+vkWf19V+2t/
+X-Developer-Key: i=nihal.gupta@oss.qualcomm.com; a=ed25519;
+ pk=DIbyFMNwqU/iMvU/0pCQp2wmRVgtHFBT3PcSu+A+Ncw=
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAxOSBTYWx0ZWRfX7Pq+xuUYuA4U
+ Sw2bPftxtVb7mvQBmqB0f0MgAZR0QsoY5vJVaG+udRSDUQS3p65JCeTratdj3SG/SUN+dDhyg/c
+ +hyL7RFyhfMtyUNWDNZr7H9axYHRuNM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAxOSBTYWx0ZWRfX7hEJ8jPW6X/S
+ v6OVEggYiaf/3jyLLsCaFtmhVNKypufr+WwM4SMygpLnKuKBdqENRbIkEtt8v3v9JLYWNieNQKr
+ 9hsbf3BUkJkicT3YoSL/6zTL45dT/T7NVNW+ZyHEBE+EkHIHUyGPJ6Z/pZXsPwtf0yibFDekYrs
+ yWYMr4or1iTXqU80hyReDIiC5fAY0XDcKqFjAQ3apMa7XmBzJWZyI6/zuv1NhxHb+zKirIK6BqU
+ sok5XzC0fToN/k5EGepDQ0a3bzmoPNdjuiJBYJmzTmstylFFl4HmEztGlvJsAYGCiwzLAVXT1Oz
+ f7eSvukHIV6qoEt1sUe84izf0/02XJ4kGcEYZNZClGzgd9B3YHCXjJHPj3r2hOZnpe1kFm73BKe
+ Paho1s64UuflQqq1o8cIy0xBQs/cSBP+xP8MLCt69LzauVEq21MnhY4Jts2ZpZi3eldkm7gvPTg
+ Rl4ui39m2hiDZ1YWZFg==
+X-Proofpoint-ORIG-GUID: hEt1zxxr-rQnXylZ9v8_C5aeEEDniB3Y
+X-Authority-Analysis: v=2.4 cv=aNFlOr9m c=1 sm=1 tr=0 ts=6ab35c6c cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=OGCdAuOInqFJiNoUztwA:9 a=QEXdDO2ut3YA:10
+ a=bBxd6f-gb0O0v-kibOvt:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: hEt1zxxr-rQnXylZ9v8_C5aeEEDniB3Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-23_02,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0 lowpriorityscore=0 bulkscore=0 malwarescore=0
+ priorityscore=1501 adultscore=0 phishscore=0 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230019
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_215822_025297_A8AC27E9 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,141 +174,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Shikra CQM and CQS are retail variants sharing the same PM4125 PMIC
+and identical camera supply rails. The only difference between them
+is the integrated modem on CQM, which does not affect camera hardware.
 
-Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
+Add a shared overlay for optional IMX577 integration via CSIPHY1,
+used by both CQM and CQS EVK boards.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+---
+ arch/arm64/boot/dts/qcom/Makefile                  |  6 ++
+ .../dts/qcom/shikra-cqm-cqs-evk-imx577-camera.dtso | 72 ++++++++++++++++++++++
+ 2 files changed, 78 insertions(+)
 
-- [Medium] The zero guard added to stmmac_xdp_xmit_xdpf() performs two
-  separate, unsynchronized plain loads of priv->tx_coal_frames[queue]:…
-
-Pre-existing issues:
-- [Medium] With `ethtool -C ... tx-frames 0`, the new branch in
-  stmmac_xdp_xmit_xdpf()…
-
---
-
-net: stmmac: fix a divide by zero in stmmac_xdp_xmit_xdpf()
-
-This adds the missing zero test on priv->tx_coal_frames[queue] before the
-modulo in stmmac_xdp_xmit_xdpf(), so that "ethtool -C eth0 tx-usecs 10
-tx-frames 0" followed by an XDP_TX or ndo_xdp_xmit frame no longer divides
-by zero. The other transmit paths already have this test.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1fb5f804ea234..f9846250458a4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5253,7 +5253,9 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
->  
->  	tx_q->tx_count_frames++;
->  
-> -	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
-> +	if (!priv->tx_coal_frames[queue])
-> +		set_ic = false;
-> +	else if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
->  		set_ic = true;
->  	else
->  		set_ic = false;
-
-[Severity: Medium]
-Is one sample of priv->tx_coal_frames[queue] needed here instead of two?
-
-The guard and the divisor are two separate plain loads of the same
-concurrently written field, with no barrier or lock between them, so the
-compiler is free to reload it for the modulo.
-
-The writer side in __stmmac_set_coalesce() (stmmac_ethtool.c) stores it with
-plain stores from process context, with no driver lock, no queue stop and no
-NAPI quiescing:
-
-	if (all_queues) {
-		int i;
-
-		for (i = 0; i < tx_cnt; i++) {
-			priv->tx_coal_frames[i] =
-				ec->tx_max_coalesced_frames;
-			priv->tx_coal_timer[i] =
-				ec->tx_coalesce_usecs;
-		}
-	} else if (has_tx) {
-		priv->tx_coal_frames[queue] =
-			ec->tx_max_coalesced_frames;
-
-The reader in stmmac_xdp_xmit_xdpf() runs in softirq, reached from
-stmmac_rx()/stmmac_rx_zc() via stmmac_xdp_xmit_back(), or from
-stmmac_xdp_xmit(). If the guard load observes the old non-zero value and the
-divisor load observes the freshly stored 0, the modulo still divides by zero
-in softirq, which is the failure this commit is closing.
-
-Would something like this be more robust?
-
-	u32 coal = READ_ONCE(priv->tx_coal_frames[queue]);
-
-	set_ic = coal && (tx_q->tx_count_frames % coal == 0);
-
-The same double-read shape exists in stmmac_xmit(), stmmac_tso_xmit() and
-stmmac_xdp_xmit_zc(), so a READ_ONCE() there too would keep the paths
-consistent.
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but the commit message states
-that with tx-frames 0 "the coalescing timer armed by stmmac_tx_timer_arm()
-keeps reclaiming the descriptors". Does that hold for the AF_XDP zero-copy
-XDP_TX path?
-
-stmmac_finalize_xdp_rx() is the only arming attempt on that path:
-
-	if (xdp_status & STMMAC_XDP_TX)
-		stmmac_tx_timer_arm(priv, queue);
-
-and stmmac_tx_timer_arm() picks the rxtx NAPI for an xsk_pool-backed queue,
-which is the instance currently polling:
-
-	napi = tx_q->xsk_pool ? &ch->rxtx_napi : &ch->tx_napi;
-	...
-	if (unlikely(!napi_is_scheduled(napi))) {
-		...hrtimer_start(...)
-	} else {
-		hrtimer_try_to_cancel(&tx_q->txtimer);
-	}
-
-so napi_is_scheduled() is true and the timer is cancelled rather than armed.
-
-The end-of-poll fallback in stmmac_napi_poll_rxtx() does not cover it
-either, since tx_pending_packets is sampled before the XDP_TX descriptors
-are produced:
-
-	tx_done = stmmac_tx_clean(priv, budget, chan, &tx_pending_packets);
-	tx_done = min(tx_done, budget);
-
-	rx_done = stmmac_rx_zc(priv, budget, chan);
-	...
-	if (tx_pending_packets)
-		stmmac_tx_timer_arm(priv, chan);
-
-With tx-frames 0 no descriptor carries the interrupt-on-completion bit
-either, so tx_q->dirty_tx stays behind tx_q->cur_tx and the dma_map_single()
-mappings and xdp_frames of the last batch are held until unrelated traffic
-causes another poll on that channel.
-
-This window is reachable today with the defaults, since stmmac_init_coalesce()
-sets
-
-		priv->tx_coal_frames[chan] = STMMAC_TX_FRAMES;
-
-and a zero-copy XDP_TX burst shorter than 25 frames likewise leaves set_ic
-false while the timer is cancelled, so the patch only widens an existing
-gap rather than creating one. Would it be worth dropping or softening the
-claim that the timer always keeps reclaiming, or arming the timer after
-stmmac_rx_zc() in stmmac_napi_poll_rxtx()?
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index efd7bc724ee15d3cc3fe391cc93da334e116df86..c049c3b0637f306c242eb42bc3cc11a333ae012f 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -363,6 +363,12 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sdx75-idp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqm-evk.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqs-evk.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= shikra-iqs-evk.dtb
++
++shikra-cqm-evk-imx577-camera-dtbs	:= shikra-cqm-evk.dtb shikra-cqm-cqs-evk-imx577-camera.dtbo
++shikra-cqs-evk-imx577-camera-dtbs	:= shikra-cqs-evk.dtb shikra-cqm-cqs-evk-imx577-camera.dtbo
++
++dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqm-evk-imx577-camera.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqs-evk-imx577-camera.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm4250-oneplus-billie2.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm4450-qrd.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm6115-fxtec-pro1x.dtb
+diff --git a/arch/arm64/boot/dts/qcom/shikra-cqm-cqs-evk-imx577-camera.dtso b/arch/arm64/boot/dts/qcom/shikra-cqm-cqs-evk-imx577-camera.dtso
+new file mode 100644
+index 0000000000000000000000000000000000000000..791589bc7642ea9edb1b2058bacbd519a1aaf2af
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/shikra-cqm-cqs-evk-imx577-camera.dtso
+@@ -0,0 +1,72 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/clock/qcom,shikra-gcc.h>
++#include <dt-bindings/gpio/gpio.h>
++
++&camss {
++	vdd-csiphy-1p2-supply = <&pm4125_l5>;
++	vdd-csiphy-1p8-supply = <&pm4125_l13>;
++
++	status = "okay";
++};
++
++&camss_csiphy1_port {
++	camss_csiphy1_inep: endpoint {
++		data-lanes = <0 1 2 3>;
++		remote-endpoint = <&imx577_ep1>;
++	};
++};
++
++&cci {
++	status = "okay";
++};
++
++&cci_i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	camera@1a {
++		compatible = "sony,imx577";
++		reg = <0x1a>;
++
++		reset-gpios = <&tlmm 33 GPIO_ACTIVE_LOW>;
++		pinctrl-0 = <&cam_mclk1_default &cam1_reset_default>;
++		pinctrl-names = "default";
++
++		clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
++		assigned-clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
++		assigned-clock-rates = <24000000>;
++
++		/*
++		 * avdd and dvdd are supplied by on-board regulators on the
++		 * IMX577 module from the connector's 3.3 V rail; they are
++		 * not SoC-controlled. dovdd (1.8 V) powers the carrier board
++		 * level-shifter that translates CCI I2C and reset lines
++		 * between the SoC and the connector.
++		 */
++		dovdd-supply = <&pm4125_l15>;
++
++		port {
++			imx577_ep1: endpoint {
++				link-frequencies = /bits/ 64 <600000000>;
++				data-lanes = <1 2 3 4>;
++				remote-endpoint = <&camss_csiphy1_inep>;
++			};
++		};
++	};
++};
++
++&tlmm {
++	cam1_reset_default: cam1-reset-default-state {
++		pins = "gpio33";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-disable;
++	};
++};
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260921135716.218420-1-xiaolinkui%40126.com
+2.34.1
+
 
