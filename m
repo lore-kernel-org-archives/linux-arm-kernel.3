@@ -4,102 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21B8C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 348FFC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3dgsIcDJ8p5ZJDPUatobQL/ESNNZ/DHoKBc/ZFp4ms=; b=3MpT5mtkuJd753mlJ5Awi6QCTD
-	Xvt8VstnE9H6DZpKEKLIuZUJDKDY+ZXxv3o4mDVEKqP6Hrv5Ja6AXaDnDoLnSvxBnch8PHOBPvQj6
-	0XXIW6eHzt8LmzFLtZPiiWZaY+4GRpakJsRVcjSDmvr6VP9QJg1In2LBl7RkhPwobAE4NHZBr2OBK
-	J8SSNtk75ustWp3r+p65U4JRel9B1oNwVT7oXRhhm57CrnQPnHvDvBPHHogpvR5g/fzGSsdasm1j+
-	lAb28HaI0MkwXjySneTZttY7zlifjlgD8MfA4sLNO9ENgnhZDIHxANyLGKb7jIu/es1yjd49s97qU
-	YBA6GTzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LaXMNwfNswYaBJoj+BNOgP7lEWVtXtxpSxE8wWnke5E=; b=SGPiPS0BF79Sm6iOtUeyGRd0lO
+	jKIF9FAxd0awEgkkASxImwjsi6SPW2Umga+qlECJZDbW8DmAQ1DiyYbve5pwItxmMd6iUMf92uXcC
+	zhOrAXVlHKqcZOGDgt/hIJpzFJZKqUFTqqDCRuu5YG7LmWu0M6ZA+z3PTTX8cR2H/8A2AtEH25Ika
+	wWSEw1zatPx0p1eXsqx/MNigWi+zWpcJ3i4MLbyCcoTjCrqN99C4JS5Y5AHjf89K25gK90oJ5w/4N
+	BYodcR2972zL9FBSAt+/TWrQrBtrzke+SWZ5E5Hc071UFckB0z1p2EowqOlw7SZLmSzak1C4u1E65
+	ZJZrRadQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PMm-00000008p6r-1kQK;
-	Wed, 23 Sep 2026 15:58:40 +0000
-Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PMj-00000008p6D-3Hgc
+	id 1x9PSB-00000008pcF-08Ed;
+	Wed, 23 Sep 2026 16:04:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9PS8-00000008pbu-2HJX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:58:39 +0000
-Received: by mail-yx2-x10.google.com with SMTP id 00721157ae682-85d43f9b119so19262107b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:58:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1790179116; x=1790783916; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W3dgsIcDJ8p5ZJDPUatobQL/ESNNZ/DHoKBc/ZFp4ms=;
-        b=mEKnmBI9t7pXs5QFhRyz1qQJEVK0j3b8MYB3MYoZepuGjJ5ihcbXda3DpKllb6fRFX
-         rInlprLWQyH7cGdKbuhDSuGP9KB5gOn+fU8fPgukXjmi1YlglR32qSc/BmB0glZafp0r
-         hFINquv6BAcutSsHVQLPyiJfDVWRvxosYe1MCvvBzyW3GkiXr6G490SMSNz668flZpLK
-         d8uSr36Km12QsXvkc5RPnEE+bNpInOLwT1X0SAgaO9/CppR6dSwUpY0AXvG6Yd5enNfr
-         3bNp0UHdcwvZn91zgCwN+ambuTUyBUw2jsgB0Ij+F790SNFjYSxRQoWHNiX9Dfqe745i
-         eZXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790179116; x=1790783916;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W3dgsIcDJ8p5ZJDPUatobQL/ESNNZ/DHoKBc/ZFp4ms=;
-        b=bDkiukBxZzvUPuiQOnBOVvAmCOJNhhgXHDd9a1OaXshgD4UFy4CNS5EYDZA5D8Zm26
-         /5UzG3cCQ3vg9OUwRJ0xYf1ZLH8HjjVttmUPQBcoKKpzZaEhi6hbk7yZkgSW9vLJxZuv
-         OgpOXE4lcNGr+/eFTVbGlGFeoZTPIvuy0KdXy9vAjdV5nVCR7tXT/CDTzVDamBpl7er+
-         W/e6/sR5OfcW7vifMNqZW7KwDI386roN6i2bUd94BwO5I+PLOf2UGMg6ER9sgGlc5oQJ
-         QvZdcvTIawGOEHulJpfCTDIrKQiKf6tkRLNZDm6/LogRs5k3t2zhHEyLBNrkZUyyrNVV
-         NwZw==
-X-Forwarded-Encrypted: i=1; AKwUvBwuvQkD8SZ7slgmdPLStuzoBx7IaCSNQbc9sd4DPR+cT0qr3YrS3sSZxFF4QpLzaUAIxe74fuh+gzgBOFrsBoo0@lists.infradead.org
-X-Gm-Message-State: AFuF++kEWPa9bD+9ZyDhwo7R0o+e4FwK1SRMYGHNvbfFtC2x8gBRdSwE
-	9yixSxcBV1yzgUXFRWLAck3bEF7ciAfvqXEtDgdE83YCfGdpRqAph+ixCHjZk6PsclM=
-X-Gm-Gg: AYBFou0Hi545NQ/GHpyXUQHGmPJpOjFRmyTM2cS5JynItNJOPQhd6DpmJpHu7oSI5Lr
-	SiUyCtKYBpml5BWMlhWSD6bHnIHhz+QSluBooklibtiwkSdkCpMF4TuGslVlZzp2GiPj3/4S1xN
-	nzFYb9DKJaJL8GlVqawm/Ft0Fv7lLMtMMyfeTe+fdegS8gpiDn/V+pAE1jxvhHoCCXRN9zQIdLz
-	w4/5lM8JNoRJjNVNXMGEoUAZ7wJaQhmMOB18/fZYcnSZ7ct0FxGKFmKWoj9KR36dNgXNCvYhVGP
-	L6pjJvk8W5nHlQbZu/zXt1c0wUEkU9JucZP5eyhXtcSbOj0VGOQ6id66elS+M+VgAa9OWT8M6Ta
-	Dd7wDhfWh/5xdo0M6h8vnnI97xZyN2ZuL8BMiBi7RJq1ApCnTVqokqVkJLBtjlZXbK631FzSQKF
-	j4QxPayb61gMqWxXnDOBSf39Lefm81OdX3WIBv6KIc5XmP
-X-Received: by 2002:a05:690c:f07:b0:89a:63da:fa90 with SMTP id 00721157ae682-8a45bb7ceb7mr18084857b3.75.1790179116666;
-        Wed, 23 Sep 2026 08:58:36 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8a4658c72f3sm11900977b3.17.2026.09.23.08.58.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 08:58:36 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x9PMg-0000000DwaY-36Ny;
-	Wed, 23 Sep 2026 12:58:34 -0300
-Date: Wed, 23 Sep 2026 12:58:34 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v6 0/9] coco: guest: Enforce host page-size alignment for
- shared buffers
-Message-ID: <20260923155834.GK1540250@ziepe.ca>
-References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
- <aq1sT2EDsGaomqST@arm.com>
- <20260918165754.GG11599@ziepe.ca>
- <yq5ao6do36jk.fsf@kernel.org>
+	Wed, 23 Sep 2026 16:04:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CCED1570;
+	Wed, 23 Sep 2026 09:04:07 -0700 (PDT)
+Received: from [10.57.8.94] (unknown [10.57.8.94])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB7A43F86C;
+	Wed, 23 Sep 2026 09:04:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790179451; bh=LypSKbP3j1z/OluSZ8QgXPhuhfs8wposHBwrrJn+Pdk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KOsuIYT7/OTV9MNcwsKRHBPb9lZmEF5HNpqf3oja3i9mkeb6DrOC+3m7Gx/3iPPwI
+	 HvW+L00xnoSRguEbxi+qnFypGWzRg+ETkljCS43h5pYPbWjQYSvYFQTziRa16jhKTq
+	 GvV3m4USV360TJbc+TcbqTVHe+pRo8U8KRVhPexE=
+Message-ID: <49dcab27-1d03-4df2-b7cb-4df4eda6d909@arm.com>
+Date: Wed, 23 Sep 2026 17:04:06 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5ao6do36jk.fsf@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
+ yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+ gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+ alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+ lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+ <arK3tsTV6EDhI-nt@willie-the-truck> <arOyp8WUrYBAjrGH@arm.com>
+ <arP0IF0MjFUv36AP@willie-the-truck>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <arP0IF0MjFUv36AP@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_085837_883925_5EB1F403 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260923_090412_772947_23A8E254 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +78,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 10:31:19AM +0530, Aneesh Kumar K.V wrote:
-> Jason Gunthorpe <jgg@ziepe.ca> writes:
-> 
-> > On Fri, Sep 18, 2026 at 05:52:31PM +0100, Catalin Marinas wrote:
-> >
-> >> TBH, I'm tempted not to support this configuration at all, just fail
-> >> gracefully if the realm page size doesn't match the host's. However, if
-> >> that's a real world configuration, 
-> >
-> > realm != host is going to be fairly common.
-> >
-> > host > realm is probably not that common, I would guess.
-> 
-> Wouldn't it be more common to run a distro with a 4K page size as the
-> guest on a custom hypervisor with a 4K or larger page size?
+On 23/09/2026 16:45, Will Deacon wrote:
+> On Wed, Sep 23, 2026 at 12:06:15PM +0100, Catalin Marinas wrote:
+>> On Tue, Sep 22, 2026 at 06:15:34PM +0100, Will Deacon wrote:
+>>> On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
+>>>> From: Steven Price <steven.price@arm.com>
+>>>>
+>>>> If the host attempts to access granules that have been delegated for use
+>>>> in a realm these accesses will be caught and will trigger a Granule
+>>>> Protection Fault (GPF).
+>>>>
+>>>> A fault during a page walk signals a bug in the kernel and is handled by
+>>>> oopsing the kernel. A non-page walk fault could be caused by user space
+>>>> having access to a page which has been delegated to the kernel and will
+>>>> trigger a SIGBUS to allow debugging why user space is trying to access a
+>>>> delegated page.
+>>>>
+>>>> There is work in progress to unmap the guest_memfd backed private pages from the
+>>>> linear map. Until we get that support, we could get spurious GPFs from within
+>>>> the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
+>>>>
+>>>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>>>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>> ---
+>>>> Changes since v17:
+>>>>   * Pass untagged address to die_kernel_fault() - Sashiko
+>>>>   * Explicitly check !user_mode() for fixups - Catalin
+>>>>   * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
+>>>>   * Clarify the commit description about the upcoming work on
+>>>>     unmapping guest_memfd backed pages from linear map
+>>>> Changes since v16:
+>>>>   * Update the commit description to indicate why we try to fixup GPFs
+>>>> Changes since v10:
+>>>>   * Don't call arm64_notify_die() in do_gpf() but simply return 1.
+>>>> Changes since v2:
+>>>>   * Include missing "Granule Protection Fault at level -1"
+>>>> ---
+>>>>   arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
+>>>>   1 file changed, 24 insertions(+), 6 deletions(-)
+>>>
+>>> I still don't think we should do this, given that the plan is to unmap
+>>> the memory from the linear map. If this thing fires, it's a kernel bug
+>>> and it should be fatal.
+>>
+>> If the linear unmapping gets merged first, I agree, no need to handle
+>> these faults. I haven't followed that series, so no idea where it is at.
 
-Maybe someday, but right now I think the 4k hyp is going to be common
-and people who really reach for 16/64k are going to need to run !4k
-guests too.
+There doesn't seem to be much progress on that series. Brendan
+volunteered to resurrect the series, taking over from Nikita [0].
+But looks like Brendan is not working on this anymore. Will see
+if someone is really planning to look at it.
 
-Jason
+[0] https://lore.kernel.org/all/DJJ35VLH2PE5.DFD8OYXEOH97@linux.dev
+
+
+>>
+>> However, I'd still keep part of this patch - the reporting and panic but
+>> without the actual exception table recovery. There's some value in
+>> killing user-space and WARN (or pr_ratelimited) without a full panic, it
+>> helps with debugging. That's what do_bad() via arm64_notify_die() gives
+>> us currently anyway.
+>>
+>> So maybe we can keep it to just:
+>>
+>> static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
+>> {
+>> 	if (user_mode(regs)) {
+>> 		pr_alert_ratelimited("%s[%d]: granule protection fault at 0x%016lx\n",
+>> 				current->comm, task_pid_nr(current),
+>> 				untagged_addr(far));
+>> 		mem_abort_decode(esr);
+>> 	}
+>>
+>> 	return 1;
+>> }
+>>
+>> and we get the SIGBUS or panic via do_mem_abort(). No recovery for
+>> uaccess though, we get the same kernel panic.
+> 
+> But how can this ever occur in user mode? I'm fine with making that part
+> unconditional.
+
+Agree, if the user mode can hit this, a page is mapped in the EL0 and
+it can as well cause the Kernel to hit a GPF.
+Also if make the handling unconditional, we end up calling
+die_kernel_fault() and that does the mem_abort_decode() causing
+duplicate logs.
+
+Suzuki
+
+
+> 
+> Will
+
 
