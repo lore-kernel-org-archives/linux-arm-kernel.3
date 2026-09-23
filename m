@@ -4,147 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A87ACC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59433C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2eZDrdAGxFxQ/Gbi5B6A4H47ftvNX3N4alF51KxrXKg=; b=eZIYA8UhXZ/lYE82UeaYtZt38l
-	+9jKgU1O3nDNnc+Mv8r+giLIMfvuL93aBdlgQtVvdyQPA7RUZtsTSf22U0k1HBQPDlYzB+jSOhhsx
-	OtfX4pR6OsI6ADfhzw1MCQ5sjDErkg2udt0/FLgxQJr/mjQoDXYbF8kLyybq4cvHpcEkNjWwyxMEy
-	IeBfr67FK40J54v8a7K8TVz8tga3ijh1wVeo9W58CxYxLhaPsgpU2eoH1NzEI86a3++jLlhqgRYOj
-	9E7AxQvHG2hn3geFKZLLhCp9RdvfWxJc+oy6FEKuvQLHSzsMaNPPUdQtFoG5FZUQb4L59Y1auvode
-	OHX4naPw==;
+	bh=ITPeh9H1tNx91CYU+leQL4yMJzzIs7bIdWbo9GyUbVQ=; b=f4PxLINqQl0qZ20HXIA8SYLKZU
+	lbjnT/lmpv9l0igV/APZJ7/pBrs/YS3HiQfHzwr+ftSQWKYLwTrSI9gnl52bGwwvr6oNiUVhvpw21
+	StSe2BsaZvFjWivKVzr/Y/RWxnqLK34kMmd1XVIShe9ZT6tYgC8hxFM0mCgKv8cAxdFJ2UG/XVmDJ
+	/aBPXA8oDYIml19RbCvJlrY1HnFx6Rto1XMGGl/o+5jfvCefTcrjKBJlVT+NV4SjVdGTK1uoxd7yj
+	BQ00/pO4gr7ioc/kJCyjUhRO44UL7bPrkmSBu30Ms5nkmYR1Dk3q2pMVO5futCsmNnAaAxakTSQkn
+	4o0Bx52Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TEn-00000009Ob1-3BVK;
-	Wed, 23 Sep 2026 20:06:41 +0000
-Received: from mail-northeuropeazon11011043.outbound.protection.outlook.com ([52.101.65.43] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x9TFW-00000009Oms-1jZD;
+	Wed, 23 Sep 2026 20:07:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TEi-00000009OZ7-1ZMF
+	id 1x9TFP-00000009Ol9-0gIw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:06:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n1W/13/ek3bPyJw/3Riv3lWpPFjL1wgukvVxtgykHiOQiNwJKZxOlH+w2sHK1XULUPg2sXdCRut+8BjdtZFS+UYUsl7tmXcRpBcLvwIzNnHzEz3j49LercsWDXgsyb3vnCF5WW3+yCVKSmMdlS7oM7xBiHbvuNYh8P681wPKCkRN4OBbPFtd6pheiIs0qm3B+64tXwTYlMwVv/oAVBkCP01oGPA/vcPg2t6h9LQ+DReRyCzgcphxB3+YG4MIVeCQix8csrKP8b6X8qfIFeKeJYEZ87ZdOiydXN4blswpZcdUoIHnDVyU5MKZJQOp9lvy+YaHtp9/X0aq5gf0n9guTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2eZDrdAGxFxQ/Gbi5B6A4H47ftvNX3N4alF51KxrXKg=;
- b=dlk+Y5KsFpxSfl7kgCVBn0iGsJBmdHmF/8adVl1HQN1+Ns+8Ng2Rih/dK8jN3QBdLMNO0ArhtekNkbfBZARGsdmcKspqZL1YMHMpNYcQbb7i1hZFIT5wmNr/BqZzRuK1WoBeK0hDDc33xbPyhs2pUA+9HgalTAv4hP7rfQHfj0vIHGFkTuQqVuM2mJMHyxLfFi7xHz1oIPQmAsZEuADWyde3oeAGlfVQBzapGQPDCH8VizzdN7Q5vBca/9NKflHwSAJ1EN/W2TJkeXZV2WdJ+qPK2bhacYtr8pKKaFz2vg958DBzQpXvf+t/tzsxZwEzgmcusH4TcSFsqHmHaX/WWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2eZDrdAGxFxQ/Gbi5B6A4H47ftvNX3N4alF51KxrXKg=;
- b=T42ODCfPXroFHrxI8O4BgATFykQ8OZUIqa8obQVZlZaIBEH3I2znU1Mf1SqX/wwQA5KGViYsk/yHEQGvj2ohoQmztXcgIJo4YFNXu7HEJFfbUUbqOhXVvmgkho/bE+MmZphA0pB19AJaeaGxt/9ldBVSWMG3eQRjjDlYJl29dqrubyWW+SI9QrVomFXQG3mJCdauL31GY9onntga3OsVkTHQCcpXEHvTrY8ZZq/AqSQjkUrE4bI5ThloJor3CGH2sFildelI4jG5+cvzK9+OwE2u9gBS56n1alVct42/yEv1z0crCjYFUiFeyN8lWnQlNBRioVft61BsxFOwNZgDjQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU7PR04MB11089.eurprd04.prod.outlook.com (2603:10a6:10:5b1::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
- 2026 20:06:31 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
- 20:06:31 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco@dolcini.it>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: enable Wi-Fi SD interface
-Date: Wed, 23 Sep 2026 16:06:22 -0400
-Message-ID: <179019397478.3738924.8779081389570740062.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914175027.9097-1-francesco@dolcini.it>
-References: <20260914175027.9097-1-francesco@dolcini.it>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH1PEPF000132F9.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:518:1::2a) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 23 Sep 2026 20:07:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790194038; x=1821730038;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=b+ZUpGa6QtP4h3zRO5IzpXHWnWQVoqpgBJly0o9sNe0=;
+  b=fmRrUPIJYt7I+e7xCYRXJwDjgufXUHFPh+dR9W6oelonhKUuP6+V/7IA
+   pNKRMJQKHZVt0ED8lyX0d8oue3VRylMuap2SmMWuoVThIazsfQOBHw9Nc
+   DP9/upc/SXEe9YUR3ArUC3D9m7ytMlUnCklplEXtDPmwg2s9eBvZ+wVVX
+   kg87GJ2YzwlLPg8qagdawEXYHSQvr4EOVNgX7Ja1OoQZX5f81HSg8tl1E
+   jZ2wTG3iCQXQcaKmpwbZ74xZkKq3rjs9hwrWHmd0agXF6ycJ0hggnY5Hp
+   DD2QeF4iq6BZciPufV2h5mgQ9bwim5l9JjIrewfto2Q1Fiqe4OyVq+hyY
+   Q==;
+X-CSE-ConnectionGUID: 01StXGozS7CH3JLmiR1lmA==
+X-CSE-MsgGUID: RWHogFk+QJSGEEvDe4k/Pw==
+X-IronPort-AV: E=Sophos;i="6.27,119,1787036400"; 
+   d="scan'208";a="74201924"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Sep 2026 13:07:17 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 23 Sep 2026 13:07:16 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 23 Sep 2026 13:07:12 -0700
+Date: Wed, 23 Sep 2026 22:07:12 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Simon Horman <horms@kernel.org>
+CC: <netdev-bot+sashiko@kernel.org>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
+	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
+	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v7 11/14] net: lan966x: add PCIe FDMA MTU change
+ support
+Message-ID: <20260923200712.jirfdepdpv5vm45m@DEN-DL-M70577.microsemi.net>
+References: <20260918-lan966x-pci-fdma-v7-11-0ecc179c8a2c@microchip.com>
+ <179008205354.2160803.17637640817184992984@kernel.org>
+ <20260923094622.gmxyw46ligz4rsyd@DEN-DL-M70577.microsemi.net>
+ <20260923193929.GW13925@horms.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU7PR04MB11089:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5cc485e3-aa29-494f-e48d-08df19ae28e0
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|19092799006|1800799024|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: KvQYsAeXhIWyweFljZmHizyhl2EF4yz9mpZrRQpuEN60NzGU5aJBua94P9b9N/mvB0KYPLP/yKTiD/z5pq/gVjpnnMLJbdmr26pAvRGdBwWAebkuhNrAf9TcmBOBua7uaILtx+fOqtSzOjbPWe/qiEgUr6wkbxMFiMvyvN+k8y8nVyCHzp93UBq3yqCPBsivN6tlIR1urTuXRTaCu356pe4UKCP/0tQGfwGfdKe/t8C0VMaPOaYrsjRTmePNF5H8YXuCm03SkocEOAjOICXW6xmuaGpC+C5PCiUOUyNw+JJNJdnFVVOlIFtRfAg5cjxteW7VNZvmSjPYNBRxLK8V4QeltoisPgL9Q+3g32T2Hj1zMrWGiXb6yvCXXuvsUHg9bPEr6kmpORWqzLr3bJxNbdC1iDzh5Haa3lnW8kQqulPbJAKP0YluRpxOj3OTiT+64ZuLd1XS3JIARduckzg+BZiEa/xZOw9OUKpMmoKxnSArwF3MkDkIKBuXF9/ATAa2lGdzDXl98rYQH79rmvQtjCOutEOCOjrtQnIENOPLjN3om4zi4CAcX+bFj98dMQNs3TvZ6O/39f2lhmoMIhMYIcBrglphTQgKuD6i8YvdLaZndjf85c68obYNUBO5RgK82ud3qhsJlzF+LmmCImjc4DVl8CuNXvSoGujC3DNvrIQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(19092799006)(1800799024)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U212Sno0SDIyOGt6c3NyK3pZTW5XekNRNjRzNk1oRTBSSjFCNEVxSllJby93?=
- =?utf-8?B?Y2pqMjUySWRWMkYxZjcxZVpjbFpxNGUvbUM5MDQ5bUJvY3hyRVcrZVhQLzlm?=
- =?utf-8?B?U3h3aWtVTTVDQ1JUUit4dVJGVnY3ajNDZG4vVG5zcWt2dFBsd2F6cHh2MjZJ?=
- =?utf-8?B?T1J4UUNoM3JHTUQzZjJJWm54VEVmQ3RzOXRpWFU2dlF3RlYwVk1QY1pwd0ho?=
- =?utf-8?B?a2pZNkpCMEhWd01RalNjbHQ3TlM4YUVMaWJ3QUlJQXVYMVNOWG05T3laOGV5?=
- =?utf-8?B?bndGQkpwRFg3bk41MjRadFBIeE9DdGpkSjV0S01RVVV1S3B1djRmWklvZHNC?=
- =?utf-8?B?WnpYajJTc3h4ckk3Sy9KSFN3dlgxUmx5cU1TczN0a2hhZWY0TWVVUmlIRmNQ?=
- =?utf-8?B?NVZtRFBWc0NrU3dQSlhSR1FQRzRBWDNITVA4UnA2Zm5iazErTkFpVHhBTmto?=
- =?utf-8?B?dmxCdjJETzJxVVhVWmRCTzlLZHZhTDk1NitUWXhrZzhESVJKb0wySnhIM0ll?=
- =?utf-8?B?VWR4R25zTFd6Q1c2K1FSaVJzS2xiUzA4cXFTUjZDaXQxc2xyMUc1eG5JV1Jy?=
- =?utf-8?B?dHRyUXYzSVZnWXhCZExZSlp4Nk1Ba1FqNTBEVzlUc1FEOXhLSklwTHhJUFRq?=
- =?utf-8?B?M0NjR0tkcmdIN2FTTE9WeTdkaEVhMWhqcFpTYmxxaHNkYUlHcTdKaDJLMms0?=
- =?utf-8?B?SFdUUkZEcjE5MkQ4VWExa0lJU2dWSDhUNHZIUFFxQjk1akhnV0psOGYyQitT?=
- =?utf-8?B?VVMyMUJvZWhIK2dBbVdEZm1sM2F5V1lNR3h4YzRoUU1LeXF5Q0RlYmloempM?=
- =?utf-8?B?dHYwMm1XVGJxR2JTQWtUUDBkSWlmbGxBajNnYUdIZFVCdXdhTmVUaDFXR2Qz?=
- =?utf-8?B?R2RkdVViMlFNc3JPbUYvNmQwZlp1SnVrZHR5a1ZVV2kvWWZpZVhiT3NSdTVy?=
- =?utf-8?B?dWNXUmEvY1dKeVNQcWNSU2FvcVJCclFtY3BHNjJlTXZ4bWVuSCtMdmtPVGxu?=
- =?utf-8?B?RkxzbEEyeG5mWVdOYnRDMExSRXE4Z0RmZmJEZ2xkb3d2ZFZRa0RvSG4zZFpr?=
- =?utf-8?B?K1Q0T2UxWEh4WWRHd1FmSWFEc21GdEp2cW04ZHd1dkNJV1hQbnZZZmdvelZi?=
- =?utf-8?B?aVhnL2QrVEJUa2hNOHdDdzZlR3dzWnNDSVNvSytLdFVUMG5wMEJ3cnVXcWI4?=
- =?utf-8?B?b2NjMmdHNGV3MWNrd0VZSnFSUzcvMXhOQnpCUXRNVGI3SXdEOEVndWVwYzZj?=
- =?utf-8?B?TVdQNURGMmk2cDNsZElyenZpNkpIMUpqdUNmK1haUkJMdTdQNmhCMmowZlBD?=
- =?utf-8?B?N1JMR05vSmpNY1czbVgrVGQzRkI5U3B1QUZ0UnluZG9jK2w2QzVPUHZsbzZm?=
- =?utf-8?B?eGFyQ1B6QUpudFRza0o5THNCRGpXTEZNVDFMUjJqcWk1QnRXRXR1NXFXakha?=
- =?utf-8?B?WEdaRG9QekRiTXdCMUJjdGtEUUxRRGcyMFViYUZPRE81QVpjSjRaSy9UOWRI?=
- =?utf-8?B?NHB4UFpoc3pXcWhNKzZlUzRqaHdMYk1yTmhtV1JCVEkveFFnY0hpZTdIRnY3?=
- =?utf-8?B?cmVhMTRQR1owT0VRYjZhMUZXL2xNUzBCcFAwbk1TVzNiM2lPNXdnQWdnT3lw?=
- =?utf-8?B?eXhKVi9IejNFd2pLanBlWkEzUkdOOVVFR2lsQWpoT2t0UUNPVEJqcmRNaFY0?=
- =?utf-8?B?a0JsdDVvYWg3ZzBrd2N0V1hGd2hiS1djZUZSaE5xMzYwR0FsTWg3bTZkN0Qr?=
- =?utf-8?B?QUFsMUEzZmdPeXJkeGJ1Q09pSmt6azRFdi84dmVOSzdKczRUTk5rUm9GZUFM?=
- =?utf-8?B?MTh6ZEpFMFNqNzBzdlhFTFA5SHVIQTBzWXR1TlBNNDYrMDZWQW5mZ2c1Mnlu?=
- =?utf-8?B?b3JpWWQxcGJUYmgwazhPWktkWXV1MGdPbDk1ckpwSmd2YWR6TmZIK0ZKS255?=
- =?utf-8?B?TzVuMy9iQVhaY0tLMmVLTTB0WG5BWkJCK3I3MjRCYlVxS2ZieFk3UFFlalJW?=
- =?utf-8?B?RnkrcFQvVWVnNXNDNks5bXBVbk9oKzNGR2poTDhBd1E4dGdhYVJldXBmU29u?=
- =?utf-8?B?clNBNTN0WWsxR1lOZzlCT05OZHAwcjFmZmRtL044M3gzajVacjJ1NEFza0Qw?=
- =?utf-8?B?UGFpQjBLSzBBbmk1dHk0SHhTSlRXM3M5bWFZUHJJQjgvYUxTNi9PS3luQitI?=
- =?utf-8?B?WHZVZ2FLWDFublR5YXNpZFBjTlNmWjBsR2orM2tLSFh0WGNyWXM1UXBESVkz?=
- =?utf-8?B?Vk1Oeit6enJoRVFBcHNoTTk4TDZNSTJIZUhKQjZ0TnZrbWJScGU2MXdkcEEx?=
- =?utf-8?B?OVRCc09FVS9BQ1hnYVREK3Q0TEEybEhoVS9qRzFQeDA2aGV0a3luSXh3a3RO?=
- =?utf-8?Q?sycB1UxKnWZwBZE8R+FSPfyhFmGdyQqBaBg96?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5cc485e3-aa29-494f-e48d-08df19ae28e0
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 20:06:31.2431
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Sl/NT8w+y/ag2SC09mree2em3q97c0OYvyUDJ7sqSTj4z5CVQk/PbyRIIyqNPp0DmTjurule19eFt9IyKZcLlpN0DA6+UFrdeDOj0Um7lOn3hIW10WVdLOiZg3SHNPjT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11089
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260923193929.GW13925@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_130637_532105_B73E35C1 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_130719_608843_02E0FFB6 
+X-CRM114-Status: GOOD (  55.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,19 +96,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+> On Wed, Sep 23, 2026 at 11:46:22AM +0200, Daniel Machon wrote:
+> > > Thank you for your contribution! Sashiko AI review found 4 potential
+> > > issue(s) to consider.
+> > >
+> > > Critical: 0 · High: 2 (2) · Medium: 1 (1) · Low: 1
+> > >
+> > > If you believe none of the issues are legitimate, please reply to each
+> > > issue of Medium severity or higher and explain why the AI is wrong.
+> > > If any of them are legitimate and you plan to respin, please let patchwork
+> > > know by including "pw-bot: cr" as a separate line at the end of your reply
+> > > (one such reply per series is enough).
+> > >
+> > > - [High] MTU change during or after PCIe FDMA teardown runs the full
+> > >   reload on freed/quiesced state: unbounded napi_disable() while holding…
+> > > - [High] The new resize readiness check publishes lan966x->rx.lan966x
+> > >   before the PCI FDMA rings exist, so an MTU change can race with ring…
+> > > - [Medium] The new PCIe resize path retires DMA rings and tears down
+> > >   their ATU outbound window without ever confirming the hardware is…
+> > > - [Low] FDMA_PCI_DB_SIZE_MAX / FDMA_PCI_MAX_MTU perform unsigned
+> > >   arithmetic with no underflow guard and no BUILD_BUG_ON, even though…
+> > >
+> > > Pre-existing issues:
+> > > - [High] The hazard the new PCIe reload path documents and avoids is
+> > >   still live in the sibling platform reload path, which this series…
+> > > - [High] The two implementers of lan966x_fdma_ops::fdma_resize now
+> > >   disagree about the 'rings not built yet' precondition, and the…
+> > > - [Medium] Window in which DEV_MAC_MAXLEN_CFG exceeds the DCB buffer
+> > >   size, combined with a missing SOF/EOF check in…
+> > >
+> > > --
+> > >
+> > > net: lan966x: add PCIe FDMA MTU change support
+> > >
+> > > This adds MTU change support to the PCIe FDMA path by reallocating the
+> > > contiguous ATU-mapped RX and TX rings at the new size and falling back to
+> > > the old buffers on failure.  It also caps the PCIe DCB ring at 256 entries
+> > > and advertises a derived dev->max_mtu (FDMA_PCI_MAX_MTU) when the FDMA is
+> > > in use.
+> > >
+> > > A few questions below about the new reload path and the new size macros.
+> > >
+> > > > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> > > > index 5d6902459f20..940425beec2f 100644
+> > > > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> > > > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
+> > > > @@ -358,7 +358,7 @@ static int lan966x_fdma_pci_init(struct lan966x *lan966x)
+> > > >       lan966x->rx.lan966x = lan966x;
+> > > >       lan966x->rx.max_mtu = lan966x_fdma_get_max_frame(lan966x);
+> > > >       rx_fdma->channel_id = FDMA_XTR_CHANNEL;
+> > > > -     rx_fdma->n_dcbs = FDMA_DCB_MAX;
+> > > > +     rx_fdma->n_dcbs = FDMA_PCI_DCB_MAX;
+> > > >       rx_fdma->n_dbs = FDMA_RX_DCB_MAX_DBS;
+> > > >       rx_fdma->priv = lan966x;
+> > > >       rx_fdma->db_size = FDMA_PCI_DB_SIZE(lan966x->rx.max_mtu);
+> > >
+> > > [Severity: High]
+> > > Can an MTU change race with ring construction here?  lan966x_fdma_pci_init()
+> > > sets rx.lan966x before it fills in channel_id/n_dcbs/n_dbs/db_size/size and
+> > > before the two sleeping allocations in lan966x_fdma_pci_rx_alloc() and
+> > > lan966x_fdma_pci_tx_alloc().
+> > >
+> > > The netdevs are already live at that point: lan966x_probe() runs the whole
+> > > port loop, including lan966x_probe_port()->register_netdev() and
+> > > lan966x_port_init()->lan966x_fdma_netdev_init()->netif_napi_add()+
+> > > napi_enable(), and only calls ops->fdma_init() afterwards, without holding
+> > > RTNL.
+> > >
+> > > So an rtnl-held ndo_change_mtu in that window sees rx.lan966x != NULL, passes
+> > > the new guard in lan966x_fdma_pci_resize(), finds a max_mtu that differs from
+> > > the partially initialised rx.max_mtu, and enters __lan966x_fdma_pci_reload().
+> > > Both contexts then write the same lan966x->rx.fdma / lan966x->tx.fdma:
+> > >
+> > >   lan966x_fdma_pci_reload()
+> > >       lan966x_fdma_rx_disable(&lan966x->rx)   /* channel_id still 0 */
+> > >       lan966x->rx.fdma.atu_region = NULL;     /* under probe's feet */
+> > >       lan966x_fdma_pci_rx_alloc(&lan966x->rx) /* second ring */
+> > >
+> > > Does this leak probe's ring plus its ATU region (only
+> > > FDMA_PCI_ATU_REGION_MAX == 6 exist), or trip WARN_ON(fdma->atu_region) /
+> > > -ENOSPC in fdma_pci_atu_region_map()?  And on the failure branch,
+> > > lan966x_fdma_pci_reset_mem() dereferences tx->fdma.atu_region->base_addr,
+> > > which is NULL in a snapshot taken before probe allocated it.
+> >
+> > Yes, same issue as adressed in #4. Theres a race because netdevs are registered
+> > before initialization (in this case FDMA) has happened. The proper fix is a
+> > reordering of the probe initialization.
+> 
+> Hi Daniel,
+> 
+> I'm wondering if you could expand on this a little. I'm unsure what #4
+> refers to. And I'm unclear if you are planing the reordering as part
+> of this patchset.
 
+Hi Simon,
 
-On Mon, 14 Sep 2026 19:50:26 +0200, Francesco Dolcini wrote:
-> Enable usdhc3, used for the on-module u-blox MAYA-W260 Wi-Fi/BT module,
-> it was left disabled by mistake in the initial commit.
+Yes, sorry for being vague here.
 
-Applied, thanks!
+#4 refers to patch 4, where I explained that the issue reported there was really
+due to the existing probe initialization order and netdev registration order.
+Sashiko seems to report multiple race issues that can happen since the netdevs
+are registered before the HW is fully initialized. This is real, and something
+that needs to be fixed, just not in this series, IMHO.
 
-[1/1] arm64: dts: freescale: imx95-toradex-smarc: enable Wi-Fi SD interface
-      commit: b91cb164517d6cfbccd8bedad11827d8ea3bcb97
+For Sparx5 and lan969x, I fixed this not long ago, and made sure that netdevs
+were registered last in probe, as they should be. Now, lan966x should get the
+same treatment, as a separate fix series for net. :-)
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Thanks for the review!
+
+> 
+> >
+> > >
+> > > [ ... ]
+> > >
+> > > > @@ -391,9 +391,156 @@ static int lan966x_fdma_pci_init(struct lan966x *lan966x)
+> > > >       return 0;
+> > > >  }
+> > > >
+> > > > +/* Reset existing rx and tx buffers. */
+> > > > +static void lan966x_fdma_pci_reset_mem(struct lan966x *lan966x)
+> > > > +{
+> > > > +     struct lan966x_rx *rx = &lan966x->rx;
+> > > > +     struct lan966x_tx *tx = &lan966x->tx;
+> > > > +
+> > > > +     memset(rx->fdma.dcbs, 0, rx->fdma.size);
+> > > > +     memset(tx->fdma.dcbs, 0, tx->fdma.size);
+> > > > +
+> > > > +     fdma_dcbs_init(&rx->fdma,
+> > > > +                    FDMA_DCB_INFO_DATAL(rx->fdma.db_size - XDP_PACKET_HEADROOM),
+> > > > +                    FDMA_DCB_STATUS_INTR);
+> > > > +
+> > > > +     fdma_dcbs_init(&tx->fdma,
+> > > > +                    FDMA_DCB_INFO_DATAL(tx->fdma.db_size),
+> > > > +                    FDMA_DCB_STATUS_DONE);
+> > > > +
+> > > > +     lan966x_fdma_llp_configure(lan966x,
+> > > > +                                tx->fdma.atu_region->base_addr,
+> > > > +                                tx->fdma.channel_id);
+> > > > +     lan966x_fdma_llp_configure(lan966x,
+> > > > +                                rx->fdma.atu_region->base_addr,
+> > > > +                                rx->fdma.channel_id);
+> > > > +}
+> > > > +
+> > >
+> > > [ ... ]
+> > >
+> > > > +static int lan966x_fdma_pci_reload(struct lan966x *lan966x, int new_mtu)
+> > > > +{
+> > > > +     struct fdma tx_fdma_old = lan966x->tx.fdma;
+> > > > +     struct fdma rx_fdma_old = lan966x->rx.fdma;
+> > > > +     u32 old_mtu = lan966x->rx.max_mtu;
+> > > > +     int err;
+> > > > +
+> > > > +     napi_disable(&lan966x->napi);
+> > > > +     lan966x_fdma_tx_disable_netdev(lan966x);
+> > > > +     lan966x_fdma_rx_disable(&lan966x->rx);
+> > > > +     lan966x_fdma_tx_disable(&lan966x->tx);
+> > >
+> > > [Severity: High]
+> > > What happens if an MTU change lands after the PCIe FDMA has already been torn
+> > > down?  lan966x_fdma_pci_deinit() disables NAPI and frees both coherent rings,
+> > > but it leaves lan966x->rx.lan966x set, lan966x->fdma true and fdma->dcbs
+> > > dangling.  It also runs before the netdevs are unregistered and without RTNL:
+> > >
+> > >   lan966x_remove()
+> > >       lan966x->ops->fdma_deinit(lan966x);
+> > >       lan966x_cleanup_ports(lan966x);   /* unregister_netdev() here */
+> > >
+> > > The new guard in lan966x_fdma_pci_resize() only rejects "rings not built
+> > > yet", so an ndo_change_mtu in that window passes it and reaches this
+> > > function.  Three things then follow in order:
+> > >
+> > > napi_disable(&lan966x->napi) on an already-disabled NAPI.  Does
+> > > napi_disable_locked() spin forever in
+> > >
+> > >         while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC))
+> > >                 usleep_range(20, 200);
+> > >
+> > > since nothing clears those bits until napi_enable()?  That task holds RTNL,
+> > > so unregister_netdev() in lan966x_remove() can never complete.
+> > >
+> > > If that is somehow passed, the success path below calls
+> > > fdma_free_coherent_and_unmap() on the stale rx_fdma_old/tx_fdma_old
+> > > snapshots, so dma_free_coherent(dev, fdma->size, fdma->dcbs, fdma->dma) runs
+> > > a second time on the multi-MB blocks deinit already released.
+> > >
+> > > And the restore: path calls lan966x_fdma_pci_reset_mem(), which memsets up to
+> > > rx->fdma.size bytes into freed DMA memory and then dereferences
+> > > tx->fdma.atu_region->base_addr, which fdma_free_coherent_and_unmap() already
+> > > set to NULL.
+> > >
+> > > Would a "rings are live" state check (or clearing rx.lan966x and dcbs in
+> > > deinit, or unregistering the netdevs before fdma_deinit) close this?
+> >
+> > lan966x_remove() is not touched by this series (apart from calling
+> > ops->fdma_deinit), so I'd say pre-existing. But I believe this issue will also
+> > disappear, when we refactor probe init as described above.
+> 
+> ...
 
