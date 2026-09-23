@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC9DC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1711C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBwjIZDKfun2zrL9E4dNc/T4J4zF9FUO6dKyh0B3FjE=; b=EnRGMC+HDSOhWNL44Yf1eixNE2
-	IezWPE9Ej2ObTgV9v9HFkq21MtybcKHuS3Ru2xMrpFXFw+i9jebzarr9LmBKFb87gK8tmPZzZVUwE
-	H54mBGRngnjIrXGEYjZ2VScB5eXKBjmtyc+Z3iGeXyMK6nJjszY/FhQ8Gan8AjOhTb7hsPonire7z
-	MHixrFbfFGoFlGYRRYo00CAHffkH9GLkXul1UyYrvxlKx63GhJGRy7XFqtB7jHnqyJ7sGOBc3ohSH
-	p5CMGuf1f8EzjzcGrOML5zmK3aMVyPwyqifiTAd7ozfY0fulmTOtDiolqrcvzA4nDYeJ4lhVb4ePD
-	SqGIp3TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7YOPa6u6srNFIgO/5mQK+em1e9SQZzypXW/A+dzEcX4=; b=q6JcmjBIMtLAA7ZrmmeDc54yWb
+	w+/HHd/a48KEhNwbEwRFKmMEpbzrkqkknRaED300RhGamqsdVQp15a+q7LIcWGRDkwbNnR5FKE5wW
+	S751nrU7d00IOvJ+XEhDBeUEcWdCXzOC91KkAiTr5puc8nAb0ow+JUo7R9K6tLVx9JmK2Tar8rzu3
+	yKQjYAV6UsmEyG3oqb2E0VtLHtzqAuPW1Y7tzxLHI2DJVW2+BBAGOl1KN2sWJP5c8xFSudURm2Skv
+	8bNxLU8gcU3BQB11pInRskiqNeLg7M5hEDY2sYZxVlS3MF34T5xGkjghm/D0wfkHBHlsrxPFnr2mi
+	jFw0LdZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OW6-00000008cfw-0M5A;
-	Wed, 23 Sep 2026 15:04:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OW3-00000008cf6-3ncX
+	id 1x9OYm-00000008d5k-2Tm7;
+	Wed, 23 Sep 2026 15:07:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9OYk-00000008d5N-21gW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:04:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05DCA6021A;
-	Wed, 23 Sep 2026 15:04:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DCBE1F000FF;
-	Wed, 23 Sep 2026 15:04:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790175850;
-	bh=EBwjIZDKfun2zrL9E4dNc/T4J4zF9FUO6dKyh0B3FjE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NCTa9NLGFZRIWCIe1CzcwAWNx7b/8EYkY9lKFagdQvCwYIz1XSrjFaGXEfivEPSLU
-	 gBd3eFL9t7JZe4K0Yl4ZIcd+TjgH2//fXhi6us4SKoiZCm47DsxM7KsADJHMjGaYzr
-	 pT2eWqe4Eqi7+uRBsFkAb1Urxra6w+zsdncC94Z5QsPIUZHUxpZ9lU6Pmenn+DGn8H
-	 bDrww/sOyZMwE8vYh5YMlskX8zEYJC7v6N//s7ec/rH8uAVa6HSZ1bgafifYO/nHG0
-	 hXXoUItPc2Q/ofoWzq2WPhauKOz3DpRUV3Av+ltK877NQzYa/aGbX6TwBcHtJVHeg4
-	 G5KXF3IlLDSHQ==
-Date: Wed, 23 Sep 2026 10:04:09 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Wei Xu <xuwei5@hisilicon.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: soc: hisilicon: Add HIP05 CPLD
-Message-ID: <20260923150409.GD27237-robh@kernel.org>
-References: <20260921232540.3128596-1-robh@kernel.org>
- <20260922-cheer-reference-c31fc6fb946d@spud>
+	Wed, 23 Sep 2026 15:06:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F01401570;
+	Wed, 23 Sep 2026 08:06:53 -0700 (PDT)
+Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E874F3F86F;
+	Wed, 23 Sep 2026 08:06:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790176017; bh=zusK0QTR+s2AdzuFMy1tZJpLHzZiZCt2XlTeuJedi+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ahF3ALT9UepxEmecNFZ1qVeRrBCb1D1qc5G3t+7KfoQ0JRIJzKe+2cIu9nKbGWLrI
+	 kcCacVQLGsrCJT3d0A198vv9Fi1ox9t1JeXBsEFdxfaSPHEaB4hCoU0UJ/Z5sCo4Fm
+	 HAcjSsIMNZkK22Yxb4+yz3Q1Hlems5gexj9DjhhY=
+Message-ID: <d326a6fc-c2fb-4d1d-bba6-520bf3e67d60@arm.com>
+Date: Wed, 23 Sep 2026 16:06:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260922-cheer-reference-c31fc6fb946d@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 6/8] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+Content-Language: en-GB
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Jason Gunthorpe <jgg@nvidia.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>, Will Deacon <will@kernel.org>,
+ Steven Price <steven.price@arm.com>, Andre Przywara
+ <andre.przywara@arm.com>, Herbert Xu <herbert@gondor.apana.org.au>,
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
+ Olivia Mackall <olivia@selenic.com>, Russell King <linux@armlinux.org.uk>,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+References: <20260923140405.1111554-1-aneesh.kumar@kernel.org>
+ <20260923140405.1111554-7-aneesh.kumar@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260923140405.1111554-7-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_080658_630124_0C2971BA 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,83 +84,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 07:06:02PM +0100, Conor Dooley wrote:
-> On Mon, Sep 21, 2026 at 06:25:39PM -0500, Rob Herring (Arm) wrote:
-> > Add schema for the hisilicon,hip05-cpld node on the HIP05 D02 board. The
-> > node only contains the compatible string and one register window on the
-> > local bus.
-> > 
-> > Assisted-by: LLM
+On 23/09/2026 15:04, Aneesh Kumar K.V (Arm) wrote:
+> The Arm CCA guest TSM provider currently binds through the arm-cca-dev
+> platform device. Like arm-smccc-trng, this device is not an independent
+> platform resource; it is a software representation of the RSI firmware
+> service discovered through SMCCC.
 > 
-> Guidance to the LLM should probably include including the reason that
-> this is being added to the commit message.
-
-Not sure what you are looking for... I told it to convert all the .txt 
-bindings to schema. Then I told it fix all the errors. Then I fixed some 
-things throughout the 900 commit branch upstreaming things bit by bit.  
-Then it mostly sat for a year and I told a new model to review them and 
-fix these common problems a, b and c. Then I said fix all the 
-dtbs_checks warnings on arm64. Then I said there's still warnings, do it 
-again. Repeated that ~10 times. Now I'm going thru to weed out all the 
-wrong and sometimes unnecessary changes.
-
-So LLM did all the easy parts and I did everything that requires any 
-judgement. The hardest part is typically just figuring out the 
-correct maintainers...
-
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> >  .../soc/hisilicon/hisilicon,hip05-cpld.yaml   | 35 +++++++++++++++++++
-> >  1 file changed, 35 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
-> > new file mode 100644
-> > index 000000000000..f9d48b871a4b
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
-> > @@ -0,0 +1,35 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/soc/hisilicon/hisilicon,hip05-cpld.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: HiSilicon HIP05 CPLD registers
-> > +
-> > +maintainers:
-> > +  - Wei Xu <xuwei5@hisilicon.com>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: hisilicon,hip05-cpld
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    local-bus {
-> > +        #address-cells = <2>;
-> > +        #size-cells = <1>;
-> > +
-> > +        cpld@100000000 {
-> > +            compatible = "hisilicon,hip05-cpld";
-> > +            reg = <1 0x0 0x100>;
+> Move RSI discovery into the SMCCC firmware driver. When the SMCCC
+> conduit is SMC and if RSI ABI version call is supported, create an
+> arm-rsi SMCCC device. Convert the Arm CCA guest TSM provider to an SMCCC
+> driver so it binds to that discovered RSI service and keeps module
+> autoloading through the SMCCC device id table.
 > 
-> Also what's with this example? 1 0x0 0x100 should be 0x1 0x0 0x100?
+> Keep the old arm-cca-dev platform-device registration for now. Userspace
+> has used that device as a Realm-guest indicator, so removing it is left to
+> a follow-up patch that adds a replacement sysfs ABI.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Shrug. Sure. Honestly, I think the example can just be dropped.
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-I'm converting all the crap no one cares enough about to convert. That's 
-pretty much all of the HiSilicon stuff. Mediatek needs some renewed 
-public shaming too. I only care about getting arm64 down to no warnings.
 
-Rob
 
