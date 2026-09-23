@@ -4,148 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96ACFC98310
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74952C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 20:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZ6Utr1X2hiwrDQrOHZGIZI/jjFAEh3VK8g8U2qXsvo=; b=axjTSRtwfy6tvVT3ZV3O01Xs78
-	gDu26LqwQuOxZFnj5BMWskogoLYETINy2M+NCmJsxLiOXBvRuxtOozc6qzCzDtkLpLI5BnKKEujdl
-	YxsIdAdMKM5Bllui62lupaXRtFSatPoCsBlRKcYzzCDGzmxZupNaQ0ddjwx0THeAGztPtCwZ0ohMO
-	Nz55HW1YwX/NuOwvScq+CtQ4sJ2ItyA9c4n/rNXuRV/cEjnfc9I1r5xQezCxXv2uISC0FWTyItfKz
-	Pb7jS710H4PTvLtiOuMN5tGyvpxkZ/OOwT96ojaLdOUoOgF0pyShMoXzy8VuBa60/HmGoz6rtEfp9
-	4jvxeWsQ==;
+	bh=7q0qqqJnTCoZ+0yWGua74Jg4GmWW3lH6BFFaZ7C7e+I=; b=UX/94QaXhFmR+kAQIHd0bBbTIJ
+	vhnO48ytiJ46BUMQaF2qRcs4dcXXrdir/pGnfpG99Ekuk6FMSbpwgqQ1Lo+Pe0zqL9NvLESjcMeQw
+	naZjXZxuZCxBXL+XDJGKnhdFczqmvLUH/jxxU3pY/yJ6ju9ZpzLAh4Rm02ri+Rj9kAm7bcEjaRgwX
+	qTPW50FIfPO6fCWJVdMZaZajHGjfTi8vxe48fN081i4jTeO7KuHttVODuTk0hyd8l5J+S2vf7Pz0/
+	zh0iV5D9GNEcaqZSFuRCc/nSVrWfVLUNJVsNCyhTxMpgG43fFshl5B4We2ioSGm1GG2Mpw4bB+Ett
+	TzFvWl7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TIm-00000009P6O-3wYz;
-	Wed, 23 Sep 2026 20:10:48 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x9TJz-00000009PJh-1Yik;
+	Wed, 23 Sep 2026 20:12:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9TIk-00000009P5n-0aqK
+	id 1x9TJx-00000009PJH-0Aeh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 20:10:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=slyb4W0iiUtA42qnv5rT4WeYbHFLx3XpvdxqZljUpmPMPGY5xUkVsp0BBvDWT/16qiB/BndjMp92uKms7tF5bM6bypgu0xvx2PZIzARb+mPMuLpBKKkGgH8VCKc2cSV7aPwRYYIfEMWiTGfjprMWqcBsaRhglcwYMqOJzXvS6AGexaZLWscKyTnz91AFPemZeYkU89hOPsH/FBIqdjXMq1raAVQPIaROWOMKGNZVq9RJXGYwejH+Ze4M8Uz+Kxf7sAJAxZNEUC5gDyi3NS/A++Ebxi8ZyNgJrwwd7LdFEt9r/PZ+4kU6kK7GykbVN2DdBkvislaqHO5NKaoloy119w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zZ6Utr1X2hiwrDQrOHZGIZI/jjFAEh3VK8g8U2qXsvo=;
- b=gQt+89S1RScmYKEJ8Kr8yOYdRWXVgK8ucBM2Yynih+JfMpsLFakSy+oE+8d14rXMWES3L9hWZYDTRhE1SIyfdVwXtxIZ1240dbvw5uuqGTulrchL4pGfoHMdbm9N6cLj3JxjsKaWFNE9dn1iTN5qXhaYTfNxtnzfU76/+uYzppK/uVv65mx9Rce/J1gDDVhxlYlDWitPHFtvxrv+fajQHtYaAs3/CGqL9QilrVB4avSRIQPuLq0DoPe+PbBpuDpADUIKfXx0jOp5HmwDII28JGxgGhF+xuQfMOYYJO630s9Rau4va1+KbM34/hs8QS3aX3kXI4nntVBFpUvX0lucAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zZ6Utr1X2hiwrDQrOHZGIZI/jjFAEh3VK8g8U2qXsvo=;
- b=NnoccR5otGeXPkvr6YqDCMDNKWKxzQl+YMyYrtptBeYjhafRYwwE7MkEiYHZOkdC0T6dzigUCiO0aBQ852ilN1jrA0MuNlnIQBYKdXvk8BJA5ppwurSe4IsNAKPjhEKx5laFWTfbitbJFMIDwel196Cbo8jjvp74RteDHdJoWyWHR9mSU9mplpHRIplBbSilks6bCSyI1YxOOFlh/B+6x5PiviVKamEyI5NGNGcwnEY5VCyR+A3RwsMQ06vDIhfwHkjVBvm7JrnWjoeiEdOkZIO5pZcBFtShq//by2miUy0JzXHh9Xd0XZIb6amg92+6U3hJ6OPv2JmlS98iX6Soug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB10715.eurprd04.prod.outlook.com (2603:10a6:800:277::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 20:10:40 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
- 20:10:40 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Natasha Kovalenko <natasha.k@variscite.com>
-Subject: Re: [PATCH v1 1/1] arm64: dts: imx95-var-dart-sonata: correct UART8 header pins
-Date: Wed, 23 Sep 2026 16:10:32 -0400
-Message-ID: <179019422287.3742204.18120428206043977139.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260914125311.8354-1-stefano.r@variscite.com>
-References: <20260914125311.8354-1-stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR03CA0123.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::8) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 23 Sep 2026 20:12:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790194320; x=1821730320;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xjbIiGtnPGGNdB7Cp4RtxhvrfWalzWVLJYOsERWZ//k=;
+  b=V3fk2OlOGlzZh4UCBuF7tjhx/0ES7DZggODkTDghZikAlnCY5pKslJrJ
+   5VrOG0CsUI5qh9phTMb6jX00EbBgKAghBPW2do1ivOHAMfRPpPxx3MiLZ
+   HSToLBGGdcOMTN96PXomV0/POTY8mqjLlGQCA/erFftM0POXfe7TGQAFG
+   OS5/tc7lFpjsutIZpEliOM2QeRi0utJUkqMXklqhe3u4MtY9iRctg6ZOH
+   ZDJfIF5083v1p6bDxMNxJKCYSjBX/adh0T1XHRZrL+pvPTSWkyMFUpjy6
+   UI9KOM5TRydHVAq64qK2h3yKRYarzzYCVjrhqZnKQwrEcAATHb5R2R0os
+   A==;
+X-CSE-ConnectionGUID: c8w4xk0VQIK9kL7RzabfGg==
+X-CSE-MsgGUID: PlFzdfUORdq11vQkFWPh5g==
+X-IronPort-AV: E=Sophos;i="6.27,119,1787036400"; 
+   d="scan'208";a="74202281"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 13:12:00 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.49; Wed, 23 Sep 2026 13:11:59 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 23 Sep 2026 13:11:55 -0700
+Date: Wed, 23 Sep 2026 22:11:55 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Simon Horman <horms@kernel.org>
+CC: <netdev-bot+sashiko@kernel.org>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
+	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
+	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v7 10/14] net: lan966x: add PCIe FDMA support
+Message-ID: <20260923201155.lbbbtx22adz2ilhg@DEN-DL-M70577.microsemi.net>
+References: <20260918-lan966x-pci-fdma-v7-10-0ecc179c8a2c@microchip.com>
+ <179008205148.2160803.12818321368571406375@kernel.org>
+ <20260923084538.wgkw2nt5ergoxcot@DEN-DL-M70577>
+ <20260923180730.GV13925@horms.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10715:EE_
-X-MS-Office365-Filtering-Correlation-Id: 978d995f-9211-4043-0326-08df19aebd86
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|19092799006|11063799006|6133799003|10067099003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: XN/AyHsdgFOpehCBbRtpMzs2oUuFbgn0H/aXah/UlXt0euq1m6PRY7Ub2HePSR9NypOj+dhlwy5Lk0HyLbpT2lid7YlISb8v8P8EJk/Q/3auTGvUab8aNSo2OReIZYT/Vb4rfwYyjZOXb3bGU0gvuNAEO2tLJT8e7iohXW5Lt2IcXnOCdghWEVlxGzOoE40t5Itb5AYKeNJcyPvQnBwaeCvyvnb6omX5whNoHyXU9ppqmvga0Iov1sCMB8h1zcm/S93qEW5YbXntTqxl7NlyTofyAUiiVBEAQ1Hb779ZpEYB7bAwVqL9uPDvnanVqbUXdtvCOKX5vbmvFg8dDx979961QxMQFKGQvHJsCY7PyoFs7AAWt2FUEtYvm3LQ/AX0n53mkDA7jxe0qxaTFkJ+4dQhDQvH65hhzhZfVDxjdXP3VsFTu6Inr2vlDWm31dvASjBt1kI+4rT9f8clC9mAZeCyCKnUEoN+TEqtzWIZgq8Xvgrpp1SrYFuGlHMcQ1qX0/63w5eHnj7rTN7ePkFxmCBuOIy1RTfnqo2dIxW6QoUMXPfTk4uzv9KxohnTYOiLJonytx7M6iDGPuSO7MDiBygng7gbjNO8kxBAZfKIKFM6nRwLkcWXwt7yZHS/5zwDl5junTE1wlRIX6GWBYT1dY3+ZX6pDjPr6xNu/JZ+T1o=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(19092799006)(11063799006)(6133799003)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MG1VMFRIbjBrK0tXdlhSYjRkUHZYVWZEY3RrZGdCMHBhUmcwcDRGdVY2eXlF?=
- =?utf-8?B?a2FvU1EzVWprM0lZczMzbHI1ZnpMY2I0d1pKTjhNajdzQjRDaVI5cTFIOEZx?=
- =?utf-8?B?TExOcHZFd2tZdWJsTTd0MVVVeDV0Y1U1YVpkSExBRnF3eXVDZDZjS0JnTTB1?=
- =?utf-8?B?OUU1dEN5WHp6aExIaG5oLzhlb1Z5bm9qYnhOMWZjd1VoRWxsZ0RIOXpHbm04?=
- =?utf-8?B?UVo2U0ZnU2lZV1BGQkFZRVlsK0pIUm0vMlVFSVNFUENUYXIvQjNDSUc4cVJh?=
- =?utf-8?B?ZUh6Z3pFTEVCbWdsSU1GUTdHRVJJL0Jrd1RocEk1MDRaMGJFZGNLb1JaVEtY?=
- =?utf-8?B?SEQ1cGhXbHRWM283SWMyWTVGcHlnMjE5WG1LSUNyRVVybko1bFA4amdYS0lX?=
- =?utf-8?B?QlEralpWZDRvV01pQVNoZVVRUWRjZDRPRGFsc1JmQWZ2dEZ4TkdMMVArK1ox?=
- =?utf-8?B?VXArY0ZVcTRQcVNUR0VvdVM2azBybFVUWGNWb0xwZlZ5TlhJOWcrSWpDTmJX?=
- =?utf-8?B?TlVYTWRyS1ZSWHdNeGxKMTRKVXlyRnYxNnhhSGNhRlk0SDRFaS9SbkZsZ2F5?=
- =?utf-8?B?MmEyQS9QVC9ydWt2KzVlRXFtem8wQmZHdEJ0QTFMaWI5TUNibUR3YXR0OExG?=
- =?utf-8?B?TDJoMFZIWGd3cnZzem81NkljWng4U0l3bzNHN2lUbmlyRjI4KzQydWNpNjEx?=
- =?utf-8?B?TkNIUnhLS2lDYjJOenZUeUVUc1FHdDZncnpyQW1jL2ZkekdJN3lzVGxsTTZ4?=
- =?utf-8?B?akJ3K1diYW40KzhTK2dwdzN2VGJ5SG5OWDdzU2dzMXVxUHhLVzJUeVMxSW5u?=
- =?utf-8?B?MWRUTkhadmxBTmU4VkxNWXUxVWtrOUY4cHhXMlo2Vk0ra2pJYXpUdzEzTmlN?=
- =?utf-8?B?MExURWdLWGJ3V21GOHdhU3JpL0h0VEJGYVN5UmVwRTM4ZTJkZGNob1lmSmlp?=
- =?utf-8?B?ajhQZ0lUQmprU0FaL29EZmNJY0xlbnMranp2RUtyQjZ3emNNNGZoZ2Z4U1F2?=
- =?utf-8?B?Zmo1VEF3OHpRNGNXSjFUTGhicDA4QUJOT2FYblRkc2lZeDBDSzFnTytGL1BU?=
- =?utf-8?B?eGVrOEo5aUwxWDY2d1kyVW9UemxzdXhWZS9pRUM3TXVWNUd1a0dXUUgvTVZx?=
- =?utf-8?B?Nzl4dUJrMkJ4aWRDdVoyMS9qdzZmTXRrZldLYUN4L3h5TzlNVnVvZWtod3Jk?=
- =?utf-8?B?YmNlSDh0KzY2TGVNRk9kMC85YTljMElBOGVvblUrZDU5UVZQMW12LzBtL3B0?=
- =?utf-8?B?d090Q2JEc1pWL3M5OW91Z0NYeDdvTDB2NlZHRnppYVpZODcwNFFITnZ4V3NV?=
- =?utf-8?B?dUI5NE1kejZndVR1b09SS3h1MmVhQXlVV1FwMFF6Y0U2NWtkQ2p6MkxpUnlZ?=
- =?utf-8?B?UUVpaEExYnZ6NnIzQVJvZXJlNDRJV0I1Q0dseE41SUZEdW1XZWFxTlZOb0Nx?=
- =?utf-8?B?b2tyNmVNVGxOZ0lReWlqRkxVMmJTZ3I5MzQxYVNzeCtrRklBaVBRaXhlVEVs?=
- =?utf-8?B?dTBTRks4NHNHQ1NoNDZZYm42UGVSYUlLKy9Gam9tVkNWRlZwRWpPVUF2dzlM?=
- =?utf-8?B?cTc1MjU5RUg4U2kzWmN1eFJHWk5qOElmTGNuYXNLMXR3Zkd6SFpUcE85MFBJ?=
- =?utf-8?B?WnR4ZDF1eHNuVkNzWk5IU3I5QTgwdGg2SVRiRnZsblJlYW8raUZRNC9wS1lK?=
- =?utf-8?B?UzRNelRtSGhzYVROQXMzRnhoT2lzS25zVHZXOTFCK3d3TEcwWTNvcXYzV1Y4?=
- =?utf-8?B?NklqVHBMWU5BSFFPR1JhQU5KSGNRMXZ1TXNRVmM1MG5kSm5JVkVGU213WDVR?=
- =?utf-8?B?aWtaVzNRbVgza1dwcXU4K1FLV2lEZll4UUpzbVMwenhEcTFPNU5JYVpWVFNU?=
- =?utf-8?B?REplZnhlVUw0bDl1d1F1bWZSR1dDZzlGV09FT3VmR2tYQVJiSk1jYU9SVzRo?=
- =?utf-8?B?RWpNTWVzcVNLQ2VZbkVJcmIyemdnRXRMOFZWa1F0bXA4SGVwWGo2UWZTUEVR?=
- =?utf-8?B?bjY4cURIQWZaOUxNUEEvZHcxLzA5YmFkbTNPTHRNbFFMNzdtZVJQSXpMa1RQ?=
- =?utf-8?B?UzhYRTYxTEFBVFBveHRvcGFTTDJGMW9OYnR0aUhybkFFMWwzU2I2aWhXTm1H?=
- =?utf-8?B?SDJmYWUwS0s2ZHhDcmpMZDI4WTRURkJSdnpSQURsT0gzNlBrUFlUQkh2Vndq?=
- =?utf-8?B?RkVEQnpZSXhQMU5zOUFlRE1TTUFZTkdOSHhDZFo0T3l3bG9QRjU1Qk5kbHJK?=
- =?utf-8?B?NmplelZnZXRyYk9kNUFZQ2xnRnY4bENmM3dQUVI5NHRvU2cvTWR0SlJlRnRp?=
- =?utf-8?B?Y3F2SFlPdU1lakFSZkI0L01ESmdoNHpvT1NXRWVQT1ArZEJhSE5sTVlETXVv?=
- =?utf-8?Q?m2rMB3cMbZ+iR3H6uRliZse9KlOg2wKrsICpN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 978d995f-9211-4043-0326-08df19aebd86
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 20:10:40.6695
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4k/ywipXMQeP3Dtu9h8Qefa9Gw7kl81O4kh3ovwx0OHPsYNOdcxZOQGVvvoj47UYF9FIq4EjDW21NgyNButugXQB0Gq/5gg79LGxPD7EjFj9/uVCHea3Qqpb5/A60qC/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10715
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260923180730.GV13925@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_131046_184066_3FFAA328 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_131201_091870_C0B7A27E 
+X-CRM114-Status: GOOD (  39.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,25 +94,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Mon, 14 Sep 2026 14:53:11 +0200, Stefano Radaelli wrote:
-> Correct the UART8 header reference from J12 to J6 on the DART-MX95
-> Sonata carrier board.
+> On Wed, Sep 23, 2026 at 10:45:38AM +0200, Daniel Machon wrote:
 > 
-> This is a documentation-only fix and does not change the hardware
-> configuration.
+> ...
 > 
+> > > [Severity: Medium]
+> > > Is this path expected to work on a big-endian host?
+> > >
+> > > Until now the descriptor producer and the FDMA engine were both on the
+> > > little-endian SoC, so the native-endian descriptor layout in
+> > > drivers/net/ethernet/microchip/fdma/fdma_api.h was fine:
+> > >
+> > >   struct fdma_db {
+> > >         u64 dataptr;
+> > >         u64 status;
+> > >   };
+> > >
+> > >   struct fdma_dcb {
+> > >         u64 nextptr;
+> > >         u64 info;
+> > >         struct fdma_db db[FDMA_DB_MAX];
+> > >   };
+> > >
+> > > With PCIe FDMA the descriptors live in host memory and are fetched by the
+> > > endpoint, so the host and the engine can disagree on byte order. The
+> > > translated addresses written here, and the status/info words written by
+> > > __fdma_db_add()/__fdma_dcb_add(), all go out in host byte order, and the
+> > > HW-written DONE/BLOCKL fields are read back the same way in
+> > > lan966x_fdma_pci_get_next_dcb() and lan966x_fdma_pci_rx_check_frame().
+> > >
+> > > CONFIG_MCHP_LAN966X_PCI in drivers/misc/Kconfig only has
+> > >
+> > >   depends on PCI
+> > >   depends on OF_OVERLAY
+> > >
+> > > so a big-endian host (e.g. powerpc) can select it. On such a host, would
+> > > the engine see byte-swapped nextptr/dataptr and length fields, i.e. would
+> > > RX/TX not work at all? Should the descriptor fields become explicit
+> > > little-endian types with accessors at the hardware boundary, or should the
+> > > Kconfig entry gain a little-endian dependency?
+> >
+> > Hmm. Never tested on PowerPC, not this driver nor the DT overlay mechanism it
+> > relies on for PCI deployment, which has only been exercised on ARM and x86 so
+> > far (AFAICT) [1].
+> >
+> > [1] https://lore.kernel.org/all/20240430183301.46568e35@bootlin.com/
 > 
-> [...]
+> I don't think that the baseline expectation is that drivers are tested
+> on big-endian systems, but rather that reasonable effort is made to ensure
+> that byte-order usage is correct.
+> 
+> In this case I suggest that will involve using __le64 instead of u64,
+> coupled with calling le64_to_cpu() and cpu_to_le64() as appropriate.
+> 
+> Sparse can aid with getting this right.
 
-Applied, thanks!
+Ack.
 
-[1/1] arm64: dts: imx95-var-dart-sonata: correct UART8 header pins
-      commit: 8912bc10501ddb0d9b9ad450b21f42110b6bc619
+I am a little reluctant, when I cant really test it properly. Sashiko gives
+another solution - adding a LE dependency to the Kconfig of the misc PCI driver,
+maybe that'll do?
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> 
+> ...
+> 
+> > > [Severity: Medium]
+> > > Is rx_bytes meant to count the frame as it arrived on the wire?
+> > >
+> > > By the time this runs, skb->len has already been reduced twice: the
+> > > skb_trim() above drops ETH_FCS_LEN, and eth_type_trans() pulls the
+> > > MAC header out of the linear region, so skb->len is short by at least
+> > > ETH_HLEN. If lan966x_hw_offload() ends up untagging a VLAN header,
+> > > that is another four bytes gone. So every packet delivered through
+> > > lan966x_fdma_pci_rx_get_frame() undercounts rx_bytes by 14 bytes or
+> > > more, which is visible to userspace via ip -s link.
+> > >
+> > > The frame length is available before any of that surgery happens --
+> > > data_len from FDMA_DCB_STATUS_BLOCKL(db->status), or skb->len right
+> > > after the skb_pull(skb, IFH_LEN_BYTES) -- so accounting could be done
+> > > there instead.
+> > >
+> > > I realise this mirrors what the existing register/page path in
+> > > lan966x_fdma.c does, so if the intent is to keep the two backends
+> > > byte-for-byte consistent, please say so; otherwise it would be good
+> > > not to copy the miscount into the new file.
+> >
+> > Not only lan966x, but sparx5 and lan969x does the exact same thing, increasing
+> > rx_bytes after headers are pulled.  The undercount is real, but not visible to
+> > userspace. Both implementations (platform and PCI) read hardware counters directly
+> 
+> I'm a little unsure, but if it's consistent then I guess that is ok.
+> It's an old interface anyway.
 
