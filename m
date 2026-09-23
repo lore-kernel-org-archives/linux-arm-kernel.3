@@ -4,51 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CDDC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A10AC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JmHZrjDIqQ270zgQZgKUtV70qmH4frZxcGXUMiZzYGM=; b=tESu1hR2nuw0hphb3QQPJJdOTS
-	VwtTrVUiVbsRg2iuWMydInVyciO0gDAL2NftIGKbL54PWS2IYbk63A0ykbWPAgWRnjqZEype17kP5
-	Rum0hV40P9aWfdMbTvfBkPVtt+Ww3wcjEqHaKSwVpiN/X1vPhmBL4beAceFbwysL6DRZHK0U/uzge
-	vz+s8TRSkNzHTOpMkOrW/BKmEcM+xfuuXjuBMFIcf6aAIcPCNRxOEpgvT1EMENBrrmpfy/aDhdEjb
-	JyASdmNlzVU9kaciXnCys80QCFd6trGxmJKhRkMpSnBT7bEHp/zxIqtCWpPNPKkNuwyCm/1YHbwSR
-	GJvOUczQ==;
+	bh=72dwtb89d1fOsKbk8D3RVbFWmgvO0+t1Akc8xh8LysM=; b=o+XQms/QJ8occdSb3XCPxv+bMA
+	OoSpvrvJfHjzigx8n7zFHKAfYPbcGAkWrBpBYtubPPGMiR36tkZFP9JBP68QwbV8Nlqr0af9VB8CY
+	G7QlqyJPjfRkVUmEYLUs9AWV/Wj961QJHawPOn8KMVl44IvQ/l49YBjaZ+QFlyDJ2kVtfawIU8ZCh
+	XpD5X1b+jA985mwl4NSiOTcGjvkxOMy0rqjwN7FbBacD9j40HQdkXC70KOu4gIN9Nhn1qjCDAJggJ
+	rsqOu2vZtcv46P+zWPeTBams/FQ/DbZehK9DhkBFoXiE+skOxiZBUe+/vpxonR15w7WFGCuvQqt7E
+	VG8kOz2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Jbu-00000007njH-0Yue;
-	Wed, 23 Sep 2026 09:49:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x9Jc2-00000007nmU-1WlJ;
+	Wed, 23 Sep 2026 09:50:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Jbp-00000007nhp-1mCQ;
+	id 1x9Jbt-00000007nin-2lqm;
+	Wed, 23 Sep 2026 09:49:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=72dwtb89d1fOsKbk8D3RVbFWmgvO0+t1Akc8xh8LysM=; b=bbT/Zjj7WGLliyOfiX7d+SF+am
+	5akzy9bLN40SOZvgvs2zC3n5ola2Tddf/sn4U4Aj5VazGmhrt7kLdblSU3JTUCHlSuX91VZA1TKOF
+	3IfNL/gwUiuswLsCQe/qhRItBMa+pHEQqbw+pg/VOr2zAWS8+YsXlQLMT2B8/+BagTMdq3DhGM0z0
+	jcw+p8yx8nx4UpKF327s/LMU/bomigm7u5F5GpkzdyqCEiPHhqyYyJxeS1K4JWUVUpkR8vD6pgO0N
+	WKaiegA60qHRNE0rXHJ6DAxlqQ96m9/LGHDM6mO6kvLRwd+EcAKDlhrptfV/FbYphXkks5WH/oSMx
+	/y/+5vkw==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9Jbp-0000000Ebma-2NPN;
 	Wed, 23 Sep 2026 09:49:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790156986;
-	bh=0xs1aK+waLR/h64Dn98ERXS0Ct3KJtqXAJmX+rFh/oU=;
+	s=mail; t=1790156987;
+	bh=ZllYfIqMj5QwbDcYFikdii50JKHrD69B4mvu4oa3wTo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Vtphx4aTmU8jfvrft1SoI/PuISbWncfFJzkoaPa9wuqpD75ekIkgSdGVA3qvHGyLa
-	 +WfsOnrWMCK8tdgz4i181YAbKB5DNBgQVTJ5YulEYV6kEOArEmJmu9G6F1LfNSANAk
-	 iHs3vUCAuHOGSrIluiMeQNI/vF94jWxXoExyWuFv5/0RWvj9k/8Qk90G+Etzub/XvS
-	 A/aRXx2096Xx0fRZEmm+h8hw/TMhteAMIOhV07DQ0rUPUvLBKXY5cmSQ6FgK/a83PU
-	 9VcD8eGD8J27pAQxHW21INZdaCyP83lQwawM6Resu3lZ2AYHZ1xZfDS5VBMOsY6K68
-	 S05g9a1FnxW9g==
+	b=IK4n4bXJOOQ+sysykbv7gYumDmA7LQlGFjhUNXn6BP4KhBFIb1ZF1FslH9MzbNF6N
+	 ezQS4sDTXwLW+pb3JUIocSoTkzrtCtYonylmhul2oq1q4AwuWbUfUrI+WP/sgupZbi
+	 IgP49JG45XwreBReCHCNx0lKx1sgPiCIJjrQOlKLdaVgnYmOHV0zIKti/PIUyr5eU0
+	 UZMaHqrZ/62AeFJxg9SNGS6U4kLWl8x/ehub2803RZSU3o0ieHIqk18k0+qX0fRrm8
+	 WgXfzXA0kxxPm9v4MfvarvhfHTDlyaMDf4PxmIzhxx7bBoft4EqNALmRHn50KBak0y
+	 5VhQOBEtfCX4g==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A20EC17E0803;
-	Wed, 23 Sep 2026 11:49:45 +0200 (CEST)
-Message-ID: <b32d6f95-08fe-49f9-a142-11597afd4263@collabora.com>
-Date: Wed, 23 Sep 2026 11:49:45 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D8A8517E09ED;
+	Wed, 23 Sep 2026 11:49:46 +0200 (CEST)
+Message-ID: <78abee33-9ef9-4fed-9968-eb2010068f6c@collabora.com>
+Date: Wed, 23 Sep 2026 11:49:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 02/10] media: mediatek: decoder: Add a new platform
- data member
+Subject: Re: [PATCH v10 03/10] media: mediatek: decoder: Move firmware
+ selection to platform data
 To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin <tiffany.lin@mediatek.com>,
  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
  Yunfei Dong <yunfei.dong@mediatek.com>,
@@ -66,15 +80,16 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
  Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
  Yilong Zhou <yilong.zhou@mediatek.com>
 References: <20260923081246.268182-1-kyrie.wu@mediatek.com>
- <20260923081246.268182-3-kyrie.wu@mediatek.com>
+ <20260923081246.268182-4-kyrie.wu@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260923081246.268182-3-kyrie.wu@mediatek.com>
+In-Reply-To: <20260923081246.268182-4-kyrie.wu@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_024950_017818_FE287A32 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260923_104950_144241_B24091F3 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +105,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 9/23/26 10:12, Kyrie Wu wrote:
-> Move the chip model information into the codec match data
-> and remove the second compatible matching code.
+> The decoder currently selects its firmware backend by testing optional
+> mediatek,vpu, mediatek,scp, and mediatek,vcp properties in the device
+> tree.  The firmware backend is, however, fixed by the decoder compatible.
 > 
+> Add the firmware type and initialization callback to the decoder platform
+> data, initialize them for each supported SoC, and use the callback from
+> the platform data at probe time.  This matches the existing encoder
+> platform-data design and removes the DT-property dependency.
+> 
+> Fixes: bf1d556ad4e0 ("media: mtk-vcodec: abstract firmware interface")
+> Fixes: c7244811b1c9 ("media: mtk-vcodec: add SCP firmware ops")
+> Fixes: c3da5e939cbc ("media: mediatek: vcodec: support vcp architecture")
 > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> ---
->   .../mediatek/vcodec/decoder/mtk_vcodec_dec.c  |   2 +-
->   .../mediatek/vcodec/decoder/mtk_vcodec_dec.h  |   5 +
->   .../vcodec/decoder/mtk_vcodec_dec_drv.c       |  40 ++-----
->   .../vcodec/decoder/mtk_vcodec_dec_drv.h       |  17 +--
->   .../vcodec/decoder/mtk_vcodec_dec_hw.c        |   2 +-
->   .../vcodec/decoder/mtk_vcodec_dec_stateful.c  |   1 +
->   .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 104 +++++++++++++-----
->   7 files changed, 96 insertions(+), 75 deletions(-)
-> 
 
-..snip..
-
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-> index 53d1708b012b..153c617df78d 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-> @@ -21,17 +21,6 @@
->   #define IS_VDEC_INNER_RACING(capability) ((capability) & MTK_VCODEC_INNER_RACING)
->   #define IS_VDEC_SUPPORT_EXT(capability) ((capability) & MTK_VDEC_IS_SUPPORT_EXT)
->   
-> -enum mtk_vcodec_dec_chip_name {
-> -	MTK_VDEC_INVAL = 0,
-> -	MTK_VDEC_MT8173 = 8173,
-> -	MTK_VDEC_MT8183 = 8183,
-> -	MTK_VDEC_MT8186 = 8186,
-> -	MTK_VDEC_MT8188 = 8188,
-> -	MTK_VDEC_MT8192 = 8192,
-> -	MTK_VDEC_MT8195 = 8195,
-> -	MTK_VDEC_MT8196 = 8196,
-> -};
-> -
->   /*
->    * enum mtk_vdec_format_types - Structure used to get supported
->    *		  format types according to decoder capability
-> @@ -108,6 +97,7 @@ struct vdec_pic_info {
->    *
->    * @is_subdev_supported: whether support parent-node architecture(subdev)
->    * @uses_stateless_api: whether the decoder uses the stateless API with requests
-> + * @chip_model: platforms configuration values
->    */
->   struct mtk_vcodec_dec_pdata {
->   	void (*init_vdec_params)(struct mtk_vcodec_dec_ctx *ctx);
-> @@ -129,6 +119,7 @@ struct mtk_vcodec_dec_pdata {
->   
->   	bool is_subdev_supported;
->   	bool uses_stateless_api;
-> +	unsigned int chip_model;
-
-I already gave my R-b but I just noticed:
-
-Please use u16 here, 16 bits are way more than enough for this.
-
->   };
->   
->   /**
-> @@ -277,7 +268,7 @@ struct mtk_vcodec_dec_ctx {
->    * @dec_racing_info_mutex: mutex lock used for inner racing mode
->    * @dbgfs: debug log related information
->    *
-> - * @chip_name: used to distinguish platforms and select the correct codec configuration values
-> + * @chip_model: used to distinguish platforms and select the correct codec configuration values
->    */
->   struct mtk_vcodec_dec_dev {
->   	struct v4l2_device v4l2_dev;
-> @@ -321,7 +312,7 @@ struct mtk_vcodec_dec_dev {
->   	struct mutex dec_racing_info_mutex;
->   	struct mtk_vcodec_dbgfs dbgfs;
->   
-> -	enum mtk_vcodec_dec_chip_name chip_name;
-> +	unsigned int chip_model;
-
-same here
-
-
-Cheers,
-Angelo
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
