@@ -4,111 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E0BC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15227C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ogzk1zAksC1p2lO2lX+ildRtH5U/X0N5sk/kFhqIelM=; b=AUZgB+Rct0j1THAEH5eWdfiRMM
-	fsBtIO/JOKdjnvp7/t7CgF9F5QMmjjZk8ct8Tn+KYoOygzTdjaMs7LRgUClaXAdhJ4YXpCe3a+/Sq
-	DgjNN64vghpzoZJBMzTq+ZGHFuje+nsaJDa54eAUJsJ84sY74anxsFTLJgiVkw7bZtFLBBsLEoTKs
-	9F7DTPNW2WWq30ISVksSpSHnjP/nGECQojZgH/3FyqmTOpwTfrwOT7sJHgJEgrMyVdbkUT9rE+I7X
-	H2+yKRWaE1SDq924OL0/0d0SCg8Gqnmf9fy7bIwwxjdam8Rku8yJ1l3Yk2REPIGCJXZDOsAl8AdHr
-	CmwfvHkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZRec4Y9W6ELtgC6hEwcMUks6eDmdzxDe4O7gdt/GoFo=; b=AsOBsGmcCdTcCofSB9nbngJbHu
+	y/uHzJ7B8FrxS8eLOKrTqeOych5V/XhM2J0Ya5x+IDu1pVe8A9+nkp25v1QVu21yX1qJQYTBwueqb
+	+I/u4/znp5/5NkCJ2FNAfrXMHZA/HTL8FGxi+zX5wluo6kGyR9vkUGFUhQ7TF8hvcSmGYMq2RFN4G
+	W/VJJzvOIPEHPib/b14qPpjEiiAeIZ0uZahSNMNiNFqLvboxDZz1TgxfGXgLVQ220YA6SzpXPqodn
+	2/Pnd6uYgOqsOboI2PlFlyRMFvD76rkrgPfb7kdlS/UPtDM2Oudhwrks7Ccd+3gky2N8wiEbp9Umk
+	7zTg+ipg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PI6-00000008oGK-1IW3;
-	Wed, 23 Sep 2026 15:53:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9PIT-00000008oR7-3Rb5;
+	Wed, 23 Sep 2026 15:54:13 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PHz-00000008oEv-10lG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 15:53:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Ogzk1zAksC1p2lO2lX+ildRtH5U/X0N5sk/kFhqIelM=; b=f/RD/dMdQRdbwBvKTqOTCGRQ/8
-	xoWuWzhxJK8mp9D1X9PrRltIblsPZKkEzEea31dWl8eDlHc7z19ueS8i/05TB/NhMbmRkHsxcJrE3
-	yDyt3mBOvqY7Ll0aY2Ch53W71DXOlTvXiC+BAWvz3/Rn0QEYIb6Sd9hLJKmm0HGaddJjyVrQgTrsR
-	XNjm1WtVDlqYlSFTKrRSRffem1kUtIhV8oi1JwZAhRlY4pBY4e7ElwcixTWHQLRugnfDbUuSHhSmc
-	+CPOsV4y4+htxRCju8LZ0rV2FlI3kcFVDNGN2DcXKfSBvodZDFC46iOKTD02m0k+pU/PyMVTa+t6P
-	L9CDEPiQ==;
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9PHw-0000000EyTJ-2JqY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:53:42 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912e2406so5463695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:53:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1790178818; x=1790783618; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ogzk1zAksC1p2lO2lX+ildRtH5U/X0N5sk/kFhqIelM=;
-        b=cNyCMNp7wKg0Gfhf0vJl5f+OKMocYwytrtcioKrEnaNId1Ggd3x6rKyLvONZy8ZW+g
-         h7k5ZTMNAf8dmkKewCc6PtTQtX8D55GlM2m/cmyonCtkuNsLgh1/WPf6lCOtotcIXkjz
-         G2oPKa3Iar9QqB8RJMpGXM9ceMehYNzn4toDY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790178818; x=1790783618;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ogzk1zAksC1p2lO2lX+ildRtH5U/X0N5sk/kFhqIelM=;
-        b=2HO0ApK8+vfOQCRGXIj4lVcO8de8YDAi2KCK2c0wKY5g8eMkwF07k/pREFWGR5PxQi
-         c9e1iBVw/D8nNII6c78M7oIwbp2cfg/I3SpNqD8b1RA+GaEGUanSez9TJ42yzPpFUcpF
-         46XVjLkqPn6uul3yzrZrsH2cqNdA0mEvPm00NHvp7XQF5af9Me7bT/xMfYY2kHxYLU5r
-         rdzh4ABL9w3jgfQiZQZFyu5fk/tyaoMu/YdH0QQJvEa72VZ9RV+jf6ffvcaG8VZhL/DN
-         cLNjUc9gZldHHixzeypkPLscgOKEInGCmos49Gt++rQRUi9xM2GCXrlMUwIvxPOraXnF
-         FFKA==
-X-Forwarded-Encrypted: i=1; AKwUvBzPVroylcXZh9uhGheAF1QHwXE1NtE6eOzAHuCMH3pK3dKIxHrRUjTcScumv55sv9IiJ7+kZy2vOACWid57xj6k@lists.infradead.org
-X-Gm-Message-State: AFuF++m6wNMMlA9sfXtg/mRCUznW6DSOzL2LeI2mpKsiHbZWm14Ztlz2
-	8FEiIq8NcsL3QHSukJQGz8XkoLZdYQqy2OL+ADGS5RHzCDdf+SWcJiyavVod0XqFm30=
-X-Gm-Gg: AYBFou0UMZrDSVQby258DcPfOPM+tutXcmk2M5U/DKNwf9ulnv3SdKVVlNvDK1YqSeL
-	Nq9TwMjQUGBYwOSFj0SghpxCVae4xMdqRBBz9FZ+pt96ldRzjQV03LFRhwbiN9LkvVbsPqW4vHd
-	O2s/5BNlGzy/Qp3jm4zwHlIB0AuBsr9SQPLPHRl01QmuD04xP02IMq4L/m3VrPW5bJUesFo7y7a
-	O0cDUuIUgpSXcPx14HvYoInHaUa1XHafSzK4oHLHiVL3DHybKamD9M22rDDbBzUlbqJ7zeUFooi
-	1OeSCleV6l4fXJ2JbmX8AdFlUiGsp6kcpk5pj9C1SUu6sS+XpKRjcN7L7lCOTtQWNzMFkz6UKQG
-	edF1khUylmPBx4z/JrcsGgK1DxMtKyOg+H/eVEg4XHrQ0j9j2VY0D6qAEn04tsjjZrm3iSLIPMR
-	BczMUI+ZQUYnIyARUbmiYyVcLQbh3GfOEOYyut7LJLkEsJ2g2ccAomMTljtUg+a5Nnnpj8tTAD7
-	ufyByB7wpzV9MEazw6CGiYWya8B+4fgW2He7YKIVD6jF56poXRKtUeFvvMJJXvLSPM=
-X-Received: by 2002:a05:600c:1988:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49fdf3571f9mr41898745e9.3.1790178818353;
-        Wed, 23 Sep 2026 08:53:38 -0700 (PDT)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:12f8:fcfa:728a:2514])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fde1d5f10sm81858555e9.8.2026.09.23.08.53.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 08:53:37 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: michael@amarulasolutions.com,
-	domenico.acri@engicam.com,
-	linux-arm-kernel@lists.infradead.org,
-	Marek Vasut <marex@nabladev.com>,
-	francesco.utel@engicam.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Subject: [PATCH v2 1/2] arm64: dts: st: move Engicam MicroGEA-STM32MP257D-RMM display to an overlay
-Date: Wed, 23 Sep 2026 17:53:09 +0200
-Message-ID: <20260923155333.610134-2-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260923155333.610134-1-dario.binacchi@amarulasolutions.com>
-References: <20260923155333.610134-1-dario.binacchi@amarulasolutions.com>
+	id 1x9PIL-00000008oMY-1K1a;
+	Wed, 23 Sep 2026 15:54:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790178845; x=1821714845;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=u/EwzTM/NnzSfEVRVlTGSUu5KUBYwA6lJMr21sRdsVY=;
+  b=JrR0eVe1xAoebPebzsuaFaVa17lLUs6FBwbRJ1uvkyIXCVilQkXZRug1
+   Mk3nJmRwhQeYxacxm1Sr5WqzEoGhWdNwqeRB95t4lXmvnN32KYQe5e4Qt
+   ow08rmk5FSL7rslNBmJJelZ4qhmFYDaIOQ2tizSSfx8oPv3Rb/hghzaLC
+   qt1dMHDsFVdMSu3FZYtp67iinLCW1Vub4kI0pK2sThBLYkI3icLzJtaIU
+   b9YQXY6nSy5AbqIV8kZ859TEqwlidxiKU2PGQfG8s0w7YrfSq+ftTrhIZ
+   S8I00NN4DrSnTwNX6gwhdyutAKFypNlOnONTKD7vmu5dZkt1WmchC0VOm
+   g==;
+X-CSE-ConnectionGUID: uKYBmXKwTqKY4mqen9XiRQ==
+X-CSE-MsgGUID: 9/9FJQbjSKucsHwTf67LpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11914"; a="78445062"
+X-IronPort-AV: E=Sophos;i="6.27,118,1787036400"; 
+   d="scan'208";a="78445062"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 08:54:03 -0700
+X-CSE-ConnectionGUID: 7lue524bROaPLXzmdodnwA==
+X-CSE-MsgGUID: 36FTiqfuQTOcmIIrMf9pGA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,118,1787036400"; 
+   d="scan'208";a="4756769"
+Received: from igk-lkp-server01.igk.intel.com (HELO 1bbc298b9a73) ([10.211.93.152])
+  by fmviesa011.fm.intel.com with ESMTP; 23 Sep 2026 08:54:00 -0700
+Received: from kbuild by 1bbc298b9a73 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x9PIA-000000000j5-0Jdb;
+	Wed, 23 Sep 2026 15:53:54 +0000
+Date: Wed, 23 Sep 2026 17:53:25 +0200
+From: kernel test robot <lkp@intel.com>
+To: Coia Prant <coiaprant@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: Re: [PATCH net] net: ethernet: stmmac: dwmac-rk: fix bulk clock leak
+ when the PHY clock fails
+Message-ID: <202609231728.boP5N9Xr-lkp@intel.com>
+References: <20260919174223.2356964-1-coiaprant@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260919174223.2356964-1-coiaprant@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_165340_675148_C6168D7E 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20260923_085405_530283_C6EB07BC 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,189 +95,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board is fitted with different displays depending on the product
-variant. Keep in the board dts only what is common to all variants and
-move the RK050HR345-CT106A RGB panel and its touchscreen to an overlay.
+Hi Coia,
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
+kernel test robot noticed the following build errors:
 
-Changes in v2:
-- Keep the full cs-gpios in the board dts, the overlay only adds the
-  panel node. Suggested by Sashiko.
+[auto build test ERROR on net/main]
 
- arch/arm64/boot/dts/st/Makefile               |  6 ++
- ...icrogea-rmm-overlay-rk050hr345-ct106a.dtso | 68 +++++++++++++++++++
- .../st/stm32mp257d-engicam-microgea-rmm.dts   | 46 +------------
- 3 files changed, 75 insertions(+), 45 deletions(-)
- create mode 100644 arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtso
+url:    https://github.com/intel-lab-lkp/linux/commits/Coia-Prant/net-ethernet-stmmac-dwmac-rk-fix-bulk-clock-leak-when-the-PHY-clock-fails/20260920-014223
+base:   net/main
+patch link:    https://lore.kernel.org/r/20260919174223.2356964-1-coiaprant%40gmail.com
+patch subject: [PATCH net] net: ethernet: stmmac: dwmac-rk: fix bulk clock leak when the PHY clock fails
+config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260923/202609231728.boP5N9Xr-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260923/202609231728.boP5N9Xr-lkp@intel.com/reproduce)
 
-diff --git a/arch/arm64/boot/dts/st/Makefile b/arch/arm64/boot/dts/st/Makefile
-index 6cbccfd50993..218ff7fdf576 100644
---- a/arch/arm64/boot/dts/st/Makefile
-+++ b/arch/arm64/boot/dts/st/Makefile
-@@ -1,7 +1,13 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a-dtbs := \
-+	stm32mp257d-engicam-microgea-rmm.dtb \
-+	stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtbo
-+
- dtb-$(CONFIG_ARCH_STM32) += \
- 	stm32mp215f-dk.dtb \
- 	stm32mp235f-dk.dtb \
- 	stm32mp257d-engicam-microgea-rmm.dtb \
-+	stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtb \
-+	stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtbo \
- 	stm32mp257f-dk.dtb \
- 	stm32mp257f-ev1.dtb
-diff --git a/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtso b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtso
-new file mode 100644
-index 000000000000..f89641bdb23b
---- /dev/null
-+++ b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtso
-@@ -0,0 +1,68 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ * Copyright (C) 2026 Engicam srl
-+ *
-+ * Rocktech RK050HR345-CT106A 5" 480x854 RGB panel with EDT FT5306
-+ * I2C touchscreen controller.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+&i2c1 {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&i2c1_pins_a>;
-+	pinctrl-1 = <&i2c1_sleep_pins_a>;
-+	i2c-scl-rising-time-ns = <185>;
-+	i2c-scl-falling-time-ns = <20>;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	touchscreen@38 {
-+		compatible = "edt,edt-ft5306";
-+		reg = <0x38>;
-+		interrupt-parent = <&gpiob>;
-+		interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpiod 1 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <480>;
-+		touchscreen-size-y = <854>;
-+	};
-+};
-+
-+&ltdc {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&ltdc_pins_a>;
-+	pinctrl-1 = <&ltdc_sleep_pins_a>;
-+	status = "okay";
-+
-+	port {
-+		ltdc_out: endpoint {
-+			remote-endpoint = <&panel_in>;
-+		};
-+	};
-+};
-+
-+&spi1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	display@0 {
-+		compatible = "rocktech,rk050hr345-ct106a", "ilitek,ili9806e";
-+		reg = <0>;
-+		vdd-supply = <&reg_3v3>;
-+		spi-max-frequency = <10000000>;
-+		reset-gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
-+		backlight = <&backlight>;
-+
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&ltdc_out>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts
-index f5af0913bf1b..faedddc2c914 100644
---- a/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts
-@@ -116,25 +116,9 @@ &arm_wdt {
- };
- 
- &i2c1 {
--	pinctrl-names = "default", "sleep";
--	pinctrl-0 = <&i2c1_pins_a>;
--	pinctrl-1 = <&i2c1_sleep_pins_a>;
--	i2c-scl-rising-time-ns = <185>;
--	i2c-scl-falling-time-ns = <20>;
--	status = "okay";
--	/* spare dmas for other usage */
-+	/* dt overlays don't support /delete-property/ */
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
--
--	touchscreen@38 {
--		compatible = "edt,edt-ft5306";
--		reg = <0x38>;
--		interrupt-parent = <&gpiob>;
--		interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
--		reset-gpios = <&gpiod 1 GPIO_ACTIVE_LOW>;
--		touchscreen-size-x = <480>;
--		touchscreen-size-y = <854>;
--	};
- };
- 
- &i2c2 {
-@@ -179,19 +163,6 @@ sgtl5000_rx_endpoint: endpoint@1 {
- 	};
- };
- 
--&ltdc {
--	pinctrl-names = "default", "sleep";
--	pinctrl-0 = <&ltdc_pins_a>;
--	pinctrl-1 = <&ltdc_sleep_pins_a>;
--	status = "okay";
--
--	port {
--		ltdc_out: endpoint {
--			remote-endpoint = <&panel_in>;
--		};
--	};
--};
--
- &m_can1 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&m_can1_pins_a>;
-@@ -259,21 +230,6 @@ &spi1 {
- 	#size-cells = <0>;
- 	cs-gpios = <&gpioh 8 GPIO_ACTIVE_LOW>, <&gpioh 3 GPIO_ACTIVE_HIGH>;
- 	status = "okay";
--
--	display: display@0 {
--		compatible = "rocktech,rk050hr345-ct106a", "ilitek,ili9806e";
--		reg = <0>;
--		vdd-supply = <&reg_3v3>;
--		spi-max-frequency = <10000000>;
--		reset-gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
--		backlight = <&backlight>;
--
--		port {
--			panel_in: endpoint {
--				remote-endpoint = <&ltdc_out>;
--			};
--		};
--	};
- };
- 
- &timers2 {
--- 
-2.43.0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609231728.boP5N9Xr-lkp@intel.com/
 
+All error/warnings (new ones prefixed by >>):
+
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c: In function 'gmac_clk_enable':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1165:25: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+    1165 |                         if (ret)
+         |                         ^~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1168:33: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+    1168 |                                 return ret;
+         |                                 ^~~~~~
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c: At top level:
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1177:11: error: expected identifier or '(' before 'else'
+    1177 |         } else {
+         |           ^~~~
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1189:9: error: expected identifier or '(' before 'return'
+    1189 |         return 0;
+         |         ^~~~~~
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1190:1: error: expected identifier or '(' before '}' token
+    1190 | }
+         | ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c: In function 'gmac_clk_enable':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1177:9: warning: control reaches end of non-void function [-Wreturn-type]
+    1177 |         } else {
+         |         ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c: At top level:
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:199:12: warning: 'rk_gate_rmii_clock' defined but not used [-Wunused-function]
+     199 | static int rk_gate_rmii_clock(struct rk_priv_data *bsp_priv)
+         |            ^~~~~~~~~~~~~~~~~~
+
+
+vim +1177 drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+
+7ad269ea1a2b7d Roger Chen            2014-12-29  1152  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1153  static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
+7ad269ea1a2b7d Roger Chen            2014-12-29  1154  {
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1155  	int ret;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1156  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1157  	if (enable) {
+7ad269ea1a2b7d Roger Chen            2014-12-29  1158  		if (!bsp_priv->clk_enabled) {
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1159  			ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1160  						      bsp_priv->clks);
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1161  			if (ret)
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1162  				return ret;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1163  
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1164  			ret = clk_prepare_enable(bsp_priv->clk_phy);
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07 @1165  			if (ret)
+cb278e6780d874 Coia Prant            2026-09-20  1166  				clk_bulk_disable_unprepare(bsp_priv->num_clks,
+cb278e6780d874 Coia Prant            2026-09-20  1167  							   bsp_priv->clks);
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1168  				return ret;
+cb278e6780d874 Coia Prant            2026-09-20  1169  			}
+23c94d63a7e395 David Wu              2018-06-28  1170  
+5c1fc7cb81dfed Russell King (Oracle  2026-02-04  1171) 			rk_configure_io_clksel(bsp_priv);
+5c1fc7cb81dfed Russell King (Oracle  2026-02-04  1172) 			rk_ungate_rmii_clock(bsp_priv);
+2f2b60a0ec2826 David Wu              2022-08-30  1173  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1174  			mdelay(5);
+7ad269ea1a2b7d Roger Chen            2014-12-29  1175  			bsp_priv->clk_enabled = true;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1176  		}
+7ad269ea1a2b7d Roger Chen            2014-12-29 @1177  	} else {
+7ad269ea1a2b7d Roger Chen            2014-12-29  1178  		if (bsp_priv->clk_enabled) {
+5c1fc7cb81dfed Russell King (Oracle  2026-02-04  1179) 			rk_gate_rmii_clock(bsp_priv);
+7f864458e9a6d2 Sebastian Reichel     2025-10-14  1180  
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1181  			clk_bulk_disable_unprepare(bsp_priv->num_clks,
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1182  						   bsp_priv->clks);
+fecd4d7eef8b21 David Wu              2017-08-10  1183  			clk_disable_unprepare(bsp_priv->clk_phy);
+fecd4d7eef8b21 David Wu              2017-08-10  1184  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1185  			bsp_priv->clk_enabled = false;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1186  		}
+7ad269ea1a2b7d Roger Chen            2014-12-29  1187  	}
+7ad269ea1a2b7d Roger Chen            2014-12-29  1188  
+7ad269ea1a2b7d Roger Chen            2014-12-29 @1189  	return 0;
+7ad269ea1a2b7d Roger Chen            2014-12-29 @1190  }
+7ad269ea1a2b7d Roger Chen            2014-12-29  1191  
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
