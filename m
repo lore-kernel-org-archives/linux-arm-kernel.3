@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC42C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8745DC98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6hk0sQ453lNEysdZfourfxsn4kfTAj/appBmgqJA7CQ=; b=Q1JrP6M/g5UuxQ/GRKDtUTuU5x
-	CY3UWDpGnPcp4qx9ipNj4WzsCKvfT2MMMUTcJeOVVDo0x+0ohfd/FDa2fEMAKNoimaln6SNXXmptQ
-	ogCaxLzYV7pecHd6y9cZ4kzVTFpQsXFkKYuAKhhPLu7+lhy0iSXRwH9giCPiUkoXUu2aMEmqqtesh
-	hYbTWKuUKK4/DD8zg/rY9WBCcc+mln7xHWBzkywiBDm6BHUEVXWGlV+6wvqeq5jGosdTdr856Zg3h
-	g2A5AO65H81KnFC4OwYAAPIpXeG9q2LjFJ3ZHEHoIU3JR0qTD9HNHeeEVDgSz/IBmDLbyWmtkB6x2
-	CQqzVOxw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RconBTXU9LPf8lTB0K4UrjmNoGQpku4smOvmK7csrbk=; b=Mz6YipYXZc+Tmg/Nr73nwwXOVX
+	zxqMHk/c3y3FCBCqSIc9UJFlO2qvHd5d19Q0ZhHoElztw7c70DE5iL/oadb6JdEn4bNbcMplp42BC
+	iBCQRo+PgyTwKi3fdU8SOJcJvuYIKpZ4F8VNBt1jIOrxhk94i5QHbSnP9t58WfV8jlCHq6Koj/hyx
+	oJm3GQYNGgn2K6YIYt3HhmAexP0BqzARdWjY0/fBUHRUsL1DETlRFLCh7ZqkhmFc9NGVkqpZYtLWw
+	H2bWuqfPyhQBWskLmViAIUkvrWMrjHEV1fgHv0GOlzGqr444LrYSk/2AIBwrRJ6mNIfhRydIsTUkM
+	d6i04ZkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PHz-00000008oF0-33tK;
-	Wed, 23 Sep 2026 15:53:44 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	id 1x9PI6-00000008oGf-3beU;
+	Wed, 23 Sep 2026 15:53:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PHu-00000008oE7-43NC
+	id 1x9PI0-00000008oEy-0qfM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 15:53:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=RconBTXU9LPf8lTB0K4UrjmNoGQpku4smOvmK7csrbk=; b=Bup5jeVKhUvyYfARm2kRKbrdlW
+	JbsfgBeTRtbefvfUgxFEsGvelJNNTDGWOqQKNVdaYpF7+bbxuaCfjngryPwi2VCv6SuRo4IDUJ98O
+	9kibgYTPToAeW3D8bCebR+t+A7ye+iRH+P2wc0xv9ExctXxD+MPpPUBJaKWz2xia8Pzqow87MbCxj
+	MRIaU/+sUIqDgXYIggD9pTHI9s788Zxma+1ask+kk0CAjoMLG457ONRUM3QyR7MS0z8DvI81cQfiT
+	JTH5lG1sDBuP0ewxLdOBKoTVcmporrs7oZqgOzoRsyd6BMpqhThfOtEXl4P7uyep2CcPsAklAov1C
+	CcgAEDew==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9PHx-0000000EyTa-0tAT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:53:42 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b912df756so7931635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:53:38 -0700 (PDT)
+	Wed, 23 Sep 2026 15:53:43 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d37b5so6669475e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:53:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1790178817; x=1790783617; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6hk0sQ453lNEysdZfourfxsn4kfTAj/appBmgqJA7CQ=;
-        b=nUOwOoghGKzm7K9MbJ3uRxK+kPxCNR36M41M/HV5TXrFoY4KBbi0zgNwAT47Kp4a6U
-         7IKTnixxHj8EdaHrBLcH+4de64+yU6PsVSX4EQpfXERCnjqQ7DJ/XcieWAPQuAX4fWeu
-         U+6UdoIt0OuNRyP4hicPcG1yX4RU/kYfe4W/U=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790178817; x=1790783617;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=amarulasolutions.com; s=google; t=1790178820; x=1790783620; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6hk0sQ453lNEysdZfourfxsn4kfTAj/appBmgqJA7CQ=;
-        b=WH1IelZcm9aciN1plxZYap3YWHHq9ezS3v0rrdQjL2rwrIMAd8+cpnGEXTSNf6Bf2C
-         JB3lxpUPsi8+0ptWoc2gXbHC6K3HUSQMshSMcgVUSvM3bm4doQoMB3oVyIuuXkNayjRq
-         KPkhKGa/cY26tIuAWK2M6sVavm5+r2DkNDuihqO7lxPywGLgzH7bIJKtwJsvSpSToVSo
-         NB113O9wTqhvrKeSzPDUaR6KqM+M2qJS5xL2MwGn3Y5K5vlBOJZMmes3nboaPIUD1/4l
-         k+ofCFgRi7y6IlKT0KezkBHD+xCY69yxSo3QsqGS5M1OlFkpkbMWfZLjN5xY326ot5+E
-         BGYw==
-X-Forwarded-Encrypted: i=1; AKwUvBwoYNtWOUfpyfWIIAnHXo0pMylFqQBat6Zg+BxawC+2Ly91cvpzpdtUaPgCFThzMXUjKfOep+OThy+7vMlTZMff@lists.infradead.org
-X-Gm-Message-State: AFuF++kUvLwl8vp1xS0AHJk9D6JUc3+X8RISCPR0ICOPedi9XD8kNUNi
-	wLD+deXloh4FdMM1QVrJYo9Bfm4EQsElQS1pzw2qPw+KadrL33D50S0k8kAmfm7oYg4=
-X-Gm-Gg: AYBFou3pPPlbvHWFBMF+7dH4wef537Vxd96v2c781RIv18ko8lX2qxfLkH6WkP5suwR
-	yImffjpjskqN+VqEFliN0Po/a8a0ckmq15sDRbzsx6JwjodT4vrotzSu5acpttxe1wVJQpLMNUH
-	daEdJYduH5MZBh8pCIH3YA0D+5zStTS2yZUg5S9qW6UFO102BBJZwBNhl69M42oCBKT5KV6/YJ5
-	YZLfpztFrhgcHzScPtnk4NHFJ/exRIa53+tKw7GA83blUaWg5V6D5OUx6KtIfoYTYgH03IOFnf8
-	ei1H6kHUEkmfuPWDdPJmnvwtPulHN3YGWnVueVC7lCHBla1Ixo3zIf3sn/pXyRUtvOBCGnGioyf
-	20hLklaJuTgU4MyrcclxnJ/XxXOCRQtm4EJFiyIk+P++IhRG0rNUpPsmCWnV5QWT6yuY72fKlrf
-	VHClbzZ2m1Qq6LmiM+H6Rka/rcCdkef1s69G/GS77BPbbiPGKi4OIFa7czqhKmUtkDY2a54eW39
-	sLwnnOntYFMq87vnbSVRQFes5LHKnPih9te/rvj5eML+o/ZkRutpOTwPzm6VrFf8as=
-X-Received: by 2002:a05:600c:609a:b0:49d:1842:f001 with SMTP id 5b1f17b1804b1-49fdf0f9fb7mr45229825e9.14.1790178817000;
-        Wed, 23 Sep 2026 08:53:37 -0700 (PDT)
+        bh=RconBTXU9LPf8lTB0K4UrjmNoGQpku4smOvmK7csrbk=;
+        b=TvxU6G5uR/SmOMwrZ+5bDtjCQ+cfF0/6+JDUAJvpRVDi3EDhQxgcohi8NcoXIWfGog
+         AGmcaj3ua2RBfI/Si7w/iNvz1SCgb2G06iavXmaK04rvoNCqF+r7q/jnxfAu+uWenPzd
+         RURUes1sRM3UIEcB9x3+eVI/ANa2sn/mKVwF0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790178820; x=1790783620;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RconBTXU9LPf8lTB0K4UrjmNoGQpku4smOvmK7csrbk=;
+        b=RUMP+N7C4N6ULNla0hvY0nd5QxwbLPpVm2oOD0Y9IsT5ROEk1FZoMaXC8iDOENqV9L
+         gBBYAlS+32vWmouN1cPXJ3w620cI2cPhs6+8jUCPLD744Y/HtkOMz/RaDHmJSVvie7zB
+         cS9lQ/oT2P9sybpdlETVC9VwXvwfDVYJdKMjibMhFifgoMFEkOibZpiQgz6p0LG8S3Wh
+         Sq4nKH7ohF9C8ZAKdyu63vyb3Il0kcwz4xfkCA/evV0SqJNMFs+HsJVMdfj+TEsAvtbH
+         55lsrCeEeJzV/tGWDRDIQcBY/Nh9lakmdjJVRvw5ZpZVyqfMVG5PvIjT+OdtCULtuYKi
+         nbjA==
+X-Forwarded-Encrypted: i=1; AKwUvByoS0QaD6vBR6EMzHODs8OOX911Qj4iiTKbNhHboOc1TU3Qj6Oo1ArhCbQ/K4R6Mcyx8jZKt1SsF8W5zCpmHVR4@lists.infradead.org
+X-Gm-Message-State: AFuF++m/HEI0CoW4P5KNdksNSW4exwL9ifB6vPM0ujpyLbOdWqXZoWg9
+	dGb+fSek+D5HvV84kHhmG8tkEi7KYVKyxfd6KOzubDFqbz+jAy+9/gSokd9hwJxaduM=
+X-Gm-Gg: AYBFou0Z6+g20zFS6sQIvnqIfEjnJdotsF2fs5+drB5Ofm44P3eYLv+Ww/PSL5wZQgh
+	p3Qcb9MiGX3KNongn0RYRp8E0TNm6lBi4cRTFTCcT9EV6nONDsCidw6st53XSaNQP+0h1XszIxk
+	yA0CEJlyyXu0XXpSDV9jcHVLyCocjYfDvRvU4v+dEEMHbBK51aI449gEwpTASgysjIOBpC7CTr2
+	UnuCWgw68khfishRvlbpySNRJmQBheiM3dmysGruhPIH9Q1oycR5DvHVpZhaWCxHku1ZT1fsUAO
+	k9fUh8VZRTHI2ZmHaa7xM3PmZGEvsRHC1PLG8Oh4F6WeRJ80cSTlQbXPU2pRjAKvjJ9phRzylNg
+	/2ULGX+gU+Mcyg6jgfl5Uj1wTtfXYuEYyqJ09a/65y1Ar3wxoeufKIzIe5hrXnYg6EQTbRMqij+
+	gnIrbTtdSps54gXdbyxkGDENifilbz4bsnjO+Q/bWp4RdiZdBXW/GVYnRGpTYZfRDdLWSEY4kRd
+	Xl1JVEbJvd9mZjHWOGCz0AxGtDxrZ0vAqs9n0nd7ATPgQOE3kxWeMrd0xrCzMW/F0Lbwbi8DByW
+	xTw=
+X-Received: by 2002:a05:600c:1382:b0:49f:ce78:3566 with SMTP id 5b1f17b1804b1-49fdeffd72cmr43711015e9.23.1790178819775;
+        Wed, 23 Sep 2026 08:53:39 -0700 (PDT)
 Received: from localhost.localdomain ([2001:b07:6474:ebbf:12f8:fcfa:728a:2514])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fde1d5f10sm81858555e9.8.2026.09.23.08.53.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fde1d5f10sm81858555e9.8.2026.09.23.08.53.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 08:53:36 -0700 (PDT)
+        Wed, 23 Sep 2026 08:53:39 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>
@@ -82,15 +99,17 @@ Cc: michael@amarulasolutions.com,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Subject: [PATCH v2 0/2] arm64: dts: st: add display overlays for Engicam MicroGEA-STM32MP257D-RMM
-Date: Wed, 23 Sep 2026 17:53:08 +0200
-Message-ID: <20260923155333.610134-1-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v2 2/2] arm64: dts: st: add Engicam MicroGEA-STM32MP257D-RMM LVDS display overlay
+Date: Wed, 23 Sep 2026 17:53:10 +0200
+Message-ID: <20260923155333.610134-3-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260923155333.610134-1-dario.binacchi@amarulasolutions.com>
+References: <20260923155333.610134-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_085339_347764_2444D08F 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260923_165341_421764_5B960D30 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,34 +124,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add an overlay for the variant fitted with the AM-1280800W8TZQW-T00H
+10.1" 1280x800 LVDS panel. Its touchscreen is connected over USB, so
+there is no touchscreen node.
 
-The board is produced in variants fitted with different displays. Move
-the current RGB panel to a device tree overlay and add one for the LVDS
-variant, so that the board dts describes only what is common and each
-display gets its own overlay.
-
-Changes in v2:
-- Keep the full cs-gpios in the board dts, the overlay only adds the
-  panel node. Suggested by Sashiko.
-
-Dario Binacchi (2):
-  arm64: dts: st: move Engicam MicroGEA-STM32MP257D-RMM display to an
-    overlay
-  arm64: dts: st: add Engicam MicroGEA-STM32MP257D-RMM LVDS display
-    overlay
-
- arch/arm64/boot/dts/st/Makefile               | 12 ++++
- ...gea-rmm-overlay-am-1280800w8tzqw-t00h.dtso | 67 ++++++++++++++++++
- ...icrogea-rmm-overlay-rk050hr345-ct106a.dtso | 68 +++++++++++++++++++
- .../st/stm32mp257d-engicam-microgea-rmm.dts   | 48 +------------
- 4 files changed, 149 insertions(+), 46 deletions(-)
- create mode 100644 arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtso
- create mode 100644 arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtso
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
 ---
-base-commit: 2f92d900f262a16c8ae02daf53ae2910d07185f5
-branch: engicam-rmm-overlays
 
+(no changes since v1)
+
+ arch/arm64/boot/dts/st/Makefile               |  6 ++
+ ...gea-rmm-overlay-am-1280800w8tzqw-t00h.dtso | 67 +++++++++++++++++++
+ .../st/stm32mp257d-engicam-microgea-rmm.dts   |  2 +-
+ 3 files changed, 74 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtso
+
+diff --git a/arch/arm64/boot/dts/st/Makefile b/arch/arm64/boot/dts/st/Makefile
+index 218ff7fdf576..7f657d2bd629 100644
+--- a/arch/arm64/boot/dts/st/Makefile
++++ b/arch/arm64/boot/dts/st/Makefile
+@@ -1,4 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h-dtbs := \
++	stm32mp257d-engicam-microgea-rmm.dtb \
++	stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtbo
++
+ stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a-dtbs := \
+ 	stm32mp257d-engicam-microgea-rmm.dtb \
+ 	stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtbo
+@@ -7,6 +11,8 @@ dtb-$(CONFIG_ARCH_STM32) += \
+ 	stm32mp215f-dk.dtb \
+ 	stm32mp235f-dk.dtb \
+ 	stm32mp257d-engicam-microgea-rmm.dtb \
++	stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtb \
++	stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtbo \
+ 	stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtb \
+ 	stm32mp257d-engicam-microgea-rmm-overlay-rk050hr345-ct106a.dtbo \
+ 	stm32mp257f-dk.dtb \
+diff --git a/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtso b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtso
+new file mode 100644
+index 000000000000..7655c1bf56b1
+--- /dev/null
++++ b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm-overlay-am-1280800w8tzqw-t00h.dtso
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2026 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
++ * Copyright (C) 2026 Engicam srl
++ *
++ * Ampire AM-1280800W8TZQW-T00H 10.1" 1280x800 LVDS panel. Its touchscreen
++ * controller is connected over USB.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/clock/st,stm32mp25-rcc.h>
++
++&{/} {
++	panel-lvds {
++		compatible = "ampire,am-1280800w8tzqw-t00h";
++		backlight = <&backlight>;
++		power-supply = <&reg_3v3>;
++
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&lvds_out>;
++			};
++		};
++	};
++};
++
++&framebuffer {
++	clocks = <&rcc CK_BUS_LTDC>, <&rcc CK_KER_LTDC>,
++		 <&rcc CK_BUS_LVDS>, <&rcc CK_KER_LVDSPHY>;
++};
++
++&ltdc {
++	status = "okay";
++
++	port {
++		ltdc_out: endpoint {
++			remote-endpoint = <&lvds_in>;
++		};
++	};
++};
++
++&lvds {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++
++			lvds_in: endpoint {
++				remote-endpoint = <&ltdc_out>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++
++			lvds_out: endpoint {
++				remote-endpoint = <&panel_in>;
++			};
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts
+index faedddc2c914..96b7cb6b5bc1 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257d-engicam-microgea-rmm.dts
+@@ -43,7 +43,7 @@ chosen {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
+-		framebuffer {
++		framebuffer: framebuffer {
+ 			compatible = "simple-framebuffer";
+ 			clocks = <&rcc CK_BUS_LTDC>, <&rcc CK_KER_LTDC>;
+ 			lcd-supply = <&reg_3v3>;
 -- 
 2.43.0
 
