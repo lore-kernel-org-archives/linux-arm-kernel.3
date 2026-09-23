@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71A1C98316
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E407C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8M+UT7oIyha+XPFScsNzmi18L28ReOVLoc3XQz11GVc=; b=dkFkZ1HK/VV2GUOLiHpq4Ltq+u
-	9OeNJTXbLGVBvIjeKYcUlpDsxX4CZ4iCBY0UsafIeCS5ue7tERwv9GiVlnA80jhj0ZjQui/QPK+WO
-	hhXTARZ5r+lwNd0+uq5jCqmQhZlcDYGzvOCZRwKV6H3HXfRnLFqp7IefizmNDhFpofygPOElhV8v6
-	k36licdi2RBYR1mYMDtRpK/jyu9ErwoXbI7rw1B0P1iZAM52PSRZCgsC0PXTu6WYJQ7QJo6kU75nf
-	L+CDUuPGw1XgnnSTn+FYPwRjr+E3ZsE1pc+1e7U9exirsDnYcQFgNOpSYtxShlrk5PT9v3Jf53a1X
-	oIhp+9AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mLaZ6QMAlChH6Bas+cLTUExn52jNXV5CR8pfGjWWblA=; b=2iZHpVdy/7mS18Xb4eCmWowb+Z
+	sRzuJjW/kTBTbwBLiFBjOCkmEuJ4fgAYuVXt+EG/5ZFoAepoM/jcnjjl72zUZmSefEp1tz+vCBaYL
+	F+f/g6j1wpC9gJweA+ZXa5Tr3DLsVbQqYDK6gPgJKoZKTx/HSzkkIc6IWWChegmJFLaQlAQnRiopt
+	LO5C/Mplu4p/e4HChMY49hHCz6EE14MMblMKKkBlGsDy/tXOezyGQ+S+WB2Gh7O+HU6r1/5WfHCHK
+	E29gWXYoTDuRBgwQcNV8xYc26nLlQoqS947uZSzjAUhw4b9Zw6ax2WTBbrgyShIoqb4+DyelmHj7/
+	2LENiJuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9UyF-00000009cZn-1fwO;
-	Wed, 23 Sep 2026 21:57:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9VFJ-00000009dLD-3E7f;
+	Wed, 23 Sep 2026 22:15:21 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9UyE-00000009cZf-1uuQ
+	id 1x9VFH-00000009dKg-1A3L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 21:57:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8E8C43F16;
-	Wed, 23 Sep 2026 21:57:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E64F1F000FF;
-	Wed, 23 Sep 2026 21:57:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790200661;
-	bh=8M+UT7oIyha+XPFScsNzmi18L28ReOVLoc3XQz11GVc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=UlRCpIiuV4BL8JAAastxBfA9AqVs0ltc4wCol3mQOA0gLZjTyueHPUzDfkomWqfcu
-	 vpR5AZPTtAEq8u8eSrNmhkr+1CMQCTroungYOMyBMU32U2CLz6KVXjlWqsLSI8bR6S
-	 wP35XQ0D+0tN2X9HGw/1WDk6TQFINV9Nk3VDmxB8pRzxfOrvcjXU2KNpiq4TgP+2pl
-	 ygpXh/ifYG/6W3V00QmeW4/BAs7W2rOQMFTUC0RlwS5eMPL8R/2vlpijuJKJ/F+yA+
-	 MDkFmyaiUsbKOg26ABOc+B4X0L531YtjJ1pdd1hXGLbmJLpqc1OPuXWPqBU7xsqBdy
-	 Cg9pPN+qNyR9w==
-Message-ID: <f95ccf9c-c366-48d6-ac9f-c97546b9b543@kernel.org>
-Date: Wed, 23 Sep 2026 23:57:31 +0200
+	Wed, 23 Sep 2026 22:15:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=mLaZ6QMAlChH6Bas+cLTUExn52jNXV5CR8pfGjWWblA=; b=iNuptB2oIZhXrkQPyxHmWroghF
+	onbceDSy5Aw6UTSEruhdhedVchiiIiwpBpcRkJDV/IenuwgLaaqGZbwrdhek5HrabtFtYXPJLVxWf
+	lYJJOVf2J2fSDQ/JN6oPtHWm/32fpHCs+FIKA/vR4iq+yjUE6NcQ0vRgjjy8iLA4RirA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x9VF2-006sqK-7V; Thu, 24 Sep 2026 00:15:04 +0200
+Date: Thu, 24 Sep 2026 00:15:04 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
+ A733 GMAC210
+Message-ID: <d02ff8f9-c708-4319-922b-69ab085ed9e5@lunn.ch>
+References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
- for PTE-level block mappings
-To: Barry Song <baohua@kernel.org>, Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
- urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
- ajd@linux.ibm.com, anshuman.khandual@arm.com, david@kernel.org,
- dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
- npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
-References: <20260923062832.479455-1-jiangwen6@xiaomi.com>
- <20260923062832.479455-4-jiangwen6@xiaomi.com>
- <CAGsJ_4z-oqoxKynRr6mz0-5zZU_2NBnPkwz05CEEHHnwTyqa-Q@mail.gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <CAGsJ_4z-oqoxKynRr6mz0-5zZU_2NBnPkwz05CEEHHnwTyqa-Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_151519_320724_709F5680 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 23/09/2026 à 23:38, Barry Song a écrit :
-> On Wed, Sep 23, 2026 at 2:28 PM Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
->>
->> vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
->> huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
->> the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
->> couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
->>
->> Now that arm64 and powerpc/8xx provide pte_set_huge() and
->> pte_clear_huge(), add the generic fallbacks next to the existing
->> pmd/pud_set_huge() family and convert vmap_pte_range() and
->> vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
->> around the block-mapping paths are dropped, so PTE-level block mappings
->> now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
->> longer includes <linux/hugetlb.h>.
->>
->> The fallbacks exist only to keep the build working on architectures
->> without PTE-level block mapping support. They are unreachable there:
+>  * Tx-delay: The vendor kernel ships with a Tx delay of 2.16ns. It may seem
+>    to work at first but breaks under heavy load. The vendor kernel is
+>    configured for an external RGMII clock, which cannot work on the A7A:
+>    the 125MHz input and 25MHz reference output are not wired to the PHY.
+>    It was most likely not tested on this board. A 1.62ns Tx delay works
+>    well.
 > 
-> Since this is a `BUILD_BUG`, can the compiler simply eliminate the call?
-> I guess the build would still pass even without the fallbacks, so this is
-> more of a build-time check than something needed to keep the build passing?
+> DT example is available here (gated on CCU and pinctrl mainline support
+> currently):
+> https://github.com/jbrun3t/linux/commit/aa6f3a5ce4cd6e09ff9be1828915bfe8e87c57df
 
-Yes and that's what the compiler does, it eliminates the call.
-The BUILD_BUG() is there to make sure it does eliminates the call.
+&gmac0 {
+	phy-mode = "rgmii-id";
+	phy-handle = <&ext_rgmii0_phy>;
+	phy-supply = <&reg_swout1>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&gmac0_pins>;
 
-The build won't pass without at least a forward declaration of the fallback.
+	tx-internal-delay-ps = <1620>;
+	rx-internal-delay-ps = <1800>;
 
-In the old days when BUILD_BUG() didn't exist, the trick was the declare 
-the function and never define it. But with that trick the problem is 
-only detected at link time. With BUILD_BUG() the problem is detected at 
-build time.
+Something does not seem correct here. rgmii-id means the PHY is adding
+2ns of delay. The MAC is adding an additional 1.6 to 1.8 ns. The total
+is way too big when the standard says 2ns.
 
-> 
-> Am I missing something?
-> 
->> the callers only run when arch_vmap_pte_range_map_size() or
->> arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
->> which requires an arch implementation. BUILD_BUG() makes that
->> explicit rather than silently doing nothing.
->>
->> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> 
-> Nice to see that `#ifdef CONFIG_HUGETLB_PAGE` and
-> `#include <linux/hugetlb.h>` are no longer needed in `vmalloc`.
-> 
-> Nothing concerns me except for the changelog issue mentioned above.
-> Please double-check whether the changelog needs to be corrected.
-> 
-> Reviewed-by: Barry Song <baohua@kernel.org>
+Is the PHY adding 2ns?
 
+	Andrew
 
