@@ -4,168 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20D7C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE3FC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI3g=; b=Z8hG/A7WGM1qO/rPOVfI0vpl3P
-	df01+xt6VnWZpaEmOWwOy5//FyWg5tVTm+4B2fWi1HqsYd/F1635sszcBqmCnnBzroW0WNUehLceq
-	LedxRonv6ulxPy9XXrIITyRG7aVJTqM5/LIXvQRD50p57MxKODypswxP+gFN7AqALriWwgWZoHsq3
-	qb1/ItHjc0qCztzd87N1foCMzqSr/IDFvXP921a5s6EvcZxZKCGg6vw5LnZKDeLQh2Vdx2cTqRj8c
-	mwyjDoaeQWeblK8OLKoLjc1+EGr9l1MqTlTnW7YssLzA7joHRe+iCBQtQ0PZuUGRNbTY7UNgtGbUs
-	s3QsAz4g==;
+	bh=ogBbb6P7GlWqXIs8xvSnHcODf4KNfQaxAfTAtslALNQ=; b=gO6ITHhXR+M5maWQCfDsdKG68X
+	WNQDu3rxB0w2b4nzaJsyYgvrFZNm4JDG2v2TCRlXFdNgGv9o8IwNkUuK4HIB++RLptfKry9QUzQmH
+	XvUDfqwgYPU1Uc+53rCTz8kL01O5LwPN/qzWxUb38SF3WkEVkF/W3tyQFXHlPP8qgGuDolVXoeAZ6
+	91t4bVI7pypVb7DXFjgk+Vrs7XqYye3B3bSFRKpf2T83krN6NFu3Pqtyp+t46NbsQepA0CmrozIjK
+	zDTIvwGZ7DCnPXD438GAO7dIuDAE3wSeGICFXylmVd3G4+UzlDJBN4OM5r7vx55T9RgA283LI6t9q
+	vzCQyA9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Me3-00000008KkD-0vxJ;
-	Wed, 23 Sep 2026 13:04:19 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Me0-00000008Kjb-3obR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 13:04:18 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68N8NKCf1611932;
-	Wed, 23 Sep 2026 08:04:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI
-	3g=; b=SvVu6SZJ5tBJfx57QB20eHlPOuBd15GzOKsvDg0I0Cy/55pasqfblndyc
-	46yJrV5n4dnx41mD6K8p1Vx/EGNAXuUGaFzJLg3lJ6PMZp413wNlN5ez3TpDxMjL
-	6ymOWF9IRidf22Ej9FB6Wsorv4M3c/JRkJRd1BZp6zbQwRCbnax0w0xR0psZnYWW
-	33KAtwt8BVU5HtTCYyRRo8hLRNvVKm5slmG74utaz3xThBcKAZ/3SWIcKXifSYB/
-	+d40Frzc1QFaxVew6LlP0h7tkTqu6m3DiiqZbjy9shhGajUoOUail/eFuMp6gCsz
-	w8BYa+gfCXesVEW8Dmyla5ffh47+A==
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010005.outbound.protection.outlook.com [52.101.193.5])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gvb77sftb-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 23 Sep 2026 08:04:12 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BYGTl0YD9gj3HKljm5k5zSPCOhzGcMaj2At2cDptnGyAdsOtM7DOx5KmtUUGo9aECCYABRIcs9bdMdMVbQyESQPVX72spgDrIkbrN1P7+60w0oMv4djQNj7QP0cuKjO4Ewx25al+9UdUaB5W/LPyN6INju3/nmsCARUJJlPKvi+IN+A/164c0IqmeWatNKn3ObUc/dcP9RjNuiBwwT5uCBhRhBnPvzkyyQY4f5dJeyYVH0kdMHyWhQq25UvDAApZQxkSWx4jOTc9uvK3LgSp8NYyliTE7mLhkexxXWBpJbk0ExWKt4SH/eKiJ+B7+eBbXWvlbhv+RDnwRJlYzupgwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI3g=;
- b=B7trpsuMshg5IJLspddHNLb6RnSfhMAIHlK8ZWZwuL4EGeWaQFm9Rl1Otr9Diagi1vgMKNJYP2bZZWA/JFSVbTqYzJKAvGJzJzeIGrIbBwl/ExPY10XlzPaZf8CVmLOi8l3ydzjtNYo0DzjyTRv6f3T2QE5GV4npA8NmqD96hC//sMvsTGTI9ep/+W6yDlgpz06jdImZU1pP/aqVtTOMQCv3KfXKkJZcJkKR3qtd0dVGlWhHBfcIb0DP2gi5bbUGpkgJZa9dmfFp9vxFROmPCErmBcpZSRk4sUEDXtmsk9cqPHOql8Qdw603p23F1/DYHWKvXZRYU2Fv7zac4Ec5Ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f0qmYubF5OdLr7LCf9Vlw2hfhLZFldczMSa1lkoUI3g=;
- b=a52slzO0wFN6K0N+e812fJnpV4jDNyTXlOX9xWMiwRw/UP9UB8Gt5G4HSyCPwio50a8QUZc15+pRSTG5rdjIlAsXvnDz0Gldu6j0r4LEUrR+oC9i7JBrpdXL2a8ZrpQoZMCfLURvD1kL+ttSPDYFdgSMscFNvzNtMi6yI2Hzhjs=
-Received: from MN2PR20CA0054.namprd20.prod.outlook.com (2603:10b6:208:235::23)
- by IA0PR10MB6819.namprd10.prod.outlook.com (2603:10b6:208:438::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.472.5; Wed, 23 Sep
- 2026 13:04:09 +0000
-Received: from BN7PEPF000000A6.namprd05.prod.outlook.com
- (2603:10b6:208:235:cafe::28) by MN2PR20CA0054.outlook.office365.com
- (2603:10b6:208:235::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.14 via Frontend Transport; Wed,
- 23 Sep 2026 13:04:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN7PEPF000000A6.mail.protection.outlook.com (10.167.245.230) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 13:04:06 +0000
-Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 23 Sep
- 2026 08:03:19 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 23 Sep
- 2026 08:03:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 23 Sep 2026 08:03:19 -0500
-Received: from [10.249.135.178] ([10.249.135.178])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68ND3F5i2961458;
-	Wed, 23 Sep 2026 08:03:16 -0500
-Message-ID: <40b6706d-fa68-43d3-8abd-bd8b70e4cb89@ti.com>
-Date: Wed, 23 Sep 2026 18:33:15 +0530
+	id 1x9MeE-00000008Knk-1NLE;
+	Wed, 23 Sep 2026 13:04:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9MeC-00000008Kmc-0qGA;
+	Wed, 23 Sep 2026 13:04:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A0231570;
+	Wed, 23 Sep 2026 06:04:22 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A1A663F86F;
+	Wed, 23 Sep 2026 06:04:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790168665; bh=V2eG6fezUymbQQ69ZuSww8KCP/5bN/QHpNMXTsYSPOw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZvqzetxDsEV+z9y8tgXSp1WMJmVGbPD4FFevEiSlqja3DG2IGWuF2b73OrQ3DI5PP
+	 ebwj8SPEQZ4BaUOAgvsq/NUWIH7HsMxifQ4aW+kmBXBfzWreFCdx8DwnXmCnT2MCb1
+	 pQF5HqiW/0gA6vvYspF/vjHUh2HXW5nKxCvWawCQ=
+Message-ID: <8c9c04ae-cba7-4096-a7d1-70b90a46c161@arm.com>
+Date: Wed, 23 Sep 2026 14:04:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] soc: ti: k3-ringacc: Fix DMA ring initialization
- kernel-doc
-To: Karl Mehltretter <kmehltretter@gmail.com>, Nishanth Menon <nm@ti.com>,
-        Santosh Shilimkar <ssantosh@kernel.org>
-CC: Grygorii Strashko <grygorii.strashko@ti.com>,
-        Peter Ujfalusi
-	<peter.ujfalusi@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>
-References: <20260923061658.20140-1-kmehltretter@gmail.com>
- <20260923061658.20140-2-kmehltretter@gmail.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20260923061658.20140-2-kmehltretter@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v5 5/6] dma: swiotlb: Add an overridable architecture pool
+ opt-out
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-6-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-6-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PEPF000000A6:EE_|IA0PR10MB6819:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8591745d-3727-42e8-09f9-08df1973264b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|10067099003|56012099006|6133799003|18002099003|22082099003|4143699003;
-X-Microsoft-Antispam-Message-Info: wEVhTAYrElFLghn+QSDjim+QHtpcWzxGZn3k1jXGkLwkaZPRRrxzeJJ67DdNZMr29b/npyOkDCRx8Uo6bIJPoQiZaiIsfO7sIcD63fd1A7Pvo/W+qq9bIdTCyl9YnMnE9boYiunGcqm3Afi0h98PTsuDzwBO2b4OZxCdBnJT+1ayy6KoSz20F7w0dSrpRDniO09xJj1D7Cfp27aMmEhYDlbPK25B5Kvwe7w4J8v0jSl/UA1M1odDHR7PU9T01Y6BPnjsiBpv7TwFLu62UxSxyZlNL1SwZ3iNsez5ypX6aNJnDnLxHQJoV48ub6JEictty07UkCs1vo9nm0jX+Li0vS4aJPszoQu6I+JR60vUK7qDp4BIwCxvj8YyLg6HkHWwKJzRHgn8lGUyOfhpavO/NBTKUi7BzPYCrmKEtkDoZRmFQsEHcodFm8A0edWI/U7ebk6FmCagbk98WtspCx26gd36n9gse9KpT0ONyACFnI/hHDoyylDxYj+fJnrPkq7uyaxhgsgs6lLnnyGiuIogmD4kaPQlVlpeyhbXIhrD4noWtY44ODoh+EwvIKp9Ek3Qz+AzY5A5HpM3KeNuFs9ZUUzjBgIKvN1Xgecz/jop0iDgywisrtYJyvoJZcavSkL6cqaU5H8tvSPOST4KT1MEo0Za5LB+05z/SAjmp7/wSXg=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(10067099003)(56012099006)(6133799003)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: H22Qh/Qiv2eCRobCalmrNZPFjRtr/hv6PaevMOMdFCS1WrAP08+Xys3fqBFD43/Wusqj/ehXeR3/Ekwd2OYRno6Ffwq/jKj4LxSznH6tdViHcLHOs6fGy/tIzlLjchrbJeni452mf32jnayWFztmUDwhwQukX9hPwJqfLybTSITPCxyGkOeqU7ITk/gt+bnNnLzqpcMpyqRE429kUET6bS4gJQt6mz19YVlJLMMM4Fp+O/j05SHz1Vq3TsCtaQwnhXFsHXdwJbvXMG66IH8oCFjaQ78H5uFlvipwzsTDul/QemfIbuE7E3uE5HRcELCHjCwAUJr0MVxxVs/HuSA4AWLSTmQSdLG1XmCvROAcZ8dNcIc9sFDhYvL1LO3l9/MvqeaXejqs28Hr+SMbeie+JMffLnD/jJ3NzRxZBpl1pD2kcMWlEc1CtJI9WVJelCyU
-X-Exchange-RoutingPolicyChecked: JQ6AWiH3E+NYqSF6elIvEIQt3VyCRxtuCFVWjvHOJuSF5yXZsqRYvWe7g9DwQhdrJZZ3wzkfpbFKJpBc0/aU9BRD+jHRe3UCYykD2fsIsbkUZKcjIRZFn3MmiiQU8PjuGknxB6PdZGFPrOC0AjnTWiOCxBD6hHLYqZ8jvPv0VlA4Nqx/lYSGJusg33/zyW1m0WWZXNq92EAdKFhXCPfZJ/AAYp6vgCxcYAcIdalhlX+J9S4p25YEHX7RusHoL1yJHYUSPy4k3DyQvCcW+hrRz1glw4w8sbOyEP5Csmki2+GLNAdZ+B9NhWVWbegzlv/VtX2gE8e39N144I3ive+duA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 13:04:06.3046
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8591745d-3727-42e8-09f9-08df1973264b
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF000000A6.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6819
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA1MSBTYWx0ZWRfX1/Y+it1FkQgk
- Z5zv38+9CdbARJyhphJ6RzLjDtZiHLvx5qGR48C15CgufW6s3IeU0UyBJuVi31ZqW93Rdtx9boU
- jpMCvN8vZd6cXOeMq6PfBfzAwTmNQPfB/bAIDHM5KbepStBORrShv2A92gQ3vrou2ezCdk+ISDh
- p+bEgtI437GB1Qx8No1FlJEq9+TeIm7Y8YBlI32+qSVQ94hNb9PwEDXS2vtTHFkWUAEmefvV2nL
- DtMdfgCdm7/q5b1VVelt7N4UdcrzSxPxDhalFMN56+3fMu2QRIRbnYWQyfVWFCrtkdqq9DLX0Zq
- Omgh46HvZoXPJsvld4EMv2YmDRK72a2eKTDWyGewzhBTcfSIdf2TX9o5Ll74eTfISqiQk5S+/hk
- foJ7EfzerW+r736iuKL69/Z0h4wased8rKkuXudQyu7+9J5drJVqg51nQIlcODYOLkg7V/9pjrU
- 8X/iltGyq+r4n0U9Tyw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA1MSBTYWx0ZWRfX1bNCy0+AG9AW
- hOKox8etmbeI5ZsY/hEL6Yg3K/ixDyRfSThHbRViVv4Tnpy3ftso07DVES8QAbpjeKrSI7ySmU1
- HemLGDcCEgU33uB4tlloN3len9CFj0Y=
-X-Proofpoint-GUID: 6bq6vaeGijii3OD7EzTf9XHaO7V67Tex
-X-Proofpoint-ORIG-GUID: 6bq6vaeGijii3OD7EzTf9XHaO7V67Tex
-X-Authority-Analysis: v=2.4 cv=cPt1IVeN c=1 sm=1 tr=0 ts=6ab3ce4c cx=c_pps
- a=v0elvT+g34jhj2ItdigShQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=sozttTNsAAAA:8
- a=zHeEaGkxK0QNAutOGoIA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- impostorscore=0 phishscore=0 suspectscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_060416_961630_F6D78F21 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20260923_060428_342493_13276E72 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,51 +95,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+> On x86, iommu=off historically prevented SWIOTLB initialization by not
+> setting SWIOTLB_INIT_ADDRESSING_LIMIT. This overloads that flag: it
+> controls both whether a pool is selected and where the pool is
+> allocated. If another requirement, swiotlb=force selects a pool
+> independently, omitting SWIOTLB_INIT_ADDRESSING_LIMIT may place it above
+> the addressable range of devices which need bounce buffering.
 
+Well then surely something is wrong with the design? If 
+SWIOTLB_INIT_ADDRESSING_LIMIT is set then SWIOTLB still needs to respect 
+it irrespective of any *additional* reasons for activating (either from 
+arch code or internally). And conversely, if devices have addressing 
+limits but SWIOTLB_INIT_ADDRESSING_LIMIT is *not* set, then the arch 
+code has clearly gone wrong or made a bad assumption, but that doesn't 
+seem like SWIOTLB's problem to worry about.
 
-On 9/23/2026 11:46 AM, Karl Mehltretter wrote:
-> The heading for k3_ringacc_init_data repeats struct, so kernel-doc
-> cannot match it to the declaration. Its three fields are also missing
-> descriptions.
+> Add SWIOTLB_INIT_FORCE_DISABLE to let an architecture opt out of normal
+> pool initialization without discarding the pool placement constraints.
 > 
-> Use the structure name and describe the firmware handle, device ID,
-> and total number of available rings used during DMA ring initialization.
+> Unlike swiotlb_force_disable, which is set by swiotlb=noforce and
+> unconditionally prevents pool initialization, the new flag is an
+> architecture default. Explicit requirements such as memory encryption,
+> architecture remapping, or swiotlb=force take precedence over it.
+
+Logically, that should already be implied by the architecture passing no 
+SWIOTLB_INIT flags.
+
+Thanks,
+Robin.
+
+> iommu=soft retains SWIOTLB_INIT_ADDRESSING_LIMIT because it requests
+> software bounce buffering for devices whose DMA masks cannot address all
+> system memory. Such devices must be able to reach the bounce pool.
 > 
-> Fixes: d782298c6f6b ("soc: ti: k3-ringacc: add AM64 DMA rings support.")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Clear both flags for Xen because Xen explicitly requires a remapped
+> SWIOTLB pool and may allocate it anywhere in directly mapped memory.
+> 
+> With no override, iommu=off disables both hardware IOMMU translation and
+> SWIOTLB bouncing. Direct DMA remains available; mappings outside a
+> device's addressable range fail instead of being bounced.
+> 
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
+>   arch/x86/kernel/pci-dma.c | 11 ++++++++---
+>   include/linux/swiotlb.h   |  2 ++
+>   kernel/dma/swiotlb.c      | 10 ++++++++--
+>   3 files changed, 18 insertions(+), 5 deletions(-)
 > 
-> Notes (ti-ringacc-v2):
->     Changes in v2:
->     - Describe num_rings as the total number of available rings in the
->       comment and commit message, as pointed out by Udit Kumar.
->     
->     Patch 1 is unchanged.
->     
->     v1: https://lore.kernel.org/r/20260919163721.89044-1-kmehltretter@gmail.com/
-> 
->  include/linux/soc/ti/k3-ringacc.h | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/soc/ti/k3-ringacc.h b/include/linux/soc/ti/k3-ringacc.h
-> index 2de6031b9424..7b7fc237c08f 100644
-> --- a/include/linux/soc/ti/k3-ringacc.h
-> +++ b/include/linux/soc/ti/k3-ringacc.h
-> @@ -254,7 +254,10 @@ u32 k3_ringacc_get_tisci_dev_id(struct k3_ring *ring);
->  struct ti_sci_handle;
->  
->  /**
-> - * struct struct k3_ringacc_init_data - Initialization data for DMA rings
-> + * struct k3_ringacc_init_data - Initialization data for DMA rings
-> + * @tisci: TI SCI firmware handle
-> + * @tisci_dev_id: TI SCI device ID of the DMA controller
-> + * @num_rings: Total number of available rings
->   */
-
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
->  struct k3_ringacc_init_data {
->  	const struct ti_sci_handle *tisci;
+> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+> index 0cff255827ba..ce257b20ea9c 100644
+> --- a/arch/x86/kernel/pci-dma.c
+> +++ b/arch/x86/kernel/pci-dma.c
+> @@ -44,9 +44,13 @@ static unsigned int x86_swiotlb_flags;
+>   static void __init pci_swiotlb_detect(void)
+>   {
+>   	/* don't initialize swiotlb if iommu=off (no_iommu=1) */
+> -	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN) {
+> -		x86_swiotlb_enable = true;
+> +	if (no_iommu)
+> +		x86_swiotlb_flags |= SWIOTLB_INIT_DEFAULT_OFF;
+> +
+> +	if (max_possible_pfn > MAX_DMA32_PFN) {
+>   		x86_swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+> +		if (!no_iommu)
+> +			x86_swiotlb_enable = true;
+>   	}
+>   
+>   	/*
+> @@ -84,7 +88,8 @@ static void __init pci_xen_swiotlb_init(void)
+>   		return;
+>   	x86_swiotlb_enable = true;
+>   	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
+> -	x86_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
+> +	x86_swiotlb_flags &= ~(SWIOTLB_INIT_ADDRESSING_LIMIT |
+> +			       SWIOTLB_INIT_DEFAULT_OFF);
+>   	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
+>   	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
+>   	dma_ops = &xen_swiotlb_dma_ops;
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index be3962a33fc6..466c33795db0 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -20,6 +20,8 @@ struct scatterlist;
+>   #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
+>   /* Initialize a default-sized pool that requires architecture remapping. */
+>   #define SWIOTLB_INIT_REMAP		(1 << 3)
+> +/* Do not initialize a pool unless SWIOTLB is explicitly required. */
+> +#define SWIOTLB_INIT_DEFAULT_OFF		(1 << 4)
+>   
+>   /*
+>    * Maximum allowable number of contiguous slabs to map,
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index c19675846fc1..46b789eb0806 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -563,10 +563,16 @@ swiotlb_select_pool_policy(unsigned int flags)
+>   	if (flags & SWIOTLB_INIT_REMAP)
+>   		return SWIOTLB_POOL_DEFAULT;
+>   
+> -	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
+> +	if (swiotlb_force_bounce)
+>   		return SWIOTLB_POOL_DEFAULT;
+>   
+> -	if (swiotlb_force_bounce)
+> +	/*
+> +	 * Explicit requirements above override an architecture's default opt-out.
+> +	 */
+> +	if (flags & SWIOTLB_INIT_DEFAULT_OFF)
+> +		return SWIOTLB_POOL_NONE;
+> +
+> +	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
+>   		return SWIOTLB_POOL_DEFAULT;
+>   
+>   	if (swiotlb_kmalloc_needs_bounce())
 
 
