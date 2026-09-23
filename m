@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E85C98311
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2671C98313
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=za4ZTK0Ksc2dqzy2fM/TuJDfoum243RULGb6iZ3X30Q=; b=LbMf/t94xMJcvu+I9cCaG9PDSt
-	JcErzN/vf3p0qgpyvZHVLUAymc9Dw3BKPW5TIxsTr8zz1QxwpYsLXHEYOmRJfTxGpysS53yQdCDKS
-	c15zoevQRFnWoI/sL4+J0gg+AIUHLUJcnpRocO+cH8MjXy8oKKU8/5d3h5sym3Xhm+wDRS6u29Lox
-	LhXj9I+idSuZMMmbHmmOwJCdSwqcvQkVn5s3B23sbHvY1DksGihoCJ/+6jxzVS4BJbfXcGrI/lLhC
-	vx09w2nL0cVYPR8bC1KMsesCgZ8Y1NoL4wwO1i0VRAz89O0ac0UyDwbpruGreO5iqYlXlrW5moyj+
-	sm4+kmVw==;
+	bh=/jWPdQ1PQn7QYGRe4YmcAhnL6IV2b5nYkP8Ta9zUFmY=; b=a9Xn5IERMyUqQ4oCx71T9/iDhK
+	Qa5F7YUPHUUmJE3o2p2vpFF0z4bvaS3d9Me3s6CHRQAiySw3eBKXesvTOtHGj1eCDqhvKSZ1gDsp6
+	abKaGDRrEq8O85sB6i9eLcHGOrLtH7AhPzWDTey8the0+eC0S8BvCKwIWnVScbgcj8UEuv7dpoq1i
+	xoU0oPpIoio6/j5vaExCjR2C6LenVHfIsSo7KBWrs6opToGylk4tKjmjL+ach4ikKg52QqxTG/6Te
+	afUL7PCv8idhKwEmGAZWCP/3j0KAcUr4P0wxujRXmTCtmeiMRBbCyLVObC8NMUiBrh29QBApjosMR
+	x9Fl2DIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9P4V-00000008lRU-2afp;
-	Wed, 23 Sep 2026 15:39:47 +0000
-Received: from mail-swedencentralazon11013046.outbound.protection.outlook.com ([52.101.83.46] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1x9P4W-00000008lUI-3XSO;
+	Wed, 23 Sep 2026 15:39:48 +0000
+Received: from mail-swedencentralazon11013063.outbound.protection.outlook.com ([52.101.83.63] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9P4M-00000008lLu-3ozv
+	id 1x9P4Q-00000008lOl-3ViS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:39:40 +0000
+	Wed, 23 Sep 2026 15:39:44 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xvmUAOm+cjCW1hrRrj1YVHkRPEyemeC7JxD6JHYzhrNKDN/o4zPkQbd/0QbNVFhxZ2zWaiJuGJQ9qqhLjyC3RNkWZNgBwfSFq9bYt6Ms4FeRzGO+zfTTaD7uzgsntSDExo+kotZUIcEpsywcc/l/WPKYt73zC809TtvoIktZoeEeQ4pggBwX7PIENcUUHgYXYWU6QUE4hjKwmBdOsYgNvgD06ON4pw2AMYkQLiOmgWUQloN3/85st8ictuIMUjF+MOrL9fEqD7P+UFLE8betw9EC+wHyoM/nRQcento145pPoExBj4U9j0UhSMCrc2sfB5VC/Im3GwKZQiwKiDUB2g==
+ b=jJS7YOoT0ACJURjdnxG/TgmiyiBeIUiD+hVxPlG8EEZt4gugWn0V3fPHxKuBsKil8SeWUr2pElhBLa04Xw/8z0TOAqsnKc54F3uPScGOLmDd6PA1DHKXGqmszsqTiNNZdgmFKNnJ8BFWrGl83Cc/fGkBc5VHYSCjSbJnqQCwLr+UuQ+ymh8QPy3IxQPvrFZWP7Vf5Bn2ZDpzWAnA95m069Mx+FNRwuSPAuqOSNWReskTvkAlpAbrMC360/P+6wfVCb3k2oM+LKn1bVvbx4qOhbBpPkzJLYI0g6cWSYWwxNHLqr531TnbaTPXUtrTPb4ccdIKcpYb3ViJJqa50AH72Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=za4ZTK0Ksc2dqzy2fM/TuJDfoum243RULGb6iZ3X30Q=;
- b=K5q+rB7QB7VI9mdsi7hvCiMOEr+ytpCL0S8DboN4kwndIAZjFmtYoyQ88rnYp765PQHJOwnVbsWkOtkdu/k7CjxPDg2dmeumxfxG0JMJFSHVfK7e6XUyHwELz6NMnRyY1Q5Y35PnIxjfVpNdFN+OzOe3YCsma/7Ec3I/7miQwsDFMwynAJl40Jo4sVxHAT5hebc5HkKTqpJUZ9Hq5Nx3hM5tIhQgwQOJQ/klQU62ryxxY6MmGXCACu2TQYolLU+vxCYikaFHRfmzaPf09LAfzAlZS+sja4x1zLWy2+4ZXA7MEWrdrzcI1Mi62GXQAhz/CUaRqLqRdqtnjob/6uWsww==
+ bh=/jWPdQ1PQn7QYGRe4YmcAhnL6IV2b5nYkP8Ta9zUFmY=;
+ b=nIU1ZWzl1pnsnVbqIL9DZPh40CllRNltmbOc18R5BJjyQ8hDGtE6iGF0AxXdleZPnGnUlLAi7oaQdvPDhAd1JvlJKwKN4zWboWy0jSlm1LXCgDWoLHLBvoJzoW96hJ4cWohVD4VefvnZ8GK6YrTbHs7PsqxDf9B4aw9zqHieFdSrYwqbfxMJwFO+UNQ9D1lYO/b9nZayYu4C1SV4UT6vI7i+LBJf0iLf0pL4zYUqXyeWmPH5Kx8X7HS2xCwXeaADifUQQ4wwGOG7pYCuMGG3XLlL5wtEaL1tITwAVtX85mTH2ttF7DG6Rw3dTzmfyKdS9QvQphQtNtDuCktDB39GWA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  164.130.1.59) smtp.rcpttodomain=st-md-mailman.stormreply.com
  smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
@@ -41,44 +41,43 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=za4ZTK0Ksc2dqzy2fM/TuJDfoum243RULGb6iZ3X30Q=;
- b=PDN6Y8TF2EWyhYQLAMRuapl6r6RcRPWQH677sdxoZUOMBeA2WGnRu4m7NN6nOkAPUXa4rXKLMkwftOom9RN4BRiHiZu/7zWA1tfdJozwiET/PtlB+LlqO2WiLG7AXL8k6XiBr28voiGaLLYcSv0zsQCIfLi2gJ0WNSYhTpbFOXDlpeYtzOYrsnqKENRmgv25tmsPdU7SU6DNpxx/GQ3sYVjN34iQB9N3booGVL3iqBxcynUiCsLVbhUIk0HF66KC1evqSXcnEEbtQ2CujzDu+311VuhA6mg2cHSAxJwDHnjge+NbjztfCEp4dPrPiRdXZVDzszRWx0iVQ050/Lvsnw==
-Received: from MA3P292CA0009.ESPP292.PROD.OUTLOOK.COM (2603:10a6:250:2c::10)
- by PRAPR10MB5154.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:29c::5) with
+ bh=/jWPdQ1PQn7QYGRe4YmcAhnL6IV2b5nYkP8Ta9zUFmY=;
+ b=G7Brk5KauNRK+sIcQrUrgI7HbAMgc67TLgjJ6Jag3zOx3+UPkRpDyhn/qFT8VnM/kXGsFH++GHoJqGHKwFlIPg+VX1xsqshXhhDKVBANG9Ih7RIu2zVViHNbL5ndEu1m05gT1xWFNvzwp9exkRidCgOjV8yQR4L6eI6j/nD4YhqfOtpSt1qYTK/1FJJgSyKj/6HSaGeAFWe4J9XUO+j4g1tILAjv4dW3KGLc9tSGhASkbgGcnCkcqJHGLwM10o+3OSFJqB7symlKNfW724+eSd6d8ItM9E+WotvT+KsPWGncfk1bHEnj2mPdtLo8Sl7Whr8Xms2JzP0u90NutvAbVA==
+Received: from PA7P264CA0411.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:39b::6)
+ by PAWPR10MB7270.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2ec::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 15:39:31 +0000
-Received: from MAD0EPF000008B6.eurprd04.prod.outlook.com
- (2603:10a6:250:2c:cafe::a6) by MA3P292CA0009.outlook.office365.com
- (2603:10a6:250:2c::10) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 15:39:37 +0000
+Received: from MAD0EPF000008B0.eurprd04.prod.outlook.com
+ (2603:10a6:102:39b:cafe::a5) by PA7P264CA0411.outlook.office365.com
+ (2603:10a6:102:39b::6) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.16 via Frontend Transport; Wed,
- 23 Sep 2026 15:39:30 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ 23 Sep 2026 15:39:37 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
  designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
  client-ip=164.130.1.59; helo=smtpO365.st.com;
 Received: from smtpO365.st.com (164.130.1.59) by
- MAD0EPF000008B6.mail.protection.outlook.com (10.167.241.138) with Microsoft
+ MAD0EPF000008B0.mail.protection.outlook.com (10.167.241.132) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 15:39:30 +0000
+ 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 15:39:37 +0000
 Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
  (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 23 Sep
- 2026 17:45:58 +0200
+ 2026 17:46:05 +0200
 Received: from localhost (10.252.7.7) by STKDAG1NODE2.st.com (10.75.128.133)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 23 Sep
- 2026 17:39:29 +0200
+ 2026 17:39:36 +0200
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Date: Wed, 23 Sep 2026 17:39:07 +0200
-Subject: [PATCH v2 04/14] iio: adc: stm32-adc: manage characterization
- voltage diversity
+Date: Wed, 23 Sep 2026 17:39:15 +0200
+Subject: [PATCH v2 12/14] arm64: dts: st: add ADC nodes on stm32mp231
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260923-adc-stm32mp25-v1-v2-4-46bc019537c6@foss.st.com>
+Message-ID: <20260923-adc-stm32mp25-v1-v2-12-46bc019537c6@foss.st.com>
 References: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
 In-Reply-To: <20260923-adc-stm32mp25-v1-v2-0-46bc019537c6@foss.st.com>
 To: Jonathan Cameron <jic23@kernel.org>, David Lechner
@@ -90,36 +89,37 @@ To: Jonathan Cameron <jic23@kernel.org>, David Lechner
 CC: Marek Vasut <marex@nabladev.com>, <linux-iio@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Olivier Moysan
-	<olivier.moysan@foss.st.com>
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Cheick Traore
+	<cheick.traore@foss.st.com>
 X-Mailer: b4 0.16.0
 X-Originating-IP: [10.252.7.7]
 X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008B6:EE_|PRAPR10MB5154:EE_
-X-MS-Office365-Filtering-Correlation-Id: a595aada-bd70-4cf7-bf39-08df1988dbec
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008B0:EE_|PAWPR10MB7270:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cb6d20b-b2de-41b9-c192-08df1988dfda
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700016|23010399003|10067099003|56012099006|11063799006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: OFciNev1hzLlsIx7N9LNwhp6YdHJw9oUVQ794YUzeS/CmxvpW2Vfgdk85b88lq7uGA1IyC5cLZFsuijxqzIbvfc2zCP05udmiQIylV5iuglHDLTOVpfe1HluczGtarFQpmRD38AVGLjIFmLJEd1moPpKL4lq46xRLpkP1YXw2uffLJlOjZYNHXkVkMvwjr57i6nfYWjhKYVXvLcNM/WPoddWCeG5wY3gem0b+1Ze0Mxm7X1O/ISgW0eriI5qpf4M6yCcJ53dfPEIAz69j/ptsQKXS1cpyObjHIYxvQ+qqXKMe3t93aaUTS1WUmrbzL+Al0c8p6F8Nz45IGcq5m0AY6LKBC1PUzXsXG8JPVQ0IFBm7FkwrsOMsJbhaZAWOS7p133YOWhG1DebatMZUFJ6UlEhosf4R1kUXXNPdiXarryI5kjd/vmx/eBW3i4OSNNNOLFUQSwV3YAIKlagc2Pe5qTiiU5UGa5uuzZugw4PEh2soxpuyyWY70Yqdsp1oWvAbdfUmBKN1uMimSGDGFqpQF+TMPZdODncoE0oQAtCqaAA3LYCYKFMnYuhwYjcSBla2A6L+DFTNAI4lJE3Q+wZ4HPlcWQgcizZEbUP9SZcE/ocJKEp5OYf5GjNckkecgIKunoxKAd/tIXCcHjBnOJjgV8Y5x3SHWjTPstkdBpNHXhkVa8/QZtTkcbPsdkqXgrERuIX5xpt7zLaedL7Hh1QtA==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700016)(23010399003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|23010399003|6133799003|18002099003|22082099003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: /nZ+AMHUXGpyiFDFGpQzf79lWeK6PyCfWkPe4/ptHqyJlcRbvywocHal/v+W/vtzE9q9jq7ZSlIsmjRq5zpT/uV+75CWyvf1tLZZwkfpgA0GT13/R2/hQ1kVBqM9ZQGP9mtcGoE/jGoiqsXyIb40ac4ExVTJegZLFyQe5Hi6c0ZP4qpd4XUw3lbEeCJSJNGsA1kzTTVuJo+2GlZqV1BmKSnq4aScS47J6UK6PCRR8xTUEY5vWIY8QpGZ2YV9KirLQw6Nm7+Aga+M8UZ6u+KaKru0QAStPuwZgjnXo0BnjTDWR0lLedFRD7LmzbAvYEQxFg0puTqZu4EW4mGsbryKqWWLmDJhpk9R5V+WrjJfLCRqXUKWyjIrT5HwVtmkOc+zPDms9+srEce/7v2eR2cn2Ew1PZyy8sBeOP2eIw44Z+Li/fW5nf4rGfpeHvW12XCudIJmVyz5mRF4p0cSKKTjBPh2qt3bZ8NwIG6EsqnBGwcevUPZ/Q9EqynWKRi9PUjs8kyobYQnfG2PDPkBxn2NeE6dTF5aoDUiNJNHR0r82QtFKF/vzvfGDX79ptpTrzgUYGG18wdTCwK0JI+4gODJ9k8AGtCNaRqyA0gnb26dDXP+Jl8XWvv9ChlQl6pU33T1KCH5o1PH/vJE5Ux6hI1RqDjDv0yizqxX4ZmJ38pS7HZnXuBhtSsEkZaBetL633o1YvEEsPrXlACvhk6FjZllrA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(23010399003)(6133799003)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: F7FPFuX+MKx3DXg29s7F9efDnEn1LZEuafgvhhf9Zz/AylPUp2KGv3uKWt4InLoI8/UKDzc2zuhSJY2kBL1MdGsmhBltSaj5hZA0AYtHGMxOjBPqu+IBELf0GJJu9HwvQCpJSmJBIcqJLkzb3PoLk8J3spoyAH+JhANjFeJfIf8pDMIafWH2vAfVJnczjrjzZCpugfcEcONtKyyV926Z3NfkOI32gd4rS42s+V45iGFnED8xzjbR8FQC/zry05Pc30XQi7+NBiIl/wG5ATOpeDQgoHGkeG9OIA2W8830OdQFh9fMJ0KbAX/XWs1M69vvTmK/Yd8OhFGQIo8osoBIdRbQvZ7GlMeWxS4VOFxeMTceroQ1WsfE0nr6YgAfl4ZH35Ou0D5C0SEDo8WfT/YcqT1DNT9M3yyFpTJkPFeyEqTwlCnvtRTLAP2dKKlxH54n
+X-MS-Exchange-AntiSpam-MessageData-0: 28zQwGKS+56Gcx0477uc0DJcCl49XQ5St3w7x0p+/GTbzxJGc6Uv7jGt2dcuQiGcrzxlsJvF5jf0bZOlGTSQZxwRQPNY/gwcLcq0qHKyIQLpmOghXNLmu/NDm0Q0QNS516vnVcgO5mhnKSC7WTwccV5TMuIMarNy7vUJ4PwIa+58YuJEMLOn8TpxxM3s/4ouyW9wMECtoZPto+P6KY67/BRFZ0ZwgEaidUYrnbqo0VHSJelcsJiGnGxCy5JrF8/xkA6fXMXPUgT437/a/CFlmAnx6VI2sKRGA+X+FKLLeYj98Ci9WuVqzw/9tM0to48vR9Tufjdd4wnJ09InGFeflupfQEl2OChC5vbVn6Y6nVfjl97ItOUxybkSGIiJiw1RI0sWnaQyMOBE/61KoSYo/pWnaRRoWXd/ovA2vUzo8uVXoAPvdv9/uhE03rnS/kKf
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 15:39:30.4618
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 15:39:37.0632
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a595aada-bd70-4cf7-bf39-08df1988dbec
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cb6d20b-b2de-41b9-c192-08df1988dfda
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008B6.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008B0.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PRAPR10MB5154
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_083938_975558_60A64365 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260923_083942_888579_E80F0AB3 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,92 +134,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Olivier Moysan <olivier.moysan@foss.st.com>
+From: Cheick Traore <cheick.traore@foss.st.com>
 
-The characterization voltage used to calibrate vrefint depends
-on SoC family. Add vref_charac_mv field in stm32_adc_cfg structure
-to store the characterization voltage for each SoC, and use it
-in Vref computation formula.
+Add analog-to-digital converter support on STM32MP23 SoC. It has 3 ADCs,
+split into two blocks:
+- ADC1 & ADC2 are tightly coupled.
+- ADC3 is managed independently.
+Define internal voltage channels in the SOC dtsi file, exception made of
+vbat/4 channel (to avoid undesired load on it, in case no conversion is
+needed on this channel). Choice is let to board implementation (via DT)
+to define it.
 
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+Signed-off-by: Cheick Traore <cheick.traore@foss.st.com>
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
 Changes in v2:
-- Andy's review comments: rename variable to vref_charac_mv (unit suffix).
-  Drop the const attribute.
+- Adopt dedicated compatible for each child ADC, drop "st,adc-trigger-sel"
+- Drop fallback generic match (serve no purpose)
 ---
- drivers/iio/adc/stm32-adc.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/st/stm32mp231.dtsi | 112 +++++++++++++++++++++++++++++++++
+ 1 file changed, 112 insertions(+)
 
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 90f0e257e6d1..ddf74c674da6 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -43,7 +43,6 @@
- #define STM32_ADC_TIMEOUT_US		100000
- #define STM32_ADC_TIMEOUT	(msecs_to_jiffies(STM32_ADC_TIMEOUT_US / 1000))
- #define STM32_ADC_HW_STOP_DELAY_MS	100
--#define STM32_ADC_VREFINT_VOLTAGE	3300
+diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+index 938d6f0098ac..578ab9d4cffc 100644
+--- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+@@ -646,6 +646,118 @@ uart7: serial@40370000 {
+ 				status = "disabled";
+ 			};
  
- #define STM32_DMA_BUFFER_SIZE		PAGE_SIZE
- 
-@@ -211,6 +210,7 @@ struct stm32_adc;
-  * @set_ovs:		routine to set oversampling configuration
-  * @smp_cycles:		programmable sampling time (ADC clock cycles)
-  * @ts_int_ch:		pointer to array of internal channels minimum sampling time in ns
-+ * @vref_charac_mv:	Vref characterization voltage used to measure vrefint calibration value
-  */
- struct stm32_adc_cfg {
- 	const struct stm32_adc_regspec	*regs;
-@@ -230,6 +230,7 @@ struct stm32_adc_cfg {
- 	void (*set_ovs)(struct iio_dev *indio_dev, u32 ovs_idx);
- 	const unsigned int *smp_cycles;
- 	const unsigned int *ts_int_ch;
-+	int vref_charac_mv;
- };
- 
- /**
-@@ -1615,7 +1616,7 @@ static int stm32_adc_read_raw(struct iio_dev *indio_dev,
- 		if (mask == IIO_CHAN_INFO_PROCESSED) {
- 			if (*val == 0)
- 				return -EINVAL;
--			*val = STM32_ADC_VREFINT_VOLTAGE * adc->vrefint.vrefint_cal / *val;
-+			*val = adc->cfg->vref_charac_mv * adc->vrefint.vrefint_cal / *val;
- 		}
- 
- 		return ret;
-@@ -2711,6 +2712,7 @@ static const struct stm32_adc_cfg stm32f4_adc_cfg = {
- 	.stop_conv = stm32f4_adc_stop_conv,
- 	.smp_cycles = stm32f4_adc_smp_cycles,
- 	.irq_clear = stm32f4_adc_irq_clear,
-+	.vref_charac_mv = 3300,
- };
- 
- static const unsigned int stm32_adc_min_ts_h7[] = { 0, 0, 0, 4300, 9000 };
-@@ -2732,6 +2734,7 @@ static const struct stm32_adc_cfg stm32h7_adc_cfg = {
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_h7,
- 	.set_ovs = stm32h7_adc_set_ovs,
-+	.vref_charac_mv = 3300,
- };
- 
- static const unsigned int stm32_adc_min_ts_mp1[] = { 100, 100, 100, 4300, 9800 };
-@@ -2754,6 +2757,7 @@ static const struct stm32_adc_cfg stm32mp1_adc_cfg = {
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_mp1,
- 	.set_ovs = stm32h7_adc_set_ovs,
-+	.vref_charac_mv = 3300,
- };
- 
- static const unsigned int stm32_adc_min_ts_mp13[] = { 100, 0, 0, 4300, 9800 };
-@@ -2772,6 +2776,7 @@ static const struct stm32_adc_cfg stm32mp13_adc_cfg = {
- 	.irq_clear = stm32h7_adc_irq_clear,
- 	.ts_int_ch = stm32_adc_min_ts_mp13,
- 	.set_ovs = stm32mp13_adc_set_ovs,
-+	.vref_charac_mv = 3300,
- };
- 
- static const struct of_device_id stm32_adc_of_match[] = {
++			adc_12: adc@404e0000 {
++				compatible = "st,stm32mp23-adc-core";
++				reg = <0x404e0000 0x400>;
++				interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_KER_ADC12>;
++				clock-names = "adc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++				#address-cells = <1>;
++				#size-cells = <0>;
++				access-controllers = <&rifsc 58>;
++				power-domains = <&cluster_pd>;
++				status = "disabled";
++
++				adc1: adc@0 {
++					compatible = "st,stm32mp23-adc1";
++					reg = <0x0>;
++					interrupt-parent = <&adc_12>;
++					interrupts = <0>;
++					dmas = <&hpdma 81 0x20 0x12>;
++					dma-names = "rx";
++					#io-channel-cells = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++					nvmem-cells = <&vrefint>;
++					nvmem-cell-names = "vrefint";
++					status = "disabled";
++					channel@14 {
++						reg = <14>;
++						label = "vrefint";
++					};
++				};
++
++				adc2: adc@100 {
++					compatible = "st,stm32mp23-adc2";
++					reg = <0x100>;
++					interrupt-parent = <&adc_12>;
++					interrupts = <1>;
++					dmas = <&hpdma 82 0x20 0x12>;
++					dma-names = "rx";
++					#io-channel-cells = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++					nvmem-cells = <&vrefint>;
++					nvmem-cell-names = "vrefint";
++					status = "disabled";
++					channel@14 {
++						reg = <14>;
++						label = "vrefint";
++					};
++					channel@15 {
++						reg = <15>;
++						label = "vddcore";
++					};
++					channel@17 {
++						reg = <17>;
++						label = "vddcpu";
++					};
++					channel@18 {
++						reg = <18>;
++						label = "vddgpu";
++					};
++				};
++			};
++
++			adc_3: adc@404f0000 {
++				compatible = "st,stm32mp23-adc-core";
++				reg = <0x404f0000 0x400>;
++				interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_KER_ADC3>;
++				clock-names = "adc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++				#address-cells = <1>;
++				#size-cells = <0>;
++				access-controllers = <&rifsc 59>;
++				power-domains = <&cluster_pd>;
++				status = "disabled";
++
++				adc3: adc@0 {
++					compatible = "st,stm32mp23-adc3";
++					reg = <0x0>;
++					interrupt-parent = <&adc_3>;
++					interrupts = <0>;
++					dmas = <&hpdma 83 0x20 0x12>;
++					dma-names = "rx";
++					#io-channel-cells = <1>;
++					#address-cells = <1>;
++					#size-cells = <0>;
++					nvmem-cells = <&vrefint>;
++					nvmem-cell-names = "vrefint";
++					status = "disabled";
++					channel@14 {
++						reg = <14>;
++						label = "vrefint";
++					};
++					channel@15 {
++						reg = <15>;
++						label = "vddcore";
++					};
++					channel@17 {
++						reg = <17>;
++						label = "vddcpu";
++					};
++					channel@18 {
++						reg = <18>;
++						label = "vddgpu";
++					};
++				};
++			};
++
+ 			rng: rng@42020000 {
+ 				compatible = "st,stm32mp25-rng";
+ 				reg = <0x42020000 0x400>;
 
 -- 
 2.43.0
