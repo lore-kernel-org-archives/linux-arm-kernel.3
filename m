@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B9C7C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98294C982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poISZ7rCykuhOk1FMux5avHnvoojFN+0PMpIfHOXjdM=; b=NqCjAJXZBTV+arIzT08DgwpOLB
-	qyc9ReqdmepEHzZOGr8OIqTwSBPiGTGe90vmhhjiCnajeqD6NyWGdp5O4tJAoWpOrv0lAYlVsOZQ9
-	t9sBngscDkhzutaNt6D9SGCxblDbxvq6TcNqooAWnDig+oCRa6a8tyLJcMKApz0KnrwSqqSvqqRLa
-	UClgJPouiXHaTynhuI7FoVVnGkI8qVUTYnFVjT+F/dgzpVdfzRqSvDQiBLmefT3HMZiRSLL9ZEH+J
-	F02bL2fPUanI7qtc3gPo0i0xmjg02oENadDue42SbHH8t3RoFUIUAXse76SpsXpw5VZCYsuJ099oL
-	DdC0jHpw==;
+	bh=KrTLmJOH3qQHlf8D5JBVUOsbPmlvEiygci/2Qr0+388=; b=MIpX2FxYGNiQ1KFlrsye4e5OLf
+	UB2GQcJ6YMPvloXd6WRdUi3ueVRHC5g2HFel7LNkS3XsMjWV+UeyLVzE6zJ6o+uMday+wE0/W7ocb
+	DzWC572V2eKn+WAeDff+eTUV1tYS2tMoXXWHr4u9Xdizs+twaASmc7j6FBxKEgci94ohRZC/MKPOg
+	fXVX474wxdcFcNKdk3lMkzr6TEKkETaSYtH3w2t373Elm6ybSw+W0TZsp2sWH/+5VkHZ82EG8Ph6Z
+	YwCDNkT9GXa0ZOvfa62fV3JW4svWmNK6BzGGBPIRGCftnrf8wE2O7FKF8RjrS2pCP7TLyB/dcFuzh
+	cd8WVdvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9B9a-00000006oUl-1K21;
+	id 1x9B9a-00000006oVA-1hwp;
 	Wed, 23 Sep 2026 00:48:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9B9U-00000006oTo-1kHQ
+	id 1x9B9V-00000006oUG-3A9B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 00:48:00 +0000
+	Wed, 23 Sep 2026 00:48:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CC8C60232;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A8BE4480B;
+	Wed, 23 Sep 2026 00:48:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4F611F0089A;
 	Wed, 23 Sep 2026 00:47:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C069A1F00893;
-	Wed, 23 Sep 2026 00:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790124479;
-	bh=poISZ7rCykuhOk1FMux5avHnvoojFN+0PMpIfHOXjdM=;
+	s=k20260515; t=1790124481;
+	bh=KrTLmJOH3qQHlf8D5JBVUOsbPmlvEiygci/2Qr0+388=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FbnFXat/wmaPvo0uQrw/rELgy/atjWnfiEkANI1Pf2+KlKAA+bcEV0+p1+WXLhdGn
-	 i3d/HIWwqUgrjTY83ksec/+PK6oSrf8p1hC0tcWve6S1HnH+Uj22gEGOxW5Fscd7To
-	 9CWC1n6eWPRTT7kDUFSqjb/c+SvrZsLWklQWekho/T8vImYg3bu8zUefaCqLMROiqX
-	 UbYzMHMTWnrvlo81wNL2PmNuYhnODFGZOTZGtVppImqYM+7mCCKQCcGqmDRN/U9ng4
-	 xWuQpYoXU8pSNyNcDAwYjTg+v6OYwg/TX9ifxM3Knhz+GqhvKfVnFTVTx3nFVWRD0X
-	 Di5wD+NuJ2xPA==
-Subject: Re: [PATCH net-next v5 2/3] dt-bindings: net: allwinner: add H616 EMAC1
+	b=WXZixN5ay+uv5TCtRe5igg5k7wZscJ5KFpll5JYdYwCu/ZyaG8VDHN51irbkMyDTE
+	 50rLG2MgS2u9JUhkl44j81Wjd2+CXPwjXru7ndwlVjEz38RosdzjhwKW6oGqbc3lHG
+	 1dMPCgcyvXZ+giRUfMORZXh41nUJLUSQ+QJb8hTmvFOsVSvUx4abiTK84ru26By1gO
+	 JnXywmUX9WMeZpkOGqIVOQ9iPzKKOx8HIMGYjY5igH67eGcLLUauUnf3GZqr9ebZO+
+	 DpGrVy+yYCpZ9z4qg0O8eN1hWGJf2IxDtSw1K/5tRPX6sIeMt/yRURgYA7k9oWB//b
+	 4m+EiYJo6snfw==
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: sun8i: add support for
+ Allwinner H616 EMAC1
 From: netdev-bot+sashiko@kernel.org
 To: james.hilliard1@gmail.com
 Cc: richard.genoud@bootlin.com, maxime.chevallier@bootlin.com,
@@ -55,10 +56,10 @@ Cc: richard.genoud@bootlin.com, maxime.chevallier@bootlin.com,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, andre.przywara@arm.com
-Date: Wed, 23 Sep 2026 00:47:57 +0000
-Message-ID: <179012447733.2160803.4302270702074784510@kernel.org>
-In-Reply-To: <20260921-submit-h616-emac1-v1-v5-2-ada661ed9e9b@gmail.com>
-References: <20260921-submit-h616-emac1-v1-v5-2-ada661ed9e9b@gmail.com>
+Date: Wed, 23 Sep 2026 00:47:59 +0000
+Message-ID: <179012447945.2160803.2360278915736082504@kernel.org>
+In-Reply-To: <20260921-submit-h616-emac1-v1-v5-3-ada661ed9e9b@gmail.com>
+References: <20260921-submit-h616-emac1-v1-v5-3-ada661ed9e9b@gmail.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -83,61 +84,101 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] Concern (validated as a FALSE POSITIVE in the series context):
-  the patch documents `allwinner,sun50i-h616-emac1` in…
+- [Low] The new `emac_variant_h616_emac1`
+  (drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:153-158) expresses…
 
 --
 
-dt-bindings: net: allwinner: add H616 EMAC1
+net: stmmac: sun8i: add support for Allwinner H616 EMAC1
 
-Adds the allwinner,sun50i-h616-emac1 compatible to the sun8i-a83t-emac
-binding and to snps,dwmac.yaml, with no older fallback compatible, and
-constrains phy-mode to rmii for that compatible.  It is also added to the
-snps,dwmac.yaml list that excludes snps,tso.
+Adds an emac_variant for the H616 secondary EMAC, using a dedicated
+system-control clock register at offset 0x34 and declaring RMII-only
+support, plus the matching allwinner,sun50i-h616-emac1 compatible entry.
 
-> diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> index 323a669fa9823..2cae0133b3cd4 100644
-> --- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> +++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 9598c386bb216..0ea1860cf2031 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -81,6 +81,13 @@ static const struct reg_field sun8i_syscon_reg_field = {
+>  	.msb = 31,
+>  };
+>  
+> +/* EMAC1 clock register @ 0x34 in the "system control" address range */
+> +static const struct reg_field sun8i_syscon_reg_field_emac1 = {
+> +	.reg = 0x34,
+> +	.lsb = 0,
+> +	.msb = 31,
+> +};
+> +
 
 [ ... ]
 
-> @@ -33,6 +34,7 @@ properties:
->        - const: allwinner,sun8i-r40-gmac
->        - const: allwinner,sun8i-v3s-emac
->        - const: allwinner,sun50i-a64-emac
-> +      - const: allwinner,sun50i-h616-emac1
->        - items:
->            - enum:
->                - allwinner,sun20i-d1-emac
+> @@ -143,6 +150,13 @@ static const struct emac_variant emac_variant_h6 = {
+>  	.tx_delay_max = 7,
+>  };
+>  
+> +static const struct emac_variant emac_variant_h616_emac1 = {
+> +	.syscon_field = &sun8i_syscon_reg_field_emac1,
+> +	/* The co-packaged AC200/AC300 PHY does not use the H3 PHY controls. */
+> +	.soc_has_internal_phy = false,
+> +	.support_rmii = true,
+> +};
+> +
 
 [Severity: Low]
-This isn't a bug, just a note for the record after checking it.
+The commit message says the variant "supports only RMII at 10/100 Mbps"
+and that the change will "enable only RMII", but does .support_rmii
+actually restrict anything at runtime?
 
-At this commit allwinner,sun50i-h616-emac1 has no match in the tree:
+Grepping drivers/net/ethernet/stmicro/stmmac/ finds 21 references to
+support_mii/support_rmii/support_rgmii, and all of them are the kernel-doc
+block, the struct emac_variant member declarations and the per-variant
+initializers. Nothing in the driver ever reads these fields.
 
-  git grep h616-emac1 drivers/net/ethernet/stmicro/stmmac/
-  (no matches)
+The only place the interface mode is checked is the variant-independent
+switch in sun8i_dwmac_set_syscon():
 
-so a device tree node using only this compatible, with no older
-fallback, validates but does not probe here.
+	switch (plat->phy_interface) {
+	case PHY_INTERFACE_MODE_MII:
+		/* default */
+		break;
+	case PHY_INTERFACE_MODE_RGMII:
+	case PHY_INTERFACE_MODE_RGMII_ID:
+	case PHY_INTERFACE_MODE_RGMII_RXID:
+	case PHY_INTERFACE_MODE_RGMII_TXID:
+		reg |= SYSCON_EPIT | SYSCON_ETCS_INT_GMII;
+		break;
+	case PHY_INTERFACE_MODE_RMII:
+		reg |= SYSCON_RMII_EN | SYSCON_ETCS_EXT_GMII;
+		break;
+	default:
+		dev_err(dev, "Unsupported interface mode: %s",
+			phy_modes(plat->phy_interface));
+		return -EINVAL;
+	}
 
-The next and final patch in the series, "net: stmmac: sun8i: add support
-for Allwinner H616 EMAC1", adds it to sun8i_dwmac_match[]:
+	regmap_field_write(gmac->regmap_field, reg);
 
-  { .compatible = "allwinner,sun50i-h616-emac1",
-    .data = &emac_variant_h616_emac1 },
+So with compatible = "allwinner,sun50i-h616-emac1" and phy-mode = "mii" or
+"rgmii" in the device tree, does probe succeed while the EMAC1 clock
+register at syscon offset 0x34 gets programmed for a pad mode and TX clock
+source this instance does not implement, leaving a silently dead interface
+rather than an error?
 
-and emac_variant_h616_emac1 uses sun8i_syscon_reg_field_emac1 with only
-.support_rmii = true, which matches both the "separate system-control
-clock register" statement in the changelog and the phy-mode: const: rmii
-constraint added here.
+The driver also installs no phylink get_interfaces/supported_interfaces
+callback, so stmmac takes the firmware-selected mode as supported.
 
-Since bindings are expected to land before the driver, and the
-intermediate state only leaves the compatible unmatched, there is
-nothing to change.
+In practice the restriction is only enforced by the binding, via the
+allOf if compatible contains allwinner,sun50i-h616-emac1 then phy-mode
+const: rmii clause in
+Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml, so a
+device tree that passes dt_binding_check cannot reach the MII/RGMII cases.
+The unread flags are an existing convention in this file (emac_variant_v3s
+sets only .support_mii yet RMII and RGMII are accepted for it too).
 
-[ ... ]
+Would it be worth either making sun8i_dwmac_set_syscon() consult
+gmac->variant->support_* before writing the register, or rewording the
+commit message so it does not claim the driver enables only RMII?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260921-submit-h616-emac1-v1-v5-0-ada661ed9e9b%40gmail.com
