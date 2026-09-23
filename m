@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233E0C98307
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB87BC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6OWssQdGeKsyE+yPPzL9NID088rXE6n1NT7d9aLNuLU=; b=HVVGwFM2b3FranJTCyA9jYCCu2
-	PVR32G9T8AhdFzmKu24L1sxgStRSGVqCZXVWE4r8P5KM6Tn4soy0vGtdMPQ3RaWjR9xQfLhxfPW6E
-	UcZo7OCQCHdYaotDAibxf9x09RNOuCX9NNh20IeNY/Tq6FQpgDUlXTY7yTVnBAsaTnoqoOkHtjex3
-	z6822Xl8h29dHqq33+FiRAqqotMKyvjRETjLHJFgtNKyH82olz4Qw/WvN+b5B5B3UZ3e4Xf8GmvQf
-	hmYVLb5lLJiF5NKB97iRuT33cXc4KVRsCzZHmoSj0RfUgg8Xm7U1RE2SK3xt4oSrfwtGOpUjD/Xca
-	eq+CVO7Q==;
+	bh=yB2y2RUWsmR/DCidfC1TWzgfJN8Sfqe4WPW9i9kZpUE=; b=qlTXbaaUYTMgx64TBr+moF9r7B
+	tVlfZSgQO4BSp1vylI7TYXOIag0/x+3KuOi4swM/WhxFElVgBPLqRONH4JEhsFBBxJnXKggVQakqI
+	ZdOeGoqyoqQgQBpyxdb+4LZHut7cMbFvw/I6iZ+KPa2cOSA56cX8vRkcJ8h6RNLpaY5XSgmeVkLc2
+	YAq/T+bpq+d8H+W4XYzNC7tnbq9uXktQem7v8J8zoByDtyiX/kOF91SVPYxYwDEcndwuZWaSiYR+m
+	8OtP+SMlsgSyhKr7Ib3CRkiedVl4OUNC7dSqBK5h9xe1pjns5SADzT9fTYns8GOuJ7t+Y0Uy1nsf8
+	JJcak/cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Kum-0000000814V-2ty4;
-	Wed, 23 Sep 2026 11:13:28 +0000
+	id 1x9Kx1-000000081PT-078P;
+	Wed, 23 Sep 2026 11:15:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Kul-0000000813w-0sRE;
-	Wed, 23 Sep 2026 11:13:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1B33415F7;
-	Wed, 23 Sep 2026 11:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65E821F000FF;
-	Wed, 23 Sep 2026 11:13:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790162006;
-	bh=6OWssQdGeKsyE+yPPzL9NID088rXE6n1NT7d9aLNuLU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=f255DHjPL7qcmuNQwMipvzvnDX+7hQ2EPoy15lFc3RlpueYEfKHfvnoUqEYqM1sNb
-	 NWBIafoReygqiJurrwkepfMrWtm4dmdciZcGPHZj/UXcGVhT/gUEj9o7ycAyOsvv1H
-	 VqqSVjZjXHtHcvciU24arw2rlEWeASuZ4V6Pee7xW62cur2hfF2P1a2knuHbqR+q42
-	 gMBblt0TMmXcHqNunum5Arm0/pdXZWQDgCJyQiuCPlGnyePwTCIA4Udngv9vfkhOae
-	 NuuKuLY3Qe+HkhbVscCeNe2wrBS53RY93ZrUlKLi0/K3QG2Yu63tslB35MvSjcWKk7
-	 qFkKtFqTPodkg==
-From: Lee Jones <lee@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Beniamino Galvani <b.galvani@gmail.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Ronald Claveau <linux-kernel-dev@aliel.fr>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
- mfd@lists.linux.dev
-In-Reply-To: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
-References: <20260917-add-mcu-fan-khadas-vim4-v12-0-497cd543a148@aliel.fr>
-Subject: Re: (subset) [PATCH v12 0/6] Add VIM4 MCU/FAN support
-Message-Id: <179016200216.3991538.9729498500468458301.b4-ty@b4>
-Date: Wed, 23 Sep 2026 12:13:22 +0100
+	id 1x9Kwz-000000081Oo-3mHy;
+	Wed, 23 Sep 2026 11:15:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 955C840837;
+	Wed, 23 Sep 2026 11:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5571BC2BCC7;
+	Wed, 23 Sep 2026 11:15:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790162145;
+	bh=GWRpaHGKFV8s8x3vAIKkZwcDLAKZt3iWK+kaAuhZVyA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=hiBSi7PFVynAZD4+8WfsN69cGARZktjL5LIhRoMS/tqhNrfm1ybX5Kkq8mBHwcI7m
+	 vd8BAnoPXl1c5tvq1JavJMjF7T8TGgftlK1k0X6Ekv1wON7bMUNI9Gal1UzBOUCmnr
+	 BwxI2U9pE9cX/qa7vOpiSLsIZaf6wX2bv6ndkXPR+FhaFZF6/czNBXvKZOXV+dJyg1
+	 3dE02sc1SPOl7PkYTmATjjtv4kCqX8hUzsQaCoGB1cjYBapIoctv2HctgX6qnfw417
+	 IfOImm6ZVXh46nhT6uJ8v3rd43mEJnlYwu9RuY14r0mMchgJRBT649oEMYY6YXsXfL
+	 Rw6vEuHRzLeWA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3619CC98307;
+	Wed, 23 Sep 2026 11:15:45 +0000 (UTC)
+From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Date: Wed, 23 Sep 2026 19:14:47 +0800
+Subject: [PATCH RFC 1/3] clk: meson: pll: Remove the dedicated n parameter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260923-meson_refactor_n-v1-1-3a8ce27121a2@amlogic.com>
+References: <20260923-meson_refactor_n-v1-0-3a8ce27121a2@amlogic.com>
+In-Reply-To: <20260923-meson_refactor_n-v1-0-3a8ce27121a2@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Jian Hu <jian.hu@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790162143; l=10655;
+ i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
+ bh=Al+kTQGUTXZOgkSHRDObWL+soFKOeqqmmJSU8iCEL1Q=;
+ b=R9TSkGDzTK8pKdr7qVFLHHHARwy72wtcjL5RycccMeus7w3zEiM7oetX/orVfKXeAe+Nak/kN
+ PW6QQtTM8bxCFEJ3ZXp0Z9slbADgfvLG8L3t8qd8xYxpOX7BcUniyzU
+X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
+ pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
+X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
+ auth_id=735
+X-Original-From: Jian Hu <jian.hu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +85,366 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026 09:58:59 +0200, Ronald Claveau wrote:
-> The Khadas VIM4 board features a different MCU variant compared to
-> previous VIM boards.
-> While it shares the same I2C-based communication model,
-> it differs in some ways:
-> 
->   - A distinct register map with its own volatile/writeable register set
->   - A fan control with 0–100 levels instead of the 0–3 levels previously
->   - A fan power supply gated through a regulator
-> 
-> [...]
+From: Jian Hu <jian.hu@amlogic.com>
 
-Applied, thanks!
+The Meson PLL framework models the PLL pre-divider (N) using a dedicated
+field in struct meson_clk_pll_data. Since the common clock framework
+already provides a generic divider implementation, there is no need to
+keep PLL-specific support for it.
 
-[1/6] mfd: khadas-mcu: Add per-variant configuration infrastructure and VIM4 support
-      commit: 6277c3cd74f54c26bf4d5e88182a378ee7190d90
-[2/6] mfd: khadas-mcu: Use MFD_CELL_* macros for cell declarations
-      commit: f9f61c21b942ac387acd7fb3ef1f950cba59755f
-[3/6] mfd: khadas-mcu: Add support for VIM4 MCU variant
-      commit: c94c97f8c97e684d44ef5483d7f2ad6b3dfa55ac
-[4/6] thermal: khadas-mcu-fan: Add fan config from platform data Add regulator support
-      commit: dad6f7897a93b4e1614664dbbcae0f61e57d1ac0
+Remove the dedicated n parameter from the framework and simplify the PLL
+rate calculation accordingly. The pre-divider will be represented as a
+separate divider clock by platform drivers where needed.
 
---
-Lee Jones [李琼斯]
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+---
+ drivers/clk/meson/clk-pll.c | 178 +++++++++-----------------------------------
+ drivers/clk/meson/clk-pll.h |  13 ----
+ 2 files changed, 34 insertions(+), 157 deletions(-)
+
+diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+index 1ea6579a760f..de56d55e3b79 100644
+--- a/drivers/clk/meson/clk-pll.c
++++ b/drivers/clk/meson/clk-pll.c
+@@ -14,7 +14,7 @@
+  *        +--------------------------------+
+  *        |                                |
+  *        |             +--+               |
+- *  in >>-----[ /N ]--->|  |      +-----+  |
++ *  in >>----------->|  |      +-----+  |
+  *        |             |  |------| DCO |---->> out
+  *        |  +--------->|  |      +--v--+  |
+  *        |  |          +--+         |     |
+@@ -23,7 +23,7 @@
+  *        |                                |
+  *        +--------------------------------+
+  *
+- * out = in * (m + frac / frac_max) / n
++ * out = in * (m + frac / frac_max)
+  */
+ 
+ #include <linux/clk-provider.h>
+@@ -52,8 +52,7 @@ static int __pll_round_closest_mult(struct meson_clk_pll_data *pll)
+ }
+ 
+ static unsigned long __pll_params_to_rate(unsigned long parent_rate,
+-					  unsigned int m, unsigned int n,
+-					  unsigned int frac,
++					  unsigned int m, unsigned int frac,
+ 					  struct meson_clk_pll_data *pll)
+ {
+ 	u64 rate = (u64)parent_rate * m;
+@@ -66,7 +65,7 @@ static unsigned long __pll_params_to_rate(unsigned long parent_rate,
+ 		rate += DIV_ROUND_UP_ULL(frac_rate, frac_max);
+ 	}
+ 
+-	return DIV_ROUND_UP_ULL(rate, n);
++	return rate;
+ }
+ 
+ static unsigned long meson_clk_pll_recalc_rate(struct clk_hw *hw,
+@@ -74,17 +73,7 @@ static unsigned long meson_clk_pll_recalc_rate(struct clk_hw *hw,
+ {
+ 	struct clk_regmap *clk = to_clk_regmap(hw);
+ 	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+-	unsigned int m, n, frac;
+-
+-	n = meson_parm_read(clk->map, &pll->n);
+-
+-	/*
+-	 * On some HW, N is set to zero on init. This value is invalid as
+-	 * it would result in a division by zero. The rate can't be
+-	 * calculated in this case
+-	 */
+-	if (n == 0)
+-		return 0;
++	unsigned int m, frac;
+ 
+ 	m = meson_parm_read(clk->map, &pll->m);
+ 
+@@ -92,21 +81,20 @@ static unsigned long meson_clk_pll_recalc_rate(struct clk_hw *hw,
+ 		meson_parm_read(clk->map, &pll->frac) :
+ 		0;
+ 
+-	return __pll_params_to_rate(parent_rate, m, n, frac, pll);
++	return __pll_params_to_rate(parent_rate, m, frac, pll);
+ }
+ 
+ static unsigned int __pll_params_with_frac(unsigned long rate,
+ 					   unsigned long parent_rate,
+ 					   unsigned int m,
+-					   unsigned int n,
+ 					   struct meson_clk_pll_data *pll)
+ {
+ 	unsigned int frac_max = pll->frac_max ? pll->frac_max :
+ 						(1 << pll->frac.width);
+-	u64 val = (u64)rate * n;
++	u64 val = (u64)rate;
+ 
+ 	/* Bail out if we are already over the requested rate */
+-	if (rate < parent_rate * m / n)
++	if (rate < parent_rate * m)
+ 		return 0;
+ 
+ 	if (pll->flags & CLK_MESON_PLL_ROUND_CLOSEST)
+@@ -119,145 +107,48 @@ static unsigned int __pll_params_with_frac(unsigned long rate,
+ 	return min((unsigned int)val, (frac_max - 1));
+ }
+ 
+-static bool meson_clk_pll_is_better(unsigned long rate,
+-				    unsigned long best,
+-				    unsigned long now,
+-				    struct meson_clk_pll_data *pll)
+-{
+-	if (__pll_round_closest_mult(pll)) {
+-		/* Round Closest */
+-		if (abs(now - rate) < abs(best - rate))
+-			return true;
+-	} else {
+-		/* Round down */
+-		if (now <= rate && best < now)
+-			return true;
+-	}
+-
+-	return false;
+-}
+-
+-static int meson_clk_get_pll_table_index(unsigned int index,
+-					 unsigned int *m,
+-					 unsigned int *n,
+-					 struct meson_clk_pll_data *pll)
++static int meson_clk_get_pll_multiplier(unsigned long rate,
++					unsigned long parent_rate,
++					unsigned int *m,
++					struct meson_clk_pll_data *pll)
+ {
+-	if (!pll->table[index].n)
++	if (!pll->range)
+ 		return -EINVAL;
+ 
+-	*m = pll->table[index].m;
+-	*n = pll->table[index].n;
+-
+-	return 0;
+-}
+-
+-static unsigned int meson_clk_get_pll_range_m(unsigned long rate,
+-					      unsigned long parent_rate,
+-					      unsigned int n,
+-					      struct meson_clk_pll_data *pll)
+-{
+-	u64 val = (u64)rate * n;
+-
+-	if (__pll_round_closest_mult(pll))
+-		return DIV_ROUND_CLOSEST_ULL(val, parent_rate);
+-
+-	return div_u64(val,  parent_rate);
+-}
+-
+-static int meson_clk_get_pll_range_index(unsigned long rate,
+-					 unsigned long parent_rate,
+-					 unsigned int index,
+-					 unsigned int *m,
+-					 unsigned int *n,
+-					 struct meson_clk_pll_data *pll)
+-{
+-	*n = index + 1;
+-
+-	/* Check the predivider range */
+-	if (*n >= (1 << pll->n.width))
+-		return -EINVAL;
+-
+-	if (*n == 1) {
+-		/* Get the boundaries out the way */
+-		if (rate <= pll->range->min * parent_rate) {
+-			*m = pll->range->min;
+-			return -ENODATA;
+-		} else if (rate >= pll->range->max * parent_rate) {
+-			*m = pll->range->max;
+-			return -ENODATA;
+-		}
++	if (rate <= pll->range->min * parent_rate) {
++		*m = pll->range->min;
++		return -ENODATA;
++	} else if (rate >= pll->range->max * parent_rate) {
++		*m = pll->range->max;
++		return -ENODATA;
+ 	}
+ 
+-	*m = meson_clk_get_pll_range_m(rate, parent_rate, *n, pll);
++	if (__pll_round_closest_mult(pll))
++		*m = DIV_ROUND_CLOSEST_ULL(rate, parent_rate);
++	else
++		*m = div_u64(rate, parent_rate);
+ 
+-	/* the pre-divider gives a multiplier too big - stop */
++	/* Multiplier exceeds hardware range */
+ 	if (*m >= (1 << pll->m.width))
+ 		return -EINVAL;
+ 
+ 	return 0;
+ }
+ 
+-static int meson_clk_get_pll_get_index(unsigned long rate,
+-				       unsigned long parent_rate,
+-				       unsigned int index,
+-				       unsigned int *m,
+-				       unsigned int *n,
+-				       struct meson_clk_pll_data *pll)
+-{
+-	if (pll->range)
+-		return meson_clk_get_pll_range_index(rate, parent_rate,
+-						     index, m, n, pll);
+-	else if (pll->table)
+-		return meson_clk_get_pll_table_index(index, m, n, pll);
+-
+-	return -EINVAL;
+-}
+-
+-static int meson_clk_get_pll_settings(unsigned long rate,
+-				      unsigned long parent_rate,
+-				      unsigned int *best_m,
+-				      unsigned int *best_n,
+-				      struct meson_clk_pll_data *pll)
+-{
+-	unsigned long best = 0, now = 0;
+-	unsigned int i, m, n;
+-	int ret;
+-
+-	for (i = 0, ret = 0; !ret; i++) {
+-		ret = meson_clk_get_pll_get_index(rate, parent_rate,
+-						  i, &m, &n, pll);
+-		if (ret == -EINVAL)
+-			break;
+-
+-		now = __pll_params_to_rate(parent_rate, m, n, 0, pll);
+-		if (meson_clk_pll_is_better(rate, best, now, pll)) {
+-			best = now;
+-			*best_m = m;
+-			*best_n = n;
+-
+-			if (now == rate)
+-				break;
+-		}
+-	}
+-
+-	return best ? 0 : -EINVAL;
+-}
+-
+ static int meson_clk_pll_determine_rate(struct clk_hw *hw,
+ 					struct clk_rate_request *req)
+ {
+ 	struct clk_regmap *clk = to_clk_regmap(hw);
+ 	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+-	unsigned int m, n, frac;
++	unsigned int m, frac;
+ 	unsigned long round;
+ 	int ret;
+ 
+-	ret = meson_clk_get_pll_settings(req->rate, req->best_parent_rate,
+-					 &m, &n, pll);
+-	if (ret)
++	ret = meson_clk_get_pll_multiplier(req->rate, req->best_parent_rate, &m, pll);
++	if (ret && ret != -ENODATA)
+ 		return ret;
+ 
+-	round = __pll_params_to_rate(req->best_parent_rate, m, n, 0, pll);
++	round = __pll_params_to_rate(req->best_parent_rate, m, 0, pll);
+ 
+ 	if (!MESON_PARM_APPLICABLE(&pll->frac) || req->rate == round) {
+ 		req->rate = round;
+@@ -268,8 +159,8 @@ static int meson_clk_pll_determine_rate(struct clk_hw *hw,
+ 	 * The rate provided by the setting is not an exact match, let's
+ 	 * try to improve the result using the fractional parameter
+ 	 */
+-	frac = __pll_params_with_frac(req->rate, req->best_parent_rate, m, n, pll);
+-	req->rate = __pll_params_to_rate(req->best_parent_rate, m, n, frac, pll);
++	frac = __pll_params_with_frac(req->rate, req->best_parent_rate, m, pll);
++	req->rate = __pll_params_to_rate(req->best_parent_rate, m, frac, pll);
+ 
+ 	return 0;
+ }
+@@ -420,7 +311,7 @@ static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+ {
+ 	struct clk_regmap *clk = to_clk_regmap(hw);
+ 	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+-	unsigned int enabled, m, n, frac = 0;
++	unsigned int enabled, m, frac = 0;
+ 	unsigned long old_rate;
+ 	int ret;
+ 
+@@ -429,19 +320,18 @@ static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ 	old_rate = clk_hw_get_rate(hw);
+ 
+-	ret = meson_clk_get_pll_settings(rate, parent_rate, &m, &n, pll);
+-	if (ret)
++	ret = meson_clk_get_pll_multiplier(rate, parent_rate, &m, pll);
++	if (ret && ret != -ENODATA)
+ 		return ret;
+ 
+ 	enabled = meson_parm_read(clk->map, &pll->en);
+ 	if (enabled)
+ 		meson_clk_pll_disable(hw);
+ 
+-	meson_parm_write(clk->map, &pll->n, n);
+ 	meson_parm_write(clk->map, &pll->m, m);
+ 
+ 	if (MESON_PARM_APPLICABLE(&pll->frac)) {
+-		frac = __pll_params_with_frac(rate, parent_rate, m, n, pll);
++		frac = __pll_params_with_frac(rate, parent_rate, m, pll);
+ 		meson_parm_write(clk->map, &pll->frac, frac);
+ 	}
+ 
+diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
+index 949157fb7bf5..46feee72830f 100644
+--- a/drivers/clk/meson/clk-pll.h
++++ b/drivers/clk/meson/clk-pll.h
+@@ -11,29 +11,17 @@
+ #include <linux/regmap.h>
+ #include "parm.h"
+ 
+-struct pll_params_table {
+-	unsigned int	m;
+-	unsigned int	n;
+-};
+-
+ struct pll_mult_range {
+ 	unsigned int	min;
+ 	unsigned int	max;
+ };
+ 
+-#define PLL_PARAMS(_m, _n)						\
+-	{								\
+-		.m		= (_m),					\
+-		.n		= (_n),					\
+-	}
+-
+ #define CLK_MESON_PLL_ROUND_CLOSEST	BIT(0)
+ #define CLK_MESON_PLL_NOINIT_ENABLED	BIT(1)
+ 
+ struct meson_clk_pll_data {
+ 	struct parm en;
+ 	struct parm m;
+-	struct parm n;
+ 	struct parm frac;
+ 	struct parm l;
+ 	struct parm rst;
+@@ -41,7 +29,6 @@ struct meson_clk_pll_data {
+ 	struct parm l_detect;
+ 	const struct reg_sequence *init_regs;
+ 	unsigned int init_count;
+-	const struct pll_params_table *table;
+ 	const struct pll_mult_range *range;
+ 	unsigned int frac_max;
+ 	u8 flags;
+
+-- 
+2.47.1
+
 
 
