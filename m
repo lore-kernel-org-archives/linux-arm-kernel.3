@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EBE5C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59202C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFOUdSvHwil/K0FhFzOket4pw49ZzFhiG+QLBkwjfts=; b=gwq55xczYE8VhkkuZHfbrJdrjJ
-	zEUCLUpk1242GmqmL7anQ4KSTme917nhiwvbtKje3kX0zxABXkkly6NejxzLQaZ7qHEGSCCpWvJ5i
-	IjR2IEi8YTQ1B8kiF/fDja0mBtokRsZUfSS2iLR3IvnUIh8aiqLeA+7UfxIuXFNgPDswIF8tLKuKa
-	66ysbJts5e0yKIddp+KkWeQOrCU/NoI1yyiscBUnrqt/6Gm/bA148eSHhd4BB+TxG8R2AK9vsvUtr
-	DzFpLcKMh3V9P32N1Fv7rKE5nnI6KC4LgSFSrhXmZcJNAAYA3C/qgQZEoaOnHasE39gp1ozDZNdna
-	mDcw1QhQ==;
+	bh=d3tq9N0LJ4r7VJ+9wdwqQQlbn4k6qzBMuLB5kE1baa4=; b=J6n4k1QlGMKe8JzBzj1TjG7Kfe
+	UjFcCjHg4uVw7AtZCYkpcxHSn7wI4v4ikkIOxMqdMqSxq6s9RbCttl2CCnWx9niy1XXfytpp7HWKJ
+	+MrYtU5BGQpifVu7tDoOWDPM5f6+jDUByLPcYULFmeS+QaQ8zfs7JrFAsly2rMmkUklo3AV4sKz+4
+	Ki+MJsRdP/Yyjip7gGlME/tPxuBhMEfabNlKVYUw6kBQ/O+/2cuoXUqpheoqEFPiP2gV2YDgiBX9K
+	m6ejT/YUTJNh+HDLsLpgxa97c0RdF6dQogDL1FJPrkpmT74WGhERxFI5Ff/OD9T5OvSDuBQMioAE9
+	URT3t24w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9URD-00000009ZBN-1WSb;
-	Wed, 23 Sep 2026 21:23:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9UXg-00000009ZlZ-0DR2;
+	Wed, 23 Sep 2026 21:30:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9URB-00000009ZB4-40Qq
+	id 1x9UXe-00000009ZlA-1AI1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 21:23:34 +0000
+	Wed, 23 Sep 2026 21:30:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E32143E97
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 21:23:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 459611F00899
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 21:23:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 909EF43EA2
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 21:30:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57FD61F008BE
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 21:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790198613;
-	bh=pFOUdSvHwil/K0FhFzOket4pw49ZzFhiG+QLBkwjfts=;
+	s=k20260515; t=1790199013;
+	bh=d3tq9N0LJ4r7VJ+9wdwqQQlbn4k6qzBMuLB5kE1baa4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=l2NXnhWk5v24WehMq4tSpmYi+d5xm5L5yI8aFPMPz4HayjF3RJ4ct2hxFlSr6eGvJ
-	 0Dtw3flW+pOGjBESMhPfV/DI6fLstSCno88OFAUOcih9X39nhGNIm+VpXZpUCynB5X
-	 +D7okYDBr1ytqcLJCoruXi0yL6W3PylDaJ4luGmUZJF5UlIpJep2khrcvpacTDYim7
-	 IT05Utcze2c06jhGz6rpyFOWDLNJd1LCpKETbFh+ZE4BggMJqtOZYAweaXhTF8C/pj
-	 MBU8+1dE75n0Jan3UlAQY4zyyjUWmsOME/jxXvmE57pTuE7aDqGqKM9u4ELTtwB8wP
-	 qgVVtkJxP0phQ==
-Received: by mail-qk2-f13.google.com with SMTP id af79cd13be357-93910ad20d4so135881085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 14:23:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBw0cfQRp25K7SzOd1bdGGNnHqvPurdueaJBEqM85aqr/mp4b3xS6nQAAGALuPIOCnbgusIuLNM7KTNCbWplSJNX@lists.infradead.org
-X-Gm-Message-State: AFuF++msVpendr70KW3yqHfYUYWW5xN5pqiMSCZ8GOcL3zMHPO/Qil29
-	c/7qZQvHzjBR71FfiT0CBCyMQWImSuZyqBm8g/DBcpfdOgt2tzOLtE3+Q3M7Et0m+R5IrkBRTMu
-	sp+22HWCar9WlDkawbO6UHNX4SpQvUV0=
-X-Received: by 2002:a05:620a:2a04:b0:93b:d7a1:ba0d with SMTP id
- af79cd13be357-93c346ca45amr66989285a.56.1790198612443; Wed, 23 Sep 2026
- 14:23:32 -0700 (PDT)
+	b=JKAxKVtMZbF3TD2Yn2zgDD4fLtybBqJ/igLQzq3NUT4r9bDACuqKvXjvgz60TR+JA
+	 BIFmfFeaS555lQfbIUJsxtX1zQkAUve6IUQqNm7nLfx6uf7seZiMIvm9RK03R3nD3X
+	 yIqwdSH/bmBuXrza+VBpZYbApAWVCksy8bFBjD49DyaS1W6AQq+JhF2QihqME55VXB
+	 IJ8+SeI/dKeiSzaW7jniNvqm6j5i8qbdAiZMMHyUhEOvu3CyESGyLW7HUG4hOhAWJf
+	 +n7NPspRkMseNo+3GfhH9oIjsO6FjECoNDaxM6ZpMUq4024vg6/mylbECDTlTHtIO7
+	 kd3RiEuWZgBSg==
+Received: by mail-qk2-f27.google.com with SMTP id af79cd13be357-939ca12ab70so140808485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 14:30:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwRfKmHcE3BDa/QPHA4NqxBApgglf0sL6oSaa+dGXP7a2vLu6Z4qS/3idFuAjh90M7ixegiJc7ohxdvn7KhBtJD@lists.infradead.org
+X-Gm-Message-State: AFuF++leLpAyxsofqqC8eJgNZmMej8LFRBI+tzJwqmIernA4wsL0yUkX
+	Ix/rmPgKSpJCJW5owYnkX9+eKKxQz/rHQPkvuDNCkvWREZAu7cqBVNaBxxQCEMeq7qUTpbbbadN
+	6yri+GRnOx7+vApw4p8ibA0Z/tWUjlJg=
+X-Received: by 2002:a05:620a:4707:b0:937:50b6:4a5b with SMTP id
+ af79cd13be357-93c345836d2mr78355685a.23.1790199012523; Wed, 23 Sep 2026
+ 14:30:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260923062832.479455-1-jiangwen6@xiaomi.com> <20260923062832.479455-5-jiangwen6@xiaomi.com>
-In-Reply-To: <20260923062832.479455-5-jiangwen6@xiaomi.com>
+References: <20260923062832.479455-1-jiangwen6@xiaomi.com> <20260923062832.479455-2-jiangwen6@xiaomi.com>
+In-Reply-To: <20260923062832.479455-2-jiangwen6@xiaomi.com>
 From: Barry Song <baohua@kernel.org>
-Date: Thu, 24 Sep 2026 05:23:20 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4xiLScr2PrPu7Eem73GvPCtsuYd3J05kW3SC4QSs5Q4aQ@mail.gmail.com>
-X-Gm-Features: AcwNN1U6u4upYBVse70ygcbBam77nB0znlsjMQqKiWEExUFJn-qljmWnP0sSc0Y
-Message-ID: <CAGsJ_4xiLScr2PrPu7Eem73GvPCtsuYd3J05kW3SC4QSs5Q4aQ@mail.gmail.com>
-Subject: Re: [PATCH v9 04/10] arm64/hugetlb: drop the init_mm special case in clear_flush()
+Date: Thu, 24 Sep 2026 05:30:00 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4xQhmRigaV_2G3pdOgk5mvC6HNzqCyUdRY3RSG8-QNC-Q@mail.gmail.com>
+X-Gm-Features: AcwNN1UaTtV0wPc3IJY9Sx6rnYvw9-CPwWOiah8w0K1fH7hCcF4lT-foCe1dQ8M
+Message-ID: <CAGsJ_4xQhmRigaV_2G3pdOgk5mvC6HNzqCyUdRY3RSG8-QNC-Q@mail.gmail.com>
+Subject: Re: [PATCH v9 01/10] arm64/mm: add pte_set_huge() and pte_clear_huge()
 To: Wen Jiang <jiangwenxiaomi@gmail.com>
 Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
 	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
@@ -84,53 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 2:29=E2=80=AFPM Wen Jiang <jiangwenxiaomi@gmail.com=
+On Wed, Sep 23, 2026 at 2:28=E2=80=AFPM Wen Jiang <jiangwenxiaomi@gmail.com=
 > wrote:
 >
-> clear_flush() calls flush_tlb_kernel_range() when mm is &init_mm. This
-> was added by commit 06fc959fcff7 ("arm64/mm: Support huge pte-mapped
-> pages in vmap") because vmap called set_huge_pte_at(&init_mm, ...).
+> vmap installs PTE-level block mappings (PTE_CONT on arm64) by reusing
+> set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
+> helpers gated by CONFIG_HUGETLB_PAGE. This makes the feature silently
+> unavailable on CONFIG_HUGETLB_PAGE=3Dn kernels and couples mm/vmalloc.c t=
+o
+> HugeTLB internals it does not otherwise need.
 >
-> Now that vmap uses pte_set_huge()/pte_clear_huge(), mm/vmalloc.c is no
-> longer a caller of set_huge_pte_at() on arm64. The only remaining
-> callers passing &init_mm are in arch/powerpc, which uses its own
-> implementation. Remove the dead branch.
+> Add pte_set_huge()/pte_clear_huge() to arm64, joining the existing
+> pmd_set_huge()/pud_set_huge() family in mm/mmu.c. They build on
+> __set_ptes() and __get_and_clear_full_ptes() directly, so they do not
+> depend on CONFIG_HUGETLB_PAGE.
 >
-> No functional change.
+> There is no caller yet: mm/vmalloc.c is converted later in this series,
+> once the generic fallbacks are in place.
 >
 > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
 
-LGTM. Please see the comments below.
+LGTM. Please see the comment below.
 
 Reviewed-by: Barry Song <baohua@kernel.org>
 
-> ---
->  arch/arm64/mm/hugetlbpage.c | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
->
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 8e799c1fe0aa6..ce247b06fe03d 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -206,10 +206,7 @@ static void clear_flush(struct mm_struct *mm,
->         for (i =3D 0; i < ncontig; i++, addr +=3D pgsize, ptep++)
->                 __ptep_get_and_clear_anysz(mm, addr, ptep, pgsize);
->
-> -       if (mm =3D=3D &init_mm)
-> -               flush_tlb_kernel_range(saddr, addr);
-> -       else
-> -               __flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF=
-_NOWALKCACHE);
-> +       __flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, TLBF_NOWALKC=
-ACHE);
+[...]
 
+> +void pte_set_huge(pte_t *ptep, unsigned long addr, phys_addr_t phys,
+> +                 pgprot_t prot, unsigned long size)
+> +{
+> +       unsigned long pfn =3D __phys_to_pfn(phys);
+> +       pte_t pte =3D pte_mkcont(pfn_pte(pfn, prot));
+> +       unsigned int nr =3D size >> PAGE_SHIFT;
+> +
+> +       VM_WARN_ON(!IS_ALIGNED(size, CONT_PTE_SIZE));
+> +       VM_WARN_ON(!IS_ALIGNED(addr, CONT_PTE_SIZE));
+> +       VM_WARN_ON(!IS_ALIGNED(pfn, CONT_PTES));
+> +
+> +       __set_ptes(&init_mm, addr, ptep, pte, nr);
 
-For the vmap case, we are not mapping over a valid mapping, so there is no
-case where `pte_present()` can be true. But I guess we can strengthen the
-check in patch 1 by adding a `VM_WARN_ON()` for `pte_valid()` and some
-comments.
+You have patch 4 to revert the `clear_flush()` modification from
+06fc959fcff ("arm64/mm: Support huge pte-mapped pages in vmap").
 
-/* For vmap, there is no valid -> valid transition */
+I guess you may still need to guard against the case I mentioned in my
+reply to patch 4:
+https://lore.kernel.org/linux-mm/CAGsJ_4xiLScr2PrPu7Eem73GvPCtsuYd3J05kW3SC=
+4QSs5Q4aQ@mail.gmail.com/
+
+Something like this:
 VM_WARN_ON (pte_valid(__ptep_get(ptep)));
 
 Best Regards
