@@ -4,107 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD75C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3BCC98308
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qz31YaIUZL0HkPkLOInD8YA56WfSRIuJpUh6x60MqwE=; b=AddATjg79mZTIzAfX7DkCUT1ly
-	9lHA90l+v8NV5IS4iWe8iAGMJQ8XgKQQfTkfHpm53t0sx3l8OaPrmPbMz7XOLoZYGK/HJpvic1mHh
-	eUbdFGkih9cYCPb3c9lKz5rhzpSMAx05gdGO94XTCYApi91Xvb5up7kwNl93wfyy0IdlsUJTt9iIk
-	0OuTMjdVS4BoUzoPRQWbqWNKJ3aILToKU6tjZwRrRxmLZCl3zPeTlHbWwnnRClRxhGpEYOXC4PgWz
-	Mcy3hZOGSHnAF/S0rhlv5fu88Dmj8Oc+EP8p3cIHasR3ihUKU0InjPhNof3qIuIpMmhrGqdr2U5o3
-	byQPeucA==;
+	bh=0vT2FMuNxSeT1XTJS3tLHJ1GURs84Fhh3gS/jiyljno=; b=mtcWjho3OzfULPyFO9UOi0D5NL
+	vNCrLdy/ZtX+KyWrOw4EodPmEjR95V+mjU6TbaTsFF7Zus/C94qleSsmk7qpyidrtx5PUgwuYtWKD
+	rkiA+QLO+6lsE+DG2j47FiVgiZU4tTlPdcvYBYS5IRAvEMmT25yYbOxEY0roeitrxfBQP+TFmdxxm
+	7v5PMPjtHOh32lJyaHPJXeKLSZy55K5oWOPYw2N8c5xfeLwE7OtsRxQOHuskjOxA7WzbObLml9YIc
+	QpgN3kpa1qPLvL/QCMElLULAMYrqHaTrzhZZuOBQ0EP3WUPHlJKMRyU3HeEGoFiZj55fn5jE+Gn5s
+	0ww3pkpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9GUP-00000007Hr5-1yt3;
-	Wed, 23 Sep 2026 06:29:57 +0000
-Received: from mail-pj2-x12.google.com ([2607:f8b0:4864:39::12])
+	id 1x9GUg-00000007I08-2ZrO;
+	Wed, 23 Sep 2026 06:30:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9GU6-00000007HgA-3EUs
+	id 1x9GUf-00000007HzP-2RTF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 06:29:40 +0000
-Received: by mail-pj2-x12.google.com with SMTP id d9443c01a7336-2dd58e1e2c7so2908035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 23:29:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790144978; x=1790749778; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Qz31YaIUZL0HkPkLOInD8YA56WfSRIuJpUh6x60MqwE=;
-        b=Hyap+4KKS1/euWQQ0kdrIu07C2kwoKSDb4lJ0qW+ZWcbyT089DbyPD6EBn5uyrN63b
-         rGNZ3TINtT3Rlh8y2Z/PLuW0RRbBMc6mbNU0eKqvqbk/hQM5oRlsNA1DTh1V5DaEpYow
-         Ou8mBKd8AT3+lY1g449bvFWZwehTzQ7kBckKjvhuH5fEGt9kS1KxKsDxsf0L9KHYwxUA
-         sO/wSTNxBnVgCjsfp9SAw4kYwKqLS50kuQQOzo1oxAZCncll7hW6l0xhPNs7Ue7sF9rG
-         znjKzwfuGg752V8NHplfhtxZtNSTnooclonhBmmGgOXq+X4AQZn3qbq0t7E8IuOE9j4u
-         sD9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790144978; x=1790749778;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Qz31YaIUZL0HkPkLOInD8YA56WfSRIuJpUh6x60MqwE=;
-        b=brKf79ZzfYJ1X3oljxBv/63uBY2wOze7NtnlLtxczYvv3qbVdcBlG+5GsMEetIB1vu
-         ym/r6UA5y/iMWdGs48ZGhN5f9O/oc5Kag7rngm96AOROhq0tv9/sin5eyVfL5QdrQrSQ
-         tsMPcyA/92klbj71Yf0YQlZJm/Ij7xbm22Md7QpbBG/G2iM/SeLybiOM+hDyPnsTA2ri
-         /+gMY8K15fagoJQTTzqFNoc/RF0D+8OkxuMXmcwes9gjKbDZEv2fwfTiIzohaGgK2uX8
-         aT/1hMz0xLghZexlu3Gs+kfAAzhVCr3N9Kkpeuc+5VQZ3pVvz4nz0izamazyTovqGwvB
-         EU9A==
-X-Forwarded-Encrypted: i=1; AKwUvByteLkTsCHCruqZHPu+qSUJmT255Iygy2sWg6WhpcQTTSr3SJRlHg9sbPwTqYmkm8HdKd8t458j/9O7GLNQ5qyp@lists.infradead.org
-X-Gm-Message-State: AFuF++nUgDzvQzQfiV3asXKpL95azF+5MmILqeeXCYdVAiBwzWBYrvt9
-	YX7xK2nR3DlQ/LXPOSIH3t/PFkR4dKAPN+cg6H+8nFsBCf9zeGB7Ha5O
-X-Gm-Gg: AYBFou2RpuTDfbGlUTbtSzcvtQjcm/EM6PY+yu475ZSRwmnGmlA9HVKd7pxuqAGm7P0
-	hrnkDU0W9C+IcjoFVH/HmDsfABBYuZxX3j/446O7A0F/Cx6K7xlspR0c4mXLMWse8KLGe5HXKrJ
-	2KrXTFEDHkkbrfDBvPD5i25zQdK4GwDcAIZscpo737OrApSSWtN2WuIZUmUb0ZaXELArilb0jY8
-	7gKQLVfpFfU76iPyqrBwSODVPdhI86BLfNoA8mcJ4NUbFxHoN81fqUY9tDZRXnWsSWw/eLg5IH9
-	2NAX6vAInDMi9/R/frTnM9qU2IDiQ7fknNUqsz8luVF/VXSSn+6QUT7B0RYioDfwCZlB3UWt474
-	GG4iA+2j8wquKfw5OHSmxa4QI4HbiINgxdnOw9AfIgTx16n6wz1+s2cdLw4n7NBqV+zdhE7xxU5
-	Vhq1PZnAG4aErYWqCN8TbbjCeOBDFrMd0qh3lxWzs2JHgl6cIfakLhDqS9YHJhWhR3nKWWftw5Y
-	Z9JqfbJK+JJh43jXuRROA==
-X-Received: by 2002:a17:902:d483:b0:2dd:c053:c20b with SMTP id d9443c01a7336-2df69ddf0cbmr15391165ad.39.1790144977728;
-        Tue, 22 Sep 2026 23:29:37 -0700 (PDT)
-Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a516bfdsm5620465ad.5.2026.09.22.23.29.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 23:29:37 -0700 (PDT)
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
-To: akpm@linux-foundation.org,
-	catalin.marinas@arm.com,
-	linux-mm@kvack.org,
-	urezki@gmail.com,
-	will@kernel.org
-Cc: Xueyuan.chen21@gmail.com,
-	ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	baohua@kernel.org,
-	chleroy@kernel.org,
-	david@kernel.org,
-	dev.jain@arm.com,
-	jiangwen6@xiaomi.com,
-	leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com
-Subject: [PATCH v9 10/10] mm/vmalloc: align vm_area so vmap() can batch mappings
-Date: Wed, 23 Sep 2026 14:28:32 +0800
-Message-Id: <20260923062832.479455-11-jiangwen6@xiaomi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260923062832.479455-1-jiangwen6@xiaomi.com>
-References: <20260923062832.479455-1-jiangwen6@xiaomi.com>
+	Wed, 23 Sep 2026 06:30:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE34D600AA;
+	Wed, 23 Sep 2026 06:30:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5381F000FF;
+	Wed, 23 Sep 2026 06:30:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790145012;
+	bh=0vT2FMuNxSeT1XTJS3tLHJ1GURs84Fhh3gS/jiyljno=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=aAhsXnZvDVrpeee2B0EWkIFmWzsDNL8KCsYqpmfUVd9HhgiGc0l0TM4njiVE/o5YD
+	 PIa98yFwl/yIgcdQheQjLL+g6uEh6I1pOxn4ofgM0Vot8Ku2mg7d8Tp4mXAUQUisHF
+	 Dnb8RYqXO7Hli66fI+5dnvHgaM68piPBrd00Fbt/2Za8hectBA2dxrLJH3wajTmXSO
+	 dHYDfhcDSZN5pHBYwprabbawaojeavd3+Swo0jvFECD7q/AaJe4HfNiN83bw3ZTNyH
+	 99PYYx63gdhk+NZPvbCWC7QHYhj0Z5eZwL92+3J5h7TRZLAwhe5orygERqlV2Ec3Be
+	 u7nD/Q50AAdqQ==
+Message-ID: <a5586b54-eed9-47c6-9c9c-dc478f12d081@kernel.org>
+Date: Wed, 23 Sep 2026 08:30:07 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_232938_902346_CB61AD39 
-X-CRM114-Status: GOOD (  13.69  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] dt-bindings: usb: Add CIX Sky1 USBSSP controller
+To: Hongliang Yang <hongliang.yang@cixtech.com>
+Cc: peter.chen@kernel.org, gregkh@linuxfoundation.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ p.zabel@pengutronix.de, vkoul@kernel.org, neil.armstrong@linaro.org,
+ pawell@cadence.com, rogerq@kernel.org, cix-kernel-upstream@cixtech.com
+References: <20260910025227.2490151-1-hongliang.yang@cixtech.com>
+ <20260923025834.842467-1-hongliang.yang@cixtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260923025834.842467-1-hongliang.yang@cixtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,89 +118,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+On 23/09/2026 04:58, Hongliang Yang wrote:
+> Hi Krzysztof,
+> 
+> Gentle ping on my question below about representing the shared RCSU
+> region with a simple-bus container and translating ranges, versus
+> absolute addresses in reg directly under the soc node. I would like
+> to settle this before sending v5.
 
-Try to align the vmap virtual address to PMD_SHIFT or a
-larger PTE mapping size hinted by the architecture, so
-contiguous pages can be batch-mapped when setting PMD or
-PTE entries. We do not expect any significant overhead for
-this.
+There is no context here, nothing below.
 
-Add __get_vm_area_node_aligned_caller() as a wrapper over
-__get_vm_area_node() to simplify repeated calls with fixed
-arguments.
-
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
----
- mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
-
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 37cddb7f45a4f..1a3b191885024 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3328,6 +3328,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
- 				  NUMA_NO_NODE, GFP_KERNEL, caller);
- }
- 
-+static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-+		unsigned long align, unsigned long flags, const void *caller)
-+{
-+	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-+				  VMALLOC_START, VMALLOC_END,
-+				  NUMA_NO_NODE, GFP_KERNEL, caller);
-+}
-+
- /**
-  * find_vm_area - find a continuous kernel virtual area
-  * @addr:	  base address
-@@ -3655,6 +3663,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
- 	return err;
- }
- 
-+static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-+		unsigned long flags, pgprot_t prot, const void *caller)
-+{
-+	struct vm_struct *vm_area;
-+	unsigned int shift;
-+
-+	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	shift = arch_vmap_pte_supported_shift(size);
-+	if (shift > PAGE_SHIFT) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-+}
-+
- /**
-  * vmap - map an array of pages into virtually contiguous space
-  * @pages: array of page pointers
-@@ -3693,7 +3725,8 @@ void *vmap(struct page **pages, unsigned int count,
- 		return NULL;
- 
- 	size = (unsigned long)count << PAGE_SHIFT;
--	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-+	area = vmap_get_aligned_vm_area(size, flags, prot,
-+				__builtin_return_address(0));
- 	if (!area)
- 		return NULL;
- 
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
