@@ -4,77 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2BAC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C017AC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15dX0WlwKL5bcJMOivsSURnwdcljPC6/Eyv5kiJGgNQ=; b=KGKrwg+CsxpkSTGngFU2jKXAYM
-	rjPalDbUjxcP7H0zadeXkpvvj/M2c8lL+yTtjsAsW6JJShHSSLR+GD1oDSbOS1BD4sfCgKV824/6i
-	2uTqDJ1lDb4TyoJwnqIZe37CsMDoJ6w1yDMT98Ysf6Cpnxx/VhIMaDBu7Mk6C5+uA2yn3hlGTRYSc
-	PbHoVHKTvHCicZeC3sH586R9mrEVkUOdCr/Z+KUmTQlaEJODEM2lVvPNPtVkMjLBtGOhs+bTGuqPG
-	2C91VgNvHNAFAZCCCgFLwB40gwt44/7mgx19oiVCv2q7n18MNpll7aW3ADriLWUaVeFgqGRQ+6nX1
-	ptU05nhQ==;
+	bh=FRi3C+epsIdutFBlhwS+gFpit1TLgJroCohgwHrl8Ns=; b=k90mm+S8ijWE2buHBYaZX4zyj6
+	+JBK2PEgId8urKxg1ARodmqMTiVy7/796v5fzJBCOMGK9ug2OMx+qMIVxltUNFBAZY0PIIKuaFO5c
+	BGTRiXxjui6R+fjBjHf4WTXy36stBEREm9cdg4wb38yUnK1YbVtUpgvSadqOS+KfZof8R03CEXEp1
+	nkderno9U7tB6x6tBzGXwcaooDhnS0mMfCKbaC/Ox9vczxjfGvDswcU8topO+9pzI4AsSnX5itJEE
+	QsjH2ykGuiZgfp2sR3BgGMbEocRCr4bEe+o09FWRmqaO7XkgYp18PaGde0kYnam2/akLFAvaIIQMa
+	h2Kjt1lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MRK-00000008J0b-34Sh;
-	Wed, 23 Sep 2026 12:51:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9MVF-00000008JQ6-1nIu;
+	Wed, 23 Sep 2026 12:55:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MRJ-00000008J0S-2GoQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 12:51:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=15dX0WlwKL5bcJMOivsSURnwdcljPC6/Eyv5kiJGgNQ=; b=kSvaPXq8VvEcF2CIR5cPmyjJE5
-	08ihrLa0eqQo71W54D6ordi2FSFDqmuYjSkniZkEj1DNl0/wc9aS4YyDeyoAu/i0A+TEiQblpORc6
-	nRj6aCPTXS0h6uqxMvzskW9eVL6vjgE24ynCi+V2fqCItSetTEYSOz5DShY+Q3+nv8XhfWHyG/fkQ
-	9eD2XAzAiT0+IHvRP9w9QjqC3gnpq7roO2yjHv1Sq7FFJGTo5Kf53k3sZeOaPHzRkiLUMmcE5ETNn
-	LbpppIO4R4tPyY88LmP8buxvr5ClQazP0+9qfcXjyS4xihvLthKjXUqZfdV88OT85ZdaYNNV/ueao
-	FPQiY3gw==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9MR1-0000000Elux-3E9C
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:51:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=15dX0WlwKL5bcJMOivsSURnwdcljPC6/Eyv5kiJGgNQ=; b=xoCiV1Yd8jTY6caTFeswdyRugj
-	h+2ypVn+EzOauLmoSBxXPaiBS0ngaPMZjo8tp0P+rFdnqKX/6zWzCBeKth+pAfQ3s+lHBlHTrfR5K
-	vkI4ueuiM24bdfOFVh4CDL71kurS1Ibp9kRakgvIlRVn/1TkpPWgD8Tu7oxhpxwyEOZc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9MQq-006nyx-7X; Wed, 23 Sep 2026 14:50:40 +0200
-Date: Wed, 23 Sep 2026 14:50:40 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
-Cc: shengchao.guo@oss.qualcomm.com, bartosz.golaszewski@oss.qualcomm.com,
-	mohd.anwar@oss.qualcomm.com, maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, hkallweit1@gmail.com,
-	linux@armlinux.org.uk, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1x9MVE-00000008JPt-1vhl;
+	Wed, 23 Sep 2026 12:55:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 41F1F6020A;
+	Wed, 23 Sep 2026 12:55:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2801F000FF;
+	Wed, 23 Sep 2026 12:55:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1790168110;
+	bh=FRi3C+epsIdutFBlhwS+gFpit1TLgJroCohgwHrl8Ns=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZYcrNT7P0hjDlcFWhTnT6+Mxr6YY6Iiktuhuedn/b37B8n+/jnAQd7UEma7I6Gkz/
+	 hgCoughMEp760bK5dumjUrd8WmsOyZaShg4e4uSPR1v18S6XRaCA1wF4LW+XcQ/ar/
+	 jRVTbV5/bnhbKBwk61V2FmWW2pvfHaEU6V9Psd74=
+Date: Wed, 23 Sep 2026 14:55:07 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Jan =?utf-8?B?xIxlcm3DoWs=?= <sairon@sairon.cz>
+Cc: jirislaby@kernel.org, florian.fainelli@broadcom.com, rjui@broadcom.com,
+	sbranden@broadcom.com, phil@raspberrypi.com, stefan@agner.ch,
+	bcm-kernel-feedback-list@broadcom.com, linux-serial@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] Nord ethernet followup
-Message-ID: <aa9f1765-ca8c-445e-96bb-4c768ad55623@lunn.ch>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
- <20260923084921.3942100-1-zhangfei.gao@oss.qualcomm.com>
+Subject: Re: [PATCH 1/1] serial: 8250_bcm2835aux: Add support for RTS/CTS
+ auto flow control
+Message-ID: <2026092346-snap-kosher-b487@gregkh>
+References: <cover.1786030659.git.sairon@sairon.cz>
+ <7e5ed3fb37ee4e113706c258d792121b868861a9.1786030659.git.sairon@sairon.cz>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260923084921.3942100-1-zhangfei.gao@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_135103_838942_68D8B0A2 
-X-CRM114-Status: GOOD (  10.13  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7e5ed3fb37ee4e113706c258d792121b868861a9.1786030659.git.sairon@sairon.cz>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +70,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 04:49:18PM +0800, Zhangfei Gao wrote:
-> This series verifies Mohd Ayaan Anwar's patch set:
+On Thu, Aug 06, 2026 at 05:42:04PM +0200, Jan Čermák wrote:
+> The bcm2835aux mini UART can automatically de-assert RTS based on the RX
+> FIFO fill level and gate the transmitter on CTS, but the driver never
+> made use of it. Wire it up:
 > 
->   net: introduce Qualcomm XPCS support and add Nord Ethernet plumbing [1]
+> - Enable AUTORTS/AUTOCTS (with the RTS4 threshold and inverted, i.e.
+>   conventional active-low, polarity) whenever CRTSCTS is set on ports
+>   declaring the "uart-has-rtscts" property, advertised via
+>   UPF_HARD_FLOW.
 > 
-> Tested on both IQ10 RRD and Ride
+> - Gate the AUTORTS function on TIOCM_RTS in set_mctrl() so that
+>   clearing RTS (port close, TIOCMBIC, B0) actually de-asserts the pin
+>   while auto flow control is active.
 > 
-> The full test branch is available at:
+> - Implement throttle()/unthrottle() by disabling the RX interrupts and
+>   letting the FIFO fill up, making the hardware de-assert RTS - the
+>   same approach as in 8250_omap. Re-sync this state on termios and
+>   rs485 changes, as those paths may re-enable the RX interrupts (or
+>   leave them disabled) behind the throttle's back.
 > 
->   https://github.com/zhangfei-gao/kernel-topics/tree/next-9.23
+> - Never enable auto flow control together with rs485, which uses RTS
+>   as the transceiver direction control. As the software CTS fallback
+>   of the serial core cannot work without a modem status interrupt,
+>   strip CRTSCTS whenever it cannot be handled in hardware.
 > 
+> - Restore RXEN when rs485 is disabled, as the emulation may be torn
+>   down without the rs485_stop_tx() callback ever being called, which
+>   would leave the receiver disabled.
 > 
-> [1] https://lore.kernel.org/linux-arm-msm/?q=qcom_xpcs_nord_emac
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Jan Čermák <sairon@sairon.cz>
+> ---
+>  drivers/tty/serial/8250/8250_bcm2835aux.c | 160 +++++++++++++++++++++-
+>  1 file changed, 156 insertions(+), 4 deletions(-)
 
-Please don't submit two overlapping patches for the same driver. Wait
-for the first patchset to get merged, and then submit a follow up
-series.
+There are some bot review comments on this:
+	https://sashiko.dev/#/patchset/7e5ed3fb37ee4e113706c258d792121b868861a9.1786030659.git.sairon@sairon.cz
 
-Qualcomm has a number of Mainline Linux mentors. Please talk with
-them, because these two patch series are not great.
+Can you address them and submit a new version?
 
-    Andrew
+thanks,
 
----
-pw-bot: cr
+greg k-h
 
