@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CC2C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824BBC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBhwM6wbqAw5a+cVNgYvlXlXJxCKVG4pNRvbUVKP8IA=; b=ufN+aSMSfZr8nNdSOJDOKTWecY
-	OTqWOR69LbUBSxIIFTVN7ultWFOnQMVn9AZdx7xEFnWY3LyoGE9rGbks0r0bbGO2hMx1oGEij8ZDJ
-	LMApT3rl+2t8tRb17x2IFTr97KVEI0bbnhqno9ji3Zw/J/WKbJxPLaAnLDO8fBTH8k4ZMD0Wbinfa
-	VKyjI3C2iffDPD6SWYUgO22tk3tcPUZr3Ia1LCg8UIiwhsie1oxh0qA4bs1VSegbrqZCCmKlhhKrT
-	QVVlPtJyZ6r+l010rc3J8Vs4hYG+p+/+aBugjw7U5E5qhW3bwlX8v8y7VIsZYz8piwnhWgNwf/SQG
-	nXFIvj3w==;
+	bh=AC1V7c4WU6arvaHg1fiICTCR6GKg0EaeyLEpLHxpNDY=; b=pvz0b3i+kth/zjj2i3oVr7XlYE
+	wALXawdoRWq1DB9YtbBhIxpA0LjEBFRarNiiUAnHWjSEAmJu/TtpBVZf+noiqfd1LSsUD1uej5GYa
+	lcrFqwYi9g5F8iEHvLzuLoJWy12Am4nQcLZJ0zs3htk/iG+ixjl4bkI7jeDst1ezbJz/k5a2UUiSm
+	fVbdI2wMtwMy4LNFrve8zj/VmhWpBfCJDNdpwhnuNK26uIYqsZXd4UaPfEaiWKCqMfgb6v3MkVbO6
+	dmCwOz6dNjqrQoWk6GBROXJMx+8DE+SGjiIQaXh7ZZYQ3+Ny2ZCQ4VTWnh0tBh6cyKqkW4pvgrHR3
+	B9TCdl/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PAG-00000008nJc-3mAG;
-	Wed, 23 Sep 2026 15:45:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9PDb-00000008nqs-3YGT;
+	Wed, 23 Sep 2026 15:49:11 +0000
+Received: from mail-ej2-x0c.google.com ([2a00:1450:4864:34::c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PAG-00000008nJQ-03QB
+	id 1x9PDY-00000008nq9-2tJQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:45:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C160340D91;
-	Wed, 23 Sep 2026 15:45:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B5741F00893;
-	Wed, 23 Sep 2026 15:45:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790178343;
-	bh=xBhwM6wbqAw5a+cVNgYvlXlXJxCKVG4pNRvbUVKP8IA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KapfSIupahzymrJQOac0ZZru85avmkuCFsYN2BBX6hl8axXNJnffgnyqlm+GAqWFQ
-	 xzT7HNgoPLukmPtZQiUBGjAAgsMTd8mBODvU/qvqBoVlLs8WPfPnrRxVZn6ihew8bP
-	 vmmMP0HpYQBzSv0xarrSJFoDT0NNFmAVaJN5trYsm/T8kdBaP69tAOT9Jceqe5C9/t
-	 LV8Gui+KCanV+FtQ1aix6tIz7u0R/FbAIq7lEskqqpVMZDrB8GsXpeMSh9MekmkAQ3
-	 7ZMPHiPPDsji0EEtsNO5GjhuQJSJsjKHq/vLBxDvftss4APctbzOGdwKH6KmH4FoDW
-	 ATZpPB7e1lFyQ==
-Date: Wed, 23 Sep 2026 16:45:36 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, maz@kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
-	gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
-	yuzenghui@huawei.com, linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
-	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <arP0IF0MjFUv36AP@willie-the-truck>
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <arK3tsTV6EDhI-nt@willie-the-truck>
- <arOyp8WUrYBAjrGH@arm.com>
+	Wed, 23 Sep 2026 15:49:10 +0000
+Received: by mail-ej2-x0c.google.com with SMTP id a640c23a62f3a-c2a1a631f6aso134743866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:49:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790178547; x=1790783347; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AC1V7c4WU6arvaHg1fiICTCR6GKg0EaeyLEpLHxpNDY=;
+        b=PkkqW8Qfj19uidKDOHUNv+22rMa7NYrsKkW4g5EcAoFEw9IOvPGIm5ATOOnQGKYqIG
+         ts4cud8Vmzpov/4U8Sz7QFt+HaS2zJ5/K2whWSh3Hna7mP5T4TCA2WUv/GHrmbxJpfup
+         lEwOtvdqryqUZoFVexAtagioVQZnaQLeIobE54UvSykNZQOenGDK25ISk1KNIK4Topyl
+         MC37H3ncXnccCb3lDP5zuSlLVaLUGLdceHVRDkuIvqwCrtBTQkTotgQ8rnh1N/4pVUNg
+         Mb/r4dYhpEX1Uu0wW5Xx0pmtQrSTD+jVCKbAfQOu6hwi4TIUeozo6J4/HvkloHV7riaJ
+         EviA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790178547; x=1790783347;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AC1V7c4WU6arvaHg1fiICTCR6GKg0EaeyLEpLHxpNDY=;
+        b=tbtuk6cvSX1+t/PA7x0ZeLy4ttPPGzAyhalnQWJFXDww+nKpg6UfbqK9s2IHSM9/Xe
+         0wIBzwFefJFCzAhjb2VOvCV636MUUoI4rQ649Zp0HYPyJhZiB8PMu26eaAZ9OQYJQ0Cp
+         aV1N6UsoNoOpi6nPvFfkScxCE84pqLY6J+jl0eGBn6SprhyWDV207lfajKNinoMc3NXE
+         Mlh5B5JKGTiiXT169i4rUiJwKZLYGoFsa/OE71CuUFpxoBpMpprd1fLJD//osoxzTyqy
+         vx9z7ecIkIMXGPSevdFcg9qZ8Il+gTvsJDM86rI6JNIWJooShLh2V+ty/SWf9qOG9P+V
+         QKyg==
+X-Forwarded-Encrypted: i=1; AKwUvBxkVBEvD99RIkdRyRFiZbLaRSu4rAV7kmYBEahpkI96p+EzjNqvyPm75yGz5j/w2o/h3IHk3UH+tkEAHL36FTwc@lists.infradead.org
+X-Gm-Message-State: AFuF++l/6ZxqU+MiSZtNiFD7Hp4b64BrLO7Bq1pcH/AEhPPNRx6ZD7Fg
+	ASKzETkH7nH/G5OrmQxFUCiveOVMM8mnTRW2N+i6iEYIVoOgRiteHxu6vpCfz8PUoQw=
+X-Gm-Gg: AYBFou3MtRb0gNBJiwI4y66XgwlTyf5S5lFrTGVcHrsKX5bQSvMuu3MkVWgDrOAlApB
+	sqGZKp3G4+qJs/S3qupZDhJ0klXcD5ssHIugtD6njURCjqWBRQv5aBWU6HIB5BRz1Sc1Gx7KFCv
+	VIO0TRD7AXI5qh6DCvtTJPoaLe902aPYNqxpE41t9nrdyV8L6L4g2acjh3dvIEg7QAT2Ig/1qp5
+	1CZ5WyT9sDXwlvyYEnVDl6z/bw9iH2dgWmgFzNnhFdRUkt+f9hYBGIyLSjr/N08ynrReS6mRopb
+	KOSV56r8E6HQhFKhv1nlmWYJhWSSS7lDLW+1Ws3S4MQapsWqUI651rIt9JGpujXJNQaBU4QlIDK
+	ehfbvKAN/Lif/y966xvjUTttKjwI4xOkxVtNDEZEqo4jK/1uOAuXK1jCJkKu4JXGcGaLxS3Mx6E
+	To4tEPTPX1jnmGWyjCy8+GpgfbCqZhmNxtqoF9LudBEDGqtf9N5TMkUPgj5vM0zfVpCR1m998=
+X-Received: by 2002:a17:907:c02:b0:c25:c67d:53cc with SMTP id a640c23a62f3a-c2aadeb4e22mr229458566b.8.1790178546725;
+        Wed, 23 Sep 2026 08:49:06 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:b4a:dc6a:68e:2592])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2aae687318sm152318266b.44.2026.09.23.08.49.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 08:49:06 -0700 (PDT)
+Date: Wed, 23 Sep 2026 09:48:58 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	imx@lists.linux.dev, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 12/12] PoC: arm64: dts: imx93-11x11-frdm: add
+ multiple vdevs
+Message-ID: <arP06mWDehsIDh5s@p14s>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-12-dac8c5eb4aa9@valla.it>
+ <arKiOCGrWAKyc-bc@p14s>
+ <arLawAw6kgFT2e0W@bywater>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arOyp8WUrYBAjrGH@arm.com>
+In-Reply-To: <arLawAw6kgFT2e0W@bywater>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_084908_920945_6D09A408 
+X-CRM114-Status: GOOD (  43.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +113,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 12:06:15PM +0100, Catalin Marinas wrote:
-> On Tue, Sep 22, 2026 at 06:15:34PM +0100, Will Deacon wrote:
-> > On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
-> > > From: Steven Price <steven.price@arm.com>
+On Tue, Sep 22, 2026 at 10:19:48PM +0200, Francesco Valla wrote:
+> On Tue, Sep 22, 2026 at 09:43:52AM -0600, Mathieu Poirier wrote:
+> > On Wed, Sep 16, 2026 at 11:10:57PM +0200, Francesco Valla wrote:
+> > > Add rings for multiple vdevs, as well as the required virtio nodes for
+> > > I2C, SPI and GPIO functionalities. On top of that, add example
+> > > peripherals using all of them.
 > > > 
-> > > If the host attempts to access granules that have been delegated for use
-> > > in a realm these accesses will be caught and will trigger a Granule
-> > > Protection Fault (GPF).
+> > > NOTE: this is a Proof-Of-Concept, not meant to be integrated!
 > > > 
-> > > A fault during a page walk signals a bug in the kernel and is handled by
-> > > oopsing the kernel. A non-page walk fault could be caused by user space
-> > > having access to a page which has been delegated to the kernel and will
-> > > trigger a SIGBUS to allow debugging why user space is trying to access a
-> > > delegated page.
-> > > 
-> > > There is work in progress to unmap the guest_memfd backed private pages from the
-> > > linear map. Until we get that support, we could get spurious GPFs from within
-> > > the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
-> > > 
-> > > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> > > Signed-off-by: Steven Price <steven.price@arm.com>
-> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > Signed-off-by: Francesco Valla <francesco@valla.it>
 > > > ---
-> > > Changes since v17:
-> > >  * Pass untagged address to die_kernel_fault() - Sashiko
-> > >  * Explicitly check !user_mode() for fixups - Catalin
-> > >  * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
-> > >  * Clarify the commit description about the upcoming work on
-> > >    unmapping guest_memfd backed pages from linear map
-> > > Changes since v16:
-> > >  * Update the commit description to indicate why we try to fixup GPFs
-> > > Changes since v10:
-> > >  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> > > Changes since v2:
-> > >  * Include missing "Granule Protection Fault at level -1"
-> > > ---
-> > >  arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
-> > >  1 file changed, 24 insertions(+), 6 deletions(-)
+> > >  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 128 +++++++++++++++++++--
+> > >  1 file changed, 119 insertions(+), 9 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > > index bd14ba28690c..dfa3b122ac5f 100644
+> > > --- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > > +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > > @@ -53,6 +53,32 @@ button-k3 {
+> > >  		};
+> > >  	};
+> > >  
+> > > +	gpio-keys-virtio {
+> > > +		compatible = "gpio-keys-polled";
+> > > +		poll-interval = <100>;
+> > > +
+> > > +		button-v1 {
+> > > +			label = "Button V1";
+> > > +			linux,code = <BTN_3>;
+> > > +			gpios = <&v_gpio 23 GPIO_ACTIVE_LOW>;
+> > > +		};
+> > > +
+> > > +		button-v2 {
+> > > +			label = "Button V2";
+> > > +			linux,code = <BTN_4>;
+> > > +			gpios = <&v_gpio 24 GPIO_ACTIVE_LOW>;
+> > > +		};
+> > > +	};
+> > > +
+> > > +	leds {
+> > > +		compatible = "gpio-leds";
+> > > +
+> > > +		led {
+> > > +			gpios = <&v_gpio 18 GPIO_ACTIVE_HIGH>;
+> > > +			label = "LED V";
+> > > +		};
+> > > +	};
+> > > +
+> > >  	reg_usdhc2_vmmc: regulator-usdhc2 {
+> > >  		compatible = "regulator-fixed";
+> > >  		off-on-delay-us = <12000>;
+> > > @@ -89,11 +115,6 @@ linux,cma {
+> > >  			linux,cma-default;
+> > >  		};
+> > >  
+> > > -		rsc_table: rsc-table@2021e000 {
+> > > -			reg = <0 0x2021e000 0 0x1000>;
+> > > -			no-map;
+> > > -		};
+> > > -
 > > 
-> > I still don't think we should do this, given that the plan is to unmap
-> > the memory from the linear map. If this thing fires, it's a kernel bug
-> > and it should be fatal.
+> > Why is the resource table removed?  There is no mention of that in the
+> > changelog...
+> >
 > 
-> If the linear unmapping gets merged first, I agree, no need to handle
-> these faults. I haven't followed that series, so no idea where it is at.
+> You are obviously right, the commit message here should have been a
+> poem, not a form of hermetic poetry. My bad.
 > 
-> However, I'd still keep part of this patch - the reporting and panic but
-> without the actual exception table recovery. There's some value in
-> killing user-space and WARN (or pr_ratelimited) without a full panic, it
-> helps with debugging. That's what do_bad() via arm64_notify_die() gives
-> us currently anyway.
+> The resource table here is causing problems with how Zephyr is managing
+> it at its side. If it is kept in a separate memory location and copied
+> there at runtime by the remote processor firmware during its startup
+> (which is the current Zephyr behavior), then there might be a race
+> condition when the aforesaid firmware is loaded and started by Linux
+> *and* at least one of the vdev drivers (here including rpmsg_bus) is
+> built-in. In this case, the copy of the resource table done by the
+> remote processor might - depending on the async execution of the two
+> processors - overwrite the status bit set by the Linux driver:
 > 
-> So maybe we can keep it to just:
+>   Firmware load and startup (echo start > /sys/.../state)
+>                            |
+> 			   |
+> 			   V
+>   The vdev devices get registered (by register_virtio_device())
+>                            |
+> 			   |
+> 			   V
+>   If a driver is built-in, it probes and sets the vdev status
+>   inside the resource table @rsc-table.
+>                            .
+> 			   . (in the mean time)
+> 			   .
+>   The remote processor starts up and copies the resource table from its
+>   dedicated section to @rsc-table.
 > 
-> static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> {
-> 	if (user_mode(regs)) {
-> 		pr_alert_ratelimited("%s[%d]: granule protection fault at 0x%016lx\n",
-> 				current->comm, task_pid_nr(current),
-> 				untagged_addr(far));
-> 		mem_abort_decode(esr);
-> 	}
-> 
-> 	return 1;
-> }
-> 
-> and we get the SIGBUS or panic via do_mem_abort(). No recovery for
-> uaccess though, we get the same kernel panic.
+> Depending on the system load and the complexity of the firmware, the two
+> operations can happen in whatever sequence, causing a race condition.
 
-But how can this ever occur in user mode? I'm fine with making that part
-unconditional.
+This would happen regardless of this patchset.
 
-Will
+> 
+> This is somewhat masked if vdev drivers are built as modules, as the
+> devices does not probe immediately but only after the modules have been
+> loaded, giving the remote processor time to start. Note that this is not
+> a solution! but a workaround.
+> 
+> If the rsc-table node is not there, the startup logic falls back to the
+> classic rproc_elf_find_loaded_rsc_table().
+
+We can't remove @rsc-table to make a problem go away.  
+
+> 
+> This is specific to i.MX platforms [1] and is probably not normally an
+> issue because - as stated in [1] - the offical SDK from NXP seems not
+> to check the status inside the resource table.
+> 
+> > >  		vdev0vring0: vdev0vring0@a4000000 {
+> > >  			reg = <0 0xa4000000 0 0x8000>;
+> > >  			no-map;
+> > > @@ -105,12 +126,42 @@ vdev0vring1: vdev0vring1@a4008000 {
+> > >  		};
+> > >  
+> > >  		vdev1vring0: vdev1vring0@a4010000 {
+> > > -			reg = <0 0xa4010000 0 0x8000>;
+> > > +			reg = <0 0xa4010000 0 0x1000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		vdev2vring0: vdev2vring0@a4011000 {
+> > > +			reg = <0 0xa4011000 0 0x2000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		vdev2vring1: vdev2vring1@a4013000 {
+> > > +			reg = <0 0xa4013000 0 0x2000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		vdev3vring0: vdev3vring0@a4015000 {
+> > > +			reg = <0 0xa4015000 0 0x2000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		vdev4vring0: vdev4vring0@a4017000 {
+> > > +			reg = <0 0xa4017000 0 0x4000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		vdev5vring0: vdev5vring0@a401B000 {
+> > > +			reg = <0 0xa401B000 0 0x2000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		vdev5vring1: vdev5vring1@a401D000 {
+> > > +			reg = <0 0xa401D000 0 0x2000>;
+> > >  			no-map;
+> > >  		};
+> > >  
+> > > -		vdev1vring1: vdev1vring1@a4018000 {
+> > > -			reg = <0 0xa4018000 0 0x8000>;
+> > > +		vdev5vring2: vdev5vring2@a401F000 {
+> > > +			reg = <0 0xa401F000 0 0x1000>;
+> > >  			no-map;
+> > >  		};
+> > >  
+> > > @@ -149,8 +200,67 @@ &cm33 {
+> > >  		 <&mu1 3 1>;
+> > >  	mbox-names = "tx", "rx", "rxdb";
+> > >  	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+> > > -			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+> > > +			<&vdev1vring0>, <&vdev2vring0>, <&vdev2vring1>,
+> > > +			<&vdev3vring0>, <&vdev4vring0>,
+> > > +			<&vdev5vring0>, <&vdev5vring1>, <&vdev5vring2>;
+> > 
+> > Who is using vdev5 vrings?  
+> > 
+> 
+> Another thing that should have been in the commit message. Vdevs are
+> defined, in the Zephyr application I am using as PoC, as follows:
+> 
+>  - vdev0: RPMSG (tx and rx vrings)
+
+To be backward compatible, there has to be a way to make vdev0 defaulting to
+RPMSG.  It would also be nice if bindings were define for RPMSG so that it can
+show up in the list of remoteproc-virtio devices like i2c, gpio and others.
+
+
+>  - vdev1: entropy (single request vring)
+>  - vdev2: GPIO (request and event vrings)
+>  - vdev3: I2C (single request vring)
+>  - vdev4: SPI (single request vring)
+>  - vdev5: CAN (tx, rx and control vrings)
+> 
+> vdev5 is not represented inside the devicetree because the can-virtio
+> driver registers a single CAN network device and has thus no need for
+> such representation.
+
+Then why is it part of the remoteproc's memory-regions?
+
+> 
+> > >  	status = "okay";
+> > > +
+> > > +	virtio {
+> > > +		#address-cells = <1>;
+> > > +		#size-cells = <0>;
+> > > +
+> > > +		vdev@2 {
+> > > +			reg = <2>;
+> > > +
+> > > +			v_gpio: gpio {
+> > > +				compatible = "virtio,device29";
+> > > +				gpio-controller;
+> > > +				#gpio-cells = <2>;
+> > > +				interrupt-controller;
+> > > +				#interrupt-cells = <2>;
+> > > +			};
+> > > +		};
+> > > +
+> > > +		vdev@3 {
+> > > +			reg = <3>;
+> > > +
+> > > +			i2c {
+> > > +				compatible = "virtio,device22";
+> > > +				#address-cells = <1>;
+> > > +				#size-cells = <0>;
+> > > +
+> > > +				eeprom@50 {
+> > > +					compatible = "atmel,24c1025";
+> > > +					reg = <0x50>;
+> > > +				};
+> > > +			};
+> > > +		};
+> > > +
+> > > +		vdev@4 {
+> > > +			reg = <4>;
+> > > +
+> > > +			spi {
+> > > +				compatible = "virtio,device2d";
+> > > +				#address-cells = <1>;
+> > > +				#size-cells = <0>;
+> > > +
+> > > +				sram@0 {
+> > > +					compatible = "microchip,mchp23k256";
+> > > +					reg = <0>;
+> > > +					spi-max-frequency = <20000000>;
+> > > +				};
+> > > +
+> > > +				lcd@1 {
+> > > +					compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+> > > +					reg = <1>;
+> > > +					spi-max-frequency = <10000000>;
+> > > +					dc-gpios = <&v_gpio 21 GPIO_ACTIVE_HIGH>;
+> > > +					reset-gpios = <&v_gpio 20 GPIO_ACTIVE_HIGH>;
+> > > +					rotation = <90>;
+> > > +				};
+> > > +			};
+> > > +		};
+> > > +	};
+> > >  };
+> > >  
+> > >  &eqos {
+> > > 
+> > > -- 
+> > > 2.55.0
+> > >
+> 
+> Thank you!
+> 
+> Regards,
+> Francesco
+> 
+> 
+> [1] https://lore.kernel.org/all/20240719-imx_rproc-v2-2-10d0268c7eb1@nxp.com/
 
