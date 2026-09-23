@@ -4,102 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCCDC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 05:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A14C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 05:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OTwx4w9402ve7XEVGULW94SFMv5Tl4N0r/phY59l/8k=; b=Y3rnyF38f5vjboZgNToYlXNK0/
-	EvkJCPXLZFVuWxelL3MoaLFUW0I4PDFs9Brmqs6AM6X54vaBUo7TZ49ii4u/McSS2B9wbX2DCWaSq
-	2BmHeCsaLhKDVRy2+YXM3JdpLYfyPFBkLsIqeFvHqfYUk8drsZXG5/BotHMztN10vfDQzZ91mUT0E
-	iZOGaCoTOpK8/fm413Xsb9nh7xjqzaIfAV/BhQZonh4oEV28dOx7tUVMQgjWVjcNaPyrE36SM7eae
-	pRiKuKLlfqQNEE3RQXGDWASk/R7PiXCNvpncNWA+d1UEQSwoyn31RepzqrwtORD/Z7dVMvFdF5mba
-	QzJBCnoA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bNcaMozgi7eMkdPXPYneu/L8vYje9h4xULACp8evALk=; b=MrLgMJoUmdflkaFX/U0KY7yyqz
+	7F1nJFehMXJNtGBsJHDJtWDBRP52gkXhFfxnagIebiSkuUvrqc4dOrLWPz7eo/944EcDq6qNHqe33
+	WPh/jbxw6VcRc0lfdgR5qH8EJDGu2bzTffWCstemlDWSn70BEXQrcgnFJ2laOCJDNbcMkLvw2WaNT
+	1nTWjYM//nbOT3lRkjEq3Re0YAAJM4lq9e7q/r0uvOxjClSPbtZhGz9kTIP1zrwG0kuYBnOsu6Ywt
+	Tdstv/01PuzM8zk9WVLTskCxTPUI5WaF+qM4Gd3gRueUBsd1gPJySa0BykZ8g1GJ2rmiyiSQDkIv5
+	lsmzW8KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Fov-00000007CGa-31OJ;
-	Wed, 23 Sep 2026 05:47:05 +0000
-Received: from omta40.uswest2.a.cloudfilter.net ([35.89.44.39])
+	id 1x9Fsr-00000007Col-2Uo2;
+	Wed, 23 Sep 2026 05:51:09 +0000
+Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Fok-00000007CCm-2QPI
+	id 1x9Fso-00000007Cn4-2e6S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 05:46:57 +0000
-Received: from eig-obgw-5007b.ext.cloudfilter.net ([10.0.29.167])
-	by cmsmtp with ESMTPS
-	id 9DDHxtckec3Xs9FoYx9cfI; Wed, 23 Sep 2026 05:46:42 +0000
-Received: from gator4166.hostgator.com ([108.167.190.91])
-	by cmsmtp with ESMTPS
-	id 9FoWxKjTtghBm9FoXx1CFU; Wed, 23 Sep 2026 05:46:41 +0000
-X-Authority-Analysis: v=2.4 cv=Hsd2G1TS c=1 sm=1 tr=0 ts=6ab367c1
- a=vY9Mjuda9oMEc2E4Cx1x2A==:117 a=vY9Mjuda9oMEc2E4Cx1x2A==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=7T7KSl7uo7wA:10 a=1XWaLZrsAAAA:8
- a=VwQbUJbxAAAA:8 a=GayhebFrRX0EwB9RMoAA:9 a=QEXdDO2ut3YA:10
- a=2aFnImwKRvkU0tJ3nQRT:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=embeddedor.com; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=OTwx4w9402ve7XEVGULW94SFMv5Tl4N0r/phY59l/8k=; b=UEfECF5TgEW3
-	KGIj5aT/C29st5hACjcHuxVLxBSR5tOuRMT/rmWCDjiSiI+BzQMiTkM0qDAMxbHWK0jWLqRxQEoAr
-	ro+Og+0qw7/KJY6TDfCr4pB3RfKZ8OPRmY157FqncfrM24JAx8Vq1qu9OrVkMYXgVi9TNeOphlT6a
-	4XmHPaMDFoirjhxsqZ4uTut9sorVP017tpwM+iI1+6BS5oO2mfQIrBgWaYEYcjTbj0xYX4QGH9Zpd
-	5J3/hzOu3YEydLLXFA7/I/gyV41+wvDJxLQiZwGHasg9hWiT3sD7NJRft+6+8i0pYdAUSndXnjvkA
-	87RFK8+svAIE2Wy1cUW05w==;
-Received: from flh4-125-195-69-90.tky.mesh.ad.jp ([125.195.69.90]:43316 helo=[10.203.100.34])
-	by gator4166.hostgator.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.100)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1x9FoW-0000000204S-0DM9;
-	Wed, 23 Sep 2026 00:46:40 -0500
-Message-ID: <3e9d09ef-5766-4f19-aa8c-641e15572950@embeddedor.com>
-Date: Wed, 23 Sep 2026 14:46:35 +0900
+	Wed, 23 Sep 2026 05:51:07 +0000
+Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-8631d0023daso327322b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 22:51:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790142665; x=1790747465; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bNcaMozgi7eMkdPXPYneu/L8vYje9h4xULACp8evALk=;
+        b=Pz9Qewyh6QQAQOja8im3T0NYOyqKmzLT3z1jDnOGHttUE/9yHZmchd71+j4N7m/MED
+         s0/X5LISX/bk7Oc0LNk9B7uaE69QFJIkxygHin51JnMl23tjTxNRCpSmAIIbzmR2IzV1
+         uG+oMUnB4XigR+DJNARVhJE8LQJZOlkCtAaxidBwyANjm8g2z/XrGLoSMdN5zsSezYir
+         TF8xcAWuTiTjMORbT/9eEhwy7Gb9f/MSLhKFepQIu60/eBPl6QFYwe88ZeYJo2QV/3K5
+         5nzdGipZon6YlYwPjsqi1fpRy1SgFPpyhPDJCWfqm9GfQUHGWBFBotcH3gjGigma6WE/
+         D10g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790142665; x=1790747465;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bNcaMozgi7eMkdPXPYneu/L8vYje9h4xULACp8evALk=;
+        b=h3w2FyCKVNpf0O3VWoBqC7ByBUo4YoQ7aeLynW0lLb8krMGp2ZQ0SHWZorLlYja2jd
+         oVuVacsP16XBMMGY3B3vv5OPPnsZ0b4TLrvtkmmILN1b/aYaJ/VkbpdlT5rhAUyresYQ
+         HhW3GtReN6VyT3cqk1PxE+DNoPFlblTGopBubkX1djjnaAlbwhI6nykqvFdG71xP2FGg
+         KisCmvl7HuS9k79shXjEbiajQSfjP0biThfZoxA8R2JBo9umTMUaSiAD3F+Oxrwf1+m9
+         HG7McE7qnf21S1LSs/9gMG/79JzmlOhhC2h9By3TdTQKZf5OHZhkKzgc1qxl6/pAOcKa
+         8g8g==
+X-Forwarded-Encrypted: i=1; AKwUvBxNUwVCaWlZVFIvEwhF47e03AaKZXhbYDVZa2i2eVogYNq3Q6MfLzBcLiYHPt7HG0G4hSbDGZoEGb8Fs22UFoEO@lists.infradead.org
+X-Gm-Message-State: AFuF++lxHmnrYmdqhh65FpoCWHaywlLLEoTdsqn9iSup/LaLVLxnR6oU
+	U4gXnM9N1sJv7COUg8tiIRoFCSooE1PGLGbfgYCQXvyXruRPHucH2AHe
+X-Gm-Gg: AYBFou3u9umG3mSbv8OE2s7y4Ah0X2ut/Gmom9tdvFjpIAf/gQVfnfH/9SyXJ1JL4qS
+	hWcdK8ZtZI2BxcDielNIInmjAtQn0cPY0Y7fMWusXwz0+hLF2m+a26yHbWJ/dDrL4UUSP1dWQ7l
+	LHEDSsAuLP/2XQIdp/PElPNWLGIEGMiJ7gbsAY2zdwy9w5yylrbANGOKWt7AoY0IKmgDmzUgv8s
+	Bx/+3OpayaUgGW8+BOP1j+DeSdR0w+lIvJpjw7rvq4EyEAfgro4mOSaCcxttqGvXcoIpAoYuDjH
+	NRO8v04p+9zBN399Se/wKggrfckkWvl5h87X8pK1JbzMEpSo+mYg5O3qRYEvWlhtqTNkK/Ijrxa
+	pDK8jV24b8qk7i+gqTab+STseW6dL3+WE26vrp5lRwB4Tc78a1Jc2D5wTeRIh9MkxvOruvGmZ23
+	zHiF43dsL4in6hKVp8WahGK/teU5akh/0WEdLxgMBIDULmq0omOv2f2S2+Nt8hvwYII43erj2SW
+	ARSE1RUvZCU9PnSU3CLaDb4+4hlos248w==
+X-Received: by 2002:a05:6a00:3316:b0:86e:8deb:fbd4 with SMTP id d2e1a72fcca58-87d1a7af6fdmr1687497b3a.11.1790142665440;
+        Tue, 22 Sep 2026 22:51:05 -0700 (PDT)
+Received: from abs.sf.dndws.com ([50.35.86.68])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87d1dffd6ddsm691486b3a.48.2026.09.22.22.51.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 22:51:04 -0700 (PDT)
+From: Tao Gong <gongtao0607@gmail.com>
+To: netdev@vger.kernel.org
+Cc: "Chester A . Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Tao Gong <gongtao0607@gmail.com>
+Subject: [PATCH net v2 0/2] net: dsa: mt7530: fix trapped frame forwarding and egress tagging
+Date: Wed, 23 Sep 2026 05:51:01 +0000
+Message-ID: <20260923055103.949540-1-gongtao0607@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] bus: fsl-mc: Annotate fsl_mc_io.portal_virt_addr with
- __counted_by_ptr
-To: Bill Wendling <morbo@google.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva"
- <gustavoars@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Justin Stitt <justinstitt@google.com>, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
- codemender-patching+linux@google.com
-References: <20260922223538.2287676-1-morbo@google.com>
-Content-Language: en-US
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-In-Reply-To: <20260922223538.2287676-1-morbo@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 125.195.69.90
-X-Source-L: No
-X-Exim-ID: 1x9FoW-0000000204S-0DM9
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: flh4-125-195-69-90.tky.mesh.ad.jp ([10.203.100.34]) [125.195.69.90]:43316
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 55
-X-Org: HG=hgshared;ORG=hostgator;
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfDKibsSaX60FwH4178XH0GZ9i75wgo9m1RlFDAfUbi5Ur73Pj3tuBDIeVPV6xj20lLuu+WAZ7alGCmxPCnPpeR6pHo7InCSqCfKPzWxMY+X91C1S3CKQ
- hfcWSwccUMGbGZxf0kK/L+ROFHzsesKjtuaEkQFYC4sU+L2y1u/sKQJDvmvKf9N2hVn/yizUoXVd2+70zhcrOmsL/t0HWqBLwyjdnUafdgONHPso3WF5lblk
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_224654_649176_CE9436DE 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260922_225106_671509_50F2D5A8 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,46 +112,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series resolves two issues in the MT7530 DSA switch driver preventing
+trapped link-local control frames (such as STP BPDUs) from reaching the CPU
+host when bridge VLAN filtering is enabled:
+
+1. Commit 3ac85bcfd404 ("net: dsa: mt7530: preserve VLAN tags on trapped
+   link-local frames") set MT7530_VLAN_EG_DISABLED to preserve VLAN tags,
+   but in hardware this disables the per-packet override and causes
+   trapped frames to follow the CPU port's active VLAN table (VAWD2) rule.
+   When bridge VLAN filtering is active, the CPU port is in stack mode,
+   causing incoming untagged BPDUs (01:80:C2:00:00:00) to be egressed with
+   a VLAN tag, which userspace STP daemons (such as ustpd) and the kernel
+   bridge drop. MT7530_VLAN_EG_CONSISTENT correctly preserves wire state
+   (untagged frames stay untagged, tagged frames stay tagged).
+
+2. On Airoha EN7581 and AN7583 switch IP, setting MT7531_CFC (0x04)
+   CPU_PMAP alone is insufficient; the switch MAC forwarding control
+   (MT753X_MFC, 0x10) must also have CPU_EN and CPU_PORT configured for
+   trapped frames to exit to the CPU conduit.
+
+Changes in v2:
+  - Rebased onto net/main
+    (git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git) adapting
+    to mt7530_rmw() instead of net-next's regmap helpers, resolving the
+    patch application failure on net-0 noted by Jakub Kicinski.
+  - Carried over Lorenzo Bianconi's Acked-by on patch 2 as the underlying
+    logic is unchanged.
+
+Tao Gong (2):
+  net: dsa: mt7530: use consistent egress tag for trapped link-local
+    frames
+  net: dsa: mt7530: trap frames to conduit in MFC on EN7581 and AN7583
+
+ drivers/net/dsa/mt7530.c | 27 ++++++++++++++-------------
+ 1 file changed, 14 insertions(+), 13 deletions(-)
 
 
-On 9/23/26 07:35, Bill Wendling wrote:
-> The GCC and Clang compilers provide the __counted_by_ptr attribute,
-> which is used by KASAN and compiler bounds-checking to detect
-> out-of-bounds accesses to pointer fields.
-> 
-> In "struct fsl_mc_io", the "portal_virt_addr" pointer points to the MC
-> command portal virtual address. The size of this allocated portal in
-> bytes is tracked by the "portal_size" field within the same structure.
-> 
-> Annotate the "portal_virt_addr" pointer field with
-> "__counted_by_ptr(portal_size)" to enable compiler bounds-checking and
-> harden against potential out-of-bounds accesses.
-> 
-> Cc: codemender-patching+linux@google.com
-> Assisted-by: LLM
-> Signed-off-by: Bill Wendling <morbo@google.com>
-
-Reviewed-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-
-Thanks
--Gustavo
-
-> ---
->   include/linux/fsl/mc.h | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/fsl/mc.h b/include/linux/fsl/mc.h
-> index c25f0f7e6dd4..0b2c0eb9b605 100644
-> --- a/include/linux/fsl/mc.h
-> +++ b/include/linux/fsl/mc.h
-> @@ -336,7 +336,7 @@ struct fsl_mc_io {
->   	u16 flags;
->   	u32 portal_size;
->   	phys_addr_t portal_phys_addr;
-> -	void __iomem *portal_virt_addr;
-> +	void __iomem *portal_virt_addr __counted_by_ptr(portal_size);
->   	struct fsl_mc_device *dpmcp_dev;
->   	union {
->   		/*
+base-commit: 9c572a83037a7dcd653ba3a9cc468c16b857d0c9
+-- 
+2.55.0
 
 
