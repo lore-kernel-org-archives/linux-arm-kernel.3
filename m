@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDF9C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 19:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D0CC9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 19:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LQz5Qs/TyBSC2iBixGCGQ7+e98TfYZR6lZcaYPuMI3s=; b=3IeN23BT75LZUNjP5E5WAgLXKE
-	3uUQquVQsbVTy6OO19Ry3q3Yz+OLHoPc+Atdz8hxdCSaxsW79Dvy6dz6j7iACvyPojOoDtqK06zng
-	hNDS8HL6aipnO4bdWWfMrLRRjporZ2lB/c0+yvVGdXeUAu815rdtZm0Qe1sLxDRHWH/B8CMFYlSDg
-	CynLtf/MfQGLcCTHlNJ9Eju8Utejeweo2wrs9lQfBY3Fd9l5iVnBXpKFZDiyRmWEFBwVXgyZA4I6j
-	yWekn2TAbBP3OXXdI+Rqd/vwxSVZEzaa1Dzbmwu5jcM8Rt+LrxJLL36IB1Ul5HYmOp4AGPr/WCtFF
-	I/oZC5TA==;
+	bh=GSfIuk4XJxU/lVN91KZIevNMexPXXajdEPSR27YPx14=; b=0PciuuEuKnzYj1Bbe6ThdkBJkL
+	Fmwg6dqV0uIc8/9ML3RtCF+QB015qBXOa2kVvJ6QEOCjNR6vlwCGdw/TgMpc+9RFBTi62hP2aP6Fx
+	62T3rzDzTEUkoArouNhq8OK/ZAOIztz6iCF12OnZgxDuQmIgBS9k34h0/p5f8+JI3iU03ds/vfUoQ
+	RW5olKkA9k3HwtDAQnqNcZc9SsGbof4zfszrl2xWaVHL9g375ZaSrPfFyx/sgiHx1JeMpHH1gGGdT
+	B+GmTza+9PF+Gbsu6J7Nvc+5FAu21lTMU94BcnwMhaoO3ItDYNEaswWHRNZyc10dhtNOzuMeP8lI/
+	xcmmr9FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Soc-00000009Ljy-2PYf;
-	Wed, 23 Sep 2026 19:39:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9Sp0-00000009Lr5-2wqM;
+	Wed, 23 Sep 2026 19:40:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9SoZ-00000009Lig-3dhN
+	id 1x9Soz-00000009Lqj-2jcf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 19:40:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GSfIuk4XJxU/lVN91KZIevNMexPXXajdEPSR27YPx14=; b=rBRawbohNmoyb8pxjdeG/hZ3WT
+	wxMCKXE/5tXXVuyRcbEBBGIPdzjjZutF8aSr6ccd3vYLtcpR6fWOFze77xw6LRMD9AAGzROtMmVKc
+	VUTYYL8RorxnBcP0HNKFO9lnEaB0rEmFl6Vb/S8HhFTkKXChqZr1L9rmdKSvV0+V+WnZOZGTy1V2D
+	y64localgiZ/ABAn878JeTPy7WorZbFFDdaUOAXrWLXAc9WIsfwF5To5Co9xPQQKA1mDha5MnHTH7
+	8BiXfEoDo06Ay0ZtDIkEhREtGWfFyM92ppaltecjZBQt9cTcmUO3XNjgmfGk4/6zIu3vDox2RBlqj
+	pEY7R2ew==;
+Received: from out-182.mta1.migadu.com ([95.215.58.182] helo=mta1.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9Sow-0000000FDRi-1stJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 19:39:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 41D24429F8;
-	Wed, 23 Sep 2026 19:39:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FEA81F00893;
-	Wed, 23 Sep 2026 19:39:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790192375;
-	bh=LQz5Qs/TyBSC2iBixGCGQ7+e98TfYZR6lZcaYPuMI3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XKyj694ZA7KNrrTWaoenz7yQfsl2C6JxrsUwR1InKVJ6s8yjgW7j86gyVskHjdYJv
-	 h1kFfcnUtphet4keeq+mhjFvoFD8DmLD7SXpuWUjid9VeaJ4PYbGs9D7suPXOYKASg
-	 PrdvMRADbQ3TqMM6/TNf7JtkIebGA50UXlYp5dKfvSfO0mH2NUrG3ohxBvn1UuKsMg
-	 pSLQ/EYAMCQiId98RVUN2VXfWFebFuwWb30yfxKhmNFLzGl9/dOsNR6ArI09n4+kIy
-	 aGWHt48QYMVEAnQffQ2p4JBb+puisgBWB+yed+mEpvRkp++jJPwSfbzxNmJgKxlxbX
-	 RSMHZPRmZV4NQ==
-Date: Wed, 23 Sep 2026 20:39:29 +0100
-From: Simon Horman <horms@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, horatiu.vultur@microchip.com,
-	steen.hegelund@microchip.com, UNGLinuxDriver@microchip.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, sdf@fomichev.me, herve.codina@bootlin.com,
-	arnd@arndb.de, gregkh@linuxfoundation.org, mohsin.bashr@gmail.com,
-	richardcochran@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 11/14] net: lan966x: add PCIe FDMA MTU change
- support
-Message-ID: <20260923193929.GW13925@horms.kernel.org>
-References: <20260918-lan966x-pci-fdma-v7-11-0ecc179c8a2c@microchip.com>
- <179008205354.2160803.17637640817184992984@kernel.org>
- <20260923094622.gmxyw46ligz4rsyd@DEN-DL-M70577.microsemi.net>
+	Wed, 23 Sep 2026 19:40:00 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=8q5LOhzHXz3Yz0fy85hHf0cIzNFEPBBRVDjkf2/J8z0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790192396; v=1; x=1790797196;
+ b=g5NzyyzEaffnpIpAmPD6MhfdrbEopfrSop3nNgQKpxnWFRcbITgYOGSzEiSzKe4H2yrR/Fmb
+ jRdjaipg0GgypNl0PaU5EbeE3eS3J/S6DQ1wmRMXPz1gdrfaX7jJR1wUP9SiWSIsYg5FoWTDg5D
+ 0yK9lpXSIBDdBA2fiUwIMXpM=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 4b51889327b49bd5;
+	Wed, 23 Sep 2026 19:39:56 +0000
+X-Mizu-Trace-ID: 4b51889327b49bd5
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5b5e5aaf7deso2156e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 12:39:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy2/I7UEDooYsylbGeVTJdezLM1pb5N4rWNmOk1qa52EYJO4AB9avmtsgytUyiKUMK6GB0bIUCsQ7ehgsDNH4Xh@lists.infradead.org
+X-Gm-Message-State: AFuF++nY9pIYAPVABIIcIjvp/AjFoWC6qKOx8v7hTTRDtOHgwEeFo0M7
+	qmJpwOnRhRGE5d7SG6iQq31GN4TUN63vRohLELpaOmIJu+BOJ87amqLZmtgZnb7o7Y0hKZSemQm
+	RC57qfmO3LsVP7gaESU4EZl8odM4Hjo4Cb5nYbF0g
+X-Received: by 2002:a05:6512:a8c:b0:5b8:d049:c45f with SMTP id
+ 2adb3069b0e04-5b8dda20690mr52878e87.14.1790192395743; Wed, 23 Sep 2026
+ 12:39:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260923094622.gmxyw46ligz4rsyd@DEN-DL-M70577.microsemi.net>
+References: <20260922130821.1666713-1-vdonnefort@google.com> <20260922130821.1666713-7-vdonnefort@google.com>
+In-Reply-To: <20260922130821.1666713-7-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 23 Sep 2026 20:39:19 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzcpo+LB4WMa+wqVQv3L6KUcYsg-XJmr2y7G32O_uqJpw@mail.gmail.com>
+X-Gm-Features: AclHuK8Z6SY4cBU4eJy41QhCQFrZb6shCMogQ4bHwKy9JKLhaeBBpmmDsIysMxw
+Message-ID: <CA+EHjTzcpo+LB4WMa+wqVQv3L6KUcYsg-XJmr2y7G32O_uqJpw@mail.gmail.com>
+Subject: Re: [PATCH v1 6/6] KVM: arm64: Use kvm_s2_fault_vma_info in pkvm_mem_abort()
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_203958_803122_ECAB362B 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,186 +97,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 11:46:22AM +0200, Daniel Machon wrote:
-> > Thank you for your contribution! Sashiko AI review found 4 potential
-> > issue(s) to consider.
-> > 
-> > Critical: 0 · High: 2 (2) · Medium: 1 (1) · Low: 1
-> > 
-> > If you believe none of the issues are legitimate, please reply to each
-> > issue of Medium severity or higher and explain why the AI is wrong.
-> > If any of them are legitimate and you plan to respin, please let patchwork
-> > know by including "pw-bot: cr" as a separate line at the end of your reply
-> > (one such reply per series is enough).
-> > 
-> > - [High] MTU change during or after PCIe FDMA teardown runs the full
-> >   reload on freed/quiesced state: unbounded napi_disable() while holding…
-> > - [High] The new resize readiness check publishes lan966x->rx.lan966x
-> >   before the PCI FDMA rings exist, so an MTU change can race with ring…
-> > - [Medium] The new PCIe resize path retires DMA rings and tears down
-> >   their ATU outbound window without ever confirming the hardware is…
-> > - [Low] FDMA_PCI_DB_SIZE_MAX / FDMA_PCI_MAX_MTU perform unsigned
-> >   arithmetic with no underflow guard and no BUILD_BUG_ON, even though…
-> > 
-> > Pre-existing issues:
-> > - [High] The hazard the new PCIe reload path documents and avoids is
-> >   still live in the sibling platform reload path, which this series…
-> > - [High] The two implementers of lan966x_fdma_ops::fdma_resize now
-> >   disagree about the 'rings not built yet' precondition, and the…
-> > - [Medium] Window in which DEV_MAC_MAXLEN_CFG exceeds the DCB buffer
-> >   size, combined with a missing SOF/EOF check in…
-> > 
-> > --
-> > 
-> > net: lan966x: add PCIe FDMA MTU change support
-> > 
-> > This adds MTU change support to the PCIe FDMA path by reallocating the
-> > contiguous ATU-mapped RX and TX rings at the new size and falling back to
-> > the old buffers on failure.  It also caps the PCIe DCB ring at 256 entries
-> > and advertises a derived dev->max_mtu (FDMA_PCI_MAX_MTU) when the FDMA is
-> > in use.
-> > 
-> > A few questions below about the new reload path and the new size macros.
-> > 
-> > > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > > index 5d6902459f20..940425beec2f 100644
-> > > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > > @@ -358,7 +358,7 @@ static int lan966x_fdma_pci_init(struct lan966x *lan966x)
-> > >       lan966x->rx.lan966x = lan966x;
-> > >       lan966x->rx.max_mtu = lan966x_fdma_get_max_frame(lan966x);
-> > >       rx_fdma->channel_id = FDMA_XTR_CHANNEL;
-> > > -     rx_fdma->n_dcbs = FDMA_DCB_MAX;
-> > > +     rx_fdma->n_dcbs = FDMA_PCI_DCB_MAX;
-> > >       rx_fdma->n_dbs = FDMA_RX_DCB_MAX_DBS;
-> > >       rx_fdma->priv = lan966x;
-> > >       rx_fdma->db_size = FDMA_PCI_DB_SIZE(lan966x->rx.max_mtu);
-> > 
-> > [Severity: High]
-> > Can an MTU change race with ring construction here?  lan966x_fdma_pci_init()
-> > sets rx.lan966x before it fills in channel_id/n_dcbs/n_dbs/db_size/size and
-> > before the two sleeping allocations in lan966x_fdma_pci_rx_alloc() and
-> > lan966x_fdma_pci_tx_alloc().
-> > 
-> > The netdevs are already live at that point: lan966x_probe() runs the whole
-> > port loop, including lan966x_probe_port()->register_netdev() and
-> > lan966x_port_init()->lan966x_fdma_netdev_init()->netif_napi_add()+
-> > napi_enable(), and only calls ops->fdma_init() afterwards, without holding
-> > RTNL.
-> > 
-> > So an rtnl-held ndo_change_mtu in that window sees rx.lan966x != NULL, passes
-> > the new guard in lan966x_fdma_pci_resize(), finds a max_mtu that differs from
-> > the partially initialised rx.max_mtu, and enters __lan966x_fdma_pci_reload().
-> > Both contexts then write the same lan966x->rx.fdma / lan966x->tx.fdma:
-> > 
-> >   lan966x_fdma_pci_reload()
-> >       lan966x_fdma_rx_disable(&lan966x->rx)   /* channel_id still 0 */
-> >       lan966x->rx.fdma.atu_region = NULL;     /* under probe's feet */
-> >       lan966x_fdma_pci_rx_alloc(&lan966x->rx) /* second ring */
-> > 
-> > Does this leak probe's ring plus its ATU region (only
-> > FDMA_PCI_ATU_REGION_MAX == 6 exist), or trip WARN_ON(fdma->atu_region) /
-> > -ENOSPC in fdma_pci_atu_region_map()?  And on the failure branch,
-> > lan966x_fdma_pci_reset_mem() dereferences tx->fdma.atu_region->base_addr,
-> > which is NULL in a snapshot taken before probe allocated it.
-> 
-> Yes, same issue as adressed in #4. Theres a race because netdevs are registered
-> before initialization (in this case FDMA) has happened. The proper fix is a
-> reordering of the probe initialization.
+On Tue, 22 Sept 2026 at 14:08, 'Vincent Donnefort' via kernel-team
+<kernel-team@android.com> wrote:
+>
+> To paraphrase Marc in commit 08f97454b7fa ("KVM: arm64: Fix protected
+> mode handling of pages larger than 4kB"), pkvm_pgtable_stage2_map()
+> assumes the address passed as a parameter is aligned to the size of the
+> intended mapping, while HPFAR_EL2 gives the IPA minus the bottom 12
+> bits, regardless of the system page size configuration.
+>
+> To fix this alignment, bring support for kvm_s2_fault_vma_info in
+> pkvm_mem_abort() and use its members where possible. They do contain the
+> page-alignment we need to fix the fault on system with pages larger than
+> 4K.
+>
+> Also, add a check at the start of pkvm_pgtable_stage2_map(), it does not
+> support !PAGE_ALIGNED arguments.
+>
+> Fixes: ea03466e806f ("KVM: arm64: Handle aborts from protected VMs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Hi Daniel,
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
 
-I'm wondering if you could expand on this a little. I'm unsure what #4
-refers to. And I'm unclear if you are planing the reordering as part
-of this patchset.
+Cheers,
+/fuad
 
-> 
-> > 
-> > [ ... ]
-> > 
-> > > @@ -391,9 +391,156 @@ static int lan966x_fdma_pci_init(struct lan966x *lan966x)
-> > >       return 0;
-> > >  }
-> > >
-> > > +/* Reset existing rx and tx buffers. */
-> > > +static void lan966x_fdma_pci_reset_mem(struct lan966x *lan966x)
-> > > +{
-> > > +     struct lan966x_rx *rx = &lan966x->rx;
-> > > +     struct lan966x_tx *tx = &lan966x->tx;
-> > > +
-> > > +     memset(rx->fdma.dcbs, 0, rx->fdma.size);
-> > > +     memset(tx->fdma.dcbs, 0, tx->fdma.size);
-> > > +
-> > > +     fdma_dcbs_init(&rx->fdma,
-> > > +                    FDMA_DCB_INFO_DATAL(rx->fdma.db_size - XDP_PACKET_HEADROOM),
-> > > +                    FDMA_DCB_STATUS_INTR);
-> > > +
-> > > +     fdma_dcbs_init(&tx->fdma,
-> > > +                    FDMA_DCB_INFO_DATAL(tx->fdma.db_size),
-> > > +                    FDMA_DCB_STATUS_DONE);
-> > > +
-> > > +     lan966x_fdma_llp_configure(lan966x,
-> > > +                                tx->fdma.atu_region->base_addr,
-> > > +                                tx->fdma.channel_id);
-> > > +     lan966x_fdma_llp_configure(lan966x,
-> > > +                                rx->fdma.atu_region->base_addr,
-> > > +                                rx->fdma.channel_id);
-> > > +}
-> > > +
-> > 
-> > [ ... ]
-> > 
-> > > +static int lan966x_fdma_pci_reload(struct lan966x *lan966x, int new_mtu)
-> > > +{
-> > > +     struct fdma tx_fdma_old = lan966x->tx.fdma;
-> > > +     struct fdma rx_fdma_old = lan966x->rx.fdma;
-> > > +     u32 old_mtu = lan966x->rx.max_mtu;
-> > > +     int err;
-> > > +
-> > > +     napi_disable(&lan966x->napi);
-> > > +     lan966x_fdma_tx_disable_netdev(lan966x);
-> > > +     lan966x_fdma_rx_disable(&lan966x->rx);
-> > > +     lan966x_fdma_tx_disable(&lan966x->tx);
-> > 
-> > [Severity: High]
-> > What happens if an MTU change lands after the PCIe FDMA has already been torn
-> > down?  lan966x_fdma_pci_deinit() disables NAPI and frees both coherent rings,
-> > but it leaves lan966x->rx.lan966x set, lan966x->fdma true and fdma->dcbs
-> > dangling.  It also runs before the netdevs are unregistered and without RTNL:
-> > 
-> >   lan966x_remove()
-> >       lan966x->ops->fdma_deinit(lan966x);
-> >       lan966x_cleanup_ports(lan966x);   /* unregister_netdev() here */
-> > 
-> > The new guard in lan966x_fdma_pci_resize() only rejects "rings not built
-> > yet", so an ndo_change_mtu in that window passes it and reaches this
-> > function.  Three things then follow in order:
-> > 
-> > napi_disable(&lan966x->napi) on an already-disabled NAPI.  Does
-> > napi_disable_locked() spin forever in
-> > 
-> >         while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC))
-> >                 usleep_range(20, 200);
-> > 
-> > since nothing clears those bits until napi_enable()?  That task holds RTNL,
-> > so unregister_netdev() in lan966x_remove() can never complete.
-> > 
-> > If that is somehow passed, the success path below calls
-> > fdma_free_coherent_and_unmap() on the stale rx_fdma_old/tx_fdma_old
-> > snapshots, so dma_free_coherent(dev, fdma->size, fdma->dcbs, fdma->dma) runs
-> > a second time on the multi-MB blocks deinit already released.
-> > 
-> > And the restore: path calls lan966x_fdma_pci_reset_mem(), which memsets up to
-> > rx->fdma.size bytes into freed DMA memory and then dereferences
-> > tx->fdma.atu_region->base_addr, which fdma_free_coherent_and_unmap() already
-> > set to NULL.
-> > 
-> > Would a "rings are live" state check (or clearing rx.lan966x and dcbs in
-> > deinit, or unregistering the netdevs before fdma_deinit) close this?
-> 
-> lan966x_remove() is not touched by this series (apart from calling
-> ops->fdma_deinit), so I'd say pre-existing. But I believe this issue will also
-> disappear, when we refactor probe init as described above.
 
-...
+> ---
+>  arch/arm64/kvm/mmu.c  | 24 +++++++++++++++---------
+>  arch/arm64/kvm/pkvm.c |  3 +++
+>  2 files changed, 18 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index ee0fcca838c1..167b769107ee 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1374,9 +1374,11 @@ static bool fault_supports_stage2_huge_mapping(const struct kvm_s2_fault_desc *s
+>         if (map_size == PAGE_SIZE)
+>                 return true;
+>
+> -       /* pKVM only supports PMD_SIZE huge-mappings */
+> -       if (is_protected_kvm_enabled() && map_size != PMD_SIZE)
+> -               return false;
+> +       /* pKVM only supports PMD_SIZE huge-mappings for non-protected VMs */
+> +       if (is_protected_kvm_enabled()) {
+> +               if (vcpu_is_protected(s2fd->vcpu) || map_size != PMD_SIZE)
+> +                       return false;
+> +       }
+>
+>         size = memslot->npages * PAGE_SIZE;
+>
+> @@ -2167,12 +2169,12 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+>  static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  {
+>         unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
+> +       struct kvm_s2_fault_vma_info s2vi = {};
+>         struct kvm_vcpu *vcpu = s2fd->vcpu;
+>         struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
+>         struct mm_struct *mm = current->mm;
+>         struct kvm *kvm = vcpu->kvm;
+>         void *hyp_memcache;
+> -       struct page *page;
+>         int ret;
+>
+>         hyp_memcache = get_mmu_memcache(vcpu);
+> @@ -2180,12 +2182,16 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>         if (ret)
+>                 return -ENOMEM;
+>
+> +       ret = kvm_s2_fault_get_vma_info(s2fd, &s2vi);
+> +       if (ret)
+> +               return ret;
+> +
+>         ret = account_locked_vm(mm, 1, true);
+>         if (ret)
+>                 return ret;
+>
+>         mmap_read_lock(mm);
+> -       ret = pin_user_pages(s2fd->hva, 1, flags, &page);
+> +       ret = pin_user_pages(s2fd->hva, 1, flags, &s2vi.page);
+>         mmap_read_unlock(mm);
+>
+>         if (ret == -EHWPOISON) {
+> @@ -2195,7 +2201,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>         } else if (ret != 1) {
+>                 ret = -EFAULT;
+>                 goto dec_account;
+> -       } else if (!folio_test_swapbacked(page_folio(page))) {
+> +       } else if (!folio_test_swapbacked(page_folio(s2vi.page))) {
+>                 /*
+>                  * We really can't deal with page-cache pages returned by GUP
+>                  * because (a) we may trigger writeback of a page for which we
+> @@ -2215,8 +2221,8 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>         }
+>
+>         write_lock(&kvm->mmu_lock);
+> -       ret = pkvm_pgtable_stage2_map(pgt, s2fd->fault_ipa, PAGE_SIZE,
+> -                                     page_to_phys(page), KVM_PGTABLE_PROT_RWX,
+> +       ret = pkvm_pgtable_stage2_map(pgt, gfn_to_gpa(s2vi.gfn), PAGE_SIZE,
+> +                                     page_to_phys(s2vi.page), KVM_PGTABLE_PROT_RWX,
+>                                       hyp_memcache, 0);
+>         write_unlock(&kvm->mmu_lock);
+>         if (ret) {
+> @@ -2227,7 +2233,7 @@ static int pkvm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>
+>         return 0;
+>  unpin:
+> -       unpin_user_pages(&page, 1);
+> +       unpin_user_page(s2vi.page);
+>  dec_account:
+>         account_locked_vm(mm, 1, false);
+>         return ret;
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 8e4c6e4bec12..c298a5b9b12a 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -414,6 +414,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>         u64 end = addr + size;
+>         int ret;
+>
+> +       if (WARN_ON_ONCE(!PAGE_ALIGNED(addr | size)))
+> +               return -EINVAL;
+> +
+>         lockdep_assert_held_write(&kvm->mmu_lock);
+>         mapping = pkvm_mapping_iter_first(&pgt->pkvm_mappings, addr, end - 1);
+>
+> --
+> 2.55.0.1082.g2b9226bbc0-goog
+>
+> To unsubscribe from this group and stop receiving emails from it, send an email to kernel-team+unsubscribe@android.com.
+>
 
