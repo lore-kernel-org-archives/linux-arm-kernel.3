@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08ADDC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40958C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/r/VPJN9CDJhmNdhWRSdElLGuVctjxCds5gWyL7ngvI=; b=Fdwa6h3Rf5nP0y33O41eDEVzZ8
-	X32PnXzsloHRHCHQYBaBGhOSyzMC96lzUUSlYgC5UtNuDXKgxOFdHnXl3zDQwORW8hfih08y1bD+L
-	4xre3WaMlzmdWspDoVdKhnr7/mHZULqKD9pFDbdUVinClymjiG1BvmI4srEOWH9zlLILvN2CTF5md
-	A0vbLMlxrpPEmy1ZjFys5Iv4wYWRInVNLT4ZzGQPZ6Vf64d6j4OFRfygPULOPt27TkPgaOnWLMi5C
-	7KEalSmEF4Fq0PjaD4lfqp0S0Mrr97F9bbEpme0P/58pJFr/8WwoA7aRBPu6+94MIyJBrJwbJR9lq
-	t2Pr8cuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUpR6KucoaXcTmvkRCZmv7J89mCoV6ylg9YObbtt/Sc=; b=Ko2yy1vN844qXWYJAYv841zqXw
+	zyPQ5YuekCSaN3IWl6CXJoQRK75WKwTloyy0aVe1qvQp/rVLcLzHBiQn/3XtPJLVsJplkrl0o6G/I
+	ZcN7GapelvISjIuGDDoHXlarXl32Nhvq3BzkjwI/BMR9gsMSrfF3sohjcYTjCm818KtA2ygVYbyLZ
+	dJA/JuNEUJAmPZhO/JyBywRLj0V//4AALgaVICD29ZZbeQzOY8B7/ckDvqTDyRkxCW/csC2ENPZb9
+	tIFnKp4jZkJtuPtQrfdcTmVUn49Co3OUediPc5yr9L88oCalg3Mubm+/RYFWdDl19PWIHEnJaBwZT
+	tpeEyxAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9VJs-00000009dX6-0gP1;
-	Wed, 23 Sep 2026 22:20:04 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9VJp-00000009dW7-2hSe
+	id 1x9VVb-00000009e9S-1aow;
+	Wed, 23 Sep 2026 22:32:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9VVY-00000009e90-30CI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 22:20:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=/r/VPJN9CDJhmNdhWRSdElLGuVctjxCds5gWyL7ngvI=; b=v4aY/kP1g/K3rv2M6AttWFUwC1
-	QPL6uHHZzQfOPCaxq40B+3gHZk9qsKy4onEhXz9XaXFX6fMxVBY+TJP+fxTspSsdFC6aiFaYRKW3A
-	6L6rN0hvI1uwQUkckiYYiAdUm76arbf3HxmCd8nAGlV3/t+Osq7K+3iTYAz9EmhW1XUE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9VJg-006ss1-5p; Thu, 24 Sep 2026 00:19:52 +0200
-Date: Thu, 24 Sep 2026 00:19:52 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
- A733 GMAC210
-Message-ID: <9cc61625-47c9-4bdf-97f0-0528f661a399@lunn.ch>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
+	Wed, 23 Sep 2026 22:32:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FBAE152B;
+	Wed, 23 Sep 2026 15:32:03 -0700 (PDT)
+Received: from [10.57.8.94] (unknown [10.57.8.94])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 222A43F632;
+	Wed, 23 Sep 2026 15:32:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790202727; bh=1XPyZl7KcJ8iUJW3sUKhc204l0JzqrgROESCE9y4KLE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=T4zvA616YRMKkA/8qFynJksx3CL52m7SBaF34fky4Pck+og5+fqKvcASybEilKkot
+	 ijT6stRUsS4dTQlogQOwuIs9kbZG0d1MrlloV46j/ZTIBReieWJvP7OicSZGg4OjML
+	 X6BvciaDfsJxBOwHqKV7/Vvo++g94RrgMOcXkVhc=
+Message-ID: <12024d6c-b8df-434c-8b63-29f5780a13a0@arm.com>
+Date: Wed, 23 Sep 2026 23:31:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v18 2/7] firmware: arm_rmm: Check for RMI support at init
+Content-Language: en-GB
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
+ aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
+ <20260912083611.2513845-3-suzuki.poulose@arm.com>
+ <20260914-nano-narwhal-of-blizzard-dbc6a0@sudeepholla>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260914-nano-narwhal-of-blizzard-dbc6a0@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_152001_731143_C331B2C5 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260923_153208_911383_F18D1DDB 
+X-CRM114-Status: GOOD (  33.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,16 +78,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->  * Unstable EEE/LPI: If the device stays in LPI mode long enough, the
->    link sometimes (but not always) goes down, coming back up when the
->    device exits LPI mode. This is apparently due to the PHY; the vendor
->    driver disables this feature. The solution is to use genphy with the
->    eee-broken-* DT properties or wait for the upcoming mainline driver:
->    https://lore.kernel.org/all/MN0PR19MB609154F210DF84DCB29D3696ACC62@MN0PR19MB6091.namprd19.prod.outlook.com
+Hi Sudeep,
 
-Looking at this code, it totally ignores the interface mode. So you
-have no idea what RGMII delays it is adding. When this driver gets
-fixed before being merged, your DT fragment will likely break.
+Apologies, this one took longer to address. Thanks for raising this,
+response inline.
 
-       Andrew
+On 14/09/2026 11:27, Sudeep Holla wrote:
+> On Sat, Sep 12, 2026 at 09:36:05AM +0100, Suzuki K Poulose wrote:
+>> From: Steven Price <steven.price@arm.com>
+>>
+>> Query the RMI version number and check if it is a compatible version.
+>> The first two feature registers are read and exposed for future code to
+>> use.
+>>
+>> We only support this for Little Endian kernels, the Big Endian kernel
+>> support is anyway marked BROKEN and is being removed.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+> [...]
+> 
+>> diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
+>> new file mode 100644
+>> index 0000000000000..9792bf0e00cb9
+>> --- /dev/null
+>> +++ b/include/linux/arm-rmi-cmds.h
+>> @@ -0,0 +1,36 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright (C) 2026 ARM Ltd.
+>> + */
+>> +
+>> +#ifndef __LINUX_ARM_RMI_CMDS_H_
+>> +#define __LINUX_ARM_RMI_CMDS_H_
+>> +
+>> +#include <linux/arm-smccc-rmi.h>
+>> +#include <linux/bug.h>
+>> +#include <linux/processor.h>
+>> +#include <linux/types.h>
+>> +
+>> +
+>> +/*
+>> + * rmi_smccc_invoke: Invoke the RMI call and return the results in @regs_out
+>> + * @regs_in: Registers with the arguments filled in.
+>> + * @regs_out: Ouptput results from the call.
+>> + */
+>> +static inline void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs)
+>> +{
+>> +	struct arm_smccc_1_2_regs args = *regs;
+>> +	unsigned long status;
+>> +
+>> +	while (1) {
+>> +		arm_smccc_1_2_invoke(&args, regs);
+>> +		status = RMI_RETURN_STATUS(regs->a0);
+>> +		if (status != RMI_BUSY && status != RMI_BLOCKED)
+>> +			break;
+>> +		cpu_relax();
+>> +	}
+>> +}
+> 
+> I haven't done a detailed review, this is just a drive through comment.
+> The while(1) gained my attention.
+> 
+> Should RMI_BLOCKED be returned to the caller instead of retried here?
+
+Short answer yes, to be safe.
+
+> 
+> RMM spec defines RMI_BLOCKED as persisting until the Host takes action.
+> It also says it is returned when another SRO on the same context is
+> incomplete. You may be running it on different CPUs and hence different
+
+I agree this is poorly documented and we are working on improving the
+documentation on this front.
+
+RMI_BLOCKED is a side effect of an incomplete operation (in other
+words long running) that has turned some "resource" into an
+intermediate state. e.g.
+
+The following operations could put objects into an intermediate
+state until the RMM completes it, to ensure correctness.
+
+  * Unmap a large IPA range triggering SMMU TLB invalidations.
+    For KVM, we serialize the unmap S2 with kvm->mmu_lock with
+    write lock. So two operations could not race (even a map
+    at the same location).
+
+  * Delegate/Undelegate, which again could end up in SMMU GPC
+    invalidations.
+    The only case where we race and do parallel "delegate" is
+    while handling concurrent VCPU faults on two different physical
+    CPUs. Even there a failing thread handles this by returning
+    to the guest and taking the fault again (if it wasn't
+    resolved by the other thread). We could additionally tighten
+    this by using write lock for the fault (just like pKVM).
+
+  * Change the tracking region granularity. e.g, convert from FINE
+    granulartiy to COARSE or INTERMEDIATE, causing all granules in
+    the target region to be locked. This is not something we do
+    in Linux. We mandate the firmware maintains FINE granularity,
+    at least for now. Even with dynamic tracking, we don't expect
+    to fold the tracking granularity for regions with "mixed"
+    entries (which would fail anyway due to the mismatch).
+
+  * An object bound SRO handle is active, while another SRO initiating
+    operation is issued. This possible with a buggy host.
+    e.g., RMI_REALM_ACTIVATE is called while RMI_RTT_INIT_RIPAS is
+    in progress. In KVM we serialize this with kvm->arch.config_lock.
+
+For all practical purposes the above operations should complete in
+a single try and another command observing the RMI_BLOCKED should
+be able to make progress. That said, for Linux it is better to
+return the RMI_BLOCKED back to the caller after an arbitrary
+tiny number of times. So I have updated the code to try for
+3 times for RMI_BLOCKED and return back to the caller.
+
+We could even drop that and just return back immediately to
+the caller. Like I described above, the only case where
+we expect to hit the RMI_BLOCKED in Linux is for parallel
+faults, which could be handled and/or prevented in Linux.
+
+
+
+> context I assume. But this loop takes no such action and hides the status
+> from the caller, so a command issued against that context if that can
+> happen can spin indefinitely while the operation which would unblock it
+> cannot run. Ignore me if it taken care not to happen elsewhere. I am
+> just looking at this in isolation.
+> 
+> Could this retry only RMI_BUSY and propagate RMI_BLOCKED so that the caller
+> can arrange for the incomplete operation to make progress if the above
+> scenario is possible ?
+
+Ack. I have made the changes in the next version.
+
+Cheers
+Suzuki
+
+
+> 
+
 
