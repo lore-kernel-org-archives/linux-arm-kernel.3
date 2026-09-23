@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1876C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 04:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D76C98308
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 04:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PngHwzgKozpjFvH0lkFKvqkOGWSpj101HoFYbImvNfc=; b=DySiTeswlIOLNN5xDZU50QL/y9
-	K3B/DKjYTkn/sOkzi6bWqcDFnemapuEhswBRQ95NuqQRC0sP5mP05MCcF6ZojpTubRj2oxTQ34ZMP
-	cglIGbuYVqrxcIw58Yzcxb559TCP1GBViFIyoBaaRAy8lEGoonz0DHyD2zBAfcKWp2HPvkElmRWwZ
-	n2w6YygaZ5Q2/8LNJiBrzDy9+EBkXkFnPN1Yk7jkuyaqis7RwaHmMFbvIwPVJsdF191Kkp36MBgQz
-	e4T4OttXC5cuvAG4YiYguCrOWBv8/Z32pfQx1o58yJkcfMBtvxxh5OhkgIK8YpCQu2NmWkEzjE14W
-	ftW4lr6A==;
+	bh=1dORtqh9tfuV7OLMSLjdAMnWKy3PkAytnsZmL2OHJl4=; b=4+ywSPbkmj/iBIj9KJoXTW9Q/q
+	TOt3D/b3e9F4pABxvcaEHTj26BYOOuXv0KDQmIPsdcvDQ9wINhap5SXv1UP6Ndl7vFBpYxHK1GFub
+	jyW+X1XdRT5WvKxND2fT4oqLGoumqiP9XfX4DmGaDHYAdzIQv+R04GUXwJR/ioEgZuqkVRDPeQ0UF
+	4SL6uO1Jv3c+JMvuYouBhkD2VgPmmZCFd5fARTC/OCQTx4hRqzeltgT82S9l69T7IybUmXfujZfj2
+	J28BeMFFtx1rqiscF3jpscr16vfSSHADw+BQzqxRNzwQ4QFckJfVD4ynFZn2ZLPlZLrVszvVIQkpA
+	N7/dQUVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9F3r-000000078uJ-27ms;
+	id 1x9F3r-000000078ug-49Bn;
 	Wed, 23 Sep 2026 04:58:27 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9F3U-000000078mm-36L0
+	id 1x9F3V-000000078nO-3Mxk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 04:58:04 +0000
+	Wed, 23 Sep 2026 04:58:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEB6F60231;
-	Wed, 23 Sep 2026 04:58:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAE861F00898;
-	Wed, 23 Sep 2026 04:58:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F15B6020A;
+	Wed, 23 Sep 2026 04:58:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B57B1F0089E;
+	Wed, 23 Sep 2026 04:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790139483;
-	bh=PngHwzgKozpjFvH0lkFKvqkOGWSpj101HoFYbImvNfc=;
+	s=k20260515; t=1790139485;
+	bh=1dORtqh9tfuV7OLMSLjdAMnWKy3PkAytnsZmL2OHJl4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=A1jugf1lpojoBky9ayD6dUKnqm6d46AVrXmtQd75lXHCmnUgfjvAgSr6YW6fkn0Jn
-	 Fs3j1i9UMe2oP84cj1ZFveizmDbbDqwt79Fu9IG6OxfRfbnW4Sa/KKDK7TSTeJM4lI
-	 52OptsI7At8F0TK31KS2m4MITs/89U5qBA1FAuMpaFpwnJQS7N6YFQW262VfTxntcl
-	 CnjoJKMckMpWx0iTnunVC7RdWOcyFlsZGIxa80atxn4Unrj/gB/KrzJT0xdR6r963I
-	 MSK6hojYIe3lR1MwHJzWt0UM+Wc2o6ffubGtk1gnQrZich16UOSLEX36QOJVmhcP8+
-	 T2wr2oa1kqpBg==
-Subject: Re: [PATCH net v3 1/2] net: stmmac: ethtool: ignore inapplicable
- per-queue coalesce fields
+	b=CvUZBnEg5EP5DUYtilhOLkycsGUBlM693L6TcGCrD3NafaX6FCt7sksUHeCKMp9nG
+	 ONI3cGIyM6DqsXf6VH1o4EXH7Xog6rTW4aJkqgQ1Xrt+ZzoTaOoOVGpl4BYhfAIIlY
+	 LVnB315+V7to/qANZ55TFOj4axoV/WUqHqFy2m9JjZHLEc6i+P9AJlXhW9xOnmqNLB
+	 FhWHl/pymrT221hc5t/cjPFZCfW29iK1/a7ypoMmeaoZo3cWAcx8WRI4kvugbmPPwp
+	 JBRNkaRlWLbtyfkpLIuLjM5OG0bAnlgFl2eWLT43g3uSacXaWl9S1+S2VpsshJqgbQ
+	 22LnPV86bEv3A==
+Subject: Re: [PATCH net v3 2/2] net: stmmac: fix a divide by zero in
+ stmmac_xdp_xmit_xdpf()
 From: netdev-bot+sashiko@kernel.org
 To: xiaolinkui@126.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -52,11 +52,11 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  xiaolinkui@kylinos.cn, stable@vger.kernel.org
-Date: Wed, 23 Sep 2026 04:58:02 +0000
-Message-ID: <179013948231.2160803.3048842634064805428@kernel.org>
-In-Reply-To: <20260921135716.218420-1-xiaolinkui@126.com>
-References: <20260921135716.218420-1-xiaolinkui@126.com>
-X-sashiko-severity: Low
+Date: Wed, 23 Sep 2026 04:58:03 +0000
+Message-ID: <179013948372.2160803.7295436112506257329@kernel.org>
+In-Reply-To: <20260921135716.218420-2-xiaolinkui@126.com>
+References: <20260921135716.218420-2-xiaolinkui@126.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -74,206 +74,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-- [Low] Commit message inaccuracy: the changelog states "The roll-back
-  that ethtool_set_per_queue_coalesce() runs for the queues it has…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The zero guard added to stmmac_xdp_xmit_xdpf() performs two
+  separate, unsynchronized plain loads of priv->tx_coal_frames[queue]:…
 
 Pre-existing issues:
-- [Medium] On a probed-but-never-opened stmmac interface, every coalesce
-  set request is rejected with -EINVAL, including requests that only…
-- [Medium] __stmmac_set_coalesce() updates priv->rx_riwt[],
-  priv->rx_coal_frames[], priv->tx_coal_frames[] and…
-- [Low] Documented ABI vs implementation mismatch in the paired getter:
-  include/linux/ethtool.h (kernel-doc for…
+- [Medium] With `ethtool -C ... tx-frames 0`, the new branch in
+  stmmac_xdp_xmit_xdpf()…
 
 --
 
-net: stmmac: ethtool: ignore inapplicable per-queue coalesce fields
+net: stmmac: fix a divide by zero in stmmac_xdp_xmit_xdpf()
 
-The patch makes __stmmac_set_coalesce() derive from the queue index whether
-that index has an RX ring, a TX ring or both, and validates and applies only
-the directions that exist.  The TX range checks are also moved ahead of the
-RX apply block so a rejected request no longer leaves the RX half
-reprogrammed.
+This adds the missing zero test on priv->tx_coal_frames[queue] before the
+modulo in stmmac_xdp_xmit_xdpf(), so that "ethtool -C eth0 tx-usecs 10
+tx-frames 0" followed by an XDP_TX or ndo_xdp_xmit frame no longer divides
+by zero. The other transmit paths already have this test.
 
-Link: https://lore.kernel.org/all/20260920015647.1783574-1-xiaolinkui@126.com/
-
-A few questions below, mostly about the changelog and about pre-existing
-behaviour that sits next to the modified code.
-
-The changelog says:
-
-  "The roll-back that ethtool_set_per_queue_coalesce() runs
-   for the queues it has already changed then trips over the same test and
-   cannot restore them."
-
-Is that the mechanism for the read-modify-write flow the changelog itself
-describes?  In net/ethtool/ioctl.c the rollback is:
-
-  roll_back:
-	if (ret != 0) {
-		tmp = backup;
-		for_each_set_bit(i, queue_mask, bit) {
-			dev->ethtool_ops->set_per_queue_coalesce(dev, i, tmp);
-
-The loop stops at bit, so the failing index is never restored at all.  For
-the dwmac-intel EHL example (rx_cnt = 6, tx_cnt = 4, mask 0x3f) indices 0-3
-carry both directions, so their backups have non-zero TX fields from
-stmmac_init_coalesce() and their restore succeeds.  The half-applied RX state
-of index 4 survives because index 4 is excluded from the loop, not because
-the rollback hits the TX zero test.
-
-[Severity: Low]
-Could that sentence be reworded to match what the rollback loop actually
-does?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> index 1be5310ca766c..daec9cf9eba16 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-
-[ ... ]
-
-> @@ -850,7 +852,20 @@ static int __stmmac_set_coalesce(struct net_device *dev,
->  	else if (queue >= max_cnt)
->  		return -EINVAL;
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 1fb5f804ea234..f9846250458a4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5253,7 +5253,9 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
 >  
-> -	if (priv->use_riwt) {
-> +	has_rx = all_queues || queue < rx_cnt;
-> +	has_tx = all_queues || queue < tx_cnt;
-> +
-> +	/* An index can be RX-only or TX-only; ignore the missing side. */
-> +	if (has_tx &&
-> +	    ec->tx_coalesce_usecs == 0 && ec->tx_max_coalesced_frames == 0)
-> +		return -EINVAL;
-> +
-> +	if (has_tx &&
-> +	    (ec->tx_coalesce_usecs > STMMAC_MAX_COAL_TX_TICK ||
-> +	     ec->tx_max_coalesced_frames > STMMAC_TX_MAX_FRAMES))
-> +		return -EINVAL;
-
-[Severity: Low]
-This is a pre-existing issue and not introduced by this patch, but should the
-paired getter be brought in line at the same time?  The kernel-doc for
-ethtool_ops::get_per_queue_coalesce in include/linux/ethtool.h says:
-
- *	queue has this number, set the inapplicable fields to ~0 and return 0.
-
-__stmmac_get_coalesce() writes 0 instead:
-
-  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c:__stmmac_get_coalesce() {
-	if (queue < tx_cnt) {
-		...
-	} else {
-		ec->tx_coalesce_usecs = 0;
-		ec->tx_max_coalesced_frames = 0;
-	}
-	...
-	} else {
-		ec->rx_max_coalesced_frames = 0;
-		ec->rx_coalesce_usecs = 0;
-	}
-  }
-
-ethtool_get_per_queue_coalesce() copies the driver reply straight to
-userspace without translating the sentinel, so ethtool -c --per-queue on an
-RX-only index of a 6 RX / 4 TX dwmac-intel part prints tx-usecs: 0 and
-tx-frames: 0, and userspace cannot tell "no TX ring at this index" from
-"coalescing is 0".  Both halves come from the same commit named in the
-Fixes: tag.
-
-> +
-> +	if (has_rx && priv->use_riwt) {
->  		rx_riwt = stmmac_usec2riwt(ec->rx_coalesce_usecs, priv);
+>  	tx_q->tx_count_frames++;
 >  
->  		if ((rx_riwt > MAX_DMA_RIWT) || (rx_riwt < MIN_DMA_RIWT))
-> 			return -EINVAL;
+> -	if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
+> +	if (!priv->tx_coal_frames[queue])
+> +		set_ic = false;
+> +	else if (tx_q->tx_count_frames % priv->tx_coal_frames[queue] == 0)
+>  		set_ic = true;
+>  	else
+>  		set_ic = false;
 
 [Severity: Medium]
-This isn't introduced by this patch either, but does the same "usec 0 ->
-riwt 0 -> -EINVAL" failure remain for indices that do have an RX ring before
-the first open?
+Is one sample of priv->tx_coal_frames[queue] needed here instead of two?
 
-priv->use_riwt is set to 1 in stmmac_hw_init() at probe time, while
-priv->rx_riwt[] only gets its DEF_DMA_RIWT default in stmmac_hw_setup():
+The guard and the divisor are two separate plain loads of the same
+concurrently written field, with no barrier or lock between them, so the
+compiler is free to reload it for the modulo.
 
-  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_hw_setup() {
-	...
-			if (!priv->rx_riwt[queue])
-				priv->rx_riwt[queue] = DEF_DMA_RIWT;
-	...
-  }
+The writer side in __stmmac_set_coalesce() (stmmac_ethtool.c) stores it with
+plain stores from process context, with no driver lock, no queue stop and no
+NAPI quiescing:
 
-Between probe and the first ndo_open, rx_riwt[queue] is 0, so
-__stmmac_get_coalesce() reports rx_coalesce_usecs = stmmac_riwt2usec(0) = 0.
-__ethnl_set_coalesce() calls ops->get_coalesce and then overwrites only the
-attributes present in the request before calling ops->set_coalesce, so that 0
-is echoed back and this block computes rx_riwt = stmmac_usec2riwt(0) = 0 and
-returns -EINVAL on rx_riwt < MIN_DMA_RIWT, discarding the TX part of the
-request as well.
+	if (all_queues) {
+		int i;
 
-So ethtool -C eth0 tx-usecs 100, or ethtool --per-queue eth0 queue_mask 0x1
---coalesce tx-frames 10, fails until ip link set eth0 up has run once.  The
-new has_rx gating removes this only for indices without an RX ring; queue 0
-and the all-queues setter still take the path above.
+		for (i = 0; i < tx_cnt; i++) {
+			priv->tx_coal_frames[i] =
+				ec->tx_max_coalesced_frames;
+			priv->tx_coal_timer[i] =
+				ec->tx_coalesce_usecs;
+		}
+	} else if (has_tx) {
+		priv->tx_coal_frames[queue] =
+			ec->tx_max_coalesced_frames;
 
-> @@ -866,7 +881,7 @@ static int __stmmac_set_coalesce(struct net_device *dev,
->  				priv->rx_coal_frames[i] =
->  					ec->rx_max_coalesced_frames;
->  			}
-> -		} else if (queue < rx_cnt) {
-> +		} else {
->  			priv->rx_riwt[queue] = rx_riwt;
->  			stmmac_rx_watchdog(priv, priv->ioaddr,
->  					   rx_riwt, queue);
+The reader in stmmac_xdp_xmit_xdpf() runs in softirq, reached from
+stmmac_rx()/stmmac_rx_zc() via stmmac_xdp_xmit_back(), or from
+stmmac_xdp_xmit(). If the guard load observes the old non-zero value and the
+divisor load observes the freshly stored 0, the modulo still divides by zero
+in softirq, which is the failure this commit is closing.
 
-[ ... ]
+Would something like this be more robust?
 
-> @@ -892,7 +899,7 @@ static int __stmmac_set_coalesce(struct net_device *dev,
->  			priv->tx_coal_timer[i] =
->  				ec->tx_coalesce_usecs;
->  		}
-> -	} else if (queue < tx_cnt) {
-> +	} else if (has_tx) {
->  		priv->tx_coal_frames[queue] =
->  			ec->tx_max_coalesced_frames;
->  		priv->tx_coal_timer[queue] =
+	u32 coal = READ_ONCE(priv->tx_coal_frames[queue]);
+
+	set_ic = coal && (tx_q->tx_count_frames % coal == 0);
+
+The same double-read shape exists in stmmac_xmit(), stmmac_tso_xmit() and
+stmmac_xdp_xmit_zc(), so a READ_ONCE() there too would keep the paths
+consistent.
 
 [Severity: Medium]
-This is also pre-existing and the changelog does not claim to address it, but
-since this hunk newly makes the per-queue TX store reachable for TX-only
-indices, is the lack of any serialization here worth a look?
+This isn't a bug introduced by this patch, but the commit message states
+that with tx-frames 0 "the coalescing timer armed by stmmac_tx_timer_arm()
+keeps reclaiming the descriptors". Does that hold for the AF_XDP zero-copy
+XDP_TX path?
 
-These stores happen in process context under rtnl with no lock and no
-WRITE_ONCE(), while the transmit paths read the same fields from softirq
-context holding nothing in common:
+stmmac_finalize_xdp_rx() is the only arming attempt on that path:
 
-  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_xmit() {
+	if (xdp_status & STMMAC_XDP_TX)
+		stmmac_tx_timer_arm(priv, queue);
+
+and stmmac_tx_timer_arm() picks the rxtx NAPI for an xsk_pool-backed queue,
+which is the instance currently polling:
+
+	napi = tx_q->xsk_pool ? &ch->rxtx_napi : &ch->tx_napi;
 	...
-	else if (!priv->tx_coal_frames[queue])
-		set_ic = false;
-	...
-	else if ((tx_q->tx_count_frames %
-		  priv->tx_coal_frames[queue]) < tx_packets)
-	...
-  }
+	if (unlikely(!napi_is_scheduled(napi))) {
+		...hrtimer_start(...)
+	} else {
+		hrtimer_try_to_cancel(&tx_q->txtimer);
+	}
 
-The zero test and the modulo divisor are two separate plain loads of a value
-the setter can change in between, and tx_coal_frames may legally be stored as
-0 whenever tx_coalesce_usecs is non-zero.  The same check-then-reload appears
-in stmmac_tso_xmit() and stmmac_xdp_xmit_zc(), and stmmac_tx_timer_arm()
-reads priv->tx_coal_timer[queue] the same way, so a concurrent xmit can also
-see the new frame threshold with the old timer.  Note the later
-"net: stmmac: fix a divide by zero in stmmac_xdp_xmit_xdpf()" change adds the
-missing zero test there but keeps the same unannotated pattern.
+so napi_is_scheduled() is true and the timer is cancelled rather than armed.
 
-Would READ_ONCE()/WRITE_ONCE() on these fields, or reading the divisor once
-into a local, be appropriate here?
+The end-of-poll fallback in stmmac_napi_poll_rxtx() does not cover it
+either, since tx_pending_packets is sampled before the XDP_TX descriptors
+are produced:
+
+	tx_done = stmmac_tx_clean(priv, budget, chan, &tx_pending_packets);
+	tx_done = min(tx_done, budget);
+
+	rx_done = stmmac_rx_zc(priv, budget, chan);
+	...
+	if (tx_pending_packets)
+		stmmac_tx_timer_arm(priv, chan);
+
+With tx-frames 0 no descriptor carries the interrupt-on-completion bit
+either, so tx_q->dirty_tx stays behind tx_q->cur_tx and the dma_map_single()
+mappings and xdp_frames of the last batch are held until unrelated traffic
+causes another poll on that channel.
+
+This window is reachable today with the defaults, since stmmac_init_coalesce()
+sets
+
+		priv->tx_coal_frames[chan] = STMMAC_TX_FRAMES;
+
+and a zero-copy XDP_TX burst shorter than 25 frames likewise leaves set_ic
+false while the timer is cancelled, so the patch only widens an existing
+gap rather than creating one. Would it be worth dropping or softening the
+claim that the timer always keeps reclaiming, or arming the timer after
+stmmac_rx_zc() in stmmac_napi_poll_rxtx()?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260921135716.218420-1-xiaolinkui%40126.com
