@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC798C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5525C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SSmtbAHKJxXg7Po9AhkJ0jsT+Lhn9og4v8Vm4VmHp8U=; b=P8sDP3cWMzhQvgTsQ8igx7YGNm
-	EIZ2KRqXH6FdmpWFiZNRKftQpuY8tS5hvjYSDbyeqP3RROAmFwsf8hK45boCXD4ebSXKtYvzeoDD4
-	JszqN4NRvuglvlJcjTesnupG/7BGBb02yZHMfxzsRK8zZj4p6uHEOgfB+OycdWu94sBmHPw+81VNe
-	0A5gzzuGD3O8zTGl5bZmgYprAzT8OPMP//TNW6xz3m2VLiBIg00cOVIE7aqEOk6pFfRuc/WK81nFK
-	cLlky5Ct5DXy7e/D9JqTH6fTZ6abdID0wWRMVAVOS3+RWuMfAQOltGq8/LUsQAMaMaUfFM7CCXUPR
-	TFUqJ9Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RTn4OGwOGPRfi2cEJEfeMukuMx7i2BfSJzbwvifkfgM=; b=vTNxtrmYTGO4FwTTy7MsRr55DB
+	/jmfugtqB0jt814dcBI2ayfGInUb8X0JlTrzSGrwebM/4cH7jQoLKEaxOMWXuz+37Ko46/ZWdYOYG
+	v1a/pW13DsSwFN9T7BgDGtqKWksXN3MFGWEGhlYJowyoyC1ntvBas6K/4MkOogLUxejEvO2XZvgCZ
+	1RpwjxHt8Adv8oHScXGQ+Rj2WWbBUI+RCZbX9Y1OL+XT03rHJgrZuogfsdR0Zuctee796noMtvG/y
+	2T3hMeXWsE0CkL1xVIhu1M2RYVNpcBWfLYvCaCIYtsWoHnLjCEu1q4AVe4N27Yp5vfw/hEmGSOFJh
+	s3dCO/gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Mlq-00000008Lpq-0kMr;
-	Wed, 23 Sep 2026 13:12:22 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Mlm-00000008LpR-0GN8;
-	Wed, 23 Sep 2026 13:12:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790169138; x=1821705138;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=BHvDLUI9nqVAlvcjaV5O4v/nRyJ1BP74c0k2XszR2Bo=;
-  b=b1gnmqwu4Rws/PkRr+qZ4sgacqbMNNQ0gD8txMgPr8rn9ajX60zblBlY
-   XmG7UA5FNCy/vAsvoratvu7xv07lfHMHQmldeDpRQn4UXYzqXnEIRYb6I
-   WOUkZKCD7HJ/dX0FJOV53uXDp79uIRunRaaW0xYG+KXJLLDBhrg5spevy
-   YxLViArZSdLye9vnYgZhYx8aqory0eneg94V5ShZ2FVT04rkt0paHuJga
-   jADkDqEeKIR2p1g1dsHX/c4E0y1qKTglGSmRp/XXfVrNbd8sVSdKL9CI0
-   SMreD3mxpnu/vQD3ljgUnm9O0y2SOvro8gBdX/BA5qQDAJ4d55wIsfySk
-   A==;
-X-CSE-ConnectionGUID: zq4qdaA5T1uqYZs7/5Ybtg==
-X-CSE-MsgGUID: qySs3a9zQSGjvlAVCcf1sA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11913"; a="89996435"
-X-IronPort-AV: E=Sophos;i="6.27,118,1787036400"; 
-   d="scan'208";a="89996435"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 06:12:16 -0700
-X-CSE-ConnectionGUID: iEZUdQppQA+APPRF92xoGA==
-X-CSE-MsgGUID: 47uPzuqWRuag9QeVQneEQw==
-X-ExtLoop1: 1
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.253])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2026 06:12:11 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, jfalempe@redhat.com,
- javierm@redhat.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- airlied@gmail.com, simona@ffwll.ch
-Cc: dri-devel@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
- nouveau@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-tegra@vger.kernel.org, sashiko-reviews@lists.linux.dev, Thomas
- Zimmermann <tzimmermann@suse.de>
-Subject: Re: [PATCH 2/2] drm/fbdev: Move fbdev helpers into client library
-In-Reply-To: <20260923110537.451614-3-tzimmermann@suse.de>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260923110537.451614-1-tzimmermann@suse.de>
- <20260923110537.451614-3-tzimmermann@suse.de>
-Date: Wed, 23 Sep 2026 16:12:09 +0300
-Message-ID: <acbe05d92420f09ea69054b1215ec4dcab4c6953@intel.com>
+	id 1x9Mm3-00000008LuF-2MMe;
+	Wed, 23 Sep 2026 13:12:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9Mm0-00000008Lt6-3URq;
+	Wed, 23 Sep 2026 13:12:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA44F1570;
+	Wed, 23 Sep 2026 06:12:26 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DECAE3F86F;
+	Wed, 23 Sep 2026 06:12:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790169150; bh=SmFHo2nDPpKUONOshPa8YT9u4NS/UwmA8+HdpmeKeFY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aYmen1TRM7QwJGqc4OFo5787lJ46tKHEUhwYkPXWOHO78pDyWHT/ftcomcAC4QiiM
+	 uwuv2AuQKHBDvvrSfp103KDdhV9+AKBs552MKlmOb12iwVrK22hWi7KXM5UOO/7Th9
+	 hwFueBx+pgNbLEPuAMRwfKDJM8gVQxNzs1TUlr4A=
+Message-ID: <26dd45d3-067a-4999-9cf6-8a0633a594f8@arm.com>
+Date: Wed, 23 Sep 2026 14:12:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 6/6] dma: swiotlb: Remove SWIOTLB_ANY
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-7-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-7-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_061218_163849_2DA19B97 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260923_061232_957778_88A035EA 
+X-CRM114-Status: GOOD (  37.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,414 +94,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sep 2026, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> DRM's fbdev helpers are for the fbdev-emulation clients. Move them
-> into the client-library module. Fix include statements throughout
-> DRM drivers.
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+> swiotlb pools are currently allocated below the architecture's low
+> address limit by default. SWIOTLB_ANY overrides this and permits
+> allocation anywhere in directly mapped memory.
+> 
+> SWIOTLB_INIT_ADDRESSING_LIMIT now explicitly identifies callers which
+> need a pool that is reachable by devices with limited DMA addressing.
+> Use it as the placement constraint and remove SWIOTLB_ANY.
+> 
+> This changes the default behavior for callers which do not set either
+> flag. Previously, omitting SWIOTLB_ANY placed the default pool below the
+> architecture's low address limit and also constrained dynamically
+> allocated pools to the same range. After this change, omitting
+> SWIOTLB_INIT_ADDRESSING_LIMIT permits both static and dynamic pools to
+> use any directly mapped memory.
 
-FWIW,
+While it's rather dependent on some of the other aspects wanting a bit 
+more work still, this part I do entirely agree with :)
 
-Acked-by: Jani Nikula <jani.nikula@intel.com>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-
->
-> While at it, rename the files from drm_fb_helper to drm_fbdev_helper.
-> The old name was too reminiscent of DRM's framebuffer code.
->
-> The GEM support code for fbdev remains part of DRM's memory managers.
->
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
->  drivers/gpu/drm/Makefile                                      | 1 -
->  drivers/gpu/drm/amd/amdgpu/amdgpu_display.c                   | 2 +-
->  drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c                       | 2 +-
->  drivers/gpu/drm/clients/Makefile                              | 3 ++-
->  drivers/gpu/drm/clients/drm_fbdev_client.c                    | 2 +-
->  .../gpu/drm/{drm_fb_helper.c => clients/drm_fbdev_helper.c}   | 2 +-
->  drivers/gpu/drm/drm_fbdev_dma.c                               | 2 +-
->  drivers/gpu/drm/drm_fbdev_shmem.c                             | 2 +-
->  drivers/gpu/drm/drm_fbdev_ttm.c                               | 2 +-
->  drivers/gpu/drm/exynos/exynos_drm_fbdev.c                     | 2 +-
->  drivers/gpu/drm/gma500/fbdev.c                                | 2 +-
->  drivers/gpu/drm/i915/display/intel_fbdev.c                    | 2 +-
->  drivers/gpu/drm/msm/msm_debugfs.c                             | 2 +-
->  drivers/gpu/drm/msm/msm_fbdev.c                               | 2 +-
->  drivers/gpu/drm/nouveau/dispnv50/disp.c                       | 1 -
->  drivers/gpu/drm/omapdrm/omap_debugfs.c                        | 2 +-
->  drivers/gpu/drm/omapdrm/omap_fbdev.c                          | 2 +-
->  drivers/gpu/drm/radeon/radeon_device.c                        | 2 +-
->  drivers/gpu/drm/radeon/radeon_fbdev.c                         | 2 +-
->  drivers/gpu/drm/rockchip/rockchip_drm_gem.c                   | 2 +-
->  drivers/gpu/drm/sitronix/st7571.c                             | 1 -
->  drivers/gpu/drm/tegra/fbdev.c                                 | 2 +-
->  drivers/gpu/drm/vboxvideo/vbox_mode.c                         | 2 +-
->  include/drm/{drm_fb_helper.h => clients/drm_fbdev_helper.h}   | 4 ++--
->  24 files changed, 23 insertions(+), 25 deletions(-)
->  rename drivers/gpu/drm/{drm_fb_helper.c => clients/drm_fbdev_helper.c} (99%)
->  rename include/drm/{drm_fb_helper.h => clients/drm_fbdev_helper.h} (99%)
->
-> diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-> index f0c340aa2ec6..3a0f2095de3c 100644
-> --- a/drivers/gpu/drm/Makefile
-> +++ b/drivers/gpu/drm/Makefile
-> @@ -158,7 +158,6 @@ drm_kms_helper-y := \
->  drm_kms_helper-$(CONFIG_DRM_PANEL_BRIDGE) += bridge/panel.o
->  drm_kms_helper-$(CONFIG_DRM_PANIC_HELPER) += drm_panic_helper.o
->  drm_kms_helper-$(CONFIG_DRM_PANIC_SCREEN_QR_CODE) += drm_panic_helper_qr.o
-> -drm_kms_helper-$(CONFIG_DRM_FBDEV_EMULATION) += drm_fb_helper.o
->  obj-$(CONFIG_DRM_KMS_HELPER) += drm_kms_helper.o
->  
->  #
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_display.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_display.c
-> index 59ea338b554c..126bfd9bb89e 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_display.c
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_display.c
-> @@ -38,11 +38,11 @@
->  
->  #include <linux/pci.h>
->  #include <linux/pm_runtime.h>
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_damage_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_edid.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_modeset_helper.h>
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c
-> index f2f179421c4d..51a7a4091376 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c
-> @@ -28,8 +28,8 @@
->  
->  #include "amdgpu.h"
->  #include <drm/amdgpu_drm.h>
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include "amdgpu_uvd.h"
->  #include "amdgpu_vce.h"
->  #include "atom.h"
-> diff --git a/drivers/gpu/drm/clients/Makefile b/drivers/gpu/drm/clients/Makefile
-> index c16addbc327f..1304ff358509 100644
-> --- a/drivers/gpu/drm/clients/Makefile
-> +++ b/drivers/gpu/drm/clients/Makefile
-> @@ -4,5 +4,6 @@ subdir-ccflags-y += -I$(src)/..
->  
->  drm_client_lib-y := drm_client_setup.o
->  drm_client_lib-$(CONFIG_DRM_CLIENT_LOG) += drm_log.o
-> -drm_client_lib-$(CONFIG_DRM_FBDEV_EMULATION) += drm_fbdev_client.o
-> +drm_client_lib-$(CONFIG_DRM_FBDEV_EMULATION) += drm_fbdev_client.o \
-> +						drm_fbdev_helper.o
->  obj-$(CONFIG_DRM_CLIENT_LIB) += drm_client_lib.o
-> diff --git a/drivers/gpu/drm/clients/drm_fbdev_client.c b/drivers/gpu/drm/clients/drm_fbdev_client.c
-> index 7574bd36f45e..eec463d19943 100644
-> --- a/drivers/gpu/drm/clients/drm_fbdev_client.c
-> +++ b/drivers/gpu/drm/clients/drm_fbdev_client.c
-> @@ -1,9 +1,9 @@
->  // SPDX-License-Identifier: MIT
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_client.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_print.h>
->  
-> diff --git a/drivers/gpu/drm/drm_fb_helper.c b/drivers/gpu/drm/clients/drm_fbdev_helper.c
-> similarity index 99%
-> rename from drivers/gpu/drm/drm_fb_helper.c
-> rename to drivers/gpu/drm/clients/drm_fbdev_helper.c
-> index 76195410db60..fff3cf6a0aed 100644
-> --- a/drivers/gpu/drm/drm_fb_helper.c
-> +++ b/drivers/gpu/drm/clients/drm_fbdev_helper.c
-> @@ -32,9 +32,9 @@
->  #include <linux/console.h>
->  #include <linux/export.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_atomic.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
-> diff --git a/drivers/gpu/drm/drm_fbdev_dma.c b/drivers/gpu/drm/drm_fbdev_dma.c
-> index 9412d9fdd74b..452f84400350 100644
-> --- a/drivers/gpu/drm/drm_fbdev_dma.c
-> +++ b/drivers/gpu/drm/drm_fbdev_dma.c
-> @@ -4,10 +4,10 @@
->  #include <linux/fb.h>
->  #include <linux/vmalloc.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_fbdev_dma.h>
->  #include <drm/drm_fb_dma_helper.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_dma_helper.h>
->  #include <drm/drm_print.h>
-> diff --git a/drivers/gpu/drm/drm_fbdev_shmem.c b/drivers/gpu/drm/drm_fbdev_shmem.c
-> index 458c899b5d4f..8eb05fe9bc98 100644
-> --- a/drivers/gpu/drm/drm_fbdev_shmem.c
-> +++ b/drivers/gpu/drm/drm_fbdev_shmem.c
-> @@ -3,9 +3,9 @@
->  #include <linux/export.h>
->  #include <linux/fb.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_fbdev_shmem.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
->  #include <drm/drm_gem_shmem_helper.h>
-> diff --git a/drivers/gpu/drm/drm_fbdev_ttm.c b/drivers/gpu/drm/drm_fbdev_ttm.c
-> index 160bc35d8738..8eb59c2ac5ea 100644
-> --- a/drivers/gpu/drm/drm_fbdev_ttm.c
-> +++ b/drivers/gpu/drm/drm_fbdev_ttm.c
-> @@ -4,9 +4,9 @@
->  #include <linux/moduleparam.h>
->  #include <linux/vmalloc.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem.h>
->  #include <drm/drm_print.h>
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> index 8641c9e84d4c..f412269d6323 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> @@ -10,9 +10,9 @@
->  
->  #include <linux/fb.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
->  #include <drm/drm_prime.h>
-> diff --git a/drivers/gpu/drm/gma500/fbdev.c b/drivers/gpu/drm/gma500/fbdev.c
-> index d1e93588234f..428912574f20 100644
-> --- a/drivers/gpu/drm/gma500/fbdev.c
-> +++ b/drivers/gpu/drm/gma500/fbdev.c
-> @@ -7,9 +7,9 @@
->  
->  #include <linux/fb.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_framebuffer.h>
->  
->  #include "gem.h"
-> diff --git a/drivers/gpu/drm/i915/display/intel_fbdev.c b/drivers/gpu/drm/i915/display/intel_fbdev.c
-> index db0e36dd8722..219ee17de3f6 100644
-> --- a/drivers/gpu/drm/i915/display/intel_fbdev.c
-> +++ b/drivers/gpu/drm/i915/display/intel_fbdev.c
-> @@ -38,10 +38,10 @@
->  #include <linux/vga_switcheroo.h>
->  
->  #include <drm/clients/drm_client_setup.h>
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/intel/display_parent_interface.h>
->  #include <drm/drm_crtc.h>
->  #include <drm/drm_crtc_helper.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_gem.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
-> diff --git a/drivers/gpu/drm/msm/msm_debugfs.c b/drivers/gpu/drm/msm/msm_debugfs.c
-> index f12701e286ec..d05307bfa123 100644
-> --- a/drivers/gpu/drm/msm/msm_debugfs.c
-> +++ b/drivers/gpu/drm/msm/msm_debugfs.c
-> @@ -9,8 +9,8 @@
->  #include <linux/debugfs.h>
->  #include <linux/fault-inject.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_debugfs.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_file.h>
->  #include <drm/drm_framebuffer.h>
->  
-> diff --git a/drivers/gpu/drm/msm/msm_fbdev.c b/drivers/gpu/drm/msm/msm_fbdev.c
-> index dd6d6c507d77..f37cc3f97a21 100644
-> --- a/drivers/gpu/drm/msm/msm_fbdev.c
-> +++ b/drivers/gpu/drm/msm/msm_fbdev.c
-> @@ -6,9 +6,9 @@
->  
->  #include <linux/fb.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_crtc_helper.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_file.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
-> diff --git a/drivers/gpu/drm/nouveau/dispnv50/disp.c b/drivers/gpu/drm/nouveau/dispnv50/disp.c
-> index add19d479ebe..e91130f93db6 100644
-> --- a/drivers/gpu/drm/nouveau/dispnv50/disp.c
-> +++ b/drivers/gpu/drm/nouveau/dispnv50/disp.c
-> @@ -40,7 +40,6 @@
->  #include <drm/drm_atomic_helper.h>
->  #include <drm/drm_edid.h>
->  #include <drm/drm_eld.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fixed.h>
->  #include <drm/drm_probe_helper.h>
->  #include <drm/drm_vblank.h>
-> diff --git a/drivers/gpu/drm/omapdrm/omap_debugfs.c b/drivers/gpu/drm/omapdrm/omap_debugfs.c
-> index 9edc1b3f9f95..1c40c489ed72 100644
-> --- a/drivers/gpu/drm/omapdrm/omap_debugfs.c
-> +++ b/drivers/gpu/drm/omapdrm/omap_debugfs.c
-> @@ -6,10 +6,10 @@
->  
->  #include <linux/seq_file.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_crtc.h>
->  #include <drm/drm_debugfs.h>
->  #include <drm/drm_file.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_print.h>
->  
-> diff --git a/drivers/gpu/drm/omapdrm/omap_fbdev.c b/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> index 4881777642d2..e1dcc3cb7c55 100644
-> --- a/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> +++ b/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> @@ -7,9 +7,9 @@
->  #include <linux/fb.h>
->  
->  #include <drm/clients/drm_client_setup.h>
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_crtc_helper.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_file.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
-> diff --git a/drivers/gpu/drm/radeon/radeon_device.c b/drivers/gpu/drm/radeon/radeon_device.c
-> index 9523240110a6..fdbdcefa84e7 100644
-> --- a/drivers/gpu/drm/radeon/radeon_device.c
-> +++ b/drivers/gpu/drm/radeon/radeon_device.c
-> @@ -33,11 +33,11 @@
->  #include <linux/vga_switcheroo.h>
->  #include <linux/vgaarb.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_cache.h>
->  #include <drm/drm_client_event.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_device.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_file.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_probe_helper.h>
-> diff --git a/drivers/gpu/drm/radeon/radeon_fbdev.c b/drivers/gpu/drm/radeon/radeon_fbdev.c
-> index 3e243f5e2f44..e40c23d9dff2 100644
-> --- a/drivers/gpu/drm/radeon/radeon_fbdev.c
-> +++ b/drivers/gpu/drm/radeon/radeon_fbdev.c
-> @@ -29,9 +29,9 @@
->  #include <linux/pm_runtime.h>
->  #include <linux/vga_switcheroo.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_crtc_helper.h>
->  #include <drm/drm_drv.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_gem.c b/drivers/gpu/drm/rockchip/rockchip_drm_gem.c
-> index 9a1dc9f12072..b55113a7a00b 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_gem.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_gem.c
-> @@ -8,9 +8,9 @@
->  #include <linux/iommu.h>
->  #include <linux/vmalloc.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm.h>
->  #include <drm/drm_dumb_buffers.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_gem.h>
->  #include <drm/drm_gem_dma_helper.h>
->  #include <drm/drm_prime.h>
-> diff --git a/drivers/gpu/drm/sitronix/st7571.c b/drivers/gpu/drm/sitronix/st7571.c
-> index fc3ba5e8600f..5e60c4685671 100644
-> --- a/drivers/gpu/drm/sitronix/st7571.c
-> +++ b/drivers/gpu/drm/sitronix/st7571.c
-> @@ -20,7 +20,6 @@
->  #include <drm/drm_damage_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_encoder.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fbdev_shmem.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
-> diff --git a/drivers/gpu/drm/tegra/fbdev.c b/drivers/gpu/drm/tegra/fbdev.c
-> index 003e80cf7b9a..64c2e64f219b 100644
-> --- a/drivers/gpu/drm/tegra/fbdev.c
-> +++ b/drivers/gpu/drm/tegra/fbdev.c
-> @@ -11,9 +11,9 @@
->  #include <linux/fb.h>
->  #include <linux/vmalloc.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_drv.h>
->  #include <drm/drm_crtc_helper.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_framebuffer_helper.h>
-> diff --git a/drivers/gpu/drm/vboxvideo/vbox_mode.c b/drivers/gpu/drm/vboxvideo/vbox_mode.c
-> index bb3f7f0ad7c4..7c34299fa531 100644
-> --- a/drivers/gpu/drm/vboxvideo/vbox_mode.c
-> +++ b/drivers/gpu/drm/vboxvideo/vbox_mode.c
-> @@ -13,11 +13,11 @@
->  #include <linux/iosys-map.h>
->  #include <linux/export.h>
->  
-> +#include <drm/clients/drm_fbdev_helper.h>
->  #include <drm/drm_atomic.h>
->  #include <drm/drm_atomic_helper.h>
->  #include <drm/drm_blend.h>
->  #include <drm/drm_edid.h>
-> -#include <drm/drm_fb_helper.h>
->  #include <drm/drm_fourcc.h>
->  #include <drm/drm_framebuffer.h>
->  #include <drm/drm_gem_atomic_helper.h>
-> diff --git a/include/drm/drm_fb_helper.h b/include/drm/clients/drm_fbdev_helper.h
-> similarity index 99%
-> rename from include/drm/drm_fb_helper.h
-> rename to include/drm/clients/drm_fbdev_helper.h
-> index 0c5e5ed7b5e7..7575aaf34c62 100644
-> --- a/include/drm/drm_fb_helper.h
-> +++ b/include/drm/clients/drm_fbdev_helper.h
-> @@ -27,8 +27,8 @@
->   *      Dave Airlie <airlied@linux.ie>
->   *      Jesse Barnes <jesse.barnes@intel.com>
->   */
-> -#ifndef DRM_FB_HELPER_H
-> -#define DRM_FB_HELPER_H
-> +#ifndef DRM_FBDEV_HELPER_H
-> +#define DRM_FBDEV_HELPER_H
->  
->  struct drm_clip_rect;
->  struct drm_fb_helper;
+>   Documentation/core-api/swiotlb.rst |  8 ++++----
+>   arch/powerpc/mm/mem.c              |  6 ++++--
+>   arch/riscv/mm/init.c               | 16 ----------------
+>   arch/s390/mm/init.c                |  2 +-
+>   arch/x86/kernel/pci-dma.c          |  2 +-
+>   include/linux/swiotlb.h            |  7 +++----
+>   kernel/dma/swiotlb.c               | 17 ++++++-----------
+>   7 files changed, 19 insertions(+), 39 deletions(-)
+> 
+> diff --git a/Documentation/core-api/swiotlb.rst b/Documentation/core-api/swiotlb.rst
+> index 71b4e4c27eb5..06d9f88fdf7b 100644
+> --- a/Documentation/core-api/swiotlb.rst
+> +++ b/Documentation/core-api/swiotlb.rst
+> @@ -148,10 +148,10 @@ may also be adjusted
+>   due to other conditions, such as running in a CoCo VM, as described above. If
+>   CONFIG_SWIOTLB_DYNAMIC is enabled, additional pools may be allocated later in
+>   the life of the system. Each pool must be a contiguous range of physical
+> -memory. The default pool is allocated below the 4 GiB physical address line so
+> -it works for devices that can only address 32-bits of physical memory (unless
+> -architecture-specific code provides the SWIOTLB_ANY flag). In a CoCo VM, the
+> -pool memory must be decrypted before swiotlb is used.
+> +memory. The default pool is allocated below the architecture's low address
+> +limit when it is needed for devices with limited DMA addressing. Otherwise,
+> +it may be allocated anywhere in directly mapped memory. In a CoCo VM, the pool
+> +memory must be decrypted before swiotlb is used.
+>   
+>   Each pool is divided into "slots" of size IO_TLB_SIZE, which is 2 KiB with
+>   current definitions. IO_TLB_SEGSIZE contiguous slots (128 slots) constitute
+> diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
+> index 006ed41097e9..1bdea6c03848 100644
+> --- a/arch/powerpc/mm/mem.c
+> +++ b/arch/powerpc/mm/mem.c
+> @@ -295,9 +295,11 @@ void __init arch_mm_preinit(void)
+>   		/*
+>   		 * Since the guest memory is inaccessible to the host,
+>   		 * devices always need to use the SWIOTLB buffer for DMA
+> -		 * even if dma_capable() says otherwise.
+> +		 * even if dma_capable() says otherwise. The hypervisor has
+> +		 * no addressing limitation, so the buffer may be allocated
+> +		 * anywhere.
+>   		 */
+> -		ppc_swiotlb_flags |= SWIOTLB_ANY;
+> +		ppc_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
+>   	}
+>   
+>   	/*
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 96856114b387..734712230f35 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -165,27 +165,11 @@ static void print_vm_layout(void) { }
+>   
+>   void __init arch_mm_preinit(void)
+>   {
+> -	bool swiotlb = max_pfn > PFN_DOWN(dma32_phys_limit) &&
+> -		       memblock_start_of_DRAM() < dma32_phys_limit;
+>   	unsigned int swiotlb_flags = SWIOTLB_VERBOSE;
+>   #ifdef CONFIG_FLATMEM
+>   	BUG_ON(!mem_map);
+>   #endif /* CONFIG_FLATMEM */
+>   
+> -	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb &&
+> -	    dma_cache_alignment != 1) {
+> -		/*
+> -		 * No 32-bit DMA bouncing needed (either all DRAM is within
+> -		 * the 32-bit limit, or it all starts above it), but
+> -		 * kmalloc() buffers whose sizes are not cache-line-aligned
+> -		 * still require bouncing for non-coherent DMA.  Use
+> -		 * SWIOTLB_ANY so that the buffer can be allocated from high
+> -		 * memory when DRAM starts above dma32_phys_limit.  Allocate
+> -		 * ~1 MB per 1 GB of RAM.
+> -		 */
+> -		swiotlb_flags |= SWIOTLB_ANY;
+> -	}
+> -
+>   	if ((max_pfn > PFN_DOWN(dma32_phys_limit)) &&
+>   	     (memblock_start_of_DRAM() < dma32_phys_limit))
+>   		swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+> index 78f507e24ceb..ce10292447f1 100644
+> --- a/arch/s390/mm/init.c
+> +++ b/arch/s390/mm/init.c
+> @@ -166,7 +166,7 @@ static void __init pv_init(void)
+>   	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
+>   
+>   	/* make sure bounce buffers are shared */
+> -	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_ANY);
+> +	swiotlb_init(SWIOTLB_VERBOSE);
+>   	swiotlb_update_mem_attributes();
+>   }
+>   
+> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+> index ce257b20ea9c..74e92b457758 100644
+> --- a/arch/x86/kernel/pci-dma.c
+> +++ b/arch/x86/kernel/pci-dma.c
+> @@ -90,7 +90,7 @@ static void __init pci_xen_swiotlb_init(void)
+>   	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
+>   	x86_swiotlb_flags &= ~(SWIOTLB_INIT_ADDRESSING_LIMIT |
+>   			       SWIOTLB_INIT_DEFAULT_OFF);
+> -	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
+> +	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP;
+>   	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
+>   	dma_ops = &xen_swiotlb_dma_ops;
+>   	if (IS_ENABLED(CONFIG_PCI))
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index 466c33795db0..503e1446e0d8 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -15,13 +15,12 @@ struct page;
+>   struct scatterlist;
+>   
+>   #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
+> -#define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
+>   /* Initialize a default-sized pool for devices with limited DMA addressing. */
+> -#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
+> +#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
+>   /* Initialize a default-sized pool that requires architecture remapping. */
+> -#define SWIOTLB_INIT_REMAP		(1 << 3)
+> +#define SWIOTLB_INIT_REMAP		(1 << 2)
+>   /* Do not initialize a pool unless SWIOTLB is explicitly required. */
+> -#define SWIOTLB_INIT_DEFAULT_OFF		(1 << 4)
+> +#define SWIOTLB_INIT_DEFAULT_OFF	(1 << 3)
+>   
+>   /*
+>    * Maximum allowable number of contiguous slabs to map,
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 46b789eb0806..77d7c320de28 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -450,15 +450,10 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
+>   	size_t bytes = PAGE_ALIGN(nslabs << IO_TLB_SHIFT);
+>   	void *tlb;
+>   
+> -	/*
+> -	 * By default allocate the bounce buffer memory from low memory, but
+> -	 * allow to pick a location everywhere for hypervisors with guest
+> -	 * memory encryption.
+> -	 */
+> -	if (flags & SWIOTLB_ANY)
+> -		tlb = memblock_alloc(bytes, PAGE_SIZE);
+> -	else
+> +	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
+>   		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
+> +	else
+> +		tlb = memblock_alloc(bytes, PAGE_SIZE);
+>   
+>   	if (!tlb) {
+>   		pr_warn("%s: Failed to allocate %zu bytes tlb structure\n",
+> @@ -604,10 +599,10 @@ void __init swiotlb_init_remap(unsigned int flags,
+>   #ifdef CONFIG_SWIOTLB_DYNAMIC
+>   	if (!remap)
+>   		io_tlb_default_mem.can_grow = true;
+> -	if (flags & SWIOTLB_ANY)
+> -		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
+> -	else
+> +	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
+>   		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
+> +	else
+> +		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
+>   #endif
+>   
+>   	/* if we have host or guest memory encryption */
 
--- 
-Jani Nikula, Intel
 
