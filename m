@@ -4,146 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F19FC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43B0C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zlDwEtbUvjpRubwATEGCqUpsne2yYQHkp6iqY3VINLE=; b=Ad13wcSBILUuxw5JL5i+5FbvLI
-	X+0gLjp8h9sv/B41S2Zy4L8Kaf8q39bTEk5cyCN8b7wNPopeCKdcT2FGiFH8FzfGvVTlyfSQPK75J
-	fbZOg2lrdzwfPCxed5u4iakbf9ghPWqGjuTAqlsJIiq66/zvimqLwYfyunYkKj3/uP9x5gTZKYKm2
-	JNP3Dx4EVeimP1RNCAnDLSVT7Igi/pzvO8keevI3NGDzprCVxsE+nWXpEwpFGZgK9OkLzxCbtNS/w
-	3bGL8sesGe7cqVvIzIH/PZxzPjU9QdYwyrVz0khHCFuRrvkyQocmT+3cowsZr76cKlGJ8EpTuci3o
-	6o3J9Xow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cgm5NFHqYXkg144kqbNoAYFWFIwyGnhsthXLy1bxeRs=; b=fwV0Z/k5S+pyMeHhU2CdcTWW6n
+	OcNAkIRZTn8pJ3spRGbysQ8BEFxKdC0SZUe80+/0TG/wChgfJm4YbstGXyhVVzwydxb4/vGuQdbmy
+	Xbg9gTpMxwYr1G8nx1A7vLrwVFUa3hWf1TxbulpqaOH6XGi2NN+a1XyUq112Lctd8UwcVTj3dGwcu
+	iCWwU1gLkJbV75vZkcCc/fDtfqtHhJ31JCLGT2zj1mT97fgOkk4tm2Kr6nUpsyN07O6FmHzak6t1D
+	RGn2C5zHjhsOJCRQBaJA9zkQhimOUTS3jI2vVa3KewaeWdho6QAVz/EbD4Uez3fNlGVXHf2pMTzJf
+	DHr0dNfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QFA-00000008wBj-3Z5O;
+	id 1x9QFA-00000008wBR-1y5F;
 	Wed, 23 Sep 2026 16:54:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QF8-00000008wAo-2sbl
+	id 1x9QF6-00000008wAW-3E88
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 23 Sep 2026 16:54:51 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NGTa5s740285
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:54:50 GMT
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NGTsPL3665862
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:54:47 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zlDwEtbUvjpRubwATEGCqUpsne2yYQHkp6iqY3VINLE=; b=Seum9zPqFF1bAFs9
-	2SAgWuOtEzV4WMAmZskMjMP9xFgcocCq5t/P4Btc3uXm/yPP+5dFmh5MvrsC6Woe
-	cL0t9T8Uk0hJD7dxIFSFHKlwoz8kF0IlCF4G+vCAYHnQ5iI/2KTdeJcGSx2awi+g
-	zRh0sCoZKCovDiw8hhNMIlveeyEBS1Vj1OLdNgsBWkZcIG4Bx1Im5Y0tYnE2BZgY
-	80heXHTTt8VxnPYBz3mzkSgrfEctt7TgufuAh5IddJeFRDHIZOHddDlWhucY9Wj/
-	WeQF9cQwlA6a6DWFbbrnt6l8QhQDXPVALVsLhoBblQDFI7hp0SxbGW7fL6jVBLnP
-	KHIFfw==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvfjsh08v-1
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=cgm5NFHqYXkg144kqbNoAYFW
+	FIwyGnhsthXLy1bxeRs=; b=JB7Bk+tPqbx8wI6y6I4xceWAxEUI5tdBIpbG6LUS
+	qnTJPQ0s8T/ia7LT25o+Zw74PAYjZcIuvt0oKLyWf7Zh3gutlCQE8EDBV+TT3h/P
+	ofuyJbprNzCeK8j7Rzyty1gnFN7B+dLThZ1J7t+U+vYCau++n42vGwz+MtRKs38x
+	xkKJzY6UB2SrjPsqlzjv6fy0fDvUt+De+rP3KvWAgsNP/WMl24Ums4H+oQ0PLuD6
+	MRSyxHNvDWWr9yDRLzr72B3lvNs5kMbH0knhWZvb12+UksgtAqivO/127Bmizp8V
+	NUkwr7wwty3b7omfXX//uoQ4j7ieXN8voQjcUEpxZGzP8g==
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvbwasxte-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:54:50 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cc4e496e5c3so685429a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:54:50 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:54:47 +0000 (GMT)
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-980c3b71002so923539241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:54:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790182489; x=1790787289; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=zlDwEtbUvjpRubwATEGCqUpsne2yYQHkp6iqY3VINLE=;
-        b=TgfH5TBmqglc/PJMzUmy8/mtddSt5AtIYk3wHRdjP1KIl8vvAzijFYTGPAnnaNbaJo
-         6ID5nAkeJS93DIUqLTxZdxRZEQrhNARP+dcvWGb/oa5vq3eYAREc9TZQPCuDQIknPOUt
-         sZeo/Dg1+e7Y/Zk7GzFS4JI0XN+giDWVlfTV0nO3VE1Zjnm2rj9b2pBvwIb4HTUBNbou
-         UN3VDIAg3oIID11u2rAHDXAdAOInQZDRDuAJuJAwqQscgY4og+PR0Q0jAdVD7IcVLILI
-         VbtxE2FLOqQ4AAJmQ68qY1Ws6i6L5Ps4Or96kyiggqiIb7ypFBXZWTOkBbmxDiAHgXa6
-         5ZEA==
+        d=oss.qualcomm.com; s=google; t=1790182485; x=1790787285; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cgm5NFHqYXkg144kqbNoAYFWFIwyGnhsthXLy1bxeRs=;
+        b=iE83z2mveb8S8UU0I+CCRzJpbqNzuUKcsPexBQo3cUk0X3mygmUa7BzGSh0YI1CZOQ
+         9RCgI130NJQoQsYPNjzCWMjOjm8IeCkXZm4ANO+CX7IrTUlwJAKixIKwGkogTxPmPV7g
+         M3gHEjL1Yk+xBFu51MKVPmeW1BcAuiQBYllGVlw7eTM7jEi37RynvaNhpkoS9ZJyhBs8
+         o85/MGeyOUfahhnNuufRzXlsah5IfkClDawcJmz0KuZJ6VjkBf+4rMNOQxA8KEX7pXUr
+         h96aXQfrSHwI52J76TSYfj2d7H2fGlEgLLmiTCxqsP2OMUzUJc657sJrytlbutNBjXwt
+         bmcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790182489; x=1790787289;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1790182485; x=1790787285;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zlDwEtbUvjpRubwATEGCqUpsne2yYQHkp6iqY3VINLE=;
-        b=Nodq6DR3rMJzzj1usiig1P6zY8Jdy7Zx3T9smO2fQiO5YE8MTsUZChhbxoc4Prmcze
-         nt07c4HuTgWhfcl19RBhNXQM3lzwciy9MBN+K1Q8cN/ESQNECLzvFZqoVhwV7vNJk3m7
-         YAbUw6MmswbgA5rj+xWGU/Tuy1rdVswosdgPqm8Kezc6wv4STDZxjsLoJ9EK9vAtkfvk
-         0mER5128xaY82FuQEyJqCKpgfGiATxtNXenSJZhUHvjr5O0h+EoDO1db3OB2vJQTX4c/
-         3zVkJm3eKypx9v1peZYeho5HnyzKalyKPJ5JxyGpXuICcncHhiAMfqWDl8FXBc/qa3Jz
-         JQwQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw2vNwh2HQ8k5lfdgH9vLCxO68EGnL+Lv0UIuSR/JlGaBgS3jvZRXTlF27YbEhM3NZ6GW+DcnE2zDu0O0L3t2Y2@lists.infradead.org
-X-Gm-Message-State: AFuF++ml8bnFPKvkMET9yCIKBfvQFlVShp084eImkk0zEzROQ/TPw+FV
-	cz3/+u+ud08d7LIIx2A0hogZUGnCV8H9QW1RQRjsUx7v1N/ZyvDIQOE9DcJ9PJMMf9BJdzXEPA+
-	A3NCT19tVOhKaP3zbh4wiMC9hLJuPtfFgerGjN2WW9Q9MZ26NVEFJDuNOLPWKmW5T/HnfU2MzUN
-	cvlQ==
-X-Gm-Gg: AYBFou2l1LtYhR9PSV1/udxCTqGuyzVLlbicO/WvBlFbGxEsrQhxF0Tbh7M1QLAXKie
-	zYD0bpTxUmiY6+LFW+s6oW2mEE7bW7bRZFkGCc4BSk9N77yKHcSLmWMq7tFY6D0GoswRh23GAOK
-	e/EiiUwyMKYPzMfTBG1kfuWnVW5Hv6X9GcXjQQ8uzXSIBu7Ni9y/82EwTmmI8qPY8IW3r8cDFz4
-	kRzpiW+vkgORbAABaEUdMcuc4N9qQcdvfEMrWLRwfC6MDKvkbLziaBb0RCCNi9RxgqaYTwbgzB4
-	6BvkM03qqEN9D28Jbt8Jf1BlkrmnE4obGA/q/2D8Iv7x6M61U1YOjLy+aBULm49gzaL9QVQasK4
-	Um+BNt03NJvpR4VxBQRl5wgYgpp++hR1osyrMK+DSyC0+5B8UOlnEQWNgbqE3pOR+2g==
-X-Received: by 2002:a17:902:f549:b0:2da:eb8f:b4e4 with SMTP id d9443c01a7336-2df69d261dfmr29630385ad.7.1790182489375;
-        Wed, 23 Sep 2026 09:54:49 -0700 (PDT)
-X-Received: by 2002:a17:902:f549:b0:2da:eb8f:b4e4 with SMTP id d9443c01a7336-2df69d261dfmr29630075ad.7.1790182488834;
-        Wed, 23 Sep 2026 09:54:48 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a5f4219sm14535985ad.68.2026.09.23.09.54.46
+        bh=cgm5NFHqYXkg144kqbNoAYFWFIwyGnhsthXLy1bxeRs=;
+        b=2Z5RWGgXNDWS0Zr0/4Q3IKR+hsHAtj6oclTza/UzgPoCmcpS2tJilTQcttce1E2xs8
+         TKELTOBUKJJBQyjg4aWTGyjLJQPO7cotwFYECIB1+Uh67O+ZK1UO6+eccK+5FyNtLS9P
+         6EC/Oree62flW1hDYz3pv/yx9QFLzIgjtdAcphUls2vqc8JYXO0cW4Hhxxh8VYuTcXnR
+         MJsv3HjGn1jTqkWwk2iVEicAK4zK5v20km8DmhkFpYYKNNr6sI816Cz5iUamL+jNhj2V
+         wzF3wJyL0QnlZlEHAcodE38Tr9iT5jPcq4hQNCSjxCls3RdxtBvYVd87zoCflaXK6Oq4
+         na+Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxhVflKi5phqD0BY88EKutG+IX2Z4XHkWkd08vySiJ57LhnREG6NpEtrWiseGyZlSfpUKHRLnV8J6eBib0aayYR@lists.infradead.org
+X-Gm-Message-State: AFuF++nKUrQK/dB0FZwy6E7CXKu82Ub9/VeG4XsQ1bryTWZ34w1D0ckM
+	hCR3VYyQEp5D8eAwFql4u+zFqiShYMqtokEIefISad89WpXrhBYzrILWsqPh8yyW54Gi5BXTeUI
+	9R7h6/pk9z3D1RHQ6gZyhaapJG0Hn1JmqMngNTLrdtxGIP4YJRvU1nh1SndnnoyRIQIwZHOHOsO
+	0DdxOhSUSWPg==
+X-Gm-Gg: AYBFou3dm/bXskRebJnjIWI7nBw4K2miW/tWj0GeXexwEaB+yuOnWzCn/jGN7KhvluE
+	zaJW+mtexigDJYmwqNI8T6nNXIMV+kvjZnIdetqFMYbJiRSzs/XpXcP0rvCpFtLi0xck+UMdXKC
+	eYlJVlEeYcMGArYt4NWc9G8AP7GWfbTrNTBT1K0TGhOd35nnPjvU57BZLBbmUA8IOco5NZ5BK8N
+	rJoHzWR2HJOe+Z/uMQLd9Gbf6bwjgp1gO7mjbYbkacgWVnnrMg4K01mhCss7Ec9jkm7VrW/0vfU
+	GGhYXrPE4kippK1YZxHMi89c/XOpoF/R27tmn469UOMde5Dw27wuEE4lhGSLJQDZGEgcBI5/8rP
+	nTtwT7AdAEM6WIQ==
+X-Received: by 2002:a05:6102:91c:b0:79d:cfe4:7202 with SMTP id ada2fe7eead31-7ac1ba35a39mr3062705137.11.1790182484788;
+        Wed, 23 Sep 2026 09:54:44 -0700 (PDT)
+X-Received: by 2002:a05:6102:91c:b0:79d:cfe4:7202 with SMTP id ada2fe7eead31-7ac1ba35a39mr3062679137.11.1790182484074;
+        Wed, 23 Sep 2026 09:54:44 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fdf3541aesm48575795e9.0.2026.09.23.09.54.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 09:54:48 -0700 (PDT)
-Date: Wed, 23 Sep 2026 09:54:43 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v19 09/20] KVM: arm64: Add VM specific callback for S2
- MMU operations
-Message-ID: <20260923095443.0000378c@oss.qualcomm.com>
-In-Reply-To: <0d5201f0-359e-4748-92da-946dedf51bcf@arm.com>
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
-	<20260920212845.707-10-suzuki.poulose@arm.com>
-	<20260922152914.00001221@oss.qualcomm.com>
-	<0d5201f0-359e-4748-92da-946dedf51bcf@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        Wed, 23 Sep 2026 09:54:41 -0700 (PDT)
+Date: Wed, 23 Sep 2026 18:54:40 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        daniel@riscstar.com, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, dcaratti@redhat.com
+Subject: Re: [PATCH net-next] net: stmmac: add tc-mqprio qdisc offload
+Message-ID: <arQEUBOpXLhLt_Ln@lore-desk>
+References: <20260918-stmmac-mqprio-prio-offload-v1-1-5328157fcb58@oss.qualcomm.com>
+ <179007733391.2160803.15760096543003194202@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA2NyBTYWx0ZWRfX2XJ18e1RCfA5
- bhek4Ninw87oESBfayZ9sIRII6iPGEWrWuD6XXR6VSxueh0i7uaeXg3R2faINwOwacOmw6KJ7gC
- UdHz8+SEqNlVs70qBFtbaEq9kn+wS3S2vRu3gAHX4RDktE6DC1dCw+R+LOluCh5HP82n+S3Tw62
- EPMrcOPX5Rw8AkYUl1tiikJNZ0RFkPdS5fvK5I8DsoqRSG8B2zfl6xQZDCdwdK/E01mpaRC+0x8
- KFXnobBN1Q90PRBReBbiVfRy2I563wpwWw2Kx2dflbUH8kyTNpDGw1SgUc/bn6nwWD7KonoQI6I
- hAqJIu4MScHw9tukUw/qX6CpqVUV/C/r+9iDVdk7VWFcd9KORblCGL78aM9ewxPFraomXnWH4bJ
- y5NHW9hoUnlsuigupj+8RwR/sUJamCzR3nKqk/FTOhm9i82v7AfjU5YVDAk4ARgb56r+8LsFYyQ
- NRdgziP2Utbph1d1mug==
-X-Proofpoint-GUID: FK2j_rw7BGpOhfonsCVLA12yeT2qBewi
-X-Proofpoint-ORIG-GUID: FK2j_rw7BGpOhfonsCVLA12yeT2qBewi
-X-Authority-Analysis: v=2.4 cv=K4+3jCWI c=1 sm=1 tr=0 ts=6ab4045a cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=OqzaOk1-375Rtnrp2FUA:9 a=CjuIK1q_8ugA:10
- a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA2NyBTYWx0ZWRfX8CnF72FqqD3O
- /7F6HdCck3RBcyYm8MyWDoSYnufxBoNoZSvYtwUp2aqZK4L5IFa2HNpp5Q5rftw8dzI9KdBrWP0
- 6FHPEZnfaDuR+zs99YMWK5BKrP3oEDY=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WpfnQHKyq4r32x1m"
+Content-Disposition: inline
+In-Reply-To: <179007733391.2160803.15760096543003194202@kernel.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA2NyBTYWx0ZWRfX+YPmhUjjpchy
+ gOLn385DA5ZCxMhu/dB/CRQfhb6XUCJh/XcKlVBJdxEwL7cdO8NL9KLCPAozCR8GZ7VurAVmsNR
+ VYHf7swB51Un3MlYdI+hp/RfRMNATZovZmvNfyr4fOvE7YqyGQaKhFU2gwP63nB+dGpeyBJFBku
+ oWpoPNTB1YMu/q4wUrPU9BrlDv+fHbwO6h2D/0bC6t5LiXqqRacKZcEbGJmEKadeSpTnnOPTcb8
+ c+7deWCgtVQJv87JfRHa5MlNSUc1J62crUv2dF67umhhaBvJgE3rLgZVm9bs+s09kp++4JUP+js
+ pZXY7ovOlEbOyX7IcmBgBMia5dwHdPOXGimLFSubFGowuRgp0+r/kFoKmKeE3sEywAnXYNsWmDM
+ nxxebmyMKX7w/Daz5WVdGcE2EPc/ClvdDk7gLOvH5vKxy8GF4IVIW2xD2zsWlDU1YdpoROaS3e4
+ nkEOwkxi0ieeNg2ozTw==
+X-Authority-Analysis: v=2.4 cv=HfuB3SE8 c=1 sm=1 tr=0 ts=6ab40457 cx=c_pps
+ a=KB4UBwrhAZV1kjiGHFQexw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=9R54UkLUAAAA:8 a=pkLZZMQQ3BSHkK4QGzoA:9 a=QEXdDO2ut3YA:10
+ a=W19mYM53yjTqTNZOIewA:9 a=o1xkdb1NAhiiM49bd1HK:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-GUID: T-tGoRjYO9lUlP_T3l1_5a-JR798m9Ui
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA2NyBTYWx0ZWRfXyje1IBLr/HgO
+ DMTfkUKiQR0vc+7JmslBJG5D19xy5uE3R9yBBJ95ycUkzC68tqQ4mqkV00r4NJoHb8G+pMZcaDD
+ RWE/PQs6KmUIWudsh2EaOnYyYGpUuzs=
+X-Proofpoint-ORIG-GUID: T-tGoRjYO9lUlP_T3l1_5a-JR798m9Ui
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-23_06,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 suspectscore=0 priorityscore=1501 spamscore=0
- lowpriorityscore=0 malwarescore=0 adultscore=0 bulkscore=0 clxscore=1015
+ malwarescore=0 impostorscore=0 suspectscore=0 spamscore=0 clxscore=1015
+ lowpriorityscore=0 bulkscore=0 adultscore=0 priorityscore=1501 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_095450_754766_23FB95AC 
-X-CRM114-Status: GOOD (  28.75  )
+X-CRM114-CacheID: sfid-20260923_095448_991151_263C834D 
+X-CRM114-Status: GOOD (  43.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,87 +151,489 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sep 2026 00:21:58 +0100
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+--WpfnQHKyq4r32x1m
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On 22/09/2026 23:29, Jonathan Cameron wrote:
-> > On Sun, 20 Sep 2026 22:28:34 +0100
-> > Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> >   
-> >> Add VM type specific S2 MMU operation backends which can be initialized per
-> >> VM flavor, to keep the handling cleaner.
-> >>
-> >> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>  
-> > 
-> > A small suggestion inline that makes it explicit when there isn't
-> > range operation and a full flush of tlb is needed.
-> > 
-> > I don't mind either way, but thought I'd mention it anyway in case
-> > you hadn't already dismissed it.
-> > 
-> > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> > 
-> >   
-> >> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> >> index 03f2017a7404a..d97a4a1bca23f 100644
-> >> --- a/arch/arm64/kvm/mmu.c
-> >> +++ b/arch/arm64/kvm/mmu.c
-> >> @@ -37,6 +37,8 @@ static unsigned long __ro_after_init io_map_base;
-> >>   
-> >>   #define KVM_PGT_FN(fn)		(!is_protected_kvm_enabled() ? fn : p ## fn)
-> >>     
-> >   
-> >>   /**
-> >>    * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
-> >>    * @kvm:	pointer to kvm structure.
-> >> @@ -174,26 +188,36 @@ static bool memslot_is_logging(struct kvm_memory_slot *memslot)
-> >>    */
-> >>   int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
-> >>   {
-> >> -	if (is_protected_kvm_enabled())
-> >> -		kvm_call_hyp_nvhe(__pkvm_tlb_flush_vmid, kvm->arch.pkvm.handle);
-> >> -	else
-> >> -		kvm_call_hyp(__kvm_tlb_flush_vmid, &kvm->arch.mmu);
-> >> -	return 0;
-> >> +	if (!kvm->arch.vm_s2_ops->vm_flush_remote_tlbs)
-> >> +		return 1;  
-> > 
-> > For consistency with other cases and because it looks nicer
-> > blank line here.  
-> 
-> Ack
-> 
-> >   
-> >> +	return kvm->arch.vm_s2_ops->vm_flush_remote_tlbs(kvm);
-> >>   }
-> >>   
-> >> -int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
-> >> -				      gfn_t gfn, u64 nr_pages)
-> >> +static int pkvm_flush_remote_tlbs_range(struct kvm *kvm,
-> >> +					gfn_t gfn, u64 nr_pages)
-> >> +{
-> >> +	return pkvm_flush_remote_tlbs(kvm);  
-> > 
-> > For the cases where there isn't a range call, perhaps you should just
-> > not provide the op and have the wrapper fall back to
-> > calling the 'flush all' variant if there is no range one available?  
-> 
-> The core KVM falls back to flushing all TLBs if the range one
-> returns true anyways. So, I would leave it as it is.
+> Thank you for your contribution! Sashiko AI review found 6 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 6 (1) =C2=B7 Low: 0
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>=20
+> - [Medium] One-directional AVB/CBS rejection: tc_setup_dwmac510_mqprio()
+>   rejects the mqprio offload if any TX queue is already MTL_QUEUE_AVB=E2=
+=80=A6
+> - [Medium] The patch narrows an mqprio offload that already existed,
+>   breaking configurations the driver accepted before, and the commit=E2=
+=80=A6
+> - [Medium] The new per-TC offset validation bounds qopt->offset[i]
+>   against qopt->num_tc (stmmac_tc.c:1340-1343, extack 'TX queue range=E2=
+=80=A6
+> - [Medium] Replacing an offloaded mqprio qdisc makes the old qdisc's
+>   teardown wipe the replacement's just-installed hardware state.
+> - [Medium] The new mqprio setup and teardown paths perform read-modify-
+>   write MMIO from ndo_setup_tc without a runtime-PM reference and=E2=80=A6
+> - [Medium] XGMAC index mismatch: the loop at stmmac_tc.c:1367-1390
+>   resolves, for each TX queue index i, the traffic class j that owns=E2=
+=80=A6
+>=20
+> Pre-existing issues:
+> - [Medium] The mqprio offload accepts TC_MQPRIO_MODE_CHANNEL with
+>   TC_MQPRIO_SHAPER_BW_RATE and returns success while ignoring=E2=80=A6
+>=20
+> --
+>=20
+> net: stmmac: add tc-mqprio qdisc offload
+>=20
+> The patch implements tc-mqprio offload in stmmac by switching the MTL TX
+> scheduler to strict priority and programming each TX queue's PSTQX/PSTC
+> priority bitmask from qopt->prio_tc_map. The per-queue masks and the
+> scheduling algorithm are cached in the new priv->xmit_qdisc so they can be
+> re-applied on reopen, and teardown restores the devicetree configuration.
+>=20
+> A few questions below about the new validation and register programming.
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers=
+/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> > index c889204a7aa5..b6b5ef7c8fc4 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+> > @@ -230,7 +230,7 @@ int dwmac5_fpe_map_preemption_class(struct net_devi=
+ce *ndev,
+> >  		if (count =3D=3D 1)
+> >  			continue;
+> > =20
+> > -		if (priv->plat->tx_sched_algorithm =3D=3D MTL_TX_ALGORITHM_SP) {
+> > +		if (priv->xmit_qdisc.algo =3D=3D MTL_TX_ALGORITHM_SP) {
+> >  			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
+> >  			return -EINVAL;
+> >  		}
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index bf9e7e4cb1c3..0c9083f8846e 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>=20
+> [ ... ]
+>=20
+> > @@ -3604,7 +3598,7 @@ static void stmmac_mtl_configuration(struct stmma=
+c_priv *priv)
+> >  	/* Configure MTL TX algorithms */
+> >  	if (tx_queues_count > 1)
+> >  		stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
+> > -				priv->plat->tx_sched_algorithm);
+> > +					      priv->xmit_qdisc.algo);
+> > =20
+> >  	/* Configure CBS in AVB TX queues */
+> >  	if (tx_queues_count > 1)
+>=20
+> [ ... ]
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_tc.c
+> > index 42a00446e9b4..a2a9680da5c0 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> > @@ -1265,6 +1265,23 @@ static int stmmac_reset_tc_mqprio(struct net_dev=
+ice *ndev,
+> >  				  struct netlink_ext_ack *extack)
+> >  {
+> >  	struct stmmac_priv *priv =3D netdev_priv(ndev);
+> > +	int i;
+> > +
+> > +	for (i =3D 0; i < priv->plat->tx_queues_to_use; i++) {
+> > +		u32 prio;
+> > +
+> > +		if (priv->plat->tx_queues_cfg[i].use_prio)
+> > +			prio =3D priv->plat->tx_queues_cfg[i].prio;
+> > +		else
+> > +			prio =3D 0;
+> > +
+> > +		stmmac_tx_queue_prio(priv, priv->hw, prio, i);
+> > +		priv->xmit_qdisc.prio[i] =3D prio;
+> > +	}
+> > +
+> > +	stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
+> > +				      priv->plat->tx_sched_algorithm);
+> > +	priv->xmit_qdisc.algo =3D priv->plat->tx_sched_algorithm;
+> > =20
+> >  	netdev_reset_tc(ndev);
+> >  	netif_set_real_num_tx_queues(ndev, priv->plat->tx_queues_to_use);
+>=20
+> [Severity: Medium]
+> Can a qdisc replace end up undoing the offload that was just installed?
+>=20
+> For "tc qdisc replace dev X root mqprio ... hw 1" on top of an already
+> offloaded mqprio, the core creates and offloads the new qdisc first, and
+> only then destroys the old one:
+>=20
+> net/sched/sch_api.c:qdisc_graft() {
+> 	...
+> 	notify_and_destroy(net, skb, n, classid, old, new, extack);
+>=20
+> 	if (new && new->ops->attach)
+> 		new->ops->attach(new);
+> }
+>=20
+> qdisc_put(old) -> mqprio_destroy() -> mqprio_disable_offload() issues
+> num_tc =3D=3D 0, which tc_setup_dwmac510_mqprio() forwards to
+> stmmac_reset_tc_mqprio().  That now rewrites the PSTQX priorities and the
+> MTL scheduling algorithm back to the devicetree values, and also resets
+> priv->xmit_qdisc, while mqprio_attach() does not re-apply the offload.
+>=20
+> The result looks like the replacement qdisc reporting hw offload while the
+> MAC is back on the devicetree scheduler and priorities, and the stale
+> cached state is re-applied on the next open.  Should the reset path check
+> whether an offloaded mqprio is still installed before reprogramming?
 
-That sounds like a reason to stub them to return true always rather
-than call the flush all so we don't have fallbacks added at two
-layers of the stack?
+I guess this issue is already present and it has not been introduced by
+this patch. I think the problem should be fixed with a dedicated patch.
+Moreover, the fix would require to change sch_mqprio in order to provide=20
+the handle of the offloaded qdisc.
 
-> 
-> Cheers
-> Suzuki
-> 
-> 
-> >   
-> >> +}  
-> > 
-> >   
-> 
+>=20
+> [Severity: Medium]
+> Is it safe to touch these registers from ndo_setup_tc without a runtime PM
+> reference?
+>=20
+> stmmac_reset_tc_mqprio() and the setup path both call
+> stmmac_tx_queue_prio() and stmmac_prog_mtl_tx_algorithms() unconditionall=
+y,
+> and those are read-modify-write accesses, e.g.:
+>=20
+> drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:dwmac4_tx_queue_priorit=
+y() {
+> 	value =3D readl(ioaddr + base_register);
+>=20
+> 	value &=3D ~GMAC_TXQCTRL_PSTQX_MASK(queue);
+> 	value |=3D (prio << GMAC_TXQCTRL_PSTQX_SHIFT(queue)) & ...;
+>=20
+> 	writel(value, ioaddr + base_register);
+> }
+>=20
+> The driver drops its PM reference at the end of probe and in
+> stmmac_release(), and stmmac_runtime_suspend() gates the bus/CSR clocks v=
+ia
+> stmmac_bus_clks_config(priv, false).  Adding or deleting an mqprio qdisc =
+on
+> a down interface therefore reaches these accesses with the MAC clock
+> gated, where the readl can return an undefined value that is then written
+> back over the other queues' PSTQ fields and the other MTL_Operation_Mode
+> bits.
 
+I think this issue is not introduce by this patch and it is already present=
+ (so
+it needs to be fixed with a dedicated patch). There is already a patch upst=
+ream
+to resolve the problem:
+https://lore.kernel.org/netdev/20260827-stmmac-setup-tc-enable-pm-v2-1-a9b8=
+a5948f41@oss.qualcomm.com/
+
+>=20
+> Other stmmac control paths that touch registers outside open (set_mac_add=
+ress,
+> VLAN add/del) wrap the access in pm_runtime_get_sync()/pm_runtime_put().
+> Would a similar guard, or a netif_running() check, be appropriate here?
+> These writes also look redundant while the device is down, since
+> stmmac_mtl_configuration() re-applies priv->xmit_qdisc on the next open.
+>=20
+> > @@ -1290,6 +1308,17 @@ static int tc_setup_dwmac510_mqprio(struct stmma=
+c_priv *priv,
+> >  	if (qopt->num_tc > ARRAY_SIZE(tc_to_txq))
+> >  		return -EINVAL;
+> > =20
+> > +	if (!priv->dma_cap.dcben)
+> > +		return -EOPNOTSUPP;
+> > +
+>=20
+> [Severity: Medium]
+> This is a pre-existing issue and not introduced by this patch, but since
+> the entry validation is being extended here: should mqprio->mode,
+> mqprio->shaper, mqprio->min_rate[] and mqprio->max_rate[] be rejected?
+
+As pointed out by sashiko, this issue is already preset and it should be fi=
+xed
+with a dedicated patch.
+
+>=20
+> net/sched/sch_mqprio.c:mqprio_enable_offload() copies those into
+> tc_mqprio_qopt_offload for TC_MQPRIO_MODE_CHANNEL and relies on the driver
+> to refuse what it cannot do:
+>=20
+> 	case TC_MQPRIO_MODE_CHANNEL:
+> 		mqprio.flags =3D priv->flags;
+> 		...
+> 		if (priv->flags & TC_MQPRIO_F_MAX_RATE)
+> 			for (i =3D 0; i < mqprio.qopt.num_tc; i++)
+> 				mqprio.max_rate[i] =3D priv->max_rate[i];
+>=20
+> tc_setup_dwmac510_mqprio() only consumes qopt and preemptible_tcs, so
+> "mode channel shaper bw_rlimit max_rate ... hw 1" returns success and the
+> rate limits are echoed back to userspace without any shaping being
+> programmed.
+>=20
+> [Severity: Medium]
+> Does this narrow an offload that already worked?
+>=20
+> The baseline tc_setup_dwmac510_mqprio() validated only num_tc =3D=3D 0 and
+> num_tc > ARRAY_SIZE(tc_to_txq).  The new !priv->dma_cap.dcben check, the
+> AVB-queue check below, and the count[i] > 1 check make configurations that
+> previously succeeded return -EOPNOTSUPP, including the FPE preemptible-TC
+> mapping part of the offload which is unrelated to the new priority
+> programming.
+>=20
+> The count > 1 case looks like it was intentionally supported:
+>=20
+> drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c:dwmac5_fpe_map_preemptio=
+n_class() {
+> 	...
+> 		if (count =3D=3D 1)
+> 			continue;
+>=20
+> 		if (priv->xmit_qdisc.algo =3D=3D MTL_TX_ALGORITHM_SP) {
+> 			NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
+> 			return -EINVAL;
+> 		}
+>=20
+> 		queue_weight =3D priv->plat->tx_queues_cfg[offset].weight;
+> 	...
+> }
+>=20
+> That weight-checking branch becomes unreachable from the mqprio path now
+> that the algorithm is forced to SP before it runs.  Configurations such as
+> "mqprio ... queues 2@0 2@2 fp E P hw 1" lose the offload.
+
+I think the new sanity checks are required in order to properly support SP
+priority offloading based on the hw capabilities. There were not necessary
+before since this hw capability was not available.
+
+>=20
+> Additionally, forcing MTL_TX_ALGORITHM_SP overrides the devicetree
+> tx-sched-algorithm and the devicetree per-queue priority masks for every
+> mqprio user that is still accepted.  Should the commit message mention
+> these behaviour changes for existing users rather than describing them on=
+ly
+> as offload requirements?
+>=20
+> > +	/* Forcing strict priority conflicts with the CBS algorithm of AVB
+> > +	 * queues, so reject the offload when any queue is configured as AVB.
+> > +	 */
+> > +	for (i =3D 0; i < pdata->tx_queues_to_use; i++) {
+> > +		if (pdata->tx_queues_cfg[i].mode_to_use =3D=3D MTL_QUEUE_AVB)
+> > +			return -EOPNOTSUPP;
+> > +	}
+> > +
+>=20
+> [Severity: Medium]
+> Is this rejection effective in only one direction?
+>=20
+> tc_setup_cbs() in the same file has no reciprocal check.  It validates the
+> queue index, priv->dma_cap.av and the slope parameters, then converts a D=
+CB
+> queue into an AVB queue and programs the shaper:
+>=20
+> 	mode_to_use =3D priv->plat->tx_queues_cfg[queue].mode_to_use;
+> 	if (mode_to_use =3D=3D MTL_QUEUE_DCB && qopt->enable) {
+> 		ret =3D stmmac_dma_qmode(priv, priv->ioaddr, queue, MTL_QUEUE_AVB);
+> 		...
+> 		priv->plat->tx_queues_cfg[queue].mode_to_use =3D MTL_QUEUE_AVB;
+>=20
+> Nothing there consults priv->xmit_qdisc.algo or netdev_get_num_tc(), so t=
+he
+> usual TSN order
+>=20
+>   tc qdisc add dev X root mqprio ... hw 1
+>   tc qdisc replace dev X parent <mqprio child> cbs ... offload 1
+>=20
+> succeeds and leaves the MAC in strict priority with a CBS/AVB queue, which
+> is the combination this new check and the commit message declare
+> unsupported.
+>=20
+> The mismatch also survives a reopen, since stmmac_mtl_configuration()
+> programs the cached SP algorithm and then re-applies CBS:
+>=20
+> 	stmmac_prog_mtl_tx_algorithms(priv, priv->hw, priv->xmit_qdisc.algo);
+> 	/* Configure CBS in AVB TX queues */
+> 	if (tx_queues_count > 1)
+> 		stmmac_configure_cbs(priv);
+>=20
+> Should tc_setup_cbs() carry the symmetric check on priv->xmit_qdisc.algo,
+> or is the mqprio-side rejection not needed?
+
+I think even this one is an issue already present since the user can provide
+queue priorities via device tree and at the same time create a cbs qdisc
+offloaded in hw. I think we should provide a fix that needs to be backported
+here.
+
+>=20
+> > @@ -1299,6 +1328,20 @@ static int tc_setup_dwmac510_mqprio(struct stmma=
+c_priv *priv,
+> >  		ndev_prio_tc_map[i] =3D READ_ONCE(ndev->prio_tc_map[i]);
+> > =20
+> >  	for (i =3D 0; i < qopt->num_tc; i++) {
+> > +		/* The offload switches the MTL scheduler to strict priority,
+> > +		 * which only supports a 1:1 TC to TX queue mapping.
+> > +		 */
+> > +		if (qopt->count[i] > 1) {
+> > +			NL_SET_ERR_MSG_MOD(extack,
+> > +					   "SP sched requires 1:1 TXQ map");
+> > +			return -EOPNOTSUPP;
+> > +		}
+> > +
+> > +		if (qopt->offset[i] >=3D qopt->num_tc) {
+> > +			NL_SET_ERR_MSG_MOD(extack, "TX queue range exceeded");
+> > +			return -EINVAL;
+> > +		}
+> > +
+>=20
+> [Severity: Medium]
+> Should this bound be priv->plat->tx_queues_to_use rather than
+> qopt->num_tc?
+>=20
+> num_tc is only limited by ARRAY_SIZE(tc_to_txq) here and by the core:
+>=20
+> net/sched/sch_mqprio_lib.c:mqprio_validate_queue_counts() {
+> 	...
+> 		if (qopt->offset[i] >=3D dev->real_num_tx_queues ||
+> 		    last > dev->real_num_tx_queues) {
+> 	...
+> }
+>=20
+> stmmac allocates the netdev with MTL_MAX_TX_QUEUES queues and only clamps
+> real_num_tx_queues to plat->tx_queues_to_use in stmmac_hw_setup(), so
+> before the first open a request like "mqprio num_tc 4 ... queues 1@0 1@1
+> 1@2 1@3 hw 1" on a device with tx_queues_to_use =3D=3D 2 passes both chec=
+ks.
+>=20
+> The priority programming loop below is bounded by pdata->tx_queues_to_use,
+> so the TCs with offset >=3D tx_queues_to_use never get a PSTQX/PSTC mask
+> while the offload still returns success, and netif_setup_tc() remaps those
+> priorities to TC0 at the next open.
+>=20
+> The same check also rejects a sparse but otherwise legal map, e.g.
+> num_tc 2 with "queues 1@0 1@2".  Is that intentional?
+
+As the previous ones, even this issue is reachable even without this patch
+applied. I think we should address it in net with a proper fixes tag.
+
+>=20
+> > @@ -1315,14 +1358,44 @@ static int tc_setup_dwmac510_mqprio(struct stmm=
+ac_priv *priv,
+> >  	if (err)
+> >  		goto error_reset_tc;
+> > =20
+> > +	priv->xmit_qdisc.algo =3D MTL_TX_ALGORITHM_SP;
+> >  	err =3D stmmac_fpe_map_preemption_class(priv, ndev, extack,
+> >  					      mqprio->preemptible_tcs);
+> >  	if (err)
+> > -		goto error_reset_num_tx_queues;
+> > +		goto error_reset_xmit_algo;
+> > +
+> > +	for (i =3D 0; i < pdata->tx_queues_to_use; i++) {
+> > +		u32 prio =3D 0;
+> > +		int j;
+> > +
+> > +		for (j =3D 0; j < qopt->num_tc; j++) {
+> > +			int p;
+> > +
+> > +			if (qopt->offset[j] !=3D i)
+> > +				continue;
+> > +
+> > +			/* The PSTQX/PSTC priority map is 8 bits wide, so only
+> > +			 * priorities 0-7 can be represented in hardware.
+> > +			 * Priorities 8-15 are handled in software by the
+> > +			 * kernel through the netdev prio_tc_map.
+> > +			 */
+> > +			for (p =3D 0; p < 8; p++) {
+> > +				if (qopt->prio_tc_map[p] =3D=3D j)
+> > +					prio |=3D BIT(p);
+> > +			}
+> > +			break;
+> > +		}
+> > +
+> > +		stmmac_tx_queue_prio(priv, priv->hw, prio, i);
+>=20
+> [Severity: Medium]
+> Is the last argument the right index on XGMAC?
+>=20
+> The mask computed here belongs to traffic class j, but the index passed to
+> stmmac_tx_queue_prio() is the queue index i.  For XGMAC the callback is:
+>=20
+> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_tx_queue_pri=
+o() {
+> 	reg =3D (queue < 4) ? XGMAC_TC_PRTY_MAP0 : XGMAC_TC_PRTY_MAP1;
+> 	...
+> 	value &=3D ~XGMAC_PSTC(queue);
+> 	value |=3D (prio << XGMAC_PSTC_SHIFT(queue)) & XGMAC_PSTC(queue);
+> }
+>=20
+> XGMAC_PSTC() selects a traffic-class field in MTL_TC_Prty_Map0/1, while t=
+he
+> queue to TC association is programmed separately in XGMAC_Q2TCMAP:
+>=20
+> drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c:dwxgmac3_fpe_map_preempt=
+ion_class() {
+> 	for (u32 i =3D 0; i < count; i++) {
+> 		val =3D readl(priv->ioaddr + XGMAC_MTL_TXQ_OPMODE(offset + i));
+> 		writel(u32_replace_bits(val, tc, XGMAC_Q2TCMAP), ...);
+> }
+>=20
+> Both dwxgmac210 and dwxlgmac2 use dwmac510_tc_ops, and a permuted map such
+> as "mqprio num_tc 2 map ... queues 1@1 1@0 hw 1" passes both
+> intervals_overlap() in the core and the new offset < num_tc check.  In th=
+at
+> case TC0's mask would be written into the PSTC field of TC1 and vice vers=
+a.
+> Should the XGMAC path program PSTC using the TC index, or should
+> non-identity offsets be rejected?
+
+I think the issue is real since in dwmac4_tx_queue_priority(, queue) queue
+index is the real hw queue, while in dwxgmac2_tx_queue_prio(, queue) queue
+index is actually a tc index (even if it called queue).
+Moreover, the dts path just assumes the tc index is equal to queue index.
+I guess we should just forbid this configuration in order to keep dts and tc
+paths aligned. What do you think?
+
+Regards,
+Lorenzo
+
+>=20
+> > +		priv->xmit_qdisc.prio[i] =3D prio;
+> > +	}
+> > +
+> > +	stmmac_prog_mtl_tx_algorithms(priv, priv->hw, MTL_TX_ALGORITHM_SP);
+> > =20
+> >  	return 0;
+> > =20
+> > -error_reset_num_tx_queues:
+> > +error_reset_xmit_algo:
+> > +	priv->xmit_qdisc.algo =3D priv->plat->tx_sched_algorithm;
+> >  	if (netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues))
+> >  		netdev_warn(ndev, "Failed to restore %u TX queues\n",
+> >  			    ndev_num_tx_queues);
+>=20
+> --=20
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20260918-stmmac-mqprio-prio-offload-v1-1-5328157fcb58%40oss.qualcomm.com
+
+--WpfnQHKyq4r32x1m
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCarQEUAAKCRA6cBh0uS2t
+rJV8AP9Fg83NQyJdd9mNLAxLhU7g4IQZHXshvIviFA+gIDf7gQEA89cfehWg/yYV
+Y5UZOGHBjb4tQ+LK4HO59s6NmMvtlAI=
+=SY4Z
+-----END PGP SIGNATURE-----
+
+--WpfnQHKyq4r32x1m--
 
