@@ -4,84 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63060C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A8FC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fOsjR1C8KRldJmAM/WaBd8dcZ8oAMqD1v2iQK87wQ/8=; b=f5kY4oilHrkjQzKRCQKp+2x2Fj
-	nFjp94hfRiAtZfF1VF09Ttwgf4Kkr21nQAcOSnFU4ve8GftX8U02qIomrV9yyK+VIkRE8fprEGVsT
-	Zf9zPSqQFXz4AWN7b8jvrSqc+KY9Mxo38iI7G0T5sJ/Tjna/vRuAjnhMeE0j2Wwn4RlOwUWbKBYjn
-	/ELBFPGwFJWGPiRZkHNCrm+BGN4dch29VvUflFE9hxYGzUYYR8jvNAILhqTOftlo1YeL70O0iCsOa
-	O0OQy1ka8hfapXLaT6mQDbs8DEOl2roACIBFQO7c9lmt/LMxGZfWePFVdYCW6CG0Wy4aWn487rMnq
-	2G+Rg/TA==;
+	bh=NMB6bu75t+ZZ5TxFVUnvCCWgfugEUPmSZZ3Ssad5w0I=; b=TcKt9r/QwEL4ML2agh1gsMQa1o
+	ssECpjUNdU7RHTkekXPr4S15tgF4Abo1OCxHVPrCyhwFNVguDqVM0q24apTiniO5VY/Y8ZREyASyw
+	hTZ1ru5EsFnLsww0UBZKrKKlrHvg4IC9nObzDdkS3UsYLmUrnmMDOVCUuFFBpTAJZHIBNc8zMnAUZ
+	cA/VLFpXp073Zc8E5Otd8x2KywT3tIgAuncRShNV0c1i+8czkngBtCjDgdrLjkcddV2CBVhemPH2U
+	pcs7tDTjx1ja9aFxIxeotuITyPfWIbVRqQtjZEC7NAO30dB6a8lq0i1S586wPaTIN6U4kGldBMQW5
+	ATkv/+Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JrQ-00000007qXR-3I2w;
-	Wed, 23 Sep 2026 10:05:56 +0000
-Received: from mail-qk2-f12.google.com ([74.125.230.204])
+	id 1x9Jue-00000007qoj-0d9F;
+	Wed, 23 Sep 2026 10:09:16 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JrI-00000007qWK-0TpO
+	id 1x9Jub-00000007qoB-0OLZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:05:50 +0000
-Received: by mail-qk2-f12.google.com with SMTP id af79cd13be357-93a2a8c29c4so77729085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:05:47 -0700 (PDT)
+	Wed, 23 Sep 2026 10:09:14 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49e65a8f70eso30575e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:09:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790158151; x=1790762951; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NMB6bu75t+ZZ5TxFVUnvCCWgfugEUPmSZZ3Ssad5w0I=;
+        b=AszWacmeZlJqeqHzyr+XFU4+6cN9yk0rd9sMQ+5aj/eQUMcciUDWgvO2dOQfmOUpea
+         Sv4f+6taSRuBGvF/SqJvyaWrnh5Ka56wdfPnj5NO0yiQDwj5K8IsNJroIhYvrN6P0CyV
+         V9hDIVqoiEha3UL6fH3FJP8o8ddLDQ+n4JvdiSO0anoSLZyoITP/eu4CfhXYdn/f55Ky
+         gPo20bYAoI2bCvAp2+3VMp8AEpk/0Q+v3VMqPb8WOeVNm/LB1hay9JkRO9KrPN/54vvN
+         8Y5CgCX5pXE/IDh7Ks2e8bZnR3sO6p/fd/d06qyN828r2MLCKi6b6K2tnHpazLWhHsxk
+         JeWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790157946; x=1790762746;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=fOsjR1C8KRldJmAM/WaBd8dcZ8oAMqD1v2iQK87wQ/8=;
-        b=ckY/b4VhQIGdh6D5/EuDOVJM8e0vqx6a3lDWX5QQ3atuBwsR6Wv3qWURemZN0z+Rdf
-         F0Idr9zPuH3PcsmlWLENqihEqSwk/q8EJHpv9MiS0fMW25VfnQYo4Ckp4fNIvZOaaUJy
-         yqAj22CogOFSfr287zALiXPuyxZJLIIWQ4jv7IUI1yb3uVinI9J6uReGjcMjQ9tJk64o
-         k9L0o9zO3ilPhqp5GuvMedaEnaQVubFp5AB5EgewbbGGXeIXGw1FfBg+FQ8dVW23Fj+N
-         6hROYEbR351gs3K3tdqW7n53+Mr8gYmO/L9MUnMhn3q7LHWFFwb5AL1BVm7qcJmjHxFt
-         +s1Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwuirL/PvwKGYSzxOUaSIpZDBfuPPKnvdfxoEiXnaKYhlljAjtaxmptRP31BmoIiG3GtzyoAfgL9C7pMZ0tzHBP@lists.infradead.org
-X-Gm-Message-State: AFuF++mvDQmL5Ch04vdzlIDy3b2rV1H5NdbL5dH9RmNsaHB+EdFLA5Bw
-	dlgoJ4GXarv/+AuatyyEjBk2dB6WFb9MxcyX0TjdXrxe4ADlun3j2udK+Rz/mYz3Y5w=
-X-Gm-Gg: AYBFou25ibz1di3I3Da7awHnBE989uHJPh2vUcZ/r609+bv/2NNjOGjM9Tmz9YyZVvL
-	io9XyG5TUz0Xxh4giXmCk2Qxlmkmi2tS6zywSWLb4ko113Gu+hIBenbqvj5t8U4J25hQZuJKKcv
-	YabyvPAKYAl9N7cSvsXplaT2X2mHQKNeqq1Lmwb22Cg+q2XJi/c2FAV1OAXtKtxr3ZYobDumvYn
-	C2CTXKKAfsV0+z7SXxzfqyg51a5rbHT+Q0pJDy3wSnHwNViXoeo6AiPE/tBDJ845OTDisIogs5e
-	pQ5sAJomDPXlt09PzOhPL2ZBbpxwj1av9nnt8ij0WQXrGDnx3qtDkCBm+p5fzN7mcqXEtgfuKFp
-	mfBh5oK6sx5l3Haufp5P++aQdPv6FaoC82k22cwAsL70r8sZ8rKuUFwP5ArU098WgfJwNskHztP
-	Ss/1c63EMQ0wGCRy80cbSaNsdh8ngDqrT7/xK/SFWXIWZM4uHMEmyKmdU9sqWyNMpeXOnhQR785
-	Vk+gGlrDdGD/Y21tPw4WsnYtBG0YIL+A0bf
-X-Received: by 2002:a05:6102:4188:b0:7a7:198b:674b with SMTP id ada2fe7eead31-7ac1e24f078mr2067871137.32.1790157529933;
-        Wed, 23 Sep 2026 02:58:49 -0700 (PDT)
-Received: from mail-vs2-f41.google.com (mail-vs2-f41.google.com. [74.125.227.41])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c9f324fd53sm1516561e0c.16.2026.09.23.02.58.49
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Sep 2026 02:58:49 -0700 (PDT)
-Received: by mail-vs2-f41.google.com with SMTP id ada2fe7eead31-7856441f7d8so420322137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 02:58:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwAeM8vYCXWNkh3bsbB7966/GJmY/Zd0BrFrsQYtOt/eT97imnaNn4Kq6L/S/5kiKmWnrpiH3aJ0v082WaNkxMN@lists.infradead.org
-X-Received: by 2002:a05:6102:5493:b0:7a6:d3f5:3551 with SMTP id
- ada2fe7eead31-7ac1ba3aa41mr1865740137.14.1790157529595; Wed, 23 Sep 2026
- 02:58:49 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790158151; x=1790762951;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NMB6bu75t+ZZ5TxFVUnvCCWgfugEUPmSZZ3Ssad5w0I=;
+        b=AVzJ+TFttC/m/6j9WcWZA+KfXa8TagHo6oBz5vdJY1h3s9LlYHtZpRkLR6iCBRsn7I
+         dvQxE8JNQiBagFtLaK7sVpqSJAhvjYPHJ80NOZXQIxfiJb9j00KrPTEzkbrr/YC+dTXc
+         7vfQQju9EMOA/Q77EhBnv7jXpvxI6G444c0Bo3B6Ih4bxiMtSAeY9wLM1LnRRboIWeiD
+         sJmtqA18Q1hV11ce9haoahVlAyYAFEdUEDhy74hxWtCkLVAJMmmNnSvGec76IVAGB5KJ
+         jZfpOVv9oFvsURSoft/+gn3OeHwC1kMVGZgQmUrL2RqBcmQE8cFfqKW5RVqbKIknrYyT
+         kxcw==
+X-Gm-Message-State: AFuF++nhiV6tGTxkuOtavA+UgpQMZm3boDiQ4VxNwu7zjFx8FT+7Aoli
+	CrTpCXqE9q4rWlWmvx+3c4lhVhjO4V+rN1Yz5K8utTCotMPjBMNRPSa0GGGwB3T8WA==
+X-Gm-Gg: AYBFou2VajoxVorFEwVUz5wmlh6GqYl99y23FfYfGHcGxIFhlo0PuXMbU5v+5NBsk3G
+	rvZm9xMcDdrZzb+Y30C5bF0bKiyK1Ia43eFrCNv+9GyxxrEOAqeDk5HclwOMnkgr187z0K7B6w2
+	9E+p8rvPAkIVECKiBeZpJlUvQ/AFd9AwL79Y8YOmL/DSfSJNYjxyl6n/HX51Hvzdu7m/Cpalu1C
+	5eYwchk0pkk3834mQ0s1W+8+kA9Rfh+PbOp2Lfhbtj4ZXnO8KSayrXopNldgjYTWTeKuKbHHfwL
+	sHNxuPiS7wv0k9PYzhBKQbDBsV7aKZhoQRaLu1l1/1cDuykPQkI097wXH/kic/VdBiUz2jP3Beb
+	tT2GMh4r8FvcEQalmX5qyD4kaI3YE9k2LObBcrewBz5x6gE5hUnR1Qy/qmFNrp1hPM2xroiB/0G
+	osXTThKLBC+vWoGNj9EExvNQDRpTJzn87OYe1HcIlO3OP21djIU8l+hrmsNUluc7EsCqbPak+fh
+	7Yk6Lirzpfh5747z748UVx6UwJlm8uA01AdVr2i3ASO+sM4IY8=
+X-Received: by 2002:a05:600c:8588:b0:49f:e185:f3ae with SMTP id 5b1f17b1804b1-49fe185f460mr486475e9.2.1790158150774;
+        Wed, 23 Sep 2026 03:09:10 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fde18555bsm68255055e9.2.2026.09.23.03.09.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 03:09:10 -0700 (PDT)
+Date: Wed, 23 Sep 2026 10:09:06 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, sebastianene@google.com, keirf@google.com,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v8 04/25] iommu/arm-smmu-v3: Move IDR parsing to common
+ functions
+Message-ID: <arOlQtPYzF5yT8fP@google.com>
+References: <20260922131259.2975334-1-smostafa@google.com>
+ <20260922131259.2975334-5-smostafa@google.com>
+ <arLa0E3xq5dGuPpd@nvidia.com>
 MIME-Version: 1.0
-References: <20260922-mali-c55-renesas-dts-v1-0-cd63cdb51033@kernel.org> <20260922-mali-c55-renesas-dts-v1-1-cd63cdb51033@kernel.org>
-In-Reply-To: <20260922-mali-c55-renesas-dts-v1-1-cd63cdb51033@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 23 Sep 2026 11:58:38 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVkhSNDn3BpBt-9K8FPKhmODYVF-PCKr+AH8B+o4GHuJA@mail.gmail.com>
-X-Gm-Features: AclHuK-ZLnADC_yQSZhQ6KyATq7TTVujDV7zLDX1BCp0BDcquLjKrWDdI_wG4Oc
-Message-ID: <CAMuHMdVkhSNDn3BpBt-9K8FPKhmODYVF-PCKr+AH8B+o4GHuJA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: dts: renesas: r9a09g057: Add IVC and ISP nodes
-To: Linus Walleij <linusw@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Daniel Scally <dan.scally@ideasonboard.com>, linux-renesas-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arLa0E3xq5dGuPpd@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_030549_149627_33AA2661 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20260923_030913_252616_3F65573B 
+X-CRM114-Status: GOOD (  37.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +108,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Tue, Sep 22, 2026 at 12:45:20PM -0700, Nicolin Chen wrote:
+> On Tue, Sep 22, 2026 at 01:12:37PM +0000, Mostafa Saleh wrote:
+> > Move parsing of IDRs to functions so that it can be re-used
+> > from the hypervisor.
+> > 
+> > As the new functions operate on structs from both the hypervisor
+> > and the kernel which would be different, we rely on the compilation
+> > unit to having ARM_SMMU_OBJ point to the correct struct; some
+> 
+> s/to having/to have
 
-Thanks for your patch!
+Will do.
 
-On Tue, 22 Sept 2026 at 15:34, Linus Walleij <linusw@kernel.org> wrote:
-> From: Daniel Scally <dan.scally@ideasonboard.com>
->
-> Add the Input Video Control Block and Arm Mali-C55 ISP to the device
-> tree file for the RZ/V2H(P) SoC.
->
-> [Rebase onto v7.3-rc1, place the nodes in address order, and sort
->  the interrupt properties. - Linus Walleij]
->
-> Assisted-by: LLM
+> 
+> > best-effort static asserts were added .
+> 
+> s/added \./added\.
 
-Dear LLM: Please take into account the review comments on the original
-submission:
-https://lore.kernel.org/CAMuHMdVCeMaQ8yFnMgr1Nko+0yQxn69BR9fGJ2WPvADMc2gvRQ@mail.gmail.com/
+Will do.
 
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> 
+> > +#ifndef __ARM_SMMU_V3_COMMON_LIB_H
+> > +#define __ARM_SMMU_V3_COMMON_LIB_H
+> > +
+> > +#include <linux/build_bug.h>
+> > +#include <linux/compiler_types.h>
+> > +#include <linux/kernel.h>
+> > +
+> > +/*
+> > + * The IDR probe functions are used by the kernel and the
+> > + * hypervisor drivers where ARM_SMMU_OBJ might be defined
+> > + * differently.
+> > + * Ensure fields used by them are defined and has the correct
+> > + * types.
+> 
+> s/has/have
+> 
+> We have 80 cols per line to write comments :)
 
-Gr{oetje,eeting}s,
+Will do.
 
-                        Geert
+> 
+> > + */
+> > +#ifndef __KVM_NVHE_HYPERVISOR__
+> > +typedef struct arm_smmu_device ARM_SMMU_OBJ;
+> > +#endif
+> 
+> It's probably safer to include arm-smmu-v3.h so everything would
+> be self-defined.
+> 
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Yes, I was not sure about that, I was thinking of making this file
+included strictly after the struct is defined first but I didn't
+find a suitable place for that.
+So, I can just add the include here before the typedef.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> Also, Jason's suggestion in v7 was hyp_arm_smmu_v3_device, which
+> looks nicer than ARM_SMMU_OBJ...
+> 
+
+I think having another name makes the code more readable (not sure if
+some tools can be confused also) than renaming the hypervisor struct
+to the kernel one. That makes it clear what is the intent of this.
+
+> > +static_assert(__same_type(typeof_member(ARM_SMMU_OBJ, features), u32));
+> > +static_assert(__same_type(typeof_member(ARM_SMMU_OBJ, options), u32));
+> > +static_assert(__same_type(typeof_member(ARM_SMMU_OBJ, oas), unsigned long));
+> > +static_assert(__same_type(typeof_member(ARM_SMMU_OBJ, pgsize_bitmap), unsigned long));
+> > +static_assert(__same_type(typeof_member(ARM_SMMU_OBJ, base), void __iomem *));
+> > +
+> > +void arm_smmu_device_iidr_probe(ARM_SMMU_OBJ *smmu);
+> > +u32 arm_smmu_idr0_probe(ARM_SMMU_OBJ *smmu);
+> > +void arm_smmu_idr3_probe(ARM_SMMU_OBJ *smmu);
+> > +u32 arm_smmu_idr5_probe(ARM_SMMU_OBJ *smmu);
+> 
+> Can we use "arm_smmu_device_xyz_probe" matching with the existing
+> arm_smmu_device_iidr_probe?
+
+Sure.
+
+> 
+> > +	if (coherent && !disable_msipolling &&
+> > +	    smmu->features & ARM_SMMU_FEAT_MSI)
+> > +		smmu->options |= ARM_SMMU_OPT_MSIPOLL;
+> 
+> Will pKVM ever use MSIPOLL?
+
+No, this version does not support MSI and hides it.
+And this check can not be moved because disable_msipolling is a
+module_param.
+Although it might be possible to pass it as an argument to the
+function and assume (smmu->features & ARM_SMMU_FEAT_COHERENCY) is set
+based on FW before the IDR probe similarly, no strong opinion, so this
+part can all be moved as is.
+
+> 
+> > +	if (smmu->features & ARM_SMMU_FEAT_HYP &&
+> > +	    cpus_have_cap(ARM64_HAS_VIRT_HOST_EXTN))
+> > +		smmu->features |= ARM_SMMU_FEAT_E2H;
+> 
+> Why is ARM64_HAS_VIRT_HOST_EXTN left behind?
+> 
+
+cpus_have_cap() can not be used in the hypervisor.
+Also, ARM_SMMU_FEAT_E2H is not exactly FEAT_HYP. As it defines the
+world the translation lives in based on the kernel EL.
+
+With pKVM at EL2 ARM64_HAS_VIRT_HOST_EXTN is always true anyway.
+And the hypervisor never owns a page table itself, so it never
+checks this feature.
+Otherwise, I think we can move this check and use cpus_have_final_cap()
+instead as it can be used in the hypervisor.
+
+> > -	if (!(reg & (IDR0_S1P | IDR0_S2P))) {
+> > +	if (!(smmu->features & (ARM_SMMU_FEAT_TRANS_S1 | ARM_SMMU_FEAT_TRANS_S2))) {
+> >  		dev_err(smmu->dev, "no translation support!\n");
+> >  		return -ENXIO;
+> 
+> This change seems unnecessary. The code above and below this line
+> still uses "reg" returned by idr0_probe(). So, the original code
+> should have read well:
+
+True, I will change it back.
+
+Thanks,
+Mostafa
+> 
+>         if (!!(reg & IDR0_COHACC) != coherent)
+>                 dev_warn(smmu->dev, "IDR0.COHACC overridden by FW configuration (%s)\n",
+>                          str_true_false(coherent));
+> 
+> 	if (!(reg & (IDR0_S1P | IDR0_S2P))) {
+>                 dev_err(smmu->dev, "no translation support!\n");
+>                 return -ENXIO;
+>         }
+> 
+>         /* We only support the AArch64 table format at present */
+>         if (!(FIELD_GET(IDR0_TTF, reg) & IDR0_TTF_AARCH64)) {
+>                 dev_err(smmu->dev, "AArch64 table format not supported!\n");
+>                 return -ENXIO;
+>         }
+> 
+> Nicolin
 
