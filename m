@@ -4,117 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63CFC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 05:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E56DC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8I4xevnwT3ppSAEaRbNTpjJDMceK72lG36tesANdB7I=; b=05OvwcquIyZ0G52Mqt37M/2hS7
-	Qa5ARjbvA6bPpTB2yKUQU/ITSbPwFxaojXuvQF2gfNvetNa7XnAlp8cnEca9INB+oOQtSmldkWq98
-	+sMd/deknJwejPGshAreVDMV0azX9HBvwK12t9lvNJf1mmD8BDG2M0dG+6A8JDqUn7KZ7SQ5Css+G
-	1WvhbpthehhBAC5+ihou9NF4dtKAX6RegIIMIx36wXvZb4JlTxaCO1jz0j4MX0EDEGfRBesTITw7G
-	6hSGTDLyQ2uP83kbSlIMgkzn39DxwIUZSk8em+2pPjXnpK2NHjyQ+7tNJ1TXkDf8lb+Udnyn++D3H
-	253gYnyg==;
+	bh=ajwQZOr87sWCQYLhUQBHbtQ3joCGhi4wylKhS7pFxAM=; b=e7SeFec9MqY7gv8bNz4qqw5f8H
+	ti2EkI4RSSyarrRY2iFhU+o7ufFiEeH8Jyis/NWq8gfVcne7quY4W7O1RWdw1BfUw4XVibwEipxdY
+	84abbS/MHZypJBQODxtBKBi7MaRXEXK4sKUB21UUKB0HnrbClCqSxuHQqlwj6jJ5FW2kuF6t9O7D2
+	XHOrP+NRE/L6ODs+7VuXXZN6g0n4t5DI3fnE+jB5bB3FHpfPTR/ctweww5+E5eus6EiqwjdYo3rAn
+	khmy/4UuhgidjxXdhwvtak1hx+CDp0KtU/achZL6VMZ/FG5hHkSxcSNU6DTaBkHIxjfs//e/DgB7h
+	t19/MWsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Fyq-00000007E1Y-2xqb;
-	Wed, 23 Sep 2026 05:57:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9G7B-00000007Elz-2x4F;
+	Wed, 23 Sep 2026 06:05:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Fyo-00000007E1P-49In
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 05:57:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=8I4xevnwT3ppSAEaRbNTpjJDMceK72lG36tesANdB7I=; b=S5x3k0Tm1R+E6PxYA+hspPYDN2
-	MvSJY0BgQWA7B50wuKXtk/LR7ozvxX/IO8qKF2LJ0kcLdg0SszvouVi6XyKhyP+Yl5tMGhUbqXD4n
-	q5Qe55SB1Ya8mAJzAGN5bP3KR0qlWrDijGKcmhctH2odl9zWClTunlmFWQXjgk9ZdyhaT3kFuqwQK
-	QiTrtGHhEuTqm5FeXw95Li4h/jS96C+tKE3LAh0Z488bwkcVzSuRQo6orOzmnFBCCGyAVmlsJMJ/d
-	3w8HQyKMqu7LSQ8MLXjCVTo3KA/XHMaseLZW1dAaSjNCiHoZpjhAz6EqxkSdcxkncaRayuPIhLe3A
-	BDqg9M4w==;
-Received: from mail-oa2-x10.google.com ([2607:f8b0:4864:30::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9Fyf-0000000EP61-1Qyh
+	id 1x9G78-00000007ElK-36jM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 05:57:17 +0000
-Received: by mail-oa2-x10.google.com with SMTP id 586e51a60fabf-46accbdfb21so511479fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 22:57:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790143027; x=1790747827; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8I4xevnwT3ppSAEaRbNTpjJDMceK72lG36tesANdB7I=;
-        b=C+hbvk20GjaK532tI563taMCdi8qLTfXc5E4hSTwzXofpR6fcShmo9BGv+aRp6qlUY
-         DjoQ/s1nM4FUhwenMSMamOVBwzA3iZbxgod/kckJWw7OvlLRJB/byziJGue3oakKst7o
-         4cXa2Sfk+rFc3WvsnUOv3WKo+lSJ33KK5HYC96ZVu27EjorLStyVcTbNyBXAvQxHBC82
-         0+U68js38WEGa+66e7/9kHlxIaURas3ANtcSfSCJ9k4xiv15gS8Xrow4aYn3LDuSkrMn
-         ObVanVL+lp3HHy7JOJLIYiWhSUDcXUgVjjlpl2LOiXwJ7FgLRSr1aUS6WSDVzyBntZoj
-         zVwQ==
+	Wed, 23 Sep 2026 06:05:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790143551;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ajwQZOr87sWCQYLhUQBHbtQ3joCGhi4wylKhS7pFxAM=;
+	b=ah0Bn4kbIJ3xN4900am2Wnbx0FJuZAEEVRa4tz9Jyt5B8yMaCZN6z0Er14LzJRDQJ/0Qng
+	RXmxZS5ytxCbbWZ6HKbnu/5GNjEARGcOd6JxuTxAtiscrPlLWK8yFpI3yjfHMKBC68jXwG
+	bFMb4hPAK1xNdJO3BymsnmgvjdwCbyU=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-346-y74G8E84M-m9oiTb1eMGdQ-1; Wed, 23 Sep 2026 02:05:49 -0400
+X-MC-Unique: y74G8E84M-m9oiTb1eMGdQ-1
+X-Mimecast-MFC-AGG-ID: y74G8E84M-m9oiTb1eMGdQ_1790143548
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38f97b3f853so812723a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 23:05:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790143027; x=1790747827;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8I4xevnwT3ppSAEaRbNTpjJDMceK72lG36tesANdB7I=;
-        b=cEmEgUDKB2cfUILBluFAiyIgaoAoIhEGVUgklrUIaZ5VM5RFmKTv84E5/RXEECdoTG
-         CssZkHnS7niRJeLJAju8oeRPcWH3A1O0rnbSn0DymWEHFQiQc/Ok/tcC2hNPJohBQH/R
-         9eT/aeNdB2CrqDHBBypVTeKCAvP9effV78vPHff2om3vsyvbEKVVFvf1vZNUsgdT+Czg
-         F8wnFgxdyp0m0o0img1yOBrch0ka1sqT6mYHfUTvrXTvlz38rjeq9iAl77GovByDCrab
-         S5h7mTSOiWtFEokfblCqFr0ICTplFk4p5+thT/i1NbTgMcuadWBtt8hKjbqXXmQx0XuC
-         P47A==
-X-Forwarded-Encrypted: i=1; AKwUvByDgGDNqFcK3p2IUu4XDtucbq7G6HA028OezIFD+J6/H/sfKJfMu0vlIhEqZXUgqWnWQGLW5NGo/SVwFAO1jjGu@lists.infradead.org
-X-Gm-Message-State: AFuF++mFH8kUoNxLoN6lar4yTGQIICAqb+hzppJBi/cSQTvnwlTuO5KU
-	fzkHV1x/qKiO6KGQy77woh4wpLdRpbYjZfGwHLAxNw/fefMMS4hv6yZOG2WBG7Pn
-X-Gm-Gg: AYBFou1mXRBgdDKMFek+h2Qdaqv0tt/eqskqnUkQInzML4INrv6ICNq1KzNN4SEUL3e
-	msHKVUQDRJ3vlu1LvN+aao1DIO8nyBoKeftjw0jZxMqmM01+FWR1GqpKHCRiYt3AFfjP0EYwwLJ
-	68gMNYk/7dupkUymTveXB08+UXPY4r9tSyetz8a3RmiO6DyS1IM06IsJ7ZmSN303b5093GAl/A9
-	2/IBpqSzhtsbyq2eJhQvFeVKnMUbOwz++/dAVMG9kuoEFfhtA8fCzbajGcSpie+pShlf38fc7bC
-	cYL9w7bWnmQTSJ3k86EM2deC6DgZLvMVhdmp6kXJuTbM2FU1HzFW2Lj9zSiByAa24KND3T6Dz6x
-	tixJwBgGGQZ4xCqK6/J+SSwWy3xlNmXRixNvXTFrbVPTquBKSeeDJzoFdpmO0GIRr7eB5X3kio0
-	2r+z5EMaeVDTFaMk5SmqxqQgIvYglUU1lY5JWITHKl9ciRvFeIQjEG3i9RcOEudO+hHyZk5WUQA
-	3SyAlPYUBkqxgsrRWGcDp8PyxPNYpGXRgWyVrsPlsg73r4gWUWQMxc=
-X-Received: by 2002:a05:6a21:ed0a:b0:3dd:a197:cf27 with SMTP id adf61e73a8af0-3ddf828a55fmr1675049637.75.1790142667003;
-        Tue, 22 Sep 2026 22:51:07 -0700 (PDT)
-Received: from abs.sf.dndws.com ([50.35.86.68])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87d1dffd6ddsm691486b3a.48.2026.09.22.22.51.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 22:51:06 -0700 (PDT)
-From: Tao Gong <gongtao0607@gmail.com>
-To: netdev@vger.kernel.org
-Cc: "Chester A . Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Tao Gong <gongtao0607@gmail.com>
-Subject: [PATCH net v2 1/2] net: dsa: mt7530: use consistent egress tag for trapped link-local frames
-Date: Wed, 23 Sep 2026 05:51:02 +0000
-Message-ID: <20260923055103.949540-2-gongtao0607@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260923055103.949540-1-gongtao0607@gmail.com>
-References: <20260923055103.949540-1-gongtao0607@gmail.com>
+        d=1e100.net; s=20260707; t=1790143548; x=1790748348;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ajwQZOr87sWCQYLhUQBHbtQ3joCGhi4wylKhS7pFxAM=;
+        b=jbbC8l+VdvT/sQtQcqZX2bDYGRPUWlxkJ5idv2Qe6auNOOHdV6HOsbLNMo/m1venQZ
+         o+RcgnsHhgcdgDFWAWTw4ebzvXq3Ll9EnRNVBhUTasU1oiQEfLG+J1/LxH00sTIwHZbF
+         yECZR9YRRUWSyh5LtUT/DWYGo37Zk09Ho0/r+aMzACDtyZBJt/Y+BgCvs2QhC1NV9G3x
+         diJmn7RhNt8914c3Yvfrynr2Xv0UnN/9HyE9yWd9v89OAhXhmwnNs10Y58OGu24ZHbIG
+         uB5hq9BrfIndBF+D2McRPSFS07Gj/R1pFh/IAf2bZ3CMzSMh6FBatjsFAeF+D4J1975F
+         JkVw==
+X-Forwarded-Encrypted: i=1; AKwUvBxMdQK8mByc63f/TAdwYjOvcZccF8yeQImR+lFXKJ3jIbL3L+KDcHw7uROZaOZ6bcYXyPCCgvxyp2CXogIt5K9c@lists.infradead.org
+X-Gm-Message-State: AFuF++mTSyBBa3BhXOVtPWmA+39iwa4uv7O8mdCqJlEh9Z+Y2Vfwbp6F
+	0DlyImhX5M/JNrgdvjsiNdczdWIU8YymY4nyzsJlZsgzar3zp5LvTEWbvHEQMhQY+s3r5Jeymnp
+	mN6ZlyuwTuK0+UEqIhywktYGA/FWOYp7dmW7FkWMVcn1xQtrCnDc8SGRm/dVrfIZUnZgx/EKiOx
+	3H
+X-Gm-Gg: AYBFou0tZrf/Om7EeCoRuuHe2BAeUDszyUiz/aoqqXPXfOlrm2+0qR6hLcEzvJ14xYd
+	y7y1R5B0hUL3U8mhWqH/RUiFPx7uJDG6rkBMe1Ym8GR++ILorhaeyev5MpPweKFQtaoV3RLS4Hl
+	MdUUYZ++6zMILjRSWk7zKNnLX3eCd7hpY0yXIyw7nQVAL+/PfBtkDYKoZdBDnOTiXNQavDIY6zx
+	gjpCalHUN8nOthLPGzSKQiJ8WrpI2Jyoh9WVBirJ18sAEMUJszzx7rnmPQLT9EVC4Rzk+J9EW9N
+	ZHQbRRTDopFgxXACGw/jVu/WkVh75vwQT5fW9zXIIRWBx3JfV6aZcLs1DqenyP1hVObwZgRymmA
+	7UWifgROVqa/Nlh6jtIm3bd6J9th08IM6pYRmE8KNOU2/3MFfCTNF
+X-Received: by 2002:a17:90b:578f:b0:39e:4c80:44b7 with SMTP id 98e67ed59e1d1-3a07e513903mr1439140a91.26.1790143547769;
+        Tue, 22 Sep 2026 23:05:47 -0700 (PDT)
+X-Received: by 2002:a17:90b:578f:b0:39e:4c80:44b7 with SMTP id 98e67ed59e1d1-3a07e513903mr1439118a91.26.1790143547116;
+        Tue, 22 Sep 2026 23:05:47 -0700 (PDT)
+Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07dc32086sm3032899a91.13.2026.09.22.23.05.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Sep 2026 23:05:46 -0700 (PDT)
+Message-ID: <69ff265b-a110-46c5-a061-a875b2f86c03@redhat.com>
+Date: Wed, 23 Sep 2026 16:05:38 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 05/20] KVM: arm64: Track the type of VM in kvm_arch
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+ <20260920212845.707-6-suzuki.poulose@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260920212845.707-6-suzuki.poulose@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Ee0KsjqZPVxYNiZqXTh30gNBOELxRjm9ey9b2NsoU_M_1790143548
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_065715_455716_608282BB 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260922_230554_943854_86655C4F 
+X-CRM114-Status: GOOD (  41.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,93 +118,338 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-commit 3ac85bcfd404 ("net: dsa: mt7530: preserve VLAN tags on trapped
-link-local frames") changed the egress VLAN tag attribute for trapped
-link-local frames in BPC, RGAC1, and RGAC2 from MT7530_VLAN_EG_UNTAGGED
-to MT7530_VLAN_EG_DISABLED, with the intention of passing frames
-through without VLAN tag modification.
+Hi Suzuki,
 
-However, in MT7530 hardware, MT7530_VLAN_EG_DISABLED disables the
-protocol-level egress tagging override, causing trapped frames to
-fall back to the egress port's active VLAN table (VAWD2) rule. When a
-bridge with VLAN filtering is active, the CPU port is configured with
-stack mode, causing the switch to insert a VLAN tag into incoming
-untagged BPDUs (01:80:C2:00:00:00) and other link-local frames before
-delivering them to the CPU conduit.
+On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
+> KVM arm64 has different types of VMs with all the different modes in which
+> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
+> protected VM and normal VMs with pKVM. We might soon add other types,
+> e.g., Arm CCA Realm. So in an effort to make the handling of these
+> different types of VMs a bit more friendly to the eyes, add a VM flavor to
+> the kvm_arch and we could then add handlers for different operations based
+> on the VM type.
+> 
+> Keep the flavor initialisation at the beginning to allow for the detection
+> early enough and fail out on any unsupported requests.
+> 
+> With that, add wrappers for checking the "type" of a VM and replace the
+> existing users with the new wrappers.
+> 
+> Given we already have the construct of "kvm_vm_is_protected" in the core
+> KVM code, use that for all confidential compute guests including Realms
+> that we are about to add.
+> 
+> Adds __VM_PROTECTED marker vm flavor to generalize kvm_vm_is_protected()
+> to predicate all confidential guests running on KVM. In later patches, we
+> would add Realm VMs, which would also be classified as protected.
+> 
+> Add explicit helper to detect if a given VM is a "protected" VM under pKVM.
+> Change the existing users that precisely want to check the VM type. These
+> include :
+>    - kvm_arch_prepare_memory_region - For preventing memslot changes after
+>      pVM creation.
+> 
+> All the others are retained as a wider check for confidential guest VMs.
+> These are:
+>   - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
+>     configuration
+>   - io_mem_abort for dabt handling without valid syndrome information
+> 
+> Both of which are true for Realms too.
+> 
+> Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
+> checks in the pkvm hyp specific code doesn't need to change, as the only
+> protected guests it deals with is "protected pKVM" guests. To tighten this
+> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
+> supports.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> Changes since v18:
+>   - Merge the __VM_PROTECTED marker and the widening of kvm_vm_is_protected()
+>     to this patch.
+>   - Merge the use of kvm_vm_is_unprotected_pkvm() for !kvm_vm_is_protected()
+>     given the scope changes here.
+>   - Drop Fuad's review tag, as this patch has multiple merges
+>   - Restrict the VM flavors to the supported types in init_pkvm_hyp_vm().
+>   - Drop kvm_vm_hyp_is_pkvm() and revert to is_protected_kvm_enabled()
+>   - Use is_protected_kvm_enabled() to make the pKVM guest flavor checks.
+>   - s/PKVM/pKVM for commit descriptions too
+> 
+> Changes since v17:
+>   * s/PKVM/pKVM for the comments
+>   * Drop type argument for pkvm_init_host_vm and also drop protected variable.
+>   * Add helpers for checking if the VM is running on pKVM (kvm_vm_hyp_is_pkvm())
+>   * Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() with valid
+>     kvm instance
+> ---
+>   arch/arm64/include/asm/kvm_host.h | 22 +++++++++++++++++++---
+>   arch/arm64/include/asm/kvm_pkvm.h |  4 ++--
+>   arch/arm64/kvm/arm.c              | 31 ++++++++++++++++++++++++++-----
+>   arch/arm64/kvm/handle_exit.c      |  2 +-
+>   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++++-
+>   arch/arm64/kvm/mmu.c              |  2 +-
+>   arch/arm64/kvm/pkvm.c             |  6 ++----
+>   7 files changed, 56 insertions(+), 17 deletions(-)
+> 
 
-Because BPDUs arrive at the CPU with a VLAN tag (EtherType 0x8100
-at offset 12 instead of 802.3 length <= 1500), userspace STP daemons
-(such as ustpd) and the kernel bridge drop or ignore them, breaking
-STP convergence.
+This causes broken nVHE mode. I applied PATCH[01-05] to v7.3.rc4 whose head commit
+is f0100363d8c3, and kselftests/kvm/guest_print causes host crash (as below). I don't
+see the crash if only PATCH[01-04] are applied.
 
-Use MT7530_VLAN_EG_CONSISTENT instead. This instructs the hardware to
-keep egress tagging consistent with the ingress wire format: frames
-received untagged on the wire remain untagged when forwarded to the
-CPU, while VLAN-tagged frames preserve their original VLAN tag.
+host$ cat /proc/cmdline | grep kvm-arm\.mode
+BOOT_IMAGE=(hd0,gpt2)/vmlinuz-7.3.0-rc4-gavin+ root=/dev/mapper/rhel_nvidia--grace--hopper--01-root ro crashkernel=2G-4G:406M,4G-64G:470M,64G-:726M rd.lvm.lv=rhel_nvidia-grace-hopper-01/root rd.lvm.lv=rhel_nvidia-grace-hopper-01/swap video=simplefb:off kvm-arm.mode=nvhe
 
-Fixes: 3ac85bcfd404 ("net: dsa: mt7530: preserve VLAN tags on trapped link-local frames")
-Signed-off-by: Tao Gong <gongtao0607@gmail.com>
----
- drivers/net/dsa/mt7530.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+host$ cd linux/tools/testing/selftests/kvm
+host$ ./guest_print_test
+Random seed: 0x193a0ed3
+[  192.754328] kvm [6674]: nVHE hyp panic at: [<ffff8000811da044>] __kvm_nvhe___timer_enable_traps+0x4/0x160!
+[  192.754338] kvm [6674]: nVHE call trace:
+[  192.754339] kvm [6674]:  [<ffff8000811dcf34>] __kvm_nvhe_hyp_panic+0xb4/0xe0
+[  192.754342] kvm [6674]:  [<ffff8000811dcba4>] __kvm_nvhe___kvm_vcpu_run+0x164/0x440
+[  192.754344] kvm [6674]:  [<ffff8000811dfe90>] __kvm_nvhe_handle___kvm_vcpu_run+0x40/0x1f0
+[  192.754346] kvm [6674]:  [<ffff8000811e0238>] __kvm_nvhe_handle_trap+0x158/0x280
+[  192.754347] kvm [6674]:  [<ffff8000811dd8fc>] __kvm_nvhe___skip_pauth_save+0x4/0x4
+[  192.754348] kvm [6674]: ---[ end nVHE call trace ]---
+[  192.754350] Code: d2818002 17fffff7 d503201f f9400001 (b94a6821)
+[  192.754350] kvm [6674]: Hyp Offset: 0xfffeb0d7fe2e0000
+[  192.754351] Kernel panic - not syncing: HYP panic:
+[  192.754351] PS:834003c9 PC:0000cf2882efa044 ESR:0000000096000004
+[  192.754351] FAR:ffff00009b286a68 HPFAR:8000000000000000 PAR:1d00ec7edbadc8de
+[  192.754351] VCPU:0000cf011848a350
+[  192.845154] CPU: 12 UID: 0 PID: 6674 Comm: guest_print_tes Kdump: loaded Not tainted 7.3.0-rc4-gavin+ #7 PREEMPT(full)
+[  192.856182] Hardware name:  GH200 P5042, BIOS 02.04.01 20250422
+[  192.862231] Call trace:
+[  192.864725]  show_stack+0x20/0x38 (C)
+[  192.868471]  dump_stack_lvl+0x88/0xb8
+[  192.872215]  dump_stack+0x18/0x30
+[  192.875598]  vpanic+0x280/0x498
+[  192.878806]  panic+0x68/0x70
+[  192.881745]  nvhe_hyp_panic_handler+0x184/0x190
+[  192.886372]  kvm_arm_vcpu_enter_exit+0x24/0x100
+[  192.891003]  kvm_arch_vcpu_ioctl_run+0x254/0x7c0
+[  192.895726]  kvm_vcpu_ioctl+0x174/0xb40
+[  192.899645]  __arm64_sys_ioctl+0xb0/0x120
+[  192.903745]  invoke_syscall.constprop.0+0xa8/0x100
+[  192.908639]  do_el0_svc+0xb8/0xe0
+[  192.912022]  el0_svc+0x48/0x1f8
+[  192.915228]  el0t_64_sync_handler+0xa0/0xe8
+[  192.919500]  el0t_64_sync+0x1ac/0x1b0
+[  192.923243] SMP: stopping secondary CPUs
+[  192.927653] Starting crashdump kernel...
+[  192.931658] Bye!
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 3e61eb3c2b1e..20bb07fac0f7 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -1309,39 +1309,39 @@ static void
- mt753x_trap_frames(struct mt7530_priv *priv)
- {
- 	/* Trap 802.1X PAE frames and BPDUs to the CPU port(s) and egress
--	 * them with the EG_TAG attribute set to disabled (system default)
--	 * so that any VLAN tags in the frame are not modified by the
--	 * switch egress VLAN tag processing. This preserves VLAN tags
--	 * for reception on VLAN sub-interfaces.
-+	 * them with the EG_TAG attribute set to consistent so that any
-+	 * VLAN tags in the frame are not modified by the switch egress
-+	 * VLAN tag processing. This preserves VLAN tags for reception
-+	 * on VLAN sub-interfaces.
- 	 */
- 	mt7530_rmw(priv, MT753X_BPC,
- 		   PAE_BPDU_FR | PAE_EG_TAG_MASK | PAE_PORT_FW_MASK |
- 			   BPDU_EG_TAG_MASK | BPDU_PORT_FW_MASK,
--		   PAE_BPDU_FR | PAE_EG_TAG(MT7530_VLAN_EG_DISABLED) |
-+		   PAE_BPDU_FR | PAE_EG_TAG(MT7530_VLAN_EG_CONSISTENT) |
- 			   PAE_PORT_FW(TO_CPU_FW_CPU_ONLY) |
--			   BPDU_EG_TAG(MT7530_VLAN_EG_DISABLED) |
-+			   BPDU_EG_TAG(MT7530_VLAN_EG_CONSISTENT) |
- 			   TO_CPU_FW_CPU_ONLY);
- 
- 	/* Trap frames with :01 and :02 MAC DAs to the CPU port(s) and
--	 * egress them with EG_TAG disabled.
-+	 * egress them with EG_TAG consistent.
- 	 */
- 	mt7530_rmw(priv, MT753X_RGAC1,
- 		   R02_BPDU_FR | R02_EG_TAG_MASK | R02_PORT_FW_MASK |
- 			   R01_BPDU_FR | R01_EG_TAG_MASK | R01_PORT_FW_MASK,
--		   R02_BPDU_FR | R02_EG_TAG(MT7530_VLAN_EG_DISABLED) |
-+		   R02_BPDU_FR | R02_EG_TAG(MT7530_VLAN_EG_CONSISTENT) |
- 			   R02_PORT_FW(TO_CPU_FW_CPU_ONLY) | R01_BPDU_FR |
--			   R01_EG_TAG(MT7530_VLAN_EG_DISABLED) |
-+			   R01_EG_TAG(MT7530_VLAN_EG_CONSISTENT) |
- 			   TO_CPU_FW_CPU_ONLY);
- 
- 	/* Trap frames with :03 and :0E MAC DAs to the CPU port(s) and
--	 * egress them with EG_TAG disabled.
-+	 * egress them with EG_TAG consistent.
- 	 */
- 	mt7530_rmw(priv, MT753X_RGAC2,
- 		   R0E_BPDU_FR | R0E_EG_TAG_MASK | R0E_PORT_FW_MASK |
- 			   R03_BPDU_FR | R03_EG_TAG_MASK | R03_PORT_FW_MASK,
--		   R0E_BPDU_FR | R0E_EG_TAG(MT7530_VLAN_EG_DISABLED) |
-+		   R0E_BPDU_FR | R0E_EG_TAG(MT7530_VLAN_EG_CONSISTENT) |
- 			   R0E_PORT_FW(TO_CPU_FW_CPU_ONLY) | R03_BPDU_FR |
--			   R03_EG_TAG(MT7530_VLAN_EG_DISABLED) |
-+			   R03_EG_TAG(MT7530_VLAN_EG_CONSISTENT) |
- 			   TO_CPU_FW_CPU_ONLY);
- }
- 
--- 
-2.55.0
+Thanks,
+Gavin
+
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 286489a69dff5..9b1cf9c59e81f 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
+>   	pkvm_handle_t handle;
+>   	struct kvm_hyp_memcache teardown_mc;
+>   	struct kvm_hyp_memcache stage2_teardown_mc;
+> -	bool is_protected;
+>   	bool is_created;
+>   
+>   	/*
+> @@ -306,9 +305,19 @@ enum fgt_group_id {
+>   	__NR_FGT_GROUP_IDS__
+>   };
+>   
+> +enum kvm_arm_vm_flavor {
+> +	VM_NVHE,
+> +	VM_VHE,
+> +	VM_PKVM,		/* Normal guests on pKVM */
+> +	MARKER(__VM_PROTECTED),
+> +	VM_PROTECTED_PKVM,	/* Protected VM */
+> +	VM_FLAVOR_MAX,
+> +};
+> +
+>   struct kvm_arch {
+>   	struct kvm_s2_mmu mmu;
+>   
+> +	enum kvm_arm_vm_flavor vm_flavor;
+>   	/*
+>   	 * Fine-Grained UNDEF, mimicking the FGT layout defined by the
+>   	 * architecture. We track them globally, as we present the
+> @@ -1504,10 +1513,17 @@ struct kvm *kvm_arch_alloc_vm(void);
+>   
+>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>   
+> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
+> -
+> +#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+>   #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+>   
+> +#define kvm_vm_is_protected_pkvm(kvm)		\
+> +	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+> +#define vcpu_is_protected_pkvm(vcpu)	kvm_vm_is_protected_pkvm(vcpu->kvm)
+> +
+> +#define kvm_vm_is_unprotected_pkvm(kvm)		\
+> +	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
+> +
+> +
+>   int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+>   bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+>   
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 54a618d887fa4..e4ea80711bec6 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -17,7 +17,7 @@
+>   
+>   #define HYP_MEMBLOCK_REGIONS 128
+>   
+> -int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
+> +int pkvm_init_host_vm(struct kvm *kvm);
+>   int pkvm_create_hyp_vm(struct kvm *kvm);
+>   bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+>   void pkvm_destroy_hyp_vm(struct kvm *kvm);
+> @@ -49,7 +49,7 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+>   	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
+>   		return false;
+>   	default:
+> -		return !kvm || !kvm_vm_is_protected(kvm);
+> +		return !kvm || kvm_vm_is_unprotected_pkvm(kvm);
+>   	}
+>   }
+>   
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index db36815630790..8c784b266a8e8 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -214,6 +214,26 @@ static int kvm_arm_default_max_vcpus(void)
+>   	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
+>   }
+>   
+> +static int kvm_init_vm_flavor(struct kvm *kvm, unsigned long type)
+> +{
+> +	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
+> +
+> +	if (is_protected_kvm_enabled()) {
+> +		if (protected)
+> +			kvm->arch.vm_flavor = VM_PROTECTED_PKVM;
+> +		else
+> +			kvm->arch.vm_flavor = VM_PKVM;
+> +	} else if (protected) {
+> +		return -EINVAL;
+> +	} else if (has_vhe()) {
+> +		kvm->arch.vm_flavor = VM_VHE;
+> +	} else {
+> +		kvm->arch.vm_flavor = VM_NVHE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   /**
+>    * kvm_arch_init_vm - initializes a VM data structure
+>    * @kvm:	pointer to the KVM struct
+> @@ -236,6 +256,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>   	mutex_unlock(&kvm->lock);
+>   #endif
+>   
+> +	ret = kvm_init_vm_flavor(kvm, type);
+> +	if (ret)
+> +		return ret;
+> +
+>   	kvm_init_nested(kvm);
+>   
+>   	ret = kvm_share_hyp(kvm, kvm + 1);
+> @@ -257,12 +281,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>   		 * If any failures occur after this is successful, make sure to
+>   		 * call __pkvm_unreserve_vm to unreserve the VM in hyp.
+>   		 */
+> -		ret = pkvm_init_host_vm(kvm, type);
+> +		ret = pkvm_init_host_vm(kvm);
+>   		if (ret)
+>   			goto err_uninit_mmu;
+> -	} else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
+> -		ret = -EINVAL;
+> -		goto err_uninit_mmu;
+>   	}
+>   
+>   	kvm_vgic_early_init(kvm);
+> @@ -985,7 +1006,7 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+>   
+>   	if (is_protected_kvm_enabled()) {
+>   		/* Start with the vcpu in a dirty state */
+> -		if (!kvm_vm_is_protected(vcpu->kvm))
+> +		if (kvm_vm_is_unprotected_pkvm(vcpu->kvm))
+>   			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+>   		ret = pkvm_create_hyp_vm(kvm);
+>   		if (ret)
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index db37678dcb05c..384c5d258c7f8 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -490,7 +490,7 @@ static void handle_exit_pkvm_state(struct kvm_vcpu *vcpu, int exception_index)
+>   {
+>   	int exception_code = ARM_EXCEPTION_CODE(exception_index);
+>   
+> -	if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
+> +	if (!kvm_vm_is_unprotected_pkvm(vcpu->kvm))
+>   		return;
+>   
+>   	/*
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 459bd9eb7e4bc..57e2eef6d7426 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -432,7 +432,11 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+>   
+>   	hyp_vm->host_kvm = host_kvm;
+>   	hyp_vm->kvm.created_vcpus = nr_vcpus;
+> -	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
+> +	if (kvm_vm_is_protected(host_kvm))
+> +		hyp_vm->kvm.arch.vm_flavor = VM_PROTECTED_PKVM;
+> +	else
+> +		hyp_vm->kvm.arch.vm_flavor = VM_PKVM;
+> +
+>   	hyp_vm->kvm.arch.flags = 0;
+>   	pkvm_init_features_from_host(hyp_vm, host_kvm);
+>   
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 9ba86450fe4af..0f4e8b71fa85d 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2624,7 +2624,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>   	hva_t hva, reg_end;
+>   	int ret = 0;
+>   
+> -	if (kvm_vm_is_protected(kvm)) {
+> +	if (kvm_vm_is_protected_pkvm(kvm)) {
+>   		/* Cannot modify memslots once a pVM has run. */
+>   		if (pkvm_hyp_vm_is_created(kvm) &&
+>   		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 8e4c6e4bec123..8e9176a700926 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -229,10 +229,9 @@ void pkvm_destroy_hyp_vm(struct kvm *kvm)
+>   	mutex_unlock(&kvm->arch.config_lock);
+>   }
+>   
+> -int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
+> +int pkvm_init_host_vm(struct kvm *kvm)
+>   {
+>   	int ret;
+> -	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
+>   
+>   	/* Reserve the VM in hyp and obtain a hyp handle for the VM. */
+>   	ret = kvm_call_hyp_nvhe(__pkvm_reserve_vm);
+> @@ -240,8 +239,7 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
+>   		return ret;
+>   
+>   	kvm->arch.pkvm.handle = ret;
+> -	kvm->arch.pkvm.is_protected = protected;
+> -	if (protected) {
+> +	if (kvm_vm_is_protected(kvm)) {
+>   		pr_warn_once("kvm: protected VMs are experimental and for development only, tainting kernel\n");
+>   		add_taint(TAINT_USER, LOCKDEP_STILL_OK);
+>   	}
 
 
