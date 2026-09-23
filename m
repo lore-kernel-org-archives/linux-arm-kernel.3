@@ -4,111 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8598FC982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BC3C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnl8HA/kIuhbbcojNcajEGIzFrKVcFo/sUvgP8xwc2k=; b=eiQLvaujSYkBB0jnukGWbdJiYO
-	1PaOwMDA4WgN0QHEO0PsdssepNb0sUVIHeVA8briGh5/ww3q1u9vcm5UjgcQas8UW7ZH9GroEONqz
-	LSjjRH48xYUdN1RWkuAyd7emvE6P3QBN4O+Er/6+qkknTRKpwBCYA1B4qrcDgSA73FGxOiwTrSUda
-	vsq8rrq+QbcBS2ZsWDmcimpVbD/SMhLUIOnt5Xjn3V/9UJgzvwOTzsSKgo5otAdEk9p3UEtRpjJ/v
-	ieTPl88207DnSrvEkKKmLLR8Z2r52RPed/C5fPqE0VVoKCX5EDI5bKFvxhgLqP7VJahHt/N1YZQzC
-	CotK6Qqg==;
+	bh=OJAIYFB0Pq0xQIj+dC5hkrLurY9BfpoClTZUrf7laGs=; b=AKOFWX6vLq1lbNd3ZDkQQ1aY4+
+	AK6gLtBsBwy8lxW6qJF6mrdvrZ/vcxl2nowTA8OEq3Lbq0TjWf+y5WAgccer0pQEtV/7WfCc/gYPm
+	KGsc5FAxFV+rFkH3orlhww/1bR1rTPlQKqodk1zqSgteU7PCYp57765vEgQrI+OYzi3GgraWzjWQz
+	85oEjxCbcTRGgXK3yYabB7K4qi1YLQfyn8Nd36vHar3t7c07Ss12ZeX2XvWjckASdnOeL5v1SJe0K
+	d2eGNuUz/s+CSo/xfuePXD9fpP+8YORo5nrXvO69lNiHM69k2xaUPp7cxRYeoARAv4wAq/8HbgUG9
+	HKDWL4Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IKV-00000007WQJ-2nah;
-	Wed, 23 Sep 2026 08:27:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9IKU-00000007WQD-2o4i
+	id 1x9IL8-00000007WX9-47Og;
+	Wed, 23 Sep 2026 08:28:31 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9IL5-00000007WW2-1Fk5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:27:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E7E54037E;
-	Wed, 23 Sep 2026 08:27:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A026E1F000FF;
-	Wed, 23 Sep 2026 08:27:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790152070;
-	bh=dnl8HA/kIuhbbcojNcajEGIzFrKVcFo/sUvgP8xwc2k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AzjqXfKa0K1UPOG/arbH+l/boCtTmRtExLa4ROwYOsq8d/hmlghWm34+CtcNNtBiV
-	 99IUNilILJVldrdsmaeuYN4e4oZ3qgb5GDRkxEhblWF35r6t7OfBX9Wa/c7uLs2UpA
-	 PtC55ahQ5s6QZIjoABNqhliMA7dzWWLZoNzPh0dyG6Dj5nAKsFBJIFJaUzsU2pHBun
-	 5IgqFm2jWSjnfwOpcRMWO3T642ZHTrU56/2XuQxFs58tSmWMEAaGaF07WJY4YaLdfZ
-	 QFH/9LHDUUsKRF94wNJd7M4SRbv/UgLPHiKC8rjXBKlHXR+c8gHDB3Zb9pw8GNO+WH
-	 NUX/NAGJj9rZA==
-Message-ID: <b8059e25-9fec-4bc8-b373-4bd96fc50f23@kernel.org>
-Date: Wed, 23 Sep 2026 10:27:37 +0200
+	Wed, 23 Sep 2026 08:28:29 +0000
+Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
+	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwAnCX6ojbNqD5oWAA--.12016S2;
+	Wed, 23 Sep 2026 16:28:24 +0800 (CST)
+Received: from WIN-B62RPRBL2BM.localdomain (unknown [218.76.62.144])
+	by mail (Coremail) with SMTP id AQAAf8DwSnOijbNq5NjbAA--.47885S3;
+	Wed, 23 Sep 2026 16:28:18 +0800 (CST)
+From: Zhu Ling <zhuling2709@phytium.com.cn>
+To: maz@kernel.org,
+	tglx@kernel.org
+Cc: radu@rendec.net,
+	zenghui.yu@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zhu Ling <zhuling2709@phytium.com.cn>
+Subject: [PATCH v3] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+Date: Wed, 23 Sep 2026 16:28:04 +0800
+Message-ID: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
+References: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: altr,socfpga-stmmac: Add
- altr,socfpga-stmmac-agilex5-tsn compatible
-To: muhammad.nazim.amirul.nazle.asmade@altera.com, netdev@vger.kernel.org
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260923021823.46649-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260923021823.46649-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260923021823.46649-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: AQAAf8DwSnOijbNq5NjbAA--.47885S3
+X-CM-SenderInfo: x2kxzxlqjsliuz6sx5pwlxzhxfrphubq/1tbiAQAHAWqy10oDhAAAsF
+Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=zhuling270
+	9@phytium.com.cn;
+X-Coremail-Antispam: 1Uk129KBjvJXoWxXrWxKw45Gr1kXrW8uFW5GFg_yoW5tryxpF
+	W5J34Iyr4Iy3WjgF4DCF1DZry5t3ZakrZFkrWxJasxZry5Gas5Aayavr9aq3WqqrZrCa45
+	Cw4aqF1Uu3WUAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
+	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
+	UUUUU
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_012827_479315_2408F809 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +75,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2026 04:18, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> 
-> The Agilex5 SoCDK TSN Config2 gmac1 path includes an FPGA soft-IP
-> GMII-to-RGMII converter between the DWXGMAC and the PHY. The converter
-> provides the RGMII TX/RX delays and presents GMII toward the MAC, unlike
-> a plain altr,socfpga-stmmac-agilex5 port with no such converter.
-> 
-> Add altr,socfpga-stmmac-agilex5-tsn for that integration in the same
-> compatible items entry as altr,socfpga-stmmac-agilex5 (shared
-> snps,dwxgmac-2.10). Do not use altr,socfpga-stmmac-agilex5 as a DT
-> fallback for the TSN port; the converter presents GMII to the MAC and
-> supplies the RGMII delays, unlike a plain Agilex5 GMAC port.
-> 
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> ---
-> Previously patch 3 of the v6 board series; split out for net-next.
-> Rebase only.
-> 
+When running with UBSAN enabled, enabling a GPIO controller that uses a
+GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
 
+  shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+  left shift of 2 by 30 places cannot be represented in type 'int'
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
+drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
+same signed-shift pattern. These masks are generated by shifting signed
+integer constants, which invokes undefined behavior when bit 31 is
+selected.
 
-Best regards,
-Krzysztof
+Use BIT() to generate the masks with an unsigned type and make their
+intent explicit.
+
+Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
+---
+Changes in v3:
+- Fix the same issue in the GICv2 gic_poke_irq() and gic_peek_irq()
+  helpers, as pointed out by Zenghui.
+
+Changes in v2:
+- Use BIT() instead of explicit unsigned shifts, as suggested by Marc.
+- Drop the redundant introductory text from the email.
+- Update the author email address.
+
+Link: https://lore.kernel.org/r/2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me
+---
+ drivers/irqchip/irq-gic-common.c | 2 +-
+ drivers/irqchip/irq-gic-v3.c     | 4 ++--
+ drivers/irqchip/irq-gic.c        | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
+index c776f9142610..8bd1eaa54295 100644
+--- a/drivers/irqchip/irq-gic-common.c
++++ b/drivers/irqchip/irq-gic-common.c
+@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
+ int gic_configure_irq(unsigned int irq, unsigned int type,
+ 		       void __iomem *base)
+ {
+-	u32 confmask = 0x2 << ((irq % 16) * 2);
++	u32 confmask = BIT(((irq % 16) * 2) + 1);
+ 	u32 confoff = (irq / 16) * 4;
+ 	u32 val, oldval;
+ 	int ret = 0;
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 6e1fa5b247fc..15110d47ddb0 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
+ 	u32 index, mask;
+ 
+ 	offset = convert_offset_index(d, offset, &index);
+-	mask = 1 << (index % 32);
++	mask = BIT(index % 32);
+ 
+ 	if (gic_irq_in_rdist(d))
+ 		base = gic_data_rdist_sgi_base();
+@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
+ 	u32 index, mask;
+ 
+ 	offset = convert_offset_index(d, offset, &index);
+-	mask = 1 << (index % 32);
++	mask = BIT(index % 32);
+ 
+ 	if (gic_irq_in_rdist(d))
+ 		base = gic_data_rdist_sgi_base();
+diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+index f6bc29f515fb..fb7a55f5b394 100644
+--- a/drivers/irqchip/irq-gic.c
++++ b/drivers/irqchip/irq-gic.c
+@@ -178,14 +178,14 @@ static inline bool cascading_gic_irq(struct irq_data *d)
+  */
+ static void gic_poke_irq(struct irq_data *d, u32 offset)
+ {
+-	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
++	u32 mask = BIT(irqd_to_hwirq(d) % 32);
+ 
+ 	writel_relaxed(mask, gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4);
+ }
+ 
+ static int gic_peek_irq(struct irq_data *d, u32 offset)
+ {
+-	u32 mask = 1 << (irqd_to_hwirq(d) % 32);
++	u32 mask = BIT(irqd_to_hwirq(d) % 32);
+ 
+ 	return !!(readl_relaxed(gic_dist_base(d) + offset + (irqd_to_hwirq(d) / 32) * 4) & mask);
+ }
+-- 
+2.43.0
+
 
