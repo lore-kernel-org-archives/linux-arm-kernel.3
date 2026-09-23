@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36FAAC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B76C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohYf1XvtMCeR2pp1iNho8B7oyFZ/zgS/g8G2hAtOeWM=; b=AchtasJrV17m4uBJf7fTK2dJmQ
-	ni8tO1dtWv2/m6uL+ZOZfaX9I7YqBGcLXQZ8w3xtFlfW74670WR02jVJv63L+lCiGSsd/f6Mq7wt5
-	Kyott8dFdlVnOMmNTnOYnnVNNVm7ux3AL6b8GaVolXXkJuxMMcnByWgys68iIOU2Hi62V5tIUOYCT
-	y/NXpbq1gr/GOt63alwt33ic/qk33eyV7khqpfqGdexJgR89hYtdIc8nfT+zbHjwVSvjgB2xJQWuC
-	50XBfI+72CGkaqkoE75rmfbWZgLTp6/1X33a4mevV0AZeTe8CRexnGK1cd9b1cEa8LpokS9+zG1od
-	Zb2luw8g==;
+	bh=W+dJkKEhYPFMGXFWM/cPd6V0/H5s5A3iRfAUA4bwjj4=; b=z2PxXmCFGFUduCPmerYTQKm0fP
+	gSKzo6ITxROWV53mlRYwhsWRuFNIQ36XojsgnB+WmltZ3TQaMVE8/Z4GzapNjLmmB8WO4l7wlCE4Y
+	Z63S7J5Cr2eSLuoDgkF20ZGBiM3X8Dv9WnR9ipM7tE0ALswx0uDnmT9kHLXeTEFnay4Ta3A+X45wB
+	kjQzF12U2CIL8lp4Vhrjem+VSJQai4NUC+9qrBOVrm3YT+tHFUiFAO/BC5hfnyLumfinoebaznv6/
+	rxu0cj9hliBv+p3uGvqeynzVXE48VvAwejQKuXpToXHzjKz38KSYMN830Fe/aZ6zjT5xG53b5TYZt
+	yDaGOD3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ohy-00000008fxK-39wL;
-	Wed, 23 Sep 2026 15:16:30 +0000
+	id 1x9OiM-00000008g9Z-3hoj;
+	Wed, 23 Sep 2026 15:16:54 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ohx-00000008fvh-1hW1
+	id 1x9OiH-00000008g6i-0xWd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:16:29 +0000
+	Wed, 23 Sep 2026 15:16:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8F5F40372;
-	Wed, 23 Sep 2026 15:16:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EB641F00899;
-	Wed, 23 Sep 2026 15:16:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 002CE40B87;
+	Wed, 23 Sep 2026 15:16:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A1F1F00898;
+	Wed, 23 Sep 2026 15:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790176588;
-	bh=ohYf1XvtMCeR2pp1iNho8B7oyFZ/zgS/g8G2hAtOeWM=;
+	s=k20260515; t=1790176608;
+	bh=W+dJkKEhYPFMGXFWM/cPd6V0/H5s5A3iRfAUA4bwjj4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TX83m2a5ihaN8AA6SgsfKyiWX3o4AzsbmqBQy1/23gbkmXBUzNb3hIsXdZqAw7aED
-	 L3dCsZvzhtyWabP2O9siUu8OedxVHnmidmolwexgWoV9S9lSOoH+lQ7RSwUXB2ALi/
-	 Rps0skkdnYO15xoUBm28l2qBZtpJJo4NsSRw7iaj7nyS7loxYJdjiG0iw8n46WAopl
-	 pMaIPTNp6dnOR6qgUdhnr+TxxjNw7gfmOQhFuxgHuTFBcHwdR3aYh9e7vKeWXZQ+op
-	 q5P2zeOqJXeugOlvQHjORXsALDil3bRoYqOMphSQrybTQEbQMo8ukVeQZL6DcRZSBv
-	 73WIl/O7m/jvw==
+	b=kdFRwP5s8fVUrzsN7JG9nbI6GTzKbPoDf5DJVzuYtuZc/3IW0nQNJVpA9wnq3BBuJ
+	 nOJ05C6XrZpTt3QSTJcLbra5L9EPYuEaP5vJzxYo4AT5dOas40Io8ingK8iy5uAws7
+	 mdYacwVj7Ktxns/ZWT7sXBS7Wxb6io50KhdEcQkXSm70+zfKBnY15qt3OTDO8ariSt
+	 hM6ZcS0t494fUeo0gAJZxSVgy8OJ+dDcgH5q7uFSMyxtFMJ1o5bx6TB3V4abl5o8JV
+	 0BbBeeTm+p/e7RQn6Y/HT7RDRc/BXBFgvfmxbBqhn3ryinquGIxnzS6X0y5WJ/Wocg
+	 VdWRYbvQuuGTQ==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Wed, 23 Sep 2026 16:15:45 +0100
-Subject: [PATCH v4 02/14] arm64: Add ESR fault helpers
+Date: Wed, 23 Sep 2026 16:15:47 +0100
+Subject: [PATCH v4 04/14] KVM: arm64: Propagate and use esr in s2fd when
+ handling guest aborts
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-kvm-arm-prefault-v4-2-d4b0b4dfa8c3@kernel.org>
+Message-Id: <20260923-kvm-arm-prefault-v4-4-d4b0b4dfa8c3@kernel.org>
 References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 In-Reply-To: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -80,12 +81,12 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
  linux-s390@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2524; i=ljs@kernel.org;
- h=from:subject:message-id; bh=CrKeLvuwUnfStnYfIX5SaSTXH36Ss6uiAa8UepVZb3I=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9WJFBIqqMxftTCC49yZIBWP+rbJ367f2mA/26Pp4
- 7XVZw0cO0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRnY6MDJ3PK102y8e0nrgx
- jf+y+jl3vrPlKdu71dOMVFY+Cqt5p8bwV3p9pt45P3fbdbH5NSfjP3C+zs84+O3r3Sq1xqqzpyO
- COQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2936; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=HPdImb64PDH+ZisiIURUzc+NKXAVj6r6zQyPTld8vVQ=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9Up21Dh/iAt98qBbykmG4/ci2sXjn239Eyr7jrzp
+ 9kXSgt3d5SyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiSpKMDIvbV6q9uWjYU+n+
+ 8trM4Jd8dgZmS5etSNeLS8xp+srxbCHDf38b1SuTjqsp6M+QEs1dJ/jgmMP2K1rO213/ixf8FX4
+ dxAUA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -102,85 +103,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add helper functions which operate directly on an ESR value rather than
-trying to access the register itself.
+kvm_handle_guest_abort() establishes a kvm_s2_fault_desc data structure,
+s2fd, to store and propagate state to either pkvm_mem_abort(), gmem_abort()
+or user_mem_abort() handlers.
 
-These mirror equivalent KVM vCPU wrappers in kvm_emulate.h and allow those
-wrappers and KVM's stage-2 fault handling to operate on a plain ESR value.
+Each of these, however, examines the Exception Syndrome Register (ESR) via
+s2fd->vcpu.
 
-This is needed to later generate a synthetic fault for the stage-2 page
-table pre-faulting mechanism.
+Introduce an s2fd->esr field to abstract this and propagate it to callers.
+
+The value of this (beyond refactoring) is to be able to later generate
+faults with a synthetic esr, specifically to implement stage 2 page table
+pre-faulting.
+
+Abort handlers which use kvm_s2_fault_desc - gmem_abort() and
+user_mem_abort() - now only reference s2fd->esr and do not look it up in
+any other way, which makes it safe to pass a synthetic s2fd->esr value to
+these functions.
 
 No functional change intended.
 
 Reviewed-by: Oliver Upton <oupton@kernel.org>
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- arch/arm64/include/asm/esr.h         | 29 +++++++++++++++++++++++++++++
- arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
- 2 files changed, 39 insertions(+)
+ arch/arm64/kvm/mmu.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index f816f5d77f1a..86756fc9bb5a 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -437,6 +437,35 @@
- #ifndef __ASSEMBLER__
- #include <asm/types.h>
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 5e10a4cd31ea..cb677ab76484 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1655,21 +1655,22 @@ struct kvm_s2_fault_desc {
+ 	struct kvm_s2_trans	*nested;
+ 	struct kvm_memory_slot	*memslot;
+ 	unsigned long		hva;
++	unsigned long		esr;
+ };
  
-+static __always_inline bool esr_trap_is_iabt(unsigned long esr)
-+{
-+	return ESR_ELx_EC(esr) == ESR_ELx_EC_IABT_LOW;
-+}
-+
-+/* Always check for S1PTW *before* using this. */
-+static __always_inline bool esr_dabt_is_write(unsigned long esr)
-+{
-+	return esr & ESR_ELx_WNR;
-+}
-+
-+static __always_inline bool esr_dabt_is_cm(unsigned long esr)
-+{
-+	return esr & ESR_ELx_CM;
-+}
-+
-+static __always_inline bool esr_abt_is_sea(unsigned long esr)
-+{
-+	switch (esr & ESR_ELx_FSC) {
-+	case ESR_ELx_FSC_EXTABT:
-+	case ESR_ELx_FSC_SEA_TTW(-1) ... ESR_ELx_FSC_SEA_TTW(3):
-+	case ESR_ELx_FSC_SECC:
-+	case ESR_ELx_FSC_SECC_TTW(-1) ... ESR_ELx_FSC_SECC_TTW(3):
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
- static inline unsigned long esr_brk_comment(unsigned long esr)
+ static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
  {
- 	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index a3c1928bdf74..654e8c1b4461 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -336,6 +336,16 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
- 	return vcpu->arch.fault.esr_el2;
+-	return esr_fsc_is_permission_fault(kvm_vcpu_get_esr(s2fd->vcpu));
++	return esr_fsc_is_permission_fault(s2fd->esr);
  }
  
-+static __always_inline bool esr_abt_is_s1ptw(unsigned long esr)
-+{
-+	return esr & ESR_ELx_S1PTW;
-+}
-+
-+static __always_inline bool esr_abt_is_exec_fault(unsigned long esr)
-+{
-+	return esr_trap_is_iabt(esr) && !esr_abt_is_s1ptw(esr);
-+}
-+
- static inline bool guest_hyp_wfx_traps_enabled(const struct kvm_vcpu *vcpu)
+ static bool kvm_s2_fault_is_exec(const struct kvm_s2_fault_desc *s2fd)
  {
- 	u64 esr = kvm_vcpu_get_esr(vcpu);
+-	return esr_abt_is_exec_fault(kvm_vcpu_get_esr(s2fd->vcpu));
++	return esr_abt_is_exec_fault(s2fd->esr);
+ }
+ 
+ static bool kvm_s2_fault_is_write(const struct kvm_s2_fault_desc *s2fd)
+ {
+-	return esr_abt_is_write_fault(kvm_vcpu_get_esr(s2fd->vcpu));
++	return esr_abt_is_write_fault(s2fd->esr);
+ }
+ 
+ static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
+@@ -1678,7 +1679,7 @@ static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
+ 
+ 	if (!kvm_s2_fault_is_perm(s2fd))
+ 		return 0;
+-	level = kvm_vcpu_get_esr(s2fd->vcpu) & ESR_ELx_FSC_LEVEL;
++	level = s2fd->esr & ESR_ELx_FSC_LEVEL;
+ 	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
+ }
+ 
+@@ -2067,7 +2068,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+ 	 * and trigger the exception here. Since the memslot is valid, inject
+ 	 * the fault back to the guest.
+ 	 */
+-	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(s2fd->vcpu))) {
++	if (esr_fsc_is_excl_atomic_fault(s2fd->esr)) {
+ 		kvm_inject_dabt_excl_atomic(s2fd->vcpu, kvm_vcpu_get_hfar(s2fd->vcpu));
+ 		return 1;
+ 	}
+@@ -2518,6 +2519,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		.nested		= nested,
+ 		.memslot	= memslot,
+ 		.hva		= hva,
++		.esr		= esr,
+ 	};
+ 
+ 	if (kvm_vm_is_protected(vcpu->kvm)) {
 
 -- 
 2.55.0
