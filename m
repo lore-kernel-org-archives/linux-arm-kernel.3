@@ -4,56 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C82C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B05DC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RV1NtqO516Apv2E+ZHJwj1viG7WQSDMwoxKdXtbB6o=; b=ilrlUoL3N+s2oPJgIHScDjEESu
-	FceUhW7R0sAG8TCLYKR15SoFBnGS2Oor3hmCntSnC4g+dlfKgybRaSYoPWvlPhCE6fdCdgy+h/mLr
-	L1xW2VKL0xHqo/Sjhh/w3rOn+vwEbICnrKbyrF3geaMONahN2Uo48Q3oi2y+nXPJ2McgGfcE2BWC1
-	AwR93XabH+FE3Z7lZOKaFLvfLtFM7ZsvujOXYKBHaNRqV8tUlqJxosJQy49hwmSy9e9J3Ve3KhsQQ
-	kvuzhtH4Da8eKYDnax+Vhr25eiReUR+8t1U29d2wZjbuEk6tOvu1LwaOA2aO57XX6MK1Th99Iq+Za
-	Eie92RVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=80DZGmjDiR4Bg9Mnkz01B8NPJILVq5/IaueQvHOQ1e4=; b=3St41F04bHT10xvg4TAjabSoqI
+	LpOK1H5Ms2q7PtNiad+IqrjtgLLMULVISDawEk96dDRmt8x+H4NwvVnaqtCj+k0WIin78Yz+GW32K
+	i7dij9oygvEyj+V16/CIBgJ7EwYYUaQDBmdNQAV4qzOW1cgd4N9uZgQ1RKGpHrz5pIvSLQ4AOIZ2a
+	57bKPSdbM8rRMQiVP/0ew5ppvHzjuHD1vZgKTur6wkaYWswMO+n56DRAFJOdKqNz890+8Pn4b2yLv
+	70tr2+sbwukLX04TXK8ISMpzs82/BxAE+3gKoNBNdvJtqnQPnp7Lpf3syos7z0uDt8tIGcFO35ZkS
+	Q3eG+VkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Il0-00000007cbL-1Bq0;
-	Wed, 23 Sep 2026 08:55:14 +0000
-Received: from mail-106104.protonmail.ch ([79.135.106.104])
+	id 1x9Il6-00000007ceS-2b6v;
+	Wed, 23 Sep 2026 08:55:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ikw-00000007cZe-3tRk;
-	Wed, 23 Sep 2026 08:55:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1790153705; x=1790412905;
-	bh=+RV1NtqO516Apv2E+ZHJwj1viG7WQSDMwoxKdXtbB6o=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=TddZoA5a2tvh6qDgOx31P0FId/1ImmOvUijMw4UcdlZAxbIKMlwSSkPacNUyYp7su
-	 4GC0alVCait4/DHOVWKKBglFKI3rhy9tEaxAKE2QPLIeIOYAMyjgqrF4AE4/7IksDy
-	 E5c6JVh0l9ydPMBaafkBTCCwXo1NSJelsyWOLyeKQIz/Cu9JUbk+KS622BJzId+T3i
-	 OLn+M69WHww1/Vh23eUvxCjFpY7DAPIN2KO5owmJqSf8tveTkVIIDzIYgMxgwLaJ08
-	 NzW+wXxC1RGgnttWbwQ0JGg+yWbBCl/p6oyZ1tpvwkFMgbxPHlJJCCixlXJDt789Lx
-	 3hl+C5He5SH0Q==
-Date: Wed, 23 Sep 2026 08:55:01 +0000
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/3] cpufreq: mediatek: add support for CPU speedbin
-Message-ID: <wJbd2H75Mz4krM43MhNiVFaZUbIFOf9VaWE1d_3svO1Vwk6_da6fdLG8kp7T2rDjyLkI6mmY6avYGuhJVWjYeqvoKDmCn0_3a9kCdDFQUoE=@protonmail.com>
-In-Reply-To: <c4908f1a-878c-4958-aaac-9960aae11879@collabora.com>
-References: <20260923-6572-cpufreq-v1-0-41f7af6d6d1a@protonmail.com> <20260923-6572-cpufreq-v1-1-41f7af6d6d1a@protonmail.com> <c4908f1a-878c-4958-aaac-9960aae11879@collabora.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: a1dd8bb99c550ed6bf477e6127df214386284e9e
+	id 1x9Il5-00000007cdv-1R0G
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 08:55:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C5B840DF5;
+	Wed, 23 Sep 2026 08:55:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DC871F00898;
+	Wed, 23 Sep 2026 08:55:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790153719;
+	bh=80DZGmjDiR4Bg9Mnkz01B8NPJILVq5/IaueQvHOQ1e4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iACzQIDDqwQYRnvhG9KkuG0heW/4q3SDDtbBW6U3CqrXRI3/mCeelAApaskR6VBPB
+	 NUoief6+g5RW67Z/DNil33B6jzZeazIQLQFCp+7B7DOJ3iebE61O7rUWemyLYeQxNZ
+	 L1xtANiGEvJBwnBtbPAXK9mlB8UasThAaT/3P9NtAob05M+vAZ86tlj2GAwlYP0kQt
+	 T38Z8l3XATqB4k3TCFixC+Tm8BR5wxbk+dqu6KHoHr8fxF+Anu2dcLeHsEaJGEwT/t
+	 l3M3eOkCqwCqeHsib1ylNFEfeKru04l+VfM39z1IERrQa3lpYZsUYBzoMHMDun6JBP
+	 qHVAV2WRfkpTQ==
+Date: Wed, 23 Sep 2026 09:54:42 +0100
+From: Simon Horman <horms@kernel.org>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	UNGLinuxDriver@microchip.com, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mohsin Bashir <mohsin.bashr@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v7 04/14] net: lan966x: add FDMA LLP register
+ write helper
+Message-ID: <20260923085211.GM13925@horms.kernel.org>
+References: <20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c@microchip.com>
+ <20260918-lan966x-pci-fdma-v7-4-0ecc179c8a2c@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_015511_150337_B9BB7E3D 
-X-CRM114-Status: GOOD (  26.52  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260918-lan966x-pci-fdma-v7-4-0ecc179c8a2c@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,128 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+On Fri, Sep 18, 2026 at 01:33:56PM +0200, Daniel Machon wrote:
+> The FDMA Link List Pointer (LLP) register points to the first DCB in the
+> chain and must be written before the channel is activated. This tells
+> the FDMA engine where to begin DMA transfers.
+> 
+> Move the LLP register writes from the channel start/activate functions
+> into the allocation functions and introduce a shared
+> lan966x_fdma_llp_configure() helper. This is needed because the upcoming
+> PCIe FDMA path writes ATU-translated addresses to the LLP registers
+> instead of DMA addresses. Keeping the writes in the shared
+> start/activate path would overwrite these translated addresses.
+> 
+> Tested-by: Herve Codina <herve.codina@bootlin.com>
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 
-On Wednesday, September 23rd, 2026 at 11:31 AM, AngeloGioacchino Del Regno =
-<angelogioacchino.delregno@collabora.com> wrote:
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-> On 9/23/26 09:23, Roman Vivchar via B4 Relay wrote:
-> > From: Roman Vivchar <rva333@protonmail.com>
-> >
-> > MediaTek SoCs are often released under the same marketing name, but wit=
-h
-> > different suffix for the speedbin. For example, mt6572m has 1 GHz limit=
-,
-> > mt6572a - 1.2 GHz, mt6572w - 1.4 GHz.
-> >
-> > Add code to support per-cluster 'opp-supported-hw' property. The DT is
-> > expected to pass a CPU speedbin using standard 'nvmem-cells' property
-> > under the CPU node.
-> >
-> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> > ---
-> >   drivers/cpufreq/mediatek-cpufreq.c | 50 +++++++++++++++++++++++++++++=
-+++++++--
-> >   1 file changed, 48 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/cpufreq/mediatek-cpufreq.c b/drivers/cpufreq/media=
-tek-cpufreq.c
-> > index 052ca7cd2f4f..f15135b2898b 100644
-> > --- a/drivers/cpufreq/mediatek-cpufreq.c
-> > +++ b/drivers/cpufreq/mediatek-cpufreq.c
-> > @@ -10,6 +10,7 @@
-> >   #include <linux/cpumask.h>
-> >   #include <linux/minmax.h>
-> >   #include <linux/module.h>
-> > +#include <linux/nvmem-consumer.h>
-> >   #include <linux/of.h>
-> >   #include <linux/of_platform.h>
-> >   #include <linux/platform_device.h>
-> > @@ -57,6 +58,7 @@ struct mtk_cpu_dvfs_info {
-> >   =09const struct mtk_cpufreq_platform_data *soc_data;
-> >   =09int vtrack_max;
-> >   =09bool ccifreq_bound;
-> > +=09int opp_token;
-> >   };
-> >
-> >   static struct platform_device *cpufreq_pdev;
-> > @@ -381,6 +383,38 @@ static struct device *of_get_cci(struct device *cp=
-u_dev)
-> >   =09return &pdev->dev;
-> >   }
-> >
-> > +static int mtk_cpu_parse_speedbin(struct mtk_cpu_dvfs_info *info, int =
-cpu)
-> > +{
-> > +=09struct device *cpu_dev =3D get_cpu_device(cpu);
-> > +=09struct dev_pm_opp_config config =3D {};
-> > +=09u32 val, opp_hw_ver;
-> > +=09int ret;
-> > +
-> > +=09ret =3D nvmem_cell_read_variable_le_u32(cpu_dev, "speed_grade", &va=
-l);
->=20
-> Let's keep consistency with cell names: for example, on the GPU side, the=
- node
-> in devicetree is called "gpu-speedbin@1234", and the panfrost node has
->=20
-> nvmem-cells =3D <&gpu_speedbin>;
-> nvmem-cell-names =3D "speed-bin";
->=20
-> Check MT8186 and MT8188 devicetrees ;-)
-
-Not sure if it works like that. speed_grade comes from the arm/cpus.yaml.
-Indeed I'd prefer some other name, but this means either modifying cpus.yam=
-l
-schema or making something like qcom's custom opp table binding.
-
->=20
-> > +=09if (ret) {
-> > +=09=09if (ret =3D=3D -ENOENT)
->=20
-> if (ret !=3D -ENOENT && ret !=3D -EOPNOTSUPP)
-
-Ack.
-
->=20
-> > +=09=09=09/* speedbin is optional */
-> > +=09=09=09return 0;
-> > +=09=09return dev_err_probe(cpu_dev, ret, "cpu%d: failed to read speedb=
-in\n", cpu);
-> > +=09}
-> > +
-> > +=09/* Convert the raw value to a bitmask */
-> > +=09if (val >=3D 32)
-> > +=09=09return dev_err_probe(cpu_dev, -EINVAL,
-> > +=09=09=09=09     "cpu%d: invalid speedbin value %u\n", cpu, val);
-> > +=09opp_hw_ver =3D BIT(val);
->=20
-> If you look at nvmem/mtk-efuse.c there is a mtk_efuse_gpu_speedbin_pp() f=
-unction
-> that is doing (almost) *exactly* what you're doing here.
->=20
-> Check if the same constraints as GPU speed binning applies to the CPU: if=
- they do,
-> just allow "cpu-speedbin" as node name in the fixup function, otherwise a=
-dd a new
-> post processing function for the CPU and act accordingly.
-
-...right. Should this go as separate nvmem patch or include it in this
-series?
-
->=20
-> > +
-> > +=09config.supported_hw =3D &opp_hw_ver;
-> > +=09config.supported_hw_count =3D 1;
-> > +
-> > +=09info->opp_token =3D dev_pm_opp_set_config(cpu_dev, &config);
->=20
-> It's way easier if you use
->=20
-> devm_pm_opp_set_supported_hw(dev, &opp_hw_ver, 1);
-
-Ack
-
-Best regards,
-Roman
 
