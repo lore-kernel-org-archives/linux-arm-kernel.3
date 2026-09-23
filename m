@@ -4,61 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8FBC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21B8C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4P0k3hiKGkpk1Fi1QdfvymEGAMVjJIDevylceiC3XnI=; b=BlnQ3p+7hkJs53JWdK7XhNegrm
-	FaioBtKzSsYTbqmRpr59ehiEfdYMZqCBobDLnOBIcr4ThCCRarOZWQQR92qL2V1Vx5XqGgcwoZfh5
-	TOtCA0ewqTmP2p4qWG0hO0fFaQ4NTnRa2+dzCNqPXNKICRMmFxoUIeBlx2PKx1MAFh3ntHHfhv0EN
-	OotL9BkSQpKuIAgtFMnPf3r3UsyiMHW1MYyHUeraCMgTo2gryaxEkV/RB+fzKgrsq6MSdlvmlzu4L
-	RdnNeWYAL63brPjnXPrNPqASfSVMoiFFGOzedR3hKkPV7YPCC7s8r1Xr9mn/iz4WadA/Rc0Ix5Anw
-	ym+G8ycA==;
+	bh=W3dgsIcDJ8p5ZJDPUatobQL/ESNNZ/DHoKBc/ZFp4ms=; b=3MpT5mtkuJd753mlJ5Awi6QCTD
+	Xvt8VstnE9H6DZpKEKLIuZUJDKDY+ZXxv3o4mDVEKqP6Hrv5Ja6AXaDnDoLnSvxBnch8PHOBPvQj6
+	0XXIW6eHzt8LmzFLtZPiiWZaY+4GRpakJsRVcjSDmvr6VP9QJg1In2LBl7RkhPwobAE4NHZBr2OBK
+	J8SSNtk75ustWp3r+p65U4JRel9B1oNwVT7oXRhhm57CrnQPnHvDvBPHHogpvR5g/fzGSsdasm1j+
+	lAb28HaI0MkwXjySneTZttY7zlifjlgD8MfA4sLNO9ENgnhZDIHxANyLGKb7jIu/es1yjd49s97qU
+	YBA6GTzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PLW-00000008oxv-3zEz;
-	Wed, 23 Sep 2026 15:57:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9PMm-00000008p6r-1kQK;
+	Wed, 23 Sep 2026 15:58:40 +0000
+Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PLU-00000008oxf-2nZm;
-	Wed, 23 Sep 2026 15:57:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03D7A4400C;
-	Wed, 23 Sep 2026 15:57:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9D101F000FF;
-	Wed, 23 Sep 2026 15:57:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790179039;
-	bh=4P0k3hiKGkpk1Fi1QdfvymEGAMVjJIDevylceiC3XnI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=El4Zf1lkzCwXQ1+o2MLB2VmC3YE1om69fiHU41tHfctUSij3bfIWxCcUcd2fwlH7+
-	 eJUymQ0VGc/4/3ZpNgw+flxz/v6SoBqs/mDE0qGc2jES7+RKw8PJ1ll2hInOUJ+FRV
-	 2WfyL4bRk1oj5Kyo0FXCGw/bYmfOgn9R4ogfk2j80bFZ2RSJxEOj86q3Y2m57dgk+T
-	 F8BJB8svO+7DvEdUXYshAcbg6NvFNr3VOhUxMN2QJWRMEZbZVtU+nkvAnmZZbQgXL1
-	 ZKjezw1N5ZwVOTWUS2IMkZSOT8FCuclWXdcimT+F9lrH2x8mZagysE5MKfxpCBLHHN
-	 qzIFw5ZLkYNJw==
-Date: Wed, 23 Sep 2026 10:57:18 -0500
-From: Rob Herring <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, iommu@lists.linux.dev,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: iommu: Describe MT8195 infra IRQs
-Message-ID: <20260923155718.GG27237-robh@kernel.org>
-References: <20260921232716.3134140-1-robh@kernel.org>
- <bef176a0-7b13-4753-9d9c-494a0bf04cea@collabora.com>
+	id 1x9PMj-00000008p6D-3Hgc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 15:58:39 +0000
+Received: by mail-yx2-x10.google.com with SMTP id 00721157ae682-85d43f9b119so19262107b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:58:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1790179116; x=1790783916; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=W3dgsIcDJ8p5ZJDPUatobQL/ESNNZ/DHoKBc/ZFp4ms=;
+        b=mEKnmBI9t7pXs5QFhRyz1qQJEVK0j3b8MYB3MYoZepuGjJ5ihcbXda3DpKllb6fRFX
+         rInlprLWQyH7cGdKbuhDSuGP9KB5gOn+fU8fPgukXjmi1YlglR32qSc/BmB0glZafp0r
+         hFINquv6BAcutSsHVQLPyiJfDVWRvxosYe1MCvvBzyW3GkiXr6G490SMSNz668flZpLK
+         d8uSr36Km12QsXvkc5RPnEE+bNpInOLwT1X0SAgaO9/CppR6dSwUpY0AXvG6Yd5enNfr
+         3bNp0UHdcwvZn91zgCwN+ambuTUyBUw2jsgB0Ij+F790SNFjYSxRQoWHNiX9Dfqe745i
+         eZXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790179116; x=1790783916;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=W3dgsIcDJ8p5ZJDPUatobQL/ESNNZ/DHoKBc/ZFp4ms=;
+        b=bDkiukBxZzvUPuiQOnBOVvAmCOJNhhgXHDd9a1OaXshgD4UFy4CNS5EYDZA5D8Zm26
+         /5UzG3cCQ3vg9OUwRJ0xYf1ZLH8HjjVttmUPQBcoKKpzZaEhi6hbk7yZkgSW9vLJxZuv
+         OgpOXE4lcNGr+/eFTVbGlGFeoZTPIvuy0KdXy9vAjdV5nVCR7tXT/CDTzVDamBpl7er+
+         W/e6/sR5OfcW7vifMNqZW7KwDI386roN6i2bUd94BwO5I+PLOf2UGMg6ER9sgGlc5oQJ
+         QvZdcvTIawGOEHulJpfCTDIrKQiKf6tkRLNZDm6/LogRs5k3t2zhHEyLBNrkZUyyrNVV
+         NwZw==
+X-Forwarded-Encrypted: i=1; AKwUvBwuvQkD8SZ7slgmdPLStuzoBx7IaCSNQbc9sd4DPR+cT0qr3YrS3sSZxFF4QpLzaUAIxe74fuh+gzgBOFrsBoo0@lists.infradead.org
+X-Gm-Message-State: AFuF++kEWPa9bD+9ZyDhwo7R0o+e4FwK1SRMYGHNvbfFtC2x8gBRdSwE
+	9yixSxcBV1yzgUXFRWLAck3bEF7ciAfvqXEtDgdE83YCfGdpRqAph+ixCHjZk6PsclM=
+X-Gm-Gg: AYBFou0Hi545NQ/GHpyXUQHGmPJpOjFRmyTM2cS5JynItNJOPQhd6DpmJpHu7oSI5Lr
+	SiUyCtKYBpml5BWMlhWSD6bHnIHhz+QSluBooklibtiwkSdkCpMF4TuGslVlZzp2GiPj3/4S1xN
+	nzFYb9DKJaJL8GlVqawm/Ft0Fv7lLMtMMyfeTe+fdegS8gpiDn/V+pAE1jxvhHoCCXRN9zQIdLz
+	w4/5lM8JNoRJjNVNXMGEoUAZ7wJaQhmMOB18/fZYcnSZ7ct0FxGKFmKWoj9KR36dNgXNCvYhVGP
+	L6pjJvk8W5nHlQbZu/zXt1c0wUEkU9JucZP5eyhXtcSbOj0VGOQ6id66elS+M+VgAa9OWT8M6Ta
+	Dd7wDhfWh/5xdo0M6h8vnnI97xZyN2ZuL8BMiBi7RJq1ApCnTVqokqVkJLBtjlZXbK631FzSQKF
+	j4QxPayb61gMqWxXnDOBSf39Lefm81OdX3WIBv6KIc5XmP
+X-Received: by 2002:a05:690c:f07:b0:89a:63da:fa90 with SMTP id 00721157ae682-8a45bb7ceb7mr18084857b3.75.1790179116666;
+        Wed, 23 Sep 2026 08:58:36 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8a4658c72f3sm11900977b3.17.2026.09.23.08.58.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 08:58:36 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1x9PMg-0000000DwaY-36Ny;
+	Wed, 23 Sep 2026 12:58:34 -0300
+Date: Wed, 23 Sep 2026 12:58:34 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v6 0/9] coco: guest: Enforce host page-size alignment for
+ shared buffers
+Message-ID: <20260923155834.GK1540250@ziepe.ca>
+References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
+ <aq1sT2EDsGaomqST@arm.com>
+ <20260918165754.GG11599@ziepe.ca>
+ <yq5ao6do36jk.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <bef176a0-7b13-4753-9d9c-494a0bf04cea@collabora.com>
+In-Reply-To: <yq5ao6do36jk.fsf@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_085837_883925_5EB1F403 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +114,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 01:45:05PM +0200, AngeloGioacchino Del Regno wrote:
-> On 9/22/26 01:27, Rob Herring (Arm) wrote:
-> > The MT8195 infra IOMMU has one fault interrupt per IOMMU bank. Require
-> > the five bank interrupts, named bank0 through bank4, for this
-> > compatible. Keep other MediaTek IOMMUs limited to one unnamed interrupt.
-> > 
+On Wed, Sep 23, 2026 at 10:31:19AM +0530, Aneesh Kumar K.V wrote:
+> Jason Gunthorpe <jgg@ziepe.ca> writes:
 > 
-> Why are you introducing interrupt-names, and why would that be a required property?
+> > On Fri, Sep 18, 2026 at 05:52:31PM +0100, Catalin Marinas wrote:
+> >
+> >> TBH, I'm tempted not to support this configuration at all, just fail
+> >> gracefully if the realm page size doesn't match the host's. However, if
+> >> that's a real world configuration, 
+> >
+> > realm != host is going to be fairly common.
+> >
+> > host > realm is probably not that common, I would guess.
 > 
-> I disagree - interrupt names are not necessary here.
+> Wouldn't it be more common to run a distro with a 4K page size as the
+> guest on a custom hypervisor with a 4K or larger page size?
 
-I agree. Not enough review of this one on my part.
+Maybe someday, but right now I think the 4k hyp is going to be common
+and people who really reach for 16/64k are going to need to run !4k
+guests too.
 
-Rob
+Jason
 
