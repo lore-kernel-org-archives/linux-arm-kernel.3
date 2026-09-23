@@ -4,119 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4912C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB6EC98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uK06dRcc183p1gV2Bdi0P3JOfOANYfMBgsbGabniYGA=; b=aIAXaFG4DRZAK+SgytCQxp5KIh
-	tjvQ4i/drtH6neMBlmWHe0fo8sV5hVWgG+09RXGDQy+ljTgfXfhz5oH35hmkxd/G473+UXpdoqk1m
-	eUdRhv8TtunQe4Rl8KIZmEDlbNaMhhN7jk3bGUDVn+hYm6cDxlIJ/KklR9K6Z6GQaAYsoRd3p0UPX
-	Xmo0wbfqmEzlc/zxHFPqcSGUhVSnu+HMZDBO7A4ExqYTJejaYI6+Qdkh7gLqppyL6HVR0dQvRjZkV
-	xUVHPGdc1hPzJAiaMSqYavoxLo1avoTIfcWEw8j8l+eF8KlV8TKAYA2YKLzpAxzenPF42+2nwHkrP
-	042S2QBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NsERHei9VYQ9ovx33to6KCZCGw8N16PiloAgJEPSrAs=; b=YUSAYR9maBsdlItGzljGDmDu/w
+	fePyOPP3lnm5kXHOpBHn2rHG3oQiwkwj9N3WczO8xMklf+qr/FpbKXZbUrZuS+LB5j1tW8D2qixRU
+	WLmG8AqBjLODkgtLjLc5IUor7GDEAvDwvQpE1eQE4IlSODESuTsz4du46BTjPeegS4c0aw0gqdbLg
+	Z4wSs3VL4ez0Da/Llblb5+5swEycsOf0mqPgGKGNaoGgfNs3m7RQN9ArjF2G0MmsmXzJvb6JiHLRO
+	o4EMn4Wj0zz6aVUMz8hmMfTD41oTiDzS19wlNEBwnkeO4eCM3wVlbHSwnQ4z12QrHKwJSUoX9+o3L
+	2C6iDL4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PmW-00000008rgK-1Ik8;
-	Wed, 23 Sep 2026 16:25:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9PmS-00000008rfa-1Rho
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 16:25:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:Date:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uK06dRcc183p1gV2Bdi0P3JOfOANYfMBgsbGabniYGA=; b=EQNYfSas/aZdhQP/Fa/AGSc1ho
-	rrDir8zZ9pm3ByDBA7OeWWt4mS91Zpm0hyb6tub+SefTg1arFbzsFKeGvOoUJKqaEnyjfE7W3iUXx
-	RZp0MmoYYTFiSss+TvR0r1iPe9cJMVT281dmPN7tuZ5tSAbT6hy/GgZxF6F7vIU40JbVbW0wwLyyN
-	ZypeBkQiHCsOyLphI0Sw8QSgF0WkGyKRmepUCjFHMuEQp7pqqpXGtkIuho1B8B/aAUyhNiUMqi8SC
-	4XJ02c4ZdCYkWddRKIulCtZZ3p/O8L0KYwHDuDYZf4GnbUwpQLt1jNRdnz7tsu9u6127y1Cw8Iy17
-	4/O+QdHw==;
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9PmO-0000000F0m5-3BhH
+	id 1x9PpG-00000008rwu-1ASs;
+	Wed, 23 Sep 2026 16:28:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9PpC-00000008rwJ-48uh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 16:25:10 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-486e1a044c5so954642f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:25:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1790180707; x=1790785507; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uK06dRcc183p1gV2Bdi0P3JOfOANYfMBgsbGabniYGA=;
-        b=G67XDlRbvV6OhpwxsQ4Ovv7Ma0vHSXNvRxMeg7U7VfCwjE00ujO8VIG7ZwsrnMgbpD
-         2Vu5F4pgkYhXErb/4VcXO+q9oMVtpIpCJ8pawGmxpIoSqFjTZWpBkqFgxgyFWg7OHryh
-         5MGyRHTh4Al1i2XR1AlxgvrMRhTfKDBtM/ANwV0MXPWiohNASlK7SmJOyf1gbAg1frlN
-         Z8tPbu4z12RikCUhP6F6EtPtOR3QXq+7/TY25f39ssytqXEZg54PPAsAjOjg5DlM8/FT
-         k5vJdd6142Iq+LTPZ8ZImFeu8uGJuUValZQU+hs9nypE+GMmkod/Ip99Bc8d2b0miBMY
-         /6wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790180707; x=1790785507;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uK06dRcc183p1gV2Bdi0P3JOfOANYfMBgsbGabniYGA=;
-        b=GjVK1DrXE5JDwfracGwjY+oa1sgSidmXqEMyInh2Cx9IdLRXv2I+ko5VqHcDBe4Sfw
-         ZQm2FL6W6I22e5uDzRKpGuiBY3P8EirGVNOcr5ciJVRvwor4ARwHqU/0CefmVsvmuXPx
-         RSCoQsYAKoSAvooZWAJFiFuOEnFhN2zGWNeGJpaEIfdjAys6pVqc0DUbbHPfTi38yKaT
-         c91eO+3sNixry6jqm5dJAN8GGngrOENqIlMobbJiskET10ygreDl3S3tnDD+y1kUv4TR
-         9BEmLsYnkbAvekgyVV0WzQXRlvdyrOUX7nu8Zgri4VckAR5yuwjMn+brB+g3l+Sw+eyD
-         m5/w==
-X-Forwarded-Encrypted: i=1; AKwUvBxWd+o2vPfkc4u6f9h0S9ZU9Q0PaK1lRqeau51wlzSNqfw7/z2XTsljBfOTaOczXUKdE+9YyrbsLDLxd8/6KKN8@lists.infradead.org
-X-Gm-Message-State: AFuF++noP384lRJfxSoHB73dZg5CEb6a+xusc7/s4oUG5C4GQitRgyjw
-	w9I/e7d+xv0aV82Dcreo7qaAAn1N8J/bTAq+OXrR+LG69KGPfAsWKyKRxFDEKrfJMP4=
-X-Gm-Gg: AYBFou1eT4CYhqsoSUHKuSny5jIMcqm/Oxs6rFO8Dxf9BmX/nyi9pajeRpK739R1mYP
-	oAY58ZNoHhLmZUxVNAcDYILMxanuuKfdadPsSKIpIdHiF8607jPkVuHo8yAbQjeZsR7MUYKeUY2
-	L3xzEMKHUlaZhebnQcwcjknJaWSR360sYpoFxhXI3HpQ/jWnaREQcXosb02jhVXtQq5xDzF/ofi
-	k8Bp5SJQCl6GkBtLSarDWolvfLuQRTqfoTNCtw16FDx19CUQ4svnVdzztjtmjBJH6F0qrtD0yH/
-	/Cb/BuCRLRjFcPAxSVbp05oyNbxcfDX/8YDwWLJFFYqEBz98J/ktTcC9NFg0sz/ss2jdxjCaBFa
-	l4ATK/blgSMXqzShC/C3dS/Z9ofDc8fXCpeRZSpIbQE5zBzIJfQBRgQFPlOOWHj/18kEAU5qEs0
-	738WKFHjlH2wXaj855vjq/1v+l4jQbpOCcSSuXk83emckqxDQ25764naWqXnZ9CpdkZiAX7F46I
-	VufN9MXTsZnzcl9eOk=
-X-Received: by 2002:a05:6000:491e:b0:487:7fd:734 with SMTP id ffacd0b85a97d-48867081acdmr4844345f8f.18.1790180706879;
-        Wed, 23 Sep 2026 09:25:06 -0700 (PDT)
-Received: from localhost ([195.94.147.179])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4886876c1fdsm9260151f8f.14.2026.09.23.09.25.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 09:25:06 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Wed, 23 Sep 2026 18:28:47 +0200
-To: Gary Guo <gary@garyguo.net>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com,
-	Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH v9 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <arP-P_a7OyhtMQyr@apocalypse>
-References: <cover.1789724999.git.andrea.porta@suse.com>
- <22f454003902173a7230d0aee5fbd7261fcc163e.1789724999.git.andrea.porta@suse.com>
- <DLM3VDAEVVEO.1STV7HI3M3YXK@garyguo.net>
- <arPLa_g4mAg1t2rq@apocalypse>
- <DLMQPQRYTSNW.2Z6C0408NMCYK@garyguo.net>
+	Wed, 23 Sep 2026 16:28:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9196E1477;
+	Wed, 23 Sep 2026 09:27:57 -0700 (PDT)
+Received: from [10.57.8.94] (unknown [10.57.8.94])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1108B3F632;
+	Wed, 23 Sep 2026 09:27:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790180881; bh=SkE92eXVkjOuIpLBMIdtCOfv2cM9Kb8L9GqLftZbQLc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dQuZULRJ9ntFQBxkw1xJ83pHA0zrZ6+qgxuZCHaZybWrWukSClmB6EY9BHWSvZYv8
+	 Nzmfh6XBoI1GJnmJEdlQxuNiCtbw4sm1IgcQT3bKqIY+OG2bGtul1eq1nfjNDHLuL3
+	 v1CwSYhixMl3A9m4y56LsWnn+dN+eGLpGDYvcWF8=
+Message-ID: <f61aa43b-ed90-4b6e-8bef-35e0fe2e6dc2@arm.com>
+Date: Wed, 23 Sep 2026 17:27:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DLMQPQRYTSNW.2Z6C0408NMCYK@garyguo.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 05/20] KVM: arm64: Track the type of VM in kvm_arch
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
+References: <20260920212845.707-1-suzuki.poulose@arm.com>
+ <20260920212845.707-6-suzuki.poulose@arm.com>
+ <69ff265b-a110-46c5-a061-a875b2f86c03@redhat.com>
+ <e1bd3155-acb2-4c80-b963-6cd7865c9ce3@redhat.com>
+ <672c4905-09c9-4e40-97ea-c87a987bda19@arm.com>
+ <0ddf1529-a198-413d-bffb-1dbc7b6ee25f@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <0ddf1529-a198-413d-bffb-1dbc7b6ee25f@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_172509_020257_C1C9D766 
-X-CRM114-Status: GOOD (  70.05  )
+X-CRM114-CacheID: sfid-20260923_092803_436864_62E501DD 
+X-CRM114-Status: GOOD (  28.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,228 +80,323 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14:46 Wed 23 Sep     , Gary Guo wrote:
-> On Wed Sep 23, 2026 at 1:51 PM BST, Andrea della Porta wrote:
-> > Hi Gary,
-> > thanks for your feedback!
-> >
-> > On 20:51 Tue 22 Sep     , Gary Guo wrote:
-> >> On Fri Sep 18, 2026 at 10:59 AM BST, Andrea della Porta wrote:
-
-<...snip...>
-
-> >> > +++ b/drivers/pwm/pwm-rp1.c
-> >> > +
-> >> > +int rp1_pwm_read_tachometer(struct device *dev)
-> >> > +{
-> >> > +	struct pwm_chip *chip;
-> >> > +	struct rp1_pwm *rp1;
-> >> > +	u32 tach_val;
-> >> > +	int ret;
-> >> > +
-> >> > +	if (!dev)
-> >> > +		return -EINVAL;
-> >> > +
-> >> > +	device_lock(dev);
-> >> 
-> >> You should use the device link mechanism for synchronizing unbind / runtime PM.
-> >> That can be done in your RP1 fan driver, and it doesn't need locking on this
-> >> driver.
-> >
-> > This does not enforce the locking though.
+On 23/09/2026 14:23, Gavin Shan wrote:
+> On 9/23/26 8:24 PM, Suzuki K Poulose wrote:
+>> On 23/09/2026 07:19, Gavin Shan wrote:
+>>> On 9/23/26 4:05 PM, Gavin Shan wrote:
+>>>> On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
+>>>>> KVM arm64 has different types of VMs with all the different modes 
+>>>>> in which
+>>>>> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then 
+>>>>> there is
+>>>>> protected VM and normal VMs with pKVM. We might soon add other types,
+>>>>> e.g., Arm CCA Realm. So in an effort to make the handling of these
+>>>>> different types of VMs a bit more friendly to the eyes, add a VM 
+>>>>> flavor to
+>>>>> the kvm_arch and we could then add handlers for different 
+>>>>> operations based
+>>>>> on the VM type.
+>>>>>
+>>>>> Keep the flavor initialisation at the beginning to allow for the 
+>>>>> detection
+>>>>> early enough and fail out on any unsupported requests.
+>>>>>
+>>>>> With that, add wrappers for checking the "type" of a VM and replace 
+>>>>> the
+>>>>> existing users with the new wrappers.
+>>>>>
+>>>>> Given we already have the construct of "kvm_vm_is_protected" in the 
+>>>>> core
+>>>>> KVM code, use that for all confidential compute guests including 
+>>>>> Realms
+>>>>> that we are about to add.
+>>>>>
+>>>>> Adds __VM_PROTECTED marker vm flavor to generalize 
+>>>>> kvm_vm_is_protected()
+>>>>> to predicate all confidential guests running on KVM. In later 
+>>>>> patches, we
+>>>>> would add Realm VMs, which would also be classified as protected.
+>>>>>
+>>>>> Add explicit helper to detect if a given VM is a "protected" VM 
+>>>>> under pKVM.
+>>>>> Change the existing users that precisely want to check the VM type. 
+>>>>> These
+>>>>> include :
+>>>>>    - kvm_arch_prepare_memory_region - For preventing memslot 
+>>>>> changes after
+>>>>>      pVM creation.
+>>>>>
+>>>>> All the others are retained as a wider check for confidential guest 
+>>>>> VMs.
+>>>>> These are:
+>>>>>   - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
+>>>>>     configuration
+>>>>>   - io_mem_abort for dabt handling without valid syndrome information
+>>>>>
+>>>>> Both of which are true for Realms too.
+>>>>>
+>>>>> Realms support is restricted to VHE host and thus 
+>>>>> "kvm_vm_is_protected()"
+>>>>> checks in the pkvm hyp specific code doesn't need to change, as the 
+>>>>> only
+>>>>> protected guests it deals with is "protected pKVM" guests. To 
+>>>>> tighten this
+>>>>> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the 
+>>>>> ones it
+>>>>> supports.
+>>>>>
+>>>>> Suggested-by: Marc Zyngier <maz@kernel.org>
+>>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>>> ---
+>>>>> Changes since v18:
+>>>>>   - Merge the __VM_PROTECTED marker and the widening of 
+>>>>> kvm_vm_is_protected()
+>>>>>     to this patch.
+>>>>>   - Merge the use of kvm_vm_is_unprotected_pkvm() for ! 
+>>>>> kvm_vm_is_protected()
+>>>>>     given the scope changes here.
+>>>>>   - Drop Fuad's review tag, as this patch has multiple merges
+>>>>>   - Restrict the VM flavors to the supported types in 
+>>>>> init_pkvm_hyp_vm().
+>>>>>   - Drop kvm_vm_hyp_is_pkvm() and revert to is_protected_kvm_enabled()
+>>>>>   - Use is_protected_kvm_enabled() to make the pKVM guest flavor 
+>>>>> checks.
+>>>>>   - s/PKVM/pKVM for commit descriptions too
+>>>>>
+>>>>> Changes since v17:
+>>>>>   * s/PKVM/pKVM for the comments
+>>>>>   * Drop type argument for pkvm_init_host_vm and also drop 
+>>>>> protected variable.
+>>>>>   * Add helpers for checking if the VM is running on pKVM 
+>>>>> (kvm_vm_hyp_is_pkvm())
+>>>>>   * Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() 
+>>>>> with valid
+>>>>>     kvm instance
+>>>>> ---
+>>>>>   arch/arm64/include/asm/kvm_host.h | 22 +++++++++++++++++++---
+>>>>>   arch/arm64/include/asm/kvm_pkvm.h |  4 ++--
+>>>>>   arch/arm64/kvm/arm.c              | 31 +++++++++++++++++++++++++ 
+>>>>> +-----
+>>>>>   arch/arm64/kvm/handle_exit.c      |  2 +-
+>>>>>   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++++-
+>>>>>   arch/arm64/kvm/mmu.c              |  2 +-
+>>>>>   arch/arm64/kvm/pkvm.c             |  6 ++----
+>>>>>   7 files changed, 56 insertions(+), 17 deletions(-)
+>>>>>
+>>>>
+>>>> This causes broken nVHE mode. I applied PATCH[01-05] to v7.3.rc4 
+>>>> whose head commit
+>>>> is f0100363d8c3, and kselftests/kvm/guest_print causes host crash 
+>>>> (as below). I don't
+>>>> see the crash if only PATCH[01-04] are applied.
+>>>>
+>>>> host$ cat /proc/cmdline | grep kvm-arm\.mode
+>>>> BOOT_IMAGE=(hd0,gpt2)/vmlinuz-7.3.0-rc4-gavin+ root=/dev/mapper/ 
+>>>> rhel_nvidia--grace--hopper--01-root ro 
+>>>> crashkernel=2G-4G:406M,4G-64G:470M,64G-:726M rd.lvm.lv=rhel_nvidia- 
+>>>> grace-hopper-01/root rd.lvm.lv=rhel_nvidia-grace-hopper-01/swap 
+>>>> video=simplefb:off kvm-arm.mode=nvhe
+>>>>
+>>>> host$ cd linux/tools/testing/selftests/kvm
+>>>> host$ ./guest_print_test
+>>>> Random seed: 0x193a0ed3
+>>>> [  192.754328] kvm [6674]: nVHE hyp panic at: [<ffff8000811da044>] 
+>>>> __kvm_nvhe___timer_enable_traps+0x4/0x160!
+>>>> [  192.754338] kvm [6674]: nVHE call trace:
+>>>> [  192.754339] kvm [6674]:  [<ffff8000811dcf34>] 
+>>>> __kvm_nvhe_hyp_panic+0xb4/0xe0
+>>>> [  192.754342] kvm [6674]:  [<ffff8000811dcba4>] 
+>>>> __kvm_nvhe___kvm_vcpu_run+0x164/0x440
+>>>> [  192.754344] kvm [6674]:  [<ffff8000811dfe90>] 
+>>>> __kvm_nvhe_handle___kvm_vcpu_run+0x40/0x1f0
+>>>> [  192.754346] kvm [6674]:  [<ffff8000811e0238>] 
+>>>> __kvm_nvhe_handle_trap+0x158/0x280
+>>>> [  192.754347] kvm [6674]:  [<ffff8000811dd8fc>] 
+>>>> __kvm_nvhe___skip_pauth_save+0x4/0x4
+>>>> [  192.754348] kvm [6674]: ---[ end nVHE call trace ]---
+>>>> [  192.754350] Code: d2818002 17fffff7 d503201f f9400001 (b94a6821)
+>>>> [  192.754350] kvm [6674]: Hyp Offset: 0xfffeb0d7fe2e0000
+>>>> [  192.754351] Kernel panic - not syncing: HYP panic:
+>>>> [  192.754351] PS:834003c9 PC:0000cf2882efa044 ESR:0000000096000004
+>>>> [  192.754351] FAR:ffff00009b286a68 HPFAR:8000000000000000 
+>>>> PAR:1d00ec7edbadc8de
+>>>> [  192.754351] VCPU:0000cf011848a350
+>>>> [  192.845154] CPU: 12 UID: 0 PID: 6674 Comm: guest_print_tes Kdump: 
+>>>> loaded Not tainted 7.3.0-rc4-gavin+ #7 PREEMPT(full)
+>>>> [  192.856182] Hardware name:  GH200 P5042, BIOS 02.04.01 20250422
+>>>> [  192.862231] Call trace:
+>>>> [  192.864725]  show_stack+0x20/0x38 (C)
+>>>> [  192.868471]  dump_stack_lvl+0x88/0xb8
+>>>> [  192.872215]  dump_stack+0x18/0x30
+>>>> [  192.875598]  vpanic+0x280/0x498
+>>>> [  192.878806]  panic+0x68/0x70
+>>>> [  192.881745]  nvhe_hyp_panic_handler+0x184/0x190
+>>>> [  192.886372]  kvm_arm_vcpu_enter_exit+0x24/0x100
+>>>> [  192.891003]  kvm_arch_vcpu_ioctl_run+0x254/0x7c0
+>>>> [  192.895726]  kvm_vcpu_ioctl+0x174/0xb40
+>>>> [  192.899645]  __arm64_sys_ioctl+0xb0/0x120
+>>>> [  192.903745]  invoke_syscall.constprop.0+0xa8/0x100
+>>>> [  192.908639]  do_el0_svc+0xb8/0xe0
+>>>> [  192.912022]  el0_svc+0x48/0x1f8
+>>>> [  192.915228]  el0t_64_sync_handler+0xa0/0xe8
+>>>> [  192.919500]  el0t_64_sync+0x1ac/0x1b0
+>>>> [  192.923243] SMP: stopping secondary CPUs
+>>>> [  192.927653] Starting crashdump kernel...
+>>>> [  192.931658] Bye!
+>>>>
+>>>
+>>> With the following changes applied after PATCH[01-05] on top of 
+>>> v7.3.rc4, the crash
+>>> is avoided.
+>>>
+>>> In arch/arm64/include/asm/kvm_host.h:
+>>>
+>>> -#define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= 
+>>> __VM_PROTECTED)
+>>> +#define kvm_vm_is_protected(kvm)       \
+>>> +       (is_protected_kvm_enabled() && (kvm)->arch.vm_flavor >= 
+>>> __VM_PROTECTED)
+>>
+>> That only papers over the problem. We can't use the vcpu_is_*
+>> constructs from nvhe hyp, without converting the vcpu->kvm to
+>> the hyp address, before accessing it. The fix is a bit more
+>> involved. One option is to define the vcpu_is_* helpers only
+>> for the !NVHE hyp code in the kvm_host.h (to avoid pulling
+>> in the asm/kvm_mmu.h in to kvm_host.h and then make a mess
+>> with header dependencies) and define the NVHE version in
+>> asm/kvm_hyp.h. Something like :
+>>
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/ 
+>> asm/kvm_host.h
+>> index 46a7f6c1e426c..4016d09ed39c3 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -1545,11 +1545,14 @@ struct kvm *kvm_arch_alloc_vm(void);
+>>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>>
+>>   #define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= 
+>> __VM_PROTECTED)
+>> +
+>> +#ifndef __KVM_NVHE_HYPERVISOR__
+>>   #define vcpu_is_protected(vcpu) kvm_vm_is_protected((vcpu)->kvm)
+>> +#define vcpu_is_protected_pkvm(vcpu) kvm_vm_is_protected_pkvm((vcpu)- 
+>> >kvm)
+>> +#endif
+>>
+>>   #define kvm_vm_is_protected_pkvm(kvm)          \
+>>          (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == 
+>> VM_PROTECTED_PKVM))
+>> -#define vcpu_is_protected_pkvm(vcpu)   kvm_vm_is_protected_pkvm(vcpu- 
+>> >kvm)
+>>
+>>   #define kvm_vm_is_unprotected_pkvm(kvm)                \
+>>          (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == 
+>> VM_PKVM))
+>> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/ 
+>> asm/kvm_hyp.h
+>> index 4974492744cc8..3bf87e81af430 100644
+>> --- a/arch/arm64/include/asm/kvm_hyp.h
+>> +++ b/arch/arm64/include/asm/kvm_hyp.h
+>> @@ -137,6 +137,19 @@ int __pkvm_init(phys_addr_t phys, unsigned long 
+>> size, unsigned long *per_cpu_bas
+>>   void __noreturn __host_enter(struct kvm_cpu_context *host_ctxt);
+>>   #endif
+>>
+>> +#ifdef __KVM_NVHE_HYPERVISOR__
+>> +#define vcpu_is_protected(vcpu)        \
+>> +       ({                                                              \
+>> +               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
+>> +               __kvm && kvm_vm_is_protected((kern_hyp_va(__kvm)));     \
+>> +       })
+>> +#define vcpu_is_protected_pkvm(vcpu)                                   \
+>> +       ({                                                              \
+>> +               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
+>> +               __kvm && kvm_vm_is_protected_pkvm((kern_hyp_va(__kvm)));\
+>> +       })
+>> +#endif
+>> +
+>>
+>>
+>> Or explicitly convert all nvhe accessors to a new 
+>> "nvhe_vcpu_is_protected"
+>>
+>> The second one sounds like a better option to me.
+>>
 > 
-> What locking do you think is needed?
+> We just need to include "asm/kvm_mmu.h" to "arch/arm64/mmio.c". With it,
+> we can have unified functions (macros) in kvm_host.h to accomodate all
+> cases, like below.
 > 
-> Driver core takes care of ordering so you will never see a depended device
-> going away while a dependant device is still bound. Your RP1 fan driver just
-> need to make sure that it never calls this API after it's itself unbound --
-> which it needs to guarantee anyway.
-
-I think you're referring to the struct device (data) and module binary unloading
-from memory, which is guaranteed not to happen when there is a dependent device
-using it, but what happens when you try to unbind or suspend the device?
-More on that below...
-
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/ 
+> kvm_host.h
+> index 9b1cf9c59e81..b9c9a9f203f9 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1514,11 +1514,36 @@ struct kvm *kvm_arch_alloc_vm(void);
+>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
 > 
-> > Is it enough to just rely on
-> > caller to create the device link in advance? IOW, just add a documentation
-> > comment to the exported function prologue stating that the consumer is
-> > responsible to sync via a device link is acceptable?
+>   #define kvm_vm_is_protected(kvm)       ((kvm)->arch.vm_flavor >= 
+> __VM_PROTECTED)
+> -#define vcpu_is_protected(vcpu)                
+> kvm_vm_is_protected((vcpu)->kvm)
+> +#define 
+> vcpu_is_protected(vcpu)                                                \
+> +       ({                                                              \
+> +               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
+> +               bool __protected = false;                               \
+> +                                                                       \
+> +               if (__kvm) {                                            \
+> +                       if (is_nvhe_hyp_code())                         \
+> +                               __kvm = kern_hyp_va(__kvm);             \
+> +                       __protected = kvm_vm_is_protected(__kvm);       \
+> +               }                                                       \
+> +                                                                       \
+> +               __protected;                                            \
+> +        })
+> +
 > 
-> If you use pwm_get API then a device link is automatically created for you
-> already (however, this automatic link does not pass runtime PM flags, so if you
-> need that you still need to add link explicitly).
-
-This driver implements only static PM ops so I think both pwm_get API or
-device_link_add should deal automatically with races.
-OTOH, what if the consumer obtains a reference to the PWM device via of_* API (or
-other means)? Thhose calls does not create device link and we would still have unsync
-critical paths.
-I'm just trying to figure out whether I should design the exported function as
-foolproof and caller agnostic wrt sync issues.
-If relying on the caller to use pwm_get/device_link_add is enough, I'd be happy to
-find out I'm just being overly paranoid, dropping all the locking to make teh code
-simpler.
-
+>   #define kvm_vm_is_protected_pkvm(kvm)          \
+>          (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == 
+> VM_PROTECTED_PKVM))
+> -#define vcpu_is_protected_pkvm(vcpu)   kvm_vm_is_protected_pkvm(vcpu->kvm)
+> +#define vcpu_is_protected_pkvm(vcpu)                                   \
+> +       ({                                                              \
+> +               struct kvm *__kvm = READ_ONCE((vcpu)->kvm);             \
+> +               bool __protected = false;                               \
+> +                                                                       \
+> +               if (__kvm) {                                            \
+> +                       if (is_nvhe_hyp_code())                         \
+> +                               __kvm = kern_hyp_va(__kvm);             \
+> +                       __protected = kvm_vm_is_protected_pkvm(__kvm);  \
+> +               }                                                       \
+> +                                                                       \
+> +               __protected;                                            \
+> +        })
 > 
-> How this is supposed to be synchronized or documented is very hard to get right
-> without seeing the user side driver -- if you already have a working version of
-> the RP1 fan driver it might benefit to have it attached as a RFC patch in the
-
-Agreed, that's why I was trying to be as consumer agnostic as possible. After all,
-coupling two modules wrt their locking requirements is usually better to be avoided.
-As for the sample fan driver, I have only a simple module that grab a reference
-to the pwm device and call the exported tachometer function, so nothing really useful
-for this discussion, yet.
-
-> series; or an option to to drop the tachometer API and add it as part of the fan
-> driver series.
-
-That is a great advice. I think it's beneficial to discuss everything in one place,
-and as a plus we won't block the pwm driver.
-
+>   #define kvm_vm_is_unprotected_pkvm(kvm)                \
+>          (is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
+> diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+> index d1c3a352d5a2..ab1d2fef9a52 100644
+> --- a/arch/arm64/kvm/mmio.c
+> +++ b/arch/arm64/kvm/mmio.c
+> @@ -6,6 +6,7 @@
 > 
-> > Otherwise the only way I see to protect it in any scenario is via the mutex
-> > I've already implemented and a second flag for the removing path (device_lock
-> > will be dropped, of course).
-> >
-> >> 
-> >> So Sashiko is kinda reporting a false positive here.
-> >> 
-> >> > +
-> >> > +	chip = dev_get_drvdata(dev);
-> >> > +	if (!chip) {
-> >> > +		ret = -ENODEV;
-> >> > +		goto err_dev_unlock;
-> >> > +	}
-> >> > +
-> >> > +	rp1 = pwmchip_get_drvdata(chip);
-> >> > +	if (!rp1) {
-> >> > +		ret = -ENODEV;
-> >> > +		goto err_dev_unlock;
-> >> > +	}
-> >> > +
-> >> > +	mutex_lock(&rp1->lock);
-> >> > +	if (!rp1->clk_enabled) {
-> >> > +		ret = -EBUSY;
-> >> > +		goto err_clk_unlock;
-> >> > +	}
-> >> > +
-> >> > +	ret = regmap_read(rp1->regmap, RP1_PWM_PHASE(2), &tach_val);
-> >> > +	if (ret)
-> >> > +		goto err_clk_unlock;
-> >> > +
-> >> > +	ret = (int)tach_val;
-> >> > +
-> >> > +err_clk_unlock:
-> >> > +	mutex_unlock(&rp1->lock);
-> >> > +err_dev_unlock:
-> >> > +	device_unlock(dev);
-> >> > +
-> >> > +	return ret;
-> >> > +}
-> >> > +EXPORT_SYMBOL_NS_GPL(rp1_pwm_read_tachometer, "RP1_PWM_FAN");
-> >> > +
-> >> > +static int rp1_pwm_probe(struct platform_device *pdev)
-> >> > +{
-> >> > +	struct device *dev = &pdev->dev;
-> >> > +	unsigned long clk_rate;
-> >> > +	struct pwm_chip *chip;
-> >> > +	void __iomem	*base;
-> >> > +	struct rp1_pwm *rp1;
-> >> > +	int ret;
-> >> > +
-> >> > +	chip = devm_pwmchip_alloc(dev, RP1_PWM_NUM_PWMS, sizeof(*rp1));
-> >> > +	if (IS_ERR(chip))
-> >> > +		return PTR_ERR(chip);
-> >> > +
-> >> > +	rp1 = pwmchip_get_drvdata(chip);
-> >> > +	ret = devm_mutex_init(dev, &rp1->lock);
-> >> > +	if (ret)
-> >> > +		return ret;
-> >> > +
-> >> > +	base = devm_platform_ioremap_resource(pdev, 0);
-> >> > +	if (IS_ERR(base))
-> >> > +		return PTR_ERR(base);
-> >> > +
-> >> > +	rp1->regmap = devm_regmap_init_mmio(dev, base, &rp1_pwm_regmap_config);
-> >> > +	if (IS_ERR(rp1->regmap))
-> >> > +		return dev_err_probe(dev, PTR_ERR(rp1->regmap), "Cannot initialize regmap\n");
-> >> 
-> >> You mentioned "rework regmap error paths" in cover letter.
-> >> 
-> >> But the issue is that regmap doesn't need be used here at all. RP1 is on PCIe
-> >> so there is no need for bus abstraction, direct use of MMIO is sufficient.
-> >> MMIO accessors have no error paths, so you're saying yourself from having to
-> >> handle that, and also reduce the overhead by not having to go through an
-> >> abstraction w/ indirect funicton calls.
-> >>
-> >> I suppose regmap was used when syscon was there; but it's not needed anymore.
-> >
-> > True, and I don't have any issue in converting back to MMIO call and drop the conditional for
-> > error checking, but please consider the following, since the driver may be extended in the
-> > future to support more features:
-> >
-> > - regmap gives you free debugfs view on the registers, which may be useful to test
-> >   the new features.
+>   #include <linux/kvm_host.h>
+>   #include <asm/kvm_emulate.h>
+> +#include <asm/kvm_mmu.h>
+>   #include <trace/events/kvm.h>
 > 
-> Do you have any register that we want to access that is not part of the PWM
-> facility, other than tachometer?
+>   #include "trace.h"
+> 
 
-Not at the moment, no. But I don't see how this impact the debugfs usefulness.
+Thanks Gavin, that works and looks neat. I will incorporate it.
 
-> 
-> > - regmap_write/read may still return an error in case the passed register is not in range.
-> >   This will be trapped at runtime only, but could still be useful during development
-> 
-> I think this is rather a anti-feature. Having additional error paths for some
-> thing that never happens is not a good idea, especially that you basically get 0
-> coverage for these paths.
+Cheers
+Suzuki
 
-Sure. Well this is true once the code is crystallized and tested, so it's somewhat
-still useful (only) during future development. But I got the point, and I agree.
+> Thanks,
+> Gavin
+> 
 
-> 
-> You already know the shape of the register region, so the bounds checking
-> provided by regmap would be better served by an ahead-of-time check:
-> 
->     #define RP1_PWM_REG_MAX (RP1_PWM_DUTY(RP1_PWM_NUM_PWMS) + 4)
-> 
->     struct resource *res;
->     base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->     if (IS_ERR(base))
->         return PTR_ERR(base);
-> 
->     if (resource_size(res) < RP1_PWM_REG_MAX) ...
-
-Fine for the probe method, but regmap_read/write also check for the range, for free.
-
-> 
-> Shameless plug: Rust abstractions for I/O access is actually pretty good in this
-> regard in the sense that we try to prove statically that access canot fail. It
-> also has PWM and platform abstractions. If you're interested in learning Rust
-> this driver might be a good candidate :) If you're going to LPC we can chat
-> about this there.
-
-Now I'm tempted! :)
-Although it will took far more time to upstream the driver so I think I have
-to posticipate Rust for another driver.
-Thanks for being so available for the LPC, really appreciated! Not sure if I
-can make it this year but we'll see...
-
-Regards,
-Andrea
-
-> 
-> Best,
-> Gary
-> 
-> > - I expect the PWM driver to be a access with very low frequency, so I guess the overhead 
-> >   imposed by regmap is negligible.
-> >
-> > Since we already have it, I'd prefer to leave regmap if possible for the aforementioned reasons,
-> > but I'm obviously open to drop it in favor of direct MMIO calls in case you or anyone else are
-> > not seeing those as real benefits.
-> 
-> 
 
