@@ -4,81 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3886DC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DDEC982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whZ+5ROD1hUAW/FJ5ZxfQVtk0Ji11qBIJYJO/53e9Mo=; b=m+MGQUKhWYkbB3Huucyq7BzWbt
-	eHPftt+xu71JiwyvD8etPbTk8R1GzX8FqbvZiR2p5WKkCiv1++xEXmTiu7xYJUV0SGdpbZSaZwdK9
-	XOnld4XwPSFs3chsPZvej2jqnzcyKTn+Zm7F2NseSLN4F9ZpCrddmIEzoTeD5Xlz59eBq9Cc6XAZR
-	s0YKD3t/zEJE3vqlxcSE9N+xPRr4AaNQPMMwbLYLjCQroj5djudsnaQ+jvkDmzJnalssAidZMwqZl
-	wNJyEgYYj7nf/8r1uvxwDURa5++skiwx5drVzNedkSxMu0pLeeRwN91z+WgFsQw+Ijweyr75pWTw0
-	ZVuawLUA==;
+	bh=fP5yMPZPbVrNHrbK0rVzZS+IiqhKY8Q4BGxVpW3ns0E=; b=3kh96j7hKJV6sos/OgZkYNZWKD
+	X8tqinlr1MojOL8etACsrws2fPl3ZuTlbpQFqiSo9YhLHWxiQ+4qKa7nBLmTe+Sh0LDLGwMiIGuKM
+	NQtYsxKgoEwP3eeOFK67IGJdZcIzQHpZmDAf5pexo9fb/YrPweMrT5jKCgdY3xYDArci+B0c1sXot
+	v8A+egPf94+LqwPqdlxgtqczDXYRiuRgAPIOi4XNAdVS4T8uEorMsyx1I2wRMae7wcpig2AeEFy4R
+	QaTbQKce+a63iYVoRD3Hf0N4QGpIfuyROgMIrgRNN3k1LmeZyBD0VrShHf0jpggs7efpTkeqqjEXo
+	uPMsWeEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9GZy-00000007Ifr-2DWX;
-	Wed, 23 Sep 2026 06:35:42 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1x9Gch-00000007J7d-1cRl;
+	Wed, 23 Sep 2026 06:38:31 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9GZu-00000007Ie2-04kx
+	id 1x9Gce-00000007J7F-2qxS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 06:35:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790145337; x=1821681337;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=uWMyBK+GEIC8XIjvo+9hH4bmP0RZRas3U1WVp92xNUY=;
-  b=bfZWN/Xmqz8VAkaHZ6gEknFHIW58ua+SFWoP0WKw43LpWzuu1vBRHJJf
-   SzvLmzIomRkIIGOQSuLuFMHRjorTpvlbnXzNH+blZjoVnui5BL+XTZdqZ
-   0BRrpbz5364tNi+HhKgSXySilTIUu76DUaWqlGW2uxaboE/Ta0dJLc91h
-   2Pdp46PPb2Y3a01eBXC2jXSZovaUaFofVbJ56TzekxUgkGbExSqZlhjbd
-   3E+5/z7mAsdxEu+grDeW5aELy5LypKMXggIDLsySfPdZ8EIiALtfuHKkb
-   ENXg1ZeKWUydNA41SpfGFhZgDyZb0Em3Ju9lVxiw9djIXBdfnJlv4cfQq
-   w==;
-X-CSE-ConnectionGUID: DjSYN1hFTa6DTU9vOVwW+w==
-X-CSE-MsgGUID: FCR6vOsSRQGXyF3ZG4siEw==
-X-IronPort-AV: E=Sophos;i="6.27,118,1787036400"; 
-   d="scan'208";a="231143838"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Sep 2026 23:35:34 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 22 Sep 2026 23:35:33 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 22 Sep 2026 23:35:29 -0700
-Date: Wed, 23 Sep 2026 08:35:29 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
-	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
-	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v7 03/14] net: microchip: fdma: add PCIe ATU
- support
-Message-ID: <20260923063529.qm35iz2qjxgkvowh@DEN-DL-M70577.microsemi.net>
-References: <20260918-lan966x-pci-fdma-v7-3-0ecc179c8a2c@microchip.com>
- <179008204420.2160803.14375469578712775106@kernel.org>
-MIME-Version: 1.0
+	Wed, 23 Sep 2026 06:38:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uYJjgC5ytEbqR0qER8okAR5ZaAr4LSysCypsvKuMHTuPsD19pr3NYc99wEkwSdrXUnAT0SYK0SrzdCDohEC6Gl8pE0IvnjSfBr4Vqow4x8XoPzhOFwA9Z90yj5cD8bwBJmDcM2CJwtbkoGEFKoCiZIXtbgp+Q9Jnf2SiNEYD/lcoZ4JLzRoO1viR5SXXztLsv4zfUjBlF4jZWfvzEHCAAy/U7638vzyvxOmTfzg6f7sFYU98WTECIDI5qku8LbN3a1WvxC6MTcjNpsYbNYYLRpf/R/1ra1IJ7NODDDJrD4G8izxQ71EeTfu+pU8cMCwz6qZbWDCSkdlCVJ0FpAM5fA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fP5yMPZPbVrNHrbK0rVzZS+IiqhKY8Q4BGxVpW3ns0E=;
+ b=libbf4Fm3jx+r+r7IhkcGX6t7jxPijX+OHVDiIoWv4Yvp/wqshBrCqw3Wgb3fxV0R3J+X9OYERK0QcCfE+bXbkC3tMyAtn9II5fb1FtrMdyy+2Q0JdJYWuLVS6jL9ZX+MPWF6MkMWpZvwcBh9rv/l3Yv/I3vPZhFsBxJPJaiFU4KZ8w/EjkOxPv3J6XgZdGldG2z3SZ+HxVE4FoRyqDWJTYz7djl9HiguCTE7RiEWFk9hopcxS/EX5hz4+M9MZvFPhEd9gksKEobMUD+ZMWVkjgy0LjVMP6z4y4Pz3971PYYpFIXGWaB3mP44ZtKTNdf4Ur3ElLnqTTFzT0j5zrlaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fP5yMPZPbVrNHrbK0rVzZS+IiqhKY8Q4BGxVpW3ns0E=;
+ b=jPCqdXVaey29Bj9ngMtwy2zeMlg/uakaSEVspXeyFArGJto4sZI0NRJffmjMfroyRmRVTy1lxP9hgkF3YSnfn6JZcS0u4bH/OMoSfFRlQJsaJEMXrJ2z3jwBadWKkxbIlTg70HurPTm5Hm3h+2B2f/xnbZYytxrPXhRkk4JrnHQ=
+Received: from CYYPR12MB9014.namprd12.prod.outlook.com (2603:10b6:930:bf::16)
+ by PH7PR12MB9152.namprd12.prod.outlook.com (2603:10b6:510:2ec::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
+ 2026 06:38:19 +0000
+Received: from CYYPR12MB9014.namprd12.prod.outlook.com
+ ([fe80::159b:340e:ebac:8599]) by CYYPR12MB9014.namprd12.prod.outlook.com
+ ([fe80::159b:340e:ebac:8599%4]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
+ 06:38:19 +0000
+From: "Gugulothu, Rajesh" <rajesh.gugulothu@amd.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, "Simek, Michal"
+	<michal.simek@amd.com>
+Subject: RE: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
+Thread-Topic: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
+Thread-Index: AQHdH0OSFrXTBNFhrkCuWmeIWyiRC7a82ZmAgAZDDlCAERsLAIAH1aRw
+Date: Wed, 23 Sep 2026 06:38:19 +0000
+Message-ID: <CYYPR12MB901461BFCBF0F75AD118A7D09E822@CYYPR12MB9014.namprd12.prod.outlook.com>
+References: <20260729101808.3904212-1-rajesh.gugulothu@amd.com>
+ <bfdf98d4-e3f3-42ff-a0b4-55c67790e4d0@ideasonboard.com>
+ <CYYPR12MB9014FF79595C722B3482EDED9EB22@CYYPR12MB9014.namprd12.prod.outlook.com>
+ <1d62db29-9add-4907-ab09-a916c551b161@ideasonboard.com>
+In-Reply-To: <1d62db29-9add-4907-ab09-a916c551b161@ideasonboard.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-09-23T06:36:58.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
+ General
+ v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CYYPR12MB9014:EE_|PH7PR12MB9152:EE_
+x-ms-office365-filtering-correlation-id: be8d3019-851a-451d-74b3-08df193d4192
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|38070700021|6133799003|3023799007|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
+x-microsoft-antispam-message-info: CFJcVczJUAfRqJc3Rk1IzD0u5A0ry3pMeaLqJ9Z40rX9CEEqoAz4ZDczYmLiCrWlQHGgXtiqWD7AZp65vpCdz0TUECBZpzdG4i5oTbnoeQCzA6nITNVl45RyTh+Obb3cm7My7vFYWY3qn9KzBP+29ADs69xvZfpw8YOm4lg1jTTCaEssjDSS07pyahWv571JmA2v81iK/9OC+ltiP1S4abdevUjOcoWf+IC7VmsyJN8/cNIQ68oI3Gv0qxUPQE0ynTiXG9LAXDcN/utdq19Txk1QSVkHEHML8bAaYLw5lqZ4TyogOtoaFhbLA5umn/YesujcL5FCfy0cH63WNGXEdzZJf/TAyQQWYCs/+RaqzXwPGYzGllgbqt6FMUzxh3JHTkDimvkxpVjsm7noRauon3m6v/rLqndVbV8kLg/DrLjoxHEAu2bxU0WtrpqolfmkVfkwaqIDpmTJuK8buEJMUcrdk0GBTEa2Janx4RGfiOW4hul5srM47XVDw4BlEYy4FCqGvX3WoR348QWOIuqVy34GjK8Erg55qYC8p3Ug9CBpRFYICHY0Uam27bcGg6166a2Gf5C9J9fLLezfVQDdD+YUiil4uBV2K/XZCXM3wBcwH4UPGOtj8cCuLdSvsQGMu6fWrMS7BCV41Rg/vkUhwTqmEqB3EWbeCyZxC4l/rDlGS8pJupTmq20ZqBt6D6XVjzvRB/+or0R+6nSHA6QZCz/X4D/gziH+9BP4/JUDtL8=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CYYPR12MB9014.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(38070700021)(6133799003)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MnE4OStSOFVnVWRNQnRLUUJIdW9NZ21rUWRqK3dYclRSSzNxeHMxTkFmSVZN?=
+ =?utf-8?B?REFyQ3E2bm9xOHRVMlkzTXQ4NXJNc1lacnhCSXhRR1pud3lYbU56L3pSZ1lW?=
+ =?utf-8?B?QXZPMFgxZDdLKytZelEvY1k1Y3krL0U0Vk1JVE5JN3FtcW1EOTQ0QlFQV1FX?=
+ =?utf-8?B?MTk2Wkh5RHpzTGxQVjBUdUhvZUdUVE5sKzFUNkhYWHJ6S1k5NGptT1MrbzR2?=
+ =?utf-8?B?WFloUmc4UnJPRmNQczJpVmN2elN5Ry9SSzY4K3MvWThITTc2VjlucWNCM0lj?=
+ =?utf-8?B?aXVHb3J3ZExtUmlHamt3d0RSUldjd2JIUzEwUkdIelVtdVVlRlpaM3RsK3F6?=
+ =?utf-8?B?b1ExOFphK0ZGZm5PczhDa2x5ZlJjRkNybEtXektyUk16MDVPanMwUSsycUxq?=
+ =?utf-8?B?OXF4M2IreUxXQ1ZFdEtEK09aaldWZWZuY2NHYmtsbGNtR2lWcm9xNFJoSTNO?=
+ =?utf-8?B?dWhiS2lXQktiODEvQTZSVWlBZ2IycFpqZGdXNkx1Z2Y1WFYzN1ptOG5aanBU?=
+ =?utf-8?B?N3JJKytmSUFxamdXV0hUc0w2Sy9TYWlXQ3RpeEloK2JDaitqVy9iV1plVVgx?=
+ =?utf-8?B?Tmo0M0krK3M4R2licTF2cUJLWXFiUjJwNzhoOWhUNVF5bEh5bGpUaFB3LzRu?=
+ =?utf-8?B?R1BaSGNRYWd1UFpYTWxxUnlWZVpiRVBWV3I5SVJaSzB5MFRTRHU2OWMvRmdO?=
+ =?utf-8?B?MWU1cGFOcUVhdXVXTmV4V0RNMzA4bHFuNjRuWGxHN0VuT0tUWlRVQVVYeU5n?=
+ =?utf-8?B?Q2E4NzRncTMyTmI3ajRiYXB2MDdyU2JoRFYyR1JCbjZpa21YTTAvL3ViRWtG?=
+ =?utf-8?B?cmhVQmdYYmtVSjVKTmdCYUk1K2h1N3pEVnNUUFJwbWw3Z2VKOFR4SVZpVzhH?=
+ =?utf-8?B?V1RYNU1KVTZlQk1XYzhwY2crbGZ5RUNVb3REbWYxcGVyTkdaVVZxZVkySjls?=
+ =?utf-8?B?L0ZUZXE4Q3c1RVcyblV2SE4zd05YbkpwcitDdVV6RnRoUzN3Y0hiVHNBMktM?=
+ =?utf-8?B?L1NWVUI1R2lRL3JSaTRTbzVDVmRYcVFDNDUycDFGektuUHhuaHdtZXhISVZG?=
+ =?utf-8?B?dUdST0lKS0VNTUswaEI0ZTBlNk1HRzlkancxbWNSSTdkcU9NY2lwWkZnRkZI?=
+ =?utf-8?B?M0szZEY5Rjk5ZEF4NXNhN0JEL29KUDlTNHkvaWVxOFNJRHVLQXNIblFCMWtk?=
+ =?utf-8?B?dnpMUFk0OCtEVitCV0MrNzRCbVF1V0JLRDRnSG9IeWxsc0p1VlBERnVZRkY3?=
+ =?utf-8?B?R2Q2dXhRYUJlUStQRnhhc0dHMU83NitNRzduVmZrblpSU29ZREZWNDNVdFpG?=
+ =?utf-8?B?eFI2aVRWZnhwYlFzdUg0d0htNWF4d2hlTVNBWlAwWnBESEd5dENlczZ2MGdG?=
+ =?utf-8?B?Q1dJVVlUYW1NQzgzV2RaQVJnSmRqZnFhcCtDY3hkYmV4bm56ZEtkcWJIVlQw?=
+ =?utf-8?B?VmhNOVJXdFo1Sjgzc280RzA2bE80Y0RGMXdnZ2RFS0F5SCtYaFMvU3E3Mnpo?=
+ =?utf-8?B?cSsxNisvWjRyRm9xd1pCd2I3QmVFNGNPcm1aYWxTcmpPMXljTUhEZUdNS09U?=
+ =?utf-8?B?MlFNM01hRkhNMCtrWWwvdVBRSzBFeEUwSXZHMGdITjI0R2RFbnZxVTAvQzls?=
+ =?utf-8?B?akdmSzUxWE5Gd0RqUWZpRHdibWZOc09SUWJVWXpQS05GWGlxdlZFU2hJN0Fv?=
+ =?utf-8?B?Y2pSRW9tOVVoRnQzUldkdTY3Tm1CaHpWS09iNUtkQ29pcDNTTk5IWlNoY2VN?=
+ =?utf-8?B?TXZsa3hqeklpSXVvd05LQ3lYMDl1V1FEVit4REcrQkh3SlloSjVWcUg4VGtT?=
+ =?utf-8?B?VURlaDJ5T3p5eUNjVGJKVVUrb2xWTXk3TmdPM1BvMGVVWUtkL1RBOTd3R0xR?=
+ =?utf-8?B?enhTaHR4NitNSGMzbnBXbjNTQmQvNEl3SE01VlFxOGhQeFNFZjhTTUVhNmVU?=
+ =?utf-8?B?N20xMVBiay9pREQ3WUpIRjJwRm5TUW4xQzZ3QWROaWdjOU9FTjBMSTUrb2Z6?=
+ =?utf-8?B?QVBYZVVheVByemppUnNjN0llY3NEcUpWcWVDY0lCNXhFV2p2MW1iQWhxaWpC?=
+ =?utf-8?B?d1puWk50cXpVaWt5VTFINzZzZzhtSHhFbVFjNU5Gc1RMSWV6YzY5a1g1RDNP?=
+ =?utf-8?B?Ry93ODJRODdjT243ZjlFQjR4aDlnekxqUExlTm1kOHRNR3M4QmlWOVEyUlhh?=
+ =?utf-8?B?RjVySjZ5K1NoUHVjdmQ5ZmpOY1greTRNM0Rsdm9LeEZobVl2cDRhTHl6U2Fz?=
+ =?utf-8?B?SFpFVmQybkZ6SlJRNmxRRlNKd1FkWjdpN2FTWWlZUm01ZXdEU08vNXM5Zmdi?=
+ =?utf-8?Q?3wVU+WC0/W2lepP6Ny?=
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179008204420.2160803.14375469578712775106@kernel.org>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CYYPR12MB9014.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be8d3019-851a-451d-74b3-08df193d4192
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2026 06:38:19.3148
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lYog4G52lIRFnCgJGrczZUiGUAg7cu3xVguEiZVaFkpq5MiQOdgwY6qiSsErYPkI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_233538_396950_413A2BB3 
-X-CRM114-Status: GOOD (  53.93  )
+X-CRM114-CacheID: sfid-20260922_233828_825428_AD22DAE9 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,312 +156,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 3
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] fdma_pci_atu_region_map() programs base/limit/target and then
->   issues the region-enable write (CTRL2 bit31) and returns immediately;…
-> - [Low] fdma_pci_atu_region_map()
->   (drivers/net/ethernet/microchip/fdma/fdma_pci.c:138) validates that…
-> - [Low] fdma_pci_atu_configure_translation() programs lower/upper base
->   (+0x8/+0xc), limit (+0x10) and lower/upper target (+0x14/+0x18), and…
-> - [Low] fdma_pci_atu_translate_addr() (fdma_pci.c:181) computes
->   region->base_addr + (addr - region->target_addr) with no check that…
-> 
-> --
-> 
-> net: microchip: fdma: add PCIe ATU support
-> 
-> Adds a PCIe ATU layer for the Microchip FDMA engine so that a lan966x or
-> lan969x acting as a PCIe endpoint can reach host memory. The outbound
-> address space 0x10000000-0x1fffffff is split into six regions that are
-> claimed and programmed when FDMA buffers are allocated.
-> 
-> A few questions on the new ATU code below.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/fdma/fdma_api.c b/drivers/net/ethernet/microchip/fdma/fdma_api.c
-> > index e78c3590da9e..a3c9e3097c5c 100644
-> > --- a/drivers/net/ethernet/microchip/fdma/fdma_api.c
-> > +++ b/drivers/net/ethernet/microchip/fdma/fdma_api.c
-> > @@ -127,6 +127,50 @@ void fdma_free_phys(struct fdma *fdma)
-> >  }
-> >  EXPORT_SYMBOL_GPL(fdma_free_phys);
-> >
-> > +#if IS_ENABLED(CONFIG_MCHP_LAN966X_PCI)
-> > +/* Allocate coherent DMA memory and map it in the ATU. */
-> > +int fdma_alloc_coherent_and_map(struct device *dev, struct fdma *fdma,
-> > +                             struct fdma_pci_atu *atu)
-> > +{
-> > +     struct fdma_pci_atu_region *region;
-> > +     int err;
-> > +
-> > +     if (WARN_ON(fdma->atu_region))
-> > +             return -EBUSY;
-> > +
-> > +     /* The ATU cannot express a limit finer than the region granularity, so
-> > +      * the hardware widens the programmed limit to that boundary. Pad the
-> > +      * allocation to match, or the outbound window would extend past the
-> > +      * memory we own.
-> > +      */
-> > +     fdma->size = ALIGN(fdma->size, FDMA_PCI_ATU_REGION_ALIGN);
-> > +
-> > +     err = fdma_alloc_coherent(dev, fdma);
-> > +     if (err)
-> > +             return err;
-> > +
-> > +     region = fdma_pci_atu_region_map(atu, fdma->dma, fdma->size);
-> > +     if (IS_ERR(region)) {
-> > +             fdma_free_coherent(dev, fdma);
-> > +             return PTR_ERR(region);
-> > +     }
-> > +
-> > +     fdma->atu_region = region;
-> > +
-> > +     return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(fdma_alloc_coherent_and_map);
-> > +
-> > +/* Free coherent DMA memory and unmap the memory in the ATU. */
-> > +void fdma_free_coherent_and_unmap(struct device *dev, struct fdma *fdma)
-> > +{
-> > +     fdma_pci_atu_region_unmap(fdma->atu_region);
-> > +     fdma->atu_region = NULL;
-> > +     fdma_free_coherent(dev, fdma);
-> > +}
-> > +EXPORT_SYMBOL_GPL(fdma_free_coherent_and_unmap);
-> > +#endif
-> 
-> [ ... ]
-> 
-> > diff --git a/drivers/net/ethernet/microchip/fdma/fdma_pci.c b/drivers/net/ethernet/microchip/fdma/fdma_pci.c
-> > new file mode 100644
-> > index 000000000000..dd1dc46cbc9d
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/microchip/fdma/fdma_pci.c
-> > @@ -0,0 +1,208 @@
-> 
-> [ ... ]
-> 
-> > +#define FDMA_PCI_ATU_ADDR            0x300000
-> > +#define FDMA_PCI_ATU_IDX_SIZE        0x200
-> > +#define FDMA_PCI_ATU_ENA_REG         0x4
-> > +#define FDMA_PCI_ATU_ENA_BIT         BIT(31)
-> > +#define FDMA_PCI_ATU_LWR_BASE_ADDR   0x8
-> > +#define FDMA_PCI_ATU_UPP_BASE_ADDR   0xc
-> > +#define FDMA_PCI_ATU_LIMIT_ADDR      0x10
-> > +#define FDMA_PCI_ATU_LWR_TARGET_ADDR 0x14
-> > +#define FDMA_PCI_ATU_UPP_TARGET_ADDR 0x18
-> 
-> [ ... ]
-> 
-> > +/* Configure the address translation in the ATU. */
-> > +static void
-> > +fdma_pci_atu_configure_translation(struct fdma_pci_atu_region *region)
-> > +{
-> > +     struct fdma_pci_atu *atu = region->atu;
-> > +     int idx = region->idx;
-> > +
-> > +     writel(lower_32_bits(region->base_addr),
-> > +            fdma_pci_atu_addr_get(atu->addr,
-> > +                                  FDMA_PCI_ATU_LWR_BASE_ADDR, idx));
-> > +
-> > +     writel(upper_32_bits(region->base_addr),
-> > +            fdma_pci_atu_addr_get(atu->addr,
-> > +                                  FDMA_PCI_ATU_UPP_BASE_ADDR, idx));
-> > +
-> > +     /* The OB address space lies entirely below 4GB, so the limit always
-> > +      * fits the lower limit register and the upper one is left alone.
-> > +      */
-> > +     writel(region->limit_addr,
-> > +            fdma_pci_atu_addr_get(atu->addr, FDMA_PCI_ATU_LIMIT_ADDR, idx));
-> > +
-> > +     writel(lower_32_bits(region->target_addr),
-> > +            fdma_pci_atu_addr_get(atu->addr,
-> > +                                  FDMA_PCI_ATU_LWR_TARGET_ADDR, idx));
-> > +
-> > +     writel(upper_32_bits(region->target_addr),
-> > +            fdma_pci_atu_addr_get(atu->addr,
-> > +                                  FDMA_PCI_ATU_UPP_TARGET_ADDR, idx));
-> > +}
-> 
-> [Severity: Low]
-> The offsets used here match the DesignWare unrolled iATU layout: block at
-> DBI + 0x300000, 0x200 stride per region, Control 2 at +0x4 with enable in
-> bit 31, base at +0x8/+0xc, limit at +0x10, target at +0x14/+0x18.
-> 
-> That layout also has a Control 1 register at +0x0 selecting the outbound
-> TLP type, the function number and the ECRC/TD bits, and it is never
-> written here. fdma_pci_atu_init() claims all six outbound regions and
-> only clears Control 2, so each region keeps whatever Control 1 value it
-> already held.
-> 
-> The generic driver for the same block always programs it explicitly
-> before enabling:
-> 
-> drivers/pci/controller/dwc/pcie-designware.c:dw_pcie_prog_outbound_atu() {
->         ...
->         val = atu->type | atu->routing | PCIE_ATU_FUNC_NUM(atu->func_no);
->         ...
->         dw_pcie_writel_atu_ob(pci, atu->index, PCIE_ATU_REGION_CTRL1, val);
->         ...
-> }
-> 
-> Is it safe to inherit Control 1 from whatever configured the outbound
-> windows before the driver probes, or should it be programmed for the
-> memory TLP type explicitly?
-> 
-> > +/* Map a host DMA address into a free outbound region. */
-> > +struct fdma_pci_atu_region *
-> > +fdma_pci_atu_region_map(struct fdma_pci_atu *atu, u64 target_addr, int size)
-> > +{
-> > +     struct fdma_pci_atu_region *region;
-> > +
-> > +     if (!atu)
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     if (size <= 0)
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     if (size > fdma_pci_atu_region_size())
-> > +             return ERR_PTR(-ERANGE);
-> > +
-> > +     /* The ATU region base is only ever aligned to FDMA_PCI_ATU_REGION_ALIGN;
-> > +      * require the same alignment of the host target address, since the ATU
-> > +      * translates addr - target_addr + base_addr and any misalignment here
-> > +      * would shift every translated address by the same amount.
-> > +      */
-> > +     if (!IS_ALIGNED(target_addr, FDMA_PCI_ATU_REGION_ALIGN))
-> > +             return ERR_PTR(-EINVAL);
-> 
-> [Severity: Low]
-> Should size also be checked against FDMA_PCI_ATU_REGION_ALIGN here?
-> 
-> fdma_pci.h documents the requirement for both arguments:
-> 
-> /* Outbound regions are 64KB granular (datasheet section 3.24.7.4.1), so both
->  * the region base and the mapped size must be aligned to this.
->  */
-> 
-> /* Map a host DMA address into a free ATU region. target_addr and size must be
->  * FDMA_PCI_ATU_REGION_ALIGN aligned; a misaligned target_addr returns -EINVAL.
->  */
-> 
-> but only target_addr is verified, and the unaligned value then goes
-> straight into the hardware limit:
-> 
->         region->limit_addr = region->base_addr + size - 1;
-> 
-> Per the commit message the hardware widens that limit to the 64KB
-> boundary, so an unaligned size would leave the outbound window covering
-> up to 64KB - 1 beyond the buffer.
-> 
-> The single in-tree caller, fdma_alloc_coherent_and_map(), pads with
-> fdma->size = ALIGN(fdma->size, FDMA_PCI_ATU_REGION_ALIGN) before
-> allocating, so nothing can hit this today, but the invariant lives in the
-> caller while fdma_pci_atu_region_map() is exported. Would it make sense
-> to enforce it in the primitive too?
-> 
-> > +     mutex_lock(&atu->lock);
-> > +
-> > +     region = fdma_pci_atu_region_get_free(atu);
-> > +     if (IS_ERR(region)) {
-> > +             mutex_unlock(&atu->lock);
-> > +             return region;
-> > +     }
-> > +
-> > +     region->target_addr = target_addr;
-> > +     region->limit_addr = region->base_addr + size - 1;
-> > +     region->in_use = true;
-> > +
-> > +     fdma_pci_atu_configure_translation(region);
-> > +     fdma_pci_atu_region_enable(region);
-> > +
-> > +     mutex_unlock(&atu->lock);
-> > +
-> > +     return region;
-> > +}
-> > +EXPORT_SYMBOL_GPL(fdma_pci_atu_region_map);
-> 
-> [Severity: Medium]
-> Does the enable write need to be read back before the region is treated
-> as mapped?
-> 
-> fdma_pci_atu_region_enable() issues a posted write of bit 31 to Control 2
-> and fdma_pci_atu_region_map() returns immediately, so the caller can arm
-> the FDMA channel (later in the series
-> lan966x_fdma_pci_rx_alloc() programs the LLP with region->base_addr and
-> lan966x_fdma_rx_start() starts the channel) before the outbound window is
-> known to be live. There is also no way for the API to report a window
-> that never enables.
-> 
-> The generic driver for this register layout polls instead:
-> 
-> drivers/pci/controller/dwc/pcie-designware.c:dw_pcie_prog_outbound_atu() {
->         ...
->         /*
->          * Make sure ATU enable takes effect before any subsequent config
->          * and I/O accesses.
->          */
->         for (retries = 0; retries < LINK_WAIT_MAX_IATU_RETRIES; retries++) {
->                 val = dw_pcie_readl_atu_ob(pci, atu->index, PCIE_ATU_REGION_CTRL2);
->                 if (val & PCIE_ATU_ENABLE)
->                         return 0;
-> 
->                 mdelay(LINK_WAIT_IATU);
->         }
->         ...
->         return -ETIMEDOUT;
-> }
-
-Issue addressed and dismissed in v6 - same finding, unchanged.
-
-> 
-> The same applies in reverse on teardown: fdma_pci_atu_region_unmap()
-> issues the disable write and fdma_free_coherent_and_unmap() calls
-> fdma_free_coherent() right after, without confirming the window is down
-> before those pages go back to the allocator.
-> 
-> > +/* Translate a host DMA address to the corresponding OB address. */
-> > +u64 fdma_pci_atu_translate_addr(struct fdma_pci_atu_region *region, u64 addr)
-> > +{
-> > +     return region->base_addr + (addr - region->target_addr);
-> > +}
-> > +EXPORT_SYMBOL_GPL(fdma_pci_atu_translate_addr);
-> 
-> [Severity: Low]
-> Can this return an address belonging to a different region?
-> 
-> All six regions are contiguous slices of the same outbound space
-> (base_addr = 0x10000000 + i * region_size), and nothing here checks that
-> addr falls inside [target_addr, target_addr + mapped size) or that
-> region->in_use is still set. An address outside the mapping silently
-> lands in a neighbouring window and the FDMA would then read or write
-> another buffer's host target rather than failing.
-> 
-> fdma_pci_atu_region_unmap() also resets target_addr to 0 while leaving
-> base_addr alone:
-> 
->         region->target_addr = 0;
->         region->in_use = false;
-> 
-> so a translation on a released region returns base_addr + addr.
-> 
-> The in-tree users, lan966x_fdma_pci_dataptr_cb() and
-> lan966x_fdma_pci_nextptr_cb(), only pass offsets inside the mapped
-> buffer, and fdma_free_coherent_and_unmap() clears fdma->atu_region, so no
-> current path feeds a bad address. Since the region already stores
-> limit_addr, would a bounds and in_use assertion be worth adding?
-> 
-> [ ... ]
-> 
-> --
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c%40microchip.com
+QU1EIEdlbmVyYWwNCg0KSGkgVG9taSwNCg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3LiBQbGVhc2Ug
+Y2hlY2sgbXkgaW5saW5lIGNvbW1lbnRzLg0KDQpUaGFua3MsDQpSYWplc2ggRw0KDQo+LS0tLS1P
+cmlnaW5hbCBNZXNzYWdlLS0tLS0NCj5Gcm9tOiBUb21pIFZhbGtlaW5lbiA8dG9taS52YWxrZWlu
+ZW5AaWRlYXNvbmJvYXJkLmNvbT4NCj5TZW50OiBGcmlkYXksIFNlcHRlbWJlciAxOCwgMjAyNiAx
+MjoyOSBQTQ0KPlRvOiBHdWd1bG90aHUsIFJhamVzaCA8cmFqZXNoLmd1Z3Vsb3RodUBhbWQuY29t
+Pg0KPkNjOiBsaW51eC1tZWRpYUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWFybS1rZXJuZWxAbGlz
+dHMuaW5mcmFkZWFkLm9yZzsgbGludXgtDQo+a2VybmVsQHZnZXIua2VybmVsLm9yZzsgTWF1cm8g
+Q2FydmFsaG8gQ2hlaGFiIDxtY2hlaGFiQGtlcm5lbC5vcmc+OyBMYXVyZW50DQo+UGluY2hhcnQg
+PGxhdXJlbnQucGluY2hhcnRAaWRlYXNvbmJvYXJkLmNvbT47IFNpbWVrLCBNaWNoYWwNCj48bWlj
+aGFsLnNpbWVrQGFtZC5jb20+DQo+U3ViamVjdDogUmU6IFtQQVRDSF0gbWVkaWE6IHhpbGlueDog
+dnRjOiBEeW5hbWljYWxseSBjYWxjdWxhdGUgcGl4ZWwgY2xvY2sNCj4NCj5IaSwNCj4NCj5PbiAw
+Ny8wOS8yMDI2IDEyOjUwLCBHdWd1bG90aHUsIFJhamVzaCB3cm90ZToNCj4+IEFNRCBHZW5lcmFs
+DQo+Pg0KPj4gSGkgVG9taSwNCj4+DQo+PiBUaGFua3MgZm9yIHRoZSByZXZpZXcsIGFuZCBMYXVy
+ZW50IGZvciBsb29waW5nIHlvdSBpbi4NCj4+DQo+Pj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0t
+LS0NCj4+PiBGcm9tOiBUb21pIFZhbGtlaW5lbiA8dG9taS52YWxrZWluZW5AaWRlYXNvbmJvYXJk
+LmNvbT4NCj4+PiBTZW50OiBUaHVyc2RheSwgU2VwdGVtYmVyIDMsIDIwMjYgMzozOCBQTQ0KPj4+
+IFRvOiBHdWd1bG90aHUsIFJhamVzaCA8cmFqZXNoLmd1Z3Vsb3RodUBhbWQuY29tPjsgTGF1cmVu
+dCBQaW5jaGFydA0KPj4+IDxsYXVyZW50LnBpbmNoYXJ0QGlkZWFzb25ib2FyZC5jb20+OyBTaW1l
+aywgTWljaGFsDQo+Pj4gPG1pY2hhbC5zaW1la0BhbWQuY29tPg0KPj4+IENjOiBsaW51eC1tZWRp
+YUB2Z2VyLmtlcm5lbC5vcmc7DQo+Pj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQu
+b3JnOyBsaW51eC0ga2VybmVsQHZnZXIua2VybmVsLm9yZzsNCj4+PiBNYXVybyBDYXJ2YWxobyBD
+aGVoYWIgPG1jaGVoYWJAa2VybmVsLm9yZz4NCj4+PiBTdWJqZWN0OiBSZTogW1BBVENIXSBtZWRp
+YTogeGlsaW54OiB2dGM6IER5bmFtaWNhbGx5IGNhbGN1bGF0ZSBwaXhlbA0KPj4+IGNsb2NrDQo+
+Pj4NCj4+PiBIaSwNCj4+Pg0KPj4+IE9uIDI5LzA3LzIwMjYgMTM6MTgsIFJhamVzaCBHdWd1bG90
+aHUgd3JvdGU6DQo+Pj4+IFRoaXMgdXBkYXRlIGVuYWJsZXMgdGhlIHZ0YyB0byBzZXQgdGhlIHBp
+eGVsIGNsb2NrIGJhc2VkIG9uIHRoZQ0KPj4+PiBzcGVjaWZpZWQgdGltaW5nIHBhcmFtZXRlcnMu
+IEEgbmV3IGZwcyBmaWVsZCBpcyBhZGRlZCB0byBzdHJ1Y3QNCj4+Pj4geHZ0Y19jb25maWcgYW5k
+IHRoZSBwaXhlbCByYXRlIGlzIGNvbXB1dGVkIGFzIGZwcyAqIGhzaXplICogdnNpemUuDQo+Pj4+
+IEFmdGVyIHNldHRpbmcgdGhlIHJhdGUsIHRoZSBhY3R1YWwgY2xvY2sgcmF0ZSBpcyByZWFkIGJh
+Y2sgYW5kIGENCj4+Pj4gd2FybmluZyBpcyBlbWl0dGVkIGlmIGl0IGRldmlhdGVzIGJleW9uZCBh
+IHNtYWxsIHRvbGVyYW5jZS4NCj4+Pj4NCj4+Pj4gVGhlIHBpeGVsIHJhdGUgaXMgY29tcHV0ZWQg
+aW4gdW5zaWduZWQgbG9uZyBhcml0aG1ldGljIHRvIGF2b2lkIGENCj4+Pj4gMzItYml0IG92ZXJm
+bG93IGluIHRoZSBmcHMgKiBoc2l6ZSAqIHZzaXplIHByb2R1Y3QuDQo+Pj4+DQo+Pj4+IFNpZ25l
+ZC1vZmYtYnk6IFJhamVzaCBHdWd1bG90aHUgPHJhamVzaC5ndWd1bG90aHVAYW1kLmNvbT4NCj4+
+Pj4gLS0tDQo+Pj4+ICAgIGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0veGlsaW54L3hpbGlueC12dGMu
+YyB8IDE5ICsrKysrKysrKysrKysrKysrKysNCj4+Pj4gICAgZHJpdmVycy9tZWRpYS9wbGF0Zm9y
+bS94aWxpbngveGlsaW54LXZ0Yy5oIHwgIDEgKw0KPj4+PiAgICAyIGZpbGVzIGNoYW5nZWQsIDIw
+IGluc2VydGlvbnMoKykNCj4+Pj4NCj4+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVkaWEvcGxh
+dGZvcm0veGlsaW54L3hpbGlueC12dGMuYw0KPj4+PiBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0v
+eGlsaW54L3hpbGlueC12dGMuYw0KPj4+PiBpbmRleCA5MmZlYzdiYjQuLjY5NWViMmE0NiAxMDA2
+NDQNCj4+Pj4gLS0tIGEvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS94aWxpbngveGlsaW54LXZ0Yy5j
+DQo+Pj4+ICsrKyBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0veGlsaW54L3hpbGlueC12dGMuYw0K
+Pj4+PiBAQCAtMTQxLDYgKzE0MSw5IEBADQo+Pj4+DQo+Pj4+ICAgICNkZWZpbmUgWFZUQ19HRU5F
+UkFUT1JfR0xPQkFMX0RFTEFZICAgICAgICAgICAgICAgIDB4MDEwNA0KPj4+Pg0KPj4+PiArLyog
+VmFsdWUgb2YgMSA9IC4wMSUgKi8NCj4+Pj4gKyNkZWZpbmUgWFZUQ19DTEtfTUFYX1BDVF9FUlIg
+ICAgICAgICAgICAgICAgICAgICAgICAxDQo+Pj4+ICsNCj4+Pj4gICAgLyoqDQo+Pj4+ICAgICAq
+IHN0cnVjdCB4dnRjX2RldmljZSAtIFhpbGlueCBWaWRlbyBUaW1pbmcgQ29udHJvbGxlciBkZXZp
+Y2Ugc3RydWN0dXJlDQo+Pj4+ICAgICAqIEB4dmlwOiBYaWxpbnggVmlkZW8gSVAgZGV2aWNlDQo+
+Pj4+IEBAIC0xNzUsMTAgKzE3OCwyNiBAQCBpbnQgeHZ0Y19nZW5lcmF0b3Jfc3RhcnQoc3RydWN0
+IHh2dGNfZGV2aWNlICp4dnRjLA0KPj4+PiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHN0
+cnVjdCB4dnRjX2NvbmZpZyAqY29uZmlnKQ0KPj4+PiAgICB7DQo+Pj4+ICAgICAgIGludCByZXQ7
+DQo+Pj4+ICsgICAgdW5zaWduZWQgbG9uZyBzX3JhdGU7DQo+Pj4+ICsgICAgdW5zaWduZWQgbG9u
+ZyBnX3JhdGU7DQo+Pj4+ICsgICAgdW5zaWduZWQgbG9uZyBjbGtfZXJyOw0KPj4+Pg0KPj4+PiAg
+ICAgICBpZiAoIXh2dGMtPmhhc19nZW5lcmF0b3IpDQo+Pj4+ICAgICAgICAgICAgICAgcmV0dXJu
+IC1FTlhJTzsNCj4+Pj4NCj4+Pj4gKyAgICBzX3JhdGUgPSAodW5zaWduZWQgbG9uZyljb25maWct
+PmZwcyAqIGNvbmZpZy0+aHNpemUgKiBjb25maWctPnZzaXplOw0KPj4+PiArICAgIHJldCA9IGNs
+a19zZXRfcmF0ZSh4dnRjLT54dmlwLmNsaywgc19yYXRlKTsNCj4+Pj4gKyAgICBpZiAocmV0IDwg
+MCkNCj4+Pj4gKyAgICAgICAgICAgIHJldHVybiByZXQ7DQo+Pj4+ICsNCj4+Pj4gKyAgICAvKiBW
+ZXJpZnkgdGhhdCB0aGUgY2xvY2sgaXMgd2l0aGluIGEgcmVhc29uYWJsZSB0b2xlcmFuY2UuICov
+DQo+Pj4+ICsgICAgZ19yYXRlID0gY2xrX2dldF9yYXRlKHh2dGMtPnh2aXAuY2xrKTsNCj4+Pj4g
+KyAgICBjbGtfZXJyID0gKGFicyhnX3JhdGUgLSBzX3JhdGUpICogMTAwMDApIC8gKHNfcmF0ZSk7
+DQo+Pj4+ICsgICAgaWYgKGNsa19lcnIgPiBYVlRDX0NMS19NQVhfUENUX0VSUikNCj4+Pj4gKyAg
+ICAgICAgICAgIGRldl93YXJuKHh2dGMtPnh2aXAuZGV2LA0KPj4+PiArICAgICAgICAgICAgICAg
+ICAgICAgIkZhaWxlZCB0byBzZXQgY2xrIHJhdGU6ICVsdSwgYWN0dWFsIHJhdGU6ICVsdVxuIiwN
+Cj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgIHNfcmF0ZSwgZ19yYXRlKTsNCj4+Pj4gKw0KPj4+
+PiAgICAgICByZXQgPSBjbGtfcHJlcGFyZV9lbmFibGUoeHZ0Yy0+eHZpcC5jbGspOw0KPj4+PiAg
+ICAgICBpZiAocmV0IDwgMCkNCj4+Pj4gICAgICAgICAgICAgICByZXR1cm4gcmV0Ow0KPj4+PiBk
+aWZmIC0tZ2l0IGEvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS94aWxpbngveGlsaW54LXZ0Yy5oDQo+
+Pj4+IGIvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS94aWxpbngveGlsaW54LXZ0Yy5oDQo+Pj4+IGlu
+ZGV4IDg1NTg0NTkxMS4uMGYzNjBlZDU1IDEwMDY0NA0KPj4+PiAtLS0gYS9kcml2ZXJzL21lZGlh
+L3BsYXRmb3JtL3hpbGlueC94aWxpbngtdnRjLmgNCj4+Pj4gKysrIGIvZHJpdmVycy9tZWRpYS9w
+bGF0Zm9ybS94aWxpbngveGlsaW54LXZ0Yy5oDQo+Pj4+IEBAIC0yNyw2ICsyNyw3IEBAIHN0cnVj
+dCB4dnRjX2NvbmZpZyB7DQo+Pj4+ICAgICAgIHVuc2lnbmVkIGludCB2c3luY19zdGFydDsNCj4+
+Pj4gICAgICAgdW5zaWduZWQgaW50IHZzeW5jX2VuZDsNCj4+Pj4gICAgICAgdW5zaWduZWQgaW50
+IHZzaXplOw0KPj4+PiArICAgIHVuc2lnbmVkIGludCBmcHM7DQo+Pj4+ICAgIH07DQo+Pj4+DQo+
+Pj4+ICAgIHN0cnVjdCB4dnRjX2RldmljZSAqeHZ0Y19vZl9nZXQoc3RydWN0IGRldmljZV9ub2Rl
+ICpucCk7DQo+Pj4NCj4+PiBJbiB1cHN0cmVhbSB0aGVyZSdzIGEgc2luZ2xlIHVzZXIgZm9yIHRo
+ZSBWVEM6IHRoZSBUUEcgZHJpdmVyLiBJdA0KPj4+IGRvZXNuJ3Qgc2V0IHRoZSBmcHMgZmllbGQs
+IHNvIHRoZSBhYm92ZSBjb2RlIHdvdWxkIGFsd2F5cyB0cnkgdG8gc2V0IHRoZSByYXRlIHRvIDAs
+DQo+d291bGRuJ3QgaXQ/DQo+Pj4NCj4+IFlvdSdyZSByaWdodC4gVGhlIFZUQyBjaGFuZ2Ugd2Fz
+IHBvc3RlZCB3aXRob3V0IHRoZSBUUEcgaHVuayB0aGF0IHNldHMNCj4+IGZwcyAoeHRwZ19jb25m
+aWdfdnRjKCk6IC5mcHMgPSB4dHBnLT5maV9kIC8geHRwZy0+ZmlfbiksIHNvIHVwc3RyZWFtDQo+
+PiBmcHMgc3RheXMgMCBhbmQgd2UgZW5kIHVwIGNhbGxpbmcgY2xrX3NldF9yYXRlKGNsaywgMCkg
+YW5kIGRpdmlkaW5nIGJ5IHplcm8uDQo+PiBJIHdpbGwgaW5jbHVkZSB0aGUgVFBHIGNoYW5nZSBp
+biB0aGUgc2VyaWVzIHNvIHRoZSBWVEMgY29kZSBoYXMgYSByZWFsDQo+PiB1c2VyLg0KPj4NCj4+
+PiBXaGF0IGlzICJyZWFzb25hYmxlIHRvbGVyYW5jZSIsIHdoeSBkaWQgeW91IGFycml2ZSB0byAu
+MDElPyBBbHNvLCB0aGUNCj4+PiBhY3R1YWwgcmVzdWx0IGlzIG5vdCB2aXNpYmxlIHRvIHRoZSB1
+c2VyLg0KPj4+DQo+PiBBZ3JlZWQsIHRoZSAwLjAxJSB0aHJlc2hvbGQgd2FzIGFyYml0cmFyeS4g
+SSB3aWxsIGRyb3AgYm90aCB0aGUNCj4+IHRvbGVyYW5jZSBhbmQgdGhlIGRldl93YXJuKCkgLSBh
+IGxvZyBtZXNzYWdlIGlzIG5vdCBzb21ldGhpbmcgdXNlcnNwYWNlIGNhbiBhY3QNCj5vbi4NCj4+
+IEluc3RlYWQgdGhlIGRyaXZlciBjYW4gdXNlIGNsa19yb3VuZF9yYXRlKCkgdG8gZ2V0IHRoZSBh
+Y2hpZXZhYmxlIHJhdGUNCj4+IGFuZCByZXBvcnQgdGhlIGFjdHVhbCB2YWx1ZSB0aHJvdWdoIHRo
+ZSBBUEkgcmF0aGVyIHRoYW4gZG1lc2cuIERvZXMNCj4+IHRoaXMgYXBwcm9hY2ggc291bmQgZmlu
+ZSB0byB5b3U/DQo+Pg0KPj4+IEkgdGhpbmsgdGhpcyBpcyBhIHNsaWdodGx5IGJpZ2dlciB0b3Bp
+YyB0aGFuIGEgc2luZ2xlIFZUQyBwYXRjaC4NCj4+PiBUaGVyZSBzaG91bGQgYmUgYSB1c2Vyc3Bh
+Y2UgQVBJIHRvIHNldCB0aGUgRlBTLCBhbmQgdGhlIHVzZXIgc2hvdWxkDQo+Pj4gc2VlIHdoYXQg
+d2FzIHRoZSBhY3R1YWwgcmF0ZSBoZSBnb3QgdmlhIHRoZSBBUEkgKGluc3RlYWQgb2YgYQ0KPj4+
+IGRldl93YXJuIHdoZW4gdGhlIHJhdGUgaXMgb2ZmIG1vcmUgdGhhbiBhbiBhcmJpdHJhcnkgdG9s
+ZXJhbmNlKS4NCj4+DQo+PiBBZ3JlZWQuIEZvciB2MiBJIHdpbGwgbWFrZSB0aGUgZnJhbWUgcmF0
+ZSBhIHVzZXJzcGFjZSBwYXJhbWV0ZXIgYW5kDQo+PiByZXBvcnQgdGhlIGFjaGlldmVkIHJhdGUg
+YmFjayB0aHJvdWdoIHRoZSBzYW1lIEFQSSwgZHJvcHBpbmcgdGhlDQo+PiB0b2xlcmFuY2UvZGV2
+X3dhcm4gaGV1cmlzdGljIGVudGlyZWx5Lg0KPj4NCj4+IEkgcGxhbiB0byB1c2UgdGhlIFY0TDIg
+ZnJhbWUtaW50ZXJ2YWwgaW50ZXJmYWNlIChWSURJT0NfUy9HX1BBUk0gb24NCj4+IHRoZSBUUEcg
+c291cmNlIHBhZCk6IGNvbXB1dGUgdGhlIHBpeGVsIGNsb2NrIGZyb20gdGhlIHJlcXVlc3RlZA0K
+Pj4gaW50ZXJ2YWwsIHByb2dyYW0gaXQgdmlhIHRoZSBWVEMsIGFuZCB3cml0ZSB0aGUgZ3JhbnRl
+ZCBpbnRlcnZhbCBiYWNrDQo+PiBzbyB1c2Vyc3BhY2Ugc2VlcyB3aGF0IGl0IGdvdC4gTGV0IG1l
+IGtub3cgaWYgeW91IHdvdWxkIHByZWZlciBhDQo+PiBkaWZmZXJlbnQgaW50ZXJmYWNlIChlLmcu
+IERWIHRpbWluZ3Mgb3IgYSBkZWRpY2F0ZWQgY29udHJvbCk7IEkgd291bGQNCj4+IGxpa2UgdG8g
+c2V0dGxlIHRoZSBBUEkgYmVmb3JlIEkgcmVzcGluLg0KPkkgdGhpbmsgdGhpcyBzb3VuZHMgZmlu
+ZS4NCj4NCj5EbyB5b3UgaGF2ZSBhIGRlc2lnbiB0byB0ZXN0IHRoZSBUUEc/IEkgdGhpbmsgVml2
+YWRvIGRyb3BwZWQgaXQgbWFueSB5ZWFycyBhZ28sDQo+YW5kIEkgaGF2ZSBuZXZlciBhY3R1YWxs
+eSByYW4gdGhlIFRQRyBkcml2ZXIuDQoNClRoYW5rcywgSSB3aWxsIGdvIHdpdGggVklESU9DX1Mv
+R19QQVJNIG9uIHRoZSBUUEcgc291cmNlIHBhZCBmb3IgdjIuDQpZZXMsIEkgaGF2ZSBhIHdvcmtp
+bmcgaW50ZXJuYWwgZGVzaWduIHdpdGggVFBHICsgVlRDICsgZnJhbWVidWZmZXIgd3JpdGUsDQph
+bmQgVml2YWRvIHN0aWxsIHNoaXBzIHRoZSBWaWRlbyBUZXN0IFBhdHRlcm4gR2VuZXJhdG9yICh2
+X3RwZykuIEkgd2lsbA0KdGVzdCB2MiBvbiB0aGF0IHBpcGVsaW5lIGJlZm9yZSBwb3N0aW5nIGl0
+Lg0KDQo+DQo+ICBUb21pDQoNCg==
 
