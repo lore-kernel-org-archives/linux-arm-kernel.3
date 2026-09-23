@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB677C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F68C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQU5pR+SfoNYpqsu1yMb6Y4AvkPOKGuTiJW7N1CVBjQ=; b=UYrCj7xzWF1TeL5XZbhx47iQGh
-	LDjU4JmoR8+Fn5+OeSZlLTsXnbNIW9I9JPYZCSNKtgR2EDy0Vocq/c+S+JGCtHMO1kNyPf34IAGwj
-	Uzj1Gt3wEvsHCx9mm7hrjKe7Pml7iYniaoLPFooo2B5mmoMZnFkP6OuAPgAVDtiONOe31FaWUrzhY
-	5I6w3yKDhh/eKJPF7kJ11VHXgMKKHhR4U8HUL7ZaKCqgGoP270SyFlXNbUvWFJmYt2Kz+lS+9qFCr
-	l6lir3bwQz3YbXXVlRZW7e0XJNI/yLmL1dqIucUhsJuQor+Cp9jWOrVkdIA6BzuggmcJ44dvKnCXb
-	NXE41Bog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F4OSOZ6QNkL9RkPJ9OENWBp9oqWXQ7z1vT7cr50A03I=; b=nRe9e6Va3cueg48aHeTXVeORnr
+	ZOJNCA67JYGTjoh1EJxuozLSk5c8KjB949hzQtcmEUGQL0gz0pINXFd0I2VdnUBlPnLTRXYt386oR
+	ZdoF5b4D+1m+BeR1QZClBrw0Dpo/pFkLIuM7bbcUaVLrYhWyv3n8RKZH/apdi44tiGJOo3vJplEio
+	cG5Mi6qUkYYcX/+/a+3boBjz+n+fKH6/hBnqW/4khdgA+gsn4625ZSxduG7lezlpxduSyG+SAMigG
+	hlKQxYA5e0lbUtxGSbIYTUlKjJwdM5odQsf4gZZK+QSHghKMzwFwEL6LmyBvBGEeMpZc0DOv/E1Be
+	vjACGb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JV3-00000007mPp-1iba;
-	Wed, 23 Sep 2026 09:42:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9JV0-00000007mP0-3xXb
+	id 1x9JWO-00000007mgf-2UwV;
+	Wed, 23 Sep 2026 09:44:12 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9JWM-00000007mfw-1L08
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 09:42:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17E0A1516;
-	Wed, 23 Sep 2026 02:42:42 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 890353F86F;
-	Wed, 23 Sep 2026 02:42:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790156565; bh=ovmViFUKy6MLk0NrlYXc5n5zxje+qUS5YdjUVeCmo3A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EqrxHpMU3y3q09p7ZwC3F7pnYhUAukhhWF6HkPPmq/150OiZcTwdjrlGOeBN8pNBQ
-	 ViYlHj7XxBiCoU3LYoeEyZ1FOUfVcJxbQ/TAUCtCU/Xb1Gv0B6KDlzCogBgLoCrn9N
-	 2KeYP3En8k33E1CffATf2xeYK+Rk4KTPNkAHQoT0=
-Date: Wed, 23 Sep 2026 10:42:39 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, Andrew Morton <akpm@linux-foundation.org>,
-	christian.koenig@amd.com, Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>, Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Will Deacon <will@kernel.org>,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	linux-media@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [RFC PATCH v7 02/13] mm: Add an allocator for CoCo shared memory
-Message-ID: <arOfD6syXOgQhZYA@arm.com>
-References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
- <20260921144847.501151-3-aneesh.kumar@kernel.org>
- <arKsFofudnTYpXj1@arm.com>
- <yq5aik3w344o.fsf@kernel.org>
+	Wed, 23 Sep 2026 09:44:11 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485843116d2so100202f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 02:44:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790156648; x=1790761448; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F4OSOZ6QNkL9RkPJ9OENWBp9oqWXQ7z1vT7cr50A03I=;
+        b=nsSWw36BS9fHoz0rmkkBfLULB5rTca4Whl4B/GIPVOhkN9UUfKH/XN5LPEtcjk82oI
+         kV7dMKtoWC9jy9gBeYKs+4kGt+NWs1B8UltxZknAy5fW2Bx+BV2YKPhRNJLVjb79Ht1J
+         Z9DZR66XjFMSi3V3F6agmQ7u0qXfgp2VhG44YTk7IBDr+uswQAj0GYo6vT1w/EUPFjO0
+         EUsH+C04JfSvOMxki0bMNIs87H1BbnkJsZx0jdp5QOTiLSaTgs32UdoYq4z7po3Bqniq
+         UdCFPKtDQUdMobnLRKGjW7TATcOAqrf+62t2e0Z4IOpAA6YkbYYkKnvkWGQpwGU2flW6
+         3S5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790156648; x=1790761448;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F4OSOZ6QNkL9RkPJ9OENWBp9oqWXQ7z1vT7cr50A03I=;
+        b=ZrWaCqPTPJVX4zIeRBJqxtf0Vm3125GQNOBEFSDPN+yOGTpxC1LkO62fi81U89NCmS
+         nrucTVo4QRH/lrw92pqi6fh7/XHCRcVKadhjSVyzFOop+Hh8V84HX20EXe5qbeP8IO52
+         71L6OMofHcTk5Cs1wAHXrJUxrG38i1fSUO+VptPMlgcqGWxOWwfKMyaGtpW4gqKr5Ktw
+         M9/bfAuOiY3KchE0NJJdyCIVXz1Ccu7vJdK1+DCa26O+j5LpK//zTxqmwNrh3m9ZoKCG
+         mJ9P35drCPQ2hdjmGvvKDFUOKXn04Quomtstq5WZKbuQn4OHs79LFaKS4haQMAGo0zFH
+         EVAQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxIrc3BPzyVFfRa6NcUxidBf9XMwHYeXeKF34ibffQoIgDTo5d++UeKdkIkPmiyckkqgTN1OQquguI/3WS20gpa@lists.infradead.org
+X-Gm-Message-State: AFuF++l7/zXUO661fs9RiD334tAsXRIMevHW7UjmhjLtJrCG8LkGdCwy
+	p6tBMPGXcU3xkrGsASJwB3dbcsm6gfJaTPQUIT6X48vvCRf0mSqvQ4JJ
+X-Gm-Gg: AYBFou3NlNlMUOrlpqC/hn1guXrcE5WdbDhvGUEH2T6MjZ33/SThPDWmOyNgyV5YPI4
+	QyMIelmbc9/wSnQJCcn9NHUhCiB0LglwxKXlEcQRDxTwNvXm+qmF3+lxlBR4baK085inyf7Vc2P
+	jUcyDu1iwEEi/nyvEHfMWpshnkuytF97NzPSHEifVTofWQWiskHDXD6EO0Tf1qRc4iE4neUysH9
+	yujf4/uaFYKVox63VmMk4KDwdneW2HBBd0QTGaD0MaVrEnrQ4KAqvKUzzpL/kj1CQLUWHmmSfOK
+	8AgzVyZ8/0Cy4jEJgQ0m0WXbFBqZK36nFP8xFFH3V6v8nxMkBbVaqMkAoO+SiX1vDVTSedclFFK
+	m9WeHsZL0HBKvCqKjUe9Zc/tmi4t81YDij/oxUjewg8TgKKSqzSMW5xDXyGcF8m0y6FcWbUdDdL
+	i48/Tn2/cEnqzwT48BxrNDMbT8wh0qZbe/ZQEfEiURktSjAPAfI2VDyI/dg2hpPuKmONzZ6LHuA
+	KUqdOL6Bdbx1yrAq5p04Di+jmPeHHQ05L8xot3iMJdFB+9h1NHoZ9kt1pKzJNk6kBNhkH3+Ryd3
+	r9s=
+X-Received: by 2002:a05:6000:41c2:b0:487:240f:b0b6 with SMTP id ffacd0b85a97d-48866fec88emr3319246f8f.0.1790156648286;
+        Wed, 23 Sep 2026 02:44:08 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8F4500D949869966507951.dsl.pool.telekom.hu. [2001:4c4e:1b8f:4500:d949:8699:6650:7951])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48867b49661sm5535223f8f.0.2026.09.23.02.44.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 02:44:07 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Diederik de Haas <diederik@cknow-tech.com>,
+	Rob Herring <robh@kernel.org>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Sidong Yang <sidong.yang@furiosa.ai>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Jiaxing Hu <gahing@gahingwoo.com>,
+	Nicolas Dufresne <nicolas@ndufresne.ca>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	=?UTF-8?q?H=C3=BCseyin=20BIYIK?= <boogiepop@gmx.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 06/11] dt-bindings: npu: rockchip: allow DVFS and thermal properties
+Date: Wed, 23 Sep 2026 11:43:53 +0200
+Message-ID: <20260923094353.20318-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <DLMKYI79QQRS.28Q4ESQ974BU@cknow-tech.com>
+References: <20260922080114.44662-1-royalnet026@gmail.com> <20260922080114.44662-7-royalnet026@gmail.com> <20260922160602.GA3529337-robh@kernel.org> <20260923085755.16219-1-royalnet026@gmail.com> <DLMKYI79QQRS.28Q4ESQ974BU@cknow-tech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5aik3w344o.fsf@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_024247_075673_D51527FE 
-X-CRM114-Status: GOOD (  28.53  )
+X-CRM114-CacheID: sfid-20260923_024410_395818_BE487A67 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +119,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 11:23:27AM +0530, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> > On Mon, Sep 21, 2026 at 08:18:36PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> +int alloc_cc_shared_pages_node(int nid, gfp_t gfp,
-> >> +		size_t requested, struct cc_shared_pages *mem)
-> >> +{
-> >> +	struct cc_shared_layout layout;
-> >> +	struct page *page;
-> >> +	unsigned int order;
-> >> +	bool zero = gfp & __GFP_ZERO;
-> >> +	int ret;
-> >> +
-> >> +	if (!mem)
-> >> +		return -EINVAL;
-> >> +
-> >> +	ret = cc_shared_calc_layout(requested, &layout);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	order = get_order(layout.shared_size);
-> >> +	if (order > MAX_PAGE_ORDER)
-> >> +		return -EINVAL;
-> >> +
-> >> +	/*
-> >> +	 * State transitions require a linear-map address and may modify memory.
-> >> +	 * Allocate from low memory and defer requested zeroing until afterwards.
-> >> +	 */
-> >> +	gfp &= ~(__GFP_HIGHMEM | __GFP_ZERO);
-> >> +	if (nid == NUMA_NO_NODE)
-> >> +		page = alloc_pages(gfp, order);
-> >> +	else
-> >> +		page = alloc_pages_node(nid, gfp, order);
-> >> +	if (!page)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	ret = cc_make_shared(page_address(page), layout.shared_size);
-> >> +	if (ret) {
-> >> +		if (!cc_make_private(page_address(page), layout.shared_size))
-> >> +			__free_pages(page, order);
-> >> +		else
-> >> +			pr_warn_ratelimited("leaking %zu bytes with uncertain shared state\n",
-> >> +					    layout.shared_size);
-> >> +		return ret;
-> >> +	}
-> >> +
-> >> +	if (zero)
-> >> +		memset(page_address(page), 0, layout.shared_size);
-> >
-> > Does the memset() post sharing logic work for pKVM as well? If nothing
-> > clears it, we have a small window where guest data is leaked to the
-> > host.
-> >
-> > Is there a case where we *do not* need the memory cleared? If not, maybe
-> > we can move the logic in the arch set_memory_decrypted().
-> >
-> 
-> I don't think every architecture or platform can unconditionally zero
-> memory in set_memory_decrypted(). Some callers may need to share valid
-> contents with the host.
+On Wed, Sep 23, 2026 at 11:15:22AM +0200, Diederik de Haas wrote:
+> On Wed Sep 23, 2026 at 10:57 AM CEST, Igor Paunovic wrote:
+> > Will do in v3. By the same reasoning I will drop 'dtbs_check' from the
+> > two DTS patches, 07/11 and 11/11.
+>
+> Doesn't the same apply to 'checkpatch' as well?
 
-Is there any? That would be a bad assumptions in the caller. Most
-set_memory_* backends don't preserve the content as they change the
-encryption key. So properly written code shouldn't rely on this unless
-it knows specifically it's only running on pKVM for example. The only
-use-case I see to avoid explicit zeroing is when the caller doesn't care
-about the page initialisation and wants to save some cycles. The
-encryption key change would take care of the security aspect.
+Yes, it does, so it goes too. In v3 the trailer will only name sparse,
+on the patches where it was used, and the DT patches will carry a bare
+'Assisted-by: LLM'.
 
-> Also, if zeroing is added only to the CCA implementation, the allocator
-> must retain __GFP_ZERO for platforms such as pKVM. This would cause the
-> memory to be zeroed twice on CCA.
-
-What I meant is that we change the set_memory_decrypted() contract to
-always zero, assuming that all callers need to zero the pages anyway. If
-we do have cases where zeroing is not needed, we could make it explicit
-via a flag.
-
-> How about extending cc_make_shared() with a flag indicating that the
-> memory must be zeroed, and passing that requirement down to the
-> architecture-specific implementation? The implementation could then zero
-> the memory at the appropriate point: before sharing for pKVM and after
-> the destructive transition for CCA.
-
-On pKVM, we want set_memory_decrypted() to zero the buffer
-before the host can access it (I guess currently relying on __GFP_ZERO
-allocations). Since no cryptographic encryption takes place, there's not
-much point in memset'ing again after the operation as the content was
-already zeroed.
-
-I don't think cc_make_shared() has the right information on how to
-safely and efficiently do the zeroing. That's only known to the
-set_memory_* backend. So you'd have to propagate the flag down.
-
--- 
-Catalin
+Igor
 
