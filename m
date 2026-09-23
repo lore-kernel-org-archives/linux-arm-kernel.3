@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F65AC98314
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:35:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A88C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 22:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Py61aRDKfKKgr7KrDYs8YJonEJpzgN/tMxDaSvnzKuk=; b=ccr44owG/U0Qn9gh96iWjOmqJ/
-	WBolSOI+xqkTzbQMZVuw1LiLYcl5y8hDUx2r2jCBtHDFx6zi7G45jQhSPZ4+p3KWvhF04NfjU0gw1
-	LDpdsIRBLNPBxk1zjwbtdzE1LctNGBxmmY634iUDcjq78WNsZwWCjrLOkdoWl+dWp1rnFuuQfo/f8
-	UnDLki0JDO1hKj0nLNwfzeCjoVYxyg5G3PwiHz/XSwI352hrUe+BhKbYws9bEyqN/rOSSe7dM34TJ
-	VXQIFxIrWYdaiMtjKu/enCkA2fgcTvvISMkhm9wfuQ+rnanmhIqhq2SY1DerrqJZSCVPiuuf5EsIa
-	MRWfjKbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c4ROB5gmPay6sdQJPjpG61DXTR2zRREmvWIvdqy7Ui4=; b=SNzEHg3Xqbwh55StPBx+zjuqYt
+	HsLst67KZ551vzotN2yqcOFJJCqzycCtpphs74NTinjB4H5Bwdyxvtqc20eUNV+5oSP/G71Fr65Vs
+	avNKdgMnBaA1d2X6yV46Cu7bbwbyDfa3wu0VEeyXwTIIIYg3M6PVg6qkMGsG6rCj2OXKI2I3lMUb8
+	PwZA+TNa3LTRAiNQNlsGjYboBcwx8bPVElO4hRJgTUkOr6KbFRapUX28m4WTI4d3qO70JeWMjQqGZ
+	d144k03MfEL12JcQAXcKLpZzug8ZJpkeHypppaVGgfJTAVPoTMeK/XzWNyJZp+iIplzU4l+RyUw9H
+	qRoTfI6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9VYI-00000009eYA-3uW1;
-	Wed, 23 Sep 2026 22:34:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9VYF-00000009eWw-1Ru3
+	id 1x9Vg0-00000009fJg-2jux;
+	Wed, 23 Sep 2026 22:42:56 +0000
+Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9Vfy-00000009fIk-0B6D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 22:34:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4783C152B;
-	Wed, 23 Sep 2026 15:34:48 -0700 (PDT)
-Received: from [10.57.8.94] (unknown [10.57.8.94])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCDA23F632;
-	Wed, 23 Sep 2026 15:34:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790202891; bh=e+cOxOOR7KeNTZdDG5EoT2YT7Z8uj3tv81dEWnLqxQY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KvsswqJTKoAouUyBTgte07ttJiGhLx7UEhKgBCQUl8AKuWIqgaS50y5r+1wZsvLfL
-	 PXiIgVDcVatXU14yZqH0uMrkLNul/b3Q0PXLMFXeb+rp99Enz2WFzuun0j2T37BLpI
-	 QoIRq58cDg5rRujzsuaS+8eMLq1WWgth4j4SEfEI=
-Message-ID: <eabbb060-9e99-432d-ac51-7470a7e8e7e9@arm.com>
-Date: Wed, 23 Sep 2026 23:34:43 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 1/7] firmware: arm_rmm: Add SMC definitions for
- calling the RMM
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260912083611.2513845-1-suzuki.poulose@arm.com>
- <20260912083611.2513845-2-suzuki.poulose@arm.com>
- <178978126540.2352296.16845657485139032765.b4-review@b4>
- <d7ccaf22-5bde-4344-8bf0-a5a17dcac0f3@arm.com>
- <45fb9520-7003-412f-9ab1-14e2a762c816@arm.com>
- <20260921142716.000073f8@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260921142716.000073f8@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Wed, 23 Sep 2026 22:42:55 +0000
+Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-3965ba1ba3eso1128981a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 15:42:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790203372; x=1790808172; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=c4ROB5gmPay6sdQJPjpG61DXTR2zRREmvWIvdqy7Ui4=;
+        b=CjBDk4WwixJGHIA8e8eGF5F4jrrGdwcjN2w2pz2eihWJc2ttoAfT2cpNVXLbuBEOb6
+         4TRBontRIYKq2EjKnVrtUFm9Kb7lJo8dM6Lu+YRVa8o7CWBXZ25Lahnl3x82KZpCjUGk
+         1Bi2LSFCA86J3lwifU4Z2wIpNFXGQNVVHlvhM3ZxZRk2RPdLbppw4BzMoeoxbtjGtZRw
+         3BLlUG5UXb3Ys9/RqV3ath3oPdRxnVZFjXgJgoFRmZu5YpuI59Fh8XichPGZjJPwhnAj
+         s/DkKDdBQEXWdCbEsrz4z1ak5zJ2/Oqp/Y1kzsIHx1vkhYLXFxFKY2F6bGJSzQ8ckLUd
+         BuKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790203372; x=1790808172;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=c4ROB5gmPay6sdQJPjpG61DXTR2zRREmvWIvdqy7Ui4=;
+        b=GHVrtJ4xzfmfivKczPCkvhp7XTrfj8lq6hcFk86FQ21dFj3SDCXnTdV6TZB3/0KWTk
+         axMoThoWw/uQJQN3QNi0jzYqDmqqEM4OmMaAqH+8691hSt34UQmreSSa+iWoDM3SV/Je
+         mCmi4vBgzwB7IJD7TzjHKvsnzwPH8PEKV6jdzholK8n00goYAXbSV7obQEQq2XDOZlix
+         0eFg/1pzt+dtn5wtM8vSyz+KpC5W5ZXOzrHr70eIzKYj6XjA625gPIyVSt19WosZ9Eh6
+         YcH8VvzSJVsNX7DTfGdbE23Wsa7l7yIHV3KhtSrFizZM4roZH0MMaDHDh2dJqDzaNvVs
+         WMzg==
+X-Forwarded-Encrypted: i=1; AKwUvBxJdOldUbgJSpfoF8tJ/GgRjdSFg42ZQ+Ixi4hjNV1mfYuBYf1E151xDORm1ovl+k9rt6K+CM9g1O4ZEFsLQGqt@lists.infradead.org
+X-Gm-Message-State: AFuF++n4RKXQjM4DWk/50ubxdCIp5mfsy4TuXK5fuwu1/DGDHw3mvW6s
+	6B72+S6W6aeAIAkh2HuHA+1bFzblx+CW4y9Zd9V2H6WnP1FRLOv58O4EykHVdp0UW4KqbELQrJ9
+	EjG0svg==
+X-Received: from pjbbh7.prod.google.com ([2002:a17:90b:487:b0:3a0:8315:fa7b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3f87:b0:398:a486:81ec
+ with SMTP id 98e67ed59e1d1-3a0985b8f01mr435176a91.11.1790203372353; Wed, 23
+ Sep 2026 15:42:52 -0700 (PDT)
+Date: Wed, 23 Sep 2026 15:42:51 -0700
+In-Reply-To: <6-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
+Mime-Version: 1.0
+References: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com> <6-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
+Message-ID: <arRV6y-d1rkRV2Fa@google.com>
+Subject: Re: [PATCH v7 06/10] vfio: selftests: Allow drivers to specify
+ required region size
+From: Sean Christopherson <seanjc@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alex Williamson <alex@shazbot.org>, David Matlack <dmatlack@google.com>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, Leon Romanovsky <leon@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Mark Bloch <mbloch@nvidia.com>, 
+	netdev@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Saeed Mahameed <saeedm@nvidia.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Shuah Khan <shuah@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Tariq Toukan <tariqt@nvidia.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, patches@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_153455_491261_1E7392F3 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20260923_154254_091182_3700429A 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,196 +98,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 22:27, Jonathan Cameron wrote:
-> On Mon, 21 Sep 2026 11:02:56 +0100
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+On Mon, Sep 21, 2026, Jason Gunthorpe wrote:
+> Add a region_size field to struct vfio_pci_driver_ops so drivers can
+> declare how much DMA-mapped region they need. The mlx5 driver will need
+> ~18MB for firmware pages. Existing drivers pass in the sizeof their state
+> struct. Since drivers all use only their declared state we can use the
+> value directly and remove the SZ_2M hard coding.
 > 
->> On 21/09/2026 10:27, Suzuki K Poulose wrote:
->>> On 19/09/2026 02:27, Jonathan Cameron wrote:
->>>>> The RMM (Realm Management Monitor) provides functionality that can be
->>>>> accessed by SMC calls from the host.
->>>>>
->>>>> The SMC definitions are based on DEN0137[1] version 2.0-bet3
->>>>>
->>>>> [1] https://developer.arm.com/documentation/den0137/2-0bet3/
->>>>>
->>>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>>
->>>> With Gavin's nitpicks and the GENMASK_ULL() from sashiko, just a few
->>>> comments inline.  Mostly on subtle inconsistencies that really don't
->>>> matter that much.
->>>>   
->>>>>    include/linux/arm-smccc-rmi.h | 497 ++++++++++++++++++++++++++++++++++
->>>>>    1 file changed, 497 insertions(+)
->>>>>    create mode 100644 include/linux/arm-smccc-rmi.h
->>>>>
->>>>> diff --git a/include/linux/arm-smccc-rmi.h b/include/linux/arm-smccc-
->>>>> rmi.h
->>>>> new file mode 100644
->>>>> index 000000000000..214d6228dfc2
->>>>> --- /dev/null
->>>>> +++ b/include/linux/arm-smccc-rmi.h
->>>>> @@ -0,0 +1,497 @@
->>>>> +/* SPDX-License-Identifier: GPL-2.0 */
->>>>> +/*
->>>>> + * Copyright (C) 2023-2026 ARM Ltd.
->>>>> + *
->>>>> + * The values and structures in this file are from the Realm
->>>>> Management Monitor
->>>>> + * specification (DEN0137) version 2.0-bet3:
->>>>> + * https://developer.arm.com/documentation/den0137/2-0bet3/
->>>>> + */
->>>>> +
->>>>> +#ifndef __LINUX_ARM_SMCCC_RMI_H_
->>>>> +#define __LINUX_ARM_SMCCC_RMI_H_
->>>>> +
->>>>> +#include <linux/arm-smccc.h>
->>>>> +#include <linux/bitfield.h>
->>>>> +#include <linux/bits.h>
->>>>> +#include <linux/build_bug.h>
->>>>> +#include <linux/sizes.h>
->>>>> +
->>>>> +#include <asm/page.h>
->>>>> +
->>>>> +#define SMC_RMI_CALL(func)                \
->>>>> +    ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,        \
->>>>> +               ARM_SMCCC_SMC_64,        \
->>>>> +               ARM_SMCCC_OWNER_STANDARD,    \
->>>>> +               (func))
->>>>
->>>> Obviously it is v18 so probably a future thing but nothing about this
->>>> is RMI specific.  Could be used for ARM_SMCCC_TRNG_RND64 for instance.
->>>> I'm not entirely sure what we'd call such a macro
->>>>
->>>> ARM_SMCCC_CALL_VAL64_STD() maybe?
->>>
->>> ARM_SMCCC_STD_CALL64_VAL() ?
->>>
->>> But, I would leave it as a wider cleanup in the tree as a separate
->>> series.
->>>    
->>>>
->>>> I'm not just not keen on macros whose names to me hint at something
->>>> special. FWIW this also matches SMC_RSI_FID() and FFA_SMC64().
->>>> Isn't it nice when we have a predictable naming scheme :)
->>>>
->>>> FID (for Function IDentifier) is in the spec, so maybe?
->>>>
->>>> Anyhow, I don't really care that much.
->>>>   
->>>>> +
->>>>> +#define SMC_RMI_VERSION                SMC_RMI_CALL(0x0150)
->>>>> +
->>>>
->>>>   
->>>>> +#define RMI_ABI_MAJOR_VERSION    2
->>>>> +#define RMI_ABI_MINOR_VERSION    0
->>>>> +
->>>>> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
->>>>
->>>> I'd mask it.  Mostly because that would shout that it is only 15 bits.
->>>>   
->>>
->>> Ack
->>>    
->>>>> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
->>>>> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
->>>>
->>>> I'd go all in on FIELD_PREP() / FIELD_GET() + GENMASK just for the
->>>> sake of consistency + not having to be careful that everything is
->>>> checked for fit to keep the LLM bots happy.
->>>>   
->>>>> +
->>>>> +#define RMI_RETURN_STATUS_MASK        GENMASK(7, 0)
->>>>> +#define RMI_RETURN_INDEX_MASK        GENMASK(15, 8)
->>>>> +#define RMI_RETURN_MEMREQ_MASK        GENMASK(9, 8)
->>>>> +#define RMI_RETURN_CAN_CANCEL_MASK    BIT(10)
->>>>> +
->>>>> +#define RMI_RETURN_STATUS(ret)
->>>>> FIELD_GET(RMI_RETURN_STATUS_MASK, ret)
->>>>> +#define RMI_RETURN_INDEX(ret)
->>>>> FIELD_GET(RMI_RETURN_INDEX_MASK, ret)
->>>>
->>>> What's this one?  I can't find anything in the spec that matches it
->>>> and as far as I can tell you don't use it in this series.
->>>
->>> This is coming from RmiResultDataLevel. See RmiResult type.
->>> This was renamed after we introduce the RmiResultDataIncomplete.
->>> It is used in the KVM code to find the "level" where a command
->>> failed/walked.
->>>
->>> I could rename it to RMI_RESULT_DATA_LEVEL() ?
->>> Similarly RMI_RESULT_STATUS instead of RMI_RETURN_*
->>>    
->>>>   
->>>>> +#define RMI_RETURN_MEMREQ(ret)
->>>>> FIELD_GET(RMI_RETURN_MEMREQ_MASK, ret)
->>>>> +#define RMI_RETURN_CAN_CANCEL(ret)
->>>>> FIELD_GET(RMI_RETURN_CAN_CANCEL_MASK, ret)
->>>    
->>>> These are obscure enough to find in the spec I'd give a comment just
->>>> to save the sanity of anyone looking for them.
->>>
->>> As above, they are really RMI_RESULT_DATA_INCOMPLETE_*
->>>    
->>>>   
->>>>> +/*
->>>>> + * Note many of these fields are smaller than u64 but all fields
->>>>> have u64
->>>>> + * alignment, so use u64 to ensure correct alignment.
->>>>
->>>> Obviously this is only going to run on arm64 so it's not critical, but
->>>> more generally u64s aren't always 64 bit aligned.  So if you 'really'
->>>> care aligned_u64 is there to ensure it.  Meh, arm64 so fine.
->>>
->>> Agreed, I am worried about the churn in the consumer code. Also, like
->>> you said, this is only for ARM64. So, I would pass it.
->>>    
->>>>   
->>>>> + */
->>>>> +struct rmm_config {
->>>>> +    union { /* 0x0 */
->>>>> +        struct {
->>>>> +            u64 tracking_region_size;
->>>>> +            u64 rmi_granule_size;
->>>>> +        };
->>>>> +        u8 sizer[SZ_4K];
->>>>> +    };
->>>>> +};
->>>>> +
->>>>> +static_assert(sizeof(struct rmm_config) == SZ_4K);
->>>>> +
->>>>> +#define RMI_REALM_PARAM_FLAG_SVE        BIT(1)
->>>>> +#define RMI_REALM_PARAM_FLAG_PMU        BIT(2)
->>>>> +#define RMI_REALM_PARAM_FLAG_DA            BIT(3)
->>>>> +#define RMI_REALM_PARAM_FLAG_LFA_POLICY        GENMASK(6, 5)
->>>>> +#define RMI_REALM_PARAM_FLAG_MEC_POLICY        GENMASK(8, 7)
->>>>
->>>> Tiny bit inconsistent. When do you decide _MASK is needed and when
->>>> not?  Seems a little too random for multibit fields.
->>>
->>> I will try to clean this up.
->>
->> Actually, this is used when we don't consume them from RMM. i.e.,
->> we never call FIELD_GET() on them. But thats not a reason for
->> not being consistent in naming. I can fix it
-> 
-> Too obscure for me!  So if not too painful cleaner to just fix it.
+> Assisted-by: Claude:claude-opus-4.6
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
 
-Sorry, forgot to add that, I fixed them to _MASK
+The KVM test still runs, and in David I trust:
 
-Cheers
-Suzuki
-
-> 
-> Jonathan
-> 
->>
->> Cheers
->> Suzuki
->>
->>
-> 
-
+Acked-by: Sean Christopherson <seanjc@google.com>
 
