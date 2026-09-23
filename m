@@ -4,163 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5BDC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFB2C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NSXBaJC1J6EVZ1QqVNTOfVwobtuz0UgwCZPnXHETa9w=; b=MgKPh8G21+TFBlyV0vj+rPF3nz
-	6YVQIYLP3MRH2KLha3OcdJcQtqmMrxB9sTYhTT03MHu8rjWBk6059uy83kKVQIEml6yw3Yg8P+mKp
-	g+TsVMbq/rPdBM2MOaKYXR5irGu/w7bw0ZiyXfGn0kc5XJ0RyYT9fipsbXHe9vTmPmFQU1RLkhD0r
-	8ws5bKpVlr1H+4nH8RxBcsNIN07Jiq2NXLg1fcI93Cq9w5jchJNGCgJ+Ud3Q4hNC1h1pU7DGm3QiO
-	buJV5rr78a3C48uA9omDpAoULHc/koPbkHD0FR1t0zaBgzwYycdRJvcDjERygXIMVFIR9b0R1AN1z
-	9IgmUxkw==;
+	bh=qMVp8M7oG4PVrZQYe0ddJ1sUAh7YKAS+62p52GA/7LA=; b=0F2PfgZiI0eiYKmKeepausLdGN
+	dSxLjHxpdYZuPrHQfOOUz2/je3+6NpTT5DEjwH99/Hq8xra5rlpqB9bRMJTDxYYvRScZsEmELqRK7
+	zVuTolu+OIectWPdLq/xV0ZL6PZzFmHzU3SHaMcISoHyY8DuGrVqlYyRy9mIjpP+qGqMqyOaHWOZr
+	avlUcdSRrDsQW8ATLeyc9c8qYW9kXmS17P94ZM6Vvq9hBzGPT2FOCjsGNDpC+LahIeU0qZ13PoxC5
+	FBQ8HnLVFL0eu3/T6I7odd3uAagU/dxjnNikwR0CnvidubLmsCQobzvCT0VVoogmVnRAzWkHthdQN
+	VaVYgkbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9S33-00000009H1M-2GOU;
-	Wed, 23 Sep 2026 18:50:29 +0000
-Received: from mail-westeuropeazon11011047.outbound.protection.outlook.com ([52.101.70.47] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x9S5g-00000009HLr-3toc;
+	Wed, 23 Sep 2026 18:53:13 +0000
+Received: from out-160.mta1.migadu.com ([95.215.58.160] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9S2z-00000009H0W-2xCN;
-	Wed, 23 Sep 2026 18:50:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oGPdq7ke+0MQSGcZpIvhqMEQUJF1+iGxEQvo3nJM9QTR9CxQFfoAe8GdlQLgpQr2GjSmlFLrCppdwHuDKRXBkc1nPOkIeXZMEb21XfFuwTeod0VjD2IqvQE3uSphSVATJroGSAGcmT96Y/gxoXFZJac5HS0PSwy3lkobn6k8MngqLIB4YPJ2YZXO4EL36CUUimzSCx/DOTC9x8Zay1bPZwb7r/7jKOQQoA31Jv4zn3dZkshA0E11FJqiXHHHOXProH5/CZCNbkZJtrUVnsgw4XkE+p5M5RoPeLuwBlrJA8AR1HI7f08jjQPbj20PvF3szUwRhiz4Di2DlfBfpnyStw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NSXBaJC1J6EVZ1QqVNTOfVwobtuz0UgwCZPnXHETa9w=;
- b=rsIY5/et8LqUa2hsKoZKHPxVLCiIWdMO/fMSI352ido8mcGw1uq3UfV9z14WuVMxeywhvufrtRnNakIfCn1W0yqBIc76Yr5DQt+dFV90M3e/nkZY5tkuD5GibiJjQVurWcbYr5N9/lhNE7+GnLzfrOQIXX3BuUNOFI3TaRz/i0X4cdcYf2I2Qfx2ZPzdMJFTkkC+dkWf4JDuNSMZnMeTdynNddbsVKscoBC3kvyn+Kv+JFdxrvvl6lXEbCur81DAhjIqfmcVz1Tb9nQKGyAg+8rMqQ3d6Y5OIMb7HX6UlArAoMNjXcEksEKQz2Nu4ytFK6we6aTkgkJ4OLi33toIkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NSXBaJC1J6EVZ1QqVNTOfVwobtuz0UgwCZPnXHETa9w=;
- b=QnQNmsSZbv0HIvu1hBUS6rDWhLnKGbLyUbjFNdISWAuzLfv81Oorub5sy4+dmo5ZfhDKkrdu6ebDHIlk1hjhfeejQ8MsaOdekqlK6KypvKEYkMyPGp4hz5PMeku5WvwkW+mTQJ7qLE6OivIyg2od2BCt9z5JMFEP2Lzx3FGV4PVLXie9L2n2PIGR8KVWGkm5R7jGGowrFYuCMgVmzBAg4cJmYmP2OkdknCZQjukkcM4sxCVYxfLld4eNoe6SnIMj9epTcvWhqziOOrXsYvgR9AHF5bpZkF+CnJbprHr0m7/bAKGcjaIVqS528oHEXgctqMV4Kz4ViqeK5ikpNO9oCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by BR0PR04MB823501.eurprd04.prod.outlook.com (2603:10a6:2c8:33::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
- 2026 18:50:20 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
- 18:50:20 +0000
-Date: Wed, 23 Sep 2026 14:50:06 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Ulf Hansson <ulfh@kernel.org>,
-	Aubin Constans <aubin.constans@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>, Arnd Bergmann <arnd@arndb.de>,
-	Johan Hovold <johan@kernel.org>, Ge Gordon <gordon.ge@bst.ai>,
-	Vinod Koul <vkoul@kernel.org>,
-	Albert Yang <yangzh0906@thundersoft.com>,
-	Jared Kangas <jkangas@redhat.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Linus Walleij <linusw@kernel.org>, Fan Wu <fanwu01@zju.edu.cn>,
-	Rosen Penev <rosenp@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
-	Zhan Xusheng <zhanxusheng1024@gmail.com>,
-	Pan Chuang <panchuang@vivo.com>, Khalid Aziz <khalid@kernel.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Rakuram Eswaran <rakuram.e96@gmail.com>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	"open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..." <linux-mmc@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..." <imx@lists.linux.dev>,
-	"open list:OMAP MMC SUPPORT" <linux-omap@vger.kernel.org>,
-	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
-	"open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>,
-	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>
-Subject: Re: [PATCH v4 1/1] mmc: use dmaengine_get_dma_device() instead of
- chan->device->dev
-Message-ID: <arQfXjYbtNhv9__S@lizhi-Precision-Tower-5810>
-References: <20260923184612.3583132-1-Frank.Li@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260923184612.3583132-1-Frank.Li@oss.nxp.com>
-X-ClientProxiedBy: CYZPR12CA0005.namprd12.prod.outlook.com
- (2603:10b6:930:8b::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x9S5c-00000009HLF-0qyq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 18:53:10 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=VQwGs8kxbwA/pw10zZlCJcbl8pu79WWCbvhBxYPCINQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790189586; v=1; x=1790794386;
+ b=MGmH7IcKfx+Nye6FNY4j3bKlpauZH/t0F2aVrVw9380ErahTaiUgYjxMzXQ0oMZjdO60yfbd
+ e6D92XcMYjr5xXaN4KdRsDiuNd7q/YQAt8Zh0LifobHROCQsw5vYRaEgUJw1nmLzbp4locgtZPb
+ c4jB5gXJZFmmH9n8Qw7RV0KY=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 8620ff715923237c;
+	Wed, 23 Sep 2026 18:53:06 +0000
+X-Mizu-Trace-ID: 8620ff715923237c
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b8c42da963so1805e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 11:53:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzF0C2H6zMx4A9nDt4trHScTqi8ctrQSO9OhtPK1eQIQPVmLA1F8QN4hZRz5LiIP4FmLBaad7bV8obDNh0ELFdz@lists.infradead.org
+X-Gm-Message-State: AFuF++lqKaxSAdisGHk1s8ZBQpvsCsyXOCtcfRRniD0GcIcobSBvuT2Z
+	lRsQ+2BE+CqFnocxoc3FsoTRCxTIbeyOh88CmHPe0lMMMtzi8Qw8BYAlvOqupS2ozelwqxmIn0O
+	99wVraQixmhK7maOai8nsiGAkZ6bjHZBz/9VdGd5S
+X-Received: by 2002:a05:6512:124d:b0:5ae:cf5f:4a88 with SMTP id
+ 2adb3069b0e04-5b8dda15fd4mr50291e87.8.1790189584139; Wed, 23 Sep 2026
+ 11:53:04 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|BR0PR04MB823501:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5574a39a-326a-4375-57ca-08df19a38486
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|23010399003|366016|921020|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: C8ktyfdTMEpTvH2KzWaN1a28hiuSCh0XsDL9TiZRwkn16alMwbc0QVDS51xdVm2Vq6xcENhsi9AAk1F40z275lHd/vrZcXXIwkMxMUKq9V0wbD7IDE8wcWppLsZB9THa9HmVdrYm2sviL4yNILDd1pLP9FVNwX86DpjFwV32enxxh4CNYahgTCybYETtu33+J2z2NX0eKz1R774d2HwturqB9gOAAvDxcHtnhIv7JVD0YyyCUA8I52gat+yRx99ncYMO4LIthMv4s165Lhl+W/X7b1NlG7YULnwHnEzPwMWGczrTGbpuuoxuMxneDP7YxOn8ae9uuaXktJn7v/CdaoLcq4Fc+IqaIuC1jLKJQmGJDrLMEPuR4JTWZEB+WHgO9XLRLMQh+ezguEFsDw+1xtH+icMCO//81nW17PxqRdcgHn6SFVCapVvp9bq1qyH1kJIxLZ3W1YqDwDCcsPMbG3wtad6SPhJ/HHkOIoT+ZyX6uY9vwu6mCphUgL2/6rJT80GlZl6QoNhuiphlP1CPTTkVvkRIhz+zRRCm+kGO/qvWrtOqqhip9e2VUz7qc7XNmQNHZ5CDf0PuejSdrGOrqh6741vPnvgc3D6yh8yyPBBdHZKfoQh9hDBiWjxKWb4xqkT9wjIYUdg0Gh/+XynLMoLzRS3R2MCwWWrEPkacNjkCNofgM0LcVQ/a8wrQU5IHUjbPPgeEpTuvJGfKA9ZDbg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(23010399003)(366016)(921020)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jv0fo0D93FZYziqBOVJVdW75ETbDwFXHaK3zYCXkvfkmAlxRD3uVo49TYnpV?=
- =?us-ascii?Q?tYH3BirT3wYk7qIRqPEGxKSaJGO0sWeVrmdvSCXOwgNGURc9LiWXrEdgP1Oz?=
- =?us-ascii?Q?tgr6oZHHo28Q5tsbrItF9aOu2vwexMvo8lWaCpZwBncj1XCfspt0qY7JOklm?=
- =?us-ascii?Q?ZeRnlZPzN5XKaBZ1wEwA3ZFB7gVRNGCnQJGLWsDtwdLy/tTZUvTbrxtRMSLS?=
- =?us-ascii?Q?dwR5JWYpfn2gYbHppLT3lyvEZuOgnF+fRG9WX48EH4F8zBgdgwh7p7YNx0Pe?=
- =?us-ascii?Q?KxUONL8obfstioCqo+NmHqzMk6fjAB9DI/RMuUEHCz38hX1IATq5btoGjKF2?=
- =?us-ascii?Q?LK3xeZRftbhXD+/efNFbGc9VDOOMILyUd/rbar5lWltq63m0VdXFwC787vk8?=
- =?us-ascii?Q?dqMV0JHk6Bjf6S/q8hgj4wpvcXPN5/2Khzh4Umne3H5KxLZtSD4RWSYDm0Z+?=
- =?us-ascii?Q?eRG9BKE1jZ1nBXWPE/S/UVXUNII5pRVOdYxSYq7KUDRhhhitLcfG9gYKDDHj?=
- =?us-ascii?Q?5EMPIShspAWq9jQPELzdj3toXRhUCj0IWXLbxerPysv4QjDT26nlexskrubp?=
- =?us-ascii?Q?sY3L7N1qNEpBuUp362qP0KjDM2JBl842fgH/2Y3pwDkHp7gfshZ0mOSeDrGU?=
- =?us-ascii?Q?/AqoqpZZDo90lq0lUmMDOd9UoDCRpqAxIgRXpEsUSUmWphkHrVNoYDG3gWMc?=
- =?us-ascii?Q?r4WnRR1JLKybrprO+OuPXrfn+zE052qJiS/RJxed7RuO3ckj+e44ynwjzfa8?=
- =?us-ascii?Q?RZwiB5lNuWD8tDsOTP/S0utzLVzfou9Dqi/l31/UdzH4FVPqq00+BQZrT3mb?=
- =?us-ascii?Q?KckFa8l4mMDJdGvlLD4mZZUu4n5qWwAu641PgpESjMojr27MMTdXOShnCodv?=
- =?us-ascii?Q?TWtlhKWlbs5iH/ACTPpzqaKwysUWENXH/J2MyIP9Wkuywe6vA8+3Y17TuATB?=
- =?us-ascii?Q?Xn5DVHHAzUmdBR78ONj1mizEs9PEiMwbgurRPtF9F/6yVgqA0W4lTz1jQbwG?=
- =?us-ascii?Q?4BPY4pD0KFkzEsIyGywWdt+BUdt9SfG7xMA7FQ1j3zAoOlo22psTYzDSr9Vw?=
- =?us-ascii?Q?h55E71kG8QbeA8tKyC9nhzraKmypPhZjrnC5nXP5/vGUNHAsyw/Mr874mAwz?=
- =?us-ascii?Q?xRBqs2+U0XXIMLpcZ3CiS+g4j+OvKZiyt140JJwz1Zl7x5Xgf+gLSEqlXFzP?=
- =?us-ascii?Q?L7axtvaJkwg1aD/YsaoM5o0SlCVhbNM3aguxgKHJXxKNVJHio/MNsALKp8zr?=
- =?us-ascii?Q?EDT59C/HGdcJsGUqwunzjzRdX+Y6Hnul8OkxLsaI66HshPK0p8W8k7EbpmiS?=
- =?us-ascii?Q?kgcqeExhjs/LgFsToFESkCUBV9ACji6Gj1+NCIhz37wXkck23WksmbiScm2Z?=
- =?us-ascii?Q?FOZkSE7ooG+tbtix36m2Ql+I88wkAztb0GeXesUzjubcXG5o0JJrabI6jmIs?=
- =?us-ascii?Q?ewK5+bUGlOf7kStrzkCqZRS9maNHnNTgX5DJ3UmFo6FC96Uv2ojU6LKUq/85?=
- =?us-ascii?Q?1lcp3o22hZ7Ozk0kPXhB0RLy4+PbOXI4/HxvZb2RdDIoNCmdOgkWH9bW21ho?=
- =?us-ascii?Q?OmHTmXBxPq5sMk3i9ukumhBefcFwjkA5F8P6o4GrPuvPUb066A88kJ+S5Nm7?=
- =?us-ascii?Q?nqstjw+j7yjzVINGmyElZMAQ7ibykG3m3I2LBQRgvtI6HS5p84VhFqJiVDe4?=
- =?us-ascii?Q?jhBLE2rjwgThYI/tizgIPCYxhXZRwqFegFGtUvzPyn6t9ho7zIEXpSYkmS3m?=
- =?us-ascii?Q?FQrcqCnbq83MMuRu/FCkAuyQnDq8/fA20AiAvUVNNaR73Yi+UHM2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5574a39a-326a-4375-57ca-08df19a38486
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 18:50:20.5598
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IP0E6KA4vTsKTV6GtSYJCTtzOne2X0pIQiDUi9HGuEvNAqB8Ws6UIwsOiuoI5tyUUVORer6SF/2qiGG2OxdPd18MljdanwY/qAudurza234ufpMWY2Qm1y0NZZXDS4hh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB823501
+References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org> <20260923-kvm-arm-prefault-v4-1-d4b0b4dfa8c3@kernel.org>
+In-Reply-To: <20260923-kvm-arm-prefault-v4-1-d4b0b4dfa8c3@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 23 Sep 2026 19:52:27 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzDYSuBVEc+SMdDa41sq-ET=m_oWW0gL9dYf+AumPYPUg@mail.gmail.com>
+X-Gm-Features: AclHuK9102l5jXhHZm0wjY1xcBMQ6NzdYFil2Hlxj79BuZjg_2Y9X0YS37SYzUc
+Message-ID: <CA+EHjTzDYSuBVEc+SMdDa41sq-ET=m_oWW0gL9dYf+AumPYPUg@mail.gmail.com>
+Subject: Re: [PATCH v4 01/14] KVM: Allow architectures to disallow pre-fault
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Mark Rutland <mark.rutland@arm.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Jack Thomson <jackabt@amazon.com>, 
+	Jack Thomson <jackabt.amazon@gmail.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, linux-s390@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_115025_998687_A4C64E9A 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20260923_115308_715107_B162CEBE 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,51 +96,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 02:45:47PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
->
-> Replace direct dma_chan::device::dev access with the proper
-> dmaengine_get_dma_device() for consumer API
->
-> chan->device->dev is not always the device used for DMA mapping.
-> Some DMA engines support per-channel IOMMU mappings, so different
-> channels may use different DMA devices.  dmaengine_get_dma_device()
-> returns the correct device for each channel.
->
-> This also prepares for making the DMA engine provider data structures
-> private. DMA consumers should not access DMA engine internals directly.
->
-> mxs-mmc.c wrong use mmc host device when do DMA map. Fix it by use
-> dmaengine_get_dma_device().
->
-> Assisted-by: LLM
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Reviewed-by: Vinod Koul <vkoul@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Change in v4
-> - Fix miss "R" at Reviewed-by tags.
-> - Fix error path unmap dev at mxs-mmc.c (sashakio reported)
-> - move dmaengine_get_dma_device(host->dma) after mxcmci_use_dma() to avoid
-> defer host->dma if use pio mode (sashakio reported)
->
-> Change in v3
-> - add Linus Walleij and Vinod Koul's review by tags
-> - Add missed omap and mxs-mmc.c (sashakio reported)
->
-> Change in v2
-> - find more place, which use device->dev for dma mapping. This time should
-> clean all.
-> - Reviewed-by: Linus Walleij <linusw@kernel.org>
->
-> Cc: imx@lists.linux.dev
-> Cc: vkoul@kernel.org
-> ---
->  drivers/mmc/host/Kconfig                 |  2 +-
+Hi Lorenzo,
 
-Please forget this version, I make misstake to include a debug code, sorry
-for annoise.
+On Wed, 23 Sep 2026 16:15:44 +0100, "Lorenzo Stoakes (ARM)"
+<ljs@kernel.org> wrote:
+[...]
+> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+[...]
+> +int kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
+> +{
+> +        if (!vcpu->kvm->arch.pre_fault_allowed)
+> +                return -EOPNOTSUPP;
+> +
+> +        return 0;
+> +}
 
-Frank
+nit: the comment above the smp_rmb() in tdx_sept_map_leaf_spte() still
+says pre_fault_allowed is read by kvm_arch_vcpu_pre_fault_memory(),
+but after this patch it's read here.
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
 
