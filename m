@@ -4,78 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1259C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F25C98307
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IOAKMmCBlI6Y5ADecDu+BXYPFKPVLUehlx/wlSNc7CU=; b=1o5z2WS4/plUaWPKdFJWOtKE9y
-	7J0IdnVeWcGc9PvWA7hgLfTlD3zO7gEn2oUGxAVj/jiI+f4Ag9nrH5DOiBdSCy5VZMQY76gOSuKm4
-	gwtRG6xWklsRRMMfXKAEmUS0MGssi/qq+QN4illRKP+02ohasOVtuQJJuw9wKsss6Wlc6OfCeY1DS
-	ltxDD8Z0Ku4QaPGJKaupY6mRW7SYo+Z+UaZPV81eQJy7KY2aOXosCE3kn1FFO40ruinc1LwchaD2E
-	9sOFO+94WEqL5DMSgWbg0yK3N5SjrUR5K3z3CX65xSsssJs5vyXB6le6X/flAtz4kflug34hQPvoD
-	M/L6kFwg==;
+	bh=4kFjPPVTiTU44/Rc2PKmvKJZjxEZERC4DkD/eRB6BvE=; b=fgkmiWQp7RB7GB0Jz0sM49nxjQ
+	yHGfBEBpaggRKn/OPJbau/JotqRQKGhfxuv/0nPaDZY9sGNVj+C7KfTXElG2G/PYMvEZZe30p7Mgf
+	Wq4lFsuxmVoXYr8UReQb2KPpJYs9OpwnKN+Mr1onojhIxfF7H9Pi4V3j24CxAJVLnhblOvRgRnf1Y
+	bLuEvycsP2hUlLKkg9tNjUEqxYoqHIhdlJxy+UUc5QTOtJ7YNaaHbnWoXngRyrbY77YkZYxbql/pN
+	EYa1el8geBIz8EnkeO25ROsfMyrbatLZbjGOYni5TczjAwlw/Cbaf0di2dGWsJHnzqL+vP2hkiwls
+	GA1CrY8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Kpo-000000080Dn-2UOt;
-	Wed, 23 Sep 2026 11:08:20 +0000
-Received: from out-81.mta0.migadu.com ([2001:41d0:1004:224b::51] helo=mta0.migadu.com)
+	id 1x9Ku4-000000080tr-1tXN;
+	Wed, 23 Sep 2026 11:12:44 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Kpl-000000080C7-1QYu
+	id 1x9Ku2-000000080sh-0COu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 11:08:19 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=IOAKMmCBlI6Y5ADecDu+BXYPFKPVLUehlx/wlSNc7CU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790161695; v=1; x=1790766494;
- b=o0X/WhuynuwjjKmWkYpK8uULplygFzOrcBoybm2J/+uoyQlqDKvk8Iv7fIknGYQAzG/nShWS
- zuSqvgtEku0EsrBbpkynrKMwifO5B4hZiRM5+SnB5QcyhbdfIxVNb8xoSF94DqUpl7FxbrKPA1p
- UR1R4muF7+8qLwg785AkpkN0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id d876486f464857fe;
-	Wed, 23 Sep 2026 11:08:14 +0000
-X-Mizu-Trace-ID: d876486f464857fe
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b8c42da963so5343e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:08:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzk51YpDu/kXAJoqLcVvJRpi3BGvN3LfEMjzqoBIkf7Q6rPZmj7riCtfnpdkSBf56rBR4P7cIIJFK+iDn5utKm1@lists.infradead.org
-X-Gm-Message-State: AFuF++kUOFqLvrYjBJSqrpQuHN8amQqyFmbNusghR+pKj3j5h8cUTd5y
-	h2df7hR3tLv3haNR2bNIwz6NYsEYBsKaD8dFcI3a+kPXPe4oqrfJ/lHEZ/eFjnvvZZMroxP3g8M
-	6Rtx9DbwI7txMgodN381N8FQkfvPRWZ0NuW7AEr3z
-X-Received: by 2002:a05:6512:648a:b0:5b6:4ad:d6ba with SMTP id
- 2adb3069b0e04-5b8d91673a2mr102638e87.15.1790161689001; Wed, 23 Sep 2026
- 04:08:09 -0700 (PDT)
+	Wed, 23 Sep 2026 11:12:43 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d91a931f66so4062345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:12:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790161961; x=1790766761; darn=lists.infradead.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4kFjPPVTiTU44/Rc2PKmvKJZjxEZERC4DkD/eRB6BvE=;
+        b=Nf81lhgbeTqWb6J0EA+q6+2zx7nQeoP1lZHcBXndaPEKq2Z8oxFXVDW0jpfrLZNaDk
+         igz6qnKd01J/OlqYqi4PxwwEswPdjTd9PrlmupZAaPhr1RJy/mgHMPUN5yAoCapxNosN
+         qw/an8VC5g/Z8Itcp3B+QELvAhkLXLNvImR9SFHkfalmM+QrIXsori/IBzMXSXKxtIe5
+         cPcCkoty/epG9dfUE2i94RlfIoR8UB15XnYRNA4nE6mgBxajGsJLCscajDDiRM7FV0hX
+         XJO/C0N5IFtQVqMufTHUkIiDtCyBICpRZ92eyuIq9MGYlotsj3iws+f4b8mU4DcWJdVq
+         JV/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790161961; x=1790766761;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4kFjPPVTiTU44/Rc2PKmvKJZjxEZERC4DkD/eRB6BvE=;
+        b=R709Ux7a7sI7qF8cPM+9G9ET9hm4Rn2JGrmcvAEOU6h2Zos+aYdFgWo2nD+M0fdMzs
+         rIjrsofXFd1za+h72bzPtCYTgD5JJcWooCp7P+vor7vKqOqFhselExAl7aP/e82Q+Ip0
+         7ZmS78Aq/QfOpWRQvDHZ/cGSGB12RxpQgsRdUTpWPKqwErRLT6jwt+P2N7gp9I5iRddh
+         0OoWEbjqwuyzG3W5GuHaiE/koITXvRr4vOQmIhu/1GUbMjmBXiGa84Avn0ewEJ5rRYqZ
+         rK0mBMxXZaE43hm7gGh9cIFA1/Z0RKYalZrdYfbuaefEX44ueIHyBSPGCnK+5V4+tU33
+         iTGA==
+X-Forwarded-Encrypted: i=1; AKwUvBxgcMy0Avom0He+sDJHIf+0T/5k6qMaWAy1/mqVqaOe6ovosktTMF50Nw/lSK9gZASq/pBhgX68hIPjLAiGrNi5@lists.infradead.org
+X-Gm-Message-State: AFuF++nunX/Dm3GKuRfBz3Fwk2993YO+ju+Srxv6I2PDJCHMKxuDLLtc
+	6z+EkBhtxDz3KfiOBn6J85ZHy8Hp32Lp+TL/4Hy6rwYIHFTQKKHIbB3P
+X-Gm-Gg: AYBFou2pl4EBmM3P377D7qA++0l22aaFdo8IjCeJb1ddCOuYtFEWKaAadBrq65qZKq5
+	HI3lfo8rKAluR7Md31+0YJuSzlSz/KYZCdtWCRdpJiFbipgP1AmztkNMr9m+7yWWvuxitxDWXyo
+	OW5jRYDS7gzHp21zj1XXApi97JfZmSG0BLEipuHOX2fjdM2NYzSiUlkYZgY1X9GsajxcOLYtrnu
+	strryGavuqOGv/q7F/fJ7IKSSqWdkhD9G3MH58BsaweMpsxyPWTQQTxOT9CKUndBcuA2Q7tkALS
+	3PwWydMYJGO38oil5XnoDwSbFX7YQms8Zg8DGOEDw/Vpns+aB6Zc+o+b9zwmOFwcjuwcx1L/hl6
+	qrSO5NqLtFP8elu8BX8L+kpQ1l7/Lo6ZtilIfayU0ziJioMyIEh5W/6ecix1GeNs9bizHauENFB
+	V6A1YbCJAeDmrvfTQ9izvrPmTwaSsJRjxA2C4X6CIFYH/FuZwwmhyLH3rdwKZMwxVsjhJBjDKLX
+	FXvqeDmPqzOtx4xiA4LSPFCUCechm3nN6Dp6BaN5dngWn/nDXjKxrJi8X3mZVJ4jiqOq3deMy78
+	CN+2WJDkOur5mS/Dh7GmDxtNOnsBZYtwb89ZjUIh1K4W82bjlmg=
+X-Received: by 2002:a17:902:d54a:b0:2dd:c053:d739 with SMTP id d9443c01a7336-2df69dacfb9mr19455635ad.32.1790161960734;
+        Wed, 23 Sep 2026 04:12:40 -0700 (PDT)
+Received: from setsuna.localnet ([2403:581e:d87e:0:fc2d:ed31:e80e:412d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a5f5886sm8814555ad.72.2026.09.23.04.12.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 04:12:40 -0700 (PDT)
+From: James Calligeros <jcalligeros99@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>
+Cc: Martin =?UTF-8?B?UG92acWhZXI=?= <povik+lin@cutebit.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, David Rhodes <david.rhodes@cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Ulf Hansson <ulfh@kernel.org>, Amit Kucheria <amit.kucheria@linaro.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Vinod Koul <vkoul@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+ James Schulman <james.schulman@cirrus.com>, asahi@lists.linux.dev,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ patches@opensource.cirrus.com, Takashi Iwai <tiwai@suse.de>,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 10/28] ASoC: ops: Accept patterns in snd_soc_limit_volume
+Date: Wed, 23 Sep 2026 21:12:29 +1000
+Message-ID: <EVVfptRVTru_6AKB_uY-lw@gmail.com>
+In-Reply-To: <arFa+frv9QcL4b36@opensource.cirrus.com>
+References: <20260920-macaudio-v1-0-741cc20a74e5@gmail.com>
+ <arFM5QGrJx1aYhGK@sirena.co.uk> <arFa+frv9QcL4b36@opensource.cirrus.com>
 MIME-Version: 1.0
-References: <20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org> <20260922-kvm-arm-prefault-v3-9-787bd3bc7e3f@kernel.org>
-In-Reply-To: <20260922-kvm-arm-prefault-v3-9-787bd3bc7e3f@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 23 Sep 2026 12:07:32 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzY6KFekqaUX4RLRyFmSkFhOeWDZE4LjBF6owdLM8oHhw@mail.gmail.com>
-X-Gm-Features: AcwNN1USJQu0cBxPqG4Fa3XJmPPBE73PzJ6UtD9si6PNBcHUySSR3TM9mD5mIUk
-Message-ID: <CA+EHjTzY6KFekqaUX4RLRyFmSkFhOeWDZE4LjBF6owdLM8oHhw@mail.gmail.com>
-Subject: Re: [PATCH v3 09/14] KVM: arm64: Pass walk flags to kvm_pgtable_get_leaf()
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Mark Rutland <mark.rutland@arm.com>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Jack Thomson <jackabt@amazon.com>, Jack Thomson <jackabt.amazon@gmail.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_040817_922761_C842D389 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260923_041242_093953_AB38F2E1 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +120,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Sept 2026 at 15:19, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
->
-> From: Jack Thomson <jackabt@amazon.com>
->
-> Allow callers of kvm_pgtable_get_leaf() to specify the page-table walk
-> flags, in preparation for performing walks under the MMU read lock.
->
-> Reading a stage-2 leaf while only holding the read lock requires
-> KVM_PGTABLE_WALK_SHARED: parallel faults (which also only hold the read
-> lock) can unlink table pages and free them via RCU, so the walker must
-> be inside an RCU read-side critical section, which the shared walk flag
-> provides via kvm_pgtable_walk_begin().
->
-> All existing callers either hold the write lock, walk with interrupts
-> disabled, or run at hyp where shared walks are rejected; they keep the
-> current behaviour by passing no flags.
->
-> No functional change intended.
->
-> Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> [ljs: fixup new kvm_pgtable_get_leaf() invocation]
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+On Tuesday, 22 September 2026 2:27:37=E2=80=AFam Australian Eastern Standar=
+d Time=20
+Charles Keepax wrote:
+> Are you using the wildcard mostly to skip the component prefix
+> stuff? I wonder if adding an option to match without that might
+> be more explicit.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+We use it in two places. The first is as part of the speaker protection
+system, to ensure that all the relevant kctrls have been locked by
+the same owner (us). This one just matches without the component prefix.
+We also use this facility to eliminate duplication across left and right
+channels, matching partially on the component prefix but without "Left"
+or "Right" in the string. The second use case is rather superfluous so
+I am happy to get rid of that. I think at that point it would make more
+sense to just construct the full kctrl name in the driver and pass that
+in to the existing API in the one place this actually remains necessary.
 
-Cheers,
-/fuad
+>=20
+> Thanks,
+> Charles
+
+James
+
+
+
 
