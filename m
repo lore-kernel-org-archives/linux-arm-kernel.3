@@ -4,106 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E56DC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7445FC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajwQZOr87sWCQYLhUQBHbtQ3joCGhi4wylKhS7pFxAM=; b=e7SeFec9MqY7gv8bNz4qqw5f8H
-	ti2EkI4RSSyarrRY2iFhU+o7ufFiEeH8Jyis/NWq8gfVcne7quY4W7O1RWdw1BfUw4XVibwEipxdY
-	84abbS/MHZypJBQODxtBKBi7MaRXEXK4sKUB21UUKB0HnrbClCqSxuHQqlwj6jJ5FW2kuF6t9O7D2
-	XHOrP+NRE/L6ODs+7VuXXZN6g0n4t5DI3fnE+jB5bB3FHpfPTR/ctweww5+E5eus6EiqwjdYo3rAn
-	khmy/4UuhgidjxXdhwvtak1hx+CDp0KtU/achZL6VMZ/FG5hHkSxcSNU6DTaBkHIxjfs//e/DgB7h
-	t19/MWsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iQbEdxHK+Cx8f+Fpy98onb8+B0McGTZq5BkbddEj9uA=; b=NSbWENPuOKHkEgM/nTTbgDnwF2
+	xjOn4mHXjnTlvFeB4JIAqBkrO5F3muHGTyAQT7g451m44NCC4uctCeLvBReEbVU15SQxUzqw4F7UI
+	GxrN8oblE9PXaP0P5L1BjHW7QMexxbeSqUA93/7wus8HISBd/5z6HV2yhSIGXid9eo7rNIrAeMeNW
+	Pxhpa6pH+GUOYPM1QoOMbhN8TLNmKqq9WzQ0mogY+SFf1KyrIiQb7q63NyCIcK+j9Sxwgu57C2AdG
+	aW7+4pp48xROP1gyRQkhkASKQevyBKCO1gZN8TXOnt1yBJMmABo3NNwApGaDt9TklNah7/0I/HA/c
+	VwQFeClw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9G7B-00000007Elz-2x4F;
-	Wed, 23 Sep 2026 06:05:57 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x9GD9-00000007FQn-3s77;
+	Wed, 23 Sep 2026 06:12:07 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9G78-00000007ElK-36jM
+	id 1x9GD7-00000007FQ1-2hBi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 06:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790143551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ajwQZOr87sWCQYLhUQBHbtQ3joCGhi4wylKhS7pFxAM=;
-	b=ah0Bn4kbIJ3xN4900am2Wnbx0FJuZAEEVRa4tz9Jyt5B8yMaCZN6z0Er14LzJRDQJ/0Qng
-	RXmxZS5ytxCbbWZ6HKbnu/5GNjEARGcOd6JxuTxAtiscrPlLWK8yFpI3yjfHMKBC68jXwG
-	bFMb4hPAK1xNdJO3BymsnmgvjdwCbyU=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-346-y74G8E84M-m9oiTb1eMGdQ-1; Wed, 23 Sep 2026 02:05:49 -0400
-X-MC-Unique: y74G8E84M-m9oiTb1eMGdQ-1
-X-Mimecast-MFC-AGG-ID: y74G8E84M-m9oiTb1eMGdQ_1790143548
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38f97b3f853so812723a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 23:05:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790143548; x=1790748348;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ajwQZOr87sWCQYLhUQBHbtQ3joCGhi4wylKhS7pFxAM=;
-        b=jbbC8l+VdvT/sQtQcqZX2bDYGRPUWlxkJ5idv2Qe6auNOOHdV6HOsbLNMo/m1venQZ
-         o+RcgnsHhgcdgDFWAWTw4ebzvXq3Ll9EnRNVBhUTasU1oiQEfLG+J1/LxH00sTIwHZbF
-         yECZR9YRRUWSyh5LtUT/DWYGo37Zk09Ho0/r+aMzACDtyZBJt/Y+BgCvs2QhC1NV9G3x
-         diJmn7RhNt8914c3Yvfrynr2Xv0UnN/9HyE9yWd9v89OAhXhmwnNs10Y58OGu24ZHbIG
-         uB5hq9BrfIndBF+D2McRPSFS07Gj/R1pFh/IAf2bZ3CMzSMh6FBatjsFAeF+D4J1975F
-         JkVw==
-X-Forwarded-Encrypted: i=1; AKwUvBxMdQK8mByc63f/TAdwYjOvcZccF8yeQImR+lFXKJ3jIbL3L+KDcHw7uROZaOZ6bcYXyPCCgvxyp2CXogIt5K9c@lists.infradead.org
-X-Gm-Message-State: AFuF++mTSyBBa3BhXOVtPWmA+39iwa4uv7O8mdCqJlEh9Z+Y2Vfwbp6F
-	0DlyImhX5M/JNrgdvjsiNdczdWIU8YymY4nyzsJlZsgzar3zp5LvTEWbvHEQMhQY+s3r5Jeymnp
-	mN6ZlyuwTuK0+UEqIhywktYGA/FWOYp7dmW7FkWMVcn1xQtrCnDc8SGRm/dVrfIZUnZgx/EKiOx
-	3H
-X-Gm-Gg: AYBFou0tZrf/Om7EeCoRuuHe2BAeUDszyUiz/aoqqXPXfOlrm2+0qR6hLcEzvJ14xYd
-	y7y1R5B0hUL3U8mhWqH/RUiFPx7uJDG6rkBMe1Ym8GR++ILorhaeyev5MpPweKFQtaoV3RLS4Hl
-	MdUUYZ++6zMILjRSWk7zKNnLX3eCd7hpY0yXIyw7nQVAL+/PfBtkDYKoZdBDnOTiXNQavDIY6zx
-	gjpCalHUN8nOthLPGzSKQiJ8WrpI2Jyoh9WVBirJ18sAEMUJszzx7rnmPQLT9EVC4Rzk+J9EW9N
-	ZHQbRRTDopFgxXACGw/jVu/WkVh75vwQT5fW9zXIIRWBx3JfV6aZcLs1DqenyP1hVObwZgRymmA
-	7UWifgROVqa/Nlh6jtIm3bd6J9th08IM6pYRmE8KNOU2/3MFfCTNF
-X-Received: by 2002:a17:90b:578f:b0:39e:4c80:44b7 with SMTP id 98e67ed59e1d1-3a07e513903mr1439140a91.26.1790143547769;
-        Tue, 22 Sep 2026 23:05:47 -0700 (PDT)
-X-Received: by 2002:a17:90b:578f:b0:39e:4c80:44b7 with SMTP id 98e67ed59e1d1-3a07e513903mr1439118a91.26.1790143547116;
-        Tue, 22 Sep 2026 23:05:47 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07dc32086sm3032899a91.13.2026.09.22.23.05.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Sep 2026 23:05:46 -0700 (PDT)
-Message-ID: <69ff265b-a110-46c5-a061-a875b2f86c03@redhat.com>
-Date: Wed, 23 Sep 2026 16:05:38 +1000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 05/20] KVM: arm64: Track the type of VM in kvm_arch
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
- <20260920212845.707-6-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260920212845.707-6-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Ee0KsjqZPVxYNiZqXTh30gNBOELxRjm9ey9b2NsoU_M_1790143548
-X-Mimecast-Originator: redhat.com
+	Wed, 23 Sep 2026 06:12:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YtyUSA1TOvG3M7UQtRTrqEOsJbrQcHOxl+yEuhdcAAawumb/IdtsDjz5bRfz5gZRxZoBfqhJGT8iCB1Z/XWAgcUNqmgDRPtp4+bJ69qU4BBEJP+zXhnYNCLDZfaRVXSG7YwbDQo9hMO0SID6WRXs4pvnKWKOdf7VoVYqVC2ImAl1tEFkK9vRnqyU2WS5b/lcSh6BiRvlYGQjKyv9t4U9a0/3G537HbmKD6c7/MtmadLMIS4BecFn3m8miDoOK//szLWKXRZmqdql9auaCxQSCuP7qJxY7WQUrH1MH2uIS40abLlaXvhSYs0dYvdNhRz7wzy6GzaEu5Bwqo4d9NCKdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iQbEdxHK+Cx8f+Fpy98onb8+B0McGTZq5BkbddEj9uA=;
+ b=jBz/Ibug7Ft8J7dMZ4kUpBmKtwQx/DMkMIoAilLvc3UtmJRfOQuz5gVCVqppgciZwtb0hrlzZ535CSTiLeMXmCsBqT1QcpV98Q6qFWxrvCQPAIQoukved/EdZrfa3J1V8n38ZeKO5O0AEhDODfyzOMXjjWM7pNjnTuDD6A7PwidNIph4zOZhINHj+/kuyfUDTbRcH+ab2mKpanjAGiSsarqt9YOQleOpwFoO/oAX2Cjuru+JI/Sj6Zwp+Z8WehhyaTnl18WRcCF0M4DZYqHP6GJcdsIagYWNZKImmrwRXn+iqRt6xzyGRLBZsGIA0TaNLVCV8oo1V4sYuWqOLZcW6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iQbEdxHK+Cx8f+Fpy98onb8+B0McGTZq5BkbddEj9uA=;
+ b=BBBbWMcaIzY0Ux737sRg2x3Rbv3TDdi8JnNDmBR4LbDriSwFjrOc8DmySgZ1+Z29G7ZndpB7zlFuKCJMCscafNCW4A+BK88SlyiUR5dsRik3qqyQs4v0hFO2WOuAfwjTHoN94lRLzaWt9/qiYXM4hY/K9B0x7JAixacVR48fWIqfml57e9JsktC3p5pusgQc0lUp8wexxp4OM9hpO4t58kv11FrJvDncCV0zJm0EK/UBMeIvOqNSus9hznxKu2O1xpPAGgYawhs8kE43qr/sH3tEjK4bVBsDng1oKS1QRPSsYySIPhQfzaJAUccBZjKLp/soDNpw2ohwo2Zqmny9bg==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by AS5PR04MB9894.eurprd04.prod.outlook.com (2603:10a6:20b:655::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
+ 2026 06:11:57 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%6]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
+ 06:11:57 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
+ (OSS)" <wei.fang@oss.nxp.com>
+CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
+	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v4 net-next 8/8] net: dsa: netc: add PTP one-step
+ timestamping support
+Thread-Topic: [PATCH v4 net-next 8/8] net: dsa: netc: add PTP one-step
+ timestamping support
+Thread-Index: AQHdRz7mJNvdwL5OkEKz7kxCT3KMQbbaSYCAgAE/EDA=
+Date: Wed, 23 Sep 2026 06:11:56 +0000
+Message-ID: <AS4PR04MB9338EB87E61CBBF0C797E85688822@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20260918072852.501420-9-wei.fang@oss.nxp.com>
+ <179006555987.2160803.11394642259806679085@kernel.org>
+In-Reply-To: <179006555987.2160803.11394642259806679085@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|AS5PR04MB9894:EE_
+x-ms-office365-filtering-correlation-id: 42ce5146-3445-42a5-0b3d-08df19399266
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|7416014|1800799024|366016|376014|19092799006|10067099003|3023799007|6133799003|56012099006|11063799006|4143699003|18002099003|22082099003|5023799004|38070700021;
+x-microsoft-antispam-message-info: Do1BNmTZ9kzZ8yH6ft2m1ENajvMhmg04FULpoqKc5TfnhEbqTDG8l0HK0I7KMRpTNIK3QnZLoQd/XgPRFtbh48n9G2MsgNmX2U2BDtJjX1FZQrhq21qBvf8mkJAsDKpuKfnyqCNIG5MhCeKmIz9H+jcOgWjsVN/wzrSQX/LQYQTBGt2y4gUKyLET+YulKvcnH4q5vPy7OfUL3T21ibaohMoa+4npuli92jl85+i/d0E7fiH8+OR5n7fLxXj2qdS/BxMXIbcgqbx2iexEJpScMcPW9hG2Fj84c7D9A0ri4iNUQ9R3NmwtE7kibEm0zBHIqxCO8yD5G5LHqg6JZ1NFmRgd4jZSicxCbjW3KiCX3Z+BOxZm+gnMfIvn0XYn3E5ipR5cr9gTrnQ21xolVnm/Mxr1we/2VYzGMzQ8acDfAierdpNGoeT6JjbDtmWlIyCnmtq5woYjoA3wmNSoiwUDV0m1S1+a8nFYd0whVZNq/Ia7+VJ9BHNbXBRPzQxeZh+cBP0f85HIHj++jXLSYiJjn8ABZLGJLN7fn/qOol20dKQGUWGqiCP820G4y9eU+s0jHFOWhTKJ9qXEVKwsBTxhExLGnXC1XJU+ZITfbcOSHj0tkF+A/DWcC19tkf96tM3QFUQGClNUlcXBoy7SW5vKM2+3i/AObbugDffjlI4zWMMWVHLb2hkpy2i/xfTovQNSnR9xkew0Ca/67mU1m47C5ESzVcQHigfSv0Wdgzny3ZU=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(1800799024)(366016)(376014)(19092799006)(10067099003)(3023799007)(6133799003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(5023799004)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?IlRSe9C8ZO0vo6DMN1bkOxjH582pIQUuAA3QurS3u+/yhbluiOg6tIzWcksA?=
+ =?us-ascii?Q?Qh5s7LZ3vv4Iad1xyyH/OOeV1WMBuWSu3Pfa37M+JPauWcekLw8huJTS2Pji?=
+ =?us-ascii?Q?6Wp3Lni5NXBlu4quX9xRy+8NpTCDVEzp4FCNLCdi39GLF9H1ZgYuCOs/wUTI?=
+ =?us-ascii?Q?Im4AKsJonDs5Nr8KLYzNcNP80yuYu0edB5ECCPav9V4bbbfN5NwEN6eXveFy?=
+ =?us-ascii?Q?zDZY1upnBtj5m2U2vpj53/ryUGypU/r6VoW/h+WRezVd/dlRCHJltwEuOnOw?=
+ =?us-ascii?Q?0aJp4EOToyaaq2KPRu1WC7exRUG9vQf2g7tV9KM5TfCafEYV3MRxPbQeRPUz?=
+ =?us-ascii?Q?UidZBTBoGvxfuDmBAWwWEmRCrMGLnBXm0ZT78L4QIveQ/dblW+CAz/evn5tr?=
+ =?us-ascii?Q?SA8fWK+uhisHLCTLZfcAmyFcWA3r0LeQFoEnKxfTuQbE+FgcKf4pGs+e+KlW?=
+ =?us-ascii?Q?sIAKu8cVzHWgXWCULhh8mdF63XasOADPG7XlhBf5WfjULJVjeYYtt8+eZuZg?=
+ =?us-ascii?Q?lX8Y69V3YAfdU68uOPWMd2U/3/7zO8ufjYSjBkhODH3d7+Ui3PYh5cWzagJe?=
+ =?us-ascii?Q?QdG0quKbl1t0wD65UKqoJwvBWVzS5fPW/0vjCDsARaQOgYyTTyqc+IffT47U?=
+ =?us-ascii?Q?m4D1qMjATfO/utdVIOy7ybB1SvHkaImerytDZdp+PuC1T9xDXVb/kBuBvRhS?=
+ =?us-ascii?Q?p8N3U9GKhXNGq+ZRUw9nOInvdCpihXHh7+deQdaOVzWHb3v4B4nxOxnGUVci?=
+ =?us-ascii?Q?aZfHnmadmfUIkVRnlYIFGHrVqsSoe4iROZ4A6JuGOb5G4hecgY/RCL9T3sCf?=
+ =?us-ascii?Q?WIx+guY4jG7gKQ4fELVZmAk+noiz5bnx2WtFbHG5Ly7J4PEKZOshJTYSF4mt?=
+ =?us-ascii?Q?JWXb1bea1emqiFbxN2ahH/fYKOhvrcwi2astX6PD5G/H37as6mh3mcQwYdFZ?=
+ =?us-ascii?Q?7xXJxmxMLZbbcFClpitdhPPvm46OufAc0XqAV1YStdVnwZ48Rg7q2aVeGY17?=
+ =?us-ascii?Q?QCN4eQDXSXn+qoRPteQGuZeAk12L4UqFElUyoex8qO+mAEXjDHuBG5KDFNhD?=
+ =?us-ascii?Q?a6SrQ9zvOXvzfSNLev45KUFwiiuoqMJCyxcmrSIpT7GelmcE+2a30gy+rukT?=
+ =?us-ascii?Q?ZK7qSTN0PcVGmjTnTjKhKCmK0aulWGZQTKxMsWnoU8gZp/AbSqhfg1cWcAbP?=
+ =?us-ascii?Q?KfjJrMsYMgKhK6ZCVz/Flb7GGXlrSdjanOJbuX3wRBVU4hKks876c4EF9k1M?=
+ =?us-ascii?Q?6h6uhPhhC2RBW6CdZYud0LJxx/Rm5XmJVfa1XePce44qp8X+bflcKxpz2/dy?=
+ =?us-ascii?Q?8UBkalDkqgmpkC1zAkDDpmyx4K94QrL4nQMGeDOCM8fTCXBbcAXPe88FyoLi?=
+ =?us-ascii?Q?4qGaPJ3Rvc/qmnHOA3jH3YKD63RWZPoBos/TOuC2Y/xLpB/5u5w2PT17Yx2t?=
+ =?us-ascii?Q?4pgwCErv47UEV/fkdI6o88gyQYnT2Ld2TtAOsXrGuZjf5LXmkgoy92c0Iop7?=
+ =?us-ascii?Q?Fi50raDIH1cztpkrvc5uFVJtXQxcGQMLesNTTzwszr8bgn9X2unG7KGZNMva?=
+ =?us-ascii?Q?c+a5r4l4MJDeuJncMmBDQuVyWDJMjdEbrElv8bR4ZrzVHdGqkMt4w8TZtABA?=
+ =?us-ascii?Q?z1aMjIXMFStJWAP+vhAlWX/NVkg7IdDzT35AN1ygn+/BJerAsRYeqWoQcnzD?=
+ =?us-ascii?Q?/rv9GZ2Nhg3qH36Yju+2cx8Q9rUovM8y+5Gdexd51B9KXgiB?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42ce5146-3445-42a5-0b3d-08df19399266
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2026 06:11:56.9454
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3U6IVoQteFCaMlcjnTFcXU5dsHGKItDEg7s2S3NjjeylQW3DETBSEuhSAviUK//y+SF7NDgG1OY6bg7AIVOUmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9894
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_230554_943854_86655C4F 
-X-CRM114-Status: GOOD (  41.07  )
+X-CRM114-CacheID: sfid-20260922_231205_867750_99E68CBB 
+X-CRM114-Status: GOOD (  40.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,338 +151,642 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+> > diff --git a/drivers/net/dsa/netc/netc_ptp.c b/drivers/net/dsa/netc/net=
+c_ptp.c
+> > index 2e743443ca03..1bc0f0956206 100644
+> > --- a/drivers/net/dsa/netc/netc_ptp.c
+> > +++ b/drivers/net/dsa/netc/netc_ptp.c
+> > @@ -11,6 +11,15 @@
+> >
+> >  #define NETC_NUM_TS_REQ_ID		16
+> >  #define NETC_TSTAMP_TIMEOUT		(5 * HZ)
+> > +#define NETC_MAX_STEP_OFFSET		0x1ff
+> > +#define NETC_ONESTEP_QTH		512
+> > +/* The 30-bit timestamp of the To_Port subtype 3 tag lets the hardware
+> > + * account for a single wrap, so the correction field of a one-step Sy=
+nc
+> > + * frame is only correct if it is sent out within 2^30 ns after the
+> > + * software timestamp is read. Past this window the frame is beyond
+> > + * repair, and PM_SINGLE_STEP becomes safe to reprogram.
+> > + */
+>=20
+> [Severity: Medium]
+> This comment argues that the correction value is beyond repair after 2^30=
+ ns,
+> but PM_SINGLE_STEP also carries the correction-field offset and the
+> "update UDP checksum" bit, which the hardware still applies at SFD time t=
+o
+> whatever frame is being transmitted.
+>=20
+> If the previously programmed frame is still sitting in the switch or port
+> egress path (egress congestion, flow control, TAS gating), the next
+> netc_port_set_onestep_control() call can change offset and CH under it.  =
+For
+> an L2 PTP frame the correction offset is around 22, for UDP/IPv6 around 7=
+4,
+> so the MAC would write 8 bytes of correction data at the wrong position
+> inside the pending frame and may recompute its UDP checksum.
+>=20
+> The "no ts_req_id available" branch of netc_port_onestep_work() has the s=
+ame
+> shape: it overwrites np->onestep_state with NETC_ONESTEP_SCHEDULED,
+> which
+> erases the record that a frame is in flight at all.
+>=20
+> Would it be safer to only reprogram the register when the new frame's
+> offset/CH match the pending one, or to hold off until the pending frame i=
+s
+> known to be gone?
 
-On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
-> KVM arm64 has different types of VMs with all the different modes in which
-> the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
-> protected VM and normal VMs with pKVM. We might soon add other types,
-> e.g., Arm CCA Realm. So in an effort to make the handling of these
-> different types of VMs a bit more friendly to the eyes, add a VM flavor to
-> the kvm_arch and we could then add handlers for different operations based
-> on the VM type.
-> 
-> Keep the flavor initialisation at the beginning to allow for the detection
-> early enough and fail out on any unsupported requests.
-> 
-> With that, add wrappers for checking the "type" of a VM and replace the
-> existing users with the new wrappers.
-> 
-> Given we already have the construct of "kvm_vm_is_protected" in the core
-> KVM code, use that for all confidential compute guests including Realms
-> that we are about to add.
-> 
-> Adds __VM_PROTECTED marker vm flavor to generalize kvm_vm_is_protected()
-> to predicate all confidential guests running on KVM. In later patches, we
-> would add Realm VMs, which would also be classified as protected.
-> 
-> Add explicit helper to detect if a given VM is a "protected" VM under pKVM.
-> Change the existing users that precisely want to check the VM type. These
-> include :
->    - kvm_arch_prepare_memory_region - For preventing memslot changes after
->      pVM creation.
-> 
-> All the others are retained as a wider check for confidential guest VMs.
-> These are:
->   - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
->     configuration
->   - io_mem_abort for dabt handling without valid syndrome information
-> 
-> Both of which are true for Realms too.
-> 
-> Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
-> checks in the pkvm hyp specific code doesn't need to change, as the only
-> protected guests it deals with is "protected pKVM" guests. To tighten this
-> init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
-> supports.
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v18:
->   - Merge the __VM_PROTECTED marker and the widening of kvm_vm_is_protected()
->     to this patch.
->   - Merge the use of kvm_vm_is_unprotected_pkvm() for !kvm_vm_is_protected()
->     given the scope changes here.
->   - Drop Fuad's review tag, as this patch has multiple merges
->   - Restrict the VM flavors to the supported types in init_pkvm_hyp_vm().
->   - Drop kvm_vm_hyp_is_pkvm() and revert to is_protected_kvm_enabled()
->   - Use is_protected_kvm_enabled() to make the pKVM guest flavor checks.
->   - s/PKVM/pKVM for commit descriptions too
-> 
-> Changes since v17:
->   * s/PKVM/pKVM for the comments
->   * Drop type argument for pkvm_init_host_vm and also drop protected variable.
->   * Add helpers for checking if the VM is running on pKVM (kvm_vm_hyp_is_pkvm())
->   * Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() with valid
->     kvm instance
-> ---
->   arch/arm64/include/asm/kvm_host.h | 22 +++++++++++++++++++---
->   arch/arm64/include/asm/kvm_pkvm.h |  4 ++--
->   arch/arm64/kvm/arm.c              | 31 ++++++++++++++++++++++++++-----
->   arch/arm64/kvm/handle_exit.c      |  2 +-
->   arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++++-
->   arch/arm64/kvm/mmu.c              |  2 +-
->   arch/arm64/kvm/pkvm.c             |  6 ++----
->   7 files changed, 56 insertions(+), 17 deletions(-)
-> 
+As stated in the comment, "Past this window the frame is beyond repair",
+that is to say, when the sync frame leaves the port, the correction field
+is not correct. When PM_SINGLE_STEP is programmed after a timeout,
+there are essentially two possibilities: either the value of PM_SINGLE_STEP
+remains unchanged, with no impact; or PM_SINGLE_STEP changes, in this
+case the frame will be corrupted and either discarded by the sender or
+receiver, which is as expected.
 
-This causes broken nVHE mode. I applied PATCH[01-05] to v7.3.rc4 whose head commit
-is f0100363d8c3, and kselftests/kvm/guest_print causes host crash (as below). I don't
-see the crash if only PATCH[01-04] are applied.
+>=20
+> > +#define NETC_ONESTEP_VALID_WINDOW	0x40000000 /* ns */
+> >
+> >  static void netc_port_tstamp_timeout_work(struct work_struct *work)
+> >  {
+> > @@ -68,12 +77,276 @@ static int netc_get_ts_req_id(struct netc_port *np=
+)
+> >  	return ts_req_id;
+> >  }
+> >
+> > +static int netc_get_phc_time(struct netc_switch *priv, u64 *ns)
+> > +{
+> > +	if (unlikely(!priv->tmr_dev))
+> > +		return -ENODEV;
+> > +
+> > +	return netc_timer_get_current_time(priv->tmr_dev, ns);
+> > +}
+> > +
+> > +static void netc_port_set_onestep_control(struct netc_port *np,
+> > +					  bool csum_update, int offset)
+> > +{
+> > +	u32 val;
+> > +
+> > +	val =3D PM_SINGLE_STEP_EN | FIELD_PREP(PM_SINGLE_STEP_OFFSET,
+> offset);
+> > +	if (csum_update)
+> > +		val |=3D PM_SINGLE_STEP_CH;
+> > +	netc_mac_port_wr(np, NETC_PM_SINGLE_STEP(0), val);
+>=20
+> [Severity: Low]
+> This isn't a bug on today's hardware, but netc_mac_port_wr() returns with=
+out
+> touching the register when is_netc_pseudo_port(np) is true, and it report=
+s
+> nothing back to the caller.
+>=20
+> The one-step machinery is gated only on dsa_port_is_user(), and
+> netc_get_ts_info() advertises HWTSTAMP_TX_ONESTEP_SYNC unconditionally,
+> so a
+> user port with caps.pseudo_link set would get its originTimestamp rewritt=
+en
+> and a subtype-3 tag attached while the MAC single-step engine was never
+> enabled.
+>=20
+> That combination looks impossible right now: imx94_switch_phylink_get_cap=
+s()
+> only marks port 3 (the CPU port) as internal, and the binding requires
+> ethernet-port@3 to carry the ethernet =3D <&enetc3> phandle.  Would it st=
+ill be
+> worth refusing one-step on pseudo-link ports explicitly so a future platf=
+orm
+> cannot silently drop the register write?
 
-host$ cat /proc/cmdline | grep kvm-arm\.mode
-BOOT_IMAGE=(hd0,gpt2)/vmlinuz-7.3.0-rc4-gavin+ root=/dev/mapper/rhel_nvidia--grace--hopper--01-root ro crashkernel=2G-4G:406M,4G-64G:470M,64G-:726M rd.lvm.lv=rhel_nvidia-grace-hopper-01/root rd.lvm.lv=rhel_nvidia-grace-hopper-01/swap video=simplefb:off kvm-arm.mode=nvhe
+Currently, for i.MX94 only the CPU port is pseudo MAC, so no need to add
+a such check in this stage. It is better to be added when future NETCs supp=
+ort
+pseudo MAC on user port.
 
-host$ cd linux/tools/testing/selftests/kvm
-host$ ./guest_print_test
-Random seed: 0x193a0ed3
-[  192.754328] kvm [6674]: nVHE hyp panic at: [<ffff8000811da044>] __kvm_nvhe___timer_enable_traps+0x4/0x160!
-[  192.754338] kvm [6674]: nVHE call trace:
-[  192.754339] kvm [6674]:  [<ffff8000811dcf34>] __kvm_nvhe_hyp_panic+0xb4/0xe0
-[  192.754342] kvm [6674]:  [<ffff8000811dcba4>] __kvm_nvhe___kvm_vcpu_run+0x164/0x440
-[  192.754344] kvm [6674]:  [<ffff8000811dfe90>] __kvm_nvhe_handle___kvm_vcpu_run+0x40/0x1f0
-[  192.754346] kvm [6674]:  [<ffff8000811e0238>] __kvm_nvhe_handle_trap+0x158/0x280
-[  192.754347] kvm [6674]:  [<ffff8000811dd8fc>] __kvm_nvhe___skip_pauth_save+0x4/0x4
-[  192.754348] kvm [6674]: ---[ end nVHE call trace ]---
-[  192.754350] Code: d2818002 17fffff7 d503201f f9400001 (b94a6821)
-[  192.754350] kvm [6674]: Hyp Offset: 0xfffeb0d7fe2e0000
-[  192.754351] Kernel panic - not syncing: HYP panic:
-[  192.754351] PS:834003c9 PC:0000cf2882efa044 ESR:0000000096000004
-[  192.754351] FAR:ffff00009b286a68 HPFAR:8000000000000000 PAR:1d00ec7edbadc8de
-[  192.754351] VCPU:0000cf011848a350
-[  192.845154] CPU: 12 UID: 0 PID: 6674 Comm: guest_print_tes Kdump: loaded Not tainted 7.3.0-rc4-gavin+ #7 PREEMPT(full)
-[  192.856182] Hardware name:  GH200 P5042, BIOS 02.04.01 20250422
-[  192.862231] Call trace:
-[  192.864725]  show_stack+0x20/0x38 (C)
-[  192.868471]  dump_stack_lvl+0x88/0xb8
-[  192.872215]  dump_stack+0x18/0x30
-[  192.875598]  vpanic+0x280/0x498
-[  192.878806]  panic+0x68/0x70
-[  192.881745]  nvhe_hyp_panic_handler+0x184/0x190
-[  192.886372]  kvm_arm_vcpu_enter_exit+0x24/0x100
-[  192.891003]  kvm_arch_vcpu_ioctl_run+0x254/0x7c0
-[  192.895726]  kvm_vcpu_ioctl+0x174/0xb40
-[  192.899645]  __arm64_sys_ioctl+0xb0/0x120
-[  192.903745]  invoke_syscall.constprop.0+0xa8/0x100
-[  192.908639]  do_el0_svc+0xb8/0xe0
-[  192.912022]  el0_svc+0x48/0x1f8
-[  192.915228]  el0t_64_sync_handler+0xa0/0xe8
-[  192.919500]  el0t_64_sync+0x1ac/0x1b0
-[  192.923243] SMP: stopping secondary CPUs
-[  192.927653] Starting crashdump kernel...
-[  192.931658] Bye!
+>=20
+> > +}
+> > +
+> > +static void netc_port_program_onestep(struct netc_port *np,
+> > +				      struct sk_buff *skb)
+> > +{
+> > +	u16 correction_offset =3D NETC_SKB_CB(skb)->correction_offset;
+> > +	u16 tstamp_offset =3D NETC_SKB_CB(skb)->timestamp_offset;
+> > +	u64 tstamp =3D NETC_SKB_CB(skb)->tstamp;
+> > +	u8 *hdr =3D skb_mac_header(skb);
+>=20
+> [ ... ]
+>=20
+> > +	if (NETC_SKB_CB(skb)->is_udp) {
+> > +		__be32 old_sec_l, old_ns;
+> > +		struct udphdr *uh;
+> > +		__be16 old_sec_h;
+> > +
+> > +		if (skb->ip_summed =3D=3D CHECKSUM_PARTIAL) {
+> > +			csum_update =3D true;
+> > +			goto update_timestamp;
+> > +		}
+> > +
+> > +		if (unlikely(!skb_transport_header_was_set(skb)))
+> > +			uh =3D (struct udphdr *)(hdr + tstamp_offset -
+> > +					       sizeof(struct ptp_header) -
+> > +					       sizeof(struct udphdr));
+> > +		else
+> > +			uh =3D udp_hdr(skb);
+>=20
+> [Severity: High]
+> Can udp_hdr(skb) be trusted here?  netc_port_prepare_onestep_sync() deriv=
+es
+> and bounds-checks the PTP offsets itself:
+>=20
+> 	if (unlikely(tstamp_offset + 10 > skb_headlen(skb) ||
+> 		     correction_offset > NETC_MAX_STEP_OFFSET))
+> 		goto set_ptp_flag_drop;
+>=20
+> but skb->transport_header is never validated against skb_headlen(), and t=
+he
+> safe computed expression is only used when the transport header was not s=
+et.
+> The code then reads uh->check at offset 6 and writes 2 bytes there throug=
+h
+> inet_proto_csum_replace2()/inet_proto_csum_replace4().
+>=20
+> Two AF_PACKET paths can leave transport_header at or past the tail while =
+the
+> frame still parses as a valid PTPv2 Sync over UDP with ip_summed =3D=3D
+> CHECKSUM_NONE:
+>=20
+> packet_snd()
+>   packet_parse_headers()
+>     skb_probe_transport_header()
+>       __skb_flow_dissect()
+>         key_control->thoff =3D min_t(u16, nhoff, skb ? skb->len : hlen);
+>=20
+> The dissector runs with skb->protocol taken from the user-supplied
+> sll_protocol and nhoff =3D 0, so a frame whose declared ethertype disagre=
+es
+> with its real headers can walk attacker-chosen IPv6 option hdrlen bytes a=
+nd
+> end with thoff clamped to skb->len, i.e. transport_header =3D=3D tail.
+>=20
+> The other path is PACKET_VNET_HDR:
+>=20
+> virtio_net_hdr_to_skb()
+>   skb_partial_csum_set()   /* csum_start =3D headlen - 2 accepted */
+> ...
+> skb_checksum_help()        /* flips ip_summed to CHECKSUM_NONE,
+>                               transport_header left as-is */
+>=20
+> With the frame length tuned so tailroom is under 8 bytes, wouldn't the
+> uh->check read go past skb_tail_pointer() and the csum-replace write land
+> inside struct skb_shared_info (flags/meta_len/nr_frags/tx_flags/gso_size)=
+?
+>=20
+> Since the validated expression is already computed just above, could it b=
+e
+> used unconditionally instead of udp_hdr(skb)?  The same udp_hdr() pattern
+> exists in drivers/net/ethernet/freescale/enetc/enetc.c, but this path is =
+new
+> here.
 
-Thanks,
-Gavin
+The AF_PACKET + flow-dissector path is real (transport_header can be clampe=
+d
+to tail), but the OOB write can't happen:
 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 286489a69dff5..9b1cf9c59e81f 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -257,7 +257,6 @@ struct kvm_protected_vm {
->   	pkvm_handle_t handle;
->   	struct kvm_hyp_memcache teardown_mc;
->   	struct kvm_hyp_memcache stage2_teardown_mc;
-> -	bool is_protected;
->   	bool is_created;
->   
->   	/*
-> @@ -306,9 +305,19 @@ enum fgt_group_id {
->   	__NR_FGT_GROUP_IDS__
->   };
->   
-> +enum kvm_arm_vm_flavor {
-> +	VM_NVHE,
-> +	VM_VHE,
-> +	VM_PKVM,		/* Normal guests on pKVM */
-> +	MARKER(__VM_PROTECTED),
-> +	VM_PROTECTED_PKVM,	/* Protected VM */
-> +	VM_FLAVOR_MAX,
-> +};
-> +
->   struct kvm_arch {
->   	struct kvm_s2_mmu mmu;
->   
-> +	enum kvm_arm_vm_flavor vm_flavor;
->   	/*
->   	 * Fine-Grained UNDEF, mimicking the FGT layout defined by the
->   	 * architecture. We track them globally, as we present the
-> @@ -1504,10 +1513,17 @@ struct kvm *kvm_arch_alloc_vm(void);
->   
->   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
->   
-> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
-> -
-> +#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
->   #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
->   
-> +#define kvm_vm_is_protected_pkvm(kvm)		\
-> +	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
-> +#define vcpu_is_protected_pkvm(vcpu)	kvm_vm_is_protected_pkvm(vcpu->kvm)
-> +
-> +#define kvm_vm_is_unprotected_pkvm(kvm)		\
-> +	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
-> +
-> +
->   int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
->   bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
->   
-> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> index 54a618d887fa4..e4ea80711bec6 100644
-> --- a/arch/arm64/include/asm/kvm_pkvm.h
-> +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> @@ -17,7 +17,7 @@
->   
->   #define HYP_MEMBLOCK_REGIONS 128
->   
-> -int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
-> +int pkvm_init_host_vm(struct kvm *kvm);
->   int pkvm_create_hyp_vm(struct kvm *kvm);
->   bool pkvm_hyp_vm_is_created(struct kvm *kvm);
->   void pkvm_destroy_hyp_vm(struct kvm *kvm);
-> @@ -49,7 +49,7 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
->   	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
->   		return false;
->   	default:
-> -		return !kvm || !kvm_vm_is_protected(kvm);
-> +		return !kvm || kvm_vm_is_unprotected_pkvm(kvm);
->   	}
->   }
->   
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index db36815630790..8c784b266a8e8 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -214,6 +214,26 @@ static int kvm_arm_default_max_vcpus(void)
->   	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->   }
->   
-> +static int kvm_init_vm_flavor(struct kvm *kvm, unsigned long type)
-> +{
-> +	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
-> +
-> +	if (is_protected_kvm_enabled()) {
-> +		if (protected)
-> +			kvm->arch.vm_flavor = VM_PROTECTED_PKVM;
-> +		else
-> +			kvm->arch.vm_flavor = VM_PKVM;
-> +	} else if (protected) {
-> +		return -EINVAL;
-> +	} else if (has_vhe()) {
-> +		kvm->arch.vm_flavor = VM_VHE;
-> +	} else {
-> +		kvm->arch.vm_flavor = VM_NVHE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   /**
->    * kvm_arch_init_vm - initializes a VM data structure
->    * @kvm:	pointer to the KVM struct
-> @@ -236,6 +256,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   	mutex_unlock(&kvm->lock);
->   #endif
->   
-> +	ret = kvm_init_vm_flavor(kvm, type);
-> +	if (ret)
-> +		return ret;
-> +
->   	kvm_init_nested(kvm);
->   
->   	ret = kvm_share_hyp(kvm, kvm + 1);
-> @@ -257,12 +281,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   		 * If any failures occur after this is successful, make sure to
->   		 * call __pkvm_unreserve_vm to unreserve the VM in hyp.
->   		 */
-> -		ret = pkvm_init_host_vm(kvm, type);
-> +		ret = pkvm_init_host_vm(kvm);
->   		if (ret)
->   			goto err_uninit_mmu;
-> -	} else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
-> -		ret = -EINVAL;
-> -		goto err_uninit_mmu;
->   	}
->   
->   	kvm_vgic_early_init(kvm);
-> @@ -985,7 +1006,7 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->   
->   	if (is_protected_kvm_enabled()) {
->   		/* Start with the vcpu in a dirty state */
-> -		if (!kvm_vm_is_protected(vcpu->kvm))
-> +		if (kvm_vm_is_unprotected_pkvm(vcpu->kvm))
->   			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
->   		ret = pkvm_create_hyp_vm(kvm);
->   		if (ret)
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index db37678dcb05c..384c5d258c7f8 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-> @@ -490,7 +490,7 @@ static void handle_exit_pkvm_state(struct kvm_vcpu *vcpu, int exception_index)
->   {
->   	int exception_code = ARM_EXCEPTION_CODE(exception_index);
->   
-> -	if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
-> +	if (!kvm_vm_is_unprotected_pkvm(vcpu->kvm))
->   		return;
->   
->   	/*
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 459bd9eb7e4bc..57e2eef6d7426 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -432,7 +432,11 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
->   
->   	hyp_vm->host_kvm = host_kvm;
->   	hyp_vm->kvm.created_vcpus = nr_vcpus;
-> -	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
-> +	if (kvm_vm_is_protected(host_kvm))
-> +		hyp_vm->kvm.arch.vm_flavor = VM_PROTECTED_PKVM;
-> +	else
-> +		hyp_vm->kvm.arch.vm_flavor = VM_PKVM;
-> +
->   	hyp_vm->kvm.arch.flags = 0;
->   	pkvm_init_features_from_host(hyp_vm, host_kvm);
->   
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 9ba86450fe4af..0f4e8b71fa85d 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -2624,7 +2624,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->   	hva_t hva, reg_end;
->   	int ret = 0;
->   
-> -	if (kvm_vm_is_protected(kvm)) {
-> +	if (kvm_vm_is_protected_pkvm(kvm)) {
->   		/* Cannot modify memslots once a pVM has run. */
->   		if (pkvm_hyp_vm_is_created(kvm) &&
->   		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 8e4c6e4bec123..8e9176a700926 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -229,10 +229,9 @@ void pkvm_destroy_hyp_vm(struct kvm *kvm)
->   	mutex_unlock(&kvm->arch.config_lock);
->   }
->   
-> -int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
-> +int pkvm_init_host_vm(struct kvm *kvm)
->   {
->   	int ret;
-> -	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
->   
->   	/* Reserve the VM in hyp and obtain a hyp handle for the VM. */
->   	ret = kvm_call_hyp_nvhe(__pkvm_reserve_vm);
-> @@ -240,8 +239,7 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
->   		return ret;
->   
->   	kvm->arch.pkvm.handle = ret;
-> -	kvm->arch.pkvm.is_protected = protected;
-> -	if (protected) {
-> +	if (kvm_vm_is_protected(kvm)) {
->   		pr_warn_once("kvm: protected VMs are experimental and for development only, tainting kernel\n");
->   		add_taint(TAINT_USER, LOCKDEP_STILL_OK);
->   	}
+All real reads/writes are mac-header relative, not transport_header relativ=
+e.
+ptp_parse_header() + ptp_classify_raw() work on actual content, and
+tstamp_offset + 10 > skb_headlen() after skb_linearize_cow() bounds the who=
+le
+region. The correct UDP header is at ptp_hdr - sizeof(udphdr), so uh->check=
+ is
+always in-bounds.
+
+Hitting the udp_hdr(skb) branch as an exploit needs a frame that both passe=
+s
+the mac-header bounds check and has transport_header at tail with a non-zer=
+o
+uh->check - mutually inconsistent. So: not a High OOB write.
+
+That said, your suggestion is right. The skb_transport_header_was_set() bra=
+nch
+is redundant and trusts an unvalidated transport_header. I'll drop it and u=
+se the
+already-validated expression unconditionally.
+
+>=20
+> > +
+> > +		/* For IPv4, a UDP checksum of zero on the wire means "no
+> > +		 * checksum". For IPv6, its UDP checksum is mandatory and
+> > +		 * never zero.
+> > +		 */
+> > +		if (!uh->check)
+> > +			goto update_timestamp;
+> > +
+> > +		old_sec_h =3D __get_unaligned_t(__be16, hdr + tstamp_offset);
+> > +		old_sec_l =3D __get_unaligned_t(__be32, hdr + tstamp_offset + 2);
+> > +		old_ns =3D __get_unaligned_t(__be32, hdr + tstamp_offset + 6);
+> > +		inet_proto_csum_replace2(&uh->check, skb, old_sec_h,
+> > +					 new_sec_h, false);
+> > +		inet_proto_csum_replace4(&uh->check, skb, old_sec_l,
+> > +					 new_sec_l, false);
+> > +		inet_proto_csum_replace4(&uh->check, skb, old_ns,
+> > +					 new_ns, false);
+> > +		csum_update =3D true;
+> > +	}
+> > +
+> > +update_timestamp:
+>=20
+> [ ... ]
+>=20
+> > +static void netc_port_onestep_work(struct work_struct *work)
+> > +{
+>=20
+> [ ... ]
+>=20
+> > +skb_dequeue:
+> > +	skb =3D __skb_dequeue(&np->onestep_queue);
+> > +	if (!skb)
+> > +		goto set_onestep_state_idle;
+> > +
+> > +	/* Clone is a ts_req_id token only; its payload is never read, so
+> > +	 * sharing the buffer with the mutated original is fine.
+> > +	 */
+> > +	clone =3D skb_clone(skb, GFP_ATOMIC);
+> > +	if (unlikely(!clone)) {
+> > +		kfree_skb(skb);
+> > +		goto skb_dequeue;
+> > +	}
+> > +
+> > +	spin_lock_bh(&np->tstamp_lock);
+> > +	ts_req_id =3D netc_get_ts_req_id(np);
+> > +	if (unlikely(ts_req_id < 0)) {
+> > +		spin_unlock_bh(&np->tstamp_lock);
+> > +
+> > +		/* Re-queuing the frame and immediately rescheduling the work
+> > +		 * would busy-loop on system_percpu_wq and burn CPU until an
+> > +		 * ID is freed, so drop this frame and move on to the next one
+> > +		 * in the queue instead.
+> > +		 */
+> > +		np->onestep_state =3D NETC_ONESTEP_SCHEDULED;
+> > +		schedule_work(&np->onestep_work);
+> > +
+> > +		goto onestep_unlock;
+> > +	}
+>=20
+> [Severity: Medium]
+> The comment says re-queuing plus rescheduling would busy-loop, but the wo=
+rk
+> does reschedule itself here unconditionally, and each pass destroys one
+> queued one-step Sync frame at onestep_unlock.  With NETC_ONESTEP_QTH at
+> 512,
+> can this discard the entire backlog in quick succession?
+
+That is intention if there is no available ts_req_id. If we do not discard =
+the skb,
+the work will be busy-loop until there is an available ts_req_id. But the i=
+ssue is
+that we do not know how long it will take to an available ts_req_id. So dro=
+p the
+skb is a better choice.
+
+>=20
+> The 16-entry ts_req_id pool is shared with the two-step path:
+> netc_port_prepare_twostep() takes an ID for every PTP frame that is not a
+> one-step Sync (Announce, Follow_Up, Delay_Resp still flow in one-step mod=
+e),
+> and holds it for up to NETC_TSTAMP_TIMEOUT when a response is lost.  So a
+> burst of two-step requests can drive this branch.
+>=20
+> The only trace is the dev_dbg_ratelimited() inside netc_get_ts_req_id().
+> Should ID exhaustion apply backpressure (leave the frame queued and arm a
+> delayed retry) rather than dropping frames, and should the changelog ment=
+ion
+> that exhaustion means one-step Sync frames are discarded?
+
+I don't think this makes much sense. Under normal circumstances, the frame =
+is
+sent out quickly, and if a situation arises where ts_req_id is unavailable,=
+ it will
+recover quickly. Discarding the sync frame won't cause any problems, and
+subsequent sync frames will still maintain PTP synchronization. If a timeou=
+t
+occurs, PTP synchronization is already affected, so discarding the message =
+is
+even less of a problem.
+
+>=20
+> > +
+> > +	/* PHC is unavailable, drop the whole queue */
+> > +	if (unlikely(netc_get_phc_time(priv, &tstamp))) {
+> > +		spin_unlock_bh(&np->tstamp_lock);
+> > +		goto set_onestep_state_idle;
+> > +	}
+> > +
+> > +	NETC_SKB_CB(skb)->tstamp =3D tstamp;
+> > +	NETC_SKB_CB(skb)->ts_req_id =3D ts_req_id;
+> > +	NETC_SKB_CB(skb)->ptp_flag =3D NETC_PTP_FLAG_ONESTEP;
+> > +	NETC_SKB_CB(clone)->ts_req_id =3D ts_req_id;
+> > +	NETC_SKB_CB(clone)->ptp_tx_time =3D jiffies_64;
+> > +	NETC_SKB_CB(clone)->ptp_flag =3D NETC_PTP_FLAG_ONESTEP;
+> > +	np->onestep_tx_time =3D NETC_SKB_CB(clone)->ptp_tx_time;
+> > +	np->onestep_ts_req_id =3D ts_req_id;
+> > +
+> > +	__skb_queue_tail(&np->tstamp_queue, clone);
+> > +	if (!delayed_work_pending(&np->tstamp_timeout_work))
+> > +		schedule_delayed_work(&np->tstamp_timeout_work,
+> > +				      NETC_TSTAMP_TIMEOUT);
+> > +
+> > +	spin_unlock_bh(&np->tstamp_lock);
+> > +
+> > +	np->onestep_state =3D NETC_ONESTEP_IN_FLIGHT;
+> > +	spin_unlock_bh(&np->onestep_lock);
+> > +
+> > +	netc_port_program_onestep(np, skb);
+> > +	tagger_data =3D priv->ds->tagger_data;
+> > +	tagger_data->onestep_sync_xmit(skb, np->dp->user);
+> > +
+> > +	return;
+> > +
+> > +set_onestep_state_idle:
+> > +	np->onestep_state =3D NETC_ONESTEP_IDLE;
+> > +purge_onestep_queue:
+> > +	__skb_queue_purge(&np->onestep_queue);
+> > +onestep_unlock:
+> > +	spin_unlock_bh(&np->onestep_lock);
+> > +	kfree_skb(skb);
+> > +	kfree_skb(clone);
+> > +}
+> > +
+> > +static bool netc_onestep_timeout(struct netc_port *np)
+> > +{
+> > +	u64 expire_time;
+> > +
+> > +	/* Use monotonic jiffies_64, as the PHC may be stepped backwards.
+> > +	 * Add one tick since the ns-to-jiffies conversion rounds down, so
+> > +	 * the software window is never shorter than the hardware window.
+> > +	 */
+> > +	expire_time =3D np->onestep_tx_time + 1 +
+> > +		      nsecs_to_jiffies64(NETC_ONESTEP_VALID_WINDOW);
+> > +	if (np->onestep_state =3D=3D NETC_ONESTEP_IN_FLIGHT &&
+> > +	    time_after64(jiffies_64, expire_time))
+> > +		return true;
+> > +
+> > +	return false;
+> > +}
+> > +
+> > +void netc_port_onestep_sync_enqueue(struct dsa_switch *ds, int port,
+> > +				    struct sk_buff *skb)
+> > +{
+> > +	struct netc_port *np =3D NETC_PORT(ds, port);
+> > +
+> > +	spin_lock_bh(&np->onestep_lock);
+> > +	if (unlikely(np->onestep_state =3D=3D NETC_ONESTEP_PORT_INACTIVE)) {
+> > +		kfree_skb(skb);
+> > +		goto onestep_unlock;
+> > +	}
+> > +
+> > +	if (unlikely(skb_queue_len(&np->onestep_queue) >=3D NETC_ONESTEP_QTH)=
+)
+> {
+> > +		dev_dbg_ratelimited(np->switch_priv->dev,
+> > +				    "The onestep_queue of port %d is full\n",
+> > +				    port);
+> > +		kfree_skb(skb);
+> > +		goto onestep_unlock;
+> > +	}
+> > +
+> > +	__skb_queue_tail(&np->onestep_queue, skb);
+> > +	if (likely(np->onestep_state =3D=3D NETC_ONESTEP_IDLE) ||
+> > +	    netc_onestep_timeout(np)) {
+> > +		np->onestep_state =3D NETC_ONESTEP_SCHEDULED;
+> > +		schedule_work(&np->onestep_work);
+> > +	}
+> > +
+> > +onestep_unlock:
+> > +	spin_unlock_bh(&np->onestep_lock);
+> > +}
+>=20
+> [Severity: High]
+> Can the port get stuck in NETC_ONESTEP_IN_FLIGHT forever?
+
+Yes, this is a potential issue, I will fix it.
+
+>=20
+> Once netc_port_onestep_work() sets IN_FLIGHT and hands the frame to
+> onestep_sync_xmit(), only three things can resume the drain:
+>=20
+>   1. a matching response in netc_port_txtstamp_handler()
+>   2. netc_onestep_timeout(), which is evaluated only from
+>      netc_port_onestep_sync_enqueue()
+>   3. the ts_req_id exhaustion self-reschedule
+>=20
+> The changelog says:
+>=20
+>     A dropped frame produces no response, so reuse tstamp_timeout_work to
+>     reclaim its request ID after 5 seconds
+>=20
+> but netc_port_tstamp_timeout_work() only unlinks and frees the timed-out
+> clone:
+>=20
+> 	__skb_unlink(skb, &np->tstamp_queue);
+> 	__skb_queue_tail(&free_list, skb);
+> 	...
+> 	if (!skb_queue_empty(&np->tstamp_queue))
+> 		schedule_delayed_work(&np->tstamp_timeout_work,
+> 				      NETC_TSTAMP_TIMEOUT);
+>=20
+> It never touches np->onestep_state and never schedules np->onestep_work.
+> And once the clone has been reaped, a late response takes the !skb_match
+> early return in netc_port_txtstamp_handler(), so it cannot clear IN_FLIGH=
+T
+> either.
+>=20
+> Concretely: frame A goes IN_FLIGHT with id X, frame B is enqueued inside =
+the
+> window and only appended, A is dropped in the switch so no response arriv=
+es,
+> 5 seconds later the timeout work frees A's clone and leaves IN_FLIGHT set=
+.
+> If the sender then stops, or falls below one frame per window, doesn't B =
+and
+> everything behind it stay queued and unfreed until link-down, port disabl=
+e
+> or a hwtstamp reconfiguration?  These are the original TX skbs and still
+> hold skb->sk, so the owning socket stays charged.
+>=20
+> The queue-full branch above also returns before the netc_onestep_timeout(=
+)
+> check, so once 512 frames have accumulated even continued traffic can no
+> longer recover the port.
+>=20
+> Would it work to reset onestep_state and schedule onestep_work from the
+> timeout path, or to arm a delayed work for the validity deadline, so
+> recovery does not depend on new traffic arriving?
+>=20
+> Separately, the changelog says the work is scheduled "when the PTP time h=
+as
+> advanced beyond NETC_ONESTEP_VALID_WINDOW", while
+> netc_onestep_timeout()
+> compares monotonic jiffies_64 and only at enqueue time.
+>=20
+> [ ... ]
+>=20
+> > @@ -395,6 +673,66 @@ int netc_port_hwtstamp_get(struct dsa_switch *ds,
+> int port,
+> >  	return 0;
+> >  }
+> >
+> > +static void netc_port_prepare_onestep_sync(struct netc_port *np,
+> > +					   struct sk_buff *skb,
+> > +					   u32 ptp_class, bool *twostep)
+> > +{
+>=20
+> [ ... ]
+>=20
+> > +	if (unlikely(skb_linearize_cow(skb)))
+> > +		goto set_ptp_flag_drop;
+> > +
+> > +	ptp_hdr =3D ptp_parse_header(skb, ptp_class);
+> > +	if (unlikely(!ptp_hdr))
+> > +		goto set_ptp_flag_drop;
+> > +
+> > +	msg_type =3D ptp_get_msgtype(ptp_hdr, ptp_class);
+>=20
+> [ ... ]
+>=20
+> > +set_ptp_flag_drop:
+> > +	/* Drop instead of falling back to two-step: if it is a Sync,
+> > +	 * one-step offload will not be executed, the timestamp in the
+> > +	 * frame is inaccurate, which may affect PTP synchronization.
+> > +	 */
+> > +	NETC_SKB_CB(skb)->ptp_flag =3D NETC_PTP_FLAG_DROP;
+> > +	dev_dbg_ratelimited(priv->dev,
+> > +			    "Port %d: PTP frame dropped in error\n",
+> > +			    np->dp->index);
+> > +}
+>=20
+> [Severity: Medium]
+> The skb_linearize_cow() failure is evaluated before the message type is
+> known, so a plain ENOMEM destroys any PTP frame on the port, including a
+> Delay_Req that this code would otherwise have sent two-step.  Should the
+> linearize failure fall back to two-step, or at least be handled after the
+> Sync check?
+
+No, first, the frame might be a sync frame, if fall back to two-step, that =
+means
+one-step offload will not take effect, so the timestamp of the sync frame i=
+s not
+correct. If the PTP clocks are already synced, a frame with an incorrect ti=
+mestamp
+may cause the clocks desynchronization. In this case, drop the frame is bet=
+ter
+than sending it.
+
+Second, the purpose of skb_linearize_cow() is to ensure that the required
+data is in the linear buffer. If a check is performed first, it defeats the=
+ purpose
+of using skb_linearize_cow(), because it cannot be guaranteed that the
+required data is in the linear buffer at this time.
+
+>=20
+> None of the new drop paths are accounted anywhere.  dsa_user_xmit() has
+> already counted the frame as transmitted via dev_sw_netstats_tx_add() bef=
+ore
+> the tagger frees it, so from userspace the frames just vanish:
+>=20
+>   netc_port_prepare_onestep_sync() -> NETC_PTP_FLAG_DROP -> kfree_skb()
+> in
+>     netc_xmit()                               (linearize/parse/offset
+> checks)
+>   netc_port_onestep_sync_enqueue()            (queue full, port inactive)
+>   netc_port_onestep_work()                    (clone failure, no
+> ts_req_id,
+>                                                PHC read failure
+> purges all)
+>   netc_port_purge_onestep_queue()             (hwtstamp
+> reconfiguration)
+>=20
+> netc has no .get_stats64, so dsa_user_get_stats64() falls back to
+> dev_get_tstats64(), which folds dev->stats into rtnl_link_stats64 - could
+> these paths bump dev->stats.tx_dropped?
+>=20
+> The changelog only says "Frames that are not one-step Sync still fall bac=
+k
+> to two-step timestamping", which does not tell a reader that enabling
+> one-step turns a degraded timestamp into a frame that is never transmitte=
+d.
+>=20
+> [ ... ]
+>=20
+> > @@ -449,6 +787,21 @@ void netc_port_txtstamp_handler(struct dsa_switch
+> *ds, int port,
+> >  		dev_dbg_ratelimited(np->switch_priv->dev,
+> >  				    "Port %d ts_req_id %u which seems lost\n",
+> >  				    port, ts_req_id);
+> > +
+> > +		return;
+> > +	}
+> > +
+> > +	if (NETC_SKB_CB(skb_match)->ptp_flag =3D=3D NETC_PTP_FLAG_ONESTEP) {
+> > +		spin_lock_bh(&np->onestep_lock);
+> > +		if (likely(np->onestep_state =3D=3D NETC_ONESTEP_IN_FLIGHT &&
+> > +			   np->onestep_ts_req_id =3D=3D ts_req_id) ||
+> > +		    np->onestep_state =3D=3D NETC_ONESTEP_IDLE) {
+> > +			np->onestep_state =3D NETC_ONESTEP_SCHEDULED;
+> > +			schedule_work(&np->onestep_work);
+> > +		}
+> > +		spin_unlock_bh(&np->onestep_lock);
+> > +		consume_skb(skb_match);
+> > +
+> >  		return;
+> >  	}
+>=20
+> [Severity: Medium]
+> Can the ts_req_id comparison here match a different frame?  The clone is
+> unlinked from np->tstamp_queue under tstamp_lock earlier in this function=
+,
+> which immediately makes the 4-bit id reusable, and onestep_lock is only
+> taken afterwards:
+>=20
+> CPU0 (work, frame A response overdue past the window)
+>   netc_port_onestep_sync_enqueue()
+>      netc_onestep_timeout() -> true, schedule_work()
+>   netc_port_onestep_work()
+>      spin_lock_bh(&np->onestep_lock);
+>=20
+> CPU1 (A's response arrives)
+>   netc_port_txtstamp_handler()
+>      __skb_unlink(clone_A, &np->tstamp_queue);   /* id X now free */
+>      spin_unlock_bh(&np->tstamp_lock);
+>      spin_lock_bh(&np->onestep_lock);            /* blocks */
+>=20
+> CPU0 continues
+>      netc_get_ts_req_id() -> X again for frame B
+>      np->onestep_ts_req_id =3D X;
+>      np->onestep_state =3D NETC_ONESTEP_IN_FLIGHT;
+>      spin_unlock_bh(&np->onestep_lock);
+>      onestep_sync_xmit(B)
+>=20
+> CPU1 then sees IN_FLIGHT with onestep_ts_req_id =3D=3D X and treats A's
+> response as B's completion, sets SCHEDULED and re-arms the work, which ca=
+n
+> transmit frame C and reprogram PM_SINGLE_STEP while B is still pending in
+> hardware.  Workqueue non-reentrancy serializes the worker, not frame
+> completion.
+>=20
+> Would retiring the id and moving the one-step state under a single lock
+> order (onestep_lock then tstamp_lock), or matching on a generation counte=
+r
+> instead of the reusable 4-bit id, close this?
+>=20
+
+This is a hardware limitation, the response frame only contains ts_req_id
+and timestamp. the driver can only use the ts_req_id to match the skb from
+the queue. The incorrect matches can occur, but only in the event of a
+timeout. In the event of a timeout, PTP synchronization has already been
+affected, so incorrect matches will not cause any worse consequences.
+Once the link recovers, the timeout disappears, and subsequent PTP
+synchronization resumes. Therefore, it's a trade-off.
 
 
