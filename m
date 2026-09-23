@@ -4,180 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B670EC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71A1C98316
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 21:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=69P3Di2j8RG757Nvl7CF5tM7SZuLhKhrL/SaSYqR0C8=; b=3zelSsfcTM3BytazhAgCwhJ/km
-	OFrESl4Yq4DoredJv/pSofu36AGnv8Kisnjhk+R5TusDkV6xw8tpHIQiG28sRUZYbcOj8cAUaL3NU
-	YxHiCqfS0ZCLLeRdbQ/Id4HhE9+RKBoWDXk4EFmw+Y8bAe9J67BzcdSxpxTZxJWuozQSBT0g7HXb+
-	kGqoOz04Sd30TbdJr/Is3D0NO0ddvlLAMHFHeiEA4odLi7JlnzHxi2fHm01GTyXq855/0ZbKaMZjR
-	9vF7nMf+PNdNFT1R7+HiXiqCvVUDaQBjYGQaj08hfUs64fD5XENYWp2Renreszr4UD1Sg7sUkBqcp
-	w/DXr2pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8M+UT7oIyha+XPFScsNzmi18L28ReOVLoc3XQz11GVc=; b=dkFkZ1HK/VV2GUOLiHpq4Ltq+u
+	9OeNJTXbLGVBvIjeKYcUlpDsxX4CZ4iCBY0UsafIeCS5ue7tERwv9GiVlnA80jhj0ZjQui/QPK+WO
+	hhXTARZ5r+lwNd0+uq5jCqmQhZlcDYGzvOCZRwKV6H3HXfRnLFqp7IefizmNDhFpofygPOElhV8v6
+	k36licdi2RBYR1mYMDtRpK/jyu9ErwoXbI7rw1B0P1iZAM52PSRZCgsC0PXTu6WYJQ7QJo6kU75nf
+	L+CDUuPGw1XgnnSTn+FYPwRjr+E3ZsE1pc+1e7U9exirsDnYcQFgNOpSYtxShlrk5PT9v3Jf53a1X
+	oIhp+9AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Uhf-00000009bEx-1cF9;
-	Wed, 23 Sep 2026 21:40:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9UyF-00000009cZn-1fwO;
+	Wed, 23 Sep 2026 21:57:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Uhd-00000009bES-22LJ;
-	Wed, 23 Sep 2026 21:40:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=69P3Di2j8RG757Nvl7CF5tM7SZuLhKhrL/SaSYqR0C8=; b=i9RW7tW8axtcUmrQqoXTzeKEak
-	4WQ2XuAW9lnCU7lsAEMPd6gS4Z0qSREYD79OQCP1rmCFk6QwXTr4P8JAO12qSgpmDMlJrUn81LCq4
-	R8UxqqS5cmNub/Rp2PXohP3yQ6Ch9xi+U9ioQeolYm93QoX0OU3Sjxu85DiGDVVJTthMLp0hP6jaI
-	ln4gh6lckFYb3SU8GiQR0cnAvTbcEahcAvqdt/p3kGWHiEZDLn6RVn23vVW45FqU6O89FX0QzJX/+
-	AryX21ZQDsfDj1VVxlfTVDx53bAGtHN0i+472F8ordvhOjoNlrjOdK3FCmB6oi7tHDKv0+QLDsqH2
-	57XMXr/w==;
-Received: from mail-norwayeastazon11013044.outbound.protection.outlook.com ([40.107.159.44] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9UhZ-0000000FJAx-3mzK;
-	Wed, 23 Sep 2026 21:40:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pT9fUnHsgTMAvb7F6DTBWNZZza6mNwI/dblfiZb1GlCvDXXB/S2TXC02nPp3xlgcP+q3oJ4nYiZgfimylJU/y8CWk+c8U2A1oOaYYDKXFw3dFd8Nu8KcZRrms3wZRHM5mTB1XMDLs9Ye02yX/At3ELf7OtUs8lRbUN91Fqw6U1u4HgO/cGOKJ2Y8kRavGIqj3k3RP385LsFyeOiH1u2RIkuHN1X23EOq2u1jzXahkjNkaQeZE8DBZG/Gj+3EFSHuzJIJDOhx1ar03AosePwDibonxVDngKgiDh06zsFNKk+bsRWJAB6DhzyHZ0RO1KXJ27tdRUoM2hE6XH+PCTdzWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=69P3Di2j8RG757Nvl7CF5tM7SZuLhKhrL/SaSYqR0C8=;
- b=jsN3MWf5MYoCBKDcfL1mv2g80oz1SSSDRy0bUaY7Vk6B3ftX9i+z+2f5Nm0C7CzbEuqg0JcQ+JelZdfnQtkzwDjB9KU+jwJ+Nf7/e7jLtjPD75WmpQHdvGW3pz/4mz7owaIuI9ANyj53KrVrvAAWnxyyahLomsaUc1ZW6NxxnFQFRnYyxqMD5a5XfJwEf0PmnRa98HgptSZA+VFX6MJXTnuYmUQSdtWuNV3fSzjBwnn0d47LCfnIJVGeIhb20EcEQKuErqv+vEPYGmDQFJZATXP4wt0ZGxz/Qh8+/RC8LjC6VsgkLTogSMe/mTU4Qo0iQfw8Ek088ZwzCITDKhDlyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=69P3Di2j8RG757Nvl7CF5tM7SZuLhKhrL/SaSYqR0C8=;
- b=jT4oSDdkZco4z6JUjpIlrMrsYYb/AjfhvqA5JzIcJdJXVTQiBpwnImYA5PRyiWQMGgm4/gKhOow36LC+GXJbnRQvlSmiHwrAO0C0eCyCGHRocxMe4UkMTRR402Rdk9tRQIpMjlk6zoJ8x4KyU9okwFDjpnpwpXNDwagycQHYKNt+rcPAURqtLg61D1wXKzhb33EyLBdyj4skiYfPKNBNg/7M4meNt+xhYqM3QV5MfIa9ONEQYZmhx+CsKbkxWfxjlIeoZyGg5aV8ybT3uz9VdCk3nA5/jMQR8pS0/lKS9jSyJt02D15z/VMT7RRyMuPfUuTq5YUSNqBj3Yt4CRu4aw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8442.eurprd04.prod.outlook.com (2603:10a6:102:20b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Wed, 23 Sep
- 2026 21:40:22 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
- 21:40:22 +0000
-Date: Wed, 23 Sep 2026 17:40:08 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ulf Hansson <ulfh@kernel.org>,
-	Aubin Constans <aubin.constans@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Johan Hovold <johan@kernel.org>, "gordon.ge" <gordon.ge@bst.ai>,
-	Vinod Koul <vkoul@kernel.org>,
-	"yangzh0906@thundersoft.com" <yangzh0906@thundersoft.com>,
-	Jared Kangas <jkangas@redhat.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Linus Walleij <linusw@kernel.org>, Fan Wu <fanwu01@zju.edu.cn>,
-	Rosen Penev <rosenp@gmail.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
-	Zhan Xusheng <zhanxusheng1024@gmail.com>,
-	Pan Chuang <panchuang@vivo.com>, Khalid Aziz <khalid@kernel.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Rakuram Eswaran <rakuram.e96@gmail.com>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Matthew Wilcox <willy@infradead.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	"linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:INGENIC JZ47xx SoCs" <linux-mips@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..." <imx@lists.linux.dev>,
-	Linux-OMAP <linux-omap@vger.kernel.org>,
-	"moderated list:ARM/ACTIONS SEMI ARCHITECTURE" <linux-actions@lists.infradead.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	"open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>
-Subject: Re: [PATCH v4 1/1] mmc: use dmaengine_get_dma_device() instead of
- chan->device->dev
-Message-ID: <arRHOJXxexYgKbPQ@lizhi-Precision-Tower-5810>
-References: <20260923184612.3583132-1-Frank.Li@oss.nxp.com>
- <eebb66fa-12e2-4553-8edf-d131b84a8aba@app.fastmail.com>
- <arQpj-pn15NRgSh8@SMW015318>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arQpj-pn15NRgSh8@SMW015318>
-X-ClientProxiedBy: PH7PR03CA0012.namprd03.prod.outlook.com
- (2603:10b6:510:339::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x9UyE-00000009cZf-1uuQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 21:57:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C8E8C43F16;
+	Wed, 23 Sep 2026 21:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E64F1F000FF;
+	Wed, 23 Sep 2026 21:57:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790200661;
+	bh=8M+UT7oIyha+XPFScsNzmi18L28ReOVLoc3XQz11GVc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UlRCpIiuV4BL8JAAastxBfA9AqVs0ltc4wCol3mQOA0gLZjTyueHPUzDfkomWqfcu
+	 vpR5AZPTtAEq8u8eSrNmhkr+1CMQCTroungYOMyBMU32U2CLz6KVXjlWqsLSI8bR6S
+	 wP35XQ0D+0tN2X9HGw/1WDk6TQFINV9Nk3VDmxB8pRzxfOrvcjXU2KNpiq4TgP+2pl
+	 ygpXh/ifYG/6W3V00QmeW4/BAs7W2rOQMFTUC0RlwS5eMPL8R/2vlpijuJKJ/F+yA+
+	 MDkFmyaiUsbKOg26ABOc+B4X0L531YtjJ1pdd1hXGLbmJLpqc1OPuXWPqBU7xsqBdy
+	 Cg9pPN+qNyR9w==
+Message-ID: <f95ccf9c-c366-48d6-ac9f-c97546b9b543@kernel.org>
+Date: Wed, 23 Sep 2026 23:57:31 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8442:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6dcfa6ec-8523-4c05-48de-08df19bb455e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|23010399003|366016|4143699003|56012099006|11063799006|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: bJZNlVFeKq/rFlBOGY1znBg++6jHi+eGKGX0nIjUngDNYLf3Q0sUjflxtBg+X6ym5i9tBgSy0Lvk2kft0DmJnJyXnoLI4yZR2j50Tefe4oNMGHcT/KhjkqvQe6QMgkkiYgKEgHAYjDNosQmC90Aa/5aom0BIMQ8qocicNLQReZg+RqekZbfLPV8smQBFmDbPqWp6AecbB7IfKAbeaZIaTLMFndxq8dFgxUGbFGZhf8CHLR+K13tJRO4m1mGLNY+izplTo/r+2vbLp0WQb9Faiemv6f6ArBz1hEgbkdUqUzAtFkWwi/bGEsjx6XJtdoyRNaFxnRqkH4K0K77WDIWkxVg8QnpQCoWDNWJQhbXwOWS1DsuKCcvBFQb/WTBql9pCz8P6BTMEE0wn+MOz41XhGLvcVEX5tzfhyjZmACQUW+Xdz8tVFANCJcFiYn2d38aagvNFZuBCsmL73dG7qRCxt7EUinaXBsHZrj521tmd2V3FDI8R+atcLVh0RAaUfUqeas4uZ2Q43VTsdfrn5mUsjk38YqtCyOAM5eNJT6HnX5W3z/Z/Zo+ln8E8u5GkpcGLSTr5HknZMipgeG0EtkXVYxFw1osfg+bj+knvq3YiuoVqMiIjJhBy45m8xe9pmCXQcJpsdBDa29zDKdqCBoO6RDKQowdaLzxwdWvzkz1C4Y8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(23010399003)(366016)(4143699003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8aqUlKT5eC+Fax7o0JfVi6X2iH0Lsa+ptTT0CvYUA5x71zOb2Dr58K0WbcBV?=
- =?us-ascii?Q?svcTIEPjVjZo3PgQrzkUrtQnFqCZyFTeBKP37teqNSYXquUf5rUGFolB0SZj?=
- =?us-ascii?Q?A9QKcH79cYHJn5SfnswECsXywlA2S/aPzZcRqyGrHV7LxEXh1bPhBiGmjmr+?=
- =?us-ascii?Q?qywn5ZivwlsJv4YcMDCsXz8TDyHuGU/DrwBzg20PHebrvfODc1bH6AUrxN5p?=
- =?us-ascii?Q?1PltPKRZpATNlOcCLjcNRezI4QDFYAlf0VL1X/xfTAKdIK5hJAaTUpiIU1fO?=
- =?us-ascii?Q?xO1PeWq2qwLb15VFjeR4Ou8BvFFPC5Wj1bgx6k4FEhkCENMh/uGqCu+k3cOb?=
- =?us-ascii?Q?iLIaG1GYk3nTjGcD9F0w+48W/rIwID8fI0MUuiqMVru7sJOADmz58TXHi+4x?=
- =?us-ascii?Q?p/Dh2NHWSPbM/6lK93Wjr8ewEnaa/JMd235SjCJ8s2+MvZ40znNds6NB6cAy?=
- =?us-ascii?Q?ZwPgoyTykbCIXp1p2GIbZ9vJxlcmMc9B+/xO29/ylTEoHHvtckDRk54pTLnt?=
- =?us-ascii?Q?9AEfZrHGtu4Eme/nO44YWs/BowPCyYi+kmLnGpVoOny66PI5KQKHQS0qfZFB?=
- =?us-ascii?Q?pNNIPhfjdk/DxkErMRz0zgxkpXZiTSyqZz53KLAAaxdRf4OwxqybWkq2LZa4?=
- =?us-ascii?Q?55k9n67mJpqHIlMRDT+hivPZIrYBSP0TJwAiYEWwPVzAkiepFuAb+HS3m0J/?=
- =?us-ascii?Q?tcNoNX7igzG7CQd53ejEkGXsuGgTKdeTtwLR/jdlG/na8Diag3T/PwTFuZU4?=
- =?us-ascii?Q?RUlWAfjGB3ABKRFDazUYgERuNoa6MhtF+iuYPchMrQECYL7dm0Ldc29zdlRJ?=
- =?us-ascii?Q?7pnxw7rF95gMtqJLF5akRX/NtUlkK8pNAeruvnD5dovTP6309+3WE6nl2YiG?=
- =?us-ascii?Q?prK1dQLUNtqSoS5TtNGP+6f3kEulcRUTol50BBqrvNln6lesaynbwep2R6KA?=
- =?us-ascii?Q?eJyQQ5nYenjw58O7k7DiSQDcXOpuFjzuKgIs88DvY4bsL0o2lyy9jqzFNPY1?=
- =?us-ascii?Q?qpyYGttC95LmUjLj2k6B8oJqrZ1of/Jn/8Tg958Ynd6hfZ3m2yCWUPxaU0N9?=
- =?us-ascii?Q?/KRGD7rvbTXlYb/j0+L9pZxw6yFZULxnSV8/3zTngE4cBGKG87QqCm42+lOh?=
- =?us-ascii?Q?OJ9o+MqVWfJhGEH1Cdhj2RlgmbMb0CbkjxDGAAXDZ/0RtHD1ZJR+FYTg7dve?=
- =?us-ascii?Q?GD9CsTS8gyF59Z7vS2soEvhy3eCx+7/R8301Z9jdZR18biS+H944KBTCj187?=
- =?us-ascii?Q?KozFU3j+NslhVqZQQmFPLwZgXZMuB8iejWsvKII/m8Lpj1BnbEiMv5t1z/4e?=
- =?us-ascii?Q?JhX1e3ZeUIJfTt9YgfHnKrbDWDCECtxXmFrSEDHv3tcBNJEh8VUerWLMH7J+?=
- =?us-ascii?Q?VYzXwP6fKBdfB4ftY1WHzzLO7wrlbyENkiUQ8YCbtk06KsYl5vXpsF0fb/Qv?=
- =?us-ascii?Q?it/yL6UIsxD8VZ86TE6IN7tSlxqdbp0odhMqB6oBcoUU9cb191neTPTh+lLT?=
- =?us-ascii?Q?gyZ4xzqbFUAa+YPih/WmC7+89qxkhtuiC8dfqPx1KRdRh2pHGb0bqbnYhVXA?=
- =?us-ascii?Q?7XLYqXURoSzQsTZClU/ljvwWb1oYe7OC7H4OFcTX8/ZXYWrGJ3tHhnFABHjC?=
- =?us-ascii?Q?cURK8XDO7JYBNI+oB0WiLICw4ciFq4ZWbpOGCelM1Jd2Dn7FbDTU7RFv6jS6?=
- =?us-ascii?Q?dXJb42cdLQqoDpUnudhER/bd0U6JQ4kBi4IpiRvrWJfemBK90TGotWe8Kutx?=
- =?us-ascii?Q?ONHzzhhTNxRAlTsSahZbhvRuoBx4qkYf9AM7GkI+Cely8A9wnvGs?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6dcfa6ec-8523-4c05-48de-08df19bb455e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 21:40:22.6429
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Bpwo8LlnFEbawrFMnO8yV3GE6ow54N5S8ivOv/cGM4sYeaqOMzFIoOhZ9NpJjgkaASUIur8HYMo6tnPLDGjoUtno3Y+v6rpOpjlnBAkPWPlv/VGenhMlKuWSnr1qPRPc
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8442
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_224030_100222_9B7944A5 
-X-CRM114-Status: GOOD (  22.90  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 03/10] mm/vmalloc: use pte_set_huge()/pte_clear_huge()
+ for PTE-level block mappings
+To: Barry Song <baohua@kernel.org>, Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org,
+ urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com,
+ ajd@linux.ibm.com, anshuman.khandual@arm.com, david@kernel.org,
+ dev.jain@arm.com, jiangwen6@xiaomi.com, leo.yan@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, rppt@kernel.org, ryan.roberts@arm.com
+References: <20260923062832.479455-1-jiangwen6@xiaomi.com>
+ <20260923062832.479455-4-jiangwen6@xiaomi.com>
+ <CAGsJ_4z-oqoxKynRr6mz0-5zZU_2NBnPkwz05CEEHHnwTyqa-Q@mail.gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <CAGsJ_4z-oqoxKynRr6mz0-5zZU_2NBnPkwz05CEEHHnwTyqa-Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,73 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 02:33:35PM -0500, Frank Li wrote:
-> On Wed, Sep 23, 2026 at 08:57:04PM +0200, Arnd Bergmann wrote:
-> > On Wed, Sep 23, 2026, at 20:45, Frank.Li@oss.nxp.com wrote:
-> > > @@ -214,7 +214,7 @@ config MMC_SDHCI_OF_AT91
-> > >  config MMC_SDHCI_OF_ESDHC
-> > >  	tristate "SDHCI OF support for the Freescale eSDHC controller"
-> > >  	depends on MMC_SDHCI_PLTFM
-> > > -	depends on PPC || ARCH_MXC || ARCH_LAYERSCAPE || COMPILE_TEST
-> > > +	depends on PPC || ARCHMXC || ARCH_LAYERSCAPE || COMPILE_TEST
-> > >  	select MMC_SDHCI_IO_ACCESSORS
-> > >  	select FSL_GUTS
-> >
-> > This looks like an accidental bug that should be removed from the patch.
->
-> It is accidently including my local change to build test. I found it when
-> post it.
->
-> >
-> > > @@ -961,7 +961,7 @@ static void atmci_dma_cleanup(struct atmel_mci *host)
-> > >  	struct mmc_data                 *data = host->data;
-> > >
-> > >  	if (data)
-> > > -		dma_unmap_sg(host->dma.chan->device->dev,
-> > > +		dma_unmap_sg(dmaengine_get_dma_device(host->dma.chan),
-> > >  				data->sg, data->sg_len,
-> > >  				mmc_get_dma_dir(data));
-> >
-> > Since you have the exact construct in a lot of drivers, would
-> > it make sense to take this one step further and introduce
-> > a new set of helpers in drivers/dma/dmaengine.h, such as
-> >
-> > unsigned int dmaengine_map_sg(struct dma_chan *chan, struct scatterlist *sg, ...);
->
-> If add this, suppose should be set of map_*, like dmaengine_map_single(),
->
-> Vinod:
-> 	Is it add new APIs like thats?
 
-Maybe we can enhence dmaengine_prep_slave_sg(),
 
-Most patten like
+Le 23/09/2026 à 23:38, Barry Song a écrit :
+> On Wed, Sep 23, 2026 at 2:28 PM Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+>>
+>> vmap installs PTE-level block mappings by reusing set_huge_pte_at() and
+>> huge_ptep_get_and_clear() under #ifdef CONFIG_HUGETLB_PAGE. This makes
+>> the feature silently unavailable on CONFIG_HUGETLB_PAGE=n kernels and
+>> couples mm/vmalloc.c to HugeTLB internals it does not otherwise need.
+>>
+>> Now that arm64 and powerpc/8xx provide pte_set_huge() and
+>> pte_clear_huge(), add the generic fallbacks next to the existing
+>> pmd/pud_set_huge() family and convert vmap_pte_range() and
+>> vunmap_pte_range() to the new helpers. The CONFIG_HUGETLB_PAGE guards
+>> around the block-mapping paths are dropped, so PTE-level block mappings
+>> now also work on CONFIG_HUGETLB_PAGE=n kernels, and mm/vmalloc.c no
+>> longer includes <linux/hugetlb.h>.
+>>
+>> The fallbacks exist only to keep the build working on architectures
+>> without PTE-level block mapping support. They are unreachable there:
+> 
+> Since this is a `BUILD_BUG`, can the compiler simply eliminate the call?
+> I guess the build would still pass even without the fallbacks, so this is
+> more of a build-time check than something needed to keep the build passing?
 
-	sglen = dma_map_sg(chan->device->dev, data->sg,
-			data->sg_len, mmc_get_dma_dir(data));
+Yes and that's what the compiler does, it eliminates the call.
+The BUILD_BUG() is there to make sure it does eliminates the call.
 
-	dmaengine_slave_config(chan, &host->dma_conf);
-	desc = dmaengine_prep_slave_sg(chan,
-			data->sg, sglen, slave_dirn,
-			DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
+The build won't pass without at least a forward declaration of the fallback.
 
-let dmaengine_prep_slave_sg() include dma_map_sg(), which also reduce
-error handle when return desc is NULL.
+In the old days when BUILD_BUG() didn't exist, the trick was the declare 
+the function and never define it. But with that trick the problem is 
+only detected at link time. With BUILD_BUG() the problem is detected at 
+build time.
 
-after call complete, auto ummap_sg(). We may add DMA_PREP_MAP flags to
-keep back compatiblity.
+> 
+> Am I missing something?
+> 
+>> the callers only run when arch_vmap_pte_range_map_size() or
+>> arch_vmap_pte_range_unmap_size() return a size other than PAGE_SIZE,
+>> which requires an arch implementation. BUILD_BUG() makes that
+>> explicit rather than silently doing nothing.
+>>
+>> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> 
+> Nice to see that `#ifdef CONFIG_HUGETLB_PAGE` and
+> `#include <linux/hugetlb.h>` are no longer needed in `vmalloc`.
+> 
+> Nothing concerns me except for the changelog issue mentioned above.
+> Please double-check whether the changelog needs to be corrected.
+> 
+> Reviewed-by: Barry Song <baohua@kernel.org>
 
-after enhancement
-	consumer just need call
-
-	dmaengine_prep_slave_sg(chan, data->sg, data->sg_len, slave_dirn,
-			        DMA_PREP_INTERRUPT | DMA_CTRL_ACK |
-				DMA_PREP_MAP)
-
-Frank
->
-> Frank
->
-> >
-> >       Arnd
 
