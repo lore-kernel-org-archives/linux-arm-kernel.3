@@ -4,112 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9A4C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33C7C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 13:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slzyTwicRG2x+1smgIS8YIiwRQ+ZNY+zJFdtpnpz9zk=; b=CcGc25245jXN09tP3XjTu2a56Z
-	z+XwAjDRLCTvNkRkoJBN5pT4BObb/nZj9KNRavoCp5BfUV/IUVfiXp8eRS62HADyWGErrC6R2fub4
-	kncah9OxoBwqP7+H7LHIOpGCzd8leknng+wMLYPj6OpFOnpg179lYEGBLVdTk+y+9RIH95V7Tku7p
-	vHgI5NvQOJyc6yDkjRZdS5TBzUBK/YmW4YL8n9P6zjtyiGr0noZFRH35rXQ3oRE2u0WLpEdgiHTUL
-	R4Yhfp9Pubyf0Qd2+S1U/pcEB1MFVpDD/ctLgjyep72OVyN7WsgCu54Ezd1xEOLEvKWV9w5X6Som1
-	/we+kZRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ID2TgS0sKt7ncgE+1Qe9AfzwImm+RaD43d15X2G7G3w=; b=MWMCJSGC50+MZO7ylObRL3aBee
+	jpIAzP5CNZfT/VcsKlbeyjBHc2+ge22Gr+y+Zc9B7LmeUW5wBfjgPOFaw8Q9QJXwUrEkv0fZLmIIY
+	uMuEOmoTpXCF2vy7gzsgHUrQYRsinYrGYKIAU4YjsAHDRaI8tGYHjFXiKI53I4TFeckjKtVn6RHFg
+	pgpVnLOtGBcVnQecMqDqtW2kE56Z1zRHdnfGC7FOedlyqhiCuCY7dZFRMGGkfbxgF+wpYqRuejPSi
+	zpoYDf44hEavx9cZodaAv+CqBBeFXkdYqbfyQKpaqXqAPcOsb+o0IO1iZsqJRYINP97rVbiBnp0G6
+	cHLRQb0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MnU-00000008MKG-2Yei;
-	Wed, 23 Sep 2026 13:14:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9MpP-00000008Meq-2IoF;
+	Wed, 23 Sep 2026 13:16:03 +0000
+Received: from mail-pz2-x0f.google.com ([2607:f8b0:4864:3b::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MnF-00000008MED-1wj5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 13:13:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=slzyTwicRG2x+1smgIS8YIiwRQ+ZNY+zJFdtpnpz9zk=; b=GcRVnU+SJmg9ExL41ZI/mrHtz/
-	JuckRRU728J+TIl8F5jEmwpNOtpFLyexdB+q4b9hglA4vVo4Kvf4ZNzTenDYTnknXCdB6wLtrR5eD
-	TG6Ddl3YMI0A5rxP7IEh326OBk4Vc42Wcg7zmkIAbOW7+qL1vxKLRUKzSmiwUc9k5jQ1UbAHOCclE
-	VRK0DJoggO1Dbl0UYvtprS9wE5vRDhkwUKE/ce2Epcjla2dv7GPeEvv9XW6mHaFTKS+yrGw1fNUfq
-	/FRfl684slUBw2NJFmVoezs0KcaRljVPLWQYxIQX7TSP8OgpQYDO3qRgUnvwLUon/F3jp7xIFa94T
-	CLDcQW9A==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9MnC-0000000EnCf-2ecp
+	id 1x9MpL-00000008Me8-3As2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 13:13:48 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d822dso6027385e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 06:13:46 -0700 (PDT)
+	Wed, 23 Sep 2026 13:16:01 +0000
+Received: by mail-pz2-x0f.google.com with SMTP id d2e1a72fcca58-85469e2254dso110393b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 06:15:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790169225; x=1790774025; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=slzyTwicRG2x+1smgIS8YIiwRQ+ZNY+zJFdtpnpz9zk=;
-        b=jfE8CTcJ+5k8NQ92ABcv+XfKzVk4NnRIlZtjmbwoCNJs198U6hBMiC39pC02agwkmi
-         KkADNATipp47cYctiAUDXVTyRMo4V51Gq2S6Az9tXcZuxOqBJ5b4zG/dka0CuaC5I4Pv
-         jVcBa4SCqvN2J0OV143+k+/3Iy87wlvVPxX7r6qRA1yX4rmP8gpgtTx1krt0wN9mlil/
-         hAKRKjnLISAF8C8LiHszQr4QLKqYYdnHhFXDDGf5WxBom+hmJY7MbkuOHesOejTxD4BF
-         +beDeqeCYdWSdvqwyGRlUzM+Oe/LOE9UL7VHlkEGjf+qGffNia3P0rM2T+NGOCjbWv0N
-         RnqA==
+        d=furiosa.ai; s=google; t=1790169358; x=1790774158; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ID2TgS0sKt7ncgE+1Qe9AfzwImm+RaD43d15X2G7G3w=;
+        b=PE17aDDIMr6XtIIIHAhNbhTaF4fLQN/j+fog8Ihtjo0D2EN2CoeY5oDkK00sy1Vpac
+         klisQDhHQ0SHT7QvfZG8pHEW1nHtr4NSda9H8iYgQDLYcd1apMD2qSCNKIatkmmREB83
+         OV+Qd8rZIaQmbc7jB4I/KGlWyfhk8OF5+MPrQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790169225; x=1790774025;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=slzyTwicRG2x+1smgIS8YIiwRQ+ZNY+zJFdtpnpz9zk=;
-        b=xxGGF1fYd4BKQ9BJKV/SmwOM6YWOWOYZRy2RK8uJwK+qFtNNFRO47PzuA5uLIDKmaQ
-         WPW4QClsEeN9d1C34PATlD3LH2IpQqUOZSz0eonZnuAfSjcfjaFVc1DQ8W0PNKr/rH75
-         B5d3R1usjYBayMgRgAWZrdTWVRgs7rc9ctT0gEayS+73JHjQSpw5uEgVPOW3KF7+q/j5
-         9tWEnlwFiTXUN1nSa1Yx/RH4VUbw6vdjBE4DL2+Pz+BIFVbc8jmU8zxA364ZABfnMu/d
-         6VbiLP0AluQj1FgcwN9UnrLCHmuBX9uw234wb9oGNJFQNT0SQDHzo9nyGzOsIIQT4t2Z
-         +Cqw==
-X-Forwarded-Encrypted: i=1; AKwUvBxnWZcslvz2QSSQaFKFjp5+1r+H+goOKdtJXCHdDvl44qWf8o80VvsSjqJp3vswNzcEhxqiGa7xDtuRWbmn3w6Y@lists.infradead.org
-X-Gm-Message-State: AFuF++lJfWWgBUtHXxGLbHfYrA2bEMSXL6Jsg6bgRB5uTDJ62pljl5OZ
-	7VXla7Q690lKwB5wv7ihj/HpmQrYkxveaecJykAitRj6tsU9w1qei6yT
-X-Gm-Gg: AYBFou0S6oXhoNtcEPQj3fS/sIL1zREbVXfeWI6ib6NLV61kgSKUXJj/oleRFQ40/V1
-	5I7FrWBcLwNNbWP9ugI0gU05LA3J73Qz73Sg4MkaZMCC7c+pxR9CoeCbOsdIswopzJNDpeXMx3F
-	O1XbSKxO7puw0I32SINNrr7tkYK+Baxmx00jRwEskx+QD7KKf7flHqMwMB5LI45wHgwq+sfvQeh
-	8eRA4MFVsJ1RZYB824LyIMXzAY+jgtSLw3EqBoxG9bokBspzoLA4tp2X7oKZzLXpBeui3J3jmjE
-	dAsj4ym6orJiSlaSyvbA3g/1lKWu9wfKK96DuZGxxRIyxJr7Ze6lRXtcQQgbJb29aIV7G8OljLC
-	ChWH2Mc3Cia0Xuv8XC6jlyMC4YUodsJfhfw4Q1wZBQJZQfUnp9dBeAiRtskvy/3P57/DIYI+fWT
-	YiFZJmhXAmQMkfAv3p7NhE1mGv6vorxk45MhUL74pzAvxOIYoo7LZb9wAeh2uod2BR55gD6BwXO
-	JHDLaVqVElXF6pNXJLFdYC7R2HEe4A8CWbZKxiV5tt1XA==
-X-Received: by 2002:a05:600c:c493:b0:49d:1fa8:b266 with SMTP id 5b1f17b1804b1-49fdf1468e2mr30957675e9.26.1790169225418;
-        Wed, 23 Sep 2026 06:13:45 -0700 (PDT)
-Received: from zeus.localdomain (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe0c3731fsm57230235e9.2.2026.09.23.06.13.44
+        d=1e100.net; s=20260707; t=1790169358; x=1790774158;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ID2TgS0sKt7ncgE+1Qe9AfzwImm+RaD43d15X2G7G3w=;
+        b=SwOco8vVS1yTLWrNJzkuIKyZuh8RCHn0C8CIuhXYFKs5tq4Y+ldiae3tj4tLeN4R4m
+         nLaKzRda0s28VewZH5Lh8+au/9YxCB/pikD9NHMQ91oxVlnifFo6hGwkVS2cdfQjn+rU
+         fk1aU5gmMCmvXtfDCY959JP3U7CZAUwt+fy2QTAsbZaEkzt1+EEAwSAZIF3INa2g38tD
+         cYS2yycKr1QJV5ErybdSNXgm8Oc5Ihfc1RrqM3HNiIngUhw1350PuxRCsC4U7qjt7cpq
+         8o2M3T2z4NwwLkWpQ2k5pPo6iQ3E8XIzZysV2XxiI4tWHNzvLBmkA3XceCCaFbvp8rta
+         GrYA==
+X-Forwarded-Encrypted: i=1; AKwUvBw0OS8UBW7h0/6vLYr5w9b/WUUYqU2alQfRyr6TPEdYZCTrre4SuNx2dx7by4kZKoMPnj0vy9Uo+ZxeL5cqngST@lists.infradead.org
+X-Gm-Message-State: AFuF++nLXN5gliS3lE6IjcIajIlp0ILyRVAzdU3wi/3diDF04iWEzwa0
+	Vym/HpWpzN3hVsNfF9MoyI0bKjdTlIR8MxdZbStKU9eWpoOsZmnrQmK7aBycmroDS8w=
+X-Gm-Gg: AYBFou0jW63IaX1+vUW7U+1OmOJdMVj0QLx2khPBSwIv2GRjuLReEiO4DuHkcvxJUjX
+	26Tb/2x0mW+FC/y7v6c1fvhzykD/j2p7f34SAFB2ndaSFb0muhP6ZIYkLJyMc5cwJDfYPhKVMAd
+	H7XREeuylWCmQngx7gIcGyN9ZL/ILyb32vjRv1p7XEEox1nPfIJ5HCbnBrRZ2/VUtyEZ7ilAJgT
+	fl9VTkJRe23n1OSy9UMm+fmNEhuJu2EYkIKne/K/CLDuWVrl8HELrLszCuwqAP2/h6+E/Q4F3YX
+	XX+3E9DyfwF7ushQB60tIJOqGszQgc4Cb4F8GK7nOThp9ozAdjVRN4ls75bNsMYqeZmXdiOliHL
+	aq318kio2MmjvqT1Bx8tGo+QyXz4g2gxknK5DaZ5IeHUEajtEc3bt4NLQtnYGj/GzQIxME5EKlG
+	ix2UKXUtzMcyZmEhZRf2vFN37lu5fip25noPmYD/s+ssTCCxOiRb8FqTj6VtK2Cg+Jr99sDvda
+X-Received: by 2002:a05:6a00:ace:b0:878:3704:e0ee with SMTP id d2e1a72fcca58-87d2545fb09mr1521266b3a.20.1790169357733;
+        Wed, 23 Sep 2026 06:15:57 -0700 (PDT)
+Received: from rock-5b-plus ([61.83.209.48])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87d1d5c1646sm1233527b3a.30.2026.09.23.06.15.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 06:13:44 -0700 (PDT)
-From: Sander Speetjens <sander.speetjens@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	sander.speetjens@gmail.com,
-	Dom Cobley <popcornmix@gmail.com>
-Subject: [PATCH v4 2/2] rtc: Add Raspberry Pi 5 RTC driver
-Date: Wed, 23 Sep 2026 15:13:23 +0200
-Message-ID: <20260923131323.1099979-3-sander.speetjens@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260923131323.1099979-1-sander.speetjens@gmail.com>
-References: <20260923131323.1099979-1-sander.speetjens@gmail.com>
+        Wed, 23 Sep 2026 06:15:57 -0700 (PDT)
+Date: Wed, 23 Sep 2026 22:14:51 +0900
+From: Sidong Yang <sidong.yang@furiosa.ai>
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Robert Foss <rfoss@kernel.org>, 
+	Diederik de Haas <diederik@cknow-tech.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Jiaxing Hu <gahing@gahingwoo.com>, Nicolas Dufresne <nicolas@ndufresne.ca>, 
+	Jonas Karlman <jonas@kwiboo.se>, Guangshuo Li <lgs201920130244@gmail.com>, 
+	=?utf-8?Q?H=C3=BCseyin?= BIYIK <boogiepop@gmx.com>, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 09/11] accel/rocket: add devfreq support
+Message-ID: <arPLjz0fP_b5dseJ@rock-5b-plus>
+References: <20260922080114.44662-1-royalnet026@gmail.com>
+ <20260922080114.44662-10-royalnet026@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260922080114.44662-10-royalnet026@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_141346_869911_62918341 
-X-CRM114-Status: GOOD (  39.41  )
+X-CRM114-CacheID: sfid-20260923_061559_884774_702A67C2 
+X-CRM114-Status: GOOD (  68.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,392 +105,955 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Upstreaming the downstream Raspberry Pi 5 RTC driver.
-This driver supports the custom DA9091,
-which is accessed through the firmware mailbox.
+Hi Igor,
 
-Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
-Signed-off-by: Dom Cobley <popcornmix@gmail.com>
-Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
----
-V3 -> V4:
-- Fix Kconfig depends that disallows having Raspberrypi
-firmware built as a module while the rtc driver is built in
-- Remove sysfs
-- Add limits from firmware properties and check in rpi_rtc_set_charge_voltage
+On Tue, Sep 22, 2026 at 10:01:12AM +0200, Igor Paunovic wrote:
+> The NPU has run at whatever rate the devicetree pinned it to since the
+> driver was merged, which on the RK3588 is 200 MHz. The hardware reaches
+> 1 GHz, and the firmware will change the rate on request, so let devfreq
+> drive it from how busy the cores actually are.
+> 
+> One devfreq device drives all of the cores, because they have one clock and
+> one supply between them and cannot be scaled apart. It hangs off the first
+> core in devicetree order that carries an OPP table, which on the RK3588,
+> where all three cores reference the shared table, is rknn_core_0. The
+> choice has to be fixed rather than "whichever core bound last": the
+> devfreq device is named after that core, and a cooling map in the
+> devicetree resolves against that core's node. core->index is the core's
+> position among the core nodes, so the lowest index is the first node.
+> 
+> The awkward part is that the clock is generated by a PVTPLL that sits
+> inside the NPU power islands. An island powered up while the clock is above
+> the rate the bootloader left never acknowledges the power-on, and the first
+> register access into it afterwards takes an asynchronous SError. So before
+> the rate goes up, every core is runtime resumed, and the references are
+> held for as long as the clock stays raised: no island can transition while
+> they are held, which is what makes a raised clock safe rather than merely
+> unlikely to be caught out. The guard and the thing it guards arrive in the
+> same commit, so no commit in the tree ever raises the rate without it.
+> 
+> Unbinding any core takes the devfreq device down, and it comes back
+> once every core is bound again: a rate change resumes all of them, so
+> the device has to be whole for the guard to mean anything. Every walk
+> of the core array here relies on that.
+> 
+> The cost is that a boosted NPU does not power-gate individual cores. It is
+> paid only above the boot rate; at the boot rate the references are dropped
+> and runtime PM behaves as before. What that costs in milliwatts has not
+> been measured on this board. A measurement, or a design that does not need
+> the references at all, would both be welcome.
+> 
+> Utilisation is aggregated as the maximum over the cores, not the sum: the
+> rate has to satisfy the busiest core, and summing would report one
+> saturated core out of three as a third of the load. Whether that is the
+> right aggregation for a shared clock is a fair question for review.
+> 
+> Unlike panfrost, panthor, lima and msm, the driver does not call
+> devfreq_suspend_device() from runtime suspend. That call ends in
+> cancel_delayed_work_sync() on the governor's worker, and the worker is
+> what calls ->target(), which resumes every core: a runtime-suspend
+> callback would wait for a worker that is waiting for that same callback.
+> Instead ->target() returns early when the rate is unchanged, so a
+> governor tick on an idle NPU costs one comparison and resumes nothing.
+> 
+> System suspend is different: dpm_suspend() runs devfreq_suspend() over
+> every registered devfreq before it walks the devices, from a path that
+> holds none of this driver's locks. What the driver adds is lowering the
+> rate and dropping the references from every core's ->suspend, not only
+> the owning core's. pm_runtime_force_suspend() powers a core down whatever
+> the usage count says, and the owning core need not be the first one
+> suspended, so a suspend that aborts partway would otherwise leave the
+> clock raised over islands that are already gated.
+> 
+> The clock and the supply are claimed in one dev_pm_opp_set_config() call
+> before the table is added. Naming the clock there is not optional: with no
+> name the OPP core takes the first clock in the node, which is the bus
+> clock. Configuration and table live on the owning core, which need not be
+> the device being probed at the time, so none of it can be devres: the call
+> hands back a token, and rocket_devfreq_fini() releases it, and the table,
+> by hand. Left to devres, a later bind would fail on an OPP table the
+> previous teardown never emptied.
+> 
+> The rate is changed through dev_pm_opp_set_rate(), so that the supply moves
+> with it. Nothing may set the rate behind the OPP core's back: it caches
+> the OPP it last applied and skips a repeat request for it, so a raw
+> clk_set_rate() would turn the next request for a raised rate into a
+> silent no-op. The boot-rate restore added in the previous patch is
+> converted accordingly.
+> 
+> The rate the previous patch reads at probe is the firmware's own number
+> and need not be in the OPP table: a board that does not pin the clock
+> with assigned-clock-rates gets whatever the firmware's divider produces.
+> So the boot rate is normalised to the table once, at init, to the lowest
+> OPP that is not below it, and everything here compares against and
+> returns to that OPP. Comparing cur_freq against a rate that is not in the
+> table would leave the cores held after the first change, with no
+> governor tick ever able to match it.
+> 
+> ->get_cur_freq() and the status callback report the rate this driver last
+> requested rather than asking the clock: devfreq queries them from sysfs
+> with no runtime PM reference of its own, and the answer has to be a rate
+> from the OPP table or devfreq_get_freq_level() does not find it and
+> devfreq warns on every transition. "Requested" is the accurate word: a
+> rate the firmware refuses does not come back as an error, because the
+> clock framework ignores what the clock's set_rate returns. Keeping every
+> request to the OPP table, which names only the rates the firmware accepts,
+> keeps a request from being refused; what sysfs shows is still the request,
+> not a measurement.
+> 
+> A devicetree with no OPP table is not an error: the driver returns without
+> a devfreq device and the NPU keeps its boot rate, as before this patch.
+> 
+> The governor thresholds are a starting point taken from the other
+> accelerators in tree, not a measurement. Inference workloads have not been
+> profiled against them.
+> 
+> Assisted-by: LLM sparse checkpatch
+> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> ---
+> v2:
+> - The devfreq device goes on the first core in devicetree order with an
+>   OPP table, not on whichever core with the table bound first, as v1
+>   would have done with the table on all three cores (Nicolas).
+> - The boot rate is normalised to the OPP table at init. Found by reading
+>   the code: without assigned-clock-rates the raw rate is not in the table
+>   and the cores would have stayed held after the first change. Code read
+>   only so far; a devicetree without the property has not been booted.
+> - Init holds every core while it programs the initial OPP, since
+>   rounding the boot rate up to the table may raise the clock.
+> - "last programmed" is now "last requested", with the reason.
+> - Comments and text updated for the shared table; a comment that
+>   counted ten governor ticks a second now counts twenty (50 ms polling).
+> - The commit message now says that unbinding any core takes the
+>   devfreq device down until all are bound again; v1 did the same
+>   without saying so.
+> - The utilisation counters of a core that was unbound and bound again
+>   start from zero.
+> - A comment over hold_all() states the invariant the loops rely on.
+> 
+>  drivers/accel/rocket/Kconfig          |   2 +
+>  drivers/accel/rocket/Makefile         |   1 +
+>  drivers/accel/rocket/rocket_core.h    |  11 +
+>  drivers/accel/rocket/rocket_devfreq.c | 500 ++++++++++++++++++++++++++
+>  drivers/accel/rocket/rocket_devfreq.h |  65 ++++
+>  drivers/accel/rocket/rocket_device.h  |   3 +
+>  drivers/accel/rocket/rocket_drv.c     |  59 ++-
+>  drivers/accel/rocket/rocket_job.c     |   7 +
+>  8 files changed, 646 insertions(+), 2 deletions(-)
+>  create mode 100644 drivers/accel/rocket/rocket_devfreq.c
+>  create mode 100644 drivers/accel/rocket/rocket_devfreq.h
+> 
+> diff --git a/drivers/accel/rocket/Kconfig b/drivers/accel/rocket/Kconfig
+> index 16465abe06607..00ee845c871fa 100644
+> --- a/drivers/accel/rocket/Kconfig
+> +++ b/drivers/accel/rocket/Kconfig
+> @@ -8,6 +8,8 @@ config DRM_ACCEL_ROCKET
+>  	depends on MMU
+>  	select DRM_SCHED
+>  	select DRM_GEM_SHMEM_HELPER
+> +	select PM_DEVFREQ
+> +	select DEVFREQ_GOV_SIMPLE_ONDEMAND
+>  	help
+>  	  Choose this option if you have a Rockchip SoC that contains a
+>  	  compatible Neural Processing Unit (NPU), such as the RK3588. Called by
+> diff --git a/drivers/accel/rocket/Makefile b/drivers/accel/rocket/Makefile
+> index 3713dfe223d6e..e0944b3e68121 100644
+> --- a/drivers/accel/rocket/Makefile
+> +++ b/drivers/accel/rocket/Makefile
+> @@ -5,6 +5,7 @@ obj-$(CONFIG_DRM_ACCEL_ROCKET) := rocket.o
+>  rocket-y := \
+>  	rocket_core.o \
+>  	rocket_device.o \
+> +	rocket_devfreq.o \
+>  	rocket_drv.o \
+>  	rocket_gem.o \
+>  	rocket_job.o
+> diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
+> index 46ed8352a79d2..c9995bd9e0553 100644
+> --- a/drivers/accel/rocket/rocket_core.h
+> +++ b/drivers/accel/rocket/rocket_core.h
+> @@ -7,6 +7,7 @@
+>  #include <drm/gpu_scheduler.h>
+>  #include <linux/clk.h>
+>  #include <linux/io.h>
+> +#include <linux/ktime.h>
+>  #include <linux/mutex_types.h>
+>  #include <linux/reset.h>
+>  
+> @@ -60,6 +61,16 @@ struct rocket_core {
+>  	struct drm_gpu_scheduler sched;
+>  	u64 fence_context;
+>  	u64 emit_seqno;
+> +
+> +	/*
+> +	 * Utilisation seen by devfreq, guarded by rdev->devfreq.busy_lock. A
+> +	 * core runs one task at a time, so a flag is exact here and, unlike a
+> +	 * counter, cannot be left skewed by a job the reset path tore down.
+> +	 */
+> +	bool busy;
+> +	ktime_t busy_time;
+> +	ktime_t idle_time;
+> +	ktime_t time_last_update;
+>  };
+>  
+>  int rocket_core_init(struct rocket_core *core);
+> diff --git a/drivers/accel/rocket/rocket_devfreq.c b/drivers/accel/rocket/rocket_devfreq.c
+> new file mode 100644
+> index 0000000000000..871fa370eb432
+> --- /dev/null
+> +++ b/drivers/accel/rocket/rocket_devfreq.c
+> @@ -0,0 +1,500 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/* Copyright 2025 Igor Paunovic <royalnet026@gmail.com> */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/devfreq.h>
+> +#include <linux/ktime.h>
+> +#include <linux/minmax.h>
+> +#include <linux/of.h>
+> +#include <linux/pm_opp.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "rocket_core.h"
+> +#include "rocket_device.h"
+> +#include "rocket_devfreq.h"
+> +
+> +/*
+> + * One clock and one supply feed all of the NPU cores, so a single devfreq
+> + * device drives them together. It hangs off the first core in devicetree
+> + * order that carries an OPP table.
+> + *
+> + * The awkward part is that the clock is generated by a PVTPLL that sits
+> + * inside the NPU power islands. An island that is powered up while the clock
+> + * is above the rate the bootloader left never acknowledges the power-on, and
+> + * the first register access into it afterwards takes an asynchronous SError.
+> + *
+> + * Lowering the rate is fine at any time as long as the boot rate is one the
+> + * firmware serves from GPLL, which on the RK3588 is the pinned 200 MHz: for
+> + * that rate it writes only CRU clock selectors. Raising the rate is not, so
+> + * before it goes up every core is runtime resumed and the
+> + * references are kept for as long as the clock stays raised. While they are
+> + * held no core can suspend, so no island can transition at all, which is the
+> + * property that makes the raised clock safe rather than merely unlikely to be
+> + * caught out.
+> + *
+> + * The cost is that a busy NPU does not power-gate individual cores. It is
+> + * paid only above the boot rate: at the boot rate the references are dropped
+> + * and runtime PM behaves exactly as it did before this file existed. The cost
+> + * in milliwatts has not been measured on this board, and a measurement or a
+> + * better idea would both be welcome.
+> + */
+> +
+> +static void rocket_devfreq_update_utilisation(struct rocket_core *core)
+> +{
+> +	ktime_t now = ktime_get();
+> +	ktime_t elapsed = ktime_sub(now, core->time_last_update);
+> +
+> +	if (core->busy)
+> +		core->busy_time = ktime_add(core->busy_time, elapsed);
+> +	else
+> +		core->idle_time = ktime_add(core->idle_time, elapsed);
+> +
+> +	core->time_last_update = now;
+> +}
+> +
+> +/*
+> + * The devfreq device exists only while every slot in rdev->cores[] is
+> + * filled: it goes up when num_cores reaches max_cores and comes down in
+> + * rocket_remove() before the leaving core empties its slot. The loops
+> + * over num_cores here and below rely on that.
+> + */
+> +static int rocket_devfreq_hold_all(struct rocket_device *rdev)
+> +{
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	for (i = 0; i < rdev->num_cores; i++) {
+> +		ret = pm_runtime_resume_and_get(rdev->cores[i].dev);
+> +		if (ret < 0) {
+> +			while (i--)
+> +				pm_runtime_put_autosuspend(rdev->cores[i].dev);
+> +
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void rocket_devfreq_release_all(struct rocket_device *rdev)
+> +{
+> +	unsigned int i;
+> +
+> +	for (i = 0; i < rdev->num_cores; i++)
+> +		pm_runtime_put_autosuspend(rdev->cores[i].dev);
+> +}
+> +
+> +/* Caller holds rdev->devfreq.lock. */
+> +static int rocket_devfreq_set_rate(struct rocket_device *rdev, unsigned long freq)
+> +{
+> +	struct rocket_devfreq *rdevfreq = &rdev->devfreq;
+> +	struct device *dev = rdevfreq->owner->dev;
+> +	int ret;
+> +
+> +	ret = dev_pm_opp_set_rate(dev, freq);
+> +	if (ret) {
+> +		dev_err(dev, "failed to set the NPU rate to %lu Hz: %d\n", freq, ret);
+> +		return ret;
+> +	}
+> +
+> +	WRITE_ONCE(rdevfreq->cur_freq, freq);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rocket_devfreq_target(struct device *dev, unsigned long *freq, u32 flags)
+> +{
+> +	struct rocket_device *rdev = dev_get_drvdata(dev);
+> +	struct rocket_devfreq *rdevfreq = &rdev->devfreq;
+> +	struct dev_pm_opp *opp;
+> +	int ret;
+> +
+> +	opp = devfreq_recommended_opp(dev, freq, flags);
+> +	if (IS_ERR(opp))
+> +		return PTR_ERR(opp);
+> +	dev_pm_opp_put(opp);
+> +
+> +	guard(mutex)(&rdevfreq->lock);
+> +
+> +	/*
+> +	 * The governor calls this on every tick, including the ticks where it
+> +	 * arrives at the rate the NPU is already running. Without this an idle
+> +	 * NPU would resume all of its cores twenty times a second to set the
+> +	 * rate they already have.
+> +	 */
+> +	if (*freq == READ_ONCE(rdevfreq->cur_freq))
+> +		return 0;
+> +
+> +	if (!rdevfreq->cores_held) {
+> +		ret = rocket_devfreq_hold_all(rdev);
+> +		if (ret) {
+> +			/*
+> +			 * Runtime PM is disabled on the way into system
+> +			 * suspend, so this is the ordinary way for a governor
+> +			 * tick that raced with it to end.
+> +			 */
+> +			dev_dbg(dev, "cannot resume the NPU cores to change rate: %d\n", ret);
+> +			return ret;
+> +		}
+> +		rdevfreq->cores_held = true;
+> +	}
+> +
+> +	ret = rocket_devfreq_set_rate(rdev, *freq);
+> +
+> +	/* At the boot rate the cores are free to suspend again. */
+> +	if (READ_ONCE(rdevfreq->cur_freq) <= rdevfreq->boot_freq) {
+> +		rdevfreq->cores_held = false;
+> +		rocket_devfreq_release_all(rdev);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int rocket_devfreq_get_dev_status(struct device *dev,
+> +					 struct devfreq_dev_status *status)
+> +{
+> +	struct rocket_device *rdev = dev_get_drvdata(dev);
+> +	ktime_t busy = 0, total = 0;
+> +	unsigned int i;
+> +
+> +	scoped_guard(spinlock_irqsave, &rdev->devfreq.busy_lock) {
+> +		for (i = 0; i < rdev->num_cores; i++) {
+> +			struct rocket_core *core = &rdev->cores[i];
+> +
+> +			rocket_devfreq_update_utilisation(core);
+> +
+> +			/*
+> +			 * The cores share the clock, so what the rate has to
+> +			 * satisfy is the busiest of them. Adding the cores up
+> +			 * instead would report one saturated core out of three
+> +			 * as a third of the load, and clock down underneath it.
+> +			 */
+> +			busy = max(busy, core->busy_time);
+> +			total = max(total, ktime_add(core->busy_time, core->idle_time));
+> +
+> +			core->busy_time = 0;
+> +			core->idle_time = 0;
+> +		}
+> +	}
+> +
+> +	status->busy_time = ktime_to_ns(busy);
+> +	status->total_time = ktime_to_ns(total);
+> +	status->current_frequency = READ_ONCE(rdev->devfreq.cur_freq);
+> +
+> +	dev_dbg(dev, "busy %lu total %lu %lu%% freq %lu MHz\n",
+> +		status->busy_time, status->total_time,
+> +		status->busy_time * 100 / max(status->total_time, 1UL),
+> +		status->current_frequency / 1000 / 1000);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Report the rate this driver last requested, not what the firmware says.
+> + * devfreq asks for the current frequency from sysfs as well, without a runtime
+> + * PM reference of its own, and the answer has to be one of the rates in the
+> + * OPP table or devfreq_get_freq_level() will not find it and every transition
+> + * will be logged as unknown.
+> + *
+> + * "Requested" is the accurate word: a rate the firmware refuses does not come
+> + * back as an error, because the clock framework ignores what the clock's
+> + * set_rate returns and the clock stays where it was. Keeping every request to
+> + * the OPP table, which names only the rates the firmware accepts, keeps a
+> + * request from being refused; what is reported is still the request, not a
+> + * measurement.
+> + */
+> +static int rocket_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
+> +{
+> +	struct rocket_device *rdev = dev_get_drvdata(dev);
+> +
+> +	*freq = READ_ONCE(rdev->devfreq.cur_freq);
+> +
+> +	return 0;
+> +}
+> +
+> +static struct devfreq_dev_profile rocket_devfreq_profile = {
+> +	.timer = DEVFREQ_TIMER_DELAYED,
+> +	.polling_ms = 50,
+> +	.target = rocket_devfreq_target,
+> +	.get_dev_status = rocket_devfreq_get_dev_status,
+> +	.get_cur_freq = rocket_devfreq_get_cur_freq,
+> +};
+> +
+> +void rocket_devfreq_record_busy(struct rocket_core *core)
+> +{
+> +	struct rocket_devfreq *rdevfreq = &core->rdev->devfreq;
+> +
+> +	if (!rdevfreq->devfreq)
+> +		return;
+> +
+> +	scoped_guard(spinlock_irqsave, &rdevfreq->busy_lock) {
+> +		rocket_devfreq_update_utilisation(core);
+> +		core->busy = true;
+> +	}
+> +}
+> +
+> +/*
+> + * Idempotent on purpose: a job that times out is torn down by the reset path,
+> + * which cannot know whether the completion interrupt got there first.
+> + */
+> +void rocket_devfreq_record_idle(struct rocket_core *core)
+> +{
+> +	struct rocket_devfreq *rdevfreq = &core->rdev->devfreq;
+> +
+> +	if (!rdevfreq->devfreq)
+> +		return;
+> +
+> +	scoped_guard(spinlock_irqsave, &rdevfreq->busy_lock) {
+> +		rocket_devfreq_update_utilisation(core);
+> +		core->busy = false;
+> +	}
+> +}
+> +
+> +/*
+> + * Put the clock back to the boot OPP through the OPP core. Called with no
+> + * lock held, from the last core on its way down.
+> + */
+> +int rocket_devfreq_set_boot_rate(struct rocket_device *rdev)
+> +{
+> +	struct rocket_devfreq *rdevfreq = &rdev->devfreq;
+> +	int ret;
+> +
+> +	ret = dev_pm_opp_set_rate(rdevfreq->owner->dev, rdevfreq->boot_freq);
+> +	if (!ret)
+> +		WRITE_ONCE(rdevfreq->cur_freq, rdevfreq->boot_freq);
+> +
+> +	return ret;
+> +}
+> +
+> +/*
+> + * System suspend, called from every core's ->suspend before it is forced down.
+> + * The first one to get here does the work and the rest are no-ops.
+> + *
+> + * It has to be every core and not just the one that owns the devfreq device.
+> + * That core is suspended last, and a suspend that aborts partway - a pending
+> + * wakeup, or this driver's own -EBUSY on a core that is still busy - would
+> + * never reach it, leaving the clock raised over already gated islands.
+> + *
+> + * No governor tick can be in flight here: dpm_suspend() calls devfreq_suspend()
+> + * before it walks the devices, which stops the monitor on every registered
+> + * devfreq. That is also where this driver does get devfreq_suspend_device() -
+> + * from the PM core, on a path that holds no runtime PM lock of ours.
+> + */
+> +void rocket_devfreq_suspend(struct rocket_device *rdev)
+> +{
+> +	struct rocket_devfreq *rdevfreq = &rdev->devfreq;
+> +
+> +	if (!rdevfreq->devfreq)
+> +		return;
+> +
+> +	guard(mutex)(&rdevfreq->lock);
+> +
+> +	if (!rdevfreq->cores_held)
+> +		return;
+> +
+> +	rocket_devfreq_set_rate(rdev, rdevfreq->boot_freq);
+> +	rdevfreq->cores_held = false;
+> +	rocket_devfreq_release_all(rdev);
+> +}
+> +
+> +int rocket_devfreq_init(struct rocket_device *rdev)
+> +{
+> +	static const char * const clk_names[] = { "npu", NULL };
+> +	static const char * const supplies[] = { "npu", NULL };
+> +	struct dev_pm_opp_config config = {
+> +		.clk_names = clk_names,
+> +		.regulator_names = supplies,
+> +	};
+> +	struct rocket_devfreq *rdevfreq = &rdev->devfreq;
+> +	struct rocket_core *owner = NULL;
+> +	struct dev_pm_opp *opp;
+> +	struct device *dev;
+> +	unsigned long freq;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	/*
+> +	 * The devfreq device hangs off the first core in devicetree order that
+> +	 * carries an OPP table: on the RK3588 every core references the shared
+> +	 * table, so that is rknn_core_0. It has to be a fixed choice and not
+> +	 * whichever core bound last, because the devfreq device is named after
+> +	 * this core and a cooling map in the devicetree resolves against its
+> +	 * node. core->index is the core's position among the core nodes, so
+> +	 * the lowest index is the first node.
+> +	 */
+> +	for (i = 0; i < rdev->num_cores; i++) {
+> +		struct rocket_core *core = &rdev->cores[i];
+> +
+> +		if (!of_property_present(core->dev->of_node, "operating-points-v2"))
+> +			continue;
+> +
+> +		if (!owner || core->index < owner->index)
+> +			owner = core;
+> +	}
+> +
+> +	/*
+> +	 * No OPP table is not an error. It asks for the NPU to stay at the
+> +	 * rate it booted at, which is what this driver did before devfreq.
+> +	 */
+> +	if (!owner)
+> +		return 0;
+> +
+> +	dev = owner->dev;
+> +
+> +	/*
+> +	 * None of this can be devres. It is attached to the owning core, while
+> +	 * the device being probed right now is whichever core happened to bind
+> +	 * last, so devres would outlive the teardown in rocket_devfreq_fini()
+> +	 * and a later rebind would find the OPP table still populated.
+> +	 *
+> +	 * Naming the clock matters as much as claiming the supply: without it
+> +	 * the OPP core takes the first clock in the node, which is the bus
+> +	 * clock, and would scale that instead of the compute clock.
+> +	 */
+> +	ret = dev_pm_opp_set_config(dev, &config);
+> +	if (ret < 0) {
+> +		if (ret != -ENODEV)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to set the OPP clock and supply\n");
+> +
+> +		dev_info(dev, "no NPU supply described, leaving the clock alone\n");
+> +		return 0;
+> +	}
+> +	rdevfreq->opp_token = ret;
+> +
+> +	ret = dev_pm_opp_of_add_table(dev);
+> +	if (ret) {
+> +		if (ret != -ENODEV)
+> +			dev_err_probe(dev, ret, "failed to add the OPP table\n");
+> +		else
+> +			ret = 0;
+> +
+> +		goto err_clear_config;
+> +	}
+> +
+> +	mutex_init(&rdevfreq->lock);
+> +	spin_lock_init(&rdevfreq->busy_lock);
+> +
+> +	for (i = 0; i < rdev->num_cores; i++) {
+> +		struct rocket_core *core = &rdev->cores[i];
+> +
+> +		/* A core that was unbound and bound again starts over. */
+> +		core->busy = false;
+> +		core->busy_time = 0;
+> +		core->idle_time = 0;
+> +		core->time_last_update = ktime_get();
+> +	}
+> +
+> +	freq = rdev->npu_boot_rate;
+> +	opp = devfreq_recommended_opp(dev, &freq, 0);
+> +	if (IS_ERR(opp)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(opp),
+> +				    "no OPP covers the %lu Hz boot rate\n",
+> +				    rdev->npu_boot_rate);
+> +		goto err_remove_table;
+> +	}
+> +
+> +	/*
+> +	 * From here on the boot rate is the OPP it maps to. The raw rate is
+> +	 * the firmware's number and need not be in the table at all.
+> +	 */
+> +	rdevfreq->boot_freq = freq;
+> +
+> +	/*
+> +	 * Program the supply for the rate the NPU is already running, so that
+> +	 * the regulator is not switched off underneath it by
+> +	 * regulator_late_cleanup(). That OPP is the boot rate rounded up to
+> +	 * the table, so this may raise the clock, and a raised clock is only
+> +	 * ever programmed with every core held: the same rule as ->target().
+> +	 */
+> +	ret = rocket_devfreq_hold_all(rdev);
+> +	if (ret) {
+> +		dev_pm_opp_put(opp);
+> +		dev_err_probe(dev, ret,
+> +			      "cannot resume the NPU cores to set the initial OPP\n");
+> +		goto err_remove_table;
+> +	}
+> +	ret = dev_pm_opp_set_opp(dev, opp);
+> +	rocket_devfreq_release_all(rdev);
+> +	dev_pm_opp_put(opp);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to set the initial OPP\n");
+> +		goto err_remove_table;
+> +	}
+> +
+> +	rdevfreq->cur_freq = freq;
+> +	rdevfreq->owner = owner;
+> +	rocket_devfreq_profile.initial_freq = freq;
+> +
+> +	/*
+> +	 * A starting point taken from the other accelerators in tree, not a
+> +	 * measurement: inference workloads have not been profiled against
+> +	 * these thresholds.
+> +	 */
+> +	rdevfreq->gov_data.upthreshold = 50;
+> +	rdevfreq->gov_data.downdifferential = 10;
+> +
+> +	rdevfreq->devfreq = devfreq_add_device(dev, &rocket_devfreq_profile,
+> +					       DEVFREQ_GOV_SIMPLE_ONDEMAND,
+> +					       &rdevfreq->gov_data);
+> +	if (IS_ERR(rdevfreq->devfreq)) {
+> +		ret = PTR_ERR(rdevfreq->devfreq);
+> +		rdevfreq->devfreq = NULL;
+> +		rdevfreq->owner = NULL;
+> +
+> +		dev_err_probe(dev, ret, "failed to add the devfreq device\n");
+> +		goto err_remove_table;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_remove_table:
+> +	mutex_destroy(&rdevfreq->lock);
+> +	dev_pm_opp_of_remove_table(dev);
+> +err_clear_config:
+> +	dev_pm_opp_clear_config(rdevfreq->opp_token);
+> +	rdevfreq->opp_token = 0;
+> +
+> +	return ret;
+> +}
+> +
+> +void rocket_devfreq_fini(struct rocket_device *rdev)
+> +{
+> +	struct rocket_devfreq *rdevfreq = &rdev->devfreq;
+> +	struct device *dev;
+> +
+> +	if (!rdevfreq->devfreq)
+> +		return;
+> +
+> +	dev = rdevfreq->owner->dev;
+> +
+> +	devfreq_remove_device(rdevfreq->devfreq);
+> +	rdevfreq->devfreq = NULL;
+> +
+> +	/*
+> +	 * Lower the clock before letting go of the cores, not after: a core
+> +	 * that suspends while the clock is still raised would be unable to
+> +	 * come back.
+> +	 */
+> +	scoped_guard(mutex, &rdevfreq->lock) {
+> +		if (rdevfreq->cores_held) {
+> +			rocket_devfreq_set_rate(rdev, rdevfreq->boot_freq);
+> +			rdevfreq->cores_held = false;
+> +			rocket_devfreq_release_all(rdev);
+> +		}
+> +	}
+> +
+> +	/*
+> +	 * Undo the OPP setup by hand, in the reverse order. Everything above
+> +	 * lives on the owning core rather than on the device that was probing
+> +	 * when it was set up, so nothing here is released by devres; leaving
+> +	 * the table populated would make the next bind fail with the OPP core
+> +	 * complaining that it is not empty. After this the owner is gone, so
+> +	 * anything that still wants the boot rate asks the clock directly.
+> +	 */
+> +	rdevfreq->owner = NULL;
+> +	mutex_destroy(&rdevfreq->lock);
+> +	dev_pm_opp_of_remove_table(dev);
+> +	dev_pm_opp_clear_config(rdevfreq->opp_token);
+> +	rdevfreq->opp_token = 0;
+> +}
+> diff --git a/drivers/accel/rocket/rocket_devfreq.h b/drivers/accel/rocket/rocket_devfreq.h
+> new file mode 100644
+> index 0000000000000..65a9de6d37389
+> --- /dev/null
+> +++ b/drivers/accel/rocket/rocket_devfreq.h
+> @@ -0,0 +1,65 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/* Copyright 2025 Igor Paunovic <royalnet026@gmail.com> */
+> +
+> +#ifndef __ROCKET_DEVFREQ_H__
+> +#define __ROCKET_DEVFREQ_H__
+> +
+> +#include <linux/devfreq.h>
+> +#include <linux/mutex_types.h>
+> +#include <linux/spinlock_types.h>
+> +
+> +struct rocket_core;
+> +struct rocket_device;
+> +
+> +struct rocket_devfreq {
+> +	struct devfreq *devfreq;
+> +	struct devfreq_simple_ondemand_data gov_data;
+> +
+> +	/*
+> +	 * The core the devfreq device hangs off: the first in devicetree order
+> +	 * to carry an OPP table. NULL when no core does.
+> +	 */
+> +	struct rocket_core *owner;
+> +
+> +	/*
+> +	 * The OPP clock and supply configuration is attached to the owning
+> +	 * core, which is not the device this driver is probing when it is set
+> +	 * up, so it cannot be devres. Zero means nothing is attached.
+> +	 */
+> +	int opp_token;
+> +
+> +	/*
+> +	 * Serialises rate changes against each other and against the set of
+> +	 * runtime PM references taken below.
+> +	 *
+> +	 * This is never taken from a runtime PM callback. A rate change
+> +	 * resumes every core while holding it, so a core that took it on its
+> +	 * way down would wait for a rate change that is waiting for that same
+> +	 * core to finish suspending.
+> +	 */
+> +	struct mutex lock;
+> +	unsigned long cur_freq;
+> +	bool cores_held;
+> +
+> +	/*
+> +	 * The boot rate as an OPP: the lowest rate in the table that is not
+> +	 * below rdev->npu_boot_rate. The raw boot rate is whatever the firmware
+> +	 * reported at probe and need not be in the table, and comparing
+> +	 * cur_freq against a rate that is not in the table would leave the
+> +	 * cores held for good after the first change. Everything here compares
+> +	 * against and returns to this instead.
+> +	 */
+> +	unsigned long boot_freq;
+> +
+> +	/* Guards the utilisation fields of every core. */
+> +	spinlock_t busy_lock;
+> +};
+> +
+> +int rocket_devfreq_init(struct rocket_device *rdev);
+> +void rocket_devfreq_fini(struct rocket_device *rdev);
+> +void rocket_devfreq_suspend(struct rocket_device *rdev);
+> +int rocket_devfreq_set_boot_rate(struct rocket_device *rdev);
+> +void rocket_devfreq_record_busy(struct rocket_core *core);
+> +void rocket_devfreq_record_idle(struct rocket_core *core);
+> +
+> +#endif /* __ROCKET_DEVFREQ_H__ */
+> diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
+> index ba7c977cd6951..a91d5a9b09ed3 100644
+> --- a/drivers/accel/rocket/rocket_device.h
+> +++ b/drivers/accel/rocket/rocket_device.h
+> @@ -11,6 +11,7 @@
+>  #include <linux/platform_device.h>
+>  
+>  #include "rocket_core.h"
+> +#include "rocket_devfreq.h"
+>  
+>  struct rocket_device {
+>  	struct drm_device ddev;
+> @@ -37,6 +38,8 @@ struct rocket_device {
+>  	 */
+>  	unsigned long npu_boot_rate;
+>  	atomic_t active_cores;
+> +
+> +	struct rocket_devfreq devfreq;
+>  };
+>  
+>  struct rocket_device *rocket_device_init(struct platform_device *pdev,
+> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+> index 8f03de1af488c..c6eab2239b6a9 100644
+> --- a/drivers/accel/rocket/rocket_drv.c
+> +++ b/drivers/accel/rocket/rocket_drv.c
+> @@ -14,6 +14,7 @@
+>  #include <linux/pm_runtime.h>
+>  
+>  #include "rocket_device.h"
+> +#include "rocket_devfreq.h"
+>  #include "rocket_drv.h"
+>  #include "rocket_gem.h"
+>  #include "rocket_job.h"
+> @@ -244,6 +245,20 @@ static int rocket_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto err_core;
+>  
+> +	/*
+> +	 * Every core described in the devicetree has to be bound before the
+> +	 * devfreq device goes up. A rate change resumes all of them and keeps
+> +	 * them resumed, and a core that had not probed yet would come up later
+> +	 * underneath a raised clock.
+> +	 */
+> +	if (rdev->num_cores == rdev->max_cores) {
+> +		ret = rocket_devfreq_init(rdev);
 
-V2 -> V3:
-- Move platform check to firmware and abort before registering
-a platform device if on another platform
-- Add a dependency on the Raspberry Pi firmware to Kconfig
-- Check return value of devm_device_init_wakeup
-- Fix property name
+IMHO, handling rocket_devfreq_init() error as critical error to disable core is
+too much. How about just printing error for user?
 
-V1 -> V2:
-Instead of the original driver, which was directly bound to the device tree.
-This driver is bound to the Raspberry Pi firmware device by creating
-a child device in the firmware driver probe function.
-The child device is then bound to this driver,
-which uses the firmware mailbox to access the RTC.
+Thanks,
+Sidong
 
-A couple of minor changes have been made to the driver since it was originally written, including:
-- Checking if the model is a Raspberry Pi 5, as the RTC is only present on that model.
-- Using the new devm_rpi_firmware_get() and devm_init_wakeup() helper to get the firmware device and avoid leaking memory.
-- Using millivolts instead of microvolts for the trickle charge voltage, to match the RTC standard.
-- Instead of setting the trickle charge voltage to 0 to disable trickle charging, the property is now optional. If the property is not present, trickle charging is disabled, per the RTC standard.
-- Renaming the driver dt match compatible to "raspberrypi,firmware-rtc" to match the other firmware bindings.
-- Renaming the driver name to "raspberrypi-rtc" to match the other firmware drivers.
-
- drivers/firmware/raspberrypi.c |  25 ++++
- drivers/rtc/Kconfig            |  12 ++
- drivers/rtc/Makefile           |   1 +
- drivers/rtc/rtc-raspberrypi.c  | 242 +++++++++++++++++++++++++++++++++
- 4 files changed, 280 insertions(+)
- create mode 100644 drivers/rtc/rtc-raspberrypi.c
-
-diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberrypi.c
-index 0aa322e9a2e7..a35f00c6fb2c 100644
---- a/drivers/firmware/raspberrypi.c
-+++ b/drivers/firmware/raspberrypi.c
-@@ -24,6 +24,7 @@
- 
- static struct platform_device *rpi_hwmon;
- static struct platform_device *rpi_clk;
-+static struct platform_device *rpi_rtc;
- 
- struct rpi_firmware {
- 	struct mbox_client cl;
-@@ -231,6 +232,27 @@ static void rpi_register_clk_driver(struct device *dev)
- 						-1, NULL, 0);
- }
- 
-+static void rpi_register_rtc_driver(struct device *dev)
-+{
-+	struct device_node *firmware;
-+
-+	// Check if our model is a Raspberry Pi 5, as the RTC is only present on that model.
-+	const char *model = of_get_property(of_root, "model", NULL);
-+
-+	if (!model || strncmp(model, "Raspberry Pi 5", 14) != 0)
-+		return;
-+
-+	firmware = of_get_compatible_child(dev->of_node,
-+					   "raspberrypi,firmware-rtc");
-+	if (firmware) {
-+		of_node_put(firmware);
-+		return;
-+	}
-+
-+	rpi_rtc = platform_device_register_data(dev, "raspberrypi-rtc",
-+						-1, NULL, 0);
-+}
-+
- unsigned int rpi_firmware_clk_get_max_rate(struct rpi_firmware *fw, unsigned int id)
- {
- 	struct rpi_firmware_clk_rate_request msg =
-@@ -305,6 +327,7 @@ static int rpi_firmware_probe(struct platform_device *pdev)
- 	rpi_firmware_print_firmware_revision(fw);
- 	rpi_register_hwmon_driver(dev, fw);
- 	rpi_register_clk_driver(dev);
-+	rpi_register_rtc_driver(dev);
- 
- 	return 0;
- }
-@@ -327,6 +350,8 @@ static void rpi_firmware_remove(struct platform_device *pdev)
- 	rpi_hwmon = NULL;
- 	platform_device_unregister(rpi_clk);
- 	rpi_clk = NULL;
-+	platform_device_unregister(rpi_rtc);
-+	rpi_rtc = NULL;
- 
- 	rpi_firmware_put(fw);
- }
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 05b9233b9418..88006f83d7bc 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -1999,6 +1999,18 @@ config RTC_DRV_R7301
- 	   This driver can also be built as a module. If so, the module
- 	   will be called rtc-r7301.
- 
-+config RTC_DRV_RPI
-+        tristate "Raspberry Pi RTC"
-+	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
-+        depends on ARCH_BRCMSTB || COMPILE_TEST
-+        default ARCH_BRCMSTB
-+        help
-+          If you say yes here you get support for the RTC found on
-+          Raspberry Pi devices.
-+
-+          This driver can also be built as a module. If so, the module
-+          will be called rtc-raspberrypi.
-+
- config RTC_DRV_STM32
- 	tristate "STM32 RTC"
- 	select REGMAP_MMIO
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 0347645b021f..46f1a0fc2416 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -144,6 +144,7 @@ obj-$(CONFIG_RTC_DRV_PS3)	+= rtc-ps3.o
- obj-$(CONFIG_RTC_DRV_PXA)	+= rtc-pxa.o
- obj-$(CONFIG_RTC_DRV_R7301)	+= rtc-r7301.o
- obj-$(CONFIG_RTC_DRV_R9701)	+= rtc-r9701.o
-+obj-$(CONFIG_RTC_DRV_RPI)	+= rtc-raspberrypi.o
- obj-$(CONFIG_RTC_DRV_RC5T583)	+= rtc-rc5t583.o
- obj-$(CONFIG_RTC_DRV_RC5T619)	+= rtc-rc5t619.o
- obj-$(CONFIG_RTC_DRV_RK808)	+= rtc-rk808.o
-diff --git a/drivers/rtc/rtc-raspberrypi.c b/drivers/rtc/rtc-raspberrypi.c
-new file mode 100644
-index 000000000000..f67ab156dc46
---- /dev/null
-+++ b/drivers/rtc/rtc-raspberrypi.c
-@@ -0,0 +1,244 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/**
-+ * rtc-raspberrypi.c
-+ *
-+ * RTC driver using firmware mailbox
-+ * Supports battery backed RTC and wake alarms
-+ *
-+ * Based on rtc-meson-vrtc by Neil Armstrong
-+ *
-+ * Copyright (c) 2023, Raspberry Pi Ltd.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/rtc.h>
-+#include <linux/of.h>
-+#include <soc/bcm2835/raspberrypi-firmware.h>
-+
-+#define RPI_FIRMWARE_GET_RTC_REG 0x00030087
-+#define RPI_FIRMWARE_SET_RTC_REG 0x00038087
-+
-+enum {
-+	RTC_TIME,
-+	RTC_ALARM,
-+	RTC_ALARM_PENDING,
-+	RTC_ALARM_ENABLE,
-+	RTC_BBAT_CHG_VOLTS,
-+	RTC_BBAT_CHG_VOLTS_MIN,
-+	RTC_BBAT_CHG_VOLTS_MAX,
-+	RTC_BBAT_VOLTS
-+};
-+
-+struct rpi_rtc_data {
-+	struct rtc_device *rtc;
-+	struct rpi_firmware *fw;
-+	u32 bbat_vchg_millivolts;
-+	u32 bbat_vchg_min_millivolts;
-+	u32 bbat_vchg_max_millivolts;
-+};
-+
-+static int rpi_rtc_read_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_TIME };
-+	int err;
-+
-+	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+				    &data, sizeof(data));
-+	rtc_time64_to_tm(data[1], tm);
-+	return err;
-+}
-+
-+static int rpi_rtc_set_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_TIME, rtc_tm_to_time64(tm) };
-+
-+	return rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				     &data, sizeof(data));
-+}
-+
-+static int rpi_rtc_alarm_irq_is_enabled(struct device *dev, unsigned char *enabled)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_ALARM_ENABLE };
-+	s32 err = 0;
-+
-+	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+				    &data, sizeof(data));
-+	*enabled = data[1] & 0x1;
-+	return err;
-+}
-+
-+static int rpi_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_ALARM_ENABLE, enabled };
-+
-+	return rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				     &data, sizeof(data));
-+}
-+
-+static int rpi_rtc_alarm_clear_pending(struct device *dev)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_ALARM_PENDING, 1 };
-+
-+	return rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				     &data, sizeof(data));
-+}
-+
-+static int rpi_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alarm)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_ALARM };
-+	s32 err = 0;
-+
-+	err = rpi_rtc_alarm_irq_is_enabled(dev, &alarm->enabled);
-+	if (!err)
-+		err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+					    &data, sizeof(data));
-+	rtc_time64_to_tm(data[1], &alarm->time);
-+
-+	return err;
-+}
-+
-+static int rpi_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alarm)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_ALARM, rtc_tm_to_time64(&alarm->time) };
-+	int err;
-+
-+	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				    &data, sizeof(data));
-+
-+	if (err == 0)
-+		err = rpi_rtc_alarm_irq_enable(dev, alarm->enabled);
-+
-+	return err;
-+}
-+
-+static const struct rtc_class_ops rpi_rtc_ops = {
-+	.read_time = rpi_rtc_read_time,
-+	.set_time = rpi_rtc_set_time,
-+	.read_alarm = rpi_rtc_read_alarm,
-+	.set_alarm = rpi_rtc_set_alarm,
-+	.alarm_irq_enable = rpi_rtc_alarm_irq_enable,
-+};
-+
-+static void rpi_rtc_set_limits(struct device *dev)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_BBAT_CHG_VOLTS_MIN };
-+
-+	int err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+					&data, sizeof(data));
-+	if (err == 0)
-+		vrtc->bbat_vchg_min_millivolts = data[1] / 1000U;
-+
-+	data[0] = RTC_BBAT_CHG_VOLTS_MAX;
-+	data[1] = 0;
-+	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_GET_RTC_REG,
-+				    &data, sizeof(data));
-+	if (err == 0)
-+		vrtc->bbat_vchg_max_millivolts = data[1] / 1000U;
-+}
-+
-+static int rpi_rtc_set_charge_voltage(struct device *dev)
-+{
-+	struct rpi_rtc_data *vrtc = dev_get_drvdata(dev);
-+	u32 data[2] = { RTC_BBAT_CHG_VOLTS, vrtc->bbat_vchg_millivolts * 1000U };
-+	int err;
-+
-+	if (vrtc->bbat_vchg_millivolts != 0 &&
-+	    (vrtc->bbat_vchg_millivolts < vrtc->bbat_vchg_min_millivolts ||
-+	    vrtc->bbat_vchg_millivolts > vrtc->bbat_vchg_max_millivolts)) {
-+		dev_warn(dev, "trickle charge voltage %umV is outside of the supported range (%umV - %umV)\n",
-+			 vrtc->bbat_vchg_millivolts,
-+			 vrtc->bbat_vchg_min_millivolts,
-+			 vrtc->bbat_vchg_max_millivolts);
-+		return -EINVAL;
-+	}
-+
-+	err = rpi_firmware_property(vrtc->fw, RPI_FIRMWARE_SET_RTC_REG,
-+				    &data, sizeof(data));
-+
-+	if (err)
-+		dev_err(dev, "failed to set trickle charge voltage to %umV: %d\n",
-+			vrtc->bbat_vchg_millivolts, err);
-+	else if (vrtc->bbat_vchg_millivolts)
-+		dev_info(dev, "trickle charging enabled at %umV\n",
-+			 vrtc->bbat_vchg_millivolts);
-+
-+	return err;
-+}
-+
-+static int rpi_rtc_probe(struct platform_device *pdev)
-+{
-+	struct rpi_rtc_data *vrtc;
-+	struct device *dev = &pdev->dev;
-+	struct rpi_firmware *firmware;
-+	int ret;
-+
-+	// Get the firmware device from the parent device
-+	firmware = devm_rpi_firmware_get(dev, dev->parent->of_node);
-+
-+	if (!firmware)
-+		return -EPROBE_DEFER;
-+
-+	vrtc = devm_kzalloc(dev, sizeof(*vrtc), GFP_KERNEL);
-+	if (!vrtc)
-+		return -ENOMEM;
-+
-+	vrtc->fw = firmware;
-+
-+	ret = devm_device_init_wakeup(dev);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, vrtc);
-+
-+	vrtc->rtc = devm_rtc_allocate_device(dev);
-+	if (IS_ERR(vrtc->rtc))
-+		return PTR_ERR(vrtc->rtc);
-+
-+	vrtc->rtc->range_max = U32_MAX;           /* 2106-02-07 */
-+
-+	set_bit(RTC_FEATURE_ALARM_WAKEUP_ONLY, vrtc->rtc->features);
-+	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, vrtc->rtc->features);
-+
-+	vrtc->rtc->ops = &rpi_rtc_ops;
-+
-+	rpi_rtc_alarm_clear_pending(dev);
-+
-+	vrtc->bbat_vchg_millivolts = 0;
-+	of_property_read_u32(dev->parent->of_node, "trickle-voltage-millivolt",
-+			     &vrtc->bbat_vchg_millivolts);
-+
-+	rpi_rtc_set_limits(dev);
-+	rpi_rtc_set_charge_voltage(dev);
-+
-+	return devm_rtc_register_device(vrtc->rtc);
-+}
-+
-+static const struct of_device_id rpi_rtc_dt_match[] = {
-+	{ .compatible = "raspberrypi,firmware-rtc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, rpi_rtc_dt_match);
-+
-+static struct platform_driver rpi_rtc_driver = {
-+	.driver = {
-+		.name = "raspberrypi-rtc",
-+		.of_match_table = of_match_ptr(rpi_rtc_dt_match),
-+	},
-+	.probe = rpi_rtc_probe
-+};
-+
-+module_platform_driver(rpi_rtc_driver);
-+
-+MODULE_AUTHOR("Jonathan Bell <jonathan@raspberrypi.com>");
-+MODULE_AUTHOR("Sander Speetjens <sander.speetjens@gmail.com>");
-+MODULE_DESCRIPTION("Raspberry Pi RTC driver");
-+MODULE_LICENSE("GPL");
--- 
-2.55.0
-
+> +		if (ret) {
+> +			rocket_core_fini(&rdev->cores[core]);
+> +			goto err_core;
+> +		}
+> +	}
+> +
+>  	return 0;
+>  
+>  err_core:
+> @@ -268,6 +283,9 @@ static void rocket_remove(struct platform_device *pdev)
+>  	if (WARN_ON(core < 0))
+>  		return;
+>  
+> +	/* The devfreq device drives every core, so it goes before any of them. */
+> +	rocket_devfreq_fini(rdev);
+> +
+>  	rocket_core_fini(&rdev->cores[core]);
+>  	rdev->cores[core].dev = NULL;
+>  	rdev->num_cores--;
+> @@ -314,7 +332,18 @@ static void rocket_npu_restore_boot_rate(struct rocket_core *core)
+>  	if (!rdev->npu_boot_rate)
+>  		return;
+>  
+> -	err = clk_set_rate(core->clks[2].clk, rdev->npu_boot_rate);
+> +	/*
+> +	 * Go through the OPP core once there is a table, never behind its
+> +	 * back: it caches the OPP it last applied and skips a request for that
+> +	 * same OPP, so a raw clk_set_rate() here would make the next request
+> +	 * for the raised rate a silent no-op, with sysfs reporting a rate the
+> +	 * hardware was not running.
+> +	 */
+> +	if (rdev->devfreq.owner)
+> +		err = rocket_devfreq_set_boot_rate(rdev);
+> +	else
+> +		err = clk_set_rate(core->clks[2].clk, rdev->npu_boot_rate);
+> +
+>  	if (err)
+>  		dev_warn(core->dev,
+>  			 "failed to restore the NPU boot rate of %lu Hz: %d\n",
+> @@ -360,14 +389,38 @@ static int rocket_device_runtime_suspend(struct device *dev)
+>  	return 0;
+>  }
+>  
+> +static int rocket_device_suspend(struct device *dev)
+> +{
+> +	struct rocket_device *rdev = dev_get_drvdata(dev);
+> +
+> +	/*
+> +	 * pm_runtime_force_suspend() below powers this core down whatever the
+> +	 * runtime PM usage count says, so the references taken while the clock
+> +	 * is raised do not hold it off. Put the rate back first; the call is a
+> +	 * no-op on every core after the first.
+> +	 */
+> +	rocket_devfreq_suspend(rdev);
+> +
+> +	return pm_runtime_force_suspend(dev);
+> +}
+> +
+>  EXPORT_GPL_DEV_PM_OPS(rocket_pm_ops) = {
+>  	RUNTIME_PM_OPS(rocket_device_runtime_suspend, rocket_device_runtime_resume, NULL)
+> -	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
+> +	SYSTEM_SLEEP_PM_OPS(rocket_device_suspend, pm_runtime_force_resume)
+>  };
+>  
+>  /*
+>   * A kexec hands the next kernel whatever rate is set here, and that kernel
+>   * will power the islands up before it looks at the clock.
+> + *
+> + * Take the devfreq device down before restoring the rate rather than after.
+> + * Nothing freezes workqueues on this path, so a governor tick that landed
+> + * after the restore would raise the clock straight back up and hand on exactly
+> + * what this is here to prevent.
+> + *
+> + * The hook runs once per core. After the first call the devfreq device is
+> + * gone, and each later restore asks the clock for the rate it already has,
+> + * which the clock framework drops before it reaches the firmware.
+>   */
+>  static void rocket_shutdown(struct platform_device *pdev)
+>  {
+> @@ -377,6 +430,8 @@ static void rocket_shutdown(struct platform_device *pdev)
+>  	if (!rdev)
+>  		return;
+>  
+> +	rocket_devfreq_fini(rdev);
+> +
+>  	core = find_core_for_dev(&pdev->dev);
+>  	if (core >= 0)
+>  		rocket_npu_restore_boot_rate(&rdev->cores[core]);
+> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
+> index 25ee4ab172a82..7846b627b00f4 100644
+> --- a/drivers/accel/rocket/rocket_job.c
+> +++ b/drivers/accel/rocket/rocket_job.c
+> @@ -15,6 +15,7 @@
+>  
+>  #include "rocket_core.h"
+>  #include "rocket_device.h"
+> +#include "rocket_devfreq.h"
+>  #include "rocket_drv.h"
+>  #include "rocket_job.h"
+>  #include "rocket_registers.h"
+> @@ -149,6 +150,8 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
+>  
+>  	rocket_pc_writel(core, TASK_DMA_BASE_ADDR, PC_TASK_DMA_BASE_ADDR_DMA_BASE_ADDR(0x0));
+>  
+> +	rocket_devfreq_record_busy(core);
+> +
+>  	rocket_pc_writel(core, OPERATION_ENABLE, PC_OPERATION_ENABLE_OP_EN(1));
+>  
+>  	dev_dbg(core->dev, "Submitted regcmd at 0x%llx to core %d", task->regcmd, core->index);
+> @@ -348,6 +351,8 @@ static void rocket_job_handle_irq(struct rocket_core *core)
+>  	rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+>  	rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+>  
+> +	rocket_devfreq_record_idle(core);
+> +
+>  	scoped_guard(mutex, &core->job_lock)
+>  		if (core->in_flight_job) {
+>  			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_count) {
+> @@ -379,6 +384,8 @@ rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
+>  		if (core->in_flight_job)
+>  			pm_runtime_put_noidle(core->dev);
+>  
+> +		rocket_devfreq_record_idle(core);
+> +
+>  		iommu_detach_group(NULL, core->iommu_group);
+>  
+>  		core->in_flight_job = NULL;
+> -- 
+> 2.43.0
+> 
 
