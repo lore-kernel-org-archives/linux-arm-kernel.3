@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177E3C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB3DC98309
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1It3FSjuRcVyjIsOIw0Z1T0tf5vC/JVqner4HFLakPY=; b=vk0c63SYbkMXVPig24CKd2rLYC
-	FxD7/RQKOHnA4QR4j0/+PyFhzwSf5m4NV+AhKMkUeyzLHhKXDUOjllD4WmxJ9dIbmieEvvpfEYucR
-	H1nkF/2dw56BmkFJN1c+vZ5VYZt3FfqoroLZ2jcgkrPJ/XVzBlovIAol1Nkkxg7xVSXSI/aAmcJqQ
-	Krdi5AIVzrmwnVDjkXSwWO87htSUL4JXqXah75MJWv9+TvVuY7lkL6YzbhJTJCgb+Df43qhrWmsZq
-	bKGJXgqY2eDexPBImRPtAdvz4jYIc0vdKZBWjaMan1DHdGJyoiQVDo2WUPNYFUBtjo2I0rPewIUpO
-	2odvbIOw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yig4P1nR/KUuXfkyUGF4O2Z2u6hzgy5a9b/28nBUgkg=; b=3NBfru/94hkibWSGaJmBHNxVEa
+	LO3pt4jwEFhPwOi9Z25lIgZYr0MJ2ol/dYkrOA4LxUnHOegku4DMs5QR7ODqn2rMKGdq9g3k9rHHZ
+	DJGDo9fLuJLDweKhnghunf6k/HSjdGDCX7WPDW3cZtTdbiF96OvDJnQXhrSDASIx89wnV7Z9Keg70
+	mMM6YFpgKVGTXo6CRUR7tLCpn+Ue6cqfnOt8wkeO+pLlbPQO4L2HnifImllkN/GciaKQ8OZDfArmA
+	AzcWZfN5gR/ZEBIxJEAMNSReKRqJGyz9jUjEEhV4f28Y4Qicu8ie/2yMr6ab1fcNSI5pQZAhv79D4
+	z4Ls9TYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Knb-00000007zL2-42Eu;
-	Wed, 23 Sep 2026 11:06:03 +0000
+	id 1x9KnV-00000007zGy-1snZ;
+	Wed, 23 Sep 2026 11:05:57 +0000
 Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Kna-00000007zJL-07RB;
-	Wed, 23 Sep 2026 11:06:03 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	id 1x9KnS-00000007zEw-1gHU;
+	Wed, 23 Sep 2026 11:05:55 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 686FC21D30;
-	Wed, 23 Sep 2026 11:05:42 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E84C321C07;
+	Wed, 23 Sep 2026 11:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1790161546; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1It3FSjuRcVyjIsOIw0Z1T0tf5vC/JVqner4HFLakPY=;
-	b=oiRrHK+CbKT0xKCxL5gPLQfHJ+V7qAtEc5TSDqI3Ne+8A/jb2mpPcdczVfnM7H72S8xxbP
-	uj1UPe9M3yiJ8PtZ6jW5Tvp48/M/HkAnzXD5yp2Gpzat3gXp1EEjusuIskOC18qNLSOla5
-	YI8pXKV7I7O7uQNWMPxibFdPr85Al8E=
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=yig4P1nR/KUuXfkyUGF4O2Z2u6hzgy5a9b/28nBUgkg=;
+	b=ePtxV5xpT8kK69c6QxNDO4furdu3M40140REdmVhxy9as5dPbyUr/uRJe4N4go7xr2pmJl
+	l0v8XBmVn1yllU9MKy1JgKgxZKHJx50yXMCUuy9q4gyrdSLjvQfb97KAN/hknQugGtRkag
+	0+PLjCx0AqRtQKcBf5pWdIuMgaQNU2E=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1790161546;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1It3FSjuRcVyjIsOIw0Z1T0tf5vC/JVqner4HFLakPY=;
-	b=luhlt1smwWeQMYvkkb1DqmGGjzmJsVDTfXyn+LqJ9vU7YMeJN3WPVA0w/4Rgl7AfQbtSzF
-	HPvDbiDji0CavXDQ==
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=yig4P1nR/KUuXfkyUGF4O2Z2u6hzgy5a9b/28nBUgkg=;
+	b=J+WdkfMvtx3Z6FGXkOBbFg76sR2NA+Es/PJiyFaiCgBuoWQ17D0vNc9YnSYL/TpED8BzRx
+	gINVHglNrjfPlBAw==
 Authentication-Results: smtp-out1.suse.de;
-	none
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=m5yKt4a2;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=vsplEf8y
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1790161542; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1It3FSjuRcVyjIsOIw0Z1T0tf5vC/JVqner4HFLakPY=;
-	b=YecCcbCCuvSnVo99i56Z109IC3RhCOMu+5w+HjMHoihI1cwhcl/WSnKi9lZZwIMrOiE9IN
-	zR1v7dXxX3RtXRL/5Tg2MaeKlbrp73yGM3dgKWR/pmbXyP7zczXpv6bYUiptkZhfzh9sLP
-	n7L9DQ3fL5alSB42vyGMO4QeJraDPz4=
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=yig4P1nR/KUuXfkyUGF4O2Z2u6hzgy5a9b/28nBUgkg=;
+	b=m5yKt4a2fXeCzHw3ipzn/lBSRUYdp4k+kJ2mRUn6c5+U5r36PMvgsOZm+jr+0CnafI7kg/
+	QXnk4w90i0Mpc340hjS4jh//qAF7Co8aKR9Tcu65KB6N3wQTYuBqfT6CxPP70pew59GWa/
+	KuenZdsmc6j4ZiSTH0FZeNbuL9d5kUk=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1790161542;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1It3FSjuRcVyjIsOIw0Z1T0tf5vC/JVqner4HFLakPY=;
-	b=4X0Xrs7cQOT8RfOyanQYnDNMC4oALPHRSSF1N4q1DFSUyC+tw86d5I07+XgFJfnJv6i8tF
-	wrVx2fvzTTNizzCQ==
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=yig4P1nR/KUuXfkyUGF4O2Z2u6hzgy5a9b/28nBUgkg=;
+	b=vsplEf8yfCWyorb1CPQA1FraVVbOxPtSXYOyp7RR2I/wEotb7KJZ/+630wDBb9sEMz2oTV
+	ezeJIaUYCNypgTBA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CDF2413A6A;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 54EFA13432;
 	Wed, 23 Sep 2026 11:05:41 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id VCF1C4Wys2qeBAAAD6G6ig:T2
+	id VCF1C4Wys2qeBAAAD6G6ig
 	(envelope-from <tzimmermann@suse.de>); Wed, 23 Sep 2026 11:05:41 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: jfalempe@redhat.com,
@@ -100,38 +93,45 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-tegra@vger.kernel.org,
 	sashiko-reviews@lists.linux.dev,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 1/2] drm/fbdev: Move fbdev module parameters next to module init
-Date: Wed, 23 Sep 2026 12:59:09 +0200
-Message-ID: <20260923110537.451614-2-tzimmermann@suse.de>
+Subject: [PATCH 0/2] drm/fbdev: Move helpers to clients/ subdirectory
+Date: Wed, 23 Sep 2026 12:59:08 +0200
+Message-ID: <20260923110537.451614-1-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260923110537.451614-1-tzimmermann@suse.de>
-References: <20260923110537.451614-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: E84C321C07
+X-Spamd-Result: default: False [-3.01 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	MIME_TRACE(0.00)[0:+];
+	MX_GOOD(-0.01)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[19];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:mid];
 	FROM_EQ_ENVFROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo];
-	RCVD_COUNT_TWO(0.00)[2];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+	R_RATELIMIT(0.00)[to_ip_from(RLqtkr6cif1ebgurukgmwdm7xc)];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DKIM_TRACE(0.00)[suse.de:+]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_040602_238103_01A1F44F 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20260923_040554_608136_824859CA 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,152 +146,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define the parameters for fbdev emulation in the source file with the
-module-initialization and exit code of drm_kms_helper.ko. The parameters
-control some aspects of DRM's fbdev emulation. Common usage looks like
+Helpers for fbdev emulation are still linked into drm_kms_helper.ko,
+which is for mode setting. Move the source and header files to the
+clients/ subdirectory and link them into drm_client_lib.ko. This has
+some fallout throughout drivers, but it's all trivial.
 
-  drm_kms_helper.drm_fbdev_overalloc=200
+There are 3 module parameters to drm_kms_helper.ko that control fbdev
+emulation. For compatibility with existing installations, leave them
+in this module.
 
-on the kernel's command line. This has been possible for many years
-and changing it would likely upset users.
+Thomas Zimmermann (2):
+  drm/fbdev: Move fbdev module parameters next to module init
+  drm/fbdev: Move fbdev helpers into client library
 
-The emulation code is supposed to be moved into the module for DRM
-clients. Keeping the parameters in drm_kms_helper.ko avoids breaking
-systems the use them in the way described above.
+ drivers/gpu/drm/Makefile                      |  1 -
+ drivers/gpu/drm/amd/amdgpu/amdgpu_display.c   |  2 +-
+ drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c       |  2 +-
+ drivers/gpu/drm/clients/Makefile              |  3 +-
+ drivers/gpu/drm/clients/drm_fbdev_client.c    |  2 +-
+ .../drm_fbdev_helper.c}                       | 34 +---------------
+ drivers/gpu/drm/drm_crtc_helper_internal.h    |  9 +++++
+ drivers/gpu/drm/drm_fbdev_dma.c               |  2 +-
+ drivers/gpu/drm/drm_fbdev_shmem.c             |  2 +-
+ drivers/gpu/drm/drm_fbdev_ttm.c               |  2 +-
+ drivers/gpu/drm/drm_kms_helper_common.c       | 39 +++++++++++++++++++
+ drivers/gpu/drm/exynos/exynos_drm_fbdev.c     |  2 +-
+ drivers/gpu/drm/gma500/fbdev.c                |  2 +-
+ drivers/gpu/drm/i915/display/intel_fbdev.c    |  2 +-
+ drivers/gpu/drm/msm/msm_debugfs.c             |  2 +-
+ drivers/gpu/drm/msm/msm_fbdev.c               |  2 +-
+ drivers/gpu/drm/nouveau/dispnv50/disp.c       |  1 -
+ drivers/gpu/drm/omapdrm/omap_debugfs.c        |  2 +-
+ drivers/gpu/drm/omapdrm/omap_fbdev.c          |  2 +-
+ drivers/gpu/drm/radeon/radeon_device.c        |  2 +-
+ drivers/gpu/drm/radeon/radeon_fbdev.c         |  2 +-
+ drivers/gpu/drm/rockchip/rockchip_drm_gem.c   |  2 +-
+ drivers/gpu/drm/sitronix/st7571.c             |  1 -
+ drivers/gpu/drm/tegra/fbdev.c                 |  2 +-
+ drivers/gpu/drm/vboxvideo/vbox_mode.c         |  2 +-
+ .../drm_fbdev_helper.h}                       |  4 +-
+ 26 files changed, 72 insertions(+), 56 deletions(-)
+ rename drivers/gpu/drm/{drm_fb_helper.c => clients/drm_fbdev_helper.c} (97%)
+ rename include/drm/{drm_fb_helper.h => clients/drm_fbdev_helper.h} (99%)
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- drivers/gpu/drm/drm_crtc_helper_internal.h |  9 +++++
- drivers/gpu/drm/drm_fb_helper.c            | 32 +-----------------
- drivers/gpu/drm/drm_kms_helper_common.c    | 39 ++++++++++++++++++++++
- 3 files changed, 49 insertions(+), 31 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_crtc_helper_internal.h b/drivers/gpu/drm/drm_crtc_helper_internal.h
-index bae73936acf9..adcc9a2e24ee 100644
---- a/drivers/gpu/drm/drm_crtc_helper_internal.h
-+++ b/drivers/gpu/drm/drm_crtc_helper_internal.h
-@@ -29,6 +29,8 @@
- #ifndef __DRM_CRTC_HELPER_INTERNAL_H__
- #define __DRM_CRTC_HELPER_INTERNAL_H__
- 
-+#include <linux/types.h>
-+
- enum drm_mode_status;
- struct drm_connector;
- struct drm_crtc;
-@@ -36,6 +38,13 @@ struct drm_display_mode;
- struct drm_encoder;
- struct drm_modeset_acquire_ctx;
- 
-+/* drm_kms_helper_common.c */
-+#if IS_ENABLED(CONFIG_DRM_FBDEV_EMULATION)
-+extern bool drm_fbdev_emulation;
-+extern int drm_fbdev_overalloc;
-+extern bool drm_leak_fbdev_smem;
-+#endif
-+
- /* drm_probe_helper.c */
- enum drm_mode_status drm_crtc_mode_valid(struct drm_crtc *crtc,
- 					 const struct drm_display_mode *mode);
-diff --git a/drivers/gpu/drm/drm_fb_helper.c b/drivers/gpu/drm/drm_fb_helper.c
-index d4664ed468b2..76195410db60 100644
---- a/drivers/gpu/drm/drm_fb_helper.c
-+++ b/drivers/gpu/drm/drm_fb_helper.c
-@@ -43,39 +43,9 @@
- #include <drm/drm_vblank.h>
- 
- #include "drm_internal.h"
-+#include "drm_crtc_helper_internal.h"
- #include "drm_crtc_internal.h"
- 
--static bool drm_fbdev_emulation = true;
--module_param_named(fbdev_emulation, drm_fbdev_emulation, bool, 0600);
--MODULE_PARM_DESC(fbdev_emulation,
--		 "Enable legacy fbdev emulation [default=true]");
--
--static int drm_fbdev_overalloc = CONFIG_DRM_FBDEV_OVERALLOC;
--module_param(drm_fbdev_overalloc, int, 0444);
--MODULE_PARM_DESC(drm_fbdev_overalloc,
--		 "Overallocation of the fbdev buffer (%) [default="
--		 __MODULE_STRING(CONFIG_DRM_FBDEV_OVERALLOC) "]");
--
--/*
-- * In order to keep user-space compatibility, we want in certain use-cases
-- * to keep leaking the fbdev physical address to the user-space program
-- * handling the fbdev buffer.
-- *
-- * This is a bad habit, essentially kept to support closed-source OpenGL
-- * drivers that should really be moved into open-source upstream projects
-- * instead of using legacy physical addresses in user space to communicate
-- * with other out-of-tree kernel modules.
-- *
-- * This module_param *should* be removed as soon as possible and be
-- * considered as a broken and legacy behaviour from a modern fbdev device.
-- */
--static bool drm_leak_fbdev_smem;
--#if IS_ENABLED(CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM)
--module_param_unsafe(drm_leak_fbdev_smem, bool, 0600);
--MODULE_PARM_DESC(drm_leak_fbdev_smem,
--		 "Allow unsafe leaking fbdev physical smem address [default=false]");
--#endif
--
- /**
-  * DOC: fbdev helpers
-  *
-diff --git a/drivers/gpu/drm/drm_kms_helper_common.c b/drivers/gpu/drm/drm_kms_helper_common.c
-index b5d5b469b444..1e55ecac4698 100644
---- a/drivers/gpu/drm/drm_kms_helper_common.c
-+++ b/drivers/gpu/drm/drm_kms_helper_common.c
-@@ -25,10 +25,49 @@
-  *
-  */
- 
-+#include <linux/export.h>
- #include <linux/module.h>
-+#include <linux/moduleparam.h>
- 
-+#include "drm_crtc_helper_internal.h"
- #include "drm_panic_internal.h"
- 
-+#if IS_ENABLED(CONFIG_DRM_FBDEV_EMULATION)
-+bool drm_fbdev_emulation = true;
-+EXPORT_SYMBOL(drm_fbdev_emulation);
-+module_param_named(fbdev_emulation, drm_fbdev_emulation, bool, 0600);
-+MODULE_PARM_DESC(fbdev_emulation, "Enable legacy fbdev emulation [default=true]");
-+
-+int drm_fbdev_overalloc = CONFIG_DRM_FBDEV_OVERALLOC;
-+EXPORT_SYMBOL(drm_fbdev_overalloc);
-+module_param(drm_fbdev_overalloc, int, 0444);
-+MODULE_PARM_DESC(drm_fbdev_overalloc,
-+		 "Overallocation of the fbdev buffer (%) [default="
-+		 __MODULE_STRING(CONFIG_DRM_FBDEV_OVERALLOC) "]");
-+
-+/*
-+ * In order to keep user-space compatibility, we want in certain use-cases
-+ * to keep leaking the fbdev physical address to the user-space program
-+ * handling the fbdev buffer.
-+ *
-+ * This is a bad habit, essentially kept to support closed-source OpenGL
-+ * drivers that should really be moved into open-source upstream projects
-+ * instead of using legacy physical addresses in user space to communicate
-+ * with other out-of-tree kernel modules.
-+ *
-+ * This module_param *should* be removed as soon as possible and be
-+ * considered as a broken and legacy behaviour from a modern fbdev device.
-+ */
-+bool drm_leak_fbdev_smem;
-+EXPORT_SYMBOL(drm_leak_fbdev_smem);
-+#if IS_ENABLED(CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM)
-+module_param_unsafe(drm_leak_fbdev_smem, bool, 0600);
-+MODULE_PARM_DESC(drm_leak_fbdev_smem,
-+		 "Allow unsafe leaking fbdev physical smem address [default=false]");
-+#endif
-+
-+#endif
-+
- static int __init drm_kms_helper_init(void)
- {
- 	return drm_panic_helper_init();
 -- 
 2.55.0
 
