@@ -4,74 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1541FC982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07781C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QKJrBHLETBJyIa6CWPgESXEOaNq+UTvSooBi5VGZCG0=; b=QHu//Njf49054rf9NAejyIPaQA
-	sfKoZth1YiJQlNj0mGzWN2H5YdmCQypX4e2YXtRvBxfPfvMpWO3/rfp/MzJejqW9RrdEHyFxT815Y
-	/HOBkvks9y3zhDhLhBZl1mC/LDH1WnqmN2bog4Uhs2fx7jLDeuMsN8QiJOFF1d6TqwDY4Jimq3mBG
-	QGMtxhSOthoAv4xvnm5rLUeMXc+HqhTtjCEbgM70Lu8svfgq5mbdGIcJmJgy7pN94Yf3NYbrYssxZ
-	T4gB2PqldyOknApBJoUX1g4e1rzHzJDvtttiMqjJoeu2H2MIdv3DYN6PKR8yX8KaouZW1EMdb1wpn
-	d+NX/DkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0reunzXmmAlNC6QmWf9sB2B+ZpS4HPPFDGCNxxmhsL4=; b=x8HyysZcIH3Csr5a7u1ULuExJT
+	siGGGdmFkee0UXCuLb+iPsbx2dGr/VLaUk0rCp07SIRal6XdbgBFE4qYZIof2956FuEYWguDNdaBO
+	4nfbe3w69YBoXl5ekWAh4eU919OOqzLnc+LDiyq2SIrXMo5eNki4Qf1ykHifWMM53crgdABAiz3Og
+	XY5eKDmYu6Ou5y3HGwfRlUUUH3V/Z7sIgLo1UItYb7RY8v8NClQbgy//m//B84IiVfOXYm0Lylzno
+	txZ78NAqoTtggqTe3qH5Q4UI3F5LvFHl+ZFdPeOTn8jW+sYn1vE2kMH8Rl32K/WLycGlpCJxjnEOD
+	r9rkhRTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9InS-00000007d5n-0YSi;
-	Wed, 23 Sep 2026 08:57:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9IoG-00000007dJf-2guq;
+	Wed, 23 Sep 2026 08:58:36 +0000
+Received: from mail-4319.protonmail.ch ([185.70.43.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9InQ-00000007d55-2Rxl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 08:57:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40B0343774;
-	Wed, 23 Sep 2026 08:57:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E95D1F00893;
-	Wed, 23 Sep 2026 08:57:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790153864;
-	bh=QKJrBHLETBJyIa6CWPgESXEOaNq+UTvSooBi5VGZCG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KozDhSeWWZQTg8qR1LTSNd/9vzq5RZIlWfhikFLT+D8L2I5Jz4RW/J/nf5mHhyMWx
-	 wgXS1Q6HNz7cfa6/GeElIlb09p8dtUNS1+8zqVqOXIL43y5t/P8Lh20gnxcFl9NmVL
-	 9/NSXMsohhFnPB1Cl+3hz7zgSVc7+ozoLDY2L90xLb52BcIsKkVBdbTPRHxQtreTay
-	 TeNvdTFh8AXErqEoxXB/6Yado2ZKrr99gMmQdb4CtRLxcnPGxLVfn3rK6asisudprn
-	 uTvoSyxmTOtHABCA2ICfTBZw9BG39E9UroKWqES3cl9xK/4Ms6H+te7w8FDX3Jyuo3
-	 sDg+z4Sh35R8A==
-Date: Wed, 23 Sep 2026 09:57:38 +0100
-From: Simon Horman <horms@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	UNGLinuxDriver@microchip.com, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mohsin Bashir <mohsin.bashr@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 05/14] net: lan966x: export FDMA helpers for
- reuse
-Message-ID: <20260923085538.GN13925@horms.kernel.org>
-References: <20260918-lan966x-pci-fdma-v7-0-0ecc179c8a2c@microchip.com>
- <20260918-lan966x-pci-fdma-v7-5-0ecc179c8a2c@microchip.com>
+	id 1x9IoE-00000007dIp-1PVZ;
+	Wed, 23 Sep 2026 08:58:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1790153911; x=1790413111;
+	bh=0reunzXmmAlNC6QmWf9sB2B+ZpS4HPPFDGCNxxmhsL4=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=bSL/Aqnv5i1WoJpO4J42Q1rB0nbJ2+sPGLyBJWRKgSe3qQft7lvEzarvmDMB13wjB
+	 D1AermV1KzlnDF90rhlkjtnII6dZN6h4QeEcHaxSuWJyhaP+XEqBGIt9aH6oDS0gON
+	 u2W+M10890a6eqYAf9XjEjcQozoJrP8CMiUBLI/Q8+l2zu/i6hHlSR8kzEylwE9Ygp
+	 nft0jLqZ1xH6EJB5pEmi2FbcPmbQJtMsR7kSW0cUCvXZ2RhaoTmGmSehIn8CV9m94A
+	 2GsHxfh6kCIF0Nqy1LGcf7S9rky2BOe0i33K8+C3bnQu0NOLwYeKu14AAn2D3cktpw
+	 4ysJtnXQ9NdWw==
+Date: Wed, 23 Sep 2026 08:58:27 +0000
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 2/3] cpufreq: mediatek: add mt6572 support
+Message-ID: <_cWfHoNhfNqR8gHZc9mDkr4jScRg_xP3_yWfR9JqeDpaulfmw3nkbOhfWiqCPhWgG3SgH07xGtOEQ_Afivo61Ldan09HV0uTnas7lBCBI1A=@protonmail.com>
+In-Reply-To: <b98716ab-1c7b-4da2-85c8-e425be39b4d7@collabora.com>
+References: <20260923-6572-cpufreq-v1-0-41f7af6d6d1a@protonmail.com> <20260923-6572-cpufreq-v1-2-41f7af6d6d1a@protonmail.com> <b98716ab-1c7b-4da2-85c8-e425be39b4d7@collabora.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: e93288f4c7e7a54fb417d16ef81b885f5c370664
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260918-lan966x-pci-fdma-v7-5-0ecc179c8a2c@microchip.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_015834_525826_9FD10E9B 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,13 +68,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 01:33:57PM +0200, Daniel Machon wrote:
-> Make shared FDMA helpers non-static, so they can be reused by the PCIe
-> FDMA implementation.
-> 
-> Tested-by: Herve Codina <herve.codina@bootlin.com>
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+On Wednesday, September 23rd, 2026 at 11:36 AM, AngeloGioacchino Del Regno =
+<angelogioacchino.delregno@collabora.com> wrote:
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+> On 9/23/26 09:23, Roman Vivchar via B4 Relay wrote:
+> > From: Roman Vivchar <rva333@protonmail.com>
+> >
+> > Add mt6572 SoC platform data for CPU frequency scaling.
+> >
+> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> > ---
+> >   drivers/cpufreq/mediatek-cpufreq.c | 9 +++++++++
+> >   1 file changed, 9 insertions(+)
+> >
+> > diff --git a/drivers/cpufreq/mediatek-cpufreq.c b/drivers/cpufreq/media=
+tek-cpufreq.c
+> > index f15135b2898b..615bccc77c98 100644
+> > --- a/drivers/cpufreq/mediatek-cpufreq.c
+> > +++ b/drivers/cpufreq/mediatek-cpufreq.c
+> > @@ -737,6 +737,14 @@ static const struct mtk_cpufreq_platform_data mt27=
+01_platform_data =3D {
+> >   =09.ccifreq_supported =3D false,
+> >   };
+> >
+> > +static const struct mtk_cpufreq_platform_data mt6572_platform_data =3D=
+ {
+> > +=09.min_volt_shift =3D 100000,
+> > +=09.max_volt_shift =3D 200000,
+> > +=09.proc_max_volt =3D 1250000,
+> > +=09.sram_min_volt =3D 0,
+>=20
+> Are you sure that there's no SRAM regulator on MT6572?
 
+Yes. There's no 'sram' mention in the downstream code, neither mt6323 has s=
+ram
+regulator.
+
+> If there's none, there's no need to set sram_min_volt here,
+
+Ack
+
+> but if there is, you
+> also need to set sram_max_volt.
+>=20
+> The ccifreq_supported explicitly set to false is ok for human readability=
+ of the
+> SoC features - that's also unneeded but keep it for the same of understan=
+ding
+> what's going on with this SoC.
+>=20
+> Cheers,
+> Angelo
+>=20
+> > +=09.ccifreq_supported =3D false,
+> > +};
+> > +
+>=20
+>
+
+Best regards,
+Roman
 
