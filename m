@@ -4,146 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC9FC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EBCC98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4GGpD9bCLKwKljw9siihHkGdhbEHAKmKaI5FQZgKfS0=; b=yU6iQ+HpD30Vn1zWhMwyqejPRq
-	b2umSHOTvypz0jiXe9/XpH/j3hV5romKTVcZGO2FRtAZNb6FZdguI7EATVxu8RaA0TcTECFJLMGQc
-	NuyEGtMEkzntFjSnsazLOrcFF/GwB+YiX1XbbE/JIcpAv4zud6KATYb9FO+kGhG8Rg1hRWOK0mLNO
-	OipwN5n1RMRCQGrp8HW77SkOyF9pjiNMzQvnyT6z90oeFyZ4mBpAXOVUdBEygrcN7PSk56l3LN50z
-	hFSKudxujYQ0LlX77R1QaFDRJRXkGMHXF9fKyhInSuIHmGS+RYUTG0vYOtWgegnZvdaGRmC/+CkeD
-	GQg39Dkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6D/6Lx4FeaW18dd0db0e2+PErxS3iDoNCWBjzge9c2Y=; b=bxX82IYfo6vSgZne5vTba3IwLe
+	FBmRNKCJNgA5CoxyrPnycVBVxqa1NsPHq8x0uxHaANzM0DtmzaOk383Qj7t/EsWovsa5k1KIAl2sW
+	uaQfDWCEGpTmE1hHl0N2HiI+Kt6k1LpdK9qyRDV3VAbHQ7QGwDNJEH1pTyDghNgf3UpFWXj59GopS
+	J8iI97Y3FEp+FLTW9I8nvBiuHrWTHbblhV9PYGD8rG/+zPHBusYBz+xrEYZ+2JR7THXqbWehtsNFL
+	VjkfJWq5YdfK7GxcxWvNjvnvu8ATTEOgKpS0uIbGZE6LGMODFa+SrO2qlR6tTwZ7ODg23kApxL3ju
+	DSZBFzVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Q8z-00000008vIS-2k9z;
-	Wed, 23 Sep 2026 16:48:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x9Q9u-00000008vSy-2kro;
+	Wed, 23 Sep 2026 16:49:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Q8u-00000008vHI-1C6D
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 16:48:27 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NGU6e43281197
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:48:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4GGpD9bCLKwKljw9siihHkGdhbEHAKmKaI5FQZgKfS0=; b=HwURI9u8gOqsxzop
-	D+O0P9O7uAoodVx8vvTnFSrFFdCFGgLgCpPcV8vhfjlglXwwOTzGnkKFaxkC/ZBE
-	KzXKfya286vL+1P9N8JySDE3wy6BG/elusP9Fgzp2Cw60YVKuxkWrkOedA1JBIiH
-	4MnTe3LupfJ5deFFxg2KXb528bKGtmwd3T3Q1YvyHb2T/DQceHMfTevWrE0DhQ+w
-	wWdGCRmLV+pIlJ7nEdfZ5XCYUCjXDDzqeBrWD3zhxcQcyRNajCmY3qyEyaEgcAyA
-	pyuKK0MX4yCYcvIuF+liPrfF9DrP7C9sn5MGqHusXYj5hCZr4UKG0Cm5Rv6IJhnx
-	oo5Wdw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gv9bqjq30-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 16:48:23 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-39deda201bcso1587697a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:48:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790182103; x=1790786903; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=4GGpD9bCLKwKljw9siihHkGdhbEHAKmKaI5FQZgKfS0=;
-        b=ePQnyePNqegEM0BSH4FTn+/wx1BJAR93DVNWNuaWsgnU/tjSKpqnPU2YtyVmkfKNsc
-         wuioqNeQKtVWYllPN0LtVjnm+BytsvfsdWIyGTGryQqguq00q1Esbtk8yBfqdAP1xwc6
-         UNrK/2IPnll5bA12GVbrsUpuF+dM7sHKOvWmbpPQxjun9G7sDuWT2r/2rNGpM0cUJHiL
-         aKcjGG2Eap+BOkArDgFT5apET46ZZyKyQPWX71FxvkgnObTsjvnIPiwX5zXh1NcmnQFG
-         7XuK558mm3j9dFzPdbMBZxHRWGK6c0v+phbRgEVKtBMmlqvDhBwxDeatx3T/cmb0UgL+
-         mD/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790182103; x=1790786903;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4GGpD9bCLKwKljw9siihHkGdhbEHAKmKaI5FQZgKfS0=;
-        b=CIRiNHNBOTkd4jJHo7xR08j3/F4bc4HAvlOZaytaFBwo4c/5VWIHtfCvjN/CDNUnSm
-         sdNHCLRvHkTCLO/zUX3d1qWkyHfFWv28FO1SM1KeeJmfPdcE85mW6qeudXLutHKpdoOb
-         BHb8sh0STDkY08nMuPbKt5O9qcyFXibKy7KApSVD+aezTCIJA88GiLYQp1FOfONMxN1f
-         tgqlqA/7YyvNwWIzfuM/dRiTo5s5mGJ48rtKsaMVW9kq7pG21+QNeEW+xnotimx2o6Nr
-         1tqAj71ytNFthl6uv0nMhFoB/LVDvUpoHDOY6bkguoNOZTsjqrtcRGW3r7jTSxEUgVM7
-         S0wA==
-X-Forwarded-Encrypted: i=1; AKwUvBwfVWL5tyZaht6RIQ1fkFESQnVFN3kKLMoQHvV7nAQjNVq2cfc5JrAJ4X9dGMAbr/dCAq79AAKyM/HsUkwhTTK2@lists.infradead.org
-X-Gm-Message-State: AFuF++lCAFLIaSB5euZxxuPGZSCzTkJqYjpZ0srj88F1AS8cz/aJD2Vo
-	f50hVp7NTzO9btrnodE3pqVokLXCeZmhL39WqCQLWcDGIJ00t6HyF2q6kwGiheVpyuj99A04N4c
-	HepI9KhKK5SGqZDRYUPALq4WiYEaMhcmt+uzTN93QymWGG1bBAmyaiBjdMc49AauEdgz+IEgdix
-	siCA==
-X-Gm-Gg: AYBFou3gkIDUMkqbMSHpabW+HZ+niYzBjbypgzYtZuMk3i586vdkMYdyFaHh8CxjD64
-	Db6IVY5Vy5vVZZ5j2qLwiYZSKwY3as7+q+HylxItTebLBxkZrwBLsFLPijMg0ofMO1v3UIo/yQj
-	4or83iQuxpTV9UdeCI/3oHUb8Vvpc2bNqyWZNn2qQtvUdrgv6NJiX/IIsxDcYZW4ErGRBx15Oi+
-	i/eCET2xfgzMzHwfRpdUc1kH8apyiZZxpOwqiALOm6Bfjj3GpzSIc3gHp1PeGMZwiJNllDcPz4V
-	z9KCGsfGoUiHcybvrgYCumBo/wfPmgZzGlSCXBLaf6MOHZTzUkaR882IqRvJNmP6ZGuxtReS5Gg
-	CViF9qxv0o3plbkft11BLOYY+2ZONOWOgB02J+LWT/uEkCYzaykwkYg==
-X-Received: by 2002:a17:90b:390d:b0:398:bacb:1137 with SMTP id 98e67ed59e1d1-3a07e54a8e2mr3129854a91.19.1790182102976;
-        Wed, 23 Sep 2026 09:48:22 -0700 (PDT)
-X-Received: by 2002:a17:90b:390d:b0:398:bacb:1137 with SMTP id 98e67ed59e1d1-3a07e54a8e2mr3129824a91.19.1790182102520;
-        Wed, 23 Sep 2026 09:48:22 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a096b8753csm10943a91.0.2026.09.23.09.48.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 09:48:21 -0700 (PDT)
-Date: Wed, 23 Sep 2026 09:48:15 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
-        will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
-        aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
-        joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
-        linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
-        sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
-        WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v19 01/20] KVM: arm64: protected VM: Handle user writes
- to CNTVCT_EL0/CNTPCT_EL0
-Message-ID: <20260923094815.000026eb@oss.qualcomm.com>
-In-Reply-To: <528f3c4a-723f-47ad-a387-6e6a4179c96a@arm.com>
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
-	<20260920212845.707-2-suzuki.poulose@arm.com>
-	<20260922122542.00006868@oss.qualcomm.com>
-	<528f3c4a-723f-47ad-a387-6e6a4179c96a@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1x9Q9r-00000008vSM-2Rat;
+	Wed, 23 Sep 2026 16:49:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B73D0600AA;
+	Wed, 23 Sep 2026 16:49:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DD81F000FF;
+	Wed, 23 Sep 2026 16:49:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790182162;
+	bh=6D/6Lx4FeaW18dd0db0e2+PErxS3iDoNCWBjzge9c2Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YKGxQ1XS4j7gZoZTtFLH5kga2VvDvNwjXm7rrNXt46YC2lkj6CB1aBWRgFHKCkxOz
+	 fcInmSVY2i0+txgxs9delFDiM6vKGw/5gzUuFK3pzVdT64Frb1FuWTCn0+Cd/IIRKO
+	 qvB4NU3JxNoTy562fyiYcC1LanTa8y3kLJH5lSL/VmjrBbPgPxoqyAfG7WxHZYzmGs
+	 mSbeKmJd947ct09YEcBsLzcEyJeW//pwH2ysdH/wrt3ZH+POfhreL50UF6qlRc7Dxi
+	 O6Azp7S97hm2W7972ekP424jbrbYReAAo+9qmT0cqG2VCIZ/RhlCJy1LWyoiGihtyp
+	 EF30dVepjZWDQ==
+Date: Wed, 23 Sep 2026 17:49:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Sander Speetjens <sander.speetjens@gmail.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: rtc: Add property for Raspberry Pi 5
+ RTC
+Message-ID: <20260923-basically-slider-df357b773907@spud>
+References: <20260923131323.1099979-1-sander.speetjens@gmail.com>
+ <20260923131323.1099979-2-sander.speetjens@gmail.com>
+ <20260923-browbeat-judgingly-b047721f5cb3@spud>
+ <6de301bd-0bb6-4704-8c3f-8da09c5f6830@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 11M5kM2D4yips7OgAE3Z87y5hI0yye9a
-X-Proofpoint-ORIG-GUID: 11M5kM2D4yips7OgAE3Z87y5hI0yye9a
-X-Authority-Analysis: v=2.4 cv=WZuZ+EhX c=1 sm=1 tr=0 ts=6ab402d7 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=7CQSdrXTAAAA:8 a=iHHI45kYt6FPp7tEAR8A:9 a=CjuIK1q_8ugA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA2NiBTYWx0ZWRfX+biFW26b2DIh
- UypjottKak766pwCqjgS0zXL97hXAJkaguXApI0i0zHc71UE5NSP81sYdjCBKmUexASgKcTTxHs
- QmOzie+Z9DFUfRZ+HqzZMNJeaDXmxrQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA2NiBTYWx0ZWRfX3UCiFFLjw/m8
- OPREbUqT/aK3ONJcsp2tvJ98G0753FXt4Q2ygOzM4hyilFdosVG57a/40dD39kstNjU9dyAYE+m
- 80DzlKy2RF9bt/qF0goY3XRz/komNvro5LnVOn3Lm2B7IopPnigbSBg9FxMIQiFS15Ab4us0XHB
- C+fIAam3ttFuiLIXrWb6X8LO8SdJWtDy/o0oJW/fmOPawXvhcNxn5poyEfzL9dFEKQWB5jv0wrg
- zSafidqlmUa5wZBUpdmwHnD0hhV4R7DibCy/PQ6UeO2gqIIWwcZMVRdK3wauaeq4zBjzKZLxf8r
- c5MnewVOZfGs/YhqPYF9tfHRXvYXrSqikWQUYpZzbt0V8YnZOuiz55JPR8ftFBV8/CGienBL4tr
- G//VLZZ6GKI5DqmvuBGqXNw+eFSOkLzSFsAt/qJYs55FhGJ1VLLF6uksNZIlMrXvSO75uBpVltR
- UVU0V1SP4D7Bq6ayk/g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501
- suspectscore=0 clxscore=1015 impostorscore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230066
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_094824_698521_C2956FB4 
-X-CRM114-Status: GOOD (  23.18  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Az4NTJrw4JBvlQp3"
+Content-Disposition: inline
+In-Reply-To: <6de301bd-0bb6-4704-8c3f-8da09c5f6830@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,50 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Sep 2026 22:53:48 +0100
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+--Az4NTJrw4JBvlQp3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On 22/09/2026 20:25, Jonathan Cameron wrote:
-> > On Sun, 20 Sep 2026 22:28:26 +0100
-> > Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> > 
-> > Hi Suzuki,
-> >   
-> >> Protected VMs doesn't allow setting offsets for virtual and phyiscal  
-> > 
-> > physical
-> >   
-> >> counters, as the offset is always fixed to 0. The VM ioclt is filtered  
-> > 
-> > ioctl
-> >   
-> >> out based on the cap. However we don't prevent the userspace from trying
-> >> to write to the CNTVCT/CNTPCT registers. This would lead to KVM triggering
-> >> a WARN() in timer_set_offset() as the vm_offset pointer is set to NULL.
-> >>
-> >> Fix this by always "fixing" the timer offsets to 0 and marking that the
-> >> timer offset is set in the kvm->arch.flags at KVM init time for protected
-> >> VMs. A userspace writing to the CNT*CT_EL0 would observe success, without
-> >> any real effect. This was chosen over preventing the writes to these
-> >> registers and returning -EPERM.  
-> > 
-> > Why?  I don't mind the decision but telling us what was chosen is something
-> > we can see in the code - patch description should give us the stuff we
-> > can't see.  
-> 
-> I have modified the paragraph to :
-> 
-> "Fix this by always "fixing" the timer offsets to 0 and marking that the
-> timer offset is set in the kvm->arch.flags at KVM init time for
-> protected VMs. This prevents the access to the VM specific vm_offset at
-> low cost. A userspace writing to the CNT*CT_EL0 would observe success,
-> without any real effect. This is cleaner over spilling *_is_protected()"
-cleaner than spilling.
+On Wed, Sep 23, 2026 at 06:46:00PM +0200, Sander Speetjens wrote:
+> > Is this actually needed? Shouldn't the type of uint32 come from the same
+> > source that the type in rtc.yaml does? Or is this missing in dt-schema?
+>=20
+> The rtc.yaml does only provide the description not the type, I also expec=
+ted
+> the type to be there.
+>=20
 
-Snag is over spill is a whole different thing and got me wondering what
-was over spilling!  
+I think this should be dropped and the type added to
+property-units.yaml, I don't know where the one in rtc.yaml is getting a
+type from.
 
-Otherwise that works nicely. Thanks!
+--Az4NTJrw4JBvlQp3
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarQDDgAKCRB4tDGHoIJi
+0q4jAP0fxrVwhLTgoZaPeHOSKgAl8IZFnecnfjyEXRCM5zpNRAD/dAch7qPLWnJ3
+xJYXTouIBYrbyM4DV+ecAeL4NwMJRg4=
+=RW4s
+-----END PGP SIGNATURE-----
+
+--Az4NTJrw4JBvlQp3--
 
