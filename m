@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B76C98302
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BC6C9830E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+dJkKEhYPFMGXFWM/cPd6V0/H5s5A3iRfAUA4bwjj4=; b=z2PxXmCFGFUduCPmerYTQKm0fP
-	gSKzo6ITxROWV53mlRYwhsWRuFNIQ36XojsgnB+WmltZ3TQaMVE8/Z4GzapNjLmmB8WO4l7wlCE4Y
-	Z63S7J5Cr2eSLuoDgkF20ZGBiM3X8Dv9WnR9ipM7tE0ALswx0uDnmT9kHLXeTEFnay4Ta3A+X45wB
-	kjQzF12U2CIL8lp4Vhrjem+VSJQai4NUC+9qrBOVrm3YT+tHFUiFAO/BC5hfnyLumfinoebaznv6/
-	rxu0cj9hliBv+p3uGvqeynzVXE48VvAwejQKuXpToXHzjKz38KSYMN830Fe/aZ6zjT5xG53b5TYZt
-	yDaGOD3w==;
+	bh=letVfDXACsH0haNBejcNf2aRKjI5juvOJD77CrdEB5I=; b=FXtglZQY3W+za7b/skKUxEGt7Q
+	Db2RIkZUAJaho9XFf7AF+1wmtzq9BthkSEhyfbqEa/MoM8LMSqfw1G6tW42sIbSmugMwcu3QVXgb9
+	yn2zL4tLx5GjjphK7w8OH6aUp2Dv53hpXDHCk/7aNmWphXioZTmtYrrUXgZs0EKn4yKmXZOCr4HGb
+	EHiZsG3WXgGNJtumNa9S2P1s/FiMgboI3JxUgeQmzR4yXYW35fS4KXv21pQLVTh/OU0ULcQ7MKCf3
+	W3+VoanCLl87qbAcNWJsUcXVfuBYN7tlo8tPS+OV2ojSlwV2k60oWWrbU6X5Aj5SzJkUqdudEEb6+
+	sqJP49kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OiM-00000008g9Z-3hoj;
+	id 1x9OiM-00000008g8t-0prV;
 	Wed, 23 Sep 2026 15:16:54 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OiH-00000008g6i-0xWd
+	id 1x9Oi7-00000008g2o-0seP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:16:49 +0000
+	Wed, 23 Sep 2026 15:16:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 002CE40B87;
-	Wed, 23 Sep 2026 15:16:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A1F1F00898;
-	Wed, 23 Sep 2026 15:16:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EDF2540C2C;
+	Wed, 23 Sep 2026 15:16:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52FDB1F00893;
+	Wed, 23 Sep 2026 15:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790176608;
-	bh=W+dJkKEhYPFMGXFWM/cPd6V0/H5s5A3iRfAUA4bwjj4=;
+	s=k20260515; t=1790176598;
+	bh=letVfDXACsH0haNBejcNf2aRKjI5juvOJD77CrdEB5I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=kdFRwP5s8fVUrzsN7JG9nbI6GTzKbPoDf5DJVzuYtuZc/3IW0nQNJVpA9wnq3BBuJ
-	 nOJ05C6XrZpTt3QSTJcLbra5L9EPYuEaP5vJzxYo4AT5dOas40Io8ingK8iy5uAws7
-	 mdYacwVj7Ktxns/ZWT7sXBS7Wxb6io50KhdEcQkXSm70+zfKBnY15qt3OTDO8ariSt
-	 hM6ZcS0t494fUeo0gAJZxSVgy8OJ+dDcgH5q7uFSMyxtFMJ1o5bx6TB3V4abl5o8JV
-	 0BbBeeTm+p/e7RQn6Y/HT7RDRc/BXBFgvfmxbBqhn3ryinquGIxnzS6X0y5WJ/Wocg
-	 VdWRYbvQuuGTQ==
+	b=TZeslE6m5nI5PtoMHrFYk6zYtbgXfD1ZkOLDRxbqWE2oPQHZ2ymmdpiRMBo1OxhMd
+	 /FD2Xn9GOSmkvBYdHbQ8moeMBkbkLdaeTjCfsnytJRfXDtQxJKClhSbUwG7Ao+6zEQ
+	 WmNfnp3I+R6aTy26Oq+uhOc91ajhWuVNkQ3WT99M9UAhTk3SbuzSLOoqRvxcgrQUTf
+	 LBEhqUZ+Z7vxwWYIXxgZG1Usvch64QLKgXi0ioHC4kJogdN6aWQc96Ud4i+Fv2jjeA
+	 VLJQ2CCJg1kkx1foU+stcKLZFwVtBaf4D5yK9uDn8+hD0hVZU80Q3jMiUKDL+iO534
+	 frQ//dJf2hMqw==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Wed, 23 Sep 2026 16:15:47 +0100
-Subject: [PATCH v4 04/14] KVM: arm64: Propagate and use esr in s2fd when
- handling guest aborts
+Date: Wed, 23 Sep 2026 16:15:46 +0100
+Subject: [PATCH v4 03/14] KVM: arm64: Use ESR helpers in guest abort
+ handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-kvm-arm-prefault-v4-4-d4b0b4dfa8c3@kernel.org>
+Message-Id: <20260923-kvm-arm-prefault-v4-3-d4b0b4dfa8c3@kernel.org>
 References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 In-Reply-To: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -81,12 +81,12 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
  linux-s390@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2936; i=ljs@kernel.org;
- h=from:subject:message-id; bh=HPdImb64PDH+ZisiIURUzc+NKXAVj6r6zQyPTld8vVQ=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9Up21Dh/iAt98qBbykmG4/ci2sXjn239Eyr7jrzp
- 9kXSgt3d5SyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiSpKMDIvbV6q9uWjYU+n+
- 8trM4Jd8dgZmS5etSNeLS8xp+srxbCHDf38b1SuTjqsp6M+QEs1dJ/jgmMP2K1rO213/ixf8FX4
- dxAUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12255; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=CW+TtKU7tdpXBpEzpMx2bSTp0y5kleCMX0COBt4vz00=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9WR77W7NqNf+nbg3TiZV3xuW6a0CM+I/mp/RXDKn
+ 8idjHp2HaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE8gQBi5OAZjIjWZGhjO36uyfLH67SuPE
+ el/11A+/fj8ykOdvW5ew6dm9XRk7zgUxMlytiNfonyHDM1OtfIZKgVQT73Gp8kPOXzl4ovacjOL
+ W4AMA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -103,88 +103,344 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_handle_guest_abort() establishes a kvm_s2_fault_desc data structure,
-s2fd, to store and propagate state to either pkvm_mem_abort(), gmem_abort()
-or user_mem_abort() handlers.
+Convert kvm_vcpu_* ESR wrappers in kvm_emulate.h and the stage-2 abort
+handling logic in mmu.c to use the newly introduced ESR helpers.
 
-Each of these, however, examines the Exception Syndrome Register (ESR) via
-s2fd->vcpu.
+kvm_is_write_fault() is split in two, with esr_abt_is_write_fault()
+handling the esr parts of the operation and kvm_is_write_fault() wrapping
+it.
 
-Introduce an s2fd->esr field to abstract this and propagate it to callers.
+Introduce/modify kvm_s2_fault_is_{perm,exec,write}(),
+kvm_s2_perm_fault_granule() so the abort path reads the ESR from a single
+place.
 
-The value of this (beyond refactoring) is to be able to later generate
-faults with a synthetic esr, specifically to implement stage 2 page table
-pre-faulting.
+This is to allow a later change to permit stage 2 pre-faulting via a
+synthetic ESR value.
 
-Abort handlers which use kvm_s2_fault_desc - gmem_abort() and
-user_mem_abort() - now only reference s2fd->esr and do not look it up in
-any other way, which makes it safe to pass a synthetic s2fd->esr value to
-these functions.
+Remove now-unused kvm_vcpu_dabt_is_cm(), kvm_vcpu_trap_is_exec_fault() and
+kvm_vcpu_trap_get_perm_fault_granule().
 
 No functional change intended.
 
 Reviewed-by: Oliver Upton <oupton@kernel.org>
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h | 50 +++++++----------------
+ arch/arm64/kvm/mmu.c                 | 78 ++++++++++++++++++++++--------------
+ 2 files changed, 61 insertions(+), 67 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 654e8c1b4461..708a4b6d8823 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -421,18 +421,13 @@ static __always_inline int kvm_vcpu_dabt_get_rd(const struct kvm_vcpu *vcpu)
+ 
+ static __always_inline bool kvm_vcpu_abt_iss1tw(const struct kvm_vcpu *vcpu)
+ {
+-	return !!(kvm_vcpu_get_esr(vcpu) & ESR_ELx_S1PTW);
++	return esr_abt_is_s1ptw(kvm_vcpu_get_esr(vcpu));
+ }
+ 
+ /* Always check for S1PTW *before* using this. */
+ static __always_inline bool kvm_vcpu_dabt_iswrite(const struct kvm_vcpu *vcpu)
+ {
+-	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_WNR;
+-}
+-
+-static inline bool kvm_vcpu_dabt_is_cm(const struct kvm_vcpu *vcpu)
+-{
+-	return !!(kvm_vcpu_get_esr(vcpu) & ESR_ELx_CM);
++	return esr_dabt_is_write(kvm_vcpu_get_esr(vcpu));
+ }
+ 
+ static __always_inline unsigned int kvm_vcpu_dabt_get_as(const struct kvm_vcpu *vcpu)
+@@ -453,12 +448,7 @@ static __always_inline u8 kvm_vcpu_trap_get_class(const struct kvm_vcpu *vcpu)
+ 
+ static inline bool kvm_vcpu_trap_is_iabt(const struct kvm_vcpu *vcpu)
+ {
+-	return kvm_vcpu_trap_get_class(vcpu) == ESR_ELx_EC_IABT_LOW;
+-}
+-
+-static inline bool kvm_vcpu_trap_is_exec_fault(const struct kvm_vcpu *vcpu)
+-{
+-	return kvm_vcpu_trap_is_iabt(vcpu) && !kvm_vcpu_abt_iss1tw(vcpu);
++	return esr_trap_is_iabt(kvm_vcpu_get_esr(vcpu));
+ }
+ 
+ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
+@@ -478,26 +468,9 @@ bool kvm_vcpu_trap_is_translation_fault(const struct kvm_vcpu *vcpu)
+ 	return esr_fsc_is_translation_fault(kvm_vcpu_get_esr(vcpu));
+ }
+ 
+-static inline
+-u64 kvm_vcpu_trap_get_perm_fault_granule(const struct kvm_vcpu *vcpu)
+-{
+-	unsigned long esr = kvm_vcpu_get_esr(vcpu);
+-
+-	BUG_ON(!esr_fsc_is_permission_fault(esr));
+-	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(esr & ESR_ELx_FSC_LEVEL));
+-}
+-
+ static __always_inline bool kvm_vcpu_abt_issea(const struct kvm_vcpu *vcpu)
+ {
+-	switch (kvm_vcpu_trap_get_fault(vcpu)) {
+-	case ESR_ELx_FSC_EXTABT:
+-	case ESR_ELx_FSC_SEA_TTW(-1) ... ESR_ELx_FSC_SEA_TTW(3):
+-	case ESR_ELx_FSC_SECC:
+-	case ESR_ELx_FSC_SECC_TTW(-1) ... ESR_ELx_FSC_SECC_TTW(3):
+-		return true;
+-	default:
+-		return false;
+-	}
++	return esr_abt_is_sea(kvm_vcpu_get_esr(vcpu));
+ }
+ 
+ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
+@@ -506,9 +479,9 @@ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
+ 	return ESR_ELx_SYS64_ISS_RT(esr);
+ }
+ 
+-static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
++static inline bool esr_abt_is_write_fault(unsigned long esr)
+ {
+-	if (kvm_vcpu_abt_iss1tw(vcpu)) {
++	if (esr_abt_is_s1ptw(esr)) {
+ 		/*
+ 		 * Only a permission fault on a S1PTW should be
+ 		 * considered as a write. Otherwise, page tables baked
+@@ -521,13 +494,18 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+ 		 * first), then a permission fault to allow the flags
+ 		 * to be set.
+ 		 */
+-		return kvm_vcpu_trap_is_permission_fault(vcpu);
++		return esr_fsc_is_permission_fault(esr);
+ 	}
+ 
+-	if (kvm_vcpu_trap_is_iabt(vcpu))
++	if (esr_trap_is_iabt(esr))
+ 		return false;
+ 
+-	return kvm_vcpu_dabt_iswrite(vcpu);
++	return esr_dabt_is_write(esr);
++}
++
++static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
++{
++	return esr_abt_is_write_fault(kvm_vcpu_get_esr(vcpu));
+ }
+ 
+ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 5e10a4cd31ea..cb677ab76484 100644
+index d6187295c373..5e10a4cd31ea 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1655,21 +1655,22 @@ struct kvm_s2_fault_desc {
- 	struct kvm_s2_trans	*nested;
- 	struct kvm_memory_slot	*memslot;
+@@ -1657,10 +1657,35 @@ struct kvm_s2_fault_desc {
  	unsigned long		hva;
-+	unsigned long		esr;
  };
  
- static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
++static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
++{
++	return esr_fsc_is_permission_fault(kvm_vcpu_get_esr(s2fd->vcpu));
++}
++
++static bool kvm_s2_fault_is_exec(const struct kvm_s2_fault_desc *s2fd)
++{
++	return esr_abt_is_exec_fault(kvm_vcpu_get_esr(s2fd->vcpu));
++}
++
++static bool kvm_s2_fault_is_write(const struct kvm_s2_fault_desc *s2fd)
++{
++	return esr_abt_is_write_fault(kvm_vcpu_get_esr(s2fd->vcpu));
++}
++
++static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
++{
++	u64 level;
++
++	if (!kvm_s2_fault_is_perm(s2fd))
++		return 0;
++	level = kvm_vcpu_get_esr(s2fd->vcpu) & ESR_ELx_FSC_LEVEL;
++	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
++}
++
+ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
  {
--	return esr_fsc_is_permission_fault(kvm_vcpu_get_esr(s2fd->vcpu));
-+	return esr_fsc_is_permission_fault(s2fd->esr);
+ 	bool write_fault, exec_fault;
+-	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
++	bool perm_fault = kvm_s2_fault_is_perm(s2fd);
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+@@ -1690,8 +1715,8 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	else
+ 		gfn = s2fd->fault_ipa >> PAGE_SHIFT;
+ 
+-	write_fault = kvm_is_write_fault(s2fd->vcpu);
+-	exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu);
++	write_fault = kvm_s2_fault_is_write(s2fd);
++	exec_fault = kvm_s2_fault_is_exec(s2fd);
+ 
+ 	VM_WARN_ON_ONCE(write_fault && exec_fault);
+ 
+@@ -1910,11 +1935,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+ 	return vma_shift;
  }
  
- static bool kvm_s2_fault_is_exec(const struct kvm_s2_fault_desc *s2fd)
+-static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
+-{
+-	return kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+-}
+-
+ static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
+ 				     struct kvm_s2_fault_vma_info *s2vi)
  {
--	return esr_abt_is_exec_fault(kvm_vcpu_get_esr(s2fd->vcpu));
-+	return esr_abt_is_exec_fault(s2fd->esr);
- }
+@@ -1980,7 +2000,7 @@ static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
+ 		return ret;
  
- static bool kvm_s2_fault_is_write(const struct kvm_s2_fault_desc *s2fd)
+ 	s2vi->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, s2vi),
+-				      kvm_is_write_fault(s2fd->vcpu) ? FOLL_WRITE : 0,
++				      kvm_s2_fault_is_write(s2fd) ? FOLL_WRITE : 0,
+ 				      &s2vi->map_writable, &s2vi->page);
+ 	if (unlikely(is_error_noslot_pfn(s2vi->pfn))) {
+ 		if (s2vi->pfn == KVM_PFN_ERR_HWPOISON) {
+@@ -2038,7 +2058,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
  {
--	return esr_abt_is_write_fault(kvm_vcpu_get_esr(s2fd->vcpu));
-+	return esr_abt_is_write_fault(s2fd->esr);
- }
+ 	struct kvm *kvm = s2fd->vcpu->kvm;
  
- static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
-@@ -1678,7 +1679,7 @@ static u64 kvm_s2_perm_fault_granule(const struct kvm_s2_fault_desc *s2fd)
+-	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu) && s2vi->map_non_cacheable)
++	if (kvm_s2_fault_is_exec(s2fd) && s2vi->map_non_cacheable)
+ 		return -ENOEXEC;
  
- 	if (!kvm_s2_fault_is_perm(s2fd))
- 		return 0;
--	level = kvm_vcpu_get_esr(s2fd->vcpu) & ESR_ELx_FSC_LEVEL;
-+	level = s2fd->esr & ESR_ELx_FSC_LEVEL;
- 	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
- }
+ 	/*
+@@ -2056,13 +2076,13 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
  
-@@ -2067,7 +2068,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
- 	 * and trigger the exception here. Since the memslot is valid, inject
- 	 * the fault back to the guest.
- 	 */
--	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(s2fd->vcpu))) {
-+	if (esr_fsc_is_excl_atomic_fault(s2fd->esr)) {
- 		kvm_inject_dabt_excl_atomic(s2fd->vcpu, kvm_vcpu_get_hfar(s2fd->vcpu));
- 		return 1;
+ 	if (s2vi->map_writable && (s2vi->device ||
+ 				   !memslot_is_logging(s2fd->memslot) ||
+-				   kvm_is_write_fault(s2fd->vcpu)))
++				   kvm_s2_fault_is_write(s2fd)))
+ 		*prot |= KVM_PGTABLE_PROT_W;
+ 
+ 	if (s2fd->nested)
+ 		*prot = adjust_nested_fault_perms(s2fd->nested, *prot);
+ 
+-	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu))
++	if (kvm_s2_fault_is_exec(s2fd))
+ 		*prot |= KVM_PGTABLE_PROT_X;
+ 
+ 	if (s2vi->map_non_cacheable)
+@@ -2115,8 +2135,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 	if (mmu_invalidate_retry(kvm, s2vi->mmu_seq))
+ 		goto out_unlock;
+ 
+-	perm_fault_granule = (kvm_s2_fault_is_perm(s2fd) ?
+-			      kvm_vcpu_trap_get_perm_fault_granule(s2fd->vcpu) : 0);
++	perm_fault_granule = kvm_s2_perm_fault_granule(s2fd);
+ 	mapping_size = s2vi->vma_pagesize;
+ 	pfn = s2vi->pfn;
+ 	gfn = s2vi->gfn;
+@@ -2195,7 +2214,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 
+ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ {
+-	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
++	bool perm_fault = kvm_s2_fault_is_perm(s2fd);
+ 	struct kvm_s2_fault_vma_info s2vi = {};
+ 	enum kvm_pgtable_prot prot;
+ 	void *memcache;
+@@ -2342,7 +2361,7 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_s2_trans nested_trans, *nested = NULL;
+-	unsigned long esr;
++	unsigned long esr = kvm_vcpu_get_esr(vcpu);
+ 	phys_addr_t fault_ipa; /* The address we faulted on */
+ 	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
+ 	struct kvm_memory_slot *memslot;
+@@ -2351,11 +2370,9 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	gfn_t gfn;
+ 	int ret, idx;
+ 
+-	if (kvm_vcpu_abt_issea(vcpu))
++	if (esr_abt_is_sea(esr))
+ 		return kvm_handle_guest_sea(vcpu);
+ 
+-	esr = kvm_vcpu_get_esr(vcpu);
+-
+ 	/*
+ 	 * The fault IPA should be reliable at this point as we're not dealing
+ 	 * with an SEA.
+@@ -2364,7 +2381,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	if (KVM_BUG_ON(ipa == INVALID_GPA, vcpu->kvm))
+ 		return -EFAULT;
+ 
+-	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
++	is_iabt = esr_trap_is_iabt(esr);
+ 
+ 	if (esr_fsc_is_translation_fault(esr)) {
+ 		/* Beyond sanitised PARange (which is the IPA limit) */
+@@ -2381,7 +2398,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		}
  	}
-@@ -2518,6 +2519,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 		.nested		= nested,
- 		.memslot	= memslot,
- 		.hva		= hva,
-+		.esr		= esr,
- 	};
  
+-	trace_kvm_guest_fault(*vcpu_pc(vcpu), kvm_vcpu_get_esr(vcpu),
++	trace_kvm_guest_fault(*vcpu_pc(vcpu), esr,
+ 			      kvm_vcpu_get_hfar(vcpu), fault_ipa);
+ 
+ 	/* Check the stage-2 fault is trans. fault or write fault */
+@@ -2389,10 +2406,10 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	    !esr_fsc_is_permission_fault(esr) &&
+ 	    !esr_fsc_is_access_flag_fault(esr) &&
+ 	    !esr_fsc_is_excl_atomic_fault(esr)) {
+-		kvm_err("Unsupported FSC: EC=%#x xFSC=%#lx ESR_EL2=%#lx\n",
+-			kvm_vcpu_trap_get_class(vcpu),
+-			(unsigned long)kvm_vcpu_trap_get_fault(vcpu),
+-			(unsigned long)kvm_vcpu_get_esr(vcpu));
++		kvm_err("Unsupported FSC: EC=%#lx xFSC=%#lx ESR_EL2=%#lx\n",
++			ESR_ELx_EC(esr),
++			(unsigned long)(esr & ESR_ELx_FSC),
++			(unsigned long)esr);
+ 		return -EFAULT;
+ 	}
+ 
+@@ -2441,7 +2458,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 	gfn = ipa >> PAGE_SHIFT;
+ 	memslot = gfn_to_memslot(vcpu->kvm, gfn);
+ 	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
+-	write_fault = kvm_is_write_fault(vcpu);
++	write_fault = esr_abt_is_write_fault(esr);
+ 	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
+ 		/*
+ 		 * The guest has put either its instructions or its page-tables
+@@ -2454,7 +2471,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 			goto out;
+ 		}
+ 
+-		if (kvm_vcpu_abt_iss1tw(vcpu)) {
++		if (esr_abt_is_s1ptw(esr)) {
+ 			ret = kvm_inject_sea_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+ 			goto out_unlock;
+ 		}
+@@ -2469,7 +2486,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		 * So let's assume that the guest is just being
+ 		 * cautious, and skip the instruction.
+ 		 */
+-		if (kvm_is_error_hva(hva) && kvm_vcpu_dabt_is_cm(vcpu)) {
++		if (kvm_is_error_hva(hva) && esr_dabt_is_cm(esr)) {
+ 			kvm_incr_pc(vcpu);
+ 			ret = 1;
+ 			goto out_unlock;
+@@ -2506,9 +2523,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
  	if (kvm_vm_is_protected(vcpu->kvm)) {
+ 		ret = pkvm_mem_abort(&s2fd);
+ 	} else {
+-		VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
+-				!write_fault &&
+-				!kvm_vcpu_trap_is_exec_fault(vcpu));
++		VM_WARN_ON_ONCE(kvm_s2_fault_is_perm(&s2fd) && !write_fault &&
++				!kvm_s2_fault_is_exec(&s2fd));
+ 
+ 		if (kvm_slot_has_gmem(memslot))
+ 			ret = gmem_abort(&s2fd);
 
 -- 
 2.55.0
