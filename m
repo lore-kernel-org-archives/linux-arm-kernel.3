@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF20C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B208BC982FE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 00:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=byxZ3eQ63Vk9Fkq/DUT6PLJClKF/+WKsC5v2xz1cokk=; b=o41FvJr6ImnhFtzXFtaNfLNkoA
-	UtqEy5c0wQvljWmkEzFqHOkZ9ALjygaeebQqUJ9BX427eYFXvoCV+Q58yYMrb9z6ktbdqgUyZ+sqy
-	50GwPdbkQ98r8nvlhtC85Wn21jKnUFwi5xxp+GWxki4HOHGIFtmagdOpeNJwO83DDtg35ohoo8kxj
-	bhH8BgYwMnHs2Jox5uN1t6UVuOxKhV6cJe9xZN1wu6ZJCYIcaSZYzWjdWpTQxRthMbvmAlADuGIaj
-	D0JMOtyMn1MPazdvscFuwoA1UAIwC2/LTMrg4w5ubgTbs7JZV30HYPrCszKou1wsWSjTjYhH3pOP1
-	vfWEW5Pg==;
+	bh=xGq9rwKs6zOSERDHcPXz2t5IH8ioYzNY8P7u5lh0XZk=; b=RlDsdNaBDpm1kC6KBOOH9acyZP
+	KNeMPUnK9+fgzx1go4bSnuD86yWRzs6j2JVK9tuCU5P3GZHdUmn6ShZxpJr8ygze4+xaYNxr5U0Vv
+	GM/VHDeVVEoqofw5qYXVOfGfNRob12ldTcXyNbB4t0AjXHqbOKfnkXmqHL3qIBUGHJnmTkyQhJC6h
+	6SIq95PKkHbIa21fZ+0Fqu2fohLAhKwiMueLRYALd+59bSkDqsaJESRPsLV+IvnsPvguriKNdgk1d
+	XbXnM3VIAbEd7SkuYzmiA1d1c4+iDmYNbt/A2GWbVSBlg4+UeZUEYsY+gCJnGK3VYn37doUq6og3g
+	ya7264qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9B2a-00000006o8x-1Nl2;
-	Wed, 23 Sep 2026 00:40:52 +0000
+	id 1x9B9J-00000006oRx-0C5S;
+	Wed, 23 Sep 2026 00:47:49 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9B2X-00000006o8N-3wUU
+	id 1x9B9G-00000006oRS-1rHE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 00:40:51 +0000
+	Wed, 23 Sep 2026 00:47:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=byxZ3eQ63Vk9Fkq/DUT6PLJClKF/+WKsC5v2xz1cokk=; b=fVSSknXLY7SnkYsBrHenn0upvD
-	aCkBvgdZGdFKY8xc8qqCgV4BXxncsWrorpDQpA7dzXqKYnXMpv8ZuUg2OT57RUdvjpSgoGn1Ig9uI
-	NJqjRnaIo0uAhvaZHeSK2FLg23ECawRMG5qlDi6lMsF/tWZmExgMpuBkDSNSSS169eD4=;
+	bh=xGq9rwKs6zOSERDHcPXz2t5IH8ioYzNY8P7u5lh0XZk=; b=TX8yDkcxbI/5urihg4q3EwAXyu
+	7tesNQWje7Dx8qwWKaA4+9rkx5m3d6PPAGfxaZ3CU73YxZdyjB8zW9Jd1RnKT0vyM1dN+97nlFysf
+	NYySCAx5hUqRhq4DUd8DAafOH5xurHEhwNraT7mLGHXJaJahlNEctea/yIiVYpa8d54E=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1x9B23-006hOo-TG; Wed, 23 Sep 2026 02:40:19 +0200
-Date: Wed, 23 Sep 2026 02:40:19 +0200
+	id 1x9B8v-006hSd-KD; Wed, 23 Sep 2026 02:47:25 +0200
+Date: Wed, 23 Sep 2026 02:47:25 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: James Hilliard <james.hilliard1@gmail.com>
 Cc: Russell King <linux@armlinux.org.uk>,
@@ -66,18 +66,19 @@ Cc: Russell King <linux@armlinux.org.uk>,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net v2 1/2] net: phylink: allow stopping a suspended
- instance
-Message-ID: <f93298c9-33b1-4954-a213-828925df30a9@lunn.ch>
+Subject: Re: [PATCH net v2 2/2] net: stmmac: keep datapath state coherent
+ after reinitialization failure
+Message-ID: <af3d89fc-0fb5-41a9-98ab-5a7df4c10173@lunn.ch>
 References: <20260922-submit-stmmac-reset-fixes-v1-v2-0-d92e609be996@gmail.com>
- <20260922-submit-stmmac-reset-fixes-v1-v2-1-d92e609be996@gmail.com>
+ <20260922-submit-stmmac-reset-fixes-v1-v2-2-d92e609be996@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260922-submit-stmmac-reset-fixes-v1-v2-1-d92e609be996@gmail.com>
+In-Reply-To: <20260922-submit-stmmac-reset-fixes-v1-v2-2-d92e609be996@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_174049_977296_9C574762 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20260922_174746_484922_F1274F9B 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +93,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 05:27:40PM -0600, James Hilliard wrote:
-> If a network driver's system resume fails before phylink_resume(), the
-> network device can remain administratively up with phylink suspended.
-> Closing the interface then needs to terminate that suspended instance.
-> Calling phylink_resume() merely to make phylink_stop() work is not a safe
-> substitute: resume reconfigures the MAC and restarts link resolution,
-> although the driver has not successfully restored the MAC.
+On Tue, Sep 22, 2026 at 05:27:41PM -0600, James Hilliard wrote:
+> An MTU change releases the running datapath before reopening it.
 
-The first thing phylink_resume() does is:
+This is the real problem. Changing the MTU should not release the
+datapath. 
 
-	if (phylink_phy_pm_speed_ctrl(pl))
-		phylink_speed_up(pl);
+> If the reopen fails
 
-Is it guaranteed that phylink_stop() followed by phylink_start() will
-somehow do the equivalent?
+Why is reopen failing?
+
+You want the driver to allocate all the resources it needs before
+releasing its old resources. That way you can always undo part way
+through and still have a working interface.
 
 	Andrew
 
