@@ -4,119 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B41C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2E1C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0o3K+qSj0rH8rNjckbvlQGUFlWUX6ljGlyEpLaiCLk=; b=0JMswhwL2P8wfegOMYkliG+UXk
-	PEIvfbypCq7OKw4oGFLufuuCFwN449vEAf88HuOFXnjo0l9DaS4N8dy45OQePo+GlonyWCsb6q3K5
-	9KjCJ1B3L8+kfZjrdmqfi48wIP3Ns2/I057vOIwQIfDx+T7MO9aN2lHLrzg40Ma4PzL6D4lAuqJ0u
-	K8d4oB0mZiSfvf2ON2JGVUjS6sY3pghDMnu5QuASyq/OB1dJkI0+Cedmel12alNkVT0B1MRs6evTH
-	Bpxm8Q/Qa0WRhCftZFeDQEvLoPzLFTsv/GwBsJ3X4t/Tu4UlDmUI/MdQGK/s69IEI3074g+/9JNBP
-	N40smGDg==;
+	bh=EmefoQc4jPjF+J0TGd7A2/RbBqOLDCX0rbqb1Fx0Osg=; b=kRtYl+OFUUWGeDr7/NIDC3T64I
+	k2vqYNbwCkXiZhm94vEmEpfUaNE5Ip/A4SCAY9Zvp7u6Qbxk7VHgqlxL+3KJISd0K5L86ISaesswC
+	EVHsRWQ3+4K5FRCO0/1TqK1Nz//go9TAbE3hmSRPalZNAqlVrmcDbbLyq8eWtUOh5KB4Qcq8USxOX
+	TWeGtGEMA5Uqqjijqv1N9JbJXW11Rc7X75jA41I+XPoY9oB3HK1cXy8+dde89aJypfTFOSjoPVMcL
+	0kok0TeoZTA6Pa5OVsXYt7BdIqgWU0twuw7j3OM9ChSWmRUAGtXmMtsg0sK0IL22fTSrEiDS58803
+	JlhXSZfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MHt-00000008HSF-3xua;
-	Wed, 23 Sep 2026 12:41:25 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1x9MLr-00000008HwC-2AX7;
+	Wed, 23 Sep 2026 12:45:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MHr-00000008HQP-0yYm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:41:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ylNVLnVUaW8c20zHsWauTAZBVIMIxdCVDkSWVpisfMn+SUjXR9FBw4J6dL9ybpbZ9cGTeRhkVRaO24NFFGjVSEBgu51v3UAzM8HE7Rpw4UyrhEfgxTNYhfJplhudiTLKmF/tVqtIi1dKIOig8Q8DXIWd+8TDZHmWVJcfAY8n8CewoYH4zSz2SUDg2uLMG4WN8PBg4/GLTWNbSZq4yA2L4ZB65Ruu5/K1d5CAdrf6uqXYJPlgL1bwnzE87OQVC0cDkjWckcW3p0qKIguNSYFFcD0SCm4d3lCQi+33G/joTkEo5TzKkqtMQNKWeJjTPNLEqnF89QXnKt2/OezY2g0XpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J0o3K+qSj0rH8rNjckbvlQGUFlWUX6ljGlyEpLaiCLk=;
- b=YT9Zu53uEhBsoDWA7q9iW+60op43DkhiomXNuSzwFbbTUIbQHvM4uoB6oNkKSkrv02BDv81JfTpFFQUVMyiY/dLf78Cv8XIVNLpTcVMKhNco2VVZgiYLvYa1W0TXhrdra8pZIRkhkXhkkzXBZjyt1XI4kf26FP5iYCHzIUQNmfhrBxR7NoaHhxn4zmNUqZXK5ElcNhX7SyrOqX1K1PNZcxif96PR64Wmd9s4fqAm1Kg5VpzHtm0yc5GHPlmmAoXQf2OSXCyC+9FDXaCycD3C12to2AlPVRbmmPPRq1AJvJkOKXFo9fmE/xbIix3Vug0xb9M5iasujAqSqsQ2h2n7Bw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J0o3K+qSj0rH8rNjckbvlQGUFlWUX6ljGlyEpLaiCLk=;
- b=O8nntD9X7qlkFPrYpB8jk3TD7yiK1m7eF2u+I0BsTAu+SXmbiHGZy00hn1iLml7ToDS+SmQw+iM6mphxUA8SlCY1RkqxDZXw0wbQNlt6WNL1woA6GwY75Wcv6EJDn8Lpuq+rGSLuxqsxzeO+As+EKQI5VrXmIeVKG1lNHZR5aCeZHaKbABVrQHBORneDjf2H7gBt29B/UBhZ6Tnq7Yg5CxC79wSmBXyYFqs61e6GbhA6l11I0axU7R5p7OLrItXtRCUHdi6SVy8KU+2iBQ+qDm9RWcr1bT0/5Di1FgNyJ1MPpDHg/CW2fTt9IEEKzgVzUq/M9kZF/JWuca4J9wxCZw==
-Received: from BN0PR04CA0182.namprd04.prod.outlook.com (2603:10b6:408:e9::7)
- by MW6PR12MB8836.namprd12.prod.outlook.com (2603:10b6:303:241::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 12:41:13 +0000
-Received: from BN1PEPF00018547.namprd05.prod.outlook.com
- (2603:10b6:408:e9:cafe::71) by BN0PR04CA0182.outlook.office365.com
- (2603:10b6:408:e9::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.16 via Frontend Transport; Wed,
- 23 Sep 2026 12:41:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN1PEPF00018547.mail.protection.outlook.com (10.167.248.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 12:41:13 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
- 2026 05:40:52 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
- 2026 05:40:51 -0700
-Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Wed, 23 Sep 2026 05:40:50 -0700
-From: Jamie Nguyen <jamien@nvidia.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-CC: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Dat Mach
-	<dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
-Date: Wed, 23 Sep 2026 05:40:50 -0700
-Message-ID: <20260923124050.3270801-1-jamien@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla>
-References: <20260901192906.133670-1-jamien@nvidia.com> <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla> <20260922155211.676134-1-jamien@nvidia.com> <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla>
+	id 1x9MLq-00000008Hvz-1jsg;
+	Wed, 23 Sep 2026 12:45:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADB28601FB;
+	Wed, 23 Sep 2026 12:45:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80C161F000FF;
+	Wed, 23 Sep 2026 12:45:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790167529;
+	bh=EmefoQc4jPjF+J0TGd7A2/RbBqOLDCX0rbqb1Fx0Osg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U8NAhJ7wizrCzNw6S0+XjZ1LdYSxSz93GWHotpuZo7QUlcz6vhwmTjfSEiG5Uqeqn
+	 zFaQALfsTmT5mf4AwYG5kgzRKHOsWc23QV/Ro9KjCsUN/dN4YNr8j5l457yvNOf9li
+	 qpEI7Ocq9DL7NisThDaoRbYRVhYmYVimGeaG/vxCBQQuL+gERUmRZ6ur5+Xw/CX4Td
+	 9plBepGYn8qKYsIhKwJGZuAJBLceN7NcrjbiSxl9EoKRow/ojrlyzZTY0n4MuS1cmU
+	 lJ9UXUcwVAvCr+zBR82RGBkfQVVqH86sJX/TdkuLyWIsPvc8lc6oQWVHcE2OaeYwvi
+	 CjKXwYJHikDVA==
+Date: Wed, 23 Sep 2026 18:15:25 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Frank Li <Frank.Li@nxp.com>,
+	Christoph Stoidner <c.stoidner@phytec.de>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>, Vincent Mailhol <mailhol@kernel.org>,
+	Aswath Govindraju <a-govindraju@ti.com>
+Subject: Re: [PATCH V5 0/4] arm64: dts: freescale: Add chargebyte Charge
+ Control Y
+Message-ID: <arPJ5TUZEeb2SAV3@parshuram>
+References: <20260907150420.18787-1-wahrenst@gmx.net>
+ <9cb548d3-f3cf-4757-a9ff-5f878479c7d7@gmx.net>
+ <arFDUby0v52HSNnU@SMW015318>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018547:EE_|MW6PR12MB8836:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5eff6a1c-c33e-426d-0aa7-08df196ff3d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|23010399003|11063799006|56012099006|10067099003|6133799003|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info: QKJDFDM6XtjvRlZsBC0WSAoj40CoRSmT2zRY2R5kEhFZgNzdOXGu5NTujTM+qIyVFaQdAbo2bC9/qVGH26U6HywaP428zSmi62U5ytAQ8aMPDe7GbXDxuXSy6ARuO7mBHjT+TyU2SaGik7kwdy3SBz7r/KQu1PBY+P2iHKvDH2UvhOdfn5wTuZrbG9r8X/5EUIaqx5Wp3fCypDxccaoFuvoaQ9xvPowBDi+YFL1udwgzQ75I5L4Lgqcw0K64gr/FmEs2d4R33mYEbt8J7JUQbLbx0yX4DK9siPvlgC4R38Nbg00f6n+7INyNuUyFhEz7Y1N/0na7pXekd3mlJG9EewQ2nFO1PHRTL+UpxlpS6LNvBqdOBmb9PiaNS551ifBlQYP4+nRmPT3CIvapvfhE9uGkNLHDIpcsHzmtpkkmkZdt3piaA21aZ7zT4MMgE2R/Ox62/jMutAJBlfkSu0CsXFKjoqfpywh7Qx489DMgC28o1z/8K97sQMg7vYxySOBAS+BU04K8s6dXLhNThHQcoNJvhKCMXHTHlKdbm7P3TSTYpt9xIP1RtTULLvN4CSb/VhNwObHN/V6k40h94MhQZPf1xJpWR0GKxGsSR0oaWkgIb78Bx2/UShRze52t4u4f9GKsWBuCeec7vjuTKgav1VWxNBdQtxF5CKfm5kdbr0/SwXOxjjH15Crj981Fx5kHQIRpyawaOqAhXuNSsrbuKw==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(23010399003)(11063799006)(56012099006)(10067099003)(6133799003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: BAFkMSYp++sftzVKKTePpAn6A97R2nvjzWRIVPqzAhuJI/rCB/EoXKiyl+i400n9Bi/QfFuP8q6G9LZ62OkImg2u40lzYlYj65/u/tgUAjPEP5ZRhweXznXkl3W32SlUANEu62yvDdL+dxMH/YcYiU7UNOomOBt6KupOlHUuxNWyip+YMSCJaS2lE9+bEPuJcOwZgNDGdojVv1hmAZRG1AtU7DtxBy4SSVzC24C26qPjsv92Lt8eZUmsH3YEkL1tpIFT7/uFuDtR23b4TCIVF/lAhvZ+oGc7OfyfcS938mm1KeGT368yoBNimxvs1TUymTzA7/XOTVdmPXF9mFDQfv+3fqUtctvrP59mjdWBiUzCxsUlEHeMhGHpbhhoxUqbP0Pbn061S9CDIXlCEMgRepv43u+G+c+65rj1j+WB7GztQfCIfuGZd90+G1VHguJ5
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 12:41:13.0956
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5eff6a1c-c33e-426d-0aa7-08df196ff3d5
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018547.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8836
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_054123_276007_3308D5C6 
-X-CRM114-Status: GOOD (  13.81  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <arFDUby0v52HSNnU@SMW015318>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,32 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 07:06:02PM +0100, Sudeep Holla wrote:
-> Equally ugly. FF-A spec doesn't talk about ACPI FFH, so it doesn't
-> belong in FF-A driver.
+On 21-09-26, 09:46, Frank Li wrote:
+> On Mon, Sep 21, 2026 at 03:09:23PM +0200, Stefan Wahren wrote:
+> > Hi Frank,
+> >
+> > Am 07.09.26 um 17:04 schrieb Stefan Wahren:
+> > > This series adds support for the chargebyte Charge Control Y, which is
+> > > an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
+> > > Charging System) charging stations.
+> > >
+> > > sashiko reported in the first version of the series [1] that X_nRST_LAN
+> > > is available via GPIO line names, but there is no reset mechanismn in the
+> > > device tree. This finding is valid. Since the reset line feature isn't
+> > > implemented for LAN8651 driver yet, I like to proceed with the current
+> > > version. The LAN8651 handles reset via SPI commands and in rare cases
+> > > we still have the possibility to control the reset from userspace.
+> > > Btw the pin has a pull resistor in hardware, so it's not floating.
+> > >
+> > > sashiko complained in the fourth version of the series [2] about the
+> > > reset polarity of ethphy2 and the different drive strength across the
+> > > data lines. Both is intended.
+> > >
+> > > [1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C1F000E9@smtp.kernel.org/
+> > > [2] - https://lore.kernel.org/linux-devicetree/20260903082122.A777C1F000E9@smtp.kernel.org/
+> > >
+> > > Changes in V5:
+> > > - fix delete-node for pinctrl_leds (reported by sashiko)
+> > > - add Krzysztof's Reviewed-by
+> > I didn't received any feedback for V5 yet. Do you have any comments or could
+> > it be merged?
+> 
+> Wait for vinod pick phy binding part.
 
-Okay -- I'll move the ACPI-specific handling into ffh.c.
+Done now
 
-> So if on a platform, ASL has FFH with offset 2, we fail if FF-A driver
-> fails to initialise ? What if this FFH offset 2 is used in some other
-> device methods that need to be executed before FF-A module is inserted ?
-> We pull that device down as well ? Is that acceptable ?
-
-You're right. With the current registration, offset 2 may be unavailable
-during initial enumeration or before module load. That's not suitable for
-AML.
-
-> There is no state management with simple FFA_MSG_SEND_DIRECT_REQ2, it is
-> synchronous send request if you look at it along wih offset 0/1 and
-> without FF-A driver knowledge.
-
-The request itself is synchronous and register-only. But the whole operation
-still shares FF-A state: version negotiation must be coordinated with other
-FF-A use, and X1 == 0 needs UUID lookup. It looks like
-FFA_PARTITION_INFO_GET_REGS is optional at the Non-secure physical instance
-according to DEN0077A Table 13.1. As such, I believe a portable
-implementation would need the shared RX/TX buffers. For example, if X1 is
-zero and that ABI is unavailable, UUID lookup would need to fall back to
-FFA_PARTITION_INFO_GET, whose results are returned through the caller's RX
-buffer.
+-- 
+~Vinod
 
