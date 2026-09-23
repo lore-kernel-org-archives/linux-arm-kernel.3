@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE119C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82352C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6UMupoNfdFGNLusOYINopYECfHIuaW8AvYMk6MooXCs=; b=PC0YzDRouXChnz6HREOO2z0OOt
-	eAQ5CfDK9ebeGd+Z7YTHJ/7ooDpbSYoH1yxus7hPgotst8/NPD/B1jI78DpmiaSsGpEgn1ljJRpt+
-	jyfajis9CVIDhOM7mxgSRHoHQ/i2MWm+xKwd0TJH8tC808p1CTDyinjPD8knceiSTfZQcwiM3VvaX
-	MmANU4/hoQ3J8JWtVcYCYTvBTFzJ/tVxI63DoSbSqZUydu7mcn46dOwUgUwnzpibfDCk70n15e2uS
-	66oS9C7cJuHGOpfA7vaicBOYFanSkIta+beACMNEzm+LqU4rAJxALsSXMbA0UkxTSkThf0264r/Jw
-	NOMNGBKA==;
+	bh=8rj79nPWv1tuwc4gmMfzokJTt77/w2020N1Ve/ImKMs=; b=xgIdyarRF//eCokpZHDZmgpfSm
+	fbq9CEdzmFxtdMOHbQdEkQllR74d+elbaJsoQnFrY/YCcGXgFUutYENvRk8tsM4GTEJIzKuzImHa+
+	nIzBDC7JqqGjEsAXjMOITD23bumZH7B+PCMan5uTDHjGb6lv76kh/PMaqN/tdxX63i5r4ITfEmFfq
+	+Jo+gMn1SsmgxEN0u9PGVis+rSzBVnHQkM09OTw/mU+IK25mDmfD4L3cy0GqSTMy3c1Cbwo3EixRM
+	fLmJKp6goich0EwX40gDkrL8FXhRnrs8mlyRo0Fv1tJ4bA72ZwEdr6K97oQmIuym/X4rplfgq+g8F
+	XMuHTeMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Oo2-00000008iDX-3z8C;
-	Wed, 23 Sep 2026 15:22:46 +0000
+	id 1x9Oo3-00000008iEG-1XqG;
+	Wed, 23 Sep 2026 15:22:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OnW-00000008hv4-22eZ
+	id 1x9Onb-00000008hyK-2ULf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:22:19 +0000
+	Wed, 23 Sep 2026 15:22:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27F231D13;
-	Wed, 23 Sep 2026 08:22:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4979C1D6F;
+	Wed, 23 Sep 2026 08:22:15 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F38D3F86F;
-	Wed, 23 Sep 2026 08:22:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F9663F86F;
+	Wed, 23 Sep 2026 08:22:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790176933; bh=MElIxOjSVxPdBco/8DPDHK5NhvwHvte23jsz8G8f+rM=;
+	t=1790176938; bh=hPqdR80akvK7Nfqzy3k8MnAmzU+aKUYR/Uuzx/bHgb8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LH/LRUMKRLOIPuKLKmk7PEsVpOo1X/VUd1L9nrIXZemJ7HFAnypchvd3nC+X43tFJ
-	 PWiWVbfzWj0dx3iVistehIvUtr+PQyMSL0DJgR7KVZ0ZVKEGYcu5bJ6YiUDzQrfvgg
-	 ryCAoYtOdw9cVHC9nWq2wIV8qKMAW+F2fV8Q9Tnw=
+	b=rvnX2tfWzMyqeIs2iJOYRIxwOhQO2Wh3jtiedIkrBrJ03RhUwDZUIBm8V3emR4JhR
+	 3qiPoEcYo1An7jDY5YWWc203NLu1dXaHLF87T9XZdeThpJGcUDRbw0GH1eb3Im4NB/
+	 fe9ETNTHLAq9CmEBVfE5kZjb8a9UmLF5TrrKzLGs=
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 23 Sep 2026 16:21:47 +0100
-Subject: [PATCH v2 07/14] perf cs-etm: Factor out final instruction sample
- synthesis
+Date: Wed, 23 Sep 2026 16:21:49 +0100
+Subject: [PATCH v2 09/14] perf cs-etm: Classify exception calls using the
+ exception packet
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-perf_cs_etm_fix_non_taken-v2-7-6ab8c07a5455@arm.com>
+Message-Id: <20260923-perf_cs_etm_fix_non_taken-v2-9-6ab8c07a5455@arm.com>
 References: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
 In-Reply-To: <20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -59,16 +59,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790176913; l=3714;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790176913; l=4462;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=MElIxOjSVxPdBco/8DPDHK5NhvwHvte23jsz8G8f+rM=;
- b=PcwS9HINPU78ZZZPPE0+emH4fKk1SGGj3QzMUJEah63+DQBdZ7D49nPXZb5RqIEM39gBUfqIb
- rJMKpmWktBwCs/1vjH6XKhONX5ex0F+69wH+EKHhQgyIhOp32SdCfQu
+ bh=hPqdR80akvK7Nfqzy3k8MnAmzU+aKUYR/Uuzx/bHgb8=;
+ b=PnSsJFS+2FvuZNBiU02dhEYbvGfqez75wpNzNNCgPt5Rai7e9KtxQ4OW7KFOy6bs34jHyuQ/7
+ dfiKaG22yKaBEglTDJ/AmusPDtSPnqe876q/+Fo/diFa8RLcGUoyuqY
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_082214_630686_9CDD7BEC 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260923_082219_808668_E5224A57 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,121 +83,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cs_etm__flush() and cs_etm__end_block() duplicate the instruction sample
-used to report the remaining branch history at the end of a trace.
+ETMv4 and ETE use the same exception number for SVC, HVC and SMC.
+Identify SVC by inspecting the instruction before the preferred return
+address in the exception packet.
 
-Move this code into cs_etm__synth_last_instruction_sample(), preserving
-the sample generation and instruction period reset.
+Preserve the exception level and preferred return address from OpenCSD,
+and use them with the packet's ISA in cs_etm__is_syscall() and
+cs_etm__is_sync_exception(). This makes exception call classification
+independent of the preceding instruction range.
 
 Assisted-by: Codex:gpt-6
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 71 ++++++++++++++++++------------------------------
- 1 file changed, 26 insertions(+), 45 deletions(-)
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c |  7 ++++++-
+ tools/perf/util/cs-etm.c                        | 10 +++-------
+ tools/perf/util/cs-etm.h                        |  1 +
+ 3 files changed, 10 insertions(+), 8 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index c54218aeef53e8420447e9a2bee6e98d8225e335..5b5ee52c0277f5ff8f03c2908e4af1d7801845ff 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -1685,6 +1685,28 @@ static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
+diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+index 469aba5e596a791289c5bcece132aba7b0baf6c3..48e8c355a3e495cc30dcb4056c04a034d10ce860 100644
+--- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
++++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+@@ -511,7 +511,8 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
+ 				 struct cs_etm_packet_queue *queue,
+ 				 const ocsd_generic_trace_elem *elem,
+ 				 const uint8_t trace_chan_id)
+-{	int ret = 0;
++{
++	int ret = 0;
+ 	struct cs_etm_packet *packet;
+ 
+ 	ret = cs_etm_decoder__buffer_packet(etmq, queue, elem, trace_chan_id,
+@@ -521,6 +522,10 @@ cs_etm_decoder__buffer_exception(struct cs_etm_queue *etmq,
+ 
+ 	packet = &queue->packet_buffer[queue->tail];
+ 	packet->exception_number = elem->exception_number;
++	if (elem->context.el_valid)
++		packet->el = elem->context.exception_level;
++	if (elem->excep_ret_addr)
++		packet->end_addr = elem->en_addr;
+ 
  	return ret;
  }
- 
-+static int cs_etm__synth_last_instruction_sample(struct cs_etm_queue *etmq,
-+						 struct cs_etm_traceid_queue *tidq)
-+{
-+	struct cs_etm_packet *packet = tidq->prev_packet;
-+	int ret;
-+
-+	if (!etmq->etm->synth_opts.last_branch ||
-+	    !etmq->etm->synth_opts.instructions)
-+		return 0;
-+
-+	if (packet->sample_type != CS_ETM_RANGE)
-+		return 0;
-+
-+	ret = cs_etm__synth_instruction_sample(etmq, tidq, packet,
-+					       cs_etm__last_executed_instr(packet),
-+					       tidq->period_instructions);
-+	if (!ret)
-+		tidq->period_instructions = 0;
-+
-+	return ret;
-+}
-+
- /*
-  * The cs etm packet encodes an instruction range between a branch target
-  * and the next taken branch. Generate sample accordingly.
-@@ -2023,28 +2045,9 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
- 	if (tidq->prev_packet->sample_type == CS_ETM_EMPTY)
- 		goto swap_packet;
- 
--	if (etmq->etm->synth_opts.last_branch &&
--	    etmq->etm->synth_opts.instructions &&
--	    tidq->prev_packet->sample_type == CS_ETM_RANGE) {
--		u64 addr;
--		/*
--		 * Generate a last branch event for the branches left in the
--		 * circular buffer at the end of the trace.
--		 *
--		 * Use the address of the end of the last reported execution
--		 * range
--		 */
--		addr = cs_etm__last_executed_instr(tidq->prev_packet);
--
--		err = cs_etm__synth_instruction_sample(
--			etmq, tidq, tidq->prev_packet, addr,
--			tidq->period_instructions);
--		if (err)
--			return err;
--
--		tidq->period_instructions = 0;
--
--	}
-+	err = cs_etm__synth_last_instruction_sample(etmq, tidq);
-+	if (err)
-+		return err;
- 
- 	if (etm->synth_opts.branches &&
- 	    tidq->prev_packet->sample_type == CS_ETM_RANGE) {
-@@ -2066,8 +2069,6 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
- static int cs_etm__end_block(struct cs_etm_queue *etmq,
- 			     struct cs_etm_traceid_queue *tidq)
- {
--	int err;
--
- 	/*
- 	 * It has no new packet coming and 'etmq->packet' contains the stale
- 	 * packet which was set at the previous time with packets swapping;
-@@ -2077,27 +2078,7 @@ static int cs_etm__end_block(struct cs_etm_queue *etmq,
- 	 * event for the branches left in the circular buffer at the end of
- 	 * the trace.
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index c8a92b5dba6001329d68766d540b9b7ead90e9e6..a40b3b2fe2e6318154111d9b7ebd05bee53934f1 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -2019,7 +2019,7 @@ static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
+ 	 * to generate branch sample for the instruction range before the
+ 	 * exception is trapped to kernel or before the exception returning.
+ 	 *
+-	 * The exception packet includes the dummy address values, so don't
++	 * The exception packet does not describe an instruction range, so don't
+ 	 * swap PACKET with PREV_PACKET.  This keeps PREV_PACKET to be useful
+ 	 * for generating instruction and branch samples.
  	 */
--	if (etmq->etm->synth_opts.last_branch &&
--	    etmq->etm->synth_opts.instructions &&
--	    tidq->prev_packet->sample_type == CS_ETM_RANGE) {
--		u64 addr;
--
--		/*
--		 * Use the address of the end of the last reported execution
--		 * range.
--		 */
--		addr = cs_etm__last_executed_instr(tidq->prev_packet);
--
--		err = cs_etm__synth_instruction_sample(
--			etmq, tidq, tidq->prev_packet, addr,
--			tidq->period_instructions);
--		if (err)
--			return err;
--
--		tidq->period_instructions = 0;
--	}
--
--	return 0;
-+	return cs_etm__synth_last_instruction_sample(etmq, tidq);
- }
+@@ -2225,7 +2225,6 @@ static bool cs_etm__is_syscall(struct cs_etm_queue *etmq,
+ 			       struct cs_etm_traceid_queue *tidq, u64 magic)
+ {
+ 	struct cs_etm_packet *packet = tidq->packet;
+-	struct cs_etm_packet *prev_packet = tidq->prev_packet;
  
- static int cs_etm__flush_stack_cb(struct thread *thread,
+ 	if (magic == __perf_cs_etmv3_magic)
+ 		if (packet->exception_number == CS_ETMV3_EXC_SVC)
+@@ -2238,8 +2237,7 @@ static bool cs_etm__is_syscall(struct cs_etm_queue *etmq,
+ 	 */
+ 	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic) {
+ 		if (packet->exception_number == CS_ETMV4_EXC_CALL &&
+-		    cs_etm__is_svc_instr(etmq, tidq, prev_packet,
+-					 prev_packet->end_addr))
++		    cs_etm__is_svc_instr(etmq, tidq, packet, packet->end_addr))
+ 			return true;
+ 	}
+ 
+@@ -2277,7 +2275,6 @@ static bool cs_etm__is_sync_exception(struct cs_etm_queue *etmq,
+ 				      u64 magic)
+ {
+ 	struct cs_etm_packet *packet = tidq->packet;
+-	struct cs_etm_packet *prev_packet = tidq->prev_packet;
+ 
+ 	if (magic == __perf_cs_etmv3_magic)
+ 		if (packet->exception_number == CS_ETMV3_EXC_SMC ||
+@@ -2301,8 +2298,7 @@ static bool cs_etm__is_sync_exception(struct cs_etm_queue *etmq,
+ 		 * (SMC, HVC) are taken as sync exceptions.
+ 		 */
+ 		if (packet->exception_number == CS_ETMV4_EXC_CALL &&
+-		    !cs_etm__is_svc_instr(etmq, tidq, prev_packet,
+-					  prev_packet->end_addr))
++		    !cs_etm__is_svc_instr(etmq, tidq, packet, packet->end_addr))
+ 			return true;
+ 
+ 		/*
+diff --git a/tools/perf/util/cs-etm.h b/tools/perf/util/cs-etm.h
+index b81099c2b301c25f894cc9a50edfde87aceff49d..4d03f2a680b58aacd91c9f6c957fb2d38e7ac2ad 100644
+--- a/tools/perf/util/cs-etm.h
++++ b/tools/perf/util/cs-etm.h
+@@ -174,6 +174,7 @@ struct cs_etm_packet {
+ 	enum cs_etm_sample_type sample_type;
+ 	enum cs_etm_isa isa;
+ 	u64 start_addr;
++	/* For exceptions: preferred return address, or CS_ETM_INVAL_ADDR. */
+ 	u64 end_addr;
+ 	u32 instr_count;
+ 	u32 last_instr_type;
 
 -- 
 2.34.1
