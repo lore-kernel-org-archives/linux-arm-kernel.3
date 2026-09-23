@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F77C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6AAC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H5S0ck3gdeA68aFJF+/2ViN8qQjJT7WhfD6QVIMv7Vk=; b=Ptnsj3KyGdbc9CP4jvdVFQhORo
-	8fwUINgLJMV7tZNAq0kYWl1UOit+ZVg9EmUsPWXZVVwnz7EkInhp4WufSAea6bBHoVtw+v5AE/hhv
-	NGqM1vErK4973e8Em83eCNg9ZGqnC7NrO/h8y+/9IHxJ/CojTc1XjyNvLwB7KM2sSf60S/A+c8E8C
-	uWgNvmuCNjm8V5HD3OZ79t1NChCF0oyVr/FhOXumoEgBDxyfZjcZId0li6NU6MRJFzp1KE+xb1WIX
-	CJqeRxKFoZD97rDuLKyLlNtGFxsn7GhT2TBJ/iMOlTdmjnD3crxvaaPR0VHFQbN4nSBEXJkAgN6/0
-	ciX69ihQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AoaZpaOhxJ3jsXpsRX7MsSfy3c9E4uGe0ETxzBg6RFg=; b=nydIxZIFsbf8+60hWJ5m527QiR
+	syA3+XD0buUGaQu+d32/J3Mu+qXaL/qsOmH+k8YyRnnbfK1yGRVa491u171TZ2G47egtd/TPeRLuG
+	ROlqq5nZwXD1IWyqCEThVa8njh+PxjFrYIBiSqxknbqNJgU2+900ecbm0PJbrbNfuJlTxbEnOPbiv
+	gpxhd6vvmNfY176LBQtLNjaoJT4lxaVf2joTXkdJcwUtiy7We35TzygVpW2z5uq7ZrUHyR+iPAyS6
+	aozhXryu2LxGgFR1syCXIDg5NzWmbYmiabymGmMCa79uHbL5YLGS4gKbT1iDvkF3PDsM2oDKsmv1V
+	Q4LuVglQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KH9-00000007uBu-3KTo;
-	Wed, 23 Sep 2026 10:32:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x9KHM-00000007uJ5-0fW6;
+	Wed, 23 Sep 2026 10:32:44 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KH6-00000007uAY-1xyZ;
-	Wed, 23 Sep 2026 10:32:29 +0000
+	id 1x9KH7-00000007uAc-2NQT;
+	Wed, 23 Sep 2026 10:32:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790159545;
-	bh=kHhWudTgVsro0XbOJkN9vDbK3sEtyOdWWA0FcJwwoOw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OEBcH7GGSk65/WVw1yqb8yhjClfiiQd6etWpk+bVbcFuJu53V2F/ciAzfGo2WkhHx
-	 cHmCpxGKYK5DlMem9Y/p3H2aj4+LZnITHtpr/WMZJJIHiZ2cT1qp0HsbgFSN4mPQ36
-	 Ah1RQShb818V1ENAExkvbmltAtoS0yUvw6XincUDIUjtb0RXEgl5wJ+YkPDTKEI+M9
-	 C7gWWS/SFgnfMn8cOOQLCOXh4xjKZJwM5DXHM0s03LaZOlwVqQMhjSYOuEbQMG8Mlx
-	 7aAmsujck1Z/vRGsCN21daXkVHOBwkqa7kguncNU55BKuAbxS9+t2Exm9cwDzwFwMz
-	 2qcg3Q3BJzI5A==
+	s=mail; t=1790159546;
+	bh=988dhDBtd7g+tpgVz0uwEhaGJxjatXUHLGg6/ZegZJk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KLTpos7rUO64wlQRUWMGS63EqfFNAxOjxjY+SPUd2fHlX3gSgVmrvD6wpOuHm9e/Z
+	 J3O4oOVupFjMyzzXuUPv7dS7mRfEaZpgz3LWZQ1/zWoy+bguQ9QHaljA4As9bl4TtQ
+	 NronXdNzZMKfXhfh1laq5VN6SmGBE7JCmQ5F8Mt1tMghwWm57iXba7q6XZVTzHKH9f
+	 Qy3nfK8bzoVB1JHXWzUbdw7hFrRmNc6ym/B5jVJjYaYqBTfJPwToOm8LGql720N81v
+	 TGqP6bmWqVRBZE8IWyu9pds7gOUkoW0tdBczdOwhzq3fa65zoKisSADme2T5ShAOrZ
+	 BV6UkDnRIbotA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 788DF17E0034;
-	Wed, 23 Sep 2026 12:32:25 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 504E317E020C;
+	Wed, 23 Sep 2026 12:32:26 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: arm-soc <arm@kernel.org>,
 	soc <soc@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	matthias.bgg@gmail.com
-Subject: [GIT,PULL,1/3] MediaTek ARM64 Device Tree updates for v7.4
-Date: Wed, 23 Sep 2026 12:32:05 +0200
-Message-ID: <20260923103222.25504-1-angelogioacchino.delregno@collabora.com>
+Subject: [GIT,PULL,3/3] MediaTek SoC driver updates for v7.4
+Date: Wed, 23 Sep 2026 12:32:07 +0200
+Message-ID: <20260923103222.25504-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260923103222.25504-1-angelogioacchino.delregno@collabora.com>
+References: <20260923103222.25504-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_033228_666020_3FC06348 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20260923_033229_750945_7094038A 
+X-CRM114-Status: UNSURE (   7.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,79 +81,28 @@ The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/ tags/mtk-dts64-for-v7.4
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/ tags/mtk-soc-for-v7.4
 
-for you to fetch changes up to bf89276b2db391cbb25d1a0e898280fe85b16fb5:
+for you to fetch changes up to 96c2b43b1fb305e91700f64e9f758fc140c66b83:
 
-  arm64: dts: mediatek: mt7988a-bpi-r4pro: label gpio-hogs (2026-09-21 12:22:18 +0200)
-
-----------------------------------------------------------------
-MediaTek ARM64 DeviceTree updates
-
-As the most exciting change, this finally adds support for the
-PowerVR Rogue GX6250 GPU on the MediaTek MT8173 SoC which can
-now enjoy graphics acceleration after years of SW rendering on
-a SoC featuring rather slow CPU cores by today's standards.
-
-This also adds an important fix for the frequency of the
-architected timer on the MT7986A/MT7986B SoCs, resolving
-issues with NTP correction limits.
-
-Additional changes include:
- - Addition of labels to the GPIO hogs and the GPIO expander
-   chip on the BananaPi R4 Pro;
- - Addition of ramoops memory region on BananaPi R3 and R4;
- - Addition of address/size cells in /firmware node for all
-   of the supported Chromebooks;
- - Size increase for the SCP Core 0 memory region in MT8188 Geralt;
- - Indentation fixes in MT8173
+  soc: mediatek: mt8167-mmsys: add routes for all display paths (2026-09-21 15:10:28 +0200)
 
 ----------------------------------------------------------------
-Andrea Pesaresi (1):
-      arm64: dts: mediatek: mt7986: correct timer frequency
+MediaTek SoC driver updates
 
-Brian Norris (1):
-      arm64: dts: mediatek: Add #{address,size}-cells to Chromium-based /firmware
+This adds support for GPU<->SRAM regulator coupling for the
+MediaTek MT8189 SoC, and introduces more MMSYS routes for
+display controller pahs of the MediaTek MT8167 SoC.
 
-Chen-Yu Tsai (2):
-      arm64: dts: mediatek: mt8173: Fix MFG_ASYNC power domain clock
-      arm64: dts: mediatek: mt8173: Add GPU device nodes
-
-Frank Wunderlich (2):
-      arm64: dts: mediatek: mt7988a-bpi-r4pro: add names for i2c-to-gpio chip
-      arm64: dts: mediatek: mt7988a-bpi-r4pro: label gpio-hogs
-
-Igor Belwon (2):
-      arm64: dts: mediatek: mt6878-pinfunc: Fix pinctrl header path
-      arm64: dts: mediatek: mt6893-pinfunc: Fix pinctrl header path
-
+----------------------------------------------------------------
 Justin Yeh (1):
-      arm64: dts: mediatek: mt8188-geralt: Enlarge SCP core0 memory region
+      soc: mediatek: mtk-regulator-coupler: Add support for MT8189
 
-Krzysztof Kozlowski (1):
-      arm64: dts: mediatek: mt8173: Replace spaces indentation with tabs
+Luca Leonardo Scorcia (1):
+      soc: mediatek: mt8167-mmsys: add routes for all display paths
 
-Martino Dell'Ambrogio (2):
-      arm64: dts: mediatek: mt7986a-bananapi-bpi-r3: add ramoops region
-      arm64: dts: mediatek: mt7988a-bananapi-bpi-r4: add ramoops region
-
- arch/arm64/boot/dts/mediatek/mt6878-pinfunc.h                      |  2 +-
- arch/arm64/boot/dts/mediatek/mt6893-pinfunc.h                      |  2 +-
- arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts           | 13 +++++++++++++
- arch/arm64/boot/dts/mediatek/mt7986a.dtsi                          |  1 +
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro-cn13.dtso |  1 +
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro-cn14.dtso |  1 +
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro-cn15.dtso |  1 +
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro-cn18.dtso |  1 +
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi      | 18 ++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi          | 13 +++++++++++++
- arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi                       |  5 +++++
- arch/arm64/boot/dts/mediatek/mt8173.dtsi                           | 35 +++++++++++++++++++++++++++++++++--
- arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi                     |  5 +++++
- arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi                   |  5 +++++
- arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi                    |  7 ++++++-
- arch/arm64/boot/dts/mediatek/mt8192-asurada.dtsi                   |  5 +++++
- arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi                    |  5 +++++
- 17 files changed, 115 insertions(+), 5 deletions(-)
+ drivers/soc/mediatek/mt8167-mmsys.h          | 183 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ drivers/soc/mediatek/mtk-regulator-coupler.c |   1 +
+ 2 files changed, 175 insertions(+), 9 deletions(-)
 
 
