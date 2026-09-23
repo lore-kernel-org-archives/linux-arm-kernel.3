@@ -4,116 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403DBC9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B41C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrBXUqSfBJNVOGA4p1L4WG725TYm+nXRxrzQgFuRPz4=; b=2Bee47gCcOMjL5FApjsHLdDKBm
-	W/zdXpMPcY3CWT1y16NsmezvOUGZDUt2SG2HbqUd90Ezsdenk/Yyok+UCY1xJsoM6oV4JeUEIYabG
-	WTEkG48eozOau5Hji1QJI6CWVJFmC5CHQlTH9NIPMzKr2SFwQ4NYulrUfxxL4H34pz8POxNvqTeKu
-	3MpxZmIoLVgPuShd5QKaUNIAf5jOMQJu93BdTfWh1WzAuIE/jHlPDdtJzHcJmCMrZ7EIz3ThVHg2S
-	7SUBNUqBaWhayJ00bu25B1o+nHL91Hn92slkyNwzgRJ1jjYpedUIk6F7KO02J7Cthvj1skDSTfJVr
-	w/PxFqeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0o3K+qSj0rH8rNjckbvlQGUFlWUX6ljGlyEpLaiCLk=; b=0JMswhwL2P8wfegOMYkliG+UXk
+	PEIvfbypCq7OKw4oGFLufuuCFwN449vEAf88HuOFXnjo0l9DaS4N8dy45OQePo+GlonyWCsb6q3K5
+	9KjCJ1B3L8+kfZjrdmqfi48wIP3Ns2/I057vOIwQIfDx+T7MO9aN2lHLrzg40Ma4PzL6D4lAuqJ0u
+	K8d4oB0mZiSfvf2ON2JGVUjS6sY3pghDMnu5QuASyq/OB1dJkI0+Cedmel12alNkVT0B1MRs6evTH
+	Bpxm8Q/Qa0WRhCftZFeDQEvLoPzLFTsv/GwBsJ3X4t/Tu4UlDmUI/MdQGK/s69IEI3074g+/9JNBP
+	N40smGDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MHK-00000008HIo-310g;
-	Wed, 23 Sep 2026 12:40:50 +0000
-Received: from mail-ej2-x06.google.com ([2a00:1450:4864:34::6])
+	id 1x9MHt-00000008HSF-3xua;
+	Wed, 23 Sep 2026 12:41:25 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MHH-00000008HHM-0zqb
+	id 1x9MHr-00000008HQP-0yYm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:40:49 +0000
-Received: by mail-ej2-x06.google.com with SMTP id a640c23a62f3a-c294716dbf3so53489566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 05:40:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790167245; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hEay0dytX78CZWit+Ogx1/xGOl7yYIXPvYvu7a/NKnr7Sg6yhgK+A4uNhM7whlpUXf
-         mlyNMxdysNtWjQHjIW3QTXATMX11dfG6i45W2WOnaZrV6BQaawEKact1JKs7q4nGgCps
-         IJsB9/fCh4WRmLKL7zl7DMe/+RA+asPlGgiSokzSMm6Y8jTHnrqkmKJgIcQz+kkMjUFo
-         8Vs3bqKNpGDT3u2+HI2IwuHVaKIO80iD3UQS8cfSQNPlSK0DCtP62xuvGu7AP0xSuOet
-         44mv3ejba6RTWTnSHZ1Hp80ZCwO1/SX+s4z40n+YoymYu9mVgbuthI628uoTyr6NPOr+
-         BW/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=yrBXUqSfBJNVOGA4p1L4WG725TYm+nXRxrzQgFuRPz4=;
-        fh=V72JtWgFtwoYQG4g2rsJCKePq/aBQFPJpcfJPbEtH/c=;
-        b=oiaKF7fI/Bu8Nn5N3chRWcRXwwAekDe5hV8v27Pmmxd11txPFjdN4RbZfwqUDcmb9D
-         G1FUu7k1cHFrobzXJNhp3z2ooM8zHqvN22kZTj0Q+Wfj+VEfiKT5eM4zDhn9Kh0g+pio
-         yMl04xtdjDmjTNT29nLogKEYHC3JFx9300iu5ijghSvYejHOFusIzhY0qom4MfXcvcbt
-         Eylx82bKp8QQrTcSEmNflgGxKZnyFOwlhXqCJirXKzTMfW8gvoIsGWwtzzkKjAfyOLRC
-         kSU0DzcEmmKQKQuj3LmPhyqmNKakwLi5bGwrFLoiPjKzBg9rvTgC2xU4l3x+e9sU7SJH
-         f2YQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790167245; x=1790772045; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=yrBXUqSfBJNVOGA4p1L4WG725TYm+nXRxrzQgFuRPz4=;
-        b=TbXwFkiryluEvIfUM1PvVRhthkcjJWHsmVFoMRTVWnIXg9XQ1sWpdkxhm7TNhFHoOE
-         yxzL2WOXuzR8aINrapR/7sTBJrGC0xv7xAjuSbUw3v0OEJpNDcQNcUDGc29J8Aa715cx
-         xXv5v1DZGdYN50pgqpyEYUNTTrdax+NCwGBNpH+bTxORJsu5Ij6VDGglS6W0YMYrpE0b
-         swKulj3paZ70T2l+lo+dvTuM2rAOUGvFl4vo14j6lDEHkfNu+ZS5KM4aQpYqP1yi2Vxi
-         DgrEP48lpS+/nMnWzDASSpmciqisXT75AYU11lTL+H8c4SmEd8YIqzOhmiExQNSxB03e
-         Brtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790167245; x=1790772045;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yrBXUqSfBJNVOGA4p1L4WG725TYm+nXRxrzQgFuRPz4=;
-        b=PjMPX8yp//A8MF+bHVXCbRN1msyIDYVGEC56q8lFsdvme76CU21s/4l7Lq2dadtcCy
-         rKIsYFsBT3j+8QkxOMyL74ydgtoXJih/6Dpbq1kWUx3M8bfwgE0Ay8n9Ml8bKarC2Mt9
-         AOK6KzaLjGVDIJM+LrMZQ57DWLe4Ty/kjYXvdLdIMIKTGRZ9sd0BF4r8ImYuBno7Yvpz
-         xgOLOa7/1ahTdPJUKzV13wo00bj79tz9Lr2Usia1F9v9d/a4GDOzMGeTORSUmj4k/e2r
-         0/TKTLRjeukezzGrE8+dNUqyhFhfW6IsRxmzc0/KE5gvAJWZEsijJ/ogGAEO185IXdcw
-         5xDw==
-X-Forwarded-Encrypted: i=1; AKwUvBw9QUiKezbQ341yAc2YiwdZXPAxqO26bpRF2eoEHdeJOpxnQBfZuVtKqU2gRBj1LJ5RdFd3azKsc1Z5AbLcM1tj@lists.infradead.org
-X-Gm-Message-State: AFuF++mUvQgS6UiiIr7A9wMdd5EXk13txIk7Pmcr8odgFIGc7TcWRwqE
-	kYuBwmuUn2KjsamZR7qG5CNfQ0EIqRXdDEX8jdX96Z67GhQ1QfWfW+mmxprw3ocLg4jOOq32/5T
-	j9h4X/satiMFprMUVXj5OV2JCvz9GxkA=
-X-Gm-Gg: AYBFou3wbyDLSmBPiT/dKIiH2Wyqpwe1lXk1FXARryttlyobArXkQO8Y1sAeS8UPye8
-	X6OQSiLW85P1mNzf0owvnefvR8NJBcTqvoNJTzPwC2roOVq4Ira8pLyVI2gYT1g+IU3SvXRP5/a
-	BWP70POb/lu8rcL9lCnMn/GHIfjYNCJBckcvBWI2XhWnX8fI9eST05ugAs1X6jL74h+519QuCWj
-	YTsVYPeNbSroN7qgF+njb/hzisNPIjFRNJ82VlTMlpyuEN0xZNGLN9zRkWximsE+aoJ78XBHjxJ
-	vZBxFOXrJldYpDsPzFIvhbLlctzVEDGrKauPMT0w4ociiKqO9T9G9dMNiQ==
-X-Received: by 2002:a17:907:d91:b0:c25:5faf:b207 with SMTP id
- a640c23a62f3a-c2aadcf4484mr194861466b.3.1790167245181; Wed, 23 Sep 2026
- 05:40:45 -0700 (PDT)
+	Wed, 23 Sep 2026 12:41:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ylNVLnVUaW8c20zHsWauTAZBVIMIxdCVDkSWVpisfMn+SUjXR9FBw4J6dL9ybpbZ9cGTeRhkVRaO24NFFGjVSEBgu51v3UAzM8HE7Rpw4UyrhEfgxTNYhfJplhudiTLKmF/tVqtIi1dKIOig8Q8DXIWd+8TDZHmWVJcfAY8n8CewoYH4zSz2SUDg2uLMG4WN8PBg4/GLTWNbSZq4yA2L4ZB65Ruu5/K1d5CAdrf6uqXYJPlgL1bwnzE87OQVC0cDkjWckcW3p0qKIguNSYFFcD0SCm4d3lCQi+33G/joTkEo5TzKkqtMQNKWeJjTPNLEqnF89QXnKt2/OezY2g0XpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J0o3K+qSj0rH8rNjckbvlQGUFlWUX6ljGlyEpLaiCLk=;
+ b=YT9Zu53uEhBsoDWA7q9iW+60op43DkhiomXNuSzwFbbTUIbQHvM4uoB6oNkKSkrv02BDv81JfTpFFQUVMyiY/dLf78Cv8XIVNLpTcVMKhNco2VVZgiYLvYa1W0TXhrdra8pZIRkhkXhkkzXBZjyt1XI4kf26FP5iYCHzIUQNmfhrBxR7NoaHhxn4zmNUqZXK5ElcNhX7SyrOqX1K1PNZcxif96PR64Wmd9s4fqAm1Kg5VpzHtm0yc5GHPlmmAoXQf2OSXCyC+9FDXaCycD3C12to2AlPVRbmmPPRq1AJvJkOKXFo9fmE/xbIix3Vug0xb9M5iasujAqSqsQ2h2n7Bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J0o3K+qSj0rH8rNjckbvlQGUFlWUX6ljGlyEpLaiCLk=;
+ b=O8nntD9X7qlkFPrYpB8jk3TD7yiK1m7eF2u+I0BsTAu+SXmbiHGZy00hn1iLml7ToDS+SmQw+iM6mphxUA8SlCY1RkqxDZXw0wbQNlt6WNL1woA6GwY75Wcv6EJDn8Lpuq+rGSLuxqsxzeO+As+EKQI5VrXmIeVKG1lNHZR5aCeZHaKbABVrQHBORneDjf2H7gBt29B/UBhZ6Tnq7Yg5CxC79wSmBXyYFqs61e6GbhA6l11I0axU7R5p7OLrItXtRCUHdi6SVy8KU+2iBQ+qDm9RWcr1bT0/5Di1FgNyJ1MPpDHg/CW2fTt9IEEKzgVzUq/M9kZF/JWuca4J9wxCZw==
+Received: from BN0PR04CA0182.namprd04.prod.outlook.com (2603:10b6:408:e9::7)
+ by MW6PR12MB8836.namprd12.prod.outlook.com (2603:10b6:303:241::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
+ 2026 12:41:13 +0000
+Received: from BN1PEPF00018547.namprd05.prod.outlook.com
+ (2603:10b6:408:e9:cafe::71) by BN0PR04CA0182.outlook.office365.com
+ (2603:10b6:408:e9::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.16 via Frontend Transport; Wed,
+ 23 Sep 2026 12:41:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BN1PEPF00018547.mail.protection.outlook.com (10.167.248.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Wed, 23 Sep 2026 12:41:13 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
+ 2026 05:40:52 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Wed, 23 Sep
+ 2026 05:40:51 -0700
+Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Wed, 23 Sep 2026 05:40:50 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+CC: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Dat Mach
+	<dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
+Date: Wed, 23 Sep 2026 05:40:50 -0700
+Message-ID: <20260923124050.3270801-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla>
+References: <20260901192906.133670-1-jamien@nvidia.com> <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla> <20260922155211.676134-1-jamien@nvidia.com> <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla>
 MIME-Version: 1.0
-References: <20260922200336.2201212-1-coiaprant@gmail.com> <20260922195006.79890f24@kernel.org>
-In-Reply-To: <20260922195006.79890f24@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Wed, 23 Sep 2026 20:40:33 +0800
-X-Gm-Features: AclHuK-io9PS85iIjo2RRKD7nlxq4FY18LSW8xzP9gnGJLLZJesN4MppzV2qPUE
-Message-ID: <CALj3r0hH6m7jUEweKMWGmCW9aOxShaqsV0E+z4ztBhXbJ+378w@mail.gmail.com>
-Subject: Re: [PATCH net-next v10 00/11] net: pcs: add basic support for RK3568 XPCS
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00018547:EE_|MW6PR12MB8836:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5eff6a1c-c33e-426d-0aa7-08df196ff3d5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|23010399003|11063799006|56012099006|10067099003|6133799003|22082099003|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: QKJDFDM6XtjvRlZsBC0WSAoj40CoRSmT2zRY2R5kEhFZgNzdOXGu5NTujTM+qIyVFaQdAbo2bC9/qVGH26U6HywaP428zSmi62U5ytAQ8aMPDe7GbXDxuXSy6ARuO7mBHjT+TyU2SaGik7kwdy3SBz7r/KQu1PBY+P2iHKvDH2UvhOdfn5wTuZrbG9r8X/5EUIaqx5Wp3fCypDxccaoFuvoaQ9xvPowBDi+YFL1udwgzQ75I5L4Lgqcw0K64gr/FmEs2d4R33mYEbt8J7JUQbLbx0yX4DK9siPvlgC4R38Nbg00f6n+7INyNuUyFhEz7Y1N/0na7pXekd3mlJG9EewQ2nFO1PHRTL+UpxlpS6LNvBqdOBmb9PiaNS551ifBlQYP4+nRmPT3CIvapvfhE9uGkNLHDIpcsHzmtpkkmkZdt3piaA21aZ7zT4MMgE2R/Ox62/jMutAJBlfkSu0CsXFKjoqfpywh7Qx489DMgC28o1z/8K97sQMg7vYxySOBAS+BU04K8s6dXLhNThHQcoNJvhKCMXHTHlKdbm7P3TSTYpt9xIP1RtTULLvN4CSb/VhNwObHN/V6k40h94MhQZPf1xJpWR0GKxGsSR0oaWkgIb78Bx2/UShRze52t4u4f9GKsWBuCeec7vjuTKgav1VWxNBdQtxF5CKfm5kdbr0/SwXOxjjH15Crj981Fx5kHQIRpyawaOqAhXuNSsrbuKw==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(23010399003)(11063799006)(56012099006)(10067099003)(6133799003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: BAFkMSYp++sftzVKKTePpAn6A97R2nvjzWRIVPqzAhuJI/rCB/EoXKiyl+i400n9Bi/QfFuP8q6G9LZ62OkImg2u40lzYlYj65/u/tgUAjPEP5ZRhweXznXkl3W32SlUANEu62yvDdL+dxMH/YcYiU7UNOomOBt6KupOlHUuxNWyip+YMSCJaS2lE9+bEPuJcOwZgNDGdojVv1hmAZRG1AtU7DtxBy4SSVzC24C26qPjsv92Lt8eZUmsH3YEkL1tpIFT7/uFuDtR23b4TCIVF/lAhvZ+oGc7OfyfcS938mm1KeGT368yoBNimxvs1TUymTzA7/XOTVdmPXF9mFDQfv+3fqUtctvrP59mjdWBiUzCxsUlEHeMhGHpbhhoxUqbP0Pbn061S9CDIXlCEMgRepv43u+G+c+65rj1j+WB7GztQfCIfuGZd90+G1VHguJ5
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 12:41:13.0956
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5eff6a1c-c33e-426d-0aa7-08df196ff3d5
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018547.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_054047_321867_51468641 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260923_054123_276007_3308D5C6 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,20 +131,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=8823=E6=97=
-=A5=E5=91=A8=E4=B8=89 10:50=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Wed, 23 Sep 2026 04:03:24 +0800 Coia Prant wrote:
-> > This series adds proper SGMII support for the Rockchip RK3568 SoC
-> > using the integrated Synopsys DesignWare XPCS, along with necessary
-> > fixes and refactoring in the stmmac core and XPCS driver.
->
-> Please slow down with the reposts.
-> Not more than 2 a week, and please wait for the AI review to finish
-> and be published before you repost.
+On Tue, Sep 22, 2026 at 07:06:02PM +0100, Sudeep Holla wrote:
+> Equally ugly. FF-A spec doesn't talk about ACPI FFH, so it doesn't
+> belong in FF-A driver.
 
-Understood, sorry for the noise. I'll keep reposts within the limit and
-wait for the AI review to be published before reposting from now on.
+Okay -- I'll move the ACPI-specific handling into ffh.c.
 
-Coia
+> So if on a platform, ASL has FFH with offset 2, we fail if FF-A driver
+> fails to initialise ? What if this FFH offset 2 is used in some other
+> device methods that need to be executed before FF-A module is inserted ?
+> We pull that device down as well ? Is that acceptable ?
+
+You're right. With the current registration, offset 2 may be unavailable
+during initial enumeration or before module load. That's not suitable for
+AML.
+
+> There is no state management with simple FFA_MSG_SEND_DIRECT_REQ2, it is
+> synchronous send request if you look at it along wih offset 0/1 and
+> without FF-A driver knowledge.
+
+The request itself is synchronous and register-only. But the whole operation
+still shares FF-A state: version negotiation must be coordinated with other
+FF-A use, and X1 == 0 needs UUID lookup. It looks like
+FFA_PARTITION_INFO_GET_REGS is optional at the Non-secure physical instance
+according to DEN0077A Table 13.1. As such, I believe a portable
+implementation would need the shared RX/TX buffers. For example, if X1 is
+zero and that ABI is unavailable, UUID lookup would need to fall back to
+FFA_PARTITION_INFO_GET, whose results are returned through the caller's RX
+buffer.
 
