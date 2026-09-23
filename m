@@ -4,166 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194D5C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 01:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9550EC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 01:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+yRApf16U76+rx2xdScj1LS1wKb3vRI/Nm9Ak6wcHo=; b=KRVf6L0Da805lMd61vT1DwxVYI
-	+Lmea+6J9mSmf5bLGHTDkPnXS7JGiNTEzDfbMFjzAay4CagDCYfbocu3+7eYhC+qxQffUiwg1aRby
-	svO/qC1QieTZKKTDaEhw0l2crVxyChcegVcCPyIxsxergYA3gZe+ZGiiqnv8ldVisRcsUDBBiiVbk
-	B4mokig2Reyyh9VLhCsBwf0G64fUWL9Dlwb2//Cv1aFyPT7oyi3l6iQ3KlHusM0P1o2x+fJFoiS1+
-	7kTjJ3t6M12EJHeDT8MnikdI7QP7WtsXJalElvJHIc9t6Tcy84uRJ7Ym3hv8sx+O/NNj56yyQAUG8
-	5MWrxReQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=md9zT2jjgrRTs9v3b0TbZJ3ZYn/KP4ebTskMdmlmnYM=; b=kfh/7BzMgRAvzC4LNtFJoki9XW
+	+ZnSx7HsHIAJd02BqLWOOj+K5SzKkLea2kw6FrObo1cCI9rFdGL+ADH6eSrm+oeCWaT+XD8vJoH21
+	WP3TTwCGCJ0Ace79hLezx7eMVr3oUy7IwJ7J0hnCFSZTULxRVURVILvylpChc81cJxLxMjmPXRA50
+	r5dvEKREA7Qc/iT4jW0Xfyi7dZ8C7toXUG5kREoVkRVbM3DLAPoubbQp+i7/tIuyZe4V2j0pvECkQ
+	lxwZjcUoe41el8oDT9r6iSCyj05YfkSnLY9QE20ELqhLr8vysfuVguYR8nV2H6DnXE7wSh5bQC1rj
+	XptoW6sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9BUM-00000006ppP-0wK0;
-	Wed, 23 Sep 2026 01:09:34 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x9BpP-00000006qzA-3SuG;
+	Wed, 23 Sep 2026 01:31:19 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9BUI-00000006pmq-0Bi5
+	id 1x9BpN-00000006qyl-3zXO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 01:09:32 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68MN7poP1402039
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:09:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	I+yRApf16U76+rx2xdScj1LS1wKb3vRI/Nm9Ak6wcHo=; b=bqNrX0rcj/s4LOcj
-	+U24rrKUsdaL26mRPZo995FeNweqz4A7Bm67eJqMGbM52CUSGoARdHAdDggHmHOS
-	CLccdY0kgLKesnoT/5SL8j7fHzYn0/g6DPGE5ifQuC/4zZnFpGvhVqK/nnDa5sLv
-	MR3iVqymy7zGG3I5mU1GbWlcvSD8XvDqX6DOQoApbyOESwMZZpQbkUn3RllHJmAK
-	7EifKAOV1VxxvSQEmIYEc8O7SLAgjwRucEtpM2T8r9pbeUKlluu5LKHy8PCPux+l
-	b6aemhqs4ebFfp/J2pfk/xco5J3VxXq66Yojm1TFe0GHO5TqeFril+TAhawk1B7o
-	Xvw64Q==
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gv3318aqj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 01:09:28 +0000 (GMT)
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1438719cc1eso499255c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 18:09:28 -0700 (PDT)
+	Wed, 23 Sep 2026 01:31:19 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485933b24c3so330237f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 18:31:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790125768; x=1790730568; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=I+yRApf16U76+rx2xdScj1LS1wKb3vRI/Nm9Ak6wcHo=;
-        b=H+7YSDsgCxnT+wQfsyc3YgcK0UQxTjrDVx3XfFXAoMst2IAYaSYRNiKSOAnjZknCYC
-         b8AfnvtNBiIoZoAqjxx4+Skl9QgCvBqrDEd7DOOOKRKvHzK1pKy6woxMElgVg+uifmdM
-         FacqHyaqsS1hGcyi+y6YYoNy1784HIV+uIrE+niazQklBAtGUsBkT//Dm4PWLXH6muGz
-         N3OsQRN35qbVWtY/MoHcWSvUt1fqXU6GRbaYbHifxZspVBgX1E92T7YB+uEhafze6tF3
-         tNCuqbL4V9MLASmU/DXHuzwOfBb511zeHpsSuoeqXhxpnFNQgjTVShDUjZa4Q7rLPeZF
-         +Pkw==
+        d=gmail.com; s=20251104; t=1790127076; x=1790731876; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=md9zT2jjgrRTs9v3b0TbZJ3ZYn/KP4ebTskMdmlmnYM=;
+        b=Ns2kbOxLaOL6LRLA4nHcYz8z5Vt39fXZT+9Wi+GlJ4MomBWr04P/wLbS9C+sM7IoCC
+         AvvGWCRdlpeYjNoJ3j9cVRr2P/2eA4s9s8ZiXNpmFIfFtaUxPLy9E4EbvH0hLOPtHeLA
+         mtEvflRkkW/i2AB6zLgb3got+LloBVMCdtpb5HXQSOAYNSgZ66WqhcDjVARFEKWT4T1L
+         ERvuhDDzfC/aNG25/r8XJrg4+1xzuKhctX4KeyAVdCPLjdMVytnih/NJZpDCqFs0GmNB
+         +eM/liliq72togM7GjQGWhs8t7S7Crg8xiZFi3VpcqHsdhwRghGWaxVS/2Bitt6xuRnd
+         GF5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790125768; x=1790730568;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=I+yRApf16U76+rx2xdScj1LS1wKb3vRI/Nm9Ak6wcHo=;
-        b=sQE4UEVK+EcOiEDZeyeQOkzyEhHVjoAMHW8jH8utiTBje+fX/DQFv4PcIViXUH37YQ
-         2U+HDLLfHrKQVm99bNRtCY7CfoLVopoZ/OMuncQPKtDTY6hfXO6lVaZ1rXqhKHLcJQqX
-         GTtYpLkt9a8EdXvu1QMEhF9nQRx3HOC+8NAz2rQeuS4p2QO3O5k5CgbPOiPH7hitce70
-         +mz0L+FXsv1cLu2xEPgySxB2c3okYSPBD7HB/zopB2vGXA1gk1VeNfldy4GZI9XLSbss
-         iv6h0vjT0QimRXWuH05L9G3zsWgi90HQFfq6B5eXWA7G25x6N/VPRGi6DGzH1irH4vlE
-         2rfg==
-X-Forwarded-Encrypted: i=1; AKwUvByaP8Rd1kQslNSRCTHM7/ryEZaym65XewzfHJmWc+wtE4fgfju8qFPqfdTYpmwMF8vlmAwveNKgkgEzLUIrVE+B@lists.infradead.org
-X-Gm-Message-State: AFuF++k4lBJBxL95ZOAWy9m0J+ILzhtDvSK1yTUAMdAhVlawxxZcsGuN
-	qwAAdpnQQ7VxCXN7VxxHs86fmZJqidEmMJKCxRZen2wRDMrjBxPnHxwV9N3Re3E3LCLKc5Ql0zo
-	Fwx3YwUTTBipw6o/QP/VU3MK4e4tuFuIRJ8Zd3glMfGifOMW3uKAGwfKw5fRZc298H48WFAz4cV
-	iZzg==
-X-Gm-Gg: AYBFou2ySdaRG7BoplgF5/d4Tf2ohil9sWMdgIC2XlNlNtjvSdPgAI/Kzy04DH77mMi
-	ih/hcUHNnUt59WFxWDcI3EERni0HZn/wDX8Pr0qRnmt/0MONO596hiKLlFfD+Ssa1alic+Dq4/A
-	3x8+o5wXyvm6vVYAoSFqSgl3VfYPZDccgKUqeXTjyyaM/Kz9wLUlFcs5h86aqtl0/tPLmdavESq
-	cysVHB7G8ScQZKbtLrQGBrRI6ZuWutK+ijH20Om1ADsEtLW7oggX8uZMwluR9SB//4yqB/SeLBk
-	D56oCYxpcyL/CaX6cw29xXVXYICP8YG38I7Aae2PBP9o/MgMCqhXE3gdNT/sdIEZGtqSNo0sTw3
-	9TYeVIGyyH1suSNkxlsolSmWCMKOQ
-X-Received: by 2002:a05:7022:fe08:b0:144:f4b9:9be4 with SMTP id a92af1059eb24-144f9159169mr1345270c88.15.1790125767648;
-        Tue, 22 Sep 2026 18:09:27 -0700 (PDT)
-X-Received: by 2002:a05:7022:fe08:b0:144:f4b9:9be4 with SMTP id a92af1059eb24-144f9159169mr1345228c88.15.1790125767038;
-        Tue, 22 Sep 2026 18:09:27 -0700 (PDT)
-Received: from hu-mohdayaa-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144f98ca0edsm1651831c88.15.2026.09.22.18.09.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 18:09:26 -0700 (PDT)
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Date: Wed, 23 Sep 2026 06:37:35 +0530
-Subject: [PATCH RFC net-next 9/9] net: stmmac: qcom-ethqos: add Qualcomm
- Nord support
+        d=1e100.net; s=20260707; t=1790127076; x=1790731876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=md9zT2jjgrRTs9v3b0TbZJ3ZYn/KP4ebTskMdmlmnYM=;
+        b=NpQGZUS93pAzCgH+/1i3htotSm2vhlshCfwyvKIYkl4X0aSHuvmM9vp9UcxCX+AU1M
+         jx/BXF/1rcK/KnK/2iAvPiWF0WPSWj/Fl5rGGqZqal7fUbhgNDVVLAda+nXjvMv+HpwT
+         p688F1RIZ0JsKVN+unG2bxWdsNa14o+gu3aMoITb3HT+Fq2/r9jfgIykv9FlKpmj0ISE
+         xpkpr2yX/uZclvHD6KoITDHOSW0Z0wfZvOt/znbtKuISsE8JH04SICziVAA+RyuSQhYs
+         tscD+aqwlq4wsFz4qre4s87GkY3LCBYg2HlsFnE4iiqQCYSIYn+n3r33gYujFl9VBut/
+         isSA==
+X-Forwarded-Encrypted: i=1; AKwUvBw1+wMdJ+1FlRwT0QpuM+bFQHIMPai1RlFoc0LCEDtw/VKnPQ119YAlHfV2Url2JAIgmvxpRm2PrH4Lu1tBuBEd@lists.infradead.org
+X-Gm-Message-State: AFuF++kC3tMYVxyM1/CikPkPfU0jso0H2ajDlISqyjjsZk4Tdej0z/Qd
+	/LrZiPY3avPH4IspoQEHBBj+K6WgFLoTfmLCgiRMEyXO69rAP2D7U9Ms1GHrcBoG
+X-Gm-Gg: AYBFou3RBgCilIu+wVeOjWhGsTX8XXFM1OZ6mM00T7ZHzNkSzAazIS4PaY7285NXjQZ
+	t/hW5iWphYuvaKDAatW4KGkbiNG7KKot20nMTgnARqzR/18L5Ve4QksfkuOXIxGSPrOatHIfVOT
+	JAe3cGr191iLBlNJf9GB/RZi7OOHIaCSKcIe2pnaT9IeGxBuhDyjj8hihJL6JP0j8luNMnW+8GI
+	6QcSysGEl5oc3YYuiyDE43oIasN7cCvjgoy0553bvzy+bdYp7HcODLE8/67lcjTkWoi9viXAiGJ
+	8uhzRWqw9wr699A+mf+zdMb/+JEyWRFcKfgImCWdfGEqxY1N+FbN0IHYMkedxvG9QqnNAkLGtC3
+	MWMqUy4NHd1REbu/v3ylGevrQxLhcvxhU23rpKve57i6yQopnfKWYzJoPSCcN41FMvnTrqoltxN
+	l8YFm/W4WX0CGsIVGhSVdrUANShFw7JwGeP/FQzwMx64YhvOInsJWH4UKPjmfIb5c6J6BtobneB
+	8xxAEygRNCY6EASjl+NTErAtAq9lkOlZRH0sHZKT7vym5VnFZ8xaKBeA+qHqo+M4DfE4t6N8/+s
+	UxswyV6JX4ze5Z795Jqit7k7hpfTH5K+mfH+kiGRvTwknWi7L2eXssJ8C+A=
+X-Received: by 2002:a5d:64c8:0:b0:487:2589:ce4f with SMTP id ffacd0b85a97d-488670a9a46mr1772611f8f.43.1790127075985;
+        Tue, 22 Sep 2026 18:31:15 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-095-114-182-160.95.114.pool.telefonica.de. [95.114.182.160])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4886877a2d5sm2703819f8f.27.2026.09.22.18.31.14
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 22 Sep 2026 18:31:15 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Varshini Rajendran <varshini.rajendran@microchip.com>,
+	=?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <bence98@sch.bme.hu>,
+	Robert Marko <robert.marko@sartura.hr>,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH] spi: atmel-quadspi: balance runtime PM and pclk across system sleep
+Date: Wed, 23 Sep 2026 03:29:50 +0200
+Message-Id: <20260923012950.15651-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-qcom_xpcs_nord_emac-v1-9-4b1c682af70f@oss.qualcomm.com>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
-In-Reply-To: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Serge Semin <fancer.lancer@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-        Heiner Kallweit <hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
-        Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
-        Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790125674; l=12058;
- i=mohd.anwar@oss.qualcomm.com; s=20250907; h=from:subject:message-id;
- bh=8JCqwSbRwjzmhB8gNr/abKbRoR9Ocql+CHFLjJdWuPY=;
- b=XPuoKfGPn07fjZK/71e/KV5+X5ASAjWePOm1hrhsBul/IHARxgE0QWkbOocsV+BWlbydIn4fh
- P6vETEgK/ISCGdG/Z7aCliHPwIg3YENgz6awgJm0fQWrdyEBwhVgv9o
-X-Developer-Key: i=mohd.anwar@oss.qualcomm.com; a=ed25519;
- pk=7JNY72mz7r6hQstsamPYlUbLhQ5+W64pY4LgfSh9DJU=
-X-Proofpoint-GUID: ODO4BMd_sb_SH56wVJZcp64p_DmrISEa
-X-Authority-Analysis: v=2.4 cv=HdaB3SE8 c=1 sm=1 tr=0 ts=6ab326c9 cx=c_pps
- a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=5chfiMuH4t9yzvW4qJoA:9 a=QEXdDO2ut3YA:10
- a=vBUdepa8ALXHeOFLBtFW:22
-X-Proofpoint-ORIG-GUID: ODO4BMd_sb_SH56wVJZcp64p_DmrISEa
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDAwNCBTYWx0ZWRfX+5aNv49ZMDOf
- +WDLkNr9o0VPN9ccRdH8gSNyTeeHx5/lv46wK9pCZGGlOV9IPPNFiAnEYrZnEYef70W0np6ifgT
- jqTw3vc8n+kLmtXg5zaIzIaZMoIjHaFOzcijKqF2KFOtO/cXJs9JzxoiHY7bam72ypBkxBmXi08
- wK/gdUOmUdciVn5Rsuc9kxSCLINBUaBTXx73LddHG4zIMfy+zk5uZ9Xwjsj462W/8Thjg3l6WVp
- TCYYL4HUA+0CdK3Nw/5g6z4YK7LOgM0Bmu7Xx9B2E9y3/f2WQavrbVAFeQYnDWm9EXJ5MwYimVC
- 7UiootB02dsz3HbBX6sRa2j6ACw6PQizBuonqoVsiZhVAyM0vytj0BVYVD5UvKuTfWuG5zRGV3l
- 2fY+1EQAg4roR3WEfcWgRT0y9mLmxgl++8tE7P7vG3NEE5ktcDjAm3JUZTCeK9+6pqF5HYxUzsC
- CO8o3vWrXl6I5ecL5kg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDAwNCBTYWx0ZWRfXw96Rc9M+BPXa
- hcQ8mdtw4qcb+QLMCGls0mMG+73RN4SjJvfrJmGhUXOkfn5ogaNbyU8U8uErMOQzyfgFNsgK2zW
- IJS5Eg3VdhPKFvhdfSL0InxDvQqsID0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-22_03,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0
- priorityscore=1501 clxscore=1015 suspectscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230004
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_180930_223902_90356DA6 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20260922_183118_018297_F6BC5BE6 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,321 +107,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Qualcomm Nord provides two ETHQOS controllers based on the Synopsys
-DesignWare 25GMAC IP.
+On the controllers with a generic clock (SAMA7G5, SAMA7D65, SAM9X7 and
+LAN969x), atmel_qspi_suspend() takes a runtime PM reference and returns
+without dropping it or suspending the device. It disables the peripheral
+clock directly. atmel_qspi_resume() only prepares the peripheral clock
+and then reinitializes the controller with that clock still off.
 
-The Nord integration uses platform-specific MTL queue, DMA channel and
-timestamp register addresses. It also requires wrapper programming for
-USXGMII operation and an EEE clock vote for PCS link-up.
+On a SAM9X75 Curiosity board, the tested standby and mem resumes
+failed:
 
-Add the Nord platform data, select the DW25GMAC core, describe its
-register layout and configure the ETHQOS wrapper for USXGMII. Also add
-the platform-specific loopback control needed while the MAC is being
-initialized.
+  atmel_qspi f0014000.spi: PM: failed to resume: error -110
+  spi-nor spi0.0: resume() failed
 
-Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Reading the flash afterwards returned no data. The runtime usage count
+grew by one with each cycle, and the second suspend disabled the
+peripheral clock again:
+
+  WARNING: drivers/clk/clk.c:1257 at clk_core_disable+0x6c/0xcc
+  qspi_clk already disabled
+
+Use the same runtime PM sequence as the other variants. Suspend disables
+the controller and forces a runtime suspend. Resume forces a runtime
+resume, which enables the peripheral clock, before it runs the init
+callback, and drops the reference afterwards. With this change the
+tested resumes succeed on the board in both modes, the controller
+returns to runtime suspend, and the flash reads back.
+
+Fixes: 5af42209a4d2 ("spi: atmel-quadspi: Add support for sama7g5 QSPI")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260709112006.390742-1-robert.marko%40sartura.hr?part=3
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 142 ++++++++++++++++++++-
- 1 file changed, 137 insertions(+), 5 deletions(-)
+A/B tested on a SAM9X75 Curiosity board, two real suspend cycles each
+in standby and mem, woken by the RTC, with a read of the on-board
+SST26VF064B after every resume:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index a99a78880c0fb7858e90b6212b37ebfc7fccaf84..a03c8e203920a70238deff9f1f970d29d1293893 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -23,8 +23,14 @@
- #define RGMII_IO_MACRO_CONFIG2		0x1C
- #define RGMII_IO_MACRO_DEBUG1		0x20
- #define EMAC_SYSTEM_LOW_POWER_DEBUG	0x28
-+#define RGMII_IO_MACRO_SCRATCH_2	0x44
- #define EMAC_WRAPPER_SGMII_PHY_CNTRL1	0xf4
+                           without patch          with patch
+  resume                   error -110             ok
+  runtime status / usage   active / 1, then 2     suspended / 0
+  second suspend           WARNING, qspi_clk      clean
+                           already disabled
+  flash read               no data                matches
+
+pm_test=devices gives the same result. QEMU's sam9x75-curiosity model
+shows the same runtime PM and clock state. Its OSPI does not depend on
+pclk, so there reads succeed in both cases.
+
+Not tested: SAMA7G5, SAMA7D65 and LAN969x.
+
+Unrelated to this patch: with and without it, each tested OSPI flash
+read on SAM9X75 printed "BUG: sleeping function called from invalid
+context" from at_xdmac_issue_pending().
+
+ drivers/spi/atmel-quadspi.c | 24 +++++++++++++-----------
+ 1 file changed, 13 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index ec19fa0180f00..96ed734b56218 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1590,12 +1590,14 @@ static int atmel_qspi_suspend(struct device *dev)
  
-+#define RGMII_IO_MACRO_BYPASS			0x16C
-+#define EMAC_WRAPPER_SGMII_PHY_CNTRL0		0x170
-+#define EMAC_WRAPPER_SGMII_PHY_CNTRL1_V4	0x174
-+#define EMAC_WRAPPER_USXGMII_MUX_SEL		0x1D0
-+
- /* RGMII_IO_MACRO_CONFIG fields */
- #define RGMII_CONFIG_FUNC_CLK_EN		BIT(30)
- #define RGMII_CONFIG_POS_NEG_DATA_SEL		BIT(23)
-@@ -77,6 +83,21 @@
- #define RGMII_CONFIG2_RX_PROG_SWAP		BIT(7)
- #define RGMII_CONFIG2_DATA_DIVIDE_CLK_SEL	BIT(6)
- #define RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN	BIT(5)
-+#define RGMII_CONFIG2_MODE_EN_VIA_GMII		BIT(21)
-+
-+/* EMAC_WRAPPER_SGMII_PHY_CNTRL0 fields */
-+#define SGMII_PHY_CNTRL0_2P5G_1G_CLK_SEL	GENMASK(6, 5)
-+
-+/* EMAC_WRAPPER_SGMII_PHY_CNTRL1_V4 fields */
-+#define SGMII_PHY_CNTRL1_USXGMII_GMII_MASTER_CLK_MUX_SEL	BIT(4)
-+#define SGMII_PHY_CNTRL1_RGMII_SGMII_CLK_MUX_SEL		BIT(0)
-+
-+/* RGMII_IO_MACRO_BYPASS fields */
-+#define RGMII_BYPASS_EN				BIT(0)
-+
-+/* EMAC_WRAPPER_USXGMII_MUX_SEL fields */
-+#define USXGMII_CLK_BLK_GMII_CLK_BLK_SEL	BIT(1)
-+#define USXGMII_CLK_BLK_CLK_EN			BIT(0)
- 
- /* EMAC_WRAPPER_SGMII_PHY_CNTRL1 bits */
- #define SGMII_PHY_CNTRL1_SGMII_TX_TO_RX_LOOPBACK_EN	BIT(3)
-@@ -88,6 +109,8 @@ struct ethqos_emac_por {
- 	unsigned int value;
- };
- 
-+struct qcom_ethqos;
-+
- struct ethqos_emac_driver_data {
- 	const struct ethqos_emac_por *rgmii_por;
- 	unsigned int num_rgmii_por;
-@@ -97,12 +120,16 @@ struct ethqos_emac_driver_data {
- 	const char *link_clk_name;
- 	struct dwmac4_addrs dwmac4_addrs;
- 	bool needs_sgmii_loopback;
-+	struct dwxgmac_addrs dwxgmac_addrs;
-+	enum dwmac_core_type core_type;
-+	void (*set_sgmii_loopback)(struct qcom_ethqos *ethqos, bool enable);
- };
- 
- struct qcom_ethqos {
- 	struct platform_device *pdev;
- 	void __iomem *rgmii_base;
- 	struct clk *link_clk;
-+	struct clk *eee_clk;
- 	struct phy *serdes_phy;
- 	phy_interface_t phy_mode;
- 
-@@ -111,6 +138,7 @@ struct qcom_ethqos {
- 	bool rgmii_config_loopback_en;
- 	bool has_emac_ge_3;
- 	bool needs_sgmii_loopback;
-+	void (*set_sgmii_loopback)(struct qcom_ethqos *ethqos, bool enable);
- };
- 
- static u32 rgmii_readl(struct qcom_ethqos *ethqos, unsigned int offset)
-@@ -201,6 +229,15 @@ qcom_ethqos_set_sgmii_loopback(struct qcom_ethqos *ethqos, bool enable)
- 		      EMAC_WRAPPER_SGMII_PHY_CNTRL1);
- }
- 
-+static void
-+qcom_ethqos_set_sgmii_loopback_nord(struct qcom_ethqos *ethqos, bool enable)
-+{
-+	rgmii_updatel(ethqos,
-+		      SGMII_PHY_CNTRL1_SGMII_TX_TO_RX_LOOPBACK_EN,
-+		      enable ? SGMII_PHY_CNTRL1_SGMII_TX_TO_RX_LOOPBACK_EN : 0,
-+		      EMAC_WRAPPER_SGMII_PHY_CNTRL1_V4);
-+}
-+
- static void ethqos_set_func_clk_en(struct qcom_ethqos *ethqos)
- {
- 	rgmii_setmask(ethqos, RGMII_CONFIG_FUNC_CLK_EN, RGMII_IO_MACRO_CONFIG);
-@@ -220,6 +257,7 @@ static const struct ethqos_emac_driver_data emac_v2_3_0_data = {
- 	.num_rgmii_por = ARRAY_SIZE(emac_v2_3_0_por),
- 	.rgmii_config_loopback_en = true,
- 	.has_emac_ge_3 = false,
-+	.core_type = DWMAC_CORE_GMAC4,
- };
- 
- static const struct ethqos_emac_por emac_v2_1_0_por[] = {
-@@ -236,6 +274,7 @@ static const struct ethqos_emac_driver_data emac_v2_1_0_data = {
- 	.num_rgmii_por = ARRAY_SIZE(emac_v2_1_0_por),
- 	.rgmii_config_loopback_en = false,
- 	.has_emac_ge_3 = false,
-+	.core_type = DWMAC_CORE_GMAC4,
- };
- 
- static const struct ethqos_emac_por emac_v3_0_0_por[] = {
-@@ -252,6 +291,7 @@ static const struct ethqos_emac_driver_data emac_v3_0_0_data = {
- 	.num_rgmii_por = ARRAY_SIZE(emac_v3_0_0_por),
- 	.rgmii_config_loopback_en = false,
- 	.has_emac_ge_3 = true,
-+	.core_type = DWMAC_CORE_GMAC4,
- 	.dwmac4_addrs = {
- 		.dma_chan = 0x00008100,
- 		.dma_chan_offset = 0x1000,
-@@ -286,6 +326,8 @@ static const struct ethqos_emac_driver_data emac_v4_0_0_data = {
- 	.has_emac_ge_3 = true,
- 	.link_clk_name = "phyaux",
- 	.needs_sgmii_loopback = true,
-+	.core_type = DWMAC_CORE_GMAC4,
-+	.set_sgmii_loopback = qcom_ethqos_set_sgmii_loopback,
- 	.dma_addr_width = 36,
- 	.dwmac4_addrs = {
- 		.dma_chan = 0x00008100,
-@@ -485,6 +527,47 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
- 	return 0;
- }
- 
-+static void ethqos_configure_usxgmii(struct qcom_ethqos *ethqos)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < ethqos->num_rgmii_por; i++)
-+		rgmii_writel(ethqos, ethqos->rgmii_por[i].value,
-+			     ethqos->rgmii_por[i].offset);
-+
-+	ethqos_set_func_clk_en(ethqos);
-+
-+	rgmii_updatel(ethqos, RGMII_BYPASS_EN, RGMII_BYPASS_EN,
-+		      RGMII_IO_MACRO_BYPASS);
-+	rgmii_updatel(ethqos, RGMII_CONFIG2_MODE_EN_VIA_GMII, 0,
-+		      RGMII_IO_MACRO_CONFIG2);
-+	rgmii_updatel(ethqos, SGMII_PHY_CNTRL0_2P5G_1G_CLK_SEL, BIT(5),
-+		      EMAC_WRAPPER_SGMII_PHY_CNTRL0);
-+	rgmii_updatel(ethqos, SGMII_PHY_CNTRL1_RGMII_SGMII_CLK_MUX_SEL, 0,
-+		      EMAC_WRAPPER_SGMII_PHY_CNTRL1_V4);
-+	rgmii_updatel(ethqos, SGMII_PHY_CNTRL1_USXGMII_GMII_MASTER_CLK_MUX_SEL,
-+		      SGMII_PHY_CNTRL1_USXGMII_GMII_MASTER_CLK_MUX_SEL,
-+		      EMAC_WRAPPER_SGMII_PHY_CNTRL1_V4);
-+
-+	rgmii_updatel(ethqos, USXGMII_CLK_BLK_GMII_CLK_BLK_SEL, 0,
-+		      EMAC_WRAPPER_USXGMII_MUX_SEL);
-+	rgmii_updatel(ethqos, USXGMII_CLK_BLK_CLK_EN, 0,
-+		      EMAC_WRAPPER_USXGMII_MUX_SEL);
-+
-+	rgmii_updatel(ethqos, USXGMII_CLK_BLK_GMII_CLK_BLK_SEL,
-+		      USXGMII_CLK_BLK_GMII_CLK_BLK_SEL,
-+		      EMAC_WRAPPER_USXGMII_MUX_SEL);
-+}
-+
-+static void
-+ethqos_fix_mac_speed_usxgmii(void *bsp_priv, phy_interface_t interface,
-+			     int speed, unsigned int mode)
-+{
-+	struct qcom_ethqos *ethqos = bsp_priv;
-+
-+	ethqos_configure_usxgmii(ethqos);
-+}
-+
- static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
- 				       phy_interface_t interface, int speed,
- 				       unsigned int mode)
-@@ -625,7 +708,8 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
- 	struct qcom_ethqos *ethqos = priv;
- 	int ret = 0;
- 
--	qcom_ethqos_set_sgmii_loopback(ethqos, false);
-+	if (ethqos->set_sgmii_loopback)
-+		ethqos->set_sgmii_loopback(ethqos, false);
- 
- 	if (interface == PHY_INTERFACE_MODE_SGMII ||
- 	    interface == PHY_INTERFACE_MODE_2500BASEX)
-@@ -647,14 +731,24 @@ static int ethqos_clks_config(void *priv, bool enabled)
- 			return ret;
- 		}
- 
-+		/* PCS link-up depends on the EEE clock due to a hardware quirk. */
-+		ret = clk_prepare_enable(ethqos->eee_clk);
+ 	if (aq->caps->has_gclk) {
+ 		ret = atmel_qspi_sama7g5_suspend(aq);
+-		clk_disable_unprepare(aq->pclk);
+-		return ret;
 +		if (ret) {
-+			dev_err(&ethqos->pdev->dev, "eee_clk enable failed\n");
-+			clk_disable_unprepare(ethqos->link_clk);
++			pm_runtime_put_autosuspend(dev);
 +			return ret;
 +		}
-+
- 		/* Enable functional clock to prevent DMA reset to timeout due
- 		 * to lacking PHY clock after the hardware block has been power
- 		 * cycled. The actual configuration will be adjusted once
- 		 * ethqos' fix_mac_speed() method is invoked.
- 		 */
--		qcom_ethqos_set_sgmii_loopback(ethqos, true);
-+		if (ethqos->set_sgmii_loopback)
-+			ethqos->set_sgmii_loopback(ethqos, true);
- 		ethqos_set_func_clk_en(ethqos);
- 	} else {
-+		clk_disable_unprepare(ethqos->eee_clk);
- 		clk_disable_unprepare(ethqos->link_clk);
++	} else {
++		atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
  	}
  
-@@ -738,6 +832,10 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_sgmii;
- 		plat_dat->mac_finish = ethqos_mac_finish_serdes;
- 		break;
-+	case PHY_INTERFACE_MODE_USXGMII:
-+		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_usxgmii;
-+		plat_dat->mac_finish = ethqos_mac_finish_serdes;
-+		break;
- 	default:
- 		dev_err(dev, "Unsupported phy mode %s\n",
- 			phy_modes(ethqos->phy_mode));
-@@ -756,12 +854,18 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	ethqos->rgmii_config_loopback_en = data->rgmii_config_loopback_en;
- 	ethqos->has_emac_ge_3 = data->has_emac_ge_3;
- 	ethqos->needs_sgmii_loopback = data->needs_sgmii_loopback;
-+	ethqos->set_sgmii_loopback = data->set_sgmii_loopback;
+-	atmel_qspi_write(QSPI_CR_QSPIDIS, aq, QSPI_CR);
+-
+ 	pm_runtime_mark_last_busy(dev);
+ 	pm_runtime_force_suspend(dev);
  
- 	ethqos->link_clk = devm_clk_get(dev, data->link_clk_name ?: "rgmii");
- 	if (IS_ERR(ethqos->link_clk))
- 		return dev_err_probe(dev, PTR_ERR(ethqos->link_clk),
- 				     "Failed to get link_clk\n");
- 
-+	ethqos->eee_clk = devm_clk_get_optional(dev, "eee");
-+	if (IS_ERR(ethqos->eee_clk))
-+		return dev_err_probe(dev, PTR_ERR(ethqos->eee_clk),
-+				     "Failed to get eee_clk\n");
-+
- 	ret = ethqos_clks_config(ethqos, true);
- 	if (ret)
+@@ -1621,20 +1623,20 @@ static int atmel_qspi_resume(struct device *dev)
  		return ret;
-@@ -778,7 +882,8 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
- 			       SPEED_1000);
+ 	}
  
--	qcom_ethqos_set_sgmii_loopback(ethqos, true);
-+	if (ethqos->set_sgmii_loopback)
-+		ethqos->set_sgmii_loopback(ethqos, true);
- 	ethqos_set_func_clk_en(ethqos);
+-	if (aq->caps->has_gclk)
+-		return aq->caps->init(aq);
+-
+ 	ret = pm_runtime_force_resume(dev);
+ 	if (ret < 0)
+ 		return ret;
  
- 	/* The clocks are controlled by firmware, so we don't know for certain
-@@ -791,9 +896,11 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
- 	plat_dat->dump_debug_regs = rgmii_dump;
- 	plat_dat->ptp_clk_freq_config = ethqos_ptp_clk_freq_config;
--	plat_dat->core_type = DWMAC_CORE_GMAC4;
-+	plat_dat->core_type = data->core_type;
- 	if (ethqos->has_emac_ge_3)
- 		plat_dat->dwmac4_addrs = &data->dwmac4_addrs;
-+	if (data->dwxgmac_addrs.dma_even_chan_base)
-+		plat_dat->dwxgmac_addrs = &data->dwxgmac_addrs;
- 	plat_dat->pmt = true;
- 	if (of_property_read_bool(np, "snps,tso"))
- 		plat_dat->flags |= STMMAC_FLAG_TSO_EN;
-@@ -817,8 +924,33 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+-	atmel_qspi_init(aq);
+-
+-	atmel_qspi_write(aq->scr, aq, QSPI_SCR);
++	if (aq->caps->has_gclk) {
++		ret = aq->caps->init(aq);
++	} else {
++		atmel_qspi_init(aq);
++		atmel_qspi_write(aq->scr, aq, QSPI_SCR);
++	}
+ 
+ 	pm_runtime_put_autosuspend(dev);
+ 
+-	return 0;
++	return ret;
  }
  
-+static const struct ethqos_emac_por emac_nord_por[] = {
-+	{ .offset = RGMII_IO_MACRO_CONFIG,    .value = 0x00C04D03 },
-+	{ .offset = SDCC_HC_REG_DLL_CONFIG,   .value = 0x2004642C },
-+	{ .offset = RGMII_IO_MACRO_CONFIG2,   .value = 0x00222060 },
-+	{ .offset = RGMII_IO_MACRO_SCRATCH_2, .value = 0x4c },
-+};
-+
-+static const struct ethqos_emac_driver_data emac_nord_data = {
-+	.rgmii_por = emac_nord_por,
-+	.num_rgmii_por = ARRAY_SIZE(emac_nord_por),
-+	.dma_addr_width = 40,
-+	.link_clk_name = "phyaux",
-+	.core_type = DWMAC_CORE_25GMAC,
-+	.set_sgmii_loopback = qcom_ethqos_set_sgmii_loopback_nord,
-+	.dwxgmac_addrs = {
-+		.dma_even_chan_base = 0x00008500,
-+		.dma_odd_chan_base  = 0x00008580,
-+		.dma_chan_offset    = 0x00001000,
-+		.mtl_chan_base      = 0x00008000,
-+		.mtl_chan_offset    = 0x00001000,
-+		.timestamp_base     = 0x00007000,
-+	},
-+};
-+
- static const struct of_device_id qcom_ethqos_match[] = {
--	{ .compatible = "qcom,qcs404-ethqos", .data = &emac_v2_3_0_data},
-+	{ .compatible = "qcom,nord-ethqos",    .data = &emac_nord_data },
-+	{ .compatible = "qcom,qcs404-ethqos",  .data = &emac_v2_3_0_data },
- 	{ .compatible = "qcom,sa8775p-ethqos", .data = &emac_v4_0_0_data},
- 	{ .compatible = "qcom,sc8280xp-ethqos", .data = &emac_v3_0_0_data},
- 	{ .compatible = "qcom,sm8150-ethqos", .data = &emac_v2_1_0_data},
-
+ static int atmel_qspi_runtime_suspend(struct device *dev)
 -- 
-2.34.1
+2.53.0
 
 
