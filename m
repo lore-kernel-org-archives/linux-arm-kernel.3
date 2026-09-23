@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76268C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CC2C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9PPxBgUPMs5vchL7SR1fadKjrntsb9RgCKzLY/cjVMM=; b=abBN+obTOt0VEFwGRVq97owItW
-	uykH7+cWXClYsSCM4X7xWwixKe9tMn5vBX7wQPIVKrgRuYennqG65du4yT8db0EMgZiY0GD2/ppmR
-	ayJ/zbCoomBdHRSkEGfyeI3OOLuaY9GT1Q60leYtgc1lVpONhPjVBv0Goopyt8TLz0qk2V2rWXEeI
-	Yc4SnxuaCLONg7AU/eADrb8RTzuteQHKjaz1A/CoYecE18ShlzpOfAbzEw+idF3nT9CKACrpFYJ+T
-	9wQ8TA5g94jMSv5z7oC5vkoIL7o21aiaIMDtjdzVngVFTyNuWmjAOklBpqSoxG2AqabaVSiOGwID+
-	lKltC3kA==;
+	bh=xBhwM6wbqAw5a+cVNgYvlXlXJxCKVG4pNRvbUVKP8IA=; b=ufN+aSMSfZr8nNdSOJDOKTWecY
+	OTqWOR69LbUBSxIIFTVN7ultWFOnQMVn9AZdx7xEFnWY3LyoGE9rGbks0r0bbGO2hMx1oGEij8ZDJ
+	LMApT3rl+2t8tRb17x2IFTr97KVEI0bbnhqno9ji3Zw/J/WKbJxPLaAnLDO8fBTH8k4ZMD0Wbinfa
+	VKyjI3C2iffDPD6SWYUgO22tk3tcPUZr3Ia1LCg8UIiwhsie1oxh0qA4bs1VSegbrqZCCmKlhhKrT
+	QVVlPtJyZ6r+l010rc3J8Vs4hYG+p+/+aBugjw7U5E5qhW3bwlX8v8y7VIsZYz8piwnhWgNwf/SQG
+	nXFIvj3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9P97-00000008n5R-27wJ;
-	Wed, 23 Sep 2026 15:44:33 +0000
+	id 1x9PAG-00000008nJc-3mAG;
+	Wed, 23 Sep 2026 15:45:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9P96-00000008n5J-0ixC
+	id 1x9PAG-00000008nJQ-03QB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:44:32 +0000
+	Wed, 23 Sep 2026 15:45:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8738E4152C;
-	Wed, 23 Sep 2026 15:44:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDAAF1F000FF;
-	Wed, 23 Sep 2026 15:44:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C160340D91;
+	Wed, 23 Sep 2026 15:45:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B5741F00893;
+	Wed, 23 Sep 2026 15:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790178271;
-	bh=9PPxBgUPMs5vchL7SR1fadKjrntsb9RgCKzLY/cjVMM=;
+	s=k20260515; t=1790178343;
+	bh=xBhwM6wbqAw5a+cVNgYvlXlXJxCKVG4pNRvbUVKP8IA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZCvKnDvyFD4Ed5hludzd7plkpUV5xgTorV53CLht/02a3pPU8pxjsaNP+vl3RM6u0
-	 HHdcQrXYtJlRDswS+twP65Os5BLKtpUkF0NliYzgprI821NcdMJy4ICi0Vyzz/Ki+5
-	 n1f4aAAXIIPaqAuzkYZte48uwP0JSDtUbo9VMn8frp3k0UNWEggB00c8b+uH5t+6mT
-	 /b+nrhZH7sqBUiqOVota1eT4fe1qPNYIZ7ZQUoKJvp/Y4Y+OyFw57kNdnnPO6C0ONW
-	 TsqtVuNCK4mnlbY5ovdQ9umxwMjqtOuKpkvHSbiM4JQSx7VjoVvL4JZoHzwGDxCOPa
-	 JL/cPq7+7qwgg==
-Date: Wed, 23 Sep 2026 16:44:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Wei Xu <xuwei5@hisilicon.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: soc: hisilicon: Add HIP05 CPLD
-Message-ID: <20260923-strenuous-faceless-dfad20f6b872@spud>
-References: <20260921232540.3128596-1-robh@kernel.org>
- <20260922-cheer-reference-c31fc6fb946d@spud>
- <20260923150409.GD27237-robh@kernel.org>
+	b=KapfSIupahzymrJQOac0ZZru85avmkuCFsYN2BBX6hl8axXNJnffgnyqlm+GAqWFQ
+	 xzT7HNgoPLukmPtZQiUBGjAAgsMTd8mBODvU/qvqBoVlLs8WPfPnrRxVZn6ihew8bP
+	 vmmMP0HpYQBzSv0xarrSJFoDT0NNFmAVaJN5trYsm/T8kdBaP69tAOT9Jceqe5C9/t
+	 LV8Gui+KCanV+FtQ1aix6tIz7u0R/FbAIq7lEskqqpVMZDrB8GsXpeMSh9MekmkAQ3
+	 7ZMPHiPPDsji0EEtsNO5GjhuQJSJsjKHq/vLBxDvftss4APctbzOGdwKH6KmH4FoDW
+	 ATZpPB7e1lFyQ==
+Date: Wed, 23 Sep 2026 16:45:36 +0100
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, maz@kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+	gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
+	yuzenghui@huawei.com, linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
+	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org, enju.kohei@fujitsu.com
+Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
+Message-ID: <arP0IF0MjFUv36AP@willie-the-truck>
+References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
+ <arK3tsTV6EDhI-nt@willie-the-truck>
+ <arOyp8WUrYBAjrGH@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fXQyoIfMWTM8pali"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260923150409.GD27237-robh@kernel.org>
+In-Reply-To: <arOyp8WUrYBAjrGH@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,67 +77,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---fXQyoIfMWTM8pali
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Sep 23, 2026 at 10:04:09AM -0500, Rob Herring wrote:
-> On Tue, Sep 22, 2026 at 07:06:02PM +0100, Conor Dooley wrote:
-> > On Mon, Sep 21, 2026 at 06:25:39PM -0500, Rob Herring (Arm) wrote:
-> > > Add schema for the hisilicon,hip05-cpld node on the HIP05 D02 board. =
-The
-> > > node only contains the compatible string and one register window on t=
-he
-> > > local bus.
-> > >=20
-> > > Assisted-by: LLM
-> >=20
-> > Guidance to the LLM should probably include including the reason that
-> > this is being added to the commit message.
->=20
-> Not sure what you are looking for... I told it to convert all the .txt=20
-> bindings to schema. Then I told it fix all the errors. Then I fixed some=
-=20
-
-I meant that it should say something like "Add schema for ... node that
-is undocumented but appears in the ... board dts".
-Otherwise this seems like a completely random addition, other than the
-submitter being you pointing towards it being cleanup for undocumented
-stuff.
-
-> things throughout the 900 commit branch upstreaming things bit by bit. =
-=20
-> Then it mostly sat for a year and I told a new model to review them and=
-=20
-> fix these common problems a, b and c. Then I said fix all the=20
-> dtbs_checks warnings on arm64. Then I said there's still warnings, do it=
-=20
-> again. Repeated that ~10 times. Now I'm going thru to weed out all the=20
-> wrong and sometimes unnecessary changes.
->=20
-> So LLM did all the easy parts and I did everything that requires any=20
-> judgement. The hardest part is typically just figuring out the=20
-> correct maintainers...
->=20
-> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On Wed, Sep 23, 2026 at 12:06:15PM +0100, Catalin Marinas wrote:
+> On Tue, Sep 22, 2026 at 06:15:34PM +0100, Will Deacon wrote:
+> > On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
+> > > From: Steven Price <steven.price@arm.com>
+> > > 
+> > > If the host attempts to access granules that have been delegated for use
+> > > in a realm these accesses will be caught and will trigger a Granule
+> > > Protection Fault (GPF).
+> > > 
+> > > A fault during a page walk signals a bug in the kernel and is handled by
+> > > oopsing the kernel. A non-page walk fault could be caused by user space
+> > > having access to a page which has been delegated to the kernel and will
+> > > trigger a SIGBUS to allow debugging why user space is trying to access a
+> > > delegated page.
+> > > 
+> > > There is work in progress to unmap the guest_memfd backed private pages from the
+> > > linear map. Until we get that support, we could get spurious GPFs from within
+> > > the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
+> > > 
+> > > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > > Signed-off-by: Steven Price <steven.price@arm.com>
+> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > > > ---
-> > >  .../soc/hisilicon/hisilicon,hip05-cpld.yaml   | 35 +++++++++++++++++=
-++
-> > >  1 file changed, 35 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/soc/hisilicon/h=
-isilicon,hip05-cpld.yaml
+> > > Changes since v17:
+> > >  * Pass untagged address to die_kernel_fault() - Sashiko
+> > >  * Explicitly check !user_mode() for fixups - Catalin
+> > >  * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
+> > >  * Clarify the commit description about the upcoming work on
+> > >    unmapping guest_memfd backed pages from linear map
+> > > Changes since v16:
+> > >  * Update the commit description to indicate why we try to fixup GPFs
+> > > Changes since v10:
+> > >  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
+> > > Changes since v2:
+> > >  * Include missing "Granule Protection Fault at level -1"
+> > > ---
+> > >  arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
+> > >  1 file changed, 24 insertions(+), 6 deletions(-)
+> > 
+> > I still don't think we should do this, given that the plan is to unmap
+> > the memory from the linear map. If this thing fires, it's a kernel bug
+> > and it should be fatal.
+> 
+> If the linear unmapping gets merged first, I agree, no need to handle
+> these faults. I haven't followed that series, so no idea where it is at.
+> 
+> However, I'd still keep part of this patch - the reporting and panic but
+> without the actual exception table recovery. There's some value in
+> killing user-space and WARN (or pr_ratelimited) without a full panic, it
+> helps with debugging. That's what do_bad() via arm64_notify_die() gives
+> us currently anyway.
+> 
+> So maybe we can keep it to just:
+> 
+> static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
+> {
+> 	if (user_mode(regs)) {
+> 		pr_alert_ratelimited("%s[%d]: granule protection fault at 0x%016lx\n",
+> 				current->comm, task_pid_nr(current),
+> 				untagged_addr(far));
+> 		mem_abort_decode(esr);
+> 	}
+> 
+> 	return 1;
+> }
+> 
+> and we get the SIGBUS or panic via do_mem_abort(). No recovery for
+> uaccess though, we get the same kernel panic.
 
---fXQyoIfMWTM8pali
-Content-Type: application/pgp-signature; name=signature.asc
+But how can this ever occur in user mode? I'm fine with making that part
+unconditional.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarPz2wAKCRB4tDGHoIJi
-0qo5AQDoHJLM3dY0FK4aNlll5Vp276wV+D0l/vFY92imoN9xJwD/S/lJE2a7bcHD
-Q7vOIv9sEQqziJ6J3fePaQYs5nrnIw8=
-=v+dZ
------END PGP SIGNATURE-----
-
---fXQyoIfMWTM8pali--
+Will
 
