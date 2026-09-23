@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D660C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 07:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF6BC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 07:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QZ2CklEPM41fBCBH4wMrs2bqusIBHz8n45dNOsqwuuM=; b=S7AhPoPh7rZNLyKmGw4MrnkA+n
-	aVEBy9I3q1l1e5uCwfQuonXZ4m3imlOQK20sR/2ZUt4gHbBjJH+d1kLZ6C2Tsj+MK3U9S349LKccT
-	TAdE+EP/Z4uGyzsVHVW06dEJ3IRkr7C/4FTWHTgoT4YKfizStR//qTcBObYTmhzH9lyDnFzLSHr8U
-	VBleUpPGrn/qisZVr4yJDGluhMDcwcYK2aY2/AZxy/+3/U2O10jMK/p6HqP1r6g3eUh0k9lrBr3sQ
-	A6l0a/pMyxwrt0MbmL8bEynUDBzuhbqBhYxQP2/sCVDzqQGllO3cDa/jEnNheX79k68nbQWXD4Wqe
-	lG0AnFGA==;
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/YHAq84eIsnUQBlwdqCYIzHZKGq0Ac3NhMXy9IeqxAA=; b=AzT+ZbA97Hc9+LXmWXnCaXXTxa
+	TkNo6aDvKiDkhjublteEOexFmIq9Xl1Dq3FRjT5p4mAL/FYCXV8GvU+7aILYrkNKkkWa5yHiQYKlj
+	ni3J+B52ii7CGda0S88o5MG8vkqQzjU7wAqDWLwS7crZ939w5zDZLxGZyDCqPnjmjgNAMQHvBP85X
+	BozObXanLwePORBE5Aa/n630qPs6Ml5ndjkfnWW3ECWgko/U8joy0hz3aOm/MwXNhrAicptWHgEEj
+	XZeR+mR59+hWCRShIMDdqMbrTdF/8zMyMYQmx3ZrZ2gvzrgxYchximGWQH0l9Hi6C4YQai1AxqlgD
+	l5+M6CdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Hir-00000007RPJ-36dz;
-	Wed, 23 Sep 2026 07:48:57 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x9Hrd-00000007SBx-3gbc;
+	Wed, 23 Sep 2026 07:58:01 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Hio-00000007ROg-3fl9;
-	Wed, 23 Sep 2026 07:48:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=QZ
-	2CklEPM41fBCBH4wMrs2bqusIBHz8n45dNOsqwuuM=; b=ZXhIPGXfnuUPQO7hho
-	Z6mls1UwLr0w/B5xQSWcG9TigaAZL5AszmhnhrrLhwdeynBoFyBGaMi0rboMJ4D2
-	OB1qXptw4TgKIBisj0R28PYSocIdPD6hdYabTFW3KZ1u3QP7Y5oD4Fb4HWD9YykB
-	cChAFPX+mQfGxzOx3ldLiLk4E=
-Received: from chaosheng-ASUS-TUF-Gaming-F16-FX607JV-FX607JV.lan (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wCnX76Jg7NqtZwiAQ--.40954S2;
-	Wed, 23 Sep 2026 15:45:14 +0800 (CST)
-From: Quchaosheng <quchaosheng000406@163.com>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quchaosheng000406@163.com
-Subject: [PATCH v4] dt-bindings: mfd: rockchip,rk805: Convert pinctrl to DT schema
-Date: Wed, 23 Sep 2026 15:45:03 +0800
-Message-ID: <20260923074503.575956-1-quchaosheng000406@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x9HrY-00000007SAp-41EV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 07:57:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=/YHAq84eIsnUQBlwdqCYIzHZKGq0Ac3NhMXy9IeqxAA=;
+	b=g+WmWdQv34ML57rPaosxhODhg//6wGbyYSSxXKMW/k0puhS/BDTaqSKfB+lsGJzlA6/XyThA8
+	qF2zCQF4qbNZsDmZ62ZoY2DfB2hGnQZZUrwnYMVHsR+CQOIn3o2CtAtb3zOZXbY0S7C34xRPE42
+	IqVqoMkgb57QqLwSSIpwAf0=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hqTYq22trz12LFc;
+	Wed, 23 Sep 2026 15:46:39 +0800 (CST)
+Received: from dggpemr200003.china.huawei.com (unknown [7.185.36.25])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7C7D340538;
+	Wed, 23 Sep 2026 15:57:43 +0800 (CST)
+Received: from [10.174.185.234] (10.174.185.234) by
+ dggpemr200003.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Wed, 23 Sep 2026 15:57:42 +0800
+Message-ID: <83ffedd4-5912-4a6b-af02-850c556c2fac@huawei.com>
+Date: Wed, 23 Sep 2026 15:57:41 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND][PATCH 0/2] Batch register access for live migration
+ optimization
+From: Yize Wang <wangyize7@huawei.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <oupton@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <fuad.tabba@linux.dev>,
+	<joey.gouly@arm.com>, <seiden@linux.ibm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <mark.rutland@arm.com>, <zhengchuan@huawei.com>,
+	<jiangjiacheng@huawei.com>, <yize_w1110@163.com>
+References: <20260918081930.4014735-1-wangyize7@huawei.com>
+ <861paq69te.wl-maz@kernel.org>
+ <68de0ad8-967b-49d4-872a-a9fdff7485fb@huawei.com>
+In-Reply-To: <68de0ad8-967b-49d4-872a-a9fdff7485fb@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCnX76Jg7NqtZwiAQ--.40954S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuw47tr47AF45GF47CF4fAFb_yoWfGr47pF
-	ZxAF4fJrn2gF43uw48tw18Cw1fuan7Ar4UC3WUKryIqan8uryjyr13Kw1rZFyDGFW0va4a
-	vr15Wr98XwnrC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUbTmhUUUUU=
-X-CM-SenderInfo: xtxfxtprvkv0bjqqikiqw6il2tof0z/xtbDAAqKAGqzg4rJEwAA3K
+X-Originating-IP: [10.174.185.234]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemr200003.china.huawei.com (7.185.36.25)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_004855_216209_04B54B2E 
-X-CRM114-Status: GOOD (  24.34  )
+X-CRM114-CacheID: sfid-20260923_005757_616231_604C8DF2 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,254 +84,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pinctrl-rk805.txt describes the pinmux controller that is part of the
-Rockchip RK805 PMIC. The PMIC itself is already described by
-rockchip,rk805.yaml, so the pinmux part belongs there as well: the
-pinctrl node is a child of the PMIC node, not a separate device.
+kindly ping
 
-Fold the pinmux description into rockchip,rk805.yaml and drop the
-standalone text binding.
-
-While doing so, add the missing child node schema. The rockchip,rk805.yaml
-schema ends with 'additionalProperties: false' but did not describe the pin
-configuration child nodes at all, so a valid pinmux node like the one shown
-in pinctrl-rk805.txt was rejected:
-
-    pmic@18 (rockchip,rk805): 'rk805-default-pins' does not match any of
-    the regexes: '^pinctrl-[0-9]+$'
-
-The pin configuration nodes require 'pins'; without it a node that names
-no pin is accepted silently, while the text binding it replaces listed
-'pins' as required. The RK805 exposes two output-only GPIOs, so 'pins' is
-an enum of gpio0 and gpio1 and a typo such as "gpio2" is caught.
-
-The nodes may be direct children of the PMIC, or sit one level deeper
-inside a "pinmux" grouping node, which is the layout the example of the
-text binding used. pinctrl-bindings.txt allows the configuration nodes to
-be grandchildren of the pin controller, and the driver reaches both
-layouts: pinconf_generic_dt_node_to_map() parses the referenced node and
-then walks its children. The example shows both.
-
-The example also regains the gpio-controller and #gpio-cells lines that the
-example of the text binding had.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://sashiko.dev/#/patchset/20260923034245.396417-1-quchaosheng000406@163.com?part=1
-Link: https://sashiko.dev/#/patchset/20260923062746.516666-1-quchaosheng000406@163.com?part=1
-Assisted-by: LLM
-Signed-off-by: Quchaosheng <quchaosheng000406@163.com>
----
-Changes in v4:
-- Describe the pin configuration nodes both as direct children and inside a
-  "pinmux" grouping node. Only the flat form was described, so the layout
-  used by the example of the text binding this replaces was still rejected:
-
-    pmic@18 (rockchip,rk805): 'pinmux' does not match any of the regexes:
-      '-pins$', '^pinctrl-[0-9]+$'
-
-  The nodes are now one definition referenced from both places, and the
-  example shows the flat node and a "pinmux" node holding one.
-- Name the binding in the summary. dt-bindings: mfd: <binding>: is the form
-  Documentation/devicetree/bindings/submitting-patches.rst asks for on
-  conversions, and 364 of the 385 dt-bindings: mfd: commits in the tree name
-  a binding there.
-
-Changes in v3:
-- Capitalize the summary phrase. dt-bindings: mfd: titles are capitalized
-  after the subsystem prefix (Add 61, Convert 20 against convert 6).
-- Add gpio-controller and #gpio-cells to the example, which the text
-  binding's example had and the conversion dropped.
-- gpio-controller and #gpio-cells are deliberately *not* added to the
-  required list. rv1108-evb, rv1108-elgin-r1 and rk3328-a1 do not set
-  them, so requiring them breaks three in-tree boards:
-
-    rv1108-evb.dtb: pmic@18 (rockchip,rk805): 'gpio-controller' is a required property
-
-  No rk8xx PMIC schema requires the pair, and gpio.yaml already enforces
-  that they appear together ("'#gpio-cells' is a dependency of
-  'gpio-controller'"). The pinctrl driver calls devm_gpiochip_add_data()
-  unconditionally, so the property is not what makes the GPIO controller
-  work either.
-
-Changes in v2:
-- Require 'pins' in the pin configuration nodes. Without it a node that
-  names no pin passes validation, while the text binding listed 'pins'
-  as required.
----
- .../bindings/mfd/rockchip,rk805.yaml          | 65 ++++++++++++++++++-
- .../bindings/pinctrl/pinctrl-rk805.txt        | 63 ------------------
- 2 files changed, 64 insertions(+), 64 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
-
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-index da2391530c16..aafc80212c48 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-@@ -77,6 +77,21 @@ properties:
-     description:
-       The input supply for LDO_REG3.
- 
-+  # pinctrl-bindings.txt allows the pin configuration nodes to be grandchildren
-+  # of the pin controller, and the text binding this replaces used that layout:
-+  # a "pinmux" node holding the nodes that carry "pins". The driver reaches both
-+  # layouts, because pinconf_generic_dt_node_to_map() parses the referenced node
-+  # and then walks its children.
-+  pinmux:
-+    type: object
-+    additionalProperties: false
-+    patternProperties:
-+      '^.+$':
-+        if:
-+          type: object
-+        then:
-+          $ref: '#/$defs/rk805-pin-config'
-+
-   regulators:
-     type: object
-     patternProperties:
-@@ -86,6 +101,38 @@ properties:
-         unevaluatedProperties: false
-     unevaluatedProperties: false
- 
-+$defs:
-+  rk805-pin-config:
-+    type: object
-+    description:
-+      The RK805 has two output-only GPIOs which can be muxed to the GPIO
-+      function and driven low or high at boot.
-+    additionalProperties: false
-+
-+    properties:
-+      pins:
-+        description:
-+          List of GPIO pins to configure.
-+        items:
-+          enum: [gpio0, gpio1]
-+        minItems: 1
-+        maxItems: 2
-+
-+      function:
-+        description:
-+          The RK805 only supports the GPIO function.
-+        enum: [gpio]
-+
-+      output-low: true
-+      output-high: true
-+
-+    required:
-+      - pins
-+
-+patternProperties:
-+  '-pins$':
-+    $ref: '#/$defs/rk805-pin-config'
-+
- allOf:
-   - if:
-       properties:
-@@ -125,9 +172,11 @@ examples:
-             interrupt-parent = <&gpio2>;
-             interrupts = <RK_PA6 IRQ_TYPE_LEVEL_LOW>;
-             pinctrl-names = "default";
--            pinctrl-0 = <&pmic_int_l>;
-+            pinctrl-0 = <&pmic_int_l>, <&rk805_default>, <&rk805_grouped>;
-             rockchip,system-power-controller;
-             wakeup-source;
-+            gpio-controller;
-+            #gpio-cells = <2>;
-             #clock-cells = <0>;
- 
-             vcc1-supply = <&vcc_sys>;
-@@ -137,6 +186,20 @@ examples:
-             vcc5-supply = <&vcc_io>;
-             vcc6-supply = <&vcc_io>;
- 
-+            rk805_default: rk805-default-pins {
-+                pins = "gpio0";
-+                function = "gpio";
-+                output-high;
-+            };
-+
-+            rk805_grouped: pinmux {
-+                gpio01 {
-+                    pins = "gpio1";
-+                    function = "gpio";
-+                    output-low;
-+                };
-+            };
-+
-             regulators {
-                 vdd_logic: DCDC_REG1 {
-                     regulator-name = "vdd_logic";
-diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt b/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
-deleted file mode 100644
-index 6ad49e51c72e..000000000000
---- a/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
-+++ /dev/null
-@@ -1,63 +0,0 @@
--Pincontrol driver for RK805 Power management IC.
--
--RK805 has 2 pins which can be configured as GPIO output only.
--
--Please refer file <devicetree/bindings/pinctrl/pinctrl-bindings.txt>
--for details of the common pinctrl bindings used by client devices,
--including the meaning of the phrase "pin configuration node".
--
--Optional Pinmux properties:
----------------------------
--Following properties are required if default setting of pins are required
--at boot.
--- pinctrl-names: A pinctrl state named per <pinctrl-bindings.txt>.
--- pinctrl[0...n]: Properties to contain the phandle for pinctrl states per
--		<pinctrl-bindings.txt>.
--
--The pin configurations are defined as child of the pinctrl states node. Each
--sub-node have following properties:
--
--Required properties:
--------------------
--- #gpio-cells: Should be two. The first cell is the pin number and the
--  second is the GPIO flags.
--
--- gpio-controller: Marks the device node as a GPIO controller.
--
--- pins: List of pins. Valid values of pins properties are: gpio0, gpio1.
--
--First 2 properties must be added in the RK805 PMIC node, documented in
--Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
--
--Optional properties:
---------------------
--Following are optional properties defined as pinmux DT binding document
--<pinctrl-bindings.txt>. Absence of properties will leave the configuration
--on default.
--	function,
--	output-low,
--	output-high.
--
--Valid values for function properties are: gpio.
--
--There are also not customised properties for any GPIO.
--
--Example:
----------
--rk805: rk805@18 {
--	compatible = "rockchip,rk805";
--	...
--	gpio-controller;
--	#gpio-cells = <2>;
--
--	pinctrl-names = "default";
--	pinctrl-0 = <&pmic_int_l>, <&rk805_default>;
--
--	rk805_default: pinmux {
--		gpio01 {
--			pins = "gpio0", "gpio1";
--			function = "gpio";
--			output-high;
--		};
--	};
--};
--- 
-2.43.0
-
+在 2026/9/20 20:12, Yize Wang 写道:
+>
+> 在 2026/9/18 20:08, Marc Zyngier 写道:
+>> On Fri, 18 Sep 2026 09:18:13 +0100,
+>> Yize Wang <wangyize7@huawei.com> wrote:
+>>> This series adds batch register access support to KVM/arm64 to reduce
+>>> syscall overhead during VM live migration.
+>>>
+>>> Currently, QEMU issues one ioctl per register when saving/restoring 
+>>> VGIC
+>>> state. On large VM configurations this means tens of thousands of 
+>>> syscalls,
+>>> where lock acquisition and context switch overhead dominates migration
+>>> downtime. Thus, we provide a batch register method to allow userspace
+>>> read/write multiple distributor and redistributor registers in a 
+>>> single call.
+>>> In this way, we can significantly reduce syscalls and migration 
+>>> downtime.
+>>>
+>>> Test the VM migration time under pressure conditions.
+>>> The VM specifications for migration are as follows:
+>>> - VM use 4-K page;
+>>> - the number of VCPU is 160;
+>>> - the total memory is 320Gigabit;
+>>> - use 'Redis SET-benchmark' to pressurize VM;
+>>>
+>>> Performance results (3-run average, ms):
+>>>      | Metric              | Without patch | With patch | Improvement |
+>>> |---------------------|---------------|------------|-------------|
+>>>      | Migration downtime  |        536    |     321    | 40%     |
+>>>      | Source (total)      |        344    |     230    | 33%     |
+>>>      |   - VGIC put        |        158    |      40    | 75%     |
+>>>      |   - VGIC get        |        120    |      19    | 84%     |
+>>>      | Destination (total) |        192    |      91    | 53%     |
+>>>      |   - VGIC put        |        132    |      27    | 80%     |
+>>>
+>>> Yize Wang (2):
+>>>    KVM: arm64: Add batch group constant and data structure to UAPI 
+>>> header
+>>>    KVM: arm64: Add VGIC v3 batch register access implementation
+>> Questions:
+>>
+>> - Why only the MMIO registers?
+>>
+>> - Why not the sysregs?
+>>
+>> - Why only the GIC?
+>>
+>> - Why not all of the state?
+>>
+>> - Where is the corresponding userspace code?
+>>
+>> More importantly, since this is about batching system calls:
+>>
+>> - Why can't this be done with io_uring instead?
+>>
+>>     M.
+>
+>
+> Hi, Marc! Thank you for the review.
+>
+>
+> These patches focus on optimizing GICv3 register access during live 
+> migration. We found that there are a large number of locks (kvm->lock, 
+> vcpus, config_lock) in the GIC, these lock operations wil cost large 
+> time waste. The batches of sysreg for vcpu optimization will come in 
+> follow as a separate series. And let me address these questions one by 
+> one.
+>
+>
+> 1. Why only the MMIO registers?
+>
+> In vgic_v3_batch_access(), we use 'entries' structure to implement 
+> batch read/write of register status. The structure is 'struct 
+> kvm_dev_arm_vgic_batch_entry', where the group information can be 
+> freely specified by userspace. Thus, vgic_v3_batch_access() supports 
+> all VGIC device attr groups, not only MMIO registers.
+>
+>
+> 2. Why not the sysregs?
+>
+> The newly added vgic_v3_batch_access() just forwards the groups 
+> received fromQEMU in batches to 'vgic_v3_attr_regs_access()'. And this 
+> function already has 'KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS' to handle 
+> sysregs. Our patch does not modify the existing sysreg handling logic.
+>
+>
+> 3. Why only the GIC?
+>
+> During live migration, the GIC is the device with the largest number 
+> of registers, and we found that there are a large number of locks in 
+> it. If each register is locked and unlocked individually, it would 
+> cause large time consumption. Thus, we want to optimize the GIC 
+> register time consumption during live migrate. The experimental 
+> results also show that batch processing significantly reduces VGIC 
+> handling time during migration.
+>
+> Similarly, vCPU register save/restore also costs significantly time. 
+> The patch of vCPU sysreg batch access will be submitted separately in 
+> the future.
+>
+>
+> 4. Why not all of the state?
+>
+> As different devices have different lock hierarchies and access 
+> paths(e.g., GIC goes through the device fd, CPU regs go through the 
+> vcpu fd), it's difficult for us to realize in a single batch handler. 
+> Additionally, introducing too many changes at once would make review 
+> harder. These patches focus on GIC-related optimization, and a 
+> separate series for vCPU batch processing will follow.
+>
+>
+> 5. Where is the corresponding userspace code?
+>
+> The QEMU-side implementation has been posted to qemu-devel. The link 
+> is below:
+>
+> https://lore.kernel.org/qemu-devel/20260918092120.370805-1-wangyize7@huawei.com/T/#t 
+>
+>
+>
+> 6. Why can't this be done with io_uring instead?
+>
+> The core idea of io_uring is to reduce the number of context switches 
+> between user space and kernel space by utilizing two ring buffers. 
+> However, each SQE is still processed independently in kernel space. 
+> For the VGIC registers, each SQE still require lock -> read/write -> 
+> unlock, so the per-register lock overhead remains unchanged. We hope 
+> to read/write a set of register states with a single lock operation to 
+> reduce the time cost. Therefore, io_uring does not meet our needs.
 
