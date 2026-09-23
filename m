@@ -4,88 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1473C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78342C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0GAQWca0nTL6YLZ9mKHYSD9pSYfXej97OjBgSQA5Aw=; b=t2DKYBR2nOXUaAEugzpoiTHUd2
-	8Fq8Hzs88CA62sdRvg06o0CkWj3GLpPoMxcZMf/76iYIk5v88b6qAyQhXH3ap/7jmkvx1Dk8LC5bQ
-	rX9TPWIhEWCzshsRaYC/a8SFUlf24O7w+Qe78hYGC3yzwEO2DoYcAk15+OluZQS7+E4HCl+Mb+hQI
-	WVmBzd6coTQKJSjU4ltoMyqq9NDHveiwZttAFMhIyM4rhtbuMXaNlWJRLsYoHx0EBRTkdSiVuJPFV
-	1km6cyObOMoW/Bnwc1Bteo92xn/AUkJr0CpNUYc803ZuG7YY+9cb7TCpjcC+HFOmcArOdG3JsOcnx
-	U3AC/QpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Y8ZjxH2QS8Il7T7u2QklNAQFDGovakGfSPOZtOesvg=; b=mn+ks9xPoDGKybCopd1bnJnAiz
+	u/h3UgthiewKeYsyfgkBX90n8JFxfPz9rk9RXbwljWlpFV6Tr3gYBc9uza1SheFtbI8HO3AakPz3+
+	1Lj8iM4jYM0gxkXILKV4PpOtL1boxKtNsrTRTuOkJA7zaFD/pm1aJXW3bOItCWC/BjXyXjTStNJk1
+	Wn3PtnlXp6r+7ijRiZUvuHBT2+9grZr6k9BWHmweRvySsype5ZAukEgSn+k38CiFlNcmmOuMi2NQA
+	o05cPJd7mijDr8ZCu459p2+SOw4mWsVfK2HewXNs+bsyLrr/I46JLUT2qXNJU7bdqN4j7iPIgLfhk
+	zEZl2flw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ob7-00000008dSk-1Sax;
-	Wed, 23 Sep 2026 15:09:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9Obf-00000008dY2-023f;
+	Wed, 23 Sep 2026 15:09:59 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ob5-00000008dS9-1usU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 15:09:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=S0GAQWca0nTL6YLZ9mKHYSD9pSYfXej97OjBgSQA5Aw=; b=dMQJ7+oaawEQ7hkI4vAFEQyG4t
-	NhNvXBcRidIXFYS0hCixD6iG8ZjjiFfXwzXPEN5kO4ag+LiGM99vVPKGWWxcWr7raOBkByYItTqG1
-	QdwJjGhGQnhm1cxLLS3K2JxWwBOTXmPLPfqCfkmobJidc4eS8m6kautZilWbGSzm/4U2wNLguHQVo
-	rmXLpTJgiVPfwXmm/mZrG+Ofw9sCv2Ok2yrMzFIgOVjsRW36/oEK8y6Gijk2zanCCOXBxPX9DZBY5
-	T8qnfR8SEmKCkXdpW40BeABHVqAOKmLmc7tbFgn50gUJ54w8QjP7CM2RVIutMV+cC/+0w8IJ0r0Sp
-	SBLElxeg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9Ob1-0000000EuD9-1FJA
+	id 1x9Obd-00000008dXU-1G1E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:09:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E1281713;
-	Wed, 23 Sep 2026 08:09:13 -0700 (PDT)
-Received: from [192.168.4.158] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C1963F86F;
-	Wed, 23 Sep 2026 08:09:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790176156; bh=EZhJBNxd5DgdGGLZIF38gcgQvX7YQE1kHz/PRhpXS2w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NhpdT+heQlDj85e3E4DE1+9t2AiiZ3nDyE5kxR/4EC0Q91kUJB62lbUMWUPRRWLu0
-	 ilcL3i3GHZMlN7f/wXGTSMRXkHBPZrUBpNgp+klVtXUoevFdSgpUuaGqgEEwS97z+X
-	 DC/bh2wmEX1GmqzIXKTwY6fVXi0/pYVORCdB+zZc=
-Message-ID: <e2019f1e-8bba-4ac2-b953-a300d5af319e@arm.com>
-Date: Wed, 23 Sep 2026 16:09:13 +0100
+	Wed, 23 Sep 2026 15:09:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l56gmFrrdqlGRqEdsdMX/HE+1z1M/UvVG/TdcMNhcUa0JH+hwz1pl/fPhE8qGBYhzGkLXdPEKV/WaMBLB3J7Jge0EUFYkHdryJ3acbZF8JA8Mv3Ydirq74l2aGbFntbiG5XAoDyNnB554IX1Y8gSlLtv4VVLJqsJsGCz7GMSi1fo1+eHYMyc84rhQPW0rgw/27Tdo/BtpNNEMh1qWGgm0Gzex8EXdh0lMTk6jz7ky1COPPeVBhQopK053xGc3w5AucXpk1zbEfI9auOT2i2Gr6EhD6n4m92Q8q2KPupZK1w3hVS2qb9VaoGJdW2G26t2zMHwd1WDQdjwf9oxXnRjZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1Y8ZjxH2QS8Il7T7u2QklNAQFDGovakGfSPOZtOesvg=;
+ b=skvBA3qAhEgeURQ1b8BJOHsTVCah6cyEap0hey/Nqk4telL82YbyTB3jwmoQ3+G4+ZAAt6lBn1+JkLvaSFzLWSIH8EiDt6053VBqsuMHQsJ4XTTzovCcwCZMgBXemmIanocnK5UrUHQdehVOEC7I/su7gWWJ9oGCiQrNzt0YGd+gNaDSepMSOvsnGCE6wI0qs7gsdmYavKQUdhm5FKdUiNcDImJrrCMNAgx/aAMk5G0GYWXh9JA0Pxtk3yT57KTPyrIvI7XX30s8N7DwP9ed42G0NRhZwru02L2bTxUsEvA/SCrN2cgIBSTalwz6WZ7APCJVhBqnH3VbJceqQ/Zquw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1Y8ZjxH2QS8Il7T7u2QklNAQFDGovakGfSPOZtOesvg=;
+ b=EqQmeTTjJn2VbOooK93XuCpuM/NtVSqELXVQdv74El0h/+k4F6XfqCRBtNlj0CCXlTMIEZ1AtWWYMp4oMmWAk1WwGOx5TgXUvf8EYpvp46OPxTKXaSS1UWCfxbaEyA9avoOMm5iADuABtU7syCY+39Tbc39oRbr/hfFv1F3hojg11Ng1w9ipGIJrj38YHqQXZPhxTZmXbz/vcNFiNjGR7HbA/J6IfCDk702Gt2KzEbkYMtd4xkz+Ad2HdeaZhvqN7ByDpJlhLicIgh9y+IBwmfonrV4ofbY6C4PKkDR2n9r3MChTt8vRpb8rJq2st0PwMQbkblHj1qHYKYe2nQaVIQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DBBPR04MB7962.eurprd04.prod.outlook.com (2603:10a6:10:1e7::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
+ 2026 15:09:52 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0428.015; Wed, 23 Sep 2026
+ 15:09:52 +0000
+Date: Wed, 23 Sep 2026 10:09:41 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: shengjiu.wang@oss.nxp.com
+Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	shawnguo@kernel.org, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com,
+	nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
+	linuxppc-dev@lists.ozlabs.org,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Subject: Re: [RESEND PATCH v5 4/5] ASoC: fsl_asrc: expose individual DAIs per
+ conversion path
+Message-ID: <arPrtTnF3XBxYcAf@SMW015318>
+References: <20260922033428.1690822-1-shengjiu.wang@oss.nxp.com>
+ <20260922033428.1690822-5-shengjiu.wang@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260922033428.1690822-5-shengjiu.wang@oss.nxp.com>
+X-ClientProxiedBy: CY5PR22CA0104.namprd22.prod.outlook.com
+ (2603:10b6:930:65::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 8/8] coco: guest: arm64: Remove dummy CCA platform
- device
-Content-Language: en-GB
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Sudeep Holla <sudeep.holla@kernel.org>, Will Deacon <will@kernel.org>,
- Steven Price <steven.price@arm.com>, Andre Przywara
- <andre.przywara@arm.com>, Herbert Xu <herbert@gondor.apana.org.au>,
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
- Olivia Mackall <olivia@selenic.com>, Russell King <linux@armlinux.org.uk>,
- Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-References: <20260923140405.1111554-1-aneesh.kumar@kernel.org>
- <20260923140405.1111554-9-aneesh.kumar@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260923140405.1111554-9-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7962:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18970c45-d0e2-4c07-444f-08df1984b7d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|23010399003|376014|10067099003|56012099006|11063799006|6133799003|22082099003|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: MLcCHXHto+ou0d5HOiUSUKnrqGOBS3V6Z4Iw0Y+uH5MGluJMGRwHQx+6DGNkYN7o9bbBnYQG+aGZ66eimoyWGOuGqjtvqTSvwR1KMFLBPuCMc0SGO/LaExHBmhkfBN1ffg4NJf9IKVEMyADYU8s4PxOHVn3u9cmKh32DcnLGELSAxj7IlTxMYEN2ggu788z/mAhR8F3wguX2mFeaZinPCKDRAYPt6yVYxAMbOvVfmXvH9Cr+74bct838vFvRRfTjo3Thi1UHvXhnIFsZZbKa5sRsqur5hDr9FRegPbsa5X+mqtxytdfpgAvJxPaJmnwLaj4Oxl1dfbj5ugcd4Moh+ciecuPO2BxUlyfVoUADR4TBaOXkqgNtsBrVx9IfJDcq9cudjvoqH0sQzmOtMkMp2geXhDzq5U0z4BPRXXRubwlTF4BLZ3oUfgfg6uFNu1C30E8cTqF45AFvsnsWzapMZ5LcMm7nNncLmL4hEG5g4R9FJ7N4gbRnrHojZQyWUvi8WNWQQE3JUsog/WsjrZJEz0aCNWm36kKqPdipSj3yThIaDjthbtaZ27ZBcPJs+oG3FvXioh4v6vD2QnVoXN2yjSVRr0w52bfdgOHG3Bi4Q33L87id+vwG/BGZcVzbUgEi9SJgQ80YRfgsl8lXC2tntsZrCyvkbQHO+vK5SHaj+Ho=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(23010399003)(376014)(10067099003)(56012099006)(11063799006)(6133799003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L4pXHqDmYGc11QyGufQmjlaJ04R9ig4hfFFY5SuVjkmJBCzB5yKJGifsQr1S?=
+ =?us-ascii?Q?+hvvNCCcCdlSbRmH5Fm94PDqgak65ZngSMUfCpTqo8e3CNfg0EYY78cEvkyT?=
+ =?us-ascii?Q?oOrg2XlFclgd1xAl4mteqTRTYnEIB10wWgLW9F3ODZhn4fGLpycEr376ln8z?=
+ =?us-ascii?Q?1cwgVtceH5a4P4cfi5s/YwsW3jKZEAHmbgqPq0yMFizL9XQqZYFjRanXuXd9?=
+ =?us-ascii?Q?gvT7jnLbTsRtwrj5hYVAJNVrycuCOsV3FacXgkpJ0FQTYHzYixLet5Gj1alj?=
+ =?us-ascii?Q?IALNdjNYDWAGnShnsIArutu3xqr67xnOoVYKirL7aaTckmONFPNcgi70rKbS?=
+ =?us-ascii?Q?q67xZdMy63oiwbrsaRx3vJHR97jMbgouG7+ifMqu9KMN7eHSDLLwZCIqULn4?=
+ =?us-ascii?Q?9+/Fd8jsY+/yIdktgxxkkgvRiyq5QxVNBe4Z/SNlvlKJHsE87n87sUqRZRZm?=
+ =?us-ascii?Q?kYYb1nWXFRVJDmfJHhZg9mSc2MDuWHEOoXYy6Rd1eyFFLWyyfPo4mF3CKyW4?=
+ =?us-ascii?Q?qSoo2TYRk/XG8mxC19sB1aVADj5zlPorjFgsP60gkQGmAgUgSXSePeQUXHX2?=
+ =?us-ascii?Q?Eoj+f0LnKA32aqiKpXAzLZ7l2ZAl5LeO2tamTegpA/lO1FHst4DLHet66JwG?=
+ =?us-ascii?Q?Njkj5w0XtzcF0PjZP4lPWDxTk0X/S6amG+npFE1Wi7t5T05I+Nf5ZDaUVPAW?=
+ =?us-ascii?Q?/UGUTok35IHpEZsw0XWZJhYhTGZczMWFOGh1irWt8XeY+uBnmxzoRbogjx2E?=
+ =?us-ascii?Q?zFerd3yahEav4FpUxeZBEBMDofsBXrCgnFVhmoIKBvQLG3Z8M1oZjDc5O64B?=
+ =?us-ascii?Q?NbhRBJX4bFQHIi8uu8O6gQ/8/khMiNzDSSqr4WtQFzbG+9gxJMiurgjSSakW?=
+ =?us-ascii?Q?Lk4vXlPXxjfY5EFkQXwfiXl7qXGlNPpM74jGaO6MkPrALbyNKzUySryPgtDy?=
+ =?us-ascii?Q?FHUNRQMhf2fDlAIq7Xk1v0ONUzL0fB5BwiOT2iK5WaGn87nsMRloRQN8pTxY?=
+ =?us-ascii?Q?akhWQr2R/gxs+tsaX8MjmUMU06Pjov60qV9OjLwqdzVtst43HN7hZwkAZCDU?=
+ =?us-ascii?Q?GhbkfBeyQ3kYQ3/5968U3+eGbjf44hWXS4vmRTxpifDp/zbwkUDEpBBtCN/E?=
+ =?us-ascii?Q?XE3eeBHnMo9UIUuCiOwWzSP8WPfgqJj42+N9ogPXTpGuDalsvjDeFxPlf66M?=
+ =?us-ascii?Q?dmHm/cI2CKEyimsmXdXpLC+MqYN/tr6y3MlKS2hQy49MagDUSbCAxl4ZX5l3?=
+ =?us-ascii?Q?seTFGybniPa6sjK0LwNm45HaTBBBMCYSVWg8h44AiVCx+ASqEMsj6sunuX9A?=
+ =?us-ascii?Q?HYpwDUma/23RnHZo12o89rwcVKg1bWWBzTeFdZ4nCTwECJQ+zMiziQiRRWD8?=
+ =?us-ascii?Q?GOjJNxqGZ7zKIXjooSDB92tVZcgvIouIhGcgRp11hWlj0oC3UQDm4QS6YE4d?=
+ =?us-ascii?Q?mwYXrXmLV4vSY3GUPtFECehNqdpDMaaNuy3xZtdeKXaintJ9uUYzmPgUUNTT?=
+ =?us-ascii?Q?sxEDYk5B6xg0RYhx0UVyBxzTnL/xJ6FRee2CHS7A8zFhGqplTs4GV3dP8Aas?=
+ =?us-ascii?Q?tVGqITOxCLWVpY5m6qmd1c3LKAFJvNFrMZcJMc4Vm2D9+eGzGcT75rH+mrCp?=
+ =?us-ascii?Q?SZDY+/abUvyojpNE+/kWHkNOpFOkof8Gvb6aOEjU5RI9ASLgHtBgeqs6Pjfc?=
+ =?us-ascii?Q?wYHuVS+1A5vHJOSDUtfS/siOB/TvHYWsx5OY1kqBlAJ1vnZNISJ1mxBj1pSq?=
+ =?us-ascii?Q?uC2WNy/THTt1twWuEf3+jA/ocHXaNo4wKQcTVFsZXArYocVDUBad?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18970c45-d0e2-4c07-444f-08df1984b7d8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 15:09:52.3678
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mIWI+x2KWcS/WgY0YN0++lcakc1whrJT77RDWVPYQ1iUpCN0LnMyptpUauqI8UOyXe1BbSQ9u8PYURxn8rhpv4wmfl6A+ixAVL7iWwlTp+siRNoyS5BKfetDWRkoAi5I
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_160919_826536_EEF0E98C 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_080957_346777_F7C65F4C 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,23 +145,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2026 15:04, Aneesh Kumar K.V (Arm) wrote:
-> The SMCCC firmware driver now creates the arm_smccc bus and instantiates
-> the CCA RSI device once the RSI ABI is discovered. The arm64-specific
-> arm-cca-dev platform device stub is therefore no longer needed.
-> 
-> Userspace now has /sys/firmware/cca/realm_guest as a dedicated CCA Realm
-> guest indicator. Remove the dummy arm-cca-dev registration.
-> 
-> Link: https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+On Tue, Sep 22, 2026 at 11:34:27AM +0800, shengjiu.wang@oss.nxp.com wrote:
+> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+>
+> The i.MX ASRC hardware supports three independent conversion pairs
+> (A, B, C). The driver previously registered a single DAI with generic
+> stream names "ASRC-Playback" and "ASRC-Capture", which prevents
+> multiple independent conversion paths from being used simultaneously.
+>
+> Replace the single fsl_asrc_dai instance with an array of three DAI
+> drivers to allow up to three independent conversion paths to be active
+> at the same time:
+>
+>   asrc-0 -- ASRC-Playback / ASRC-Capture (backward compatible)
+>   asrc-1 -- ASRC1-Playback / ASRC1-Capture
+>   asrc-2 -- ASRC2-Playback / ASRC2-Capture
+>
+> asrc-0 retains the original generic stream names to preserve backward
+> compatibility with existing machine drivers and board configurations.
+> Each DAI retains the same channel, rate and format capabilities as the
+> original. Update the devm_snd_soc_register_component() call to register
+> all three DAIs.
+>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> ---
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
+>  sound/soc/fsl/fsl_asrc.c | 89 +++++++++++++++++++++++++++++++---------
+>  1 file changed, 69 insertions(+), 20 deletions(-)
+>
+> diff --git a/sound/soc/fsl/fsl_asrc.c b/sound/soc/fsl/fsl_asrc.c
+> index 6007786aca66..56604fa1613a 100644
+> --- a/sound/soc/fsl/fsl_asrc.c
+> +++ b/sound/soc/fsl/fsl_asrc.c
+> @@ -792,27 +792,76 @@ static const struct snd_soc_dai_ops fsl_asrc_dai_ops = {
+>  				 SNDRV_PCM_FMTBIT_S16_LE | \
+>  				 SNDRV_PCM_FMTBIT_S24_3LE)
+>
+> -static struct snd_soc_dai_driver fsl_asrc_dai = {
+> -	.playback = {
+> -		.stream_name = "ASRC-Playback",
+> -		.channels_min = 1,
+> -		.channels_max = 10,
+> -		.rate_min = 5512,
+> -		.rate_max = 192000,
+> -		.rates = SNDRV_PCM_RATE_KNOT,
+> -		.formats = FSL_ASRC_FORMATS |
+> -			   SNDRV_PCM_FMTBIT_S8,
+> +static struct snd_soc_dai_driver fsl_asrc_dai[] = {
+> +	{
+> +		.name = "asrc-0",
+> +		.playback = {
+> +			.stream_name = "ASRC-Playback",
+> +			.channels_min = 1,
+> +			.channels_max = 10,
+> +			.rate_min = 5512,
+> +			.rate_max = 192000,
+> +			.rates = SNDRV_PCM_RATE_KNOT,
+> +			.formats = FSL_ASRC_FORMATS |
+> +				   SNDRV_PCM_FMTBIT_S8,
+> +		},
+> +		.capture = {
+> +			.stream_name = "ASRC-Capture",
+> +			.channels_min = 1,
+> +			.channels_max = 10,
+> +			.rate_min = 5512,
+> +			.rate_max = 192000,
+> +			.rates = SNDRV_PCM_RATE_KNOT,
+> +			.formats = FSL_ASRC_FORMATS,
+> +		},
+> +		.ops = &fsl_asrc_dai_ops,
+> +	},
+> +	{
+> +		.name = "asrc-1",
+> +		.playback = {
+> +			.stream_name = "ASRC1-Playback",
+> +			.channels_min = 1,
+> +			.channels_max = 10,
+> +			.rate_min = 5512,
+> +			.rate_max = 192000,
+> +			.rates = SNDRV_PCM_RATE_KNOT,
+> +			.formats = FSL_ASRC_FORMATS |
+> +				   SNDRV_PCM_FMTBIT_S8,
+> +		},
+> +		.capture = {
+> +			.stream_name = "ASRC1-Capture",
+> +			.channels_min = 1,
+> +			.channels_max = 10,
+> +			.rate_min = 5512,
+> +			.rate_max = 192000,
+> +			.rates = SNDRV_PCM_RATE_KNOT,
+> +			.formats = FSL_ASRC_FORMATS,
+> +		},
+> +		.ops = &fsl_asrc_dai_ops,
+>  	},
+> -	.capture = {
+> -		.stream_name = "ASRC-Capture",
+> -		.channels_min = 1,
+> -		.channels_max = 10,
+> -		.rate_min = 5512,
+> -		.rate_max = 192000,
+> -		.rates = SNDRV_PCM_RATE_KNOT,
+> -		.formats = FSL_ASRC_FORMATS,
+> +	{
+> +		.name = "asrc-2",
+> +		.playback = {
+> +			.stream_name = "ASRC2-Playback",
+> +			.channels_min = 1,
+> +			.channels_max = 10,
+> +			.rate_min = 5512,
+> +			.rate_max = 192000,
+> +			.rates = SNDRV_PCM_RATE_KNOT,
+> +			.formats = FSL_ASRC_FORMATS |
+> +				   SNDRV_PCM_FMTBIT_S8,
+> +		},
+> +		.capture = {
+> +			.stream_name = "ASRC2-Capture",
+> +			.channels_min = 1,
+> +			.channels_max = 10,
+> +			.rate_min = 5512,
+> +			.rate_max = 192000,
+> +			.rates = SNDRV_PCM_RATE_KNOT,
+> +			.formats = FSL_ASRC_FORMATS,
+> +		},
+> +		.ops = &fsl_asrc_dai_ops,
+>  	},
+> -	.ops = &fsl_asrc_dai_ops,
+>  };
+>
+>  static bool fsl_asrc_readable_reg(struct device *dev, unsigned int reg)
+> @@ -1393,7 +1442,7 @@ static int fsl_asrc_probe(struct platform_device *pdev)
+>  		goto err_pm_get_sync;
+>
+>  	ret = devm_snd_soc_register_component(&pdev->dev, &fsl_asrc_component,
+> -					      &fsl_asrc_dai, 1);
+> +					      fsl_asrc_dai, ARRAY_SIZE(fsl_asrc_dai));
+>  	if (ret) {
+>  		dev_err(&pdev->dev, "failed to register ASoC DAI\n");
+>  		goto err_pm_get_sync;
+> --
+> 2.34.1
+>
+>
 
