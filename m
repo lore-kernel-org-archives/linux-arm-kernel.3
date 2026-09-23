@@ -4,90 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18210C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F5AC98307
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 11:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OGzrQTM25YzeF6Zl6z9UWlYe4efLXilZQQjl4hlshtg=; b=fIAhttKjlesTFpf/lmUzbdjO14
-	HQSQVVmfH8NNZGu7x2eP02r4E7bHd+Qs+flDwJyLOxNwBJ7Br1TyYxUclUpjmKZsDs4gsP05XwwTE
-	hEJvDFU1T8uvgnu/PxLY8upouoFJLxGIbn6Hb7yKkz4OqeGQbPWYcumPQxyRXbtSw1R/9f/+ptGzU
-	cfV/e6xjHEU9iKcU96H0tmOPBcHaROVkDH9LcqMzT0+8JpLt0ku+ZP91WC46OrrrrVCaH5mt3Jwag
-	fVmzQTknowD1WXADdckpUn28usZabrJ3Bs1I0OiaBveo4v4ykcOVlc5+QwQG298bLRLeMuwaKL4kT
-	va1dbeqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJMczt8U7Il1GD5m7DtSdsfpcELN4wMeLzKtatEddHU=; b=ngW3FschXT08HVm/TbmZPQFUkD
+	+kL1IGLwNVnltwMR/d7wufmoOvLBjKOCVh4n8juya01dId06mDjmz8UvVa6DXR1rgyoA78abrkwk2
+	r15NWza4dx8laahnFVauDx2LkjEWCDLfh2pYemme9GzsMKydiGqtPtQz3VSFvXO11xc4RC8AqFdpz
+	qmEBkd4Z5EH6q7LR6xUqxr5y325HjrYpLgzQmA4sNbmGMEjx91CZD94Iz1xOL1D1RO7YjE37e9MMl
+	s/CgM8H2PAd51O41PLhR2U1tR33OIfgGRmQyyI1I56hwgVA1j7EIbQaOATXMXFdu9cZvxmsSZyxtz
+	HeRTdapA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KpM-0000000801Z-0McV;
+	id 1x9KpM-0000000801n-0l2J;
 	Wed, 23 Sep 2026 11:07:52 +0000
-Received: from mail-lr2-x10.google.com ([2a00:1450:4864:38::10])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KpD-00000007zxr-2l6M
+	id 1x9KpF-00000007zzB-3jIs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 11:07:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TJMczt8U7Il1GD5m7DtSdsfpcELN4wMeLzKtatEddHU=; b=HfbXBi/VlLkYqIY5tigMyfacCg
+	KMVvoG+FwPt1w0X2fz5E68KDYstnqgggEyk2x68/uSluhUiy0V5QVezJY9IMuoNod5CpJaBzGsVyY
+	dSJa5m/N0oySKpQYmZjW4NAFfQXk7IiQo068HpywyEOysrFt8KDR/ED+O9bbYsmSBtbHFPOLuKKHU
+	KJ2CC8/UKFY3j8Oqs+ttnv27ENaSb6ezj62baTlzlZ6ttJ8w0Q+2vmqzCMvL0dvY4swdK5OvqXkUo
+	ytc+WQCNN+XUW1xN9eG5pwnTK9g3r3wiv23YCPQHhi/5O8CF4WNk6r8pUJpa97dtwc1v90B4QiYYp
+	sLaRq0pw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9Kp7-0000000EgKZ-1qXA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 11:07:44 +0000
-Received: by mail-lr2-x10.google.com with SMTP id 38308e7fff4ca-3a49c068e85so5503081fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 04:07:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790161661; x=1790766461; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OGzrQTM25YzeF6Zl6z9UWlYe4efLXilZQQjl4hlshtg=;
-        b=Jh04EBCE/3CZtVbASMdBq8cghfBXvqiXbSKPZ8JsdvIycY3Kuvwl20RukpFt5uAwqv
-         GnO2Kyhm1DvCqDpIgrqMi5qQQWtxjPTSXRojgoJPIeo8wZmEdRhUgMDobZin4yre3u+J
-         gTQCmdHfsYY2vOH6oglv7nMgJCDfYXe/esQxbPbAkCoWzdLuTIVSZ6dmQRFF4h84LJXM
-         YcYUS+dHtniN09WQj1Qgua4YpRkMv9RPQBGU704CzzI7x9KowHGi/Lv1sAvbXpGGdiBd
-         DBfZMvszkSF9QH4+Bg0xFFP4pOG5ynCGM5SWtOYnUh8m6sCmrpmmH63mYiyFjsup3BMx
-         FCsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790161661; x=1790766461;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OGzrQTM25YzeF6Zl6z9UWlYe4efLXilZQQjl4hlshtg=;
-        b=M1BGbT0B2kN5gjp2dmj15Yyyg1nCSgBRbOr6q7gjK2GS2JtAUC6Wgdk/5DLsIacEIQ
-         E6O4vClgIh3Wr7BPzsIQPYyc14ZM6VFwb8DULZaODG+hk9TZ/JD+2qAZBzhz2o2Eb5u8
-         Ec6Qvht4S/CLX+Ievzgq2YMj4wjSKJKAnZEnMkyuE8B3WX21ItCq/fvSbeg8QNFS/X0u
-         aEXw1G1EeHWHvRoG4R4b335v/84RIOcH7ocb1SUjnZe3SXN/nSN7JbVoKzD+R8BYvAXD
-         yOpRJYiAFWDWC2r5etN+AkLxhfcVY2UgiajaOA9Vodjlhi6hKAJniwZZI6OGLTMAe/2V
-         cH/g==
-X-Forwarded-Encrypted: i=1; AKwUvBxxj1ivAE+p2G0Ik2yQyYmlvD54B5u+XfnqCr4vvklhr3S5eKSgyZaDRqMWffULmzGOp2Ab6lRldHusJJKy6tU2@lists.infradead.org
-X-Gm-Message-State: AFuF++nQ4CaZXYWTaxs+K5iF3DT/0aAiOthhr/bj+5koe934pa+gnKQ4
-	wruT+7DRVN5ckEgHyOgf8UtLPUPL8yutOnkt7/EuIcIhK3hpEx1LOCtR
-X-Gm-Gg: AYBFou2WN6xk0RmF9tfEe7VbzFrlxyzHsRsvTyevtnrU8Gc8C+zGzO5XmCLs4C0L0jb
-	NjaaFL1bsESoLY7w3KxeWjVGG1nfSoDrqAaOZDb37Kgchy1XeH7oo1hudK/Y6Nu8pg1kJ32JfjT
-	59xAAsftCUFLfOyC7hpvs692QWwnPgxgFv6CdvUtI6KRJjslW0udCQAWyIbgzZyPbSaDEkAHIsW
-	WrHO1YlyfN+7tjpx9s77jC7Kyg6emU4fQAfAU2j/bDorMi8x8e76n+5h1hZljXRwYToyrJvnnZt
-	XPuuHaz4hPUnqt8789lY6EsEp5Fl6a9GbsUi9syHXUUh01nQ6tatvnM6h8OJezWYgupcKKfUi4B
-	qyi665/FHGjAcZk7zJtENfOu5tfVPqzlXdWZjm64nzu4ovWiCZ8A6TfW1G4bjPcVNtlasGtDDss
-	/mAfaX8EOlHyaFY3R5U8SLZ9eyuQReGohEa/EQ3EuLnthrl1BXBq1613C+Kjy1KtzDRYhI84MQ8
-	LXbNFVEO+iopu+IkLQZd6wb98s9MA==
-X-Received: by 2002:a05:651c:4ca:b0:3a5:b0f1:7d56 with SMTP id 38308e7fff4ca-3a63050057cmr5356761fa.0.1790161661320;
-        Wed, 23 Sep 2026 04:07:41 -0700 (PDT)
-Received: from DESKTOP-7GRJKK0 ([188.226.104.175])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b8d858f2f4sm521750e87.65.2026.09.23.04.07.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 04:07:40 -0700 (PDT)
-From: Vladimir <anykey196@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: allwinner: h616: orangepi-zero2w: add SDIO WiFi/BT (AW859A)
-Date: Wed, 23 Sep 2026 16:07:36 +0500
-Message-ID: <20260923110736.10-2-anykey196@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.3
-In-Reply-To: <20260923110736.10-1-anykey196@gmail.com>
-References: <20260923110736.10-1-anykey196@gmail.com>
+	Wed, 23 Sep 2026 11:07:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790161648;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TJMczt8U7Il1GD5m7DtSdsfpcELN4wMeLzKtatEddHU=;
+	b=UblevsNob96RpggecmvzaBJfeWJTOcm2Y/RET7oR9M7VqDUAZJywiPrxnIwWIvv2BI5D5r
+	S6o++OrENK1AKsGQGTnaMyf2KxFwSdNwcPEjJkhMwyjz9ePFa5HoET0kI0LvPWudbJC36Y
+	S9Var8MYGFtMujcx3+KFnc18s7790Q4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790161656;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TJMczt8U7Il1GD5m7DtSdsfpcELN4wMeLzKtatEddHU=;
+	b=Qhi5TB33nkdV29Rt3+PTZ61zioEXHufcLBHgNiyr/901JgIyuPwoHj8uapHjiy1KG4I6QN
+	fgsNbxJrrNB4CUK+7Hsr/+CKyz+APlroEvY0UfygkWSx1ZkYPbV4pdtogQDpunnVMdYGiJ
+	6Nn9Z1jZo+CzFUBT5M7y1lHo1UxuSvU=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790161648;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TJMczt8U7Il1GD5m7DtSdsfpcELN4wMeLzKtatEddHU=;
+	b=UblevsNob96RpggecmvzaBJfeWJTOcm2Y/RET7oR9M7VqDUAZJywiPrxnIwWIvv2BI5D5r
+	S6o++OrENK1AKsGQGTnaMyf2KxFwSdNwcPEjJkhMwyjz9ePFa5HoET0kI0LvPWudbJC36Y
+	S9Var8MYGFtMujcx3+KFnc18s7790Q4=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-474-_Bbwvj4PNpKWfqYbQKVdtw-1; Wed,
+ 23 Sep 2026 07:07:25 -0400
+X-MC-Unique: _Bbwvj4PNpKWfqYbQKVdtw-1
+X-Mimecast-MFC-AGG-ID: _Bbwvj4PNpKWfqYbQKVdtw_1790161641
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 88FA3180A9F6;
+	Wed, 23 Sep 2026 11:07:20 +0000 (UTC)
+Received: from fedora (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 092F818002B6;
+	Wed, 23 Sep 2026 11:07:10 +0000 (UTC)
+Received: by fedora (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Wed, 23 Sep 2026 13:07:20 +0200 (CEST)
+Date: Wed, 23 Sep 2026 13:07:09 +0200
+From: Oleg Nesterov <oleg@redhat.com>
+To: Kees Cook <kees@kernel.org>
+Subject: Re: [PATCH] selftests/ptrace: Add PTRACE_SYSEMU_SINGLESTEP
+ syscall-exit-stop test
+Message-ID: <arOy3YSkb9417Fo_@redhat.com>
+References: <20260922195719.i.211-kees@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260922195719.i.211-kees@kernel.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-MFC-PROC-ID: K4U3piq4ob14yCyTwSAhiNbDVzqqvMg0p5bIIcSsf7w_1790161641
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_040743_712251_73F8DFBC 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260923_120740_574219_D134A72F 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +115,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, linux-hardening@vger.kernel.org, linux-kselftest@vger.kernel.org, will@kernel.org, Shuah Khan <shuah@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>, thuth@redhat.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, kmehltretter@gmail.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linusw@kernel.org, linux-kernel@vger.kernel.org, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, yeoreum.yun@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the SDIO bus (mmc1) and power the on-board AW859A (UWE5622)
-WiFi/BT combo through an mmc-pwrseq-simple that resets WL_REG_ON (PG18), with
-the 3.3 V and 1.8 V supplies and the RTC 32 kHz clock.
+On 09/22, Kees Cook wrote:
+>
+> ptrace(2) states that no syscall-exit-stop occurs when a tracee is
+> continued with PTRACE_SYSEMU or PTRACE_SYSEMU_SINGLESTEP. arm64 gated
+> its syscall-exit report on
+>
+> 	flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP)
+>
+> and ptrace_resume() clears SYSCALL_TRACE for both SYSEMU requests while
+> PTRACE_SYSEMU_SINGLESTEP additionally sets TIF_SINGLESTEP, so the
+> single-step bit alone produced a stop that must not exist. Nothing in
+> tools/testing/selftests covered this.
 
-Tested on: OrangePi Zero 2W (Allwinner H618) with the out-of-tree uwe5622 driver.
+IOW, this test-case veirifies that in the sequence like the generic code
 
-Signed-off-by: Vladimir <anykey196@gmail.com>
----
- .../allwinner/sun50i-h618-orangepi-zero2w.dts | 40 +++++++++++++++++++
- 1 file changed, 40 insertions(+)
+	step = report_single_step(work);
+	if (step || work & SYSCALL_WORK_SYSCALL_TRACE)
+		arch_ptrace_report_syscall_exit(regs, step);
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-index ff9b40352a5..7d473274c06 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
-@@ -189,3 +189,43 @@ &usbphy {
- 	usb1_vbus-supply = <&reg_vcc5v>;
- 	status = "okay";
- };
-+
-+/ {
-+	reg_vcc33_wifi: vcc33-wifi {
-+		/* Always-on 3.3V regulator for WiFi and BT */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc33-wifi";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_vcc5v>;
-+	};
-+
-+	reg_vcc_wifi_io: vcc-wifi-io {
-+		/* Always-on 1.8V regulator for WiFi and BT IO */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-wifi-io";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_vcc33_wifi>;
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rtc 1>;
-+		clock-names = "osc32k-out";
-+		reset-gpios = <&pio 6 18 GPIO_ACTIVE_LOW>;	/* PG18 */
-+		post-power-on-delay-ms = <200>;
-+	};
-+};
-+
-+&mmc1 {
-+	vmmc-supply = <&reg_vcc33_wifi>;
-+	vqmmc-supply = <&reg_vcc_wifi_io>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	bus-width = <4>;
-+	non-removable;
-+	mmc-ddr-1_8v;
-+	status = "okay";
-+};
--- 
-2.55.0.windows.3
+report_single_step() returns false, right? SYSCALL_TRACE is cleared by
+the arch neutral code...
+
+> Link: https://lore.kernel.org/all/20260922035510.1090299-2-ruanjinjie@huawei.com/ [1]
+> Assisted-by: LLM
+> Signed-off-by: Kees Cook <kees@kernel.org>
+> ---
+>  tools/testing/selftests/ptrace/Makefile       |   3 +-
+>  .../selftests/ptrace/sysemu_singlestep.c      | 176 ++++++++++++++++++
+>  tools/testing/selftests/ptrace/.gitignore     |   1 +
+>  3 files changed, 179 insertions(+), 1 deletion(-)
+>  create mode 100644 tools/testing/selftests/ptrace/sysemu_singlestep.c
+
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
 
 
