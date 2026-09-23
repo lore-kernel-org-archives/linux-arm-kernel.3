@@ -4,140 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1999C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54837C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efvDDmFd0U8WBzJlviu8phus6moO634rZNL/3W/1XFk=; b=AhEfXS1OksbXQDeE8xQ3t+cSao
-	Evmd9iYGOQnzL+cklBt6KSJ6zXcHk90VlAG7kuT+uuM1iLKhVBxtewEG3MqHt9ECjqcddGZBNTVhw
-	GVSmV3Ye42hGLTyslg3A35r3VgFQOuTPRqVyrGWBducAOVuke1PfV02VhcDTxjsFDehvu85Gfrpjg
-	DR4IVDDk9mrhKzEmtKJ3zpoL+DDHLvCL4Zyz7l7y+XcUs3C4WTWrb56QID19mKnZbjJz27LMjXnNw
-	ly2Qd4wKvQlYcfzg994J/chiZFBw7cmVMWs0/5fUT24YmtlJWAMWVWTqVlaCyiA70YUdb+s0o4JdY
-	3ImxHKhQ==;
+	bh=Tw+YzFR1Q3RDJ/ocFl7RH+C/kpA7xkpXpKPh0rT8+YE=; b=NYCtTf+UfU0D56QjW0m2FbwUmg
+	m9mxp/B+vS5693JAqFXHewXq2w4XmEGE+P1ZdfO5mNMfifWZMM6vP0kbhxDMexxIYXvc7DgSyLSmK
+	gSUOUkNWYbfibqY/vDEi1Ho1oBTqTEY9eEG9F/95pE8wgr4z3IbxXgdPtPRHlaPEpMRRv/cxjwTVT
+	HtXjhzPOKsjm7KGPBTI3z6jDkPLwp0+2zGaYKcLEhmBXLlK+m1Qcc/HXkC+a0K/py+Cxk0gCoAo9b
+	LkvdigfSylXIk33nFxajQmnAH4P828dGOq1VV4/tlO1ZY5R+y5X2/JbvsSgkag5ImlJZNkTmgVu79
+	wbVfEx+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KAu-00000007tDH-2PWH;
-	Wed, 23 Sep 2026 10:26:04 +0000
-Received: from mail-westcentralusazon11023126.outbound.protection.outlook.com ([40.93.201.126] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1x9KDM-00000007tVN-4APB;
+	Wed, 23 Sep 2026 10:28:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KAs-00000007tCi-1wl2
+	id 1x9KDL-00000007tUR-05Tm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:26:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eAwb0IYFjY6JUrp7pd3jspoU5EC6EWhiSYsn4VxwdMtdSAbo7QkmgIT7wIql5srnjGFEZwv/NXOZPr71Ww7h8yTum8uqa4U0G3mswfpxSuDMlYjh5GKwGxByjmu647UYXcAjSwnsZi8Am2n6AZsMVPFgW6v7unSXlvIL1iwRE85/0f6WFiUb5CRoPVtf5UQ6mpWx4dmP4vFPa9xfjwwBVbquLi0XJki0ScVYHn2H44PLbcx/FXV45WfqAu5+adKFYg5co3zgZHgVWasuKnHptps3Sb/X6xsEiM2z3gaTzxJsLdeF6Pj6q3uz3doNxRLxiYCPQRCC32wLk1bWS9fxXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=efvDDmFd0U8WBzJlviu8phus6moO634rZNL/3W/1XFk=;
- b=CnEwCFvWbvg8/rzvJiYQRkdMncRlwM4JfEmC/vOpQbCgkGraOGWDhRHdj3aFIn01p5fwzqZx0rZXlhgoPBnl10tYuOQ9o9Sc6fxQiEftfglGDA5OE5xe4ZA+/vjkMa472AaUB+HIYvzjQUGqGzdzXyab8F9H42iyRfcuduLBq7ADdfebuTiil1OB5x2Omn8eij9sGFV342OTr9fy0oFyGiiX8tMgNPgOAIwXhakLQpRjcCPj2b6hyGNT2ezcos+KtWK0MSzdo/tgXeMBWF885KDsu3oejkYOtLLznUaWdAKCtIKcFqdGRq0uJrM0HfQjP9cExVO9JUZEJ6M9u8BARw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=efvDDmFd0U8WBzJlviu8phus6moO634rZNL/3W/1XFk=;
- b=peCrqTfvM8fvlW/v7Ow44tuXcT9VTp0JYhvl2N61bICrzeyK0jjgwEnC4XJHphPwMpoDCwUc23SBm8dZMf1CXRWjTNvsTXaCdw6q9vHfun13vLObmRED07wol7zp8tSBkpRtOlFFuKVuMNVllqqGDiFDKU6VKhMf5kgWWZOFvPJE1V65OnL7jEBbQmDl5TPhtuvhEGet9PY6zUeECwXXk8o81LYIep0dnfuYcoFDhAeLSkWsPZIsJyxbuA01Ubjzs/8mSmSjN33BzxYJgXUV78Zr/kNFYvQbHWIbK5PZPOTLbyeQxkCsiLBysHqg42zanwjlEZN2i5kW+cpOyBi9/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com (2603:10b6:5:38b::8) by
- DS7PR18MB6387.namprd18.prod.outlook.com (2603:10b6:8:255::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.16; Wed, 23 Sep 2026 10:25:57 +0000
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11]) by DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11%6]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
- 10:25:57 +0000
-Message-ID: <654a7c50-86f1-489f-9542-f77d63550ea4@axiado.com>
-Date: Wed, 23 Sep 2026 12:25:52 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, Conor Dooley <conor.dooley@microchip.com>
-References: <20260921-axiado-ax3000-pwm-v5-0-202aad28e129@axiado.com>
- <20260921-axiado-ax3000-pwm-v5-1-202aad28e129@axiado.com>
- <arFAj7yU2x42-76G@monoceros>
-Content-Language: en-GB
-From: Petar Stepanovic <pstepanovic@axiado.com>
-In-Reply-To: <arFAj7yU2x42-76G@monoceros>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0011.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c8::8) To DM4PR18MB4144.namprd18.prod.outlook.com
- (2603:10b6:5:38b::8)
+	Wed, 23 Sep 2026 10:28:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 72B3E4048E;
+	Wed, 23 Sep 2026 10:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7196B1F000FF;
+	Wed, 23 Sep 2026 10:28:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790159314;
+	bh=Tw+YzFR1Q3RDJ/ocFl7RH+C/kpA7xkpXpKPh0rT8+YE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=gfeKGD7Zx1t68oVKPD3pJdIls6095LdyIYbLzcbi2lWu0uZc4Ag6czwUu/3rMOVvu
+	 5DkKG7QVnUdoUJyu1nzlZlhO5qsE27dTDKv4KVUeUxS/0fGMmnV48ACdIVTacKhMLM
+	 Kp2Etb2iursi6SlXAk2q9a0Y6ZYslY12NqaBGyj2gFaxqHvu92+46mMlc5J8MMsSdD
+	 HGiK3yV1AdehOFvWHLjpPcT/57yOMwlxfev62t4C+oD/yqe8IWaG9c7HzZhanNfFx0
+	 V7SG8BRuoVDTolq0VsrAo7+8om8W5vw2V1IN/4OrxXJcM2FyWTn+Eqh0SDfkr9xU/H
+	 iMGeRqREn7XNA==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Andrew Morton <akpm@linux-foundation.org>,
+	christian.koenig@amd.com, Jason Gunthorpe <jgg@ziepe.ca>,
+	Joerg Roedel <joro@8bytes.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, linux-media@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v7 02/13] mm: Add an allocator for CoCo shared memory
+In-Reply-To: <arOfD6syXOgQhZYA@arm.com>
+References: <20260921144847.501151-1-aneesh.kumar@kernel.org>
+ <20260921144847.501151-3-aneesh.kumar@kernel.org>
+ <arKsFofudnTYpXj1@arm.com> <yq5aik3w344o.fsf@kernel.org>
+ <arOfD6syXOgQhZYA@arm.com>
+Date: Wed, 23 Sep 2026 15:58:25 +0530
+Message-ID: <yq5a5wzw2ree.fsf@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR18MB4144:EE_|DS7PR18MB6387:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7e2556a-19b6-4848-5d9d-08df195d0e6f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|56012099006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: JO1lhFdkbUnDj5wDUBmmCBliVHhjusyrb69zLpV55IOjrSHTQpl1SJ96NmgGHaxdobTBE5R9sKmBQ11B2Mz5kS7Bssg85PoxdjkErwIcCJJrtdqlSkuxTG1VNc+tQRsHSHm+B/9mEdRAkIsvlt+sfLL5MUtxjPrAxYhnjnIhjg84s+fPUuHqvHl0RBbqz/y6cPmK2tNOI7vx3YuN49N6wKEa/leGf2A30j5V4spJS7DrEn4ZbdY1ni5kmGFMTaqEPKwyxWNd7b50iPzuutQrb1SQ3uAe/ZKbz5Xo4/aWPDwhMreNBl3ZN1GI1TQi/wsdGsObzjZYBtRIHLHYbsJSOiPor4VLffVtZcm+U150YPmPhhopmlAP0E2lcDhfYuo4/WO/W9+taDB57TNep3Xc75Tfc8Y0hC7b1Nh9n67CF/x4vCSv09jDd+geDur1KyVJ/8qVNFWdWfFXh8ModhH8r1idkkSQyjZCqL4bjcpNiRdPhqlUe4spo0Hh3+FJmTVEvOE/4qBDdmrEEGS7BM+/TWIjLvezT+coJhOm8EYscf9MXnw1KpypcFjME2YVtNKIo23SA1M9LJO59Xr7G+4+jpvy3c2gZVBCftefthemRYB+A7GmkyPdNxE8PxeifMDnKjVqNWOu+Tq1bnECfzHhrKvfg/MVkfYPCIg/V9qGuLk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR18MB4144.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGUrTUpURFpLdEd2TGxHZ2tlTUZGb1pyaWp4K1hqUWhQNlJuUHkyZVhzNktU?=
- =?utf-8?B?dXAvV0dTRG12Q2phclB5UENkUUtNR3l4NU5ETTk2RjI1TDc2SVM1Q2txcWI0?=
- =?utf-8?B?OXlxUk1acjVXSVlPa3BVazZ5RWFtY3JyVlBzMFVEby9ZSTBTRW1DUW5rKzBJ?=
- =?utf-8?B?bVZGdDZxTXRLdWllUVdOcW1TWVVldGNFVzNGVHJoODdDeGFVeHpvZTdxZTVm?=
- =?utf-8?B?WFV1Y2ltNkxJRXZOWFh2VzN3QkxiQ21waUU0azd0WDc2MjFTTllZUFpaK2VH?=
- =?utf-8?B?MEFnL2dCSVRJcTVwZW51Nlk2ekdhOWpQVysxcWkzUTNBSklMYTkvRTdyc3dK?=
- =?utf-8?B?bXhaM0FzN093cnhUelY0NzlrNmZLa2t5a1dGbGdWSXVpdlF2ZEMxcm0wVmF1?=
- =?utf-8?B?N29xOTAvQ2VvMW4vTXhrUktpWHp2VVdSK2hMRHZHdTZGaU1GMlArRGoxVFA5?=
- =?utf-8?B?Zm13U0drMFd5UHFhUUVrTGFranlabndXSDVObnRjZDdvbGM5OTJhZEE1emYv?=
- =?utf-8?B?VVlGUmRsUGplVU40NlcwNEc4RWNyZjZvOTM3NnliaytKVHNjNEo4RDk2cHMz?=
- =?utf-8?B?QlU1dVFNczFOY2hXcjUrVlV4ZlFBaHZJV3N4K0lxVkh0TCtlcDNTTFA2R2t6?=
- =?utf-8?B?bmlXaWRiYWcvOW9mNFpISldTaXRHOUpHSDUxbVBwQXE2NG1kRWJEbCtBaGVR?=
- =?utf-8?B?YWRSRXVubFdiRWFLYVdYWTVIMGxrTTRlNi92YzN3RkJqNGp4d0VVS0VlQ3Ev?=
- =?utf-8?B?d3FTN3VoUUZKVzk1Y05Sa3psVzNjMXhoa3lLa2Rnc1lKMUprWmVIdERJL1V4?=
- =?utf-8?B?OXNIV3U5VkVWNG9Oa2VtekcvWFdTc29ObGpHa1ZrZkluckVYV0lWczBVdFdu?=
- =?utf-8?B?U2J5M25ocTBQUktqYkpZZmxhbnV5UVhDdEw1UHdoaUNJTVJ3aVlYR1llTHhU?=
- =?utf-8?B?ZkVXRlhBL2ZXZ2duT1FIQlJQNVdKM3RrRXh0dFBUaVgzcnR0aTFvK3dFb0pJ?=
- =?utf-8?B?MENqNGRyNjg3R2ZZMnNhdXNsYWd5UklvR0QwMEp6dnlNQ3VtZ0RsS1UyYTE2?=
- =?utf-8?B?Zjh6VEFKQzZydGxUdlhsQzZZWFRIbDJ2TXNKdzREd0NNRng3a2laaEQ3UWJJ?=
- =?utf-8?B?NC9HTThrQWYvZ0RSdUxRRVVaUlZUQXh3Sk1rRW9xNlhjYVRPODNWLy9yczJl?=
- =?utf-8?B?R3p2Q1p6bjhXanJ1YnlJYTYyVUlFditZTXdwQ1J0RWlWNExBYjR1cmNYWkY5?=
- =?utf-8?B?aGtjWGpsaDN2SVZQSGYya3pvMWNmSEhEbGJOTUx5RHcyZ1JsS3k4RGNidFlC?=
- =?utf-8?B?T2JZeVB5M2hEMjhsZkFIb0dKZDN0NjdEK2tmc0ZpL0tDalMzaDI1VjU0aXpa?=
- =?utf-8?B?ZFVEZUlUYmVIcWtWSVlOK1Q2cG5jY2dXS1cwWWw5UXFIQXRVeVpqNTl5WWw2?=
- =?utf-8?B?d3R1dnd0R3VVMnp4Mm1lenNmT2dsMzhvdE1mbDVGNytBREtEdnRSWVE0RmZ4?=
- =?utf-8?B?YlR1ZFk5bUVXZ25zQ2M3YlVIaWpuVVZUVFRxQ0s4YVZOdHJkbFZjZ2ZBV3By?=
- =?utf-8?B?aVNVV0FaUVdONzNtaEJqcGhKcjRKSDVOZUljZXNROXM1YVpTV1JTSXNuSDV1?=
- =?utf-8?B?N05aV0h1VGZEN0hIbldJUTFhOFJ2RDI3SmtpRmZMQjQ0S1dHNG1LVkZETjN1?=
- =?utf-8?B?ZVkycXhuSEYxS0U3elg4SmVKT3FZQ0tzM1RWR1BCYlZVZU5pQUV1QW9PR0pk?=
- =?utf-8?B?djFyakU4OHcrQ09NUWhLdnJ6Vm5GR3lST2VEUXdOQkE3MkZGRURZYlNVRWVq?=
- =?utf-8?B?WStBWUYrWFExbERTdG5IMG0yVlkxNHlDVlE5SVBsMlJtSmlvaWt2d1YzZFhK?=
- =?utf-8?B?VnBrWXVGQndnRmZoZEJrdkd1Y0xNMXpidE5zYjVOQ0RSQWdUeWI3UDhSR1Qw?=
- =?utf-8?B?LzRYdFJUblpLU0tNR25NWkVkam56eUViYXZRa0tvcmhvT0NYSTZHN1JZUk5n?=
- =?utf-8?B?NllHdmx0TjVWcjJwNytYSnRxWUtuWjQ5ekxtaW4zdmliMVcwZmZoWEllNnov?=
- =?utf-8?B?WnlJOVR0OHZ0aFJhQ3djeUV1Q0VFZTNNSlpZWXkweVRKVkxkSktPQTBRVENK?=
- =?utf-8?B?dnJRZGs3QXRMSmFuMytjMHZNUG5INTlZdzJpSUthcm8vRGVFUlJta3NiZmhl?=
- =?utf-8?B?TVZTVXR5NnJoNnRrV05CNlpzRzBMNGllNWdVNkZqQ3REOEVON2lKVENEYnBi?=
- =?utf-8?B?NmMxbFAzeStmUXczU2c5M0lsR25LaWFlREhZRUlVbHBOMTBKbGdnT3Vvdk82?=
- =?utf-8?B?L3NmWlNiUTMwaUk2VDNzK1UwbjNXOHZQM2ZZRitNY0RLc0ptaFNldz09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7e2556a-19b6-4848-5d9d-08df195d0e6f
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR18MB4144.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 10:25:57.7751
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /R9S5JRpKWnouNXSsKetxAgYUxBdgTAacm4WVrMd5b4tRJQU/vpIduMXQGWV98vT0VbDaQB/tEqVcQkWn7BLnA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR18MB6387
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_032602_503618_DF8C90FD 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,20 +85,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-On 9/21/2026 4:35 PM, Uwe Kleine-König wrote:
-> Hello Petar,
+> On Wed, Sep 23, 2026 at 11:23:27AM +0530, Aneesh Kumar K.V wrote:
+>> Catalin Marinas <catalin.marinas@arm.com> writes:
+>> > On Mon, Sep 21, 2026 at 08:18:36PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> >> +int alloc_cc_shared_pages_node(int nid, gfp_t gfp,
+>> >> +		size_t requested, struct cc_shared_pages *mem)
+>> >> +{
+>> >> +	struct cc_shared_layout layout;
+>> >> +	struct page *page;
+>> >> +	unsigned int order;
+>> >> +	bool zero = gfp & __GFP_ZERO;
+>> >> +	int ret;
+>> >> +
+>> >> +	if (!mem)
+>> >> +		return -EINVAL;
+>> >> +
+>> >> +	ret = cc_shared_calc_layout(requested, &layout);
+>> >> +	if (ret)
+>> >> +		return ret;
+>> >> +
+>> >> +	order = get_order(layout.shared_size);
+>> >> +	if (order > MAX_PAGE_ORDER)
+>> >> +		return -EINVAL;
+>> >> +
+>> >> +	/*
+>> >> +	 * State transitions require a linear-map address and may modify memory.
+>> >> +	 * Allocate from low memory and defer requested zeroing until afterwards.
+>> >> +	 */
+>> >> +	gfp &= ~(__GFP_HIGHMEM | __GFP_ZERO);
+>> >> +	if (nid == NUMA_NO_NODE)
+>> >> +		page = alloc_pages(gfp, order);
+>> >> +	else
+>> >> +		page = alloc_pages_node(nid, gfp, order);
+>> >> +	if (!page)
+>> >> +		return -ENOMEM;
+>> >> +
+>> >> +	ret = cc_make_shared(page_address(page), layout.shared_size);
+>> >> +	if (ret) {
+>> >> +		if (!cc_make_private(page_address(page), layout.shared_size))
+>> >> +			__free_pages(page, order);
+>> >> +		else
+>> >> +			pr_warn_ratelimited("leaking %zu bytes with uncertain shared state\n",
+>> >> +					    layout.shared_size);
+>> >> +		return ret;
+>> >> +	}
+>> >> +
+>> >> +	if (zero)
+>> >> +		memset(page_address(page), 0, layout.shared_size);
+>> >
+>> > Does the memset() post sharing logic work for pKVM as well? If nothing
+>> > clears it, we have a small window where guest data is leaked to the
+>> > host.
+>> >
+>> > Is there a case where we *do not* need the memory cleared? If not, maybe
+>> > we can move the logic in the arch set_memory_decrypted().
+>> >
+>> 
+>> I don't think every architecture or platform can unconditionally zero
+>> memory in set_memory_decrypted(). Some callers may need to share valid
+>> contents with the host.
 >
-> On Mon, Sep 21, 2026 at 12:21:30AM -0700, Petar Stepanovic wrote:
->> +  "#pwm-cells":
->> +    const: 2
-> Can you please make this 3?
+> Is there any? That would be a bad assumptions in the caller. Most
+> set_memory_* backends don't preserve the content as they change the
+> encryption key. So properly written code shouldn't rely on this unless
+> it knows specifically it's only running on pKVM for example. The only
+> use-case I see to avoid explicit zeroing is when the caller doesn't care
+> about the page initialisation and wants to save some cycles. The
+> encryption key change would take care of the security aspect.
+>
 
-Hello Uwe,
+I checked this, and you are right. We cannot expect the contents to
+remain valid across sharing; set_memory_decrypted() is destructive in
+that sense. Since pKVM does not rely on memory encryption, it needs to
+zero the memory unconditionally in set_memory_decrypted() to avoid
+exposing existing guest data. Other CoCo implementations may omit the
+memset(0). We still need to zero the memory when the caller requests
+__GFP_ZERO, where the memory location is expected to be zero.
 
-Sure, I’ll update |#pwm-cells|to 3 and adjust the DT example accordingly.
+We could either zero the memory unconditionally or pass a flag to allow
+this micro-optimization. We would also need to audit all call paths to
+avoid redundant zeroing after set_memory_decrypted(). Let me know if you
+have a preference for either approach.
 
-Best regards,
-Petar
-
+-aneesh
 
