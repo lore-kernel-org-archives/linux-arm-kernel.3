@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2819C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D61C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 18:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UudnOHzH5gND/ZKP9GlDKbtsX8UUCMuh8MThvvDSe6M=; b=eU38FZkWjbgJwEps+POzosVood
-	D3gGiEqVnqR/h2CTzIjmX8Wyq311xhxIotXpKNX+Mx/6c/Lma/xWcsCGWD50LCc5R3GDaKFYyA3T0
-	ZRE2Nhoxp5TZdBKLq5DKzZRcHWkhJND1aIg7izAywqG8z+3GIOfe7lPZhkfvStqFleq2ScEJmAUBm
-	pQpgKAKMudrGZjZk4Td5S3x1niJwATDDvmDOgurrleZDAeBcxc75Ch3UyxTgwFXeCMOs5RCwpwEtL
-	n9hLZ3zYi3jwf9/uU5Tmt9EcASa46LZhBdGjgv9Wn5P+DY7HUTWHV0bzYOQvdGLXAUqsudPtW2IM3
-	Lg0Ul51Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t6B4THNzus+GzXrIfhXPAk47vkfxHDqxC1WCfQqccHc=; b=nPr/MY6m0eTZIewZN2TL+sSSJq
+	ZVXzssXGvzYrIbjQbNOElN6gBO6SgYsEOBcxFr+jA2Rh0BP0H5UPF6ZXHoFnlKldmESbUPQshz+8q
+	SL8eNUkHHurUmMYuWL1Ca+IMQ3M+VOQw4Kh0I8BPKeLAAOW0J6jeb+IiByVzp3BjvMJjbe3ncLS5c
+	3YkjxSljPGJJEjPAWTAO0z0HzfbnTIO9VI/avrJazeTROBRduNFcjzvXyo3hGYz1JYO7spxoKP/3T
+	AfYMpMIBJcGiuBHENuPUvyG+o4TDdAC3NF2zsr1iAm4kM9GU1dWigBZCpvC/uMZChbgSZ+YP78V/u
+	MA0D1tFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RaH-00000009AV9-1qhK;
-	Wed, 23 Sep 2026 18:20:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9Rd4-00000009Ao4-3VYO;
+	Wed, 23 Sep 2026 18:23:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9RZr-00000009APZ-3XNM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 18:20:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UudnOHzH5gND/ZKP9GlDKbtsX8UUCMuh8MThvvDSe6M=; b=pmEhB/TH3g5JUpxPnNPtFMlFZ5
-	2dM4AqphRZ93UvqiQ8bTt/Y1Qtg2jA5k5yc5zng3+IF6kIpFVR+hdo3odWr6nNltUyNH/EkUhIRSe
-	7dsjaPtywjrFCNDtep47vqSWDvEg0H1H8sGrDbGvsmJFOBminK6lnhp9ncpomhSQf+hA25QgoDkmj
-	2BbGVEx3o5IXa4ZC4w//cb2aAta3DRW//K7LV9B9BkspBeDTDKPASoxtyyMoU71Km7xOWaE3lk0JQ
-	KYJoWyIxoQPtCCu4kVuaFbwnVM+8Xh85sRUIYcGrAccZgCilcWwa2AuQ17Sz7f8fW+55Bd5wZYP5v
-	TpOLsKrw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9RZo-0000000F8xi-2Nej
+	id 1x9Rd2-00000009Any-3d96
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 18:20:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 939901476;
-	Wed, 23 Sep 2026 11:20:10 -0700 (PDT)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 37F1D3F632;
-	Wed, 23 Sep 2026 11:20:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790187614; bh=psx0TQLmyNiIJ+VNgwp2iGjiCL84o25TIX5Ofh7gPno=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=P3CkPstYF/b4U9ELIC85YU4fOQq6/1a/cDCQmDHYi6iOHmRA8cj8RBFHrIlRs73b4
-	 4rHPrudj0xVH/owEs4JGTGJRojIb3lzEHtXaXvNDckAxnfTuN9oS75+MxkdQbw26gt
-	 g0PeeP/4mwTpMjnYdzLwzwYLblqP39dI063/zhEA=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	james.morse@arm.com,
-	maz@kernel.org
-Subject: Re: [PATCH 0/2] arm64: alternative: Remove optional 'cfg' parameter
-Date: Wed, 23 Sep 2026 19:20:04 +0100
-Message-ID: <179018757672.2942904.11161685932352017769.b4-ty@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260902113232.314831-1-mark.rutland@arm.com>
-References: <20260902113232.314831-1-mark.rutland@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_192016_837697_131D5AE6 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+	Wed, 23 Sep 2026 18:23:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 11CD1600AA;
+	Wed, 23 Sep 2026 18:23:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB2D71F000FF;
+	Wed, 23 Sep 2026 18:23:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790187815;
+	bh=t6B4THNzus+GzXrIfhXPAk47vkfxHDqxC1WCfQqccHc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Ujyn3iJTkV3JmC0qLaXbGZ5ZTEhuuKvy+ewy9RN8bzLH6nukKdH2f6TyFHhfkUbmT
+	 3XEi+Or44r+YvYEM/NQWutvity32m+q1D0LrTJTcjwY+Owjhhviu7qibw0ssNmeMIR
+	 8qoYcaaUpQOwlRthumppHs6DL/qkjHfUbeYRi0osXX+2YBP1a9QsvDgEkRoIZ3hUIQ
+	 +hyIixAhY9c9X/TpGIWFht73cT2A3FhzkSM3A+vhKkn12gqH0pD0y9i60DRmrpUq+E
+	 3qRHUiL+8ZxDMBGdaTwX51Bh95X7TB7Io8lRa1i72aFRS5jMKiZwHl056ajc/gKQQI
+	 Ysxw7bk8q851Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x9Rcz-0000000Cg9R-2RnN;
+	Wed, 23 Sep 2026 18:23:33 +0000
+Date: Wed, 23 Sep 2026 19:23:33 +0100
+Message-ID: <86se2z4yje.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>, Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: smp: Signal EOI after handling IPI_CPU_STOP*
+In-Reply-To: <arPzNkDD69ZKFT99@willie-the-truck>
+References: <20260922140109.12780-1-andrea.porta@suse.com>
+	<arPzNkDD69ZKFT99@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: andrea.porta@suse.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,20 +83,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Sep 2026 12:32:30 +0100, Mark Rutland wrote:
-> These patches remove the optional 'cfg' parameter from alternative
-> macros.
+On Wed, 23 Sep 2026 16:41:42 +0100,
+Will Deacon <will@kernel.org> wrote:
 > 
-> Use of the 'cfg' parameter is less clear than ifdeffery or IS_ENABLED()
-> checks, and also doesn't allow the compiler to elide asm() blocks when
-> 'cfg' is not selected, so it's preferable to avoid it.
+> [+Marc]
 > 
-> [...]
+> On Tue, Sep 22, 2026 at 04:01:09PM +0200, Andrea della Porta wrote:
+> > On kdump/kexec, the boot CPU triggers an IPI_CPU_STOP (and subsequently
+> > an IPI_CPU_STOP_NMI if the first one does not respond) to the secondary
+> > CPUs, and the IPI handler eventually calls the firmware to shut down
+> > each CPU. Since the IPI is never acknowledged via EOI, the interrupt
+> > remains in an active state when the CPU goes idle.
+> > 
+> > In a virtualized environment, if the hypervisor does not reset the
+> > interrupt state, this causes the crashkernel (with cmdline option
+> > maxcpus > 1) to be unable to synchronize between the boot CPU and
+> > secondary CPUs via IPI_CALL_FUNC, leading the kernel to wait indefinitely
+> > for the CPUs to respond. This has been observed with the Hyper-V
+> > implementation.
+> 
+> Hmm, how is this different from panic()ing inside an interrupt
+> handler?
 
-Applied to arm64 (for-next/misc), thanks!
+Also, what is the architectural requirement for the hypervisor to do
+*anything* on the state of the interrupts? This doesn't happen on HW,
+and there is no reason to impose this on a hypervisor either.
 
-[1/2] arm64: mte-kasan: Use IS_ENABLED() rather than ALTERNATIVE() 'cfg' parameter
-      https://git.kernel.org/arm64/c/228718f6babd
-[2/2] arm64: alternative: Remove 'cfg' parameter
-      https://git.kernel.org/arm64/c/0406e2e71daf
+The expectations are that the guest kernel should reset the interrupt
+state on boot, and it feels that this is missing somehow, see below.
+
+> 
+> > Both the Linux kernel and the Hyper-V firmware appear to violate the
+> > PSCI specification:
+> > 
+> > - The PSCI spec states that the OS kernel must migrate any interrupt away
+> > from the CPU that is about to be shut down via CPU_OFF, which by extension
+> > implies that no active interrupts are allowed. The kernel does not
+> > currently do this in the kdump crash path.
+
+No. This is strictly about affinity, nothing else. It is there so that
+global devices can continue to have their interrupts handled. This
+evidently can't affect CPU-local interrupts.
+
+> > 
+> > - The PSCI spec also states that the PSCI firmware must reset the CPU
+> > registers to their default values when turning on a CPU via the CPU_ON
+> > command.
+
+CPU registers. Not external peripherals such as the GIC.
+
+> > 
+> > Fixing this on the kernel side has the advantage of being
+> > hypervisor-agnostic.
+> > 
+> > Signal EOI at the end of the crash handler to prevent the subsequent
+> > crashkernel from hanging.
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  arch/arm64/kernel/smp.c | 22 ++++++++++++++++++++++
+> >  1 file changed, 22 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> > index a61dc3016a117..cc7f3261fe537 100644
+> > --- a/arch/arm64/kernel/smp.c
+> > +++ b/arch/arm64/kernel/smp.c
+> > @@ -988,6 +988,27 @@ void kgdb_roundup_cpus(void)
+> >  }
+> >  #endif
+> >  
+> > +static void ipi_eoi(int ipinr)
+> > +{
+> > +	unsigned int cpu = smp_processor_id();
+> > +	struct irq_desc *desc;
+> > +	struct irq_chip *chip;
+> > +	struct irq_data *d;
+> > +
+> > +	if (ipinr >= MAX_IPI)
+> > +		return;
+> > +
+> > +	desc = get_ipi_desc(cpu, ipinr);
+> > +
+> > +	if (desc) {
+> > +		chip = irq_desc_get_chip(desc);
+> > +		d = irq_desc_get_irq_data(desc);
+> > +
+> > +		if (chip && chip->irq_eoi)
+> > +			chip->irq_eoi(d);
+> > +	}
+> > +}
+> 
+> Doesn't this hard-code the flow handler for the irqchip? It feels like it
+> would be better for the GIC driver to get a callback during the kexec
+> sequence (if it doesn't already) to prepare itself.
+
+Yeah, that's not an acceptable approach.
+
+The other observation is that the GIC drivers already clear the active
+state at boot time (gic_cpu_init()). So what isn't that working?
+
+Could it be that the hypervisor doesn't correctly handle the writes to
+GICR_ICACTIVER0 to nuke the active state? Because this works correctly
+on KVM as is.
+
+Thanks,
+
+	M.
+
+
+-- 
+Without deviation from the norm, progress is not possible.
 
