@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886E7C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:27:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8598FC982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 08:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u+h8E1QKWSZDpJwCxpdRnKnG35J6P/3C8VA+1n19Xdo=; b=AMqmixWt//x4qKE7RCYx4cWMOA
-	fN3U7PM4OC5dDKzQMsN7OTe5eeSqZDSkcy4zsYGy1RSGsCRimKy4SmtJ25z03+Eg6BR7zHk/iKQpu
-	HHFZ+sf0z9BfPCpj8u+/llyBIWEsYS8fPxH6WvDuzXHYDYg9mHNe5oJRo4YUtg/R/lpJPr5RqGDEN
-	SJK2o4tojKQ5Mp2Ro1HTaeghyc07szidPksviDbN/ttqI/VDgSfMntYVpaQ2RB+HOsddS3V3b+EI2
-	WDrPAnxWHO1VJijT9V4vIK+Hiu2eT2rfLS29aQn6xoyypTT1V5Qa8G7vKUHXd6Mu/wMAgPJzVOdYd
-	16jVEEMQ==;
+	bh=dnl8HA/kIuhbbcojNcajEGIzFrKVcFo/sUvgP8xwc2k=; b=eiQLvaujSYkBB0jnukGWbdJiYO
+	1PaOwMDA4WgN0QHEO0PsdssepNb0sUVIHeVA8briGh5/ww3q1u9vcm5UjgcQas8UW7ZH9GroEONqz
+	LSjjRH48xYUdN1RWkuAyd7emvE6P3QBN4O+Er/6+qkknTRKpwBCYA1B4qrcDgSA73FGxOiwTrSUda
+	vsq8rrq+QbcBS2ZsWDmcimpVbD/SMhLUIOnt5Xjn3V/9UJgzvwOTzsSKgo5otAdEk9p3UEtRpjJ/v
+	ieTPl88207DnSrvEkKKmLLR8Z2r52RPed/C5fPqE0VVoKCX5EDI5bKFvxhgLqP7VJahHt/N1YZQzC
+	CotK6Qqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9H1s-00000007LK2-1vCS;
-	Wed, 23 Sep 2026 07:04:32 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1x9IKV-00000007WQJ-2nah;
+	Wed, 23 Sep 2026 08:27:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9H1o-00000007LIv-3I1I
+	id 1x9IKU-00000007WQD-2o4i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 07:04:31 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=u+h8E1QKWSZDpJwCxpdRnKnG35J6P/3C8VA+1n19Xdo=;
-	b=mve9PMTvFtE9KLyj5595nFR4Gtto9AwDKfJyqHeyAf2Z5gmF2V+oK13d05KTmeo8cHGCgkNw1
-	bvfUaY+nCurpYTXQjccE5JvOXfxR6PG+JLnTh/gXjcAJHh9hbVrKXnbddAhxGgMEpFko9NPS1Ih
-	/sCZMYdlM8xHZJQomv5DbmE=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hqSLw4T89z1K9B2;
-	Wed, 23 Sep 2026 14:52:08 +0800 (CST)
-Received: from whupemk100014.china.huawei.com (unknown [7.152.184.20])
-	by mail.maildlp.com (Postfix) with ESMTPS id 181C84055B;
-	Wed, 23 Sep 2026 15:04:14 +0800 (CST)
-Received: from [10.67.121.110] (10.67.121.110) by
- whupemk100014.china.huawei.com (7.152.184.20) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 23 Sep 2026 15:04:12 +0800
-Subject: Re: [PATCH v3 11/13] crypto: hisilicon/sec2: Remove check of
- CONFIG_CPU_LITTLE_ENDIAN
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, Ard
- Biesheuvel <ardb@kernel.org>, Eric Biggers <ebiggers@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>, Marc Zyngier <maz@kernel.org>,
-	Chenghai Huang <huangchenghai2@huawei.com>, Weili Qian
-	<qianweili@huawei.com>, Zaibo Xu <xuzaibo@huawei.com>, Kai Ye
-	<yekai13@huawei.com>, Wei Zhang <zhangwei375@huawei.com>
-References: <20260918145217.1669-1-will@kernel.org>
- <20260918145217.1669-12-will@kernel.org>
-From: liulongfang <liulongfang@huawei.com>
-Message-ID: <0c929b0a-8d92-2d2c-79c2-4d9f7c0c29e5@huawei.com>
-Date: Wed, 23 Sep 2026 15:04:11 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+	Wed, 23 Sep 2026 08:27:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E7E54037E;
+	Wed, 23 Sep 2026 08:27:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A026E1F000FF;
+	Wed, 23 Sep 2026 08:27:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790152070;
+	bh=dnl8HA/kIuhbbcojNcajEGIzFrKVcFo/sUvgP8xwc2k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=AzjqXfKa0K1UPOG/arbH+l/boCtTmRtExLa4ROwYOsq8d/hmlghWm34+CtcNNtBiV
+	 99IUNilILJVldrdsmaeuYN4e4oZ3qgb5GDRkxEhblWF35r6t7OfBX9Wa/c7uLs2UpA
+	 PtC55ahQ5s6QZIjoABNqhliMA7dzWWLZoNzPh0dyG6Dj5nAKsFBJIFJaUzsU2pHBun
+	 5IgqFm2jWSjnfwOpcRMWO3T642ZHTrU56/2XuQxFs58tSmWMEAaGaF07WJY4YaLdfZ
+	 QFH/9LHDUUsKRF94wNJd7M4SRbv/UgLPHiKC8rjXBKlHXR+c8gHDB3Zb9pw8GNO+WH
+	 NUX/NAGJj9rZA==
+Message-ID: <b8059e25-9fec-4bc8-b373-4bd96fc50f23@kernel.org>
+Date: Wed, 23 Sep 2026 10:27:37 +0200
 MIME-Version: 1.0
-In-Reply-To: <20260918145217.1669-12-will@kernel.org>
-Content-Type: text/plain; charset="gbk"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: altr,socfpga-stmmac: Add
+ altr,socfpga-stmmac-agilex5-tsn compatible
+To: muhammad.nazim.amirul.nazle.asmade@altera.com, netdev@vger.kernel.org
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260923021823.46649-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <20260923021823.46649-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260923021823.46649-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.110]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- whupemk100014.china.huawei.com (7.152.184.20)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_000429_315951_6081286B 
-X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +123,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/9/18 22:52, Will Deacon wrote:
-> The hisilicon "sec" driver targets arm64 but can be compile-tested on
-> other 64-bit architectures. In preparation for removing the definition
-> of CONFIG_CPU_LITTLE_ENDIAN for arm64 (since it will be little-endian
-> only), invert the check in sec_set_endian() so that it behaves as
-> little-endian by default.
+On 23/09/2026 04:18, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > 
-> Cc: Chenghai Huang <huangchenghai2@huawei.com>
-> Cc: Weili Qian <qianweili@huawei.com>
-> Cc: Zaibo Xu <xuzaibo@huawei.com>
-> Cc: Longfang Liu <liulongfang@huawei.com>
-> Cc: Kai Ye <yekai13@huawei.com>
-> Cc: Wei Zhang <zhangwei375@huawei.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+> The Agilex5 SoCDK TSN Config2 gmac1 path includes an FPGA soft-IP
+> GMII-to-RGMII converter between the DWXGMAC and the PHY. The converter
+> provides the RGMII TX/RX delays and presents GMII toward the MAC, unlike
+> a plain altr,socfpga-stmmac-agilex5 port with no such converter.
+> 
+> Add altr,socfpga-stmmac-agilex5-tsn for that integration in the same
+> compatible items entry as altr,socfpga-stmmac-agilex5 (shared
+> snps,dwxgmac-2.10). Do not use altr,socfpga-stmmac-agilex5 as a DT
+> fallback for the TSN port; the converter presents GMII to the MAC and
+> supplies the RGMII delays, unlike a plain Agilex5 GMAC port.
+> 
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > ---
->  drivers/crypto/hisilicon/sec2/sec_main.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Previously patch 3 of the v6 board series; split out for net-next.
+> Rebase only.
 > 
-> diff --git a/drivers/crypto/hisilicon/sec2/sec_main.c b/drivers/crypto/hisilicon/sec2/sec_main.c
-> index 752565200c16..03523cfbb28e 100644
-> --- a/drivers/crypto/hisilicon/sec2/sec_main.c
-> +++ b/drivers/crypto/hisilicon/sec2/sec_main.c
-> @@ -484,7 +484,7 @@ static void sec_set_endian(struct hisi_qm *qm)
->  	if (!IS_ENABLED(CONFIG_64BIT))
->  		reg |= BIT(1);
->  
-> -	if (!IS_ENABLED(CONFIG_CPU_LITTLE_ENDIAN))
-> +	if (IS_ENABLED(CONFIG_CPU_BIG_ENDIAN))
->  		reg |= BIT(0);
->
 
-Reviewed-by: Longfang Liu <liulongfang@huawei.com>
 
-Thanks.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
->  	writel_relaxed(reg, qm->io_base + SEC_CONTROL_REG);
-> 
+Best regards,
+Krzysztof
 
