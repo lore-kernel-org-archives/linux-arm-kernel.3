@@ -4,161 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDD6C982EA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268D9C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 10:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tdm538hJDBEeOtB+OYg40rCG/usyp2101S2xsTzwFKE=; b=hGHyiFdn9V3GDMHlVF3U00z5c2
-	MjCYElihPtUM9iIqi/oMUEOizZ1+0QBze5h6EDgwnCUR76oZARkVGxywoyXPo0KrYxkXIi7fs5usa
-	fbaBuQyG6lneWCZDBgD5LdUoZH7KEoIDxx8mD/yNXaZ8M/OxKQjLVPfX+57UMbxRti7DxL67cX+cZ
-	B1zRYDBnl9tfDS/Vg4gPzHRLoVX8vN5ZJX7b6WWhnZv5o9u7Cvz8CBBViWXwd/QYq2961i82DeD13
-	/xaVg24Ckl0GvP53p2w8uQzXIbZVBxWJQeCqIwgrj5APS5w0oearAQOt4SXx3KgBfXCbKBdAFjTUT
-	U761LpuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t1Z4i78iFUVYmXdwkSYq7EkiOAX8N+OcOOj8F5FsldA=; b=flOTRRlmA05upeKuOwmBSPesdT
+	HpgGyG9qnniBgDWiT2Xh24OF0auKEshoJNvJZIGE5ELxEBg+UoFx8tnhFBEEJMT2l8jNEjj/z/nBn
+	SWVXNV7+a6sdJkGcZerKfOi8S43UelKhfXUsPGLMnhV8IQKWDXheJiGQLCdRkUsHAaM8tI0cHluhU
+	YNZuwBFsEwhJK9by9TH4DWGAoZQKnzXgrGj0ceC4e4CikjND5TQZgRLzGJhOIY96zLmczgfenHu/A
+	9GIbbjkoL0s1dU65j3b+h7LhO+irU63MwdD9WmdFjWIMN+LkpzP1tKPShlL7LTosYLw3y6+XoyMf4
+	OhfAaqvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KS4-00000007vmr-13Dv;
-	Wed, 23 Sep 2026 10:43:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x9KWw-00000007wOn-3yez;
+	Wed, 23 Sep 2026 10:48:50 +0000
+Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9KS1-00000007vlm-29QW
+	id 1x9KWu-00000007wOG-2Wjm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 10:43:47 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NA30Wc3936232
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 10:43:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=tdm538hJDBEeOtB+OYg40rCG
-	/usyp2101S2xsTzwFKE=; b=djR04gIia4FrVZw0QUhpS9gvO12DqiZtxfId+T5a
-	GRD/kg2tk3szeGR8uzBHmfUwE9Dt3Otaso7Lp7DEpIHMaP9RP/yKw86cgf2v4PS6
-	+I3TTC31C9CUk0284C5NpVdyM9vDLwR+A8K6zh72VrzWXtOK4Ai0bhftcrlQyV8n
-	PaR4QugbjTTwIv6c1gneLUS+/NmwXfc9/CNnf9xflXh7hs1kyPzKJklcrZPi8TKH
-	2SQ4zY/cwvwlgsUU0FMPh0wN5UOJ7pMsXq7DHYqgb3+G1ciwAyt/Z49M2krIgGHL
-	JUIMW/VhPX3XVlIpVO5CdBN/BZKD3uxOuyZgG5G+nz1J+g==
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gv428targ-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 10:43:45 +0000 (GMT)
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-14373747468so1041679c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:43:44 -0700 (PDT)
+	Wed, 23 Sep 2026 10:48:49 +0000
+Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c29703cb796so99912666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 03:48:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790160224; x=1790765024; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1790160526; x=1790765326; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=tdm538hJDBEeOtB+OYg40rCG/usyp2101S2xsTzwFKE=;
-        b=EEnuvmGp8WNOGs93x3MtIBCvX3AccK1il8qdSUiOBAtwjiiu1AqrIed9erVV1fybpN
-         7ipTeuIQtej3mkkv7xpwefzmkC5pr8DVyKKAmQDuuWz+RO019NnIPToFt8A4otEpiCKc
-         bO7uldVt9H4lGpiVIJPbc4YP6abaHQdo23UgQq+jNnfor8rbnQIqpFAHKrkp3DJ1GRaD
-         kB13I4R85VjqLbLDJA6fLuZjxJn8G/jG3gE8G9ZojSbW/DE8X/EiIZCDhzre2QapLHt0
-         njIDkbKcx+98WRKpP1QhtYdkhRO4+H0y+OCigg0qHqOgqNHZdwpCFi8A7ofMlfYswX8y
-         1DPw==
+        bh=t1Z4i78iFUVYmXdwkSYq7EkiOAX8N+OcOOj8F5FsldA=;
+        b=ULKzLn/U4higYR5QNi8L5Ic/b4YboH5Q0B0h8tLYOnBsK/eBVmDRADJSfcquKw9cWS
+         +aJWmCpshqF9otj379dqgWBVJmKgsue2DS8GfO/LmbEiBeSOWuxJnT3Q5Nlyq6iMplNo
+         /9ziBKg7an9L1PfOkzHQtqxafPNptxvHWYrNU0+qTfKAnlBsfwaB9qQ6SJ1/DAIuo5ps
+         9W/geTU2LNo27AmMXbd/xYqgmYaNo6C4Np+UBc/bo4GevAdhFckP/s4YlQw3C7QA40rK
+         fHZQuTkzvjhlpHo+IHJgADPdJi7n+69wP4hpJtQ4w6kryi//cfr+sSwX/cuxexT2XG4+
+         nYYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790160224; x=1790765024;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1790160526; x=1790765326;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tdm538hJDBEeOtB+OYg40rCG/usyp2101S2xsTzwFKE=;
-        b=QP/4qJXUiguxFCz+mp/Wh59b4eimtgkD2pA47oHbPRYftqETiuUs8FvzN8ZJ8RPJpT
-         ZBr9K7toeGQFu9mW4ukL+uNSLMNwZS7Scv7xkKJ+izyd0gqhxq5hBEhapFM5rij+Y1z+
-         5wshbuqXBNoZGoNzncgZSjV5j0aoBlE7uDdzEPwjgyOqOf/kVw5b+EsfYopozhl0wdif
-         Jy8cCCv65v3izPCGWlLFQcLqSBaJ2mQUhQ7HWjunHkWHJaVyH7YjaqeiFGV4M/1/UXAL
-         IUdPl6VOVYFOHapiu8dwo1cUl0TPkpnSXpZOuOg5eFrXLeRxgHjZceiFkD40HKTsuE/7
-         7uGQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz+IrYfZdBUBtb4TxaZWFnD/hKY+nWON5OFgHVpWP1HxHxncCa+v4SiTp5aaQ9bNgmRtEdqzRR6iuI/gJ2YR+PY@lists.infradead.org
-X-Gm-Message-State: AFuF++mC/J/LvguTNQTqyxIAzWXT0Qt8hqUCyo2LU94nfwXZAVPYP3QN
-	BvE8ap6sFyFbIKVBfHx3RcSmqfogL0gQnRDBAskRtJ1H9AeVMWjTp/wB/0YnarRJ7jDQ2UD57Ql
-	hBZzMQbRguOn0kGK9ZiFGrDDlqn8J+/+45fQ4H08aIiNw03H68piWBSBSRaVYjhTz9ZiFmzgOcs
-	qxBw==
-X-Gm-Gg: AYBFou3hdWE69dnZXQeFnVlQX/qfmRpR9MZFZGYIbCwBWvqdoqU+YwyrF8pu4fWbnpr
-	gFifWxIAmLTxfZCDMnHkqmMyTKL797vFG3DeuEQy77bGatIGlSQPiUkrsBtkJyfuD51bpeM7jRW
-	0gBbFZSC6Gjdl2xmxtWw8v57RlNs9o9muUKlxTjr3LWT5TJzmnJPOZIyNBXXSvCKu/maHLprTIv
-	uXJ6zYV+IjnfD+UbHuMESuh4CKr3TfCu+SfKyqGyAF4L9V3/xsDsixM93178eLjUXZCIGITlAe9
-	5hwKTPP5O7Jv9TOZhl2gA9HYaWjgUoZGQc+FUt5yt0JlBY6c5/zjL8cerTYZ2+NugEYefl9KSxu
-	57Oz7Ll6DjFcq
-X-Received: by 2002:a05:701b:465c:b0:144:eab0:8373 with SMTP id a92af1059eb24-144f91598eamr2150589c88.13.1790160224163;
-        Wed, 23 Sep 2026 03:43:44 -0700 (PDT)
-X-Received: by 2002:a05:701b:465c:b0:144:eab0:8373 with SMTP id a92af1059eb24-144f91598eamr2150572c88.13.1790160223468;
-        Wed, 23 Sep 2026 03:43:43 -0700 (PDT)
-Received: from oss.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-144f9820ca5sm6285226c88.3.2026.09.23.03.43.34
+        bh=t1Z4i78iFUVYmXdwkSYq7EkiOAX8N+OcOOj8F5FsldA=;
+        b=WKfudkl5NtdnxsuJvyewhWTvoNRp5lxCjTHYfmVVItwVWyPc/eg58idhe1iq+Qu2CM
+         QR8UCL8oS+X0/tNdJcf3amI1gPd47uS32Ch70CwTPuJiZE5VovR+hj5WS40bpdHQLyqd
+         HzxgoGrRtDAJUva6XVIXlC8AR+7rOiE8baLwzoP5knIsAl8HwTI+XcwuMOoFM91jbfb5
+         1akGNu162XBN82F6AiQeXhl1Iv0gHEnrZPlg8lMwAJ+KPxeLhTtvZ9TSPcj1yXi6Zmqd
+         OQ89D5CpJg0l742Em/xuzVqFszVja9AVkKMzZyW/OZVADv8JALciTP+JLtsGuJWQUO9F
+         D3Tw==
+X-Forwarded-Encrypted: i=1; AKwUvBxPtXKcbFdsno8B4NlhG3kf1VT7o9xhnAPebZjPYFGRQnxwRAkjS2IjEQH4EZ9Z0g0DCWLXHmGo6rtKTYcv+fnu@lists.infradead.org
+X-Gm-Message-State: AFuF++nPBYwUzzx1zXR3+fjAlp5uvqe0WTZg8st30a3J85SwI7gYzlMX
+	fi1QfhuSClEWO57pQlh+huQInuVwJNapvrJSUYWMxzMivbTFV2F2hoFAJn6tzfOT
+X-Gm-Gg: AYBFou021M5JYZibMaxnrN9vVpUaucVlC3IhQkihjkjsgfE9gF6bG81TiUpGGZ1gsaX
+	mb0opJUQ0h7fqqPpJLiz6prm57RsraSGhJsqnDE0i3Q5O+TNzymVjYmkJjKjYIpfzlbz0WZo13K
+	XX02DCFxpp6s4LleRVX/Ec7IkScvaktv/rHNeHVSsqRsO9kbnA03T0J/iDl7FN/nadY7ZTYvXc7
+	1WP7WhlmmPfrXY0Tjp7JuIWxQd6GlBsLFzkT/y2R0R/GvvwJSOBzDi9aKBFvYnXRVs7mSPabdGx
+	qQm/FVR9T9mK+jHuQ4iuV9EpbYUmwPu7LPv6xQ72F0InYnasGopbSz2J6a/p9LfjE4dHTx5nZ7K
+	EkR6wwratVyUZ7naYgHIWvhmGZGMcW3dXgVZAONYMkPMYcwo6yVrDQp9GV3/fWy/Cgry2mEIYVq
+	XciUYO8SU7RxkQXIgwf/OuORmGxF2090CSsWhmjYAY7d7Mtr3WJmzi/eifiNMOYQFL1Xclf+AAf
+	Dl0DQART4bJp77tdwPWMY7E6jCpOlwQigQ=
+X-Received: by 2002:a5d:64cc:0:b0:487:81c:6de with SMTP id ffacd0b85a97d-48867093ce7mr3896298f8f.34.1790160194918;
+        Wed, 23 Sep 2026 03:43:14 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-488687791cdsm5534038f8f.22.2026.09.23.03.43.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 03:43:43 -0700 (PDT)
-Date: Wed, 23 Sep 2026 16:13:31 +0530
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Serge Semin <fancer.lancer@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-        Heiner Kallweit <hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Coia Prant <coiaprant@gmail.com>,
-        Jan Petrous <jan.petrous@oss.nxp.com>,
-        "Jose.Abreu@synopsys.com" <Jose.Abreu@synopsys.com>,
-        netdev@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
-        Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>,
-        Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-Subject: Re: [PATCH RFC net-next 0/9] net: introduce Qualcomm XPCS support
- and add Nord Ethernet plumbing
-Message-ID: <arOtU15iv5CWPUEu@oss.qualcomm.com>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
- <5135e15d-b6ac-476c-9a7d-b7d64e4eed5c@bootlin.com>
+        Wed, 23 Sep 2026 03:43:14 -0700 (PDT)
+Date: Wed, 23 Sep 2026 11:43:13 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Bradley Morgan <brads@mainlining.org>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>, frederic@kernel.org,
+ neeraj.upadhyay@kernel.org, boqun@kernel.org, joelagnelf@nvidia.com,
+ rcu@vger.kernel.org, "Andrew Morton" <akpm@linux-foundation.org>, "Arnd
+ Bergmann" <arnd@arndb.de>, linux-arch@vger.kernel.org, "Vineet Gupta"
+ <vgupta@kernel.org>, linux-snps-arc@lists.infradead.org, "Russell King"
+ <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, "Guo Ren"
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, "Yoshinori Sato"
+ <ysato@users.sourceforge.jp>, "Rich Felker" <dalias@libc.org>, "John Paul
+ Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, linux-sh@vger.kernel.org,
+ "Chris Zankel" <chris@zankel.net>, "Max Filippov" <jcmvbkbc@gmail.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] lib: Add two-byte cmpxchg emulation function
+Message-ID: <20260923114313.75494970@pumpkin>
+In-Reply-To: <20260911192540.20983-2-brads@mainlining.org>
+References: <20260911192540.20983-1-brads@mainlining.org>
+	<20260911192540.20983-2-brads@mainlining.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5135e15d-b6ac-476c-9a7d-b7d64e4eed5c@bootlin.com>
-X-Authority-Analysis: v=2.4 cv=EZdd0/mC c=1 sm=1 tr=0 ts=6ab3ad61 cx=c_pps
- a=JYo30EpNSr/tUYqK9jHPoA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=8AirrxEcAAAA:8 a=keUjBhY1HaWyqSYI5lAA:9
- a=CjuIK1q_8ugA:10 a=Fk4IpSoW4aLDllm1B1p-:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-ORIG-GUID: BjVXn0XT31BW1026-3fgRXK_mV5ELFC8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA0MiBTYWx0ZWRfXxw40KaGz6q7L
- pRWPlOZR0xehubLgDAB4GPYKBim7Fl08gYsqPiu6xaJK6f1z3zkFPHLhcH+Pm/SJSgGB8w5xBOn
- YTgXZLq75qkvjSyWqAd+8kRwAT8H8Ai5CgyhalZRdOqwoTRvU3z/ZGSJuVmOsHs9g9ys7mHMYfR
- MapN6+dKr2GaHo6N8CrJuB6qyH2emjqtFGcXI7LGKqkHsoiEi3Zle0xMe+Gt93dSi+Qt3iZGmT3
- L/32hrfUERUjUFt3rBIjxRcHBvvMhFO/uFfY9y4bkuOmJqEMfWfOqjWYlYabpcu/+uLkRF4UOy8
- PQ5WgODGcQKGi0xVqHgkD1vLBdXVcrqCWpgC7b7QgIvH0mOXlgXPN7ZmLTBeLJppSMN8KgXvCDu
- pxkx24ktFZ3AG71gsBsgJfoiPouu8cnaZLlUeptl4iskUGV9uzDh9XRM49KlREkfiwshqXhz8zc
- rK9iLwkp6cGbKgSEvUQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA0MiBTYWx0ZWRfX9z296N7weL+X
- lwKcEs+jBJ24tBkS5EmC3c9HV7BOFo3cfOoe08C6rzj/7EOOkv/4OUlX6F0ANqlXNWzJnp3hCC3
- qlCfhXX1pVu3e3hV/+cbZ7wpk2FTU6o=
-X-Proofpoint-GUID: BjVXn0XT31BW1026-3fgRXK_mV5ELFC8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 bulkscore=0 adultscore=0 spamscore=0
- lowpriorityscore=0 phishscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609230042
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_034345_556052_7DE6E36B 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20260923_034848_662225_9D9030C0 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,48 +111,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+On Fri, 11 Sep 2026 19:25:34 +0000
+Bradley Morgan <brads@mainlining.org> wrote:
 
-On Wed, Sep 23, 2026 at 11:41:14AM +0200, Maxime Chevallier wrote:
-> Hi,
+> cmpxchg_emu_u8() emulates one-byte cmpxchg() in terms of four-byte
+> cmpxchg() for the architectures lacking native one-byte atomics.
+> The same architectures also lack native two-byte cmpxchg(), where
+> such an operation is not supported and either fails to compile via
+> BUILD_BUG() or fails to link, because the bad pointer sentinels
+> these architectures declare are never defined.
 > 
-> On 9/23/26 03:07, Mohd Ayaan Anwar wrote:
-> > Hi,
-> > 
-> > This is an early RFC which adds the XPCS and ETHQOS plumbing required
-> > to enable 10 Gigabit Ethernet on the Qualcomm Nord SoC. This is the
-> > first time USXGMII together with an external PCS is being supported by
-> > the dwmac-qcom-ethqos driver.
+> Add cmpxchg_emu_u16(), the two-byte sibling. It reads the enclosing
+> word with READ_ONCE(), splices the two target bytes through a union
+> and loops on cmpxchg() of the full word until the compare succeeds.
+> Like cmpxchg_emu_u8() it is fully ordered.
 > 
-> There are currently 3 in-flight series that adds glues to DW XPCS and stmmac: 
+> The Kconfig symbol gating this file is renamed from
+> ARCH_NEED_CMPXCHG_1_EMU to ARCH_NEED_CMPXCHG_1_2_EMU, as it now
+> selects both the one-byte and the two-byte emulation.
 > 
-> This one,
-> The Rockchip one from Coia [1]
-> The S32 one from Jan [2]
+> Suggested-by: Paul E. McKenney <paulmck@kernel.org>
+> Signed-off-by: Bradley Morgan <brads@mainlining.org>
+> ---
+>  arch/Kconfig                |  2 +-
+>  arch/arc/Kconfig            |  2 +-
+>  arch/arm/Kconfig            |  2 +-
+>  arch/csky/Kconfig           |  2 +-
+>  arch/sh/Kconfig             |  2 +-
+>  arch/xtensa/Kconfig         |  2 +-
+>  include/linux/cmpxchg-emu.h |  1 +
+>  lib/Makefile                |  2 +-
+>  lib/cmpxchg-emu.c           | 35 ++++++++++++++++++++++++++++++++---
+>  9 files changed, 40 insertions(+), 10 deletions(-)
 > 
-> 
-> [1] : https://lore.kernel.org/netdev/20260922200336.2201212-1-coiaprant@gmail.com/
-> [2] : https://lore.kernel.org/netdev/20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com/
-> 
-> MAINTAINERS entry for XPCS says :
-> 
-> SYNOPSYS DESIGNWARE ETHERNET XPCS DRIVER
-> L:      netdev@vger.kernel.org          
-> S:      Orphan                          
-> F:      drivers/net/pcs/pcs-xpcs.c      
-> F:      drivers/net/pcs/pcs-xpcs.h      
-> F:      include/linux/pcs/pcs-xpcs.h    
-> 
-> It would nice if some of you could help maintain the core XPCS driver, and make sure
-> these series aren't stepping on one another :( I personnaly don't have any XPCS HW
-> for tests.
-> 
-> You don't have to do it alone, multiple people can co-maintain that :) Maybe
-> Synopsys folks can also chime in ?
-> 
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index 3bb2e568f5b1..d56064797e09 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -1817,7 +1817,7 @@ config CC_HAS_SANE_FUNCTION_ALIGNMENT
+>  	# strict alignment always, even with -falign-functions.
+>  	def_bool CC_HAS_MIN_FUNCTION_ALIGNMENT || CC_IS_CLANG
+>  
+> -config ARCH_NEED_CMPXCHG_1_EMU
+> +config ARCH_NEED_CMPXCHG_1_2_EMU
 
-Thank you for sharing these series, I can help review them based on my
-understanding of this IP. Hope that helps.
+Is it actually worth the churn of changing the name?
+Maybe just a comment that say it adds both 1 and 2 byte emulation?
 
-	Ayaan
+David
+
+>  	bool
+>  
+...
 
