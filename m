@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A05C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6B0C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 12:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z4KoWWf43I44N2oFnm3i3WiG+LboBCTwShWPcNIQiMk=; b=mkHkkUwdI8S9eVb+oSb3J8TwXU
-	2x///mmuPyJ7PzlP4kAq+MXXSGp0EZDTvnpfXLUWbupTvOB7MZl4lRgXoA1qzd7QchLTrOoU5JAGP
-	GIoPcBXHZZo2y/3/6BRXASrXhGIz/QBaykzsJach/v9XQCrjJwk4ngQWY0OAqlN6Ezv0bkBndHeZs
-	qmJqWjhZZTxVVCFQD/p2naqupzISG9NybkSnIHC+B04VtYPW+WskapdgTO9c1VzFZuDVloEb20Yj/
-	0iz0nCLSRFOovHpYc5Rn0bItVzp/g4RdL9aiyHhqAtvp9WdfXBCHCNdQKUfBtLZ4BNX49XH/TNVv1
-	2ZxIxd+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oin27mEyCq0BUMcs7KbeOSyNDlusM82kVA+c1BUbUQc=; b=rnzR6bpMDwJw/3B4IkkRPwf24v
+	YT+K1/1YAwJ4lrdjDo0Tv4z1sf6qX8SBUJKY/2gUXTyvyWDOIBZXrhlmC/Dq5BD0kK/9JcBtq66sM
+	zMLNjxhS2k1AFpOYqv8LB3WCBi7XOLDXbtAx4xZjCDMeXzhs/EqyCGUJ92dBZPpAjsW5CUaSW9lOZ
+	ekvF9EzYKVLpVnH/X03RQysIkDWBpDiR43RukcJ9YPUIiAS5IXicSvL06bLxlp66zSsh7r+I5WtI9
+	+J7s3uCHlQ1Uj9L94i/6XXgnyxKqJZ52kF515EB92uQLmqh2/c1N0C1vGpQIjkbxmCqzwPI2DVfvA
+	zCDZbxWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MMw-00000008I8U-3jmc;
-	Wed, 23 Sep 2026 12:46:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MMw-00000008I8I-0tsJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 12:46:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3ED36020A;
-	Wed, 23 Sep 2026 12:46:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C8F1F000FF;
-	Wed, 23 Sep 2026 12:46:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790167597;
-	bh=Z4KoWWf43I44N2oFnm3i3WiG+LboBCTwShWPcNIQiMk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=gARTx8L72lZ+OWPZ8SLZgCdYMK3z7wreiqwLYUrHVbD+ScXZPudUJeNApdRDaUuht
-	 xKC6+PZBzoS3gnb25H2xvPnNX/o/3AEzFVynOtF4cX93aLcidYAOuID1RxSMhi0a2b
-	 eL/8mthO5cdD6PXQ4Sxlu4Dmndm2+Zv/8VX5oIIlW6hU3no8ospyV8/KHJh4asSCDw
-	 hzYGKOMFt1jyCIEpKmTaAPCfCC37TRdlNYchZ8aoeYbb+P746cyxr3BLx84iGR37pB
-	 kZqR6UxH1vSrhZ2dCMjbgI6xgulWoRvRtEeRQmshMZZNyPBoGQvg3vdjf7LpQivnql
-	 e4DevUhv/Gjeg==
-Subject: Re: [PATCH net v3] net: stmmac: do not cache the new TSO MSS before
- it reaches the DMA
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- xiaolinkui@kylinos.cn, stable@vger.kernel.org,
- lorenzo.bianconi@oss.qualcomm.com
-Date: Wed, 23 Sep 2026 12:46:36 +0000
-Message-ID: <179016759614.2160803.12192059495158802876@kernel.org>
-In-Reply-To: <20260922124408.645496-1-xiaolinkui@126.com>
-References: <20260922124408.645496-1-xiaolinkui@126.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x9MOK-00000008IKr-2LaB;
+	Wed, 23 Sep 2026 12:48:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9MOH-00000008IKK-3ETk;
+	Wed, 23 Sep 2026 12:48:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACA861570;
+	Wed, 23 Sep 2026 05:47:56 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86ECA3F86C;
+	Wed, 23 Sep 2026 05:47:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790167680; bh=RIhC3hUarxRrR/f5mRDyLyshn3OVC6xd4Pet+9BmBkI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=db+pBdYhJE2fGHV6VKDio2pztmLqY1Eh+yFiBoVVLDJx2jEVzxpsuPFnx+/nlttpc
+	 Cf7Ot496F1Lyd/LCV9ab67bSymlJjM1X4hMWqAB3TKvs0DOlRrG+fpxyRQ9Bkqz49+
+	 7jFl+bqKwsuz59JreWAqLWWa4hJJWVTOV1uNJGBk=
+Message-ID: <644aa208-55f0-440c-94b9-75e58e588dde@arm.com>
+Date: Wed, 23 Sep 2026 13:47:43 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/6] dma: swiotlb: Centralize memory-encryption pool
+ sizing
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-5-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-5-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_054802_097878_4885D122 
+X-CRM114-Status: GOOD (  40.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +95,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+> Memory-encrypted guests use shared or unencrypted memory for DMA and may
+> route all DMA through SWIOTLB. The default pool can therefore be too
+> small for I/O-intensive workloads.
+> 
+> Move the existing x86 guest-sizing policy into the SWIOTLB core. For
+> SWIOTLB_POOL_CC_GUEST, size the pool to 6% of guest memory, clamped
+> between the normal default and 1 GiB. Preserve an explicit swiotlb=
+> size.
+> 
+> Provide swiotlb_adjusted_size() so early users, including the x86 crash
+> kernel reservation, can account for the prospective guest pool size
+> before SWIOTLB initialization. Use the same area-aware alignment for
+> both the prospective and allocated sizes.
+> 
+> Host memory encryption still selects a normal-sized shared pool and
+> does not use the guest-sizing policy.
+> 
+> A restricted DMA pool already provides shared bounce buffers for its
+> devices. Record its presence during reserved-memory initialization and
+> do not select the confidential-guest default-pool policy solely because
+> guest memory encryption is active.
+> 
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   arch/x86/include/asm/crash_reserve.h |  6 ++--
+>   arch/x86/mm/mem_encrypt.c            | 24 --------------
+>   include/linux/swiotlb.h              |  6 ++++
+>   kernel/dma/swiotlb.c                 | 47 +++++++++++++++++++++++++++-
+>   4 files changed, 56 insertions(+), 27 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/crash_reserve.h b/arch/x86/include/asm/crash_reserve.h
+> index 7835b2cdff04..c1f5bf5d4182 100644
+> --- a/arch/x86/include/asm/crash_reserve.h
+> +++ b/arch/x86/include/asm/crash_reserve.h
+> @@ -18,7 +18,9 @@
+>    * no good way to detect the paging mode of the target kernel which will be
+>    * loaded for dumping.
+>    */
+> -extern unsigned long swiotlb_size_or_default(void);
+> +#ifdef CONFIG_X86_64
+> +unsigned long __init swiotlb_adjusted_size(void);
+> +#endif
+>   
+>   #ifdef CONFIG_X86_32
+>   # define CRASH_ADDR_LOW_MAX     SZ_512M
+> @@ -33,7 +35,7 @@ extern unsigned long swiotlb_size_or_default(void);
+>   static inline unsigned long crash_low_size_default(void)
+>   {
+>   #ifdef CONFIG_X86_64
+> -	return max(swiotlb_size_or_default() + (8UL << 20), 256UL << 20);
+> +	return max(swiotlb_adjusted_size() + (8UL << 20), 256UL << 20);
+>   #else
+>   	return 0;
+>   #endif
+> diff --git a/arch/x86/mm/mem_encrypt.c b/arch/x86/mm/mem_encrypt.c
+> index 95bae74fdab2..912f22ca838f 100644
+> --- a/arch/x86/mm/mem_encrypt.c
+> +++ b/arch/x86/mm/mem_encrypt.c
+> @@ -101,9 +101,6 @@ void __init mem_encrypt_init(void)
+>   
+>   void __init mem_encrypt_setup_arch(void)
+>   {
+> -	phys_addr_t total_mem = memblock_phys_mem_size();
+> -	unsigned long size;
+> -
+>   	/*
+>   	 * Do RMP table fixups after the e820 tables have been setup by
+>   	 * e820__memory_setup().
+> @@ -114,27 +111,6 @@ void __init mem_encrypt_setup_arch(void)
+>   	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+>   		return;
+>   
+> -	/*
+> -	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
+> -	 * Kernel uses SWIOTLB to make this happen without changing device
+> -	 * drivers. However, depending on the workload being run, the
+> -	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
+> -	 * run out of buffers for DMA, resulting in I/O errors and/or
+> -	 * performance degradation especially with high I/O workloads.
+> -	 *
+> -	 * Adjust the default size of SWIOTLB using a percentage of guest
+> -	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
+> -	 * memory is allocated from low memory, ensure that the adjusted size
+> -	 * is within the limits of low available memory.
+> -	 *
+> -	 * The percentage of guest memory used here for SWIOTLB buffers
+> -	 * is more of an approximation of the static adjustment which
+> -	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
+> -	 */
+> -	size = total_mem * 6 / 100;
+> -	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
+> -	swiotlb_adjust_size(size);
+> -
+>   	/* Set restricted memory access for virtio. */
+>   	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
+>   }
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index d69370c08094..be3962a33fc6 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -193,6 +193,7 @@ void swiotlb_dev_init(struct device *dev);
+>   size_t swiotlb_max_mapping_size(struct device *dev);
+>   bool is_swiotlb_allocated(void);
+>   bool is_swiotlb_active(struct device *dev);
+> +unsigned long __init swiotlb_adjusted_size(void);
+>   void __init swiotlb_adjust_size(unsigned long size);
+>   phys_addr_t default_swiotlb_base(void);
+>   phys_addr_t default_swiotlb_limit(void);
+> @@ -232,6 +233,11 @@ static inline bool is_swiotlb_active(struct device *dev)
+>   	return false;
+>   }
+>   
+> +static inline unsigned long __init swiotlb_adjusted_size(void)
+> +{
+> +	return 0;
+> +}
+> +
+>   static inline void swiotlb_adjust_size(unsigned long size)
+>   {
+>   }
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index f368a73f4ed0..c19675846fc1 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -80,6 +80,7 @@ struct io_tlb_slot {
+>   
+>   static bool swiotlb_force_bounce;
+>   static bool swiotlb_force_disable;
+> +static bool restricted_dma_pool_present __initdata;
+>   
+>   enum swiotlb_pool_policy {
+>   	SWIOTLB_POOL_NONE,
+> @@ -480,6 +481,46 @@ static bool __init swiotlb_kmalloc_needs_bounce(void)
+>   	       (dma_get_cache_alignment() > 1);
+>   }
+>   
+> +/**
+> + * swiotlb_adjusted_size() - get the prospective adjusted SWIOTLB size
+> + *
+> + * Return the size that confidential-computing guest sizing would select for
+> + * the default pool, without changing the configured SWIOTLB size. An
+> + * explicit swiotlb= size is always preserved. An explicit area count is
+> + * included in the size calculation. Automatic area sizing is initialized
+> + * later from the running kernel's possible CPU map and any resulting size
+> + * adjustment is therefore not reflected in the returned size.
+> + */
+> +unsigned long __init swiotlb_adjusted_size(void)
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+This is yet another misleadingly ambiguous name.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> +{
+> +	unsigned long nslabs, size = swiotlb_size_or_default();
+> +
+> +	if (swiotlb_default_size_changed() ||
+> +	    !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+> +		return size;
 
-- [Medium] Deferring the `tx_q->mss = mss` publication to the end of
-  stmmac_tso_xmit() (stmmac_main.c:4715, right after…
+And this makes for another needlessly convoluted calling convention.
 
---
+> +	/*
+> +	 * For SEV and TDX and CCA, all DMA has to occur via
+> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
+> +	 * happen without changing device drivers. However, depending on
+> +	 * the workload being run, the default 64MB of SWIOTLB may not be
+> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
+> +	 * I/O errors and/or performance degradation especially with high
+> +	 * I/O workloads.
+> +	 *
+> +	 * Adjust the default size of SWIOTLB using a percentage of guest
+> +	 * memory for SWIOTLB buffers.
+> +	 *
+> +	 * The percentage of guest memory used here for SWIOTLB buffers is
+> +	 * more of an approximation of the static adjustment which 64MB for
+> +	 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
+> +	 */
+> +	size = memblock_phys_mem_size() * 6 / 100;
 
-net: stmmac: do not cache the new TSO MSS before it reaches the DMA
+But mostly I fail to see how this makes any sense for the x86 
+crash_low_size_default() case anyway. This calculation is based on the 
+*total* system memory, of which 6% is likely comparable to (or perhaps 
+even more than) the *entire* amount of memory reserved for the crash 
+kernel itself. What's more, if the low memory and size restrictions are 
+lifted for regular CoCo SWIOTLB as people want, then it becomes even 
+more utterly nonsensical to tie crashkernel_low to this.
 
-The patch moves the tx_q->mss update in stmmac_tso_xmit() from the point
-where the MSS context descriptor is filled to the point where its OWN bit is
-set, and keeps the context descriptor at the slot tx_q->cur_tx points to so
-the error paths can release it explicitly.
+Yes, this happens to be the behaviour that falls out of how two 
+different parts of the existing code interact, but I highly doubt it was 
+ever intentional, so I'm not convinced that complicating SWIOTLB 
+interfaces to blindly preserve it is the right thing to do.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1fb5f804ea234..830e80cee6dca 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4563,10 +4563,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  			mss_desc = &tx_q->dma_tx[tx_q->cur_tx];
->  
->  		stmmac_set_mss(priv, mss_desc, mss);
-> -		tx_q->mss = mss;
-> -		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
-> -						priv->dma_conf.dma_tx_size);
-> -		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
->  	}
->  
->  	if (netif_msg_tx_queued(priv)) {
+Thanks,
+Robin.
 
-[ ... ]
+> +	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
+> +	nslabs = swiotlb_aligned_nslabs(size);
+> +
+> +	return nslabs << IO_TLB_SHIFT;
+> +}
+> +
+>   static void __init
+>   swiotlb_adjust_pool_size(enum swiotlb_pool_policy policy)
+>   {
+> @@ -496,6 +537,7 @@ swiotlb_adjust_pool_size(enum swiotlb_pool_policy policy)
+>   		break;
+>   	}
+>   	case SWIOTLB_POOL_CC_GUEST:
+> +		swiotlb_adjust_size(swiotlb_adjusted_size());
+>   		break;
+>   	case SWIOTLB_POOL_NONE:
+>   		WARN(true, "Cannot adjust SWIOTLB size without a pool\n");
+> @@ -511,7 +553,8 @@ swiotlb_select_pool_policy(unsigned int flags)
+>   	if (swiotlb_force_disable)
+>   		return SWIOTLB_POOL_NONE;
+>   
+> -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+> +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
+> +	    !restricted_dma_pool_present)
+>   		return SWIOTLB_POOL_CC_GUEST;
+>   
+>   	if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT))
+> @@ -2157,6 +2200,8 @@ static int __init rmem_swiotlb_setup(unsigned long node,
+>   	    of_get_flat_dt_prop(node, "no-map", NULL))
+>   		return -EINVAL;
+>   
+> +	restricted_dma_pool_present = true;
+> +
+>   	pr_info("Reserved memory: created restricted DMA pool at %pa, size %ld MiB\n",
+>   		&rmem->base, (unsigned long)rmem->size / SZ_1M);
+>   	return 0;
 
-> @@ -4714,6 +4713,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
->  		 */
->  		dma_wmb();
->  		stmmac_set_tx_owner(priv, mss_desc);
-> +		tx_q->mss = mss;
->  	}
-
-[Severity: Medium]
-Can this new write position re-publish a stale non-zero tx_q->mss after a
-concurrent TX channel reset has invalidated it?
-
-stmmac_tso_xmit() runs under __netif_tx_lock only, but stmmac_tx_err() is
-called directly from hard IRQ context and takes no TX queue lock:
-
-stmmac_msi_intr_tx()
-    } else if (unlikely(status == tx_hard_error)) {
-        stmmac_tx_err(priv, chan);
-    }
-
-stmmac_dma_interrupt()
-        } else if (unlikely(status[chan] == tx_hard_error)) {
-            stmmac_tx_err(priv, chan);
-        }
-
-stmmac_tx_err() reinitialises the channel and clears the cached value:
-
-stmmac_tx_err()
-    stmmac_stop_tx_dma(priv, chan);
-    dma_free_tx_skbufs(priv, &priv->dma_conf, chan);
-    stmmac_clear_tx_descriptors(priv, &priv->dma_conf, chan);
-    stmmac_reset_tx_queue(priv, chan);
-    stmmac_init_tx_chan(...);
-    stmmac_start_tx_dma(priv, chan);
-
-stmmac_reset_tx_queue()
-    tx_q->cur_tx = 0;
-    tx_q->dirty_tx = 0;
-    tx_q->mss = 0;
-
-If that interrupt lands after the descriptors have been filled but before
-the deferred update, the transmit path still executes:
-
-        dma_wmb();
-        stmmac_set_tx_owner(priv, mss_desc);
-        tx_q->mss = mss;
-
-which leaves a non-zero cached MSS for a channel that was just
-re-initialised and never programmed with it. The next TSO frame with the
-same gso_size then takes the mss == tx_q->mss path and emits no context
-descriptor. With the old placement the write happened early, so a later
-reset always won and the cached value ended up as 0.
-
-Does this interact with the commit message statement "Update tx_q->mss only
-once the context descriptor has been given to the DMA, so that the cached
-value always describes what the hardware is actually programmed with"? The
-tx_q->mss = 0 in stmmac_reset_tx_queue() suggests the driver assumes the
-MAC loses its latched MSS across the reset, in which case that invariant
-still does not hold for this interleaving.
-
-The missing serialisation of stmmac_tx_err() against the TX path is older
-than this patch and already perturbs cur_tx/dirty_tx, but the stale
-non-zero MSS outcome comes from the new write placement. Would it make
-sense to note this, or to keep the cache coherent some other way?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260922124408.645496-1-xiaolinkui%40126.com
 
