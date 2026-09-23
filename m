@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812A9C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EA5C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 09:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K3TVGvBvu8Bs3GXwqrCW2MKXdH7U3MumAQSoP3rvwxE=; b=iwu+wCpGSe6OKd9ZGoPgpMfkBJ
-	JwMGZjPN9vCy6dUy8zaCTyeOUtB1qzpbKPNYXcs/UnfxWTjqAE73xWmB0uuiJ0RlT/j92XQhRbM1j
-	1M6gUf1bfdIILPNRnkeLUcUAqSQt5YIrCg7Qv1oc/mC2NWcxirkRWEVYbFvkHnWXFv6eV+tS0IPxF
-	JqmVRnOC0MAue17oyoK+PSoTIhpcE8yoVx2bAYsbIbm/GKbF+Zq1zfW1tKlCRMISgJVHpc3qGGUsW
-	WJZjWDO7Yl5mSiLiQMZqZkbgfK9ay8OSB6Hb0ZBjPnERaJQoQbvIL5KSkvX9WqhUfppoiks8GH4wg
-	tqLirZYw==;
+	bh=p6vermkBIgUo8thwtRk6Cz+ktM6vVuAwyTtaUnyUQFc=; b=LvltGapVl7EgGB03TvlbjCaUbY
+	kAwju69rAyA3pwhsgPJeD56lXxkC1H4XqdNwNBi2UXJQcy+8rxSgrDPwnE4mgjWH/+MnFYkCtBj5v
+	bD83hzcivEt2sbB0poxJTNho3oSxIb8Z+AhsUoKRDNwxRjUOT7fz888LMSFv6HrhpRR/FKffrCKPy
+	XeQylNZ6LunhTj51lh7oDw8QfEGSSSod/dT8Qu/jZxmdXxZ1dNpM323PChVc4i1wsxviyBHSw9wK/
+	xhr0ph5zBPaCzPp9DB73Hn8XGFySaWEaMJMBSoKq/Atfn5qi/oqXkWGKPAt4eTfMt78LMOm15oIRn
+	CjHoqOPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Isw-00000007emo-2znJ;
-	Wed, 23 Sep 2026 09:03:26 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x9Isx-00000007enW-2l6I;
+	Wed, 23 Sep 2026 09:03:27 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ism-00000007ehh-0MSY;
-	Wed, 23 Sep 2026 09:03:17 +0000
+	id 1x9Ism-00000007ehl-1LfW;
+	Wed, 23 Sep 2026 09:03:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790154194;
-	bh=lwOsIlMSIMMhxLqlYday9G0StXwsB4a3fRxpMnydcCQ=;
+	s=mail; t=1790154193;
+	bh=KNcQLxsr1Ai2oFPUKlfQXhafD0SSWQp7nUDr8E0tm9w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R1EC5uSHoYqOk5zNTXJ8bxduiHuBK+/d4+xOGnoy8giM/8T4YjSj+ZHNkRkUNC9HK
-	 ZY/QHa9itCoVDvxd5K2SDyMC6KdGDYPzb36xsj7zFtmHViX3PzTE6qUQQjeWdtxrT4
-	 Pzc1lXa4W/7e0URmfbAmywtR/EY+pfc7zmeJy3/OmjloSxEfy1/2XbmlpXJKr2ndKl
-	 TPCFC5LvjezZc4rflRxUEQWST+dBdRhbJvCGqEjCTWUToeYABmohLg4aLudOVmuWL8
-	 mYtQvQbT+g6uLSedXwhu2DK0iGQSJ9ao1rcjHP3QBTnzI+suSaG5zeUWmZ0CHgcgc7
-	 1yTD4y2YzKGUw==
+	b=Lhyi7fAsG/N362P5ZxbnOzO9udXgFn+n3pAyjrnkWsSTHkJiO4uKB09hSvNkN2XPU
+	 EyStei4X7rUxom2pnUVa18uASj6x1BSSf76TOpR8GvGZ7RPggk/dCqgo+asvL+ZvkN
+	 Ag8JPVQCa9EgqdUyzn6O9FX7sPtkkkL7WfIPRYc9eBi+fnkIcpezrWzhLuJ8Wm58Xj
+	 I50BVXxBUMjjBAp31M+fZxZYovgQBoDrCQ8CyDkpY7i1lv9u99G0ksG+yVJgOpO5Qn
+	 QQ//DdItY88TCdvk7MTlJhHSiSfF4T7y0dEwV/dloZMUssC5CQb3D6pPpe5+JvUo84
+	 5KMul1LCz3TYA==
 Received: from benjamin-XPS-13-9310 (unknown [100.64.1.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A73CC17E09ED;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1790117E047B;
 	Wed, 23 Sep 2026 11:03:13 +0200 (CEST)
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 To: nicolas.dufresne@collabora.com,
@@ -62,17 +62,17 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 2/2] media: verisilicon: Remove useless internal fields
-Date: Wed, 23 Sep 2026 11:03:07 +0200
-Message-ID: <20260923090307.49959-3-benjamin.gaignard@collabora.com>
+Subject: [PATCH 1/2] media: verisilicon: Remove deprecated variant
+Date: Wed, 23 Sep 2026 11:03:06 +0200
+Message-ID: <20260923090307.49959-2-benjamin.gaignard@collabora.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260923090307.49959-1-benjamin.gaignard@collabora.com>
 References: <20260923090307.49959-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_020316_276942_8CD045BE 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260923_020316_510435_8055E339 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +87,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-No more variants are using multiple registers regions.
-Remove the useless fields and simplify driver code.
+"nxp,imx8mq-vpu" is tagged as deprecated since:
+commit f3116f2e52e6 ("media: dt-bindings: media: nxp, imx8mq-vpu: Split G1 and G2 nodes")
+merged since v5.17-rc1.
+There is more reference to it since that.
+Remove for driver and Documentation to clean up the code.
 
 Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 ---
- drivers/media/platform/verisilicon/hantro.h   |  8 ++------
- .../media/platform/verisilicon/hantro_drv.c   | 20 +++++--------------
- 2 files changed, 7 insertions(+), 21 deletions(-)
+ .../bindings/media/nxp,imx8mq-vpu.yaml        |  2 -
+ .../media/platform/verisilicon/hantro_drv.c   |  1 -
+ .../media/platform/verisilicon/imx8m_vpu_hw.c | 60 -------------------
+ 3 files changed, 63 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-index ffc214ff3438b..fc4eb2ae01430 100644
---- a/drivers/media/platform/verisilicon/hantro.h
-+++ b/drivers/media/platform/verisilicon/hantro.h
-@@ -75,8 +75,6 @@ struct hantro_irq {
-  * @num_irqs:			number of irqs in the array
-  * @clk_names:			array of clock names
-  * @num_clocks:			number of clocks in the array
-- * @reg_names:			array of register range names
-- * @num_regs:			number of register range names in the array
-  * @double_buffer:		core needs double buffering
-  * @legacy_regs:		core uses legacy register set
-  * @late_postproc:		postproc must be set up at the end of the job
-@@ -100,8 +98,6 @@ struct hantro_variant {
- 	int num_irqs;
- 	const char * const *clk_names;
- 	int num_clocks;
--	const char * const *reg_names;
--	int num_regs;
- 	unsigned int double_buffer : 1;
- 	unsigned int legacy_regs : 1;
- 	unsigned int late_postproc : 1;
-@@ -187,7 +183,7 @@ hantro_vdev_to_func(struct video_device *vdev)
-  *			dev_ macros.
-  * @clocks:		Array of clock handles.
-  * @resets:		Array of reset handles.
-- * @reg_bases:		Mapped addresses of VPU registers.
-+ * @reg_base:		Mapped address of VPU registers.
-  * @enc_base:		Mapped address of VPU encoder register for convenience.
-  * @dec_base:		Mapped address of VPU decoder register for convenience.
-  * @ctrl_base:		Mapped address of VPU control block.
-@@ -207,7 +203,7 @@ struct hantro_dev {
- 	struct device *dev;
- 	struct clk_bulk_data *clocks;
- 	struct reset_control *resets;
--	void __iomem **reg_bases;
-+	void __iomem *reg_base;
- 	void __iomem *enc_base;
- 	void __iomem *dec_base;
- 	void __iomem *ctrl_base;
+diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+index 19528262810a5..504ea45355dbc 100644
+--- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
++++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+@@ -15,8 +15,6 @@ description:
+ properties:
+   compatible:
+     oneOf:
+-      - const: nxp,imx8mq-vpu
+-        deprecated: true
+       - const: nxp,imx8mq-vpu-g1
+       - const: nxp,imx8mq-vpu-g2
+       - const: nxp,imx8mm-vpu-g1
 diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 70de47ddb023b..f418b04279856 100644
+index ad71c0402ef3b..70de47ddb023b 100644
 --- a/drivers/media/platform/verisilicon/hantro_drv.c
 +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -1080,7 +1080,6 @@ static int hantro_probe(struct platform_device *pdev)
- {
- 	const struct of_device_id *match;
- 	struct hantro_dev *vpu;
--	int num_bases;
- 	int i, ret;
+@@ -725,7 +725,6 @@ static const struct of_device_id of_hantro_match[] = {
+ #endif
+ #ifdef CONFIG_VIDEO_HANTRO_IMX8M
+ 	{ .compatible = "nxp,imx8mm-vpu-g1", .data = &imx8mm_vpu_g1_variant, },
+-	{ .compatible = "nxp,imx8mq-vpu", .data = &imx8mq_vpu_variant, },
+ 	{ .compatible = "nxp,imx8mq-vpu-g1", .data = &imx8mq_vpu_g1_variant },
+ 	{ .compatible = "nxp,imx8mq-vpu-g2", .data = &imx8mq_vpu_g2_variant },
+ #endif
+diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+index fa4224de4b996..3b63f626d33f2 100644
+--- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
++++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+@@ -42,38 +42,6 @@ static void imx8m_soft_reset(struct hantro_dev *vpu, u32 reset_bits)
+ 	writel(val, vpu->ctrl_base + CTRL_SOFT_RESET);
+ }
  
- 	vpu = devm_kzalloc(&pdev->dev, sizeof(*vpu), GFP_KERNEL);
-@@ -1137,21 +1136,12 @@ static int hantro_probe(struct platform_device *pdev)
- 	if (IS_ERR(vpu->resets))
- 		return PTR_ERR(vpu->resets);
- 
--	num_bases = vpu->variant->num_regs ?: 1;
--	vpu->reg_bases = devm_kcalloc(&pdev->dev, num_bases,
--				      sizeof(*vpu->reg_bases), GFP_KERNEL);
--	if (!vpu->reg_bases)
--		return -ENOMEM;
-+	vpu->reg_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(vpu->reg_base))
-+		return PTR_ERR(vpu->reg_base);
- 
--	for (i = 0; i < num_bases; i++) {
--		vpu->reg_bases[i] = vpu->variant->reg_names ?
--		      devm_platform_ioremap_resource_byname(pdev, vpu->variant->reg_names[i]) :
--		      devm_platform_ioremap_resource(pdev, 0);
--		if (IS_ERR(vpu->reg_bases[i]))
--			return PTR_ERR(vpu->reg_bases[i]);
+-static void imx8m_clk_enable(struct hantro_dev *vpu, u32 clock_bits)
+-{
+-	u32 val;
+-
+-	val = readl(vpu->ctrl_base + CTRL_CLOCK_ENABLE);
+-	val |= clock_bits;
+-	writel(val, vpu->ctrl_base + CTRL_CLOCK_ENABLE);
+-}
+-
+-static int imx8mq_runtime_resume(struct hantro_dev *vpu)
+-{
+-	int ret;
+-
+-	ret = clk_bulk_prepare_enable(vpu->variant->num_clocks, vpu->clocks);
+-	if (ret) {
+-		dev_err(vpu->dev, "Failed to enable clocks\n");
+-		return ret;
 -	}
--	vpu->enc_base = vpu->reg_bases[0] + vpu->variant->enc_offset;
--	vpu->dec_base = vpu->reg_bases[0] + vpu->variant->dec_offset;
-+	vpu->enc_base = vpu->reg_base + vpu->variant->enc_offset;
-+	vpu->dec_base = vpu->reg_base + vpu->variant->dec_offset;
+-
+-	imx8m_soft_reset(vpu, RESET_G1 | RESET_G2);
+-	imx8m_clk_enable(vpu, CLOCK_G1 | CLOCK_G2);
+-
+-	/* Set values of the fuse registers */
+-	writel(0xffffffff, vpu->ctrl_base + CTRL_G1_DEC_FUSE);
+-	writel(0xffffffff, vpu->ctrl_base + CTRL_G1_PP_FUSE);
+-	writel(0xffffffff, vpu->ctrl_base + CTRL_G2_DEC_FUSE);
+-
+-	clk_bulk_disable_unprepare(vpu->variant->num_clocks, vpu->clocks);
+-
+-	return 0;
+-}
+-
+ /*
+  * Supported formats.
+  */
+@@ -234,13 +202,6 @@ static const struct hantro_fmt imx8m_vpu_g2_dec_fmts[] = {
+ 	},
+ };
  
- 	/**
- 	 * TODO: Eventually allow taking advantage of full 64-bit address space.
+-static int imx8mq_vpu_hw_init(struct hantro_dev *vpu)
+-{
+-	vpu->ctrl_base = vpu->reg_bases[vpu->variant->num_regs - 1];
+-
+-	return 0;
+-}
+-
+ static void imx8m_vpu_g1_reset(struct hantro_ctx *ctx)
+ {
+ 	struct hantro_dev *vpu = ctx->dev;
+@@ -319,30 +280,9 @@ static const struct hantro_irq imx8mq_g2_irqs[] = {
+ 	{ "g2", hantro_g2_irq },
+ };
+ 
+-static const char * const imx8mq_clk_names[] = { "g1", "g2", "bus" };
+-static const char * const imx8mq_reg_names[] = { "g1", "g2", "ctrl" };
+ static const char * const imx8mq_g1_clk_names[] = { "g1" };
+ static const char * const imx8mq_g2_clk_names[] = { "g2" };
+ 
+-const struct hantro_variant imx8mq_vpu_variant = {
+-	.dec_fmts = imx8m_vpu_dec_fmts,
+-	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
+-	.postproc_fmts = imx8m_vpu_postproc_fmts,
+-	.num_postproc_fmts = ARRAY_SIZE(imx8m_vpu_postproc_fmts),
+-	.postproc_ops = &hantro_g1_postproc_ops,
+-	.codec = HANTRO_MPEG2_DECODER | HANTRO_VP8_DECODER |
+-		 HANTRO_H264_DECODER,
+-	.codec_ops = imx8mq_vpu_codec_ops,
+-	.init = imx8mq_vpu_hw_init,
+-	.runtime_resume = imx8mq_runtime_resume,
+-	.irqs = imx8mq_irqs,
+-	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
+-	.clk_names = imx8mq_clk_names,
+-	.num_clocks = ARRAY_SIZE(imx8mq_clk_names),
+-	.reg_names = imx8mq_reg_names,
+-	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
+-};
+-
+ static const struct of_device_id imx8mq_vpu_shared_resources[] = {
+ 	{ .compatible = "nxp,imx8mq-vpu-g1", },
+ 	{ .compatible = "nxp,imx8mq-vpu-g2", },
 -- 
 2.53.0
 
