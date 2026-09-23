@@ -4,66 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07BDC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E642C982EA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 06:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4hFDy2VVoz7RTyWjulrvxuTdYcehFGuSNRNctvS4gQE=; b=UEp7kDOFXzR8DfRdc4kWdfGvm4
-	TVDS4k2TeHZI+TCoLG2mn0v1O37a632OuwxS8cEY5Eq0IX/+rj49I3iWuzJsOKi6vXvfq8BaVc/gL
-	b2XMB5JEOPGIrnVwDkJAErkLqxsT8HrwMs+7q/X82kXFb0R1DddSuCiVlFqI0Ul1cc/vPpSVtjVQs
-	S0myji8yYv8rPPy7Pir6/ohYF2StlHpBV4Hmat09FaDMFLG5M1+JrfyjGMI/Z3QNxlZlXwdrmgiHc
-	ELzorY4BWnsAB41FDhdHbnn8emBNeKKgZKPFcsH8MwQrc6wJ8wZqwpoPsDesF3bplA87LDA2DyZyP
-	289s5wwA==;
+	bh=ZuSLF0hkxQHLte/AAueOTAnFcUBu56imXlI7BP0ZEbY=; b=Ee0zhjP3qPQJ9NS72Fqcy/JfJz
+	m8qvLbmDX+XyCBn547oR1Sn4/O9e61qDPN7YFxgL1PO50wn7gAvLF0PcVMscVmZeZzXwA23tB3ctX
+	XyJDg8hU3lZ2dzeyIGGcqpiO3sF9mdu1Ht2BmT/RH3Y3s7at65IqSeiyoJ++nrHitYh2fER4GyK1U
+	LVj2PKny/ix7c8zdZOF2MAjEDJJN8IW1Ctr6Hd/R3OW/6kurEhkn3WgZ84Gp85pPf515ekIIc64aK
+	oU4dYxTcMEjXEnE8cHE7/IGGcnpEaW153Pthd41l009bOneKquNLyDz+O5z+iIUcKlZrw196EhYLJ
+	sLE1T76A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9GSs-00000007GwW-3vRP;
-	Wed, 23 Sep 2026 06:28:22 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x9GTE-00000007H46-2urR;
+	Wed, 23 Sep 2026 06:28:44 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9GSp-00000007GvV-47UP;
-	Wed, 23 Sep 2026 06:28:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=4h
-	FDy2VVoz7RTyWjulrvxuTdYcehFGuSNRNctvS4gQE=; b=eqdKrPguK5Usl/D905
-	qSORraqtnH9L2jyVnz0R4yrWWfYo+zono7VwU6QQabHk2Hrb+ByS28gDaRsEgTgs
-	/X7a54u2Bad2DOi3HkRxgTBZ/yqEtz4rtNkybmGnKNGMhCyCb7U3LvDKcQfxlWsP
-	TjCdJwLRvRVdMhrez5bXaStiQ=
-Received: from chaosheng-ASUS-TUF-Gaming-F16-FX607JV-FX607JV.lan (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3n95rcbNqvBgRAQ--.5203S2;
-	Wed, 23 Sep 2026 14:27:57 +0800 (CST)
-From: Quchaosheng <quchaosheng000406@163.com>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Chris Zhong <zyw@rock-chips.com>,
-	Zhang Qing <zhangqing@rock-chips.com>,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
+	id 1x9GTC-00000007H34-2NqM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 06:28:43 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747eb79f7so2511915ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Sep 2026 23:28:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790144921; x=1790749721; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZuSLF0hkxQHLte/AAueOTAnFcUBu56imXlI7BP0ZEbY=;
+        b=XnFax3lM8t5r11AcgeVj4JgP3xaIsXjYOeLll/Imsp8UqXvUcDqMNwEEn/ibsRZBeS
+         KRzjU8YIyEq3hWC2kjmhVjFjtLCmF1DTcFvCKawpkVrpuZLz8+5nPs/AW4YvwjUivHtr
+         lOWz3KrvhHcCZTe2OjSWkOlD9gLL6bfwfu3/ZTeOD16WrW0mOREeUIEaDndYgKhZwd9t
+         wnftwoDn/4Lqw+Gwf2tP9ri0zNBurlsRPmApQzdpxU+69o5FE2XoSoxPwpBvemLCHyno
+         D6M18/jCFzQYL6P6StEelAhwoBhL3ilnf+UiaPbWUk656Pd9+AQ8WpUs09FwtkHCoVG6
+         o7ag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790144921; x=1790749721;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZuSLF0hkxQHLte/AAueOTAnFcUBu56imXlI7BP0ZEbY=;
+        b=ax8IWTkAZvXEkI3MB4xmo/RtpDdTebN8UpP4xzlshiLDt/LMnL6Ecx7ljzSJWwPIP7
+         iiApCUP5kJzaEt60rn7JHBV4ypoipoQQu9uKociT6Nj9r+JDHDaw0RY8/rRbZT5qcmkd
+         YKKwhBDif4Xq764Tytt6Q94h/Ah8BHI5EWtLobvkwxtnZ21ABqIkhfSIwXZa+CR2LH2Z
+         nhbqf01bVq4VAEXUAbRkNkbCpzm+yMefubNhAyZv0jZGL0RpyDcZVgzw83SQytBe3HxO
+         zIDvkgMATQAVAOihu8tAwNkpZ4hmfJlLcir4HIWdP+xej8ErKuyO7gWNItRJ2hFEKXh7
+         8HYQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw1fOzYo5wwVPMy+kxOufx8Xvv43zdtDlHSf3lb16YOfXHJTOyfLT4gIgUHFnwlcBIFA+oAUop/4ta7JXpF6EQj@lists.infradead.org
+X-Gm-Message-State: AFuF++krc9DsFc6sEg1hbr6mSYJu3c2lcqyzyvxwY8k2F9xIA7FdhDR4
+	1S8+Iotl3Hps+218dqvisLIoV2Pc4ROtizD3AK5nZNzyxUG0FkcK/fZ2CauZNpdl
+X-Gm-Gg: AYBFou1lLMjzltzlwXXLmAWBMm/oN2+fSl1NWdZdqGEhNt8O6xzz+xjL4iGfe6+MoAh
+	K5kjy4mPQA7Okmy6Dp36WOdE7cq88LnnwwCPGnBKgye5FjZvV48pQNsVEbC8yoXVYIJsH7PohFy
+	0QvvRtgnLzgxgNm3hwMYJ4bjJntF2yYIdrsSlVbxzaMr6ppWfCEJRIvrEIEekO0jB9p7TUzgyL4
+	NQwwGOrzanglXgZlL537Fn6WTUd9noxwNYbXGm0ygWCSA1qD78KZTBgD3RafwpQ54fir++ajEes
+	9xrzjYIw8iLgnGp2vwzGuzguHKDa4M1J3pYYBPFUyiDkHdYuROgWqGKdRIkfMc3V8ysRuaND2PF
+	tdzEDu+Kb6VLwKGR8g1k/UY4YygkeqB8BXPoVrfxBeXYkSGeGwgTMKCJFWfT0QxF3v59HkfSlJY
+	8/fsMxOeAQB4swR4oUA/ILtp4Ed3RSQtn57tuApx10aPLs2ICnEybMNrPHoUzdu/us+PucfYqJo
+	xUgbMZZu1k9+C7T29rD1Q==
+X-Received: by 2002:a17:903:3b8f:b0:2dd:7ede:4c0e with SMTP id d9443c01a7336-2df69d2146emr13851875ad.12.1790144920724;
+        Tue, 22 Sep 2026 23:28:40 -0700 (PDT)
+Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a516bfdsm5620465ad.5.2026.09.22.23.28.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Sep 2026 23:28:39 -0700 (PDT)
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
+To: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	linux-mm@kvack.org,
+	urezki@gmail.com,
+	will@kernel.org
+Cc: Xueyuan.chen21@gmail.com,
+	ajd@linux.ibm.com,
+	anshuman.khandual@arm.com,
+	baohua@kernel.org,
+	chleroy@kernel.org,
+	david@kernel.org,
+	dev.jain@arm.com,
+	jiangwen6@xiaomi.com,
+	leo.yan@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	quchaosheng000406@163.com
-Subject: [PATCH v3] dt-bindings: mfd: Convert rk805 pinctrl to DT schema
-Date: Wed, 23 Sep 2026 14:27:46 +0800
-Message-ID: <20260923062746.516666-1-quchaosheng000406@163.com>
-X-Mailer: git-send-email 2.43.0
+	linuxppc-dev@lists.ozlabs.org,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com
+Subject: [PATCH v9 00/10] mm/vmalloc: Speed up ioremap, vmalloc and vmap with contiguous memory
+Date: Wed, 23 Sep 2026 14:28:22 +0800
+Message-Id: <20260923062832.479455-1-jiangwen6@xiaomi.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3n95rcbNqvBgRAQ--.5203S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuw47tr48KFWkAFyxJw15twb_yoWxWw4DpF
-	W3AFZ3Jrn2gF4fuw4Utw18C34fWan7Ar47G3WDGryIqa15uryjvr15Kw1rZF98GrW8Za4a
-	vrsrWryDXwnrCw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUjfOrUUUUU=
-X-CM-SenderInfo: xtxfxtprvkv0bjqqikiqw6il2tof0z/xtbC5A3+dGqzcW2tHgAA3V
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_232820_267737_026AB742 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20260922_232842_625894_08DE6BDD 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,197 +118,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pinctrl-rk805.txt describes the pinmux controller that is part of the
-Rockchip RK805 PMIC. The PMIC itself is already described by
-rockchip,rk805.yaml, so the pinmux part belongs there as well: the
-pinctrl node is a child of the PMIC node, not a separate device.
+This patchset accelerates ioremap, vmalloc, and vmap when the memory is
+physically fully or partially contiguous. Two techniques are used:
 
-Fold the pinmux description into rockchip,rk805.yaml and drop the
-standalone text binding.
+1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
+   segments
+2. Use batched mappings wherever possible in both vmalloc and ARM64
+   layers
 
-While doing so, add the missing '-pins$' child node schema. The
-rockchip,rk805.yaml schema ends with 'additionalProperties: false' but did
-not describe the pin configuration child nodes at all, so a valid pinmux
-node like the one shown in pinctrl-rk805.txt was rejected:
+Besides accelerating the mapping path, this also enables large
+mappings (PMD and cont-PTE) for vmap, which are currently not
+supported.
 
-    pmic@18 (rockchip,rk805): 'rk805-default-pins' does not match any of
-    the regexes: '^pinctrl-[0-9]+$'
+Patches 1-4 decouple the PTE-level block mapping path from HugeTLB.
+Previously vmap_pte_range() installed cont-PTE mappings by reusing
+set_huge_pte_at() and huge_ptep_get_and_clear(), which are HugeTLB
+helpers gated by CONFIG_HUGETLB_PAGE. This made the feature silently
+unavailable on CONFIG_HUGETLB_PAGE=n kernels, and coupled mm/vmalloc.c
+to HugeTLB internals. Patches 1 and 2 add the arm64 and powerpc/8xx
+implementations of pte_set_huge()/pte_clear_huge(), which join the
+existing pmd/pud_set_huge() family. Patch 3 adds the generic fallbacks
+and converts mm/vmalloc.c over. Patch 4 then removes the now-dead
+init_mm special case from arm64's clear_flush().
 
-The pin configuration nodes require 'pins'; without it a node that names
-no pin is accepted silently, while the text binding it replaces listed
-'pins' as required. The RK805 exposes two output-only GPIOs, so 'pins' is
-an enum of gpio0 and gpio1 and a typo such as "gpio2" is caught.
+Patch 5 extends ARM64 arch_vmap_pte_range_map_size() to batch multiple
+CONT_PTE blocks in one call instead of one at a time.
 
-The example regains the gpio-controller and #gpio-cells lines that the
-text binding's example had.
+Patch 6 extracts a common helper vmap_set_ptes() that consolidates PTE
+mapping logic for the ioremap and vmalloc/vmap paths, handling both
+CONT_PTE and regular PTE mappings. This prepares for the next patch.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://sashiko.dev/#/patchset/20260923034245.396417-1-quchaosheng000406@163.com?part=1
-Assisted-by: LLM
-Signed-off-by: Quchaosheng <quchaosheng000406@163.com>
----
-Changes in v3:
-- Capitalize the summary phrase. dt-bindings: mfd: titles are capitalized
-  after the subsystem prefix (Add 61, Convert 20 against convert 6).
-- Add gpio-controller and #gpio-cells to the example, which the text
-  binding's example had and the conversion dropped.
-- gpio-controller and #gpio-cells are deliberately *not* added to the
-  required list. rv1108-evb, rv1108-elgin-r1 and rk3328-a1 do not set
-  them, so requiring them breaks three in-tree boards:
+Patch 7 extends the page table walk path to support page shifts other
+than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
+mappings. The function is renamed from vmap_small_pages_range_noflush()
+to vmap_pages_range_noflush_walk().
 
-    rv1108-evb.dtb: pmic@18 (rockchip,rk805): 'gpio-controller' is a required property
+Patch 8 extracts vm_shift() to consolidate vmalloc mapping shift
+selection for reuse in the batching path.
 
-  No rk8xx PMIC schema requires the pair, and gpio.yaml already enforces
-  that they appear together ("'#gpio-cells' is a dependency of
-  'gpio-controller'"). The pinctrl driver calls devm_gpiochip_add_data()
-  unconditionally, so the property is not what makes the GPIO controller
-  work either.
+Patches 9-10 add huge vmap support for contiguous pages, including
+support for non-compound pages with pfn alignment verification.
 
-Changes in v2:
-- Require 'pins' in the pin configuration nodes. Without it a node that
-  names no pin passes validation, while the text binding listed 'pins'
-  as required.
----
- .../bindings/mfd/rockchip,rk805.yaml          | 38 ++++++++++-
- .../bindings/pinctrl/pinctrl-rk805.txt        | 63 -------------------
- 2 files changed, 37 insertions(+), 64 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
+On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
+the performance CPUfreq policy enabled, benchmark results:
 
-diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-index da2391530c16..681a90a265c0 100644
---- a/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-+++ b/Documentation/devicetree/bindings/mfd/rockchip,rk805.yaml
-@@ -86,6 +86,34 @@ properties:
-         unevaluatedProperties: false
-     unevaluatedProperties: false
- 
-+patternProperties:
-+  '-pins$':
-+    type: object
-+    description:
-+      The RK805 has two output-only GPIOs which can be muxed to the GPIO
-+      function and driven low or high at boot.
-+    additionalProperties: false
-+
-+    properties:
-+      pins:
-+        description:
-+          List of GPIO pins to configure.
-+        items:
-+          enum: [gpio0, gpio1]
-+        minItems: 1
-+        maxItems: 2
-+
-+      function:
-+        description:
-+          The RK805 only supports the GPIO function.
-+        enum: [gpio]
-+
-+      output-low: true
-+      output-high: true
-+
-+    required:
-+      - pins
-+
- allOf:
-   - if:
-       properties:
-@@ -125,9 +153,11 @@ examples:
-             interrupt-parent = <&gpio2>;
-             interrupts = <RK_PA6 IRQ_TYPE_LEVEL_LOW>;
-             pinctrl-names = "default";
--            pinctrl-0 = <&pmic_int_l>;
-+            pinctrl-0 = <&pmic_int_l>, <&rk805_default>;
-             rockchip,system-power-controller;
-             wakeup-source;
-+            gpio-controller;
-+            #gpio-cells = <2>;
-             #clock-cells = <0>;
- 
-             vcc1-supply = <&vcc_sys>;
-@@ -137,6 +167,12 @@ examples:
-             vcc5-supply = <&vcc_io>;
-             vcc6-supply = <&vcc_io>;
- 
-+            rk805_default: rk805-default-pins {
-+                pins = "gpio0", "gpio1";
-+                function = "gpio";
-+                output-high;
-+            };
-+
-             regulators {
-                 vdd_logic: DCDC_REG1 {
-                     regulator-name = "vdd_logic";
-diff --git a/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt b/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
-deleted file mode 100644
-index 6ad49e51c72e..000000000000
---- a/Documentation/devicetree/bindings/pinctrl/pinctrl-rk805.txt
-+++ /dev/null
-@@ -1,63 +0,0 @@
--Pincontrol driver for RK805 Power management IC.
--
--RK805 has 2 pins which can be configured as GPIO output only.
--
--Please refer file <devicetree/bindings/pinctrl/pinctrl-bindings.txt>
--for details of the common pinctrl bindings used by client devices,
--including the meaning of the phrase "pin configuration node".
--
--Optional Pinmux properties:
----------------------------
--Following properties are required if default setting of pins are required
--at boot.
--- pinctrl-names: A pinctrl state named per <pinctrl-bindings.txt>.
--- pinctrl[0...n]: Properties to contain the phandle for pinctrl states per
--		<pinctrl-bindings.txt>.
--
--The pin configurations are defined as child of the pinctrl states node. Each
--sub-node have following properties:
--
--Required properties:
--------------------
--- #gpio-cells: Should be two. The first cell is the pin number and the
--  second is the GPIO flags.
--
--- gpio-controller: Marks the device node as a GPIO controller.
--
--- pins: List of pins. Valid values of pins properties are: gpio0, gpio1.
--
--First 2 properties must be added in the RK805 PMIC node, documented in
--Documentation/devicetree/bindings/mfd/rockchip,rk808.yaml
--
--Optional properties:
---------------------
--Following are optional properties defined as pinmux DT binding document
--<pinctrl-bindings.txt>. Absence of properties will leave the configuration
--on default.
--	function,
--	output-low,
--	output-high.
--
--Valid values for function properties are: gpio.
--
--There are also not customised properties for any GPIO.
--
--Example:
----------
--rk805: rk805@18 {
--	compatible = "rockchip,rk805";
--	...
--	gpio-controller;
--	#gpio-cells = <2>;
--
--	pinctrl-names = "default";
--	pinctrl-0 = <&pmic_int_l>, <&rk805_default>;
--
--	rk805_default: pinmux {
--		gpio01 {
--			pins = "gpio0", "gpio1";
--			function = "gpio";
--			output-high;
--		};
--	};
--};
+* ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
+* vmalloc(1 MB) mapping time (excluding allocation) with
+  VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53 us)
+* vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
+
+Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
+
+Large vmap() mappings were also tested by Leo Yan with ARM trace buffer
+units, including TRBE and SPE. These units use the CPU page tables for
+address translation when writing trace data to DRAM, so using larger
+vmap() mapping granules can reduce TLB pressure on the trace writer.
+
+The TRBE test used a 1G CoreSight ETM AUX buffer. Across five runs on an
+isolated CPU, the average results were:
+
+* dtlb_walk:       68.4 -> 59.4 (-13.16%)
+* l1d_tlb_refill: 155.8 -> 119.6 (-23.23%)
+* l2d_tlb_refill: 161435.8 -> 495.0 (-99.69%)
+
+The SPE test used a 512M ARM SPE AUX buffer. Across five runs on an
+isolated CPU, the average results were:
+
+* dtlb_walk:       1710.4 -> 1315.6 (-23.08%)
+* l1d_tlb_refill: 16000.0 -> 15950.2 (-0.31%)
+* l2d_tlb_refill: 4796.0 -> 2931.2 (-38.88%)
+
+These results show that enabling larger vmap() mappings can materially
+reduce page table walks and TLB refills for large trace buffers.
+
+Many thanks to Leo Yan for his testing efforts on ARM trace buffers.
+
+Changes since v8:
+- Rebase onto v7.3-rc4.
+- Rename new_pte to pte in pte_set_huge(). Add a
+  VM_WARN_ON for addr alignment. (patch 1)
+- Use BUILD_BUG() instead of WARN_ON_ONCE in the
+  generic pte_set_huge()/pte_clear_huge() fallbacks. (patch 3)
+
+Changes since v7:
+- v7's patch 1 (which extended the hugetlb helpers in
+  arch/arm64/mm/hugetlbpage.c) is replaced by pte_set_huge()/
+  pte_clear_huge(), split across patches 1-3 so that the arm64,
+  powerpc/8xx and generic changes can be reviewed and acked
+  independently: patch 1 is arm64 only, patch 2 is powerpc/8xx only,
+  patch 3 is the generic fallbacks plus the mm/vmalloc.c conversion.
+  hugetlbpage.c no longer gains the CONT_PTE batching hooks, and patch 4
+  additionally removes its now-dead init_mm special case. mm/vmalloc.c
+  no longer includes <linux/hugetlb.h>.
+- The generic pte_set_huge()/pte_clear_huge() fallbacks WARN_ON_ONCE()
+  instead of silently doing nothing. They only exist to keep the build
+  working on architectures without PTE-level block mappings, where they
+  are unreachable (patch 3).
+- Patch 5 (v7 patch 2): use round_down(size, CONT_PTE_SIZE) instead of
+  rounddown_pow_of_two(size), since pte_set_huge() takes the size directly
+  without an ilog2() roundtrip. This lets a single call span several
+  CONT_PTE blocks: a 768K (512K + 256K) ioremap is now 1.25x faster than
+  v7.
+- Patch 6 (v7 patch 3): vmap_set_ptes() now calls pte_set_huge() instead
+  of the hugetlb path.
+- Patch 9 (v7 patch 6): get_vmap_batch_order() takes pages+i instead of a
+  separate idx argument, and applies pfn alignment limit to scan length
+  rather than to the resulting order. Renamed idx/map_addr to
+  batch_idx/batch_start. Dropped Dev's Reviewed-by.
+
+Changes since v6:
+- Add a clarifying comment about the reuse of hugetlb helpers
+  by non-hugetlbfs(vmalloc) mm code (patch 1)
+- Expand the arm64/vmalloc commit message and comment to clarify that
+  multi-CONT_PTE_SIZE values are vmalloc mapping spans, not HugeTLB
+  hstate sizes (patch 2)
+- Move the local steps variable change in vmap_pte_range() into the
+  vmap_set_ptes() extraction patch (patch 3)
+- Propagate vmap_pages_pte_range() errors through the upper
+  vmap_pages_*() levels instead of returning -ENOMEM for all failures
+  (patch 4)
+- Add a preparatory vm_shift() helper patch before the batching patch
+  (patch 5)
+- Guard the PFN alignment clamp in get_vmap_batch_order() against PFN 0
+  before calling __ffs() (patch 6)
+- Fix kmsan_vmap_pages_range_noflush() indentation in the batching path
+  (patch 6)
+
+Changes since v5:
+- No code changes.
+- Pick up Reviewed-by and Tested-by tags from Dev, Leo and Uladzislau.
+  Many thanks!
+- Add TRBE/SPE large vmap() test results from Leo Yan to the cover
+  letter.
+
+Changes since v4:
+- Move pgsize update before contig_ptes check (patch 1)
+- Use rounddown_pow_of_two instead of __fls in
+  arch_vmap_pte_range_map_size (patch 2)
+- Reword comment to avoid mentioning cont_pte and remove if in
+  vmap_set_ptes (patch 3)
+- Rename vmap_batched() to vmap_pages_range_batched() (patch 5)
+- Use batch_end as the batching cursor to avoid an unused start variable
+  (patch 5)
+- Check arch_vmap_pmd_supported before PMD mapping (patch 6)
+
+Changes since v3:
+- Squash vmap_pte_range() loop variable fix into patch 4 (patch 3, 4)
+- Use shift >= PMD_SHIFT and fix *nr increment in
+  vmap_pages_pmd_range() (patch 4)
+- Pass page_shift directly without capping at PMD_SHIFT (patch 4, 5)
+- Add vm_shift() helper and pass pgprot_t to get_vmap_batch_order()
+  (patch 5)
+- Use min(order, __ffs(pfn)) for graceful pfn alignment degradation,
+  replacing IS_ALIGNED check (patch 5)
+- Remove irrelevant ioremap_max_page_shift early-exit (patch 5)
+- Add __get_vm_area_node_aligned_caller() wrapper, rename to
+  vmap_get_aligned_vm_area() (patch 6)
+
+Changes since v2:
+- Use __fls instead of fls in arch_vmap_pte_range_map_size (patch 2)
+- Add WARN_ON checks in vmap_pages_pmd_range (patch 4)
+- Fix flush_cache_vmap to use saved start address instead of the
+  already-advanced addr (patch 5)
+- Rename __vmap_huge() to vmap_batched() (patch 5)
+- Add caller parameter and unroll while(1) loop (patch 5)
+- Squash patch 7 into patch 5 (stop scanning for compound pages after
+  encountering small pages)
+
+Changes since v1:
+- Fix condition order and use PMD_SIZE instead of CONT_PMD_SIZE in
+  patch 1 (Dev Jain)
+- Squash patch 3+4 and patch 5+7 (Dev Jain)
+- Replace "zigzag" with "page table rewalk" in commit messages
+  (Dev Jain)
+- Rename vmap_small_pages_range_noflush() to
+  vmap_pages_range_noflush_walk() (Dev Jain)
+- Extract vmap_set_ptes() as a new patch to consolidate PTE mapping
+  logic between vmap_pte_range() and vmap_pages_pte_range(), handling
+  both CONT_PTE and regular mappings (Mike Rapoport)
+- Support non-compound pages in get_vmap_batch_order() by falling
+  back to physical contiguity scanning with pfn alignment check
+  (Dev Jain, Uladzislau Rezki)
+- In get_vmap_batch_order(), filter out orders that the architecture
+  cannot batch by checking arch_vmap_pte_supported_shift() directly.
+  This avoids overhead for orders 1-3 on ARM64 CONT_PTE with 4K
+  pages. (patch 5)
+
+Barry Song (Xiaomi) (4):
+  arm64/vmalloc: allow arch_vmap_pte_range_map_size() to batch multiple
+    CONT_PTE
+  mm/vmalloc: extend page table walk to support larger page_shift sizes
+    and eliminate page table rewalk
+  mm/vmalloc: map contiguous pages in batches for vmap() if possible
+  mm/vmalloc: align vm_area so vmap() can batch mappings
+
+Wen Jiang (6):
+  arm64/mm: add pte_set_huge() and pte_clear_huge()
+  powerpc/8xx: add pte_set_huge()
+  mm/vmalloc: use pte_set_huge()/pte_clear_huge() for PTE-level block
+    mappings
+  arm64/hugetlb: drop the init_mm special case in clear_flush()
+  mm/vmalloc: extract vmap_set_ptes() to consolidate PTE mapping logic
+  mm/vmalloc: extract vm_shift() to consolidate mapping shift selection
+
+ arch/arm64/include/asm/pgtable.h             |   6 +
+ arch/arm64/include/asm/vmalloc.h             |   8 +-
+ arch/arm64/mm/hugetlbpage.c                  |   5 +-
+ arch/arm64/mm/mmu.c                          |  20 ++
+ arch/powerpc/include/asm/nohash/32/pte-8xx.h |   4 +
+ arch/powerpc/mm/nohash/8xx.c                 |  29 ++
+ include/linux/pgtable.h                      |  29 ++
+ mm/vmalloc.c                                 | 268 ++++++++++++++-----
+ 8 files changed, 301 insertions(+), 68 deletions(-)
+
 -- 
-2.43.0
+2.34.1
 
 
