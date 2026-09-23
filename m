@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BD1C982FA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 07:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5C2C982FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 07:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fLgnfIHz88SBOvR3oeszk2+OP9MQeppRO8i8Nr+mG8=; b=f+2gLZB5itVozzjlF/blf8uSQx
-	KG0FlWjTP/A22f9BaFzLMNAjNFu/flzUfcutCmF2DYfRc0IjIZ8SI98FF1Y/1lIShXr2aa4FVa1n9
-	VtmJUW58luhkecjTArVIydahmomqaEK1BTDmzMpXx4nKCwGXgDDpRb0OJ97utVH0kOlJlrkzMvznc
-	sIgMX6Ki9MkSrHXPOJ+/na7rgp8fGYgYSwqt+1RPchyD69w1JNzwJPiUZxanVtkHBW92EvrWYIw3F
-	RIcAZoJubioF7SZbj7A9KTEutz6LJ61eTlwxvRM2Q37i1QMZ6Hbu/WMcKg9nbJ+U/AVK40Pup18G3
-	7L/Ps5Ng==;
+	bh=MefAjguMbqQ4/viHTQJIbvUgPj897M2EuwzDxdNr95o=; b=mTIYy0fjs7XOcfZVUFyv35BXrw
+	o41Kynq//w+tm5UdKKLzYD1TliXJ7U1lNhcxBYexNUYyvw87I8aV2NKe+OY+RYKoDo9CYNya5e5mK
+	GnRC5Wc/nB5jIozeVIO5YfLDijV24i0bK7041a0QF+0XUBVYKmqbJ2VJjLQYohKXoNQOgcFUQNRN1
+	nOe17GP9BGb1TWeDS2KSNT9o1kKFinyfu/1Ux/z/2wwif3m1IEs0QhovsoltoM5bq8sJOpUSE672J
+	U7aO942F9Jh6qbNRj5xKKrTlfr60FaFz7yfCHhwCreeXKS6+ITTHAkbjhoZosz2+Eg/fTwE+bTTX2
+	vIdxr4vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9HKm-00000007Ogb-3iEi;
-	Wed, 23 Sep 2026 07:24:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9HUP-00000007PqU-07FB;
+	Wed, 23 Sep 2026 07:34:01 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9HKl-00000007Ofz-1kTL;
-	Wed, 23 Sep 2026 07:24:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C82CE43B60;
-	Wed, 23 Sep 2026 07:24:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A12F5C2BCB8;
-	Wed, 23 Sep 2026 07:24:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790148242;
-	bh=Yyi0dnUJzZFsu3n5Q4Sx1ZVuAY4ijHrDfpKarQMVXtk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=brFuQ060ViymlB+6l9K6xBNSfM1OfCCVpjVjB5ZZnHi2MvIvP/84/tDCfdOZNfW2a
-	 dowung1cgjuCbU4gi9bsf7pOsFO3zk+sBq4CEUv80r2w8QMExAybLYCqxdn1b2uGCm
-	 8f/z+PuDZ4EX1Ggw/x82t3glsottQCQPxP1ZPPucWYCDuiP31fcoWe4/waQYrIIbCO
-	 N5pcKI0jsxXD+libuNZ2tzIbPaBg6IWBRtYkyF/hfxuSeXA5JPlyWcMIrdotBdXVNE
-	 QL4u86MnJOkXNzRo2w+clT6Ov3gtFIknDLR/Tx1oSVof+H3GeDkWAXApch7fTDHmpm
-	 ff/Y4VfWOSQ7Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CEDCC982EA;
-	Wed, 23 Sep 2026 07:24:02 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 23 Sep 2026 10:23:34 +0300
-Subject: [PATCH 1/3] cpufreq: mediatek: add support for CPU speedbin
+	id 1x9HUN-00000007PqH-0U6H
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Sep 2026 07:33:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=MefAjguMbqQ4/viHTQJIbvUgPj897M2EuwzDxdNr95o=; b=bBg/+58BWfpRqELKA11jBr2+6v
+	XbgP+nd4zXpq8yqs8LXItK+n6n4n38Q1P3FxfF7xt660ppKkUe+lwrLNfXZ2HtKODtll1E/j6P/M9
+	VZJ9aM7d0yKs8zx6ZGYnKFAK7ey0RD/HHXQ4pawM2xbzYRZ++Yjie9F5UYpM+T43dunp2txNXt/GY
+	mE6KyhInS9eWKd5hIkjx/htJjCMFKuPUxopUKtOv1BBBKdoMJUVBBgiSSwazv+SMMX9U/oFTr0MQi
+	iOJIQVhdOYj079cJUjyU/GCwEEHXpaFdsrk3YjMa/D5DeXsif0LSMXpZDQFCaO08hEIcddxpNhbj8
+	/aJNgbmg==;
+Received: from cp2.siel.si ([46.19.12.180])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9HUJ-0000000CCvJ-2Vb5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Sep 2026 07:33:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Unsubscribe-Post:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=MefAjguMbqQ4/viHTQJIbvUgPj897M2EuwzDxdNr95o=; b=KMn/hMXtPGfonS1QS5B20jknRO
+	5q5v7AaLz+/jIFTFVp+vZi2xp19OVBF7sjE7Khal3U84guLs7ucgbvbDeo2A2Whh2Zsv9u4Dy1+KZ
+	IfwtIVwr0yuteFNs9K3jFT/oLmcfY3ugTILr7qFSG5yW+//G66We7sWrrQMueZMtuGaZgzBnWqdeV
+	j5zgtN4QKpBYRhGcvkERzUFkWKijt2YolTWDmVPUp4+4L3BMN0zCZaulCMTDU1ZUNS6iueB5Zk4r2
+	d7s1u3bF+TEq9Wi2JUT3hygmNDkSf/zDZv8UP0VfvVwWxJFJshRZBB4Yt8Zo/eylaYfvT4m26fR80
+	MKit3r4A==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:33340 helo=localhost.localdomain)
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1x9H2S-00000009mhH-2s1H;
+	Wed, 23 Sep 2026 09:05:07 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de,
+	Yunus Bas <y.bas@phytec.de>
+Subject: [PATCH 2/2] ARM: dts: imx6qdl: phycore-som: Add custom volt/freq table
+Date: Wed, 23 Sep 2026 09:05:05 +0200
+Message-Id: <20260923070505.494949-3-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260923070505.494949-1-primoz.fiser@norik.com>
+References: <20260923070505.494949-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-6572-cpufreq-v1-1-41f7af6d6d1a@protonmail.com>
-References: <20260923-6572-cpufreq-v1-0-41f7af6d6d1a@protonmail.com>
-In-Reply-To: <20260923-6572-cpufreq-v1-0-41f7af6d6d1a@protonmail.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790148240; l=3928;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=8tS94U3qBY49lvfguXSecw1ZTRCCy8SxaUh/N0EXNSM=;
- b=GUglGD2ChmpxWy33le1togwI5locLZbOfUL2d63rF+2bFHVGo6eeNOMh4ujDuxgOTj5WYJ2Fr
- pXfvyLmrqiNClHhk/iqMkD4Y+xRZnUuUihx5rnaDPGh0rBlOQWgrot/
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_083355_725061_7EB2393B 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,134 +106,179 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+From: Yunus Bas <y.bas@phytec.de>
 
-MediaTek SoCs are often released under the same marketing name, but with
-different suffix for the speedbin. For example, mt6572m has 1 GHz limit,
-mt6572a - 1.2 GHz, mt6572w - 1.4 GHz.
+The PHYTEC phyCORE-i.MX6QDL SOM-modules are operating with a slightly
+different voltage and frequency values in contrast to the generic
+i.MX6Q/DL tables. The values have been adjusted to achieve the most
+stable condition for the PHYTEC-modules. Introduce imx6q- and
+imx6dl-phycore dtsi files with the modified power tables.
 
-Add code to support per-cluster 'opp-supported-hw' property. The DT is
-expected to pass a CPU speedbin using standard 'nvmem-cells' property
-under the CPU node.
-
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+Signed-off-by: Yunus Bas <y.bas@phytec.de>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 ---
- drivers/cpufreq/mediatek-cpufreq.c | 50 ++++++++++++++++++++++++++++++++++++--
- 1 file changed, 48 insertions(+), 2 deletions(-)
+ .../nxp/imx/imx6dl-phytec-mira-rdk-nand.dts   |  2 +-
+ .../nxp/imx/imx6dl-phytec-phycore-som.dtsi    | 23 ++++++
+ .../nxp/imx/imx6q-phytec-mira-rdk-emmc.dts    |  2 +-
+ .../nxp/imx/imx6q-phytec-mira-rdk-nand.dts    |  2 +-
+ .../dts/nxp/imx/imx6q-phytec-phycore-som.dtsi | 75 +++++++++++++++++++
+ 5 files changed, 101 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-phytec-phycore-som.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-phytec-phycore-som.dtsi
 
-diff --git a/drivers/cpufreq/mediatek-cpufreq.c b/drivers/cpufreq/mediatek-cpufreq.c
-index 052ca7cd2f4f..f15135b2898b 100644
---- a/drivers/cpufreq/mediatek-cpufreq.c
-+++ b/drivers/cpufreq/mediatek-cpufreq.c
-@@ -10,6 +10,7 @@
- #include <linux/cpumask.h>
- #include <linux/minmax.h>
- #include <linux/module.h>
-+#include <linux/nvmem-consumer.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-@@ -57,6 +58,7 @@ struct mtk_cpu_dvfs_info {
- 	const struct mtk_cpufreq_platform_data *soc_data;
- 	int vtrack_max;
- 	bool ccifreq_bound;
-+	int opp_token;
- };
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-nand.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-nand.dts
+index d906a7f05aaa..8ec27080ca1e 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-nand.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-mira-rdk-nand.dts
+@@ -6,7 +6,7 @@
  
- static struct platform_device *cpufreq_pdev;
-@@ -381,6 +383,38 @@ static struct device *of_get_cci(struct device *cpu_dev)
- 	return &pdev->dev;
- }
+ /dts-v1/;
+ #include "imx6dl.dtsi"
+-#include "imx6qdl-phytec-phycore-som.dtsi"
++#include "imx6dl-phytec-phycore-som.dtsi"
+ #include "imx6qdl-phytec-mira.dtsi"
+ #include "imx6qdl-phytec-mira-peb-eval-01.dtsi"
+ #include "imx6qdl-phytec-mira-peb-av-02.dtsi"
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-phycore-som.dtsi
+new file mode 100644
+index 000000000000..de85c084ac8d
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-phytec-phycore-som.dtsi
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2021 PHYTEC Messtechnik GmbH
++ * Author: Yunus Bas <y.bas@phytec.de>
++ */
++
++#include "imx6qdl-phytec-phycore-som.dtsi"
++
++&cpu0 {
++	operating-points =
++		/* kHz    uV */
++		<996000 1275000>,
++		<792000 1175000>,
++		<396000 1150000>;
++};
++
++&cpu1 {
++	operating-points =
++		/* kHz    uV */
++		<996000 1275000>,
++		<792000 1175000>,
++		<396000 1150000>;
++};
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-emmc.dts b/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-emmc.dts
+index 322f071d972f..7d947762f3b9 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-emmc.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-emmc.dts
+@@ -6,7 +6,7 @@
  
-+static int mtk_cpu_parse_speedbin(struct mtk_cpu_dvfs_info *info, int cpu)
-+{
-+	struct device *cpu_dev = get_cpu_device(cpu);
-+	struct dev_pm_opp_config config = {};
-+	u32 val, opp_hw_ver;
-+	int ret;
-+
-+	ret = nvmem_cell_read_variable_le_u32(cpu_dev, "speed_grade", &val);
-+	if (ret) {
-+		if (ret == -ENOENT)
-+			/* speedbin is optional */
-+			return 0;
-+		return dev_err_probe(cpu_dev, ret, "cpu%d: failed to read speedbin\n", cpu);
-+	}
-+
-+	/* Convert the raw value to a bitmask */
-+	if (val >= 32)
-+		return dev_err_probe(cpu_dev, -EINVAL,
-+				     "cpu%d: invalid speedbin value %u\n", cpu, val);
-+	opp_hw_ver = BIT(val);
-+
-+	config.supported_hw = &opp_hw_ver;
-+	config.supported_hw_count = 1;
-+
-+	info->opp_token = dev_pm_opp_set_config(cpu_dev, &config);
-+	if (info->opp_token < 0)
-+		return dev_err_probe(cpu_dev, info->opp_token,
-+				     "cpu%d: failed to set OPP config\n", cpu);
-+
-+	return 0;
-+}
-+
- static int mtk_cpu_dvfs_info_init(struct mtk_cpu_dvfs_info *info, int cpu)
- {
- 	struct device *cpu_dev;
-@@ -450,18 +484,22 @@ static int mtk_cpu_dvfs_info_init(struct mtk_cpu_dvfs_info *info, int cpu)
- 		}
- 	}
+ /dts-v1/;
+ #include "imx6q.dtsi"
+-#include "imx6qdl-phytec-phycore-som.dtsi"
++#include "imx6q-phytec-phycore-som.dtsi"
+ #include "imx6qdl-phytec-mira.dtsi"
+ #include "imx6qdl-phytec-mira-peb-eval-01.dtsi"
+ #include "imx6qdl-phytec-mira-peb-av-02.dtsi"
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-nand.dts b/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-nand.dts
+index 3f13726c8058..afbb6681a6b5 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-nand.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-phytec-mira-rdk-nand.dts
+@@ -6,7 +6,7 @@
  
-+	ret = mtk_cpu_parse_speedbin(info, cpu);
-+	if (ret)
-+		goto out_disable_sram_reg;
+ /dts-v1/;
+ #include "imx6q.dtsi"
+-#include "imx6qdl-phytec-phycore-som.dtsi"
++#include "imx6q-phytec-phycore-som.dtsi"
+ #include "imx6qdl-phytec-mira.dtsi"
+ #include "imx6qdl-phytec-mira-peb-eval-01.dtsi"
+ #include "imx6qdl-phytec-mira-peb-av-02.dtsi"
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-phytec-phycore-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-phytec-phycore-som.dtsi
+new file mode 100644
+index 000000000000..ebe05d764357
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-phytec-phycore-som.dtsi
+@@ -0,0 +1,75 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2021 PHYTEC Messtechnik GmbH
++ * Author: Yunus Bas <y.bas@phytec.de>
++ */
 +
- 	/* Get OPP-sharing information from "operating-points-v2" bindings */
- 	ret = dev_pm_opp_of_get_sharing_cpus(cpu_dev, &info->cpus);
- 	if (ret) {
- 		dev_err_probe(cpu_dev, ret,
- 			"cpu%d: failed to get OPP-sharing information\n", cpu);
--		goto out_disable_sram_reg;
-+		goto out_free_speedbin;
- 	}
- 
- 	ret = dev_pm_opp_of_cpumask_add_table(&info->cpus);
- 	if (ret) {
- 		dev_err_probe(cpu_dev, ret, "cpu%d: no OPP table\n", cpu);
--		goto out_disable_sram_reg;
-+		goto out_free_speedbin;
- 	}
- 
- 	ret = clk_prepare_enable(info->cpu_clk);
-@@ -533,6 +571,10 @@ static int mtk_cpu_dvfs_info_init(struct mtk_cpu_dvfs_info *info, int cpu)
- out_free_opp_table:
- 	dev_pm_opp_of_cpumask_remove_table(&info->cpus);
- 
-+out_free_speedbin:
-+	if (info->opp_token > 0)
-+		dev_pm_opp_clear_config(info->opp_token);
++#include "imx6qdl-phytec-phycore-som.dtsi"
 +
- out_disable_sram_reg:
- 	if (info->sram_reg)
- 		regulator_disable(info->sram_reg);
-@@ -573,6 +615,10 @@ static void mtk_cpu_dvfs_info_release(struct mtk_cpu_dvfs_info *info)
- 	clk_disable_unprepare(info->inter_clk);
- 	clk_put(info->inter_clk);
- 	dev_pm_opp_of_cpumask_remove_table(&info->cpus);
++&cpu0 {
++	operating-points =
++		/* kHz    uV */
++		<1200000 1300000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1175000>,
++		<396000  1075000>;
++	fsl,soc-operating-points =
++		/* ARM kHz  SOC-PU uV */
++		<1200000 1275000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1250000>,
++		<396000  1250000>;
++};
 +
-+	if (info->opp_token > 0)
-+		dev_pm_opp_clear_config(info->opp_token);
++&cpu1 {
++	operating-points =
++		/* kHz    uV */
++		<1200000 1300000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1175000>,
++		<396000  1075000>;
++	fsl,soc-operating-points =
++		/* ARM kHz  SOC-PU uV */
++		<1200000 1275000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1250000>,
++		<396000  1250000>;
++};
 +
- 	dev_pm_opp_unregister_notifier(info->cpu_dev, &info->opp_nb);
- 	if (info->soc_data->ccifreq_supported)
- 		put_device(info->cci_dev);
-
++&cpu2 {
++	operating-points =
++		/* kHz    uV */
++		<1200000 1300000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1175000>,
++		<396000  1075000>;
++	fsl,soc-operating-points =
++		/* ARM kHz  SOC-PU uV */
++		<1200000 1275000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1250000>,
++		<396000  1250000>;
++};
++
++&cpu3 {
++	operating-points =
++		/* kHz    uV */
++		<1200000 1300000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1175000>,
++		<396000  1075000>;
++	fsl,soc-operating-points =
++		/* ARM kHz  SOC-PU uV */
++		<1200000 1275000>,
++		<996000  1250000>,
++		<852000  1250000>,
++		<792000  1250000>,
++		<396000  1250000>;
++};
 -- 
-2.55.0
-
+2.34.1
 
 
