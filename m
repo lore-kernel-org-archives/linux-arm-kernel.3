@@ -4,201 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37955C98302
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30379C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 15:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jfr6FHf4J3HKMLFr5umwwFEv12n51Ck9PHChu4Q8jgc=; b=YUdNFMvd3i/ZF+bqRqcfG2n6eY
-	Xvawt1exsWT6+NiYtUj9B0pArauJi9qECuQU/gkgaQLGfwqZ/REfsSiUD77kInGwrxiiPHWEiZuZz
-	e8tHIlwjIDRCJr98aZupWbTmTzO1cUum43be5CsDXBrr9HpZUbaGpzWtab0nOKq0DYh678I22iJlS
-	mtF0SzGeWbfyWHE/WDMUd0VCOHdgrrps58LiGXngYzuAEEsTpASbe27ZZzY+AaGtE2juf9qSUvlcO
-	5xGcdJDxM9y2sMhGFZIvdlZCbXrYh7mUdsCiSE3jV5HW8LJsg2AcMbB4Sp3C1yE9aSFBSbr/e+p5m
-	Ku3vlIuA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uhiHK1xeWjLCIGW0E7V8+Nj+NJaq2mGJkeRGTcZrb+o=; b=drzTJgg6lHw4PM
+	WvGNQp2EjG089rb8hUys66SmpC8J8Rp1rVM2gl3QAWyNTP5H0uopavNSzbY2wIduLSoVXS9C8fgt5
+	7lshDbyWzv7TrRLaMUL+6MPfmXmm+eFjsJ4Q18oIya0OjB+wq4ZrFzT7W0Tto2wJVG9Z0B7tSH02q
+	LGQGh4IjdyysKKm+czTN852GPp9+lsO74Avx1qK80JKwfkQ1fBpqowAN3RhKqT5eu22mzi8dw2Kdy
+	3PH/CoB8zHMVNCNaIHvmYfxufWW8lJkXnKtZ/6svtxXNYHT6h2A8y8UFHteEHz7VKC2HdGa2Oh+PK
+	TbDNx8jKHU6ZfvwxvlHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OhJ-00000008fF5-3rEs;
-	Wed, 23 Sep 2026 15:15:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1x9Ohf-00000008fjE-3AEq;
+	Wed, 23 Sep 2026 15:16:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Oh5-00000008etz-1qSE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Sep 2026 15:15:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=Jfr6FHf4J3HKMLFr5umwwFEv12n51Ck9PHChu4Q8jgc=; b=GpLn+FCf34MeyR4TCOaObtpk2J
-	djPZMXm6VUAq71hx3GmJU+rIMJMfpZIaDaBbJ2K3o76iJUDkqYDMpstfNaqw1h5RXMul02cSpgSzo
-	mnPIYY0W79iICeCgNo5ySZziCbKx/g6A0g+Ru5wOYWG2tlvhzbXZhPYVG38yWaiXdVhzi/I/BA7Pd
-	DuG49ZLhGi+kzBHF+gdEsNSWgT3wMCJrNkFDUPeiQIZpQvU9ILdicLK04ScuD4SBZslrnOYGAbiEF
-	5ThBECCqE/gQhG84x68xkwc0UEOCQZ9qZA5FE75YxCd+LzH1vmsxB06zjUaqcjMCo31Cs79ByaIXH
-	TGFuXBVA==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Oh1-0000000DZCb-0CiT
+	id 1x9Ohd-00000008fhL-1Iw2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 15:15:34 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68NBbSpF2443257
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 15:15:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Jfr6FHf4J3HKMLFr5umwwFEv12n51Ck9PHChu4Q8jgc=; b=AaCpPBUm1to8ix55
-	YkhDFwNGndJEJ7L3tR8r37VpSQvubhHYsACyK6J90x4kkTaeCIUEb3S+P9NKkI40
-	aTfl4kfGNFOglWyONfWlLouZ6GMsf7iGR6nWYEBGNex2aY2Iu9I+C4vAQc3aTuIu
-	dIYH5326KgsmxdalAUoAGdqCJYkHtTZN2IV9ViXmpAkAwrqnYaD3fnVikctGLfgq
-	WCDv91U06KYPaKN+mXGijS6SaM0l+KP5OX8QKLglxru/DmnP9+T46DjgTnp7XrTw
-	27c0h4dWyOrxTZUaWBWMXzvNteUB28ZDzYh7VVSwEUW6x72CIQd2FaS5e3FHuozm
-	YUVENQ==
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvbx7hgrf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 15:15:26 +0000 (GMT)
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-7ac2663eba2so828570137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 08:15:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790176525; x=1790781325; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Jfr6FHf4J3HKMLFr5umwwFEv12n51Ck9PHChu4Q8jgc=;
-        b=fnmKL6d0cZz73hYHs+FNDGzVQWFnN4GZ5JJ0hie4TQ3OMOC+CBy3yx9t7caKgdpdMz
-         txKzNQsXn4db5/BK5Q/fOfOcinfzxGtCL6pJXphNUY21d1Bb3p0fh5GFbdh+r729zt7M
-         KYO7xkmCCL73Do5uMkmdIodLy5KAzES8AVk3v8T2mLxUZv9u60L7hz7mhN3btQNEKcEK
-         yA/UaOO/USXmULpURm++3EVRo6fjk7amp2r1WHbHv8mNnWUTxZC2joFd+Q5hA4cVPdUD
-         rjxcdhJCG+kS8xO9GktHmt3ebHWtVikl3DpAaHKNG6cAw3hyvp3vW0w9dLjoVmBQmegD
-         AjHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790176525; x=1790781325;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Jfr6FHf4J3HKMLFr5umwwFEv12n51Ck9PHChu4Q8jgc=;
-        b=QBKs5ljOdXVTNCUZSLtFzlKhTcUdNiFn06JhEM5xXHNMuxTEnjeWHw9TKKRIS0VLRi
-         UeRM9I98bN2wZ+ml0mR7YJV7HDhDiDZaox3RhTV5pNAyMvv9/l0WrsRQZDM7/rMKawRG
-         +2rjzBxKzfGmdddNFDfhVHD5zG0uIJYGd+Zt8C18nAa2PZ4590DSTSbYwIpSqXzEU9tr
-         x6OoM9BAVeY90JGHcDUv4nahV4Zsv+AwrV0mbO5Ufk04UhkXcYybcqLKJVGjpCs48CDm
-         LlIF5Serz4HmbEeg7msiIPjiob+TzWx6sdi60WuVDjYG6C/FoJmY39VJTLR5q9Z8+ACr
-         OUIA==
-X-Forwarded-Encrypted: i=1; AKwUvByPnpMiynGfqeKwu3TpfvhvbzOpX+8cWk6JbunYg/0fxhpFpaDADHNaSU/OrgSBPhnUXWtK2lSSHz9AViHp4xsG@lists.infradead.org
-X-Gm-Message-State: AFuF++mKlKGcNnH/LYDmhjEU+bZHoy1raJ66NC+6dw2mce7KzSoXjtwi
-	B3NLWL2AeE1ACJTv3cNe5fK/Hcfx3EmB/fFCcMaSa8feDRVhKZujpteeZqDHc5t3AC+HtmWfbGk
-	LIPTBn/Tp7EqVesx2xZFiKDH8l+ICk4fiJGdoIH4+2/7T51Zmc3TQnS4LYXyewnh9b0uv4ji+IS
-	IeCg==
-X-Gm-Gg: AYBFou2tTf336IFBgXhL6a+yMwIHp6SLAT9cGPyq4WfUL1mnriE8lldzQQeImDprb7G
-	nO8KjR1ekyUEXYI2E9OVW0qw928AxmQHp4UJeP/SSWmyBPQv61k7RBDbRK1c++iSqYwnvVVGeK8
-	pkCxGVQQ9B0tjxdEVpc4/oy5zvUyrKDKnbRqWQ+w7FXQpEwPGIgjAZuiBJCL8v3ECL1lfDeON7b
-	w1/4LndRZLBMWwBciMXUp19v8XJulSwHMJ6wAAPRP3/DztPjD04r3iKZwBsyPhuUQHW0ixuIlIV
-	RhyZs7FO/KeGev1WeIYjP5qdQejsv6SVRjVwWwID0Op0C78dkSx9NmbgiZ5RMf3ZHkA4LyVkOhv
-	zwpnN8KWDLAfT/gZEAGd9euKHhx/4
-X-Received: by 2002:a05:6102:358a:b0:7a6:d9d1:7e40 with SMTP id ada2fe7eead31-7ac1d0cb288mr2726269137.22.1790176525337;
-        Wed, 23 Sep 2026 08:15:25 -0700 (PDT)
-X-Received: by 2002:a05:6102:358a:b0:7a6:d9d1:7e40 with SMTP id ada2fe7eead31-7ac1d0cb288mr2726205137.22.1790176524839;
-        Wed, 23 Sep 2026 08:15:24 -0700 (PDT)
-Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:34c6:dbd6:5b58:a3fe])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe0c4054fsm55126325e9.3.2026.09.23.08.15.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 08:15:23 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Wed, 23 Sep 2026 17:14:42 +0200
-Subject: [PATCH net-next v15 8/9] net: stmmac: qcom-ethqos: factor out
- linux-level setup into a separate function
+	Wed, 23 Sep 2026 15:16:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DE0E340299;
+	Wed, 23 Sep 2026 15:16:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A5FC1F000FF;
+	Wed, 23 Sep 2026 15:15:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790176568;
+	bh=uhiHK1xeWjLCIGW0E7V8+Nj+NJaq2mGJkeRGTcZrb+o=;
+	h=From:Subject:Date:To:Cc;
+	b=M6ycILeqX2bnA28NGWauthBqCcvcc+tcb8zJK7Ndba5O+RSX0CtL5D5yFN5w/mVzj
+	 k+wUHP6VuKf51xLT4IHwBLKQrgvYkrTruJv8l2XMpIOGFNFxiiV2moX2rcym3hWbsj
+	 KRkEjZmyUTN/M6+mRXqGFes3H9GGEFiNCYfAxotRimDrjKLs6hDQsiQ/AcSYfVRoP4
+	 vc9tgtCgOjIl1G4WN+B+qMUNB1nDYUmFcLYhdJh4567CB1Rs0ZtDzeLZ+1fvpapfp5
+	 rlFuNFzQuMYTTssAJzEohJsA2t8LyHh+T60VgqM5Z3OLTd2x6YzgRCoUh0JZAHZ0PQ
+	 a2jOKWz0NBE6A==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH v4 00/14] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
+Date: Wed, 23 Sep 2026 16:15:43 +0100
+Message-Id: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260923-qcom-sa8255p-emac-v15-8-e82f33720737@oss.qualcomm.com>
-References: <20260923-qcom-sa8255p-emac-v15-0-e82f33720737@oss.qualcomm.com>
-In-Reply-To: <20260923-qcom-sa8255p-emac-v15-0-e82f33720737@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vinod Koul <vkoul@kernel.org>,
-        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-        Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>,
-        Fabio Estevam <festevam@gmail.com>,
-        Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
-        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-        Romain Gantois <romain.gantois@bootlin.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Magnus Damm <magnus.damm@gmail.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Christophe Roullier <christophe.roullier@foss.st.com>,
-        Bartosz Golaszewski <brgl@kernel.org>, Radu Rendec <radu@rendec.net>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Drew Fustini <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
-        linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
-        imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
-        linux-riscv@lists.infradead.org, brgl@kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7477;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=tpTcvMP4H52TudHkrbQVYa2cd+espkFD2aaWl0S9lKg=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqs+zrRXT0r3nORrAE8NQw4rLtEBcjIlno0f6qA
- Jkmx3rXApyJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCarPs6wAKCRAFnS7L/zaE
- w5khEACbMwxMUkqzjQHlIJH+xcBUNLHl2G7C65mfWmi4h5JRhBxmdEw2s7HDnHehyINdGbuOGRB
- Ufe1qzPwJNqILCPLaptvpLZAUOEG3+SevH/gNtbZhMB8ggqb5wwCk+vPtXy5Y4uTSxSpbGKOegf
- ZGea1R24JZ2evdDWTNF+dL+hJGJf8Ntt2n0icGtIzjvJKuXyA+DBRNydgPVYleWfHGJxdk0Abwy
- 52zaRg+M705uHPKjgIGSLdDyTUR28Udvgqmmrx9JReKegmGO3SxmuXhYJHv680DUKL7KjsFNpmU
- yu3uGEwKVH6q9CVkE3cfPk3A3Jmg1nzDNlpp85WuSfHkUh6FufzwanQnSz55G1KVsfNq+p9Suao
- 6NulKVm3cil1nx5tltt5h8DkMt0FsTrWj1G2bKo/sTovnlrr/MZ2YTd82L6AYij/TVAzl4puR44
- DoGWu+tIyhd4LF3NmuR4QLLGiZRLQVD9tUF0GBNk1pbk9yCCSLO669//hcLbU1V1kBjlqkjOXag
- Gm9jh8Jyamzpwr/vg66JwXaZGg9lVcZAT21obE3gSN0nCuUqUM/27X1Ik2LbCDyCeN6R+fVcx9L
- yf1yOS8WD4hf/+ztK+lwysiRbP+Lakj1rThTb57b6fBfPtzBRhQnB1w5e8ttAzTaG2CT/549vN2
- VIgxFNNJr1aX64Q==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-ORIG-GUID: P66lAYjlUeH-v_7Jxay2m7UCU7ISIUWh
-X-Authority-Analysis: v=2.4 cv=J4s/fwnS c=1 sm=1 tr=0 ts=6ab3ed0e cx=c_pps
- a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=dj4JEN0qHmgdNMwDfcEA:9 a=QEXdDO2ut3YA:10 a=crWF4MFLhNY0qMRaF8an:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTIzMDA2MCBTYWx0ZWRfX2K5J4cYhy/HZ
- GhfhE7IfNStAUwfRVhqp9sRZ15O7XlNLw034xuYM1ozZ/lONc+JVdJSITwNE6bINh55r1wWhrwC
- 8te2qHuEW+t+S3jCCljUW1BpqBk2d1uwT/E4QziyMA3mL9bpMn9Iw+3YmgUagtTIJ4Bs2NvM3IE
- IxkWeXjwVGpivs7l5pjyTJawQ9MdyuPQ4Bzz4XJPLOveqECPSzMApUTDTI9LDrpnS1PcSacIWGs
- PJz7bEgll/YmHiUjbCuhCq4/OuwC5+GFp254u/Kmz4Kfos2USRgFnIbEKp/Bcyvszxig1wUxAEd
- 4q9DUZAg7oKaH5g/wQ9HS3Pl53lHHVIYUG6qzjQzL9xKta6cyoSphETHbWuRnpufwvfoiRR7t/r
- hDBV/OkEQrdTkidmSfjvfHwabh0qUf3mkQTADetoa+RWWIyZVt+60wkB6ngGU3yen13tv1FrW3K
- fGXMOuT8k4yA/cfVLYA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTIzMDA2MCBTYWx0ZWRfX04jmsgd8iU3Z
- DfyduZH3Ajqxhv12cO69jlQi2hX4byYE6H4z52L61EnWnKAo/JzGsfMemAMhGw/N3OQJAZ4uH6K
- U5pAjoJDaNeUdL0klkNl2HJc68yuP1o=
-X-Proofpoint-GUID: P66lAYjlUeH-v_7Jxay2m7UCU7ISIUWh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-23_04,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 spamscore=0 impostorscore=0 priorityscore=1501
- phishscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609230060
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_161531_406447_06566320 
-X-CRM114-Status: GOOD (  21.48  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23NwQ6CMAyA4VchOzvDuknBk+9hPDDoYAHBDFw0h
+ Hd3EBM1cvzb9OvEBnKWBnaMJubI28H2XQi1i1hR511F3JahGcSQxKk48MZfee6u/ObI5Pd25Jn
+ WSgidpBmWLJwtC/tYyfMldG2HsXfP9YMXy/SNwQbmBY+5JkNpphBjoFNDrqN237uKLZqHj5AJt
+ SFAECAxWqFBpVH+CfJLANgQZBAwRV1KXSBJ8yPM8/wCvukZ6zUBAAA=
+X-Change-ID: 20260815-kvm-arm-prefault-9bb411b6897d
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Mark Rutland <mark.rutland@arm.com>, 
+ Fuad Tabba <fuad.tabba@linux.dev>, Randy Dunlap <rdunlap@infradead.org>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Janosch Frank <frankja@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Jack Thomson <jackabt@amazon.com>, 
+ Jack Thomson <jackabt.amazon@gmail.com>, 
+ Alexandru Elisei <alexandru.elisei@arm.com>, 
+ Vincent Donnefort <vdonnefort@google.com>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+ Sean Christopherson <seanjc@google.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Leo Soares Passos <Leo.Bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+ linux-s390@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9264; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=GYWfUnTkP0gJvKMOUL5QKcvgb16vDu9ahPAgFk+I10Q=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2v9Xhmbk3oeyYjrxGw5V2a4XDC2ZHqqg4B35oiJTNf
+ mNXpJnUUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgIl4CjIyXD65xFPafGtM4PJT
+ c8t3zZtx3XO95qXKttJ/htP4ZOzcZRgZFto/F0/YHJf45JOmjMJzl/mX27/99nv3/8/XFd4Owo0
+ sPAA=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,224 +105,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ahead of adding support for firmware-controlled EMAC variants, extend
-the ethqos_emac_driver_data structure with a setup() callback, implement
-it for the existing models and move all operations not required in SCMI
-mode into it.
+This series implements the KVM stage 2 page table pre-faulting feature for
+arm64.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+== Foundations ==
+
+1. Providing a generic kvm_arch_pre_fault_allowed() hook.
+
+This allows arm64 to reject an uninitialised vCPU from being specified on
+pre-fault, avoiding loading a vCPU that is not correctly initialised yet.
+
+2. Updating kvm_s2_fault_desc to independently store the exception syndrome
+   register (ESR) value, and updating all code paths to use this value
+   exclusively.
+
+This is needed so we can later generate a synthetic fault to perform the
+pre-faulting - we need to be sure the code doesn't grab an incorrect ESR
+from elsewhere.
+
+3. Updating kvm_s2_fault_desc to independently store the kvm_s2_mmu and
+   updating all code paths to use this value exclusively.
+
+Similarly this is needed so we can generate a synthetic fault against the
+canonical stage 2 MMU (it would make no sense for it to touch nested shadow
+page tables) - we need to be sure that the code doesn't grab an incorrect
+MMU from elsewhere.
+
+4. Updating the abort paths which consume kvm_s2_fault_desc to also return
+   a kvm_s2_fault_result data structure.
+
+To perform pre-faulting the code must know the granule size of what was
+just walked. So the abort paths have to tell us what that was.
+
+5. Pass walk flags to kvm_pgtable_get_leaf() to permit walking page tables
+   under the MMU read lock.
+
+This is Jack's patch which allows the use of the KVM_PGTABLE_WALK_SHARED
+flag to walk page tables under the MMU read lock.
+
+Pre-faulting requires it to be able to work in parallel as specified by the
+API. The read lock precludes page tables being torn down behind our back.
+
+== Implementation ==
+
+Pre-faulting is implemented in kvm_arch_vcpu_pre_fault_memory() whose job
+is to pre-fault the stage 2 page tables which map a specific GPA (which,
+for arm64, is the guest's IPA).
+
+This function is called by kvm_vcpu_pre_fault_memory() for each GPA in the
+range, which itself is ultimately invoked by userland via the
+KVM_PRE_FAULT_MEMORY ioctl.
+
+The implementation is simple - try to walk to the stage 2 page table
+mapping the GPA - if unmapped, fault it in through a synthetic page fault.
+
+pKVM is not supported regardless of whether the VM is protected or
+not.
+
+This is because pKVM instantiates vCPUs upon run, but pre-faulting is
+typically performed before a vCPU is run. It would be confusing and
+inconsistent to error out on non-running vCPUs but to pre-fault running
+ones.
+
+Additionally, in pKVM mode, the stage 2 page tables are owned by the
+hypervisor rather than the host - the host can neither walk them nor
+populate them directly, so it's not clear that the pre-fault mechanism
+correctly maps onto pKVM.
+
+== Credits ==
+
+This series is based, with gratitude, on Jack Thomson's series and their
+respins (links provided below) as well as the feedback he received.
+
+The series includes Jack's v5 "KVM: arm64: Pass walk flags to
+kvm_pgtable_get_leaf()" patch (verbatim bar a one-line rebase fixup) and
+two of his test patches (with minor fixups), plus a nested pre-fault test
+based on his.
+
+Link: https://patch.msgid.link/20260612162354.73378-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20260113152643.18858-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20251119154910.97716-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20251013151502.6679-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20250911134648.58945-1-jackabt.amazon@gmail.com/
+
+== Reviewer Notes ==
+
+I synced with maintainers on this who asked me to take a look, as there hadn't
+been progress on the series for some time.
+
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 99 +++++++++++++++-------
- 1 file changed, 68 insertions(+), 31 deletions(-)
+v4:
+* Added tags, thank you everybody! (dropped Oliver's from 1/14 as new code,
+  and Fuad's Tested-by tags as he hasn't tested the latest version yet).
+* Reworked patch 1/14 to implement kvm_arch_pre_fault_allowed() to return
+  an error number and added x86, s390 implementations, as per Oliver.
+* Made implementing kvm_arch_pre_fault_allowed() a requirement in 1/14 if
+  pre-fault enabled for arches, as per Sean.
+* Updated 2/14 to move esr_abt_is_s1ptw() and esr_abt_is_exec_fault()
+  (which relies on it) into kvm_emulate.h as per Oliver.
+* Updated 3/14 to use the ESR_ELx_EC() macro instead of a wrapper for it,
+  as per Oliver.
+* Fixed 5/14 to gate the kvm_guest_s2_mapping allocation on s2fd->mmu,
+  as per Fuad.
+* Made gmem_abort() skip kvm_prepare_memory_fault_exit() when pre-faulting
+  in 6/14, as per Fuad.
+* Updated 10/14 to move the pKVM -EOPNOTSUPP check into the
+  kvm_arch_pre_fault_allowed() hook, as per Fuad.
+* Extended pKVM reasoning in the 10/14 commit message, based on
+  discussions with Aneesh.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index ab1bcb7eb18e22f01556c190f7d8cd8eeba4d0c9..509a5368e69a8fa440bf3b4f58f7b09a683558f3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -5,6 +5,7 @@
- #include <linux/of.h>
- #include <linux/of_net.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/phy.h>
- #include <linux/phy/phy.h>
- 
-@@ -81,6 +82,8 @@
- 
- #define SGMII_10M_RX_CLK_DVDR			0x31
- 
-+struct qcom_ethqos;
-+
- struct ethqos_emac_por {
- 	unsigned int offset;
- 	unsigned int value;
-@@ -95,6 +98,8 @@ struct ethqos_emac_driver_data {
- 	const char *link_clk_name;
- 	struct dwmac4_addrs dwmac4_addrs;
- 	bool needs_sgmii_loopback;
-+	int (*setup)(struct qcom_ethqos *ethqos,
-+		     struct plat_stmmacenet_data *plat_dat);
- };
- 
- struct qcom_ethqos {
-@@ -200,6 +205,9 @@ static void ethqos_set_func_clk_en(struct qcom_ethqos *ethqos)
- 	rgmii_setmask(ethqos, RGMII_CONFIG_FUNC_CLK_EN, RGMII_IO_MACRO_CONFIG);
- }
- 
-+static int ethqos_hlos_setup(struct qcom_ethqos *ethqos,
-+			     struct plat_stmmacenet_data *plat_dat);
-+
- static const struct ethqos_emac_por emac_v2_3_0_por[] = {
- 	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x00C01343 },
- 	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642C },
-@@ -214,6 +222,7 @@ static const struct ethqos_emac_driver_data emac_v2_3_0_data = {
- 	.num_rgmii_por = ARRAY_SIZE(emac_v2_3_0_por),
- 	.rgmii_config_loopback_en = true,
- 	.has_emac_ge_3 = false,
-+	.setup = ethqos_hlos_setup,
- };
- 
- static const struct ethqos_emac_por emac_v2_1_0_por[] = {
-@@ -230,6 +239,7 @@ static const struct ethqos_emac_driver_data emac_v2_1_0_data = {
- 	.num_rgmii_por = ARRAY_SIZE(emac_v2_1_0_por),
- 	.rgmii_config_loopback_en = false,
- 	.has_emac_ge_3 = false,
-+	.setup = ethqos_hlos_setup,
- };
- 
- static const struct ethqos_emac_por emac_v3_0_0_por[] = {
-@@ -262,6 +272,7 @@ static const struct ethqos_emac_driver_data emac_v3_0_0_data = {
- 		.mtl_low_cred = 0x00008024,
- 		.mtl_low_cred_offset = 0x1000,
- 	},
-+	.setup = ethqos_hlos_setup,
- };
- 
- static const struct ethqos_emac_por emac_v4_0_0_por[] = {
-@@ -297,6 +308,7 @@ static const struct ethqos_emac_driver_data emac_v4_0_0_data = {
- 		.mtl_low_cred = 0x00008024,
- 		.mtl_low_cred_offset = 0x1000,
- 	},
-+	.setup = ethqos_hlos_setup,
- };
- 
- static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
-@@ -692,6 +704,58 @@ static void ethqos_ptp_clk_freq_config(struct stmmac_priv *priv)
- 	netdev_dbg(priv->dev, "PTP rate %lu\n", plat_dat->clk_ptp_rate);
- }
- 
-+static int ethqos_hlos_setup(struct qcom_ethqos *ethqos,
-+			     struct plat_stmmacenet_data *plat_dat)
-+{
-+	struct platform_device *pdev = ethqos->pdev;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	ethqos->rgmii_base = devm_platform_ioremap_resource_byname(pdev, "rgmii");
-+	if (IS_ERR(ethqos->rgmii_base))
-+		return dev_err_probe(dev, PTR_ERR(ethqos->rgmii_base),
-+				     "Failed to map rgmii resource\n");
-+
-+	ethqos->link_clk = devm_clk_get(dev, ethqos->data->link_clk_name ?: "rgmii");
-+	if (IS_ERR(ethqos->link_clk))
-+		return dev_err_probe(dev, PTR_ERR(ethqos->link_clk),
-+				     "Failed to get link_clk\n");
-+
-+	plat_dat->clks_config = ethqos_clks_config;
-+
-+	ret = ethqos_clks_config(ethqos, true);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_add_action_or_reset(dev, ethqos_clks_disable, ethqos);
-+	if (ret)
-+		return ret;
-+
-+	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface, SPEED_1000);
-+	qcom_ethqos_set_sgmii_loopback(ethqos, true);
-+	ethqos_set_func_clk_en(ethqos);
-+
-+	switch (ethqos->phy_mode) {
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_rgmii;
-+		break;
-+	case PHY_INTERFACE_MODE_2500BASEX:
-+	case PHY_INTERFACE_MODE_SGMII:
-+		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_sgmii;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
-+	plat_dat->dump_debug_regs = rgmii_dump;
-+
-+	return 0;
-+}
-+
- static int qcom_ethqos_probe(struct platform_device *pdev)
- {
- 	struct device_node *np = pdev->dev.of_node;
-@@ -713,23 +777,20 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 				     "dt configuration failed\n");
- 	}
- 
--	plat_dat->clks_config = ethqos_clks_config;
--
- 	ethqos = devm_kzalloc(dev, sizeof(*ethqos), GFP_KERNEL);
- 	if (!ethqos)
- 		return -ENOMEM;
- 
- 	ethqos->phy_mode = plat_dat->phy_interface;
-+
- 	switch (ethqos->phy_mode) {
- 	case PHY_INTERFACE_MODE_RGMII:
- 	case PHY_INTERFACE_MODE_RGMII_ID:
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
--		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_rgmii;
- 		break;
- 	case PHY_INTERFACE_MODE_2500BASEX:
- 	case PHY_INTERFACE_MODE_SGMII:
--		plat_dat->fix_mac_speed = ethqos_fix_mac_speed_sgmii;
- 		plat_dat->mac_finish = ethqos_mac_finish_serdes;
- 		break;
- 	default:
-@@ -739,24 +800,13 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	}
- 
- 	ethqos->pdev = pdev;
--	ethqos->rgmii_base = devm_platform_ioremap_resource_byname(pdev, "rgmii");
--	if (IS_ERR(ethqos->rgmii_base))
--		return dev_err_probe(dev, PTR_ERR(ethqos->rgmii_base),
--				     "Failed to map rgmii resource\n");
--
- 	data = of_device_get_match_data(dev);
- 	ethqos->data = data;
- 
--	ethqos->link_clk = devm_clk_get(dev, data->link_clk_name ?: "rgmii");
--	if (IS_ERR(ethqos->link_clk))
--		return dev_err_probe(dev, PTR_ERR(ethqos->link_clk),
--				     "Failed to get link_clk\n");
--
--	ret = ethqos_clks_config(ethqos, true);
--	if (ret)
--		return ret;
-+	if (WARN_ON(!data->setup))
-+		return -EINVAL;
- 
--	ret = devm_add_action_or_reset(dev, ethqos_clks_disable, ethqos);
-+	ret = data->setup(ethqos, plat_dat);
- 	if (ret)
- 		return ret;
- 
-@@ -765,21 +815,8 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(ethqos->serdes_phy),
- 				     "Failed to get serdes phy\n");
- 
--	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
--			       SPEED_1000);
--
--	qcom_ethqos_set_sgmii_loopback(ethqos, true);
--	ethqos_set_func_clk_en(ethqos);
--
--	/* The clocks are controlled by firmware, so we don't know for certain
--	 * what clock rate is being used. Hardware documentation mentions that
--	 * the AHB slave clock will be in the range of 50 to 100MHz, which
--	 * equates to a MDC between 1.19 and 2.38MHz.
--	 */
- 	plat_dat->clk_csr = STMMAC_CSR_60_100M;
- 	plat_dat->bsp_priv = ethqos;
--	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
--	plat_dat->dump_debug_regs = rgmii_dump;
- 	plat_dat->ptp_clk_freq_config = ethqos_ptp_clk_freq_config;
- 	plat_dat->core_type = DWMAC_CORE_GMAC4;
- 	if (data->has_emac_ge_3)
+v3:
+* Rebased on next, fixed up a new caller to kvm_pgtable_get_leaf() to
+  account for additional parameter passed.
+* Adjusted: cover letter, added [ljs: ...] note to commit msg for 9/14 to
+  reflect the fixup.
+* Introduced and wired up kvm_arch_vcpu_allow_pre_fault_memory() as a
+  separate commit at the start of the series, as per Oliver.
+* Updated the pre-fault implementation to disallow uninitialised vCPU on
+  pre-fault as per Oliver, and updated cover letter to reflect it.
+* Extended pKVM reasoning in cover letter, commit message.
+https://lore.kernel.org/r/20260922-kvm-arm-prefault-v3-0-787bd3bc7e3f@kernel.org
 
+v2:
+* Split series - Added 1/13 for the esr.h helpers, 2/13 for converting
+  callers to use them, and move what was 1/8 to 3/13 to propagate
+  s2fd->esr, as per Marc.
+* Made esr helpers __always_inline as per Marc.
+* Renamed esr_trap_get_class() -> esr_get_ec() + dropped churn as per Marc.
+* Updated 5/13 (was 3/8) to drop the kvm_s2_fault_result.mapped flag.
+* Also updated 5/13 so abort handlers return -EAGAIN instead of swallowing, as
+  per Marc.
+* Split implementation patch further -> topup_mmu_memcache() change to 6/13,
+  EHWPOISON change -> 7/13 and docs change -> 10/13, as per Marc.
+* No longer mkyoung existing walked ranges, updated docs to reflect, as per
+  Marc.
+* Eliminated s2fd->pre_fault as per Marc.
+* Eliminated the redundant page table level in pre_fault_s2() as per Marc.
+* Put the commit message for 9/13 on a diet as per Marc.
+* Fixed up commit message for 11/13 (was 6/8) to correct reasoning about
+  exit-reason assert, as per Fuad.
+* Simplified: nested test 13/13 (was 8/8), dropping the empty nested-S2
+  setup and using test_supports_el2() to handle NV=0 opt-out, as per
+  Wei-Lin and Fuad.
+* Re-authored patch 13/13 to me as the changes are substantial enough to
+  require it. Updated commit message to give Jack credit for original.
+https://lore.kernel.org/r/20260914-kvm-arm-prefault-v2-0-26fb47f74b73@kernel.org
+
+v1:
+https://lore.kernel.org/r/20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org
+
+---
+Jack Thomson (3):
+      KVM: arm64: Pass walk flags to kvm_pgtable_get_leaf()
+      KVM: selftests: Enable pre_fault_memory_test for arm64
+      KVM: selftests: Add option for different backing in pre-fault tests
+
+Lorenzo Stoakes (ARM) (11):
+      KVM: Allow architectures to disallow pre-fault
+      arm64: Add ESR fault helpers
+      KVM: arm64: Use ESR helpers in guest abort handling
+      KVM: arm64: Propagate and use esr in s2fd when handling guest aborts
+      KVM: arm64: Propagate and use mmu in s2fd when handling guest aborts
+      KVM: arm64: Propagate and use kvm_s2_fault_result on S2 fault
+      KVM: arm64: Size the stage-2 memcache from the fault MMU
+      KVM: arm64: Propagate EHWPOISON in kvm_s2_fault_pin_pfn()
+      KVM: arm64: Implement KVM_PRE_FAULT_MEMORY
+      Documentation: KVM: document arm64 KVM_PRE_FAULT_MEMORY
+      KVM: selftests: Add nested pre-fault test for arm64
+
+ Documentation/virt/kvm/api.rst                     |  19 +-
+ arch/arm64/include/asm/esr.h                       |  29 ++
+ arch/arm64/include/asm/kvm_emulate.h               |  60 ++--
+ arch/arm64/include/asm/kvm_pgtable.h               |   5 +-
+ arch/arm64/include/asm/kvm_pkvm.h                  |   2 +-
+ arch/arm64/kvm/Kconfig                             |   1 +
+ arch/arm64/kvm/arm.c                               |   1 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c              |  10 +-
+ arch/arm64/kvm/hyp/nvhe/mm.c                       |   2 +-
+ arch/arm64/kvm/hyp/pgtable.c                       |   5 +-
+ arch/arm64/kvm/mmu.c                               | 313 +++++++++++++++++----
+ arch/arm64/kvm/nested.c                            |   2 +-
+ arch/s390/kvm/s390/s390.c                          |  11 +-
+ arch/x86/kvm/mmu/mmu.c                             |  11 +-
+ include/linux/kvm_host.h                           |   1 +
+ tools/testing/selftests/kvm/Makefile.kvm           |   2 +
+ .../selftests/kvm/arm64/nv_pre_fault_memory_test.c | 158 +++++++++++
+ .../testing/selftests/kvm/pre_fault_memory_test.c  | 152 ++++++++--
+ virt/kvm/kvm_main.c                                |  10 +-
+ 19 files changed, 646 insertions(+), 148 deletions(-)
+---
+base-commit: 23ddf997ab16b5f4aa9f948f5a68f5b35e4e398f
+change-id: 20260815-kvm-arm-prefault-9bb411b6897d
+
+Best regards,
 -- 
-2.47.3
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
 
