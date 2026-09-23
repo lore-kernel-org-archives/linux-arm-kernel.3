@@ -4,65 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51116C9830B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305A1C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 16:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DUHuqGEWOOeL/Scqhd6mGhvk6nURogoQs+2z9NAzpcY=; b=TNW2V893L8Nz8/HBwHPLm5kgQl
-	Pa+PRtjUTOP60/u+qn5aGaPfaWhQnzrje/mdPaMSMvz5ajcsHMQYeiocxtIZtn6yZkiCmC/GfBxUB
-	W1OQc8TLySCXnInfydee6p8iRnbz+KZRmkHitp38f89ovxnTGYNdAUi2ihgyowMs7JFwBAChi2myN
-	ctrm1qIf1DkDvkHkpkr4S490CkKaYEJSvEdIv72LDUVTNlAkuf8TwZn4uKRTp5jqNMoZXPnXVZeRT
-	H0zQY9Dm+5K1WcnZRp2uwwahiZBLSOIswn8NRy5cKMa2XHh3TOQh4FLdrtfS8qJpMIM4gu+coNf+P
-	BA33ZE1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jCRN4DHgD6jqSzbMa54UXzXSIZG4JDsooNiRjXbs5co=; b=sR1f/tfphXopaWdTsC4p58heRH
+	DtGuIuQ1ZIVMEDYCaudOkHMLZGW4D7BbxoHcpi9nKV2HH47/qLVfj5bZOnsJdBGyJcF2kkEdoT3FY
+	uFXGpJUTmBMMv3Hi+wJjGUDj53D59NUzdaKUGReslS79WmEIv6JTVKwbnl+hHdLr0crlf3RyC7Ozy
+	irxh0c8qSENXmIAgkPOJAt4A64uGvrJxW8sq3U5Azjil2UCsrQjTaW19tNeDUSWE0hbm1xUOLBKph
+	/ZZJUmI0lQkgTqo3JQl+GcH6u+vmz6QF1IJqy4OvpOLO8OreYbKWsKkcpMcKUEDu35WySqpQr+KO4
+	wbS34XaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Q4D-00000008uUE-3cYo;
-	Wed, 23 Sep 2026 16:43:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9Q6k-00000008uqa-3GLC;
+	Wed, 23 Sep 2026 16:46:11 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Q2X-00000008u5l-3T6k
+	id 1x9Q6d-00000008uow-2ESZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 16:41:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E32F401EC;
-	Wed, 23 Sep 2026 16:41:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 132D91F000FF;
-	Wed, 23 Sep 2026 16:41:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790181709;
-	bh=DUHuqGEWOOeL/Scqhd6mGhvk6nURogoQs+2z9NAzpcY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fufJ+aIXbklBpgPFeTiHKgZ4SP61lqR5+OXDRzftNF/yQQvtTZOQMwGo/6ROkFxsU
-	 ohyBPHQ26vexHvwDjsxe4ZPjWToS6/ch+38DTetWWvjwI9KrGTUMDi9cednUJ3YjdX
-	 7YD9dagHjzsgTvRDNcCgEqYwC29bn0l5WpB3LX3mpLpC+jGn5KyFd9btlF2wWOduuY
-	 jFmr9z5XIdjxg74SQTtqYIUu2j5IMfrBTCXZgNjJw00z2xG9MVWQoYeDTyVoBkvux8
-	 BsOV1l+LMPaJedGBYwDsIO3iF/AzBnOsdiFgnq2367EM8ZGCPHwcIfrXN5hlfyl+U8
-	 UwgD7VWTk/YXA==
-Date: Wed, 23 Sep 2026 17:41:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Tushar Nimkar <tushar.nimkar@amd.com>
-Cc: Anirudha Sarangi <anirudha.sarangi@amd.com>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, git@amd.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: Add Xilinx
- Versal NET SMMU CSR
-Message-ID: <20260923-grafted-undergrad-9356739dd2b5@spud>
-References: <20260923-smmu-changes-v2-v3-0-87bd09ba9605@amd.com>
- <20260923-smmu-changes-v2-v3-1-87bd09ba9605@amd.com>
+	Wed, 23 Sep 2026 16:46:07 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6b885ef8so6428675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 09:46:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790181961; x=1790786761; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jCRN4DHgD6jqSzbMa54UXzXSIZG4JDsooNiRjXbs5co=;
+        b=gtd/II9dYH4+7yPm+GVdJSkVH1wMD9eGtxPmcGMN7/STeuYpF7Y1OPzxGIreDr2gck
+         ib0oNTGda+akGedQkb2fSUy9IHLv4yCOcG28j93NmeBnlhqi0eot/W60jCtNdw1fyZoD
+         R5pF6I4J9sZ3/PslwOkxBJldULtFm10c414fieBK8aIXMdA1DcvFFXS7DjX8Lt4LqL5W
+         rUHIRtb6k6lZJXh8Y3azyKGv3P06LkFWn607fQsaoSf7kKbuIiEDJEHRNy4rBQzaxfVR
+         C6BLdOP3L1//eLj/itX4/JHe8Y8Trfk5utuvJzyWgSJVhtCLS3KMTraPkfZsb/52WDFE
+         HZzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790181961; x=1790786761;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jCRN4DHgD6jqSzbMa54UXzXSIZG4JDsooNiRjXbs5co=;
+        b=SZsInk8xYPdWzgXvXAVUOGg5F+/TCXmkT4UiUCfN6WLzo8ClS3MWXKVZde8rj9i07m
+         FaqzvBJsXxiRljrMLJPahvdTaDx+spqFdgK289i2wS2PvzZevhZHh40tTw/n3cajw0xp
+         bmL6nxRQQvXQdGorGyEdjWvRU0/a3bqWx/w3zM4iKqsdXj3Hp0XzM27ONoLFjgq1+nhD
+         UnnhHf6BAHI+fPym7xuiIjS7sDm/rhmqJlSqFyMXmdG/qPlEXKOy06GEhgZorvrvASih
+         1t5hC1BPe2UDgXHl6wl+7nsdDzmqYrwc+5A7bqH8NsNiNWMCOx5j42xi/CC9JoFTxXu+
+         Gg8A==
+X-Forwarded-Encrypted: i=1; AKwUvBxvy7Sx+cIadHqw4dZBiXBLagDIXfY4SVT1IpSIpFFsHGyFL51mouUTOePruAYPIRqaym+BwX+qC3Tk0fuqCkbm@lists.infradead.org
+X-Gm-Message-State: AFuF++lVX+82jz64V/caAeHTAKN/NQixbikdFIUbXZaIEydiepx1Xg8A
+	AOpuYwMGYkDbTv9AgICPbJjwtIAev1ZoH3gInBPm7urZDy1/QJcyFlg/
+X-Gm-Gg: AYBFou0Ms5f6Sf0yK7M62F8CbdrY1f3MlFm6UyWVDie6XCvsijbNjWY3L/CtXOItTrT
+	obFZcbEWplFO7TwAj1lzbF+YYAc7bO9yDDRGa3x7IW1XrqOqxmSeBaZno+9ctmqC5fOwhTsHSGR
+	lfL0MY3Rcr7vvh4GhLOuV3qVLtJz+S6pHJ4N8Q9rQrDPJa70uLP9J7k/w6vtIaOoBlHhPUCPomm
+	NYaPyVSChAoOkZdMRDO1k5KpXDSf16VU643Nm3L7BIS8UWfnwC3m8pdYNeSErW3VPjNGhjLXKEb
+	aHPXz6+9Wy9or4n3cjX1R8PXbrx5VZjTTj2czNumhjS3kg/r3w7xx3KnjrLsNoQAjAoP9F4pzc/
+	dwUFIAjanFKV4LDMHwFifY7Z4BVCalzl5f7ovNRfrynVR8NvhOvXo9iGa4PvrHV8GPaJ0eDc67f
+	57MTaadWeqrUwHpg5OJ3fTAx+cWnmzAMlIXyRn7oZ4kDyV2J2wdHi7JWtzPg5hZhCA4EDR7njvc
+	11YI/p22Jq6joHmVG7QZsoy0IFp+FwIBHYc0dHRZbY=
+X-Received: by 2002:a05:600c:3515:b0:49e:6861:50f7 with SMTP id 5b1f17b1804b1-49fdee0aa22mr49910965e9.5.1790181961405;
+        Wed, 23 Sep 2026 09:46:01 -0700 (PDT)
+Received: from [192.168.0.40] (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe0c104a6sm65685625e9.0.2026.09.23.09.46.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Sep 2026 09:46:00 -0700 (PDT)
+Message-ID: <6de301bd-0bb6-4704-8c3f-8da09c5f6830@gmail.com>
+Date: Wed, 23 Sep 2026 18:46:00 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="S144mpyO4atM9GmT"
-Content-Disposition: inline
-In-Reply-To: <20260923-smmu-changes-v2-v3-1-87bd09ba9605@amd.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: rtc: Add property for Raspberry Pi 5
+ RTC
+To: Conor Dooley <conor@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260923131323.1099979-1-sander.speetjens@gmail.com>
+ <20260923131323.1099979-2-sander.speetjens@gmail.com>
+ <20260923-browbeat-judgingly-b047721f5cb3@spud>
+Content-Language: en-US
+From: Sander Speetjens <sander.speetjens@gmail.com>
+In-Reply-To: <20260923-browbeat-judgingly-b047721f5cb3@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_094603_721946_6721C8C8 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,147 +112,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---S144mpyO4atM9GmT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> Is this actually needed? Shouldn't the type of uint32 come from the same
+> source that the type in rtc.yaml does? Or is this missing in dt-schema?
 
-On Wed, Sep 23, 2026 at 12:46:31PM +0530, Tushar Nimkar wrote:
-> From: Anirudha Sarangi <anirudha.sarangi@amd.com>
->=20
-> Add a device tree binding schema for the Xilinx Versal NET SMMU CSR
-> (Control and Status Register) interrupt controller.
+The rtc.yaml does only provide the description not the type, I also 
+expected the type to be there.
 
-This sounds like a very odd name for an interrupt controller.
-What else does this block do?
-
-You've actually got a 0x1000 carve out in the example, starting at a
-round number, so I suspect this is "fine" and if there's other features
-required later you've not painted yourself into a corner by defining a
-device for one register. The driver having a starting offset of 0x24 is
-another point in your favour.
-
-I'm inclined to ack this, I just want to see an answer first.
-
-Cheers,
-Conor.
->=20
-> The SMMU CSR block acts as a vendor-specific interrupt controller
-> in front of the ARM SMMUv3, providing registers to enable and clear
-> standard SMMU interrupts such as EVENTQ, CMDQ_SYNC, GERROR and PRIQ.
-> Interrupts must be acknowledged in this block before being forwarded
-> to the parent interrupt controller (e.g. GIC).
->=20
-> Signed-off-by: Anirudha Sarangi <anirudha.sarangi@amd.com>
-> Co-developed-by: Tushar Nimkar <tushar.nimkar@amd.com>
-> Signed-off-by: Tushar Nimkar <tushar.nimkar@amd.com>
-> ---
->  .../xlnx,versal-net-smmu-csr.yaml                  | 75 ++++++++++++++++=
-++++++
->  1 file changed, 75 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/xlnx,=
-versal-net-smmu-csr.yaml b/Documentation/devicetree/bindings/interrupt-cont=
-roller/xlnx,versal-net-smmu-csr.yaml
-> new file mode 100644
-> index 000000000000..38b63e51b732
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/xlnx,versal-=
-net-smmu-csr.yaml
-> @@ -0,0 +1,75 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/xlnx,versal-net-=
-smmu-csr.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Xilinx Versal NET SMMU CSR Interrupt Controller
-> +
-> +maintainers:
-> +  - Anirudha Sarangi <anirudha.sarangi@amd.com>
-> +  - Tushar Nimkar <tushar.nimkar@amd.com>
-> +
-> +description: |
-> +  The Versal NET platform includes a Xilinx-specific SMMU CSR (Control a=
-nd
-> +  Status Register) block that acts as an intermediate interrupt controll=
-er
-> +  for ARM SMMUv3.
-> +
-> +  The block provides registers to enable, disable and clear the
-> +  standard SMMUv3 interrupt sources (EVENTQ, CMDQ_SYNC, GERROR and PRIQ)
-> +  before forwarding them to the parent interrupt controller,
-> +  typically a GIC.
-> +
-> +  The controller receives one parent interrupt and demultiplexes CSR
-> +  status bits into the following child interrupt identifiers
-> +    0 - EVENTQ
-> +    1 - CMDQ_SYNC
-> +    2 - GERROR (GLOBAL)
-> +    3 - PRIQ
-> +
-> +allOf:
-> +  - $ref: /schemas/interrupt-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: xlnx,versal-net-smmu-csr
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 1
-> +    description: |
-> +     Single cell containing the child interrupt identifier
-> +      0 - EVENTQ
-> +      1 - CMDQ_SYNC
-> +      2 - GERROR (GLOBAL)
-> +      3 - PRIQ
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    interrupt-controller@eca10000 {
-> +        compatible =3D "xlnx,versal-net-smmu-csr";
-> +        reg =3D <0xeca10000 0x1000>;
-> +        interrupt-controller;
-> +        #interrupt-cells =3D <1>;
-> +        interrupt-parent =3D <&gic>;
-> +        interrupts =3D <GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>;
-> +    };
->=20
-> --=20
-> 2.34.1
->=20
-
---S144mpyO4atM9GmT
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarQBSAAKCRB4tDGHoIJi
-0gnoAPoD3niCRrEz3R9dI5MIGi63vf8m0m0eKQOF+5uIjSSbigEA7r8IYj1Yc3b2
-vwFXT9PUkBcVaflI98VTHUvDvvDP3w8=
-=Qk+h
------END PGP SIGNATURE-----
-
---S144mpyO4atM9GmT--
 
