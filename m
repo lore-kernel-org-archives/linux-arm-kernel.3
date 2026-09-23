@@ -4,66 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0ACDC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC992C9830B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Sep 2026 14:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxgSMHZaQOcqgTSxBmfQJqhXcxSsyHy+qrSdJYlYv4A=; b=Q+Xr0OAtsqySs1YahU0xrWDt13
-	HeqKWu+hsS6c9+hmHoBlcSPJJgeY4BtndNwUnf4VFJ8jLhoFAx8bgBGyCgMXf2VDU2RCfekk1j6/o
-	phDqM9Q4Ipqy/3NODCBlQ9f1w7GlfZrUu25hDCREDhcD2pM12/LANG/0TX4W1T5Hv/9x55lKPi5PE
-	UAUCDlsx8BmTgbVc+YO8WjpYi43mKwMNO33LRmbnUynJlJmLJl7QiXM7VxhnN2wDbMFwxREI7l2a6
-	QFVWbh+7iDDcbHctji9BDFWHrOH1HVvGgfsDiHuJNf3qFqlCKzFoCkFrsyegYJNqJtMnLAnVMkR3g
-	XOB9ZRUA==;
+	bh=M4aBOtPsfRM3OiglhHgFceP8oaWfGnoSKrcjXOznF1Q=; b=GM+/t8/6SxVqaIhIFBo91qH+C1
+	TlpkjR0mvxvcnSPqauKnBp22zTpyOp0C4yBIYCw+eOpv7OmxxO3Et+q8PuC1+JrhvIfmf7E6eRoIS
+	SsrWdyQhV/+lan6JMRQTbi+zZ4BhTIUf1ngPt8M4IM3vAts0We36L3scrX4i/t0kckJhnJlP3+w+w
+	j8fG9ykBJQ+qT57uxYMeEhA3wk4e8WmR5uA2sRpwURgOl232xa9Jm+uqCLtcxYMlOsRLFkgDWv096
+	CeluXCijQb3+W2+v2T34RMOO7F9FYXDldp/Mhc+3uVRzNc15Cp7kOtlVUqdkfalY6a3iXkNGrfPJQ
+	KAZMxBWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OCJ-00000008Zbj-2oSF;
-	Wed, 23 Sep 2026 14:43:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9OCF-00000008ZbN-3zrA
+	id 1x9ODT-00000008ZoU-0sbj;
+	Wed, 23 Sep 2026 14:44:59 +0000
+Received: from mail-ed2-x2b.google.com ([2a00:1450:4864:33::2b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9ODR-00000008Znq-0dz7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Sep 2026 14:43:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 710C6152B;
-	Wed, 23 Sep 2026 07:43:38 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0CF73F86C;
-	Wed, 23 Sep 2026 07:43:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790174622; bh=u+HyfpyFWP2o5uLyPv6cq3B/HCxjkliayMjqrodkXaI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YPGuw9QT+N1uGxSBLKH8C6yhy/e2a8W30O7CLf97saYrAnzxvDzlsd9fdCAvlP771
-	 z35ryCsctrwtI1WmDwJ0PB9tDb6JlbE5ZvBcQPxpuGmhIB/z0vWjHjppa09pDFc1e6
-	 PmLkxcO3fGERrbmhEQ/pHC0S8evU/AjnYRWuhCnQ=
-Date: Wed, 23 Sep 2026 15:43:34 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
-	lukasz.luba@arm.com, philip.radford@arm.com,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v12 06/25] firmware: arm_scmi: Add basic Telemetry support
-Message-ID: <arPlllqG6gCxstMD@pluto>
-References: <20260920091928.2014972-1-cristian.marussi@arm.com>
- <20260920091928.2014972-7-cristian.marussi@arm.com>
- <8fd34672-493b-4d70-a2bd-1fe434b5ccda@kernel.org>
+	Wed, 23 Sep 2026 14:44:58 +0000
+Received: by mail-ed2-x2b.google.com with SMTP id 4fb4d7f45d1cf-6aab226e7c8so1857605a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 07:44:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790174695; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kIBu9ItR3qP24e9cM5H/eAXC5hDyETsl3NjmRzuGFiXy4XpWHg0kZAH1r+VHdN8jpZ
+         DLtBYfjJKEbToXqdYwnZDs1/3oXr+fmSp3nWeiwzhkz8A5xJvPKN8WdNKFjX8+0PTEw/
+         83FoHh5xaXiXoWsdqYYdZOupLMdicKX5cvlvQ6YB1oHcmKgt0G2+CffbveEZqSJ3M1Pz
+         cCDcDan5DV1LVqiv+4VG8GKXDqKfipQDsjLSf2sIbNcRZLN3ITCdQQJcthSEW0BLmfzN
+         zt7SrQ7w1Ja5TfThyFAEsVydontAFA5E1nsLzPfrmG5cM9WT0lv+zovKG/eNA2YfZ0BN
+         Kb/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=M4aBOtPsfRM3OiglhHgFceP8oaWfGnoSKrcjXOznF1Q=;
+        fh=RqcSXB016mdg54CputaEQ8/nkDliJXHOGq3X0OPah/M=;
+        b=NSgJ8zsEzQ70T6swXX4g/VLjU6+wUB/gUt0rZUCmToQSo91B6KQX4NGopM3Mx9ARqo
+         GLgHxk+h+3QUD7s64UVo5ya9Os1vOj6gvhnVh685aEXOuh1/NAu3dHwiS4KVJWHQEQr9
+         gaKjfnr8x4tWLcrUOxzI5W17M6wGjmrfN9LEgMG4kteG7MnDXYGsLEDiVjyrpKJrqRM2
+         Te8aOhTFTGM85ZHUvR8ke3UGY+b2hyFQ61GmSsFyk1PTaouCchRSSnC7DC1jIwyOo2zh
+         RRqqwv0Yb0WgS50nxbPqHbf3mK0q6UqrfrtN/Wd9hcBFgtL4thLuJjCVEncM2SSTbQI8
+         gJUA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1790174695; x=1790779495; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M4aBOtPsfRM3OiglhHgFceP8oaWfGnoSKrcjXOznF1Q=;
+        b=tGykC5NjdBu3q6qmg2P4fZicZ914KMKOmrTL2sOmClkOqzoML8jjQFahC5ahGd6Mxw
+         zJXUAW6aM3sBO/+LTNAK5m+giGbXpa1qMlHP7/1apaIBNF4Jdsv0Z7BYqD0jZUpQ7/B6
+         +fPzggXGkItYEBeozHpU6TVkNG7FLnQuyHjk6RZ0XS9gjINs1V14HFNzc/vUzmrvgHuX
+         zdvkv3X9sRJ2q9b/AI6lwe2/CYPQPKFcuQ5agwTRi0nkfCm3NVRbPQN5qAzAMNW8IPyv
+         jw//opiX3cMxZ+KcjAMmMNhTzZqr98AHW+Ntn/Wvk7nNFnk/ktElrTqEsovDMolJPT4l
+         IclA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790174695; x=1790779495;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=M4aBOtPsfRM3OiglhHgFceP8oaWfGnoSKrcjXOznF1Q=;
+        b=xjfCTLveiWpZnC3N66mK3yhw0/FgYpCU5XsdTyW1yB2f3azfzUKugcvR88J8Aj2pU9
+         pt5gBvuPNs6RHE1A2sF8/3+zulJV/QH51/kFxLlUBcrmdbSs8LnsyyilxLw9XRctpOah
+         9jcDg9vzXIJfH/k5bZZelExvRJQVmTZtOqbfJYtEfUL/E+VPAnIg3pSSe22qSqh6ROd6
+         1wJvADOBtSvO6lwwwXsFetGo4BOyYaY+CGBjr1nQTuHNtuXS8K1iVpflgW54qPb8h/+j
+         tk2BJRj5KhvG4rP3yd3yywu6jcqf6bFkbDK8judszH7SB6r6EEQJwGm3ezm1yslEOQrv
+         Y+UQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwbs9VMQ4OoEw3zIkXP7WBwXI+ovGL/a2fO16hcR7vTlhnN0E65mjgJAA+77NfLpGD/q2zs1ew941l2G3sRet+U@lists.infradead.org
+X-Gm-Message-State: AFuF++lIV3ghEsCb8WwoRHNUpLWTzClGS/uQUTf4eSIQOHXFcWFhW11v
+	kIQxr6drmnt41n+8E5gbyA5CwEF9sSyMR9NzUv1ZTLztZns5x4AP43C+86MAuIczJAsV/HEnNrN
+	XFT7+TDFu8WJOAtVIEl+z8nFGuEZMmcUOVEYIrdNR7g==
+X-Gm-Gg: AYBFou0H0LsIXHhWAD9DNyub6sD7pWuR2LgO6kHTVF4veq2vIFbGUMTEfuU+CqGCDrw
+	+mxBov7YVLURG+7B2LqN1xT4u6JKrUIG4aUu9OWYOEZaSHRN85Rd7gyRitko2YT8pIADyTHwQXD
+	8lu/PkLXtGbDHijUFE4mfReToQyJaDGGgCjeTkSOJcXx2QObbUVlw9jz8MjFLUGQRySAFJGsfxu
+	CwSbkRTKJ3dJ5m58obbUt0RMX7fb6+CWicIVaMPgRLMAa7EM7yJKdCKShmrJpHHGIP/mf5pUM38
+	UYtufOKDRYACxp1CcmuOzhZJegGj4xnoR2lY+440fYH00WIfQzZKgkFUQ+GRarGP475zgz5zmut
+	gXHXMx8k1Sfk=
+X-Received: by 2002:a05:6402:378a:b0:6aa:9851:6d5c with SMTP id
+ 4fb4d7f45d1cf-6aab3b2954fmr2562437a12.19.1790174694197; Wed, 23 Sep 2026
+ 07:44:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8fd34672-493b-4d70-a2bd-1fe434b5ccda@kernel.org>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-6-dac8c5eb4aa9@valla.it>
+ <arKlvZGqu2nt6Ci0@p14s> <arLXthhYbKkwZ9zY@bywater>
+In-Reply-To: <arLXthhYbKkwZ9zY@bywater>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Wed, 23 Sep 2026 08:44:41 -0600
+X-Gm-Features: AclHuK98k2uTxSqJLFP90Hvvkb8R20Qb9iAi3e_cMJ5VQjy6TOoZ99TlQSDABtg
+Message-ID: <CANLsYkwNOukGX68=NVvwNP7iudP3EcKN6C2L2o9nVCTRxFVxFg@mail.gmail.com>
+Subject: Re: [PATCH RFC 06/12] remoteproc: virtio: add bounce buffering for
+ data buffers
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev, 
+	imx@lists.linux.dev, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_074344_084806_155A5CBA 
-X-CRM114-Status: GOOD (  51.50  )
+X-CRM114-CacheID: sfid-20260923_074457_404570_324A2A36 
+X-CRM114-Status: GOOD (  54.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,254 +126,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 04:42:59PM +0200, David Hildenbrand (Arm) wrote:
-> On 9/20/26 11:19, Cristian Marussi wrote:
-> > Add SCMIv4.0 Telemetry basic support to enable initialization and resources
-> > enumeration: add all the telemetry messages definitions and parsing logic
-> > but only a few simple state gathering protocol operations.
-> 
-> As someone unfamiliar with the spec, it would be nice to summarize which parts
-> of the spec this patch implements, so it's easier to cross-reference.
-> 
-> Same for the other patches. :)
+On Tue, 22 Sept 2026 at 13:39, Francesco Valla <francesco@valla.it> wrote:
+>
+> On Tue, Sep 22, 2026 at 09:58:53AM -0600, Mathieu Poirier wrote:
+> > On Wed, Sep 16, 2026 at 11:10:51PM +0200, Francesco Valla wrote:
+> > > Depending on the driver originating them, data buffers used for virtio
+> > > communication can either:
+> > >
+> > >   - already be allocated from the coherent memory area that is
+> > >     accessible by the remote processor; this is the case of rpmsg
+> > >     and the rproc flavor of virtio-console;
+> > >   - be allocated from generic kmem, and thus not accessible directly by
+> > >     the remote processor.
+> > >
+> > > Exploiting the map operations, which are used by the virtio framework
+> > > when VIRTIO_F_ACCESS_PLATFORM is part of a vdev's feature flags, add
+> > > bounce buffering for the second case: when the map() callback is called
+> > > for a buffer, one or more pages of coherent memory are allocated and
+> > > data is copied to them, then they are exposed to the remote processor;
+> > > the data is  then bounced back on unmap().
+> > >
+> > > The first case is not impacted, since buffers already suitable for
+> > > remote transmission are passed through.
+> > >
+> > > With the bounce buffering in place, any kind of virtio device can be
+> > > supported through the remoteproc-virtio transport, at least from a
+> > > data exchange standpoint.
+> >
+> > Is this _necessary_ for the imx93 platform you are implementing feature for?
+> >
+>
+> If I don't want to fundamentally change how the remoteproc integration
+> works (i.e.: using buffers only from a pre-shared area), yes. While in
+> my test environment the Cortex-M33 serving as remoteproc is able to
+> access the whole RAM space, that is not always the case.
 
-Sure...I will add more descriptive comments.
+The first sentence tells me it is mandatory while the second says it
+is not.  I understand the use case but don't want to bloat the
+subsystem with code that is trying to address a problem you currently
+don't have.
 
-> 
-> It's a lot to review. So having a better description to guide the reviewer
-> through the patch would really help. I assume we could split this up further, like
-> 
-> a) Add basic definition (mechanical from the spec)
-> 
-> b) Add telemetry stub and hook it up
-> 
-> c) query attributes
-> 
-> d) intialize X
-> 
-> ...
-> 
-> Will result in quite some patches .... so I won't suggest that just yet. Maybe
-> people familiar with the spec have it easier revieweing this.
-> 
 
-I'll see if I can split this basic support patch a bit further...
-
-> 
-> > +
-> > +enum scmi_telemetry_protocol_cmd {
-> > +	TELEMETRY_LIST_SHMTI = 0x3,
-> > +	TELEMETRY_DE_DESCRIPTION = 0x4,
-> > +	TELEMETRY_LIST_UPDATE_INTERVALS = 0x5,
-> > +	TELEMETRY_DE_CONFIGURE = 0x6,
-> > +	TELEMETRY_DE_ENABLED_LIST = 0x7,
-> > +	TELEMETRY_CONFIG_SET = 0x8,
-> > +	TELEMETRY_READING_COMPLETE = TELEMETRY_CONFIG_SET,
-> 
-> TELEMETRY_READING_COMPLETE is not really a command but listed as a "delated
-> response". Should this be something separate (and not mangled into protocol_cmd
-> ?). Or is "_cmd" not the right term for this collection?
-> 
-> I have no SCMI experience, so it might be a rather supid queestion.
-> 
-
-So in SCMI there are 2 types of commands synchronous and asynchronous:
-support for the latter ones is optional AND it is command specific: i.e.
-ONLY some commands has an alternative async flavour.
-
-In a nutshell a sync command transaction is made of 2 messages cmd/reply
-across the same Agent_2_Platform bidirectional channel...
-Instead if a command can be particularly 'heavy/slow' platform side to
-satisfy, usually async support is present in the spec: in such case you
-have a 3 message transaction:
-
-1. A2P: cmd/reply ... where the reply ONLY carries the status OK
-
-2. P2A: delayed_response ... a later asyncronous further reply that
-carries the real content (e.g. a sensor reading that needed a lot of
-time for the sensor itself to settle..)
-
-The end result is that the A2P sync channel is NOT kept busy waiting for
-the delayed reply...
-
-Having said that, in the spec, while the sync commands are defined
-across protocols with a monotonically increasing MSG_ID starting from 0
-(with 0,1,2 IDs commonly defined across all protocols), the DELAYED_RESPONSE
-are defined to have the same MSG_ID as the sync command for which they
-constitues the async part ...
-
-That is the reason we define them in such a way across all of the
-existing 10 standard protocols...
-
-> [...]
-> 
-> > +struct scmi_de_desc {
-> > +	__le32 id;
-> 
-> I'll make a couple of generic comments, that should apply to most definitions in
-> here.
-> 
-> In the spec some of these things are prefixed by "de" e.g., "de_id".
-> 
-> Was this deliberate? Having the spec match the implementation allows for easier
-> grepping of stuff.
-> 
-> > +	__le32 grp_id;
-> 
-> Spec calls this "group_id"
-> 
-> > +	__le32 data_sz;
-> 
-> Spec calls this "de_data_size" etc.
-> 
-> If there is good reason to use slightly different names, best to spell that out
-> in the patch description.
-
-In general of course I agree with this and try to keep the naming
-exactly the same of the spec: in this case there are 2 reasons for the
-deviation:
-
-1. EVOLUTION - spec has evolved a lot and names have changed slightly between
-   spec revisions AND I have NOT kept up with that...MY BAD...I will fix these
-   occurencies
-
-2. READABILITY - some naming is, IMHO, a bit silly/ill chosen in the
-   spec because as an example if the implementation follows the spec
-   naming pedantically, you would end up dealing with stuff like:
-
-	de->de_id
-	de->de_data_size
-
-...so I killed some of this prefixes where from the context in the code and in
-the spec SHOULD BE apparent what they represent...
-
-Regarding some other cases like "grp_id" instead of "group_id"...I have NO excuses :D
-... just me trying to keep statements short :P
-
-> 
-> > +	__le32 attr_1;
-> 
-> E.g., grepping the spec for "attr_1" I get no hits. So I have to remember that
-> the spec might call this "de_attributes_1"
-
-Here is a mix of OLD spec, ill shortening of mine and silly naming I
-would probably move this to:
-
-	de->attributes_1
-> 
-> > +#define	IS_NAME_SUPPORTED(d)	(le32_get_bits((d)->attr_1, BIT(31)))
-> 
-> DE_ATTRIBUTES_1_NAME_SPECIFIED would be clearer. in general, spelling out to
-> which field a define belongs *might* make it harder to get stuff wrong.
-
-Ok...I was trying to avoid cumbersome NAMING while conveying the meaning
-BUT I can certainly move to a more pedantic spec-compliant naming...
-
-> 
-> (spec calls it "Named specified" which sounds like a bug)
-
-I suppose it is to meant that the optional DE name exist, while avoiding
-to use a nomenclature that is too similar to Names and Extended Names as
-they are used by all other protocols :D
-
-> 
-> Same for the other definitions. Again, maybe diverging from the spec is fine.
-> 
-> Personally, I would try to stay as close as possible to the naming in the spec.
-> 
-
-Yes that would be my aim ...I will fix the needless shortening and align
-the name to the last releases spec fiels while still deviating from the
-spec ease readability by avoding stuff like de->de_id
-
-> [...]
-> > +
-> > +static void scmi_telemetry_free_tde_put(struct telemetry_info *ti,
-> > +					struct telemetry_de *tde)
-> > +{
-> > +	struct scmi_telemetry_de_info *info;
-> > +
-> > +	guard(mutex)(&ti->free_mtx);
-> > +	/* Save clear and restore */
-> > +	info = READ_ONCE(tde->de.info);
-> 
-> Where is the matching WRITE_ONCE? IOW, who is expected to modify this concurrently?
-
-Mmmm....right..I'll check...this was added to clear freed strcuture
-while preserving some fields ...
-
-> 
-> > +	memset(info, 0, sizeof(*info));
-> > +	memset(tde, 0, offsetof(struct telemetry_de, mtx));
-> > +	tde->de.info = info;
-> > +	list_add_tail(&tde->item, &ti->free_des);
-> > +}
-> > +
-> 
-> [...]
-> > +
-> > +static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
-> > +{
-> > +	struct device *dev = ph->dev;
-> > +	struct telemetry_info *ti;
-> > +	int ret;
-> > +
-> > +	dev_dbg(dev, "Telemetry Version %d.%d\n",
-> > +		PROTOCOL_REV_MAJOR(ph->version), PROTOCOL_REV_MINOR(ph->version));
-> > +
-> > +	ti = devm_kzalloc(dev, sizeof(*ti), GFP_KERNEL);
-> > +	if (!ti)
-> > +		return -ENOMEM;
-> > +
-> > +	ti->ph = ph;
-> > +
-> > +	ret = scmi_telemetry_protocol_attributes_get(ti);
-> > +	if (ret) {
-> > +		dev_err(dev, FW_BUG "Cannot retrieve protocol attributes. Abort.\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = scmi_telemetry_instance_init(ti);
-> > +	if (ret) {
-> > +		dev_err(dev, "Cannot initialize instance. Abort.\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = scmi_telemetry_enumerate_common_intervals(ti);
-> > +	if (ret) {
-> > +		dev_err(dev, FW_BUG "Cannot enumerate update intervals. Abort.\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = scmi_telemetry_enumerate_shmti(ti);
-> > +	if (ret) {
-> > +		dev_err(dev, FW_BUG "Cannot enumerate SHMTIs. Abort.\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	ti->info.base.version = ph->version;
-> 
-> I'm surprised that there is nothing to cleanup on the error paths, but at least
-> the devm_ stuff is being taken care of I guess.
-> 
-
-This protocol_init function runs within an opened devm_group so that on
-failure or when protocol is deinitialized by an unbound driver all is
-cleaned up by the core SCMI stack through the devres group...a mechanism that
-raised controversy already in the past :D but when all the core SCMI stack
-and this mechanism was written there were NO cleanup.h magic available to
-ease the development of SCMI protocols....
-
-Anyway this initialization is triggered when one of the SCMI driver
-using this protocol is bound and probes on its own...so the devres
-machinery is anyway attached, albeit indirectly, to a probe path.
-
-Having said that, in Telemetry I do use cleanup.h during intermediate
-allocation and, once the allocation are finalized (no_free_ptr) I attach
-a cleanup routine to the devres hooks...(routine which I now needs some
-refinement on some err path...) that is the reason of the apparent lack
-of freeing path
-
-Thanks,
-Cristian
+> This is even more important for mixed-criticality-ready processors (say:
+> i.MX95), where access to different memory areas si defined even before
+> the various application cores are started.
+>
+> For the sake of completeness, there *might be* a completely different
+> approach that would work: modify every virtio driver to make sure they
+> allocate buffers from the pre-shared memory area (that is, the coherent
+> memory pool). That approach would even avoid the bounce buffering and
+> allow for zero-copy transmission. I even started working on that,
+> defining virtio helpers to do the allocations instead of using raw
+> kmallocs, but then I dropped the idea because of the magnitude of the
+> changes required.
+>
+> > >
+> > > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > > ---
+> > >  drivers/remoteproc/remoteproc_virtio.c | 182 +++++++++++++++++++++++++++++++--
+> > >  include/linux/remoteproc.h             |  14 +++
+> > >  2 files changed, 190 insertions(+), 6 deletions(-)
+> > >
+> > > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
+> > > index cfd66d9d1c9e..d21b3b8044df 100644
+> > > --- a/drivers/remoteproc/remoteproc_virtio.c
+> > > +++ b/drivers/remoteproc/remoteproc_virtio.c
+> > > @@ -241,7 +241,14 @@ static void rproc_virtio_reset(struct virtio_device *vdev)
+> > >     dev_dbg(&vdev->dev, "reset !\n");
+> > >  }
+> > >
+> > > -/* provide the vdev features as retrieved from the firmware */
+> > > +/* Provide the vdev features as retrieved from the firmware, plus the following
+> > > + * additional ones:
+> > > + *   - VIRTIO_F_VERSION_1 that is required by some non-rpmsg virtio devices
+> > > + *   - VIRTIO_F_ACCESS_PLATFORM to force usage of the map operations
+> > > + */
+> > > +#define RPROC_VIRTIO_STATIC_FEATURES \
+> > > +   ((1ULL << VIRTIO_F_VERSION_1) | (1ULL << VIRTIO_F_ACCESS_PLATFORM))
+> > > +
+> > >  static u64 rproc_virtio_get_features(struct virtio_device *vdev)
+> > >  {
+> > >     struct rproc_vdev *rvdev = vdev_to_rvdev(vdev);
+> > > @@ -249,7 +256,7 @@ static u64 rproc_virtio_get_features(struct virtio_device *vdev)
+> > >
+> > >     rsc = (void *)rvdev->rproc->table_ptr + rvdev->rsc_offset;
+> > >
+> > > -   return rsc->dfeatures | (1ULL << VIRTIO_F_VERSION_1);
+> > > +   return rsc->dfeatures | RPROC_VIRTIO_STATIC_FEATURES;
+> > >  }
+> > >
+> > >  static void rproc_transport_features(struct virtio_device *vdev)
+> > > @@ -275,16 +282,16 @@ static int rproc_virtio_finalize_features(struct virtio_device *vdev)
+> > >     /* Give virtio_rproc a chance to accept features. */
+> > >     rproc_transport_features(vdev);
+> > >
+> > > -   /* Make sure we don't have any features > 32 bits except VIRTIO_F_VERSION_1 */
+> > > +   /* Make sure we don't have any features > 32 bits */
+> > >     if (WARN_ON_ONCE((u32)vdev->features !=
+> > > -                    (vdev->features & ~(1ULL << VIRTIO_F_VERSION_1))))
+> > > +                    (vdev->features & ~RPROC_VIRTIO_STATIC_FEATURES)))
+> > >             return -1;
+> > >
+> > >     /*
+> > >      * Remember the finalized features of our vdev, and provide it
+> > >      * to the remote processor once it is powered on.
+> > >      */
+> > > -   rsc->gfeatures = vdev->features & ~(1ULL << VIRTIO_F_VERSION_1);
+> > > +   rsc->gfeatures = vdev->features & ~RPROC_VIRTIO_STATIC_FEATURES;
+> > >
+> > >     return 0;
+> > >  }
+> > > @@ -337,6 +344,151 @@ static const struct virtio_config_ops rproc_virtio_config_ops = {
+> > >     .set            = rproc_virtio_set,
+> > >  };
+> > >
+> > > +static inline unsigned int rproc_virtio_bounce_slot(struct device *dma_dev,
+> > > +                                               dma_addr_t dma_handle)
+> > > +{
+> > > +   const dma_addr_t dma_base = dma_dev_coherent_base(dma_dev);
+> > > +
+> > > +   return (dma_handle - dma_base) >> PAGE_SHIFT;
+> > > +}
+> > > +
+> > > +static dma_addr_t rproc_virtio_map_page(union virtio_map map, struct page *page,
+> > > +                                   unsigned long offset, size_t size,
+> > > +                                   enum dma_data_direction dir,
+> > > +                                   unsigned long attrs)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +   struct rproc_vdev *rvdev = dev_get_drvdata(dev);
+> > > +   dma_addr_t dma_base = dma_dev_coherent_base(dev);
+> > > +   size_t dma_size = dma_dev_coherent_size(dev);
+> > > +   phys_addr_t paddr = page_to_phys(page) + offset;
+> > > +   void *vaddr = page_to_virt(page) + offset;
+> > > +   struct rproc_map_record *record;
+> > > +   dma_addr_t map_handle;
+> > > +   void *bounce;
+> > > +
+> > > +   // No need to allocate a bounce buffer if the memory to map is already
+> > > +   // part of the device's coherent pool.
+> > > +   if (paddr >= dma_base && paddr < (dma_base + dma_size)) {
+> > > +           // The allocation details will be recorded also in this case,
+> > > +           // indicating that no bounce buffer was allocated.
+> > > +           map_handle = (dma_addr_t)paddr;
+> > > +           bounce = NULL;
+> > > +   } else {
+> > > +           // Allocate bounce buffer from device coherent memory
+> > > +           bounce = dma_alloc_coherent(dev, size, &map_handle, GFP_KERNEL | __GFP_ZERO);
+> > > +           if (!bounce)
+> > > +                   return DMA_MAPPING_ERROR;
+> > > +
+> > > +           // Copy data to bounce buffer
+> > > +           memcpy(bounce, vaddr, size);
+> > > +   }
+> > > +
+> > > +   // Save bounce details
+> > > +   record = &rvdev->map_records[rproc_virtio_bounce_slot(dev, map_handle)];
+> > > +
+> > > +   record->original = vaddr;
+> > > +   record->size = size;
+> > > +   record->bounce = bounce;
+> > > +
+> > > +   return map_handle;
+> > > +}
+> > > +
+> > > +static void rproc_virtio_unmap_page(union virtio_map map, dma_addr_t map_handle,
+> > > +                               size_t size, enum dma_data_direction dir,
+> > > +                               unsigned long attrs)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +   struct rproc_vdev *rvdev = dev_get_drvdata(dev);
+> > > +   unsigned int slot = rproc_virtio_bounce_slot(dev, map_handle);
+> > > +   struct rproc_map_record *record = &rvdev->map_records[slot];
+> > > +
+> > > +   WARN_ON(size != record->size);
+> > > +
+> > > +   // If a bounce buffer was used, copy data back to original one
+> > > +   if (record->bounce) {
+> > > +           memcpy(record->original, record->bounce, record->size);
+> > > +
+> > > +           dma_free_coherent(dev, record->size, record->bounce, map_handle);
+> > > +   }
+> > > +
+> > > +   record->original = NULL;
+> > > +   record->size = 0;
+> > > +   record->bounce = NULL;
+> > > +}
+> > > +
+> > > +static void rproc_virtio_sync_single_for_cpu(union virtio_map map,
+> > > +                                        dma_addr_t map_handle,
+> > > +                                        size_t size,
+> > > +                                        enum dma_data_direction dir)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +
+> > > +   dma_sync_single_range_for_cpu(dev, (map_handle & PAGE_MASK),
+> > > +                                 offset_in_page(map_handle), size, dir);
+> > > +}
+> > > +
+> > > +static void rproc_virtio_sync_single_for_device(union virtio_map map,
+> > > +                                           dma_addr_t map_handle,
+> > > +                                           size_t size,
+> > > +                                           enum dma_data_direction dir)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +
+> > > +   dma_sync_single_range_for_device(dev, (map_handle & PAGE_MASK),
+> > > +                                    offset_in_page(map_handle), size, dir);
+> > > +}
+> > > +
+> > > +static void *rproc_virtio_alloc(union virtio_map map, size_t size,
+> > > +                           dma_addr_t *map_handle, gfp_t gfp)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +
+> > > +   return dma_alloc_coherent(dev, size, map_handle, gfp);
+> > > +}
+> > > +
+> > > +static void rproc_virtio_free(union virtio_map map, size_t size, void *vaddr,
+> > > +                         dma_addr_t map_handle, unsigned long attrs)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +
+> > > +   dma_free_coherent(dev, size, vaddr, map_handle);
+> > > +}
+> > > +
+> > > +static bool rproc_virtio_need_sync(union virtio_map map, dma_addr_t map_handle)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +
+> > > +   return dma_need_sync(dev, map_handle);
+> > > +}
+> > > +
+> > > +static int rproc_virtio_mapping_error(union virtio_map map, dma_addr_t map_handle)
+> > > +{
+> > > +   if (unlikely(map_handle == DMA_MAPPING_ERROR))
+> > > +           return -ENOMEM;
+> > > +
+> > > +   return 0;
+> > > +}
+> > > +
+> > > +static inline size_t rproc_virtio_max_mapping_size(union virtio_map map)
+> > > +{
+> > > +   struct device *dev = map.dma_dev;
+> > > +
+> > > +   return dma_dev_coherent_size(dev);
+> > > +}
+> > > +
+> > > +static const struct virtio_map_ops rproc_virtio_map_ops = {
+> > > +   .map_page = rproc_virtio_map_page,
+> > > +   .unmap_page = rproc_virtio_unmap_page,
+> > > +   .sync_single_for_cpu = rproc_virtio_sync_single_for_cpu,
+> > > +   .sync_single_for_device = rproc_virtio_sync_single_for_device,
+> > > +   .alloc = rproc_virtio_alloc,
+> > > +   .free = rproc_virtio_free,
+> > > +   .need_sync = rproc_virtio_need_sync,
+> > > +   .mapping_error = rproc_virtio_mapping_error,
+> > > +   .max_mapping_size = rproc_virtio_max_mapping_size,
+> > > +};
+> > > +
+> > >  /*
+> > >   * This function is called whenever vdev is released, and is responsible
+> > >   * to decrement the remote processor's refcount which was taken when vdev was
+> > > @@ -355,6 +507,8 @@ static void rproc_virtio_dev_release(struct device *dev)
+> > >     of_reserved_mem_device_release(&rvdev->pdev->dev);
+> > >     dma_release_coherent_memory(&rvdev->pdev->dev);
+> > >
+> > > +   kvfree(rvdev->map_records);
+> > > +
+> > >     put_device(&rvdev->pdev->dev);
+> > >  }
+> > >
+> > > @@ -429,13 +583,29 @@ static int rproc_add_virtio_dev(struct rproc_vdev *rvdev, int id)
+> > >             of_reserved_mem_device_init_by_idx(dev, np, 0);
+> > >     }
+> > >
+> > > +   /* Allocate one tracking record for each page of the device reserved
+> > > +    * memory. Contiguous memory is not required for this array, which can
+> > > +    * also be quite big (depending on the size of the coherent memory), so
+> > > +    * let's use vmalloc for this allocation.
+> > > +    */
+> > > +   rvdev->map_records = kvcalloc(dma_dev_coherent_size(dev) >> PAGE_SHIFT,
+> > > +                                 sizeof(*rvdev->map_records),
+> > > +                                 GFP_KERNEL);
+> > > +   if (!rvdev->map_records) {
+> > > +           dev_err(dev, "failed to allocate memory for map records\n");
+> > > +           return -ENOMEM;
+> > > +   }
+> > > +
+> > >     /* Allocate virtio device */
+> > >     vdev = kzalloc_obj(*vdev);
+> > > -   if (!vdev)
+> > > +   if (!vdev) {
+> > > +           kvfree(rvdev->map_records);
+> > >             return -ENOMEM;
+> > > +   }
+> > >
+> > >     vdev->id.device = id;
+> > >     vdev->config = &rproc_virtio_config_ops;
+> > > +   vdev->map = &rproc_virtio_map_ops;
+> > >     vdev->dev.parent = dev;
+> > >     vdev->dev.release = rproc_virtio_dev_release;
+> > >
+> > > diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+> > > index c3ba51fe9e54..2ff48b505ac0 100644
+> > > --- a/include/linux/remoteproc.h
+> > > +++ b/include/linux/remoteproc.h
+> > > @@ -339,10 +339,23 @@ struct rproc_vring {
+> > >     struct virtqueue *vq;
+> > >  };
+> > >
+> > > +/**
+> > > + * struct rproc_map_record - remoteproc map record
+> > > + * @original:      original virtual address
+> > > + * @num: allocation size
+> > > + * @bounce: bounce buffer virtual address (NULL if not used)
+> > > + */
+> > > +struct rproc_map_record {
+> > > +   void *original;
+> > > +   size_t size;
+> > > +   void *bounce;
+> > > +};
+> > > +
+> > >  /**
+> > >   * struct rproc_vdev - remoteproc state for a supported virtio device
+> > >   * @subdev: handle for registering the vdev as a rproc subdevice
+> > >   * @pdev: remoteproc virtio platform device
+> > > + * @map_records: array of map records
+> > >   * @id: virtio device id (as in virtio_ids.h)
+> > >   * @node: list node
+> > >   * @rproc: the rproc handle
+> > > @@ -358,6 +371,7 @@ struct rproc_vdev {
+> > >     unsigned int id;
+> > >     struct list_head node;
+> > >     struct rproc *rproc;
+> > > +   struct rproc_map_record *map_records;
+> > >     u32 rsc_offset;
+> > >     u32 index;
+> > >     unsigned int num_vrings;
+> > >
+> > > --
+> > > 2.55.0
+> > >
+>
+> Regards,
+> Francesco
+>
 
