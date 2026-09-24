@@ -4,105 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B26C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617D6C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZNV1frEqDiEI9aSLfzfuk3rbds2XUUobAuj0Balos8=; b=ccVgTeoFVupIHiDQ7dIhV371nz
-	2Mv/G/QYgHugen2MHcvkKRQrFSlajX4Er/mMyVlw5jZ+28Ma8+DmGr4TmyQuKIerAuE05ZGP9x/ze
-	yf2DPSiycHNG5K/DJnCnxNUyPDVtgBOgukDNfh/nZYhztSHozRGcPGO446HkbHsGcMH8rOsMYhBM0
-	MbvJheZ0wxQFZ5SxZlxtErmVkBinrwJlO0hiTiWLJiNdQ99AuwPX4ZQC1o+lTQaICiTUkpuky/QJx
-	+smqt6DN2MUn+2U1jY+KTbUekvR9BZyfvXdB4ceFjnD5NmC6oFAYECIUcEMMGzdNfuWNWF/aIAsaE
-	z2k2zupA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/f3yeKklj1mHC+oaN56fJ1vouPDtaeqc9ftH8u2/6k=; b=sJy9LmD7Ahi/QhPs2Dfw2msquE
+	llNmr5aPHH3XoF8STxAQ+wMjWSIybXP49cA4WYZ3T2cLU4Srxc5Uts2o54nM7ThXyzNV1F4IkJTEe
+	GqMOQJvuyCTEY/aen3+b+6qyvjRu01TBEdBjFs+tUmyeTVd2QE7Fe7MJjCWBSnrnejVspq/Hsewbz
+	ZqqQTxthfReBADe7t2YP16rWxi1AsA5n5PB/n21K2PiAXCgi4PfDkjj3Q1ZbNtfiwieER6D+0HBo6
+	FdmaIVSVxb0thXw63TWO0uDPdS9nL/oxXsJzMRdz/BJvdtL3kz801O3HAQ76TH9zZcwtaKLo4VyrB
+	L6AlJWfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gt2-0000000AlOe-433Y;
-	Thu, 24 Sep 2026 10:41:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x9gtF-0000000AlSw-0JeS;
+	Thu, 24 Sep 2026 10:41:21 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gsz-0000000AlNk-0zoX
+	id 1x9gt9-0000000AlQM-1ayP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 10:41:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790246463;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pZNV1frEqDiEI9aSLfzfuk3rbds2XUUobAuj0Balos8=;
-	b=PxwVn7L/IlHuYr8nrtwV2mb3B4XXbSaGDVFiYtGJyoddv6NV+Fs+c5Gm7/4vpp5PkuWGBe
-	dP8fTwgzmLcIDP7gm0ybjMHTMA4/H8MLuoh0IW+WWWHMJF5XpGPs8c8ntvY3OpyopbTKzs
-	zrpQJur03r+KNNJ1KdrhcJiV5qThpPk=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-372-b7Y3ALL0OTWeMfmpnU5AYg-1; Thu, 24 Sep 2026 06:41:02 -0400
-X-MC-Unique: b7Y3ALL0OTWeMfmpnU5AYg-1
-X-Mimecast-MFC-AGG-ID: b7Y3ALL0OTWeMfmpnU5AYg_1790246461
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-39e3f521346so1902948a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 03:41:02 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790246461; x=1790851261;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pZNV1frEqDiEI9aSLfzfuk3rbds2XUUobAuj0Balos8=;
-        b=IStnxPPXoji7r1OpfK9lo8thxdDT+MtH4klAjQpsUNV7xM82QKuZENGnIr1/vP6X0y
-         pDqAXIsAoHgRmg62ZWgkH2bGqFv2imwVwMX6ihvpWP1s8gru9gD6pluYsyrpm4qrDZiF
-         8eYW3bwyl9LmFkRVA121LipcdFVWTZvM6AX1b5Ng/QlDdQD4ME6HZB3mpZINmPI25p/X
-         KxNAAwxQ3vAEwyAPDo1OwwWDq6byLkuGuTd747bQ1xBZXehXHewRdtA8wyKENBLHktIk
-         0WNymfC0LWdAIsbn+0k7YGuWTR/ANXwaCStuzyjKadlwyDZxCl4yonHBO3I0sHWn2gWi
-         Ce2Q==
-X-Forwarded-Encrypted: i=1; AKwUvBx6lE+gOJc+mXPkp+ljoRkHGhkPAnZqatBI/hCdNw4dYCtELiqOK0/u6dJSFYPHbbw3W2k28uOs6bXOMO5nnRen@lists.infradead.org
-X-Gm-Message-State: AFuF++lVqWmivoag/SpLHR7spDIO0MstwKTp8rkVrhYmqh6sfSDs/Adt
-	aCEldEZiqdWIz4dUMa7kgz0JmCv289kgz0Jcb9xWi7ry0hN8lnItkg4RQIPSujISQJZgJ+YyI/J
-	Ia5tITW4IxE9YJUx+mh1FtyW4jgxHV2A/IqGQ4jyTAHxa6LKKEtv1u5Ujh6bjAJv/vlFNU9EfVk
-	qm
-X-Gm-Gg: AYBFou22yHzOgFVZL+MW9NUlhQJHonpH3I5SX8kGS+1tN7I70kSPDDb1Gqo9wg4xiTW
-	r3I8Ph7nGpIxEvfy/zxfWs3hIo/+DenwYkJwxLJEgmUa7hfLNbt8R95k/ziCGD054WeXhq4TUNm
-	LZ4GtQKQ9tb1mLUHXwuiEUCab7YRxo2+WSemW6w6VBjV6G+nylyih5lkofHolr7+bEbfCbK7XYx
-	4RhA4jsyY7E74c8N99y+vOKq1lq63NneXKbm2d0NopavSPZQ2Lj9A/+VOO+RBTv8am3j3B7+NLS
-	4aMOTw6rbJPrKd7D5uj8CfYdPMnVlzhD+vmTJL5TxzjTFlP3+9rrDHA1eFm83E/0BYB8F2lfDNH
-	3OjbF4OLuEo6hMkqDTwVBV9ztW+JTtd+KoIqKXVOnsQ==
-X-Received: by 2002:a17:90a:1149:b0:3a0:9c9d:eb0b with SMTP id 98e67ed59e1d1-3a09c9df050mr915854a91.58.1790246460995;
-        Thu, 24 Sep 2026 03:41:00 -0700 (PDT)
-X-Received: by 2002:a17:90a:1149:b0:3a0:9c9d:eb0b with SMTP id 98e67ed59e1d1-3a09c9df050mr915834a91.58.1790246460395;
-        Thu, 24 Sep 2026 03:41:00 -0700 (PDT)
-Received: from [192.168.68.52] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc75f3b7240sm2411213a12.7.2026.09.24.03.40.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Sep 2026 03:40:59 -0700 (PDT)
-Message-ID: <a5dbea3b-d175-42d2-a29d-9280c92236da@redhat.com>
-Date: Thu, 24 Sep 2026 20:40:50 +1000
+	Thu, 24 Sep 2026 10:41:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hFG2ivf6pcTtCAL6JIM1Q8cBnU8dSVB0pdqQbSiPZaQEEnGIoxbMwNx8rLsUX0mFzgij3bCWgIDNy4djtfq4yYly9UBsoIIKG5w2Ljle2CZgEJPZbFfPUQubI77th52OFSIe5q/Ql0/wTI8vJJCrKsDItphHlve+QCJE3VItD5AKB201Hf9YPxyTQLDrfCMvei6JdRNWfw2XdGV5xvERZimtE/Fe16+FpvzGkZozvJ+25WcakaNxU9AfoYKe2ysUHKkBL52KgkYcKaSNlD57jTUzblp9zdy+JfvW7R8aYUbFXV8ktKOvPjzWv4Gwuz62KICkhViQwL+sI4ch24Qh/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H/f3yeKklj1mHC+oaN56fJ1vouPDtaeqc9ftH8u2/6k=;
+ b=L1+jC/LQLClQEyFmMuynR4erVNwoFKgtktL8Y3TNFcQo5qGHBlltmji9H1Urt/dQCbqDOC1YB2m+z9S6pK1FRMGILTc7RieYag9WFw0nJyAkGH9MyVaDOXwIT1ndyXz7TZ9sSlT0hPKR72QNsxgkB99B2IU97KgRZMQj0VcvHzIU5hKaPyUmp3PGrocdMwnPyeveAP1r9rQSsehI+1FbAK4V0d0A+/HmmUSj5mCL07nwSIO4tbD4lz40+XOZJGHcAVtemffuNbH45CeaVmglRKvFszk3EI6O/RVHz9m7471REAgxOYCWryFvm8sdZRp7sry3FqNf7nFGFuy90F1Gsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
+ dkim=pass header.d=cixtech.com; arc=none
+Received: from OSNPR06MB8686.apcprd06.prod.outlook.com (2603:1096:604:498::15)
+ by PUZPR06MB5498.apcprd06.prod.outlook.com (2603:1096:301:101::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.17; Thu, 24 Sep
+ 2026 10:41:07 +0000
+Received: from OSNPR06MB8686.apcprd06.prod.outlook.com
+ ([fe80::917f:53b:e702:5918]) by OSNPR06MB8686.apcprd06.prod.outlook.com
+ ([fe80::917f:53b:e702:5918%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
+ 10:41:07 +0000
+From: =?gb2312?B?Sm9ha2ltICBaaGFuZyAo1cXHv8fsKQ==?= <joakim.zhang@cixtech.com>
+To: Mark Brown <broonie@kernel.org>
+CC: "lgirdwood@gmail.com" <lgirdwood@gmail.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "perex@perex.cz"
+	<perex@perex.cz>, "tiwai@suse.com" <tiwai@suse.com>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, cix-kernel-upstream
+	<cix-kernel-upstream@cixtech.com>, "linux-sound@vger.kernel.org"
+	<linux-sound@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH 2/4] ASoC: cdns: Add Cadence I2S-SC controller driver
+Thread-Topic: [PATCH 2/4] ASoC: cdns: Add Cadence I2S-SC controller driver
+Thread-Index: AQHdSoSU/8MOWdbQKUulyhJasr/GNLbaqesAgALjc4A=
+Date: Thu, 24 Sep 2026 10:41:07 +0000
+Message-ID: <OSNPR06MB868686E87BEA4632F003D50F82812@OSNPR06MB8686.apcprd06.prod.outlook.com>
+References: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
+ <20260922112134.4167305-3-joakim.zhang@cixtech.com>
+ <arKR9oIjbrTM9fTS@sirena.co.uk>
+In-Reply-To: <arKR9oIjbrTM9fTS@sirena.co.uk>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cixtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSNPR06MB8686:EE_|PUZPR06MB5498:EE_
+x-ms-office365-filtering-correlation-id: 841e9753-b95e-45c1-3392-08df1a28575d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|38070700021|4143699003|10067099003|56012099006|18002099003|22082099003|6133799003;
+x-microsoft-antispam-message-info: PdrVvNsbBUMjYj0Wr7CExRG6rQ4mWnLpijY7QR8OdcHIhkA0YZATnXIUnzuGMAVI89kQjVxRep4V4a94RdPJfADRCg+3stwKmzs1/5Nw0ysq0XlPgYcgWuwPZ+EE0cbShFj0B/0qbCJEliT/v0xiwHU81al/1ZwS9g0zF04xgOrj5wiILzm/rrcI59nA8C4T7vaspukok+sNyiErtQildbrtvpoWAsA0ro5RD89GqLEgubWJjunKlvABbb/F2pu1JCycaDUSSUu5kQZulPNTuhnoYzPXvQ4KyNKKjkM+95E4VJ3zsKAQiEj8u+JX7QpOUq2ACS+Wv1pScciI6nyfDqbwk3IDGfxaL79+91K/VFPygXN1I3gwjOyDvBwBIL1jJMFov3+DsXfws4dXMNzAh4hxHbYyK879AGyEhQdt8pypDGP7CSZWFWN2ehFfIJLekCHAMuMrbBg2kMKwNP+EUEDD4nqXPWA7iv8fc6w3pgONBhrAHEcntIKtHFervTyRR7iPD/7EMwcfzOUy+uqAGYt2Zdg0LBw37A3JM56oTWD0yagi07pk/4JhZqaxaKJ0GvrvX/hFHuoxsILg2O5afqQhj61SpXwTG1xzAypy10DMLuj0Saxl4owYQCbr2V32C3puxd6OJZ+vIC8s48wWMyCfJH4CMaDo4HLXdiWp3fs8f1F5h/Pt6aYEI3G4jnFEUWKRZhnzsZ5A63mJIg9DgA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSNPR06MB8686.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(38070700021)(4143699003)(10067099003)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?b2QxWTIwZWN5cmhqcjRBaURsMk52TmI5YUQ1US9iVjVTSXgvZkM5TDlkY0NT?=
+ =?gb2312?B?a3hNV0xSaUhxWUdxRTJTRHROV3BaSEcyWG1MYStqeDFwRnNaWDhDdms4L1Vv?=
+ =?gb2312?B?bllSSUdoNDI3cXR3M2E0eVdKcU9mUmE5clo5alE5Rmd6TUk1aS9oMGNJTk8w?=
+ =?gb2312?B?MDJpYVQ2TVNaYU5DeldWYzJ3NS9maEc4djRJTnFwZmhJWWx0MVlRVk5taFdI?=
+ =?gb2312?B?WnQwT1RCYno3V0thZFd5enJ1NHZrUEVmR1Foc3F4VU5QZGtvdGl4cmwyQzY1?=
+ =?gb2312?B?L1lBT1piR2swK3dKS1g2K3VJd204U0JkNWY0WW03M1dYUHdVSE0ydEpzUlVx?=
+ =?gb2312?B?L3VkcGtFNHB1L0NPMWlmdlVxU1djQmszbjdTT0RIelNYZlhpaVphbEFEUGd5?=
+ =?gb2312?B?aGdPWGNpbW1LTHRKczV3aHVnTjQ2U0p4cGJlVGY0cENPYzhtWTRiaml4SFR2?=
+ =?gb2312?B?dzR6SFZNZDRoS3FYK0VLR3c5T2k0ejhWYktPNWlydW02SlNPdmJIaEMwL2Vl?=
+ =?gb2312?B?V0kvdUxkeGN5VDZhRXBXWXdiVWFBb1Z5S0dLWEFJQkIxUkhJdklnbi9Za3ls?=
+ =?gb2312?B?VDl6c0NwczhjNGl0NUdyZzFIZDhBYWd3Uk5QbGUzZ2NrajVhc2gxRlhnbTVs?=
+ =?gb2312?B?YURXM042Z3MwWWpnUVZLL29yQXg3bTh0ME53Uksya1ZiYUptWUdDTTVDZ29j?=
+ =?gb2312?B?UGZ4VUR2VnhMbXpOVmNMeUlmU1Z1ZThTTHNLZWE4bWdlK3MxdlRXYWRUNHJK?=
+ =?gb2312?B?SlhYZ1krS1pWZFRXREUwOWdvSm9OU0txczFhYi9zU0Q4VXpzR0lxQjVTRGFT?=
+ =?gb2312?B?ZktKTmt0ZUZ0V3NoVGxpTCtsMXdvSU8vMW9HeitaNzNGWjFaYmQ2b1NMbEkx?=
+ =?gb2312?B?ZzM2bExvTnNUMGIvU2JUREdKK29EdkJlQjJhcEZZNlRDbDRtV3hVL2RkQ2pK?=
+ =?gb2312?B?L2xlK0VlcVAxWFl1SWpCRmZPQ3FxR2V0dDFNRzBoRFFseHhpb2htbHJJV0h6?=
+ =?gb2312?B?ZDVsNTZZaFA2SUR6N3cyWHJQcFpEMnNaY0grYWd4WEFYYWRHWnc4ak10NGEr?=
+ =?gb2312?B?VzhIR0Y3UllYWUlXSXg1Z2l4QWF1Y2VXZDZjbjZjbzhZOXhHSEZFeTN6QlQz?=
+ =?gb2312?B?bGxFcG9pZ1pFbHMvbExGZ09UTXBPK0tvMDZYalYyeUV4QWxndG5aOGlQa2xC?=
+ =?gb2312?B?Z3U5dWxJREpjamlzbUJyUTlzc2p6RDRCZHlrUHpmMDRodlJGQ09qSnFWSkpF?=
+ =?gb2312?B?T2ZvRHZsWnRBTFRWOElsSmFreHl3WjN5ZS9uU1J5bFFiaDd6YVhEV3VjNmR3?=
+ =?gb2312?B?Y21FbXljSVpEVjZBTnBnWDVqREdNTk80Z1Z2S1JkdlV1YURBSmk5NDRTbHYx?=
+ =?gb2312?B?d1hKNFF5SHplajdPclZYdlYxb1YrNGFpT1RXcmhNeUlOQ245K3hGaE1kaWJn?=
+ =?gb2312?B?SUllRjRtRyttQUtNeEIrN2pPeEU3eU5SNUhPRmlkb1lSWFl5ZDQrTy8vUU1n?=
+ =?gb2312?B?UGJPSHJJb2ZsUmt5RDdOM3IveVFkZFVCQklKWGI1MXg0MmpsWGYrOGlwcllJ?=
+ =?gb2312?B?S2xZWlpRODAyMlB4ODlBSU9XUGpVMFJIVW1RVUZLZEh6b2Zlc25kdG8yRXV6?=
+ =?gb2312?B?eVViMTN4aWQ4eGN5bnJPM2dpa0xFeXh6dU9XaG1UMGpiZjdKYU1PazZoYlhk?=
+ =?gb2312?B?VnVhM2lsWHlrdmprU0RsTUQzdEsyZi9NTWpFVjJKbjl0eXVNZmlsZ2tkZlFG?=
+ =?gb2312?B?dC91ZkpEQXFFdWxtRHQwT0Q1aldwcmlNczFrT2dUZ0FSRzd4dytVOXRHMTR0?=
+ =?gb2312?B?K1RrWVd4M213Wm5UdGczMWZSNS9qa3FBZkpqbEprVVdab3QwLzFVbVoySVo1?=
+ =?gb2312?B?SVQzeXNNZ2IwVnpmRmZLVG5RMUgxSVJQNUQxd2Y2YkhWODN1cDJSbGtJc21P?=
+ =?gb2312?B?UVVwSmdMR1pYb05iTmw1SkswVTNERUV5eUVJRTI1NWR3eGlTQUFWaVBxNjVo?=
+ =?gb2312?B?RENNaDNxUVVHWXN4NkN6RHFxem1kRXVZa3Z2bVkycDRCR0hmVm8zMnNzNGM2?=
+ =?gb2312?B?ZTBJcXlmT2REck85K1hwZi9pWjUrT3RnQmRIUndRUXNnSCtIdytIQjlOeUFS?=
+ =?gb2312?B?RFZHL3c1THh5N1RMbzhhTGVLVmhnemRQMVA1MnBibHlvTzErakl6Nm5jejlG?=
+ =?gb2312?B?YVc0VGxoMHRuMXNSKzlIcHIwUVFTNmlMS1JZUVZscEpUdG1nc3lJb2FKVTVs?=
+ =?gb2312?B?Qi9HQTRvaHRGV0ZsL3hyWmFGTWcxZFZsKzBTNm1QYlp1YlpCT2ZockQ3dTFV?=
+ =?gb2312?B?NzQ3dGcxVmhhZ3hUQ1ZaNFRrbnpDbHRyTVNvbUIreWtOeGJremNuQT09?=
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 00/20] KVM: arm64: CCA: Add basic plumbing for Realms
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260920212845.707-1-suzuki.poulose@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: vJrnRPQHr6bKD6ncdzCtL0JXQZV8qqXRN4KJp5rQUzA_1790246461
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSNPR06MB8686.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 841e9753-b95e-45c1-3392-08df1a28575d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Sep 2026 10:41:07.6209
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: cQjF73yd31zMes7QXUEbDgvnGCINbJTtx+/ukNwrI3CpfSIdL4aDp9YLqi3HwZK/3x+3glXG43cVI0wpqnWJn5CQtpHREaVDa+guWtJhQFg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5498
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_034105_429301_B5CC25DB 
-X-CRM114-Status: GOOD (  45.33  )
+X-CRM114-CacheID: sfid-20260924_034115_473021_E4F9C3C5 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,190 +152,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
-> This series is a trimmed down version of the Arm CCA KVM support, previously
-> posted here [0]. Like in the v17, we have tried to split the entire series
-> into the following chunks.
-> 
->   1) Base RMM RMI support under drivers/firmware/arm_rmm -> [1]
->   2) Linux Host support for handling GPFs - [2]
->   3) NEW: Enlighten KVM arm64 about the different VM types and use call
->      backs for the VM type, rather than spilling the is_this_type_of_vm()
->      everywhere. Adds VCPU and Stage2 MMU related callbacks with support
->      for the existing VM types. There are other places where we may be
->      able to abstract, but those need careful performance evaluations
->      to make sure they are fit (e.g., vcpu_run)
-> 
->     With that in place we generalise the predicate "kvm_vm_is_protected()"
->     to cover all  "Confidential" VMs (which includes Protected VM and Realms),
->     allowing us to handle common themes without having to do things like :
-> 
->       if (kvm_vm_is_protected() || kvm_vm_is_realm())
-> 
->     Also replaces the code with precise check for a given VM type to
->     avoiding combination of if (). e.g,, kvm_vm_is_unprotected_pkvm(kvm).
->     The checks under arch/arm64/kvm/{nvhe,pkvm} still retain the vm_is_protected()
->     check as pVMs are the only possible protected VMs there.
->     
->   4) Bare minimal Realm VM support without the actual functionality to
->      run a Realm. This would help the maintainers to review the series in
->      smaller chunks. This doesn't depend on [1] and can be independently
->      merged, without being "functional".
->      This series includes vcpu operations and the s2 vm operations, which
->      do need the RMI driver backend to be meaningful. But the KVM handler
->      is in the right shape. The remaining changes would be added once the
->      RMI firmware library lands. Also covers the SET_ONE_REG/GET_ONE_REG
-> 
->   5) Core implementation of the RMI driver for KVM and actual enablement of the
->      Realm support. This depends on (1), (2) and the guest-memfd-in-place
->      conversion series v12 from Ackerley. This is available here at the integration
->      branch [3]
-> 
-> This series is comprised of (3) and (4) above.
-> 
-> The integration branch has been tested with the following components:
-> 
->    tf-RMM:   main branch (commit 5e6e2acd) compliant to RMM-v2.0-beta3 [4]
->    kvmtool: git@git.gitlab.arm.com:linux-arm/kvmtool-cca.git cca/kvm-v18
-> 
-> [0] Arm CCA KVM Support v16 : https://lore.kernel.org/all/20260803134403.80630-1-steven.price@arm.com
-> [1] Linux firmware RMI https://lore.kernel.org/all/20260912083611.2513845-1-suzuki.poulose@arm.com
-> [2] Linux GPF Host https://lore.kernel.org/all/20260913070459.2547407-1-suzuki.poulose@arm.com
-> [3] https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/kvm-v19/integration
-> [4] https://support.arm.com/documentation/den0137/2-0bet3/
-> 
-
-Apart from the issue found against PATCH[v19 05/20], I didn't see more issues with this
-series in my tests where kselftest/kvm cases and kvm-unit-tests are done on various
-combinations: 4KB host kernel, 64KB host kernel, kernel parameter "kvm-arm.mode=
-{nvhe, protected}" or nil. So with the found issue caused by PATCH[v19 05/20] fixed:
-
-Tested-by: Gavin Shan <gshan@redhat.com>
-
-Thanks,
-Gavin
-
-> Changes since v18:
->    https://lore.kernel.org/all/20260915160141.3543048-1-suzuki.poulose@arm.com
-> 
->   - Patch count down by 3, after merging different patches together, see more below
->   - Retain NULL vm_offset for pVMs and move the counter offset flag initialisation
->     to kvm_timer_init_vm() - Marc
->   - Merge widening the scope of kvm_vm_is_protected() to the patch where the
->     flavors are introduced(Marc) and also dropped Fuad's reviewed-by, as the
->     patch is now bigger.
->   - Merge "Use kvm_vm_is_unprotected_pkvm" for !kvm_vm_is_protected to patch
->     where flavor is introuced.
->   - Merge "vgic-v3" mandate and preventing vgic-v2 mappings to a single patch,
->     where kvm_vm_hyp_is_distrusting() introduced - Fuad
->   - Drop kvm_vm_hyp_is_pkvm(), reverting to is_protected_kvm_enabled()
->   - Use is_protected_kvm_enabeld() for pKVM guest flavor checks.
->   - s/PKVM/pKVM for commit descriptions too
->   - Make sure the vm_mem_abort callback is !NULL at init time.
->   - Bail out early for !pKVM && !Realm VMs in kvm_vm_ioctl_allowed(). Use
->     kvm_vm_hyp_is_distrusting()
->   - WARN_ON_ONCE(!kvm) for kvm_vm_ioctl_allowed() as it must be only called with
->     a valid kvm instance and only from kvm_arch_vm_ioctl()
->   - Rename kvm_arch_vm_{ext,ioctl}_allowed => kvm_vm_{ext,ioctl}_allowed - Fuad
->   - Move kvm_realm_ext_allowed() to asm/kvm_rmi.h - Fuad
->   - Don't expose PMCR_EL0 to the userspace until we support PMU
-> 
-> 
-> Changes since v17:
-> https://lore.kernel.org/all/20260908162223.1683432-1-suzuki.poulose@arm.com
-> 
->   - Add a patch to fix pKVM handling of SYS_CNTVCT/CNTPCT to override the counter
->     offset (Patch1)
->   - Restrict Realms to VGIC v3 only - New patch
->   - Add kvm_vm_is_unprotected() to replace is_protected_kvm_enabled() &&
->     !kvm_vm_is_protected() - New patch
->   - Use macro to initialize the per-flavor vcpu, s2_vm ops
->   - Add a wrapper to initialise vcpu and s2_vm ops with a BUILD_BUG_ON()
->     for the array size checks against VM flavour types
->   - Drop forward decalaration of the vcpu, s2_vm operations that spoiled the
->     fun ;-)
->   - Remove irrelevant comment about the order of timer loading for !VHE
->   - Use the explicti kvm_call_hyp_nvhe for pKVM specific ops
->   - Don't call nvhe_vcpu_put from pkvm_vcpu_put, open code them
->   - Drop cpu argument for vcpu_load() callback. We set the cpu
->     before the callbacks are invoked
->   - Drop kvm_vm_is_confidential(), instead widen the scope of kvm_vm_is_protected()
->     to cover pVMs and Realms. Add an explicit helper kvm_vm_is_protected_pkvm()
->     for the cases where we need to check for a "pVM on pKVM"
->   - Add kvm_vm_hyp_is_pkvm() for checking if the VM is running on pKVM.
->     covers both unprotected and pvms. But really uses is_protected_kvm_enabled()
->     under the hood
->   - Add kvm_vm_hyp_is_distrusting() to cover pKVM guests (both protected and
->     unprotected) and Realms. Use this for preventing the vgic v2 mapping into
->     Stage2 for a guest
->   - Drop superfluous !kvm check from kvm_vm_ioctl_enable_cap() - Sashiko
->   - Drop KVM_CAP_CREATE_IRQCHIP, as we don't support VGIC_V2 for Realms
->   - Filter out the vm_ioctls that are based on blocked cap.
->   - Repurpose the pkvm plumbing for filtering the caps and ioctl to generic
->     and plumb the Realm support in
->   - s/PKVM/pKVM for the comments
->   - Drop type argument for pkvm_init_host_vm and also drop protected variable,
->     now that we have the vm_flavor to check.
->   - Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() with valid
->     kvm instance
->   - CCA: Merge the GET/SET REG handling patches into a single patch
->   - CCA: Reword the commit description for SVE VL access handling
->   - Reordered the patches to group the Realm realted to changes to the rear end
-> 
-> Jean-Philippe Brucker (2):
->    KVM: arm64: CCA: Expose SVE VL register before VCPU finalization
->    KVM: arm64: CCA: Control user register access for Realms
-> 
-> Steven Price (4):
->    KVM: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
->    KVM: arm64: CCA: Introduce Realms
->    KVM: arm64: CCA: WARN on injected undef exceptions
->    KVM: arm64: CCA: Support timers in realm RECs
-> 
-> Suzuki K Poulose (14):
->    KVM: arm64: protected VM: Handle user writes to CNTVCT_EL0/CNTPCT_EL0
->    KVM: arm64: Disable Steal time accounting for protected guests
->    KVM: arm64: Include kvm_emulate.h in kvm/arm_psci.h
->    KVM: arm64: Track the type of VM in kvm_arch
->    KVM: arm64: Refactor the vcpu_load to allow for VM specific callbacks
->    KVM: arm64: Add vcpu load/put call backs for flavors
->    KVM: arm64: Reuse kvm_stage2_unmap_range in kvm_unmap_gfn_range
->    KVM: arm64: Add VM specific callback for S2 MMU operations
->    KVM: arm64: Abstract out memory abort handling
->    KVM: arm64: Mandate VGIC v3 for for VMs running on hyp that don't
->      trust the host
->    KVM: arm64: CCA: Add a new mode for supporting Realm guests
->    KVM: arm64: CCA: Add VCPU load/put for Realms
->    KVM: arm64: CCA: Add bare minimal S2 operations for Realm
->    KVM: arm64: CCA: Don't expose unsupported capabilities for realm
->      guests
-> 
->   .../admin-guide/kernel-parameters.txt         |   3 +
->   arch/arm64/include/asm/kvm_emulate.h          |  16 +
->   arch/arm64/include/asm/kvm_host.h             |  69 +++-
->   arch/arm64/include/asm/kvm_pgtable.h          |   6 +-
->   arch/arm64/include/asm/kvm_pkvm.h             |  25 +-
->   arch/arm64/include/asm/kvm_rmi.h              |  84 +++++
->   arch/arm64/include/asm/virt.h                 |   1 +
->   arch/arm64/kvm/Makefile                       |   2 +-
->   arch/arm64/kvm/arch_timer.c                   |  34 +-
->   arch/arm64/kvm/arm.c                          | 300 +++++++++++++++---
->   arch/arm64/kvm/guest.c                        |  73 ++++-
->   arch/arm64/kvm/handle_exit.c                  |   2 +-
->   arch/arm64/kvm/hyp/nvhe/pkvm.c                |   6 +-
->   arch/arm64/kvm/hyp/pgtable.c                  |   1 +
->   arch/arm64/kvm/hypercalls.c                   |   4 +-
->   arch/arm64/kvm/inject_fault.c                 |   1 +
->   arch/arm64/kvm/mmu.c                          | 210 +++++++++---
->   arch/arm64/kvm/pkvm.c                         |   6 +-
->   arch/arm64/kvm/pvtime.c                       |  14 +-
->   arch/arm64/kvm/rmi.c                          |  18 ++
->   arch/arm64/kvm/sys_regs.c                     |  28 +-
->   arch/arm64/kvm/vgic/vgic-init.c               |   2 +
->   include/kvm/arm_psci.h                        |   2 +
->   23 files changed, 752 insertions(+), 155 deletions(-)
->   create mode 100644 arch/arm64/include/asm/kvm_rmi.h
->   create mode 100644 arch/arm64/kvm/rmi.c
-> 
-
+DQpIZWxsbyBNYXJrLA0KDQo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+IEZyb206IE1h
+cmsgQnJvd24gPGJyb29uaWVAa2VybmVsLm9yZz4NCj4gU2VudDogVHVlc2RheSwgU2VwdGVtYmVy
+IDIyLCAyMDI2IDEwOjM1IFBNDQo+IFRvOiBKb2FraW0gWmhhbmcgKNXFx7/H7CkgPGpvYWtpbS56
+aGFuZ0BjaXh0ZWNoLmNvbT4NCj4gQ2M6IGxnaXJkd29vZEBnbWFpbC5jb207IHJvYmhAa2VybmVs
+Lm9yZzsga3J6aytkdEBrZXJuZWwub3JnOw0KPiBjb25vcitkdEBrZXJuZWwub3JnOyBwZXJleEBw
+ZXJleC5jejsgdGl3YWlAc3VzZS5jb207IHAuemFiZWxAcGVuZ3V0cm9uaXguZGU7DQo+IGNpeC1r
+ZXJuZWwtdXBzdHJlYW0gPGNpeC1rZXJuZWwtdXBzdHJlYW1AY2l4dGVjaC5jb20+OyBsaW51eC0N
+Cj4gc291bmRAdmdlci5rZXJuZWwub3JnOyBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsgbGlu
+dXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsNCj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZy
+YWRlYWQub3JnDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggMi80XSBBU29DOiBjZG5zOiBBZGQgQ2Fk
+ZW5jZSBJMlMtU0MgY29udHJvbGxlciBkcml2ZXINCj4gDQo+IE9uIFR1ZSwgU2VwIDIyLCAyMDI2
+IGF0IDA3OjIxOjMyUE0gKzA4MDAsIGpvYWtpbS56aGFuZ0BjaXh0ZWNoLmNvbSB3cm90ZToNCj4g
+PiBGcm9tOiBKb2FraW0gWmhhbmcgPGpvYWtpbS56aGFuZ0BjaXh0ZWNoLmNvbT4NCj4gPg0KPiA+
+IEFkZCBzdXBwb3J0IGZvciB0aGUgQ2FkZW5jZSBJMlMtU0MgY29udHJvbGxlciBmb3VuZCBpbiB0
+aGUgQ0lYIFNLWTENCj4gPiBhdWRpbyBzdWJzeXN0ZW0uDQo+IA0KPiA+DQo+ID4gIG9iai0kKENP
+TkZJR19TTkRfU09DKQkrPSBzbmQtc29jLWNvcmUubw0KPiA+ICtvYmotJChDT05GSUdfU05EX1NP
+QykJKz0gY2Rucy8NCj4gPiAgb2JqLSQoQ09ORklHX1NORF9TT0MpCSs9IGNvZGVjcy8NCj4gDQo+
+IFRoaXMgc2hvdWxkIGJlIHNvcnRlZCBpbiB3aXRoIHRoZSB2ZW5kb3JzLCBhZnRlciBiY20uDQpP
+Sy4NCg0KPiA+ICsrKyBiL3NvdW5kL3NvYy9jZG5zL01ha2VmaWxlDQo+ID4gQEAgLTAsMCArMSw0
+IEBADQo+ID4gKyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjANCj4gPiArDQo+ID4g
+K29iai0kKENPTkZJR19TTkRfU09DX0NETlNfSTJTX1NDKSArPSBzbmQtc29jLWNkbnMtaTJzLXNj
+Lm8NCj4gPiArc25kLXNvYy1jZG5zLWkycy1zYy1vYmpzIDo9IGNkbnMtaTJzLXNjLm8NCj4gDQo+
+IFdlJ3ZlIG1vdmVkIHRvIG1vZHVsZS15IGZvciBtb2R1bGUgb2JqZWN0cy4NCk9LLg0KDQo+ID4g
+K3N0YXRpYyBpbnQgY2Ruc19pMnNfc2NfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRl
+dikgew0KPiA+ICsJc3RydWN0IGNkbnNfaTJzX3NjX3ByaXYgKmkyc19zY19wcml2Ow0KPiA+ICsJ
+c3RydWN0IHJlc291cmNlICpyZXM7DQo+ID4gKwl2b2lkIF9faW9tZW0gKmJhc2U7DQo+ID4gKwlp
+bnQgaSwgaXJxLCByZXQ7DQo+IA0KPiA+ICsJcmV0ID0gZGV2bV9yZXF1ZXN0X2lycSgmcGRldi0+
+ZGV2LCBpcnEsIGNkbnNfaTJzX3NjX2lzciwgMCwNCj4gPiArCQkJICAgICAgIGRldl9uYW1lKCZw
+ZGV2LT5kZXYpLCBpMnNfc2NfcHJpdik7DQo+ID4gKwlpZiAocmV0KSB7DQo+ID4gKwkJZGV2X2Vy
+cigmcGRldi0+ZGV2LCAiRmFpbGVkIHRvIHJlcXVlc3QgaXJxOiAlZFxuIiwgcmV0KTsNCj4gPiAr
+CQlyZXR1cm4gcmV0Ow0KPiA+ICsJfQ0KPiANCj4gV2UgcmVxdWVzdCB0aGUgaW50ZXJydXB0IGJl
+Zm9yZSB3ZSBlbmFibGUgY2xvY2tzIG9yIGFueXRoaW5nLCBhbiBpbnRlcnJ1cHQgY291bGQgYmUN
+Cj4gZGVsaXZlcmVkIGFzIHNvb24gYXMgd2UgZG8gdGhlIHJlcXVlc3QgYW5kIHRoZSBoYW5kbGVy
+IHdpbGwgdHJ5IHRvIGludGVyYWN0IHdpdGggdGhlDQo+IGhhcmR3YXJlIHdoaWNoIEkgaW1hZ2lu
+ZSBtaWdodCBnbyBiYWRseSBpZiBpdCdzIHVuY2xvY2tlZCBvciBpbiByZXNldCAoYXQgbGVhc3Qg
+Zm9yDQo+IHNvbWUgaW50ZWdyYXRpb25zKS4NCj4gSXQncyBnZW5lcmFsbHkgZWFzaWVyIHRvIG1h
+a2UgdGhpcyBvbmUgb2YgdGhlIGxhc3QgdGhpbmcgd2UgZG8gaW4gcHJvYmUsIG9uY2UgbW9zdA0K
+PiB0aGluZ3MgYXJlIHJlYWR5Lg0KTWFrZSBzZW5zZS4NCg0KPiA+ICtzdGF0aWMgdm9pZCBjZG5z
+X2kyc19zY19yZW1vdmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikgew0KPiA+ICsJaWYg
+KCFwbV9ydW50aW1lX3N0YXR1c19zdXNwZW5kZWQoJnBkZXYtPmRldikpDQo+ID4gKwkJcG1fcnVu
+dGltZV9mb3JjZV9zdXNwZW5kKCZwZGV2LT5kZXYpOw0KPiA+ICsJcG1fcnVudGltZV9kaXNhYmxl
+KCZwZGV2LT5kZXYpOw0KPiA+ICt9DQo+IA0KPiBGb3IgQ09ORklHX1BNPW4gZm9yY2luZyBzdXNw
+ZW5kIHdvbid0IGRvIHdoYXQgeW91IHdhbnQsIGFuZCB3aGVuIGl0J3MgZW5hYmxlZA0KPiBpdCds
+bCBhbHNvIGRpc2FibGUuICBkZXZtX3BtX3J1bnRpbWVfZW5hYmxlKCkgbWlnaHQgYmUgZWFzaWVy
+Lg0KV2lsbCB1cGRhdGUgdG8gZGV2bV9wbV9ydW50aW1lX2VuYWJsZSgpLg0KDQo+ID4gK3N0YXRp
+YyBjb25zdCBzdHJ1Y3QgZGV2X3BtX29wcyBjZG5zX2kyc19zY19wbV9vcHMgPSB7DQo+ID4gKwlT
+RVRfUlVOVElNRV9QTV9PUFMoY2Ruc19pMnNfc2NfcnVudGltZV9zdXNwZW5kLA0KPiA+ICsJCQkg
+ICBjZG5zX2kyc19zY19ydW50aW1lX3Jlc3VtZSwgTlVMTCkNCj4gPiArCVNFVF9TWVNURU1fU0xF
+RVBfUE1fT1BTKGNkbnNfaTJzX3NjX3N5c3RlbV9zdXNwZW5kLA0KPiA+ICsJCQkJY2Ruc19pMnNf
+c2Nfc3lzdGVtX3Jlc3VtZSkNCj4gPiArfTsNCj4gDQo+IA0KPiBSVU5USU1FX1BNX09QUygpIGFu
+ZCBTWVNURU1fU0xFRVBfUE1fT1BTKCkgYXJlIHRoZSBtb3JlIG1vZGVybiB0aGluZ3MsDQo+IGFu
+ZCBhdm9pZCB0aGUgbmVlZCBmb3IgX19tYXliZV91bnVzZWQuDQpZZXMuDQoNClRoYW5rcywNCkpv
+YWtpbQ0K
 
