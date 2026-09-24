@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADBEAC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDAEDC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kqu4msBQ4bPA9UbwPhfUf7tiJJTHmh9JW9r09bgkbk=; b=IY0j0xyd97irj+AhoCh61DCTw4
-	crFY6ecUNLhhPcsQ3A409/+c+xDoUvdTHzfWMm3yt8I3ILbcLVPPRyIgql0u9ICJLrNiHfkDFfxvx
-	OP68t7EfBfXCLFEqydceha+E6zaiMct9HDpljjCfreF86sJa8Kz1/jDe1RuIvjFsa3YQWNZmz66eK
-	XUC9WGa3WTIr6a+t+JWcbZT3b1n9k7wmJGeP+uit6qmgW+oY8oCf0ihiBE/sw052LVVem2KqlqUvM
-	ntAZyOOsicnfy5nvx9om+4f0LdB8mYrr0NU1a8vZpSUifSWMQJI6HwsbDtRzLXQVI0KATie39Wn/o
-	g2IEa0kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Z6hK1wJOvRpU/CGhkbccoyVt+96evFlvSWCRsULX+k=; b=UxlHCAB94CL80WZ9KlJra4XyP9
+	x6QSM4jHIIPWWETUnPI773U0AeisUss+0pqKUusohMLrCAcHiGnTMR5VFXAz5MiMogm0LW6nHqD+c
+	4JTAIklFwCKFTr79+b4FuIqzSVwZS004N6RB+Z2DzSYNt5ewYnvABOZ/c2goBI4EclE+zILp4irLo
+	LQqg4sptekiGlumUPDE8HoyefOyfjvpiL9+0B7sIt7LDqUfLrwA4s+wAhfMD3g1aZPl10GmV/41s9
+	kaUiT/fpNhQsY9sXl+Ip0WxN+gvgJT+7Y7+GEnOZzG2Cl3E3dCOk9nsPagpAFnl1C6YrfGJh4E7ZK
+	O70J/DIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lu2-0000000BVmE-0F2T;
-	Thu, 24 Sep 2026 16:02:30 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x9luZ-0000000BVtc-1BYQ;
+	Thu, 24 Sep 2026 16:03:03 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ltz-0000000BVlg-2JS0
+	id 1x9luW-0000000BVre-0Uvt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:02:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=5kqu4msBQ4bPA9UbwPhfUf7tiJJTHmh9JW9r09bgkbk=; b=kmx4KbUU5Z/OTnAMxRKrbvGjJ2
-	tsbUFAUp8Zq2P/d+kbI2ASEwFWAxn/srG/qUNLkBpgH++jcfq3YIDgQEN5yjs3puCkJk4IJUwkgbe
-	nzVe+dzzuXntHuewVTRpZhCQJWweWiAZLzTIwMQNYwq17DDMIfP6U96JtPCsZJJhk7Vs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9ltj-0071tD-RU; Thu, 24 Sep 2026 18:02:11 +0200
-Date: Thu, 24 Sep 2026 18:02:11 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
- A733 GMAC210
-Message-ID: <491f043e-6dc6-4936-a490-31a3362c5b6e@lunn.ch>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
- <9cc61625-47c9-4bdf-97f0-0528f661a399@lunn.ch>
- <1j7bkb9h5k.fsf@starbuckisacylon.baylibre.com>
- <5fae3b42-552a-458a-9710-927360e58c37@lunn.ch>
- <1jv77u8yak.fsf@starbuckisacylon.baylibre.com>
+	Thu, 24 Sep 2026 16:03:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1790265777;
+ bh=4Z6hK1wJOvRpU/CGhkbccoyVt+96evFlvSWCRsULX+k=;
+ b=D3YsLwMNaJfRPq+ppJcriT30EIpDIa37YXLqxSSwvGMksoKScUpybiE8Is6AFXm2kUKpJr3IE
+ QmMx/XrFmO9CRTz5PsLulxdNDaZbYa/L1BJBnbyUMRlQK/vEplto52QXLAF9Bqx314qhxB1tPoz
+ DH9xRWONkg/HKBXLuoVrq0AXYQ49u/TFWLoZOAelAD/L0XPIZsyE8UrjMIo4HwpMm7Gxwys2kic
+ c783i/bD6G/7M8TGawnCgqwobJzzR4TS2VvHBQNz4lTRykwNZMKU9bOkAFJh04Jf4t5Wi4S18tr
+ vXn7L5fJ8xk+BEIj8DtHx41E7nqasM+1w8+ksDd0dSTA==
+X-Forward-Email-ID: 6ab549aec3cf5b1855119e7f
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.16.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <d3c0b1c9-a9fe-42c1-b865-dd1a8cc4e416@kwiboo.se>
+Date: Thu, 24 Sep 2026 18:02:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1jv77u8yak.fsf@starbuckisacylon.baylibre.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] arm64: dts: rockchip: Remove cap-sd-highspeed on Rock
+ Pi S eMMC
+To: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <1790147498-47766-1-git-send-email-shawn.lin@rock-chips.com>
+ <1790147498-47766-3-git-send-email-shawn.lin@rock-chips.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <1790147498-47766-3-git-send-email-shawn.lin@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_090227_594762_9845E959 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20260924_090300_544179_1695483B 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,78 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> It is not the PCB doing the delays so rgmii-id it is (in DT) - got it.
+Hi,
 
-Yep.
-
+On 9/23/2026 9:11 AM, Shawn Lin wrote:
+> cap-sd-highspeed declares SD high-speed support and has no place on
+> the non-removable eMMC node. Drop it.
 > 
-> I dunno what is sane or not, but the allwinner dwmac drivers do set some
-> delays. sun8i-dwmac and sun55i-dwmac do so, even before this change.
-
-As the document i linked to says, doing small tuning delays is
-fine. We strongly prefer the PHY does the 2ns delay, if it can.
-
-> If I understand correctly :
+> Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+> ---
 > 
-> """
-> When the MAC implements the delay, it must ensure that the PHY does not
-> also implement the same delay. So it must modify the phy-mode it passes
-> to the PHY, removing the delay it has added. Failure to remove the delay
-> will result in a non-functioning link
-> """
+>  arch/arm64/boot/dts/rockchip/rk3308-rock-pi-s.dts | 1 -
+>  1 file changed, 1 deletion(-)
 > 
-> IOW when the gmac has *-internal-delay-ps set and honors them, it should
-> also amend phymode seen by PHY to make sure it does not add its own
-> delays, should it ever be fixed ?
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3308-rock-pi-s.dts b/arch/arm64/boot/dts/rockchip/rk3308-rock-pi-s.dts
+> index c1e3098..677d129 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3308-rock-pi-s.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3308-rock-pi-s.dts
+> @@ -133,7 +133,6 @@
+>  
+>  &emmc {
+>  	cap-mmc-highspeed;
+> -	cap-sd-highspeed;
 
-You need to differentiate between small fine tuning delays, and the
-2ns delay required by the RGMII standard. If the MAC is just doing
-fine tuning, you need to still pass PHY_INTERFACE_MODE_RGMII_ID so the
-PHY adds the 2ns delay. If the MAC is adding a big delay, you need to
-pass PHY_INTERFACE_MODE_RGMII to the PHY.
+The Rock Pi S board has two similar revisions that is supported by this
+DT, one has onboard SD NAND Flash and the other one has onboard eMMC
+supported by the emmc dw-mshc.
 
-If you have the schematics, it would be good to confirm the strapping
-on the PHY, and add a comment in the DTS file about what is going on
-here.
+So this board should have both cap-mmc-highspeed and cap-sd-highspeed
+here to support best speed depending on board revision.
 
-The other option i hinted at was use phy-mode = 'na'. I'm still
-considering this, it has some advantages.
+Regards,
+Jonas
 
-The problem with passing PHY_INTERFACE_MODE_RGMII or
-PHY_INTERFACE_MODE_RGMII_ID to the PHY is we have no way of knowing if
-the hardware is honouring it. It appears the board you are working on
-does the opposite of what we would prefer. I guess there are going to
-be other similar boards, but are they going to get a similar level of
-review and the issues spotted? Are they going to end up passing the
-wrong PHY_INTERFACE_MODE_RGMII value to the PHY?
+>  	no-sdio;
+>  	non-removable;
+>  	pinctrl-names = "default";
 
-By making the PHY reject PHY_INTERFACE_MODE_RGMII* it makes it very
-clear something odd is going on here, and care needs to be taken. It
-will be very much in your face for DT writers, so they are more likely
-to get it correct.
-
-And if in the future we do find out how to control the PHY delays in
-software, boards using phy-mode = 'na' are safe, no change. Other
-boards which got passed review could well break. Been there, done
-that, don't want to repeat it.
-
-> > But this PHY is going to cause you lots of problems.
-> 
-> We don't get to choose I'm afraid :)
-
-Yes, you have just the first victim.
-
-It would be nice if somebody reached out to the vendor and asked if:
-
-Can the RGMII delays be configured in software?
-
-if not:
-
-Can the RGMII delay strapping be seen in software?
-
-If we know the strapping we can at least return EOPNOTSUPP if the
-requested does not match what the hardware is doing, and we get a
-clear indication of a problem.
-
-    Andrew
 
