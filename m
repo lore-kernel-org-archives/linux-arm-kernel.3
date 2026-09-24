@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1B0C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 21:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC735C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6LkhgjIPo4LQGHd0bFnsw+pSTli362MQLpClW50HsSw=; b=Bn1VlX3IDTQhY9k028A5kwtrBk
-	thI4s5Ndjz1M8l7sYBqDlkiIHY3hFxsZg+bjA8Tn3uzk+Kiv/V7aP+3N7AFAaewU9g43EKCin9dX+
-	wKTtTCUVHca5+C2KYV+gH4GswWzTb7Wjm7g8tHNsvwX3kad54x1j66LqIg3tpHZ8vj3Lt5orbguwu
-	Jq1hPuCtZPyTVtjUCSF/XlnQ+UTwXd0G+p6r+2ybaM+4Ya6Hpv+fAV1egifFxUpeYPqdaKAYZIjFo
-	cdQQOlk7jpC0490pE+JXeneVQ1/rHug0FUMr5mQutGpWqELvqArvNDGLes8NWv6uub+Iub8ktu9qo
-	XdwHwfeA==;
+	bh=bSzKOZUy8NaRjE8fxyAW+EMiV46+2afh1kAtlwVP6oc=; b=afQbWTfz0DL/TtMJ7TXo0enb5S
+	raL64u4u3Gu/llKPJvMWeIxzhGD+Iv7JcrEOgbxQAftNOKZTKPjmtd21QRxEjs8f7igrezxpBnjDs
+	4d1lOAMf6CA+9id3+FhBWvU5GLZpzYUBwAnRGb9wpJ2LGit/p/Jm//Oe1U+AbNY2JHv39k9Roblha
+	2lbfbkmh1e2cMh05Y+szgKRecCSakiFI7EItJvNk0UGE2ze4qR6Fkaaecn8RLoYgUA4C7IFJA62jk
+	0ofM50iOInDea+cWQWsVOr9ICmXWvCI0w9dsHXZ99g6gX1K4UjMRqEmslYgcCIY0zZzOG/EJ4yVQ1
+	YX8vBiAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9rNU-0000000CFez-0Wwp;
-	Thu, 24 Sep 2026 21:53:16 +0000
-Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
+	id 1x9rWT-0000000CGGI-0qso;
+	Thu, 24 Sep 2026 22:02:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9rNQ-0000000CFeY-3XPB
+	id 1x9rWR-0000000CGGA-237n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 21:53:14 +0000
-Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cc73ab90ae7so158487a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 14:53:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790286791; x=1790891591; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6LkhgjIPo4LQGHd0bFnsw+pSTli362MQLpClW50HsSw=;
-        b=KqWIDN8zuFEO0I/e2eKDxeGAA/99oumNtoXDyBcdhzGKWuhQ6t0benoM8cl6aHW8pp
-         vXlRUgbVkZUtBcsJ+4jqmsZq5L7CaYNV+CS9i5ko5oLwkvjLIVU2Q5JV0YkRAvfxAFmi
-         p77bTc0fTCAVm1uOfuW1oY2Onl56ur8lAMLI/cszQITVkBLmWrbjYkmRHH9k8V9zQ/OF
-         kc1FoKPIaec61jLLaEEG0ymjUD5Hp+jCAkCQpmIQdoJM7p14VrEPWBg69zpNLEAqpG3W
-         t0B5pbwQp0tnD9OUund+Z4yFoSEJzEmOTRflK8PwOPFEVqaljAEXcv/Spgj12KIpCJHh
-         XMQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790286791; x=1790891591;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6LkhgjIPo4LQGHd0bFnsw+pSTli362MQLpClW50HsSw=;
-        b=X/KVN8Zpgzg0op9NX1WedBqdfNIR6aDRe/FevA/wLxYinnTL2mU8nlLiHyFOjJ5+BB
-         IfL8R8Tta/wRNgZ7itrocoTyc90DQiAbZeG8xT+jYCKWjINDSVHQlbafpfgfDIO8gCaw
-         znPcAL5Bhj7CX+fxkO5RNoKInZDZ7KXquT6Lwd8zSoxioVvo5q0UUDn9fWeqyljym+VS
-         4XDZM5MjYvVEqOYkRnrRasPcUUXgjH2ajoxRxlORX37mzJHJq+I6S/aC/LHJXc3yAN4V
-         dee++nwPMi3xGCg2nJ9Xj5ocRY/F4gZdfc3fSCkYUxP3J0fPIMyDGm9VjA7b0pnksbvX
-         JSSQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzwaUEahQdVpTjrxZnOT3gakSHaiQvfk4eahwF7BF0f7dmzWyHwiV/JsQ+jnhew7Bzi0YCYW+iTi5LaZ/N+oUiF@lists.infradead.org
-X-Gm-Message-State: AFuF++mpzh38Mt8FZaXQzVnwG1w3ax6/2V7irxvhUNtm+eRL+G0nBr/u
-	8QHYVMDmrINilJUbmFp0IqoUcyTvD+JmAE3jzK7B2sS1e5mPld8WniToLNEcCzvSx/iZ8WBe4U4
-	bThIhrQ==
-X-Received: from pjrv22.prod.google.com ([2002:a17:90a:bb96:b0:3a0:9658:1de6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2703:b0:3a0:2ffd:1a4b
- with SMTP id 98e67ed59e1d1-3a098ce5269mr3354853a91.25.1790286791218; Thu, 24
- Sep 2026 14:53:11 -0700 (PDT)
-Date: Thu, 24 Sep 2026 14:51:51 -0700
-In-Reply-To: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
-Mime-Version: 1.0
-References: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <179028368772.2007408.8775233545709825615.b4-ty@b4>
-Subject: Re: [PATCH v4 0/5] Stop returning struct page from guest_memfd PFN lookup
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Michael Roth <michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
-	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Ackerley Tng <ackerleytng@google.com>
-Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_145312_918708_B8C850A8 
-X-CRM114-Status: GOOD (  11.69  )
+	Thu, 24 Sep 2026 22:02:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A615F600D4;
+	Thu, 24 Sep 2026 22:02:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F10E1F000FF;
+	Thu, 24 Sep 2026 22:02:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790287350;
+	bh=bSzKOZUy8NaRjE8fxyAW+EMiV46+2afh1kAtlwVP6oc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N2PXSnK94vokQlGTISS32DQpbhFuKRTsJ9hFv22AeukwR4JVqjV/owNwuRPG7oZoq
+	 9drLo5LgzoM2rfzeGe+gLz+3lrfIA3JBl1PhCKX7XXmiz0/ex7sBy1zyxw8MiY8GHE
+	 v0N/RMxlx+yqBjX4lbf6VzkJpcmtmVIjgr/NhXF0d/RWmfirLYJLzRkmWFE1f3rSVt
+	 BqKPhkitWyzhTmvjJW9sRn00txkCJI0X0ONUFCTSlTgFTXSHMRV05M4DYQRzKyOp8r
+	 3e91QJYKcam0XM03HO3/EgOf5yNNEJ+uLG4MGR1lFtOJuUkVrJ3XtjDYUvF4t8x5Hy
+	 jd8i0HrbwkV/g==
+Date: Thu, 24 Sep 2026 17:02:28 -0500
+From: Rob Herring <robh@kernel.org>
+To: Markus Probst <markus.probst@posteo.de>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Langer <michael.brainbug.langer@googlemail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 1/6] dt-bindings: rtc: Add pinctrl for S35390A
+Message-ID: <20260924220228.GA1895971-robh@kernel.org>
+References: <20260916-rtc_s35390a_int1-v9-0-b2567a3e4959@posteo.de>
+ <20260916-rtc_s35390a_int1-v9-1-b2567a3e4959@posteo.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260916-rtc_s35390a_int1-v9-1-b2567a3e4959@posteo.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +80,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Aug 2026 09:01:45 +0000, Ackerley Tng wrote:
-> v4 splits out a new patch (3) that makes use of KVM MMU invalidation logic
-> introduced into the RMP fault handling in patch 2 to avoid warning on a
-> benign case.
+On Wed, Sep 16, 2026 at 04:00:36PM +0000, Markus Probst wrote:
+> Synology NAS devices use the output pin for interrupt signal 1 to wake up
+> the system.
 > 
-> Other changes in v4:
+> Move devicetree bindings for sii,s35390a into its own file.
+> Add necessary properties to configure the individual pins via pinctrl,
+> which allows the interrupt signal 1 to be used for wakeup alarm.
 > 
-> + Took Sean's version of the changelog for patch 2
-> + Picked up Fuad's Reviewed-by: and Tested-by:
+> Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> ---
+>  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 121 +++++++++++++++++++++
+>  .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
+>  2 files changed, 121 insertions(+), 3 deletions(-)
 > 
-> [...]
+> diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> new file mode 100644
+> index 000000000000..f3bf5900fb3c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> @@ -0,0 +1,121 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: S-35390A 2-WIRE REAL-TIME CLOCK
 
-Applied to kvm-x86 coco, thanks!
+Drop the all caps.
 
-[1/5] KVM: SEV: Treat unassigned RMP entry as benign race on PSMASH failure
-      https://github.com/kvm-x86/linux/commit/211606532680
-[2/5] KVM: SEV: Drop page refcount early during RMP fault handling
-      https://github.com/kvm-x86/linux/commit/375b32931b5d
-[3/5] KVM: SEV: Check for invalidation before warning on unassigned RMP entry
-      https://github.com/kvm-x86/linux/commit/acafcf32c83e
-[4/5] KVM: SEV: Drop page refcount early in VMSA reload
-      https://github.com/kvm-x86/linux/commit/3c427e5c0347
-[5/5] KVM: guest_memfd: Stop returning struct page from PFN lookup
-      https://github.com/kvm-x86/linux/commit/89fbe3de01cc
+> +
+> +maintainers:
+> +  - Markus Probst <markus.probst@posteo.de>
+> +
+> +description:
+> +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
+> +  very low current consumption in the wide range of operation voltage.
+> +
+> +allOf:
+> +  - $ref: rtc.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: sii,s35390a
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description: Supports up to 2 interrupt lines via the INT1 and INT2 pins.
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    maxItems: 2
+> +    items:
+> +      enum:
+> +        - int1
+> +        - int2
+> +
+> +  wakeup-parent: true
+> +
+> +  wakeup-source: true
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +patternProperties:
+> +  "^pins":
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    patternProperties:
+> +      "-pins$":
+> +        type: object
+> +        additionalProperties: false
+> +
+> +        allOf:
 
---
-https://github.com/kvm-x86/linux/tree/next
+Don't need allOf.
+
+> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+> +
+> +        properties:
+> +          pins:
+> +            minItems: 1
+> +            items:
+> +              enum:
+> +                - int1
+> +                - int2
+> +
+> +          function:
+> +            description: |
+> +              Pin function:
+> +              - ignore:  Preserve the previous state.
+> +              - disable: Disable pin output.
+> +              - wakeup:  Output wakes up the system.
+> +              - clock:   Output clock pulse.
+> +              - pmin1:   Minute periodical output with 50% duty.
+> +              - pmin2:   Minute periodical output L for 7.81 ms.
+> +                         Can only be used with pin int1.
+> +            enum:
+> +              - ignore
+> +              - disable
+> +              - wakeup
+> +              - clock
+> +              - pmin1
+> +              - pmin2
+> +
+> +        required:
+> +          - pins
+> +          - function
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        rtc@30 {
+> +            compatible = "sii,s35390a";
+> +            reg = <0x30>;
+> +            pinctrl-0 = <&rtc_pins_default>;
+> +            pinctrl-names = "default";
+> +
+> +            interrupt-names = "int1";
+> +            interrupts = <23>;
+> +
+> +            rtc_pins_default: pins {
+> +              int1-pins {
+> +                pins = "int1";
+> +                function = "wakeup";
+> +              };
+> +              int2-pins {
+> +                pins = "int2";
+> +                function = "disable";
+> +              };
+> +            };
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> index f4d0eed98a08..7b3f682ef4d5 100644
+> --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> @@ -81,8 +81,6 @@ properties:
+>        - ricoh,rv5c386
+>        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+>        - ricoh,rv5c387a
+> -      # 2-wire CMOS real-time clock
+> -      - sii,s35390a
+>        # ST SPEAr Real-time Clock
+>        - st,spear600-rtc
+>        # VIA/Wondermedia VT8500 Real-time Clock
+> @@ -105,5 +103,4 @@ required:
+>    - reg
+>  
+>  additionalProperties: false
+> -
+
+Unrelated change. Drop.
+
+Rob
 
