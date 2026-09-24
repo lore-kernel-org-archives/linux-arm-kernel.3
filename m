@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECA8C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0043C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eGFtAxjPebUuQk9r7/DMkX7jS2v/ihsU7t718jAGybQ=; b=vaklxr7N1YhadXCQ3ijGV0ndgj
-	yJCyFKTE1eN4cfgwtVE3vYlGuosJQWkFRSslHjmNv6N8lca2SrXJnPSy2B0HwO0RZZSJJsg0GFLYA
-	VgGVuq7tMv1m5b3f9aU2muAVsINWuyPaYFyC3Ng7qNeQRkiL5x2CJivvs8Ah1oiHTv7kjJYzWC5RB
-	aD+X/LBWgdymVWslIuov+6pJlqIhZesyqWkprrQ6oTXFlswc+Dlqj1kTibWCLhfdKPSU00g9P9r1q
-	4tNXzdgqd+iZJD8P3CbpYtYlOIfEvUxuIZX+fIbhsqNBif9gy3M/B2ayj2PHBrPBQvvhFOwMcEhHb
-	GgsDCaSQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M+SCOGAJarxrIkpGByhDtV4LsMHglOYq74GINs0bv9o=; b=atMtFP5jwLPGm1T15iKJxsCp5V
+	LA31cBlhB2OrG4AYInP8KeVE3c7PEXKQOLS6G2zNyuWYThw0KUn5zIz9lG5Aqnkb95p90/pRHp0Ua
+	6fg2voNLPgFrifwsOMs6loDlplqxOHt5WrZFPq4nWh5b7oFiNNXTb9y4oPL5I19UuODG1SsEOSKzR
+	NifZudQQYyOTlNULkuz8fpcFlx81JvkphrcP7NOv0/NgpbuFz4QDpn3TVgAZBdzyzwC4utZgUebtM
+	Fjs2yAJCDvbDW7m2onUQhH9gF8vDE5xug171QMjFdLcVdb638OqujR//pXe+b3oKS1ZM2ZNH4n2Jg
+	cU7S0aoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jrC-0000000B8Pv-09dd;
-	Thu, 24 Sep 2026 13:51:26 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x9jrK-0000000B8Tx-0a2a;
+	Thu, 24 Sep 2026 13:51:34 +0000
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jr9-0000000B8Ok-11Qe
+	id 1x9jrB-0000000B8PP-1BqS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 13:51:24 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-486e1a044c5so1707038f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:51:22 -0700 (PDT)
+	Thu, 24 Sep 2026 13:51:26 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4885d4825adso1323061f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:51:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790257881; x=1790862681; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eGFtAxjPebUuQk9r7/DMkX7jS2v/ihsU7t718jAGybQ=;
-        b=byoM2yALcJcS3K3K1cszkK1IqDUURZm9XXVQKmcqwmTZSat4GRAKjTLcsO+AK6THcs
-         kXzOzeoF+jqs6au+KfTnRt6wH7G2GvzS12LKQjMDSBm5iX+Z+mFgpkoDkyILCBNeJrON
-         dOG/vD/PHxNIIsOzjScx+bHOnE7aDxS1SU1yRnk29JYVRrhnIcTTaRk3A03S1Ghuy9Bc
-         9mD9igHjhHGteGsqQgU96y0Qa+v26xxMotCHhRom2mtCjMEW1oK+spwmPlt9sA4c6jmo
-         4j4ZOtjpp+sBUGaxinjYClmf9lyJqYLJbXgI8wAV+eyBs8XmdyV+VP2aKsD3ue7f4t5n
-         tALA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790257881; x=1790862681;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1790257883; x=1790862683; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eGFtAxjPebUuQk9r7/DMkX7jS2v/ihsU7t718jAGybQ=;
-        b=BOWphKt9CfSrvneL5YjZzps+6bl5vS5y4RNWcLY734hO9M/0SMa8JlGqkwEXwYzR8A
-         yhkHnhumx7gquRwhLVcy9AwP/Pwg0raBCyqWXEZ9Ix3aL4jSBhNGFcA1mjQpb3hg6bIR
-         msdQtzx0QQixZow3McluDOnmbE0DhEzdA0TA7cF8RWBM66yx6/jmxIkUVwFsV2Jse5SY
-         X1RCXzTGqm5QBEWI/UMvD9eZGpIdmQi8pJUxiMWwm3HVyeRJBniRRmzJUVNtBt/9p9qw
-         V3zwmyPtEIHeHV5l8CLb+imL6LTqLEV1hZsZ+ADquTtjK8v0fI0rvNbXTdDObzO+3vte
-         FHmQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwEtX4ZG3AAP2p7USSo4TFipoptabWNQQsnJVah8PH49K46BrY0MSWww6TKh74rlPIgXoJSmZOYL9M6CudQdBRk@lists.infradead.org
-X-Gm-Message-State: AFuF++kuRCOP5d7dZLR+JX7N/KChJFdd/D9Jcqq8R+V3jSlMEvyXuGI2
-	xed/yZrooNP2Hz4enYYPinaRy4KlRyOmaA9sxzXCHL/xUPYLDmzaD3kA
-X-Gm-Gg: AYBFou3z3gNpZ3gzYlMIzcYtE92PTWkJ78sYPFIQGsUMJ+o02w4n2mV5tS3JhaKlH24
-	OydRgMHixcvC3c6cMPTwluhqoaLpVfR9095zdatEeL6lVdh8OK3bKAOLcsFsTvddiQy065ocu+x
-	Hh3OdfIKNvZ9u/BhvM4YF8grk2tyI+k5m0NHNw4eqRlZUJNhXEF5Il0Qs3PHMdBG5io2hbNE+bY
-	c0/eIYCmW/ZnuVFfcRuEFQlyeItOQB/Miv7UohGuX0B65z+XIsysljPvo8IXsBSAvUK1rHGIblk
-	RGvNHfm2TxyO0X9AMJMQAduR7vBGxm59BbX8ttQ992R0UNYlOWZMAlDXF9fXvwxuXPJvzQ7VGwT
-	g71eR9lUgRM+05Zem4MQOcWJHUHhFRzD0WnY4HBsHWTRkReTI4U6WHhwR/ePoKiUetkkd4J0r14
-	yZVUpuDtpvtDYkoZczsZELmMAYHavHlQMvdtanARY+1iG/G6jT5y3eYliSHoKZ3OjteoJSRgnVt
-	fZ3hRLKJ9hiTmA6oy4rSIuVEGsBo4yH1QzSTToj
-X-Received: by 2002:a05:6000:29c2:b0:488:7927:9c99 with SMTP id ffacd0b85a97d-48879279e34mr247722f8f.4.1790257881136;
-        Thu, 24 Sep 2026 06:51:21 -0700 (PDT)
+        bh=M+SCOGAJarxrIkpGByhDtV4LsMHglOYq74GINs0bv9o=;
+        b=c6Qd6O8Cr0wR4WrwOkjxMiHzApEa1H7Z55O3qHSUx/enExTAuXemo3VtwcpG15CM5t
+         xgUT9uQzrtUUtImiX4/vEGhz/SatQq/rPUnRWv6AW0p+QSTEdffEKJgBPQUyq8Bm3mEB
+         CV4g/H5MaZOB7xnNJou6alpx4+alwMPjfa57Zre+sJKHRACTlh0EjdfIx/tISqv/srVN
+         8ebafEEpvxjeFCx2ECbd/Q4sXV+m7+Nk8R+CB0PzTnh65Ykqw3T9Zs7MLO0JMdOCPAY0
+         kcocjoMYyUdx6YH2WpjFaH7mBEFUWpOc3pjaubDw2KZjoD0zriQVKjkmfxglDN2bUDnr
+         BqUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790257883; x=1790862683;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M+SCOGAJarxrIkpGByhDtV4LsMHglOYq74GINs0bv9o=;
+        b=KjD3bcY/mZxLTtl9t23QvTjB7zy/+ibeOYe5bFEoHjJT+hFxPAFgPyTRWK4GTQaIx+
+         Ur1BadMv8KKXjbjCxkx1gL7YMkmD3A2Ou4/A58j/oPvuZgtB2O8DhQ1nOFLecNK3y8KP
+         PARSaZhgvCdfV/VfZWiosAeYRNulfV0tiXHsHNAPOV/XTcvotgTdcozHjb/k9NQoECe2
+         Oq4lcGCAAn2Ta4tLnlbfHN8j8L/7RWwzIsXBZeq29Cvu8PB/aqxAsamJIVmcnWKrRQI5
+         bQHrnSI7OxZwUWwu4r9zgKIUckcGErTO0vUCEH6vmEuGcS8R42uLuns+X1mApd2txL7O
+         giEw==
+X-Forwarded-Encrypted: i=1; AKwUvBw89vE6swC7Y+RLaoG9Zs6Qaqubux1+w4Z3FAlQTNUmksa6OOWx4yx+0kvx3znM8zjlr45iho98UTig4smAmi1o@lists.infradead.org
+X-Gm-Message-State: AFuF++km7br3BZvfhGMzO7TYVkMnKQwmiaTVKDCONU4dRoBBIMxlIvVd
+	AB2YXY4OI6AimQvnDHoo1kPLfZtRbGtuUn8a9fnf0oOVvGJz0UUoivN0
+X-Gm-Gg: AYBFou00nI5RCJnoR9dxo5r2CmiID/vDl5O2T5nHR49frOA3yFTtSxXmBieW0epiu23
+	UfzMddipBwPZyfxt9lPIXK8KdozJyj/b/AJRoyOhcfGuQ2JkbFsy2JbD5hitL9uKnucYzvMY12K
+	zhkcE8N8aXUsCSyvqAu0OUXPidyHPLRQ6meDaRO0kfFfkPQBwYzbMuS909Rr2lw+kUsbz2byYIa
+	GE/Tg6p+JfKIh/Xo08bSMpkGwrCnf/UVor5azscnuc0juiTdL1vTdZ2vPzqitoCjWK/RemeD4Kg
+	V5zx5HesUi1isWp6UcVCutm9KNMtn6VWYJTiPy/hEoAJFDnnmOnCMDcoKzm5wXaOomP0efBGsWK
+	E4NE+aQuOnX566Kkvbj+rj3NH892hAL3bi9I738sFIQCQNtPdtkhIm9+kq5voRPkOKt5Z8lKt+O
+	3zS9mNLuE5woR/ER/6EbLT8CwLEbMxdb7EAsfRNVJDx46B4MyPVDjoQ/ltxBGfTuHfPwL2lgSUg
+	cX94/MW7pIx9KYyKlQ2B6xiGKQgqZhbiNjs6ug8
+X-Received: by 2002:a05:6000:26d3:b0:487:a15:b4cc with SMTP id ffacd0b85a97d-4887171e3bdmr4247572f8f.23.1790257883291;
+        Thu, 24 Sep 2026 06:51:23 -0700 (PDT)
 Received: from fedora-tap.advaoptical.com ([82.166.23.19])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48868889376sm12060660f8f.33.2026.09.24.06.51.19
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48868889376sm12060660f8f.33.2026.09.24.06.51.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 06:51:20 -0700 (PDT)
+        Thu, 24 Sep 2026 06:51:22 -0700 (PDT)
 From: Sagi Maimon <maimon.sagi@gmail.com>
 To: netdev@vger.kernel.org
 Cc: radhey.shyam.pandey@amd.com,
@@ -84,15 +85,17 @@ Cc: radhey.shyam.pandey@amd.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Sagi Maimon <maimon.sagi@gmail.com>
-Subject: [PATCH net v2 0/4] net: axienet: fix TX queue handling around a DMA error reset
-Date: Thu, 24 Sep 2026 16:51:12 +0300
-Message-ID: <20260924135116.185161-1-maimon.sagi@gmail.com>
+Subject: [PATCH net v2 1/4] net: axienet: start the TX queue in axienet_open()
+Date: Thu, 24 Sep 2026 16:51:13 +0300
+Message-ID: <20260924135116.185161-2-maimon.sagi@gmail.com>
 X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20260924135116.185161-1-maimon.sagi@gmail.com>
+References: <20260924135116.185161-1-maimon.sagi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_065123_302875_37345749 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260924_065125_338792_568820C7 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +110,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-axienet_dma_err_handler() resets the DMA engine together with the MAC
-and rebuilds the TX ring, but it does not coordinate with the transmit
-path, and it does not leave the MAC configured the way it found it.
+axienet_open() never starts the transmit queue, and nothing else does
+either: __dev_open() and dev_activate() leave the driver's queue state
+alone.
 
-v1 was a single patch that woke the queue at the end of the handler.
-The Sashiko review showed that this wake could be lost to a concurrent
-transmit and could undo the stop that suspend installs, and it pointed
-out two older problems: the handler races axienet_start_xmit() while it
-tears down the ring, and the reset loses the negotiated link speed and
-pause settings.
+axienet_start_xmit() stops the queue with netif_stop_queue() when the TX
+ring fills, and axienet_tx_poll() wakes it again as completions free
+descriptors.  If the interface is brought down while the queue is
+stopped, __QUEUE_STATE_DRV_XOFF survives into the next axienet_open().
+The ring is reinitialised empty, so no TX completion ever arrives to run
+the wake in axienet_tx_poll(), and the interface cannot transmit until
+the driver is reloaded.  The resume path is unaffected only because
+netif_device_attach() wakes the queues.
 
-This version:
+Start the queue at the end of a successful axienet_open(), as most
+drivers do.
 
-1/4 starts the TX queue in axienet_open().  Nothing does today, so a
-    queue stopped at close stays stopped.  2/4 depends on it.
-2/4 quiesces the TX path in axienet_stop() before the ring is freed,
-    which the suspend path otherwise leaves racing.
-3/4 quiesces the TX queue across the whole error reset and wakes it at
-    the end, unless the interface is stopping or detached.
-4/4 has phylink reprogram the link settings after the reset.
+Tested on an AXI Ethernet MAC behind a PCIe endpoint: traffic passes,
+and resumes after each of ten down/up cycles and five module reloads,
+all made with traffic running.  A queue left stopped across a down/up
+cycle, with the ring full, was not reproduced.
 
-v1 also called netif_trans_update() and said this stopped the watchdog
-from refiring.  No .ndo_tx_timeout is installed in this tree, so the
-call and the claim are both gone.
+Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+Assisted-by: LLM sparse
+Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Tested on an AXI Ethernet MAC behind a PCIe endpoint with the series
-applied: traffic passes, and resumes after each of ten down/up cycles
-and five module reloads, all made with traffic running, with nothing
-logged.  Suspend, a down/up cycle with the queue stopped by a full ring,
-and the DMA error path were not exercised.
-
-v1 omitted the Assisted-by: tag; v2 adds it.
-
-v1: https://lore.kernel.org/netdev/20260917121306.23499-1-maimon.sagi@gmail.com/
-
-Sagi Maimon (4):
-  net: axienet: start the TX queue in axienet_open()
-  net: axienet: quiesce the TX path before axienet_stop() tears it down
-  net: axienet: quiesce the TX queue across a DMA error reset
-  net: axienet: reprogram the link settings after a DMA error reset
-
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
-
-
-base-commit: 879e280b8486d4612ad1aa050d6fada2dd80cf1c
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 782f903d318f..fb26d2e39fac 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1700,6 +1700,11 @@ static int axienet_open(struct net_device *ndev)
+ 			goto err_phy;
+ 	}
+ 
++	/* Nothing else clears a stop left over from before the last close:
++	 * the ring is empty, so no TX completion will wake the queue.
++	 */
++	netif_start_queue(ndev);
++
+ 	return 0;
+ 
+ err_free_eth_irq:
 -- 
 2.47.0
 
