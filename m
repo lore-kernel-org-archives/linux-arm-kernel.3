@@ -4,76 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96425C9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 20:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99403C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 20:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaE1BmC4n2x2Lh1ImjKqdSqbm/A7A2CKpyIc70AL+BY=; b=2ETbftYM4UI8Og2+U8RZkZEokh
-	Y19tYdYOYuklE//6m0e2jtwkIHSrd81KPHZf87ToFQOBVR5Yg2ikZgQVJM8ovFEZ8Jl6gXuB9mncP
-	RyneYwcT1JBUehj54b2RkVtEFTX9ngGM08p+zTgEGvTLn0s6sg6YB66HTht8P8FDESGHtrRFkSumZ
-	f7XdfFcXRI1XNMoEe1cEmAaKWAga3nyyrykzByfiCTdS4YHeec8MngjRGh83e9uQ6nWEGaApIx1sX
-	IRIfgBwpcX564fdJJShVP6ZI/YYR88eIIcMeVNGHYbB6uHxT/fAp5wF4KAE0E3pyx1jvxW5GrW418
-	rly3ytMw==;
+	bh=+I3cAZbub3xas+hAqNKn7vdTuIOrLOZLXBLTFNPVikE=; b=dKCl1unfE7u6afz/wvS78Bgp6b
+	6lH20S9JgCyy5G9pj4FhdgFM1J0k/aanGIVMWmwMEhWRI0h2+ckck3lzbXEWtj9UZ1PrvSo9/qJou
+	HFA2bKf4ZXaIOAETwaVPNfjz9qV2P56SbBiBsJNDarzN9NSz8ER3bXB5OEX9BRoqgn37ZpT1YoGXg
+	t8GD2OMOqx9g1xVS6K/0jaf0PRL+hE6dblNGDfwuR47rbexRUKaiZa70AopB+PCAasCNQ204Xjn75
+	4RcepvDum2i6qWiMG76FrH80n3rSNqXN3UieH8GZvfZ1+G/63Px61JZPC5xOhpKdd6KSF835v66v7
+	pwGm0XrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9q5t-0000000C8jz-1SBv;
-	Thu, 24 Sep 2026 20:31:01 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1x9q8E-0000000C8vx-313D;
+	Thu, 24 Sep 2026 20:33:32 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9q5q-0000000C8jU-09Vp
+	id 1x9q8B-0000000C8vG-2m5B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 20:31:00 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 7C38A3700ED9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 20:30:47 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 332FFB64C1D; Thu, 24 Sep 2026 20:30:45 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id C9838B64AC3;
-	Thu, 24 Sep 2026 20:30:44 +0000 (UTC)
-Date: Thu, 24 Sep 2026 22:30:42 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>,
-	devicetree <devicetree@vger.kernel.org>,
-	"open list:FREESCALE IMX / MXC FEC DRIVER" <imx@lists.linux.dev>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	linux-media <linux-media@vger.kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Thu, 24 Sep 2026 20:33:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vNSKz7c/C/prAGa2+DCm/17N7m+iWAjv1cArJttT9qv0oP1+yGa01TPYk9eFhvY4s1NiMCnMmBP8Ox0h6dfHNX02bvi/uwt4lFwpeOLhdvz2nmvJOzKiMLJ4NeZgAOG22zn2Txg2NiEPjwlWBMtyilv+7hdmZFZ9FFdY99bKhGCw2TDtP6Tw91o+fV71OxyUCLJpGJf9A5uSW3ZkqiEDZFI4CeeKyCwvDaFU9J7h08A7+yaojGEvgxQaeXg6GSb3dAgAww/+VKQQxod45++6ItnB94ZcgwlFvXccY+2OFSJsjO3hgCbic0p2Iv4b4rW5qat3DahWf+XydpyvFJo0Mw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+I3cAZbub3xas+hAqNKn7vdTuIOrLOZLXBLTFNPVikE=;
+ b=d2DhHNhjQf6IBQSGt4Yz2WXS7Y1I2c1FlJhtJE7zB1Umnwt6epRWXdkuTcOr32j0nZdfrAu7ufW8jqARTEKg2u/zLO/wLbW1ZGZe8ICoQNkK4zkYrSMjiBWBL3oGaveMwa9XXr5Hu3THIfR+36or+HH0ZHIs2gBbLhJDtuxDD9vYj0ew/rmtMyhIFPvGsQYB0pFh1VovJics8iILG8/1CJCGFvq5q1LaBUblHhVb7lEt9g2JfsTL5EikHV3Hw19ssdCN17DQ5c0OAs22tT62MSAsP4A7I0seRAX6qk5MmqKPnqrFmst2GyeZK1odnhHtkG7S9cZfDcGo5SxbYvu9mQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+I3cAZbub3xas+hAqNKn7vdTuIOrLOZLXBLTFNPVikE=;
+ b=nv/GTYPkKpezN9ZBd+FVceiiFI3M0FqT5eIMj8EZ1lEd+7W54FOCdGUYx+AVE5U7js/pdpaJSAZYjTB8vgfetUEz5LzDts9U3P/nfI5uB244zfjbHIBswzGri+QPU6LYhfHJ1SnF4UqH4nkpMCd1AB+jSduOJL8X55ou1D6N9nGqGXmBoTAUFoPCeveZdUgREqzB2O2ECJdqB1TM87c09zNv22HeFCmrwIolnCd+RDlClWLeR3HRSYdYOmsqxipVN8sVMkt7Ot1vgKMatEC1zmX/E0sRDpS+QNfsoz/mYLzYtwNDskiQi+J2Rbg2WnfcGH5nBmOewmN3W60uONgEAg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS5PR04MB10020.eurprd04.prod.outlook.com (2603:10a6:20b:682::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
+ 2026 20:33:18 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
+ 20:33:18 +0000
+Date: Thu, 24 Sep 2026 16:33:10 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Michael Tretter <m.tretter@pengutronix.de>
-Subject: Re: [PATCH 00/14] media: Add V4L2 H.264 stateless encode and VC8000E
- support
-Message-ID: <arWIcrSFkEA4GMTY@collins>
-References: <20260522101653.2565125-1-paulk@sys-base.io>
- <ad9788bba0851dcb86c22f40c2562f2a57ac8e6c.camel@collabora.com>
- <CAOf5uwktfp0a3Vi5Jd8Zw5knGMHd_FH=iusRX1NgHYC4VSuzBA@mail.gmail.com>
- <arQxC3DmDyVIGdqq@collins>
- <CAOf5uw=SeHZSnYjPOptAGYwPkQc7L7gDpOrDWJH3UF0r1qdrtg@mail.gmail.com>
- <arVnQmik-CveaAkY@collins>
- <CAOf5uw=K5tWiodM0SEP_nFn0vBv3=YRFWrY1Bd-1jPmZtM7G4A@mail.gmail.com>
- <48271d518bb25f552309de12758e9a9995905f0c.camel@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZGRlYrwE/Jnn6ady"
+	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 3/3] dmaengine: imx-sdma: Use __assign_bit() for
+ ownership configuration
+Message-ID: <arWJBi8iHhaeNfcr@lizhi-Precision-Tower-5810>
+References: <20260903-dma-mask-v1-0-211ffd12c236@nxp.com>
+ <20260903-dma-mask-v1-3-211ffd12c236@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <48271d518bb25f552309de12758e9a9995905f0c.camel@collabora.com>
+In-Reply-To: <20260903-dma-mask-v1-3-211ffd12c236@nxp.com>
+X-ClientProxiedBy: PH7P220CA0112.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32d::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB10020:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1aea806c-1952-4ec3-5034-08df1a7b1154
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|376014|1800799024|22082099003|18002099003|10067099003|4143699003|3023799007|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: P/RBBTrLRH8CWlBfJ00Vf3DUDrak60uOhwCWMCfZeKAj5vhnqjNGqg3ImsOibGbkG6E3f60zah861WMZ3dLDOdFtpH/C2KMI5FLFSbpHttEco7nrfsKkwRwFQ3gerhYwUTq5tkVbI/fr0alFUjFe68r/Xi6ACcG9Acdf+Fn19R4bVXhK/vCx1ax2nN8VBcliwdFmTc1fhsrBg9uZyJZPTep/11SwhpfjLJU8zvApHzVnluVAJGaizeSHym2DiodMVoAN2Fqx0VVq5nU1W4UW4g5qFhYvl+uKL0XyJmKYxLg0lujaJaFnJ6jmpzm7ulQGgOw1QBhcUyqBFFUndCaCE+Y8AcMsq0hk0f2FwR7EYVgOdVG7p56AVbP//Cqe4JkqM6t9jlYADYDvjmYE+O8iOGd+cbyWyEuLSkSO4KzIgKjVqbJpu3rEJZaO6luGntguuKsdtNVYSeTBDpiC5Ea4AP5xvkvYG+VpdNzHNV/dbDcT+JoFRwtJNQSno5400AOSghQUT0Pb2c4AysTUKUdJbKVIJt5KZwAFPLJ1uIrSDYPyZQzLdEgTFPQvuf86dUBrcIznFEziTb9LvJT2Uwbz/7Y91NxIB8boDTWNuMfiH6VC+xzWi+H4GV+n+Z98FOwAdwntLiNdlcIP4SHd10fHXueImTE08HLVf1LIXEtaOQY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(376014)(1800799024)(22082099003)(18002099003)(10067099003)(4143699003)(3023799007)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3/s/bA1TGsDuUXmwoP7r3/mStMGY3JgKh29ff+l3/4ZHaMY9LEg3YLFxvSw6?=
+ =?us-ascii?Q?qgPRofR9S/Xy3q4SdNyJ/oKwGSYsKuWxh7WswwuISoXWdZx/ChQdJCA71p0+?=
+ =?us-ascii?Q?tz3EY0k0T7gsV7AkSvvlp9ufTjnwpCfIMS3Fcj/lgCp7wFWJzRNavKkTtrx6?=
+ =?us-ascii?Q?CcqOpBgU6nIN4xeiKPkuU7wwkhBT1kYksqJ5jiaAmHWTQndQLbq5QjwAajfV?=
+ =?us-ascii?Q?Oc4QyZMxJa8bqKUSGGI/UsJiPAbPTZKSp0G8/2SYyFJ91wvN+3ihxY8468vV?=
+ =?us-ascii?Q?6M2wf7gt/+olpiiaN1+ZDtR2LjRRZDKHq2rCNviLbHG3Zp4iy/8tRjFo58vx?=
+ =?us-ascii?Q?IBYfGdWqMnuIjVItjNFgHtLdcx/BIFjFaPq6MZ9E2lcMgs4iOXfbqG95apuz?=
+ =?us-ascii?Q?1rg54nqac+X2QieGWaZKxE212JOlIwMRj0Ln+pebUN6c6VjS0HleOFxy5iTu?=
+ =?us-ascii?Q?silbvxcvEHygSYjTLO1OVx5y0w5h+818aQRqVs4X8Zqe2ayFZOF3SJGfIxsA?=
+ =?us-ascii?Q?gyoex5Yg1gNh4mhgL6zMkwI3DYcLaw58R328VKXCRyhhIt1DTE3FcGAcW7bL?=
+ =?us-ascii?Q?pKdBzAm7OR8BiQs5EzIaQm29c9RAYNWCcPpWsBbhS2JLWOXF+HPPFJJkJl3Q?=
+ =?us-ascii?Q?h1PGmxiJCRe5cFLGsbNjO9q01POqHVydAEdaTkuPUYYAacd2B/hSNHMpxJEo?=
+ =?us-ascii?Q?gyAL07QbqPKobzxNqBrr2RCWAMJtAPVnLCFNMb6T9n8ZhTLTvNuskZ/3ejy4?=
+ =?us-ascii?Q?98AZTi21U/radPCURR/KU8UsPFfiqXv1fRt64YVn6ZJ0Lz5ReoAuzK+7zx7X?=
+ =?us-ascii?Q?xMzRjpqgAgK+OXJoKDS6WuGvSvP9XHbL4VaFaOF8nqIbuodZ7oxuCXx0AxN9?=
+ =?us-ascii?Q?WIzO4WE5yyk9Ky8VLO6nelMaW6ufxoEgddy95imdcA3Jz63sTMsxglIVtNLX?=
+ =?us-ascii?Q?aruuFkrp+q/Rp6xIix/3kUrZBArJtPVtpujTWW2VEEXGgvFJkEk3mPizEVkT?=
+ =?us-ascii?Q?a9SsLHWh/N61RXOkS4nD8XYv/AtFVFVN1qUS8qDQ4MhKTcXSrFGLQnlGBPz1?=
+ =?us-ascii?Q?+d4bqDueo3jDM0aP+pWKH65706kwex6zjzAlilyx241yLuG2YSH9XUIGKvG1?=
+ =?us-ascii?Q?oTczOj29XYo53jqRvUejNepSlrDXzgCQ1/XGPAJhJW6L2P34R5lCkWHGKnzJ?=
+ =?us-ascii?Q?+mUO3J/fCixVEufsNDtWhw3rOty7HPG8ImOIE+WZcct71QoVUiGdn04yxY+8?=
+ =?us-ascii?Q?uz6nhWEMj2XOVD1SySlv6Ydc2gMqH6RAiG7nBIeMZ6Olg1il3yC4NavwA8dv?=
+ =?us-ascii?Q?l6yR35QZEtJkbFlVbQe+QKmPu9/1Kjt5bkc8PtwXen9qYaVgyCemRlAM/Hgb?=
+ =?us-ascii?Q?uw3A/xgs3prswRFDy5sJOnwNojiEg/SES/8ao7BM8bNld45Uf565wvaYZQU7?=
+ =?us-ascii?Q?gBj+JFxM8b3Yzt4mGc5S0yV6tYYSZFAhq9ch8xf/f8pyYL/zCXUwaPa0+hrf?=
+ =?us-ascii?Q?GTVFfLkBItxza7oYY8LZoHAeP8dveBb3bERl6UgL9F7ZLAQchB6q+vVTFW+v?=
+ =?us-ascii?Q?R/hMN5jOTvdD3WjlWXOXIjjXvVEr1byMW/hvqrCKVorr+SKyMEu542jHLING?=
+ =?us-ascii?Q?45tA/3ugQ7FkwcERj3fberqD6JR29vyTvlxgzMT/6QmoG7SHs23hLGXqjR5d?=
+ =?us-ascii?Q?JogkhgcinrjmdDAkXGNP20asALWg3+OGP0tKJlcgF6CWK6P5TxnKj0PpYiUE?=
+ =?us-ascii?Q?KexX2amvguxCc2eq9tww9GGxIooHorrLmJ1uBYUeoGZ+GDXOjhgH?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1aea806c-1952-4ec3-5034-08df1a7b1154
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 20:33:18.5751
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QXSjYJ2aT0d34VYohyQEkqDlqJ2lgNo4WMr7R+6Jk+QjDIn/eiIoUMBrI9KdZ9EfshsmqcZaDlriO11OzfleF0CGCG2f9p3RuF8mrLAmgltxumUksV4yzDu3g0B28VrE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_133058_410202_C6050A02 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20260924_133323_707822_49CECE34 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,81 +141,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---ZGRlYrwE/Jnn6ady
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Sep 03, 2026 at 10:16:14PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Replace the if/else pairs of __set_bit()/__clear_bit() in
+> sdma_config_ownership() with __assign_bit(), which does exactly the
+> same conditional set-or-clear in a single call.
+>
+> No functional change.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
 
-Hi,
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Le Thu 24 Sep 26, 15:44, Nicolas Dufresne a =C3=A9crit :
-> Le jeudi 24 septembre 2026 =C3=A0 21:38 +0200, Michael Nazzareno Trimarch=
-i a =C3=A9crit=C2=A0:
-> > I would like to ask about the status of the entire proposal and uapi ch=
-ange.
-
-By the way (in case you missed it Michael), this topic was discussed
-at the 2026 Linux Media Summit and you can find my slides at:
-https://www.paulk.fr/talks#2026-linux-media-summit-v4l2-stateless-video-enc=
-oding-uapi-progress-update
-
-The discussion helped clarify a number of points and expectations for
-the next iteration of the proposal, which I am currently working on.
-It involves some rework of core support and helpers but the technical
-side remains rather similar.
-
-> From my perspective, the main part missing the the V4L2 m2m stateless enc=
-oder
-> spec. We made one for stateful decoder/encoder and stateless decoder, and=
- that
-> made a huge different in interoperability.
-
-Yes adding the spec is part of the ongoing work for v2. It will be a mix
-of what is already done for stateful encoders with more flexibility and
-specific aspects for the stateless aspect.
-
-By the way if you have ideas about specific problems with the stateful
-API that should not be reproduced in the stateless one, feel free to
-mention them.
-
-> A second implementation, not just a variant of the same brand would also =
-be
-> nice.
-
-I still have it in mind to add support for the Allwinner encoder based
-on my earlier stateful-ish attempt. Hopefully that work can be funded.
-
-All the best,
-
-Paul
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---ZGRlYrwE/Jnn6ady
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmq1iHIACgkQhP3B6o/u
-lQxMCg//Tj9pel13OVA8fHs5ZlH1ab/S9YFp4smIT5v7toqV1qkvsXw6zEUPUAX2
-gy+C+KQnzRTiALU96ISEnvgwbxzqb51+hbuy8wMBu9aqC9lxdqAWA4rlTbDG4mVY
-MTzp+swHJoNFQmQZb3JTBsXU+HLi3girzdHR6tG46vfv43Ppd96dsBropo/zYXsv
-IrRRWcKKtpt/4WARpUSPi0YBMRwFOn7+g6ePJIFQze1FuDzdEJHktiRFw0BBEAHB
-eGZeDS1Sv/3Lj7b/ozF9ilgtyh2gPO0oQNrjQvVScjUF8k8d1NxOpTXYG5m/aykS
-0WYcTjrRGyLvtzdtNri1WnnD1wfZKRsYCR1d08/i7kwAFS6TqsKO+HdA9V1nFBbM
-6H8L7wN6vMM3PZ9iMjj1/Y5v4ug/P6EnfMPW1FqzEZJBkVsXyLhvfKA7SFGSR9Pr
-zV9EdQhdDjZtwh5/oMgPsEuJhJ3DIJKT+TTAhQLD/JioPKoPTKPWALvDOx40QvgN
-c2E7LdQAV79+86G5UaFSB2gEmnrcE+H9g3WlyWcXN8hgUEimU8AYc3yu6jMXZ49K
-Mv0loazwv/fPjahTvm56qqPl6chc7hxyq3qU8EvnhNseV/Z7Y6N0nnIi7DUqZoYU
-t9da7fZJu56RF8xMtZjTMk1MyYjYExZVVQ3QELL1kgJsJWcs99s=
-=Mn69
------END PGP SIGNATURE-----
-
---ZGRlYrwE/Jnn6ady--
+>  drivers/dma/imx-sdma.c | 17 +++--------------
+>  1 file changed, 3 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index 63261ab6402b9..da565409beaaa 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -710,20 +710,9 @@ static int sdma_config_ownership(struct sdma_channel *sdmac,
+>  	mcu = readl_relaxed(sdma->regs + SDMA_H_HOSTOVR);
+>  	dsp = readl_relaxed(sdma->regs + SDMA_H_DSPOVR);
+>
+> -	if (dsp_override)
+> -		__clear_bit(channel, &dsp);
+> -	else
+> -		__set_bit(channel, &dsp);
+> -
+> -	if (event_override)
+> -		__clear_bit(channel, &evt);
+> -	else
+> -		__set_bit(channel, &evt);
+> -
+> -	if (mcu_override)
+> -		__clear_bit(channel, &mcu);
+> -	else
+> -		__set_bit(channel, &mcu);
+> +	__assign_bit(channel, &dsp, !dsp_override);
+> +	__assign_bit(channel, &evt, !event_override);
+> +	__assign_bit(channel, &mcu, !mcu_override);
+>
+>  	writel_relaxed(evt, sdma->regs + SDMA_H_EVTOVR);
+>  	writel_relaxed(mcu, sdma->regs + SDMA_H_HOSTOVR);
+>
+> --
+> 2.34.1
+>
 
