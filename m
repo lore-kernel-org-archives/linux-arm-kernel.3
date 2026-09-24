@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476A9C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE12EC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eRG6Vx+KfGB0F8iXypxpZOtK+1xBSwz+daslPav1QJE=; b=Lgs+kDcSTrvf3kSxUYeGS9lbI6
-	eU2/aOAsrVcNPh1drmIe//Bi6vodurdMtO4uOVP2Okm/p4J0v/kSPEa+pOHadhJ98Yy2FijFn6DBg
-	bYRQwt16h6M+ezAB67Z4JxoLerWNrfHgdomLMNKUNl01PIzU36uAVrx3MjiZyUronCx1tg5pcXz5X
-	iiiQu+jW3rj1E1Gn3TubqeUiHcaCxq7/eLT7y8mavonCc2CKEALtzjZNAfkkvADfYOBnlD4azoGA9
-	eUzfhnxovUDAf9wezbP2uwC97sas2/CH1ZZEfYRW+k3OchjS5A2+rt8JWrlH+xPTvteDlbTS2q64F
-	zoXpOOSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UWZH9RmC7arpjIM5pGVAw9L4f+YGQ+GIqpwt0vAaWzs=; b=VxPjmgm/Vsi/GgyZ7xla09azRb
+	vWtq37azSBR1gyU5eg7p4TQi9HoMl13LtOFSm410uWrs5crs3DoSsehu0ybSRQBfKW/QaGk9b63a5
+	3nOroem2QH+hn2VbRwQQBnX20vDbvM3i8wbz8obknvebihjsFciukXoF0EYHMQeO6Ga3Uv9St6L9C
+	bCzdo6rmo8ybJanSgN/Y2dN+DstMA1eU8ieWnaoRVxzgYBt6mXfpDw59byFwXwKPzor9kdMzX08NN
+	rqvxA+btevC9Sq47WQkoqUr/pIXHNwZvJpgkGXEM0oQqJsxyjAMOap4d+659/rBkK2m5QLY4iJGfe
+	zfebWMbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lMS-0000000BOOp-3gTC;
-	Thu, 24 Sep 2026 15:27:48 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lMI-0000000BOJL-1wX0
+	id 1x9lMf-0000000BOUH-21IR;
+	Thu, 24 Sep 2026 15:28:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9lMZ-0000000BORw-10Kg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 15:27:41 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-485933b2522so1777887f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 08:27:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790263656; x=1790868456; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eRG6Vx+KfGB0F8iXypxpZOtK+1xBSwz+daslPav1QJE=;
-        b=M4Rzg0xm18uxVZICCsbRmkAB/D3ZFHPVdxaiIsNP3svQkjUQ6s+y0iZi7oqVQ5y9jN
-         nlze4Jd1SvtjhIVv0vKz0XKLdiZjmKxXZfKLHoJxp9O8u+h+7PHninQH+KDqsZEJXvmG
-         1QvusOuBL2U3q8qAf4Z+ABjYa+KGni/G/k6VSuQeTd5CD/1MzUeBghbjDNLoJ1fbOC4O
-         VS815F6FLQIPqSi8yBloffAY7SD756BII58FfBk7NBeBn/OZQ2RqDuB24dwLN/Tb0s36
-         nyAC1dRk8NNIffHF/Vu5ySgxZvFeYgVT43a5olc4p6tSE0w9B9bw74ThrogXjlVabd1K
-         naUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790263656; x=1790868456;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=eRG6Vx+KfGB0F8iXypxpZOtK+1xBSwz+daslPav1QJE=;
-        b=wd22KZkfCMPnveOjgBsMXTpIXTZ7a+kWQCdk+H0oc19w6h28ZdDWplYhJfAFzz3Mnp
-         AbUxuCzcJhD3Z2rXFtJlz5KMLkejf0ejv1GleNVbCK8sOzV1NTYSE8dENw27MBITuzHu
-         FufsW3Z3rdWi491hsRAL6GigyoABVjeJ2IbpkMAnntRXqGlZioOXSU3k8D6XAEet/1y/
-         crniw5s3M367ePGBM9wQVY3300LbbuYDUaEzikIzy7BEH8qicIn3qAOXWqPFW3LhQhng
-         12eocfFHfgiTMIVOAH4yEOSzxjHgVII3WhT3cX7yZlgAgks8qiu4SaR5p0MTh9RP2dIs
-         Zn9w==
-X-Forwarded-Encrypted: i=1; AKwUvBwWoQt2SgLODcJhtxNRWX9xuRiwFG5/v7dfz2/0MeIlRFKOQ/o5NjNQqBSZ8DX1VMCdfb90yruAGIG4VQrIRGkA@lists.infradead.org
-X-Gm-Message-State: AFuF++lcIyaaaJIJKqyLeszC2hXvxAGfqjFPZ4gl3HJ41HDSj7pkhVQs
-	HtOAvTegl34mMLBPECIEAc+u547Ld6WdOB7uWsmVjOAlSuzp1ZIphkuPN4VKHRcuazc=
-X-Gm-Gg: AYBFou1/87/VROo3iXt1nC52M9JUFWE0xvyrZMXENbRJaIvOKQSx3A/6ParKcOV/N7k
-	raCLOWVtRASP9PieCPOYCy5MPVjN92lordiXlKNXDL+kec0TONK9ARUtKbF/slETvH3Eq0+XyD4
-	DgF5dN4iQgvZpko5dtzskUoIua/btU4GAa9/ScIyeNLeHvUjBxPLL2Nh16DiMdUV8Q8TJ8DdbKC
-	MPj1j+qeWMsQtWQr6yx2U9Fusl7W5CP0+4B6PHysCgQ5EYUyGRGi2+yWN9P6E+CaywMOv4MCJjI
-	pjfodTtzUfk7qDHEuxWbylCo3SgMI4acRgCHONFQ6JtBVa7lMyxYRU+Ytib2S2bIs19OABrH80q
-	rZQZj+DvAG7XKT5OrB014VUMewlc4bAXxptgj6u5rWMiLU1mFazXIuUC32qBFvNPZDbcnhmD+mj
-	ve/D5W23Gzx5kT882Tpx3i1nJ/EYjWQrcIg3psscNrlIvAh4cYQwH6hk3t3fA82nERHLq0ArhwQ
-	D2+np0UL9bHBBDDwA==
-X-Received: by 2002:a05:6000:1886:b0:486:e8fa:f9b7 with SMTP id ffacd0b85a97d-488716c12f0mr5112120f8f.13.1790263656324;
-        Thu, 24 Sep 2026 08:27:36 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-488682668dcsm16823010f8f.1.2026.09.24.08.27.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 08:27:35 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Richard
- Cochran <richardcochran@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, Andre Przywara
- <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
- A733 GMAC210
-In-Reply-To: <5fae3b42-552a-458a-9710-927360e58c37@lunn.ch>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
- <9cc61625-47c9-4bdf-97f0-0528f661a399@lunn.ch>
- <1j7bkb9h5k.fsf@starbuckisacylon.baylibre.com>
- <5fae3b42-552a-458a-9710-927360e58c37@lunn.ch>
-Date: Thu, 24 Sep 2026 17:27:31 +0200
-Message-ID: <1jv77u8yak.fsf@starbuckisacylon.baylibre.com>
+	Thu, 24 Sep 2026 15:27:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EBAA1756;
+	Thu, 24 Sep 2026 08:27:50 -0700 (PDT)
+Received: from e142021.arm.com (unknown [10.57.8.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CB093F86F;
+	Thu, 24 Sep 2026 08:27:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790263674; bh=1THeMS33ETbvcLwulgT4pT0oTmWktKEfyhGVp2Vhdlo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=VjV8Yy3QcGH2iCtgKUmXrBjiSDtz7ykJD9nqyk8SCH4mcZklM+6g2Uleu7qaQUR5u
+	 dyyuC6ZPj2xjH0NtzF0yIcQC54DT9gX1W7d9V7pMv2tdtm+BVlYjtRmVh6YX6nL7Mb
+	 6HQzEc3I/dxCEbOynwHM/X+kQo0fEjPhRTmw5JJk=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Srinivas Ramana <sramana@qti.qualcomm.com>,
+	Niyas Sait <niyas.sait@arm.com>,
+	Lee Trager <lee@trager.us>,
+	Ritwick Sharma <ritwick.sharma@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v11 00/13] arm_mpam: Add MPAM-Fb firmware support
+Date: Thu, 24 Sep 2026 17:27:26 +0200
+Message-ID: <20260924152739.2865510-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_082738_529139_81FEB8A4 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260924_082755_371410_64C64093 
+X-CRM114-Status: GOOD (  36.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,44 +86,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On jeu. 24 sept. 2026 at 14:54, Andrew Lunn <andrew@lunn.ch> wrote:
+Hi,
 
->> I've changed the phy-mode to plain rgmii which seems more in line with
->> what the PHY actually does.
->
-> No, it is much messier than that.
->
-> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
->
-> rgmii-id is very likely to be correct, if you were using a sane PHY.
+a small update to the MPAM-Fb code, for firmware based MSC accesses.
+I dropped the two RFC patches from v10, the specification change will not
+be published in time, so we will add this ideally in the next cycle.
+However the preparatory changes to have an MPAM-Fb specific MSC ID stay.
+Other than that there is one new patch to propagate errors, now all
+functions exported from mpam_devices() report MSC access errors.
+Some identifier renames and two small bug fixes complete the changes,
+for a changelog see below. Based on v7.3-rc1.
 
-It is not the PCB doing the delays so rgmii-id it is (in DT) - got it.
+=======================
+The Arm MPAM specification defines Memory System Components (MSCs),
+which are devices that are programmed through an MMIO register frame. In
+some occasions this turned out to be too limiting: the MSC might be
+located behind a separate bus system (for instance inside an on-board
+controller), it might be mapped secure-only, or in a different processor
+socket without direct MMIO mapping. Also the MMIO access might be too slow
+or it would need to be filtered or otherwise access controlled. Finally
+there might be bugs in the MSC integration, which require a mediating
+firmware to be accessible.
 
-I dunno what is sane or not, but the allwinner dwmac drivers do set some
-delays. sun8i-dwmac and sun55i-dwmac do so, even before this change.
+To accommodate all those different use cases, the MPAM-Fb specification
+[1] describes an alternative way to access MSCs. Accesses to an MSC
+would be wrapped in a message and communicated to the system using a
+shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
+For ACPI systems, this would be abstracted through an ACPI PCC channel,
+which provides the shared-memory region and the mailbox trigger. We can
+lean on existing ACPI parsing code to register with these two
+subsystems, but cannot rely on the existing SCMI code in the kernel.
+This means we somewhat need to open code a very simplified SCMI handler,
+which just provides enough functionality for the very basic subset of
+SCMI that the MPAM-Fb spec requires.
 
-If I understand correctly :
+The first nine patches rework all MSC access wrappers to propagate error
+information. Pure MMIO based MSC accesses would never fail, but the
+MPAM-Fb access can go wrong in multiple ways. The patches have been split
+up purely for reviewing reasons, if the number is a problem, we could as
+well squash them. Please note that until the very last patch of this series
+any MSC accesses would always only return 0, it's only the final enablement
+of MPAM-Fb that could possibly introduce errors. Hence all former patches
+can add error handling gradually, those code paths wouldn't be triggered
+before the very last patch.
+Patch 10/13 solves a nasty problem: At the moment we protect stateful MSC
+register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
+subsystem and the slow nature of the communication through this channel
+forbid MPAM-Fb access in atomic context. So this patch keeps using a
+spinlock for MMIO based accesses, but reverts to a mutex otherwise.
+We just deny taking the lock for MPAM-Fb in atomic context, ideally we
+wouldn't need that (no need to IPI another core when the MSC access does
+not need to be local to one particular core), or we simply deny that part
+of the functionality (access through perf).
+Patch 11/13 adds the code to redirect MSC accesses through the
+PCC shmem/mailbox system.
+Patch 12/13 reworks the error interrupt handler to use a threaded IRQ for
+MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
+Patch 13/13 then adds the code to detect and store the PCC channel
+information from the ACPI tables, and eventually enables MPAM-Fb accesses.
 
-"""
-When the MAC implements the delay, it must ensure that the PHY does not
-also implement the same delay. So it must modify the phy-mode it passes
-to the PHY, removing the delay it has added. Failure to remove the delay
-will result in a non-functioning link
-"""
+This whole series would enable systems where some MSCs are not accessible
+via MMIO to use those components anyway.
 
-IOW when the gmac has *-internal-delay-ps set and honors them, it should
-also amend phymode seen by PHY to make sure it does not add its own
-delays, should it ever be fixed ?
+Please have a look and test!
 
->
-> But this PHY is going to cause you lots of problems.
+Cheers,
+Andre
 
-We don't get to choose I'm afraid :)
+[1] https://developer.arm.com/documentation/den0144/latest
 
->
->     Andrew
->
+Changes in v11:
+- drop RFC patches for MPAM-ACPI spec change
+- add patch to propagte error in mpam_reset_class_locked()
+- move PCC channel put operation into mpam_msc_destroy()
+- increase props[] array size in ACPI code to accommodate new ID
+- use msc_fb_id in mpam_fb.c to stress independent numbering
+- use shorter "fb_id" name in msc struct for MPAM-Fb MSC number
+
+Changes in v10:
+- rebase on v7.3-rc1
+- add tags
+- (re-)introduce mpam_fb_msc_id field to allow per-PCC MSC IDs
+- add patch to introduce mpam_fb_offset ACPI MSC node field
+- add patch to adjust mpam_fb_msc_id if needed
+- add mon_sel_mutex comment
+- "select" missing KConfig symbols
+
+Changes in v9:
+- always create a threaded IRQ, but differ handling between PCC and MMIO
+- drop dev ptr setting for shared mailbox client (leave at NULL)
+- propagate errors from IRQ setup functions (incl. mpam_disable_msc_ecr)
+- improve MPAM-Fb error reporting (drop snprintf call)
+
+Changes in v8:
+- disable error IRQ on irqchip level when device side fails
+- use MSC dev pointer for dev_err() instead of mailbox one
+- smaller white space and formatting fixes
+- reorder MPAM-Fb definitions
+- rename error translation function to mpam_fb_to_linux_errno()
+- add review and test tags
+
+Changes in v7:
+- add tags
+- add new patch to propagate errors in mpam_reprogram_ris_partid()
+- prevent loop when mpam_diable() tries MSC accesses again
+- register MMIO error IRQ handler without IRQF_ONESHOT
+- re-use existing "err" variable instead of declaring "ret"
+- initialise mon_sel_lock later, to wait for interface decision
+- convert timeout units for nominal latency, between us and ms
+ 
+Changes in v6:
+- keep using hard IRQ handler for MMIO based accesses
+- move shmem buffer size and MPAM-Fb version check into mpam_fb.c
+- drop mutex guard in mpam_fb_send_request(), we use gotos anyway
+- factor out MPAM-Fb protocol error translation
+- add MPAM_FB_ERR_BUSY error code to translation
+- explicitly report also MPAM-Fb protocol error number when disabling MPAM
+- remove unneeded MPAM-Fb details from mpam_internal.h
+- drop leftover mpam_fb_msc_id usage 
+
+Changes in v5:
+- do not initialise _high variables early
+- fix whitespace issues
+- add Jonathan's Reviewed-by: tags
+- init only either the spinlock OR the mutex for the mon_sel_lock
+- drop warning about mapped_hwpage_sz for MPAM-Fb in mpam_msc_zero_mbwu_l()
+- change IRQ handler to threaded handler, to allow MPAM-Fb MSC accesses
+- disallow per-CPU IRQs (PPIs) for MPAM-Fb
+- trigger MPAM disabling on MPAM-Fb protocol errors
+- fix MPAM_PROTOCOL_VERSION_CMD name
+- use PCC driver defined symbol for PCC_CHAN_FLAGS_IRQ
+- add comment about usage of PCC's .signature field
+- check for illegal MPAM-Fb command before sending request
+- drop CPU accessibility check for MPAM-Fb based MSC accesses
+- move MPAM-Fb protocol message structs inside build functions
+- add comment about largest message size
+- drop extra msc->mpam_fb_msc_id, in favour using pdev->id
+- use already defined local dev variable instead of &pdev->dev
+- use FIELD_GET() macro for MPAM-Fb protocol check
+- drop devm_mutex_init() for pcc_chan_lock
+
+Changes in v4:
+- unify error check patterns
+- use scoped_guard(mutex) and ACQUIRE to simplify error handling
+- use struct kref for PCC channel refcount
+- drop unused mailbox rx_callback function
+- increase size of props[] array to hold new msc_id property
+- set mailbox TX timeout based on ACPI MPAM table field
+- use devm_mutex_init() to allow automatic cleanup
+- avoid overwriting error value for arm,not-ready-us property read
+- prune MPAM-Fb protocol token to fit into bitmask inside register
+- check return value for AIDR read
+- use two separate MPAM-Fb protocol payload structs
+- prune header list for mpam_fb.c
+- drop "nrdy handled as an error" change
+- fix message size field in MPAM-Fb protocol shmem area
+- drop message size return from MPAM-Fb message build functions
+- bring back IRQ flag in MPAM-Fb protocol header
+
+Changes in v3:
+- drop inner/outer mon_sel lock patch, replace with simpler version
+- harmonise code patterns in error propagation changes
+- drop mon_sel lock before erroring out in mpam_ris_hw_probe_csu_nrdy()
+- refactor mpam_msc_read_mbwu_l() to return an error
+- drop special NRDY handling in __ris_msmon_read()
+- add IRQ numbers in error interrupt handler to help pinpoint failure
+- refactor MPAM-Fb message generation to accommodate more than read/write
+- check MPAM-Fb protocol version at probe time
+- drop mpam_fb.h header, merge into mpam_internal.h
+- translate MPAM-Fb error code in Linux codes where needed
+- clear IRQ flag bit in MPAM-Fb protocol header
+- drop unneeded endianness conversions when crafting MPAM-Fb message
+- use C struct to model MPAM-Fb message payload
+
+Changes in v2:
+- add patches to add error propagation to MSC access wrappers
+- drop former patch 1/5 (not needed)
+- drop lock in mpam_reprogram_msc(), to avoid double lock
+- add support for multiple MSCs per PCC channel
+- adjust SCMI protocol code to use a PCC subtype 3 channel
+- let PCC code handle the PCC channel negotiation (due to subtype 3)
+- drop SCMI names in shmem offsets, and use existing PCC type 3 struct
+- adjust shmem field offsets to match MPAM-Fb spec, not pure SCMI
+- prevent MPAM-Fb calls inside atomic smp_call_function_any() payload
+- skip all MSC accesses inside the IRQ handler when using MPAM-Fb
+
+Andre Przywara (13):
+  arm_mpam: let low level MSC accessors return an error
+  arm_mpam: propagate MSC access errors for hw_probe functions
+  arm_mpam: propagate MSC access errors for MBWU counters
+  arm_mpam: propagate MSC access errors for msmon helpers
+  arm_mpam: propagate MSC access errors for __ris_msmon_read()
+  arm_mpam: propagate MSC access errors for state saving function
+  arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
+  arm_mpam: propagate MSC access errors for interrupt control
+  arm_mpam: propagate MSC access errors in mpam_reset_class_locked()
+  arm_mpam: prepare mon_sel locking for MPAM-Fb
+  arm_mpam: add MPAM-Fb MSC firmware access support
+  arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
+  arm_mpam: detect and enable MPAM-Fb PCC support
+
+ drivers/acpi/arm64/mpam.c       |   6 +-
+ drivers/resctrl/Kconfig         |   2 +
+ drivers/resctrl/Makefile        |   2 +-
+ drivers/resctrl/mpam_devices.c  | 915 ++++++++++++++++++++++++--------
+ drivers/resctrl/mpam_fb.c       | 253 +++++++++
+ drivers/resctrl/mpam_internal.h |  70 ++-
+ include/linux/arm_mpam.h        |   2 +-
+ 7 files changed, 1004 insertions(+), 246 deletions(-)
+ create mode 100644 drivers/resctrl/mpam_fb.c
 
 -- 
-Jerome
+2.43.0
+
 
