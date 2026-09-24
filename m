@@ -4,97 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D3DC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D727DC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tIp+aiyQTzTnGdKMDtuefZl/ywWVdEoeMd4a05iequo=; b=nSDLVufIxPuNyYO5lsxGjaLe82
-	FVc/WwJ0Yj9je/KnAQZE8AZfPZ4PFKqlYS3AlV9B26yvoYLaWXBSFN/sSwKMeiorK2h08qaq9O6bm
-	jXbAjrlP1Fz6ow/AhF7Ml3084bjZ/cJD10dL1YLqiRI2fBywrzYXvCfsFVCZd9ZTJA5RDif2EJgtP
-	ZutBkT0QBiQrIYUvp2FzydtuzM9tXsD7xERLO8uv/T0B2gBT3ESuqhpjtn1b56dXEZez+vjxxToGD
-	enr01pJrXCAa2F1IsmZpjmWcV7PaT8g3ZQS3vkImtE9uymtIx1RxGspfcjW7yghl6bfmH1IwmHlOS
-	pWwFORnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=; b=GSfmsVXxbDtX4fHcg8MopqbeEA
+	WQEwFBHOXfAiHZv3ibQXxrhwrDHBz451/zpIGENLEWxIxrYFwzq6TF4/+XGxGr+d0hvTOGTCPNd03
+	NgenzmuLwn7N+OICA5VYMIMht7L+tytZ37c2T88MyRA2rNRiU9eQa7jnx6dt88fYuJLDAcb6p+5QQ
+	O2pF4QkDfueAfRAYSPoXsmWIO9Vq/qSkSXHBVIfGzYvia9RXEQ1hYQoMoSvD3xwxwxccZea6i1sEw
+	L7Wad4dxGFWnTrST7kb2qcCYbF2HuQDeBwAWgujMbyBa36APgo5e+z7DTJtYNKEAd3vlw0N9eebi9
+	+M61k2GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sLq-0000000CKsR-2px3;
-	Thu, 24 Sep 2026 22:55:38 +0000
-Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
+	id 1x9sNh-0000000CL1r-1hbx;
+	Thu, 24 Sep 2026 22:57:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sLo-0000000CKs6-3XYG
+	id 1x9sNd-0000000CL0p-2K60
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:55:38 +0000
-Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-34182b58c7eso85998eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:55:36 -0700 (PDT)
+	Thu, 24 Sep 2026 22:57:31 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OMPASg2771640
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:57:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=; b=BI2Gayz/LjxSc6mE
+	Kg+MLNOusLPeYnOxYOG9xy/G6ynTgm5i8HXcMPcVaie12keAjyA2Oz1Cf0fyIkw2
+	1iPHcxBnFcP9qOOkZ07f07f5aQw1qPFKV8ApXthFNkR53KsFmNN+apNakWPmF9KB
+	GZ4On06jpyBc5aTWoomkmhaScQbrjk2k5yn95Es0ViLT4dyJ6vNbt0gJYJ4jce1c
+	XIv1evwdRyzJbK4ev5ygZd0QRpNzogYF0Tn6LwzUygOtjjPo7wa0hzGZ8ulMQwj8
+	1Dwm44i8PH1iR4SnWFtv/Stn36RWYL43Nv8n7mH5JL14F6v+yiIOppzxFkJgDYi0
+	2R3TpQ==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw1t7tyc7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:57:28 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-33baaba6371so967085eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:57:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1790290536; x=1790895336; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tIp+aiyQTzTnGdKMDtuefZl/ywWVdEoeMd4a05iequo=;
-        b=LGnSKgcSo3y8RXklRWRLKSGPf1NXqNykTFrcPe3Wya6bU9QI8EFgkr3xy38vTN+rfz
-         3792lWHJd5TDcD7PyE7T6tBPRgcKC6IvdZicBIhz2GFW3tC0H2W3FvtNDR9UEu52eF3F
-         l6qRVNQSw1cJKO7nhLxbWisX7heG4ajcm6CFZ7xbvngJZmHDpolBQoIoqC/JM4tnSE+M
-         nysce8dw1muLqmbnpGAIA5Lu+H0LC5j7oe63fhTEHGeJYQ895UVeo/hZM4v4EY++HtE4
-         ++H16PNpqWuoua8h/2wwIueM1g3cyhp7TTBrVcv6lvEloA0+dBdbdq6ho6LIOBejgE9h
-         Ay7A==
+        d=oss.qualcomm.com; s=google; t=1790290648; x=1790895448; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=;
+        b=KiUztf3R+70aA5fh8h8TnKS+Hy6KklYjkiPcHlEGWn8PoTB9mGKqkcOZe58eYHmd2t
+         KEitM7yWMPetLxWnUSwe7ASeXDLSygK2eiY/pozrC6ySEjaFIKsNVCfr+xUwUqRUsE9w
+         Yeh+aeOBpiXZV0Nnoknamym/ZZpjzlHWQivq3/8e15pf+ZWUas7KbX3eM4gSoIAZp4kt
+         k5yHOqrrMChgTTH1Ve0wWq+0+d9js/U7cN6PEQpThFKFa55T3mtPA4y+nTyZVBgtpSEl
+         YpZLxPn0nrSIVyc7gby5ww86d1IdKzjig4t/WQKF0cHDOiHoqdQCalN3i0ZTWQzIU/2p
+         X2dg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790290536; x=1790895336;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1790290648; x=1790895448;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tIp+aiyQTzTnGdKMDtuefZl/ywWVdEoeMd4a05iequo=;
-        b=gDt/6XArCX/QiVgh/j9g9t3eOT/35oFU2qExJQx9bsqO6+uIDj9C8ciwXif3w03OfT
-         0rDkblN1xmWMOlpN/fDhMKet8eAvB43ccKLF++yPbiMg4b5QkxThDgTynEYCVUTpou63
-         B8J/5CtZtH1HTBLl/YAajykWnN5dnAWY6ilOC/kn9dIMlCtXZqkrMzG8IK+aCMNvffVP
-         ra4GjbsF0+VaUvwH2JOBPCsyuRrwdpq65f7/5npRb3TUQBQtV1CbL6ixFFHA1sjBA75z
-         CGInvfSmBTnOomuOA/PGQT2B4XWn40J07+pWETWW2zslVaJoI9ivcpZLk6R8I8iKzBJo
-         MdCw==
-X-Forwarded-Encrypted: i=1; AKwUvBzwTlhUc1CYsDEuFGCQgerlnLtCuhfzkuTzMdZN6PTzd5hpCYBnPdAvXgtrh1A1tQhRA+IKsT3yyRbWnfuS7Doo@lists.infradead.org
-X-Gm-Message-State: AFuF++krypqSwP9beEvq9JyQ6nyEczlB2aXLWlqDXeEioW9sGtYHjzCL
-	WPvJY8iHH0yHhQwqqiG6zSjHRoBv8mD5rYunp/x6JifmJXgj9IdMbnU4iWN4OLyYseo=
-X-Gm-Gg: AYBFou18Yw8TaGXn+ZINpDvRu7edbMxDbx3LWV0InOvhbjOvWMhcBiWlSRrLZTUKVly
-	OghRVSsBl5KVmsBFGEZ2WQoZqknqIhriLEdQh5/1WyaeU6SG/DyJYTQ9K0DpM/QmSdyUq3dzQl0
-	xJsjsB9jZRwS012Iz9ZZNc3RSaiBohoKgRDxFZb2dALlz27CXJP3p4wOQtntG+NQ+Uu9/R7Udj8
-	Ry3azOiaGK39+yW9MdrdUSvPbtiWgSfcMTZjumE7zdnQlaWRJjWiVFMDTgjGy944nUAiW/C5/uL
-	oSLCWenyyd6+KXjHXklN3b/FVmB9J3hgGE0SRl1XiHRmbbOmb2mjUTLTxaW8OxQ2E1tj6x3hPNH
-	oCkitCkh3fS6ExAvp86w071+tDhUnvHp578DDRjyPH0cya6vf3FnjO8is1FtA96+CHrnqYyGGmt
-	QAH0kbuliZm5Bh1Rl6KYbwU8U2vlIoxGi9sbWsj2qfMyjj
-X-Received: by 2002:a05:7300:7312:b0:33b:dd45:716c with SMTP id 5a478bee46e88-340cc11f887mr2763537eec.13.1790290535581;
-        Thu, 24 Sep 2026 15:55:35 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34141d2fe4bsm1639551eec.4.2026.09.24.15.55.34
+        bh=WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=;
+        b=fcZ8CjKdaN2HMxbhVtpCnrylUzaFBFua3QVYoW0bZNFjRfGCNJ0zE98KKbNhFEatOs
+         +17xvl446FG9dwxo3FS0zHNImjoTDc9jwul32Fu0IDLZKqzB1mMhgn/LLP/RTTd8hYmU
+         /QNrusRHCdDH8fawvns1SgI5deM5hXqCdg7zsXwhoVFn/ynPpRU0MgVNNVkPmrkSCNlT
+         /YxkfCeUmigUVetHYVOhs0v46Vs+B49DumofsgpLVR/3exdiD9mc0eUuvXlFPO1x6RI2
+         73wIVIELC83SjUOsSIzvVKnIX8XVuR4V7aLJKpLfb+uj69Fqa0328YXt2b7Qe+cmlvnf
+         7BSg==
+X-Forwarded-Encrypted: i=1; AKwUvByoO0j2YQcswHP1OXmkBILojoglRrUENKCF9ctRnR3hlV/Xyfnj4MCQgjflCH43avszeGMMzh+CG6tqYZ4eON5J@lists.infradead.org
+X-Gm-Message-State: AFuF++kILLxCNac13mInuBgu6waFiLPp/dGPyW2U/pNfMQpbbG77hf2t
+	k0ANSnU1Qa9wTWgyKeh2JUCu/pZAmn34hT3rDtggvpfghjFHRYJORKebjvQQS2YyvBCYoZzbkpT
+	zTOUTzWmJnLJTZLHOPxxJJ7DbaD8eVXs4WAkR0oP2zceh51hVOPTlL0wT+z7rEY/ZZf/FTZnDAZ
+	qtme97gsWdVw==
+X-Gm-Gg: AYBFou17++Xkc0SFihW/nsIgjhGn0gbC2Mr3G0c+FWoKT/bnjcI9dkwCGH+dpf69OPy
+	bc2METDPTlMnT/w/UdEQBLXvnyRLbic3XFszoStvmIHOUf4VJvdE7fA5WvavcWs/aQzSANQedTX
+	M5IjQfFl6AjK11XXxUykLfBGCDG4j2XvIv60c/WooRIDw+96G0Ppova3Gzlwit9LHdG6drqT5S9
+	X2BJAqIz8g9DM1+gCTW+1iaCZq7LhrTV9L4iTnVZyp7wNnuvl3kaNyHwhnjHHXIX2FbQTPzBnHP
+	xTrUgcJ97HoK8Y/JYHNCBMqf4jaOlU9kn4t5ZbRD1AucyWg7Wo4h+UhbQwgxicGioc1+VPg1kMt
+	irlyiatfekpBX7DbthZSoT4ByscIwHBArUjsFPaSr4zVwqVKPeUB9Og==
+X-Received: by 2002:a05:693c:621a:b0:33c:e61:e201 with SMTP id 5a478bee46e88-34002edee42mr4033411eec.22.1790290647509;
+        Thu, 24 Sep 2026 15:57:27 -0700 (PDT)
+X-Received: by 2002:a05:693c:621a:b0:33c:e61:e201 with SMTP id 5a478bee46e88-34002edee42mr4033386eec.22.1790290646954;
+        Thu, 24 Sep 2026 15:57:26 -0700 (PDT)
+Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34144757f31sm2046484eec.14.2026.09.24.15.57.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 15:55:35 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x9sLm-00000000elU-0EsA;
-	Thu, 24 Sep 2026 19:55:34 -0300
-Date: Thu, 24 Sep 2026 19:55:34 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Daniel Mentz <danielmentz@google.com>
-Cc: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint
- bit
-Message-ID: <20260924225534.GD16465@ziepe.ca>
-References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
- <CAE2F3rAMAnV9+WNLZtGQX6cHPsZ6wbfRJ1Z3d5mF1+8WHL-uMA@mail.gmail.com>
+        Thu, 24 Sep 2026 15:57:26 -0700 (PDT)
+Date: Thu, 24 Sep 2026 15:57:21 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+        Ard
+ Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Jonathan Corbet <corbet@lwn.net>, David
+ Sterba <dsterba@suse.com>,
+        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Randy
+ Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
+        Shuah Khan
+ <skhan@linuxfoundation.org>,
+        Nick Terrell <terrelln@fb.com>, Will Deacon
+ <will@kernel.org>,
+        Alexandre Ghiti <alexghiti@rivosinc.com>,
+        Conor Dooley
+ <conor.dooley@microchip.com>,
+        linux-integrity@vger.kernel.org, Palmer
+ Dabbelt <palmer@rivosinc.com>,
+        patches@lists.linux.dev, Ross Philipson
+ <ross.philipson@gmail.com>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Song
+ Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH 07/16] efi/zboot: Lift efi_cache_sync_image() from
+ efi_zboot_decompress()
+Message-ID: <20260924155721.000016a9@oss.qualcomm.com>
+In-Reply-To: <7-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+	<7-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAE2F3rAMAnV9+WNLZtGQX6cHPsZ6wbfRJ1Z3d5mF1+8WHL-uMA@mail.gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: CukZ-rqVScOUk1Hmx5v4bC4veZ0W20pa
+X-Authority-Analysis: v=2.4 cv=U/MHnuru c=1 sm=1 tr=0 ts=6ab5aad8 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=Ikd4Dj_1AAAA:8 a=gav0J8kFgDfseqtY68YA:9 a=CjuIK1q_8ugA:10
+ a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA5MyBTYWx0ZWRfXx4fI4kzkwJSI
+ yA1w8KGQtL9XlI+NQ7wSgtxtIxKKuSLGt8dV9Xa0EJV0BQ9SBgafAoGp/7zj3VPvJ7bDi0GzKsA
+ tiyeF2QwVly7zK5M/wpk0J1qRQbEoK5mD23FrgY+5Qg0nA/DDkqJoO7wnJ+vmYif3ZmaL8+2Ais
+ 1z+awSCO2N+YPxFCxZIzvS5ddfsVDpKdsDQYboOvEJfNc4lUN7mhrTO43wvbZ/MIfD1AC+UujJl
+ iKJh3UJlGObVhidXi88c14PQMaT5ay3UOYb22N5ZKbMR4QKgVi/ntrG2AFgzv+ZtlXrmE52nuLZ
+ lqTypU1FKtXUizu9fq2tVusfTDuMUWaiCG/8BuUDZtxtKjB1llfPFrO1zqM9hbYJReIcmryjQkg
+ Bfec6oEoBOGLL9oJiK3wG0w0RT+buDzNECUKxvykTTf0JVysW76WNeNAPZFMevYmoI+vne8selS
+ M8Qku7ZIrzO9HnHmJ8Q==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA5MyBTYWx0ZWRfX0zcLjYrYaqa3
+ cswhkMnPTY1gmoDKfutY7/xUSFNC/Khq0UXsiP1WHGG/YULON0+7e1UOTZDzv2AY7W+qFz/qBC1
+ A/RID5vlaF1i5++WQOXy4Dp04wcpfO4=
+X-Proofpoint-ORIG-GUID: CukZ-rqVScOUk1Hmx5v4bC4veZ0W20pa
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-24_06,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609240093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_155536_898529_AF7C000A 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260924_155729_734471_2E3D0C75 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,28 +176,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 01:36:12PM -0700, Daniel Mentz wrote:
+On Thu, 24 Sep 2026 10:53:10 -0300
+Jason Gunthorpe <jgg@nvidia.com> wrote:
 
-> Interaction with Hardware Dirty Tracking (IO_PGTABLE_QUIRK_ARM_HD)
+> The two decompressors duplicate this call and the next patch needs to
+> change the argument. Hoist it up to remove the duplication.
 > 
-> When Hardware Dirty Tracking (ARM_LPAE_PTE_DBM) is enabled on Stage-1 tables:
->  * In visit_dirty() / arm_lpae_read_and_clear_dirty(), dirty bits are
-> queried and cleared on a page-by-page granularity
-> (iopte_set_writeable_clean(ptep)).
->  * If a single 4KB page within a 64KB CONT group is marked clean while
-> neighboring pages remain marked dirty/writeable, the descriptors in
-> that group will differ in access permissions (AP[2]).
->  * According to Arm ARM D8.3.1, all descriptors in a contiguous block
-> must share identical permissions and attributes. If dirty tracking is
-> active on a domain, consider whether IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT
-> should be set or whether CONT sizes should be suppressed when
-> IO_PGTABLE_QUIRK_ARM_HD is active.
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-This is right, handling dirty and CONT together is a PITA. You should
-probably make them exclusive for this simplified implementation.
+> diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
+> index 4b76f74c56dae0..960a542881d875 100644
+> --- a/drivers/firmware/efi/libstub/zboot.c
+> +++ b/drivers/firmware/efi/libstub/zboot.c
+> @@ -92,9 +92,12 @@ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
+>  	}
+>  
+>  	// Decompress the payload into the newly allocated buffer
+> -	status = efi_zboot_decompress((void *)image_base, alloc_size) ?:
+> -	         efi_stub_common(handle, image, image_base, cmdline_ptr);
+> -
+> +	status = efi_zboot_decompress((void *)image_base, alloc_size);
+> +	if (status == EFI_SUCCESS) {
+> +		efi_cache_sync_image(image_base, alloc_size);
+> +		status =
+> +			efi_stub_common(handle, image, image_base, cmdline_ptr);
 
-SMMUv3 is the only user of dirty and it will switch to iommupt which
-does all this right.
+Just go one character longer!
 
-Jason
+> +	}
+>  	efi_free(alloc_size, image_base);
+>  	return status;
+>  }
+
 
