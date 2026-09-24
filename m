@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DE0C98310
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 04:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA08C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 04:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIh5PIfLV23KfVlnt/z5tY8O6jaqLlPWP+aosY28rNU=; b=GpZR/E6uDVmV6fMBRpkwSJJa/v
-	i1IQXundMVTO+k8fBo5pn8V1RNQMFWIFJBgUaJJu4WCq/107l/YkJ1Cf+qANV0V0r/BY5h9+OUjb7
-	iUghfMSq5IRyfQEkJOdL77yXJRVkEptEw9DGTeXkw14lOp1LWt7waiACKmLdAINHGGN3srl6isV3h
-	d7CJdnToXot93zt+ZRPVLgUIG5K9lz65zHCjKsMrwJoKd8P0LwMNzYo2rt0rX9c//zPKP1uxVs5rG
-	Zj6rY0qiUVJHYpO5879zJMfDhA07phTQ2Q0SsFWAwomeFXDNtG991tLwCkIOW77DErDIoOdhFUAQA
-	Aosjtq8A==;
+	bh=CcNwL7xRwOV9aWxBCz320PcsLt2UGmXCGMzZht9hwDc=; b=F8S/s1KTNnD9H0IgeRLMLwA5ta
+	IrmzNJ3h78I9P/5u/tGRrNeVAZb4QhILr+n20giXZO4PSRS1AAUyen9sUMjz7MDEKkIe2jtPHWv7m
+	ft8C84MPTqzDlA1n+boF02bOf+9F+Fl58fgl79lEirpmwEjIkG4HPU0RaJ3Lg4pqbJIMG5dohoPZ0
+	DgTjDo+VGl+xWFo2iPgH4c2cbavt6Vg1voOGIv5Mpf7zFKdSgYd5PhVnwyrHfC8YiZVI9crnY30i/
+	i58BGyofZwHnhk7rNv0HgUGviYUuw7oRoiia0qByRFDLMpSYYrsJHiolWBC9OW9lb4kO0FhMHw7P2
+	/OST42hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9b04-0000000A03f-3ZBj;
-	Thu, 24 Sep 2026 04:24:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9b01-0000000A02y-0x93
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 04:23:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2297152B;
-	Wed, 23 Sep 2026 21:23:51 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5849C3F632;
-	Wed, 23 Sep 2026 21:23:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790223835; bh=mhxVmBkutSMe9fD1mx6TA46QJ685wJqUuRlfi7URACE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oe0+3cBKJYM5Q01mTk0/JnjmaKQli2AM0Bfcu8MVx3AOJrpuoK4owxkVJ2yPdgDXD
-	 uTqSUonHmn9FqOlmV3irphyq/BmKzqiK2S1I3IWRBgSKPFxmoXXJcBgFmdIzstvf84
-	 BPshgjSAERmmzkoL+Apww7RL1LkIDIffX1txorso=
-Date: Thu, 24 Sep 2026 09:53:51 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH V2 3/4] arm64/mm: Use p4dp_get() for P4D accesses
-Message-ID: <e3e5nbiles3kq7uftst7du7ys2qgtm6tfcxfolux5hmpmvvd7s@gptm5ukkwsm5>
-References: <20260922061638.3967467-1-anshuman.khandual@arm.com>
- <20260922061638.3967467-4-anshuman.khandual@arm.com>
- <ae280191-4d9b-4971-b724-60233895fdce@arm.com>
+	id 1x9b90-0000000A0be-3Lr6;
+	Thu, 24 Sep 2026 04:33:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9b8y-0000000A0bP-49m9;
+	Thu, 24 Sep 2026 04:33:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B201600AA;
+	Thu, 24 Sep 2026 04:33:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE441F000FF;
+	Thu, 24 Sep 2026 04:33:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790224391;
+	bh=CcNwL7xRwOV9aWxBCz320PcsLt2UGmXCGMzZht9hwDc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CsUtjgojaBrtU9hln5KGYU0lX2Fizlvya9euFa9GR5Ik6Y6KqsbQmYRFNAOtId5n/
+	 mGtGf3lYj23X9Wg2W+T0WCwVrEw5A+eywzQZx8wc3uCFbxbCmBJgJbnPX4lZMCFKUv
+	 7jvCtN6D7McOmqOYGW1h/A0eB1s2LMpYk/9hAAbDzU23X5LL6qCg5a1x01RIGpm2Ei
+	 4l8O4CcNgBKccOs3/1FuoaAuJkV2DMlhyjcNAIa475JQHuLKta6xFY1ewUmtqjOsX+
+	 FTBvj1fDLGg3WHEX0BTe1E4N8tHukTQShqVOoTV4PxPxNEb0TSgeqV4mi+ad7O7dBt
+	 xKr/Gsgs9Cqaw==
+Date: Thu, 24 Sep 2026 06:33:05 +0200
+From: Gao Xiang <xiang@kernel.org>
+To: Artem Dinaburg <artem@trailofbits.com>
+Cc: stable@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>, Gao Xiang <xiang@kernel.org>,
+	Chao Yu <chao@kernel.org>, Yue Hu <huyue2@coolpad.com>,
+	Jeffle Xu <jefflexu@linux.alibaba.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sandeep Dhavale <dhavale@google.com>,
+	Will Shiu <will.shiu@mediatek.com>,
+	Gao Xiang <hsiangkao@linux.alibaba.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>
+Subject: Re: [PATCH 6.1.y] erofs: Fix detection of atomic context
+Message-ID: <arSoAUX4jDzgY-rG@MacBookPro.fritz.box>
+Mail-Followup-To: Artem Dinaburg <artem@trailofbits.com>,
+	stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>, Gao Xiang <xiang@kernel.org>,
+	Chao Yu <chao@kernel.org>, Yue Hu <huyue2@coolpad.com>,
+	Jeffle Xu <jefflexu@linux.alibaba.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sandeep Dhavale <dhavale@google.com>,
+	Will Shiu <will.shiu@mediatek.com>,
+	Gao Xiang <hsiangkao@linux.alibaba.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>
+References: <20260922200448.27724-1-artem@trailofbits.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ae280191-4d9b-4971-b724-60233895fdce@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_212357_350595_2638F378 
-X-CRM114-Status: GOOD (  31.21  )
+In-Reply-To: <20260922200448.27724-1-artem@trailofbits.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,214 +91,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 09:30:26AM +0100, Ryan Roberts wrote:
-> On 22/09/2026 07:16, Anshuman Khandual wrote:
-> > Replace READ_ONCE() with p4dp_get() for P4D accesses in preparation for
-> > supporting both D64 and D128 translation table formats.
-> > 
-> > READ_ONCE() cannot currently be used for 128-bit page table entries on
-> > arm64 because it does not provide the required 128-bit single-copy
-> > atomicity, causing builds to fail for accesses wider than 64 bits.
-> > 
-> > Although LDP/STP provide the required atomicity when FEAT_LSE is
-> > available (as required by FEAT_D128), extending READ_ONCE() to support
-> > 128-bit accesses is undesirable. READ_ONCE() is a general-purpose API,
-> > so doing so could encourage other 128-bit users that would either fail
-> > to build in configurations without D128 support or, if D128 becomes a
-> > runtime option, silently permit tearing on systems without the required
-> > hardware support.
-> > 
-> > Instead, standardize P4D accesses on the existing page-table helpers.
-> > These can be overridden on arm64 to provide 128-bit single-copy
-> > atomicity when required. No functional change intended.
-> 
-> I notice you still have uncoverted READ_ONCE(*p4dp) in:
-> 
->  - pud_offset_phys()
->  - pud_offset()
-> 
-> Is that intentional? If so, perhaps we need a comment explain why it's not using
-> the helper?
+Hi Artem,
 
-Platform overrride for p4dp_get() should solve the problem.
+On Tue, Sep 22, 2026 at 04:04:36PM -0400, Artem Dinaburg wrote:
+> From: Sandeep Dhavale <dhavale@google.com>
+> 
+> [ Upstream commit 12d0a24afd9ea58e581ea64d64e066f2027b28d9 ]
+> 
+> Current check for atomic context is not sufficient as
+> z_erofs_decompressqueue_endio can be called under rcu lock
+> from blk_mq_flush_plug_list(). See the stacktrace [1]
+> 
+> In such case we should hand off the decompression work for async
+> processing rather than trying to do sync decompression in current
+> context. Patch fixes the detection by checking for
+> rcu_read_lock_any_held() and while at it use more appropriate
+> !in_task() check than in_atomic().
+> 
+> Background: Historically erofs would always schedule a kworker for
+> decompression which would incur the scheduling cost regardless of
+> the context. But z_erofs_decompressqueue_endio() may not always
+> be in atomic context and we could actually benefit from doing the
+> decompression in z_erofs_decompressqueue_endio() if we are in
+> thread context, for example when running with dm-verity.
+> This optimization was later added in patch [2] which has shown
+> improvement in performance benchmarks.
+> 
+> ==============================================
+> [1] Problem stacktrace
+> [name:core&]BUG: sleeping function called from invalid context at kernel/locking/mutex.c:291
+> [name:core&]in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 1615, name: CpuMonitorServi
+> [name:core&]preempt_count: 0, expected: 0
+> [name:core&]RCU nest depth: 1, expected: 0
+> CPU: 7 PID: 1615 Comm: CpuMonitorServi Tainted: G S      W  OE      6.1.25-android14-5-maybe-dirty-mainline #1
+> Hardware name: MT6897 (DT)
+> Call trace:
+>  dump_backtrace+0x108/0x15c
+>  show_stack+0x20/0x30
+>  dump_stack_lvl+0x6c/0x8c
+>  dump_stack+0x20/0x48
+>  __might_resched+0x1fc/0x308
+>  __might_sleep+0x50/0x88
+>  mutex_lock+0x2c/0x110
+>  z_erofs_decompress_queue+0x11c/0xc10
+>  z_erofs_decompress_kickoff+0x110/0x1a4
+>  z_erofs_decompressqueue_endio+0x154/0x180
+>  bio_endio+0x1b0/0x1d8
+>  __dm_io_complete+0x22c/0x280
+>  clone_endio+0xe4/0x280
+>  bio_endio+0x1b0/0x1d8
+>  blk_update_request+0x138/0x3a4
+>  blk_mq_plug_issue_direct+0xd4/0x19c
+>  blk_mq_flush_plug_list+0x2b0/0x354
+>  __blk_flush_plug+0x110/0x160
+>  blk_finish_plug+0x30/0x4c
+>  read_pages+0x2fc/0x370
+>  page_cache_ra_unbounded+0xa4/0x23c
+>  page_cache_ra_order+0x290/0x320
+>  do_sync_mmap_readahead+0x108/0x2c0
+>  filemap_fault+0x19c/0x52c
+>  __do_fault+0xc4/0x114
+>  handle_mm_fault+0x5b4/0x1168
+>  do_page_fault+0x338/0x4b4
+>  do_translation_fault+0x40/0x60
+>  do_mem_abort+0x60/0xc8
+>  el0_da+0x4c/0xe0
+>  el0t_64_sync_handler+0xd4/0xfc
+>  el0t_64_sync+0x1a0/0x1a4
+> 
+> [2] Link: https://lore.kernel.org/all/20210317035448.13921-1-huangjianan@oppo.com/
+> 
+> Reported-by: Will Shiu <Will.Shiu@mediatek.com>
+> Suggested-by: Gao Xiang <xiang@kernel.org>
+> Signed-off-by: Sandeep Dhavale <dhavale@google.com>
+> Reviewed-by: Gao Xiang <hsiangkao@linux.alibaba.com>
+> Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
+> Link: https://lore.kernel.org/r/20230621220848.3379029-1-dhavale@google.com
+> Signed-off-by: Gao Xiang <hsiangkao@linux.alibaba.com>
+> 
+> [ Backport to 6.1.y: the source change is unchanged; only its location
+>   in z_erofs_decompress_kickoff() differs. ]
+> Assisted-by: LLM
+> Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+> ---
+> Hi Greg, Sasha, and EROFS maintainers,
+> 
+> I am continuing backporting CVE fixes still missing from 6.1.y.
+> This fix is inherited by v6.6 and every later mainline release, but 6.1.y
+> still has the affected code. The target-specific adjustment is described
+> in the bracketed note above.
+> 
+> Could you please queue it for 6.1.y?
+
+Sorry for late reply.
+
+Thanks for your effort, this commit has a follow-up commit
+commit c99fab6e80b76422741d34aafc2f930a482afbdd
+
+erofs: fix atomic context detection when !CONFIG_DEBUG_LOCK_ALLOC
+
+could you please consider backport those to stable kernels as well?
+
+Thanks,
+Gao Xiang
 
 > 
 > Thanks,
-> Ryan
-> 
-> 
-> > 
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Ryan Roberts <ryan.roberts@arm.com>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: kasan-dev@googlegroups.com
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > ---
-> >  arch/arm64/mm/fault.c       |  2 +-
-> >  arch/arm64/mm/fixmap.c      |  2 +-
-> >  arch/arm64/mm/hugetlbpage.c |  2 +-
-> >  arch/arm64/mm/kasan_init.c  |  4 ++--
-> >  arch/arm64/mm/mmu.c         | 12 ++++++------
-> >  arch/arm64/mm/pageattr.c    |  2 +-
-> >  arch/arm64/mm/trans_pgd.c   |  4 ++--
-> >  7 files changed, 14 insertions(+), 14 deletions(-)
-> > 
-> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> > index 435e2e14c070..a6afd8929a10 100644
-> > --- a/arch/arm64/mm/fault.c
-> > +++ b/arch/arm64/mm/fault.c
-> > @@ -174,7 +174,7 @@ static void show_pte(unsigned long addr)
-> >  			break;
-> >  
-> >  		p4dp = p4d_offset_lockless(pgdp, pgd, addr);
-> > -		p4d = READ_ONCE(*p4dp);
-> > +		p4d = p4dp_get(p4dp);
-> >  		ptval_to_str(pxd_str, p4d_val(p4d));
-> >  		pr_cont(", p4d=%s", pxd_str);
-> >  		if (p4d_none(p4d) || p4d_bad(p4d))
-> > diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> > index d9a870836faf..2a0fe0b0f771 100644
-> > --- a/arch/arm64/mm/fixmap.c
-> > +++ b/arch/arm64/mm/fixmap.c
-> > @@ -74,7 +74,7 @@ static void __init early_fixmap_init_pmd(pud_t *pudp, unsigned long addr,
-> >  static void __init early_fixmap_init_pud(p4d_t *p4dp, unsigned long addr,
-> >  					 unsigned long end)
-> >  {
-> > -	p4d_t p4d = READ_ONCE(*p4dp);
-> > +	p4d_t p4d = p4dp_get(p4dp);
-> >  	pud_t *pudp;
-> >  
-> >  	if (CONFIG_PGTABLE_LEVELS > 3 && !p4d_none(p4d) &&
-> > diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> > index c9ad5e75b073..5771bf49e1fe 100644
-> > --- a/arch/arm64/mm/hugetlbpage.c
-> > +++ b/arch/arm64/mm/hugetlbpage.c
-> > @@ -288,7 +288,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
-> >  		return NULL;
-> >  
-> >  	p4dp = p4d_offset(pgdp, addr);
-> > -	if (!p4d_present(READ_ONCE(*p4dp)))
-> > +	if (!p4d_present(p4dp_get(p4dp)))
-> >  		return NULL;
-> >  
-> >  	pudp = pud_offset(p4dp, addr);
-> > diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-> > index aad29bcc7622..4dd8c1186471 100644
-> > --- a/arch/arm64/mm/kasan_init.c
-> > +++ b/arch/arm64/mm/kasan_init.c
-> > @@ -89,7 +89,7 @@ static pmd_t *__init kasan_pmd_offset(pud_t *pudp, unsigned long addr, int node,
-> >  static pud_t *__init kasan_pud_offset(p4d_t *p4dp, unsigned long addr, int node,
-> >  				      bool early)
-> >  {
-> > -	if (p4d_none(READ_ONCE(*p4dp))) {
-> > +	if (p4d_none(p4dp_get(p4dp))) {
-> >  		phys_addr_t pud_phys = early ?
-> >  				__pa_symbol(kasan_early_shadow_pud)
-> >  					: kasan_alloc_zeroed_page(node);
-> > @@ -162,7 +162,7 @@ static void __init kasan_p4d_populate(pgd_t *pgdp, unsigned long addr,
-> >  	do {
-> >  		next = p4d_addr_end(addr, end);
-> >  		kasan_pud_populate(p4dp, addr, next, node, early);
-> > -	} while (p4dp++, addr = next, addr != end && p4d_none(READ_ONCE(*p4dp)));
-> > +	} while (p4dp++, addr = next, addr != end && p4d_none(p4dp_get(p4dp)));
-> >  }
-> >  
-> >  static void __init kasan_pgd_populate(unsigned long addr, unsigned long end,
-> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > index 22efaee79293..83709d987e7c 100644
-> > --- a/arch/arm64/mm/mmu.c
-> > +++ b/arch/arm64/mm/mmu.c
-> > @@ -367,7 +367,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
-> >  {
-> >  	int ret = 0;
-> >  	unsigned long next;
-> > -	p4d_t p4d = READ_ONCE(*p4dp);
-> > +	p4d_t p4d = p4dp_get(p4dp);
-> >  	pud_t *pudp;
-> >  
-> >  	if (p4d_none(p4d)) {
-> > @@ -457,7 +457,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
-> >  	}
-> >  
-> >  	do {
-> > -		p4d_t old_p4d = READ_ONCE(*p4dp);
-> > +		p4d_t old_p4d = p4dp_get(p4dp);
-> >  
-> >  		next = p4d_addr_end(addr, end);
-> >  
-> > @@ -467,7 +467,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
-> >  			goto out;
-> >  
-> >  		VM_WARN_ON_ONCE(p4d_val(old_p4d) != 0 &&
-> > -				p4d_val(old_p4d) != READ_ONCE(p4d_val(*p4dp)));
-> > +				p4d_val(old_p4d) != (p4d_val(p4dp_get(p4dp))));
-> >  
-> >  		phys += next - addr;
-> >  	} while (p4dp++, addr = next, addr != end);
-> > @@ -1622,7 +1622,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
-> >  	do {
-> >  		next = p4d_addr_end(addr, end);
-> >  		p4dp = p4d_offset(pgdp, addr);
-> > -		p4d = READ_ONCE(*p4dp);
-> > +		p4d = p4dp_get(p4dp);
-> >  		if (p4d_none(p4d))
-> >  			continue;
-> >  
-> > @@ -1788,7 +1788,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
-> >  	do {
-> >  		next = p4d_addr_end(addr, end);
-> >  		p4dp = p4d_offset(pgdp, addr);
-> > -		p4d = READ_ONCE(*p4dp);
-> > +		p4d = p4dp_get(p4dp);
-> >  		if (p4d_none(p4d))
-> >  			continue;
-> >  
-> > @@ -1809,7 +1809,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
-> >  	 */
-> >  	p4dp = p4d_offset(pgdp, 0UL);
-> >  	for (i = 0; i < PTRS_PER_P4D; i++) {
-> > -		if (!p4d_none(READ_ONCE(p4dp[i])))
-> > +		if (!p4d_none(p4dp_get(p4dp + i)))
-> >  			return;
-> >  	}
-> >  
-> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > index 07b2fa4de57f..826856ef64a8 100644
-> > --- a/arch/arm64/mm/pageattr.c
-> > +++ b/arch/arm64/mm/pageattr.c
-> > @@ -403,7 +403,7 @@ bool kernel_page_present(struct page *page)
-> >  		return false;
-> >  
-> >  	p4dp = p4d_offset(pgdp, addr);
-> > -	if (p4d_none(READ_ONCE(*p4dp)))
-> > +	if (p4d_none(p4dp_get(p4dp)))
-> >  		return false;
-> >  
-> >  	pudp = pud_offset(p4dp, addr);
-> > diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-> > index d119119455f1..7afe2beca4ba 100644
-> > --- a/arch/arm64/mm/trans_pgd.c
-> > +++ b/arch/arm64/mm/trans_pgd.c
-> > @@ -99,7 +99,7 @@ static int copy_pud(struct trans_pgd_info *info, p4d_t *dst_p4dp,
-> >  	unsigned long next;
-> >  	unsigned long addr = start;
-> >  
-> > -	if (p4d_none(READ_ONCE(*dst_p4dp))) {
-> > +	if (p4d_none(p4dp_get(dst_p4dp))) {
-> >  		dst_pudp = trans_alloc(info);
-> >  		if (!dst_pudp)
-> >  			return -ENOMEM;
-> > @@ -145,7 +145,7 @@ static int copy_p4d(struct trans_pgd_info *info, pgd_t *dst_pgdp,
-> >  	src_p4dp = p4d_offset(src_pgdp, start);
-> >  	do {
-> >  		next = p4d_addr_end(addr, end);
-> > -		if (p4d_none(READ_ONCE(*src_p4dp)))
-> > +		if (p4d_none(p4dp_get(src_p4dp)))
-> >  			continue;
-> >  		if (copy_pud(info, dst_p4dp, src_p4dp, addr, next))
-> >  			return -ENOMEM;
-> 
+> Artem Dinaburg
 
