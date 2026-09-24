@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A272C98316
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6928EC98315
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W/q4IHYKCy6ATe5C6R4o2zyKGD60s2UPYSeHPBkDVEs=; b=JTom5BfchZdvIW7dyPjr0G0BUP
-	GfSPe9+9i1NSihiLmKtOc1zv8nTqvAd/umlgkmiupANa5lKi6oCeiJ+C0zbnyJLnQSOBdQdWHK7Lr
-	XzwEQpjfHbipOPsEU0zAe8uaXoCsMJUALP2buvGVisgyIceuBmhP8v6PfcJKy17jKgRFRSBls0byu
-	kyYVpVkElMC/DYmo5fhDoLSVwxIS8iqsd3NG/02q31n5jlMLOxtXZd8S0C31XIt7e+g3GQNk5WUoI
-	l5AHBn4gWgqmsk3oOrQOSSYNPGOLFZL0J4bBgVJnnENasEOZrBUjJhxZC98fEodPXSSwk0B8CwQzp
-	Re+jNpZQ==;
+	bh=yrjq9fQeRRT3Dkn6ja90PvKLpuXI2Gg2RkQogJKUx6w=; b=WrI5yXCOEbpfof0n7lV73hdl3f
+	TeJsny4ZdjLfp1fat81sA/ddELTBuUNCg8nQbZKfQsh5aGkpEo6EBUznDlvdjNUU0HPI5MukawBjf
+	Djhez9YBCk2eqAIwkiVf0BAxSk4/XmVZIT0knYhnc0ZWhxQOB/p1fY8vaqmGUVirCfilW70kh8Fmi
+	9SeygwCYUdanURV58GHrjDPSDA6d1+e8VDC9NKRET+hV/e3SFALBVdUXOWIui1g7LGR8Tr06oBmLC
+	ZBQxSUxxRAO3VAsLg1n6G2OMbwxqUhuK+BY+o0fxohplVWkXmNCfObj+KRhYpS1/lWDxIdlk70zcE
+	pv4UNRnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dfc-0000000AFVU-2ybX;
-	Thu, 24 Sep 2026 07:15:04 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x9dfd-0000000AFWq-0kL2;
+	Thu, 24 Sep 2026 07:15:05 +0000
+Received: from mail-ed2-x1e.google.com ([2a00:1450:4864:33::1e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dfR-0000000AFPM-2KeU
+	id 1x9dfV-0000000AFRX-1l25
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 07:14:55 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a605c198fdso2806203a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:14:52 -0700 (PDT)
+	Thu, 24 Sep 2026 07:14:58 +0000
+Received: by mail-ed2-x1e.google.com with SMTP id 4fb4d7f45d1cf-6a9adea43b6so2479022a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:14:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790234092; x=1790838892; darn=lists.infradead.org;
+        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790234095; x=1790838895; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=W/q4IHYKCy6ATe5C6R4o2zyKGD60s2UPYSeHPBkDVEs=;
-        b=kclWb8x9/bGGZomPAwVMgKKS/obKK6w/Ck+eP6q0n9NQw5rkJ82P70o2f6OPAiRI5j
-         zS/5erLtltJSJGubogbaylI7RF56BaWjg2U0kMNNSb17Lgf3Sehdt98IG0fV+Gn97Zo/
-         bsLUAPFILWovWe7YrcNgp6fud1zCOHzQmdf2c+PWryNYqwmujxVtjprSieXeUeRJkVMf
-         oGl3hmSA04KSgxpvFQyT6Ll5Co8PPEecwCrNRmqQuFTSwPi3jfXNpkV/ZAJ0ATsgM51Y
-         XogAMVdUX9WDvr8F8D9P2bogC8cl1MlLY1Jb8H1ikggZvVmeFtSG8Eu5hH9K7P+zf3GS
-         UsRA==
+        bh=yrjq9fQeRRT3Dkn6ja90PvKLpuXI2Gg2RkQogJKUx6w=;
+        b=QXXktA3d0OjjEpmJeO2C0+6dy5jexIGsLeF6E4LAsRL8dnZ5KV3cJpzMpzfCJoiEsH
+         TUmMWXnWlg5I1dq+E2WREA9Hd/ZJ8kqruqU3VZjfh9CHkVqXmS28Aoob/g2QuwzmlQKN
+         Zy1VdIPuFZ/+drVgL3tEqZofWG+8/LLK7BZJnJruS4z72ATm/7qvWJpgpmhhTKgOdbPy
+         6M8Z0ZCs/CDvycXXGa6Td1ZClp0BJHK6zuIdMYDt5GeJfydkPXiEX7HvAP9WfL4R9BE0
+         1svypFhjQy/DgZRYptMmDThj7sXSYI84F1FeHIZXF8JGRtVMuMv4jX14cWGqLonk+sYo
+         i5iA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790234092; x=1790838892;
+        d=1e100.net; s=20260707; t=1790234095; x=1790838895;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=W/q4IHYKCy6ATe5C6R4o2zyKGD60s2UPYSeHPBkDVEs=;
-        b=LlCBYBJYgdIPHjES/tNvEkwKzbIcBlQEhhO1gGVnoN0c33O4eWXczj9jrgm0kyA/86
-         NLqS8GE4b5TJepzu0oiGj7Qr+JSU6Jq3g9wB08CyHAb4vfHEYA/vMbdSGPJ+uvvsK4XL
-         JXJ04JVQ5q7XvgaK+3QDgivES/YPQRD1idIsBmkfJwXQOudl6SqPZNb5ebLTd6ByGr2m
-         DysmjL9KnBWQ2SWeixWeEZIZAOkmAjC1dnOvWAdeyZvSkXqqf6zHu283IjECsn5eucoA
-         7iokgBoTvXaQ2Tc6k7plDaZxaWvpxDjDc2OI+DRAX5GXLk1F7h5o2hIMx+Dcv0lUYeHC
-         z+5A==
-X-Forwarded-Encrypted: i=1; AKwUvBwP7cbkP13LIoxLG8KXZGIft6oRxewjMHFQI8IZyAb7Qo3mDOx/CT+2d96BY+me9tw0B2aqzEdfR/gSZzIpgasB@lists.infradead.org
-X-Gm-Message-State: AFuF++mu2Vi4qv+2b3XRgjCdS8Skxz9Yia+s8Ny9izkYV1R4jzYvT55V
-	yonOt7ZvPv67M3YoVbvKJac9lBBDHL1p68aSzGzRBTxHm39QEm1KAq6p7RH31/xPphx/+ICshAM
-	iSRoo
-X-Gm-Gg: AYBFou1JhZaO85+BtgPea8yUbK+ZkR/gxawofeJ/gFUOg3OXKev0DWzlm8EZpFjkQz3
-	IZcEJx62cBBOmfjgE3S7WTg4f4O6QP6XLsFaQONTigpsfaLeoQUqPhAKiQzmaYx2wlufw0RW7Ig
-	bn92AwNQ2lYw3mZm0g6ovwGksBWirBQbFs10SwLn9/Ym8+ERt3iVwbAmkhbldLEHRr9ksmpOwHD
-	wYOwW1D0l1WA7SfKRRKzuVHc9OBrFE2GXh4/02jrYPWzfAgJXvz5NyS/HcO50stq8zszoZmL7+l
-	xxIo5jdN+Qx50At8RJoY0wTo7qLXGaF3pIuyzT2IeKBrRAYrCMMNeME3uNl22J5Tjhw7aeu6FAe
-	jaJNP9Lhsgl0b/fP6DNzmeRNmZPLuMLQYl8gsOa3QNGJVSxNSGl9g/LFf4msRWLcN609rGAKphS
-	118XRbN6SW4VKxFEsx67jxsnOsAbvgx2oIMpWya6CI9DdrTOSyGW/3FeDicExLd6655izN/thlC
-	JnEZ1N0gjLtpmm82l5a1KXWTUkccaDIT5Jk8267ODKb9xM=
-X-Received: by 2002:a05:6402:5385:b0:6aa:aaf2:f6a0 with SMTP id 4fb4d7f45d1cf-6aac8ecf65bmr1299955a12.1.1790234091341;
-        Thu, 24 Sep 2026 00:14:51 -0700 (PDT)
+        bh=yrjq9fQeRRT3Dkn6ja90PvKLpuXI2Gg2RkQogJKUx6w=;
+        b=p/gkb0A2YLmhQ0XNMZ8S9r7lg/GgUn0vYTFXpSQWNGYRdNk3ZTTsBMAjYp3yusSk1I
+         FHeJLhfUTsTs2CGGQ0Jv6hr3y3tChdkgyC2QzOkgz5jgEHfWqexFs1F6N3McM1pd1X6R
+         Ew/v0q7h1TggALUXN65EO+nED9ZZ85efCtL1qOtkjgqM9i2Rlrux6L7kcudJw59pv/+c
+         Zco18gDnKAg55ePT1m5pdtx4/2U3iIEQE1muaTA6qEXvvCgMXSWwx+to5qlUc/QoqPzi
+         pmLCDzGqHL33wXpK5qX9duSYoiBJobUeFiKB1KJ5ZoX/BAz75cUlshoOq1uLja70FnbW
+         XsnA==
+X-Forwarded-Encrypted: i=1; AKwUvBz4vefuHeDPh9ivnTdxNXr3tjnCLuBOig79On8Lp7JlpxrGTeMP5Nri0p7J6Q9ci5QKdXgXhD0+kqUmTxFoV4EC@lists.infradead.org
+X-Gm-Message-State: AFuF++nv+nFObMkhIl2SMO35If9hr40QAPmGmvJeGmjGozZhVKggiSUk
+	+RDMVyGGqANXn4+hWALPZTtQANn3VvuCjqBfQ0gVOIDzKBj3XN64Hw2uD5EC/dYIfRg=
+X-Gm-Gg: AYBFou3LPxDg2u8Luk9HMDHamqDjHrinzCLRNCANVGcuOIybdVC0uuuiQDNpctldNz2
+	xYdhhfBLrabyZieJfnvzyfh1feXmE/WoyggFBkZn3VNYMy3PFMz6x+vz54QV7okYRXOTDOO/BR8
+	aDpkE+IQ4yBrYLGdkIm1CE6FpsNxrhZMXEgKZCtHbDoMI5M6xgcCEt5xYuI5lLqsf6J9u1oy44r
+	p404lzg9JOXlx5U1pXNrz+VJM+di0Tj9acWY1LGdgug8X/NwSy/jdxX0IM1RRGj98ft11dmU72D
+	XHjbHmB4CGHqTCTPOyNAj7mQPmGpBO02IBXUgJvpt38QtXuYkND35U4mEjZ9AtLCRQzlJlNteun
+	EOLaGBHlbB1zKBMP/mXK/zCwdX04+XNraOYjzZ7d5HLZIC+CPLSZrwEtJIjC7H/MI+sMfUuUOk5
+	nu2UrIn2tzZWaWyoKpCZHtWX+iaCgxpN31xM9FWczMLxUPXrlsFQcpcM/tfVDzMAaPZDvdksbee
+	ZaqoXZ/sBQdj1fvcQEtv6JHs27s9GJJbH8b8/xEKjRUbzc=
+X-Received: by 2002:a05:6402:1599:b0:6aa:936f:5d2c with SMTP id 4fb4d7f45d1cf-6aacc83e324mr889306a12.23.1790234095400;
+        Thu, 24 Sep 2026 00:14:55 -0700 (PDT)
 Received: from janlin-02.home.wermuth.pl (109-206-198-27.host.skynet.net.pl. [109.206.198.27])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab38a9756sm3306589a12.25.2026.09.24.00.14.50
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab38a9756sm3306589a12.25.2026.09.24.00.14.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 00:14:50 -0700 (PDT)
+        Thu, 24 Sep 2026 00:14:54 -0700 (PDT)
 From: Adam Wermuth <adam@wermuth.pl>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Rob Herring <robh@kernel.org>,
@@ -81,17 +80,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Adam Wermuth <adam@wermuth.pl>
-Subject: [PATCH 1/3] arm64: dts: rockchip: Enable USB 2.0 host1 on Radxa ROCK 3B
-Date: Thu, 24 Sep 2026 09:14:43 +0200
-Message-ID: <20260924071445.441822-2-adam@wermuth.pl>
+Subject: [PATCH 3/3] arm64: dts: rockchip: Add PWM fan to Radxa ROCK 3B
+Date: Thu, 24 Sep 2026 09:14:45 +0200
+Message-ID: <20260924071445.441822-4-adam@wermuth.pl>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260924071445.441822-1-adam@wermuth.pl>
 References: <20260924071445.441822-1-adam@wermuth.pl>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_001453_599595_F400633F 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260924_001457_474276_CBDB83FD 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +105,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The USB 2.0 data lines of the M.2 B-key slot are routed to USB2_HOST3,
-which is served by usb_host1_ehci/ohci through the host port of
-usb2phy1. Enable the controllers and the PHY port so that modules in
-the B-key slot, such as LTE modems, can enumerate.
+The ROCK 3B has a 2-pin fan header powered from vcc5v0_sys and
+switched by a MOSFET driven from PWM8 (pwm8m0 pins). Enable the PWM
+controller, describe the fan as a pwm-fan cooling device and add
+active trip points to the CPU thermal zone:
+
+ - 50 C: fan at 25%
+ - 60 C: fan at 50-75%
+ - 70 C: fan at 100%
+
+each with 5 C hysteresis. The existing passive and critical trip
+points are left unchanged.
 
 Signed-off-by: Adam Wermuth <adam@wermuth.pl>
 ---
- arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ .../boot/dts/rockchip/rk3568-rock-3b.dts      | 51 +++++++++++++++++++
+ 1 file changed, 51 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-index 149a5306bb03..ad9a91c0d0d0 100644
+index 908bb4425e81..815f67988ab7 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-@@ -758,6 +758,14 @@ &usb_host0_xhci {
+@@ -24,6 +24,14 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
+ 
++	fan: fan {
++		compatible = "pwm-fan";
++		cooling-levels = <0 64 128 192 255>;
++		fan-supply = <&vcc5v0_sys>;
++		pwms = <&pwm8 0 10000 0>;
++		#cooling-cells = <2>;
++	};
++
+ 	hdmi-con {
+ 		compatible = "hdmi-connector";
+ 		type = "a";
+@@ -200,6 +208,45 @@ &cpu3 {
+ 	cpu-supply = <&vdd_cpu>;
+ };
+ 
++&cpu_thermal {
++	trips {
++		cpu_fan0: cpu-fan0 {
++			hysteresis = <5000>;
++			temperature = <50000>;
++			type = "active";
++		};
++
++		cpu_fan1: cpu-fan1 {
++			hysteresis = <5000>;
++			temperature = <60000>;
++			type = "active";
++		};
++
++		cpu_fan2: cpu-fan2 {
++			hysteresis = <5000>;
++			temperature = <70000>;
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map1 {
++			trip = <&cpu_fan0>;
++			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
++		};
++
++		map2 {
++			trip = <&cpu_fan1>;
++			cooling-device = <&fan 2 3>;
++		};
++
++		map3 {
++			trip = <&cpu_fan2>;
++			cooling-device = <&fan 4 THERMAL_NO_LIMIT>;
++		};
++	};
++};
++
+ &gmac0 {
+ 	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
+ 	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>, <&cru CLK_MAC0_2TOP>;
+@@ -708,6 +755,10 @@ &pmu_io_domains {
  	status = "okay";
  };
  
-+&usb_host1_ehci {
++&pwm8 {
 +	status = "okay";
 +};
 +
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
- &usb_host1_xhci {
- 	status = "okay";
- };
-@@ -780,6 +788,11 @@ &usb2phy1 {
- 	status = "okay";
- };
- 
-+&usb2phy1_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
- &usb2phy1_otg {
- 	phy-supply = <&vcc5v0_usb_host>;
+ &saradc {
+ 	vref-supply = <&vcca_1v8>;
  	status = "okay";
 -- 
 2.43.0
