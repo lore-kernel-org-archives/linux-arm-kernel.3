@@ -4,92 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B8FC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEADC9831D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/WZw9rLkA8GgKGtwNNWTWSV66Yxdcd2UG4mDpKAM0U=; b=a39Cpm/xyXCBqh/gKoxlIYJY0a
-	62zeFHwJUKyk8PEAkl2dB+XOXb2fdVbWLVX4qUJz8a0seqEbf7pbJFP/h+Qz4JeK6GRCozT9Eq0TW
-	BiIT1T5UBy0cAzIGPeTzBGGXIQVxu0o9tHLBVezNrGgtP8hUuZ+XsM2+0J5VtGnhK6ntVhbzK5u6u
-	E5dnxEK5blZvOi0lFcBj7z4ygWklZFO4gG02t/rWGrG/J7aZEuETtd5ziy3OiTMMGK44PMN/ZzaHO
-	grU3tQOqEtZg2qgIL4qkZr9C66zowJeYBY+uDl9Kq4ftf89qizF3yMYQCzaUvtUawdyjsSUlqyLmb
-	Af4D2BCA==;
+	bh=0QnLQKdVs59WnyvZJejYLL5JWNbJS94oGp7Pxe0iKxI=; b=RKnOgMeeYjC1MeH/zNY00gFHLz
+	jZ42mxsCCBUBhz52xlqf6itQ1Jf3rx8g60390YYCoLb+q8xTq2F8Okl86Aea754qTRyYr8kd+RcWd
+	41JRtlMlOrSz2egBFHCqwah++PkuabMLcLvlaKUoYE62C4M8fJ9Pz2a+6FOdZIepfc3awlk38hCpa
+	IaLWaAadCktQTL7dPRcpaaBAL457G7ohBxmQbxKLPj5pCRXK4dKz5Qjw1sJzjrk32bakBwgKc8v5D
+	lj8uSPkfBIyam5Z5wtaQ2kAQEloWqWGxR5xjThtGROxx31t43weCoTD2Ht+7KvoE7o2xVjEu0Xrqt
+	PmxJ51uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iyF-0000000B1Qv-1zcV;
-	Thu, 24 Sep 2026 12:54:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iyE-0000000B1Qm-1i5B
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 12:54:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=V/WZw9rLkA8GgKGtwNNWTWSV66Yxdcd2UG4mDpKAM0U=; b=KDGa5gmnFsmPelF9QfgmZlNfM9
-	GXEcOS6P96bknPASw0G91Y4QZ58Tq+MdnLwRzMRr2VwGBxux9+6lQRs1brUYvrYiGc61Z86jVI7pn
-	q5ZN4vyG42Zck7itTWp4lWhoeOA9hDCCaItuCDd4Z2KbnPJotyDnEs2puS4w7SZYIf0sAu2zVV7wn
-	yDHtPAX5+j5Odb84dw0j00j2tpRZGHUQuKkkM/TXA94x3dBDcmUiYdIe9BxWGni2+U5XvLyRaYAe5
-	WeRo1iRGwh2UOSqLjCbRYZr2LSSzC3esnuuU6kZ07RxKwDev8ioUL0fweo9e48eLK82O3321nuQgz
-	olgF1YBQ==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9iyB-0000000FzgF-03mo
+	id 1x9iyb-0000000B1U6-2RvY;
+	Thu, 24 Sep 2026 12:55:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9iyZ-0000000B1Sx-0ZPP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 12:54:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=V/WZw9rLkA8GgKGtwNNWTWSV66Yxdcd2UG4mDpKAM0U=; b=ORH9DIUBwALlitNdRlOCOfiq2n
-	PqekiHAmB+WJkW8o0RXVvZlpTiO6YWlB9pAodNUiqUPahzAw6+uJr/xShYzU5ZopAMzxFmBV6OXKW
-	/V/Id+2JYL2IQTMdlaaOlfLSh1DTwlYcTLRVJd79ScgSCQRil90tDTb3YZnzo0dfjbPo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9ixt-006zeO-5j; Thu, 24 Sep 2026 14:54:17 +0200
-Date: Thu, 24 Sep 2026 14:54:17 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
- A733 GMAC210
-Message-ID: <5fae3b42-552a-458a-9710-927360e58c37@lunn.ch>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
- <9cc61625-47c9-4bdf-97f0-0528f661a399@lunn.ch>
- <1j7bkb9h5k.fsf@starbuckisacylon.baylibre.com>
+	Thu, 24 Sep 2026 12:55:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8FDE152B;
+	Thu, 24 Sep 2026 05:54:54 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 436243F86C;
+	Thu, 24 Sep 2026 05:54:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790254498; bh=aWV7PEMYjMS6Fa0gt8KRQnHPb2wOFgC/5kQomSEy/t0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sE7U6I9hopp3qF+bsG556752RndTtqc79LGscXR6qhlL0GRwOUSNviMC2mBGiBnxm
+	 1PP6n5OarQPMDA4H1vCHAhAezpby9eImipwm8AeQn3bpBtZe59x4oZfAVUx9q3c+Zk
+	 +USydU570tjM5UbJAgsPRCH/K7czyiGjd3bRO29o=
+Date: Thu, 24 Sep 2026 13:54:54 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: Use proper include variant
+Message-ID: <arUdntLjLT6BD6zJ@J2N7QTR9R3>
+References: <20260924-syreg-incl-v1-1-a3097a8ccc74@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1j7bkb9h5k.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <20260924-syreg-incl-v1-1-a3097a8ccc74@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_135435_197865_1AD5797B 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_055459_224694_66CAD5D1 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,17 +71,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I've changed the phy-mode to plain rgmii which seems more in line with
-> what the PHY actually does.
+On Thu, Sep 24, 2026 at 12:57:18PM +0200, Steffen Eiden wrote:
+> Use <> for including the sysreg header as it is not discoverable from
+> the current directory.
+> 
+> Acked-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 
-No, it is much messier than that.
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+I'm surprised that happens to work today, but evidently it does.
 
-rgmii-id is very likely to be correct, if you were using a sane PHY.
+Mark.
 
-But this PHY is going to cause you lots of problems.
-
-    Andrew
-
+> ---
+> This is just a spin off from [1]. There is no in-series dependency for
+> this patch and it fixes a minor issue. Using " for the include file does
+> not break anything (now) but it is not right as well. For [1] we need
+> this to correctly transform the includes to a new path for the
+> s390-generated version of this file.
+> 
+> 	Steffen
+> 
+> [1] https://lore.kernel.org/all/20260918133107.1042730-1-seiden@linux.ibm.com/
+> ---
+>  arch/arm64/include/asm/sysreg.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 7aa08d59d494..4bfdac9401bd 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -173,7 +173,7 @@
+>   * come from here. The header relies on the definition of sys_reg()
+>   * earlier in this file.
+>   */
+> -#include "asm/sysreg-defs.h"
+> +#include <asm/sysreg-defs.h>
+>  
+>  /*
+>   * System registers, organised loosely by encoding but grouped together
+> 
+> 
+> 
 
