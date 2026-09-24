@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A766C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73C6C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bj2+qSgqLFFvpfA0nqOpB7PXbG4+0iMgROZjvUDW7Po=; b=NiPZgnhV4XHKIm88XsZv1pEBTe
-	A8mOyR9b+WRp6s7KXptiCJe+hcjqFRomYXecRoIutH6keTDX45XwbtTRhXDA5iLFi0h8AnoYMhswU
-	RAnD9QBIq2mStS0FVDaVSbLlISBY3p99Q0uFJ6gQXVespO5nuEV+1pyRKbOhZWwYGAtgvk0svpHJi
-	Cdy3cptvHc/Qwt8+dWhzDWPR2GqVI1KFcQJXOobJdPSL6GlefTA+AJys5asQftfEWVzPjxJoKWW64
-	LAA2fSyz9hv8M3eXPxNDvhys7XZfyoT1jG0L2Z86ZK/c2owfFcDJOXfNlu12k8e/bCQGqRhtHYZnJ
-	TYbJfAGA==;
+	bh=/r8FIy2V4CP3oxdXEppYFft9HmteZ9fPAPGHJHwLVlg=; b=dap6amNwHAN/afkPUHFaNj9de3
+	Dvn8zfUdsmQKN86yVmlQTSb2BcaWbP4uni4il0jgpTckCuevmbJTasWjYA7aFOWqsHEnOlJZ7aPRi
+	nRkBO0I7oWFwtxPylRvN3CpnEgDOZv4wV8K8MsWYeG6D5K1F6RVpjGvfxibuAyu3YjMz3OHqAEREW
+	3EFQT8lL/VPuS48Rpkv+CRMjC5jvk0C3f4uEnxdl26Zy/quphXyN9Ey9YEaGLfwEf+F0fmR4q7Yky
+	zrwhL/q6rwhDenPjaM7bnqv6rXhnkpGMrGbqzSO0xmdNVF1b6Nadkv/cubhR2QVte4yzozh+DnQpn
+	EOfyRDog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mF2-0000000Baiz-0aD1;
-	Thu, 24 Sep 2026 16:24:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mEx-0000000BaiO-3dqg
+	id 1x9mFi-0000000Baro-187k;
+	Thu, 24 Sep 2026 16:24:54 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9mFe-0000000Baqa-1iP6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:24:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A827152B;
-	Thu, 24 Sep 2026 09:24:03 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 52F123F86C;
-	Thu, 24 Sep 2026 09:24:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790267046; bh=nYWPMepafEr1szvqd75pqzJehqgl5uIJn0bLATvvyi0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MGnDWvmsse7Nfi8NDxS5JR16IrOZXu8WDUyKnyIAqx6L3CmRlXs5W5MmZFu76yY6z
-	 xYR/DpErVu/QRHrUWKH+fBPvVR9MCmvadRojn/hyvPl+WD0TJh4eE4IP2EYEzLlVU7
-	 FN8dPHXd1ekC9DrpKWjF6XvlxzfEWz1KVM4gid7c=
-Date: Thu, 24 Sep 2026 17:24:04 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <dengyingchao@kylinsec.com.cn>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	qinyungao@kylinsec.com.cn
-Subject: Re: [PATCH v2 1/1] coresight: syscfg: fix deadlock on device
- registration failure
-Message-ID: <20260924162404.GN200420@e132581.arm.com>
-References: <B16F90D29FAA2B3E+20260914074524.1694-1-dengyingchao@kylinsec.com.cn>
- <6CC680FFAC60931F+20260914074900.1711-1-dengyingchao@kylinsec.com.cn>
+	Thu, 24 Sep 2026 16:24:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790267090; x=1821803090;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=057w4K6AIH+2cjgtX4h1v5myM/zTrovsfRnreCXZXgk=;
+  b=0uCJTkPZyHaJQbnlHIaGBFxrMTR5J5jKg+Ef1zRvASpxarK1NgQ/71G/
+   Q9YVYD6YtlRCbBLiWBSl54yzeE1RxQndM1hrQWDyUX4eLM7LcKj5PBETK
+   BOPizbi0A2Xf12woBjRNfYcjozGMGs8EiiTc6j/LmbdQkz0queAkFcR+h
+   EpHPGIV5FONNRSObpfZWhlBrOEu8Hs0u8nBDSdI/kTrrfYJ08O207Vald
+   OL90Y2kURSeg2CPGijecHmPqW/fjRzIDr2rvrIg+LYxC4odzGfHuL9lKD
+   TjXy1ssT6ve146ocQuN5qHC7cCxgCvRahl3DI2E33gHFSbykg7V5K2FcX
+   Q==;
+X-CSE-ConnectionGUID: W2R9KMarSxa+DEZ33B5E4A==
+X-CSE-MsgGUID: jaEIntY6QkyEU8YyNCAOvA==
+X-IronPort-AV: E=Sophos;i="6.27,120,1787036400"; 
+   d="scan'208";a="64409041"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Sep 2026 09:24:48 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 24 Sep 2026 09:24:47 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 24 Sep 2026 09:24:43 -0700
+Date: Thu, 24 Sep 2026 18:24:43 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Simon Horman <horms@kernel.org>, <netdev-bot+sashiko@kernel.org>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <horatiu.vultur@microchip.com>,
+	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
+	<john.fastabend@gmail.com>, <sdf@fomichev.me>, <herve.codina@bootlin.com>,
+	<arnd@arndb.de>, <gregkh@linuxfoundation.org>, <mohsin.bashr@gmail.com>,
+	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v7 10/14] net: lan966x: add PCIe FDMA support
+Message-ID: <20260924162443.5vmx3dx5c4cx7rrm@DEN-DL-M70577.microsemi.net>
+References: <20260918-lan966x-pci-fdma-v7-10-0ecc179c8a2c@microchip.com>
+ <179008205148.2160803.12818321368571406375@kernel.org>
+ <20260923084538.wgkw2nt5ergoxcot@DEN-DL-M70577>
+ <20260923180730.GV13925@horms.kernel.org>
+ <20260923201155.lbbbtx22adz2ilhg@DEN-DL-M70577.microsemi.net>
+ <20260924064617.GY13925@horms.kernel.org>
+ <20260924083141.67eecb6e@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <6CC680FFAC60931F+20260914074900.1711-1-dengyingchao@kylinsec.com.cn>
+In-Reply-To: <20260924083141.67eecb6e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_092408_017551_CEF4F39A 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260924_092450_720800_A9387E07 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +97,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 03:49:00PM +0800, Yingchao Deng wrote:
-> cscfg_create_device() calls put_device() on the error path while holding
-> cscfg_mutex.  If device_register() fails, put_device() drops the last
-> reference and invokes cscfg_dev_release(), which takes cscfg_mutex again,
-> deadlocking.
+> On Thu, 24 Sep 2026 07:46:17 +0100 Simon Horman wrote:
+> > > I am a little reluctant, when I cant really test it properly. Sashiko gives
+> > > another solution - adding a LE dependency to the Kconfig of the misc PCI driver,
+> > > maybe that'll do?
+> >
+> > I think that should be a last resort. I won't hold out on this,
+> > but I would prefer the approach I suggested.
 > 
-> Module init and exit are serialized by the kernel, so cscfg_mutex is not
-> needed to protect the allocation and freeing of cscfg_mgr.  Remove the
-> mutex from cscfg_dev_release() and take it only while cscfg_mgr fields
-> are being accessed.
-> 
-> Fixes: 199380decc5f ("coresight: configfs: Fix unload of configurations on module exit")
-> Suggested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: Yingchao Deng <dengyingchao@kylinsec.com.cn>
+> +1
 
-For this patch:
+Ack. Will add the big-endian support in v8. Thanks.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-
-Sashiko reported an issue for null pointer dereference if configfs
-init fails fails [1]. It is good to fix it using a separate patch:
-
-@@ -1299,8 +1299,10 @@ int __init cscfg_init(void)
-
-        /* initialise configfs subsystem */
-        err = cscfg_configfs_init(cscfg_mgr);
--       if (err)
--               goto exit_err;
-+       if (err) {
-+               device_unregister(cscfg_device());
-+               return err;
-+       }
-
-        /* preload built-in configurations */
-        err = cscfg_preload(THIS_MODULE);
-
-@Yingchao, do you mind to work out a formal patch for this?
-
-Thanks,
-Leo
-
-[1] https://sashiko.dev/#/patchset/6CC680FFAC60931F%2B20260914074900.1711-1-dengyingchao%40kylinsec.com.cn
+/Daniel
 
