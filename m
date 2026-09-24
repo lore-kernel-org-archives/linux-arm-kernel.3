@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99318C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B936C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+u3wNJf9l9bKaYLIMmKv/1pLcHZ+WR5KoSUAqKZiKFg=; b=cy3e8J0UTXNKeBM1/7kw/gJzcK
-	iWjM5rAxhCw58OcMvQEb9/FRzZcA5F2oRN4VHaz8KABOgi6ABcqnR3gwpnHT3SufzHZx58uiGxXsT
-	wbjbIOtNb2BqCTlyLo/jYZ5DEhdwXCiYInCA6hmFBS8jLQOQbe0TYLgnZpxUE/BgoQKoK2I2s2G09
-	9qMXZ2ucycTcsHnxGw6Uab03ZNSLSlJJkJ2h4rWoT/vgNoqvYtE7Ve3y0pvJnLtfxhp6x+pEoWuqx
-	5jUBAmo0y1biAJkbDnnMD0rRR0NMte5y2f75hqFEc+YOYtNdFPyaBLj3SQk0nTxZrdqBRRDlTJ+PT
-	cduxOnOQ==;
+	bh=XBzPq5bV4Utz8NLpTAFfbUq+If1OT2ABtGmIFXTz/QQ=; b=qFrqeKzyifS7n+0otAOoq4usqJ
+	ShSfnKgCDkllC1p/xEJ/cAhlcZLX7KNP6XSRsGb/FR35Szji7wh1c8VfUlHFXb3G+okdVQgNOHDGB
+	vqTPnawgWlCh4CNRSwyeMcwxXC87rLzY/bw+tasEP5H9tAaJXHOjOhL7AjBTKtviyBt3TK8Y/uxG9
+	U4Thija6TPCQO/Ex18GF5e3DsTwBZ+bXXhAThEOuemlkLJ4p1MaKvoVc41TMa0Y8yu8GjQYYh5NGA
+	590UIvyjlvM9hrkvjN7DNDg4JH5HTyKks0eClfrGLYauU2efEtY9rDbt98ljv3nF6bumnbR9mR80b
+	wRZddWkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lxR-0000000BWlL-0ucZ;
+	id 1x9lxR-0000000BWm1-1wb2;
 	Thu, 24 Sep 2026 16:06:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lx8-0000000BWcQ-3olp
+	id 1x9lxH-0000000BWgl-2NXO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:05:44 +0000
+	Thu, 24 Sep 2026 16:05:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29D1A152B;
-	Thu, 24 Sep 2026 09:05:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCD651CE0;
+	Thu, 24 Sep 2026 09:05:46 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6F1C13F86C;
-	Thu, 24 Sep 2026 09:05:36 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 211E43F86C;
+	Thu, 24 Sep 2026 09:05:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790265940; bh=T9eIctwVtxFtu2naBbqkNNQZ5lLsvNie+O2i9aydJAc=;
+	t=1790265950; bh=WYaLGyFwljsRmpCG8+CIlgjwWFS50duC3yD1GV7CE8M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hhbXYKX8qL9fxDGDDc54qs82TTNxw9xjxbN4cRRxhstUZVA5KuzmtSSfZ1cnJmdcE
-	 TsjoWsUOXnOk7TPwduuDmYY3NgyTxhNtkEkuUVN9l4EkF4XuLTeS+AiUr7Zp2ZKcPz
-	 NuSoxlDDAXfSiWjlims8oegIr54gmigBsuC3b4MY=
+	b=VNpcMhWARyZhReZJgzG5cPidgVSkI6j1JyWp0TGsX9m/TrXHJMwWVdViIUf8dX8mN
+	 mtHzIRb/kifuVCaD+p8BU8HP2osY5ZPvzZfCk+tKE9AKBUiYW0DYDU2BcGevX4ZSNH
+	 ODvRzvHi9zrQ9q54ejy90F8b61mwL/33YMMPVjyk=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -65,17 +65,17 @@ Cc: maz@kernel.org,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v20 05/22] KVM: arm64: Track the type of VM in kvm_arch
-Date: Thu, 24 Sep 2026 17:04:47 +0100
-Message-ID: <20260924160504.853911-6-suzuki.poulose@arm.com>
+Subject: [PATCH v20 07/22] KVM: arm64: Refactor the vcpu_load to allow for VM specific callbacks
+Date: Thu, 24 Sep 2026 17:04:49 +0100
+Message-ID: <20260924160504.853911-8-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260924160504.853911-1-suzuki.poulose@arm.com>
 References: <20260924160504.853911-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_090543_069815_91F647B2 
-X-CRM114-Status: GOOD (  32.68  )
+X-CRM114-CacheID: sfid-20260924_090551_763258_6A6FB0B5 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,347 +90,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM arm64 has different types of VMs with all the different modes in which
-the hypervisor code can be run. e.g., VHE, nVHE, pKVM etc. Then there is
-protected VM and normal VMs with pKVM. We might soon add other types,
-e.g., Arm CCA Realm. So in an effort to make the handling of these
-different types of VMs a bit more friendly to the eyes, add a VM flavor to
-the kvm_arch and we could then add handlers for different operations based
-on the VM type.
+To keep the VCPU load/put handling cleaner with the different kinds of VM
+types, we are about to introduce VM specific callbacks to do just the right
+thing. In preparation for that, make some refactoring to add the change
+easier by mainly feature specific configurations to individual wrappers,
+so that different callbacks could reuse the helpers.
 
-Keep the flavor initialisation at the beginning to allow for the detection
-early enough and fail out on any unsupported requests.
+Adds vcpu_prepare_mmu()/vcpu_put_mmu() wrappers to load/put MMU related
+configurations for !pKVM guests. Additionally makes it explicit that
+kvm_arm_vmid_clear_active() is not required for pKVM host.
 
-With that, add wrappers for checking the "type" of a VM and replace the
-existing users with the new wrappers.
+Add vcpu_load_pvtime(), vcpu_set_wfx_traps() wrappers for handling the
+corresponding configurations.
 
-Given we already have the construct of "kvm_vm_is_protected" in the core
-KVM code, use that for all confidential compute guests including Realms
-that we are about to add. Adds __VM_PROTECTED marker vm flavor to draw the
-boundary for "protected VMs". In later patches, we would add Realm VMs,
- which would also be classified as protected.
+While at it, also make it clear that the timer loading constraints only
+apply for the VHE.
 
-Add a explicit helper to detect if a given VM is a "protected" VM under pKVM.
-Change the existing users that precisely want to check the VM type. These
-include :
-  - kvm_arch_prepare_memory_region - For preventing memslot changes after
-    pVM creation.
+No functional changes intended. Based on a work by Marc Zyngier.
 
-All the others are retained as a wider check for confidential guest VMs.
-These are:
- - kvm_vm_ioctl_set_counter_offset - For disallowing timer offset
-   configuration
- - io_mem_abort for dabt handling without valid syndrome information
-
-Both of which are true for Realms too.
-
-Realms support is restricted to VHE host and thus "kvm_vm_is_protected()"
-checks in the pkvm hyp specific code doesn't need to change, as the only
-protected guests it deals with is "protected pKVM" guests. To tighten this
-init_pkvm_hyp_vm() restricts the hyp copy of the vm_flavor to the ones it
-supports.
-
-vcpu_is_protected() usage from nVHE hyp code is tricky, as we need to
-convert the vcpu->kvm to the HYP VA before checking the flavor. This
-involves kern_hyp_va() usage in asm/kvm_host.h. To avoid build breaks,
-include asm/kvm_mmu.h to arm64/kvm/mmio.c.
-
-Suggested-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
 Changes since v19:
- - Fix vcpu_is_protected for nvhe hyp by using the kern_hyp_va() for
-   vcpu->kvm - Gavin
- - Use READ_ONCE() to read the vm_flavor in EL2 pKVM code
- - Drop ',' after the end marker in vm_flavor enums
- - Replace !kvm_vm_is_protected() in kvm_arch_vcpu_put() with
-   kvm_vm_is_unprotected_pkvm()
-Changes since v18:
- - Merge the __VM_PROTECTED marker and the widening of kvm_vm_is_protected()
-   to this patch.
- - Merge the use of kvm_vm_is_unprotected_pkvm() for !kvm_vm_is_protected()
-   given the scope changes here.
- - Drop Fuad's review tag, as this patch has multiple merges
- - Restrict the VM flavors to the supported types in init_pkvm_hyp_vm().
- - Drop kvm_vm_hyp_is_pkvm() and revert to is_protected_kvm_enabled()
- - Use is_protected_kvm_enabled() to make the pKVM guest flavor checks.
- - s/PKVM/pKVM for commit descriptions too
-
-Changes since v17:
- * s/PKVM/pKVM for the comments
- * Drop type argument for pkvm_init_host_vm and also drop protected variable.
- * Add helpers for checking if the VM is running on pKVM (kvm_vm_hyp_is_pkvm())
- * Use kvm_vm_hyp_is_pkvm() to replace is_protected_kvm_enabled() with valid
-   kvm instance
+ - Add vcpu_put_mmu() to pair with the vcpu_prepare_mmu() and make the
+   call conditional on !is_protected_kvm_enabled(). Preparing the path
+   for per-flavor callbacks
+ - Update the timer load constraints comment to reflect that it only applies
+   for VHE
+ - Wrap kvm_arm_vmid_clear_active() to vcpu_put_mmu() to compliement
+   with the vcpu_prepare_mmu(). Also only clear the VMID for non-pKVM
+   guests
 ---
- arch/arm64/include/asm/kvm_host.h | 51 +++++++++++++++++++++++++++++--
- arch/arm64/include/asm/kvm_pkvm.h |  4 +--
- arch/arm64/kvm/arm.c              | 33 ++++++++++++++++----
- arch/arm64/kvm/handle_exit.c      |  2 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c    |  6 +++-
- arch/arm64/kvm/mmio.c             |  1 +
- arch/arm64/kvm/mmu.c              |  2 +-
- arch/arm64/kvm/pkvm.c             |  6 ++--
- 8 files changed, 87 insertions(+), 18 deletions(-)
+ arch/arm64/kvm/arm.c | 59 ++++++++++++++++++++++++++++++--------------
+ 1 file changed, 40 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 286489a69dff5..63bd1f76edb7b 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -257,7 +257,6 @@ struct kvm_protected_vm {
- 	pkvm_handle_t handle;
- 	struct kvm_hyp_memcache teardown_mc;
- 	struct kvm_hyp_memcache stage2_teardown_mc;
--	bool is_protected;
- 	bool is_created;
- 
- 	/*
-@@ -306,9 +305,19 @@ enum fgt_group_id {
- 	__NR_FGT_GROUP_IDS__
- };
- 
-+enum kvm_arm_vm_flavor {
-+	VM_NVHE,
-+	VM_VHE,
-+	VM_PKVM,		/* Normal guests on pKVM */
-+	MARKER(__VM_PROTECTED),
-+	VM_PROTECTED_PKVM,	/* Protected VM */
-+	VM_FLAVOR_MAX
-+};
-+
- struct kvm_arch {
- 	struct kvm_s2_mmu mmu;
- 
-+	enum kvm_arm_vm_flavor vm_flavor;
- 	/*
- 	 * Fine-Grained UNDEF, mimicking the FGT layout defined by the
- 	 * architecture. We track them globally, as we present the
-@@ -1504,9 +1513,45 @@ struct kvm *kvm_arch_alloc_vm(void);
- 
- #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
- 
--#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
-+#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
-+/*
-+ * Accessing vcpu->kvm from nVHE hyp stub is tricky, as we need to convert the
-+ * pointer to the hyp VA. With pKVM, the nVHE code runs with the hyp_vcpu,
-+ * which is populated correctly.
-+ */
-+#define vcpu_is_protected(vcpu)						\
-+	({								\
-+		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
-+		bool __protected = false;				\
-+									\
-+		if (__kvm) {						\
-+			if (is_nvhe_hyp_code() &&			\
-+			    !is_protected_kvm_enabled()) 		\
-+				__kvm = kern_hyp_va(__kvm); 		\
-+									\
-+			__protected = kvm_vm_is_protected(__kvm);	\
-+		}							\
-+		__protected;						\
-+	})
-+
-+#define kvm_vm_is_protected_pkvm(kvm)					\
-+	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
-+
-+/*
-+ * Rely on is_protected_kvm_enabled() check in kvm_vm_is_protected_pkvm() to
-+ * make sure the vcpu->kvm is always valid VA in the context
-+ */
-+#define vcpu_is_protected_pkvm(vcpu)					\
-+	({								\
-+		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
-+									\
-+		(__kvm && kvm_vm_is_protected_pkvm(__kvm));		\
-+	})
-+
-+
-+#define kvm_vm_is_unprotected_pkvm(kvm)		\
-+	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PKVM))
- 
--#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
- 
- int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
- bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 54a618d887fa4..e4ea80711bec6 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -17,7 +17,7 @@
- 
- #define HYP_MEMBLOCK_REGIONS 128
- 
--int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
-+int pkvm_init_host_vm(struct kvm *kvm);
- int pkvm_create_hyp_vm(struct kvm *kvm);
- bool pkvm_hyp_vm_is_created(struct kvm *kvm);
- void pkvm_destroy_hyp_vm(struct kvm *kvm);
-@@ -49,7 +49,7 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
- 		return false;
- 	default:
--		return !kvm || !kvm_vm_is_protected(kvm);
-+		return !kvm || kvm_vm_is_unprotected_pkvm(kvm);
- 	}
- }
- 
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index db36815630790..90547fbbc8ad7 100644
+index 849f5fcc26c15..6393b2c1a65de 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -214,6 +214,26 @@ static int kvm_arm_default_max_vcpus(void)
- 	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
+@@ -684,14 +684,11 @@ static bool kvm_vcpu_should_clear_twe(struct kvm_vcpu *vcpu)
+ 	return single_task_running();
  }
  
-+static int kvm_init_vm_flavor(struct kvm *kvm, unsigned long type)
+-void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++static void vcpu_prepare_mmu(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_s2_mmu *mmu;
+ 	int *last_ran;
+ 
+-	if (is_protected_kvm_enabled())
+-		goto nommu;
+-
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_load_hw_mmu(vcpu);
+ 
+@@ -721,34 +718,56 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 		kvm_call_hyp(__kvm_flush_cpu_context, mmu);
+ 		*last_ran = vcpu->vcpu_idx;
+ 	}
++}
+ 
+-nommu:
++static void vcpu_put_mmu(struct kvm_vcpu *vcpu)
 +{
-+	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
-+
-+	if (is_protected_kvm_enabled()) {
-+		if (protected)
-+			kvm->arch.vm_flavor = VM_PROTECTED_PKVM;
-+		else
-+			kvm->arch.vm_flavor = VM_PKVM;
-+	} else if (protected) {
-+		return -EINVAL;
-+	} else if (has_vhe()) {
-+		kvm->arch.vm_flavor = VM_VHE;
-+	} else {
-+		kvm->arch.vm_flavor = VM_NVHE;
-+	}
-+
-+	return 0;
++	kvm_arm_vmid_clear_active();
 +}
 +
- /**
-  * kvm_arch_init_vm - initializes a VM data structure
-  * @kvm:	pointer to the KVM struct
-@@ -236,6 +256,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	mutex_unlock(&kvm->lock);
- #endif
- 
-+	ret = kvm_init_vm_flavor(kvm, type);
-+	if (ret)
-+		return ret;
-+
- 	kvm_init_nested(kvm);
- 
- 	ret = kvm_share_hyp(kvm, kvm + 1);
-@@ -257,12 +281,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 		 * If any failures occur after this is successful, make sure to
- 		 * call __pkvm_unreserve_vm to unreserve the VM in hyp.
- 		 */
--		ret = pkvm_init_host_vm(kvm, type);
-+		ret = pkvm_init_host_vm(kvm);
- 		if (ret)
- 			goto err_uninit_mmu;
--	} else if (type & KVM_VM_TYPE_ARM_PROTECTED) {
--		ret = -EINVAL;
--		goto err_uninit_mmu;
- 	}
- 
- 	kvm_vgic_early_init(kvm);
-@@ -751,7 +772,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
- 
- 		/* __pkvm_vcpu_put implies a sync of the state */
--		if (!kvm_vm_is_protected(vcpu->kvm))
-+		if (kvm_vm_is_unprotected_pkvm(vcpu->kvm))
- 			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
- 	}
- 
-@@ -985,7 +1006,7 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 
- 	if (is_protected_kvm_enabled()) {
- 		/* Start with the vcpu in a dirty state */
--		if (!kvm_vm_is_protected(vcpu->kvm))
-+		if (kvm_vm_is_unprotected_pkvm(vcpu->kvm))
- 			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
- 		ret = pkvm_create_hyp_vm(kvm);
- 		if (ret)
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index db37678dcb05c..384c5d258c7f8 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -490,7 +490,7 @@ static void handle_exit_pkvm_state(struct kvm_vcpu *vcpu, int exception_index)
- {
- 	int exception_code = ARM_EXCEPTION_CODE(exception_index);
- 
--	if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
-+	if (!kvm_vm_is_unprotected_pkvm(vcpu->kvm))
- 		return;
- 
- 	/*
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 459bd9eb7e4bc..ed51762aa4b5d 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -432,7 +432,11 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
- 
- 	hyp_vm->host_kvm = host_kvm;
- 	hyp_vm->kvm.created_vcpus = nr_vcpus;
--	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
-+	if (READ_ONCE(host_kvm->arch.vm_flavor) == VM_PROTECTED_PKVM)
-+		hyp_vm->kvm.arch.vm_flavor = VM_PROTECTED_PKVM;
++static void vcpu_set_wfx_traps(struct kvm_vcpu *vcpu)
++{
++	if (kvm_vcpu_should_clear_twe(vcpu))
++		vcpu->arch.hcr_el2 &= ~HCR_TWE;
 +	else
-+		hyp_vm->kvm.arch.vm_flavor = VM_PKVM;
++		vcpu->arch.hcr_el2 |= HCR_TWE;
 +
- 	hyp_vm->kvm.arch.flags = 0;
- 	pkvm_init_features_from_host(hyp_vm, host_kvm);
++	if (kvm_vcpu_should_clear_twi(vcpu))
++		vcpu->arch.hcr_el2 &= ~HCR_TWI;
++	else
++		vcpu->arch.hcr_el2 |= HCR_TWI;
++}
++
++static void vcpu_load_pvtime(struct kvm_vcpu *vcpu)
++{
++	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
++		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
++}
++
++void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++{
+ 	vcpu->cpu = cpu;
  
-diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-index d1c3a352d5a22..ab1d2fef9a522 100644
---- a/arch/arm64/kvm/mmio.c
-+++ b/arch/arm64/kvm/mmio.c
-@@ -6,6 +6,7 @@
++	if (!is_protected_kvm_enabled())
++		vcpu_prepare_mmu(vcpu);
+ 	/*
+-	 * The timer must be loaded before the vgic to correctly set up physical
+-	 * interrupt deactivation in nested state (e.g. timer interrupt).
++	 * For VHE, the timer must be loaded before the vgic to correctly
++	 * set up physical interrupt deactivation in nested state (e.g. timer
++	 * interrupt).
+ 	 */
+ 	kvm_timer_vcpu_load(vcpu);
+ 	kvm_vgic_load(vcpu);
+ 	kvm_vcpu_load_debug(vcpu);
+ 	kvm_vcpu_load_fgt(vcpu);
++
+ 	if (has_vhe())
+ 		kvm_vcpu_load_vhe(vcpu);
++
+ 	kvm_arch_vcpu_load_fp(vcpu);
+ 	kvm_vcpu_pmu_restore_guest(vcpu);
+-	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+-		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
  
- #include <linux/kvm_host.h>
- #include <asm/kvm_emulate.h>
-+#include <asm/kvm_mmu.h>
- #include <trace/events/kvm.h>
+-	if (kvm_vcpu_should_clear_twe(vcpu))
+-		vcpu->arch.hcr_el2 &= ~HCR_TWE;
+-	else
+-		vcpu->arch.hcr_el2 |= HCR_TWE;
+-
+-	if (kvm_vcpu_should_clear_twi(vcpu))
+-		vcpu->arch.hcr_el2 &= ~HCR_TWI;
+-	else
+-		vcpu->arch.hcr_el2 |= HCR_TWI;
++	vcpu_load_pvtime(vcpu);
++	vcpu_set_wfx_traps(vcpu);
  
- #include "trace.h"
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9ba86450fe4af..0f4e8b71fa85d 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -2624,7 +2624,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
- 	hva_t hva, reg_end;
- 	int ret = 0;
+ 	if (!is_protected_kvm_enabled())
+ 		vcpu_set_pauth_traps(vcpu);
+@@ -787,7 +806,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_vcpu_pmu_restore_host(vcpu);
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_put_hw_mmu(vcpu);
+-	kvm_arm_vmid_clear_active();
++
++	if (!is_protected_kvm_enabled())
++		vcpu_put_mmu(vcpu);
  
--	if (kvm_vm_is_protected(kvm)) {
-+	if (kvm_vm_is_protected_pkvm(kvm)) {
- 		/* Cannot modify memslots once a pVM has run. */
- 		if (pkvm_hyp_vm_is_created(kvm) &&
- 		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 8e4c6e4bec123..8e9176a700926 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -229,10 +229,9 @@ void pkvm_destroy_hyp_vm(struct kvm *kvm)
- 	mutex_unlock(&kvm->arch.config_lock);
- }
- 
--int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
-+int pkvm_init_host_vm(struct kvm *kvm)
- {
- 	int ret;
--	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
- 
- 	/* Reserve the VM in hyp and obtain a hyp handle for the VM. */
- 	ret = kvm_call_hyp_nvhe(__pkvm_reserve_vm);
-@@ -240,8 +239,7 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
- 		return ret;
- 
- 	kvm->arch.pkvm.handle = ret;
--	kvm->arch.pkvm.is_protected = protected;
--	if (protected) {
-+	if (kvm_vm_is_protected(kvm)) {
- 		pr_warn_once("kvm: protected VMs are experimental and for development only, tainting kernel\n");
- 		add_taint(TAINT_USER, LOCKDEP_STILL_OK);
- 	}
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+ 	vcpu->cpu = -1;
 -- 
 2.43.0
 
