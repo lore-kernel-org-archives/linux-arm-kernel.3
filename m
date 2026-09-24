@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95973C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 17:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB45C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 17:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2firQdSXga2Oxdw//orFvwTW23XIbwFiY3tULCcauc=; b=votMKQ/vYowMBvboeJ4WTWu0yV
-	nAu+c/L+zKYWqX85J0Gr+v7iq5PcucubPQAPpcQrHVLWr8u8PZnVrkY9xQmx5ZstgX8cAw40dTbTu
-	MtphCISRNof7u+E5DZnCHx4BxEBemEALpI7NPh3I0J+9kD0btIWFvTdsin3tBRIprLk80W4DDhpXS
-	O1eXJyDlQPsl2+/273RXSnf0gGwvcDKxc+mlh1Qa92vwPwTP7aEJemmzcqnyo6yoWNUVrY3a+mUn6
-	8rrQoIkvRv9PGMuxSRKNNhnj293YYj6WizUdM28KVtG9keog8fBQLwPPyf8IDx6SPv9FVyL9GgWln
-	S20JE0Qg==;
+	bh=ZY+JAmDmWtIQ8nQAOLoeWreSqeSKKZ9GlEGYCiTzBVw=; b=XH2Outh+VAHwL4owD1FoejDdJ5
+	DfDENKE4wxC+R1VTmgbyBGbK5QtyxTGiMYsQB+xwD5bI41xhJ4Ysq/QCJ3k/Le9adQfLLPVxpivaQ
+	PevKSbQK0XfPkJkxLBhKErA+qOD3XgYjRp2qSwPHilZ85J8JDrbECVmyZzDmc6r0MtsmTgoxCa2mu
+	G1yANPqSOqC/+r4wc7i9XRDi0r53C8YkK5Yxfv6jbKUEt7ZTA9lQF+eotoqO/7j8uhbEHTxM9khA3
+	d3q1cCl+LIv6Gmd4/5ziefxjm9un2b0zHWaZ4gHazyL2Ruc3t7PEE7sOeml1AUkbMP4Hzm4QeP06f
+	Elv32dIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA9RJ-0000000E2oM-3Z7L;
-	Fri, 25 Sep 2026 17:10:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xA9Rn-0000000E2wY-0Ymv;
+	Fri, 25 Sep 2026 17:10:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA9RI-0000000E2nx-0tiR;
-	Fri, 25 Sep 2026 17:10:24 +0000
+	id 1xA9RV-0000000E2rm-06MR;
+	Fri, 25 Sep 2026 17:10:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98016434F7;
-	Fri, 25 Sep 2026 17:10:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37D81F000FF;
-	Fri, 25 Sep 2026 17:10:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1960460136;
+	Fri, 25 Sep 2026 17:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBBE51F00893;
+	Fri, 25 Sep 2026 17:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790356223;
-	bh=U2firQdSXga2Oxdw//orFvwTW23XIbwFiY3tULCcauc=;
+	s=k20260515; t=1790356235;
+	bh=ZY+JAmDmWtIQ8nQAOLoeWreSqeSKKZ9GlEGYCiTzBVw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=hyHfbKVesXRG1nwKuJHm9f3ENMwBl6TOyR9EMWaH1u4nu6pLUZg2lrhbz6pMc0KsZ
-	 PWw7Ip3xee7qoj+xUp6jmu9KLwqFHttLN8RKo12nBpntw1rIxyu6GlNtcgqbKOkKmQ
-	 sfzhl9gEGt95O2n/2ct45SY2wd1ev6yU6k2QY9zrQrtFJpWXji3e2TucqZ8tLWWlEa
-	 7sA3VVRp9lYYDVV3q0GmDW/2hi4KLNSdjzdoCGW7xWkUdK2IVgG9BGyFZsDKJiGqcm
-	 dx17/5VBnc3wLVx5QTy0SU/pUK8lb9yipBF6Bfp7q8DmSVMhSmiFHOss3ZEd6JIgSp
-	 tK7SHx5oNB7Fw==
+	b=lIC+TS1r64GhqZtFkfmCigk1hjosRIX061L6K5cF+BPEwCRYpjdqz4Ln0COS4tOPS
+	 94wL7/3xYqFbYeHI87Z8kZfD1UvrnFqJxNz60hux26d0t1TUq9E9uLsGaRRJJStXrp
+	 4zRbds65I03aBTW2g/q2PiMln3Js9V7iGbDcnMCjEuOOZ5QoyXByz9K53bvXBt8q8t
+	 JrfzR0VSRzK42JJAgmbvvQgyeuYucCfB36XtpIdDADgBLe7V9Bp03bvZev+Gkap+Dy
+	 CJ/Fr1jXZcH6ZDtQioEZ3eBQ6k3VvjSiy+EViVUmOgkZCER58IUfh3gyQf9Bpux1r/
+	 Ho7EjK6pp9kPA==
 From: Mark Brown <broonie@kernel.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>, phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+To: David Rhodes <david.rhodes@cirrus.com>, 
+ Richard Fitzgerald <rf@opensource.cirrus.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Cezary Rojewski <cezary.rojewski@intel.com>, Kees Cook <kees@kernel.org>, 
  Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- Trevor Wu <trevor.wu@mediatek.com>, 
- Douglas Anderson <dianders@chromium.org>, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260907120310.135693-1-phucduc.bui@gmail.com>
-References: <20260907120310.135693-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH 0/7] ASoC: mediatek: mt8188: Improve error handling
-Message-Id: <179029027295.149798.15849509210449707210.b4-ty@b4>
-Date: Thu, 24 Sep 2026 23:51:12 +0100
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+ linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20260924083420.461715-1-peng.fan@oss.nxp.com>
+References: <20260924083420.461715-1-peng.fan@oss.nxp.com>
+Subject: Re: [PATCH] ASoC: use regmap_assign_bits() for conditional
+ set/clear
+Message-Id: <179029244481.149798.12087901953016730058.b4-ty@b4>
+Date: Fri, 25 Sep 2026 00:27:24 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2301; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ms+alJe0zYRhtHTH6fiIZKYjQe4B7jjV89D4uoFve00=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqtqr69kr5v8xZDCf+saA655wgf5ZerHyA0TvAn
- iHLaHPI7NeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaraq+gAKCRAk1otyXVSH
- 0KK1B/0QoMqxmDmmJZzwx3d4Pu8uqUaJ5m3FWatvkhiyTsLNPyvzI0I+tvkODz+mTtJ/rO1UIgX
- NmDThpIErV/9WJ5JYHTOUrZ0n2Il0I1V+TtKm+3C34MJlKUv1vasZQq9IZ7ck0Gx7s5TjHBqtne
- ZB/cHop0jxEHMRUbjuN/k3/uU4t3yPU/gXpDw9aLImi6hDQp5IBzN1vBUrKrPsimGL7o65Lvmwh
- yadNSY+28PHtMLM9Q6CDx11ntsTkJ79IBk4ZyjjExDh4sZPNqFBZ3Rtnl7bKmOu2IMxl9KXzUib
- p8yE625OrGLZpOxURdOWZZ85Y2g4nlLx0Ysh3pv395NUugPY
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1132; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=btAJTGQM17nfINWzcM50CcOirwQ19hxLz8BOtzLcA/4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqtqsGQa3KIOzA11v0aMkbM/3taweh3nHNDOqXK
+ AAibBZBC0SJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCararBgAKCRAk1otyXVSH
+ 0N4wB/97dJj9Hb3yE5W3Pex5aZp39b0z9qdn81f1AIzfdST/6WhThVQiD4g6s8ASSEuZVonETLW
+ y+6NKn2YLYrx4NOLTIkB9C+aPVQnX9DR5ImwcbskduGdmau5yhY6+PoLs8m2/h7WHqCVZbbSWm/
+ cofCyi3KOsmAO2IhDSMHqe/7PW+NOyQnsed8VYpyzAgZAT9lhbD3Pmafc7E8iewke8OKw5be+Yi
+ OqT/PNwBAIwMCl/SYUAfQD2TS4Frk2LNncRRd8xgw2KcFDMAoS9vxTDMO/yDNHeUa8RtaWLdoyq
+ 9Efk4Cu4eYqbHcWiXY8ztpQwzngPTY0WjSvF061FZZIzKXw6
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,20 +87,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Sep 2026 19:03:03 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: mediatek: mt8188: Improve error handling
-> 
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> Hi all,
-> 
-> This series improves error handling in several parts of the MT8188 AFE
-> driver.
-> Propagate errors from clock, regmap, and runtime resume operations,
-> remove redundant probe error messages, and fix clock cleanup on
-> registration failure.
-> 
-> [...]
+On Thu, 24 Sep 2026 16:34:12 +0800, Peng Fan (OSS) wrote:
+> ASoC: use regmap_assign_bits() for conditional set/clear
 
 Applied to
 
@@ -107,20 +96,8 @@ Applied to
 
 Thanks!
 
-[1/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Propagate clock initialization errors
-      https://git.kernel.org/broonie/sound/c/691c4aac5ae5
-[2/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Handle tuner clock enable errors
-      https://git.kernel.org/broonie/sound/c/a2c3ee3349a7
-[3/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Propagate regmap update errors
-      https://git.kernel.org/broonie/sound/c/60a8112a088a
-[4/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Handle clock enable errors
-      https://git.kernel.org/broonie/sound/c/1b65c13d1af9
-[5/7] ASoC: mediatek: mt8188: mt8188-afe-pcm: Handle runtime resume errors
-      https://git.kernel.org/broonie/sound/c/f5f6941d9297
-[6/7] ASoC: mediatek: mt8188: mt8188-afe-pcm: Drop redundant probe error messages
-      https://git.kernel.org/broonie/sound/c/a79f2432ee89
-[7/7] ASoC: mediatek: mt8188: fix clk leak on error in audsys_clk_register
-      https://git.kernel.org/broonie/sound/c/6cddf6e56d25
+[1/1] ASoC: use regmap_assign_bits() for conditional set/clear
+      https://git.kernel.org/broonie/sound/c/286ece639c37
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
