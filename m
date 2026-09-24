@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6186C9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B513C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vLnKVd7fUckhsJB6yUYdTvrC8vLjUQhIHZYzMS6+W4=; b=dCfuEsooHUKjsYNWI/Yd69YuJl
-	+649MQzOSwvihaC1sCySafqFHfVqxd3wr91pIGgmiRN2oLIYJnTiwXuLocodKzL55PUPD8em2cezA
-	YlRC7OtGhBt4et7x2a1mF0OhD4Shdo3yCfRLITZU7b/ou0Jvhm8mStNIWxtJiuqc9DLLGxX/Q6AI/
-	sCXcbpV2Kk7kup/ulajeycrl5nYwwIEDUDHOwyI7p7DxOmavolJ2R/9I1Wlfl2jZL3vW7dthcaYeZ
-	vL+10ge6ATooiL8AoCJA6oz6dzpa7GBcsVrtS17ZFKwg4m9YKn7lLMdyfj3riS4ZJSk5gwrfRpjt/
-	NOyuW6QQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nh3O0D9pRfCwyQ/BjHS9Yn4M6TnCj2AEPaNpep0MKJA=; b=iFRz9S4Ii9nFtBsSMCExPasL/Y
+	lURajP6bmSzF1Jhu1bJNFzgZed8nr1UHPmPeaCqrOlasUPAvwDGRrT5xfpRda3Zz22kq22rBUjpR6
+	P3FxiPrHDW2iCc6SKZi6jFxuiCErmM755XQZ/8kHmtHB0FlC+hBOSNmbpWWpyXbzatTShgTNeoQV6
+	ACEXFCaQ4t23M/bwwKiz2oGmFWdp3Y01FrKyEAFte6LG/EDBRHsHcym4CI2wtUOchkteywZzYnCyy
+	N/pNR0zZbDj3Bj303feTXRTq3x4qmW88gx1+DmIvxjjRJ9E0h99mMof6JYlX4BjNXp173X8L0JVPG
+	M3ynfYsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sDg-0000000CJmI-2zZD;
-	Thu, 24 Sep 2026 22:47:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x9sEe-0000000CJtP-0ukt;
+	Thu, 24 Sep 2026 22:48:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sDc-0000000CJlr-3ZZG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:47:11 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A520C4E41062
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:47:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 71F4C60738;
-	Thu, 24 Sep 2026 22:47:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E6E5210329539;
-	Fri, 25 Sep 2026 00:46:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790290018; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=4vLnKVd7fUckhsJB6yUYdTvrC8vLjUQhIHZYzMS6+W4=;
-	b=So8D3lIi8mQBRKlgSahDn9EPRM4TasG/JdVs5jqU4+YPZBRWqCL4r5EiseaeY9q2SLjuFu
-	lig6lu0H6oGu+zKZ0MQ3nRhyRpA0gXJODN5OyFcqkwC3qHxdozthi8G7bJHEl+GFlmIRET
-	QStdsf2sG24y0AcWR0DnGZvd+sJ/sw226tEMuqfVgy98v9B4lXmDBVuTGRc6WTICKnEYHd
-	nZJ7lCeTJsxXJcJOHDMp4PhwbPA3L2ukjm248sQarxHE1Y+Dnu8SPXVSFia6U3UK4OKAfx
-	wykAXQmVbSOzEmfEX/7T4SIOHiJFhT9/B+U3WJL4pXOzeNynqs1+2kelxy3cWQ==
-Date: Fri, 25 Sep 2026 00:46:57 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Daniel =?iso-8859-1?Q?Via=F1o?= <danividanivi@gmail.com>
-Cc: Michal Simek <michal.simek@amd.com>, linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] rtc: zynqmp: Enable crystal oscillator in initialization
-Message-ID: <20260924224657b2d275e7@mail.local>
-References: <20260924071917.80004-1-danividanivi@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260924071917.80004-1-danividanivi@gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_154709_043893_DA51F430 
-X-CRM114-Status: GOOD (  24.15  )
+	id 1x9sEZ-0000000CJsn-1ct3;
+	Thu, 24 Sep 2026 22:48:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D0D5F43C80;
+	Thu, 24 Sep 2026 22:48:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC6151F00893;
+	Thu, 24 Sep 2026 22:48:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790290086;
+	bh=nh3O0D9pRfCwyQ/BjHS9Yn4M6TnCj2AEPaNpep0MKJA=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=FdOGpzq++UzFdtMn/UBoRs75lMKPOd+yAyleR5pHmEvUSEb+tz22XB+AYUYKzmTz2
+	 n1DlbhO+0HkA9+53shLK90yU9MUPKgIsLD1rgnr7BAanOXfVY0cuLyxSy+aVxDhJ2y
+	 ApWSW1nV4Bj6KGfs7Bh3IjQGruwEFhbu6v0gAX5g7gjRjownnhn41jqfMD1hw0dtD9
+	 ckdd6qU1vbRyy+5WERLa5EXxJ6JLol5nwCUX2vi8lNM36+7YafZyyRJ1jIlC74CuKN
+	 01tAhWsvNRIEOSdKBrANGYJUK03AkzdMuzitibDm3gB20uQmnlV95h8+NFmWaYYe7G
+	 ENMZSt/it0aqA==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH] arm64: kexec: mark machine_kexec() __nocfi
+To: "Nick Desaulniers" <ndesaulniers@google.com>, "Catalin Marinas" <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Bill
+ Wendling" <morbo@google.com>, "Ben Cressey" <ben@cressey.dev>, "Mark
+ Rutland" <mark.rutland@arm.com>, "Justin Stitt" <justinstitt@google.com>, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>
+Cc: llvm@lists.linux.dev, stable@vger.kernel.org, kexec@lists.infradead.org, "David
+ Woodhouse" <dwmw@amazon.co.uk>, linux-arm-kernel@lists.infradead.org, "Sami
+ Tolvanen" <samitolvanen@google.com>, linux-kernel@vger.kernel.org, "Kees
+ Cook" <kees@kernel.org>
+In-Reply-To: <20260924-arm64-kexec-nocfi-v1-1-bbae2e2eadc8@cressey.dev>
+References: <20260924-arm64-kexec-nocfi-v1-1-bbae2e2eadc8@cressey.dev>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 24 Sep 2026 22:48:05 +0000
+Message-Id: <20260924224805.DC6151F00893@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +69,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/09/2026 09:19:16+0200, Daniel Viaño wrote:
-> Enable the RTC crystal oscillator bit in the control register (RTC_CTRL,
-> offset 0x40) during driver initialization.
-> 
-> Although the RTC_OSC_EN macro was defined when the driver was originally
-> introduced, it was never asserted in xlnx_init_rtc(). On cold boots, after
-> battery exhaustion, or on platforms where firmware does not pre-initialize
-> RTC_CTRL, the oscillator remains disabled and the counter never ticks.
-> 
-> Asserting RTC_OSC_EN alongside RTC_BATT_EN ensures the oscillator starts
-> without relying on bootloader initialization. Per the Zynq UltraScale+
-> TRM (UG1085), bit 24 (OSC_CNTRL) is a static level enable for the crystal
-> inverter rather than an edge-triggered reset; re-asserting it when the
-> oscillator is already running is a non-destructive no-op that does not
-> glitch or reset the ticking counters.
-> 
-> Tested on Zynq UltraScale+ hardware, confirming that the counter freezes
-> when RTC_OSC_EN is cleared, advances reliably once enabled, and is
-> unaffected when re-asserted while running.
-> 
-> Fixes: 11143c19eb57 ("rtc: add xilinx zynqmp rtc driver")
+> When the loaded image needs relocation, machine_kexec() makes an
+> indirect call into the copy of arm64_relocate_new_kernel in the control
+> page:
+>=20
+> 	kernel_reloc =3D (void *)kimage->arch.kern_reloc;
+> 	kernel_reloc(kimage);
+>=20
+> With CONFIG_CFI=3Dy the kCFI check on this call loads a type hash from
+> kern_reloc - 4. arm64_relocate_new_kernel is SYM_CODE_START and carries
+> no hash. Its copy also sits at the start of the control page, which is
+> all that TTBR0 maps at this point, so the load faults and the kernel
+> oopses after "Bye!" instead of entering the new kernel:
+>=20
+>  Unable to handle kernel paging request at virtual address 00000000544bff=
+fc
+>  Internal error: Oops: 0000000096000007 [#1]  SMP
+> [ ... ]
+> ("x86/kexec: Mark machine_kexec() with __nocfi") did on x86.
+>=20
+> Fixes: efc2d0f20a9d ("arm64: kexec: keep MMU enabled during kexec relocat=
+ion")
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Daniel Viaño <danividanivi@gmail.com>
-> ---
->  drivers/rtc/rtc-zynqmp.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-> index 5bcb7536e973..278705ec09f5 100644
-> --- a/drivers/rtc/rtc-zynqmp.c
-> +++ b/drivers/rtc/rtc-zynqmp.c
-> @@ -167,9 +167,12 @@ static void xlnx_init_rtc(struct xlnx_rtc_dev *xrtcdev)
->  {
->  	u32 rtc_ctrl;
->  
-> -	/* Enable RTC switch to battery when VCC_PSAUX is not available */
-> +	/*
-> +	 * Enable crystal oscillator, and enable RTC switch to battery
-> +	 * when VCC_PSAUX is not available.
-> +	 */
->  	rtc_ctrl = readl(xrtcdev->reg_base + RTC_CTRL);
-> -	rtc_ctrl |= RTC_BATT_EN;
-> +	rtc_ctrl |= RTC_BATT_EN | RTC_OSC_EN;
+> Signed-off-by: Ben Cressey <ben@cressey.dev>
 
-No, you need to keep it disabled until you now the time is correct, that
-is in set_time and you need to test for it in read_time and return
--EINVAL when it is not set.
+Sashiko has reviewed this patch and found no issues. It looks great!
 
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260924-arm64-kexe=
+c-nocfi-v1-1-bbae2e2eadc8@cressey.dev?part=3D1
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
