@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6D9C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAA1C98314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7STxnZVUQmrLVyWonCr/WVFvn6ySKjnlDMhE0HDJ/pg=; b=qPKzRXvr3bTW8H9s4M+lWImg3m
-	IeFHXYsWVTntj12eqOEuSMBAfT3Dcl5JGRbDXWGnLBmItLYSQD8Qy2zJJEn2x/ES/ARcP7NxSiQsx
-	yBPyRQ/Q0EnOxHTsU80f6UCRgfItHvff5PayyBZCK9CnGDb+ev5LV1+XTkL6YpA75U99+PE12Z9+x
-	CdxDgWD7DxzlAfdzHUjsl4m9F57vkgG2eNItCMMh/29nEN0u+W17TIyB4t3DfB+l3/jERCVq3jYxK
-	u29AvoLfV4KgtjboUQxYQM5uysbvXBDN+lWyr8u2S3wf5qO07BcGAZPNQphepB9J+BLJQq25FvekL
-	VSe8z0qQ==;
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jxxwLEo0BXdYM4pKyZTS7qZZG6NzOJDKgCdnSnZlcjs=; b=kN+yDUfyjJwkWAt+b1KMwRihVz
+	K5mNDNv82n6yM7TrzYAAtBmbNvf9IwHuKYZYdkYIWqj4INDtUo3JWoNBxssrhLNzk8LcONuAoXc7N
+	Po54JtVd5wQPtCqSvUjIU7syqiHwirlGBQVtaeoziK5iHhadvMj1iCyxm3fcPqKxFvAgkFj0VHKin
+	pOGyyZWCcwV1SdcfkBuGBL/PcrJ8FfYtf9+xSRGWWmQgVeYOkX5w7ujlWTn+TnIeLi9MpIb7QLyEj
+	O53SO3vM33Uc/4bh+DepTsdnEjOi9PLgglPCj0sINc9jKwgVUozVq061fR8SqG1aU9pjue5NEM/KP
+	5VVI0cxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dfd-0000000AFWK-01cb;
-	Thu, 24 Sep 2026 07:15:05 +0000
-Received: from mail-ed2-x14.google.com ([2a00:1450:4864:33::14])
+	id 1x9dh0-0000000AG3p-2T58;
+	Thu, 24 Sep 2026 07:16:30 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dfT-0000000AFQQ-2sO4
+	id 1x9dgw-0000000AG2E-2tGn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 07:14:56 +0000
-Received: by mail-ed2-x14.google.com with SMTP id 4fb4d7f45d1cf-6aa0ee64afdso2091757a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:14:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790234094; x=1790838894; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7STxnZVUQmrLVyWonCr/WVFvn6ySKjnlDMhE0HDJ/pg=;
-        b=o+kDUEn9mJmcrIn/8EkGX+MRFg8pfW3VWFBw6mNbxHEvpNtpIsqiuoFpaSP0lRpTi/
-         j9el0Zl0UGNBmWkyai6Hc8YA9TSwzzRrxVvkhADJqHCzVfjvAoirDrUvhIogWSCK6+n2
-         hlCJKNg/mNCgxoHs3wkcxea18KWwQhhj0GKdk/razNayKBE/FIAmsLWC1Vd2R5upQmPe
-         NvMwlsyxR1vCJ6ynAkoswl/lNxxJ+gJUt007UFR/g2OGnEITbG4uBM5uyBKV+HLzqpcL
-         be3ncPd9GxkB/90NZqJX72u8FgDtN3QKBapqoF8N/UQpbcXR07r1kddYU5gDsY3E/oRh
-         WGLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790234094; x=1790838894;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7STxnZVUQmrLVyWonCr/WVFvn6ySKjnlDMhE0HDJ/pg=;
-        b=DFSNsccOFWhqL3h3FGe5r812QGxqCus/bbCmcG8m5wGGx9kxUlRzLzshKBck4g3ncu
-         Exi7nhrfQar1pQk+hpTDnc+nN/5A1Csb5TxbTm4v1dpgFJXTJwQ3PSgNzz3TeCwT3HnA
-         4gw9Dg2lokyoVysbApTikfaUI6iB2OjYaEqqE/nNaRfx5gu0uk6G6kIASSrGASZ57KfJ
-         jTXfuKiLpEK7E0SFOiDRM3kP+zlYIwvovMkmmCX6xxYf5Sg/v2i93gV85Ktq3A5vtFC0
-         e1Y/YwsEZ31EJ47kPLvspS0Z2i7IEycx5O9U3ybfSyCok2Cr3U/h5M+ao61iJxdQ7ImH
-         tg8A==
-X-Forwarded-Encrypted: i=1; AKwUvBz/tH7zYgVPwrrrrReco73dYD8ghgp3E2RrNbyVsCg6yifsK0fYq7UtQP6gHoNNuQpBAus0KcXkODA6PkKMh0/V@lists.infradead.org
-X-Gm-Message-State: AFuF++m/1jfO5j/x91P4D6z6A+0iPVu0CGslPuuAEwLCOwhoziIzLWeE
-	dSYb2VwBrrOCxNKcUGli/nvJ34BUWhLUVqTabri2irBYZgF0WdPlksHY41z7bxhzerM=
-X-Gm-Gg: AYBFou2UJvCcFrLu3Kjw2LXT2HkNMczpm7S+ZYpwZV+5rDt3vJFdQFSutS83hBHqpvq
-	I+LkRLJO43ncLdZOyYnMCr13fu9qqpQX+5kvdcUsqrcHNYfnCfjZMytny7Q7rIyxIr7+x94Kn1i
-	lycZz0cRJNUaqcFQ9YwyRmxmKLJ09DwKShWEhqIpb2k9mb6AJVvBjOfmSyf66RrZD8Pq2Y1uBBF
-	heORUiflJy3Zi+l67S/Nr1HZ3INoT0vkz6V/tltAx/ruSvUqP9/0ZsFUImTyn+FzHGBd9M6A2aB
-	8eDxzOJs5BBebYXwYhIb86butxDHsnAzcoRQ63CUzEXdOax57BQQz0xTJfEDO7Eed7IIIQXLymj
-	uFupYjH0KKCGWhYgxAie5SbPkUMvqIHZ20KHsufTaaG1U/2mwcaLoHX8meMwtBay0w8C9ahHiVD
-	1HKTkU+cEdrkiPxoQ00ONp9mKXS33MRnzZEfVgjYfVMOS7jPfn7aXmx2Kp4oy3uk7+GEcQMRqYp
-	h62Rn1Y222jaqeDRovJ6/p0jxeojw798y/JeCjWxhZQwdCGuOQjifDBEQ==
-X-Received: by 2002:a05:6402:44d0:b0:6aa:a040:cbd3 with SMTP id 4fb4d7f45d1cf-6aac8ed4399mr891513a12.3.1790234093718;
-        Thu, 24 Sep 2026 00:14:53 -0700 (PDT)
-Received: from janlin-02.home.wermuth.pl (109-206-198-27.host.skynet.net.pl. [109.206.198.27])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab38a9756sm3306589a12.25.2026.09.24.00.14.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 00:14:52 -0700 (PDT)
-From: Adam Wermuth <adam@wermuth.pl>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Adam Wermuth <adam@wermuth.pl>
-Subject: [PATCH 2/3] arm64: dts: rockchip: Enable M.2 B-key WWAN slot on Radxa ROCK 3B
-Date: Thu, 24 Sep 2026 09:14:44 +0200
-Message-ID: <20260924071445.441822-3-adam@wermuth.pl>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260924071445.441822-1-adam@wermuth.pl>
-References: <20260924071445.441822-1-adam@wermuth.pl>
+	Thu, 24 Sep 2026 07:16:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1790234149; x=1790838949; i=markus.elfring@web.de;
+	bh=jxxwLEo0BXdYM4pKyZTS7qZZG6NzOJDKgCdnSnZlcjs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=oaOmojKmVnEW+DCoOQbsnmHMqFtQXl9oYGKwcMd99mAs4Xah6dplcChhoSCPAF9V
+	 vGGKA/W8Q5EVGFwi6vk+7PA65ec6rQGQYOG5tiZIY1OIYUtTRKBo46+aG6kgCwFqk
+	 GHmeDW3LPc3ZGBLW7Ws6V3jYVloDCJq19cmyO7FET8q3mY1ws+OiwDdnAPcTKMu9a
+	 Iya+1Tkj2wFfWszLmDsc3dUywMMOwrPTU9JvqmlArdVWAVtP1YZ5LiXGw7ouQChze
+	 9EPBUVLtlYBtbegffubPx7rJWK6DuXeLT8kr5u450C+3kxD3uO51lX2GTGvuXmSlX
+	 XhyeSVAHVFxcM3wbig==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M1JEu-1xCNVX1hl4-007wKk; Thu, 24
+ Sep 2026 09:15:49 +0200
+Message-ID: <6c08552a-49e9-4ee0-b1ba-b27e17ade9c5@web.de>
+Date: Thu, 24 Sep 2026 09:15:36 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Content-Language: en-GB, de-DE
+To: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <chleroy@kernel.org>, Dan Carpenter <error27@gmail.com>,
+ Ioana Ciornei <ioana.ciornei@nxp.com>, Roy Pledge <Roy.Pledge@nxp.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH v4 0/2] soc: fsl: dpio: Use scope-based resource management in
+ two functions
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Fq6Aec0o7LQlVtxUXYTHaBJ017F9jCvZsB536K5W3pRurIze04G
+ A7Vbqm6a4oM/TTS6B/MP1vR/aR/ZrkVaEAXQ7zPPTgZr2E47nn2iL46ugF8W+xwcLIyBaIX
+ N7gO/ldyXV88oMwjdbZE9tNREkhubE1KzTWYeOjc2u3O1jzlLfVw8kbwaaHoH4nYU0hxnCx
+ 6AvrR4ArN5QWLFCu4U42Q==
+UI-OutboundReport: notjunk:1;M01:P0:E5ligmXBx+8=;vqSEaQJN+0lngXU/PpgQaQN0tK6 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_001455_736386_9C5852E1 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260924_001627_123593_64813B71 
+X-CRM114-Status: UNSURE (   5.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,89 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M.2 B-key slot on the ROCK 3B is controlled by three GPIOs:
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Thu, 24 Sep 2026 09:09:01 +0200
 
- - GPIO0_C6 (4G_PWREN_H) enables the 3.3V supply of the slot, which
-   is generated from vcc5v0_sys by a dedicated buck converter,
- - GPIO0_D6 (4G_RESET) drives the RESET# signal of the slot,
- - GPIO1_B0 (4G_DISABLE) drives W_DISABLE1#.
+Some adjustment opportunities were picked up.
 
-Unless the supply is enabled and both active-low signals are
-deasserted, the module never enumerates on USB. Describe the supply
-as an always-on fixed regulator and hog RESET# and W_DISABLE1# in
-their inactive state.
+Markus Elfring (2):
+  Use scope-based resource management in dpaa2_io_store_create()
+  Use scope-based resource management in dpaa2_io_create()
 
-Tested with a SIMCom SIM7600G-H module.
 
-Signed-off-by: Adam Wermuth <adam@wermuth.pl>
----
- .../boot/dts/rockchip/rk3568-rock-3b.dts      | 38 +++++++++++++++++++
- 1 file changed, 38 insertions(+)
+v4:
+Christophe Leroy pointed out that Sashiko provided hints for further
+development considerations.
+https://sashiko.dev/#/patchset/709fefd1-821a-4cd1-8598-b1179a95ce52@web.de
+https://lore.kernel.org/kernel-janitors/59f78064-0e0d-4e3e-9ca3-f057e70b44=
+eb@kernel.org/
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-index ad9a91c0d0d0..908bb4425e81 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-@@ -98,6 +98,20 @@ vcc3v3_sys2: regulator-3v3-vcc-sys2 {
- 		vin-supply = <&vcc5v0_sys>;
- 	};
- 
-+	vcc3v3_wwan: regulator-3v3-vcc-wwan {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wwan_pwren_h>;
-+		regulator-name = "vcc3v3_wwan";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
- 	vcc5v0_sys: regulator-5v0-vcc-sys {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc5v0_sys";
-@@ -220,6 +234,24 @@ &gmac1m1_rgmii_bus
- 	status = "okay";
- };
- 
-+&gpio0 {
-+	wwan-reset-hog {
-+		gpio-hog;
-+		gpios = <RK_PD6 GPIO_ACTIVE_LOW>;
-+		output-low;
-+		line-name = "wwan-reset";
-+	};
-+};
-+
-+&gpio1 {
-+	wwan-disable-hog {
-+		gpio-hog;
-+		gpios = <RK_PB0 GPIO_ACTIVE_LOW>;
-+		output-low;
-+		line-name = "wwan-w-disable";
-+	};
-+};
-+
- &gpu {
- 	mali-supply = <&vdd_gpu>;
- 	status = "okay";
-@@ -655,6 +687,12 @@ wifi_wake_host_h: wifi-wake-host-h {
- 			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
-+
-+	wwan {
-+		wwan_pwren_h: wwan-pwren-h {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
- };
- 
- &pmu_io_domains {
--- 
-2.43.0
+
+v3:
+* Dan Carpenter requested to add an #include directive.
+  https://lore.kernel.org/kernel-janitors/amdBqQfIsAjxMsqX@stanley.mountai=
+n/
+
+* Ioana Ciornei requested to keep variable declarations at the start of
+  function implementations.
+  https://lore.kernel.org/kernel-janitors/6woig227u5snmdsrjfuw7gfcf3vk5iwa=
+ap4yf7ow6b6s3pba7z@yg4vmdoaak3h/
+
+
+v2:
+Christophe Leroy requested to apply the attribute =E2=80=9C__free(kfree)=
+=E2=80=9D.
+https://lore.kernel.org/kernel-janitors/d95d2f4c-f3cf-44eb-b61b-79ba789167=
+4d@kernel.org/
+
+
+ drivers/soc/fsl/dpio/dpio-service.c | 97 +++++++++++++++--------------
+ 1 file changed, 51 insertions(+), 46 deletions(-)
+
+=2D-=20
+2.55.0
 
 
