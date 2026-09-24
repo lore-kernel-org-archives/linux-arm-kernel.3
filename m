@@ -4,105 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511BFC98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2546C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nh5lY07F/XdtpzZWisBcou4EdetqWlxWEhSWH7F4qoU=; b=35GY2KLpYEy+mAuZNr6PfxKcrA
-	xuv6+K2SPkks3wxLkliTgF6/gzWkg7OiRUSgTBR53E+HwD2HKPO6CPbN9m45JRxiQFwIlfmmbOfKG
-	EnF2ehzSaD7Zc9JDO/r5TCTTUth1jSdo3atCY3mqucCIPqjGmafOy4ddmapV4VMFZGCvPDCOMT+ZO
-	XVIXrR4qvrHHnfgHE/QFjp1YWkIleMMWlWBFoS4Z9GSjUShxOxIfG+q0WxEjNDlqX2nLZEZ76n+jw
-	S0Gy4OVElHEsHyCnrr8PF305rY12QZMHXjEzetiHZQ1to9C6Ir3WXajbY68TWNyA9Ph3/UvfLQuKB
-	iW2UkmUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZUlQozRRVxIy7X3DmStVniHwMEag07GaVK8WjeTWxaY=; b=a+a9Aod02UWFbEvAaUW+anRHU7
+	g+40p1qwcHkA6l5nULVZ8uNGcYFY34mVLZa6XdhVdTucwALciZ74RB9go0/3Y5AziZwl+eVvXIuv7
+	d1LK3Zojja4CpOjs1Kh7ux4pXJNk3u0luJK+X2klZk0tPao2Mjwz6f7MugG/p5o9zADDWj/4+dQq7
+	MwVhEbfu3sKocpBnAjgbrEsSVwkLqqz67TXgwcZZMLRGkWEd4nDUjhLkwggKqpCBdDI3OAm7O3fw4
+	rhRuL0tPrxxchosKjy5hyy6Il9pQpsD6DWElkp5AznQAhCLRzkX0SwImWHxOKzkk2rUp0WkuukJtx
+	fyb2C+MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9j0S-0000000B1qE-05ut;
-	Thu, 24 Sep 2026 12:56:56 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1x9j0i-0000000B1ua-1HDo;
+	Thu, 24 Sep 2026 12:57:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9j0O-0000000B1p7-3l5Z
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 12:56:55 +0000
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8A2C1EC006C;
-	Thu, 24 Sep 2026 08:56:49 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Thu, 24 Sep 2026 08:56:49 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1790254609;
-	 x=1790341009; bh=nh5lY07F/XdtpzZWisBcou4EdetqWlxWEhSWH7F4qoU=; b=
-	SfDv2A2mrCaoAZJYIg+Gdd5VA7VdxBZbvuu2ggT9DdEBxG9zdV7rTuHSEkdp2muC
-	RrKs1Ca7dVpiS45RImV8oYv+FoCsLmwQD3kkyb+4+C2iNKThGf9SWJoIu2b6PgYv
-	vZcIM/pQOrPURQUUMWcywq/mJv9M4Spdmnm5RAAc41f0uhx81mNomQAjmA2nDhxU
-	+8LlYteXhm/Pc5N2bEAm1UeTQ8PsFO2uox+rLk1WibktQi656HxEJ62wXfUGdKdk
-	WWgGVzAQbQxDrbUjTkHDEoJ3QDP8hcpdgbfVbUWumn5d2XbwRUz6GiB5EYFMuKPQ
-	brbE8PDidMo+hX1w+fZA/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1790254609; x=
-	1790341009; bh=nh5lY07F/XdtpzZWisBcou4EdetqWlxWEhSWH7F4qoU=; b=h
-	PDQhnza67R40uz4KVjCagCuK/1ooUwva9Er/NXECJ0FHEjMoMBoke2aHuIF2ssXJ
-	QsG6/RCqtJNK/IZzLbY0mngXIEhP7YJdFnZEgu44m0ROGyqO4yEL8LA0oeg6hdiv
-	g+4BV8T2xgDx+1+sH6oOz7vY0K9damZ4tMI7KMy/1EJCGdwDy7HOLikaDy+JfnLX
-	6ceMFdyezhDzCrzOLqL6xFG+ahmA+HuwZgt1Quxl3FtMB7QbzKyIolhlTc3W51ft
-	1HO6VkDpAhH89/pvPW98PePu5IgoTQb8T4nDUYoG+ICHwCQxGQCVMj+gRn/fkw6q
-	oDCYZqON4IQ53LirsjKSQ==
-X-ME-Sender: <xms:EB61ag6hannoEnoGHm6M8Td2p4HPwBZaXj4x4b9wNZ05UmtIGoWlIg>
-    <xme:EB61ajnCXa8dcuv_zjPzBiXZBLBc6SilmBzOljFoB43fww6ABJ517VLYOPGLIdCA0
-    EfKyxUGve3geURx3lvzvz7lryK1DCOfJ2dyFr_G9eIdujkUFOKC8vA>
-X-ME-Received: <xmr:EB61ai6Z9V5eFqttc2Xvt_ymbI2pa28pxkVrhI-YoRi6duOZ1uWRfDQBgIn8MA>
-X-ME-Proxy-Cause: dmFkZTF32quzzh7iukCEspo2//2/EETePHBVgKSDjotfiMLGFMKMi36qp1G2l6m0603LrJ
-    etTQuK4n5psitazgA7NI8ZNAj7Boz3Iz2PTvtSHc4YlI+thZ+g9AxqEWr6smXP4eTxr12L
-    j4iqpnH1GtJD2uV9oEuEdNTFWS+cbDLo5wkX85Q/VxLJ3pJBv3fDm5p4L0ICSGL2DRf+46
-    Zml5juxNyzXgitBUARzy5Q+nGWTe5JIDB908ZQufVLIQOoOBXqBBTkAU9StkEDBWH3HPm1
-    ntYntvDmBSd8joOmDn8RlxUIhT6RE2mlz7OAGRk1ORprL1NHSpdJ4EtNFWlP7TEPEI2LL+
-    pYpBOVi8BAwOPzs8KcdsKkIryA6tKwcjIx9YbxHEmrYndho1FvpUUtTEwlPkk7X/dQD9Ri
-    ojMeInjDm3Qf5JrK4MBzkNA7Dt3NJ6cqbP3mXwlxY66VM1OQkoplQn+y8dqGjimJQChM0H
-    X/OWXCexHTyaKnsGcaXBBz4P6OIry6aIZOK+2kHFAjj6C2QgTN1cKSnEM8fuIS6PcDd0+W
-    qERUKkVymlRMm2x+LmGNo26NcGSU5Ypn9oOO6KRxrdQT6g4w9CrjoWNMiED9/ya8srtUMd
-    ZvrlCrWUre43Cm5+vQfUS0dE4wk7Jh2khI5DPdNo3cIJyUXSXDtSlgOb28sw
-X-ME-Proxy: <xmx:EB61ak-CCIp6-CYCczNih1SN9_54-HNNmAHQY0ICnnl0s8AO4EmszA>
-    <xmx:EB61aqjS8hEqWBBS_8_EGr-7wJVSDCuh5GhtYl6xKl0pHw9uD66TrA>
-    <xmx:EB61aq4gadEPI3rZSlrTz5wkDYHf32dqAFu2Lg2_LiD0KyoCtx3ypw>
-    <xmx:EB61avZEX_jEZucgTShjdxZtDWzWj6mznxYhBi5hg5Z0SqiIAAABXg>
-    <xmx:ER61aii1kJ3fAXJc8Rp40Kh9XAv9uxpj6Ga3ZpCPvgjzzFsOuVxOhPuQ>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 24 Sep 2026 08:56:45 -0400 (EDT)
-Date: Thu, 24 Sep 2026 06:56:42 -0600
-From: Alex Williamson <alex@shazbot.org>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, David Matlack <dmatlack@google.com>,
- Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-rdma@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Mark Bloch
- <mbloch@nvidia.com>, netdev@vger.kernel.org, Oliver Upton
- <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Saeed Mahameed
- <saeedm@nvidia.com>, Sean Christopherson <seanjc@google.com>, Steffen Eiden
- <seiden@linux.ibm.com>, Shuah Khan <shuah@kernel.org>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Tariq Toukan <tariqt@nvidia.com>, Zenghui Yu
- <yuzenghui@huawei.com>, patches@lists.linux.dev, alex@shazbot.org
-Subject: Re: [PATCH v7 00/10] mlx5 support for VFIO self test
-Message-ID: <20260924065642.125986a4@shazbot.org>
-In-Reply-To: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
-References: <0-v7-c6d30e8ce1e4+3dfa6-mlx5st_jgg@nvidia.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1x9j0h-0000000B1u4-1M0A;
+	Thu, 24 Sep 2026 12:57:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB40F43B07;
+	Thu, 24 Sep 2026 12:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833721F000FF;
+	Thu, 24 Sep 2026 12:57:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790254630;
+	bh=ZUlQozRRVxIy7X3DmStVniHwMEag07GaVK8WjeTWxaY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=L7joRz8keKhlVO2OyuUWnvkJSz9Jl0fpRMsvh6pWMjYrDWi+LfLyr6uIPjFyklQvk
+	 DgUF4f3/pVyA4wcME4cJuRKqI0Hy2vjGIoPhqH5nLVZ8SGTW4luIQl3BsZ4HXICzSU
+	 CV9UJfXLec0FnESyT5OdxY2dyK2PmHz42/lkz1K0h0cPVEckK2ArFeDdkHI0folmXZ
+	 lC38qX46t1aOBmpRHoBbie6tIeyoO5iEy9Um8uczsFzSgjQI0XTN0yAXPtw0FpavxL
+	 RgpFM/LlZNqMZY8tVgvV81CdUZslJAXUmDr4+fskf3cv6POsAG6XqxeNaHIFhdNjjI
+	 NWmnGci9DEwrw==
+Date: Thu, 24 Sep 2026 14:57:06 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 02/12] dt-bindings: soc: amlogic: Add clk-measure
+ compatible to support more SoCs
+Message-ID: <20260924-rugged-devious-fennec-f3742c@quoll>
+References: <20260920-more-socs-to-support-clk_measure-v2-0-224382a429e8@amlogic.com>
+ <20260920-more-socs-to-support-clk_measure-v2-2-224382a429e8@amlogic.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_055653_498589_CD3B8129 
-X-CRM114-Status: GOOD (  30.33  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260920-more-socs-to-support-clk_measure-v2-2-224382a429e8@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,137 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Sep 20, 2026 at 06:25:04PM +0800, Chuan Liu wrote:
+> Add clk-measure compatible for amlogic A5, A4, S7, S7D, S6 and A9 SoCs.
+> 
+> Although the clk-measure IP itself has little hardware difference across
+> SoCs, the clock inputs connected to the clk-measure block vary between
+> SoCs. Therefore, it is difficult to fall back to the configuration used
+> by previous SoCs.
+> 
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> ---
+>  .../bindings/soc/amlogic/amlogic,meson-gx-clk-measure.yaml          | 6 ++++++
+>  1 file changed, 6 insertions(+)
 
-Leon, can we get your ack on 1-4?  I'll publish an rc1-based branch for
-any conflict management.  Thanks,
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Alex
-
-On Mon, 21 Sep 2026 19:35:40 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
-
-> Add an mlx5 driver to VFIO self test. This is largely a remix of the
-> existing VFIO mlx5 driver in rdma-core. It uses an RDMA loopback QP
-> to issue RDMA WRITE operations which effectively perform memory
-> copies using DMA. Since mlx5 has a stable programming ABI this
-> should work on devices from CX5 to current HW. The device FW must
-> support the QP loopback configuration.
-> 
-> Also support send_msi by arming completion events of the RDMA WRITE
-> to trigger MSI delivery.
-> 
-> mlx5 device startup is very complex and most of this code is just
-> booting the device, with a smaller amount for operating the QP.
-> 
-> This entire series was coded by Claude Code in about 4 days. It
-> used about 4.5M output tokens, 30 individual sessions and 5600 lines
-> of AI-generated .md files. I spent an annoying amount of time
-> de-slopping and cleaning its work product to make it presentable.
-> However, previous VFIO drivers have taken on the order of 1-2
-> months to write, so getting one in a week is pretty remarkable.
-> 
-> For those interested, the flow I used was broadly a prompt sequence
-> sort of like:
-> 
->  - Hey Claude, go look at the falcon series, VFIO self test, the
->    mlx5 driver, rdma-core and some PDF documentation and make a
->    plan to put mlx5 under the selftest.
->  - Write an rdma-core application using the built-in VFIO provider
->    that can do the required memcpy operations that vfio selftests
->    wants.
->    (This resulted in a 1k loc C file that compiled and ran the
->     first time but had a few bugs related to device programming
->     that the AI resolved.)
->  - Replace the rdma-core components with open-coded versions to
->    create a fully stand-alone program that does the DMA memcpy.
->  - Review and audit the thing.
->  [Pause and de-slop it]
->  - Make it work on a PF too (this is surprisingly hard!).
->  [Move to a kernel tree and copy all the .md files and .c program
->   it made]
->  - Hey Claude, look at all this stuff and make a broad plan to
->    actually build a VFIO self test.
->  - Here is my 1 sentence advice on what each patch should look
->    like, make a detailed plan to make a patch for every one.
->  [Pause and polish the patch plans]
->  - Execute plan X then commit it [pause and de-slop each patch,
->    repeat].
->  [Review and final polish]
-> 
-> v7:
->  - Fix some compilation problems, kvm and the igb
-> v6: https://patch.msgid.link/r/0-v6-8af36cf7b73f+e2-mlx5st_jgg@nvidia.com
->  - Rebase on v7.3-rc3
->  - Correct some minor sashiko remarks
-> v5: https://patch.msgid.link/r/0-v5-4cacb99249f6+1b4-mlx5st_jgg@nvidia.com
->  - Rebase on v7.3-rc1
->  - Adjust how region_size is computed to min it to getpagesize()
-> v4: https://patch.msgid.link/r/0-v4-021df3fb5a3f+98e-mlx5st_jgg@nvidia.com
->  - Rebase on vfio next, update igb and falcon
->  - Move rounding to iova_allocator_alloc()
->  - Remove arm barrier changes
-> v3: https://patch.msgid.link/r/0-v3-76f117ad04f1+28a90-mlx5st_jgg@nvidia.com
->  - Move max into vfio_pci_driver_probe()
->  - Rebase on v7.2-rc3
-> v2: https://patch.msgid.link/r/0-v2-72e9640932fd+2c64-mlx5st_jgg@nvidia.com
->  - Rebase on v7.1-rc3, drop falcon patches
->  - dev_dbg checks the format string even in non debug builds
->  - Sort includes
->  - Adjust comments/commit messageas
->  - Use linux/pci_ids.h
->  - Compute the driver.max_memcpy_size the same as mlx5 kernel driver, it
->    should be GBs now on most devices
->  - Put region_size into all drivers instead of allowing 0
-> v1: https://patch.msgid.link/r/0-v1-dc5fa250ca1d+3213-mlx5st_jgg@nvidia.com
-> 
-> Jason Gunthorpe (10):
->   net/mlx5: Add IFC structures for CQE and WQE
->   net/mlx5: Move HW constant groups from device.h/cq.h to mlx5_ifc.h
->   net/mlx5: Extract MLX5_SET/GET macros into mlx5_ifc_macros.h
->   net/mlx5: Add ONCE and MMIO accessor variants to mlx5_ifc_macros.h
->   selftests: Add additional kernel functions to tools/include/
->   vfio: selftests: Allow drivers to specify required region size
->   vfio: selftests: Add dev_dbg
->   vfio: selftests: Add mlx5 driver - HW init and command interface
->   vfio: selftests: Add mlx5 driver - data path and memcpy ops
->   vfio: selftests: mlx5 driver - add send_msi support
-> 
->  include/linux/mlx5/cq.h                       |   10 -
->  include/linux/mlx5/device.h                   |  231 +-
->  include/linux/mlx5/mlx5_ifc.h                 |  178 ++
->  include/linux/mlx5/mlx5_ifc_macros.h          |  185 ++
->  tools/arch/arm64/include/asm/barrier.h        |    4 +
->  tools/arch/x86/include/asm/barrier.h          |    5 +
->  tools/include/asm-generic/io.h                |   28 +
->  tools/include/asm/barrier.h                   |    8 +
->  tools/include/linux/stddef.h                  |   10 +
->  .../selftests/kvm/include/arm64/processor.h   |    4 +-
->  tools/testing/selftests/kvm/irq_test.c        |    2 -
->  .../selftests/vfio/lib/drivers/dsa/dsa.c      |    1 +
->  .../selftests/vfio/lib/drivers/igb/igb.c      |    1 +
->  .../selftests/vfio/lib/drivers/ioat/ioat.c    |    1 +
->  .../selftests/vfio/lib/drivers/mlx5/mlx5.c    | 1928 +++++++++++++++++
->  .../selftests/vfio/lib/drivers/mlx5/mlx5_hw.h |  114 +
->  .../vfio/lib/drivers/mlx5/mlx5_ifc.h          |    1 +
->  .../vfio/lib/drivers/mlx5/mlx5_ifc_fpga.h     |    1 +
->  .../vfio/lib/drivers/mlx5/mlx5_ifc_macros.h   |    1 +
->  .../vfio/lib/drivers/nv_falcon/nv_falcon.c    |    1 +
->  .../lib/include/libvfio/vfio_pci_device.h     |   11 +
->  .../lib/include/libvfio/vfio_pci_driver.h     |    6 +
->  .../selftests/vfio/lib/iova_allocator.c       |    7 +-
->  tools/testing/selftests/vfio/lib/libvfio.mk   |    1 +
->  .../selftests/vfio/lib/vfio_pci_driver.c      |    6 +
->  .../selftests/vfio/vfio_pci_driver_test.c     |    3 +-
->  26 files changed, 2502 insertions(+), 246 deletions(-)
->  create mode 100644 include/linux/mlx5/mlx5_ifc_macros.h
->  create mode 100644 tools/include/linux/stddef.h
->  create mode 100644 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5.c
->  create mode 100644 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_hw.h
->  create mode 120000 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_ifc.h
->  create mode 120000 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_ifc_fpga.h
->  create mode 120000 tools/testing/selftests/vfio/lib/drivers/mlx5/mlx5_ifc_macros.h
-> 
-> 
-> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+Best regards,
+Krzysztof
 
 
