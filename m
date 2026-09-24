@@ -4,160 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DB1C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1C7C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kxQqh1b0NRYpxLrq1q06hzYDYdPUDG9Q2F8zUH+lsM=; b=ozbW8kdZO6ARinvA2rcD9EQgAw
-	eJEbJSeuoxdEV/IMf4/vSAEUBtwIZuDD92TKIh/w3xQ6PCBPfcLyX5uaiglZgmxEhALX3EwOPjxhi
-	GzRQqNjFVmxntPexDKQ2BtXO6KAQWotXND8OXQ2ZO5zVDlzmMiDVPeMsm5bs9P8tqSjeVcUnxRKP/
-	Qg49J+KoJ9nM62PKaCeGeO6E0f2b92coS0PzSon4nE+VpIJfjLx/0gBbdZH7QRCYDRjhBtorwE5l+
-	z0nAAefJaLSbr8QAPIRBHrfK5jUHySQIsH4t3hePSSq17KoPivgcaQBf3SSJlss5qJ4yLvPWTsnZj
-	nm8gCyNg==;
+	bh=3mz1zAfbdgLMlTpPSTC2s+r3ackw98q6OqF4ufc8tI0=; b=O3lZXBlr0jffKNsBvSHgDckvWS
+	pfp96ZID8jdnL5HXz4W806XjXqROqC7f+VUC6aHf3fntQF3w0wBEMiovbFbDGXOhgCuaFIC9Gr1kN
+	AsRZEG2aOVGwZLLG0cyphr3Uz1K4fGtTQ4XCNkzCPYEtDZ0NrwEPPGyXiWX78cEffbY2zWBpBcbdT
+	ipCg2AIUBjAAxFTuaU73ecXgKIeQHeIZeLKE79LpBOm+DWOLIiFbtFGpmkFOZiWOh0zwuozcYESbB
+	ZSo6tCtNjrFarVicMYo5DG2of5X9QboAWfEke9mQIV0Pp1Wau2Dc7JRlta7EdD/AuvqYCesxrQmlT
+	01YmVYgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fHx-0000000AWa3-3EIF;
-	Thu, 24 Sep 2026 08:58:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9fJV-0000000AWnG-0s4H;
+	Thu, 24 Sep 2026 09:00:21 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fHw-0000000AWZq-0Zfe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 08:58:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To
-	:From:Sender:Reply-To:Content-Description;
-	bh=2kxQqh1b0NRYpxLrq1q06hzYDYdPUDG9Q2F8zUH+lsM=; b=U4+oCD4DzLl456N3MI0EE2TOjD
-	eT+EGdB/RTwBLJTJU+6Prm7ORPc6jck0mQAKS0Toq8InWMBsk3zbZT9/DxgswE9Ty7TWh3dKOhQrh
-	rAt/0v6wcF7ha3TJLoyTkUmQ90vg9OZPblBcZzYMFaZM2fcfKKEz+CC4VW/o5jOglxMs+kumedpED
-	ZyJ0PB7mqZnObSrNTc20I3+GXpnTMAJcM6pdogfOeYmqaplJSmpCZSk4wiyGemDtbGgRIVJ70OzlD
-	PmQXXK3GdtPtUXjBMrlGB5s8F78DHwenrnMvO/lMr2CXz3ZS+ECHheyCORXGov4kgIbE4BTufN6Dp
-	4BzOEAyQ==;
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9fHk-0000000FlES-1rJG
+	id 1x9fJS-0000000AWmE-4C7p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 08:58:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HdqLNd6zZ3J5IFcE4s+dczAbGxD7aaHDK4ubQQ3yze8IIIc77SVW3dw0AyBvR6XBtkJrv2DS7cf6xoj0HauT2YXa/8BP2p03YLzB4YAEjeAsYXrNZNlilbZ+R5PvlPQlngsLRsAv1NIAeMwa9dYMEN/mdtc7Rjo3dQpaU9w2jQLUZoFHCJn4n8qr/EkgKo5oBJUBF4rq0wn3igK3coxkrUakoLwS/iz8uzf4w9ClvUB2m7kd2lqJqQDhq7pkBzwXfZC22Ut+rqY02ldsOQ8kvH8yjTH0ELNsF7bU02nDkwE7KR2qYtfRiPujF0ebfyoVahYZN56RE0yDmAB/uxEBHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2kxQqh1b0NRYpxLrq1q06hzYDYdPUDG9Q2F8zUH+lsM=;
- b=r4A19IkyXfrxcg2iFRFL9Omh5E17ZPBORnqhVdw+5daUKozR3+fiydsAyAmdOlr89IRrRmppmsuxQE8/G8aN6ZfOIaYlOq4ykzCAi4WV5AbrEQBM700xkDYHEiRMAfibUCsrzW1zOWwixrCG9gd4qlbZ0OdGjJj1lbwFA2CnosHMfwomAwjLHlWcWLMkI3grNmc5S9a5bwBL5AiOhcgYJH1nnMnIcG+5rHcNp5wisYTIHh+eTzQ/rd3PwshcplCOFS2A3jzUSVc6R5f/8hNc5iOKzjuPdJ11n/+TZOe2va7Zah4eUl0dzz6LQO+DgpvcBgfEWy3Hx1k1Gff0yAb9Uw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
- dkim=pass header.d=siemens.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2kxQqh1b0NRYpxLrq1q06hzYDYdPUDG9Q2F8zUH+lsM=;
- b=W3P8q+3RmHjclxsM4FYxhP9gjuUCL+58XoWOw92jSV1WAJnTtvolCuhG74kHtpq9Bm+1yrCtEwOSxZ3rpoxHAQadkzNn7qdxirT2/kNLOAi9Vv1AwzV6FFhbJoMrfuu89ohEN9YAiWLDFE+J6Zw/bOjFqB7+cDTvOII5GjiJ8NKT1obO3eM+1NOilKdmNMiuN8iQqX/gLovoX6xGSQQHillKV+FhM4ycwuposCcfRiKRPBfSqcCTpUBTtyUz+nGpUNj7dKfUZDRwU7KU7pyfSRUU7EtOwIyAKlDwMcT8cmdXkycjC+a5Ue0WiuvvLiwL3ZcKT4ZKLgICUk78xU2+ew==
-Received: from AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5b6::22)
- by AS4PR10MB5870.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:515::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Thu, 24 Sep
- 2026 08:58:21 +0000
-Received: from AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::9126:d21d:31c4:1b9f]) by AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::9126:d21d:31c4:1b9f%3]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 08:58:21 +0000
-From: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
-To: "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>,
-	"arnd@arndb.de" <arnd@arndb.de>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "bruce.ashfield@gmail.com"
-	<bruce.ashfield@gmail.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] tools: use basename to identify file in
- gen-mach-types
-Thread-Topic: [PATCH 1/1] tools: use basename to identify file in
- gen-mach-types
-Thread-Index: AQHdTALZcxa3Xvv9JUy0iAgPsNVeaQ==
-Date: Thu, 24 Sep 2026 08:58:21 +0000
-Message-ID: <1fd21bb7bbb09e1566c090dad29710765c24bbd2.camel@siemens.com>
-References: <20250826142518.2583999-1-alexander.stein@ew.tq-group.com>
-In-Reply-To: <20250826142518.2583999-1-alexander.stein@ew.tq-group.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.58.3 (3.58.3-1.fc43) 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siemens.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR10MB6867:EE_|AS4PR10MB5870:EE_
-x-ms-office365-filtering-correlation-id: 20d9ae88-1f5a-4625-5a9a-08df1a19fbf7
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|38070700021|3023799007|6133799003|10067099003|56012099006|11063799006|22082099003|55112099003|18002099003;
-x-microsoft-antispam-message-info: obsQWeCXAgHwB/PHqwmq4DzTi0Jz6cNnWtcAzWJbKCREuxlv/xkA/A7cQsJf6Hho33e8OXfpFdD4bxYvjvXDJnpWK2gWS3jfz9DbN1hFtrpimxKNAZHHGdD0zr5XQ5LQsKEvWOfHVnUKhQgoQ31AeXEYrAcAgnu/3ckKSXJjbYgOn39IV8Gf2GQkIYC2JkzXZoUNwKqavcrz9jKHZ3+Kc5OseTbvRP9VFJ+DfOtl86ggQpHfgTqIoK+XVGVPDqFmOxmh2boQFORUcglQLPaRTriiHJECySRnkwEQ2g/8DMl9KFUCdtPvJEStvD5p7Vo2x6k7SLmETjWIpisFJqR5heyNwwaLv/2Ok9VYnHItr4mzuo4k/7ruwYo1+ze3Wevp1P6Si+qnJNK5xfWG1c+YrEKzffmjQPdCz3Fw3+HhE08M7UCmuD5I+b3xooy3Q+7qS0hPhRHykpTGIcvn4cN7LXyjUyjBMbpi1b3YRqYpNzo/qBHZusrr6e3frFQimbJ7pDWc05HPmChyX7RIxHDhztefGVobuOz3DAmhmzUlJslQmc7h4ZbtZW6aCaT6Xl1Y/9vIMNNjjPTJ4muEHT10pXanMmJ3X+mqQOSiZcGi9IT6t/6R8kP567sSCbHrgTC44MI3n7fQOlKsYQ+sow/8mNDqvIoeY5B40uN7bUJKL0Q=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(38070700021)(3023799007)(6133799003)(10067099003)(56012099006)(11063799006)(22082099003)(55112099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZXY1WGRzSElYVWNlUkJHVW9LYjFmQ3RDK2VQdnk3bzBML1dBMnJSdE9JNWJ5?=
- =?utf-8?B?aGF6aW01dFZtK3ZhejgzeUJVQ2ZqTUJxY1kvdzd3TXZ5T3Zxb3NXRkN4Y3k3?=
- =?utf-8?B?SzVFWkp3TlRpWms1T1Bwb0lvT3VBY3pEd1FEUVNISVZIWTFkTEZrdXJmSFZp?=
- =?utf-8?B?azY5K2lnR3FaNDhJOC9ueVhIK2dKVmVoQkVadVRxZjdrQlBJYTM4MllndVFO?=
- =?utf-8?B?bnBBYVRWbHY0dzNIVXFoNldEd3Bld1RDeG5wS0VOQ3kyVjV4YUNEemxIZnYv?=
- =?utf-8?B?NWVVVWwybU54MzdzUjhBZW00WFlKYUQ2RkFuSFBtUm5Hd2lORlNXUnhoeFNL?=
- =?utf-8?B?RGtwczQxRVpud2xJcDZNWHAzbzIxYlhDVmRObmRmMHo5QTJ2V3pGeC9jN0Yr?=
- =?utf-8?B?NFBaNSszZVd0Unh6c2xUanFRZDZVN016NldsVXYwZzdrV2MvRzg5OVNkbWdw?=
- =?utf-8?B?ZFo1NlFHWldtUVhTQmFoWmUveGJ4MDNvNHhHWkgwT1Nub21TZ0FCVXZsaXZ4?=
- =?utf-8?B?S2tLK3FYQlpQWnhZSVdkTHhKNnpoVGoxRk51SU5TOVhmeFFHajJjcVUzL2JX?=
- =?utf-8?B?eWtQOVkvbjlsY0lRMDY2UVArMUk1YTFkblBKWUpZczJtUWVmcW5mM2tiZG94?=
- =?utf-8?B?Zk1SQWh4NjlReTlFSDRRS2NPVm5DaGFHVERQc29zeHpDZllyMUU3R2RTRnk2?=
- =?utf-8?B?Y1I0UnVuYjBHUU9OV01JWVNCdkkzckJZOXZvNEdmVmE5aVNabmsyRE54OFpY?=
- =?utf-8?B?d3JTeEM2dG1EVkxpRzRZNEphUGFYdlhFclhBb21ocElMaUluVFlMVVJ3N3pB?=
- =?utf-8?B?cGVIQVVwc1NoY0ZmZjJYZUE1Y3d0TVpnc0VCTTU2Y3pva1dpVTdsY0ZFOVR0?=
- =?utf-8?B?M0t6Q2wyM3l0cU1OZ1F1UTZJNkVxb2U3OStQc2l4MEIyL1B5VndpV3JzMHFB?=
- =?utf-8?B?cXVLOXJuZmJqWmRHdzZRb1ZCNS9NU2kzdkFGcDRhKytwYmVxem45RFpLdURo?=
- =?utf-8?B?QzRUK2dqWmlEWEVLai92QjFsWWszZFlGbU5rUGt3c0s4THM3cU90VFVQZ0FJ?=
- =?utf-8?B?bnN4N3QrdS9lRjhEajZmdEIxUDdQcFhUSURBbWZ0M2NYRFhZQUpIMTl6MEhX?=
- =?utf-8?B?ZXJ2Y0xQTDFBa2V5S1lHZVBFK0JoTmxzVC8yZ2RvaVo1eU9rZUJtcy9yaFgy?=
- =?utf-8?B?TERWclMwa3lCaVhnL0Vyc081NEwvemZ0c0pPMjZjSWIxUlZ5dTNPNEdneDFK?=
- =?utf-8?B?WXhoVEJlaDJxVGtiUVNDeW5MbGNQQXBQY1NEYzQxSzljUTdNM05tMk5MbTgz?=
- =?utf-8?B?enBFWU43a3crc1FDUjFTTVM4VGVnYmdLMmpOL2Z4NnprUWFLbS8zWk1JL0Fh?=
- =?utf-8?B?VDFaK21wcjJhUlcvTVZsNlBKUnFVanMxL21DVzhiZEFJd3lDcnM1ZHp5bVg0?=
- =?utf-8?B?YjNoei9ueW96UzE0Y2VzZ0lKTDFjR2dkb1JMUVhiNTFhR3NiOXk4djZQeU5t?=
- =?utf-8?B?SUlYeUp4S0NOL3d5YmNZa3BQRUdtdm8rWWl2WWUvTEt2MEVVMVdHRFJaUXF0?=
- =?utf-8?B?cE5ZRE1wcjltblpBQlRQRUxiZU5ROFdpYUdjZGJMUTYxdjZKd0xVUUlzakZG?=
- =?utf-8?B?UE5zZmRmbVRJNVRQYjVDWHp5M3FQa2xPcjEyVjFNVnloOWxUZm5HWGVUNXBx?=
- =?utf-8?B?ejUyckkwYVh1UzIwaURNTk5HK0F1R1ZUaUV1TmZXN2ZWeVB5Mll4MXZjWHhw?=
- =?utf-8?B?cExPNUZRcXhtK25rMEhzMlRMZmlEbUV1bGpMSFlyb1BMcTRpNDlldmluL3Y3?=
- =?utf-8?B?cWY2U21xcjFIRHFlMEFvTTVQODBTWFF1SGlSclVXUVQrZGNvMGVqSk1aTkRC?=
- =?utf-8?B?WGJxem5nWk9DdVQ3ME01VVN3M1ByWHpsUnViRkx2QjRSajVSZGNHZk9aZGlJ?=
- =?utf-8?B?ZkZHcHVpTmMvS0JxcjZRb1FOM0J0Mkhiajl4bHhiMVpiV0lmNW05Sys1cGVJ?=
- =?utf-8?B?VWNjK1RKNTBSQ0RTRTFjendvRHlBQXVRRTIzWmZmbTgwdnRNQ3p1WkN2WVhV?=
- =?utf-8?B?aDN1T28zVXA2eG5hbzBpNWh1UXh0RkVhNk9iYmpUM3NWNGpZVFlKQUhJZHBL?=
- =?utf-8?B?c1BEYUFuM1IwVUpqWkNvVjJZd0NCR0Erbjc5bU5sTGd3TFhJbk1MNS92ejlM?=
- =?utf-8?B?WXFHQm0rOUlrbW12d0ZsSWd3YWFJR2FSNlFDSm5FV3NieGNoSHgvcGJoK3pm?=
- =?utf-8?B?WlBnZTYxczJOeW5lV3NhR0xtQm92NHZSL0VRSy94WTNDcTNQQi9mS2lnU25y?=
- =?utf-8?B?ZUxKMDkzeDdCMGtPcFFjWU0rS1g2WjRJQzNwbkZjYkZYQnFQbWQxR2xkMFBr?=
- =?utf-8?Q?Drsj3qnUEkOQta5A=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <590ED16EAD97FE458A53F55BEEA31A71@EURPRD10.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Thu, 24 Sep 2026 09:00:20 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-484366874b0so1131932f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 02:00:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1790240416; x=1790845216; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3mz1zAfbdgLMlTpPSTC2s+r3ackw98q6OqF4ufc8tI0=;
+        b=V2VYQDcftJoSQ7usI1R+truXoS88wUlijMr2bGdIBdCxK07f12CDbFFERlQQ9NLzEg
+         Xj7TLgq+cF+O2n5Ej3sI9A7vwA4N9/sHBF4KX/GyRQY6l8d3pTjME2MEm4V6/6dQ2VgA
+         p1RLqHiKeAtKp0fy5xumVTeg/V0+LHG4vcWI14bhP0QBRep8Y3gm+GMLOABL4XUMyJlJ
+         OAuqkVUNbGBl7D1ihs6cbLBz1Dhgsbx+jKO93ofN0oqggdqH4xbRqUfGub2Rbm2ZCJev
+         PvlvX8m09SdeD3JL4ynph+aYxwcSnxMaVOJcpUF0FfpJ6aYT5UKwvArW0+dnjRdd1Www
+         xBKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790240416; x=1790845216;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3mz1zAfbdgLMlTpPSTC2s+r3ackw98q6OqF4ufc8tI0=;
+        b=tygb7/516MKFTSbUFLrhSl1iU1CJG+ezutze/EpWOl3Qak1GLtJxUve4i7K0FvpDPe
+         BPVEFtKTajU5tBQHc5EW9K/sHsHOFoRNS410ywqUOKAJTmCo+SlrBtqxPHIsMH0rxmNq
+         2HU7Ynufx86UX6rRJe/jjqKd6M8r/hdwXR8MIIfpjX34vN8/UxALhuRespExtfX1LD5H
+         ndAY7tmIpkvwbpnO5I4C47weIWr4ijKZK+njgaVn5IAgDq4k3e1zmQxS4z4k7agMQ9cF
+         5oicnD9JIPC3zpcxgYjt+FYFJe6xVGxIzYDjrueegkPcWF/weimCYOo9mAKFntgGStpd
+         yMEA==
+X-Forwarded-Encrypted: i=1; AKwUvBwJnRPd/6iyensnpo1kxL+rMIfsYhxUXlyrhOrybllZOg6rlpPni31VLiav2VDn5UNoeu7Gri0BbggAgEzraKII@lists.infradead.org
+X-Gm-Message-State: AFuF++kDLOsFoGyTKXcvFuBhfMMSzYvUxdvhBIYJAiLZxOog5AvDBFtj
+	tFtbLIRQO0WD3r6iqljc4Qr3SqsnKCcW9jMXonKNDVwFUKO2+6N92vNp+9ZOnQt4u0s=
+X-Gm-Gg: AYBFou1j4a2yFXH8bT2K4V45tZrzXp24ktUaCU9NEVu22mwsl92Oo+2yCzSakPCSWXO
+	NetSYcKQmsFe35OgzYz1zYNARAngVWONq/8RMUY7kNvKTLajRLpUeqrkuse3/lDn9JvxMqUir5H
+	1F06k1Ebo796sRmqolP9cJj0KxZisNfoTt/44Br7fc/M6mt0nljMAZIlfOMACyp1lPbwv5/wLO1
+	yDSDx5TMGg4n1kIniu9vymrSm9Q/qPuCaBi84N4NHsykSt+9klRFyJloX3FvD2fQCiLww7LUz1O
+	4wJg0kkrhszK7ZRHH1W5t5C+fPcHLQulzXhOvmE6ABrxOwN/I6ORAqDfLom+Z6P0aRtXpX8HpJv
+	g15467OWWVD+FwIv/LjvDvjTdt8ARNtQ7GtG9RdFHAhoMValJmqGj8pKNyKNH6nP0JZNTUzq1nT
+	jSwRGRNbO26IoAJVVWX+ziYQc3bXLomqTSwANkwouugC3UiGzEQGTVuwzN+pcfbND67v4KScM=
+X-Received: by 2002:a05:6000:40e1:b0:487:62d:37d9 with SMTP id ffacd0b85a97d-488716a5e3amr2905347f8f.27.1790240415781;
+        Thu, 24 Sep 2026 02:00:15 -0700 (PDT)
+Received: from localhost ([195.94.147.179])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-488682676c7sm12445415f8f.3.2026.09.24.02.00.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 02:00:15 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 24 Sep 2026 11:03:56 +0200
+To: Marc Zyngier <maz@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: smp: Signal EOI after handling IPI_CPU_STOP*
+Message-ID: <arTnfHPBf2qLDLOT@apocalypse>
+References: <20260922140109.12780-1-andrea.porta@suse.com>
+ <arPzNkDD69ZKFT99@willie-the-truck>
+ <86se2z4yje.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: siemens.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20d9ae88-1f5a-4625-5a9a-08df1a19fbf7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Sep 2026 08:58:21.3336
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rJMl9R6B5/d0E987rQEi459BpXtlGwvlMhwI+e1us6zHsLtpzMRW5ur4dmWtT0nRVn94AtJo3wpfCf4Axb2qHE2aTqLExxeBIwv0H7ep2MY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB5870
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86se2z4yje.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_095839_558988_E3A39BCD 
-X-CRM114-Status: GOOD (  25.77  )
+X-CRM114-CacheID: sfid-20260924_020019_088856_D1A66BF4 
+X-CRM114-Status: GOOD (  53.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,42 +105,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgYWxsLA0KDQpPbiBUdWUsIDIwMjUtMDgtMjYgYXQgMTY6MjUgKzAyMDAsIEFsZXhhbmRlciBT
-dGVpbiB3cm90ZToNCj4gRnJvbTogQnJ1Y2UgQXNoZmllbGQgPGJydWNlLmFzaGZpZWxkQGdtYWls
-LmNvbT4NCj4gDQo+IEZJTEVOQU1FIGlzIHJlcGxhY2VkIGJ5IHRoZSBmdWxsIHBhdGggdG8gdGhl
-IGV4ZWN1dGluZyBzY3JpcHQuIElmDQo+IHRoZSBzY3JpcHQgaXMgZXhlY3V0ZWQgdmlhIGEgZnVs
-bHkgc3BlY2lmaWVkIHBhdGgsIHRoYXQgaXMgY2FwdHVyZWQNCj4gaW4gdGhlIG91dHB1dC4gQWx0
-aG91Z2ggaXQgZG9lc24ndCBpbXBhY3QgdGhlIG91dHB1dCwgaXQgZG9lcyB0cmlnZ2VyDQo+IHJl
-cHJvZHVjaWJpbGl0eSB3YXJuaW5ncy9lcnJvcnMuDQo+IA0KPiBTbyB3ZSBpbnRyb2R1Y2UgYSBi
-YXNlbmFtZSgpIGZ1bmN0aW9uIGluIHRoZSBzY3JpcHQgYW5kIHVzZSBpdCB0bw0KPiBtYWtlIHN1
-cmUgdGhlIG91dHB1dCBmaWxlIGNvbnRhaW5zIG9ubHkgdGhlIG5hbWUgb2YgdGhlIGF3ayBzY3Jp
-cHQuDQo+IFRoZSBtb3RpdmF0aW9uIGZvciB0aGlzIGNoYW5nZSBpcyBZb2N0byBlbWl0dGluZyBh
-IGJ1aWxkIHdhcm5pbmcNCj4gwqAgV0FSTklORzogbGludXgtdHEtNi4xMi40MStnaXQtcjAgZG9f
-cGFja2FnZV9xYTogUUEgSXNzdWU6IEZpbGUgL3Vzci9zcmMvZGVidWcvbGludXgtdHEvNi4xMi40
-MStnaXQvYXJjaC9hcm0vaW5jbHVkZS9nZW5lcmF0ZWQvYXNtL21hY2gtdHlwZXMuaCBpbiBwYWNr
-YWdlIGxpbnV4LXRxLXNyYyBjb250YWlucyByZWZlcmVuY2UgdG8gVE1QRElSIFtidWlsZHBhdGhz
-XQ0KPiANCj4gU2lnbmVkLW9mZi1ieTogQnJ1Y2UgQXNoZmllbGQgPGJydWNlLmFzaGZpZWxkQGdt
-YWlsLmNvbT4NCj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZGVyIFN0ZWluIDxhbGV4YW5kZXIuc3Rl
-aW5AZXcudHEtZ3JvdXAuY29tPg0KDQp3ZSB1c2UgaXQgZm9yIHF1aXRlIHNvbWUgdGltZSBmb3Ig
-VEkgQU0zMzV4IGJ1aWxkcywgc28gdGhlIGlzc3VlIGlzDQpyZWFsIGFuZCBsb25nLXN0YW5kaW5n
-LiBUaGUgZml4IGFsc28gbWFrZXMgc2Vuc2UgdG8gbWUuDQoNClJldmlld2VkLWJ5OiBBbGV4YW5k
-ZXIgU3ZlcmRsaW4gPGFsZXhhbmRlci5zdmVyZGxpbkBzaWVtZW5zLmNvbT4NClRlc3RlZC1ieTog
-QWxleGFuZGVyIFN2ZXJkbGluIDxhbGV4YW5kZXIuc3ZlcmRsaW5Ac2llbWVucy5jb20+DQoNCkFy
-bmQsIHdvdWxkIHlvdSBjb25zaWRlciB0aGUgcGF0Y2ggZm9yIHRoZSBzb2MgdHJlZT8NCk9yIHNo
-b3VsZCBJIHJhdGhlciBhZGQgdGhlIHBhdGNoIHRvIFJ1c3NlbGwncyBwYXRjaCBzeXN0ZW0/DQoN
-Cj4gLS0tDQo+IMKgYXJjaC9hcm0vdG9vbHMvZ2VuLW1hY2gtdHlwZXMgfCA2ICsrKysrLQ0KPiDC
-oDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkNCj4gDQo+IGRp
-ZmYgLS1naXQgYS9hcmNoL2FybS90b29scy9nZW4tbWFjaC10eXBlcyBiL2FyY2gvYXJtL3Rvb2xz
-L2dlbi1tYWNoLXR5cGVzDQo+IGluZGV4IGNiZTFjMzNiYjg3MTAuLmFiNjlkNDA4ZjllMTIgMTAw
-NjQ0DQo+IC0tLSBhL2FyY2gvYXJtL3Rvb2xzL2dlbi1tYWNoLXR5cGVzDQo+ICsrKyBiL2FyY2gv
-YXJtL3Rvb2xzL2dlbi1tYWNoLXR5cGVzDQo+IEBAIC0yMSwxMCArMjEsMTQgQEAgTkYgPT0gMyB7
-DQo+IMKgCcKgIG51bVtucl0gPSAiIjsgbnIrKw0KPiDCoAl9DQo+IMKgDQo+ICsJZnVuY3Rpb24g
-YmFzZW5hbWUoZmlsZSkgew0KPiArCcKgwqAgc3ViKCIuKi8iLCAiIiwgZmlsZSkNCj4gKwnCoMKg
-IHJldHVybiBmaWxlDQo+ICsJfQ0KPiDCoA0KPiDCoEVORAl7DQo+IMKgCcKgIHByaW50ZigiLypc
-biIpOw0KPiAtCcKgIHByaW50ZigiICogVGhpcyB3YXMgYXV0b21hZ2ljYWxseSBnZW5lcmF0ZWQg
-ZnJvbSAlcyFcbiIsIEZJTEVOQU1FKTsNCj4gKwnCoCBwcmludGYoIiAqIFRoaXMgd2FzIGF1dG9t
-YWdpY2FsbHkgZ2VuZXJhdGVkIGZyb20gJXMhXG4iLCBiYXNlbmFtZShGSUxFTkFNRSkpOw0KPiDC
-oAnCoCBwcmludGYoIiAqIERvIE5PVCBlZGl0XG4iKTsNCj4gwqAJwqAgcHJpbnRmKCIgKi9cblxu
-Iik7DQo+IMKgCcKgIHByaW50ZigiI2lmbmRlZiBfX0FTTV9BUk1fTUFDSF9UWVBFX0hcbiIpOw0K
-DQotLSANCkFsZXhhbmRlciBTdmVyZGxpbg0KU2llbWVucyBBRw0Kd3d3LnNpZW1lbnMuY29tDQo=
+Hi Will and Marc,
+
+On 19:23 Wed 23 Sep     , Marc Zyngier wrote:
+> On Wed, 23 Sep 2026 16:41:42 +0100,
+> Will Deacon <will@kernel.org> wrote:
+> > 
+> > [+Marc]
+> > 
+> > On Tue, Sep 22, 2026 at 04:01:09PM +0200, Andrea della Porta wrote:
+> > > On kdump/kexec, the boot CPU triggers an IPI_CPU_STOP (and subsequently
+> > > an IPI_CPU_STOP_NMI if the first one does not respond) to the secondary
+> > > CPUs, and the IPI handler eventually calls the firmware to shut down
+> > > each CPU. Since the IPI is never acknowledged via EOI, the interrupt
+> > > remains in an active state when the CPU goes idle.
+> > > 
+> > > In a virtualized environment, if the hypervisor does not reset the
+> > > interrupt state, this causes the crashkernel (with cmdline option
+> > > maxcpus > 1) to be unable to synchronize between the boot CPU and
+> > > secondary CPUs via IPI_CALL_FUNC, leading the kernel to wait indefinitely
+> > > for the CPUs to respond. This has been observed with the Hyper-V
+> > > implementation.
+> > 
+> > Hmm, how is this different from panic()ing inside an interrupt
+> > handler?
+
+It is not, in fact I should have put the EOI in all cases, but I just
+focused on the crash driver by IPI only. The patch should be extended
+but from the following discussion it does not seem relevant anymore.
+
+> 
+> Also, what is the architectural requirement for the hypervisor to do
+> *anything* on the state of the interrupts? This doesn't happen on HW,
+> and there is no reason to impose this on a hypervisor either.
+> 
+> The expectations are that the guest kernel should reset the interrupt
+> state on boot, and it feels that this is missing somehow, see below.
+
+Ack.
+
+> 
+> > 
+> > > Both the Linux kernel and the Hyper-V firmware appear to violate the
+> > > PSCI specification:
+> > > 
+> > > - The PSCI spec states that the OS kernel must migrate any interrupt away
+> > > from the CPU that is about to be shut down via CPU_OFF, which by extension
+> > > implies that no active interrupts are allowed. The kernel does not
+> > > currently do this in the kdump crash path.
+> 
+> No. This is strictly about affinity, nothing else. It is there so that
+> global devices can continue to have their interrupts handled. This
+> evidently can't affect CPU-local interrupts.
+
+Noted.
+
+> 
+> > > 
+> > > - The PSCI spec also states that the PSCI firmware must reset the CPU
+> > > registers to their default values when turning on a CPU via the CPU_ON
+> > > command.
+> 
+> CPU registers. Not external peripherals such as the GIC.
+
+True. Those are distributor related.
+
+> 
+> > > 
+> > > Fixing this on the kernel side has the advantage of being
+> > > hypervisor-agnostic.
+> > > 
+> > > Signal EOI at the end of the crash handler to prevent the subsequent
+> > > crashkernel from hanging.
+> > > 
+> > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > > ---
+> > >  arch/arm64/kernel/smp.c | 22 ++++++++++++++++++++++
+> > >  1 file changed, 22 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> > > index a61dc3016a117..cc7f3261fe537 100644
+> > > --- a/arch/arm64/kernel/smp.c
+> > > +++ b/arch/arm64/kernel/smp.c
+> > > @@ -988,6 +988,27 @@ void kgdb_roundup_cpus(void)
+> > >  }
+> > >  #endif
+> > >  
+> > > +static void ipi_eoi(int ipinr)
+> > > +{
+> > > +	unsigned int cpu = smp_processor_id();
+> > > +	struct irq_desc *desc;
+> > > +	struct irq_chip *chip;
+> > > +	struct irq_data *d;
+> > > +
+> > > +	if (ipinr >= MAX_IPI)
+> > > +		return;
+> > > +
+> > > +	desc = get_ipi_desc(cpu, ipinr);
+> > > +
+> > > +	if (desc) {
+> > > +		chip = irq_desc_get_chip(desc);
+> > > +		d = irq_desc_get_irq_data(desc);
+> > > +
+> > > +		if (chip && chip->irq_eoi)
+> > > +			chip->irq_eoi(d);
+> > > +	}
+> > > +}
+> > 
+> > Doesn't this hard-code the flow handler for the irqchip? It feels like it
+> > would be better for the GIC driver to get a callback during the kexec
+> > sequence (if it doesn't already) to prepare itself.
+> 
+> Yeah, that's not an acceptable approach.
+
+We're in a non returning handler which is about to shutdown the CPU in a few
+instructions, so I'm not sure how to callback into the GIC driver.
+
+> 
+> The other observation is that the GIC drivers already clear the active
+> state at boot time (gic_cpu_init()). So what isn't that working?
+> 
+> Could it be that the hypervisor doesn't correctly handle the writes to
+> GICR_ICACTIVER0 to nuke the active state? Because this works correctly
+> on KVM as is.
+
+That's what I suppose, but obviously I have no access to the implementation
+so I canot add more. This is currently under investigation by the folks who
+can, though...
+
+So the bottom line is that we need to wait for a patch from the hypervisor 
+vendor (and from any vendor that *could* suffer from the same issue), I guess?
+
+Many thanks,
+Andrea
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
