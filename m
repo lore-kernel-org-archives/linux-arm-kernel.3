@@ -4,129 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99403C9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 20:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03080C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 20:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+I3cAZbub3xas+hAqNKn7vdTuIOrLOZLXBLTFNPVikE=; b=dKCl1unfE7u6afz/wvS78Bgp6b
-	6lH20S9JgCyy5G9pj4FhdgFM1J0k/aanGIVMWmwMEhWRI0h2+ckck3lzbXEWtj9UZ1PrvSo9/qJou
-	HFA2bKf4ZXaIOAETwaVPNfjz9qV2P56SbBiBsJNDarzN9NSz8ER3bXB5OEX9BRoqgn37ZpT1YoGXg
-	t8GD2OMOqx9g1xVS6K/0jaf0PRL+hE6dblNGDfwuR47rbexRUKaiZa70AopB+PCAasCNQ204Xjn75
-	4RcepvDum2i6qWiMG76FrH80n3rSNqXN3UieH8GZvfZ1+G/63Px61JZPC5xOhpKdd6KSF835v66v7
-	pwGm0XrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pAXAvIz7zlOWq5JW1V29jLS6pvvcRbCsb7OX7n/liA4=; b=uqr8NuS7PfT2pFIyiCRVKrCCm1
+	EVNyBqu8TRG6+UEQtm4w7Xawi8BD6AGSnvjK3qvvTGVX0Wep9iX1z/8fze/re6D3LQpwQIYrFtSkf
+	w7Ff94I+YCnBKdvWUgzBg4lDDKZ8dyBCZfce8+0SuXgo9EeZbns3bdJ0IFoSq5QLvJznE5hR+pHW0
+	qesj7+/K/q47rerBvMyiq2dSsY5POk2RHokhl48bz4fuLy2QDlE+EYyC4A5qGHQuSZyPqri2P3ohK
+	DUaWgxewkXl9S/qs/uGzE5HGZpr9pPmSIQmm+yIRm6i/vUSJmU5Y2Gn7zaR00FuZnX20KbGGA7Uam
+	DaogD5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9q8E-0000000C8vx-313D;
-	Thu, 24 Sep 2026 20:33:32 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x9qBA-0000000C9ET-3h6Y;
+	Thu, 24 Sep 2026 20:36:28 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9q8B-0000000C8vG-2m5B
+	id 1x9qB8-0000000C9E6-0BJZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 20:33:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vNSKz7c/C/prAGa2+DCm/17N7m+iWAjv1cArJttT9qv0oP1+yGa01TPYk9eFhvY4s1NiMCnMmBP8Ox0h6dfHNX02bvi/uwt4lFwpeOLhdvz2nmvJOzKiMLJ4NeZgAOG22zn2Txg2NiEPjwlWBMtyilv+7hdmZFZ9FFdY99bKhGCw2TDtP6Tw91o+fV71OxyUCLJpGJf9A5uSW3ZkqiEDZFI4CeeKyCwvDaFU9J7h08A7+yaojGEvgxQaeXg6GSb3dAgAww/+VKQQxod45++6ItnB94ZcgwlFvXccY+2OFSJsjO3hgCbic0p2Iv4b4rW5qat3DahWf+XydpyvFJo0Mw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+I3cAZbub3xas+hAqNKn7vdTuIOrLOZLXBLTFNPVikE=;
- b=d2DhHNhjQf6IBQSGt4Yz2WXS7Y1I2c1FlJhtJE7zB1Umnwt6epRWXdkuTcOr32j0nZdfrAu7ufW8jqARTEKg2u/zLO/wLbW1ZGZe8ICoQNkK4zkYrSMjiBWBL3oGaveMwa9XXr5Hu3THIfR+36or+HH0ZHIs2gBbLhJDtuxDD9vYj0ew/rmtMyhIFPvGsQYB0pFh1VovJics8iILG8/1CJCGFvq5q1LaBUblHhVb7lEt9g2JfsTL5EikHV3Hw19ssdCN17DQ5c0OAs22tT62MSAsP4A7I0seRAX6qk5MmqKPnqrFmst2GyeZK1odnhHtkG7S9cZfDcGo5SxbYvu9mQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+I3cAZbub3xas+hAqNKn7vdTuIOrLOZLXBLTFNPVikE=;
- b=nv/GTYPkKpezN9ZBd+FVceiiFI3M0FqT5eIMj8EZ1lEd+7W54FOCdGUYx+AVE5U7js/pdpaJSAZYjTB8vgfetUEz5LzDts9U3P/nfI5uB244zfjbHIBswzGri+QPU6LYhfHJ1SnF4UqH4nkpMCd1AB+jSduOJL8X55ou1D6N9nGqGXmBoTAUFoPCeveZdUgREqzB2O2ECJdqB1TM87c09zNv22HeFCmrwIolnCd+RDlClWLeR3HRSYdYOmsqxipVN8sVMkt7Ot1vgKMatEC1zmX/E0sRDpS+QNfsoz/mYLzYtwNDskiQi+J2Rbg2WnfcGH5nBmOewmN3W60uONgEAg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB10020.eurprd04.prod.outlook.com (2603:10a6:20b:682::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 20:33:18 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 20:33:18 +0000
-Date: Thu, 24 Sep 2026 16:33:10 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/3] dmaengine: imx-sdma: Use __assign_bit() for
- ownership configuration
-Message-ID: <arWJBi8iHhaeNfcr@lizhi-Precision-Tower-5810>
-References: <20260903-dma-mask-v1-0-211ffd12c236@nxp.com>
- <20260903-dma-mask-v1-3-211ffd12c236@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903-dma-mask-v1-3-211ffd12c236@nxp.com>
-X-ClientProxiedBy: PH7P220CA0112.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32d::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 24 Sep 2026 20:36:27 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-532e9ad9a1eso84421cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 13:36:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790282185; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ItxIWK++ZAdeIF8lyikF9YDAJcWzacb4DO9MpIeA2/xRkRX1ICDBgOIymXnbUFfszM
+         Pvk7rFlz6anbvJvrlsl3xjWUF7dAlXCzjdZyF45/M0lN7Pqv2WjOqm9gcNcH+KbaluFo
+         +K+BsEGyAGY+dbJrECDvj0ZlMLWvLExn6Jd7+3Us0lNA3bmHBfUmq7euy1hcJgu/C2ZU
+         Q6jQUySQplS4bDRZT+KB5D3Jnm0BGXL0zzQAcfcwXotvfU4MKz4d6JyevZTIQvl/aPeE
+         BvfpepdDWaO8WjbOyqaD3O9SgNQjti+4pSEL46BH4yHxYBsD430Xhc2dM1JZLSYE45TK
+         lKmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pAXAvIz7zlOWq5JW1V29jLS6pvvcRbCsb7OX7n/liA4=;
+        fh=m715FjFr3eEkWherAK0KEmkzPmLYly5+8uzaC9iKt+U=;
+        b=ryF8S8Arm8jZGxIAuZGFMk5yjlgWwafW94ZZv8wwDL+/DEzY7FTrdq6CtHtxAMV3NW
+         yxC6PhuxeAhnYKiEZ1J9gI14XJHWntZKI+yxNtUfzViBW6ZomUO4yDm2BbQ9SKeV/O0F
+         DCvwK/NqcbSlsDsM/6d9Auxie6drvlW0TGR3eh0pyZCTSqGjw8fEKzNxJCxWtXBy00D2
+         WgqPDKltOaCRIhrFzhnfJtz+WhhjwdRaHwi7vxBsRPt+jpnvPtquDoY9mVRi4PUQyrPo
+         lGREhbkyNGO125VAbGcEyq9zQ2ivWfyfwEomUS99wP1U/c5aAj/Fph1o5sNaruQPlNtr
+         EQrQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790282185; x=1790886985; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pAXAvIz7zlOWq5JW1V29jLS6pvvcRbCsb7OX7n/liA4=;
+        b=p5IsjqPBgMEU1V1n7P5KIrDtvT7/OzO+oGC8MpyktdQGDhwDHdaymnyGyaclLwINSY
+         6EYgKCvLbN//cHry/lzWFyIeo3v4VmW0gu53b+1iJSV6ykgdTp9k5J0Fykq593CPrwEK
+         Rpnj7NI60NEQCyKUI9JyiU9STJTDCjdIfe05fQtja2S+sR6wyAQ27tcviUcZO4uNeuyR
+         H/Q+cv8lOEVo+a/+Yae6ziKhslHdXeYlmOR+7CFJNt1ugyXs9svDJ4AogNGsZjynqZNj
+         ZLMpFpW/wlqxgjuaAA0HGv9XUvi01AgT32eeLpdPbR4t9oV/q8lSkXUmk4mxsbMR/5dU
+         fiIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790282185; x=1790886985;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pAXAvIz7zlOWq5JW1V29jLS6pvvcRbCsb7OX7n/liA4=;
+        b=Pgdn67hqiUACOeJPTfeta2K6kQOMC4gEnX/3ewkW1Uq7CZcqhXJAgnkzK05hHArXgP
+         hfIVRy7SECRDV69x/ARBgPCpWLfpkDLU0zPjlWiLtyb7q2WEwOtL5yoS0vLItIl/7TwG
+         J82vcNT0HBVyWlz3p0XoFXz26YW5EITucjhxLmxgtmw43HiJiqVOv0xvgeXj4v3+CV8K
+         ZHhznMwXpJocgx1TpRmOcTKvskwha2atoFBX4Sz4Eyb0WV0Iw+zmY9OM24YSzfg8nTMc
+         QhpIjLqCoavR4AE7lERu22hVWAEwMjDyPQDsvBwjpGPgSXCfDATRFHg/BKi2j3zeC7AD
+         fOpQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx8UQeYS9myQfDFS7GvqNTdLmN3RPHftU8C62ysh57KXvgFpniR81rgPe8u+xw6dMfWnkVpUuBXwusT6GjPl3oF@lists.infradead.org
+X-Gm-Message-State: AFuF++mZaj2aaBStesLirR0j8AUMFtGIn9XXG+aP6V+BUJ113YbPg/oK
+	ScemFzMVSpaXZcY0SFjcaXmxoEYdMgUdn7iudcPpunQJvLOBFjaDNbDyEu8PHuXol9WLIV7DRa5
+	AR8tSF2mdY5KpeNak5HvbwexyS8qVPQFCZ1fvmSn77Y4C7Bofxhq8S05jTUs=
+X-Gm-Gg: AYBFou1TfCxmPpfNiRq/208Hlu770WiZQ3AMqVhv4VSS0AX3Zz13kMdJNdzoNOP8xf1
+	hwN9rpPYWmEH7HCbmielGL+uVBlGIwuoUATHfcak0Gqp/ZnoVBjtv4hbJX3uQpReT/RXqBiOhxI
+	8CU6KpmAusFQp3FV0LT6W6UvfpeI4HQAIfmBmQ+S5PTDM2h2XMKGM0M6JAChYNcUdRamgSGbKhm
+	ebm9h2nUAljK0v8PM/4oTCI9tJbjQeAgAoqGzw8vWaiXxxPQLEeUXbajjcYIsdizfLdfP0I272W
+	sAvMeAgGcAohOS6HqDQaVElVjCi+kLCtnNca+HG/h1wN+OdzFttW
+X-Received: by 2002:a05:622a:c2:b0:532:d72d:3e9c with SMTP id
+ d75a77b69052e-5330c0eb219mr1811851cf.6.1790282183927; Thu, 24 Sep 2026
+ 13:36:23 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB10020:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1aea806c-1952-4ec3-5034-08df1a7b1154
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|376014|1800799024|22082099003|18002099003|10067099003|4143699003|3023799007|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: P/RBBTrLRH8CWlBfJ00Vf3DUDrak60uOhwCWMCfZeKAj5vhnqjNGqg3ImsOibGbkG6E3f60zah861WMZ3dLDOdFtpH/C2KMI5FLFSbpHttEco7nrfsKkwRwFQ3gerhYwUTq5tkVbI/fr0alFUjFe68r/Xi6ACcG9Acdf+Fn19R4bVXhK/vCx1ax2nN8VBcliwdFmTc1fhsrBg9uZyJZPTep/11SwhpfjLJU8zvApHzVnluVAJGaizeSHym2DiodMVoAN2Fqx0VVq5nU1W4UW4g5qFhYvl+uKL0XyJmKYxLg0lujaJaFnJ6jmpzm7ulQGgOw1QBhcUyqBFFUndCaCE+Y8AcMsq0hk0f2FwR7EYVgOdVG7p56AVbP//Cqe4JkqM6t9jlYADYDvjmYE+O8iOGd+cbyWyEuLSkSO4KzIgKjVqbJpu3rEJZaO6luGntguuKsdtNVYSeTBDpiC5Ea4AP5xvkvYG+VpdNzHNV/dbDcT+JoFRwtJNQSno5400AOSghQUT0Pb2c4AysTUKUdJbKVIJt5KZwAFPLJ1uIrSDYPyZQzLdEgTFPQvuf86dUBrcIznFEziTb9LvJT2Uwbz/7Y91NxIB8boDTWNuMfiH6VC+xzWi+H4GV+n+Z98FOwAdwntLiNdlcIP4SHd10fHXueImTE08HLVf1LIXEtaOQY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(376014)(1800799024)(22082099003)(18002099003)(10067099003)(4143699003)(3023799007)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3/s/bA1TGsDuUXmwoP7r3/mStMGY3JgKh29ff+l3/4ZHaMY9LEg3YLFxvSw6?=
- =?us-ascii?Q?qgPRofR9S/Xy3q4SdNyJ/oKwGSYsKuWxh7WswwuISoXWdZx/ChQdJCA71p0+?=
- =?us-ascii?Q?tz3EY0k0T7gsV7AkSvvlp9ufTjnwpCfIMS3Fcj/lgCp7wFWJzRNavKkTtrx6?=
- =?us-ascii?Q?CcqOpBgU6nIN4xeiKPkuU7wwkhBT1kYksqJ5jiaAmHWTQndQLbq5QjwAajfV?=
- =?us-ascii?Q?Oc4QyZMxJa8bqKUSGGI/UsJiPAbPTZKSp0G8/2SYyFJ91wvN+3ihxY8468vV?=
- =?us-ascii?Q?6M2wf7gt/+olpiiaN1+ZDtR2LjRRZDKHq2rCNviLbHG3Zp4iy/8tRjFo58vx?=
- =?us-ascii?Q?IBYfGdWqMnuIjVItjNFgHtLdcx/BIFjFaPq6MZ9E2lcMgs4iOXfbqG95apuz?=
- =?us-ascii?Q?1rg54nqac+X2QieGWaZKxE212JOlIwMRj0Ln+pebUN6c6VjS0HleOFxy5iTu?=
- =?us-ascii?Q?silbvxcvEHygSYjTLO1OVx5y0w5h+818aQRqVs4X8Zqe2ayFZOF3SJGfIxsA?=
- =?us-ascii?Q?gyoex5Yg1gNh4mhgL6zMkwI3DYcLaw58R328VKXCRyhhIt1DTE3FcGAcW7bL?=
- =?us-ascii?Q?pKdBzAm7OR8BiQs5EzIaQm29c9RAYNWCcPpWsBbhS2JLWOXF+HPPFJJkJl3Q?=
- =?us-ascii?Q?h1PGmxiJCRe5cFLGsbNjO9q01POqHVydAEdaTkuPUYYAacd2B/hSNHMpxJEo?=
- =?us-ascii?Q?gyAL07QbqPKobzxNqBrr2RCWAMJtAPVnLCFNMb6T9n8ZhTLTvNuskZ/3ejy4?=
- =?us-ascii?Q?98AZTi21U/radPCURR/KU8UsPFfiqXv1fRt64YVn6ZJ0Lz5ReoAuzK+7zx7X?=
- =?us-ascii?Q?xMzRjpqgAgK+OXJoKDS6WuGvSvP9XHbL4VaFaOF8nqIbuodZ7oxuCXx0AxN9?=
- =?us-ascii?Q?WIzO4WE5yyk9Ky8VLO6nelMaW6ufxoEgddy95imdcA3Jz63sTMsxglIVtNLX?=
- =?us-ascii?Q?aruuFkrp+q/Rp6xIix/3kUrZBArJtPVtpujTWW2VEEXGgvFJkEk3mPizEVkT?=
- =?us-ascii?Q?a9SsLHWh/N61RXOkS4nD8XYv/AtFVFVN1qUS8qDQ4MhKTcXSrFGLQnlGBPz1?=
- =?us-ascii?Q?+d4bqDueo3jDM0aP+pWKH65706kwex6zjzAlilyx241yLuG2YSH9XUIGKvG1?=
- =?us-ascii?Q?oTczOj29XYo53jqRvUejNepSlrDXzgCQ1/XGPAJhJW6L2P34R5lCkWHGKnzJ?=
- =?us-ascii?Q?+mUO3J/fCixVEufsNDtWhw3rOty7HPG8ImOIE+WZcct71QoVUiGdn04yxY+8?=
- =?us-ascii?Q?uz6nhWEMj2XOVD1SySlv6Ydc2gMqH6RAiG7nBIeMZ6Olg1il3yC4NavwA8dv?=
- =?us-ascii?Q?l6yR35QZEtJkbFlVbQe+QKmPu9/1Kjt5bkc8PtwXen9qYaVgyCemRlAM/Hgb?=
- =?us-ascii?Q?uw3A/xgs3prswRFDy5sJOnwNojiEg/SES/8ao7BM8bNld45Uf565wvaYZQU7?=
- =?us-ascii?Q?gBj+JFxM8b3Yzt4mGc5S0yV6tYYSZFAhq9ch8xf/f8pyYL/zCXUwaPa0+hrf?=
- =?us-ascii?Q?GTVFfLkBItxza7oYY8LZoHAeP8dveBb3bERl6UgL9F7ZLAQchB6q+vVTFW+v?=
- =?us-ascii?Q?R/hMN5jOTvdD3WjlWXOXIjjXvVEr1byMW/hvqrCKVorr+SKyMEu542jHLING?=
- =?us-ascii?Q?45tA/3ugQ7FkwcERj3fberqD6JR29vyTvlxgzMT/6QmoG7SHs23hLGXqjR5d?=
- =?us-ascii?Q?JogkhgcinrjmdDAkXGNP20asALWg3+OGP0tKJlcgF6CWK6P5TxnKj0PpYiUE?=
- =?us-ascii?Q?KexX2amvguxCc2eq9tww9GGxIooHorrLmJ1uBYUeoGZ+GDXOjhgH?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1aea806c-1952-4ec3-5034-08df1a7b1154
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 20:33:18.5751
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QXSjYJ2aT0d34VYohyQEkqDlqJ2lgNo4WMr7R+6Jk+QjDIn/eiIoUMBrI9KdZ9EfshsmqcZaDlriO11OzfleF0CGCG2f9p3RuF8mrLAmgltxumUksV4yzDu3g0B28VrE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10020
+References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
+In-Reply-To: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Thu, 24 Sep 2026 13:36:12 -0700
+X-Gm-Features: AclHuK9Edhkw7dI8hy3s30oHjoVQuRqWKT854I2fNS_opd9KtYkgWbWonloZqbA
+Message-ID: <CAE2F3rAMAnV9+WNLZtGQX6cHPsZ6wbfRJ1Z3d5mF1+8WHL-uMA@mail.gmail.com>
+Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint bit
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_133323_707822_49CECE34 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260924_133626_118300_A05A9755 
+X-CRM114-Status: GOOD (  35.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,53 +119,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 10:16:14PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Mon, Sep 21, 2026 at 4:44=E2=80=AFAM Vijayanand Jitta
+<vijayanand.jitta@oss.qualcomm.com> wrote:
+> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-ar=
+m.c
+> index 476c0e25631af..01d98959c514f 100644
+> --- a/drivers/iommu/io-pgtable-arm.c
+> +++ b/drivers/iommu/io-pgtable-arm.c
+> @@ -86,6 +86,21 @@
+>  /* Software bit for solving coherency races */
+>  #define ARM_LPAE_PTE_SW_SYNC           (((arm_lpae_iopte)1) << 55)
 >
-> Replace the if/else pairs of __set_bit()/__clear_bit() in
-> sdma_config_ownership() with __assign_bit(), which does exactly the
-> same conditional set-or-clear in a single call.
->
-> No functional change.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+> +/* PTE Contiguous Bit */
+> +#define ARM_LPAE_PTE_CONT              (((arm_lpae_iopte)1) << 52)
+> +
+> +/*
+> + * Contiguous hint group sizes per granule:
+> + *
+> + *------------------------------------------------------------------
+> + *| Page Size | CONT PTE |  Block  | CONT Block | L1 Block | CONT L1 |
+> + *------------------------------------------------------------------
+> + *|     4K    |   64K    |   2M    |    32M     |    1G    |   16G   |
+> + *|    16K    |    2M    |  32M    |     1G     |          |         |
+> + *|    64K    |    2M    | 512M    |    16G     |          |         |
+> + *------------------------------------------------------------------
+> + */
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I find this comment redundant. People can find this information in the
+Arm architecture specification.
 
->  drivers/dma/imx-sdma.c | 17 +++--------------
->  1 file changed, 3 insertions(+), 14 deletions(-)
+> +static int arm_lpae_num_cont(size_t size)
+> +{
+> +       switch (size) {
+> +       case SZ_4K:
+> +       case SZ_2M:
+> +       case SZ_1G:
+> +               return 16;
+
+I'm thinking that if you use something like
+
+return BITS_PER_TYPE(size_t) >=3D 64 ? 16 : 1
+
+i.e. return 16 only on 64 bit platforms, then you can avoid those
+overflow checks in various places. Same for the SZ_512M cases.
+
+> +       case SZ_64K:
+> +       case SZ_32M:
+> +       case SZ_512M:
+> +               return 32;
+> +       case SZ_16K:
+> +               return 128;
+> +       default:
+> +               return 1;
+> +       }
+> +}
+> +
+>  static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned lon=
+g iova,
+>                           phys_addr_t paddr, size_t size, size_t pgcount,
+>                           arm_lpae_iopte prot, int lvl, arm_lpae_iopte *p=
+tep,
+> @@ -462,20 +495,41 @@ static int __arm_lpae_map(struct arm_lpae_io_pgtabl=
+e *data, unsigned long iova,
+>         size_t block_size =3D ARM_LPAE_BLOCK_SIZE(lvl, data);
+>         size_t tblsz =3D ARM_LPAE_GRANULE(data);
+>         struct io_pgtable_cfg *cfg =3D &data->iop.cfg;
+> -       int ret =3D 0, num_entries, max_entries, map_idx_start;
+> +       int num_cont =3D arm_lpae_num_cont(block_size);
+> +       size_t cont_size =3D 0, entries_per_map;
+> +       int num_entries, max_entries, map_idx_start;
+> +       bool cont =3D false;
+> +
+> +       if (num_cont > 1 && block_size <=3D SIZE_MAX / num_cont)
+> +               cont_size =3D num_cont * block_size;
 >
-> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> index 63261ab6402b9..da565409beaaa 100644
-> --- a/drivers/dma/imx-sdma.c
-> +++ b/drivers/dma/imx-sdma.c
-> @@ -710,20 +710,9 @@ static int sdma_config_ownership(struct sdma_channel *sdmac,
->  	mcu = readl_relaxed(sdma->regs + SDMA_H_HOSTOVR);
->  	dsp = readl_relaxed(sdma->regs + SDMA_H_DSPOVR);
+>         /* Find our entry at the current level */
+>         map_idx_start =3D ARM_LPAE_LVL_IDX(iova, lvl, data);
+>         ptep +=3D map_idx_start;
 >
-> -	if (dsp_override)
-> -		__clear_bit(channel, &dsp);
-> -	else
-> -		__set_bit(channel, &dsp);
+>         /* If we can install a leaf entry at this level, then do so */
+> -       if (size =3D=3D block_size) {
+> +       if (size =3D=3D block_size ||
+> +           (!(cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT) &&
+
+I'm thinking that the check for IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT is
+redundant. If this quirk is active, none of the contiguous sizes were
+advertised, so no one should call this function with any of the
+contiguous sizes.
+
+> +            size =3D=3D cont_size)) {
+> +               int ret;
+> +
+> +               cont =3D size =3D=3D cont_size;
+> +               if (cont && (!IS_ALIGNED(iova, size) || !IS_ALIGNED(paddr=
+, size)))
+
+These alignment checks are also redundant. We can rely on the caller
+to pass properly aligned values. It's also inconsistent, because it
+verifies alignment only for contiguous sizes.
+
+> +                       return -EINVAL;
+> +
+> +               entries_per_map =3D size / block_size;
+
+Can't you just do
+
+pgcount *=3D num_cont;
+
+Wouldn't that be easier?
+
+>                 max_entries =3D arm_lpae_max_entries(map_idx_start, data)=
+;
+> -               num_entries =3D min_t(int, pgcount, max_entries);
+> -               ret =3D arm_lpae_init_pte(data, iova, paddr, prot, lvl, n=
+um_entries, ptep);
+> +               num_entries =3D min_t(size_t, pgcount,
+> +                                   max_entries / entries_per_map) * entr=
+ies_per_map;
+> +               if (!num_entries)
+> +                       return -EINVAL;
+
+I believe this check is also redundant. Can we remove it?
+
+> +               if (cont)
+> +                       prot |=3D ARM_LPAE_PTE_CONT;
+> +
+> +               ret =3D arm_lpae_init_pte(data, iova, paddr, prot, lvl,
+> +                                       num_entries, ptep);
+>                 if (!ret)
+> -                       *mapped +=3D num_entries * size;
 > -
-> -	if (event_override)
-> -		__clear_bit(channel, &evt);
-> -	else
-> -		__set_bit(channel, &evt);
-> -
-> -	if (mcu_override)
-> -		__clear_bit(channel, &mcu);
-> -	else
-> -		__set_bit(channel, &mcu);
-> +	__assign_bit(channel, &dsp, !dsp_override);
-> +	__assign_bit(channel, &evt, !event_override);
-> +	__assign_bit(channel, &mcu, !mcu_override);
+> +                       *mapped +=3D num_entries * block_size;
+>                 return ret;
+>         }
 >
->  	writel_relaxed(evt, sdma->regs + SDMA_H_EVTOVR);
->  	writel_relaxed(mcu, sdma->regs + SDMA_H_HOSTOVR);
+> @@ -660,12 +714,18 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_p=
+gtable *data,
+>  {
+>         arm_lpae_iopte pte;
+>         struct io_pgtable *iop =3D &data->iop;
+> +       size_t block_size =3D ARM_LPAE_BLOCK_SIZE(lvl, data);
+> +       int num_cont =3D arm_lpae_num_cont(block_size);
+> +       size_t cont_size =3D 0, entries_per_map;
+>         int i =3D 0, num_entries, max_entries, unmap_idx_start;
 >
-> --
-> 2.34.1
+>         /* Something went horribly wrong and we ran out of page table */
+>         if (WARN_ON(lvl =3D=3D ARM_LPAE_MAX_LEVELS))
+>                 return 0;
 >
+> +       if (num_cont > 1 && block_size <=3D SIZE_MAX / num_cont)
+> +               cont_size =3D num_cont * block_size;
+> +
+>         unmap_idx_start =3D ARM_LPAE_LVL_IDX(iova, lvl, data);
+>         ptep +=3D unmap_idx_start;
+>         pte =3D READ_ONCE(*ptep);
+> @@ -675,9 +735,27 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pg=
+table *data,
+>         }
+>
+>         /* If the size matches this level, we're in the right place */
+> -       if (size =3D=3D ARM_LPAE_BLOCK_SIZE(lvl, data)) {
+> +       if (size =3D=3D block_size ||
+> +           (!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT) =
+&&
+
+Checking for IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT is redundant. Can we remove =
+it?
+
+> +            size =3D=3D cont_size)) {
+> +               entries_per_map =3D size / block_size;
+>                 max_entries =3D arm_lpae_max_entries(unmap_idx_start, dat=
+a);
+> -               num_entries =3D min_t(int, pgcount, max_entries);
+> +               num_entries =3D min_t(size_t, pgcount,
+> +                                   max_entries / entries_per_map) * entr=
+ies_per_map;
+> +               if (!num_entries)
+> +                       return 0;
+> +
+> +               /*
+> +                * A CONT group must be invalidated as a unit. Reject a r=
+equest that
+> +                * starts or ends inside a tagged group before changing a=
+ny PTEs.
+> +                */
+> +               if ((READ_ONCE(*ptep) & ARM_LPAE_PTE_CONT &&
+> +                    !IS_ALIGNED(iova, cont_size)) ||
+> +                   (READ_ONCE(ptep[num_entries - 1]) & ARM_LPAE_PTE_CONT=
+ &&
+> +                    !IS_ALIGNED(iova + num_entries * block_size, cont_si=
+ze))) {
+> +                       WARN_ONCE(true, "Unmap of a partial CONT IOPTE gr=
+oup is not allowed");
+> +                       return 0;
+> +               }
+>
+>                 /* Find and handle non-leaf entries */
+>                 for (i =3D 0; i < num_entries; i++) {
+> @@ -691,7 +769,8 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgt=
+able *data,
+>                                 __arm_lpae_clear_pte(&ptep[i], &iop->cfg,=
+ 1);
+>
+>                                 /* Also flush any partial walks */
+> -                               io_pgtable_tlb_flush_walk(iop, iova + i *=
+ size, size,
+> +                               io_pgtable_tlb_flush_walk(iop,
+> +                                                         iova + i * bloc=
+k_size, block_size,
+>                                                           ARM_LPAE_GRANUL=
+E(data));
+>                                 __arm_lpae_free_pgtable(data, lvl + 1, io=
+pte_deref(pte, data));
+>                         }
+> @@ -702,9 +781,10 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pg=
+table *data,
+>
+>                 if (gather && !iommu_iotlb_gather_queued(gather))
+>                         for (int j =3D 0; j < i; j++)
+> -                               io_pgtable_tlb_add_page(iop, gather, iova=
+ + j * size, size);
+> +                               io_pgtable_tlb_add_page(iop, gather,
+> +                                                       iova + j * block_=
+size, block_size);
+>
+> -               return i * size;
+> +               return i * block_size;
+>         } else if (iopte_leaf(pte, lvl, iop->fmt)) {
+>                 WARN_ONCE(true, "Unmap of a partial large IOPTE is not al=
+lowed");
+>                 return 0;
+> @@ -943,8 +1023,23 @@ static void arm_lpae_restrict_pgsizes(struct io_pgt=
+able_cfg *cfg)
+
+I want to re-iterate what I wrote earlier: I think we should change
+this function's name. This is what our AI model has to say:
+
+Originally, arm_lpae_restrict_pgsizes() performed a purely monotonic reduct=
+ion:
+
+  1. Identified the translation granule (e.g. matching CPU PAGE_SIZE).
+  2. Performed a bitwise-AND (cfg->pgsize_bitmap &=3D page_sizes) to
+discard non-granule sizes.
+  3. Clamped ias and oas.
+
+With this commit, it now:
+
+  1. Restricts to the base granule sizes (&=3D page_sizes).
+  2. Expands the bitmap with synthesized contiguous sizes (|=3D num_cont * =
+size).
+  3. Restricts again against ias and oas (&=3D GENMASK_ULL(...)).
+
+Calling a function ..._restrict_... when it actively synthesizes and
+injects new page sizes violates the principle of least astonishment.
+
+>         }
+>
+>         cfg->pgsize_bitmap &=3D page_sizes;
+> +       if (!(cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT)) {
+> +               unsigned long sizes =3D cfg->pgsize_bitmap;
+> +
+> +               while (sizes) {
+> +                       unsigned long size =3D BIT(__ffs(sizes));
+> +                       int num_cont =3D arm_lpae_num_cont(size);
+> +
+> +                       if (size <=3D ULONG_MAX / num_cont)
+> +                               cfg->pgsize_bitmap |=3D num_cont * size;
+> +                       sizes &=3D ~size;
+> +               }
+> +       }
+> +
+>         cfg->ias =3D min(cfg->ias, max_addr_bits);
+>         cfg->oas =3D min(cfg->oas, max_addr_bits);
+> +       cfg->pgsize_bitmap &=3D GENMASK_ULL(cfg->ias, 0);
+> +       cfg->pgsize_bitmap &=3D GENMASK_ULL(cfg->oas, 0);
+>  }
+
+Gemini added the following. I have to admit, though, that I'm not
+familiar enough with dirty bit tracking to determine if this is a real
+concern.
+
+Interaction with Hardware Dirty Tracking (IO_PGTABLE_QUIRK_ARM_HD)
+
+When Hardware Dirty Tracking (ARM_LPAE_PTE_DBM) is enabled on Stage-1 table=
+s:
+ * In visit_dirty() / arm_lpae_read_and_clear_dirty(), dirty bits are
+queried and cleared on a page-by-page granularity
+(iopte_set_writeable_clean(ptep)).
+ * If a single 4KB page within a 64KB CONT group is marked clean while
+neighboring pages remain marked dirty/writeable, the descriptors in
+that group will differ in access permissions (AP[2]).
+ * According to Arm ARM D8.3.1, all descriptors in a contiguous block
+must share identical permissions and attributes. If dirty tracking is
+active on a domain, consider whether IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT
+should be set or whether CONT sizes should be suppressed when
+IO_PGTABLE_QUIRK_ARM_HD is active.
 
