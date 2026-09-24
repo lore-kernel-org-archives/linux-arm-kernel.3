@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0449FC9830E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044DFC98314
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,87 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Vg0s5N/57YDwzYIoROOFrmDFDxGbcQ0sOsS1KaKDkg=; b=GIrLJEBLEoXAaRfabFrtA83d5j
-	TvXKasbY54uJwTypcatylHiTFUkFatJgN/8KYhm7NqEvghW1kSzNiy3lcxrDUfiBm3ZrBBIYh9bd8
-	3wxp629phrhEPpGnN2eXVprvI0sxBLbHpKsAp6/QNdfRGhD4jlDrS0Cr4rYEy6Yqf/fnAFfCMBRiz
-	9L3t9XV/UBxLdFmXO+MBycXPL6WLtuYZ2Ke6+1bYi2jaPz8KvzaZuy9a28P36C1KloqABrJ5sp302
-	pyjqa5uWiZMvsG3kg25jLA6rYkAceWUMZ0Ea9rF1rhex+vhPY1d/Q31YgV8edxaR5bR2bu66ylNB1
-	sQhV8/Rg==;
+	bh=jyisHEHOouXDnRhVknZZL0KL1V1yIbby3bAAKhAOqX0=; b=ddAORrMF/4F/7DQ2Ltsau++c5p
+	VAQ8Nwed7YtPKrVsNYSSk5c+lvJxWgQV7THIsZurvlJqQZp5nHIY4/Ej/A4lzHT+JwSFm3/Ngv9U6
+	OQmlCDbP4L5iO42tD62dKANl07A0VlwaK1+TtwhlwyzZvjsfFLHZgUqS1dZIUWbeHbMoybavZM8vZ
+	vpJ0bemC3f+8HfbRhoTZkZsJrH7doCOoxUVrE7N9zHRxQW7gRBVo3Dxzhud40Ib+LJyeWH2/BXDMi
+	2i1FAhujCHdkxkeEE8jPBqu3Ah8p/w6o0W048j8R5nprlliGzy7YsFCDzVEKLsl2TxIdkV0MyzAS1
+	DimeVMIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fG0-0000000AVuk-2MNl;
+	id 1x9fG0-0000000AVvV-3RX9;
 	Thu, 24 Sep 2026 08:56:44 +0000
-Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fFn-0000000AVpA-0q35
+	id 1x9fFr-0000000AVsI-1N5U
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 08:56:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jyisHEHOouXDnRhVknZZL0KL1V1yIbby3bAAKhAOqX0=; b=UOEZh+OZpNH6i2PZIq76laTon4
+	ukH1uCjuUf5rl0mziswqer7vR/BTXw0Gr/WC/qrmTfWmSO59uSXvD6CDd8xFIsBbX/lHQSh2XYoDU
+	qtDhQqT/VLVh8cSlgbTS6ExbE14VmTjsp7/QH/RpdhrftK0wjotIyV76aLI6kU3Qq808Y8PLbbPGv
+	ejXZ27x41k1y6cOWlR7c23KJSeMhLG9zPSomjNmnvOw8ct9IWBy/1OEDusAQu+ZdXitALARjg5304
+	3cu+LQOCE+cjIq9Qm+GnZswT+6ygx/96ilVol8Ng08QjtDXVOhT1XwpAvTZ/9wm/jgB8Sgdjnu9BY
+	ZaA12G7w==;
+Received: from mail-ed1-x547.google.com ([2a00:1450:4864:20::547])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9fFm-0000000Fl3S-3zve
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 08:56:32 +0000
-Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c294ae16922so219585566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 01:56:29 -0700 (PDT)
+	Thu, 24 Sep 2026 08:56:34 +0000
+Received: by mail-ed1-x547.google.com with SMTP id 4fb4d7f45d1cf-6a178080182so2221410a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 01:56:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790240188; x=1790844988; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790240187; x=1790844987; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/Vg0s5N/57YDwzYIoROOFrmDFDxGbcQ0sOsS1KaKDkg=;
-        b=vKJfHwDxcMZniF4p3M4z459Q+lriubEvM1v6pcCwVTEmOKN+5D210tvCXbLs18wpsq
-         B6/j+EJXoUhgbHUIvzpV9G7N2XqhXg6JsnIdTRS9UE2wrYXpDNGS83B7CxHy/0au3uLz
-         X9PcgcNYMBnctsArJQPhQiwm+3g/iSZ1LQWcmXLCBgSKcJoM2G4/nk/dUHhlNx9tptpj
-         gmTnrUqopl+P4e8l3LENBp48VQ5MGQ/CDeg3h27y06gNIXinXjVRIgxEq1orK5RDIflo
-         b0TMJQ/3lWsrn3PNYN1JVS/MCWpB5hCBHqE113DAdt/C5mMtJRk3aO+u2RANXbL/DsIl
-         qRbQ==
+        bh=jyisHEHOouXDnRhVknZZL0KL1V1yIbby3bAAKhAOqX0=;
+        b=RZ45Phv4lDIwjtnGfPpbRupDNSAlT/TiaTT1zxMd06qp/yO59RJo1PMq1AGjMx60g/
+         OnXLAkcDJ1Jx5VXP9zNQ9IUF4j/YGZVuimWpeXqAWSOJBR0SwyopoasCMR8ypash4zer
+         iVCEQ6C8JgonegYG290hYPVmLGBtQEyeoBj/WiAAAlktOymL+qwizEzS+YIJtpBuLY0T
+         euGDLjflUGl0YDbQK3s5foquOGKFMm+4GNtLmHt15iy8T4nXPlTofg5ChXfRUltTuIa7
+         8DXbwUM30z40jyMGjHmJP/Bx/W751fs6raIkBrw2g/i/dtgnkh1DVvgtG5HLYcxtm5VQ
+         wUKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790240188; x=1790844988;
+        d=1e100.net; s=20260707; t=1790240187; x=1790844987;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/Vg0s5N/57YDwzYIoROOFrmDFDxGbcQ0sOsS1KaKDkg=;
-        b=GJLlfytYF2wIqA8IgosQWgFkXwt1JuCjY5X+yp+CRmHrlo0J65v0T4pxJV8rTX6XYI
-         iEjNeIg6xT8aj1IPfFpFEXXugpOl2Av8piWquXQ2biEeikPHcAwcJLO9kHCP/YSUzOhD
-         mZjc0eGBx+xNb8hlHFw2ph/o8UOg4itBpsTVPvbMNbKQUD79juBz5kX1lNsmq5ZfYYH7
-         Kd9swRO0/CKYBHYV6JgTCW26yCGg7QZo7UToYgV1mWlJxNOv91KXFoq+E4wuBHKIq64H
-         ldSTnHNghp42cFVFqIUj9lu0E0ZaKKRl2K1S2s4LlZf0JF3X00edhxyz5UlhsTYCp1/q
-         oMyQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx9wCogecRCMDP3BAP7AxHHkH2BZCybuF5rvz4cW9Z3Wj0dsKbKnltZTP0+KOh0qUdPzf3j2g2gdp/GqPjOIWu8@lists.infradead.org
-X-Gm-Message-State: AFuF++lojxuA++O8IVEl7Sz1tkwoMTGGaTMOoGS60F7zMJ5BQacY6pGa
-	htFTfDqeXmN2iaa2aekOAYtkaBikHjvjdiMRs19xIu26YZiHSz0gI2CWP8UELvoP9SFe0GmlFCj
-	vmyNWaw3nqB7RHg==
-X-Received: from ejcgj35.prod.google.com ([2002:a17:907:7423:b0:c16:9d46:17a4])
+        bh=jyisHEHOouXDnRhVknZZL0KL1V1yIbby3bAAKhAOqX0=;
+        b=SIszZOyHqm4BfNl/3bb3J+YTwqfVOJ+NB4dwJ8BtDlHWc5GUcvY5q+Aa6w42T/LO0J
+         ZuNnmsrnl0+aQnldLeAqFStIjx/9cMGdT0AcmM7jmPEb2Mg+UCq+7AgwnRdCM/H7j+LN
+         2ryc+eS11lbFSarL+o7MIE7ZXZEMHqMwrAZT3o5Ghww3ljsyVDDMSPcw28JCXMNixTIm
+         JFsQnzTnpDSuzzM/XYSIEIxdEsbf12O06nyadEmcGO9tqDADJjGpXJpEKVyORiPBOd2T
+         tWefSUhxRBduQJ2npV/S+Y+oeUosH5ja6cThFPjctZmHRUQdZklWic23EfC83qz1q08q
+         nA6Q==
+X-Forwarded-Encrypted: i=1; AKwUvBz8q+rnVZgGB8xOHLdry+SbDKgT1XnQXdSTNE9MgCINiLcKhq25OIFCkSBWWS0qUjKAdOZijdXK530toQoRjI78@lists.infradead.org
+X-Gm-Message-State: AFuF++luNvA8cC//L/DeicVCIbZ9k4jZxWEhX5n0jFwzap7tup/kkkd0
+	s+85TUbaWxqwXcrN8Xf2tEjSo8ZNcfMA0wehbnAGJk+7ChgXTf7NK8PrSsYfZuLDM9w9Ekjf/mi
+	rW5KxZHLiPiQvoA==
+X-Received: from edb11.prod.google.com ([2002:a05:6402:238b:b0:699:e9c8:2d72])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:d409:b0:c26:1648:a069 with SMTP id a640c23a62f3a-c2ac24f9cabmr130143366b.36.1790240188197;
- Thu, 24 Sep 2026 01:56:28 -0700 (PDT)
-Date: Thu, 24 Sep 2026 08:56:14 +0000
+ 2002:a05:6402:5186:b0:6aa:a7f:d584 with SMTP id 4fb4d7f45d1cf-6aac90949demr1600686a12.42.1790240186819;
+ Thu, 24 Sep 2026 01:56:26 -0700 (PDT)
+Date: Thu, 24 Sep 2026 08:56:13 +0000
 In-Reply-To: <20260924085616.300650-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260924085616.300650-1-smostafa@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260924085616.300650-4-smostafa@google.com>
-Subject: [PATCH v2 3/5] iommu/arm-smmu-v3-test: Add missing error checks for
- inv array
+Message-ID: <20260924085616.300650-3-smostafa@google.com>
+Subject: [PATCH v2 2/5] iommu/arm-smmu-v3-test: Fix arm_smmu_v3_test_debug_print_used_bits()
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
 Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
-	nicolinc@nvidia.com, praan@google.com, Mostafa Saleh <smostafa@google.com>
+	nicolinc@nvidia.com, praan@google.com, Mostafa Saleh <smostafa@google.com>, 
+	Jason Gunthorpe <jgg@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_015631_273255_5FF425FE 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260924_095632_526645_08852680 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,83 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_smmu_invs_merge() and arm_smmu_invs_alloc() can return NULL or
-errors which are checked by the driver but not the test.
+arm_smmu_v3_test_debug_print_used_bits() hardcodes arm_smmu_get_ste_used()
+instead of using the provided writer->ops->get_used() callback.
+This caused Context Descriptors to be incorrectly parsed as STEs.
 
-Add KUNIT_ASSERT_NOT_ERR_OR_NULL() after calling them to fail the
-test instead of accessing NULL or ERR pointers.
-
-Fixes: 15a2a5645ad7 ("iommu/arm-smmu-v3: Introduce a per-domain arm_smmu_invs array")
+Fixes: 56e1a4cc2588 ("iommu/arm-smmu-v3: Add unit tests for arm_smmu_write_entry")
 Reported-by: Sashiko <>
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index eae08d4d77ec..366dcb2b5554 100644
+index add671363c82..eae08d4d77ec 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -704,17 +704,20 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
+@@ -125,8 +125,8 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
+ {
+ 	__le64 used_bits[NUM_ENTRY_QWORDS] = {};
  
- 	/* New array */
- 	test_a = arm_smmu_invs_alloc(0);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_a);
- 	KUNIT_EXPECT_EQ(test, test_a->num_invs, 0);
- 
- 	/* Test1: merge invs1 (new array) */
- 	test_b = arm_smmu_invs_merge(test_a, &invs1);
- 	kfree(test_a);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_b);
- 	arm_smmu_v3_invs_test_verify(test, test_b, ARRAY_SIZE(results1[0]), 0,
- 				     results1[0], results1[1], results1[2]);
- 
- 	/* Test2: merge invs2 (new array) */
- 	test_a = arm_smmu_invs_merge(test_b, &invs2);
- 	kfree(test_b);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_a);
- 	arm_smmu_v3_invs_test_verify(test, test_a, ARRAY_SIZE(results2[0]), 0,
- 				     results2[0], results2[1], results2[2]);
- 
-@@ -726,6 +729,7 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
- 	/* Test4: merge invs3 (new array) */
- 	test_b = arm_smmu_invs_merge(test_a, &invs3);
- 	kfree(test_a);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_b);
- 	arm_smmu_v3_invs_test_verify(test, test_b, ARRAY_SIZE(results4[0]), 0,
- 				     results4[0], results4[1], results4[2]);
- 
-@@ -737,6 +741,7 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
- 	/* Test6: purge test_b (new array) */
- 	test_a = arm_smmu_invs_purge(test_b);
- 	kfree(test_b);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_a);
- 	arm_smmu_v3_invs_test_verify(test, test_a, ARRAY_SIZE(results6[0]), 0,
- 				     results6[0], results6[1], results6[2]);
- 
-@@ -748,12 +753,14 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
- 	/* Test8: merge invs4 (new array) */
- 	test_b = arm_smmu_invs_merge(test_a, &invs4);
- 	kfree(test_a);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_b);
- 	arm_smmu_v3_invs_test_verify(test, test_b, ARRAY_SIZE(results7[0]), 0,
- 				     results7[0], results7[1], results7[2]);
- 
- 	/* Test9: merge invs5 (new array) */
- 	test_a = arm_smmu_invs_merge(test_b, &invs5);
- 	kfree(test_b);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_a);
- 	arm_smmu_v3_invs_test_verify(test, test_a, ARRAY_SIZE(results8[0]), 0,
- 				     results8[0], results8[1], results8[2]);
- 
-@@ -765,6 +772,7 @@ static void arm_smmu_v3_invs_test(struct kunit *test)
- 	/* Test11: purge test_a (new array) */
- 	test_b = arm_smmu_invs_purge(test_a);
- 	kfree(test_a);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, test_b);
- 	arm_smmu_v3_invs_test_verify(test, test_b, ARRAY_SIZE(results10[0]), 0,
- 				     results10[0], results10[1], results10[2]);
- 
+-	arm_smmu_get_ste_used(ste, used_bits);
+-	pr_debug("STE used bits: ");
++	writer->ops->get_used(ste, used_bits);
++	pr_debug("Entry used bits: ");
+ 	print_hex_dump_debug("    ", DUMP_PREFIX_NONE, 16, 8, used_bits,
+ 			     sizeof(used_bits), false);
+ }
 -- 
 2.56.0.rc1.315.gc6ed9934b7-goog
 
