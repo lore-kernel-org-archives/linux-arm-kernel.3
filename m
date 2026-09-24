@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44B8C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 02:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B48C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 02:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7EdbTttLfDKO/MgJ9AUmiN61aK/OlwCKLM1pw1cgtYI=; b=HpzN+88+wtEmjSxImYe+LwZhRc
-	79bkBBfCkCH3mTFCrFkaWQ2f2m0R08MKQq//j3BeiOi5l9EpN+iR08hmzscePGJAZECrJ7YHJfUML
-	OO//F+gmj2T7HOhOFBY1T5jtacHLQLFjOYUEobwF+4hNgIDz/Xqq8WzSLL6fuv+zbInsYh1TF4ekg
-	A1g69kGNF5BwWYteWvWZHwTEpA8euf9VOg/yQqeERn8Bu36VtU2d7WI5SxTmdLHejlJhSJVGQM56K
-	PtPYXGdgWMj8JvUvhwyE54r6baB351LEJ236HdsIhoTywhTYlcdLjG6bVsTtk646eMUvMnISJlTpu
-	dsh8hfOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2qc7d2EWlAB6vGwNe4e6/zzd/A8J1JEyXp8FOsKTS5o=; b=wD+/fAEtbCA1sIiU+BxUAtR92a
+	8AWi9f6GuaRJNHrPoFivB+XS3x/TtTZWdbYzZ+MdaNtErqzeoDnIBicuyf+TBvYF7VTGE6rrdg62f
+	sVUE7K8qusywg0a9TvUAyLPB677SDwW7xut1ehCHy9zIDXvqDAHCSVgGu1ABepkYimwwd+0VBEKTU
+	72QaUktpIgPanRNpw+KPs/KuMVdZ6dULSJBBcHTIR+oIrLM75ESmFJ4YqMGEvcROpsukeeFacltXZ
+	DhEtpuRi3jef3AcG1RxEwC7r09RR8Kz4UTSVrNxHJfbydtJLUw4WjLvQnd3jaY3amLXKB7APnDX9L
+	VNig78aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZEG-00000009rrz-47Ef;
-	Thu, 24 Sep 2026 02:30:33 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x9ZFG-00000009s2G-0gn6;
+	Thu, 24 Sep 2026 02:31:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZEE-00000009rrV-45ag
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 02:30:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=7EdbTttLfDKO/MgJ9AUmiN61aK/OlwCKLM1pw1cgtYI=; b=1lYY5/UU6MztBj10FYdL24tBcs
-	n4E04ypGvqaiNC7ImtP6OttUlXWc05wDHAxb5tt7VkM/vtoJhM47jtGO+PnJVF5DdKFSgSt48zMF3
-	jyR4qfQNdwaMIBv+jZbh48+61WM35MTzDZxOezbFdML3W3WjEi0g/jW3Iypzq6yOcZZg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9ZE2-006uhw-K5; Thu, 24 Sep 2026 04:30:18 +0200
-Date: Thu, 24 Sep 2026 04:30:18 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 3/5] net: stmmac: sun55i: Make the delay step
- configurable
-Message-ID: <26334006-a2af-49d3-8f26-18cd44118c6b@lunn.ch>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
- <20260923-allwinner-a733-gmac-support-v3-3-15735155a789@baylibre.com>
+	id 1x9ZFE-00000009s1s-1aUD;
+	Thu, 24 Sep 2026 02:31:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E2746021E;
+	Thu, 24 Sep 2026 02:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C85461F000FF;
+	Thu, 24 Sep 2026 02:31:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790217090;
+	bh=2qc7d2EWlAB6vGwNe4e6/zzd/A8J1JEyXp8FOsKTS5o=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=JC5xI6yMewNWhNsEmO7JHny5cUGcQ9hRjrTCOpGEA7hCuTOaO71iLRgCRIouRJuFL
+	 qeQIZpHkVP8d9aNMCRDhC2i9B2eHQeLTeohmixvAQKQHP4e3DVjsP7NNIBmPJ9iy5V
+	 SEIlkyAb9Q3dNW2JVdoItMt1Ip+5ZW042ZB2aGPSgJmuYQnxGISbIBveFxSpf0ua/S
+	 k34VaEIlqR9t4pROBMgDFb1qLEikHLLRsdkEzFKiBPGGDaZ6sNUxJh6zTbcbn1Q052
+	 qPvIhCwNc/XHsoZCUpnGPhdgzCyS4TRlL4T+zwRJeHD+ksrZ2BVuf1pyBv7+3d4kyj
+	 tFmJ2lPOdXp/Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93A6939E9611;
+	Thu, 24 Sep 2026 02:30:21 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260923-allwinner-a733-gmac-support-v3-3-15735155a789@baylibre.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_193031_021576_FB6D29D8 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: airoha: npu: cancel wdt_work after releasing the
+ WDT
+ IRQ
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <179021702008.1285615.10214789929001458933.git-patchwork-notify@kernel.org>
+Date: Thu, 24 Sep 2026 02:30:20 +0000
+References: <20260922000914.542068-1-mhun512@gmail.com>
+In-Reply-To: <20260922000914.542068-1-mhun512@gmail.com>
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ ae878000@gmail.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,12 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	 * Correcting them would break the DT ABI of the published DTs.
-> +	 */
-> +	.txdly_step_ps = 100,
-> +	.rxdly_step_ps = 100,
+Hello:
 
-Could you be a bit more specific about what published means?
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-      Andrew
+On Mon, 21 Sep 2026 20:09:14 -0400 you wrote:
+> airoha_npu_remove() calls cancel_work_sync() on each core's wdt_work,
+> but the watchdog IRQ that queues it is requested with devm_request_irq()
+> and is freed only after .remove() returns.  airoha_npu_wdt_handler() can
+> therefore schedule_work() again once the cancel has returned.  struct
+> airoha_npu, which contains the work, is devm_kzalloc()'d and is freed in
+> that same unwind, so the late work dereferences freed memory.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net] net: airoha: npu: cancel wdt_work after releasing the WDT IRQ
+    https://git.kernel.org/netdev/net/c/4bdee8060d1e
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
