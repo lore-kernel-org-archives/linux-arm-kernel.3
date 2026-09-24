@@ -4,137 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA47CC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C759C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Td+Wzjjv/ZyMFIFnZhzVfT4DSSUCOFtgjF+A7K27Vw8=; b=NiyBpJO5pXl5rgjSgYrpvQsVA0
-	8Ice9A0XFOIZQycys4NN509Kt17Wz1zaM419r0HRR5ey1qlrY3u0Sjb/aqW/DbNjhZC8I5qR8Ubk0
-	tKwMnktGsa8M+Bp42ia7hdYGgFKn5DMxMdCyg3PjwDoyS3hb+HwfsHCE32u2/qnb6/B3PqpzVxAK4
-	Rl+ZnMKOvQv2vAki4HhO2m0fnyGEv6SMeoNZfZTxKpPyBv1UpttpWlAmnqUSyWMiIKi9V27VyAL7m
-	G7XKPryEzX8+vn8PUu2iM6H8TgRIlDd3Jt7SCQigM/2IJvPb7X36Ra8jzAtiNELvj3j9eQeLrW9SR
-	9pOx1pnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tiq/YBOsrEQjXB9nRN6Vscf6QpmL4+oyqteQ+zJdilw=; b=A9PX4D7v4qSK4sDFpAUnaT1Akt
+	gRJcqKpRWLq+uN7ANbo9aqhAtYOIehP2CLq1eQxuxQiG5L5wwqsOVpubnUlzsI2AshRprDSLyqajs
+	5vQQ0/wJR8u8LHNE3iUGAJJxm1KFxEsj5bbQhbw3erOBKgShxpPBqRtI9rCu3GUtwd/LA9xWbusTs
+	uEUqHaBWl39V4pSWvgoQNSoH3OY09sNbkPQll2CQ99hD7nwa/7vWXh4iL2OuRrji/7UgDsYq95KF5
+	9+tY1NZtmhHMEaImnrHCqOmHEs7O6zOvqONP2KeWRp4B4NTqjM9iGmIGItjCbKxGA3Hf8luNoGaYP
+	GZzYhn3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9m5u-0000000BZ9u-2Qrk;
-	Thu, 24 Sep 2026 16:14:46 +0000
-Received: from mail-westeuropeazon11010047.outbound.protection.outlook.com ([52.101.69.47] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x9m6e-0000000BZJc-34Yf;
+	Thu, 24 Sep 2026 16:15:32 +0000
+Received: from out-214.mta1.migadu.com ([95.215.58.214] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9m5s-0000000BZ92-0u0Q
+	id 1x9m6c-0000000BZHu-0Uku
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:14:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CPFJNEK16sqHkbK5y/iZyguUabba/OI2O5T/26e44Fs7ATNe8EaFR1dnSkAoOPINWBXiV1K45PdLl3oYW/z7WgZz/EQ0UN0p+pVld4vHfvTmcU8aVzXb2s8ZS3rW/kwXQdi6xheTxpbNI6BO9xu5ZPtRj0rCaUTR9pLrIlMncC8dG8xdk8sN1SDnj59NyMMrJt36MwPkmRc7kSYB4HwfLgFY5pjLLRJrSSdMKVADrA27et3IYfK+udDPPoczWjhtW9cEpoYFtZATsTOXwX2yZ8xWrRHgHnhUwDJeFZI5U6RcSMqQNuosOId8W8u//wKNxaCTYVcOigRlsKXHHQ2o6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Td+Wzjjv/ZyMFIFnZhzVfT4DSSUCOFtgjF+A7K27Vw8=;
- b=ufY17DvyndK+r9xtveN2fDgwj3mfMTFMXpHzASWk/Zb2J02SxODDCMQ8jlJO/3boMFvLoyAf/zx5xikNbBRJcZqbtbfqT2W4tYQxPAfwRmR/VuaNVG78YCuG5FX9Lyvio8PkingDVqrt+Lmb7+Xu/4X+atT7PEQ7blX0nyLwKfK0I3CxvN265hocQkPO0pgUNa1389yKOrtbcj3Dqo7I5zXojSg3ALHCeCcHqPsLFO88KqTwX8uEeOES4M0tPGIfTNcau6G9IXxxZykQSNjBqJ1jHByh11EUGLG5Wc9kLVQiZW0oSMEiGshy2ya4NXeRfNVl+dhMt3dgLch/O6PDfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Td+Wzjjv/ZyMFIFnZhzVfT4DSSUCOFtgjF+A7K27Vw8=;
- b=K9ddfhopH/KQlO/Rih90ERYj/npiMyhr0auW9fcXxBHv/W3aeLtdRYXG+Si8L74N6ALlJFXmHmhH0eUF4Bq+vKk7tLMq56slNoUg0scmdmZjrmpVuf7YJp/RkxLFCa842KARfzGtW7AK3PIDVwontszmUJugxuZbBCjBR138aOuzf9Ugp/tBBDlRumOHxIFs04Y2TB5cOUmdHix/UaRfdgIJeVoA9f3alBYi6loVcx2i9slmzwYnR62oo9SkPxo3BI+uRDh5UodTH0RO0qtHVUl9/MhN6u9aoCuDE3xVx0MyuAROtw06MYAqvrsu2EIsf2FHJWkUIFh/Nex6pbTNIg==
-Received: from GV2PR04MB12271.eurprd04.prod.outlook.com (2603:10a6:150:32a::5)
- by DB9PR04MB8267.eurprd04.prod.outlook.com (2603:10a6:10:24b::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 16:14:37 +0000
-Received: from GV2PR04MB12271.eurprd04.prod.outlook.com
- ([fe80::3b38:4ed4:2164:c035]) by GV2PR04MB12271.eurprd04.prod.outlook.com
- ([fe80::3b38:4ed4:2164:c035%5]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 16:14:37 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-To: Arnd Bergmann <arnd@arndb.de>, "Pankaj Gupta (OSS)"
-	<pankaj.gupta@oss.nxp.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Randy
- Dunlap <rdunlap@infradead.org>
-CC: "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [EXT] Re: [PATCH v51 5/7] firmware: imx: adds miscdev
-Thread-Topic: [EXT] Re: [PATCH v51 5/7] firmware: imx: adds miscdev
-Thread-Index: AQHdRFLl6qj9FWHmWUa7nq3I0AMEwrbRMnKAgAzENoA=
-Date: Thu, 24 Sep 2026 16:14:37 +0000
-Message-ID: <GV2PR04MB122713E45837EDC3DE804EAB895812@GV2PR04MB12271.eurprd04.prod.outlook.com>
-References: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
- <20260915-imx-se-if-v51-5-4a7dac612cb5@nxp.com>
- <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
-In-Reply-To: <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f6375508-4f8d-4bf0-98ed-14865d40f2d8_Enabled=True;MSIP_Label_f6375508-4f8d-4bf0-98ed-14865d40f2d8_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_f6375508-4f8d-4bf0-98ed-14865d40f2d8_SetDate=2026-09-24T16:14:23.0000000Z;MSIP_Label_f6375508-4f8d-4bf0-98ed-14865d40f2d8_Name=NXP
- Public;MSIP_Label_f6375508-4f8d-4bf0-98ed-14865d40f2d8_ContentBits=3;MSIP_Label_f6375508-4f8d-4bf0-98ed-14865d40f2d8_Method=Privileged
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB12271:EE_|DB9PR04MB8267:EE_
-x-ms-office365-filtering-correlation-id: 1e7e6902-3a48-45f2-58df-08df1a56ee24
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|23010399003|10067099003|56012099006|3023799007|6133799003|22082099003|18002099003|4143699003|11063799006|921020|38070700021;
-x-microsoft-antispam-message-info: Ak4gTiZIALgrkg6PgWI1oP8UGV+4h6X0NpSiS2txzgdVXvgGbwXhwuhKYmHGspJYWFpQnV3lcSnq/h3LgMJdevOF4J5Z6t/yphp/yEGNZ5VR7V6sMpvmGSpMBGqY5wggV6Zz38+et7lhFrvpYNZ+/fHqMKLZSq2EDJmtmP0H0PNnWlaEAd84D1OXjye/vFd9ZVo59evmy3tYw5wKG0qCIXr6fwf9TfsJJMWMgOF5Jyz+k5UQASm7KUiI8ogStlB4O5Anc0rmfnMjZPKya2yRdxBiYfuyf6NvVrEJV/2yoqjMgVSKEp3WTeAJr5TnKhZ6ftNCQpUU1biwuw+fHDq1J2qM1rz6j47asmt3v8JQsdDP7BvxuLecUI58iwKZHmY/v9rE4vcqw6P0dDy2g7A0bVKPSfTYrw0uaxIGSjY31i8+B6cR7/cy31bBJa0/xc7kzutguSBO2B52l8Dk3pOyNvwu8sz9OVRfPHHR1KkQSgD06lot0ke1mLrYIpZgb6eymaWr1Sf+e1CEM5mvfjxdmLKz3yNo8IgZDMsoQFUcPsobjuQKLoZxVF4gYar3bjYhiJM4ljymbL8SXqlb4l6TExA7fHYaCYyj/9O6rJKAYGNlErtiN83BRQHtfO1jELeBov2HHta4BfYkulFtXRVnynFzPqAc34w1rVEOuVYTNUevsBbPoZ8+mybEmnQY2jA0bHp9DNxhh5liIh3eMWRf+bikmWqeZynUYDI4WuWu4QPxGeM0Q78gAhBAqzeiblTE
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12271.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(23010399003)(10067099003)(56012099006)(3023799007)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?2JOHJFQmJ5MVhka8lOJ/dGJlrGzBa0/A5jKeQIrXxsjT5AvStHYFBUfkUCV/?=
- =?us-ascii?Q?cNgA8fWhMPVNpHiXgbqvxmokxpR28WcI+PBAcYgcHkYlH+eS+r8uSGiE88T8?=
- =?us-ascii?Q?0ZwzdP8g4OA3w28ETctQk3W+YK/a+i0aP7pSM9GzH2dnwQt3amSeoek52OJP?=
- =?us-ascii?Q?obZLTNtpxc3PbFwFUMS/SNIl+z0BtatRHNdJZHwKDnhUep3FccIV0ek9R60z?=
- =?us-ascii?Q?bPoRf3/X4cUGY5eimB4klB4P0a5rf9qabJuhWiuJSa40jcPRkD9GXKzMWgwT?=
- =?us-ascii?Q?d4inaH1ea57gmY59CnbtlNTilRDfeX7TnXcy5LvrjoZY7i9PEoDthKLP/38+?=
- =?us-ascii?Q?Cvx6rxIYzDeNmR5Ac7oAq1bao5lf1NTDRb72pmwP3pXyjw57wtjfZT5T2ysz?=
- =?us-ascii?Q?zOEG5C9bRTDiQUgtaTWksdrciApG2FYo+T5QiBkrKg3V5Dn83uAUYzYn4gK4?=
- =?us-ascii?Q?Jh0aswjUV4db4gzmdgQ4bpFkBIAlq4Oj2qkBPXG0a7bRsXb7u9ny7aHYV6RH?=
- =?us-ascii?Q?emNBg7SclYwFxpmpBp1aJJPgbvRTxF3y9yxcwFc/ad5rkoVWSi8hfoI7foCB?=
- =?us-ascii?Q?3+cQfErhBGMVJJzCqmi3YajHzRQtYBFI0x25ndmpFEH7YTxIzwChLEr4VVDx?=
- =?us-ascii?Q?Sz71rhtPasxkMN8Fa96mBlSTvc2PhZLqgt/3fksvuCXuBtGZfjFXhWCuFOY8?=
- =?us-ascii?Q?XQlVofH6BVFB0kNgUfUIPnOtXf+lzuMbzqlWHhaLk/m4sAxihr5JAJiPn2ao?=
- =?us-ascii?Q?Wdna+/y2EAYTD89WZRQd4wO3qF42d278kqOCvesf84RFJ2xEElAMRCPWf8en?=
- =?us-ascii?Q?PHcbPdcsHT7zS6PU729Rtst5QRFY5bVRvyfosKDBx19Tn0zM8IwtgRh7pPYS?=
- =?us-ascii?Q?zUiH6Iz9JLInV68k+1lec/lllyUhf0Sk4yw1cMAxFQ5/qFaGf/FPtGDYar9b?=
- =?us-ascii?Q?LyFBweKXMoJF6ZFJwHsl7TtRg5IIVnLoxku7c3rvjN1LQD3/WW7FzTVvnBX2?=
- =?us-ascii?Q?xRY1IA9GEjzXP+qy22B40OixvbosV4d4/LsrNX4yXF7SN2wNKHrOQogNUpa9?=
- =?us-ascii?Q?JsizFqOG0mQq4XVEs80+iNxTsV1+KVsX8p/C6Jk0hKQXn8w/7W1/Qi3LY96k?=
- =?us-ascii?Q?OjQ1eXJ9Nu5qJQ4AhKB0PavdY9bfMXg9rxpNYhfdvewUhcc6EMBeGJ+JSXo2?=
- =?us-ascii?Q?oNmqI21ST+ol2aZsMdAdICTSRiJiGE7rElDiY1FgJENc245ar3FH9+PY5aLJ?=
- =?us-ascii?Q?3fq9kVCypU5SCoDOddeFZj2F2M3pjRbaAP5nmcj34RWS3owBA3fSnZooiBBm?=
- =?us-ascii?Q?0l1HQ1FZagBU3X02pNED58+1lyAUDdtm3E6P/JDe98e3VRZeP1wdwZ7mE0SZ?=
- =?us-ascii?Q?eG0Y7lZ6pHb7Sa8Aa0KsCK4mZkxE3I+E2q59QPzU5XXSVqYv4Cre0Id69jO5?=
- =?us-ascii?Q?QCM61pOs/dJSCO39sDtve/luMO/cIC/ZxomYPHoa8gj0ZR/+XMT0R6ka+K+A?=
- =?us-ascii?Q?wQU0CnX8svMlnPVy3qK+jm+LXkbyzE1kubiAnObj/wI1v6zE1o9xSuF/ESfg?=
- =?us-ascii?Q?vdZqysYyZQ08UTrU3i8z1t6ME1GJssMsJG2xcYhK9VZMON9Ww/gokCivsUrV?=
- =?us-ascii?Q?fbpT4g3LPKMULiusD6TYEIK1Bed4tQxPrcNpQzIYstALGr1zfPr8CMuhWYjB?=
- =?us-ascii?Q?1YAk8VPymgRMcEnWs9co6bwJQCX5lODLtFXoZVvOprIvp/Dy?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 24 Sep 2026 16:15:31 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=pA+73TkIqbFf0NM7bziE93GdtfVOjhH6bzAEwWZEJ74=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790266527; v=1; x=1790871327;
+ b=K7oADMKF22h2miGvoGf8bfDVsAWuHf4oTPAtWweFkoLEtYR+yxHkFKZBQDn8zugJzNoUVczs
+ xZobrr2RIbpa5Qmd9nz6W3HmgZtBTQP4VpfIL3++gdoXr2dIdP1uVewxRP6QbO9zl2cqqRo0Bm1
+ GX8aJkLlx2fKhCEQq+l6msvI=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id cf2236c452ea164d;
+	Thu, 24 Sep 2026 16:15:19 +0000
+X-Mizu-Trace-ID: cf2236c452ea164d
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: Radu Rendec <radu@rendec.net>,
+	James Morse <james.morse@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] irqchip/gic-v3: Memory-safety fixes on the probe paths
+Date: Thu, 24 Sep 2026 17:15:11 +0100
+Message-Id: <20260924161514.1112730-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12271.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e7e6902-3a48-45f2-58df-08df1a56ee24
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Sep 2026 16:14:37.4212
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: HJuOA7BU5KgLVJCaPf0Hieo85OV1M67J234q88V3I7JFMSfiwqvbCtQHVVdhukgI0yqr6ApXYxYPNvztL1g3dA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8267
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_091444_259108_ABE34495 
-X-CRM114-Status: GOOD (  27.80  )
+X-CRM114-CacheID: sfid-20260924_091530_303258_6CEEB135 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,107 +72,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> - Who has reviewed the user interface from outside of NXP?
->   Since this is not a vendor-independent API, I think we have
->   to be extra careful and make sure this does not duplicate
->   anything that is already in the standard firmware interfaces.
->
-> - Why is there a low-level passthrough to the firmware from
->   userspace? This looks rather irregular, since it is the kernel's
->   job to abstract the platform and provide vendor-independent
->   interfaces. In particular the bit about shared memory and
->   the generic send/receiv ioctl look like they should not
->   be there, as those would allow side-channels from userspace.
+Hi folks,
 
-Let me answer at the level I think you are asking rather than with
-driver internals.
+Three probe-time bugs in the GICv3 drivers. The kernel keeps running
+after each of them, so the memory involved is live rather than on the
+way to a reset.
 
-On review from outside NXP:
+The first two free memory an enabled ITS still points at. Boot carries
+on because its_init() discards a failed probe and gic_init_bases()
+discards what its_init() returns. The third is a write past the end of
+redist_regs[] for an enabled GICC with a zero GICR base.
+fa2dabe57220e's commit message says such tables exist, and I haven't
+seen one.
 
-- Marco Felsch & Sascha (Pengutronix) reviewed the interface
-  across earlier revisions and I addressed their comments, although
-  it carries no external Reviewed-by.
+Based on Linux 7.3-rc4 (93f51579e7df2).
 
-- Rob Herring's Reviewed-by on 2/7 covers the devicetree binding and
-  Frieder Schrempf's Tested-by on 3/7 confirms the driver works on his
-  hardware, so neither is a review of the ioctl interface itself.
+Cheers,
+/fuad
 
-On using standard kernel interfaces:
+Fuad Tabba (3):
+  irqchip/gic-v3-its: Don't free a vPE table shared with another ITS
+  irqchip/gic-v3-its: Don't free the tables of an enabled ITS
+  irqchip/gic-v3: Don't register a redistributor that was never counted
 
-- I am not proposing the miscdev as a replacement for existing kernel
-  interfaces. Where a standard abstraction already exists, I agree that
-  it should be used.
+ drivers/irqchip/irq-gic-v3-its.c | 16 +++++++++++-----
+ drivers/irqchip/irq-gic-v3.c     |  6 ++++++
+ 2 files changed, 17 insertions(+), 5 deletions(-)
 
-- Fuse/OTP access is already exposed through a standard nvmem provider
-  (drivers/nvmem/imx-ocotp-ele.c).
 
-- Some ELE services, such as key sealing/unsealing and random number
-  generation, overlap with functionality already available through
-  existing kernel frameworks.
+base-commit: 93f51579e7df248780214094418f205253383cc5
+-- 
+2.39.5
 
-- The remaining functionality is the secure-enclave management plane:
-  key-store provisioning and reprovision-enable, persistent key-store
-  migration, signed OEM container authentication, device attestation,
-  and lifecycle transitions. I am not aware of an existing generic
-  kernel subsystem that models those operations today.
-
-On what is NXP-specific:
-
-- The cryptographic services exposed through userspace are accessed via
-  the PSA APIs provided by imx-smw rather than applications directly
-  issuing ELE-specific commands.
-
-- What remains NXP-specific is the secure-enclave management layer:
-  provisioning, attestation, lifecycle management, OEM container
-  authentication and persistent key-store management. I would rather
-  not define a cross-vendor kernel ABI from a single implementation,
-  but if there is a plausible shared model across vendors I would be
-  happy to work towards that instead.
-
-On passing commands rather than abstracting each operation:
-
-- The ELE firmware ABI is large, versioned, and evolves independently
-  of the kernel. Defining a dedicated ioctl for every firmware command
-  would effectively freeze those command payloads into the kernel uAPI
-  and make firmware ABI evolution a kernel compatibility problem.
-
-- The ioctl is a transport interface rather than a raw firmware escape
-  hatch. Commands are validated and constrained by the driver before
-  they are forwarded to firmware.
-
-- The stable part is the transport API. The ioctl numbers and
-  structures do not change per SoC. Per-MU differences (interface
-  type, message tags, base FW version and messaging API version) are
-  described by driver data selected from the DT compatible.
-
-- Discovery ioctls allow userspace to determine the SoC and messaging
-  API version it is communicating with rather than assuming them. In
-  practice, supporting a new MU or SoC is a matter of adding driver
-  data and a DT compatible, not changing the uAPI.
-
-On the side-channel concern:
-
-- The kernel's role here is to enforce containment rather than to
-  reinterpret each enclave operation.
-
-- Commands are validated before being forwarded. Commands that are not
-  explicitly recognised and permitted by the driver are rejected.
-
-- Shared memory is allocated per file descriptor, so one context cannot
-  access another context's buffers.
-
-- Userspace never hands firmware an arbitrary pointer. The driver
-  allocates and manages the shared buffer and validates all embedded
-  addresses against the owning context before transmitting a command.
-
-- Consequently, userspace cannot direct firmware to arbitrary physical
-  memory, cannot access another client's buffers, and cannot submit
-  unvalidated commands. The interface is constrained and mediated by
-  the kernel rather than providing unrestricted firmware access from
-  userspace.
-
-Thanks,
-Pankaj
-
-NXP Public
 
