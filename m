@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62A0C98327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 23:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEFEC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 23:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDqbFLObsehCe0sJ0clGiEdbuZFFJjsJjNFUc+Lf4xc=; b=2E8NNq/4i30uhCavgg/i2Js0fI
-	93VrOYsIR7sL6bHGTkdSSqV88QW/KQhXVlZavRwKonpYHpkGfWNTgEvys4aM60MtJgjmrFY5oRgvl
-	DgfV0owCipNZcWv0OydTMimsgDeHeJKE2D+JPo+v0hNJ4Fdp28GdRuBHvFJJ01TPWQpqrvDDbi6XD
-	P7U3LNvnPjGOyeDp8KxDVwZE6DRjXodyShtViJVZ7+tVyYvBOdeRojtZyWuiLvPbOZEd9jQwHrwyS
-	4BpygtsqiSAayjCefWfU2L2toPmj0XcacuTQ+3qvbTsgFfB+i6hU9Tlln1CN8k7lAWbJ1b13TPpww
-	OS2sYtWQ==;
+	bh=TRQDcfp704v7y9W9giZQnIbIP3wKdXktBztj3wl4XLo=; b=I6+NCC5Z4H4ukoHBjPd5Y3e31z
+	f6MavuooIgAw7njw38YHy+4D2nAPFdZ8JhMndkGRssiIa3MoL8v4MDX8PX2GB64ef0QD5WB76Qh1X
+	emwU8YF3+P2wIo07nsekEbj4bQDmPh+e2fMsvyhE8vap08bkR4TclQC+DNDQ3E4kpBEkPPaFYuRMY
+	wcMHdhZCU8fNiKryel68GitTjTvo0sW1tdh45/cHH1yb3dXVZPoVwWKGWyQ1CeExMtIeEfqroF3ha
+	0O/tiVScE2MwlCEbGWm2oxnwKXxja/LQ8s7oJ3uRzehBjINYJRThSHXm0GixcsjqV/h/sThHkHsF7
+	g+8D8DsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sSn-0000000CLZo-1Zbd;
-	Thu, 24 Sep 2026 23:02:49 +0000
+	id 1x9sT9-0000000CM4P-40MX;
+	Thu, 24 Sep 2026 23:03:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sSg-0000000CLSS-2QMG
+	id 1x9sSs-0000000CLic-3YA4
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 23:02:42 +0000
+	Thu, 24 Sep 2026 23:02:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
 	Content-Type:Content-ID:Content-Description;
-	bh=VDqbFLObsehCe0sJ0clGiEdbuZFFJjsJjNFUc+Lf4xc=; b=G/fBMVs3FasBKukhT9ilyaTmkk
-	H7BDGMO7QegkXU/JgDW5ywKmgzPeefKw9151Ta9583tdhBgOTVR5XDgHXMVPzpQkDzt01L0esR8Zz
-	UKyX9BflTT4QSgJyhICgeVViqZdcwNBkrUeYe8gF2dT3lhjBu2Mx6Crk0X/1yX53m8U9VT7v/J5AN
-	+X/o7TunNO/4Lk7fGM7hZrxyKTFTa+BEK+ifXNqV8HT1pdWmBM/JMoU5vwltpDSCbkPd4DWb3DhRb
-	vRHQJRl8/lxrvKz7At4yCkvwjdVQliM1jk9dE/HlQ8d8q5Z8QV9sXkYcRFzGh1RmJUezoMBugnaf0
-	5uuRNVlg==;
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+	bh=TRQDcfp704v7y9W9giZQnIbIP3wKdXktBztj3wl4XLo=; b=HiDeglErEi2dGl52QLTvkdh9r4
+	hq2862RIdduNfx0ADfT9gwZDOEuNDzdNmYd9YLwvVmn0nuf1KekY1ueRjyPBCC1KL+aKS6JPlZulI
+	CMGKPlp2NyYVd03xQwjZuTOhAN6Sp5e5bBT1jDkKBbj8fvunNRi7/uDtFMPHDuTQ04BnFqCS7RlXC
+	ixfBGqVDHN5LFAfFTMnx05b8D50Gy5clYZdyXdbjDXaTXdbPHw7QkSU+YQy/B16qjG4+bIp3jATyZ
+	59Y1MGPVuvj7QGL+UfPpnEyu9v/Mjdam9mxkxcFRmTPUhl8lhncctUCPk7PUsAalkl5eA7RkEdAwX
+	Ljh9azFA==;
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9sSb-0000000GUPG-0tY0
+	id 1x9sSo-0000000GURm-1PRq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 23:02:39 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49d097b4939so1947295e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 16:02:37 -0700 (PDT)
+	Thu, 24 Sep 2026 23:02:53 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e6598dd44so1757365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 16:02:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790290956; x=1790895756; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790290969; x=1790895769; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=VDqbFLObsehCe0sJ0clGiEdbuZFFJjsJjNFUc+Lf4xc=;
-        b=IIkWJhGGsUUg8mSpBexImFcHFK5z0NuxqAGFDqPzutHH/oMzQLmzlQYwtdSXCxKpH0
-         4QJo5ahwa05BoIz7mUwa0dBUjp9afsbQxTQ7K6pe18t8BgiOkYoNYeqYK5jPZ0RT1mab
-         7lb55awiNHp463+N3opnKiTGksIXma+O/rNBeMRcm0LWEf8+CyCkY3UrpxjpAAi2mzlA
-         6vl2jalsouDl84cZ7gxDRVMWz4bOl6/fWbBFXJEYTec1JjyJyJGjDw2GaQ5ZCJ2+vBqS
-         7J+REuWm6s+GN5eUkUl2/PNfIZW1re3oMHr/DGkwraVurA142wmwR2YZuSXHu36cLwdB
-         ErCA==
+        bh=TRQDcfp704v7y9W9giZQnIbIP3wKdXktBztj3wl4XLo=;
+        b=RzrsK8VZrbElQ9jclx0UYDxvtJxNhO6zmcJr4+koHaObuYQNR1AKTzy4OI+3u2ARcf
+         ZA1U81/1AjPCKL2vwpvsDTC/sH6LKZTHTsrEKt/vz+IB3pgDX0lnicVl5VI8OBfYwsUB
+         BMo3aVSIzthx41IajZ/rEzinBAFynCydMIaYnIEAxqqX+c4ezzTsMOpAOAqrXhQJ60na
+         L1uk4NT1AQejeWqZnmPe+L7pyClECLoGZDTkbbdWme5MhHIXyhvQdgTeWKYgsLxN+kAk
+         yt0B+QmoYruzXZ3diFSElINeVT98mfmvOnRry9W8ZZx60D+MZP4kHagd91Gj0nq18Mfi
+         L6DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790290956; x=1790895756;
+        d=1e100.net; s=20260707; t=1790290969; x=1790895769;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=VDqbFLObsehCe0sJ0clGiEdbuZFFJjsJjNFUc+Lf4xc=;
-        b=O9C2exkT8yX9bvF9n5UUohvB1kLehc2ZzhVkqLm6UpcwgL6MKk0uTtutpCaqo620iL
-         0MO5AbemTjlM7DjnY4cJtpnRZX668EEO8HcKj9fYbTZ6vgT3/r6rI9DeweTsWq9NmUpb
-         UCw3cNgrb6lcIaVe07D7HwlI4MlSyx8cfq7a4OZDi9mXYH2RLDyfCo1DZ4trhG6Un1Wt
-         zrRVYE8DBO4FrccZGLASi/pdS6QYGAGNtD0uSyb3XGw37vi9G6xbqgRTxEbHaWRkqsr1
-         +0eZNquzrtgRJGWxkClx8X4aqISzNCaZ8v/evCZK2cMX/Cej5VkNIq5Bxu7GBMd737+i
-         zK+A==
-X-Forwarded-Encrypted: i=1; AKwUvBxM+WxnFCA6u/KDt1r8UYPK3aEBRrU6DXBjujHeATc0xvcBqx0DVHod7BWtgQGpLjLyKlx1C3SPO6tf2dUg8El5@lists.infradead.org
-X-Gm-Message-State: AFuF++kuIR0MfPsH9lEAedDb7Vd4UMhuei4RS8Ntc7rOfOLAqMjiqRJ7
-	Kmd+Yogprub8PVlEX552UnLcVKuiQnMl79RVUYWChUxkyUP5sOASCGPT
-X-Gm-Gg: AYBFou1ucRpHWNBeXJe19VyjKegNUHohnzav8jbGqX+GZCLtCAs2OVWHaruprnw8Ywx
-	1QpnwbWz1esx7EducOMgCem0+/V6GWygKq0EAxDQOzDuol1uRTn8tVEj/T8zQPPbsEf+DEO7o/T
-	d6GKRCA4Tn1STpAn23+NFvgNYaZXSO3SgyBLtiXM1uox4Vr5Yua8kAfxKJidfeXzmQo/YybM7PD
-	nSYgG/vryZKHvnzIA23Kva+2eAZijDRgQB+FLjWzylTw9OiRukNDJkAfI5k/zBTVCSzdvLyanWh
-	x0bzlcF1PJv+xHxECx0l8rpEovyfDnLZocPKyo5AMuF1B1bEKoXORUjJ7cuK9YASxz1CEU92nCr
-	s4UyOugo6oxbffg9pORfCghn/j8WWL5Sl1gm8B27aDx94R1An9yZnHkJ5GISFGQErCvuNg+pPun
-	wGkz/f8+6OKoAJZLjOFKHJTWm0VcMJn4LVoE6Ecp4yIkqjUeCg2yZTMKiTkIQGpE4nS2mJ3eRUR
-	1UPmXn7Bi1CMfn1i32W5xDJMwdLpDFXJiF/JfznhrdYd5XkHXn+rTNnyJpw20wR
-X-Received: by 2002:a05:600d:486:20b0:49f:e8bf:221a with SMTP id 5b1f17b1804b1-49fe8bf24fbmr42002985e9.22.1790290955933;
-        Thu, 24 Sep 2026 16:02:35 -0700 (PDT)
+        bh=TRQDcfp704v7y9W9giZQnIbIP3wKdXktBztj3wl4XLo=;
+        b=DJialGMO+fUpc0Qn2lHllHX51mSc4iDW+xO3Q+9vq/UOqSq6rAIWc+vKtbzfGJoWEl
+         3xm/YndhInW6AwLoZ0zVYC4AuaweO6FbBkJoBD8sgW9E41E7XDcC5Sn88/lC0Frq4OPI
+         QaqATHRkq6ESqVAP5dt3cMxDZy+qKo0WMK6spNWoWqn8JwXBTU3UgrnQwtLo76B9nAdd
+         /cyiC4P5cVff1P2SxTxZVE38ysx9AXe986rtb+8kUFGD/Vf3ysQtY4A+hFLkrxKTvfZz
+         NbMRISDDRmxHLs0tb1ytgIDza4GWfEAyNPeqVlOBg5mGhkFoob+7206PTjMVdF8QU5DE
+         eAVw==
+X-Forwarded-Encrypted: i=1; AKwUvBzRhEEJPNvc+SfmU2TaWbuInM2HOGSDFluYrNbjlHFuytHHYy5A3e6hMro75lb8Vn1cc4ddaWm91ID3W4i6UxRG@lists.infradead.org
+X-Gm-Message-State: AFuF++nuOEggTZSVyI1Efapvt1wNh0thsHiFS8KhJfmD++6OyPEp5CpB
+	vx2sUFa3dBTGZ7nh1O9mmD2lHxg0oTF5kMCzRVqvzHMQUQTKdwoohW6K
+X-Gm-Gg: AYBFou2CPOC43s9VKg9z99VhAH7/a+1MBxAdVnnEAytTRgo/4ZJ3SS/07+2O+GKvSs6
+	Bx9PfodHholyUAi1uIuKXhWSh6IewTzL/pn2nnVKoV0y+02lKt2jX3rPKOTi77J3x0r4d0qdBLr
+	J9jNoizoRxnTBzMP8yjc9691DGXRmFagXt918KlzoMQhYAXSYDBnfCpP3Px1YZFULrvpVsoBFkC
+	4uSjTYCm+C7tXpVMXQZosQ+QrQ3sOMHBSmQrJIBrdLmOjChQWapqdMIFcKaiUrJWWD1I7XWhCvI
+	oBwu9nh3C7cQVS9ixRWAtS8N1AyaReu1d4XLGeMlkmWlFP3S9GMrz+3D8ovrUNewO3bE5x2vmcA
+	y6pHlJBKhDtk4CmDAT0UieWeMcBwz1/u+O4dN4B9tlR5rBz1C18LN3w9SpN0kOA0gb2sX7KwlQt
+	mpnHViPeZK2tSZ2gy3OyAxiuwVTGYDvp+R5jpCP9rvi0sgRzMOv+R06Fdov8+7Ma8E9mFX4Sm1S
+	3XDWM0s+NVPwTo5YuU6lkZwGr6r3txONxnoTMa+f4ORxMK5cNG71XQqVvL11MEz
+X-Received: by 2002:a05:600c:4f4f:b0:49e:69f8:e846 with SMTP id 5b1f17b1804b1-49fe66cbb70mr75087625e9.9.1790290968884;
+        Thu, 24 Sep 2026 16:02:48 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (host-79-29-83-136.business.telecomitalia.it. [79.29.83.136])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49ff06cbe57sm12288175e9.13.2026.09.24.16.02.32
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49ff06cbe57sm12288175e9.13.2026.09.24.16.02.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 16:02:35 -0700 (PDT)
+        Thu, 24 Sep 2026 16:02:48 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -115,17 +115,17 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	llvm@lists.linux.dev
-Subject: [PATCH net-next v17 04/12] net: phylink: save phylink instance fwnode on phylink_create
-Date: Fri, 25 Sep 2026 01:01:45 +0200
-Message-ID: <20260924230211.11519-5-ansuelsmth@gmail.com>
+Subject: [PATCH net-next v17 09/12] net: phylink: add .pcs_link_down PCS OP
+Date: Fri, 25 Sep 2026 01:01:50 +0200
+Message-ID: <20260924230211.11519-10-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260924230211.11519-1-ansuelsmth@gmail.com>
 References: <20260924230211.11519-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_000237_433202_A1F1BFAF 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260925_000252_301604_8F1DCC4A 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,56 +140,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The firmware node associated with the phylink instance might differ from
-the device firmware node passed in phylink_config as such device can
-reference the parent switch or other platform peripherals.
+Permit for PCS driver to define specific operation to tear down the link
+between the MAC and the PCS.
 
-Some function might need to reference this firmware node after
-phylink_create so add a dedicated fwnode entry in phylink internal struct
-and save it on phylink_create().
+This might be needed for some PCS that reset counter or require special
+reset to correctly work if the link needs to be restored later.
+
+On phylink_link_down() call, the additional phylink_pcs_link_down() will
+be called after .mac_link_down to tear down the link.
+
+PCS driver will need to define .pcs_link_down to make use of this.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/phylink.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/net/phy/phylink.c |  9 +++++++++
+ include/linux/phylink.h   | 12 ++++++++++++
+ 2 files changed, 21 insertions(+)
 
 diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 1156e6c61a08..9441afe372c3 100644
+index b87655a09df8..fab55e6ed507 100644
 --- a/drivers/net/phy/phylink.c
 +++ b/drivers/net/phy/phylink.c
-@@ -44,6 +44,7 @@ struct phylink {
- 	const struct phylink_mac_ops *mac_ops;
- 	struct phylink_config *config;
- 	struct phylink_pcs *pcs;
-+	struct fwnode_handle *fwnode;
- 	struct device *dev;
- 	unsigned int old_link_state:1;
- 
-@@ -2115,6 +2116,7 @@ struct phylink *phylink_create(struct phylink_config *config,
- 	INIT_LIST_HEAD(&pl->pcs_list);
- 
- 	pl->config = config;
-+	pl->fwnode = fwnode_handle_get((struct fwnode_handle *)fwnode);
- 	if (config->type == PHYLINK_NETDEV) {
- 		pl->netdev = to_net_dev(config->dev);
- 		netif_carrier_off(pl->netdev);
-@@ -2199,6 +2201,7 @@ struct phylink *phylink_create(struct phylink_config *config,
- 		pcs->phylink = NULL;
- 	}
- free_pl:
-+	fwnode_handle_put(pl->fwnode);
- 	kfree(pl);
- 	return ERR_PTR(ret);
+@@ -989,6 +989,12 @@ static void phylink_pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 		pcs->ops->pcs_link_up(pcs, neg_mode, interface, speed, duplex);
  }
-@@ -2229,6 +2232,8 @@ void phylink_destroy(struct phylink *pl)
- 		list_del(&pcs->list);
- 	}
  
-+	fwnode_handle_put(pl->fwnode);
++static void phylink_pcs_link_down(struct phylink_pcs *pcs)
++{
++	if (pcs && pcs->ops->pcs_link_down)
++		pcs->ops->pcs_link_down(pcs);
++}
 +
- 	kfree(pl);
+ static void phylink_pcs_disable_eee(struct phylink_pcs *pcs)
+ {
+ 	if (pcs && pcs->ops->pcs_disable_eee)
+@@ -1701,6 +1707,9 @@ static void phylink_link_down(struct phylink *pl)
+ 
+ 	pl->mac_ops->mac_link_down(pl->config, pl->act_link_an_mode,
+ 				   pl->cur_interface);
++
++	phylink_pcs_link_down(pl->pcs);
++
+ 	phylink_info(pl, "Link is Down\n");
  }
- EXPORT_SYMBOL_GPL(phylink_destroy);
+ 
+diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+index f06eb8b6f94a..f03c1dc0a4a1 100644
+--- a/include/linux/phylink.h
++++ b/include/linux/phylink.h
+@@ -528,6 +528,7 @@ struct phylink_pcs {
+  * @pcs_an_restart: restart 802.3z BaseX autonegotiation.
+  * @pcs_link_up: program the PCS for the resolved link configuration
+  *               (where necessary).
++ * @pcs_link_down: tear down link between MAC and PCS.
+  * @pcs_disable_eee: optional notification to PCS that EEE has been disabled
+  *		     at the MAC.
+  * @pcs_enable_eee: optional notification to PCS that EEE will be enabled at
+@@ -555,6 +556,7 @@ struct phylink_pcs_ops {
+ 	void (*pcs_an_restart)(struct phylink_pcs *pcs);
+ 	void (*pcs_link_up)(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 			    phy_interface_t interface, int speed, int duplex);
++	void (*pcs_link_down)(struct phylink_pcs *pcs);
+ 	void (*pcs_disable_eee)(struct phylink_pcs *pcs);
+ 	void (*pcs_enable_eee)(struct phylink_pcs *pcs);
+ 	int (*pcs_pre_init)(struct phylink_pcs *pcs);
+@@ -690,6 +692,16 @@ void pcs_an_restart(struct phylink_pcs *pcs);
+ void pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 		 phy_interface_t interface, int speed, int duplex);
+ 
++/**
++ * pcs_link_down() - tear down link between MAC and PCS
++ * @pcs: a pointer to a &struct phylink_pcs.
++ *
++ * This call will be made just after mac_link_down() to inform the PCS the
++ * link has gone down. PCS should be configured to stop processing packets
++ * for transmission and reception.
++ */
++void pcs_link_down(struct phylink_pcs *pcs);
++
+ /**
+  * pcs_disable_eee() - Disable EEE at the PCS
+  * @pcs: a pointer to a &struct phylink_pcs
 -- 
 2.55.0
 
