@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926E1C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D11C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmAptIvHqywkparkAJXS/X7IeXr9c/AeAy6RqWrrvUs=; b=I1LnYxEdf7ra3ArECKckSaE4Wz
-	ElZ2+mEgv9iQQx7KsxhR3kSCtHqWSYdbg8gK7D9hgaDQpa5RSc4xXE5gR0R2IXAPHmG3zXWbvgCGA
-	4wE3fN1AfoMdFdaSW0n3xmzAiy2sPmtyPQxpkhqGg/26ggsB2mxnU57RFSkvxlBr3RoDpLeUHlzQV
-	m+MPep5MdibzmhY5dCAvQ4po/zdKO/7lOJe58TVExs3i2yb7RhOE9YxIeKQFo+/FSXX+tXL7+kq+U
-	tCiWVfraVaEPypPflOaMIxFjZTx0p6SXAKnSzqm+Yn9qY34cbMSYrGEaB2zMZbjL4kdMfTiFGFxwR
-	S0k8LGWA==;
+	bh=tqHYEXBU3cmKOfoVpEiW64CqFZ+s+N/UHPMQIjNktdw=; b=FvTJsi7I5viAAoCKYortgIXGs3
+	0rjJGt06ddHcA25Ib7n8BkDFmmk/Mv96RPsJsNUqDKAWpXYdd2ymw6eC23Xxf+g0/Ogw9dX5aJMsl
+	KxJSS/Sfl/vQdjM8U4zZAFlh9onEE9zxXgYy7gwuXUQZPMqJFZbKTB3/lrl2z2sZYHlKMVpkWArt8
+	PSj+LsQzUvrS+Z/tMEc4pNMNyvd/BfwtvC6nyPhPKMibGnS5m4+Zm+hxBwzcZto6HVZUTZsNEHn7O
+	Yo4d4nNZpohLZuahi9FhxZzUjyIx94ZTnQyIrMAvi71fy2NGyQu+AroCEe5uKMvmWYd4Z6RpDipaL
+	904Dr3yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lD0-0000000BMnP-1PRr;
-	Thu, 24 Sep 2026 15:18:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9krT-0000000BJfC-1KZo;
+	Thu, 24 Sep 2026 14:55:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lCz-0000000BMmz-3wtQ
+	id 1x9krT-0000000BJf6-0AQT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 14:55:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tqHYEXBU3cmKOfoVpEiW64CqFZ+s+N/UHPMQIjNktdw=; b=eTnVVdI6RV57C5LIbdECOi/Mu5
+	vBmFhOmsoyES019bEiuklUNQbJU6o9zeVlv4NNEw41K4ki2b21NDkbb6ZITiJhzsMcKz2Vc7DFj7T
+	5In5CpnkWs+IN1F1Ccx+NSunaywYB/AO/nWevajIPQUDlUUowE1u2G90HxLMa0AZuoUgjLl+wwcEi
+	Hi6+nIdL21vbsSf2XkP6jsyNFMWOtBPqy9fuIarss8wjazvm8kC3c3oH/hhjsl723OmYV57H2wvkd
+	tNsVy0woxOnwpjF0LShrGhh47r2TuwEaKZatHfxAaMkuyrg883+8rA1ljyoNUD4TqlOe0CMb8Qn88
+	InEwdi0Q==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9krP-0000000G6XH-3iZZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 15:18:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07E0D601DE;
-	Thu, 24 Sep 2026 15:18:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8046A1F000FF;
-	Thu, 24 Sep 2026 15:18:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790263080;
-	bh=jmAptIvHqywkparkAJXS/X7IeXr9c/AeAy6RqWrrvUs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cdulPwzd7jLXujpWA6xkurhmXp530xNSTW0b4ozNRsvbS8lc9Hg6AJYZ3CLrnCpoA
-	 AgYI8zKTjeh0XbekQ8PpGahLG/qAdbFprLenvsPzEcE3b+RRQqFbLl4L3+/SZWpBNd
-	 RsQsJWq5MOr1pVU7Ur9PGdeZt46y+vFXt6nAwpLry2CzXbQ9V59d+OEKKh0qSXm/Lc
-	 AQenRp72jTYJCjjG8ACdf4vrUNVT3glLQasLf+oJnKxRLWqYxc3qKCLoN8geFjBwwg
-	 GR1NQeaaRTfEXuFNQDA83AGAFjMBZkqoO9Yk4YLmmKrJdyeJAHW1BMA7GSP8boL9bO
-	 8IWUvM7CEjmBw==
-Date: Thu, 24 Sep 2026 10:17:58 -0500
-From: Rob Herring <robh@kernel.org>
-To: Mikhail Kalashnikov <iuncuim@gmail.com>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Juan Manuel =?iso-8859-1?Q?L=F3pez?= Carrillo <juanmanuellopezcarrillo@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v6 1/5] dt-bindings: thermal: sun8i: Add A523 THS0/1
- controllers
-Message-ID: <20260924151758.GA75925-robh@kernel.org>
-References: <20260913145527.18148-1-iuncuim@gmail.com>
- <20260913145527.18148-2-iuncuim@gmail.com>
+	Thu, 24 Sep 2026 14:55:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A645143D;
+	Thu, 24 Sep 2026 07:55:36 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 901AE3F86C;
+	Thu, 24 Sep 2026 07:55:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790261739; bh=dGigSJ9bfvrCJTJezA64ql8bioG3tCAfNENgeTrxU1Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E8wY485nFSqGU6S68M3V7c2yBFx/I6meN/gefaMYakGsj8ECSU4oXwejSsWS8ZLOM
+	 5/tTS/L8YHroe8ZcG3B/Gtd5eGBLKQQYt6H8oyPmZpXEp7RK5DcIaNo3mhhL9SBYqM
+	 EDD/mT6Qjdv6uCpo4PxSSlWvXQYf89EJsF7zglcQ=
+Date: Thu, 24 Sep 2026 15:55:32 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	suzuki.poulose@arm.com, James.Morse@arm.com, xuewen.yan94@gmail.com,
+	seanwang1@lenovo.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: errata: Add Cortex-A725 erratum 3821522 workaround
+Message-ID: <arU55PEnc7Gjy830@arm.com>
+References: <20260908104800.3744507-1-beata.michalska@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260913145527.18148-2-iuncuim@gmail.com>
+In-Reply-To: <20260908104800.3744507-1-beata.michalska@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_155544_148963_4BBB4EF8 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +84,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 13, 2026 at 10:55:23PM +0800, Mikhail Kalashnikov wrote:
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> 
-> Add dt-bindings description of the thermal sensors in the A523 processor.
-> 
-> The calibration data for both thermal controllers (THS0, THS1) is split
-> across two nvmem cells at different offsets, requiring the two cells
-> to be read and merged. To maintain backward compatibility, the name of
-> the old cell remains "calibration" and the new cell is named
-> "calibration-second-part".
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> ---
->  .../thermal/allwinner,sun8i-a83t-ths.yaml     | 34 +++++++++++++++++--
->  1 file changed, 31 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> index 3e61689f6..792081af5 100644
-> --- a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> @@ -24,6 +24,8 @@ properties:
->        - allwinner,sun50i-h5-ths
->        - allwinner,sun50i-h6-ths
->        - allwinner,sun50i-h616-ths
-> +      - allwinner,sun55i-a523-ths0
-> +      - allwinner,sun55i-a523-ths1
+Hi Beata,
 
-Why the 2 compatibles? What's the difference between them?
+On Tue, Sep 08, 2026 at 12:47:08PM +0200, Beata Michalska wrote:
+> diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+> index b9eaf4ad70850..93f33ee078638 100644
+> --- a/arch/arm64/include/asm/topology.h
+> +++ b/arch/arm64/include/asm/topology.h
+> @@ -17,6 +17,12 @@ int pcibus_to_node(struct pci_bus *bus);
+>  
+>  #include <linux/arch_topology.h>
+>  
+> +static inline bool this_cpu_has_broken_amu_constcnt(void)
+> +{
+> +	return this_cpu_has_cap(ARM64_WORKAROUND_2457168) ||
+> +	       this_cpu_has_cap(ARM64_WORKAROUND_3821522);
+> +}
 
-Surely this has been asked already, but nothing *in this patch* answers 
-it.
+Instead of this, please add ARM64_WORKAROUND_BROKEN_AMU_CONSTCNT and set
+it in the .capability field of a multi-cap entry. We do the same with
+ARM64_WORKAROUND_REPEAT_TLBI_SYNC.
 
-Rob
-
+-- 
+Catalin
 
