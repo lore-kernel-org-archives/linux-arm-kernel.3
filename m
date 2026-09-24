@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1C7C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E436DC98311
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mz1zAfbdgLMlTpPSTC2s+r3ackw98q6OqF4ufc8tI0=; b=O3lZXBlr0jffKNsBvSHgDckvWS
-	pfp96ZID8jdnL5HXz4W806XjXqROqC7f+VUC6aHf3fntQF3w0wBEMiovbFbDGXOhgCuaFIC9Gr1kN
-	AsRZEG2aOVGwZLLG0cyphr3Uz1K4fGtTQ4XCNkzCPYEtDZ0NrwEPPGyXiWX78cEffbY2zWBpBcbdT
-	ipCg2AIUBjAAxFTuaU73ecXgKIeQHeIZeLKE79LpBOm+DWOLIiFbtFGpmkFOZiWOh0zwuozcYESbB
-	ZSo6tCtNjrFarVicMYo5DG2of5X9QboAWfEke9mQIV0Pp1Wau2Dc7JRlta7EdD/AuvqYCesxrQmlT
-	01YmVYgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IeR1vDPtih33Fa7un8hEPMR446WxI01b5bs5nOScpr4=; b=fWBSVK9uxxS7fLXtThQXhRrWkS
+	vhsmC6OZsoeiOnGVXoPBewYqaiVw/dK29/Z48W5QyeIiC6Fg9a8p+/Stqp9jEnzJ1dyK2iFqmdDCu
+	kWwCMuaRj9n3gJRpwWxeqS1xHH7b1diJbTksd/a7tE6gaNI5Iemb2HLukSnWCwB9HWOdjGFJgNJjC
+	u1QkY1CLqchHfEiWinB47WjPcxnc5Am8nS7xyt6KhaenToTtK4ZJWN3si+VpxT80vk5wDXJjhe0yR
+	gCrk+eSNoAXOG68S0r+03uqUtdywJqYITibQd+d57uBy45A3BmnIMDIL5EhcxAfQtu3suVGNkZede
+	w2uBi0Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fJV-0000000AWnG-0s4H;
-	Thu, 24 Sep 2026 09:00:21 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x9fMi-0000000AXAy-27HB;
+	Thu, 24 Sep 2026 09:03:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fJS-0000000AWmE-4C7p
+	id 1x9fMg-0000000AXAj-1qW0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 09:03:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IeR1vDPtih33Fa7un8hEPMR446WxI01b5bs5nOScpr4=; b=NfHziHkuAJAH8gGatjBUU4Frbw
+	TeFqbfARXk6j2wAjv0AEalWbZAeW6RrIqRsjO+CYsAxcJx86TkKEkkyoIvJ28lfW+HQJblbk8jurl
+	dIGWF8h2Jlnm3gRNDkObA9hBwSocdaWiyot2uREf6J64DvcAS5V/AwMZ6lbFAM0M1Owpv+zRP9BhK
+	CMOO6Vp63erqNiu4VAR7XnLdHgFRCi59aDDnKOkvzNW9MsOkbtejILxQrf72/GUvmANu4an3jD10+
+	8nYI5rvK/x2eQOVohUfzOT37DTBiVD1+QU+5ff2xsIOleGYsnyxKvzrN/J9wg4uJLj1tp17yh2Dbs
+	S5HutEpw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9fMW-0000000FlYw-3UzK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 09:00:20 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-484366874b0so1131932f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 02:00:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1790240416; x=1790845216; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3mz1zAfbdgLMlTpPSTC2s+r3ackw98q6OqF4ufc8tI0=;
-        b=V2VYQDcftJoSQ7usI1R+truXoS88wUlijMr2bGdIBdCxK07f12CDbFFERlQQ9NLzEg
-         Xj7TLgq+cF+O2n5Ej3sI9A7vwA4N9/sHBF4KX/GyRQY6l8d3pTjME2MEm4V6/6dQ2VgA
-         p1RLqHiKeAtKp0fy5xumVTeg/V0+LHG4vcWI14bhP0QBRep8Y3gm+GMLOABL4XUMyJlJ
-         OAuqkVUNbGBl7D1ihs6cbLBz1Dhgsbx+jKO93ofN0oqggdqH4xbRqUfGub2Rbm2ZCJev
-         PvlvX8m09SdeD3JL4ynph+aYxwcSnxMaVOJcpUF0FfpJ6aYT5UKwvArW0+dnjRdd1Www
-         xBKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790240416; x=1790845216;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3mz1zAfbdgLMlTpPSTC2s+r3ackw98q6OqF4ufc8tI0=;
-        b=tygb7/516MKFTSbUFLrhSl1iU1CJG+ezutze/EpWOl3Qak1GLtJxUve4i7K0FvpDPe
-         BPVEFtKTajU5tBQHc5EW9K/sHsHOFoRNS410ywqUOKAJTmCo+SlrBtqxPHIsMH0rxmNq
-         2HU7Ynufx86UX6rRJe/jjqKd6M8r/hdwXR8MIIfpjX34vN8/UxALhuRespExtfX1LD5H
-         ndAY7tmIpkvwbpnO5I4C47weIWr4ijKZK+njgaVn5IAgDq4k3e1zmQxS4z4k7agMQ9cF
-         5oicnD9JIPC3zpcxgYjt+FYFJe6xVGxIzYDjrueegkPcWF/weimCYOo9mAKFntgGStpd
-         yMEA==
-X-Forwarded-Encrypted: i=1; AKwUvBwJnRPd/6iyensnpo1kxL+rMIfsYhxUXlyrhOrybllZOg6rlpPni31VLiav2VDn5UNoeu7Gri0BbggAgEzraKII@lists.infradead.org
-X-Gm-Message-State: AFuF++kDLOsFoGyTKXcvFuBhfMMSzYvUxdvhBIYJAiLZxOog5AvDBFtj
-	tFtbLIRQO0WD3r6iqljc4Qr3SqsnKCcW9jMXonKNDVwFUKO2+6N92vNp+9ZOnQt4u0s=
-X-Gm-Gg: AYBFou1j4a2yFXH8bT2K4V45tZrzXp24ktUaCU9NEVu22mwsl92Oo+2yCzSakPCSWXO
-	NetSYcKQmsFe35OgzYz1zYNARAngVWONq/8RMUY7kNvKTLajRLpUeqrkuse3/lDn9JvxMqUir5H
-	1F06k1Ebo796sRmqolP9cJj0KxZisNfoTt/44Br7fc/M6mt0nljMAZIlfOMACyp1lPbwv5/wLO1
-	yDSDx5TMGg4n1kIniu9vymrSm9Q/qPuCaBi84N4NHsykSt+9klRFyJloX3FvD2fQCiLww7LUz1O
-	4wJg0kkrhszK7ZRHH1W5t5C+fPcHLQulzXhOvmE6ABrxOwN/I6ORAqDfLom+Z6P0aRtXpX8HpJv
-	g15467OWWVD+FwIv/LjvDvjTdt8ARNtQ7GtG9RdFHAhoMValJmqGj8pKNyKNH6nP0JZNTUzq1nT
-	jSwRGRNbO26IoAJVVWX+ziYQc3bXLomqTSwANkwouugC3UiGzEQGTVuwzN+pcfbND67v4KScM=
-X-Received: by 2002:a05:6000:40e1:b0:487:62d:37d9 with SMTP id ffacd0b85a97d-488716a5e3amr2905347f8f.27.1790240415781;
-        Thu, 24 Sep 2026 02:00:15 -0700 (PDT)
-Received: from localhost ([195.94.147.179])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-488682676c7sm12445415f8f.3.2026.09.24.02.00.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 02:00:15 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 24 Sep 2026 11:03:56 +0200
-To: Marc Zyngier <maz@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: smp: Signal EOI after handling IPI_CPU_STOP*
-Message-ID: <arTnfHPBf2qLDLOT@apocalypse>
-References: <20260922140109.12780-1-andrea.porta@suse.com>
- <arPzNkDD69ZKFT99@willie-the-truck>
- <86se2z4yje.wl-maz@kernel.org>
+	Thu, 24 Sep 2026 09:03:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E00B1477;
+	Thu, 24 Sep 2026 02:03:22 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 001373F86F;
+	Thu, 24 Sep 2026 02:03:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790240605; bh=ZTd7/55gRcUyEBH8+zHp7ksV9kCfaAQyCbscIOmUjFY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=f7SKZyq7qgwPA53Ie3/Pvf9BidRruW0yV3SKJinELV3Q/8S0Tk2KPQV2GXk7hwzUq
+	 D6kW+MlBhtQNItXi1NVHVQ7s510bftzrLoq8swCfhtmvO1e3JuMfZ8LfdwGTFb9wip
+	 PGVgyu1MBRxYWPm4UvCWsKC3vxyIT5f2Mk/ojNkE=
+Message-ID: <8871e921-f66c-475b-a489-560028eb2200@arm.com>
+Date: Thu, 24 Sep 2026 11:03:22 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86se2z4yje.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/11] dt-bindings: clock: add Allwinner B288 CCU
+To: Pablo Mazzini <pmazzini@gmail.com>, Brian Masney
+ <bmasney+clk@redhat.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard
+ <mripard@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Stephen Boyd <sboyd@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-sunxi@lists.linux.dev
+References: <20260923201701.43391-1-pmazzini@gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260923201701.43391-1-pmazzini@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_020019_088856_D1A66BF4 
-X-CRM114-Status: GOOD (  53.72  )
+X-CRM114-CacheID: sfid-20260924_100329_402171_0C003138 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,146 +93,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will and Marc,
+Hi Pablo,
 
-On 19:23 Wed 23 Sep     , Marc Zyngier wrote:
-> On Wed, 23 Sep 2026 16:41:42 +0100,
-> Will Deacon <will@kernel.org> wrote:
-> > 
-> > [+Marc]
-> > 
-> > On Tue, Sep 22, 2026 at 04:01:09PM +0200, Andrea della Porta wrote:
-> > > On kdump/kexec, the boot CPU triggers an IPI_CPU_STOP (and subsequently
-> > > an IPI_CPU_STOP_NMI if the first one does not respond) to the secondary
-> > > CPUs, and the IPI handler eventually calls the firmware to shut down
-> > > each CPU. Since the IPI is never acknowledged via EOI, the interrupt
-> > > remains in an active state when the CPU goes idle.
-> > > 
-> > > In a virtualized environment, if the hypervisor does not reset the
-> > > interrupt state, this causes the crashkernel (with cmdline option
-> > > maxcpus > 1) to be unable to synchronize between the boot CPU and
-> > > secondary CPUs via IPI_CALL_FUNC, leading the kernel to wait indefinitely
-> > > for the CPUs to respond. This has been observed with the Hyper-V
-> > > implementation.
-> > 
-> > Hmm, how is this different from panic()ing inside an interrupt
-> > handler?
+many thanks for sending this series, on a first glance this looks pretty 
+good.
+As a general comment: please add a cover letter (git format-patch ... 
+--cover-letter, then edit the generated file), and explain a bit about 
+the background of this work. This would be a good place to briefly 
+describe what the B288 is, how it's related to other SoCs, how you came 
+to all this information, the firmware story, and the existing 
+limitations of this port.
 
-It is not, in fact I should have put the EOI in all cases, but I just
-focused on the crash driver by IPI only. The patch should be extended
-but from the following discussion it does not seem relevant anymore.
+One problem in general is the lack of access to a manual, I am not even 
+sure we ever upstreamed SoC support without one. Especially the clock 
+driver is quite tricky, we would love to compare the clock descriptions 
+against some documentation.
 
+On 9/23/26 22:16, Pablo Mazzini wrote:
+> The B288 (sun8iw10p1) is a dual Cortex-A7 SoC used in e-book readers.
 > 
-> Also, what is the architectural requirement for the hypervisor to do
-> *anything* on the state of the interrupts? This doesn't happen on HW,
-> and there is no reason to impose this on a hypervisor either.
+> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
+> ---
+>   .../clock/allwinner,sun8i-b288-ccu.yaml       | 55 ++++++++++++
+>   include/dt-bindings/clock/sun8i-b288-ccu.h    | 90 +++++++++++++++++++
+>   include/dt-bindings/reset/sun8i-b288-ccu.h    | 45 ++++++++++
+>   3 files changed, 190 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml
+>   create mode 100644 include/dt-bindings/clock/sun8i-b288-ccu.h
+>   create mode 100644 include/dt-bindings/reset/sun8i-b288-ccu.h
 > 
-> The expectations are that the guest kernel should reset the interrupt
-> state on boot, and it feels that this is missing somehow, see below.
+> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml
+> new file mode 100644
+> index 000000000000..22b59d5b652c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun8i-b288-ccu.yaml
+> @@ -0,0 +1,55 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/allwinner,sun8i-b288-ccu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner B288 Clock Control Unit
+> +
+> +maintainers:
+> +  - Chen-Yu Tsai <wens@csie.org>
+> +  - Maxime Ripard <mripard@kernel.org>
 
-Ack.
+I am afraid you cannot push off the responsibility to other people, 
+especially I think Maxime wouldn't be really interested any more ;-)
 
-> 
-> > 
-> > > Both the Linux kernel and the Hyper-V firmware appear to violate the
-> > > PSCI specification:
-> > > 
-> > > - The PSCI spec states that the OS kernel must migrate any interrupt away
-> > > from the CPU that is about to be shut down via CPU_OFF, which by extension
-> > > implies that no active interrupts are allowed. The kernel does not
-> > > currently do this in the kdump crash path.
-> 
-> No. This is strictly about affinity, nothing else. It is there so that
-> global devices can continue to have their interrupts handled. This
-> evidently can't affect CPU-local interrupts.
+Actually, why do you need a separate binding? Wouldn't it be enough to 
+just add the compatible string to the existing 
+allwinner,sun4i-a10-ccu.yaml file? This one here looks like a subset of 
+this, and would blend in there easily.
 
-Noted.
+Cheers,
+Andre
 
-> 
-> > > 
-> > > - The PSCI spec also states that the PSCI firmware must reset the CPU
-> > > registers to their default values when turning on a CPU via the CPU_ON
-> > > command.
-> 
-> CPU registers. Not external peripherals such as the GIC.
+> +
+> +properties:
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +  compatible:
+> +    const: allwinner,sun8i-b288-ccu
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: High Frequency Oscillator
+> +      - description: Low Frequency Oscillator
+> +
+> +  clock-names:
+> +    items:
+> +      - const: hosc
+> +      - const: losc
+> +
+> +required:
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    ccu: clock-controller@1c20000 {
+> +        compatible = "allwinner,sun8i-b288-ccu";
+> +        reg = <0x01c20000 0x400>;
+> +        clocks = <&osc24M>, <&osc32k>;
+> +        clock-names = "hosc", "losc";
+> +        #clock-cells = <1>;
+> +        #reset-cells = <1>;
+> +    };
+> diff --git a/include/dt-bindings/clock/sun8i-b288-ccu.h b/include/dt-bindings/clock/sun8i-b288-ccu.h
+> new file mode 100644
+> index 000000000000..3dc1704d001e
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/sun8i-b288-ccu.h
+> @@ -0,0 +1,90 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +#ifndef _DT_BINDINGS_CLK_SUN8I_B288_H_
+> +#define _DT_BINDINGS_CLK_SUN8I_B288_H_
+> +
+> +#define CLK_PLL_CPUX	0
+> +#define CLK_PLL_AUDIO_BASE	1
+> +#define CLK_PLL_VIDEO0	2
+> +#define CLK_PLL_DDR0	3
+> +#define CLK_PLL_PERIPH0	4
+> +#define CLK_PLL_VIDEO1	5
+> +#define CLK_PLL_24M	6
+> +#define CLK_PLL_PERIPH1	7
+> +#define CLK_PLL_DE	8
+> +#define CLK_PLL_DDR1	9
+> +
+> +#define CLK_PLL_PERIPH0_2X	10
+> +#define CLK_PLL_PERIPH1_2X	11
+> +#define CLK_CPUX	12
+> +#define CLK_AXI	13
+> +#define CLK_CPUAPB	14
+> +#define CLK_AHB1	15
+> +#define CLK_APB1	16
+> +#define CLK_APB2	17
+> +
+> +#define CLK_NAND	18
+> +#define CLK_MMC0	19
+> +#define CLK_MMC1	20
+> +#define CLK_MMC2	21
+> +#define CLK_MMC3	22
+> +#define CLK_SPI0	23
+> +#define CLK_SPI1	24
+> +#define CLK_SPI2	25
+> +#define CLK_DRAM	26
+> +#define CLK_DE	27
+> +#define CLK_EE	28
+> +#define CLK_EDMA	29
+> +#define CLK_TCON0	30
+> +#define CLK_MBUS	31
+> +
+> +#define CLK_BUS_THS	32
+> +#define CLK_BUS_NAND	33
+> +#define CLK_BUS_SDMMC0_BUS	34
+> +#define CLK_BUS_SDMMC1_BUS	35
+> +#define CLK_BUS_SDMMC2_BUS	36
+> +#define CLK_BUS_SDMMC3_BUS	37
+> +#define CLK_BUS_SPI0	38
+> +#define CLK_BUS_SPI1	39
+> +#define CLK_BUS_SPI2	40
+> +#define CLK_BUS_I2S0	41
+> +#define CLK_BUS_I2S1	42
+> +#define CLK_BUS_SPDIF	43
+> +#define CLK_BUS_DSD	44
+> +#define CLK_BUS_DMIC	45
+> +#define CLK_BUS_USBOHCI0	46
+> +#define CLK_BUS_USBEHCI0	47
+> +#define CLK_BUS_USBOTG	48
+> +#define CLK_BUS_DE	49
+> +#define CLK_BUS_EE	50
+> +#define CLK_BUS_TCON0	51
+> +#define CLK_BUS_CSI_S	52
+> +#define CLK_BUS_CSI_M	53
+> +#define CLK_BUS_CSI_MISC	54
+> +#define CLK_BUS_ADDA	55
+> +#define CLK_BUS_SDRAM	56
+> +#define CLK_BUS_PSRAM	57
+> +#define CLK_BUS_DMA	58
+> +#define CLK_BUS_UART0	59
+> +#define CLK_BUS_UART1	60
+> +#define CLK_BUS_UART2	61
+> +#define CLK_BUS_UART3	62
+> +#define CLK_BUS_UART4	63
+> +#define CLK_BUS_UART5	64
+> +#define CLK_BUS_TWI0	65
+> +#define CLK_BUS_TWI1	66
+> +#define CLK_BUS_TWI2	67
+> +#define CLK_BUS_PIO	68
+> +#define CLK_BUS_GPADC	69
+> +#define CLK_BUS_KEYADC	70
+> +
+> +/*
+> + * mmc0 and mmc1 are v4p1x controllers driven in the old timing mode, which
+> + * needs the sample and output phase clocks. mmc2 and mmc3 are newer blocks
+> + * that do their own delay calibration and have none.
+> + */
+> +#define CLK_MMC0_SAMPLE	71
+> +#define CLK_MMC0_OUTPUT	72
+> +#define CLK_MMC1_SAMPLE	73
+> +#define CLK_MMC1_OUTPUT	74
+> +
+> +#endif
+> diff --git a/include/dt-bindings/reset/sun8i-b288-ccu.h b/include/dt-bindings/reset/sun8i-b288-ccu.h
+> new file mode 100644
+> index 000000000000..675145654548
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/sun8i-b288-ccu.h
+> @@ -0,0 +1,45 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +#ifndef _DT_BINDINGS_RST_SUN8I_B288_H_
+> +#define _DT_BINDINGS_RST_SUN8I_B288_H_
+> +
+> +#define RST_BUS_THS	0
+> +#define RST_BUS_NAND	1
+> +#define RST_BUS_MMC0	2
+> +#define RST_BUS_MMC1	3
+> +#define RST_BUS_MMC2	4
+> +#define RST_BUS_MMC3	5
+> +#define RST_BUS_SPI0	6
+> +#define RST_BUS_SPI1	7
+> +#define RST_BUS_SPI2	8
+> +#define RST_BUS_I2S0	9
+> +#define RST_BUS_I2S1	10
+> +#define RST_BUS_SPDIF	11
+> +#define RST_BUS_DSD	12
+> +#define RST_BUS_DMIC	13
+> +#define RST_USBPHY0	14
+> +#define RST_BUS_OHCI0	15
+> +#define RST_BUS_EHCI0	16
+> +#define RST_BUS_OTG	17
+> +#define RST_BUS_DE	18
+> +#define RST_BUS_EE	19
+> +#define RST_BUS_TCON0	20
+> +#define RST_BUS_CSI	21
+> +#define RST_BUS_ADDA	22
+> +#define RST_BUS_WLAN	23
+> +#define RST_MBUS	24
+> +#define RST_BUS_DRAM	25
+> +#define RST_BUS_PSRAM	26
+> +#define RST_BUS_DMA	27
+> +#define RST_BUS_UART0	28
+> +#define RST_BUS_UART1	29
+> +#define RST_BUS_UART2	30
+> +#define RST_BUS_UART3	31
+> +#define RST_BUS_UART4	32
+> +#define RST_BUS_UART5	33
+> +#define RST_BUS_I2C0	34
+> +#define RST_BUS_I2C1	35
+> +#define RST_BUS_I2C2	36
+> +#define RST_BUS_GPADC	37
+> +#define RST_BUS_KEYADC	38
+> +
+> +#endif
 
-True. Those are distributor related.
-
-> 
-> > > 
-> > > Fixing this on the kernel side has the advantage of being
-> > > hypervisor-agnostic.
-> > > 
-> > > Signal EOI at the end of the crash handler to prevent the subsequent
-> > > crashkernel from hanging.
-> > > 
-> > > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > > ---
-> > >  arch/arm64/kernel/smp.c | 22 ++++++++++++++++++++++
-> > >  1 file changed, 22 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> > > index a61dc3016a117..cc7f3261fe537 100644
-> > > --- a/arch/arm64/kernel/smp.c
-> > > +++ b/arch/arm64/kernel/smp.c
-> > > @@ -988,6 +988,27 @@ void kgdb_roundup_cpus(void)
-> > >  }
-> > >  #endif
-> > >  
-> > > +static void ipi_eoi(int ipinr)
-> > > +{
-> > > +	unsigned int cpu = smp_processor_id();
-> > > +	struct irq_desc *desc;
-> > > +	struct irq_chip *chip;
-> > > +	struct irq_data *d;
-> > > +
-> > > +	if (ipinr >= MAX_IPI)
-> > > +		return;
-> > > +
-> > > +	desc = get_ipi_desc(cpu, ipinr);
-> > > +
-> > > +	if (desc) {
-> > > +		chip = irq_desc_get_chip(desc);
-> > > +		d = irq_desc_get_irq_data(desc);
-> > > +
-> > > +		if (chip && chip->irq_eoi)
-> > > +			chip->irq_eoi(d);
-> > > +	}
-> > > +}
-> > 
-> > Doesn't this hard-code the flow handler for the irqchip? It feels like it
-> > would be better for the GIC driver to get a callback during the kexec
-> > sequence (if it doesn't already) to prepare itself.
-> 
-> Yeah, that's not an acceptable approach.
-
-We're in a non returning handler which is about to shutdown the CPU in a few
-instructions, so I'm not sure how to callback into the GIC driver.
-
-> 
-> The other observation is that the GIC drivers already clear the active
-> state at boot time (gic_cpu_init()). So what isn't that working?
-> 
-> Could it be that the hypervisor doesn't correctly handle the writes to
-> GICR_ICACTIVER0 to nuke the active state? Because this works correctly
-> on KVM as is.
-
-That's what I suppose, but obviously I have no access to the implementation
-so I canot add more. This is currently under investigation by the folks who
-can, though...
-
-So the bottom line is that we need to wait for a patch from the hypervisor 
-vendor (and from any vendor that *could* suffer from the same issue), I guess?
-
-Many thanks,
-Andrea
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
 
