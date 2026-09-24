@@ -4,136 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A37C98310
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ECBC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=02HH54Jxdo6SkdM8L/jhPn3pO4rb1Ubx2oZIP7unn84=; b=atjUHe0xPrVYovYf1PsMVpaZ4M
-	lp6trdXX1HbHJsZMBV0Kbd5Pmoks0U34aHdcPSVNMwnanoq1a/7KvML0X73q8BJwfCt4xvaEDf64S
-	29EGJ3vHMC4E+kOjm1fLDXDzYGsgdFuaC4mbuin/Yt18/Lty2pFC4TnplfnzFJI3rpaitFyahlAc3
-	0BVO6gni8GYgAWOhqoGu3n7+z8kh6bB6WrH6NMRHaN5Ja7Djk/TTQTYGwwq7Gc03FRhBwxC+ocAuM
-	ttk7RhtN7DztnewQxS94xPz0EX2ujpexGJq4XRl9bPF95jpSOtzDyabzRlJN/BFxfeeXJ1UE536zz
-	Kj9Kt/4g==;
+	bh=kyyRmgf6luKwbmyb+3rxCwVLP5ATZrWI7rTwLer+jmg=; b=tKwRfT40KFq2k1wNo9nMAxwd0y
+	LYpOz7DIEoVTBNFO3jeO+i986iE7xJmimczpR7BJmDY6S5CMCIgpw+wzsBIJZsxdtsil8+SZf3S0Z
+	RAVbA+XypmHICYluaiqECk9a1xom9kKa7xZIuPGHxIa2NQrZy7GPCYJ5CvLk71wFFM4MOTBl+Wy2T
+	1wgEt6wdsgwxBBfYZ5ovKqICkfpr4yrhdQSkMbgbeTVBbdLLWXhYA3Yh3Cyzq9mhxxKQVtS5MOLJk
+	HofDhtL8rdNpjkF9p1Aoi06YxZKkti8iP/zhMkpK/UG+01JlSF+EEGmkaMdavxQniQ9GIOcP/nQbI
+	qsvMkBLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ewz-0000000AS27-3pIA;
-	Thu, 24 Sep 2026 08:37:05 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x9exX-0000000ASCx-1M8G;
+	Thu, 24 Sep 2026 08:37:39 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ewx-0000000AS0U-32w3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 08:37:04 +0000
+	id 1x9exU-0000000ASBH-0f13;
+	Thu, 24 Sep 2026 08:37:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P15TEeEXA1hj3kZnjzdEWjCZHG4rzghpEVzTGY3mTVVbK2ONto1f6xtQT1pZhtbwsPQT7SM1NDv+v7MQSx7h0t025SHzbNsZTJUUvLiaS/WivyqPREiPoM33ZI3mSZUMXMTwzkwWKP9Tg6Fr6wSFlspisXwedZPYN+GXe4DM7sOP9BrRmCk0k1iias7C1g65dqMUqAVHLbV2mSQgkkq9BEIk3WyV4Jp5Aw73tsnAesmdva9RGZ0KKMX5hGLvsQF3eZ0mmg3mPtPt8Nw5zlmATh7I72nmncUWxtVeva3slXBnFLgvkUM3P9+yieDmHsjjKMjA7/dgprAHVQHvjkh9UA==
+ b=mvauH6yO2XddD9MvE3LNp0rwqxSPgUi3vsag2rwQbg1B94YMVLlh/NtZYxcCSWV939IkMzzF5SN3DDnK1/6KnQ4LZZ6RGiSw9gz+8ucx/7CKkFPtkciATzHcyawJmnOe8FgyqRB0UbxLH2uyid6+a0N9imks5tzkbLYWHlEpCOu20SFrY0rbJ83ynu/bu5v81ZLET5i7jv4S7w/87VjSES4FIriDJruXyW0zFjR6tCFX9HEMQtJNbhLDWtFELBfmM7auBlHxkKb3FpYTXzSowgW39lGDAn9fwMzmGFErFCctcx2cD1E8DHoNFBsg61hjkvA169xy1n1RA8AqKSb2sQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=02HH54Jxdo6SkdM8L/jhPn3pO4rb1Ubx2oZIP7unn84=;
- b=pkccV1BcriNNonGc4B1nAbEWYy3MTI664eBlr1WapgINgdDQLy9xL5ZVS6bgfRwtapKH/gnAVbJDvZfRSTnDi6rfTxkNm8l+ho87qymzLVf5xH1k+IdLi/OAoC2uEOZfQnPnaZC4gP9ujOdk/xrC62GbAzuXYNXryrbjY175lEfO87o7HloXZ3AVMY+J23fREymKgpuCg84WEVkevStK/eAsjKfx/DmJY39V3VsXbyirDzxejd/Ve4O1sdEcC/wCthd29MI3/1CL0nLA9HPghcfe9JJSUEVXVYCulG8kzsp0tT6uSGW3n0RJY7/1mzvwuYVHDHW5MnceyxvHIdCBhw==
+ bh=kyyRmgf6luKwbmyb+3rxCwVLP5ATZrWI7rTwLer+jmg=;
+ b=l11bCwrZS44OnljGMl/eNLr5nK+0e6IJVEFY+7mV1yc6DbeG+Z+kBbOnHWERhks4AzCb0l1UNquoOfpLSW3+1cj0Cx7QSbByHuO26mXoP4moZ/VWLuSjKmP9V7H6wbglRRzrqe2jnJHUkbnwBHs3AyeEKcZiIhtBsraGEB8+aSQfBEeFuyquAzibwUOTQJm0g/DPohJ2L4GV0i91YFsBJfuIDBAtK9lMxHWEL4OkZPzIljpGGIVVGq+IAjSwXYASqp5wItEikXd923wAjLKzSBPt1hcdNrKDI/B2WTY7EcReSk0Mq/DgHgOMgaaQX8gBQfRt0D5vMkjUfj8qsMntkQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=02HH54Jxdo6SkdM8L/jhPn3pO4rb1Ubx2oZIP7unn84=;
- b=m45AY3lgi513c2+qOgFAtKZR+OEGdLyTQkKapt+KymeCW9SoEf3zzQjoO+dH/AwXZ2lvpA0wOVYrihgDVVbWRs1j/1Z7mlRxKEwVpjsrf0z3cI92b/bcIuUqnETp/TPNvNN75bUfeiPQBe7Unk6Z2lVeEpuLnv9SPUEHhAbNQGd+o70CTR1tNyN8BXMpIbBi2kMeCYjIkpkYRenUfTA70ynDdJlLQUjwnmQ0JCIcRuyugUG34aOvxaRLc0D43pJQQ2y4/6n2a7twrQqwTfB+M6XfyHm4GTR2s6dw/Ug19ls0979Dk7Wp2lIm+CNJ8fl5AuIXJUf1zlvBgEY+mDbQ8w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ bh=kyyRmgf6luKwbmyb+3rxCwVLP5ATZrWI7rTwLer+jmg=;
+ b=Suq7ndvWkuISeQbbrkj4r+QqZ3YAIpX2MUosfg03zV1kSmb60mGQr3pcHNdeTzM07+L9gKjcZ7/VyVN2MpSR2JVGp9+mg6l+25PjUziGJF+6bJ5nX395xXY71Moid4KZWxEezBcQtU1OS4L7/XbAlVBzgBFbQNuPqSqRDbGJQ1KGn5R3VZeyAXhSYE5Reqj1YQOSsZDTffTPNhwcC/cJP6WhSTIGaIBZudrrecCmBD8spMNpPrjVY5oFxaOrP6Xr0WjOD4AAW1kIwGrmgCRPGeZXPcP5Ia/YAUAN6xKi7al3naRSbvRQqPzMEgSOVAU9v+5kUr+PMsl/HvjRWlo2SA==
+Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DU4PR04MB11339.eurprd04.prod.outlook.com (2603:10a6:10:5ef::10) with
+ by DB9PR04MB9937.eurprd04.prod.outlook.com (2603:10a6:10:4ec::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 08:36:58 +0000
+ 2026 08:37:31 +0000
 Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
  ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
  ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 08:36:58 +0000
+ 08:37:31 +0000
 From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-kernel@vger.kernel.org,
 	Peng Fan <peng.fan@nxp.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH] PCI: dwc: imx6: use regmap_assign_bits() for conditional set/clear
-Date: Thu, 24 Sep 2026 16:34:28 +0800
-Message-ID: <20260924083429.461746-1-peng.fan@oss.nxp.com>
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] drm/mediatek: hdmi: use regmap_assign_bits() for conditional set/clear
+Date: Thu, 24 Sep 2026 16:34:56 +0800
+Message-ID: <20260924083456.461815-1-peng.fan@oss.nxp.com>
 X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0014.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::9) To AM8PR04MB7874.eurprd04.prod.outlook.com
+X-ClientProxiedBy: JH0PR04CA0001.apcprd04.prod.outlook.com
+ (2603:1096:990:4::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
  (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DU4PR04MB11339:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10ac0b56-9314-431e-8138-08df1a16ff5f
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DB9PR04MB9937:EE_
+X-MS-Office365-Filtering-Correlation-Id: 93ea4ed2-04e8-49bc-6972-08df1a1712d6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|19092799006|10067099003|56012099006|11063799006|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: oMTBOJXNsjASu3xZMDVmBeaaNagxMk/ffsLOquNKgRlALGoaf/xXWMXiOzPYBHQ7BMXlLpzIEZsMgSLsmS2H5cEQC9mkqDmurqNg5AmMkO3/3IQiq/n/P/IHtCG0frjBhzNx6OCaiPUtH8huDnpI8IXyxFHm24aO0YRItBdgGAheLOffo9STO566qWBheF2MIBBasy3jiPzd6qjn7TQgtZrruXZe5i8sFzoTsSwHxX5xEJG7955MbOoHlW/FtXa6Uid6oji4QhYhe+OK3dG4No4kNBU4wX+xMF/PF9aoCNhIeC1JRG1h+i6CMoXCz91OK6weTp07Btb7xLG70zsRm3KAOUy7SuqtRK6PXN8OlB2Whr7bTB1xv7vikdiPOPu0tqcp/ZO1rRq/6DMoMpUFptx+M9lKAfGeyzevHudI5sWABU5D1bMSPwQfbKlBS3MkihbRAA3AJRWZUaud78M+q+tQ5TnHKMbLhT7p5hKrHWKEKRS6oNyite+UpUhMvCcOryzwL6pD/BDFLx23rN1rQ+BP/ghs+Pufj65OmdmjArX8Aa69a5ReE6AetPAXN0cOCZopbVR0lo/0N2IIZOMwLUqRTimJkbcS2Yb29tRPlxKvj6L32ukcqK564bdc75gZcZ5kCiI1y3qDo1QAY4jXeWN66PVIaKLPsKJ5YoZdxixG/onhu1V9i5+ssTcBmipuOIS55X8AA/nVm1NlflMB1A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(19092799006)(10067099003)(56012099006)(11063799006)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|19092799006|10067099003|56012099006|3023799007|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: frmE4hGtpZl/IXdzK4l02FiN+HdBS/VJjkV3vEhtALVjD6PsQR+XmyjEam3a93ge4jrn8FYQA3CzfG8E7667+hNQygEYbA4N2QkpeOQZmdHkBQI+Ud6ugxmsrjKHZyu0PsiwuoPR0MGXVvsuPPsgH1qxmigrWITRyaSzkAllo5g9TkfUDQgETksbbh1Bh4TCaweEmovnpV4uSHoiKUSVc/sG9nad+WRde1CRovXCOYhu774hbVmsVjHuxp0dBQ/rPhIh7+vh9I1nblWa2Xu2ACfIfbe3yMnGU6IMHTNC+uai5j5/3LiOPPkCxOx1sPXoBqq9fIA7Wc5LrAeV78w6+ewQfFCWvUjK3jXKiKDPSO1/SZQD7V3Dp7AlDUNLq60skqLGtRWux2FN7mYStFJEemqzXC62rw0ip9GETVuNr6gKucfA/PAQFcfEvMn2mOiiUidz0pGbdknRDRrZ+NKkZMfQOcI+UyhAbcLPymtKNZtmez7WusrJqt0aWfoDN2GerMnSMAv5GSoZTPq9F4UGMmzf86VSIawI1qRROtR6JBLcAoT/Fo16CRBRi7tCw5zK1XsxfCnQnDdAUQC6k0aYV5qJPq52IC7Ajn3xuf+Putg7+QWSEZjZ67G4AXxwD+cNkubqWWuKH3A+JJSWHHspEmjMWJTn3QN+E7ztCvLOYbo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(19092799006)(10067099003)(56012099006)(3023799007)(11063799006)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F0byQGaIQJAWNmiEd5rkItje7aBVDrV8UunoZkF/t2QEPVHpF6pUyw4f1R29?=
- =?us-ascii?Q?T7880g7uv7Y7mcZG6dJ0XYaK+SVn7cAuk8IPriN7BJSzDiyNEJKR2alG6MzZ?=
- =?us-ascii?Q?iEG/2KHbnPLZ4D5M6UlocTEKm1b1dScpVwtELuUGpUHE7NFV8cHlgAtut/8O?=
- =?us-ascii?Q?fuXEj7QHRdV+FoQnFgcbltw55h4OfOMARP/przJfeJ4ePcq1OPwMCGsGtQSG?=
- =?us-ascii?Q?ws39z/IQFUvYM5tPEUfLpQXWsLAgNq/ju8LjL0wIeOqbtpbb1WIaz+YcqyKm?=
- =?us-ascii?Q?mhBtRI1DtgI89c4IZeVNbFQFbcABufzZI/gRgpSQxzGL88veqIQyB6Z1On/y?=
- =?us-ascii?Q?yXTJb26oeI06it6VcZmlBR03Na80EA5/AIU0IhbDf0WVcGPphkpT5MD23iCq?=
- =?us-ascii?Q?u03SsGNI7mimu9QFJ4vnT7kejudE0eZHP1JAiTLo6xpn6oXQHNa/Kljift9+?=
- =?us-ascii?Q?HbKuqV8NFFa8XZUDsl4JZq5UBPS1jZJVdiamqXrqVpK3NK0zNy5p+k9q9Wpr?=
- =?us-ascii?Q?AXC3WEfRuPnY/AiXe8jVznyIQ2pZdq4dWOL9080aIuzAz4eTn/P8gvpMbdsJ?=
- =?us-ascii?Q?Dtt4Tgw0pNpkF3WsMKzE6our8Yk4cIVBUblmmVGGW/BmwpPqQZiqZTeIRB4C?=
- =?us-ascii?Q?T7OHarzgvFjGU4g5pXIISpOneoG5zR5UZVih7i8Io2gr9qQ5ddWLpiPhwkay?=
- =?us-ascii?Q?F34sQ6UjKnPMSnln/DL/SXX7JnRukSD+Z4DSyqnmHcJTa/Yr7do4EqMPbnsE?=
- =?us-ascii?Q?mjbnWHWd0/FqdRFDbqCveR1J+JSLkoBFcBrEBJlue5mstsqT5q6tX4UJZIFH?=
- =?us-ascii?Q?3j5cG/lfexM2i/pvg/FdCBd7/vb41FFs/3JaV5ck2azb6JhBX1K2CmczLnql?=
- =?us-ascii?Q?Tw5GK9hfQNYQZUnZO0t87Ylc00qbPIaS14cUdgVTTX1jXWkhTY/PzcAcTjDG?=
- =?us-ascii?Q?TDFHPunU9kAr78Q0JdSOP84qi18+u3Czmg1loQ0JWTqmSuE1AcaoOC+InuVJ?=
- =?us-ascii?Q?xUkf65YNRyuQaQZ3GiSmFgSB8/0h1Qvr11yHgv50/74BC7V1SAyZ00+VH7gU?=
- =?us-ascii?Q?IBez5MDewOw8k13oFgueqi7kARKr656SGRzS8ytVFQ9Qu0oEFFEfNzhcst0+?=
- =?us-ascii?Q?SSpOQ0WhcJfMle0iinPgY9Xj0+F2zyWFwXV4J034pw1dn/vrT5s7hiwgb2x3?=
- =?us-ascii?Q?TFbex1M5i94Adql7Vzkf6NS1pITB0myMFjOnuuVRJgwUSCiJ6NdmVr5yzyjM?=
- =?us-ascii?Q?DryWQXToY7rLAzkfJq+xYvfHO2yfXEnKfBBb/Svcei3dL3Vn3HittXxYEuRg?=
- =?us-ascii?Q?nIoVkVxzGv2kyH49mQKl6UybherYA5M22IyrzHG2D0ZI0LTIvJVprYdJbHUR?=
- =?us-ascii?Q?kFi5VeKtqbuV5lQsyihNCun54XfaAeeLIUBgw4vaLYu+IoYx2Re7vfDSptQA?=
- =?us-ascii?Q?btaDAZnisPw5D2arrhoHbS0kF/rbEOlZtxxk5B+zTMzt82/bucV1seK47+ec?=
- =?us-ascii?Q?5CzzOEnmjT4o2skcBkI9nFRlue33Is4+1YkZUcwiu8BLJk1EZNYGI3QM92pt?=
- =?us-ascii?Q?+ROM+JeODKlYRpTCWIm11rh140ifgu2+4yyVLE0bSC7A6x1JEFS3+PFDgId/?=
- =?us-ascii?Q?DyvZ1vSMEUrxiLvdIlW/60jRDqM3sFEFIIHCvXqGNxLVyrglg/CyLMKU6jtW?=
- =?us-ascii?Q?GtKipvCpPeLlGD+vNtVjPHB79A2EhLpK4+1TgtNogOy8u8H7/NtAk1ktdDos?=
- =?us-ascii?Q?XJf1zpoIC8wjsX/sbqAkN0m7Q+3FeY/VlyLhudlmUELI+hxWsP07?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Pcokbg2KwFQq0iKAOb3v+Mo4UeKZuhtYIjKfpfFX65Q/2QIDAuaLJthYaQOh?=
+ =?us-ascii?Q?BPh7oXhG15kW3Di/cU4LfN27oWq9sllC4fPvmxT2PUvUsnlmH2RdNJUaF89k?=
+ =?us-ascii?Q?P0hAtMDYN1/R8fnk+OBCl5J95wun0v2mflwccZ8AysdiI/bsgJRJDYnSBlPJ?=
+ =?us-ascii?Q?Nv+e8hPomWcbZ5buSLDbG82OK9mIh+zzDRzTH3G6j+FJeBZD7adssH2XfvJT?=
+ =?us-ascii?Q?TaHajOpRomd7chZ8kpY69OMN6bQgiJN/Mf+0vCGV48wm+B+Wm7jdvfHqKyMF?=
+ =?us-ascii?Q?tNTdUcL/Yz2p/cv2JZGqPll9a+WNjtWLuGlrSJG1CWBomGJFaAES+yvQ9/+M?=
+ =?us-ascii?Q?z43Q6sjypxNOuWreGCF89nCdbeoiGV+Isr0nm66FaEasCikbdNsmOQjQLAFd?=
+ =?us-ascii?Q?UBTuGBm7TPGPCkJmM/i9z+BXHveU418PhqKBQ3Lu82aWXgwY+/T0i2YDzk4c?=
+ =?us-ascii?Q?7JyvB5Dk/7FjDMCxdctInexUSgnTgJNDmRZkYUXxAtJgRe5g9h5NEk+oudHh?=
+ =?us-ascii?Q?UodxcwI86GH764ve20AQtC938OgFZn51LVxH0OoO4/iJ6J35F3evBAMqmIS3?=
+ =?us-ascii?Q?2J4TyyH0thoxL5kvSs3+lf9DSpxa0yS3Dsfz0XSKBhF/7G2bT5FvMo8YP/5T?=
+ =?us-ascii?Q?5Hk+zVTZvHCUILN6+3zi4o1qOxQgpXsRc4nNsSlUMudQi3uNmehSpSvz5kON?=
+ =?us-ascii?Q?9T+51i184w4Bb6rMeOpuiycSW8f9EIdzHc3kN5MYUrqp4iFM2pRpCZR/1eAj?=
+ =?us-ascii?Q?YhQjCG/0kFbLV6uueqnHV6fcbLs4pxHTKbrppacwHBF6NvaNlzHEIPQO9fQm?=
+ =?us-ascii?Q?GISBEUaEg2auO+eHQGnfHJ2KurKOgREjY+Ao3fFATc7qc01xiI1laNZyktpp?=
+ =?us-ascii?Q?WHqNoWG6gzefflX6nEKWkBYWcaXFKpk0YWiIwsdDbK/W5q/wWxXFKIAMIKe5?=
+ =?us-ascii?Q?E2aVWtiysucK2AbsXNwG/hgXWxA1fHD7NZotSz2YQRGn6TGPD9LrQ1uCyAMr?=
+ =?us-ascii?Q?nA2YdP+jbBKdACvwN7E8mNMf9joxukyP2zOUaqCXwR4byuSk5GKi3FFAfwOg?=
+ =?us-ascii?Q?bwJioV9isiHpjJip+b0gCD+j9Kw+wORxCCoOErcAMR09UxDamCJZXWSElvVG?=
+ =?us-ascii?Q?ytkhFw+8j6CUm5vX7kY1gzvne0a0iYHunCndVeTJM50tG1SLhA7wO6DmhR+n?=
+ =?us-ascii?Q?4YRG/zypKLjyfdf+1y5UuJ8GajFf+ZuGy2JPq4TWa6yB8sEjxFVOvn3/9/IQ?=
+ =?us-ascii?Q?HC5ZkRrJJsuK9ladullAcf7Hq6Il4igyPf0MOVuC504l3zGEoDtSkEuOn2dS?=
+ =?us-ascii?Q?EHcFbxPBlXemHJ0uxrEv+YdS/GVpCWQU8F8JRm45ycIkKp9XPH00rBnsPrSL?=
+ =?us-ascii?Q?P85u4YeVWpkqK8ssp0dY2f38xyb7cOujE124gvN398dHar2Dm/XomPA7yFZm?=
+ =?us-ascii?Q?UNVdVMIobl77WjlOEYmye5UkTC+1lDc761JOEQTe97QP9PjgWj5ZL8NpkDny?=
+ =?us-ascii?Q?/uxW+9N9tqQB6meO851RcJyqhvgUKA0DUqwzht02muKqbRgWQ85W52LCNZFZ?=
+ =?us-ascii?Q?KmCVJlBnNoh+Xz7WE8Zr2ODyU1mNxcT5u9vgQlUZ2Dl9YjwHLUbCrQXNOLvk?=
+ =?us-ascii?Q?FzYygmPnrsEtdS4pAjioyCELnbEZUgsM31lJqiGCh4L+zqoJayfAlGzenNXo?=
+ =?us-ascii?Q?l7ivT6kp9+U5vEwEkWQYAyGv/iEfTuNXvX15ebVYm+q1ZtdzePjHyAFmT/Xs?=
+ =?us-ascii?Q?cE6FLJYmcdztzLl+LW5e01qBXDCieflAromrDkEJEdG6nagEvB76?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10ac0b56-9314-431e-8138-08df1a16ff5f
+X-MS-Exchange-CrossTenant-Network-Message-Id: 93ea4ed2-04e8-49bc-6972-08df1a1712d6
 X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 08:36:58.8486
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 08:37:31.3701
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QrfepesmHZGWlwwTcTTpqy6M1lJRyCgZBYGRAeT6pnkVm0w5F+9RSnY1bUzTfvUhh4F5JR8HynAWuVkT+i7786eDxypI26hXdvG+mwZFszuOtTySrb9St8CIIf/pgk5j
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11339
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3ddOlcVPiC1reguT2xfQOKO0YIXXbuDFHpI5SNECQkWdBX83xfE+MvhvhdixYuyTGdgBBPXWuoViePOxP9o/EQK1w4jEwjXaY+xbhf209auVCVO2iu709RmKQM9+Ovul
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9937
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_013703_831393_D384923A 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_013736_432097_5CD54A54 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,77 +144,126 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Peng Fan <peng.fan@nxp.com>
 
 Replace multiple if/else blocks using regmap_set_bits()/regmap_clear_bits()
-with the simpler regmap_assign_bits() calls.
+with the simpler regmap_assign_bits() calls throughout the HDMI v2 driver.
 
 Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- drivers/pci/controller/dwc/pci-imx6.c | 32 +++++++--------------------
- 1 file changed, 8 insertions(+), 24 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 46 ++++++--------------------
+ 1 file changed, 10 insertions(+), 36 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 28fed010b503f..e2e55a88e0132 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -747,12 +747,8 @@ static int imx_pcie_attach_pd(struct device *dev)
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+index f0277fcf3345b..cfd99b630cc2d 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+@@ -65,10 +65,7 @@ static inline void mtk_hdmi_v2_hwirq_disable(struct mtk_hdmi *hdmi)
  
- static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+ static inline void mtk_hdmi_v2_enable_hpd_pord_irq(struct mtk_hdmi *hdmi, bool enable)
  {
 -	if (enable)
--		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
--				IMX6Q_GPR1_PCIE_REF_CLK_EN);
+-		regmap_set_bits(hdmi->regs, TOP_INT_ENABLE00, HPD_PORD_HWIRQS);
 -	else
--		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
--				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
-+	regmap_assign_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
-+			   IMX6Q_GPR1_PCIE_REF_CLK_EN, enable);
- 
- 	return 0;
+-		regmap_clear_bits(hdmi->regs, TOP_INT_ENABLE00, HPD_PORD_HWIRQS);
++	regmap_assign_bits(hdmi->regs, TOP_INT_ENABLE00, HPD_PORD_HWIRQS, enable);
  }
-@@ -868,12 +864,8 @@ static void imx_pcie_clk_disable(struct imx_pcie *imx_pcie)
  
- static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ static inline void mtk_hdmi_v2_set_sw_hpd(struct mtk_hdmi *hdmi, bool enable)
+@@ -88,10 +85,7 @@ static inline void mtk_hdmi_v2_enable_scrambling(struct mtk_hdmi *hdmi, bool ena
  {
--	if (assert)
--		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
--				IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
+ 	struct drm_scdc *scdc = &hdmi->curr_conn->display_info.hdmi.scdc;
+ 
+-	if (enable)
+-		regmap_set_bits(hdmi->regs, TOP_CFG00, SCR_ON | HDMI2_ON);
 -	else
--		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
--				  IMX6SX_GPR12_PCIE_TEST_POWERDOWN);
-+	regmap_assign_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR12,
-+			   IMX6SX_GPR12_PCIE_TEST_POWERDOWN, assert);
+-		regmap_clear_bits(hdmi->regs, TOP_CFG00, SCR_ON | HDMI2_ON);
++	regmap_assign_bits(hdmi->regs, TOP_CFG00, SCR_ON | HDMI2_ON, enable);
  
- 	/* Force PCIe PHY reset */
- 	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR5, IMX6SX_GPR5_PCIE_BTNRST_RESET,
-@@ -883,12 +875,8 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
- 
- static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ 	if (scdc->supported) {
+ 		if (scdc->scrambling.supported)
+@@ -103,10 +97,7 @@ static inline void mtk_hdmi_v2_enable_scrambling(struct mtk_hdmi *hdmi, bool ena
+ static void mtk_hdmi_v2_hw_vid_mute(struct mtk_hdmi *hdmi, bool enable)
  {
--	if (assert)
--		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
--				IMX6Q_GPR1_PCIE_TEST_PD);
+ 	/* If enabled, sends a black image */
+-	if (enable)
+-		regmap_set_bits(hdmi->regs, TOP_VMUTE_CFG1, REG_VMUTE_EN);
 -	else
--		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
--				  IMX6Q_GPR1_PCIE_TEST_PD);
-+	regmap_assign_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
-+			   IMX6Q_GPR1_PCIE_TEST_PD, assert);
+-		regmap_clear_bits(hdmi->regs, TOP_VMUTE_CFG1, REG_VMUTE_EN);
++	regmap_assign_bits(hdmi->regs, TOP_VMUTE_CFG1, REG_VMUTE_EN, enable);
+ }
  
- 	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_SW_RST,
- 			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
-@@ -901,12 +889,8 @@ static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ static void mtk_hdmi_v2_hw_aud_mute(struct mtk_hdmi *hdmi, bool enable)
+@@ -302,10 +293,7 @@ static inline void mtk_hdmi_v2_hw_gcp_avmute(struct mtk_hdmi *hdmi, bool mute)
  
- static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+ static void mtk_hdmi_v2_hw_ncts_enable(struct mtk_hdmi *hdmi, bool enable)
  {
--	if (assert)
--		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
--				IMX6Q_GPR1_PCIE_TEST_PD);
+-	if (enable)
+-		regmap_set_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL);
 -	else
--		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
--				  IMX6Q_GPR1_PCIE_TEST_PD);
-+	regmap_assign_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
-+			   IMX6Q_GPR1_PCIE_TEST_PD, assert);
+-		regmap_clear_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL);
++	regmap_assign_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL, enable);
+ }
  
- 	if (!assert)
- 		usleep_range(200, 500);
+ static void mtk_hdmi_v2_hw_aud_set_channel_status(struct mtk_hdmi *hdmi)
+@@ -423,10 +411,7 @@ static void mtk_hdmi_v2_hw_i2s_ch_mapping(struct mtk_hdmi *hdmi, u8 chnum, u8 ma
+ 	 * Layout 0 is for two channels
+ 	 * Layout 1 is for up to eight channels
+ 	 */
+-	if (chnum == 2)
+-		regmap_set_bits(hdmi->regs, AIP_TXCTRL, AUD_LAYOUT_1);
+-	else
+-		regmap_clear_bits(hdmi->regs, AIP_TXCTRL, AUD_LAYOUT_1);
++	regmap_assign_bits(hdmi->regs, AIP_TXCTRL, AUD_LAYOUT_1, chnum == 2);
+ }
+ 
+ static void mtk_hdmi_i2s_data_fmt(struct mtk_hdmi *hdmi, unsigned char fmt)
+@@ -456,10 +441,7 @@ static void mtk_hdmi_i2s_data_fmt(struct mtk_hdmi *hdmi, unsigned char fmt)
+ 
+ static inline void mtk_hdmi_i2s_sck_edge_rise(struct mtk_hdmi *hdmi, bool rise)
+ {
+-	if (rise)
+-		regmap_set_bits(hdmi->regs, AIP_I2S_CTRL, SCK_EDGE_RISE);
+-	else
+-		regmap_clear_bits(hdmi->regs, AIP_I2S_CTRL, SCK_EDGE_RISE);
++	regmap_assign_bits(hdmi->regs, AIP_I2S_CTRL, SCK_EDGE_RISE, rise);
+ }
+ 
+ static inline void mtk_hdmi_i2s_cbit_order(struct mtk_hdmi *hdmi, unsigned int cbit)
+@@ -645,10 +627,7 @@ static void mtk_hdmi_v2_aud_set_input(struct mtk_hdmi *hdmi)
+ 
+ static inline void mtk_hdmi_v2_hw_audio_input_enable(struct mtk_hdmi *hdmi, bool ena)
+ {
+-	if (ena)
+-		regmap_set_bits(hdmi->regs, AIP_CTRL, AUD_IN_EN);
+-	else
+-		regmap_clear_bits(hdmi->regs, AIP_CTRL, AUD_IN_EN);
++	regmap_assign_bits(hdmi->regs, AIP_CTRL, AUD_IN_EN, ena);
+ }
+ 
+ static void mtk_hdmi_v2_aip_ctrl_init(struct mtk_hdmi *hdmi)
+@@ -662,10 +641,7 @@ static void mtk_hdmi_v2_audio_reset(struct mtk_hdmi *hdmi, bool reset)
+ {
+ 	const u32 arst_bits = RST4AUDIO | RST4AUDIO_FIFO | RST4AUDIO_ACR;
+ 
+-	if (reset)
+-		regmap_set_bits(hdmi->regs, AIP_TXCTRL, arst_bits);
+-	else
+-		regmap_clear_bits(hdmi->regs, AIP_TXCTRL, arst_bits);
++	regmap_assign_bits(hdmi->regs, AIP_TXCTRL, arst_bits, reset);
+ }
+ 
+ static void mtk_hdmi_v2_aud_output_config(struct mtk_hdmi *hdmi,
+@@ -728,10 +704,8 @@ static void mtk_hdmi_v2_change_video_resolution(struct mtk_hdmi *hdmi,
+ 	/* Disable adding deepcolor information to the general packet */
+ 	regmap_clear_bits(hdmi->regs, TOP_MISC_CTLR, DEEP_COLOR_ADD);
+ 
+-	if (hdmi->curr_conn->display_info.is_hdmi)
+-		regmap_set_bits(hdmi->regs, TOP_CFG00, HDMI_MODE_HDMI);
+-	else
+-		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_MODE_HDMI);
++	regmap_assign_bits(hdmi->regs, TOP_CFG00, HDMI_MODE_HDMI,
++			   hdmi->curr_conn->display_info.is_hdmi);
+ 
+ 	udelay(5);
+ 	mtk_hdmi_v2_hw_vid_mute(hdmi, true);
 -- 
 2.50.1
 
