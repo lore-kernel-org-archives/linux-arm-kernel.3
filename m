@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58ABC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 533C7C98317
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dzcdgbp9yuC8lSXOq5yEF1b1+RAuGUCUpaYOk/c8xcI=; b=bxYYOh1gB9Np1ByQtXAhsv+a1j
-	lejxDThXwmnACxDIZyTn+UFGcnCswkzjv7+5nDZNTmtDB2t1jalmm2pIV33fFwgIzI2n5Il7EPoJb
-	DgIl5dvwh52FE/30sVV0Jm9jeI7y3vs85QOEqhcrMeMpjKeUwI1wd8KQY7KIWwv2exdyQYiHdYtT0
-	cVnmend1OKdzYwYVifmQYyUQoE2un2aK+xcpGfYAApkNKHXnDjtHo0LGrvuco2E3mJWCWUsS8f6lW
-	lG/g1rQcYBvasltmsjzd4/OAY9A4MUG2yaaT3tjlPN2lvqYNuysQ0CdB80OqqAgDvmNXVFIE7fRI+
-	y6GG2JZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EZ1wwmY8RZ6i3DRoCxlGa1ou9UfNv+HKGqclUe5pYx0=; b=e8XjpxjHIPmFVRQIlQ6Nz2U0UX
+	0AnFpA5dtx/N9GrcLzlKMfmrOseLsNpM0a2blUBejwYJgvnj87F4QVOjBRP715rkDb5W7IT8B2lZW
+	UYyUl/XW5g5fbBJiWzQZeTO8zv7U5rrI142ZB/9MRVSzd09MTS37tWIgeB0eoCDjrbOy64EGaOywv
+	Bs+2mpygTCxAM4yEZZU9OvRmwbqqfVLhE0jQSP6bYXAavZ1/cyV7IpEFwvZvA7zkfeG+4EoSmbq7X
+	VsMgJ7ofLSfXNjg0MWLedutFjJZr9aeuGvv1OuWRD2jZP6P5kz85kcrOqWVompNBjHSd6spgLDf5Q
+	St2dvcyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jrl-0000000B8k9-3HB5;
-	Thu, 24 Sep 2026 13:52:01 +0000
-Received: from out-146.mta0.migadu.com ([2001:41d0:1004:224b::92] helo=mta0.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jrJ-0000000B8St-2IPH
+	id 1x9js8-0000000B8tY-0UMF;
+	Thu, 24 Sep 2026 13:52:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9js4-0000000B8rz-0HCB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 13:51:35 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=sSph9Jsw8F14AbnX84MTaIdC6tQYWQmd5qT/kg2mMDo=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790257891; v=1; x=1790862691;
- b=H/p6ddGnN641NwY8tSt5BKCCvy5gXgs+WX6lO0PHoeN9yXFIsCGYxK0CrzF5aDbGHpVTwkAD
- z+qDj7HycTA5/E0Y0/dcchSohFjbXggrpACgoJXFDOayA/OupmuxZ8m5l/RWooXbSpgLMeJOtzr
- xZ30rXiCmXIU1UsUm2xm27B2U11bgQxg2py0dfvMN3Ylu2tHjpq0o9PtwLfpKaHrwSyER55lqjn
- /dDGmwZxzYdY3TcA9IcCkIn5wyZiix8Whstt2BqpFJ9VEP89F35VgP1EyeFDjv850TzNhsyTlkI
- FdMEGINzfzGskEjrmdyyUKK4iSVZAf2C3XNERuvZjAKtQ==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c2b77ebc62d259c3;
-	Thu, 24 Sep 2026 13:51:21 +0000
-X-Mizu-Trace-ID: c2b77ebc62d259c3
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 24 Sep 2026 15:51:13 +0200
-Message-Id: <DLNLG9AJ5GB2.36BYH3TC0FF45@cknow-tech.com>
-Cc: <kernel@collabora.com>, <linux-kernel@vger.kernel.org>,
- <linux-media@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 0/4] media: Track v4l2 buffers through an allocator
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Detlev Casanova" <detlev.casanova@collabora.com>, "Tomasz Figa"
- <tfiga@chromium.org>, "Marek Szyprowski" <m.szyprowski@samsung.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, "Nicolas Dufresne"
- <nicolas.dufresne@collabora.com>, "Benjamin Gaignard"
- <benjamin.gaignard@collabora.com>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Heiko Stuebner" <heiko@sntech.de>, "Ezequiel
- Garcia" <ezequiel@vanguardiasur.com.ar>, "Diederik de Haas"
- <diederik@cknow-tech.com>
-X-Mailer: aerc 0.22.0-24-g39041fd9f179
-References: <20260916-v4l2-add-mem-tracker-v1-0-900fa45e3e6a@collabora.com>
- <DLK6XGIB22XG.58WF7VP9L3NH@cknow-tech.com>
- <jmuzPUMQRGeSHxc4mzcUjg@collabora.com>
-In-Reply-To: <jmuzPUMQRGeSHxc4mzcUjg@collabora.com>
+	Thu, 24 Sep 2026 13:52:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CFBF1476;
+	Thu, 24 Sep 2026 06:52:14 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BFCEE3F86F;
+	Thu, 24 Sep 2026 06:52:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790257938; bh=uJinfSKhjBhTbQZkzVsB00hQiK0IF1cSRioYhd1P8XE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YAEriwf6NBxWTskNi1o28aWpwUOi+CxVstUPJj4OXmyAHoWhUl1tusZywsdNISASq
+	 P5xeJB0cvASHHF/Z4wrLyDfQMTLVNMG5nxZEaKOkoBk7vRv7TETzPk5LH7mXptQDXW
+	 31r8cnIUQn+0dyppVqWixiaD225pU3D3+CGVkSTY=
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: maz@kernel.org,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	oupton@kernel.org,
+	gshan@redhat.com,
+	joey.gouly@arm.com,
+	tabba@google.com,
+	yuzenghui@huawei.com,
+	linux-coco@lists.linux.dev,
+	gankulkarni@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	alpergun@google.com,
+	fj0570is@fujitsu.com,
+	WeiLin.Chang@arm.com,
+	lpieralisi@kernel.org,
+	enju.kohei@fujitsu.com,
+	sudeep.holla@arm.com,
+	jonathan.cameron@oss.qualcomm.com,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH v19 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Date: Thu, 24 Sep 2026 14:51:54 +0100
+Message-ID: <20260924135201.850038-1-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_065133_920697_E5941365 
-X-CRM114-Status: GOOD (  38.31  )
+X-CRM114-CacheID: sfid-20260924_065220_247766_5A1EECF0 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,206 +88,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This series adds the generic firmware layer for talking to the Realm
+Management Monitor (RMM), as specified by the RMM v2.0-bet3
+specification[1]. It is the first part of the Arm CCA host support that
+was previously posted as part of the larger KVM series.
 
-On Thu Sep 24, 2026 at 2:36 PM CEST, Detlev Casanova wrote:
-> On Sunday, September 20, 2026 9:50:24=E2=80=AFa.m. Eastern Daylight Time =
-Diederik de=20
-> Haas wrote:
->> On Wed Sep 16, 2026 at 4:25 PM CEST, Detlev Casanova wrote:
->> > Currently, the only way to track buffers allocated by v4l2 from usespa=
-ce
->> > is to use the subsystem available debug information (e.g.:
->> > /sys/kernel/debug/dma_buf/bufinfo).
->> > But that information is generic and cannot be matched to a v4l2 driver=
- or
->> > to a userspace application: It is merely information about the allocat=
-ion.
->> >=20
->> > ...
->> >=20
->> > Note that this depends on the ftrace support patch series[1] that
->> > provides fd/pid info in the v4l2_fh struct.
->> > That series is a bit old, so this is based on an older linux version, =
-but
->> > that only changes things for the last 2 commits.
->> >=20
->> > A v4l2top utility[2] has been made, to be used in parallel with the
->> > fdinfo patch series[3], to show the list of active streams with their =
-HW
->> > and memory usage.
->> >=20
->> > With this, debugfs looks like this when decoding a HEVC 1080p stream w=
-ith
->> >=20
->> > rkvdec on rk3588:
->> >   root # cat /sys/kernel/debug/v4l2/fdc38100.video-codec/mem
->> >   created-by                      fd              pid             size=
-   =20
->> >          label
->> >   --------------------------------------------------------------------=
----
->> >   ...
->>=20
->> I build a kernel with your 3 patch series and I also build the v4l2top
->> utility. Cool tool :-D
->> Especially after I found out I should build the 'upstream' branch ;-)
->>=20
->> There were a couple of things I noticed:
->> 1) With 'plain' kernel 7.3-rc3 but also with all my patches included, bu=
-t
->>    excluding the patches from this series, I see this:
->> ...
->>=20
->> Checking v4l2 debug dir again results in this:
->> ```
->> root@nanopc-t6-plus:~# ls -lh /sys/kernel/debug/v4l2/
->> total 0
->> drwxr-xr-x 2 root root 0 Sep 20 15:13 fdb60000.rga
->> drwxr-xr-x 2 root root 0 Sep 20 15:13 fdb80000.rga
->> drwxr-xr-x 2 root root 0 Sep 20 15:13 fdc38000.video-codec
->> drwxr-xr-x 2 root root 0 Sep 20 15:13 fdee0000.hdmi_receiver
->> ```
->>=20
->> I noticed my video-codec address was slightly different from yours.
->
-> Yes, mine is on rk3588. A different SoC will have a different device regi=
-ster=20
-> address.
+The split allows this RMM support to be used as a base for other work,
+including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
+ without depending on the KVM Realm support that will follow as separate
+ series. (See more on that below)
 
-That's why I noticed/mentioned it as mine is rk3588 too. Maybe this commit?
-b481c11cd20a ("arm64: dts: rockchip: Update vdec register blocks order on R=
-K3588")
+The series adds:
 
->> Playing a 1080p BBB x264 video with a patched ffmpeg+mpv, results in thi=
-s:
->> ...
->>=20
->> And looking at the v4l2top utility, I noticed the following:
->> 1. I see differing indications of the load while it's playing :-D
->
-> \o/
+ * The RMI SMC definitions and direct-call wrappers.
 
-Just did another quick test (for 3.) and noticed sometimes green 'lines' an=
-d
-sometimes red 'lines'. Any significance to the color?
-There also seems to be some kind of 'delay' when stopping a video and playi=
-ng
-another one (can be the same video). It looks like it's 'flatlining' until =
-the
-line of the previous video is scrolled off ...  and then it seems to 'repai=
-nt'
-itself as the 'flatline' comes back alive :-P
+ * RMM discovery and version checks during firmware init.
 
-But this is REALLY minor and not bothersome at all.
+ * RMM host configuration, including the host page size.
 
->> 2. The ``Clock rate`` is always 750.0MHz (or 786431991Hz) (expected I
->> think?)
->
-> Yes, the clock won't change, for now at least. Some decoders could adapt =
-their=20
-> clocks depending on the work. The frequency value will also be used to=20
-> determine exact core usage for those that expose a used cycle count after=
- each=20
-> job (I did not implement that yet in v4l2top)
->
->> 3. The ``Total Memory`` is always 0B and the ``Memory usage
->> details`` column is always empty. That's also the case when I press one =
-of
->> the arrow keys which seems to select the entry. Am I missing sth or doin=
-g
->> sth wrong?
->
-> My guess would be that you didn't run it as root (this is usually needed =
-to=20
-> access the debugfs*). But if you did, we will have to dig a little.
+ * Stateful RMI Operation (SRO) infrastructure for commands which the RMM
+   can complete across multiple SMC calls while requesting or returning
+   memory to the host.
 
-I did indeed not run it as root the first time around. But just did another
-test and with root the memory data is displayed :-)
+ * Verification that granule tracking is available at fine granularity.
+   Fine-grained tracking allows each granule in the system to be tracked
+   independently, which is required before individual granules can be
+   delegated. A future series will add support for dynamically supplying
+   memory to the RMM for this tracking.
 
-Cheers,
-  Diederik
+ * Support for fully firmware-managed systems, where the Granule Protection
+   Tables for memory regions are allocated and managed by firmware. RMM v2.0
+   also allows dynamic GPT creation on demand; support for that will be added
+   in a later series.
 
-> *: Note that later, we'd like to report global memory usage through fdinf=
-o, so=20
-> that the metric is accessible as a user, with buffer details still from t=
-he=20
-> debugfs (so that'd need root access)
->
-> Detlev.
->
->>=20
->> > [1]:
->> > https://lore.kernel.org/all/20260610-v4l2-add-ftrace-v2-0-9756edf72ac1=
-@co
->> > llabora.com/ [2]: https://github.com/cazou/v4l2top/tree/upstream
->> > [3]:
->> > https://lore.kernel.org/all/20260706-v4l2-add-fdinfo-v3-0-d556568cf38e=
-@co
->> > llabora.com/
->> >=20
->> > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->> > ---
->> >=20
->> > Detlev Casanova (4):
->> >       media: Add a v4l2 memory allocations tracker
->> >       media: Store v4l2_fh in the vb_queue
->> >       media: verisilicon: Switch to tracked dma allocations
->> >       media: rkvdec: Switch to tracked dma allocations
->> > =20
->> >  drivers/media/common/videobuf2/Makefile            |   1 +
->> >  drivers/media/common/videobuf2/v4l2-allocator.c    | 186
->> >  +++++++++++++++++++++ .../media/common/videobuf2/videobuf2-dma-contig=
-.c=20
->> >  |  27 ++-
->> >  .../media/platform/rockchip/rkvdec/rkvdec-h264.c   |  14 +-
->> >  .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   |  14 +-
->> >  .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    |  21 ++-
->> >  .../platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c |  14 +-
->> >  .../platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c |  14 +-
->> >  .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  14 +-
->> >  .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  14 +-
->> >  .../media/platform/rockchip/rkvdec/rkvdec-vp9.c    |  33 ++--
->> >  drivers/media/platform/rockchip/rkvdec/rkvdec.c    |   4 +
->> >  drivers/media/platform/verisilicon/hantro.h        |   1 +
->> >  drivers/media/platform/verisilicon/hantro_drv.c    |   4 +
->> >  drivers/media/platform/verisilicon/hantro_h264.c   |   7 +-
->> >  drivers/media/platform/verisilicon/hantro_hevc.c   | 100 ++++++-----
->> >  drivers/media/platform/verisilicon/hantro_mpeg2.c  |  16 +-
->> >  .../media/platform/verisilicon/hantro_postproc.c   |  14 +-
->> >  drivers/media/platform/verisilicon/hantro_vp8.c    |  25 +--
->> >  drivers/media/platform/verisilicon/hantro_vp9.c    |  34 +++-
->> >  .../verisilicon/rockchip_vpu981_hw_av1_dec.c       | 160
->> >  +++++++++++-------
->> >  drivers/media/v4l2-core/v4l2-device.c              |   4 +-
->> >  include/media/v4l2-allocator.h                     |  26 +++
->> >  include/media/v4l2-device.h                        |   2 +
->> >  include/media/videobuf2-core.h                     |   3 +
->> >  25 files changed, 555 insertions(+), 197 deletions(-)
->> >=20
->> > ---
->> > base-commit: 66affa37cfac0aec061cc4bcf4a065b0c52f7e19
->> > change-id: 20260612-v4l2-add-mem-tracker-da0088c74a64
->> > prerequisite-change-id: 20260608-v4l2-add-ftrace-aec6e7f60a6c:v2
->> > prerequisite-patch-id: bd45b4df66799a7f9f22b49973a78d1bd3590a4a
->> > prerequisite-patch-id: 6a5ed5615f08257cf854d441785066b5ff4d5d47
->> > prerequisite-patch-id: 02594c869498b9e91e416d70242afbaa6b3a8d6a
->> > prerequisite-patch-id: 9f25ec78f3b99ac1c5d42eb732f5bd9eae73fadd
->> > prerequisite-patch-id: 4ed2c2e8c3abfa7f6328d0ea4f488ca5a3eec8fb
->> > prerequisite-patch-id: 8787d50eb80e1a63a57a123268cade23c9e64618
->> > prerequisite-patch-id: bfe85822378fa771f9bbc3e1e8c8ff6bce0eb7fd
->> > prerequisite-patch-id: 784d0801da320f7b41194f4632ee422c32f1b5b8
->> > prerequisite-patch-id: 362c8366e2efbfb5e6f1a3f71cfddbd46e8d1506
->> >=20
->> > Best regards,
->> > --
->> > Detlev Casanova <detlev.casanova@collabora.com>
->> >=20
->> >=20
->> > _______________________________________________
->> > Linux-rockchip mailing list
->> > Linux-rockchip@lists.infradead.org
->> > http://lists.infradead.org/mailman/listinfo/linux-rockchip
+ * Wrappers for the RMI commands that are used for managing the "Realm VM"
+   lifecycle. This is added in to make it easier for the on-going KVM support
+   to evolve in parallel pieces.
 
+If the platform firmware cannot manage the granule tracking or the GPTs, we
+bail out and deactivate the RMM, reclaiming any memory that we have donated.
+
+The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+the RMM to complete an operation over several SMC calls while requesting
+or returning memory to the host. This allows interrupts to be handled in
+the middle of an operation and lets the RMM dynamically allocate memory
+for internal tracking purposes. For example, RMI_REC_CREATE no longer
+needs auxiliary granules to be provided up front, and can instead
+request memory during the operation.
+
+This series applies on v7.3-rc2 and a branch is available at [2]. The KVM
+CCA support that builds on this series is available at [3] as an integration
+branch. The KVM support depends on guest-memfd-in-place conversion support v13
+from Ackerley [4], we plan to split that into parts, which apply cleanly on
+v7.3-rcx without any dependency and is in progress. This will be made available
+as soon as it is ready. Until then [3] shows how this base series enables KVM
+CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
+
+[1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
+[2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca-host/fw_rmm/v19
+[3] KVM CCA v17 integration branch: https://gitlab.arm.com/linux-arm/linux-cca.git cca/cca/cca-host/kvm-v20/integration
+[4] Gmem inplace conversion https://github.com/googleprodkernel/linux-cc/tree/guest_memfd-inplace-conversion-v13
+[5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main (commit: 134266ae)
+[6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git tag:cca-kvm-v20 (Also cca/kvm-v18)
+
+Known issues: RMMv2.0 spec.
+ * RmiOpMemDonateReq:count (Uint14) is incompatible with RmiAddrRangeDesc4KB
+  (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger contiguous request
+  may not be satisfiable by the host. This is resolved in the RMM spec, by clamping
+  the upper limit on the number to match the RmiAddrRangeDesc* and will be published
+  in the next release.
+ * RMM to clarify the scenarios that triggers the RMI_BLOCKED and the
+   recommendations to limit the cases.
+
+Changes since v18:
+ - Use _ULL version for masks spanning beyond 32bits
+ - Add GENMASK, FIELD_* friends for RMI_ABI_VERSION_*
+ - Consistent naming for masks and order the fields by MSB to LSB (missed out
+   ones.
+ - Rename RMI_RETURN_ => RMI_RESULT, RMI_RETURN_INDEX => RMI_RESULT_DATA_LEVEL
+   and add relevant Rmi types for clear indication on what they represent.
+ - Read and cache all implemented RmiFeatureRegisters (5), use ARRAY_SIZE()
+   droping the macro for the number of registers.
+ - Fold sinlge caller rmi calls to the caller (rmi_features)
+ - Drop "default y" from Kconfig
+ - Don't loop forever with RMI_BLOCKED, instead retry once and return to the
+   caller.
+ - Move rmi_config_set closer to rmi_configure.
+ - Use __free() cleanup for rmm_config object
+ - SRO: Clamp the mem donate request count to RMI_MAX_ADDR_LIST (the max we can
+   hold in the struct sro, to prevent overflows in handling non_contig requests
+ - Donate gathered memory when sro list runs out of space for non_contig case
+   and donate the rest in the next iteration
+ - Fix handling of buggy RMM for rmi_delegate_range()
+ - Add comments for the exported interfaces rmi_delegate_range(), rmi_undelegate_range()
+ - Move rmi_granule_{,un}delegate_range() closer to their callers
+ - Clarify the requirements for rmi_granule_delegate_range()
+ - Fix return result to -ENXIO if the MEM_OP is unknown
+ - Handle unsupported RMI_OP_MEM_CONDITIONAL, bail out early
+ - Rename "out" lable to mem_donate, where the actual donation happens
+ - Switch to use readable loop construct in donate_noncontig, add comments
+   to explain what we do.
+ - Add comment, make the code reader friendly for caching the entries not
+   consumed by RMM.
+ - Add documentatoin for rmi_sro_execute()
+ - Avoid mixing gotos with __free cleanups for arm64_init_rmi()
+ - Convert the remaining nested if for results to early return based.
+ - Pass out_top for RMI_ERROR_RTT in rmi_rtt_destroy() [ This boosts the
+   Realm tear down ]
+
+Changes since v17:
+ - All RMIs are now issued using smccc-v1.2 helpers as mandated by the RMM
+ - Add a helper function to reclaim an RmiAddrRange entry, which may be partially
+   consumed. Used by rmi_sro_free and by rmi_sro_donate_*contig to reclaim
+   partially consumed granules.
+ - Move all RMI wrappers that are used only by rmi.c out of the arm-rmi-cmds.h
+ - Rename macros, varibles to match RMM spec
+ - Handle buggy RMM cases and sanitise the output values
+ - Change sro_state.addr_count to int, giving us better handling of overflows
+   and RMM bugs.
+ - Avoid splling literal pools on stack for sro initialisation.
+ - Print error messages for critical failures during RMM init
+ - Use scope based cleanup for SRO object
+ - Prevent overflow for donated_granules output from buggy RMM
+ - Handle corrupted addr_count in the sro
+ - Handle buggy RMM when the out_top is not changed with RMI_SUCCESS
+   for delegate/undelegate range calls
+ - Rename free_delegated_page => rmi_free_delegated_page
+ - Rename donate_req_to_unit_size => donate_req_to_block_size
+ - Introduce rmi_addr_block_size_to_bytes() helper to convert a RmiAddrBlockSize
+   encoding used in RMI_DONATE_REQ and RMI_ADDR_RANGE Descriptors, replaces
+   donate_req_to_unit_size(). Matches the RMM spec.
+ - Rename unit_size => block_size_fld, unit_size_bytes => block_size etc.
+ - Explicitly check for MEM_CONTIG/CAN_CANCEL fields to match the RMM spec values.
+ - Rename free_delegated_page => rmi_free_delegated_page()
+ - Drop RMI_BUSY, RMI_BLOCKED checks from rmi_*delegate_range as they are already
+   handled by the rmi_smccc_invoke() used by the SRO.
+ - Ensure RMI_OP_RECLAIM output is valid before consumption
+ - Use GENMASK()/BIT() for masks consistently for RMI SMCCC defintions
+ - Rename RMI_{ADDR_RANGE, DONATE}_SIZE => RMI_{*}_BLOCK_SIZE
+ - Reorder the definitions for MSB to LSB
+ - Add definions for RMI_OP_MEM_*CONTIG and RMI_OP_CAN*_CANCEL
+
+
+
+Steven Price (6):
+  firmware: arm_rmm: Add SMC definitions for calling the RMM
+  firmware: arm_rmm: Check for RMI support at init
+  firmware: arm_rmm: Add support for SRO
+  firmware: arm_rmm: Activate the RMM
+  firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+  firmware: arm_rmm: Add wrappers for Realm related RMI commands
+
+Suzuki K Poulose (1):
+  firmware: arm_rmm: Configure the RMM with the host's page size
+
+ arch/arm64/Kconfig                |    1 +
+ arch/arm64/kernel/cpufeature.c    |    1 +
+ drivers/firmware/Kconfig          |    1 +
+ drivers/firmware/Makefile         |    1 +
+ drivers/firmware/arm_rmm/Kconfig  |   25 +
+ drivers/firmware/arm_rmm/Makefile |    2 +
+ drivers/firmware/arm_rmm/rmi.c    | 1072 +++++++++++++++++++++++++++++
+ include/linux/arm-rmi-cmds.h      |  558 +++++++++++++++
+ include/linux/arm-smccc-rmi.h     |  505 ++++++++++++++
+ 9 files changed, 2166 insertions(+)
+ create mode 100644 drivers/firmware/arm_rmm/Kconfig
+ create mode 100644 drivers/firmware/arm_rmm/Makefile
+ create mode 100644 drivers/firmware/arm_rmm/rmi.c
+ create mode 100644 include/linux/arm-rmi-cmds.h
+ create mode 100644 include/linux/arm-smccc-rmi.h
+
+-- 
+2.43.0
 
 
