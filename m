@@ -4,129 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ECBC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5E4C98310
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kyyRmgf6luKwbmyb+3rxCwVLP5ATZrWI7rTwLer+jmg=; b=tKwRfT40KFq2k1wNo9nMAxwd0y
-	LYpOz7DIEoVTBNFO3jeO+i986iE7xJmimczpR7BJmDY6S5CMCIgpw+wzsBIJZsxdtsil8+SZf3S0Z
-	RAVbA+XypmHICYluaiqECk9a1xom9kKa7xZIuPGHxIa2NQrZy7GPCYJ5CvLk71wFFM4MOTBl+Wy2T
-	1wgEt6wdsgwxBBfYZ5ovKqICkfpr4yrhdQSkMbgbeTVBbdLLWXhYA3Yh3Cyzq9mhxxKQVtS5MOLJk
-	HofDhtL8rdNpjkF9p1Aoi06YxZKkti8iP/zhMkpK/UG+01JlSF+EEGmkaMdavxQniQ9GIOcP/nQbI
-	qsvMkBLg==;
+	bh=cI4HIahx2VPhHhA03SnI6rED6PBYnuOedJBYn5OwGaM=; b=pWdWjVTBJ4ZrQNm4rVQyQQpKWz
+	bax7sx8WVHK9MbAFvigECr6gZRzA/WAf00jynLyihYTvpFtBi9MOnO/TezF5sZf7VoIfZgQE3twL4
+	3t2UNnRGh2RJrsvPGrAf2SXWr9SNWhwV3a9DEWHFdcIzFQm8jLkuhdMCjgzqcftCwICkAP1+P5Sdf
+	9duaUsqMgyMap1SA3vDxWCtb6vSQt4D3hFIRf6OL6e2eg5ZwmRL2/uSvu3atEeNJ9DLmDaBaqQpJf
+	MjpatVIyhHvO0hcyvBMUGaDzxEXvcvvXrtz3QzZvfMGE/WKp12ZfJMimFfdGLBXun+ZKWPNfdTpun
+	Ydx3qDYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9exX-0000000ASCx-1M8G;
-	Thu, 24 Sep 2026 08:37:39 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1x9ey7-0000000ASNd-2sm3;
+	Thu, 24 Sep 2026 08:38:15 +0000
+Received: from mail-francecentralazon11013002.outbound.protection.outlook.com ([40.107.162.2] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9exU-0000000ASBH-0f13;
-	Thu, 24 Sep 2026 08:37:37 +0000
+	id 1x9ey3-0000000ASMV-3uj4;
+	Thu, 24 Sep 2026 08:38:14 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mvauH6yO2XddD9MvE3LNp0rwqxSPgUi3vsag2rwQbg1B94YMVLlh/NtZYxcCSWV939IkMzzF5SN3DDnK1/6KnQ4LZZ6RGiSw9gz+8ucx/7CKkFPtkciATzHcyawJmnOe8FgyqRB0UbxLH2uyid6+a0N9imks5tzkbLYWHlEpCOu20SFrY0rbJ83ynu/bu5v81ZLET5i7jv4S7w/87VjSES4FIriDJruXyW0zFjR6tCFX9HEMQtJNbhLDWtFELBfmM7auBlHxkKb3FpYTXzSowgW39lGDAn9fwMzmGFErFCctcx2cD1E8DHoNFBsg61hjkvA169xy1n1RA8AqKSb2sQ==
+ b=d3iIC9LFvra/Io3YkrlGgpFMkSS5fS0B4MGLrLeTCFqEJfbrtpNZkvDb2KHIiHbLknv40AeqgQM5EWnCfjlJAdQosKfEWFeA+gkyiGwcj1EGKM6kgCko5XQsZEgD7c8GcYh51oH9HmXjFdk3RGNiSdCq6o4jUWeLYaNYHqpiXWtERlWnWZVQaiD7XkAE7eOjfc6iTw7AClnnfH3pKweHF1TiPbxHaWXX7biFeWR+oH3m52x9TrfhxAfDlX2Hxjvsw6/dAd5bMhsVQQdDItv7UxOszcc8cI4qktdZpgQi71LVi04+QeeLBYf+35cHWjK938cg6TiZ0flmc4Hj+Rtshw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kyyRmgf6luKwbmyb+3rxCwVLP5ATZrWI7rTwLer+jmg=;
- b=l11bCwrZS44OnljGMl/eNLr5nK+0e6IJVEFY+7mV1yc6DbeG+Z+kBbOnHWERhks4AzCb0l1UNquoOfpLSW3+1cj0Cx7QSbByHuO26mXoP4moZ/VWLuSjKmP9V7H6wbglRRzrqe2jnJHUkbnwBHs3AyeEKcZiIhtBsraGEB8+aSQfBEeFuyquAzibwUOTQJm0g/DPohJ2L4GV0i91YFsBJfuIDBAtK9lMxHWEL4OkZPzIljpGGIVVGq+IAjSwXYASqp5wItEikXd923wAjLKzSBPt1hcdNrKDI/B2WTY7EcReSk0Mq/DgHgOMgaaQX8gBQfRt0D5vMkjUfj8qsMntkQ==
+ bh=cI4HIahx2VPhHhA03SnI6rED6PBYnuOedJBYn5OwGaM=;
+ b=aBghUaB8/ay1Qbkpt2B7NjV2PlCxFDeDfwp8yU2mLMJoeIhpj0gFbbr89ajm5ER7byqYTtVZpviPDifvjCB+4j4FKC5aIb9qMB0zv9NYLiH3RgV3ebo1aeBoWo/YX8tm0B81XZKQ7848Cm5CC4HIMR3GV7Ju5nZsVlsT44ubpCQZIPOsqHOkMo/j8bvlKOZUDrBDZ1ODL/D1sYJA9EwqeIGJl3jKkilMQUisyxz1ukIMLjcfF/Tb/1fkPnrnljAVrmXuwubBo4hHhuNTSubP7YTKD62cFChI72AIu5HD+ts0r5zeqyHi/Ardc/jRKk2jm5cXCuSJCDEeEJT6dLg9Mg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kyyRmgf6luKwbmyb+3rxCwVLP5ATZrWI7rTwLer+jmg=;
- b=Suq7ndvWkuISeQbbrkj4r+QqZ3YAIpX2MUosfg03zV1kSmb60mGQr3pcHNdeTzM07+L9gKjcZ7/VyVN2MpSR2JVGp9+mg6l+25PjUziGJF+6bJ5nX395xXY71Moid4KZWxEezBcQtU1OS4L7/XbAlVBzgBFbQNuPqSqRDbGJQ1KGn5R3VZeyAXhSYE5Reqj1YQOSsZDTffTPNhwcC/cJP6WhSTIGaIBZudrrecCmBD8spMNpPrjVY5oFxaOrP6Xr0WjOD4AAW1kIwGrmgCRPGeZXPcP5Ia/YAUAN6xKi7al3naRSbvRQqPzMEgSOVAU9v+5kUr+PMsl/HvjRWlo2SA==
+ bh=cI4HIahx2VPhHhA03SnI6rED6PBYnuOedJBYn5OwGaM=;
+ b=PoBO5+/oLbWD0ocMihMg5SnoMrN+v5aN6uB0IDCHDywFTXh0/zIdpDBBVQzT98zSayfdPHM6vV35I+HAigjvZo4LWvl4tWZs7sBTeCTEfTmZCNgK3/VpB+bSSB7H36zH7hXrEzyFVmRvSa1eASMg6tAQm713Bxs4qbCufw/htdb7t+QILgG/sBwJ0oxgbz8HjDyxl+7+wf3a/7GLym19/80tYoqpkfmXOYR5Hju9Cxd1ND2ClEyvH63jxi4Ss3kTk8mU9H7uM+YN5DbfOnhWWHTOnbGMa1xTdEUmFiPZv2Xpu4ydo+RAFM0P209afGazbEf/DvSGlj3HSmSaTS6yqQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
  by DB9PR04MB9937.eurprd04.prod.outlook.com (2603:10a6:10:4ec::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 08:37:31 +0000
+ 2026 08:38:06 +0000
 Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
  ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
  ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 08:37:31 +0000
+ 08:38:06 +0000
 From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
+To: Hauke Mehrtens <hauke@hauke-m.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Christian Marangi <ansuelsmth@gmail.com>
 Cc: linux-kernel@vger.kernel.org,
 	Peng Fan <peng.fan@nxp.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] drm/mediatek: hdmi: use regmap_assign_bits() for conditional set/clear
-Date: Thu, 24 Sep 2026 16:34:56 +0800
-Message-ID: <20260924083456.461815-1-peng.fan@oss.nxp.com>
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] net: dsa: use regmap_assign_bits() for conditional set/clear
+Date: Thu, 24 Sep 2026 16:35:37 +0800
+Message-ID: <20260924083538.461887-1-peng.fan@oss.nxp.com>
 X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: JH0PR04CA0001.apcprd04.prod.outlook.com
- (2603:1096:990:4::19) To AM8PR04MB7874.eurprd04.prod.outlook.com
+X-ClientProxiedBy: MA5PR01CA0150.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b9::8) To AM8PR04MB7874.eurprd04.prod.outlook.com
  (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DB9PR04MB9937:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93ea4ed2-04e8-49bc-6972-08df1a1712d6
+X-MS-Office365-Filtering-Correlation-Id: 727d1b56-fda5-4843-03f4-08df1a1727f2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|19092799006|10067099003|56012099006|3023799007|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: frmE4hGtpZl/IXdzK4l02FiN+HdBS/VJjkV3vEhtALVjD6PsQR+XmyjEam3a93ge4jrn8FYQA3CzfG8E7667+hNQygEYbA4N2QkpeOQZmdHkBQI+Ud6ugxmsrjKHZyu0PsiwuoPR0MGXVvsuPPsgH1qxmigrWITRyaSzkAllo5g9TkfUDQgETksbbh1Bh4TCaweEmovnpV4uSHoiKUSVc/sG9nad+WRde1CRovXCOYhu774hbVmsVjHuxp0dBQ/rPhIh7+vh9I1nblWa2Xu2ACfIfbe3yMnGU6IMHTNC+uai5j5/3LiOPPkCxOx1sPXoBqq9fIA7Wc5LrAeV78w6+ewQfFCWvUjK3jXKiKDPSO1/SZQD7V3Dp7AlDUNLq60skqLGtRWux2FN7mYStFJEemqzXC62rw0ip9GETVuNr6gKucfA/PAQFcfEvMn2mOiiUidz0pGbdknRDRrZ+NKkZMfQOcI+UyhAbcLPymtKNZtmez7WusrJqt0aWfoDN2GerMnSMAv5GSoZTPq9F4UGMmzf86VSIawI1qRROtR6JBLcAoT/Fo16CRBRi7tCw5zK1XsxfCnQnDdAUQC6k0aYV5qJPq52IC7Ajn3xuf+Putg7+QWSEZjZ67G4AXxwD+cNkubqWWuKH3A+JJSWHHspEmjMWJTn3QN+E7ztCvLOYbo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(19092799006)(10067099003)(56012099006)(3023799007)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|19092799006|10067099003|56012099006|3023799007|11063799006|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: JDxJIbB675ApubX3fyncVv7lerpLqLf5/AczOv7RP8S3L/3x4U93uMBo3V3wk7AWqkq0UKI5QEIBhQTYChhEHSWbQ05vgYPY7Uo2hHjqyM/Bzrc9FyW7AEvwKL6ueL4HmH+FUPQeYc4bNkpUWxt97m+6O6e905PGfyW6yzr2FZ1hODEeRjEXMAMmZrf2gg7tg28IFTmxYaw+JJ1la6zF6MZeNFkKtSp6WWmSDXM5cuFOEngdxh04eSkP2MynedNJwOzMPJeFOaQWdPgBFsUkBR/g5h9XYqjPqMIq/YfP3bWTk5RaVkuLu3kQXPa32jgg037SLngwXCszc2vmWF5EY4iipYdzkevP4apo8JMtUDhcsm98rkw1BySQ/sxD2hEjQoig0BWXqwmTONPe3DTJuo1Ejgtze+nz6GTZhmTNXG547tFtoUR5CiRruGQDuyEWzYG7oTNEdD67d2Y5SIlBPlLgLW5Z0W326cRFlFNT/70wiLeMR7T8NbX4EK6Ckj8NUj85YzDr/XedskPjSGqvLrKKHJlI8+7MNOwDuOIuIQppOgW8cfqaFKpHeF7ducEBH49WlxeSbq5xehVuxIcZeixBKfLbF4TZL58wtfp4XnlBEU9CQpQ5X/xQ60K2fjreYZIQ0eXdfafQ18OAvkwkhPRkGeBusGZlprfJxrBn/3M9QPVYsr3M6mXQ4Yzcsp6j6Aci4KhbbCYzWGnn/EfaBg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(19092799006)(10067099003)(56012099006)(3023799007)(11063799006)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Pcokbg2KwFQq0iKAOb3v+Mo4UeKZuhtYIjKfpfFX65Q/2QIDAuaLJthYaQOh?=
- =?us-ascii?Q?BPh7oXhG15kW3Di/cU4LfN27oWq9sllC4fPvmxT2PUvUsnlmH2RdNJUaF89k?=
- =?us-ascii?Q?P0hAtMDYN1/R8fnk+OBCl5J95wun0v2mflwccZ8AysdiI/bsgJRJDYnSBlPJ?=
- =?us-ascii?Q?Nv+e8hPomWcbZ5buSLDbG82OK9mIh+zzDRzTH3G6j+FJeBZD7adssH2XfvJT?=
- =?us-ascii?Q?TaHajOpRomd7chZ8kpY69OMN6bQgiJN/Mf+0vCGV48wm+B+Wm7jdvfHqKyMF?=
- =?us-ascii?Q?tNTdUcL/Yz2p/cv2JZGqPll9a+WNjtWLuGlrSJG1CWBomGJFaAES+yvQ9/+M?=
- =?us-ascii?Q?z43Q6sjypxNOuWreGCF89nCdbeoiGV+Isr0nm66FaEasCikbdNsmOQjQLAFd?=
- =?us-ascii?Q?UBTuGBm7TPGPCkJmM/i9z+BXHveU418PhqKBQ3Lu82aWXgwY+/T0i2YDzk4c?=
- =?us-ascii?Q?7JyvB5Dk/7FjDMCxdctInexUSgnTgJNDmRZkYUXxAtJgRe5g9h5NEk+oudHh?=
- =?us-ascii?Q?UodxcwI86GH764ve20AQtC938OgFZn51LVxH0OoO4/iJ6J35F3evBAMqmIS3?=
- =?us-ascii?Q?2J4TyyH0thoxL5kvSs3+lf9DSpxa0yS3Dsfz0XSKBhF/7G2bT5FvMo8YP/5T?=
- =?us-ascii?Q?5Hk+zVTZvHCUILN6+3zi4o1qOxQgpXsRc4nNsSlUMudQi3uNmehSpSvz5kON?=
- =?us-ascii?Q?9T+51i184w4Bb6rMeOpuiycSW8f9EIdzHc3kN5MYUrqp4iFM2pRpCZR/1eAj?=
- =?us-ascii?Q?YhQjCG/0kFbLV6uueqnHV6fcbLs4pxHTKbrppacwHBF6NvaNlzHEIPQO9fQm?=
- =?us-ascii?Q?GISBEUaEg2auO+eHQGnfHJ2KurKOgREjY+Ao3fFATc7qc01xiI1laNZyktpp?=
- =?us-ascii?Q?WHqNoWG6gzefflX6nEKWkBYWcaXFKpk0YWiIwsdDbK/W5q/wWxXFKIAMIKe5?=
- =?us-ascii?Q?E2aVWtiysucK2AbsXNwG/hgXWxA1fHD7NZotSz2YQRGn6TGPD9LrQ1uCyAMr?=
- =?us-ascii?Q?nA2YdP+jbBKdACvwN7E8mNMf9joxukyP2zOUaqCXwR4byuSk5GKi3FFAfwOg?=
- =?us-ascii?Q?bwJioV9isiHpjJip+b0gCD+j9Kw+wORxCCoOErcAMR09UxDamCJZXWSElvVG?=
- =?us-ascii?Q?ytkhFw+8j6CUm5vX7kY1gzvne0a0iYHunCndVeTJM50tG1SLhA7wO6DmhR+n?=
- =?us-ascii?Q?4YRG/zypKLjyfdf+1y5UuJ8GajFf+ZuGy2JPq4TWa6yB8sEjxFVOvn3/9/IQ?=
- =?us-ascii?Q?HC5ZkRrJJsuK9ladullAcf7Hq6Il4igyPf0MOVuC504l3zGEoDtSkEuOn2dS?=
- =?us-ascii?Q?EHcFbxPBlXemHJ0uxrEv+YdS/GVpCWQU8F8JRm45ycIkKp9XPH00rBnsPrSL?=
- =?us-ascii?Q?P85u4YeVWpkqK8ssp0dY2f38xyb7cOujE124gvN398dHar2Dm/XomPA7yFZm?=
- =?us-ascii?Q?UNVdVMIobl77WjlOEYmye5UkTC+1lDc761JOEQTe97QP9PjgWj5ZL8NpkDny?=
- =?us-ascii?Q?/uxW+9N9tqQB6meO851RcJyqhvgUKA0DUqwzht02muKqbRgWQ85W52LCNZFZ?=
- =?us-ascii?Q?KmCVJlBnNoh+Xz7WE8Zr2ODyU1mNxcT5u9vgQlUZ2Dl9YjwHLUbCrQXNOLvk?=
- =?us-ascii?Q?FzYygmPnrsEtdS4pAjioyCELnbEZUgsM31lJqiGCh4L+zqoJayfAlGzenNXo?=
- =?us-ascii?Q?l7ivT6kp9+U5vEwEkWQYAyGv/iEfTuNXvX15ebVYm+q1ZtdzePjHyAFmT/Xs?=
- =?us-ascii?Q?cE6FLJYmcdztzLl+LW5e01qBXDCieflAromrDkEJEdG6nagEvB76?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X6SByYIWtOVQ3PzkNWW77TAJEzqGLIU1ZXAkjA538Dfir0UUoChBmYEfPyPs?=
+ =?us-ascii?Q?82N4TOtW3Is7m5/5Dn+gUCEM8uUMOpf9+mLyL1iitzDAYkJ7gfbmI56m12fm?=
+ =?us-ascii?Q?XFebIXHox/p4eX459DpcMZUQY5oZNwW2RVRu+79V7HM/UUdNysq47rqL/a+5?=
+ =?us-ascii?Q?1w9UXwELXEgoXJyou7g18PO+AaXG0LD1dXq5ckVjBxlo8iQZ1W8C7KbR+Q6U?=
+ =?us-ascii?Q?wHp1PXR2+dXyO0Gf0atJ1PF0SE/J/+lU2GzsjIOUN5JyoprMGIsl8uP66PYY?=
+ =?us-ascii?Q?Qs54hOx3QMnRyLpkfzAADkc90/MC4DlpbR58HdOolcqH1Ri+aNiuO7mGRtTT?=
+ =?us-ascii?Q?bwDkfsPIv0hFCVTCU0IH+y9G1iLEYYaoDs0LkrCtOHjRDBobj9oK/yZ7fUeU?=
+ =?us-ascii?Q?8bGjm8pEj/ymRkA6Dl5tmZFOPM8AfrXaWZ37+4YY7n3+k2352ZA7smZERrZX?=
+ =?us-ascii?Q?42jgIY4MJXCnr0IiknG6eZrq/PWGecSgcYarFc1n7aia51YdqH4SrGrECpr2?=
+ =?us-ascii?Q?4bX3AVrDr1B57EKS2O/R3dTcUjy7/YOt/0DnENiX98rwuyigCkqg1mSSRobL?=
+ =?us-ascii?Q?rzllXxleZTGQJN0AMu+/grxsCxk/G7g/t40yXUMSD6y6Dkb8Dw36wfVm9MI6?=
+ =?us-ascii?Q?EvX/o1BiwR4Okqg76ByzjrnSzCLq/zBQ5kheXT9mhdfrvdPDt8TgxrHC8aRY?=
+ =?us-ascii?Q?KqAIY8FmHWjF3x/GLV7shf3/p8KxImm4/LdhWjHYeK7aAdilaoPjRjvzJQqt?=
+ =?us-ascii?Q?4XfMac3mJqOLmooTWD9a5lwPiTICUMuR4LnTjqmJySNmtLGt1F19uz71+LWA?=
+ =?us-ascii?Q?BFRYOaxlaWK6/qCtAWXONRH+O66XssFMRRO3Xu6r/ce973M906fKncpNCcJ8?=
+ =?us-ascii?Q?XFZWMEapexq3owy61H/kN6qSO4ghkENihQuYy3QoThwMSRMG8iX1cG/mCGuP?=
+ =?us-ascii?Q?0cIr6GcKoTd8/RAEjmo+QpDJGVLXoKqCFy7tNrjAZ7/IJuWjdzVZb91/xx2j?=
+ =?us-ascii?Q?E7mBjEDaBHq8pz/njPoKp1OXwXbPPBxUZEIb2ieCUxgMrmHFQZdzC8t0dg19?=
+ =?us-ascii?Q?qQX6EVvvEAuLjgFqOTb4AnRGV88eswI9QmHFAQRB/7bnqhqDgI9sOWhoPT9f?=
+ =?us-ascii?Q?KjDNjDqy8KcDOAeKHcsODzChX0Z7z3lZHu1DbEMW1vM6CSSllk7wShjENkPW?=
+ =?us-ascii?Q?aLL0GZ7b0XwKiIAZXpXpp2xZk9+9Wb1de3hfHEO7DOZyIOYFbsQdHkFbzRvw?=
+ =?us-ascii?Q?QHGYwqkRypA73IaPubgeEXisqQNuffbcpkbW+7dw/98Mq+1SsREoKoSH5NFr?=
+ =?us-ascii?Q?4zT0PL6PpZB+4UL4om+rmT9ooMAECiC9r/Xq0wbyBiszjK3AS6eCMoYByEiG?=
+ =?us-ascii?Q?VeoUahj0kSKvYP6yg3MjZcdcLeVM+iLF0fct4MadVAST6PjldQ1PMt9YDY69?=
+ =?us-ascii?Q?ZKaKd8u4G8NC7b1vLqYUym56Q0xu5Fu/6nWNp2jimrDVnXibr8ItINa4F0FM?=
+ =?us-ascii?Q?iz9xUvU1nJCPj08kgIdoH0uNhDsh9fl3FWq+qRPPlKJw2wxKoqrIEcg5NlGA?=
+ =?us-ascii?Q?3x6jXHpNTkeOZJN/OY0JIQNes6QSbquH/M/d8D5t4ntVnK2gULoF7JFutYav?=
+ =?us-ascii?Q?AZjxsQpX+RcY7MsvPoxFhIKeQvnDchpHJYTExkKzDcI/XrkFcTtm5zkxGcJ/?=
+ =?us-ascii?Q?x6BJK4tY4UAkz/dOSCtlIOjkX5QQUhQuYppCdJFkudSpnS4U6K5nshGibnJF?=
+ =?us-ascii?Q?s7QwAhhhIXSdKEo2FgSA3PwjxYHIkKV3dVgnMO9xfObnJjZRCdnx?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93ea4ed2-04e8-49bc-6972-08df1a1712d6
+X-MS-Exchange-CrossTenant-Network-Message-Id: 727d1b56-fda5-4843-03f4-08df1a1727f2
 X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 08:37:31.3701
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 08:38:06.7621
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3ddOlcVPiC1reguT2xfQOKO0YIXXbuDFHpI5SNECQkWdBX83xfE+MvhvhdixYuyTGdgBBPXWuoViePOxP9o/EQK1w4jEwjXaY+xbhf209auVCVO2iu709RmKQM9+Ovul
+X-MS-Exchange-CrossTenant-UserPrincipalName: SfAIOhvI5YrsQLPZEbarKRiSRC+13nOJQa35FyDSxjPZpU3+jbo24mXBLxz7BE5Cik4IVf+VOSTEl1aGwMf/+RYrKnLy+tejIDr90KWt5RGY90PL5Rf3W3c86k2ZgpV+
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9937
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_013736_432097_5CD54A54 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20260924_013811_978865_E4FD1EF9 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,127 +149,97 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Peng Fan <peng.fan@nxp.com>
 
-Replace multiple if/else blocks using regmap_set_bits()/regmap_clear_bits()
-with the simpler regmap_assign_bits() calls throughout the HDMI v2 driver.
+Replace if/else blocks using regmap_set_bits()/regmap_clear_bits() with
+the simpler regmap_assign_bits() calls in the lantiq gswip, mt7530 and
+qca8k drivers.
 
 Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 46 ++++++--------------------
- 1 file changed, 10 insertions(+), 36 deletions(-)
+ drivers/net/dsa/lantiq/lantiq_gswip_common.c |  8 ++------
+ drivers/net/dsa/mt7530.c                     | 10 ++--------
+ drivers/net/dsa/qca/qca8k-common.c           | 15 +++------------
+ 3 files changed, 7 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-index f0277fcf3345b..cfd99b630cc2d 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-@@ -65,10 +65,7 @@ static inline void mtk_hdmi_v2_hwirq_disable(struct mtk_hdmi *hdmi)
- 
- static inline void mtk_hdmi_v2_enable_hpd_pord_irq(struct mtk_hdmi *hdmi, bool enable)
- {
--	if (enable)
--		regmap_set_bits(hdmi->regs, TOP_INT_ENABLE00, HPD_PORD_HWIRQS);
--	else
--		regmap_clear_bits(hdmi->regs, TOP_INT_ENABLE00, HPD_PORD_HWIRQS);
-+	regmap_assign_bits(hdmi->regs, TOP_INT_ENABLE00, HPD_PORD_HWIRQS, enable);
- }
- 
- static inline void mtk_hdmi_v2_set_sw_hpd(struct mtk_hdmi *hdmi, bool enable)
-@@ -88,10 +85,7 @@ static inline void mtk_hdmi_v2_enable_scrambling(struct mtk_hdmi *hdmi, bool ena
- {
- 	struct drm_scdc *scdc = &hdmi->curr_conn->display_info.hdmi.scdc;
- 
--	if (enable)
--		regmap_set_bits(hdmi->regs, TOP_CFG00, SCR_ON | HDMI2_ON);
--	else
--		regmap_clear_bits(hdmi->regs, TOP_CFG00, SCR_ON | HDMI2_ON);
-+	regmap_assign_bits(hdmi->regs, TOP_CFG00, SCR_ON | HDMI2_ON, enable);
- 
- 	if (scdc->supported) {
- 		if (scdc->scrambling.supported)
-@@ -103,10 +97,7 @@ static inline void mtk_hdmi_v2_enable_scrambling(struct mtk_hdmi *hdmi, bool ena
- static void mtk_hdmi_v2_hw_vid_mute(struct mtk_hdmi *hdmi, bool enable)
- {
- 	/* If enabled, sends a black image */
--	if (enable)
--		regmap_set_bits(hdmi->regs, TOP_VMUTE_CFG1, REG_VMUTE_EN);
--	else
--		regmap_clear_bits(hdmi->regs, TOP_VMUTE_CFG1, REG_VMUTE_EN);
-+	regmap_assign_bits(hdmi->regs, TOP_VMUTE_CFG1, REG_VMUTE_EN, enable);
- }
- 
- static void mtk_hdmi_v2_hw_aud_mute(struct mtk_hdmi *hdmi, bool enable)
-@@ -302,10 +293,7 @@ static inline void mtk_hdmi_v2_hw_gcp_avmute(struct mtk_hdmi *hdmi, bool mute)
- 
- static void mtk_hdmi_v2_hw_ncts_enable(struct mtk_hdmi *hdmi, bool enable)
- {
--	if (enable)
--		regmap_set_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL);
--	else
--		regmap_clear_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL);
-+	regmap_assign_bits(hdmi->regs, AIP_CTRL, CTS_SW_SEL, enable);
- }
- 
- static void mtk_hdmi_v2_hw_aud_set_channel_status(struct mtk_hdmi *hdmi)
-@@ -423,10 +411,7 @@ static void mtk_hdmi_v2_hw_i2s_ch_mapping(struct mtk_hdmi *hdmi, u8 chnum, u8 ma
- 	 * Layout 0 is for two channels
- 	 * Layout 1 is for up to eight channels
+diff --git a/drivers/net/dsa/lantiq/lantiq_gswip_common.c b/drivers/net/dsa/lantiq/lantiq_gswip_common.c
+index 6150dc3ffb641..20ed487f37ca2 100644
+--- a/drivers/net/dsa/lantiq/lantiq_gswip_common.c
++++ b/drivers/net/dsa/lantiq/lantiq_gswip_common.c
+@@ -1279,12 +1279,8 @@ static int gswip_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+ 	/* Enable MLEN for ports with non-standard MTUs, including the special
+ 	 * header on the CPU port added above.
  	 */
--	if (chnum == 2)
--		regmap_set_bits(hdmi->regs, AIP_TXCTRL, AUD_LAYOUT_1);
+-	if (new_mtu != ETH_DATA_LEN)
+-		regmap_set_bits(priv->gswip, GSWIP_MAC_CTRL_2p(port),
+-				GSWIP_MAC_CTRL_2_MLEN);
 -	else
--		regmap_clear_bits(hdmi->regs, AIP_TXCTRL, AUD_LAYOUT_1);
-+	regmap_assign_bits(hdmi->regs, AIP_TXCTRL, AUD_LAYOUT_1, chnum == 2);
+-		regmap_clear_bits(priv->gswip, GSWIP_MAC_CTRL_2p(port),
+-				  GSWIP_MAC_CTRL_2_MLEN);
++	regmap_assign_bits(priv->gswip, GSWIP_MAC_CTRL_2p(port),
++			   GSWIP_MAC_CTRL_2_MLEN, new_mtu != ETH_DATA_LEN);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 14692497e1a61..834263c9b0b5a 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2150,10 +2150,7 @@ mt7530_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
+ 	struct mt7530_priv *priv = gpiochip_get_data(gc);
+ 	u32 bit = mt7530_gpio_to_bit(offset);
+ 
+-	if (value)
+-		regmap_set_bits(priv->regmap, MT7530_LED_GPIO_DATA, bit);
+-	else
+-		regmap_clear_bits(priv->regmap, MT7530_LED_GPIO_DATA, bit);
++	regmap_assign_bits(priv->regmap, MT7530_LED_GPIO_DATA, bit, value);
+ 
+ 	return 0;
+ }
+@@ -2191,10 +2188,7 @@ mt7530_gpio_direction_output(struct gpio_chip *gc, unsigned int offset, int valu
+ 
+ 	regmap_set_bits(priv->regmap, MT7530_LED_GPIO_DIR, bit);
+ 
+-	if (value)
+-		regmap_set_bits(priv->regmap, MT7530_LED_GPIO_DATA, bit);
+-	else
+-		regmap_clear_bits(priv->regmap, MT7530_LED_GPIO_DATA, bit);
++	regmap_assign_bits(priv->regmap, MT7530_LED_GPIO_DATA, bit, value);
+ 
+ 	regmap_set_bits(priv->regmap, MT7530_LED_GPIO_OE, bit);
+ 
+diff --git a/drivers/net/dsa/qca/qca8k-common.c b/drivers/net/dsa/qca/qca8k-common.c
+index 13005f10edb7d..ab978cc8367f7 100644
+--- a/drivers/net/dsa/qca/qca8k-common.c
++++ b/drivers/net/dsa/qca/qca8k-common.c
+@@ -471,10 +471,7 @@ void qca8k_port_set_status(struct qca8k_priv *priv, int port, int enable)
+ 	if (port > 0 && port < 6)
+ 		mask |= QCA8K_PORT_STATUS_LINK_AUTO;
+ 
+-	if (enable)
+-		regmap_set_bits(priv->regmap, QCA8K_REG_PORT_STATUS(port), mask);
+-	else
+-		regmap_clear_bits(priv->regmap, QCA8K_REG_PORT_STATUS(port), mask);
++	regmap_assign_bits(priv->regmap, QCA8K_REG_PORT_STATUS(port), mask, enable);
  }
  
- static void mtk_hdmi_i2s_data_fmt(struct mtk_hdmi *hdmi, unsigned char fmt)
-@@ -456,10 +441,7 @@ static void mtk_hdmi_i2s_data_fmt(struct mtk_hdmi *hdmi, unsigned char fmt)
- 
- static inline void mtk_hdmi_i2s_sck_edge_rise(struct mtk_hdmi *hdmi, bool rise)
+ void qca8k_get_strings(struct dsa_switch *ds, int port, u32 stringset,
+@@ -562,14 +559,8 @@ static int qca8k_port_configure_learning(struct dsa_switch *ds, int port,
  {
--	if (rise)
--		regmap_set_bits(hdmi->regs, AIP_I2S_CTRL, SCK_EDGE_RISE);
+ 	struct qca8k_priv *priv = ds->priv;
+ 
+-	if (learning)
+-		return regmap_set_bits(priv->regmap,
+-				       QCA8K_PORT_LOOKUP_CTRL(port),
+-				       QCA8K_PORT_LOOKUP_LEARN);
 -	else
--		regmap_clear_bits(hdmi->regs, AIP_I2S_CTRL, SCK_EDGE_RISE);
-+	regmap_assign_bits(hdmi->regs, AIP_I2S_CTRL, SCK_EDGE_RISE, rise);
+-		return regmap_clear_bits(priv->regmap,
+-					 QCA8K_PORT_LOOKUP_CTRL(port),
+-					 QCA8K_PORT_LOOKUP_LEARN);
++	return regmap_assign_bits(priv->regmap, QCA8K_PORT_LOOKUP_CTRL(port),
++				  QCA8K_PORT_LOOKUP_LEARN, learning);
  }
  
- static inline void mtk_hdmi_i2s_cbit_order(struct mtk_hdmi *hdmi, unsigned int cbit)
-@@ -645,10 +627,7 @@ static void mtk_hdmi_v2_aud_set_input(struct mtk_hdmi *hdmi)
- 
- static inline void mtk_hdmi_v2_hw_audio_input_enable(struct mtk_hdmi *hdmi, bool ena)
- {
--	if (ena)
--		regmap_set_bits(hdmi->regs, AIP_CTRL, AUD_IN_EN);
--	else
--		regmap_clear_bits(hdmi->regs, AIP_CTRL, AUD_IN_EN);
-+	regmap_assign_bits(hdmi->regs, AIP_CTRL, AUD_IN_EN, ena);
- }
- 
- static void mtk_hdmi_v2_aip_ctrl_init(struct mtk_hdmi *hdmi)
-@@ -662,10 +641,7 @@ static void mtk_hdmi_v2_audio_reset(struct mtk_hdmi *hdmi, bool reset)
- {
- 	const u32 arst_bits = RST4AUDIO | RST4AUDIO_FIFO | RST4AUDIO_ACR;
- 
--	if (reset)
--		regmap_set_bits(hdmi->regs, AIP_TXCTRL, arst_bits);
--	else
--		regmap_clear_bits(hdmi->regs, AIP_TXCTRL, arst_bits);
-+	regmap_assign_bits(hdmi->regs, AIP_TXCTRL, arst_bits, reset);
- }
- 
- static void mtk_hdmi_v2_aud_output_config(struct mtk_hdmi *hdmi,
-@@ -728,10 +704,8 @@ static void mtk_hdmi_v2_change_video_resolution(struct mtk_hdmi *hdmi,
- 	/* Disable adding deepcolor information to the general packet */
- 	regmap_clear_bits(hdmi->regs, TOP_MISC_CTLR, DEEP_COLOR_ADD);
- 
--	if (hdmi->curr_conn->display_info.is_hdmi)
--		regmap_set_bits(hdmi->regs, TOP_CFG00, HDMI_MODE_HDMI);
--	else
--		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_MODE_HDMI);
-+	regmap_assign_bits(hdmi->regs, TOP_CFG00, HDMI_MODE_HDMI,
-+			   hdmi->curr_conn->display_info.is_hdmi);
- 
- 	udelay(5);
- 	mtk_hdmi_v2_hw_vid_mute(hdmi, true);
+ void qca8k_port_stp_state_set(struct dsa_switch *ds, int port, u8 state)
 -- 
 2.50.1
 
