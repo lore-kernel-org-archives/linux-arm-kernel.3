@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2E4C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676DAC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5W1e+57WPZC5ylekLTUke1/q6aLnHyh/qcUsGkQ31Y=; b=KlFUI2iIbOvik0wRwp1hL9PsRD
-	eanxC/EYuE9dTqvHxsZfq4Ok5fynDL2V8AFq4EdJN5sYTLqzPx0zAwKhXStzPLvE5nP37oR4wOyeG
-	jtXyN+1uaZJHIB1tFDNxipscZ0ruRFZqlZySRG4p81w89UClPkegRQAsF7Ai0dVo8XfDMR2g/vlWy
-	voEGA2Fv8Emzeuha9cnUpPIH3dlKAUuGJfxRvuy3DytwwtSJdKB2VOfQzha4kdnczFx3SazyUesZh
-	coC0S39cMddZSoDK6udDxJEe76WA5YxMLSb3++5IdevcnJguFocZd6voVUbjQPI7vujlE9kHT7/2q
-	jmk0yHIQ==;
+	bh=rwsk9te7VPUHzegWpxO9JFCtI5Vc22J8AiaBQE2VWD8=; b=nfKEfokFyymPxhewE5/FqPhnK/
+	/wxO2YODUjulMLg0iFWo9J52i5zS9PR5Zc6GAfZyKBvm0bTPJ0tbvtxWLSl6HHf59pDPj0+RCh8dg
+	R5nSHINVwqfLglgi3bLX9lIGJEwZibSOWY2w24L9RIetWeBb1+cME3IRowqgGr/cR7IWVceaVv4JA
+	mrIVSgcW0gDZctXYUZ2bUfPq8cFkOLI/15HQZnfmE6dEIzLNBZL5pprEGmG4M6I1YFn/E24UNq0Rn
+	HY5IZ4EfX3EO0nm47Him7xYmkYrjkout+Mr8xBlvLgyNEuzPkgSed3F4rYQN0RdT1FKk5es7FQLcJ
+	zBvD3Xig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nHm-0000000Bklp-0Rk1;
-	Thu, 24 Sep 2026 17:31:06 +0000
-Received: from mail-ot1-x348.google.com ([2607:f8b0:4864:20::348])
+	id 1x9nHo-0000000BkqH-0K7B;
+	Thu, 24 Sep 2026 17:31:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nGQ-0000000Bjrc-3jyg
+	id 1x9nGn-0000000BkHL-1Wib
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 17:30:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=rwsk9te7VPUHzegWpxO9JFCtI5Vc22J8AiaBQE2VWD8=; b=GIP3KWqpaucLACYt/+Yxp0fAXj
+	YVn+m1POnau3UPbFwnSN1Q5GEqkS/8UiEJjWN5emSAlKwrR9301N/nfoFq/aLd/AwIJj09tOMkK0N
+	wE17yU9jOh5NWorawziSMMLVApHDSccrLsBFPVtmRSfxfkTc2joxQ2z+YqHf7vwDbIRWwQ7t2TX7m
+	vT5377wmp05/F+uPLjqtwOr91CxYnF/+xvehBgPbZY3edMV30Iu7VXAr7KndPwaly2w5D55N12ct9
+	l5axSBJivSXQhSFPLSBB8o9qqs/AvzaBY+uBIZ4R742MJuydm5pqxEYOfDoCj+/nLOaWYkRGXrWJ+
+	39abvRSQ==;
+Received: from mail-ot1-x346.google.com ([2607:f8b0:4864:20::346])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9nGj-0000000GFMi-2TJu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:29:47 +0000
-Received: by mail-ot1-x348.google.com with SMTP id 46e09a7af769-80621978fddso9785a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:29:41 -0700 (PDT)
+	Thu, 24 Sep 2026 17:30:04 +0000
+Received: by mail-ot1-x346.google.com with SMTP id 46e09a7af769-81447a16061so17981a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:30:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790270980; x=1790875780; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790270999; x=1790875799; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=f5W1e+57WPZC5ylekLTUke1/q6aLnHyh/qcUsGkQ31Y=;
-        b=tHM6SOQ6aFxNKlRW3BZZmXcRTPRpDZKp9IIaSUukC5GdTS3SiszkSPcn0yrMHqwl6/
-         7fMMp5NWuci+KaIKCJVq2MVIkE26RUgPKTmrK+7duFMm3KgN7ZKXQQUpS/+6CPlvmbb3
-         3ON5VC9whcMiyYpGBOxdMkcui15+qsUQKoRKUNMxWd24+xhsdXJAHLz6cEV3mMNKiL1e
-         UOApb/wcmyNCNd6aMNhFhqibDsfjUF/F7LlkFjzDQrjRpnjNKC5T+sHAZ6g1YmIbRhV9
-         d1OIWqkGjSaNqP4jHRRdvGWSwiQz3KKwADt0eMT9b/Lnm+vDfbjQlihcL8r2OU+gHv4o
-         W8dw==
+        bh=rwsk9te7VPUHzegWpxO9JFCtI5Vc22J8AiaBQE2VWD8=;
+        b=jNOUd0/GYpjfYX2149sswwtnAS1qxnt6NEcuFuSClzyKJnBR+dAZzd8WbKpZHSNGAa
+         HdOar2hfh34aIIbyTScs5Bx+X1XYRSPyL80xj6cAJ8kOsceB7APT1zEXGlWTeUO2N8JQ
+         hH2rXS1gVhkHhgUyqTTsboUOUZpJxM0Bt3X6/zc74ogs+8rwgz1LQlUl7+Z34c8LgNal
+         ytffi4EV3Zyqd1z+yI4dUkRgezti9OwA58ataF0Yx3tc3f69VoxJnH7G0JvE1fsQjLNb
+         OcDrW4PHoGnWYGxCzQjSlSqKoOc14+THIbf7Sxjxy5iL9Kvu8MhSqMebyqJIEVaMVATc
+         kVgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790270980; x=1790875780;
+        d=1e100.net; s=20260707; t=1790270999; x=1790875799;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=f5W1e+57WPZC5ylekLTUke1/q6aLnHyh/qcUsGkQ31Y=;
-        b=QmLyFbXzeZNLlMHXEfDAU3TIkNbepmC0PYZpMv9o5YI9be98B7e1m3b3Tp/VPPgvRC
-         P0hIY/VYQ/81OB00XGrgn6qK1QFtBLRc1XZaGyvlgQv7TRwAfcp8cLw428defIFi8Pdo
-         yQJkuk9MXRpWDiRuLXAUhJbqdaNPtZ6WvS8lix1OUCTXyzSDABgFEyENv/Amha7kwnss
-         L4EQikLLpK9A7zOslU5RBx9cA5FGEwVsfHlJ5n26LyPDCqyrJfSVOs83ZnRgeunKFpRP
-         /dbUtNhfHHHQG8hCr8QBg0ewsgQMJwjbWEzqzR4sMomI8CXfdizeWCr7MPK2pwTzTQwA
-         XsRw==
-X-Forwarded-Encrypted: i=1; AKwUvBwpJWi7pZXUIhm5oIctEEsJ6z6iIT9BAwfH9PgN6ExvwI/UAMKIYv86qu5rAlykQcXabKAfZXl+z1/ItDanqBsZ@lists.infradead.org
-X-Gm-Message-State: AFuF++lyPGcoyoP9JFcIBiPskzd6NvvU9KShqcOBw5ffpwzYjjHRhgC2
-	f1zE1cYzcXEZxxGfyrsxF7HZuap1XYvVkvvOYS4lY6k+uVe0irSAfnekGG06M2hV8ZrnTzRbrS9
-	xGOKgzTW5bcZmWRCToGjHu6T+/A==
-X-Received: from iljv7.prod.google.com ([2002:a05:6e02:13c7:b0:50c:1029:973d])
+        bh=rwsk9te7VPUHzegWpxO9JFCtI5Vc22J8AiaBQE2VWD8=;
+        b=gUVezSgmdKDPJBNn176A8LtpdQkx3zv4lNujyTlyREHFU5hWZvLd3u1k83XAe1JqCL
+         gmVIPgiEwEd3iDHsAB5R3zGmRQ/lnnAs5fseP0huHefyvFS5YrRmu0s7F4/ttRC+puai
+         H1U4PUra1BJPsPjXweSf4AfDEtgTQAHzrNq4lYQPwjnofVeG57pMrFKcmZFqhxseEcUg
+         3sEQcWrQ7jxPUkAvr8L89zaPgfItcOIXKaA9Jej05+bMDECNxrxu4cva5rxDpon2s0is
+         4Vd3NiQQEZPQxCjQk5RhVaWV8E6QRVFEpZZZk3Q0TTnJJ0NDHKwQMh1iKRbVsT6EEDzJ
+         J9YQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxTeAOUwCtERHbYAAh0WFL9WyGknJ/Ng8AiAANPmf68nMpSW5nu3Ei+7Dkc0c1yq1Njxr4HqKWHIlRgLlYi9wy1@lists.infradead.org
+X-Gm-Message-State: AFuF++m8TFaioB9Gt/k7n7jcf93CCQwpCQKeVC0moM10hJkRym+hC+aH
+	sFVPPooS2NRkIQEsKJb2gH4Oj4uzjRSKacNZvb0ZFWKZnBqc7TvVYw/t6yv+qXufmSGJ+8e/7r0
+	LLeIDaB4vIel0YUn7qjTzUVdyQQ==
+X-Received: from jabel8.prod.google.com ([2002:a05:6638:4d88:b0:5f3:c301:1e33])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:4703:b0:4bb:5ceb:47e9 with SMTP id 5614622812f47-4d72ac46b14mr3160836b6e.37.1790270979881;
- Thu, 24 Sep 2026 10:29:39 -0700 (PDT)
-Date: Thu, 24 Sep 2026 17:29:13 +0000
+ 2002:a05:6808:3a1b:b0:4d6:9252:4645 with SMTP id 5614622812f47-4d72ea62a98mr3099601b6e.57.1790270998742;
+ Thu, 24 Sep 2026 10:29:58 -0700 (PDT)
+Date: Thu, 24 Sep 2026 17:29:25 +0000
 In-Reply-To: <20260924172928.2110956-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20260924172928.2110956-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260924172928.2110956-8-coltonlewis@google.com>
-Subject: [PATCH v9 07/22] perf: arm_pmuv3: Allocate counter indices from high
- to low
+Message-ID: <20260924172928.2110956-20-coltonlewis@google.com>
+Subject: [PATCH v9 19/22] KVM: arm64: Detect overflows for the Partitioned PMU
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -88,8 +102,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
 	Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_102942_990525_904A3897 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20260924_183001_726477_77D33871 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,68 +118,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To minimize collisions between host and guest counters, allocate host
-counters from high to low. How the pivot HPMN is defined to partition
-the counters gives the guest the low index counters.
-
-Verify both the upper odd counter and lower even counter are present in
-cpuc->cntr_mask when allocating 64-bit chained events so that an odd
-HPMN boundary does not leak a guest counter into a host chained pair.
+When re-entering the VM or synchronizing PMU state after a guest counter
+overflow interrupt, evaluate whether any enabled and unmasked guest
+counter has overflowed ((PMOVSSET_EL0 & PMINTENSET_EL1 & PMCNTENSET_EL0)
+with PMCR_EL0.E set) and update the virtual PMU interrupt level in the
+vGIC accordingly.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- drivers/perf/arm_pmuv3.c | 25 ++++++++++++++++---------
- 1 file changed, 16 insertions(+), 9 deletions(-)
+ arch/arm64/kvm/pmu-direct.c | 55 +++++++++++++++++++++++++++++++++++++
+ arch/arm64/kvm/pmu-emul.c   | 12 ++++++--
+ arch/arm64/kvm/pmu.c        |  8 +++++-
+ include/kvm/arm_pmu.h       |  2 ++
+ 4 files changed, 73 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index c15a34684137a..4fcdae8021a56 100644
---- a/drivers/perf/arm_pmuv3.c
-+++ b/drivers/perf/arm_pmuv3.c
-@@ -958,10 +958,12 @@ static int armv8pmu_get_single_idx(struct pmu_hw_events *cpuc,
+diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
+index 95b5a64052762..ec821aa54688f 100644
+--- a/arch/arm64/kvm/pmu-direct.c
++++ b/arch/arm64/kvm/pmu-direct.c
+@@ -534,6 +534,61 @@ void kvm_pmu_handle_guest_irq(u64 pmovsr)
+ 
+ 	for_each_set_bit(i, (unsigned long *)&govf, 64)
+ 		set_bit(i, (unsigned long *)__ctxt_sys_reg(&vcpu->arch.ctxt, PMOVSSET_EL0));
++
++	if (kvm_pmu_part_overflow_status(vcpu)) {
++		kvm_make_request(KVM_REQ_IRQ_PENDING, vcpu);
++
++		if (!in_nmi())
++			kvm_vcpu_kick(vcpu);
++		else
++			irq_work_queue(&vcpu->arch.pmu.overflow_work);
++	}
++}
++
++/**
++ * kvm_pmu_part_overflow_status() - Determine if any guest counters have overflowed
++ * @vcpu: Pointer to struct kvm_vcpu
++ *
++ * Determine if any guest counters have overflowed and therefore an
++ * IRQ needs to be injected into the guest. If an overflow is detected
++ * while access is VCPU_PMU_ACCESS_FREE (for example, after state
++ * restoration via KVM_SET_ONE_REG), transition the vCPU to
++ * VCPU_PMU_ACCESS_GUEST_OWNED.
++ *
++ * Return: True if there was an overflow, false otherwise
++ */
++bool kvm_pmu_part_overflow_status(struct kvm_vcpu *vcpu)
++{
++	u64 mask = kvm_vcpu_pmu_guest_counter_mask(vcpu);
++	u64 pmovs, pmint, pmcr;
++	unsigned long flags;
++	bool overflow;
++
++	local_irq_save(flags);
++	if (vcpu->arch.pmu.loaded_on_cpu &&
++	    vcpu == kvm_get_running_vcpu()) {
++		u64 hw_ovf = read_sysreg(pmovsset_el0) & mask;
++
++		if (hw_ovf) {
++			__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, hw_ovf);
++			write_sysreg(hw_ovf, pmovsclr_el0);
++		}
++		pmint = read_pmintenset();
++		pmcr = read_pmcr();
++	} else {
++		pmint = __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
++		pmcr = __vcpu_sys_reg(vcpu, PMCR_EL0);
++	}
++
++	pmovs = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
++	local_irq_restore(flags);
++
++	overflow = (pmcr & ARMV8_PMU_PMCR_E) && (mask & pmovs & pmint);
++
++	if (overflow && kvm_pmu_get_access(vcpu) == VCPU_PMU_ACCESS_FREE)
++		kvm_pmu_set_guest_owned(vcpu);
++
++	return overflow;
+ }
+ 
+ /**
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index e8195984b0373..21e2c96abfdb1 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -268,7 +268,7 @@ void kvm_pmu_reprogram_counter_mask(struct kvm_vcpu *vcpu, u64 val)
+  * counter where the values of the global enable control, PMOVSSET_EL0[n], and
+  * PMINTENSET_EL1[n] are all 1.
+  */
+-bool kvm_pmu_overflow_status(struct kvm_vcpu *vcpu)
++bool kvm_pmu_emul_overflow_status(struct kvm_vcpu *vcpu)
  {
- 	int idx;
+ 	u64 reg = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
  
--	for_each_set_bit(idx, cpuc->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS) {
--		if (!test_and_set_bit(idx, cpuc->used_mask))
-+	for (idx = ARMV8_PMU_MAX_GENERAL_COUNTERS - 1; idx >= 0; idx--) {
-+		if (test_bit(idx, cpuc->cntr_mask) &&
-+		    !test_and_set_bit(idx, cpuc->used_mask))
- 			return idx;
- 	}
+@@ -296,8 +296,14 @@ bool kvm_pmu_should_notify_user(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_sync_regs *sregs = &vcpu->run->s.regs;
+ 	bool run_level = sregs->device_irq_level & KVM_ARM_DEV_PMU;
++	bool overflow;
+ 
+-	return kvm_pmu_overflow_status(vcpu) != run_level;
++	if (kvm_pmu_is_partitioned(vcpu->kvm))
++		overflow = kvm_pmu_part_overflow_status(vcpu);
++	else
++		overflow = kvm_pmu_emul_overflow_status(vcpu);
 +
- 	return -EAGAIN;
++	return overflow != run_level;
  }
  
-@@ -974,17 +976,22 @@ static int armv8pmu_get_chain_idx(struct pmu_hw_events *cpuc,
- 	 * Chaining requires two consecutive event counters, where
- 	 * the lower idx must be even.
- 	 */
--	for_each_set_bit(idx, cpuc->cntr_mask, ARMV8_PMU_MAX_GENERAL_COUNTERS) {
-+	for (idx = ARMV8_PMU_MAX_GENERAL_COUNTERS - 1; idx >= 0; idx--) {
- 		if (!(idx & 0x1))
- 			continue;
--		if (!test_and_set_bit(idx, cpuc->used_mask)) {
--			/* Check if the preceding even counter is available */
--			if (!test_and_set_bit(idx - 1, cpuc->used_mask))
--				return idx;
--			/* Release the Odd counter */
--			clear_bit(idx, cpuc->used_mask);
+ /*
+@@ -400,7 +406,7 @@ static void kvm_pmu_perf_overflow(struct perf_event *perf_event,
+ 		kvm_pmu_counter_increment(vcpu, BIT(idx + 1),
+ 					  ARMV8_PMUV3_PERFCTR_CHAIN);
+ 
+-	if (kvm_pmu_overflow_status(vcpu)) {
++	if (kvm_pmu_emul_overflow_status(vcpu)) {
+ 		kvm_make_request(KVM_REQ_IRQ_PENDING, vcpu);
+ 
+ 		if (!in_nmi())
+diff --git a/arch/arm64/kvm/pmu.c b/arch/arm64/kvm/pmu.c
+index a8214ab52fcb5..4a3c6600b2678 100644
+--- a/arch/arm64/kvm/pmu.c
++++ b/arch/arm64/kvm/pmu.c
+@@ -409,12 +409,18 @@ u64 kvm_pmu_evtyper_mask(struct kvm *kvm)
+ static void kvm_pmu_update_state(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_pmu *pmu = &vcpu->arch.pmu;
++	bool overflow;
+ 
+ 	if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 		return;
+ 
++	if (kvm_pmu_is_partitioned(vcpu->kvm))
++		overflow = kvm_pmu_part_overflow_status(vcpu);
++	else
++		overflow = kvm_pmu_emul_overflow_status(vcpu);
 +
-+		if (test_bit(idx, cpuc->cntr_mask) &&
-+		    test_bit(idx - 1, cpuc->cntr_mask)) {
-+			if (!test_and_set_bit(idx, cpuc->used_mask)) {
-+				/* Check if the preceding even counter is available */
-+				if (!test_and_set_bit(idx - 1, cpuc->used_mask))
-+					return idx;
-+				/* Release the Odd counter */
-+				clear_bit(idx, cpuc->used_mask);
-+			}
- 		}
- 	}
-+
- 	return -EAGAIN;
+ 	WARN_ON(kvm_vgic_inject_irq(vcpu->kvm, vcpu, pmu->irq_num,
+-				    kvm_pmu_overflow_status(vcpu), pmu));
++				    overflow, pmu));
  }
  
+ /**
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 955f142a41b94..428a609eaf1a7 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -91,6 +91,8 @@ bool kvm_set_pmuserenr(u64 val);
+ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_pmu_resync_el0(void);
++bool kvm_pmu_emul_overflow_status(struct kvm_vcpu *vcpu);
++bool kvm_pmu_part_overflow_status(struct kvm_vcpu *vcpu);
+ 
+ #define kvm_vcpu_has_pmu(vcpu)					\
+ 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
 -- 
 2.56.0.rc1.310.g51773c2048-goog
 
