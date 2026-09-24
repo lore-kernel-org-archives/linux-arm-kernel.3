@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B0DC98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAFDC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0WmtXd6HMOJLyqBLQPARl/EDOwACbRXQKfis2Q4MFfo=; b=T3sr/AgNhwMSD1qLG9VWKF9H9U
-	GK5IJSnljXpfAUqHSHXv2LRErQGC9y3XZaRPKe9EDMDD3SDTg3TWl407RI34ytL6Hh3V+vzqeXtAZ
-	8VYL3WdJQJb66W6eSz7gtBvQFP9+GyBzEOz3a1spCg4sYJnzRN8fVEeVXFtrKgH0TxMOVemE64v6h
-	vWk0UFiKUdi5LWO0s73CfM5l2f6jgzqiqH6NoDJQWfKAAZuE1Vw2HXOzQaNg9475GWPlue7R+EKpM
-	F5VeY6zNy/z6Fd/SgnssF89zIZpjD8h/b+HSgmc2HkiOKe3sJfTt3XkRHHX2w8yfXgvt9hRK9bTiQ
-	yisb8Onw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Etifw2tqT9ICxDurEfSG4oT+/ppV+8zZ5cdDwv4wIuo=; b=nrPQ3tZh+QMyHnIbM8wcTDMeVN
+	xfObZgbugY1NfB7Z+gxyEawkq4qckwn5PkkKvylspteecaGZEf+PG3Vz9MOsBzP8K50CsI9ZYHayh
+	6bX9vqBydG/RItGIr+qjv6PjEh8DXihv3qkQGXOioqae1BCeN+nSDkX0QYVcDufpatslrXMFdl3zD
+	0YY3TTzYFCrkIkneLSSvzsSBX8ldYskTtqO9JIRAbAGEJPh3d60WIzodbrCgji9GXhQ9ouTMAvn1o
+	zvNQ5/GjPXg11M56u9lQKk8oTPVWYwqqVh574HZ82tCCYM/Q147ybaS+JHnTkrwc9MwPRKhLREHI5
+	agkaawRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fvB-0000000AbHL-2zHd;
-	Thu, 24 Sep 2026 09:39:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9fvc-0000000AbbQ-1pFq;
+	Thu, 24 Sep 2026 09:39:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fv9-0000000AbFX-3jxL;
-	Thu, 24 Sep 2026 09:39:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C75A43E5D;
-	Thu, 24 Sep 2026 09:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DC637C2BCFC;
-	Thu, 24 Sep 2026 09:39:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790242754;
-	bh=LhBf7uyvNWdc+1o7fNc8Pq/2LIhba4ntyJokJmrlauQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Y8+ag2xyT5Ik8isUvlaiIiyKJSkZT0+eqaNL1mM3Qtssv3moeUVT2C4lQzA3GrHln
-	 hUTzDnRjuLRA1wogT4C1gtUgtzjCq5pHPGOSJi6xQl5ncuS+RBFUy6uYNVX72cjDx2
-	 lnFzk0RyloAXZuCItTrVurAQwz7DrIRiUgW3Wkc05MYfeXLQeZzWYiDFEA4sRA/f5N
-	 rov6D2t5FakG1w8vI0aSelqJe7YJvNSi5l6ID5xMoqCHhcP4I8gGyp5lrxC3Voj5r/
-	 H4cftD+PjiwbDr6KYd1l2KzUDWs4dQmhxNH5HmKlcU7nOAx+vbAIPWoNpnQY7a5EPm
-	 WkSfObHaL04wA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C30D7C98317;
-	Thu, 24 Sep 2026 09:39:14 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Thu, 24 Sep 2026 12:38:31 +0300
-Subject: [PATCH v3 2/3] soc: mediatek: pwrap: use correct log level
+	id 1x9fvN-0000000AbTJ-2p4F
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 09:39:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BFA7C600AA;
+	Thu, 24 Sep 2026 09:39:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F5351F00899;
+	Thu, 24 Sep 2026 09:39:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790242768;
+	bh=Etifw2tqT9ICxDurEfSG4oT+/ppV+8zZ5cdDwv4wIuo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OQ0q+lRtq0CPdH6owlPg2DZW74wVwFesKIG7KxJfWYHqNP2rS5HJ1DPH2rV8LHkaN
+	 6evRxFExNifGKC9SVWF4Kc6thtJzrg7uQl941MsmS3RZhcryN216cF5GDZUW7GDi9S
+	 J9Zk4QXxeWmTU/fmoA5WmIpP07iFuEMtG7uv2JU8YEtqbA+BiznMZBWKbMoHRJ8i91
+	 ZrwN6YuKj6yDFl4UvGBsAyFnw0vJx8ZFjZdSve7bKWHRAGeZH/tx7D+FZVZACFGhAn
+	 NC9WDUOZhfJGpSNsCdCqwAlXXtsRQiLmKniN5iZPUA2N5hj8brsCteYqrqayfHp67F
+	 FE9TOBmjoiteg==
+Date: Thu, 24 Sep 2026 10:39:24 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jamie Nguyen <jamien@nvidia.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for
+ FF-A (offset 2)
+Message-ID: <20260924-tall-oryx-of-attraction-23ada5@sudeepholla>
+References: <20260901192906.133670-1-jamien@nvidia.com>
+ <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla>
+ <20260922155211.676134-1-jamien@nvidia.com>
+ <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla>
+ <20260923124050.3270801-1-jamien@nvidia.com>
+ <20260923-lurking-pony-of-fascination-ac6c49@sudeepholla>
+ <20260923173240.3710620-1-jamien@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-6572-pwrap-v3-2-64769b6446ac@protonmail.com>
-References: <20260924-6572-pwrap-v3-0-64769b6446ac@protonmail.com>
-In-Reply-To: <20260924-6572-pwrap-v3-0-64769b6446ac@protonmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790242752; l=3556;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=aBJoby976DV0fnBJYf0Tm1Mpi+SpQNQMduSmydmf8uw=;
- b=+Mav+ZxvifWc322AWdI4+wK84IHSoI7II6Bl7jqFWPZXNysQtvF403/OX3jbztBCHnqn28Ygg
- w+lmcis1De/CssAl3Xuk5jDsaGY550GRtlLD2oRihXOQtjKHZsV7in0
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923173240.3710620-1-jamien@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,116 +78,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+On Wed, Sep 23, 2026 at 10:32:40AM -0700, Jamie Nguyen wrote:
+> On Wed, Sep 23, 2026 at 02:38:28PM +0100, Sudeep Holla wrote:
+> > I did try to come up something simpler and independent last evening and
+> > this morning, far from completion and I am also thinking of 2 main changes
+> > to it yet:
+> > 1. Maintain hash for receiver ID list
+> > 2. Drop the whole FFA_VERSION fuss as it must be dealt with in UEFI and
+> >    that should be sufficient.
+> >
+> > Of course not tested yet and even not sure this version is compile tested.
+> 
+> Thanks, this looks much simpler. I can confirm that both patches apply to
+> v7.3-rc4 and build W=1 clean with ARM_FFA_TRANSPORT=y, =m and =n. The =n
+> vmlinux also links with no transport-driver symbols pulled in.
+>
 
-Error paths should be dev_err, not dev_dbg. Replace all dev_dbg in error
-branches to have the correct log level. Also simplify dev_err and return
-with dev_err_probe.
+Thanks for giving it a spin.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- drivers/soc/mediatek/mtk-pmic-wrap.c | 45 ++++++++++++++----------------------
- 1 file changed, 17 insertions(+), 28 deletions(-)
+> On FFA_VERSION: as written, if the transport driver has already mapped
+> its RX/TX buffers, I think DEN0077A R0216 has this negotiation return the
+> Null version, so offset 2 would report NOT_SUPPORTED for any AML run after
+> the driver probes. But if it's dropped, I don't think it's guaranteed that
+> a compatible version will have been negotiated by then, right?
+> 
 
-diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
-index 0bcd85826375..a4b10b0a97cb 100644
---- a/drivers/soc/mediatek/mtk-pmic-wrap.c
-+++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
-@@ -2475,10 +2475,9 @@ static int pwrap_probe(struct platform_device *pdev)
- 	if (np->child)
- 		of_slave_id = of_match_node(of_slave_match_tbl, np->child);
- 
--	if (!of_slave_id) {
--		dev_dbg(&pdev->dev, "slave pmic should be defined in dts\n");
--		return -EINVAL;
--	}
-+	if (!of_slave_id)
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "slave pmic should be defined in dts\n");
- 
- 	wrp = devm_kzalloc(&pdev->dev, sizeof(*wrp), GFP_KERNEL);
- 	if (!wrp)
-@@ -2496,11 +2495,9 @@ static int pwrap_probe(struct platform_device *pdev)
- 
- 	if (HAS_CAP(wrp->master->caps, PWRAP_CAP_RESET)) {
- 		wrp->rstc = devm_reset_control_get(wrp->dev, "pwrap");
--		if (IS_ERR(wrp->rstc)) {
--			ret = PTR_ERR(wrp->rstc);
--			dev_dbg(wrp->dev, "cannot get pwrap reset: %d\n", ret);
--			return ret;
--		}
-+		if (IS_ERR(wrp->rstc))
-+			return dev_err_probe(wrp->dev, PTR_ERR(wrp->rstc),
-+					     "cannot get pwrap reset\n");
- 	}
- 
- 	if (HAS_CAP(wrp->master->caps, PWRAP_CAP_BRIDGE)) {
-@@ -2510,12 +2507,9 @@ static int pwrap_probe(struct platform_device *pdev)
- 
- 		wrp->rstc_bridge = devm_reset_control_get(wrp->dev,
- 							  "pwrap-bridge");
--		if (IS_ERR(wrp->rstc_bridge)) {
--			ret = PTR_ERR(wrp->rstc_bridge);
--			dev_dbg(wrp->dev,
--				"cannot get pwrap-bridge reset: %d\n", ret);
--			return ret;
--		}
-+		if (IS_ERR(wrp->rstc_bridge))
-+			return dev_err_probe(wrp->dev, PTR_ERR(wrp->rstc_bridge),
-+					     "cannot get pwrap-bridge reset\n");
- 	}
- 
- 	ret = devm_clk_bulk_get_all_enabled(wrp->dev, &clk);
-@@ -2535,10 +2529,8 @@ static int pwrap_probe(struct platform_device *pdev)
- 	 */
- 	if (!pwrap_readl(wrp, PWRAP_INIT_DONE2)) {
- 		ret = pwrap_init(wrp);
--		if (ret) {
--			dev_dbg(wrp->dev, "init failed with %d\n", ret);
--			return ret;
--		}
-+		if (ret)
-+			return dev_err_probe(wrp->dev, ret, "init failed\n");
- 	}
- 
- 	if (HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB))
-@@ -2548,10 +2540,9 @@ static int pwrap_probe(struct platform_device *pdev)
- 	else
- 		mask_done = PWRAP_STATE_INIT_DONE0;
- 
--	if (!(pwrap_readl(wrp, PWRAP_WACS2_RDATA) & mask_done)) {
--		dev_dbg(wrp->dev, "initialization isn't finished\n");
--		return -ENODEV;
--	}
-+	if (!(pwrap_readl(wrp, PWRAP_WACS2_RDATA) & mask_done))
-+		return dev_err_probe(wrp->dev, -ENODEV,
-+				     "initialization isn't finished\n");
- 
- 	/* Initialize watchdog, may not be done by the bootloader */
- 	if (!HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB))
-@@ -2593,11 +2584,9 @@ static int pwrap_probe(struct platform_device *pdev)
- 		return PTR_ERR(wrp->regmap);
- 
- 	ret = of_platform_populate(np, NULL, NULL, wrp->dev);
--	if (ret) {
--		dev_dbg(wrp->dev, "failed to create child devices at %pOF\n",
--				np);
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(wrp->dev, ret,
-+				     "failed to create child devices at %pOF\n", np);
- 
- 	return 0;
- }
+Agreed, I need to think it through. I definitely want to avoid any usage of
+Rx/Tx buffers here.
+
+> [...]
+> > +	memcpy(&args.a4, &buf[4], len - 4 * sizeof(u64));
+> 
+> This would trip CONFIG_FORTIFY_SOURCE's field-spanning write check
+> whenever the region has more than one payload register. I think this would
+> cover that case:
+> 
+> 	memcpy((void *)&args + offsetof(struct arm_smccc_1_2_regs, a4),
+> 	       &buf[4], len - 4 * sizeof(u64));
+> 
+
+Thanks, will update.
+
+Which version of FF-A is being deployed on your platforms ? Just wondering
+if we can set v1.3 as minimum required here and use query negotiated version
+feature of FFA_VERSION. It is not a must, just checking if that might simplify
+things.
 
 -- 
-2.55.0
-
-
+Regards,
+Sudeep
 
