@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B4CC98304
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 04:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511B8C982FD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 04:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81yO6Car8MHwRf3Bvrj4RVRvosAl9GnpSah8DBIW3BA=; b=AtNHi72pwJpJnZGXhqspEep3zD
-	8MbcokNAruoKH5GqAbOSxBRZIRYHp43eL45q3I47mB4pCgAz3+SjluQwk3nCnnhwuqKxvJBDhq3k8
-	Fit26q0FOtUKqa/0ErHlEZE6HiPbh/Ma2CzTd5OXSEn8JdvNQ8r18dPs6i+U4+2QhpgPVLRRjON56
-	M34iSoyu12gMC/8sn+9uXYoA98YoqapN47YRizZ/7EPycE/9ICQPTrnpcG2l7ER7dIxnhHULdote3
-	WHabnE8i8hkz/h8x2dr2ejIjL7xiWrTN8liKOimAgcbLuYzWqZfnUA8k1ziHfCmgVAz5rvAfmdyan
-	gb/hnBIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B+l2baNjads9ypsuvHYYts3WZDcQaL+ObhhWN33GAkg=; b=GUjiuJxIwO9MpF4fMj0prBUxcn
+	TmKNBGCdSwNZ2bc3aPAffnTgJgxDYzpoKssWRKygqWa1xEBDzKnLLRlcWLjzbOLqddn1PIdtpmoXU
+	MAKJN0vySHFOROUrL+DSr3uxV7oy92BPEsRN5YTChe5O/jUmzhCiqXNF92IwcnW32JGigoI2hUte0
+	CwN84T+Rc/dH+nE7X0PTwYiPaZ6A7IwCY7YICtb01EPkBrjKGqzzMZbb90z2rtL319Iiby1Y2Utam
+	Lccp+qOn9782XdsVdEyOeFOxhyB7p9BjzVRNjaE7Gnc+m7O8ayQWwO3/yljEuiRiacqLy3DOo4mcL
+	r6A4/v9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9aqP-00000009zZv-3Fhg;
-	Thu, 24 Sep 2026 04:14:01 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1x9az8-00000009zyV-2kwg;
+	Thu, 24 Sep 2026 04:23:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9aqL-00000009zYv-3twL
+	id 1x9az6-00000009zyO-2W9g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 04:23:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=B+l2baNjads9ypsuvHYYts3WZDcQaL+ObhhWN33GAkg=; b=nd1ZBvTNseNqKC2SAQ9GA+ICtj
+	cYVEOa9KkugcCTiJnKTTD38yjlc1RKQvjAmDm8HAxvp2e734Amn8JT/k4kV3pLASpsx7e2hKLs0xY
+	jcaFdRmGg6JHkaHPuV9/3iAB82KzwMfXq8I3zwhM6gtRYUqgfpF6OUWGfVRJ8frFCsdL+lj6BO9AK
+	lNqp7SChXLlNnvJquC4EgiXIpkC/9IKPNRuxDgyetmyz0E8VzMpPkHgSDMuOBf6fDq2eSCHpxB8u4
+	uAnUo5XqVE1aWUlr+iwhp7IdVGo2gsjjuzM2l2jxfpp4oOksGsrL519fjoYUqgmBymDsoThzbJ/qr
+	bYlCAgIw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9ayW-0000000FWdP-0RfD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 04:14:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=81yO6Car8MHwRf3Bvrj4RVRvosAl9GnpSah8DBIW3BA=;
-	b=YDrJG1bmelTa/8xqp49tYwTc49N49nkEI5yfp4SaDFakdoz5bMBzAdDPO2Do05y1Nnq8q3RdY
-	XavZJxvPKSi1DUB9PfwUgZ2GmK2QsgwMA9E0TJ/0h9Bgb3mxJwCeWvejuw10x/E4RNQPN/JOCBx
-	pj+gIug/GaImyUF9rQ4f6FQ=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hr0Wj4CVgzmV98;
-	Thu, 24 Sep 2026 12:01:37 +0800 (CST)
-Received: from kwepemk200006.china.huawei.com (unknown [7.202.194.72])
-	by mail.maildlp.com (Postfix) with ESMTPS id A1B334055B;
-	Thu, 24 Sep 2026 12:13:42 +0800 (CST)
-Received: from [10.67.113.213] (10.67.113.213) by
- kwepemk200006.china.huawei.com (7.202.194.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 24 Sep 2026 12:13:42 +0800
-Message-ID: <6AB4A375.2050004@hisilicon.com>
-Date: Thu, 24 Sep 2026 12:13:41 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	Thu, 24 Sep 2026 04:22:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 728BB152B;
+	Wed, 23 Sep 2026 21:22:16 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17AE03F632;
+	Wed, 23 Sep 2026 21:22:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790223739; bh=fUdSVAPf6JXOiBt1WWMuSzllWnjreq6oNfBQJVovxRA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vcaCmMp8KMgI7rlLS5ZdKK8H9cM1yzjrrGOEQJN1omkufGYnpJu1rXNXvkRmte5If
+	 JM82hP0WEX+At0U6W5yRcvzxzqF2hKPJV4EX7zarCcdCE2nIZPwkJ9WahHNcaiNPSB
+	 w0ABcm0ZfrX3w23T+UrHGy8IFaoNbLi2EBRYeZ8c=
+Date: Thu, 24 Sep 2026 09:52:15 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH V2 4/4] arm64/mm: Use pgdp_get() for PGD accesses
+Message-ID: <6g6jx5mcpv3zkxqyysfyldn6zgc2m6vydjwnoz3balrdjre2pe@wdso3tebrjn3>
+References: <20260922061638.3967467-1-anshuman.khandual@arm.com>
+ <20260922061638.3967467-5-anshuman.khandual@arm.com>
+ <a2365246-53a4-41e6-a655-6813f913cc1f@arm.com>
 MIME-Version: 1.0
-To: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] dt-bindings: soc: hisilicon: Add HIP05 CPLD
-References: <20260921232540.3128596-1-robh@kernel.org> <20260922-cheer-reference-c31fc6fb946d@spud> <20260923150409.GD27237-robh@kernel.org>
-In-Reply-To: <20260923150409.GD27237-robh@kernel.org>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.113.213]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200006.china.huawei.com (7.202.194.72)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a2365246-53a4-41e6-a655-6813f913cc1f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_211358_284934_F41A4BFC 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20260924_052231_142332_7E55BE3C 
+X-CRM114-Status: GOOD (  28.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,95 +89,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Wed, Sep 23, 2026 at 09:31:28AM +0100, Ryan Roberts wrote:
+> On 22/09/2026 07:16, Anshuman Khandual wrote:
+> > Replace READ_ONCE() with pgdp_get() for PGD accesses in preparation for
+> > supporting both D64 and D128 translation table formats.
+> > 
+> > READ_ONCE() cannot currently be used for 128-bit page table entries on
+> > arm64 because it does not provide the required 128-bit single-copy
+> > atomicity, causing builds to fail for accesses wider than 64 bits.
+> > 
+> > Although LDP/STP provide the required atomicity when FEAT_LSE is
+> > available (as required by FEAT_D128), extending READ_ONCE() to support
+> > 128-bit accesses is undesirable. READ_ONCE() is a general-purpose API,
+> > so doing so could encourage other 128-bit users that would either fail
+> > to build in configurations without D128 support or, if D128 becomes a
+> > runtime option, silently permit tearing on systems without the required
+> > hardware support.
+> > 
+> > Instead, standardize PGD accesses on the existing page-table helpers.
+> > These can be overridden on arm64 to provide 128-bit single-copy
+> > atomicity when required. No functional change intended.
+> 
+> I notice you have unconverted READ_ONCE(*pgdp) in:
+> 
+>  - p4d_offset_phys()
+>  - p4d_offset()
+> 
+> Is that intentional?
 
-On 2026/9/23 23:04, Rob Herring wrote:
-> On Tue, Sep 22, 2026 at 07:06:02PM +0100, Conor Dooley wrote:
->> On Mon, Sep 21, 2026 at 06:25:39PM -0500, Rob Herring (Arm) wrote:
->>> Add schema for the hisilicon,hip05-cpld node on the HIP05 D02 board. The
->>> node only contains the compatible string and one register window on the
->>> local bus.
->>>
->>> Assisted-by: LLM
->>
->> Guidance to the LLM should probably include including the reason that
->> this is being added to the commit message.
-> 
-> Not sure what you are looking for... I told it to convert all the .txt 
-> bindings to schema. Then I told it fix all the errors. Then I fixed some 
-> things throughout the 900 commit branch upstreaming things bit by bit.  
-> Then it mostly sat for a year and I told a new model to review them and 
-> fix these common problems a, b and c. Then I said fix all the 
-> dtbs_checks warnings on arm64. Then I said there's still warnings, do it 
-> again. Repeated that ~10 times. Now I'm going thru to weed out all the 
-> wrong and sometimes unnecessary changes.
-> 
-> So LLM did all the easy parts and I did everything that requires any 
-> judgement. The hardest part is typically just figuring out the 
-> correct maintainers...
-> 
->>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->>> ---
->>>  .../soc/hisilicon/hisilicon,hip05-cpld.yaml   | 35 +++++++++++++++++++
->>>  1 file changed, 35 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
->>> new file mode 100644
->>> index 000000000000..f9d48b871a4b
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/soc/hisilicon/hisilicon,hip05-cpld.yaml
->>> @@ -0,0 +1,35 @@
->>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/soc/hisilicon/hisilicon,hip05-cpld.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: HiSilicon HIP05 CPLD registers
->>> +
->>> +maintainers:
->>> +  - Wei Xu <xuwei5@hisilicon.com>
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: hisilicon,hip05-cpld
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    local-bus {
->>> +        #address-cells = <2>;
->>> +        #size-cells = <1>;
->>> +
->>> +        cpld@100000000 {
->>> +            compatible = "hisilicon,hip05-cpld";
->>> +            reg = <1 0x0 0x100>;
->>
->> Also what's with this example? 1 0x0 0x100 should be 0x1 0x0 0x100?
-> 
-> Shrug. Sure. Honestly, I think the example can just be dropped.
-> 
-> I'm converting all the crap no one cares enough about to convert. That's 
-> pretty much all of the HiSilicon stuff. Mediatek needs some renewed 
-> public shaming too. I only care about getting arm64 down to no warnings.
-
-My bad for the warnings!
-Thanks for working on this schema cleanup!
-
-Best Regards,
-Wei
+Platform overrride for p4dp_get() should solve the problem as well.
 
 > 
-> Rob
-> .
+> Thanks,
+> Ryan
+> 
+> 
+> > 
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: linux-arm-kernel@lists.infradead.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Cc: kasan-dev@googlegroups.com
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > ---
+> >  arch/arm64/mm/fault.c       | 2 +-
+> >  arch/arm64/mm/hugetlbpage.c | 2 +-
+> >  arch/arm64/mm/kasan_init.c  | 6 +++---
+> >  arch/arm64/mm/mmu.c         | 6 +++---
+> >  arch/arm64/mm/pageattr.c    | 2 +-
+> >  arch/arm64/mm/trans_pgd.c   | 4 ++--
+> >  6 files changed, 11 insertions(+), 11 deletions(-)
+> > 
+> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > index a6afd8929a10..43f25418275a 100644
+> > --- a/arch/arm64/mm/fault.c
+> > +++ b/arch/arm64/mm/fault.c
+> > @@ -160,7 +160,7 @@ static void show_pte(unsigned long addr)
+> >  	guard(irqsave)();
+> >  
+> >  	pgdp = pgd_offset(mm, addr);
+> > -	pgd = READ_ONCE(*pgdp);
+> > +	pgd = pgdp_get(pgdp);
+> >  	ptval_to_str(pxd_str, pgd_val(pgd));
+> >  	pr_alert("[%016lx] pgd=%s", addr, pxd_str);
+> >  
+> > diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> > index 5771bf49e1fe..e05e5b41ae50 100644
+> > --- a/arch/arm64/mm/hugetlbpage.c
+> > +++ b/arch/arm64/mm/hugetlbpage.c
+> > @@ -284,7 +284,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
+> >  	pmd_t *pmdp, pmd;
+> >  
+> >  	pgdp = pgd_offset(mm, addr);
+> > -	if (!pgd_present(READ_ONCE(*pgdp)))
+> > +	if (!pgd_present(pgdp_get(pgdp)))
+> >  		return NULL;
+> >  
+> >  	p4dp = p4d_offset(pgdp, addr);
+> > diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
+> > index 4dd8c1186471..f61f5bc09467 100644
+> > --- a/arch/arm64/mm/kasan_init.c
+> > +++ b/arch/arm64/mm/kasan_init.c
+> > @@ -102,7 +102,7 @@ static pud_t *__init kasan_pud_offset(p4d_t *p4dp, unsigned long addr, int node,
+> >  static p4d_t *__init kasan_p4d_offset(pgd_t *pgdp, unsigned long addr, int node,
+> >  				      bool early)
+> >  {
+> > -	if (pgd_none(READ_ONCE(*pgdp))) {
+> > +	if (pgd_none(pgdp_get(pgdp))) {
+> >  		phys_addr_t p4d_phys = early ?
+> >  				__pa_symbol(kasan_early_shadow_p4d)
+> >  					: kasan_alloc_zeroed_page(node);
+> > @@ -256,7 +256,7 @@ static int __init root_level_idx(u64 addr)
+> >  static void __init clone_next_level(u64 addr, pgd_t *tmp_pg_dir, pud_t *pud)
+> >  {
+> >  	int idx = root_level_idx(addr);
+> > -	pgd_t pgd = READ_ONCE(swapper_pg_dir[idx]);
+> > +	pgd_t pgd = pgdp_get(swapper_pg_dir + idx);
+> >  	pud_t *pudp = (pud_t *)__phys_to_kimg(__pgd_to_phys(pgd));
+> >  
+> >  	memcpy(pud, pudp, PAGE_SIZE);
+> > @@ -280,7 +280,7 @@ static int __init next_level_idx(u64 addr)
+> >   */
+> >  static void __init clear_next_level(int pgd_idx, int start, int end)
+> >  {
+> > -	pgd_t pgd = READ_ONCE(swapper_pg_dir[pgd_idx]);
+> > +	pgd_t pgd = pgdp_get(swapper_pg_dir + pgd_idx);
+> >  	pud_t *pudp = (pud_t *)__phys_to_kimg(__pgd_to_phys(pgd));
+> >  
+> >  	memset(&pudp[start], 0, (end - start) * sizeof(pud_t));
+> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> > index 83709d987e7c..76d8d320aeed 100644
+> > --- a/arch/arm64/mm/mmu.c
+> > +++ b/arch/arm64/mm/mmu.c
+> > @@ -434,7 +434,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+> >  {
+> >  	int ret;
+> >  	unsigned long next;
+> > -	pgd_t pgd = READ_ONCE(*pgdp);
+> > +	pgd_t pgd = pgdp_get(pgdp);
+> >  	p4d_t *p4dp;
+> >  
+> >  	if (pgd_none(pgd)) {
+> > @@ -1649,7 +1649,7 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+> >  	do {
+> >  		next = pgd_addr_end(addr, end);
+> >  		pgdp = pgd_offset_k(addr);
+> > -		pgd = READ_ONCE(*pgdp);
+> > +		pgd = pgdp_get(pgdp);
+> >  		if (pgd_none(pgd))
+> >  			continue;
+> >  
+> > @@ -1827,7 +1827,7 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
+> >  	do {
+> >  		next = pgd_addr_end(addr, end);
+> >  		pgdp = pgd_offset_k(addr);
+> > -		pgd = READ_ONCE(*pgdp);
+> > +		pgd = pgdp_get(pgdp);
+> >  		if (pgd_none(pgd))
+> >  			continue;
+> >  
+> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> > index 826856ef64a8..dfa1356daac2 100644
+> > --- a/arch/arm64/mm/pageattr.c
+> > +++ b/arch/arm64/mm/pageattr.c
+> > @@ -399,7 +399,7 @@ bool kernel_page_present(struct page *page)
+> >  	unsigned long addr = (unsigned long)page_address(page);
+> >  
+> >  	pgdp = pgd_offset_k(addr);
+> > -	if (pgd_none(READ_ONCE(*pgdp)))
+> > +	if (pgd_none(pgdp_get(pgdp)))
+> >  		return false;
+> >  
+> >  	p4dp = p4d_offset(pgdp, addr);
+> > diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
+> > index 7afe2beca4ba..06470d690f9f 100644
+> > --- a/arch/arm64/mm/trans_pgd.c
+> > +++ b/arch/arm64/mm/trans_pgd.c
+> > @@ -134,7 +134,7 @@ static int copy_p4d(struct trans_pgd_info *info, pgd_t *dst_pgdp,
+> >  	unsigned long next;
+> >  	unsigned long addr = start;
+> >  
+> > -	if (pgd_none(READ_ONCE(*dst_pgdp))) {
+> > +	if (pgd_none(pgdp_get(dst_pgdp))) {
+> >  		dst_p4dp = trans_alloc(info);
+> >  		if (!dst_p4dp)
+> >  			return -ENOMEM;
+> > @@ -164,7 +164,7 @@ static int copy_page_tables(struct trans_pgd_info *info, pgd_t *dst_pgdp,
+> >  	dst_pgdp = pgd_offset_pgd(dst_pgdp, start);
+> >  	do {
+> >  		next = pgd_addr_end(addr, end);
+> > -		if (pgd_none(READ_ONCE(*src_pgdp)))
+> > +		if (pgd_none(pgdp_get(src_pgdp)))
+> >  			continue;
+> >  		if (copy_p4d(info, dst_pgdp, src_pgdp, addr, next))
+> >  			return -ENOMEM;
 > 
 
