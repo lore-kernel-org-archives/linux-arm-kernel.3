@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C855C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58705C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QvZlZS2o/VtqigJcsGK+8GMV91JrY1h073nzLy0fJ0=; b=QfS735P/DU4x5SuOLrtlZsjofj
-	VMe+BG22jaL4vG7riuj335jaozggQtTXvYsfOlXkBsQGziPxlA2PJgJCoenKJZz9ixsWpf+5DkvVp
-	ZczWhtt+Zr+dIP2qFFP3GhoiGvoPDJHRUMRcxno6fu5aZEwToLtpR2scuzH3WdojADzZU+zDbPG5v
-	j4YnVd6fsjZFRqH1l8Vi3huMSbCeGpOpcm7459Atf+kIa7XxZbyV4gzz18CD3olVIKBJCrFoEWxjZ
-	RMrp+WmXaaxGOxgmJoiLe7I21Vhosc0BWKq6YxDLRTwxLm6l/1gtTOQpXUkleuYw7SaSypqnl/sEO
-	pF11HHig==;
+	bh=Ge+2SOGDHiOa30s+l/ebyCslv4LPwF+ds1WuJXJt9/I=; b=v0SYcBHSlDvpdgQEuz8+Z+k1Tp
+	IcOhtXQ5XvthvKvE/bl+8r0ESAoZUH3nHTAiu+2UCV3CBUilr3/eqrRWXko3Y+VYnIkC71ymCcKV+
+	JdsrFZal8I6AaEl0wLkcFqhKHwi1MKmsfmaRKi6S4M3w07vXF5ZDBx7n94Gch/LLH4B/bY4pgYDPo
+	LrI3TDhnWV+yjGaSnNZfJTxy/8WL6q6RkLV1iJTKowA0i1uLSOlbgdg2k+o3gUMhB1SaLNE5+01G5
+	b3Ou3JNGFF0PdInO6u6g8tH/KsZ5940iCxEKVzuYeKtxmC1GPjNjIjyhtB8yHBOvaSPh+4Iu1vrY1
+	y/gs4d6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nZM-0000000Bpgg-40LU;
-	Thu, 24 Sep 2026 17:49:16 +0000
-Received: from out-20.mta1.migadu.com ([95.215.58.20] helo=mta1.migadu.com)
+	id 1x9nbP-0000000Bpvm-15tX;
+	Thu, 24 Sep 2026 17:51:23 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nZK-0000000BpgB-2PAO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:49:16 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=VhHsaKDyj6btt2rJ0mEf5ooJRJ5wjzeYOU6EzYm9i7w=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790272152; v=1; x=1790876952;
- b=KNNYCzlVLjucc/fZINBzr++VlE+Vzklw7XzRIEwuQfxm2OeXunObXUtlPdsRrwFcygldUVVC
- s70t0Df7UvIeo8yRb94lD5bhGxCR9RBeBkXyX4XN/T6OghaeVhBLQm/itaQ6L6MeaI9XPgIoZc6
- lDc0kXMD/016YsfX2stC51zA=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 618ff6e46ab2eadc;
-	Thu, 24 Sep 2026 17:49:12 +0000
-X-Mizu-Trace-ID: 618ff6e46ab2eadc
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b8c42da963so945e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:49:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwcVFHtk80B3v4/8Jznq6AtUV1BHUYcuZQHElEIyBpVxsDsyLjJA65vcBB6SEivtudxgMqmobONDh5+6Uh5M0gt@lists.infradead.org
-X-Gm-Message-State: AFuF++lbKx0JSUdHb7o9NsygPqWF36SA6oduyeG+ODJjntHXeQRo4Z4z
-	K0DYk4cQgXyVgWMGedFYudmSU/DkbL/tyla8RbCnXikwBD45kaGtcC3Aa83mtLfvgqyknRkQQrv
-	S4Uv3P2R51QFflR6V+8Y14JVaA7rW3vVO33/eee10
-X-Received: by 2002:a05:6512:23a9:b0:5b1:5141:9156 with SMTP id
- 2adb3069b0e04-5b8e5793dcbmr8212e87.9.1790272147649; Thu, 24 Sep 2026 10:49:07
- -0700 (PDT)
+	id 1x9nbM-0000000Bpun-1WXW;
+	Thu, 24 Sep 2026 17:51:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790272277;
+	bh=E5sOGZv4PsnQ9lebGLSxJFxuo51klyzvMHE8CDz7Q9Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=kE0AuB1UulmjZhIOgwAwnOV/ZisIZPnLZDoiyztMOMVPai48Y0BDuo/TRzky24oKV
+	 BlU9BEI4mZqG1Zlw1mVvQIYMrua6m3+ZB4SMpqjomLxLwKxRnKZD1aJegtjVBwx6+z
+	 CbIEHai48Yp7bNY3Wlw8r8I7ChBrePh90mWCOnUqe1hGHc0NEZpFj2u4M8Xuv35hKu
+	 nV4vHYIOyCRKaJw/bW5OtsrBhJZSmMtHVTM+IQYaLzYHuLYpQNSOD16EHKVWFW4+fe
+	 2Jm8pc6q3POOIqco4Mrd2T6Z8VABOLfb10GpZzShkUCYPUDWri0vL3v/ckrSFN85F8
+	 XqipsgWgav70A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2567017E0082;
+	Thu, 24 Sep 2026 19:51:15 +0200 (CEST)
+Message-ID: <518ec010db104f6f0e7c85607a97af408da44eed.camel@collabora.com>
+Subject: Re: [PATCH v3 2/3] media: dt-bindings: media: nxp, imx8mq-vpu:
+ Remove nxp,imx8mq-vpu
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Conor Dooley <conor@kernel.org>, Benjamin Gaignard
+	 <benjamin.gaignard@collabora.com>
+Cc: p.zabel@pengutronix.de, mchehab@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+ s.hauer@pengutronix.de, 	kernel@pengutronix.de, festevam@gmail.com,
+ linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, 	imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ kernel@collabora.com
+Date: Thu, 24 Sep 2026 13:51:13 -0400
+In-Reply-To: <20260924-compare-useable-3e2863b66924@spud>
+References: <20260924130453.196299-1-benjamin.gaignard@collabora.com>
+	 <20260924130453.196299-3-benjamin.gaignard@collabora.com>
+	 <20260924-compare-useable-3e2863b66924@spud>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ufgeUgCb5bgTB+Z5csz7"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-References: <20260924161514.1112730-1-fuad.tabba@linux.dev>
- <20260924161514.1112730-4-fuad.tabba@linux.dev> <86pky24kxz.wl-maz@kernel.org>
-In-Reply-To: <86pky24kxz.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 24 Sep 2026 18:48:31 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxR4+VMm99w3fL27SCTi2r3GUPF5F5zp9tqqss6dCL0hg@mail.gmail.com>
-X-Gm-Features: AclHuK8ICoSXw_nkuEqpc9E_Pai04k86x8jUnxS_KW-AQa1FK-xcq-uTx9S5r8k
-Message-ID: <CA+EHjTxR4+VMm99w3fL27SCTi2r3GUPF5F5zp9tqqss6dCL0hg@mail.gmail.com>
-Subject: Re: [PATCH 3/3] irqchip/gic-v3: Don't register a redistributor that
- was never counted
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, James Morse <james.morse@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_104914_759353_0A516D5C 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260924_105120_562390_BEB3F129 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +96,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 18:29:28 +0100, Marc Zyngier <maz@kernel.org> wrote:
 
-[...]
+--=-ufgeUgCb5bgTB+Z5csz7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> Shouldn't this also update the broken_rdist bitmap?
+Hi Conor,
 
-Yes, it should. Without it gic_check_rdist() returns 0 and cpuhp
-brings the CPU up. Sashiko raised the same [1], and I was in the
-middle of replying with this:
+Le jeudi 24 septembre 2026 =C3=A0 17:55 +0100, Conor Dooley a =C3=A9crit=C2=
+=A0:
+> On Thu, Sep 24, 2026 at 03:04:52PM +0200, Benjamin Gaignard wrote:
+> > nxp,imx8mq-vpu has been tagged has deprecated since a while.
+> > After driver clean up it is time to remove it.
+>=20
+> No users in linux doesn't mean no users, but I am guessing that there's
+> genuinely no users elsewhere and anyone using out of tree devicetrees
+> should have updated due to the warning at runtime?
 
-        /* Not counted by gic_acpi_match_gicc(), so there is no slot for it */
-        if (!gicc->gicr_base_address) {
-                int cpu = get_cpu_for_acpi_id(gicc->uid);
+I've checked the vendor DT before they moved to the mainline driver, and th=
+ey
+never used this binding (actually they never made bindings).=20
+Here's what the DT was:
 
-                pr_warn(FW_BUG "GICC entry with ACPI UID %u has no
-GICR base address, CPU kept offline\n",
-                        gicc->uid);
-                if (cpu >= 0)
-                        cpumask_set_cpu(cpu, &broken_rdists);
-                return 0;
-        }
+		vpu: vpu@38300000 {
+			compatible =3D "nxp,imx8mq-hantro";
+			reg =3D <0x38300000 0x200000>;
+			reg-names =3D "regs_hantro";
+			interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 8 IRQ_TYPE_LEVE=
+L_HIGH>;
+			interrupt-names =3D "irq_hantro_g1", "irq_hantro_g2";
+			clocks =3D <&clk IMX8MQ_CLK_VPU_G1_ROOT>, <&clk IMX8MQ_CLK_VPU_G2_ROOT>,=
+ <&clk IMX8MQ_CLK_VPU_DEC_ROOT>;
+			clock-names =3D "clk_hantro_g1", "clk_hantro_g2", "clk_hantro_bus";
+			assigned-clocks =3D <&clk IMX8MQ_CLK_VPU_G1>, <&clk IMX8MQ_CLK_VPU_G2>, =
+<&clk IMX8MQ_CLK_VPU_BUS>;
+			assigned-clock-parents =3D <&clk IMX8MQ_VPU_PLL_OUT>, <&clk IMX8MQ_VPU_P=
+LL_OUT>, <&clk IMX8MQ_SYS1_PLL_800M>;
+			assigned-clock-rates =3D <600000000>, <600000000>, <800000000>;
+			power-domains =3D <&pgc_vpu>;
+			status =3D "disabled";
+		};
 
-I'll fold it into a v2.
+I've not aware of any other OS or booloader that offers media capabilities =
+using
+Linux mainline DT. The now deprecated nxp,imx8mq-vpu compatible had a short=
+ live
+in the Linux tree if my memory is correct. Hope this is enough justificatio=
+n.
 
-Cheers,
-/fuad
+regards,
+Nicolas
 
-[1] https://sashiko.dev/#/patchset/20260924161514.1112730-1-fuad.tabba%40linux.dev
+>=20
+> >=20
+> > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> > ---
+> >  .../devicetree/bindings/media/nxp,imx8mq-vpu.yaml      | 10 ++++------
+> >  1 file changed, 4 insertions(+), 6 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yam=
+l b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+> > index 19528262810a..69619d2c86fa 100644
+> > --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+> > +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+> > @@ -14,12 +14,10 @@ description:
+> > =20
+> >  properties:
+> >    compatible:
+> > -    oneOf:
+> > -      - const: nxp,imx8mq-vpu
+> > -        deprecated: true
+> > -      - const: nxp,imx8mq-vpu-g1
+> > -      - const: nxp,imx8mq-vpu-g2
+> > -      - const: nxp,imx8mm-vpu-g1
+> > +    enum:
+> > +      - nxp,imx8mq-vpu-g1
+> > +      - nxp,imx8mq-vpu-g2
+> > +      - nxp,imx8mm-vpu-g1
+> > =20
+> >    reg:
+> >      maxItems: 1
+> > --=20
+> > 2.53.0
+> >=20
+
+--=-ufgeUgCb5bgTB+Z5csz7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarVjEQAKCRDZQZRRKWBy
+9C4tAQD1qA+Ux1mXqgQgjzQg11/HgxYGtNNRdQM1ljOMoDXTQgD+IP4kVkw14aJT
+a6/hPh+9+Z/YwRaFTKestaGBrvZAkgI=
+=UaxT
+-----END PGP SIGNATURE-----
+
+--=-ufgeUgCb5bgTB+Z5csz7--
 
