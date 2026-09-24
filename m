@@ -4,98 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE89C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC02EC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MaWkFoUOQ+u9WS91tjqMuEOPGp9Db2ThXslkCbREcik=; b=38F0Km0lpHa1cUGcW/hIXBX8iI
-	nLlLuvuI7WAKz+ODSIrnO6QIzhhBvrtpt9IAwaWA/bwwTXx8r+K5L5O4SzeN8I9372k1uLVYt2vIc
-	nZHVNocaXwAWNyOhv3COh2nxp7mwbNXwoKr8KmYHkFQyqFR4yqs7yXBfLV8M/ivhIyLgm6Yns+y+T
-	QTHUNhroNFBC6YsX4axLJ73LRn7ZIYtXvLKBPXQQtpNivmR8Y//yYXbVJfkT1u3RKWCIRQwYIwPrr
-	g62bVmMpH96gJyKtrvMaOEp+j2TOg4BSq6Hrdp/X0WYNZeXiepYFWNpWXnlANqMkGPZR2d76ECY9u
-	sEdakEZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ReSij4eDlvfzvHmFOZbgb/VaJC2TPYANknXs7Tc10Y=; b=jrr1n7BVTrIfxPQWznzXo7p83U
+	wWRDptV9IBsG8iUfGExwkmSdA7L0r61Rm1NyUCpIQEir4akd9NDBpgexOl4EIrVFkEb0vp9+FnoMr
+	s3rRBisHuwk/AtxqZSq4GJV6GFelCmfNhWFs49UTJTg+QHc2MTlveOvwa8YDjIyt76Ug9JBPJquo1
+	dS6foVbefEb868WQXH+/qrLKgsagNn4/TWR+p+TseNralesUfk7sP2QcncxfZp6sEQQMF6jDNCF9e
+	S3TE3t1bBulF7CowkBHKwJ7hpVEO6RYyhbMDv2MMCVPbc+BGjviCIap1tCYstpvhG9/3haO9Sk/x5
+	fVilisIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kOD-0000000BFxL-0zoG;
-	Thu, 24 Sep 2026 14:25:33 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1x9kSm-0000000BGfH-3yeT;
+	Thu, 24 Sep 2026 14:30:16 +0000
+Received: from mail-yx2-x0e.google.com ([2607:f8b0:4864:41::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kOB-0000000BFwi-1uLc
+	id 1x9kSk-0000000BGes-1XIT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 14:25:32 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc52c1b8286so473697a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:25:31 -0700 (PDT)
+	Thu, 24 Sep 2026 14:30:15 +0000
+Received: by mail-yx2-x0e.google.com with SMTP id 956f58d0204a3-672ce86b21aso2502551d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:30:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790260213; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Yo7NDM8ogkjfnIFAvl7WZG0ZiTQf+WoPDw2nJGsR70jG5P+7eB9Cm5SGriuiUbSd5J
+         xf2X2UFajN1FcbVRgu0Lz7MD/ISd6E9kvulpynmJCgUs3p4fcUjHj+AH6vu3WJqxRgoy
+         ls8NZ0gsS8IuV+VrnLCuFLg+qA3bpXg9Xr+Noloe+vB01VFocOMJ3weGvMqIkVWo7pys
+         TTBm7FAWUxu/1vLko0EvdAkjQC5sWM8fVPnubc/qMsgE4kFBKGjcr1RNYpCQqhKlVXpZ
+         bM8FwiGJglC3TV+UXmfCwKq90XTAkrgVSzs4mzVLYcQdM5+PC+XVCl1HfYb3kYKIQb8B
+         rEuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=2ReSij4eDlvfzvHmFOZbgb/VaJC2TPYANknXs7Tc10Y=;
+        fh=BAa4kfGVgv5ochuFAxrazxgyboMmR+hwILsG58RiXdQ=;
+        b=IItwYLMA7UYoXDrOSWhx0dpXEIriL9HFV6cMARa6TzlgGgM8JHtXIe054RkHPGqUoS
+         mUtIqg9EuQ/4lJOdX+m3IcK6mflG83eD7/uk3R1PnqeMEWCeSLyqKrUEpN/VaNIVxufE
+         UiHKaOKb70ebN8p1IkZEMaF5c7TSwFijR5uKlXSlvqgj8H7aWHhBJ25phY2D8qufBfxc
+         O0RXrePQNq7B0ayN3yfx/ulXvteNVUgTOfGJmPruMJ3SwHgNDQ5+1NBv1c1d7HXgy2eR
+         0w0N+g2OaOB2O9DNVQWPo0ZifxAozsYDPef7NjozVwkAH65SZDgm36ncrbPlygGHLd7O
+         iVkg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790259930; x=1790864730; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MaWkFoUOQ+u9WS91tjqMuEOPGp9Db2ThXslkCbREcik=;
-        b=ki9JS6BHjbu1w31udXOQtVeYhgZcI9luQulI8uw61iGVv0gklk6eJ2jYluPIDgwmAW
-         xAP7o76yO/P77vIpfXWb6JWhR31QZEBaLlWI+g8nleqdAvU+Wd3F3pX3N5ML9HC04zYI
-         DNd5meCKgELyIA5QqW4SPKEX7yKj/EbQrSEMUJnmHvzuUuRMpfAD/+som7yTwvsjVuCT
-         vrqWoiyCWD3wVdsSXEjkj/lKs9F1hVJSX0wvaDVcisziIISrJW8mvEhoQu476jxg+yYz
-         V/HfU/zaPbSRD3HOErcniJIL8XjW3UD9V/BxqD4YRZj+aVgUHjBghSLI3EWKX/GbrLji
-         G3kQ==
+        d=gmail.com; s=20251104; t=1790260213; x=1790865013; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2ReSij4eDlvfzvHmFOZbgb/VaJC2TPYANknXs7Tc10Y=;
+        b=AldVjXbT7LZAL2NRmWDv57uFCQ81TjZh4Cig9VTx6LP3hZQysR1DFmARzSaiBx7dzd
+         wy/Dcps5GDV+OjBrPt4VKUCLeKEuueqPOizpojLRNSc/a7egbCvDS7cvaghnDx4IMTAS
+         fZIuHhw4W2Pi+SuU5L6OHGtOs0c4JdXacyxGv9UB5P/Iq+Ayk5v30oJ/jMnozRK3L+g2
+         5ZQRMFxD6qfmWsvbi/wanyaHgr+HZOWCmpBoqerAFsJwdgmOikk+Uho4QmmQ9feuCMyt
+         eSPqGX4Vq+QJVvOJEGiuuRRLskoK1VVLEZ/n/CLjbo6wv/ukIFY3seMgBFF7Z56NqK5n
+         DkoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790259930; x=1790864730;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MaWkFoUOQ+u9WS91tjqMuEOPGp9Db2ThXslkCbREcik=;
-        b=wtNe8rZi/JrnEpF5U2B7UW2TlC0DjmiVsw+ARVCdVicWk81hJuO4pW5CUU42WR14cI
-         /QJf8D9LliyqrdTF5jguDeHVDoRUixEOhHXRTJ7VRxHD5Jdd7P+A126UJTWgGuiY3jW6
-         fcBg/wCnEQa+fntr1n/CBDi3xcaQsUofjzmFU24yJ9FfDjGAwnObE8NrlMpyLRaaZUEg
-         Bpm3f4J66i/Wr0ll1GALszLxpnlyHdPDr7PTgSjayLGc218rmO5Sny/EKYe6PDIba4q1
-         ALA2POHX6SJtIyYwPW9ldXx2y0ucrPK5KCCjtyBuVC+LUzzhWTURf3DFFDn1VcRrCxET
-         7Srg==
-X-Forwarded-Encrypted: i=1; AKwUvBzcR28Z9g0+ItcGRN2iM3kbjZJGbvro2mSAXHiUS2zr9rNepMFxmq4qS+zSnUG8rGyVGU9vdpPm6nk2rCWQxgmK@lists.infradead.org
-X-Gm-Message-State: AFuF++n2aO8haWgq51AWdxVspqb30uRkO8t3x20sEhMfMSuqyYyL/yCK
-	SqzRZ9cO7vxoEgor15nw3O0t5MCY3rp3wlQV8VhtZ4Ql8mbC4rJMr1TT
-X-Gm-Gg: AYBFou2icR7GxXOlNnZJXFDn+spOpJmz0nPdsE6kJyWVWHyZ6z5oy1CjqNXR905iXrI
-	SpAOkNh8W5zxlccw0cNj7VggWScUVG95ElZ+a792E8QdrOts7EToo71ylmNAT8F21oQoOWfrGwL
-	uJTZY7fCyTNlnquwGJQCCAfAZSNEqVihi2C8ZKJNOJpmYVPcRhN3SXXFlnkYtDFwvs+TeOc9Gjb
-	sNWZqCg1q0EUzgQq7G6wH3U0o9uV0F5BY73VuKME5JHzihDjjJ4bM69h3PCS8i+cxNzl1KW5942
-	ibSMl/wYzaRi2t6++ybxpG+SIE2Q1suUWDXyeXW45uD5vYzhyt4A80Jy1gL6QbovbPRc+DtK5Z3
-	1XWLShU2bZpgNF7tJ+u3r3c4yqyqL24PbpNW2ktw/vRQbgQyIK6HVxoKtNyiPEe56yMz3LHRuLy
-	SdNMLdHQhhcMf/vyC4dJRahh5cMNQb5GGOQfyoQaez07SBYoitYZEDdg==
-X-Received: by 2002:a05:6a00:1c8a:b0:87c:f3e5:ebda with SMTP id d2e1a72fcca58-87e99e3efcemr1451856b3a.0.1790259930408;
-        Thu, 24 Sep 2026 07:25:30 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1002::de93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87d1afb99f0sm3157310b3a.6.2026.09.24.07.25.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 07:25:29 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Miaoqian Lin <linmq006@gmail.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2] pmdomain: imx: gpc: remove all initialized power domains
-Date: Thu, 24 Sep 2026 22:25:20 +0800
-Message-ID: <20260924142520.1594149-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1790260213; x=1790865013;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=2ReSij4eDlvfzvHmFOZbgb/VaJC2TPYANknXs7Tc10Y=;
+        b=w94d7BxugViqfkNbbI/q+8XwSW4YaqBc/X4cjhdX+EalYzWTRrdutQnDWEudt2t0La
+         KFdYj91r0NANDz9EIZWzI+c6h2p+dqPFjFlxuAgCMkSv7q/pf9ZGlQ5FZ37a2nP6O8q6
+         uNDzW0f2Yv+GcmnmHcW8fksmFYkcSa1GKP/89ur5EFjOClZE7HG58uvoJQ6VCVmxzNlo
+         JDevIlKW+TtiR8lAspWwJ31I+4Tba8hijCf81SbzBNgUxu59rJqudSxfKR+gYKxxce6Q
+         HswouwbJeJQKjGkBQPcVtohcjSRkBfwv+HJZZ6EVFhrex6IEftozLl7CDzeytYJGNy78
+         9Xbw==
+X-Forwarded-Encrypted: i=1; AKwUvBxPXN6RuK398urqcuVpkAlZ2DSFBd2u1w9cnannGzY6wZZakfDmFH5j4p6BTYPEVsXjol4vR/Q5xGpdd0Vw4GUO@lists.infradead.org
+X-Gm-Message-State: AFuF++n9PlV5qE8I567PepGESY0YKdLrFLVTaEF3SyCldaOQmCDFlSrg
+	NLka2kT0+sJtQjZf6u4DYywLQDwnAMzf4Yrt2gdjWLGwY6eos+e2LCWLucGHeyJwT+En2ppBpQG
+	V4cfHqtRFarzl+qM7GWd7Gk3vJOiUyyA=
+X-Gm-Gg: AYBFou0LdpEbBo6dF0TRhUSVklymm5BVxEEsN0HZZSM5FUg95wf3kV36cq9+3qB2L1E
+	RaDYk41cEgIHua5/0fnrQDC0INIZ7teaW37iGEaTf2rXOvL91Cpu+BQuk31WHmo418NT6OllxXQ
+	kdqTwN6jrm40q3leSKln8BG4BnNaRBNyyQX1r3XBUK9NJhsQP37wMESOfIAN8zpZJEPobE7+zvB
+	qL8NygoZiQMsjd5CF5HyXILJC8u7QN4QkVuY9nf9irGy73v3ZEq6RyeA2BNdkUyhHhwNWZtKH/L
+	g14lG1Ur5Bnw2TZeWMNPR/dv8I51jkLTubHX5LmZ9KzYabA9q2T8aeOnOQuJcXpBRssC9g==
+X-Received: by 2002:a05:690e:c45:b0:66f:d093:c206 with SMTP id
+ 956f58d0204a3-672ed204704mr1327519d50.17.1790260212896; Thu, 24 Sep 2026
+ 07:30:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260921110909.370945-1-lgs201920130244@gmail.com>
+ <20260922074137.GG2348773@google.com> <CANUHTR9B84LoCjOtS5N5qGO0KXSXUbZkrKZ3_GFTwXmVoPQ0SA@mail.gmail.com>
+ <20260922150642.GH3277918@google.com>
+In-Reply-To: <20260922150642.GH3277918@google.com>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Thu, 24 Sep 2026 22:30:02 +0800
+X-Gm-Features: AclHuK860EhogXR6CM7Mg1y8PIyfTwBtwpDGRzp_GvIpNMBtaMogNwOv8vHFZoQ
+Message-ID: <CANUHTR-iuuGMTWT4_C5TMjtTBE4sYAWcD_N8Jwf8WnJs84b43g@mail.gmail.com>
+Subject: Re: [PATCH] mfd: ab8500: fix child device leaks on probe failure
+To: Lee Jones <lee@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Samuel Ortiz <sameo@linux.intel.com>, 
+	Mattias Wallin <mattias.wallin@stericsson.com>, 
+	Ludovic Barre <ludovic.barre@stericsson.com>, Alexandre Torgue <alexandre.torgue@st.com>, 
+	Julien Delacou <julien.delacou@stericsson.com>, linux-arm-kernel@lists.infradead.org, 
+	mfd@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_072531_501252_7D60AFA1 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260924_073014_447186_2EE83CFD 
+X-CRM114-Status: GOOD (  33.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,78 +120,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_gpc_old_dt_init() initializes all power domains described by
-of_id_data->num_domains, while imx_gpc_remove() only removes the PU and
-ARM domains.
+Thanks, Lee.
 
-Use the match data to remove all initialized power domains in reverse
-order. Release the PU clocks after the PU domain is removed.
+On Tue, 22 Sept 2026 at 23:06, Lee Jones <lee@kernel.org> wrote:
+>
+> On Tue, 22 Sep 2026, Guangshuo Li wrote:
+>
+> > Hi Lee,
+> >
+> > Thanks.
+> >
+> > On Tue, 22 Sept 2026 at 15:41, Lee Jones <lee@kernel.org> wrote:
+> > >
+> > > On Mon, 21 Sep 2026, Guangshuo Li wrote:
+> > >
+> > > > ab8500_probe() registers MFD child devices before completing the
+> > > > remaining device initialization.
+> > > >
+> > > > On AB8540, the main MFD device batch may be registered successfully
+> > > > before registration of the cut-specific batch fails. In that case,
+> > > > the probe returns without removing the child devices registered by
+> > > > the earlier mfd_add_devices() call.
+> > > >
+> > > > The same issue occurs when sysfs group creation fails after the MFD
+> > > > children have been registered. Since the probe returns an error, there
+> > > > is no later teardown path to unregister those devices.
+> > > >
+> > > > Call mfd_remove_devices() on these error paths so that MFD child
+> > > > devices successfully registered earlier in the probe are properly
+> > > > unregistered and released.
+> > > >
+> > > > The issue was identified by a static analysis tool I developed and
+> > > > confirmed by manual review.
+> > > >
+> > > > Fixes: cca69b67b3ba ("mfd: Export ab8500 chip id to sysfs")
+> > > > Fixes: 9c717cf3fa16 ("mfd: ab8500-core: Add device for new RTC version for AB8540 cut2")
+> > > > Cc: stable@vger.kernel.org
+> > > > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> > > > ---
+> > > >  drivers/mfd/ab8500-core.c | 8 ++++++--
+> > > >  1 file changed, 6 insertions(+), 2 deletions(-)
+> > > >
+> > > > diff --git a/drivers/mfd/ab8500-core.c b/drivers/mfd/ab8500-core.c
+> > > > index f0bc0b5a6f4a..e675223b6023 100644
+> > > > --- a/drivers/mfd/ab8500-core.c
+> > > > +++ b/drivers/mfd/ab8500-core.c
+> > > > @@ -1220,8 +1220,10 @@ static int ab8500_probe(struct platform_device *pdev)
+> > > >               ret = mfd_add_devices(ab8500->dev, 0, ab8500_devs,
+> > > >                               ARRAY_SIZE(ab8500_devs), NULL,
+> > > >                               0, ab8500->domain);
+> > > > -     if (ret)
+> > > > +     if (ret) {
+> > > > +             mfd_remove_devices(ab8500->dev);
+> > >
+> > > What about switching to devm_*() a.k.a. managed resources?
+> > >
+> > > >               return ret;
+> > > > +     }
+> > > >
+> > > >       /* Add battery management devices */
+> > > >       ret = mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
+> > > > @@ -1243,8 +1245,10 @@ static int ab8500_probe(struct platform_device *pdev)
+> > > >               ret = sysfs_create_group(&ab8500->dev->kobj,
+> > > >                                        &ab8505_attr_group);
+> > > >
+> > > > -     if (ret)
+> > > > +     if (ret) {
+> > > >               dev_err(ab8500->dev, "error creating sysfs entries\n");
+> > > > +             mfd_remove_devices(ab8500->dev);
+> > > > +     }
+> > > >
+> > > >       return ret;
+> > > >  }
+> > > > --
+> > > > 2.43.0
+> > > >
+> > >
+> > > --
+> > > Lee Jones
+> >
+> > Do you mean converting the MFD registrations in ab8500_probe() to
+> > devm_mfd_add_devices(), so the children are cleaned up automatically on
+> > probe failure, e.g.:
+> >
+> > -       ret = mfd_add_devices(ab8500->dev, 0, ab8540_devs,
+> > +       ret = devm_mfd_add_devices(ab8500->dev, 0, ab8540_devs,
+> >                               ARRAY_SIZE(ab8540_devs), NULL,
+> >                               0, ab8500->domain);
+> >
+> >         ...
+> >
+> > -       ret = mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
+> > +       ret = devm_mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
+> >                               ARRAY_SIZE(ab8500_bm_devs), NULL,
+> >                               0, ab8500->domain);
+> >
+> > and likewise for the other MFD batches?
+> >
+> > If so, I'll rework the patch that way for v2.
+>
+> Yes.
+>
+> --
+> Lee Jones
 
-This issue was found by manual code inspection.
+I'll convert all the MFD registrations to devm_mfd_add_devices() and
+send a v2.
 
-Fixes: 5a42d1198901 ("soc: imx: gpc: fix imx6sl gpc power domain regression")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
-v2:
-  - Check the result of device_get_match_data() before using it.
-  - Use an unsigned num_domains variable and a decrementing while loop,
-    as suggested by Andy Shevchenko.
-
- drivers/pmdomain/imx/gpc.c | 29 +++++++++++++++++------------
- 1 file changed, 17 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
-index abca5f449a22..d83fb37e2297 100644
---- a/drivers/pmdomain/imx/gpc.c
-+++ b/drivers/pmdomain/imx/gpc.c
-@@ -502,7 +502,9 @@ static int imx_gpc_probe(struct platform_device *pdev)
- 
- static void imx_gpc_remove(struct platform_device *pdev)
- {
-+	const struct imx_gpc_dt_data *of_id_data;
- 	struct device_node *pgc_node;
-+	unsigned int num_domains;
- 	int ret;
- 
- 	pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
-@@ -519,20 +521,23 @@ static void imx_gpc_remove(struct platform_device *pdev)
- 	if (!pgc_node) {
- 		of_genpd_del_provider(pdev->dev.of_node);
- 
--		ret = pm_genpd_remove(&imx_gpc_domains[GPC_PGC_DOMAIN_PU].base);
--		if (ret) {
--			dev_err(&pdev->dev, "Failed to remove PU power domain (%pe)\n",
--				ERR_PTR(ret));
-+		of_id_data = device_get_match_data(&pdev->dev);
-+		if (!of_id_data)
- 			return;
--		}
--		imx_pgc_put_clocks(&imx_gpc_domains[GPC_PGC_DOMAIN_PU]);
- 
--		ret = pm_genpd_remove(&imx_gpc_domains[GPC_PGC_DOMAIN_ARM].base);
--		if (ret) {
--			dev_err(&pdev->dev, "Failed to remove ARM power domain (%pe)\n",
--				ERR_PTR(ret));
--			return;
--		}
-+		num_domains = of_id_data->num_domains;
-+		while (num_domains--) {
-+			ret = pm_genpd_remove(&imx_gpc_domains[num_domains].base);
-+			if (ret) {
-+				dev_err(&pdev->dev,
-+					"Failed to remove %s power domain (%pe)\n",
-+					imx_gpc_domains[num_domains].base.name,
-+					ERR_PTR(ret));
-+				return;
-+			}
-+
-+		if (num_domains == GPC_PGC_DOMAIN_PU)
-+			imx_pgc_put_clocks(&imx_gpc_domains[num_domains]);
- 	}
- 
- 	of_node_put(pgc_node);
--- 
-2.43.0
-
+Thanks,
+Guangshuo
 
