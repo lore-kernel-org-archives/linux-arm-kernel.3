@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CF1C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71BBFC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/mgSrJpw3YOisDXCB5xsNmyqp3J9irft+yFn98nNFU=; b=jrws5p3myEsj6XqGVr7nZt6x9D
-	braWDMbddFSyQQ0yke/rP6IuKixfGp01fZ+ATtwbcX22uW0eftqc9xRQF/5Q1NUCYMj5/uYyLigJJ
-	qBmhiCTBQo+AavNISfhkMwmRRsxqBVsh0WnLmUNrQ8jpVjAfrUQrrs6IyUzrJv/TVg/FcqAAwAGiK
-	4gXqZKDW1+CSgwfkCi23tGOIKMQ8JWx/CfZvEKQWyWIcNBa0yie5rEan5TwCvQqBWvutFneTzeUOR
-	jrVKvwYr+g0yJZPlMWiwjxdx//FAflf9gxvX7IDLX+MCY50Y8zWzEtWSpB73b0ya3oJ34AyjUzyAW
-	rR4davZw==;
+	bh=1rT3iAcNKN3CIsNAZsMz38eVN8WYGGW5v5DII5ENAjk=; b=3gQMdVCJAiHWUXSrox2n5fYD92
+	QfvRPmepq9jtZRF95HPOrbXImXOz8RY2nkyxzGlyspz4kIi26Baqv4+AzHsggCKwOav70Y1wrnw4D
+	lroMvocabsVy/udoe5TRthwrd6YrHCsS9aIj+bEk96dy75Q97bWS+7mcsF0BjyJGidBDJhgBMef/o
+	BF74hpS0iOsa3hyJ4bP39Xz+uGwO4FJkk57JE2m29qN+Rtxoz1pVbW0jUq/8tYQgaqcjz/2BoQC32
+	qVwqOh441uJlrlinB6Xx4EL37my8V6Dw4PSfelbgUtM4qBRCFxAX67Kx2d2wvCUrYz9mQ1Nu3W2mF
+	JFVbFNmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nHm-0000000BknC-46Hb;
-	Thu, 24 Sep 2026 17:31:07 +0000
-Received: from mail-oi1-x245.google.com ([2607:f8b0:4864:20::245])
+	id 1x9o6E-0000000BtgS-0gbv;
+	Thu, 24 Sep 2026 18:23:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nGb-0000000Bk3i-1AlC
+	id 1x9o6D-0000000Btg8-10A1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:29:58 +0000
-Received: by mail-oi1-x245.google.com with SMTP id 5614622812f47-4dab94dc3e7so158017b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:29:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790270992; x=1790875792; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T/mgSrJpw3YOisDXCB5xsNmyqp3J9irft+yFn98nNFU=;
-        b=GYiH+O5EYfTAozXOjb8BJabXgNdLr5lRx3645c8eGRArnBbiq2XSMVgDqmfChKICRv
-         w+qRtQYFFp2tmzACEPdff1jzRzy0wyhwskl6uOyRSABIiZnrbEze34EeVUpTAtRB7CUj
-         VOCEr+M8ZzGDKTIH+b49bANGBzC2NQ9NYBFtLGrSW67FVz1mmD0Fj4KITR5zYicgVpD1
-         CHDOaoFm3vP1+VPTpw+G/TA5ykF2ZDYYjGiPza5kihXJJfjf+ta1M1W8kn8NPon0CbPx
-         ECoUxUnCsjGFSY+9Jytn3fLSNcmF7BSy+u8Cvr11Cme9D5sb0yBjMGydZo24CSmuMo1L
-         h4Nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790270992; x=1790875792;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=T/mgSrJpw3YOisDXCB5xsNmyqp3J9irft+yFn98nNFU=;
-        b=HM7xEU++ea9frjrlZpuzzhVl3FOIwnp4kv1oW2BMrCKyJpal9qifEyx6Ds6s3LSved
-         E7IFlxvhKySg08SxnYIHZz1rNJQ0N3Bh27V+Uj0XNGmcL8jRa6cljn0XtASgE90IGuO2
-         PcCCbRwNvll4Duh59A9xUat+pcFhIidGHgOGbJi2qT85TwptIygpilFn/X1ALY3ESOME
-         CNhIL5gao0gvwiBUGfaZxT1ieeHN5MEA8fRf5Hpd9UcB8+HVDmYu7MqxYRfN1TsHZ3+Q
-         E4UBuUnwmF5l1KOp1JzQubzpfHqSvc1iKKNxu4KC4OxjyMeDBVn0mQIX8E6WTLZiFir+
-         jZ0w==
-X-Forwarded-Encrypted: i=1; AKwUvBxC6EsOSS39rVx+3ZTrxr9R7wmVj0UsClSH5pHCA2gmzPFMiRPmyPX3Ip+S2M+tfL7R2DmW62irXgUdJ4WuouQD@lists.infradead.org
-X-Gm-Message-State: AFuF++kMd5qdI+rdwh5AD92ArkHM+2N4UiXFhTluWRYhBx3I0BKV4OZ5
-	imOJxUs7Nf8fNmWa8OAVNTlYtbM5IcGka3zKcwedwFZ6hZYqLUpC3TIPD2YgMUtSdFVM0yIJfAT
-	xVzBPc5QFPd1OCcXOEPTIU+MGLw==
-X-Received: from jahf8.prod.google.com ([2002:a05:6638:8a48:b0:5f3:a70c:f5ab])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1921:b0:4d5:291b:b84f with SMTP id 5614622812f47-4d72ef591admr3194424b6e.53.1790270991307;
- Thu, 24 Sep 2026 10:29:51 -0700 (PDT)
-Date: Thu, 24 Sep 2026 17:29:20 +0000
-In-Reply-To: <20260924172928.2110956-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20260924172928.2110956-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260924172928.2110956-15-coltonlewis@google.com>
-Subject: [PATCH v9 14/22] perf: Add perf_pmu_resched_update()
-From: Colton Lewis <coltonlewis@google.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Zide Chen <zide.chen@intel.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Mingwei Zhang <mizhang@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Russell King <linux@armlinux.org.uk>, Shuah Khan <shuah@kernel.org>, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_102953_558923_075B1785 
-X-CRM114-Status: GOOD (  16.47  )
+	Thu, 24 Sep 2026 18:23:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 46E9E601FF;
+	Thu, 24 Sep 2026 18:23:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1CDA1F000FF;
+	Thu, 24 Sep 2026 18:23:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790274192;
+	bh=1rT3iAcNKN3CIsNAZsMz38eVN8WYGGW5v5DII5ENAjk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=edIIEwrWeWggBFTvgr+bbPHwZtpX7N39My3UWMq4+1+l5NRt0zCP77Pu80O5Z9Ok2
+	 PyfgUkUTwEU+thWrqhUai0xQu+HRifkbZ7yAJn1McDoCFIFiWiEyuQTJPml6JpIn7d
+	 amqgFtOIiNI5u/q8A3a/cr3fJ/8H0PSVGAN7Jk1FdbAik4wQABSQrTon9qmS20uZKP
+	 +Ulo+sF1OxDgZLpRrMp5fdmXoHcr01h6EmfhN10/M/OUppPFNzQdB/bysfibyAR0uT
+	 8nOYSXEQRvw0yAtQ7JBgVh6s8rgfoYwX2tRloaG4ywG6iDtP7emrmF0q9b7cvC5RKD
+	 SdQkKYydlnwFA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x9o69-0000000DA1f-3uMi;
+	Thu, 24 Sep 2026 18:23:10 +0000
+Date: Thu, 24 Sep 2026 19:23:09 +0100
+Message-ID: <86ld8q4igi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Hao Zhang <hao_zhang_kdev@163.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: pvtime: Don't lose stolen time on failed updates
+In-Reply-To: <arD24ru13owcE1Ms@192.168.1.215>
+References: <arD24ru13owcE1Ms@192.168.1.215>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: hao_zhang_kdev@163.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To modify PMU guest counter reservations dynamically, the per-CPU
-available counter mask must be updated while host perf events are
-temporarily scheduled out.
+On Mon, 21 Sep 2026 10:20:34 +0100,
+Hao Zhang <hao_zhang_kdev@163.com> wrote:
+> 
+> From: Hao Zhang <zhanghao1@kylinos.cn>
+> 
+> kvm_update_stolen_time() advances last_steal before checking whether
+> kvm_put_guest() successfully writes the updated value to guest memory.
+> 
+> If the write fails, the updated stolen time is not visible to the guest,
+> but the corresponding run delay has already been consumed from KVM's
+> accounting state.  A later successful update therefore starts from the
+> advanced last_steal value and permanently loses that interval.
 
-Introduce perf_pmu_resched_update() to update PMU state while holding
-cpuctx->ctx.lock in between scheduling perf events out and scheduling
-them back in. It accepts a callback invoked between ctx_sched_out() and
-perf_event_sched_in(), accomplishing atomic counter mask updates with
-minimal perf API expansion.
+I'm sceptical.
 
-Refactor ctx_resched() into __ctx_resched() to invoke the callback at
-the appropriate point.
+A "transient" write failure means that userspace has unmapped the page
+this should have been stored to. Userspace is in charge of the VM --
+it literally is the owner.
 
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- include/linux/perf_event.h |  3 +++
- kernel/events/core.c       | 31 ++++++++++++++++++++++++++++---
- 2 files changed, 31 insertions(+), 3 deletions(-)
+Why should we prevent it from shooting itself in the foot? Userspace
+can equally stop the vcpu from running, and this is "stolen time"
+that is not accounted for.
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 5842552294c19..32e3c0d365963 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1242,6 +1242,9 @@ extern int perf_event_task_disable(void);
- extern int perf_event_task_enable(void);
- 
- extern void perf_pmu_resched(struct pmu *pmu);
-+extern void perf_pmu_resched_update(struct pmu *pmu,
-+				    void (*update)(struct pmu *, void *),
-+				    void *data);
- 
- extern int perf_event_refresh(struct perf_event *event, int refresh);
- extern void perf_event_update_userpage(struct perf_event *event);
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index db7b76d6b68aa..06d1128d194fa 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -2991,9 +2991,10 @@ static void perf_event_sched_in(struct perf_cpu_context *cpuctx,
-  * event_type is a bit mask of the types of events involved. For CPU events,
-  * event_type is only either EVENT_PINNED or EVENT_FLEXIBLE.
-  */
--static void ctx_resched(struct perf_cpu_context *cpuctx,
--			struct perf_event_context *task_ctx,
--			struct pmu *pmu, enum event_type_t event_type)
-+static void __ctx_resched(struct perf_cpu_context *cpuctx,
-+			  struct perf_event_context *task_ctx,
-+			  struct pmu *pmu, enum event_type_t event_type,
-+			  void (*update)(struct pmu *, void *), void *data)
- {
- 	bool cpu_event = !!(event_type & EVENT_CPU);
- 	struct perf_event_pmu_context *epc;
-@@ -3029,6 +3030,9 @@ static void ctx_resched(struct perf_cpu_context *cpuctx,
- 	else if (event_type & EVENT_PINNED)
- 		ctx_sched_out(&cpuctx->ctx, pmu, EVENT_FLEXIBLE);
- 
-+	if (update)
-+		update(pmu, data);
-+
- 	perf_event_sched_in(cpuctx, task_ctx, pmu, 0);
- 
- 	for_each_epc(epc, &cpuctx->ctx, pmu, 0)
-@@ -3040,6 +3044,27 @@ static void ctx_resched(struct perf_cpu_context *cpuctx,
- 	}
- }
- 
-+static void ctx_resched(struct perf_cpu_context *cpuctx,
-+			struct perf_event_context *task_ctx,
-+			struct pmu *pmu, enum event_type_t event_type)
-+{
-+	__ctx_resched(cpuctx, task_ctx, pmu, event_type, NULL, NULL);
-+}
-+
-+void perf_pmu_resched_update(struct pmu *pmu, void (*update)(struct pmu *, void *), void *data)
-+{
-+	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
-+	struct perf_event_context *task_ctx = cpuctx->task_ctx;
-+	unsigned long flags;
-+
-+	local_irq_save(flags);
-+	perf_ctx_lock(cpuctx, task_ctx);
-+	__ctx_resched(cpuctx, task_ctx, pmu, EVENT_ALL|EVENT_CPU, update, data);
-+	perf_ctx_unlock(cpuctx, task_ctx);
-+	local_irq_restore(flags);
-+}
-+EXPORT_SYMBOL_GPL(perf_pmu_resched_update);
-+
- void perf_pmu_resched(struct pmu *pmu)
- {
- 	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
+	M.
+
 -- 
-2.56.0.rc1.310.g51773c2048-goog
-
+Without deviation from the norm, progress is not possible.
 
