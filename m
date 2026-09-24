@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC9BC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 02:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B218C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 02:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2iMm7pUqZNSWqRHNTKa494RdLaipkyYMxVzADmJvXJM=; b=Mb3XmeWdAUCGAFFR1CbkzJdIEe
-	CPFaDWPK5H7/JlYPY/vbLZAy8/V7WnanycntSNrlusqEoV5Qiafspn9OsWiw/8wXQdJrQwhqLTVuZ
-	iELSsvZCQixMSUfmC4rwTanFjsl4c8wyIF3AWDLjlXBUXAlnuoeDGYXEy6XiGhDshinkz2sldBdjd
-	0feFU9LKaOsmzfXrXVXSabRrIqmT4qwv+qcBZRoe+Vb5DN3fDbDHuBTJaBosu3cDcf7ss8kEz08ku
-	J4Uj3ldMwbdqxHZVgZBMRFfwn1BncuhKTAOsyscohPzyTmnF4xYS8ViXWCN0XtsA0cSxqFLiDzsoI
-	quLUMn7w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9n1xLtwZfMoWvvLkdGoxwpegQEwUeD6t6y9z2tkYqM=; b=20DvACLVS6xGS7R+i3+0X7ZNSK
+	3Ym1ycVeLqbKTwW1SmPO4MluH006nY6nuF2vUmvEfgDTwZn3fUQHlH3YcXh6aHHtfWgki+U03s+rn
+	TNVz7+XiEAooQETAW22T7/BLo3MHxmTdurhYH2AK+fCzlpnTyIQID+FydW0UUaOETg+oZca0DNQQ2
+	1z087X1lmqF1bOs6WZ83Br9uWXqw6WUNqmGjpmwnB3W3UKOTF57OjrKg77UrddrLmjEKmZ/4slr5d
+	HP1SqnWHhH4lfDuywx1Mxk7tnnaKOo6WkXF37vh3IeFMXpERS6ai/y+FkV2cwFntgFTq6spKgRbDq
+	kGATd7uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9YyM-00000009qZJ-3aYH;
-	Thu, 24 Sep 2026 02:14:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x9YzF-00000009qk7-13Ju;
+	Thu, 24 Sep 2026 02:15:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9YyJ-00000009qYh-3LwS
+	id 1x9YzD-00000009qjL-31lv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 02:14:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=o9n1xLtwZfMoWvvLkdGoxwpegQEwUeD6t6y9z2tkYqM=; b=mU9MWpSlnSk7ZyJgggX8/IBFK2
+	y4S6mjbGVJoGYNOj1PXe54H8HfB4rby8lH3zHDQ8XxzkEyebkqkdR3ufWa6bu+nqx1HfnwfGOp07K
+	tAacrggg1uGVhkOize4jS+aZ9mMa2OoDLQY3An2kqlYaJKAPV6mq9GoxrnxUxBwt2YgwOZdVKcBvW
+	zE3EG6vjG96WiZbixV3JUQdVJ+tBGEedq4Lrbg6UyhZ6e5tHBUADgT00dA9Wz/bk0YXugllxIOqCP
+	Y8pQWAcF7NUpnX1FVC4GGBykQmdU1y3lOIRN93ea3HYtNBPfrx/ANbiZ1CZQI8jhXO7Dz61x6cCPJ
+	bBnhuTzA==;
+Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9YzA-0000000FSS7-3P0q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 02:14:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1790216041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=2iMm7pUqZNSWqRHNTKa494RdLaipkyYMxVzADmJvXJM=;
-	b=GvGakij3OpgkRKragbJCHOJHOdi4unV50erc48U2fZwUA+xxtzCzCBIsQj5r/gHb7CCEE1
-	8Tjl3TzHvRNDowejiM242JZwhKyJGf+WdzNkqCp/0HjWzyMMyyOIQpxsKJg25jddyG/mv0
-	xjTd4myj3ztAzTf4lrFLip5vkzlnxZU=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-404-mQ0GMHzQN5aNj3cxzq_wAg-1; Wed,
- 23 Sep 2026 22:12:09 -0400
-X-MC-Unique: mQ0GMHzQN5aNj3cxzq_wAg-1
-X-Mimecast-MFC-AGG-ID: mQ0GMHzQN5aNj3cxzq_wAg_1790215928
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7480B1829E14;
-	Thu, 24 Sep 2026 02:12:08 +0000 (UTC)
-Received: from [172.20.117.44] (unknown [10.30.44.223])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 714801956049;
-	Thu, 24 Sep 2026 02:12:07 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.3.0-rc4,
- upstream-arm-next, 7dc79bb5)
-Date: Thu, 24 Sep 2026 02:12:07 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	Thu, 24 Sep 2026 02:14:58 +0000
+Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-8631d0023daso882360b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 19:14:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790216094; x=1790820894; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o9n1xLtwZfMoWvvLkdGoxwpegQEwUeD6t6y9z2tkYqM=;
+        b=FYmz45pohTAAsxDemNKqYMAZEberojYCwvqWKb6ZQ89wqcO/BLjBjvuqH+0lkAj67e
+         vldswQEXTjS77fJw1rx/28A+7qv67TKE5/Kvw4gbFeTRvT5Hke5nXNW1sn1jDm4HlQ53
+         +yVad2Yg8hdZ4koyzJEDQFfDvJbtrh42CMk0YdQeqFGHcRll5Co164NjQnipwIbBUp0w
+         fhMGbyR8yk1+3bS3JmNInnN75rimiTM5SBWDpJU4pgD6LDG1yHV68ISkHCPSEMg33ghg
+         pJn0/RC8ujJ4HnZxy1fe0q7QTjWg3V0kkP8g0ATOjy1wNZk2V/pqHVw4pnneG894nJbu
+         wVvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790216094; x=1790820894;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=o9n1xLtwZfMoWvvLkdGoxwpegQEwUeD6t6y9z2tkYqM=;
+        b=j9gLOb0h/xocxIAFNnA32GVVgXwFo1mtWnGXhhdxCRN4QxYlKJLFlGN00Bauwl2qUk
+         rH/zjGaC9oWjGXCLK6NGEiH/1oK4r3HMEKBHNtakgpV1NcTmRq/5U5Qf/KwHnUgmVnP3
+         y72uCqz+DrqHOS5sZl2XrVy9JkLQ0TIzpV4sMdrBIG8OvxA9JPWtRXAl+a13VqFa70bw
+         IbIduUhnNkKDzF7l85a4OdgPgQqyzbZwMrRQLeYVFQXrfq4ybgp9uT5g7AojpO9Saj2E
+         4npCKsmtu1lKL9ptzEfUComd5eUzJTuXVdF2bxKuXNGbmvc8qSCQXjCmqnLidqiAig/7
+         MVlA==
+X-Forwarded-Encrypted: i=1; AKwUvBzsliODlpIOKi6ySS78bygicNuddsNCWaL7rwlEqiKkZufNGxx0IyzbGZz9MajmJrbFbi9mxsjuXdtScHkVJLeq@lists.infradead.org
+X-Gm-Message-State: AFuF++n/1e+J6BVpSeVohbLJcsQ8iXvNDI/foAEpFtiZodIWtEC1QsLP
+	gBIL4V6hmaKViQZlPT46pwL7IoPTJ20xVXHw2KMc5mpMmi35e2m7qfAK
+X-Gm-Gg: AYBFou0fzWWZVI6BdPaibpd5eaQe122FL6fA222TPBpLoUNEnyfySj7TJjC74YKoolJ
+	RWzExDWHijAxCl2JK8Y4dBzDfnX8g9CSQecZlsiHz+sXvqFNv+eeolkXriOKXoLEy1OqXCBdeXA
+	+zJj15ylijr0zd6vtm2kVzy3goalx4GRMMHf8bUtfx5x2gq6DLrGxD8267pk5PSG8dMHEN4ppf2
+	lrw7Kn/VJZKiR38lh3rR7MipU23c1L5hAJF2KRAVLMAdE+ut2tHwBvrGT2oG6oRGpfGeqNRnr++
+	UWm3ryU1I75UuHzxEprvrFmvid4io/1AXPsRCHsE1w0fKogkLK3LARYMvIeU9SITp5Lmx1nyrqk
+	dAOG8dfFZrYyeO4jWgcuyWknFOjz1WeQ8WVWBzGEvOn9GVP+toNJz0y43SaXB3cBtyein503oEh
+	tRjZhXblb/QUAZNAmn44czOENfgUCj0tl5cKQYT7FT8XRva17Fo2N8w80lurb/7EPqZl0Ou2Ku4
+	6EGVdPinGrVuyhUOhXjI5+bVxLjucoF+J0UQsnS+YXy+xQfNWk=
+X-Received: by 2002:a05:6a00:9093:b0:874:706d:9631 with SMTP id d2e1a72fcca58-87e9acf16b5mr716577b3a.35.1790216093965;
+        Wed, 23 Sep 2026 19:14:53 -0700 (PDT)
+Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87d1afb8e37sm2069214b3a.5.2026.09.23.19.14.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Sep 2026 19:14:53 -0700 (PDT)
+Message-ID: <c2fc4b72-190f-40fa-aba9-c301db42598e@gmail.com>
+Date: Thu, 24 Sep 2026 10:14:51 +0800
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <16343.126092322120900167@us-mta-404.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mo0gWnF5J12YqLdmtb_7VQsjjlzSpSVMzyvadNS37UQ_1790215928
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] spi: ma35d1: Add Nuvoton MA35D1 SPI controller
+ support
+To: Mark Brown <broonie@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+References: <20260923041926.425551-1-cwweng.linux@gmail.com>
+ <20260923041926.425551-3-cwweng.linux@gmail.com>
+ <arPFHNrYR_kWl8vs@sirena.co.uk>
+Content-Language: en-US
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+In-Reply-To: <arPFHNrYR_kWl8vs@sirena.co.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_191403_919949_0440DA8A 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_031457_062948_2AA55B2A 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +122,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
-
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
-
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2876362165
-
-One or more kernel tests failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
-robe of ARMHC500:20 failed with error -17
-            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
-YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
-            Affected tests:
-                Boot test [aarch64]
-                Reboot test [aarch64]
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
 
 
+Mark Brown 於 2026/9/23 下午 08:25 寫道:
+> On Wed, Sep 23, 2026 at 12:19:26PM +0800, Chi-Wen Weng wrote:
+>> From: Chi-Wen Weng <cwweng@nuvoton.com>
+>>
+>> Add support for the SPI controller found in the Nuvoton MA35D1 SoC.
+> 
+> This looks pretty good, almost all of the comments below are just
+> stylistic things due to duplicating work that the core already does but
+> there's one query about possibly excessively turning the controller on
+> and off.
+> 
+>> +struct nuvoton_spi {
+>> +	void __iomem *regs;
+>> +	struct clk *clk;
+>> +	struct device *dev;
+>> +
+>> +	/* Protects read-modify-write accesses to the SSCTL register. */
+>> +	spinlock_t ssctl_lock;
+> 
+> It's not clear what this is protecting, all the users look to be called
+> from the SPI core in a single threaded way.
+> 
+>> +static int nuvoton_spi_set_speed(struct nuvoton_spi *nspi,
+>> +				 struct spi_transfer *xfer, u32 speed_hz)
+>> +{
+>> +	unsigned long clk_rate;
+>> +	unsigned int divisor;
+>> +	u32 clkdiv;
+>> +	int ret;
+>> +
+>> +	clk_rate = clk_get_rate(nspi->clk);
+>> +	if (!clk_rate) {
+>> +		dev_err(nspi->dev, "failed to get clock rate\n");
+>> +		return -EINVAL;
+>> +	}
+> 
+> You probably don't need to do this on every transfer, the driver doesn't
+> change the rate and it's not the cheapest call.
+> 
+>> +static int nuvoton_spi_configure_transfer(struct nuvoton_spi *nspi,
+>> +					  struct spi_device *spi,
+>> +					  struct spi_transfer *xfer,
+>> +					  u8 bpw)
+>> +{
+>> +	u32 speed_hz = xfer->speed_hz ?: spi->max_speed_hz;
+> 
+> The core will ensure the transfer has a speed set.
+> 
+>> +static int nuvoton_spi_txrx(struct nuvoton_spi *nspi,
+>> +			    struct spi_transfer *xfer, u8 bpw)
+>> +{
+>> +	unsigned int bytes_per_word;
+>> +	unsigned int offset;
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	bytes_per_word = spi_bpw_to_bytes(bpw);
+>> +	if (!bytes_per_word)
+>> +		return -EINVAL;
+>> +
+>> +	if (xfer->len % bytes_per_word)
+>> +		return -EINVAL;
+> 
+> The core ensures these too.
+> 
+>> +static int nuvoton_spi_transfer_one(struct spi_controller *ctlr,
+>> +				    struct spi_device *spi,
+>> +				    struct spi_transfer *xfer)
+>> +{
+>> +	struct nuvoton_spi *nspi = spi_controller_get_devdata(ctlr);
+>> +	u8 bpw = xfer->bits_per_word ?: spi->bits_per_word;
+>> +	int disable_ret;
+>> +	int ret;
+>> +
+>> +	if (!xfer->len)
+>> +		return 0;
+>> +
+>> +	if (!bpw)
+>> +		bpw = NUVOTON_SPI_DEFAULT_BPW;
+>> +
+>> +	if (bpw < 8 || bpw > 32)
+>> +		return -EINVAL;
+> 
+> Again the core is checking this stuff.
+> 
+>> +	ret = nuvoton_spi_enable(nspi);
+>> +	if (ret) {
+>> +		dev_err(nspi->dev, "failed to enable controller\n");
+>> +		goto out_disable;
+>> +	}
+> 
+> Do you need to enable and disable on every transfer, or could this be
+> done once per message?  If you need to disable to reconfigure it's a bit
+> more complicated, but otherwise it's overhead to bounce the controller
+> on and off.  Potentially it might glitch the data lines.
+> 
+>> +static int nuvoton_spi_probe(struct platform_device *pdev)
+>> +{
+> 
+>> +	ctlr->dev.of_node = dev->of_node;
+> 
+> The core does this for you.
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+Hi Mark,
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+Thanks for the detailed review.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Regarding SPIEN, there are two hardware requirements/behaviors worth
+clarifying for the MA35D1 SPI controller:
+
+1. SPIEN must be cleared, and SPIENSTS must become 0, before modifying
+    CTL, CLKDIV, SSCTL, or FIFOCTL.
+
+2. Clearing SPIEN does not change or tristate the SPI CLK or MOSI output
+    levels. Their output levels are retained while SPIEN is cleared, so
+    disabling the controller does not introduce a signal glitch on those
+    lines.
+
+Therefore, disabling and re-enabling the controller is required when
+the transfer configuration needs to be changed. However, I agree that
+the current driver does this unconditionally for every transfer, which
+is more than necessary.
+
+I will rework this in v2 to avoid unnecessary SPIEN toggling and only
+disable the controller when required for reconfiguration, while still
+honoring the register programming requirements above.
+
+I will also address the other comments by relying on the SPI core for
+the transfer defaults and validation it already provides, caching the
+input clock rate instead of calling clk_get_rate() for every transfer,
+removing the unnecessary SSCTL locking, and dropping the explicit
+of_node assignment.
+
+Thanks,
+Chi-Wen
+
 
 
