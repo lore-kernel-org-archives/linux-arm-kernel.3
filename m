@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49F7C98324
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 474C1C98321
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,68 +12,85 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHPxMNzjZ4UzLwCenzI1j4UBWJPQqp2QUfNdHTiI+dA=; b=eC3CxXceqPKZd0v79ZJwf4MJfa
-	sByCeklfbo0+/acFJjJ87Ucz9bPHF9XVTolZlcnfXkn1d3dKuNxX5EDZpJWS96ZJCw0IY23ey11nW
-	t5omsUUaWy7lc6PTLxcQSsauEJmMn+iEPvbOzA78g4e7qf68NAV3xCtxNCSfc2zjnn9bg+nSE1Uw3
-	OJM7bDSTFKt2O3Ange+E+TWQUgP9iq/JtZC1WkGIunKI612Nip7dgfFlbJCb4mOvli8ar9ruFX+vf
-	Q8/SOz8Av3+L6czI73kHZbIvSdr8q7mvvp5fmSMe8J8KVTArJijhv52SUI0JZsAEeK/YcyvuzF8cw
-	rdq+awIQ==;
+	bh=Ha/HEypz3MxwAQmWEzTLCA1xaL4MlxM5e9rrz6J6Qz8=; b=eGA1SQhzeFm/HJKiRMAnOcJW7h
+	KSU1lFgahqpx3VCaUf4fNCCGN5L4jPPyZy2E6Wg6unUCf3R4S96Vj0St1A41PULVqPD/W/QS2FdcQ
+	JnUpATjr0LVknp6xsiaWS8mxjk3bDqcBNq3v1pjewFf2JVfR8dui2C12awORKvY41l1uvrIgq5B4j
+	8tU2wYShVP1kIp9E6UwP3DXl/NlU2qaE4/0+mrALBOdKKyZye0x3Q/T6C1d8I7t9wB9KAO9Gr3J7b
+	d3xNV1ZNyqrUhGICLGWUIbrqw0CAJOovWhXwnTf91aLVYcYTXzgPfE0CcR1sqtK9BLXF6DBfbWHmV
+	J5yaj3FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lNs-0000000BPOP-0Cto;
-	Thu, 24 Sep 2026 15:29:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lNm-0000000BPJK-20yw
+	id 1x9lNr-0000000BPOD-3hJo;
+	Thu, 24 Sep 2026 15:29:15 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9lNm-0000000BPId-1UG4
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 24 Sep 2026 15:29:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CFE41D70;
-	Thu, 24 Sep 2026 08:29:05 -0700 (PDT)
-Received: from e142021.arm.com (unknown [10.57.8.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 984883F86F;
-	Thu, 24 Sep 2026 08:29:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790263748; bh=UHaREaYb2N0OpH2PuUS7Js7AaasyKmsX2ZOw8YFBCrg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hg7uYlHI+a6ANdyP1oZ2HG4A0Ur3RCfNWeuxWrOcT8WjbL6EpzHZIRUT35wwpxuoz
-	 Le3ioB1r5DiLRKgsRA6uYpnSIzaE00PJ9Ru3N8MTxrS2km97fMY+Fu2UCXXfzcphV0
-	 wzWoEcRHq2BZIhkUXuvJpyHqXhF8/J3pIcx57fLE=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>,
-	Lee Trager <lee@trager.us>,
-	Ritwick Sharma <ritwick.sharma@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v11 10/13] arm_mpam: prepare mon_sel locking for MPAM-Fb
-Date: Thu, 24 Sep 2026 17:27:36 +0200
-Message-ID: <20260924152739.2865510-11-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260924152739.2865510-1-andre.przywara@arm.com>
-References: <20260924152739.2865510-1-andre.przywara@arm.com>
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-488615e6cfcso442605f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 08:29:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1790263748; x=1790868548; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ha/HEypz3MxwAQmWEzTLCA1xaL4MlxM5e9rrz6J6Qz8=;
+        b=QPnGJRgJzb5NmurY53YZMC2KYKbnrebpaCsnpgjzhzZcOnEFJX7+mskJLPnWQhSP1U
+         YNBVuX/NIRFfqaf/k3v7JKSiLPLSZHtslmFtV81heYgwwBCfRjaP5hI7gocyUb5QVZ/x
+         zGSGtOGEcxCPg5n0mINpFeP8qAnH8LJ8OfzrFFFNaADGzfT6JmzjuPTbFaJA6OkEGNdg
+         ui/T7bysxtCpABIORZeViNzuaMp+TVdsHEn9AEbNCLDThiGurvTu49tsY/iRiWQajpHy
+         MGjqREkRXcm2n6zC66CpmJw3bpOdib+ZZ7uug9O/TjBQ0KZfguZcRr/c/K/9WE+R5d/8
+         PeUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790263748; x=1790868548;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ha/HEypz3MxwAQmWEzTLCA1xaL4MlxM5e9rrz6J6Qz8=;
+        b=ghzRTvlbgfgXrV4zTBS63+ZxIDY3Y/bE0n/pVnhVgcSjiHrVq/yidlVD0N/dsTFq/t
+         wd1cm5rHtLJ1SnevMATmVyVxd6Xk6iUnEPUuXUhFouAaYMKg22kx5p5rkdp6b/Ae5PlH
+         Q3JGvr9i+Riva73RhbuSW4GteV1yT61C/peIeXrmFWFtys9NvbPPNBT20yib7T/AzOas
+         TFys0qItBdMQjMxV9yGqsQmtwGYEUWx4gdmi7EQ4Du0cmu/gLbWWNb5FdoI4M78hsmxx
+         qQeISgLy4WgGZ+Vhr9xHdE5R+Hi9mQboxjx7gVY8RnqKKl9Fn4IrCS33l/LPPK1JCwVw
+         jEXg==
+X-Gm-Message-State: AFuF++k9v6YQqxmVkEkA6ATqRjGrkIetN26G9n+rCw6uhCwyEKw0VRsS
+	bPQtLUxAK7LJv2vuCFb2A+NAhsnnWJEqFMpWg56a6iPoVs3h/hb/8x7ktUyJjV/2ifxKL5aVtW3
+	x5BK0lfw=
+X-Gm-Gg: AYBFou1tcUPyNtXCmRQ6mD/LN/b5FhTmgkSZcwxfpexegW6S8m6QntJXSedOBYxNNjc
+	yNUG2xkWxW6Uen//o1QR0hAQmPzDDqAYDky6lRUkMP5w7vv4g5sZ0rnHukP1Mz1m6uqMkYOCIcU
+	lQ0bCreoL4BijuZ6UfxNEeaX8SsYaql4M5E8DsvqmgbDj+Ns5c/Q6Us37Wz0x+mOHCY2iSM8euS
+	4kxc2PPHwcQtR4FEFlFDhoIyazxMAjbJVew1hohyXUnID9sKZPt0y9nuiTzhoIjLLCTbIzQGqPi
+	ii9YEeelOHT/dXjJO3Rs/Wf33Yr/OqYsHQDRg+iYasXZSxbEvj7Z9en1Hm6k2c/U20JbbL8tCg+
+	sOoqaq4V+oplQ5kbAhmE2oVJquJ0BRkJaLky8m6dC67YWOfEwagPISmg71SHdOX6HSIxV5K18go
+	RzfJ2H3oyOJvcEmlvvYng23fugqTf5QBvhzkz4BfREI6GA5Vl2nr4CcOO6sW+7add1z+r89GHxL
+	LR7Sfgn8PdSyNwBlkpGyQTkR0ZOTYM1W4MM
+X-Received: by 2002:a05:6000:650:b0:487:152:e57c with SMTP id ffacd0b85a97d-488716a4f90mr5500385f8f.1.1790263748191;
+        Thu, 24 Sep 2026 08:29:08 -0700 (PDT)
+Received: from dev-ag.figment.co.za ([192.145.132.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48867b49661sm14781552f8f.0.2026.09.24.08.29.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 08:29:07 -0700 (PDT)
+From: Andrew Gaylard <ag@ffroot.co.za>
+To: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	qinjian@cqplus1.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux@armlinux.org.uk,
+	Andrew Gaylard <ag@ffroot.co.za>
+Subject: [PATCH v4 1/6] dt-bindings: vendor-prefixes: Add Tibbo
+Date: Thu, 24 Sep 2026 17:28:39 +0200
+Message-ID: <20260924152844.81705-2-ag@ffroot.co.za>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260924152844.81705-1-ag@ffroot.co.za>
+References: <20260924152844.81705-1-ag@ffroot.co.za>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_082910_672435_E965EB2D 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20260924_082910_409305_F454F20F 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,134 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MSC MON_SEL register needs to be accessed from hardirq for the overflow
-interrupt, and when taking an IPI to access these registers on platforms
-where MSCs are not accesible from every CPU. This makes an irqsave
-spinlock the obvious lock to protect these registers. On systems with
-MPAM-Fb mailbox MSC access it must be able to sleep, meaning a mutex must
-be used. So MPAM-Fb platforms cannot support an overflow interrupt easily.
-Clearly these two methods can't exist for one MSC at the same time.
+Add the vendor prefix for Tibbo Technology, the LTPP3G2 board manufacturer.
 
-Change the mon_sel locking wrapper function to only use a spinlock when
-the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
-mutex, but only if we are in a sleepable context. If that's not the
-case, we return an error. This should not happen, as MPAM-Fb by design
-does not require an MSC access to happen from a specific CPU, so there
-is no need for any IPIs or preemption disabling to satisfy CPU
-constraints. And since overflow interrupts are not supported at the moment
-anyway, we also wouldn't meet the other case.
-Bailing out early is already happening in rare occasions today.
-
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Gavin Shan <gshan@redhat.com> # on NVIDIA Grace Hopper
+Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
 ---
- drivers/resctrl/mpam_devices.c  |  6 ++++-
- drivers/resctrl/mpam_internal.h | 43 +++++++++++++++++++++++++++------
- 2 files changed, 41 insertions(+), 8 deletions(-)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 6d1fda949a05c..4c548ec1bd7be 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -2288,7 +2288,6 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 	if (err)
- 		return ERR_PTR(err);
- 
--	mpam_mon_sel_lock_init(msc);
- 	msc->id = pdev->id;
- 	msc->pdev = pdev;
- 	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-@@ -2309,6 +2308,11 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 	else
- 		msc->iface = MPAM_IFACE_PCC;
- 
-+	/* Lock type depends on MSC interface used */
-+	err = mpam_mon_sel_lock_init(dev, msc);
-+	if (err)
-+		return ERR_PTR(err);
-+
- 	if (msc->iface == MPAM_IFACE_MMIO) {
- 		void __iomem *io;
- 
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 09f8168fb4d2c..58f7523bc087b 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -126,6 +126,12 @@ struct mpam_msc {
- 	 */
- 	raw_spinlock_t		_mon_sel_lock;
- 	unsigned long		_mon_sel_flags;
-+	/*
-+	 * mon_sel_mutex is the mutex version of the _mon_sel_lock above.
-+	 * Always use the mpam_mon_sel_lock() helpers when taking the lock,
-+	 * as this will select the correct lock type automatically.
-+	 */
-+	struct mutex		mon_sel_mutex;
- 
- 	void __iomem		*mapped_hwpage;
- 	size_t			mapped_hwpage_sz;
-@@ -139,27 +145,50 @@ struct mpam_msc {
- /* Returning false here means accesses to mon_sel must fail and report an error. */
- static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
- {
--	/* Locking will require updating to support a firmware backed interface */
--	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
-+	if (msc->iface == MPAM_IFACE_MMIO) {
-+		raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-+
-+		return true;
-+	}
-+
-+	if (!preemptible())
- 		return false;
- 
--	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-+	mutex_lock(&msc->mon_sel_mutex);
-+
- 	return true;
- }
- 
- static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
- {
--	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
-+	if (msc->iface == MPAM_IFACE_MMIO) {
-+		raw_spin_unlock_irqrestore(&msc->_mon_sel_lock,
-+					   msc->_mon_sel_flags);
-+
-+		return;
-+	}
-+
-+	mutex_unlock(&msc->mon_sel_mutex);
- }
- 
- static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
- {
--	lockdep_assert_held_once(&msc->_mon_sel_lock);
-+	if (msc->iface == MPAM_IFACE_MMIO)
-+		lockdep_assert_held_once(&msc->_mon_sel_lock);
-+	else
-+		lockdep_assert_held_once(&msc->mon_sel_mutex);
- }
- 
--static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
-+static inline int mpam_mon_sel_lock_init(struct device *dev,
-+					 struct mpam_msc *msc)
- {
--	raw_spin_lock_init(&msc->_mon_sel_lock);
-+	if (msc->iface == MPAM_IFACE_MMIO) {
-+		raw_spin_lock_init(&msc->_mon_sel_lock);
-+
-+		return 0;
-+	}
-+
-+	return devm_mutex_init(dev, &msc->mon_sel_mutex);
- }
- 
- DEFINE_GUARD(mon_sel, struct mpam_msc *,
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 4a5cf436eb14..8a984fea11c3 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1728,6 +1728,8 @@ patternProperties:
+     description: Texas Instruments
+   "^tianma,.*":
+     description: Tianma Micro-electronics Co., Ltd.
++  "^tibbo,.*":
++    description: Tibbo Technology Inc.
+   "^tlm,.*":
+     description: Trusted Logic Mobility
+   "^tmt,.*":
 -- 
-2.43.0
+2.53.0
 
 
