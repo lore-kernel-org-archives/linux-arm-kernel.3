@@ -4,51 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A6E0C98324
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B11C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=efEzw7LWloopRagtJOpmn/2eQbOHKy7Knyb992JBZcM=; b=zeZjHFSG9dSVqL
-	hqjIXbB1IPQwMUuswuhRApT69rlnldulaH0pEWZuoxPpo8ZIk9UAlJSnAJqa6xmRsDoxPlNOdRAcI
-	ojiR/b+43SJedyAl4x+k1fjP8Afyab5j0+c/n5P7P5Fd8dtddFnJQeWyjONpl1Bhl0f2VC/N2JCeS
-	kwHvjnwprhYhJGqyJCxwPa7Kkk5LjIpJ7t1jdGplrHsRO6/FxLej+24AmDaaT1vGMcWACsCigH4aH
-	KcBh1blm83h9y+5gsYwf0OkrY0fDhfU7aTkTheMJhWsC714JOx8ota+kHksRlgy/RZo/yrMZnoSbB
-	UB3eSBZ1Y+v42JqTHw7Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DDVjMUHaEOcbMhYD12DROe3Y2AT/VC3EQjCH1AC3SLQ=; b=oWBZNIXwBoomWjVDzCYrM2gpNR
+	6E9qqqKV/J+Cuoe8AvmFRLAu3zmXQN8fxbao8zF0A1ei4atw5voCScFG0pvbVQIP/rvWIUMqyQXPy
+	CysVyowspyHoTu/P7sCmrIc7ab+xrlSF+yTE6qCLwxMMZoPu5UjJxNNSeiqAHVnyxWPT+nMavvttL
+	VRSp/sh5lafZWA+4kXLshJXjI69QAvOWLpj/Gh+LOKSEKoJWULruCrSZxvheLcNY7DesUD7QAOdMr
+	hpl16TQUYplyZtORI3yJbQCDVPQbPLMXW0jniU0BAp864vM2jdwLX2ZUURPhSxG/TisGYneO66I3k
+	Cpt1Zb1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kGW-0000000BETC-0IYx;
-	Thu, 24 Sep 2026 14:17:36 +0000
+	id 1x9kGX-0000000BEUr-0bTw;
+	Thu, 24 Sep 2026 14:17:37 +0000
 Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kGC-0000000BEJw-3ZaZ
+	id 1x9kGL-0000000BEOp-02gp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 14:17:20 +0000
+	Thu, 24 Sep 2026 14:17:26 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1790259433;
+	s=mail; t=1790259443;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=efEzw7LWloopRagtJOpmn/2eQbOHKy7Knyb992JBZcM=;
-	b=gFoaIv5/8kHenRWWJaXAImJjzz3ORrwGo5gh04zQoMNGxZRljTfBLgBWZQxLXP5VhA10pp
-	duPRYT870b5q0vKrc/Nm9w2542gOsBvXTnot6v/K0uo95d6kqlN6aD1BpoOiLbWscwCcLG
-	fwYWCbCmu37QUQWmSogxQKMdqGv2ALU=
-Subject: [PATCH v3 0/7] Initial Apple Silicon A18 Pro device trees and
- dt-bindings
-Date: Thu, 24 Sep 2026 16:17:04 +0200
-Message-Id: <20260924-apple-a18-pro-initial-devicetrees-v3-0-94f7ea52cc64@cyberchaos.dev>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DDVjMUHaEOcbMhYD12DROe3Y2AT/VC3EQjCH1AC3SLQ=;
+	b=1ksDI9c2AUc/Mu5r5gEUkv9gYlytUK5bt/cwsfenTPDEm3fTOxFaa3fIwaddsWluVdP7Lh
+	xrgqwwAHQ1EE5kf520PTQh0JEZbQkj2AbPKncySGvn4xKSqcaRfq+5eYYSOoJ5iQxN0Otw
+	XTBcpQ21ixlv1ic1LBidUGhYCaUrBbU=
+Date: Thu, 24 Sep 2026 16:17:11 +0200
+Subject: [PATCH v3 7/7] arm64: dts: apple: Add minimal MacBook Neo device
+ tree
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WPzQ6CMBCEX4X07Jpu5U9PvofxAO2iawxgW4iE8
- O4WNNHEix5nM/vNzCgcWSYndtEoLPXsuKmD2Kwioc9FfSJgE7RQUqVyK2Mo2vZKUGAOrW2Aa/Z
- cXMGEV03eEjnQcZIZVBlVuhSB01qq+L5kHI5P7bryQtrP4JfD0q0L4f5tO7PzjR2WZj3O139K9
- AgSpFZJLNFgmpi9HkqyYVPj1sEo5ohefWARf8GqGZsbmepKIpr4CztN0wNMIbr1VQEAAA==
-X-Change-ID: 20260904-apple-a18-pro-initial-devicetrees-c457d127efcb
+Message-Id: <20260924-apple-a18-pro-initial-devicetrees-v3-7-94f7ea52cc64@cyberchaos.dev>
+References: <20260924-apple-a18-pro-initial-devicetrees-v3-0-94f7ea52cc64@cyberchaos.dev>
+In-Reply-To: <20260924-apple-a18-pro-initial-devicetrees-v3-0-94f7ea52cc64@cyberchaos.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, 
@@ -58,11 +56,10 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Guenter Roeck <linux@roeck-us.net>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_071717_070643_2A844D84 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260924_071725_411240_717FE9BA 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,88 +74,1093 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Added a device tree for the MacBook Neo, which uses the t8140 SoC
+(A18 Pro) also found in the iPhone 16 Pro.
 
-This series adds initial device trees and dt-bindings for the A18 Pro
-(t8140) SoC and the MacBook Neo (the only Mac using this SoC).
-It only covers a minimal amount of hardware, but is nontheless useful
-for further development work. The hardware added here has remained
-largely unchanged from the earlier generation Apple Silicon Macs.
+The device tree has a minimal set of devices limited to CPU cores,
+interrupt controller, watchdog, serial and framebuffer.
 
-Similar to the M4 devices, changes to the m1n1 bootloader are required
-to boot Linux on the MacBook Neo.
-Also, SMP boot depends on further patches to avoid WFI and WFIT
-instructions [1][2].
+Using the macOS 26.6.2 iBoot/firmware, the machine reliably boots
+on a single core using the stock kernel.
+Booting with smp requires avoiding the wfi and wfit instructions
+in the idle loop and `delay()` respectively, since those instructions
+cause a loss of architectural state on the secondary cores.
 
-Merge strategy:
-
-Since there are no actual driver changes in this series, we'd prefer to
-merge the dt-bindings changes through the apple-soc tree once Acked by
-the respective maintainers.
-
-Link[1]: https://lore.kernel.org/all/20260804-arm64-idle-param-v3-1-d10f8159062b@cyberchaos.dev/
-Link[2]: https://lore.kernel.org/all/20260811-idreg-override-wfxt-v1-1-1c71228d0719@cyberchaos.dev/
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
-Changes in v3:
-- More dt-check-style --mode=strict reformatting
-- Fix interrupt-controller dt-bindings commit message: AICv2 is only
-  used since M3
-- Link to v2: https://patch.msgid.link/20260911-apple-a18-pro-initial-devicetrees-v2-0-08d06cf011d4@cyberchaos.dev
+ arch/arm64/boot/dts/apple/Makefile        |   1 +
+ arch/arm64/boot/dts/apple/t8140-j700.dts  |  54 +++
+ arch/arm64/boot/dts/apple/t8140-pmgr.dtsi | 777 ++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8140.dtsi      | 207 ++++++++
+ 4 files changed, 1039 insertions(+)
 
-Changes in v2:
-- Added " (A18 Pro, 2026)" to model name
-- Fixed memory node alias inconsistency
-- Fixed wdt and machine dt-bindings being in the same commit
-- Reworded aic dt-bindings commit message
-- Reformatted/reordered according to dt-check-style --mode=strict
-- Link to v1: https://patch.msgid.link/20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev
+diff --git a/arch/arm64/boot/dts/apple/Makefile b/arch/arm64/boot/dts/apple/Makefile
+index 62999574a36b..4f31beeb11ac 100644
+--- a/arch/arm64/boot/dts/apple/Makefile
++++ b/arch/arm64/boot/dts/apple/Makefile
+@@ -109,3 +109,4 @@ dtb-$(CONFIG_ARCH_APPLE) += t8132-j624.dtb
+ dtb-$(CONFIG_ARCH_APPLE) += t8132-j713.dtb
+ dtb-$(CONFIG_ARCH_APPLE) += t8132-j715.dtb
+ dtb-$(CONFIG_ARCH_APPLE) += t8132-j773g.dtb
++dtb-$(CONFIG_ARCH_APPLE) += t8140-j700.dtb
+diff --git a/arch/arm64/boot/dts/apple/t8140-j700.dts b/arch/arm64/boot/dts/apple/t8140-j700.dts
+new file mode 100644
+index 000000000000..227b58a7ce64
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/t8140-j700.dts
+@@ -0,0 +1,54 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * Apple MacBook Neo (A18 Pro, 2026)
++ *
++ * target-type: J700
++ *
++ * Copyright The Asahi Linux Contributors
++ */
++
++/dts-v1/;
++
++#include "t8140.dtsi"
++
++/ {
++	compatible = "apple,j700", "apple,t8140", "apple,arm-platform";
++	model = "Apple MacBook Neo (A18 Pro, 2026)";
++
++	aliases {
++		serial0 = &serial0;
++	};
++
++	chosen {
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		stdout-path = "serial0";
++
++		framebuffer@0 {
++			compatible = "apple,simple-framebuffer",
++			             "simple-framebuffer";
++			reg = <0 0 0 0>; /* To be filled by loader */
++			/* Format properties will be added by loader */
++
++			status = "disabled";
++		};
++	};
++
++	memory@800000000 {
++		device_type = "memory";
++		reg = <0x8 0 0x2 0>; /* To be filled by loader */
++	};
++
++	reserved-memory {
++		ranges;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		/* To be filled by loader */
++	};
++};
++
++&serial0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/apple/t8140-pmgr.dtsi b/arch/arm64/boot/dts/apple/t8140-pmgr.dtsi
+new file mode 100644
+index 000000000000..dd43520394ac
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/t8140-pmgr.dtsi
+@@ -0,0 +1,777 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * PMGR Power domains for the Apple T8140 "A18 Pro" SoC
++ *
++ * Copyright The Asahi Linux Contributors
++ */
++
++&pmgr {
++	ps_sep_aon: power-controller@60 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x60 4>;
++		label = "sep_aon";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_msg: power-controller@108 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x108 4>;
++		label = "msg";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_aic: power-controller@110 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x110 4>;
++		label = "aic";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_dwi: power-controller@118 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x118 4>;
++		label = "dwi";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_gpio: power-controller@120 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x120 4>;
++		label = "gpio";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pmc: power-controller@138 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x138 4>;
++		label = "pmc";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pms_fpwm0: power-controller@140 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x140 4>;
++		label = "pms_fpwm0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pms_fpwm1: power-controller@148 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x148 4>;
++		label = "pms_fpwm1";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pms_fpwm2: power-controller@150 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x150 4>;
++		label = "pms_fpwm2";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pms_fpwm3: power-controller@158 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x158 4>;
++		label = "pms_fpwm3";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pms_fpwm4: power-controller@160 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x160 4>;
++		label = "pms_fpwm4";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_pms_c1ppt: power-controller@168 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x168 4>;
++		label = "pms_c1ppt";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_soc_rc: power-controller@170 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x170 4>;
++		label = "soc_rc";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_soc_dpe: power-controller@178 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x178 4>;
++		label = "soc_dpe";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_pmgr_soc_ocla: power-controller@180 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x180 4>;
++		label = "pmgr_soc_ocla";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_ispsens0: power-controller@188 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x188 4>;
++		label = "ispsens0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_ispsens1: power-controller@190 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x190 4>;
++		label = "ispsens1";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_ap_tmm: power-controller@1a0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x1a0 4>;
++		label = "ap_tmm";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_afggfxni0: power-controller@1b8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x1b8 4>;
++		label = "afggfxni0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_gfx: power-controller@1f0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x1f0 4>;
++		label = "gfx";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_jpg: power-controller@230 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x230 4>;
++		label = "jpg";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_msr: power-controller@238 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x238 4>;
++		label = "msr";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_venc0_sys: power-controller@240 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x240 4>;
++		label = "venc0_sys";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_prores: power-controller@250 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x250 4>;
++		label = "prores";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_apcie_gp: power-controller@258 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x258 4>;
++		label = "apcie_gp";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_isp_sys: power-controller@268 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x268 4>;
++		label = "isp_sys";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_ans: power-controller@278 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x278 4>;
++		label = "ans";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_disp_sys: power-controller@280 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x280 4>;
++		label = "disp_sys";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on; /* TODO: figure out if we can enable PM here */
++	};
++
++	ps_dispext0_sys: power-controller@288 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x288 4>;
++		label = "dispext0_sys";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_ane_sys: power-controller@290 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x290 4>;
++		label = "ane_sys";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_msr_ase_core: power-controller@298 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x298 4>;
++		label = "msr_ase_core";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_msr>;
++		#reset-cells = <0>;
++	};
++
++	ps_apcie_sys_gp: power-controller@2a0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2a0 4>;
++		label = "apcie_sys_gp";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_sio_cpu: power-controller@2a8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2a8 4>;
++		label = "sio_cpu";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_fpwm0: power-controller@2b0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2b0 4>;
++		label = "fpwm0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_fpwm1: power-controller@2b8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2b8 4>;
++		label = "fpwm1";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_fpwm2: power-controller@2c0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2c0 4>;
++		label = "fpwm2";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_i2c0: power-controller@2c8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2c8 4>;
++		label = "i2c0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_i2c1: power-controller@2d0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2d0 4>;
++		label = "i2c1";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_i2c2: power-controller@2d8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2d8 4>;
++		label = "i2c2";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_i2c3: power-controller@2e0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2e0 4>;
++		label = "i2c3";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_i2c4: power-controller@2e8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2e8 4>;
++		label = "i2c4";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_spi_p: power-controller@2f0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2f0 4>;
++		label = "spi_p";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart_p: power-controller@2f8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x2f8 4>;
++		label = "uart_p";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_dpa_p: power-controller@300 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x300 4>;
++		label = "dpa_p";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_aes: power-controller@308 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x308 4>;
++		label = "aes";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_apcie_st: power-controller@310 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x310 4>;
++		label = "apcie_st";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_ans>;
++		#reset-cells = <0>;
++	};
++
++	ps_disp_fe: power-controller@318 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x318 4>;
++		label = "disp_fe";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_disp_sys>;
++		#reset-cells = <0>;
++		apple,always-on; /* TODO: figure out if we can enable PM here */
++	};
++
++	ps_dispext0_fe: power-controller@320 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x320 4>;
++		label = "dispext0_fe";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_dispext0_sys>;
++		#reset-cells = <0>;
++	};
++
++	ps_dispext0_cpu: power-controller@328 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x328 4>;
++		label = "dispext0_cpu";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_dispext0_fe>;
++		#reset-cells = <0>;
++
++		status = "disabled"; /* Locked, don't touch it */
++	};
++
++	ps_spi0: power-controller@330 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x330 4>;
++		label = "spi0";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_spi_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_spi1: power-controller@338 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x338 4>;
++		label = "spi1";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_spi_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_spi2: power-controller@340 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x340 4>;
++		label = "spi2";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_spi_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_spi3: power-controller@348 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x348 4>;
++		label = "spi3";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_spi_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_qspi: power-controller@350 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x350 4>;
++		label = "qspi";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_spi_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart_n: power-controller@358 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x358 4>;
++		label = "uart_n";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart0: power-controller@360 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x360 4>;
++		label = "uart0";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart1: power-controller@368 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x368 4>;
++		label = "uart1";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart2: power-controller@370 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x370 4>;
++		label = "uart2";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart3: power-controller@378 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x378 4>;
++		label = "uart3";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart4: power-controller@380 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x380 4>;
++		label = "uart4";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_uart5: power-controller@388 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x388 4>;
++		label = "uart5";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_uart_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_dpa0: power-controller@390 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x390 4>;
++		label = "dpa0";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_dpa_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_dpa1: power-controller@398 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x398 4>;
++		label = "dpa1";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_dpa_p>;
++		#reset-cells = <0>;
++	};
++
++	ps_apcie_sys_st: power-controller@3a0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3a0 4>;
++		label = "apcie_sys_st";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_ans>, <&ps_apcie_st>;
++		#reset-cells = <0>;
++	};
++
++	ps_apcie_phy_sw: power-controller@3c0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3c0 4>;
++		label = "apcie_phy_sw";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_apcie_sys_st>, <&ps_apcie_sys_gp>;
++		#reset-cells = <0>;
++	};
++
++	ps_pmp: power-controller@3d0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3d0 4>;
++		label = "pmp";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_pms_sram: power-controller@3d8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3d8 4>;
++		label = "pms_sram";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_atc0_usb_aon: power-controller@3e0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3e0 4>;
++		label = "atc0_usb_aon";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++	};
++
++	ps_atc0_common: power-controller@3e8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3e8 4>;
++		label = "atc0_common";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_atc0_usb_aon>;
++		#reset-cells = <0>;
++	};
++
++	ps_atc0_usb: power-controller@3f0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x3f0 4>;
++		label = "atc0_usb";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_atc0_common>;
++		#reset-cells = <0>;
++	};
++
++	ps_sep: power-controller@c00 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0xc00 4>;
++		label = "sep";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_venc0_dma: power-controller@8000 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8000 4>;
++		label = "venc0_dma";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_venc0_sys>;
++		#reset-cells = <0>;
++	};
++
++	ps_venc0_pipe4: power-controller@8008 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8008 4>;
++		label = "venc0_pipe4";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_venc0_dma>;
++		#reset-cells = <0>;
++	};
++
++	ps_venc0_pipe5: power-controller@8010 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8010 4>;
++		label = "venc0_pipe5";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_venc0_dma>;
++		#reset-cells = <0>;
++	};
++
++	ps_venc0_me0: power-controller@8018 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8018 4>;
++		label = "venc0_me0";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_venc0_dma>;
++		#reset-cells = <0>;
++	};
++
++	ps_venc0_me1: power-controller@8020 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8020 4>;
++		label = "venc0_me1";
++		#power-domain-cells = <0>;
++		power-domains = <&ps_venc0_me0>;
++		#reset-cells = <0>;
++	};
++};
++
++&pmgr_mini {
++	ps_debug_gated: power-controller@0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x0 4>;
++		label = "debug_gated";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_spmi0: power-controller@58 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x58 4>;
++		label = "nub_spmi0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_spmi1: power-controller@60 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x60 4>;
++		label = "nub_spmi1";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_spmi_a0: power-controller@68 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x68 4>;
++		label = "nub_spmi_a0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_aon_nogate: power-controller@78 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x78 4>;
++		label = "nub_aon_nogate";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_ocla: power-controller@80 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x80 4>;
++		label = "nub_ocla";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_gpio: power-controller@88 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x88 4>;
++		label = "nub_gpio";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_fabric: power-controller@a0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0xa0 4>;
++		label = "nub_fabric";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_nub_sram: power-controller@a8 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0xa8 4>;
++		label = "nub_sram";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_debug_switch: power-controller@b0 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0xb0 4>;
++		label = "debug_switch";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_smc_i2cm0: power-controller@8028 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8028 4>;
++		label = "smc_i2cm0";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_smc_i2cm1: power-controller@8030 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8030 4>;
++		label = "smc_i2cm1";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++
++	ps_smc_i2cm2: power-controller@8038 {
++		compatible = "apple,t8140-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
++		reg = <0x8038 4>;
++		label = "smc_i2cm2";
++		#power-domain-cells = <0>;
++		#reset-cells = <0>;
++		apple,always-on;
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/t8140.dtsi b/arch/arm64/boot/dts/apple/t8140.dtsi
+new file mode 100644
+index 000000000000..150d91bdf6fc
+--- /dev/null
++++ b/arch/arm64/boot/dts/apple/t8140.dtsi
+@@ -0,0 +1,207 @@
++// SPDX-License-Identifier: GPL-2.0+ OR MIT
++/*
++ * Apple T8140 "A18 Pro" SoC
++ *
++ * Copyright The Asahi Linux Contributors
++ */
++
++#include <dt-bindings/interrupt-controller/apple-aic.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/ {
++	compatible = "apple,t8140", "apple,arm-platform";
++
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	clkref: clock-ref {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <24000000>;
++		clock-output-names = "clkref";
++	};
++
++	cpus {
++		#address-cells = <2>;
++		#size-cells = <0>;
++
++		cpu-map {
++			cluster0 {
++				core0 {
++					cpu = <&cpu_e0>;
++				};
++
++				core1 {
++					cpu = <&cpu_e1>;
++				};
++
++				core2 {
++					cpu = <&cpu_e2>;
++				};
++
++				core3 {
++					cpu = <&cpu_e3>;
++				};
++			};
++
++			cluster1 {
++				core0 {
++					cpu = <&cpu_p0>;
++				};
++
++				core1 {
++					cpu = <&cpu_p1>;
++				};
++			};
++		};
++
++		cpu_e0: cpu@0 {
++			device_type = "cpu";
++			compatible = "apple,tahiti-e";
++			reg = <0x0 0x0>;
++			cpu-release-addr = <0 0>;
++			d-cache-size = <0x10000>;
++			enable-method = "spin-table";
++			i-cache-size = <0x20000>;
++			next-level-cache = <&l2_cache_0>;
++		};
++
++		cpu_e1: cpu@1 {
++			device_type = "cpu";
++			compatible = "apple,tahiti-e";
++			reg = <0x0 0x1>;
++			cpu-release-addr = <0 0>;
++			d-cache-size = <0x10000>;
++			enable-method = "spin-table";
++			i-cache-size = <0x20000>;
++			next-level-cache = <&l2_cache_0>;
++		};
++
++		cpu_e2: cpu@2 {
++			device_type = "cpu";
++			compatible = "apple,tahiti-e";
++			reg = <0x0 0x2>;
++			cpu-release-addr = <0 0>;
++			d-cache-size = <0x10000>;
++			enable-method = "spin-table";
++			i-cache-size = <0x20000>;
++			next-level-cache = <&l2_cache_0>;
++		};
++
++		cpu_e3: cpu@3 {
++			device_type = "cpu";
++			compatible = "apple,tahiti-e";
++			reg = <0x0 0x3>;
++			cpu-release-addr = <0 0>;
++			d-cache-size = <0x10000>;
++			enable-method = "spin-table";
++			i-cache-size = <0x20000>;
++			next-level-cache = <&l2_cache_0>;
++		};
++
++		cpu_p0: cpu@10100 {
++			device_type = "cpu";
++			compatible = "apple,tahiti-p";
++			reg = <0x0 0x10100>;
++			cpu-release-addr = <0 0>;
++			d-cache-size = <0x20000>;
++			enable-method = "spin-table";
++			i-cache-size = <0x30000>;
++			next-level-cache = <&l2_cache_1>;
++		};
++
++		cpu_p1: cpu@10101 {
++			device_type = "cpu";
++			compatible = "apple,tahiti-p";
++			reg = <0x0 0x10101>;
++			cpu-release-addr = <0 0>;
++			d-cache-size = <0x20000>;
++			enable-method = "spin-table";
++			i-cache-size = <0x30000>;
++			next-level-cache = <&l2_cache_1>;
++		};
++
++		l2_cache_0: l2-cache-0 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <0x400000>;
++			cache-unified;
++		};
++
++		l2_cache_1: l2-cache-1 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-size = <0x1000000>;
++			cache-unified;
++		};
++	};
++
++	soc: soc {
++		compatible = "simple-bus";
++		ranges;
++		#address-cells = <2>;
++		nonposted-mmio;
++		#size-cells = <2>;
++
++		pmgr: power-management@300700000 {
++			compatible = "apple,t8140-pmgr", "apple,t8103-pmgr",
++			             "syscon", "simple-mfd";
++			reg = <0x3 0x700000 0 0x14000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			/* child nodes are added in t8140-pmgr.dtsi */
++		};
++
++		aic: interrupt-controller@301000000 {
++			compatible = "apple,t8140-aic3", "apple,t8122-aic3";
++			reg = <0x3 0x01000000 0x0 0x1cc000>,
++			      <0x3 0x01040000 0x0 0x4000>;
++			reg-names = "core", "event";
++			#interrupt-cells = <3>;
++			interrupt-controller;
++			power-domains = <&ps_aic>;
++		};
++
++		pmgr_mini: power-management@308280000 {
++			compatible = "apple,t8140-pmgr", "apple,t8103-pmgr",
++			             "syscon", "simple-mfd";
++			reg = <0x3 0x8280000 0 0xc000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			/* child nodes are added in t8140-pmgr.dtsi */
++		};
++
++		wdt: watchdog@3082b0000 {
++			compatible = "apple,t8140-wdt", "apple,t8103-wdt";
++			reg = <0x3 0x082b0000 0x0 0x4000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 507 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		serial0: serial@385200000 {
++			compatible = "apple,s5l-uart";
++			reg = <0x3 0x85200000 0x0 0x1000>;
++			clocks = <&clkref>, <&clkref>;
++			clock-names = "uart", "clk_uart_baud0";
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 1092 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&ps_uart0>;
++			reg-io-width = <4>;
++
++			status = "disabled";
++		};
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
++		             <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>,
++		             <AIC_FIQ AIC_TMR_HV_PHYS IRQ_TYPE_LEVEL_HIGH>,
++		             <AIC_FIQ AIC_TMR_HV_VIRT IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "phys", "virt", "hyp-phys", "hyp-virt";
++	};
++};
++
++#include "t8140-pmgr.dtsi"
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sven Peter <sven@kernel.org>
-To: Janne Grunau <j@jannau.net>
-To: Neal Gompa <neal@gompa.dev>
-To: Hector Martin <marcan@marcan.st>
-To: Thomas Gleixner <tglx@kernel.org>
-To: Radu Rendec <radu@rendec.net>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: asahi@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-watchdog@vger.kernel.org
-
----
-Yureka Lilian (7):
-      dt-bindings: arm: cpus: Add Apple A18 Pro CPU core compatibles
-      dt-bindings: arm: apple: apple,pmgr: Add t8140 compatible
-      dt-bindings: arm: power: apple,pmgr-pwrstate: Add t8140 compatible
-      dt-bindings: interrupt-controller: apple,aic2: Add t8140 compatible
-      dt-bindings: watchdog: apple,wdt: Add t8140 compatible
-      dt-bindings: arm: apple: Add A18 Pro based devices
-      arm64: dts: apple: Add minimal MacBook Neo device tree
-
- Documentation/devicetree/bindings/arm/apple.yaml   |  11 +
- .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |   1 +
- Documentation/devicetree/bindings/arm/cpus.yaml    |   2 +
- .../bindings/interrupt-controller/apple,aic2.yaml  |   1 +
- .../bindings/power/apple,pmgr-pwrstate.yaml        |   1 +
- .../devicetree/bindings/watchdog/apple,wdt.yaml    |   1 +
- arch/arm64/boot/dts/apple/Makefile                 |   1 +
- arch/arm64/boot/dts/apple/t8140-j700.dts           |  54 ++
- arch/arm64/boot/dts/apple/t8140-pmgr.dtsi          | 777 +++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8140.dtsi               | 207 ++++++
- 10 files changed, 1056 insertions(+)
----
-base-commit: eea4f3b5e9e19389af3b99af64cdf7352b67c298
-change-id: 20260904-apple-a18-pro-initial-devicetrees-c457d127efcb
-
-Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
+-- 
+2.55.0
 
 
