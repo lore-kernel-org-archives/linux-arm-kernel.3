@@ -4,74 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22F1C98317
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF3EC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEzkxPo/TvWxfTAnlVnEb3LOECf8HweSA0IBHma31Zw=; b=rw2+WylvW7d6Ef7YwDKkPmAlxo
-	2YA2yxrv7AUF/BBkE4yyZYaFFAglvhbQbqugHbE423TM76Y1XEk4rNoK/8R0/BSzkjjx7j8qgUb+7
-	b4NfS6TSTTKEWN3ugW4BwQXZT7LXgu2A59eTSCg9+B5vd08+c1F3Iii9hZgelYxyyJraIQg4YACSP
-	nvgxNfm1xDXS2DK4ar5bXNfKpiE7f/7lV4i/FlM/P0xpT/iOhOGXgl7uOcsbOmsgNFZ9/uuLBAKr6
-	rWhxva1l+IImAIXKSuSh5ifCtCvoMkIsULRJCYVH2UUFJUBudWpYXevRwNZU4MWv12qCp4WT5IiLL
-	49N3m8hA==;
+	bh=iTfiqMKgpe/SdIDwUiMICvSbmpu0rp/xu4YDBLENRUQ=; b=pQCCq6xkHoq3S45yx6hMfrRJNE
+	cyFMlUXaofwxkILUVRTA4wxt3JO1ja8uVrkoDGlJjwj3Uu+k0o8bkkOVUg9l8LwfP+t6++UJkEq7g
+	jFmnVLJeteG1GU1CsklGsJMmxk9kiSI7qh+KgPIn33ldLTwBQms2EqQyXUveoKYZHpmjQqwQEXDN3
+	zSpfHRhBo/lskVCjXdJJNCxXxuKKEL5QxJCNIDfN6e/d1EbAvWsRA+5Hynbyf+RpA+wwIT36BBX+M
+	F5vLIMBUiqB/FJx1I2Opd+7G+ylXCMGqTMaqpoCE5xN+n5C6qD1m+fQpAZQyhqp880uBv4t7g2qt+
+	OdIWYOPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jPp-0000000B4nX-3Wuw;
-	Thu, 24 Sep 2026 13:23:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9jQS-0000000B545-1Cuj;
+	Thu, 24 Sep 2026 13:23:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jPd-0000000B4ga-2Xk6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 13:22:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=zEzkxPo/TvWxfTAnlVnEb3LOECf8HweSA0IBHma31Zw=; b=HVM5kh0f7MldIWomtqNkRVE3YK
-	ElbdnXVvOaUxfwtbSLChm+3udgOSkyaKN2sGlMwDdK0gXxr5HTw9LrsjiUniX5TItgeWHbsnh1uQd
-	nVmLLySRPUGxVNBB3yUXwhBGuyEYScyg+EtOkS/OqCR3jxvBYIgx8616DjG1WjidSvNwglemmirYK
-	Pk6mjlnz0LQXHtIL0X38IWzOme9iDmgeudRXb+LIPtL/MvmTVWK5oar/0V/DGrT8EkZbycZoDMe7p
-	hFZWTqgymPuyN5V8mkdz3Sw5AKIQ3K8a1sq8mZKrkD7zHIXPvvd70riqpLa0hdCUmVom//UoLsvwy
-	tRWml3/A==;
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9jPa-0000000G1NA-2aPZ
+	id 1x9jQQ-0000000B51L-0BDb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 13:22:56 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1790256155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zEzkxPo/TvWxfTAnlVnEb3LOECf8HweSA0IBHma31Zw=;
-	b=OP8UrcIzpIdqBBgQKR1t+KyFqkBIlRq40j0Jy8TIbefRhodLgV8UrY4EHaCbivrAiHW2yn
-	6jCjX7MAj8qLEmz3OwgkMnqfsZqwGyIaqkhajPg1EJeLMX9gHz/mtv4dcvS0UJZ8HwZaeV
-	vpnZqI34Ui2kneOfkzPtVVzyLPaG+M0=
-Date: Thu, 24 Sep 2026 15:22:24 +0200
-Subject: [PATCH 2/3] dts: apple: t8132: Fix ordering-related dt-check-style
- issues
+	Thu, 24 Sep 2026 13:23:47 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OC4kv22385712
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 13:23:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iTfiqMKgpe/SdIDwUiMICvSbmpu0rp/xu4YDBLENRUQ=; b=SRK8wSwGlqXbZqtB
+	KPcdW2oYhDIhiV5ufq/o9bWhM1eJbYN9uBD7oeHWEBN6nRCHYrjxmwTmuf4CwoPO
+	U19jMxUwAiTVw8454KzQU24L8h6gkCRwuv2UcyrawCTSossOCL/UprHO1MuuWSrE
+	ceSQVCBYYj4Zoo9/KXKBD1u5iydXCOwW389af3Kr4BvHT+sTmNNUbcTtHtTLR77R
+	vPcBemKAmZibb37N21800aPUglLfEPns2YIgiK26robp4H7FtTWmsxKEVVF8aMco
+	sE3xrEtrKeHj/y1bQx7LYRjTZO+qPCkxj0re5yWSNkHY2Drq7forz90wCFnQbiLk
+	2OZN1Q==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvsfgtp0k-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 13:23:39 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-79129463bb2so653581137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:23:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1790256219; x=1790861019; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iTfiqMKgpe/SdIDwUiMICvSbmpu0rp/xu4YDBLENRUQ=;
+        b=B5GZTzZWrPvTJfWVJoY39HuH7zY+IP76KoHGVUzZuAo8677hqOl0ZeLo7EtBdHkArU
+         Dp/FJnTMFYwNriAHuZhkLuc8M05nkhvoxv2ITWBE5hPw4rFqli9aL95UilO+55Wn+Tdz
+         uNjEoOZtX2mc9LZeqgxzvHFFf2o5IhlsJSkK6rofv7Ecbsy1lvqbCl655LF5aPr/wlbO
+         NiQqgHrZ2k9/eAqctZTNDpvnSAZ6rRmlwtL+ah0GhNq3xpRFiTX72ZpyNpRmyBlg+915
+         wxqUqnnJauPsmjMa6iy9XNNgYY/DKfHwG/GAPWieiQv4NLbEFBOBgXb5YmI6zXAUQIN3
+         TvMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790256219; x=1790861019;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iTfiqMKgpe/SdIDwUiMICvSbmpu0rp/xu4YDBLENRUQ=;
+        b=BgQ+znoPY3mvI81p3I/I+m6dQJaICbFJs0y+JpXZ1vvAffS6jKic2gnb5tMb+5ijPt
+         dikQVy11hDBAPl8uOGu+zRlKWjCujorXqi8W+0+HQna8X7JiwyTJhfLHYW8m5sYCwBfS
+         m06MMZ177YlR/Qxx50KXY++UiDqOIMoEbG0y0BCMienmmAE42yIM/f28upAPL1ooU6a6
+         6SyaJlWpV1xx6/bGnDNXGSshEwh7Ocg1Ts/amCkfcusXGXk3ZeB09xhAR7sr0433lDlz
+         WkbijIVx3NBorkEkgdFGRyHqKGykJuHVSNJq4IgilGcVKGgomJygzv3sVC6CXKZD543U
+         xh3Q==
+X-Gm-Message-State: AFuF++mbLLEExePo9nrgtYXMdTPxksIjYfyTp9RfLFcQDh/bGJlA9oHF
+	16JoLGTO/AF9wOnjycO1ZR4CvqV5sXx2UFfmNqsxiNp+T36pIYgNYmLGTOEiTi5OVsM/dp3vjAR
+	FuS92q+R/vTSI229US0ymnuYWhi5bYrPd0HffhAaXiOhCQXU22Cc8euXBT3Zx6Pbrg53dCpFcMz
+	X3Sw==
+X-Gm-Gg: AYBFou0HljLGH01jnXEFaUJZbUiD8AubYeSklL2Z0C/Evrq6769EWIKsr8gqFyMlAW8
+	JXbk6FpvQvp8Up0S5/T7fvBK9W/V/97NYyECRnHdDlcCozydmeDVAiQFHSYuCfhl6qls4hokaDH
+	bsSQrneMbkHmoiPnGPHG+xjka3K5fnBDYerteqMob6hluvvahdX6jaiG0/GTAaWGqC0TCPobHjV
+	vgyW1d+flGLYFOthXFr4qJ8OeSuH1Bth4wV8C4fsfGoCDAr0+si/VFegoR4o5KVNYqxUc5gtC+a
+	u+csOR9gydIrpCxpD3kDN9Q+/LWIvepl2Em6qc3sOKRw44JzhmMjhweVOhw4Fc0v5hcLqDOq9xP
+	wO1ytYyfOUV/9WxzuOSpSCMepkUFqSGp+asVzy8PK1ycKQzdW9VK6iJfe
+X-Received: by 2002:a05:6102:3913:b0:7a1:f980:e932 with SMTP id ada2fe7eead31-7af1cba300fmr1048822137.14.1790256219149;
+        Thu, 24 Sep 2026 06:23:39 -0700 (PDT)
+X-Received: by 2002:a05:6102:3913:b0:7a1:f980:e932 with SMTP id ada2fe7eead31-7af1cba300fmr1048810137.14.1790256218594;
+        Thu, 24 Sep 2026 06:23:38 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:31:4ba7:4aae:40b2? ([2a05:6e02:1041:c10:31:4ba7:4aae:40b2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5cd4c8dsm88794545e9.3.2026.09.24.06.23.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Sep 2026 06:23:37 -0700 (PDT)
+Message-ID: <3b4b7e2d-8f0e-49bf-a456-d14d8a0f7b76@oss.qualcomm.com>
+Date: Thu, 24 Sep 2026 15:23:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm SPMI PMIC Thermal
+ Monitor ADC5 Gen
+To: Hans de Goede <johannes.goede@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20260924130659.8841-1-johannes.goede@oss.qualcomm.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <20260924130659.8841-1-johannes.goede@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-apple-dts-m4-dt-style-check-v1-2-3ec651d75baf@cyberchaos.dev>
-References: <20260924-apple-dts-m4-dt-style-check-v1-0-3ec651d75baf@cyberchaos.dev>
-In-Reply-To: <20260924-apple-dts-m4-dt-style-check-v1-0-3ec651d75baf@cyberchaos.dev>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Yureka Lilian <yureka@cyberchaos.dev>
+X-Authority-Analysis: v=2.4 cv=YfoodARf c=1 sm=1 tr=0 ts=6ab5245b cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
+ a=j3MtvZii-MdXzgGxfbUA:9 a=QEXdDO2ut3YA:10 a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-ORIG-GUID: 6UFJ_wJBWoOm_VjfV_p9_bCcsOY-auLK
+X-Proofpoint-GUID: 6UFJ_wJBWoOm_VjfV_p9_bCcsOY-auLK
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA1NSBTYWx0ZWRfX2BVG+CTbkm54
+ Bdl875ZVC7x3OrgjOW4dWB2i+00AUDPNJeDOeqsbeBML58F4S4/CvM5SyEHssHdS7qGopMr34jn
+ Cshu+01HNmA13pOjApG8E6xDxbpTfm8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA1NSBTYWx0ZWRfX7Tx5/YAXA+uX
+ AbILpokM2gLMxmVSXcOTEbairzxSMfMMHh2YcujU6Z6yKhg9Fe23DERABavY5Xyd9TcghQ4Ew5e
+ Z0Mtf92BloCMDoHuct8BYsp8crv6cQ9UKcYr+q35RRFnWE1YmPlyP/FKa5rFYICbK3mYxJCCwwy
+ jr7u5sSKN7HkjTuGUHAttc92vh4TOu8WTkqR0wwNWFivQ6kNuJJLdimXRTV99NMM2w0YsMQ+UQ/
+ Ud5jrFVsHuw1tJmkoOudA3Elbvq9qyEJcJtbSCAkD8luShInDqn1RTjJiL6o45WyKO4wCth0ISQ
+ sA+RutSTQFawgsQSVbRkIWLyGXYZyAZ+dvY6XokGxVVQPegiPJaCUdNenST72FxeMhvChmvPVyF
+ cBYtw0zXM9qOMNM/r/wJfrwyMm9kMNAvF3K8XkF59nX4S+inxwcz34JCBxWcPawHRm6qi8V3tCS
+ S1lmNnkUiIUoTYowEqQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-24_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
+ priorityscore=1501 phishscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609240055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_142254_940715_C7213968 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260924_062346_204726_81994EBF 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,604 +153,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This fixes most `dt-check-style --mode=strict` issues related to
-node and property ordering in the t8132 device tres.
-The cache-related properties are kept in their own sorting group,
-separated by a newline from the rest, to improve human readability.
+On 9/24/26 15:06, Hans de Goede wrote:
+> Enable Qualcomm SPMI PMIC Thermal Monitor ADC5 Gen driver, this is
+> necessary for thermal management on Hamoa laptops.
+> 
+> Suggested-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+> ---
+Thanks for sending the change
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
- arch/arm64/boot/dts/apple/t8132-j604.dts  |   8 +-
- arch/arm64/boot/dts/apple/t8132-j713.dts  |   8 +-
- arch/arm64/boot/dts/apple/t8132-j715.dts  |   8 +-
- arch/arm64/boot/dts/apple/t8132-jxxx.dtsi |   4 +-
- arch/arm64/boot/dts/apple/t8132.dtsi      | 195 +++++++++++++++++-------------
- 5 files changed, 123 insertions(+), 100 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/apple/t8132-j604.dts b/arch/arm64/boot/dts/apple/t8132-j604.dts
-index 93076cd923a9..676c1d1f3a14 100644
---- a/arch/arm64/boot/dts/apple/t8132-j604.dts
-+++ b/arch/arm64/boot/dts/apple/t8132-j604.dts
-@@ -21,12 +21,12 @@ led-controller {
- 		compatible = "pwm-leds";
- 
- 		led-0 {
--			pwms = <&fpwm1 0 40000>;
--			label = "kbd_backlight";
--			function = LED_FUNCTION_KBD_BACKLIGHT;
- 			color = <LED_COLOR_ID_WHITE>;
--			max-brightness = <255>;
- 			default-state = "keep";
-+			function = LED_FUNCTION_KBD_BACKLIGHT;
-+			label = "kbd_backlight";
-+			max-brightness = <255>;
-+			pwms = <&fpwm1 0 40000>;
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/apple/t8132-j713.dts b/arch/arm64/boot/dts/apple/t8132-j713.dts
-index 892a3812bc65..b70d2cdacd3a 100644
---- a/arch/arm64/boot/dts/apple/t8132-j713.dts
-+++ b/arch/arm64/boot/dts/apple/t8132-j713.dts
-@@ -21,12 +21,12 @@ led-controller {
- 		compatible = "pwm-leds";
- 
- 		led-0 {
--			pwms = <&fpwm1 0 40000>;
--			label = "kbd_backlight";
--			function = LED_FUNCTION_KBD_BACKLIGHT;
- 			color = <LED_COLOR_ID_WHITE>;
--			max-brightness = <255>;
- 			default-state = "keep";
-+			function = LED_FUNCTION_KBD_BACKLIGHT;
-+			label = "kbd_backlight";
-+			max-brightness = <255>;
-+			pwms = <&fpwm1 0 40000>;
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/apple/t8132-j715.dts b/arch/arm64/boot/dts/apple/t8132-j715.dts
-index 212d194bd1ae..d0428a3c9484 100644
---- a/arch/arm64/boot/dts/apple/t8132-j715.dts
-+++ b/arch/arm64/boot/dts/apple/t8132-j715.dts
-@@ -21,12 +21,12 @@ led-controller {
- 		compatible = "pwm-leds";
- 
- 		led-0 {
--			pwms = <&fpwm1 0 40000>;
--			label = "kbd_backlight";
--			function = LED_FUNCTION_KBD_BACKLIGHT;
- 			color = <LED_COLOR_ID_WHITE>;
--			max-brightness = <255>;
- 			default-state = "keep";
-+			function = LED_FUNCTION_KBD_BACKLIGHT;
-+			label = "kbd_backlight";
-+			max-brightness = <255>;
-+			pwms = <&fpwm1 0 40000>;
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/apple/t8132-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8132-jxxx.dtsi
-index b0c5d71943b6..09ab380a00e9 100644
---- a/arch/arm64/boot/dts/apple/t8132-jxxx.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8132-jxxx.dtsi
-@@ -15,9 +15,9 @@ aliases {
- 	};
- 
- 	chosen {
-+		ranges;
- 		#address-cells = <2>;
- 		#size-cells = <2>;
--		ranges;
- 
- 		stdout-path = "serial0";
- 
-@@ -32,9 +32,9 @@ framebuffer0: framebuffer@0 {
- 	};
- 
- 	reserved-memory {
-+		ranges;
- 		#address-cells = <2>;
- 		#size-cells = <2>;
--		ranges;
- 		/* To be filled by loader */
- 	};
- 
-diff --git a/arch/arm64/boot/dts/apple/t8132.dtsi b/arch/arm64/boot/dts/apple/t8132.dtsi
-index 1ea488ce6e1c..350ad7b3772b 100644
---- a/arch/arm64/boot/dts/apple/t8132.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8132.dtsi
-@@ -15,6 +15,13 @@ / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
- 
-+	clkref: clock-ref {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "clkref";
-+	};
-+
- 	cpus {
- 		#address-cells = <2>;
- 		#size-cells = <0>;
-@@ -66,171 +73,174 @@ core3 {
- 		};
- 
- 		cpu_e0: cpu@0 {
--			compatible = "apple,donan-e";
- 			device_type = "cpu";
-+			compatible = "apple,donan-e";
- 			reg = <0x0 0x0>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_0>;
--			i-cache-size = <0x20000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x10000>;
-+			i-cache-size = <0x20000>;
-+			next-level-cache = <&l2_cache_0>;
- 		};
- 
- 		cpu_e1: cpu@1 {
--			compatible = "apple,donan-e";
- 			device_type = "cpu";
-+			compatible = "apple,donan-e";
- 			reg = <0x0 0x1>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_0>;
--			i-cache-size = <0x20000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x10000>;
-+			i-cache-size = <0x20000>;
-+			next-level-cache = <&l2_cache_0>;
- 		};
- 
- 		cpu_e2: cpu@2 {
--			compatible = "apple,donan-e";
- 			device_type = "cpu";
-+			compatible = "apple,donan-e";
- 			reg = <0x0 0x2>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_0>;
--			i-cache-size = <0x20000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x10000>;
-+			i-cache-size = <0x20000>;
-+			next-level-cache = <&l2_cache_0>;
- 		};
- 
- 		cpu_e3: cpu@3 {
--			compatible = "apple,donan-e";
- 			device_type = "cpu";
-+			compatible = "apple,donan-e";
- 			reg = <0x0 0x3>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_0>;
--			i-cache-size = <0x20000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x10000>;
-+			i-cache-size = <0x20000>;
-+			next-level-cache = <&l2_cache_0>;
- 		};
- 
- 		cpu_e4: cpu@4 {
--			compatible = "apple,donan-e";
- 			device_type = "cpu";
-+			compatible = "apple,donan-e";
- 			reg = <0x0 0x4>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_0>;
--			i-cache-size = <0x20000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x10000>;
-+			i-cache-size = <0x20000>;
-+			next-level-cache = <&l2_cache_0>;
- 		};
- 
- 		cpu_e5: cpu@5 {
--			compatible = "apple,donan-e";
- 			device_type = "cpu";
-+			compatible = "apple,donan-e";
- 			reg = <0x0 0x5>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_0>;
--			i-cache-size = <0x20000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x10000>;
-+			i-cache-size = <0x20000>;
-+			next-level-cache = <&l2_cache_0>;
- 		};
- 
- 		cpu_p0: cpu@10100 {
--			compatible = "apple,donan-p";
- 			device_type = "cpu";
-+			compatible = "apple,donan-p";
- 			reg = <0x0 0x10100>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_1>;
--			i-cache-size = <0x30000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x20000>;
-+			i-cache-size = <0x30000>;
-+			next-level-cache = <&l2_cache_1>;
- 		};
- 
- 		cpu_p1: cpu@10101 {
--			compatible = "apple,donan-p";
- 			device_type = "cpu";
-+			compatible = "apple,donan-p";
- 			reg = <0x0 0x10101>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_1>;
--			i-cache-size = <0x30000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x20000>;
-+			i-cache-size = <0x30000>;
-+			next-level-cache = <&l2_cache_1>;
- 		};
- 
- 		cpu_p2: cpu@10102 {
--			compatible = "apple,donan-p";
- 			device_type = "cpu";
-+			compatible = "apple,donan-p";
- 			reg = <0x0 0x10102>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_1>;
--			i-cache-size = <0x30000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x20000>;
-+			i-cache-size = <0x30000>;
-+			next-level-cache = <&l2_cache_1>;
- 		};
- 
- 		cpu_p3: cpu@10103 {
--			compatible = "apple,donan-p";
- 			device_type = "cpu";
-+			compatible = "apple,donan-p";
- 			reg = <0x0 0x10103>;
--			enable-method = "spin-table";
- 			cpu-release-addr = <0 0>;
--			next-level-cache = <&l2_cache_1>;
--			i-cache-size = <0x30000>;
-+			enable-method = "spin-table";
-+
- 			d-cache-size = <0x20000>;
-+			i-cache-size = <0x30000>;
-+			next-level-cache = <&l2_cache_1>;
- 		};
- 
- 		l2_cache_0: l2-cache-0 {
- 			compatible = "cache";
- 			cache-level = <2>;
--			cache-unified;
- 			cache-size = <0x400000>;
-+			cache-unified;
- 		};
- 
- 		l2_cache_1: l2-cache-1 {
- 			compatible = "cache";
- 			cache-level = <2>;
--			cache-unified;
- 			cache-size = <0x1000000>;
-+			cache-unified;
- 		};
- 	};
- 
--	clkref: clock-ref {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <24000000>;
--		clock-output-names = "clkref";
--	};
--
- 	soc: soc {
- 		compatible = "simple-bus";
--		#address-cells = <2>;
--		#size-cells = <2>;
- 
- 		ranges;
-+		#address-cells = <2>;
- 		nonposted-mmio;
-+		#size-cells = <2>;
- 
- 		pmgr: power-management@380700000 {
- 			compatible = "apple,t8132-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-+			reg = <0x3 0x80700000 0 0x14000>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
--			reg = <0x3 0x80700000 0 0x14000>;
- 			/* child nodes are added in t8132-pmgr.dtsi */
- 		};
- 
- 		aic: interrupt-controller@381000000 {
- 			compatible = "apple,t8132-aic3", "apple,t8122-aic3";
--			#interrupt-cells = <3>;
--			interrupt-controller;
- 			reg = <0x3 0x81000000 0x0 0x1cc000>,
- 			      <0x3 0x81040000 0x0 0x4000>;
- 			reg-names = "core", "event";
-+			#interrupt-cells = <3>;
-+			interrupt-controller;
- 			power-domains = <&ps_aic>;
- 
- 			affinities {
- 				e-core-pmu-affinity {
--					apple,fiq-index = <AIC_CPU_PMU_E>;
- 					cpus = <&cpu_e0 &cpu_e1 &cpu_e2 &cpu_e3 &cpu_e4 &cpu_e5>;
-+					apple,fiq-index = <AIC_CPU_PMU_E>;
- 				};
- 
- 				p-core-pmu-affinity {
--					apple,fiq-index = <AIC_CPU_PMU_P>;
- 					cpus = <&cpu_p0 &cpu_p1 &cpu_p2 &cpu_p3>;
-+					apple,fiq-index = <AIC_CPU_PMU_P>;
- 				};
- 			};
- 		};
-@@ -238,15 +248,13 @@ p-core-pmu-affinity {
- 		pinctrl_nub: pinctrl@3881f0000 {
- 			compatible = "apple,t8132-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x3 0x881f0000 0x0 0x4000>;
--			power-domains = <&ps_nub_gpio>;
- 
--			gpio-controller;
- 			#gpio-cells = <2>;
-+			gpio-controller;
- 			gpio-ranges = <&pinctrl_nub 0 0 32>;
--			apple,npins = <32>;
- 
--			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			interrupt-controller;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 499 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 500 IRQ_TYPE_LEVEL_HIGH>,
-@@ -255,13 +263,16 @@ pinctrl_nub: pinctrl@3881f0000 {
- 			             <AIC_IRQ 503 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 504 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 505 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			power-domains = <&ps_nub_gpio>;
-+			apple,npins = <32>;
- 		};
- 
- 		pmgr_mini: power-management@388280000 {
- 			compatible = "apple,t8132-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-+			reg = <0x3 0x88280000 0 0x4000>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
--			reg = <0x3 0x88280000 0 0x4000>;
- 			/* child nodes are added in t8132-pmgr.dtsi */
- 		};
- 
-@@ -277,13 +288,12 @@ pinctrl_smc: pinctrl@38c820000 {
- 			compatible = "apple,t8132-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x3 0x8c820000 0x0 0x4000>;
- 
--			gpio-controller;
- 			#gpio-cells = <2>;
-+			gpio-controller;
- 			gpio-ranges = <&pinctrl_smc 0 0 18>;
--			apple,npins = <18>;
- 
--			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			interrupt-controller;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 552 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 553 IRQ_TYPE_LEVEL_HIGH>,
-@@ -292,19 +302,20 @@ pinctrl_smc: pinctrl@38c820000 {
- 			             <AIC_IRQ 556 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 557 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 558 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			apple,npins = <18>;
- 		};
- 
- 		pinctrl_aop: pinctrl@390824000 {
- 			compatible = "apple,t8132-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x3 0x90824000 0x0 0x4000>;
- 
--			gpio-controller;
- 			#gpio-cells = <2>;
-+			gpio-controller;
- 			gpio-ranges = <&pinctrl_aop 0 0 57>;
--			apple,npins = <57>;
- 
--			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			interrupt-controller;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 423 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 424 IRQ_TYPE_LEVEL_HIGH>,
-@@ -313,20 +324,20 @@ pinctrl_aop: pinctrl@390824000 {
- 			             <AIC_IRQ 427 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 428 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 429 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			apple,npins = <57>;
- 		};
- 
- 		pinctrl_ap: pinctrl@39a000000 {
- 			compatible = "apple,t8132-pinctrl", "apple,t8103-pinctrl";
- 			reg = <0x3 0x9a000000 0x0 0x100000>;
--			power-domains = <&ps_gpio>;
- 
--			gpio-controller;
- 			#gpio-cells = <2>;
-+			gpio-controller;
- 			gpio-ranges = <&pinctrl_ap 0 0 224>;
--			apple,npins = <224>;
- 
--			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			interrupt-controller;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 303 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 304 IRQ_TYPE_LEVEL_HIGH>,
-@@ -336,6 +347,9 @@ pinctrl_ap: pinctrl@39a000000 {
- 			             <AIC_IRQ 308 IRQ_TYPE_LEVEL_HIGH>,
- 			             <AIC_IRQ 309 IRQ_TYPE_LEVEL_HIGH>;
- 
-+			power-domains = <&ps_gpio>;
-+			apple,npins = <224>;
-+
- 			i2c0_pins: i2c0-pins {
- 				pinmux = <APPLE_PINMUX(104, 1)>,
- 				         <APPLE_PINMUX(103, 1)>;
-@@ -365,14 +379,15 @@ i2c4_pins: i2c4-pins {
- 		i2c0: i2c@3ad010000 {
- 			compatible = "apple,t8132-i2c", "apple,t8103-i2c";
- 			reg = <0x3 0xad010000 0x0 0x4000>;
-+
-+			#address-cells = <0x1>;
- 			clocks = <&clkref>;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 1062 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-0 = <&i2c0_pins>;
- 			pinctrl-names = "default";
--			#address-cells = <0x1>;
--			#size-cells = <0x0>;
- 			power-domains = <&ps_i2c0>;
-+			#size-cells = <0x0>;
- 
- 			status = "disabled";
- 		};
-@@ -380,14 +395,15 @@ i2c0: i2c@3ad010000 {
- 		i2c1: i2c@3ad014000 {
- 			compatible = "apple,t8132-i2c", "apple,t8103-i2c";
- 			reg = <0x3 0xad014000 0x0 0x4000>;
-+
-+			#address-cells = <0x1>;
- 			clocks = <&clkref>;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 1063 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-0 = <&i2c1_pins>;
- 			pinctrl-names = "default";
--			#address-cells = <0x1>;
--			#size-cells = <0x0>;
- 			power-domains = <&ps_i2c1>;
-+			#size-cells = <0x0>;
- 
- 			status = "disabled";
- 		};
-@@ -395,14 +411,15 @@ i2c1: i2c@3ad014000 {
- 		i2c2: i2c@3ad018000 {
- 			compatible = "apple,t8132-i2c", "apple,t8103-i2c";
- 			reg = <0x3 0xad018000 0x0 0x4000>;
-+
-+			#address-cells = <0x1>;
- 			clocks = <&clkref>;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 1064 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-0 = <&i2c2_pins>;
- 			pinctrl-names = "default";
--			#address-cells = <0x1>;
--			#size-cells = <0x0>;
- 			power-domains = <&ps_i2c2>;
-+			#size-cells = <0x0>;
- 
- 			status = "disabled";
- 		};
-@@ -410,14 +427,15 @@ i2c2: i2c@3ad018000 {
- 		i2c3: i2c@3ad01c000 {
- 			compatible = "apple,t8132-i2c", "apple,t8103-i2c";
- 			reg = <0x3 0xad01c000 0x0 0x4000>;
-+
-+			#address-cells = <0x1>;
- 			clocks = <&clkref>;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 1065 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-0 = <&i2c3_pins>;
- 			pinctrl-names = "default";
--			#address-cells = <0x1>;
--			#size-cells = <0x0>;
- 			power-domains = <&ps_i2c3>;
-+			#size-cells = <0x0>;
- 
- 			status = "disabled";
- 		};
-@@ -425,14 +443,15 @@ i2c3: i2c@3ad01c000 {
- 		i2c4: i2c@3ad020000 {
- 			compatible = "apple,t8132-i2c", "apple,t8103-i2c";
- 			reg = <0x3 0xad020000 0x0 0x4000>;
-+
-+			#address-cells = <0x1>;
- 			clocks = <&clkref>;
- 			interrupt-parent = <&aic>;
- 			interrupts = <AIC_IRQ 1066 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-0 = <&i2c4_pins>;
- 			pinctrl-names = "default";
--			#address-cells = <0x1>;
--			#size-cells = <0x0>;
- 			power-domains = <&ps_i2c4>;
-+			#size-cells = <0x0>;
- 
- 			status = "disabled";
- 		};
-@@ -440,8 +459,9 @@ i2c4: i2c@3ad020000 {
- 		fpwm1: pwm@3ad044000 {
- 			compatible = "apple,t8132-fpwm", "apple,s5l-fpwm";
- 			reg = <0x3 0xad044000 0x0 0x4000>;
--			power-domains = <&ps_fpwm1>;
-+
- 			clocks = <&clkref>;
-+			power-domains = <&ps_fpwm1>;
- 			#pwm-cells = <2>;
- 
- 			status = "disabled";
-@@ -450,12 +470,15 @@ fpwm1: pwm@3ad044000 {
- 		serial0: serial@3ad200000 {
- 			compatible = "apple,s5l-uart";
- 			reg = <0x3 0xad200000 0x0 0x1000>;
--			reg-io-width = <4>;
--			interrupt-parent = <&aic>;
--			interrupts = <AIC_IRQ 1046 IRQ_TYPE_LEVEL_HIGH>;
-+
- 			clocks = <&clkref>, <&clkref>;
- 			clock-names = "uart", "clk_uart_baud0";
-+
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 1046 IRQ_TYPE_LEVEL_HIGH>;
-+
- 			power-domains = <&ps_uart0>;
-+			reg-io-width = <4>;
- 
- 			status = "disabled";
- 		};
-@@ -464,11 +487,11 @@ serial0: serial@3ad200000 {
- 	timer {
- 		compatible = "arm,armv8-timer";
- 		interrupt-parent = <&aic>;
--		interrupt-names = "phys", "virt", "hyp-phys", "hyp-virt";
- 		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
- 		             <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>,
- 		             <AIC_FIQ AIC_TMR_HV_PHYS IRQ_TYPE_LEVEL_HIGH>,
- 		             <AIC_FIQ AIC_TMR_HV_VIRT IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "phys", "virt", "hyp-phys", "hyp-virt";
- 	};
- };
- 
-
--- 
-2.55.0
-
+Acked-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 
