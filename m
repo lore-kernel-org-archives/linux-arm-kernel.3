@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8345C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D57C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8wslZqsYjoUhW8BVyXUXs6u/mOGOCtbqiMACO0PwU0=; b=CxZdEQUlj4u5AyMyAtyh3Qy0bP
-	VaD5UDC3Zj65hUbVl/p552PvMA/QtpbWG5sSdKIaQ9421fHcG40D+o3+uMqUSbpkKoMgzqSpPZLrO
-	Hgp2ZTuUY+OOtLMXA8qD3250RhJ+BC9fjCs4KwBz9lAHfNS42fWfILhFVGYqCMZtPjVPQOJP9L8JV
-	7kaNMVSzZIMFopMUjgZ0RfJ9AJDBseeJQrjk8qKH7snxCmctwKvsDICgpxcjqrirEXb3QpG1PZIDF
-	B/NpYiQCpbGOtkZghrceBRtw65r1aLu0EnwTK9H/7Ra1IyKn7VJ/ESYh9GTavAM65MSglc+Frv7bL
-	+lKuHFlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MA/bi1t2NUDEfbYcs7CTGQlubR06QFxpdvCTjkXJYB0=; b=dLIBUBYwd61QhlRUsivpDaAN+a
+	isyaTOSjd/6O8Uq98LDkiTFlQGfXxch7aU0LTZnTuuLUfntH+MOtYX9Brfjjtangp4IWHcYGBcV8d
+	aAg7VOaKoH/cGzVOLTW+jgy5dyS422vvSH/fc+rzPmUIWVazVJeOH/cEYvV9biFP4RNQXMV6PQEB3
+	rVvceRbZPiIJX63xkaSAshui57flzIboens3h4R5ezNgb2DDVSR8V3nZEGxtDbpKOwLH5kOAY5X3K
+	vnvj9AcvX8tB85T7P9wghceuRdnBQzZe27U8ZxSeDltRa1YhypUd3xRVxICqY1PsQpi2EVjJE33yR
+	i2ylouJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ggr-0000000AjU7-3Ju1;
-	Thu, 24 Sep 2026 10:28:33 +0000
-Received: from out-60.mta0.migadu.com ([2001:41d0:1004:224b::3c] helo=mta0.migadu.com)
+	id 1x9gjZ-0000000Ajnz-2l4z;
+	Thu, 24 Sep 2026 10:31:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ggo-0000000AjTI-3CJs
+	id 1x9gjU-0000000Ajn9-1fIj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 10:28:32 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=l8wslZqsYjoUhW8BVyXUXs6u/mOGOCtbqiMACO0PwU0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790245708; v=1; x=1790850508;
- b=xbdjO9LLfLhqUeiVlIg/TLsrreUWEE9thGYkLsmaevmpAp4LwWYiJcCujVjAnrmkKmhmxcQp
- K2q83jUcHDEcXCcV7i4aLio/xzwZv6PDKm8OoW2BNyqGUyq/aQAgUkKdsX1TROocMWPgo0U6rLb
- ccvGnHkrIIfHg/BYG3MrXWnk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f31ef528903e6d0b;
-	Thu, 24 Sep 2026 10:28:28 +0000
-X-Mizu-Trace-ID: f31ef528903e6d0b
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5b778bdb5b8so5176e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 03:28:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByrbUiN98HaKpbbYoHlgP3zanbkQqVwP9KxhtImNXMh3z5jahN0nJQmfFqcvCHMsLtB4gxAJQT0kuA85RPxzNhd@lists.infradead.org
-X-Gm-Message-State: AFuF++lQY5L94HjqkDZwc/UOI0eSONVb659dVOvBKJn5vpvloiJtfK4H
-	fWGNKzzew4A8VNVQqPzEzslwCpq0pYODsEpbOZxEwtMUBNaALz+4i/5D/IzjOiFacz92NHzqux7
-	tLXnoc6Fd1RTADgNt0mavJVY8TTRffz/sMjE+gLW6
-X-Received: by 2002:a05:6512:2249:b0:5b8:c95d:529c with SMTP id
- 2adb3069b0e04-5b8dd6d373cmr194835e87.0.1790245707622; Thu, 24 Sep 2026
- 03:28:27 -0700 (PDT)
+	Thu, 24 Sep 2026 10:31:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C571343762;
+	Thu, 24 Sep 2026 10:31:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C67E21F000FF;
+	Thu, 24 Sep 2026 10:31:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790245875;
+	bh=MA/bi1t2NUDEfbYcs7CTGQlubR06QFxpdvCTjkXJYB0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=afSPn5aYsT/9O16kJmT+fRuGga606uf/lCkifkCmuA4/B+NXmq8/P9wfdV+nsBlLO
+	 o85ezyD0+NhAeffoeR525BkLRj5D1pHKuZXyHvdTx8jW8M7UhYF9M+HW/p2yiinPVw
+	 yX8hev3vmWa5HyWia35JJ+dHCMEeegan976Lad9KcuzDKd9OZyCf1FMjnGG7Rb6Gb3
+	 U+6aAeOM6djD5Mbtj6asaTZrSy8htyG+rS6Duqk5107pHGImZ+PXeuC4kdeY49CrJ7
+	 KwJkp/HbdwTyogwTCmYLUnzvLw6Lj/dJVs3VWNOPTso9A7e3Z9eJxGHq34iGYKD6mw
+	 DLE6jZzzrLJ5g==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Beata Michalska <beata.michalska@arm.com>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Oleg Keri <okerixx@gmail.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Ananthu C V <ananthu.cv@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v6] arm64: topology: fix arch_freq_get_on_cpu() overflow above 4.19 GHz
+Date: Thu, 24 Sep 2026 11:31:05 +0100
+Message-ID: <179024159739.2601842.17914856161102135517.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260923125604.2482-1-okerixx@gmail.com>
+References: <20260923125604.2482-1-okerixx@gmail.com>
 MIME-Version: 1.0
-References: <20260911104715.307500-1-fuad.tabba@linux.dev> <868q5579ol.wl-maz@kernel.org>
- <CA+EHjTw0U0d91Cv4NYEJvUuT=JabwZeeYwpZ2P1xyVeOVX46Ew@mail.gmail.com> <arT5r6Tqg9PnSYLz@willie-the-truck>
-In-Reply-To: <arT5r6Tqg9PnSYLz@willie-the-truck>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 24 Sep 2026 11:27:51 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwKd=0kY1vxmZZ3Wk3iDcVnrdz9fPXekzr=y7eRwUYKaQ@mail.gmail.com>
-X-Gm-Features: AclHuK9f1UKfVBh-sHVCnHRjsiBkOb4-h4MYma9pM03DKGJaXn8h00-d7nViPT4
-Message-ID: <CA+EHjTwKd=0kY1vxmZZ3Wk3iDcVnrdz9fPXekzr=y7eRwUYKaQ@mail.gmail.com>
-Subject: Re: [PATCH v3] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, James Morse <james.morse@arm.com>, 
-	Ben Horgan <ben.horgan@arm.com>, Xi Ruoyao <xry111@xry111.site>, 
-	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>, 
-	Yuan Yao <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_032830_949608_4CC4B65C 
-X-CRM114-Status: GOOD (  13.40  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Wed, 23 Sep 2026 14:56:04 +0200, Oleg Keri wrote:
+> arch_freq_get_on_cpu() computes the product of the frequency scale and
+> the reference frequency as a u64, but assigns it to an unsigned int
+> before shifting it back down:
+> 
+> 	freq = scale * arch_scale_freq_ref(cpu);
+> 	freq >>= SCHED_CAPACITY_SHIFT;
+> 
+> [...]
 
-On Thu, 24 Sept 2026 at 11:21, Will Deacon <will@kernel.org> wrote:
-[...]
-> > I'll probe MPAMIDR_EL1.HAS_HCR once in cpu_hyp_init_context(), next to
-> > HAS_MPAM, and test the flag in both trap functions instead.
-> >
-> > I'll hold off on v4 until Will has had a chance to comment as well.
->
-> I'm planning to generalise the logic you added recently in
-> gmid_el1_accessible() so that __cpuinfo_store_cpu() stores the values
-> in 'struct cpuinfo_arm64' with the overrides already applied. I don't
-> think that directly impacts this patch, but it should make the general
-> shape of things easier to reason about. I also need it for the parallel
-> hotplug work.
+Applied to arm64 (for-next/fixes), thanks!
 
-In that case, I'll respin this as Marc suggested.
-
-> If you fancy helping with that, please let me know.
-
-Sure! Just let me know how I could help.
+[1/1] arm64: topology: fix arch_freq_get_on_cpu() overflow above 4.19 GHz
+      https://git.kernel.org/arm64/c/3872cc6b9294
 
 Cheers,
-/fuad
+-- 
+Will
 
-> Will
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
