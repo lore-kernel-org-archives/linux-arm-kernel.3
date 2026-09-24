@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E0FC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3641C98317
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjZROA+4HmRedO50bc/ZSCbT1mxRaRI6UzqOntV1t3g=; b=ZkJGeTJ1Y7kuGTX6rOzpjFc61c
-	ChwTzelydd1XQ+bC9ZBKxo6l0NOaIxL9Qba77Ivr6vkA6irDV0Vw33eTn+gJC3dZrcmIbI+qnxgtO
-	ZkTa2XHGgDYay1FFZtKOT3i4fKiwUtN3XtSrBwdi9K4Z2FlMJoGfEnTg11DZyfRxXBpveIaNvR7mT
-	BC3EKzrPY7Hoh9U5c35HyEZe7cIFKBTC1Taom4XOd0dKOT3/ZoRBwZf5MBunuVuqYECk+UnB3GOER
-	AJ4y9qV5BujCEElM02uuWquewsCB7T8zRlk0ot+y/PYfKbswBy0NhGWMyw6+FTZUpgnG1tnTLHpF2
-	riwgBVwA==;
+	bh=wHiB5JTsZOrMDGpoj8qySC6bdboKgRserfmvAqii6Fs=; b=UDiez8DuaAuBfIDNC7Wk+mtuhE
+	dppRIdryIbLa3AqybCqT6gjcEY1/iUqS+mbeHe41cFF2uCmUqXOu1dZXxZ3jbzlOwNoG8VGgfwLxT
+	5UF5glRMdh/R785Blas8ZNWf1PzT9gwc1+tiS7JLskHqWwtgoAEZgIPbBmZ0S3EfyiX5xbfnV+VEi
+	fpyBp3VLJPIh7jEE/uL7f4Z7mIiaxp040KRUXLHM0ETYtijd9x36G6kQgHzo1GbdWGdTkRGIEwe0d
+	BvJG5uFYgghwBgDUStWtL3VXt90A4q1aJ+YS8UZD2zMHFLQlD5unoo6U43Vc6MgFHIutUboIHNBj2
+	xIiiLS5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jtF-0000000B9Yh-49Pn;
-	Thu, 24 Sep 2026 13:53:33 +0000
+	id 1x9jtQ-0000000B9hD-1R7u;
+	Thu, 24 Sep 2026 13:53:44 +0000
 Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jtC-0000000B9Vw-2Vw4;
-	Thu, 24 Sep 2026 13:53:32 +0000
+	id 1x9jtF-0000000B9Vw-1X8N;
+	Thu, 24 Sep 2026 13:53:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HQUhfQqMsObmkOIhscpLMUihZGGKU8zh4LihWCZ/dEneccvD7d+YFoVtQJ4EFCVfGFoKOD2yUiA4g/77bPCAT3EHGqIDkmMjRNx3HyRqsNVlYzFCUtohRx9LtTrils17PjgkrtCgUhy2wi2msAQXrk4JoqQ34HbZytPy3ThKnjee150bLq4/rhgTVrottYvfLVOFdnbqIirZWw4L8jUAnzV5IZz2qqdkUlUJI1u2eNfEVZMe9CpwAj8orxCtSGyDHHaqk/9oC0+uEFHManqVEZkYKWa69+ynTly5PYKjJlvv2rzJNeNUTacOPPc+EQUNQunz0P4uDf+8Ps6R2cj5gw==
+ b=Dgqg19RTkDnLdOZoLtH3Fqxh07s1Qi9WcIUQPtWbl5rp29afVBV8b0DtmqCiI/aUV9nxggZQbZlcW0ONGDvTXxerlVIcpeBSXX+HoS0BVD14SJN/QtEMInlDWqfmyoouvz5dOYV+0m5Z+rV9WE/Cv4gSXlTU1TUoXVUEDsJe7y6T7zxqxaxnKJNQZ76FcpdPUg52sULwfPM+g7LRaSp8l77SsiLFC7baYSv+0I6VcttO6fNDkQ9E9eS4/A6NiUzGFbgF1KEJ0gWv0foF6mOrFsGXInUOvMoOUIL3UcVr2zTmrK6B52Lr3reoAcJo9KS0SgnIaGYv3DLZlmvEE+P6gg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hjZROA+4HmRedO50bc/ZSCbT1mxRaRI6UzqOntV1t3g=;
- b=Ru9DAOSS0csyxVm+TTSFsdZ/6pJWmqtjJTUlxGO1wr9/qzEuD0OS6Pl7y5HER/FoVZO+8nBeKtu1sLsO3MxTkfSIdWZur2Fmd/zFklkuof+7B9wIemOrWCc/kfroJXLNWHJCcAlY+cmWztxMfZgYKMUqmBGy2stS6L9+RRlYWjqqjhXMUXmKlrx8ii/0XbJTwcr0Y/XAHxpU5HWtHUSLf/Mv48awm1D9bVjm8VXDyOhOjBxk/5BQsx8C0Twa+9NJn7YxhIZ3Njfaai8ADF/PgQlvnLxDxRR2z3mPaldE6oN+MLlHIgXnaF7x70Zyo258OTf7gVV6Knc4uYg5sI7Raw==
+ bh=wHiB5JTsZOrMDGpoj8qySC6bdboKgRserfmvAqii6Fs=;
+ b=Uew5W9uTv6eQCzFyCJVXNmRURv3UjCQee2ajdN3hTabwH7KVGgE61ozzTaxwYRcTKVSTCUw0iuocwNytXj6KazxOsuQipOeaFu0LuhGW7+4vOSge43NBm8Q2SkbrvQK6sldem5YTt8b3UITDEBqQAZWFPlEbu9ha+SHiKpu3Z0ebbgahu+iudQDOeG3O5q4sBpxyTVd/NdC358b9uI9W5ymL7Z4MCkhy0QUYDTKYgqbEjMt7OCx9spukGXFHaPSc5QumW10VKTdMSaalTifSDPLYKNodtdrN309tx3Ff3leo1w6nYj8bD1Haw9ioFEHSM0UydifW2I8n9srf32pJOw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hjZROA+4HmRedO50bc/ZSCbT1mxRaRI6UzqOntV1t3g=;
- b=B27MevklegjCVxEs17mSNSMTrSGlCrIMLdFBwGX4OOdO6r1rgPogSLu7NS3GpZSkKr0YIXvRPhKFVLaUn4k4A7NsemUY24cw2pl5Nu/R6/9lu4oQ9EQTmbar5ZEY1c5Nw927FsfDunKocs00F5J8eUjXe2WZNGap3G7gJQMwIhyk3gxs+vvTlN2N3nAUfzynd9gKb8CuDDIOrV3aNFZkY9qurV2Do7Evnf7Gpd7sgGgaqZHY2JEDOHCVV8cdfIoAvUGPSEoWNBoUyXPHRPLoHZEwI+2aZkeGoHibJR5yf+vCh1EJBTyY/uyVFO0aqNZjcHK7NY6zZniAxNkYi3dQSA==
+ bh=wHiB5JTsZOrMDGpoj8qySC6bdboKgRserfmvAqii6Fs=;
+ b=Are976PE7ucn9Q3lQk2rFY80j9T2vr6Yh+bX8w2ZKPeOdR3SjdChPCu/n9QTcP1rSLsZlUvwUH5DqdMpRa/fcyGtDY332WiaJLJQfTu846hDVgIktp1Yi91rg6z7lpnABWdp50CigNbPFhCJUTDyRDceaA9xLMsnILxePbw/NKmoNhvRdmr5zB6MsTDeuNNdawiktlF/BXF1G0qDw7db9uyzvKVy/edvGFh9MsRDKrFkPZqK0Okt06d7ArJKON9J/YzVEKz86X1/qlN0m/4cb5Soy8oiSr2n4PD88v/DNuz/txsKGsIWI7/rFIx2dBWlsbD7FmfNoXq8fl8C1Ap4Qw==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by PH8PR12MB7375.namprd12.prod.outlook.com
  (2603:10b6:510:215::12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 13:53:21 +0000
+ 2026 13:53:23 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 13:53:21 +0000
+ 13:53:23 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -82,69 +82,69 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Ross Philipson <ross.philipson@gmail.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Song Shuai <songshuaishuai@tinylab.org>
-Subject: [PATCH 01/16] efi/libstub: Fix error unwind freeing fdt in allocate_new_fdt_and_exit_boot()
-Date: Thu, 24 Sep 2026 10:53:04 -0300
-Message-ID: <1-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+Subject: [PATCH 10/16] efi: Add a __efi_data_handoff section annotation
+Date: Thu, 24 Sep 2026 10:53:13 -0300
+Message-ID: <10-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
 In-Reply-To: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: PH7P220CA0102.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32d::12) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: PH0PR07CA0070.namprd07.prod.outlook.com
+ (2603:10b6:510:f::15) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|PH8PR12MB7375:EE_
-X-MS-Office365-Filtering-Correlation-Id: 157f3b73-e1a5-465d-1d1e-08df1a433218
+X-MS-Office365-Filtering-Correlation-Id: b0639905-542f-4fea-dadf-08df1a43323d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|921020|11063799006|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: T5utDGxpEzJDwKs2WYn3ppPvFJIHT0lV81xmkw56K5+1UxsVDvruBIYkHAsMO+mEbh2eY1ZebkmLOwPqWa/qWrprt8DPDgtQXX3wZovSbo6DFhOMZYZVH8DhLZ0s9Raf4ksKzuKafnvIESNY6gyAtoID+cQI2ckpsiOQVkNRE+KkoSPG15Gq1pSQpBU5VuqMiQRWqeS77gENsKBL9zYDl3IMAtgXFF7oicRXGE39/IS7em5ShIryp4lwtA98Ov97ikP0S4CCIlO6pK0a/OTMNV6FCm8F+KI3G6f+W/SToJx7fUjuhSrGnubyVmnsPtZ+rR83JeNpXJKtaUWC/hJNuNIjN0bvSrk2JzV2DbNQXRhlm8tF5sl8rVxpt+gVGVk+S8vIRFtpIWRFSBEQDhG57X45IBv6hsPPUjmTsv3RF2Pd5reSCQplfplnERGETo7lWHIkZKG0BzaJc6PCbnWwzM7jCjro6dN4YDvR0fhVMTDF+qRYrbqzrvKf1Vhw2b2nodOYxuTN8UmkXIbF3MfKonmv7pRTwTEnop13gE50rsxfKOoq/VKrqX8/xg0KzsoMB1fZe3jxKZzNNEWugksDw+OzauPXJdFP64QeIH4Kyc1pJdYBb/4o4XoiEjjYLacXbv0GCzEhvXObN5w1ZhfY8BadHWyPGV9O6HAOYnLGwJLMj3T3xF6EfqzT2Ur/TO6m+n7hR/jvkkgimYVOHKgbiw==
+X-Microsoft-Antispam-Message-Info: LhRgJUymon5d4PJEQsvDrn1zYAtch0X7YOe+ogONWPWWeEDjj0TZZjUJs6l+Cw9FN6T0/jnJRdY5RiZ/DUIKJMyRkn9k09ncGRPuP1vUPt//HaAX0w/H3MFidsnrUhpb4YZOGYeS17uRYUt6dmirUlNPnOXzU501w7zykUA2U6jPEfsJOVOzMXUpEov+Re34c2DRpfm0Rr3BxkA/MeKF5TTBabU68TRCjHssWCWYnZA3g48xrupduXZqgpPCyhJI5RFdB8/I0hQbc0dc7a+INQVwW6oWoVTbYlq76Fdgs58klhKYVV4u3nd4AHQYckkc/pR4vPT/skN7wQCVlWkEA/LLUurG3YfjEHGA8qPjOwsYz9vQDIoECw7tP7nowfLHcbzRYeNdWnttYp7+WhGEMv5eU+sS1C+xtNvoDfj/74dHZM431ip/DWlWw1hbWvw4AKtKf5j8l7NW7Mk/T1uiP+gR7EwkDrpAjnTRdHdMeA4QWmDuUE8lUiPBBLKRFo6Jijnl7Ho8lLyLhGUoeWhSxyRv83jcknURzx9KtDDsIyNHuYGSMP98wDORwsBcFX1mf8SJlIBPSS6LtXCnkVoooEbZR2F/Q8P1jVIVhjKYTXfGiAfiNCiMhsNGVs3ovMQ1IqMgJwbpIqT/7u9HgbWR61GC15UN/ESlgcZ5rVK3YZOEYt1WcODDpmS3pCDnsrIVLmAf1o348TzDsgNQJMLHZg==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(921020)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rhcPvh93CpRt6cQFzCYjWzMsiY0NJzuaSZR9nutmYC2f1eTcIRIjFgIpY2/V?=
- =?us-ascii?Q?4NamulQOgXXhUJ0ToBxGxDBX0H8IFXGA6qK+6cX3KNQypeMprCTqdhJvkyn1?=
- =?us-ascii?Q?15FfQ9579lhLrbq1e0YcJ+RUWtulJGjYKS1t3X2ormFTPlTUh5XUt3kNrb47?=
- =?us-ascii?Q?PdtNiUc10FmVCx35smF6/F1S8bkQtcjy7hFFc3YqV5Pz80S1QBiKpz5GGioV?=
- =?us-ascii?Q?Gy0Z5HmnDCE3L6ZMli6An8Dyh0AYWCjOVlz8UE4Gex1Dzw5Yg0BpCpzj8Kzn?=
- =?us-ascii?Q?OzqIAKKmHB4/DduU/7GRQIOIwYp4MVb6N3QAGSH2115GoutelAUz2yEHVe6u?=
- =?us-ascii?Q?tpt8cP5v6S30w1rEPz7JEJZkquAeebeKUy/ZFTnrPpiTHsxoddUoXsQl93/J?=
- =?us-ascii?Q?phZeyycx9eL903Zq0Acar8AHd5qadgZ/r52LUXxHQzrRKri107J7szGyXh+F?=
- =?us-ascii?Q?GIB+gsd70yT6TVkdj7lUIgnF66fgQMdrw9x0Dc3HuHJKlYxV3mSgwZ+jVU8a?=
- =?us-ascii?Q?bBSlpaWlQPwqcrmbgj7oDBAAf5EV0mkr9JnCI93dD/8jzTefwJLD9cPXknBo?=
- =?us-ascii?Q?PW2CdcPPdT6UrxRclwTwqx3ClJTRxdMIAmP4LNRO3oSwmBufpeR8buP6MRF5?=
- =?us-ascii?Q?+yqSTgiBh0g4wKK91qXA5MWmsRYaPoYSVJyMofIIjf8scC1R+GPsJRWFVlP3?=
- =?us-ascii?Q?k3GP3ituu7PbjzLnXeU7XSC5WfGknmV771XbiQsw9s3IrlhenrAs4eWGEKiE?=
- =?us-ascii?Q?anwli6gBtk3hzf+64pCNWQnFx68KrJm/DZ2zQNNmfLj184/zbg0v+Y0OKWyb?=
- =?us-ascii?Q?q3unJijkL9lTNCOYFoMJZJxOOzMCnCaaENWM6nEydOY+TX8Gwzj94bFcwIGq?=
- =?us-ascii?Q?o/xoqctNfqxuMX8O2+321e01fOBqLlsYR3tA8sW/0t+CKOs/GkTsVTiWMVT2?=
- =?us-ascii?Q?CfGtFD+vxZCD1QBfbV4ahEVf+sA+AuiILKQxDhKbPcz+mmKRO9Aunnkqn+MS?=
- =?us-ascii?Q?Jf7V1UVs5RcTUNtVBDIcKNsSA9O7oEHOteR1fUjGW0MD5S7H5buypXnKwa9q?=
- =?us-ascii?Q?3e8hIb3wWiBOlajPv0ZXcdUl7YTyEHObqOOOc7mudUsvjA0G2HVS1s+/G5U4?=
- =?us-ascii?Q?JVu5OlJFAr6KA6GrvGmdU4Ax06q5umoEPmrLaJMsit24SKZl/EXPjwNB+nLA?=
- =?us-ascii?Q?bGF//Bb1GuKVc6uSMS4bMHcTnhmddFjlb2lNIC2KBoxTN0ZruvoIqQfUaMB5?=
- =?us-ascii?Q?8V7qp23lHWz8zdTZR3Y+Wf8oh/JqbRQhUMIVrOEvuYkJRfHrk6ZryW2FKPn2?=
- =?us-ascii?Q?M1k+NpCzHmdZZ9bG++UGrA5rLKMBYZJNvtQXPdWYNZaLsAt4ahhQai84ClCp?=
- =?us-ascii?Q?qrwljUOujgbcAtl6cJkMVpeqFQAqIg1dqunXglPKatdyhjdpgNmmv9/stUvc?=
- =?us-ascii?Q?dkDkzGec2chP+qovC+4s+Cx6wXAa/u4HXVHrXpnCyr04H9E4FQBD5vlyA37/?=
- =?us-ascii?Q?2SAJm3TLEgzIiOVVo4G3UqZzRcvfXdmyYTuX+7JzYKPwBLq5LPtS+2pvSmri?=
- =?us-ascii?Q?3k9m6F6U3us8axgfw9ZgdWwj8zg0dJefkjkNfNfnI7f+DDndYLMxTI/RbVgS?=
- =?us-ascii?Q?UgW9vDrxmfyp41n6hbzc6jVnPm9uqeR0Y6eGxxOWCuNFfVHdSacdFvv+cmeU?=
- =?us-ascii?Q?o3VGxqhHoiQbHwBFXI/K7TcGnXdahdzo4KbLrBUsVtNGiJXa?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jTCwh/DUApZYHOHylrkW7WT/e9fJn3OjYIw3pDpkgeWmNtne37FNPwmICXkZ?=
+ =?us-ascii?Q?9v0HmaXo5pgCz5SNMwbXeRB3yXEOGzMIbVIJNIVFhN1x8t5OZW9HAmHxWOQX?=
+ =?us-ascii?Q?grtFWbnE0EVTKhgJxmu49T3AYJyyqag6qkfflv8h6TnJ9F43OWZLYMrCe7aU?=
+ =?us-ascii?Q?qg75xPd/gnCVP43j9iDXAvzSl6EF1AVSa/Xh+ZJI9XPOdDP/9UI73QBRh1JO?=
+ =?us-ascii?Q?lemG/jN7nmBKJoEaaEYB6k2Y+bUXLqVMPJUbTiqzzZ8gTnS5CumaKIaCEms1?=
+ =?us-ascii?Q?L8EMcCX53Kbg0NnB92bb67C+CHLDyGXPlLDzw08lzlGnGvalLXvQSNzKOZP5?=
+ =?us-ascii?Q?NJD3TRhXBBd1utC9zS0Ydu6q1b3Tz/VbAK4M+1tmkO7hAJymMaQtWaCh3MYp?=
+ =?us-ascii?Q?WBaVols2ZyQGsXXyYXpbfHFZwqxRCvn/nThnYjMpGHrDghIMtbYscNtA5cad?=
+ =?us-ascii?Q?XEVRhojJe+8nX3t/6mhIvgu2cjnjATYtfDw3xZjdVaRXPvZ7Ia70FRCi/KFR?=
+ =?us-ascii?Q?bALkNAHaojOBw2lDwKMWFUJB4f4dxbN1AhfGLtE1lV2hBHntN15pm0jzcAxR?=
+ =?us-ascii?Q?SDZVnhL2fFHKETSESzCpniJWbzjE6VbZbqSfuTtqs6yVxz2FAg8bmiNpR7KO?=
+ =?us-ascii?Q?j0lDin/FGQtuRo8Fw+1ARSKuj2b31hW0oPWVJ4+ysxiaQN5abG2RX31nlJRg?=
+ =?us-ascii?Q?liajcR+9ik0sB7+2ypF7enK5K+NXopPXNe2pjJqr7f+HJzWiErKdiUmtaFjM?=
+ =?us-ascii?Q?XkFBCYPl1QkCSjYyimPcvHtpXBKSpFnrGV34C31tpI/gXbgbUouG6BnYKwE+?=
+ =?us-ascii?Q?5PVtHKkL34eNFY9iZnuxretdDhaboaUwi/lsG0P9RtDRC6o9vr7OnZe9Hcsk?=
+ =?us-ascii?Q?bIdX2tyrp4QJoS+TDdo9AiT7z2igXFbGIuiehbpo0/qkxHHnFcB4YBwNRao1?=
+ =?us-ascii?Q?7YcDBY1QNFvRS5x/bgPbd3mtc8aLUAk8iW4ZJ+Dh+1clzYG4+k6Ghq7oawpL?=
+ =?us-ascii?Q?YD3gzAZyQA8WgkiIPwIjhnpCwv8HNOsPBDnTpIY+3Wl4guofu6Iehg26Qrdr?=
+ =?us-ascii?Q?34L+4EYqwl8Jaf0dh9wLpWO7FjRqDmicDrJhDmMvn6Xa7hxjdCID/KfULRh7?=
+ =?us-ascii?Q?u17vbf8BYZSvTnkh3eYONiV7tF6ktVn5sYopEi4OFGf7tcoE8zPQ00qInKfi?=
+ =?us-ascii?Q?ZJHds8pMb1HhDFFwvNm9zJ+mFeqCbDkfy8IIQlIP0TIuqAQ60dTdFSkugsDP?=
+ =?us-ascii?Q?uyhC3ptfAvQ584k5QZfhjNuxP9P5+XX04FXKInLLHJLQ2ybt26OU4+rNWIhv?=
+ =?us-ascii?Q?AVY4dfuxziCBnpPzLVEDpOeisQPmVSp8/iFLmn0ya2/h0FX0XjqKfAnBBGR9?=
+ =?us-ascii?Q?xp0sDsgOx9B/p93gQnnAtf59d6KUc+CvZ01ECVAzOr/ERF/jkQtQ3uIT/hb3?=
+ =?us-ascii?Q?h2KUGEna59ugkcTDQpy4TqUCbKOCdEhPd/SgjRgOf/E5M1iDiNlKG9z1Xvv6?=
+ =?us-ascii?Q?qoF06Vj8fl7XRmxFJfq7pXQw1xBo28wsWKZW4dGMOX5p19QSABLt8vX4aD6x?=
+ =?us-ascii?Q?ufS4mDjDlMjsKoKdGNKMRDWCcR/BK662DtYFDH/A+rOJeJmiXpc/q2dfkCAH?=
+ =?us-ascii?Q?Iu6G+vAQFvtk5wDX6CRAphonnN2uBymVEhm6PhK8niHJKQPEjE3NuCmc/UTA?=
+ =?us-ascii?Q?aQFLITZfV4IuCDquEP61g3+eOaLmfDXyOVPUMkwg0ovAWr0C?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 157f3b73-e1a5-465d-1d1e-08df1a433218
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0639905-542f-4fea-dadf-08df1a43323d
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 13:53:21.6613
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 13:53:21.8751
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sEYKxlI48RT9odQuLwYZ9rcqRmnLbgRb8OyEwVgVWiCi1jnmImRSY+SeeeM3lE4c
+X-MS-Exchange-CrossTenant-UserPrincipalName: HOlDMV3MYikeN2mBmOLIPTpzdhRDJ409NfdpiRRslK/JKNEf/omvCbJJMATxzLI4
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7375
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_065330_653531_47C4DB7F 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260924_065333_407335_2D056238 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,48 +159,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko says fdt_addr can point to either an allocated fdt or the fdt from
-get_fdt() which is memory owned by FW.
+For a clean DRTM measurement, data written by the stub in the image must
+not fall within the measured range. __efi_data_handoff can be used to mark
+this data so it is placed outside the measured .data or .init.data
+section, and also ensure it is force allocated and not part of .bss.
 
-Only the allocated fdt should be freed on the error unwind path. Use a
-dedicated variable for the allocation's size so that the free does not get
-confused.
+For DRTM data marked this way will need eventual hardening when the kernel
+consumes it. For example sysfb_primary_display eventually leads to a blind
+ioremap. Later series will look at hardening these flows.
 
-Fixes: 4fc8e738ff3e ("efi: libstub: remove DT dependency from generic stub")
+The arch-agnostic sysfb_primary_display is the first user. The embedded
+stub writes it.
+
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/firmware/efi/libstub/fdt.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/firmware/efi/efi-init.c |  2 +-
+ include/linux/efi.h             | 12 ++++++++++++
+ 2 files changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
-index 23b3543d3041b0..5b2dd709d7b151 100644
---- a/drivers/firmware/efi/libstub/fdt.c
-+++ b/drivers/firmware/efi/libstub/fdt.c
-@@ -229,6 +229,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
- 	u32 desc_ver;
- 	efi_status_t status;
- 	struct exit_boot_struct priv;
-+	unsigned long fdt_size_allocated = 0;
- 	unsigned long fdt_addr = 0;
- 	unsigned long fdt_size = 0;
+diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
+index 6103b1a082d247..b00c4c03ca810a 100644
+--- a/drivers/firmware/efi/efi-init.c
++++ b/drivers/firmware/efi/efi-init.c
+@@ -61,7 +61,7 @@ extern __weak const efi_config_table_type_t efi_arch_tables[];
+  * it even without EFI, everything else can get them from here.
+  */
+ #if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_FIRMWARE_EDID))
+-struct sysfb_display_info sysfb_primary_display __section(".data");
++struct sysfb_display_info sysfb_primary_display __efi_data_handoff;
+ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+ #endif
  
-@@ -257,6 +258,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
- 			efi_err("Failed to load device tree!\n");
- 			goto fail;
- 		}
-+		fdt_size_allocated = fdt_size;
- 	}
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index aa15ff88539bdf..a77bb604b1d1fd 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -29,6 +29,18 @@
  
- 	if (fdt_addr) {
-@@ -334,7 +336,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
- 	efi_free(MAX_FDT_SIZE, *new_fdt_addr);
+ struct screen_info;
  
- fail:
--	efi_free(fdt_size, fdt_addr);
-+	efi_free(fdt_size_allocated, fdt_addr);
- 	if (!efi_novamap)
- 		efi_bs_call(free_pool, priv.runtime_map);
- 
++/*
++ * Data the stub wants to pass to the kernel must not land in .bss so it doesn't
++ * get zero'd during early boot, and when DRTM is enabled must not land in the
++ * measured sections. The offset of such data can be passed to both EFI stubs
++ * using a mechanism like struct efi_image_info.
++ */
++#ifdef CONFIG_EFI_STUB_DRTM
++#define __efi_data_handoff	__section(".unmeasured.data")
++#else
++#define __efi_data_handoff	__section(".data")
++#endif
++
+ #define EFI_SUCCESS		0
+ #define EFI_LOAD_ERROR		( 1 | (1UL << (BITS_PER_LONG-1)))
+ #define EFI_INVALID_PARAMETER	( 2 | (1UL << (BITS_PER_LONG-1)))
 -- 
 2.43.0
 
