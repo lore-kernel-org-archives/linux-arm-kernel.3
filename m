@@ -4,105 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C91EC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 11:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7389CC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 11:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xajPQk8GjdXK5kaUdC9KQJ19YcliIXFOaF4kzScKofU=; b=cgB0LxlVAR/DVO0WPbN9R5nTcz
-	MCG3EPos93LZ5u+0lGrXRZ59IcKWxk0GJY/LVpwCx0NxNZ16EY/iTK5WD2X+7vVUHOTToazmyrN/O
-	1+7GLfKWNVYTnYIRxc0dpn/MrEkIFQTJ4nSiuWiak5swiGV4w5tSdLIT5810wtBF5jz75Zixr9GZy
-	wkVPZRuTWfOwkF8cRoJUAZHTw7eGsCQAke6vvIZXMws+HpfreTfBrXtaIt9K+CFBQYIQ9FqXCUrI8
-	rUdMNRlLOXWjWk6rFwcbJdU1hl+ZX9lpiAJk3fDVy5hNfPpkaORmkVXC0T5XFspd/r6wcj1qJ3Wsg
-	SZAP42qg==;
+	bh=XoGEOFWfy6+z3llqYdSXWY/bWsrgXF1kF020We0iW0M=; b=Dr4juC5Kv75heERGsoQ3crPdJ9
+	1hZZyWNw2NbqbAW95usANdsElmSduulqLdxqEyiJeuX5ytQ/NPZJsF5MbFmNJxl9e50hNMiT6p1ZA
+	t6gLyjGPq1QDmp2hnnzCf7Em7y069CcBR8dwD2XoQUCA2oasA9yCvpSQ1vodlIydHSi6WXyObr0Jv
+	BdTpvR6mtX0ukRVzv3jPctqErTX8TpaRRg5L2bntcBcc4GEXssutmzji80A2knlhPDNMjDv8s/K/Y
+	ar5iERRkYrJcie9SruIJzjB6pnzNi0Vir/58rGQ5slaUC5OCwMOu4WG++/Ua27xdk1CwXONBvwIw/
+	Dg/sue3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9hO3-0000000ApXb-3QTl;
-	Thu, 24 Sep 2026 11:13:11 +0000
-Received: from mail-pj2-x0e.google.com ([2607:f8b0:4864:39::e])
+	id 1x9hT5-0000000Aq69-1P4m;
+	Thu, 24 Sep 2026 11:18:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9hNw-0000000ApTp-0oxR
+	id 1x9hT2-0000000Aq5f-1HO1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 11:13:05 +0000
-Received: by mail-pj2-x0e.google.com with SMTP id 98e67ed59e1d1-3a02902dce2so1100521a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 04:13:03 -0700 (PDT)
+	Thu, 24 Sep 2026 11:18:21 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OA3QvP2483782
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 11:18:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	XoGEOFWfy6+z3llqYdSXWY/bWsrgXF1kF020We0iW0M=; b=TbTUhYObl5ybPmO7
+	9By5S/eHO/yhPRBHy4RpBD5l0jePTuqcfJleu600nLB2HYF4p8cDTvqbcteqy9kq
+	P7oWDRAVMzp04OTB2tPZlNhwqGYKXlKBy5kjOlz3kchPs3WuxTB78OKYltLh+Nds
+	3h1YksK3QiT6+G+GdFwVrRGTL+lHXG+A8ZTJH7X8WsfCmNaA+jsajQpHKQKZZsdc
+	Zv1hlM9Xtvd7gaXLeeAtKDCzcxXTX/d5Qjs+smijCvm6b0Nd6QdYjXQffGVF1pxz
+	KKl9xZszA0NvJ/yAfgrq2KQcqSzMOgOo7x9TJHlLEHLSI+8On8nHFKUmvuy6CKJO
+	1XLGHA==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw1s90903-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 11:18:18 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8696b921ac0so1556652b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 04:18:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790248698; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FkDJPPc8Qh5qhBZ+Ifa9SCflPxhk88ztXBmoHNUJkx4uM5SIPvNc7CrhxxrcuGllN6
+         JOA4tkNi+52JcoPMGDXzX7hl+bd0auYjd929QwPTrNakdiRk9sKwUCGjySKfoo8iRwHQ
+         uLAc3zszTT+lxBJaXAYYmDbOJzkzTzX1BvIjfTWHvSWDPm4B9gISDI1tUYYstRLnV3Vy
+         6BE/ILy7Crxnm3jahAuZBlO8dzddct6reuX6WRP2tV1Ptey5stZ3nRHK5Kk+4YTrjH7K
+         rb8txGTSa2rR/lDSShzmIW7LLrnuT2LqZaNe1Mvisi14PTwgPk5Y3Z65GceYBSIrg/z+
+         1DIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=XoGEOFWfy6+z3llqYdSXWY/bWsrgXF1kF020We0iW0M=;
+        fh=/WfIqOeeADsAt0m1CpZOJLIOjAXNIERYvmeva6WzEyY=;
+        b=nOr4FNndkpLgM9UItaG6TbYMBRJ8IrThSfMHy01m/jYvmYLLKweSos1nD4YHLo+4zJ
+         CD9kgzR2piS1CRZIMyT8jaMWzCX/isHlv7PqthDvHUPhmTLoF7ifhxWBulExm9pNZF26
+         LNrc17OwdOpoLgrNDTc25ucLP31HIoS1YRvvnJXEdvWMq6SE4fFFRpPpT7Smd5E+B0cj
+         k7nhzQupma5FwwdVuCDZ3a3VVtw/x1bDDgY5xH3M84ywXW9ZRIXyLzxspnStiGFJtbMN
+         L5lbBcSQ8TWltICLCDf939dYFAfyyxqT7IoLkqheGkNKAjiemZCewqzLpdOjO/skuVQl
+         sn3w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790248383; x=1790853183; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1790248698; x=1790853498; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=xajPQk8GjdXK5kaUdC9KQJ19YcliIXFOaF4kzScKofU=;
-        b=I31mE1xHemfCNvvkoioFQpqaS8YFHaKgPRwSEUD3k4ygtl1pGlL+gOvpc4iXPLYgLP
-         rifR34wem0YS7ZtjvWgBbLlb+qn59IHBpC1kpAnyuqqhwTiwWeCHfHYiPtnKNCfxjyWw
-         5WRBCIpU9sER9cA2sGHkq7Twep8IGe0CoTqUp7LgB7P+e8Df6iHtbDYpe80C1aaGpQbO
-         MlI9Ei7wdLtk0SE6d7EQtNs/bBjv5Un4Nvk5jm5oTwUDpq7xplIMWRyQPpJxpSU1K/JD
-         AsRkApRDdbq4yXKJSSKy1ygPWoWmDsADTVDQlyRxVgZ25ZymBNhBLqpmYQJcDwP8IbUR
-         Bptg==
+        bh=XoGEOFWfy6+z3llqYdSXWY/bWsrgXF1kF020We0iW0M=;
+        b=RHCzHRd80bQ/TUJmaOKccIFhxbObNvIETzxew5tztyuEheeb3ER0GlkSgsLWtXiq56
+         A1X0hW6Oy+wIhH+bFvlMaVto6WRwdS5nb7QpaqcU8AlJgRJCaIBH6U3NJwhuK4h9BAdV
+         sgw+xyxfa+DuQT49e74k/J+kICYOkHpGuc3JN9oExPIbr/nV8WI1gZPnyoKEGKrm9InV
+         b1zIKpuBYA92MXcq7UdrRtY/5NKxeNTuRiOoMlcFhlBx4TLxlK+oBRaG1Eu7Ob0bEq+z
+         9b4qRKDwPfQBxE2OOQ75nU8nZpKcJvF6PKox9b6+XtHfkNtqGtz8jgTxkd7T08HUqjkP
+         Zc+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790248383; x=1790853183;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1790248698; x=1790853498;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xajPQk8GjdXK5kaUdC9KQJ19YcliIXFOaF4kzScKofU=;
-        b=L09b7Rzzz1NH37lDACQxA5aBW9drfL6y6TVUsAsP7/ZBnNIMAgYinmoZsoxKSZB59/
-         plZuFLIUICt0ko09buL0B5YYHKbaSiCYWEwvszCTJzpR9HMJAxC1xSJ/7t8+UXsPgp+3
-         qKCUcZvZKH5uX/8wYoVTBBJUro8aAfiaeQHndBHUzpEfhQqfPcRHLRqvHH41kTbJ9hUR
-         dTO0/NaDh6lEH2jtcyTJnp30xHFyg5ZUmcUfIgnvXxCs0PdoY6pehnrOYtBqHUlXzgxT
-         FP+AUx8ATQ5oovqREEH6N2sTOCMTguFe3DHsJ4CTX+woJvG8dcIDq9dtRnfxBltXNNtV
-         YKjw==
-X-Forwarded-Encrypted: i=1; AKwUvBy7x+XOwtZiVH41XJtjoSImF9bFILZPpnaNOobRnKqLezzMoLhgu9/wGvNTZ1W6u4Ba5mxQwLGlKWF6oQb8zm1l@lists.infradead.org
-X-Gm-Message-State: AFuF++lWtZIPxoQGxn+nbuGHN6TlKBT7AiHUmh9BgWZXIDNdTjcahor0
-	Ms683knE4D1LDI2HBnxuiMjAc3VmA62NYxKp507DtCec70LeD8hKYu/n
-X-Gm-Gg: AYBFou2WylswRMiEjyHlZ2wopBqtSkTfOJIqSgMVXjvHpOU9t+sLqw8n3sopcl2XU/m
-	dls44G+AQbQ7gMVk1LivwY3o4KBkejw5CgdSyV/EsZCl6llrKNh8p2iuLotX/CjdYfFolzpZBAD
-	PgFDmfeaRFCjaGJkZkWyWETON9MSGE70eUsiw9m/sMBtVh94J0RyAncaFvU2KQ+0ciJS2SVJsXz
-	W3D762AH1AvQJMFJmivWGQjxUmN7vXVI+7Chu68pt6UtjSIx1/I93x1sVyvxNyipq8r3iQKKR2h
-	B3UPZGIwKbFOYkMguMWcQcyYYiJL3ax3Ux+HUCeuRVFxwAABef3QVNH2a4bt4OA2Hs+s2qMV9B4
-	h8K0O+J0R8ds9j0xoN1G+43Ztb5Xp1vuAVU+yU609+Fw9Doamn6Ke3PCBfijSpbLmBs3Ke2YU3m
-	a6B8XQ8o+dvzZ2WJAtwOAYQfws9t/VXcE3LXCFpWkATN+ZM8XfWEZzfDHKlTQ8hp5y1HAzusK3Y
-	DxWZOZWURPAvNb5fByxPfGkm5oVKoC71g==
-X-Received: by 2002:a17:90b:314e:b0:39e:5ade:f9de with SMTP id 98e67ed59e1d1-3a098b431dbmr1903170a91.26.1790248378423;
-        Thu, 24 Sep 2026 04:12:58 -0700 (PDT)
-Received: from arch.localdomain (123202092053.ctinets.com. [123.202.92.53])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0974ec5dfsm4399478a91.3.2026.09.24.04.12.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 04:12:58 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: damon.ding@rock-chips.com
-Cc: Laurent.pinchart@ideasonboard.com,
-	airlied@gmail.com,
-	andrzej.hajda@intel.com,
-	dri-devel@lists.freedesktop.org,
-	heiko@sntech.de,
-	jernej.skrabec@gmail.com,
-	jerrysteve1101@gmail.com,
-	jonas@kwiboo.se,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	luca.ceresoli@bootlin.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	simona@ffwll.ch,
-	tzimmermann@suse.de
-Subject: Re: [PATCH RSEND] drm/bridge: analogix_dp: use devm_phy_optional_get() for the DP PHY
-Date: Thu, 24 Sep 2026 19:12:49 +0800
-Message-ID: <20260924111251.936444-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <a0754d11-d88b-4dda-972f-7c696a037bc2@rock-chips.com>
-References: <a0754d11-d88b-4dda-972f-7c696a037bc2@rock-chips.com>
+        bh=XoGEOFWfy6+z3llqYdSXWY/bWsrgXF1kF020We0iW0M=;
+        b=gGXxdIIQxDVTMr9L4Qbapsx5IEQFfVH2JuCbf1Kw3iochnGUBbTlfk7Y0c5VsAbSHB
+         uvLkOpSul9niNnPo8bbfpqllttjGdEHiJKkkbZSa/UxHvAaLF0BmFfVr9BZ9OgkZDHKD
+         O45MmKNccnEOlZct3XzD1OG83Zx+HAx/U3JVVFNMPX81DEioFGLDuO/VZsnw48JFrXoa
+         6WnjiHu8ivCBhfdsE1HEqy7664GepnhmGJlbkNPsxfzYq8dSWIYJ4VQRwXZwYDHd2bOu
+         tCMWZir7RtQz8qOVHi/qFBGI2MJEmoxgHwoLYxDEZoHe1DMvaY2PQUBqIkwUvMYDess9
+         7U4A==
+X-Forwarded-Encrypted: i=1; AKwUvBybDvjcA7nmtFauQkEW+bAJcdYe85ZlBT9APHmRYYzP5Anau3fgjL9+/SknVILDfG9xnPw5Mx7Lq4HXTzbihmgW@lists.infradead.org
+X-Gm-Message-State: AFuF++lroVXRHR6vnOSwEi72GepyF1wPZ2u5T+Ea0oVLPOuiaz8Q5K7G
+	4MNHda74uDxo5zakxeivh+FZa2m+wmaZpHsjppZQL1E2i3Hy6McLzvyAuU3QWSe+U3Xykkh/NXJ
+	HWoSfl/baJPTIPU+jWF2tMrsLpCqZ6VcHlGjETXFyOvm1I7wcg3IrGXQBGHQ66L2Nthf5UxmKiW
+	jn6F6ks8aSpCDQD2FXlI8qBoigAaora9a3CPJspgkzK32xrkfyR7i2
+X-Gm-Gg: AYBFou02iUDADqRNV0hPAzlu051ZY3bHzcOaGqCk9y8zTTDuYGxmaLyrB40gD7PSDJs
+	4BqwZIeWXmCLG6byu6lDuey4hxqWnfp3iokmBa3rzab9oOL3LHcHWRXw4vY4TL3+z08EhvecRFP
+	0ejEaHapV+4rLNWomgL4ZbUiyOJUuJX82bfZ0p7Yg08xZpxzAyeLVpjlbOKw==
+X-Received: by 2002:a05:6a00:23c9:b0:878:3830:a489 with SMTP id d2e1a72fcca58-87e9fd15ad3mr1979690b3a.57.1790248697923;
+        Thu, 24 Sep 2026 04:18:17 -0700 (PDT)
+X-Received: by 2002:a05:6a00:23c9:b0:878:3830:a489 with SMTP id
+ d2e1a72fcca58-87e9fd15ad3mr1979654b3a.57.1790248697236; Thu, 24 Sep 2026
+ 04:18:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
+ <20260923084921.3942100-1-zhangfei.gao@oss.qualcomm.com> <aa9f1765-ca8c-445e-96bb-4c768ad55623@lunn.ch>
+In-Reply-To: <aa9f1765-ca8c-445e-96bb-4c768ad55623@lunn.ch>
+From: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
+Date: Thu, 24 Sep 2026 19:18:04 +0800
+X-Gm-Features: AclHuK-44EH4bNDTkJMwrnDWVzEi_hMaghscBr7mHEKsm2sHbLj2Ihaq7X1e6I8
+Message-ID: <CAFkd8huag=oW=jz6qPeu9JfqAWc24b8DeT5veRVvS_nqMuFjNw@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Nord ethernet followup
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: shengchao.guo@oss.qualcomm.com, bartosz.golaszewski@oss.qualcomm.com,
+        mohd.anwar@oss.qualcomm.com, maxime.chevallier@bootlin.com,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+        alexandre.torgue@foss.st.com, hkallweit1@gmail.com,
+        linux@armlinux.org.uk, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA0NiBTYWx0ZWRfX8KihO8/gS9AM
+ eO1dU0idjkbavwkhr5S29bZXlvsxg0Wk3SreFUDzWcIqPoNoZZrtJsS+0ZgJwjKYQOAFuA+LvzW
+ YpUMtRmAG4rHsvORcnFxo3R26n6Xu5vQnNSdyYcUZDheqK7ZrxZGbwAFieV3vVcmZM+PVb+gESf
+ DegOoa2Xj690io1uQpayroROr6Q147J5B4JwToWK+/dQkZg1KFRkY4OH5PRHVejGhy5674N/w/Z
+ cHXKN0NIobccMt2Gv6TVeGJOQrSep636RJOVkHkYLns5Q59cp4YE+kQMLNDs1hZjqowQhS4FiP0
+ OPCw+bVM5NrgQkycOBlo3LE3fpwc7rJusjpTl1mROKytZV/2lNDD/EzB2nqf8ini5+Vhp8tnxRC
+ CAE9AqGEKxB/OSYn6hnAhU7/dIgnFdYh1QeFVKzYsUijjyBdWsEFFBdOnMy18mZMpToN2GBy62k
+ sqSW0h8APYU3bwEtwAg==
+X-Authority-Analysis: v=2.4 cv=VPxIDNPX c=1 sm=1 tr=0 ts=6ab506fa cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8
+ a=DPsbyGdE-c6e5f9Z3pwA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA0NiBTYWx0ZWRfX5lQz5eB7twE6
+ yelkoCCjuw2hJvQexPkbRN6E4hEPiOPMPEfh6CpbXGUXDmGyhkVekDk4we2kb5uy42km4uqBClb
+ 047LQfJ3Y3JYgKp6mXuOxfderrvSn9w=
+X-Proofpoint-ORIG-GUID: SdMu5gHGTCP3lgbFNOp8rMq9X9F1x5WD
+X-Proofpoint-GUID: SdMu5gHGTCP3lgbFNOp8rMq9X9F1x5WD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-24_02,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 clxscore=1015 bulkscore=0 suspectscore=0 impostorscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
+ definitions=main-2609240046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_041304_251225_F970FFA1 
-X-CRM114-Status: GOOD (  31.71  )
+X-CRM114-CacheID: sfid-20260924_041820_460862_D89554CF 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,88 +169,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 9/24/2026 11:24 AM, Damon Ding wrote:
-> > Hi Jun,
-> > 
-> > On 9/24/2026 10:04 AM, Jun Yan wrote:
-> >> The DP PHY is optional: the Rockchip RK3399 eDP controller (used as the
-> >> internal eDP port) has no separate PHY device and relies on its built-in
-> >> PHY, which is programmed directly through the GRF registers, so its DT
-> >> node carries no "phys"/"phy-names" property.
-> >>
-> >> Requesting the PHY with devm_phy_get() therefore returns -ENODEV (or
-> >> -ENOSYS when CONFIG_GENERIC_PHY is disabled) and the driver logs a
-> >> misleading "no DP phy configured" error at probe time before falling back
-> >> to a NULL phy.
-> >>
-> >> Use devm_phy_optional_get() instead, which returns NULL when the PHY is
-> >> absent and otherwise behaves identically, and drop the manual -ENODEV/
-> >> -ENOSYS handling. This also removes the spurious error message.
-> >>
-> >> Assisted-by: Claude:deepseek-v4-flash
-> >> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> >> ---
-> >>   .../gpu/drm/bridge/analogix/analogix_dp_core.c | 18 +++---------------
-> >>   1 file changed, 3 insertions(+), 15 deletions(-)
-> >>
-> >> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/ 
-> >> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> >> index 18e76d1e78e1..28eb668d3e3f 100644
-> >> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> >> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> >> @@ -1427,21 +1427,9 @@ analogix_dp_probe(struct device *dev, struct 
-> >> analogix_dp_plat_data *plat_data)
-> >>       if (ret)
-> >>           return ERR_PTR(ret);
-> >> -    dp->phy = devm_phy_get(dp->dev, "dp");
-> >> -    if (IS_ERR(dp->phy)) {
-> >> -        dev_err(dp->dev, "no DP phy configured\n");
-> >> -        ret = PTR_ERR(dp->phy);
-> >> -        if (ret) {
-> >> -            /*
-> >> -             * phy itself is not enabled, so we can move forward
-> >> -             * assigning NULL to phy pointer.
-> >> -             */
-> >> -            if (ret == -ENOSYS || ret == -ENODEV)
-> >> -                dp->phy = NULL;
-> >> -            else
-> >> -                return ERR_PTR(ret);
-> >> -        }
-> >> -    }
-> > 
-> > It should be better to add some comments here:
-> > 
-> > /*
-> >   * Exynos5/RK3288/RK3399 use Analogix DP controller built-in PHY,
-> >   * no separate PHY configuration is needed.
-> >   */
-> 
-> Well, I think it should be fixed to:
-> 
-> /*
->   * RK3288/RK3399 use Analogix DP controller built-in PHY,
->   * no extra PHY configuration is required.
->   */
-> 
-> The Exynos5xxx case may be more complex.
-> 
+On Wed, Sep 23, 2026 at 8:50=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Wed, Sep 23, 2026 at 04:49:18PM +0800, Zhangfei Gao wrote:
+> > This series verifies Mohd Ayaan Anwar's patch set:
+> >
+> >   net: introduce Qualcomm XPCS support and add Nord Ethernet plumbing [=
+1]
+> >
+> > Tested on both IQ10 RRD and Ride
+> >
+> > The full test branch is available at:
+> >
+> >   https://github.com/zhangfei-gao/kernel-topics/tree/next-9.23
+> >
+> >
+> > [1] https://lore.kernel.org/linux-arm-msm/?q=3Dqcom_xpcs_nord_emac
+>
+> Please don't submit two overlapping patches for the same driver. Wait
+> for the first patchset to get merged, and then submit a follow up
+> series.
 
-Thanks for the review. I will add the comments in the patch and send v2 soon.
+Thanks Andrew
 
-> > 
-> >> +    dp->phy = devm_phy_optional_get(dp->dev, "dp");
-> >> +    if (IS_ERR(dp->phy))
-> >> +        return ERR_CAST(dp->phy);
-> >>       dp->clock = devm_clk_get(&pdev->dev, "dp");
-> >>       if (IS_ERR(dp->clock)) {
-> > 
-> > With the comment added:
-> > Reviewed-by: Damon Ding <damon.ding@rock-chips.com>
-> > 
-> > Best regards,
-> > Damon
-> > 
+Understood, my apologies.
 
+  I will not submit an overlapping series. Hopefully, some of the fixes
+  identified while reviewing and testing the RFC can be incorporated
+  into the existing series.
 
+>
+> Qualcomm has a number of Mainline Linux mentors. Please talk with
+> them, because these two patch series are not great.
 
+OK, Thanks
+
+>
+>     Andrew
+>
+> ---
+> pw-bot: cr
 
