@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B1C6C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 822BBC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkbCb8GILuXUqD56abruGf/LuH3Xk1TvEzRD0hwiQKc=; b=1pnmyL8+nvaCBrW6RsvHYsgwUt
-	lHNBvx3IUTT0L57nElQD5a4t1SjuADATdsklAr/78EPpaoq15qaTgD9jg9Ag6RA3AoCHgmw/nVZ4P
-	Ic8bs+7tLVnolOaI7ik5ll9263BiRKmZDnbxfHiP7EMqhBr4eLWAh32/NO4zK/HMhTQQU/fhdtVoI
-	8X98xOAmo8AVCidcMW8Rz8t58UBa3Vu+8F5uZBSiMLuQ4EtDn5EvMGQVK1u1IgiARuAyqMgXa9YLT
-	rnUtBsmwaKjaqfrsEIE2MOyCPxp18Q5ompr9z16UTiTF7uSCeOOnH0swthccPOnUDkPfx01v5MkTV
-	pFmTJUGw==;
+	bh=JdA69aMb2gXgOJuAm3klAA2htUXJ2SFBE/05Yps+PkI=; b=1MoW/yVx24ciJphpwUqbG9Z52Y
+	ROPP/jP6bWVapVr2yDOG+stXgm2fdszn9otyX2RQPL4hxXOqKqgpFgcOITI54g1gkLJKjIFmj6bZI
+	Y0CXqcXxcABi9FEMfJqYcSDVMcR+POhvpjOykcClKtUKbWHsrAjYwSNWZb7ImXz7n5FQtx9/kV/8L
+	WWCrqJp9FpKoVS3pFD9JEGgOiMjB9gMwGE0OGSUBgsF1HscafbbZLri5trd8nGnN8cw+f6wOntYC5
+	ZU8TQGJVU92WIY4VhL06bWMUcrdjpeqqMAv9chdxKW2IzYATiB87Kp0FI+0/pa36HH+t3/UgnBrmj
+	/VBt9osw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lyp-0000000BXov-2qBN;
-	Thu, 24 Sep 2026 16:07:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lyE-0000000BXUJ-149X
+	id 1x9mo5-0000000Bfxq-0cfQ;
+	Thu, 24 Sep 2026 17:00:25 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9mo2-0000000BfxJ-0qLL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:06:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B7E01E7D;
-	Thu, 24 Sep 2026 09:06:46 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 336423F86C;
-	Thu, 24 Sep 2026 09:06:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790266009; bh=AOVF4a7/lSQM973EMT8NHAVecCRsdK6HnC8EakUQ6v8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c0xQePF8K8BIkkwjEMa/T14N2DrxNqAl1tYgapuew6Ngvufv5IkFv8BcKeayZV2Uy
-	 zvbP8yAPIp9oYCYJPORP8lsd5V9TAhDkPv12RVRZTd8VXSsqgUQUOOaKbRwUKAFCyr
-	 lfdMK3i5Pq6K7r+a+AOKoM0YUmRAFzEiG/tWMVdw=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: maz@kernel.org,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	oupton@kernel.org,
-	gshan@redhat.com,
-	joey.gouly@arm.com,
-	tabba@google.com,
-	yuzenghui@huawei.com,
-	linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	alpergun@google.com,
-	fj0570is@fujitsu.com,
-	WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org,
-	enju.kohei@fujitsu.com,
-	sudeep.holla@arm.com,
-	jonathan.cameron@oss.qualcomm.com,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v20 20/22] KVM: arm64: CCA: Support timers in realm RECs
-Date: Thu, 24 Sep 2026 17:05:02 +0100
-Message-ID: <20260924160504.853911-21-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260924160504.853911-1-suzuki.poulose@arm.com>
-References: <20260924160504.853911-1-suzuki.poulose@arm.com>
+	Thu, 24 Sep 2026 17:00:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0FCF81A0FF5;
+	Thu, 24 Sep 2026 17:00:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C5C4060738;
+	Thu, 24 Sep 2026 17:00:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DBD3310328253;
+	Thu, 24 Sep 2026 19:00:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790269210; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=JdA69aMb2gXgOJuAm3klAA2htUXJ2SFBE/05Yps+PkI=;
+	b=BUzNj49uALFRrh+wUXwPBd+xXadOvLuhaJxQzws2Qz0SZBEkULNKoSlvHbnmsliUZ8TbY/
+	4YxlbJ0P3VWY2xhsoJ4v+f65ffYWYHuihjrKol1GWrmuRBNeQKO6UQTSQHO55S6Ovs0t82
+	c4iqFdRVxAc+SeYIqd6i2SPBmSKi+/cLl+R0BoZIqWQaXwK/ni1i1ywNQl+Ij3YkdAGDQ2
+	74n30RzR+7JQm6a/vzjNhazWcsk+M4js/VZ6jj8QRicav8nvZYYxQh/Px3mu0LhVGW8DOm
+	m+4gYaFu2hQ7Ai55GUvW5yp4r6xqRjYetuSrP5RLmWtFwvWEjoLQBi+x6HZgoQ==
+Message-ID: <1bd67ddc-4910-4f7f-a2fc-21d9c58cf655@bootlin.com>
+Date: Thu, 24 Sep 2026 19:00:02 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
+To: Nishanth Menon <nm@ti.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Bjorn Andersson <andersson@kernel.org>, alexander.sverdlin@siemens.com,
+ jan.kiszka@siemens.com, ayush@beagleboard.org, robertcnelson@gmail.com,
+ upstream@lists.phytec.de, francesco.dolcini@toradex.com,
+ leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
+ stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
+ miquel.raynal@bootlin.com, mwalle@kernel.org
+References: <20260910134409.1713610-1-nm@ti.com>
+Content-Language: en-US
+From: Thomas Richard <thomas.richard@bootlin.com>
+In-Reply-To: <20260910134409.1713610-1-nm@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_090650_489728_AB3DEF55 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260924_100022_393525_988378B9 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Price <steven.price@arm.com>
+Hi Nishanth,
 
-The RMM keeps track of the timer while the realm REC is running, but on
-exit to the normal world KVM is responsible for handling the timers.
+On 9/10/26 3:44 PM, Nishanth Menon wrote:
+> Now that all relevant drivers have are ready, convert the
+> TISCI drivers to modules. This impacts all K3 platforms for
+> boot, recommendation (based on empirical evidence) is to use
+> deferred_probe_timeout=60 in kernel command line to allow for driver
+> probes to complete successfully based on the initrd used.
+> 
+It's maybe a bit late, but I did test your patch (linux next-20260923)
+on J7200. Indeed with default deferred_probe_timeout value I got some
+deferred probe.
 
-A later patch adds the support for propagating the timer values from the
-exit data structure and making sure the values are in sync for KVM.
+[   16.869217] platform 2830000.serial: deferred probe pending: (reason
+unknown)
+[   16.869241] platform 24c0000.timer: deferred probe pending: (reason
+unknown)
 
-Also, RMM doesn't support injecting virtual interrupts backed by Physical
-interrupts. So, use the existing software resampling mechanims for Realm
-timer interrupts.
+Using deferred_probe_timeout=60 fixes sometimes deferred probe for
+24c0000.timer, but never not for 2830000.serial.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
- arch/arm64/kvm/arch_timer.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+[   68.582069] platform 2830000.serial: deferred probe pending: (reason
+unknown)
+[   68.582094] platform 24c0000.timer: deferred probe pending: (reason
+unknown)
+[   68.582128] ti_sci_pm_domains
+44083000.system-controller:power-controller: sync_state() pending due to
+24c0000.timer
+[   68.582144] ti_sci_pm_domains
+44083000.system-controller:power-controller: sync_state() pending due to
+2830000.serial
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index a45845f4ae4ea..428709f499205 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -56,11 +56,25 @@ static unsigned long kvm_arch_timer_get_irq_flags(void)
- 	return kvm_vgic_global_state.no_hw_deactivation ? VGIC_IRQ_SW_RESAMPLE : 0;
- }
- 
-+static unsigned long kvm_realm_timer_get_irq_flags(void)
-+{
-+	/*
-+	 * RMI_REC_ENTER rejects LRs with the HW bit set, so use the existing
-+	 * software resampling mechanism for Realm timer interrupts.
-+	 */
-+	return VGIC_IRQ_SW_RESAMPLE;
-+}
-+
- static const struct irq_ops arch_timer_irq_ops = {
- 	.get_flags	 = kvm_arch_timer_get_irq_flags,
- 	.get_input_level = kvm_arch_timer_get_input_level,
- };
- 
-+static const struct irq_ops realm_timer_irq_ops = {
-+	.get_flags	 = kvm_realm_timer_get_irq_flags,
-+	.get_input_level = kvm_arch_timer_get_input_level,
-+};
-+
- static const struct irq_ops arch_timer_irq_ops_vgic_v5 = {
- 	.get_input_level = kvm_arch_timer_get_input_level,
- 	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
-@@ -1617,8 +1631,12 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
- 
- 	get_timer_map(vcpu, &map);
- 
--	ops = vgic_is_v5(vcpu->kvm) ? &arch_timer_irq_ops_vgic_v5 :
--				      &arch_timer_irq_ops;
-+	if (vcpu_is_rec(vcpu))
-+		ops = &realm_timer_irq_ops;
-+	else if (vgic_is_v5(vcpu->kvm))
-+		ops = &arch_timer_irq_ops_vgic_v5;
-+	else
-+		ops = &arch_timer_irq_ops;
- 
- 	for (int i = 0; i < nr_timers(vcpu); i++)
- 		kvm_vgic_set_irq_ops(vcpu, timer_irq(vcpu_get_timer(vcpu, i)), ops);
--- 
-2.43.0
+But switching all TISCI drivers to 'y' fixed them. Looks like an
+ordering issue.
 
+I also did test suspend-to-ram, it works as expected. Fun fact, doing a
+suspend-to-ram allows to probe these 2 missing devices during resume. I
+guess it confirms a timing/ordering issue during the boot. At the end of
+the resume, no device anymore in /sys/kernel/debug/devices_deferred.
+
+[  124.053571] Restarting tasks: Starting
+[  124.053861] Restarting tasks: Done
+[  124.053907] random: crng reseeded on system resumption
+[  124.053970] PM: suspend exit
+[  124.058833] 2830000.serial: ttyS0 MMIO:0x0000000002830000 (irq = 700,
+base_baud = 3000000) is a 8250
+
+Best Regards,
+Thomas
 
