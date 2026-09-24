@@ -4,139 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E933EC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D41C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkZRO4rqQnDYiQvDdGP+YNto/eNCihdz6Mnmb2jWMiI=; b=3IAjPszNe0CMOHn3jpcmADWGoy
-	3BUH1bQhpNs91vcycrZO2gIdSGuAm8DtMIHtOPfBKP/wg68OoC7bBQbuYB6MCm8mR7eAeJL9ZUtYh
-	vryfTb9wMmy8vwS6tj/bVYPZlxeoJ4JaVVq01ZJ6lTVgWHy7B9rfBpWY2fVAfPHN8qZFGnG/zfc4v
-	an8eo2MtOEymOtD7F0k2lrZnKnPlfnC80+o2Vgqmksx81DzowsW/S7R1LrFnARAGa5SFiqIixORgC
-	Tsa59X4ROqF6BErCWUFo+xA5IPUqtrf3Hs8/HnoKdgHbsni4iOgZhf7mLTpe0VAsfRdP7UCipDKzO
-	xYWHBpVg==;
+	bh=To3pmZtljGj4X5rJ/mnIJvMelKkwi9aYdQXapoWl02w=; b=W7cC2LbLSxdt5tAPb2YzlZyBlO
+	vvbLb3UDE7fn2uXLM1LW597k/CPY2vK7gkh5XmiqoGHS+njZ0+K2QJqGHvCWB9RDbw1SWLoGMRnJJ
+	B1YkngtMLdKnW48TXE183FLAL11aFjsUit8rMmoXdRjWUknW3NN77G7/LBvARJCFhlcw3gbvEmeHi
+	KfAGaKJoBXI5tpj/B5D8l03uYVtdedPdJSWi4v2+uK3Ngr488gzK0hb9pbfqdTqIQP1o47s7G9VEf
+	B17gjKTCUTWCbyOViJwgTFOxKnVvZoqactQ8dI5yfLq4brshf9H0dfz0/ji3zeaPUerQJtjDi/jcl
+	8qB9EPnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ee2-0000000APIS-3UMe;
-	Thu, 24 Sep 2026 08:17:30 +0000
-Received: from mail-westus2azon11022098.outbound.protection.outlook.com ([52.101.48.98] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1x9efU-0000000APU5-1g9X;
+	Thu, 24 Sep 2026 08:19:00 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ee0-0000000APHp-0C9E
+	id 1x9efR-0000000APTJ-3699
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 08:17:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kfH/dHxfUkwzv13alhpzll58wkI3VcsMh18ub/UZwuR8ER+C/QWbciXaf2QUSoeZJRkHjlJcMt59yGJhQDsTT/B/C5mgApysYdun4kQKK2Pul/CnXfHGf5ngjyVwPcq5vhK/FjOePctNCafhH+0cuwf4sWdS+ppZ4uXIFkaOEQAqP4YXqDUixjGUufBLSpewTUX0dOYWvv2h0IjDldZg95qLfWzCOqjFkJuJRA+ZUKU7hl57kSKnNu/b90Nojx+YWTHytf4iwIM45PzToOwviPqy3Ck9cUxQGyXmdS9CQChMceK7zdm/I8v3tzHvyghQSR2v69OnNxeiefSjcxL3OA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vkZRO4rqQnDYiQvDdGP+YNto/eNCihdz6Mnmb2jWMiI=;
- b=PQ/7Jv7DI3tw/QOZfp0ZMcgxZTxtvL/Udofs4qdpkKsqRQ3h/0bySuT6HQKjSv8aFfsfSxrN7o4Iuspw/lmbSAXVyNsrgJzjaBtmdwbO43CnzexM2sOSFsWFVaii465QWOuqHohlRZrAdN74RSVkRnPfNgvDeu6X/jqWw7TWbBY5gBUz/K4tfWzetUPwabeXFzIie1JgRQlMS877avTStzYGROCbUgv7y5rRYEwYdTeP5lGaWfMlZVE3PBdV0CO5/3v8kjL+YXN8Iq6MEMDQNnuHzgYMeqSKooMagwpX+HrGLCvHgg3tq/JJ7awFPJr73uLV0KgoXNtuuKINBJ3acw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vkZRO4rqQnDYiQvDdGP+YNto/eNCihdz6Mnmb2jWMiI=;
- b=v++i91jNieIWJWWSt51zFAQ4LI+p8UBNpOzKcTvAv8YJIQQ2f/67WlcK7gFLmgttZwIYC+IVZhGbC4GzmIxW4bN/NGqrQ9OYs+TMIFtBWhOLQjZXH3O9di9cU9zosnobsFDZSxuxHjMwarqFHDdeZ1Zsp5YMA6k2uRUST5KcN9huYoHXRGf0F8XvDDB286wEBnf72Vn+u+7K55GwdXeeOENiOFRewB8PclslUfN3Banpk5WNMKKJWlG1wcDPUBH/eUEqWtyfDF/dzsSGsKst4HG9iKYDv0EsM55MyiDYblm+pGlWChvaHuvDq0dw6ycL3P/Xg9Z0rob43QdwKXBKyA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com (2603:10b6:5:38b::8) by
- DM4PR18MB5075.namprd18.prod.outlook.com (2603:10b6:8:47::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.428.13; Thu, 24 Sep 2026 08:17:22 +0000
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11]) by DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 08:17:22 +0000
-Message-ID: <132fbf1f-014b-488a-ab9b-2144052a41b7@axiado.com>
-Date: Thu, 24 Sep 2026 10:16:55 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] hwmon: axiado-pwm-fan: Add missing documentation and
- MAINTAINERS entries
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Tzu-Hao Wei <twei@axiado.com>,
- Karthikeyan Mitran <kmitran@axiado.com>, linux-hwmon@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-References: <20260923-axiado-pwm-fan-doc-fix-new-v1-1-8c8c2ce58a21@axiado.com>
- <8b761904-27e7-4e03-bc37-9fb048368b2b@roeck-us.net>
-Content-Language: en-GB
-From: Petar Stepanovic <pstepanovic@axiado.com>
-In-Reply-To: <8b761904-27e7-4e03-bc37-9fb048368b2b@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0127.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b9::11) To DM4PR18MB4144.namprd18.prod.outlook.com
- (2603:10b6:5:38b::8)
+	Thu, 24 Sep 2026 08:18:59 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49e6425f96eso32045e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 01:18:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790237936; x=1790842736; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=To3pmZtljGj4X5rJ/mnIJvMelKkwi9aYdQXapoWl02w=;
+        b=mrvCLwCghgsJ5RODBJ9p2iL3ASEl/YzdlCe/LU5Yn8zgJFlyKoxMxQWvkBFXSjjQpp
+         OoYugr9QBFR8/G9aOXUW7BQrI909zEB9strk0GImXzA/WQQ2wPM6z0OP57j6iahfc13+
+         8qkoi9TRzboEXbYBS5oIs2HCUMxmditPEggXp8CIsRcV/dLoME63FNnL0fNDUYK2qQ76
+         KYa7ndadrj2sZA5r5dfuf1Ojz+WMhHVwW7+cMsJCM0xJx47gsNk7ESkj5U0eNaLTCnQk
+         p9hZ/lB6OG6/GbbtsA5oaxfYUEOU15wsd2GtlsAShArKheZoeprpHZDGuwV5aEkAOAIo
+         0XHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790237936; x=1790842736;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=To3pmZtljGj4X5rJ/mnIJvMelKkwi9aYdQXapoWl02w=;
+        b=tTRVDhcqw/hTksqkwXDF3cTWNdrg1M7Ag7JHpNrexTGTwzMTwmRvb5fcR9OxNt3s4o
+         22AntceoVJVeQLRrm5+9/BXT5xAgixLSQRNDQkQPmkmWVsg3MtFUf//W5sNLPswvM091
+         vukXXBD8rY6TGIUUlAqsghPbk0lWTOBOKedWQEeyGZvlDCtgwysZkaPB3WBdaFJv3anW
+         WKPAn4cpAzkyQ0seY89Lkg+IN9UA+ggqjPotNW3z9VdkqnW2aZxsiVdQQfuf81i5HKzN
+         lFk9z4hmpmDNEu+qQZBSah4aykRBlHrfmyZAj86mxNHPACix2duz2c/yxG/yi2Hr9tR5
+         tNAw==
+X-Forwarded-Encrypted: i=1; AKwUvBz36enN/scGj0P9UNlWFFQZzUH97ckp7GbRueschlH/wvSjSNBWioa4K0njlmaSo3Sd6XdUIakdWL32A3U6adC1@lists.infradead.org
+X-Gm-Message-State: AFuF++lD3wQ5YIKOUEhEo+F/NWAQHH/HL5ZoAYaLXKAszIP6o74JNOmj
+	fwNpgJMQBNNdL7ZN9SQhSe51iVRRTHJ/DvJvHy19UpRYxRox5AEQJ3Q1WnAxuoamYA==
+X-Gm-Gg: AYBFou1fEhUkkoiCQkYLoHFVNFCzSR/TJUYXIULBpGhGrWv+s9pTIlMDlKtbcG6EizG
+	ETXLnTvIoUMkml0B3qUgkxLx9kpLZi8cFxKsyr7UStoQOAGxcXeyLts9b6Khf0HM2ykwZMHX3qP
+	WC/AAR+jZjXzkz/KFU2ceXRO+WJHxmJRVlg5sQ4VW7vMlUYP1WLfwbfRZEgoAWUcKxtIGGbu4tH
+	ULpP/L99je0SlWznVGz0HlPTjp7TsBDrpfMUv39OWof2H/U/1ief6lPMfk67bBwhieG5276tdeH
+	859/nS/swarmsM67s6ITfl7a4c0m65er5qRbmlsCpU9VEDrL4egp8DD/S7FHaJl4CrSsWkMysjM
+	wRbP7dmffsdMzlsVomMpyE3VE/IQGg6YsUvoIhbwHYpVzgfF8JNDh+5i55Hxe57u6BdZ1Fory51
+	Juj6NH7Zs1nxrHy3eE/ocfyuY9hfr6okxV0PpVVGeHDOQgcyV9KLSMmeWwbYAXIKrO0PgAXQusE
+	j6M0WbO28XWmgKKQ5HfRfjCxxe+ChGPkYvSYd1MFA==
+X-Received: by 2002:a05:600c:4aaa:b0:49f:ddcf:45b7 with SMTP id 5b1f17b1804b1-49fe5632713mr652925e9.10.1790237935405;
+        Thu, 24 Sep 2026 01:18:55 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5cd42f2sm47160755e9.15.2026.09.24.01.18.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 01:18:54 -0700 (PDT)
+Date: Thu, 24 Sep 2026 08:18:50 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, nicolinc@nvidia.com,
+	praan@google.com
+Subject: Re: [PATCH 0/7] iommu/arm-smmu-v3: Fixes reported by Sashiko
+Message-ID: <arTc6smwFV3G2rSa@google.com>
+References: <20260828125409.1921538-1-smostafa@google.com>
+ <20260924000344.GA3560397@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR18MB4144:EE_|DM4PR18MB5075:EE_
-X-MS-Office365-Filtering-Correlation-Id: 631c7577-a0d3-4588-7471-08df1a143deb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|22082099003|10067099003|18002099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: 2NmpFNH2MB8rBknjbZ/TMW6XjxvIZIzjhnTczQJmVsX6FXF6b/vHZW+YXaVhLORxytCm29KoAJH/NrBtf/CXqVA76VOXpGvUeqJHDHPa/m0NwOcFUFjCGCc+YkobLmLfu7uiVhKvY5DLmBdOiFI5CFHUVo1Emk6L0offs7k3rgnUkiSWDioEJFt8cRxKpmyjIACVyCv2Mmc7mdfVBqos4a7n08SWrZhNrYaqVjVFWu4DAPINW7EYzPabGCCUnrKG7c5fqH9juJSX3QE/bFxHx+6Sqi28YDgWGzOHgHVA52WskS/TwMLy7U2iY8UUoYb8Ewviv8/IWraBQgZVPxWA9862NkFuomr2cPksgaL6qKP1TqpjKfvtd+vqpMtUmUe8A+ZCPiXkfgej6u0ND7+r8kHAnxv3M3dDdK9JozvQZ+Fdap2n/0SOpdfcbMjcadOznPMUQ0H2hCr0oUO0d2yhaVwKVMq68iECfm74zf3sUrb5ml5LA9ExTvtseqizfEEn95ulAhQETpezPynZUaTv6v96Nkq9T5g0nvY3LzeuDyBiOl6giVQkCEmmkOv8mbzB3pVW5LOy0sbVA1L200qmR3TMPC08bZVr83NaIvrQ7sMlc4XN2ztc56LTRefvFaQqPWvRSOjzB3pPZ/2ms1z7rkvXrUfadQDDzOhyEXHwfk4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR18MB4144.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(22082099003)(10067099003)(18002099003)(4143699003)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OXJpcGc4eEZnbml1VDFRU2pNdkFQa0NBOU5NeFhNMnhlZjhxMHl2SzZOekJw?=
- =?utf-8?B?eFJOeHFrMWZHK0dwcnIySWRPMk1POFU1bXRoNXptVGE4NUFZNnA4Vm5rTmhZ?=
- =?utf-8?B?aEpjeEVPZStNVWQrWWl6VHlTV2lBRnJyM1JmNkJwVXpEK0dXYVoyaWpkYTNp?=
- =?utf-8?B?R3BBKzQwUlpqQWFoWm5iNmhnWlVNSXRmY242elFmclhBcHBrMVVBTDludEs0?=
- =?utf-8?B?S2NEKy94bHRmSkxFYWN1clViRTc1V3lER2Y0bldPMlRQd2phMjc5VG1FRFJk?=
- =?utf-8?B?QTBORkpCeDZMbmZqUHVyejRxNnBXWXpMSDRPZ1VzbDMzN2tneFVpZzMxbTgv?=
- =?utf-8?B?K1F0SmZkTFYwbFJFYXdzSytVT3NObTEyYXhYQWczejJWQUZjYmlZa204WGtS?=
- =?utf-8?B?b0h6QXZSZi8wc0xDWHBralhzZzNQL1lRT3JaT3R5K1NOWi9ORVFPNW1Vd2M2?=
- =?utf-8?B?bDRIOE5FRTQvbDNZQ2RPY3FrRWZoYTB5aHoxc3JsWVMwL0l6RVFHK2VSVk45?=
- =?utf-8?B?dHljZjJSSWJ5TWNiSFRIRVJSTEQrT3FYamtMallpWlV2MzR5SW9kbFRycjBs?=
- =?utf-8?B?TEdxdE8zRjg1WXg2Z1VXMjBQWWk0YlpqQ1owSHQzNi9zWTNFR2hEeW9OV2VT?=
- =?utf-8?B?bi9LblQrWjZPOEo1VE5DY1FxOUlyZm03Y3RuS0RrWUNaUzBZTUJTWUJEclRB?=
- =?utf-8?B?VTlYL3BtUlluOUZrQkpuOXhER21IclR1U3VnN1pYZ2pSWHJxYnJodHJHb1Rr?=
- =?utf-8?B?YzJoaERlTlRSK3NqTGhOdEwwbkxERkN6VmpPUHkyTDhtWjhnbGVPWkZSM0ZR?=
- =?utf-8?B?VldUOWd6allOMWxSRU12TU5rZkovSy9KdTkvTzAxNkZTWVhuV3p3SkZWSGRK?=
- =?utf-8?B?SG9tWStyZmxKM21QbmxBc05HSjZoSmtPOFNHY2ZvQktZNUlYcjFjcXpZMU5m?=
- =?utf-8?B?SEJOVXYvQ3JkMUZOK1hEZ3UwT0FRM3d3NVM5SS9PUkI0NTdmVGJzd2w2K0Z6?=
- =?utf-8?B?a3RqczBJUFNPR251dGp1QzBJMGRJM1EwRjEwcUxqazAzTjEwNVlWWi9HeFcx?=
- =?utf-8?B?ZHE1WE5FUW9UMTZnTnk5enBFRTVUWTcxRXVFcjl1SDlKK2R3QlpKNGFmYXNr?=
- =?utf-8?B?cnNtTUdwRUo5UXRYQzJZMHlaQTJURk5qUk9aY3ZwQ2ppZ2ZCS01ZaWFyU3Rh?=
- =?utf-8?B?cHdTMjMwK1hOK2Qxd2dzZW5NN2ZqOTV5cW5MVVhHcXpzQmxKQm9jTG54NGZw?=
- =?utf-8?B?L3lMMjdwQnJyY2hmSHJ3ZnVqazVIeU5Vek5xdXk1eXZLYTROekxCc1F6c1VQ?=
- =?utf-8?B?K2I0dStlQjZsZGY3R3BGSWtCQUhLbGFDZGNReXFoWjNFSWpCcE5MVmp1bXk0?=
- =?utf-8?B?a3pXQXI5SFpLY2ZwTVJ4Nk8xTFVhRFRIc2RtaE9PSUdDZGFDczdtbWZMaUha?=
- =?utf-8?B?eGRZWU9Ec3NUL21QZUNGNXl5Z1c1Vi9tM1EvMEt2Z3NyVkFCOGxnanpXcyti?=
- =?utf-8?B?N3B6eDgxZ050bmd6QkRRaHQxNjNLclFvYS9sMS9ZUEhPRHZRTS9NSWJSOUNW?=
- =?utf-8?B?UEh2clRxeXJwZWE4cW55VDFxUlI3R0pVWlZiYjVmc1QwcnYrOWNSV3JBOWpY?=
- =?utf-8?B?cHE1bkxKOHNMb1g5ZjlmZFd5K09nMkt0Q2RMbFRHSU5FU2tJbWx0VmIvR0xm?=
- =?utf-8?B?R005NDBPUVp5REhqOGJwNXdZNFkrVGsvOXp4RjN6Y05OMnJ6Z2tzdGFneDhP?=
- =?utf-8?B?djZacW1ETjNMcENhYjhwUUVDTEs5UjIySkloVlMxSzhKbjIyMFNtSU1aM1lz?=
- =?utf-8?B?TnBsRDBQc1RJd21laWIrenQ0dG1EaWhNcktwSHVKbzVXYlpGSjBMR2d0S3V6?=
- =?utf-8?B?TU15Q2Z1ZEhCWnRER2h2VWVKQVRRSlA2eXNmenRsODFrb3lESEZHYTA5emox?=
- =?utf-8?B?VmlOMU12a3UzandROTZPczNHN0QrV3pmeVNTWSt0UDhydHo2TkJaNE15S1oz?=
- =?utf-8?B?VkFJanNwTlZaV0xnMmhXOCthQ3NETHNvQTNnelFjSVBzSHNaU1pxcDQwa2px?=
- =?utf-8?B?RVlsUHJHUHdMck5TeUQvMjZUQk05MjhHSG95U3FlVzBPenRtTWlwQ0Ztbmdk?=
- =?utf-8?B?blNNQXBKR2NMTEYrMTVjSGxTbTlsbG1UUmNXMnp6SGFxYnhDN1o3YTBQaGVy?=
- =?utf-8?B?ZnBNZng4MjdudEw1VUg4ZmZ4czZqNitHMFRhWmdjV0h5MWVvN0FaSFA0ZVFl?=
- =?utf-8?B?ZjQyVHIzQTZCNkxpVXJ5UGtxNnFMVkRrV3BnZXUwc0N4amhlUjI4Y3pCUm4r?=
- =?utf-8?B?WUtYbHlsemV2aXRVZVJnd2xQNXFDMXBsMmRmdFM0NmR4SWtVdXhkdz09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 631c7577-a0d3-4588-7471-08df1a143deb
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR18MB4144.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 08:17:22.0591
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I/n8TQSs8uYGW2EKww7O1khQtsoOwk4tVlE52COw6K17igxNt7N6sGdOfUjWt6YYLxf91lSBwTvZp8nVK4aApg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR18MB5075
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260924000344.GA3560397@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_011728_118247_91C601BE 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20260924_011857_819509_F52D0997 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,107 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 23, 2026 at 09:03:44PM -0300, Jason Gunthorpe wrote:
+> On Fri, Aug 28, 2026 at 12:53:35PM +0000, Mostafa Saleh wrote:
+> > While running sashiko locally on the pKVM SMMUv3 driver patches, it
+> > reported some pre-existing issues in the SMMUv3 driver (the RB tree
+> > corruption and a missing NULL check) and given that this is not the
+> > first time a pre-existing issue appears in the driver from sashiko,
+> > I went ahead and passed the whole driver to Sashiko which reported a
+> > dozen of other issues(except the last one in this series), I included
+> > fixes for bugs I believe are true or worth fixing (others were mostly
+> > missing NULL checks or bizarre HW/FW configs I don’t think are needed).
+> > 
+> > I also sorted the patches based on severity from the most critical to
+> > the least, so it is easier to apply a prefix if some bugs are too
+> > theoretical
+> > 
+> > Mostafa Saleh (7):
+> >   iommu/arm-smmu-v3: Ensure L2 tables are visible before L1 ptrs
+> >   iommu/arm-smmu-v3: Prevent rbtree corruption from duplicate streams
+> >   iommu/arm-smmu-v3-iommufd: Fix error path in
+> >     arm_vsmmu_cache_invalidate()
+> >   iommu/arm-smmu-v3-test: Fix arm_smmu_v3_test_debug_print_used_bits()
+> >   iommu/arm-smmu-v3-test: Add missing error checks for inv array
+> >   iommu/arm-smmu-v3-test: Fix OOB in arm_smmu_v3_invs_test_verify()
+> >   iommu/arm-smmu-v3-test: Fix UBSAN error
+> 
+> Does this need a respin? At least the 3rd patch there should no go
+> as the iommufd tree has a different version of that fix now
 
-On 9/23/2026 4:46 PM, Guenter Roeck wrote:
-> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
->
->
-> On Wed, Sep 23, 2026 at 02:58:41AM -0700, Petar Stepanovic wrote:
->> The axiado-pwm-fan entry was added to the hwmon documentation index, but
->> the corresponding Documentation/hwmon/axiado-pwm-fan.rst file is missing.
->>
->> The MAINTAINERS entry also only lists the devicetree binding and is missing
->> entries for the hwmon documentation and driver.
->>
->> Add the missing documentation file and MAINTAINERS entries.
->>
->> Fixes: 2d52742f408f ("hwmon: add Axiado AX3000 and AX3005 PWM fan controller driver")
->> Reported-by: kernel test robot <lkp@intel.com>
->> Closes: https://lore.kernel.org/oe-kbuild-all/202609230904.aIWyLsSt-lkp@intel.com/
->> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> Sorry for that. The patch did not apply due to conflicts, and I had to
-> apply manually using patch. Doing so I forgot to include the missing
-> entries.
->
-> I'll fold this patch into the original patch introducing the driver.
->
-> Thanks,
-> Guenter
-Thanks for confirming and fixing it.
->
->> ---
->> This patch adds the missing Axiado PWM fan documentation file and updates
->> the MAINTAINERS entry to include the documentation and driver source
->> files.
->> ---
->>  Documentation/hwmon/axiado-pwm-fan.rst | 38 ++++++++++++++++++++++++++++++++++
->>  MAINTAINERS                            |  2 ++
->>  2 files changed, 40 insertions(+)
->>
->>
->> ---
->> base-commit: bf92ea2a46120fd0809f24d39ad3482d0f20876b
->> change-id: 20260923-axiado-pwm-fan-doc-fix-new-d0e42bbb0cbc
->>
->> Best regards,
->> --
->> Petar Stepanovic <pstepanovic@axiado.com>
->>
->> diff --git a/Documentation/hwmon/axiado-pwm-fan.rst b/Documentation/hwmon/axiado-pwm-fan.rst
->> new file mode 100644
->> index 000000000000..d110e170b0df
->> --- /dev/null
->> +++ b/Documentation/hwmon/axiado-pwm-fan.rst
->> @@ -0,0 +1,38 @@
->> +.. SPDX-License-Identifier: GPL-2.0
->> +
->> +Kernel driver axiado-pwm-fan
->> +============================
->> +
->> +Supported chips:
->> +
->> +  * Axiado AX3000
->> +  * Axiado AX3005
->> +
->> +    Datasheet: Not publicly available
->> +
->> +Author:
->> +
->> +  * Petar Stepanovic <pstepanovic@axiado.com>
->> +
->> +Description
->> +-----------
->> +
->> +The Axiado AX3000 and AX3005 PWM fan controllers measure the rotational
->> +speed of one fan using a hardware tachometer block. Fan speed is controlled
->> +through a PWM signal supplied by an external PWM controller.
->> +
->> +The number of tachometer pulses generated per fan revolution is configured
->> +through the ``pulses-per-revolution`` devicetree property. If the property
->> +is not specified, the driver uses two pulses per revolution.
->> +
->> +Sysfs attributes
->> +----------------
->> +
->> +The driver provides the following standard hwmon attributes:
->> +
->> +=============== ====== =====================================================
->> +fan1_input      RO     Fan speed in revolutions per minute (RPM).
->> +
->> +pwm1            RW     Relative PWM control value from 0 to 255. A value of
->> +                       255 selects the maximum PWM duty cycle.
->> +=============== ====== =====================================================
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index eb3cc6c81bcf..5ad12c57ca5f 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -4504,6 +4504,8 @@ M:      Prasad Bolisetty <pbolisetty@axiado.com>
->>  L:   linux-hwmon@vger.kernel.org
->>  S:   Supported
->>  F:   Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
->> +F:   Documentation/hwmon/axiado-pwm-fan.rst
->> +F:   drivers/hwmon/axiado-pwm-fan.c
->>
->>  AXIADO SPI DB DRIVER
->>  M:   Vladimir Moravcevic <vmoravcevic@axiado.com>
+Yes, I will respin shortly, I will also drop patch 2 as  Nicolin
+posted a new version of his patch.
+
+Thanks,
+Mostafa
+
+> 
+> Jason
 
