@@ -4,111 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D353CC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 21:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDDFC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 21:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FztxlCtMBiQSHlXmAZm8S/wcrRzv9qme8jxAKbMhe0M=; b=TbKo3BmN9aOXLswI4yl2sHc9mV
-	1lM4GODOmagU5ApqqmDrSaxjGgrmo3vB3pq+a5uN0Mv4eJl0v2/p9jW1zPJLa8KZvSRGF8M3DWYL5
-	ex46h3+lEfec59CaXG844fmX32vF3dN7c8KpLkjjsfQ9WVb+VUER+o8vAOnmJ4jpfGMvOzmIQ4JL4
-	Y2cOi5PZBY0j9FCn1E0vnbQKoKf2IdD0CPlyfgFaS1DXUKoIK57n32dds7TzSCLkggDqE/I69yI/J
-	4uIv173H3zoUmoY2a+GvAothZWYd10xdDyk/BHiwHKIs4NMyn/gY3ue1oJJrvahHePLy0UV91uDnq
-	vRmxUmgg==;
+	bh=skcWtpxGtZJwW4Q1vAThTtylvAwrMeApRCrXkDCWfgY=; b=uA49ak9Rmiom0jxZuPjAtwYLdN
+	rk+WCMZcGKmHCO0N8wrgevBwy6pS8lMojxk0mSqwOMqh3i518d0b+99kRSYsjbZ2pjWuFKWHgYdOY
+	aEav6Xeq5hKHH4b1lYlgdOysqb+cUAggNvwGgFE/poble4IjCHq49W6QeAecQIluXqnnbzsINluLQ
+	s1/Ag2ypMf6wkr6Bm03R9ajHVP2kHTGgExA6nZqB99dWRwgVmmxdpKsFEG7Dnz7yGEMqQ3Nu4lLiP
+	9CuKX6zV14Veat+hh6faU2gV35wV9pMk3hOhbZcqkhxOZMewxSbz9ncwT2P9bYtidDlJOYyUBO6wG
+	GFRPD14A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9qjz-0000000CCXn-1Bt7;
-	Thu, 24 Sep 2026 21:12:27 +0000
-Received: from out13-174.antispamcloud.com ([185.201.17.174])
+	id 1x9qkR-0000000CCl3-3dty;
+	Thu, 24 Sep 2026 21:12:55 +0000
+Received: from mail-oa1-x64.google.com ([2001:4860:4864:20::64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9qjk-0000000CCPU-1SyK;
-	Thu, 24 Sep 2026 21:12:13 +0000
-Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
-	by mx320.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <dan@reactivated.net>)
-	id 1x9qjV-004qbF-66; Thu, 24 Sep 2026 23:11:59 +0200
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=reactivated.net; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=FztxlCtMBiQSHlXmAZm8S/wcrRzv9qme8jxAKbMhe0M=; b=TYCKRykxip9M5skTIz6++kEf5s
-	UIdzANWxafaVaTurljUoXKrY+Kpp3FAQF/aPmJeaPO+wmE8sk8u3xcztYroUxCQabID0Zjsk8usAX
-	qNDW7OHZPl6uCivO6aqlQ3lcJFJVma/liUxG7MpoaKI/qzbJFOmP43drfIoZHUWGpsGRq2DZ40v8S
-	Yma+n2snPy6AHbYvsHVTzED9l5Kf4x7h6WRv3LEi8SATCyyjmORVfbVjqumyqoTVBkIBlL78oEC55
-	0PV292UqFi0ndRFny/kjD9aRh2szKhKHThPwaf1g98ip6ugtuWa3hSbtEhTvPw8Ld1HgXXJigUOgz
-	FxwMVdAA==;
-Received: from [188.251.249.2] (port=56840 helo=[192.168.1.123])
-	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <dan@reactivated.net>)
-	id 1x9qjR-00000006M7u-0sX0;
-	Thu, 24 Sep 2026 21:11:54 +0000
-From: Daniel Drake <dan@reactivated.net>
-Date: Thu, 24 Sep 2026 22:10:54 +0100
-Subject: [PATCH v6 4/6] iommu/generic_pt: Add Broadcom BCM2712 page table
- format
+	id 1x9qkO-0000000CCj0-3hgr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 21:12:54 +0000
+Received: by mail-oa1-x64.google.com with SMTP id 586e51a60fabf-48e201396baso101805fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 14:12:52 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790284371; x=1790889171;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=skcWtpxGtZJwW4Q1vAThTtylvAwrMeApRCrXkDCWfgY=;
+        b=KtLhthJ3u1wui+DwKZI0OT7f806vXfUxvkOyUVtOkOwG0YcgvAchIPjzv5rbPnih0n
+         hsowWaO5dg+tG3qjjz06gdKcMVg2weYVbT7Zxd2mp5w103hNbtBhk4xBeK7sQttCqNMZ
+         6s680Rwy47SraCZeCA4r72jP2pScG8xepNDFCTf8kw3+0t+Tlqsmz8DX9ILV+6X4I1JN
+         i2ezoVzReSK0AYZHEIfjoMHkiTxYKTf18livqKkfRB8MfefhnrJ+ebLrZfisRYKJM1Hb
+         VnbxVHHiYCjeXARVH4s8M/t1pjJjKC0PvgCqKlKUgpS6hmmw2mretagAjqKmHm6okQOz
+         XXuw==
+X-Forwarded-Encrypted: i=1; AKwUvBzdtf1ATEEjQhZxkoZl75M+GnUl9lM5PT7kG0wiZxVuktVXM8Q4gJAthRLgH2hOIgRDoBjFVHVh4tuGXlO4k5OU@lists.infradead.org
+X-Gm-Message-State: AFuF++n4IgOjvbQQ9ir0O6u6+jT3bN35NJkKBQdpIc0KmgT0QvJ0pry/
+	f3W37qa3DKeDCNK+MdbVqocfM7QCBDknxvL2yUQ4jEETJEMr6QAQwZdnYa0/3FcB6LedFHgwcKK
+	5YZeHkBsXWOHHUfuwNQolmyevJ6S9H2GS9m9ztBawc/kcH4ibroiFkUCO+sAXarEA50JICYNIFN
+	opPflcjrWUywWlkkMEZYSlEckMZhh/yL1df8hLx3njwLjHHR2eLDSLFTZQsnX2kkgT07jo+zvMO
+	myNNyyiEFHGZByDstXF6yvyDgcWbMkerjw=
+X-Gm-Gg: AYBFou3J27vMtPcz1+X/eSZuqUP3y70yWnk95l/rWpccohaL53JHaCA9oOhX2f254sh
+	Ss6t435yfGKjAI0SrGjxld/vG2q4M/WDF9JJXeaioMBenDlzezeHP45w7+XAb116LlwMWR6aUxk
+	RWLxzt/jd4YnJ5IdWezlTcJHoG+zxmf0WJe6Aac5U/kOMeK2Vz+KMP5u6sYbTgZN4NQQIqhdzE4
+	IKAUeJSV/Hnpi4Y76RMTcDHd8WZMYY6Q4FfL0CIDifh9GVuUFpIqEguSIxsHuaQrtAVSLdNV4gB
+	4RRCIPPN2nLHrBwjMawWxwEwqaYMKygx0XFsllpkRKBDdDDf2NhJJcFJ3IckR0jq/SGrMucyLxj
+	67Zf8lrCczTocPs3WB0ogicLjH/GY3DqcTdRPrsj8PNswvL8jVe37u9WkN58YqH43sTMRtIzOhw
+	jozZYKxR9EBHB8A0l8ScVrQ7WQl9kKZQSU9FP0xyCHYpk=
+X-Received: by 2002:a05:6871:e00d:b0:45e:d1cd:5e80 with SMTP id 586e51a60fabf-491e4a3c430mr3857024fac.9.1790284371524;
+        Thu, 24 Sep 2026 14:12:51 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-125.dlp.protect.broadcom.com. [144.49.247.125])
+        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-4933074192dsm71015fac.0.2026.09.24.14.12.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 24 Sep 2026 14:12:51 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-936708f129aso43720785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 14:12:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1790284370; x=1790889170; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=skcWtpxGtZJwW4Q1vAThTtylvAwrMeApRCrXkDCWfgY=;
+        b=d78l/HrMqIM8l83GrwV7pB3hQwpkQNABJFlsaBbkqOLDKbuYD+v726UPN5xtIWNCaa
+         bry3asWarUBp7nlasmDXHTk+jYhq+L+1Ylu3ynO4tCtxXRQnyPTbcTNMAkqwZcr2V1Of
+         YZ2HY7cJKdKbYrZtXPZzAEOsbkbuTixmUkd60=
+X-Forwarded-Encrypted: i=1; AKwUvBxYWRb3mfp6o8aZPynoX3FcKbfoY9XptdEr2Oaluqj4zL0C3hMDmctnUomQ/gUFnih+qlvEvqhZLrI7l+HauX8T@lists.infradead.org
+X-Received: by 2002:a05:620a:8389:b0:939:f8e9:5e19 with SMTP id af79cd13be357-93c43c2f3ecmr105806985a.1.1790284369791;
+        Thu, 24 Sep 2026 14:12:49 -0700 (PDT)
+X-Received: by 2002:a05:620a:8389:b0:939:f8e9:5e19 with SMTP id af79cd13be357-93c43c2f3ecmr105803685a.1.1790284369353;
+        Thu, 24 Sep 2026 14:12:49 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-93c448eb2a4sm25619685a.20.2026.09.24.14.12.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Sep 2026 14:12:48 -0700 (PDT)
+Message-ID: <7eb8da6d-0c09-44d5-979c-fe0952b92018@broadcom.com>
+Date: Thu, 24 Sep 2026 14:12:45 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-bcm2712-iommu-submit-v6-4-7b3cace86973@reactivated.net>
-References: <20260924-bcm2712-iommu-submit-v6-0-7b3cace86973@reactivated.net>
-In-Reply-To: <20260924-bcm2712-iommu-submit-v6-0-7b3cace86973@reactivated.net>
-To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Daniel Drake <dan@reactivated.net>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com, 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/6] dt-bindings: display: brcm,bcm2835-hvs: Document
+ iommus property
+To: Daniel Drake <dan@reactivated.net>, "Joerg Roedel (AMD)"
+ <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com,
  james.quinlan@broadcom.com, Jason Gunthorpe <jgg@ziepe.ca>
-X-Mailer: b4 0.14.3
-X-Get-Message-Sender-Via: s1041.use1.mysecurecloudhost.com: authenticated_id: dan@reactivated.net
-X-Authenticated-Sender: s1041.use1.mysecurecloudhost.com: dan@reactivated.net
-X-Originating-IP: 192.250.231.249
-X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
-X-Spampanel-Username: 192.250.231.249
-Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
-X-Spampanel-Outgoing-Class: ham
-X-Spampanel-Outgoing-Evidence: SB/global_tokens (5.27145297191e-07)
-X-Recommended-Action: accept
-X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVS9wi5bgjfy3GvsvF0sczG5HjBmumL8rvk
- E+kBFG4l/yu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
- M0i5ZAms0EHrvcCaVIPmxgC2TrriYvJUGKW4UnMdGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
- EetczWCfZW7a9uhvfuE0J/hsBuu+eB7itP8hgjDRserKv4bhb4rodgkl+wsfxZHakHKRaVZWBb39
- uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKefuLbx+lGq0svfyhth
- j0R6Iny++hg9dJLqN5zmWqF/oHgMZXS6X/fIHYslsKU0yPHM4JpSMI47HiFQBsGlm5AyJ9N3+CB9
- 4aFbAhtG8w3Ly5ZVKmISsN3IhGLWYd0758WcWZORtrVlxIXk5jhWVNuX2TLvWiqA6BF3jwTykadj
- Eh4GKZ8tHsR5A+L9kzDG/K7jeiyzqcpyb6SLIRHv2KIjmIf7YZpqL+v4bQH3sWKlGBPtnYg5YizU
- E/EMRWxUHUQ0hYI+2t4HN3I9ouCIE9ZpmIIT4UMJhQzp+ktYysEoXYjyOpKyQ+6FJGgfvyfesL1T
- Yi2bf0F0JzgUQ/o6tR7CeAtyzyXh0NL4l5vWK73eqiIKw1M+yw2yzZUSfFbaoySugmxqcr8pFbGy
- g9Z1tlDRifW6JNJBY9PymNpC4Wmh+9PD5zE6IfxMIfQh9R3Td3D6I4o5YsP+Lyz6c5yHWp+lN7xB
- IcErjx6FK9ER9iaQgRs40cmSL9tPfD9p0Q30OpoIC5LN3kg+6pSfiZxgu6TiEuYXMjE4hTY0I3yy
- a8U2jinGDQ7KETlEGJUYMkyf+CuqgXx7tGuaZmhNrApMT0FouUljdE6zMT1Fx5vQ5mcmIHdXPd2m
- u86jxvGTfZNouT6f3He7jw4SoVhmTJ/3eP9ObDIxo+BEwlmvIb+xqTvIrBP+6w9smK/hg5o9u16q
- yIzlag+DgD9xY7Yj7fvC65xWAU3TJceJXG+jXar6FtDTl6SazWHDhW0k3iY0Nxd1+egvPpyylyRk
- sDtvh9EglVwlBP3PkVHlQGQFk2KBEkFw3+vw1RS8zKP8o2x05FSSJsC7k+LzVpQY05oubiJ9GrzY
- ++DuIQUs/5JJj4C/n4CILpFTKQlqbzX/LSb50zWeMLukQz+KohJ08RoXx3dChzUkHQvUrcrPtwd9
- PGmMW1L0B6JfN6DTVjUszJAalIcW0Bh5dbygTK7jtNAOpOLoYrBwYYKC6XIWdfPsJXrcrDW6vfdj
- zQ6YC7Heg3Xf7O1TOd7yUx++SDY6V9XDGiqeh8jJhxFbE1QSjfwMTndprmVkWxS1mi+nw+nJxqi8
- G/0EWIU9/oRhYJouyPE9hB5CV6Cq4Jaxl2P0veaP2Xo6PPtofHNHf6G/7NjKIViWFaEeldR/m2+i
- TN8ji+Mhbk3TTo2Lw6nIoDr0sXUZ7YZoZ/GZ+slJL25ATsZTVifNjYlkFmCz0w5vcdcHI3py3L8t
- PqWAmEN/CjKjK3VVq9SDkpBDU8/nN9BMID38D/++xf97O23y3deP8vNnmz84mDUvZqxnHNc/wp8s
- bbUui5b8WkACIg5AB/ilm4apSU2goW8TQ8+z0w5vcdcHI3py3L8tPqWAC7xZyfryQF81aCkSJYKS
- vg==
-X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
-X-Complaints-To: abuse@master.antispamcloud.com
+References: <20260924-bcm2712-iommu-submit-v6-0-7b3cace86973@reactivated.net>
+ <20260924-bcm2712-iommu-submit-v6-3-7b3cace86973@reactivated.net>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20260924-bcm2712-iommu-submit-v6-3-7b3cace86973@reactivated.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_141212_578805_F0F8A320 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20260924_141252_983317_5D892670 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,448 +159,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement generic_pt support for the 2-level page table format used by
-the BCM2712 IOMMUs.
+On 9/24/26 14:10, Daniel Drake wrote:
+> On BCM2712, the Hardware Video Scaler (HVS) is connected behind an IOMMU.
+> Add the optional iommus property to allow describing this connection.
+> 
+> Signed-off-by: Daniel Drake <dan@reactivated.net>
 
-Adapted from Raspberry Pi's downstream bcm2712-iommu driver (original
-author Nick Hollinghurst).
-
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Daniel Drake <dan@reactivated.net>
----
- drivers/iommu/generic_pt/.kunitconfig        |   1 +
- drivers/iommu/generic_pt/Kconfig             |  10 +
- drivers/iommu/generic_pt/fmt/Makefile        |   2 +
- drivers/iommu/generic_pt/fmt/bcm2712.h       | 288 +++++++++++++++++++++++++++
- drivers/iommu/generic_pt/fmt/defs_bcm2712.h  |  18 ++
- drivers/iommu/generic_pt/fmt/iommu_bcm2712.c |   6 +
- include/linux/generic_pt/common.h            |   6 +
- include/linux/generic_pt/iommu.h             |  12 ++
- 8 files changed, 343 insertions(+)
-
-diff --git a/drivers/iommu/generic_pt/.kunitconfig b/drivers/iommu/generic_pt/.kunitconfig
-index 0bb98fe581fe..a3da74328f12 100644
---- a/drivers/iommu/generic_pt/.kunitconfig
-+++ b/drivers/iommu/generic_pt/.kunitconfig
-@@ -7,6 +7,7 @@ CONFIG_IOMMU_PT_AMDV1=y
- CONFIG_IOMMU_PT_VTDSS=y
- CONFIG_IOMMU_PT_RISCV64=y
- CONFIG_IOMMU_PT_X86_64=y
-+CONFIG_IOMMU_PT_BCM2712=y
- CONFIG_IOMMU_PT_KUNIT_TEST=y
- 
- CONFIG_IOMMUFD=y
-diff --git a/drivers/iommu/generic_pt/Kconfig b/drivers/iommu/generic_pt/Kconfig
-index f4ed1add58b7..2a81dac960ac 100644
---- a/drivers/iommu/generic_pt/Kconfig
-+++ b/drivers/iommu/generic_pt/Kconfig
-@@ -72,6 +72,15 @@ config IOMMU_PT_X86_64
- 
- 	  Selected automatically by an IOMMU driver that uses this format.
- 
-+config IOMMU_PT_BCM2712
-+	tristate "IOMMU page table for Broadcom BCM2712"
-+	help
-+	  iommu_domain implementation for the Broadcom BCM2712 IOMMU found on
-+	  Raspberry Pi 5. It supports 4K page sizes over a 2-level page table
-+	  format.
-+
-+	  Selected automatically by an IOMMU driver that uses this format.
-+
- config IOMMU_PT_KUNIT_TEST
- 	tristate "IOMMU Page Table KUnit Test" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
-@@ -79,6 +88,7 @@ config IOMMU_PT_KUNIT_TEST
- 	depends on IOMMU_PT_RISCV64 || !IOMMU_PT_RISCV64
- 	depends on IOMMU_PT_X86_64 || !IOMMU_PT_X86_64
- 	depends on IOMMU_PT_VTDSS || !IOMMU_PT_VTDSS
-+	depends on IOMMU_PT_BCM2712 || !IOMMU_PT_BCM2712
- 	default KUNIT_ALL_TESTS
- 	help
- 	  Enable kunit tests for GENERIC_PT and IOMMU_PT that covers all the
-diff --git a/drivers/iommu/generic_pt/fmt/Makefile b/drivers/iommu/generic_pt/fmt/Makefile
-index ea024d582594..82ca3c36823d 100644
---- a/drivers/iommu/generic_pt/fmt/Makefile
-+++ b/drivers/iommu/generic_pt/fmt/Makefile
-@@ -9,6 +9,8 @@ iommu_pt_fmt-$(CONFIG_IOMMU_PT_RISCV64) += riscv64
- 
- iommu_pt_fmt-$(CONFIG_IOMMU_PT_X86_64) += x86_64
- 
-+iommu_pt_fmt-$(CONFIG_IOMMU_PT_BCM2712) += bcm2712
-+
- IOMMU_PT_KUNIT_TEST :=
- define create_format
- obj-$(2) += iommu_$(1).o
-diff --git a/drivers/iommu/generic_pt/fmt/bcm2712.h b/drivers/iommu/generic_pt/fmt/bcm2712.h
-new file mode 100644
-index 000000000000..2c5b034441c1
---- /dev/null
-+++ b/drivers/iommu/generic_pt/fmt/bcm2712.h
-@@ -0,0 +1,288 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2026 Daniel Drake
-+ *
-+ * BCM2712 IOMMU simple two level page table
-+ */
-+#ifndef __GENERIC_PT_FMT_BCM2712_H
-+#define __GENERIC_PT_FMT_BCM2712_H
-+
-+#include "defs_bcm2712.h"
-+#include "../pt_defs.h"
-+
-+#include <linux/bitfield.h>
-+#include <linux/container_of.h>
-+#include <linux/log2.h>
-+#include <linux/sizes.h>
-+
-+enum {
-+	/* Hardware provides a two-level page table */
-+	PT_MAX_TOP_LEVEL = 1,
-+
-+	/* Hardware page size is strictly 4kb */
-+	PT_GRANULE_LG2SZ = ilog2(SZ_4K),
-+	PT_TABLEMEM_LG2SZ = PT_GRANULE_LG2SZ,
-+
-+	/* Table entries and leaf entries are 32 bits */
-+	PT_ITEM_WORD_SIZE = sizeof(pt_bcm2712_entry_t),
-+
-+	/* Leaf entries encode a 25-bit PFN */
-+	PT_MAX_OUTPUT_ADDRESS_LG2 = 25 + PT_GRANULE_LG2SZ,
-+
-+	/*
-+	 * For simplicity, only manage mappings within an address space of
-+	 * exactly 4GB. This is because our Level 1 directory page will be 4kb
-+	 * in the smallest case, permitting 1024 entries pointing at Level 0
-+	 * pages, each permitting 4mb of mapped memory.
-+	 */
-+	PT_MAX_VA_ADDRESS_LG2 = ilog2(SZ_4G),
-+
-+	/* Level 1 base address is programmed as a 32-bit PFN */
-+	PT_TOP_PHYS_MASK = GENMASK_ULL(31 + PT_GRANULE_LG2SZ, PT_GRANULE_LG2SZ),
-+};
-+
-+/* PTE bits */
-+enum {
-+	BCM2712PT_VALID = BIT(28),
-+	BCM2712PT_WRITE = BIT(29),
-+	BCM2712PT_PAGESIZE = GENMASK(31, 30),
-+	BCM2712PT_PFN = GENMASK(24, 0),
-+};
-+
-+#define common_to_bcm2712pt(common_ptr) \
-+	container_of_const(common_ptr, struct pt_bcm2712, common)
-+#define to_bcm2712pt(pts) common_to_bcm2712pt((pts)->range->common)
-+
-+static inline pt_oaddr_t bcm2712pt_table_pa(const struct pt_state *pts)
-+{
-+	return oalog2_mul(FIELD_GET(BCM2712PT_PFN, pts->entry),
-+			  PT_GRANULE_LG2SZ);
-+}
-+#define pt_table_pa bcm2712pt_table_pa
-+#define pt_item_oa bcm2712pt_table_pa
-+
-+static inline bool bcm2712pt_can_have_leaf(const struct pt_state *pts)
-+{
-+	return true;
-+}
-+#define pt_can_have_leaf bcm2712pt_can_have_leaf
-+
-+/* 4MB pages are installed at level 1, everything else at level 0 */
-+static inline unsigned int bcm2712pt_pgsz_lg2_to_level(struct pt_common *common,
-+						       unsigned int pgsize_lg2)
-+{
-+	return pgsize_lg2 == ilog2(SZ_4M) ? 1 : 0;
-+}
-+#define pt_pgsz_lg2_to_level bcm2712pt_pgsz_lg2_to_level
-+
-+static inline pt_vaddr_t bcm2712pt_possible_sizes(const struct pt_state *pts)
-+{
-+	struct pt_bcm2712 *table = common_to_bcm2712pt(pts->range->common);
-+
-+	if (pts->level == 1)
-+		return SZ_4M;
-+
-+	return SZ_4K |
-+	       (table->bigpage_lg2 ? BIT_ULL(table->bigpage_lg2) : 0) |
-+	       (table->superpage_lg2 ? BIT_ULL(table->superpage_lg2) : 0);
-+}
-+#define pt_possible_sizes bcm2712pt_possible_sizes
-+
-+static inline unsigned int
-+bcm2712pt_entry_num_contig_lg2(const struct pt_state *pts)
-+{
-+	struct pt_bcm2712 *table = common_to_bcm2712pt(pts->range->common);
-+	u32 pgsz = FIELD_GET(BCM2712PT_PAGESIZE, pts->entry);
-+
-+	if (pts->level != 0 || !(pts->entry & BCM2712PT_VALID))
-+		return 0;
-+
-+	/*
-+	 * Superpage/bigpage contiguous mapping (really just hinting) is handled
-+	 * via PAGESIZE bits on each leaf entry.
-+	 */
-+	if (pgsz == 2 && table->superpage_lg2)
-+		return table->superpage_lg2 - PT_GRANULE_LG2SZ;
-+	else if (pgsz == 1 && table->bigpage_lg2)
-+		return table->bigpage_lg2 - PT_GRANULE_LG2SZ;
-+	return 0;
-+}
-+#define pt_entry_num_contig_lg2 bcm2712pt_entry_num_contig_lg2
-+
-+static inline unsigned int bcm2712pt_num_items_lg2(const struct pt_state *pts)
-+{
-+	return PT_TABLEMEM_LG2SZ - ilog2(PT_ITEM_WORD_SIZE);
-+}
-+#define pt_num_items_lg2 bcm2712pt_num_items_lg2
-+
-+static inline enum pt_entry_type bcm2712pt_load_entry_raw(struct pt_state *pts)
-+{
-+	const pt_bcm2712_entry_t *tablep =
-+		pt_cur_table(pts, pt_bcm2712_entry_t);
-+
-+	pts->entry = READ_ONCE(tablep[pts->index]);
-+	if (!(pts->entry & BCM2712PT_VALID))
-+		return PT_ENTRY_EMPTY;
-+
-+	if (pts->level == 1) {
-+		if (FIELD_GET(BCM2712PT_PAGESIZE, pts->entry) == 3)
-+			return PT_ENTRY_OA;
-+		return PT_ENTRY_TABLE;
-+	}
-+
-+	return PT_ENTRY_OA;
-+}
-+#define pt_load_entry_raw bcm2712pt_load_entry_raw
-+
-+static inline void
-+bcm2712pt_install_leaf_entry(struct pt_state *pts, pt_oaddr_t oa,
-+			     unsigned int oasz_lg2,
-+			     const struct pt_write_attrs *attrs)
-+{
-+	pt_bcm2712_entry_t *tablep = pt_cur_table(pts, pt_bcm2712_entry_t);
-+	pt_bcm2712_entry_t entry;
-+
-+	if (!pt_check_install_leaf_args(pts, oa, oasz_lg2))
-+		return;
-+
-+	entry = BCM2712PT_VALID | attrs->descriptor_bits |
-+		FIELD_PREP(BCM2712PT_PFN, oalog2_div(oa, PT_GRANULE_LG2SZ));
-+
-+	if (pts->level == 1) {
-+		/* Level 1 hugepage (4MB) */
-+		entry |= FIELD_PREP(BCM2712PT_PAGESIZE, 3);
-+		WRITE_ONCE(tablep[pts->index], entry);
-+		pts->entry = entry;
-+		return;
-+	}
-+
-+	if (oasz_lg2 == PT_GRANULE_LG2SZ) {
-+		WRITE_ONCE(tablep[pts->index], entry);
-+		pts->entry = entry;
-+	} else {
-+		struct pt_bcm2712 *table =
-+			common_to_bcm2712pt(pts->range->common);
-+		u32 *end;
-+
-+		tablep += pts->index;
-+		end = tablep + log2_to_int(oasz_lg2 - PT_GRANULE_LG2SZ);
-+
-+		/*
-+		 * Leaf entries can contain hints indicating bigpage/superpage
-+		 * contiguous mappings to permit TLB optimization
-+		 */
-+		if (oasz_lg2 == table->superpage_lg2)
-+			entry |= FIELD_PREP(BCM2712PT_PAGESIZE, 2);
-+		else if (oasz_lg2 == table->bigpage_lg2)
-+			entry |= FIELD_PREP(BCM2712PT_PAGESIZE, 1);
-+
-+		pts->entry = entry;
-+		for (; tablep != end; tablep++, entry++)
-+			WRITE_ONCE(*tablep, entry);
-+	}
-+}
-+#define pt_install_leaf_entry bcm2712pt_install_leaf_entry
-+
-+static inline bool bcm2712pt_install_table(struct pt_state *pts,
-+					   pt_oaddr_t table_pa,
-+					   const struct pt_write_attrs *attrs)
-+{
-+	pt_bcm2712_entry_t entry =
-+		BCM2712PT_VALID |
-+		FIELD_PREP(BCM2712PT_PFN,
-+			   oalog2_div(table_pa, PT_GRANULE_LG2SZ));
-+
-+	return pt_table_install32(pts, entry);
-+}
-+#define pt_install_table bcm2712pt_install_table
-+
-+static inline void bcm2712pt_attr_from_entry(const struct pt_state *pts,
-+					     struct pt_write_attrs *attrs)
-+{
-+	attrs->descriptor_bits = pts->entry & BCM2712PT_WRITE;
-+}
-+#define pt_attr_from_entry bcm2712pt_attr_from_entry
-+
-+static inline unsigned int bcm2712pt_max_sw_bit(struct pt_common *common)
-+{
-+	return 2;
-+}
-+#define pt_max_sw_bit bcm2712pt_max_sw_bit
-+
-+static inline u32 bcm2712pt_sw_bit(unsigned int bitnr)
-+{
-+	if (__builtin_constant_p(bitnr) && bitnr > 2)
-+		BUILD_BUG();
-+	if (PT_WARN_ON(bitnr > 2))
-+		return 0;
-+
-+	/* Bits 27, 26 and 25 are believed spare */
-+	return BIT(27 - bitnr);
-+}
-+#define pt_sw_bit bcm2712pt_sw_bit
-+
-+/* --- iommu */
-+#include <linux/generic_pt/iommu.h>
-+#include <linux/iommu.h>
-+
-+#define pt_iommu_table pt_iommu_bcm2712
-+
-+/* The common struct is in the per-format common struct */
-+static inline struct pt_common *common_from_iommu(struct pt_iommu *iommu_table)
-+{
-+	return &container_of(iommu_table, struct pt_iommu_table, iommu)
-+			->bcm2712pt.common;
-+}
-+
-+static inline struct pt_iommu *iommu_from_common(struct pt_common *common)
-+{
-+	return &container_of(common, struct pt_iommu_table, bcm2712pt.common)
-+			->iommu;
-+}
-+
-+static inline int bcm2712_pt_iommu_set_prot(struct pt_common *common,
-+					    struct pt_write_attrs *attrs,
-+					    unsigned int iommu_prot)
-+{
-+	attrs->descriptor_bits = 0;
-+	if (iommu_prot & IOMMU_WRITE)
-+		attrs->descriptor_bits |= BCM2712PT_WRITE;
-+	return 0;
-+}
-+#define pt_iommu_set_prot bcm2712_pt_iommu_set_prot
-+
-+static inline int bcm2712_pt_fmt_init(struct pt_iommu_table *fmt_table,
-+				      const struct pt_iommu_bcm2712_cfg *cfg)
-+{
-+	fmt_table->bcm2712pt.bigpage_lg2 = cfg->bigpage_lg2;
-+	fmt_table->bcm2712pt.superpage_lg2 = cfg->superpage_lg2;
-+
-+	pt_top_set_level(&fmt_table->bcm2712pt.common, PT_MAX_TOP_LEVEL);
-+	return 0;
-+}
-+#define pt_iommu_fmt_init bcm2712_pt_fmt_init
-+
-+static inline void
-+bcm2712pt_iommu_fmt_hw_info(struct pt_iommu_bcm2712 *table,
-+			    const struct pt_range *top_range,
-+			    struct pt_iommu_bcm2712_hw_info *info)
-+{
-+	info->pt_base = virt_to_phys(top_range->top_table);
-+	PT_WARN_ON(info->pt_base & ~PT_TOP_PHYS_MASK);
-+}
-+#define pt_iommu_fmt_hw_info bcm2712pt_iommu_fmt_hw_info
-+
-+#if defined(GENERIC_PT_KUNIT)
-+static const struct pt_iommu_bcm2712_cfg bcm2712_kunit_fmt_cfgs[] = {
-+	[0] = {
-+		.common.hw_max_vasz_lg2 = 32,
-+		.common.hw_max_oasz_lg2 = 37,
-+		.bigpage_lg2 = 16,
-+		.superpage_lg2 = 20,
-+	},
-+};
-+#define kunit_fmt_cfgs bcm2712_kunit_fmt_cfgs
-+enum { KUNIT_FMT_FEATURES = 0 };
-+#endif
-+
-+#endif
-diff --git a/drivers/iommu/generic_pt/fmt/defs_bcm2712.h b/drivers/iommu/generic_pt/fmt/defs_bcm2712.h
-new file mode 100644
-index 000000000000..f1d983be1716
---- /dev/null
-+++ b/drivers/iommu/generic_pt/fmt/defs_bcm2712.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __GENERIC_PT_FMT_DEFS_BCM2712_H
-+#define __GENERIC_PT_FMT_DEFS_BCM2712_H
-+
-+#include <linux/generic_pt/common.h>
-+#include <linux/types.h>
-+
-+typedef u32 pt_bcm2712_entry_t;
-+typedef u64 pt_vaddr_t;
-+typedef u64 pt_oaddr_t;
-+
-+struct bcm2712pt_write_attrs {
-+	pt_bcm2712_entry_t descriptor_bits;
-+	gfp_t gfp;
-+};
-+#define pt_write_attrs bcm2712pt_write_attrs
-+
-+#endif
-diff --git a/drivers/iommu/generic_pt/fmt/iommu_bcm2712.c b/drivers/iommu/generic_pt/fmt/iommu_bcm2712.c
-new file mode 100644
-index 000000000000..43fbc3cf3adc
---- /dev/null
-+++ b/drivers/iommu/generic_pt/fmt/iommu_bcm2712.c
-@@ -0,0 +1,6 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#define PT_FMT bcm2712
-+#define PT_SUPPORTED_FEATURES BIT(PT_FEAT_DMA_INCOHERENT)
-+
-+#include <linux/generic_pt/iommu.h>
-+#include "iommu_template.h"
-diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
-index 07ef1c8341a4..1b39b27f0cfa 100644
---- a/include/linux/generic_pt/common.h
-+++ b/include/linux/generic_pt/common.h
-@@ -213,4 +213,10 @@ enum {
- 	PT_FEAT_X86_64_AMD_ENCRYPT_TABLES = PT_FEAT_FMT_START,
- };
- 
-+struct pt_bcm2712 {
-+	struct pt_common common;
-+	u8 bigpage_lg2;
-+	u8 superpage_lg2;
-+};
-+
- #endif
-diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
-index dd0edd02a48a..13ebb72a67de 100644
---- a/include/linux/generic_pt/iommu.h
-+++ b/include/linux/generic_pt/iommu.h
-@@ -346,6 +346,18 @@ struct pt_iommu_x86_64_hw_info {
- 
- IOMMU_FORMAT(x86_64, x86_64_pt);
- 
-+struct pt_iommu_bcm2712_cfg {
-+	struct pt_iommu_cfg common;
-+	u8 bigpage_lg2;
-+	u8 superpage_lg2;
-+};
-+
-+struct pt_iommu_bcm2712_hw_info {
-+	phys_addr_t pt_base;
-+};
-+
-+IOMMU_FORMAT(bcm2712, bcm2712pt);
-+
- #undef IOMMU_PROTOTYPES
- #undef IOMMU_FORMAT
- #endif
-
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.55.0
-
+Florian
 
