@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CE3C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CFCC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+ZuwvnEG9ZFOByf4VKZ6VVl/Ixc/umAgC0dvczQjhyg=; b=EYIMgjQfsLDQFCSL6gZfYDIZGu
-	DBnvrYdLmWeshmD7utNilEGT1IDBVD/RWzGTp/OaAzn+HDsM2J505G4Emw9QG4IlXxP41UdGHAIvj
-	LeFxZlBjR3Y+wGgcvzCQa8Xf3FTjPnPRlPRR9Xq05trhMKwcBsx19tXqlm1oMgvlcPqiOddDNd9Kt
-	kEuMf/jS4LTLLeiBUHOK7a5CPRuu+4eeHtC3dSjWTAIaIPsJVDPYdTIHYNr+KYg88/GwiKU5L+5gw
-	oSVESkYeZEq0FvtYEVo213xeMv86CImAs6lOwuPl8Aj1dXHbIPk5dLWkXBrEQyzgk+EUHK2i9Crqq
-	m+cIkBrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fq72bTv0aDg8FP/1veCJLfYhWi+ANAEEZ3M/sgNIuzQ=; b=oYCh6sbgiN2Qco4RfQq8BewhAe
+	Z8SUvz/YsH3I4BRwh8OVYFoxIRClQPG9OZKDCaQD5BO7rnY+EJeT2abA3ibEmRXEl1/blUGCKZ5lO
+	SijuoJsferDfR69Ex+QzGoVTwhug7xzNIFmD5H6weU3ZiXJeb8aaM6vN6YY3bn1nKLfIt/2Mh6L6d
+	sMe8AtW+uzD8ET0//U+P9/KZlyljO56M+GKlbyAmNNH+BiBisvD9UdGGTcQt6mdZr09C9BGbutD1l
+	GNGweyYtwNlC27CzjSqcH1N+AhZivCi+mdOzNSfmXKPjnyZ0fSJNRI6W5FdXuGa5YfLYMOVKQBo/g
+	BzjHimhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mhX-0000000BewN-3HUk;
-	Thu, 24 Sep 2026 16:53:39 +0000
-Received: from out-49.mta0.migadu.com ([2001:41d0:1004:224b::31] helo=mta0.migadu.com)
+	id 1x9mjP-0000000BfBA-0Jv2;
+	Thu, 24 Sep 2026 16:55:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mhS-0000000Bev3-2xpE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:53:38 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=sTkfV67kIp5uBT8Ri+KeF3tgtgkH8GrCjUJD4r1bRyY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790268812; v=1; x=1790873612;
- b=gAwEko12ns2zdsqAf3PMpRHTH0wDCwQTvV0XLjMJ/ODZdW8yas/l0ynTWXZ5G1kiK/pF8718
- sLmUN/iDprqBcB0TpWUvHkOK6X6Sfa86I45Qbfg3Eu8i4+WhVexWvEcOMtDOjSVfbmzQU89cbbe
- ZfJejZiH8MIUxZt6rMTQuXmI=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 6c5f37816937d026;
-	Thu, 24 Sep 2026 16:53:32 +0000
-X-Mizu-Trace-ID: 6c5f37816937d026
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Xi Ruoyao <xry111@xry111.site>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Yuan Yao <yaoyuan@linux.alibaba.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] KVM: arm64: Trap guest MPAM accesses whenever MPAM is implemented
-Date: Thu, 24 Sep 2026 17:53:29 +0100
-Message-Id: <20260924165329.1684155-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
+	id 1x9mjN-0000000BfAp-3UMF;
+	Thu, 24 Sep 2026 16:55:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F290E601EF;
+	Thu, 24 Sep 2026 16:55:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60D951F000FF;
+	Thu, 24 Sep 2026 16:55:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790268932;
+	bh=fq72bTv0aDg8FP/1veCJLfYhWi+ANAEEZ3M/sgNIuzQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=X8jyjQG5wgjV3njzYK5bFpjnqGZC1M20JAXdKp9H0BJ2imlh+/DPGGmFmM4ki+co4
+	 k+OyAK/d4VWEP+/AxAqhE1w3+QSxvKozoMFwSBG3txdgWQlyQhMSczIN8hj2zkKZ79
+	 ySKIcaOGnKWJi1eoCtoooaoyG13R5c/9C1aGRSaNvERVUX1qpCqEl5XsuqzDFRXomz
+	 Icy/rFVg6U0+gL/QgdEWvPqTzDcCwPILCuEfN3z6KJmA2i18cStbLj8Qa7Z1nUdv19
+	 dlGshJAyfLYAZ0ZKR6kPdeX959KosICrTQdt/YXLA9BdsQbSA6I3I/6mFwHHDZzZfl
+	 B2EQW6jDQU5XA==
+Date: Thu, 24 Sep 2026 17:55:27 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v3 2/3] media: dt-bindings: media: nxp, imx8mq-vpu:
+ Remove nxp,imx8mq-vpu
+Message-ID: <20260924-compare-useable-3e2863b66924@spud>
+References: <20260924130453.196299-1-benjamin.gaignard@collabora.com>
+ <20260924130453.196299-3-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_095335_826821_EA521227 
-X-CRM114-Status: GOOD (  18.89  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GsCwYJZyFBXDIRyI"
+Content-Disposition: inline
+In-Reply-To: <20260924130453.196299-3-benjamin.gaignard@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,132 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-finalise_el2_state() clears the EL2 MPAM traps on every CPU whose ID
-registers, with the arm64.nompam override applied, advertise MPAM.
-KVM sets the traps again on guest entry, but only when the ARM64_MPAM
-capability is set, and that capability also requires
-MPAM1_EL1.MPAMEN. MPAMEN is writable only at the highest implemented
-exception level. Without EL3 that is MPAM2_EL2.MPAMEN, which the
-kernel does not set, so ARM64_MPAM is never set either and the traps
-stay clear. A guest on such a machine can access MPAM0_EL1,
-MPAM1_EL1, MPAMSM_EL1 and MPAMIDR_EL1 while its ID_AA64PFR0_EL1.MPAM
-reads 0.
+--GsCwYJZyFBXDIRyI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Set the traps under the condition finalise_el2_state() clears them:
-record per CPU whether its ID registers, with the override applied,
-advertise MPAM, and whether MPAMIDR_EL1.HAS_HCR is set, since
-MPAMHCR_EL2 is UNDEFINED without it. MPAMEN does not appear in the
-conditions that trap an MPAM register access to EL2, so the traps
-take effect whether or not it is set.
+On Thu, Sep 24, 2026 at 03:04:52PM +0200, Benjamin Gaignard wrote:
+> nxp,imx8mq-vpu has been tagged has deprecated since a while.
+> After driver clean up it is time to remove it.
 
-Fixes: 31ff96c38ea3 ("KVM: arm64: Fix missing traps of guest accesses to the MPAM registers")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
+No users in linux doesn't mean no users, but I am guessing that there's
+genuinely no users elsewhere and anyone using out of tree devicetrees
+should have updated due to the warning at runtime?
 
-Notes:
-    Changes since v3:
-     - MPAMIDR_EL1.HAS_HCR probed once at CPU init into a second flag,
-       HAS_MPAM_HCR, instead of read on every guest entry and exit (Marc).
-     - A comment on why the ID registers are read through
-       __read_sysreg_by_encoding() (Marc).
-     - Commit message reworded around MPAMEN being writable only at the
-       highest implemented exception level (Ben).
-     - Ben's Reviewed-by dropped, since the MPAMHCR_EL2 test changed.
-    
-    Based on Linux 7.3-rc1 (cee9395acd80).
-    
-    v3: https://lore.kernel.org/all/20260911104715.307500-1-fuad.tabba@linux.dev/
-    v2: https://lore.kernel.org/all/20260908145651.2828597-1-fuad.tabba@linux.dev/
-    v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> ---
+>  .../devicetree/bindings/media/nxp,imx8mq-vpu.yaml      | 10 ++++------
+>  1 file changed, 4 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml =
+b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+> index 19528262810a..69619d2c86fa 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+> @@ -14,12 +14,10 @@ description:
+> =20
+>  properties:
+>    compatible:
+> -    oneOf:
+> -      - const: nxp,imx8mq-vpu
+> -        deprecated: true
+> -      - const: nxp,imx8mq-vpu-g1
+> -      - const: nxp,imx8mq-vpu-g2
+> -      - const: nxp,imx8mm-vpu-g1
+> +    enum:
+> +      - nxp,imx8mq-vpu-g1
+> +      - nxp,imx8mq-vpu-g2
+> +      - nxp,imx8mm-vpu-g1
+> =20
+>    reg:
+>      maxItems: 1
+> --=20
+> 2.53.0
+>=20
 
- arch/arm64/include/asm/kvm_host.h       |  2 ++
- arch/arm64/kvm/arm.c                    | 13 +++++++++++++
- arch/arm64/kvm/hyp/include/hyp/switch.h | 13 ++++++++-----
- 3 files changed, 23 insertions(+), 5 deletions(-)
+--GsCwYJZyFBXDIRyI
+Content-Type: application/pgp-signature; name=signature.asc
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 27fe0cd5b2d7a..3f5b347093fe8 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -755,6 +755,8 @@ struct kvm_host_data {
- #define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		4
- #define KVM_HOST_DATA_FLAG_L1_VNCR_MAPPED		5
- #define KVM_HOST_DATA_FLAG_HAS_BRBE			6
-+#define KVM_HOST_DATA_FLAG_HAS_MPAM			7
-+#define KVM_HOST_DATA_FLAG_HAS_MPAM_HCR			8
- 	unsigned long flags;
- 
- 	struct kvm_cpu_context host_ctxt;
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 8b080804bc90b..9677d234e17b1 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2281,9 +2281,22 @@ static void cpu_set_hyp_vector(void)
- 
- static void cpu_hyp_init_context(void)
- {
-+	u64 pfr0 = __read_sysreg_by_encoding(SYS_ID_AA64PFR0_EL1);
-+	u64 pfr1 = __read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1);
-+
- 	kvm_init_host_cpu_context(host_data_ptr(host_ctxt));
- 	kvm_init_host_debug_data();
- 
-+	/*
-+	 * The ID registers are read above with the arm64.nompam override
-+	 * applied, as finalise_el2_state() reads them.
-+	 */
-+	if (id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1)) {
-+		host_data_set_flag(HAS_MPAM);
-+		if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR)
-+			host_data_set_flag(HAS_MPAM_HCR);
-+	}
-+
- 	if (!is_kernel_in_hyp_mode())
- 		cpu_init_hyp_mode();
- }
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 1ce7130e25490..c7adf8c206d84 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -298,14 +298,17 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
- 	u64 clr = MPAM2_EL2_EnMPAMSM;
- 	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
- 
--	if (!system_supports_mpam())
-+	if (!host_data_test_flag(HAS_MPAM))
- 		return;
- 
- 	/* trap guest access to MPAMIDR_EL1 */
--	if (system_supports_mpam_hcr()) {
-+	if (host_data_test_flag(HAS_MPAM_HCR)) {
- 		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
- 	} else {
--		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
-+		/*
-+		 * TIDR is RES0 without MPAMIDR_EL1.HAS_TIDR, which MPAM v1.0
-+		 * prohibits: such a PE without HAS_HCR can't trap MPAMIDR_EL1.
-+		 */
- 		set |= MPAM2_EL2_TIDR;
- 	}
- 
-@@ -317,12 +320,12 @@ static inline void __deactivate_traps_mpam(void)
- 	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
- 	u64 set = MPAM2_EL2_EnMPAMSM;
- 
--	if (!system_supports_mpam())
-+	if (!host_data_test_flag(HAS_MPAM))
- 		return;
- 
- 	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
- 
--	if (system_supports_mpam_hcr())
-+	if (host_data_test_flag(HAS_MPAM_HCR))
- 		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
- }
- 
+-----BEGIN PGP SIGNATURE-----
 
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
--- 
-2.39.5
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarVV/wAKCRB4tDGHoIJi
+0o8JAP9bPWkftttTcroD/Ebf05mqIGTFa7OMd08w4VwH1mEEgQD+LPTr10IFTyQQ
+y//zL0pKXfEzCfB463vA15kwJ030OAg=
+=7zii
+-----END PGP SIGNATURE-----
 
+--GsCwYJZyFBXDIRyI--
 
