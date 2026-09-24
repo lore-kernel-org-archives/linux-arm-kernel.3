@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1A9C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC06CC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zZceZgWFQ3ZLDRQVIpqHYrcnvzmelr0JdvwQT4DK6A=; b=rgMnqVb22VztuwHTHls8mghUmq
-	61eWDbTXOa8RPESN6fKzEn0+jKD9OzDDCNw7PjWexuZCp+DMXxZLIAWTgayKpO0D98UuiSSevpIv4
-	yOtOpWV5peV8Gp7pzT736mPukPS+yP3bz7Zt5b9w5VDqz6xShJDD2I0XRUE3cqRh8oO6fA/+bmhCt
-	Vbl5Hoa9Xs5cVuKqy7X+iGx0Aj3kkQ7cFasl7Qc6ytwiUhLnH3AvPUih3sikSIuZjsra0bK1csszw
-	zBupW5+cYPsNDi1V4pKOPEDMU/6xvSrYs7aJmebIR8B5MFxoQO/MT8q7OSMQA+xrN0Q+EriSYgzVY
-	Un5kkcgA==;
+	bh=B7lhxw+XM+Z45cW0aWkRW+XyOgTDsLCB5jNlQmxpIZg=; b=FjuYBMc4umYWciqo/KqegHtoQ6
+	XB5VhDplEaZTOabU/3f1J3wi8yrUchqPAtGclakpbzeYYfl+Z0+CtXRK5fDnAjhNaaOWb2MXKK1cw
+	VODvpv1o0YznTHhqcK88a1kAC8xiUymC9L9gWe5t5oof1aI2t6mTy4GIRuRIFcR2u1jc8QWTgxrUB
+	vQis17H1BN7zHFyArwU8rwrWO2nt+IjWRlavfVLBcaT161ihHznXZJTSCjctWEsdudEewuSyi5IHn
+	1Te1SEGSezdl7K1rhAgR49KkiazycG7igZN1myH5jinYM8xuOfbGeV+13aEXHFinvZ3SnjJ/TAS/7
+	oivVLv1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9rnq-0000000CH5o-0m3r;
-	Thu, 24 Sep 2026 22:20:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x9ron-0000000CHAN-1SdQ;
+	Thu, 24 Sep 2026 22:21:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9rnn-0000000CH5T-3JQQ
+	id 1x9rok-0000000CHA3-0JBM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:20:28 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OIdZV42295182
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:20:26 GMT
+	Thu, 24 Sep 2026 22:21:27 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OIeHFn2303726
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:21:25 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4zZceZgWFQ3ZLDRQVIpqHYrcnvzmelr0JdvwQT4DK6A=; b=HrdbwMeIqm0nSjmN
-	zCT4rY+9fjyOwZnb86hfmPeEx0yFmklUtVf2lzQL3djhfocyVLQPPLI4CTBUDgdv
-	A+VIqqMUH5lo5eRQhxff+UQFhsGBr8lWbb3+8x+JRR++mjoBxqBZMyBeimadoZ+1
-	9omb1qw4EQGcMJeHkkaO/jfpEHS5LPuw2yEw9TEPzsXbEvmjFf0tCHrTHXxJK09s
-	EooV/JiZdiyFnqdFfbQLyTwyJw+RWyzmgHrG7IpO/MWKN07vrUGdxSUPwKrZVq8d
-	tbbsm+RlLcKJf7XVMApEI+82DzfaCCejMFFBCBQ4xmvI9QGWQr3BFno4sqODbhPk
-	URo0hA==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw94k8rpf-1
+	B7lhxw+XM+Z45cW0aWkRW+XyOgTDsLCB5jNlQmxpIZg=; b=TD1QmSIsY7flrZU+
+	7SOZfi9DGtLHZLT1J/4vljwLS3y4Vc5MqJt9Bolvn2w9gHE1e0TpyIF8VlEsUSe/
+	yRhU2I0n6IbDCnS7WGGtVIgtPF1oYXyoZ1IGFUTBw1kooNgCiEYQeGPDMMN/fRlK
+	aOXmWUQTkg1D0hwp+mbcHi11Sw9mIDXJxuTFFjXWANqW3udlW0BoaIe0tKO6f68t
+	IweHYAkTZKoNHSI/iz6P1aEZqsYa6483W3jks7U89wmAgYCg2ngqAnJcpf4bMCjd
+	TsvRrWKvXvHUWoa5/nCYjkFZQX+tAZUQdIXRj0DQTZJTJBL3LkirzsPWxjfA9LJN
+	H3G9VA==
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw1t7tv8j-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:20:26 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3284bbaa89dso932830eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:20:26 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:21:25 +0000 (GMT)
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-14383177746so727242c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:21:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790288425; x=1790893225; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790288484; x=1790893284; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=4zZceZgWFQ3ZLDRQVIpqHYrcnvzmelr0JdvwQT4DK6A=;
-        b=Qh01jGi2ztZecMMMBpxuKUA38By/msF6NOMYOrORsKSPu33GDC6iLDcLypT19wF5vE
-         rxf+eOx0qxOxNA8KuUPRxgLjuehfNWg3UCYJf8Hg/PZFJbhlOiBEFOYXPpPKBghoLAAU
-         fSmZe1oA+/z+0s/83zLnZBnyr33x5Qf50TuW6xPCS6IVTEMBBvgq2U35M0zOpb3xfg+d
-         noJ6AB3ylQrH5xEVo4sdUlIwYDLcCKzkyCb0rHvILPIUw2RnIVXi0kP/xJVxymXhq4KJ
-         iKarYQUHbMWHOaRLGeIcrwjwP9546yXaeTeVaadWhdLj/c9CtEM6u/UcmnEulZ3l2L9B
-         HyFA==
+        bh=B7lhxw+XM+Z45cW0aWkRW+XyOgTDsLCB5jNlQmxpIZg=;
+        b=bQBG6MIVqEyqQt2jZaHavP/V8LbFlbfuNKf2ygH+edFILAdx4QH7ewv3atr5kGhgjK
+         rtW9pqg3OuEiyZzpeTt4skMlxeTGLzQ01YaSNheSXjBtXy7u16TzsakUW//6r1C73Zyn
+         24lHfVBEn93WMMYNzTRxIAIZX9EunLpL3oQbgXzhIsbOudPLzETvsjmgdKijAFiYmoda
+         p9eNRAg+MOTh9DLSOGhiP4EXEodwVp3lwYgqB48msqAbQkQdYw7OsZ2x06Rh4s/KAosz
+         P7yrIJQn0fw600ZJkfUJqhQ5qCM6p6uCjEx1VXr92F+dDVoKE7hkY5ONSnN3VLf8W49t
+         vAUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790288425; x=1790893225;
+        d=1e100.net; s=20260707; t=1790288484; x=1790893284;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4zZceZgWFQ3ZLDRQVIpqHYrcnvzmelr0JdvwQT4DK6A=;
-        b=GYx9RZ7YfD/S2Oh0BYREjWAYSMJV59gzEUNXg8fxPuZV+vwPzO2PCJP73OrszY9iW6
-         kX20+gh2kRTRCgSW+0yrrMJAT6ykpC4Z6fWxfMPCthogoJluU1BzvP9V0+2lc5haJNTN
-         slz0HeSwfxBk2HevM+EekKm+G9BACVs3R4fwD9K9Tv9YCjt00Vq3vfyq9PvJ16NnTHT3
-         vLPhpufW6SVpxnl+N/IyaAEGlSDDZ8l9LX/NJcYFXStu2C0HIH/cQjfZv2h3Txzag+oq
-         RElO+HBLiGmtI8lhnBIgZBJRW/q3OawH+dLNSihf0IgktaUyRu/DoRYQYaYupLuAjkAs
-         nqjg==
-X-Forwarded-Encrypted: i=1; AKwUvBx897wcpYwmctVGdiRNX+6JRdPtMzYJNk0NTlcFfRz0lQCGbbCIi+44kw0OBWNpP0iz/GgYvpSVqnc0cHmKGs/T@lists.infradead.org
-X-Gm-Message-State: AFuF++ldWGVzxa6N3X23rUqIPA4Dv+hqqTZAGXBtUQcQ+brygCbRsXlz
-	hfsIKSOPkHCGL1t34dOpFp1Eev0Ev3nDb3VChq8cImNdSghrDbooPe5hZVs4taZr2GZODcshikG
-	GgTseYX7PxExCOPH6uT40iTJwx33D8VW4qvWqURpIALQhid/QCYIEDfM0vvijqqCWK5VieAQ9n7
-	gh0/QVxOJkSg==
-X-Gm-Gg: AYBFou0P7FpVn2Wz9Z6n66cownya3uTkhomyshyFOwOjFpW4Wq9wigeTlewyw77ausT
-	tkAYCdBLb1E/9IjxK8PQRfVAkoNGDgyn31E5wk4pFmwjPyqBpz6gm948Lzib3a6zJiRpFzjTrj4
-	n4Jh5ajiEaQNMhuEyNc80Mwc1hopZ6C/oADR3SuZq6X0QWqGpXRWe5Msb5OhBnRpTyoqsJhote5
-	MNmItKxikd9C5lwNxxfc3R4yZ4EkfW54BA9pV7Ged59/npXUY9JKYMHyGMX3akScOxT64mCzXOn
-	9AMv0d8Bu3AU68zl8sh2XxSXSpjxsvljR5qQcx8kA42iJGyZQ4GgQvPc4YB1iVqokPsB6RkWTOy
-	7WJMYU4o/pS50qY0mApYrxbhVF07UUToDL3uzENpAjolfGySVlExylQ==
-X-Received: by 2002:a05:7300:cf90:b0:339:7b3b:236d with SMTP id 5a478bee46e88-34001f081bcmr3059381eec.15.1790288425238;
-        Thu, 24 Sep 2026 15:20:25 -0700 (PDT)
-X-Received: by 2002:a05:7300:cf90:b0:339:7b3b:236d with SMTP id 5a478bee46e88-34001f081bcmr3059364eec.15.1790288424751;
-        Thu, 24 Sep 2026 15:20:24 -0700 (PDT)
+        bh=B7lhxw+XM+Z45cW0aWkRW+XyOgTDsLCB5jNlQmxpIZg=;
+        b=siv+4OFT4SNyYBVSL6WvYQNqOZwdOlthh7gafnIlBwM+EiORba1P8W+8GhXNzElwaY
+         bQTAeLWn44ksnkSiMwJvByVJNOFyxS/vLQW5cmZr2u4rY2BboKvqm5aIU9N6W087DMZ6
+         2Na8IgHif6zPuhASU3+9RsVyBkiLUOUO58YNPuhuNhzgZULY75rDf+gfX6+App7qJcYy
+         dx4+xUh/kUQAlAzAExrAvL/Vym0bTJIMzD/H2G0A3Gxpila+2ge1k+Sawx6r882gcP0f
+         xwr6LI3/MxGVd/7m4wYgmbjTYRpsoOciYzQEKAxgrhjItK/xC3vtNCk50fx1tozZPsKb
+         Nzkg==
+X-Forwarded-Encrypted: i=1; AKwUvByF6AcEfjmE7nXiufCBYrgyqK7b2Sthxu5huHhZJdprMWI4w6rofg7Bb4vtA26LmrZAjVd88oshdW82L3iUn/IK@lists.infradead.org
+X-Gm-Message-State: AFuF++kuMQqu+CniT2k4gROwSNmUZog+gnJI+jBJIB+zUCqjuK5vIXse
+	+1kHMAkNpSBXdARvdqthXDQQQiUWco96ksBsg0BO8OaZDusptFRKrUPzzLB48sPS5DrzrB5BO6+
+	u7ezpMKjDk8AjnVLmIrAFmWAhkrM444RcBPWGrq/iE7osStbyQa8zLq5teX/ua17/MIio5ljFqZ
+	rJXw==
+X-Gm-Gg: AYBFou1cqGLzhFsjTSLzQ8HLQfF8ET/gajNjNFJei5f/We6rBSq0ESA/u2YyvTtOw3G
+	yI868ryt5r3JndJj1UD3NtXeKyGciKvacwfp+Ld5+zlIynTV/gbyAN0ZhMqqwuZZoS4190hwyUx
+	6Ed5Uv1p61MzdrE5DNp2x7sf+U1qvOwbLyqeXBnKzNF5PirjjoIVOppouYuBEYRZ/IOW4jEjlRS
+	zltV7Pahl4JxLFu1I35JIm3OM+dCrvwvIOTaVTKqG2yfm6c4fmwVFFvrPCoPZA3KFZgMQfFzr4+
+	Uc4q+LPKa5r2urkGDF4nVlhMoYty7DHAtuRNHt2VFGyzQYR6vx5lry8Ptdwqa7LzCkhpWd0cC/H
+	IiyHIH+gbshcGokIg4f3aAHBP+hDYPjJKSM96ZoPOwUJ/9IAkxilFrQ==
+X-Received: by 2002:a05:701b:4214:10b0:144:eb46:c40 with SMTP id a92af1059eb24-14503fa7654mr3140950c88.9.1790288483862;
+        Thu, 24 Sep 2026 15:21:23 -0700 (PDT)
+X-Received: by 2002:a05:701b:4214:10b0:144:eb46:c40 with SMTP id a92af1059eb24-14503fa7654mr3140902c88.9.1790288482396;
+        Thu, 24 Sep 2026 15:21:22 -0700 (PDT)
 Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34145c166cfsm1343887eec.28.2026.09.24.15.20.22
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-145ad8e43d2sm1402048c88.12.2026.09.24.15.21.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 15:20:24 -0700 (PDT)
-Date: Thu, 24 Sep 2026 15:20:17 -0700
+        Thu, 24 Sep 2026 15:21:22 -0700 (PDT)
+Date: Thu, 24 Sep 2026 15:21:18 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -120,47 +120,47 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  <ritwick.sharma@arm.com>,
         Gavin Shan <gshan@redhat.com>, linux-acpi@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 08/13] arm_mpam: propagate MSC access errors for
- interrupt control
-Message-ID: <20260924152017.00004ec8@oss.qualcomm.com>
-In-Reply-To: <20260924152739.2865510-9-andre.przywara@arm.com>
+Subject: Re: [PATCH v11 09/13] arm_mpam: propagate MSC access errors in
+ mpam_reset_class_locked()
+Message-ID: <20260924152118.00001671@oss.qualcomm.com>
+In-Reply-To: <20260924152739.2865510-10-andre.przywara@arm.com>
 References: <20260924152739.2865510-1-andre.przywara@arm.com>
-	<20260924152739.2865510-9-andre.przywara@arm.com>
+	<20260924152739.2865510-10-andre.przywara@arm.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=aaj0Dhot c=1 sm=1 tr=0 ts=6ab5a22a cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+X-Proofpoint-GUID: 28fCZCMFOYaX4eCVR1NtnXyut4vu3ce8
+X-Authority-Analysis: v=2.4 cv=U/MHnuru c=1 sm=1 tr=0 ts=6ab5a265 cx=c_pps
+ a=JYo30EpNSr/tUYqK9jHPoA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
  a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=BicPeEsDMmYJQF04euIA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: EXSFdn6OQ95D6wEboKv5HYt2ggdZGuMF
-X-Proofpoint-ORIG-GUID: EXSFdn6OQ95D6wEboKv5HYt2ggdZGuMF
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA5MSBTYWx0ZWRfX7GyLoetHYXyX
- eeYy9y96Lnw7uRbnDT3UeRtImc9TuRpBblVdMnI0eS3ZCqflhJFGt1Z6CLvIYS5nHsKBZffS828
- 1yopvQ8NOmadrHEXn8jbP4TF3/Z6btTvQVvXW4DXuGg9+eU7WjR5QM50M3EywngL7KjLWQlrJ/q
- xLq35LGAbfWyIxqXpe9DboyDyR0XgRfPlbgQWLqgG4MEylVhb8SRR3SaYgt9coBnO2i6JAlnOO9
- ZKrnn/6whoSc71kNA7d5USHoWAk2Q83lUnDRb4w6DQGpXi+yjcNcODNufdlLR8ZupPesDeYEDCs
- XkLGwtu1lZlNO+5VPXflXaCQPB4Zq15e5BJKus4pVPzw6U6MSyhrnzRxD8mAcWio9lrPQ+raKu+
- 5wr6moBhL5zo/VZX6UcFt+KGv0h29t1zZqGZeAv3YWD6w7ppbKe5yaYjZLjdIRFrW4h8Md6nLIr
- hNscDG3a9FS5KfdeaZA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA5MSBTYWx0ZWRfX8LtiSZ4aY1Ex
- XxB+d4sQ38l0NINWkkDo6ITDCQ+DAg4Ilh6fDioZ1O8+l4OyF+1Wsb7OTi/nfN4+6yc3Y2eOq/k
- WR6yTyCheHeHtLX1RTfasAjvoO1EWXo=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=ESexO8LFGIdw5cpBbeIA:9 a=CjuIK1q_8ugA:10
+ a=Fk4IpSoW4aLDllm1B1p-:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA5MSBTYWx0ZWRfX71DggJgrfz1I
+ qHsYzrlY6qO5AD3h6rYoBHdmSTc56Ef2+9nO0OmLKHIedozH6JiW90+XmWu+EO1vNGzV4odt6kR
+ adRdP0LOsw/ggui+Bp7KjIPEYwLrncUF3ALbEa7aYLepO96jJ9XqlvG+loELDWrXZ7Ps3YawzQe
+ 2bbA1OyvnFPhEKU1UOPbIshDzznPeBr+X2LAoBgrsk219T9BA3+h2QqKw9NOcKlUF8j/0rKC8KZ
+ TpRdv0KqGEI2wGiXoHOr53StzFxND/Cyv+GAgYDo3MBmks4B9bL2lUKHlGYisjVNorHKr1oHL29
+ oWactn3nale/mQpM6mhllta+IhO+PBelD87IgfhhEWAOQOZ1n8usu0P3PJQzpUs+xLLpwAe2Shv
+ KjH9YvXb1JxKuDhCC8mP+mL/zkXxeKB1cjzRU2xAG9s86JhoaGGth2f/iWsa4BhQV/vpBclicCW
+ g7dG0ei/HEJbdvxx9pQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA5MSBTYWx0ZWRfXz3CslpCF+I9r
+ nTd+ll6KkMFuLqqcN2BcX6vgtZShGT0kbOOedJay+kdRcsByOozQCzLeWQ5mhoMoGZiBDJMR7Ee
+ MuqY2w0tayw+FytMfIgduT33qgFfOKw=
+X-Proofpoint-ORIG-GUID: 28fCZCMFOYaX4eCVR1NtnXyut4vu3ce8
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-24_05,2026-09-21_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 priorityscore=1501 spamscore=0 bulkscore=0
- clxscore=1015 phishscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0
+ malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 impostorscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609240091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_152027_851684_CDC02D2F 
-X-CRM114-Status: GOOD (  28.63  )
+X-CRM114-CacheID: sfid-20260924_152126_254914_573042E0 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,111 +175,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 17:27:34 +0200
+On Thu, 24 Sep 2026 17:27:35 +0200
 Andre Przywara <andre.przywara@arm.com> wrote:
 
-> Allow the functions dealing with interrupt registration and enablement
-> to check for and return errors, and propagate MSC read and write errors
-> from the lower level up.
-> This does not cover the IRQ handler yet, as this needs some more
-> attention.
+> The mpam_reset_ris() function can return an error, propagate this up
+> through mpam_reset_component_locked() to mpam_reset_class_locked(),
+> which is exported. The external caller is a void function, so cannot
+> really handle the error at the moment, but at least we report everything
+> on the MPAM interface side.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-
-A few trivial things below.  Anyhow, I don't really care about them so
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-> ---
->  drivers/resctrl/mpam_devices.c | 31 +++++++++++++++----------------
->  1 file changed, 15 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 558efab75f911..eb26c25b9f970 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1105,7 +1105,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	}
->  
->  	/* Clear any stale errors */
-> -	mpam_msc_clear_esr(msc);
-> +	ret = mpam_msc_clear_esr(msc);
-> +	if (ret)
-> +		return ret;
->  
->  	spin_lock(&partid_max_lock);
->  	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-> @@ -2668,9 +2670,7 @@ static int mpam_enable_msc_ecr(void *_msc)
->  {
->  	struct mpam_msc *msc = _msc;
->  
-> -	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
-> -
-> -	return 0;
-> +	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
->  }
->  
->  /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
-> @@ -2678,9 +2678,7 @@ static int mpam_disable_msc_ecr(void *_msc)
->  {
->  	struct mpam_msc *msc = _msc;
->  
-> -	__mpam_write_reg(msc, MPAMF_ECR, 0);
-> -
-> -	return 0;
-> +	return __mpam_write_reg(msc, MPAMF_ECR, 0);
->  }
->  
->  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
-> @@ -2777,11 +2775,13 @@ static int mpam_register_irqs(void)
->  				return err;
->  		}
->  
-> -		mutex_lock(&msc->error_irq_lock);
-> -		msc->error_irq_req = true;
-> -		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-> -		msc->error_irq_hw_enabled = true;
-> -		mutex_unlock(&msc->error_irq_lock);
-> +		scoped_guard(mutex, &msc->error_irq_lock) {
-> +			msc->error_irq_req = true;
-> +			err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-> +			if (err)
-> +				return err;
-> +			msc->error_irq_hw_enabled = true;
-> +		}
-
-Scope ends here so unless something else gets added in later patches, you
-could just use a guard() and reduce the noise.
-
->  	}
->  
->  	return 0;
-> @@ -2800,10 +2800,10 @@ static void mpam_unregister_irqs(void)
->  		if (irq <= 0)
->  			continue;
->  
-> -		mutex_lock(&msc->error_irq_lock);
-
-Given you don't return early as a result this is an unrelated change. I don't
-really mind but in ideal world would be a separate patch.
-
-> +		guard(mutex)(&msc->error_irq_lock);
->  		if (msc->error_irq_hw_enabled) {
-> -			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
-> -			msc->error_irq_hw_enabled = false;
-> +			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
-> +				msc->error_irq_hw_enabled = false;
->  		}
->  
->  		if (msc->error_irq_req) {
-> @@ -2815,7 +2815,6 @@ static void mpam_unregister_irqs(void)
->  			}
->  			msc->error_irq_req = false;
->  		}
-> -		mutex_unlock(&msc->error_irq_lock);
->  	}
->  }
->  
 
 
