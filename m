@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6928EC98315
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6D9C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrjq9fQeRRT3Dkn6ja90PvKLpuXI2Gg2RkQogJKUx6w=; b=WrI5yXCOEbpfof0n7lV73hdl3f
-	TeJsny4ZdjLfp1fat81sA/ddELTBuUNCg8nQbZKfQsh5aGkpEo6EBUznDlvdjNUU0HPI5MukawBjf
-	Djhez9YBCk2eqAIwkiVf0BAxSk4/XmVZIT0knYhnc0ZWhxQOB/p1fY8vaqmGUVirCfilW70kh8Fmi
-	9SeygwCYUdanURV58GHrjDPSDA6d1+e8VDC9NKRET+hV/e3SFALBVdUXOWIui1g7LGR8Tr06oBmLC
-	ZBQxSUxxRAO3VAsLg1n6G2OMbwxqUhuK+BY+o0fxohplVWkXmNCfObj+KRhYpS1/lWDxIdlk70zcE
-	pv4UNRnQ==;
+	bh=7STxnZVUQmrLVyWonCr/WVFvn6ySKjnlDMhE0HDJ/pg=; b=qPKzRXvr3bTW8H9s4M+lWImg3m
+	IeFHXYsWVTntj12eqOEuSMBAfT3Dcl5JGRbDXWGnLBmItLYSQD8Qy2zJJEn2x/ES/ARcP7NxSiQsx
+	yBPyRQ/Q0EnOxHTsU80f6UCRgfItHvff5PayyBZCK9CnGDb+ev5LV1+XTkL6YpA75U99+PE12Z9+x
+	CdxDgWD7DxzlAfdzHUjsl4m9F57vkgG2eNItCMMh/29nEN0u+W17TIyB4t3DfB+l3/jERCVq3jYxK
+	u29AvoLfV4KgtjboUQxYQM5uysbvXBDN+lWyr8u2S3wf5qO07BcGAZPNQphepB9J+BLJQq25FvekL
+	VSe8z0qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dfd-0000000AFWq-0kL2;
+	id 1x9dfd-0000000AFWK-01cb;
 	Thu, 24 Sep 2026 07:15:05 +0000
-Received: from mail-ed2-x1e.google.com ([2a00:1450:4864:33::1e])
+Received: from mail-ed2-x14.google.com ([2a00:1450:4864:33::14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dfV-0000000AFRX-1l25
+	id 1x9dfT-0000000AFQQ-2sO4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 07:14:58 +0000
-Received: by mail-ed2-x1e.google.com with SMTP id 4fb4d7f45d1cf-6a9adea43b6so2479022a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:14:56 -0700 (PDT)
+	Thu, 24 Sep 2026 07:14:56 +0000
+Received: by mail-ed2-x14.google.com with SMTP id 4fb4d7f45d1cf-6aa0ee64afdso2091757a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:14:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790234095; x=1790838895; darn=lists.infradead.org;
+        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790234094; x=1790838894; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yrjq9fQeRRT3Dkn6ja90PvKLpuXI2Gg2RkQogJKUx6w=;
-        b=QXXktA3d0OjjEpmJeO2C0+6dy5jexIGsLeF6E4LAsRL8dnZ5KV3cJpzMpzfCJoiEsH
-         TUmMWXnWlg5I1dq+E2WREA9Hd/ZJ8kqruqU3VZjfh9CHkVqXmS28Aoob/g2QuwzmlQKN
-         Zy1VdIPuFZ/+drVgL3tEqZofWG+8/LLK7BZJnJruS4z72ATm/7qvWJpgpmhhTKgOdbPy
-         6M8Z0ZCs/CDvycXXGa6Td1ZClp0BJHK6zuIdMYDt5GeJfydkPXiEX7HvAP9WfL4R9BE0
-         1svypFhjQy/DgZRYptMmDThj7sXSYI84F1FeHIZXF8JGRtVMuMv4jX14cWGqLonk+sYo
-         i5iA==
+        bh=7STxnZVUQmrLVyWonCr/WVFvn6ySKjnlDMhE0HDJ/pg=;
+        b=o+kDUEn9mJmcrIn/8EkGX+MRFg8pfW3VWFBw6mNbxHEvpNtpIsqiuoFpaSP0lRpTi/
+         j9el0Zl0UGNBmWkyai6Hc8YA9TSwzzRrxVvkhADJqHCzVfjvAoirDrUvhIogWSCK6+n2
+         hlCJKNg/mNCgxoHs3wkcxea18KWwQhhj0GKdk/razNayKBE/FIAmsLWC1Vd2R5upQmPe
+         NvMwlsyxR1vCJ6ynAkoswl/lNxxJ+gJUt007UFR/g2OGnEITbG4uBM5uyBKV+HLzqpcL
+         be3ncPd9GxkB/90NZqJX72u8FgDtN3QKBapqoF8N/UQpbcXR07r1kddYU5gDsY3E/oRh
+         WGLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790234095; x=1790838895;
+        d=1e100.net; s=20260707; t=1790234094; x=1790838894;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yrjq9fQeRRT3Dkn6ja90PvKLpuXI2Gg2RkQogJKUx6w=;
-        b=p/gkb0A2YLmhQ0XNMZ8S9r7lg/GgUn0vYTFXpSQWNGYRdNk3ZTTsBMAjYp3yusSk1I
-         FHeJLhfUTsTs2CGGQ0Jv6hr3y3tChdkgyC2QzOkgz5jgEHfWqexFs1F6N3McM1pd1X6R
-         Ew/v0q7h1TggALUXN65EO+nED9ZZ85efCtL1qOtkjgqM9i2Rlrux6L7kcudJw59pv/+c
-         Zco18gDnKAg55ePT1m5pdtx4/2U3iIEQE1muaTA6qEXvvCgMXSWwx+to5qlUc/QoqPzi
-         pmLCDzGqHL33wXpK5qX9duSYoiBJobUeFiKB1KJ5ZoX/BAz75cUlshoOq1uLja70FnbW
-         XsnA==
-X-Forwarded-Encrypted: i=1; AKwUvBz4vefuHeDPh9ivnTdxNXr3tjnCLuBOig79On8Lp7JlpxrGTeMP5Nri0p7J6Q9ci5QKdXgXhD0+kqUmTxFoV4EC@lists.infradead.org
-X-Gm-Message-State: AFuF++nv+nFObMkhIl2SMO35If9hr40QAPmGmvJeGmjGozZhVKggiSUk
-	+RDMVyGGqANXn4+hWALPZTtQANn3VvuCjqBfQ0gVOIDzKBj3XN64Hw2uD5EC/dYIfRg=
-X-Gm-Gg: AYBFou3LPxDg2u8Luk9HMDHamqDjHrinzCLRNCANVGcuOIybdVC0uuuiQDNpctldNz2
-	xYdhhfBLrabyZieJfnvzyfh1feXmE/WoyggFBkZn3VNYMy3PFMz6x+vz54QV7okYRXOTDOO/BR8
-	aDpkE+IQ4yBrYLGdkIm1CE6FpsNxrhZMXEgKZCtHbDoMI5M6xgcCEt5xYuI5lLqsf6J9u1oy44r
-	p404lzg9JOXlx5U1pXNrz+VJM+di0Tj9acWY1LGdgug8X/NwSy/jdxX0IM1RRGj98ft11dmU72D
-	XHjbHmB4CGHqTCTPOyNAj7mQPmGpBO02IBXUgJvpt38QtXuYkND35U4mEjZ9AtLCRQzlJlNteun
-	EOLaGBHlbB1zKBMP/mXK/zCwdX04+XNraOYjzZ7d5HLZIC+CPLSZrwEtJIjC7H/MI+sMfUuUOk5
-	nu2UrIn2tzZWaWyoKpCZHtWX+iaCgxpN31xM9FWczMLxUPXrlsFQcpcM/tfVDzMAaPZDvdksbee
-	ZaqoXZ/sBQdj1fvcQEtv6JHs27s9GJJbH8b8/xEKjRUbzc=
-X-Received: by 2002:a05:6402:1599:b0:6aa:936f:5d2c with SMTP id 4fb4d7f45d1cf-6aacc83e324mr889306a12.23.1790234095400;
-        Thu, 24 Sep 2026 00:14:55 -0700 (PDT)
+        bh=7STxnZVUQmrLVyWonCr/WVFvn6ySKjnlDMhE0HDJ/pg=;
+        b=DFSNsccOFWhqL3h3FGe5r812QGxqCus/bbCmcG8m5wGGx9kxUlRzLzshKBck4g3ncu
+         Exi7nhrfQar1pQk+hpTDnc+nN/5A1Csb5TxbTm4v1dpgFJXTJwQ3PSgNzz3TeCwT3HnA
+         4gw9Dg2lokyoVysbApTikfaUI6iB2OjYaEqqE/nNaRfx5gu0uk6G6kIASSrGASZ57KfJ
+         jTXfuKiLpEK7E0SFOiDRM3kP+zlYIwvovMkmmCX6xxYf5Sg/v2i93gV85Ktq3A5vtFC0
+         e1Y/YwsEZ31EJ47kPLvspS0Z2i7IEycx5O9U3ybfSyCok2Cr3U/h5M+ao61iJxdQ7ImH
+         tg8A==
+X-Forwarded-Encrypted: i=1; AKwUvBz/tH7zYgVPwrrrrReco73dYD8ghgp3E2RrNbyVsCg6yifsK0fYq7UtQP6gHoNNuQpBAus0KcXkODA6PkKMh0/V@lists.infradead.org
+X-Gm-Message-State: AFuF++m/1jfO5j/x91P4D6z6A+0iPVu0CGslPuuAEwLCOwhoziIzLWeE
+	dSYb2VwBrrOCxNKcUGli/nvJ34BUWhLUVqTabri2irBYZgF0WdPlksHY41z7bxhzerM=
+X-Gm-Gg: AYBFou2UJvCcFrLu3Kjw2LXT2HkNMczpm7S+ZYpwZV+5rDt3vJFdQFSutS83hBHqpvq
+	I+LkRLJO43ncLdZOyYnMCr13fu9qqpQX+5kvdcUsqrcHNYfnCfjZMytny7Q7rIyxIr7+x94Kn1i
+	lycZz0cRJNUaqcFQ9YwyRmxmKLJ09DwKShWEhqIpb2k9mb6AJVvBjOfmSyf66RrZD8Pq2Y1uBBF
+	heORUiflJy3Zi+l67S/Nr1HZ3INoT0vkz6V/tltAx/ruSvUqP9/0ZsFUImTyn+FzHGBd9M6A2aB
+	8eDxzOJs5BBebYXwYhIb86butxDHsnAzcoRQ63CUzEXdOax57BQQz0xTJfEDO7Eed7IIIQXLymj
+	uFupYjH0KKCGWhYgxAie5SbPkUMvqIHZ20KHsufTaaG1U/2mwcaLoHX8meMwtBay0w8C9ahHiVD
+	1HKTkU+cEdrkiPxoQ00ONp9mKXS33MRnzZEfVgjYfVMOS7jPfn7aXmx2Kp4oy3uk7+GEcQMRqYp
+	h62Rn1Y222jaqeDRovJ6/p0jxeojw798y/JeCjWxhZQwdCGuOQjifDBEQ==
+X-Received: by 2002:a05:6402:44d0:b0:6aa:a040:cbd3 with SMTP id 4fb4d7f45d1cf-6aac8ed4399mr891513a12.3.1790234093718;
+        Thu, 24 Sep 2026 00:14:53 -0700 (PDT)
 Received: from janlin-02.home.wermuth.pl (109-206-198-27.host.skynet.net.pl. [109.206.198.27])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab38a9756sm3306589a12.25.2026.09.24.00.14.54
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aab38a9756sm3306589a12.25.2026.09.24.00.14.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 00:14:54 -0700 (PDT)
+        Thu, 24 Sep 2026 00:14:52 -0700 (PDT)
 From: Adam Wermuth <adam@wermuth.pl>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Rob Herring <robh@kernel.org>,
@@ -80,17 +80,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Adam Wermuth <adam@wermuth.pl>
-Subject: [PATCH 3/3] arm64: dts: rockchip: Add PWM fan to Radxa ROCK 3B
-Date: Thu, 24 Sep 2026 09:14:45 +0200
-Message-ID: <20260924071445.441822-4-adam@wermuth.pl>
+Subject: [PATCH 2/3] arm64: dts: rockchip: Enable M.2 B-key WWAN slot on Radxa ROCK 3B
+Date: Thu, 24 Sep 2026 09:14:44 +0200
+Message-ID: <20260924071445.441822-3-adam@wermuth.pl>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260924071445.441822-1-adam@wermuth.pl>
 References: <20260924071445.441822-1-adam@wermuth.pl>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_001457_474276_CBDB83FD 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260924_001455_736386_9C5852E1 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,99 +105,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ROCK 3B has a 2-pin fan header powered from vcc5v0_sys and
-switched by a MOSFET driven from PWM8 (pwm8m0 pins). Enable the PWM
-controller, describe the fan as a pwm-fan cooling device and add
-active trip points to the CPU thermal zone:
+The M.2 B-key slot on the ROCK 3B is controlled by three GPIOs:
 
- - 50 C: fan at 25%
- - 60 C: fan at 50-75%
- - 70 C: fan at 100%
+ - GPIO0_C6 (4G_PWREN_H) enables the 3.3V supply of the slot, which
+   is generated from vcc5v0_sys by a dedicated buck converter,
+ - GPIO0_D6 (4G_RESET) drives the RESET# signal of the slot,
+ - GPIO1_B0 (4G_DISABLE) drives W_DISABLE1#.
 
-each with 5 C hysteresis. The existing passive and critical trip
-points are left unchanged.
+Unless the supply is enabled and both active-low signals are
+deasserted, the module never enumerates on USB. Describe the supply
+as an always-on fixed regulator and hog RESET# and W_DISABLE1# in
+their inactive state.
+
+Tested with a SIMCom SIM7600G-H module.
 
 Signed-off-by: Adam Wermuth <adam@wermuth.pl>
 ---
- .../boot/dts/rockchip/rk3568-rock-3b.dts      | 51 +++++++++++++++++++
- 1 file changed, 51 insertions(+)
+ .../boot/dts/rockchip/rk3568-rock-3b.dts      | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-index 908bb4425e81..815f67988ab7 100644
+index ad9a91c0d0d0..908bb4425e81 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
-@@ -24,6 +24,14 @@ chosen {
- 		stdout-path = "serial2:1500000n8";
+@@ -98,6 +98,20 @@ vcc3v3_sys2: regulator-3v3-vcc-sys2 {
+ 		vin-supply = <&vcc5v0_sys>;
  	};
  
-+	fan: fan {
-+		compatible = "pwm-fan";
-+		cooling-levels = <0 64 128 192 255>;
-+		fan-supply = <&vcc5v0_sys>;
-+		pwms = <&pwm8 0 10000 0>;
-+		#cooling-cells = <2>;
++	vcc3v3_wwan: regulator-3v3-vcc-wwan {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&wwan_pwren_h>;
++		regulator-name = "vcc3v3_wwan";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
 +	};
 +
- 	hdmi-con {
- 		compatible = "hdmi-connector";
- 		type = "a";
-@@ -200,6 +208,45 @@ &cpu3 {
- 	cpu-supply = <&vdd_cpu>;
- };
- 
-+&cpu_thermal {
-+	trips {
-+		cpu_fan0: cpu-fan0 {
-+			hysteresis = <5000>;
-+			temperature = <50000>;
-+			type = "active";
-+		};
-+
-+		cpu_fan1: cpu-fan1 {
-+			hysteresis = <5000>;
-+			temperature = <60000>;
-+			type = "active";
-+		};
-+
-+		cpu_fan2: cpu-fan2 {
-+			hysteresis = <5000>;
-+			temperature = <70000>;
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map1 {
-+			trip = <&cpu_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map2 {
-+			trip = <&cpu_fan1>;
-+			cooling-device = <&fan 2 3>;
-+		};
-+
-+		map3 {
-+			trip = <&cpu_fan2>;
-+			cooling-device = <&fan 4 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+};
-+
- &gmac0 {
- 	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
- 	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>, <&cru CLK_MAC0_2TOP>;
-@@ -708,6 +755,10 @@ &pmu_io_domains {
+ 	vcc5v0_sys: regulator-5v0-vcc-sys {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_sys";
+@@ -220,6 +234,24 @@ &gmac1m1_rgmii_bus
  	status = "okay";
  };
  
-+&pwm8 {
-+	status = "okay";
++&gpio0 {
++	wwan-reset-hog {
++		gpio-hog;
++		gpios = <RK_PD6 GPIO_ACTIVE_LOW>;
++		output-low;
++		line-name = "wwan-reset";
++	};
 +};
 +
- &saradc {
- 	vref-supply = <&vcca_1v8>;
++&gpio1 {
++	wwan-disable-hog {
++		gpio-hog;
++		gpios = <RK_PB0 GPIO_ACTIVE_LOW>;
++		output-low;
++		line-name = "wwan-w-disable";
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu>;
  	status = "okay";
+@@ -655,6 +687,12 @@ wifi_wake_host_h: wifi-wake-host-h {
+ 			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	wwan {
++		wwan_pwren_h: wwan-pwren-h {
++			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
+ };
+ 
+ &pmu_io_domains {
 -- 
 2.43.0
 
