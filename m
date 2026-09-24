@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE773C98321
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377FDC9831F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mH6UmZDnY2/1ICZZ8Pg7t2PX/T+Y1zVqUpSfOHvs/6Y=; b=GRracFox6PMuGDDsEagu4KCxWn
-	KLzCkDNF//Z2L+6539SiWtPxaWPgfnWyeewSZYks13P29lAzXVWPgeXXJbPlMxWEU0AD07aId4f6L
-	fJ4UIZWrGwq6UjwjysbDcEU9RdgdrGemLKKhgWUDIcKolqWSrL3TxjCNt4mr7QTSnTk2wb7RSkIrx
-	YZ0p/KBuAhQbtd7i5o0iiQfxI80tz4yJz4jaPnjQMgfmQXJAHqc7PaeHOX6Z0W/TZCniGGblToAlm
-	R4xS0rEnyO8aoDJb64L45sixIlR0dyUEgPIfQHyHFcJ4ROweoRXiGe4MztXhyjeu2v7vwjLgZuF2k
-	GLF3hoRA==;
+	bh=t9iLsnAODx2rF847XvroFh/ns6W9jfoyO6c4E8bJMN4=; b=ZeYTKIzS7+85rbzjPMCa1NQwsz
+	WSOwtf4EM/HMYUtkMJPJiPRp9aV+AVPQZNuDu6BQCX1dTuTAzTGmUXEvzaBHC8Q+D9ZxIbj8RPtoP
+	sGxeF++XKIyUvqjUSb4UHn564mbFMddZccRV2fUx0R3Gx8Hlg+eLN4M22mrrXfDP5s8fYTGu8J6+H
+	TVn4DIFl+VQwQQddt8wmQMKNs3rHQYHku7H1th5488PH31ZyKfAx8SGMUECqlfvvL7HifmgRJV6Tq
+	GeTokeSeryUGFJTnHM7v7AdxAtq1g+YyfvGjkubcN8K0ioyicz6Bw4/GcV0q6mSKdiv1ZDQa3F7DU
+	Sw9kDxOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jrK-0000000B8Ue-1gGz;
+	id 1x9jrK-0000000B8UF-10VY;
 	Thu, 24 Sep 2026 13:51:34 +0000
-Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
+Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jrE-0000000B8Qs-3HkR
+	id 1x9jrC-0000000B8Pu-3RG3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 13:51:29 +0000
-Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49e620fa473so12844315e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:51:28 -0700 (PDT)
+	Thu, 24 Sep 2026 13:51:27 +0000
+Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4885a1480a2so1226485f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:51:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790257887; x=1790862687; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1790257885; x=1790862685; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mH6UmZDnY2/1ICZZ8Pg7t2PX/T+Y1zVqUpSfOHvs/6Y=;
-        b=Hwgzvn4n5Wkw8sXo+4fvb+RcRm/QRw14Yj1zHOUHucALXB2jEIJMyNX+0c8XA6MjAH
-         SdgaKt9LOsjktOm3XLTgVFjpWpGaUzeGBDwWhqzpeSoB0dgiM3qkEMd8bUkj5ks6VmuK
-         pNcJBWm8bLFNYCIhvJAUq1QSknHopQdAVPQjvpD3EfqXB6cS3U0LxaF6oW55E71qg1kr
-         /BA6I8RbFLBrCoEE8tYd64VDPZfYcZHpd4hZ4T4nL+f5hz7ma34AVHkv0Q+hJpnqZUIm
-         kDVeC2bqi+BXIRbj4XW798BRbrC6ZvKKKqQ5SY354XVhzspRc7kZgjaW057mKMUnFw5b
-         7hlQ==
+        bh=t9iLsnAODx2rF847XvroFh/ns6W9jfoyO6c4E8bJMN4=;
+        b=DOFw0wYcu6IslhSUi3UjzJv3LxMjtkw+XZEc3aqQxNyQYDabP2LqYN23DIzW60NCwO
+         1llqCeuf+nQcEFJNpfQctDFvyRblphO6LjW0HUlepZhspQFdmZt56YfMYA5+9dajobxe
+         A/lUyJT6r9qetLe3wyvYC/0uEkM4XWa+rKl6sqLhilJJDHqByM/uV3GZND47vfVd5dLj
+         r9ksxGFgcV8Hi+4nz3dEfyqsue61QdXjY8NEi/cDjgyoqNux25Moa3O5Uw2gGPe7TyUN
+         QMCbpTyeTo94lzyCUkATJGwkzI7p8ki3Hp5qH6w343IUdO4N7Ols+qk0YljqecjSqIhD
+         zxDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790257887; x=1790862687;
+        d=1e100.net; s=20260707; t=1790257885; x=1790862685;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mH6UmZDnY2/1ICZZ8Pg7t2PX/T+Y1zVqUpSfOHvs/6Y=;
-        b=na2/ZDeNfxQgwXgg2XskSjwUA79LGY7gcKO8gn6MOmKFdy0WpwuBJnB1WC1rTiAZJW
-         NnCWoznv5CAB2GPSBfVGub5/WprMKmBxYVWWQ+X0bgUAMdM/xEgzJ/PquCaSjRr0XLk5
-         +4B12AMMSTP2JJ+47EtZxiwPL5gPcsZ7ZVjfCld7AsVUHw4MUwevC8u8zZsH0IO/Qpqv
-         3HkOH2PhBHRvXJlJqoIvfQV2Xf5ET1xrzIFVh9G679XjS6XKoGcmm9hsNunAMX37SrtN
-         roLtKwfp7yYMuOZyd5QQLQjEJRZAtBupe/QvPj3+Y7BkA9LTs3iR/zAZYgJP3T6cFWT9
-         DadQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxizquBSjLxMAAMigkXu7YnEDqTAY27YzNSeWeFPwXO7/514yr0O6m8I7s3Nvk+ZdT90fPnDrMwYxW0KGc0fr3L@lists.infradead.org
-X-Gm-Message-State: AFuF++lT2fC9/jkgGvOG0Y+SFGJDRprZ1nVdwLnFkAPRqreYAYG7N95r
-	PdSN1m+c1gdPr0+lpX6qhcxsHug8VxxIkp2Ky9WuJLcir1Y7bDv/T7i5
-X-Gm-Gg: AYBFou00DC4HEjQYAgw0n7z+iugr2pHFFmocyq189mMDMZLTJq7KvEUFQGBWfHxMFup
-	Rq9Ct1vgZt7lu2w7NYQxImkGV/j5sI0ZveTFpF4FIHbpUcVwvCjPQiRw5XnLrAnvfmDIJUlArK8
-	Y+RuQiIQE7XCE61U4sGB/YSiUVyxNLBZXXjM2bDrcnKB2i9fsUo5jPxQpYjibh6IlJzFPdYhsMi
-	gH2RxUr/r4nvC8Elno17jg3FkZu4lUujaLERoL1xBaNg6Dnxx3cOVimuPCaziEM1PAwFipLwKGh
-	2MYICxwT79wz/UuYuBtsjebAQ7fndwTNcVAzMdzfTas4XYcLX2TdZwt+V+h5ws/2rQRJGLVCRrp
-	o/gt1EUMzDNAbJaoEE4sgiXm54kVaGWIeUGjb6xD9odbjnmC33LGpC2l06NNLPV5PwTZUIe9XLv
-	ZAMBzd5YL9+oZoPbCpwpKq6B257EhdJ9zJyKVlK6s2HItrJlO/TiGnX9ASJg7hWgATOrP61XSfh
-	1DW6lR9AsOhRnKvYbCXptI9eNqoIJyP09P5lVxAMz4PUQn1/I0=
-X-Received: by 2002:a05:600c:1d19:b0:49c:fc6c:be00 with SMTP id 5b1f17b1804b1-49fe66fbe9cmr45951715e9.23.1790257886830;
-        Thu, 24 Sep 2026 06:51:26 -0700 (PDT)
+        bh=t9iLsnAODx2rF847XvroFh/ns6W9jfoyO6c4E8bJMN4=;
+        b=e4bty1p1mbV79N9B+i7aWelk2nB7KinJxt8RBT+hg75KpkXbwfrtj8Ts5BU3lOMm8Q
+         LsQBbbkiUsmKaQZQQmYgAa2aco0rwyJrl0Kwg8cM5UgSRifXOIIQWVsV4fo65CGu4Ngz
+         Oem32WsCDd/cTRJMyFPDL5OfVtYz46KCajYgsmC3by4PqOoo5jyj51kWIG3ustnzPVEY
+         3FC73LFr/A/nlU8ub4u9olSN/MWtuZlv2zsMRFiAAkjk/PX/XIkOQEUPPW7GbsYc6O42
+         3zU9wym7Ovz/uVGsYcF8x24i1VNXiqgpDI98/Esyy1dPYo6GTOJaJMCRy8+NNMN0Euzf
+         x+yw==
+X-Forwarded-Encrypted: i=1; AKwUvBxkcLS/dBsIC1puyTR045Krw62OoRnsUZw8+rki4QVk9lc9mOIJBkMYlP25vefxkCDIZbxkQQX3tvNXSyCELRGl@lists.infradead.org
+X-Gm-Message-State: AFuF++lsKJxdyVzAPRPRySeUrMdOjigF9zkOoMRDs5f6dvA1UXlONxgv
+	RY2tKwOOIxz2oZF7LfXE894kMsRXzLMrBQS398ov+NlrpheuxJEHBSL6
+X-Gm-Gg: AYBFou3ZNLNoKRHo4mzV5lsS+7bxxkKWNappxdGX4Q+gVk4ZI8FqtVMw96k4pepDFJ5
+	nGhGPFandCcEPBfjbIQZQlauyFBajMZxfydw4fjMR6iMNMvR/wBx4cuKXDssnFcDsk4Bhfc1jnN
+	0iUyXZqcoKPcw7dGiV/xy9WgvJWrPdrDXzi8SCXE+4tJaeLQkPYDlpEXDcSg7AJ3voNiMgcjk53
+	ueICC2X2mEgKcJag0g9EVw0q52O3xfKKJc32IiHk3AbMk39qLdrSbtFP//lYC00TWeB4a1XtLK9
+	DAwzS9pAd8SwFcvI2RALVl3JIjCaEY6VNiP2Vru/TaXRMaFtwZhjhgOzSrvScsBj7yKKUVbKdxn
+	YwLFP58Fbn2N6x3O/arBOWxmBSG+s/H/pfxT3afEm9BwnH2B3hbAy9GQBxtXmwao2Wd/tDHZYvN
+	wdKPR5YPFyPckX2KAVthUQlIAaZGGtdZWObbVeXZ48FahukgqaXLnrw66r7UvzytUA7NysMRX1a
+	GX9xuCueS6PPLSbXqnfSIHUXQbE304TwE7swDEl
+X-Received: by 2002:a5d:5d87:0:b0:482:fb60:2f0 with SMTP id ffacd0b85a97d-488716b2841mr5288900f8f.8.1790257884978;
+        Thu, 24 Sep 2026 06:51:24 -0700 (PDT)
 Received: from fedora-tap.advaoptical.com ([82.166.23.19])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48868889376sm12060660f8f.33.2026.09.24.06.51.25
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48868889376sm12060660f8f.33.2026.09.24.06.51.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 06:51:26 -0700 (PDT)
+        Thu, 24 Sep 2026 06:51:24 -0700 (PDT)
 From: Sagi Maimon <maimon.sagi@gmail.com>
 To: netdev@vger.kernel.org
 Cc: radhey.shyam.pandey@amd.com,
@@ -85,17 +85,17 @@ Cc: radhey.shyam.pandey@amd.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Sagi Maimon <maimon.sagi@gmail.com>
-Subject: [PATCH net v2 3/4] net: axienet: quiesce the TX queue across a DMA error reset
-Date: Thu, 24 Sep 2026 16:51:15 +0300
-Message-ID: <20260924135116.185161-4-maimon.sagi@gmail.com>
+Subject: [PATCH net v2 2/4] net: axienet: quiesce the TX path before axienet_stop() tears it down
+Date: Thu, 24 Sep 2026 16:51:14 +0300
+Message-ID: <20260924135116.185161-3-maimon.sagi@gmail.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20260924135116.185161-1-maimon.sagi@gmail.com>
 References: <20260924135116.185161-1-maimon.sagi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_065128_856951_D100B49D 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20260924_065126_895268_9129937E 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-axienet_dma_err_handler() resets the DMA engine, frees every TX
-descriptor's skb and mapping, and rewinds lp->tx_bd_ci and
-lp->tx_bd_tail to 0.  It has two problems with the transmit path.
+On the legacy DMA path axienet_stop() stops the DMA engine and frees the
+TX descriptor ring with axienet_dma_bd_release(), but never stops the
+transmit queue or waits for a transmit already in progress.
 
-First, nothing excludes axienet_start_xmit() while it does so.
-napi_disable() only stops axienet_tx_poll(), and the handler takes no
-transmit lock.  A transmit running concurrently can publish an skb into
-a descriptor that the handler then frees, and dereference it afterwards
-in netdev_sent_queue(), or program a descriptor whose mapping the
-handler has just released and kick XAXIDMA_TX_TDESC with a tail pointer
-the handler is about to rewind.
+On the dev_close() path this is covered by the core:
+dev_deactivate_many() has already quiesced the qdisc and waited for
+in-flight transmits with synchronize_net().  axienet_suspend() instead
+calls axienet_stop() directly.  Its netif_device_detach() only sets
+__QUEUE_STATE_DRV_XOFF, without taking the transmit lock, so an
+axienet_start_xmit() that was already running can still be writing a
+descriptor into lp->tx_bd_v, or kicking XAXIDMA_TX_TDESC, while the
+engine is reset and the ring is freed underneath it.
 
-Second, the handler never restarts the queue.  If the ring was full when
-the error hit, axienet_start_xmit() had stopped the queue with
-netif_stop_queue(), and that __QUEUE_STATE_DRV_XOFF survives the reset:
-netdev_reset_queue() clears only __QUEUE_STATE_STACK_XOFF, and nothing
-at all without CONFIG_BQL.  The wake in axienet_tx_poll() is reached
-only when axienet_free_tx_chain() reclaims packets, which cannot happen
-once the handler has cleared every status word, so the interface stops
-transmitting until it is brought down and up again.
+Call netif_tx_disable() once TX NAPI is disabled and the error work has
+been flushed.  It takes each queue's transmit lock, so it waits for any
+transmit in progress, and nothing can wake the queue afterwards: the
+error work returns early once lp->stopping is set, and axienet_tx_poll()
+can no longer run.
 
-Quiesce the transmit path with netif_tx_disable() once TX NAPI is
-disabled, so that no transmit is in progress or can start while the ring
-is torn down, and wake the queue once the reset is complete.  Because
-the handler now owns the queue state for its whole duration, the wake
-cannot be lost to a concurrent netif_stop_queue().
-
-Skip the wake if the interface is being stopped or the device has been
-detached for suspend, or it would undo the stop that
-netif_device_detach() installed; axienet_stop() and axienet_open() own
-the queue state then.  A detach racing with the check is covered by
-axienet_stop() quiescing the queue again before it tears anything down.
-
-Both problems were reported by the Sashiko AI review bot.
+The dmaengine path is left as it is.  There the completion callback can
+wake the queue until the channel has been terminated, so it would need a
+different ordering.
 
 Tested on an AXI Ethernet MAC behind a PCIe endpoint: traffic passes,
-including across ten down/up cycles made with traffic running, with this
-series applied.  The DMA error path itself was not exercised.
+and after each of ten down/up cycles and five module reloads, all made
+with traffic running and each running this path, traffic resumes and
+nothing is logged.  Suspend was not exercised.
 
-Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
+Fixes: a3de357b087e ("net: axiemac: add PM callbacks to support suspend/resume")
 Assisted-by: LLM sparse
 Signed-off-by: Sagi Maimon <maimon.sagi@gmail.com>
 ---
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 6d448d0b523d..f16dbfc7dc93 100644
+index fb26d2e39fac..6d448d0b523d 100644
 --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
 +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2724,6 +2724,11 @@ static void axienet_dma_err_handler(struct work_struct *work)
- 	napi_disable(&lp->napi_tx);
- 	napi_disable(&lp->napi_rx);
+@@ -1739,6 +1739,14 @@ static int axienet_stop(struct net_device *ndev)
  
-+	/* With TX NAPI disabled nothing else can wake the queue.  Stop it and
-+	 * wait out any transmit in progress, so the ring can be torn down.
-+	 */
-+	netif_tx_disable(ndev);
+ 		napi_disable(&lp->napi_tx);
+ 		napi_disable(&lp->napi_rx);
 +
- 	axienet_setoptions(ndev, lp->options &
- 			   ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
++		/* Nothing can wake the queue now: the error work returns early
++		 * once lp->stopping is set, and TX NAPI is disabled.  Stop it and
++		 * wait out any transmit in progress before the ring goes away.
++		 * dev_close() has already done this, but axienet_suspend() calls
++		 * us directly.
++		 */
++		netif_tx_disable(ndev);
+ 	}
  
-@@ -2791,6 +2796,13 @@ static void axienet_dma_err_handler(struct work_struct *work)
- 	napi_enable(&lp->napi_rx);
- 	napi_enable(&lp->napi_tx);
- 	axienet_setoptions(ndev, lp->options);
-+
-+	/* Leave the queue stopped if the interface is going down or the
-+	 * device was detached for suspend: axienet_stop() and axienet_open()
-+	 * own the queue state then.
-+	 */
-+	if (!READ_ONCE(lp->stopping) && netif_device_present(ndev))
-+		netif_wake_queue(ndev);
- }
- 
- /**
+ 	cancel_work_sync(&lp->rx_dim.work);
 -- 
 2.47.0
 
