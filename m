@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD53C98311
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031E0C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=knoFi3k7NZ5o9aDBThxhQL7/bpBgTq1/C7qd7AUxxy4=; b=kgJiVR8L8P0u+NV2hXVG4uQr2N
-	HRbGRkcvf+clKvUIbJ44XYl0BiuaECTsqw+bI8pxf+izTEPV+MnLc2HiEuVlxe6iyA9TiYnT7D34a
-	p58I8w9A31SsN1YEmaMXH3N8VDtKC/itwEzMaBFZ9wPpQb9e+IBIdhrpo5LdIcnnhJ869RiCaE1e1
-	vcKj80jd244hQztvq0JGYKKbv4d6Jt27K5TAh2X38RjG+0abg2wm969cIhyA6CymMVYQ78Wlr3+CG
-	Z8p/+hYHw4b+LvBMavmkFPXhB3WAbBoBdW0X29EAF/7klAVCoReStVcMjv/eajBuTfIooZdSERiY5
-	GA5FK/xQ==;
+	bh=YMlQ1E3dLLZbk6ZXS/99g2ymvmTN+w4nDPxXeXxLA8c=; b=Gx2Yi2IwR4wIcd5mSQ2ZWH1odZ
+	1SL6uvV59BUt2SvSx4taCm71Fqlsw8D3wFig9nmwS5O52q1Y68jCqE/D8EH5p8gMD1hXfJT2MWbkj
+	2yaieTLepFcMZtVuDh6EDBGprAMXMPu1IhuWEEKV6cGgN7XOpKPEgFMEI1YEHeLnDpSyVHt4vT61I
+	8pVLP7LGn4DNYQHDt/kICQNizv405WkoUOR6qTsHBypmZw8HPQTQVjAeRvrYHbWRRRdbAL9dgBp/n
+	6/21r1vGO3aH5PZjvlnq6LNUd5EwT/cHWM6JlihTtdcl5gg7dh+VxEEhyPnMqVJuHQw9tYnmaeDTV
+	iLupqvew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fQg-0000000AXVT-45fd;
-	Thu, 24 Sep 2026 09:07:46 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fQd-0000000AXUt-2MAq
+	id 1x9fQu-0000000AXXy-0RTb;
+	Thu, 24 Sep 2026 09:08:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9fQj-0000000AXW9-3mNT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 09:07:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YMlQ1E3dLLZbk6ZXS/99g2ymvmTN+w4nDPxXeXxLA8c=; b=bsuA2s5xmorwvOdNwXuv3dcfIa
+	BHBuN3NPo10BQ3vseiA+TGOpUalgn79CcAHtM22tBqzTFTR1gAIRvo7hekWzGOv7BSeS4xbuRYXAz
+	4vUaSlk0BaUsSdOduoW6ZqzMezjBomkYvIe4AB38XjO/fdsNJwKX8exTGVh5WbM9QMGV0JM++EIRf
+	STETejTFIrlgse1QIX8U+dv4YWiHSd4wcR25oxcI+tdQSxyIPJ1n00ywN2RDlnTx+HnDlHSIhQRtg
+	om9O8xtvH6AUkyug518ct6MKfJqT8IyeLARuk1txhs7vVU//J10BKr7lgG5FnBWEwdT1HqBWlkBmv
+	nbL56vvQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9fQf-0000000Fln2-3SoC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 09:07:45 +0000
-Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 24 Sep 2026 18:07:39 +0900
-Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
-	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id A9FBD20914A4;
-	Thu, 24 Sep 2026 18:07:39 +0900 (JST)
-Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Thu, 24 Sep 2026 18:07:39 +0900
-Received: from [192.168.1.135] (unknown [10.213.44.71])
-	by iyokan3.css.socionext.com (Postfix) with ESMTP id 81E0110A019;
-	Thu, 24 Sep 2026 18:07:38 +0900 (JST)
-Message-ID: <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
-Date: Thu, 24 Sep 2026 18:07:37 +0900
+	Thu, 24 Sep 2026 09:07:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6686B1516;
+	Thu, 24 Sep 2026 02:07:40 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8609B3F86F;
+	Thu, 24 Sep 2026 02:07:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790240863; bh=KCpkwX3n9hDTqSNw48pPQoWBY0FYrWUGqdnZtj2ba/c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Lg0Ij3N6WVWS4N+OYN2hfyqo2WvEhy7KK3wQywFVE5UG/R8DywLrfxYuW45vNJY6d
+	 pmPerYPn3hSU4jzj0AFR4h3OaxXAhFO0GypCth150WgOVAF2J9ECiv7wyAsOmGv/19
+	 8+/thaVS4iiXGenDxi+2mBgVObYURDzgpxm1V9/0=
+Message-ID: <30c42b73-204d-4531-bd1a-1ee160a4b000@arm.com>
+Date: Thu, 24 Sep 2026 11:07:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
-To: Malathi A <malathi.a2000@gmail.com>
-References: <20260917040511.103232-1-malathi.a2000@gmail.com>
-Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260917040511.103232-1-malathi.a2000@gmail.com>
+Subject: Re: [PATCH v1 03/11] dt-bindings: pinctrl: add Allwinner B288 pin
+ controller
+To: Pablo Mazzini <pmazzini@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+ Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-sunxi@lists.linux.dev
+References: <20260923201701.43391-1-pmazzini@gmail.com>
+ <20260923201701.43391-3-pmazzini@gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260923201701.43391-3-pmazzini@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_020743_730913_1D143CB9 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20260924_100746_616883_052F3FAB 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,99 +92,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Malathi,
+Hi Pablo,
 
-On 2026/09/17 13:05, Malathi A wrote:
-> uniphier_uart_probe() enables priv->clk by hand and is then responsible
-> for disabling it again on every error path. It misses one: when
-> uart_read_port_properties() fails the function returns directly, leaving
-> the clock prepared and enabled. The neighbouring path, taken when
-> serial8250_register_8250_port() fails, does call clk_disable_unprepare(),
-> which shows the leak is an oversight rather than intent.
+On 9/23/26 22:16, Pablo Mazzini wrote:
+> One controller at 0x01c20800 with four external interrupt banks.
 > 
-> Rather than adding another manual unwind, switch to
-> devm_clk_get_enabled() so the clock is released by devres. That removes
-> the error path entirely, along with the explicit disables in the
-> register failure path and in uniphier_uart_remove().
-> 
-> The clock is still disabled and re-enabled by hand across system sleep,
-> which stays balanced: only SET_SYSTEM_SLEEP_PM_OPS is used, so the
-> device cannot be unbound while suspended and devres always sees an
-> enabled clock at detach.
-> 
-> Found by smatch:
-> 
->    drivers/tty/serial/8250/8250_uniphier.c:232 uniphier_uart_probe() warn:
-> 'priv->clk' from clk_prepare_enable() not released on lines: 205.
-> 
-> Fixes: 26e8349c0d76 ("serial: 8250_uniphier: Switch to use
-> uart_read_port_properties()")
-> Signed-off-by: Malathi A <malathi.a2000@gmail.com>
+> Signed-off-by: Pablo Mazzini <pmazzini@gmail.com>
 > ---
-> Changes in v2:
-> - Use devm_clk_get_enabled() instead of adding a clk_disable_unprepare()
->    to the failing path, as suggested in review. This also lets the
->    explicit disables in the serial8250_register_8250_port() error path and
->    in uniphier_uart_remove() go away.
-> - Reworded the commit message accordingly.
+>   .../pinctrl/allwinner,sun8i-b288-pinctrl.yaml | 108 ++++++++++++++++++
+
+Why is this a new file? Can't you just add the new compatible string to 
+the existing allwinner,sun4i-a10-pinctrl.yaml binding?
+
+Cheers,
+Andre
+
+P.S. Since we have seen this a lot lately: please wait with a new 
+version of your series for a few days, to allow other people to comment, 
+and to allow discussions to settle down. Not everyone can respond quickly.
+
+>   1 file changed, 108 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinner,sun8i-b288-pinctrl.yaml
 > 
->   drivers/tty/serial/8250/8250_uniphier.c | 10 ++--------
->   1 file changed, 2 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/tty/serial/8250/8250_uniphier.c
-> b/drivers/tty/serial/8250/8250_uniphier.c
-> index e3db60bf50c9..6fffac12277a 100644
-> --- a/drivers/tty/serial/8250/8250_uniphier.c
-> +++ b/drivers/tty/serial/8250/8250_uniphier.c
-> @@ -180,16 +180,12 @@ static int uniphier_uart_probe(struct
-> platform_device *pdev)
->   
->   	memset(&up, 0, sizeof(up));
->   
-> -	priv->clk = devm_clk_get(dev, NULL);
-> +	priv->clk = devm_clk_get_enabled(dev, NULL);
->   	if (IS_ERR(priv->clk)) {
-> -		dev_err(dev, "failed to get clock\n");
-> +		dev_err(dev, "failed to get and enable clock\n");
->   		return PTR_ERR(priv->clk);
->   	}
->   
-> -	ret = clk_prepare_enable(priv->clk);
-> -	if (ret)
-> -		return ret;
-> -
->   	up.port.uartclk = clk_get_rate(priv->clk);
->   
->   	spin_lock_init(&priv->atomic_write_lock);
-> @@ -222,7 +218,6 @@ static int uniphier_uart_probe(struct platform_device
-> *pdev)
->   	ret = serial8250_register_8250_port(&up);
->   	if (ret < 0) {
->   		dev_err(dev, "failed to register 8250 port\n");
-> -		clk_disable_unprepare(priv->clk);
->   		return ret;
->   	}
->   	priv->line = ret;
-> @@ -237,7 +232,6 @@ static void uniphier_uart_remove(struct
-> platform_device *pdev)
->   	struct uniphier8250_priv *priv = platform_get_drvdata(pdev);
->   
->   	serial8250_unregister_port(priv->line);
-> -	clk_disable_unprepare(priv->clk);
->   }
->   
->   static int __maybe_unused uniphier_uart_suspend(struct device *dev)
+> diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun8i-b288-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun8i-b288-pinctrl.yaml
+> new file mode 100644
+> index 000000000000..806da97ab708
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun8i-b288-pinctrl.yaml
+> @@ -0,0 +1,108 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/allwinner,sun8i-b288-pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner B288 Pin Controller
+> +
+> +maintainers:
+> +  - Chen-Yu Tsai <wens@csie.org>
+> +  - Jernej Skrabec <jernej.skrabec@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: allwinner,sun8i-b288-pinctrl
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    description:
+> +      One interrupt per bank of external interrupt capable pins.
+> +    maxItems: 4
+> +
+> +  clocks:
+> +    items:
+> +      - description: Bus Clock
+> +      - description: High Frequency Oscillator
+> +      - description: Low Frequency Oscillator
+> +
+> +  clock-names:
+> +    items:
+> +      - const: apb
+> +      - const: hosc
+> +      - const: losc
+> +
+> +  gpio-controller: true
+> +  interrupt-controller: true
+> +  gpio-line-names: true
+> +
+> +  "#gpio-cells":
+> +    const: 3
+> +
+> +  "#interrupt-cells":
+> +    const: 3
+> +
+> +patternProperties:
+> +  "-pins$":
+> +    type: object
+> +    $ref: /schemas/pinctrl/pincfg-node.yaml#
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      pins: true
+> +      function: true
+> +      bias-pull-up: true
+> +      bias-pull-down: true
+> +      bias-disable: true
+> +      drive-strength:
+> +        enum: [10, 20, 30, 40]
+> +
+> +    required:
+> +      - pins
+> +      - function
+> +
+> +  "^vcc-p[bcdfg]-supply$":
+> +    description:
+> +      Power supplies for pin banks.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - gpio-controller
+> +  - "#gpio-cells"
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/sun8i-b288-ccu.h>
+> +
+> +    pio: pinctrl@1c20800 {
+> +        compatible = "allwinner,sun8i-b288-pinctrl";
+> +        reg = <0x01c20800 0x400>;
+> +        interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks = <&ccu CLK_BUS_PIO>, <&osc24M>, <&osc32k>;
+> +        clock-names = "apb", "hosc", "losc";
+> +        gpio-controller;
+> +        #gpio-cells = <3>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <3>;
+> +
+> +        mmc0_pins: mmc0-pins {
+> +            pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
+> +            function = "sdc0";
+> +            drive-strength = <30>;
+> +            bias-pull-up;
+> +        };
+> +    };
 
-I'm a bit concerned about the error path in uniphier_uart_resume().
-The clock may have been disabled in uniphier_uart_suspend(), and
-clk_prepare_enable() can fail when trying to enable it again.
-
-In that case, wouldn't devres try to disable an already disabled
-clock on detach?
-
-Thank you,
-
----
-Best Regards
-Kunihiko Hayashi
 
