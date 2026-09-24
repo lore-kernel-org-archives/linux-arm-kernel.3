@@ -4,107 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2BEC98310
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D9FC98314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQGSUWP+wqeItZ/eyVbalLMbvY0OTH5QJikLeqmKP+Y=; b=p4MUldk6B2GLkQ7TKXAjhEap+h
-	nGPz1Hc3h/T658I5xrCHGaTVNBHK+qsgjb7i+EK0Ki1IHdHtdmHdjxa45VWGEwHyrTioT5UNk+Igf
-	MZE1xTqUfRI29cD+4whqulWyE4xnZuiE5nPHQ4lm2Lnd0Avtylts8k16GHcegEfH7VIKzruYTy12t
-	E4MHYQdmYGUVlf9NZ/UFx1JTu9fP+JyAcPARtJuwXSevH0Zb5n6mIbGsSe8XyM3Nmsv/xuVoL4+On
-	A37vzUEM/9G+cEY1nErh32Xvplk0DHERaObLP1tD/CCurqeNSf32+UyWGAUl2+jXKqS1Sv+tSu+nz
-	zBuhkfhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fy0+KiYRcsZU/ymaImEymSgtU/XBNCGbs6mGpoeZE6k=; b=hUuyVFKXM0zvd2AMAMN91qSQpO
+	0Ae0FiV7ZMTLNaw0cJf06bMN5n/CaWMbc3molbsRuYxqJXw5rLaXHU6Ox2k6XBMXUBO2y3GhSC6cj
+	VquWooNlBGfq3KpuW9zY0sGHL3KCW5VA5nRVZXtBlBTlqClemH95U9IJyFD+6knZLXfdhY85osmbx
+	kkTx8p6rHoDQfOnMYwUqEE/3KFOjTJPL70k5e/LLWaUaYoiUQnm6kUFMLjwH3o6lc7Tnxo74LZ0QF
+	CK6TwhlzfK/ymrkJV8yTiyFB2JIeQP9IbdtQoIVZxArf/Tl4TSyA1PPeNC8drIvdEo2QbaOMVB8iB
+	74b4pH6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9e0N-0000000AIwL-4B3t;
-	Thu, 24 Sep 2026 07:36:31 +0000
-Received: from mail-wr2-x29.google.com ([2a00:1450:4864:30::29])
+	id 1x9eC3-0000000AKuv-249K;
+	Thu, 24 Sep 2026 07:48:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9e0K-0000000AIvO-4Apb
+	id 1x9eC2-0000000AKuM-0RuP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 07:36:30 +0000
-Received: by mail-wr2-x29.google.com with SMTP id ffacd0b85a97d-482e1b30c94so222307f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:36:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790235387; x=1790840187; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pQGSUWP+wqeItZ/eyVbalLMbvY0OTH5QJikLeqmKP+Y=;
-        b=s5yp9WHMbFp/bIFmeTKzqfgUyXN7+/yplotK42P+uTG/jXoBDf5FuRlx1zhAyeQjPC
-         d8K8vleLML6SnAujQaYRLAWMjQdzqEI2qNy4ePMVR2Ffbk0Fr+jkPfAqKGwBxTwm8fJL
-         FigGpkC3Qt0upLNjqcbo+8H7JqGo7L8SQIkgwek83ZF73CBTlaswGDXhKBJ4ALFG3tVl
-         LQK4cp9HvScISgH6g80UXrKO0FtZQFOPGTLAtV954XjpV79/dKyaxvaIsd6oPfWQXmZh
-         Fnb1U6WMvFwKGpYQK7TiOdvHMf1kOf/23H3QjHQ5LSymbX+fkyIr3RjNvV3WdPwWMaU4
-         SNVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790235387; x=1790840187;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pQGSUWP+wqeItZ/eyVbalLMbvY0OTH5QJikLeqmKP+Y=;
-        b=iL4oXpPFjJhLi7lAcXxJGk2ony50TfDTkLjgzXTpxALKmFmBEFpWiezTPRuz+rM2bF
-         tFYwkkO33WxL5mC2qMbkBQk+/ms4xLvzbVB3573AQNKFO9flBPm6pQ3MxAmh1lGo0Qx/
-         kpHabFbiLbxNvkNY801WaZ96iNMIOBiQx+QF+MdVwJXbfxJ6d2QGx3iPmlWKt8Gk40pQ
-         NqxKEsnCgmnl95YyW5FKk0z92L7PAJA/5dmNC1Y/LcCYtJDaYwWh0jRAZQcJPS9Nh7fg
-         /K3VCwVDwsAGmA/xtsXk31c7j0p7dfE12LAC0gALaQZTLrRDsy2w1PRNeuIQpU0s0YPC
-         dYLQ==
-X-Forwarded-Encrypted: i=1; AKwUvBycL8n04ydfF5JeFj3Jwn8paL8gPASzOmjWkMqliFBcBpwlCLZsg7lg3hJqQKq0AxvdgZj934XGOwFE28zPW1dt@lists.infradead.org
-X-Gm-Message-State: AFuF++l3V4nI0Tzc1YjuaDWrjkYlR5orWL5t6WLYL04Ws5B+8VJks4mf
-	2DrFbDsTj5IMht3YPvkhw3/lAIK1zLbxZqjvBUF5izNbIdF0t9S/gHYT
-X-Gm-Gg: AYBFou0BudRHUmzj8GUKLkX4lnAOro7ZT+W9Lc/KbG/gh4TZdWPxUHLyctS2HTWP4dT
-	is+Mo6vYjRFv5mg0ZNLPurC/84je29UqmYbqWBzO2+sZToM8Z5b6SViMLs2akOFj7+A+umygV9P
-	ZP0efKXhzLMdt7HAxiraf5HvlkOfSfX6WP0QpjpDo+dRQRqFLyJzrgtd1HgSj8Bn5oYswQZr9EU
-	V1gQnfAy5WooAyIZrnU1/1p+RhKaw7mScrGVsZc+FsXRp2vj96dn6wBGhBWDQWYp3V/IsSuImrc
-	TshsTVNUI+5m/9Xwl+nkUI+7ggR9GJmL9xo5ekbc8prlD9jK0KyFI32BT+fNXl2mz4uVqcAaTRS
-	vHJj9fwGqktiF4yLdv3q+qbmCEwrsYoVKyafBFkhZqIlx/9ouC9bogrOlfYfQfvg9zL0g9A98hg
-	R7jcNtZsG6ZecnlLBxX8RNchvXpWyiR2PIVcmLihEpSC+EcvNj6PX+r5NK+m2nWN/16UApASySU
-	bSqyGf44GrOPB+os7e9ODxjNwvExKrrk3bKbvHWlbQTDtDJ+YdCzC71yZvfKwyF2zg97Uv87866
-	xyo=
-X-Received: by 2002:a05:6000:25ee:b0:487:342:d145 with SMTP id ffacd0b85a97d-488716c8044mr2252224f8f.2.1790235386830;
-        Thu, 24 Sep 2026 00:36:26 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B90C500C183EA9C12FF3B42.dsl.pool.telekom.hu. [2001:4c4e:1b90:c500:c183:ea9c:12ff:3b42])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4886877970fsm12839361f8f.24.2026.09.24.00.36.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 00:36:26 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Sidong Yang <sidong.yang@furiosa.ai>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Jiaxing Hu <gahing@gahingwoo.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	=?UTF-8?q?H=C3=BCseyin=20BIYIK?= <boogiepop@gmx.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/11] accel/rocket: DVFS for the RK3588 NPU
-Date: Thu, 24 Sep 2026 09:36:06 +0200
-Message-ID: <20260924073606.45849-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <CAPsqS2SC1GvzALUdf2xsHZDpNjDO7BXrmzk19OYTF6YopQc8iw@mail.gmail.com>
-References: <20260922080114.44662-1-royalnet026@gmail.com> <9cc5365470490b4b66364e60fb614ccda7e86c6f.camel@ndufresne.ca> <CAPsqS2SC1GvzALUdf2xsHZDpNjDO7BXrmzk19OYTF6YopQc8iw@mail.gmail.com>
+	Thu, 24 Sep 2026 07:48:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F2BE41FCE
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:48:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A5BE1F008A0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:48:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790236113;
+	bh=fy0+KiYRcsZU/ymaImEymSgtU/XBNCGbs6mGpoeZE6k=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=V5HvV/cppc8WVHeYIUCIXT0ZwvIwN5DV+RLZY47pD8guzaGDfj/dnMoFxRzTTHB0n
+	 /38S30rCAnpbGCsd4ksLMB4e2lKDjbDv0+M/tFkBlxKX7dsniGIUsVOYXXUV3WIwXE
+	 ZOgalRrjGdyy7odLe9kgx9Xb+uVpOMw+fNPt9s7q70KWLEvPZMRPseT6iYC8meocf7
+	 TRAECxi49YbEyKyau2RPZ8iRxs3TXum6k6LuN9Cwo/PsYAUoxYSJeCRgYr4tW1smvl
+	 A2qEwYhLCC1/82PR2F5GaoUW5uN9z+0RsK++iwmmyB3d7v9Ut6rUJA77I6tavwLCyg
+	 C1mOLaiU65JFg==
+Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b76668f4ddso603120e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:48:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxoxbdWObxymaMVBqzVLXQisaXbkqHIOQ2Sb8WlH77JAyLdaQxEIedmleuX1N5HiBAxYhdderorQk5wBbC0YOTk@lists.infradead.org
+X-Gm-Message-State: AFuF++kR0kNJSuQ5/4d15JiStyqc6lDZbZ9K0C8Avv6ZHt7SA0oik3AQ
+	9qflsR15hqLrYT2x6JFB2n1agCdGnSqc6QLapryscnZZDD13vBQn6JzfWa5bf6cS4UdGjdTv5MQ
+	ukgDxVcqgK8phH/kUjoc29vbvW2I+EVzeycadAifMpw==
+X-Received: by 2002:ac2:4112:0:b0:5b6:10bc:b86a with SMTP id
+ 2adb3069b0e04-5b8df0e31cfmr327732e87.24.1790236111912; Thu, 24 Sep 2026
+ 00:48:31 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 24 Sep 2026 00:48:29 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 24 Sep 2026 00:48:29 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260923184450.135601-1-2000.costalucas@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_003629_052371_97B8B4CE 
-X-CRM114-Status: GOOD (  12.26  )
+References: <20260923184450.135601-1-2000.costalucas@gmail.com>
+Date: Thu, 24 Sep 2026 00:48:29 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MeqkCM=QP_mUcGg130UrjnB58S9j636zZqriEqEVdGGXQ@mail.gmail.com>
+X-Gm-Features: AclHuK-Z4kbLfsNuY9cD-lwa9fSqwcZM3BY76R7SUB6NbTYvyq7es4e_Zfoq3eY
+Message-ID: <CAMRc=MeqkCM=QP_mUcGg130UrjnB58S9j636zZqriEqEVdGGXQ@mail.gmail.com>
+Subject: Re: [PATCH] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
+To: Lucas Costa <2000.costalucas@gmail.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, bcm-kernel-feedback-list@broadcom.com, 
+	linux-spi@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,23 +86,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 07:37:04AM +0200, Tomeu Vizoso wrote:
-> I will go a bit further and recommend you to not let the LLM write any
-> text at all that is to be consumed by humans. If you don't feel
-> confident in your English, you can ask it to correct and improve your
-> text. Or write it in your mother language and ask it to translate.
+On Wed, 23 Sep 2026 20:44:50 +0200, Lucas Costa
+<2000.costalucas@gmail.com> said:
+> of_find_compatible_node() returns a device_node with its reference count
+> incremented, but the function bcm2835_spi_setup() uses the ret value
+> in the loop to check a condition and never releases it.
+>
+> Store the returned node and drop it with of_node_put() before breaking
+> out of the loop.
+>
+> Fixes: e19c1272c80a ("spi: bcm2835: Restore native CS probing when pinctrl-bcm2835 is absent")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lucas Costa <2000.costalucas@gmail.com>
+> ---
+>  drivers/spi/spi-bcm2835.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
+> index 8f8715809c7c..8909757c94e3 100644
+> --- a/drivers/spi/spi-bcm2835.c
+> +++ b/drivers/spi/spi-bcm2835.c
+> @@ -1226,6 +1226,7 @@ static int bcm2835_spi_setup(struct spi_device *spi)
+>  	struct bcm2835_spi *bs = spi_controller_get_devdata(ctlr);
+>  	struct bcm2835_spidev *target = spi_get_ctldata(spi);
+>  	struct gpiod_lookup_table *lookup __free(kfree) = NULL;
+> +	struct device_node *np;
+>  	static const char * const pinctrl_compats[] = {
+>  		"brcm,bcm2835-gpio",
+>  		"brcm,bcm2711-gpio",
+> @@ -1297,8 +1298,11 @@ static int bcm2835_spi_setup(struct spi_device *spi)
+>  	}
+>
+>  	for (i = 0; i < ARRAY_SIZE(pinctrl_compats); i++) {
+> -		if (of_find_compatible_node(NULL, NULL, pinctrl_compats[i]))
+> +		np = of_find_compatible_node(NULL, NULL, pinctrl_compats[i]);
+> +		if (np) {
+> +			of_node_put(np);
+>  			break;
+> +		}
+>  	}
+>
+>  	if (i == ARRAY_SIZE(pinctrl_compats))
+> --
+> 2.43.0
+>
+>
 
-Thank you, Tomeu and Nicolas.
+Just use cleanup.h like so:
 
-Yes, it is true that reading and writing in English is hard for me
-(speaking is a little better than reading and writing). I understood
-your message, and thank you for the advice. I have already applied
-it to this reply: I wrote it in my mother language, and an LLM
-translated it into English and corrected it.
+	struct device_node *np __free(device_node) = of_find_compatible_node(...);
 
-In future replies I will always say when an LLM or Google has
-translated my text and corrected my grammar and spelling mistakes.
+It's a oneliner this way.
 
-Thank you, and kind regards,
-Igor Paunovic
+Bart
 
