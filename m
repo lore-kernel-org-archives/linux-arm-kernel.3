@@ -4,64 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CD3C98317
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D8EC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Nme5X6sp8ZKmOiXODXazpLGfKO1y+cgvCvP5i79HQI=; b=UzbC/+2QYG5uJlOdp7I6fT6w4X
-	4lr/sMXD/jndZoyfvXOMWMhIsprlmJtZ+FJ0mq6K87LHqb8gHp4gShNYh5dPZk1p8/xZTFRLSE53g
-	4nxguDa188m6XpYbuH1nU0DP53UGhMeMG3EIsu69Mm10BOjAA0Ta8TmcqXRhjn3psbPGKxgQBQmNO
-	X3MmG6njOOVzqsLU1jxOTZP50URuWGw9La1dTmobgTEiNvEcEZQvFfA3YxWgMhJUACfBhr0pgAchP
-	CuNmoH8OWe9+Xgk+V8Rjy43g+2SDCdH5mL+h6GOLx3N6i3RbkE3R5zyyhsv/HveB58ZQfzWTNqSSn
-	nPCUm18g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0xwzu+veZri83zkDBLfszqSKll3oYYnhUkQxu8kB9BI=; b=MRLzWXppag7KRHIOpotLNh8aR6
+	gLB1sKVPSMJT4L2pWJ3y2SMVU5amCdqrWDZbvcw0bI1yZ3HbjdqwCW3zhj6qNLKIvtZtOhvAuPAEr
+	CC47m/UoeLjCI3fqX8ZpQS3k5EHF/CWk5ndtLI+Xm4UL4E6DqkBJpYjDY7eOFlerbwbw5/WHo4WVY
+	keDFs7DyCDbKzmlQQHkjg7XQQ2PXKIll5fXjEYMMowSiPgBqBNhiMOxjWlhoG/z3GcYVWoRP+vEf4
+	WN5N9nMizLpOedAmFF9JYZ1NKmXNaWV6niG2RpfoJ0Oqu64xCzDvqpIkwdQ1dOI71MGPECV7rWiWd
+	XH8cS2ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9h19-0000000Amew-1EpR;
-	Thu, 24 Sep 2026 10:49:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9h16-0000000AmeT-40jA
+	id 1x9h92-0000000AnOB-0ufG;
+	Thu, 24 Sep 2026 10:57:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9h91-0000000AnO3-21rW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 10:57:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=0xwzu+veZri83zkDBLfszqSKll3oYYnhUkQxu8kB9BI=; b=esUosRRsMZ3dJZA0gJ/gbMwaIg
+	gsroeQCWxo6PAgiIB+KRq30jU+aonfBSsscjtyDe/ntrFAMuU8iBxTCWlc6mNDT0bCGBsSGgXERe5
+	09oxscnG4aZfbaif3htL15eHnGpYiO82DZFZK+RjkQU5a2UoPFbSjBUlu6qORHcHdpU7tIYl93QtK
+	3sNpgoCKNIAEZQ+hZPGcPEnooAR0n6000cTqpSJXCG1JbaQZkTublYl3p77SS/kRF8EDldlxdCBo5
+	KGt8QDH2W/I3cn/skSFTSvgho+dZJMIG47YubqZgN91N2ERZveP4kwCSVWhq7vgpAz6nQyEbLmiRP
+	ljKuVTfQ==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9h8y-0000000FsFI-0Mvi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 10:49:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D97E6143D;
-	Thu, 24 Sep 2026 03:49:23 -0700 (PDT)
-Received: from [10.0.128.141] (Suzukis-MBP.cambridge.arm.com [10.0.128.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D96DE3F86C;
-	Thu, 24 Sep 2026 03:49:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790246967; bh=Ag41tBiO61VwQ+kewkVFaahq+25iFQPI5Fv2AnmNV18=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q9yC7wHdZXpuo4PysDrfAcK3SJ5rRf3qlhEGCDKFRN/YbqljYcD3v55a9UEEeEKHV
-	 r/bRMjCJ8n9qahCY2sAApK5n+VSeCXhOv4APeMR+LM0WMtPMwu/W/yGltTK5+G1Q9j
-	 ST88bkpe6fcITNgu0XVklHs8Ydj28yBvcwNn+Ywg=
-Message-ID: <1734c61b-88ed-42e0-a342-fdacca49297c@arm.com>
-Date: Thu, 24 Sep 2026 11:49:23 +0100
+	Thu, 24 Sep 2026 10:57:38 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68O5cXRn1181139;
+	Thu, 24 Sep 2026 10:57:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pp1; bh=0xwzu+veZri83zkDBLfszqSKll3o
+	YYnhUkQxu8kB9BI=; b=TQ5jjoREWzuewzt6hEW+0ekG+QqtolDGzDks9K1oeepr
+	E+gt7MsP9Sc2p/KfsgGm9nROEEUqNrgrqsJF/Z3KkN7jXMAYhWdIrMJMluY1ntCo
+	VWjDGWJ5Feg+wMBvzBam7TlUomJC5saNP2C2lMoGvDV/vrwu51/Tg6cYPNDEoLw8
+	4lmNav3YTCnTNyqLRlbPEJOr2I/Co3RR8il1xXxbyYCfF06q3J6KoE8dS3JjVdk/
+	Vi1LF4+CDATu6o14V8OldkGfY2fqjJxxwsSUntwBS7JCLrZ9BQ8iclOTi1nO9DK1
+	RDjMf+YOPYvSUAIqSzP7mSla3U4p1oDRRSEBL3lJAg==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gske1qw47-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 24 Sep 2026 10:57:27 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68OAB0RS1497550;
+	Thu, 24 Sep 2026 10:57:26 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gvbu8w63h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Sep 2026 10:57:26 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68OAvMwn41615704
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 24 Sep 2026 10:57:22 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7272020043;
+	Thu, 24 Sep 2026 10:57:22 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5224E20040;
+	Thu, 24 Sep 2026 10:57:22 +0000 (GMT)
+Received: from [127.0.1.1] (unknown [9.87.85.9])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 24 Sep 2026 10:57:22 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+Date: Thu, 24 Sep 2026 12:57:18 +0200
+Subject: [PATCH] arm64: Use proper include variant
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 00/20] KVM: arm64: CCA: Add basic plumbing for Realms
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
- <a5dbea3b-d175-42d2-a29d-9280c92236da@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <a5dbea3b-d175-42d2-a29d-9280c92236da@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260924-syreg-incl-v1-1-a3097a8ccc74@linux.ibm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDSyMT3eLKotR03cy85BzdNCOjFAtTU9MUUzMjJaCGgqLUtMwKsGHRsbW
+ 1AGbY9hZcAAAA
+X-Change-ID: 20260924-syreg-incl-f22d8555d562
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Marc Zyngier <maz@kernel.org>
+X-Mailer: b4 0.14.3
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 8fjyX0uZLGl1K7oeBokdNDTmPasOnjHY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA0NCBTYWx0ZWRfXwaKhA1bqkxLG
+ bfWqS+n5lRrSmdiBEvs0mymLmd7YFKD7KW2HT1sFbdfwmpVd4K6nve8ubCMmNknaK1krVh04rhI
+ iq6Gr9/Pxubkk76ruk6a5vdnB88esWsOXwl7A4wbkTVxihWxMz2Mds4Xv3YiG2+H5xmOPOwu2Xh
+ ViE0ljtOVTeZWy9kTWRLWCIDEqzWmKPc6elzfCFxsmB32VgRUfszAnzuqqJWPBCqH8OL6p+whT1
+ gMRwh6bDdXawbUEUYGMYYRd3AMx8h+8SjaS6hH+37KqR14D91FGs4CBOzE20DYNI9ICBngil/e9
+ d05CpPC0LXs1D9o3eLzvCyG5xix9izv15gLbPVoP4btr3Yd2OsloiWYF40PoLV2pmsW+mbclg4j
+ E9FppZV4eCZ3IBIvDFnMz4mo0PlamSJVVamgO1yvsG6xuosOBeeVcZfiqRdtqgH3BUDToov3gCK
+ 1C9L96TZXWyzx/ytkVQ==
+X-Authority-Analysis: v=2.4 cv=O/KsLx9W c=1 sm=1 tr=0 ts=6ab50217 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=tLPIyUJEGWpIbh5-gX0A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA0NCBTYWx0ZWRfX/Jzc70eXVoYJ
+ rheCu1KwzLrbF9mN1OpD1eLgbdktDvPkftC8eBVa3FmiRD9C4+EYFhv3bofsURqZEm0CgpHZmpu
+ 4htuJjozUFa0yyuJCDzEXMNW3Z513Jw=
+X-Proofpoint-GUID: 8fjyX0uZLGl1K7oeBokdNDTmPasOnjHY
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-24_02,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 impostorscore=0 suspectscore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609240044
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_034929_189780_AFFCFA45 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20260924_115736_480976_E548E127 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,86 +140,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/09/2026 11:40, Gavin Shan wrote:
-> On 9/21/26 7:28 AM, Suzuki K Poulose wrote:
->> This series is a trimmed down version of the Arm CCA KVM support, 
->> previously
->> posted here [0]. Like in the v17, we have tried to split the entire 
->> series
->> into the following chunks.
->>
->>   1) Base RMM RMI support under drivers/firmware/arm_rmm -> [1]
->>   2) Linux Host support for handling GPFs - [2]
->>   3) NEW: Enlighten KVM arm64 about the different VM types and use call
->>      backs for the VM type, rather than spilling the is_this_type_of_vm()
->>      everywhere. Adds VCPU and Stage2 MMU related callbacks with support
->>      for the existing VM types. There are other places where we may be
->>      able to abstract, but those need careful performance evaluations
->>      to make sure they are fit (e.g., vcpu_run)
->>
->>     With that in place we generalise the predicate 
->> "kvm_vm_is_protected()"
->>     to cover all  "Confidential" VMs (which includes Protected VM and 
->> Realms),
->>     allowing us to handle common themes without having to do things 
->> like :
->>
->>       if (kvm_vm_is_protected() || kvm_vm_is_realm())
->>
->>     Also replaces the code with precise check for a given VM type to
->>     avoiding combination of if (). e.g,, kvm_vm_is_unprotected_pkvm(kvm).
->>     The checks under arch/arm64/kvm/{nvhe,pkvm} still retain the 
->> vm_is_protected()
->>     check as pVMs are the only possible protected VMs there.
->>   4) Bare minimal Realm VM support without the actual functionality to
->>      run a Realm. This would help the maintainers to review the series in
->>      smaller chunks. This doesn't depend on [1] and can be independently
->>      merged, without being "functional".
->>      This series includes vcpu operations and the s2 vm operations, which
->>      do need the RMI driver backend to be meaningful. But the KVM handler
->>      is in the right shape. The remaining changes would be added once the
->>      RMI firmware library lands. Also covers the SET_ONE_REG/GET_ONE_REG
->>
->>   5) Core implementation of the RMI driver for KVM and actual 
->> enablement of the
->>      Realm support. This depends on (1), (2) and the guest-memfd-in-place
->>      conversion series v12 from Ackerley. This is available here at 
->> the integration
->>      branch [3]
->>
->> This series is comprised of (3) and (4) above.
->>
->> The integration branch has been tested with the following components:
->>
->>    tf-RMM:   main branch (commit 5e6e2acd) compliant to RMM-v2.0-beta3 
->> [4]
->>    kvmtool: git@git.gitlab.arm.com:linux-arm/kvmtool-cca.git cca/kvm-v18
->>
->> [0] Arm CCA KVM Support v16 : https://lore.kernel.org/ 
->> all/20260803134403.80630-1-steven.price@arm.com
->> [1] Linux firmware RMI https://lore.kernel.org/ 
->> all/20260912083611.2513845-1-suzuki.poulose@arm.com
->> [2] Linux GPF Host https://lore.kernel.org/ 
->> all/20260913070459.2547407-1-suzuki.poulose@arm.com
->> [3] https://git.gitlab.arm.com/linux-arm/linux-cca/ cca/cca-host/kvm- 
->> v19/integration
->> [4] https://support.arm.com/documentation/den0137/2-0bet3/
->>
-> 
-> Apart from the issue found against PATCH[v19 05/20], I didn't see more 
-> issues with this
-> series in my tests where kselftest/kvm cases and kvm-unit-tests are done 
-> on various
-> combinations: 4KB host kernel, 64KB host kernel, kernel parameter "kvm- 
-> arm.mode=
-> {nvhe, protected}" or nil. So with the found issue caused by PATCH[v19 
-> 05/20] fixed:
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
+Use <> for including the sysreg header as it is not discoverable from
+the current directory.
 
-Thank you Gavin, much appreciated !
+Acked-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+This is just a spin off from [1]. There is no in-series dependency for
+this patch and it fixes a minor issue. Using " for the include file does
+not break anything (now) but it is not right as well. For [1] we need
+this to correctly transform the includes to a new path for the
+s390-generated version of this file.
 
-Cheers
-Suzuki
+	Steffen
+
+[1] https://lore.kernel.org/all/20260918133107.1042730-1-seiden@linux.ibm.com/
+---
+ arch/arm64/include/asm/sysreg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..4bfdac9401bd 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -173,7 +173,7 @@
+  * come from here. The header relies on the definition of sys_reg()
+  * earlier in this file.
+  */
+-#include "asm/sysreg-defs.h"
++#include <asm/sysreg-defs.h>
+ 
+ /*
+  * System registers, organised loosely by encoding but grouped together
+
+
 
 
