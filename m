@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEDAC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEEEC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3IgF5jnBwJEWSoRVndkNGl07ltIBAagfxke/etF3U4=; b=hjhra07YCXPtIE0POxOpcHRgln
-	nDNC4w62BH4cZTX1ITNoJRt82Xsp74y9yDTs6BINLx11Pb1yTT/N6Ty7iTcFFD/Zqs+Ta0TkvwkNX
-	2SBwSHLMwG1P1IEH+kBuiLWP9z5NI3Cki2yC8YxSj579IraArltGZHLf4OMn3PoKmK+Oj3c7gIWaC
-	6e9NapyRkklV1UDmcxrY6uUAGOt61WjjO8vOqBbZ3x4Bo9McOCmXiLisJD8lf6bQ+6B87hkc9EcUS
-	GbCjaH7mijxhWe6qTMCEOVmEe8TZ6PQ9f+fxNf0JhkHkPvJOA4XFZ93jg0k+4SnDvWIz7pBwJqDGV
-	sFclt1jw==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PyIGhc+TI6uAsMli3blpmdtMgIgcHPiIWgrHiXvVj38=; b=jsDGlYyjlxGG4r1qR6mzLXH7JX
+	RrsOlmrxj4NnOvkSFaqTlcF6fO16YG/NIV+tq7M4Lco6SNWd+Vo6Z1NsgqrUI7na7D2yYoz768o7g
+	ismx/7g6kLiYcjDKwAzmtT4tl5ATH2ep6IgqCBfjJ+hljnhzVx7OrgaiJeSjiMPObKyrCZRlNw/jK
+	fdq8NOX68dmretpwgiMMbSopK+l2iLT0gX+2CU5oQtQqA4J9ixJO0dAbQ89xusY1y8c7fl2k1R87g
+	xSO2xqFdyZpcHpGZ/GIpzidRP/uxR2gHsWlY4ofd5qaaIZM/HfFVRco3ddhFkILfDYXK0AgnuaXzr
+	xq2FgYwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sFs-0000000CK8F-3I5L;
-	Thu, 24 Sep 2026 22:49:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sFq-0000000CK7L-3Js2
+	id 1x9sJT-0000000CKNE-3qAt;
+	Thu, 24 Sep 2026 22:53:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9sJQ-0000000CKMK-4B4R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:49:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A19B1E5E;
-	Thu, 24 Sep 2026 15:49:21 -0700 (PDT)
-Received: from [10.57.10.88] (unknown [10.57.10.88])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2E7A3F86F;
-	Thu, 24 Sep 2026 15:49:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790290165; bh=es2JFGtR/yGRJZPfDOKoMKeZJ3W57laY+q8VEqDYDKk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EgkJpaNpSmKXCQ7tSyUqJJ7TLOE57d/HFEXpQhNyzI0wo5deOqfhQRez3T70N3pTT
-	 Bix9JXOFUrFnJqAyocfD2lZW/1u7kChbRXcFip0wNl3WwyEsoQQLRce9coPL6yn+pv
-	 PAC8ZXm7duNeciCJy6fg7vaGlHZ3BNokFcM/J0kU=
-Message-ID: <f317970f-a114-4353-a253-174fa449dde1@arm.com>
-Date: Thu, 24 Sep 2026 23:49:18 +0100
+	Thu, 24 Sep 2026 22:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1790290387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PyIGhc+TI6uAsMli3blpmdtMgIgcHPiIWgrHiXvVj38=;
+	b=O6OqRVWkrA+O0yC99U/v/4xwJBdSPKs1vaBWBN6dRl426PDOaJS+piIr+N39eaSPwCeV8m
+	XPJdYPgUmAU3tdPKNkN6Y1zpTGl7TE6M6pt+TCki6unARw5SOHY3Z2W7mEwi3LJ79/tUyx
+	vd7ByRvzOGnpcLcmtDjsiHAwgYjx9Vc=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-266-ZVssw3Y3NOGfsTxO5Vk8fw-1; Thu,
+ 24 Sep 2026 18:53:06 -0400
+X-MC-Unique: ZVssw3Y3NOGfsTxO5Vk8fw-1
+X-Mimecast-MFC-AGG-ID: ZVssw3Y3NOGfsTxO5Vk8fw_1790290385
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 075E118A6952;
+	Thu, 24 Sep 2026 22:53:05 +0000 (UTC)
+Received: from [172.20.117.44] (unknown [10.30.44.223])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6E41619560AB;
+	Thu, 24 Sep 2026 22:53:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.3.0-rc4,
+ upstream-arm-next, 06f4daa3)
+Date: Thu, 24 Sep 2026 22:53:04 -0000
+To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 1/7] firmware: arm_rmm: Add SMC definitions for
- calling the RMM
-Content-Language: en-GB
-To: Ackerley Tng <ackerleytng@google.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
- gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
- yuzenghui@huawei.com, linux-coco@lists.linux.dev,
- gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
- alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
- lpieralisi@kernel.org, enju.kohei@fujitsu.com, sudeep.holla@arm.com,
- jonathan.cameron@oss.qualcomm.com
-References: <20260924135201.850038-1-suzuki.poulose@arm.com>
- <20260924135201.850038-2-suzuki.poulose@arm.com>
- <CAEvNRgH8Hwt6_VaFxJVvytZ4La1R7bUN2emc37_fWecF9j2-YA@mail.gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CAEvNRgH8Hwt6_VaFxJVvytZ4La1R7bUN2emc37_fWecF9j2-YA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Message-Id: <96824.126092418530600193@us-mta-266.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: tVIZnIrJkshhXYrpvfygYeOSrOM1YgdMUOszdK1x-l8_1790290385
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_154926_909924_F83BFB59 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260924_155309_135780_A9BF3709 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,82 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/09/2026 18:05, Ackerley Tng wrote:
-> Suzuki K Poulose <suzuki.poulose@arm.com> writes:
-> 
->>
->> [...snip...]
->>
->> +
->> +/*
->> + * Note many of these fields are smaller than u64 but all fields have u64
->> + * alignment, so use u64 to ensure correct alignment.
->> + */
->> +struct rmm_config {
->> +	union { /* 0x0 */
->> +		struct {
->> +			u64 tracking_region_size;
->> +			u64 rmi_granule_size;
->> +		};
->> +		u8 sizer[SZ_4K];
->> +	};
->> +};
->> +
->> +static_assert(sizeof(struct rmm_config) == SZ_4K);
+Hi, we tested your kernel and here are the results:
 
-...
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
->> +struct realm_params {
->> +	union { /* 0x0 */
->> +		struct {
->> +			u64 flags0;
->> +			u64 s2sz;
->> +			u64 sve_vl;
->> +			u64 num_bps;
->> +			u64 num_wps;
->> +			u64 pmu_num_ctrs;
->> +			u64 hash_algo;
->> +			u64 num_aux_planes;
->> +		};
->> +		u8 padding0[0x400];
-> 
-> The union + sizer concept is cool. Technically this one isn't a padding,
-> it's also a sizer? (same for the other structs below.
+Tested-by: CKI Project <cki-project@redhat.com>
 
-Yep, you're right. I have changed all in the file to sizer.
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
 
-> 
->> +	};
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2879694559
 
-...
-
->> +};
->> +
->> +static_assert(sizeof(struct realm_params) == SZ_4K);
->> +
-> 
-> Does declaring this struct as packed matter? I guess the static_assert()
-> has the same effect.
-> 
-
-I guess it doesn't, the fields are naturally aligned for the offset.
-That said, I have added static_assert() for starting offsets for a
-a group of related fields to match the spec.
-
-e.g;
-
-static_assert(offsetof(struct realm_params, rpv) == 0x400);
-static_assert(offsetof(struct realm_params, rtt_base) == 0x808);
-static_assert(offsetof(struct realm_params, aux_rtt_base) == 0xf80);
+One or more kernel tests failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
+robe of ARMHC500:20 failed with error -17
+            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
+YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
+            Affected tests:
+                Boot test [aarch64]
+                Reboot test [aarch64]
+        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
+res
+            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
+            Affected tests:
+                Hardware - Firmware test suite [aarch64]
 
 
 
-Thanks for the review !
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
 
-Suzuki
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
 
->>
->> [...snip...]
->>
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
