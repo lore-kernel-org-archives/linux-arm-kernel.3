@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C336C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF8F5C98325
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avkhPtJlFAUJzDLMy+sBeqZATf8wbb6NCjXVhRZljns=; b=YY3IYCAtOUbKg4PXfwb4i7LH6g
-	ixNTPhJpgUDKKZBPEK7hG/MctEQQg9g9VGSXjJwXOPHUXbI25edTiJWHiNNvqtrHlPygeXZsoZSlg
-	fib4zOdokyGLHWtSCjf6+P81R6zRu9o9y/5Md9vptqigvX9g8yeCYdWVqxXXPMQYB+mokRLtlY5gn
-	wN+6Eobzl/3qvMF4Rfk3HEAlNSpa5DV/jbGPXoZcG6wAcIyO7vFuxf2JPA82r7XQEfNxo/A03K9zP
-	uuwf7aw32G90WTTIocNpuqhSd5y9sFCt2PWRJskOHnlg+stN2GRtCKQAKfFHseCs6iAulTelwpXsC
-	RBmT5MVQ==;
+	bh=XYWXI6vX2cv7QnVwwZvXd4tN+q64FX+cupNU+kNXi54=; b=JmEsyrJLtPd5g2iWjZy+14N+BK
+	UFlAQG0LlR5cMB7sTiZpXAvnZ/Q0UN6+jD+Jd9+SULX2LtSVVo55GEfqadGLdvq/Slm0jZ86+EXBu
+	U8UviOP7aEoqU2gkXRpwzf1Bc/GNEnTX8KUFupYvMN9BXHsFMtrxUuhl4+68PfKsZAzeByG+99n40
+	Oa7B2e5Qbb6x431YNbJ8Al7yj2RYgt1OX4s1TiLSRmJhmZ6DeLOEELUY7wixdFKLNChw5CdoNXUMx
+	B10tB9y6XQDukR7x/ciWW9GDYjaIzEDvDZ4uNQ4JxGZRuCYpMZDx6IhN40QvgOQ8mxYG7NSOfbw1p
+	3NE86gmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9l6s-0000000BLdU-22Aq;
-	Thu, 24 Sep 2026 15:11:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9l6p-0000000BLd8-3Xgk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 15:11:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75C14143D;
-	Thu, 24 Sep 2026 08:11:34 -0700 (PDT)
-Received: from [10.57.10.88] (unknown [10.57.10.88])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DE283F86F;
-	Thu, 24 Sep 2026 08:11:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790262697; bh=q4dWjwb38KokSVbUsb7YtW3icmXBs3RfGPuSgIZBYkk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tHEAz0nDfxc56wS5hf0Vt2Q2mTH8C6sHybp9ZwdNQm4rqxk1mvxEl6g+DFjIf6FHu
-	 uUfK/9S1p0ML8R4x55nfK0h6h4u7OaVDDRBuLOIrl2EaIzIQWS0FK47KJ5Scs1PVI9
-	 uSTJeFmVO99K2qa7/0cwwlDghVVDqOyJ9p/h4ShE=
-Message-ID: <5f7dfa2a-b4f4-49ce-828d-60d799769bf9@arm.com>
-Date: Thu, 24 Sep 2026 16:11:30 +0100
+	id 1x9lAJ-0000000BM3e-1d2h;
+	Thu, 24 Sep 2026 15:15:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9lAH-0000000BM24-2jF2;
+	Thu, 24 Sep 2026 15:15:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E4E0044042;
+	Thu, 24 Sep 2026 15:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BF5FDC2BCFA;
+	Thu, 24 Sep 2026 15:15:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1790262912;
+	bh=C204W/yB+PghlPEk0hny36BOqfLvlmVXE04baWTGylE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=hKk1fhuWqe50DwR4hUjM0wcJCN7HNE7AooEFKMQNF2KAz3qOTVu1fR71Gej4n96Xw
+	 hI5HmHr+T0WTxQZc2xZkEnRxWZ5lWonRklgcXnbUOVzR9nUDQyn98dGFC5mgEfOXkZ
+	 GjvbSm8tDfom4Ad00oNhNHtEvYuYclRdJ+st8j7EugISmOxS3D/s29pV8MgBze6QTH
+	 8113wxzOxbMEx9lZS9ANCLczOHF5HPv5q5OW40roZKh5SVNUFt+A4mxtWwsp0jrFAD
+	 3EPQyiaHMQHOPrwWXkDTMypvSiOfnm0MKCO2QQdLjtHnxkBCOtXEugtz/cHbsuX2LJ
+	 AjyeL40Sv+WBw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E506C98324;
+	Thu, 24 Sep 2026 15:15:12 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Thu, 24 Sep 2026 17:14:29 +0200
+Subject: [PATCH 2/3] pwm: meson: Add optional core clock for S4 PWM
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v19 09/20] KVM: arm64: Add VM specific callback for S2 MMU
- operations
-Content-Language: en-GB
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, steven.price@arm.com,
- aneesh.kumar@kernel.org, oupton@kernel.org, gshan@redhat.com,
- joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
- linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
- sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
- WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com
-References: <20260920212845.707-1-suzuki.poulose@arm.com>
- <20260920212845.707-10-suzuki.poulose@arm.com>
- <20260922152914.00001221@oss.qualcomm.com>
- <0d5201f0-359e-4748-92da-946dedf51bcf@arm.com>
- <20260923095443.0000378c@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260923095443.0000378c@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_081139_965042_C462BE8D 
-X-CRM114-Status: GOOD (  18.59  )
+Message-Id: <20260924-add-t7-sys-pwm-clk-v1-2-05b91e87f0a9@aliel.fr>
+References: <20260924-add-t7-sys-pwm-clk-v1-0-05b91e87f0a9@aliel.fr>
+In-Reply-To: <20260924-add-t7-sys-pwm-clk-v1-0-05b91e87f0a9@aliel.fr>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1224;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=38T10zBYHuRS2HPS8ZW7iUWdDAPvTmkAaZ2SgSI77jU=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9ZWu6pT15LsDn55aiS9828tt1ONuOfjKCMHl1x+waIF6
+ Sptohs7SlkYxLgYZMUUWfrnWp54d/noma971FNg5rAygQxh4OIUgInwnmf4K7ORZY3ewcW6e59X
+ vrBM4dPxuiEtHrcxcdOHBUEqk/XDrjIy9J2ov5QxPThz4/Gn0yfd2MU4/0imuY5F9fGYj7tucZl
+ Z8wEA
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,107 +87,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2026 17:54, Jonathan Cameron wrote:
-> On Wed, 23 Sep 2026 00:21:58 +0100
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> 
->> On 22/09/2026 23:29, Jonathan Cameron wrote:
->>> On Sun, 20 Sep 2026 22:28:34 +0100
->>> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>>    
->>>> Add VM type specific S2 MMU operation backends which can be initialized per
->>>> VM flavor, to keep the handling cleaner.
->>>>
->>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>
->>> A small suggestion inline that makes it explicit when there isn't
->>> range operation and a full flush of tlb is needed.
->>>
->>> I don't mind either way, but thought I'd mention it anyway in case
->>> you hadn't already dismissed it.
->>>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->>>
->>>    
->>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->>>> index 03f2017a7404a..d97a4a1bca23f 100644
->>>> --- a/arch/arm64/kvm/mmu.c
->>>> +++ b/arch/arm64/kvm/mmu.c
->>>> @@ -37,6 +37,8 @@ static unsigned long __ro_after_init io_map_base;
->>>>    
->>>>    #define KVM_PGT_FN(fn)		(!is_protected_kvm_enabled() ? fn : p ## fn)
->>>>      
->>>    
->>>>    /**
->>>>     * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
->>>>     * @kvm:	pointer to kvm structure.
->>>> @@ -174,26 +188,36 @@ static bool memslot_is_logging(struct kvm_memory_slot *memslot)
->>>>     */
->>>>    int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
->>>>    {
->>>> -	if (is_protected_kvm_enabled())
->>>> -		kvm_call_hyp_nvhe(__pkvm_tlb_flush_vmid, kvm->arch.pkvm.handle);
->>>> -	else
->>>> -		kvm_call_hyp(__kvm_tlb_flush_vmid, &kvm->arch.mmu);
->>>> -	return 0;
->>>> +	if (!kvm->arch.vm_s2_ops->vm_flush_remote_tlbs)
->>>> +		return 1;
->>>
->>> For consistency with other cases and because it looks nicer
->>> blank line here.
->>
->> Ack
->>
->>>    
->>>> +	return kvm->arch.vm_s2_ops->vm_flush_remote_tlbs(kvm);
->>>>    }
->>>>    
->>>> -int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
->>>> -				      gfn_t gfn, u64 nr_pages)
->>>> +static int pkvm_flush_remote_tlbs_range(struct kvm *kvm,
->>>> +					gfn_t gfn, u64 nr_pages)
->>>> +{
->>>> +	return pkvm_flush_remote_tlbs(kvm);
->>>
->>> For the cases where there isn't a range call, perhaps you should just
->>> not provide the op and have the wrapper fall back to
->>> calling the 'flush all' variant if there is no range one available?
->>
->> The core KVM falls back to flushing all TLBs if the range one
->> returns true anyways. So, I would leave it as it is.
-> 
-> That sounds like a reason to stub them to return true always rather
-> than call the flush all so we don't have fallbacks added at two
-> layers of the stack?
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-But that doesn't help, as the only one that matters is pKVM, which
-handles this anyway. If tlbs_range is not available, then the
-all tlbs call back also return the same value. So, the core is
-anyway going to call the full version anyways.
+On some SoCs (e.g. T7), the PWM controller has a system clock that must
+be enabled to access its registers, in addition to the per-channel
+input clocks.
 
-So I have left it as it is. A sensible backend could do
-something like the pKVM does.
+Get and enable it with devm_clk_get_optional_enabled() using the
+"core" name. The clock is optional, so existing SoCs and device trees
+that do not provide it keep working unchanged.
 
-Cheers
-Suzuki
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ drivers/pwm/pwm-meson.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
+diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+index 20e6cd07127c4..5ab07322e8d15 100644
+--- a/drivers/pwm/pwm-meson.c
++++ b/drivers/pwm/pwm-meson.c
+@@ -508,8 +508,13 @@ static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
+ 	struct device *dev = pwmchip_parent(chip);
+ 	struct device_node *np = dev->of_node;
+ 	struct meson_pwm *meson = to_meson_pwm(chip);
++	struct clk *core_clk;
+ 	int i, ret;
+ 
++	core_clk = devm_clk_get_optional_enabled(dev, "core");
++	if (IS_ERR(core_clk))
++		return dev_err_probe(dev, PTR_ERR(core_clk), "Failed to get core clock\n");
++
+ 	for (i = 0; i < MESON_NUM_PWMS; i++) {
+ 		meson->channels[i].clk = of_clk_get(np, i);
+ 		if (IS_ERR(meson->channels[i].clk))
 
+-- 
+2.49.0
 
-> 
->>
->> Cheers
->> Suzuki
->>
->>
->>>    
->>>> +}
->>>
->>>    
->>
-> 
-> 
 
 
