@@ -4,68 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FFBC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BC2C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5MDTtMD6afFelOIcTq7k9liLCAKGpA6j8Nmw+cyJu0M=; b=q+xY4krmMOFGSpFzCokOrBIzcA
-	pPEDjscY9JidsEsnnaPVdLJf0a1kputBYRd+4BHbLaMgGeUqCnDZapwT5if01SM0wJau562ycEawY
-	VimzK6r8X1zIuBGYD5bHJXQ3/h8wTrJmX3yUemdjVp7K0+mG0HUOu9QhIPQuofmhLJnYvaUAWr9c6
-	cYiddUW0RQ9XeRxpS7AcbOVUDeF8pcuklk1SXA0UX/fZYHMreitWLE6XG6Yg5aZSus4RQTLGNLRZg
-	iGpgRqJyFDcWHfimQz7eBaQN6882Bdgp/FVYYvkFTfJS4vPM6fnCtvIJYuSQLMLEu7D/MQepqsx+B
-	viY2/FLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W6tnudjnaqnDvuJLZWbdA1XYcjcOG/KRBYhK5fxSl2U=; b=YqGqU4GchJ5e9MPhVYDfFYMPHF
+	1agwmXE1ycv1TZyMTmgkG37u7x509uiVnyfmNUZLkd60lWVnOuBz7iLdeJFUx9c+99F/NsrV1beqh
+	yGQ3+hhmAmrTl7bx1ZEJd/TvUdZOxdpsR0NRvRuJvwrDmcHHP7vuSX8FumkYsUhdaLT910Hwt7aA9
+	F/wAyxhB7a9fys++nw6IYQVlZcrOTpRnXvObNsJ2Ww6gD9WKbsuCnxb6FLE+khJP4GLQ5R+ejCBHu
+	zlgr//gexkem0oZBWOUYAkzmA97N1lO3hHR6E/vdM9DtT98Wmzi6NjAJk/n/aA0K/+SEPhmLM3D3v
+	FQOa8A4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gaG-0000000Ah2c-1DFI;
-	Thu, 24 Sep 2026 10:21:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9gaa-0000000Ah6n-2EOi;
+	Thu, 24 Sep 2026 10:22:04 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gaF-0000000Ah2W-0tov
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 10:21:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 307D5600AA;
-	Thu, 24 Sep 2026 10:21:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABC031F000FF;
-	Thu, 24 Sep 2026 10:21:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790245301;
-	bh=5MDTtMD6afFelOIcTq7k9liLCAKGpA6j8Nmw+cyJu0M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kGkEvjDMzPW27fY1HkTF00AU0znEB3Gyp4m8m1hR0k/f4qggxQBCJqGjd9CWbDz/F
-	 M0y1SvvOPq4yUHmQnBmmk/zHxiLKwk8bdniJxMDAnQJFD8JL9IVLgs9YYgUShjftxL
-	 fzq+AeTbP2NSP3MZZq+t9YGKbLx/9ZuXmk5RaS0mwSXMtIIM3x0SteKmlYbDrmjY4B
-	 ADZqFJzdo0iA59Rx1p+Es3npbjhiln69opfVKWdl3hvHfMESY2u3HJkULAOWvkU8oN
-	 vnT+Lufabt0xGR7NQLdJzbSwMPZnkXiyyBzXEEI6Q5Xn9aqsN4skFT2L7WWqVnF/YT
-	 PKvtLJsgSOvLw==
-Date: Thu, 24 Sep 2026 11:21:35 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Xi Ruoyao <xry111@xry111.site>, Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>,
-	Yuan Yao <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
- implemented
-Message-ID: <arT5r6Tqg9PnSYLz@willie-the-truck>
-References: <20260911104715.307500-1-fuad.tabba@linux.dev>
- <868q5579ol.wl-maz@kernel.org>
- <CA+EHjTw0U0d91Cv4NYEJvUuT=JabwZeeYwpZ2P1xyVeOVX46Ew@mail.gmail.com>
+	id 1x9gaN-0000000Ah43-1iGt;
+	Thu, 24 Sep 2026 10:21:53 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 89BA61D00100;
+	Thu, 24 Sep 2026 06:21:49 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Thu, 24 Sep 2026 06:21:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm3; t=1790245309; x=1790331709; bh=W6tnudjnaq
+	nDvuJLZWbdA1XYcjcOG/KRBYhK5fxSl2U=; b=YV226EbjfVpuElFcw2Yq0ZEOf3
+	kV4oD1yEgBOGzqiHUWiGBUHsmuZWVgsCJn6s/sTW1jkG562sllnRbXnT1M+JSELY
+	Zq7awi+A4dmbEFQZ7+okF12O6itF/CxLx3TMAiHtctqB1kEMndbbrmrI2vlBk0Ba
+	XYbUEW3W70InY421d7O6sbJPaygVK8oL73OW89OVuXUbRzWTnkaWXWwvGtnCa3JV
+	7eskiX2aABw4Blhzre4ogXQtco0DYIeEDlJeWU5UZaRrxoHvb9CbR4taKSWEPB/n
+	sdoymmnO7c3wE+k0aJs9YPSv56gwVLdBgm0AETs8sQKNxIiQyUtVyWZtMOZg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1790245309; x=1790331709; bh=W6tnudjnaqnDvuJLZWbdA1XYcjcOG/KRBYh
+	K5fxSl2U=; b=kh2tFI+C70MTIXe/YX+q8448PWaZCZnhMa5jTmFR1nMou61UJcn
+	3WzJV+5IltfZrse2IpGQnglxx9FQZSd7rVblvWFZmqJQBxnrBOfOorgin2MRol1p
+	7GTIl/h47gfMqkO5WlEFQRGked+S8dxfQw7RG545ESliULywNkO2Qx5Hx9ThYn8j
+	nh/tRRBjbnioJwxB5HMlsLGLW+2Gl/aHQUMYACBSsEAo3f8tb9AmOPdf9xHoco3C
+	EVE8q1HQj6CrJx0/ZQZUP78PC1BIp9aqiXGjjWtSgSkRIL70tyRk/NRpuyBxa9xJ
+	S0Qvt0mK0sgHL8pUxHP7lrwawcp44DWbETA==
+X-ME-Sender: <xms:vPm0avPHMDwn28tloF3tMSEyu8VxF0-yiXQT0HsAbMGQFOGRv59D_Q>
+    <xme:vPm0aqvSQ30pPg-WEW7otfxJ7VOHupprZl9Nln6n-luqCRE4x86mOLUkQiJquwlmT
+    8kqev4u9lOuFsqkJNX5npO4SgiGf73qmqNwFMfAM2VaHTbC4UqsvEs>
+X-ME-Received: <xmr:vPm0aiGUv1jl5nzFATDJdBh4YPod_dURrATFLHxrFQJGEguGf87N8DiHfW9QxPYyoVWy8l0DIw>
+X-ME-Proxy-Cause: dmFkZTGUBsuQ8u1e21jVcr3eLNYG8Ga4Cps63LL/fYxHUubIriJLI2yezzT3bzXM0DpGzH
+    qkZsA9N9aBi9n2Y//Yi0OHlpEZJX5Bnw5YcMHpUTVUO0A8DdY/D5tvhfY4JQtyBJkgAFAw
+    TNXckoesIyFctYvXVe/Yo5XkqpKs0A5wEq4b+dKkkqErTVFOzm2U0Tqf5wP76p8dip0AEW
+    6goXFoqaPcnDdHoe8hK/ilbx/bv7lys+91iE7/Vpn/kNTv2VZk73o5DQPwhe3rGxKYgLLO
+    NoMtnnrti5i/YjyeP2uj7BGXhCqwtaB6+EwJplu7fHaOam2PsrbS75wAJYWOARwLKIr9OS
+    DPI/daDD++KB0WfxHB3zjHMjqNV9vZYf0wOy5M8lMuV0ULxpgCD6jL7ucgWwhkGq9g9783
+    Z9TyFguJ6VUEk3MHSGQ6MdIT1xTww7BiozZzx9xuSDFh5IhMlwK+2xIpfoV13jYDwHIAnV
+    jqIv0OdUCnHJYM+M5qe9XAget8mEh2DuV935JroNa8o8cDgx95KRO5U2Reaw1BbfPvyG6x
+    p75wqGpVNdSXqXUO3rxHI1jVOITR29X4JLt+ZAFW720YnBULxO/I8Xwje52RdiLHEfbleN
+    dqAns0cW41qUL8d047ZJggRqksth7LcFfxDruC5W93OmRI2UsyQh41lNQWzw
+X-ME-Proxy: <xmx:vPm0alRmLW-fC207vPYU88tB4X3W1sYpm4gXSIhoogYbRN6k9_SHXw>
+    <xmx:vPm0amj9Of0_Sc6lVVIi-35IpePezVZYs4b6rN9Ae3Ck6cb98PE9HQ>
+    <xmx:vPm0apZ7rprtTFURlb7CwWUcijiQ8Dh8h-GqaMleHSRjlNg37b7ZRg>
+    <xmx:vPm0anVkLpvzJvhB7q-vVOsUXaic03rqhvimGFh9nCF1pHIGlszOkQ>
+    <xmx:vfm0ajvYafMq3HjSolhWD51Kegqh9Jhm0fEBs5AvIOIkpn2yyLWIeKF5>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 24 Sep 2026 06:21:39 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com,
+	abel.vesa@oss.qualcomm.com,
+	sebastian.reichel@collabora.com,
+	sidong.yang@furiosa.ai,
+	u.kleine-koenig@baylibre.com,
+	chaoyi.chen@rock-chips.com,
+	diederik@cknow-tech.com,
+	alchark@flipper.net,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v14 00/15] accel/rocket: RK3576 NPU (RKNN) enablement
+Date: Thu, 24 Sep 2026 22:21:20 +1200
+Message-ID: <20260924102135.92217-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTw0U0d91Cv4NYEJvUuT=JabwZeeYwpZ2P1xyVeOVX46Ew@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_032151_942706_C045ABA9 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +127,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 07:51:00PM +0100, Fuad Tabba wrote:
-> On Sun, 13 Sept 2026 at 11:00, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> [...]
-> > >  static void cpu_hyp_init_context(void)
-> > >  {
-> > > + u64 pfr0 = __read_sysreg_by_encoding(SYS_ID_AA64PFR0_EL1);
-> > > + u64 pfr1 = __read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1);
-> > > +
-> >
-> > Why not directly read_sysreg(id_aa64pfr0_el1) and co?
-> > __read_sysreg_by_encoding() is useful when the encoding comes from a
-> > variable, but it looks odd in the case of a literal sysreg.
-> 
-> It applies the arm64.nompam override, which is what
-> finalise_el2_state() tests. With the override set, EL2 setup leaves
-> the MPAM traps alone, and a raw read_sysreg() would still see MPAM in
-> the ID registers, so KVM would write MPAM2_EL2 on exactly the firmware
-> the option exists for. I'll add a comment.
-> 
-> [...]
-> > > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> [...]
-> > > @@ -298,14 +298,17 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
-> [...]
-> > >   /* trap guest access to MPAMIDR_EL1 */
-> > > - if (system_supports_mpam_hcr()) {
-> > > + if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR) {
-> >
-> > This is going to suck under NV. The host hypervisor is of course going
-> > to set MPAMHCR_EL2.TRAP_MPAMIDR_EL1, and we're in for a recursive trap
-> > on the hottest possible path in KVM. Which is silly as the actual
-> > write to MPAMHCR_EL2 is free (it lands in NVMem[]).
-> >
-> > This really should be replaced by a flag called HAS_MPAM_HCR, just
-> > like you have HAS_MPAM.
-> 
-> I'll probe MPAMIDR_EL1.HAS_HCR once in cpu_hyp_init_context(), next to
-> HAS_MPAM, and test the flag in both trap functions instead.
-> 
-> I'll hold off on v4 until Will has had a chance to comment as well.
+This adds the RK3576 NPU to accel/rocket. The RK3576 has two cores of
+the RKNN block the driver supports on RK3588, with more clocks, two
+power domains per core, one reset instead of two, and a sixteen-bit task
+number in PC_TASK_CON.
 
-I'm planning to generalise the logic you added recently in
-gmid_el1_accessible() so that __cpuinfo_store_cpu() stores the values
-in 'struct cpuinfo_arm64' with the overrides already applied. I don't
-think that directly impacts this patch, but it should make the general
-shape of things easier to reason about. I also need it for the parallel
-hotplug work.
+1/15 is Igor Paunovic's patch and also 05/11 of his DVFS series;
+whichever lands first, the other drops it. His 06/11 edits the same
+binding as 6/15.
 
-If you fancy helping with that, please let me know.
+Changes since v13:
 
-Will
+  3/15   The comment notes that a core still up with runtime PM disabled
+         is left unmasked (Sashiko). The message quotes Igor's re-runs
+         on v13; his earlier summary is behind the Links. Igor, say if
+         you want it back.
+  7/15   Heiko's Reviewed-by.
+  9/15   Message trimmed (Ulf), keeping one sentence on need_regulator.
+  10/15  One reset, not an array (Philipp), and the pointer is cleared
+         under pmu->mutex before it is put (Sashiko). Abel, the code
+         under your Reviewed-by changed; say if the tag should go.
+  12/15  Drops a claim that its test was byte exact; it was within one
+         count. Its comment on PC_TASK_CON now says the count clear
+         lands inside the task number and inflates it, which is what
+         happens.
+  13/15, 14/15
+         v13's 13/14, split as Heiko asked. 14/15 gives 786 MHz at 750
+         mV as 11 to 25 wrong words a pass; v12 and v13 said 13 to 20
+         wrong rows, which no record supports.
+
+The other messages, apart from 1/15, are shorter.
+
+On Heiko's question, 9/15's delay at 0 makes the first power-on of the
+NPU domain take an async SError, also with vdd_npu_s0 always-on; at 15
+us, 536 cold power-ons were clean. Details are in the v13 9/14 thread:
+https://lore.kernel.org/all/20260924090824.38493-1-gahing@gahingwoo.com/
+
+Routing: Ulf offered to take 7, 9 and 10. 1 to 5, 11 and 12 go through
+accel, 13 to 15 through rockchip, 6 with accel and 8 with the DT patches
+that use it. 15/15 needs 9, 10 and 12 to 14 first; without 9, 10 and 13
+the NPU domain comes up with no settle delay or reset pulse and the
+board takes an SError at boot.
+
+Still open:
+
+  4/15   whether you want a fix for the asynchronous put, and which
+  5/15   moves the line that ZhaoJinming's "accel/rocket: Fix
+         iommu_group leak and unsafe IRQ register access" changes;
+         whichever lands first, the other conflicts
+  14/15  both NPU domains per core, as tested, or one
+  --     rocket_core_fini() puts the IOMMU group before it cancels the
+         timeout worker: fix it here or on its own
+  15/15  hold it a cycle, or coordinate the three trees
+
+Link to v13: https://lore.kernel.org/all/20260915104328.45901-1-gahing@gahingwoo.com/
+
+Igor Paunovic (1):
+  accel/rocket: request the core clocks by name
+
+Jiaxing Hu (14):
+  accel/rocket: take the completion register writes under job_lock
+  accel/rocket: wait for a running IRQ handler before resetting a core
+  accel/rocket: let the core suspend after a reset
+  accel/rocket: factor the completion tail out of the IRQ handler
+  dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
+  dt-bindings: power: rockchip: allow resets in a power domain node
+  dt-bindings: iommu: rockchip: describe the RK3576 NPU MMU
+  pmdomain: rockchip: add optional per-domain power-on settle delay
+  pmdomain: rockchip: cycle an optional power-domain reset on power-on
+  accel/rocket: select the per-core clock and reset counts from match
+    data
+  accel/rocket: add RK3576 NPU (RKNN) support
+  arm64: dts: rockchip: add NPU core domain clocks and resets to rk3576
+  arm64: dts: rockchip: add NPU (RKNN) nodes to rk3576
+  arm64: dts: rockchip: enable the NPU on rk3576-rock-4d
+
+ .../bindings/iommu/rockchip,iommu.yaml        |  28 ++++
+ .../npu/rockchip,rk3588-rknn-core.yaml        |  47 +++++-
+ .../power/rockchip,power-controller.yaml      |   8 +
+ .../boot/dts/rockchip/rk3576-rock-4d.dts      |  22 +++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  86 +++++++++-
+ drivers/accel/rocket/rocket_core.c            |  32 +++-
+ drivers/accel/rocket/rocket_core.h            |  11 +-
+ drivers/accel/rocket/rocket_device.c          |   7 +-
+ drivers/accel/rocket/rocket_drv.c             |  42 ++++-
+ drivers/accel/rocket/rocket_drv.h             |   2 +
+ drivers/accel/rocket/rocket_job.c             | 157 +++++++++++++++---
+ drivers/pmdomain/rockchip/pm-domains.c        |  89 +++++++---
+ 12 files changed, 467 insertions(+), 64 deletions(-)
+
+
+base-commit: 1a1de54f7369cd2b5bac0f265910e60ad3a6b4c3
+-- 
+2.43.0
+
 
