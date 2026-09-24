@@ -4,45 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D43C98317
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 11:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3643DC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 11:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KXnV9Avv83vrJBNrCkA2DJWMHO+cCJ0SI5wBWliomOI=; b=hTEJDHrMa/lrvgGR/gGC/AhzFL
-	NbsSMS+DKCoOQPYUflaT2Cgs/aJZ9hNFp4G99xDIBRg3HdUQeiqMWZ4RsFmx+Re1MQRg4HT8t41xS
-	NVSmLIDv6ehaIOa3yumdO4sVEhchqrVSlmHJbr/nUZJ7Dyl22bba9xez/i67NyrukG8Rv4hMwTJAP
-	3D2At5SIP4IttQYWagWs6Ycol8MrgXyzx7F0s2H3K/OrJ2cPBtUEAYaUHtdDtPWrp1S02Zi7BjtB3
-	HcpS12PdlaXTa3dmsALpOR2UDs7ciRI3JqKBtkwrmhBTY2g5o/kPW+L5FrOkqX1nlU5RSnnd8SrOx
-	lSUByGJg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+0Je0qZg/wNYnfcI4LDtGMGXD7CyFlhG5d2t6KkTqSQ=; b=W0L847KirPWa8GiSTDRshr1lq8
+	I4Z+q9lfquzQnXgPQxJ4bFFIDfDi3w086qKUBUcIklwK89y0X/6WaNkZpPU1u30OFswnZkyX9MlZF
+	orqKF6F0e31WTN5daXEv99HS/ZsF2wt7umPF9HL/g6JkBBTDjEhkFGDRdynE7NyG3CHbwQsG407Zp
+	b6Gbi1ZWRYghkOs/qaHv6nPxKM7Ws6Z+ds3XEyLUpDQlbEf+/LgxAzC9N7gS4s74Z2E7Z9xe6IirW
+	jdWA0+NLM2PyCdM/heQIRbmlSmAyAsVaXybmYr3W4YCoIxxeqV4Lb8IcPLedYf4n7F426dl9zZP2W
+	RNSDesjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9hJl-0000000AokC-41wV;
-	Thu, 24 Sep 2026 11:08:46 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x9hJt-0000000AooD-0x6o;
+	Thu, 24 Sep 2026 11:08:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9hJd-0000000Aog6-485B;
-	Thu, 24 Sep 2026 11:08:39 +0000
+	id 1x9hJn-0000000Aoky-2cla;
+	Thu, 24 Sep 2026 11:08:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=+0Je0qZg/wNYnfcI4LDtGMGXD7CyFlhG5d2t6KkTqSQ=; b=CHZAmHCPnGsJCa+qFawibtQge6
+	BQxw9Ek+ntqM6cEDjV6EbGSl6J/hTvlZq/xwM/FMMDHcWrWx6vGOMJJxrV/epZ+fQDjL/GgKa/BcL
+	dDJBXiHDg7/BvgbL+KFj8zKtew9qwTTRK8qoIBdbAOIVm7GQdL4zAw9AJh737UScy2etWrz/vzBIa
+	2URk04V9dEfnL5f1RXvO2rU5sKhr+h/qlhqOUDvslILS5Q/78JMez+vPZ/Od/S6hw7PqDwyQHhM4d
+	HChFxipuekfZ/7fMtOrF20mTWOE6F6H/t2CrAxI7FShHO5Mnol5IqY8a4Oftr28cjmFUtd2QZ/4qc
+	h+i4fpWQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9hJf-0000000Fsrq-49NU;
+	Thu, 24 Sep 2026 11:08:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790248111;
-	bh=Mtojtg2W6FyqJ5AJ/ZxpFW1x6w9Yz/ywA++HVXDlACM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ocQyk7DbaikGw0zgzuelLathBbin++rYWY6niIWlI/zGqBFZ5Va3m/nazybK/Zeyj
-	 3LcFBGya6804bUX9znjrdxeWV1GQGIJNMSg19qyhc2JYGmV33VO77VV2OlG3kQfzzP
-	 G868lC2jBOQXWru9za1D6itTrwhvEzFLoc0A+OXtysoQYceIAxDsNyay8l71NrfBZY
-	 nFxExuMF+uA9u2IY4+Uel7k8/1k+xYhqtuvJbttE7qoHVUntug5IXaLWPvj4attWRi
-	 a8hIQlFa+RnpxBQsup1C1cBsQZLEnkE/+JtdX7RxvMTWrLcvUnU/XPOHH4pgyI1G9q
-	 I4Tp98py3QtbQ==
+	s=mail; t=1790248113;
+	bh=t7HK1oq4mCwhdhAy8SUPdPahzvOZhLavDwHLqnkVlbM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MuSc8ZUOY0t9GYN+zAVZieFcMEG/RHf9nXPovYDDZofeBzfnuHzaHzI1nVyo8tMsV
+	 d44vPBLtNkhU+0oJxEzNE7X4uOxSzZyPFvts9hfbTtVJCJ7X+S1LukUN6jV9fffiil
+	 YRqipPWj95kx6y0I2Dr+eoUl/TZ74IAGhdPYz3pCzTuPVNzXjdr29/fEZgg2WcTr0K
+	 dyeUE/suVZPSDdW21WobusGsBwIb8d/h4KAonpgFEzDuw3cK+1GNyWB05i+D0CwFVY
+	 ry5BI05or/sLW33vKycBQx886OWETR8T85Gac7pejL8+ymr5XZVth99PARN0ezc3Ms
+	 rDyCmEOMIv4IQ==
 Received: from benjamin-XPS-13-9310 (unknown [100.64.1.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E278C17E00A9;
-	Thu, 24 Sep 2026 13:08:30 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A629517E0B0F;
+	Thu, 24 Sep 2026 13:08:32 +0200 (CEST)
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 To: nicolas.dufresne@collabora.com,
 	benjamin.gaignard@collabora.com,
@@ -62,16 +76,17 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH v2 0/3] Remove unused variant and code clean up
-Date: Thu, 24 Sep 2026 13:08:22 +0200
-Message-ID: <20260924110825.166238-1-benjamin.gaignard@collabora.com>
+Subject: [PATCH v2 3/3] media: verisilicon: Remove useless internal fields
+Date: Thu, 24 Sep 2026 13:08:25 +0200
+Message-ID: <20260924110825.166238-4-benjamin.gaignard@collabora.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260924110825.166238-1-benjamin.gaignard@collabora.com>
+References: <20260924110825.166238-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_040838_176376_BF2C4925 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_120842_876764_48872B53 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,26 +101,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"nxp,imx8mq-vpu" variant has been tagged as deprecated since 4 years
-now. This series remove it and make some context's fields useless so
-remove them too.
+No more variants are using multiple registers regions.
+Remove the useless fields and simplify driver code.
 
-changes in v2:
-- have a separate patch for documentation
-- fix dt-bindings
-- rebased on v7.3-rc1
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+---
+ drivers/media/platform/verisilicon/hantro.h   |  8 ++------
+ .../media/platform/verisilicon/hantro_drv.c   | 20 +++++--------------
+ 2 files changed, 7 insertions(+), 21 deletions(-)
 
-Benjamin Gaignard (3):
-  media: verisilicon: Remove deprecated variant
-  media: dt-bindings: media: nxp, imx8mq-vpu: Remove nxp,imx8mq-vpu
-  media: verisilicon: Remove useless internal fields
-
- .../bindings/media/nxp,imx8mq-vpu.yaml        | 10 ++--
- drivers/media/platform/verisilicon/hantro.h   |  8 +--
- .../media/platform/verisilicon/hantro_drv.c   | 21 ++-----
- .../media/platform/verisilicon/imx8m_vpu_hw.c | 60 -------------------
- 4 files changed, 11 insertions(+), 88 deletions(-)
-
+diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
+index 0353de154a1e..20c3afb3b817 100644
+--- a/drivers/media/platform/verisilicon/hantro.h
++++ b/drivers/media/platform/verisilicon/hantro.h
+@@ -72,8 +72,6 @@ struct hantro_irq {
+  * @num_irqs:			number of irqs in the array
+  * @clk_names:			array of clock names
+  * @num_clocks:			number of clocks in the array
+- * @reg_names:			array of register range names
+- * @num_regs:			number of register range names in the array
+  * @double_buffer:		core needs double buffering
+  * @legacy_regs:		core uses legacy register set
+  * @late_postproc:		postproc must be set up at the end of the job
+@@ -97,8 +95,6 @@ struct hantro_variant {
+ 	int num_irqs;
+ 	const char * const *clk_names;
+ 	int num_clocks;
+-	const char * const *reg_names;
+-	int num_regs;
+ 	unsigned int double_buffer : 1;
+ 	unsigned int legacy_regs : 1;
+ 	unsigned int late_postproc : 1;
+@@ -184,7 +180,7 @@ hantro_vdev_to_func(struct video_device *vdev)
+  *			dev_ macros.
+  * @clocks:		Array of clock handles.
+  * @resets:		Array of reset handles.
+- * @reg_bases:		Mapped addresses of VPU registers.
++ * @reg_base:		Mapped address of VPU registers.
+  * @enc_base:		Mapped address of VPU encoder register for convenience.
+  * @dec_base:		Mapped address of VPU decoder register for convenience.
+  * @ctrl_base:		Mapped address of VPU control block.
+@@ -204,7 +200,7 @@ struct hantro_dev {
+ 	struct device *dev;
+ 	struct clk_bulk_data *clocks;
+ 	struct reset_control *resets;
+-	void __iomem **reg_bases;
++	void __iomem *reg_base;
+ 	void __iomem *enc_base;
+ 	void __iomem *dec_base;
+ 	void __iomem *ctrl_base;
+diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+index 70de47ddb023..f418b0427985 100644
+--- a/drivers/media/platform/verisilicon/hantro_drv.c
++++ b/drivers/media/platform/verisilicon/hantro_drv.c
+@@ -1080,7 +1080,6 @@ static int hantro_probe(struct platform_device *pdev)
+ {
+ 	const struct of_device_id *match;
+ 	struct hantro_dev *vpu;
+-	int num_bases;
+ 	int i, ret;
+ 
+ 	vpu = devm_kzalloc(&pdev->dev, sizeof(*vpu), GFP_KERNEL);
+@@ -1137,21 +1136,12 @@ static int hantro_probe(struct platform_device *pdev)
+ 	if (IS_ERR(vpu->resets))
+ 		return PTR_ERR(vpu->resets);
+ 
+-	num_bases = vpu->variant->num_regs ?: 1;
+-	vpu->reg_bases = devm_kcalloc(&pdev->dev, num_bases,
+-				      sizeof(*vpu->reg_bases), GFP_KERNEL);
+-	if (!vpu->reg_bases)
+-		return -ENOMEM;
++	vpu->reg_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(vpu->reg_base))
++		return PTR_ERR(vpu->reg_base);
+ 
+-	for (i = 0; i < num_bases; i++) {
+-		vpu->reg_bases[i] = vpu->variant->reg_names ?
+-		      devm_platform_ioremap_resource_byname(pdev, vpu->variant->reg_names[i]) :
+-		      devm_platform_ioremap_resource(pdev, 0);
+-		if (IS_ERR(vpu->reg_bases[i]))
+-			return PTR_ERR(vpu->reg_bases[i]);
+-	}
+-	vpu->enc_base = vpu->reg_bases[0] + vpu->variant->enc_offset;
+-	vpu->dec_base = vpu->reg_bases[0] + vpu->variant->dec_offset;
++	vpu->enc_base = vpu->reg_base + vpu->variant->enc_offset;
++	vpu->dec_base = vpu->reg_base + vpu->variant->dec_offset;
+ 
+ 	/**
+ 	 * TODO: Eventually allow taking advantage of full 64-bit address space.
 -- 
 2.53.0
 
