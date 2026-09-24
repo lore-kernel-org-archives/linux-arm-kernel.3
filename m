@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3837AC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9137C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H6/LFLPNfnv33X+hQA/Y4rBVZxSFcDoYhQAwew2z5BE=; b=HEUl6eCxRej70fHi47tf/CTaiZ
-	hZRw9xA98kLfzs3tGjus1JnyWyBMB+DITuZXpnYbxDHqceCuErSpBfkjjrH8wg8JCx+N/M28K1eJq
-	8vB3APk0BXe/TSnfOog4TqmMW88qopwSsHeTIhSDQBWG2lAKh4il00czGrwCm7q+4nvnR8XuqiZjM
-	XFK9BMIYTrL+me/azAEHPMm6NZBQ25evNHxeO2I8NzqNnY5dfBU4kPHmKd7e7Eiy5AqXeTNbBIdC9
-	hrtKZM6Xgiu7GlPvrhW53XZKd5BDpe67AcWKG8OEDeXBEhSchWPyLaBlCGcsQVjhtlmmdxRArRSZs
-	0OY0Hutw==;
+	bh=eYuRJAA8oly9E7Iin/7O8VsngbLwV6qRDQhUiQrbGds=; b=AYPX4uD9a+Ffj7YOwgZ9W5z7jH
+	jOC7t92nWAJp1Ba3FaXHlXScncfSi78BnMOtL0NAbhT0FC2t2ScHqSdPpoVBHbfDTpvpYsH9Keqoe
+	YikK53ULnIdiKgh8+j+DPkYr5mTU4wRg5PmZdDNc5IQ6Q0Q8ELYV6nvIbf8mKQ5JpL6N9nWDp2AIr
+	yO8qwFuZpTewCa1PZKkWzRob7ydukiEBcmwwoszAJ1Rn2dHlVFjkqEWOiVRFfXbVyV1SiBCVEvMAc
+	TmMWiNUGTQ9JP32rnU2lMoaJf0iSXIoEl1RKz25Uje2ridLmswqnZQ9r6EjdNytY0+RR6D+lbvyEy
+	RpS/0B4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lx6-0000000BWaF-2f2O;
+	id 1x9lx6-0000000BWaW-343s;
 	Thu, 24 Sep 2026 16:05:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9lx2-0000000BWYT-30Eo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 16:05:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eYuRJAA8oly9E7Iin/7O8VsngbLwV6qRDQhUiQrbGds=; b=GooglYvUFxdOQ9FnLd4pavjlOl
+	GfeqNILsjl1BbMnlDrEMXFnGUdtn4EFFLOpZEm7v7txROMIsRAa5giGG16uyqQ7ucmYqFyvR3XOdv
+	JkemAI93Sh9R54BN4EIbZDUxI2YhSPfwOIMt6T3ErKPa6u+8PBe9n/WvUnzqAKT4pd2kEELhxm0Ju
+	E3Chw4KBjeWRW/5g4aqXre/vUZwclfDEwuNa7esFn+ubqB4WD44SnqGB80U8tpz3o0UuJKes0rkrn
+	yCg2r7Bo5RHOtBJI/Y4T4uuuo5q2zgsKYdc/jGO8YOpFigPZOUADgw57nEfOBWsVbySa4S6fWNbMo
+	DxKPVDMw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lwv-0000000BWW1-3THJ
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9lwz-0000000GAm9-2OEK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:05:31 +0000
+	Thu, 24 Sep 2026 16:05:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCA1A1CE0;
-	Thu, 24 Sep 2026 09:05:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4C3D152B;
+	Thu, 24 Sep 2026 09:05:27 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 16D8A3F86C;
-	Thu, 24 Sep 2026 09:05:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BE5393F86C;
+	Thu, 24 Sep 2026 09:05:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790265926; bh=tQPgXa0jI7YAYMnIJ4TZ6BAVtiDhJcnzdYxdyAnW4NQ=;
+	t=1790265931; bh=e4q/PWyF7pIt1CQ8fjppct+/tCsvdAGsy+TtiAPcvi8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Fn8Yg7CasPv/kTLDY/bNSD3XpW/FBGNHfP16E8DGXiuSrl9OiLby0HvB6bGNTVsfA
-	 se6sn3iyMXeG2aI6yuMo45FnoIAb5iHHbpQdWINkLn7IgiPrqe5VCVziJsI5MWQ9g3
-	 PKEklxiVCMI/AtAwd6wzdZCuSt+qdtE+zCBNouoQ=
+	b=Lt5pqYvVdtJL2rfpa/saSCOFRu/i/inIISap9zx1Ca/uq0WlmTBtAlx8/yTBkMZRY
+	 xseI4NYfObsbMspeYG/gAJOwIZmn/yn4up99m604CS0vg2ufDdKOm2W69qgt11fMPA
+	 VACjJtyUk97jIpTki3hBr0Rty0ICu83QtURnRy9Q=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -66,17 +81,19 @@ Cc: maz@kernel.org,
 	jonathan.cameron@oss.qualcomm.com,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH v20 02/22] KVM: arm64: Disable Steal time accounting for protected guests
-Date: Thu, 24 Sep 2026 17:04:44 +0100
-Message-ID: <20260924160504.853911-3-suzuki.poulose@arm.com>
+Subject: [PATCH v20 03/22] KVM: arm64: Include kvm_emulate.h in kvm/arm_psci.h
+Date: Thu, 24 Sep 2026 17:04:45 +0100
+Message-ID: <20260924160504.853911-4-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260924160504.853911-1-suzuki.poulose@arm.com>
 References: <20260924160504.853911-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_090530_790728_C5A3B41D 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260924_170533_850128_3295B7CC 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,94 +108,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PVTIME support is advertised by KVM_CAP_STEAL_TIME, which doesn't take into
-account the kvm instance. Even with that, a VMM could skip the CAP check
-and proceed to configure the PVTIME as we don't do further check on the
-DEVICE_CTRL. Tighten this up by passing the KVM instance around wherever
-possible and catch things early.
+Fix a potential build error (like below, when asm/kvm_emulate.h gets
+included after the kvm/arm_psci.h) by including the missing header file
+in kvm/arm_psci.h:
 
+./include/kvm/arm_psci.h: In function ‘kvm_psci_version’:
+./include/kvm/arm_psci.h:29:13: error: implicit declaration of function
+   ‘vcpu_has_feature’; did you mean ‘cpu_have_feature’? [-Werror=implicit-function-declaration]
+   29 |         if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2)) {
+	         |             ^~~~~~~~~~~~~~~~
+			       |             cpu_have_feature
+
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 +-
- arch/arm64/kvm/arm.c              |  2 +-
- arch/arm64/kvm/pvtime.c           | 14 +++++++-------
- 3 files changed, 9 insertions(+), 9 deletions(-)
+ include/kvm/arm_psci.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 27fe0cd5b2d7a..286489a69dff5 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1346,7 +1346,7 @@ long kvm_hypercall_pv_features(struct kvm_vcpu *vcpu);
- gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu);
- void kvm_update_stolen_time(struct kvm_vcpu *vcpu);
+diff --git a/include/kvm/arm_psci.h b/include/kvm/arm_psci.h
+index f86a006d67136..06c20612e9e7d 100644
+--- a/include/kvm/arm_psci.h
++++ b/include/kvm/arm_psci.h
+@@ -10,6 +10,8 @@
+ #include <linux/kvm_host.h>
+ #include <uapi/linux/psci.h>
  
--bool kvm_arm_pvtime_supported(void);
-+bool kvm_arm_pvtime_supported(struct kvm *kvm);
- int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
- 			    struct kvm_device_attr *attr);
- int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 8b080804bc90b..db36815630790 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -447,7 +447,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		r = system_supports_mte();
- 		break;
- 	case KVM_CAP_STEAL_TIME:
--		r = kvm_arm_pvtime_supported();
-+		r = kvm_arm_pvtime_supported(kvm);
- 		break;
- 	case KVM_CAP_ARM_EL1_32BIT:
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
-diff --git a/arch/arm64/kvm/pvtime.c b/arch/arm64/kvm/pvtime.c
-index 4ceabaa4c30bd..579e0a4720ad2 100644
---- a/arch/arm64/kvm/pvtime.c
-+++ b/arch/arm64/kvm/pvtime.c
-@@ -67,9 +67,9 @@ gpa_t kvm_init_stolen_time(struct kvm_vcpu *vcpu)
- 	return base;
- }
- 
--bool kvm_arm_pvtime_supported(void)
-+bool kvm_arm_pvtime_supported(struct kvm *kvm)
- {
--	return !!sched_info_on();
-+	return !!sched_info_on() && (!kvm || !kvm_vm_is_protected(kvm));
- }
- 
- int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
-@@ -81,8 +81,8 @@ int kvm_arm_pvtime_set_attr(struct kvm_vcpu *vcpu,
- 	int ret = 0;
- 	int idx;
- 
--	if (!kvm_arm_pvtime_supported() ||
--	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
-+	if (!kvm_arm_pvtime_supported(kvm) ||
-+	    (attr->attr != KVM_ARM_VCPU_PVTIME_IPA))
- 		return -ENXIO;
- 
- 	if (get_user(ipa, user))
-@@ -110,8 +110,8 @@ int kvm_arm_pvtime_get_attr(struct kvm_vcpu *vcpu,
- 	u64 __user *user = (u64 __user *)attr->addr;
- 	u64 ipa;
- 
--	if (!kvm_arm_pvtime_supported() ||
--	    attr->attr != KVM_ARM_VCPU_PVTIME_IPA)
-+	if (!kvm_arm_pvtime_supported(vcpu->kvm) ||
-+	    (attr->attr != KVM_ARM_VCPU_PVTIME_IPA))
- 		return -ENXIO;
- 
- 	ipa = vcpu->arch.steal.base;
-@@ -126,7 +126,7 @@ int kvm_arm_pvtime_has_attr(struct kvm_vcpu *vcpu,
- {
- 	switch (attr->attr) {
- 	case KVM_ARM_VCPU_PVTIME_IPA:
--		if (kvm_arm_pvtime_supported())
-+		if (kvm_arm_pvtime_supported(vcpu->kvm))
- 			return 0;
- 	}
- 	return -ENXIO;
++#include <asm/kvm_emulate.h>
++
+ #define KVM_ARM_PSCI_0_1	PSCI_VERSION(0, 1)
+ #define KVM_ARM_PSCI_0_2	PSCI_VERSION(0, 2)
+ #define KVM_ARM_PSCI_1_0	PSCI_VERSION(1, 0)
 -- 
 2.43.0
 
