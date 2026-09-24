@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D970FC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C13CC98315
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YOd5bZyODtN9cGxOXCDLK+zhRfQThyoLAp0qXa6H4c=; b=aGpkIoXe8Q9NtmZNmlhYAJFVhT
-	Asf5gb/+RCGdzKdL3MwPm/5ZtWcbk79/IzL7d07AEgomLgfV86PPqMWxGxm3N7nILfHTrKo6Y6HBc
-	OX3XDgQiLbRiLTn9aQOAeRjOZBiT3IMr1HUkDBxnFMtC1M9OUSfoIqlm9MM1oZzZ0Ub+P+CQHEOsn
-	u3HbRxt1zi0dl7y908kSpsoMPKj3K9SRhH7lRhGAcvGMufq8ylAigJG3zX7c71ypv522UPnSCNnc4
-	r9VkKsHIXV2RlWOjL2tYB8hT4dEa1HeJhc4+nR3Ggq3NdJzZkTNqRW3biFURi0ZICJrMV6ghdaNGs
-	lcOIzf6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BDZWmJgca/oRmUPYb8QTvKV4Z0J2CBYz2565yw2xf3w=; b=f0xPORwcxdvBr4VqEqQJAjxYNe
+	4xxwBh2qfDdV0igh+p+UwFJvLidH6Rpwh1Lrgfq8zAlA+vOWe+6yiXIx7oR5fAKh+/3nTlM5VJCxw
+	nIvp5c6cwqW6FH2ZbvMDZ2Kb2Coyjc06VrTJOG+Y7KfhLelMFjKKpHMTaugRYLRIaDlwjJHpk1qH1
+	60euUNkoHX8n/MUi68jfx84LnIulBEuJIf+NgFAfB08sBRkMJeoqhYnRSpmtFSgKWjRzhwMcwvqxE
+	tI41v3rtv878+DlB88/K9EE8uXJx6eDRG8fEE2EJcC0JN7y6gvG6sRF5mqXULW0ooK5j5j9bSDwYZ
+	boy9nFFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kef-0000000BIHD-2rKX;
-	Thu, 24 Sep 2026 14:42:33 +0000
-Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
+	id 1x9kgA-0000000BIST-3fZr;
+	Thu, 24 Sep 2026 14:44:06 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ked-0000000BIGB-2XKW
+	id 1x9kg8-0000000BIS4-13FG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 14:42:32 +0000
-Received: by mail-yx2-x10.google.com with SMTP id 00721157ae682-8659af7454eso34424647b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:42:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790260949; cv=none;
-        d=google.com; s=arc-20260327;
-        b=E13IUex9dzsceCVv5/xBx29rGaKD4lkTbNtdaBqo6wkfnx5XMRwVxpJo+m8QpdXCzO
-         TvQUNfW8culZIA8ZQSkyaXJdaEZ5pmP9QOy1rcXSSZGN2OMEx6j2YAi5kizFo48QgEV0
-         m8LQT9I+2aogbHR1hC+cB4XUICD96uWBOwdIRpVQ0ucRZD8QVqPvoGnXK1covIk2DHBj
-         bVBi6bHAd7N78H6WPoO4p8ZdUnTPnuQgFrm2SxhOiUq4e89IiGXdsfP5jdXi6Mg3+P2n
-         tgSv/aHhqkuh8KKn2fbzYTSRuKRmFqhcoYlFkt5hAp6qz/5fDWO/F6nFcZWeN/eVbfZI
-         LjyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9YOd5bZyODtN9cGxOXCDLK+zhRfQThyoLAp0qXa6H4c=;
-        fh=xm1cR9FwehjdiEUYvaTtmdnDzhchz1sySZskf/ijv3E=;
-        b=focwcgRbViXnfx1y9IFli6acOFvEo+NmMG6jZyjEBXsj/Woc52a3yGzczrCrgCQql5
-         8GDoS9dOFifos8jLQBQYeRcixctKU8I2a2rcvDgvttunvVbLmPM7MCnbSBaCrLsM2USy
-         kTXP5vZlbZJM8sF1rN5yvknflDqm1yP4fKh5bsoXHFTBppuMUMQUi3UH8vD53tExaeuN
-         68ko7H+M8loQrStXJofI8xxlJu1PgbDr8ifP03KKr3Klc6sWL+rWeMjpyJ6xu6cSB0F/
-         P1IPMnsEUyqXWqOzeUfNdXhhVnm9gp7N6cNO/LeCEgOpSEMbgb2qrWvsEGP2gtuE0ooW
-         T38Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 24 Sep 2026 14:44:05 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc4c08393b0so1008052a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:44:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790260949; x=1790865749; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9YOd5bZyODtN9cGxOXCDLK+zhRfQThyoLAp0qXa6H4c=;
-        b=Jgt/YDpVMUWO3I1QykMA/eCabq4mBv4hKx+SJnl88bQjfdtgf1WvJM20Y7D+jO6zaL
-         +4IvIEZoS3+JaSRI5t2U6Zx6h6xWjIf3xTR/99HqZVv5kDpsst0ynqwcrxISAeh8sP+5
-         vl2creSFeN2F7kaKJAbr/bbf5TReNQzH4bygCoucT7U7nn8t+h2zLRtW7LTuEPoYDAht
-         rNU5EKe9SiiEWHsyTIu9WGl50BuZKP0R8I3oItbYdW4ky2g6aZNNytsLcR05JNS07MVC
-         iGqmGrkfJF8tJcdtPcA8xHHWiEXgc5IFrIA7akFeVwVTNKtCJpwT/tSdy+z03paQgzpM
-         f4Pw==
+        d=gmail.com; s=20251104; t=1790261043; x=1790865843; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BDZWmJgca/oRmUPYb8QTvKV4Z0J2CBYz2565yw2xf3w=;
+        b=jRLnhAbFu9mzbJdVv5yCnI6O4pcE9I+v4TT8OAVRPt9TIkjDwq53lawcJAmk5Es8YS
+         G0lALi1+cKEghtrfl4g9nPmpgxByI/eZp9RRkv0l7aKRxEP2NsYgtnSug2HCpEIg0SEf
+         ouLP8yVvhThXwZBlwxvnmXNIbGRb6vvQISbb457thI/qP27dd3xZUjLPNLk37O2Ek6uW
+         K7NZy/Q8NsAHFq1DbVgDTIPPLryCh5PocpwVTPXNASY0lI+7CMGdB5uSjF3vMvI0QtnG
+         boh3gTfN+VV4UucwxmnTELKjUxsWfqvi1riwUtHmqDrF0Aj+bUEl5LaPv1uY+3TgGjO4
+         eXVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790260949; x=1790865749;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9YOd5bZyODtN9cGxOXCDLK+zhRfQThyoLAp0qXa6H4c=;
-        b=Ywj/+2HufEe+4CYZ2u2BnUhUxj2gbTbC+0C/3Va39GMiEX5OWdlwIenwe+1LuYPReE
-         Kq2jfvcJhs2JCfTC81/ou6DwPwbxNWUwjg42rfWtGUrPe/GMzhhAZS1mcsVB/UXBvD8x
-         Em0jp36cQX3KyDzv9DUnIoxb1j8S+AQH14Q8GeoEmdvfhTIL6/gcdmiaZUV+vxK6tG0G
-         TMNe1/U+fmJxNRbyQCo9+Yxs8MLgQgrk1zRBOyryujJvSGDom0SI8aMwzBpoCshC5MZk
-         bsZuas4Ceo0P5VwiuQfcaiapLfCg1+r5XYX8UJvnE3m5NtbnGpHZw6Ro7NhxaPORtw+I
-         wYEA==
-X-Forwarded-Encrypted: i=1; AKwUvBwPX2bp9hgvC1aHUiCvU2Me5bca9zWtxSfBWqD6IsZqxomrp7WsHZmtFNUnI8vpiRV/uOrNQpL7zEBiAdhe7w8b@lists.infradead.org
-X-Gm-Message-State: AFuF++lyV4zUYwboBI8OkZ4QHAEXuyZGBq4YnImd1GUkTJxHkfIfnPNp
-	B14k/RjSVk0PqZDe3cRBOtkaujWj+HNMnNKh6DneU1XJCY1zwPJa7ZoB4kbitK5wbwUgZmOmHmA
-	m4EUu5n/2volKqP/o+SzQacbYOE4mlLM=
-X-Gm-Gg: AYBFou364y1Y/9DEGRLo8EIbbWkKTMEZapBUQrYAVgZyvrEhcFqheigvnBI5aaLiqsu
-	gFXclUIYZ0NeaumI2rTuK7IKzWSI1AhoCUQVykbB5/h7u3jtSi+k3CmxD5mnf9UtU+dNqxWasov
-	7wvHOxSk5H3fBA0n6lWc22N9rQ2XJ0BaA94mqMM62gYSeWrO8DsxhB95NffRG93QgW3mLnL7XFN
-	8kog/IPymuw3QuTKwIf/5H5tcO88Qwmf1qs0JUmooFSO4S6iim3QLgxIK6JzY0vB705lDr1LF6C
-	+rd5F9JxXbIlWldl4c+h0DVpNXweqR/LeEeqGgrTYtINqi0/1ufdQ33GjA==
-X-Received: by 2002:a05:690e:4386:b0:672:a52c:db1f with SMTP id
- 956f58d0204a3-672ed48ebadmr1187815d50.103.1790260949554; Thu, 24 Sep 2026
- 07:42:29 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790261043; x=1790865843;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BDZWmJgca/oRmUPYb8QTvKV4Z0J2CBYz2565yw2xf3w=;
+        b=D8Y7JV2aQl5vbSXQLqOd06oIgeEPMex3kHXnVj85NWIdRNFImqBN7JSaBtrs7PNoVt
+         s4aC++Yi1cRF07qB5n1z/pdnLlhdHUvqrflEGGxHaJ2722PEQqYKGmae4jdV1NbcXVzp
+         DIO1SXCAEgjynDqha7ts/mJ4yywqQ0u6dD2650RP18lLqI2bVlun+b4TPwlByHPzvTM7
+         1TOquxIsOa5WZVq2aKHaCnPhWT5zdUuq76KtDmvInMIQx2nCWFGswmYTORO7DN12d5Yk
+         5fAo5APIx2ijjEZuyHg92kTdY03aeCxmLR3HC1rBy9fFQ+DjL/esd0jYLJvAwzZpsMvQ
+         B1DQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzREVRxt4C8K1hHovc9MH747lfQTAuwfAMiQ1TxKdhoh4evDPkU2yhhG8w5zRLNdUJGTVcN7DxdYP04su8OyuId@lists.infradead.org
+X-Gm-Message-State: AFuF++mJ/2rSEElmC3R5TejYCeX8zoNEMGmc2V1PGypl3X4b742VcIMD
+	/jXqLrDO3yvPf9oF8wCYfd84iiRjhYIokuh87a34Qnr+bk0HWe1Xoe0d
+X-Gm-Gg: AYBFou2YaworhdGxXA74ZichHLxKiyuuTIRfhSi3xT8QaAp8jEe8NOfHK/18qFRC5HZ
+	bXZ1ILFYxDvjzQc2MP6muF2wFkmtgkPj0QieZVg2ND3T4uHKTArXqupYffMBWe5aTDkRbAsuiex
+	/CCTRefya4QyGUFXSFeQH9RNk6jMia/PleFJm2JY4bhvedqyDS6YHYhzWYuQPHlm7MCSzTmvzyS
+	vxcU0JZHFn/ZKiZjhKBFiqGf8A8ktZh9l3WA0rB5Y3j1wYRCgkdZi1Ob2bu1T7Lt9Rt8kAdzJE/
+	SX53USNIGhAb2evDWl6ZBCKJii0YlNTmv/DP2ss6QPTijaWbfVrxZKwHrsfFy2lMpoXhpuSRD4Y
+	SSICRQRh3wpbUJwMlqLkeQ5Lo+osFMxwkCLOE13Mfw7QiiO9npnsQiMpC4b7XGTPTJepUAgbMxO
+	q2MTrswPmkkmG0yLDWx3kKGfGaGpXHlTBjzLzRqc4YI7pabsBIubVRezdtDDvUoA==
+X-Received: by 2002:a05:6a20:9149:b0:3d3:ae40:51e7 with SMTP id adf61e73a8af0-3de0e762e07mr2709521637.27.1790261043213;
+        Thu, 24 Sep 2026 07:44:03 -0700 (PDT)
+Received: from lgs.. ([47.82.103.134])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc75f3f2d0esm2982721a12.22.2026.09.24.07.43.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 07:44:02 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Mattias Wallin <mattias.wallin@stericsson.com>,
+	Ludovic Barre <ludovic.barre@stericsson.com>,
+	Samuel Ortiz <sameo@linux.intel.com>,
+	Julien Delacou <julien.delacou@stericsson.com>,
+	Alexandre Torgue <alexandre.torgue@st.com>,
+	linux-arm-kernel@lists.infradead.org,
+	mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] mfd: ab8500: fix child device leaks on probe failure
+Date: Thu, 24 Sep 2026 22:43:55 +0800
+Message-ID: <20260924144355.1604369-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260923112009.1062-1-anykey196@gmail.com> <20260923112009.1062-2-anykey196@gmail.com>
- <b01154aa-16be-4dbb-861f-d4a70da7ad83@arm.com>
-In-Reply-To: <b01154aa-16be-4dbb-861f-d4a70da7ad83@arm.com>
-From: =?UTF-8?B?0JLQu9Cw0LQg0KHQktCd?= <anykey196@gmail.com>
-Date: Thu, 24 Sep 2026 19:42:17 +0500
-X-Gm-Features: AclHuK_hCbEyvfcHbTXKt-ecvSOb-lEWKE5cl3FOBZCvjRjKdS35-bDLlzlza6k
-Message-ID: <CANHPwAT=tDAnTY6hor0WssxiYFh27doZeD=j42WHxX=3fUcHyQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: allwinner: h616: orangepi-zero2w: add
- SDIO WiFi/BT (AW859A)
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_074231_651515_97B7C8A3 
-X-CRM114-Status: UNSURE (   6.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_074404_294774_2D0BA079 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,5 +104,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'd better rework my patch and letter, do more testing and then resend it.
+ab8500_probe() registers MFD child devices before completing the
+remaining device initialization. If a later MFD registration or sysfs
+group creation fails, previously registered child devices are not
+removed.
+
+Use devm_mfd_add_devices() so registered MFD child devices are removed
+when probe fails.
+
+The issue was identified by a static analysis tool I developed and
+confirmed by manual review.
+
+Fixes: cca69b67b3ba ("mfd: Export ab8500 chip id to sysfs")
+Fixes: 9c717cf3fa16 ("mfd: ab8500-core: Add device for new RTC version for AB8540 cut2")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+v2:
+  - Use devm_mfd_add_devices() for all MFD child registrations, as
+    suggested by Lee Jones.
+
+ drivers/mfd/ab8500-core.c | 44 ++++++++++++++++++++-------------------
+ 1 file changed, 23 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/mfd/ab8500-core.c b/drivers/mfd/ab8500-core.c
+index f0bc0b5a6f4a..55dd9ad285ae 100644
+--- a/drivers/mfd/ab8500-core.c
++++ b/drivers/mfd/ab8500-core.c
+@@ -1194,39 +1194,41 @@ static int ab8500_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	if (is_ab9540(ab8500))
+-		ret = mfd_add_devices(ab8500->dev, 0, ab9540_devs,
+-				ARRAY_SIZE(ab9540_devs), NULL,
+-				0, ab8500->domain);
++		ret = devm_mfd_add_devices(ab8500->dev, 0, ab9540_devs,
++					   ARRAY_SIZE(ab9540_devs), NULL,
++					   0, ab8500->domain);
+ 	else if (is_ab8540(ab8500)) {
+-		ret = mfd_add_devices(ab8500->dev, 0, ab8540_devs,
+-			      ARRAY_SIZE(ab8540_devs), NULL,
+-			      0, ab8500->domain);
++		ret = devm_mfd_add_devices(ab8500->dev, 0, ab8540_devs,
++					   ARRAY_SIZE(ab8540_devs), NULL,
++					   0, ab8500->domain);
+ 		if (ret)
+ 			return ret;
+ 
+ 		if (is_ab8540_1p2_or_earlier(ab8500))
+-			ret = mfd_add_devices(ab8500->dev, 0, ab8540_cut1_devs,
+-			      ARRAY_SIZE(ab8540_cut1_devs), NULL,
+-			      0, ab8500->domain);
++			ret = devm_mfd_add_devices(ab8500->dev, 0,
++						   ab8540_cut1_devs,
++						   ARRAY_SIZE(ab8540_cut1_devs),
++						   NULL, 0, ab8500->domain);
+ 		else /* ab8540 >= cut2 */
+-			ret = mfd_add_devices(ab8500->dev, 0, ab8540_cut2_devs,
+-			      ARRAY_SIZE(ab8540_cut2_devs), NULL,
+-			      0, ab8500->domain);
++			ret = devm_mfd_add_devices(ab8500->dev, 0,
++						   ab8540_cut2_devs,
++						   ARRAY_SIZE(ab8540_cut2_devs),
++						   NULL, 0, ab8500->domain);
+ 	} else if (is_ab8505(ab8500))
+-		ret = mfd_add_devices(ab8500->dev, 0, ab8505_devs,
+-			      ARRAY_SIZE(ab8505_devs), NULL,
+-			      0, ab8500->domain);
++		ret = devm_mfd_add_devices(ab8500->dev, 0, ab8505_devs,
++					   ARRAY_SIZE(ab8505_devs), NULL,
++					   0, ab8500->domain);
+ 	else
+-		ret = mfd_add_devices(ab8500->dev, 0, ab8500_devs,
+-				ARRAY_SIZE(ab8500_devs), NULL,
+-				0, ab8500->domain);
++		ret = devm_mfd_add_devices(ab8500->dev, 0, ab8500_devs,
++					   ARRAY_SIZE(ab8500_devs), NULL,
++					   0, ab8500->domain);
+ 	if (ret)
+ 		return ret;
+ 
+ 	/* Add battery management devices */
+-	ret = mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
+-			      ARRAY_SIZE(ab8500_bm_devs), NULL,
+-			      0, ab8500->domain);
++	ret = devm_mfd_add_devices(ab8500->dev, 0, ab8500_bm_devs,
++				   ARRAY_SIZE(ab8500_bm_devs), NULL,
++				   0, ab8500->domain);
+ 	if (ret)
+ 		dev_err(ab8500->dev, "error adding bm devices\n");
+ 
+-- 
+2.43.0
+
 
