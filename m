@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58614C98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBCAC98315
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flhXc27wZ7lq+96q79C1lo9pyNK1W5OvD7SOTlgsYQY=; b=gGME5Gf5gxvd71lvPqmfNeVG33
-	OblLCIo03f/tu6kha0Coa5VaHujgUu/9lSTQVtqbS5PbNgG8km04xDkLOcWi5EKILSush1YMGOMje
-	30xHGN+PtAhXxEELwMUN7SasQUXj6k/F04PQu3ylSjSorZt70IUK+KmAWoDd5huJhPEmkVqmS/EGR
-	9Bd5oAZ3ErAEG+E/xLVOponiEOq0yD8h2+k31GaETHOWsCCEyFrnr971rp2vpydN2wyoOrsk+pA/P
-	/3jXjLvBA9V/udK4K6Sozy8hDZSXSDpo4jrzTLuGN5iJ1p8zv0xj3WnCLzvfSk1oqcy9tIZxwpI12
-	/x6uwMPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BYKTemitrAEhbE5qfBfWWBprm2uQ4LAmZ3SOFCm3iVo=; b=45sHXfL1c0eI7lYG3K5Z9wq5XD
+	g1jM9kbwXRKqUy9Lb2kSZtW+ZiA154YzLFuWhYt7Sl3H9y6QH6dbW92qcfIg5jGjd8odWi8uT7Bfw
+	Zp3MVd784uUkdzld15ah154fKD2SGA9/h7i7igrvIscWbwdaspG1EdSsR3tmDMacZT9Rp2nXg5Lpo
+	qvkHv5uOdr3bwETVUY7wwUP0E7rPDBybdykJEfwO07xEpuJ8Qlc+mxawWbhp2VzH3V563GQvtw1aZ
+	IQPPup/oEaPUvK87BAMycCln38PmsSx9/G7Y5d0iWeM+y485KJFm4l6v2WLEfH8kXCEJGpe4Lsya6
+	zPrBSX3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9eFX-0000000ALYb-3y4i;
-	Thu, 24 Sep 2026 07:52:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9eHt-0000000ALpl-1BIv;
+	Thu, 24 Sep 2026 07:54:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9eFW-0000000ALY8-2HOt
+	id 1x9eHr-0000000ALp1-1Zmk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 07:52:10 +0000
+	Thu, 24 Sep 2026 07:54:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D38A43229
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:52:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E77C41F0089D
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:52:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D72E60211;
+	Thu, 24 Sep 2026 07:54:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F05591F000FF;
+	Thu, 24 Sep 2026 07:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790236329;
-	bh=flhXc27wZ7lq+96q79C1lo9pyNK1W5OvD7SOTlgsYQY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Ptqlc8kxRS/O4MemHmjZ01Ds3sA61fs3CTI+JusAagmLQsN1Akqn2+RqNvZW8Uu1B
-	 fkVtGl19o2GvoAfTGg+wN4khUgWOJ9FZX6ktZ8KPNQnifbt782gXCEup9k83OVKU2t
-	 EPotrLbjrIE8X+v32os82VcQO6ZZF9OCqIB3J9O376A1cE7zOP/KVOHPHmH04n7+6z
-	 tdkyUv/Up2f/Iz9O8fAfZSk8Nri0naYfsAwGJoOlvBHaXT1tsMl7JNC0kw9wS2Iska
-	 V2pq+RIOw9lvDpy2GpXUcGS99+p1HdKg7KmPutL/KHb/YUGMP+2Bo5mPAMtHNBa5Oe
-	 8VnDmcBpmgBvw==
-Received: by mail-lf2-f13.google.com with SMTP id 2adb3069b0e04-5b5e4f17452so1511563e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:52:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzgjHAFkgfU6OgUqh71FYQeGBcZFNJBMd0Q/ThUHuMArYSVaoRr3VaPVfJRycRF3BQFwNi5iRpI77GmxRJ7senA@lists.infradead.org
-X-Gm-Message-State: AFuF++m3xOMiOg8Nmw4HofWFNz+DpEavwd+qdWoBBLSA4og7ztRb4ThS
-	tdT5V/P8kt2izAGygry29KEjQuu2ci53TXdRYJy3SoROQudoBy1sSexEJvgXJRz+772CsVJOsqY
-	9H4oZgI81D9F/8LIUXZG4yVNffyup6n8=
-X-Received: by 2002:a05:6512:6c8:b0:5b8:b419:b7b with SMTP id
- 2adb3069b0e04-5b8e0a18d1cmr355916e87.49.1790236328001; Thu, 24 Sep 2026
- 00:52:08 -0700 (PDT)
+	s=k20260515; t=1790236474;
+	bh=BYKTemitrAEhbE5qfBfWWBprm2uQ4LAmZ3SOFCm3iVo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=g5ihOwBLbAqVjP2jhDScCjB/Z0cfI+fd8Va7Qynkl5JbEYNsvO/Y7n4WV/xFCVaB5
+	 7lsKMcO4YO6v9YZPBrMVDtzLug61/oPlDIgr6v17Qf76Ge3bOs4YxVuYgkmJfWmsXP
+	 ns8y+Dl9+TvBqoxHpE2jvx2UH08Lnd1Q6trpG+uzO45OR8/HLKaMLrzUT5o9Hud43L
+	 8O2AEF1tKkO8GJvyKoc3nvuE+myNd2XzY5X6OqdHFxcXfhGOcdG17291liB9eMjCim
+	 aWKNrxXO6ICkOE5/N/9C2bSGcU3z9f94w+4adp5w7rj3rOvm9vhGRN3QlF2GnTi8XF
+	 jCZfSjFtlLwzQ==
+Subject: Re: [PATCH net 1/3] net: phylink: allow stopping a suspended instance
+From: netdev-bot+sashiko@kernel.org
+To: james.hilliard1@gmail.com
+Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ qiangqing.zhang@nxp.com, rmk+kernel@armlinux.org.uk,
+ maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ansuelsmth@gmail.com,
+ yangtiezhu@loongson.cn, chenhuacai@kernel.org, richard.genoud@bootlin.com,
+ alastair@d-silva.org, mripard@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 24 Sep 2026 07:54:32 +0000
+Message-ID: <179023647242.2160803.15587115569957913954@kernel.org>
+In-Reply-To: <20260921-submit-stmmac-reset-fixes-v1-v1-1-87a4e431ee00@gmail.com>
+References: <20260921-submit-stmmac-reset-fixes-v1-v1-1-87a4e431ee00@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
- <20260916-drm-bridge-every-panel-v3-12-83afb4f1a707@bootlin.com>
- <arInho2bsfJiCgjV@houat> <DLNCQEG62F5N.O98WAO4U2FJO@bootlin.com>
-In-Reply-To: <DLNCQEG62F5N.O98WAO4U2FJO@bootlin.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 24 Sep 2026 09:51:53 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkk-a0MrQUiaDD8OoDDoYVwBwSjFTj5ZBy=Xo7MS4+01g@mail.gmail.com>
-X-Gm-Features: AclHuK8rPixm6Txa-uGEDmLc8FjUZWkrHeBO_IgguNN-8bSfUZSDFWgY_JslL90
-Message-ID: <CAD++jLkk-a0MrQUiaDD8OoDDoYVwBwSjFTj5ZBy=Xo7MS4+01g@mail.gmail.com>
-Subject: Re: [PATCH v3 12/19] drm/mcde: dsi: don't create a panel_bridge
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jessica Zhang <jesszhan0024@gmail.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
-	Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
-	Paul Kocialkowski <paulk@sys-base.io>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Sean Paul <sean@poorly.run>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Albert Esteve <aesteve@redhat.com>, 
-	Anusha Srivatsa <asrivats@redhat.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	asahi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
-	freedreno@lists.freedesktop.org, linux-tegra@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +76,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-sorry for my slowness!
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-On Thu, Sep 24, 2026 at 9:01=E2=80=AFAM Luca Ceresoli <luca.ceresoli@bootli=
-n.com> wrote:
-> On Tue Sep 22, 2026 at 9:09 AM CEST, Maxime Ripard wrote:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> >> -    } else if (bridge) {
-> >> +    if (!bridge) {
-> >> +            dev_err(dev, "no bridge\n");
-> >> +            return -ENODEV;
-> >> +    } else if (!drm_bridge_is_panel(bridge)) {
-> >>              /* TODO: AV8100 HDMI encoder goes here for example */
-> >>              dev_info(dev, "connected to non-panel bridge (unsupported=
-)\n");
-> >>              return -ENODEV;
-> >
-> > I wonder if we still need that branch. Every panel is a bridge now, and
-> > it looks like we don't have any specific panel handling in this driver,
-> > so I guess it supports bridges already?
-> >
-> > Linus, do you know why this condition was here in the first place?
->
-> I had the same thought while writing the patch, but I chose to be
-> conservative.
->
-> Linus, unless you have more info I'm going to apply the patch as
-> is. Removing this special case would be welcome as a later patch.
+- [Medium] phylink_stop() is newly documented and implemented as a legal
+  replacement for phylink_resume() after phylink_suspend(), but it does…
 
-I'd say go ahead as-is.
+--
 
-I do have the idea to code up and submit the AV8100 encoder
-and I have the hardware to test it, but every other user should
-be using panels directly, and I would be the only non-panel
-user so I can deal with it when it comes up.
+net: phylink: allow stopping a suspended instance
 
-Yours,
-Linus Walleij
+This makes phylink_stop() usable directly on a suspended phylink instance,
+so a MAC that cannot restore its hardware after system sleep can close the
+netdev instead of calling phylink_resume(). An already stopped instance
+returns early, and the MAC Wake-on-LAN case drains the resolve work,
+completes the deferred link-down and clears PHYLINK_DISABLE_MAC_WOL.
+
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index a1458da8111b6..8f9278112623b 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -2495,11 +2495,17 @@ EXPORT_SYMBOL_GPL(phylink_start);
+>   *
+>   * This will synchronously bring down the link if the link is not already
+>   * down (in other words, it will trigger a mac_link_down() method call.)
+> + * It may also be called after phylink_suspend() if the MAC cannot resume
+> + * and the network device must be closed instead.
+>   */
+>  void phylink_stop(struct phylink *pl)
+>  {
+>  	ASSERT_RTNL();
+>  
+> +	/* phylink_suspend() already stops the link without MAC WoL. */
+> +	if (test_bit(PHYLINK_DISABLE_STOPPED, &pl->phylink_disable_state))
+> +		return;
+> +
+
+[Severity: Medium]
+Does this new exit path leave the PHY advertisement clamped to the lowest
+speed?
+
+phylink_suspend() performs two things when PHY based power management speed
+control is in use:
+
+drivers/net/phy/phylink.c:phylink_suspend() {
+	...
+	} else {
+		phylink_stop(pl);
+	}
+
+	if (phylink_phy_pm_speed_ctrl(pl))
+		phylink_speed_down(pl, false);
+}
+
+The only place in phylink that reverses the second part is
+phylink_resume():
+
+drivers/net/phy/phylink.c:phylink_resume() {
+	ASSERT_RTNL();
+
+	if (phylink_phy_pm_speed_ctrl(pl))
+		phylink_speed_up(pl);
+	...
+}
+
+Both new exits added here, this early return and the MAC WoL completion
+block below, return without calling phylink_speed_up().  So a MAC that
+follows the new kernel-doc ("It may also be called after phylink_suspend()
+if the MAC cannot resume and the network device must be closed instead")
+ends up with the PHY still advertising only the lowest common speed, and
+with the original advertisement left in phydev->adv_old where phylink will
+never consume it.
+
+Should the new documentation state that the MAC has to call
+phylink_speed_up() itself in this case, or should phylink_stop() reverse
+the speed-down on these paths?
+
+The only in-tree user of wol_phy_speed_ctrl is stmmac, and stmmac_open()
+calls phylink_speed_up() unconditionally, so the next open repairs the
+residue in the common case.  The residue looks like it can become permanent
+if another speed-down runs first, since stmmac_release() also calls
+phylink_speed_down() when device_may_wakeup(priv->device) is true:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_release() {
+	...
+	if (device_may_wakeup(priv->device))
+		phylink_speed_down(priv->phylink, false);
+	...
+}
+
+and phy_speed_down() overwrites the saved advertisement each time:
+
+drivers/net/phy/phy.c:phy_speed_down() {
+	...
+	linkmode_copy(phydev->adv_old, adv_tmp);
+	...
+}
+
+With no intervening phylink_speed_up(), would the second phy_speed_down()
+store the already reduced set into phydev->adv_old, so the later
+phylink_speed_up() restores the reduced advertisement rather than the
+configured one?  Note device_may_wakeup(priv->device) can be true while
+pl->wolopts_mac is zero, since stmmac calls
+device_set_wakeup_capable(priv->device, 1) when plat->pmt is set.
+
+>  	if (pl->sfp_bus)
+>  		sfp_upstream_stop(pl->sfp_bus);
+>  	if (pl->phydev)
+> @@ -2512,6 +2518,16 @@ void phylink_stop(struct phylink *pl)
+>  
+>  	phylink_run_resolve_and_disable(pl, PHYLINK_DISABLE_STOPPED);
+>  
+> +	if (test_bit(PHYLINK_DISABLE_MAC_WOL, &pl->phylink_disable_state)) {
+> +		/* Finish the link-down deferred by MAC WoL, without restarting. */
+> +		flush_work(&pl->resolve);
+> +		mutex_lock(&pl->state_mutex);
+> +		if (pl->suspend_link_up)
+> +			phylink_link_down(pl);
+> +		__clear_bit(PHYLINK_DISABLE_MAC_WOL, &pl->phylink_disable_state);
+> +		mutex_unlock(&pl->state_mutex);
+> +	}
+> +
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260921-submit-stmmac-reset-fixes-v1-v1-0-87a4e431ee00%40gmail.com
 
