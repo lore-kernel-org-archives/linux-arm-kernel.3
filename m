@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8B7C98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:30:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0818DC98314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TtzZEV4O7WbO7y3L+v3MJYZCIFxUGYaFRXBfeYHoaBQ=; b=AXsLfrObjZK8iCQvOoEnpAUo+I
-	sRypN3TFwK/qJCP5u5DxY6fEiKV/UmsxLCc2sML5BwgzzSnY6h/L0tYjm+Q+N8JyNksY4rq7F2Yc7
-	5O8m+Sv/FDHLexUILuK2S84own2H2Uq1Y2i86uKdsH5ar/XgiLuGZpJJ2varZfrX0/y5zimhCc3LY
-	tkHtScrZOlRp+1NI4dWed9zbj/HwG6wPRY/zQn/cDCwlhNvBcu7+0krdiKUbfTvnAi3Lun/0XD2pN
-	aGaOOWzAB9O9pylSMFxvaemMP+i+8LijHUuAySyEcF3536kpeMxG2aSqVRO83qtiuhLBu4EjQtBRx
-	+hHa+jsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
+	To:Subject:Cc:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gE3Ic04fO6xgc3oniKJWC1F5lTVYgPXHTm6ZdetLFb8=; b=kD4SHV17s8UUQKM27sEOKCy/2A
+	7Oj4bLIcvmO+4UsbANeFjXzaWvNpoa8SMxPO9BcrM5dUBQSfZnysgWhCv5aZHdi64Lrxx2rXgaOzq
+	1R/1qztFN8IHMfmYaLsFwc6f609kVzc9yUblG9RXhbImGV5ZfmwQ7QJ/B9Tx+3eh4yDqqdcmqysb0
+	QnnX7zmGHdr5G6u51ANhSwJA8QbBHZbywgnd/4YEn6469WWqRDQCSwxB/CSZDR58oXV+89+iJnjG/
+	ZUEbLxKJI0Aoq1ZIl8IRhL8b6WkY2oxHFU5USmfpbrsu2hOmVuUHQ5rso7Mx3L+REXEAAaZXBmpA9
+	EUMBiSsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iaP-0000000AykZ-3j9R;
-	Thu, 24 Sep 2026 12:30:01 +0000
+	id 1x9ibI-0000000Ayv2-0xD1;
+	Thu, 24 Sep 2026 12:30:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9ibF-0000000Ayui-3UUM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 12:30:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:From:References:To:Subject
+	:Cc:MIME-Version:Date:Message-ID:Content-Type:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=gE3Ic04fO6xgc3oniKJWC1F5lTVYgPXHTm6ZdetLFb8=; b=YT4fMHdlZx1I8QsbxRF3NFjAMo
+	HiJLbDizyAOvkOSbedF7dZJgudV1w4hNG4ZzFYzepjNTD6gIBv78bYs42n5I66rI8p9W1WUONxnfj
+	LGDKhuaqMl1YKDOGhY1Ep7uBIi30ll+tsOghA2ASbI6W/0nId8HInTneFImggBjZO3ToOYFyb/uFz
+	ta7esL7V/GQkA1v3+/ccHX9tvFtObOMQZV+8C8AHtmzbvrsxsUNuVdImA9kL/k1dKUvP5c/2+UzCL
+	OmEN0m+DOtexyO9uOuqsTf4TEZhXMNgKqUXZQAunUMVt9wphMkYelpnkHYmHw5EIOmbC9432kntfc
+	SmZjqcVw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iaL-0000000Ayjg-1E2r
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9ibB-0000000FxxQ-3YpG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 12:30:00 +0000
+	Thu, 24 Sep 2026 12:30:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AD6E152B;
-	Thu, 24 Sep 2026 05:29:52 -0700 (PDT)
-Received: from [10.57.83.110] (unknown [10.57.83.110])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 21B613F86C;
-	Thu, 24 Sep 2026 05:29:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D7FCA152B;
+	Thu, 24 Sep 2026 05:30:44 -0700 (PDT)
+Received: from [10.2.198.93] (e142334-100.cambridge.arm.com [10.2.198.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1CE33F86C;
+	Thu, 24 Sep 2026 05:30:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790252995; bh=LnaRrPbJYVNrXvMBVcR9UqWr1SVLxSzTziVh3eSk6pA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gmd0LhJYliVt97e4yOLNLgib1Jg1iXMBjAq+X6lSqC8Jw3ODTvV/sVNuoO72UEHeo
-	 PkCvvBQhndduRHICytHbu21DEeRXFYCJ9YpAW/FAqRmUeQu0BYlQil5rf9/FSw937h
-	 MdvlCusqoB4AXfTgqOXn0iIGHX6bgpWV7z6b/HUg=
-Message-ID: <4cdf35f3-b13d-4f37-a520-7e9cb5646e07@arm.com>
-Date: Thu, 24 Sep 2026 13:29:49 +0100
+	t=1790253048; bh=A02IcFzVWMb+7P5fj/4G2sl61J7Y1OLODVYQTq7qzHc=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=ntpTCe2icXKP73yMzkcj/tBB8tl7+ZJ4DIpu87QG5dFKRE3T9FmN0DUhj0leGFW5K
+	 2oH6Ly4tfTQvNmkv+v+NX05N8vbVNugv/xkCEM9x5eNBQp4hWz4/+4mOG3i3yQA8/Q
+	 dhKj9jF9mhlQkD8xYyo33StAfXsj0L4/qKHJhvWE=
+Content-Type: multipart/mixed; boundary="------------bS057EjGn5IEBAL008Loe1aX"
+Message-ID: <238205b2-d48e-43d6-9336-ef6587dc1e06@arm.com>
+Date: Thu, 24 Sep 2026 13:30:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] arm64: use hw_pte_t for HW PTE pointers
-To: Muhammad Usama Anjum <usama.anjum@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
+Cc: usama.anjum@arm.com, Vladimir Murzin <vladimir.murzin@arm.com>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org,
+ Mostafa Saleh <smostafa@google.com>, Marc Zyngier <maz@kernel.org>,
  David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org
-References: <20260922-pte0_arm-v2-0-a3f1ddff0a8a@arm.com>
- <20260922-pte0_arm-v2-1-a3f1ddff0a8a@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260922-pte0_arm-v2-1-a3f1ddff0a8a@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ Oliver Upton <oupton@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v2 00/21] arm64: Move overflow sp into SP_EL1 and kernel
+ sp into SP_EL0
+To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ Mark Rutland <mark.rutland@arm.com>
+References: <20260918161407.2300-1-will@kernel.org>
+From: Usama Anjum <usama.anjum@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260918161407.2300-1-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_052957_560069_9ED2987E 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20260924_133050_543737_8A4CD259 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,1406 +90,1254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/09/2026 18:31, Muhammad Usama Anjum wrote:
-> With pte_t * used for HW PTE pointers, the compiler cannot distinguish
-> them from SW PTE value pointers. The generic HW PTE interfaces already
-> use hw_pte_t *, so arm64 HW PTE pointers must use that type before
-> ARCH_HAS_HW_PTE_T can make it distinct.
-> 
-> Convert HW PTE pointers to hw_pte_t *, retaining pte_t for SW PTE
-> values. Helpers shared with PMD and PUD operations keep explicit casts
-> because this series does not introduce distinct entry types for those
-> levels.
-> 
-> arm64 still uses the hw_pte_t alias in this patch. The new pointer
-> spelling therefore denotes the same type until the final opt-in.
-> 
-> Include linux/pgtable_types.h in pi.h to make hw_pte_t visible.
-> 
-> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+This is a multi-part message in MIME format.
+--------------bS057EjGn5IEBAL008Loe1aX
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-It's hard to review this sort of thing and know for sure that every case has
-been covered, but your methodology (Coccinelle) looks solid, it compiles and
-test results look good. I didn't see any issues from flicking through, so:
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-> ---
->  arch/arm64/include/asm/hugetlb.h  |  19 +++++----
->  arch/arm64/include/asm/pgalloc.h  |   2 +-
->  arch/arm64/include/asm/pgtable.h  | 143 ++++++++++++++++++++++++++++++++++------------------------------
->  arch/arm64/include/asm/vmalloc.h  |   2 +-
->  arch/arm64/kernel/efi.c           |   3 +-
->  arch/arm64/kernel/pi/map_kernel.c |   4 +-
->  arch/arm64/kernel/pi/map_range.c  |   9 ++--
->  arch/arm64/kernel/pi/pi.h         |   3 +-
->  arch/arm64/mm/contpte.c           |  49 +++++++++++-----------
->  arch/arm64/mm/fault.c             |   5 ++-
->  arch/arm64/mm/fixmap.c            |   6 +--
->  arch/arm64/mm/hugetlbpage.c       |  48 +++++++++++-----------
->  arch/arm64/mm/kasan_init.c        |   4 +-
->  arch/arm64/mm/mmu.c               |  46 ++++++++++++---------
->  arch/arm64/mm/pageattr.c          |   4 +-
->  arch/arm64/mm/trans_pgd.c         |   4 +-
->  16 files changed, 190 insertions(+), 161 deletions(-)
+On 18/09/2026 5:13 pm, Will Deacon wrote:
+> Hi folks,
 > 
-> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-> index d038ff14d16ca..15b3cf53aa2ca 100644
-> --- a/arch/arm64/include/asm/hugetlb.h
-> +++ b/arch/arm64/include/asm/hugetlb.h
-> @@ -36,33 +36,34 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
->  #define arch_make_huge_pte arch_make_huge_pte
->  #define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
->  extern void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-> -			    pte_t *ptep, pte_t pte, unsigned long sz);
-> +			    hw_pte_t *ptep, pte_t pte, unsigned long sz);
->  #define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
->  extern int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-> -				      unsigned long addr, pte_t *ptep,
-> +				      unsigned long addr, hw_pte_t *ptep,
->  				      pte_t pte, int dirty);
->  #define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
->  extern pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
-> -				     pte_t *ptep, unsigned long sz);
-> +				     hw_pte_t *ptep, unsigned long sz);
->  #define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
->  extern void huge_ptep_set_wrprotect(struct mm_struct *mm,
-> -				    unsigned long addr, pte_t *ptep);
-> +				    unsigned long addr, hw_pte_t *ptep);
->  #define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
->  extern pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
-> -				   unsigned long addr, pte_t *ptep);
-> +				   unsigned long addr, hw_pte_t *ptep);
->  #define __HAVE_ARCH_HUGE_PTE_CLEAR
->  extern void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
-> -			   pte_t *ptep, unsigned long sz);
-> +			   hw_pte_t *ptep, unsigned long sz);
->  #define __HAVE_ARCH_HUGE_PTEP_GET
-> -extern pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep);
-> +extern pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr,
-> +			   hw_pte_t *ptep);
->  
->  #define huge_ptep_modify_prot_start huge_ptep_modify_prot_start
->  extern pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma,
-> -					 unsigned long addr, pte_t *ptep);
-> +					 unsigned long addr, hw_pte_t *ptep);
->  
->  #define huge_ptep_modify_prot_commit huge_ptep_modify_prot_commit
->  extern void huge_ptep_modify_prot_commit(struct vm_area_struct *vma,
-> -					 unsigned long addr, pte_t *ptep,
-> +					 unsigned long addr, hw_pte_t *ptep,
->  					 pte_t old_pte, pte_t new_pte);
->  
->  #include <asm-generic/hugetlb.h>
-> diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
-> index 1b4509d3382c6..80063dd4d2722 100644
-> --- a/arch/arm64/include/asm/pgalloc.h
-> +++ b/arch/arm64/include/asm/pgalloc.h
-> @@ -106,7 +106,7 @@ static inline void __pmd_populate(pmd_t *pmdp, phys_addr_t ptep,
->   * of the mm address space.
->   */
->  static inline void
-> -pmd_populate_kernel(struct mm_struct *mm, pmd_t *pmdp, pte_t *ptep)
-> +pmd_populate_kernel(struct mm_struct *mm, pmd_t *pmdp, hw_pte_t *ptep)
->  {
->  	VM_BUG_ON(mm && mm != &init_mm);
->  	__pmd_populate(pmdp, __pa(ptep),
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index e89ec5f4787b4..652ce413be389 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -358,7 +358,7 @@ static inline pte_t pte_clear_uffd(pte_t pte)
->  }
->  #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
->  
-> -static inline void __set_pte_nosync(pte_t *ptep, pte_t pte)
-> +static inline void __set_pte_nosync(hw_pte_t *ptep, pte_t pte)
->  {
->  	WRITE_ONCE(*ptep, pte);
->  }
-> @@ -373,13 +373,13 @@ static inline void __set_pte_complete(pte_t pte)
->  		queue_pte_barriers();
->  }
->  
-> -static inline void __set_pte(pte_t *ptep, pte_t pte)
-> +static inline void __set_pte(hw_pte_t *ptep, pte_t pte)
->  {
->  	__set_pte_nosync(ptep, pte);
->  	__set_pte_complete(pte);
->  }
->  
-> -static inline pte_t __ptep_get(pte_t *ptep)
-> +static inline pte_t __ptep_get(hw_pte_t *ptep)
->  {
->  	return READ_ONCE(*ptep);
->  }
-> @@ -403,7 +403,8 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new);
->   *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
->   */
->  
-> -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
-> +static inline void __check_safe_pte_update(struct mm_struct *mm,
-> +					   hw_pte_t *ptep,
->  					   pte_t pte)
->  {
->  	pte_t old_pte;
-> @@ -669,7 +670,8 @@ static inline pgprot_t pud_pgprot(pud_t pud)
->  }
->  
->  static inline void __set_ptes_anysz(struct mm_struct *mm, unsigned long addr,
-> -				    pte_t *ptep, pte_t pte, unsigned int nr,
-> +				    hw_pte_t *ptep, pte_t pte,
-> +				    unsigned int nr,
->  				    unsigned long pgsize)
->  {
->  	unsigned long stride = pgsize >> PAGE_SHIFT;
-> @@ -707,7 +709,7 @@ static inline void __set_ptes_anysz(struct mm_struct *mm, unsigned long addr,
->  }
->  
->  static inline void __set_ptes(struct mm_struct *mm, unsigned long addr,
-> -			      pte_t *ptep, pte_t pte, unsigned int nr)
-> +			      hw_pte_t *ptep, pte_t pte, unsigned int nr)
->  {
->  	__set_ptes_anysz(mm, addr, ptep, pte, nr, PAGE_SIZE);
->  }
-> @@ -715,14 +717,16 @@ static inline void __set_ptes(struct mm_struct *mm, unsigned long addr,
->  static inline void __set_pmds(struct mm_struct *mm, unsigned long addr,
->  			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
->  {
-> -	__set_ptes_anysz(mm, addr, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
-> +	__set_ptes_anysz(mm, addr, (hw_pte_t *)pmdp, pmd_pte(pmd), nr,
-> +			 PMD_SIZE);
->  }
->  #define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
->  
->  static inline void __set_puds(struct mm_struct *mm, unsigned long addr,
->  			      pud_t *pudp, pud_t pud, unsigned int nr)
->  {
-> -	__set_ptes_anysz(mm, addr, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
-> +	__set_ptes_anysz(mm, addr, (hw_pte_t *)pudp, pud_pte(pud), nr,
-> +			 PUD_SIZE);
->  }
->  #define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
->  
-> @@ -850,16 +854,16 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->  }
->  
->  /* Find an entry in the third-level page table. */
-> -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
-> +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(hw_pte_t))
->  
-> -#define pte_set_fixmap(addr)		((pte_t *)set_fixmap_offset(FIX_PTE, addr))
-> +#define pte_set_fixmap(addr)		((hw_pte_t *)set_fixmap_offset(FIX_PTE, addr))
->  #define pte_set_fixmap_offset(pmd, addr)	pte_set_fixmap(pte_offset_phys(pmd, addr))
->  #define pte_clear_fixmap()		clear_fixmap(FIX_PTE)
->  
->  #define pmd_page(pmd)			phys_to_page(__pmd_to_phys(pmd))
->  
->  /* use ONLY for statically allocated translation tables */
-> -#define pte_offset_kimg(dir,addr)	((pte_t *)__phys_to_kimg(pte_offset_phys((dir), (addr))))
-> +#define pte_offset_kimg(dir, addr)	((hw_pte_t *)__phys_to_kimg(pte_offset_phys((dir), (addr))))
->  
->  #if CONFIG_PGTABLE_LEVELS > 2
->  
-> @@ -1238,12 +1242,14 @@ static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
->  }
->  
->  extern int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
-> -					 unsigned long address, pte_t *ptep,
-> +					 unsigned long address,
-> +					 hw_pte_t *ptep,
->  					 pte_t entry, int dirty,
->  					 unsigned long pgsize);
->  
->  static inline int __ptep_set_access_flags(struct vm_area_struct *vma,
-> -					  unsigned long address, pte_t *ptep,
-> +					  unsigned long address,
-> +					  hw_pte_t *ptep,
->  					  pte_t entry, int dirty)
->  {
->  	return __ptep_set_access_flags_anysz(vma, address, ptep, entry, dirty,
-> @@ -1256,7 +1262,7 @@ static inline int pmdp_set_access_flags(struct vm_area_struct *vma,
->  					unsigned long address, pmd_t *pmdp,
->  					pmd_t entry, int dirty)
->  {
-> -	return __ptep_set_access_flags_anysz(vma, address, (pte_t *)pmdp,
-> +	return __ptep_set_access_flags_anysz(vma, address, (hw_pte_t *)pmdp,
->  					     pmd_pte(entry), dirty, PMD_SIZE);
->  }
->  #endif
-> @@ -1283,13 +1289,13 @@ static inline bool pud_user_accessible_page(struct mm_struct *mm, unsigned long
->   */
->  
->  static inline void __pte_clear(struct mm_struct *mm,
-> -			       unsigned long addr, pte_t *ptep)
-> +			       unsigned long addr, hw_pte_t *ptep)
->  {
->  	__set_pte(ptep, __pte(0));
->  }
->  
->  static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -		unsigned long address, pte_t *ptep)
-> +		unsigned long address, hw_pte_t *ptep)
->  {
->  	pte_t old_pte, pte;
->  
-> @@ -1305,7 +1311,7 @@ static inline bool __ptep_test_and_clear_young(struct vm_area_struct *vma,
->  }
->  
->  static inline bool __ptep_clear_flush_young(struct vm_area_struct *vma,
-> -		unsigned long address, pte_t *ptep)
-> +		unsigned long address, hw_pte_t *ptep)
->  {
->  	bool young = __ptep_test_and_clear_young(vma, address, ptep);
->  
-> @@ -1331,13 +1337,13 @@ static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
->  {
->  	/* Operation applies to PMD table entry only if FEAT_HAFT is enabled */
->  	VM_WARN_ON(pmd_table(READ_ONCE(*pmdp)) && !system_supports_haft());
-> -	return __ptep_test_and_clear_young(vma, address, (pte_t *)pmdp);
-> +	return __ptep_test_and_clear_young(vma, address, (hw_pte_t *)pmdp);
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
->  
->  static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
->  					       unsigned long address,
-> -					       pte_t *ptep,
-> +					       hw_pte_t *ptep,
->  					       unsigned long pgsize)
->  {
->  	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
-> @@ -1362,13 +1368,13 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
->  }
->  
->  static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
-> -				       unsigned long address, pte_t *ptep)
-> +				       unsigned long address, hw_pte_t *ptep)
->  {
->  	return __ptep_get_and_clear_anysz(mm, address, ptep, PAGE_SIZE);
->  }
->  
->  static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, unsigned int nr, int full)
-> +				hw_pte_t *ptep, unsigned int nr, int full)
->  {
->  	for (;;) {
->  		__ptep_get_and_clear(mm, addr, ptep);
-> @@ -1380,7 +1386,7 @@ static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->  }
->  
->  static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				unsigned int nr, int full)
->  {
->  	pte_t pte, tmp_pte;
-> @@ -1403,12 +1409,12 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
->  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
->  					    unsigned long address, pmd_t *pmdp)
->  {
-> -	return pte_pmd(__ptep_get_and_clear_anysz(mm, address, (pte_t *)pmdp, PMD_SIZE));
-> +	return pte_pmd(__ptep_get_and_clear_anysz(mm, address, (hw_pte_t *)pmdp, PMD_SIZE));
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->  
->  static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
-> -					unsigned long address, pte_t *ptep,
-> +					unsigned long address, hw_pte_t *ptep,
->  					pte_t pte)
->  {
->  	pte_t old_pte;
-> @@ -1426,13 +1432,13 @@ static inline void ___ptep_set_wrprotect(struct mm_struct *mm,
->   * dirty status (PTE_DBM && !PTE_RDONLY) to the software PTE_DIRTY bit.
->   */
->  static inline void __ptep_set_wrprotect(struct mm_struct *mm,
-> -					unsigned long address, pte_t *ptep)
-> +					unsigned long address, hw_pte_t *ptep)
->  {
->  	___ptep_set_wrprotect(mm, address, ptep, __ptep_get(ptep));
->  }
->  
->  static inline void __wrprotect_ptes(struct mm_struct *mm, unsigned long address,
-> -				pte_t *ptep, unsigned int nr)
-> +				hw_pte_t *ptep, unsigned int nr)
->  {
->  	unsigned int i;
->  
-> @@ -1441,7 +1447,7 @@ static inline void __wrprotect_ptes(struct mm_struct *mm, unsigned long address,
->  }
->  
->  static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
-> -					   unsigned long addr, pte_t *ptep,
-> +					   unsigned long addr, hw_pte_t *ptep,
->  					   pte_t pte, cydp_t flags)
->  {
->  	pte_t old_pte;
-> @@ -1460,7 +1466,8 @@ static inline void __clear_young_dirty_pte(struct vm_area_struct *vma,
->  }
->  
->  static inline void __clear_young_dirty_ptes(struct vm_area_struct *vma,
-> -					    unsigned long addr, pte_t *ptep,
-> +					    unsigned long addr,
-> +					    hw_pte_t *ptep,
->  					    unsigned int nr, cydp_t flags)
->  {
->  	pte_t pte;
-> @@ -1485,7 +1492,7 @@ static inline void __clear_young_dirty_ptes(struct vm_area_struct *vma,
->  static inline void pmdp_set_wrprotect(struct mm_struct *mm,
->  				      unsigned long address, pmd_t *pmdp)
->  {
-> -	__ptep_set_wrprotect(mm, address, (pte_t *)pmdp);
-> +	__ptep_set_wrprotect(mm, address, (hw_pte_t *)pmdp);
->  }
->  
->  #define pmdp_establish pmdp_establish
-> @@ -1558,7 +1565,8 @@ extern void arch_swap_restore(swp_entry_t entry, struct folio *folio);
->   * On AArch64, the cache coherency is handled via the __set_ptes() function.
->   */
->  static inline void update_mmu_cache_range(struct vm_fault *vmf,
-> -		struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
-> +		struct vm_area_struct *vma, unsigned long addr,
-> +		hw_pte_t *ptep,
->  		unsigned int nr)
->  {
->  	/*
-> @@ -1613,21 +1621,21 @@ static inline bool pud_sect_supported(void)
->  #define __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION
->  #define ptep_modify_prot_start ptep_modify_prot_start
->  extern pte_t ptep_modify_prot_start(struct vm_area_struct *vma,
-> -				    unsigned long addr, pte_t *ptep);
-> +				    unsigned long addr, hw_pte_t *ptep);
->  
->  #define ptep_modify_prot_commit ptep_modify_prot_commit
->  extern void ptep_modify_prot_commit(struct vm_area_struct *vma,
-> -				    unsigned long addr, pte_t *ptep,
-> +				    unsigned long addr, hw_pte_t *ptep,
->  				    pte_t old_pte, pte_t new_pte);
->  
->  #define modify_prot_start_ptes modify_prot_start_ptes
->  extern pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
-> -				    unsigned long addr, pte_t *ptep,
-> +				    unsigned long addr, hw_pte_t *ptep,
->  				    unsigned int nr);
->  
->  #define modify_prot_commit_ptes modify_prot_commit_ptes
->  extern void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-> -				    pte_t *ptep, pte_t old_pte, pte_t pte,
-> +				    hw_pte_t *ptep, pte_t old_pte, pte_t pte,
->  				    unsigned int nr);
->  
->  #ifdef CONFIG_ARM64_CONTPTE
-> @@ -1638,33 +1646,35 @@ extern void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long ad
->   * a private implementation detail of the public ptep API (see below).
->   */
->  extern void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, pte_t pte);
-> +				hw_pte_t *ptep, pte_t pte);
->  extern void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, pte_t pte);
-> -extern pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte);
-> -extern pte_t contpte_ptep_get_lockless(pte_t *orig_ptep);
-> +				hw_pte_t *ptep, pte_t pte);
-> +extern pte_t contpte_ptep_get(hw_pte_t *ptep, pte_t orig_pte);
-> +extern pte_t contpte_ptep_get_lockless(hw_pte_t *orig_ptep);
->  extern void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, pte_t pte, unsigned int nr);
-> +				hw_pte_t *ptep, pte_t pte, unsigned int nr);
->  extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, unsigned int nr, int full);
-> +				hw_pte_t *ptep, unsigned int nr, int full);
->  extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				unsigned int nr, int full);
->  bool contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep, unsigned int nr);
-> +				unsigned long addr, hw_pte_t *ptep,
-> +				unsigned int nr);
->  bool contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep, unsigned int nr);
-> +				unsigned long addr, hw_pte_t *ptep,
-> +				unsigned int nr);
->  extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, unsigned int nr);
-> +				hw_pte_t *ptep, unsigned int nr);
->  extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				pte_t entry, int dirty);
->  extern void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				unsigned int nr, cydp_t flags);
->  
->  static __always_inline void contpte_try_fold(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep, pte_t pte)
-> +				unsigned long addr, hw_pte_t *ptep, pte_t pte)
->  {
->  	/*
->  	 * Only bother trying if both the virtual and physical addresses are
-> @@ -1687,14 +1697,14 @@ static __always_inline void contpte_try_fold(struct mm_struct *mm,
->  }
->  
->  static __always_inline void contpte_try_unfold(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep, pte_t pte)
-> +				unsigned long addr, hw_pte_t *ptep, pte_t pte)
->  {
->  	if (unlikely(pte_valid_cont(pte)))
->  		__contpte_try_unfold(mm, addr, ptep, pte);
->  }
->  
->  #define pte_batch_hint pte_batch_hint
-> -static inline unsigned int pte_batch_hint(pte_t *ptep, pte_t pte)
-> +static inline unsigned int pte_batch_hint(hw_pte_t *ptep, pte_t pte)
->  {
->  	if (!pte_valid_cont(pte))
->  		return 1;
-> @@ -1721,7 +1731,7 @@ static inline unsigned int pte_batch_hint(pte_t *ptep, pte_t pte)
->   */
->  
->  #define ptep_get ptep_get
-> -static inline pte_t ptep_get(pte_t *ptep)
-> +static inline pte_t ptep_get(hw_pte_t *ptep)
->  {
->  	pte_t pte = __ptep_get(ptep);
->  
-> @@ -1732,7 +1742,7 @@ static inline pte_t ptep_get(pte_t *ptep)
->  }
->  
->  #define ptep_get_lockless ptep_get_lockless
-> -static inline pte_t ptep_get_lockless(pte_t *ptep)
-> +static inline pte_t ptep_get_lockless(hw_pte_t *ptep)
->  {
->  	pte_t pte = __ptep_get(ptep);
->  
-> @@ -1742,7 +1752,7 @@ static inline pte_t ptep_get_lockless(pte_t *ptep)
->  	return contpte_ptep_get_lockless(ptep);
->  }
->  
-> -static inline void set_pte(pte_t *ptep, pte_t pte)
-> +static inline void set_pte(hw_pte_t *ptep, pte_t pte)
->  {
->  	/*
->  	 * We don't have the mm or vaddr so cannot unfold contig entries (since
-> @@ -1759,7 +1769,7 @@ static inline void set_pte(pte_t *ptep, pte_t pte)
->  
->  #define set_ptes set_ptes
->  static __always_inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, pte_t pte, unsigned int nr)
-> +				hw_pte_t *ptep, pte_t pte, unsigned int nr)
->  {
->  	pte = pte_mknoncont(pte);
->  
-> @@ -1773,7 +1783,7 @@ static __always_inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->  }
->  
->  static inline void pte_clear(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep)
-> +				unsigned long addr, hw_pte_t *ptep)
->  {
->  	contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
->  	__pte_clear(mm, addr, ptep);
-> @@ -1781,7 +1791,7 @@ static inline void pte_clear(struct mm_struct *mm,
->  
->  #define clear_full_ptes clear_full_ptes
->  static inline void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, unsigned int nr, int full)
-> +				hw_pte_t *ptep, unsigned int nr, int full)
->  {
->  	if (likely(nr == 1)) {
->  		contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
-> @@ -1793,7 +1803,7 @@ static inline void clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->  
->  #define get_and_clear_full_ptes get_and_clear_full_ptes
->  static inline pte_t get_and_clear_full_ptes(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				unsigned int nr, int full)
->  {
->  	pte_t pte;
-> @@ -1810,13 +1820,13 @@ static inline pte_t get_and_clear_full_ptes(struct mm_struct *mm,
->  
->  #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
->  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep)
-> +				unsigned long addr, hw_pte_t *ptep)
->  {
->  	contpte_try_unfold(mm, addr, ptep, __ptep_get(ptep));
->  	return __ptep_get_and_clear(mm, addr, ptep);
->  }
->  
-> -static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
-> +static inline bool ptep_try_set(hw_pte_t *ptep, pte_t new_pte)
->  {
->  	pteval_t old = 0;
->  
-> @@ -1846,7 +1856,7 @@ static inline void flush_tlb_before_set(unsigned long addr)
->  
->  #define test_and_clear_young_ptes test_and_clear_young_ptes
->  static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep, unsigned int nr)
-> +		unsigned long addr, hw_pte_t *ptep, unsigned int nr)
->  {
->  	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
->  		return __ptep_test_and_clear_young(vma, addr, ptep);
-> @@ -1856,14 +1866,14 @@ static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
->  
->  #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
->  static inline bool ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep)
-> +		unsigned long addr, hw_pte_t *ptep)
->  {
->  	return test_and_clear_young_ptes(vma, addr, ptep, 1);
->  }
->  
->  #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
->  static inline bool ptep_clear_flush_young(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep)
-> +		unsigned long addr, hw_pte_t *ptep)
->  {
->  	pte_t orig_pte = __ptep_get(ptep);
->  
-> @@ -1875,7 +1885,7 @@ static inline bool ptep_clear_flush_young(struct vm_area_struct *vma,
->  
->  #define clear_flush_young_ptes clear_flush_young_ptes
->  static inline bool clear_flush_young_ptes(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep, unsigned int nr)
-> +		unsigned long addr, hw_pte_t *ptep, unsigned int nr)
->  {
->  	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
->  		return __ptep_clear_flush_young(vma, addr, ptep);
-> @@ -1885,7 +1895,8 @@ static inline bool clear_flush_young_ptes(struct vm_area_struct *vma,
->  
->  #define wrprotect_ptes wrprotect_ptes
->  static __always_inline void wrprotect_ptes(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep, unsigned int nr)
-> +				unsigned long addr, hw_pte_t *ptep,
-> +				unsigned int nr)
->  {
->  	if (likely(nr == 1)) {
->  		/*
-> @@ -1909,14 +1920,14 @@ static __always_inline void wrprotect_ptes(struct mm_struct *mm,
->  
->  #define __HAVE_ARCH_PTEP_SET_WRPROTECT
->  static inline void ptep_set_wrprotect(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep)
-> +				unsigned long addr, hw_pte_t *ptep)
->  {
->  	wrprotect_ptes(mm, addr, ptep, 1);
->  }
->  
->  #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
->  static inline int ptep_set_access_flags(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				pte_t entry, int dirty)
->  {
->  	pte_t orig_pte = __ptep_get(ptep);
-> @@ -1931,7 +1942,7 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
->  
->  #define clear_young_dirty_ptes clear_young_dirty_ptes
->  static inline void clear_young_dirty_ptes(struct vm_area_struct *vma,
-> -					  unsigned long addr, pte_t *ptep,
-> +					  unsigned long addr, hw_pte_t *ptep,
->  					  unsigned int nr, cydp_t flags)
->  {
->  	if (likely(nr == 1 && !pte_cont(__ptep_get(ptep))))
-> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-> index 4ec1acd3c1b34..28d3e89f90e43 100644
-> --- a/arch/arm64/include/asm/vmalloc.h
-> +++ b/arch/arm64/include/asm/vmalloc.h
-> @@ -45,7 +45,7 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
->  
->  #define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
->  static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
-> -							   pte_t *ptep)
-> +							   hw_pte_t *ptep)
->  {
->  	/*
->  	 * The caller handles alignment so it's sufficient just to check
-> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-> index 0ec90fd1754ed..68ff21310604d 100644
-> --- a/arch/arm64/kernel/efi.c
-> +++ b/arch/arm64/kernel/efi.c
-> @@ -111,7 +111,8 @@ struct set_perm_data {
->  	bool			has_bti;
->  };
->  
-> -static int __init set_permissions(pte_t *ptep, unsigned long addr, void *data)
-> +static int __init set_permissions(hw_pte_t *ptep, unsigned long addr,
-> +				  void *data)
->  {
->  	struct set_perm_data *spd = data;
->  	const efi_memory_desc_t *md = spd->md;
-> diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-> index fb44cbdd2f292..2b7e7be5fd6f3 100644
-> --- a/arch/arm64/kernel/pi/map_kernel.c
-> +++ b/arch/arm64/kernel/pi/map_kernel.c
-> @@ -26,7 +26,7 @@ static void __init map_segment(pgd_t *pg_dir, phys_addr_t *pgd, u64 va_offset,
->  {
->  	map_range(pgd, ((u64)start + va_offset) & ~PAGE_OFFSET,
->  		  ((u64)end + va_offset) & ~PAGE_OFFSET, (u64)start,
-> -		  prot, root_level, (pte_t *)pg_dir, may_use_cont, 0);
-> +		  prot, root_level, (hw_pte_t *)pg_dir, may_use_cont, 0);
->  }
->  
->  static void __init unmap_segment(pgd_t *pg_dir, u64 va_offset, void *start,
-> @@ -209,7 +209,7 @@ static void *__init map_fdt(phys_addr_t fdt)
->  	 */
->  	map_range(&ptep, fdt, (u64)_text > fdt ? min((u64)_text, efdt) : efdt,
->  		  fdt, PAGE_KERNEL, IDMAP_ROOT_LEVEL,
-> -		  (pte_t *)init_idmap_pg_dir, false, 0);
-> +		  (hw_pte_t *)init_idmap_pg_dir, false, 0);
->  	dsb(ishst);
->  
->  	return (void *)fdt;
-> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-> index 761b14893f748..94f06da76e333 100644
-> --- a/arch/arm64/kernel/pi/map_range.c
-> +++ b/arch/arm64/kernel/pi/map_range.c
-> @@ -27,7 +27,8 @@
->   * 			in the VA space
->   */
->  void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
-> -		      pgprot_t prot, int level, pte_t *tbl, bool may_use_cont,
-> +		      pgprot_t prot, int level, hw_pte_t *tbl,
-> +		      bool may_use_cont,
->  		      u64 va_offset)
->  {
->  	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
-> @@ -62,7 +63,7 @@ void __init map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
->  				*pte += PTRS_PER_PTE * sizeof(pte_t);
->  			}
->  			map_range(pte, start, next, pa, prot, level + 1,
-> -				  (pte_t *)(__pte_to_phys(*tbl) + va_offset),
-> +				  (hw_pte_t *)(__pte_to_phys(*tbl) + va_offset),
->  				  may_use_cont, va_offset);
->  		} else {
->  			/*
-> @@ -100,10 +101,10 @@ asmlinkage phys_addr_t __init create_init_idmap(pgd_t *pg_dir, ptval_t clrmask)
->  	/* MMU is off; pointer casts to phys_addr_t are safe */
->  	map_range(&ptep, (u64)_stext, (u64)__initdata_begin,
->  		  (phys_addr_t)_stext, text_prot, IDMAP_ROOT_LEVEL,
-> -		  (pte_t *)pg_dir, false, 0);
-> +		  (hw_pte_t *)pg_dir, false, 0);
->  	map_range(&ptep, (u64)__initdata_begin, (u64)_end,
->  		  (phys_addr_t)__initdata_begin, data_prot, IDMAP_ROOT_LEVEL,
-> -		  (pte_t *)pg_dir, false, 0);
-> +		  (hw_pte_t *)pg_dir, false, 0);
->  
->  	return ptep;
->  }
-> diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
-> index 5dfd8484d2005..a7d09a2fa8f9f 100644
-> --- a/arch/arm64/kernel/pi/pi.h
-> +++ b/arch/arm64/kernel/pi/pi.h
-> @@ -2,6 +2,7 @@
->  // Copyright 2023 Google LLC
->  // Author: Ard Biesheuvel <ardb@google.com>
->  
-> +#include <linux/pgtable_types.h>
->  #include <linux/types.h>
->  
->  #define __prel64_initconst	__section(".init.rodata.prel64")
-> @@ -30,7 +31,7 @@ void relocate_kernel(u64 offset);
->  int scs_patch(const u8 eh_frame[], int size, bool skip_dry_run);
->  
->  void map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
-> -	       pgprot_t prot, int level, pte_t *tbl, bool may_use_cont,
-> +	       pgprot_t prot, int level, hw_pte_t *tbl, bool may_use_cont,
->  	       u64 va_offset);
->  
->  asmlinkage void early_map_kernel(u64 boot_status, phys_addr_t fdt);
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index 0acab179fc1a5..753267c0b41e5 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -21,13 +21,14 @@ static inline bool mm_is_user(struct mm_struct *mm)
->  	return mm != &init_mm;
->  }
->  
-> -static inline pte_t *contpte_align_down(pte_t *ptep)
-> +static inline hw_pte_t *contpte_align_down(hw_pte_t *ptep)
->  {
->  	return PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
->  }
->  
-> -static inline pte_t *contpte_align_addr_ptep(unsigned long *start,
-> -					     unsigned long *end, pte_t *ptep,
-> +static inline hw_pte_t *contpte_align_addr_ptep(unsigned long *start,
-> +					     unsigned long *end,
-> +					     hw_pte_t *ptep,
->  					     unsigned int nr)
->  {
->  	/*
-> @@ -47,7 +48,7 @@ static inline pte_t *contpte_align_addr_ptep(unsigned long *start,
->  }
->  
->  static void contpte_try_unfold_partial(struct mm_struct *mm, unsigned long addr,
-> -					pte_t *ptep, unsigned int nr)
-> +					hw_pte_t *ptep, unsigned int nr)
->  {
->  	/*
->  	 * Unfold any partially covered contpte block at the beginning and end
-> @@ -59,7 +60,7 @@ static void contpte_try_unfold_partial(struct mm_struct *mm, unsigned long addr,
->  
->  	if (ptep + nr != contpte_align_down(ptep + nr)) {
->  		unsigned long last_addr = addr + PAGE_SIZE * (nr - 1);
-> -		pte_t *last_ptep = ptep + nr - 1;
-> +		hw_pte_t *last_ptep = ptep + nr - 1;
->  
->  		contpte_try_unfold(mm, last_addr, last_ptep,
->  				   __ptep_get(last_ptep));
-> @@ -67,11 +68,11 @@ static void contpte_try_unfold_partial(struct mm_struct *mm, unsigned long addr,
->  }
->  
->  static void contpte_convert(struct mm_struct *mm, unsigned long addr,
-> -			    pte_t *ptep, pte_t pte)
-> +			    hw_pte_t *ptep, pte_t pte)
->  {
->  	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
->  	unsigned long start_addr;
-> -	pte_t *start_ptep;
-> +	hw_pte_t *start_ptep;
->  	int i;
->  
->  	start_ptep = ptep = contpte_align_down(ptep);
-> @@ -227,7 +228,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  }
->  
->  void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
-> -			pte_t *ptep, pte_t pte)
-> +			hw_pte_t *ptep, pte_t pte)
->  {
->  	/*
->  	 * We have already checked that the virtual and pysical addresses are
-> @@ -253,7 +254,7 @@ void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
->  	struct folio *folio;
->  	struct page *page;
->  	unsigned long pfn;
-> -	pte_t *orig_ptep;
-> +	hw_pte_t *orig_ptep;
->  	pgprot_t prot;
->  
->  	int i;
-> @@ -291,7 +292,7 @@ void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
->  EXPORT_SYMBOL_GPL(__contpte_try_fold);
->  
->  void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
-> -			pte_t *ptep, pte_t pte)
-> +			hw_pte_t *ptep, pte_t pte)
->  {
->  	/*
->  	 * We have already checked that the ptes are contiguous in
-> @@ -305,7 +306,7 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
->  }
->  EXPORT_SYMBOL_GPL(__contpte_try_unfold);
->  
-> -pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
-> +pte_t contpte_ptep_get(hw_pte_t *ptep, pte_t orig_pte)
->  {
->  	/*
->  	 * Gather access/dirty bits, which may be populated in any of the ptes
-> @@ -362,7 +363,7 @@ static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
->  			pgprot_val(prot) == pgprot_val(orig_prot);
->  }
->  
-> -pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
-> +pte_t contpte_ptep_get_lockless(hw_pte_t *orig_ptep)
->  {
->  	/*
->  	 * The ptep_get_lockless() API requires us to read and return *orig_ptep
-> @@ -384,7 +385,7 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
->  	pgprot_t orig_prot;
->  	unsigned long pfn;
->  	pte_t orig_pte;
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  	pte_t pte;
->  	int i;
->  
-> @@ -445,7 +446,8 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
->  EXPORT_SYMBOL_GPL(contpte_ptep_get_lockless);
->  
->  void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
-> -					pte_t *ptep, pte_t pte, unsigned int nr)
-> +					hw_pte_t *ptep, pte_t pte,
-> +					unsigned int nr)
->  {
->  	unsigned long next;
->  	unsigned long end;
-> @@ -488,7 +490,7 @@ void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
->  EXPORT_SYMBOL_GPL(contpte_set_ptes);
->  
->  void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-> -				pte_t *ptep, unsigned int nr, int full)
-> +				hw_pte_t *ptep, unsigned int nr, int full)
->  {
->  	contpte_try_unfold_partial(mm, addr, ptep, nr);
->  	__clear_full_ptes(mm, addr, ptep, nr, full);
-> @@ -496,7 +498,7 @@ void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->  EXPORT_SYMBOL_GPL(contpte_clear_full_ptes);
->  
->  pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
-> -				unsigned long addr, pte_t *ptep,
-> +				unsigned long addr, hw_pte_t *ptep,
->  				unsigned int nr, int full)
->  {
->  	contpte_try_unfold_partial(mm, addr, ptep, nr);
-> @@ -505,7 +507,7 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->  EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->  
->  bool contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep, unsigned int nr)
-> +		unsigned long addr, hw_pte_t *ptep, unsigned int nr)
->  {
->  	/*
->  	 * ptep_clear_flush_young() technically requires us to clear the access
-> @@ -531,7 +533,7 @@ bool contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->  EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->  
->  bool contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
-> -		unsigned long addr, pte_t *ptep, unsigned int nr)
-> +		unsigned long addr, hw_pte_t *ptep, unsigned int nr)
->  {
->  	bool young;
->  
-> @@ -554,7 +556,7 @@ bool contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->  EXPORT_SYMBOL_GPL(contpte_clear_flush_young_ptes);
->  
->  void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
-> -					pte_t *ptep, unsigned int nr)
-> +					hw_pte_t *ptep, unsigned int nr)
->  {
->  	/*
->  	 * If wrprotecting an entire contig range, we can avoid unfolding. Just
-> @@ -572,7 +574,7 @@ void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  EXPORT_SYMBOL_GPL(contpte_wrprotect_ptes);
->  
->  void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
-> -				    unsigned long addr, pte_t *ptep,
-> +				    unsigned long addr, hw_pte_t *ptep,
->  				    unsigned int nr, cydp_t flags)
->  {
->  	/*
-> @@ -593,9 +595,10 @@ void contpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
->  }
->  EXPORT_SYMBOL_GPL(contpte_clear_young_dirty_ptes);
->  
-> -static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
-> +static bool contpte_all_subptes_match_access_flags(hw_pte_t *ptep,
-> +						   pte_t entry)
->  {
-> -	pte_t *cont_ptep = contpte_align_down(ptep);
-> +	hw_pte_t *cont_ptep = contpte_align_down(ptep);
->  	/*
->  	 * PFNs differ per sub-PTE. Match only bits consumed by
->  	 * __ptep_set_access_flags(): AF, DIRTY and write permission.
-> @@ -615,7 +618,7 @@ static bool contpte_all_subptes_match_access_flags(pte_t *ptep, pte_t entry)
->  }
->  
->  int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> -					unsigned long addr, pte_t *ptep,
-> +					unsigned long addr, hw_pte_t *ptep,
->  					pte_t entry, int dirty)
->  {
->  	unsigned long start_addr;
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 0b52557652be6..b77f4be88e3ea 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -162,7 +162,8 @@ static void show_pte(unsigned long addr)
->  		p4d_t *p4dp, p4d;
->  		pud_t *pudp, pud;
->  		pmd_t *pmdp, pmd;
-> -		pte_t *ptep, pte;
-> +		hw_pte_t *ptep;
-> +		pte_t pte;
->  
->  		if (pgd_none(pgd) || pgd_bad(pgd))
->  			break;
-> @@ -208,7 +209,7 @@ static void show_pte(unsigned long addr)
->   * Returns whether or not the PTE actually changed.
->   */
->  int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
-> -				  unsigned long address, pte_t *ptep,
-> +				  unsigned long address, hw_pte_t *ptep,
->  				  pte_t entry, int dirty, unsigned long pgsize)
->  {
->  	pteval_t old_pteval, pteval;
-> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> index f66a0016dd02d..237a9136bc73b 100644
-> --- a/arch/arm64/mm/fixmap.c
-> +++ b/arch/arm64/mm/fixmap.c
-> @@ -35,7 +35,7 @@ static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
->  static pmd_t bm_pmd[PTRS_PER_PMD] __bss_pgtbl __maybe_unused;
->  static pud_t bm_pud[PTRS_PER_PUD] __bss_pgtbl __maybe_unused;
->  
-> -static inline pte_t *fixmap_pte(unsigned long addr)
-> +static inline hw_pte_t *fixmap_pte(unsigned long addr)
->  {
->  	return &bm_pte[BM_PTE_TABLE_IDX(addr)][pte_index(addr)];
->  }
-> @@ -43,7 +43,7 @@ static inline pte_t *fixmap_pte(unsigned long addr)
->  static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
->  {
->  	pmd_t pmd = READ_ONCE(*pmdp);
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  
->  	if (pmd_none(pmd)) {
->  		ptep = bm_pte[BM_PTE_TABLE_IDX(addr)];
-> @@ -120,7 +120,7 @@ void __set_fixmap(enum fixed_addresses idx,
->  			       phys_addr_t phys, pgprot_t flags)
->  {
->  	unsigned long addr = __fix_to_virt(idx);
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  
->  	BUG_ON(idx <= FIX_HOLE || idx >= __end_of_fixed_addresses);
->  
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 8e799c1fe0aa6..560c0f16cd8e4 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -76,7 +76,7 @@ bool arch_hugetlb_migration_supported(struct hstate *h)
->  #endif
->  
->  static int find_num_contig(struct mm_struct *mm, unsigned long addr,
-> -			   pte_t *ptep, size_t *pgsize)
-> +			   hw_pte_t *ptep, size_t *pgsize)
->  {
->  	pgd_t *pgdp = pgd_offset(mm, addr);
->  	p4d_t *p4dp;
-> @@ -87,7 +87,7 @@ static int find_num_contig(struct mm_struct *mm, unsigned long addr,
->  	p4dp = p4d_offset(pgdp, addr);
->  	pudp = pud_offset(p4dp, addr);
->  	pmdp = pmd_offset(pudp, addr);
-> -	if ((pte_t *)PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS) == ptep) {
-> +	if ((hw_pte_t *)PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS) == ptep) {
->  		*pgsize = PMD_SIZE;
->  		return CONT_PMDS;
->  	}
-> @@ -116,7 +116,7 @@ static inline int num_contig_ptes(unsigned long size, size_t *pgsize)
->  	return contig_ptes;
->  }
->  
-> -pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
-> +pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, hw_pte_t *ptep)
->  {
->  	int ncontig, i;
->  	size_t pgsize;
-> @@ -148,7 +148,7 @@ pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
->   */
->  static pte_t get_clear_contig(struct mm_struct *mm,
->  			     unsigned long addr,
-> -			     pte_t *ptep,
-> +			     hw_pte_t *ptep,
->  			     unsigned long pgsize,
->  			     unsigned long ncontig)
->  {
-> @@ -173,7 +173,7 @@ static pte_t get_clear_contig(struct mm_struct *mm,
->  
->  static pte_t get_clear_contig_flush(struct mm_struct *mm,
->  				    unsigned long addr,
-> -				    pte_t *ptep,
-> +				    hw_pte_t *ptep,
->  				    unsigned long pgsize,
->  				    unsigned long ncontig)
->  {
-> @@ -196,7 +196,7 @@ static pte_t get_clear_contig_flush(struct mm_struct *mm,
->   */
->  static void clear_flush(struct mm_struct *mm,
->  			     unsigned long addr,
-> -			     pte_t *ptep,
-> +			     hw_pte_t *ptep,
->  			     unsigned long pgsize,
->  			     unsigned long ncontig)
->  {
-> @@ -213,7 +213,7 @@ static void clear_flush(struct mm_struct *mm,
->  }
->  
->  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-> -			    pte_t *ptep, pte_t pte, unsigned long sz)
-> +			    hw_pte_t *ptep, pte_t pte, unsigned long sz)
->  {
->  	size_t pgsize;
->  	int i;
-> @@ -234,14 +234,14 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
->  	__set_ptes_anysz(mm, addr, ptep, pte, ncontig, pgsize);
->  }
->  
-> -pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
-> +hw_pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
->  		      unsigned long addr, unsigned long sz)
->  {
->  	pgd_t *pgdp;
->  	p4d_t *p4dp;
->  	pud_t *pudp;
->  	pmd_t *pmdp;
-> -	pte_t *ptep = NULL;
-> +	hw_pte_t *ptep = NULL;
->  
->  	pgdp = pgd_offset(mm, addr);
->  	p4dp = p4d_alloc(mm, pgdp, addr);
-> @@ -253,7 +253,7 @@ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
->  		return NULL;
->  
->  	if (sz == PUD_SIZE) {
-> -		ptep = (pte_t *)pudp;
-> +		ptep = (hw_pte_t *)pudp;
->  	} else if (sz == (CONT_PTE_SIZE)) {
->  		pmdp = pmd_alloc(mm, pudp, addr);
->  		if (!pmdp)
-> @@ -265,17 +265,17 @@ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
->  		if (want_pmd_share(vma, addr) && pud_none(READ_ONCE(*pudp)))
->  			ptep = huge_pmd_share(mm, vma, addr, pudp);
->  		else
-> -			ptep = (pte_t *)pmd_alloc(mm, pudp, addr);
-> +			ptep = (hw_pte_t *)pmd_alloc(mm, pudp, addr);
->  	} else if (sz == (CONT_PMD_SIZE)) {
->  		pmdp = pmd_alloc(mm, pudp, addr);
->  		WARN_ON(addr & (sz - 1));
-> -		return (pte_t *)pmdp;
-> +		return (hw_pte_t *)pmdp;
->  	}
->  
->  	return ptep;
->  }
->  
-> -pte_t *huge_pte_offset(struct mm_struct *mm,
-> +hw_pte_t *huge_pte_offset(struct mm_struct *mm,
->  		       unsigned long addr, unsigned long sz)
->  {
->  	pgd_t *pgdp;
-> @@ -297,7 +297,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
->  		return NULL;
->  	/* hugepage or swap? */
->  	if (pud_leaf(pud) || !pud_present(pud))
-> -		return (pte_t *)pudp;
-> +		return (hw_pte_t *)pudp;
->  	/* table; check the next level */
->  
->  	if (sz == CONT_PMD_SIZE)
-> @@ -309,7 +309,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
->  	    pmd_none(pmd))
->  		return NULL;
->  	if (pmd_leaf(pmd) || !pmd_present(pmd))
-> -		return (pte_t *)pmdp;
-> +		return (hw_pte_t *)pmdp;
->  
->  	if (sz == CONT_PTE_SIZE)
->  		return pte_offset_huge(pmdp, (addr & CONT_PTE_MASK));
-> @@ -367,7 +367,7 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
->  }
->  
->  void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
-> -		    pte_t *ptep, unsigned long sz)
-> +		    hw_pte_t *ptep, unsigned long sz)
->  {
->  	int i, ncontig;
->  	size_t pgsize;
-> @@ -379,7 +379,7 @@ void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
->  }
->  
->  pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
-> -			      pte_t *ptep, unsigned long sz)
-> +			      hw_pte_t *ptep, unsigned long sz)
->  {
->  	int ncontig;
->  	size_t pgsize;
-> @@ -397,7 +397,7 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
->   * all the contiguous ptes we need to check whether or not there is a
->   * discrepancy between dirty or young.
->   */
-> -static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
-> +static int __cont_access_flags_changed(hw_pte_t *ptep, pte_t pte, int ncontig)
->  {
->  	int i;
->  
-> @@ -418,7 +418,7 @@ static int __cont_access_flags_changed(pte_t *ptep, pte_t pte, int ncontig)
->  }
->  
->  int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-> -			       unsigned long addr, pte_t *ptep,
-> +			       unsigned long addr, hw_pte_t *ptep,
->  			       pte_t pte, int dirty)
->  {
->  	int ncontig;
-> @@ -451,7 +451,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->  }
->  
->  void huge_ptep_set_wrprotect(struct mm_struct *mm,
-> -			     unsigned long addr, pte_t *ptep)
-> +			     unsigned long addr, hw_pte_t *ptep)
->  {
->  	int ncontig;
->  	size_t pgsize;
-> @@ -474,7 +474,7 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
->  }
->  
->  pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
-> -			    unsigned long addr, pte_t *ptep)
-> +			    unsigned long addr, hw_pte_t *ptep)
->  {
->  	struct mm_struct *mm = vma->vm_mm;
->  	size_t pgsize;
-> @@ -514,7 +514,8 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
->  	return __hugetlb_valid_size(size);
->  }
->  
-> -pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
-> +pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr,
-> +				  hw_pte_t *ptep)
->  {
->  	unsigned long psize = huge_page_size(hstate_vma(vma));
->  
-> @@ -530,7 +531,8 @@ pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr
->  	return huge_ptep_get_and_clear(vma->vm_mm, addr, ptep, psize);
->  }
->  
-> -void huge_ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
-> +void huge_ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr,
-> +				  hw_pte_t *ptep,
->  				  pte_t old_pte, pte_t pte)
->  {
->  	unsigned long psize = huge_page_size(hstate_vma(vma));
-> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-> index 45fbdce684c89..dccb736b32e9b 100644
-> --- a/arch/arm64/mm/kasan_init.c
-> +++ b/arch/arm64/mm/kasan_init.c
-> @@ -59,7 +59,7 @@ static phys_addr_t __init kasan_alloc_raw_page(int node)
->  	return __pa(p);
->  }
->  
-> -static pte_t *__init kasan_pte_offset(pmd_t *pmdp, unsigned long addr, int node,
-> +static hw_pte_t *__init kasan_pte_offset(pmd_t *pmdp, unsigned long addr, int node,
->  				      bool early)
->  {
->  	if (pmd_none(READ_ONCE(*pmdp))) {
-> @@ -116,7 +116,7 @@ static void __init kasan_pte_populate(pmd_t *pmdp, unsigned long addr,
->  				      unsigned long end, int node, bool early)
->  {
->  	unsigned long next;
-> -	pte_t *ptep = kasan_pte_offset(pmdp, addr, node, early);
-> +	hw_pte_t *ptep = kasan_pte_offset(pmdp, addr, node, early);
->  
->  	do {
->  		phys_addr_t page_phys = early ?
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 79d90226fd5dc..f02b974ad64df 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -159,7 +159,7 @@ static void init_clear_pgtable(void *table)
->  	dsb(ishst);
->  }
->  
-> -static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
-> +static void init_pte(hw_pte_t *ptep, unsigned long addr, unsigned long end,
->  		     phys_addr_t phys, pgprot_t prot)
->  {
->  	do {
-> @@ -182,7 +182,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->  	} while (ptep++, addr += PAGE_SIZE, addr != end);
->  }
->  
-> -static bool pte_range_has_valid_noncont(pte_t *ptep)
-> +static bool pte_range_has_valid_noncont(hw_pte_t *ptep)
->  {
->  	for (int i = 0; i < CONT_PTES; i++) {
->  		pte_t pte = __ptep_get(&ptep[i]);
-> @@ -201,7 +201,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  {
->  	unsigned long next;
->  	pmd_t pmd = READ_ONCE(*pmdp);
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  
->  	BUG_ON(pmd_leaf(pmd));
->  	if (pmd_none(pmd)) {
-> @@ -592,7 +592,7 @@ pgd_pgtable_alloc_special_mm(enum pgtable_level pgtable_level)
->  	return  __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_level);
->  }
->  
-> -static void split_contpte(pte_t *ptep)
-> +static void split_contpte(hw_pte_t *ptep)
->  {
->  	int i;
->  
-> @@ -607,13 +607,13 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->  	unsigned long pfn = pmd_pfn(pmd);
->  	pgprot_t prot = pmd_pgprot(pmd);
->  	phys_addr_t pte_phys;
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  	int i;
->  
->  	pte_phys = pgd_pgtable_alloc_init_mm_gfp(PGTABLE_LEVEL_PTE, gfp);
->  	if (pte_phys == INVALID_PHYS_ADDR)
->  		return -ENOMEM;
-> -	ptep = (pte_t *)phys_to_virt(pte_phys);
-> +	ptep = (hw_pte_t *)phys_to_virt(pte_phys);
->  
->  	if (pgprot_val(prot) & PMD_SECT_PXN)
->  		tableprot |= PMD_TABLE_PXN;
-> @@ -691,7 +691,8 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->  	p4d_t *p4dp, p4d;
->  	pud_t *pudp, pud;
->  	pmd_t *pmdp, pmd;
-> -	pte_t *ptep, pte;
-> +	hw_pte_t *ptep;
-> +	pte_t pte;
->  	int ret = 0;
->  
->  	/*
-> @@ -904,7 +905,7 @@ static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->  	return ret;
->  }
->  
-> -static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
-> +static int split_to_ptes_pte_entry(hw_pte_t *ptep, unsigned long addr,
->  				   unsigned long next, struct mm_walk *walk)
->  {
->  	pte_t pte = __ptep_get(ptep);
-> @@ -1438,7 +1439,8 @@ static void __init declare_kernel_vmas(void)
->  }
->  
->  void __pi_map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
-> -		    pgprot_t prot, int level, pte_t *tbl, bool may_use_cont,
-> +		    pgprot_t prot, int level, hw_pte_t *tbl,
-> +		    bool may_use_cont,
->  		    u64 va_offset);
->  
->  static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
-> @@ -1451,7 +1453,7 @@ static void __init create_idmap(void)
->  	phys_addr_t ptep  = __pa_symbol(idmap_ptes);
->  
->  	__pi_map_range(&ptep, start, end, start, PAGE_KERNEL_ROX,
-> -		       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
-> +		       IDMAP_ROOT_LEVEL, (hw_pte_t *)idmap_pg_dir, false,
->  		       __phys_to_virt(ptep) - ptep);
->  
->  	if (linear_map_requires_bbml3 ||
-> @@ -1466,7 +1468,8 @@ static void __init create_idmap(void)
->  		 */
->  		ptep = __pa_symbol(kpti_bbml3_ptes);
->  		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
-> -			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
-> +			       IDMAP_ROOT_LEVEL, (hw_pte_t *)idmap_pg_dir,
-> +			       false,
->  			       __phys_to_virt(ptep) - ptep);
->  	}
->  }
-> @@ -1522,7 +1525,8 @@ static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
->  				    unsigned long end, bool free_mapped,
->  				    struct vmem_altmap *altmap)
->  {
-> -	pte_t *ptep, pte;
-> +	hw_pte_t *ptep;
-> +	pte_t pte;
->  
->  	do {
->  		ptep = pte_offset_kernel(pmdp, addr);
-> @@ -1665,7 +1669,8 @@ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
->  				 unsigned long end, unsigned long floor,
->  				 unsigned long ceiling)
->  {
-> -	pte_t *ptep, pte;
-> +	hw_pte_t *ptep;
-> +	pte_t pte;
->  	unsigned long i, start = addr;
->  
->  	do {
-> @@ -1914,7 +1919,7 @@ int pmd_clear_huge(pmd_t *pmdp)
->  
->  int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->  {
-> -	pte_t *table;
-> +	hw_pte_t *table;
->  	pmd_t pmd;
->  
->  	pmd = READ_ONCE(*pmdp);
-> @@ -2056,7 +2061,8 @@ static bool addr_splits_kernel_leaf(unsigned long addr)
->  	p4d_t *p4dp, p4d;
->  	pud_t *pudp, pud;
->  	pmd_t *pmdp, pmd;
-> -	pte_t *ptep, pte;
-> +	hw_pte_t *ptep;
-> +	pte_t pte;
->  
->  	/*
->  	 * If the given address points at a the start address of
-> @@ -2284,7 +2290,7 @@ early_initcall(prevent_memory_remove_init);
->  #endif
->  
->  pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
-> -			     pte_t *ptep, unsigned int nr)
-> +			     hw_pte_t *ptep, unsigned int nr)
->  {
->  	pte_t pte = get_and_clear_ptes(vma->vm_mm, addr, ptep, nr);
->  
-> @@ -2302,19 +2308,21 @@ pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
->  	return pte;
->  }
->  
-> -pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
-> +pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr,
-> +			     hw_pte_t *ptep)
->  {
->  	return modify_prot_start_ptes(vma, addr, ptep, 1);
->  }
->  
->  void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-> -			     pte_t *ptep, pte_t old_pte, pte_t pte,
-> +			     hw_pte_t *ptep, pte_t old_pte, pte_t pte,
->  			     unsigned int nr)
->  {
->  	set_ptes(vma->vm_mm, addr, ptep, pte, nr);
->  }
->  
-> -void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
-> +void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr,
-> +			     hw_pte_t *ptep,
->  			     pte_t old_pte, pte_t pte)
->  {
->  	modify_prot_commit_ptes(vma, addr, ptep, old_pte, pte, 1);
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 132938b32eb16..895014212a81c 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -68,7 +68,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
->  	return 0;
->  }
->  
-> -static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
-> +static int pageattr_pte_entry(hw_pte_t *pte, unsigned long addr,
->  			      unsigned long next, struct mm_walk *walk)
->  {
->  	pte_t val = __ptep_get(pte);
-> @@ -379,7 +379,7 @@ bool kernel_page_present(struct page *page)
->  	p4d_t *p4dp;
->  	pud_t *pudp, pud;
->  	pmd_t *pmdp, pmd;
-> -	pte_t *ptep;
-> +	hw_pte_t *ptep;
->  	unsigned long addr = (unsigned long)page_address(page);
->  
->  	pgdp = pgd_offset_k(addr);
-> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-> index cca9706a875c3..845417792ad48 100644
-> --- a/arch/arm64/mm/trans_pgd.c
-> +++ b/arch/arm64/mm/trans_pgd.c
-> @@ -34,8 +34,8 @@ static void *trans_alloc(struct trans_pgd_info *info)
->  static int copy_pte(struct trans_pgd_info *info, pmd_t *dst_pmdp,
->  		    pmd_t *src_pmdp, unsigned long start, unsigned long end)
->  {
-> -	pte_t *src_ptep;
-> -	pte_t *dst_ptep;
-> +	hw_pte_t *src_ptep;
-> +	hw_pte_t *dst_ptep;
->  	unsigned long addr = start;
->  
->  	dst_ptep = trans_alloc(info);
+> This is version two of the kernel stack juggling patches I previously
+> posted here:
+> 
+>   https://lore.kernel.org/r/20260907164247.17223-1-will@kernel.org
+> 
+> Changes since v1 include:
+>   * Fixed suspend/resume paths to handle the stack pointers properly
+>   * Fixed restoration of ptrauth keys on resume
+>   * Added tags
+
+I tested this series with Fastpath on two different server-class machines:
+AWS m7g.metal and AmpereOne. Fastpath marks statistically significant
+improvements as (I) and regressions as (R). Please see the attached file
+for detailed results.
+
+The statistically significant R and I were counted:
+
+- AWS m7g.metal:
+- perf: 5 R, 1 I
+- micromm: 0 R, 1 I
+- mmtests: 84 R, 0 I
+
+- AmpereOne:
+- perf: 3 R, 0 I
+- micromm: 0 R, 0 I
+
+For reference, I've also put the detailed stats for the perf at the bottom of
+the file to prove that the variance during the testing was low.
+
+Thanks,
+Usama
+
+> 
+> Cheers,
+> 
+> Will
+> 
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Mostafa Saleh <smostafa@google.com>
+> Cc: Lorenzo Stoakes <ljs@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> 
+> --->8
+> 
+> Mostafa Saleh (1):
+>   KVM: arm64: Protect TPIDRRO_EL0 across guest entry/exit
+> 
+> Will Deacon (20):
+>   arm64: entry: Defer setting of TPIDRRO_EL0 until exit to userspace
+>   arm64: entry: Only check for stack overflow on exceptions from EL1
+>   arm64: stackprotector: Temporarily disable per-task stackprotector
+>   arm64: bpf: Add support for generating reads of TPIDRRO_EL0
+>   arm64: Store 'current' in TPIDRRO_EL0 instead of SP_EL0
+>   selftests/bpf: arm64: Use TPIDRRO_EL0 instead of SP_EL0 for 'current'
+>   scripts/gdb: arm64: Use TPIDRRO_EL0 instead of SP_EL0 for 'current'
+>   arm64: stackprotector: Re-enable per-task stackprotector
+>   arm64: percpu: Specialise set_my_cpu_offset() for the primary CPU
+>   arm64: percpu: Annotate __kern_my_cpu_offset() as '__always_inline'
+>   KVM: arm64: Preserve handler/thread bit of EL1 mode in
+>     __finalise_el2()
+>   arm64: sdei: Guard most of asm/sdei.h with CONFIG_ARM_SDE_INTERFACE
+>   arm64: sdei: Support SDEI events from kernel handler and thread modes
+>   arm64: entry: Point SP_EL0 at the overflow stack
+>   arm64: entry: Implement EL1t exception handlers for overflow stack
+>   arm64: entry: Use SPSel to switch to overflow stack
+>   arm64: entry: Split up kernel_ventry macro into separate helper macros
+>   arm64: entry: The great stack switcheroo
+>   arm64: tracing: Advertise a mode of EL1t in synthetic kernel regs
+>   arm64: Rename 'overflow_stack' and OVERFLOW_STACK_SIZE
+> 
+>  arch/arm64/Kconfig                            |   2 +-
+>  arch/arm64/Makefile                           |   2 +-
+>  arch/arm64/include/asm/assembler.h            |   2 +-
+>  arch/arm64/include/asm/current.h              |   6 +-
+>  arch/arm64/include/asm/ftrace.h               |   4 +-
+>  arch/arm64/include/asm/insn.h                 |   1 +
+>  arch/arm64/include/asm/kvm_asm.h              |  26 +++++
+>  arch/arm64/include/asm/memory.h               |  10 +-
+>  arch/arm64/include/asm/percpu.h               |  10 +-
+>  arch/arm64/include/asm/perf_event.h           |   2 +-
+>  arch/arm64/include/asm/sdei.h                 |   2 +
+>  arch/arm64/include/asm/stacktrace.h           |   9 +-
+>  arch/arm64/include/asm/stacktrace/nvhe.h      |   3 +-
+>  arch/arm64/include/uapi/asm/ptrace.h          |   1 +
+>  arch/arm64/kernel/asm-offsets.c               |   2 +
+>  arch/arm64/kernel/entry-common.c              |  51 +++++++--
+>  arch/arm64/kernel/entry.S                     | 108 +++++++++---------
+>  arch/arm64/kernel/head.S                      |   8 +-
+>  arch/arm64/kernel/hyp-stub.S                  |   7 +-
+>  arch/arm64/kernel/process.c                   |  21 +---
+>  arch/arm64/kernel/sdei.c                      |   6 +-
+>  arch/arm64/kernel/sleep.S                     |   3 +-
+>  arch/arm64/kernel/smp.c                       |  19 ++-
+>  arch/arm64/kernel/stacktrace.c                |   2 +-
+>  arch/arm64/kernel/sys_compat.c                |   7 --
+>  arch/arm64/kernel/traps.c                     |  14 +--
+>  arch/arm64/kvm/hyp/entry.S                    |  15 ++-
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h    |   2 -
+>  arch/arm64/kvm/hyp/nvhe/host.S                |   2 +-
+>  arch/arm64/kvm/hyp/nvhe/stacktrace.c          |   4 +-
+>  arch/arm64/kvm/stacktrace.c                   |   4 +-
+>  arch/arm64/mm/proc.S                          |  16 ++-
+>  arch/arm64/net/bpf_jit.h                      |   2 +
+>  arch/arm64/net/bpf_jit_comp.c                 |   4 +-
+>  scripts/gdb/linux/cpus.py                     |   2 +-
+>  .../selftests/bpf/progs/verifier_jit_inline.c |   2 +-
+>  36 files changed, 230 insertions(+), 151 deletions(-)
 > 
 
+--------------bS057EjGn5IEBAL008Loe1aX
+Content-Type: text/plain; charset=UTF-8; name="will-stack-switch-results.txt"
+Content-Disposition: attachment; filename="will-stack-switch-results.txt"
+Content-Transfer-Encoding: base64
+
+RmFzdHBhdGggcnVucyByZXBlYXRhYmxlIExpbnV4IGtlcm5lbCBiZW5jaG1hcmtzIG9uIGRl
+ZmluZWQgc3lzdGVtcyB1bmRlciB0ZXN0IChTVVRzKS4gUmVhZCBlYWNoIHJvdyBhcyBvbmUg
+YmVuY2htYXJrIG1ldHJpYzogdGhlIGJhc2UgY29sdW1uIGlzIHRoZSBiZWZvcmUgbWVhbiwg
+dGhlIGZpbmFsIGNvbHVtbiBpcyB0aGUgYWZ0ZXIgcmVzdWx0IGFzIGEgcGVyY2VudGFnZSBj
+aGFuZ2UgZnJvbSB0aGF0IGJhc2VsaW5lOyAoSSkgbWFya3MgYSBzdGF0aXN0aWNhbGx5IHNp
+Z25pZmljYW50IGltcHJvdmVtZW50LCAoUikgYSByZWdyZXNzaW9uLCBhbmQgYW4gdW5tYXJr
+ZWQgdmFsdWUgbm8gc2lnbmlmaWNhbnQgY2hhbmdlLgoKUmVzdWx0cyBmb3IgU1VUIENsYXNz
+IGF3cy1tN2cubWV0YWw6CgorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0r
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IEJlbmNobWFyayAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBSZXN1bHQgQ2xhc3MgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IHdpbGwtc3RhY2stdjItdjcuMy1yYzEt
+YmVmb3JlLW03Zy1wZXJmIChiYXNlKSB8IHdpbGwtc3RhY2stdjItdjcuMy1yYzEtYWZ0ZXIt
+bTdnLXBlcmYgfAorPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Kz09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0r
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0rPT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Kwp8IHBlcmYvZnV0ZXggICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYXNoIChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgMjYzMzQwMC4xMyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtOC4y
+MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBsb2NrLXBpIChv
+cHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDI4MC40MCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMC4xNCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCByZXF1ZXVlIChtcykgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAwLjAyOCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMy42NyUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCB3YWtlIChtcykgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjA3NSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMS4yOSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCB3YWtlLXBhcmFsbGVsIChtcykgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAu
+MDA0MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtNi40NCUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IHBlcmYvbWVtICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBtZW1zZXQgLWsgMUdCIC1mIGRlZmF1bHQgLXMgMTZHQiAoYnl0ZXMvc2VjKSAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2NTgxMzI4NTI1NC4wMSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC41MCUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBtbWFwIC1wIDFHQiAtZiBkZW1hbmQgLXMgMzJH
+QiAtbCA1IChieXRlcy9zZWMpICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICA2NDA5Njc0MTYyMy41OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtMC44NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBtbWFw
+IC1wIDRLQiAtZiBkZW1hbmQgLXMgMzJHQiAtbCA1IChieXRlcy9zZWMpICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0OTk0MjQwMTE5OC41MCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMC41NSUgfAorLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tKwp8IHBlcmYvc2NoZWQgICAgICAgICAgICAgICAgICAgICAgICAgfCBtZXNzYWdpbmcg
+LWwgMTAwMDAgKHNlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS4zMiB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtMy40NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBwaXBlIChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IDU4ODY1Mi41MCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChJKSAxOC41MCUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzZWNjb21wLW5vdGlmeSAo
+b3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDI0MzIyMi44MCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIChSKSAtNy4wNyUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IHBlcmYv
+c3lzY2FsbCAgICAgICAgICAgICAgICAgICAgICAgfCBiYXNpYyAob3BzL3NlYykgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgNTE3MjUxOS45MyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgKFIpIC0xOC4zNSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBleGVjdmUgKG9wcy9zZWMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjM2MC41NyB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC41OSUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBmb3JrIChvcHMvc2VjKSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgNDE0OC45MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtMC4zNCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBnZXRw
+Z2lkIChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNTE4ODIwMy43MyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgKFIpIC0xOC45OSUgfAorLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tKwp8IG1pY3JvbW0vZm9yayAgICAgICAgICAgICAgICAgICAgICAgfCBmb3JrOiBwOjEs
+IGQ6MTAgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMDA3OCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMC40OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBmb3JrOiBwOjUxMiwgZDoxMCAoc2Vjb25kcykgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDAuMDA1NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zNiUgfAor
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IG1pY3JvbW0vbXVubWFwICAgICAgICAgICAgICAg
+ICAgICAgfCBtdW5tYXA6IHA6MSwgZDoxMCAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAw
+LjA2MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC45MyUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBtdW5tYXA6IHA6NTEyLCBkOjEwIChz
+ZWNvbmRzKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIDAuMDA0NiB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgMC4xMiUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0r
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IG1pY3JvbW0vdm1h
+bGxvYyAgICAgICAgICAgICAgICAgICAgfCBmaXhfYWxpZ25fYWxsb2NfdGVzdDogcDoxLCBo
+OjAsIGw6NTAwMDAwICh1c2VjKSAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDYzNjM4My4wMCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgMC42OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBmaXhf
+c2l6ZV9hbGxvY190ZXN0OiBwOjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM3MzcwOC4wMCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgMC42NSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjQsIGg6MCwgbDo1
+MDAwMDAgKHVzZWMpICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIDQ2ODUzMi44MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoSSkgMi4x
+MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9h
+bGxvY190ZXN0OiBwOjE2LCBoOjAsIGw6NTAwMDAwICh1c2VjKSAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg2OTU4Mi4xNyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMS4yMSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjE2LCBoOjEsIGw6NTAwMDAw
+ICh1c2VjKSAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IDgxMzE2NS41MCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS4xMiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190
+ZXN0OiBwOjY0LCBoOjAsIGw6MTAwMDAwICh1c2VjKSAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDQ5OTYzNS4zMyB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC41MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjY0LCBoOjEsIGw6MTAwMDAwICh1c2Vj
+KSAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQ2NTUy
+MS42NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4xNiUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBw
+OjI1NiwgaDowLCBsOjEwMDAwMCAodXNlYykgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMTgxNTQ1Ni4xNyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAtMC4zNSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjI1NiwgaDoxLCBsOjEwMDAwMCAodXNlYykgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTcwMTYzOS4xNyB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4yOCUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjUxMiwg
+aDowLCBsOjEwMDAwMCAodXNlYykgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgMzU1NzA1OC4zMyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtMC4yMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBmaXhf
+c2l6ZV9hbGxvY190ZXN0OiBwOjUxMiwgaDoxLCBsOjEwMDAwMCAodXNlYykgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjYyNDMyNy4wMCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4xNSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBmdWxsX2ZpdF9hbGxvY190ZXN0OiBwOjEsIGg6MCwgbDo1
+MDAwMDAgKHVzZWMpICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIDU2NTcxNC4zMyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4y
+NyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBrdmZyZWVfcmN1
+XzFfYXJnX3ZtYWxsb2NfdGVzdDogcDoxLCBoOjAsIGw6NTAwMDAwICh1c2VjKSB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM2OTAzOC4xNyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMC4yNyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBrdmZyZWVfcmN1XzJfYXJnX3ZtYWxsb2NfdGVzdDogcDoxLCBoOjAs
+IGw6NTAwMDAwICh1c2VjKSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IDM2OTExNS41MCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC43MyUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBsb25nX2J1c3lfbGlzdF9h
+bGxvY190ZXN0OiBwOjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgNDM4MzgwNi42NyB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC43MiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBwY3B1X2FsbG9jX3Rlc3Q6IHA6MSwgaDowLCBsOjUwMDAwMCAodXNlYykgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5ODUz
+Ni4wMCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC40NSUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCByYW5kb21fc2l6ZV9hbGlnbl9hbGxv
+Y190ZXN0OiBwOjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIDc0NDYyNy4wMCB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAtMy41NyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCByYW5kb21fc2l6ZV9hbGxvY190ZXN0OiBwOjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjI5NDk0Ni4wMCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC44MyUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCB2bV9tYXBfcmFtX3Rlc3Q6IHA6MSwgaDowLCBs
+OjUwMDAwMCAodXNlYykgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICA4MTU4MS4zMyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgMC45MCUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0r
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvaGFja2JlbmNo
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy0xIChzZWNvbmRz
+KSAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgMC4xNSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy4z
+NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+cHJvY2Vzcy1waXBlcy00IChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4zOCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtNi4xMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy03IChzZWNvbmRzKSAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgMC42NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtNS4xMiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vz
+cy1waXBlcy0xMiAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS4xMCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIChSKSAtNS41MyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy0yMSAoc2Vjb25kcykgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+MS40OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtNi42OSUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBl
+cy0zMCAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgMS44NyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIChSKSAtNy4zMCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy00OCAoc2Vjb25kcykgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMi41NyB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtOC4yMiUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy03OSAo
+c2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMy42MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtOS41MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNr
+YmVuY2gtcHJvY2Vzcy1waXBlcy0xMTAgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNC42OCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtOS44NSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy0xNDEgKHNlY29u
+ZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgNS43OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC4w
+NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+cHJvY2Vzcy1waXBlcy0xNzIgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNi45NSB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtOS45OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy0yMDMgKHNlY29uZHMpICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgOC4wOCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC4xNiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vz
+cy1waXBlcy0yMzQgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOS4yOSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgKFIpIC0xMC4xMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1waXBlcy0yNTYgKHNlY29uZHMpICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAx
+MC4wOCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC4zOSUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2Nr
+ZXRzLTEgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgMC4yOCB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIChSKSAtMi4xMyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTQgKHNlY29uZHMpICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC42MyB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMi43NyUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTcg
+KHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMC45OSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtMy4yMSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNr
+YmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTEyIChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS42MyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtMi41NiUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTIxIChzZWNv
+bmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgMi44MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS45
+NyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+cHJvY2Vzcy1zb2NrZXRzLTMwIChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNC4wMyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtMi4wNSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTQ4IChzZWNvbmRzKSAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgNi40MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMi40NiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vz
+cy1zb2NrZXRzLTc5IChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOS44OSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIChSKSAtMy40MyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTExMCAoc2Vjb25kcykgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAx
+My43NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy40NCUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2Nr
+ZXRzLTE0MSAoc2Vjb25kcykgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAxNy42NyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIChSKSAtMy45NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTE3MiAoc2Vjb25kcykgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMS44OCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy43NSUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTIw
+MyAoc2Vjb25kcykgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAyNi4xNyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtMy44NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNr
+YmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTIzNCAoc2Vjb25kcykgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzMC41MyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy45MCUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtcHJvY2Vzcy1zb2NrZXRzLTI1NiAoc2Vj
+b25kcykgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAzMy42MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy45
+NSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+dGhyZWFkLXBpcGVzLTEgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4xOCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtNC40MyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTQgKHNlY29uZHMpICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgMC40MCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMy44NSUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFk
+LXBpcGVzLTcgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC42OSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIChSKSAtNC4yMyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTEyIChzZWNvbmRzKSAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+MS4xNSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtNC45MyUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVz
+LTIxIChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgMS41MyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIChSKSAtNS45MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTMwIChzZWNvbmRzKSAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS45NSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtNy4xMiUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTQ4IChz
+ZWNvbmRzKSAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMi42OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtOC40NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNr
+YmVuY2gtdGhyZWFkLXBpcGVzLTc5IChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMy42NiB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC4wOCUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTExMCAoc2Vjb25k
+cykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgNC44MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC4w
+NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+dGhyZWFkLXBpcGVzLTE0MSAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNS45MiB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgKFIpIC0xMC42MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTE3MiAoc2Vjb25kcykgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgNy4xNiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC4zNyUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFk
+LXBpcGVzLTIwMyAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOC4zOCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgKFIpIC0xMC4zMyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVzLTIzNCAoc2Vjb25kcykgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+OS42MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC41NiUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXBpcGVz
+LTI1NiAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAxMC40OSB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgKFIpIC0xMC40NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtMSAoc2Vjb25kcykgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4zMCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS43NCUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtNCAo
+c2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMC42NCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtMy43MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNr
+YmVuY2gtdGhyZWFkLXNvY2tldHMtNyAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC45OSB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy44MSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtMTIgKHNlY29u
+ZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgMS41OSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy45
+MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+dGhyZWFkLXNvY2tldHMtMjEgKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMi43MSB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtNC4xNCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtMzAgKHNlY29uZHMpICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgMy44NSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy45MyUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFk
+LXNvY2tldHMtNDggKHNlY29uZHMpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNi4xMiB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIChSKSAtMy42NSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtNzkgKHNlY29uZHMpICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+OS41MCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy45NyUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tl
+dHMtMTEwIChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAxMy4xOSB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIChSKSAtMy44MyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtMTQxIChzZWNvbmRzKSAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNi45OSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy41NiUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtMTcy
+IChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAyMS4wNCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtMy43MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNr
+YmVuY2gtdGhyZWFkLXNvY2tldHMtMjAzIChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNS4yNCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy41NSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gtdGhyZWFkLXNvY2tldHMtMjM0IChzZWNv
+bmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAyOS40OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy4z
+NSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBoYWNrYmVuY2gt
+dGhyZWFkLXNvY2tldHMtMjU2IChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzMi41MiB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIChSKSAtMy4yNSUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8
+IG1tdGVzdHMva2VybmJlbmNoICAgICAgICAgICAgICAgICAgfCBrZXJuYmVuY2gtZWxzcC02
+NCAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM2MC4wMyB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC4yNSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBrZXJuYmVuY2gtc3lzdC02NCAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTEy
+OS4yMCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS4wNyUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBrZXJuYmVuY2gtdXNlci02NCAoc2Vj
+b25kcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAxOTc1NS44MyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAtMC4wNSUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0r
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3Ry
+ZXNzbmctYmFkLWFsdHN0YWNrICAgICAgfCBzdHJlc3NuZy1iYWQtYWx0c3RhY2stMSAob3Bz
+L3NlY29uZCkgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgOS42OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgMC4wNyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1iYWQtYWx0c3RhY2stMiAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOS4wMiB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4yMSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1iYWQtYWx0c3RhY2stNCAob3BzL3NlY29u
+ZCkgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAzNy40MCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4w
+MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1i
+YWQtYWx0c3RhY2stOCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1NS40MiB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMC41MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1iYWQtYWx0c3RhY2stMTYgKG9wcy9zZWNvbmQpICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAxNzQ2Ni4zMyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS4xMyUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1iYWQtYWx0
+c3RhY2stMzIgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA1NDE4NS4zMCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC40OCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1iYWQtYWx0c3RhY2stNjQgKG9wcy9zZWNvbmQpICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA5ODMx
+NC4zMiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMCUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1iYWQtYWx0c3RhY2st
+MTI4IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIDEwNDYwNS45MCB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAtMS41MiUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0r
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3Ry
+ZXNzbmctY2xhc3MtaW8tcGFyYWxsZWwgfCBzdHJlc3NuZy1haW8tNjQgKG9wcy9zZWNvbmQp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMzQ2My42NSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtMi4yOCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1oZGQtNjQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNDIxMi4zNiB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4xNCUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1pby11cmluZy02NCAob3BzL3NlY29uZCkg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIDc3Ni41MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtNi4y
+NSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1y
+ZWFkYWhlYWQtNjQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxODExOTAxNC43NSB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMy44OCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1yZXZpby02NCAob3BzL3NlY29uZCkgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+Mjc4OTExOS4wMSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtNC4wMCUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1zZWVrLTY0
+IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgMjc1MzQ3MC4wNCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIC0xMi4zOSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1zeW5jLWZpbGUtNjQgKG9wcy9zZWNvbmQpICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAy
+Ny42MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtNy41OSUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctY29udGV4dCAgICAgICAgICAg
+fCBzdHJlc3NuZy1jb250ZXh0LTEgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjUxNC4yNSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xNS43MCUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1jb250ZXh0LTIgKG9wcy9zZWNv
+bmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgNTAyNS42OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIp
+IC0xNS44MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1jb250ZXh0LTQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMDA1NS42MCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgKFIpIC0xNS45MiUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1jb250ZXh0LTggKG9wcy9zZWNvbmQpICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAyMDA5My41NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xNS44
+NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1j
+b250ZXh0LTE2IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0MDEwMC44NyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgKFIpIC0xNS43NyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1jb250ZXh0LTMyIChvcHMvc2Vjb25kKSAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA4MDE1NS43NCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xNS42OCUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1jb250ZXh0
+LTY0IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDE2MDA2NC44NCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgKFIpIC0xNS42MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1jb250ZXh0LTEyOCAob3BzL3NlY29uZCkgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE1OTI5
+OS44MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xNS4zNCUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctZm9yayAgICAgICAgICAgICAg
+fCBzdHJlc3NuZy1mb3JrLTEgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMzc4MS4zNCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zNCUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1mb3JrLTIgKG9wcy9zZWNvbmQp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgNzI2OC4zMSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgMC4yNCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1mb3JrLTQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNDI2Ny45NCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMS43NSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1mb3JrLTggKG9wcy9zZWNvbmQpICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAyNzIyNy4xMiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS42
+OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1m
+b3JrLTE2IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0OTk0Ny44NSB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMC45MiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1mb3JrLTMyIChvcHMvc2Vjb25kKSAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA4MTkwMy44NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMi4zMSUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1mb3JrLTY0
+IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA5NDgxMi4wNiB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMC4wMyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1mb3JrLTEyOCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA5MzQw
+OS4xNCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS43NCUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctZ2V0ICAgICAgICAgICAgICAg
+fCBzdHJlc3NuZy1nZXQtMSAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzc3MS40MiB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy43NyUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXQtMiAob3BzL3NlY29uZCkg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAxNDkyMy4wMSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtNC4xNSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1nZXQtNCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyODkxNi45MyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy4wOCUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXQtOCAob3BzL3NlY29uZCkgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAyOTQ3MS42MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC40
+MiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1n
+ZXQtMTYgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyOTQzMC44OCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMC4zMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXQtMzIgKG9wcy9zZWNvbmQpICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAyOTM5MC41NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zNiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXQtNjQg
+KG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAyOTQwMy4wNSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC4yOCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1nZXQtMTI4IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyOTM5
+Ny41NSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zMyUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctZ2V0ZGVudCAgICAgICAgICAg
+fCBzdHJlc3NuZy1nZXRkZW50LTEgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0MzI1Ny43MCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy4xNSUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXRkZW50LTIgKG9wcy9zZWNv
+bmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDI1NjY3Mi43NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtMy4wOCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1nZXRkZW50LTQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDMyMzAyMy44NyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMi43OSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXRkZW50LTggKG9wcy9zZWNvbmQpICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIDMzNjEyNi45MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS4w
+OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1n
+ZXRkZW50LTE2IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM0NDk2OC45NCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMS43NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXRkZW50LTMyIChvcHMvc2Vjb25kKSAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IDM4ODc3NS4wMiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC42NCUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1nZXRkZW50
+LTY0IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDM3NDIwNC4xNiB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMC4wNCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1nZXRkZW50LTEyOCAob3BzL3NlY29uZCkgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5NjA5
+My43NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMi43NyUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctbWFkdmlzZSAgICAgICAgICAg
+fCBzdHJlc3NuZy1tYWR2aXNlLTEgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzNy4wNSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1tYWR2aXNlLTIgKG9wcy9zZWNv
+bmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICA3NC45NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIp
+IC0xMi45MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1tYWR2aXNlLTQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE0My45MCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMS42NSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1tYWR2aXNlLTggKG9wcy9zZWNvbmQpICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIDI2NS40NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtOC42
+OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1t
+YWR2aXNlLTE2IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDMxOS42OCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMS45NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1tYWR2aXNlLTMyIChvcHMvc2Vjb25kKSAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDQzMS45NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wOSUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1tYWR2aXNl
+LTY0IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQ1Ny40MyB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMS40OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1tYWR2aXNlLTEyOCAob3BzL3NlY29uZCkgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDUx
+OS4xNSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMy42MyUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctbW1hcCAgICAgICAgICAgICAg
+fCBzdHJlc3NuZy1tbWFwLTEgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC43MyB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC45MSUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1tbWFwLTIgKG9wcy9zZWNvbmQp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMi44MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtMi4wMCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy1tbWFwLTQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMC44MCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMS42OCUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1tbWFwLTggKG9wcy9zZWNvbmQpICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAzOS4yNiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC45
+MCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1t
+bWFwLTE2IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDExNS42NCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMC43OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy1tbWFwLTMyIChvcHMvc2Vjb25kKSAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDIyNC44OCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zMSUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy1tbWFwLTY0
+IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQ1OC42MCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC44MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy1tbWFwLTEyOCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDky
+OC42MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC45MCUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctdm0tc3BsaWNlICAgICAgICAg
+fCBzdHJlc3NuZy12bS1zcGxpY2UtMSAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM5MTUyMi44MSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtNi40NiUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy12bS1zcGxpY2UtMiAob3BzL3Nl
+Y29uZCkgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgMTAwNjc4Ny41NSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtNy41MyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy12bS1zcGxpY2UtNCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjM5NTU4Mi4yMSB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtOS4xMSUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy12bS1zcGxpY2UtOCAob3BzL3NlY29uZCkg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgNTI2MDExOC44MSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtOS45
+NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy12
+bS1zcGxpY2UtMTYgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMTEzMDAwNC4zMyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgKFIpIC0xMC43OCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy12bS1zcGxpY2UtMzIgKG9wcy9zZWNvbmQpICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAy
+MjIzMDU4MC44MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC41NCUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy12bS1zcGxp
+Y2UtNjQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICA0NDQ1ODczNS41MCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgKFIpIC0xMC42OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy12bS1zcGxpY2UtMTI4IChvcHMvc2Vjb25kKSAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0MzczODIy
+Ni4yNyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC45OCUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctd2FpdCAgICAgICAgICAgICAg
+fCBzdHJlc3NuZy13YWl0LTEgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMjk5OC45MCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMi43MyUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy13YWl0LTIgKG9wcy9zZWNvbmQp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgNTk5NC41MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChS
+KSAtOC4zNiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy13YWl0LTQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMTgzNC40MyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIChSKSAtOC40OCUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy13YWl0LTggKG9wcy9zZWNvbmQpICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAyMzcxMS45MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtNy41
+MyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy13
+YWl0LTE2IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0OTc4Ny45MyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMC4yMSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy13YWl0LTMyIChvcHMvc2Vjb25kKSAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA5MjE2OC45MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMy42NyUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy13YWl0LTY0
+IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDE0MDk3Ny44NCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC41MiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy13YWl0LTEyOCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIyMTUz
+My45MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC40OSUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3RyZXNzbmctem9tYmllICAgICAgICAgICAg
+fCBzdHJlc3NuZy16b21iaWUtMSAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMTI4My44NiB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC43OCUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy16b21iaWUtMiAob3BzL3NlY29u
+ZCkgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAyMTQwMy4xOSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtMC43NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJl
+c3NuZy16b21iaWUtNCAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0MDY1OS43NyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMS4yNyUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy16b21iaWUtOCAob3BzL3NlY29uZCkgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICA3MjQyNi41NSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC41
+NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy16
+b21iaWUtMTYgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA5ODcxMi4yOSB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMC4zOCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzdHJlc3NuZy16b21iaWUtMzIgKG9wcy9zZWNvbmQpICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA5NjE2Ny44OSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMi43NiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzdHJlc3NuZy16b21iaWUt
+NjQgKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA3NzY0MS43NyB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC4zMSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzdHJlc3NuZy16b21iaWUtMTI4IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2NjU5
+Mi4wMSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMS43MyUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tKwp8IG1tdGVzdHMvc3lzYmVuY2gtY3B1ICAgICAgICAgICAgICAg
+fCBzeXNiZW5jaGNwdS0xIChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDgzNS43NSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMyUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaGNwdS00IChvcHMvc2Vjb25kKSAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMzM0Mi41NiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAtMC4wMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNi
+ZW5jaGNwdS03IChvcHMvc2Vjb25kKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNTg0OS4xNyB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMiUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaGNwdS0xMiAob3BzL3NlY29uZCkgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAxMDAyNi40NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4w
+MiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaGNw
+dS0yMSAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxNzU0NC40MCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMC4wMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzeXNiZW5jaGNwdS0zMCAob3BzL3NlY29uZCkgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAyNTA2MS4xNSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMSUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaGNwdS00OCAo
+b3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA0MDA5Mi4wNSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC4wMSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzeXNiZW5jaGNwdS03OSAob3BzL3NlY29uZCkgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1MzQ0
+Mi4zOSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wMCUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaGNwdS0xMTAgKG9wcy9z
+ZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICA1MzQ0MS4xMyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgMC4wMCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBzeXNiZW5jaGNwdS0xMjggKG9wcy9zZWNvbmQpICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1MzQzOC41OSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wMSUgfAorLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tKwp8IG1tdGVzdHMvc3lzYmVuY2gtbXV0ZXggICAgICAgICAgICAgfCBzeXNi
+ZW5jaG11dGV4LTEgKHVzZWMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDE5NC4zMSB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMiUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaG11dGV4LTQgKHVzZWMpICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIDIwMC41NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4w
+NiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaG11
+dGV4LTcgKHVzZWMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIwMS41NiB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMC4yMyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzeXNiZW5jaG11dGV4LTEyICh1c2VjKSAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDIwMi4xOCB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4yMCUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaG11dGV4LTIx
+ICh1c2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIwMi4xOCB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC4yMiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzeXNiZW5jaG11dGV4LTMwICh1c2VjKSAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIw
+My4wOSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zMSUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaG11dGV4LTQ4ICh1c2Vj
+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIDIzNC43OCB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAtMi44NyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBzeXNiZW5jaG11dGV4LTc5ICh1c2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDM1OS44NSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC41NyUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaG11dGV4LTExMCAodXNlYykgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIDUxMi43NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgMC4wNiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNi
+ZW5jaG11dGV4LTEyOCAodXNlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDU5My41NCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgMy43NyUgfAorLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tKwp8IG1tdGVzdHMvc3lzYmVuY2gtdGhyZWFkICAgICAgICAgICAgfCBzeXNiZW5jaHRo
+cmVhZC0xICh1c2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4zNSB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgKFIpIC0xNi42NyUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgfCBzeXNiZW5jaHRocmVhZC00ICh1c2VjKSAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgMC41MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMC45MiUgfAp8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaHRocmVhZC03
+ICh1c2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMi42MSB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIC0xMC40MiUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBzeXNiZW5jaHRocmVhZC0xMiAodXNlYykgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+NS45MiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMy40NyUgfAp8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaHRocmVhZC0yMSAodXNl
+YykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAxNC43NSB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAxNi40OSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+fCBzeXNiZW5jaHRocmVhZC0zMCAodXNlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOC4xOSB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyMy44NSUgfAp8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaHRocmVhZC00OCAodXNlYykgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAzMy43NSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgNi43NCUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNi
+ZW5jaHRocmVhZC03OSAodXNlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2MC40NiB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIC0xMS4yNiUgfAp8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaHRocmVhZC0xMTAgKHVzZWMpICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICA4OC4wNSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0xMS45
+MSUgfAp8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBzeXNiZW5jaHRo
+cmVhZC0xMjggKHVzZWMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEwOS4yNyB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAtMi40MiUgfAorLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwoK
+UmVzdWx0cyBmb3IgU1VUIENsYXNzIGNlc3ctYWFyY2g2NC1hbXBlcmVvbmUtMXMtYTE5Mi0z
+Mng6CgorLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0rCnwgQmVuY2htYXJrICAgICAgIHwgUmVzdWx0IENsYXNz
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCB3aWxsLXN0
+YWNrLXYyLXY3LjMtcmMxLWJlZm9yZS1hbXBlcmVvbmUtcGVyZiAoYmFzZSkgfCB3aWxsLXN0
+YWNrLXYyLXY3LjMtcmMxLWFmdGVyLWFtcGVyZW9uZS1wZXJmIHwKKz09PT09PT09PT09PT09
+PT09Kz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT0rPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT0rPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+Kwp8IHBlcmYvZnV0ZXggICAgICB8IGhhc2ggKG9wcy9zZWMpICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAyNjMxMTQ1Ljg3IHwgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIC04LjY1JSB8CnwgICAgICAgICAgICAgICAgIHwgbG9jay1waSAob3BzL3Nl
+YykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzguOTcgfCAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgLTAuNDYlIHwKfCAgICAgICAgICAgICAgICAg
+fCByZXF1ZXVlIChtcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+MC4xMiB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtMi4zMSUgfAp8
+ICAgICAgICAgICAgICAgICB8IHdha2UgKG1zKSAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAwLjI5IHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIC0xLjkzJSB8CnwgICAgICAgICAgICAgICAgIHwgd2FrZS1wYXJhbGxlbCAobXMp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjAwMjYgfCAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDAuNjQlIHwKKy0tLS0tLS0tLS0tLS0tLS0tKy0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKwp8IHBl
+cmYvbWVtICAgICAgICB8IG1lbXNldCAtayAxR0IgLWYgZGVmYXVsdCAtcyAxNkdCIChieXRl
+cy9zZWMpICAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDM0MDg5OTkxNDQzLjc0IHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIC0wLjI2JSB8CnwgICAgICAgICAgICAgICAgIHwgbW1hcCAtcCAxR0IgLWYgZGVtYW5k
+IC1zIDMyR0IgLWwgNSAoYnl0ZXMvc2VjKSAgICAgICAgICAgfCAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMzM5NTYyNjQ0ODcuMzMgfCAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgLTAuNjUlIHwKfCAgICAgICAgICAgICAgICAgfCBtbWFw
+IC1wIDRLQiAtZiBkZW1hbmQgLXMgMzJHQiAtbCA1IChieXRlcy9zZWMpICAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyNTkzMjA2MzM0NS40OCB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4xOCUgfAorLS0tLS0t
+LS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0rCnwgcGVyZi9zY2hlZCAgICAgIHwgbWVzc2FnaW5nIC1sIDEwMDAwIChzZWMp
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuOTggfCAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgLTEuNzYlIHwKfCAgICAgICAgICAgICAgICAgfCBwaXBlIChv
+cHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDMxNDA5Ni4wMCB8ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMS40OSUgfAp8ICAgICAgICAg
+ICAgICAgICB8IHNlY2NvbXAtbm90aWZ5IChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgMTMwNzAxLjQ3IHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0w
+LjM0JSB8CistLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsKfCBwZXJmL3N5c2NhbGwgICAgfCBiYXNpYyAob3Bz
+L3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzM2NTYxNy4wMCB8ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChSKSAtOS4zNCUgfAp8ICAgICAgICAgICAg
+ICAgICB8IGV4ZWN2ZSAob3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAxNTgwLjkwIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjYw
+JSB8CnwgICAgICAgICAgICAgICAgIHwgZm9yayAob3BzL3NlYykgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIDI0NTYuMjcgfCAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgLTAuMjUlIHwKfCAgICAgICAgICAgICAgICAgfCBnZXRwZ2lkIChvcHMv
+c2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNzY3NjkwOC43MyB8ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgKFIpIC0xMS43MSUgfAorLS0tLS0tLS0tLS0tLS0t
+LS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0r
+CnwgbWljcm9tbS9mb3JrICAgIHwgZm9yazogcDoxLCBkOjEwIChzZWNvbmRzKSAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAwLjAwODQgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgLTAuNTclIHwKfCAgICAgICAgICAgICAgICAgfCBmb3JrOiBwOjUxMiwgZDox
+MCAoc2Vjb25kcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMDA0OCB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4zOSUgfAorLS0tLS0tLS0tLS0tLS0tLS0r
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCnwg
+bWljcm9tbS9tdW5tYXAgIHwgbXVubWFwOiBwOjEsIGQ6MTAgKHNlY29uZHMpICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMC4wNzggfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgLTIuNjYlIHwKfCAgICAgICAgICAgICAgICAgfCBtdW5tYXA6IHA6NTEyLCBkOjEw
+IChzZWNvbmRzKSAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjAyMiB8ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgMC45NCUgfAorLS0tLS0tLS0tLS0tLS0tLS0rLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rCnwgbWlj
+cm9tbS92bWFsbG9jIHwgZml4X2FsaWduX2FsbG9jX3Rlc3Q6IHA6MSwgaDowLCBsOjUwMDAw
+MCAodXNlYykgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICA3MzcyNDcuNjcgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDUuMTMlIHwKfCAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBw
+OjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDM5MTkzMi4xNyB8ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMS4yNSUgfAp8ICAgICAgICAgICAgICAgICB8IGZpeF9z
+aXplX2FsbG9jX3Rlc3Q6IHA6NCwgaDowLCBsOjUwMDAwMCAodXNlYykgICAgICAgICAgIHwg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNTEyNDM1LjE3IHwg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjAxJSB8CnwgICAgICAg
+ICAgICAgICAgIHwgZml4X3NpemVfYWxsb2NfdGVzdDogcDoxNiwgaDowLCBsOjUwMDAwMCAo
+dXNlYykgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICA5NzAxMzAuODMgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+LTEuMDIlIHwKfCAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjE2
+LCBoOjEsIGw6NTAwMDAwICh1c2VjKSAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIDkxNTY2MS4wMCB8ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAtMC42MSUgfAp8ICAgICAgICAgICAgICAgICB8IGZpeF9zaXpl
+X2FsbG9jX3Rlc3Q6IHA6NjQsIGg6MCwgbDoxMDAwMDAgKHVzZWMpICAgICAgICAgIHwgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNTkwMDA3LjUwIHwgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjk0JSB8CnwgICAgICAgICAg
+ICAgICAgIHwgZml4X3NpemVfYWxsb2NfdGVzdDogcDo2NCwgaDoxLCBsOjEwMDAwMCAodXNl
+YykgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA1NDE4NTYuNTAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLTAu
+MzElIHwKfCAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjI1Niwg
+aDowLCBsOjEwMDAwMCAodXNlYykgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgMjE2MTcwMC4xNyB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAtMC45MiUgfAp8ICAgICAgICAgICAgICAgICB8IGZpeF9zaXplX2Fs
+bG9jX3Rlc3Q6IHA6MjU2LCBoOjEsIGw6MTAwMDAwICh1c2VjKSAgICAgICAgIHwgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxOTgwMDQyLjE3IHwgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjUyJSB8CnwgICAgICAgICAgICAg
+ICAgIHwgZml4X3NpemVfYWxsb2NfdGVzdDogcDo1MTIsIGg6MCwgbDoxMDAwMDAgKHVzZWMp
+ICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQy
+MTY2NzUuNjcgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLTAuOTQl
+IHwKfCAgICAgICAgICAgICAgICAgfCBmaXhfc2l6ZV9hbGxvY190ZXN0OiBwOjUxMiwgaDox
+LCBsOjEwMDAwMCAodXNlYykgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgMjk4MzkyNC42NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAtMS45MyUgfAp8ICAgICAgICAgICAgICAgICB8IGZ1bGxfZml0X2FsbG9j
+X3Rlc3Q6IHA6MSwgaDowLCBsOjUwMDAwMCAodXNlYykgICAgICAgICAgIHwgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNjEzMTE5LjY3IHwgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjQxJSB8CnwgICAgICAgICAgICAgICAg
+IHwga3ZmcmVlX3JjdV8xX2FyZ192bWFsbG9jX3Rlc3Q6IHA6MSwgaDowLCBsOjUwMDAwMCAo
+dXNlYykgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA1MzQ2
+NDIuODMgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDIuMzAlIHwK
+fCAgICAgICAgICAgICAgICAgfCBrdmZyZWVfcmN1XzJfYXJnX3ZtYWxsb2NfdGVzdDogcDox
+LCBoOjAsIGw6NTAwMDAwICh1c2VjKSB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDUxNjU2MS42NyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAtMC42OSUgfAp8ICAgICAgICAgICAgICAgICB8IGxvbmdfYnVzeV9saXN0X2Fs
+bG9jX3Rlc3Q6IHA6MSwgaDowLCBsOjUwMDAwMCAodXNlYykgICAgIHwgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0OTczNTQzLjgzIHwgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjc5JSB8CnwgICAgICAgICAgICAgICAgIHwg
+cGNwdV9hbGxvY190ZXN0OiBwOjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICAgICAgICAgICAg
+ICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0ODQ4NDQu
+ODMgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuNzUlIHwKfCAg
+ICAgICAgICAgICAgICAgfCByYW5kb21fc2l6ZV9hbGlnbl9hbGxvY190ZXN0OiBwOjEsIGg6
+MCwgbDo1MDAwMDAgKHVzZWMpICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIDg5MDIwMC44MyB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAtMC41NiUgfAp8ICAgICAgICAgICAgICAgICB8IHJhbmRvbV9zaXplX2FsbG9jX3Rl
+c3Q6IHA6MSwgaDowLCBsOjUwMDAwMCAodXNlYykgICAgICAgIHwgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAyNjI1MTgwLjgzIHwgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIC0wLjc1JSB8CnwgICAgICAgICAgICAgICAgIHwgdm1f
+bWFwX3JhbV90ZXN0OiBwOjEsIGg6MCwgbDo1MDAwMDAgKHVzZWMpICAgICAgICAgICAgICAg
+fCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxMDcwMjUuMDAg
+fCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEuMzklIHwKKy0tLS0t
+LS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tKwoKUGVyZiB2YXJpYWJpbGl0eSAoQVdTIG03Zy5tZXRhbCkKCkZvciBpbnRl
+cmVzdGVkIHJlYWRlcnMsIHRoZXNlIHRhYmxlcyBzaG93IHRoZSBzcHJlYWQsIDk1JSBjb25m
+aWRlbmNlIGludGVydmFsLCBjb2VmZmljaWVudCBvZiB2YXJpYXRpb24gKGN2KSwgYW5kIG51
+bWJlciBvZiBtZWFzdXJlbWVudHMgZm9yIGVhY2ggcGVyZiByZXN1bHQuCgpCZWZvcmUgKGJh
+c2VsaW5lKToKCistLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0t
+LS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tLSsKfCBCZW5j
+aG1hcmsgICAgIHwgUmVzdWx0IENsYXNzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8ICAgICBtaW4gfCAgIGNpOTVtaW4gfCAgICAgICAgICAgbWVhbiB8ICAgY2k5NW1h
+eCB8ICAgIG1heCB8ICAgICBjdiB8ICAgY291bnQgfAorPT09PT09PT09PT09PT09Kz09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSs9PT09PT09PT0r
+PT09PT09PT09PT0rPT09PT09PT09PT09PT09PSs9PT09PT09PT09PSs9PT09PT09PSs9PT09
+PT09PSs9PT09PT09PT0rCnwgcGVyZi9mdXRleCAgICB8IGhhc2ggKG9wcy9zZWMpICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgLTAuOTYlIHwgICAgLTAuMjIlIHwgICAg
+IDI2MzM0MDAuMTMgfCAgICAgMC4yMiUgfCAgMS4wNyUgfCAgMC41OCUgfCAgICAgIDMwIHwK
+fCAgICAgICAgICAgICAgIHwgbG9jay1waSAob3BzL3NlYykgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICAtNS40OSUgfCAgICAtMC4zOSUgfCAgICAgICAgIDI4MC40MCB8ICAg
+ICAwLjM5JSB8ICAwLjIxJSB8ICAxLjA1JSB8ICAgICAgMzAgfAp8ICAgICAgICAgICAgICAg
+fCByZXF1ZXVlIChtcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIC02
+LjgyJSB8ICAgIC00LjEyJSB8ICAgICAgICAgIDAuMDI4IHwgICAgIDQuMTIlIHwgNDEuMDIl
+IHwgMTEuMDMlIHwgICAgICAzMCB8CnwgICAgICAgICAgICAgICB8IHdha2UgKG1zKSAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAtMTMuNjAlIHwgICAgLTIuOTYl
+IHwgICAgICAgICAgMC4wNzUgfCAgICAgMi45NiUgfCAxMS45MCUgfCAgNy45MiUgfCAgICAg
+IDMwIHwKfCAgICAgICAgICAgICAgIHwgd2FrZS1wYXJhbGxlbCAobXMpICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8IC0xOS43NyUgfCAgICAtNS44MyUgfCAgICAgICAgIDAuMDA0
+MSB8ICAgICA1LjgzJSB8IDQ1Ljg3JSB8IDE1LjYyJSB8ICAgICAgMzAgfAorLS0tLS0tLS0t
+LS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LSstLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLSst
+LS0tLS0tLSstLS0tLS0tLSstLS0tLS0tLS0rCnwgcGVyZi9tZW0gICAgICB8IG1lbXNldCAt
+ayAxR0IgLWYgZGVmYXVsdCAtcyAxNkdCIChieXRlcy9zZWMpICAgfCAgLTQuMjAlIHwgICAg
+LTAuNDYlIHwgNjU4MTMyODUyNTQuMDEgfCAgICAgMC40NiUgfCAgMS4yMiUgfCAgMS4yNCUg
+fCAgICAgIDMwIHwKfCAgICAgICAgICAgICAgIHwgbW1hcCAtcCAxR0IgLWYgZGVtYW5kIC1z
+IDMyR0IgLWwgNSAoYnl0ZXMvc2VjKSB8IC0xMy4yOCUgfCAgICAtMS4zNiUgfCA2NDA5Njc0
+MTYyMy41OCB8ICAgICAxLjM2JSB8ICAzLjU0JSB8ICAzLjY0JSB8ICAgICAgMzAgfAp8ICAg
+ICAgICAgICAgICAgfCBtbWFwIC1wIDRLQiAtZiBkZW1hbmQgLXMgMzJHQiAtbCA1IChieXRl
+cy9zZWMpIHwgLTExLjcwJSB8ICAgIC0xLjMxJSB8IDQ5OTQyNDAxMTk4LjUwIHwgICAgIDEu
+MzElIHwgIDIuNTklIHwgIDMuNTElIHwgICAgICAzMCB8CistLS0tLS0tLS0tLS0tLS0rLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0t
+LSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tKy0t
+LS0tLS0tKy0tLS0tLS0tLSsKfCBwZXJmL3NjaGVkOjc2IHwgbWVzc2FnaW5nIC1sIDEwMDAw
+IChzZWMpICAgICAgICAgICAgICAgICAgICAgICB8ICAtMC44NyUgfCAgICAtMC4xNSUgfCAg
+ICAgICAgICAgMS4zMiB8ICAgICAwLjE1JSB8ICAwLjg3JSB8ICAwLjQxJSB8ICAgICAgMzAg
+fAp8ICAgICAgICAgICAgICAgfCBwaXBlIChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgLTIyLjE2JSB8ICAgIC04Ljk0JSB8ICAgICAgNTg4NjUyLjUwIHwg
+ICAgIDguOTQlIHwgNzEuMTAlIHwgMjMuOTUlIHwgICAgICAzMCB8CnwgICAgICAgICAgICAg
+ICB8IHNlY2NvbXAtbm90aWZ5IChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgfCAg
+LTUuNDUlIHwgICAgLTEuMDglIHwgICAgICAyNDMyMjIuODAgfCAgICAgMS4wOCUgfCAgNC44
+NSUgfCAgMi45MCUgfCAgICAgIDMwIHwKKy0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0t
+LS0tKy0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0rLS0tLS0tLS0rLS0t
+LS0tLS0tKwp8IHBlcmYvc3lzY2FsbCAgfCBiYXNpYyAob3BzL3NlYykgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgIC0wLjQ5JSB8ICAgIC0wLjE5JSB8ICAgICA1MTcyNTE5
+LjkzIHwgICAgIDAuMTklIHwgIDIuNjAlIHwgIDAuNTIlIHwgICAgICAzMCB8CnwgICAgICAg
+ICAgICAgICB8IGV4ZWN2ZSAob3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfCAgLTEuNDIlIHwgICAgLTAuMjglIHwgICAgICAgIDIzNjAuNTcgfCAgICAgMC4yOCUg
+fCAgMS4yMCUgfCAgMC43NCUgfCAgICAgIDMwIHwKfCAgICAgICAgICAgICAgIHwgZm9yayAo
+b3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAtMS44NSUgfCAg
+ICAtMC4zNyUgfCAgICAgICAgNDE0OC45MyB8ICAgICAwLjM3JSB8ICAxLjc5JSB8ICAwLjk5
+JSB8ICAgICAgMzAgfAp8ICAgICAgICAgICAgICAgfCBnZXRwZ2lkIChvcHMvc2VjKSAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgIC0wLjQwJSB8ICAgIC0wLjE2JSB8ICAgICA1
+MTg4MjAzLjczIHwgICAgIDAuMTYlIHwgIDEuNTQlIHwgIDAuNDQlIHwgICAgICAzMCB8Cist
+LS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tKy0tLS0t
+LS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tLSsKCkFmdGVyIChwYXRjaGVkKToK
+CistLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tKy0t
+LS0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tLSsKfCBCZW5jaG1hcmsgICAg
+IHwgUmVzdWx0IENsYXNzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
+ICBtaW4gfCAgIGNpOTVtaW4gfCAgICAgICAgICAgbWVhbiB8ICAgY2k5NW1heCB8ICAgIG1h
+eCB8ICAgICBjdiB8ICAgY291bnQgfAorPT09PT09PT09PT09PT09Kz09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSs9PT09PT09PT0rPT09PT09PT09
+PT0rPT09PT09PT09PT09PT09PSs9PT09PT09PT09PSs9PT09PT09PSs9PT09PT09PSs9PT09
+PT09PT0rCnwgcGVyZi9mdXRleCAgICB8IGhhc2ggKG9wcy9zZWMpICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCAgLTAuODYlIHwgICAgLTAuMTclIHwgICAgIDI0MTcxMDYu
+MTMgfCAgICAgMC4xNyUgfCAgMC44NiUgfCAgMC40NiUgfCAgICAgIDMwIHwKfCAgICAgICAg
+ICAgICAgIHwgbG9jay1waSAob3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICB8ICAgMC4wMCUgfCAgICAgMC4wMCUgfCAgICAgICAgIDI4MC4wMCB8ICAgICAwLjAwJSB8
+ICAwLjAwJSB8ICAwLjAwJSB8ICAgICAgMzAgfAp8ICAgICAgICAgICAgICAgfCByZXF1ZXVl
+IChtcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIC00LjM5JSB8ICAg
+IC0xLjg1JSB8ICAgICAgICAgIDAuMDI5IHwgICAgIDEuODUlIHwgMjMuODElIHwgIDQuOTUl
+IHwgICAgICAzMCB8CnwgICAgICAgICAgICAgICB8IHdha2UgKG1zKSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCAtMjEuNzMlIHwgICAgLTMuMzklIHwgICAgICAg
+ICAgMC4wNzYgfCAgICAgMy4zOSUgfCAxMC4xOSUgfCAgOS4wNyUgfCAgICAgIDMwIHwKfCAg
+ICAgICAgICAgICAgIHwgd2FrZS1wYXJhbGxlbCAobXMpICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB8IC0yNC45NCUgfCAgICAtNS4yOSUgfCAgICAgICAgIDAuMDA0NCB8ICAgICA1
+LjI5JSB8IDIyLjgyJSB8IDE0LjE4JSB8ICAgICAgMzAgfAorLS0tLS0tLS0tLS0tLS0tKy0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0t
+LS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLSst
+LS0tLS0tLSstLS0tLS0tLS0rCnwgcGVyZi9tZW0gICAgICB8IG1lbXNldCAtayAxR0IgLWYg
+ZGVmYXVsdCAtcyAxNkdCIChieXRlcy9zZWMpICAgfCAgLTMuMzElIHwgICAgLTAuNTElIHwg
+NjU0ODMxMTI0MzQuODYgfCAgICAgMC41MSUgfCAgMS44MCUgfCAgMS4zOCUgfCAgICAgIDMw
+IHwKfCAgICAgICAgICAgICAgIHwgbW1hcCAtcCAxR0IgLWYgZGVtYW5kIC1zIDMyR0IgLWwg
+NSAoYnl0ZXMvc2VjKSB8ICAtNC4wNSUgfCAgICAtMS4wNyUgfCA2MzU1Njg5NDQ3OC4yMCB8
+ICAgICAxLjA3JSB8ICA0LjQxJSB8ICAyLjg3JSB8ICAgICAgMzAgfAp8ICAgICAgICAgICAg
+ICAgfCBtbWFwIC1wIDRLQiAtZiBkZW1hbmQgLXMgMzJHQiAtbCA1IChieXRlcy9zZWMpIHwg
+LTEwLjcyJSB8ICAgIC0xLjA2JSB8IDQ5NjY2NjA2NDk1LjAwIHwgICAgIDEuMDYlIHwgIDMu
+MDAlIHwgIDIuODUlIHwgICAgICAzMCB8CistLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLS0t
+LS0tLSstLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tKy0t
+LS0tLS0tLSsKfCBwZXJmL3NjaGVkOjc2IHwgbWVzc2FnaW5nIC1sIDEwMDAwIChzZWMpICAg
+ICAgICAgICAgICAgICAgICAgICB8ICAtMC43MSUgfCAgICAtMC4xNCUgfCAgICAgICAgICAg
+MS4zNyB8ICAgICAwLjE0JSB8ICAwLjgyJSB8ICAwLjM4JSB8ICAgICAgMzAgfAp8ICAgICAg
+ICAgICAgICAgfCBwaXBlIChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgLTMzLjkxJSB8ICAgIC02LjU5JSB8ICAgICAgNjk3NTYyLjk3IHwgICAgIDYuNTkl
+IHwgMjcuNTIlIHwgMTcuNjUlIHwgICAgICAzMCB8CnwgICAgICAgICAgICAgICB8IHNlY2Nv
+bXAtbm90aWZ5IChvcHMvc2VjKSAgICAgICAgICAgICAgICAgICAgICAgfCAgLTUuMDUlIHwg
+ICAgLTAuODQlIHwgICAgICAyMjYwMjEuMzAgfCAgICAgMC44NCUgfCAgNC4xNSUgfCAgMi4y
+NCUgfCAgICAgIDMwIHwKKy0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLS0t
+LS0tLS0tLS0tLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0rLS0tLS0tLS0rLS0tLS0tLS0tKwp8
+IHBlcmYvc3lzY2FsbCAgfCBiYXNpYyAob3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgIC0wLjQ4JSB8ICAgIC0wLjE1JSB8ICAgICA0MjIzNTAzLjgwIHwgICAg
+IDAuMTUlIHwgIDEuMTElIHwgIDAuMzklIHwgICAgICAzMCB8CnwgICAgICAgICAgICAgICB8
+IGV4ZWN2ZSAob3BzL3NlYykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgLTEu
+NjAlIHwgICAgLTAuMjMlIHwgICAgICAgIDIzNDYuNjAgfCAgICAgMC4yMyUgfCAgMS40MiUg
+fCAgMC42MSUgfCAgICAgIDMwIHwKfCAgICAgICAgICAgICAgIHwgZm9yayAob3BzL3NlYykg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAtMi4wMSUgfCAgICAtMC40MyUg
+fCAgICAgICAgNDEzNC45MyB8ICAgICAwLjQzJSB8ICAyLjI3JSB8ICAxLjE0JSB8ICAgICAg
+MzAgfAp8ICAgICAgICAgICAgICAgfCBnZXRwZ2lkIChvcHMvc2VjKSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIHwgIC0wLjkyJSB8ICAgIC0wLjEwJSB8ICAgICA0MjAzMTkyLjUw
+IHwgICAgIDAuMTAlIHwgIDAuMjUlIHwgIDAuMjYlIHwgICAgICAzMCB8CistLS0tLS0tLS0t
+LS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+Ky0tLS0tLS0tLSstLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tKy0t
+LS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tLSsK
+
+--------------bS057EjGn5IEBAL008Loe1aX--
 
