@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9901C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6417AC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QV0A0jsJAmJgwYWhzbSTCL6PO5PGPz9H5EEyRIUGM8s=; b=nNQOcQ+M0Ngtvp
-	kCLyxvfdYMpjUM08dlbdQfFeLemVFTNas6SH/bwOxgoux8iiH5zTkL3KplmWp5meKGO4vTXzkWJHE
-	tfltxJ3nd5YaXhyYa3RkolsDx3w5DKQMp/PkyGMES+SV0P1Xs5BKJLh+zDqLM5nz4rn5gBJVPATqC
-	6F8eMeEWH2LH0cNeprAGVuWTpZoqJiJPuft9bWaJ2ZE/MMTeF9PVZZslU54ci5gSECSXKgVPuozAE
-	umdVq65+taYLCMI1ZdfqMiHWDHVHyZrfeQsVQ//UjALND4dxQT7Z9QjbAGsTFgDh09Z7tsBD3IgD3
-	Dila75mzA6Poby5yInNw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/vir7cOOalrm3uAtBCr/uUQaicGXlCKvmJG7+GwiX1g=; b=NV+Hl1eSdaWh+8jf5nvTM1NVkF
+	y6U5yfL+DGpuO/3/fPM9VGfv+opivKO/RJt2SMzmO2Ps/aZ7P040XUUtZtwL9fQSJhUsdl57Pxk9U
+	mTis64w3xVQdyEZmqRlBTJzJoibW99zw0JMBhfS0oJn4kFmiHKkaTyFFBnu782mS8wkQt4869UtYu
+	nerzOk5PVKOLC2Nzq5IxHLHC2WTvkW4U39nMcStVRZjc5r6PFfRXmIqZo9/tyhZ5No5xskyRLLfqH
+	9PIskO3CdtDUsyAllmMguU28spUVRsaH78E9VIT6oBO212JXdfcaXCbX1np9tg3T1qHBAZFjU6T9E
+	IHPZF2Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9m7Z-0000000BZji-3BXk;
-	Thu, 24 Sep 2026 16:16:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9m7W-0000000BZig-1z2z
+	id 1x9m8k-0000000BZy8-3vyr;
+	Thu, 24 Sep 2026 16:17:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9m8j-0000000BZxi-3J8g
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:16:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0283F152B;
-	Thu, 24 Sep 2026 09:16:21 -0700 (PDT)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C385E3F86C;
-	Thu, 24 Sep 2026 09:16:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790266584; bh=bOOJWOAbO0gDFgO8PblWIzaHwfRvGBO666n+MZ1kxXA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=birMX9T01zpqA2jbnY8FhUCkU9qM54dzIQ5nOu1JUfPf7sPg9PAnTc8aGcG9Apzpx
-	 9VNCZQ2WJpIj0PRu2acMxaGiFxDyINA+I1RLhfyWxId/tRrBGl/sMTvQ/DD8h9n6Jr
-	 wo2n81Z7wOvRxXnwda1gw7lRQ2iOJYDzstY3Bd6k=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: (subset) [PATCH v4 00/21] Preemptible this_cpu_*() operations
-Date: Thu, 24 Sep 2026 17:03:49 +0100
-Message-ID: <179026582920.3572476.8424936957104740430.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260908151741.394589-1-mark.rutland@arm.com>
-References: <20260908151741.394589-1-mark.rutland@arm.com>
+	Thu, 24 Sep 2026 16:17:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F24D3601DE;
+	Thu, 24 Sep 2026 16:17:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375811F00893;
+	Thu, 24 Sep 2026 16:17:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790266660;
+	bh=/vir7cOOalrm3uAtBCr/uUQaicGXlCKvmJG7+GwiX1g=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=iwE+7vleCFfMnAijc6nhK/b+R0CA8Ynie7k007PULFTJSSXletRWl3GgzUiPQUtKd
+	 l7wYcPCT3oOc/WzZlXp9MaV4eOcDUqmfrZ2L5sl2V2N/PiNG6TaOcMk5q7vFNAaXMq
+	 v6LwPMgkO+jU2Avkw9xKX3IMLz2PgfKt6r3KHZJiQHjk+npatXy2gKRMxij0z/WXym
+	 5wRrjm3GavyMYYh+/H2SEnPcjEKL6+jQBohI0ZWGQ6qMWyo/549lo2PxPZiqMvgjV+
+	 nBwIimYQdYDvDcQwTHqObEbK4cK04/yG+3iIF/gAgGFD19AOyoW8NJyIVn15iJYoiF
+	 VrVTgi/AD/4+w==
+Content-Type: multipart/mixed; boundary="===============3199754947234595145=="
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_091626_628792_85886D39 
-X-CRM114-Status: GOOD (  13.84  )
+Message-Id: <6469f266e0c06de407583746d4f533a03a002fa8d7871124196b0bb568fe38fa@mail.kernel.org>
+In-Reply-To: <179017148080.466588.9116221556625712980.stgit@devnote2>
+References: <179017148080.466588.9116221556625712980.stgit@devnote2>
+Subject: Re: [PATCH] kprobes: Make optprobe optimizer multi-generational and asynchronous
+From: bot+bpf-ci@kernel.org
+To: mhiramat@kernel.org,josef@toxicpanda.com,paulmck@kernel.org,frederic@kernel.org,ast@kernel.org,rostedt@goodmis.org
+Cc: boqun@kernel.org,mhiramat@kernel.org,mark.rutland@arm.com,peterz@infradead.org,tglx@kernel.org,daniel@iogearbox.net,andrii@kernel.org,puranjay@kernel.org,rcu@vger.kernel.org,bpf@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Thu, 24 Sep 2026 16:17:38 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,69 +63,256 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, usama.anjum@arm.com, peterz@infradead.org, maz@kernel.org, david.laight.linux@gmail.com, stable@vger.kernel.org, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, ruanjinjie@huawei.com, david@kernel.org, ljs@kernel.org, Will Deacon <will@kernel.org>, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 16:17:20 +0100, Mark Rutland wrote:
-> This series reworks arm64's this_cpu_*() operations such that they do
-> not need to disable preemption. The scheme is described in detail in patch 13,
-> and is similar to the approach Heiko Carstens applied to s390 [1], which
-> inspired this series.
-> 
-> This scheme should build and function in all kernel configurations (e.g.
-> regardless of KPTI, SW PAN, CNP, VA BITS), and has no dependency on new
-> architectural features. The fixup logic should "just work" with kprobes,
-> etc, and I don't expect that this will need to become more complicated.
-> 
-> [...]
+--===============3199754947234595145==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Applied to arm64 (for-next/preemptible-this-cpu), thanks!
+> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+> index 6337da5cab9e..1e25980303c4 100644
+> --- a/kernel/kprobes.c
+> +++ b/kernel/kprobes.c
 
-Patches 1-3 are already upstream as fixes (in -rc4, used as a base for
-for-next/core). I fixed some minor comment typos in a couple of patches,
-I haven't touched the code.
+[ ... ]
 
-On v2, Usama reported performance regression in perf/sched and
-perf/futex benchmarks that have not been addressed yet. It would be good
-to run the tests again on this version, in case they were just noise. I
-don't see why these would regress, maybe because of pt_regs being larger
-and we get some more cache misses?
+> @@ -530,50 +553,78 @@ static DECLARE_COMPLETION(optimizer_completion);
+>
+>  #define OPTIMIZE_DELAY 5
+>
+> +static bool optprobe_has_queued_probes(void)
+> +{
+> +	struct optprobe_generation *gen = &optprobe_gens[optprobe_cur_gen];
+> +
+> +	return !list_empty(&gen->optimizing_list) ||
+> +	       !list_empty(&gen->unoptimizing_list);
+> +}
 
-[04/21] arm64: cmpxchg: LL/SC: Avoid redundant extension
-        https://git.kernel.org/arm64/c/78746ba584fc
-[05/21] arm64: cmpxchg128: LSE: Remove redundant operands
-        https://git.kernel.org/arm64/c/de2824489899
-[06/21] arm64: preempt: Simplify and optimize __preempt_count_dec_and_test()
-        https://git.kernel.org/arm64/c/1bee18253c2e
-[07/21] arm64: preempt: Treat should_resched() as unlikely
-        https://git.kernel.org/arm64/c/6254b223153d
-[08/21] arm64: ptrace: Always inline pt_regs_[read,write}_reg()
-        (no commit info)
-[09/21] arm64: percpu: Factor out percpu offset asm
-        https://git.kernel.org/arm64/c/b7f3aa93f407
-[10/21] arm64: gpr-num: Add wxN aliases for wN registers
-        https://git.kernel.org/arm64/c/47c62b09f03b
-[11/21] arm64: gpr-num: add __GPR_NUM() helper
-        https://git.kernel.org/arm64/c/05c44981d9ec
-[12/21] arm64: entry: sdei: Restore all clobberable GPRs
-        https://git.kernel.org/arm64/c/1e0a5cc90aab
-[13/21] arm64: entry: sdei: Make 'tsk' available
-        https://git.kernel.org/arm64/c/fb532fdb4430
-[14/21] arm64: percpu: Add infrastructure for preemptible this_cpu_*() ops
-        https://git.kernel.org/arm64/c/95d2c5f6663b
-[15/21] arm64: percpu: Implement preemptible read/write ops
-        https://git.kernel.org/arm64/c/6e2cec1c39b2
-[16/21] arm64: percpu: Implement preemptible void RMW ops
-        https://git.kernel.org/arm64/c/c7ac8f9baaef
-[17/21] arm64: percpu: Implement preemptible return RMW ops
-        https://git.kernel.org/arm64/c/6fe3da372d04
-[18/21] arm64: percpu: Implement preemptible XCHG ops
-        https://git.kernel.org/arm64/c/5e8ef5fb7720
-[19/21] arm64: percpu: Implement preemptible CMPXCHG ops
-        https://git.kernel.org/arm64/c/39d50a10e318
-[20/21] arm64: percpu: Implement preemptible CMPXCHG128 ops
-        https://git.kernel.org/arm64/c/c0ff52c3683c
-[21/21] arm64: percpu: Remove _pcp_protect*() wrappers
-        https://git.kernel.org/arm64/c/479671f943c9
+Does this logic need to check gen->freeing_list as well?
+
+optprobe_dispatch_generation() returns early when this is false:
+
+    if (!optprobe_can_fire() || !optprobe_has_queued_probes())
+        return;
+
+But ops can reach cur_gen->freeing_list without leaving anything on the
+other two lists. unoptimize_kprobe(ap, true) on an op queued for
+unoptimization does:
+
+    force_unoptimize_kprobe(op);
+    list_move(&op->list, &optprobe_gens[optprobe_cur_gen].freeing_list);
+
+This is reached from add_new_kprobe() when a probe with a post_handler
+is registered at the same address, and from __arm_kprobe() for an
+overlapping optprobe. kill_optimized_kprobe() also list_move()s an
+unused, queued op there.
+
+If that op was the only entry on cur_gen->unoptimizing_list, the kick
+issued when it was queued produces a kprobe_optimizer() pass that
+dispatches nothing. optprobe_optimizer_busy() is then false and nothing
+kicks again. The op stays on freeing_list until some unrelated probe is
+queued, possibly indefinitely.
+
+While the op sits on freeing_list:
+
+- kprobe_queued(ap) stays true, so a later __disarm_kprobe() skips
+  arch_disarm_kprobe(). The int3 then stays in the text after the
+  probes at that address are disabled or unregistered.
+
+- The unused aggregator stays in kprobe_table and is not freed.
+
+- wait_for_kprobe_optimizer() returns immediately because
+  optprobe_optimizer_busy() is false. This contradicts the commit
+  message, which says flushing "waits asynchronously for all in-flight
+  and queued generations to drain".
+
+- Registering again at that address goes through reuse_unused_kprobe()
+  -> optimize_kprobe(). That sets KPROBE_FLAG_OPTIMIZED again (the
+  force path cleared it) and hits WARN_ON_ONCE(!list_empty(&op->list)),
+  leaving OPTIMIZED set with no jump installed.
+
+Should optprobe_has_queued_probes() also check
+!list_empty(&gen->freeing_list), so that dispatch and the flush loop
+account for these ops?
+
+[ ... ]
+
+> @@ -622,67 +675,119 @@ static void do_free_cleaned_kprobes(void)
+>
+>  static void kick_kprobe_optimizer(void);
+>
+> +static void optprobe_generation_rcu_cb(struct rcu_head *rcu)
+> +{
+> +	struct optprobe_generation *gen;
+> +
+> +	gen = container_of(rcu, struct optprobe_generation, rcu);
+> +	WRITE_ONCE(gen->ready, true);
+> +	wake_up(&kprobe_optimizer_wait);
+> +}
+> +
+> +static void optprobe_finalize_generation(struct optprobe_generation *gen)
+> +{
+> +	lockdep_assert_held(&kprobe_mutex);
+> +
+> +	scoped_guard(cpus_read_lock) {
+> +		guard(mutex)(&text_mutex);
+> +
+> +		/* Optimization never be done when disarmed */
+> +		if (!kprobes_all_disarmed && kprobes_allow_optimization &&
+> +		    !list_empty(&gen->optimizing_list))
+> +			arch_optimize_kprobes(&gen->optimizing_list);
+> +	}
+> +
+> +	/* Free cleaned kprobes after quiescence period */
+> +	do_free_cleaned_kprobes(&gen->freeing_list);
+> +
+> +	gen->in_flight = false;
+> +	WRITE_ONCE(gen->ready, false);
+> +}
+> +
+> +static void optprobe_dispatch_generation(void)
+> +{
+> +	struct optprobe_generation *gen;
+> +
+> +	lockdep_assert_held(&kprobe_mutex);
+> +
+> +	if (!optprobe_can_fire() || !optprobe_has_queued_probes())
+> +		return;
+> +
+> +	gen = &optprobe_gens[optprobe_cur_gen];
+> +
+> +	scoped_guard(cpus_read_lock) {
+> +		guard(mutex)(&text_mutex);
+> +
+> +		/*
+> +		 * Unoptimize kprobes and collect cleaned (unused and disarmed)
+> +		 * kprobes before waiting for quiescence period.
+> +		 */
+> +		do_unoptimize_kprobes(&gen->unoptimizing_list, &gen->freeing_list);
+> +	}
+> +
+> +	/* Advance cur_gen to the next generation slot */
+> +	optprobe_cur_gen = (optprobe_cur_gen + 1) % OPTPROBE_GEN_MAX;
+> +
+> +	gen->in_flight = true;
+> +	WRITE_ONCE(gen->ready, false);
+> +
+> +	call_rcu_tasks(&gen->rcu, optprobe_generation_rcu_cb);
+> +}
+
+Now that kprobe_mutex is dropped during the Tasks RCU grace period, can
+an aggregator probe that was unoptimized but is still in use be freed
+while a task is still preempted inside its detour buffer?
+
+When an op on the unoptimizing list is not unused (for example, it is
+disabled but its child probe is still registered, as after
+disable_kprobe() through __disable_trace_kprobe()),
+do_unoptimize_kprobes() takes the else branch:
+
+    } else {
+        list_del_init(&op->list);
+    }
+
+After optprobe_dispatch_generation() returns, the op is on no generation
+list, and nothing ties its lifetime to the pending call_rcu_tasks()
+grace period. kprobe_optimizer() then drops kprobe_mutex, so unregister
+can run during the grace period:
+
+  unregister_kprobes()
+    __unregister_kprobe_top(p)
+      /* list_is_singular(&ap->list) && kprobe_disarmed(ap) is true,
+         since kprobe_disarmed() is kprobe_disabled(p) &&
+         list_empty(&op->list) */
+      hlist_del_rcu(&ap->hlist);
+    synchronize_rcu();
+    __unregister_kprobe_bottom(p)
+      free_aggr_kprobe(ap)
+        arch_remove_optimized_kprobe(op);  /* frees the detour slot */
+        kfree(op);
+
+Sequence with CONFIG_OPTPROBES=y and CONFIG_PREEMPTION=y:
+
+1. Task T enters op->optinsn.insn, through the jump or through
+   setup_detour_execution(), and is preempted there. The x86 template
+   runs with IRQs enabled, and optimized_callback() reads op->kp.flags
+   before preempt_disable(). T can also be preempted in the copied
+   instructions.
+
+2. disable_kprobe(child) calls unoptimize_kprobe(ap, false), which
+   queues ap on cur_gen->unoptimizing_list.
+
+3. kprobe_optimizer() calls optprobe_dispatch_generation().
+   arch_unoptimize_kprobes() runs, then the list_del_init() above, then
+   call_rcu_tasks(), and kprobe_mutex is released.
+
+4. unregister_kprobe(child) runs hlist_del_rcu(), then
+   synchronize_rcu(), then free_aggr_kprobe(), which does kfree(op).
+
+5. T resumes in the freed or dirty detour slot. If it was preempted in
+   the template, it then calls optimized_callback(op, regs), and
+   kprobe_disabled(&op->kp) reads freed memory.
+
+synchronize_rcu() does not wait for a task preempted outside
+rcu_read_lock(). The detour slot is freed with dirty=1 and can be
+reclaimed and reused through collect_garbage_slots(), which also uses
+only synchronize_rcu(). kill_kprobe() -> kill_optimized_kprobe() ->
+arch_remove_optimized_kprobe() during module unload has the same window.
+
+In the parent commit, kprobe_optimizer() held kprobe_mutex across
+synchronize_rcu_tasks(), so step 4 could not start until every such task
+had passed a voluntary context switch. The commit message says these
+grace periods can last seconds to minutes, which makes this window wide.
+
+Should ops that were unoptimized but are still in use stay attached to
+the in-flight generation until optprobe_finalize_generation() runs? Or
+should the unregister and kill paths treat such an op as not yet
+disarmed until its generation has finished?
+
+[ ... ]
+
+> @@ -707,12 +812,11 @@ static void wait_for_kprobe_optimizer_locked(void)
+>  {
+>  	lockdep_assert_held(&kprobe_mutex);
+>
+> -	while (!list_empty(&optimizing_list) || !list_empty(&unoptimizing_list)) {
+> +	while (optprobe_optimizer_busy()) {
+>  		init_completion(&optimizer_completion);
+> -		/*
+> -		 * Set state to OPTIMIZER_ST_FLUSHING and wake up the thread if it's
+> -		 * idle. If it's already kicked, it will see the state change.
+> -		 */
+> +		optprobe_flush_requested = true;
+> +
+> +		/* Wake up optimizer thread */
+>  		if (atomic_xchg_acquire(&optimizer_state,
+>  			OPTIMIZER_ST_FLUSHING) != OPTIMIZER_ST_FLUSHING)
+>  			wake_up(&kprobe_optimizer_wait);
+
+Andrea Parri raised a concern on 2026-09-24 about a race condition in
+this code (https://lore.kernel.org/all/arTuBodyGqQ0mErI@andreayoga.localdomain/).
+
+The flusher drops kprobe_mutex while it sleeps, and the sysctl handler
+and the debugfs "enabled" file do not otherwise serialize against each
+other. A second flusher can then run init_completion() on the wait queue
+the first one is sleeping on: the first waiter is dropped from the
+queue, and complete_all() wakes only the second one. Andrea notes that
+with this patch the window is wider, since kprobe_mutex is released
+while the Tasks RCU grace period runs and optprobe_optimizer_busy()
+stays true until the generation is finalized.
+
+Andrea suggests replacing the completion with a counter of optimizer
+passes bumped at the end of each pass and signalled with
+wake_up_var_locked().
+
+Should this race be addressed before the patch is applied?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/36019837684
+--===============3199754947234595145==--
 
