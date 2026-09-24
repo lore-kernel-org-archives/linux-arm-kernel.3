@@ -4,143 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1714C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB09C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bqq/+j9nVGRHup8T5xYrQ07PLz+2ymM9LIsTk91LSdo=; b=ZsNo9eFR+x8mMHAUJk9YiQKgOv
-	xp4w9Idp0ZDjzKhKu64e4L6HlxGwmD34YXjmlt81CfR8iqSzT29N71f7jalWVnowosc0HgR1K6xvX
-	TakzcweWa8j2/OukwAuxg5uX2TdjlhOJifL0Tb5bhLnUS2SaVJQt05WSUNVaL6VwhgSkU8/phvKzF
-	dRWxyfx0dI1/J9lKYdkNc9joDN3Lmrp+QLVBq1rpvGmJ/CnkvZf2v9chm3EsCxwmdZ1JAgkq6VfEd
-	kqVuSzdDIzY1Xf590sN1MpAi0oSKERelKQvLDhNu9r/673NJhFl3WGduHPGm1hHInrZOc2GT5V+jB
-	S54uNPPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RgWmOF0xJqXdPM8o3ez3GknSeDctD1bDD+zW1QI+Skw=; b=OHaHO1vRGYkZvmSEDdGZzrJL1j
+	YlHlZMqnjLxlF0FOg3EdjUoPrN9bsrC/xApIQ4qeGQ5dSB+T6XQxWGMrnPwa2jswoV6P7zMW/hYaR
+	JXIYvqz1M2laf0jZaab7X4mWiaIAcRtsNwbKSG+/7os4Pcd+NomIZVL7oaws1ZMkrZuxmv1ve0zMp
+	9G/sRvyfElAZFeiZ7UyjV45mpNl39WLkDMq906hS0xfDvJz0ttRm1I0ANCDCT8RUc5h+bitpa5uii
+	u7lW5UjDCEvrty/tjw6M2CWUPsTy55VnLXb9EhcdGFNG+CgLtfE7WFYlmVT/wza3yOOtAIZYClo9z
+	VKIVogDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nov-0000000Brtd-3mJY;
-	Thu, 24 Sep 2026 18:05:21 +0000
-Received: from mail-ukwestazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c206::3] helo=CWXP265CU009.outbound.protection.outlook.com)
+	id 1x9nsr-0000000BsOi-0bQm;
+	Thu, 24 Sep 2026 18:09:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9noq-0000000BrsR-0MMQ;
-	Thu, 24 Sep 2026 18:05:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZIm2YI1hRHJKAl1RiGBDva/UORrHH/zVQH+d6KhhKA8NhbdUbAXSisENugHMQHHtj8kCnG3nx/6EycNlucUSeID9ujwd78arX2Yrxgf+ub8CT64DCnsvZ0il1YQ6LK8S4esrzpXL53C+wwtImCg6+S1N6Ef7V6atpSOk36K8MiyJgCvj1IHdXzIRhWmFNrGyvOQiABOs91Wr9+E/h45ImnvY5ZfrRqfeQEv5NnHCCCNXdKkvEMc750BlpsAkC3cX7Q2zRUL/FNhoAWBdcWplmfQMCfr0a4+w3bCXxRrTID+wwBgj183g/F8RSm1Fzq4/A9z3zcCKcigWsCfZ3jZBRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bqq/+j9nVGRHup8T5xYrQ07PLz+2ymM9LIsTk91LSdo=;
- b=ZOhfErQHNpcaMuAPYt8eriN8t5P3Y20cvaf0Rj3ZCTXhoDOeXeYiCpG3xnxT3gl4pYrxBZIZqPo0Zcn1VE7q+9TX42jeMbc6oULOYKQbfPI2y23G6kXYRAakqeZGeVt0RTnZ+jzpBlIL8X+mwrWSC4runBrgTQJppmcpSZD/nB1K46AChPGC0cQwmeGylxtNewPvyVykroGOM9nzFux2DACBE6pu2HzSjfx1RyhI3jZLvTyZ202s9iwLJp+LxcC5YBKwBh05BoPi9Jf0AiRz69HVbq1QK0WcwaU9Vkg3SLOuBzSDs3/kCmcPbyc63m+D/tVxY2/m2N/Cl4zTlmxY1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bqq/+j9nVGRHup8T5xYrQ07PLz+2ymM9LIsTk91LSdo=;
- b=QkxNAoE17zJAwvRi4rh4WM1vkZ6vE+qO7wrqQR8AI86UOYSLSN6cVGIDqlTe5l07dnXy5ae31GGR2fzE8tMWj6kgPbiFZuLH+XtA3yIZGJBPeYm6AAYediLeM/WQ9+3KvqquVb0EviD75DzWJNRSwroP1EKmc9Z00besFRHckpo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
- by CWXP265MB3399.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:da::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 18:05:09 +0000
-Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- ([fe80::f60b:1537:68d7:4fc1%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 18:05:09 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 24 Sep 2026 19:05:08 +0100
-Message-Id: <DLNQUO0EQW7M.29SAT06RE6IOV@garyguo.net>
-Cc: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- <linux-pwm@vger.kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>, "Broadcom internal
- kernel review list" <bcm-kernel-feedback-list@broadcom.com>,
- <devicetree@vger.kernel.org>, <linux-rpi-kernel@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Naushir Patuck" <naush@raspberrypi.com>, "Stanimir Varbanov"
- <svarbanov@suse.de>, <mbrugger@suse.com>, "Sean Young" <sean@mess.org>,
- "Julian Braha" <julianbraha@gmail.com>, "Christophe JAILLET"
- <christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH v9 2/3] pwm: rp1: Add RP1 PWM controller driver
-From: "Gary Guo" <gary@garyguo.net>
-To: "Andrea della Porta" <andrea.porta@suse.com>, "Gary Guo"
- <gary@garyguo.net>
-X-Mailer: aerc 0.22.0
-References: <cover.1789724999.git.andrea.porta@suse.com>
- <22f454003902173a7230d0aee5fbd7261fcc163e.1789724999.git.andrea.porta@suse.com> <DLM3VDAEVVEO.1STV7HI3M3YXK@garyguo.net> <arPLa_g4mAg1t2rq@apocalypse> <DLMQPQRYTSNW.2Z6C0408NMCYK@garyguo.net> <arP-P_a7OyhtMQyr@apocalypse>
-In-Reply-To: <arP-P_a7OyhtMQyr@apocalypse>
-X-ClientProxiedBy: LO4P123CA0553.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:33b::7) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:4ab::19)
+	id 1x9nsq-0000000BsOc-2iaY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 18:09:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=RgWmOF0xJqXdPM8o3ez3GknSeDctD1bDD+zW1QI+Skw=; b=H/s8VvjqpQ3rPxpzsDWb2DOCvj
+	EXRraz1p4/q3yCJdN56IUECHoRaFL15QuqfUSxBmq/5ICOIE65grmSTwjK99DUfa+CoV2X63ei7nQ
+	GM5SBaGFqtavk763/8rsn/SoaJXkENlTEbQzBUg1ZU36GTWmgrWfas9rWthtvSHxwdbUn7IKT41Ul
+	BDAiM2J5zGSC3N4vfEq7AKtGCyBKpA+H2E/gtxHv2O8C5EfnsqS2yMC1ys4MTcBtVmreG45URRfHj
+	6Hpe12DIUTcMuEltSoSpWpmoYRpGXvt2vIoiFWndfe2R5XKabtboqTt/uxQ+f5GMs2TH9ycVOefA/
+	y2Yq9eog==;
+Received: from leonov.paulk.fr ([185.233.101.22])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9nsn-0000000GHtA-2Ge9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 18:09:23 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 5DB083700ED8
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 18:09:11 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id A6415B64BD2; Thu, 24 Sep 2026 18:09:09 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 6C623B64BC9;
+	Thu, 24 Sep 2026 18:09:08 +0000 (UTC)
+Date: Thu, 24 Sep 2026 20:09:06 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	devicetree <devicetree@vger.kernel.org>,
+	"open list:FREESCALE IMX / MXC FEC DRIVER" <imx@lists.linux.dev>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-media <linux-media@vger.kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Michael Tretter <m.tretter@pengutronix.de>
+Subject: Re: [PATCH 00/14] media: Add V4L2 H.264 stateless encode and VC8000E
+ support
+Message-ID: <arVnQmik-CveaAkY@collins>
+References: <20260522101653.2565125-1-paulk@sys-base.io>
+ <ad9788bba0851dcb86c22f40c2562f2a57ac8e6c.camel@collabora.com>
+ <CAOf5uwktfp0a3Vi5Jd8Zw5knGMHd_FH=iusRX1NgHYC4VSuzBA@mail.gmail.com>
+ <arQxC3DmDyVIGdqq@collins>
+ <CAOf5uw=SeHZSnYjPOptAGYwPkQc7L7gDpOrDWJH3UF0r1qdrtg@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|CWXP265MB3399:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae6c6fd1-76cd-4dc1-2b46-08df1a665eb4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|10070799003|376014|7416014|1800799024|4143699003|56012099006|22082099003|18002099003|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: YTv4QQw7Op6JEjBTQw2liaOHYhVcurKdGKfa/RJW1F7mFhcsh+Rj1lrqDYGi3eLsk8aojzL/Giu00UiTJuMdVLbsCR8hpMkbKW7zAq7FtWjzKhcNnFjW6y1LazBol0VKbu93Wpgr853clY2hc3071t8+W6b+xGKM0hcVcRSg0CzkvLGqByFfLOdjgRZ0dgGKJBGAFmo0EtIfMevKxZXoMzV6DHF6SQb4Z7RhFMjMCtGSsnOqLT0WrjtmzDhIK2sA8e9yZTuLOAKv1xjDkffjJ43cR37DJGIc6/al+Wawv6nQt2pF57E9PClOHW8Qwit3B7pZF43vcJvN4pEcCy73DIln2YcfDq2cuVxOi4nm4iDx8O8JqS8lvP4/P9geMRPRDTViLS2+OT8pZYjUDb4sBvOH5KDEI8MxaOVUAS/pyBNmW1JUofcKC87emmIxYfItIiqmzfbp+U0ns4hhoUO9esPGzOisoZoGYGblUvLcl06kQrOG+ykEzqfCNeDaUYwpqRaZil7AqfLIRXyHNEKRPINHUD0d6fQo6fEgMeWdjzqcvajmPMDuqs3rSzFLojpWcMBVBkXqkVHhini2FuHzn8Uj++R0snZQnDl9odORibIGJL9EBNk7ERCLjpVEC5mV/vVTCgCcY5AHH9ewdp6gbPsNxlwidmPsgrjDHVizSZg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(10070799003)(376014)(7416014)(1800799024)(4143699003)(56012099006)(22082099003)(18002099003)(6133799003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dzhyVmlYWjRJd1g3eFYzVnNLazJBbFRGcEN5UDRHTDVSVXFrZlJLSkVsQVdr?=
- =?utf-8?B?Wmhnd0x6QVhvZXVBTDhaK0lPRTFGLy80K0E2VnNIUXM4RXUvWlRlYXZlSDY0?=
- =?utf-8?B?MlJmN0xIYko0OTBZZ1d4Z3c1dVNFSy9MSlM5eFZ1c1Q0Z1pPYnUxMDlKMVpZ?=
- =?utf-8?B?NXJscHpncHBIc0lTVEFkMmx3aVMzVHlvRVc1Nmc4ZFFqalFRQk1tcnFZQm5H?=
- =?utf-8?B?YmU3NllQREM3TWdPZzZLWEZSUTFUandzYndQN3ZERmZ4VjU1dGVFSFhGd1Bi?=
- =?utf-8?B?TkkrYWxZZmRBSXBCN0sxTGlCYTJKbEdOQXg1OTgyVUJpZXEvdVIwMjZBZmtm?=
- =?utf-8?B?eHY4LzMzVitIcmVvT2tUMjlwWkt3bE1LY2dsZldBRVM0WFZhWGRHcVk4VjVH?=
- =?utf-8?B?eXdkcGluanAwVFVqdmYxVE5Ndk82NzlFK0IzaFQwWEx3NytlTzJ5dmhSM2E0?=
- =?utf-8?B?YjJCSmx6RzFpc0ZWNXdhMEoxNWZaTFhPVTNiQnR2WHJGUTMvaFF0ZDc5aVRn?=
- =?utf-8?B?UmZQL0V6UURmUkxQL2p4c2hDRUM3dHRhUVVybHZ6MGJIWnduRkIzNEJ6cFVT?=
- =?utf-8?B?VkpOQnYxUHg1V0t0c2VwK09vc3RUYzZ5SVdZbzVmZTlKWm9zUzJSR0RtWTlx?=
- =?utf-8?B?MWV0WHZvZkFvUHlFNG1va1ZPYmVUMFpISDFKdk5xanRHcld5THAyY2VnQWdj?=
- =?utf-8?B?ZlZ0OGNCcVZRbmxhVG1WaGgyelpiWit6endWVlk0b0VZOTl4d0ZTci90SFN0?=
- =?utf-8?B?d0lJb2gvOUtGRlZxRk9PS01IajVCSGRpNmhEeVNWNzZnNWJrS25lUjZ6T1dw?=
- =?utf-8?B?NXZhbnBqMWNTbFZZQmgrZmVsckE2L0p2L29LY1R5RUxvSXJITzQxS1dPSmtU?=
- =?utf-8?B?U1BodkFIbnMzTkp2dEhkdi9DSWpZMlM3VWJ1SjRaWnN5S055SytRTHlyYjdl?=
- =?utf-8?B?bWk4bnNVUmlkWXVtTXVWUncxbndlZ0RPZXVEMStFL3ZxdjIrbmk5NGV4OUpw?=
- =?utf-8?B?MHNsSHNzUVE0ZndadkZxSGRkNGVxQjhyYVUvOEk3VjJFTGpWYmRVZTV3TFB6?=
- =?utf-8?B?eEZBcmdZcVNMWTdKQWlwUkhnQkhYWXRMbkovTXUwNEw3aVc3UzBwYlhMVnMv?=
- =?utf-8?B?aUdqVzVLM1lQdTZjY2t2Y1NaTm1LeC9zK2l1VkxGaGFHQzVKMWlMQjVlZ2Vr?=
- =?utf-8?B?SGowUE4yQmZJaFlIOFQ4cHZoVUdFZjh1TG5QRzZLbnJXOEtrS1JBc2trdFlh?=
- =?utf-8?B?OWtST051RWIzeUtJbGs5a3dodVVnR0dVTWpDQVZEK2pxcUtWeXpySmNlci80?=
- =?utf-8?B?WE9aMWJhbWcva0pWNUpYekJHbEgxSHFscHVUWEl0UERSSlhXbDBwYkV5NUxI?=
- =?utf-8?B?QVV4cTFQSU52eUtzWmw5SGJRT2VqWms1UlFramxJL1pNSGhLSzVqbVlJSlhu?=
- =?utf-8?B?b3VFSXNSaDc0SW9ic0MzcjhGY05nUi9uQ3VjNDZrV2FmSUdwTWNqQzJFanEx?=
- =?utf-8?B?RnBPY2N3NkN2a2M2dVQ2bUg0azV5V0JyVG9wanJEZjNyVFhOZndUVERVWU9o?=
- =?utf-8?B?UUVRNk84ZVB0d1A3QjRqU1BoWWtnM1V1UDl1d3UrblR4YWtjcTR1QklGR1dq?=
- =?utf-8?B?cndib09pZjVEZyt5U0s3RHlYeVB0TUc0bWwzWU1Oa040Wm9IRlNQM0RCanJq?=
- =?utf-8?B?ZWRybVpDdW9VaGVwTWdSS3RuSzFnbzNvVm9zTlNhR0ZRTXQ1UjVPSUY5V0xG?=
- =?utf-8?B?cnBHWS81YktBK2tOUjlWTzJxVUZPb21IU0dmN05XbmxLN2JYZExVa3VDTGdO?=
- =?utf-8?B?ZjdXZlhmUXFFTDd2UkROZ2QvYnkxalFYdk1uYUlTSitRSmFsMmg2clN3Sm0v?=
- =?utf-8?B?azZIMC9KSnRzT3FtNUpSb2hEMTE5eXQrc3BKTmNSdkhSb05ZcHdTa0hKRzlP?=
- =?utf-8?B?SFdvQVZ1WmtNODRqY0ZjRyszbGlmS3FuTG5ITXN4RlVucWdzZERTRk9XWHpR?=
- =?utf-8?B?TjR5Q29hNkVBbys5REV2STMyU1VGWmZ0eC9GNkt3T0dldFhYTEg2Q1J6NllR?=
- =?utf-8?B?OTVicHRxcU9WS2tMRWZFNDcvVkpVR2VGQzRVVWVaeE1uWEF6d0Y1Vm45bm5G?=
- =?utf-8?B?cE9oVlVJMjM3MFhoYTVUMmVPSUcrTTJScXBiQ0JGVkZjRnpoZGVmTm00ejNN?=
- =?utf-8?B?MDBmRXJhUGNndDBGTUNhRDdtKzZNSzRYVU54Tmk5emUrZzhYbTdvODRldGE0?=
- =?utf-8?B?RHEzekpKdVZYZXZYbXgyS1BaN1ZDV0FvSUVyazVVcllJc1VGMnhMSGd0SlJW?=
- =?utf-8?B?UHp6aUVFUC9kYW50UU5jRjZ0WU5NbEVVQmU5dmxSZHk2eWtPSkNHZz09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae6c6fd1-76cd-4dc1-2b46-08df1a665eb4
-X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 18:05:08.8839
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TVF+Lzi5T6LaKsErisjObxB1KWFMVmiOoUJlWPdIjLaRTkp/sEXEhZ3Le7ZtZQ7gnIrP+6FL5JE3TvCCTmKPLQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWXP265MB3399
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="CZn6uW8WXhqK4f0/"
+Content-Disposition: inline
+In-Reply-To: <CAOf5uw=SeHZSnYjPOptAGYwPkQc7L7gDpOrDWJH3UF0r1qdrtg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_110516_160284_5B9EB832 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20260924_190921_745137_05E7332B 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,102 +100,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Sep 23, 2026 at 5:28 PM BST, Andrea della Porta wrote:
-> This driver implements only static PM ops so I think both pwm_get API or
-> device_link_add should deal automatically with races.
-> OTOH, what if the consumer obtains a reference to the PWM device via of_*=
- API (or
-> other means)? Thhose calls does not create device link and we would still=
- have unsync
-> critical paths.
+--CZn6uW8WXhqK4f0/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-of_pwm_get also registers a device link. In general you shouldn't have to w=
-orry
-about synchronization when using supplier-consumer APIs, as synchronization=
- has
-been taken care for you. Regulator APIs for example also handles device lin=
-ks.
+Hi Michael,
 
-If this isn't true.. Then I'll be a driver core design issue and not that o=
-f
-drivers :)
+Le Thu 24 Sep 26, 07:30, Michael Nazzareno Trimarchi a =C3=A9crit :
+> I have added your patch to gstreamer
+>=20
+> v4l2codecs: add the stateless H.264 and VP8 encoder elements
+>=20
+> Backport of the encoder work from the branch v4l2codecs/h264enc of
+> https://github.com/paulkocialkowski/gstreamer (commit f59de5779ef1, based
+> on release 1.26.0) onto the gstreamer1.0-plugins-bad 1.28.5 this build
+> uses.
 
-I think sending this part with your fan driver would be a better idea, and =
-we
-shall see if Sashiko still complains :)
+Yes this is the right gstreamer branch to use here.
 
->
->> >
->> > True, and I don't have any issue in converting back to MMIO call and d=
-rop the conditional for
->> > error checking, but please consider the following, since the driver ma=
-y be extended in the
->> > future to support more features:
->> >
->> > - regmap gives you free debugfs view on the registers, which may be us=
-eful to test
->> >   the new features.
->>=20
->> Do you have any register that we want to access that is not part of the =
-PWM
->> facility, other than tachometer?
->
-> Not at the moment, no. But I don't see how this impact the debugfs useful=
-ness.
->
+> Generate the right element and encode stream:
+>=20
+> gst-launch-1.0 videotestsrc num-buffers=3D100 !
+> video/x-raw,width=3D720,height=3D576 !  v4l2slh264enc ! h264parse !
+> matroskamux ! filesink location=3D/tmp/t2.mkv
+>=20
+> And playback over Wayland.
+>=20
+> Solve some problem. I have implemented:
+>=20
+> const struct hantro_variant px30_vpu_variant =3D {
+>         .enc_offset =3D 0x0,
+>         .enc_fmts =3D rockchip_vpu_enc_fmts,
+>         .num_enc_fmts =3D ARRAY_SIZE(rockchip_vpu_enc_fmts),
+>         .dec_offset =3D 0x400,
+>         .dec_fmts =3D rockchip_vdpu2_dec_fmts,
+>         .num_dec_fmts =3D ARRAY_SIZE(rockchip_vdpu2_dec_fmts),
+>         .codec =3D HANTRO_JPEG_ENCODER | HANTRO_H264_ENCODER |
+>                  HANTRO_MPEG2_DECODER | HANTRO_VP8_DECODER |
+>                  HANTRO_H264_DECODER,
+>         .codec_ops =3D px30_vpu_codec_ops,
+>         .irqs =3D rockchip_vpu2_irqs,
+>         .num_irqs =3D ARRAY_SIZE(rockchip_vpu2_irqs),
+>         .init =3D rk3036_vpu_hw_init,
+>         .clk_names =3D rockchip_vpu_clk_names,
+>         .num_clocks =3D ARRAY_SIZE(rockchip_vpu_clk_names)
+> };
+>=20
+> I have advertised the:
+>=20
+>        {
+>                 .fourcc =3D V4L2_PIX_FMT_H264_SLICE,
+>                 .codec_mode =3D HANTRO_MODE_H264_ENC,
+>                 .max_depth =3D 2,
+>                 .header_size =3D H264_ENC_HEADER_SIZE,
+>                 .frmsize =3D {
+>                         .min_width =3D FMT_MIN_WIDTH,
+>                         .max_width =3D FMT_FHD_WIDTH,
+>                         .step_width =3D MB_DIM,
+>                         .min_height =3D FMT_MIN_HEIGHT,
+>                         .max_height =3D FMT_FHD_HEIGHT,
+>                         .step_height =3D MB_DIM,
+>                 },
+>         },
+>=20
+> Create the rockchip_vpu_hw_h264_enc.c. I need to test this on rk3399
 
-I don't think having debugfs alone is a convincing reason to use regmap.. M=
-ost
-of the users who use this driver won't care.
+Then I guess this is using register configuration from the earlier H.264
+encoding work that I've done at Bootlin, adapted for the new stateless
+encode helpers? That part is probably not quite trivial, which is why I
+was a bit surprised.
 
->>=20
->> > - regmap_write/read may still return an error in case the passed regis=
-ter is not in range.
->> >   This will be trapped at runtime only, but could still be useful duri=
-ng development
->>=20
->> I think this is rather a anti-feature. Having additional error paths for=
- some
->> thing that never happens is not a good idea, especially that you basical=
-ly get 0
->> coverage for these paths.
->
-> Sure. Well this is true once the code is crystallized and tested, so it's=
- somewhat
-> still useful (only) during future development. But I got the point, and I=
- agree.
->
->>=20
->> You already know the shape of the register region, so the bounds checkin=
-g
->> provided by regmap would be better served by an ahead-of-time check:
->>=20
->>     #define RP1_PWM_REG_MAX (RP1_PWM_DUTY(RP1_PWM_NUM_PWMS) + 4)
->>=20
->>     struct resource *res;
->>     base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->>     if (IS_ERR(base))
->>         return PTR_ERR(base);
->>=20
->>     if (resource_size(res) < RP1_PWM_REG_MAX) ...
->
-> Fine for the probe method, but regmap_read/write also check for the range=
-, for free.
+> I have a small change only in the common part. Hope that it's a bit clear.
 
-Well, you have to handle the possibility of error, and the compiler needs t=
-o
-generate bound checks, so it's not free?
+Yes in comparison to the register configuration code, the platform
+changes are rather small indeed.
 
-A probe time check is good because once you checked that the register space=
- is
-large enough, you never have to check again for accesses.
+All the best,
 
-Using regmap_read/write to provide the check will give a false sense of "th=
-ings
-are working" when code runs past the probe, but if, say, the device tree is
-messed up. And it'll fail much later..
+Paul
 
-Best,
-Gary
+--=20
+Paul Kocialkowski,
 
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--CZn6uW8WXhqK4f0/
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmq1Z0IACgkQhP3B6o/u
+lQyEpQ/+IyLXFwk9YODr0WJI5I/wgdBuKj8S2gQmK7H45sYlvZfEDYQ+j4AV9wyl
+cOncZklhJzTNhVkAUthAjhHyJTl0PDAwk/Smf/zc6dd72xWf77NAK0QlvBRFDQqS
+kATP5MQfhKYXxnmPe5Aqbkb3xRSrxqjgnm8JbA7d/mh0R0ms8D07ekMxVHTSNJqe
+Kad2GX8HvnJDM+ETEQYFm4wr4PUVMW/LMEB9yE6sFjw4wdvFw0AQaJn9GIOenIJL
+S5OklJjNSg/FwO9qyLdYP+hoWn3DIxW3fHBotVZqlttgJSkCjG0SnCZbhKRhKyAu
+mmRjQhQ1m1LjvPxcNsIdgP4kUoSgP6239nLbapUvYnnbl1lNh0jDQYNuWBIKs1FU
+cn80fGsJxqYO3spl3pw1rCm5u+5mfAOz4rTquUfqVSWn44N5uSyjMMAHkddTUh1U
+JisiR3msNZLvStkbK0syAbQnhGXpyQC8grMremDf+jGXuYYySRv3vkPK7i/S+HfT
+zD3PCw3oriPh7b13A/d2CT1lW51sqkwKQacPEuKFqLm++hRJX4t65byE3OhhNpaI
+NXggjvgwk1c9EZ31GVuK/fyGoQvnWk0eUuRVCMs04gVpPX0G54tEG/DQtqyjjD4Q
+hCgzC339OPU4ma6H13w94ODFw4iNvUgBRZpffBAAOPyYpuzDujA=
+=YnXV
+-----END PGP SIGNATURE-----
+
+--CZn6uW8WXhqK4f0/--
 
