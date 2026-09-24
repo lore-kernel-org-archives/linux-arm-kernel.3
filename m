@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14349C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD51C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4LPKtq3FXQBzgDrkBOS1YtUwyGhKzpbZJU2kODjma0=; b=kj7+dqrXCGmVpzwDMj8bsdc5YO
-	EsupaStMssj5Uo1eNrjjFVvU3/HWtNk3t/IvfxWJSYOLIOtSoaukj6CQtGCD4Z5hyyUSNLtA64U+X
-	wanDW8FfxJASAtxe9ZFQ4hZ6sINULjDGSaYEWR7NIZ3AJdAMobqGh78G9vHUYBgPorM6Yoqm4F5gf
-	izogTycAGEYWs+JFWzU0sAhCm8aaQufuykkv/8PjGg9bBxgjRYflKtAVYgCKTSevjUEQEuDWOtPBH
-	g/Q90GGvtPNNoUYFbOMUgeu8uZNp0jkSUdSN/Syj+RXw7M36cLfeePnQaNDNhaXc3xOczH1ltQAtC
-	iQUmwFfg==;
+	bh=UQOlA8B/24340sHjzOUl6iozs7o5QB8r29Tt5BMqrOU=; b=JGCVQAEo0J5fg4K2cnuZ8UgOlz
+	o6HCGoGp8lcZB7Fto2uafN4dnOuvNcwu55qL+PAGwbDAbuu3Cc0gyBQYkbqPqC9VR4yyg7ZLHs9ZG
+	m/YsDwT8VFHljcE2rBGO0NniYGmpw9kvnl0uB1SmC+Aid/OEQW4T9wLA63JLd2aeXb9bFuYvwPbp2
+	/WZ5edFSj3vDYtfn5pozFqSCr1Pq0mdq4Ms5Zy2Dg+g/Xaj5TVHzepdjAvUKhPZFolfM05hCUAcTe
+	IynvU/Jnu473L/gZvLC0N8Oy7lvihpnD3/xVGHxHYVRZ2Z2JStbIff0lR4aZZaBu0sAh/HDxnVxlw
+	Ok+OV0uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nGU-0000000BjuJ-09ro;
-	Thu, 24 Sep 2026 17:29:46 +0000
-Received: from mail-oi1-x245.google.com ([2607:f8b0:4864:20::245])
+	id 1x9nGX-0000000Bjyp-0DiK;
+	Thu, 24 Sep 2026 17:29:49 +0000
+Received: from mail-oi1-x248.google.com ([2607:f8b0:4864:20::248])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nGH-0000000Bjnb-146H
+	id 1x9nGQ-0000000BjrX-1dvx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:29:34 +0000
-Received: by mail-oi1-x245.google.com with SMTP id 5614622812f47-4b2f2b8d88fso215892b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:29:32 -0700 (PDT)
+	Thu, 24 Sep 2026 17:29:43 +0000
+Received: by mail-oi1-x248.google.com with SMTP id 5614622812f47-4b28dbf4197so203587b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:29:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790270972; x=1790875772; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1790270979; x=1790875779; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=U4LPKtq3FXQBzgDrkBOS1YtUwyGhKzpbZJU2kODjma0=;
-        b=VpMbbZxEFunSFMpT4pAackRHsBY+Zks/xgo3ICUs+rNyVIyp/rHSuTV/t+OVY8V+h8
-         dG6Pjdj+7FjiP5vWuWvTPx/YAM95yu8tkY0JmCWGA8EkVp2ybhF5wmMh0LKklD5TmITz
-         7T+Dm9irpTMCSqXspdMVt5YFccPaSc1ulhMEu1SDC2YPz7wuucdh3D5tZULBMXrc7clA
-         CC1GaPheJuARgERqFzksZ7W+MlUqnS7gt5kRdBi+XVEGOf+x6TTlUUph877C1Jpc1Tq+
-         Ewg5pVDeXC2JdPUFgJ62hxrvqwonnLeNQfv2rSNfvAWGdfx6l6CCTxY4dUCGu2r5f20+
-         UQwg==
+        bh=UQOlA8B/24340sHjzOUl6iozs7o5QB8r29Tt5BMqrOU=;
+        b=jGmJu2j8A027ltAktxEo2hqR15nJSEps/hjFHQfqwx3kCjteuqnfdOTLoxAZwWIerx
+         Zxr9u/GkCiGVYBOxQmN2bLmSpcLzk/LghCFN9yl3VBXyCt5j5ywQZDaAk+a4gqKknMfD
+         mSXhSdW+gOyG7c18/zSfJpOIWh5iDf1oZJ+ESxf5IvKeofJteN0lysoEbm+lxkR1HPCg
+         41UmbrdF2hrCSSb1z0Lg/VbMPLzafnDjtKliLyrtX8PK+s+cscE5BzLpM3/iCTvj9C2J
+         1V2rrm31N6E2CqswPJbxQwfQLAIAugv+X1XIYv33/SmGjPNQzjne4cZqUSxWnW6lzZqA
+         fmOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790270972; x=1790875772;
+        d=1e100.net; s=20260707; t=1790270979; x=1790875779;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=U4LPKtq3FXQBzgDrkBOS1YtUwyGhKzpbZJU2kODjma0=;
-        b=GgVXJQDK0l2bKgNHllk2VpvG8vAYrlSjht9vzTM4yiCNglPre/YyooZGoIg8bzqCGG
-         00sjy3rNfdY+ts0L6b5eWlVHZybm/ZQ93TlH6h7aM3opWaMwMvRI2xXHeqKrUJoaC09s
-         XLOzuAqQua+b7xR1HfP6SWfzu51xmocEKCnJpsmGDJa3N46LnBu4qfzzX1tLf/BwilX+
-         KF6wtOVWG3seAiy49Qw0X9hTf3qzg0ADhCp1C1PZW/iJ8Wcq1K8HJak4tD6l4Pf3UFug
-         P+vejRy0AZhydPdzom0W+MlYArI5N6lYaG4SWZTJNmogbmmcpKYeXFpU4c2sKemLhxvs
-         VPtw==
-X-Forwarded-Encrypted: i=1; AKwUvBx2KvI5NvrbJGxpZO438+/wtwMb/APKHL4h12H87wDfxQkLa5AwqH+m9pkEWLO07dJYKIPKh+8DxMotT0/w5Ccj@lists.infradead.org
-X-Gm-Message-State: AFuF++lbVRK6T5Ir5UmAmSX3ASdkX4Ngp7NFoGMsDKgs0NPhvDfu23lV
-	IyxkqoJ9tmYqXvHKRyTo7nfJNcIgRqCdioO8G5x5vrkRwZTx0fNKbK5RCh6QifBIYVb/HIyu1JR
-	IJEYE+pCVPljiwaLNV3aIPm0iYg==
-X-Received: from japm26.prod.google.com ([2002:a02:cdda:0:b0:5f3:6745:a0fd])
+        bh=UQOlA8B/24340sHjzOUl6iozs7o5QB8r29Tt5BMqrOU=;
+        b=A534FGZ12Cyns0rQ8jw6cPCIkQaaHDqlvjZg+VKJ3ab64mB2qwjY2amgZdugB2KTEI
+         m6YWCRvoB1iAqP7/CYx+EF4mCIAGv6skx1okSnJjzdfT7a7UtvYHso0BrM2FbIRi69lO
+         R+NCK2roxbkfpqP1+0uNcZK5O5hd+7AVTtvovSpmQehaPwAtU1yHA3MHC0i7AldpirIu
+         TBUEoPufGnDnHE0f8neTCUoqXZmYVhv4agI1oTy1xzCVNfrmTyodDwk8NOZsjm8PaObQ
+         lR3/pjkp7QkqDBIlA6hXntxD8LFSwhTNnIXU4hVx58XHM4G8lctOMlePC+jST2TC0ffn
+         1rmQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxn3KBRn9zOpES27zF/E5w1o9aFZWZadqRxgeJ0sZG0Sr+g/O8THtCo7uiBM2TLlRAyqxd+YO6FPOWveIOx1MOf@lists.infradead.org
+X-Gm-Message-State: AFuF++nh7hn5pS4NiyuekSHpNh+/W4/R/25nV79H3gE9G25TmGcDZXKd
+	m0/HDZ51gAWMOoKpxAE+6lCmNRnLSdtsb/0kR8L/ZdsPNukZ9XcMHhmt2Wjwp4fMzNXE+da5K7q
+	og11oXPdMlqqkEIYBXqG6Rtnhxg==
+X-Received: from ioeb22.prod.google.com ([2002:a05:6602:2756:b0:9c4:2037:88e2])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:2396:b0:4c2:2fb4:3676 with SMTP id 5614622812f47-4d729123773mr3724796b6e.16.1790270971680;
- Thu, 24 Sep 2026 10:29:31 -0700 (PDT)
-Date: Thu, 24 Sep 2026 17:29:07 +0000
+ 2002:a05:6808:670f:b0:4d6:90d3:e18c with SMTP id 5614622812f47-4d72ea5ea92mr3060445b6e.53.1790270978999;
+ Thu, 24 Sep 2026 10:29:38 -0700 (PDT)
+Date: Thu, 24 Sep 2026 17:29:12 +0000
 In-Reply-To: <20260924172928.2110956-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20260924172928.2110956-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260924172928.2110956-2-coltonlewis@google.com>
-Subject: [PATCH v9 01/22] arm64: cpufeature: Add cpucap for HPMN0
+Message-ID: <20260924172928.2110956-7-coltonlewis@google.com>
+Subject: [PATCH v9 06/22] perf: arm_pmuv3: Check cntr_mask before using pmccntr
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -87,8 +87,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
 	Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_102933_305220_4EF5ACCE 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20260924_102942_518667_96D6356F 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,110 +103,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
-counters reserved for the guest.
+When the PMU is partitioned, PMCCNTR_EL0 is reserved for the guest and
+removed from cpuc->cntr_mask. Move the PMCCNTR_EL0 availability checks
+(cpuc->cntr_mask and cpuc->used_mask) into armv8pmu_can_use_pmccntr()
+and un-nest the 64-bit user-access fallback check in
+armv8pmu_get_event_idx() so host CPU_CYCLES events fall back to
+general-purpose event counters when PMCCNTR_EL0 is unavailable.
 
-This required changing HPMN0 to an UnsignedEnum in tools/sysreg
-because otherwise not all the appropriate macros are generated to add
-it to arm64_cpu_capabilities_arm64_features.
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- arch/arm64/kernel/cpufeature.c | 10 +++++++++-
- arch/arm64/kvm/sys_regs.c      |  5 ++++-
- arch/arm64/tools/cpucaps       |  1 +
- arch/arm64/tools/sysreg        |  6 +++---
- 4 files changed, 17 insertions(+), 5 deletions(-)
+ drivers/perf/arm_pmuv3.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 32102c3912fa7..f8431cf858619 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -77,7 +77,7 @@
- #include <linux/percpu.h>
- #include <linux/sched/isolation.h>
+diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+index 49289e5993dd7..c15a34684137a 100644
+--- a/drivers/perf/arm_pmuv3.c
++++ b/drivers/perf/arm_pmuv3.c
+@@ -1015,6 +1015,10 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
+ 	if (cpu_pmu->avoid_pmccntr)
+ 		return false;
  
--#include <asm/arm_pmuv3.h>
-+#include <linux/perf/arm_pmuv3.h>
- #include <asm/cpu.h>
- #include <asm/cpufeature.h>
- #include <asm/cpu_ops.h>
-@@ -564,6 +564,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
- };
++	if (!test_bit(ARMV8_PMU_CYCLE_IDX, cpuc->cntr_mask) ||
++	    test_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask))
++		return false;
++
+ 	return true;
+ }
  
- static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
- 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
-@@ -3012,6 +3013,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
- 	},
-+	{
-+		.desc = "HPMN0",
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.capability = ARM64_HAS_HPMN0,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
-+	},
- #ifdef CONFIG_ARM64_SME
- 	{
- 		.desc = "Scalable Matrix Extension",
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 44aae52c473d7..f7f750b7a91c4 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2219,6 +2219,8 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- 	if (kvm_vcpu_has_pmu(vcpu))
- 		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMUVer,
- 				      kvm_arm_pmu_get_pmuver_limit());
-+	else
-+		val &= ~ID_AA64DFR0_EL1_HPMN0_MASK;
+@@ -1027,14 +1031,15 @@ static int armv8pmu_get_event_idx(struct pmu_hw_events *cpuc,
  
- 	/* Hide SPE from guests */
- 	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
-@@ -3417,7 +3419,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 		    ID_AA64DFR0_EL1_DoubleLock_MASK |
- 		    ID_AA64DFR0_EL1_WRPs_MASK |
- 		    ID_AA64DFR0_EL1_PMUVer_MASK |
--		    ID_AA64DFR0_EL1_DebugVer_MASK),
-+		    ID_AA64DFR0_EL1_DebugVer_MASK |
-+		    ID_AA64DFR0_EL1_HPMN0_MASK),
- 	ID_SANITISED(ID_AA64DFR1_EL1),
- 	ID_UNALLOCATED(5,2),
- 	ID_UNALLOCATED(5,3),
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 2775ba3359cfe..a309c18235e71 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -43,6 +43,7 @@ HAS_GIC_PRIO_MASKING
- HAS_GIC_PRIO_RELAXED_SYNC
- HAS_ICH_HCR_EL2_TDIR
- HAS_HCR_NV1
-+HAS_HPMN0
- HAS_HCX
- HAS_LDAPR
- HAS_LPA2
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index e2d37ee221b84..1035b406ef183 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1679,9 +1679,9 @@ EndEnum
- EndSysreg
+ 	/* Always prefer to place a cycle counter into the cycle counter. */
+ 	if (armv8pmu_can_use_pmccntr(cpuc, event)) {
+-		if (!test_and_set_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask))
+-			return ARMV8_PMU_CYCLE_IDX;
+-		else if (armv8pmu_event_is_64bit(event) &&
+-			   armv8pmu_event_want_user_access(event) &&
+-			   !armv8pmu_has_long_event(cpu_pmu))
+-				return -EAGAIN;
++		set_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask);
++		return ARMV8_PMU_CYCLE_IDX;
+ 	}
  
- Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
--Enum	63:60	HPMN0
--	0b0000	UNPREDICTABLE
--	0b0001	DEF
-+UnsignedEnum	63:60	HPMN0
-+	0b0000	NI
-+	0b0001	IMP
- EndEnum
- UnsignedEnum	59:56	ExtTrcBuff
- 	0b0000	NI
++	if (armv8pmu_event_is_64bit(event) &&
++	    armv8pmu_event_want_user_access(event) &&
++	    !armv8pmu_has_long_event(cpu_pmu))
++		return -EAGAIN;
++
+ 	/*
+ 	 * Always prefer to place a instruction counter into the instruction counter,
+ 	 * but don't expose the instruction counter to userspace access as userspace
 -- 
 2.56.0.rc1.310.g51773c2048-goog
 
