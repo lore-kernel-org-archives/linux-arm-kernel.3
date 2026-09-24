@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99405C98311
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7F2C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hETdWP+28Kjop3TWViNya7dV2FwGxiafVK/A/I1RaCA=; b=0+0EbQOGwzHYaowEvd1guDTcnF
-	u6PN5xCH2WiYmeA758HeYsZ9FnE3fgK9xbulAjjxiGH3AhhDEFX5eTqT25I/pHsnw+ujxeHE0QkL1
-	VoolP0nnRx4agZFsNJtiu+uymv7OzZg0aCZqR+PhVD8fkoblvlDC6+M/6zC86k0J8mHi5lPGOHQrU
-	i7vuCgzvMEuAgVWEHVnb7BRurd/Jyo667YVKF+eRRHtjs4XvjDFKUnr+bj+rVxUUq/Bn0aTvHpKO1
-	PCFvkrJfKlw+v++FNm473aPePDfGTl8MmZMPQEnNA/baqAGV6bQ/OMbVIn6A8j5oyIswH6rdFMdg5
-	r/qzObrw==;
+	bh=KsfA+7ZRfaMaOYHf9FLzqm+87QxZc0nf8pdVelteCEk=; b=hatiBt8IgymSpYSrveccCNMZPK
+	Mc1XqA4CpfnimttifFbuBNel0pC7Rc5OcblSiY1koAEHtpLRrb97Nl9DJ55pqeCbq2GJL1/Md59I7
+	qll4Oc6w5o+BKh+0EbQcJTVrZObIV4G35uNZznkgf4wAnLQ8oE53UYHCx/EMtq1PeMx1P6eIJ6Hh/
+	bQHMpbPZbKpOp0+MhcfSwvQB1sxA79JTlXHU5fC0hG5p+XoxsUuPhYljXVOpJHXYJO+UFHZn5yXBb
+	VIom43jZr/9uqn+Yr7LiWVtDOPTx1/MhdyM+u3YJBI25ykiRwC7fwBsIupgzKqerBfH2j2Q0siuLA
+	jIAnD+ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fG0-0000000AVvi-3rnD;
-	Thu, 24 Sep 2026 08:56:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9fGk-0000000AWK1-26TY;
+	Thu, 24 Sep 2026 08:57:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fFs-0000000AVsY-0yKI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 08:56:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hETdWP+28Kjop3TWViNya7dV2FwGxiafVK/A/I1RaCA=; b=hew97wiKUJawPa+aiz4eFM2f6N
-	TZcSxncesDkat5lhMpnVlWJ/hUsL2BtXutSFIU7lj5wgh2UHyrrxx9bfaNfvflWkktP9RJKLm5Q4V
-	Ckq8KW5YUTKkoqQgq9FZIaD1ylm6jOLwibKi9Tam6p00SKHIZJBGtriWXhDhgQ9NpMWXePUbh4iFP
-	0vGT1/pJGTFwVX9ps3V20eatxvS4wX8bg9eZjYP1N8BLF5rWAgJPmY9234G/LS5ZdRKqDx3Yzl3HP
-	odondtJr8GogaG31kuDxfGo2mN1wrMkyeRAhLAYd1gFrjCKMh7nTTgM/0PUyUhX3ZmCmkVD93VvqC
-	2mG7xNfA==;
-Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9fFp-0000000Fl3X-0q6d
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 08:56:34 +0000
-Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-49e6b5c5f44so26208745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 01:56:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790240191; x=1790844991; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hETdWP+28Kjop3TWViNya7dV2FwGxiafVK/A/I1RaCA=;
-        b=Vk/gYivtE35uk/ik9J/gPVoEEbhDPwhltRjVuk8HNCTzh9dY+GbHXid4GN1va289HX
-         JEhxV+KdKq0GAEtIKzRLFv2bSDDB1+dnXrBPUzkyzsjNrbmeCjT7bTeX98uSfef6joiJ
-         XEcHchzY+mtPCcGsJmoXclvebd2kDyI251ieh3T5m636mW7jriTu9rUpRJlCdpAHgJiA
-         iqkRZTzRc0OY6l3v6QFCOg68JeUz/ZIuRbZPlLlzTK0MlR1KaUeDE5dBOwiT1Lj5mwU3
-         3BALD5zLyE+HCuZ3f1tBrXpmaU8PrvyqWncksK61/Xeas1YUgVVs1ElHUc7EjHHcjY36
-         GEKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790240191; x=1790844991;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hETdWP+28Kjop3TWViNya7dV2FwGxiafVK/A/I1RaCA=;
-        b=UrhtLSAYkuujZ0D4mEMtFXAv0lI6d5INECA1qMEVHrdnnlDxh9dRaVH46KVfAihV5C
-         UqtI/VgNSMEGDgVfsvf/2XDX1dZE6GAvncbpLxlCT2yIMnFGvbEcyMbzI1ohGntOkuUS
-         6tV3gfxPuja4LK4gyQXPcGGpTyxXFV6f4MGZd/AbKfS5XBKzrgToZNBIBjYZMGFDrsF6
-         FNm1Cwr0Ao7Ho1Cl5I7WpHxBBhRWEGQjR8seJ1yIe7ujrFAhEPqGxKuWq1A/dVsmZ1HG
-         jM8DMVGWcBQX8KxFFrDz0/4W1eyQfv2GBjuGQEAWM/AxqBovnLnZKNUId6sEkhBQbKXj
-         evgg==
-X-Forwarded-Encrypted: i=1; AKwUvBxRyJEJ8xXXquA/I2iVugfDbk0iygV+8zQ2G1BBhOkXtGaBgbKqyGJ/1PpLl8yS4FG79WG0g9o3csM0MPEkvKn6@lists.infradead.org
-X-Gm-Message-State: AFuF++kOYFxTe1EYQReBH37s7L6P0hOH/leHavIqgqeg7glrWP7bW4NT
-	Yw+NIJTUG3tv/c0I4dwJU4+U1+6P0poIimak0YrbAfqvhjbtL91J87iNWWINq1ojft7iWOsuQ9V
-	322n2WHsOSq8zcw==
-X-Received: from wmjv7.prod.google.com ([2002:a7b:cb47:0:b0:49f:e95d:f21a])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d99:b0:49e:6c27:d093 with SMTP id 5b1f17b1804b1-49fe7b739f4mr19669965e9.15.1790240190846;
- Thu, 24 Sep 2026 01:56:30 -0700 (PDT)
-Date: Thu, 24 Sep 2026 08:56:16 +0000
-In-Reply-To: <20260924085616.300650-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260924085616.300650-1-smostafa@google.com>
-X-Mailer: git-send-email 2.56.0.rc1.315.gc6ed9934b7-goog
-Message-ID: <20260924085616.300650-6-smostafa@google.com>
-Subject: [PATCH v2 5/5] iommu/arm-smmu-v3-test: Fix UBSAN error
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
-	nicolinc@nvidia.com, praan@google.com, Mostafa Saleh <smostafa@google.com>, 
-	Jason Gunthorpe <jgg@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_095633_337871_6914EADC 
-X-CRM114-Status: GOOD (  12.47  )
+	id 1x9fGj-0000000AWJI-06HJ;
+	Thu, 24 Sep 2026 08:57:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 795ED43454;
+	Thu, 24 Sep 2026 08:57:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AAFF1F00893;
+	Thu, 24 Sep 2026 08:57:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790240248;
+	bh=KsfA+7ZRfaMaOYHf9FLzqm+87QxZc0nf8pdVelteCEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y66Nn1F70+EOrXieRS0criFH3uxMANVUI7oanFcCoy8GmyXIy+pJT4bYVlm/thmPG
+	 N7qIdDiz1YmSsvWNdouFIMEZW4BAqVieOEmxdbjyjg8VeCwPdmNl98xvvOpohxm65Y
+	 GyNzGB6Z7BI3y56gBKntItSCJRjU51zGLLQXLvZnr16k3FQ6buDS49+J1C+07Q9T63
+	 n6nHxyci7fO61wmUlSLUGoMKJe5Tmzp5UMO6z0QysEePeglKrYmnlnSTGRtL4Xmc0R
+	 znGcbePU3j8NmjIOaR7E0m14ncuBzwafBVjkGLhSAzXI59gpYQZewywAESCZXVQDnZ
+	 5vqxv1raD/1Pw==
+Date: Thu, 24 Sep 2026 10:57:24 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jessica Zhang <jesszhan0024@gmail.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Paul Kocialkowski <paulk@sys-base.io>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Sean Paul <sean@poorly.run>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Albert Esteve <aesteve@redhat.com>, Anusha Srivatsa <asrivats@redhat.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, asahi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	freedreno@lists.freedesktop.org, linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v3 12/19] drm/mcde: dsi: don't create a panel_bridge
+Message-ID: <arTlpd-KAsVpj3UH@houat>
+References: <20260916-drm-bridge-every-panel-v3-0-83afb4f1a707@bootlin.com>
+ <20260916-drm-bridge-every-panel-v3-12-83afb4f1a707@bootlin.com>
+ <arInho2bsfJiCgjV@houat>
+ <DLNCQEG62F5N.O98WAO4U2FJO@bootlin.com>
+ <CAD++jLkk-a0MrQUiaDD8OoDDoYVwBwSjFTj5ZBy=Xo7MS4+01g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="fta6xv3zcvscpec2"
+Content-Disposition: inline
+In-Reply-To: <CAD++jLkk-a0MrQUiaDD8OoDDoYVwBwSjFTj5ZBy=Xo7MS4+01g@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,90 +92,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct arm_smmu_invs marks its flexible array member inv[] with the
-__counted_by(max_invs).
 
-arm_smmu_v3_invs_test() uses invs1 to invs5 which has num_invs = 3
-but omit max_invs.
+--fta6xv3zcvscpec2
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 12/19] drm/mcde: dsi: don't create a panel_bridge
+MIME-Version: 1.0
 
-This causes the following UBSAN error:
-[    2.333240] UBSAN: array-index-out-of-bounds in drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1116:21
-[    2.333604]     # arm_smmu_v3_invs_test: lib/ubsan.c:228: array-index-out-of-bounds in drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-[    2.334129] index 1 is out of range for type 'struct arm_smmu_inv[] __counted_by(max_invs)' (aka 'struct arm_smmu_inv[]')
-[    2.335375] CPU: 6 UID: 0 PID: 155 Comm: kunit_try_catch Tainted: G                 N  7.2.0-g8dcb331fbb72 #2 PREEMPT
-[    2.335759] Tainted: [N]=TEST
-[    2.335791] Hardware name: linux,dummy-virt (DT)
-[    2.336254] Call trace:
-[    2.336932]  show_stack+0x18/0x24 (C)
-[    2.338443]  __dump_stack+0x28/0x38
-[    2.338494]  dump_stack_lvl+0x54/0x6c
-[    2.338518]  dump_stack+0x18/0x24
-[    2.338541]  ubsan_epilogue+0x10/0x44
-[    2.338565]  __ubsan_handle_out_of_bounds+0xb8/0xbc
-[    2.338834]  arm_smmu_invs_merge+0x688/0x8ac
-[    2.338862]  arm_smmu_v3_invs_test+0xd4/0x598
-[    2.338890]  kunit_try_run_case+0x64/0x160
-[    2.338914]  kunit_generic_run_threadfn_adapter+0x28/0x4c
-[    2.338955]  kthread+0x10c/0x12c
-[    2.338984]  ret_from_fork+0x10/0x20
-[    2.339433] ---[ end trace ]---
+On Thu, Sep 24, 2026 at 09:51:53AM +0200, Linus Walleij wrote:
+> Hi Luca,
+>=20
+> sorry for my slowness!
+>=20
+> On Thu, Sep 24, 2026 at 9:01=E2=80=AFAM Luca Ceresoli <luca.ceresoli@boot=
+lin.com> wrote:
+> > On Tue Sep 22, 2026 at 9:09 AM CEST, Maxime Ripard wrote:
+>=20
+> > >> -    } else if (bridge) {
+> > >> +    if (!bridge) {
+> > >> +            dev_err(dev, "no bridge\n");
+> > >> +            return -ENODEV;
+> > >> +    } else if (!drm_bridge_is_panel(bridge)) {
+> > >>              /* TODO: AV8100 HDMI encoder goes here for example */
+> > >>              dev_info(dev, "connected to non-panel bridge (unsupport=
+ed)\n");
+> > >>              return -ENODEV;
+> > >
+> > > I wonder if we still need that branch. Every panel is a bridge now, a=
+nd
+> > > it looks like we don't have any specific panel handling in this drive=
+r,
+> > > so I guess it supports bridges already?
+> > >
+> > > Linus, do you know why this condition was here in the first place?
+> >
+> > I had the same thought while writing the patch, but I chose to be
+> > conservative.
+> >
+> > Linus, unless you have more info I'm going to apply the patch as
+> > is. Removing this special case would be welcome as a later patch.
+>=20
+> I'd say go ahead as-is.
 
-Explicitly set max_invs = 3 on the test arrays to match the number of
-elements.
+I'm fine with that, but I really want this removed at some point.
 
-Fixes: 15a2a5645ad7 ("iommu/arm-smmu-v3: Introduce a per-domain arm_smmu_invs array")
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c | 5 +++++
- 1 file changed, 5 insertions(+)
+> I do have the idea to code up and submit the AV8100 encoder
+> and I have the hardware to test it, but every other user should
+> be using panels directly, and I would be the only non-panel
+> user so I can deal with it when it comes up.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index 244cf34e5a0b..e52a7d95c919 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -654,6 +654,7 @@ static void arm_smmu_v3_invs_test_verify(struct kunit *test,
- }
- 
- static struct arm_smmu_invs invs1 = {
-+	.max_invs = 3,
- 	.num_invs = 3,
- 	.inv = { { .type = INV_TYPE_S2_VMID, .id = 1, },
- 		 { .type = INV_TYPE_S2_VMID_S1_CLEAR, .id = 1, },
-@@ -661,6 +662,7 @@ static struct arm_smmu_invs invs1 = {
- };
- 
- static struct arm_smmu_invs invs2 = {
-+	.max_invs = 3,
- 	.num_invs = 3,
- 	.inv = { { .type = INV_TYPE_S2_VMID, .id = 1, }, /* duplicated */
- 		 { .type = INV_TYPE_ATS, .id = 4, },
-@@ -668,6 +670,7 @@ static struct arm_smmu_invs invs2 = {
- };
- 
- static struct arm_smmu_invs invs3 = {
-+	.max_invs = 3,
- 	.num_invs = 3,
- 	.inv = { { .type = INV_TYPE_S2_VMID, .id = 1, }, /* duplicated */
- 		 { .type = INV_TYPE_ATS, .id = 5, }, /* recover a trash */
-@@ -675,6 +678,7 @@ static struct arm_smmu_invs invs3 = {
- };
- 
- static struct arm_smmu_invs invs4 = {
-+	.max_invs = 3,
- 	.num_invs = 3,
- 	.inv = { { .type = INV_TYPE_ATS, .id = 10, .ssid = 1 },
- 		 { .type = INV_TYPE_ATS, .id = 10, .ssid = 3 },
-@@ -682,6 +686,7 @@ static struct arm_smmu_invs invs4 = {
- };
- 
- static struct arm_smmu_invs invs5 = {
-+	.max_invs = 3,
- 	.num_invs = 3,
- 	.inv = { { .type = INV_TYPE_ATS, .id = 10, .ssid = 2 },
- 		 { .type = INV_TYPE_ATS, .id = 10, .ssid = 3 }, /* duplicate */
--- 
-2.56.0.rc1.315.gc6ed9934b7-goog
+It won't change a thing. All existing "panel" users will be bridge users
+after this patch is merged. So whether you want to enable a bridge or
+not shouldn't matter, the only thing that does is whether the existing
+users would still work.
 
+Maxime
+
+--fta6xv3zcvscpec2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCarTl8wAKCRAnX84Zoj2+
+dhwWAXwI9qMs84ZRfc2g48IeAyQiE/CtbfMWnKHKCoJcY62gOn2KtPtJlfAUSVSt
+Fz2FzIoBf1P/bkrhzAS0uao6/CjJ0F2xh689BoYPK8a7rDMJeckpdh6Df4f795pW
+2kQWWS2bNQ==
+=k5VA
+-----END PGP SIGNATURE-----
+
+--fta6xv3zcvscpec2--
 
