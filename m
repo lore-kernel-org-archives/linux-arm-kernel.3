@@ -4,77 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F048AC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A838C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AaFxcXms8slyAjgufXcHdWrBsZVjn0qgGB8GplGEOqg=; b=XxHIUC8+vrZR/PgtP+BXIXo9yD
-	Vc899t2ogFwfu0YsyfpsRa1WN5ZWfH32+2L+uU6gwNP85E6v4242UHpYP+nGCbf18d6zsBmL821qV
-	1juL08Dw2Qjeho7n6XXs/Vto2dBl+nfFJQAuWKQxKlHkoXAQ3EM0Y1wpXXcGaB270ssMe3mxrVT/U
-	2gpZumMGwdSb5YJgkxeBoNYJvDfBpSmUaPOUnfIetzg8WGT09fF1MGkOYBdJFYfsNba4UtILnQcfd
-	Gl21cxCTS55JE9lvP0gRYsnGQLYLG0BLI72dEQ+SBE0CicmFBLqCN1u1HUHW5QTWruXLwHzygk6nh
-	SS7Pf+3w==;
+	bh=ovV3+8HhIOogBXh04yQPFlm05GeVlvyXWO/9SfNBaaI=; b=AmZCowuHOJKx2n6/C7rt9/VTHi
+	gL0a//AYS8g1MHTShde2uKZ3yuBQOwfWMqV5OoGECtN+xDQ79blwVA1Mo415ilVi7n6+eAAWdrp3R
+	cwE/xGXlW2KGZnLfvm9TAIUejchZ9JY/+mEsr0dDjoHPpXZ6/TEwUuW1J1zGv4RI9D8FLTiOIb6js
+	T6MmuFI7TLu4TCxzSyZ79Tb49Sfj0FtrodzoHDD7oCQkvtaHuMxLWp9t8AeJUsU4PvzW/Q2pT7xnJ
+	h9HFpyPxkTwOLfuYNVfCPghW9KsEMmBcJ0QFguiYCDybdjKBCIpS2QsW/NSs6+3qpp+WwXhHSXNJi
+	JCILTP7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nM0-0000000BmlL-2KX3;
-	Thu, 24 Sep 2026 17:35:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nLL-0000000BmOp-0617
+	id 1x9oWF-0000000Bxyz-46x1;
+	Thu, 24 Sep 2026 18:50:07 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9oWD-0000000BxyA-0MOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:34:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 783D91E7D;
-	Thu, 24 Sep 2026 10:34:42 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A59293F86F;
-	Thu, 24 Sep 2026 10:34:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790271286; bh=wNwlRPVGccAL8FovCT7RLGxnIutNCvLeW6sNMLH2d+Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jNPccyElx6+1d26ADa4W2SbQkO8+l/JCxQXmOlOGlFfwTvR/PNAPnXwhtaHXtfTRh
-	 f+i9XoLSBbcAXUJG3kQ+pGO2nlbugLd+CWn7FNf/dA/zK3CG6S64MTyN81eThrDspA
-	 Ty9c1pcbRAiyUZuY1fjLIRHXhGe+31vdLiC+qpXM=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Thu, 24 Sep 2026 18:33:50 +0100
-Subject: [PATCH v12 12/14] coresight: etm3x: introduce struct etm_caps
+	Thu, 24 Sep 2026 18:50:06 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-532e9ad9a1eso50881cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 11:50:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790275803; cv=none;
+        d=google.com; s=arc-20260327;
+        b=srscVceUyCmC0iYgeaMoIg7IkNrTEbPTAJiTslfAFpG5n9Jl2f3y/ni6Yhc62AMxqS
+         l88a8o14d4d0kp/o8jcEGo6FjLL9A1fHULhCVJLm1sgPZF8GNKZ/gGfCY8wA8xg4Naj2
+         VeAx/3Y8tuG3Rs72yQLZs7z9VqfV41wlBL49NIPQCPZIAWjokPzydola9ujBaOXASRQ4
+         PVaJoID8mqfvL7hszkvHsES894cipfOZ2zcoQylSx3VsZ/ROv49IfnU2J458SgbGGUre
+         OYJUevzwb1IT0F0aKEHeONlIUlBAvWhC5l3Bv5uroK/gmLHWZFuRuUDXjmYxAATO+OmF
+         THsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ovV3+8HhIOogBXh04yQPFlm05GeVlvyXWO/9SfNBaaI=;
+        fh=wi9+qwfbIvp0pcBKcHwe0D+bEX8V0rn0D9ssYCL9KhE=;
+        b=i2uz/EAFs6UOQxZxVH4XsuQWJo0fj9pA90VlxFymCFv0F+NB0Io+FSUPe9DY/n5REv
+         c5xTIR5hP3lALyQ1wxH2SjQU0KYaFL5df6YJVQyGc5zYiJIxMf0tAygywZr4k6Dae/wp
+         TBS4BTYMMD3YQ0uEykdn8HWUTKW4h5ptasyZkncTSEQo1QZ/bd178sfEZkrKSEUyB3TJ
+         uagwomAgWEEByd5uN33dpNOnV7wU3p+h/F5BX5pugkle5UxRBcBJVYRpP0DRD3tpk5Pb
+         2CuI/N9CAPCuZasOmb1bWfrEgRV+sj0uSsQ1yBJZqV7SHxsjsCT0szxPzHKZN/PJrUdG
+         be2w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790275803; x=1790880603; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ovV3+8HhIOogBXh04yQPFlm05GeVlvyXWO/9SfNBaaI=;
+        b=Hn4nuC8uo1ig0c+Mhi62/F0vclpcQn7N6UYDfNHfs6Az0EwvP/w+NVxmXgzmfs80tG
+         BImNhGqVHAcJrF84PRZLk5T8pL7uM9827R9QwQPoJpLtqr6RUIEOpYuk1HrjRJibyczW
+         RYDQYnkGlDfqFIfARvTccLVxWUCXIs8gGWHaptPZaZHY5WWY92fwYfgOr8oiysbf2sMx
+         B6Ts1bOsk3m8P3LdW4QaVhhLkdmEQnyzXvxSIzDMfSx0tqLr1cvVrbUS3ELxR0lNlBLW
+         QzScp562/9gCAPQI15ZCQCr+AAOAmHmdNiA4oFm2BuyM4bBuG/S2Bv+jnShIUXidEBDX
+         Y8Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790275803; x=1790880603;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ovV3+8HhIOogBXh04yQPFlm05GeVlvyXWO/9SfNBaaI=;
+        b=wGAy0uV4oP40E6GZFZDJDir8A0hwR2sStvSUUFXzs3irxL0Gqil6QgQTmNn8qrx2K1
+         JV/kGjBoY/8rO2Qld9YkBIi22f7PeaQGiXxmOEcK5nTSgh6etSUuH6XczNjXmrbIYFGR
+         Nod9UV9wuUx/G31N8NM8a3K9qf7aSffpbRlJAGpkkCZt/Sz/n2zPbyOa/MTygq/Nf39L
+         1zAarmBJUOOwS3PHWxyNVVszQZT3agrtvRlyA92y460ZGGaGgjemX6X3ZJuajxEWhJY6
+         gosn/k9+z+hdwor/82O3LWBP4XzHqGbS2Gg2mtF+XhFRgthf4nbwR4pxdeNh/lpNMBCt
+         K5gQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwYLBQ8fRV6CLybEAdodrMme9k57poisL8RLvRhrIU0GbivX/VU2wbWVNFmEL3mqdySW+WGHYZPR6FIQj8owLQR@lists.infradead.org
+X-Gm-Message-State: AFuF++kbp1Dq4+4LhywGWD0JiCP4jDC8vYHlkuPLUpxEEBDKd0SB6ijN
+	9+TbwW+H0uJSxzBMmYlW8Ta9Q0GUjwjXwih8gU0EJfzCJQmyWKpeRCvBpvjAV5aE+daFpplS4Gl
+	cHgpv7Xm454UAbSRVaamrYI0MoUGHtlP//0peI4l9
+X-Gm-Gg: AYBFou3OQ04LzBjzbufr3eniuceGJs7GNw/eTqmRSrKwYL9hAEEtvHkLbvLT4mvDLWQ
+	apd5fDOuKeDowER8P66rfF1pztDSaxsJhr7Cc22TD3C44HRXkSQvgV55l9VSyMlTj2BEJOiVuQT
+	8MTOhwZrQ3C0W9az8FcnUrXiGe3fPBJZ4L5lj9ThvB4/Dv75rcr3ENI4CZ7SJqhuE5x05IQTyOO
+	Ct30AeIRCu0xpO85uzjMNLGaxSD0csSoNyENR7fmekPCBK7NHUe+yr9+Pr6kR299GbX3yHC6j9b
+	qWfL47Nwhf4TibPyt3AWm2kbt82poeDOsXssPLA2njlqu5BrDGXA
+X-Received: by 2002:ac8:5a47:0:b0:52f:9ed4:8d75 with SMTP id
+ d75a77b69052e-5330b91b69amr764001cf.15.1790275801917; Thu, 24 Sep 2026
+ 11:50:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-separate_etm_cfg_v2-v12-12-a2b41d2f7c2b@arm.com>
-References: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
-In-Reply-To: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
-To: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Leo Yan <leo.yan@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-rt-devel@lists.linux.dev
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13862; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=wNwlRPVGccAL8FovCT7RLGxnIutNCvLeW6sNMLH2d+Y=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqtV8RjYQikizM7IXm0rbPs9iRzJ0ERY5ppiR9O
- JOxLnB9gJaJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCarVfEQAKCRBt1cPRWsUx
- M6inC/9bIKEompmcg6sL0v5Skf1sNrm2UXY8dNhBrJBbhlGci0wm6Y/kUz02qljgQET11sOEiRw
- QUOpD5uDuhDVh9t/FsBFc+kPjiEAx9j1CbO7mwjzEJvwbK5WVFiSYbyxb4wEyx17Npo0x/n5Wzx
- hVjtMrw0kamnlvbpBW2Fm8DEwKjzSSv4J7qsPqDt7lkvaOuwma+RZCAPmkf8AG4T68mPxo9VJFj
- vyghbmeDJ3pvMACnPQbeo1eH+xoT/vDScZ0GP01itJkQVV8x4+49ITv4TYFeQaXel4sXDEDu1NJ
- RRsp+qol3toHNMcOLRdpb2jTAPEM+8I6A2ejfWoPPg4wThUga2l3ELe2DvAJJPhuytiWjcb9PRL
- 7SLGtmsNaPHLLqbrIDWPGOqj9oQJzrDzGQFQvPcA2zUwaCThZnimCJX+ueCA9nseTRN7Et833NS
- BUJvLOc3U8KvrZMSr07mwGWP/Et5cGta/y+ugjmyrTZ4TL23HOtgNcdAiuAIKpYE3SJPc=
-X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
- fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
+References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com> <20260924001502.GO1540250@ziepe.ca>
+In-Reply-To: <20260924001502.GO1540250@ziepe.ca>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Thu, 24 Sep 2026 11:49:50 -0700
+X-Gm-Features: AclHuK8NxjjK4LAAInZh9B-AiWvxMmczV1znpTfWeKjoAyhZX_I7iFt3P7YZv3g
+Message-ID: <CAE2F3rCVh0CmW6+a__PcCrBgsMJVompKJX_qYBdQ=exj3bYtCg@mail.gmail.com>
+Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint bit
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_103449_813166_DF27B7B4 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20260924_115005_155327_9DC25F93 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,357 +119,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce struct etm_caps to describe ETMv3 capabilities
-and move capabilities information into it.
+On Wed, Sep 23, 2026 at 5:15=E2=80=AFPM Jason Gunthorpe <jgg@ziepe.ca> wrot=
+e:
+>
+> On Mon, Sep 21, 2026 at 04:44:07PM +0530, Vijayanand Jitta wrote:
+> > From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+> >
+> > Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
+> > When a set of consecutive PTEs map a naturally aligned contiguous block=
+ of
+> > memory, set CONT on every descriptor in that group so the hardware can
+> > combine translations and improve TLB reach.
+> >
+> > Advertise the supported CONT group sizes in pgsize_bitmap. Callers sele=
+ct
+> > those sizes through the normal page-size selection path; io-pgtable-arm
+> > then installs the corresponding tagged descriptors directly. A partial
+> > unmap of a tagged CONT group is rejected before modifying any descripto=
+r,
+> > so a rejected request cannot leave the group partly unmapped.
+> >
+> > The IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT quirk allows SMMU drivers to disa=
+ble
+> > CONT support for hardware with implementation-specific errata.
+>
+> smmuv3 has this errata, it must be disabled there too. I didn't notice
+> it in this patch?
 
-Since drvdata->etmccr and drvdata->etmccer are used to check
-whether it supports fifofull logic and timestamping,
-remove etmccr and etmccer field from drvdata and add relevant fields
-in etm_caps structure.
+SMMU is an architecture specification. I am not aware of errors in
+this architecture specification that would preclude the usage of the
+contiguous bit. I understand that Arm MMU-700 has the following
+erratum
 
-Reviewed-by: Mike Leach <mike.leach@arm.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm.h        | 42 +++++++++++++---------
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 42 +++++++++++++---------
- .../hwtracing/coresight/coresight-etm3x-sysfs.c    | 24 ++++++++-----
- 3 files changed, 66 insertions(+), 42 deletions(-)
+3777127 Under invalidation in TBU possible when using contiguous page
+table entries
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-index 52f23a3c7364..560a58a3817c 100644
---- a/drivers/hwtracing/coresight/coresight-etm.h
-+++ b/drivers/hwtracing/coresight/coresight-etm.h
-@@ -140,6 +140,30 @@
- 				 ETM_ADD_COMP_0		|	\
- 				 ETM_EVENT_NOT_A)
- 
-+/**
-+ * struct etm_caps - specifics ETM capabilities
-+ * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-+ * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-+ * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-+ * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-+ * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-+ * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-+ * @fifofull:	FIFOFULL logic is present.
-+ * @timestamp:	Timestamping is implemented.
-+ * @retstack:	Return stack is implemented.
-+ */
-+struct etm_caps {
-+	int	port_size;
-+	u8	nr_addr_cmp;
-+	u8	nr_cntr;
-+	u8	nr_ext_inp;
-+	u8	nr_ext_out;
-+	u8	nr_ctxid_cmp;
-+	bool	fifofull : 1;
-+	bool	timestamp : 1;
-+	bool	retstack : 1;
-+};
-+
- /**
-  * struct etm_config - configuration information related to an ETM
-  * @mode:	controls various modes supported by this ETM/PTM.
-@@ -212,19 +236,12 @@ struct etm_config {
-  * @csdev:	component vitals needed by the framework.
-  * @spinlock:	only one at a time pls.
-  * @cpu:	the cpu this component is affined to.
-- * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-  * @arch:	ETM/PTM version number.
-+ * @caps:	ETM capabilities.
-  * @use_cpu14:	true if management registers need to be accessed via CP14.
-  * @sticky_enable: true if ETM base configuration has been done.
-  * @boot_enable:true if we should start tracing at boot time.
-  * @os_unlock:	true if access to management registers is allowed.
-- * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-- * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-- * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-- * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-- * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-- * @etmccr:	value of register ETMCCR.
-- * @etmccer:	value of register ETMCCER.
-  * @traceid:	value of the current ID for this component.
-  * @curr_config:	structure holding current running configuration.
-  * @config:	structure holding sysfs mode configuration.
-@@ -235,19 +252,12 @@ struct etm_drvdata {
- 	struct coresight_device		*csdev;
- 	spinlock_t			spinlock;
- 	int				cpu;
--	int				port_size;
- 	u8				arch;
-+	struct etm_caps			caps;
- 	bool				use_cp14;
- 	bool				sticky_enable;
- 	bool				boot_enable;
- 	bool				os_unlock;
--	u8				nr_addr_cmp;
--	u8				nr_cntr;
--	u8				nr_ext_inp;
--	u8				nr_ext_out;
--	u8				nr_ctxid_cmp;
--	u32				etmccr;
--	u32				etmccer;
- 	u32				traceid;
- 	struct etm_config		curr_config;
- 	struct etm_config		config;
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index ac7c154720cb..ca2ba179b6fb 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -308,6 +308,7 @@ void etm_config_trace_mode(struct etm_config *config)
- static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 				  struct perf_event *event)
- {
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->curr_config;
- 	struct perf_event_attr *attr = &event->attr;
- 	u8 ts_level;
-@@ -356,8 +357,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	 * has ret stack) on the same SoC. So only enable when it can be honored
- 	 * - trace will still continue normally otherwise.
- 	 */
--	if (ATTR_CFG_GET_FLD(attr, retstack) &&
--	    (drvdata->etmccer & ETMCCER_RETSTACK))
-+	if (ATTR_CFG_GET_FLD(attr, retstack) && (caps->retstack))
- 		config->ctrl |= ETMCR_RETURN_STACK;
- 
- 	return 0;
-@@ -367,6 +367,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- {
- 	int i, rc;
- 	u32 etmcr;
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->curr_config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
-@@ -388,7 +389,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etmcr = etm_readl(drvdata, ETMCR);
- 	/* Clear setting from a previous run if need be */
- 	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
--	etmcr |= drvdata->port_size;
-+	etmcr |= caps->port_size;
- 	etmcr |= ETMCR_ETM_EN;
- 	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
- 	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
-@@ -396,11 +397,11 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_writel(drvdata, config->enable_event, ETMTEEVR);
- 	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
- 	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
--	for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-+	for (i = 0; i < caps->nr_addr_cmp; i++) {
- 		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
- 		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
- 	}
--	for (i = 0; i < drvdata->nr_cntr; i++) {
-+	for (i = 0; i < caps->nr_cntr; i++) {
- 		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
- 		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
- 		etm_writel(drvdata, config->cntr_rld_event[i],
-@@ -414,9 +415,9 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
- 	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
- 	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
--	for (i = 0; i < drvdata->nr_ext_out; i++)
-+	for (i = 0; i < caps->nr_ext_out; i++)
- 		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
--	for (i = 0; i < drvdata->nr_ctxid_cmp; i++)
-+	for (i = 0; i < caps->nr_ctxid_cmp; i++)
- 		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
- 	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
- 	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
-@@ -560,6 +561,7 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
- static void etm_disable_hw(struct etm_drvdata *drvdata)
- {
- 	int i;
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->curr_config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
-@@ -569,7 +571,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
- 	/* Read back sequencer and counters for post trace analysis */
- 	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
- 
--	for (i = 0; i < drvdata->nr_cntr; i++)
-+	for (i = 0; i < caps->nr_cntr; i++)
- 		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
- 
- 	etm_set_pwrdwn(drvdata);
-@@ -624,6 +626,7 @@ static void etm_disable_perf(struct coresight_device *csdev)
- static void etm_disable_sysfs(struct coresight_device *csdev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	const struct etm_config *curr_config = &drvdata->curr_config;
- 	int i;
-@@ -639,7 +642,7 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
- 	 * Userspace may read seq_curr_state and cntr_val through sysfs
- 	 * after the sysfs-session has been disabled.
- 	 */
--	for (i = 0; i < drvdata->nr_cntr; i++)
-+	for (i = 0; i < caps->nr_cntr; i++)
- 		config->cntr_val[i] = curr_config->cntr_val[i];
- 
- 	config->seq_curr_state = curr_config->seq_curr_state;
-@@ -724,7 +727,9 @@ static void etm_init_arch_data(void *info)
- {
- 	u32 etmidr;
- 	u32 etmccr;
-+	u32 etmccer;
- 	struct etm_drvdata *drvdata = info;
-+	struct etm_caps *caps = &drvdata->caps;
- 
- 	/* Make sure all registers are accessible */
- 	etm_os_unlock(drvdata);
-@@ -749,16 +754,19 @@ static void etm_init_arch_data(void *info)
- 	/* Find all capabilities */
- 	etmidr = etm_readl(drvdata, ETMIDR);
- 	drvdata->arch = BMVAL(etmidr, 4, 11);
--	drvdata->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-+	caps->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-+
-+	etmccer = etm_readl(drvdata, ETMCCER);
-+	caps->timestamp = !!(etmccer & ETMCCER_TIMESTAMP);
-+	caps->retstack = !!(etmccer & ETMCCER_RETSTACK);
- 
--	drvdata->etmccer = etm_readl(drvdata, ETMCCER);
- 	etmccr = etm_readl(drvdata, ETMCCR);
--	drvdata->etmccr = etmccr;
--	drvdata->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
--	drvdata->nr_cntr = BMVAL(etmccr, 13, 15);
--	drvdata->nr_ext_inp = BMVAL(etmccr, 17, 19);
--	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
--	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
-+	caps->fifofull = !!(etmccr & ETMCCR_FIFOFULL);
-+	caps->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-+	caps->nr_cntr = BMVAL(etmccr, 13, 15);
-+	caps->nr_ext_inp = BMVAL(etmccr, 17, 19);
-+	caps->nr_ext_out = BMVAL(etmccr, 20, 22);
-+	caps->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
- 
- 	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
- 	etm_set_pwrdwn(drvdata);
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index 284998f18017..c27865d719eb 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -53,8 +53,9 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
- {
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 
--	val = drvdata->nr_addr_cmp;
-+	val = caps->nr_addr_cmp;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_addr_cmp);
-@@ -63,8 +64,9 @@ static ssize_t nr_cntr_show(struct device *dev,
- 			    struct device_attribute *attr, char *buf)
- {	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 
--	val = drvdata->nr_cntr;
-+	val = caps->nr_cntr;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_cntr);
-@@ -75,7 +77,7 @@ static ssize_t nr_ctxid_cmp_show(struct device *dev,
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
--	val = drvdata->nr_ctxid_cmp;
-+	val = drvdata->caps.nr_ctxid_cmp;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_ctxid_cmp);
-@@ -117,7 +119,7 @@ static ssize_t reset_store(struct device *dev,
- 		memset(config, 0, sizeof(struct etm_config));
- 		config->mode = ETM_MODE_EXCLUDE;
- 		config->trigger_event = ETM_DEFAULT_EVENT_VAL;
--		for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-+		for (i = 0; i < drvdata->caps.nr_addr_cmp; i++) {
- 			config->addr_type[i] = ETM_ADDR_TYPE_NONE;
- 		}
- 
-@@ -148,6 +150,7 @@ static ssize_t mode_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
-@@ -168,7 +171,7 @@ static ssize_t mode_store(struct device *dev,
- 		config->ctrl &= ~ETMCR_CYC_ACC;
- 
- 	if (config->mode & ETM_MODE_STALL) {
--		if (!(drvdata->etmccr & ETMCCR_FIFOFULL)) {
-+		if (!caps->fifofull) {
- 			dev_warn(dev, "stall mode not supported\n");
- 			ret = -EINVAL;
- 			goto err_unlock;
-@@ -178,7 +181,7 @@ static ssize_t mode_store(struct device *dev,
- 		config->ctrl &= ~ETMCR_STALL_MODE;
- 
- 	if (config->mode & ETM_MODE_TIMESTAMP) {
--		if (!(drvdata->etmccer & ETMCCER_TIMESTAMP)) {
-+		if (!caps->timestamp) {
- 			dev_warn(dev, "timestamp not supported\n");
- 			ret = -EINVAL;
- 			goto err_unlock;
-@@ -323,13 +326,14 @@ static ssize_t addr_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_addr_cmp)
-+	if (val >= caps->nr_addr_cmp)
- 		return -EINVAL;
- 
- 	/*
-@@ -626,13 +630,14 @@ static ssize_t cntr_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_cntr)
-+	if (val >= caps->nr_cntr)
- 		return -EINVAL;
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
-@@ -1033,13 +1038,14 @@ static ssize_t ctxid_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_ctxid_cmp)
-+	if (val >= caps->nr_ctxid_cmp)
- 		return -EINVAL;
- 
- 	/*
+The recommended workaround is described as
 
--- 
-2.43.0
+"Ensure that contiguous page tables are removed using a single range
+invalidation. Arm recommends using range invalidations to remove
+contiguous entries anyway for performance reasons."
 
+and I believe we are already doing this.
+
+Which specific implementations of SMMUv3 do you have in mind that have
+errata precluding the usage of the contiguous bit?
 
