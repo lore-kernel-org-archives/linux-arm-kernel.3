@@ -4,56 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFCEEC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D69DC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lTk9HKkaCEZkNbTtcdgRDBlqeemuAp3XPisqKa2/VE=; b=0Og8T3bxGNFlxXdWgx8Odk0JlT
-	CLWU8y9LLx0Cf0hfwhJyGmCM9wi+jc/rFXtrFzql7b02UuJUzExCEd7jqvlZmSRI0ju99wC7Ke9bb
-	+k9LOZcQOpfWZLchhTaWEBM+sCN7CUJo9MxURbglwBnGVXWH+91PK0nkS801YLd814UPcxY3h0PQn
-	lKlEcC4ZGahjMdHH72VrvYWvHeS+qxKSJcatFEZCTsqG70dcDBmb6Q9KXhrMJ2fKFMx8fn14rQW1i
-	/epQVezl11tHJ8lJWAeJHsVaKNEqVTuQTrXTKtq6aRfk1f/ALX33Xo0i8Heh/T3jAzBoL5GGseMfe
-	/KBgf3BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F9mTX/KhI9tbBf8bi2+uPOVll08OAX8Onn8naecwooY=; b=VBkp9p1tfKKTd02flOAltmswVh
+	T5mo1IDMOJg4e/Wpfoz0fe9kBDt6jxrRJje04mtKZEWO78cDupDXNa/8C1GlN4gAR4NeWAZIPpgIN
+	bTeNgkpEKCY41LdT9Pp8nlloDbeEzX1FXKUZE9Ab/S8D5F1k3ZN2OvjC9ivbqPt6troWY668LHpYV
+	iw1ejCKuf9UNTrA9uNYRZJFjMlegM1dGFnaV5fvFtgp5b5PerNTdleECuZlABlQxMci9o+ujHNlAh
+	+VUV33TacyFz5+ZsBuuGwplMrOl/1C10PTRDhAGyUztEIAcIaR1JnVwQtQdZjozJBZCmUcL2ZU4Hb
+	nCLaJpVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9rwS-0000000CHiP-2hq5;
-	Thu, 24 Sep 2026 22:29:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9s3F-0000000CILW-1tIC;
+	Thu, 24 Sep 2026 22:36:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9rwQ-0000000CHiF-430V
+	id 1x9s3D-0000000CIL3-3Puj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:29:23 +0000
+	Thu, 24 Sep 2026 22:36:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0EF7601DE;
-	Thu, 24 Sep 2026 22:29:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0B1A1F000FF;
-	Thu, 24 Sep 2026 22:29:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 07EA344779;
+	Thu, 24 Sep 2026 22:36:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D884F1F0089C;
+	Thu, 24 Sep 2026 22:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790288961;
-	bh=9lTk9HKkaCEZkNbTtcdgRDBlqeemuAp3XPisqKa2/VE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Cm9MLLdMqefLdn0f4fB3SmLd0hLcSZ+vRIzYltU3WJeSP2uQBClxrlvCK52bKVzNH
-	 RZxyrR5yNE2ldL3BfleuXHv4Eu3pJ5ywTr+S/+WBO3VYKtA2rTvgIkvPQ0M5ASmEeA
-	 Js0blZ9LHCZGaFn0ec4UZ7aBSm9u1HVOMN56H87T/HDohCipgfL2pLWzS2gr1lpV3N
-	 uhItfsNx0GBvwlGsmeeulP+Fzq2oMAxxPQDFNheAIpVyA/QcFnLpUA1+/Lybe/N3iK
-	 bH30foLXBEjjJwX669zgjgrjONlko3Ynd9Z2ECo9yJDyEZTAMPOScqprzEzFKvibL5
-	 aqFowxSQz1EWA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	s=k20260515; t=1790289382;
+	bh=F9mTX/KhI9tbBf8bi2+uPOVll08OAX8Onn8naecwooY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ckxGT+4FfA/ok8lLJO245QIzG+fkjOC8FIFiLkpuTYry8yOyey/2OBNgoEpCWBunH
+	 AIut14glPRKRGX+sQnv0ITTOASutGAhKEQu5xidPQkSXLQJSdTiW1oB71wvPVl4urz
+	 KgeYmpnWUOLAj/d3d9wQ5tK2tSEXxjZ498MFro/EOqxoLZ/fDg+vzzH/0bHP14YSH5
+	 qyZaBTHdAnX2D8bXQrLmpZHqes0+ynH8H0ZfIE4y0+KzPX+L/vf4OAJiEim5A8vttZ
+	 9iKQjkWE7nIqanamz1/3O+72h3+F9yasyVpDzcydRaxuOuG7cP0J5s8jcPtr4/6An3
+	 HM+sJQBMzY0lQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x9rwN-0000000DEyP-27Eo;
-	Thu, 24 Sep 2026 22:29:19 +0000
-Date: Thu, 24 Sep 2026 23:29:18 +0100
-Message-ID: <86h5je4729.wl-maz@kernel.org>
+	id 1x9s3A-0000000DF6D-3C6n;
+	Thu, 24 Sep 2026 22:36:20 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
 	Joey Gouly <joey.gouly@arm.com>,
@@ -63,6 +59,7 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Jonathan Corbet <corbet@lwn.net>,
 	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
 	Janosch Frank <frankja@linux.ibm.com>,
@@ -79,7 +76,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>,
 	"H. Peter Anvin" <hpa@zytor.com>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -95,19 +93,17 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>,
 	Leo Soares Passos <Leo.Bras@arm.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>,
 	linux-s390@vger.kernel.org
-Subject: Re: [PATCH v4 01/14] KVM: Allow architectures to disallow pre-fault
-In-Reply-To: <arTdxHgk_3gGySOO@gremlin>
+Subject: Re: [PATCH v4 00/14] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
+Date: Thu, 24 Sep 2026 23:36:15 +0100
+Message-ID: <179028933997.3498983.13670468775554214735.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
 References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
-	<20260923-kvm-arm-prefault-v4-1-d4b0b4dfa8c3@kernel.org>
-	<CA+EHjTzDYSuBVEc+SMdDa41sq-ET=m_oWW0gL9dYf+AumPYPUg@mail.gmail.com>
-	<arTdxHgk_3gGySOO@gremlin>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ljs@kernel.org, fuad.tabba@linux.dev, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, corbet@lwn.net, mark.rutland@arm.com, rdunlap@infradead.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, david@kernel.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, svens@linux.ibm.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, skhan@linuxfoundation.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, jackabt@amazon.com, jackabt.amazon@gmail.com, alexandru.elisei@arm.com, vdonnefort@google.com, aneesh.kumar@kernel.org, seanjc@google.com, imbrenda@linux.ibm.com, Leo.Bras@arm.com, weilin.chang@arm.com, linux-s390@vger.kernel.org
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, corbet@lwn.net, mark.rutland@arm.com, fuad.tabba@linux.dev, rdunlap@infradead.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, david@kernel.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, svens@linux.ibm.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, skhan@linuxfoundation.org, shuah@kernel.org, ljs@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, jackabt@amazon.com, jackabt.amazon@gmail.com, alexandru.elisei@arm.com, vdonnefort@google.com, aneesh.kumar@kernel.org, seanjc@google.com, imbrenda@linux.ibm.com, Leo.Bras@arm.com, weilin.chang@arm.com, linux-s390@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,35 +120,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 09:22:47 +0100,
-"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+On Wed, 23 Sep 2026 16:15:43 +0100, Lorenzo Stoakes (ARM) wrote:
+> This series implements the KVM stage 2 page table pre-faulting feature for
+> arm64.
 > 
-> On Wed, Sep 23, 2026 at 07:52:27PM +0100, Fuad Tabba wrote:
-> > Hi Lorenzo,
-> >
-> > On Wed, 23 Sep 2026 16:15:44 +0100, "Lorenzo Stoakes (ARM)"
-> > <ljs@kernel.org> wrote:
-> > [...]
-> > > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-> > [...]
-> > > +int kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +        if (!vcpu->kvm->arch.pre_fault_allowed)
-> > > +                return -EOPNOTSUPP;
-> > > +
-> > > +        return 0;
-> > > +}
-> >
-> > nit: the comment above the smp_rmb() in tdx_sept_map_leaf_spte() still
-> > says pre_fault_allowed is read by kvm_arch_vcpu_pre_fault_memory(),
-> > but after this patch it's read here.
+> == Foundations ==
 > 
-> Ack can fix up I need to respin!
+> 1. Providing a generic kvm_arch_pre_fault_allowed() hook.
+> 
+> [...]
 
-I've updated the comment locally.
+Applied to next, thanks!
+
+[01/14] KVM: Allow architectures to disallow pre-fault
+        commit: caa63620f9e37a5eec4d0af13534ebd6c0d33f97
+[02/14] arm64: Add ESR fault helpers
+        commit: eb2eb48c8d72b19a7163cfc9e4b416e60f5b9e2d
+[03/14] KVM: arm64: Use ESR helpers in guest abort handling
+        commit: 18b94675b1fb22b5ce9b607f9de818d916b3da16
+[04/14] KVM: arm64: Propagate and use esr in s2fd when handling guest aborts
+        commit: 2b8033a99631b744a67a6fa5df46d0d7b3b9ab7c
+[05/14] KVM: arm64: Propagate and use mmu in s2fd when handling guest aborts
+        commit: b477bcdfa0342145084948a079b606e058066d80
+[06/14] KVM: arm64: Propagate and use kvm_s2_fault_result on S2 fault
+        commit: f1fbc7ef12caf0785fdb3ea24193dbd9c425d7b7
+[07/14] KVM: arm64: Size the stage-2 memcache from the fault MMU
+        commit: d27acc152c62f368d4d4d9d3f0faa891c154e4ce
+[08/14] KVM: arm64: Propagate EHWPOISON in kvm_s2_fault_pin_pfn()
+        commit: 33f849d808e2329f569bcd8fdbfe5ce22449466f
+[09/14] KVM: arm64: Pass walk flags to kvm_pgtable_get_leaf()
+        commit: ee26443f3dd70a961ad5e9384d5f41a8675213d1
+[10/14] KVM: arm64: Implement KVM_PRE_FAULT_MEMORY
+        commit: 34cfa9b3af17d0554ffd6c655fc1097854b49487
+[11/14] Documentation: KVM: document arm64 KVM_PRE_FAULT_MEMORY
+        commit: 28187f51e4c470c473350905141a8054ec0f1f2d
+[12/14] KVM: selftests: Enable pre_fault_memory_test for arm64
+        commit: 8ab194f836391fdcb1a8328d5ff0f0c7f0afe557
+[13/14] KVM: selftests: Add option for different backing in pre-fault tests
+        commit: c4560edbaa81291ee79a97b5e793934cea88500b
+[14/14] KVM: selftests: Add nested pre-fault test for arm64
+        commit: 6fddb4f6f76910fe0cc2d3d78872b86357899018
+
+Cheers,
 
 	M.
-
 -- 
 Without deviation from the norm, progress is not possible.
+
+
 
