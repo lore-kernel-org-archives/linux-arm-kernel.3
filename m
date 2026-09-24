@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C72C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79EAC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hMidZAi/lkVTYdE4CaWIwRpCbA7uNkOiClBSJMQKjbM=; b=JGYphBE7VEl4KD+z4O1O75OKHo
-	lOMkmBRnw+Ot0BGfLxkdXETK/M+xv2qPtmYS2vKN/Bsqw7Ml8Jmyy6+zjjJJ+ndwR7gPiZ3rco44d
-	bYCxCDvuruQUX70/Ioazc09nwg+aawnJMmco4HaQZaxAbzOYOlDJE7wPtzP6u6dHilhMm7ktsxEY/
-	dLp5tQrrtBeOAUrG1IvFMcbzyQ5Ga3HXaAfUDlYwbh8qZKYiire02flH01gTxeps90FbCJWz599XB
-	53++Mb2Dnx2xIOlC6wuD4votqTF4IUq6RTopwwlAbvhPKFZSvTfCoi/AeZq+hN+kHgOnsVe3304ZI
-	RD9hyROQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OvhWLiAmSVeUcRiZOSiSzgt8c6ktpzexIIkYN0GRrD0=; b=E4QQ5SoM/OMxF+gr6oFoKqh5a1
+	CeFcl7b+jPkm1x15DycI+ec/sKrOnYBY16E1Kuyo38cW30To5EvQNE4aLacIyw0Tsizovnk/NAtwW
+	doMbHqPiwCGJ6uYHASczFDtlO9YYNPCzwbVDCbCzRQXhz3AAckF8IYRRoA3Ty3I+0HInWuTWz+I3I
+	BWfHN9ma/OE3Tqp/N0C5lmCnMAoS7FZGWVqDLIhQCN1DoebSkE1Qpf6YwvzFyeoKn261U/bWqbXKZ
+	r6qOGiqgmPE59ZU/nUWJ1KfnP5BEKQLzkEXY8RLSkdRi9PW602c9Us9hfFxMcpRlmGW1ahQ6NZBWz
+	qHgKyadw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jIm-0000000B3eP-46w9;
-	Thu, 24 Sep 2026 13:15:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9jMi-0000000B3s5-1nFe;
+	Thu, 24 Sep 2026 13:19:56 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jIl-0000000B3eI-2OQR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 13:15:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E72EC41B3F;
-	Thu, 24 Sep 2026 13:15:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C96C1F000FF;
-	Thu, 24 Sep 2026 13:15:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790255750;
-	bh=hMidZAi/lkVTYdE4CaWIwRpCbA7uNkOiClBSJMQKjbM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h4ydg2YJoRFeMuS1nHBcEzHcYbknpqacxVnxqqGZm+gINrHzxk4X9IAEAK5GGYScG
-	 JHkpTgleM376u/iC9M714sJeuedOnIzFubzF8W6yhEMZ+OKFmtPVpXsAUcdM6MGL+v
-	 eVJcINuBcp816bJhfOVDo/Bl36+3Mpz3dBRlL4ucJdcX7nYfVGhToAuz2b3vneq6r5
-	 DH7+WHVy7FVHanWgJjLUzG4aePGwtmC66fj+eDecVdsdVkL7nyhyIvRympFXzHgDIt
-	 r/47Zaf4H9VCxAF65nmGmneJkpFjPLYb5TV/IkSGCCsj1qlirNBlMgb6/KkFSzcEKY
-	 392RPHFezEKZA==
-Date: Thu, 24 Sep 2026 15:15:45 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: arm: marvell: Add Sophos XGS 107w NPU
-Message-ID: <20260924-great-aloof-pheasant-cdac27@quoll>
-References: <20260921-send-dt-v2-0-fb6b81002ad7@studio.unibo.it>
- <20260921-send-dt-v2-2-fb6b81002ad7@studio.unibo.it>
+	id 1x9jMf-0000000B3rS-1qj6;
+	Thu, 24 Sep 2026 13:19:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ov
+	hWLiAmSVeUcRiZOSiSzgt8c6ktpzexIIkYN0GRrD0=; b=M/mnBXT4aCvmAaUIDT
+	f0rxoPud8wmEs3aWtmVNG7nfnjOLQgCuOwW6gANFWhsetTR54p0hBASfqy61/Ui+
+	ze7XHG0PaYYRUAAMXjIb3ZC0bPQpdzPLtp+wD+LhUS6UrVkt91NRSYzepH5q3MSl
+	ArAsj11ukCtPWMVYkinh/5x2g=
+Received: from pc.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3d5ROI7Vqq0FrAg--.32720S4;
+	Thu, 24 Sep 2026 21:19:26 +0800 (CST)
+From: Jiale Yao <yaojiale02@163.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>,
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
+	Javier Tia <floss@jetm.me>,
+	Leon Yen <leon.yen@mediatek.com>,
+	Eason Lai <Eason.Lai@mediatek.com>,
+	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
+	Ville Nummela <ville.nummela@kempower.com>,
+	Marek Vasut <marex@nabladev.com>,
+	Rong Yan <rong.yan@mediatek.com>,
+	Deren Wu <deren.wu@mediatek.com>,
+	Hao Zhang <hao.zhang@mediatek.com>,
+	Nelson Yu <nelson.yu@mediatek.com>,
+	Prameela Rani Garnepudi <prameela.j04cs@gmail.com>,
+	Amitkumar Karwar <amit.karwar@redpinesignals.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Jiale Yao <yaojiale02@163.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 2/4] wifi: mt76: mt7925: unwind link BSS add failures
+Date: Thu, 24 Sep 2026 21:19:02 +0800
+Message-Id: <20260924131908.950229-3-yaojiale02@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260924131908.950229-1-yaojiale02@163.com>
+References: <20260924131908.950229-1-yaojiale02@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260921-send-dt-v2-2-fb6b81002ad7@studio.unibo.it>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3d5ROI7Vqq0FrAg--.32720S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kr47trWfAr1kAFyxZryrJFb_yoW8Ary7pr
+	ZFgFWjkryDGa1DKw4UCw18ZFW0van5Kr1j9ryruw1rZws3Ar1fArWjva4UZry0kayvka1U
+	Xr4DtrnxuFZ8uaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEl1v7UUUUU=
+X-CM-SenderInfo: x1dryxhdohiji6rwjhhfrp/xtbCzR7nImq1I141qwAA3q
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_061953_836822_2039EFD8 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +95,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 02:26:42AM +0200, Nicolo Giuliani wrote:
-> The Sophos XGS 87/107 desktop firewalls combine an AMD x86 host with a
-> separate network processing unit (NPU). The NPU is a Marvell Armada CN9130
-> SoC with its own eMMC and SPI NOR flash, connected to the x86 host over
-> PCIe. It serves the front panel ports through a Marvell 88E6193X switch.
-> 
-> Document the compatible string of the NPU board, with the CN9130 SoC
-> compatibles as fallbacks.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Nicolo Giuliani <nicolo.giuliani6@studio.unibo.it>
-> ---
->  Documentation/devicetree/bindings/arm/marvell/armada-7k-8k.yaml | 7 +++++++
-> 1 file changed, 7 insertions(+)
-> 
+mac80211 does not call remove_interface() after add_interface() fails, so
+the driver must undo any state it published before returning an error.
 
-I don't know which fallbacks are right, why cn9130 sometimes has,
-sometimes does not, I guess Marvell maintainers will sort it out:
+mt7925_mac_link_bss_add() reserves vif and OMAC bits and publishes the
+station WCID before asking the firmware to add the device.  If that command
+fails, the function currently returns with those resources still installed.
+The WCID pointer then refers into vif private data that mac80211 can free,
+and the mask bits remain permanently allocated.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Use the existing link BSS removal helper to undo the published WCID, mask
+bits, and WCID resources when the firmware add command fails.
 
-Best regards,
-Krzysztof
+Commit 2fb6480c52f6 ("wifi: mt76: mt7915: unwind state on add_interface
+failure") fixed the same failure-unwind issue in mt7915.
+
+Fixes: c948b5da6bbe ("wifi: mt76: mt7925: add Mediatek Wi-Fi7 driver for mt7925 chips")
+Cc: stable@vger.kernel.org
+Signed-off-by: Jiale Yao <yaojiale02@163.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7925/main.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+index 5993b31e1aae..25ad3bbdcd2c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+@@ -439,8 +439,10 @@ static int mt7925_mac_link_bss_add(struct mt792x_dev *dev,
+ 
+ 	ret = mt76_connac_mcu_uni_add_dev(&dev->mphy, link_conf, &mconf->mt76,
+ 					  &mlink->wcid, true);
+-	if (ret)
++	if (ret) {
++		mt792x_mac_link_bss_remove(dev, mconf, mlink);
+ 		goto out;
++	}
+ 
+ 	if (vif->txq) {
+ 		mtxq = (struct mt76_txq *)vif->txq->drv_priv;
+-- 
+2.34.1
 
 
