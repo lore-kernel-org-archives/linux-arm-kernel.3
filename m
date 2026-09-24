@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEADC9831D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00691C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QnLQKdVs59WnyvZJejYLL5JWNbJS94oGp7Pxe0iKxI=; b=RKnOgMeeYjC1MeH/zNY00gFHLz
-	jZ42mxsCCBUBhz52xlqf6itQ1Jf3rx8g60390YYCoLb+q8xTq2F8Okl86Aea754qTRyYr8kd+RcWd
-	41JRtlMlOrSz2egBFHCqwah++PkuabMLcLvlaKUoYE62C4M8fJ9Pz2a+6FOdZIepfc3awlk38hCpa
-	IaLWaAadCktQTL7dPRcpaaBAL457G7ohBxmQbxKLPj5pCRXK4dKz5Qjw1sJzjrk32bakBwgKc8v5D
-	lj8uSPkfBIyam5Z5wtaQ2kAQEloWqWGxR5xjThtGROxx31t43weCoTD2Ht+7KvoE7o2xVjEu0Xrqt
-	PmxJ51uw==;
+	bh=WooKxSWp5+7w/ZcuqR2kzT/R011tLmNtXUvNvyQbLxE=; b=EaanUANCvl39kxa0OZacbZr5GI
+	PB7fSe8/uDgV6mz3FIInFbNkI5oeDDNnO/uDwHnm7FER1uLQqALp8CCPg4wL3W/xd8kaZ4uECPzSn
+	JZE4K3KlBrjq4LS/WplMFOfj/qZXdOpca+FdbDm2q0btb67HcuSFsUnHsl2syv3AGKrKlJLCa59JZ
+	QTfvsdgtzM6zK+VgN6wardSiWykBy8QWxlnb3DLiWlhVHTbSucEnUgA4MTicjvyXZ9165iz/nQLj6
+	3v93mme+1yPI9nMZ4fqjidhRQx6SCr84uQIbQAizdld9NAwl86x8pf9MEiF1sJD/QKIHY0zJj/Gwb
+	BUxBmwcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iyb-0000000B1U6-2RvY;
-	Thu, 24 Sep 2026 12:55:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iyZ-0000000B1Sx-0ZPP
+	id 1x9izf-0000000B1fs-37xK;
+	Thu, 24 Sep 2026 12:56:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9ize-0000000B1fm-2ozx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 12:56:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=WooKxSWp5+7w/ZcuqR2kzT/R011tLmNtXUvNvyQbLxE=; b=Cy3j6JzpAd8Cpb2+8JnIuONEYF
+	c27/VSdmzkxDGCIiO4eVdtMUP2vsLCkVhOpE6jiHEWSM1ivMYhejKcLBC9Xjkkm6No2QC0lzjaXVl
+	jAwQXqv5C/i9nSLO7F/LFdUcZBQgybfxjRpb5dhRexMVkrYw3rM7ooDF+CVqtRwaJYvTXR5i2lM/x
+	on7ZNEiX8XewwpYzj7I+QmfE/+KEETAjHTGdll6j3wT+NoFKJrLvc2A6m7zKSeG9zEP1Spqk3GvwI
+	JuWyrqPh9qSyTpXGr1zU5HtAFRPbmCw08x6C7O0RTVGn9CVFC4bsYRa7cXkmtPHB7mnaI2DO5lEKk
+	z8AAkPAw==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9izb-0000000Fzmg-2X2z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 12:55:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8FDE152B;
-	Thu, 24 Sep 2026 05:54:54 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 436243F86C;
-	Thu, 24 Sep 2026 05:54:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790254498; bh=aWV7PEMYjMS6Fa0gt8KRQnHPb2wOFgC/5kQomSEy/t0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sE7U6I9hopp3qF+bsG556752RndTtqc79LGscXR6qhlL0GRwOUSNviMC2mBGiBnxm
-	 1PP6n5OarQPMDA4H1vCHAhAezpby9eImipwm8AeQn3bpBtZe59x4oZfAVUx9q3c+Zk
-	 +USydU570tjM5UbJAgsPRCH/K7czyiGjd3bRO29o=
-Date: Thu, 24 Sep 2026 13:54:54 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] arm64: Use proper include variant
-Message-ID: <arUdntLjLT6BD6zJ@J2N7QTR9R3>
-References: <20260924-syreg-incl-v1-1-a3097a8ccc74@linux.ibm.com>
+	Thu, 24 Sep 2026 12:56:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=WooKxSWp5+7w/ZcuqR2kzT/R011tLmNtXUvNvyQbLxE=; b=1wKXFamb0XGKIsLJQ81FM0af36
+	yr1BhcmXo+KunorNssde+pcUZTWF4bD0w6lYX16pq5M+RUzAIk7aQTojBm6GLBDX9xX4SlhwfYhjj
+	UNqD5KDprVcoKlJPtYZoI2Rb5Tz9nh1hyXvw1hbQDDCJY2u7lgkLUH4xFD7If3hrboJM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x9izS-006zgF-SY; Thu, 24 Sep 2026 14:55:54 +0200
+Date: Thu, 24 Sep 2026 14:55:54 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH net-next v3 3/5] net: stmmac: sun55i: Make the delay step
+ configurable
+Message-ID: <c2de8c6b-807c-4308-90b5-cfe40c73fd0f@lunn.ch>
+References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
+ <20260923-allwinner-a733-gmac-support-v3-3-15735155a789@baylibre.com>
+ <26334006-a2af-49d3-8f26-18cd44118c6b@lunn.ch>
+ <1j4iff9gig.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260924-syreg-incl-v1-1-a3097a8ccc74@linux.ibm.com>
+In-Reply-To: <1j4iff9gig.fsf@starbuckisacylon.baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_055459_224694_66CAD5D1 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20260924_135603_779504_661B50F7 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +104,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 12:57:18PM +0200, Steffen Eiden wrote:
-> Use <> for including the sysreg header as it is not discoverable from
-> the current directory.
+On Thu, Sep 24, 2026 at 10:53:59AM +0200, Jerome Brunet wrote:
+> On jeu. 24 sept. 2026 at 04:30, Andrew Lunn <andrew@lunn.ch> wrote:
 > 
-> Acked-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> >> +	 * Correcting them would break the DT ABI of the published DTs.
+> >> +	 */
+> >> +	.txdly_step_ps = 100,
+> >> +	.rxdly_step_ps = 100,
+> >
+> > Could you be a bit more specific about what published means?
+> 
+> DTs like those ones:
+> * https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts?h=v7.3-rc4#n88
+> * https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts?h=v7.3-rc4#n87
+> * https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts?h=v7.3-rc4#n106
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+In tree. That is fine.
 
-I'm surprised that happens to work today, but evidently it does.
+I was initially thinking it might be out of tree. Those we don't care
+about.
 
-Mark.
-
-> ---
-> This is just a spin off from [1]. There is no in-series dependency for
-> this patch and it fixes a minor issue. Using " for the include file does
-> not break anything (now) but it is not right as well. For [1] we need
-> this to correctly transform the includes to a new path for the
-> s390-generated version of this file.
-> 
-> 	Steffen
-> 
-> [1] https://lore.kernel.org/all/20260918133107.1042730-1-seiden@linux.ibm.com/
-> ---
->  arch/arm64/include/asm/sysreg.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 7aa08d59d494..4bfdac9401bd 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -173,7 +173,7 @@
->   * come from here. The header relies on the definition of sys_reg()
->   * earlier in this file.
->   */
-> -#include "asm/sysreg-defs.h"
-> +#include <asm/sysreg-defs.h>
->  
->  /*
->   * System registers, organised loosely by encoding but grouped together
-> 
-> 
-> 
+  Andrew
 
