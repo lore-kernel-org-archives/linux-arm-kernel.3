@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476A2C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 17:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95973C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 17:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NdOVtv43CHf2CxrpTi7sdO3zswv8R0WYHoLKnoRI4Uk=; b=ScEhP2o2JAmDgixc7ub5Xvg/VD
-	C5sw5N5QDy0hHk4QahKz9GnWp259lIDrP/SeMJaOn6FURxGJfhBqZn/kSRY48iGRkm4ZD9kko2STU
-	45lWArzkF4Xm15ORgEIaxJiaoBpTwZ0/Wq0WGq3VyxKwfLvTW5XZSCb238rgA8tD7Aq8w67PxbGUW
-	faGpKJchosFl9tYBVZUKM0YRPde9ZW2EJO+2VoAX3paepu6dYjylGaDoMDEwlDMHUZSbbgMcIy/YZ
-	p/KyeEYDfS2rMPdzuFXpL6DiqrWxyli/e+PQWoiL+rx8YPhiRTYwwQoD+TWFeKsF0qCVKxWhXTxM4
-	nIF9GApQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U2firQdSXga2Oxdw//orFvwTW23XIbwFiY3tULCcauc=; b=votMKQ/vYowMBvboeJ4WTWu0yV
+	nAu+c/L+zKYWqX85J0Gr+v7iq5PcucubPQAPpcQrHVLWr8u8PZnVrkY9xQmx5ZstgX8cAw40dTbTu
+	MtphCISRNof7u+E5DZnCHx4BxEBemEALpI7NPh3I0J+9kD0btIWFvTdsin3tBRIprLk80W4DDhpXS
+	O1eXJyDlQPsl2+/273RXSnf0gGwvcDKxc+mlh1Qa92vwPwTP7aEJemmzcqnyo6yoWNUVrY3a+mUn6
+	8rrQoIkvRv9PGMuxSRKNNhnj293YYj6WizUdM28KVtG9keog8fBQLwPPyf8IDx6SPv9FVyL9GgWln
+	S20JE0Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA9OJ-0000000E2Tv-1aUk;
-	Fri, 25 Sep 2026 17:07:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA9OG-0000000E2Sy-1nnD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 17:07:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B9EF169C;
-	Fri, 25 Sep 2026 10:07:11 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F93D3F86F;
-	Fri, 25 Sep 2026 10:07:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790356034; bh=ixzfrU8lMEsDTomOcbMGSENbu/A9XPEY12QX9G9g3I0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EHpt1dnkgmEtCXRicfI03eywssdpZdbGJitm2LyU3/txbYynDGJW9GXrNQawbZEyw
-	 3QDLIL1w9E0vjFWl3xfYaRKn3caSX1J1hyvAayOZ7OCj9NKUhHV57vPR+0QirXYeeJ
-	 MOzJAeppFl24SLREnFIB5jWlehs2ggbnYJhv2Z8s=
-Date: Fri, 25 Sep 2026 18:07:08 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Will Deacon <will@kernel.org>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, maz@kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
-	gshan@redhat.com, joey.gouly@arm.com, tabba@google.com,
-	yuzenghui@huawei.com, linux-coco@lists.linux.dev,
-	gankulkarni@os.amperecomputing.com, sdonthineni@nvidia.com,
-	alpergun@google.com, fj0570is@fujitsu.com, WeiLin.Chang@arm.com,
-	lpieralisi@kernel.org, enju.kohei@fujitsu.com
-Subject: Re: [PATCH v18] arm64: mm: Handle Granule Protection Faults (GPFs)
-Message-ID: <araqPCdcSnqZqPWz@arm.com>
-References: <20260913070459.2547407-1-suzuki.poulose@arm.com>
- <arK3tsTV6EDhI-nt@willie-the-truck>
- <arOyp8WUrYBAjrGH@arm.com>
- <arP0IF0MjFUv36AP@willie-the-truck>
- <49dcab27-1d03-4df2-b7cb-4df4eda6d909@arm.com>
+	id 1xA9RJ-0000000E2oM-3Z7L;
+	Fri, 25 Sep 2026 17:10:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA9RI-0000000E2nx-0tiR;
+	Fri, 25 Sep 2026 17:10:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 98016434F7;
+	Fri, 25 Sep 2026 17:10:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37D81F000FF;
+	Fri, 25 Sep 2026 17:10:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790356223;
+	bh=U2firQdSXga2Oxdw//orFvwTW23XIbwFiY3tULCcauc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=hyHfbKVesXRG1nwKuJHm9f3ENMwBl6TOyR9EMWaH1u4nu6pLUZg2lrhbz6pMc0KsZ
+	 PWw7Ip3xee7qoj+xUp6jmu9KLwqFHttLN8RKo12nBpntw1rIxyu6GlNtcgqbKOkKmQ
+	 sfzhl9gEGt95O2n/2ct45SY2wd1ev6yU6k2QY9zrQrtFJpWXji3e2TucqZ8tLWWlEa
+	 7sA3VVRp9lYYDVV3q0GmDW/2hi4KLNSdjzdoCGW7xWkUdK2IVgG9BGyFZsDKJiGqcm
+	 dx17/5VBnc3wLVx5QTy0SU/pUK8lb9yipBF6Bfp7q8DmSVMhSmiFHOss3ZEd6JIgSp
+	 tK7SHx5oNB7Fw==
+From: Mark Brown <broonie@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>, phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Cezary Rojewski <cezary.rojewski@intel.com>, Kees Cook <kees@kernel.org>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, 
+ Douglas Anderson <dianders@chromium.org>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260907120310.135693-1-phucduc.bui@gmail.com>
+References: <20260907120310.135693-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 0/7] ASoC: mediatek: mt8188: Improve error handling
+Message-Id: <179029027295.149798.15849509210449707210.b4-ty@b4>
+Date: Thu, 24 Sep 2026 23:51:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <49dcab27-1d03-4df2-b7cb-4df4eda6d909@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_100716_593002_B1C3BC40 
-X-CRM114-Status: GOOD (  36.93  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2301; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ms+alJe0zYRhtHTH6fiIZKYjQe4B7jjV89D4uoFve00=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqtqr69kr5v8xZDCf+saA655wgf5ZerHyA0TvAn
+ iHLaHPI7NeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaraq+gAKCRAk1otyXVSH
+ 0KK1B/0QoMqxmDmmJZzwx3d4Pu8uqUaJ5m3FWatvkhiyTsLNPyvzI0I+tvkODz+mTtJ/rO1UIgX
+ NmDThpIErV/9WJ5JYHTOUrZ0n2Il0I1V+TtKm+3C34MJlKUv1vasZQq9IZ7ck0Gx7s5TjHBqtne
+ ZB/cHop0jxEHMRUbjuN/k3/uU4t3yPU/gXpDw9aLImi6hDQp5IBzN1vBUrKrPsimGL7o65Lvmwh
+ yadNSY+28PHtMLM9Q6CDx11ntsTkJ79IBk4ZyjjExDh4sZPNqFBZ3Rtnl7bKmOu2IMxl9KXzUib
+ p8yE625OrGLZpOxURdOWZZ85Y2g4nlLx0Ysh3pv395NUugPY
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,84 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 05:04:06PM +0100, Suzuki K Poulose wrote:
-> On 23/09/2026 16:45, Will Deacon wrote:
-> > On Wed, Sep 23, 2026 at 12:06:15PM +0100, Catalin Marinas wrote:
-> > > On Tue, Sep 22, 2026 at 06:15:34PM +0100, Will Deacon wrote:
-> > > > On Sun, Sep 13, 2026 at 08:04:58AM +0100, Suzuki K Poulose wrote:
-> > > > > From: Steven Price <steven.price@arm.com>
-> > > > > 
-> > > > > If the host attempts to access granules that have been delegated for use
-> > > > > in a realm these accesses will be caught and will trigger a Granule
-> > > > > Protection Fault (GPF).
-> > > > > 
-> > > > > A fault during a page walk signals a bug in the kernel and is handled by
-> > > > > oopsing the kernel. A non-page walk fault could be caused by user space
-> > > > > having access to a page which has been delegated to the kernel and will
-> > > > > trigger a SIGBUS to allow debugging why user space is trying to access a
-> > > > > delegated page.
-> > > > > 
-> > > > > There is work in progress to unmap the guest_memfd backed private pages from the
-> > > > > linear map. Until we get that support, we could get spurious GPFs from within
-> > > > > the kernel, e.g., load_unaligned_zeropad(). So, try to fix them up for now.
-> > > > > 
-> > > > > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > > > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > > > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> > > > > Signed-off-by: Steven Price <steven.price@arm.com>
-> > > > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > > > > ---
-> > > > > Changes since v17:
-> > > > >   * Pass untagged address to die_kernel_fault() - Sashiko
-> > > > >   * Explicitly check !user_mode() for fixups - Catalin
-> > > > >   * Switch to BUS_OBJERR for si_code from SI_KERNEL - Catalin
-> > > > >   * Clarify the commit description about the upcoming work on
-> > > > >     unmapping guest_memfd backed pages from linear map
-> > > > > Changes since v16:
-> > > > >   * Update the commit description to indicate why we try to fixup GPFs
-> > > > > Changes since v10:
-> > > > >   * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> > > > > Changes since v2:
-> > > > >   * Include missing "Granule Protection Fault at level -1"
-> > > > > ---
-> > > > >   arch/arm64/mm/fault.c | 30 ++++++++++++++++++++++++------
-> > > > >   1 file changed, 24 insertions(+), 6 deletions(-)
-> > > > 
-> > > > I still don't think we should do this, given that the plan is to unmap
-> > > > the memory from the linear map. If this thing fires, it's a kernel bug
-> > > > and it should be fatal.
-> > > 
-> > > If the linear unmapping gets merged first, I agree, no need to handle
-> > > these faults. I haven't followed that series, so no idea where it is at.
+On Mon, 07 Sep 2026 19:03:03 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: mt8188: Improve error handling
 > 
-> There doesn't seem to be much progress on that series. Brendan
-> volunteered to resurrect the series, taking over from Nikita [0].
-> But looks like Brendan is not working on this anymore. Will see
-> if someone is really planning to look at it.
+> From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> [0] https://lore.kernel.org/all/DJJ35VLH2PE5.DFD8OYXEOH97@linux.dev
+> Hi all,
+> 
+> This series improves error handling in several parts of the MT8188 AFE
+> driver.
+> Propagate errors from clock, regmap, and runtime resume operations,
+> remove redundant probe error messages, and fix clock cleanup on
+> registration failure.
+> 
+> [...]
 
-I just realised that this only solves part of the problem. Normal kernel
-allocations are delegated RMM metadata and they'll also trigger GPF
-faults. Kdump is another point raised here:
+Applied to
 
-https://lore.kernel.org/all/a11aba04-eaaa-43fd-988b-a2581b1b2fdb@arm.com/
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
 
-I think rmi_delegate_range() covers the non-kdump cases, both for
-metadata and realm memory, we could unmap the linear map there (map it
-back in rmi_undelegate_range()).
+Thanks!
 
-For kdump, we have /proc/vmcore that may be mmap'ed or read() syscalls.
-I think Alper proposed an idea to use copy_from_kernel_nofault() (with
-exception recovery in do_gpf()) but we'd still need to block
-mmap_vmcore() or somehow handle SIGBUS in makedumpfile unless it does
-this already.
+[1/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Propagate clock initialization errors
+      https://git.kernel.org/broonie/sound/c/691c4aac5ae5
+[2/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Handle tuner clock enable errors
+      https://git.kernel.org/broonie/sound/c/a2c3ee3349a7
+[3/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Propagate regmap update errors
+      https://git.kernel.org/broonie/sound/c/60a8112a088a
+[4/7] ASoC: mediatek: mt8188: mt8188-afe-clk: Handle clock enable errors
+      https://git.kernel.org/broonie/sound/c/1b65c13d1af9
+[5/7] ASoC: mediatek: mt8188: mt8188-afe-pcm: Handle runtime resume errors
+      https://git.kernel.org/broonie/sound/c/f5f6941d9297
+[6/7] ASoC: mediatek: mt8188: mt8188-afe-pcm: Drop redundant probe error messages
+      https://git.kernel.org/broonie/sound/c/a79f2432ee89
+[7/7] ASoC: mediatek: mt8188: fix clk leak on error in audsys_clk_register
+      https://git.kernel.org/broonie/sound/c/6cddf6e56d25
 
-So, I think we should revisit the GPF handling. If we manage to unmap
-all delegated pages, we could limit the exception handling to
-is_kdump_kernel(). Otherwise we keep the exception handling as proposed
-earlier, maybe with some warnings like EL0 access.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
--- 
-Catalin
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
