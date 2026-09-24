@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5763FC98324
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 19:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ADBEC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 20:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ey6b9J6JTCAdDyPCmyu7ZPWWXKKJBMlV1jmUHeXwjx8=; b=NSmzZLjFDayeuHZXqlD3A6v6Xg
-	3SeTs1SyIcZYw6DOY9VpGd834tLm2qaMzU4bjwMYCm3E24tCPEA3zBffCbK5IiCUlhMsJfLXylQxf
-	CjI2fjxnR9YhGD02aLWnJRkmmDvFyxbvuVaqopEtfnb6mesw2J7iOBPZ9x/DDlfP72BGIw+ZuK2VU
-	f/uvxcWLibq/uF+M90I+IhNenCzE41URv0vYy8wfLMer8/yRRDfIYViXSTrmhStQHfXHE6pAUFPkV
-	lZV6t9XjYC5in8sugccv4zw/29eisOiIuvC/4T4JL9XvgPDwI2vhIjF8Uzij+FAU5tPZdUfJfMVRx
-	sDB/tnXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hs0BCzAcMdmg/2IuD/yqkyZ4uXNT7Lvbg77vbPufmLA=; b=hnvoXcw/ntl1vYebGZmhWJNUay
+	Kx+LFdVvQ/Rl6icJ3r/KZCgOy0XDbj1fN5hB5HetZuxs2wPovmFzw7gQMewLUIxVgpUfg91Wk9xbV
+	nWEU5HB64pB9NFCPUKJVLlTKMSb0nGbCCe6vLeYcB5WwJ9aTLO1AtwPnZrqNCG4HqNUunfdLTp58i
+	YzRssz9bXO5hPOs464Embye2UTrFwuvprTnhHbIxXmCMplxRM/5GeXwXMp2mxD7thzCqqb99mMmRV
+	yYtcDzT9KvsxiK732iTrTPAirbU8rJAHdLYTpZKuOt0+2tG5NFNcZEjhD4PCSWMfroHVp40dgOAnh
+	ulZYdUEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9pan-0000000C5im-399x;
-	Thu, 24 Sep 2026 19:58:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9pl2-0000000C6wf-2DGT;
+	Thu, 24 Sep 2026 20:09:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9paA-0000000C5Lv-21mz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 19:58:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ey6b9J6JTCAdDyPCmyu7ZPWWXKKJBMlV1jmUHeXwjx8=; b=AdZdDRwZ6VwATHcivnc/vl1olf
-	w9Mmsr+0zy5hea+wC9RyQ5F0Gl2lnVAgQU1PThlKJlNPaPudbqakeNsooKEZlGtj9JvoBFaiy4sjh
-	u4xrXn5CE4+TONfjuybOCOvrKisrwUmiTLBhLDjgSHCTcdFT+E+adQs6cyFUjazhnJIkCp5oDw61Q
-	6R8e0uz3TD0bA3+HvcleRQtbQxbweoUrW2tSUgrwIL7IYr+qO9XEkJiooZIFkaZ3QxPwsvxtjCl+C
-	/z9VeSvfN7+5nk9gN3E/KDUN2BlkGVftTmSMmnW1Fb0v6oHm4qSDkyGB+dQ0RrurzDRlxoVUqPd95
-	8Hno7LVA==;
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9pa6-0000000GNqR-48A4
+	id 1x9pl1-0000000C6wU-1Fn1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 19:58:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1790279895; x=1821815895;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=c5Izg07tkdc5eWh/EbdJlKt5hNZ4OwsKWgWyQGIZoTY=;
-  b=ukzzYa1+xFBGNJ3tQOHfurHWXb9S54F7ay98Gg/TavXmCCGDsmX7e3eZ
-   uR4BHw+S2CwDMsA1YIQE+Sqhh8wPl8qzsclKv/R9XO+2kL1wJERt1CdbA
-   yP1XMlqirxT2KXBlnAqRLwrBQy6EyEzZEx6RcWYc8kpWyG5E9KpBR5Wzv
-   1hCMcPxdNs+R69OBexQs/WC+FqOI8WPMf0MgEVa2yanI1FloyskNqbAnL
-   5ZRncvmn4fTQ3Whq69HuBkxcb5+eCm22OX7O9WMPqmUB7Jq9KUk0xeIbO
-   UMc5TnSLGWToEDsDww6dsu8x9axLRhGlDYHxi8SEjzuPJoZQFWf0Q3Azj
-   w==;
-X-CSE-ConnectionGUID: gukwD5jJQt2CF3VfsLI/aw==
-X-CSE-MsgGUID: mclnWOHIQvG9DxmhCqkINA==
-X-IronPort-AV: E=Sophos;i="6.27,121,1787036400"; 
-   d="scan'208";a="74257273"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Sep 2026 12:58:09 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 24 Sep 2026 12:58:04 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 24 Sep 2026 12:58:00 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 24 Sep 2026 21:57:02 +0200
-Subject: [PATCH net-next v8 14/15] misc: lan966x-pci: dts: extend cpu reg
- to cover PCIE DBI space
+	Thu, 24 Sep 2026 20:09:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BE3CA600D4;
+	Thu, 24 Sep 2026 20:09:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C0CB1F000FF;
+	Thu, 24 Sep 2026 20:09:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790280566;
+	bh=Hs0BCzAcMdmg/2IuD/yqkyZ4uXNT7Lvbg77vbPufmLA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=THlq8f9Hl62x4ls2dnUjMGhrSNes8l8s0YvvCZd69ctiIPvfrl84s8BWLONgNX3Om
+	 Y41uD0ZJup5HtZVPKuEDfPPu16HveN65LgndtH65a4N4x9/EOZ1Kf5lgI0wpV3I13L
+	 YUeKarcmAO4vivCopo0vV7/kwtcC8YVwax3AtlZFgL9vbnOuYpf/kVujCdXf4lWWQJ
+	 VC3YYrUN6B8YbxWlIo4ZQCm2iM0DbKmp0/QE+djN2MPei5KkNPvF0XxRr4/9yZw1Wx
+	 cEjg4pJ2zeS2rxkUFCo/TzENjw9LOf5PuuOuWc/DB6GyJGA0qu2UzmZM+YvSAMRy4B
+	 NLwNNMuZei1vA==
+Date: Thu, 24 Sep 2026 22:09:22 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Michal Simek <michal.simek@amd.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Raviteja Narayanam <raviteja.narayanam@xilinx.com>, 
+	Wolfram Sang <wsa@kernel.org>, Manikanta Guntupalli <manikanta.guntupalli@amd.com>, 
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v6 1/3] i2c: xiic: preserve PEC byte length in SMBus
+ block read setup
+Message-ID: <arWC6PFh3YVgU1Pd@zenone.zhora.eu>
+References: <20260923-i2c-xiic-v6-0-3a15b6397f5a@nexthop.ai>
+ <20260923-i2c-xiic-v6-1-3a15b6397f5a@nexthop.ai>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260924-lan966x-pci-fdma-v8-14-201c7b707d8b@microchip.com>
-References: <20260924-lan966x-pci-fdma-v8-0-201c7b707d8b@microchip.com>
-In-Reply-To: <20260924-lan966x-pci-fdma-v8-0-201c7b707d8b@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Steen Hegelund
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
-	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Herve
- Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
-	<mohsin.bashr@gmail.com>, "Simon Horman" <horms@kernel.org>
-CC: Richard Cochran <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_205811_649792_3424058E 
-X-CRM114-Status: GOOD (  11.88  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260923-i2c-xiic-v6-1-3a15b6397f5a@nexthop.ai>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,33 +73,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ATU outbound windows used by the FDMA engine are programmed through
-registers at offset 0x400000+, which falls outside the current cpu reg
-mapping. Extend the cpu reg size from 0x100000 (1MB) to 0x800000 (8MB)
-to cover the full PCIE DBI and iATU register space.
+Hi Abdurraham,
 
-Tested-by: Herve Codina <herve.codina@bootlin.com>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-Reviewed-by: Simon Horman <horms@kernel.org>
----
- drivers/misc/lan966x_pci.dtso | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+there is still another issue here.
 
-diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
-index 7b196b0a0eb6..7bb726550caf 100644
---- a/drivers/misc/lan966x_pci.dtso
-+++ b/drivers/misc/lan966x_pci.dtso
-@@ -135,7 +135,7 @@ lan966x_phy1: ethernet-lan966x_phy@2 {
- 
- 				switch: switch@e0000000 {
- 					compatible = "microchip,lan966x-switch";
--					reg = <0xe0000000 0x0100000>,
-+					reg = <0xe0000000 0x0800000>,
- 					      <0xe2000000 0x0800000>;
- 					reg-names = "cpu", "gcb";
- 
+...
 
--- 
-2.34.1
+> @@ -546,23 +552,26 @@ static void xiic_smbus_block_read_setup(struct xiic_i2c *i2c)
+>  			 * Receive fifo depth should set to Rx fifo capacity minus 1
+>  			 */
+>  			rfd_set = IIC_RX_FIFO_DEPTH - 1;
+> -			i2c->rx_msg->len = rxmsg_len + 1;
+> -		} else if ((rxmsg_len == 1) ||
+> -			(rxmsg_len == 0)) {
+> +			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
+> +		} else if (1 + rxmsg_len + pec_len < SMBUS_BLOCK_READ_MIN_LEN) {
+>  			/*
+> -			 * Minimum of 3 bytes required to exit cleanly. 1 byte
+> -			 * already received, Second byte is being received. Have
+> -			 * to set NACK in read_rx before receiving the last byte
+> +			 * The HW needs SMBUS_BLOCK_READ_MIN_LEN bytes on the
+> +			 * bus to exit cleanly: by the time the ISR reads the
+> +			 * length byte the second byte is already being clocked
+> +			 * in, too late to NACK. Pad the drain target and record
+> +			 * the real length, trimmed back on completion so the
+> +			 * PEC check sees the right byte.
+>  			 */
+>  			rfd_set = 0;
+>  			i2c->rx_msg->len = SMBUS_BLOCK_READ_MIN_LEN;
+> +			i2c->smbus_actual_len = 1 + rxmsg_len + pec_len;
+>  		} else {
+>  			/*
+>  			 * When Rx msg len less than Rx fifo capacity
+>  			 * Receive fifo depth should set to Rx msg len minus 2
+>  			 */
+>  			rfd_set = rxmsg_len - 2;
 
+what if rxmsg is 1? Before this could never happen because we
+were checking for rxmsg_len == 0 or 1 and we were ending up here
+for values greater than 1.
+
+In patch 2 you fix things, but we don't want to have dependencies
+between patches.
+
+Andi
+
+> -			i2c->rx_msg->len = rxmsg_len + 1;
+> +			i2c->rx_msg->len = rxmsg_len + 1 + pec_len;
+>  		}
+>  		xiic_setreg8(i2c, XIIC_RFD_REG_OFFSET, rfd_set);
 
