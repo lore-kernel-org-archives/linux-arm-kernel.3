@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF18CC98310
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0670BC98310
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S/8lUKp9mIX5d6BKwHywb1J2XqYuMwPVrIBYkOuLxkI=; b=cxPWXAjjBQRCA12Z80IZwg2ThM
-	pSOGVZGRvUMth2WsQ0TikebrXUKu5IIM1GSs3LqHZFrT84JdNoB6nZNr3yNK+NepClhDLFnS1y79w
-	pcEd++MY0rJl/NTfhxQegrzSmyvmbZVFpWKnjsjiaiIZtErD6EevDpnEHU6el8PZ5gHa3KpXbpaXf
-	aapEUKAi+lka8mBxhs34ettUT9ity0ryQXrUAR42fNybZtefUg2Qd91OPZcw70zHh+bU203ITQ9IY
-	W9KZzhtGfziZAKVOty389OnZ5YWmfbm+9FoJxjlVRRrMhKFe8+3woE3Sq6tdRfiEWaet9sQIhrNPJ
-	A5BqyysA==;
+	bh=GsmgnhaFqTMEMgV8Zn0uR04tPAkg7R3E1Z3BnGPBPGU=; b=sW2Gz8qE4jjyIjdV1h+GeIue85
+	caU9AUmS23vzE2+IHG02/9k2qYX3aojRVK1LelfJJ9NJ3bVU6mnPDAH6FJWG+RqoYPARIGQ0ky+4d
+	JHT/FLf6jgfULVxT45FxUvdI9Tpu43fZF7fcx8dhh47f4iNzmMmzdIr+TjEBlQQKxU15ZkryjxKep
+	MAxg8pT2eFM1Kgv/eMDy3/PmA/x0rYEnb4NKj9aAgH9tf5d+RM8bAKSV5AcFEQW66V3cr+q2dQXLw
+	A9fEjDCHxPPLrnwGdvvka9MO4i1nHRtKsx4JMI8Gqmuut70Lh6S6ksR5+cus2sIdfUjMhLv6Le+no
+	M2TiZsnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ejN-0000000APz9-25sL;
-	Thu, 24 Sep 2026 08:23:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9eoS-0000000AQfj-15ly;
+	Thu, 24 Sep 2026 08:28:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ejM-0000000APyp-2Aeo
+	id 1x9eoQ-0000000AQfW-3vBi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 08:23:00 +0000
+	Thu, 24 Sep 2026 08:28:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E55944375D;
-	Thu, 24 Sep 2026 08:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09CC31F000FF;
-	Thu, 24 Sep 2026 08:22:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 426AD40B14;
+	Thu, 24 Sep 2026 08:28:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922081F000FF;
+	Thu, 24 Sep 2026 08:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790238179;
-	bh=S/8lUKp9mIX5d6BKwHywb1J2XqYuMwPVrIBYkOuLxkI=;
+	s=k20260515; t=1790238494;
+	bh=GsmgnhaFqTMEMgV8Zn0uR04tPAkg7R3E1Z3BnGPBPGU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LKRk7Yef7xIRXywmYt9T9p8ZQrbVXd7n+swMMEKmBp2zOWJ7YgL2ycv5JC3WOiQE8
-	 r75OCp43XzZPdNxIfpBLHg8Hyxi3VbuxfkXtmHo/dsPoPHl8sDvZWu5skYpaz/3h6B
-	 I8leYeJmIZKqLPggRWdGz6bna2VuECRUlAG++6RMWW3kP9Ou/obf8jtu4nbr1c6rOu
-	 p3GbpdB08d3+J+pskLku3PjKjTCWIia2EGwx7LWnwDYmTt+kSnV9PQR3jRSJV1zKOd
-	 xCU7kf9CeR9HBun9nMQR9UiRg5w6NUmieCFF/EbxzD2C2y9Km6mTqbnlX54j3TFiCv
-	 KozGf/TKQzglA==
-Date: Thu, 24 Sep 2026 09:22:47 +0100
+	b=AkMJC5JAXk/pX/+kR1K2A+X2qR9dHg/cylkIMUSRwxnRpKTJ8o90TZd6MY9zQFCgt
+	 OqAf46Hj4z8Mm/IgP1xpEh9SMBAnhYIqehxrr1GWRYnLDX5YCkgJDQLpAhF7xz8y+p
+	 WB6yMcowxeNwJSKaCYZk2KnXTLf6vcUYIc8o/MXvCU/4SHrXx7guEr5MWwkscKgopx
+	 WwInTzGX2U50sJSoJ/pD7y/ZcejotJCWowo8ra/iIr7o6GyeHHr3t9tt2la+h/6Hu6
+	 YzO1iqOvVMXiO5kuKSXZ5sITsGtan+25tRvkmvx82GrE3OpJFbPXDsN2aQojmTeehj
+	 KpCOSPkuwbljg==
+Date: Thu, 24 Sep 2026 09:28:02 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: Fuad Tabba <fuad.tabba@linux.dev>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -65,15 +65,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Sean Christopherson <seanjc@google.com>, 
 	Claudio Imbrenda <imbrenda@linux.ibm.com>, Leo Soares Passos <Leo.Bras@arm.com>, 
 	Wei-Lin Chang <weilin.chang@arm.com>, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v4 01/14] KVM: Allow architectures to disallow pre-fault
-Message-ID: <arTdxHgk_3gGySOO@gremlin>
+Subject: Re: [PATCH v4 13/14] KVM: selftests: Add option for different
+ backing in pre-fault tests
+Message-ID: <arTe9AprfA3CVs9Y@gremlin>
 References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
- <20260923-kvm-arm-prefault-v4-1-d4b0b4dfa8c3@kernel.org>
- <CA+EHjTzDYSuBVEc+SMdDa41sq-ET=m_oWW0gL9dYf+AumPYPUg@mail.gmail.com>
+ <20260923-kvm-arm-prefault-v4-13-d4b0b4dfa8c3@kernel.org>
+ <CA+EHjTyPyy-Z=HAMOz6pUHrz_X4O+Lx3cQ6Ay_Wt+tnc1WDU_w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTzDYSuBVEc+SMdDa41sq-ET=m_oWW0gL9dYf+AumPYPUg@mail.gmail.com>
+In-Reply-To: <CA+EHjTyPyy-Z=HAMOz6pUHrz_X4O+Lx3cQ6Ay_Wt+tnc1WDU_w@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +89,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 07:52:27PM +0100, Fuad Tabba wrote:
+On Thu, Sep 24, 2026 at 07:08:52AM +0100, Fuad Tabba wrote:
 > Hi Lorenzo,
 >
-> On Wed, 23 Sep 2026 16:15:44 +0100, "Lorenzo Stoakes (ARM)"
+> On Wed, 23 Sep 2026 16:15:56 +0100, "Lorenzo Stoakes (ARM)"
 > <ljs@kernel.org> wrote:
 > [...]
-> > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> > diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
 > [...]
-> > +int kvm_arch_pre_fault_allowed(struct kvm_vcpu *vcpu)
-> > +{
-> > +        if (!vcpu->kvm->arch.pre_fault_allowed)
-> > +                return -EOPNOTSUPP;
-> > +
-> > +        return 0;
-> > +}
+> > @@ -189,24 +195,28 @@ static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
+> [...]
+> >          test_config.test_size = align_up(TEST_BASE_SIZE + test_config.page_size,
+> > -                                         host_page_size);
+> > +                                         mem_page_size);
+> >          test_config.test_num_pages = vm_calc_num_guest_pages(vm->mode, test_config.test_size);
 >
-> nit: the comment above the smp_rmb() in tdx_sept_map_leaf_spte() still
-> says pre_fault_allowed is read by kvm_arch_vcpu_pre_fault_memory(),
-> but after this patch it's read here.
+> With -s anonymous_hugetlb_1gb, test_size becomes 1G and setup aborts
+> on 4K guest modes, as memslot 0 has no room for the page tables that
+> map it:
+>
+>      No guest physical page available, min_gpa: 0x180000 page_size:
+> 0x1000 memslot: 0
+>
+> As a followup, could you compute test_num_pages before creating the VM
+> and pass it as extra_mem_pages, as arm64/sea_to_user.c does?
 
-Ack can fix up I need to respin!
+Ack, can look into that and send a follow up patch after!
 
 >
 > Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Thanks! :)
+Thanks!
 
 >
 > Cheers,
