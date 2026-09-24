@@ -4,96 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F0DC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 00:15:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74599C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 00:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjIsmWZd9CC+h5zUSaWzkTJZkaeJqJLSvYoM6LHxRv0=; b=z1bJNLpszkCD2ZwurTCfnoCX//
-	wz0cdYbuyJQgz/p05/zuPvuBjIcLZNv9VIa9mi9oLvXsSh/XjKvhKsW5vrHEDXxMiowGh92z52NL6
-	x+knPSq794wVrLgkW/Ro/kaRKkDL26SRTyB35mrOEruuUqOZIVekF+ay1aZPokq4u6NcynTQg9PDL
-	+dHceV8pmQKypBVGlvaDvVXoaNH54S1HMeMntKEAFYNuV7Oh4Lj8TFfyggemw27Th6HAmeO7knkBe
-	EsJi1VYk+G0ap99wij0NzcBvZNxaq0vwV3R8Ry/Nqc8t+5EdLJsV4iERPIZwtCXaJbwVgVSTDnJCs
-	lZ/bNERg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JCL53sxKRzp61dtGrnrYmPy4+hTQjDiBDeC0aw2Pc3Y=; b=b+l55iSKzIWFvhmnDKl1b/e96C
+	mB5n3uOfyxUpB2vPqmxlTg6S0pKLqDC0XXHkeuEZK1Tu9mP0VRjC2IPNTdavlFK4PhRIkuguwsTZV
+	IYLSHYNNZ7kAfTLkrkPkewgtv3GY5iLT+pE/20HPzBs/h36xHH5B1aR6imLmiAruBsAPTmWUJ3P9s
+	vyNzjmWEIQVdqwb3PAejEXZoWuDFMQYGBF137r9bRJbZkeN100QqMpnH0gp8JvDJgUebM/mFuiwPf
+	4/nuvZisBAtXeHq7P9Jm0OoWxPfRF/RF8GRoPlI0q7zEez+39nTMvMwvnWE3d4rfPu1Hvb7GSIs6w
+	8c03tDBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9X7E-00000009k93-1hoK;
-	Thu, 24 Sep 2026 00:15:08 +0000
-Received: from mail-vk1-xa32.google.com ([2607:f8b0:4864:20::a32])
+	id 1x9XBB-00000009kKv-3gBb;
+	Thu, 24 Sep 2026 00:19:13 +0000
+Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9X7B-00000009k8U-2E6n
+	id 1x9XB9-00000009kKX-1t03
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 00:15:06 +0000
-Received: by mail-vk1-xa32.google.com with SMTP id 71dfb90a1353d-5c675e64ffcso363515e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 17:15:04 -0700 (PDT)
+	Thu, 24 Sep 2026 00:19:12 +0000
+Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-530e28a62abso18294821cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 17:19:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1790208903; x=1790813703; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gjIsmWZd9CC+h5zUSaWzkTJZkaeJqJLSvYoM6LHxRv0=;
-        b=axUPAzLs7nDsXMjgngiSeaVlcQo5Ftab1elWGT9ExNOu5JgELIQaOw9OsPns4dm3wp
-         248uRDp+LrVZDefqQhypf6klEkujyvrMkumPsGT3iy6tzgnCkkJk+j3Ge2uOPs90b4c6
-         0xzKrgp7utoan6SW6rK6U/EzD6Kjr10q6x7gQWu+lyezQcxi+RDWpUv5lCdkxwMBOnCt
-         zdJWctOTTqnVHPWOSxpXPjSRkMGxZYZtfipWqJOjkJuhhkuyQWmK5iN+K5PXvAp04yFo
-         aJuFEqnP5q0O9Prvf/RLg3vCLSL1+LC4f8nJ315nsv05zkdg/cmkHJ+9zILI7nPcCqU9
-         OQjA==
+        d=gmail.com; s=20251104; t=1790209150; x=1790813950; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JCL53sxKRzp61dtGrnrYmPy4+hTQjDiBDeC0aw2Pc3Y=;
+        b=gm8olykX8n4GnWaGwLUOa2JVnM7iPpZps5kRPCyjCcSP9vasCAWUVg3ePyq0waYCQm
+         8/DkSTWoU5MLRTv8+RHYsPrtwsey95A6pa4JVgfjEYq41xvG3ExckWx2LQzzT6cXLLSG
+         Phy00MwoezVuX0YuB/mxBGwbXt7qkPfmLkl1byud5lAFin07xXE4D5Z08kqFUmataVHn
+         4eFkHcj/QHRGIwOxY59XH+nB/7U/goI3Vd9BTX9HvfY5O4Im6ZAkaJxH7K18WbStAc8J
+         tY9XvMJRW8UiyCdHHyxzvmnAjgyVO8DQqTjp3WNNxslV2ZVliCYI52LJHMgC9NyYodHW
+         CuQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790208903; x=1790813703;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gjIsmWZd9CC+h5zUSaWzkTJZkaeJqJLSvYoM6LHxRv0=;
-        b=avPJYyvA34O05AxjX+1q59VQ9zvVNkob3kzPo/vyux+6npQre6YZYmqJX/cEMm0wHN
-         eD/qzyxgf/2BuCUfIetsMgOte1BhvugSLPa29XE88l/u4AYing24f562PhUYiMnN8AVF
-         cQHCxBx8roxmUf00tidhFkY3jnhYWiWFULrcwJ+mPfbyByS8+d1f+c4tMJ811GA68dLX
-         CsoSE7Y0vjqYziAWOEWb1LUbi+RW5RQUui3W0K+wyTtbbVFLqxAaZknn8C19YPDhDXCN
-         fnMxTiieJpbLTTtT0EuTJDTQtqW9bWMUvU0wpbs/asDlvV//RMFCH50qE1tLiNCd16bs
-         FKVQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz6kZDdgDn1lXnp/XndVZax0EVSNjnSejdfe2ePU/Dejo5T6LmMUpg/WtcBukIqW4K15VC78E4GgOM73vNmFVvU@lists.infradead.org
-X-Gm-Message-State: AFuF++keKCa+by1ep9yEQMyyscHozuVJiTLvcwDgFo6dA5OoNDEfsNss
-	7TQemy+IIZK1AdmmzxWqzVS1bAaUr4XEvHNk6OXsMEWKbm+Ubvdi7oRw3NDqaB7XU84=
-X-Gm-Gg: AYBFou1w8NfqF+1vzOpE0ecxUXwm9BLiH9bi6YRecFb0u+wpkgC6LPArbnijXvhF7Ng
-	z4CV+P9TQLOvPrzAOOauMQnhsWPl/MQZ7U5icFL+o/Xov5BMTroxCy1aV0lQY6TbThTDi+rCPIT
-	BvGpYQ29/m6THAEjVF1c9PA1OHVEB4e7YJ4+P42ErcFp7Y4yjzCrgOxMFgXMXrNV0DJabv0feru
-	5kF6hkRL5ghKhZYuAyVnJvyfqt+tl6ETp1+rPhWhqylj4XslGVMvkMSP5ZdMEFHYJztEF/6ogJ2
-	0zB8SPLNx7b6cQCbnzRcywP26L3MOT8npigeJArQv6cn6XmmB73biznjj5oy9k7eG7TVfgo2Ibm
-	AZqYSyoAqRNwe/Je47FPaSXApYHOIkygz55koSfqk1hDbpwjbS3TVj9rlVjrvKGnMgFm+wm01PB
-	b1WbD7Rr6GTgM+MaGdAV+dBnCdRU6XzjVR2MVHeVxBCko99axxnDo+GBCq1i9sOYwg/7oEzrR1B
-	6muxTTDWi1Eg4KA3SENrj5FGnDvk6wvOBgRfQwQ9TwzTqLtarl7nMWf
-X-Received: by 2002:a05:6102:818b:10b0:7ab:9152:1c6e with SMTP id ada2fe7eead31-7af1eae9c71mr425311137.27.1790208903588;
-        Wed, 23 Sep 2026 17:15:03 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9852a2b6c6csm211091241.5.2026.09.23.17.15.03
+        d=1e100.net; s=20260707; t=1790209150; x=1790813950;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JCL53sxKRzp61dtGrnrYmPy4+hTQjDiBDeC0aw2Pc3Y=;
+        b=n8aqZ8slusqVXGG/yl285e1i7WnXLG3CvuNx7Jp4u+8FImuoajo9sjcAoLf6+MJsMP
+         yFhw64VEEiAnrMeG/TdhOmHZmpb3swi+cJwwPd7ml3PCo5Q0XaWd7G5+44fCMTifqfmJ
+         hFJV7qtB+23mMqHZoUC/CmRtPGczvbJA6Yg/SDZ14qpg+jBB3wrSlL/JMZDDF0MTO1ra
+         ijeepazzvJseSfanoiERcbS5dD7bp8dnhJxNyVPhZqsRXvlM/6Q35OvwjE6YNzE3Ot/F
+         rxek9MjMaz0s2SnTtOgZ2RsCT5lOtRp99GKQsX6+1UP/fCANF4VlZsoplF6dH0WlvK8W
+         f2Aw==
+X-Forwarded-Encrypted: i=1; AKwUvBy3B2WiakhYxFVCpeYDVc7am84qvuYRX3XrWeWqF7BBwZyQminSTJD8z8OJPSeEaJX6zJppGtgojVV0Oth3S07q@lists.infradead.org
+X-Gm-Message-State: AFuF++nAxeSlRa8XxDrG0y2402gzZiY7ZcCHQUEIkOwFMQcXWP5Koc03
+	teQiDP9uSYsPTrpMTRC9ArlztL2rv49c7Q83NTAARNoWT0kK6XQeXQjP
+X-Gm-Gg: AYBFou1phvAitTj1BRbUVp6GEPq6VzodprOWwAhsHc7IBki3PxpnM5G+Q1OPsDnmIQu
+	uCn2y0oEDvZoHJyxtFapc0KtRLWazNseCHs+By1Ard9wC1z+QEjrwWh4xI+1HynUB1jSZDpJq1v
+	lpIO9JKrUMxCZhDQ6tw+9eNiLB+kEvtRL+DIEUg97fIXtNyMmxnuNQALjV5ItTd8d0h2RQVAVgJ
+	WO+MKQw33lW0GMljUrxOpdTkU8jhnvcIx08X5k697pe1+mzt33a5sQUNEw9vWNcNbF7YhHKf8A4
+	cY4GVE3ulNTqO6o7Lqk25XywkJSmNwTN1yn9MI1hTYmuehZhNGALWwH70FiBnQCX+YeHSFVdTEs
+	MozC552KKxPnK99KEVOEpJzM7gYrVKFd+0uUl57MQttux3wGx4ylA/wYBzACq3Z60hkCIvm27z/
+	/0zu/b4jFB/406MWPqznWT37sZRK9By3vZ+A5I7FvL3WAiYDKuwWl13EktOhrR0M4XE5HIFtCUC
+	VA2o55wNMW9H9J+Prd3Eg==
+X-Received: by 2002:a05:620a:8393:b0:93b:f083:b269 with SMTP id af79cd13be357-93c3642fe19mr48680085a.64.1790209149728;
+        Wed, 23 Sep 2026 17:19:09 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9141e0d771bsm5694546d6.1.2026.09.23.17.19.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 17:15:03 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x9X78-0000000ExXK-1vqU;
-	Wed, 23 Sep 2026 21:15:02 -0300
-Date: Wed, 23 Sep 2026 21:15:02 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint
- bit
-Message-ID: <20260924001502.GO1540250@ziepe.ca>
-References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
+        Wed, 23 Sep 2026 17:19:09 -0700 (PDT)
+From: Yuho Choi <oss.patchbox@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <oss.patchbox@gmail.com>
+Subject: [PATCH v2] coresight: Check runtime PM resume result
+Date: Wed, 23 Sep 2026 20:18:56 -0400
+Message-ID: <20260924001906.715322-1-oss.patchbox@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_171505_735744_3DDB352C 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260923_171911_499928_2097AC2D 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,25 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 04:44:07PM +0530, Vijayanand Jitta wrote:
-> From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-> 
-> Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
-> When a set of consecutive PTEs map a naturally aligned contiguous block of
-> memory, set CONT on every descriptor in that group so the hardware can
-> combine translations and improve TLB reach.
-> 
-> Advertise the supported CONT group sizes in pgsize_bitmap. Callers select
-> those sizes through the normal page-size selection path; io-pgtable-arm
-> then installs the corresponding tagged descriptors directly. A partial
-> unmap of a tagged CONT group is rejected before modifying any descriptor,
-> so a rejected request cannot leave the group partly unmapped.
-> 
-> The IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT quirk allows SMMU drivers to disable
-> CONT support for hardware with implementation-specific errata.
+coresight_get_ref() ignores the return value of pm_runtime_get_sync()
+and reports success even when runtime resume fails. A path is then built
+and the CoreSight device may be accessed while it remains powered off.
 
-smmuv3 has this errata, it must be disabled there too. I didn't notice
-it in this patch?
+Use pm_runtime_resume_and_get() so a failed resume is reported and its
+runtime PM usage reference is rolled back. Drop the module and device
+references acquired before the resume attempt when it fails.
 
-Jason
+Fixes: 32b0707a4182 ("coresight: Add try_get_module() in coresight_grab_device()")
+Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+---
+Changes in v2:
+- Point Fixes: at commit 32b0707a4182, which introduced coresight_get_ref()
+  with the unchecked pm_runtime_get_sync() (Anshuman Khandual)
+- Switch to my oss.patchbox address
+
+v1: https://lore.kernel.org/all/20260802232552.593435-1-dbgh9129@gmail.com/
+
+ drivers/hwtracing/coresight/coresight-core.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 928488a216d4..c492f9082c46 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -843,7 +843,11 @@ static bool coresight_get_ref(struct coresight_device *csdev)
+ 		goto err_module;
+ 
+ 	/* Make sure the device is powered on */
+-	pm_runtime_get_sync(parent);
++	if (pm_runtime_resume_and_get(parent) < 0) {
++		module_put(drv->owner);
++		goto err_module;
++	}
++
+ 	return true;
+ 
+ err_module:
+
+base-commit: f0100363d8c374bd8e9ea7c9ba02744f0b802ca4
+-- 
+2.43.0
+
 
