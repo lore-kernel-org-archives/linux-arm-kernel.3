@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BF5C98310
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11F5C98314
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dq6iKB7XuGLS2dYWQ+BSXdf1EQXXxd6p2s4tq3qcm3s=; b=ZOAy1fojHQ9qIHivDvgWQUp3sB
-	xoaqe3FIxUsFwzRxPkyic+COqsly+yn8k9zAZg5SnUcxiykcrTig5VNH0j9bL+qJ9HF0NZ4Q3VoCo
-	IqT1krb8ZHBI1tPmsF16uZnI6ZlGmvLDTQiTVZKlIsdOIaQ5l5AjOm7Pjt7E1jMcJsjjL0AHWUk8T
-	GmWyQv6Ib1DfnE8aZp9o8fo2aBpTyb7S4cZNLDDJe6TCvjBRq4B17TaYNWbMY5UYWk4RLYexBPJ6/
-	bRfWHaZjxpqTNtCZkEOQHZED79Fj0BqgFOp5HZRyVunuj5yJ4Jv75eKfXxFBHQZdXcOvRS35ozEj9
-	SewZ/kYw==;
+	bh=dq6iKB7XuGLS2dYWQ+BSXdf1EQXXxd6p2s4tq3qcm3s=; b=a5ev1XWbIajyZgLdBMb/yu/8LF
+	LInXUEVhFVwgEWuV08hJFH/1urRtstZwoo7wCrmPtT53/iUpHBkfWWyZd/UMKyCBACG2+MicYjKwd
+	gx3PZn2CsxIkDNvaHNwBL1jPlLjgHkkMnQRZ5v1q3/XtkJdebh59q2Ch08um5LjdnTQtcXUZlXSVj
+	DbL2gZVBuKW9Xze9OvtL14uHQK2giyia9w0alG7pY7CnZfn9xSaQ5nSkUpW5fmVD3dL4LHTmifcd2
+	l1ZNrk1ElZaMNx1P9E0hWwFfIH4uHR2zQ+r2Us+FglvAmT4ksebpQcYbBQ2HmYkLJCHoK/XCW+gr/
+	eGGiNr2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9clp-0000000A8lg-3g2c;
-	Thu, 24 Sep 2026 06:17:25 +0000
+	id 1x9cqg-0000000A94P-27ZJ;
+	Thu, 24 Sep 2026 06:22:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9cln-0000000A8lK-1FSs
+	id 1x9cqd-0000000A940-3j61
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 06:17:25 +0000
+	Thu, 24 Sep 2026 06:22:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCD251516;
-	Wed, 23 Sep 2026 23:17:17 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED0171516;
+	Wed, 23 Sep 2026 23:22:18 -0700 (PDT)
 Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80A633F86C;
-	Wed, 23 Sep 2026 23:17:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1AEC3F86C;
+	Wed, 23 Sep 2026 23:22:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790230641; bh=AFiGAJeNuge1xk0RxTH5cvykdnaiOpoKLFWNCrc5VLc=;
+	t=1790230942; bh=AFiGAJeNuge1xk0RxTH5cvykdnaiOpoKLFWNCrc5VLc=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Ux0yMa20xD/2pizKV+EUg6uTTPx9s4FJxxgcbNMmPvekPo8B4aJR9MXoHhH+t2L7W
-	 NK4M5t4d13cM+E9F+DNYFh2L09/ftfynSZIxWir6VEM9KcibMaNbHJ/abC9ABx5AkV
-	 r62BXL2nyMMp10fBan0L+9IZ45bY3zvaBpC/Ue0I=
+	b=vZE1pIh7XHDLymm0pnaCEQ9P4YoBtWgq3UdWhQgaXWkxYGUI9iq60w/hwMqzSzuT3
+	 uNDgd1m4sBRWIAiTdTyeV0brmCr/70thUna+DLivbm842BXwzpi9qwHCGu4NL9y0Ka
+	 ncU5ydpeYAf7DW5oaa5UwBsKkmuYRakvbxIv2iiM=
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org
+To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -51,17 +51,17 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	David Hildenbrand <david@kernel.org>,
 	Mike Rapoport <rppt@kernel.org>,
 	Linu Cherian <linu.cherian@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
 Subject: [PATCH V3 0/4] arm64/mm: Convert pgtable READ_ONCE() as pxdp_get()
-Date: Thu, 24 Sep 2026 11:47:12 +0530
-Message-ID: <20260924061716.1634555-1-anshuman.khandual@arm.com>
+Date: Thu, 24 Sep 2026 11:52:10 +0530
+Message-ID: <20260924062214.1635078-1-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_231723_533731_1111841F 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260923_232224_002875_83A107ED 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
