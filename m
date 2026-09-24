@@ -4,84 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58705C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F827C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 18:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ge+2SOGDHiOa30s+l/ebyCslv4LPwF+ds1WuJXJt9/I=; b=v0SYcBHSlDvpdgQEuz8+Z+k1Tp
-	IcOhtXQ5XvthvKvE/bl+8r0ESAoZUH3nHTAiu+2UCV3CBUilr3/eqrRWXko3Y+VYnIkC71ymCcKV+
-	JdsrFZal8I6AaEl0wLkcFqhKHwi1MKmsfmaRKi6S4M3w07vXF5ZDBx7n94Gch/LLH4B/bY4pgYDPo
-	LrI3TDhnWV+yjGaSnNZfJTxy/8WL6q6RkLV1iJTKowA0i1uLSOlbgdg2k+o3gUMhB1SaLNE5+01G5
-	b3Ou3JNGFF0PdInO6u6g8tH/KsZ5940iCxEKVzuYeKtxmC1GPjNjIjyhtB8yHBOvaSPh+4Iu1vrY1
-	y/gs4d6g==;
+	bh=yIrEACM/1hk8RvSSdnwytl7iIy1+VcppA4PP9Tt2BDk=; b=mRWQFGhX4dOzm0Q94x8PkeL0n2
+	aAMv6jNOGHVXFKodgdHn0CWDM3JHPat5+5rABCtkHO5ZUXlhhJLORuiCsFjByEbSnMZ79o/GJAOdx
+	LkgKX+jjBZtHI4hf0joVbSXJTzR1rFDhsxC6boZRxQ6KnRf9GcraXQzdVesyOuS/j9MZ+zZ6cyQ0/
+	sgdVlBe+3zfUi7xRqY6MaCdlMbQehm2KcaDQtohmcHjFl4ewC+kXoVqXFBK1SEgptTRUX2VXF0rmV
+	xNVzihEXHb+6JA9y2m4EOrFBWTquXlrvwFkR4F9JQCl6HIK1ukOkhAPfLivypo9cqvbHxbk3qtCvC
+	m7nkVbsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nbP-0000000Bpvm-15tX;
-	Thu, 24 Sep 2026 17:51:23 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x9nkA-0000000Bqys-31RG;
+	Thu, 24 Sep 2026 18:00:26 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nbM-0000000Bpun-1WXW;
-	Thu, 24 Sep 2026 17:51:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790272277;
-	bh=E5sOGZv4PsnQ9lebGLSxJFxuo51klyzvMHE8CDz7Q9Y=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=kE0AuB1UulmjZhIOgwAwnOV/ZisIZPnLZDoiyztMOMVPai48Y0BDuo/TRzky24oKV
-	 BlU9BEI4mZqG1Zlw1mVvQIYMrua6m3+ZB4SMpqjomLxLwKxRnKZD1aJegtjVBwx6+z
-	 CbIEHai48Yp7bNY3Wlw8r8I7ChBrePh90mWCOnUqe1hGHc0NEZpFj2u4M8Xuv35hKu
-	 nV4vHYIOyCRKaJw/bW5OtsrBhJZSmMtHVTM+IQYaLzYHuLYpQNSOD16EHKVWFW4+fe
-	 2Jm8pc6q3POOIqco4Mrd2T6Z8VABOLfb10GpZzShkUCYPUDWri0vL3v/ckrSFN85F8
-	 XqipsgWgav70A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2567017E0082;
-	Thu, 24 Sep 2026 19:51:15 +0200 (CEST)
-Message-ID: <518ec010db104f6f0e7c85607a97af408da44eed.camel@collabora.com>
-Subject: Re: [PATCH v3 2/3] media: dt-bindings: media: nxp, imx8mq-vpu:
- Remove nxp,imx8mq-vpu
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Conor Dooley <conor@kernel.org>, Benjamin Gaignard
-	 <benjamin.gaignard@collabora.com>
-Cc: p.zabel@pengutronix.de, mchehab@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, 	kernel@pengutronix.de, festevam@gmail.com,
- linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, 	imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
- kernel@collabora.com
-Date: Thu, 24 Sep 2026 13:51:13 -0400
-In-Reply-To: <20260924-compare-useable-3e2863b66924@spud>
-References: <20260924130453.196299-1-benjamin.gaignard@collabora.com>
-	 <20260924130453.196299-3-benjamin.gaignard@collabora.com>
-	 <20260924-compare-useable-3e2863b66924@spud>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-ufgeUgCb5bgTB+Z5csz7"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1x9nk7-0000000BqxG-1N03
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 18:00:25 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-52f9fc510e1so8275671cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 11:00:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gourry.net; s=google; t=1790272822; x=1790877622; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=yIrEACM/1hk8RvSSdnwytl7iIy1+VcppA4PP9Tt2BDk=;
+        b=EcdN7Q3rP776qc8wZL2iTjjhL/qGk5NmmrMk87vwYPWp9hV0fqAmtAtWeTgTlln7wP
+         EDp+TnSLgrKe1WGphYhPrl8Ak3VLf7nMpVYutpgDAjGKXB0S3Suho9UmkOT9URJv2m8D
+         mI8U+awCZqV4q9n1zGUxP4/q7mCVbnBvKJYjYWSWT7Q4+Rw9yS/p5hYYPvhaJLU0SCz4
+         m4YaZdVoyc2iV7S+ekT6dcpjBydEhS7bRsvw4QaNwJEb62ZDTXpzHnbX7jovxn4ekykq
+         aFdhuRsGj3GqVlY37/ID5IE7etNUCNR2VlmMwoR7AVWoFv0zAxCdCzpBMQwXlm3R/qpW
+         y+kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790272822; x=1790877622;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yIrEACM/1hk8RvSSdnwytl7iIy1+VcppA4PP9Tt2BDk=;
+        b=Ef7iRkAyA4chi0aAK3rL5oBCNFobd0dhCEh7SmTB0lU4b+Ze11Kk5dFXl9IeCcXI9T
+         QBL6QmNgWnhtQGCJavGF6ilVfsSgsHtSLgeLSlkv6oNsjGxjtmVkgW8Gj9WCZg8v57GH
+         EveVoDWnJNbzQiv2/pWdpG5Hjb4gnULLHypugYW78kDHC9bhJNJ+7LBOeYsprKNyaqqI
+         U/BYboHhpToCFI4KSBlUGhjSRT5+w2V24b5FIA269BKKXh+Q0SiB/zVO3nzyiZQXbci8
+         pQmMXwr0aYmZkytJqxcVB1Z/YxKv1HUrNPLzHFl5+p7hSVL4rTLjAt16uv/NU2opEUZM
+         jn1w==
+X-Forwarded-Encrypted: i=1; AKwUvBymAsuPZyTUCBF/ZpmRuv3QnoucNtJGJ+78Uh1/z4GPWZCDLjGgHuRYhiFwhs0vyNSOPgWzWNe2wzlI3AmECnI8@lists.infradead.org
+X-Gm-Message-State: AFuF++ntCAnRg8LHilXGbVeayRZ8hvdITrKCgvmc/K1ruC8oveM82phV
+	gWaYBs4ykPCCf10fzdKBFSE6PuuS1+pMQ5WRKVY0D+TXBoF/091rh+LJYR6qMAonKMg=
+X-Gm-Gg: AYBFou3mh7LuUf8XdXaLZn0obXlHV49uXCgQOLutFtNkw1W8IgyzGfEEEEK2ekB6P0F
+	mEm/ZLgcBWSHpsEvJAA+is0wvWu/uxSMKgx/VyW2Prw4HFGwY3L+txBC25fP+ftVWF/HWlysssT
+	+eJXQp2a5KEdhJ51aF8D53lLkvWBL4qNOfNKT1B7G2/gsB6U1Ee5FuXUImAnmqpfhFEIqzEwyDO
+	e+wZq/yP60LAJo7YdDpV7gqS3XcJSMumGCKAzlL/csRA4FWScQv2+kbI6eYsoIgAu8NzC/3Xl7a
+	WOeUgT/9wNumn2c+lb+o9c8y77H5vq3SWOAfAatoHvsm+uRxUAmqpMOnMOinlmUORYAMlThIJbr
+	a+LvSJtvXectjnwXTiruJ1b5rkrzGLAwRewCnbTMJIxs5csGpMx5zDlQyiA3Lid8Dc6rh6c0Ko1
+	KuNBOoTbRGadxrKNz5pFTxu/5RxYYn65otVrE8biak1HNm9k+9CXSWR46vEuC0S2taXUmKj6ha8
+	V338khgbmtBJZmyC+oZNjBnK0ow83vfDGn7WZ2ReEoAeZbfnQ88bG0=
+X-Received: by 2002:ac8:5a46:0:b0:530:e682:87c with SMTP id d75a77b69052e-5330b6df434mr78501cf.33.1790272821894;
+        Thu, 24 Sep 2026 11:00:21 -0700 (PDT)
+Received: from gourry-fedora-PF4VCD3F (pool-173-79-60-52.washdc.fios.verizon.net. [173.79.60.52])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532eb38d347sm47450101cf.25.2026.09.24.11.00.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 11:00:21 -0700 (PDT)
+Date: Thu, 24 Sep 2026 14:00:18 -0400
+From: Gregory Price <gourry@gourry.net>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
+Subject: Re: [PATCH v3 05/40] mm/vma: ensure mmap_prepare doesn't set actions
+ on a mergeable vma
+Message-ID: <arVkwC_wNoTLjRYf@gourry-fedora-PF4VCD3F>
+References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
+ <20260917-b4-mmap-prepare-vma-flag-sanify-v3-5-4583d8a23bca@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-5-4583d8a23bca@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_105120_562390_BEB3F129 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20260924_110023_375594_A504DEA8 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,102 +109,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 17, 2026 at 05:22:14PM +0100, Lorenzo Stoakes (ARM) wrote:
+> When a user requests an mmap_action be performed in mmap_prepare, this
+> involves populating the VMA range with data.
+> 
+> However, if the VMA is mergeable, it might then mistakenly be merged with
+> another VMA without having populated the range.
+> 
+> Every mmap action currently available sets VMA flags such that the VMA
+> cannot be merged.
+> 
+> However, to ensure that no future mmap action falls foul of this, assert
+> that this is the case upon mmap_prepare validation.
+> 
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  mm/vma.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/mm/vma.c b/mm/vma.c
+> index d6ed10cefc8f..62f2ce1ad5a1 100644
+> --- a/mm/vma.c
+> +++ b/mm/vma.c
+> @@ -2809,6 +2809,15 @@ static int mmap_validate(unsigned long prev_start, unsigned long prev_end,
+>  int mmap_prepare_validate(const struct vm_area_desc *prev_desc,
+>  			  const struct vm_area_desc *desc)
+>  {
+> +	/*
+> +	 * It is not valid to execute mmap actions for VMAs which can be merged,
+> +	 * as any such merge would leave portions of the mapping incorrectly
+> +	 * unmapped.
+> +	 */
+> +	if (vma_flags_can_merge(&desc->vma_flags) &&
+> +	    WARN_ON_ONCE(desc->action.type != MMAP_NOTHING))
+> +		return -EINVAL;
+> +
 
---=-ufgeUgCb5bgTB+Z5csz7
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+If you wanted to make this unit-testable, you could pull it out into a
+separate function:
 
-Hi Conor,
+static bool mmap_action_is_valid(const struct vm_area_desc *desc)
+{
+	return desc->action.type == MMAP_NOTHING ||
+		!vma_flags_can_merge(&desc->vma_flags);
+}
 
-Le jeudi 24 septembre 2026 =C3=A0 17:55 +0100, Conor Dooley a =C3=A9crit=C2=
-=A0:
-> On Thu, Sep 24, 2026 at 03:04:52PM +0200, Benjamin Gaignard wrote:
-> > nxp,imx8mq-vpu has been tagged has deprecated since a while.
-> > After driver clean up it is time to remove it.
->=20
-> No users in linux doesn't mean no users, but I am guessing that there's
-> genuinely no users elsewhere and anyone using out of tree devicetrees
-> should have updated due to the warning at runtime?
+then write:
 
-I've checked the vendor DT before they moved to the mainline driver, and th=
-ey
-never used this binding (actually they never made bindings).=20
-Here's what the DT was:
+if (WARN_ON_ONCE(!mmap_action_is_valid(desc)))
+	return -EINVAL;
 
-		vpu: vpu@38300000 {
-			compatible =3D "nxp,imx8mq-hantro";
-			reg =3D <0x38300000 0x200000>;
-			reg-names =3D "regs_hantro";
-			interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>, <GIC_SPI 8 IRQ_TYPE_LEVE=
-L_HIGH>;
-			interrupt-names =3D "irq_hantro_g1", "irq_hantro_g2";
-			clocks =3D <&clk IMX8MQ_CLK_VPU_G1_ROOT>, <&clk IMX8MQ_CLK_VPU_G2_ROOT>,=
- <&clk IMX8MQ_CLK_VPU_DEC_ROOT>;
-			clock-names =3D "clk_hantro_g1", "clk_hantro_g2", "clk_hantro_bus";
-			assigned-clocks =3D <&clk IMX8MQ_CLK_VPU_G1>, <&clk IMX8MQ_CLK_VPU_G2>, =
-<&clk IMX8MQ_CLK_VPU_BUS>;
-			assigned-clock-parents =3D <&clk IMX8MQ_VPU_PLL_OUT>, <&clk IMX8MQ_VPU_P=
-LL_OUT>, <&clk IMX8MQ_SYS1_PLL_800M>;
-			assigned-clock-rates =3D <600000000>, <600000000>, <800000000>;
-			power-domains =3D <&pgc_vpu>;
-			status =3D "disabled";
-		};
+And you can write a unit test directly against mmap_action_is_valid
 
-I've not aware of any other OS or booloader that offers media capabilities =
-using
-Linux mainline DT. The now deprecated nxp,imx8mq-vpu compatible had a short=
- live
-in the Linux tree if my memory is correct. Hope this is enough justificatio=
-n.
+otherwise
 
-regards,
-Nicolas
-
->=20
-> >=20
-> > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> > ---
-> >  .../devicetree/bindings/media/nxp,imx8mq-vpu.yaml      | 10 ++++------
-> >  1 file changed, 4 insertions(+), 6 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yam=
-l b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
-> > index 19528262810a..69619d2c86fa 100644
-> > --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
-> > +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
-> > @@ -14,12 +14,10 @@ description:
-> > =20
-> >  properties:
-> >    compatible:
-> > -    oneOf:
-> > -      - const: nxp,imx8mq-vpu
-> > -        deprecated: true
-> > -      - const: nxp,imx8mq-vpu-g1
-> > -      - const: nxp,imx8mq-vpu-g2
-> > -      - const: nxp,imx8mm-vpu-g1
-> > +    enum:
-> > +      - nxp,imx8mq-vpu-g1
-> > +      - nxp,imx8mq-vpu-g2
-> > +      - nxp,imx8mm-vpu-g1
-> > =20
-> >    reg:
-> >      maxItems: 1
-> > --=20
-> > 2.53.0
-> >=20
-
---=-ufgeUgCb5bgTB+Z5csz7
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCarVjEQAKCRDZQZRRKWBy
-9C4tAQD1qA+Ux1mXqgQgjzQg11/HgxYGtNNRdQM1ljOMoDXTQgD+IP4kVkw14aJT
-a6/hPh+9+Z/YwRaFTKestaGBrvZAkgI=
-=UaxT
------END PGP SIGNATURE-----
-
---=-ufgeUgCb5bgTB+Z5csz7--
+Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
 
