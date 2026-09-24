@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196F0C98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F3DC98310
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7/7nwW6FHC6WQ+x5LgkQ6Da7CTexOSJ8a5lXuSBKb8=; b=Dnsu54wwCA4YNTEoVq4d+rkWnT
-	VKUmgRFdRDYWPoGs/hFzJdl2c5p8a+LH9KRTf211lWA+uem1NyoGm6enD5YIr64oR1s67pnU31XZa
-	q9fS/rSSCBx04SK4FoSfPltjDhDFfdJ4SGXcwIYtPWGrZlVcl+Pg0MDph9uXyQMI4fO725wTJFvsU
-	xqCSnafz56vKk5ZEUmwgvoAIGb8ytlt0spQlYor1R5eQVeOtZWs2fvoqb26NPJBU9Z6sGG2A4g5KA
-	/xwKcPUZmUEZJr85Bi5CRiUanzgoOPxm71RSHIyM84Kmha5a8rDJWgzDYfS/gPFeS/tMMaGyR5Id9
-	87YIb/eg==;
+	bh=e/x3UvyWT4tgUsu5VDm1icexsdISA7hrKj/RK5xxKkk=; b=3cJZyScKcIbsGLB572rsCJmCZN
+	DJD8zFuVQEN0qfWxJqVANw2SYtCuMqZvzRZn12gl2i+AE7LlYcHsHztVS54O0u24eolwOAmpdXUxZ
+	G9S+7/RkXlM6WrrDuuKWEUHpraMydrK/h8dPqmBUZeUDi6VvbcwAS6RnricwZDrPGSs5DR0gX1Ag9
+	VGnzHfDV9ZHX6PxDp+ECH0rPgAIB3d4FsEQ3WVwyIcrIHs1Y5YxB0iaYdj0U1MNC3rbNhyXwYrGXB
+	YCGDhCHeYqMuDz3mvVTzvpUZfows/pWF9ub1Gju5BblkCflzvfnM6p6CvCJfXE9Njqbhxu9P8S6aM
+	55gO14aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dPs-0000000ADTP-1jCN;
-	Thu, 24 Sep 2026 06:58:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dPP-0000000ADIJ-309w
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 06:58:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=P7/7nwW6FHC6WQ+x5LgkQ6Da7CTexOSJ8a5lXuSBKb8=; b=anC/Mye0bzNQJw8M9I+ogYmlu+
-	gphPx27PIhVa+Fy6OAa0GhFgqmlSLq0tOvNlTmBJYiKl1ndTvST838pvzSRVi+hU5w4P9+bTrkB19
-	nYSWeZr3GfT9bZFWSHIONtqYpxr+C1U55RjNEh2fC2vZd7mG0aGaPJ9XA1q1ng2tZansjG/GT/1Lk
-	tZ3LMquv0ic0C1mkplcPCQC+6p1bAafpCmcKQmHL8YqAjisF5X24L1HQ5DQB6v6FPVoqixwFObJU4
-	E5JOzY2nTQCfFFNQVnTXQC/aFkXowqhqlt89j0FVKonltOEzmmQaWS9ckYwbKx0Xb+qAbMz9UGPql
-	CD4ec9Ew==;
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9dP3-0000000FclM-0wB8
+	id 1x9dQa-0000000ADkn-3Bl0;
+	Thu, 24 Sep 2026 06:59:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9dQX-0000000ADjx-2EF3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 06:58:07 +0000
-Received: from francesco-nb.. (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 4CFC320291;
-	Thu, 24 Sep 2026 08:57:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1790233071;
-	bh=P7/7nwW6FHC6WQ+x5LgkQ6Da7CTexOSJ8a5lXuSBKb8=; h=From:To:Subject;
-	b=0vH+iTrv89Vqe0CuVHRwB+8UaxshewNyKEaGdjHawMJOsPe1ijQrzw+sQW87CNcdn
-	 SiJmLsKWzkHUYRD08Qxzh0bSXqIHS1ae7DNQr7CC6LTiocCG+9riipsfj2jb8vKnq0
-	 +A/hxHFNVo7FqwFPlsekHf9uL78xpVYjUm4z8pvrmCyBlH5vppuj2ox8oCZPTerfLt
-	 gYZg9gFiEd+f7dc7vP6YPIGvMQrDhiYt5MN8+krShHVDHnJ7BE9lDXYfmfJnsla+ht
-	 JpUK/LRelbjAKxsd5Pi5LQn2erLOLIApy+0+FO1QVBQv7If9pLTiFcmLtwcS0K4JkI
-	 Cj+p/xj6Fbhfw==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 7/7] arm64: dts: freescale: Add Toradex OSM iMX91
-Date: Thu, 24 Sep 2026 08:57:33 +0200
-Message-ID: <20260924065735.17678-8-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260924065735.17678-1-francesco@dolcini.it>
-References: <20260924065735.17678-1-francesco@dolcini.it>
+	Thu, 24 Sep 2026 06:59:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A3101516;
+	Wed, 23 Sep 2026 23:59:24 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E925D3F86C;
+	Wed, 23 Sep 2026 23:59:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790233167; bh=YHr0dnZ4DkdP5OsnRDTK952N33BeT0+O2Zw+kHc670Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OJmFpQPwGPzvj5wq7IEMJ3FA2qjJ2RzWVw2uO6c9VFk0VT6NGzyjuiJT9XatnD0ZQ
+	 rdHJXjtkTErlFT6NFkrAiZS36VYVv6+jqh9PqwSbVl2sFnQUEPczfAtojSpix00Jc3
+	 aEwe29CpewHXq7ltQOxJG6OVpJcHqP9yp4GUFu0E=
+Date: Thu, 24 Sep 2026 08:54:38 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 2/5] clk: sunxi-ng: mp: support clocks with just a
+ shift register
+Message-ID: <20260924085438.3edce740@ryzen.lan>
+In-Reply-To: <CAGb2v67XsgfoYrJ6gJ_kshjnbSOOrJt9fK6RE1ErsTuHuVji5w@mail.gmail.com>
+References: <20260917223913.1855301-1-andre.przywara@arm.com>
+	<20260917223913.1855301-3-andre.przywara@arm.com>
+	<CAGb2v67XsgfoYrJ6gJ_kshjnbSOOrJt9fK6RE1ErsTuHuVji5w@mail.gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_075805_507551_3251291D 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260923_235929_689503_77074EA4 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,375 +78,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Fri, 18 Sep 2026 11:51:19 +0800
+Chen-Yu Tsai <wens@kernel.org> wrote:
 
-Add support for the OSM iMX91 SoM and the development carrier board that
-can be mated with.
+Hi,
 
-Link: https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx91
-Link: https://www.toradex.com/products/carrier-board/osm-development-board
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
-v3: rebased
----
- arch/arm64/boot/dts/freescale/Makefile        |   2 +
- .../dts/freescale/imx91-toradex-osm-dev.dts   |  22 ++
- .../boot/dts/freescale/imx91-toradex-osm.dtsi | 303 ++++++++++++++++++
- 3 files changed, 327 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
+> On Fri, Sep 18, 2026 at 6:39=E2=80=AFAM Andre Przywara <andre.przywara@ar=
+m.com> wrote:
+> >
+> > The "mp" clock models a mod clock with divider and a shift field. At
+> > least one clock in the Allwinner A523 features just a power-of-2 divider
+> > field, so support an initialisation of the clock without providing an
+> > actual divider field.
+>=20
+> Please just use the single divider clock type instead. It properly suppor=
+ts
+> power-of-2 dividers.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 5aaaf99057fa..a09672b49709 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -860,6 +860,8 @@ imx91-phyboard-segin-peb-av-18-dtbs += imx91-phyboard-segin.dtb imx91-phyboard-s
- dtb-$(CONFIG_ARCH_MXC) += imx91-9x9-qsb-can1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin-peb-av-18.dtb
- 
-+dtb-$(CONFIG_ARCH_MXC) += imx91-toradex-osm-dev.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba91xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba93xxca.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts b/arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
-new file mode 100644
-index 000000000000..ec5e701fb275
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-toradex-osm-dev.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex OSM iMX91 SoM on OSM Development carrier board
-+ *
-+ * https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx91
-+ * https://www.toradex.com/products/carrier-board/osm-development-board
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx91.dtsi"
-+#include "imx91-toradex-osm.dtsi"
-+#include "imx93-imx91-toradex-osm-dev-common.dtsi"
-+
-+/ {
-+	model = "Toradex OSM iMX91 on OSM Development Board";
-+	compatible = "toradex,osm-imx91-dev",
-+		     "toradex,osm-imx91",
-+		     "fsl,imx91";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi b/arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
-new file mode 100644
-index 000000000000..9d990937fd8d
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-toradex-osm.dtsi
-@@ -0,0 +1,303 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex OSM iMX91 SoM
-+ *
-+ * https://www.toradex.com/computer-on-modules/osm-arm-family/nxp-imx91
-+ */
-+
-+#include "imx91-pinfunc.h"
-+#include "imx93-imx91-toradex-osm-common.dtsi"
-+
-+&iomuxc {
-+	/* OSM CAN_A */
-+	pinctrl_can_a: can1grp {
-+		fsl,pins = <MX91_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e>, /* OSM AB17 */
-+			   <MX91_PAD_PDM_CLK__CAN1_TX		0x139e>; /* OSM AC17 */
-+	};
-+
-+	/* OSM CAN_B */
-+	pinctrl_can_b: can2grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO25__CAN2_TX		0x139e>, /* OSM AC19 */
-+			   <MX91_PAD_GPIO_IO27__CAN2_RX		0x139e>; /* OSM AB19 */
-+	};
-+
-+	/* OSM CAM_MCK */
-+	pinctrl_cam_mck: ccmclk1grp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO1__CCMSRCGPCMIX_CLKO1	0x51e>; /* OSM C2 */
-+	};
-+
-+	/* OSM ETH_A RGMII */
-+	pinctrl_eth_a: eqosgrp {
-+		fsl,pins = <MX91_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x1fe>, /* OSM K15 */
-+			   <MX91_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x1fe>, /* OSM L15 */
-+			   <MX91_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x1fe>, /* OSM N15 */
-+			   <MX91_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x1fe>, /* OSM P15 */
-+			   <MX91_PAD_ENET1_RXC__ENET_QOS_RGMII_RXC			0x1fe>, /* OSM R15 */
-+			   <MX91_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x1fe>, /* OSM M15 */
-+			   <MX91_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x1fe>, /* OSM H15 */
-+			   <MX91_PAD_ENET1_TD1__ENET1_RGMII_TD1				0x1fe>, /* OSM G15 */
-+			   <MX91_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x1fe>, /* OSM H16 */
-+			   <MX91_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x1fe>, /* OSM G16 */
-+			   <MX91_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x1fe>, /* OSM J15 */
-+			   <MX91_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x1fe>; /* OSM K16 */
-+	};
-+
-+	/* OSM ETH_MDIO */
-+	pinctrl_mdio: eqosmdiogrp {
-+		fsl,pins = <MX91_PAD_ENET1_MDC__ENET1_MDC	0x1fe>, /* OSM T16 */
-+			   <MX91_PAD_ENET1_MDIO__ENET_QOS_MDIO	0x1fe>; /* OSM T15 */
-+	};
-+
-+	/* OSM ETH_B RGMII */
-+	pinctrl_eth_b: fecgrp {
-+		fsl,pins = <MX91_PAD_ENET2_RD0__ENET2_RGMII_RD0		0x1fe>, /* OSM J1 */
-+			   <MX91_PAD_ENET2_RD1__ENET2_RGMII_RD1		0x1fe>, /* OSM K1 */
-+			   <MX91_PAD_ENET2_RD2__ENET2_RGMII_RD2		0x1fe>, /* OSM M1 */
-+			   <MX91_PAD_ENET2_RD3__ENET2_RGMII_RD3		0x1fe>, /* OSM N1 */
-+			   <MX91_PAD_ENET2_RXC__ENET2_RGMII_RXC		0x1fe>, /* OSM P1 */
-+			   <MX91_PAD_ENET2_RX_CTL__ENET2_RGMII_RX_CTL	0x1fe>, /* OSM L1 */
-+			   <MX91_PAD_ENET2_TD0__ENET2_RGMII_TD0		0x1fe>, /* OSM G1 */
-+			   <MX91_PAD_ENET2_TD1__ENET2_RGMII_TD1		0x1fe>, /* OSM F1 */
-+			   <MX91_PAD_ENET2_TD2__ENET2_RGMII_TD2		0x1fe>, /* OSM G2 */
-+			   <MX91_PAD_ENET2_TD3__ENET2_RGMII_TD3		0x1fe>, /* OSM F2 */
-+			   <MX91_PAD_ENET2_TXC__ENET2_RGMII_TXC		0x1fe>, /* OSM H1 */
-+			   <MX91_PAD_ENET2_TX_CTL__ENET2_RGMII_TX_CTL	0x1fe>; /* OSM J2 */
-+	};
-+
-+	/* OSM SPI_B_CS as GPIO */
-+	pinctrl_spi_b_cs0_gpio: gpio1io11grp {
-+		fsl,pins = <MX91_PAD_SAI1_TXFS__GPIO1_IO11	0x139e>; /* OSM AA23 */
-+	};
-+
-+	/* OSM GPIO_A_0 */
-+	pinctrl_gpio_a0:  gpio2io0grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO00__GPIO2_IO0	0x139e>; /* OSM D17 */
-+	};
-+
-+	/* OSM GPIO_A_1 */
-+	pinctrl_gpio_a1: gpio2io1grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO01__GPIO2_IO1	0x139e>; /* OSM E17 */
-+	};
-+
-+	/* OSM GPIO_A_2 */
-+	pinctrl_gpio_a2: gpio2io2grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO02__GPIO2_IO2	0x139e>; /* OSM F17 */
-+	};
-+
-+	/* OSM GPIO_A_3 */
-+	pinctrl_gpio_a3: gpio2io3grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO03__GPIO2_IO3	0x139e>; /* OSM G17 */
-+	};
-+
-+	/* OSM SPI_A_CS0 as GPIO */
-+	pinctrl_spi_a_cs0_gpio: gpio2io12grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO12__GPIO2_IO12	0x139e>; /* OSM Y15 */
-+	};
-+
-+	/* OSM PWM_0 as GPIO */
-+	pinctrl_pwm0_gpio: gpio2io21grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO21__GPIO2_IO21	0x139e>; /* OSM E18 */
-+	};
-+
-+	/* OSM GPIO_A_4 */
-+	pinctrl_gpio_a4: gpio2io22grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO22__GPIO2_IO22	0x139e>; /* OSM H17 */
-+	};
-+
-+	/* OSM GPIO_A_5 */
-+	pinctrl_gpio_a5: gpio2io24grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO24__GPIO2_IO24	0x139e>; /* OSM J17 */
-+	};
-+
-+	/* On-module CTRL_INT# */
-+	pinctrl_ctrl_int: gpio3io27grp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO2__GPIO3_IO27	0x139e>; /* CTRL_INT# */
-+	};
-+
-+	/* OSM GPIO_A_6 */
-+	pinctrl_gpio_a6: gpio4io14grp {
-+		fsl,pins = <MX91_PAD_ENET2_MDC__GPIO4_IO14	0x139e>; /* OSM K17 */
-+	};
-+
-+	/* OSM GPIO_A_7 */
-+	pinctrl_gpio_a7:  gpio4io15grp {
-+		fsl,pins = <MX91_PAD_ENET2_MDIO__GPIO4_IO15	0x139e>; /* OSM L17 */
-+	};
-+
-+	/* OSM I2C_B as GPIO */
-+	pinctrl_i2c_b_gpio: lpi2c1gpiogrp {
-+		fsl,pins = <MX91_PAD_I2C1_SCL__GPIO1_IO0	0x40000b9e>, /* OSM AA20 */
-+			   <MX91_PAD_I2C1_SDA__GPIO1_IO1	0x40000b9e>; /* OSM AA21 */
-+	};
-+
-+	/* OSM I2C_B */
-+	pinctrl_i2c_b: lpi2c1grp {
-+		fsl,pins = <MX91_PAD_I2C1_SCL__LPI2C1_SCL	0x40000b9e>, /* OSM AA20 */
-+			   <MX91_PAD_I2C1_SDA__LPI2C1_SDA	0x40000b9e>; /* OSM AA21 */
-+	};
-+
-+	/* On-module PMIC I2C as GPIO */
-+	pinctrl_pmic_i2c_gpio: lpi2c2gpiogrp {
-+		fsl,pins = <MX91_PAD_I2C2_SCL__GPIO1_IO2	0x40000b9e>, /* PMIC_I2C_SCL */
-+			   <MX91_PAD_I2C2_SDA__GPIO1_IO3	0x40000b9e>; /* PMIC_I2C_SDA */
-+	};
-+
-+	/* On-module PMIC I2C */
-+	pinctrl_pmic_i2c: lpi2c2grp {
-+		fsl,pins = <MX91_PAD_I2C2_SCL__LPI2C2_SCL	0x40000b9e>, /* PMIC_I2C_SCL */
-+			   <MX91_PAD_I2C2_SDA__LPI2C2_SDA	0x40000b9e>; /* PMIC_I2C_SDA */
-+	};
-+
-+	/* OSM I2C_A as GPIO */
-+	pinctrl_i2c_a_gpio: lpi2c3gpiogrp {
-+		fsl,pins = <MX91_PAD_GPIO_IO28__GPIO2_IO28	0x40000b9e>, /* OSM AA16 */
-+			   <MX91_PAD_GPIO_IO29__GPIO2_IO29	0x40000b9e>; /* OSM AA15 */
-+	};
-+
-+	/* OSM I2C_A */
-+	pinctrl_i2c_a: lpi2c3grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO28__LPI2C3_SDA	0x40000b9e>, /* OSM AA16 */
-+			   <MX91_PAD_GPIO_IO29__LPI2C3_SCL	0x40000b9e>; /* OSM AA15 */
-+	};
-+
-+	/* OSM SPI_B */
-+	pinctrl_spi_b: lpspi1grp {
-+		fsl,pins = <MX91_PAD_SAI1_TXC__LPSPI1_SIN	0x139e>, /* OSM Y22 */
-+			   <MX91_PAD_SAI1_TXD0__LPSPI1_SCK	0x139e>, /* OSM Y21 */
-+			   <MX91_PAD_SAI1_RXD0__LPSPI1_SOUT	0x139e>; /* OSM Y23 */
-+	};
-+
-+	/* OSM SPI_A */
-+	pinctrl_spi_a: lpspi8grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO13__LPSPI8_SIN	0x139e>, /* OSM U15 */
-+			   <MX91_PAD_GPIO_IO14__LPSPI8_SOUT	0x139e>, /* OSM V15 */
-+			   <MX91_PAD_GPIO_IO15__LPSPI8_SCK	0x139e>; /* OSM U16 */
-+	};
-+
-+	/* OSM UART_CON */
-+	pinctrl_uart_con: lpuart1grp {
-+		fsl,pins = <MX91_PAD_UART1_RXD__LPUART1_RX	0x39e>, /* OSM D22 */
-+			   <MX91_PAD_UART1_TXD__LPUART1_TX	0x39e>; /* OSM D23 */
-+	};
-+
-+	/* OSM UART_C */
-+	pinctrl_uart_c: lpuart2grp {
-+		fsl,pins = <MX91_PAD_UART2_RXD__LPUART2_RX	0x39e>, /* OSM A22 */
-+			   <MX91_PAD_UART2_TXD__LPUART2_TX	0x39e>; /* OSM B23 */
-+	};
-+
-+	/* OSM UART_A */
-+	pinctrl_uart_a: lpuart6grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO04__LPUART6_TX	0x39e>, /* OSM B13 */
-+			   <MX91_PAD_GPIO_IO05__LPUART6_RX	0x39e>, /* OSM A14 */
-+			   <MX91_PAD_GPIO_IO06__LPUART6_CTS_B	0x39e>, /* OSM C14 */
-+			   <MX91_PAD_GPIO_IO07__LPUART6_RTS_B	0x39e>; /* OSM C13 */
-+	};
-+
-+	/* OSM UART_B */
-+	pinctrl_uart_b: lpuart7grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO08__LPUART7_TX	0x39e>, /* OSM D13 */
-+			   <MX91_PAD_GPIO_IO09__LPUART7_RX	0x39e>, /* OSM D14 */
-+			   <MX91_PAD_GPIO_IO10__LPUART7_CTS_B	0x39e>, /* OSM D16 */
-+			   <MX91_PAD_GPIO_IO11__LPUART7_RTS_B	0x39e>; /* OSM D15 */
-+	};
-+
-+	/* OSM I2S_A */
-+	pinctrl_i2s_a: sai3grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO16__SAI3_TX_BCLK	0x139e>, /* OSM W20 */
-+			   <MX91_PAD_GPIO_IO19__SAI3_TX_DATA0	0x139e>, /* OSM W21 */
-+			   <MX91_PAD_GPIO_IO20__SAI3_RX_DATA0	0x139e>, /* OSM V21 */
-+			   <MX91_PAD_GPIO_IO26__SAI3_TX_SYNC	0x139e>; /* OSM W18 */
-+	};
-+
-+	/* OSM I2S_MCLK */
-+	pinctrl_i2s_a_mclk: sai3mclkgrp {
-+		fsl,pins = <MX91_PAD_GPIO_IO17__SAI3_MCLK	0x31e>; /* OSM V18 */
-+	};
-+
-+	/* OSM PWM_0 */
-+	pinctrl_pwm0: tpm4ch1grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO21__TPM4_CH1	0x139e>; /* OSM E18 */
-+	};
-+
-+	/* OSM PWM_1 */
-+	pinctrl_pwm1: tpm5ch2grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO18__TPM5_CH2	0x139e>; /* OSM F18 */
-+	};
-+
-+	/* OSM PWM_2 */
-+	pinctrl_pwm2: tpm6ch1grp {
-+		fsl,pins = <MX91_PAD_GPIO_IO23__TPM6_CH1	0x139e>; /* OSM G18 */
-+	};
-+
-+	/* OSM USB_A_EN */
-+	pinctrl_usb_a_en: usb1engrp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO3__GPIO4_IO28	0x139e>; /* OSM AC16 */
-+	};
-+
-+	/* OSM USB_A_OC# */
-+	pinctrl_usb_a_oc: usb1ocgrp {
-+		fsl,pins = <MX91_PAD_CCM_CLKO4__GPIO4_IO29	0x139e>; /* OSM AC15 */
-+	};
-+
-+	/* OSM USB_B_EN */
-+	pinctrl_usb_b_en: usb2engrp {
-+		fsl,pins = <MX91_PAD_PDM_BIT_STREAM1__GPIO1_IO10	0x139e>; /* OSM AC20 */
-+	};
-+
-+	/* On-module eMMC */
-+	pinctrl_emmc: usdhc1grp {
-+		fsl,pins = <MX91_PAD_SD1_CLK__USDHC1_CLK	0x5fe>,      /* eMMC_CLK    */
-+			   <MX91_PAD_SD1_CMD__USDHC1_CMD	0x400013fe>, /* eMMC_CMD    */
-+			   <MX91_PAD_SD1_DATA0__USDHC1_DATA0	0x400013fe>, /* eMMC_DATA0  */
-+			   <MX91_PAD_SD1_DATA1__USDHC1_DATA1	0x400013fe>, /* eMMC_DATA1  */
-+			   <MX91_PAD_SD1_DATA2__USDHC1_DATA2	0x400013fe>, /* eMMC_DATA2  */
-+			   <MX91_PAD_SD1_DATA3__USDHC1_DATA3	0x400013fe>, /* eMMC_DATA3  */
-+			   <MX91_PAD_SD1_DATA4__USDHC1_DATA4	0x400013fe>, /* eMMC_DATA4  */
-+			   <MX91_PAD_SD1_DATA5__USDHC1_DATA5	0x400013fe>, /* eMMC_DATA5  */
-+			   <MX91_PAD_SD1_DATA6__USDHC1_DATA6	0x400013fe>, /* eMMC_DATA6  */
-+			   <MX91_PAD_SD1_DATA7__USDHC1_DATA7	0x400013fe>, /* eMMC_DATA7  */
-+			   <MX91_PAD_SD1_STROBE__USDHC1_STROBE	0x1580>;     /* eMMC_STROBE */
-+	};
-+
-+	/* OSM SDIO_A_CD# */
-+	pinctrl_sdio_a_cd: usdhc2cdgrp {
-+		fsl,pins = <MX91_PAD_SD2_CD_B__GPIO3_IO0	0x139e>; /* OSM J21 */
-+	};
-+
-+	/* OSM SDIO_A */
-+	pinctrl_sdio_a: usdhc2grp {
-+		fsl,pins = <MX91_PAD_SD2_CLK__USDHC2_CLK	0x5fe>,      /* OSM F21 */
-+			   <MX91_PAD_SD2_CMD__USDHC2_CMD	0x400013fe>, /* OSM E20 */
-+			   <MX91_PAD_SD2_DATA0__USDHC2_DATA0	0x400013fe>, /* OSM G20 */
-+			   <MX91_PAD_SD2_DATA1__USDHC2_DATA1	0x400013fe>, /* OSM G21 */
-+			   <MX91_PAD_SD2_DATA2__USDHC2_DATA2	0x400013fe>, /* OSM H20 */
-+			   <MX91_PAD_SD2_DATA3__USDHC2_DATA3	0x400013fe>; /* OSM H21 */
-+	};
-+
-+	/* OSM SDIO_A_PWR_EN */
-+	pinctrl_sdio_a_pwr_en: usdhc2pwrgrp {
-+		fsl,pins = <MX91_PAD_SD2_RESET_B__GPIO3_IO7	0x139e>; /* OSM D21 */
-+	};
-+
-+	/* On-module PMIC_SD_2_VSEL */
-+	pinctrl_sdio_a_vsel: usdhc2vselgrp {
-+		fsl,pins = <MX91_PAD_SD2_VSELECT__GPIO3_IO19	0x51e>; /* PMIC_SD_2_VSEL */
-+	};
-+
-+	/* OSM SDIO_B */
-+	pinctrl_sdio_b: usdhc3grp {
-+		fsl,pins = <MX91_PAD_SD3_CLK__USDHC3_CLK	0x5fe>,      /* OSM K20 */
-+			   <MX91_PAD_SD3_CMD__USDHC3_CMD	0x400013fe>, /* OSM K21 */
-+			   <MX91_PAD_SD3_DATA0__USDHC3_DATA0	0x400013fe>, /* OSM L20 */
-+			   <MX91_PAD_SD3_DATA1__USDHC3_DATA1	0x400013fe>, /* OSM L21 */
-+			   <MX91_PAD_SD3_DATA2__USDHC3_DATA2	0x400013fe>, /* OSM M21 */
-+			   <MX91_PAD_SD3_DATA3__USDHC3_DATA3	0x400013fe>; /* OSM N20 */
-+	};
-+
-+	pinctrl_wdog: wdoggrp {
-+		fsl,pins = <MX91_PAD_WDOG_ANY__WDOG1_WDOG_ANY 0x31e>; /* PMIC_WDOG_B */
-+	};
-+};
--- 
-2.47.3
+Ah, indeed, there is SUNXI_CCU_P_DATA_WITH_MUX_GATE now, will drop this
+patch then.
+
+So when using that macro it looks like this:
+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(pll_cpu_l_div_clk, "pll-cpu-l-div",
+                                      pll_cpu_l_hws, 0x060,
+                                      16, 2,                    /* P */
+                                      0, 0,                     /* no mux */
+                                      0,                        /* no gate =
+*/
+                                      CLK_SET_RATE_PARENT);     /* flags */
+
+There are still some unused bits, does that look OK or shall I add a
+macro that allows to skip mux and gate?
+static SUNXI_CCU_P_DATA(pll_cpu_l_div_clk, "pll-cpu-l-div",
+			pll_cpu_l_hws, 0x60,
+			16, 2,			/* P */
+			CLK_SET_RATE_PARENT);	/* flags */
+
+Cheers,
+Andre
+
+
+>=20
+> ChenYu
+>=20
+> > Add a check whether the "width" field is 0, and skip the divider
+> > handling in this case, as the GENMASK macro will not work with a zero
+> > length.
+> >
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  drivers/clk/sunxi-ng/ccu_mp.c | 6 ++++--
+> >  1 file changed, 4 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_m=
+p.c
+> > index 7cdb0eedc69b5..3896cb94bf733 100644
+> > --- a/drivers/clk/sunxi-ng/ccu_mp.c
+> > +++ b/drivers/clk/sunxi-ng/ccu_mp.c
+> > @@ -236,9 +236,11 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsi=
+gned long rate,
+> >         spin_lock_irqsave(cmp->common.lock, flags);
+> >
+> >         reg =3D readl(cmp->common.base + cmp->common.reg);
+> > -       reg &=3D ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp->m.shift=
+);
+> > +       if (cmp->m.width)
+> > +               reg &=3D ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp-=
+>m.shift);
+> >         reg &=3D ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift=
+);
+> > -       reg |=3D (m - cmp->m.offset) << cmp->m.shift;
+> > +       if (cmp->m.width)
+> > +               reg |=3D (m - cmp->m.offset) << cmp->m.shift;
+> >         if (shift)
+> >                 reg |=3D ilog2(p) << cmp->p.shift;
+> >         else
+> > --
+> > 2.43.0
+> >
+>=20
 
 
