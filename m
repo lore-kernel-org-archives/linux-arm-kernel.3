@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0796CC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2810C98315
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r7grLbuns1CLD6JJcKGenIeiL6DRG8tXUwN8CD/AazI=; b=k7QSkIwTRrIPUtPKn5Phetuvhg
-	EAsuZCCyDcMuBziU4Eg3FbXTFqZ9LqCUmimbdV60VSDBKyNWqfW81Nur+W+MZimg9+FRx4OXA4M3U
-	P4wPXpwNmxVz1WY9dScf5gHJXnzor+5cHFuvvk+kn4DxVvhxNMB12RJ36A5WJwIwSuMTYarsC/B1G
-	nxeve1vWtTdTRg/yIcEw2HjR8g3cI5llhAWzJLrnCa/In86SAAMPXwnszFiSUVveLR45IKNMfdZge
-	U1ePB06x/YOEFSX8lBtfFkcYD9Ndf6SmdUcg2ud6RMti8YdOoABCF1B+pb3Nru5PDujlngVzEwAHR
-	3KZPGnog==;
+	bh=qTdT0Pnje9Db4mI6g9mHhsv+qLxeAIpDfVpVO6cj1T4=; b=WITtXRf4TdvarS3jM8jJxKHlbw
+	DHk5eZIR5WMaRtqumBr3nMK7VZNnkqQ/lMQHM1bG93hC4fRyBKV9b/Ol6ip8hkqGnmrNK0/r/emXA
+	tk32VVwDkJ5Gk3l1PKc8qPaTok1STCDSlg4d+xpefzi9ksdhcaVXNHwU+IgUSDLGnf4UMNwSmabrs
+	WA7oS+alhY8YBXmnwDJXTY9RFU2Hbsu1TiK1+d9RwC84tY31RWbN/vhrWpXQm/6+xmFF6aVlqEoG6
+	W+oaH2mJNRgK3oZZujx5G+S4UYvvBuROhFankYhLPHPEqJwqbdgkroWI0/F1vyjoXgn/J+Ga+1mZ1
+	SzIS0neg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9k91-0000000BDSI-0TN7;
-	Thu, 24 Sep 2026 14:09:51 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1x9kED-0000000BE0f-45kU;
+	Thu, 24 Sep 2026 14:15:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9k8z-0000000BDRg-185J
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 14:09:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790258989; x=1821794989;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qmudZkLU3y2eB9AF20M5NWcb805vn2pIDkdPZYgefvU=;
-  b=XI/qYiJEYlU33z83BtgM3bj0m75a1wnfcndfXxAiBaoYJV47gy9wKJjc
-   2fwpjgzRBSWubmAM6B3S5MffUQcn5Lxc7qTNx7ULHEpiywcveOZ4L9B13
-   Nt58f9kONz1cRw45IafM5gmFg/WGph54LSokjbyZ4BvsqFwcoOi5DK4zn
-   aeTguGPCk6VXCTdiXXrIFiQBL0Ah+CrbYYPXXc+uaikfNLQa1t4a3dWL0
-   bDVFlNPPBnA0bh2/p+fTPX4d99ZGVaJsR7gVPT5dgLHMY035cG/HmjD1q
-   OavFmwPxHjSYMVN/Nea1J3IUNZi/aFz8OcLlhDfx+IoIloEzpyeJ59rEr
-   Q==;
-X-CSE-ConnectionGUID: kOLAXJKgQXuegrhqrM6HOQ==
-X-CSE-MsgGUID: 7UKjLN0mS0y7/gZmrx0XDQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="91136568"
-X-IronPort-AV: E=Sophos;i="6.27,120,1787036400"; 
-   d="scan'208";a="91136568"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2026 07:09:48 -0700
-X-CSE-ConnectionGUID: Eueu/XtoTVq6U3pNjO4tjQ==
-X-CSE-MsgGUID: mhCt5k8VQoujcrhULBFUFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,120,1787036400"; 
-   d="scan'208";a="311951219"
-Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.244.199])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2026 07:09:46 -0700
-Date: Thu, 24 Sep 2026 17:09:43 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Cc: Malathi A <malathi.a2000@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
-Message-ID: <arUvJyvChXXcasSu@ashevche-desk.local>
-References: <20260917040511.103232-1-malathi.a2000@gmail.com>
- <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
+	id 1x9kEC-0000000BE0T-31i4;
+	Thu, 24 Sep 2026 14:15:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2528540448;
+	Thu, 24 Sep 2026 14:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63DEC1F000FF;
+	Thu, 24 Sep 2026 14:15:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790259312;
+	bh=qTdT0Pnje9Db4mI6g9mHhsv+qLxeAIpDfVpVO6cj1T4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JBKRD+OWoeubfRo5gPpJwJc3aBMFeibR3f8yEydfDyM/bk4aLgeJhsqPPKSne3YB7
+	 D+PszabqrNryBW7EUSo1MmBTKDVi/qN+CYKGZ1oJ+viLpE/IEZqRy0/10rQ17k8vAy
+	 FhQ1OyGdoF50czcfuhC8SDUE127jKXnseOA9YJb7GqhAEWN++OY2k/sTUx3IxAaANL
+	 FLVDY6A1Uvtv45K1xBTseTEM/28NTBxZcU1dGulqv2zfZR7IGoWOmUEep3eWv4+8s0
+	 BW4HCdA79Idm/IA/CMxP6yNFiNUzYtuAk2MHyi9ybiG1g3KFb9Nzey3h/oQUAUvinc
+	 94UZc61v0Rpkg==
+Date: Thu, 24 Sep 2026 15:15:05 +0100
+From: Lee Jones <lee@kernel.org>
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Manivannan Sadhasivam <mani@kernel.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	mfd@lists.linux.dev
+Subject: Re: [PATCH v12 04/12] mfd: zx297520v3: Add a clock and reset MFD
+ driver
+Message-ID: <20260924141505.GF453446@google.com>
+References: <20260923-zx29clk-v12-0-9c243796b6d2@gmail.com>
+ <20260923-zx29clk-v12-4-9c243796b6d2@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_070949_321792_678CDDB1 
-X-CRM114-Status: GOOD (  18.98  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260923-zx29clk-v12-4-9c243796b6d2@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +82,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
-> On 2026/09/17 13:05, Malathi A wrote:
-> > uniphier_uart_probe() enables priv->clk by hand and is then responsible
-> > for disabling it again on every error path. It misses one: when
-> > uart_read_port_properties() fails the function returns directly, leaving
-> > the clock prepared and enabled. The neighbouring path, taken when
-> > serial8250_register_8250_port() fails, does call clk_disable_unprepare(),
-> > which shows the leak is an oversight rather than intent.
-> > 
-> > Rather than adding another manual unwind, switch to
-> > devm_clk_get_enabled() so the clock is released by devres. That removes
-> > the error path entirely, along with the explicit disables in the
-> > register failure path and in uniphier_uart_remove().
-> > 
-> > The clock is still disabled and re-enabled by hand across system sleep,
-> > which stays balanced: only SET_SYSTEM_SLEEP_PM_OPS is used, so the
-> > device cannot be unbound while suspended and devres always sees an
-> > enabled clock at detach.
+On Wed, 23 Sep 2026, Stefan Dösinger wrote:
 
-...
-
-> I'm a bit concerned about the error path in uniphier_uart_resume().
-> The clock may have been disabled in uniphier_uart_suspend(), and
-> clk_prepare_enable() can fail when trying to enable it again.
+> This driver registers child devices for the zx297520v3 clock and reset
+> controllers. The clk-zx297520v3 and reset-zte-zx297520v3 submitted in
+> the next patches will drive the respective functionalities.
 > 
-> In that case, wouldn't devres try to disable an already disabled
-> clock on detach?
+> Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+> 
+> ---
+> 
+> Changes v12:
+> Added comments elaborating on the role of the driver and the hardware.
+> 
+> Regarding the names: zx297520v3 is the SoC's name (chip marking, boot
+> messages). TOPCRM, MATRIXCRM, LSPCRM are ZTE's names for the MMIO blocks
+> in their downstream sources. Sadly no datasheet is available. "clk",
+> "reset" names for the child nodes are mine.
+> 
+> Regarding personal copyright: I am not affiliated with ZTE nor paid by
+> them. This is my personal hobby project. I am using knowledge extracted
+> from ZTE's kernel dumps, but not code.
+> 
+> Changes v10 (All Lee Jones):
+> *) drop "select REGMAP_MMIO"
+> *) Drop comment about unimplemented hwlocks
+> *) Use MFD_CELL_[NAME|OF]
+> *) Renamed the device type enum and its values
+> *) Use device_get_match_data instead of the of_ variant
+> *) Improved debug messages
+> 
+> Changes v9:
+> Deassert the LSP reset and enable the LSP pclk here. In practice the
+> boot rom needs to do that because it prints to an LSP-connected UART and
+> reads the boot policy from the LSP connected flash chip.
+> 
+> In doing so, I migrated the match data to an enum as mfd.md suggests.
+> 
+> Changes v8:
+> *) Remove .of_compatible from PHY mfd child
+> 
+> *) Move to drivers/mfd (Sashiko)
+> 
+> For me either soc/zte or mfd/ is fine. Note though that this MFD parent
+> is very specific to the zx297520v3 SoC. I don't expect this to be reused
+> anywhere else. There are two more MFD-ish devices in there: soc_sys at
+> 0x140000, which I plan to handle in the same driver, and an i2c PMIC,
+> which would get its own host driver.
+> 
+> *) Use PLATFORM_DEVID_AUTO (Sashiko). NONE was intentional as I only
+> ever expect one instance, but I don't see any harm in doing the standard
+> thing and use AUTO
+> 
+> *) On the suggestion not to put the link to mfd_cells[] into match data:
+> I see that it is spelled out in Sashiko's mfd.md, written by Lee Jones,
+> the MFD maintainer. I would appreciate some education on the rationale
+> behind it: Putting a pointer into the void *data is a common pattern in
+> the kernel. I don't understand in which situation this can possibly
+> break?
+> 
+> Both structs are static const in the same compilation unit. data is a
+> const void *, not a uintptr_t or kernel_ulong_t, so it seems passing a
+> pointer is the intended use. What am I missing?
+> 
+> Changes v7:
+> Add phy MFD child
+> 
+> Changes v6: Make the ZTE SoC driver section depend on HAS_IOMEM
+> (Sashiko). The entire MFD section, which contains MFD_CORE, depends on
+> HAS_IOMEM even with COMPILE_TEST.
+> 
+> Add a NULL ptr check for of_device_get_match_data (Sashiko). While not
+> uniform, rave-sp, rohm-bd9576, atc260x, da9052-i2c protect against
+> incorrect manual attachment that way.
+> 
+> Add lspclk here as well in an attempt to satisfy both Conor Dooley, who
+> asks for MFD for top and matrix, and Philipp Zabel, who prefers aux but
+> at least wants the reset driver limited to one driver type.
+> 
+> Changes v5: Use MFD instead of Aux bus for top and matrix crm because of
+> extra functionality: Reboot in top, hwlock in Matrix.
+> 
+> LSP clocks stay with the aux bus and are thus not handled in this
+> driver. The clk driver will bind directly to the lspcrm node.
+> ---
+>  MAINTAINERS                      |   1 +
+>  drivers/mfd/Kconfig              |  12 +++++
+>  drivers/mfd/Makefile             |   2 +
+>  drivers/mfd/zte-zx297520v3-crm.c | 111 +++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 126 insertions(+)
 
-Isn't there is a guarantee that the .remove() is called with PM runtime on and
-get, meaning it's called with the enabled clock? But if not the case, we might
-use PM runtime force operations (resume and suspend in the respective cases.
+Doesn't apply.
+
+Please bring the MAINTAINERS changes out into their own patch
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Lee Jones
 
