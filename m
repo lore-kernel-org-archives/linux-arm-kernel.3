@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736E0C98315
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEE1C98310
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 08:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r4tVxof6PG/Au9JKGDTI5f180KhJU5YjoA9yVCsIL0k=; b=zimW4KMx14VQNB7S3rtZVMtNLU
-	r+d/Ueb1zKkeDyuSn3i6ce4cTt247bdC2BFum1Y+qlQQELF8UhYo8+RBn0t7C/ErMNyLRUDHD86y/
-	5JuaGGDnJXElMc/2L/G+XHqV8GjWEut/sQTCRROCkcWXEj5/dUv/leVpmjZt/IL0tIBN6rNTD4+Ib
-	D61C22yKUFqX/LXvPft1R+ewLVqoyHhuf0E8WESub9AR1vgfCIJXAdd+YMGofqnVAhc0UUhnSg2dX
-	zImCmlQQL/0zhfcverCgxb5DXgorExaArFnjjo/FXglDVMSmKFUAaRHI9m09z4FQnGDMbEqtAF7CE
-	tVI/TV2Q==;
+	bh=QOUtcT8Q4eTri6qdv3OSDlm4evmWQaxgCXIcuTn8yMA=; b=sx8P5nXzHXc/f5hE86WSxgzI5Z
+	rFQZrPHfz3ZDFU7xRg7EXDwZWFB/DZM1XnZ0Ov1nkLTCb1DevB377k2HeRiZBWF+RBxU1EleFI6Lw
+	gSgmiYCabZpye74vaVtFjGN365WSbN5J2cZeGxsfPf0qlWJfV/gilT0tYtIHRHFQbyfG/WHCIcUq6
+	mrmr+i/5aaj43qTGZPToloDj3YZ/J2JkUlhBxac48cW/UZjVmBIgvJRbaKDf+Z6fWn15qveUQpImH
+	urw7ethFrIGryOlfbawRomePXAfnBWFUh0G2kMh6W2fx1jQxMVjFJs7AcgX5WYIEFs6ecwHI004jb
+	m2y8Jh1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9eJ3-0000000AMWO-1Js9;
-	Thu, 24 Sep 2026 07:55:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9eQb-0000000ANnE-2ERF;
+	Thu, 24 Sep 2026 08:03:37 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9eIe-0000000AM9F-0YAF;
-	Thu, 24 Sep 2026 07:55:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78FAD602C3;
-	Thu, 24 Sep 2026 07:55:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2ADC3C2BD01;
-	Thu, 24 Sep 2026 07:55:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790236523;
-	bh=N7Lv5ZvVnfmc8YhjtdO0ynxxHEUuhEVfylq50/tI/yA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PmMHAHabQ3Z92hA2f5WVGj/GOx3FUqqKgoSIRP1GD1EU83P97O6u7FLzjBzwJKRqs
-	 jnlFE6ddDDk9eOthU03GPvDKuOzHiK9yEwA1QrAsMCjUiX3NdudSPsKng0zLvbsibk
-	 WLxqG8iabbxPDKYDtXBnb80mvhlPvEj1Pep3oWci2J5wMu8rWheb3Qkjo1uF1MloHk
-	 qmdFQWir29NDaJkbkQ3phE3RBW6HPpoufuCL3dUR7EtosJ9veSY7SPaiIclIj7y7eP
-	 iUgM7o3uyHnLR8g69+O/W1OyI79i/b2lDv4VQkVxuzkQWuhvK2IzS6Hh+7yPWSze8o
-	 7qp9P6P3S+dCA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18145C98318;
-	Thu, 24 Sep 2026 07:55:23 +0000 (UTC)
-From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
-Date: Thu, 24 Sep 2026 15:55:12 +0800
-Subject: [PATCH v10 5/6] arm64: dts: amlogic: Add video decoder driver
- support for S4 SOCs
+	id 1x9eQX-0000000ANmG-2zHI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 08:03:35 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 5B1D14E41055;
+	Thu, 24 Sep 2026 08:03:29 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 201175FB45;
+	Thu, 24 Sep 2026 08:03:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F0B15103294B3;
+	Thu, 24 Sep 2026 10:03:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790237006; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=QOUtcT8Q4eTri6qdv3OSDlm4evmWQaxgCXIcuTn8yMA=;
+	b=nnmlteqO1wYSHSaN+gcwEtmzcjW62gS3diRemNWhNQ/Xn1ndq6P4TeTNgbY4o2CIuut3eg
+	/KZTomI0oNnSHY3aboBikRLDopRrIuWuGOchdhTP30Vu3H/22HoGvrXomEN6R+VwY0YpS2
+	TVgxn6IFuGZFp5W2nKAapvyHdhn9f68KDNeRNNIINaVSnvMa5oD2I0kxRBn4f37PtaHCWP
+	Ec+zXldDL77Wlee6bg0QA+KHp6loQLb5uBsssBvaUMidxQ5SdvWJF8hGGlYI/crojBKI1f
+	iNXZxA0fidr1Thpw7F5xxz6HqSL69Q+6bbFwAdxs5fCPnra9P7TtE0CRtOeR0g==
+Message-ID: <56a9c5f0-55af-4547-89cb-c966423ee12c@bootlin.com>
+Date: Thu, 24 Sep 2026 10:03:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v16 00/12] net: pcs: Introduce support for fwnode
+ PCS
+To: Jakub Kicinski <kuba@kernel.org>,
+ "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260916235200.20712-1-ansuelsmth@gmail.com>
+ <20260921135933.7e8857ba@kernel.org>
+ <CA+_ehUwy9RUKCCHDnqoED3AMVnErgGr9RCrCR4ceg5QONq1wOQ@mail.gmail.com>
+ <20260922172514.7feb6e7c@kernel.org>
+ <CA+_ehUyFKZzd0uP4akgZxaLLJTwcvGGKz5ppCYsB++fn92Dn9w@mail.gmail.com>
+ <20260923201158.3552915a@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260923201158.3552915a@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-b4-s4-vdec-upstream-v10-5-1289303a58a4@amlogic.com>
-References: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
-In-Reply-To: <20260924-b4-s4-vdec-upstream-v10-0-1289303a58a4@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790236515; l=1805;
- i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
- bh=6mvln4gF/Xr6GIzNj9H9+pGxV5CsOeJcJGZ1vZicQxY=;
- b=faBz9U3pQ3gGMhcO6UDvCnuCBusZ+3DrvKrGcCQ10HES5y5h1GFXUm0EjHNcZlwKk1q1maxdK
- niCyYZcD/oxCoMztV7guvSswihBOsokNYeRxbdrNKST9o4gGXEBgc+1
-X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
- pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
-X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
- auth_id=555
-X-Original-From: Zhentao Guo <zhentao.guo@amlogic.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_010333_909472_83335FAB 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +94,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: zhentao.guo@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhentao Guo <zhentao.guo@amlogic.com>
+Hi,
 
-Add vdec node to enable Amlogic V4L2 stateless video decoder
-support. Since the video fw needs to be loaded via TEE helpers,
-enable the optee node in this patch.
+On 9/24/26 05:11, Jakub Kicinski wrote:
+> On Wed, 23 Sep 2026 10:31:49 +0200 Christian Marangi (Ansuel) wrote:
+>> Il giorno mer 23 set 2026 alle ore 02:25 Jakub Kicinski
+>>> On Tue, 22 Sep 2026 12:12:56 +0200 Christian Marangi (Ansuel) wrote:  
+>>>> The remark on the fwnode patch are invalid. The driver is expected
+>>>> to return those error as probe defer is not supported.
+>>>> (a notifier and late attach/detach is used to align to phylink logic)
+>>>>
+>>>> For the specific Airoha PCS driver it's really speculation from the AI
+>>>> but HW doesn't work as described by AI.
+>>>>
+>>>> The only real comment that is valid is about the alternative way
+>>>> to give supported interface with the .get_capabilites OP.
+>>>>
+>>>> This is currently not supported as there isn't any user and it will
+>>>> be implemented as soon as there will be one. It's really to limit
+>>>> the patch delta of this change and to progress further.
+>>>>
+>>>> Maybe FIXME might be suitable?  
+>>>
+>>> FWIW no preference here, I defer to the human reviewer.
+>>> We can treat the AI review as a hint if human reviewer thinks the code
+>>> is fine as is.  
+>>
+>> Soo should I send v17 to fix AI that failed review?
+>> I think I didn't got this detail.
+> 
+> Sounded like Maxime was planning to take v16 for a spin.
 
-Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 33 +++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+I gave it a quick run this morning, it still works fine with the mvpp2 porting
+I made last time, as well as on dwmac-socfpga :)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-index 2a6fbd530836..7a1dcb3951c8 100644
---- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-@@ -80,6 +80,11 @@ pwrc: power-controller {
- 				#power-domain-cells = <1>;
- 			};
- 		};
-+
-+		optee {
-+			compatible = "linaro,optee-tz";
-+			method = "smc";
-+		};
- 	};
- 
- 	saradc: adc@fe026000 {
-@@ -907,5 +912,33 @@ emmc: mmc@fe08c000 {
- 			assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_C>;
- 			assigned-clock-rates = <24000000>;
- 		};
-+
-+		canvas: video-lut@fe036048 {
-+			compatible = "amlogic,canvas";
-+			reg = <0x0 0xfe036048 0x0 0x14>;
-+		};
-+
-+		video-codec@fe320000 {
-+			compatible = "amlogic,s4-vdec";
-+			reg = <0x0 0xfe320000 0x0 0x10000>,
-+			      <0x0 0xfe036000 0x0 0x20>;
-+			reg-names = "dos",
-+				    "dmc";
-+			interrupts = <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>;
-+			clocks = <&clkc_periphs CLKID_DOS>,
-+				 <&clkc_periphs CLKID_VDEC_SEL>,
-+				 <&clkc_periphs CLKID_HEVCF_SEL>;
-+			clock-names = "dos",
-+				      "vdec",
-+				      "hvdec";
-+			power-domains = <&pwrc PWRC_S4_DOS_VDEC_ID>,
-+					<&pwrc PWRC_S4_DOS_HEVC_ID>;
-+			power-domain-names = "vdec",
-+					     "hvdec";
-+			resets = <&reset RESET_DOS>;
-+			amlogic,canvas = <&canvas>;
-+			amlogic,secure-monitor = <&sm>;
-+		};
- 	};
- };
+My tests doesn't cover the entirety of the patches though, I haven't stressed
+at all the fwnode path.
 
--- 
-2.42.0
+But this is starting to look good to me, I think you can send V17 with the sashiko
+fixes :)
 
-
+Maxime
 
