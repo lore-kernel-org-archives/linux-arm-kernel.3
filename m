@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26843C98317
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70999C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AMda9b2M0HE7bDg1/E+8Yg0zmUKaV5CLAKi97xEwv68=; b=1a/D+Lvg6Rkh/gcjSRXi+QwsJE
-	E1cizJYUOddG86NkeEu7T5p8OyIKjNquV6QyMszGI8p6DfjN0zTyHvhUau+cRP+R2AeHKE0CSrHXE
-	NIXX9ELX0Rdex2X7UJ1zwKApI/eCMkvi6ORwNJLgm6C3fQub5uaHCcxy67/8boZAT1C6Y7wJFi5pH
-	HPsn0CkzHE8HFdXreth/G9zHL6g85WRz1F17eZTOVWMs4kGT610qW9Se1DwiFc5J0rNnUnFNoyhVb
-	sYGFvBNUz+xxO2Lx9XeZWHthDQONJtFxAkocCwiulU3elLphjk4uC7uiEbn20vrBIzZEuqZqZirUX
-	Ex2y5TVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HJX5S1IwKilV3DfdwUxuBjqWs787yTdnHdN08roC5wI=; b=xGIVOqyaRq2pcgqCUs6nT/vz5z
+	dmRicrlFBfj8w0eclwrqsXZ//HEAweUl8UXsRXSQRFAqzMJ9I48NXYMjmg1XJJchBTqjLhYi526/z
+	ssM5Go5fFwI94XBhMrIyT1FA6Zzxi4VWLjjqBS9AiSLXHcOuV6tXvAJtEAGdAnXJfOu2T2nQaWMYf
+	Se49r42L77SztL5mCGxx+qC0bIUAwjGPAnkSsz8/sW+8o27yrHsme4Uf2d8L8B6n53+ZY+atqL98U
+	N6UCEZ9ffE13JloREndVAFGl3FJMOGuTSYOtK6LAd5/VjRmiAW14SB5kuYziiqz8v12wCE6On665a
+	tLZVH2fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iDg-0000000AvkB-3r8B;
-	Thu, 24 Sep 2026 12:06:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iDf-0000000Avjk-1sDW
+	id 1x9iH9-0000000AwCc-2O9Z;
+	Thu, 24 Sep 2026 12:10:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9iH5-0000000AwBc-2pEG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 12:06:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38B26441F4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 12:06:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C7B01F008AB
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 12:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790251591;
-	bh=AMda9b2M0HE7bDg1/E+8Yg0zmUKaV5CLAKi97xEwv68=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=AN2eipIwmtVZ4M5Ny3OwliN67dMXjEm7YmJn4+ad6DexfVZp3CDJtiYnaoFksqodn
-	 mwZ1b4SVH63NPUXV2EYeIbJRRnrYEqDgJ1aM+hTpYkpLxQ5NV73qb7D1u2ByBnsLeP
-	 Zl/DJDHTqT6OiaH1vubVrlpERsPaD3Mgx1WPdPuV2fXw3E7nHMRQJbcEbRckmRj7yG
-	 gAfxCXLubigONN5I0PrBpD2HatKrJBxPWMsz/eb3BPSEVakQ0QFCs7J7hyRnjtVFT/
-	 4LqPzByO1QeWXrKGOuxdQ7j+UV3m6HYuvu8nlQbIgjj6b8xSrvdI9ggm13W8104LNs
-	 lIZXxp6e0q25g==
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f15b78so1721983e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 05:06:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwoM3T0FxBbWupYWnfGPjDQ4ZAfdSrXXmDgLzUA+iYuJevAgJpENg4dPlyjp6peIXgW9HUrO3w0u82lS7JpmWIu@lists.infradead.org
-X-Gm-Message-State: AFuF++nvaFwZs4QWHXrHJEkNui8EHG+KCvCAz95S7yVb/ckHbQX8BeLK
-	UJK3wirywup/aEM3O0FZtioY+lFA25OS/zwj5Ny1d2bgjjwnoXLYr+vUC39p5g0yUfEDQr6yBn2
-	xUuRS/eCCman+s4NkmRd37sKLXRUd+rZFf8YQwS03BA==
-X-Received: by 2002:a05:6512:1192:b0:5b6:423:9fa7 with SMTP id
- 2adb3069b0e04-5b8df1f3ec5mr826739e87.31.1790251589716; Thu, 24 Sep 2026
- 05:06:29 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 24 Sep 2026 05:06:28 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 24 Sep 2026 05:06:28 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260921-axiado-ax3000-sgpio-controller-v4-0-79c444be7faf@axiado.com>
+	Thu, 24 Sep 2026 12:10:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6940A152B;
+	Thu, 24 Sep 2026 05:09:56 -0700 (PDT)
+Received: from [10.57.83.110] (unknown [10.57.83.110])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AB5D3F86C;
+	Thu, 24 Sep 2026 05:09:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790251799; bh=zb3BlFOPcL0srDUMglcVnm0Omt3MH1OzPB+fgFYjBFA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Nd9Gvt1qKcpnsc06Gjc+2CD1SNy3cD4To54NY8qil+5DrPmWmULRuTBpzh/zGK1yu
+	 rVuKH+uU2mLSs/4M1tFh2Y6ZoZ1KA303+qctE0QLw8ommwu02QKio/26ZzRIL0AofH
+	 +OO2lduMz1qH9fvguQf92AJQnwUW3OdkFRvLMmc8=
+Message-ID: <0944f74c-847a-41a7-bd8f-db9f8dd0fe80@arm.com>
+Date: Thu, 24 Sep 2026 13:09:55 +0100
 MIME-Version: 1.0
-References: <20260921-axiado-ax3000-sgpio-controller-v4-0-79c444be7faf@axiado.com>
-Date: Thu, 24 Sep 2026 05:06:28 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mdx6zH16Ej-7EDVw0cKix7+h2tOxSL8pc1PiXhptA_R-A@mail.gmail.com>
-X-Gm-Features: AclHuK_9ekJ2IaIbciUj6wKN51mS4Pn8kPTOGKYEK1UcTaHgO2MIe0OH-x_Yx30
-Message-ID: <CAMRc=Mdx6zH16Ej-7EDVw0cKix7+h2tOxSL8pc1PiXhptA_R-A@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] gpio: Add support for Axiado AX3005 SGPIO controller
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
-	Prasad Bolisetty <pbolisetty@axiado.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Harshit Shah <hshah@axiado.com>, SriNavmani A <srinavmani@axiado.com>, 
-	Karthikeyan Mitran <kmitran@axiado.com>, Michael Walle <mwalle@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 1/4] arm64/mm: Use pmdp_get() for PMD accesses
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, kasan-dev@googlegroups.com
+References: <20260924062214.1635078-1-anshuman.khandual@arm.com>
+ <20260924062214.1635078-2-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260924062214.1635078-2-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_051003_821330_12968082 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +76,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Sep 2026 09:20:21 +0200, Petar Stepanovic
-<pstepanovic@axiado.com> said:
-> Each SGPIO position provides one input GPIO and one output GPIO with
-> fixed directions, along with interrupt support for input GPIOs.
->
-> This series adds support for the SGPIO controller found on the Axiado
-> AX3005 SoC.
->
-> The series includes:
-> - Devicetree binding documentation
-> - GPIO driver implementation
->
-> The driver uses gpio-regmap for GPIO operations and provides
-> controller-specific interrupt handling.
->
-> Tested on Axiado AX3005 platforms.
->
+On 24/09/2026 07:22, Anshuman Khandual wrote:
+> Replace READ_ONCE() with pmdp_get() for PMD accesses in preparation for
+> supporting both D64 and D128 translation table formats.
+> 
+> READ_ONCE() cannot currently be used for 128-bit page table entries on
+> arm64 because it does not provide the required 128-bit single-copy
+> atomicity, causing builds to fail for accesses wider than 64 bits.
+> 
+> Although LDP/STP provide the required atomicity when FEAT_LSE is
+> available (as required by FEAT_D128), extending READ_ONCE() to support
+> 128-bit accesses is undesirable. READ_ONCE() is a general-purpose API,
+> so doing so could encourage other 128-bit users that would either fail
+> to build in configurations without D128 support or, if D128 becomes a
+> runtime option, silently permit tearing on systems without the required
+> hardware support.
+> 
+> Instead, standardize PMD accesses on the existing page-table helpers.
+> These can be overridden on arm64 to provide 128-bit single-copy
+> atomicity when required.
+> 
+> For now override pmdp_get() which is same as the generic memory default
+> to avoid build dependency problem for callers in header <asm/pgtable.h>.
+> 
+> No functional change intended.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: kasan-dev@googlegroups.com
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-The series looks good to me so if there are no objections I'll queue it for
-v7.4 in the next days.
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Bart
+> ---
+> Changes in V3
+> 
+> - Added platform override for pmdp_get()
+> - Replaced READ_ONCE() in pmdp_test_and_clear_young()
+> 
+>  arch/arm64/include/asm/pgtable.h | 11 +++++++++--
+>  arch/arm64/mm/fault.c            |  2 +-
+>  arch/arm64/mm/fixmap.c           |  2 +-
+>  arch/arm64/mm/hugetlbpage.c      |  2 +-
+>  arch/arm64/mm/kasan_init.c       |  4 ++--
+>  arch/arm64/mm/mmu.c              | 22 +++++++++++-----------
+>  arch/arm64/mm/pageattr.c         |  2 +-
+>  arch/arm64/mm/trans_pgd.c        |  2 +-
+>  8 files changed, 27 insertions(+), 20 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 763c5a411d64..9ad2d03e86ad 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -84,6 +84,12 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  	arch_flush_lazy_mmu_mode();
+>  }
+>  
+> +#define pmdp_get pmdp_get
+> +static inline pmd_t pmdp_get(pmd_t *pmdp)
+> +{
+> +	return READ_ONCE(*pmdp);
+> +}
+> +
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+>  
+> @@ -811,7 +817,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>  }
+>  
+>  /* Find an entry in the third-level page table. */
+> -#define pte_offset_phys(dir,addr)	(pmd_page_paddr(READ_ONCE(*(dir))) + pte_index(addr) * sizeof(pte_t))
+> +#define pte_offset_phys(dir, addr)	(pmd_page_paddr(pmdp_get(dir)) + \
+> +					 pte_index(addr) * sizeof(pte_t))
+>  
+>  #define pte_set_fixmap(addr)		((pte_t *)set_fixmap_offset(FIX_PTE, addr))
+>  #define pte_set_fixmap_offset(pmd, addr)	pte_set_fixmap(pte_offset_phys(pmd, addr))
+> @@ -1291,7 +1298,7 @@ static inline bool pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>  		unsigned long address, pmd_t *pmdp)
+>  {
+>  	/* Operation applies to PMD table entry only if FEAT_HAFT is enabled */
+> -	VM_WARN_ON(pmd_table(READ_ONCE(*pmdp)) && !system_supports_haft());
+> +	VM_WARN_ON(pmd_table(pmdp_get(pmdp)) && !system_supports_haft());
+>  	return __ptep_test_and_clear_young(vma, address, (pte_t *)pmdp);
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 2cecf6ba6df7..2757ee0c4300 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -188,7 +188,7 @@ static void show_pte(unsigned long addr)
+>  			break;
+>  
+>  		pmdp = pmd_offset_lockless(pudp, pud, addr);
+> -		pmd = READ_ONCE(*pmdp);
+> +		pmd = pmdp_get(pmdp);
+>  		ptval_to_str(pxd_str, pmd_val(pmd));
+>  		pr_cont(", pmd=%s", pxd_str);
+>  		if (pmd_none(pmd) || pmd_bad(pmd))
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index f66a0016dd02..3cdac8021d4f 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -42,7 +42,7 @@ static inline pte_t *fixmap_pte(unsigned long addr)
+>  
+>  static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
+>  {
+> -	pmd_t pmd = READ_ONCE(*pmdp);
+> +	pmd_t pmd = pmdp_get(pmdp);
+>  	pte_t *ptep;
+>  
+>  	if (pmd_none(pmd)) {
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 8e799c1fe0aa..cdaa4500faf9 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -304,7 +304,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
+>  		addr &= CONT_PMD_MASK;
+>  
+>  	pmdp = pmd_offset(pudp, addr);
+> -	pmd = READ_ONCE(*pmdp);
+> +	pmd = pmdp_get(pmdp);
+>  	if (!(sz == PMD_SIZE || sz == CONT_PMD_SIZE) &&
+>  	    pmd_none(pmd))
+>  		return NULL;
+> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
+> index 45fbdce684c8..7ca833c5de5e 100644
+> --- a/arch/arm64/mm/kasan_init.c
+> +++ b/arch/arm64/mm/kasan_init.c
+> @@ -62,7 +62,7 @@ static phys_addr_t __init kasan_alloc_raw_page(int node)
+>  static pte_t *__init kasan_pte_offset(pmd_t *pmdp, unsigned long addr, int node,
+>  				      bool early)
+>  {
+> -	if (pmd_none(READ_ONCE(*pmdp))) {
+> +	if (pmd_none(pmdp_get(pmdp))) {
+>  		phys_addr_t pte_phys = early ?
+>  				__pa_symbol(kasan_early_shadow_pte)
+>  					: kasan_alloc_zeroed_page(node);
+> @@ -138,7 +138,7 @@ static void __init kasan_pmd_populate(pud_t *pudp, unsigned long addr,
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+>  		kasan_pte_populate(pmdp, addr, next, node, early);
+> -	} while (pmdp++, addr = next, addr != end && pmd_none(READ_ONCE(*pmdp)));
+> +	} while (pmdp++, addr = next, addr != end && pmd_none(pmdp_get(pmdp)));
+>  }
+>  
+>  static void __init kasan_pud_populate(p4d_t *p4dp, unsigned long addr,
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index e589fb00d1e3..95621913679e 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -200,7 +200,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  			       int flags)
+>  {
+>  	unsigned long next;
+> -	pmd_t pmd = READ_ONCE(*pmdp);
+> +	pmd_t pmd = pmdp_get(pmdp);
+>  	pte_t *ptep;
+>  
+>  	BUG_ON(pmd_leaf(pmd));
+> @@ -257,7 +257,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  	unsigned long next;
+>  
+>  	do {
+> -		pmd_t old_pmd = READ_ONCE(*pmdp);
+> +		pmd_t old_pmd = pmdp_get(pmdp);
+>  
+>  		next = pmd_addr_end(addr, end);
+>  
+> @@ -272,7 +272,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  			 * only allow updates to the permission attributes.
+>  			 */
+>  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
+> -						      READ_ONCE(pmd_val(*pmdp))));
+> +						      pmd_val(pmdp_get(pmdp))));
+>  		} else {
+>  			int ret;
+>  
+> @@ -282,7 +282,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  				return ret;
+>  
+>  			VM_WARN_ON_ONCE(pmd_val(old_pmd) != 0 &&
+> -					pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
+> +					pmd_val(old_pmd) != pmd_val(pmdp_get(pmdp)));
+>  		}
+>  		phys += next - addr;
+>  	} while (pmdp++, addr = next, addr != end);
+> @@ -293,7 +293,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  static bool pmd_range_has_valid_noncont(pmd_t *pmdp)
+>  {
+>  	for (int i = 0; i < CONT_PMDS; i++) {
+> -		pte_t pte = pmd_pte(READ_ONCE(pmdp[i]));
+> +		pte_t pte = pmd_pte(pmdp_get(pmdp + i));
+>  
+>  		if (pte_valid(pte) && !pte_cont(pte))
+>  			return true;
+> @@ -1553,7 +1553,7 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+>  		pmdp = pmd_offset(pudp, addr);
+> -		pmd = READ_ONCE(*pmdp);
+> +		pmd = pmdp_get(pmdp);
+>  		if (pmd_none(pmd))
+>  			continue;
+>  
+> @@ -1708,7 +1708,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+>  		pmdp = pmd_offset(pudp, addr);
+> -		pmd = READ_ONCE(*pmdp);
+> +		pmd = pmdp_get(pmdp);
+>  		if (pmd_none(pmd))
+>  			continue;
+>  
+> @@ -1729,7 +1729,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+>  	 */
+>  	pmdp = pmd_offset(pudp, 0UL);
+>  	for (i = 0; i < PTRS_PER_PMD; i++) {
+> -		if (!pmd_none(READ_ONCE(pmdp[i])))
+> +		if (!pmd_none(pmdp_get(pmdp + i)))
+>  			return;
+>  	}
+>  
+> @@ -1881,7 +1881,7 @@ int pmd_set_huge(pmd_t *pmdp, phys_addr_t phys, pgprot_t prot)
+>  	pmd_t new_pmd = pfn_pmd(__phys_to_pfn(phys), mk_pmd_sect_prot(prot));
+>  
+>  	/* Only allow permission changes for now */
+> -	if (!pgattr_change_is_safe(READ_ONCE(pmd_val(*pmdp)),
+> +	if (!pgattr_change_is_safe(pmd_val(pmdp_get(pmdp)),
+>  				   pmd_val(new_pmd)))
+>  		return 0;
+>  
+> @@ -1906,7 +1906,7 @@ int pud_clear_huge(pud_t *pudp)
+>  
+>  int pmd_clear_huge(pmd_t *pmdp)
+>  {
+> -	if (!pmd_leaf(READ_ONCE(*pmdp)))
+> +	if (!pmd_leaf(pmdp_get(pmdp)))
+>  		return 0;
+>  	pmd_clear(pmdp);
+>  	return 1;
+> @@ -1917,7 +1917,7 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>  	pte_t *table;
+>  	pmd_t pmd;
+>  
+> -	pmd = READ_ONCE(*pmdp);
+> +	pmd = pmdp_get(pmdp);
+>  
+>  	if (!pmd_table(pmd)) {
+>  		VM_WARN_ON(1);
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index bbe98ac9ad8c..0ca07bd5ded9 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -414,7 +414,7 @@ bool kernel_page_present(struct page *page)
+>  		return pud_valid(pud);
+>  
+>  	pmdp = pmd_offset(pudp, addr);
+> -	pmd = READ_ONCE(*pmdp);
+> +	pmd = pmdp_get(pmdp);
+>  	if (pmd_none(pmd))
+>  		return false;
+>  	if (pmd_leaf(pmd))
+> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
+> index cca9706a875c..b27b2d2c20c3 100644
+> --- a/arch/arm64/mm/trans_pgd.c
+> +++ b/arch/arm64/mm/trans_pgd.c
+> @@ -74,7 +74,7 @@ static int copy_pmd(struct trans_pgd_info *info, pud_t *dst_pudp,
+>  
+>  	src_pmdp = pmd_offset(src_pudp, start);
+>  	do {
+> -		pmd_t pmd = READ_ONCE(*src_pmdp);
+> +		pmd_t pmd = pmdp_get(src_pmdp);
+>  
+>  		next = pmd_addr_end(addr, end);
+>  		if (pmd_none(pmd))
+
 
