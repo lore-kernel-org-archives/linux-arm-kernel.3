@@ -4,63 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 902B8C98311
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF93AC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pxg7kmtHxx8VMZB3nCWU+ICPKhKa7foppWUZDKnG0xE=; b=gzd5zWi6TIHgUKzvM8e8CbxJXi
-	uzrGiEXLeD4DscT9vOf7e2PETIojjYwSSnEMrrIFqH2y4kzv9pJjk4UrTAXPPGTrR3U8DSpbRb7OQ
-	AzxgPqWnN9nDoNZ/FruIMwnV1ooCpDU8d3rVKj1yGyMtPxNYppP/6LEQbDrj1XRqTuf/IewkDIAWk
-	1iU7A0NV2h7AdglXgWxtGDHIoZLQToSNCWETFFIaKxU/qPikNF3PE6DvWyPEkVED5ZrtxUOOOwLJ4
-	YcrTe5OEimb/Sg9QsG2zQCsa2p9mw1TsZ7Ve9Xzjw58M/j+rnN9d7VSAebyR2RYUoniS9LE7/7TWm
-	TeTu3Wcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HFYAyd4R5llObt+kQfPkA5ON4Erbz886AmkA+AaAtZ4=; b=0Uz2TEM6/auM9B36VnSdsj06fY
+	T/54fiHbiRiR4jdgWOz9musiuRi6Ol5oVinXjllQOj7yN/Jc4g0H1fAYvxAKfmOFheQi2X2NCeZW2
+	ucDHMDCfckf9btqg3fYaPwnqdNobS37KQMimDoFjhJT2TGqRfyOk67qCn0tmDVrkgyiMD+KBPGu6K
+	heTnT60WOVJGyZnzwmqVVhYQI6OtWOM7eyQsOj14Iw5fIJ8aG82t38P8WmDlkn6VEqIZ1CVkG33qf
+	ZmsY+sWf0+tsWnPEy6/ZiitR81uVLdUsHP45DAFgdeDDKUJF5eiP3a3O5hjRuoikumFkGoLsPaE0d
+	lleAPFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fxe-0000000Ac8J-0ujR;
-	Thu, 24 Sep 2026 09:41:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fxb-0000000Ac7u-3A7b
+	id 1x9fyO-0000000AcFX-1pTd;
+	Thu, 24 Sep 2026 09:42:36 +0000
+Received: from de-smtp-delivery-113.mimecast.com ([194.104.109.113])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9fyL-0000000AcEe-3WTj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 09:41:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A5E61477;
-	Thu, 24 Sep 2026 02:41:43 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 32AA63F86F;
-	Thu, 24 Sep 2026 02:41:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790242907; bh=RBX4B4bKtfjbLqikSvS1byAkRrvTM9BBDT0jb8BgzKc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cRYmoBMyAkTJmv8S3EwwsWOkLlqls6hnd0e5KRQ3xi4AhCDyvf7ksNzxK1XErIUAy
-	 nJ+ZLXa2SkGUcatOXoY7H2SyzYg20ub6vaRxldbJeBmIDvTaJ8EN9jpTjigsokFaaQ
-	 O/tGl5ZYwqC6VW0UIe2V5Q6F5Mrr2BAelwR2HdD8=
-Date: Thu, 24 Sep 2026 10:41:41 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Andrea Parri <parri.andrea@gmail.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dev Jain <dev.jain@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: Fix the break-before-make flush range for
- erratum 2645198
-Message-ID: <arTwVXOGRSI8MtAM@arm.com>
-References: <20260923143636.89480-1-parri.andrea@gmail.com>
+	Thu, 24 Sep 2026 09:42:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=toradex.com; s=toradex-com;
+	t=1790242949;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HFYAyd4R5llObt+kQfPkA5ON4Erbz886AmkA+AaAtZ4=;
+	b=qOQfLMVTxPDUKg2OL6CmlOvsyEWZeVc4pvjXRww2Dx7twiei9bjlTabWrNGC9K5QdoMgCZ
+	IGjeYhTUi7vsUWSb4iEpygTLpbFtKLR4VcwWx86cPHRWHIilbH9x+ipBNmv+h/jBiu56YW
+	hTAKOTHAsUKOOqVfpsbumQ4JZLqN8jU=
+Received: from ZRAP278CU002.outbound.protection.outlook.com
+ (mail-switzerlandnorthazon11020086.outbound.protection.outlook.com
+ [52.101.186.86]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-63-GZYctS2oOsOh-IQLgA6Ffw-1; Thu, 24 Sep 2026 11:42:28 +0200
+X-MC-Unique: GZYctS2oOsOh-IQLgA6Ffw-1
+X-Mimecast-MFC-AGG-ID: GZYctS2oOsOh-IQLgA6Ffw_1790242947
+Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:2e::8) by
+ ZR0P278MB0155.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:33::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.18; Thu, 24 Sep 2026 09:42:27 +0000
+Received: from ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::88:6821:13f5:a5b2]) by ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ ([fe80::88:6821:13f5:a5b2%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
+ 09:42:26 +0000
+Date: Thu, 24 Sep 2026 11:42:24 +0200
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Frank Li <Frank.li@oss.nxp.com>,
+	Ernest Van Hoecke <ernestvanhoecke@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 3/6] dt-bindings: connector: Add Toradex camera connector
+Message-ID: <arTwgIrjfMGD3I9B@francesco-nb>
+References: <20260910-verdin-imx8mp-hmp-camera-ready-v1-0-3c9349ecdb9f@toradex.com>
+ <20260910-verdin-imx8mp-hmp-camera-ready-v1-3-3c9349ecdb9f@toradex.com>
+ <aqLaLmz7n31P6igy@SMW015318>
+ <prwghb3ftrz5xd3hapxtlv2o2gm5xmuapnpz2h7fqulf75phqz@lk4yiaepormb>
+ <aqLif2zrrsbYd5sM@SMW015318>
+ <aqLk5UAv-j39Jxd3@francesco-nb>
+ <20260918192447.GB1465432-robh@kernel.org>
+ <178981707848.1761404.17065871878122418287@ping.linuxembedded.co.uk>
+ <arDZoulyKIzVj-73@francesco-nb>
+ <179023382707.1723501.12070631258057963152@ping.linuxembedded.co.uk>
+In-Reply-To: <179023382707.1723501.12070631258057963152@ping.linuxembedded.co.uk>
+X-ClientProxiedBy: MI1PEPF000008C1.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::437) To ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:2e::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZRAP278MB0495:EE_|ZR0P278MB0155:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ad309fd-2dd2-481a-0892-08df1a20249e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|10067099003|56012099006|4143699003|6133799003|18002099003|22082099003
+X-Microsoft-Antispam-Message-Info: DK/epuPjwRhgzuZ+8NpaElwqtgMOoJvCcFyOgqbMIvTpSwNfk05b4JOuu/ixr+Uyg/M4bt5ijqg6KRo3yahzB/oGMDcHbRG1roodU0xxR1h+LDhMFeiqjSTE6PipAvBOCtDaFgZmPAat3EfeFKxAgveeyiWcED46LLcnXVDVDhcZbv/w4Z1dvvULj3J6MpFUoTp2LFk4aK4hUbhTazzzRGexBRDIxRRfc42jbANv//TGLmCnnOxxltbwG1k5vMt382kQ10jRhITIiF4ETggRx9qWF8BEylwdL5udpFN2sJ8FKc/pIkv844OO4Xvj/xEnlmk4vg/07qhcYAinMbxQsJf5sEWzAOCThsLHKqphwRPvJxsVZ/MY5mNyOfq3235nRuSTrfhenhtFBWSFNqYAQv4ViHirdI/fF/cyc5lAwpCVt6rbgUqZixyCcd/VQENLKcI4CDALKp2+ymejpIV92TR+Ta+vPhtbcdb6ZZBfyZgXORqf9YLEDPlV7bltXjq6OxZ8/81tW6hJwZYdTUtxSDzdcZlKs3hjVZMaU3IlGfn8UEvSiV0Hgj7gi3q4wE4WeXybdKwjTFoCM8n+wSIovhj8PS/sjz/JR/6rQt6Qb3KDEsunAmAeWgsI+pG1OTcknwyKSZfZBIkQou7EhIuLAmMDzQ+sGXwDibNQpjcOwNY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(4143699003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1102
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nDAV1P+U46pl48emK1xvSxFY1Jt6GFeSQsIYiXpTxx8tWnCRs9uHsc8TM65e?=
+ =?us-ascii?Q?HuJEZhSZk4lw7GJWkR5Khnm9UNrL0fMCDvZMS9+xMhUu2YrBYjo+3RBKEFdL?=
+ =?us-ascii?Q?Zlu6IXdnbWIoocfB7V/+wYhweG04dmWvw6rptNPz2bHdVhs2McdiqO5+eCxz?=
+ =?us-ascii?Q?obDq6pZZFu90zz2k6D/kFADHZz95vsOerQL9T7bcH3+KnMP9iFwqXwG0OVYL?=
+ =?us-ascii?Q?E30bo35W7DAti5OihJB+V4L+acv4FqIeZYkpFxn0QdSlsjd2MEVQnJRmXQuZ?=
+ =?us-ascii?Q?/XC6vz4WwrGY1zN76VZG6rVptAujzWqOjfbAm3fKRBn8pFBbqLyIvWgUgyr7?=
+ =?us-ascii?Q?zzw8dWE7dUAMDYBS+HyOtvIGqlyKlmcDcn2rwqJ/35dyTLzfge9By14/OhLG?=
+ =?us-ascii?Q?VjFoaQGc9qhvrVYkSieYYqg8A+UJdhaguAeDuXf6a5UwyLfIzPJMKvxg3YPE?=
+ =?us-ascii?Q?jrUjEd6VZRVagQYWi18UhsrajA3a8rkZB4iLL4BzwNR7wPl30ihUjKkbCyg4?=
+ =?us-ascii?Q?SjIkj4B53Ib+ZlsbrBDxo/GzfO3yaIf2y/ZLjmB1kDEcOkm1z8+45RDC+227?=
+ =?us-ascii?Q?FbeEkpVcJfNgTVGFfrbpjzuHJq+dQEumriJ+AVxxm+4rEWopOBg/V5iMLWPe?=
+ =?us-ascii?Q?veOek4VohbeM1XErAQQ8Bt94t9CGk1NAwLzqUoBj8KcunmwvSUmGhQDz/enl?=
+ =?us-ascii?Q?0GZo3v/kE3pdV/AcQuuY+c/uoatQvpvEQugmh4lkR+QV1EozMJZpyNxJp4bT?=
+ =?us-ascii?Q?7FKmjJpjjt+1kwEcHy7QMGV9wKv7HKFL+2dTUblTiORGfgOVC/l4eteV0fms?=
+ =?us-ascii?Q?2+IkOVIiNe89FFzxDn2DwY9TejrIJdXP28KjoGKTbkmPy7wNtoBwAcPD+6Ls?=
+ =?us-ascii?Q?uWYY3RZsmI/0RNJGcDGyygPyf47ToI/H520S04PWTpBsbLx5NBOotywJyrI0?=
+ =?us-ascii?Q?d3VFefsr371R8bDaFE0yLPpUxivOfRa7/CpCHez6S6VhlI7T/3rsbbD5RFG+?=
+ =?us-ascii?Q?SE9qFgsHxkJWrkCg3VwObHnA3TURT/pqq0COhzUmLx28pvjtv4G3oa6g2u3H?=
+ =?us-ascii?Q?r2qGgRsRMAGMPNRrIhM1r1eQYRaEuwXuE3INL1CfxfKHzOSpnwKBjOilqXuQ?=
+ =?us-ascii?Q?WbymLnfL024q32L9JJnwl9pZPsvAf3Y/szPFmM6+FSnD3XP9FtrYAvls8bqp?=
+ =?us-ascii?Q?5LapqOO5gqEb8ZOteckRCuV7/rBPMxEPQDYlxyDyo+MbiflceEAsRck0IAQt?=
+ =?us-ascii?Q?/s254Om+J6QSE9pn/ajiS6LOHLXJGxdpCX4DdBr6MKivrqIJkJPyHsBMrNS4?=
+ =?us-ascii?Q?cIFup8c6Eq64UO2+HqBsD9kFWO8smddFH4+2vhFPsC3+wTQOVSU6Mp+kMOyw?=
+ =?us-ascii?Q?h3ws1cmrdVW8Rp6x5nslv7576CdFDyYRfxaqlNhqUpLu671blaZLupftjVNh?=
+ =?us-ascii?Q?WcsV4XnjXeNRf7XeV9GJbApXjE4yiz+xyLfwhTv/Xqtnz4WLkRRUh5TfPXtM?=
+ =?us-ascii?Q?VNkVOob3IPjEezfSynkBq4MUnvtGAtYy1U2jD5gGR9hwz9h+xvM0aNSzoOjl?=
+ =?us-ascii?Q?wDvsh44gjpYdjCD3Om2TbRe5hZ++cbW7zeeICGA5CzwEJEdYhSwXGPgwYEGO?=
+ =?us-ascii?Q?v5zhSTcHXQ6awg4/QVHHz46xMrQP3o0f9aKOmPj6kOMQHdSHCztlQ58S5GXj?=
+ =?us-ascii?Q?XNVi12CceK2xKXC0euVeSHZwk62aL4msgzjKgDDl5UGd+5AFQlnvPDey/fT+?=
+ =?us-ascii?Q?gDvAelZ9DWBWDg4ZmTox5pUorJWgaEI=3D?=
+X-Exchange-RoutingPolicyChecked: ZpkX8VZB1Rm34l7o3Jx+BAhpp3Rd1gHPncl/lO3z4Ml6yBQtyOWSutD75o8zHpWxQO6jcOIS232rM4uXTjvbr3NSMaTQ4VPXloZCX+WCV9v7KoGl01M024borGsBnN9zPLxYcS/7cYwqEjWj2prWeuyvwI3TTUWeVjYuFBHI+lN+vrQoUzQju3HZ6fCJingIzqEXG2EKcQXcEMbu+DT7ewJ2zm700/xX64X7WLeqajTqxLt9bFS+1stmHbXdBWj61I1B9qNK8W6IqdifYaZ7sYwwSdDO7YFiyNsx7cd2bgwQbrm2x4QHVspBQKWEzzj9o2St1jwA6WfqbU28iHzR0g==
+X-OriginatorOrg: toradex.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ad309fd-2dd2-481a-0892-08df1a20249e
+X-MS-Exchange-CrossTenant-AuthSource: ZRAP278MB0495.CHEP278.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 09:42:26.7688
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d9995866-0d9b-4251-8315-093f062abab4
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3qlpVhsEgyQVK50gz+uOUfXNzEZIpWLdr/6xJceHyK+6u48Y9z1ty3qGlXueK1fLD9gyLCKOtN+nt0dtQOtlDZjPQ5uN3oZfgKJ954eolpM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR0P278MB0155
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 3382Tyn67dkr_XfNgLpix97JZXW7f387Lyut3xHDLUQ_1790242947
+X-Mimecast-Originator: toradex.com
+Content-Type: text/plain; charset=WINDOWS-1252
 Content-Disposition: inline
-In-Reply-To: <20260923143636.89480-1-parri.andrea@gmail.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_024147_853007_1A030A4C 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20260924_024234_027938_B1CA6ADE 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +158,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 04:36:32PM +0200, Andrea Parri wrote:
-> modify_prot_start_ptes() performs the break-before-make TLB invalidation
-> required by erratum 2645198 with __flush_tlb_range(), whose third
-> argument is the end address of the range.  It passes nr * PAGE_SIZE
-> instead of addr + nr * PAGE_SIZE, so __do_flush_tlb_range() computes the
-> page count as (nr * PAGE_SIZE - addr) >> PAGE_SHIFT.
-> 
-> For addr > nr * PAGE_SIZE that subtraction underflows, the page count
-> exceeds the batching limit and the flush degenerates to flush_tlb_mm(),
-> so a single-page mprotect broadcasts an ASID-wide invalidation and a
-> full-range mmu notifier call.
-> 
-> For addr <= nr * PAGE_SIZE only [addr, nr * PAGE_SIZE) is invalidated,
-> and when the cleared batch starts below nr * PAGE_SIZE the tail is left
-> in the TLB.  The workaround then no longer covers the whole batch, and
-> for addr == nr * PAGE_SIZE the flush is empty.
-> 
-> On affected Cortex-A715 CPUs, this can corrupt ESR_ELx and FAR_ELx on the
-> next instruction abort caused by a permission fault.
-> 
-> Pass addr + nr * PAGE_SIZE as the end address.
-> 
-> Fixes: 7efa1cd5f89b5 ("arm64: add batched versions of ptep_modify_prot_start/commit")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> ---
->  arch/arm64/mm/mmu.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 79d90226fd5dc..d4384131e10d8 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -2295,7 +2295,7 @@ pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
->  		 * in cases where cpu is affected with errata #2645198.
->  		 */
->  		if (pte_accessible(vma->vm_mm, pte) && pte_user_exec(pte))
-> -			__flush_tlb_range(vma, addr, nr * PAGE_SIZE,
-> +			__flush_tlb_range(vma, addr, addr + nr * PAGE_SIZE,
->  					  PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+Hello Kieran,
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+On Thu, Sep 24, 2026 at 08:10:27AM +0100, Kieran Bingham wrote:
+> Quoting Francesco Dolcini (2026-09-21 08:15:46)
+> >=20
+> > On Sat, Sep 19, 2026 at 12:24:38PM +0100, Kieran Bingham wrote:
+> > > Quoting Rob Herring (2026-09-18 20:24:47)
+> > > > On Thu, Sep 10, 2026 at 07:12:05PM +0200, Francesco Dolcini wrote:
+> > > > > On Thu, Sep 10, 2026 at 12:01:51PM -0500, Frank Li wrote:
+> > > > > > On Thu, Sep 10, 2026 at 06:39:30PM +0200, Ernest Van Hoecke wro=
+te:
+> > > > > > > Hi Frank,
+> > > > > > >
+> > > > > > > Thanks for reviewing this so quickly.
+> > > > > > >
+> > > > > > > On Thu, Sep 10, 2026 at 11:26:22AM -0500, Frank Li wrote:
+> > > > > > > > On Thu, Sep 10, 2026 at 05:37:59PM +0200, Ernest Van Hoecke=
+ wrote:
+> > > > > > > > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > > > > > >
+> > > > > > > > > Toradex boards route the sideband signals of their 24-pin=
+ camera
+> > > > > > > > > connectors to different GPIO controllers. Camera overlays=
+ which name
+> > > > > > > > > those controllers directly must therefore be duplicated f=
+or each host
+> > > > > > > > > board.
+
+[...]
+
+> > > > > That connector is there since years, not days.
+> > > > >=20
+> > > > > We have multiple cameras, designed to mate with it.
+> > > > >=20
+> > > > > If tomorrow we will define a new camera connector (that is absolu=
+tely
+> > > > > possible), the new connector will get its name, maybe
+> > > > > toradex,camera-connector-v2, or toradex,camera-connector-22pin or
+> > > > > whatever that connector would be named, not just in the DT, but a=
+lso as
+> > > > > a product and on the actual HW.
+> > > >=20
+> I can imagine some connector updates might happen if(ahem, when?) MIPI
+> C-PHY gains any popularity on industrial / SBCs / SoMs. Perhaps even
+> sooner now that you have Qualcomm SoMs on the Aquila IQ-8275 SoMs.
+
+Yes, I agree that we do not know the future. And changes are going to
+happen.
+
+Aquila IQ8 is going to expose the same interfaces than any other SoM
+compliant with the Aquila family specification, and the camera connector
+is part of the (already existing) carrier boards.
+
+Francesco
+
 
