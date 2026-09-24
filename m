@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C9AC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C855C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HrDCAQV1pZi3wvTFhrBJGDrVzvo7VEXwMuFwKQsn68I=; b=RUEcfLb8v1qrMEFodped/iaVNm
-	T2QJHBPeJZSoGM1wtSLt8VAFy6CSqHY8JS9Bg1pzWZy3i3NzUlyNRHUjmTiuDEeZZRbaadhtMQ0A5
-	zykLWQSsocLD7jJYgLRLksAmT37QD/2elfewQqz1Ld65Ml6ky9anzm78koHwYhJRUQ1pNwMN+gr/a
-	GoVYN5v7U9iOU+wiVWGfNKHE7uuCi3q8Nc4bgLCWQNO0CjBJkTATXEQCsM6wCKg9gsK9GKez73e07
-	eAQNRMlbU+Dx6a3SqZORin8RtaLUSwi/mTSpTgAItrQ6sbwNKbGsoc0KFCTIBwLa0Qj83dg/ctQ2n
-	hgJd4FWA==;
+	bh=3QvZlZS2o/VtqigJcsGK+8GMV91JrY1h073nzLy0fJ0=; b=QfS735P/DU4x5SuOLrtlZsjofj
+	VMe+BG22jaL4vG7riuj335jaozggQtTXvYsfOlXkBsQGziPxlA2PJgJCoenKJZz9ixsWpf+5DkvVp
+	ZczWhtt+Zr+dIP2qFFP3GhoiGvoPDJHRUMRcxno6fu5aZEwToLtpR2scuzH3WdojADzZU+zDbPG5v
+	j4YnVd6fsjZFRqH1l8Vi3huMSbCeGpOpcm7459Atf+kIa7XxZbyV4gzz18CD3olVIKBJCrFoEWxjZ
+	RMrp+WmXaaxGOxgmJoiLe7I21Vhosc0BWKq6YxDLRTwxLm6l/1gtTOQpXUkleuYw7SaSypqnl/sEO
+	pF11HHig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nYF-0000000BpWH-3HMB;
-	Thu, 24 Sep 2026 17:48:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9nZM-0000000Bpgg-40LU;
+	Thu, 24 Sep 2026 17:49:16 +0000
+Received: from out-20.mta1.migadu.com ([95.215.58.20] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nYE-0000000BpW9-1vzk
+	id 1x9nZK-0000000BpgB-2PAO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:48:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDD6C601E4;
-	Thu, 24 Sep 2026 17:48:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85E091F000FF;
-	Thu, 24 Sep 2026 17:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790272085;
-	bh=HrDCAQV1pZi3wvTFhrBJGDrVzvo7VEXwMuFwKQsn68I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=cuwDHg0M0dcx8Zn4ENcoBoRVIKryfT/MqeBIfA/QVhTV75W6toAGmEqnAE3nm0ce9
-	 hn07it7qaLs/bzlXIDQbToAPmQrc+w9VI/KaODzn0tTAzXN0JJE/nd69D6gQAAoRzS
-	 C8/hXdw9LuaDKyTiQqqB9jDh5KON7/ynOg5vX56gHc4G5Q1hfe4pT5aSorJ/ZP6GKU
-	 8pNlcBBafUDjkcbWrWmGhb2ZVcQl+nHkaWrzV6+zg1E2qPFI7pdyQhcJZ21Irijzlq
-	 zIrGwNDveL0rH6dfE0qmRzA9qltaxQea62eC6nnfTuybfZbh7eJBoQHIFxhHjc4IR1
-	 ToavUt2S74D2w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x9nYB-0000000D8pg-1TQT;
-	Thu, 24 Sep 2026 17:48:03 +0000
-Date: Thu, 24 Sep 2026 18:48:02 +0100
-Message-ID: <86o6dm4k31.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Zhu Ling <zhuling2709@phytium.com.cn>
-Cc: tglx@kernel.org,
-	radu@rendec.net,
-	zenghui.yu@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	Thu, 24 Sep 2026 17:49:16 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=VhHsaKDyj6btt2rJ0mEf5ooJRJ5wjzeYOU6EzYm9i7w=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790272152; v=1; x=1790876952;
+ b=KNNYCzlVLjucc/fZINBzr++VlE+Vzklw7XzRIEwuQfxm2OeXunObXUtlPdsRrwFcygldUVVC
+ s70t0Df7UvIeo8yRb94lD5bhGxCR9RBeBkXyX4XN/T6OghaeVhBLQm/itaQ6L6MeaI9XPgIoZc6
+ lDc0kXMD/016YsfX2stC51zA=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 618ff6e46ab2eadc;
+	Thu, 24 Sep 2026 17:49:12 +0000
+X-Mizu-Trace-ID: 618ff6e46ab2eadc
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b8c42da963so945e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:49:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwcVFHtk80B3v4/8Jznq6AtUV1BHUYcuZQHElEIyBpVxsDsyLjJA65vcBB6SEivtudxgMqmobONDh5+6Uh5M0gt@lists.infradead.org
+X-Gm-Message-State: AFuF++lbKx0JSUdHb7o9NsygPqWF36SA6oduyeG+ODJjntHXeQRo4Z4z
+	K0DYk4cQgXyVgWMGedFYudmSU/DkbL/tyla8RbCnXikwBD45kaGtcC3Aa83mtLfvgqyknRkQQrv
+	S4Uv3P2R51QFflR6V+8Y14JVaA7rW3vVO33/eee10
+X-Received: by 2002:a05:6512:23a9:b0:5b1:5141:9156 with SMTP id
+ 2adb3069b0e04-5b8e5793dcbmr8212e87.9.1790272147649; Thu, 24 Sep 2026 10:49:07
+ -0700 (PDT)
+MIME-Version: 1.0
+References: <20260924161514.1112730-1-fuad.tabba@linux.dev>
+ <20260924161514.1112730-4-fuad.tabba@linux.dev> <86pky24kxz.wl-maz@kernel.org>
+In-Reply-To: <86pky24kxz.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 24 Sep 2026 18:48:31 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxR4+VMm99w3fL27SCTi2r3GUPF5F5zp9tqqss6dCL0hg@mail.gmail.com>
+X-Gm-Features: AclHuK8ICoSXw_nkuEqpc9E_Pai04k86x8jUnxS_KW-AQa1FK-xcq-uTx9S5r8k
+Message-ID: <CA+EHjTxR4+VMm99w3fL27SCTi2r3GUPF5F5zp9tqqss6dCL0hg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] irqchip/gic-v3: Don't register a redistributor that
+ was never counted
+To: Marc Zyngier <maz@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, James Morse <james.morse@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
-In-Reply-To: <20260923082804.13197-1-zhuling2709@phytium.com.cn>
-References: <6b668efe-ef7a-474a-957c-893755ebba46@linux.dev>
-	<20260923082804.13197-1-zhuling2709@phytium.com.cn>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: zhuling2709@phytium.com.cn, tglx@kernel.org, radu@rendec.net, zenghui.yu@linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_104914_759353_0A516D5C 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sep 2026 09:28:04 +0100,
-Zhu Ling <zhuling2709@phytium.com.cn> wrote:
-> 
-> When running with UBSAN enabled, enabling a GPIO controller that uses a
-> GIC interrupt as its parent triggers several shift-out-of-bounds warnings:
-> 
->   shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
->   left shift of 2 by 30 places cannot be represented in type 'int'
-> 
-> Similar reports are emitted from gic_poke_irq() and gic_peek_irq() in
-> drivers/irqchip/irq-gic-v3.c. The corresponding GICv2 helpers use the
-> same signed-shift pattern. These masks are generated by shifting signed
-> integer constants, which invokes undefined behavior when bit 31 is
-> selected.
-> 
-> Use BIT() to generate the masks with an unsigned type and make their
-> intent explicit.
-> 
-> Signed-off-by: Zhu Ling <zhuling2709@phytium.com.cn>
+On Thu, 24 Sep 2026 18:29:28 +0100, Marc Zyngier <maz@kernel.org> wrote:
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+[...]
 
-	M.
+> Shouldn't this also update the broken_rdist bitmap?
 
--- 
-Without deviation from the norm, progress is not possible.
+Yes, it should. Without it gic_check_rdist() returns 0 and cpuhp
+brings the CPU up. Sashiko raised the same [1], and I was in the
+middle of replying with this:
+
+        /* Not counted by gic_acpi_match_gicc(), so there is no slot for it */
+        if (!gicc->gicr_base_address) {
+                int cpu = get_cpu_for_acpi_id(gicc->uid);
+
+                pr_warn(FW_BUG "GICC entry with ACPI UID %u has no
+GICR base address, CPU kept offline\n",
+                        gicc->uid);
+                if (cpu >= 0)
+                        cpumask_set_cpu(cpu, &broken_rdists);
+                return 0;
+        }
+
+I'll fold it into a v2.
+
+Cheers,
+/fuad
+
+[1] https://sashiko.dev/#/patchset/20260924161514.1112730-1-fuad.tabba%40linux.dev
 
