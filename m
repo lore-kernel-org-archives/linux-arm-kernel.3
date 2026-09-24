@@ -4,179 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120B0C98325
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC66C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/xSqJlOl7EjdT/3t/l47+j1hr0vJTFvoJBKOwjDyj8=; b=NDJ0uPmdi0+itliJ+YadTMIsjE
-	RleCu74Qbjqj0l/v468NsBUyJaErdug6yxC4/qzokiTjUR+YfWytlcW0H2LoKj83VJ4uzAS1E1z2F
-	Akh7XwCLP53z5QuZ1X5xBmmz1obljL02H9I8rPLtUPqxve9Qp+hAL1Yd1u3m5DjuqEwBurcRLkuOf
-	rk1N4ap7KGr+ezLXhS429sqHlQMZwma5xNDt/soIxQ/ZTruxC4MuOPBmqPZ8u94jR/OMrTcoY3xLN
-	NIy18Uup8JknfFZNdknGU3MJYVibIfmwRb5tmxVZnEVcM+hoM9EM35M7gbrURepn+Yd/p928WPXKZ
-	pimeMoMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8HLJz2/+MC1fkLZaeHG+Kg0YGgfIGTUvaeLwBf2YegQ=; b=pqHiOj2hAUb9IxLQ+8KRQvfLX6
+	IUX1wOMeWrS1i0KyrhiOyw1+Us6CsSv+EVOcf5y3+tXbROI/beE6mXZANz9s46mIkrNOsvclfxrtE
+	rfuB+22TbMb5+82JCGYVyPI2Dm4jFvyDpAZH1RJkXe2qeEr3lM68piZbdHjbti4tA0kp1d/FyUgW7
+	/uzqiNnyNKZUN3TBoRTBt6H6NBH3FVDXxOAHTJ1kEhvhSrE2paj2briLMYvp77+1zRny72qVuFMjJ
+	kxkTA8fW2Mmir1rRia/GeAtx0+8pL0Xb33XUTJLZaedVpyH/Amsx0BSkDIi23DCP1ECuGVOZgX+k4
+	gU4AnQWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9s3u-0000000CIUq-2sdx;
-	Thu, 24 Sep 2026 22:37:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9s9I-0000000CJ68-3e3X;
+	Thu, 24 Sep 2026 22:42:40 +0000
+Received: from out-250.mta1.migadu.com ([95.215.58.250] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9s3t-0000000CIUX-2XC2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Sep 2026 22:37:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=s/xSqJlOl7EjdT/3t/l47+j1hr0vJTFvoJBKOwjDyj8=; b=Qr5QiomIdLteru8m9gkYedaEeB
-	pvWuXpp0eVxYkGIE1G+orCFm7qqfWn16sh4WthkVLBWaeGAJs9YVxC5XjjxFeHv6JdPtIwl05cTSZ
-	pcuiPsMFUZTCay6CR79DQUzDlkIDgU0hMDi3lOw7SU+GS7MDiidamEuVJIy7HW6YB4a/iMum0XXxc
-	hXNDuRhL3/9TJUkNcsykkL2+yXiVCCYrTdeUuMTj15w9qqr3ANYpiCs493GKVxF+IQQFBo7REcPlo
-	ZO59qGXpfwx8XopceBUMVic2y4KNBqBH3OpDy0qjqdvyC90LG3yIMlW3n16lZ3Jy8aBlPpGovsgdM
-	yZ95Mxsg==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9s3n-0000000GTP4-3sH5
+	id 1x9s9F-0000000CJ5G-3QOK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:37:03 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OMP4ev3934425
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:36:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	s/xSqJlOl7EjdT/3t/l47+j1hr0vJTFvoJBKOwjDyj8=; b=PlUatk1n41tAzO1B
-	PX1tOR480nktBDvXyTUN3Mch0LXudLeEAIlNhVxDbhygxH86COstmPZ3gjNoEbJl
-	EUR8R35n2Wz4q5Ai2bh+pgYArUFRrY9puwtnMFAZpo+1yNIySROsTD1g9RPUqP4j
-	seGbeU09R6Y3y7FmKgw4j+VtFbLGaHMZGrMszydloTiV1WebcdRGicYs1DoIv/tg
-	X3TltJWVj/O8cDRNua0YU8eRHIvyxDDkLP73/P5YKXd8HvuXudezBWx1B1fJgGKh
-	WaOCODTUzYbTGjBuTX0q4BkQKY56op1Yp+B6uHqP1gatpGMHKO8IdL3EFd8ZFqoH
-	ioIIGw==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw1tjjx5u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:36:55 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3286d2bac04so360683eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:36:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790289414; x=1790894214; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=s/xSqJlOl7EjdT/3t/l47+j1hr0vJTFvoJBKOwjDyj8=;
-        b=PpyfnKgYn+8tPonYvuyE1PmR0nJKcM+s91vMz/AZkGg7Le9NQTCK4oStMkCpKqXe0Y
-         ryf47U7d+d2x6+p++/fCyDWB8tCoIyvDWLzSkP4rpLfbShOLKX04qGRcHKUHG4d6d0pw
-         MTrYvTR0qTEmB/x05az9igSrbldfBTKR7Emeylg2pVpmTazffmsg4eFg9HRVo5HS6IhV
-         FpRmJvHaP7INQQKtGxK9C0HwsoQ7DJthZSjMj+2+xtNbnFsAkev1I4X+b5ohvm1db0+F
-         nMI7RALU+T4KBGHmtrW61JJwXOAZOVGLcSZhtsDC2TqorLzZpIYL9kWg0X6pbx6u/jMV
-         F2Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790289414; x=1790894214;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=s/xSqJlOl7EjdT/3t/l47+j1hr0vJTFvoJBKOwjDyj8=;
-        b=MP6fjZ8rG3JJz1CSex/kJidTZRnylQ1LyU1uCT4FSDDXpcCSxn3rtdycWPQeu/zAhJ
-         dbdpwc8pLZiEu/ckyLJeXSntefJCxNndqyhMpc1WGRQIzPt3d7amtRrb0MCykkExx9Ip
-         J3bkyyr8NnJcD/KxtYcETF/0403H8s+uW/srt1AA3zRwRlB+8TqYzzA0YMogSJsymRhY
-         95g4ocqTKvFwRyOEw/ww45l3dnNsE5CgsQ7agzTq1+WKY1Hgq2DxcgcUhdoD0L3QV6TW
-         a1jX2fZ47O8gLwWYSoC8twxV23TAPDdWWiOnWy/ZMS8zlr1RvRrDFpQq1S5Jno2J7X34
-         IWAw==
-X-Forwarded-Encrypted: i=1; AKwUvBzvM0p4crEgZgNXfe1oPgMKgWdTWNWDCWktABVOWJCz/mUI8DvoOhiDyKP++cTVP/YdCX8zlhTlfr0h3ImT5fft@lists.infradead.org
-X-Gm-Message-State: AFuF++lOQyYwLDML82DwDreKyA7yNhkK6onzBko1z1xw7bGSRvhPV9vW
-	QvbdFnGYnRhj4Zn6SoxH128w74OZy1g6OkR57tCGCtXFzJLtI7+8WomBELuK8Ad8EiRo/Qe18FF
-	bZrVbqOcYV7AJ/oM8UyZ+NMmLFPKsI4ddFrjKUgaFswJNxER2H7F3ksnlaPj0RsvUUM0vvT08c8
-	Qnrw==
-X-Gm-Gg: AYBFou06G3ndT2dpEf39heO+PYv7FETPa/80AyMuEvAKT9/nj0letTTeZxEXCU11CEo
-	xFAOckiLFvXkIQFcEqVXgFb1BzJC6qV7uK6VFEXmJ0FimymACmZlxegXjrKeIsPZNIO+ylEtYQH
-	P02JwCy7dyCWMge1F9xGD+guCKRjii4dGHEDl38LvaA/Ynxo1WpDQt158gk4YxJeK0uryRVPI+8
-	6xVu+YnUSFnZ3OIQIVQzcpRrYfZqpK+kLVEdk5v/EqyhkVL5ifZBgHDAc/jEaj5YatWcaHvoMck
-	sQbZMQa/gB5A2uifHeepnS9ni4fNnJnoOV/lXyw+dM3/8dZSGJQIpiomlJj6YD/Tmtb2dY6QMIN
-	23JSI2wRbcu3Vrpa2kyzyqLbMrpzCNbsdGcQ9BIM4v49ok/eGxqbVAg==
-X-Received: by 2002:a05:7022:b042:20b0:128:d20a:2f40 with SMTP id a92af1059eb24-14503fc0c9emr3358104c88.8.1790289414007;
-        Thu, 24 Sep 2026 15:36:54 -0700 (PDT)
-X-Received: by 2002:a05:7022:b042:20b0:128:d20a:2f40 with SMTP id a92af1059eb24-14503fc0c9emr3358092c88.8.1790289413429;
-        Thu, 24 Sep 2026 15:36:53 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-145ac67c505sm1379403c88.5.2026.09.24.15.36.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 15:36:53 -0700 (PDT)
-Date: Thu, 24 Sep 2026 15:36:49 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo
- <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        "Rafael J
- . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        James Morse
- <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-        Reinette Chatre
- <reinette.chatre@intel.com>,
-        Fenghua Yu <fenghuay@nvidia.com>, Jonathan
- Cameron <jic23@kernel.org>,
-        Srivathsa L Rao
- <srivathsa.rao@oss.qualcomm.com>,
-        Ganapatrao Kulkarni
- <ganapatrao.kulkarni@oss.qualcomm.com>,
-        Trilok Soni <tsoni@quicinc.com>,
-        Srinivas Ramana <sramana@qti.qualcomm.com>,
-        Niyas Sait
- <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-        Ritwick Sharma
- <ritwick.sharma@arm.com>,
-        Gavin Shan <gshan@redhat.com>, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 12/13] arm_mpam: change MPAM-Fb error IRQ to use a
- threaded IRQ handler
-Message-ID: <20260924153649.00001584@oss.qualcomm.com>
-In-Reply-To: <20260924152739.2865510-13-andre.przywara@arm.com>
-References: <20260924152739.2865510-1-andre.przywara@arm.com>
-	<20260924152739.2865510-13-andre.przywara@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Thu, 24 Sep 2026 22:42:39 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=WRPL/H0LrA/BKC4g71mMipRThq8ER0G25bE1inVY1ww=;
+ c=simple/simple; d=cressey.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790289754; v=1; x=1790894554;
+ b=i4oaVE8bLv/ED1d5Nl5Gqu9MI+WLX+yM9hlB6irQH5h+gpWw/ik7fe7+30vD9T3YemMWJxWb
+ bORk3udMZd84ESjYUmqBWenEt4S1xQ4SYdoZIwD77EMkZGDqA7vLjFGK0vB2MHIlCjcaJxlBYTI
+ lj7mfs2aq7frZfQIkaSRVW5LOwsU1ZPe9G2KshQFcoQNfEYUrXXpDIClBSgniXjr3hcmKT9kvV4
+ Jw5uj+Xj040mmAB8BdokN8ji+b//UUFxhwLdBof+ffm8Q35QIVkOtJp84zkpGYemIWr15xQe0L+
+ irH8GaS/OkZFWfHmmY4VgYlFEKUxLGo0bo34gxND++73g==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 9c16178fdf9bcaa3;
+	Thu, 24 Sep 2026 22:42:34 +0000
+X-Mizu-Trace-ID: 9c16178fdf9bcaa3
+X-Migadu-Flow: FLOW_OUT
+From: Ben Cressey <ben@cressey.dev>
+Date: Thu, 24 Sep 2026 22:42:30 +0000
+Subject: [PATCH] arm64: kexec: mark machine_kexec() __nocfi
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: E0RufBta0h9jRDzUx4r82Uj228gQ9JFv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA5MiBTYWx0ZWRfX6foDoj0uSYOQ
- t3k8+hyjR81V+99Q+OT1nuHp8p1bJk4ZIIRPyRD1zNtTVcIe0Zu1YTEr/5uK4cGDJCPTlxvgVrJ
- DU6G+M+scP09YUMGxkHrHVO7E9uoEejI/AlStnEZLw5JZGgzTTxGpcZncu7CEiwKX8HpG5XnC90
- scrYyVL+58ojWDNwqVioQ+j5KXterjlYewLPrjmVkwH6kS5gfWyfoPDYL8fA0efxiJQu3nlAJHU
- jFVIg5k9P8hdlTFRGqMEYaxBiwiM2/jwMTg8yXF7Cc0pTgiZmOWYYL4c92+GD+IEBPqIpsqnHJ8
- FadBaeayg2rYkTb4fWazoGRo5mmdBLn20QARQVbGU7knjVNRyuBXoylCnpT+ZD8E+VqYgh4Jzvi
- gJH+olUo+MCrO+B89HyNvGdjM2nRH4Tp2Zp20f8Vta++JYf4TR74ey0CrpjQI7DUe02QrJppKrI
- qSD4Zsrw9a3C9NvKZZg==
-X-Authority-Analysis: v=2.4 cv=cK11IVeN c=1 sm=1 tr=0 ts=6ab5a607 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=7CQSdrXTAAAA:8 a=20KFwNOVAAAA:8 a=EUspDBNiAAAA:8 a=kM4gzuUOBcDNVL6HCnIA:9
- a=CjuIK1q_8ugA:10 a=bBxd6f-gb0O0v-kibOvt:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: E0RufBta0h9jRDzUx4r82Uj228gQ9JFv
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA5MiBTYWx0ZWRfX49/2oRUMsi7U
- /JAUNVf45Nq19qZI7Acbd07j0pgd1MsJqj69a4IWyfqN4P9SBAzXrl+H9+54svq+I0HYFz6xNZE
- 5Y+UlHmaC/K/ZqL2nz0EJJzZcusscFA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-24_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
- impostorscore=0 spamscore=0 malwarescore=0 phishscore=0 adultscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609240092
+Message-Id: <20260924-arm64-kexec-nocfi-v1-1-bbae2e2eadc8@cressey.dev>
+X-B4-Tracking: v=1; b=H4sIAFWntWoC/2XMQQ6CMBCF4auQWTsRa63iVYyLMj5kNBbSqiEh3
+ N1Wly6/ybx/poSoSHSsZop4a9IhZGxWFUnvwxWsl2wytXF1Yyz7+HCW75ggHAbplG3j4Ox2tz8
+ IKO/GiE6nb/N0/jm92hvkWULlo/UJ3EYfpC+nwvVfl5blA0MBvFyeAAAA
+X-Change-ID: 20260924-arm64-kexec-nocfi-496e643578ce
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Sami Tolvanen <samitolvanen@google.com>, 
+ Kees Cook <kees@kernel.org>, David Woodhouse <dwmw@amazon.co.uk>, 
+ kexec@lists.infradead.org, stable@vger.kernel.org, 
+ Ben Cressey <ben@cressey.dev>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_233700_795151_0FD6EE8E 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20260924_154238_295536_A36FA47D 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,38 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 17:27:38 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
+When the loaded image needs relocation, machine_kexec() makes an
+indirect call into the copy of arm64_relocate_new_kernel in the control
+page:
 
-> When an MPAM MSC gets into an error condition, it can trigger an error
-> IRQ. We cannot really do much about those errors, but we at least query
-> and log the error, then disable MPAM functionality.
-> 
-> This error report relies on reading the MSC's error status register
-> (ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
-> based MSC accesses, since they involve mailbox routines that might sleep.
-> The same is true for clearing the interrupt at the source, which requires
-> a (potentially sleeping) MSC access as well.
-> 
-> Change the error IRQ handler to be a threaded interrupt, but keep the
-> handling in the hard-IRQ part for MMIO MSCs. This is needed since the
-> CPU affinity check in the MSC accessors requires a non-preemptible
-> context.
-> When the MSC is using an MPAM-Fb based access, we push the work into the
-> threaded part of the handler, where the accessors are allowed to sleep.
-> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
-> threaded IRQ here.
-> 
-> The actual IRQ handler learns how to deal with errors. We cannot really
-> handle them, but we can try our best to disable the IRQ anyway.
-> Should the level IRQ line deactivation fail on the device side, we mask
-> the IRQ on the irqchip level, to prevent an interrupt storm.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
+	kernel_reloc = (void *)kimage->arch.kern_reloc;
+	kernel_reloc(kimage);
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+With CONFIG_CFI=y the kCFI check on this call loads a type hash from
+kern_reloc - 4. arm64_relocate_new_kernel is SYM_CODE_START and carries
+no hash. Its copy also sits at the start of the control page, which is
+all that TTBR0 maps at this point, so the load faults and the kernel
+oopses after "Bye!" instead of entering the new kernel:
 
+ Unable to handle kernel paging request at virtual address 00000000544bfffc
+ Internal error: Oops: 0000000096000007 [#1]  SMP
+ pc : machine_kexec+0x104/0x274
+ Code: d5182008 d5033fdf aa1303e0 f9418a68 (b85fc110)
+
+b85fc110 is "ldur w16, [x8, #-4]" with x8 = kimage->arch.kern_reloc.
+The crash kernel and images loaded in place take the IND_DONE path
+through cpu_soft_restart() instead, which is SYM_TYPED_FUNC_START in
+.idmap.text and not affected.
+
+arm64_relocate_new_kernel cannot be given a type hash, since the linker
+script asserts that the relocation code starts at that symbol and a
+hash would have to precede it. Mark machine_kexec() __nocfi instead, as
+commit e2f8216ca2d8 ("arm64: Set __nocfi on swsusp_arch_resume()") did
+for the same pattern on the hibernate path and commit 2114796ca041
+("x86/kexec: Mark machine_kexec() with __nocfi") did on x86.
+
+Fixes: efc2d0f20a9d ("arm64: kexec: keep MMU enabled during kexec relocation")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ben Cressey <ben@cressey.dev>
+Assisted-by: LLM
+---
+Functional check only, under QEMU TCG (-M virt,gic-version=3,its=off
+-cpu max -smp 2), v7.3-rc4 defconfig plus CONFIG_CFI=y, clang 21:
+"kexec -l" or "kexec -s -l" of the same Image then "kexec -e" oopses as
+above without the patch and reaches the second kernel with it.
+"kexec -p" plus sysrq-c reaches the crash kernel either way.
+---
+ arch/arm64/kernel/machine_kexec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 8f9bc2327dc85..7d218339b84a6 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -160,7 +160,7 @@ int machine_kexec_post_load(struct kimage *kimage)
+  *
+  * Called from the core kexec code for a sys_reboot with LINUX_REBOOT_CMD_KEXEC.
+  */
+-void machine_kexec(struct kimage *kimage)
++void __nocfi machine_kexec(struct kimage *kimage)
+ {
+ 	bool in_kexec_crash = (kimage == kexec_crash_image);
+ 	bool stuck_cpus = cpus_are_stuck_in_kernel();
+
+---
+base-commit: 93f51579e7df248780214094418f205253383cc5
+change-id: 20260924-arm64-kexec-nocfi-496e643578ce
 
 
