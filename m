@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DB2C9831F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885D7C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bzmn01FBwHc5LSvPz5UCyvmqxfgaoz2By0qNflOpk8I=; b=W8rBIMtVrhXXMnJ6LR6pPOT/vy
-	oZDUauUqv6nsTfCbaPHzFdXdU6x/6vqJb9jP1kls0sUa8qGsTfcV97fyzvFDzeR58a670eZXPHM19
-	XNZ3YtyA6MNMX+c4Tt7OhVPowwhqpLZaDTfW/Xl9X5chcOudJZj+o88TQFXsjV++S6XdN6piTIJJS
-	F/tiIBP48ZaNinUGBDXls4eicPfGFEyEcCCR3cxyZDz3J+IsN1q5KttmPY/RbJQDC9yBG+YsOfvxu
-	BdLKiM8Dj8fQ4pV+CXHBSsR7fDwg9YoVOsxwmf6qVH8U47Q3Xsm3uMg7cD5DZYDgqgqRp7CWQegXn
-	SvIqfXyw==;
+	bh=xIKqo8urN/WaCUEhDWLkEkLq1DB/HTQzdY3dhT2Pjaw=; b=wP0gQE0OhknSURobVnMu8jCCNS
+	FzblNx2XEDRs3iQuC+PQC3n4lBHsNvmBlRRSD4BWeXQjLJ/jQAB4dCRfEKeVZDawzTzIaGIpZ63Tx
+	9SrnhJagZeXEDMtoxMhSJ2wf5QYCRqA8MpRofSXza0uiGbTrKEwmVf0mmxESAWzb/+W4KwknOKfwi
+	cs06weUd8Wga17vTWpJtFFn/GlN6d5o/9nH0hE8O8FB3ayVactvFL9R5zY7RfbryZiV1NEk9olKVE
+	Nwo32sbP/DBiMi2BWzrKuIlKZHU14CV5W12zINcGm6tH1Ag5rmJGGWNxwHRzmHLvjbrPyC/Im+ZX6
+	V3FxLajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9juN-0000000BBCp-2wUK;
-	Thu, 24 Sep 2026 13:54:43 +0000
+	id 1x9juW-0000000BBSa-3C2Y;
+	Thu, 24 Sep 2026 13:54:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jtR-0000000B9hq-1i6t;
-	Thu, 24 Sep 2026 13:53:45 +0000
+	id 1x9jtc-0000000B9za-3dpZ;
+	Thu, 24 Sep 2026 13:53:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Bzmn01FBwHc5LSvPz5UCyvmqxfgaoz2By0qNflOpk8I=; b=FRmyh/630uzZqQwfWqm11c9b/W
-	VEZ1OUQIIa4S924oMbNnKA9z95uLuV1pQh04K6vD33D+XeNSdAAQz2A6d/8VuwsCsdXKzklU2cfiw
-	sKZunR3Vh8ch1Rpp/5IIR3hJWLCJuZn7iXe1U7fKu11BCF+HHpZlh/eqSxSwVR7TqYOJacD/mMG0x
-	OFbrwHs8aGnO7RWOFxMSjHe3MsVc0bC7OstwF+AsnTU0MHE/aZ7u/WBDif48KjqHBYFCUAl4Q7E4V
-	7KdixUe9vqhgC/RHvplrAIQmqVAjgpSPaUGmcxApLQCMtFpktvOmf/4cQ/U0Ss8ycbUWQxvBihz79
-	44Da7+Bw==;
+	bh=xIKqo8urN/WaCUEhDWLkEkLq1DB/HTQzdY3dhT2Pjaw=; b=Tfoq3asF32LOiv0qTCJrXs8VnV
+	jsKdBs1pWnFkVMojEiJx0ncU8JDIo6N7vY2HRXIJYcKQP0HCCdgDezF4TsaxiWh/mB4ZnlB1iySYP
+	98s2xwbX0+GDGuSMSUl5IMYm6cA1jDETO/brPmhoOErgUQ/wPto+CWd0ej1ixQ2Wzwaf6+8kWZwfq
+	vRb2+oKeLqPZhRZLUbdYVOFG9PBBqbFwG3pkpvSZnHye7Rx+FLjqPoLd4umfxNm+MtYnQcwlak/9u
+	C0RpMAx7GZH4m7o3nCN/p1aCdIOn/vzJh2KJlHZ/DKExP4JlsU6jn4vgZOpWf4952s9TAriLbnpDx
+	7qHfVt/w==;
 Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9jtO-0000000G2w9-2Q2H;
-	Thu, 24 Sep 2026 13:53:44 +0000
+	id 1x9jtX-0000000G2w9-36qP;
+	Thu, 24 Sep 2026 13:53:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f6FaEW8oH1OspZ2rnUITrw7T/LijJ+W3WLA1OrlfuTZnSriasdgKef2ddj6nf+JDrS02KWcWDaY98yW+HtqaPAyykNHrYYGYdRP9+8bYsspzHxRXumnW1eVlb34GOA2Sho5F/t3FDEXku9ydwxV0u3mzok7l31tSsfjaDAki3jC2Unm0as2OBz6fRCBsGmPQHNTw6tSChT544yNYQABMxkM8aN+8h3qur/1IU+cL234BjTduRSPnYQTPTxoV9c2ufcB7XD+oLX7Xj5qroRNOON5fXFH8Vfhr3M61UzF/zcIs8KFyai9uvWxJAYsgqv77yHJJ7Tj+VOQXB7PLF8z8Jg==
+ b=vVreV9XsuFTiBDlpCTTiVhnaNpu8kFIgH0luYR7QaBcADWR9Q8dDHfhna/458alu2RvAdwBMoHmJcDP7Dlv97LVe+PCQJsisDzSfViuUuyiLXwjkplPUjbnBNMygEeFSogIWHgWhDYFQtGxmJ/s5UH+tbOl2ddW3GdwFGFELgnK8ecRMbfKAMwbwxbI2zVEZW9tmU6hN5NW5BVmB2AOUa6EftvFnl7kpRgjfcrObO+jB8FzN1V4hKbSm2Z6IKHABwPmuvIPGl0+Q2h0NZdrMQ1UV6mRGdgxAx0RbOeHSiPJob/U+yIVAUONd3mWZ98HgWeA29r5/mNZrg8wXVgVA2Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bzmn01FBwHc5LSvPz5UCyvmqxfgaoz2By0qNflOpk8I=;
- b=JOMM/N+mW+yA+nHI0BbF6j8A2Pb3V6Tcv/g86+W+hcxfIaHWqRANqgB5OSbD80SM6pH2HHmjYSKcrUMUvgK9SV4pOyXSeHzSiv2EsDL/DrLgzjWiOXFSCUymxFVTGz3dKgVQh30ccE1nV4PDRvGaM/xGQwa4x3axT1y67uwwXXuv23QDzuvCWP8g2aZDZcPCEZf21N3z0VYunY//C3E16M808mvrGGKI7sBPcWinSr2FbASe9cB3PyD0btrP0vBJExDLTQdPK9cxZs6x+pDszifiHkCZD7qkvwZx2Stytr5M5emedqFlqpyRfaeRqNWg5NbfnJ5VfvIW5lfaUEDGKQ==
+ bh=xIKqo8urN/WaCUEhDWLkEkLq1DB/HTQzdY3dhT2Pjaw=;
+ b=VIwBroUxixIk8E0+mOqHn9RMNCop8t0tFNXt7D4NFOKVfII0LeyefiJqQU2CGx5F43lnVu0paGUkqScxmS2Ibcqu88263xpyUbLg23Lx8Y+nZhatCTHjkqgoNVnxMk2qyctrdhZiMDOfv4dtgCrI3o0FN3zwWPghLSQ1xuysJuepXEWVhi/vbYTtV7+vPDoSCMn/CzrntXovDeYY1VBIdOVVWQi6n09FXmA5M0H1q0gROXdZlkfhLqXNnx30VVby8664iiPxOhpe/ryspOybNtW8AIpMspb6/FU7IM5hKHlhVXhfyUGjIN8bGyHFCYaVmohUxQNyWhfdd+RsU94t/Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bzmn01FBwHc5LSvPz5UCyvmqxfgaoz2By0qNflOpk8I=;
- b=Ty32NvX95KnhHbLV8uoCI/IUW5RnIQgZsdw8f/IgpWw7Ju/UvMwRNIaN0eNgFKgUegtADRj/1QsdIyZljBl+LSJb92FLEPkvuIcgdZwWZOqr7lJe5gn9f9d+FvRD8AZ57rVobsdF0JF+difD6BqwyMbaVLVd+4IBQ2lsI5FsN+Ne/+UvSeE0z+jkzRr5Ewjy0xVb6Nbvttv+HYhqnWPv3Jll+nCQOZBoV+kvzviXYqi3Itd6IfBpmimVJene19KSdRV/0vNZZ0xVeemzNVbI/4g3Rkfo9Th39luQRbTx5Mv1Sm7AXG8yr2gTcq9U82hRTZI912f1mJ8QxWhGF81EpQ==
+ bh=xIKqo8urN/WaCUEhDWLkEkLq1DB/HTQzdY3dhT2Pjaw=;
+ b=Q8oRl8N/SXaDyh5gMFfOJ0e1Ce5TMsTAOqqlMtYwm+irKBncy+WSS96QyQc1T0ujYTSW6/FU5bJS9q3b8hRBIqXprugEdG2XA289LE/uhf3lxx/YmQQGaSaYoSAaJtAdp6xLoA/JJ7dfEnN8gN639tBfBy2dcsSkZzJth+8q4/utzJCXIP2wQSR5VGKY9KmuVwMdzN2qDrn3KKQaefIfMwLRyOHYRgQXXYuhgZc3MXvqpJUHGaA4sKnKwnSloUzUNztiL+qI/MHbd1xzikaMZXFaUQG1RylCQDPVaHMEiVabT/HJLp1SotwyvaqIL6avIhiHg5I7+48KsR9pf84IUQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12) by PH7PR12MB7186.namprd12.prod.outlook.com
  (2603:10b6:510:202::15) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 13:53:35 +0000
+ 2026 13:53:36 +0000
 Received: from CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
  ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 13:53:35 +0000
+ 13:53:36 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alexandre Ghiti <alex@ghiti.fr>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -96,69 +96,69 @@ Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Ross Philipson <ross.philipson@gmail.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Song Shuai <songshuaishuai@tinylab.org>
-Subject: [PATCH 11/16] efi/libstub: Put the stub's writable data in unique sections for DRTM
-Date: Thu, 24 Sep 2026 10:53:14 -0300
-Message-ID: <11-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+Subject: [PATCH 08/16] efi/libstub: Add generic arch callbacks for DRTM
+Date: Thu, 24 Sep 2026 10:53:11 -0300
+Message-ID: <8-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
 In-Reply-To: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: PH7PR17CA0055.namprd17.prod.outlook.com
- (2603:10b6:510:325::16) To CHBPR12MB731189.namprd12.prod.outlook.com
+X-ClientProxiedBy: PH7PR17CA0049.namprd17.prod.outlook.com
+ (2603:10b6:510:325::26) To CHBPR12MB731189.namprd12.prod.outlook.com
  (2603:10b6:610:33d::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|PH7PR12MB7186:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4819219d-5019-481e-f0f5-08df1a433397
+X-MS-Office365-Filtering-Correlation-Id: d764b544-f387-4f76-65c8-08df1a43338b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|921020|10067099003|56012099006|11063799006|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: XPT2RB6vdw+bWcmw35WOHux2w15DwdkmcAEmk+68Cd6eLHXhACRCZmR48UFogEFLomvKtO9rsDbyPnfezFvmELipV17lHC0q7puTdoVIanuss1FMmERowWQIYTt7ToXY3W05Y2IbSXaOsNWhwE4RqBDcpHg29sp4kEnCOMWPp4RlznLk+JkbxYKd/DxGEKGgLQDdkoQAyvg4fOQ39qIkcpkGJK3m7Da7/Gjh86bqpr4QwJ2ImpTwGd+0nEL95w4oN2/qNAnJG20/e8rFAlQYBviJMleFMtqrnHtn6w5EmUoce4G66SjBwZai+RFp99Sy+g86hOCsq9nCgftWfwgktCufDeYXXVhuik0TSu0aLC+aTNxDH0XfiNDKXsxBfbI3a2QWggY8jrxVHbgZ84s9u5CPLbXGVSU0W4cHN2MgooD9+zompuQllNQVGjNzNIQQyxHqnd6JujO7odwEHSzBUeTjYK//BdeMOnYms1Db0mylDr1f+cB58ABsiQoR6asWJUawT4oU4QEOWUkjKazpEWyDY61UpRr7TLWOjYGSsQUNm++HcddMgjLvfoO1c1FQWmaGUYG3DvVFP6VcT+H5XqNOAcTk78u2nGGG96lqOfdUmUkaJzHGIl2VtGojliOx5J4BM9r2kb1F5gk/fk/4t8xbLtJPdOmnb24C7QlHw/7/tzeKHAoq9MwxxKY1252OLYKBYOo8CbStfn1+XjDCTw==
+X-Microsoft-Antispam-Message-Info: wwrZpr99108YH4t0EGTVmH4KTVmnmXFgGDX2vmOEcJ44bBCDTU0/hTMcNTyVMv6tAjJUrd0Pph+y00WQTyfw1FT9ipe1EiCmCpQ9RqLX6jxxpfO+KQh9W47+ijtIjh3LvFn0BvPa2GokLjY/in87McJqL3/otvJnV6gfUrel9HZ5mkYV1hcdMAI9M9SFvR15S95N4elTyMvMLIpKN6KF6rLczc37MLc77QiCOV5ejle0DxP60cBdfzTOKHx8FPy6+KcZtP2ZZC7liohN/mNhuOuyl2RVlcrmQFxv+ZaaL5oT7NwxSvz3LWLZtMKihd9hfR9QYaTC5Xnk0IGaIi3bAymcQhy5PQd7W1LSFOIiUqCTUKWS2vXUDa66t+eiifyXtbyaFOQL4UTP7pbC7t82DD+v73YleeAd0n8q6mNSJGwZ6rhjH7Y5l1V903l2f8qznX9op6Kdxgz3AL0Dv3VTGiMSNylyQHte8F+2zEPCzqQQMHZipjcW/HJSKn9ph4n5Ncx7ZBn18rRWipTo6TkdS1OirP8G6VEH0g/4d9tNwNQNnxsDbY3egvFXpXpOV0dbXIvnizL+Q5xTa8yuDlTMCMBcBHBmuFJOFwCXiksgYPX83WVsYM1rnhscpm4KpYNbzSlZ/E4K/heTQcNgEVwA3j+Bds62QvnNpn0LR0JyPX99OFi9wh9zXH+MRWgVs8d7ynaS/ARayIwzAZ5sL1QiOA==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(921020)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k81ayijDyUa4gE+NEsoiWdqe0IsDPZC5JnWQd0Koq49KUf5p+Rog1Brp+YLv?=
- =?us-ascii?Q?bdWcdxupgWHhwcsRh/wSYFgpdAjKKzfMnRYG/Np2EOnzMUZAuabQR5XJL23l?=
- =?us-ascii?Q?LZWjxwzcHmt1/yu4+K+KtFQf5PxPiSZRB9sD7D/mN6QSThlgx4zXE4wPI0Lq?=
- =?us-ascii?Q?Zg5XCJeyOs8iIBnFuxsmYr4SvRijkQb50V8LOYHpnYRifaNPPsWkzsZzXsmZ?=
- =?us-ascii?Q?rpji2kT037u6oXufVphjibUxRwuwscTiieeum7+BMD+2pE0T2oTv1BZfdSFy?=
- =?us-ascii?Q?azb/+pRjcPgsiq5Hb9iePGSHwP3Dc+0PayxlX7SV5L1Iv84XNTVDQyrmUc4o?=
- =?us-ascii?Q?jf8HVh1fM6EFR5Pjgs0JnMjC9M4mGwprUXfdQvsVFnM/IigMgMnOamz3kuSC?=
- =?us-ascii?Q?FJvEWccfU6fDTLCTpA/QjkNocAMTQV4dZoisOIKfxX3PTW0WDFbRUbZTkNZS?=
- =?us-ascii?Q?ltOEAnd5nY7uNmDqSQ+TzzlIfM/+jvxfbF3p+UJGjnH9tJAJur6INBX66q4+?=
- =?us-ascii?Q?eAY497CtW6BmGuFLI8V2cLlKeEFOQptkiU4HAnsALc9mt2OP5d6j/EJ005PG?=
- =?us-ascii?Q?dC+BCPSavIaSIhzZ8pqPPLYTOFulS51R8G/LRIy03CAlzU0LoPPYDoY5Mmq6?=
- =?us-ascii?Q?yJzouqoMdLS+VlwR5y9fVR+6jEGueDfe+735Tdp/X6dYa6XBe1ofDM1SfKaI?=
- =?us-ascii?Q?UYls1ULVCMnuk0ynZzcAgMiTnKZyT4ljF5FYNIfgkUKGCpT4uYIgTI/ake+j?=
- =?us-ascii?Q?U9yYtijoLSbHuLyBHemTRqgjhlHCrWJ36UzF+/nI+8xGeTPS1+jsUOZGa2fb?=
- =?us-ascii?Q?XPEcA9ahynXrJW8yNRPlnSWnXe4TkAyHx+fPEKiU6QHTG/6ZnYCyZXLuxm8E?=
- =?us-ascii?Q?6j15RMaGfoipxE4ANenhwBluqZLT9YKx7NwOZjOJW1B/M197XN+N7aMZQiEu?=
- =?us-ascii?Q?/CrOMf9WmsGl71/K/qFjEly8lgaIhmYSUD7pT3/8dh4MRz+JkR40lZUSqOAT?=
- =?us-ascii?Q?wnwXC8j1sin79xg//8tsok7+qiotOZhVzAfVwzwqQ+9oCovqVMfu4CTff0OV?=
- =?us-ascii?Q?F2yKH66vH53DnU6qOuwOEfSRfrxV+T2DCmA87XOth73OTc0BDXs1sHTrPTA6?=
- =?us-ascii?Q?PKHkJi8ehTVCxGAQdbuHalU0eAj9hUXylHJKyluSkkk+qS4k52c4XAUSeCpI?=
- =?us-ascii?Q?aAw/yzayA/cTeWHcnjxv9Uj57nAjbOspeuj7fEJZjPKfDVAi5q6Qc4s177bz?=
- =?us-ascii?Q?XUvahn9uJ6ecl2NXBkXacl80apOuFo5+gEZUfKI5/zjyh8pSBRd8CWkzTCyh?=
- =?us-ascii?Q?4aAfVEFdreoiqI6rK+KRxtT693R5P0pzPuF80oiOjnTc/owtcJy3pwTjzGa+?=
- =?us-ascii?Q?VmiqaRCZwmokDgpcvS/VUQLwFxJLXD5rqdw/WAbIAb76W0O4nWRh526Bj0mg?=
- =?us-ascii?Q?8M0K7re68z8nZMKVMAq4ty4cwNziPGLun0eQCk2QHUQfwKnxmbkt7l4nfbBd?=
- =?us-ascii?Q?+Yv3DLSsAopSddudpafbNBzb8YUu5SryU3XQ2rWrI6joo67DwY08KNSAXa1J?=
- =?us-ascii?Q?F3eVLtOdO9NqlwfC1CbGrdgOavTATQ7H+zHJQ7BWaryzZGK4xP7wkMdr/mr+?=
- =?us-ascii?Q?2TsDvDr+UugOfmyy81mVDVWwb5wTYV0VMBUB7zz5x2ttOuPpHQgn8Cr5QvZ/?=
- =?us-ascii?Q?zvP5ZeSXapVK4FtnJYHAyZ3McnzWtZEWwgeGn3AKVEccXMAM?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uNf2xQhadXnBB+4lex9N2Q/HhmXnwSiasyooYXjLODQ9ClwyHM53L+mXle1+?=
+ =?us-ascii?Q?Z2OXNshMUrSK54Eij/VxQEWPpBQ9GxPmCFMeRWngwcKS19cCMnJMcGpOhNFt?=
+ =?us-ascii?Q?qlS4aN/bFfQNvPDZRKfanK1t8YAiOMjdjVmnkeHaDZA/tDPtr2fy/H1Qm/gj?=
+ =?us-ascii?Q?ZMb/RvbyEimgMucy+E6x25sAsKjnTg8gtXOGx+1u8MhN12JbUm8Go5mjXpH2?=
+ =?us-ascii?Q?5CHWbiP1jId+fOiJsydLturG1SQCT2XN8Uq5kyhNS1dPI/o1hCxtSb4ZVAP8?=
+ =?us-ascii?Q?cNwsR/bxGxSOVSQSHxfc/B6bcyvghzQ6RoNZ8bs2wbjRyIMBVbJUVRclOI5x?=
+ =?us-ascii?Q?qpUaB4gjxUrXx9hJGvi4RzkxeP+DhE8+JUXOrqeBkozXTJuS2ipsPlez5CBv?=
+ =?us-ascii?Q?mxWmjLS6y69bCLCukgErSUL9LYW6bWPnvggfI/9veA+nbhkFiLtBCp68mLmT?=
+ =?us-ascii?Q?MYP3gkvxnM383Tj7hEvP3S2m5TC1LsQIJ9BQN/Hrlz9Fhsud4A3hsPLq2e8e?=
+ =?us-ascii?Q?EIyJ3nFDwnOxYpyW8+63QdJQhfE6pE2XaJfB3LBBjFdqd+DDrSTPeJnWmHHc?=
+ =?us-ascii?Q?PInDzSBJwPgFw6/dYswgURYUgJKfxhpCaEm+yDOHp0UIrpTHXJwYTAJOohMN?=
+ =?us-ascii?Q?ET/2mMxv1AMzVU4KP3G6yZAQFl/qSSDRrZj4Z4tqOsLxavgvVEJ/kjggh16V?=
+ =?us-ascii?Q?7DnHUr+lIc+HWqcfpEm37QiOjE7d9J9t/Ar5pGFkOrWpBtLoA3+I+U54OmYj?=
+ =?us-ascii?Q?eXcgo9tbS4ACOZq9ssttaL4lCNPSBKI5FJpOdJlbWzzpJh5JlzDmqxZ3ZkOD?=
+ =?us-ascii?Q?Pbg/yTpudlYu+OJG5KGoZt0H1eO1WCsaknOp4MUBm6h+zDvYoZPo51ptlYWk?=
+ =?us-ascii?Q?EqCQAwBTzX85I5eJ1sFa0q7pXmmEaoM57EhCID2PmonFjl5n3vpR7VOcCeLK?=
+ =?us-ascii?Q?VKe8oN+Z+FmfxSEzvGTcupdVflIMxxg8DJubzlNik9NrxXlbUqcsi2Xnr8S/?=
+ =?us-ascii?Q?2q+KMvXO7CiYZoEpTFMptyOWKcF9xWnwNZcygnLn7awqlMLgwe6w02ves0kv?=
+ =?us-ascii?Q?TNEgko+4Il/rH6WtXMa7U/a8LGSl58X3PVnXcmvYeyVnlmay3GlJ6r+RmKqT?=
+ =?us-ascii?Q?sEnzHaoUbiyZ3qG8urkNZrPzAQYSSwkkBrL/P6Q4MawGXQjM+KoRVKXAkD1O?=
+ =?us-ascii?Q?nPPHGwTM88Zt+8m44uwk2H+c9fRZ5apR9RgOYFb4snmqATx7H8Sp74JnazX6?=
+ =?us-ascii?Q?BUrwkqoHHN+0wJOnD2Gd5ZszCN1zWI3slJOtp/u+crN4DAyKiocyGMaeg6gA?=
+ =?us-ascii?Q?AwmOm0xIly/P2gBHjr4Y3bevXxZR/ZFDnhKsaErW1hfKYr4svAc8zAn/RkaU?=
+ =?us-ascii?Q?sQr5yIiCNGlkheiIsLqItwi1LQSlAaJA5pbMi5mJnlOl77qP2D9IKiEJPc1I?=
+ =?us-ascii?Q?V6TqOsWmyGu855JMzYBVl1+LnueE6835iThN2Lj5shnFvPLkQPih0AgZXCX8?=
+ =?us-ascii?Q?tE8Xul3YzoBbPN3RNZSwRV6vg0t7igHpXxlDPx+44HtWCioAC/TVsBht3Uyn?=
+ =?us-ascii?Q?9sI1fM7ejWciivMe88iFiNWXHDVVRJAwBCQ5ieHXdMC1V9IHHGvaU+0lgU5o?=
+ =?us-ascii?Q?DYPDbCZDJAdFJvbl5Y3++gBWhwuElCRfk5yrxtE55RPbfEEiqdoENgK18w+D?=
+ =?us-ascii?Q?Gsz9mAKFn3MK58vKLxi8LDKa0qlu1RbLw/e8rklMQ31jaVz5?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4819219d-5019-481e-f0f5-08df1a433397
+X-MS-Exchange-CrossTenant-Network-Message-Id: d764b544-f387-4f76-65c8-08df1a43338b
 X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 13:53:24.1508
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 13:53:24.2162
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +kuKTRCuTK2UwmScr0wgYj9oYuKC0M1jU6BK7G08TCflYSrQtMKrPehQPcYt+vUt
+X-MS-Exchange-CrossTenant-UserPrincipalName: RYO4CqQ8v054oVz75FaYavVVlu2XLC8Id752c+zxQThqMji+KYfvBI/A8OUBNHGO
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7186
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_145342_696779_3D9ECAA2 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20260924_145354_092221_B1DED9B9 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,63 +173,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the EFI stub's .bss and .data are both placed in .init.data,
-which allows them to be discarded after boot, but places them within the
-region of memory we need to measure as part of a DRTM launch.
+If the architecture supports an EFI stub launched version of DRTM, it
+can select the kconfig and provide the hooks under its architecture
+build.
 
-If the EFI stub modifies the measured data before the measurement, then we
-can no longer get a predictable measurement.
+Have the common code parse a drtm=enforce|auto|off kernel command line
+parameter to set the boot behavior. Support commas in the args list since
+there will be more options here down the road.
 
-Give them unique section names; the arch's linker script has to put
-these sections outside the measured range.
+efi_drtm_prepare() is called before doing any decompression or image
+relocation. It should figure out if DRTM is supported, policy-permitted,
+and how much memory efi_drtm_get_extra_size() should return.
+
+The image handling is revised to allocate extra_size at the end of
+the normal image. The architecture can use this to store any
+information needed for the DRTM flow. It is always contiguous with
+Image, which is a requirement of ARM's specification.
+
+efi_drtm_prepare_launch() is called while still in EFI boot services after
+Image is fully prepared in its final location.
+
+efi_drtm_launch() is called after exiting boot services and must
+jump into the kernel through the DRTM flow. If it returns, then the
+normal launch is tried (auto mode).
+
+The extra_size is allocated directly after the Image. Handle the
+trivial zboot flow now, and vmlinux in the following patch.
 
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/firmware/efi/libstub/Makefile  | 10 ++++++++++
- drivers/firmware/efi/libstub/zboot.lds |  4 ++--
- 2 files changed, 12 insertions(+), 2 deletions(-)
+ .../admin-guide/kernel-parameters.txt         | 12 +++++++
+ drivers/firmware/efi/Kconfig                  | 30 ++++++++++++++++
+ drivers/firmware/efi/libstub/efi-stub-entry.c |  4 +++
+ .../firmware/efi/libstub/efi-stub-helper.c    | 34 ++++++++++++++++++
+ drivers/firmware/efi/libstub/efistub.h        | 36 +++++++++++++++++++
+ drivers/firmware/efi/libstub/fdt.c            |  8 ++++-
+ drivers/firmware/efi/libstub/zboot.c          | 19 +++++++---
+ 7 files changed, 137 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index 77a2b2d74f3f62..3f1921e6c334d1 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -142,6 +142,16 @@ STUBCOPY_FLAGS-$(CONFIG_ARM64)	+= --prefix-alloc-sections=.init \
- 				   --prefix-symbols=__efistub_
- STUBCOPY_RELOC-$(CONFIG_ARM64)	:= R_AARCH64_ABS
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 68647ff4bdd24b..a576e06bd43584 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -1373,6 +1373,18 @@ Kernel parameters
+ 			data set with no connector name will be used for
+ 			any connectors not explicitly specified.
  
-+# Give writable stub state a dedicated section namespace.  objcopy applies
-+# section renames before section prefixes, irrespective of their command line
-+# ordering, so these become .init.efidata and .init.efibss.
-+#
-+# The names must stay outside the .init.data.* namespace.  INIT_DATA collects
-+# *(.init.data .init.data.*) into a measured kernel output section that the
-+# arm64 linker script emits first.
-+STUBCOPY_FLAGS-$(CONFIG_EFI_STUB_DRTM) += --rename-section .data=.efidata \
-+					   --rename-section .bss=.efibss,load,alloc
++	drtm=		[EFI,EARLY]
++			Format: { "off" | "auto" | "enforce" }
++			Control the EFI stub Dynamic Root of Trust for
++			Measurement (DRTM) launch policy.
++			off: do not attempt a DRTM launch.
++			auto: attempt a DRTM launch when supported, but fall
++			back to a normal boot if preparation or launch fails.
++			enforce: require a DRTM launch and refuse to fall back
++			to a normal boot if preparation or launch fails.
++			The default is selected by the EFI_STUB_DRTM_DEFAULT_*
++			configuration options.
 +
- # For RISC-V, we don't need anything special other than arm64. Keep all the
- # symbols in .init section and make sure that no absolute symbols references
- # exist.
-diff --git a/drivers/firmware/efi/libstub/zboot.lds b/drivers/firmware/efi/libstub/zboot.lds
-index c7c2f4dd144301..5320a05498758d 100644
---- a/drivers/firmware/efi/libstub/zboot.lds
-+++ b/drivers/firmware/efi/libstub/zboot.lds
-@@ -38,13 +38,13 @@ SECTIONS
+ 	dscc4.setup=	[NET]
  
- 	.data : ALIGN(4096) {
- 		_data = .;
--		*(.data* .init.data*)
-+		*(.data* .init.data* .init.efidata*)
- 		_edata = ALIGN(512);
- 		. = _edata;
+ 	dt_cpu_ftrs=	[PPC,EARLY]
+diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
+index 3d6fb3ca2806ca..f77fa1ae716843 100644
+--- a/drivers/firmware/efi/Kconfig
++++ b/drivers/firmware/efi/Kconfig
+@@ -75,6 +75,36 @@ config EFI_GENERIC_STUB
+ config EFI_STUB_IMAGE_INFO
+ 	bool
+ 
++config EFI_STUB_DRTM
++	bool
++
++choice
++	prompt "Default DRTM launch policy"
++	depends on EFI_STUB_DRTM
++	default EFI_STUB_DRTM_DEFAULT_OFF
++	help
++	  Select the DRTM policy used when no drtm= option is present on the
++	  kernel command line. The command-line option overrides this default.
++
++config EFI_STUB_DRTM_DEFAULT_OFF
++	bool "Off"
++	help
++	  Do not attempt a DRTM launch unless it is requested explicitly.
++
++config EFI_STUB_DRTM_DEFAULT_AUTO
++	bool "Automatic with fallback"
++	help
++	  Attempt a DRTM launch when the firmware supports it, but fall back to
++	  normal boot if preparation or a returnable launch attempt fails.
++
++config EFI_STUB_DRTM_DEFAULT_ENFORCE
++	bool "Enforce"
++	help
++	  Require a DRTM launch and refuse normal-boot fallback if preparation
++	  or a returnable launch attempt fails.
++
++endchoice
++
+ config EFI_ZBOOT
+ 	bool "Enable the generic EFI decompressor"
+ 	depends on EFI_GENERIC_STUB && !ARM
+diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
+index 83fade2b0d3b84..5b356c4be78975 100644
+--- a/drivers/firmware/efi/libstub/efi-stub-entry.c
++++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
+@@ -67,6 +67,10 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
+ 	if (status != EFI_SUCCESS)
+ 		return status;
+ 
++	status = efi_drtm_prepare();
++	if (status != EFI_SUCCESS)
++		return status;
++
+ 	efi_info("Booting Linux Kernel...\n");
+ 
+ 	status = handle_kernel_image(&image_addr, &image_size,
+diff --git a/drivers/firmware/efi/libstub/efi-stub-helper.c b/drivers/firmware/efi/libstub/efi-stub-helper.c
+index f27f2e1f001997..2dd4a5ac916000 100644
+--- a/drivers/firmware/efi/libstub/efi-stub-helper.c
++++ b/drivers/firmware/efi/libstub/efi-stub-helper.c
+@@ -27,6 +27,37 @@ static bool efi_disable_pci_dma = IS_ENABLED(CONFIG_EFI_DISABLE_PCI_DMA);
+ 
+ int efi_mem_encrypt;
+ 
++#ifdef CONFIG_EFI_STUB_DRTM
++enum efi_drtm_policy efi_drtm_policy =
++	IS_ENABLED(CONFIG_EFI_STUB_DRTM_DEFAULT_ENFORCE) ? EFI_DRTM_ENFORCE :
++	IS_ENABLED(CONFIG_EFI_STUB_DRTM_DEFAULT_AUTO) ? EFI_DRTM_AUTO :
++	EFI_DRTM_OFF;
++
++static void efi_drtm_parse_options(char *options)
++{
++	char *keyword;
++
++	while (options) {
++		keyword = options;
++		while (*options && *options != ',')
++			options++;
++		if (*options)
++			*options++ = '\0';
++		else
++			options = NULL;
++
++		if (!strcmp(keyword, "off"))
++			efi_drtm_policy = EFI_DRTM_OFF;
++		else if (!strcmp(keyword, "auto"))
++			efi_drtm_policy = EFI_DRTM_AUTO;
++		else if (!strcmp(keyword, "enforce"))
++			efi_drtm_policy = EFI_DRTM_ENFORCE;
++	}
++}
++#else
++static void efi_drtm_parse_options(char *options) {}
++#endif
++
+ bool __pure __efi_soft_reserve_enabled(void)
+ {
+ 	return !efi_nosoftreserve;
+@@ -89,6 +120,9 @@ efi_status_t efi_parse_options(char const *cmdline)
+ 				efi_mem_encrypt = 1;
+ 			else if (parse_option_str(val, "off"))
+ 				efi_mem_encrypt = -1;
++		} else if (IS_ENABLED(CONFIG_EFI_STUB_DRTM) &&
++			   !strcmp(param, "drtm") && val) {
++			efi_drtm_parse_options(val);
+ 		} else if (!strcmp(param, "efi") && val) {
+ 			efi_nochunk = parse_option_str(val, "nochunk");
+ 			efi_novamap |= parse_option_str(val, "novamap");
+diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
+index da01d6005a62af..f3a6aefdc052ca 100644
+--- a/drivers/firmware/efi/libstub/efistub.h
++++ b/drivers/firmware/efi/libstub/efistub.h
+@@ -1078,6 +1078,42 @@ efi_status_t check_platform_features(void);
+ 
+ void *get_efi_config_table(efi_guid_t guid);
+ 
++enum efi_drtm_policy {
++	EFI_DRTM_OFF,
++	EFI_DRTM_AUTO,
++	EFI_DRTM_ENFORCE,
++};
++
++#ifdef CONFIG_EFI_STUB_DRTM
++extern enum efi_drtm_policy efi_drtm_policy;
++efi_status_t efi_drtm_prepare(void);
++unsigned long efi_drtm_get_extra_size(void);
++efi_status_t efi_drtm_prepare_launch(unsigned long image_base,
++				     unsigned long fdt_addr);
++void efi_drtm_launch(void);
++#else
++enum {efi_drtm_policy = EFI_DRTM_OFF};
++static inline efi_status_t efi_drtm_prepare(void)
++{
++	return EFI_SUCCESS;
++}
++
++static inline unsigned long efi_drtm_get_extra_size(void)
++{
++	return 0;
++}
++
++static inline efi_status_t
++efi_drtm_prepare_launch(unsigned long image_base, unsigned long fdt_addr)
++{
++	return EFI_SUCCESS;
++}
++
++static inline void efi_drtm_launch(void)
++{
++}
++#endif
++
+ /* NOTE: These functions do not print a trailing newline after the string */
+ void efi_char16_puts(efi_char16_t *);
+ void efi_puts(const char *str);
+diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
+index 5b2dd709d7b151..15bb331f2dc56c 100644
+--- a/drivers/firmware/efi/libstub/fdt.c
++++ b/drivers/firmware/efi/libstub/fdt.c
+@@ -223,6 +223,7 @@ static
+ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
+ 					    efi_loaded_image_t *image,
+ 					    unsigned long *new_fdt_addr,
++					    unsigned long kernel_addr,
+ 					    char *cmdline_ptr)
+ {
+ 	unsigned long desc_size;
+@@ -289,6 +290,10 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
+ 		goto fail_free_new_fdt;
  	}
  
- 	.bss : {
--		*(.bss* .init.bss*)
-+		*(.bss* .init.bss* .init.efibss*)
- 		_end = ALIGN(512);
- 		. = _end;
++	status = efi_drtm_prepare_launch(kernel_addr, *new_fdt_addr);
++	if (status != EFI_SUCCESS)
++		goto fail_free_new_fdt;
++
+ 	priv.new_fdt_addr = (void *)*new_fdt_addr;
+ 
+ 	status = efi_exit_boot_services(handle, &priv, exit_boot_func);
+@@ -350,7 +355,7 @@ efi_status_t efi_boot_kernel(void *handle, efi_loaded_image_t *image,
+ 	efi_status_t status;
+ 
+ 	status = allocate_new_fdt_and_exit_boot(handle, image, &fdt_addr,
+-						cmdline_ptr);
++						kernel_addr, cmdline_ptr);
+ 	if (status != EFI_SUCCESS) {
+ 		efi_err("Failed to update FDT and exit boot services\n");
+ 		return status;
+@@ -359,6 +364,7 @@ efi_status_t efi_boot_kernel(void *handle, efi_loaded_image_t *image,
+ 	if (IS_ENABLED(CONFIG_ARM))
+ 		efi_handle_post_ebs_state();
+ 
++	efi_drtm_launch();
+ 	efi_enter_kernel(kernel_addr, fdt_addr, fdt_totalsize((void *)fdt_addr));
+ 	/* not reached */
+ }
+diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
+index 960a542881d875..6ca231ad593b20 100644
+--- a/drivers/firmware/efi/libstub/zboot.c
++++ b/drivers/firmware/efi/libstub/zboot.c
+@@ -35,7 +35,7 @@ asmlinkage efi_status_t __efiapi
+ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
+ {
+ 	char *cmdline_ptr __free(efi_pool) = NULL;
+-	unsigned long image_base, alloc_size;
++	unsigned long image_base, image_size, alloc_size;
+ 	efi_loaded_image_t *image;
+ 	efi_status_t status;
+ 
+@@ -52,12 +52,17 @@ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
+ 	if (status != EFI_SUCCESS)
+ 		return status;
+ 
+-	efi_info("Decompressing Linux Kernel...\n");
+-
+-	status = efi_zboot_decompress_init(&alloc_size);
++	status = efi_drtm_prepare();
+ 	if (status != EFI_SUCCESS)
+ 		return status;
+ 
++	efi_info("Decompressing Linux Kernel...\n");
++
++	status = efi_zboot_decompress_init(&image_size);
++	if (status != EFI_SUCCESS)
++		return status;
++	alloc_size = image_size + efi_drtm_get_extra_size();
++
+ 	 // If the architecture has a preferred address for the image,
+ 	 // try that first.
+ 	image_base = alloc_preferred_address(alloc_size);
+@@ -92,8 +97,12 @@ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
  	}
+ 
+ 	// Decompress the payload into the newly allocated buffer
+-	status = efi_zboot_decompress((void *)image_base, alloc_size);
++	status = efi_zboot_decompress((void *)image_base, image_size);
+ 	if (status == EFI_SUCCESS) {
++		/*
++		 * Have to sync the entire allocation because the sync also
++		 * remaps and changes the permissions.
++		 */
+ 		efi_cache_sync_image(image_base, alloc_size);
+ 		status =
+ 			efi_stub_common(handle, image, image_base, cmdline_ptr);
 -- 
 2.43.0
 
