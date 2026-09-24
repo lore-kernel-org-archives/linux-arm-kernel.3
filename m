@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FF0C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE77C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 12:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/JN7+ozPHQKLl/xICwnFADe4iQfIt+/rqVhH5CZrYA=; b=3TTmTGVhCoqnT4WSiihbSev9VD
-	N/VvrbSsubK/FlwKNI1JMhlletkyI/jWTfbdBNKjkMY6E57IshYs2fsYRF00C1voP2u1+hvpmO5s1
-	be0kemcUQZXINIrffuM95eOeRtUVx8QS6XB6YIJti7CZmhOSiJBQ7jA70s0Ee7B7xkP414E7Xc5Y7
-	bYXfvqvtyw9luRkVf2Amjm36IbejefdOj2OEtHVSDSf2TFViQMOk1i3zxM5iO8pnqUfu9G7hs56XN
-	Wx19a35EnfCGw7SoTifJ90MJrPLrakoLX56t93Tw1t2MlzzLCCB63CM5JewioUbfymvZhjiSFjS+S
-	qU+gNW5Q==;
+	bh=505orE5OpmF0rqgVrMUI2fkr4bM3eg+OhX8WPM6vgh0=; b=iFKC1WVA+Afq+ZiygwWNfvOvzb
+	aRq0quj/ir6/ekNccu2n6OddRx5D007y7J7VeuIrTBdSUFX2D8KXcUEnqxjaC95Ozm0xompVEeu2o
+	A1D9RldT3YIJEF0kAlLQyHKOpSMsdhaS9/aw+QRVSbW1T6hsBqwcaDj7PR814WFQN7XUbYQ4irrHQ
+	YCd3tU9DGiuZpja46C/bYnLF3RepD2LnNCJoKVu+asWqnUZwX5VF3vjft23j2/xHqTrB9yt4ftW6e
+	qqX4kHBszo/RcIFCd7JK341ZRGwV9rv8oYHTnhMDjAohJrS8RdgPLN7qJxr17KOYGGn4XyLDYiI8R
+	lhcOjgCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iIP-0000000AwZf-0NqO;
-	Thu, 24 Sep 2026 12:11:25 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1x9iL2-0000000Ax2I-2Fc8;
+	Thu, 24 Sep 2026 12:14:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iIM-0000000AwXi-306O;
-	Thu, 24 Sep 2026 12:11:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790251823; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SMMG8NlP4fqBNXx529QZu5Zdtb4p9tbuMOQ91soQIHcDnn4ZYV2Qq6DwCOwr678Uo7p8enklMkZmlGtEeJGziTS1PKR38Ch/HKt4o33k5EJ7Vn5Q4viwpc3HWxbVLfSZ2E0v1befX4gf1zmvugKkk/KyrSeBPBpn9VFZmOokLPs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790251823; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=j/JN7+ozPHQKLl/xICwnFADe4iQfIt+/rqVhH5CZrYA=; 
-	b=JA02mZ1JM5S0BN3yBf3uyS3rHRpQxWB4DFfmHKkMiPasUG1Oj8qL1w/U6XepZzR2eFpxM5PIYcUrWJusagOO9ZEQ+jQPQMSc0WlC2bLpOSUi2Z23Yxe4/RwXxRq0p4pDbMr3OfPvJzEp1NzpH95dhfCqZ97kDljvcaqPxuUeohg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790251823;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=j/JN7+ozPHQKLl/xICwnFADe4iQfIt+/rqVhH5CZrYA=;
-	b=Xu+gcUfbDupdDGdO0xZeIAWmvh740ouAqQ7g8/OfYe3MpyVK0wF1tXyDTwBDYT7Y
-	xzFD/uVYj2XViaDeb0kVdScnlodkBeibyV7UnNF63LSAYs+THvk3+ng2ALMvv9/0UXO
-	CFkcvJQVJ5wXPkjrdhI7uNuS90bR8L/xns/jDyGA=
-Received: by smtp.zohomail.com with SMTPS id 1790251821166727.927772036528;
-	Thu, 24 Sep 2026 05:10:21 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Vidith Madhu <vmadhu@nvidia.com>
-Cc: "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>,
- Leo Li <sunpeng.li@amd.com>, Daniel Stone <daniels@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Michel =?UTF-8?B?RMOkbnplcg==?= <michel.daenzer@mailbox.org>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- Derek Foreman <derek.foreman@collabora.com>,
- wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH RFC 13/25] drm: Add VRR target frame rate properties
-Date: Thu, 24 Sep 2026 14:10:13 +0200
-Message-ID: <JMjFKVeURZyGX22Pj_CGcQ@collabora.com>
-In-Reply-To: <6fb8aaed-5abc-db9c-b09b-3390d8b87686@nvidia.com>
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
- <YozwdeJLQh-0GBcK9P3QvQ@collabora.com>
- <6fb8aaed-5abc-db9c-b09b-3390d8b87686@nvidia.com>
+	id 1x9iL1-0000000Ax2A-1rJG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 12:14:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DBFBA43B81;
+	Thu, 24 Sep 2026 12:14:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 040451F000FF;
+	Thu, 24 Sep 2026 12:14:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790252046;
+	bh=505orE5OpmF0rqgVrMUI2fkr4bM3eg+OhX8WPM6vgh0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OnMD1tUMoY172Zuqhc6k4sQDczxnt/xSjWt5fb0mFNF8AFsCYlsRj9UVVsdG3ExB4
+	 rCC0g+fh+YoPb3LIxF48kpXphBeotD+Yy13z0+TuNYbMG8fLz0Ap5odtNVNe7/5Yrx
+	 icRT35m5mDtlzz8XcqONoajG5RjWIZ/drMfLHwgZKvQ9nDkLuXhjhoHs/3smj1ho5f
+	 CPyPEm9i3q1GdTiffSaCZ2o0ukewZei7I/cj0ejUxAc3t7VQpaqbr/yBLc+J4BkM0w
+	 xlM02lNJJY+duviRgIv/Ca8wLoyyvrgKZJyjfXpuyuSo8DXu2gs8maipQC2yqAg73E
+	 dKRqj2RQc2FDg==
+Date: Thu, 24 Sep 2026 13:14:00 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org,
+	oupton@kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	steven.price@arm.com, qperret@google.com
+Subject: Re: [PATCH v3 10/18] KVM: arm64: Handle PSCI calls for protected VMs
+ at EL2
+Message-ID: <arUUCFHamX1nOrB1@willie-the-truck>
+References: <20260914113338.159227-1-fuad.tabba@linux.dev>
+ <20260914113338.159227-11-fuad.tabba@linux.dev>
+ <arK1tHUEJsCQEKzn@google.com>
+ <CA+EHjTx+foVF4CRU5D8bQv8bAqDphMN12UrV+_doUryn2ow6bg@mail.gmail.com>
+ <arTfjgvZIhmXLrw1@willie-the-truck>
+ <CA+EHjTxe0JE-tCX4YcEEafdnxjuZLj3EBucZfZF0HCP2PQAekg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_051122_787500_6074B4B0 
-X-CRM114-Status: GOOD (  29.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTxe0JE-tCX4YcEEafdnxjuZLj3EBucZfZF0HCP2PQAekg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,115 +78,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 24 September 2026 09:01:05 Central European Summer Time Vidith=
- Madhu wrote:
->=20
-> On Wed, 23 Sep 2026, Nicolas Frattaroli wrote:
->=20
-> > On Wednesday, 23 September 2026 11:51:45 Central European Summer Time M=
-ichel D=C3=A4nzer wrote:
-> > > On 9/21/26 17:51, Nicolas Frattaroli wrote:
-> > > >=20
-> > > > + * .. _VRR-MIN-NUMERATOR:
-> > > > + *
-> > > > + * "VRR_MIN_NUMERATOR":
-> > > > + *	Default &drm_crtc integer property forming the numerator of a
-> > > > + *	numerator/denominator pair of a frame rate to set as the minimu=
-m VRR
-> > > > + *	target rate. Set to 0 to disable.
-> > > > + *
-> > > > + * "VRR_MIN_DENOMINATOR":
-> > > > + *	Default &drm_crtc integer property forming the denominator of a
-> > > > + *	numerator/denominator pair of a frame rate to set as the minimu=
-m VRR
-> > > > + *	target rate. If :ref:`VRR_MIN_NUMERATOR <VRR-MIN-NUMERATOR>` is=
- not
-> > > > + *	zero, it must be non-zero.
-> > > > + *	Otherwise, must also be zero.
-> > > > + *
-> > > > + * .. _VRR-MAX-NUMERATOR:
-> > > > + *
-> > > > + * "VRR_MAX_NUMERATOR":
-> > > > + *	Default &drm_crtc integer property forming the numerator of a
-> > > > + *	numerator/denominator pair of a frame rate to set as the maximu=
-m VRR
-> > > > + *	target rate. Set to 0 to disable.
-> > > > + *
-> > > > + * "VRR_MAX_DENOMINATOR":
-> > > > + *	Default &drm_crtc integer property forming the denominator of a
-> > > > + *	numerator/denominator pair of a frame rate to set as the maximu=
-m VRR
-> > > > + *	target rate. If :ref:`VRR_MAX_NUMERATOR <VRR-MAX-NUMERATOR>` is=
- not
-> > > > + *	zero, it must be non-zero. Otherwise, must also be zero.
-> > > >   */
-> > >=20
-> > > Is there a reason that DENOMINATOR must be 0 when the corresponding N=
-UMERATOR is? 0 divided by any number is still 0.
-> >=20
-> > No, I think that's an arbitrary convention I settled on and don't enfor=
-ce. I
-> > guess it should be "Otherwise, may also be zero", because the only situ=
-ation
-> > I'm making userspace avoid is x/0 where x !=3D 0.
-> >=20
-> > > > Either way, should these rules be enforced in drm_atomic_crtc_set_p=
-roperty?
-> > >=20
-> > > Or rather in atomic_check.
-> >=20
-> > Due to complicating factors like EDID, CinemaVRR, and QMS TFRmin/TFRmax=
-, checking
-> > the properties for sensible values is done in the HDMI state helpers at=
- the moment.
-> >=20
-> > If/when there is a similar mechanism for DP, we can probably factor the=
- common
-> > parts out. I really do hope all drivers (including those that don't use=
- the HDMI
-> > state helpers) can at least share the hdmi_validate_vrr() logic, but I =
-haven't
-> > factored this out into an exported function yet because I don't know ho=
-w similar
-> > the DisplayPort-equivalent mechanisms requirements are, or how much of =
-the state
-> > derivation non-state-helper drivers (i.e. i915 and amdgpu) need.
-> >=20
-> > Kind regards,
-> > Nicolas Frattaroli
->=20
-> Thanks for bringing up support for VRR features on DP. Concerning the=20
-> frame rate limits themselves, as I mentioned in patch [02/25] I don't=20
-> think there's a reason to limit the validation to HDMI.
+On Thu, Sep 24, 2026 at 12:26:25PM +0100, Fuad Tabba wrote:
+> On Thu, 24 Sep 2026 09:30:06 +0100, Will Deacon <will@kernel.org> wrote:
+> [...]
+> > Sorry, but I'm really confused by this and it appears to be different to
+> > what we've got in Android as well. Why do we need release semantics for
+> > the store to 'hyp_vcpu->power_state' in pvm_psci_vcpu_off()? What is it
+> > that we are publishing here? The comment talks about pkvm_reset_vcpu(),
+> > but how is that relevant to the vCPU _off_ path? You say the comment is
+> > wrong, but what _should_ it say?
+> >
+> > I'm a bit baffled!
+> 
+> It's not publishing data, it's handing reset_state back.
 
-Agreed. I think factoring most of the stuff out into the CRTC atomic check
-phase is what I'll do, and then keep the HDMI-specific validation and
-derivation within the HDMI state helpers. That should somewhat simplify
-the code as well I think.
+What's the difference? The usual pattern for acquire/release is:
 
-> There is in fact an analog of QMS for DP, called DP-FAVT mode - this is
-> quite a bit more streamlined than QMS and the validation should be
-> simpler. Would be nice to see these properties support that as well
+<write data>
+<store-release flag>
 
-Yep, the intent is that the properties are display protocol agnostic,
-it just so happens that the only implementation I wrote so far is
-specific to HDMI.
+on one CPU and then on another:
 
-Also, good to hear the DP QMS-equivalent is more streamlined. :)
+<load-acquire flag>	// If this reads from the release above...
+<read data>		// ... then this is guaranteed to read the written data
 
-> (this was briefly discussed at DisplayNext HackFest, if I understood
-> access to the DP spec is the main blocker here?).
+That's a message-passing shape and you would normally say that the first
+CPU (the producer) is publishing the data to the other CPU (the consumer).
 
-It certainly is a blocker. We also don't have any fancy testing/validation
-equipment, so validating implementations for protocols before they reach
-consumer devices is difficult for us (Collabora) at this time. That's also
-why it's a good idea for anyone who has access to the expensive specialised
-protocol test equipment to validate that the HDMI VTEM EMP packets we're
-constructing are actually within spec and not just a "happens to work" kind
-of deal.
+Is this what is happening with the 'reset_state' (data) and the
+'power_state' (flag)? If not, then what is the shape?
 
-Kind regards
-Nicolas Frattaroli
+> The CPU_ON winner writes reset_state.{pc, r0, be}, then reset_state.reset
+> with a release. The target reads them and clears reset in pkvm_reset_vcpu()
+> on its next run
 
+By 'next run' you mean, at EL2 on the entry path into the guest following
+a successful CPU_ON operation?
 
+> and its CPU_OFF hands reset_state on to the next
+> CPU_ON. The release on OFF orders those reads and that clear before
+> OFF, and an acquire on the winner's cmpxchg orders its writes after
+> it: release on the way out, acquire on the way in, like a lock.
+
+That doesn't make sense to me, sorry. You're saying that the release
+store in the EL2 CPU_OFF hypercall handler is ordering stores that were
+made during the initial CPU_ON handling on that vCPU? Since then, we've
+been in and out of the guest. We really shouldn't need extra barriers to
+create order there.
+
+> Without the release, the target's clear of reset can become visible
+> after the next winner's reset = true, and the target's next
+> pkvm_reset_vcpu() then reads a clear flag and returns -ECANCELED,
+> leaving the vCPU stuck at ON_PENDING.
+
+This needs a litmus test because I can't see it myself. As above,
+CPU_OFF does not clear the reset state, so it's bizarre to put the
+release there.
+
+> The comment described the flag ordering, which holds through the
+> winner's release on reset even with a relaxed cmpxchg, and named the
+> cmpxchg as its pair when the cmpxchg wasn't an acquire. The acquire is
+> for the winner's plain writes of pc/r0/be: nothing else orders them
+> after the target's reads. v4 has cmpxchg_acquire() and the two
+> comments name what's ordered and each other:
+> 
+>         /*
+>          * Orders pkvm_reset_vcpu()'s accesses to reset_state before OFF. Pairs
+>          * with the acquire cmpxchg in pvm_psci_vcpu_on().
+>          */
+>         smp_store_release(&hyp_vcpu->power_state, PSCI_0_2_AFFINITY_LEVEL_OFF);
+> 
+> and in pvm_psci_vcpu_on():
+> 
+>         /*
+>          * vCPUs race to power on the same target. The acquire pairs with the
+>          * release of OFF in pvm_psci_vcpu_off(): the target's accesses to
+>          * reset_state in pkvm_reset_vcpu() precede the writes below.
+>          */
+>         power_state = cmpxchg_acquire(&target->power_state,
+>                                       PSCI_0_2_AFFINITY_LEVEL_OFF,
+>                                       PSCI_0_2_AFFINITY_LEVEL_ON_PENDING);
+
+This confused me more :( Why are you talking about accesses preceding an
+acquire? An acquire only orders later accesses.
+
+I really think we need some litmus tests to understand the general ordering
+problems we have here before adding the memory barriers.
+
+Will
 
