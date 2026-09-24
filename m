@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3681FC9831C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605C5C98317
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 09:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DiIAmRJI8KNI9XyXyKPuBaCgzXlIFXUf6tOipEKvdgs=; b=u0jqQrs1GBa+AkZFz/8J34bZ3e
-	hPJhp640OXvNtYCcIRdvfRP05BOLywzyRGu1kkCl775dzY3zChitFYha1VBhUvfOePsfGaQ9OtD2+
-	vh0PMl3Wr8YEYRMA8dU5ZRmejNoxRX1wHMtVgtGNJeKVCtNJHZWDcCQB8raYvkwIKgTWyX8SiZhS/
-	kbHbvO6zzGUnbkIBkK2UldlBu856ObMwibnY+/S0TYgLbYN6W4QmaTos12ciQWWX7qeP2YXWDe0Xo
-	GfdEGZiZYpaCum1kyTQBT6ebt21LF8jzlR6xqZG9PTUwVyW9QgKNO//ksRBocXVMono4bIDqry7+H
-	afSuZNPg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8rAy/Ib71cxCFjOBwLWXyeNvTMAtqNfN/PxSqBk6dpA=; b=2NRRC7GbGpNo08Vt4eAm0VyE/l
+	k13/SLqn/rLmq/3KBY+4e5CFQYvG2xkQM+oIsLmSCeM0TGOlnFuiZpOomlH+ZQsRxzGn/mLk6D/kn
+	+CsgDKXiYaYUMDL9j0PSAsucmLx3deANNnSNCCl29gfRIl0Nf5SAFlr5NqD4UntOJ4SXqw1H9Btik
+	PaMQad/FfB10kzC/DjpHtJHkCr6b7SeBM+m+/W0j/R0uF+rpSk+muZoA0xpsphj4Ui/XNbifHt7U0
+	Wt3njkZPHSheyt573Emc1MVHiOWOzpQLylMqgavgUD3dehUuadE+gqxqn2Mbs9w5Ply1zoDv6JTjR
+	LPaJ/v6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fvB-0000000AbHa-3U9F;
+	id 1x9fvB-0000000AbGy-2ZMR;
 	Thu, 24 Sep 2026 09:39:17 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9fv9-0000000AbFZ-3fTh;
+	id 1x9fv9-0000000AbFY-3fZr;
 	Thu, 24 Sep 2026 09:39:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E57143FCE;
-	Thu, 24 Sep 2026 09:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 011F2C2BCFA;
-	Thu, 24 Sep 2026 09:39:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D4C61432EF;
+	Thu, 24 Sep 2026 09:39:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AE73CC2BCB3;
+	Thu, 24 Sep 2026 09:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1790242755;
-	bh=0RTxQHG5SrtpOkmN7+AQ0qZmluLnT0Jxv21b+yq+lq8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PcNCsIZ/vgfG3346EY3GJ0vXUj0aWbAbqnyhTABImkzh2FwQZ9KeiZ7AkixB2Tn80
-	 7fOEcjyJFQXB9ebm47ftjq8uikQuE0h/6UN+sVKjf4VE/9IN0c2GoGUidzld+Dlrct
-	 Vzs8otNFlqN6QzAFUFBpTsMtyA4osbALrwp2aFBtaH3BH0AKBtftteW2D4IrXWeiHi
-	 gx6GkNggMsRcYfLLUHKLl0YfrZuUxjOFABODsasRq59iNZlMvRABqBrzcpbbCVlcjr
-	 smoQzLnZcXcgbih+iMybTJoBlvL4BoL/qc/IuZKCaLxHyZgZFgs2Zbw2T9O8adD+p+
-	 gG5fT+YgzJw8A==
+	s=k20201202; t=1790242754;
+	bh=BItCEenS77Babwk7FdI0aiZat5GdjxabdmfKPHmohbg=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=gUUy54yiht6ovJrErNoshPUnWLJuCPHrChQp8tD0Jtuxm+TF94sST2UkjztHgHlT/
+	 yatGpH+5gHuesiQhUbuFETr9bKiCJzuLOLON+3ljLp4WNMDZK5XPdl+qS5wSw1xqQY
+	 FSHlkulEORw8+zs/qBLNgE1+kCS27jbTEcg3BJYuwZgvhK7ZemedhbW4tu+OQSaiYh
+	 EEQnj8Uh8zdnGIX/y3soLmO+FI6aCqiW/dW7sCz2rvhxPZ+DCkCJk9Iy9fDy5zXX5D
+	 7Pnf8xLsXM7KEImT2OLkkYsBaU1uM9m882IEs7JDlqN1ss+O430lhe/uh6QtlI7LJs
+	 po1A2mnxc483A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DE39BC9830E;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F931C98314;
 	Thu, 24 Sep 2026 09:39:14 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Thu, 24 Sep 2026 12:38:32 +0300
-Subject: [PATCH v3 3/3] soc: mediatek: pwrap: add mt6572 support
+Subject: [PATCH v3 0/3] soc: mediatek: pwrap: mt6572 support + log level
+ fixes
+Date: Thu, 24 Sep 2026 12:38:29 +0300
+Message-Id: <20260924-6572-pwrap-v3-0-64769b6446ac@protonmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-6572-pwrap-v3-3-64769b6446ac@protonmail.com>
-References: <20260924-6572-pwrap-v3-0-64769b6446ac@protonmail.com>
-In-Reply-To: <20260924-6572-pwrap-v3-0-64769b6446ac@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNTQ7CIBgFr9KwFgO09MeV9zAuKHxYjC0NVNQ0v
+ btQY1LjcpI382bkwRnw6JDNyEEw3tghQr7LkOzEcAFsVGTECCtJRRkuecXw+HBixIVsKC9zqRX
+ LURRGB9o819jp/GF/b68gp1RIi874ybrX+hZo2n3DxTYcKCZY1cBF3khdgT6Ozk526IW57aXtU
+ aoHtvX5j8+i34KgqiZU1rT985dleQN/f1yA+wAAAA==
+X-Change-ID: 20260712-6572-pwrap-4c91563cfd23
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -60,13 +64,14 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
+ Roman Vivchar <rva333@protonmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790242752; l=3136;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790242752; l=1470;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=5/Rr8S3k+cl5buopSAZz/51dHnX8PxgtHV+UdekTJuQ=;
- b=3zna0fCsAZGuoEu6X45tKEbLaKOi8CmV2a1/9jAYSfRoPrJiPoGh8AMeJthOLkL6WItLm4gk5
- F2X2Og9coxQAeuyxSgaO8HM62n25DBavqHKp+Zo5QRb2KOtLK2r4TxM
+ bh=BItCEenS77Babwk7FdI0aiZat5GdjxabdmfKPHmohbg=;
+ b=85oFbEvDe4vV3r2mPSajBfrNLyAj50bzIGY1b8+RbttbVD/f6eiu+iE1y0q+6FnzcFCPNS4m+
+ oD9+GRbzwhyA3/LofjXlns7Jkb/khAkoVRPQpUAH8TZNenSkCn4j7Yc
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -87,91 +92,48 @@ Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+This patch series adds support for the mt6572 pwrap.
 
-Add mt6572 registers and platform data for the pmic wrapper.
+All known mt6572 devices use mt6323 PMIC, which is already supported
+by the upstream drivers. mt6572 also shares SoC-specific init with
+mt2701.
 
-While vendor kernel source code suggests that mt6572 can be paired with
-the mt6320 PMIC, no such devices have been found yet. Hence, registers
-that not included in the mt2701 array are omitted.
+Patch 1 adds dt-bindings compatible.
+Patch 2 fixes improper log levels in the driver, improving UX when
+debugging.
+Patch 3 adds mt6572 support.
 
-The mt2701 SoC-specific initialization function is used because they
-share the same GPS_INTF settings.
+Tested on various mt6572 devices without any failures.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/soc/mediatek/mtk-pmic-wrap.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Changes in v3:
+- Pick up Krzysztof's tag
+- No other changes, resend
+- Link to v2: https://patch.msgid.link/20260715-6572-pwrap-v2-0-bea1d801c81b@protonmail.com
 
-diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
-index a4b10b0a97cb..3f05fc724e15 100644
---- a/drivers/soc/mediatek/mtk-pmic-wrap.c
-+++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
-@@ -1314,6 +1314,7 @@ enum pmic_type {
- 
- enum pwrap_type {
- 	PWRAP_MT2701,
-+	PWRAP_MT6572,
- 	PWRAP_MT6765,
- 	PWRAP_MT6779,
- 	PWRAP_MT6795,
-@@ -1733,6 +1734,11 @@ static void pwrap_init_chip_select_ext(struct pmic_wrapper *wrp, u8 hext_write,
- static int pwrap_common_init_reg_clock(struct pmic_wrapper *wrp)
- {
- 	switch (wrp->master->type) {
-+	case PWRAP_MT6572:
-+		pwrap_writel(wrp, 0x8, PWRAP_RDDMY);
-+		pwrap_write(wrp, wrp->slave->dew_regs[PWRAP_DEW_RDDMY_NO], 0x8);
-+		pwrap_init_chip_select_ext(wrp, 5, 0, 0, 0);
-+		break;
- 	case PWRAP_MT6795:
- 		if (wrp->slave->type == PMIC_MT6331) {
- 			const u32 *dew_regs = wrp->slave->dew_regs;
-@@ -1839,6 +1845,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
- 		pwrap_writel(wrp, 1, PWRAP_CIPHER_START);
- 		break;
- 	case PWRAP_MT2701:
-+	case PWRAP_MT6572:
- 	case PWRAP_MT6765:
- 	case PWRAP_MT6779:
- 	case PWRAP_MT6795:
-@@ -2277,6 +2284,24 @@ static const struct pmic_wrapper_type pwrap_mt2701 = {
- 	.init_soc_specific = pwrap_mt2701_init_soc_specific,
- };
- 
-+/*
-+ * MT6572 register map is a superset of the MT2701. It has additional registers
-+ * OP_TYPE (0x10), MSB_FIRST (0x14), GPS_STA (0x40) and SW_RST (0x180),
-+ * which were omitted because the driver doesn't use them.
-+ */
-+static const struct pmic_wrapper_type pwrap_mt6572 = {
-+	.regs = mt2701_regs,
-+	.type = PWRAP_MT6572,
-+	.arb_en_all = 0x1ff,
-+	.int_en_all = 0x7ffffffd,
-+	.int1_en_all = 0,
-+	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
-+	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
-+	.caps = PWRAP_CAP_RESET | PWRAP_CAP_DCM,
-+	.init_reg_clock = pwrap_common_init_reg_clock,
-+	.init_soc_specific = pwrap_mt2701_init_soc_specific,
-+};
-+
- static const struct pmic_wrapper_type pwrap_mt6765 = {
- 	.regs = mt6765_regs,
- 	.type = PWRAP_MT6765,
-@@ -2446,6 +2471,7 @@ static const struct pmic_wrapper_type pwrap_mt8186 = {
- 
- static const struct of_device_id of_pwrap_match_tbl[] = {
- 	{ .compatible = "mediatek,mt2701-pwrap", .data = &pwrap_mt2701 },
-+	{ .compatible = "mediatek,mt6572-pwrap", .data = &pwrap_mt6572 },
- 	{ .compatible = "mediatek,mt6765-pwrap", .data = &pwrap_mt6765 },
- 	{ .compatible = "mediatek,mt6779-pwrap", .data = &pwrap_mt6779 },
- 	{ .compatible = "mediatek,mt6795-pwrap", .data = &pwrap_mt6795 },
+Changes in v2:
+- Fix typo in patch 2 commit message ('Errors paths' -> 'Error paths')
+- Drop unused registers in pwrap driver and use existing mt2701 array
+- Also clarify mt6320 register usage
+- Link to v1: https://patch.msgid.link/20260714-6572-pwrap-v1-0-d8e5a39cf7ef@protonmail.com
 
--- 
-2.55.0
+---
+Roman Vivchar (3):
+      dt-bindings: soc: mediatek: pwrap: add mt6572
+      soc: mediatek: pwrap: use correct log level
+      soc: mediatek: pwrap: add mt6572 support
+
+ .../bindings/soc/mediatek/mediatek,pwrap.yaml      |  1 +
+ drivers/soc/mediatek/mtk-pmic-wrap.c               | 71 +++++++++++++---------
+ 2 files changed, 44 insertions(+), 28 deletions(-)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260712-6572-pwrap-4c91563cfd23
+
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
 
 
 
