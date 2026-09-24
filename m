@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256D2C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80E1C98327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mGSEse4hBsw8fgmlESrHlYNGVAkzHzxD7Bn/OzsuEgI=; b=0TznTe5rZvOJCAs5nmnZNhS2ry
-	d0v+XDL01M6ULmuic2FBoulbRDXojtYZ4WcRtYBGx398yHAeMINCg2PmSiqVNtFtDgQn+Kzskesd7
-	cv6uY0iLLKOSi0rUuH4hdv93+eKFnRd55SHICiVqpnpJIID3SwTxP8YJ5+zelxij8nkUCz50jE2EZ
-	p51KiM7f0CPD32cdSSqi4dmZIb2rMBWsFA3mSjUh0OBjR2rdMpteUNYsqR2uCZ8gLpiRNQlHlB48P
-	bEN2VGMKPPOZCmdOwlhS+Q9qkXpL9LchbJYd52d7tgFb+BsEgxH9eBn5yP/0SM+1rb8iJAX+n9KEC
-	Puxln5Jg==;
+	bh=Z94RUg1ZuLKEEDJK0B+YpBC3jX7RSj0IhFlc70jx520=; b=myEl8tVDsAnNTG1cLnUTni+2qY
+	yYdXvI3gkBCKNPtNUHD/VhnjW/ibs2DQUDZlGgHrSwO6czt0++r1R2xKVFBV/xIQc7pkbXG/ipoQu
+	mvfkWBT7QzGgrUAbSloyXIVHOaoYiG5G+QJXaE6KByzkf085SeKtEwIIuOU5WxaGufLxlYnAjWBzO
+	f9WVs9wIw0Xjvu5WQYvlGY6Au/OZNbfAZp3vJhIgoSZOgF9Z+Ru6PFj3fkZ8pJFezba2fuRbAYtNL
+	62BxFINdLnYm3L2H1e5N65BSoyAR3HISlSI7EL8aO5mNFGYeWNBa9eMMAHMJ/3Km4RKICFYrmaeKE
+	eicCPTvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nLy-0000000BmjI-1wSG;
-	Thu, 24 Sep 2026 17:35:27 +0000
+	id 1x9nLy-0000000Bmig-0GHR;
+	Thu, 24 Sep 2026 17:35:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nLN-0000000BmOu-0JC6
+	id 1x9nLC-0000000BmKb-1xPh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:34:51 +0000
+	Thu, 24 Sep 2026 17:34:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 227941E8D;
-	Thu, 24 Sep 2026 10:34:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A7531E4D;
+	Thu, 24 Sep 2026 10:34:34 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 534273F86F;
-	Thu, 24 Sep 2026 10:34:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A143B3F86F;
+	Thu, 24 Sep 2026 10:34:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790271288; bh=vHLQ4omo4chT6BRCPX+W+Il8HrwxmtQtQaFyLV2a5ag=;
+	t=1790271277; bh=PpJ12IQWQJ/3/nUgcEIg8UT/GJKx3P6fafIIekBm3Sk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=d0YP8BuLBjbJxtowYq+gsSVPYABYnI7wY98YF7zhQNGFdPsfkx+qeRiPHlyEPRJlR
-	 rpHkRSk17UJYMINfignlRPDr4MJId8kM3crvTL24uVFuZxkQme7LwxlODRrQ2wiEVn
-	 InIwPXB7nApI0L9VP4mkltKcXKeVLqemV3gwzE6k=
+	b=Tag/Pz/gU2ZOS9lrdcOWwYFJ8aPYi5umlOt3m/2aP4bnEvBRCcOtg7xE1nLkhRBzf
+	 UQgF0amtjYRwOSIvBbPMjc355dO42g8Kt9j1VFwdQfpgWnDp4Qq4nSjxfMCLzk945s
+	 jP3ftAwDDLUiDCfGi/e/yXy/bsKjU7SuqwnL+R5w=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Thu, 24 Sep 2026 18:33:51 +0100
-Subject: [PATCH v12 13/14] coresight: etm3x: rename local config as
- curr_config referring drvdata->curr_config
+Date: Thu, 24 Sep 2026 18:33:47 +0100
+Subject: [PATCH v12 09/14] coresight: etm4x: remove s_ex_level from config
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-separate_etm_cfg_v2-v12-13-a2b41d2f7c2b@arm.com>
+Message-Id: <20260924-separate_etm_cfg_v2-v12-9-a2b41d2f7c2b@arm.com>
 References: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
 In-Reply-To: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
 To: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
@@ -60,22 +59,22 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
  Yeoreum Yun <yeoreum.yun@arm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7320; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=vHLQ4omo4chT6BRCPX+W+Il8HrwxmtQtQaFyLV2a5ag=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqtV8SVy8goDrZWz1OMdm9o4QYdAffBiZblHNru
- WhyziwmGJ6JAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCarVfEgAKCRBt1cPRWsUx
- M/kwC/9fBdEaxWTRW0CqkVdjAstQU3DHQv1/KSJuTwJalX+xmf0XsiwE0SOCgQ32+2ArqUeuoUl
- wbwEvA+XoM1QpIc4JrlUc6035ySuGT2PBScBOXr07u7G7edrS6jqom9aehrjOWC5D6cGtA+qGtN
- pAKQYfgW6bPhr2/4OrK3JKBf7RBZmDwNC32pd6ld2Qd8rKWqvkri28T7Ykgt7rjJszlMx5xF3/V
- F0OVuG5A+Ya/qsHQIPwovVldIRUw1Z0GfRISmC/zNTqQyaQ46v2Z7rQTRIyDXfb19mrDZYBzD5O
- F7JgrNcvneqH/RDOTE8mpaSUfU84Mquk0x/hEzxuStd4jwCzx09pG4ZyzpBnHL+R8LM3Wom2fRI
- eh4NcgJGlyZZVdNJqjGffWM5dUx6+V5i/m0an+Y1/7znrHVnZq0xekb5lEeuqPZWPyblfaCIvab
- o+HhYJpttVpr4N8FxyN+ZDTT3VzpQmspDS57Ga32o+BNhoM2WQEMwJoX/oBQVUl884ToQ=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10229; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=PpJ12IQWQJ/3/nUgcEIg8UT/GJKx3P6fafIIekBm3Sk=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqtV8QAJnQ1f5iDZqJzzFUp6IEPOG+2deL1+JL5
+ IIGYDhOt+KJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCarVfEAAKCRBt1cPRWsUx
+ M7ApDADMu2XetH6MUper+ngaLoTNTOxOu9E/2pomYKQllZ7/g9v3TCT7+YxERvVDkBMHuZmt+7I
+ 7hG01o5BfnURJ303IZscL6TTIPIFn43I7MLhWdx55Kc4N+Jyw25PPqc4jRca2oRDv7+jA/FQw4p
+ JHPLvHkA72R413nQIYb7niI62TQiraiP4IYrU6kSJbK8jxjxo9VlqixvNeNh5qusFYoQlamIWGv
+ jer2WpCDrKto/kv8GfLb6wt6HUtSp3bgLWY/AJYtohen3Fnb6IvVoFIvSnWkNIZmWl04+yo7UaF
+ O+Z2h2IQyC280yqA1ZtQKG/NEICbOjlRSPB8aEl3wk2VkK7YGnmph6bNUO4u+Ax57FPNcWsGZFE
+ VCjbgI3/i7b+FeqvgIC7ZgtrSc11hbmEQ25ilRxpdUzkpDfqXwwPFlNSsqU6VGJWeyM/pFmGCq3
+ RJKTRlOtCMMrTwvjsHvVpqwX3fpY43HxTVkBeP/Eb8sm+4GGc49v9tGLTqlilkpm+Fuls=
 X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
  fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_103449_791499_4E53694B 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20260924_103438_645543_6ED94FD5 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,175 +89,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For readability, rename the local config variable to curr_config in
-places where it refers to drvdata->curr_config.
+s_ex_level is a hardware capability rather than a configurable parameter.
+As such, it should not be stored in the configuration structure.
 
+Remove s_ex_level from the config structure and pass etm4_caps to the
+functions that need to access this capability.
+
+Reviewed-by: Mike Leach <mike.leach@arm.com>
+Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 76 +++++++++++-----------
- 1 file changed, 38 insertions(+), 38 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 58 +++++++++++++---------
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    |  2 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  5 +-
+ 3 files changed, 38 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index ca2ba179b6fb..0cad9ecb49b6 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -309,7 +309,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 				  struct perf_event *event)
- {
- 	const struct etm_caps *caps = &drvdata->caps;
--	struct etm_config *config = &drvdata->curr_config;
-+	struct etm_config *curr_config = &drvdata->curr_config;
- 	struct perf_event_attr *attr = &event->attr;
- 	u8 ts_level;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 4a8c1070bbcb..99d4e2d39e66 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -66,10 +66,12 @@ MODULE_PARM_DESC(pm_save_enable,
+ 	"Save/restore state on power down: 1 = never, 2 = self-hosted. MMIO and DT only.");
  
-@@ -317,28 +317,28 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 		return -EINVAL;
+ static struct etmv4_drvdata *etmdrvdata[NR_CPUS];
+-static void etm4_set_default_config(struct etmv4_config *config);
++static void etm4_set_default_config(struct etmv4_config *config,
++				    const struct etmv4_caps *caps);
+ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ 				  struct perf_event *event);
+-static u64 etm4_get_access_type(struct etmv4_config *config);
++static u64 etm4_get_access_type(struct etmv4_config *config,
++				const struct etmv4_caps *caps);
  
- 	/* Clear configuration from previous run */
--	memset(config, 0, sizeof(struct etm_config));
-+	memset(curr_config, 0, sizeof(struct etm_config));
+ static enum cpuhp_state hp_online;
  
- 	if (attr->exclude_kernel)
--		config->mode = ETM_MODE_EXCL_KERN;
-+		curr_config->mode = ETM_MODE_EXCL_KERN;
- 
- 	if (attr->exclude_user)
--		config->mode = ETM_MODE_EXCL_USER;
-+		curr_config->mode = ETM_MODE_EXCL_USER;
+@@ -800,7 +802,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ 		config->mode |= ETM_MODE_EXCL_GUEST;
  
  	/* Always start from the default config */
--	etm_set_default(config);
-+	etm_set_default(curr_config);
+-	etm4_set_default_config(config);
++	etm4_set_default_config(config, caps);
  
+ 	/* Configure filters specified on the perf cmd line, if any. */
+ 	ret = etm4_set_event_filters(drvdata, event);
+@@ -1474,7 +1476,6 @@ static void etm4_init_arch_data(void *info)
+ 
+ 	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
+ 	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
+-	drvdata->config.s_ex_level = caps->s_ex_level;
+ 	/* EXLEVEL_NS, bits[23:20] Non-secure state instruction tracing */
+ 	caps->ns_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_NS_MASK, etmidr3);
  	/*
- 	 * By default the tracers are configured to trace the whole address
- 	 * range.  Narrow the field only if requested by user space.
- 	 */
--	if (config->mode)
--		etm_config_trace_mode(config);
-+	if (curr_config->mode)
-+		etm_config_trace_mode(curr_config);
- 
--	config->ctrl = 0;
-+	curr_config->ctrl = 0;
- 
- 	if (ATTR_CFG_GET_FLD(attr, cycacc))
--		config->ctrl |= ETMCR_CYC_ACC;
-+		curr_config->ctrl |= ETMCR_CYC_ACC;
- 
- 	ts_level = max(ATTR_CFG_GET_FLD(attr, timestamp),
- 		       ATTR_CFG_GET_FLD(attr, deprecated_timestamp));
-@@ -350,7 +350,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	}
- 
- 	if (ts_level)
--		config->ctrl |= ETMCR_TIMESTAMP_EN;
-+		curr_config->ctrl |= ETMCR_TIMESTAMP_EN;
- 
- 	/*
- 	 * Possible to have cores with PTM (supports ret stack) and ETM (never
-@@ -358,7 +358,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	 * - trace will still continue normally otherwise.
- 	 */
- 	if (ATTR_CFG_GET_FLD(attr, retstack) && (caps->retstack))
--		config->ctrl |= ETMCR_RETURN_STACK;
-+		curr_config->ctrl |= ETMCR_RETURN_STACK;
- 
- 	return 0;
+@@ -1557,19 +1558,22 @@ static void etm4_init_arch_data(void *info)
+ 	cpu_detect_trace_filtering(drvdata);
  }
-@@ -368,7 +368,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	int i, rc;
- 	u32 etmcr;
- 	const struct etm_caps *caps = &drvdata->caps;
--	struct etm_config *config = &drvdata->curr_config;
-+	struct etm_config *curr_config = &drvdata->curr_config;
- 	struct coresight_device *csdev = drvdata->csdev;
  
- 	CS_UNLOCK(drvdata->csa.base);
-@@ -391,39 +391,39 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
- 	etmcr |= caps->port_size;
- 	etmcr |= ETMCR_ETM_EN;
--	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
--	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
--	etm_writel(drvdata, config->startstop_ctrl, ETMTSSCR);
--	etm_writel(drvdata, config->enable_event, ETMTEEVR);
--	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
--	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
-+	etm_writel(drvdata, curr_config->ctrl | etmcr, ETMCR);
-+	etm_writel(drvdata, curr_config->trigger_event, ETMTRIGGER);
-+	etm_writel(drvdata, curr_config->startstop_ctrl, ETMTSSCR);
-+	etm_writel(drvdata, curr_config->enable_event, ETMTEEVR);
-+	etm_writel(drvdata, curr_config->enable_ctrl1, ETMTECR1);
-+	etm_writel(drvdata, curr_config->fifofull_level, ETMFFLR);
- 	for (i = 0; i < caps->nr_addr_cmp; i++) {
--		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
--		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
-+		etm_writel(drvdata, curr_config->addr_val[i], ETMACVRn(i));
-+		etm_writel(drvdata, curr_config->addr_acctype[i], ETMACTRn(i));
- 	}
- 	for (i = 0; i < caps->nr_cntr; i++) {
--		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
--		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
--		etm_writel(drvdata, config->cntr_rld_event[i],
-+		etm_writel(drvdata, curr_config->cntr_rld_val[i], ETMCNTRLDVRn(i));
-+		etm_writel(drvdata, curr_config->cntr_event[i], ETMCNTENRn(i));
-+		etm_writel(drvdata, curr_config->cntr_rld_event[i],
- 			   ETMCNTRLDEVRn(i));
--		etm_writel(drvdata, config->cntr_val[i], ETMCNTVRn(i));
-+		etm_writel(drvdata, curr_config->cntr_val[i], ETMCNTVRn(i));
- 	}
--	etm_writel(drvdata, config->seq_12_event, ETMSQ12EVR);
--	etm_writel(drvdata, config->seq_21_event, ETMSQ21EVR);
--	etm_writel(drvdata, config->seq_23_event, ETMSQ23EVR);
--	etm_writel(drvdata, config->seq_31_event, ETMSQ31EVR);
--	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
--	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
--	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
-+	etm_writel(drvdata, curr_config->seq_12_event, ETMSQ12EVR);
-+	etm_writel(drvdata, curr_config->seq_21_event, ETMSQ21EVR);
-+	etm_writel(drvdata, curr_config->seq_23_event, ETMSQ23EVR);
-+	etm_writel(drvdata, curr_config->seq_31_event, ETMSQ31EVR);
-+	etm_writel(drvdata, curr_config->seq_32_event, ETMSQ32EVR);
-+	etm_writel(drvdata, curr_config->seq_13_event, ETMSQ13EVR);
-+	etm_writel(drvdata, curr_config->seq_curr_state, ETMSQR);
- 	for (i = 0; i < caps->nr_ext_out; i++)
- 		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
- 	for (i = 0; i < caps->nr_ctxid_cmp; i++)
--		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
--	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
--	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
-+		etm_writel(drvdata, curr_config->ctxid_pid[i], ETMCIDCVRn(i));
-+	etm_writel(drvdata, curr_config->ctxid_mask, ETMCIDCMR);
-+	etm_writel(drvdata, curr_config->sync_freq, ETMSYNCFR);
- 	/* No external input selected */
- 	etm_writel(drvdata, 0x0, ETMEXTINSELR);
--	etm_writel(drvdata, config->timestamp_event, ETMTSEVR);
-+	etm_writel(drvdata, curr_config->timestamp_event, ETMTSEVR);
- 	/* No auxiliary control selected */
- 	etm_writel(drvdata, 0x0, ETMAUXCR);
- 	etm_writel(drvdata, drvdata->traceid, ETMTRACEIDR);
-@@ -562,17 +562,17 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
+-static u32 etm4_get_victlr_access_type(struct etmv4_config *config)
++static u32 etm4_get_victlr_access_type(struct etmv4_config *config,
++				       const struct etmv4_caps *caps)
  {
- 	int i;
- 	const struct etm_caps *caps = &drvdata->caps;
--	struct etm_config *config = &drvdata->curr_config;
-+	struct etm_config *curr_config = &drvdata->curr_config;
- 	struct coresight_device *csdev = drvdata->csdev;
+-	return etm4_get_access_type(config) << __bf_shf(TRCVICTLR_EXLEVEL_MASK);
++	return etm4_get_access_type(config, caps) << __bf_shf(TRCVICTLR_EXLEVEL_MASK);
+ }
  
- 	CS_UNLOCK(drvdata->csa.base);
- 	etm_set_prog(drvdata);
+ /* Set ELx trace filter access in the TRCVICTLR register */
+-static void etm4_set_victlr_access(struct etmv4_config *config)
++static void etm4_set_victlr_access(struct etmv4_config *config,
++			           const struct etmv4_caps *caps)
+ {
+ 	config->vinst_ctrl &= ~TRCVICTLR_EXLEVEL_MASK;
+-	config->vinst_ctrl |= etm4_get_victlr_access_type(config);
++	config->vinst_ctrl |= etm4_get_victlr_access_type(config, caps);
+ }
  
- 	/* Read back sequencer and counters for post trace analysis */
--	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
-+	curr_config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
+-static void etm4_set_default_config(struct etmv4_config *config)
++static void etm4_set_default_config(struct etmv4_config *config,
++			            const struct etmv4_caps *caps)
+ {
+ 	/* disable all events tracing */
+ 	config->eventctrl0 = 0x0;
+@@ -1588,7 +1592,7 @@ static void etm4_set_default_config(struct etmv4_config *config)
+ 	config->vinst_ctrl = FIELD_PREP(TRCVICTLR_EVENT_MASK, 0x01);
  
- 	for (i = 0; i < caps->nr_cntr; i++)
--		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
-+		curr_config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
+ 	/* TRCVICTLR::EXLEVEL_NS:EXLEVELS: Set kernel / user filtering */
+-	etm4_set_victlr_access(config);
++	etm4_set_victlr_access(config, caps);
+ }
  
- 	etm_set_pwrdwn(drvdata);
- 	coresight_disclaim_device_unlocked(csdev);
+ static u64 etm4_get_ns_access_type(struct etmv4_config *config)
+@@ -1620,21 +1624,24 @@ static u64 etm4_get_ns_access_type(struct etmv4_config *config)
+  * This must be shifted to the corresponding register field
+  * for usage.
+  */
+-static u64 etm4_get_access_type(struct etmv4_config *config)
++static u64 etm4_get_access_type(struct etmv4_config *config,
++				const struct etmv4_caps *caps)
+ {
+ 	/* All Secure exception levels are excluded from the trace */
+-	return etm4_get_ns_access_type(config) | (u64)config->s_ex_level;
++	return etm4_get_ns_access_type(config) | (u64)caps->s_ex_level;
+ }
+ 
+-static u64 etm4_get_comparator_access_type(struct etmv4_config *config)
++static u64 etm4_get_comparator_access_type(struct etmv4_config *config,
++					   const struct etmv4_caps *caps)
+ {
+-	return etm4_get_access_type(config) << TRCACATR_EXLEVEL_SHIFT;
++	return etm4_get_access_type(config, caps) << TRCACATR_EXLEVEL_SHIFT;
+ }
+ 
+ static void etm4_set_comparator_filter(struct etmv4_config *config,
++				       const struct etmv4_caps *caps,
+ 				       u64 start, u64 stop, int comparator)
+ {
+-	u64 access_type = etm4_get_comparator_access_type(config);
++	u64 access_type = etm4_get_comparator_access_type(config, caps);
+ 
+ 	/* First half of default address comparator */
+ 	config->addr_val[comparator] = start;
+@@ -1665,11 +1672,12 @@ static void etm4_set_comparator_filter(struct etmv4_config *config,
+ }
+ 
+ static void etm4_set_start_stop_filter(struct etmv4_config *config,
++				       const struct etmv4_caps *caps,
+ 				       u64 address, int comparator,
+ 				       enum etm_addr_type type)
+ {
+ 	int shift;
+-	u64 access_type = etm4_get_comparator_access_type(config);
++	u64 access_type = etm4_get_comparator_access_type(config, caps);
+ 
+ 	/* Configure the comparator */
+ 	config->addr_val[comparator] = address;
+@@ -1701,7 +1709,8 @@ static void etm4_set_default_filter(struct etmv4_config *config)
+ 	config->vissctlr = 0x0;
+ }
+ 
+-static void etm4_set_default(struct etmv4_config *config)
++static void etm4_set_default(struct etmv4_config *config,
++			     const struct etmv4_caps *caps)
+ {
+ 	if (WARN_ON_ONCE(!config))
+ 		return;
+@@ -1713,7 +1722,7 @@ static void etm4_set_default(struct etmv4_config *config)
+ 	 * full instruction trace - with a default filter for trace all
+ 	 * achieved by having no filtering.
+ 	 */
+-	etm4_set_default_config(config);
++	etm4_set_default_config(config, caps);
+ 	etm4_set_default_filter(config);
+ }
+ 
+@@ -1761,6 +1770,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ {
+ 	int i, comparator, ret = 0;
+ 	u64 address;
++	const struct etmv4_caps *caps = &drvdata->caps;
+ 	struct etmv4_config *config = &drvdata->curr_config;
+ 	struct etm_filters *filters = event->hw.addr_filters;
+ 
+@@ -1790,7 +1800,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ 
+ 		switch (type) {
+ 		case ETM_ADDR_TYPE_RANGE:
+-			etm4_set_comparator_filter(config,
++			etm4_set_comparator_filter(config, caps,
+ 						   filter->start_addr,
+ 						   filter->stop_addr,
+ 						   comparator);
+@@ -1811,7 +1821,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ 				   filter->stop_addr);
+ 
+ 			/* Configure comparator */
+-			etm4_set_start_stop_filter(config, address,
++			etm4_set_start_stop_filter(config, caps, address,
+ 						   comparator, type);
+ 
+ 			/*
+@@ -1847,7 +1857,8 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ 	return ret;
+ }
+ 
+-void etm4_config_trace_mode(struct etmv4_config *config)
++void etm4_config_trace_mode(struct etmv4_config *config,
++			    const struct etmv4_caps *caps)
+ {
+ 	u32 mode;
+ 
+@@ -1861,7 +1872,7 @@ void etm4_config_trace_mode(struct etmv4_config *config)
+ 	if (!(mode & ETM_MODE_EXCL_KERN) && !(mode & ETM_MODE_EXCL_USER))
+ 		return;
+ 
+-	etm4_set_victlr_access(config);
++	etm4_set_victlr_access(config, caps);
+ }
+ 
+ static int etm4_online_cpu(unsigned int cpu)
+@@ -2173,6 +2184,7 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ 	struct coresight_platform_data *pdata = NULL;
+ 	struct device *dev = init_arg->dev;
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev);
++	const struct etmv4_caps *caps = &drvdata->caps;
+ 	struct coresight_desc desc = { 0 };
+ 	u8 major, minor;
+ 	char *type_name;
+@@ -2202,7 +2214,7 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ 	if (!desc.name)
+ 		return -ENOMEM;
+ 
+-	etm4_set_default(&drvdata->config);
++	etm4_set_default(&drvdata->config, caps);
+ 
+ 	if (etm4x_always_pm_save(dev, init_arg->csa))
+ 		pm_save = true;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index a66f34c942ba..8f5ea8edf5d8 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -443,7 +443,7 @@ static ssize_t mode_store(struct device *dev,
+ 		config->vinst_ctrl &= ~TRCVICTLR_TRCERR;
+ 
+ 	if (config->mode & (ETM_MODE_EXCL_KERN | ETM_MODE_EXCL_USER))
+-		etm4_config_trace_mode(config);
++		etm4_config_trace_mode(config, caps);
+ 
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index 67071f7cbdbc..ae97c5c004bf 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -956,7 +956,6 @@ struct etmv4_caps {
+  * @vmid_mask0:	VM ID comparator mask for comparator 0-3.
+  * @vmid_mask1:	VM ID comparator mask for comparator 4-7.
+  * @ext_inp:	External input selection.
+- * @s_ex_level: Secure ELs where tracing is supported.
+  */
+ struct etmv4_config {
+ 	u64				mode;
+@@ -999,7 +998,6 @@ struct etmv4_config {
+ 	u32				vmid_mask0;
+ 	u32				vmid_mask1;
+ 	u32				ext_inp;
+-	u8				s_ex_level;
+ };
+ 
+ /**
+@@ -1117,7 +1115,8 @@ enum etm_addr_ctxtype {
+ };
+ 
+ extern const struct attribute_group *coresight_etmv4_groups[];
+-void etm4_config_trace_mode(struct etmv4_config *config);
++void etm4_config_trace_mode(struct etmv4_config *config,
++			    const struct etmv4_caps *caps);
+ 
+ u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit);
+ void etm4x_sysreg_write(u64 val, u32 offset, bool _relaxed, bool _64bit);
 
 -- 
 2.43.0
