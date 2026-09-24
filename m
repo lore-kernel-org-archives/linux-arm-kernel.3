@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B1BFC98311
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF495C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KXEtpc2eZOzFLNgU6BIxcnmmI4v3hM2iwSC1MNAdVg=; b=QEh6Et4Hb0wNZGC9GYJ4nXBOgV
-	Y4TXPLZmUALJk96xNNu8xbY8VSbdwndCcKiDXBvDr8OVEKePJdnwv27sOB8XwYRBmy5UEy5RHbzLb
-	Zf2HdAu/i3+Y9NnJOZe+LWg3xP/76bCCR9nYfc26B8LtIeJQ7ipXTu6v8UCahEWX+MbMFzz9n7una
-	2OXARpd/N7w0sf+LUU7zo/BlstZctDDOzmflPFYQ7RjWtUGcapVJ+0PCEZSH3/kVMgxanh7DRTjjw
-	iQsC0J5EP4KrWxmV6afdFD/60U2GeFuMcOQvMd4vmZMwFv3DEcj2oiaKuiSLLsR0dh1jWI9kjn0vY
-	GsRlfaAw==;
+	bh=QwwU84h09HuK1wCqfFfeCSf3zelhrsJVj+X38TgtO/4=; b=EAoCAKpQUxOmAsMryUAmWZDjvK
+	T/JbDFwSmborPfwi6nqr0mrT9PiHRtFxWdJQenQlcvnSQBAS9bD0EYc1y1mXrXKq+HWI8z333ya4w
+	hj9YBpoHVYpgXzKIfbXhXho+0wnDycN3Qci7sD9AecwbHPHmWHerz6jKPCA1eDtFj2mE4XTjzwo2v
+	ybFUXtWYUA7cGyohYq71hp8zMo4gRaCJIJXKZqoIeD0MZoMHKtQeRSuzfaWxD1uY8FfmDS8v2YfUi
+	8sl1kw+VhJ9w71wVNFSM3C3RBPFoFTk4EhHp6FNmevdpkOM6CsxPovhNr+kE4hmbupAPNzD4pHFJR
+	cA6iGKdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gjl-0000000AjrS-3mhW;
-	Thu, 24 Sep 2026 10:31:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gjX-0000000Ajnk-48AC
+	id 1x9go2-0000000AkSV-0vk4;
+	Thu, 24 Sep 2026 10:35:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9gnz-0000000AkSA-2Bos
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 10:31:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B8B060202;
-	Thu, 24 Sep 2026 10:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 422371F00893;
-	Thu, 24 Sep 2026 10:31:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790245878;
-	bh=7KXEtpc2eZOzFLNgU6BIxcnmmI4v3hM2iwSC1MNAdVg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NEoo3VWIyOplC/opylAofAG/oV3i0WzEkZSaGQ2AcrpyotAPEZJSL6jgesPeUk4OQ
-	 BHcfkL190UQNx6Gkp6yEdEZ0kzrzafpyWv/mDKtvap5QPb5CiCG1RmsTNiEjp1GYCk
-	 DPt3fLD33JB6R8a9DQ7k7CnoEoAHlX+/lLYfH1Y8ExCnZuDrk/WLUtqsBMmzWYN//8
-	 P4ywCrVZxZm1hDcLmlpJtsHB93/U0a2Xx3qH6aBWLvpF4pXvmDNysHcbEl3hyoiJ2M
-	 dblzkb4QsMo8zsEOW0S3rk/2HuWCDyPmW5+gPG0bPOR7et3NjUjqq99+RsJ9HxI/70
-	 59e0epli+M9fg==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Andrea Parri <parri.andrea@gmail.com>
-Cc: mark.rutland@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dev Jain <dev.jain@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: Fix the break-before-make flush range for erratum 2645198
-Date: Thu, 24 Sep 2026 11:31:06 +0100
-Message-ID: <179023970437.1597741.12909890449648716020.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260923143636.89480-1-parri.andrea@gmail.com>
-References: <20260923143636.89480-1-parri.andrea@gmail.com>
+	Thu, 24 Sep 2026 10:35:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 558AE1516;
+	Thu, 24 Sep 2026 03:35:50 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D66343F86C;
+	Thu, 24 Sep 2026 03:35:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790246153; bh=6cyMeBMhrGavK9oDVUWeQnMviClTnzNiDHf2LfBUEFI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UiDcv+bDUZWdPZJfaaloYomd7k8j0fBSIHRpGls/xrzxvnzSVPLqHUDPAJ9zwmIT+
+	 WpftGglC7ZUCwPI8q24A+v/3sZK02m1/LND/uqGLBHik19UH1BvfmfUrH1nqaTB2Rq
+	 8cuOdlAWaZB1ohf5s9IiTnqKcp4ZDJtnAsaA9JCo=
+Message-ID: <ca773e60-e709-4b07-bf7f-14f92b8e3e5e@arm.com>
+Date: Thu, 24 Sep 2026 12:35:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 12/14] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Sudeep Holla <sudeep.holla@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260911112835.714162-1-andre.przywara@arm.com>
+ <20260911112835.714162-13-andre.przywara@arm.com>
+ <3e7bdafd-d6ea-422c-82ff-e278a17280ff@arm.com>
+ <a314ee8f-4152-4b29-8348-6cd750eced40@arm.com>
+ <d96cbb8f-631c-433f-a553-6a6e20531f68@arm.com>
+ <20260924-snobbish-brainy-velociraptor-06bdd4@sudeepholla>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260924-snobbish-brainy-velociraptor-06bdd4@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_033555_622047_07003015 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Sep 2026 16:36:32 +0200, Andrea Parri wrote:
-> modify_prot_start_ptes() performs the break-before-make TLB invalidation
-> required by erratum 2645198 with __flush_tlb_range(), whose third
-> argument is the end address of the range.  It passes nr * PAGE_SIZE
-> instead of addr + nr * PAGE_SIZE, so __do_flush_tlb_range() computes the
-> page count as (nr * PAGE_SIZE - addr) >> PAGE_SHIFT.
-> 
-> For addr > nr * PAGE_SIZE that subtraction underflows, the page count
-> exceeds the batching limit and the flush degenerates to flush_tlb_mm(),
-> so a single-page mprotect broadcasts an ASID-wide invalidation and a
-> full-range mmu notifier call.
+Hi Sudeep,
+
+On 9/24/26 11:48, Sudeep Holla wrote:
+> On Mon, Sep 21, 2026 at 05:28:27PM +0100, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 21/09/2026 17:09, Andre Przywara wrote:
+>>> Hi Ben,
+>>>
+>>> On 9/11/26 17:09, Ben Horgan wrote:
+>>>> Hi Andre,
+>>>>
 > 
 > [...]
-
-Applied to arm64 (for-next/fixes), thanks!
-
-[1/1] arm64: mm: Fix the break-before-make flush range for erratum 2645198
-      https://git.kernel.org/arm64/c/1fef81669147
+> 
+>>>>
+>>>> This looks like the change earlier in the series to
+>>>> drivers/acpi/arm64/mpam.c makes no functional effect unless the proposed
+>>>> spec changes are accepted; the default is msc->id. I'd just move the
+>>>
+>>> Yes, but it reduces churn, and more importantly, is more true to the
+>>> MPAM-Fb spec, which says:"The MSC identifiers are sequential and start from
+>>> 0 for each agent which uses this protocol." So this requires that we have
+>>> per-channel IDs for the MSCs, that's why I think it's justified to
+>>> introduce this already now, even when it's somewhat redundant as the code
+>>> stands now, as we always assign the system-wide ID to it.
+>>>
+>>> I can of course move that out (and have that already on top of v9,
+>>> internally), but wanted to check this with you.
+>>
+>> I don't really mind. If Lorenzo/Sudeep are happy with doing the preparation
+>> work in drivers/acpi/arm64/mpam.c then I'm ok with it. It's currently a
+>> non-functional change but does make the expected path forward slightly
+>> clearer.
+>>
+> 
+> Sure, I am okay to have it added here if we plan to use it in the future.
+> We can always rip it off if the spec changes its direction or gets deemed
+> as broken 😉.
+Many thanks, will keep it in then.
 
 Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Andre
 
