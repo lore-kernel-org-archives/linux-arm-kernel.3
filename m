@@ -4,164 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159E0C9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8527FC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81QaywXThCj9GvWcrqbFC8hrrggxf6pFQEEvB0A8Stc=; b=2JIrdsIWTCTDRQMdGE1cQWMpvu
-	8JokFpC53IfuF+Q85qLV0hR6+bj7gWygv5WLiEvIivJH5HBqqrcg/B/C3EZivXQdPmSePB+4DfQ79
-	SK5kInes3RY4P5Mv63iXpmbbZfMKQ0h4vRffKEy/osMklpdahrMCsi0F4TOtFUkNczbkjbijoRLo5
-	npueaTkAX4T45LUCXOLb88iIIbL4+A5hxtV9XeJFWXHyUXkMgKwQuyKdZPDjHbBlchhF+d1rkeiJs
-	opvA35ZI5mRpqHsfvLJ+I2xGq61utIx8CqtTxTNH4OqJiPbk+KSDK8D5iJLq+Rxk59rKI9VCCzWvz
-	5NhxSV0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z/52VnK2RgVQA4SQeMHwwDDKqVgApZ//QR68YG2ZFyw=; b=zk5eeB9XDWBb9qdeIf0VcTPU9u
+	IcXQ44yjMT+Hx7757fpE1CJaGx5oq3pBk/zyEdyPVwilXr7gy1bnjHspjtE9k5wwt0yWpCc8UYs3p
+	DeXwxOCQvc0ZxdIc9/9RAF2MbbzNs7NSNBFSdkpDW+9ICA7J65IuI0rEwMDS/5Q1d4pSblh6qkOg6
+	EPeXDeLcc+fuUGLe7vAqr/3IXAjd+yn2pPq4bCrjBXIeodp8A13XJeML/Lb4vKa1RiW+eMg4Fm8TO
+	4ucWjqc+CVcFR741LrdfpamYA/R3U2IlQK0YnlgwhUJTAJnK1S/+l9n0Xa0VU/2xZyCk4Sk6I8ovC
+	VWHgKWYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9s9Q-0000000CJ9D-0YEf;
-	Thu, 24 Sep 2026 22:42:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x9s9i-0000000CJGn-1ISR;
+	Thu, 24 Sep 2026 22:43:06 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9s9O-0000000CJ8C-1IVw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:42:47 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OMOp5F2766701
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:42:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	81QaywXThCj9GvWcrqbFC8hrrggxf6pFQEEvB0A8Stc=; b=eaJiYBcoVJ7qevSl
-	dhfq+tXf9Yrht/mLq/jwiRTObIgOPPAp4gq7bt1mDqjTW0V6kXIW+8178jTvvqEY
-	/g72Tu5uLFr9TmxDOZ/WTOw4Db3jptMoLUpu03x0RYDq28zhhqtQH8+V6kNLVLAO
-	1Ua+MyDrNoK2wgREaJE/EZogzihYwOq1s6HaLVkWSmzeuJh3HKsCfCtwvHP6+Jd8
-	ENol9vchyHUhmq3K8SCqt3P2t3zGBv8XLggSyAt3yjEQk8zBoVPz6YK9sKvOoTjx
-	qeijDJMaDaBEWWHG3mt12b/Lo717uv1T508Ea2fRW/yjOhQsk+HBOm2Y6914Juvl
-	Prcy/g==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw94k8tn7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 22:42:45 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-33310847fcaso426251eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:42:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790289765; x=1790894565; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=81QaywXThCj9GvWcrqbFC8hrrggxf6pFQEEvB0A8Stc=;
-        b=f3G0RbYEV70ZrJHc4+RVFWzrOlUoIYB1RoC2ozI+eRNFux01Kt1PubPvpzK0Qh5iM4
-         3Nduo7f2uN+QQa4qjffp2emYP+Rvghc/G1PapLU3DpkQu8vG/Uf9RC8Xk6bxCc7qeHHb
-         sz+3DwFK39CJMvtcHe+4wXcFylnMYuU2lCkLoQ7y/Ji056OqujvceBn0hTyum0E/X+QX
-         DPuNUsTRLDMIW9fDWpY63bOmv4ru3oI7uolM4PWehSGrG+oz4GOyv7z/m2QikzwCNMyJ
-         Zsf816dl+dkIUtLSKzyZvyxfkZUEcDdayjjZXW08ozfOgDLteWY4GWdMuZC6cbA/vHi1
-         mC+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790289765; x=1790894565;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=81QaywXThCj9GvWcrqbFC8hrrggxf6pFQEEvB0A8Stc=;
-        b=May5wOOaf6pr/lq3QZfqDZqLCk1oFFvChM3miOr8EqpATUx+iMVP1RDygTrQDE1A+p
-         8A5AQ0lu225E2WU+g4DTWCLgnvBvnHhKxzCA12SfTB0Xe1N/CKa44aol/l818Ecq7Y/G
-         nXCvcZ4UTJBS+mdPtaHKWNa5UW4D5XE9wBD1wZVFYm8RSznBtGPsyAdixLDfolNY304B
-         TxyPOJZGcPFOkjAqKxJsF8heAvtP5gFR4wA7uQ5/k6FbFx68ujB+rNTr5EQbwE+kvdKY
-         PPI/CPJM25M5EavsosmrwrFwkUgRftXVkkNAQd9U6PCqfGBsfQD6L/UZM+1IvCMqlEAi
-         GUOA==
-X-Forwarded-Encrypted: i=1; AKwUvBz9KEvyhBOozlYJQl1BDn8jtmUiuXCZ/DCgnleq1UzYJzsAPgEDAL8mtJSuu+DbqOKbwFl4+wy4wbhgN/K1FlMQ@lists.infradead.org
-X-Gm-Message-State: AFuF++kUN7ADy7gTrL3czjyhVRCx8xRI00XpdJscf2RNfqmqfGlQ8Za9
-	DtJcroSkfvc5pTrMiGyFQ/ozQWNN8M4/2DWau+fShHH/9h62C2CE5oUoW7K3GFNQYsxHTJldTRx
-	yiRRWNHXaF7DS5f5Z5Ai8S4DPXJLWx7cp3B5f0/ReYaa71DkIW9ywAX08z4Am9syCejwAJDjOpr
-	Z8gg==
-X-Gm-Gg: AYBFou0yLKNzeR5t+TDzy0lvt6JqweeSDRfWeqb5AZ56UWkv3sROdJ0v8gDprUn2UQN
-	PdIF49Uta3NcAlaigFMDyj+CQ++2Om6v3bv+8RwY0A8RF8lPtEz7Dakp21ltLdjDniBeL4EPU0Y
-	WEw1TbdYbLHnD6yz+OjYaxc44MXr2jGHgKfQvgM9IM8kY4Xeo9qwduwO97axC2aYszJk7W7wxqZ
-	/IYmBtzDLmYie+Cb5A6r+80fsW1j71OZhC1UYseSnlO7Bg8ruVlIOykGXXweaz7yXZMxO+6tJpD
-	Gpgex/t4HB1TdKNxlsro4rVd/d+ZiJ3Zdu81dt4nGeig3EI6gfWub0w0jamf5M/S6EU7R9PRK00
-	OeDCQl+kXN2HPp5Q+HOEduqEF+B4TWC/Tn0iV5WEoiv/7L+9HIrwtxQ==
-X-Received: by 2002:a05:693c:601c:b0:341:4f3:8f84 with SMTP id 5a478bee46e88-341973cf3cfmr121083eec.13.1790289760124;
-        Thu, 24 Sep 2026 15:42:40 -0700 (PDT)
-X-Received: by 2002:a05:693c:601c:b0:341:4f3:8f84 with SMTP id 5a478bee46e88-341973cf3cfmr120917eec.13.1790289752160;
-        Thu, 24 Sep 2026 15:42:32 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34145d0fc9fsm1538764eec.25.2026.09.24.15.42.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 15:42:31 -0700 (PDT)
-Date: Thu, 24 Sep 2026 15:42:27 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        Ard
- Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Jonathan Corbet <corbet@lwn.net>, David
- Sterba <dsterba@suse.com>,
-        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Randy
- Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
-        Shuah Khan
- <skhan@linuxfoundation.org>,
-        Nick Terrell <terrelln@fb.com>, Will Deacon
- <will@kernel.org>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Conor Dooley
- <conor.dooley@microchip.com>,
-        linux-integrity@vger.kernel.org, Palmer
- Dabbelt <palmer@rivosinc.com>,
-        patches@lists.linux.dev, Ross Philipson
- <ross.philipson@gmail.com>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Song
- Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH 01/16] efi/libstub: Fix error unwind freeing fdt in
- allocate_new_fdt_and_exit_boot()
-Message-ID: <20260924154227.00001cbe@oss.qualcomm.com>
-In-Reply-To: <1-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
-References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
-	<1-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1x9s9f-0000000CJEu-0W0R;
+	Thu, 24 Sep 2026 22:43:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790289783; x=1821825783;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5k6ew4bZKs5Kak0IIZkqP5OL1erIyyXEfACAGORomcc=;
+  b=decaKPbU/p7zeQI2+zBZRLX+e64QZlwazVWCzaTmMOnTJsXHFY3438un
+   M3TQmTGEoGn53cCVTeLTAlEBuoat4oKLYyAkYcPWM+Q2F5k3jzPksa4Ix
+   hWYs9/CHkMhhe2QW3050vm2QQLk7CBac2sUMuq3lbfVm0N3UbQwWP6/II
+   UjCX+8YjGGUa3hiAtDv7rzjKpzLsefNg4+iG9K1esRqiwUTRR2dsZJ4wO
+   5WKuxbzSQYm31Saje5/gh0HqR8DvzDxYMlu6iRvJtcWKsJN0oOfsrcWR1
+   e8+fdhC8OVvprU1rBCYpY/GjuL7nABm1nxRi/4h9hx75qSe7na6MTdfuw
+   g==;
+X-CSE-ConnectionGUID: /oPqw4s2Qy6Wu/mKNoOoHg==
+X-CSE-MsgGUID: JzU+pS/zRYemynvur9QCUA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="107459061"
+X-IronPort-AV: E=Sophos;i="6.27,121,1787036400"; 
+   d="scan'208";a="107459061"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2026 15:43:01 -0700
+X-CSE-ConnectionGUID: U5Dk8CFqRMui2FINcs4gCw==
+X-CSE-MsgGUID: 0sfLiX2TT1WjCokNpBJP4Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,121,1787036400"; 
+   d="scan'208";a="272276214"
+Received: from igk-lkp-server01.igk.intel.com (HELO a88263cc608e) ([10.211.93.152])
+  by orviesa010.jf.intel.com with ESMTP; 24 Sep 2026 15:42:58 -0700
+Received: from kbuild by a88263cc608e with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x9s9U-000000000Sk-1VZT;
+	Thu, 24 Sep 2026 22:42:52 +0000
+Date: Fri, 25 Sep 2026 00:42:13 +0200
+From: kernel test robot <lkp@intel.com>
+To: Coia Prant <coiaprant@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: Re: [PATCH net] net: ethernet: stmmac: dwmac-rk: fix bulk clock leak
+ when the PHY clock fails
+Message-ID: <202609250009.lQiuYnR7-lkp@intel.com>
+References: <20260919174223.2356964-1-coiaprant@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=aaj0Dhot c=1 sm=1 tr=0 ts=6ab5a765 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=7U2iMG9xLqzP7ZOKqLsA:9
- a=+jEqtf1s3R9VXZ0wqowq2kgwd+I=:19 a=CjuIK1q_8ugA:10 a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: UEEZAa7Qhmb9d2p2pYVeE__NkzsCjzu-
-X-Proofpoint-ORIG-GUID: UEEZAa7Qhmb9d2p2pYVeE__NkzsCjzu-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA5MiBTYWx0ZWRfX/Za8bfRjJIGl
- YUb7HZ5NhtC+fHlKeAEgjdE3ODpo064JFyb/8XOmPafl1O1/yVrrpBhHTKhMDjkXdU8JaPW4ZcM
- bs7YFQ3jA6ATA3op4m/en7WJq1pRuZuHj4TSeNC4UukktBVL2kUmEuH1axqctIKZ9LByvzAWX0z
- ZpIr9H0vPbHf9MG/GRq9Lt2L6MPJbNZGiKY0DUwSlrPqbzoscJapguGbm8Ile1vztDc9aUukLuS
- k0zrq8OkrxJQ1CAgDnCTZA6N5rAk1gNltTmJmQSQXCi0B20lp2XcwL6jFpSaryXYS+M6nu8rpYi
- nk3KhK31kszm4FftfEdCv8/lbHk/Wa4F24nMSrggTWj+SpI0O00f5aiueRyrrWfXbBtRdUMmdmu
- U6h7vI9aBy+K22IUjPj/wq8tzYBXSkukow+6fZVsSeKZZkyoARGsEk/wNOrLz6mv+S5O+pqwYC0
- zXGMwG6cu5b1Rmx15/A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA5MiBTYWx0ZWRfXyxaUqvum7aFw
- sfk02Y3jEU67TKhb9kMPfo0lUJ1moENHSC5b0JBuifNGIX97OQ7BDUGEAmhVMMgRbRqomw4usNg
- KRr41lVaOS7kkAyoB1JyfNjEHWTSSRY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-24_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 priorityscore=1501 spamscore=0 bulkscore=0
- clxscore=1015 phishscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609240092
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260919174223.2356964-1-coiaprant@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_154246_351697_10C61A5D 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20260924_154303_238693_D784561B 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,59 +95,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 10:53:04 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
+Hi Coia,
 
-> Sashiko says fdt_addr can point to either an allocated fdt or the fdt from
-> get_fdt() which is memory owned by FW.
-> 
-> Only the allocated fdt should be freed on the error unwind path. Use a
-> dedicated variable for the allocation's size so that the free does not get
-> confused.
-> 
-> Fixes: 4fc8e738ff3e ("efi: libstub: remove DT dependency from generic stub")
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/firmware/efi/libstub/fdt.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
-> index 23b3543d3041b0..5b2dd709d7b151 100644
-> --- a/drivers/firmware/efi/libstub/fdt.c
-> +++ b/drivers/firmware/efi/libstub/fdt.c
-> @@ -229,6 +229,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
->  	u32 desc_ver;
->  	efi_status_t status;
->  	struct exit_boot_struct priv;
-> +	unsigned long fdt_size_allocated = 0;
->  	unsigned long fdt_addr = 0;
->  	unsigned long fdt_size = 0;
->  
-> @@ -257,6 +258,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
->  			efi_err("Failed to load device tree!\n");
->  			goto fail;
->  		}
-> +		fdt_size_allocated = fdt_size;
-Hmm. I argued with myself for a while on this.  Which one of fdt_size and fdt_size_allocate
-is the appropriate one to pass to the call?  In the end I didn't get a good answer so
-oh I guess this is as good as the other way around.
+kernel test robot noticed the following build warnings:
 
-Bug looks real to me and this fixes it I think. Give I know this code very little
-take this tag with a pinch of salt.
+[auto build test WARNING on net/main]
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+url:    https://github.com/intel-lab-lkp/linux/commits/Coia-Prant/net-ethernet-stmmac-dwmac-rk-fix-bulk-clock-leak-when-the-PHY-clock-fails/20260920-014223
+base:   net/main
+patch link:    https://lore.kernel.org/r/20260919174223.2356964-1-coiaprant%40gmail.com
+patch subject: [PATCH net] net: ethernet: stmmac: dwmac-rk: fix bulk clock leak when the PHY clock fails
+config: loongarch-allyesconfig (https://download.01.org/0day-ci/archive/20260925/202609250009.lQiuYnR7-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260925/202609250009.lQiuYnR7-lkp@intel.com/reproduce)
 
->  	}
->  
->  	if (fdt_addr) {
-> @@ -334,7 +336,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
->  	efi_free(MAX_FDT_SIZE, *new_fdt_addr);
->  
->  fail:
-> -	efi_free(fdt_size, fdt_addr);
-> +	efi_free(fdt_size_allocated, fdt_addr);
->  	if (!efi_novamap)
->  		efi_bs_call(free_pool, priv.runtime_map);
->  
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609250009.lQiuYnR7-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1168:5: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+    1168 |                                 return ret;
+         |                                 ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1165:4: note: previous statement is here
+    1165 |                         if (ret)
+         |                         ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1177:2: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+    1177 |         } else {
+         |         ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1177:4: error: expected identifier or '('
+    1177 |         } else {
+         |           ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1189:2: error: expected identifier or '('
+    1189 |         return 0;
+         |         ^
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1190:1: error: extraneous closing brace ('}')
+    1190 | }
+         | ^
+   2 warnings and 3 errors generated.
+
+
+vim +/if +1168 drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+
+7ad269ea1a2b7d Roger Chen            2014-12-29  1152  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1153  static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
+7ad269ea1a2b7d Roger Chen            2014-12-29  1154  {
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1155  	int ret;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1156  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1157  	if (enable) {
+7ad269ea1a2b7d Roger Chen            2014-12-29  1158  		if (!bsp_priv->clk_enabled) {
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1159  			ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1160  						      bsp_priv->clks);
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1161  			if (ret)
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1162  				return ret;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1163  
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1164  			ret = clk_prepare_enable(bsp_priv->clk_phy);
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1165  			if (ret)
+cb278e6780d874 Coia Prant            2026-09-20  1166  				clk_bulk_disable_unprepare(bsp_priv->num_clks,
+cb278e6780d874 Coia Prant            2026-09-20  1167  							   bsp_priv->clks);
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07 @1168  				return ret;
+cb278e6780d874 Coia Prant            2026-09-20  1169  			}
+23c94d63a7e395 David Wu              2018-06-28  1170  
+5c1fc7cb81dfed Russell King (Oracle  2026-02-04  1171) 			rk_configure_io_clksel(bsp_priv);
+5c1fc7cb81dfed Russell King (Oracle  2026-02-04  1172) 			rk_ungate_rmii_clock(bsp_priv);
+2f2b60a0ec2826 David Wu              2022-08-30  1173  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1174  			mdelay(5);
+7ad269ea1a2b7d Roger Chen            2014-12-29  1175  			bsp_priv->clk_enabled = true;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1176  		}
+7ad269ea1a2b7d Roger Chen            2014-12-29  1177  	} else {
+7ad269ea1a2b7d Roger Chen            2014-12-29  1178  		if (bsp_priv->clk_enabled) {
+5c1fc7cb81dfed Russell King (Oracle  2026-02-04  1179) 			rk_gate_rmii_clock(bsp_priv);
+7f864458e9a6d2 Sebastian Reichel     2025-10-14  1180  
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1181  			clk_bulk_disable_unprepare(bsp_priv->num_clks,
+ea449f7fa0bf3f Sebastian Reichel     2023-04-07  1182  						   bsp_priv->clks);
+fecd4d7eef8b21 David Wu              2017-08-10  1183  			clk_disable_unprepare(bsp_priv->clk_phy);
+fecd4d7eef8b21 David Wu              2017-08-10  1184  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1185  			bsp_priv->clk_enabled = false;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1186  		}
+7ad269ea1a2b7d Roger Chen            2014-12-29  1187  	}
+7ad269ea1a2b7d Roger Chen            2014-12-29  1188  
+7ad269ea1a2b7d Roger Chen            2014-12-29  1189  	return 0;
+7ad269ea1a2b7d Roger Chen            2014-12-29  1190  }
+7ad269ea1a2b7d Roger Chen            2014-12-29  1191  
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
