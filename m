@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA08C98304
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 04:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1CE5C98304
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 04:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcNwL7xRwOV9aWxBCz320PcsLt2UGmXCGMzZht9hwDc=; b=F8S/s1KTNnD9H0IgeRLMLwA5ta
-	IrmzNJ3h78I9P/5u/tGRrNeVAZb4QhILr+n20giXZO4PSRS1AAUyen9sUMjz7MDEKkIe2jtPHWv7m
-	ft8C84MPTqzDlA1n+boF02bOf+9F+Fl58fgl79lEirpmwEjIkG4HPU0RaJ3Lg4pqbJIMG5dohoPZ0
-	DgTjDo+VGl+xWFo2iPgH4c2cbavt6Vg1voOGIv5Mpf7zFKdSgYd5PhVnwyrHfC8YiZVI9crnY30i/
-	i58BGyofZwHnhk7rNv0HgUGviYUuw7oRoiia0qByRFDLMpSYYrsJHiolWBC9OW9lb4kO0FhMHw7P2
-	/OST42hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7oUP9+/Uh7C3DwjAwoA/EBqC2sYE38Fw94Zvzy3z0Sw=; b=l36z1mkc1p0cI60q5HVfLZKta9
+	Kt7bN0dEEvsVdNWyqNMyoAT4FdnbvQ9zFEyhWqvTL4oDG0iGbqr1iwSr0ooqLm6uUdfbtKHqiXVX2
+	Ix3SG0VzCggKjQCW7Ks2gNjuTDuCgePkLqSFkql6DsZUqmODRIAxNSGEydrTbL6wuYgdYAUKIBO5p
+	TMTW71dazxWO54KIwFtwOXkgeeloF7rva4p8ZdYLEYv/Hn8HjUcfosb6ZOHKjXHdRECDHpvYK0VD+
+	bLLdG4c2eYppOxfq1YDxaMyG99kU36bG0WEqGm4uLtv/ToSEA9q9sy4vy+/UyvnUbjJ+MxyV+icH3
+	5YkGaOTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9b90-0000000A0be-3Lr6;
-	Thu, 24 Sep 2026 04:33:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9b8y-0000000A0bP-49m9;
-	Thu, 24 Sep 2026 04:33:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B201600AA;
-	Thu, 24 Sep 2026 04:33:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE441F000FF;
-	Thu, 24 Sep 2026 04:33:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790224391;
-	bh=CcNwL7xRwOV9aWxBCz320PcsLt2UGmXCGMzZht9hwDc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CsUtjgojaBrtU9hln5KGYU0lX2Fizlvya9euFa9GR5Ik6Y6KqsbQmYRFNAOtId5n/
-	 mGtGf3lYj23X9Wg2W+T0WCwVrEw5A+eywzQZx8wc3uCFbxbCmBJgJbnPX4lZMCFKUv
-	 7jvCtN6D7McOmqOYGW1h/A0eB1s2LMpYk/9hAAbDzU23X5LL6qCg5a1x01RIGpm2Ei
-	 4l8O4CcNgBKccOs3/1FuoaAuJkV2DMlhyjcNAIa475JQHuLKta6xFY1ewUmtqjOsX+
-	 FTBvj1fDLGg3WHEX0BTe1E4N8tHukTQShqVOoTV4PxPxNEb0TSgeqV4mi+ad7O7dBt
-	 xKr/Gsgs9Cqaw==
-Date: Thu, 24 Sep 2026 06:33:05 +0200
-From: Gao Xiang <xiang@kernel.org>
-To: Artem Dinaburg <artem@trailofbits.com>
-Cc: stable@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>, Gao Xiang <xiang@kernel.org>,
-	Chao Yu <chao@kernel.org>, Yue Hu <huyue2@coolpad.com>,
-	Jeffle Xu <jefflexu@linux.alibaba.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sandeep Dhavale <dhavale@google.com>,
-	Will Shiu <will.shiu@mediatek.com>,
-	Gao Xiang <hsiangkao@linux.alibaba.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>
-Subject: Re: [PATCH 6.1.y] erofs: Fix detection of atomic context
-Message-ID: <arSoAUX4jDzgY-rG@MacBookPro.fritz.box>
-Mail-Followup-To: Artem Dinaburg <artem@trailofbits.com>,
-	stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>, Gao Xiang <xiang@kernel.org>,
-	Chao Yu <chao@kernel.org>, Yue Hu <huyue2@coolpad.com>,
-	Jeffle Xu <jefflexu@linux.alibaba.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sandeep Dhavale <dhavale@google.com>,
-	Will Shiu <will.shiu@mediatek.com>,
-	Gao Xiang <hsiangkao@linux.alibaba.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>
-References: <20260922200448.27724-1-artem@trailofbits.com>
+	id 1x9bLY-0000000A1UM-1vkJ;
+	Thu, 24 Sep 2026 04:46:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9bLV-0000000A1U0-13eb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 04:46:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20843143D;
+	Wed, 23 Sep 2026 21:46:02 -0700 (PDT)
+Received: from [10.164.19.30] (unknown [10.164.19.30])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E3643F86C;
+	Wed, 23 Sep 2026 21:46:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790225165; bh=twJdAsaPAodbcF/MI4mhg53E/bpYg9gpDeHwjpTU600=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZsnSmBfszOm6qzkEvFPgQjQ0kQZ5rsw/V9DHea66UnB7W7VSv5h9Ddq4TabOy99Wh
+	 XMueywuU9wOiu50kH2brG1fCB0yg3HCNcInkPkgPSEf8VkYfVkp1Wa3Zv1icE/xGNZ
+	 zE0kADTabnlTDAY+7Dmq3XLFBQ9ZCA3SmxNMKe9Y=
+Message-ID: <27fbf794-6fbb-44e3-91e7-d2ae86aae9af@arm.com>
+Date: Thu, 24 Sep 2026 10:15:59 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260922200448.27724-1-artem@trailofbits.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: Fix the break-before-make flush range for
+ erratum 2645198
+To: Andrea Parri <parri.andrea@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260923143636.89480-1-parri.andrea@gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260923143636.89480-1-parri.andrea@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_214609_366938_D5B23114 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,111 +76,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Artem,
 
-On Tue, Sep 22, 2026 at 04:04:36PM -0400, Artem Dinaburg wrote:
-> From: Sandeep Dhavale <dhavale@google.com>
+
+On 23/09/26 8:06 pm, Andrea Parri wrote:
+> modify_prot_start_ptes() performs the break-before-make TLB invalidation
+> required by erratum 2645198 with __flush_tlb_range(), whose third
+> argument is the end address of the range.  It passes nr * PAGE_SIZE
+> instead of addr + nr * PAGE_SIZE, so __do_flush_tlb_range() computes the
+> page count as (nr * PAGE_SIZE - addr) >> PAGE_SHIFT.
 > 
-> [ Upstream commit 12d0a24afd9ea58e581ea64d64e066f2027b28d9 ]
+> For addr > nr * PAGE_SIZE that subtraction underflows, the page count
+> exceeds the batching limit and the flush degenerates to flush_tlb_mm(),
+> so a single-page mprotect broadcasts an ASID-wide invalidation and a
+> full-range mmu notifier call.
 > 
-> Current check for atomic context is not sufficient as
-> z_erofs_decompressqueue_endio can be called under rcu lock
-> from blk_mq_flush_plug_list(). See the stacktrace [1]
+> For addr <= nr * PAGE_SIZE only [addr, nr * PAGE_SIZE) is invalidated,
+> and when the cleared batch starts below nr * PAGE_SIZE the tail is left
+> in the TLB.  The workaround then no longer covers the whole batch, and
+> for addr == nr * PAGE_SIZE the flush is empty.
 > 
-> In such case we should hand off the decompression work for async
-> processing rather than trying to do sync decompression in current
-> context. Patch fixes the detection by checking for
-> rcu_read_lock_any_held() and while at it use more appropriate
-> !in_task() check than in_atomic().
+> On affected Cortex-A715 CPUs, this can corrupt ESR_ELx and FAR_ELx on the
+> next instruction abort caused by a permission fault.
 > 
-> Background: Historically erofs would always schedule a kworker for
-> decompression which would incur the scheduling cost regardless of
-> the context. But z_erofs_decompressqueue_endio() may not always
-> be in atomic context and we could actually benefit from doing the
-> decompression in z_erofs_decompressqueue_endio() if we are in
-> thread context, for example when running with dm-verity.
-> This optimization was later added in patch [2] which has shown
-> improvement in performance benchmarks.
+> Pass addr + nr * PAGE_SIZE as the end address.
 > 
-> ==============================================
-> [1] Problem stacktrace
-> [name:core&]BUG: sleeping function called from invalid context at kernel/locking/mutex.c:291
-> [name:core&]in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 1615, name: CpuMonitorServi
-> [name:core&]preempt_count: 0, expected: 0
-> [name:core&]RCU nest depth: 1, expected: 0
-> CPU: 7 PID: 1615 Comm: CpuMonitorServi Tainted: G S      W  OE      6.1.25-android14-5-maybe-dirty-mainline #1
-> Hardware name: MT6897 (DT)
-> Call trace:
->  dump_backtrace+0x108/0x15c
->  show_stack+0x20/0x30
->  dump_stack_lvl+0x6c/0x8c
->  dump_stack+0x20/0x48
->  __might_resched+0x1fc/0x308
->  __might_sleep+0x50/0x88
->  mutex_lock+0x2c/0x110
->  z_erofs_decompress_queue+0x11c/0xc10
->  z_erofs_decompress_kickoff+0x110/0x1a4
->  z_erofs_decompressqueue_endio+0x154/0x180
->  bio_endio+0x1b0/0x1d8
->  __dm_io_complete+0x22c/0x280
->  clone_endio+0xe4/0x280
->  bio_endio+0x1b0/0x1d8
->  blk_update_request+0x138/0x3a4
->  blk_mq_plug_issue_direct+0xd4/0x19c
->  blk_mq_flush_plug_list+0x2b0/0x354
->  __blk_flush_plug+0x110/0x160
->  blk_finish_plug+0x30/0x4c
->  read_pages+0x2fc/0x370
->  page_cache_ra_unbounded+0xa4/0x23c
->  page_cache_ra_order+0x290/0x320
->  do_sync_mmap_readahead+0x108/0x2c0
->  filemap_fault+0x19c/0x52c
->  __do_fault+0xc4/0x114
->  handle_mm_fault+0x5b4/0x1168
->  do_page_fault+0x338/0x4b4
->  do_translation_fault+0x40/0x60
->  do_mem_abort+0x60/0xc8
->  el0_da+0x4c/0xe0
->  el0t_64_sync_handler+0xd4/0xfc
->  el0t_64_sync+0x1a0/0x1a4
-> 
-> [2] Link: https://lore.kernel.org/all/20210317035448.13921-1-huangjianan@oppo.com/
-> 
-> Reported-by: Will Shiu <Will.Shiu@mediatek.com>
-> Suggested-by: Gao Xiang <xiang@kernel.org>
-> Signed-off-by: Sandeep Dhavale <dhavale@google.com>
-> Reviewed-by: Gao Xiang <hsiangkao@linux.alibaba.com>
-> Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
-> Link: https://lore.kernel.org/r/20230621220848.3379029-1-dhavale@google.com
-> Signed-off-by: Gao Xiang <hsiangkao@linux.alibaba.com>
-> 
-> [ Backport to 6.1.y: the source change is unchanged; only its location
->   in z_erofs_decompress_kickoff() differs. ]
+> Fixes: 7efa1cd5f89b5 ("arm64: add batched versions of ptep_modify_prot_start/commit")
+> Cc: stable@vger.kernel.org
 > Assisted-by: LLM
-> Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
 > ---
-> Hi Greg, Sasha, and EROFS maintainers,
+
+Thanks, such typos should be filtered out by LLMs nowadays : )
+
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+
+>  arch/arm64/mm/mmu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> I am continuing backporting CVE fixes still missing from 6.1.y.
-> This fix is inherited by v6.6 and every later mainline release, but 6.1.y
-> still has the affected code. The target-specific adjustment is described
-> in the bracketed note above.
-> 
-> Could you please queue it for 6.1.y?
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 79d90226fd5dc..d4384131e10d8 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -2295,7 +2295,7 @@ pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+>  		 * in cases where cpu is affected with errata #2645198.
+>  		 */
+>  		if (pte_accessible(vma->vm_mm, pte) && pte_user_exec(pte))
+> -			__flush_tlb_range(vma, addr, nr * PAGE_SIZE,
+> +			__flush_tlb_range(vma, addr, addr + nr * PAGE_SIZE,
+>  					  PAGE_SIZE, 3, TLBF_NOWALKCACHE);
+>  	}
+>  
 
-Sorry for late reply.
-
-Thanks for your effort, this commit has a follow-up commit
-commit c99fab6e80b76422741d34aafc2f930a482afbdd
-
-erofs: fix atomic context detection when !CONFIG_DEBUG_LOCK_ALLOC
-
-could you please consider backport those to stable kernels as well?
-
-Thanks,
-Gao Xiang
-
-> 
-> Thanks,
-> Artem Dinaburg
 
