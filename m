@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A326C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF47C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzBk8z0DOusDgNSHogcnLfhfdXdnsKjnjoN5hWalnyc=; b=c/dIQbIXJrL8+sHHpOhOx/w0Z9
-	h4vD6Eb0S4UvJ7Lppxx9eP9U8fnSKa72BITpMSkU3adp5P+zCGM8aoKFuMO2+xwUwOVzSadQ5U4Gr
-	5rih2T/zIn9Azy+ufALQMij1qOA3DGQVU2fT3DH7/XoyOWJCMPtio5NB2c+otg09gNSB+wDu+VbVE
-	sNwEp9Q+1VYWCYYQnRtAVtKGx4uSM9Gfw81Ka3lqndM+ykyoyk2QwvIAhZkOcrI3Pa7MWbywGc/xF
-	Qwsfqsq3jTdRUi6B5mnsZVUVRI+mlo0Bv8OitvLGst1YgAwozskgZn4b6rGJhZ9zK7FtOD3ApKadh
-	e0QhriAQ==;
+	bh=/odbqFx//X9ltKCEx4aEosrpdqitw1LLL/sxuBe91Vs=; b=K/7HOzusfMSVGYN8YIjTvxxZ0z
+	Kh5I7K9Zd5chKQPibUlsTQ5dQaYQ392hoZ/cNGP557AoW8pwQZFpqnZUazc4W4FWzQ7Ajugyg5JN6
+	LrWZHK0B7+qTV29nRzhcWJkqZ/W8NcStsnl2g5fc8EW5gRop1o0nRjCJuitYhj05XD3gV+p1CZWmK
+	Lf4WbEguLzeg7xkN5fSyV52uOW+zt4XQaxdupI3QoJiiLRJ6Q9fEuYr4lDsX58113w9ffmP3x/jmD
+	T66iMd70pDR0E8Vr/0LyvaoZzCvaJGUG5D0M/MxmDi1P2ONBKS+cp9ite+HIn1+xU0WfCoA3Y1r8/
+	ltDdFFcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lx6-0000000BWb1-40dS;
-	Thu, 24 Sep 2026 16:05:40 +0000
+	id 1x9lxR-0000000BWld-1LC0;
+	Thu, 24 Sep 2026 16:06:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9lxH-0000000BWgo-3lbP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Sep 2026 16:05:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=/odbqFx//X9ltKCEx4aEosrpdqitw1LLL/sxuBe91Vs=; b=lOut8GD+ppVogB+ZFhtMVK5fbs
+	VjyjMlKXh7tt+Ino5T9GpWLNeYyUg2LidlZQ4LV/BWhS+5pikDJ89RdddE+g7MhrkDZ1qhrpDxCRn
+	3fnGmYGpakdnLaJ3jtVZVTd5S5vqfmsTzaN3lJ7MGnXfebLvCm5KSeyd4Y7tkZayzT2OyVXmAxbgs
+	sywMOYLfleB5sE64gjSJFvmz12TS27CQkpJAjQ53fxMAMAhnlp8fzVdW5wRRsFIDnbpwsQLSvpXFt
+	7mAZ5sE2QIHshgfan2p2HvL3iU5d1cKQW2uJYDD5uq0GadB6wrEYfnF0iFfdGfz3W0C79FBvkZWmf
+	xof+6okg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lx3-0000000BWYn-2NkP
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9lxD-0000000GAoJ-2ZDS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 16:05:38 +0000
+	Thu, 24 Sep 2026 16:05:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96A5A152B;
-	Thu, 24 Sep 2026 09:05:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46767152B;
+	Thu, 24 Sep 2026 09:05:42 -0700 (PDT)
 Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9A4283F86C;
-	Thu, 24 Sep 2026 09:05:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 093A73F86C;
+	Thu, 24 Sep 2026 09:05:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790265936; bh=vhmzYOeEMeS1gUmiyRsM5hDk21KN/XfVddfQo5gUwVs=;
+	t=1790265945; bh=j2b9WHiFALCo+wdRBdRdHxhVuEWadLpkN31xoR3hUMw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IfVjZlGFBFOo82R0dy/xaHAJ4Chh0qKIT4MXPi0AxpjOEm8iOEjQ/OEZYDpjfhQ0X
-	 exElgaxlLeOdxP54t9qkAyR3+clfAHFUeVzzYgr2AIp6eIhBgIgv5Adp/YpD/iemMe
-	 tF6mtCDuBUt5pkR50SnjJ+IkUQoGNgHVYaEjewrg=
+	b=HL9LtMoQMp94k6RH6fPphaQ/7RlO8EOtXODTN1jdSMe3v+83ipfwYow2QynPV54An
+	 +/1Gc/sR1ZF2vo9yHbuAbuyS5IdhTIPGLKyVf9C2zO3fTN27qlhkoqde+W6WEAeQmz
+	 Rg6QQpiQiaq6PXU5U0J/2vH7h0FYwyZ/2l6KxpGs=
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -64,19 +79,18 @@ Cc: maz@kernel.org,
 	enju.kohei@fujitsu.com,
 	sudeep.holla@arm.com,
 	jonathan.cameron@oss.qualcomm.com,
-	Fuad Tabba <fuad.tabba@linux.dev>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v20 04/22] KVM: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
-Date: Thu, 24 Sep 2026 17:04:46 +0100
-Message-ID: <20260924160504.853911-5-suzuki.poulose@arm.com>
+Subject: [PATCH v20 06/22] KVM: arm64: Don't call vcpu_set_pauth_traps for pKVM host
+Date: Thu, 24 Sep 2026 17:04:48 +0100
+Message-ID: <20260924160504.853911-7-suzuki.poulose@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260924160504.853911-1-suzuki.poulose@arm.com>
 References: <20260924160504.853911-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_090537_722753_10428961 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260924_170549_280996_19425432 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,81 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Price <steven.price@arm.com>
+vcpu_set_pauth_traps() bails out and does nothing for pKVM hosts.
+Clean this up by moving the is_protected_kvm_enabled() check to the
+caller, in preparation for adding VM specific vcpu load/put callbacks.
 
-To avoid future include cycles, drop the linux/kvm_host.h include in
-kvm_pgtable.h and include the lightweight headers required for the types
-and inline helpers used there. Additionally provide a forward
-declaration for struct kvm_s2_mmu as it's only used as a pointer in this
-file.
+While at it, do an early return if the vcpu doesn't have ptrauth.
 
-Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
-kvm_host.h, so make that explicit.
+No functional changes
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
 Changes since v19:
- - Include asm/memory.h, asm/page.h , linux/bitfield.h in asm/kvm_pgtable.h - Sashiko
+ - New patch, since addition of this to the Refactoring patch makes it a bit
+   more bigger and harder to follow
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 10 +++++++++-
- arch/arm64/include/asm/kvm_pkvm.h    |  2 +-
- arch/arm64/kvm/hyp/pgtable.c         |  1 +
- 3 files changed, 11 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/arm.c | 52 +++++++++++++++++++++++---------------------
+ 1 file changed, 27 insertions(+), 25 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 41a8687938eb6..a211a5d87bf96 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -7,10 +7,18 @@
- #ifndef __ARM64_KVM_PGTABLE_H__
- #define __ARM64_KVM_PGTABLE_H__
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 90547fbbc8ad7..849f5fcc26c15 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -631,33 +631,34 @@ void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
  
-+#include <linux/bitfield.h>
- #include <linux/bits.h>
--#include <linux/kvm_host.h>
-+#include <linux/kvm_types.h>
-+#include <linux/rbtree_types.h>
-+#include <linux/rcupdate.h>
- #include <linux/types.h>
+ static void vcpu_set_pauth_traps(struct kvm_vcpu *vcpu)
+ {
+-	if (vcpu_has_ptrauth(vcpu) && !is_protected_kvm_enabled()) {
+-		/*
+-		 * Either we're running an L2 guest, and the API/APK bits come
+-		 * from L1's HCR_EL2, or API/APK are both set.
+-		 */
+-		if (unlikely(is_nested_ctxt(vcpu))) {
+-			u64 val;
++	if (!vcpu_has_ptrauth(vcpu))
++		return;
  
-+#include <asm/memory.h>
-+#include <asm/page.h>
+-			val = __vcpu_sys_reg(vcpu, HCR_EL2);
+-			val &= (HCR_API | HCR_APK);
+-			vcpu->arch.hcr_el2 &= ~(HCR_API | HCR_APK);
+-			vcpu->arch.hcr_el2 |= val;
+-		} else {
+-			vcpu->arch.hcr_el2 |= (HCR_API | HCR_APK);
+-		}
++	/*
++	 * Either we're running an L2 guest, and the API/APK bits come
++	 * from L1's HCR_EL2, or API/APK are both set.
++	 */
++	if (unlikely(is_nested_ctxt(vcpu))) {
++		u64 val;
+ 
+-		/*
+-		 * Save the host keys if there is any chance for the guest
+-		 * to use pauth, as the entry code will reload the guest
+-		 * keys in that case.
+-		 */
+-		if (vcpu->arch.hcr_el2 & (HCR_API | HCR_APK)) {
+-			struct kvm_cpu_context *ctxt;
++		val = __vcpu_sys_reg(vcpu, HCR_EL2);
++		val &= (HCR_API | HCR_APK);
++		vcpu->arch.hcr_el2 &= ~(HCR_API | HCR_APK);
++		vcpu->arch.hcr_el2 |= val;
++	} else {
++		vcpu->arch.hcr_el2 |= (HCR_API | HCR_APK);
++	}
+ 
+-			ctxt = this_cpu_ptr_hyp_sym(kvm_hyp_ctxt);
+-			ptrauth_save_keys(ctxt);
+-		}
++	/*
++	 * Save the host keys if there is any chance for the guest
++	 * to use pauth, as the entry code will reload the guest
++	 * keys in that case.
++	 */
++	if (vcpu->arch.hcr_el2 & (HCR_API | HCR_APK)) {
++		struct kvm_cpu_context *ctxt;
 +
-+struct kvm_s2_mmu;
-+
- #define KVM_PGTABLE_FIRST_LEVEL		-1
- #define KVM_PGTABLE_LAST_LEVEL		3
++		ctxt = this_cpu_ptr_hyp_sym(kvm_hyp_ctxt);
++		ptrauth_save_keys(ctxt);
+ 	}
+ }
  
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index beea00e693a0a..54a618d887fa4 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -7,9 +7,9 @@
- #define __ARM64_KVM_PKVM_H__
+@@ -749,7 +750,8 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	else
+ 		vcpu->arch.hcr_el2 |= HCR_TWI;
  
- #include <linux/arm_ffa.h>
-+#include <linux/kvm_host.h>
- #include <linux/memblock.h>
- #include <linux/scatterlist.h>
--#include <asm/kvm_host.h>
- #include <asm/kvm_pgtable.h>
+-	vcpu_set_pauth_traps(vcpu);
++	if (!is_protected_kvm_enabled())
++		vcpu_set_pauth_traps(vcpu);
  
- /* Maximum number of VMs that can co-exist under pKVM. */
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index b74dd5ce1efd3..f48253b9d88b5 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -8,6 +8,7 @@
-  */
- 
- #include <linux/bitfield.h>
-+#include <linux/kvm_host.h>
- #include <asm/kvm_pgtable.h>
- #include <asm/stage2_pgtable.h>
- 
+ 	if (is_protected_kvm_enabled()) {
+ 		kvm_call_hyp_nvhe(__pkvm_vcpu_load,
 -- 
 2.43.0
 
