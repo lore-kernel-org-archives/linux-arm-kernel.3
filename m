@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E771C9830E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CFEC98321
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,83 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xaD1IMfAyp/uIU4MITG18na4g3zXQJFSDgCzveCcZU=; b=wwiQ6u3h7+MHK8LQThr8aBJjix
-	TWoW80oa0ukgmum+HPBDU4lFKW0yr6CJ5gVRhHxjsV26nJU+GZ7cmCtJvyYBDAcaM2efQ7QzYjrEp
-	mfV1Kt6yeK+OQzKVLJNVgcNZZIBejarI8NGXfMlYoNGEfYjLJn58Ug/CBrMP+0Xa1OgbugewKTm6w
-	yzCo1QvuoMFykdyZwC3ITwhenNOy+ECk3FmRNTq/x6BZE+WMOjBMGgGXR9s7Hx0r5VM3LId9JxxJZ
-	slK9V770UbGJqG0JkJwz3UgYLH8a2/3XvEEubJSiglBWIzLh2bIDlGmd7x9Cl1dGO3IsUGankAtx5
-	f7D5R4VA==;
+	bh=ojt2BoZRoit8YTa2oyVkPQDILAU3Mszm9vA+7r1Y+sA=; b=01fUbutl7nvvEBtL856AwTZqlS
+	6wffeJvFVGfD/thsvbCyWeF1plip9phq6xyt7bUevd3lNXnNtOTSjEhvZYXw7EbiHMds5qc200dT4
+	GlnmsphCn99wpcrb2rmEuoVgRW7ND1SRem2bTYCipyqc/C+fQpnQUTma63+WkHlIUVhv8+hBmFFvi
+	GMzOLz1jbMKmjgQCRmFGh1qmwGFmde0hEaoJEpb3qbwoSprqY2OeCUvHILsr4B8UZVyGjThkbUVFX
+	9HTaF/y/sxSzgMCniEfQbJfY1+XVKI4+WN0ZGmUOWPR2y5dNq+Xtm+FgTdYuoRA0sNDOEQScQG0xi
+	/6T9ZK1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lPX-0000000BQjp-18eE;
+	id 1x9lPX-0000000BQjb-0Oue;
 	Thu, 24 Sep 2026 15:30:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sender6-op-o11.zoho.com ([165.173.180.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lOf-0000000BQ5a-1pqH;
-	Thu, 24 Sep 2026 15:30:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CCF343607;
-	Thu, 24 Sep 2026 15:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A8C91F000FF;
-	Thu, 24 Sep 2026 15:30:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790263805;
-	bh=3xaD1IMfAyp/uIU4MITG18na4g3zXQJFSDgCzveCcZU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EW0B7Nc6zPIXKvae2h9udoFtfnvLgEztZgFp0GIOtPQU6aa0CKVM4BU/HUwpZ0vKr
-	 1Ng2uL1PApIcsZ4dt5R5rJKBtQ+ejpuIHqzHFWmmVVwhmekO997ypwXY7o1b50WfWZ
-	 jNFyYcsC4YxISGl8X5n0lAnADzdfFjebSuXNuMX4ChHZy2l4ud2CDTfr6dJYsj4GSw
-	 /HSilVBl9WDa93bYPAWt+PWertSA1Ap0Lu9AOmmd31jcJF3mOw6bQ5CoDyBZirCmh8
-	 972QlyXRwXWLAAYyvARx/fHNTHXFpJ4VQs7bNe/4FU9mINsUnDG7ZOXj72PcCtGHg4
-	 yo2B1+UfXTs2Q==
-Date: Thu, 24 Sep 2026 10:30:01 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>,
-	Stephen Boyd <sboyd@kernel.org>, Lee Jones <lee@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maud Spierings <maud_spierings@murena.io>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	dri-devel@lists.freedesktop.org, Jonas Karlman <jonas@kwiboo.se>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, mfd@lists.linux.dev,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Graham Markall <hello@big-grey.co.uk>, linux-clk@vger.kernel.org,
-	Paul Walmsley <pjw@kernel.org>, Robert Foss <rfoss@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Dominique Belhachemi <db@domibel.de>
-Subject: Re: [PATCH v4 06/20] dt-bindings: soc: starfive: Add
- starfive,jh7110-vout-subsystem
-Message-ID: <179026380151.180820.13279134510036926790.robh@kernel.org>
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
- <CGME20260915153224eucas1p1c19b20f6af600b1c3228a9a8f4bb4490@eucas1p1.samsung.com>
- <20260915-jh7110-clean-send-v4-6-f0e4fd6f2cc8@samsung.com>
+	id 1x9lOZ-0000000BPuc-1m43;
+	Thu, 24 Sep 2026 15:30:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1790263788; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=abg3tD7gCn40tZBonWdZgORycIx1YU6wZqDmUrH2Gnd23rPRFFfpKVI7MfbJcgUeDTTH+rCVFkfNQrX0juuIK+CS+RxWK314U/DEL0AewBkqJVf50oSpfmM1bGIgyew3jb8LtxEtN3MZKutX3cacJ58D6V7BOGvMygY572JEIJA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1790263788; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ojt2BoZRoit8YTa2oyVkPQDILAU3Mszm9vA+7r1Y+sA=; 
+	b=ALrCtEpougLfWu0xgNeeaNbeDwS2DhTMD4P7+sly0gtSqEHmZKOvNLMhVzCx0b+YKca9QIl44SlI6uScgj7MXwymTpijt+NLKgbkSMyy1BFecrMzAP6f5z4XGOwd/jFY4VwgzQGBPbTzRKjfbZI7yNS85AgHttitdOtHR3691kk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790263788;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=ojt2BoZRoit8YTa2oyVkPQDILAU3Mszm9vA+7r1Y+sA=;
+	b=XCyollQYtXMfftFpQuXEw/OZQ//HFVoEGB8bi3XL48hTfvEb06MV9q08GU21iSyt
+	hdSDtJU0YyHujH3q9GIqwWi6vHD7IjYwQJfKDIlJNmGsrSPi4quF48xJFVI+rDTIMJx
+	rqob72feqCv0BAAYruxTWcEG9cYbJKvjxOhuwnXI=
+Received: by smtp.zohomail.com with SMTPS id 1790263785416232.6245725162671;
+	Thu, 24 Sep 2026 08:29:45 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 86684180EDC; Thu, 24 Sep 2026 17:29:40 +0200 (CEST)
+Date: Thu, 24 Sep 2026 17:29:40 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>, 
+	"kernel@collabora.com" <kernel@collabora.com>, Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH 2/5] usb: dwc3: rockchip: introduce glue driver
+Message-ID: <arU0_rRUerCfhAs0@venus>
+References: <20260915-b4-rockchip-dwc3-rockchip-glue-v1-0-763bb546824e@collabora.com>
+ <20260915-b4-rockchip-dwc3-rockchip-glue-v1-2-763bb546824e@collabora.com>
+ <arMkheCePz6PD8NZ@vbox>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5yc4rucu7v66hpki"
 Content-Disposition: inline
-In-Reply-To: <20260915-jh7110-clean-send-v4-6-f0e4fd6f2cc8@samsung.com>
+In-Reply-To: <arMkheCePz6PD8NZ@vbox>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/290.230.26
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260924_082959_587856_FE621403 
+X-CRM114-Status: GOOD (  37.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,23 +89,240 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 15 Sep 2026 17:32:14 +0200, Michal Wilczynski wrote:
-> The JH7110 groups its display hardware into a video output subsystem,
-> dom_vout_top, covering the DC8200, the HDMI transmitter, the video
-> output clock generator and the video output system controller.
-> 
-> They share one NoC port whose clock and reset gate access to every
-> register in the region, and the region sits in the PD_VOUT power
-> domain. Describe the subsystem as a bus node so those resources are
-> owned by the block that shares them, rather than by whichever consumer
-> happens to probe first.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 +++++++++++++++++++++
->  1 file changed, 218 insertions(+)
-> 
+--5yc4rucu7v66hpki
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/5] usb: dwc3: rockchip: introduce glue driver
+MIME-Version: 1.0
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Hi,
 
+On Wed, Sep 23, 2026 at 01:31:03AM +0000, Thinh Nguyen wrote:
+> On Tue, Sep 15, 2026, Sebastian Reichel wrote:
+> > Introduce Rockchip specific glue code for the Synopsys DWC3 USB driver.
+> > For now this handles things identical to the default glue.
+> >=20
+> > Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > ---
+> >  drivers/usb/dwc3/Kconfig         |  11 ++++
+> >  drivers/usb/dwc3/Makefile        |   1 +
+> >  drivers/usb/dwc3/core.c          |  15 ++++++
+> >  drivers/usb/dwc3/dwc3-rockchip.c | 106 +++++++++++++++++++++++++++++++=
+++++++++
+> >  4 files changed, 133 insertions(+)
+> >=20
+>=20
+> <...>
+>=20
+> > =20
+> > +/*
+> > + * List of compatibles, which have "synopsys,dwc3" as a fallback
+> > + * compatible, but have a vendor specific glue driver that should
+> > + * be used instead of this one.
+> > + */
+>=20
+> Shouldn't these be guarded by CONFIG_USB_DWC3_ROCKCHIP so that
+> we can still fall back to the generic DWC3 driver?
+
+I think it's better to not probe at all. The reason for introducing
+the new glue driver is avoiding PHY startup problems. They already
+happen every now and then (so the bug is not introduced by my USBDP
+patches, but rather its an existing race condition). Fixing the hangs
+also requires driving the reset notifier from the USBDP PHY, which is
+not part of this series. But I doubt we get a lot from making
+patch series interdependencies even more complicated by temporarily
+continueing to allow using the generic DWC3 driver on Rockchip.
+
+Note that the PHY startup hang probability increases a lot by my
+USBDP series. So once that landed the generic code is no longer
+usable without doing lots of reboots and getting very lucky.
+
+> > +static const char *const dwc3_compatible_blocklist[] =3D {
+>=20
+> #if IS_ENABLED(CONFIG_USB_DWC3_ROCKCHIP)
+>=20
+> > +	"rockchip,rk3588-dwc3",
+> > +	"rockchip,rk3576-dwc3",
+>=20
+> #endif
+>=20
+> > +};
+> > +
+>=20
+>=20
+>=20
+> >  static int dwc3_probe(struct platform_device *pdev)
+> >  {
+> >  	struct dwc3_probe_data probe_data =3D {};
+> >  	struct resource *res;
+> >  	struct dwc3 *dwc;
+> > +	int i;
+> > +
+> > +	for (i =3D 0; i < ARRAY_SIZE(dwc3_compatible_blocklist); i++)
+> > +		if (device_is_compatible(&pdev->dev, dwc3_compatible_blocklist[i]))
+> > +			return -ENODEV;
+> > =20
+> >  	res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> >  	if (!res) {
+>=20
+>=20
+>=20
+> <...>
+>=20
+>=20
+>=20
+> > diff --git a/drivers/usb/dwc3/dwc3-rockchip.c b/drivers/usb/dwc3/dwc3-r=
+ockchip.c
+> > new file mode 100644
+> > index 000000000000..62f2a03b08a2
+> > --- /dev/null
+> > +++ b/drivers/usb/dwc3/dwc3-rockchip.c
+> > @@ -0,0 +1,106 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/* Copyright (c) 2026, Collabora Ltd. */
+> > +#include <linux/module.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/pm_runtime.h>
+> > +#include "glue.h"
+> > +
+> > +struct dwc3_rockchip {
+> > +	struct dwc3		dwc;
+> > +};
+> > +
+> > +static int dwc3_rockchip_probe(struct platform_device *pdev)
+> > +{
+> > +	struct dwc3_probe_data probe_data =3D {};
+> > +	struct resource *res;
+> > +	struct dwc3_rockchip *dwc_rk;
+> > +
+> > +	res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> > +	if (!res) {
+> > +		dev_err(&pdev->dev, "missing memory resource\n");
+> > +		return -ENODEV;
+> > +	}
+> > +
+> > +	dwc_rk =3D devm_kzalloc(&pdev->dev, sizeof(*dwc_rk), GFP_KERNEL);
+> > +	if (!dwc_rk)
+> > +		return -ENOMEM;
+> > +
+> > +	dwc_rk->dwc.dev =3D &pdev->dev;
+> > +	dwc_rk->dwc.glue_ops =3D NULL;
+> > +
+> > +	probe_data.dwc =3D &dwc_rk->dwc;
+> > +	probe_data.res =3D res;
+> > +	probe_data.properties =3D DWC3_DEFAULT_PROPERTIES;
+> > +
+> > +	return dwc3_core_probe(&probe_data);
+> > +}
+> > +
+> > +static void dwc3_rockchip_remove(struct platform_device *pdev)
+> > +{
+> > +	dwc3_core_remove(platform_get_drvdata(pdev));
+> > +}
+> > +
+> > +static int __maybe_unused dwc3_rockchip_runtime_suspend(struct device =
+*dev)
+>=20
+> Please use the same PM callback pattern as dwc3-generic-plat.c. That
+> should avoid the need for __maybe_unused on each callback.
+
+Will do. FWIW this wastes a bunch of memory for !CONFIG_PM by simply
+always including the code, even when it's not needed. I suppose
+that's fine as disabled CONFIG_PM is uncommon config anyways.
+
+> > +{
+> > +	return dwc3_runtime_suspend(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static int __maybe_unused dwc3_rockchip_runtime_resume(struct device *=
+dev)
+> > +{
+> > +	return dwc3_runtime_resume(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static int __maybe_unused dwc3_rockchip_runtime_idle(struct device *de=
+v)
+> > +{
+> > +	return dwc3_runtime_idle(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static int __maybe_unused dwc3_rockchip_suspend(struct device *dev)
+> > +{
+> > +	return dwc3_pm_suspend(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static int __maybe_unused dwc3_rockchip_resume(struct device *dev)
+> > +{
+> > +	return dwc3_pm_resume(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static void __maybe_unused dwc3_rockchip_complete(struct device *dev)
+> > +{
+> > +	dwc3_pm_complete(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static int __maybe_unused dwc3_rockchip_prepare(struct device *dev)
+> > +{
+> > +	return dwc3_pm_prepare(dev_get_drvdata(dev));
+> > +}
+> > +
+> > +static const struct dev_pm_ops dwc3_rockchip_dev_pm_ops =3D {
+> > +	SET_SYSTEM_SLEEP_PM_OPS(dwc3_rockchip_suspend, dwc3_rockchip_resume)
+> > +	SET_RUNTIME_PM_OPS(dwc3_rockchip_runtime_suspend, dwc3_rockchip_runti=
+me_resume,
+> > +			   dwc3_rockchip_runtime_idle)
+> > +	.complete =3D pm_sleep_ptr(dwc3_rockchip_complete),
+> > +	.prepare =3D pm_sleep_ptr(dwc3_rockchip_prepare),
+> > +};
+> > +
+> > +static const struct of_device_id dwc3_rockchip_of_match[] =3D {
+> > +	{ .compatible =3D "rockchip,rk3588-dwc3" },
+> > +	{ .compatible =3D "rockchip,rk3576-dwc3" },
+> > +	{ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, dwc3_rockchip_of_match);
+> > +
+> > +static struct platform_driver dwc3_rockchip_driver =3D {
+> > +	.probe		=3D dwc3_rockchip_probe,
+> > +	.remove		=3D dwc3_rockchip_remove,
+> > +	.driver		=3D {
+> > +		.name	=3D "dwc3-rockchip",
+> > +		.pm	=3D pm_ptr(&dwc3_rockchip_dev_pm_ops),
+> > +		.of_match_table	=3D dwc3_rockchip_of_match,
+> > +	},
+> > +};
+> > +
+> > +module_platform_driver(dwc3_rockchip_driver);
+> > +
+> > +MODULE_LICENSE("GPL");
+> > +MODULE_DESCRIPTION("DesignWare DWC3 Rockchip Glue Driver");
+> >=20
+>=20
+>=20
+> Thanks,
+> Thinh
+
+--5yc4rucu7v66hpki
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmq1QeAACgkQ2O7X88g7
++ppB2hAAjYENPwlnCsE+aWnPmc/FTPh4KKly3W7g+jkx92kcGIcWRH8hmIhQMl+I
+jPUOAsSbSWt55UU1YPfjv07sTJzZu3/0mV06gq0dzuPpg4ydlNO8JUenXrsCDOA6
+I2Rupq0w00a1abBCVazFtKDwk6pyF434Tt0f9x3F6OZule95Jhwi6ZqM9pYRt2es
+NOf1gTLVzPspX+jscjWhRm6KOk+ZS63jKkxXyer6W1OV2efRJAVd1hmPQzt1k7zC
+kFAWJxYc7r7nApdiHeEoKgudQTFg76D7rZ3eYbk9zLGifIwAe+SYUcUtJb3rsY7+
+9Kas/Edff1CUuNf5ho7v81cr8QvB+bytgv1eHGS5je7C3/zHRnUOfPUM6wIfdfr5
+kD7l+iAthwlokCyuftXJtrdgw0fV3WcFnUwTc0eA429xwUQpAxKhGvi3evWKFn0S
+ZuH65oux33Lde8rEvvzyF0uZWipCvk5FU2qPsdQpOvOdWU6jBL5XvHDo3pWVvyh1
+refxT+ZtLlKJbdJ9YKkNyQKhZr36DO5trAUMELrRFMRIx4p0VCRFrc6Pr/qnKtn9
+Ihw8vNzTw7P3VuiQo6INPC9/MtQQ6EMxGFXFP59yBxeBe2l9jmOna4Ea8NFljaa4
+3yT9E6uRDq9kj3rMt94cbdp+76Bq5McRwEsd+Zua6lo4q+tvGtI=
+=VHfI
+-----END PGP SIGNATURE-----
+
+--5yc4rucu7v66hpki--
 
