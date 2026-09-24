@@ -4,94 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637C0C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 03:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91962C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 03:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hSJK5l1XEbWtgCR1VGoo0OE9b5AL7+ONChxVba323TI=; b=KthzIW+MmGDKzuGdAAFYf4p7Uz
-	YuQKT0fK+zNjdAlo948ouiuh18sd+3wscBxVDwkx3wfrpzeofnSuX06nfuqp0usS+9hO61BU+0kCy
-	CFzOXVPUFGvh85qrkUtMCUAmN++bfqzfCLBi1QQVqFz3EidUptXwo61fFhBWooeBJfdcYkYkzP7S2
-	pv7BIHHSYYcOUImvDtRRV5I6LyUJfyhyUeeYAJ1yG7jKt3D8JNl2W+dIgzj7j25n7O4Z71EjZod7+
-	gSxzqdVlvKY4IwNhId5Y79pAUdcjMvmondj2IB5MPxsq0pY/phHVMlUsG2PsALVcl/r27DKQJy/oW
-	+QScUdtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=weznhsdlOq6RIl6RLEBM2onzEOR0sehn1VqOBbe70/Q=; b=uVAD9Atdoa7hAmvFONv0HSPliP
+	rY+KEcZugMhxtabgahjeuAhhQdfdaFvwBqx5v/8mPP1M/XBc7X64/Jda1DoJ3PnFRm3FzYHf8iv6O
+	1rZ3TKfhrPYwSan86Hpch5kRsPc2m5bghkGhob3jwG+jIBk7NR9u6/VINhFH0mbzS+6oc3pBdZxQE
+	OE6C1mRoO+uglqw782pA41ISbsu7NC2/KBQQ/4jKASXaXrRl59avsi2HxahB6c6YPB5W0y9prhRk7
+	0//Y8MKy1T0PQg9EOJ1p/gi5NlOzuACzWxEnQOqEdo/gioGqJx8x3+Sp5zPnwWbEGn/jFsJ6zcknY
+	0Lg6IaZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Zkb-00000009uXv-23mY;
-	Thu, 24 Sep 2026 03:03:57 +0000
-Received: from mail-pz2-x0e.google.com ([2607:f8b0:4864:3b::e])
+	id 1x9ZrK-00000009uqw-14Vo;
+	Thu, 24 Sep 2026 03:10:54 +0000
+Received: from mail-oa2-x09.google.com ([2607:f8b0:4864:30::9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZkY-00000009uXa-3HG8
+	id 1x9ZrH-00000009ups-31Fc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 03:03:56 +0000
-Received: by mail-pz2-x0e.google.com with SMTP id 41be03b00d2f7-cc1cea4ae2cso1002716a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 20:03:54 -0700 (PDT)
+	Thu, 24 Sep 2026 03:10:53 +0000
+Received: by mail-oa2-x09.google.com with SMTP id 586e51a60fabf-47bd4bcc3e2so740006fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Sep 2026 20:10:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790219033; x=1790823833; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hSJK5l1XEbWtgCR1VGoo0OE9b5AL7+ONChxVba323TI=;
-        b=I0RdoDdfKn/P7p99aC3xxX1aOBy9WHvkgePHcSf/Bl0hZWSigv9mxnafFbU99POVWP
-         oMVFQ1VwQwPY0BSBLbtqkO4mHWhQaffd8NbPL9N1u5+Zolb3qUD/Lxnjw8jjJuGkAfQF
-         XaF2Vj4iZiE6AY9Wl1apf0qljO0gCW7RWRiGBWJ52sRHk4MvFDvHhL5sV9NyAhqbNczV
-         vp5WGK5HKLqVMhgollfCfZXO2spQSCDQ6dbldhNW/1LxAJ6RQZOHNggzLyQi9KNRnCBh
-         M18h10eCz3Zex4A2aDqe9Ei+IjuJvfvipVEnWWmt9ZMeoKC2WSdJdHekHQ8kJuYNwXKQ
-         K/vA==
+        d=gmail.com; s=20251104; t=1790219450; x=1790824250; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=weznhsdlOq6RIl6RLEBM2onzEOR0sehn1VqOBbe70/Q=;
+        b=hIqaHFl8tp+tW2oTYpeimt1q57KcFh8eg9D4SP/ChRpIfSgK28kz8p7cCNlWycCs+N
+         Qwe6kddWgLMZGwKcfBrvkxfz4X7OninvgoyudJ63g6S9h5xwvcdACb4sZD+P1zdiviW4
+         sIukXMYVT9vzrxIv/ZVQLxxOzxzShWj68oRYRi6KPhMTFEf8kx7kOvDlsjaaudbFbZRV
+         DshpGi0wVh1STUKklFmid1OgO+kTnSeRvr9Zlnt340DxqNEo58+qvFTqugpuXz9ehhNc
+         mYkjtQboV1orLPyZAMyshDH8+1TFi2CfFJEVLBF5+/0ZbubTIKcpl5mAl00RrmmfDkxx
+         OFVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790219033; x=1790823833;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hSJK5l1XEbWtgCR1VGoo0OE9b5AL7+ONChxVba323TI=;
-        b=2vrV4qJ4uhpuZ9T4w1/9nbuzEdRZ/UtIGSPYiHbRaITxKV6V2Albs0n08XgnyyHwMC
-         RaO3KERZRjeCDpSwFd4QJFiiyyzIc6wkqX936zi4+cKGoUVriauQ3Y1SFlHVzx1AHl3F
-         H5rumcSrQ2VJ19wemmfdpJRUwJZW/cjhYu6gTf+PEi89TJJW4fmjThnwBVgEFKZu6OlJ
-         8etsyxUVPUspunUn9c+cb82Z2MDcmWWUxQVzNT+5R2xi00xDMKN6bfNy2sKJL9FnZoby
-         eNhA0SZc4suKzMIVfG0IXxiAkwnBYDkTTKxpQo4ISeelRWnRIxO8eZuxt0+ccPc4B1/F
-         NS1g==
-X-Gm-Message-State: AFuF++k35PiF7Ng9XU9GNM9m6XCaNcQXDcsun091KN4r1FpUotSJWIKt
-	VuiZvn0uO4aJjA7wlgwi8dIgli8AcjjADLt0S0EFMBPHIAlZ7Nfjsiia
-X-Gm-Gg: AYBFou296KPDW4KJfwKKMob0WLd9UGiQO6yWOz1UExTYO4qU8YkV+agYrXb0Ni2DpJH
-	sKp52nRGkpjS96QrteeFrKFLvrT4rWXPvLtLwyQGgvyUnXUmX9lGss9ZTWt95fpYqX+jAm3uDdS
-	I3S9qEe0xUXTWawVKxH/Mg1cId+/fu5+TloaIxvOnBkfv2XtWplSFxfHlQ43NxTCieTZ4OHfE/5
-	qIxxOPJcEr6q/LTZY5o7piW54fTBDiYplEJJYzDJ3NfxLqHzET58R22+AJJOsKVnJiK3//taGEV
-	SsLoihsTzTf0eu7Vy3VvXWglQzKHp/eAIsi1v/w4nLgbYs2jXHgqaS07CgCXVboGiihHqeM4zpn
-	quUDRxvBvAQwenO24p1/X/wSgCpeC4j2SIsp0QX/ivLskUuysd9adXx+ilLZayYEiWe5vREtl8L
-	lYITuuDnTSXqFwUedDlgeNqUad3CAifp7Rll+endTTw8EX+KPScZF3qT5Gw5UAcbxeEOQPeX4gE
-	fqzb+vA2A4Ptg22JhcqOa9+B5n1AoHloLwJM8g74gx4rfr/mA==
-X-Received: by 2002:a17:90b:51c1:b0:39e:6c68:c77b with SMTP id 98e67ed59e1d1-3a098e078b8mr910792a91.49.1790219033463;
-        Wed, 23 Sep 2026 20:03:53 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a09738f98asm2082693a91.15.2026.09.23.20.03.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Sep 2026 20:03:53 -0700 (PDT)
-Message-ID: <d53cc934-965a-4ae8-a6cf-298c5a587e5d@gmail.com>
-Date: Thu, 24 Sep 2026 11:03:51 +0800
+        d=1e100.net; s=20260707; t=1790219450; x=1790824250;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=weznhsdlOq6RIl6RLEBM2onzEOR0sehn1VqOBbe70/Q=;
+        b=Oi7vmem8FRIZY4jmyIUlliQh2sufgB/2hzD+Lpifnwy3cWWJRZPvn3zkDKsY1V+ZQM
+         90Ai15jMDlyMEmsrGu95cIOcmUnhtnCVbBjJSu1BQqm0EYV4a9+ww9Jhf+PT/hr1pIHS
+         TKQ4/OLG/VfYN6RN5NcrYXwTUhKSbTtVwGISPS6kJxoNNpge+SSU01sJvcmSizA/08WD
+         bzkBVdXJOwmM1lf9nT/qcA256fEKRClWlyz3BoISzOPZnmqx0VuZ3ASEvrH2uG6/LE5z
+         mDRqMk2t2Wdj0RNYEjR/QSpV/XYHi+mojGHnEXieWVhEp7a8YMM1ks5NmmmMQWjPIfiI
+         hg9g==
+X-Forwarded-Encrypted: i=1; AKwUvBwKd3as9dnOCAr2Qz4Edv3o8lv801zkVCv8hiKdu5VIcAFcpZcfaNqC1qZpxUqR+ItQ0wqByjtc0Zhs1LWQe+7b@lists.infradead.org
+X-Gm-Message-State: AFuF++mJYhExFHi2/BQDcfnSUL3Fjj+GzGTmnicAKp3XzsExYxz8tppd
+	UnkULwJkalhX5kLoxUs41wgvjLYhGLz2JsA+95wVLFFeZJSVXbNtoLn5
+X-Gm-Gg: AYBFou1bO1cUW6HJ3otG44xW9uNzWwd17H16ilIHamOs+oE3B9Bxs1a7u0tPojxSlJo
+	MjDQolVxAPFuDyOdyViFTx5n1VVOZVVIgoZQSP+r4UeXCJFSTKAEfGJVVTMDTu4IUGTJ4ffJx89
+	TzMgnycMnLt8Mv+ODFrX0UIPVZ07OhfR+z7AVEXxUFzwWBwZwqccrcq9THgRC7VtIH2FcLOUqpC
+	nqzH7L2Caz+NoUGGFXFyXcpt8k1Zf5bNjsHiYoV8GhpNhGsjsAnAyGv1XrXbhoa7sqUS21b27ut
+	0bg+m1gwsyF/q9i03Byg2flQ0VRj2cgr9e+HYWRb1tqvm3w+87AJ8J8dFJn9kfOXC9I95wdhcRX
+	KZjaBW2nX3lrSTTfdDyVTeVwxQEeQ4HkIE2V9fi8Y1VwmMih11OCoKEgHmwYv+tjJvVGd1hUYii
+	hzQqVcuYXRQnWyYcpd5yewl/I4kwqZv4k32SFYk3nBSpnx7ERRTMi4DhvKYA5suGXA5Q==
+X-Received: by 2002:a05:6808:c187:b0:4b9:e6ab:d07a with SMTP id 5614622812f47-4d72cb39b25mr1219299b6e.26.1790219449792;
+        Wed, 23 Sep 2026 20:10:49 -0700 (PDT)
+Received: from [192.168.18.164] ([2600:8804:5716:d800::2620])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4d5c4bf8e14sm3893842b6e.14.2026.09.23.20.10.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 20:10:48 -0700 (PDT)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Date: Wed, 23 Sep 2026 22:10:41 -0500
+Subject: [PATCH] watchdog: mediatek: Apply the driver's mode to a watchdog
+ left running
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: spi: nuvoton,ma35d1-spi: Add Nuvoton
- MA35D1 SPI controller
-To: Krzysztof Kozlowski <krzk@kernel.org>, broonie@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <20260923041926.425551-1-cwweng.linux@gmail.com>
- <20260923041926.425551-2-cwweng.linux@gmail.com>
- <005e8cd7-811f-4304-bac3-e0c531958922@kernel.org>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <005e8cd7-811f-4304-bac3-e0c531958922@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260923-rbrue-suez-upstreaming-mtk-wdt-dual-mode-v1-1-0970852315e4@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NQQ6CMBBA0auQWTsJ1kipVzEsih1woi1kplUj4
+ e42Lt/m/w2UhEnh0mwg9GLlJVUcDw3c7j7NhByqwbSma505oYxSCLXQF8uqWchHTjPG/MB3yBi
+ Kf2JcAmFnzz3ZsbduclBzq9DEn//qOuz7D4S6ytZ6AAAA
+X-Change-ID: 20260923-rbrue-suez-upstreaming-mtk-wdt-dual-mode-6758e7b879f9
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ "freddy.hsin" <freddy.hsin@mediatek.com>
+Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790219446; l=4049;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=Wv/Q/eibR9/8UNWYWEXMi5HVbkom6Ngkl4aD5jL1RW8=;
+ b=u/GAfKCmgfS6yqJtSJBYgi0CdZm5MqDZ1SAsZGK9ZcrBpAZEMAT3l9eouuHXlc8qWODTBEB1Q
+ XFRXWn46T0VArMVB7GfAKkxDnqc11EQrfVB1wPFyafDxWf9KgzaTvYJ
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_200354_911547_E94733BA 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20260923_201051_778019_0D0E9640 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +114,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When the bootloader leaves the watchdog enabled, probe only marks it
+running and sets the timeout, so WDT_MODE keeps whatever the bootloader
+wrote. The Amazon Fire HD 10 (2017) bootloader leaves dual mode with the
+bark IRQ enabled, and no pretimeout is configured, so each timeout only
+raises the IRQ and restarts the count: with the 20 s timeout systemd
+sets, a hung system was reset after 37.95-39.76 s, and after 18.25-20.92 s
+once IRQ_EN was cleared by hand.
 
+Program the mode as mtk_wdt_start() does, which also applies
+mediatek,disable-extrst and mediatek,reset-by-toprgu to a running
+watchdog; read those two properties first.
 
-Krzysztof Kozlowski 於 2026/9/23 下午 08:35 寫道:
-> On 23/09/2026 06:19, Chi-Wen Weng wrote:
->> From: Chi-Wen Weng <cwweng@nuvoton.com>
->>
->> Add a Devicetree binding for the SPI controller found in the
->> Nuvoton MA35D1 SoC.
-> 
-> I could swear I saw it last days... I did check and indeed. There is
-> qspi which is almost the same binding. Why this cannot be in the same
-> file? What are the differences justifying duplicating files?
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
+Fixes: bbece05c0d3a ("watchdog: mtk_wdt: Remove mtk_wdt_stop() in probe() to prevent the system freeze and it doesn't reboot by watchdog problem")
+Assisted-by: LLM
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+---
+Found on an Amazon Fire HD 10 (2017), an MT8173 board that is not upstream
+yet. Its watchdog node has no interrupt, so no pretimeout is set up. The
+timings in the commit message were taken from the host side of the USB
+link; with this patch a hung reboot resets after 18.35-18.45 s (n=3).
 
-Hi Krzysztof,
+It is based on v7.3-rc4 but it also applies cleanly to watchdog-next,
+where "watchdog: mediatek: acknowledge pretimeout interrupt" moves
+spin_lock_init() ahead of mtk_wdt_init(), so calling mtk_wdt_start() from
+there is safe on both.
+---
+ drivers/watchdog/mtk_wdt.c | 43 ++++++++++++++++++++++++-------------------
+ 1 file changed, 24 insertions(+), 19 deletions(-)
 
-Thanks for pointing this out.
+diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+index d9c30e4c80e3..b12ea113b63e 100644
+--- a/drivers/watchdog/mtk_wdt.c
++++ b/drivers/watchdog/mtk_wdt.c
+@@ -285,19 +285,6 @@ static int mtk_wdt_set_timeout(struct watchdog_device *wdt_dev,
+ 	return 0;
+ }
+ 
+-static void mtk_wdt_init(struct watchdog_device *wdt_dev)
+-{
+-	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
+-	void __iomem *wdt_base;
+-
+-	wdt_base = mtk_wdt->wdt_base;
+-
+-	if (readl(wdt_base + WDT_MODE) & WDT_MODE_EN) {
+-		set_bit(WDOG_HW_RUNNING, &wdt_dev->status);
+-		mtk_wdt_set_timeout(wdt_dev, wdt_dev->timeout);
+-	}
+-}
+-
+ static int mtk_wdt_stop(struct watchdog_device *wdt_dev)
+ {
+ 	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
+@@ -338,6 +325,24 @@ static int mtk_wdt_start(struct watchdog_device *wdt_dev)
+ 	return 0;
+ }
+ 
++static void mtk_wdt_init(struct watchdog_device *wdt_dev)
++{
++	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
++	void __iomem *wdt_base;
++
++	wdt_base = mtk_wdt->wdt_base;
++
++	/*
++	 * The bootloader may have left it in dual mode, where a timeout only
++	 * raises the bark IRQ and the reset comes one timeout later. Apply
++	 * this driver's mode instead, as mtk_wdt_start() does.
++	 */
++	if (readl(wdt_base + WDT_MODE) & WDT_MODE_EN) {
++		set_bit(WDOG_HW_RUNNING, &wdt_dev->status);
++		mtk_wdt_start(wdt_dev);
++	}
++}
++
+ static int mtk_wdt_set_pretimeout(struct watchdog_device *wdd,
+ 				  unsigned int timeout)
+ {
+@@ -440,6 +445,12 @@ static int mtk_wdt_probe(struct platform_device *pdev)
+ 
+ 	watchdog_set_drvdata(&mtk_wdt->wdt_dev, mtk_wdt);
+ 
++	mtk_wdt->disable_wdt_extrst =
++		of_property_read_bool(dev->of_node, "mediatek,disable-extrst");
++
++	mtk_wdt->reset_by_toprgu =
++		of_property_read_bool(dev->of_node, "mediatek,reset-by-toprgu");
++
+ 	mtk_wdt_init(&mtk_wdt->wdt_dev);
+ 
+ 	watchdog_stop_on_reboot(&mtk_wdt->wdt_dev);
+@@ -460,12 +471,6 @@ static int mtk_wdt_probe(struct platform_device *pdev)
+ 		mtk_wdt->has_swsysrst_en = wdt_data->has_swsysrst_en;
+ 	}
+ 
+-	mtk_wdt->disable_wdt_extrst =
+-		of_property_read_bool(dev->of_node, "mediatek,disable-extrst");
+-
+-	mtk_wdt->reset_by_toprgu =
+-		of_property_read_bool(dev->of_node, "mediatek,reset-by-toprgu");
+-
+ 	return 0;
+ }
+ 
 
-The MA35D1 SPI and QSPI controllers are separate hardware IPs. QSPI
-additionally supports dual/quad/DTR transfers and a target-mode timeout
-function, while the SPI controller does not.
+---
+base-commit: 93f51579e7df248780214094418f205253383cc5
+change-id: 20260923-rbrue-suez-upstreaming-mtk-wdt-dual-mode-6758e7b879f9
 
-However, these differences do not require different Devicetree
-properties. The register resource, clock, reset, interrupt and native
-chip-select descriptions are otherwise the same, so I agree that they
-should share one binding.
-
-There is currently one driver-related difference: the existing QSPI
-driver does not yet support GPIO chip selects, while the new SPI driver
-does. I will therefore keep the QSPI cs-gpios restriction in the shared
-schema for now using a compatible-specific conditional.
-
-We also plan to add GPIO chip-select support to the QSPI driver in a
-follow-up patch. Once that support is added, the QSPI-specific
-cs-gpios restriction can be removed and both compatibles can use the
-same schema constraints.
-
-I will merge the SPI and QSPI bindings in v2.
-
-Thanks,
-Chi-Wen
+Best regards,
+--  
+Ryan Brue <ryanbrue.dev@gmail.com>
 
 
