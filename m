@@ -4,108 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C7CC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D7DC98317
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 13:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGZb92y65Zgpq3x5v+GtiE7R/fU6xpwCAj6PKyWY/vY=; b=UhzxkdbOW1NUqaC1Z5UAbE+cF1
-	bvgjaBlxMWlsxYZdz9uxkzZE/UIUMGMyubGj766dfMMfbjB/4IWCjGvZeDA4lNiUmPa3CWPumk/J4
-	LmWbPIRiqhUTId+mbKYyXjkD+AkcWxINj9acAEwrbJDZktRIY1Nd3vKcfGKqCC7z6NtWsacY85/Tj
-	rs5uZ9AnXGnY1fqgflP1yeRe6EA3Vw2sfqn5CGua5DHsNmxc41tKMn3BiX67cdPxWnH5pK7RmFXL9
-	IUTHeTX6f41z0O99DvDaQHH1mlmsdrtiBweyaSpmtsgM/VP/wNV6C1SIafC0M59d4XgBo0JthqZMv
-	om03A5gQ==;
+	bh=+92HIZiD8BjzLF20PEwnQGtt9JR2IY1fehiHqBhK2DE=; b=4dh2gWIyvJrbl04bdfpeR1rNW3
+	BgrpkIoDgj/vRv0ecpHD2iOqbrVbOE+5KT5/Ino+PtBQReewCR5z/xQ6WCGsyz2w7t1s/bLhDo6Xt
+	Tz8sK6D0W6nzmFhJH6aGtpZLqpNMZV3fBRwuj2PVj7+68wAcmv8lknng9UJVMiu2OxxZNjA0QTIQa
+	dOZJVTjA09jJ++/fp73ia0EQQU2GYDLsdKU0cOy+sh58FtKYNlExACAGHl+VXqYDDgZWJVuOTXuji
+	JVZmj3mqj28cMuMK38inYlMPIhQlsTQrwZ4ecm5mtAC+H30o26LNlG3yTx694owR0eXIqQaEo7mj5
+	8MQMkNqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jhY-0000000B7Bn-2KZ0;
-	Thu, 24 Sep 2026 13:41:28 +0000
-Received: from mail-lf2-x10.google.com ([2a00:1450:4864:36::10])
+	id 1x9jlB-0000000B7eN-2quj;
+	Thu, 24 Sep 2026 13:45:13 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9jhU-0000000B7An-1m7s
+	id 1x9jl8-0000000B7dR-3pFz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 13:41:26 +0000
-Received: by mail-lf2-x10.google.com with SMTP id 2adb3069b0e04-5b74dbc7359so1791744e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:41:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790257281; cv=none;
+	Thu, 24 Sep 2026 13:45:12 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OC5Bva1430342
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 13:45:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	+92HIZiD8BjzLF20PEwnQGtt9JR2IY1fehiHqBhK2DE=; b=OXNqTZaW1hVXUEuA
+	RpbpIDZ5ZyZIMz5G3cp/uC/FgcuVeu3hcEkHU+lrs0zGQ9LslzczkcYpfSViC2pQ
+	HDAj2sS5zlACKFUS3vuWUqwcHy/Pirw2f88NsGnJYR7H0RLWPSY9G/qjBuA7oVxg
+	r7JUkZP6oRWhIYTIB6Dlxk0JYowYsovizQ5kDwCHxSzWKeHWGpUMjP2vryZbILNt
+	p4jOnHT3okmy53j8LtMoyl+sGDCmTjkISbe/J+tNphd93NjcoU2TBMXKYrYszQ5t
+	96fw3+VpQemov/UV82Yj085pC3Ts6ZG23ZZMYfL+KsMe2dJihm7aww+cvUEExwLZ
+	/JxeBw==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvvgha9q1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 13:45:10 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2dd7d0751efso8516525ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 06:45:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790257510; cv=none;
         d=google.com; s=arc-20260327;
-        b=KmLmRIvfgd+bY7W1EbJkWEpCeV6RB4KWwuMykW/q+xBB4ZSzypsydf+DU2t8XErHsg
-         ZyKjjtPDmQf5cSJweNvbVsja0STs3Jxo0PE1TSyKkJDh2Ay+8gg3gF+BR1JpNN925SfL
-         go7MXpdCwPDxRdpbKiFqYHCQvQyD3HRYxF6IB2fNcT76tB+tYe16/uC3+v9ZRhr4RmTm
-         4iEWWL8RMm847i9jACb+OE3r68fHzBiLIMgaKDiw+ZPXnWAw9kV41ZZOfAjS7M7uDRT6
-         TF2oNJsbg2Ttf/yTv29YVKHlO1HkVUo4DRFpMagU24szgK3gSW9tLln1dXDbbusCVmqZ
-         CLhQ==
+        b=aqTXcQ63oVnacsSc4cyZ3NcIyy48xt2uoGBMAbzISI+mc8IvbR15/hoGmVgj70z7kn
+         tgx1FjQTB6QIynKCdq7sMa7Xos0FPgrSi0WGy9eJpQwZrX3kEwiW4RFu3Y/0eudDxuav
+         raOGZLJ8fQ43i0N3nLLufEWX75KwZ4JcS9QnifxcCP9C54s0JqyTZyE4ztkC1BGUJ6D2
+         5Fun89QMDFXZ58cWqm7Kfu0WkbGYFiO0nEnmE8FjxlV2C7BxrY0D1jaApZT8JV73KKxR
+         B6tFTSIj19NZsFldrv/8g0dhv3V9yNBaNJvgB5toXznC1F0HN5aTsqg9MldQzZqrlNAf
+         Q1pw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=GGZb92y65Zgpq3x5v+GtiE7R/fU6xpwCAj6PKyWY/vY=;
-        fh=6RWdwuVf2UdnKywsoYN/8iqcUV4Xt2b/nxePCxXaC14=;
-        b=RH9HLxuXuR9cHgK9ShoxHsNKY2CIJd42co4CGn97g6K6MFwU9i+iNwwzwI5Bu4gvfz
-         9tpwAztCiSYgEi3HCdAercP0IOBJAaxHaIWE5xHdHOIGkQHIJaBLgn7Se6W7e316qSHQ
-         rSwv21KLEq4Ms7IFNLe5cnj1ig3yt5K5Tl9Kh8/8+xUUywIfVVVsP0aAcWxfcBddTPUG
-         Fe35Td+YlQSq3N8kT/QfWeGtbPA8CATRzy/MZ1QOrEwaRaTfkzoHNFdwXo1E54iUDUdh
-         lIIdZ3aRLc9nfdMAb9zuPQPE/x9JUDGgpcL2Wj7mm+3dzQSl3c/qFW6lohAYxEAWC/4T
-         bNHQ==;
+        bh=+92HIZiD8BjzLF20PEwnQGtt9JR2IY1fehiHqBhK2DE=;
+        fh=77Hoidn9vDPJAhRw1XyuHm0cxaigijA4GWXOS1In4bU=;
+        b=hd5PHmTmhuUzVbL8ZGluf+DPZzDL1IsLGpDTBbZgcAK7hti0FOt8qJkI0OYjvCwA+W
+         DRK1yZ+QR8u8zeph1+lIvfBKC5t3PZ2PNMXU4JOaNdR0XxV3KdZ88mK1z16z1oikzpVj
+         FEMZFX3BmHRg5oHp3nF0+cfqj9KQTONwN90ZQuGrdVfZHfBCmeS/SWiSo3hur4cDu7gU
+         PMvYj32LsZ415ioH0e23OksFlL5CKLEczX/7lTM2u7AFMCYjBKephY6AQzGQy7WNTdBj
+         zNSO+miUUNdXJk/XJBO7ee5TUxWiYqHWQzRbWj05RIZyMpShqjf//luBUduxiwyXPQhV
+         jWbw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790257281; x=1790862081; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1790257510; x=1790862310; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=GGZb92y65Zgpq3x5v+GtiE7R/fU6xpwCAj6PKyWY/vY=;
-        b=J6IDFwwfi3BF+nfhRXD9bQENN31gfgNEDw400eTGx5zRR/PbcG/xzz195rVEqh1KaH
-         kgpG3rPtZ5xd9mm6Z8Heaznru5JVUvzvjhooYYQn8W+/yqs9sidgvPit1rbtq5PzI2vm
-         AYca2yHPKFcEPkPjMovsNUEVZzhYArEzq7Zd60e2Nmx1UMSiNu5GqK2Xp3WNKcxNx7q2
-         6u0CtqZeUr2jjHmszpoC5MXPhBEmBBFgtvlCF8YAhHZOHGjoX8Hh5RCRaQx5yBGpJTLH
-         iuhW2wd/m4pGAyt4Ax4MtHfYiRkxNUgqXLsoVLcHulyMVlmdLNfb6cxVhgS+qenhychD
-         J+oQ==
+        bh=+92HIZiD8BjzLF20PEwnQGtt9JR2IY1fehiHqBhK2DE=;
+        b=PwjykwjGPFHuJbD61PZmmZPLfbZ2EM7s7dwIjHvhcL8ug0+OteCmFmo4CiE+ds55aW
+         qn9Q4AWX1K2sm4xtRb/9eT7kWfWEsDOm/h71EDwO/W3pVOpyZDnoV30hPU2yYT4VLEfK
+         pzdoRbeD6//1zcinLCAIj4ys7/FAWtHH7LOMKQAdMGdTJNRFyGbOIJs1XmZutWqqHtNS
+         BYG3fjVskl7BjdE2Ym4iFr8NYUshfPKHlr1oqhRIvisOQdihOmE6oBgI2VFJEHRneF+K
+         jTkYxNylBoS5fpgP8qkmjw4wSSGEWv0Aj+ID5165EYtvxvbiqhl4BNuBPatwjrRdYUyi
+         er1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790257281; x=1790862081;
+        d=1e100.net; s=20260707; t=1790257510; x=1790862310;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GGZb92y65Zgpq3x5v+GtiE7R/fU6xpwCAj6PKyWY/vY=;
-        b=KjiGOR/lNNBA8Ytl9lJ4KcMKnxcOi5tY4IrR0P4AcF+5FKP82LdJf5s8SJMZpuqz/2
-         d7rBsHpYd28+jSS0/FRFXiElWaeQap0g82V+dVefL/N++fJUar7tlnSASvu6i8ox+QZT
-         ZHS1hfUucQ7HLLoLNGi7IWn8Ba+FceivVCSruxa5oT7jXUY4h5KCp5yCOVHAmFsQRR9G
-         UZ5ZXJ1EknocNE8Ot7JzUV16e/cUE1X11mmgeGHghXrvkTB6NXcC3sjShewnbtdJTVeQ
-         Ii18SLjt5tctPjB1PemgRecjznG/omA2PGh0FTO6DyRS6N/Ig1xNz/13Xr160sywR5Ni
-         Ataw==
-X-Forwarded-Encrypted: i=1; AKwUvBw3ylBpEOwifo3eSyrBTYdBOfKZO3Zi2g9IjObFWUOSTdWoJXZlInMIvN4AtMyYYzjWBMV2WbEOUkBeFWopMcmV@lists.infradead.org
-X-Gm-Message-State: AFuF++lTOR+z6KBauA/THf4yhlBKcmR+UaQJJi6LkQtl7YcB49W84URF
-	iTvgCRCSVSyvSQOqiSaSYNGGrKuUhp5XdqZTAsTh9JeFtHG2RVW+yA15T4mrUBQwFBYjRXDOfwJ
-	EDiCQiwacOLKgviUfJsFq8lsZWT/eVo4=
-X-Gm-Gg: AYBFou3PtSw4XLRoYKmaU3Y/XcOz19lOW7GA+4t9nPWsOKN5x2Rl37dgNBumi/JDOvx
-	O2kVzENs00kKAnISyMb2DUtv+ZDPsk+mRFMr+qI0GicJwe0atcyJrZfZUAnT8rNkJZ34KsRVTZK
-	ubfRpAqKX9b4LTQvGFoAubAtXaPFUNElW5UlG9kqzYB4mqiLnB3wuYdiFPfQXmF602oDKCMUeF5
-	xm0bh576n6ge6MnOb9013LsEB6PAIo2srkuaR9kruvr7tz8FDpxLG8C8a7Y4WL/FbootnDjhOBF
-	ZTj64BeKFUMLS90+5jA5EW9C9HDFO0aESuwFyAa9ua5UsKmkWlreigQp+y2YKqj0
-X-Received: by 2002:a05:6512:1192:b0:5b8:b3a6:719a with SMTP id
- 2adb3069b0e04-5b8df09d744mr945812e87.30.1790257281161; Thu, 24 Sep 2026
- 06:41:21 -0700 (PDT)
+        bh=+92HIZiD8BjzLF20PEwnQGtt9JR2IY1fehiHqBhK2DE=;
+        b=mfxs2yqdyNahlor2rnInEtqZr/psEeaoQFoxa9x5dtBd/mgHJ/sST24On2iItZBD5p
+         t750z+330QCFZG1VdHCttrktMH4tV4OsCZF3QT4ej4I/Fwo4/eXxphKj+a6/4exfysGS
+         ef5DOO/blZyxRNjqMuy8eBFnq54iYW8rblDWsj/3ZFx1nVLBJGEYwnPAnXcPTPVLGcAv
+         sKYvM5aZA1vvpSqBrQcpjLT/QWrd7bbAr6bzQq8P/tr4q/ov1H7zIVhRPy3QoPULQwtJ
+         qEIxVNwCFmG7i8w4lbPmeSTQg1dY/NVoHnTOSWFd2wC0naSYYRTTlGcABPKr1TiG5ZBu
+         gpxg==
+X-Forwarded-Encrypted: i=1; AKwUvByTCBIfkOvFBWyLekXYhEKQFgt3Gxhlz6X2gmp4AtZZH3CJDjvNwhNjwPGxzGKiqWzAUcGAIJkzCK7PNiB92g30@lists.infradead.org
+X-Gm-Message-State: AFuF++mGz9rRemS/xPlleU2E7FrQn86nYym27TsTf1iAvivQ88d1ZlzP
+	zzCGOP7n+5nC7J0dWTndoeXdZwYrpcLpgbnbPxrNW4PLVabryEmUrgH9srJWr9zD6+2xo0j7J5h
+	EMTg8ZUNQFSPPy7iyj8zAMea9Z7AZrnf04FBLntekomSTwTAWGTbA9sesyDgm9hKKXLhZxgq51q
+	ySrfpssDvOmMGwKF3tNpM0OqJNZqYH3zNZdxhIxo/s9uh6Xm4zKRnc
+X-Gm-Gg: AYBFou3ryy2iEIBIOltP753IQ5fGfiRLn7YV4egvOr9rNcw2bHWcT01fdFy8LECRVlI
+	JGIgRvhwsANnOjqsQtVp7HVcvWlubc4f3hCQAuWBZBswJ+ZtiZewCtn67+HlgZJ5gqAKRNtUdUw
+	jVZ/62CTv1x++oeeGOQG+RCKh8GC55DB7BhO6LiFzUvDv0oM+nf6b+udYfKQ==
+X-Received: by 2002:a17:902:e747:b0:2df:89ac:a9f3 with SMTP id d9443c01a7336-2df89acb234mr4396925ad.30.1790257509535;
+        Thu, 24 Sep 2026 06:45:09 -0700 (PDT)
+X-Received: by 2002:a17:902:e747:b0:2df:89ac:a9f3 with SMTP id
+ d9443c01a7336-2df89acb234mr4396605ad.30.1790257508990; Thu, 24 Sep 2026
+ 06:45:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260917115657.20697-1-maimon.sagi@gmail.com> <178999185805.2160803.2118648689532400433@kernel.org>
-In-Reply-To: <178999185805.2160803.2118648689532400433@kernel.org>
-From: Sagi Maimon <maimon.sagi@gmail.com>
-Date: Thu, 24 Sep 2026 16:40:54 +0300
-X-Gm-Features: AclHuK_mv6cx7MF56HvpPI8ZeHUQyEOf1bmrhadhyKpWsU2yerYqhZUPa9QgwcM
-Message-ID: <CAMuE1bEbupbvFxV4W8ZS5NxMAQP6SvxP=S6DC=+ho-+zkFQ=Vg@mail.gmail.com>
-Subject: Re: [PATCH net v2] net: axienet: bound TX completion cleanup by the
- NAPI budget
-To: netdev-bot+sashiko@kernel.org
-Cc: radhey.shyam.pandey@amd.com, netdev@vger.kernel.org, 
-	robert.hancock@calian.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260921-ux500-power-domains-v7-1-v3-0-9352be6b86b1@kernel.org> <20260921-ux500-power-domains-v7-1-v3-12-9352be6b86b1@kernel.org>
+In-Reply-To: <20260921-ux500-power-domains-v7-1-v3-12-9352be6b86b1@kernel.org>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Thu, 24 Sep 2026 15:44:57 +0200
+X-Gm-Features: AclHuK8823By2ir4rvAhJl6ftcMi5z7VMEo6jrXMBPTc2AtobSCQW7MLn1qCZ9I
+Message-ID: <CAPx+jO-3aZXatF+zL=G_cG0QaSjjCPrdhpXOGZC+_zNYxjsP1w@mail.gmail.com>
+Subject: Re: [PATCH v3 12/18] pmdomain: st: ux500: Control DB8500 EPODs
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Mark Brown <broonie@kernel.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+        Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=KYhHIgYD c=1 sm=1 tr=0 ts=6ab52966 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8 a=-O4hDVTBhx9-GJANRbkA:9
+ a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-GUID: PfpBXckBhpCFnUL1EtGQx20BIgw8q1BY
+X-Proofpoint-ORIG-GUID: PfpBXckBhpCFnUL1EtGQx20BIgw8q1BY
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA1NiBTYWx0ZWRfX4tjrEnnFi5O5
+ ZofhH1vGfOOBJg8fZL1ejzjLV2tl0OuKKJc2e4/zsBJM5g4Dbx8OfiEeVQW71pAJBCUGwUfRClo
+ 8FJHCsSnbSPg/RNlzJzq08Oi8eyvnRY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA1NiBTYWx0ZWRfX2jkCefQaAnfq
+ 3pgIGx+mu4ja8t6d8m0X+ygFiyPdGbh6aDIKu35XmQRC7Ya+bst9z8b95LbEYvi5DKj4Y1LshDT
+ kn2D9i+fkjMUGp9KKM3qyp6i5S78vHlvzsUhzmsV4n2hmUrXMWUQoZ5gAuSeG6ZQRzCAxApB4U5
+ BKVtdYeORJqm+XI1JYcnFdnFGi5pyqryYK/d94pPEp2yuk8I6lixZH9FdGuAGpklKpxBb67v2Vv
+ auWVTc8Yl4xPsMn0y6fZ3Fc7+7v5BwN7ysYD1MFsNsg2TaH5XXTkgF0Mi5aaQpUbyxd7H3wV2bv
+ rC9vfShAxCmdLRtb/x8hkNJjQVxfszdCf97eppmyu1ZTGdm4Yz0RDU/MJWcI6juynCcZzU7CSEd
+ gOeQ+OexY4kaMNY9ZQmsQbv9/T69Zy5k1rhbEsOOR3aZrcXsjAIcZrNj4FxG8lH4cVYdSvoSmMd
+ Ut+Vas6Fze81nHU/ixg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-24_03,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ clxscore=1015 spamscore=0 suspectscore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609240056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_064124_525360_C406FB8C 
-X-CRM114-Status: GOOD (  49.17  )
+X-CRM114-CacheID: sfid-20260924_064510_964119_7688494F 
+X-CRM114-Status: GOOD (  31.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,220 +170,303 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 2:57=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
+On Mon, Sep 21, 2026 at 12:49=E2=80=AFAM Linus Walleij <linusw@kernel.org> =
+wrote:
 >
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
+> Move the DB8500 EPOD state handling into the Ux500 power-domain driver.
 >
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 0 (1) =C2=B7 Low: 0
+> Keep the old regulator driver mutually exclusive with the pmdomain driver=
+.
 >
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
+> Assisted-by: LLM
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  arch/arm/mach-ux500/Kconfig               |   2 +-
+>  drivers/pmdomain/st/ste-ux500-pm-domain.c | 355 +++++++++++++++++++++---=
+------
+>  drivers/regulator/Kconfig                 |   1 +
+>  3 files changed, 254 insertions(+), 104 deletions(-)
 >
-> - [High] Incomplete fix: the new budget guard in axienet_free_tx_chain()
->   is disabled when @budget =3D=3D 0 (`if (!force && budget && packets >=
-=3D=E2=80=A6
+> diff --git a/arch/arm/mach-ux500/Kconfig b/arch/arm/mach-ux500/Kconfig
+> index c18def269137..56636c993f49 100644
+> --- a/arch/arm/mach-ux500/Kconfig
+> +++ b/arch/arm/mach-ux500/Kconfig
+> @@ -26,7 +26,7 @@ menuconfig ARCH_U8500
+>         select PL310_ERRATA_753970 if CACHE_L2X0
+>         select PM_GENERIC_DOMAINS if PM
+>         select REGULATOR
+> -       select REGULATOR_DB8500_PRCMU
+> +       select UX500_PM_DOMAIN
+>         select REGULATOR_FIXED_VOLTAGE
+>         select SOC_BUS
+>         select RESET_CONTROLLER
+> diff --git a/drivers/pmdomain/st/ste-ux500-pm-domain.c b/drivers/pmdomain=
+/st/ste-ux500-pm-domain.c
+> index d90a563cd6f3..b31a36a4acd1 100644
+> --- a/drivers/pmdomain/st/ste-ux500-pm-domain.c
+> +++ b/drivers/pmdomain/st/ste-ux500-pm-domain.c
+> @@ -6,174 +6,292 @@
+>   *
+>   * Implements PM domains using the generic PM domain for ux500.
+>   */
+> +#include <linux/cleanup.h>
+>  #include <linux/device.h>
+> -#include <linux/kernel.h>
+> -#include <linux/platform_device.h>
+> -#include <linux/printk.h>
+> -#include <linux/slab.h>
+>  #include <linux/err.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mfd/db8500-prcmu.h>
+> +#include <linux/mutex.h>
+>  #include <linux/of.h>
+> +#include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+> +#include <linux/slab.h>
 >
-> Pre-existing issues:
-> - [Medium] Pre-existing (not introduced or claimed to be fixed by this
->   patch): axienet_dma_bd_release()=E2=80=A6
+>  #include <dt-bindings/arm/ux500_pm_domains.h>
 >
-> --
+>  #define NR_DOMAINS             (DOMAIN_ESRAM_34 + 1)
+> +#define UX500_EPOD_NONE                NUM_EPOD_ID
 >
-> net: axienet: bound TX completion cleanup by the NAPI budget
->
-> The patch adds a budget check to axienet_free_tx_chain() so the TX
-> completion loop stops on a packet boundary once the NAPI budget is spent,
-> and treats a budget of zero as "no limit" so the netpoll TX reclaim and t=
-he
-> @force callers still drain the ring.  The kernel-doc for @budget is updat=
-ed
-> to match.
->
-> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/driver=
-s/net/ethernet/xilinx/xilinx_axienet_main.c
-> > index 1722b7038f340..039885814a5d2 100644
-> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > @@ -772,7 +772,9 @@ static int axienet_device_reset(struct net_device *=
-ndev)
-> >   * @force:   Whether to clean descriptors even if not complete
-> >   * @sizep:   Pointer to a u32 accumulating the total byte count of
-> >   *           completed packets (using skb->len). Ignored if NULL.
-> > - * @budget:  NAPI budget (use 0 when not called from NAPI poll)
-> > + * @budget:  NAPI budget. When @force is false, cleanup stops after th=
-is
-> > + *           many completed packets. Zero means no limit, as used by t=
-he
-> > + *           netpoll TX reclaim and by callers outside NAPI poll.
-> >   *
-> >   * Would either be called after a successful transmit operation, or af=
-ter
-> >   * there was an error when setting up the chain.
-> > @@ -788,6 +790,15 @@ static int axienet_free_tx_chain(struct axienet_lo=
-cal *lp, u32 first_bd,
-> >       dma_addr_t phys;
-> >
-> >       for (i =3D 0; i < nr_bds; i++) {
-> > +             /* A NAPI poll must not return more than its budget.  Sto=
-p on a
-> > +              * packet boundary once it is spent - cur_p->skb is only =
-set on
-> > +              * a packet's last descriptor, so no packet is left half-=
-freed.
-> > +              * A zero budget means no limit: netpoll polls with a bud=
-get of
-> > +              * 0 to reclaim the TX path only, and must still clean th=
-e ring.
-> > +              */
-> > +             if (!force && budget && packets >=3D budget)
-> > +                     break;
-> > +
->
-> [Severity: High]
-> With the "budget &&" term, is the case the commit message is about still
-> reachable on the netpoll path?
+> -static int pd_power_off(struct generic_pm_domain *domain)
+> +/**
+> + * struct dbx500_powerdomain_info - dbx500 power domain information
+> + * @genpd: generic power domain
+> + * @epod_id: id for EPOD (power domain)
+> + * @is_ramret: RAM retention switch for EPOD (power domain)
+> + */
+> +struct dbx500_powerdomain_info {
+> +       struct generic_pm_domain genpd;
+> +       u16 epod_id;
+> +       bool is_ramret;
 
-Yes.  For a budget of 0 the loop drains the ring and axienet_tx_poll()
-then returns the reclaimed count, which can trip the WARN_ONCE() in
-poll_one_napi().  That was already reachable before this patch, while the
-loop was unbounded, but since the patch is about honouring the budget it
-should cover this case as well.  v3 returns "budget ? packets : 0" from
-axienet_tx_poll() as you suggest, keeping the accounting and the queue
-wake.
+This one is unused for the defined power domains. Is the plan to add
+support for this on top, later on?
 
+> +};
+> +
+> +static DEFINE_MUTEX(ux500_pd_lock);
+> +static bool epod_on[NUM_EPOD_ID];
+> +static bool epod_ramret[NUM_EPOD_ID];
+> +
+> +static int enable_epod(u16 epod_id, bool ramret)
+>  {
+> -       /*
+> -        * Handle the gating of the PM domain regulator here.
+> -        *
+> -        * Drivers/subsystems handling devices in the PM domain needs to =
+perform
+> -        * register context save/restore from their respective runtime PM
+> -        * callbacks, to be able to enable PM domain gating/ungating.
+> -        */
+> +       int ret;
+> +
+> +       if (ramret) {
+> +               if (!epod_on[epod_id]) {
+> +                       ret =3D db8500_prcmu_set_epod(epod_id, EPOD_STATE=
+_RAMRET);
+> +                       if (ret < 0)
+> +                               return ret;
+> +               }
+> +               epod_ramret[epod_id] =3D true;
+> +       } else {
+> +               ret =3D db8500_prcmu_set_epod(epod_id, EPOD_STATE_ON);
+> +               if (ret < 0)
+> +                       return ret;
+> +               epod_on[epod_id] =3D true;
+> +       }
+> +
+>         return 0;
+>  }
 >
-> For a budget of 0 the guard never fires, so axienet_free_tx_chain() walks=
- up
-> to lp->tx_bd_num descriptors and increments packets for every completed
-> descriptor with a non-NULL cur_p->skb.  axienet_tx_poll() then returns th=
-at
-> count verbatim:
+> -static int pd_power_on(struct generic_pm_domain *domain)
+> +static int disable_epod(u16 epod_id, bool ramret)
+>  {
+> -       /*
+> -        * Handle the ungating of the PM domain regulator here.
+> -        *
+> -        * Drivers/subsystems handling devices in the PM domain needs to =
+perform
+> -        * register context save/restore from their respective runtime PM
+> -        * callbacks, to be able to enable PM domain gating/ungating.
+> -        */
+> +       int ret;
+> +
+> +       if (ramret) {
+> +               if (!epod_on[epod_id]) {
+> +                       ret =3D db8500_prcmu_set_epod(epod_id, EPOD_STATE=
+_OFF);
+> +                       if (ret < 0)
+> +                               return ret;
+> +               }
+> +               epod_ramret[epod_id] =3D false;
+> +       } else {
+> +               if (epod_ramret[epod_id]) {
+> +                       ret =3D db8500_prcmu_set_epod(epod_id, EPOD_STATE=
+_RAMRET);
+> +                       if (ret < 0)
+> +                               return ret;
+> +               } else {
+> +                       ret =3D db8500_prcmu_set_epod(epod_id, EPOD_STATE=
+_OFF);
+> +                       if (ret < 0)
+> +                               return ret;
+> +               }
+> +               epod_on[epod_id] =3D false;
+> +       }
+> +
+>         return 0;
+>  }
 >
-> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_tx_poll() {
->         packets =3D axienet_free_tx_chain(lp, lp->tx_bd_ci, lp->tx_bd_num=
-, false,
->                                         &size, budget);
->         ...
->         if (packets < budget && napi_complete_done(napi, packets)) {
->         ...
->         return packets;
-> }
->
-> netpoll is the caller that enforces the invariant:
->
-> net/core/netpoll.c:poll_one_napi() {
->         /* We explicitly pass the polling call a budget of 0 to
->          * indicate that we are clearing the Tx path only.
->          */
->         work =3D napi->poll(napi, 0);
->         WARN_ONCE(work, "%pS exceeded budget in poll\n", napi->poll);
->         ...
-> }
->
-> lp->napi_tx is on dev->napi_list (netif_napi_add(ndev, &lp->napi_tx,
-> axienet_tx_poll) in axienet_probe()), so netpoll_poll_dev()->poll_napi()-=
->
-> poll_one_napi() reaches axienet_tx_poll() with budget 0.  If netconsole o=
-r
-> kgdboe is active on the interface and at least one TX descriptor has
-> XAXIDMA_BD_STS_COMPLETE_MASK set with cur_p->skb !=3D NULL, doesn't that =
-poll
-> return non-zero work for a budget of 0 and trip the WARN_ONCE?
->
-> The "packets < budget" test is also false for budget 0, so
-> napi_complete_done() is skipped on that pass, which is the secondary symp=
-tom
-> the changelog describes.
->
-> Would it work better to keep the unlimited reclaim for budget 0 (it is
-> already bounded by lp->tx_bd_num) but have axienet_tx_poll() report
-> "budget ? packets : 0", while still doing the byte/packet accounting?
->
-> The new kernel-doc says zero means "no limit, as used by the netpoll TX
-> reclaim".  netpoll asks for two things: drain the TX path, and report zer=
-o
-> work.  Could the kernel-doc and the in-loop comment mention both?
+> +
+> +static int pd_power_off(struct generic_pm_domain *domain)
+> +{
+> +       struct dbx500_powerdomain_info *info =3D
+> +               container_of(domain, struct dbx500_powerdomain_info, genp=
+d);
+> +       int ret =3D 0;
+> +
+> +       guard(mutex)(&ux500_pd_lock);
+> +       if (info->epod_id < NUM_EPOD_ID)
+> +               ret =3D disable_epod(info->epod_id, info->is_ramret);
+> +
+> +       return ret;
+> +}
+> +
+> +static int pd_power_on(struct generic_pm_domain *domain)
+> +{
+> +       struct dbx500_powerdomain_info *info =3D
+> +               container_of(domain, struct dbx500_powerdomain_info, genp=
+d);
+> +       int ret =3D 0;
+> +
+> +       guard(mutex)(&ux500_pd_lock);
+> +       if (info->epod_id < NUM_EPOD_ID)
+> +               ret =3D enable_epod(info->epod_id, info->is_ramret);
+> +
+> +       return ret;
+> +}
+> +
+>  /*
+>   * Apart from these voltage domains there is also VSAFE which is always
+>   * on. Vape_esram0_pwr for eSRAM0 is connected to VSAFE.
+>   */
+> -static struct generic_pm_domain ux500_pm_domain_vape =3D {
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vape =3D {
+>         /* Vape_pwr */
+> -       .name =3D "VAPE",  /* 0.95 .. 1.20 V */
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +       .genpd =3D {
+> +               .name =3D "VAPE",  /* 0.95 .. 1.20 V */
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
 
-Will do.
+Several power domains below share this epod_id. What does that really
+mean? Or is this only temporary?
 
+>  };
 >
-> One more nit on the changelog:
+> -static struct generic_pm_domain ux500_pm_domain_varm =3D {
+> -       .name =3D "VARM",
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_varm =3D {
+> +       .genpd =3D {
+> +               .name =3D "VARM",
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
 >
->   "Zero therefore means no limit, which also covers the @force callers th=
-at
->   clean up after a DMA mapping failure with a budget of 0."
+> -static struct generic_pm_domain ux500_pm_domain_vmodem =3D {
+> -       .name =3D "VMODEM",
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vmodem =3D {
+> +       .genpd =3D {
+> +               .name =3D "VMODEM",
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
 >
-> The guard is already gated on !force, so the @force callers are unaffecte=
-d by
-> the value of @budget here.
+> -static struct generic_pm_domain ux500_pm_domain_vpll =3D {
+> -       .name =3D "VPLL", /* 1.8 V */
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vpll =3D {
+> +       .genpd =3D {
+> +               .name =3D "VPLL", /* 1.8 V */
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
+>
+>  /*
+>   * CHECKME: as these are used directly by peripherals as regulators,
+>   * perhaps they should stay in the regulator subsystem?
+>   */
+> -static struct generic_pm_domain ux500_pm_domain_vsmps1 =3D {
+> -       .name =3D "VSMPS1", /* Also called VIO (1.2V) */
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vsmps1 =3D {
+> +       .genpd =3D {
+> +               .name =3D "VSMPS1", /* Also called VIO (1.2V) */
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
+>
+> -static struct generic_pm_domain ux500_pm_domain_vsmps2 =3D {
+> -       .name =3D "VSMPS2", /* Also called VIO (1.8V) */
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vsmps2 =3D {
+> +       .genpd =3D {
+> +               .name =3D "VSMPS2", /* Also called VIO (1.8V) */
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
+>
+> -static struct generic_pm_domain ux500_pm_domain_vsmps3 =3D {
+> -       .name =3D "VSMPS3",
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vsmps3 =3D {
+> +       .genpd =3D {
+> +               .name =3D "VSMPS3",
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
+>
+> -static struct generic_pm_domain ux500_pm_domain_vrf1 =3D {
+> -       .name =3D "VRF1",
+> -       .power_off =3D pd_power_off,
+> -       .power_on =3D pd_power_on,
+> +static struct dbx500_powerdomain_info ux500_pm_domain_vrf1 =3D {
+> +       .genpd =3D {
+> +               .name =3D "VRF1",
+> +               .power_off =3D pd_power_off,
+> +               .power_on =3D pd_power_on,
+> +       },
+> +       .epod_id =3D UX500_EPOD_NONE,
+>  };
 
-Right, that sentence is wrong.  v3 drops it.
+[...]
 
->
-> [Severity: Medium]
-> This isn't a bug introduced by this patch, but while looking at the TX
-> reclaim path: does axienet_dma_bd_release() leak the outstanding TX skbs =
-and
-> their streaming DMA mappings?
-
-Yes.  It is independent of this patch, so I will send it as a separate
-fix rather than fold it in.
-v3 follows.  It passes traffic on hardware; the over-budget and netpoll
-cases themselves were not exercised.
-
->
-> The RX side walks the ring and cleans up:
->
-> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:axienet_dma_bd_release(=
-) {
->         for (i =3D 0; i < lp->rx_bd_num; i++) {
->                 ...
->                 dev_kfree_skb(lp->rx_bd_v[i].skb);
->                 ...
->                 dma_unmap_single(lp->dev, phys, lp->max_frm_size, DMA_FRO=
-M_DEVICE);
->         }
->         ...
->         /* If we end up here, tx_bd_v must have been DMA allocated. */
->         dma_free_coherent(lp->dev,
->                           sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
->                           lp->tx_bd_v,
->                           lp->tx_bd_p);
-> }
->
-> The TX ring is freed with no equivalent pass over lp->tx_bd_v, so descrip=
-tors
-> between lp->tx_bd_ci and lp->tx_bd_tail keep their cur_p->skb and their
-> dma_map_single() mapping.
->
-> axienet_stop() disables TX reclamation before the release, so nothing can=
- run
-> afterwards:
->
->         napi_disable(&lp->napi_tx);
->         ...
->         axienet_dma_stop(lp);
->         cancel_work_sync(&lp->dma_err_task);
->         free_irq(lp->tx_irq, ndev);
->         free_irq(lp->rx_irq, ndev);
->         axienet_dma_bd_release(ndev);
->
-> So an "ip link set down" or a driver unbind with frames in flight would l=
-ose
-> up to lp->tx_bd_num skbs and mappings.  The budget cap added here can lea=
-ve
-> completed-but-unreclaimed descriptors around for a later poll, which slig=
-htly
-> widens the window, but the leak is independent of this change.
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20260917115657.20697-1-maimon.sagi%40gmail.com
+Kind regards
+Uffe
 
