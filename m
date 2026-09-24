@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC11C98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37880C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 10:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DpoiKQK/pAK6+VRgnar1lFxM3UetYvMfvKdfg6sGSU=; b=YSIl7tAY3yGlptQLL1ylwOrtqN
-	44aM+I+Ur2G7VJnelW5Ry8zFRkwjAJ7Nc22FiHYXfHM6CFGUB6h2WDrxV/s+kwZi0O9zeU0h+9tZk
-	138wlMeYTspvd7rJzES2pZoSTaoTkJD7BpCEC4JmxH8pHbgFHEv5x6ivwq0EYSJKkZ2IAkLyTR00r
-	mXIWGsXx3f9dq81UNWvgDP4t46KA5Ldso5zLBonsxB7jAhFA0Q1rA01dOk0j52zeZst/fvvV1LV1q
-	sLc9zuHGKML4X2viMuVSqTGVQnMdzywDv5wq5fimhFEI1UmckarDN6UB3Ph+8UJ8+56O/EWpA0Bip
-	KONEJAhA==;
+	bh=0W5JnVFCLxYHk1UjZyoXr3Q03Be4HN+iUOU48SNzDLU=; b=YpMQ02L6tTWFMvFuwEndf6JsKe
+	KF38mdu8xM+7zsozCNh+8ckmGevjbfieodXZYHjdImAP443fBGwouk4p7aHAcpGnuxuYosRtvIkbl
+	f3wVbcF1rSJ1NdT5RgZTKmXYLEjHhhdNtjd+6cl01uLWdLt/mPFsDkD+Y7r6l2qcu1fdYzX1+H38q
+	DxwmSWyPoiEVBLhiuUrNHgzYY/zxFZ3JQ7SUbXk3Cv8YwP+icy28peDGnRbCx+upPcfbSoCGYpfhu
+	9tAmQWhmNxko0typfgN72U1o0qniA3YAups9VCNDXXHCv1VLy6jsh+/RugCqlA1w/KDEWMBHW3x5R
+	7PBea53Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gbh-0000000Ahlm-2qz2;
-	Thu, 24 Sep 2026 10:23:13 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1x9gbs-0000000Ahta-0FB4;
+	Thu, 24 Sep 2026 10:23:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gbZ-0000000AhhD-2YHy;
-	Thu, 24 Sep 2026 10:23:06 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 382717A00A3;
-	Thu, 24 Sep 2026 06:23:04 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 24 Sep 2026 06:23:04 -0400
+	id 1x9gbq-0000000Ahrz-2bH0;
+	Thu, 24 Sep 2026 10:23:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=0W5JnVFCLxYHk1UjZyoXr3Q03Be4HN+iUOU48SNzDLU=; b=cigihs4SZMt3nZzeOVOrbT6GhU
+	/rXXPWefSHmPokYELR7vmLBFPjLnZMigBO030zXXBT2EvPWUvNyjXAkKspLqnMOhuy1qnjfPIu1fq
+	f3R2KPLofe+PxHRsQlvwDS92BmqbFn1jLiFjAYLkot6wo0DSM5YhmUBUN2JlU1Q8BGnkLq4kA2Uet
+	BTFa5ROsF/Wzgp7FwXqP9Dn5gni1DrvGdgBTnTTAINuXalrsVnKElDMInRCwOJHvJFAWL0saeVqqd
+	VDl66A/vhj5iGyulGJhR9Hl8mbC8D2nZArqNI3gyjNSDUQ4PKtF0j2L8/bqzZ8p/lf/acsZ1p4+Ui
+	846xSbLw==;
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9gbn-0000000Fq43-0jxM;
+	Thu, 24 Sep 2026 10:23:21 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 92E537A0050;
+	Thu, 24 Sep 2026 06:23:16 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-11.internal (MEProxy); Thu, 24 Sep 2026 06:23:17 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1790245384; x=
-	1790331784; bh=0DpoiKQK/pAK6+VRgnar1lFxM3UetYvMfvKdfg6sGSU=; b=K
-	ktBEdoU5gsFnD9KybH5juVltRRIhaJKOM4BE7uUIdllRfXZ9DZUK6DqlhY79sF1U
-	5F0dhr2Stbm5/l6bHj2kKL7Nz0OHDOakqphB+MLts5Lu2cEKhFEP+PqUQlBtAaKL
-	ugjmNhlfe7riT3FOBHhAL+6fyhEhImgqCmLMJqK8uH+icQnM8pYzck02uXMyIBZD
-	yU6If62/RLT9nNpzySsfyeBGDUTjVuZDbdn3/pYsFVh19+wUa74q7L7uMFLBhgEs
-	gJw8wFwEN4ag/Nf+8ZVWnzSJ/bA2THdqE8EMeEl35xPYBLFDGaZnVBdrmlU4N0R4
-	zQf37PAka75wJ9xfgRBOQ==
+	:reply-to:subject:subject:to:to; s=fm3; t=1790245396; x=
+	1790331796; bh=0W5JnVFCLxYHk1UjZyoXr3Q03Be4HN+iUOU48SNzDLU=; b=k
+	2HLPlEejb9pP8mRrnqLmiyjsERmIHvRvUOiOBxuTLdmioy/gJW+GUxjmx+KS0IL1
+	wdL0IdG+kHdaxivJt19PSDaZ3RnG7YfGKLSoYhNONgYoWHg0mNSy+cVGSeMZSZNL
+	RlT4IDkaNPMibk3cBfFff+bxZwZSSCSb5m6/Ly/XTNS4U6wqeQ5GKBdxUdsk9dFA
+	fJQ3uWKl5QlOAMxPBufacp6/5v9wpWEOtztQccTLoXhSeQlk6vYzTOFYKgQ5vCX/
+	3ZFyZpCxSQm/J2UL2A7eKFILnAAjruV5g4qLkAHepyoAT0I543BEtzNR0nWIrpFB
+	/qvr1hkTvy8r7+4v65Ffw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1790245384; x=1790331784; bh=0
-	DpoiKQK/pAK6+VRgnar1lFxM3UetYvMfvKdfg6sGSU=; b=I8xdiyIsE026WTQN4
-	pEfp2huSywhP/VeSkH4+5ookcPh9hOSIzvT22dS7j1HbSgFHmGnL+DxxZ92BDDQ8
-	eF4CENe62HBunk0w1lhXj23b/ozeNRLO1AValH+OkflaiTEgp8cf+flUDbW4e+Bc
-	g7pUTN4oEgg8LHMgetOnmpd2iySkzV0VFUeOgdbwHr0FztLbGxeKqA3W+G44i0y4
-	/2C3TNj3VwUsFB4Za+2AhKjtinOr2Bk7FFFcb2DlLEm67oXM8F9k6q+XoRbZ1M3D
-	XsGs4I/4dYDbdRMi6NmIQYPi18MzqGSgwVLgCD3NKJw33iM85GQSMZiSmREL+umf
-	xSixw==
-X-ME-Sender: <xms:B_q0alprBRrZruDSS7U-ZBIIVr62GWQe34_lsauIxJJ35FHQO2PTUw>
-    <xme:B_q0aoaaLDdtqZb89gYY4Z-kh6wNoHLs7a9VHcWcfDs8DH46kr5VotWM3JWyNMwDv
-    UYlcpIgYoHDPuxESzSBJohozGa3vFMF7QcWDP9T9vfljp5Sk2zTwAA>
-X-ME-Received: <xmr:B_q0arFeH2Y-0NAsERy9kMTcx5Bi0wnWo-a5RVOt9ksZ0PvjxwMm6MrTN0UOoiJ0cQFx_p5j1Q>
-X-ME-Proxy-Cause: dmFkZTFedTl3F1DIrTHCICe4Fo+6yuH2iIryXb4vaD1hJk5uz+D3fdxBaPEGleMmtjQ9jj
-    /AH1EkwAh8wKmQiLT/9bSvDiQhW+TZmRyikvMLrEzAS6A5ogRqUhM4yxUxSgAmF4L6zbNq
-    JU1CrDOUHEJdjtSdpDsxEskFn/aWSY8EhEM69IoGnovQNyACerECRpwt+2pE+OuDo6j5C2
-    BOOC64LiXafVGJCK8SqFHoQAP2FF+TvLHYjrI91po4XURVMn1pQeIKHxydNlGe/KKK+FAO
-    2AUxd7OWs8ZDGv/h0aNNMjxPVGQhrAw5D/31vFjHI5S7swl3HoagxPlYCWUyU9dgrzlHFV
-    9ued//M7bvfNrjaALGaNXU06mxZi2UVe0kaRvozT0as1aZOpp9EU8g9PKO6raYXt8sp0g+
-    T0b8yZtwROIYhaU2kCcRXrEGtPCrg9SK6NH0hjcZxU7n3SzsPlubWw+UZlSoaU40myTd3R
-    HPzUd2zt/Q7bohcpmKKOhNGyGQP0pw3tVyDtlx7y0zKyeMqenYPrJyXkvKK2LFlAxI0K5W
-    DJK6B7aQwBizD50zHV1Z8RHuIVdIb4YO4EOUBIt/HlpC7PDhl1jbkEyr5hTe1pbZlGPBGp
-    N5c4Ktr0hrHSIRL4fkh710iSkOvTtY2cpi5nssX6Mhx00NE5u+avreaEBc5w
-X-ME-Proxy: <xmx:B_q0aoztOLntchIIP8UiIyxd7L2dMcl72afwZNX17XfJ1iT9PQAXxw>
-    <xmx:B_q0akAvi0IM_Os0cEc3oyuhgI3xA8tLvaQzmYOE80mDou6V_xVieA>
-    <xmx:B_q0avUNyscvgScdMZ18LuhRFgl_kP3vgyOwEWUXdC-HKgO7fHlAQw>
-    <xmx:B_q0aujJQu-tACx60G-UT8PgvUxmK7geTtqY3e-WR2bbTVi0UiCzww>
-    <xmx:CPq0as4uoDYYSWw7WsmYlIo5edFF2Gw3vCrhc3EVY4InOp35k6c8eCbG>
+	:x-me-sender:x-sasl-enc; s=fm1; t=1790245396; x=1790331796; bh=0
+	W5JnVFCLxYHk1UjZyoXr3Q03Be4HN+iUOU48SNzDLU=; b=A9ddJAqVJtOtV0xxr
+	fQg1TTWnnP4pV3jMEJER0sM70Ic5tBGNskFdGxg6RHnxFShdHrM23UoSfQTX/0KX
+	UW4HfFwwYkItIknZfMrhJEuo0/kv1ntWRdbKwfrY7Q7C5gbDMUmCzNscjh+ZONDv
+	3nXoZ5B4I/LuUfkCCeU17qgTBS0gh3thj4qr45uy9rot2KBNYpS2Fay/pktZBgDJ
+	F5Gz7nxBD7MwLUcJnQayRs8zXIB3NNQE8sFC0V7+8JYaMObIh/w+qqwSkGGNboYF
+	57Iwh/tx1QN0lxdgplcnlsnrp1cGvAtIUSsU0TumL1UXGRFJ4Vgs9jSw7+Mml6fI
+	o/6aQ==
+X-ME-Sender: <xms:FPq0ailwg7NEJlE1x3fU0pta-G1N8yTVsD9iNZ33fvCVZG3LxYBETQ>
+    <xme:FPq0agyZGnP2TIOY1TPEKy7L2qX0WgqFrW2WZeXqhQMJSk9wdxk8_FJWTryDfOGTj
+    DcNQL5t0dxjoNVlLm1cyVAfWgnINyIp5akLSiq6cZoBcPUbDBJOpDfy>
+X-ME-Received: <xmr:FPq0anGdpPI4ML1HUwcWAFAObVHVHvEDURQ-Vdu0pgTtZR-yzN6-JGZQFRGnzmDrWcRlP9QOGg>
+X-ME-Proxy-Cause: dmFkZTELq7rC+LQVqiu/gcrSH3aInYY6gqrtJb1TMhDbAHvO04JQUIIHP3AFK/JZDFnirr
+    /LCS7iwIa0Xn3NY3ypfX3W953vSm1XzbcZTwhAbuWyVGzgkCbGAWpfOaYhj6B16GvJSCX6
+    j9yOIbo4VBTCIiPp27EHHIubtOZXziLgUan/aTl4K4IJw1TqkjRza++6PmB6uJ+DpQggDO
+    HsQuFi9Uyp2gAbqQUqYHBWDuFQ3fwlHpxuZfcA/JbYFpIbiJqlD14oJ08B7l+dcCfBpRyD
+    JZQhuxiPH/LTeCuOXO871QB5Yhln6qenlq1xKTn00dvKOR7LaB/1kGkjkZ8yWC1Ka1/5AO
+    n1EQwr4pL2AhHCF4Pq/sLT/m3SVj5WKGAFhVqfM0coMMOBy/vvntl8ymimqgTgB5AWUs9M
+    CSc2OS0tkrzCxUS9/SMT2gFU+Me8A5qZGa23Q6M09XCn2nsz3nk2WRVM0GOtrPGObdiut8
+    hYQPbqyfVQGma2R+4m85+VDLN1CVuMMF2YZk+ZgyYZ23uviQUd7mUbIhdYz250WjACHGDP
+    kvUCXerzRZmR8UOceNaaNq1ChOHcINfMpQjVHBq4rQSdiYbXrhkm/xdCIPHf0ibQr2tnzY
+    3XhpV2C0TCLza+5wINgeiAW7w+gCMQq0i+3iBAck2+6aH05jx+eYSGPkH9eQ
+X-ME-Proxy: <xmx:FPq0alGYKZlQKWSZT-lx1qkEwJ1NuPag7QVS8lRYxU4_vVe4lYOR5w>
+    <xmx:FPq0aiDQ_2sBo6f3mj31XwXwJd6WJiPl8CF_stUly1KUD8uXmS4d4Q>
+    <xmx:FPq0as_zBrSqgTKo42O-P9Jti0jAN9zkOU6TYpkT8avsIHHTZISopA>
+    <xmx:FPq0ascLqAWwlDF4ek3bYQOmLBHu9hG1SYiHyFdLS9PgF8agC3e7Ww>
+    <xmx:FPq0ahFp7_8T78yjJhbRD7cJrR5CawgTu5A2ROCZcR9ItVtZhUDQL1dq>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 24 Sep 2026 06:22:54 -0400 (EDT)
+ 24 Sep 2026 06:23:07 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: tomeu@tomeuvizoso.net,
 	heiko@sntech.de,
@@ -106,18 +120,18 @@ Cc: royalnet026@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jiaxing Hu <gahing@gahingwoo.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v14 06/15] dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
-Date: Thu, 24 Sep 2026 22:21:26 +1200
-Message-ID: <20260924102135.92217-7-gahing@gahingwoo.com>
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v14 07/15] dt-bindings: power: rockchip: allow resets in a power domain node
+Date: Thu, 24 Sep 2026 22:21:27 +1200
+Message-ID: <20260924102135.92217-8-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260924102135.92217-1-gahing@gahingwoo.com>
 References: <20260924102135.92217-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_032305_694727_4C56EB17 
-X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-CacheID: sfid-20260924_112319_854856_C3178E55 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,108 +147,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3576 NPU has two cores of the RKNN block this binding describes, with
-two extra CBUF clocks, two power domains per core, one reset instead of
-two, and no SRAM supply. Widen the properties and pin each SoC to its own
-shape in allOf; sram-supply stays required for RK3588.
+Some domains need a reset cycled once power is on. The RK3576 NPU domains
+are one: without it the first access after power-on takes an async SError.
 
 Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
- .../npu/rockchip,rk3588-rknn-core.yaml        | 47 +++++++++++++++++--
- 1 file changed, 44 insertions(+), 3 deletions(-)
+ .../bindings/power/rockchip,power-controller.yaml         | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-index caca2a490..3b611b64c 100644
---- a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-+++ b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-@@ -21,6 +21,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index b41db576f..83741f048 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -136,6 +136,13 @@ $defs:
+           A number of phandles to clocks that need to be enabled
+           while power domain switches state.
  
-   compatible:
-     enum:
-+      - rockchip,rk3576-rknn-core
-       - rockchip,rk3588-rknn-core
- 
-   reg:
-@@ -33,14 +34,18 @@ properties:
-       - const: core # Main NPU core processing unit registers
- 
-   clocks:
--    maxItems: 4
-+    minItems: 4
-+    maxItems: 6
- 
-   clock-names:
-+    minItems: 4
-     items:
-       - const: aclk
-       - const: hclk
-       - const: npu
-       - const: pclk
-+      - const: aclk_cbuf
-+      - const: hclk_cbuf
- 
-   interrupts:
-     maxItems: 1
-@@ -51,12 +56,15 @@ properties:
-   npu-supply: true
- 
-   power-domains:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
- 
-   resets:
-+    minItems: 1
-     maxItems: 2
- 
-   reset-names:
-+    minItems: 1
-     items:
-       - const: srst_a
-       - const: srst_h
-@@ -75,7 +83,40 @@ required:
-   - resets
-   - reset-names
-   - npu-supply
--  - sram-supply
++      resets:
++        maxItems: 1
++        description:
++          A phandle to a reset that needs to be cycled once the power domain has
++          been switched on, for domains whose logic does not come up in a usable
++          state by itself.
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3588-rknn-core
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 4
-+        clock-names:
-+          maxItems: 4
-+        power-domains:
-+          maxItems: 1
-+        resets:
-+          minItems: 2
-+        reset-names:
-+          minItems: 2
-+      required:
-+        - sram-supply
-+    else:
-+      properties:
-+        clocks:
-+          minItems: 6
-+        clock-names:
-+          minItems: 6
-+        power-domains:
-+          minItems: 2
-+        resets:
-+          maxItems: 1
-+        reset-names:
-+          maxItems: 1
-+        sram-supply: false
+       domain-supply:
+         description: domain regulator supply.
  
- additionalProperties: false
- 
+@@ -216,6 +223,7 @@ examples:
+                     reg = <RK3399_PD_IEP>;
+                     clocks = <&cru ACLK_IEP>,
+                              <&cru HCLK_IEP>;
++                    resets = <&cru SRST_A_IEP>;
+                     pm_qos = <&qos_iep>;
+                     #power-domain-cells = <0>;
+                 };
 -- 
 2.43.0
 
