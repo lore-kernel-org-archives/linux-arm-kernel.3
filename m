@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C887C98314
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5219C98315
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 07:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mDX1YWZgv2v5Sh7tItNyghYlDCdlCLpMr/PsN3YN948=; b=FMkj9dM9sx7qv+vD5220eP/nvL
-	kY37+BQEc1rrpYQ1DojDO1oni4cnLCnEi/wwnmcx4YoVg6q5RL0pQWlhIAeQgGq3m15GEIF64vQ2i
-	96d0Mu2DvAmO4TrCDhCkuCyIBSzLdxLVfgc3J8hEQug3klv6LKXewGvly2m8CFMGqRoKtM+ecck9i
-	Bh8f1ZlTf2jC1hcoNlpwh7ykCYvazorXu35W6Ljs/uJ36vZFVcEV5WugBPzYiYcGO8E9W3t65RhG/
-	2zRJwhw6AaH39EE6GCRG24DpR8ymdRo2fPA0k1rtUCeeVWS4b47w7fkFU2Z65iuKUw68wCP0mCpzF
-	SHofR8cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dk9SdPgHADQz2DgzCbod4bQfzPUpVapkXxif35lT8y4=; b=TkP9TjBim4yYBX
+	JpGhYnrRYnZed38TdAxpQDhei5tVQlApZjwzwLXQGr4NNCyyL+ilwT5NLlB5lEuhF0i43go7nSFmx
+	olU5xH7dLl3/vIUZOLje2H36vzp/0gWqey0M34h9oAU7lJ68JvISV5VPrlSl9hI+Vnd7P6wBiKP5D
+	JTdsHQzvdQxsVHSECcZgz18EXcnx404DZ/9SKznwyBNePudqBpAdIc0pA2MfIS796pgq//b5d2EJt
+	Az2sgX9TKXMCA8WkjJgyaprimcqcu3wGh6rG2uXlsbD5pUFtcO7drszR71cFJz1jeQP1bpgWVtO1d
+	20k2cNc8os7WyDjEjDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dmK-0000000AGkc-3qtr;
-	Thu, 24 Sep 2026 07:22:00 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x9doZ-0000000AGz2-0oiU;
+	Thu, 24 Sep 2026 07:24:19 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dmH-0000000AGjU-1Ugo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 07:21:58 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49cd38e0f79so9334355e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 00:21:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790234515; x=1790839315; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mDX1YWZgv2v5Sh7tItNyghYlDCdlCLpMr/PsN3YN948=;
-        b=U0XaUOLzKzsVh51kGBV83GwEwo6iysMXTlcgn+SqsHNq+Yl6PVW1T0XpnTJ0d7QLUK
-         ArWBsXdxMIYZCDvDKnRzYn9vAMxJZZtASTzFo+ctCz+cReG8bPPNQyqBmvSAQIHQR0HO
-         MPI8MVpzz4pBe6hvCbPzAJY9ryY201hh2UYa+m84VzlYZZQXomMcYMH28nr/wC9yYyDU
-         jUrtU46bvX+IrmEsd74tWqR2qnPBKfcYXN21Y7jeocon5AUNui89mUq6BLKoxfLvh3xH
-         lcIz25ZS7M7wD8bJcDC+WHXMvHNwyyqzb14ePqzW//HbV+ONOP+bxscWvHQrs+jz1c1/
-         1Sig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790234515; x=1790839315;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mDX1YWZgv2v5Sh7tItNyghYlDCdlCLpMr/PsN3YN948=;
-        b=xtcN1tFgBri1nZFhbVa1Jvm434FwIbIFwJ5xQU7J4qPbmuA47iXvmlW8Rc0+65QvXd
-         acDecbb1Nzhq0OxNtyLKWQ7QTvbhsoVZSosEVMY60Qi+sZVpfEquOksx5Jfj1R8UblFb
-         ZSQEPFc/fAj9pt03nCXG9zWleRDVuZZtx2Ki70QVKv8W606N2B9vZg1F+M0szpWA3MxI
-         FJj0mdkLpJ5qaG1jq+rsvpa0uW7PzWw7u0zwoo8mOAm7ra332ZZSyzONfwvrtvEhj9BW
-         a4+EmudWjHxQR/NpgbMXR7QNpDLFUx2iOT5A8QiS3y9PKxlz3jKO3/GAkPGNEeqrTyw4
-         2spw==
-X-Forwarded-Encrypted: i=1; AKwUvBwsCHqHVxh0WITveO1kdsdXHBU1BMvwqr3NqpFpx6I/uvOF4gfbl/fvpVg/1TIv01vRDtjAFV2qVVxkgOF9oZK9@lists.infradead.org
-X-Gm-Message-State: AFuF++mx4PmbpTmSDO9HcfJS1UGSVWM443aD2X/SpmmRuUAIb9M1KqxU
-	3UNot6c17XFN1V6ipstsxw/y4lHI653Kl41xIENXTJmpeYXhmKFpZJhGm1BligZUIsI=
-X-Gm-Gg: AYBFou1H9zPx04QszWvq2hwIP60+xRDsXISG+Y80xGWvn0FIb0p3HKNQGCMANm5naG3
-	yhgBsyxuhkBEUUX9oAy2pBb+lLu/h9CcSo7z0m+i3HsDqP4GUJ0jRX9r5+Uwo0a/5NkXRzMyKNS
-	V434hmag2ahM7Z1SxdwadA6sgsHI2c2irx18l+V6QEchwjCHMbk+1TdQaJKoeFfIa7pIBJQv8Yy
-	dKvML0k8PXXatmVVmpepetwE/FCf272urMQ/QSkQ4W20zoKn1Kpm3KnEilw8oCJi9x4GZpmymnx
-	Kl4i0E0zmZ++BLpmFv4Rlqv/9ZsNzBn2AiocJLUJ7Dc5lOGAEWKbVo1AThh+TU31oQKNbaO/aUb
-	UJ8SHX1E+SuiqGn1frgP+l/J7sO22gmmB5f+AiQz3RJL2qk1lmqAkFqqwGo9XIhEsANZmFiIjVo
-	Ydo0w13Mgso7RRBzS3buOXi3X+BzN3jEgBh7w5xhN3PaLLUXn4OE83crslB7Y83a2ffFFSAOLHM
-	v0AwoG/JGxnLkpC87w87uBMJ0GD7k1s906bKgtfFelbmu1itgALG2M7kQs/U3fsQUwOCEBgeIRK
-	8Eh14vhxjlGgXJObYJWCYRdbzgViH2WH/DxJ9/ZW3KoA3j/++YA2pZoXEQ==
-X-Received: by 2002:a05:600c:1385:b0:49f:ce78:3567 with SMTP id 5b1f17b1804b1-49fe66fa5c2mr21450465e9.24.1790234514858;
-        Thu, 24 Sep 2026 00:21:54 -0700 (PDT)
-Received: from AHERLNXVDANI01.lgs-net.com ([193.8.40.126])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fe5bb9891sm41051975e9.6.2026.09.24.00.21.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 00:21:54 -0700 (PDT)
-From: =?UTF-8?q?Daniel=20Via=C3=B1o?= <danividanivi@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Michal Simek <michal.simek@amd.com>,
-	linux-rtc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Daniel=20Via=C3=B1o?= <danividanivi@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] rtc: zynqmp: Enable crystal oscillator in initialization
-Date: Thu, 24 Sep 2026 09:19:16 +0200
-Message-ID: <20260924071917.80004-1-danividanivi@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	id 1x9doW-0000000AGxa-23Qd;
+	Thu, 24 Sep 2026 07:24:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1790234653;
+	bh=1y3x23f34J6dSnPAWBv03m8McFVIedvOuJSGLlwRbQE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=BpNLuSlu/iJ5dfrdnB1uOkNGfRZDvhvd00IPSn54rSz/MNJo2+kWnx7XywiAiCyuX
+	 poEEoou0GyVE0SAkxsWxSS+uW0G8zugq6ZmBvqIAWsSXFxJQvz6CtGrQvdv1md3eTv
+	 VJJ8Uu5XRacd1LIrhhJqv8LiRcrVmMOC4xWJM1jZSHbTM79QkFQYxI1c4qJKSOTKcd
+	 HVEsbggL9m7p74SE9HGNDAgaZgshGh9brrTwGCV0ZM5gpP6iKWz6JVs9a3BmCpW9HC
+	 hFp8903hZmGgOv36sV1DtmkjkBXATb/qZXVvToAYk4TRsZdx+yq6Lq77KuFVHjhbBs
+	 s2Q2bvs1ZkRoQ==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1CA3217E0074;
+	Thu, 24 Sep 2026 09:24:13 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH net-next v2 0/7] net/stmmac: Add Mediatek MT8189 support
+Date: Thu, 24 Sep 2026 09:23:23 +0200
+Message-Id: <20260924-dwmac-mediatek-mt8189-v2-0-430bd74d5ef9@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WOTW7CMBCFrxLNuoNiOyEOK+6BWEzsSbGK49Y2A
+ RTl7liBbZdP7+9bIHF0nOBQLRB5dsmFqQj5VYG50PTN6GzRIGu5r7taob17MujZOsr8gz5roXv
+ sLY2set30rYDS/Y08use2e4KJM078yHB+O5H/buUof+yBEqMJ3rt8qFqpLe+1koMUW/7iUg7xu
+ QHOYit8WLp/WGaBNYpuVE3LRIbU0YTrlYYQaVdu4Lyu6wsistfe+AAAAA==
+X-Change-ID: 20260703-dwmac-mediatek-mt8189-9dafe3984951
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Biao Huang <biao.huang@mediatek.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: kernel@collabora.com, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1790234653; l=3138;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=1y3x23f34J6dSnPAWBv03m8McFVIedvOuJSGLlwRbQE=;
+ b=dc/cU9HL5r6uNwpt2Qd66PMiC15uiDrPEMbq1iDLDwS8j9vlOUPlMa+CSYxibMAx5kX0VBTwt
+ ltUELoSJ/qhCfOdGEzwstse+2zQkZc3X6TYNsThAes8GRMOmmKoVRGs
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_002157_411109_04E7C840 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20260924_002416_691788_F3060F42 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +97,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the RTC crystal oscillator bit in the control register (RTC_CTRL,
-offset 0x40) during driver initialization.
+This series adds the Ethernet support for Mediatek MT8189 SoC and its
+variants (MT8371, MT8391). These SoC integrate a Gigabit Ethernet MAC
+with RGMII/RMII/MII interface, with a similar design than previous SoCs
+such MT8188 or MT8195.
 
-Although the RTC_OSC_EN macro was defined when the driver was originally
-introduced, it was never asserted in xlnx_init_rtc(). On cold boots, after
-battery exhaustion, or on platforms where firmware does not pre-initialize
-RTC_CTRL, the oscillator remains disabled and the counter never ticks.
+This series is based on net-next tree (sha1: 528de6832b21).
+It has been tested on Mediatek Genio 520-EVK (MT8371) and
+720-EVK(MT8391) boards, which both integrate an Airoha AN8801R Ethernet
+PHY, with hardware enablement series ([1]) and additional devicetrees
+patches for enabling their Ethernet interface.
+It has been also tested on Mediatek Genio 510-EVK (MT8370, variant of
+MT8188) and 1200-EVK (MT8395, variant of MT8195).
 
-Asserting RTC_OSC_EN alongside RTC_BATT_EN ensures the oscillator starts
-without relying on bootloader initialization. Per the Zynq UltraScale+
-TRM (UG1085), bit 24 (OSC_CNTRL) is a static level enable for the crystal
-inverter rather than an edge-triggered reset; re-asserting it when the
-oscillator is already running is a non-destructive no-op that does not
-glitch or reset the ticking counters.
+[1]: https://lore.kernel.org/linux-mediatek/20260701-add-mediatek-genio-520-720-evk-v2-0-19d5da4ef984@collabora.com/
 
-Tested on Zynq UltraScale+ hardware, confirming that the counter freezes
-when RTC_OSC_EN is cleared, advances reliably once enabled, and is
-unaffected when re-asserted while running.
-
-Fixes: 11143c19eb57 ("rtc: add xilinx zynqmp rtc driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Daniel Viaño <danividanivi@gmail.com>
 ---
- drivers/rtc/rtc-zynqmp.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Changes in v2:
+- Rebased on net-next (sha1: 528de6832b21)
+- Dropped "net: stmmac: mediatek: rename MT2712 and MT8195 variant
+  methods" and "net: stmmac: mediatek: add support for TX deallocation
+   adjustment feature" patches, present in v1 (M. Chevallier)
+- Patch 1:
+  - Removed rmii_internal clock from required clock list (A. Lunn)
+  - Added MT8189 stage delay divider values in "mediatek,rx-delay-ps" and
+    "mediatek,rx-delay-ps" property description (Sashiko)
+  - Updated commit description
+- Added patch 2 to simplify TX/RX delay handling in mt8195_set_delay
+- Added patch 3 to add RX/TX delay stage divider in platform data
+- Patch 4:
+  - Replace MT8195_PERI_ETH_CTRL_BASE by MT8195_PERI_ETH_CTRL_OFFSET to
+    harmonize the variable and definition naming (A. Lunn)
+  - Added Reviewed-By tag
+- Added patch 5 to add the TX Clock phase shift use in
+  RGMII and in 1G speed
+- Patch 6:
+  - Reworded flag and define names to explicit a bit more what the
+    feature does
+  - Updated commit description
+- Patch 7:
+  - Added the new definitions and needed fields in platform data
+  - Updated commit description to add the info about MT8189 RX/TX delay
+    stage divider and maximum values, and remove reference about 
+    stage fine feature 
+- Link to v1: https://lore.kernel.org/r/20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com
 
-diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-index 5bcb7536e973..278705ec09f5 100644
---- a/drivers/rtc/rtc-zynqmp.c
-+++ b/drivers/rtc/rtc-zynqmp.c
-@@ -167,9 +167,12 @@ static void xlnx_init_rtc(struct xlnx_rtc_dev *xrtcdev)
- {
- 	u32 rtc_ctrl;
- 
--	/* Enable RTC switch to battery when VCC_PSAUX is not available */
-+	/*
-+	 * Enable crystal oscillator, and enable RTC switch to battery
-+	 * when VCC_PSAUX is not available.
-+	 */
- 	rtc_ctrl = readl(xrtcdev->reg_base + RTC_CTRL);
--	rtc_ctrl |= RTC_BATT_EN;
-+	rtc_ctrl |= RTC_BATT_EN | RTC_OSC_EN;
- 	writel(rtc_ctrl, xrtcdev->reg_base + RTC_CTRL);
- }
- 
+---
+Louis-Alexis Eyraud (7):
+      dt-bindings: net: mediatek-dwmac: add support for MT8189 SoC
+      net: stmmac: mediatek: simplify TX/RX delay handling in mt8195_set_delay
+      net: stmmac: mediatek: add RX/TX delay stage divider in platform data
+      net: stmmac: mediatek: add PERI_ETH_CTRLx register offset in platform data
+      net: stmmac: mediatek: use TX clock phase shift in RGMII mode with 1Gbps speed
+      net: stmmac: mediatek: add support for TX clock output enable feature
+      net: stmmac: mediatek: add support for MT8189 SoC
+
+ .../devicetree/bindings/net/mediatek-dwmac.yaml    |  87 ++++++---
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 211 ++++++++++++++++-----
+ 2 files changed, 224 insertions(+), 74 deletions(-)
+---
+base-commit: 528de6832b2194ae0b1d62b0925e0ac6cad1087c
+change-id: 20260703-dwmac-mediatek-mt8189-9dafe3984951
+
+Best regards,
 -- 
-2.53.0
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
