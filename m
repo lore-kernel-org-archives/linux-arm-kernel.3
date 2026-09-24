@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CFCC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3129DC98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 16:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fq72bTv0aDg8FP/1veCJLfYhWi+ANAEEZ3M/sgNIuzQ=; b=oYCh6sbgiN2Qco4RfQq8BewhAe
-	Z8SUvz/YsH3I4BRwh8OVYFoxIRClQPG9OZKDCaQD5BO7rnY+EJeT2abA3ibEmRXEl1/blUGCKZ5lO
-	SijuoJsferDfR69Ex+QzGoVTwhug7xzNIFmD5H6weU3ZiXJeb8aaM6vN6YY3bn1nKLfIt/2Mh6L6d
-	sMe8AtW+uzD8ET0//U+P9/KZlyljO56M+GKlbyAmNNH+BiBisvD9UdGGTcQt6mdZr09C9BGbutD1l
-	GNGweyYtwNlC27CzjSqcH1N+AhZivCi+mdOzNSfmXKPjnyZ0fSJNRI6W5FdXuGa5YfLYMOVKQBo/g
-	BzjHimhQ==;
+	bh=7xBAl8OyFpCzpWQlqcHmDCI/txbcQ4J/hmH1kiKvEaY=; b=nG2OMvYY60yqLUKh1rgj5R/biX
+	flN/WWf98YQiKl6ovLV2Fi6XRTA2WoXX8fVe2EFqzCROQvqXLeF2O3IUE7B/hXiw2EgjPhzXLDpuw
+	moTehIFLJnegYhP8MtfZ/+cxA52FzYKW6PYFQuzkfdS6v5bOxFgkYVdL1FvyHFGygzOG/QUCxv1ky
+	jUVBDwbNpQDevZIBDsoiw00GeXUud3UP+uGW7Tb2xU2v8Onp50ti1u3WVu9aHmplN6JPZd7KuRnoA
+	lT0UVwFGxWMqjjO0gPVScLhrc9vSoimOrwgjgsJ/shLAeK4xyyxokz6MDfgMY26w1t7qsF4au0Nkk
+	tbPrr+0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mjP-0000000BfBA-0Jv2;
-	Thu, 24 Sep 2026 16:55:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9mkr-0000000BfSu-2KRk;
+	Thu, 24 Sep 2026 16:57:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mjN-0000000BfAp-3UMF;
-	Thu, 24 Sep 2026 16:55:33 +0000
+	id 1x9mkp-0000000BfSY-3E3i
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Sep 2026 16:57:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F290E601EF;
-	Thu, 24 Sep 2026 16:55:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60D951F000FF;
-	Thu, 24 Sep 2026 16:55:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 219BD601DE;
+	Thu, 24 Sep 2026 16:57:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBFA21F000FF;
+	Thu, 24 Sep 2026 16:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790268932;
-	bh=fq72bTv0aDg8FP/1veCJLfYhWi+ANAEEZ3M/sgNIuzQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X8jyjQG5wgjV3njzYK5bFpjnqGZC1M20JAXdKp9H0BJ2imlh+/DPGGmFmM4ki+co4
-	 k+OyAK/d4VWEP+/AxAqhE1w3+QSxvKozoMFwSBG3txdgWQlyQhMSczIN8hj2zkKZ79
-	 ySKIcaOGnKWJi1eoCtoooaoyG13R5c/9C1aGRSaNvERVUX1qpCqEl5XsuqzDFRXomz
-	 Icy/rFVg6U0+gL/QgdEWvPqTzDcCwPILCuEfN3z6KJmA2i18cStbLj8Qa7Z1nUdv19
-	 dlGshJAyfLYAZ0ZKR6kPdeX959KosICrTQdt/YXLA9BdsQbSA6I3I/6mFwHHDZzZfl
-	 B2EQW6jDQU5XA==
-Date: Thu, 24 Sep 2026 17:55:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
-	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v3 2/3] media: dt-bindings: media: nxp, imx8mq-vpu:
- Remove nxp,imx8mq-vpu
-Message-ID: <20260924-compare-useable-3e2863b66924@spud>
-References: <20260924130453.196299-1-benjamin.gaignard@collabora.com>
- <20260924130453.196299-3-benjamin.gaignard@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GsCwYJZyFBXDIRyI"
-Content-Disposition: inline
-In-Reply-To: <20260924130453.196299-3-benjamin.gaignard@collabora.com>
+	s=k20260515; t=1790269022;
+	bh=7xBAl8OyFpCzpWQlqcHmDCI/txbcQ4J/hmH1kiKvEaY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=lb2IwhZKl3Yeg+SXhYB2iUj99HHmqs/Sfds1W0AbzDT09ywvXSAV4QoWusjg1vSzD
+	 EoCqjWCP4AzLEhudLDn+Ra7lGRvIdmxlxA6OQC4NP7nkBmqJMsvLV+q2WSSUhDSJF0
+	 q1oLCEtXVO4J69vP3LebrAr9R5F9I5GGk/PEKEJLntE51J8LiW0dRv3A/gi1Yn5AOs
+	 Rgxv4G3BWQSSYuJMFMyi0tk63orh1tvb5jXcN2nFeyh26dWgYLiXbs/LfLxQPZnOV8
+	 EXBVbfnSuZI/zxEJcYuzw9yI5mBYgEvYOzJfL3a49EHHCEQnVGfg4Y4KswlG7EYRTG
+	 fUanCWbEo9Whw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x9mkm-0000000D7CV-2OdV;
+	Thu, 24 Sep 2026 16:57:00 +0000
+Date: Thu, 24 Sep 2026 17:57:00 +0100
+Message-ID: <86qzii4mg3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: smp: Signal EOI after handling IPI_CPU_STOP*
+In-Reply-To: <arTnfHPBf2qLDLOT@apocalypse>
+References: <20260922140109.12780-1-andrea.porta@suse.com>
+	<arPzNkDD69ZKFT99@willie-the-truck>
+	<86se2z4yje.wl-maz@kernel.org>
+	<arTnfHPBf2qLDLOT@apocalypse>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: andrea.porta@suse.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +86,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---GsCwYJZyFBXDIRyI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, 24 Sep 2026 10:03:56 +0100,
+Andrea della Porta <andrea.porta@suse.com> wrote:
+> 
+> Hi Will and Marc,
+> 
+> On 19:23 Wed 23 Sep     , Marc Zyngier wrote:
+> > On Wed, 23 Sep 2026 16:41:42 +0100,
+> > Will Deacon <will@kernel.org> wrote:
+> > > 
+> > > [+Marc]
+> > > 
+> > > On Tue, Sep 22, 2026 at 04:01:09PM +0200, Andrea della Porta wrote:
+> > > > On kdump/kexec, the boot CPU triggers an IPI_CPU_STOP (and subsequently
+> > > > an IPI_CPU_STOP_NMI if the first one does not respond) to the secondary
+> > > > CPUs, and the IPI handler eventually calls the firmware to shut down
+> > > > each CPU. Since the IPI is never acknowledged via EOI, the interrupt
+> > > > remains in an active state when the CPU goes idle.
+> > > > 
+> > > > In a virtualized environment, if the hypervisor does not reset the
+> > > > interrupt state, this causes the crashkernel (with cmdline option
+> > > > maxcpus > 1) to be unable to synchronize between the boot CPU and
+> > > > secondary CPUs via IPI_CALL_FUNC, leading the kernel to wait indefinitely
+> > > > for the CPUs to respond. This has been observed with the Hyper-V
+> > > > implementation.
+> > > 
+> > > Hmm, how is this different from panic()ing inside an interrupt
+> > > handler?
+> 
+> It is not, in fact I should have put the EOI in all cases, but I just
+> focused on the crash driver by IPI only. The patch should be extended
+> but from the following discussion it does not seem relevant anymore.
 
-On Thu, Sep 24, 2026 at 03:04:52PM +0200, Benjamin Gaignard wrote:
-> nxp,imx8mq-vpu has been tagged has deprecated since a while.
-> After driver clean up it is time to remove it.
+The other problem here is that you're looking at the IPI that got you
+there. But this IPI could have a higher priority than other interrupts
+(NMI), and therefore have preempted them whilst they were active.
 
-No users in linux doesn't mean no users, but I am guessing that there's
-genuinely no users elsewhere and anyone using out of tree devicetrees
-should have updated due to the warning at runtime?
+What happens with them? You'd need to iterate over all the interrupts
+that are in progress and EOI/DIR them *in the correct order*. Which
+would be replicating the GIC state machine. You can't do that in an
+arbitrary order as that would violate the interrupt life cycle which
+on some implementations results in a terminal SError.
 
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> ---
->  .../devicetree/bindings/media/nxp,imx8mq-vpu.yaml      | 10 ++++------
->  1 file changed, 4 insertions(+), 6 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml =
-b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
-> index 19528262810a..69619d2c86fa 100644
-> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
-> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
-> @@ -14,12 +14,10 @@ description:
-> =20
->  properties:
->    compatible:
-> -    oneOf:
-> -      - const: nxp,imx8mq-vpu
-> -        deprecated: true
-> -      - const: nxp,imx8mq-vpu-g1
-> -      - const: nxp,imx8mq-vpu-g2
-> -      - const: nxp,imx8mm-vpu-g1
-> +    enum:
-> +      - nxp,imx8mq-vpu-g1
-> +      - nxp,imx8mq-vpu-g2
-> +      - nxp,imx8mm-vpu-g1
-> =20
->    reg:
->      maxItems: 1
-> --=20
-> 2.53.0
->=20
+[...]
 
---GsCwYJZyFBXDIRyI
-Content-Type: application/pgp-signature; name=signature.asc
+> > >
+> > > Doesn't this hard-code the flow handler for the irqchip? It feels like it
+> > > would be better for the GIC driver to get a callback during the kexec
+> > > sequence (if it doesn't already) to prepare itself.
+> > 
+> > Yeah, that's not an acceptable approach.
+> 
+> We're in a non returning handler which is about to shutdown the CPU in a few
+> instructions, so I'm not sure how to callback into the GIC driver.
 
------BEGIN PGP SIGNATURE-----
+I reckon crash_kexec_post_notifiers and co could be of help, and could
+be to some extent tucked away in the HV-specific code (but see below
+for my full take on this).
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCarVV/wAKCRB4tDGHoIJi
-0o8JAP9bPWkftttTcroD/Ebf05mqIGTFa7OMd08w4VwH1mEEgQD+LPTr10IFTyQQ
-y//zL0pKXfEzCfB463vA15kwJ030OAg=
-=7zii
------END PGP SIGNATURE-----
+> > The other observation is that the GIC drivers already clear the active
+> > state at boot time (gic_cpu_init()). So what isn't that working?
+> > 
+> > Could it be that the hypervisor doesn't correctly handle the writes to
+> > GICR_ICACTIVER0 to nuke the active state? Because this works correctly
+> > on KVM as is.
+> 
+> That's what I suppose, but obviously I have no access to the implementation
+> so I canot add more. This is currently under investigation by the folks who
+> can, though...
 
---GsCwYJZyFBXDIRyI--
+OK. It'd be interesting to understand why the existing code fails in
+your context, and getting feedback from the HV people would help.
+
+> 
+> So the bottom line is that we need to wait for a patch from the hypervisor 
+> vendor (and from any vendor that *could* suffer from the same issue), I guess?
+
+My take is that there is no point adding anything to the kernel until
+we understand exactly what is at stake. The kernel's expectation is
+that there is no difference between bare metal and virtualised, and
+that fundamental parts of the architecture (such as interrupts) should
+work as expected, no ifs, no buts.
+
+If this isn't fixable, or that we don't know when this will be fixed,
+we can always add an erratum workaround. But it needs to be captured
+as such, which implies that we have the full understanding of the
+issue.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
