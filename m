@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C68C98318
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89786C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4nApwDcK7osAtHQ4CZDuyWi27LJxNQtg3TKGcmGjpI=; b=Lrpf6vW7xKIFfxsiW1qOQNgTFP
-	3VtTOoUBwCeSK6Eyq7XO7Qusr0tjO+SJYDLzFoXxYdRVmprJ93FouHT5mOlN3QcdGDbXKpjHryKC1
-	6tTRpPWbI6LUZymZx+dTBVovw5aZw4XXYw15FnYrhoUR8owuZ2fymIrqqu8RYYmDjuIXBNxA/RHIF
-	FJmXIGLevGAhhBFZ1uer9VSAhZAbjTxvCUsKL+HeJB5UH45BmP1mgHohfF/cyhDKoHZb71edndfGl
-	ja4FPzG35RxdSa1L55FNzmpL6F1Gi3AeEy9A3Q8w2PjmHKzB68gDSihDO4ZeNcazIZHXDENUK8TAU
-	uY+3LmAA==;
+	bh=yaZ6JIDwxUbb98opjf2FeGKYr1NjzpI0dSJFn0iNX8o=; b=i85/dwukmjsBN2mNBmHHcinvui
+	PZarfHV5zZ4yE0nNpH+PtDcpD20TZQNIUFHcRQ7qVz18/grfY7J5HOSP88sSXU2MERHyptUVJA4nM
+	NArvPdtZFQuplqtqNuY9Qf7NFdP2OC9/caZmLs8xPjMuGMsQg1l0LFt77iSOgewGPiErh7bKgFiyk
+	pbHH2HInxhRylp0ESx1+Bb4OATUCMnxqgMG1gSHTmgs28NimqFVoDD7brbvnIh7JFxgL/yrk2DvdJ
+	ysUzIwYJ18g++aCwGe5V+GkupeLaU/lASA5gdLXD8BCyEKkwcTb1SEvezOvh6Cbl/eJh32jD1RMmF
+	Vs9luJxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lOZ-0000000BPwH-3mnu;
-	Thu, 24 Sep 2026 15:29:59 +0000
-Received: from mail-wr2-f35.google.com ([74.125.225.99])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lNs-0000000BPN8-3sNP
+	id 1x9lOa-0000000BPwo-0yeu;
+	Thu, 24 Sep 2026 15:30:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9lO3-0000000BPau-0dRh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 15:29:18 +0000
-Received: by mail-wr2-f35.google.com with SMTP id ffacd0b85a97d-4887635e952so232198f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 08:29:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1790263754; x=1790868554; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l4nApwDcK7osAtHQ4CZDuyWi27LJxNQtg3TKGcmGjpI=;
-        b=BJXheJljm0yhOPQHdBm/TE+nkkmS217rKKMsrGAxyF7HXu1NnN/VF0FAwZ6xiTBg34
-         lhMawNlEdw/VgtsaqEH9NQT2YC8p6PSxrTf29cHkTBNBksWf4P8np0hYbc0P+wcQKDH8
-         lbGfMSMjyWpDRDfdPyc8kb1Qkpqce32aZAc6QqkQSRCsBtRq5pD32HVzxhfUfOulBReP
-         n8nX/q10Oy1kZqScK0zitAL/0gLXK2ataQFqAftNYfxkkxmgA0o7XJu1D/8vdYmsBCiJ
-         tKIvpESJaQxC1M2bhiOei9ZkWVj5GX43bSM38UrRRKqIclnIg9/7pi3HwYAIR8pU4er/
-         IJAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790263754; x=1790868554;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=l4nApwDcK7osAtHQ4CZDuyWi27LJxNQtg3TKGcmGjpI=;
-        b=UxG3CfqlWE12+H4oI53qdqhyMrHvk8T9mrmuhK5zlZQWFRaJgYYNJm+vpcbvAUMus5
-         mVri0HzuYCrsjA+3cwvUJ2aZMLg8cq0ELcy56vb7gx8JUQ6jC2ZMUzMrNOYGd04ouJ3F
-         aItORxV2usOmglUGJLMhxs7B1w3odYm0L0L8zM7gcc5Y8jxHiAs+xbyqQN+2cS1St9AW
-         gl2smC51CigbUp/Gw0TawQYR2Ja9zk2hlKFBD2lfIFr+PxkJJHBqkTWxKWUJ7qpR2t60
-         RrHwwf0/Ldvuq5F9VqXvsLo0R/pTuk/B9meCtTLKXCMfxhnKOHYdXNc64jZGTTOLPQb1
-         8g/Q==
-X-Gm-Message-State: AFuF++mhxQPjcEN9EbG3/zFQC1dKEjEWWm4nj3fwQDDo9BPs3Aex+eKw
-	IGN2YKVTXhh5dyaOx1DyhdgWY5Yq6rbREk+TQPMMkYvVa3KR2ZgHwgxNNacGxf/HY47bpISXKPH
-	lDbiaBSo=
-X-Gm-Gg: AYBFou0JH2jV46b90felxr9JLLcuULYRCwtmZPv0XZNcBxwp2ASF655V9Qy2QWJLtzr
-	rk5MXEfq89dU+MI3l/Nzm474ntNcFGYhfYfXDhhb2TFU/NBRDQVwnQUCksVZkn6aP5XmzW6TJgh
-	BE7bMg0eFNOWKWGTUHu+Q+FpAhEgcu3SLRd1pbwqnX0vtb4gw7HWHH7556RzsZYu/qZxamqi7ea
-	jqJmfIPZOUU1N9EPxWLYvmadfBJSJduU7KtGH/Lu0DN2NApPg8uRsvXd3Kun8NkL2fb3AU4vZ1h
-	0jVtJ8+VRL73Z3IB2yhNYM211FhJT4dS7TFuwuCFO+bHw94jPiTEoI+EjTpe49i+lOaiCc89oHX
-	MPGh7wPdHr3SvFF9giDRAT1SJXK1f794zQFrU/Dd+ZMjsZJcEcPKxXuLy1wAqSviJ6N5v/w7WX9
-	bM38RWU8nacp5T4Y5LbSEkSHJU6pNwi4FJic+e3rbrQeDG1gVFX5wVTaQDc/HUXw7DYan2VCgqL
-	taTGWYiYzKfR/AnIbEse1MBcMmmCJTDYHaf
-X-Received: by 2002:a05:6000:184e:b0:488:5fa9:34aa with SMTP id ffacd0b85a97d-488716d22bcmr5931880f8f.20.1790263754406;
-        Thu, 24 Sep 2026 08:29:14 -0700 (PDT)
-Received: from dev-ag.figment.co.za ([192.145.132.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48867b49661sm14781552f8f.0.2026.09.24.08.29.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 08:29:13 -0700 (PDT)
-From: Andrew Gaylard <ag@ffroot.co.za>
-To: linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	qinjian@cqplus1.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux@armlinux.org.uk,
-	Andrew Gaylard <ag@ffroot.co.za>
-Subject: [PATCH v4 3/6] arm: dts: sunplus: add PWM, watchdog and MMC nodes to SP7021 DTSI
-Date: Thu, 24 Sep 2026 17:28:41 +0200
-Message-ID: <20260924152844.81705-4-ag@ffroot.co.za>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260924152844.81705-1-ag@ffroot.co.za>
-References: <20260924152844.81705-1-ag@ffroot.co.za>
+	Thu, 24 Sep 2026 15:29:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3417C1E2F;
+	Thu, 24 Sep 2026 08:29:22 -0700 (PDT)
+Received: from e142021.arm.com (unknown [10.57.8.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B95F3F86F;
+	Thu, 24 Sep 2026 08:29:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790263765; bh=hiYDOsrFTqYrHghNF5qpN7Ez9iCF+l3+Mk6RkjCoBOg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=N6p60/ajuKHsLs0uGMl2YBmLNBTH6evUyExuhPImEomU1uBi9CPKJ98/wfd37eJQl
+	 Vd/8YfVfzsr5Jx6HatviI0C4jIT5L3ePnSLg8FXrYp1rf+ie3Q+sLabA4kx1DqqwoC
+	 C8/TF7s1R/V9dz2+5wpL4ZU8Z6v4MJe8AGjVHoIo=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Srinivas Ramana <sramana@qti.qualcomm.com>,
+	Niyas Sait <niyas.sait@arm.com>,
+	Lee Trager <lee@trager.us>,
+	Ritwick Sharma <ritwick.sharma@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v11 12/13] arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
+Date: Thu, 24 Sep 2026 17:27:38 +0200
+Message-ID: <20260924152739.2865510-13-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260924152739.2865510-1-andre.przywara@arm.com>
+References: <20260924152739.2865510-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_082917_047398_47D53C61 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20260924_082927_301394_22879356 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,144 +88,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device nodes for the peripherals that have upstream drivers:
-- PWM controller
-- Watchdog controller
-- eMMC controller
+When an MPAM MSC gets into an error condition, it can trigger an error
+IRQ. We cannot really do much about those errors, but we at least query
+and log the error, then disable MPAM functionality.
 
-Add a label to the gpio-leds node so board DTS files can override it.
+This error report relies on reading the MSC's error status register
+(ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
+based MSC accesses, since they involve mailbox routines that might sleep.
+The same is true for clearing the interrupt at the source, which requires
+a (potentially sleeping) MSC access as well.
 
-Move the memory node from the DTS into the DTSI; this chip has the RAM
-integrated and it's not possible to add external RAM.
+Change the error IRQ handler to be a threaded interrupt, but keep the
+handling in the hard-IRQ part for MMIO MSCs. This is needed since the
+CPU affinity check in the MSC accessors requires a non-preemptible
+context.
+When the MSC is using an MPAM-Fb based access, we push the work into the
+threaded part of the handler, where the accessors are allowed to sleep.
+Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
+threaded IRQ here.
 
-Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
+The actual IRQ handler learns how to deal with errors. We cannot really
+handle them, but we can try our best to disable the IRQ anyway.
+Should the level IRQ line deactivation fail on the device side, we mask
+the IRQ on the irqchip level, to prevent an interrupt storm.
+
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
 ---
- .../dts/sunplus/sunplus-sp7021-demo-v3.dts    |  4 -
- arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi | 74 ++++++++-----------
- 2 files changed, 32 insertions(+), 46 deletions(-)
+ drivers/resctrl/mpam_devices.c | 77 ++++++++++++++++++++++++++++------
+ 1 file changed, 65 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm/boot/dts/sunplus/sunplus-sp7021-demo-v3.dts b/arch/arm/boot/dts/sunplus/sunplus-sp7021-demo-v3.dts
-index d5c5ffc20565..d764fc1f946e 100644
---- a/arch/arm/boot/dts/sunplus/sunplus-sp7021-demo-v3.dts
-+++ b/arch/arm/boot/dts/sunplus/sunplus-sp7021-demo-v3.dts
-@@ -23,8 +23,4 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 90161696aada0..ce20dc44d5d40 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -2721,24 +2721,42 @@ static int mpam_disable_msc_ecr(void *_msc)
+ 	return __mpam_write_reg(msc, MPAMF_ECR, 0);
+ }
  
--	memory@0 {
--		device_type = "memory";
--		reg = <0x00000000 0x20000000>;
--	};
- };
-diff --git a/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi b/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi
-index ae9bbe0320b8..9963501b6a41 100644
---- a/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi
-+++ b/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi
-@@ -17,6 +17,11 @@ / {
- 	compatible = "sunplus,sp7021";
- 	model = "Sunplus SP7021";
++/*
++ * This will run as the threaded IRQ handler part when using MPAM-Fb, but
++ * as the sole hard-IRQ handler for MMIO based accesses.
++ */
+ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+ {
+ 	u64 reg;
++	int ret;
+ 	u16 partid;
+ 	u8 errcode, pmg, ris;
  
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x00000000 0x20000000>; /* 512MB integrated */
-+	};
+-	if (WARN_ON_ONCE(!msc) ||
++	if (WARN_ON_ONCE(!msc))
++		return IRQ_NONE;
 +
- 	clocks {
- 		extclk: osc0 {
- 			compatible = "fixed-clock";
-@@ -84,50 +89,10 @@ pctl: pinctrl@100 {
- 			clocks = <&clkc CLK_GPIO>;
- 			resets = <&rstc RST_GPIO>;
++	if (msc->iface == MPAM_IFACE_MMIO &&
+ 	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+ 					   &msc->accessibility)))
+ 		return IRQ_NONE;
  
--			emac_pins: pinmux-emac-pins {
--				sunplus,pins = <
--					SPPCTL_IOPAD(49,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_CLK_OUT,0)
--					SPPCTL_IOPAD(44,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_MAC_SMI_MDC,0)
--					SPPCTL_IOPAD(43,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_MAC_SMI_MDIO,0)
--					SPPCTL_IOPAD(52,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_TXEN,0)
--					SPPCTL_IOPAD(50,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_TXD0,0)
--					SPPCTL_IOPAD(51,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_TXD1,0)
--					SPPCTL_IOPAD(46,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_CRSDV,0)
--					SPPCTL_IOPAD(47,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_RXD0,0)
--					SPPCTL_IOPAD(48,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_RXD1,0)
--					SPPCTL_IOPAD(45,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P0_MAC_RMII_RXER,0)
--					SPPCTL_IOPAD(59,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_TXEN,0)
--					SPPCTL_IOPAD(57,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_TXD0,0)
--					SPPCTL_IOPAD(58,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_TXD1,0)
--					SPPCTL_IOPAD(54,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_CRSDV,0)
--					SPPCTL_IOPAD(55,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_RXD0,0)
--					SPPCTL_IOPAD(56,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_RXD1,0)
--					SPPCTL_IOPAD(53,SPPCTL_PCTL_G_PMUX,MUXF_L2SW_P1_MAC_RMII_RXER,0)
--				>;
--				sunplus,zerofunc = <
--					MUXF_L2SW_LED_FLASH0
--					MUXF_L2SW_LED_FLASH1
--					MUXF_L2SW_LED_ON0
--					MUXF_L2SW_LED_ON1
--					MUXF_DAISY_MODE
--				>;
--			};
--
--			emmc_pins: pinmux-emmc-pins {
--				function = "CARD0_EMMC";
--				groups = "CARD0_EMMC";
--			};
--
- 			leds_pins: pinmux-leds-pins {
- 				sunplus,pins = < SPPCTL_IOPAD(0,SPPCTL_PCTL_G_GPIO,0,SPPCTL_PCTL_L_OUT) >;
- 			};
+-	mpam_msc_read_esr(msc, &reg);
++	ret = mpam_msc_read_esr(msc, &reg);
++	if (ret) {
++		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
++
++		/* Try out best here ... */
++		goto out_disable;
++	}
  
--			sdcard_pins: pinmux-sdcard-pins {
--				function = "SD_CARD";
--				groups = "SD_CARD";
--				sunplus,pins = < SPPCTL_IOPAD(91, SPPCTL_PCTL_G_GPIO, 0, 0) >;
--			};
--
- 			spi0_pins: pinmux-spi0-pins {
- 				sunplus,pins = <
- 					SPPCTL_IOPAD(26,SPPCTL_PCTL_G_GPIO,0,0)
-@@ -291,13 +256,38 @@ uart4: serial@8780 {
- 			pinctrl-0 = <&uart4_pins>;
- 			status = "disabled";
- 		};
-+
-+		pwm: pwm@7a00 {
-+			#pwm-cells = <2>;
-+			compatible = "sunplus,sp7021-pwm";
-+			reg = <0x7a00 0x80>;
-+			clocks = <&clkc CLK_DISP_PWM>;
-+			status = "disabled";
-+		};
-+
-+		wdt: watchdog@630 {
-+			compatible = "sunplus,sp7021-wdt";
-+			reg = <0x630 0x08>, <0x274 0x04>;
-+			clocks = <&clkc CLK_STC0>;
-+			resets = <&rstc RST_STC0>;
-+			status = "disabled";
-+		};
-+
-+		mmc0: mmc@3b00 {
-+			compatible = "sunplus,sp7021-mmc";
-+			reg = <0x3b00 0x180>;
-+			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkc CLK_CARD_CTL0>;
-+			resets = <&rstc RST_CARD_CTL0>;
-+			status = "disabled";
-+		};
- 	};
+ 	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+ 	if (!errcode)
+ 		return IRQ_NONE;
  
--	leds {
-+	leds: leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&leds_pins>;
--		system-led {
-+		led-0 {
- 			label = "system-led";
- 			gpios = <&pctl 0 GPIO_ACTIVE_HIGH>;
- 			default-state = "off";
+-	/* Clear level triggered irq */
++	/*
++	 * Clear the level triggered IRQ. If that fails, we cannot do anything
++	 * about it, so ignore any errors. We will disable the IRQ either on
++	 * the device side or on the irqchip level next anyway.
++	 */
+ 	mpam_msc_clear_esr(msc);
+ 
+ 	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+@@ -2749,16 +2767,24 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+ 			   msc->id, mpam_errcode_names[errcode], partid, pmg,
+ 			   ris);
+ 
+-	/* Disable this interrupt. */
+-	mpam_disable_msc_ecr(msc);
++out_disable:
++	/*
++	 * Disable this interrupt on the device side. If that fails, disable
++	 * the IRQ on the irqchip level, as we must prevent further handler
++	 * invocations. We only take the interrupt once anyway, as we
++	 * are going to free the IRQ next, in mpam_disable().
++	 */
++	ret = mpam_disable_msc_ecr(msc);
++	if (ret)
++		disable_irq_nosync(irq);
+ 
+-	/* Are we racing with the thread disabling MPAM? */
++	/* Check whether we are racing with the thread disabling MPAM. */
+ 	if (!mpam_is_enabled())
+ 		return IRQ_HANDLED;
+ 
+ 	/*
+-	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
+-	 * unregister the interrupt from the threaded part of the handler.
++	 * Schedule the teardown work. We have to defer it as we can't
++	 * unregister the interrupt from the threaded part of a handler.
+ 	 */
+ 	mpam_disable_reason = "hardware error interrupt";
+ 	schedule_work(&mpam_broken_work);
+@@ -2773,10 +2799,30 @@ static irqreturn_t mpam_ppi_handler(int irq, void *dev_id)
+ 	return __mpam_irq_handler(irq, msc);
+ }
+ 
+-static irqreturn_t mpam_spi_handler(int irq, void *dev_id)
++/*
++ * MMIO based MSC accesses must run in non-preemptible context, as they
++ * might have affinity requirements to check.
++ * MPAM-Fb based MSC accesses must NOT run in hard-IRQ context, as they
++ * can sleep.
++ * So split the IRQ handling up, depending on the MSC access type.
++ */
++static irqreturn_t mpam_shared_hard_irq(int irq, void *dev_id)
+ {
+ 	struct mpam_msc *msc = dev_id;
+ 
++	if (msc->iface == MPAM_IFACE_MMIO)
++		return __mpam_irq_handler(irq, msc);
++
++	return IRQ_WAKE_THREAD;
++}
++
++static irqreturn_t mpam_shared_thread_irq(int irq, void *dev_id)
++{
++	struct mpam_msc *msc = dev_id;
++
++	if (msc->iface == MPAM_IFACE_MMIO)
++		return IRQ_HANDLED;
++
+ 	return __mpam_irq_handler(irq, msc);
+ }
+ 
+@@ -2797,6 +2843,11 @@ static int mpam_register_irqs(void)
+ 		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+ 		/* We anticipate sharing the interrupt with other MSCs */
+ 		if (irq_is_percpu(irq)) {
++			if (msc->iface != MPAM_IFACE_MMIO) {
++				dev_err(&msc->pdev->dev,
++					"Only MMIO MSCs can use per-CPU interrupts\n");
++				return -EINVAL;
++			}
+ 			err = request_percpu_irq(irq, &mpam_ppi_handler,
+ 						 "mpam:msc:error",
+ 						 msc->error_dev_id);
+@@ -2808,9 +2859,11 @@ static int mpam_register_irqs(void)
+ 					       &_enable_percpu_irq, &irq,
+ 					       true);
+ 		} else {
+-			err = devm_request_irq(&msc->pdev->dev, irq,
+-					       &mpam_spi_handler, IRQF_SHARED,
+-					       "mpam:msc:error", msc);
++			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
++							&mpam_shared_hard_irq,
++							&mpam_shared_thread_irq,
++							IRQF_SHARED | IRQF_ONESHOT,
++							"mpam:msc:error", msc);
+ 			if (err)
+ 				return err;
+ 		}
 -- 
-2.53.0
+2.43.0
 
 
