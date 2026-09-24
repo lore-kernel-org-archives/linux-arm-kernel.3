@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84440C9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D3DC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 22:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HkHFg2PAsl7Q9sZ/6W2u68QBDReBA8b5w0p9gEJFVho=; b=E7ed4tRU6L7HxY3osFy3MIYnZr
-	YvVORje1ACUAujEjE1lbO93DqimdoIs2DV5I/DXJdoKrg82PUi3h3dgeffNA5gShQg93ERrFnCGCD
-	Ij/oOynK5xpI0A6B6tReRChJYXiZ/dt1+XOmZC6lX6/AduH+L3vApasuSLMmDw/J7Ou9dXHkrz3u4
-	XeoWk8g3raABgranvW94nX0JxcfDNPEUaSNVmFJMmYlc2TV2mKcFIvL3zuDDL7KHunqf5Ouq2xGHN
-	pevl+jtM1CkMhC8MSaLIMUWCcD6uNKxx4V9eLEbGdVz4kzrvCG17Tal4qvJtN/af8Y3o6YNwA3pcx
-	rdCUcXgA==;
+	bh=tIp+aiyQTzTnGdKMDtuefZl/ywWVdEoeMd4a05iequo=; b=nSDLVufIxPuNyYO5lsxGjaLe82
+	FVc/WwJ0Yj9je/KnAQZE8AZfPZ4PFKqlYS3AlV9B26yvoYLaWXBSFN/sSwKMeiorK2h08qaq9O6bm
+	jXbAjrlP1Fz6ow/AhF7Ml3084bjZ/cJD10dL1YLqiRI2fBywrzYXvCfsFVCZd9ZTJA5RDif2EJgtP
+	ZutBkT0QBiQrIYUvp2FzydtuzM9tXsD7xERLO8uv/T0B2gBT3ESuqhpjtn1b56dXEZez+vjxxToGD
+	enr01pJrXCAa2F1IsmZpjmWcV7PaT8g3ZQS3vkImtE9uymtIx1RxGspfcjW7yghl6bfmH1IwmHlOS
+	pWwFORnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sK1-0000000CKc2-1mKQ;
-	Thu, 24 Sep 2026 22:53:45 +0000
-Received: from mail-dy2-x26.google.com ([2607:f8b0:4864:36::26])
+	id 1x9sLq-0000000CKsR-2px3;
+	Thu, 24 Sep 2026 22:55:38 +0000
+Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sJz-0000000CKam-0N1J
+	id 1x9sLo-0000000CKs6-3XYG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 22:53:44 +0000
-Received: by mail-dy2-x26.google.com with SMTP id 5a478bee46e88-33be7dfcfc1so333533eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:53:42 -0700 (PDT)
+	Thu, 24 Sep 2026 22:55:38 +0000
+Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-34182b58c7eso85998eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 15:55:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1790290422; x=1790895222; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HkHFg2PAsl7Q9sZ/6W2u68QBDReBA8b5w0p9gEJFVho=;
-        b=YzYdLoadM7Ogi/NXUyHtW7JQDrKZG+0UAKCmBiPwIG9oJ097LGU0T9EcJ0+gP+V+Lx
-         AxgfevLIviFGmGtTpGHj7gXs5gmE6czsp8nz/XPwTKuUP41m5oBIZY+wS1hCh2m+4s9e
-         u2OJQP94YhbPo1ogHAaPcpFzpXGSDIIjfzFmzS4fiV9BNGH1KM12TUz47jmRW9LOcjL9
-         2ztZAu64FAnj4BFJ2u9j6issa8YltbLu+usU1LTPZgX9gjjGGo6x1SId6QDkoS8o8anT
-         ikpnI3wIqJkbluhW9irlavziD95ktE9Kx8krrLiIZJDZ63rGwFLMrjRSaa7Vl7SrWiPT
-         tTzw==
+        d=ziepe.ca; s=google; t=1790290536; x=1790895336; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tIp+aiyQTzTnGdKMDtuefZl/ywWVdEoeMd4a05iequo=;
+        b=LGnSKgcSo3y8RXklRWRLKSGPf1NXqNykTFrcPe3Wya6bU9QI8EFgkr3xy38vTN+rfz
+         3792lWHJd5TDcD7PyE7T6tBPRgcKC6IvdZicBIhz2GFW3tC0H2W3FvtNDR9UEu52eF3F
+         l6qRVNQSw1cJKO7nhLxbWisX7heG4ajcm6CFZ7xbvngJZmHDpolBQoIoqC/JM4tnSE+M
+         nysce8dw1muLqmbnpGAIA5Lu+H0LC5j7oe63fhTEHGeJYQ895UVeo/hZM4v4EY++HtE4
+         ++H16PNpqWuoua8h/2wwIueM1g3cyhp7TTBrVcv6lvEloA0+dBdbdq6ho6LIOBejgE9h
+         Ay7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790290422; x=1790895222;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=HkHFg2PAsl7Q9sZ/6W2u68QBDReBA8b5w0p9gEJFVho=;
-        b=cipGoxgsjU36tNCyodCcXojW8bgMJ7Mw9ZG3Ygk+lSK1UmKRGiXBMpWEeFeWTeNPkB
-         SZ8vL+IoG2yCVWZ7Ambcr9dftnlMW2atlfCuzW715P11VSsTfXmedPAES/wIBc88bgJy
-         ZJCCzAuoRPyOIik9nM78jszJbQmC0jNgqGV/FUNBGXh9UFUoZkKqqAaGbkfvJ9eyclXb
-         VZ4npiorXdpwgOs3+qfEPNHkXci4FnDpdMS2hsEPlxUCW8bAqNPOX9FMdF1QAHOFbjFA
-         p5/hvEwpsmClS0iUPYu15WH2Aw3+Jk1iSO+ZQ9zA5px93AAkabB1W8vXMfFhyHv1B0wz
-         DcUQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzpgyMheeCN56D5oo2zbizaoEkCnYitdoND6UmccsQhDXMNSg5buXjf8XurSnTsGvoRMlZsApaI9MQet10XStYv@lists.infradead.org
-X-Gm-Message-State: AFuF++kJsvy665n99I1be29OFlegVcajSBRRX6HgtX1z4zOsUxqDDB0r
-	Udn+/G+u1/keRktNsnDCR+RLP6kb0m7GwC4jvC91Ur59RCU3KB6bqdZMAWHHwcJfKtU=
-X-Gm-Gg: AYBFou05y8HLV4AoNtgcVWwDAP1nbHjRvEXGlci9zDHcU6LqVmfBLkfJwXjD76OGiS+
-	U4ghTn63R8MJL7qn3uNVWyi9cnAeADl6LQmtxYpYLn6T9GVBylJ5IqbGOcobKTnsa18xHil7iDl
-	lA57YHh5NbHJgv73rQHiUHy2wvZYzIVXL3+2AHi05awuHlOEebID97wb33m6fvLCeYY+sAOBXPG
-	4//C4EB+pa+yIaNFhS/9CK1t6vyyRXmlUmCyyUg0+likkiR5eEzqURRqZCqWRSiruox9HCVKGKo
-	ov6k4H3r8MV/EV8t3mDw8bFVIzyRneHfdq5A7mNTOQ5YI3RXa9a1sZqu7NMJpqZV4bgzNrMpVL3
-	HXWh40/YxpgH3AExdZJjeh69GGyyHls2v6wemTxMC05LPnZAhG7oD85qfpXxSjyWUQR5Qdy5kqP
-	pHyz7C37n15XQCweB9r0OMCg/qFA5pkPFKTLIuwlTk5wsruA==
-X-Received: by 2002:a05:693c:829b:10b0:33b:d89e:9fb2 with SMTP id 5a478bee46e88-34000f36181mr3727679eec.4.1790290422026;
-        Thu, 24 Sep 2026 15:53:42 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1790290536; x=1790895336;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tIp+aiyQTzTnGdKMDtuefZl/ywWVdEoeMd4a05iequo=;
+        b=gDt/6XArCX/QiVgh/j9g9t3eOT/35oFU2qExJQx9bsqO6+uIDj9C8ciwXif3w03OfT
+         0rDkblN1xmWMOlpN/fDhMKet8eAvB43ccKLF++yPbiMg4b5QkxThDgTynEYCVUTpou63
+         B8J/5CtZtH1HTBLl/YAajykWnN5dnAWY6ilOC/kn9dIMlCtXZqkrMzG8IK+aCMNvffVP
+         ra4GjbsF0+VaUvwH2JOBPCsyuRrwdpq65f7/5npRb3TUQBQtV1CbL6ixFFHA1sjBA75z
+         CGInvfSmBTnOomuOA/PGQT2B4XWn40J07+pWETWW2zslVaJoI9ivcpZLk6R8I8iKzBJo
+         MdCw==
+X-Forwarded-Encrypted: i=1; AKwUvBzwTlhUc1CYsDEuFGCQgerlnLtCuhfzkuTzMdZN6PTzd5hpCYBnPdAvXgtrh1A1tQhRA+IKsT3yyRbWnfuS7Doo@lists.infradead.org
+X-Gm-Message-State: AFuF++krypqSwP9beEvq9JyQ6nyEczlB2aXLWlqDXeEioW9sGtYHjzCL
+	WPvJY8iHH0yHhQwqqiG6zSjHRoBv8mD5rYunp/x6JifmJXgj9IdMbnU4iWN4OLyYseo=
+X-Gm-Gg: AYBFou18Yw8TaGXn+ZINpDvRu7edbMxDbx3LWV0InOvhbjOvWMhcBiWlSRrLZTUKVly
+	OghRVSsBl5KVmsBFGEZ2WQoZqknqIhriLEdQh5/1WyaeU6SG/DyJYTQ9K0DpM/QmSdyUq3dzQl0
+	xJsjsB9jZRwS012Iz9ZZNc3RSaiBohoKgRDxFZb2dALlz27CXJP3p4wOQtntG+NQ+Uu9/R7Udj8
+	Ry3azOiaGK39+yW9MdrdUSvPbtiWgSfcMTZjumE7zdnQlaWRJjWiVFMDTgjGy944nUAiW/C5/uL
+	oSLCWenyyd6+KXjHXklN3b/FVmB9J3hgGE0SRl1XiHRmbbOmb2mjUTLTxaW8OxQ2E1tj6x3hPNH
+	oCkitCkh3fS6ExAvp86w071+tDhUnvHp578DDRjyPH0cya6vf3FnjO8is1FtA96+CHrnqYyGGmt
+	QAH0kbuliZm5Bh1Rl6KYbwU8U2vlIoxGi9sbWsj2qfMyjj
+X-Received: by 2002:a05:7300:7312:b0:33b:dd45:716c with SMTP id 5a478bee46e88-340cc11f887mr2763537eec.13.1790290535581;
+        Thu, 24 Sep 2026 15:55:35 -0700 (PDT)
 Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34141d2fe4bsm1631877eec.4.2026.09.24.15.53.41
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34141d2fe4bsm1639551eec.4.2026.09.24.15.55.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 15:53:41 -0700 (PDT)
+        Thu, 24 Sep 2026 15:55:35 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1x9sJw-00000000efs-2Wk8;
-	Thu, 24 Sep 2026 19:53:40 -0300
-Date: Thu, 24 Sep 2026 19:53:40 -0300
+	id 1x9sLm-00000000elU-0EsA;
+	Thu, 24 Sep 2026 19:55:34 -0300
+Date: Thu, 24 Sep 2026 19:55:34 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Daniel Mentz <danielmentz@google.com>
 Cc: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
@@ -85,18 +85,16 @@ Cc: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
 	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
 Subject: Re: [PATCH v5] iommu/io-pgtable-arm: Add support for contiguous hint
  bit
-Message-ID: <20260924225340.GC16465@ziepe.ca>
+Message-ID: <20260924225534.GD16465@ziepe.ca>
 References: <20260921-iommu_contig_hint-v5-1-e7fbd1c3774d@oss.qualcomm.com>
- <20260924001502.GO1540250@ziepe.ca>
- <CAE2F3rCVh0CmW6+a__PcCrBgsMJVompKJX_qYBdQ=exj3bYtCg@mail.gmail.com>
+ <CAE2F3rAMAnV9+WNLZtGQX6cHPsZ6wbfRJ1Z3d5mF1+8WHL-uMA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAE2F3rCVh0CmW6+a__PcCrBgsMJVompKJX_qYBdQ=exj3bYtCg@mail.gmail.com>
+In-Reply-To: <CAE2F3rAMAnV9+WNLZtGQX6cHPsZ6wbfRJ1Z3d5mF1+8WHL-uMA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_155343_135901_701241B2 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20260924_155536_898529_AF7C000A 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 11:49:50AM -0700, Daniel Mentz wrote:
-> On Wed, Sep 23, 2026 at 5:15 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
-> >
-> > On Mon, Sep 21, 2026 at 04:44:07PM +0530, Vijayanand Jitta wrote:
-> > > From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-> > >
-> > > Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
-> > > When a set of consecutive PTEs map a naturally aligned contiguous block of
-> > > memory, set CONT on every descriptor in that group so the hardware can
-> > > combine translations and improve TLB reach.
-> > >
-> > > Advertise the supported CONT group sizes in pgsize_bitmap. Callers select
-> > > those sizes through the normal page-size selection path; io-pgtable-arm
-> > > then installs the corresponding tagged descriptors directly. A partial
-> > > unmap of a tagged CONT group is rejected before modifying any descriptor,
-> > > so a rejected request cannot leave the group partly unmapped.
-> > >
-> > > The IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT quirk allows SMMU drivers to disable
-> > > CONT support for hardware with implementation-specific errata.
-> >
-> > smmuv3 has this errata, it must be disabled there too. I didn't notice
-> > it in this patch?
+On Thu, Sep 24, 2026 at 01:36:12PM -0700, Daniel Mentz wrote:
+
+> Interaction with Hardware Dirty Tracking (IO_PGTABLE_QUIRK_ARM_HD)
 > 
-> SMMU is an architecture specification. I am not aware of errors in
-> this architecture specification that would preclude the usage of the
-> contiguous bit. I understand that Arm MMU-700 has the following
-> erratum
-> 
-> 3777127 Under invalidation in TBU possible when using contiguous page
-> table entries
+> When Hardware Dirty Tracking (ARM_LPAE_PTE_DBM) is enabled on Stage-1 tables:
+>  * In visit_dirty() / arm_lpae_read_and_clear_dirty(), dirty bits are
+> queried and cleared on a page-by-page granularity
+> (iopte_set_writeable_clean(ptep)).
+>  * If a single 4KB page within a 64KB CONT group is marked clean while
+> neighboring pages remain marked dirty/writeable, the descriptors in
+> that group will differ in access permissions (AP[2]).
+>  * According to Arm ARM D8.3.1, all descriptors in a contiguous block
+> must share identical permissions and attributes. If dirty tracking is
+> active on a domain, consider whether IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT
+> should be set or whether CONT sizes should be suppressed when
+> IO_PGTABLE_QUIRK_ARM_HD is active.
 
-And a neoverse one too.
+This is right, handling dirty and CONT together is a PITA. You should
+probably make them exclusive for this simplified implementation.
 
-> The recommended workaround is described as
-> 
-> "Ensure that contiguous page tables are removed using a single range
-> invalidation. Arm recommends using range invalidations to remove
-> contiguous entries anyway for performance reasons."
-> 
-> and I believe we are already doing this.
-
-No we aren't. Go read my fix on this:
-
-https://lore.kernel.org/linux-iommu/1-v7-e84261bbe7cd+2ea80b-smmu_tlbi_jgg@nvidia.com/
-
-I have another patch that fixes it for iommu domain mappings too.
+SMMUv3 is the only user of dirty and it will switch to iommupt which
+does all this right.
 
 Jason
 
