@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76444C9830E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188D2C98318
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TllJCv4hZGEv4MQpD7/+87GoKncl49dwvargz348xj4=; b=aSvbWKfFzxn+M37dVkKkZsQ9tk
-	Yh4ohxDI+GIvJ3XCMn+z4quFGV+rx+S2hvmyFOhE4UElXi02uBmGejhW1FG5uR4kl/qw2x9pgqAwu
-	SkZn3IQ0nkDbYotyN4SRZq+IVR30GBUGTZdXi+d5rBNAgmYhrf/2q9YT3TjDf62yu0InuylMVcygf
-	vfYXvTncju2qcrd5i0FyinjtaUY6mnKkirS1VJ4eRO38NzHb2jckHOyAbYTwpoB3OMlYOrRl19+z9
-	QkprQUxCt0E4sOKCXNjv2MaNLKL7XVu+YtiWXfrFehfXzr5rOJgWfm2PaLGF9bTkcxIrpV43M+6uk
-	N8833Fhw==;
+	bh=m4Bf2ZFROeohsX/7IoYLRoVtwsXCs1sBLFwVjm2jBVc=; b=FERxEVwFMmp5OMSSd3Rb6DFNA0
+	HDpQbQXEvZork39wbQh9IGNS/dC4H56EBTK7thnVsTHGgPg9pKvBAAL5OYK5+no0nB385xuGEvL26
+	dytLhPG1pFJwEzaFXPIbPbycMRn0QjyEz2bmKMmItud2F5MmxByul4o50yc+71VTwSMlemWaWOJXm
+	FPd+ffWZ1aOvD/h2VhqZ5aWIPrSx12vbEYZ9nRGyg+R0WYZKl6eiup5PN+3R8STePPPdXkvzOm6R9
+	7FS27JKO5vJ86j/QetLAGorB1BnABIZATjjy5vaytme6vS8j6K1Hc46U2GHCISdkxrRKm2BlWbgt3
+	edb21oLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nL9-0000000BmGd-3LQR;
+	id 1x9nL9-0000000BmH5-3v8P;
 	Thu, 24 Sep 2026 17:34:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nKu-0000000Bm8Z-0OLA
+	id 1x9nKw-0000000BmA2-34jP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:34:21 +0000
+	Thu, 24 Sep 2026 17:34:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AAA01E4D;
-	Thu, 24 Sep 2026 10:34:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37A801E4D;
+	Thu, 24 Sep 2026 10:34:18 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6B273F86F;
-	Thu, 24 Sep 2026 10:34:16 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63A693F86F;
+	Thu, 24 Sep 2026 10:34:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790271259; bh=sS68p+atF2H8DVQ56LLhJJdiwhdbaXcCjWgoc3iiZJg=;
+	t=1790271261; bh=M/H8p54y9BAGRBok7Bq+l77HPKLtLrhketpnjFmnyH0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KjFfftV9PivAqPaWnCX/EhuACvFWPoPKGysT0cTibCTb1cM52lDIoPL8wKJ1RZJx0
-	 CfP1EKbCEBLYqHnVfMYlO+TOVXYW8rV6g+LJLPB77frTvpXe6bxethDCsrHlxrtrii
-	 BE8dlj5MwzYcDsmngdrui1SBQRByDpQ1YBNxBxN4=
+	b=gybT9Kv0y7Ei2KpquZuNOEEU5v+0tkNUelzrSNkkLjgFsJRxG3hC/WKmpcFWtxAug
+	 Fj2NQ1iPOc+vxXsCMVFFYV7WQDcNr8EUiFelmXS7JDRR2bItKIx++FA+qIJ4DhB8oz
+	 qxhmBhKcyTHLfG366LOp1dfllwvXsWdxSmfe4OGk=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Thu, 24 Sep 2026 18:33:40 +0100
-Subject: [PATCH v12 02/14] coresight: etm4x: prohibit modifying cntr_val
- while session is enabled
+Date: Thu, 24 Sep 2026 18:33:41 +0100
+Subject: [PATCH v12 03/14] coresight: etm3x: prohibit modifying cntr_val
+ and reset while session is enabled
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-separate_etm_cfg_v2-v12-2-a2b41d2f7c2b@arm.com>
+Message-Id: <20260924-separate_etm_cfg_v2-v12-3-a2b41d2f7c2b@arm.com>
 References: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
 In-Reply-To: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
 To: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
@@ -60,22 +60,22 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
  Yeoreum Yun <yeoreum.yun@arm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1131; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=sS68p+atF2H8DVQ56LLhJJdiwhdbaXcCjWgoc3iiZJg=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqtV8MfDB1+nWZx8wYikco0l3/g2a5nPn9uIViT
- c2Xq3C9BLKJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCarVfDAAKCRBt1cPRWsUx
- M5zPC/9KRSAhvos1jMAiZwYx1G5YpmNDuJuk0N0s+pE+tp/HEdEOKIwKP8dc1Hwx0ejENEM+Jfu
- 0mbSBa+XCu+AaXLDjIrSliT9HATTpsA+B3BLMx6s4iwNmjeZEScFO0gEKUxsmuWmjCkvEpk4SYD
- mprsSSBBiYE9TuzkPcPBvDVOPRQ+A5N8ltBA4zT3P3a4yJbEE5x/z9tkO7WA/G3G17UpypVwFSA
- 6s3sWAr9LL4CWNurp3qXU+F8dtxBBywpcZS3f4A5ENa7ZHFC886Z+TWLmiwP/NHhsnPLDqxN8+b
- LWdYr9C6Ki9ZsTYkXoZeA05DHIIqOkJ01e9TYKPzRCXpu4qa9NruZ3+CrbcOt3HA/cnIUGgJoMI
- SJMeRRhGIbyk2WWvpiDTswqewRVj34Dux3DBvyhU8sb08jhVJTiMITuwN/R8FSS2KI9g3vXka1n
- mFWe03P9JCZtJZ/9C/1tqsGRB06Pw9sycSM1SaZboYq+lsU1FGaX2CUdpZVn+Fl9bWO1A=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1556; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=M/H8p54y9BAGRBok7Bq+l77HPKLtLrhketpnjFmnyH0=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqtV8M2SaHGkPoXGzyIEDWz7Q03gTS12NIDjAii
+ ZQi5oqNaTuJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCarVfDAAKCRBt1cPRWsUx
+ M+XeDAC/3K7Ie9ZibIyAU0NoSUhImUWGdI8tVyZuDB3Fs1qrY7JZAh91T7i9om2MgETtcGFPV+n
+ bAUM3CFVdnmZCav//lfYL6HCLSlnMX+T56wVg7taiPY8eaVFgI3MnxcijjiKj39jZWARkn+4qwo
+ Ee3/mklPZ9ZWvb1UPVbzq9LhT/fhsVJ1FtvhteYXecqPpfp0CkTo3/F7B4LNcUVHv6cdW730v4T
+ ZJdGikq4/mVsePDAoZtkhLdiqkpMp9EYcbkY0+TwQL3yWC1K4lPNYJQUwnJbFzNt+JElGBtkyj1
+ f0G67F7LshNIhB44l2AotasBDaBYnLwemVqW25cRUXGI5NrUY0m4Kn/TdU9mmstQ+Hl4oGMXyBN
+ CjJu13x08+ZE5cXG0tVSGuO1dChH5M/9YwBbN89Q2NudBkQGSRA7BE338bA8EWO1EkANS2WzSj3
+ v1MG+IXF1uYIcrZsCSLeU2AyYFzas1141QgnI216u6Ss8pSED72B6ICRf6lxZDwMgevnM=
 X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
  fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_103420_175086_459448B0 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260924_103422_879295_A9BEC8EA 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cntr_val is overwritten with the values read from the corresponding
-registers by etm4_disable_hw() when the session is disabled.
+cntr_val are overwritten with the values read from the corresponding
+registers by etm_disable_hw() when the session is disabled.
 
-This means that any changes to these values made while the session is
+This means that any changes to this value made while the session is
 enabled would be lost when the session is disabled.
 
-Therefore, prohibit modifying cntr_val while the session is enabled.
+Also, reset shouldn't be called while session is enabled.
 
+Therefore, prohibit modifying cntr_val and reset while the session is enabled.
+
+Reviewed-by: Mike Leach <mike.leach@arm.com>
 Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/hwtracing/coresight/coresight-etm3x-sysfs.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-index db3cf4ad6806..a547de5a3f9c 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-@@ -1615,6 +1615,9 @@ static ssize_t cntr_val_store(struct device *dev,
- 		return -EINVAL;
- 	if (val > ETM_CNTR_MAX_VAL)
- 		return -EINVAL;
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+index b3c67e96a82a..cdb70a4382eb 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+@@ -75,6 +75,10 @@ static ssize_t reset_store(struct device *dev,
+ 	if (ret)
+ 		return ret;
+ 
++	if (IS_ERR_OR_NULL(drvdata->csdev) ||
++	    coresight_get_mode(drvdata->csdev))
++		return -EBUSY;
++
+ 	if (val) {
+ 		spin_lock(&drvdata->spinlock);
+ 		memset(config, 0, sizeof(struct etm_config));
+@@ -744,6 +748,9 @@ static ssize_t cntr_val_store(struct device *dev,
+ 	ret = kstrtoul(buf, 16, &val);
+ 	if (ret)
+ 		return ret;
 +	if (IS_ERR_OR_NULL(drvdata->csdev) ||
 +	    coresight_get_mode(drvdata->csdev))
 +		return -EBUSY;
  
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->cntr_idx;
+ 	spin_lock(&drvdata->spinlock);
+ 	config->cntr_val[config->cntr_idx] = val;
 
 -- 
 2.43.0
