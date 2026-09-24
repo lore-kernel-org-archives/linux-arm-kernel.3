@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F38C98316
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A280C98315
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pvbg/dxk+AXCSTE+uheu6nRjPFHJfcJOZt8KrB0ENwM=; b=lIslw0sosUBzrYYj0IR53sUpMg
-	dqtRLdzfTB1t+PPpew7UexxSmFpL7iAKJaHOwFtz7A3QMvauY9qC6HnHUmpvSWJvS7jzRyaj5MGCY
-	NRPJgleaHZeTePEPaPDdSIhEP7E13vQJpYe1UrJgrsfFEf5iGZIjn/95bnWHfhX0VntVwr8XjotYv
-	Zv/697nrUEX52wvTz876keUMzUaO53DAWmdH01hOP/iv52s+15mOyJuwXZJVy6mHiGozqFbgqjR13
-	yxznYXhKOcU2TUqrsasDH/bo9oS4PuQ2aRFkKzItG/w5C5TeMPIKozZ6PA5XnXNELwoX1xJtMoG65
-	5DHFmV1w==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbBjtZiwvW3+ed65Dqj2P8+3DohWPWa2sAVoOy4X4uM=; b=APqH3EJdOtUHW73c+jHf4YjJ0X
+	/pxz9HvJlsrfnQq82ezpM7tZ/MpGuboKweQWicpQlnTOXSWrQJKL2ug9De/bKbDdWz4fe3pWlgFBs
+	7rs++OxKIZwERfw24X+SRbX5heOAQjWrXOkELQ7VZnbkkCu2bBlroSd/EwFtpfsFcANUJk8BbGJOE
+	s+hxLLR/yPpYZqyA2YVqubZxaXwqFIP7u0mxLV4ET2Rnzi2+Gx+VYI/bTZeby/7ZBgTsPa8arvGBK
+	oSzCBNsW0H0XB5OH4mE7zY5Wq6DuOKnW7EE/o7snIQZPpC47YwRSvdBHkKDORo7mY3FhkIjKvkGKd
+	x7jv3v6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dIW-0000000ABje-2LIG;
+	id 1x9dIW-0000000ABk1-2oUb;
 	Thu, 24 Sep 2026 06:51:12 +0000
 Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dIB-0000000ABdZ-2ezb
+	id 1x9dIF-0000000ABfT-0hMM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 06:50:55 +0000
+	Thu, 24 Sep 2026 06:50:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Pvbg/dxk+AXCSTE+uheu6nRjPFHJfcJOZt8KrB0ENwM=; b=Dfru81rGkINwCO7B3gaN4M5uo3
-	YPXIChLRXufB1ejedu9Ey8Hs1FFFMo66uR7DMJjv7zcY9BCkvDa8+RVQhP8zBCJggH0+TiOp4cw9p
-	9f6ldBzPmo5bw+CrGYDWebflmzupkpjnNNqWSHmDxdeGxNhZ6FWkv7QVr5xqJFs7GKFid1Fb7w2uS
-	hnmAoFVaECVzrdN7R1duCNppMKN9RzfmSHY3bSdrtCyOIMZaDvbCXxb2vL4eCpudnxf3/5gGdSlf2
-	c0mTgjMj9eubZoM8CRMGJSiuR1MeV+i+Td4ok3seYRZwSSQwV1YQP4HFNS4Zx1Blga0vUaYS5iPB5
-	1UITnEGA==;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Unsubscribe-Post:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rbBjtZiwvW3+ed65Dqj2P8+3DohWPWa2sAVoOy4X4uM=; b=UwYG+7MfwAnL+GwQoqLTRm3NiF
+	RzXKfdW43ZehApaeECIGs/G2lSEjFUYL+yn2F7iKvWK8flpOdwFGIyGsS1ezuGcWrolciOZIk/0wY
+	RVffowucdAhZL3QOATt2W9lKwMYtI0NTUvXq28hEHchEoZ7PcblOz5q7Z1DgNKx0s1FHnl2xVJI13
+	xrlO53SEFyzDbhqPXuXdxTnfOnTSKhyeeHtqiPxTZtIaWnHHY05l5G+1APv3BSjdaU+uDvS+F6eqE
+	xeyh0ol1IV3RccMb39ephvbjTMd1tzyz1euuBX9kF4+99VScTIA2EhpUOT/T1fpXnAeu6Eouh5Mlr
+	UVcKltvA==;
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:54176 helo=localhost.localdomain)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <primoz.fiser@norik.com>)
-	id 1x9dI7-0000000AyGs-1v6y;
+	id 1x9dI7-0000000AyGs-3vil;
 	Thu, 24 Sep 2026 08:50:48 +0200
 From: Primoz Fiser <primoz.fiser@norik.com>
 To: Rob Herring <robh@kernel.org>,
@@ -65,10 +65,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-watchdog@vger.kernel.org,
 	upstream@lists.phytec.de,
 	andrej.picej@norik.com
-Subject: [PATCH v2 0/4] da9062/da9061 watchdog timeout mode
-Date: Thu, 24 Sep 2026 08:50:40 +0200
-Message-Id: <20260924065044.368341-1-primoz.fiser@norik.com>
+Subject: [PATCH v2 3/4] watchdog: da9062: Add support for dlg,wdt-sd property
+Date: Thu, 24 Sep 2026 08:50:43 +0200
+Message-Id: <20260924065044.368341-4-primoz.fiser@norik.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260924065044.368341-1-primoz.fiser@norik.com>
+References: <20260924065044.368341-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -82,9 +84,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_235052_244293_D5F84DEA 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_235055_380119_AC1B8FA8 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +100,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a revival of a series originally posted by Andrej Picej in              
-December 2021 [1]. It lets the DA9061/2 PMIC watchdog be configured via         
-the "dlg,wdt-sd" DT property, to trigger a full SHUTDOWN instead of the         
-default POWERDOWN on watchdog timeout, and enables that on the PHYTEC           
-phyCORE-i.MX6 SOM.                                                              
-                                                                                
-From v5 of original series this resend drops patch 4/5 ("dt-bindings:           
-watchdog: da9062: add watchdog timeout mode") because it already landed         
-upstream as commit 382256b219fb, later converted from .txt to YAML by           
-bd888a4377ae. Thus dlg,da9062-watchdog.yaml already documents dlg,wdt-sd        
-property.                                                                       
-                                                                                
-Patches 1 and 2 (the mfd prerequisites making register CONFIG_I                 
-writable) needed a rebase: an unrelated commit has since added                  
-CONFIG_J, the register immediately adjacent to CONFIG_I, to the same            
-writeable-range tables. Rather than reapplying the original single-             
-register insert next to it, these merge CONFIG_I and CONFIG_J into one          
-range, matching the existing CONFIG_G-CONFIG_K style already used in            
-this file.                                                                      
-                                                                                
-Patch 3 (the watchdog driver support) still applies unmodified.                 
-                                                                                
-Patch 4 only needed its target path updated for the arch/arm/boot/dts           
-vendor sub-directory move (imx6qdl-phytec-phycore-som.dtsi is now under         
-nxp/imx/); its content is unchanged.
+From: Andrej Picej <andrej.picej@norik.com>
 
+Implement a method to change watchdog timeout configuration based on the
+"dlg,wdt-sd" devicetree property. Setting the WATCHDOG_SD bit enables
+SHUTDOWN mode, and clearing it enables POWERDOWN mode on watchdog
+timeout.
+
+If no devicetree property is specified, the WATCHDOG_SD bit stays in the
+default configuration, not breaking behaviour of devices which might
+depend on default fuse configuration.
+
+Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+Tested-by: Christoph Niedermaier <cniedermaier@dh-electronics.com>
+Reviewed-by: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+Acked-by: Guenter Roeck <linux@roeck-us.net>
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
 Changes in v2:
-
-Patch 1 and 2: 
-- capitalize subject description
- 
-Patch 3:
 - implement Guenter's remarks (code refactor and update commit message)
 
-Patch 4:
-- capitalize subject description
+ drivers/watchdog/da9062_wdt.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Link to v1: https://lore.kernel.org/all/20260923111719.2032012-1-primoz.fiser@norik.com/                                         
-                                                                                
-[1] https://lore.kernel.org/all/20211206064732.280375-1-andrej.picej@norik.com/
-
-Andrej Picej (3):
-  mfd: da9061: Make register CONFIG_I writable
-  watchdog: da9062: Add support for dlg,wdt-sd property
-  ARM: dts: imx6: phycore-som: Set watchdog timeout mode to shutdown
-
-Stefan Christ (1):
-  mfd: da9062: Make register CONFIG_I writable
-
- .../nxp/imx/imx6qdl-phytec-phycore-som.dtsi    |  1 +
- drivers/mfd/da9062-core.c                      |  4 ++--
- drivers/watchdog/da9062_wdt.c                  | 18 ++++++++++++++++++
- 3 files changed, 21 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/watchdog/da9062_wdt.c b/drivers/watchdog/da9062_wdt.c
+index 3d7bf2f351db..0c007847b7c4 100644
+--- a/drivers/watchdog/da9062_wdt.c
++++ b/drivers/watchdog/da9062_wdt.c
+@@ -206,6 +206,8 @@ static int da9062_wdt_probe(struct platform_device *pdev)
+ 	unsigned int timeout;
+ 	struct da9062 *chip;
+ 	struct da9062_watchdog *wdt;
++	int ret;
++	u32 val;
+ 
+ 	chip = dev_get_drvdata(dev->parent);
+ 	if (!chip)
+@@ -245,6 +247,22 @@ static int da9062_wdt_probe(struct platform_device *pdev)
+ 		set_bit(WDOG_HW_RUNNING, &wdt->wdtdev.status);
+ 	}
+ 
++	/*
++	 * Configure what happens on watchdog timeout. Can be specified with
++	 * the "dlg,wdt-sd" devicetree property (0 -> POWERDOWN, non-zero ->
++	 * SHUTDOWN). If the property is not set, leave the default in place.
++	 */
++	ret = device_property_read_u32(dev, "dlg,wdt-sd", &val);
++	if (!ret) {
++		ret = regmap_update_bits(wdt->hw->regmap,
++					 DA9062AA_CONFIG_I,
++					 DA9062AA_WATCHDOG_SD_MASK,
++					 val ? DA9062AA_WATCHDOG_SD_MASK : 0);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "failed to set wdt reset mode\n");
++	}
++
+ 	return devm_watchdog_register_device(dev, &wdt->wdtdev);
+ }
+ 
 -- 
 2.34.1
 
