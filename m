@@ -4,70 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2DCC98310
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3C7C98310
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 06:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+aDnBPe6Fe8ZVXl+yIt16LOFB9XYRmkMboC0hDkoW0=; b=ACH031TccXVcsFj1vZ98zWRa5L
-	MpUeCBaUSB2IT5k7h14qBYTFLFzCXWPHkhn0o33aFE4tNmie7+dRstjjrajGEZwgK0saQwIKGErFp
-	cQG2YYRxJcwjr5OBzeeKikd9o3XBAO+TniL3q7EHRZTJZ3iDLGo5nPT2x5TtOubbNRN4pVepnNYCb
-	Fl3XthyqgRRY7P5292yM2AkjUJspTQwxm3+tWS4SrBsQTuJgvC1aod+ApUbz4x3lu+f7Dx04GU/pf
-	BKjn6dKF/qIKUdm5pCwKrEFnSnEsCP6/QAfIGMhNqrgWPf97kl8WImOBwJNrpBt5G+ePY+NZvkogI
-	OpaeUAiA==;
+	bh=pux10LlETLszwSf1Y6MVAh3Fvixzs5T8niWGfHPGaP8=; b=VmOdQEGMiF0bvljCOZ7Kv/Li37
+	0esRInPI5xsJz13euFE6/C0iD7M5z2BqJYPrSSwGdZWCPYqy4vs+l6Nu+O0WZWjnpQI5TSGckoT4h
+	K/8KJQ2ZBNf71Yr1Z1eXimWZlFoxE7X59C77qgINtWrFdIblMfQJmx56Oj6skJnK4RGB8Sv9ZSC4y
+	UakSiMkVDHVEclnNHS3F/RoQTCC1obh/ldLnvxJkGqhkWhqAuNdSpWHrGMw3A4rUOxIgN5W0U6UY8
+	MGw/25G6+hacA5JOdQkycIg7lhiMZpx7FqXZ8m+W8gW5dTxirTvhScVlTdXtE1DlPY3XcosgktjJT
+	x8+1h+pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dBQ-0000000AAl2-1QJL;
-	Thu, 24 Sep 2026 06:43:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9dDe-0000000AAy4-2XHq;
+	Thu, 24 Sep 2026 06:46:10 +0000
+Received: from mail-westus3azon11012048.outbound.protection.outlook.com ([40.107.209.48] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9dBP-0000000AAks-1LUL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 06:43:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65C6A600AA;
-	Thu, 24 Sep 2026 06:43:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1AF01F000FF;
-	Thu, 24 Sep 2026 06:43:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790232230;
-	bh=8+aDnBPe6Fe8ZVXl+yIt16LOFB9XYRmkMboC0hDkoW0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WVxUBLLEsP97RLZPooJ8iLZlylwhI3IHUEcRwN90QZNfoMLn49qpcrlGtA7/TtLFu
-	 mXifHSgg+0RI0KmPwytBN5yDS39a8uwDkniVYuUzqiR+8TIPsLg8OlWckb4FaGTK6+
-	 G/wVW55tOOSi+zGXFJlrev0sVcekMW3fQ4k328plRClRFnjhQVjvJibIwzf72QHEhB
-	 WRG+d3Dr6KajQzV9cTA6/zhXHgxAFz8KU9/hUgeD2PW0SV1xLb9E26D3FK5uYPDtBN
-	 dnWTZu58Av0FO7t5i937AyYVVtoKjq5bubYxd2nGJYQ2181qwVQDpBJFghdiQ2zDpO
-	 nvRrAxWoyEKFA==
-Date: Thu, 24 Sep 2026 07:43:43 +0100
-From: Simon Horman <horms@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, horatiu.vultur@microchip.com,
-	steen.hegelund@microchip.com, UNGLinuxDriver@microchip.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, sdf@fomichev.me, herve.codina@bootlin.com,
-	arnd@arndb.de, gregkh@linuxfoundation.org, mohsin.bashr@gmail.com,
-	richardcochran@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v7 11/14] net: lan966x: add PCIe FDMA MTU change
- support
-Message-ID: <20260924064343.GX13925@horms.kernel.org>
-References: <20260918-lan966x-pci-fdma-v7-11-0ecc179c8a2c@microchip.com>
- <179008205354.2160803.17637640817184992984@kernel.org>
- <20260923094622.gmxyw46ligz4rsyd@DEN-DL-M70577.microsemi.net>
- <20260923193929.GW13925@horms.kernel.org>
- <20260923200712.jirfdepdpv5vm45m@DEN-DL-M70577.microsemi.net>
+	id 1x9dDb-0000000AAxJ-3FKa;
+	Thu, 24 Sep 2026 06:46:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BNTrZYDOGIx/UxYjRhtgBiAboA3CIHU9iN1lS/7uyRrKr8ztqutHHLX7v4q6oyxr32IYZ9AHvhSa8R6fbAGFMKQsNc1Q2SzIDxVVlxjiJZy/KMaj+X2hkOSiyem6K9FAqF0IDHtiD6t/u505Y0oLJ8FG7x2bp7W9DYY40xnA6i03l/GoTdaw5CP55Xlw+MRjpm0ZocKCoCINXUIzfOEpTp7xeVTh8sQ5mUxJbmfW49bL/BddX+uWqzTRsFZii5us9XLa1Hr3JGXoBx9nTKYqRrIkgpDmoFOK3TPUWysSNJfYF3NBVY4mqu3PuyuTWctYsETAfwKJEO7bO3zOxYbwOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pux10LlETLszwSf1Y6MVAh3Fvixzs5T8niWGfHPGaP8=;
+ b=Auj/DAoy3kXR66KZPNBmMjTRxu5WNYR7QDfG//alrsT6EBzP4Wgt0warHPVCt+v+VC6TBQslqiITzIegzcnTNOedM6XFX0lN2xHJteisSQ1pgCfBlfq2VDHHymQbtaYJcM/OjD7xdZkTTY1NX6jlzyfzYhmCZRKXK/TfAgAa3b9mhdB7qeXoDU+ZQJNnfr1Bf+TbSDI6f3o9W18vPLAfOCXapqqNWax+HWavWOyERbVWuWue7YVmVvYXnLACpNiuqphwJdlRYn+SCUzOKDdP1zHzyNJVTbSWCbQ1BFLabXcp4Qxw6a2f4sJA4PcCgsCecf+7JYhTTtLdj/Ct3is68Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pux10LlETLszwSf1Y6MVAh3Fvixzs5T8niWGfHPGaP8=;
+ b=StkWSi05T7vNT7gX8cV1yBGseBdFMdj/hG1ClkiIRO1DoCCWXPG0ZWxPZdvH72V06IUk6Dwz644Ti1kS0E4diiWIjfQzCyIxHXVbEwcpdoPxnZuM6B2IUnNjW8x0108QJSnuCM4tXaDv5uvGkE1Tk0yFEauso5bb1aKFDxNma8G5bIbyAorp8YimNffnlZW+JajjZbqFsEU/uZXTktLWZQmw6ORs2ADU/JEJyXqJFz+D0uwIbUN5poqjHdiYxhxCBlgrrhA7jUC2YEtb2zyBC4jk2T/YRa8LxG0M15RJoG01M/zeTeN1EC+7J0xq1eXpGY38CJX3+3rz2uKNHbfKNQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL0PR12MB4914.namprd12.prod.outlook.com (2603:10b6:208:1c4::16)
+ by SA1PR12MB9514.namprd12.prod.outlook.com (2603:10b6:806:458::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
+ 2026 06:45:55 +0000
+Received: from BL0PR12MB4914.namprd12.prod.outlook.com
+ ([fe80::4921:cbe6:78cd:b445]) by BL0PR12MB4914.namprd12.prod.outlook.com
+ ([fe80::4921:cbe6:78cd:b445%4]) with mapi id 15.21.0428.015; Thu, 24 Sep 2026
+ 06:45:55 +0000
+Date: Thu, 24 Sep 2026 01:45:51 -0500 (CDT)
+From: Vidith Madhu <vmadhu@nvidia.com>
+To: Leo Li <sunpeng.li@amd.com>
+cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+    "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
+    Daniel Stone <daniels@collabora.com>, 
+    Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+    Maxime Ripard <mripard@kernel.org>, 
+    Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+    Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, 
+    Andrzej Hajda <andrzej.hajda@intel.com>, 
+    Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+    Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+    Sandy Huang <hjc@rock-chips.com>, 
+    =?ISO-8859-15?Q?Heiko_St=FCbner?= <heiko@sntech.de>, 
+    Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org, 
+    linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org, 
+    linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+    kernel@collabora.com, Derek Foreman <derek.foreman@collabora.com>, 
+    wayland-devel@lists.freedesktop.org
+Subject: Re: [PATCH RFC 03/25] drm/atomic-helper: Set mode_changed on
+ vrr_enabled change
+In-Reply-To: <75b82a61-fe82-4597-bfb5-3c717fbb0dda@amd.com>
+Message-ID: <7d5d4ae5-0f48-7c91-2675-8ae6e20fa5ef@nvidia.com>
+References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com> <20260921-vrr-limiter-uapi-v1-3-2fcd7d011646@collabora.com> <75b82a61-fe82-4597-bfb5-3c717fbb0dda@amd.com>
+Content-Type: text/plain; charset=US-ASCII
+X-ClientProxiedBy: BN9PR03CA0174.namprd03.prod.outlook.com
+ (2603:10b6:408:f4::29) To BL0PR12MB4914.namprd12.prod.outlook.com
+ (2603:10b6:208:1c4::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260923200712.jirfdepdpv5vm45m@DEN-DL-M70577.microsemi.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL0PR12MB4914:EE_|SA1PR12MB9514:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55832ba3-0a7f-4fdf-8b6e-08df1a077af8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|10067099003|4143699003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: xon87r0cUfVNI8nhR/C5EB3qVujKWq1qHdaL0dw7cXGSnmgbCsXBi/DmdasaqcM+OuyA2MnZb5HhE9xJzZ17W+SebvSdY/mc+cYklDGQQicmr2UK6pKxRpRO8Z25VsXFMGW3I1e0Uey+S/vepLTaZAvBirFZy2MEMXWJEqzAAHiPIOZp8sAEmnAsGHyQFFxT4B1tE1uA9dgzB/8v7RtEecITSw9yaOfzyvalVxgYurVyCLoz3VcawCjufhXbu2k+w4Hv8nILiiMxefemqOIWFVLpm05hTxghPByOO/YQ3tfb95zFkX3TdBh1ZN4GOmfL2ejavfFl2J6dpoD+gZogMkiDgmitKJOHYVQCScYpAsEDEhjcRoYDRvh1kyCs7t+v4ECwi1BLxhj8mH0Ff0PtB0hora5Gn/HH/GnpdLS++odIp7FjYV4k11ZpKJIgELDz7FKmtM2LigfA2N22DLlA2krsWR3+s1CkiaQ3dKzHerS3RgXEe1WyXcPXj9bmJ+0/rQfOBj1cXfRvw/IwE65FrnpP28Vf06f/smA5IPxymSnl2QP71AuIboxwelzjJ10BfApBLJuxYJxU88HTNrsCVxoDbJONpHQewvyKG/K6vAMpPELmFvLyesrM4OxTK9RLro8gnXU+OC/mXPA2pZJsuikucH1uxIqd599MXzm4GiM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB4914.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(10067099003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NCBrF8GlyoxNOcuWpX9zvCxKIbQpKmUcOvbM7I9CRTHUJwslz8SW4lcxVHsH?=
+ =?us-ascii?Q?uks+poJssqCNXVgQVhGsy8VsdnqXxvXAWsHsDYGzGFZQdJsj6XetVwIQs5Dg?=
+ =?us-ascii?Q?7mBAjmkpdbjeUtwXjrih6SMF0Wyztk4q34XOVX0kL9UD0sBUNujcNANuHSSO?=
+ =?us-ascii?Q?w7kUnB2tCABoMmYY9jCgd86Fzsjj3GB0S2aMp2GvIKiO6b8Bo8qcFQEdJiWW?=
+ =?us-ascii?Q?fkswCMWYv0ndueStJOCQaZl9aPHiP68eSUf5b+V/GNB/i9dwtmOgSW7eyYP5?=
+ =?us-ascii?Q?qCjQ5LcKudHLiWqoBo8KAC4gH0QVo+f0ZzV34hqf32foYKAoUsx2/8M0v/QB?=
+ =?us-ascii?Q?MgyAiOXHCKkAOjWIYQY7xlZNiYpbEHMlYrbzYYf3TgnoarXjaCu67hle0Qks?=
+ =?us-ascii?Q?htNdTepiSRX+7nwf8NF44XO9FK8e0IxTSmgdUnX32GFdGsUhujV+7+cHfPpb?=
+ =?us-ascii?Q?mCUBEa9FAH3E5HBQqUib+W92cKbeYWoxmHu02OvSUVAKbToxyXi0BxtlYR37?=
+ =?us-ascii?Q?HwSNs9xvB28DrgiOnB5TZwa/Oj9k0nd6rIvdiQuVXe5ULm+HLQ6RHt88Lxb1?=
+ =?us-ascii?Q?ZVsVSe3EhXgf+Frx9lMTObw7jieb59u9rtqlDLMHIUXv9DSx1fUQGaWblxGC?=
+ =?us-ascii?Q?7GykdFmpscH+tFQTHp23LKsqGOer9zRoFMi8H4YOEJZWe9p5I2+TmcW9OtzT?=
+ =?us-ascii?Q?rKLkwFCs4vwmjijASAo0tM9cUD8hihyoYH1Pkha+mkDM0qIWTGej7I0h92np?=
+ =?us-ascii?Q?XQaZTtPdBsaDpy+y/5Q1T5ddYRyk/HUPI8LHho4rAaxfbJ10YJgvibsFL90J?=
+ =?us-ascii?Q?4dnZryoiAxmN6tJ67QBz5CXkbi6JYtNVz96HlHj7bCXFh5it+1sH8ZY9Gddn?=
+ =?us-ascii?Q?6xkHmkt8++zQGDJFAPnJyOG+o8u/1Ne1gn4AK6t6ap/avi2wQELKFdxI9BYh?=
+ =?us-ascii?Q?fWAONeHqwMfHbMfd1SiLv9Xf0HALDSrNg20vY1YpBkOYwd0EYXWquVGmtfF1?=
+ =?us-ascii?Q?+xTt05XXrU91q4VIl2ZwB6qvRt/Q04F1QE42gPwJKbYr6NQtsinnMaZOUGQs?=
+ =?us-ascii?Q?b/RKKkPTxS3tUZytffk0bmMEhfYfiCS7ZUjvB+kkxEkDxXkpy8SAV1SgBRwg?=
+ =?us-ascii?Q?ImNpLbgTWYGlP+v9jh9jw55E/Wlf9kjmK15qB6wCXPixqgpgvnWpmUsSkGVk?=
+ =?us-ascii?Q?i8jgL8fbyknvjFPOWTwZ8favaOZW9GHggmznDxY6qr7aOuofZ17jFzpZSNNw?=
+ =?us-ascii?Q?uABCoU9kvf3ZI+fjX97+wXgMjDqm5a1bNkco+QpQGuGg0g6TY9ZZ8NSvho65?=
+ =?us-ascii?Q?cDlgeuh0TuRqwu3UGQod7bLQER4I1920kYnm6u6qWBi3TCkmKg13HYnazh24?=
+ =?us-ascii?Q?LAbdLekL/Eq61R9c5eeOJXl9tW6GTbQU9npvre7V8a4vFAdThBBedl4vLODi?=
+ =?us-ascii?Q?Zpa+4Ej8RWXXiZXJPViyS1F6vEDIT2unrWRp+xtxt6VhCbNbuU8554wbQxw2?=
+ =?us-ascii?Q?vNIkpBFOaok8f+BqV8Z5nM6jPXfvd2uBnC0o8X1Za9M+Z8X4Bc7dwl6uD5qQ?=
+ =?us-ascii?Q?7HkhQJ5id84FA/n6TFgQxIF9HgV+cL6NhQcxXn2kSksLLX2DwXfBZ/8rFXDo?=
+ =?us-ascii?Q?9BTU0D9wq+xNXSo+2ai2EcCvZmQsU74fewNmLvuepEPe18AkDjdAq9hqsG/B?=
+ =?us-ascii?Q?f62rwgZcppoHJiEJ5D4mOmLnIP1Vm5OxN+Q68cHudipjahGrxSnEoRV7l6Zb?=
+ =?us-ascii?Q?I7maMd5Ikg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55832ba3-0a7f-4fdf-8b6e-08df1a077af8
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB4914.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 06:45:55.3066
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aOPjNIoaoy+gTBa2gdJOIEKzW0fAwWKkCHJ+gt1Q918nnXfzFx+UMZhrGNrmT9jpRaWmADB5SSwClJ2Qa69pBA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9514
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_234607_894718_07C24310 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,119 +151,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 10:07:12PM +0200, Daniel Machon wrote:
-> > On Wed, Sep 23, 2026 at 11:46:22AM +0200, Daniel Machon wrote:
-> > > > Thank you for your contribution! Sashiko AI review found 4 potential
-> > > > issue(s) to consider.
-> > > >
-> > > > Critical: 0 · High: 2 (2) · Medium: 1 (1) · Low: 1
-> > > >
-> > > > If you believe none of the issues are legitimate, please reply to each
-> > > > issue of Medium severity or higher and explain why the AI is wrong.
-> > > > If any of them are legitimate and you plan to respin, please let patchwork
-> > > > know by including "pw-bot: cr" as a separate line at the end of your reply
-> > > > (one such reply per series is enough).
-> > > >
-> > > > - [High] MTU change during or after PCIe FDMA teardown runs the full
-> > > >   reload on freed/quiesced state: unbounded napi_disable() while holding…
-> > > > - [High] The new resize readiness check publishes lan966x->rx.lan966x
-> > > >   before the PCI FDMA rings exist, so an MTU change can race with ring…
-> > > > - [Medium] The new PCIe resize path retires DMA rings and tears down
-> > > >   their ATU outbound window without ever confirming the hardware is…
-> > > > - [Low] FDMA_PCI_DB_SIZE_MAX / FDMA_PCI_MAX_MTU perform unsigned
-> > > >   arithmetic with no underflow guard and no BUILD_BUG_ON, even though…
-> > > >
-> > > > Pre-existing issues:
-> > > > - [High] The hazard the new PCIe reload path documents and avoids is
-> > > >   still live in the sibling platform reload path, which this series…
-> > > > - [High] The two implementers of lan966x_fdma_ops::fdma_resize now
-> > > >   disagree about the 'rings not built yet' precondition, and the…
-> > > > - [Medium] Window in which DEV_MAC_MAXLEN_CFG exceeds the DCB buffer
-> > > >   size, combined with a missing SOF/EOF check in…
-> > > >
-> > > > --
-> > > >
-> > > > net: lan966x: add PCIe FDMA MTU change support
-> > > >
-> > > > This adds MTU change support to the PCIe FDMA path by reallocating the
-> > > > contiguous ATU-mapped RX and TX rings at the new size and falling back to
-> > > > the old buffers on failure.  It also caps the PCIe DCB ring at 256 entries
-> > > > and advertises a derived dev->max_mtu (FDMA_PCI_MAX_MTU) when the FDMA is
-> > > > in use.
-> > > >
-> > > > A few questions below about the new reload path and the new size macros.
-> > > >
-> > > > > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > > > > index 5d6902459f20..940425beec2f 100644
-> > > > > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > > > > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma_pci.c
-> > > > > @@ -358,7 +358,7 @@ static int lan966x_fdma_pci_init(struct lan966x *lan966x)
-> > > > >       lan966x->rx.lan966x = lan966x;
-> > > > >       lan966x->rx.max_mtu = lan966x_fdma_get_max_frame(lan966x);
-> > > > >       rx_fdma->channel_id = FDMA_XTR_CHANNEL;
-> > > > > -     rx_fdma->n_dcbs = FDMA_DCB_MAX;
-> > > > > +     rx_fdma->n_dcbs = FDMA_PCI_DCB_MAX;
-> > > > >       rx_fdma->n_dbs = FDMA_RX_DCB_MAX_DBS;
-> > > > >       rx_fdma->priv = lan966x;
-> > > > >       rx_fdma->db_size = FDMA_PCI_DB_SIZE(lan966x->rx.max_mtu);
-> > > >
-> > > > [Severity: High]
-> > > > Can an MTU change race with ring construction here?  lan966x_fdma_pci_init()
-> > > > sets rx.lan966x before it fills in channel_id/n_dcbs/n_dbs/db_size/size and
-> > > > before the two sleeping allocations in lan966x_fdma_pci_rx_alloc() and
-> > > > lan966x_fdma_pci_tx_alloc().
-> > > >
-> > > > The netdevs are already live at that point: lan966x_probe() runs the whole
-> > > > port loop, including lan966x_probe_port()->register_netdev() and
-> > > > lan966x_port_init()->lan966x_fdma_netdev_init()->netif_napi_add()+
-> > > > napi_enable(), and only calls ops->fdma_init() afterwards, without holding
-> > > > RTNL.
-> > > >
-> > > > So an rtnl-held ndo_change_mtu in that window sees rx.lan966x != NULL, passes
-> > > > the new guard in lan966x_fdma_pci_resize(), finds a max_mtu that differs from
-> > > > the partially initialised rx.max_mtu, and enters __lan966x_fdma_pci_reload().
-> > > > Both contexts then write the same lan966x->rx.fdma / lan966x->tx.fdma:
-> > > >
-> > > >   lan966x_fdma_pci_reload()
-> > > >       lan966x_fdma_rx_disable(&lan966x->rx)   /* channel_id still 0 */
-> > > >       lan966x->rx.fdma.atu_region = NULL;     /* under probe's feet */
-> > > >       lan966x_fdma_pci_rx_alloc(&lan966x->rx) /* second ring */
-> > > >
-> > > > Does this leak probe's ring plus its ATU region (only
-> > > > FDMA_PCI_ATU_REGION_MAX == 6 exist), or trip WARN_ON(fdma->atu_region) /
-> > > > -ENOSPC in fdma_pci_atu_region_map()?  And on the failure branch,
-> > > > lan966x_fdma_pci_reset_mem() dereferences tx->fdma.atu_region->base_addr,
-> > > > which is NULL in a snapshot taken before probe allocated it.
-> > >
-> > > Yes, same issue as adressed in #4. Theres a race because netdevs are registered
-> > > before initialization (in this case FDMA) has happened. The proper fix is a
-> > > reordering of the probe initialization.
+
+
+On Mon, 21 Sep 2026, Leo Li wrote:
+
+> Hi Nicholas,
+> 
+> Thanks for sending this out. I'm looking into an amdgpu implementation
+> and had some comments along the way. Will reply inline on respective
+> patches.
+> 
+> On 2026-09-21 11:51, Nicolas Frattaroli wrote:
+> > A change in whether VRR is enabled or not on a CRTC will be of interest
+> > to any VRR implementation, as they may need to recalculate certain
+> > internal state in response. So far, this was handled ad-hoc in the
+> > drivers that implement VRR.
 > > 
-> > Hi Daniel,
+> > Handle this in the common DRM atomic core by setting the mode_changed
+> > flag when this occurs. The rationale for using mode_changed is that VRR
+> > is deeply intertwined with the current mode with regards to its timing.
+> > Consequently, any component that cares about a mode change is likely
+> > also going to care about VRR being enabled/disabled.
 > > 
-> > I'm wondering if you could expand on this a little. I'm unsure what #4
-> > refers to. And I'm unclear if you are planing the reordering as part
-> > of this patchset.
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/drm_atomic_helper.c | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+> > index 9d006f98413a..0664d5779282 100644
+> > --- a/drivers/gpu/drm/drm_atomic_helper.c
+> > +++ b/drivers/gpu/drm/drm_atomic_helper.c
+> > @@ -694,6 +694,12 @@ drm_atomic_helper_check_modeset(struct drm_device *dev,
+> >  			new_crtc_state->active_changed = true;
+> >  		}
+> >  
+> > +		if (old_crtc_state->vrr_enabled != new_crtc_state->vrr_enabled) {
+> > +			drm_dbg_atomic(dev, "[CRTC:%d:%s] VRR changed\n",
+> > +				       crtc->base.id, crtc->name);
+> > +			new_crtc_state->mode_changed = true;
+> > +		}
+> > +
 > 
-> Hi Simon,
+> I don't think this is the case for all hardware, at least not for amdgpu.
+> The parts in HW that adjust vtotal can be programmed without requiring
+> bandwidth recalculations or reprogramming of pipes. 
 > 
-> Yes, sorry for being vague here.
+> - Leo
+
+This is also the case for NVIDIA, it would be unfortunate if changes to 
+vrr_enabled require allow_modeset=TRUE.
+
 > 
-> #4 refers to patch 4, where I explained that the issue reported there was really
-> due to the existing probe initialization order and netdev registration order.
-> Sashiko seems to report multiple race issues that can happen since the netdevs
-> are registered before the HW is fully initialized. This is real, and something
-> that needs to be fixed, just not in this series, IMHO.
-
-Understood. I think that from the perspective of avoiding scope-creep
-your approach makes sense.
-
-> For Sparx5 and lan969x, I fixed this not long ago, and made sure that netdevs
-> were registered last in probe, as they should be. Now, lan966x should get the
-> same treatment, as a separate fix series for net. :-)
-
-Reviewed-by: Simon Horman <horms@kernel.org>
-
-
-
+> >  		if (new_crtc_state->enable != has_connectors) {
+> >  			drm_dbg_atomic(dev, "[CRTC:%d:%s] enabled/connectors mismatch (%d/%d)\n",
+> >  				       crtc->base.id, crtc->name,
+> > 
+> 
+> 
 
