@@ -4,120 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC9CFC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41665C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 17:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TtZyr7zD7XzEr4nEzXsxfa6vCpDgYRfpwe/x6NfV/Lc=; b=bm7V8FFvBCvaILlhUZ+wqKJw/t
-	56gWEwCWkILzOJkmev99LYschPHUgIO49y0QEaluddujkH51Qau0KgGAHfcH9q/DLxxOv1Y/Ewy+S
-	T+T514aQ+IJN8tp7/BbGFtiBr77w/AG8jo44gt5Zn0z+MKyF7TL7u+tNBZ6bit38A+syXrHM3/8jG
-	5y+APNmsdLIiMb0J+HMJXeUoQgjrUUzjFbC6k1O/bcFhGfCiNVurOla6Dy/qMwQy+dTJkcFGAsZqM
-	W6cNbiL+qcRB/gY85Dh3E3MLEzJgjQLKwn+LfEcGvojsvqYhjt9dfDeM4JGH3T82YPyUsiNpynRDC
-	oScPnalg==;
+	bh=8EoqazEDloU9oJ3i75700a+61ivHXpfJPp7hv9U1etk=; b=yVZUSafUYfdxuM7Fq4rLNBnKr6
+	Lq4+BRvAivHIh1EAKygI9050lV0mh3rnbc5JpJUPgx2BAEJU4qXm02/jKE7EtdeWa5Mu6eu+3j6Ez
+	GUu5S4ehTza82eLH3fGoLYqJwa34+6v4QkHg6Si9jEi/2AbUq5AdbWuuPPaGFN62ZLdAX63ajw15W
+	ju4HaiWQUcvF5SfPzNG8004ydn48o94sGDyqYRq2Ctv+r51nl2oTAkebFtxEV3aDXvvHj1W7caXJY
+	LcijxbXrVwP1aYD8vfa/B49WyZqK+l8R8nWkd8W+0u+TLAHPGDUWVLDEqVBQtr0V2a9gadtMZZoZs
+	2VqKoLSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nV4-0000000BoNS-1sri;
-	Thu, 24 Sep 2026 17:44:50 +0000
-Received: from mail-oo2-x29.google.com ([2607:f8b0:4864:31::29])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9nUw-0000000BoJL-0Up3
+	id 1x9nLA-0000000BmHU-0H2j;
+	Thu, 24 Sep 2026 17:34:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9nKz-0000000BmBZ-1OSI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 17:44:44 +0000
-Received: by mail-oo2-x29.google.com with SMTP id 46e09a7af769-8137b129131so17758a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 10:44:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790271881; x=1790876681; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TtZyr7zD7XzEr4nEzXsxfa6vCpDgYRfpwe/x6NfV/Lc=;
-        b=BxtnEq9RemIj/NqqjBhPAeZVom91ELtZI73Ewe/n6dqHl7/tkKJ76V1H0u9iRxcLx9
-         inn2WPdlTvNd7ntAjPsbYSNJOBYXsw/2yjg3lfMOA8VAbn4AZjYhDIU9Vw2aGYl6htGm
-         c2tDlhp8FBrBYWZYwfm0Kyr2Yt4zarBFJIQaxH9+q8GIAyX7f4cfGsg4WlGcDCn1PNgq
-         5RMV6dY18xFW/F0Tq6tZhaR/ncfDNCn9HHJSd92fnFPJ3ZHyyxFsEGalgjZjbit1jFxB
-         +pdd/kruGxT7q3npj+YG7wR6chu5OBqc9KydTQBCALkYgXzq3bMx5EhkS5vQZpcgoa48
-         7xTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790271881; x=1790876681;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TtZyr7zD7XzEr4nEzXsxfa6vCpDgYRfpwe/x6NfV/Lc=;
-        b=Rc1oynXCvlJAKOpHCTqhTQ4C87BS8IbJwSzvLxXK04w8NR+JgpyhmAWrn9ZoOjIQPu
-         39+bTdmREu9puWbPaWGPSjFx0pSFdDos/Clqvg48i3pHEQ5NzWWLYjIQHtyn6lfOHdWz
-         TThNzSCxLeHLQbHK3FGJHiENBL25MlZRPG1B/BF/qH9ahIko8il+IDIeK5+x3dkhynJU
-         L9LrUtKK5Ytz49hQUejVtEsE+BMJfM2rMXa5Zqkoru62cz/4fJT+i0gN0UY4xJo5ZQPq
-         GX9zYEkTvoL2HI7EDI0C1Ad0mEqs/+aJHKzWIwP5jgCQwR1HhJlnhCl0j/zM/Oo7I/Ix
-         ZaOg==
-X-Forwarded-Encrypted: i=1; AKwUvBxI1FU0k0FYyAvZGgLkNfSJwqPcDknvzm8idh0FeLf1psNUUIXVBqhShlh4NZRuqmr3NA3Gx7vwn8JBogdIwcbQ@lists.infradead.org
-X-Gm-Message-State: AFuF++m3Etc6mXTJdfckAJerFjefR4MxDUQv4Wz87psJlZ2naxmHmpen
-	Vduvd6Y0Ov7e9uN2Wj4LQw466ZKWlhs8DRVHLehl0D5F6C9mkfwlZ+87
-X-Gm-Gg: AYBFou30F90rqrW/4QfsOGoVQIol6F7IlTNV/Gx6pgKsBIH+eIh9RFhbcq+/6h7N/xI
-	vKDJNnxHmCN1zMMGyOU/ytMsRk+FvLLEJrWC2yufXw0H9sjVEywkG+NGijmjPu+8DPO5kNVDrng
-	e/ISLdiyV8Q10lbojTGOgpWtQ+y4LjYT0zmH2iBGutULp6NloLTJKhFu74sH69cJn040B1ZYFcu
-	HJwf8TIgDqP2HY/mzkcGsbhvXNt1WIMaCyoxhtzYDb5nnKyOFTE+0UmqvzBE7FvUd8IkkXkWhei
-	U+0yC2DS2IyZVeO5IR9cjHr23KgxW/Yiw07RdEPupD8QFce4HKkv3ZYK/zO8xTMhdADas9dQ6Tt
-	atrgDp/t7Zfpry80DYBt0WB7aySflbQAuONIxJ//VsIh/UHxLZp99kbeSX5gfB0s4Lfb6dWKUbY
-	HlVsYp7vZiTZnzdrz2Obf6yXmuzdFq/djVrvgw8XKzuGvzB+FHRtCwHifd7xa5iJi6WJTcaH48h
-	5vnKamJ7Y/cfVQus2aBonXF1L3HfodFKOLTRBJgQMAGZgbUpLZUk4pYSY/xFZQHYtgOsQ3xGm9J
-	DvaM3X3Y2DnrGK6PbXB3/EqWkYUk/jzPkXtf8pSGadBYbOgZoyHD9DBGGJ27BKySB/23PqhLTNj
-	SqocaOhsnIo+0a4Gd0x2yXQ==
-X-Received: by 2002:a05:6820:1ca6:b0:6aa:da04:b56f with SMTP id 006d021491bc7-6d43f2c7551mr2947931eaf.3.1790271880781;
-        Thu, 24 Sep 2026 10:44:40 -0700 (PDT)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-491e8f8d14asm3027802fac.0.2026.09.24.10.44.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 10:44:40 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 24 Sep 2026 11:44:33 -0600
-Subject: [PATCH net v3 03/10] net: stmmac: keep datapath state coherent
- after reinitialization failure
+	Thu, 24 Sep 2026 17:34:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04C0A1E5E;
+	Thu, 24 Sep 2026 10:34:21 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FD8A3F86F;
+	Thu, 24 Sep 2026 10:34:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790271264; bh=tZl5Kxb6TJuwXVdpBw+ikrb4XluQCf0kgZPe5VVwMFs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Jyb/h10hEyEg+4b3jZksj5IklsAhdcuYqTHZ2C6tnLwrzoT0n0aunXPozlHlLBFSf
+	 VZHQsHTRB+/zw/2y9xh+ZzoWLbfZoa4nyku35uCAQvtkr8lXAP5k9o8FicQ3muu0y6
+	 6RHAuMSDbYkZSKyMZov4y3LRvvgjEtT/FJhYxGYg=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+Date: Thu, 24 Sep 2026 18:33:42 +0100
+Subject: [PATCH v12 04/14] coresight: etm4x: fix inconsistencies with sysfs
+ configuration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260924-submit-stmmac-reset-fixes-v1-v3-3-c031e3f3a282@gmail.com>
-References: <20260924-submit-stmmac-reset-fixes-v1-v3-0-c031e3f3a282@gmail.com>
-In-Reply-To: <20260924-submit-stmmac-reset-fixes-v1-v3-0-c031e3f3a282@gmail.com>
-To: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Joakim Zhang <qiangqing.zhang@nxp.com>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Christian Marangi <ansuelsmth@gmail.com>, 
- Tiezhu Yang <yangtiezhu@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>, Serge Semin <fancer.lancer@gmail.com>, 
- Suraj Jaiswal <quic_jsuraj@quicinc.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Joao Pinto <Joao.Pinto@synopsys.com>, 
- Vladimir Oltean <vladimir.oltean@nxp.com>, 
- Ong Boon Leong <boon.leong.ong@intel.com>, 
- Voon Weifeng <weifeng.voon@intel.com>, 
- "Song, Yoong Siang" <yoong.siang.song@intel.com>
-Cc: Richard Genoud <richard.genoud@bootlin.com>, 
- Alastair D'Silva <alastair@d-silva.org>, Maxime Ripard <mripard@kernel.org>, 
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
- ZhaoJinming <zhaojinming@uniontech.com>, 
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>, 
- Ding Hui <dinghui1111@163.com>, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Message-Id: <20260924-separate_etm_cfg_v2-v12-4-a2b41d2f7c2b@arm.com>
+References: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
+In-Reply-To: <20260924-separate_etm_cfg_v2-v12-0-a2b41d2f7c2b@arm.com>
+To: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Leo Yan <leo.yan@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rt-devel@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17821; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=tZl5Kxb6TJuwXVdpBw+ikrb4XluQCf0kgZPe5VVwMFs=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqtV8N2vkHv8zoupCCbSSa9bwFcvJnhGtWGxqQ3
+ 1TrmGAY0kKJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCarVfDQAKCRBt1cPRWsUx
+ M3ahC/9XlfxsbUuQ6Kmbn9S/LgQLBWzRg/1w+ZEsRHbZk8FZzwZT2v3wAYhmaKYPE4DNgtjenW+
+ aM4TpeoDMToeP6/dU4zqlor3zD8eO68c+3P2F3s6x3BPZWDrLTUkHVWObpFilTm8cRuSl9lLOqL
+ tyH4g7UYFoXczrlZwzvCBJFAbFYqlmfX00tetSXEnQW/+PJnu6wdEoWaSTvGasdT4lwNzYghk/6
+ nIHDYw/IUobH+I3TtphPF9QblSLYLUoLf5/8nKtc+VZXQOaiCbhkjMX+SqdADsCxzWoVdtGqlfQ
+ k43PlrIqynFt9buJzXNB7lYAmbSEdlvXLcubz10jezJS9/IXTIfurlp+DfVf/gwVm8NhztSsiYx
+ vAhcrMfI7CMKx2cWomyiF1yrJ0Ucxwmd1EjnldcIwoKI9BsWliLc8sC+BDBl/QP2lwOWeAwyONk
+ 3WW2V8Q4PVVMSJi0fYFVqmnkalt4qm7ZL0W9iImSTkZ1yqH/ywHvskdrgOul3n3Wr8xWo=
+X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
+ fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_104442_250471_3418BA70 
-X-CRM114-Status: GOOD (  28.44  )
+X-CRM114-CacheID: sfid-20260924_103425_487194_81F8BF5E 
+X-CRM114-Status: GOOD (  32.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,585 +90,474 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An MTU change releases the running datapath before reopening it. If the
-reopen fails, its replacement DMA resources are freed, but the netdev is
-still administratively up. A later close repeats NAPI shutdown, IRQ
-release and DMA cleanup. Hardware resume failure has a different partial
-state: suspend disabled NAPI but retained the IRQs and DMA resources, so
-ordinary close can hang in a second napi_disable().
+The current ETM4x configuration via sysfs can lead to
+several inconsistencies:
 
-Track the datapath independently of the administrative state, with three
-states describing running queues, suspended queues with resources still
-owned, and a released datapath. Separate quiescing the queues from
-releasing their resources, so close can perform only the remaining work.
-Serialize these transitions with RTNL, including suspend and resume.
+  - If the configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ before a sched-out and
+    after a subsequent sched-in.
 
-On a failed MTU reopen, leave the PHY attachment and runtime-PM reference
-owned until ndo_stop(), but detach the netdev so the released datapath
-cannot be used. On failed hardware resume, stop any partially initialized
-DMA and leave the retained datapath suspended and detached. Do not call
-netif_close() or change the administrative state. A later successful
-resume can retry the retained datapath; alternatively an ordinary down
-releases it, reattaches the now-down netdev, and permits a fresh open.
+  - If a perf session and a sysfs session enable tracing concurrently,
+    the configuration from configfs may become corrupted.
 
-Stop phylink directly from its suspended state during close. Do not
-restart it on failed hardware just to balance its shutdown. Preserve
-IRQ-before-final-DMA-stop ordering, and stop DMA on failed open before
-the caller frees the replacement rings, including IRQ-request failure
-after hardware setup has started DMA.
+  - There is a risk of corrupting drvdata->config if a perf session enables
+    tracing while cscfg_csdev_disable_active_config() is being handled in
+    etm4_disable_sysfs().
 
-Account for callers which are not excluded by netif_device_detach():
-guard descriptor readback and its queue-count snapshot with RTNL and
-resource ownership, reject TC queue reconfiguration while detached, and
-prevent deferred reset work from reopening the failed interface. Check
-availability under the TX queue lock before XDP transmission. XDP
-configuration must use the actual datapath state rather than IFF_UP.
-AF_XDP pool removal cannot be rejected: release any suspended rings before
-a socket's pool is unmapped and freed, leaving recovery to down/up.
+To resolve these issues, separate the configuration into:
 
-Track completion of the core sleep sequence separately from datapath
-ownership. An administratively-up interface with a failed datapath still
-needs SerDes shutdown, sleep pinctrl and PHY PM handling. Only quiesce
-queues which are actually running, and preserve the resource state so
-resume cannot restart queues whose resources were released.
+  - curr_config: the configuration applied to the current session
+  - config: the configuration set via sysfs
 
-A platform suspend or early resume failure can leave core sleep state
-pending without a successful system resume before close. Share the
-pinctrl/PMT restoration between resume and close, without restarting the
-link or datapath. Use the installed wake state rather than a subsequently
-changed WoL setting. Retain the pending marker on restoration errors and
-retry on open after acquiring runtime PM; a successful datapath open must
-not simply discard outstanding sleep cleanup.
+Additionally:
 
-A failed datapath cannot promise a working MAC WoL path and may have
-released its wake IRQ. Reject suspend with -EBUSY in that case, before
-changing hardware or invoking platform suspend, rather than silently
-losing the configured wake source. Ordinary down/up can recover the
-interface. PHY-only WoL does not require this MAC wake path.
+  - Apply the configuration from configfs after taking the appropriate mode.
 
-The platform noirq callbacks must also distinguish ownership from IFF_UP:
-XDP cleanup may already have released the PTP clock reference. Do not
-disable that reference twice or acquire a new one on resume, while still
-performing runtime-PM bus-clock transitions.
+  - Since curr_config and related fields are accessed only by the local CPU
+    in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
+    remove the lock/unlock from the sysfs enable/disable path and
+    startup/dying_cpu except when to access config fields.
 
-Fixes: 3470079687448 ("net: ethernet: stmicro: stmmac: permit MTU change with interface up")
-Fixes: 6896c2449a18 ("net: stmmac: Check stmmac_hw_setup() in stmmac_resume()")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+As the curr_config is used for cfg-configfs, etmv4 doesn't need to set
+its lock for the cfg-configfs since the curr_config is proceted by cs_mode
+otherwise it would make a possible cpu-stall when it get interrupt while
+setting the sysfs configuration.
+
+Therefore, set the drv_spinlock for cfg-configfs as NULL and
+let the cfg-configfs disable irq without grap drv_spinlock when it is NULL.
+
+Fixes: 54ff892b76c6 ("coresight: etm4x: splitting struct etmv4_drvdata")
+Tested-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  13 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 215 ++++++++++++++++-----
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  19 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c   |   8 +-
- 4 files changed, 193 insertions(+), 62 deletions(-)
+ drivers/hwtracing/coresight/coresight-config.c     |  18 ++--
+ drivers/hwtracing/coresight/coresight-config.h     |  22 ++++
+ drivers/hwtracing/coresight/coresight-etm4x-cfg.c  |  13 ++-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 117 ++++++++++++---------
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    |   5 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h      |   4 +-
+ 6 files changed, 112 insertions(+), 67 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 7582fca63741..b35b554e4ab7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -258,6 +258,15 @@ struct stmmac_msi {
- 	char int_name_tx_irq[MTL_MAX_TX_QUEUES][IFNAMSIZ + 18];
- };
+diff --git a/drivers/hwtracing/coresight/coresight-config.c b/drivers/hwtracing/coresight/coresight-config.c
+index 4f72ae71b696..0e296289f286 100644
+--- a/drivers/hwtracing/coresight/coresight-config.c
++++ b/drivers/hwtracing/coresight/coresight-config.c
+@@ -73,13 +73,12 @@ static void cscfg_init_reg_param(struct cscfg_feature_csdev *feat_csdev,
+ /* set values into the driver locations referenced in cscfg_reg_csdev */
+ static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
+ {
+-	unsigned long flags;
+ 	int i;
  
-+enum stmmac_datapath_state {
-+	/* No IRQs or DMA allocations owned by a successful open. */
-+	STMMAC_DATAPATH_DOWN,
-+	/* Resources allocated, NAPI enabled. */
-+	STMMAC_DATAPATH_RUNNING,
-+	/* Resources retained, NAPI and DMA stopped; also after failed resume. */
-+	STMMAC_DATAPATH_SUSPENDED,
-+};
-+
- struct stmmac_priv {
- 	/* Frequently used values are kept adjacent for cache effect */
- 	u32 tx_coal_frames[MTL_MAX_TX_QUEUES];
-@@ -281,6 +290,10 @@ struct stmmac_priv {
- 	struct mutex lock;
- 
- 	struct stmmac_dma_conf dma_conf;
-+	/* IRQ/DMA ownership and NAPI state, serialized by RTNL. */
-+	enum stmmac_datapath_state datapath;
-+	/* Core sleep sequence completed, independently of datapath ownership. */
-+	bool hw_suspended;
- 
- 	/* Generic channel for NAPI */
- 	struct stmmac_channel channel[STMMAC_CH_MAX];
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 4f3d452c3503..43a6154fcf6d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4127,6 +4127,37 @@ stmmac_setup_dma_desc(struct stmmac_priv *priv, unsigned int mtu)
- 	return ERR_PTR(ret);
- }
- 
-+/* Finish core sleep state even if the platform resume callback failed. */
-+static int stmmac_resume_hw(struct stmmac_priv *priv)
-+{
-+	int ret;
-+
-+	if (!priv->hw_suspended)
-+		return 0;
-+
-+	/* Use the state installed by suspend, not a subsequently changed WoL
-+	 * setting. Clear PMT even when a different device caused the wakeup.
-+	 */
-+	if (priv->irq_wake) {
-+		mutex_lock(&priv->lock);
-+		stmmac_pmt(priv, priv->hw, 0);
-+		mutex_unlock(&priv->lock);
-+		priv->irq_wake = 0;
-+	} else {
-+		ret = pinctrl_pm_select_default_state(priv->device);
-+		if (ret)
-+			return ret;
-+		if (priv->mii) {
-+			ret = stmmac_mdio_reset(priv->mii);
-+			if (ret)
-+				return ret;
-+		}
+-	raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+-	for (i = 0; i < feat_csdev->nr_regs; i++)
+-		cscfg_set_reg(&feat_csdev->regs_csdev[i]);
+-	raw_spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
++	scoped_guard(feat_csdev_lock, feat_csdev) {
++		for (i = 0; i < feat_csdev->nr_regs; i++)
++			cscfg_set_reg(&feat_csdev->regs_csdev[i]);
 +	}
-+	priv->hw_suspended = false;
-+
-+	return 0;
-+}
-+
- /**
-  *  __stmmac_open - open entry point of the driver
-  *  @dev : pointer to the device structure.
-@@ -4181,6 +4212,7 @@ static int __stmmac_open(struct net_device *dev,
- 	stmmac_enable_all_queues(priv);
- 	netif_tx_start_all_queues(priv->dev);
- 	stmmac_enable_all_dma_irq(priv);
-+	priv->datapath = STMMAC_DATAPATH_RUNNING;
- 
+ 	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
+ 		feat_csdev->feat_desc->name, "set on enable");
  	return 0;
- 
-@@ -4192,6 +4224,8 @@ static int __stmmac_open(struct net_device *dev,
- 
- 	stmmac_release_ptp(priv);
- init_error:
-+	stmmac_stop_all_dma(priv);
-+	stmmac_mac_set(priv, priv->ioaddr, false);
- 	return ret;
- }
- 
-@@ -4213,6 +4247,10 @@ static int stmmac_open(struct net_device *dev)
- 	if (ret < 0)
- 		goto err_dma_resources;
- 
-+	ret = stmmac_resume_hw(priv);
-+	if (ret)
-+		goto err_runtime_pm;
-+
- 	ret = stmmac_init_phy(dev);
- 	if (ret)
- 		goto err_runtime_pm;
-@@ -4246,25 +4284,38 @@ static int stmmac_open(struct net_device *dev)
- 	return ret;
- }
- 
--static void __stmmac_release(struct net_device *dev)
-+/* Quiesce NAPI and transmit queues without releasing their resources. */
-+static void stmmac_quiesce(struct stmmac_priv *priv)
+@@ -88,13 +87,12 @@ static int cscfg_set_on_enable(struct cscfg_feature_csdev *feat_csdev)
+ /* copy back values from the driver locations referenced in cscfg_reg_csdev */
+ static void cscfg_save_on_disable(struct cscfg_feature_csdev *feat_csdev)
  {
--	struct stmmac_priv *priv = netdev_priv(dev);
- 	u8 chan;
+-	unsigned long flags;
+ 	int i;
  
--	/* Stop and disconnect the PHY */
--	phylink_stop(priv->phylink);
--
- 	stmmac_disable_all_queues(priv);
- 
- 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
- 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
- 
--	netif_tx_disable(dev);
-+	netif_tx_disable(priv->dev);
-+}
-+
-+static void __stmmac_release(struct net_device *dev)
-+{
-+	struct stmmac_priv *priv = netdev_priv(dev);
-+
-+	/* A failed MTU reopen has already released the data path. */
-+	if (priv->datapath == STMMAC_DATAPATH_DOWN)
-+		return;
-+
-+	phylink_stop(priv->phylink);
-+
-+	/* Suspend retains the resources, but has already stopped activity. */
-+	if (priv->datapath == STMMAC_DATAPATH_RUNNING)
-+		stmmac_quiesce(priv);
-+	priv->datapath = STMMAC_DATAPATH_DOWN;
- 
- 	/* Free the IRQ lines */
- 	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
- 
--	/* Stop TX/RX DMA and clear the descriptors */
-+	/* Stop TX/RX DMA after draining IRQ handlers which can restart it. */
- 	stmmac_stop_all_dma(priv);
- 
- 	/* Release and free the Rx/Tx resources */
-@@ -4285,6 +4336,15 @@ static void __stmmac_release(struct net_device *dev)
- static int stmmac_release(struct net_device *dev)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
-+	int ret;
-+
-+	/* Resume may have failed before restoring pins or disabling MAC wake.
-+	 * Complete that cleanup without restarting the link or the datapath.
-+	 * If it fails, keep hw_suspended set so a fresh open can retry it.
-+	 */
-+	ret = stmmac_resume_hw(priv);
-+	if (ret)
-+		netdev_err(dev, "failed to restore hardware sleep state: %d\n", ret);
- 
- 	/* If the PHY or MAC has WoL enabled, then the PHY will not be
- 	 * suspended when phylink_stop() is called below. Set the PHY
-@@ -4298,6 +4358,8 @@ static int stmmac_release(struct net_device *dev)
- 	stmmac_legacy_serdes_power_down(priv);
- 	phylink_disconnect_phy(priv->phylink);
- 	pm_runtime_put(priv->device);
-+	/* Allow a fresh open after a failed MTU reopen or resume. */
-+	netif_device_attach(dev);
- 
- 	return 0;
+-	raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+-	for (i = 0; i < feat_csdev->nr_regs; i++)
+-		cscfg_save_reg(&feat_csdev->regs_csdev[i]);
+-	raw_spin_unlock_irqrestore(feat_csdev->drv_spinlock, flags);
++	scoped_guard(feat_csdev_lock, feat_csdev) {
++		for (i = 0; i < feat_csdev->nr_regs; i++)
++			cscfg_save_reg(&feat_csdev->regs_csdev[i]);
++	}
+ 	dev_dbg(&feat_csdev->csdev->dev, "Feature %s: %s",
+ 		feat_csdev->feat_desc->name, "save on disable");
  }
-@@ -6177,6 +6239,11 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
- 		if (ret) {
- 			free_dma_desc_resources(priv, dma_conf);
- 			kfree(dma_conf);
-+			/*
-+			 * Keep the administrative state and PHY/PM ownership until
-+			 * ndo_stop(), but prevent use of the released data path.
-+			 */
-+			netif_device_detach(dev);
- 			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
- 			return ret;
- 		}
-@@ -6425,6 +6492,8 @@ static int stmmac_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
+diff --git a/drivers/hwtracing/coresight/coresight-config.h b/drivers/hwtracing/coresight/coresight-config.h
+index 90fd937d3bd8..ae6295e30813 100644
+--- a/drivers/hwtracing/coresight/coresight-config.h
++++ b/drivers/hwtracing/coresight/coresight-config.h
+@@ -7,6 +7,7 @@
+ #ifndef _CORESIGHT_CORESIGHT_CONFIG_H
+ #define _CORESIGHT_CORESIGHT_CONFIG_H
  
- 	if (!tc_cls_can_offload_and_chain0(priv->dev, type_data))
- 		return ret;
-+	if (!netif_device_present(priv->dev))
-+		return -ENETDOWN;
++#include <linux/cleanup.h>
+ #include <linux/coresight.h>
+ #include <linux/types.h>
  
- 	__stmmac_disable_all_queues(priv);
+@@ -259,4 +260,25 @@ void cscfg_csdev_disable_config(struct cscfg_config_csdev *config_csdev);
+ /* reset a feature to default values */
+ void cscfg_reset_feat(struct cscfg_feature_csdev *feat_csdev);
  
-@@ -6542,12 +6611,14 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
- {
- 	struct net_device *dev = seq->private;
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	u8 rx_count = priv->plat->rx_queues_to_use;
--	u8 tx_count = priv->plat->tx_queues_to_use;
--	u8 queue;
-+	u8 rx_count, tx_count, queue;
- 
--	if ((dev->flags & IFF_UP) == 0)
--		return 0;
-+	rtnl_lock();
-+	if (priv->datapath == STMMAC_DATAPATH_DOWN)
-+		goto out_unlock;
++#define feat_csdev_lock(feat_csdev, flags)				\
++	do {								\
++		raw_spinlock_t *__lock = feat_csdev->drv_spinlock;	\
++		typecheck(unsigned long, flags);			\
++		if (__lock)						\
++			raw_spin_lock_irqsave(__lock, flags);		\
++	} while (0)
 +
-+	rx_count = priv->plat->rx_queues_to_use;
-+	tx_count = priv->plat->tx_queues_to_use;
++#define feat_csdev_unlock(feat_csdev, flags)				\
++	do {								\
++		raw_spinlock_t *__lock = feat_csdev->drv_spinlock;	\
++		typecheck(unsigned long, flags);			\
++		if (__lock)						\
++			raw_spin_unlock_irqrestore(__lock, flags);	\
++	} while (0)
++
++DEFINE_LOCK_GUARD_1(feat_csdev_lock, struct cscfg_feature_csdev,
++		    feat_csdev_lock(_T->lock, _T->flags),
++		    feat_csdev_unlock(_T->lock, _T->flags),
++		    unsigned long flags)
++
+ #endif /* _CORESIGHT_CORESIGHT_CONFIG_H */
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+index e1a59b434505..a9f6ed47a2f5 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+@@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+ 				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+ {
+ 	int err = -EINVAL, idx;
+-	struct etmv4_config *drvcfg = &drvdata->config;
++	struct etmv4_config *drvcfg = &drvdata->curr_config;
+ 	u32 off_mask;
  
- 	for (queue = 0; queue < rx_count; queue++) {
- 		struct stmmac_rx_queue *rx_q = &priv->dma_conf.rx_queue[queue];
-@@ -6581,6 +6652,8 @@ static int stmmac_rings_status_show(struct seq_file *seq, void *v)
- 		}
+ 	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
+@@ -154,11 +154,14 @@ static int etm4_cfg_load_feature(struct coresight_device *csdev,
+ 	int i = 0, err = 0;
+ 
+ 	/*
+-	 * essential we set the device spinlock - this is used in the generic
+-	 * programming routines when copying values into the drvdata structures
+-	 * via the pointers setup in etm4_cfg_map_reg_offset().
++	 * drvdata structure of etm4 for configfs is curr_config and
++	 * this curr_config is protected with csdev->mode by restricting
++	 * access to curr_config after mode changed to PERF or SYSFS.
++	 *
++	 * Therefore, it doesn't need to protected with etmv4_drvdata->spinlock
++	 * to feature applying and set the NULL.
+ 	 */
+-	feat_csdev->drv_spinlock = &drvdata->spinlock;
++	feat_csdev->drv_spinlock = NULL;
+ 
+ 	/* process the register descriptions */
+ 	for (i = 0; i < feat_csdev->nr_regs && !err; i++) {
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 9ca03a5913a3..61e9971bdc6b 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -264,10 +264,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
+ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+ {
+ 	u64 trfcr = drvdata->trfcr;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 
+-	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
++	if (config->mode & ETM_MODE_EXCL_KERN)
+ 		trfcr &= ~TRFCR_EL1_ExTRE;
+-	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
++	if (config->mode & ETM_MODE_EXCL_USER)
+ 		trfcr &= ~TRFCR_EL1_E0TRE;
+ 
+ 	return trfcr;
+@@ -275,7 +276,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+ 
+ /*
+  * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
+- * as configured by the drvdata->config.mode for the current
++ * as configured by the drvdata->curr_config.mode for the current
+  * session. Even though we have TRCVICTLR bits to filter the
+  * trace in the ELs, it doesn't prevent the ETM from generating
+  * a packet (e.g, TraceInfo) that might contain the addresses from
+@@ -286,12 +287,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+ {
+ 	u64 trfcr, guest_trfcr;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 
+ 	/* If the CPU doesn't support FEAT_TRF, nothing to do */
+ 	if (!drvdata->trfcr)
+ 		return;
+ 
+-	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
++	if (config->mode & ETM_MODE_EXCL_HOST)
+ 		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+ 	else
+ 		trfcr = etm4x_get_kern_user_filter(drvdata);
+@@ -299,7 +301,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+ 	write_trfcr(trfcr);
+ 
+ 	/* Set filters for guests and pass to KVM */
+-	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
++	if (config->mode & ETM_MODE_EXCL_GUEST)
+ 		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+ 	else
+ 		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
+@@ -492,7 +494,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+ {
+ 	int i, rc;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 	struct device *etm_dev = &csdev->dev;
+ 	struct csdev_access *csa = &csdev->access;
+@@ -612,27 +614,42 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+ static void etm4_enable_sysfs_smp_call(void *info)
+ {
+ 	struct etm4_enable_arg *arg = info;
++	struct etmv4_drvdata *drvdata;
+ 	struct coresight_device *csdev;
++	unsigned long cfg_hash;
++	int preset;
+ 
+ 	if (WARN_ON(!arg))
+ 		return;
+ 
+-	csdev = arg->drvdata->csdev;
+-	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+-		/* Someone is already using the tracer */
+-		arg->rc = -EBUSY;
+-		return;
++	drvdata = arg->drvdata;
++	csdev = drvdata->csdev;
++
++	/* enable any config activated by configfs */
++	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
++	if (cfg_hash) {
++		arg->rc = cscfg_csdev_enable_active_config(csdev,
++							   cfg_hash,
++							   preset);
++		if (arg->rc)
++			return;
  	}
  
-+out_unlock:
-+	rtnl_unlock();
- 	return 0;
- }
- DEFINE_SHOW_ATTRIBUTE(stmmac_rings_status);
-@@ -6962,6 +7035,18 @@ static int stmmac_bpf(struct net_device *dev, struct netdev_bpf *bpf)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 
-+	if (bpf->command != XDP_SETUP_PROG &&
-+	    bpf->command != XDP_SETUP_XSK_POOL)
-+		return -EOPNOTSUPP;
+-	arg->rc = etm4_enable_hw(arg->drvdata);
++	drvdata->trcid = arg->path->trace_id;
 +
-+	/*
-+	 * Pool removal must succeed even after a failed resume. Release the
-+	 * suspended rings before their pool or XDP buffer layout can change.
-+	 * Leave the interface detached until it is closed and reopened.
-+	 */
-+	if (priv->datapath == STMMAC_DATAPATH_SUSPENDED)
-+		__stmmac_release(dev);
++	/* Tracer will never be paused in sysfs mode */
++	drvdata->paused = false;
+ 
+-	/* The tracer didn't start */
++	arg->rc = etm4_enable_hw(drvdata);
+ 	if (arg->rc) {
+-		coresight_set_mode(csdev, CS_MODE_DISABLED);
++		cscfg_csdev_disable_active_config(csdev);
+ 		return;
+ 	}
+ 
++	drvdata->sticky_enable = true;
+ 	csdev->path = arg->path;
 +
- 	switch (bpf->command) {
- 	case XDP_SETUP_PROG:
- 		return stmmac_xdp_set_prog(priv, bpf->prog, bpf->extack);
-@@ -6992,6 +7077,10 @@ static int stmmac_xdp_xmit(struct net_device *dev, int num_frames,
- 	nq = netdev_get_tx_queue(priv->dev, queue);
- 
- 	__netif_tx_lock(nq, cpu);
-+	if (unlikely(!netif_device_present(dev) || netif_tx_queue_stopped(nq))) {
-+		__netif_tx_unlock(nq);
-+		return -ENETDOWN;
-+	}
- 	/* Avoids TX time-out as we are sharing with slow path */
- 	txq_trans_cond_update(nq);
- 
-@@ -7364,6 +7453,9 @@ static void stmmac_reset_subtask(struct stmmac_priv *priv)
- 	netdev_err(priv->dev, "Reset adapter.\n");
- 
- 	rtnl_lock();
-+	if (!netif_device_present(priv->dev))
-+		goto out_unlock;
-+
- 	netif_trans_update(priv->dev);
- 	while (test_and_set_bit(STMMAC_RESETING, &priv->state))
- 		usleep_range(1000, 2000);
-@@ -7373,6 +7465,7 @@ static void stmmac_reset_subtask(struct stmmac_priv *priv)
- 	dev_open(priv->dev, NULL);
- 	clear_bit(STMMAC_DOWN, &priv->state);
- 	clear_bit(STMMAC_RESETING, &priv->state);
-+out_unlock:
- 	rtnl_unlock();
++	return;
  }
  
-@@ -8193,34 +8286,41 @@ EXPORT_SYMBOL_GPL(stmmac_dvr_remove);
- /**
-  * stmmac_suspend - suspend callback
-  * @dev: device pointer
-- * Description: this is the function to suspend the device and it is called
-- * by the platform driver to stop the network queue, release the resources,
-- * program the PMT register (for WoL), clean and release driver resources.
-+ * Description: stop network activity and program hardware for system sleep,
-+ * preserving any datapath resources still owned for resume or close.
-  */
- int stmmac_suspend(struct device *dev)
+ /*
+@@ -669,7 +686,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
  {
- 	struct net_device *ndev = dev_get_drvdata(dev);
- 	struct stmmac_priv *priv = netdev_priv(ndev);
--	u8 chan;
+ 	int ctridx;
+ 	int rselector;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->curr_config;
  
--	if (!ndev || !netif_running(ndev))
-+	rtnl_lock();
-+	if (!netif_running(ndev) || priv->hw_suspended) {
-+		rtnl_unlock();
- 		goto suspend_bsp;
-+	}
-+
-+	/* A failed datapath cannot provide a working MAC wake path. It may
-+	 * even have released its wake IRQ. Do not silently suspend without WoL.
-+	 */
-+	if (priv->wolopts && priv->datapath != STMMAC_DATAPATH_RUNNING) {
-+		netdev_err(ndev, "cannot suspend failed datapath with MAC WoL enabled\n");
-+		rtnl_unlock();
+ 	/* No point in trying if we don't have at least one counter */
+ 	if (!drvdata->nr_cntr)
+@@ -752,7 +769,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ {
+ 	int ret = 0;
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 	struct perf_event_attr max_timestamp = {
+ 		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+ 	};
+@@ -919,46 +936,36 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+ {
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct etm4_enable_arg arg = { };
+-	unsigned long cfg_hash;
+-	int ret, preset;
++	int ret;
+ 
+-	/* enable any config activated by configfs */
+-	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+-	if (cfg_hash) {
+-		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+-		if (ret) {
+-			etm4_release_trace_id(drvdata);
+-			return ret;
+-		}
++	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
++		/* Someone is already using the tracer */
 +		return -EBUSY;
-+	}
+ 	}
  
- 	mutex_lock(&priv->lock);
- 
- 	netif_device_detach(ndev);
- 
--	stmmac_disable_all_queues(priv);
+-	raw_spin_lock(&drvdata->spinlock);
 -
--	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
--		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
-+	if (priv->datapath == STMMAC_DATAPATH_RUNNING)
-+		stmmac_quiesce(priv);
- 
- 	if (priv->eee_sw_timer_en) {
- 		priv->tx_path_in_lpi_mode = false;
- 		timer_delete_sync(&priv->eee_ctrl_timer);
- 	}
- 
--	/* Stop TX/RX DMA */
- 	stmmac_stop_all_dma(priv);
- 
- 	stmmac_legacy_serdes_power_down(priv);
-@@ -8236,12 +8336,14 @@ int stmmac_suspend(struct device *dev)
- 
- 	mutex_unlock(&priv->lock);
- 
--	rtnl_lock();
- 	phylink_suspend(priv->phylink, !!priv->wolopts);
--	rtnl_unlock();
-+	if (priv->datapath == STMMAC_DATAPATH_RUNNING)
-+		priv->datapath = STMMAC_DATAPATH_SUSPENDED;
-+	priv->hw_suspended = true;
- 
- 	if (stmmac_fpe_supported(priv))
- 		ethtool_mmsv_stop(&priv->fpe_cfg.mmsv);
-+	rtnl_unlock();
- 
- suspend_bsp:
- 	if (priv->plat->suspend)
-@@ -8305,35 +8407,35 @@ int stmmac_resume(struct device *dev)
- 			return ret;
- 	}
- 
--	if (!netif_running(ndev))
--		return 0;
-+	rtnl_lock();
-+	if (!netif_running(ndev)) {
-+		ret = 0;
-+		goto out_unlock;
-+	}
- 
--	/* Power Down bit, into the PM register, is cleared
--	 * automatically as soon as a magic packet or a Wake-up frame
--	 * is received. Anyway, it's better to manually clear
--	 * this bit because it can generate problems while resuming
--	 * from another devices (e.g. serial console).
--	 */
--	if (priv->wolopts) {
--		mutex_lock(&priv->lock);
--		stmmac_pmt(priv, priv->hw, 0);
--		mutex_unlock(&priv->lock);
--		priv->irq_wake = 0;
--	} else {
--		pinctrl_pm_select_default_state(priv->device);
--		/* reset the phy so that it's ready */
--		if (priv->mii)
--			stmmac_mdio_reset(priv->mii);
-+	if (priv->hw_suspended) {
-+		ret = stmmac_resume_hw(priv);
-+		if (ret)
-+			goto out_unlock;
-+
-+		/* Terminate PM speed control without restarting a datapath
-+		 * whose IRQs or rings were released before system sleep.
-+		 */
-+		if (priv->datapath != STMMAC_DATAPATH_SUSPENDED)
-+			phylink_stop(priv->phylink);
-+	}
-+
-+	if (priv->datapath != STMMAC_DATAPATH_SUSPENDED) {
-+		ret = 0;
-+		goto out_unlock;
- 	}
- 
- 	if (!(priv->plat->flags & STMMAC_FLAG_SERDES_UP_AFTER_PHY_LINKUP)) {
- 		ret = stmmac_legacy_serdes_power_up(priv);
- 		if (ret < 0)
--			return ret;
-+			goto out_unlock;
- 	}
- 
--	rtnl_lock();
+-	drvdata->trcid = path->trace_id;
 -
- 	/* Prepare the PHY to resume, ensuring that its clocks which are
- 	 * necessary for the MAC DMA reset to complete are running
+-	/* Tracer will never be paused in sysfs mode */
+-	drvdata->paused = false;
+-
+ 	/*
+ 	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+ 	 * ensures that register writes occur when cpu is powered.
  	 */
-@@ -8349,10 +8451,7 @@ int stmmac_resume(struct device *dev)
- 	ret = stmmac_hw_setup(ndev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
--		stmmac_legacy_serdes_power_down(priv);
--		mutex_unlock(&priv->lock);
--		rtnl_unlock();
--		return ret;
-+		goto error_stop_dma;
- 	}
- 
- 	stmmac_init_timestamping(priv);
-@@ -8374,11 +8473,25 @@ int stmmac_resume(struct device *dev)
- 	 * workqueue thread, which will race with initialisation.
- 	 */
- 	phylink_resume(priv->phylink);
--	rtnl_unlock();
+ 	arg.drvdata = drvdata;
+ 	arg.path = path;
++
++	scoped_guard(raw_spinlock, &drvdata->spinlock) {
++		drvdata->curr_config = drvdata->config;
++	}
++
+ 	ret = smp_call_function_single(drvdata->cpu,
+ 				       etm4_enable_sysfs_smp_call, &arg, 1);
+ 	if (!ret)
+ 		ret = arg.rc;
+-	if (!ret)
+-		drvdata->sticky_enable = true;
 -
-+	priv->datapath = STMMAC_DATAPATH_RUNNING;
- 	netif_device_attach(ndev);
-+	rtnl_unlock();
+-	if (ret)
++	if (!ret) {
++		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
++	} else {
+ 		etm4_release_trace_id(drvdata);
++		/* The tracer didn't start */
++		coresight_set_mode(csdev, CS_MODE_DISABLED);
++	}
  
- 	return 0;
-+
-+error_stop_dma:
-+	stmmac_stop_all_dma(priv);
-+	stmmac_mac_set(priv, priv->ioaddr, false);
-+	stmmac_legacy_serdes_power_down(priv);
-+	mutex_unlock(&priv->lock);
-+	/*
-+	 * Keep the suspended data path detached. A later resume may retry, or
-+	 * ndo_stop() can release its resources without disabling NAPI again.
-+	 */
-+out_unlock:
-+	rtnl_unlock();
-+
-+	return ret;
+-	raw_spin_unlock(&drvdata->spinlock);
+-
+-	if (!ret)
+-		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+ 	return ret;
  }
- EXPORT_SYMBOL_GPL(stmmac_resume);
  
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 6128ed1bd521..9bd622517389 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -958,8 +958,9 @@ static int __maybe_unused stmmac_pltfr_noirq_suspend(struct device *dev)
- 		return 0;
+@@ -1044,7 +1051,7 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+ {
+ 	u32 control;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 	struct csdev_access *csa = &csdev->access;
+ 	int i;
+@@ -1090,8 +1097,9 @@ static void etm4_disable_sysfs_smp_call(void *info)
  
- 	if (!priv->wolopts) {
--		/* Disable clock in case of PWM is off */
--		clk_disable_unprepare(priv->plat->clk_ptp_ref);
-+		/* A detached datapath may already have released its PTP clock. */
-+		if (priv->datapath != STMMAC_DATAPATH_DOWN)
-+			clk_disable_unprepare(priv->plat->clk_ptp_ref);
+ 	etm4_disable_hw(drvdata);
  
- 		ret = pm_runtime_force_suspend(dev);
- 		if (ret)
-@@ -984,12 +985,14 @@ static int __maybe_unused stmmac_pltfr_noirq_resume(struct device *dev)
- 		if (ret)
- 			return ret;
++	cscfg_csdev_disable_active_config(drvdata->csdev);
++
+ 	drvdata->csdev->path = NULL;
+-	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+ }
  
--		ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
--		if (ret < 0) {
--			netdev_warn(priv->dev,
--				    "failed to enable PTP reference clock: %pe\n",
--				    ERR_PTR(ret));
--			return ret;
-+		if (priv->datapath != STMMAC_DATAPATH_DOWN) {
-+			ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
-+			if (ret < 0) {
-+				netdev_warn(priv->dev,
-+					    "failed to enable PTP reference clock: %pe\n",
-+					    ERR_PTR(ret));
-+				return ret;
-+			}
- 		}
- 	}
+ static int etm4_disable_perf(struct coresight_device *csdev,
+@@ -1134,8 +1142,9 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ {
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	raw_spin_lock(&drvdata->spinlock);
++	struct etmv4_config *config = &drvdata->config;
++	const struct etmv4_config *curr_config = &drvdata->curr_config;
++	int i;
  
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-index d7e4db7224b0..909219775507 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-@@ -31,7 +31,8 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
- 		return err;
- 	}
+ 	/*
+ 	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+@@ -1144,9 +1153,19 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ 	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
+ 				 drvdata, 1);
  
--	need_update = netif_running(priv->dev) && stmmac_xdp_is_enabled(priv);
-+	need_update = priv->datapath == STMMAC_DATAPATH_RUNNING &&
-+		      stmmac_xdp_is_enabled(priv);
+-	raw_spin_unlock(&drvdata->spinlock);
++	/*
++	 * Userspace may read ss_status and cntr_val through sysfs after
++	 * the sysfs-session has been disabled.
++	 */
++	for (i = 0; i < drvdata->nr_ss_cmp; i++)
++		config->ss_status[i] = curr_config->ss_status[i];
  
- 	if (need_update) {
- 		napi_disable(&ch->rx_napi);
-@@ -69,7 +70,8 @@ static int stmmac_xdp_disable_pool(struct stmmac_priv *priv, u16 queue)
- 	if (!pool)
+-	cscfg_csdev_disable_active_config(csdev);
++	for (i = 0; i < drvdata->nr_cntr; i++)
++		config->cntr_val[i] = curr_config->cntr_val[i];
++
++	config->seq_state = curr_config->seq_state;
++
++	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+ 
+ 	/*
+ 	 * we only release trace IDs when resetting sysfs.
+@@ -1694,7 +1713,7 @@ static void etm4_set_default(struct etmv4_config *config)
+ static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
+ {
+ 	int nr_comparator, index = 0;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 
+ 	/*
+ 	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
+@@ -1735,7 +1754,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ {
+ 	int i, comparator, ret = 0;
+ 	u64 address;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->curr_config;
+ 	struct etm_filters *filters = event->hw.addr_filters;
+ 
+ 	if (!filters)
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index a547de5a3f9c..9c237507ac30 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -1437,7 +1437,8 @@ static ssize_t seq_state_store(struct device *dev,
  		return -EINVAL;
+ 	if (val >= drvdata->nrseqstate)
+ 		return -EINVAL;
+-	if (IS_ERR_OR_NULL(drvdata) || coresight_get_mode(drvdata->csdev))
++	if (IS_ERR_OR_NULL(drvdata) ||
++	    coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
+ 		return -EBUSY;
  
--	need_update = netif_running(priv->dev) && stmmac_xdp_is_enabled(priv);
-+	need_update = priv->datapath == STMMAC_DATAPATH_RUNNING &&
-+		      stmmac_xdp_is_enabled(priv);
+ 	config->seq_state = val;
+@@ -1616,7 +1617,7 @@ static ssize_t cntr_val_store(struct device *dev,
+ 	if (val > ETM_CNTR_MAX_VAL)
+ 		return -EINVAL;
+ 	if (IS_ERR_OR_NULL(drvdata->csdev) ||
+-	    coresight_get_mode(drvdata->csdev))
++	    coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
+ 		return -EBUSY;
  
- 	if (need_update) {
- 		napi_disable(&ch->rxtx_napi);
-@@ -107,7 +109,7 @@ int stmmac_xdp_set_prog(struct stmmac_priv *priv, struct bpf_prog *prog,
- 	bool need_update;
- 	bool if_running;
- 
--	if_running = netif_running(dev);
-+	if_running = priv->datapath == STMMAC_DATAPATH_RUNNING;
- 
- 	if (prog && dev->mtu > ETH_DATA_LEN) {
- 		/* For now, the driver doesn't support XDP functionality with
+ 	raw_spin_lock(&drvdata->spinlock);
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index df9e0748d71e..52f66e26ceaa 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -1019,7 +1019,8 @@ struct etmv4_save_state {
+  *		allows tracing at all ELs. We don't want to compute this
+  *		at runtime, due to the additional setting of TRFCR_CX when
+  *		in EL2. Otherwise, 0.
+- * @config:	structure holding configuration parameters.
++ * @curr_config:	structure holding current applied configuration.
++ * @config:	structure holding sysfs mode configuration.
+  * @save_state:	State to be preserved across power loss
+  * @skip_power_up: Indicates if an implementation can skip powering up
+  *		   the trace unit.
+@@ -1077,6 +1078,7 @@ struct etmv4_drvdata {
+ 	bool				skip_power_up : 1;
+ 	bool				paused : 1;
+ 	u64				trfcr;
++	struct etmv4_config		curr_config;
+ 	struct etmv4_config		config;
+ 	struct etmv4_save_state		*save_state;
+ 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
 
 -- 
-2.53.0
+2.43.0
 
 
