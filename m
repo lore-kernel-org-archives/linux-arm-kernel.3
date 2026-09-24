@@ -4,67 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC14DC98315
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE89C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRxCDaMEMjeNgmx5T/EVuTSh67LGdojGLOrhCwhCev0=; b=nPnxsiC1E5kpid08vI/cRhpPHX
-	RnkQw1cv6umpD4xj7rTPvkKoo4PvcR7gxaqKSKQPOkExozilPekVioJnw3do2SRPI2T0+nPems4Kp
-	ZL7tP99Kc4kRcwilpTzgL70Q+as+xJoOfpjht39ouuMab59W5GeBuVB7whkVFr/IxHNdRvqjGkyj7
-	UWkBtDneDnhpVj605aEg4q3PsTLnZpOwR5jkYj1IKNI1eWqMlkJQStTtNThTrPgczXIGNRMxRA/Fq
-	rAdK3n7ckrJEQCf5Om5axAthEb/ngkZm87+8PuRANYU37PR/0qTd4/kBLiOXfriaQnhcc57S3PARV
-	4iXhTpgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MaWkFoUOQ+u9WS91tjqMuEOPGp9Db2ThXslkCbREcik=; b=38F0Km0lpHa1cUGcW/hIXBX8iI
+	nLlLuvuI7WAKz+ODSIrnO6QIzhhBvrtpt9IAwaWA/bwwTXx8r+K5L5O4SzeN8I9372k1uLVYt2vIc
+	nZHVNocaXwAWNyOhv3COh2nxp7mwbNXwoKr8KmYHkFQyqFR4yqs7yXBfLV8M/ivhIyLgm6Yns+y+T
+	QTHUNhroNFBC6YsX4axLJ73LRn7ZIYtXvLKBPXQQtpNivmR8Y//yYXbVJfkT1u3RKWCIRQwYIwPrr
+	g62bVmMpH96gJyKtrvMaOEp+j2TOg4BSq6Hrdp/X0WYNZeXiepYFWNpWXnlANqMkGPZR2d76ECY9u
+	sEdakEZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kLv-0000000BFes-3bEz;
-	Thu, 24 Sep 2026 14:23:11 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x9kOD-0000000BFxL-0zoG;
+	Thu, 24 Sep 2026 14:25:33 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9kLt-0000000BFe4-1KcP
+	id 1x9kOB-0000000BFwi-1uLc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 14:23:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=YRxCDaMEMjeNgmx5T/EVuTSh67LGdojGLOrhCwhCev0=; b=Dh
-	yr7+gSHaRcEawD7cbrPt+q4UONwcYADUgJw5JgqaWvylNf7fjebTq0uJd6Xd1kOR8rR4fr5fHTz/h
-	guuO87WuXQ4NjRbeV/YfXysiOAVl499MxPqbJlKGfWhJUGIxu2mFFt5LbUu3EMwTHsjckS6ETztzH
-	HgxnZPvLRiN484Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x9kLf-0070ej-GP; Thu, 24 Sep 2026 16:22:55 +0200
-Date: Thu, 24 Sep 2026 16:22:55 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
-Cc: shengchao.guo@oss.qualcomm.com, bartosz.golaszewski@oss.qualcomm.com,
-	mohd.anwar@oss.qualcomm.com, maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, hkallweit1@gmail.com,
-	linux@armlinux.org.uk, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] net: stmmac: support low-speed USXGMII validation
-Message-ID: <66dbb6d5-5e2d-49fb-a882-acd67eb6fcea@lunn.ch>
-References: <20260923-qcom_xpcs_nord_emac-v1-0-4b1c682af70f@oss.qualcomm.com>
- <20260923084921.3942100-1-zhangfei.gao@oss.qualcomm.com>
- <20260923084921.3942100-2-zhangfei.gao@oss.qualcomm.com>
- <828e6cff-79d2-4349-805f-cca927f7b908@lunn.ch>
- <CAFkd8htx-MTOMFO1S3uZt_8wyL+qoOhb577O2MMYr6oJ9jc=vg@mail.gmail.com>
+	Thu, 24 Sep 2026 14:25:32 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc52c1b8286so473697a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 07:25:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790259930; x=1790864730; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MaWkFoUOQ+u9WS91tjqMuEOPGp9Db2ThXslkCbREcik=;
+        b=ki9JS6BHjbu1w31udXOQtVeYhgZcI9luQulI8uw61iGVv0gklk6eJ2jYluPIDgwmAW
+         xAP7o76yO/P77vIpfXWb6JWhR31QZEBaLlWI+g8nleqdAvU+Wd3F3pX3N5ML9HC04zYI
+         DNd5meCKgELyIA5QqW4SPKEX7yKj/EbQrSEMUJnmHvzuUuRMpfAD/+som7yTwvsjVuCT
+         vrqWoiyCWD3wVdsSXEjkj/lKs9F1hVJSX0wvaDVcisziIISrJW8mvEhoQu476jxg+yYz
+         V/HfU/zaPbSRD3HOErcniJIL8XjW3UD9V/BxqD4YRZj+aVgUHjBghSLI3EWKX/GbrLji
+         G3kQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790259930; x=1790864730;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MaWkFoUOQ+u9WS91tjqMuEOPGp9Db2ThXslkCbREcik=;
+        b=wtNe8rZi/JrnEpF5U2B7UW2TlC0DjmiVsw+ARVCdVicWk81hJuO4pW5CUU42WR14cI
+         /QJf8D9LliyqrdTF5jguDeHVDoRUixEOhHXRTJ7VRxHD5Jdd7P+A126UJTWgGuiY3jW6
+         fcBg/wCnEQa+fntr1n/CBDi3xcaQsUofjzmFU24yJ9FfDjGAwnObE8NrlMpyLRaaZUEg
+         Bpm3f4J66i/Wr0ll1GALszLxpnlyHdPDr7PTgSjayLGc218rmO5Sny/EKYe6PDIba4q1
+         ALA2POHX6SJtIyYwPW9ldXx2y0ucrPK5KCCjtyBuVC+LUzzhWTURf3DFFDn1VcRrCxET
+         7Srg==
+X-Forwarded-Encrypted: i=1; AKwUvBzcR28Z9g0+ItcGRN2iM3kbjZJGbvro2mSAXHiUS2zr9rNepMFxmq4qS+zSnUG8rGyVGU9vdpPm6nk2rCWQxgmK@lists.infradead.org
+X-Gm-Message-State: AFuF++n2aO8haWgq51AWdxVspqb30uRkO8t3x20sEhMfMSuqyYyL/yCK
+	SqzRZ9cO7vxoEgor15nw3O0t5MCY3rp3wlQV8VhtZ4Ql8mbC4rJMr1TT
+X-Gm-Gg: AYBFou2icR7GxXOlNnZJXFDn+spOpJmz0nPdsE6kJyWVWHyZ6z5oy1CjqNXR905iXrI
+	SpAOkNh8W5zxlccw0cNj7VggWScUVG95ElZ+a792E8QdrOts7EToo71ylmNAT8F21oQoOWfrGwL
+	uJTZY7fCyTNlnquwGJQCCAfAZSNEqVihi2C8ZKJNOJpmYVPcRhN3SXXFlnkYtDFwvs+TeOc9Gjb
+	sNWZqCg1q0EUzgQq7G6wH3U0o9uV0F5BY73VuKME5JHzihDjjJ4bM69h3PCS8i+cxNzl1KW5942
+	ibSMl/wYzaRi2t6++ybxpG+SIE2Q1suUWDXyeXW45uD5vYzhyt4A80Jy1gL6QbovbPRc+DtK5Z3
+	1XWLShU2bZpgNF7tJ+u3r3c4yqyqL24PbpNW2ktw/vRQbgQyIK6HVxoKtNyiPEe56yMz3LHRuLy
+	SdNMLdHQhhcMf/vyC4dJRahh5cMNQb5GGOQfyoQaez07SBYoitYZEDdg==
+X-Received: by 2002:a05:6a00:1c8a:b0:87c:f3e5:ebda with SMTP id d2e1a72fcca58-87e99e3efcemr1451856b3a.0.1790259930408;
+        Thu, 24 Sep 2026 07:25:30 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1002::de93])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87d1afb99f0sm3157310b3a.6.2026.09.24.07.25.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 07:25:29 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Ulf Hansson <ulfh@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Miaoqian Lin <linmq006@gmail.com>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH v2] pmdomain: imx: gpc: remove all initialized power domains
+Date: Thu, 24 Sep 2026 22:25:20 +0800
+Message-ID: <20260924142520.1594149-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFkd8htx-MTOMFO1S3uZt_8wyL+qoOhb577O2MMYr6oJ9jc=vg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_072309_355810_DF0EFCA6 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20260924_072531_501252_7D60AFA1 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +110,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 06:39:47PM +0800, Zhangfei Gao wrote:
-> Hi, Andrew
-> 
-> On Wed, Sep 23, 2026 at 8:58 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > > diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-> > > index 091c9b57388fa..58ca296fc4420 100644
-> > > --- a/drivers/net/pcs/pcs-xpcs.c
-> > > +++ b/drivers/net/pcs/pcs-xpcs.c
-> > > @@ -23,6 +23,12 @@ static const int xpcs_usxgmii_features[] = {
-> > >       ETHTOOL_LINK_MODE_Pause_BIT,
-> > >       ETHTOOL_LINK_MODE_Asym_Pause_BIT,
-> > >       ETHTOOL_LINK_MODE_Autoneg_BIT,
-> > > +     ETHTOOL_LINK_MODE_10baseT_Full_BIT,
-> > > +     ETHTOOL_LINK_MODE_100baseT_Full_BIT,
-> > > +     ETHTOOL_LINK_MODE_1000baseT_Full_BIT,
-> > > +     ETHTOOL_LINK_MODE_2500baseT_Full_BIT,
-> > > +     ETHTOOL_LINK_MODE_5000baseT_Full_BIT,
-> > > +     ETHTOOL_LINK_MODE_10000baseT_Full_BIT,
-> >
-> > What does T in 10000baseT mean?
-> >
-> > >       ETHTOOL_LINK_MODE_1000baseKX_Full_BIT,
-> > >       ETHTOOL_LINK_MODE_10000baseKX4_Full_BIT,
-> > >       ETHTOOL_LINK_MODE_10000baseKR_Full_BIT,
-> >
-> > Compare and contract with KX.
-> 
->  T denotes twisted-pair copper media, whereas KX/KR denote backplane
->   Ethernet modes. USXGMII is the host-side interface between the MAC/PCS
->   and the external PHY; it is not itself a media type.
-> 
->   The BASE-T modes are needed here because the attached PHY reports its
->   line-side capabilities as BASE-T modes, which must pass XPCS
->   validation.
+imx_gpc_old_dt_init() initializes all power domains described by
+of_id_data->num_domains, while imx_gpc_remove() only removes the PU and
+ARM domains.
 
-Now think about why i asked. It probably means something is wrong.
-But i will admit, there is a possibility i'm wrong, but you need to
-first exclude all other possibilities and give a clear explanation why
-i'm wrong.
+Use the match data to remove all initialized power domains in reverse
+order. Release the PU clocks after the PU domain is removed.
 
-The question should point you in the correct direction. You should not
-do the minimum hack to make it work, you need to spend the time to
-understand the architecture and find the correct way to do this.
+This issue was found by manual code inspection.
 
-	   Andrew
+Fixes: 5a42d1198901 ("soc: imx: gpc: fix imx6sl gpc power domain regression")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+v2:
+  - Check the result of device_get_match_data() before using it.
+  - Use an unsigned num_domains variable and a decrementing while loop,
+    as suggested by Andy Shevchenko.
+
+ drivers/pmdomain/imx/gpc.c | 29 +++++++++++++++++------------
+ 1 file changed, 17 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+index abca5f449a22..d83fb37e2297 100644
+--- a/drivers/pmdomain/imx/gpc.c
++++ b/drivers/pmdomain/imx/gpc.c
+@@ -502,7 +502,9 @@ static int imx_gpc_probe(struct platform_device *pdev)
+ 
+ static void imx_gpc_remove(struct platform_device *pdev)
+ {
++	const struct imx_gpc_dt_data *of_id_data;
+ 	struct device_node *pgc_node;
++	unsigned int num_domains;
+ 	int ret;
+ 
+ 	pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
+@@ -519,20 +521,23 @@ static void imx_gpc_remove(struct platform_device *pdev)
+ 	if (!pgc_node) {
+ 		of_genpd_del_provider(pdev->dev.of_node);
+ 
+-		ret = pm_genpd_remove(&imx_gpc_domains[GPC_PGC_DOMAIN_PU].base);
+-		if (ret) {
+-			dev_err(&pdev->dev, "Failed to remove PU power domain (%pe)\n",
+-				ERR_PTR(ret));
++		of_id_data = device_get_match_data(&pdev->dev);
++		if (!of_id_data)
+ 			return;
+-		}
+-		imx_pgc_put_clocks(&imx_gpc_domains[GPC_PGC_DOMAIN_PU]);
+ 
+-		ret = pm_genpd_remove(&imx_gpc_domains[GPC_PGC_DOMAIN_ARM].base);
+-		if (ret) {
+-			dev_err(&pdev->dev, "Failed to remove ARM power domain (%pe)\n",
+-				ERR_PTR(ret));
+-			return;
+-		}
++		num_domains = of_id_data->num_domains;
++		while (num_domains--) {
++			ret = pm_genpd_remove(&imx_gpc_domains[num_domains].base);
++			if (ret) {
++				dev_err(&pdev->dev,
++					"Failed to remove %s power domain (%pe)\n",
++					imx_gpc_domains[num_domains].base.name,
++					ERR_PTR(ret));
++				return;
++			}
++
++		if (num_domains == GPC_PGC_DOMAIN_PU)
++			imx_pgc_put_clocks(&imx_gpc_domains[num_domains]);
+ 	}
+ 
+ 	of_node_put(pgc_node);
+-- 
+2.43.0
+
 
