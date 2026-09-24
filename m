@@ -4,74 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06184C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B22C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 15:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNgMEzj/bkHh3FbLjTA1Gzx4WhUWAp9E0GVBTQvYr0o=; b=b7dvl8Ks2iZUEobpiqLyXiyMKA
-	aaA7OGwhAPWaFA0UzMNexkFQ9qfiMqWhc1yyMFPd4HowIsdpWcFnhO5sZtiUAi2tk981fWBOrCflw
-	RsE+XKRT5yvnnW/W8e8aSf7ZC7Eq7r+SOzFcS/a+cdatT5shD//XbZNUL7iQ9zhPxbhbMaXB449eV
-	P0puYoj0AgE91z2WyhANQ5uVJncmKqySkuMuKMWJW0CtmhL4/ss81TdJuvtXOPzlDMaRu7Gd0ftM2
-	iI92tK/bdIUK2YmGudQ0NFZUeVjpbE+5Wn9aErqe2dA2v1ZlBzQMatB0BHV+0XvLH3CdDnqPthiBy
-	zolDAoEQ==;
+	bh=ehoJ+mfr8kJorxUxvDBirt/C95AcbTFpySKnWqn9GGE=; b=b9dNgKQVBQ9KUF2VNq0y+XZSEP
+	TwPUp3NfUPy0iPs0vrNRdxh9mVb1PxyMWugTW+fFzSliw6srOr0WvzRIB0FbVXFwYaqSEIEMcx72L
+	tgVAm7xF04499IDEhipYWB/SQQWD323Mfs7crf2VwfVzJyxAaDPtex94AIl+nQ84z1PZC9LxJcQdT
+	tS8/VAh6pWXvpXgn3sEQ7rYOvEm5v6lKU7eFvEUSFQv0qWIb0FlHnqgKPKPCOFwMcfm3WdA0nukRR
+	XlVn/akYLnL0FfmGqBAlBn/nV3yCCfkwYSCvfYI+tv9AFOZV9rfiDDgqQ5sBpNPy/iaBfU1FpGnW4
+	x50S53gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lGe-0000000BNC7-35T6;
-	Thu, 24 Sep 2026 15:21:48 +0000
-Received: from out-24.mta0.migadu.com ([2001:41d0:1004:224b::18] helo=mta0.migadu.com)
+	id 1x9lIy-0000000BNQ2-0DAr;
+	Thu, 24 Sep 2026 15:24:12 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9lGb-0000000BNBU-3jv6
+	id 1x9lIv-0000000BNPX-1Mgn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 15:21:47 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=AvUxZyX/tO3G52TZtdDe5cDkHKT09asHJ5InA7+aTqk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790263303; v=1; x=1790868103;
- b=GkOYImNbF+n2IW7WcEp8Fhg8Y6DwjsxC9ie9Fsh4JusJtWWUEDNsb6vpt3nOt5QFlwYjHHh0
- rQeJsgfPqIZPuF2zmDmqqP8+hKZ3YWOjgt3RFtwbDNrkEeJCugEQe6G5qcH5HONtusilWL6/g8P
- Pnrxy3IqTN9QiN2JRm/DbcXk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 5f76bf1499d139fc;
-	Thu, 24 Sep 2026 15:21:43 +0000
-X-Mizu-Trace-ID: 5f76bf1499d139fc
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5b83c1421ecso8285e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 08:21:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwfOXGZZ1Rxf2qoXOIFoKavAXxJLTHTenLxwJZSsMUamdYTfv7r15ihvskBBUthfW06T2DAty4wt8xUZZVJoyfr@lists.infradead.org
-X-Gm-Message-State: AFuF++kV+o2KPF8yWCyIO8Sn9lcV7eQJq/0Scn78m3vRS1tmAthpzEsN
-	opye0txrDu9c0wgthiTnyaGCG3w6FPPBQI5z20lvh+XdLAQ+kWInDGtpj0znjLT0vzAqoe5VCZT
-	W2ePG+lJ0bYrm8PFu0aFviKjBJwJbG9vker10BIRw
-X-Received: by 2002:a05:6512:238b:b0:5b8:d830:be30 with SMTP id
- 2adb3069b0e04-5b8dda259a4mr187251e87.16.1790263298205; Thu, 24 Sep 2026
- 08:21:38 -0700 (PDT)
+	Thu, 24 Sep 2026 15:24:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pGRO5Y4fuUL8+QsjVnYKKDCfTd+2hykEGEozhHgdBRXevWA276N4mFJPDOHBWAayETBz3B3737u5WZFaWu5pVkkaC1ADr5J64LmsI02PIzZ9Ht1+1Mywhsc5XcETzYU60KASz3TCKVK+Goih3+UnFKCftFHpTdAfupzwpdBktF37yIoxYPf0JMevHfM6vKHcoJhzI5Kk/JlocjxQItIgXN45grMvNkUkQ7DgSm1PToCl9/wTs/gzNIbJtCM3WqeKtF5L6e6+WyQ2lpLyglN7SRIxGicOEzHTPOLdsF2FDLgtqj0Yt5GhP2KplfSTLwu6H9qZkYUvZ7GR56REIJncTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ehoJ+mfr8kJorxUxvDBirt/C95AcbTFpySKnWqn9GGE=;
+ b=XkZ5WrhEnKodXYIIr+XIb1KXsVfHCkWrOI5ilc2dZdD/6Y5odsZo+LUh9f1mdAqE4vMcBN85+hOxXAeDfNV6WtS0uJCDy1tyqIE2+hDvx3GWhO3eqEgfXy3cYFl49+p4IFHJtuw0Wkk8N4ua8kVwqcUp0SjuA3UjZ4CBJgb+jZw+hSJvsfiy4m7j6ihKfky2/cPKU8Hiuik02DSrCs/3Hx8gQHglJ7yFor16d/AOUnRqybRb+1fNcxsBQltaPXukLczO+rlFB+p31g9Eu564dzRUvfKV0+girUT+JUBHjsyfHcjLS5Leu6jt3DZUAKJI/AEmykU8W1xuwRFApI/JYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ehoJ+mfr8kJorxUxvDBirt/C95AcbTFpySKnWqn9GGE=;
+ b=ZXVTFxXqK3wGxEfKVJooQy13o0mT1iVF5G06x+gUe67o19yCH8pf8F0x2Llxd3ybTlI/ENFqcNuS/DUCUYVH6IbdTaY0KclvQV9klKGuY4kvHqoWhFUYxfpoPFznZ5QtQC9NSr4bFezt9MjpqtPOEyp3wIdGwhKs0741ZeL37s4GZwAGOInW+oDkPnZ/+l28iH8FoRQ+jkDZYRWz+N4wiyw686khRoBGwPasFpsTbxa7WrvjaKWbOGCd3KmAAQkfd+FAlTQSPtFRara+NJf6qJjM8JCqqXgdSmMO/QsPbfE1+IR4ekK8Wvb8/Oc11Nz9CGloIFvzdjq5h8VQ6zolYQ==
+Received: from PH8P221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:2d8::27)
+ by PH7PR12MB6537.namprd12.prod.outlook.com (2603:10b6:510:1f2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Thu, 24 Sep
+ 2026 15:23:43 +0000
+Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
+ (2603:10b6:510:2d8:cafe::76) by PH8P221CA0002.outlook.office365.com
+ (2603:10b6:510:2d8::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.18 via Frontend Transport; Thu,
+ 24 Sep 2026 15:23:43 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Thu, 24 Sep 2026 15:23:43 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 24 Sep
+ 2026 08:23:22 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 24 Sep
+ 2026 08:23:21 -0700
+Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
+ Transport; Thu, 24 Sep 2026 08:23:21 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+CC: Jamie Nguyen <jamien@nvidia.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Dat Mach
+	<dmach@nvidia.com>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
+Date: Thu, 24 Sep 2026 08:23:21 -0700
+Message-ID: <20260924152321.3864148-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260924-tall-oryx-of-attraction-23ada5@sudeepholla>
+References: <20260901192906.133670-1-jamien@nvidia.com> <20260922-purring-fennec-of-exercise-bbce5e@sudeepholla> <20260922155211.676134-1-jamien@nvidia.com> <20260922-exuberant-earwig-of-opportunity-4fecff@sudeepholla> <20260923124050.3270801-1-jamien@nvidia.com> <20260923-lurking-pony-of-fascination-ac6c49@sudeepholla> <20260923173240.3710620-1-jamien@nvidia.com> <20260924-tall-oryx-of-attraction-23ada5@sudeepholla>
 MIME-Version: 1.0
-References: <20260914113338.159227-1-fuad.tabba@linux.dev> <20260914113338.159227-11-fuad.tabba@linux.dev>
- <arK1tHUEJsCQEKzn@google.com> <CA+EHjTx+foVF4CRU5D8bQv8bAqDphMN12UrV+_doUryn2ow6bg@mail.gmail.com>
- <arTfjgvZIhmXLrw1@willie-the-truck> <CA+EHjTxe0JE-tCX4YcEEafdnxjuZLj3EBucZfZF0HCP2PQAekg@mail.gmail.com>
- <arUUCFHamX1nOrB1@willie-the-truck>
-In-Reply-To: <arUUCFHamX1nOrB1@willie-the-truck>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 24 Sep 2026 16:21:01 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyWDvVc4B0mF8+N3QJ=gVPGEY-pxPGZWuTLK6Y=PZnF1w@mail.gmail.com>
-X-Gm-Features: AclHuK-Tr-CYuhyqLL3dKaG6eneOkpkAbwBzpQx--EX-XebKJ0QSmyPMwRUhQwc
-Message-ID: <CA+EHjTyWDvVc4B0mF8+N3QJ=gVPGEY-pxPGZWuTLK6Y=PZnF1w@mail.gmail.com>
-Subject: Re: [PATCH v3 10/18] KVM: arm64: Handle PSCI calls for protected VMs
- at EL2
-To: Will Deacon <will@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, oupton@kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, catalin.marinas@arm.com, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, steven.price@arm.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDE:EE_|PH7PR12MB6537:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4203a373-c07f-45fb-1f4a-08df1a4fd1f4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|7416014|10067099003|11063799006|18002099003|4143699003|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: 6HZJj13oc3sg5lmfmy/LjDEUn4cPy26eba8N5didOruxAkKEUyCP/WBEQz+xy4izz+6LJitK+/qrN2eMLudCtMg9sIT2y79t2bHRERduZja19rXGQaMsZpfpYPJEMh0+/IRbG+hPTZOaAEo/m2H5oRaADNDEgGovvrkR1EM+JWjPYYtgVgKqv+QRTZAwWId2b4s0dfeigvsJt4EzUOwnZvWzwqQWyvgIPlDsSNjO4eJeMWdflW/BJm1dIxNL895BIlZ/j19N7LNl6H6yzi1ariZkRSRRoI6yd+aU3cedq6HOJcYHS1d7/tzm6n6CWvUGOeMZ3e9y/VMn0n3tgjQssr8N8SzeXvuE4NV/xQLQC0T1Pnw0eRU0LL8Feeqk+hgHueWKD8hZZ75z/5Fd2un6kHWgSKkiwoxSFe9EAVys/pIiYYUv8+cTk/ssAURpuWxnD429oVkABtjpo0IHUz/RKrULUACb3g+4H8WmeexUGSUvCVhvzS8G9qdfzlLlZVnaSN06UEPu7VmL0RMzs6LmV83RsJ9P63LvzUibQek5Ifky+fEtvHNF31HM9ghRQYms3G3qoUPRsecQKgzxdm8Z8UZuJDy3TPySLB99SjJihRJr3KoBM5v0kFLWHjEYcfohiuwVXRX183IjaHFPgeSgIy2kUjd+9U3cNWohXX82jn7OozAHp/nzQ10ahfxLJETbR1FHFJOelavXO0ncRO6jKQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(7416014)(10067099003)(11063799006)(18002099003)(4143699003)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Xt83RhRB4oPbCZBjhUZ29LnrvW+gfMVitzjJZd/aE/7LBolUS6TMJorzHslv60zkx/+XkW/IDHIEg8PIMWRTwNY8fHo+X5Ar3TME4hlGTh8V0B7BNEYe/KFd6Jbi1F6lQAPRvVN7U1bJ1XuksFGb4hUA7r0RP6zKeV1dJPBMPCXcQ/hfLaGz8xt0+3V8Buw7y/QrW1bCtEIWIfjix1aOG8ITRlSAvWLe0TBgVxHiWDlUGh4XXseIHy85+YyTC5ONpfKKOwQvT9iqZC1b7TOXDT2pfUBW3ho9UB40qJniWswIfHu2bJIZdvcHxig+uCaWqYEOKB0J5kOCgtzSN7GWIavOnNnmQFJz7SemBIMO5ki59qlRa6AX9fi2iXKBiWsCRg0VBN4zXPNLttq2cg+Q3fZWHCwl5XhYLD9oqZtO35gZqCxklL9M1N1Eucjqkdzg
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 15:23:43.5806
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4203a373-c07f-45fb-1f4a-08df1a4fd1f4
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6537
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_082146_139467_966238BE 
-X-CRM114-Status: GOOD (  33.27  )
+X-CRM114-CacheID: sfid-20260924_082409_395697_2F71086E 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,191 +132,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Thu, Sep 24, 2026 at 10:39:24AM +0100, Sudeep Holla wrote:
+> Which version of FF-A is being deployed on your platforms?
 
-On Thu, 24 Sep 2026 13:14:00 +0100, Will Deacon <will@kernel.org> wrote:
-[...]
-> > It's not publishing data, it's handing reset_state back.
->
-> What's the difference? The usual pattern for acquire/release is:
->
-> <write data>
-> <store-release flag>
->
-> on one CPU and then on another:
->
-> <load-acquire flag>     // If this reads from the release above...
-> <read data>             // ... then this is guaranteed to read the written data
->
-> That's a message-passing shape and you would normally say that the first
-> CPU (the producer) is publishing the data to the other CPU (the consumer).
->
-> Is this what is happening with the 'reset_state' (data) and the
-> 'power_state' (flag)? If not, then what is the shape?
-
-I don't think so, it's the other direction. That pattern is the pair
-on reset_state.reset, and it isn't in question. The pair on
-power_state, as I see it, runs the other way: the target's last
-accesses to reset_state are its reads of the payload and its clear of
-the flag in pkvm_reset_vcpu(), and the next CPU_ON's accesses are
-stores. Release on OFF, acquire on the cmpxchg: unlock then lock, with
-power_state as the lock word. The winner takes it with the cmpxchg,
-hands it to the target through reset, and the target gives it up at
-CPU_OFF. Nothing is published. What I was after is the winner's stores
-being ordered after the target's reads and its clear.
-
-> > The CPU_ON winner writes reset_state.{pc, r0, be}, then reset_state.reset
-> > with a release. The target reads them and clears reset in pkvm_reset_vcpu()
-> > on its next run
->
-> By 'next run' you mean, at EL2 on the entry path into the guest following
-> a successful CPU_ON operation?
-
-Yes. The target's first __kvm_vcpu_run hypercall after the host's
-kvm_psci_vcpu_on() has woken it. handle___kvm_vcpu_run() reads
-power_state as ON_PENDING and calls pkvm_reset_vcpu() before entering
-the guest.
-
-> > and its CPU_OFF hands reset_state on to the next
-> > CPU_ON. The release on OFF orders those reads and that clear before
-> > OFF, and an acquire on the winner's cmpxchg orders its writes after
-> > it: release on the way out, acquire on the way in, like a lock.
->
-> That doesn't make sense to me, sorry. You're saying that the release
-> store in the EL2 CPU_OFF hypercall handler is ordering stores that were
-> made during the initial CPU_ON handling on that vCPU? Since then, we've
-> been in and out of the guest. We really shouldn't need extra barriers to
-> create order there.
-
-The target's own accesses at its reset, its reads of the payload and
-its clear of the flag. You're right that the hardware orders them:
-__kvm_vcpu_run() runs dsb(nsh) before it restores the guest's state,
-and since R24234 the NSH is only a TLBI/IC scope, so that DSB orders
-the target's accesses before OFF for every PE. My reasoning for the
-release and the acquire was that the protocol shouldn't rest on a
-barrier that is there for the translation regime, that nothing
-documents as ordering EL2 state for other CPUs, and that the LKMM,
-having no dsb(), can't see: under the model the target's accesses and
-the next winner's are unordered without them. Would you rather rely on
-the world switch and say so at that dsb(nsh)?
-
-> > Without the release, the target's clear of reset can become visible
-> > after the next winner's reset = true, and the target's next
-> > pkvm_reset_vcpu() then reads a clear flag and returns -ECANCELED,
-> > leaving the vCPU stuck at ON_PENDING.
->
-> This needs a litmus test because I can't see it myself. As above,
-> CPU_OFF does not clear the reset state, so it's bizarre to put the
-> release there.
-
-I'd actually done that earlier.
-
-The flag, under the LKMM (herd7 7.58 with mainline's tools/memory-model):
-
-        C CPU_OFF-flag
-
-        (*
-         * P0, the target: its reset clears reset_state.reset, its
-         * CPU_OFF stores power_state = OFF. P1, the next CPU_ON:
-         * cmpxchg(OFF -> ON_PENDING), then a release of reset.
-         * OFF=0 ON=1 ON_PENDING=2.
-         *)
-
-        {
-                power_state = 1;
-                reset = 1;
-        }
-
-        P0(int *power_state, int *reset)
-        {
-                *reset = 0;
-                WRITE_ONCE(*power_state, 0);
-        }
-
-        P1(int *power_state, int *reset)
-        {
-                int r1;
-
-                r1 = cmpxchg_relaxed(power_state, 0, 2);
-                if (r1 == 0)
-                        smp_store_release(reset, 1);
-        }
-
-        exists (1:r1=0 /\ reset=0)
-
-As written: Sometimes, and a data race. With smp_store_release() for
-the OFF store: Never. CPU_OFF doesn't touch reset_state, but its OFF
-store is what a CPU_ON takes with the cmpxchg, so it seemed to me the
-store the target's accesses should be ordered before.
-
-> > and in pvm_psci_vcpu_on():
-> >
-> >         /*
-> >          * vCPUs race to power on the same target. The acquire pairs with the
-> >          * release of OFF in pvm_psci_vcpu_off(): the target's accesses to
-> >          * reset_state in pkvm_reset_vcpu() precede the writes below.
-> >          */
-> >         power_state = cmpxchg_acquire(&target->power_state,
-> >                                       PSCI_0_2_AFFINITY_LEVEL_OFF,
-> >                                       PSCI_0_2_AFFINITY_LEVEL_ON_PENDING);
->
-> This confused me more :( Why are you talking about accesses preceding an
-> acquire? An acquire only orders later accesses.
-
-Agreed, it reads as if the acquire ordered earlier accesses. For v4:
-
-        /*
-         * vCPUs race to power on the same target. The acquire orders the
-         * writes below after the cmpxchg's read of OFF, and with the release
-         * of OFF in pvm_psci_vcpu_off() that puts them after the target's
-         * reads and clear of reset_state in pkvm_reset_vcpu().
-         */
-
-> I really think we need some litmus tests to understand the general ordering
-> problems we have here before adding the memory barriers.
-
-The other direction, the payload:
-
-        C CPU_ON-payload
-
-        (*
-         * P0, the target: its reset reads reset_state.pc, its CPU_OFF
-         * stores OFF with a release. P1, the next CPU_ON:
-         * cmpxchg(OFF -> ON_PENDING), then a plain store to pc.
-         * OFF=0 ON=1 ON_PENDING=2.
-         *)
-
-        {
-                power_state = 1;
-                pc = 0;
-        }
-
-        P0(int *power_state, int *pc)
-        {
-                int r0;
-
-                r0 = *pc;
-                smp_store_release(power_state, 0);
-        }
-
-        P1(int *power_state, int *pc)
-        {
-                int r1;
-
-                r1 = cmpxchg_relaxed(power_state, 0, 2);
-                if (r1 == 0)
-                        *pc = 1;
-        }
-
-        exists (1:r1=0 /\ 0:r0=1)
-
-As written: Sometimes, and a data race. With cmpxchg_acquire(): Never.
-Those two are what's behind the release (v3) and the acquire (v4). The
-rollback's ON_PENDING -> OFF cmpxchg in handle_pvm_entry_hvc64() has
-the same pattern on the source side, so v4 makes it a release too.
-
-My head is spinning now :)
-
-Cheers,
-/fuad
+We have platforms with FF-A firmware versions 1.1, 1.2 and 1.3. The
+platform I have been using to test offset 2 reports FF-A 1.3.
 
