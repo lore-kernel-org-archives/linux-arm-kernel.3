@@ -4,136 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2305C9831F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0796CC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Sep 2026 14:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zgOUGjaaPmLa24WXMHC3YPTQSeK//CTX0GDcuSC6fE=; b=DR3ayib1WzEjBJKOLR2XeNeGK9
-	9xlWRPZ5jmmHrGaJCtHmdmabMz3N+eWWqSN72zbX6qqtbguHK2RyBVHlNueZy7/QhHR+h+TRmYqtQ
-	BIA5hMnzpjkCQFY8XNX6lAgHF0j4mmQxEwAvy47zUo9xAbRvoxWh1bvpOQPCpwYdf0b6oQIGLLd/y
-	U2F9XL7x9yv+wAqn25CLCPX6jephvRCXTlssKiVpuL4CClivDxqXGk+HmXtArH62fTgBxdFq7JbtG
-	m8XqVWLFcTuL2BbSjg4yUxDrMN9LXkDsbUM3ob0YwBnz2yXc46RXKl5CwW15AypWIcqzinSZhtYpr
-	uEuNR5pw==;
+	bh=r7grLbuns1CLD6JJcKGenIeiL6DRG8tXUwN8CD/AazI=; b=k7QSkIwTRrIPUtPKn5Phetuvhg
+	EAsuZCCyDcMuBziU4Eg3FbXTFqZ9LqCUmimbdV60VSDBKyNWqfW81Nur+W+MZimg9+FRx4OXA4M3U
+	P4wPXpwNmxVz1WY9dScf5gHJXnzor+5cHFuvvk+kn4DxVvhxNMB12RJ36A5WJwIwSuMTYarsC/B1G
+	nxeve1vWtTdTRg/yIcEw2HjR8g3cI5llhAWzJLrnCa/In86SAAMPXwnszFiSUVveLR45IKNMfdZge
+	U1ePB06x/YOEFSX8lBtfFkcYD9Ndf6SmdUcg2ud6RMti8YdOoABCF1B+pb3Nru5PDujlngVzEwAHR
+	3KZPGnog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9k3e-0000000BD4G-1z87;
-	Thu, 24 Sep 2026 14:04:18 +0000
-Received: from mail-eastusazon11011031.outbound.protection.outlook.com ([52.101.52.31] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1x9k91-0000000BDSI-0TN7;
+	Thu, 24 Sep 2026 14:09:51 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9k3b-0000000BD3W-3oCM
+	id 1x9k8z-0000000BDRg-185J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Sep 2026 14:04:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GZKRIq/umtcDpZJT1GpCczXcMrGi7k2LB8QGbqLyli8LCFYbAVoWDv5gSDDVHxWPkwspDYC+CMFcqpvhbm8HEnXBSqzdZuRqceC3ZzmJwD0Xklj/L9QawG94W3fDLQD+RiHJ+85ee1RS+eW/eIdlTnRC9fN8e9YZoV3uJA8sb7luqH5WLXjt1GUnGPX66uWSdTBUAC5JhXv9JCjd1dIE3M7AhykQ2O5LyH4IMLux+XfhVjcfzbbcjKV4a59lKxwGIJEzX9G+EaAEt6qASZCEURfhMhHVbjFg3HXDsUN9aUvEvAaVdeFM4PcKo9I8uU7FMGIJYgV8521PCSYJy9tByQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9zgOUGjaaPmLa24WXMHC3YPTQSeK//CTX0GDcuSC6fE=;
- b=q4EFg9Tk0mceiQ4OH6zFu6yiVXNrYIJwaKMHRQjaSjyvpzhMFxVaENNCVXo4kMkLFQPPcoSDgebydSUrJVh1rpKGYJmwKO7DqY7rtokvIQEG5LCKNVPXGapxP27sz8OTxkyTE2+BDvG6zE+cSTtC0FRmMY/Q4SkTuOVTuSMuWNfCRngp2exFRTnCUWqAF81yvpxXJBjcKTp0aDNys3PXwPdU65V3mAJ0YcxCTBDR94tFI4wlolX75L26AoJMARQZnu1OfgNeODqC1RqfUA7XrOuiamMZPCgyn7nXzNW5MkjDKd5jpqVCtVIt0WUg8zG7VolX9m8uzN903rMWcUZp7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9zgOUGjaaPmLa24WXMHC3YPTQSeK//CTX0GDcuSC6fE=;
- b=panJ8On6YrH+X6OiasnsWF/Dv0tJThUZflW6KnwJr3t99eb6m+j5wbXJ1fk+HV/ge/2IgU5LmU61AJrklXt7e+N8Hyl1YGaJYQu0zzBhjQ+8HsCZLdujnD4aIeyFegfycRajrsFig0y1V6tRnK9kGJnm79dSlgxnFoCBv1zWiUTzNDS9ebSpWPwPBmHPQf5JvO0CvBCtMMxkVBoOEVXIDsisCvvAM8IPwsNyszX7L6N5d/5jo7t+ZloJGLjPd/K2EOBUJ2VLJ49uGouIQ+vj0XOdwGmBZ0vBr4uo4iYCNu+PXDD30euGgVE7ZWs4dDr2drZo+4Dv6X+WCVUsTKTukw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by IA0PPFB6B4D32F9.namprd12.prod.outlook.com
- (2603:10b6:20f:fc04::be3) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Thu, 24 Sep
- 2026 14:03:52 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 14:03:52 +0000
-Date: Thu, 24 Sep 2026 11:03:50 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	joro@8bytes.org, bhelgaas@google.com, praan@google.com,
-	kevin.tian@intel.com, kees@kernel.org, smostafa@google.com,
-	baolu.lu@linux.intel.com, Jean-Philippe Brucker <jpb@kernel.org>,
-	Eric Auger <eric.auger@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com,
-	bbiber@nvidia.com, harsha.v@oss.qualcomm.com
-Subject: Re: [PATCH v5 04/15] iommu/arm-smmu-v3: Drain in-flight fault events
- on domain detach
-Message-ID: <20260924140350.GA9354@nvidia.com>
-References: <cover.1789446520.git.nicolinc@nvidia.com>
- <cc7eabdd07e7705c84e30b04c85271d4ddf66055.1789446520.git.nicolinc@nvidia.com>
- <179018862538.3334538.17643821143626392419.b4-review@b4>
- <arRTojIlWBOF57zO@nvidia.com>
- <20260923233920.GJ2545495@nvidia.com>
- <arSAEjFLr5y/ycJx@nvidia.com>
+	Thu, 24 Sep 2026 14:09:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790258989; x=1821794989;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qmudZkLU3y2eB9AF20M5NWcb805vn2pIDkdPZYgefvU=;
+  b=XI/qYiJEYlU33z83BtgM3bj0m75a1wnfcndfXxAiBaoYJV47gy9wKJjc
+   2fwpjgzRBSWubmAM6B3S5MffUQcn5Lxc7qTNx7ULHEpiywcveOZ4L9B13
+   Nt58f9kONz1cRw45IafM5gmFg/WGph54LSokjbyZ4BvsqFwcoOi5DK4zn
+   aeTguGPCk6VXCTdiXXrIFiQBL0Ah+CrbYYPXXc+uaikfNLQa1t4a3dWL0
+   bDVFlNPPBnA0bh2/p+fTPX4d99ZGVaJsR7gVPT5dgLHMY035cG/HmjD1q
+   OavFmwPxHjSYMVN/Nea1J3IUNZi/aFz8OcLlhDfx+IoIloEzpyeJ59rEr
+   Q==;
+X-CSE-ConnectionGUID: kOLAXJKgQXuegrhqrM6HOQ==
+X-CSE-MsgGUID: 7UKjLN0mS0y7/gZmrx0XDQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="91136568"
+X-IronPort-AV: E=Sophos;i="6.27,120,1787036400"; 
+   d="scan'208";a="91136568"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2026 07:09:48 -0700
+X-CSE-ConnectionGUID: Eueu/XtoTVq6U3pNjO4tjQ==
+X-CSE-MsgGUID: mhCt5k8VQoujcrhULBFUFA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,120,1787036400"; 
+   d="scan'208";a="311951219"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.244.199])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2026 07:09:46 -0700
+Date: Thu, 24 Sep 2026 17:09:43 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Malathi A <malathi.a2000@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
+Message-ID: <arUvJyvChXXcasSu@ashevche-desk.local>
+References: <20260917040511.103232-1-malathi.a2000@gmail.com>
+ <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arSAEjFLr5y/ycJx@nvidia.com>
-X-ClientProxiedBy: PH7P220CA0064.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32c::8) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA0PPFB6B4D32F9:EE_
-X-MS-Office365-Filtering-Correlation-Id: 912e279c-c0d0-492e-e21f-08df1a44a9ff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|366016|376014|10067099003|56012099006|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: HSwh5bReva8B2EOWTyx7RChW3dIh6eBJAl8VNNc7s8k1lqVjRgCgfpaXEBPutdDMtsBuVgnBjJhchmiubc/UJimT3lZ/HHLvx41bAopu5EL5n0QDewzYMdmOOlfqDEVSzfbV8YBsVkZAjl1qdHk4iTa71+2KIss9mw8AdwHWiCewRxFDg88zSrp22RuG0ZMlKU06DPl1//19vP4IlIVP0ifx9mjrc1vUnOEixznSNF6af9wy5qNMK9H3Z/T+iyTDO2+Ot2yR97EZjHFMR6e1yMTrTA/+aX/OIlmCE6GcW8SjszYjAWw8CIT3sacTYIuSPHqzHpbuzatzgyDlYxqBa7VVh99oAcxBpuPfYCOm3fUNEiHh1WLOsA3evY5bewmO3KinfxXXOq5a6wQLhndMUNKGZmGcbazKuBFLmMu4QafIBz7gXZwbGCFd2sKkIXCC2drUOgvvj3HS9jG7TKUtrL1sbxVuyBtgDBQll7LXXLkN7xUATFI8+g5dXA56mBnfSFP7fRA9rinE3ditFblwbLBUGFhcELsjoKnCmWVJu3eHpGcmLaR/nzjJoOWtT56nKZTeg2a3TMk/4lvvtQmSfaS2GRI4zAg96C2ZNdxH+qGXGUm+LCF4+YtHvZfuki3tGMddes7iRNIrWpeSV9SwRvdmX1TUvFH6CVp78xaipZA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(366016)(376014)(10067099003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YXAood8LbQYzMfjMgMqSZO+Pqhn/NoKKeEUeLEC0wvrqkytHMAFQKX8bBnYW?=
- =?us-ascii?Q?fZXlDj0voBgXUKwA73r3do7narMudz3cJYwxg2FVjgtDof11+2HOc0zORtAE?=
- =?us-ascii?Q?L8Jv4QsPbDRSDkSJgR2pWJZm25f8qdozzNTJu+JVVEAohcIVEMWqHxSt6NRS?=
- =?us-ascii?Q?vzWVNBTrVhqP/bEKHtfOdxx/6X07y/sLfm6ze5xNVbMljnvRRcK4gD4beXol?=
- =?us-ascii?Q?BqXGB7x8EJy0lzwYlvGaTR/m9EppqtzDKhVwQsZeRLqFQchOFryxYi11x07b?=
- =?us-ascii?Q?3e1vdReKaRqWl36Oc49SL6fnv0sRWfk8kj/I3zDgftP+j5WeOc3noXYAp0H+?=
- =?us-ascii?Q?am2sOmeCXW1Q0EpciqyeG9YD8x78je63CRi/wELjDTySDtmYsHyv8kF3b9ta?=
- =?us-ascii?Q?Ml3vms61Y+usXhKMD1aSlw9NFk3ggIAo44rejFLosLQvc8EtOoXG59OBBpSd?=
- =?us-ascii?Q?5xGN4JzIlx+BZN6ZYu0ek+8aXy7ndLwVHY5lzD2jKZblJSOZY1tVLya3FWcO?=
- =?us-ascii?Q?U7d4GfodkzsNSUYV2CC1LBoUfEO+oNs+HVG1oQU1BE4s9ZXySUQ43Bdl1oLn?=
- =?us-ascii?Q?oHSbBBWQTcTPQCDOuoZGosqbeR6MKQAOy0zNcZs+1r2ZgkVmxOn+NXrOgRv6?=
- =?us-ascii?Q?vzHEnDpLFTA9/DPU7i3spd295KL4VIXrKmb4nIcc2E8GMq96SO89ehmVFOC8?=
- =?us-ascii?Q?bSqo01CY7I4rVIrcwl3a7aCkIGkF9YUn/R+l3H+O+4nmFDOMgWAsKrfzJbEn?=
- =?us-ascii?Q?oDrXArRGG8iIijjr3CFKhBXAwl2ynMBHk/GLfnI2WxANS1yChHyBV+wj4g93?=
- =?us-ascii?Q?B2tzAN1802bZuT7rxD8jHM+ysfIMux5NLyuYZIde5hwyA3Uazh7LXLwsYhHy?=
- =?us-ascii?Q?oIjGwtSzt8+5jhJXcDdQT+Fo6jUwPWdNQb8sQ95b+0huz73/WksC1gQ4n01C?=
- =?us-ascii?Q?NlUXcIhvRkvht5HL4zzNukkF6tavaLfvIFRIk8X+AWXevf/0sLG+iJ8hDDhy?=
- =?us-ascii?Q?S4xIwbMNVv1MyI5TdwCRJZkxrtBGJDZHtOd1JoUhbZak1KTXxBBm6jCrq8Aw?=
- =?us-ascii?Q?J7ZKl6ug5eHSVfLUvn0ZW04t8MGnQOzb4nD5e1TmzApIxtQ+4AmpF6g+oSK2?=
- =?us-ascii?Q?0ahPTAD59rgjLYoI8w7mJhDBWM8dvtWiT+MXD/XLTuqYYd7wMgB+kt8YImtE?=
- =?us-ascii?Q?utYElZ4gKEpVRadM4alXvFyz4AHq0+DV0dSd8R9qCGZ4FR+qHeHjsSy04eGi?=
- =?us-ascii?Q?xei7EXGSlLVox0Uw1T6oLhMc84/wgrxkqInHq5RHCLqpvXHQ6P3wNNQkyVVz?=
- =?us-ascii?Q?ctZbGi31G8rzQPc3uC0iO/4CnLA5+QvGew5mRbIHpVnpfLRjGQYATa7Trzy9?=
- =?us-ascii?Q?THHGv/fRs24+y9wvWyJ380KBgBLqjlpBxjVlaHGLjKuoLKpU9MuM96A3DT7x?=
- =?us-ascii?Q?k+c/qsZLFXE2F6xArXyviaP5YOWMFs57UjEVICilsyMTUhVBVELIQTrtoHZW?=
- =?us-ascii?Q?kWLPD8ZAXu5/2+F8kT4KnUGrRuiSMRLzuuyV0RKtJw2R87MSjFhyUA/Ii6S9?=
- =?us-ascii?Q?rtBFPNItsdOAjAueF0iisYy/gJmgwvI5hTe8SJxIux/AegL0XSRfTYwnGPiP?=
- =?us-ascii?Q?g1Sg6m+DF8nNZnewfxAavsxXvk4BTBfq6J+58pG6YSgM1HSShSFHSMsbfTpm?=
- =?us-ascii?Q?6akVouQ+er7nHRKtzxAGCD1T0mO0Ga7jeTn4EQYYHssMS3ly?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 912e279c-c0d0-492e-e21f-08df1a44a9ff
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 14:03:52.3068
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0C4EvadXJFZUZapaz+mOzu9amyf0RlhsF6LrxKZuClMJNakaV63jgFxMVdKbpfTs
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFB6B4D32F9
+In-Reply-To: <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_070415_950516_AE678693 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260924_070949_321792_678CDDB1 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,26 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 06:42:42PM -0700, Nicolin Chen wrote:
-
-> There is a problem, however, if one of them wraps twice (i.e. 2 x
-> queue size): then it would miss the exit at the target length even
-> if it is already much longer; and the penalty would be a timeout,
-> yet at that moment the queue is definitely drained.
-
-Yes, we this routine should not hit timeouts, that's really bad. The
-point is you can hit a false timeout because the algorithm does not
-work.
-
-> > > FWIW, the idea of HW drain came from intel_iommu_drain_pasid_prq()..
+On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
+> On 2026/09/17 13:05, Malathi A wrote:
+> > uniphier_uart_probe() enables priv->clk by hand and is then responsible
+> > for disabling it again on every error path. It misses one: when
+> > uart_read_port_properties() fails the function returns directly, leaving
+> > the clock prepared and enabled. The neighbouring path, taken when
+> > serial8250_register_8250_port() fails, does call clk_disable_unprepare(),
+> > which shows the leak is an oversight rather than intent.
 > > 
-> > Yeah, but I think they might have over done it too..
+> > Rather than adding another manual unwind, switch to
+> > devm_clk_get_enabled() so the clock is released by devres. That removes
+> > the error path entirely, along with the explicit disables in the
+> > register failure path and in uniphier_uart_remove().
+> > 
+> > The clock is still disabled and re-enabled by hand across system sleep,
+> > which stays balanced: only SET_SYSTEM_SLEEP_PM_OPS is used, so the
+> > device cannot be unbound while suspended and devres always sees an
+> > enabled clock at detach.
+
+...
+
+> I'm a bit concerned about the error path in uniphier_uart_resume().
+> The clock may have been disabled in uniphier_uart_suspend(), and
+> clk_prepare_enable() can fail when trying to enable it again.
 > 
-> I see.
+> In that case, wouldn't devres try to disable an already disabled
+> clock on detach?
 
-The HW queue may need flushing on the device hot remove path, that
-depends how they implemented things. Like on ARM you had a mutex
-around the whole thing dev pointer so we don't even need that..
+Isn't there is a guarantee that the .remove() is called with PM runtime on and
+get, meaning it's called with the enabled clock? But if not the case, we might
+use PM runtime force operations (resume and suspend in the respective cases.
 
-Jason
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
