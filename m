@@ -4,177 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6716BC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 07:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FD3C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 07:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M/DWbxeGSIRIL3H4zTAb/a2zRJf/Vq+YD16QWknpe5Y=; b=rkhk6xLdKYOktofp05FMgJDbZ3
-	RB27NtSyx4Ceq3AJQHnBOFvmQyVIDO7aDlA6Coq6m2utCCzwlP8ePZ3tAJYh1KqVLbH8u42656Gua
-	Kk+qFfk+mTmnsP0u6GzaWtdt4vlTq8qNV0pXqrc7Q1Qsmt6Wy23fdOH7RpWELmvIXlFf+KR0U5Rik
-	xs3L4t5qg1r/rTN/kAIAlINbVzbh6/hsoOz6HfGPwDpuHIn6MIGNPp1S2GDIk159wJNV/NXSbPlxA
-	T8e52HiE21/rIHK7pXc8PNoV93Zf2jhIwzzr73/2JkGsn3g/xzCWSjtYBkmFEFPMSWoj8vIaNr5nT
-	ALficpBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vl10PLh4YCEMYuVn95R7Yn6YMorNMjxNfr83ppRhiKY=; b=AZfUH0tUPwqlQV
+	KmHM2YX1B953avcxA050heBl3pFksEFH6l6VRovbzrwG0IaScXKEY0teixeiGMVsMcqZ2Hp4wuLjR
+	COXb52xrNpAxvAfxRvRipq+ERJFOjqSuWm33tVTrPnUnRZn0BmqoxFQaOyNt6clRuLY2diQOJp7Wt
+	PWbnbc+LDQg244Y7eh/zq7ATIXo8scX/ACLWoLrEhlK/W1BWP8xbBxvO5weTASvY98h7Btb/dSEiU
+	TC0ZM+IpWGXFS/KWz8UmxVdit5wUvzRQhsMsmUZz2wBm2V6SlrKCOI2626kXCixZz9b8v7EHFmpw+
+	PuQxlSglH5p3B9KthyDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA0b1-0000000Cq5J-1OJu;
-	Fri, 25 Sep 2026 07:43:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xA0fI-0000000CqSr-24Gp;
+	Fri, 25 Sep 2026 07:48:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA0az-0000000Cq41-32I7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Sep 2026 07:43:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=M/DWbxeGSIRIL3H4zTAb/a2zRJf/Vq+YD16QWknpe5Y=; b=OFdPQD0m0ui/iBUy+YBLEul7kJ
-	95en9BfS0yPWfsRuaJXx+uphnXpSsLXv/1LzVAq844ryex3LW8NHyQ6E+sw1UC9vRyRvPKO5WokoM
-	Vh5VXx/2Yi9m0DceOa7tDfTWCHWIO6UfSrbLyrGdp884RiK1n3Sxm53cxN8mjtQuf7J3xF1VK7FHy
-	Ke6+YVgsPKO1nvolGN4lT9jzCp8y8YNS5/7kR8a6OcNkMJq5+Q0xM5pzEZx1l4laJaFGTfMA4gP5E
-	NE3ziKoE6DbUy5deZTLjN6gMX/+zZ5JziUNNDnu8QwBieQ8J/LzDuX+Dzacw8NZ6vb4Qg4bicQjOD
-	g2ws+PMQ==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xA0ar-0000000Ghes-12wU
+	id 1xA0fH-0000000CqSl-2Fw1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 07:43:47 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68P4YoFB3532401
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 07:43:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=M/DWbxeGSIRIL3H4zTAb/a
-	2zRJf/Vq+YD16QWknpe5Y=; b=LIiqcfKqXKmfhIK1/ZC+Gtaf3+7ej0KjyJj9ov
-	/ZywfjJGlyXdR4PnLawwfhEduuhiu2GlWaGWZ3GAXVyhmCxp7Zan0CH4hLrCkAZi
-	EmJxswJW8CFnllbKvCUDTen3RWWjPkyNOUVmgybxJ8q8aTXntqza96hAVq9v5gdd
-	HNZT4/6/h+nbxkQt4DtSUGNUYFfFlXcfT2Zw9k252Od6Ksp6VVWm5tpPG8ENbdej
-	5U6RDc8IKzBwqwuAnSq2dlciZhMBlUBpE1Vo3P8ZkNfN5/gT1t+Hnj4qLROGPXCv
-	gT7a4pgX2tgHnmUxk0Ld1AbLzHJ8jWsoBQW+lFNuKumA/qwg==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw94ka8qp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 07:43:36 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-53094ff7090so19106801cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 00:43:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790322216; x=1790927016; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=M/DWbxeGSIRIL3H4zTAb/a2zRJf/Vq+YD16QWknpe5Y=;
-        b=MDZ6lHHgHVbe2bVHeGxWkK9JoA0x1SFV6K4R6HEfvrQNzwT3ExG2R2cNCc6v4QeNyG
-         DMnsyAwvBfnIwgz28+XvkOu1xWI8Y/g4Thz38C3Yfa01JMEn3GlhyXaWPIWzcV/AwbeF
-         rpP15aON1/VbBqV9Cq0pj2YSXMXsw5ZgzulbZ1WhfQ09qL3NJ2jIcJIdkop++0L4KEhd
-         v10Kq2kIgkN8ElWaD4bNsB+aGqkTzqxkpF6R43Kc+z0gQkXqoERjX9JgOPWyaKvDNkkr
-         jUQhROmHYjGv+l5xG1DEb+143gv90gFpQNJLpkl+WGU2pRhWqp5QLmKzZSeXgbkJ0Joh
-         2kuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790322216; x=1790927016;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=M/DWbxeGSIRIL3H4zTAb/a2zRJf/Vq+YD16QWknpe5Y=;
-        b=L35VFknAiD2IoMpPOCP3NYpg9uObqZ8Iqx0EK5VZi4v5PYrQ7IcBXj9OhGqrh2Sfz0
-         eiZNhRkjnpgV8oadaknju6trhp66KHXfPINXce9ZLWsOOHq/vd16LB3kyeBKaC9zqMQK
-         Vs3wVLCDD+8hNmLZVtGHZns0vFu90Eha6zXJDxdhXo7Z1R8qCFSGCBglGUTB+vGCVb6L
-         bT9sgsqRGK6Agzv02E0d8Z/KJV/cquJdiRYr2V7Ee/joWMk5sAnVHDwYl7gnJfszEcf3
-         aMgRfjzAWTxV5nC/1F4MQ2Q7XjFjv7OKAcw+ehV4q++C8YkfuELwNffxkph86uun2GQi
-         npSg==
-X-Gm-Message-State: AFuF++mNFV6Iire7+UMKiq1kmEyiBkhVu76znZUoa0cTZpoS7znT2yzP
-	oaNv8MNs0+vRh0Tt4dqdC39f9qt6SRTGih4qAtTalYKJnEQ9NSePj1pDJskMpgBGMBCV5A/KMQB
-	IB6VPitf0r8641aeleaTS8GxSxRneN6baBNQwcBypXaJsuRMDSrLpoBqVNPpUROASL0BE6hhzm7
-	eJLw==
-X-Gm-Gg: AYBFou2QeCCOY+EcsKy7p1/iK0LGmewGv6pXCrU+0aq6NzUTe1Tc6BCDwosE+e3k6+i
-	w7ithCuzBW2eYLADZ3Aw8Oy8C08BUvmZBb4x92GRQqSadVpHQ6cLsBmf1hK6jMao4gZtqcXREV9
-	6OtVG5k9Sl3MiIp+/tMI4ePZoYZz7KR+cKDTRpFmKM2+BTwsIwdbSx83pqkT9GjsIBgzRBU5SnS
-	LSeAQYUfYm9DQxgtc6k3nwqw5fnmx3lvR5zTefAh7ela7giqQ/Tio6SjBI1Y+YcCP/Y5i56C3rw
-	veHpkb9qA9VvfFJ/H57LZ2MshbMuqEGNI/ptDbuMKXn+tAD2tDbXUFPJgBBOdqeLWYlBBBqIh38
-	+DmzOlYeilMltGbrDCn0N6+/kI5LX
-X-Received: by 2002:a05:620a:2b94:b0:93b:c3ce:9056 with SMTP id af79cd13be357-93c43cc71afmr302934885a.1.1790322215739;
-        Fri, 25 Sep 2026 00:43:35 -0700 (PDT)
-X-Received: by 2002:a05:620a:2b94:b0:93b:c3ce:9056 with SMTP id af79cd13be357-93c43cc71afmr302932885a.1.1790322215287;
-        Fri, 25 Sep 2026 00:43:35 -0700 (PDT)
-Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:bde1:52f9:d7f0:c581])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fee911e9bsm53820945e9.1.2026.09.25.00.43.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 00:43:34 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Fri, 25 Sep 2026 09:43:17 +0200
-Subject: [PATCH RESEND] arm64: enable HAVE_SHARED_GPIOS for all ARM64
- platforms
+	Fri, 25 Sep 2026 07:48:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EBE7540639;
+	Fri, 25 Sep 2026 07:48:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E95351F000FF;
+	Fri, 25 Sep 2026 07:48:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790322494;
+	bh=vl10PLh4YCEMYuVn95R7Yn6YMorNMjxNfr83ppRhiKY=;
+	h=From:Subject:Date:To:Cc;
+	b=k6/gWjyJcALTAmN4nMuUepNHeDDwULRUDA7JG5mVJrUzIBomVL4dMkXoQqY9hMBH+
+	 13vj0OjjmjLLxNos+PE5p+3Jjjg1ZzA/DCiqJAth0qwBeXI/SQ55d0xTajkQp5/AEg
+	 3dI+eqw4s8qRmX/ByVv7nWRqI+8gXf+rQm9uY7/Koyt4WmQmoqYLX7Yvf0gpgaWa1g
+	 dLJAROnU8ss5A9qcfc9vMFohI6cexXCZAwl/6/d1A2KhvQqFlFN8Ol3eqJ/6dt3hWS
+	 sTqXYc14jNrBl7OraYO5YvKDhOqfnlA/uI2B3QFS+vOR+e3pwwQe3olwQw3ZASMlh2
+	 A/PeO26kjMW3Q==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH RFC 00/11] ACPI: ARM64: Implement IRQ mapping probe
+ deferral for static table devices
+Date: Fri, 25 Sep 2026 09:47:59 +0200
+Message-Id: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260925-arm64-have-shared-gpios-v1-1-57fed3fae35c@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIABUmtmoC/4WNwQ6CMBBEf4Xs2SUtIARPHuTqQY+GQ20XaCIUu
- 9poCP9uww94meTNZGYWYPKWGA7JAp6CZeumCHKXgB7U1BNaExkykZWiFhUqP5YFDioQ8qA8Gex
- n6xgLXWpRmcroPUFsz546+9mWb3Bprs35BG30B8sv57/bYZBb+nc7SJSYS9XVRabuueiOjjl9v
- tVDu3FMo0C7rusP/MHD0c0AAAA=
-X-Change-ID: 20260907-arm64-have-shared-gpios-4c6c07d7dc5e
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Drew Fustini <fustini@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Linus Walleij <linusw@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-        Frank Li <Frank.Li@nxp.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2513;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=AD6u7FdoeUADwTnTJ/GsHGXbI7Jju8HXgSAGAH8Uy3Q=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqtiYgnMpt+ze/3gOBof/K5QUMTpTjKTsj89xpR
- aYhi4BObeyJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCarYmIAAKCRAFnS7L/zaE
- w0SrD/4vfSDU0oVoElzWp+gQZ29LGTH8q+y1RBxSnlUiiIpKfUXPbSaGgB+OtaszwgI8R+/H9ib
- iDLtS6bnV5R5oHaqG/zkpMt8n9Ghb5CdU4kriuimfC6KxSAp+GL2zmRQkKm/w3Tjq6rYahaRFn6
- PZ1WWNZVe56L8nlVfDjpAAj+r4UQxuOKyrCFjAxoBpV2wsf63ryBOVHZgUOMkCE4axrjBnBLKmp
- ert7OYK6xC0bB5rDYIhEmBTAj3dutD6SsHHbWVLKveMUUIvLbwm7UJBN2Mv2SUB5tmFrdvhcGmo
- dInoZuK5ZqTWUk8gN86l9XeQeR9fXk9QBiZRhhHz318rz/saJMOsqbwNhBkWJgKOe6lZt9YlJZQ
- MgaOS0lMSXaZwyGfPpPisDvspKulNpl8dIAe1tO/ctpD4P2c8cnkOOstPcthxhFu1h53CfWuGNU
- 4cHO7+xICvfFb4ceqaA6Y2fqMvO0Cb8e+0PYQwY8iTl8sfFwdQn3q5/o3Me5IZJC2aJQ7TnUfKQ
- 8h5OyCQQjAs5Wsaqi0wG83KVVCar3GL/o7NzlRVp5skiDE9kdpO/bQsmifQaGLq3mx4a6G3s5zv
- Y9mxgrHgu4ny7Rnku2vYmEOqHAqqE61E3nUKFzbF6Bhk+HC30bPHh6KPSJ9ez+3uxlvMGcgtc0M
- rLchbTXc9wQBXcQ==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Authority-Analysis: v=2.4 cv=aaj0Dhot c=1 sm=1 tr=0 ts=6ab62628 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
- a=7CQSdrXTAAAA:8 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=xAMoY1eAQyGtPIDUt64A:9
- a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-GUID: O8NUP8CdILowxGydcbVFYKmeBBccgTwJ
-X-Proofpoint-ORIG-GUID: O8NUP8CdILowxGydcbVFYKmeBBccgTwJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI1MDAzMCBTYWx0ZWRfX59hSjYPur2FF
- YOGmJI55kGk+TnVFKRWLCNBRZ8HhCVT1pG+t9E8NEUQ/YE7ENckRwkXw9/NEXJptHhUqoCvRPDX
- wMNWKD1qKDD/tuSbx+yRTVcCzuR6GTrH0lEun8yEbHseUJ3c6ITvWmhk7F6AKvmGTHXOL6ji4t+
- 4Emku2t7xInfPITi5xLkbLw7MrjvH7LIvbo/nUvfUNRSWcCjzIiFgRV7QV+uuEsCLHFhIpsrLDa
- zFl/CpUZpInkx0RBGp5vzjCcrt1UGU7Ki1vZpq3dhjiITVuWfaq7yEZ2kiP/kyhnTneAinLeFgA
- v+++U/GyhnbdfEGF0pVdj8fo9m2PmLdR2FDrFcXVjnKXtHAVC9xmWvj1YHtyC8akSml0iX5Zm8d
- KA0ETYzTiFgPKVSYPYKA3QZw4TXFMcZVzmxCvx0Mex7EaHlsDbG1eEaqQl557+V/NQS4o6uEACx
- K0ksSJpHRZZUA95/SMQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI1MDAzMCBTYWx0ZWRfXzf/7t0jl2JNM
- Y8y21qY+jUr+noQONJ1byzqx1Btvku7CsBCp4fBGJXoNPf8bdIrwp0mXs5/nOyX9mBvIgjEXaJY
- IgCVFAbIHPohDCVTohYJqPztqVxLVV0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-25_02,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 priorityscore=1501 spamscore=0 bulkscore=0
- clxscore=1015 phishscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609250030
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_084342_359756_4E7E0ECA 
-X-CRM114-Status: GOOD (  18.79  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQrCMBBFr1Jm7UCNkhK3ggdwK11kkqmOSBsnq
+ Qildzfq8j0+7y+QWYUzHJoFlF+SZRorbDcNhJsfr4wSK4NpjW2d2aMPSTAXXyRg8fSoA31i0ok
+ YIw+saB25zlLszC5C7STlQd6/jwucT0fo/zLPdOdQvnVY1w/uzzKeigAAAA==
+X-Change-ID: 20260924-acpi-static-table-irq-probe-defer-69b976bd723d
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Danilo Krummrich <dakr@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Robin Murphy <robin.murphy@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev, 
+ linux-watchdog@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,68 +84,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Shared GPIO management provided by the GPIO shared proxy module has been
-enabled for Qualcomm platforms for some time. By extension of the
-defconfig, it's been effectively enabled for all ARM64 platforms when
-using the default configuration. Bugs discovered initially after the
-feature was first enabled, were fixed and I haven't seen any new reports
-for several months. Make the feature enabled by default for all ARM64
-platforms officially, which will allow us to continue the removal of the
-deprecated GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from the kernel.
+On ACPI ARM64 some platform devices (ie SMMUs, MPAM, MMIO MEM timer) are
+created when the respective static ACPI table (GTDT, IORT, MPAM) entries
+are parsed and the platform device resources, inclusive of their 
+IRQ number are stashed in the platform device resources to be used by
+device drivers at probe time to retrieve the resource values.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+For IRQs, this works well as long as interrupt controller drivers
+managing IRQs for those devices are probed before the code creating
+the  IRQ mapping out of static table GSI numbers is run, in that the
+interrupt controller drivers create the IRQ domain that allow the actual
+IRQ mappings.
+
+So far, that's always been the case on ACPI ARM64 systems given that
+IRQs were routed to the GICv<5 interrupt controllers (wired and MSI)
+and those controllers drivers probe earlier than any code creating
+GSI mappings out of static ACPI table entries.
+
+With the advent of GICv5 - wired IRQs (former GICv3 SPIs) can be routed
+to a GICv5 IWB; the IWB is modelled as a device and its IRQ domain
+is created when the IWB driver probes - that might be later than
+the device drivers for platform devices created out of static ACPI tables
+probe, resulting in failures to map the IRQs because the IRQ domain is not
+registered yet so the IRQ mapping cannot be resolved.
+
+This RFC series aims at solving this issue and should be used as
+a starting point to build a solution and hopefully get some feedback.
+
+PATCH 4 is a fixlet, I included with the series since I noticed
+while updating the arch MEM MMIO timer driver.
+
+Herein below, some technical details behind the patchset decisions
+and questions to be addressed.
+
+================
+Misc design info
+================
+
+The main idea behind the patchset is relying on software nodes
+properties to allow static tables parsing code to stash GSI number,
+trigger and polarity (and possibly its "name") into the device
+secondary firmware node so that the device drivers can retrieve
+their values in a uniform manner when the device drivers probe,
+the same way it is done on OF.
+
+I converted IORT table platform devices to provide an example of
+what it looks like and check whether that's the right direction of travel.
+
+The secondary software node are linked to the primary ACPI static fwnode
+that are already created for IORT platform devices.
+
+A question I have about this approach is that resources for a given
+device are stored in separate data, struct resource for MMIO address
+space and secondary fwnode for IRQ properties.
+
+I am not sure either that using software node properties for this
+purpose is the right approach.
+
+At least, by creating "standard" properties we can make the parsing
+uniform, instead of relying on a per driver platform data to stash
+GSI information as it is done for the arch MMIO mem timer.
+
+I decided to handle the arch MMIO timer conversion differently as
+a point solution. Converting the arch MMIO timer to software nodes
+would require creating an ACPI static fwnode per-frame and would
+complicate things for not much. Instead, I just stash the GSI
+number and properties in static data per frame (that exists already,
+struct arch_timer_mem_frame) at GTDT parse time that can be
+used by the driver later to map the GSI when the MMIO timer driver
+probes.
+
+acpi_register_gsi() was augmented to return -EPROBE_DEFER to handle
+a missing IRQ domain and therefore enabling probe deferral.
+
+The fwnode API was augmented as well so that device drivers can actually
+retrieve IRQ numbers using standard platform device APIs:
+
+platform_get_irq*()
+
+when the fwnode itself is an ACPI static fwnode value.
+
+I tested this on a GICv5 FVP model by re-routing MMIO timer, SBSA watchdog
+and SMMUv3 IRQs to an IWB and checking that IRQ mappings and probe deferral
+work.
+
+Feedback more than welcome.
+
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 ---
-Hi ARM SoC maintainers! As per Catalin's message[1], I'm resending it to
-wider audience. Can you please queue it for v7.4 via the ARM SoC tree?
+Lorenzo Pieralisi (11):
+      ACPI: irq: Return -EPROBE_DEFER on missing IRQ domain
+      ACPI: Introduce irq_get() for static fwnodes
+      driver core: platform: Add static ACPI nodes IRQ retrieval/mapping code
+      clocksource/drivers/arm_arch_timer_mmio: Dispose IRQ mappings on probe failure
+      clocksource/drivers/arm_arch_timer_mmio: Implement arch mem timer deferred probe
+      ACPI: GTDT: Convert SBSA watchdog to IRQ properties
+      ACPI/IORT: Convert IORT devices to IRQs software-node properties
+      watchdog: sbsa: Handle IRQ probe deferral
+      iommu/arm-smmu: Add arm-smmu IRQ mapping -EPROBE_DEFER handling
+      iommu/arm-smmu-v3: Add IRQ mapping -EPROBE_DEFER handling
+      perf/arm-smmu-v3-pmu: Add IRQ mapping -EPROBE_DEFER handling
 
-[1] https://lore.kernel.org/all/arPfRFC5jzVaSQvq@arm.com/
+ drivers/acpi/arm64/gtdt.c                   |  90 ++++++----
+ drivers/acpi/arm64/iort.c                   | 250 ++++++++++++++++------------
+ drivers/acpi/irq.c                          |   6 +
+ drivers/acpi/property.c                     |  69 +++++++-
+ drivers/base/platform.c                     |   6 +
+ drivers/clocksource/arm_arch_timer_mmio.c   | 123 ++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |   8 +
+ drivers/iommu/arm/arm-smmu/arm-smmu.c       |   6 +-
+ drivers/perf/arm_smmuv3_pmu.c               |   3 +
+ drivers/watchdog/sbsa_gwdt.c                |   2 +
+ include/clocksource/arm_arch_timer.h        |   4 +
+ include/linux/acpi.h                        |   4 +
+ 12 files changed, 426 insertions(+), 145 deletions(-)
 ---
- arch/arm64/Kconfig           | 1 +
- arch/arm64/Kconfig.platforms | 2 --
- 2 files changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 94cc8075460f0a763cd82b2cabbdb80275042935..19e453b1214353e842e0aa9d3ff9f684c5b693e5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -195,6 +195,7 @@ config ARM64
- 		if DYNAMIC_FTRACE_WITH_ARGS
- 	select HAVE_SAMPLE_FTRACE_DIRECT
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
-+	select HAVE_SHARED_GPIOS
- 	select HAVE_BUILDTIME_MCOUNT_SORT
- 	select HAVE_EFFICIENT_UNALIGNED_ACCESS
- 	select HAVE_GUP_FAST
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 1489bad527d8e61584b2a29e5161820cbc0ec0f7..21fb82ab4983f80fc3eaba7cdb5627cf80a18c95 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -37,7 +37,6 @@ config ARCH_APPLE
- 	bool "Apple Silicon SoC family"
- 	select APPLE_AIC
- 	select APPLE_PMGR_PWRSTATE if PM
--	select HAVE_SHARED_GPIOS
- 	help
- 	  This enables support for Apple's in-house ARM SoC family, such
- 	  as the Apple M1.
-@@ -329,7 +328,6 @@ config ARCH_QCOM
- 	select GPIOLIB
- 	select PINCTRL
- 	select HAVE_PWRCTRL if PCI
--	select HAVE_SHARED_GPIOS
- 	help
- 	  This enables support for the ARMv8 based Qualcomm chipsets.
- 
-
----
-base-commit: 4c253ac4b29b8c6cc6fdef8f92d4facde62e63b9
-change-id: 20260907-arm64-have-shared-gpios-4c6c07d7dc5e
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260924-acpi-static-table-irq-probe-defer-69b976bd723d
 
 Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+--  
+Lorenzo Pieralisi <lpieralisi@kernel.org>
 
 
