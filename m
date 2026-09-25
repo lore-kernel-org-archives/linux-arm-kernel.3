@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E54D8C98306
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 05:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54CCC98326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 05:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3WI0l2fLcsjral4dphS2l+e8pM0k0DZhUpFW6LxElk=; b=4bHEqyKYqfBCf8ZNz10iL34ECh
-	Md2/tKQopHoKKUd6EZzWJlCl3cfiIm9s7+ikztjz/yIN0vhAqfNg05j8aX6oFB5cUzl7T4mWic+yH
-	Qi44RpOA9tjrtKkF44FJyOU0BPxhjVObbvCmfWAGWLvDbYicpCEYpNZFXW/tArY/Ve1qpvAmpwkku
-	s5Pa13uQN+Pr08gfeOzdh9CNsD28FKKu3rB/N6XQJvraCdp65HZaTzu1yLFAabh/1Ida9yu3jKmyG
-	vaWDguWOth9Pd9bwCoMc/xuSXtZ9IbHmXMlUs8iQEtsymDAT4r1qf677SC4nl67LQ1uq2kc1yNpjS
-	AT5FR1iw==;
+	bh=zDPfINw7X/ljII7NTOTDlrQ/lzhZF6o4xBeW45ztuwo=; b=EH4ocAalXK6r9SeQvB3Bqw62GC
+	cdJLObqg3Gekfw1eIw3VGYNT56RMn9Vk9tdUu0Urfjbg0wpftonlfkSkFGNdOEpeQF1rfGT4p9O+9
+	7tOXZgRmwXW8YmT4jz7bDYzEj/DWhR0IySdNTrfdiSAGuqW05zNuvIv77/4jlZY1Tg7HxQzMYYTD6
+	Di/VCv9NTehnD9WuSzup9LzMz7OX/zqYgVzt3+8FPxzh6nS9sLGmTmQROYFK9sW5yzFlp7hQJ5+U5
+	XDjPccNl+x7AkwbLJkYV+XrH/zJukhIWVrE685IxME8QuUqwXFvyQ7LfRBEBtDIV+rJt5wypOXv/4
+	mOAscYtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9yDd-0000000Cg4z-0cEb;
+	id 1x9yDd-0000000Cg5D-1AlS;
 	Fri, 25 Sep 2026 05:11:33 +0000
-Received: from mail-bjschn02on2070b.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::70b] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+Received: from mail-bjschn02on2098.outbound.protection.partner.outlook.cn ([139.219.17.98] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9yDR-0000000Cfxg-18Pp
+	id 1x9yDS-0000000Cftc-0o5N
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Sep 2026 05:11:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GtTaNyW0LQDvVqrix7NBT1Pgf0wBCarjzsM36GXz51oqS0trmnP5TkytNyizl3fJ967gM6ubHeReF79tLpuqZIfHnXd/irUOBwdCwu5Fr8jCHSFnWUQSJsfPVFeHs3evL5GN4bcwE0UPiSaTHnm8hCfL1fK7HYa+72Ka7CIZ9/IE8wARFZfd6CcGxXmZumvTKvKC0M3w9bXujgEv90rZHMGlTbH3IqtK1K721Ky3QDPERiNwzyHlyrMe9YcvCYElgV/KXygsMzz/Yc3QLj+B+y4YXUUF+S8/YxW1A6YbgKfYvjSzVYJJF1QGlBz3z/bZ3OFwxsNO6Zu1jPfKE3aaMQ==
+ b=V4oXiLBP0pkTXU0EoIJk8S6ZZl937FgmK9lZz0gvVCrpowiu0RF3tM2IQtCIlC4jiMbuVZjMxIOLWRUM5L9U+ZgKguRnoTV9WoSOOw8EooloUOlteUOBk6DcqnGATLOrBNW5+I6N1xnXxBSu/7+Pq7hhK3UDtQiBj4YQ9ivW8G4FMCD4KPXoxVgoV0lVhGJpaHP1f4Nq/qKWreLmXGcVc7z+T60bij8iBBSRgxpbT0ut4iAsqAK3kBZT5aFL/mQ/lB8DB7KDgkB5ECel8fbOd5m/MNnPbhr3BEvWaKHflezlyy1IY4pQ2vMzGFAeSkQPiAsWACNEogBuzLxUS+0JrQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B3WI0l2fLcsjral4dphS2l+e8pM0k0DZhUpFW6LxElk=;
- b=e5a+4XK4L4X6p9pC8KVxAVJw1k8RfrGG47nDpjIP678Dpt94+pygr4d/9PteZLTrf8ICiboDICjdw119IczNRlVSauSmFsPy2QaIY4uBXReO6LUWiAHU1P4cOR+fXKuvTcxosJ6NgFss/LYct8DAvQpOeUOp2aP9YE3ln9COCQovWIphnLoLpUj7+8PM/SIsbvzMEV63ssjeahIkldV+DQP3156iWUki3NDhly25Ho4tWTc877WaJYuG071kzmp0JtwnczZZPYmfl5wBdQs7wAwhCd2Aa3DE3syJ2BrU2AIzO2SvsVNBNT/ZqPbV0Y5GG4bp92elXnfKZkYudQyMSw==
+ bh=zDPfINw7X/ljII7NTOTDlrQ/lzhZF6o4xBeW45ztuwo=;
+ b=LQmeWAIBOVBsqInLeK3WdZ77RlMOq+fzyjCWC7w+6rtDsDVNDywL4nQfU8c5/tO4++Ha63Z+/366Uo+tN4neqbAuBsVKxEsL1EakH/FctYDc82bVbg4ClfMzp6NjkKFQsOvrqVnbxYabYyZau42XUoH7zmkSSiXr31afcAjR25+A9b/wNltYxuyx9a2hO+ZmMMFK2nlm8kX9VrYK0jTnOJpNFbVGxT7Y7dLIHKJXXRPtcWOQJRJSjZ/BVnYx+uVPkpD4mF7ouHhfC+RQfGgVIgb6eo3MXryk20b1Awf/7mpF1EIiR/uhReQcUbS+sjUgwrIRXLYp15HG/ibM/4Qfnw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=starfivetech.com;
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1204.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:14::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 05:11:09 +0000
+ (2406:e500:c550:17::6) by ZQ4PR01MB1169.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:13::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.22; Fri, 25 Sep
+ 2026 05:11:01 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0451.014; Fri, 25 Sep 2026 05:11:09 +0000
+ with mapi id 15.21.0451.014; Fri, 25 Sep 2026 05:11:01 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,9 +87,9 @@ Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH v3 4/4] uart-routing: Add UART Routing driver for StarFive JHB100 SoC
-Date: Thu, 24 Sep 2026 22:09:47 -0700
-Message-Id: <20260925050947.9900-5-changhuang.liang@starfivetech.com>
+Subject: [PATCH v3 1/4] uart-routing: Add common UART routing framework
+Date: Thu, 24 Sep 2026 22:09:44 -0700
+Message-Id: <20260925050947.9900-2-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260925050947.9900-1-changhuang.liang@starfivetech.com>
 References: <20260925050947.9900-1-changhuang.liang@starfivetech.com>
@@ -100,57 +100,57 @@ X-ClientProxiedBy: SH0PR01CA0005.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1204:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65432f77-85ba-42f8-3a51-08df1ac36941
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1169:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8928c780-4cd1-4c99-c341-08df1ac36465
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|52116014|38350700014|10067099003|56012099006|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: BYgS7ubmrCs2gKUL/Qob1cSCil1TZTyqX9YYvT2sef1LJbk9jGvZxLH3lZWIxrJ8n7Rm96JrC7qpGEbOqf+g1ZK1Z3H7GYSosMpSDqr18B182dR8PoCV140qMNITlKCN42j6YQwVz9/bu2WnzQbjlQUJQeO42Bw3Jw/PXvq8vhvzlCy6ZzlnBWIbfniAGrks65utZC051EfZNqJooAeQqji8YCDLjAJd21VUq0EHN0fk2vkKSlz8YNB17yWOLlX1LGKLep1TBU+Ld+fKXaOPqY71iW+5uHlNYvran0r4wymJHwYW2ug48i8bT7Kdm7jyG1fHZXDJ/Iv9YQBbjr/dpaSaNgQJ0QFlIBZrXmT7Sy5pK2LGXw0jPpTXkUUB8/b3Bye6YMIqobQYWDuTbQWnMGdXHttg7BnPsE6hEmeoQyS5g9wFloCr/LYiHCscRVUbBfWgea6rMMv3pH5PAusuj+hXH1015pnuxYhUtDbC68YS7wEQ4In/FCIYa4w7aHcwO3FM3Hy86uIA6RK5wuwWTHJLL8AxrXfGhikz2pDwjctfL+YFPyzcM0cb9296R2sD
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(52116014)(38350700014)(10067099003)(56012099006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|7416014|52116014|366016|10067099003|5023799004|6133799003|22082099003|18002099003|56012099006|38350700014;
+X-Microsoft-Antispam-Message-Info: +r7fJQDzrQGvsKvqjdbSLSKeKV320GhfHsASGAQkpD3C1Wr98MM1S1R1Ey9rg3WmyU/BIUXVJsNj+fx0qvIB9oY+dnUv+ic/C7G4QmfEvIjyQe+1LaiUtR899W1pcyxXQvqCZbFll78v+GcA8D5m5tZY4k5nqssLIZ/eDA5iInP3QWjbI5ieDye52OYnlMt/iCVYGlJWMEBwljtjOPlqcZCuFjghrAQjZ2iPpz7wJ33shEQIB6aE48LFg2ik5tgprmC74Hy/jha5A/mx7MXYMSsxilvYQ3fhTsCZnmlMeCzdfVA+KC2FfFzcHYny03ORHUPlRA9iDGxwh/ytqRp7+fR+/izqSVy62Y3C/Ger/GaB1Z3ZQrg5DIPYgKS561VjQyXPzu34BWO0z7vxzOzTkhdLZIZPx9w+HMF+yegzdLJ9Q9MvucfuPCBbFqJeYgWTKN/9h6bzCt4Syla+Utx/RffiskjCDzo57p3xEkYYTy23wa6NEcIjtx8vdi/qZvwoGAsK0qoqS0qvYrQ8tZ+XHdatCnA+cWOK5SULmZefrW+5aOgYwKIa2aGN8+kZvB/H
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(7416014)(52116014)(366016)(10067099003)(5023799004)(6133799003)(22082099003)(18002099003)(56012099006)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fuZqZBT26IXz+0Cxia/xnI64j6fS/k0zLn547fCJYsSnPfWQpHb/p9txQNrd?=
- =?us-ascii?Q?vcrC3kzDYBeKb12dwydmuk9SBKIGMKDIB37zivc5qqZCM1FoX0w/qkAvz1xw?=
- =?us-ascii?Q?QvcSlk+IrAmKx9rQafG7knrWxgiCowFkvOZUWXuneISb6LGYUTfta/ekjPLf?=
- =?us-ascii?Q?W+1kQiSQYE035NXfJirrayKWJ9lQhGuWiliRCiviqwn4VX6qwgUqzlD5Gxf5?=
- =?us-ascii?Q?DXvHMPYvon528vbGih4imwAHMjsJD4Hy5uQy5wurFWDwrCd5F2p/qw6M2qsx?=
- =?us-ascii?Q?hqI/9G1uGYOeLAzm3L9lLIsUi7hxEFWn/ZJJSew0ZFE6pHD9ierpFNSkeFes?=
- =?us-ascii?Q?2WmmXWd4gWcjUqvoJpsT+0DqWky06ciyE+OI4q6nvpbvJcQ03mP8xZRJtdUz?=
- =?us-ascii?Q?XTifgEiya6os8yg8EPtw55k22KNHqIfBzYxfzaGO1ZOpLMOZUKy0CMBUzSWW?=
- =?us-ascii?Q?6KrvXPzj2b5uKYmTH4CQ9JG4oY4xQU4j2delPCzcrsQ8tnmbltgGoWDVtlz3?=
- =?us-ascii?Q?xAn/m/pkNhFEok3M/JtUeOdXEMaOeIXJI/TjAhCXr/Bb0SmkQab8MPZgCSMV?=
- =?us-ascii?Q?9yIE9Qof5qKLcpX1ZmkVQ106P+80rUkr34ZVcPzAH5xL8irov85eh5qB0Zsj?=
- =?us-ascii?Q?0oox4B0riV2JgM9r1FUrrHSQfsNb8v8Yj3u9A0my5y9XnU22zjBLPkc73vDv?=
- =?us-ascii?Q?zuvyW/YZj1GKkiuvcp5Av3hew4ChvmVLQ5adUZaluVZnMYsZEFfpa7DztGm5?=
- =?us-ascii?Q?Ga/SLTRTTap43BzEn1yGy60sxBol6Qqq4jZt+lOAcI43DOcITwkEXLjvyvYG?=
- =?us-ascii?Q?EiSqiU9qnUVc3zHL4u51720kpeHRUMgTcQkj+B/BxquzaqCxO3oEPrptz58r?=
- =?us-ascii?Q?yXrsjk+hfYXiiOVH6jsxzRNnlHADeYOief0mD7qtu4ab1tq+YvnAxl63NexK?=
- =?us-ascii?Q?G+z3TRK6D65RF1NKj0LPPmu5SBkEMCQHFKj/07PLkmMDSNVhlh0VevilpOND?=
- =?us-ascii?Q?OFb78IpKZWxAVD7CSsWwECchB3PF5AH2yovvfKXKzbdpoP8zyQ4c8Y66PCS7?=
- =?us-ascii?Q?ItsSEc6fhIdXWy+oohiIgNWn1Iqtq4mbQ2vLLyTW44BnI8CdmIMyQ9xFHLRf?=
- =?us-ascii?Q?rfHZbJUKMnI/M0zbooOxNS7XDr//qZeRuKmUuEYlEuzqHs97YjMORhYIRbm4?=
- =?us-ascii?Q?G+C5+KPeAH5ePZQK5PCsEwAeW/l49wPXzerWCEI2q6hfQIrJXSyqThZNKarm?=
- =?us-ascii?Q?CwefF05JapPlXuvM9hb65AG4qhFXc6ARtlDGrsPXnPUSFVppY1EVl/TloP96?=
- =?us-ascii?Q?JnHJqAHzpRFeWHSW1TM0AxofC6MyD45PL5k9KV/9bgGaKsXgRR7VJeXPjRO7?=
- =?us-ascii?Q?PTox3zPguqsdV+xRDrGMaJqyH+omqMLG2S9B4n5vQlDZ+T58MbVrbjSjiDB4?=
- =?us-ascii?Q?iMLO7oGALQdhS/yt+521T5YvgKqP0cPYR7nuCwejlOw+ufPqC1e9YkLrWF8i?=
- =?us-ascii?Q?yz7IhZiN20XWUA61ADPFmX1YPHQxhPOHBnawW6rYDPrGlvVFOFJSKtN1a9Ji?=
- =?us-ascii?Q?tVDD7ixpqb11jwjdq776kze35sBtJQ/FzTHfKlCNDsFDDjlgI/AW+3xhrsnQ?=
- =?us-ascii?Q?tqL34+jCRP+2RtWg/6AKI0b8BG6eXFH4uWyd+aNIPWPp5aLbtBLLkneqbWOp?=
- =?us-ascii?Q?08bj/IL4HepBte4LM3EQD1b5pTVZpDK1IIuzSQdjz3qAcFiLerO/39aNdq1y?=
- =?us-ascii?Q?ldWts0+ZPZ+v7zWnNBxHP54lst5JDFV87Her0I6+HBdzwGVXrHyM?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UCgZDiuuRBL/qd7+KVlPfditTlcNcgjvskZbGzLCYQqCDLlkZA+a48bgOXQ9?=
+ =?us-ascii?Q?LTKI58Z4fhOaxtv30K1azDJ2oc2/UgAOaqk6rKiCwN1IMn1NTWmx+b0WZ6+r?=
+ =?us-ascii?Q?UcnagDxRj0cuMKfFsN8UtPn2eiOWtShFih/8htoM2xAwU6D65wGwoGUsV7Ho?=
+ =?us-ascii?Q?3LNoaZuTJCijlrk+U9VW84H3mW6gWjNmLJeeydREkx3AKf/eH7xgONJjDKJj?=
+ =?us-ascii?Q?8zGbDVHny+Ex5Ky5ChYMRVAaYJsr2NKX3z+8g1iUoikfzZwybV65L+SMxL1h?=
+ =?us-ascii?Q?EqIWHwPBGpbE3874nTFrHG6keJSnQl1x1fCYPNtfoBN/4r6PFUlSkbIaEfN1?=
+ =?us-ascii?Q?+1dp7DCwHJevsAZnnVb49sDfUsM76TbqWWp1Krpqfph7XXY4XI1QqzdB2GOf?=
+ =?us-ascii?Q?WilQped1eGQBDCbZkVnzRj8rf8K1qJN7sBs3OayNPgOqNBCzNgi7bCYkjH43?=
+ =?us-ascii?Q?Ya9S4opwl+6kW+D5jH4eV1ZRtxxUlPyzbZduvUvDyaPWDPLyYfcxUBt8neIF?=
+ =?us-ascii?Q?eRVUoqM7xnfR1rp3ZMmdO4AJ8E3VqvZmMTIwyKZ72uoVWN/8D4ANH5q5lsxD?=
+ =?us-ascii?Q?KdwOK0yYYkiqt61kem+kkSyerwpnwYS6X5m2ocZSvZ+KNvbWoIn3vUdZGgv6?=
+ =?us-ascii?Q?riPfpZlBvLq2bXEmSt3piYLrV1pEFy7bYZx9AEgMbSOVZWNJ+/Y720p1wJ46?=
+ =?us-ascii?Q?uMoTtT9FEb8YSJ98tpWNrk8s1vJ4l/Dzu7hcBGO0yQdr0B0ilURepBIXMGY2?=
+ =?us-ascii?Q?VTzeSfr8btWiu5xlNn+7znmAqPFXYnfCUKT4CYg1PTL8PLHIeRkD0qZY5at9?=
+ =?us-ascii?Q?ShcYGCP9D2fEmSVEsvZiYbGH/dVmIYGOv7vEJWUYXnbtH8Ga8ysNSZNSSz8k?=
+ =?us-ascii?Q?/akv4yGdNQ076Tpm/pWZkIMUMJMcFrKozHs+DnPo6NNubq5cJimTpc2x30dY?=
+ =?us-ascii?Q?3P/dU7Fyvrkk/JerdY97wehhsiArqgYH5cYlr/H4tSSy5p6twrbl50PoFKOT?=
+ =?us-ascii?Q?uUK3pVnyDTSRxgx3cD2Xuo3Cz1sBj2SG+qMKWjpYINxd9243n2G5drL2e3r6?=
+ =?us-ascii?Q?/FfzztK/970K44dJwrrkFWfM7c9VMZABgKLVW7ZimigOEecMzH1zrmIVgh7U?=
+ =?us-ascii?Q?y6ZbTG03kEZxPNZSDO05PgPVOTUFyUpplKSkwcKVjOxPS0qRxcLp/dBumHpx?=
+ =?us-ascii?Q?RobBhppUJ5RQq2HocCoVvF8rlEig1mMhFTQWrNzy7JLLld6bgXj5FrVbbPnF?=
+ =?us-ascii?Q?W1L+rsUIMZDBO2nWuJ9pGAspdkMGD8EtGtONV0cj5jsXemtlv3klPKRn+BI8?=
+ =?us-ascii?Q?3uBzQW9b9gpwsqSuxT0EAKfReFt+yW1LLSjJHc5cMHtKBhqWGFT0XhpHse7W?=
+ =?us-ascii?Q?gjE3YmIN0V8iXNYxpkUwAo+kNXXLs0J8pcN84SSNjEAVDcBz9YoA4Xf7olAR?=
+ =?us-ascii?Q?yiLGTBBrZk8scIzjQyvSwmf8NaG8VeKD0StUbXPhK3iyCvxAgmxEbq29p2qC?=
+ =?us-ascii?Q?WzPHjhF3aSNfSd5tCCvcN8Dc2XkTQ2GXJ6BDOuJRBEiK+XikeqigxIvZ85l8?=
+ =?us-ascii?Q?tn6+ZqtXR8MSVebLJZqACyb2qj6dEPeFPLcOOGDWDaj9A5eMMY71RNXI55yy?=
+ =?us-ascii?Q?axqd02pI71X9VAGzl/zwfoGb1/Ffwmlc+9tY+Es/V3Xvz8pz+xITzrWmUVWo?=
+ =?us-ascii?Q?D/n0jTtm+G39VD7bfrealH9DJOGHkGvzr24teZJTenRIqqr393Ravf2HGbIA?=
+ =?us-ascii?Q?s+2xfnTfyDwaRQfKE+iLgOznJixCpmFRkJ+Hyn0lbz5yVChVKQQe?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65432f77-85ba-42f8-3a51-08df1ac36941
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8928c780-4cd1-4c99-c341-08df1ac36465
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 05:11:09.7951
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 05:11:01.6976
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Layzh+DQ9jDpgY5EteJ34EvVWRgkjzukMjquF04Na77RXNK1qkidF/ubW/b3mvysVOJOIxzSozJnUU/hqVLFChbVtnxCnjA7Pe8HQKaFkBh8oAqE+KRCb0+ZnRAVxG44
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1204
+X-MS-Exchange-CrossTenant-UserPrincipalName: sGo7sa/284NClfPb4gKpUGrvf3Ls8epxzPvmKW15zGv1BTtrvwr2HeHHCZpoMJzW6VgO0C83dCNUmR4bf1eJtfbPDBlXmO+JhECBtSXnZ9oNJbSq18X474NN5pHJh0NA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_221121_715394_1C86B463 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20260924_221122_402139_FE2DBCFB 
+X-CRM114-Status: GOOD (  29.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,336 +165,579 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add driver support for JHB100 UART Routing control, allowing runtime
-configuration of RX muxes between UART controllers and I/O pins.
+Several SoCs contain a serial crossbar, usually called UART routing,
+that lets the RX line of any on-chip UART controller or physical serial
+port be fed from any other endpoint. The Aspeed AST2400/2500/2600 and
+the StarFive JHB100 both have one, and both expose it through the same
+user space interface: one sysfs file per endpoint, listing the routing
+targets with the current one in square brackets.
 
-A sysfs interface is provided for easy checking and updating of routing
-paths.
+The two drivers implementing that interface duplicate the whole sysfs
+plumbing and only really differ in the description of their register
+layout, so factor the common part out into a framework.
+
+An SoC driver now only describes each mux with a
+struct uart_routing_selector - register offset, bit position, field mask
+and the array of routing target names indexed by the raw field value -
+gathers them in an attribute group and hands the group and a regmap to
+devm_uart_routing_register(). The framework validates the description,
+creates the files and implements the show()/store() handlers.
+
+The framework keeps its state in a devres node rather than in the device
+drvdata, so drivers stay free to use dev_set_drvdata() for their own
+purposes, and the sysfs files are removed by devres, so drivers do not
+need a remove() callback for them.
 
 Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 ---
- .../sysfs-driver-starfive-uart-routing        |  49 +++++
- MAINTAINERS                                   |   8 +
- drivers/uart-routing/Kconfig                  |  15 +-
- drivers/uart-routing/Makefile                 |   1 +
- drivers/uart-routing/starfive-uart-routing.c  | 192 ++++++++++++++++++
- 5 files changed, 264 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
- create mode 100644 drivers/uart-routing/starfive-uart-routing.c
+ Documentation/driver-api/index.rst        |   1 +
+ Documentation/driver-api/uart-routing.rst | 145 ++++++++++++++++
+ MAINTAINERS                               |   7 +
+ drivers/Kconfig                           |   2 +
+ drivers/Makefile                          |   1 +
+ drivers/uart-routing/Kconfig              |  16 ++
+ drivers/uart-routing/Makefile             |   2 +
+ drivers/uart-routing/uart-routing.c       | 200 ++++++++++++++++++++++
+ drivers/uart-routing/uart-routing.h       |  84 +++++++++
+ 9 files changed, 458 insertions(+)
+ create mode 100644 Documentation/driver-api/uart-routing.rst
+ create mode 100644 drivers/uart-routing/Kconfig
+ create mode 100644 drivers/uart-routing/Makefile
+ create mode 100644 drivers/uart-routing/uart-routing.c
+ create mode 100644 drivers/uart-routing/uart-routing.h
 
-diff --git a/Documentation/ABI/testing/sysfs-driver-starfive-uart-routing b/Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
+diff --git a/Documentation/driver-api/index.rst b/Documentation/driver-api/index.rst
+index 6601a258690f..2a0f375cd206 100644
+--- a/Documentation/driver-api/index.rst
++++ b/Documentation/driver-api/index.rst
+@@ -146,6 +146,7 @@ Subsystem-specific APIs
+    tee
+    thermal/index
+    tty/index
++   uart-routing
+    wbrf
+    wmi
+    xilinx/index
+diff --git a/Documentation/driver-api/uart-routing.rst b/Documentation/driver-api/uart-routing.rst
 new file mode 100644
-index 000000000000..76aeed729d4b
+index 000000000000..67bb84958977
 --- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
-@@ -0,0 +1,49 @@
-+What:		/sys/bus/platform/drivers/starfive-uart-routing/*/uart*
-+Date:		August 2026
-+Contact:	Changhuang Liang <changhuang.liang@starfivetech.com>
-+Description:	Selects the RX source of the UARTx device.
++++ b/Documentation/driver-api/uart-routing.rst
+@@ -0,0 +1,145 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+		When read, each file shows the list of available options with currently
-+		selected option marked by brackets "[]". The list of available options
-+		depends on the selected file.
++======================
++UART routing framework
++======================
 +
-+		E.g.::
++:Author: Changhuang Liang <changhuang.liang@starfivetech.com>
 +
-+		  cat /sys/bus/platform/drivers/starfive-uart-routing/\*.uart-routing/uart1
-+		  io0 [io1] io2 io3 io4 io5 io6 io7 io8 io9 io10 io11 io12 io13 io14 uart0 uart1
-+		  uart2 uart3 uart4 uart5 uart6 uart7 uart8 uart9 uart10 uart11 uart12 uart13 uart14
++Overview
++========
 +
-+		In this case, UART1 gets its input from IO1 (physical serial port 1).
++Several SoCs contain a serial crossbar, usually called *UART routing*, that
++sits between the on-chip UART controllers and the physical serial ports
++exposed on the package pins. The crossbar lets the RX line of any endpoint be
++fed from any other endpoint, which makes it possible to, for example, snoop
++the traffic of a host serial console, or to loop two on-chip UARTs back into
++each other without any external wiring.
 +
-+		To switch the RX source of UART1 to UART2, write the desired source to the file::
++Two endpoint families are involved:
 +
-+		  echo uart2 > /sys/bus/platform/drivers/starfive-uart-routing/*.uart-routing/uart1
++``uartN``
++	the RX line of the on-chip UART controller number N.
 +
-+		This indicates that UART1 now receives its input from UART2.
++``ioN``
++	the RX line of the physical serial port number N.
 +
-+Users:		OpenBMC.  Proposed changes should be mailed to
-+		openbmc@lists.ozlabs.org
++The crossbar is programmed through bit fields, one per endpoint, spread over
++one or more registers. The value written into a field picks the endpoint the
++RX line is connected to; the meaning of a given value differs from field to
++field and from SoC to SoC.
 +
-+What:		/sys/bus/platform/drivers/starfive-uart-routing/*/io*
-+Date:		August 2026
-+Contact:	Changhuang Liang <changhuang.liang@starfivetech.com>
-+Description:	Selects the RX source of IOx serial port. The current selection
-+		will be marked by brackets "[]". The list of available options
-+		depends on the selected file.
++The framework in ``drivers/uart-routing/`` takes a static description of those
++fields and turns it into a set of sysfs files, one per endpoint, so that SoC
++drivers only have to describe their hardware.
 +
-+		E.g.::
++User space interface
++====================
 +
-+		  cat /sys/bus/platform/drivers/starfive-uart-routing/\*.uart-routing/io9
-+		  uart0 uart1 uart2 uart3 uart4 uart5 uart6 uart7 uart8 [uart9] uart10 uart11 uart12
-+		  uart13 uart14 io0 io1 io2 io3 io4 io5 io6 io7 io8 io9 io10 io11 io12 io13 io14
++Every endpoint gets one read/write file in the device directory of the
++platform driver, named after the endpoint. Reading the file lists all the
++routing targets the endpoint can be connected to, with the current one
++enclosed in square brackets::
 +
-+		In this case, IO9 (physical serial port 9) gets its input from UART9.
++	# cat /sys/bus/platform/drivers/aspeed-uart-routing/*.uart_routing/uart1
++	[io1] io2 io3 io4 uart2 uart3 uart4 io6
 +
-+		To switch the RX source of IO9 to UART10, write the desired source to the file::
++Writing one of the listed names to the file changes the routing::
 +
-+		  echo uart10 > /sys/bus/platform/drivers/starfive-uart-routing/*.uart-routing/io9
++	# echo uart2 > /sys/bus/platform/drivers/aspeed-uart-routing/*.uart_routing/uart1
 +
-+		This indicates that IO9 now receives its input from UART10.
++Writing a name that is not part of the list fails with ``-EINVAL``.
 +
-+Users:		OpenBMC.  Proposed changes should be mailed to
-+		openbmc@lists.ozlabs.org
++The list is not necessarily the same for every file: it is ordered by the raw
++value programmed into the hardware, so the first entry is the target selected
++when the field reads back as 0. Some SoCs define fields that are wider than
++the number of documented targets. When such a field holds a value with no
++name attached, the read appends ``[unknown(N)]`` to the list instead of
++bracketing one of the names.
++
++Fields whose name is ``reserved`` are placeholders for values the hardware
++does not implement. They are listed so that the position of the following
++names stays correct, and writing ``reserved`` programs a value that has no
++defined behaviour, so do not do that.
++
++The exact set of files of a given SoC, together with the routing targets each
++of them accepts, is described in the corresponding
++``Documentation/ABI/testing/sysfs-driver-*-uart-routing`` file.
++
++Writing a driver
++================
++
++An SoC driver describes each mux with a ``struct uart_routing_selector``,
++defined with the ``UART_ROUTING_SELECTOR()`` helper::
++
++	static const char *const foo_uart1_options[] = {
++		"io1", "io2", "io3", "io4", "uart2", "uart3", NULL,
++	};
++	UART_ROUTING_SELECTOR(foo_uart1_sel, uart1, FOO_MUX_REG, 16, 0x7,
++			      foo_uart1_options);
++
++The arguments are, in order, the name of the variable to define, the name of
++the sysfs file, the offset of the register holding the field, the position of
++the least significant bit of the field, the field mask and the array of
++routing targets.
++
++The mask is given in field coordinates, that is, it is *not* shifted by the
++bit position: a three bit field is always described as ``0x7``, whatever its
++position in the register is.
++
++The array of routing targets is indexed by the raw field value, so
++``options[n]`` is the name of the target selected when the field holds n. It
++has to be NULL terminated, and it may be shared between several selectors
++that happen to have the same target order.
++
++The selectors are then gathered in an attribute group::
++
++	static struct attribute *foo_uart_routing_attrs[] = {
++		UART_ROUTING_SELECTOR_ATTR(foo_uart1_sel),
++		/* ... */
++		NULL,
++	};
++
++	static const struct attribute_group foo_uart_routing_attr_group = {
++		.attrs = foo_uart_routing_attrs,
++	};
++
++and handed over, along with a regmap covering the selector registers, in
++probe()::
++
++	static int foo_uart_routing_probe(struct platform_device *pdev)
++	{
++		struct device *dev = &pdev->dev;
++		struct regmap *regmap;
++
++		regmap = /* ... */;
++
++		return devm_uart_routing_register(dev, regmap,
++						  &foo_uart_routing_attr_group);
++	}
++
++The framework validates the description at registration time and rejects
++selectors whose target list cannot fit in the field, or whose field does not
++fit in a 32 bit register.
++
++The sysfs files are created and removed by devres, so a driver does not need
++a remove() callback for them. The framework keeps its own state in a devres
++node rather than in the device drvdata, so drivers are free to use
++``dev_set_drvdata()`` for their own purposes.
++
++Locking
++=======
++
++The framework does not serialise accesses itself. The read-modify-write of a
++selector field is done with ``regmap_update_bits()``, so concurrent writes to
++two endpoints sharing a register are made safe by the regmap lock. Reading a
++file always reports the current hardware state, which may have been changed
++by another writer in between.
++
++API reference
++=============
++
++.. kernel-doc:: drivers/uart-routing/uart-routing.h
++
++.. kernel-doc:: drivers/uart-routing/uart-routing.c
++   :export:
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 8667b05b73f5..e8a91b66685e 100644
+index 2a84b29f2100..b17e90363262 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -26523,6 +26523,14 @@ M:	Changhuang Liang <changhuang.liang@starfivetech.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/soc/starfive/starfive,jhb100-syscon.yaml
+@@ -28233,6 +28233,13 @@ F:	drivers/misc/uacce/
+ F:	include/linux/uacce.h
+ F:	include/uapi/misc/uacce/
  
-+STARFIVE UART ROUTING DRIVER
++UART ROUTING FRAMEWORK
 +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
 +L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
 +S:	Maintained
-+F:	Documentation/ABI/testing/sysfs-driver-starfive-uart-routing
-+F:	Documentation/devicetree/bindings/soc/starfive/starfive,uart-routing.yaml
-+F:	drivers/uart-routing/starfive-uart-routing.c
++F:	Documentation/driver-api/uart-routing.rst
++F:	drivers/uart-routing/
 +
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/uart-routing/Kconfig b/drivers/uart-routing/Kconfig
-index 983e7fbd1bc4..be6f5d54721e 100644
---- a/drivers/uart-routing/Kconfig
-+++ b/drivers/uart-routing/Kconfig
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
+ UBI FILE SYSTEM (UBIFS)
+ M:	Richard Weinberger <richard@nod.at>
+ R:	Zhihao Cheng <chengzhihao1@huawei.com>
+diff --git a/drivers/Kconfig b/drivers/Kconfig
+index f2bed2ddeb66..cb2b5c3b22b0 100644
+--- a/drivers/Kconfig
++++ b/drivers/Kconfig
+@@ -251,6 +251,8 @@ source "drivers/hte/Kconfig"
  
- menu "UART routing drivers"
--	depends on ARCH_ASPEED || COMPILE_TEST
-+	depends on ARCH_ASPEED || ARCH_STARFIVE || COMPILE_TEST
+ source "drivers/cdx/Kconfig"
  
- config UART_ROUTING
- 	tristate
-@@ -29,4 +29,17 @@ config ASPEED_UART_ROUTING
- 	  If M is selected, the module will be called
- 	  aspeed-uart-routing.
- 
-+config STARFIVE_UART_ROUTING
-+	tristate "StarFive uart routing control"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	select UART_ROUTING
-+	select REGMAP_MMIO
-+	help
-+	  Provides a driver to control the UART routing paths, allowing
-+	  users to perform runtime configuration of the RX muxes among
-+	  the UART controllers and I/O pins.
++source "drivers/uart-routing/Kconfig"
 +
-+	  If M is selected, the module will be called
-+	  starfive-uart-routing.
-+
+ source "drivers/resctrl/Kconfig"
+ 
  endmenu
-diff --git a/drivers/uart-routing/Makefile b/drivers/uart-routing/Makefile
-index 226980c639a4..59d9b65c2273 100644
---- a/drivers/uart-routing/Makefile
-+++ b/drivers/uart-routing/Makefile
-@@ -2,3 +2,4 @@
- obj-$(CONFIG_UART_ROUTING)			+= uart-routing.o
+diff --git a/drivers/Makefile b/drivers/Makefile
+index 0841ea851847..fe4b11419496 100644
+--- a/drivers/Makefile
++++ b/drivers/Makefile
+@@ -195,6 +195,7 @@ obj-$(CONFIG_DRM_ACCEL)		+= accel/
+ obj-$(CONFIG_CDX_BUS)		+= cdx/
+ obj-$(CONFIG_DPLL)		+= dpll/
+ obj-y				+= resctrl/
++obj-$(CONFIG_UART_ROUTING)	+= uart-routing/
  
- obj-$(CONFIG_ASPEED_UART_ROUTING)		+= aspeed-uart-routing.o
-+obj-$(CONFIG_STARFIVE_UART_ROUTING)		+= starfive-uart-routing.o
-diff --git a/drivers/uart-routing/starfive-uart-routing.c b/drivers/uart-routing/starfive-uart-routing.c
+ obj-$(CONFIG_DIBS)		+= dibs/
+ obj-$(CONFIG_S390)		+= s390/
+diff --git a/drivers/uart-routing/Kconfig b/drivers/uart-routing/Kconfig
 new file mode 100644
-index 000000000000..3bd83ca5a258
+index 000000000000..a0c45a7bba47
 --- /dev/null
-+++ b/drivers/uart-routing/starfive-uart-routing.c
-@@ -0,0 +1,192 @@
-+// SPDX-License-Identifier: GPL-2.0+
++++ b/drivers/uart-routing/Kconfig
+@@ -0,0 +1,16 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++menu "UART routing drivers"
++
++config UART_ROUTING
++	tristate
++	help
++	  Common framework for the UART routing controllers found on several
++	  SoCs. It turns a description of the routing selectors of a crossbar
++	  into a set of sysfs files, one per endpoint, that report and change
++	  the current routing at runtime.
++
++	  This symbol is selected by the SoC specific drivers below and is
++	  not meant to be enabled on its own.
++
++endmenu
+diff --git a/drivers/uart-routing/Makefile b/drivers/uart-routing/Makefile
+new file mode 100644
+index 000000000000..975165f070a5
+--- /dev/null
++++ b/drivers/uart-routing/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_UART_ROUTING)			+= uart-routing.o
+diff --git a/drivers/uart-routing/uart-routing.c b/drivers/uart-routing/uart-routing.c
+new file mode 100644
+index 000000000000..70037a256e5f
+--- /dev/null
++++ b/drivers/uart-routing/uart-routing.c
+@@ -0,0 +1,200 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * StarFive JHB100 UART Routing driver
++ * Common framework for UART routing controllers
++ *
++ * A UART routing controller is a crossbar that connects the RX line of each
++ * on-chip UART controller and of each physical serial port to any of the
++ * other endpoints. The mux of every endpoint is described by a bit field in
++ * a memory mapped register, and is exposed to user space as one sysfs file
++ * per endpoint.
 + *
 + * Copyright (C) 2026 StarFive Technology Co., Ltd
 + */
 +
-+#include <linux/bits.h>
++#include <linux/bitops.h>
 +#include <linux/device.h>
-+#include <linux/err.h>
++#include <linux/errno.h>
++#include <linux/log2.h>
 +#include <linux/module.h>
-+#include <linux/platform_device.h>
 +#include <linux/regmap.h>
-+#include <linux/reset.h>
++#include <linux/string.h>
 +#include <linux/sysfs.h>
 +
 +#include "uart-routing.h"
 +
-+/* One selector register per channel, holding the IO and UART RX mux. */
-+#define JHB100_ROUTING_SEL(ch)		((ch) * 0x04)
-+#define JHB100_ROUTING_IO_SHIFT		0
-+#define JHB100_ROUTING_UART_SHIFT	8
-+#define JHB100_ROUTING_MASK		GENMASK(4, 0)
-+
-+#define JHB100_UART_PORTS		15	/* UART0-UART14 */
-+
-+#define JHB100_IO_TARGETS						\
-+	"io0",  "io1",  "io2",  "io3",  "io4",				\
-+	"io5",  "io6",  "io7",  "io8",  "io9",				\
-+	"io10", "io11", "io12", "io13", "io14"
-+
-+#define JHB100_UART_TARGETS						\
-+	"uart0",  "uart1",  "uart2",  "uart3",  "uart4",		\
-+	"uart5",  "uart6",  "uart7",  "uart8",  "uart9",		\
-+	"uart10", "uart11", "uart12", "uart13", "uart14"
-+
-+/*
-+ * The two mux fields of a channel index the same target list, but starting
-+ * from a different end of it: field value 0 selects IO0 for the RX mux of a
-+ * UART, and UART0 for the RX mux of an IO pin.
++/**
++ * struct uart_routing - per device state of a routing controller
++ * @regmap: regmap holding the selector registers
 + */
-+static const char *const jhb100_uart_rx_options[] = {
-+	JHB100_IO_TARGETS,
-+	JHB100_UART_TARGETS,
-+	NULL,
-+};
-+
-+static const char *const jhb100_io_rx_options[] = {
-+	JHB100_UART_TARGETS,
-+	JHB100_IO_TARGETS,
-+	NULL,
-+};
-+
-+#define JHB100_UART_SELECTOR(_ch)					\
-+	UART_ROUTING_SELECTOR(jhb100_uart##_ch##_sel, uart##_ch,	\
-+			      JHB100_ROUTING_SEL(_ch),			\
-+			      JHB100_ROUTING_UART_SHIFT,		\
-+			      JHB100_ROUTING_MASK,			\
-+			      jhb100_uart_rx_options)
-+
-+#define JHB100_IO_SELECTOR(_ch)						\
-+	UART_ROUTING_SELECTOR(jhb100_io##_ch##_sel, io##_ch,		\
-+			      JHB100_ROUTING_SEL(_ch),			\
-+			      JHB100_ROUTING_IO_SHIFT,			\
-+			      JHB100_ROUTING_MASK,			\
-+			      jhb100_io_rx_options)
-+
-+/* RX source of UART0-UART14 */
-+JHB100_UART_SELECTOR(0);
-+JHB100_UART_SELECTOR(1);
-+JHB100_UART_SELECTOR(2);
-+JHB100_UART_SELECTOR(3);
-+JHB100_UART_SELECTOR(4);
-+JHB100_UART_SELECTOR(5);
-+JHB100_UART_SELECTOR(6);
-+JHB100_UART_SELECTOR(7);
-+JHB100_UART_SELECTOR(8);
-+JHB100_UART_SELECTOR(9);
-+JHB100_UART_SELECTOR(10);
-+JHB100_UART_SELECTOR(11);
-+JHB100_UART_SELECTOR(12);
-+JHB100_UART_SELECTOR(13);
-+JHB100_UART_SELECTOR(14);
-+
-+/* RX source of IO0-IO14 */
-+JHB100_IO_SELECTOR(0);
-+JHB100_IO_SELECTOR(1);
-+JHB100_IO_SELECTOR(2);
-+JHB100_IO_SELECTOR(3);
-+JHB100_IO_SELECTOR(4);
-+JHB100_IO_SELECTOR(5);
-+JHB100_IO_SELECTOR(6);
-+JHB100_IO_SELECTOR(7);
-+JHB100_IO_SELECTOR(8);
-+JHB100_IO_SELECTOR(9);
-+JHB100_IO_SELECTOR(10);
-+JHB100_IO_SELECTOR(11);
-+JHB100_IO_SELECTOR(12);
-+JHB100_IO_SELECTOR(13);
-+JHB100_IO_SELECTOR(14);
-+
-+static struct attribute *jhb100_uart_routing_attrs[] = {
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart0_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart1_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart2_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart3_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart4_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart5_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart6_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart7_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart8_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart9_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart10_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart11_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart12_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart13_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_uart14_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io0_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io1_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io2_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io3_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io4_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io5_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io6_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io7_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io8_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io9_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io10_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io11_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io12_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io13_sel),
-+	UART_ROUTING_SELECTOR_ATTR(jhb100_io14_sel),
-+	NULL,
-+};
-+
-+static const struct attribute_group jhb100_uart_routing_attr_group = {
-+	.attrs = jhb100_uart_routing_attrs,
-+};
-+
-+static const struct regmap_config jhb100_uart_routing_regmap_cfg = {
-+	.reg_bits	= 32,
-+	.reg_stride	= 4,
-+	.val_bits	= 32,
-+	.max_register	= JHB100_ROUTING_SEL(JHB100_UART_PORTS - 1),
-+};
-+
-+static int starfive_uart_routing_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct reset_control *rst;
-+	void __iomem *reg_base;
++struct uart_routing {
 +	struct regmap *regmap;
++};
 +
-+	reg_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(reg_base))
-+		return dev_err_probe(dev, PTR_ERR(reg_base),
-+				     "Unable to map IO resources\n");
-+
-+	rst = devm_reset_control_get_exclusive_deasserted(dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(dev, PTR_ERR(rst),
-+				     "Unable to get and deassert reset control\n");
-+
-+	regmap = devm_regmap_init_mmio(dev, reg_base,
-+				       &jhb100_uart_routing_regmap_cfg);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev, PTR_ERR(regmap),
-+				     "Unable to init regmap\n");
-+
-+	return devm_uart_routing_register(dev, regmap,
-+					  &jhb100_uart_routing_attr_group);
++static void uart_routing_devres_release(struct device *dev, void *res)
++{
++	/*
++	 * Nothing has to be undone here: the selector description belongs to
++	 * the SoC driver and the regmap has a lifetime of its own. The
++	 * release callback only exists so that the sysfs handlers can find
++	 * the state again with devres_find(), which leaves the device
++	 * drvdata free for the SoC driver to use as it sees fit.
++	 */
 +}
 +
-+static const struct of_device_id starfive_uart_routing_match[] = {
-+	{ .compatible = "starfive,jhb100-uart-routing" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, starfive_uart_routing_match);
++static struct uart_routing *uart_routing_from_dev(struct device *dev)
++{
++	return devres_find(dev, uart_routing_devres_release, NULL, NULL);
++}
 +
-+static struct platform_driver starfive_uart_routing_driver = {
-+	.probe = starfive_uart_routing_probe,
-+	.driver	= {
-+		.name = "starfive-uart-routing",
-+		.of_match_table = starfive_uart_routing_match,
-+	},
-+};
++ssize_t uart_routing_show(struct device *dev, struct device_attribute *attr,
++			  char *buf)
++{
++	const struct uart_routing_selector *sel = to_uart_routing_selector(attr);
++	struct uart_routing *routing = uart_routing_from_dev(dev);
++	unsigned int val, pos;
++	int len, ret;
 +
-+module_platform_driver(starfive_uart_routing_driver);
++	ret = regmap_read(routing->regmap, sel->reg, &val);
++	if (ret)
++		return ret;
++
++	val = (val >> sel->shift) & sel->mask;
++
++	len = 0;
++	for (pos = 0; sel->options[pos]; pos++) {
++		if (pos == val)
++			len += sysfs_emit_at(buf, len, "[%s] ", sel->options[pos]);
++		else
++			len += sysfs_emit_at(buf, len, "%s ", sel->options[pos]);
++	}
++
++	/*
++	 * The field is wider than the number of documented targets on some
++	 * SoCs, so a value with no name attached can legitimately be read
++	 * back from hardware left in an unexpected state.
++	 */
++	if (val >= pos)
++		len += sysfs_emit_at(buf, len, "[unknown(%u)]", val);
++
++	len += sysfs_emit_at(buf, len, "\n");
++
++	return len;
++}
++EXPORT_SYMBOL_GPL(uart_routing_show);
++
++ssize_t uart_routing_store(struct device *dev, struct device_attribute *attr,
++			   const char *buf, size_t count)
++{
++	const struct uart_routing_selector *sel = to_uart_routing_selector(attr);
++	struct uart_routing *routing = uart_routing_from_dev(dev);
++	int val, ret;
++
++	val = __sysfs_match_string(sel->options, -1, buf);
++	if (val < 0) {
++		dev_err(dev, "invalid value \"%s\"\n", buf);
++		return val;
++	}
++
++	ret = regmap_update_bits(routing->regmap, sel->reg,
++				 sel->mask << sel->shift,
++				 (u32)val << sel->shift);
++	if (ret)
++		return ret;
++
++	return count;
++}
++EXPORT_SYMBOL_GPL(uart_routing_store);
++
++static int uart_routing_check_group(struct device *dev,
++				    const struct attribute_group *group)
++{
++	unsigned int i, nr_options;
++
++	if (!group->attrs)
++		return dev_err_probe(dev, -EINVAL, "empty routing group\n");
++
++	for (i = 0; group->attrs[i]; i++) {
++		struct attribute *attr = group->attrs[i];
++		const struct uart_routing_selector *sel;
++		struct device_attribute *dev_attr;
++
++		dev_attr = container_of(attr, struct device_attribute, attr);
++		if (dev_attr->show != uart_routing_show ||
++		    dev_attr->store != uart_routing_store)
++			return dev_err_probe(dev, -EINVAL,
++					     "%s: not a routing selector\n",
++					     attr->name);
++
++		sel = to_uart_routing_selector(dev_attr);
++
++		if (!sel->mask || !is_power_of_2((u64)sel->mask + 1) ||
++		    sel->shift + fls(sel->mask) > BITS_PER_TYPE(u32))
++			return dev_err_probe(dev, -EINVAL,
++					     "%s: bad field mask %#x shift %u\n",
++					     attr->name, sel->mask, sel->shift);
++
++		if (!sel->options)
++			return dev_err_probe(dev, -EINVAL,
++					     "%s: no routing options\n",
++					     attr->name);
++
++		for (nr_options = 0; sel->options[nr_options]; nr_options++)
++			;
++
++		if (!nr_options || nr_options > sel->mask + 1)
++			return dev_err_probe(dev, -EINVAL,
++					     "%s: %u options do not fit field mask %#x\n",
++					     attr->name, nr_options, sel->mask);
++	}
++
++	return 0;
++}
++
++/**
++ * devm_uart_routing_register() - expose a routing controller to user space
++ * @dev: device owning the routing controller
++ * @regmap: regmap the selector registers are read from and written to
++ * @group: attribute group listing the selectors of this controller. Every
++ *         attribute in the group has to be the &device_attribute of a
++ *         &struct uart_routing_selector.
++ *
++ * The sysfs files are removed automatically when @dev is unbound, so drivers
++ * calling this do not need a remove() callback of their own.
++ *
++ * Return: 0 on success, a negative errno otherwise.
++ */
++int devm_uart_routing_register(struct device *dev, struct regmap *regmap,
++			       const struct attribute_group *group)
++{
++	struct uart_routing *routing;
++	int ret;
++
++	if (!regmap || !group)
++		return -EINVAL;
++
++	ret = uart_routing_check_group(dev, group);
++	if (ret)
++		return ret;
++
++	routing = devres_alloc(uart_routing_devres_release, sizeof(*routing),
++			       GFP_KERNEL);
++	if (!routing)
++		return -ENOMEM;
++
++	routing->regmap = regmap;
++
++	/* The state has to be reachable before the first file shows up. */
++	devres_add(dev, routing);
++
++	ret = devm_device_add_group(dev, group);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to create routing attributes\n");
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(devm_uart_routing_register);
 +
 +MODULE_AUTHOR("Changhuang Liang <changhuang.liang@starfivetech.com>");
-+MODULE_DESCRIPTION("StarFive JHB100 UART Routing driver");
++MODULE_DESCRIPTION("Common UART routing framework");
 +MODULE_LICENSE("GPL");
+diff --git a/drivers/uart-routing/uart-routing.h b/drivers/uart-routing/uart-routing.h
+new file mode 100644
+index 000000000000..7302be34fa13
+--- /dev/null
++++ b/drivers/uart-routing/uart-routing.h
+@@ -0,0 +1,84 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Common framework for SoC UART routing controllers
++ *
++ * Copyright (C) 2026 StarFive Technology Co., Ltd
++ */
++
++#ifndef __UART_ROUTING_H__
++#define __UART_ROUTING_H__
++
++#include <linux/device.h>
++#include <linux/sysfs.h>
++#include <linux/types.h>
++
++struct regmap;
++
++/**
++ * struct uart_routing_selector - a single routing mux exposed to user space
++ * @dev_attr: sysfs attribute backing this selector. It has to be initialised
++ *            with UART_ROUTING_ATTR() so that the framework handlers are used.
++ * @reg: offset of the register holding the selector field
++ * @shift: bit position of the least significant bit of the selector field
++ * @mask: selector field mask, expressed in field coordinates, i.e. not
++ *        shifted by @shift. A three bit field is described as 0x7 whatever
++ *        @shift is.
++ * @options: NULL terminated array of routing target names. The array index is
++ *           the raw value programmed into the selector field, i.e. writing
++ *           @options[n] to the sysfs file programs the field with n.
++ *
++ * SoC drivers describe their crossbar as an array of these, one per sysfs
++ * file, and hand the resulting attribute group to
++ * devm_uart_routing_register().
++ */
++struct uart_routing_selector {
++	struct device_attribute dev_attr;
++	u32 reg;
++	u8 shift;
++	u32 mask;
++	const char *const *options;
++};
++
++#define to_uart_routing_selector(_dev_attr) \
++	container_of(_dev_attr, struct uart_routing_selector, dev_attr)
++
++ssize_t uart_routing_show(struct device *dev, struct device_attribute *attr,
++			  char *buf);
++ssize_t uart_routing_store(struct device *dev, struct device_attribute *attr,
++			   const char *buf, size_t count);
++
++/**
++ * UART_ROUTING_ATTR() - initialise the attribute of a routing selector
++ * @_name: name of the sysfs file, given as a bare token
++ */
++#define UART_ROUTING_ATTR(_name) \
++	__ATTR(_name, 0644, uart_routing_show, uart_routing_store)
++
++/**
++ * UART_ROUTING_SELECTOR() - define a routing selector
++ * @_var: name of the variable to define
++ * @_name: name of the sysfs file, given as a bare token
++ * @_reg: see struct uart_routing_selector.reg
++ * @_shift: see struct uart_routing_selector.shift
++ * @_mask: see struct uart_routing_selector.mask
++ * @_options: see struct uart_routing_selector.options
++ */
++#define UART_ROUTING_SELECTOR(_var, _name, _reg, _shift, _mask, _options) \
++	static struct uart_routing_selector _var = {			 \
++		.dev_attr	= UART_ROUTING_ATTR(_name),		 \
++		.reg		= (_reg),				 \
++		.shift		= (_shift),				 \
++		.mask		= (_mask),				 \
++		.options	= (_options),				 \
++	}
++
++/**
++ * UART_ROUTING_SELECTOR_ATTR() - reference a selector from an attribute array
++ * @_var: variable previously defined with UART_ROUTING_SELECTOR()
++ */
++#define UART_ROUTING_SELECTOR_ATTR(_var)	(&(_var).dev_attr.attr)
++
++int devm_uart_routing_register(struct device *dev, struct regmap *regmap,
++			       const struct attribute_group *group);
++
++#endif /* __UART_ROUTING_H__ */
 -- 
 2.25.1
 
