@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5A8C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD029C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWHwO8k89KMIOROmHdTn+tsJpwKFcpuMyDpGO9S6/Q0=; b=PxFyzRpmC3Lbydgi/dpMXtAi9k
-	3PFZ5niWv+A1040BDJZcRWP9om/9w0VZD2VWrp9WREeIcJarXq218Q470hXf2OsSagwucEN2PH0ld
-	4eGyfIiOHWpF6/szetUjqtf4/JwHYyBQroeqtgFTLv8553BifOkrvih4LqePiKwRR+fya3pq6AkYi
-	LgOCbRxV1H7TKhFIgp2scT+T6FQvZFxEoGbjQrICEdOfhEhwPGcfADWgYMwxeeK9kGrIeiUu3/LOI
-	NwJ3LQrx04Td7zTa65+senSYupvNt5UEGbTQpBnkHfmC1/e5XhZQAVi6eUL/1p9tlEOkTayF+uBqz
-	4Bj0+iwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JcvwxJfj+wQCvTyKCuDmOvkUWIndsvAdclXPqwL6QjM=; b=lUQqUs5PMURsYrryveoqnNxh/J
+	av7PZPvKqOJhoXwDPExBWiVvWPR7tlb2G77PfOHVRkQXq7MYfLDxxqqOGeZkgd5jqnmDBDMD1vzi4
+	Zg7HRMoPMf9gq25PsoNa9PBG0psGqYsh92kX+7TsfO6NIxWRt075MVolYQi+CuW1tUip/NkcVqZU7
+	6P/6gLIYn6mG3UJsjDit3SlgmLWrrxxRPHbEh2HYbff93Ooojgyi34lNN0SKFugl0MC6gw+cROpKg
+	NY5Um/2XDI0L8UXcNnfUZ+mFiVofibfFvrF4aUT2gVyFCDMupPS8IlHUbgtkOXKlljsy41BhtC4Q1
+	i/UWlXww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5ua-0000000DQ5r-3rVL;
-	Fri, 25 Sep 2026 13:24:24 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xA5v3-0000000DQAq-08vZ;
+	Fri, 25 Sep 2026 13:24:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5uY-0000000DQ4h-1nsz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 13:24:24 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 4C6A41A1022;
-	Fri, 25 Sep 2026 13:24:18 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 114D06073B;
-	Fri, 25 Sep 2026 13:24:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7FB8103282D5;
-	Fri, 25 Sep 2026 15:24:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790342656; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=dWHwO8k89KMIOROmHdTn+tsJpwKFcpuMyDpGO9S6/Q0=;
-	b=l9dlpdkDqiMckaNfwr7bun/p57zAVub7v1PghXsTuWnOsGqHAv7yuZLECjhqrrsOeJUlt8
-	0yi7CHR2q3FKkEu2BWyKiTdGdFyriXxXWni+kPX//yN7vO8tYReF0gJRI4D6/VYNUXKadT
-	P/NLpDmMJxWSM66/UTT8NCpc+1YWPVWxixpKyenM6bzKNGCL37wrmmjS5N884rAc0om23n
-	FoLrsIGum1CEoiMAq5r1n1hPJ7y7vPZklmteNdn3HQb8/uEBaq9lATJSaE7nTOFVOESVEv
-	0+UGOn3R4XdzuF3E1tQSRg6EQ2GujU5+bWm6Wn9LDddEUB91EaiETkax8M+e5Q==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung
- <schung@nuvoton.com>,  Michael Turquette <mturquette@baylibre.com>,
-  Stephen Boyd <sboyd@kernel.org>,  Richard Cochran
- <richardcochran@gmail.com>,  Arnd Bergmann <arnd@arndb.de>,  Brian Masney
- <bmasney+clk@redhat.com>,  Jerome Brunet <jbrunet+clk@baylibre.com>,  Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  Steam Lin <STLin2@winbond.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-clk@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  devicetree@vger.kernel.org,  Jacky Huang
- <ychuang570808@gmail.com>,  stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] clk: nuvoton: ma35d1: Add missing WDT/WWDT
- parent clocks
-In-Reply-To: <20260925-skinny-husky-of-cookies-4aaddb@quoll> (Krzysztof
-	Kozlowski's message of "Fri, 25 Sep 2026 14:58:11 +0200")
-References: <20260921-perso-ma35d1-upstream-clk-v2-0-209fd32a8b00@bootlin.com>
-	<20260921-perso-ma35d1-upstream-clk-v2-1-209fd32a8b00@bootlin.com>
-	<20260924-bald-awesome-griffin-7d1d5b@quoll>
-	<87jyo9ljlo.fsf@bootlin.com>
-	<20260925-skinny-husky-of-cookies-4aaddb@quoll>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 25 Sep 2026 15:24:08 +0200
-Message-ID: <87a4p5jwg7.fsf@bootlin.com>
+	id 1xA5v1-0000000DQAU-3NJT;
+	Fri, 25 Sep 2026 13:24:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DAE660230;
+	Fri, 25 Sep 2026 13:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF1A11F000FF;
+	Fri, 25 Sep 2026 13:24:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790342690;
+	bh=JcvwxJfj+wQCvTyKCuDmOvkUWIndsvAdclXPqwL6QjM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GSoaOEXqNZo5+lFu4BWpMyM+JE4KVsAWFxigirREnjn9EsPKMGSXqy6zl+1JRw4dm
+	 3U0v1lVUBRas/uYlViba9t+pwZ7GuOvS/CJJXOpFmu1sberKqQygJmySBYCf3ycyp4
+	 WvXUDgAxGmgJLJYcldjLPV2k9kmJsPLnVrhrQE5Rgxx1pd1IXH2Ld4PbCi05X3sEMk
+	 z7+1KJsjNpR9btN0PPFvJBbcDgR8JadJYt+p7Lus/nPk+0oR55RlDDn0uG8WYtWyj8
+	 o6VxOCBheopmhNVFgCDB/Jgjw8GuX14GXG+SzVRHn/ShaPfg2sA9qGq8yuX3XzRRBd
+	 tHA2EHtPG0A8A==
+Date: Fri, 25 Sep 2026 15:24:47 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>, Jitao shi <jitao.shi@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: display: mediatek: dpi: Add
+ compatible for mt8167
+Message-ID: <20260925-inventive-crystal-firefly-0deffe@quoll>
+References: <20260921113914.779393-1-l.scorcia@gmail.com>
+ <20260921113914.779393-2-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_062422_607209_0D35C918 
-X-CRM114-Status: GOOD (  13.96  )
+Content-Disposition: inline
+In-Reply-To: <20260921113914.779393-2-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +76,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 21, 2026 at 01:38:55PM +0200, Luca Leonardo Scorcia wrote:
+> MediaTek mt8167 SoC has two Digital Parallel Interface (DPI) blocks,
+> one can be routed to a DPI display while the other is wired to the HDMI
+> block. They are not compatible with any other device, so add a new
+> compatible to describe them in the device tree.
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml       | 1 +
+>  1 file changed, 1 insertion(+)
 
->> Maybe one way to fix that mess is to:
->> 1- Add the 2 new values (238 and 239) + a new define:
->>    NUVOTON_MA35D1_MAX_IDX 240
->>    238 would then have two definitions for a short period of time.
->> 2- Replace CLK_MAX_IDX by NUVOTON_MA35D1_MAX_IDX in the driver
->> 3- Drop CLK_MAX_IDX in the bindings.
->
-> Why we can't fix it like we did everywhere else?
-> git lg -- include/dt-bindings/clock/
-> and search for "number" which leads to recent commits like
-> d10f26a7abbd3dd5d59bac1acdca117385b54ea9
-> but there was same work for Samsung and many others (Renesas, maybe
-> NXP?). You add define to the driver, then drop it from the
-> binding. Can
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Aaah, ok, got it. Now I get what you mean by "the max is not a
-binding". While true, I find it much less obvious to have it somewhere
-outside of the file defining the clocks. I would have "preferred" to
-consider the name of the definition immutable, rather than its value,
-but if that's the way, I'll comply :-)
+Best regards,
+Krzysztof
 
-> be a few commits like we did for many cases, but recent change from
-> Linus I think went acked while combined binding and driver.
-
-Thanks for the pointers, I'll "move" that number away from the bindings,
-since the driver is the only consumer of that.
-
-Thanks,
-Miqu=C3=A8l
 
