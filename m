@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5EAC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6508C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=omFehYc7Q33/qwXtTiF1IHrue6VFX/SX9lIYDRsjCbU=; b=0Lut3SBkMDfmE4+5tOLbEZOlXG
-	EGE8L1ax63bAXqqSn0ER6Jm67Xh0l7XeGeP/hycjjE0iCuukN40HkvpxBqu4DTjP0E73DVnkqZwn3
-	wtGTY7a2qkCiSj9SzuSY81c70HPNg7IULVWs7w8oJv/qe8OqDJu7OfzqkQg/cTThl1v3sEUNolmCH
-	S2rh3qLKPWLOCt9ohUdUYj7YSoXOfnH5kXgfkQXkxw0jZaDHSef8UoO/i0g3Cu0mrl8XWYAUxU1TK
-	w8P1YIGLMeGUdtFj3XQ9cFN7sSJ1tBGOq4/BiJo/kMgWWP5WjLWMdCXwLHXFCH1jV6YguCgcHNLN8
-	TeWIecrQ==;
+	bh=j1v+S80dUo//p+15Rqn0T4DE2Wzaj20kwbdF2DBjtus=; b=0kK7MEeSDQWl42mrgorjnj37fa
+	+4+/U9oEIGn72U4JbPsWoeLnFJ7iO5lMSDl/MA08qM8YUDQ+QRsv+HcrIkdw9sNAHQyUvUiZs4bQk
+	hlC5UqvxUZ094oVAYzzngTIST7+qOs0xsDWk2m8kITkrgwSIg6kx/fjCR/lDShe4iNhbFs4eyrXxl
+	0N9EZSGGAPxjfdZfVaLhMwicg8KL8bLDNGmdBnjGb2AjiTj5r+8kUiUCARxGhjoEFie6VLinARBOA
+	MheTKrgh84iwtaJKNExcTNN+9D08H7Vhl+gEQOUQR8edhTFpnezeFcyU4CpTlK8qi4iJdNQWBtmIX
+	2XT+JUTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1gj-0000000Cwxn-113H;
-	Fri, 25 Sep 2026 08:53:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xA1jL-0000000CxNU-2YVu;
+	Fri, 25 Sep 2026 08:56:31 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1gh-0000000Cwwr-1Wds
+	id 1xA1jI-0000000CxMh-1DoQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 08:53:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA10F6022F;
-	Fri, 25 Sep 2026 08:53:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6E61F00893;
-	Fri, 25 Sep 2026 08:53:43 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
+	Fri, 25 Sep 2026 08:56:29 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccda24a3so434022a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 01:56:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790326587; x=1790931387; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=j1v+S80dUo//p+15Rqn0T4DE2Wzaj20kwbdF2DBjtus=;
+        b=c8gDkl+alU2K837p8DN5YY2Jk0KlowBz1qUU93kP+jtYfVmm4Se4B+KJ/pw2BlZkv9
+         eOk+RkATKxnORh3oFeZf3XSUrZeu9yoGxDtIS0XJNfJkDBqlV8Yh1UsY8aL/9c/MrUpl
+         bYMzqaIgxksMt0pNB5sH5fqzgtf2cwAbZhEFD5VeFe0KZvt1Ed7/YAB//5Tm6m5SU8ki
+         krls3HQQsoNjh/u+DHF5lefTBX86W20+xb3qwSlW5ZVkM8GexYwrthhR86/8Csai+Lu7
+         ZC3zJOIXae0kOWKVTrXOXuZTi9PqItRW0nlneRT78wuYw5mS52IOLpVXSzwipBYG+QYH
+         pekQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790326587; x=1790931387;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=j1v+S80dUo//p+15Rqn0T4DE2Wzaj20kwbdF2DBjtus=;
+        b=mrT6YZGkgd/niG0SNEjhJDDx3kQEvOdw5105IZOspGOQ78Qk0+MxzCWUkt7D+AYxUe
+         BW3OWB2lmKpiGyYEG2pEtX/1dEMP1WoS19dLWfj0sPHuGKdhqr65oqJLCITrMA4D/L8H
+         2Uk4uuduAejVJc97Fr/bBD9wBw2bZKZmCmj28Cdo1QUjDpxp8T7OmWpGA+LrtwXfbfKf
+         o/eatpdVcfl3AbbWlffY0qLrTLYhVbOckzk+WKyyU2Pa4Tj0Gm/rWqxgRjPVCNQYYKDe
+         HIUBqOaPyag+vegExFTo0DD9qNpfcnsl6lkH5rjvKyipO+mov2/omqGyORU/bN3UczBF
+         nLJw==
+X-Forwarded-Encrypted: i=1; AKwUvBzDPIyg/tQezpkFUEAmGVwiGX2COMQvlvNbRxGYMsynpSpRREwRuIthZCvDKYZUwEqHFPjOH1Pd8+4K6hfygYQR@lists.infradead.org
+X-Gm-Message-State: AFuF++m0mG97kRCO7ARYteFqxYqBFXjLGbwVlIb28HkjwZM6Qsw9czXN
+	rdq8+R/AGidN4rUdHTdKM5rpiSoWS2rniOgc+xWExozvlcQEoiiHRfuM
+X-Gm-Gg: AYBFou3d1FRhaaxYlqa/5r8qi4NhFC4Mm1K0XIFoEQABL+pZTPtb+AQ7bmp0Hns+awK
+	k0YsS5TLmaRviL8CxtluUYlIrDJGo8kLOnTePP1ESpxC6/r5tUmh7HFn1H7xxGwDtxTEwEsGpNj
+	y0tyrLSCH40ArKG+qrUF/h2PrXLmNp1LLNWszRPPls0v8dOdODF2Gs3c4l7lOZe27nKnUWOlsCY
+	riPPu7pFla2KIoYhip6QBSs2f/u5bbFJEuPEKcNsNJVy3sVuFb2T87ZyVwT/0ti+75cY+zXSXK+
+	UA7nZgFXUM226sAWPCCkSLPzLJWMbNdXRuluWyivJbOuFw6JQkfriahba/LO8KOOBmwRo/t6Fzl
+	M+BsePqvj6yTkfv9LnlhOM7DsocLtXjwcXM9hc4sWz9UoKNg8Rvc5q1lv/LNoyDFIhNVmCzDGES
+	9LQP9yJ3ysudMIH9+yDWbxptSibf7O5Gl/vErmFPTg5iuJGPYmT5dpedULH+aECemZDf+vNMfk9
+	NkZNQPY78IPMxtccc7kmhZipAtfcQjKX19vCPYI9p+htDHSR4yN6/7mJchcdV+ULa2U7/D4c12K
+	YhRni0kn1bAUwyvjv+UiOT7lF3hW2IOuR38lK6nYYiFNqUguzgdGRZOwkgr5
+X-Received: by 2002:a17:90b:28c5:b0:39e:6a81:c923 with SMTP id 98e67ed59e1d1-3a098729524mr3899330a91.22.1790326586359;
+        Fri, 25 Sep 2026 01:56:26 -0700 (PDT)
+Received: from spider.bream-herring.ts.net ([103.6.151.236])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a0976cacbesm9381069a91.13.2026.09.25.01.56.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Sep 2026 01:56:25 -0700 (PDT)
+From: Matthias Goergens <matthias.goergens@gmail.com>
+To: maz@kernel.org
+Cc: oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/2] arm64: dts: renesas: r8a78000: Add MSIOF nodes
-Date: Fri, 25 Sep 2026 10:53:30 +0200
-Message-ID: <10e85f27b8ea4342f6f19a7c9e68fd641e58b54a.1790325809.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1790325809.git.geert+renesas@glider.be>
-References: <cover.1790325809.git.geert+renesas@glider.be>
+	kvmarm@lists.linux.dev
+Subject: [RFC PATCH] Documentation/process: Add a maintainer entry profile for KVM/arm64
+Date: Fri, 25 Sep 2026 16:56:21 +0800
+Message-ID: <20260925085621.562448-1-matthias.goergens@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <875wzu4vuv.wl-maz@kernel.org>
+References: <20260924033536.3624334-1-matthias.goergens@gmail.com> <877bkb3zjq.wl-maz@kernel.org> <20260924083036.1744194-1-matthias.goergens@gmail.com> <875wzu4vuv.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_015628_345568_4B713C0D 
+X-CRM114-Status: GOOD (  35.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,130 +106,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device nodes for the Clock-Synchronized Serial Interfaces with FIFO
-(MSIOF) on the Renesas R-Car X5H (R8A78000) SoC.
+KVM/arm64 has no P: entry in MAINTAINERS, so nothing tells a contributor
+that the kvmarm tree is used for integration only, or that most patches
+are expected to be based on a tag from Linus' tree rather than on
+kvmarm/next or linux-next.  Marc Zyngier said a profile would help and
+pointed at the KVM x86 one as a starting point, noting where KVM/arm64
+differs: the absence of topic branches, the references to documentation,
+and the base for most patches.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Add a profile covering the trees and how changes flow through them, the
+base for patches, recipients, subject prefixes, architecture references,
+testing, key cycle dates and review cadence, and point the KVM/arm64
+entry at it.
+
+Link: https://lore.kernel.org/all/875wzu4vuv.wl-maz@kernel.org/
+Signed-off-by: Matthias Goergens <matthias.goergens@gmail.com>
 ---
- arch/arm64/boot/dts/renesas/r8a78000.dtsi | 104 ++++++++++++++++++++++
- 1 file changed, 104 insertions(+)
+Marc, this is the profile you said would help, in the thread this
+replies to.  Where you and Oliver haven't said anything on the list, it
+follows the KVM x86 profile and general practice, so please correct
+anything that doesn't match how you work.  Three things need your call
+in particular; they are marked [?: ...] in the text:
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-index 9a07753b221541ed..d75a9e43f772f871 100644
---- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-@@ -1000,6 +1000,110 @@ mdlc_aon: system-controller@c1338000 {
- 			bootph-all;
- 		};
- 
-+		msiof0: spi@c1700000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc1700000 0 0x100>;
-+			interrupts = <GIC_ESPI 744 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSO_SCP_MAIN>;
-+			power-domains = <&mdlc_scp R8A78000_MDLC_PD_SCP 0x50>;
-+			resets = <&mdlc_scp 0x50>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
+- master: once it follows -rc1, should the profile mention it?
+
+- Cross-tree changes: the draft says there are no standing topic
+  branches for contributors, and that when a series also touches arm64
+  code the maintainers may set up a shared stable branch on an -rc tag.
+  Is that right?
+
+- Cut-offs: which is the last -rc for new features, and when do you
+  decide what goes into the merge window?
+
+I've kept this RFC to the people in this thread.  Once you're happy
+with it, I'll widen the circle to the documentation maintainers and
+lists.
+
+ .../process/maintainer-kvm-arm64.rst          | 163 ++++++++++++++++++
+ MAINTAINERS                                   |   2 +
+ 2 files changed, 165 insertions(+)
+ create mode 100644 Documentation/process/maintainer-kvm-arm64.rst
+
+diff --git a/Documentation/process/maintainer-kvm-arm64.rst b/Documentation/process/maintainer-kvm-arm64.rst
+new file mode 100644
+index 000000000000..deba2f812cef
+--- /dev/null
++++ b/Documentation/process/maintainer-kvm-arm64.rst
+@@ -0,0 +1,163 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+		msiof1: spi@c1710000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc1710000 0 0x100>;
-+			interrupts = <GIC_ESPI 745 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSO_SCP_MAIN>;
-+			power-domains = <&mdlc_scp R8A78000_MDLC_PD_SCP 0x51>;
-+			resets = <&mdlc_scp 0x51>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++KVM/arm64
++=========
 +
-+		msiof2: spi@c1720000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc1720000 0 0x100>;
-+			interrupts = <GIC_ESPI 746 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSO_SCP_MAIN>;
-+			power-domains = <&mdlc_scp R8A78000_MDLC_PD_SCP 0x52>;
-+			resets = <&mdlc_scp 0x52>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++This document describes how KVM/arm64 (``arch/arm64/kvm/`` and the other
++files listed under "KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)" in
++MAINTAINERS) is maintained.  It supplements
++Documentation/process/submitting-patches.rst.
 +
-+		msiof3: spi@c1730000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc1730000 0 0x100>;
-+			interrupts = <GIC_ESPI 747 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSO_SCP_MAIN>;
-+			power-domains = <&mdlc_scp R8A78000_MDLC_PD_SCP 0x53>;
-+			resets = <&mdlc_scp 0x53>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++Overview
++--------
 +
-+		msiof4: spi@c0600000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc0600000 0 0x100>;
-+			interrupts = <GIC_ESPI 18 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSOCK_PERW_BUS>;
-+			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x4f>;
-+			resets = <&mdlc_perw 0x4f>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++KVM/arm64 is maintained by Marc Zyngier and Oliver Upton, assisted by the
++reviewers listed in MAINTAINERS.  Patches are discussed on
++kvmarm@lists.linux.dev, and linux-arm-kernel@lists.infradead.org is Cc'd as
++well.
 +
-+		msiof5: spi@c0608000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc0608000 0 0x100>;
-+			interrupts = <GIC_ESPI 19 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSOCK_PERW_BUS>;
-+			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x50>;
-+			resets = <&mdlc_perw 0x50>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++Trees
++~~~~~
 +
-+		msiof6: spi@c0610000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc0610000 0 0x100>;
-+			interrupts = <GIC_ESPI 20 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSOCK_PERW_BUS>;
-+			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x51>;
-+			resets = <&mdlc_perw 0x51>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++The KVM/arm64 tree is::
 +
-+		msiof7: spi@c0618000 {
-+			compatible = "renesas,msiof-r8a78000",
-+				     "renesas,rcar-gen5-msiof";
-+			reg = <0 0xc0618000 0 0x100>;
-+			interrupts = <GIC_ESPI 21 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg R8A78000_CPG_MSOCK_PERW_BUS>;
-+			power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x52>;
-+			resets = <&mdlc_perw 0x52>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
++  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
 +
- 		mdlc_cmnn: system-controller@ca410000 {
- 			compatible = "renesas,r8a78000-mdlc";
- 			reg = <0 0xca410000 0 0x1000>;
++This tree is used for integration only: no development happens in it, and
++most patches should not be based on it (see `Base for patches`_).  Its
++branches are:
++
++``next``
++  Changes queued for the next merge window.  linux-next merges this branch.
++
++``fixes``
++  Fixes for the release currently in its -rc phase.  linux-next merges this
++  branch too.
++
++[?: ``master`` still points at a 2020 commit.  Once it follows -rc1, should
++this document mention it?]
++
++Changes leave the tree as signed tags, which are pulled into the main KVM tree
++(``git://git.kernel.org/pub/scm/virt/kvm/kvm.git``) and from there reach Linus
++Torvalds.
++
++Unlike the KVM x86 tree, KVM/arm64 has no standing topic branches for
++contributors to base their work on.  Where a series also touches code
++maintained elsewhere, most often the arm64 architecture code, the maintainers
++may set up a shared stable branch, based on an -rc tag, that both trees merge.
++Say in the cover letter which parts of a series touch other subsystems.
++[?: Is this an accurate description of topic branches and of how
++cross-tree changes are handled?]
++
++Base for patches
++~~~~~~~~~~~~~~~~
++
++Base your patches on a tag published in Linus Torvalds' tree.  Patches based
++on linux-next or on ``kvmarm/next`` are discouraged.
++
++If your series depends on something that is not yet in mainline, such as
++another series under review or work already queued in ``kvmarm/next``, say so
++in the cover letter and name exactly what it applies on top of.  The
++maintainers may also ask for a series to be rebased onto ``kvmarm/next`` when
++it conflicts with work queued there.
++
++Use ``git format-patch --base`` so that the base commit is recorded in the
++patches.
++
++Submit Checklist Addendum
++-------------------------
++
++Recipients and threading
++~~~~~~~~~~~~~~~~~~~~~~~~
++
++Send the whole series to all of the maintainers and reviewers listed for
++KVM/arm64, not a selection of them.  Post each new version as a new thread,
++with a cover letter for anything longer than a single patch.
++
++Subject lines
++~~~~~~~~~~~~~
++
++Changes to KVM/arm64 use the ``KVM: arm64:`` prefix, often followed by a
++sub-topic such as ``nv:`` or ``vgic:``.  Selftest changes use ``KVM: arm64:
++selftests:`` or ``KVM: selftests:``.
++``git log --oneline`` on the files you touch shows what is in use.
++
++Architecture references
++~~~~~~~~~~~~~~~~~~~~~~~
++
++KVM/arm64 code tracks the Arm Architecture Reference Manual (the "Arm ARM",
++document DDI0487) closely.  Where a change depends on architected behavior,
++explain why the change is needed and cite the Arm ARM in the commit message
++or in a comment.  Section numbers change between revisions of the Arm ARM,
++so give the revision along with the section, for example ``DDI0487L.a
++D24.2.70``.
++
++This differs from KVM x86, whose profile asks contributors not to cite
++section numbers.
++
++Testing
++~~~~~~~
++
++Say in the cover letter how the series was tested: which tests, and on which
++hardware or model.  The KVM selftests (``tools/testing/selftests/kvm/``) and
++kvm-unit-tests are the usual test suites.  Put selftest changes in patches of
++their own, separate from the KVM changes.
++
++KVM/arm64 can run in several modes, which are described under
++``kvm-arm.mode=`` in Documentation/admin-guide/kernel-parameters.txt.  Test
++the modes your change can affect.
++
++Do not draw conclusions about performance on hardware from measurements made
++on a software model such as QEMU or the Arm FVP.
++
++Changes to nested virtualization in particular are unlikely to be merged
++without test coverage.  Depending on the change, selftests may not be enough;
++the maintainers may ask for testing with a VMM, for example.
++
++Userspace API
++~~~~~~~~~~~~~
++
++Document changes to the userspace API, usually in
++Documentation/virt/kvm/api.rst or in the files under
++Documentation/virt/kvm/devices/ and Documentation/virt/kvm/arm/.
++
++Fixes
++~~~~~
++
++Add a ``Fixes:`` tag for bug fixes.  If the fix should go to stable kernels,
++add ``Cc: stable@vger.kernel.org``; the maintainers may add it when applying
++if the bug calls for it.
++
++Key Cycle Dates
++---------------
++
++Fixes for the current release are queued on ``fixes`` and sent throughout
++the -rc phase.  Changes for the next merge window are queued on ``next``.
++
++[?: What are the cut-offs: the last -rc for submitting new features, and the
++last -rc at which the maintainers decide what goes into the next merge
++window?]
++
++Review Cadence
++--------------
++
++Unless the maintainers ask for a new version sooner, allow at least a week
++between versions of a series, and only post a new version once there has
++been enough review to justify it.  Posting more often
++delays review rather than speeding it up.
++
++Pinging a series that has had no response is fine.
++
++Applied patches are normally acknowledged in reply to the posting, naming the
++branch (``next`` or ``fixes``) and the commits.  Commit IDs can still change
++before they reach mainline.
++
++Minor problems are often fixed up by the maintainers when applying; if they
++say "no need to resend", don't.
++
++Security issues
++---------------
++
++Bugs that let a guest attack its host, or a nested guest attack its guest
++hypervisor, should be reported as described in
++Documentation/process/security-bugs.rst.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 140eafcbbd78..129d7ef2c3ec 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14301,7 +14301,9 @@ R:	Zenghui Yu <yuzenghui@huawei.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	kvmarm@lists.linux.dev
+ S:	Maintained
++P:	Documentation/process/maintainer-kvm-arm64.rst
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
++F:	Documentation/process/maintainer-kvm-arm64.rst
+ F:	Documentation/virt/kvm/arm/
+ F:	Documentation/virt/kvm/devices/arm*
+ F:	arch/arm64/include/asm/kvm*
+
+base-commit: 62f4c998b297cf233997a2b4cd6fc2d2df0319c9
 -- 
-2.43.0
+2.55.0
 
 
