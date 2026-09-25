@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4438C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C5EC98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHgaribOFjNf5YMHUlR3fMpt5ySYd+TAsj/f7UavMDk=; b=d538b087dCBzv07SBEndXTtE/Y
-	gaMjyFB27AgSq2CLevS13dTU0NAWhzPHlIAOapt47uSyKO/i3dd9PMpulZxKd9mxXHe/N8nI6j3en
-	wgRinY1W4MtJ1AN+MyZdOyR4JBZOZfoxSdxjSTrluzBgO1ULJGo/QUzb/Xp1IzO8LvufY2FqcaSh/
-	QBfKhVuX9lbSUvFxmG/QDg0FVthzvlPmgdUIbaPE/AOuaLn6OqwsMPlFVHj2I3F6zp6mPznAHXDPF
-	qjNQfPWKiVgazAuDZu+rrrAMDh+qAsKmu6JAgXa+ljPPC+DjBQVZ9LKQEHzJn/3ZQ4s6cJmfKxXje
-	C9BHQqnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JkP8BrEWT30kLP9eSQGchhYsA7DxDtHozH0yKPW1NRY=; b=4Mt2xVT+v3Xr7DGkqoVhadxgh7
+	RVmWMzV2heMKAdbH3wGVtNrAHVFOt5P90zZcUfWVdDWyFD7E+ZIQOm6PrIXVwPVZO0Q8h6d4aLU4w
+	Mk/Y8RmvR1DwhtWiiKVUTwa11dtJWE2CeLjJ+QaNttGO3DjYgQg14pX+tk5P5NTR7aRtHBC62lNp5
+	EqrF3Gex2GtaZGnTBhLsw5sEL3p8H3ZaIMP6QiyKpG1E68gU6OHB0/8jcfcmLnOBNECMCgc4op+Jj
+	uhTDiE2ytVBl3eAKIFOIRDt+lMVqQGaZdHljldqQJnHG5hxSKSECv4MZfZCnEApU7ZgRnjc3tidWa
+	lt5mVx2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7jY-0000000DlaL-1gDI;
-	Fri, 25 Sep 2026 15:21:08 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xA7l5-0000000DlpD-3PCZ;
+	Fri, 25 Sep 2026 15:22:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7jV-0000000DlZe-48Bk
+	id 1xA7l4-0000000Dlou-3VVx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Sep 2026 15:22:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JkP8BrEWT30kLP9eSQGchhYsA7DxDtHozH0yKPW1NRY=; b=CZR5qdZ7GDxvGPv9mFKx8yAbgg
+	R6gImLXs/zLqKtr2a1hV90pc3HMG9+m4MkunUYv7nU9b+mk41htDt7eo0QXDLboO79Hyc3hGVzFD/
+	FuGdlTKXMRkmV0eCL7G6eePCpooQHqlv0ZO+intv51TRCsprvoEgOCiIbE4DfrxL/dOqc9GXbToud
+	re+/6OQ3CsqigFJSCmcB+mN6hkTkehYFP4bfOUqgGjZXvvCLRC6ktDASh5TIxqpqpVQUNXNPtaROz
+	+Y2SXNJLZLEvudmifrkF0/CHTHGxMco+aybZWvHG7TpIc1PcJrkTPpbw2qY4sUQw0MjsZjob55Juh
+	qcnEunmg==;
+Received: from out-250.mta0.migadu.com ([2001:41d0:1004:224b::fa] helo=mta0.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xA7l1-0000000H3Ra-3l5j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 15:21:08 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925152100euoutp02ed84a9cfdc9edd3736e80f7cd5474c73~YmYfR1eNM3149731497euoutp02A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 15:21:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925152100euoutp02ed84a9cfdc9edd3736e80f7cd5474c73~YmYfR1eNM3149731497euoutp02A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790349660;
-	bh=SHgaribOFjNf5YMHUlR3fMpt5ySYd+TAsj/f7UavMDk=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=F656mgJ9jfgNjrKs8uA1ZyoifUtpO6Jd2QaA5EhGg1UsGVHdaiunvQVyoBsr8yvQm
-	 4JvEzIJQ1xTCBczVOiZBqIm+3EdyCpwECRq8i8GN27wlqHNo+fCU/+mKx+GZJgiYUH
-	 q6eRUP+VcFpqTg/tZTDMerGTpXC394G1YEw2aP4w=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260925152059eucas1p2019d7b4eb9d392a10993cc13136edee1~YmYeygoFS3026930269eucas1p2w;
-	Fri, 25 Sep 2026 15:20:59 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260925152057eusmtip25e163fc5b8da5ebbde70f8a09827ff17~YmYcynyS-2281922819eusmtip28;
-	Fri, 25 Sep 2026 15:20:57 +0000 (GMT)
-Message-ID: <a5b453db-a4f9-4dba-b150-6e4045f61027@samsung.com>
-Date: Fri, 25 Sep 2026 17:20:57 +0200
+	Fri, 25 Sep 2026 15:22:41 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=z060NorVjkdchyRWUzkmKu19VquiP8XV8AyIxkINsfE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790349754; v=1; x=1790954554;
+ b=YKwr0zlfW/JHsocYquG4Dq6Do2Vffw/g7EvImboh/FRaqcbp72oAlJykQeq4RScWz3ALwkGo
+ DilQc0173VU7xtNeBaeo2Nt3NXcxqeGjcvSEp58Nysu2zkX8MFlYEXpgAnh//MX3VxFx/aWADeR
+ 07H+7gwU6jAcQRUlW2T72dc8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 2fcf0e616ef4fbeb;
+	Fri, 25 Sep 2026 15:22:34 +0000
+X-Mizu-Trace-ID: 2fcf0e616ef4fbeb
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b8ea0ca5baso4912e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 08:22:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxK3olM9p93cpXeCngu6zjfcy5XCi42dYUS7PlQLxIRBFCvHxiaqPYf11A2R2RX25YsoHTckUvfRr+yBtd3fz2R@lists.infradead.org
+X-Gm-Message-State: AFuF++mXlMvbvW/31eMBv0qH8Q0MlxVZWpjMHZjq9AqgvZtfBqtJ0jc1
+	L1CVkaBrxMu1QuaGRXDS4IwNyVgL9F9OnJT2Lfw9VKdxzzvigerC2LH3brcGprZd1/tnsvJeFkB
+	9xuTey1vCGLPvhiawBOfIBYEuvae0Z+o8p4ri0B5r
+X-Received: by 2002:a05:6512:ba4:b0:5b8:eb6b:2a52 with SMTP id
+ 2adb3069b0e04-5b8ed09a59amr43196e87.2.1790349749415; Fri, 25 Sep 2026
+ 08:22:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 00/11] Make the 32-bit ARM DMA API work with normal
- IOMMU DMA default domains (+ Tegra PoC)
-To: Mikko Perttunen <mperttunen@nvidia.com>, Robin Murphy
-	<robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon
-	<will@kernel.org>, Russell King <linux@armlinux.org.uk>, Heiko Stuebner
-	<heiko@sntech.de>, Thierry Reding <thierry.reding@kernel.org>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Krishna Reddy <vdumpa@nvidia.com>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
-	<jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Yong Wu
-	<yong.wu@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob
-	Clark <robin.clark@oss.qualcomm.com>, Geert Uytterhoeven
-	<geert+renesas@glider.be>, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260915-b4-arm32-iommu-dma-cookie-v1-0-ba4f9d33a2b8@nvidia.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260925152059eucas1p2019d7b4eb9d392a10993cc13136edee1
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915021542eucas1p254addab18c10cb117f42ccf3d3522883
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915021542eucas1p254addab18c10cb117f42ccf3d3522883
-References: <CGME20260915021542eucas1p254addab18c10cb117f42ccf3d3522883@eucas1p2.samsung.com>
-	<20260915-b4-arm32-iommu-dma-cookie-v1-0-ba4f9d33a2b8@nvidia.com>
+References: <20260925090619.852995-1-fuad.tabba@linux.dev> <20260925090619.852995-3-fuad.tabba@linux.dev>
+ <8733ux4bow.wl-maz@kernel.org>
+In-Reply-To: <8733ux4bow.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 25 Sep 2026 16:21:53 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy2hfn0qighn2kZ-Gyy_3nKtwiRCGMrox6K-Yn22ZkP6Q@mail.gmail.com>
+X-Gm-Features: AclHuK_gTf2iqS9h2Xa5Ix6rBbxV4n0KGAvJD4FiA9vRXr5yyjusiCbOGjiate0
+Message-ID: <CA+EHjTy2hfn0qighn2kZ-Gyy_3nKtwiRCGMrox6K-Yn22ZkP6Q@mail.gmail.com>
+Subject: Re: [PATCH v1 2/4] KVM: arm64: Clear HCR_EL2.RW for 32-bit
+ non-protected vCPUs
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Quentin Perret <qperret@google.com>, Vincent Donnefort <vdonnefort@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_082106_302156_86BBFB9D 
-X-CRM114-Status: GOOD (  39.25  )
+X-CRM114-CacheID: sfid-20260925_162240_089738_0624BB6C 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,120 +100,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.09.2026 04:14, Mikko Perttunen wrote:
-> Depending on the probe ordering, TegraDRM does not currently probe on 
-> kernels with CONFIG_ARM_DMA_USE_IOMMU enabled, such as with 
-> multi_v7_defconfig. The Tegra SMMU puts several display and 2D/3D 
-> clients into one IOMMU group, and the legacy 32-bit ARM DMA API path 
-> creates one UNMANAGED domain per device and attaches it with 
-> iommu_attach_device(). That only works for one device per group, so 
-> every client after the first fails to attach, 
-> iommu_device_use_default_domain() rejects the group with -EBUSY, and the 
-> driver goes down with it. tegra_defconfig is currently working by virtue 
-> of not enabling CONFIG_ARM_DMA_USE_IOMMU.
->
-> Robin suggested [1] that instead of teaching the legacy path about 
-> groups, we should explore modernizing the 32-bit ARM DMA code a bit by 
-> making it use domain cookies and have the core code own the domains, as 
-> is the case on other architectures. Still, ARM's own DMA code is kept to 
-> support existing drivers and APIs that expect it, and because dma-iommu 
-> is considered too big and unnecessary for 32-bit ARM.
+Hi Marc,
 
+On Fri, 25 Sep 2026 16:01:35 +0100, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> Apologies from repainting the proverbial bike shed, but I find the way
+> the above is written very hard to understand, because you are
+> describing minute aspects of the code without giving the big picture
+> upfront.
 
-I agree that such little modernization is the right step to unify a bit
-ARM 32bit with modern archs and get rid of some workaround in the drivers.
+Writing commit messages and comments is hard! :) I'm working on it...
 
-It was me who raised the concern about the drivers depending on the first-fit
-allocation algorithm used in the32-bit ARM DMA code. This is an issue for some
-legacy Samsung Exynos drivers. I not aware of any other driver used on ARM 32bit
-SoCs that depends on this behavior.
+>
+> I'd rather see something like:
+>
+> "pKVM maintains its own copy of a per-vcpu HCR_EL2. On initialisation
+> of the hypervisor's private vcpu structure, HCR_EL2.RW is set to 1
+> unconditionally.  However, nothing forbids userspace to create a
+> non-protected, AArch32 guest. Since HCR_EL2.RW==1, entering the guest
+> fails with an IL exception.
+>
+> Make sure HCR_EL2.RW is cleared when the vcpu is AArch32 at EL1, and
+> that the HW actually supports this."
+>
+> which describes the problem without the reader having to dig into
+> code. It makes matching the description and the code very easy. At
+> least for me, YMMV...
 
-If one is still interested in switching ARM 32bit to generic IOMMU-DMA code I
-can prepare a workaround for those Exynos drivers. I still have it on my todo
-list, but in meantime there was no interest in updating ARM 32bit DMA code.
+Much clearer, I'll use that for v2, and give the other messages in the
+series the same treatment.
 
+[...]
+> That's another example: yes, this is all true. But how relevant is it?
+> Are you clearing RW just for the sake of vcpu_el1_is_32bit() to work
+> and prevent an UNDEF? No. It is so that 32bit guests do work. The
+> above really is only paraphrasing the ARM ARM.
+>
+> What you don't describe is that if ARM64_HAS_32BIT_EL1 is not
+> implemented, you let the vcpu walk to the cliff with RW==1, and rely
+> on the CPU generating an IL exception. For me, this is the important
+> piece of information that needs to be captured.
 
-> The series is in four parts:
->
-> - Patches 1-2 are preparation in the IOMMU core:
->   1. Add iommu_teardown_dma_ops, counterpart to iommu_setup_dma_ops.
->   2. Add cookie type for ARM's DMA domains.
-> - Patches 3-6 implement the DMA API side on 32-bit ARM:
->   3. Split up domain and address space management code in arch/arm/.
->   4. Implement parallel dma_ops / cookie APIs on ARM side.
->   5. Avoid domain allocation when IOMMU core does it.
->   6. Support foreign-allocated sg_tables.
-> - Patch 7 enables 32-bit ARM IOMMU drivers to provide a DMA default 
->   domain.
-> - Patches 8-11 convert Tegra:
->   8. Allows deferring translation enable until driver handshake for
->      selected devices.
->   9-10. Removes code detaching ARM UNMANAGED DMA domains in
->         Host1x/TegraDRM.
->   11. Enables DMA default domain for selected Tegra devices.
->
-> None of this should have any functional effect on any device other than 
-> the Tegra devices enabled in patches 8-11. Other IOMMU drivers can opt 
-> in later. The new DMA default domains are enabled only when the IOMMU 
-> driver explicitly specifies a DMA domain type, just returning 0 for the 
-> default is not enough (unlike on arm64), keeping the current behavior.
->
-> Patches 8-11 are provided for demonstration but we can deal with them 
-> separately if the rest of the series is accepted.
->
-> Patches 1,2,3 are applicable independently.
-> Patches 4,5 depend on the previous patches.
-> Patch 6 can be applied independently but is only required once
->   the whole series lands (by TegraDRM).
-> Patch 7 depends on patch 4.
->
-> Patches 1-7 only touch drivers/iommu/ and arch/arm/mm/ and associated 
-> headers.
->
-> Best regards,
-> Mikko
->
-> [1] https://lore.kernel.org/linux-tegra/910d1492-ad3b-4201-93c6-208be1dcde7d@arm.com/
->
-> ---
-> Mikko Perttunen (11):
->       iommu: Add iommu_teardown_dma_ops
->       iommu: Add cookie type for ARM_DMA_USE_IOMMU
->       ARM: dma-mapping: Split mapping allocation from domain allocation
->       ARM: dma-mapping: Implement and expose DMA setup functions
->       ARM: dma-mapping: Bypass the legacy path for core-owned DMA API domains
->       ARM: dma-mapping: Handle foreign buffers in arm_iommu_get_sgtable
->       iommu: Let 32-bit ARM drivers opt into a DMA API default domain
->       iommu/tegra-smmu: Defer display client translation to driver handover
->       gpu: host1x: Drop release of legacy 32-bit ARM DMA domain
->       drm/tegra: Drop release of legacy 32-bit ARM DMA domain
->       iommu/tegra-smmu: Use a DMA API default domain per swgroup
->
->  arch/arm/include/asm/dma-iommu.h |  17 ++++
->  arch/arm/mm/dma-mapping.c        | 209 ++++++++++++++++++++++++++++++++-------
->  drivers/gpu/drm/tegra/dc.c       |   8 ++
->  drivers/gpu/drm/tegra/drm.c      |  15 ---
->  drivers/gpu/host1x/dev.c         |  15 ---
->  drivers/iommu/Kconfig            |   1 +
->  drivers/iommu/dma-iommu.c        |   5 +
->  drivers/iommu/dma-iommu.h        |  52 +++++++---
->  drivers/iommu/iommu.c            |  24 ++---
->  drivers/iommu/tegra-smmu.c       | 109 +++++++++++++++++++-
->  drivers/memory/tegra/tegra114.c  |  15 ++-
->  drivers/memory/tegra/tegra124.c  |  12 ++-
->  drivers/memory/tegra/tegra210.c  |   6 +-
->  drivers/memory/tegra/tegra30.c   |  18 ++--
->  include/linux/iommu.h            |   3 +
->  include/soc/tegra/mc.h           |  20 ++++
->  16 files changed, 410 insertions(+), 119 deletions(-)
-> ---
-> base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-> change-id: 20260728-b4-arm32-iommu-dma-cookie-3170e07f9125
->
->
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+The comment should say what happens without AArch32 EL1: RW stays set
+and the entry fails with the IL exception, rather than EL2 switching
+registers that are UNDEFINED there. I'll rewrite it for v2.
 
+[...]
+
+> Other than that, the patch looks great! :)
+
+Sashiko didn't complain... :D
+
+Cheers,
+/fuad
 
