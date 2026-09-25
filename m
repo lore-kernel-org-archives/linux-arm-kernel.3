@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70BDC9830D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC990C9832A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuRsHriA8G9MEpD25kFFZwPKQE4FwkOgl58tsz3Ql1U=; b=nnthMSf9J2ov+8cbpjNR4vuTkU
-	b3w5QXPCk52aUcDMYIRUwDczZPzoGE7VhhSwjilJjrXK6uEd61eOqP+nT9x3mVLz7viRxjwNErX7F
-	5eCYvz1rVHpphYTkj9vt2ntm/NsUGwxXlmlVKFWM+f4QvzR7YqJUoZEj0KTZYHI2JhMyhYYrpGvi3
-	r7GEXydJQvALC8dHFFKIxXbTcLjsNMFACf5kEQ2/2dVZ+9SCICirJxbB8z+SC81bhOIcpy5e5Bt8N
-	/Z8ANCwYlOoJCA+3i9EOHP4ekB0NGq88INUmoWxSG73x5Z2oCVpGXZI51ULd8ITe9gOatHefgOMOi
-	/kfL/3Hg==;
+	bh=wvpwYoZhjpVxxA/g6a5zpGQywEW0TuTGho0bsP99zp4=; b=QswqPICT65u9uEjDJVBSL0mzEX
+	T8PYOvdq4KiGkPbe07qGtvEh3/a7SGruXgPBBkKnGqY109UwBOwmIiPHLmwG3Hh3KnbaSmpy+OsyB
+	Jgo5o3rcFERfnKTOjusydQhq2GjVGS8BwMdlRyPFzjNVRSOhcDjGpOg7Ui6JSmNuQYrxZs5AqoCDS
+	tSTwUKxiBkvnwHavz2zKVsKlIj1y1J/TeH3daHPiNpMAmmdNLligF/uIzWyItLN8yNfVw6GRDytQy
+	YOHM+kckE4mbSCe080Yg7mIH7rl2veXBwA5fCrN3PpRE+/eXRqkymrFfM5FlsPx6mX2bUewH382lP
+	1ufTMrCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1f5-0000000CwLv-3g9S;
+	id 1xA1f5-0000000CwKl-1teY;
 	Fri, 25 Sep 2026 08:52:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1f0-0000000CwHm-1wFo;
-	Fri, 25 Sep 2026 08:52:05 +0000
+	id 1xA1f0-0000000CwHj-0XJ3;
+	Fri, 25 Sep 2026 08:52:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1790326318;
-	bh=gAAyuNdQDF4ETHAyne1/X64Yklt1QaBJ5mcW8AeGkoE=;
+	s=mail; t=1790326319;
+	bh=mpOjposL1T3dyr5UH7B7ZFdWCYljyeFowhjta0L9BQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WTLBEUVwode5zVuZsQnq8+DygSlEAFqxiBLy5xCWYv0F35XocViURSS9rxdpS5iv8
-	 PKNpJudbNIIJ4SihAlgEg+wVrkKq20Z9AeZzwSg7m0gDtgKRPzOw7UhVDeNkDnl7Ph
-	 Drt6zcXO26+pLu58L3d5AA7diaIpiILEWpZQfgn3Ye1plH7j9yTcrsk2+x76sRuDtD
-	 TK9bKIsx7BfRr3FtW3BoUjd1CCVEBRglh/xN9fr3bGeA3904WOQgGCXIOIE3oSuhjd
-	 fiBGB716cqyS78d/JbMTbkBfSJ3+TspwiEnl3U0ljjr3AQH9/Mhnj6LnlvPj7VtHBk
-	 B3VY3qFPeWsDw==
+	b=foy6aqowyg0kIUYUoGWLRHioASstBH7w9pTGDmG8YCZamjc5Sdu7WbgAOGtlhVcGQ
+	 EJaIMD+CE637KhgfQ5yT6iT+fQHsuyXJ5YoCxr25ioPwub52+AEeZQ3Jhvf+dcOSL3
+	 XrNlc+1Dxh9Bs2Z4IHbiV5z2e8n2M3Od8md3bBQlpwvORzlrRADwR8GIkm1i5spzQZ
+	 cb8T3pAa9JbGV1SYZNzb92mprT6YWNHjyNFpC5mblIvuRO89vUysl0ib6c6xeL1fIE
+	 0F7E/Nfck8JTYBMfnWrzyj6GCdkp0rNPFyW5jjuYVQLDH/g75MUlk8TzZdUU6VN8C4
+	 Qe1R7uQPWhHqg==
 Received: from benjamin-XPS-13-9310 (unknown [100.64.1.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0738417E0A27;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9DBEF17E0B0F;
 	Fri, 25 Sep 2026 10:51:58 +0200 (CEST)
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 To: nicolas.dufresne@collabora.com,
@@ -63,17 +63,18 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH v4 1/3] media: verisilicon: Remove deprecated variant
-Date: Fri, 25 Sep 2026 10:51:50 +0200
-Message-ID: <20260925085152.41852-2-benjamin.gaignard@collabora.com>
+Subject: [PATCH v4 2/3] media: dt-bindings: media: nxp, imx8mq-vpu: Remove nxp,imx8mq-vpu
+Date: Fri, 25 Sep 2026 10:51:51 +0200
+Message-ID: <20260925085152.41852-3-benjamin.gaignard@collabora.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260925085152.41852-1-benjamin.gaignard@collabora.com>
 References: <20260925085152.41852-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_015202_652952_1473229D 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260925_015202_359633_BBE3C977 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,185 +89,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"nxp,imx8mq-vpu" is tagged as deprecated since:
-commit f3116f2e52e6 ("media: dt-bindings: media: nxp, imx8mq-vpu: Split G1 and G2 nodes")
-merged since v5.17-rc1. There is more reference to it since that.
-Remove for driver to clean up the code.
+nxp,imx8mq-vpu has been tagged has deprecated since a while.
+After driver clean up it is time to remove it.
 
 Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
 changes in v4:
-- rework commit message
+- add r-b tag
 
- .../media/platform/verisilicon/hantro_drv.c   |  10 --
- .../media/platform/verisilicon/imx8m_vpu_hw.c | 105 ------------------
- 2 files changed, 115 deletions(-)
+ .../devicetree/bindings/media/nxp,imx8mq-vpu.yaml      | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index ad71c0402ef3..12c804dcc669 100644
---- a/drivers/media/platform/verisilicon/hantro_drv.c
-+++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -725,7 +725,6 @@ static const struct of_device_id of_hantro_match[] = {
- #endif
- #ifdef CONFIG_VIDEO_HANTRO_IMX8M
- 	{ .compatible = "nxp,imx8mm-vpu-g1", .data = &imx8mm_vpu_g1_variant, },
--	{ .compatible = "nxp,imx8mq-vpu", .data = &imx8mq_vpu_variant, },
- 	{ .compatible = "nxp,imx8mq-vpu-g1", .data = &imx8mq_vpu_g1_variant },
- 	{ .compatible = "nxp,imx8mq-vpu-g2", .data = &imx8mq_vpu_g2_variant },
- #endif
-@@ -1100,15 +1099,6 @@ static int hantro_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
+diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+index 19528262810a..69619d2c86fa 100644
+--- a/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
++++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-vpu.yaml
+@@ -14,12 +14,10 @@ description:
  
--	/*
--	 * Support for nxp,imx8mq-vpu is kept for backwards compatibility
--	 * but it's deprecated. Please update your DTS file to use
--	 * nxp,imx8mq-vpu-g1 or nxp,imx8mq-vpu-g2 instead.
--	 */
--	if (of_device_is_compatible(pdev->dev.of_node, "nxp,imx8mq-vpu"))
--		dev_warn(&pdev->dev, "%s compatible is deprecated\n",
--			 match->compatible);
--
- 	INIT_DELAYED_WORK(&vpu->watchdog_work, hantro_watchdog);
+ properties:
+   compatible:
+-    oneOf:
+-      - const: nxp,imx8mq-vpu
+-        deprecated: true
+-      - const: nxp,imx8mq-vpu-g1
+-      - const: nxp,imx8mq-vpu-g2
+-      - const: nxp,imx8mm-vpu-g1
++    enum:
++      - nxp,imx8mq-vpu-g1
++      - nxp,imx8mq-vpu-g2
++      - nxp,imx8mm-vpu-g1
  
- 	vpu->clocks = devm_kcalloc(&pdev->dev, vpu->variant->num_clocks,
-diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-index fa4224de4b99..b091d807ae4e 100644
---- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-@@ -25,55 +25,6 @@
- #define CTRL_G1_PP_FUSE		0x0c
- #define CTRL_G2_DEC_FUSE	0x10
- 
--static void imx8m_soft_reset(struct hantro_dev *vpu, u32 reset_bits)
--{
--	u32 val;
--
--	/* Assert */
--	val = readl(vpu->ctrl_base + CTRL_SOFT_RESET);
--	val &= ~reset_bits;
--	writel(val, vpu->ctrl_base + CTRL_SOFT_RESET);
--
--	udelay(2);
--
--	/* Release */
--	val = readl(vpu->ctrl_base + CTRL_SOFT_RESET);
--	val |= reset_bits;
--	writel(val, vpu->ctrl_base + CTRL_SOFT_RESET);
--}
--
--static void imx8m_clk_enable(struct hantro_dev *vpu, u32 clock_bits)
--{
--	u32 val;
--
--	val = readl(vpu->ctrl_base + CTRL_CLOCK_ENABLE);
--	val |= clock_bits;
--	writel(val, vpu->ctrl_base + CTRL_CLOCK_ENABLE);
--}
--
--static int imx8mq_runtime_resume(struct hantro_dev *vpu)
--{
--	int ret;
--
--	ret = clk_bulk_prepare_enable(vpu->variant->num_clocks, vpu->clocks);
--	if (ret) {
--		dev_err(vpu->dev, "Failed to enable clocks\n");
--		return ret;
--	}
--
--	imx8m_soft_reset(vpu, RESET_G1 | RESET_G2);
--	imx8m_clk_enable(vpu, CLOCK_G1 | CLOCK_G2);
--
--	/* Set values of the fuse registers */
--	writel(0xffffffff, vpu->ctrl_base + CTRL_G1_DEC_FUSE);
--	writel(0xffffffff, vpu->ctrl_base + CTRL_G1_PP_FUSE);
--	writel(0xffffffff, vpu->ctrl_base + CTRL_G2_DEC_FUSE);
--
--	clk_bulk_disable_unprepare(vpu->variant->num_clocks, vpu->clocks);
--
--	return 0;
--}
--
- /*
-  * Supported formats.
-  */
-@@ -234,45 +185,10 @@ static const struct hantro_fmt imx8m_vpu_g2_dec_fmts[] = {
- 	},
- };
- 
--static int imx8mq_vpu_hw_init(struct hantro_dev *vpu)
--{
--	vpu->ctrl_base = vpu->reg_bases[vpu->variant->num_regs - 1];
--
--	return 0;
--}
--
--static void imx8m_vpu_g1_reset(struct hantro_ctx *ctx)
--{
--	struct hantro_dev *vpu = ctx->dev;
--
--	imx8m_soft_reset(vpu, RESET_G1);
--}
--
- /*
-  * Supported codec ops.
-  */
- 
--static const struct hantro_codec_ops imx8mq_vpu_codec_ops[] = {
--	[HANTRO_MODE_MPEG2_DEC] = {
--		.run = hantro_g1_mpeg2_dec_run,
--		.reset = imx8m_vpu_g1_reset,
--		.init = hantro_mpeg2_dec_init,
--		.exit = hantro_mpeg2_dec_exit,
--	},
--	[HANTRO_MODE_VP8_DEC] = {
--		.run = hantro_g1_vp8_dec_run,
--		.reset = imx8m_vpu_g1_reset,
--		.init = hantro_vp8_dec_init,
--		.exit = hantro_vp8_dec_exit,
--	},
--	[HANTRO_MODE_H264_DEC] = {
--		.run = hantro_g1_h264_dec_run,
--		.reset = imx8m_vpu_g1_reset,
--		.init = hantro_h264_dec_init,
--		.exit = hantro_h264_dec_exit,
--	},
--};
--
- static const struct hantro_codec_ops imx8mq_vpu_g1_codec_ops[] = {
- 	[HANTRO_MODE_MPEG2_DEC] = {
- 		.run = hantro_g1_mpeg2_dec_run,
-@@ -319,30 +235,9 @@ static const struct hantro_irq imx8mq_g2_irqs[] = {
- 	{ "g2", hantro_g2_irq },
- };
- 
--static const char * const imx8mq_clk_names[] = { "g1", "g2", "bus" };
--static const char * const imx8mq_reg_names[] = { "g1", "g2", "ctrl" };
- static const char * const imx8mq_g1_clk_names[] = { "g1" };
- static const char * const imx8mq_g2_clk_names[] = { "g2" };
- 
--const struct hantro_variant imx8mq_vpu_variant = {
--	.dec_fmts = imx8m_vpu_dec_fmts,
--	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
--	.postproc_fmts = imx8m_vpu_postproc_fmts,
--	.num_postproc_fmts = ARRAY_SIZE(imx8m_vpu_postproc_fmts),
--	.postproc_ops = &hantro_g1_postproc_ops,
--	.codec = HANTRO_MPEG2_DECODER | HANTRO_VP8_DECODER |
--		 HANTRO_H264_DECODER,
--	.codec_ops = imx8mq_vpu_codec_ops,
--	.init = imx8mq_vpu_hw_init,
--	.runtime_resume = imx8mq_runtime_resume,
--	.irqs = imx8mq_irqs,
--	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
--	.clk_names = imx8mq_clk_names,
--	.num_clocks = ARRAY_SIZE(imx8mq_clk_names),
--	.reg_names = imx8mq_reg_names,
--	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
--};
--
- static const struct of_device_id imx8mq_vpu_shared_resources[] = {
- 	{ .compatible = "nxp,imx8mq-vpu-g1", },
- 	{ .compatible = "nxp,imx8mq-vpu-g2", },
+   reg:
+     maxItems: 1
 -- 
 2.53.0
 
