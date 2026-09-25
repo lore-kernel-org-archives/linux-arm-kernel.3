@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB6BC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9273C98324
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OPYdGvaeqKfsakbhab7FT3Z4eB6jIblMd/9b4ZAI5Y4=; b=j8AwFZbTWvTxN4AAtzr2PA25Vk
-	R9zOnC9qrq+z7B0dASk4jLz54LVa37CDIV+/ScU4e2i9qzh/f2ADvCqPzrqoNkOubvu78X5qA3MoS
-	bpyiUjMXLhm6vPUeCJwH8jRhRBT7/0nmelyle1FD36HcmxWie0BvojTX6ZqT23IPMlJeYIKF69JMM
-	91RnPNc30jPG1F+zfLFRR2jClKdewHGQaC3urbF8GAHFL2bKBeoCWpE419x225OlM0XwQYQt93ebR
-	GX885kzyE484PmtQRXPzcMA8gh0U9ebYGDtBQrLxS+gyrAhHAhAVp8JYB5E6XUSJfG+LH6rWRN/2F
-	v+dlwKog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5RSbzXLvSVEOnRR2F+nkCevP1o0t0p9ITeJnENpJDZs=; b=Jj57z0kV+tJris97hfgEOuQ2yf
+	zp3lEU+YtSRo3RVbUv5KcKFkzmu27sm7jI/5qEGh9+bvWzNAR1CZ0zHV+KrYjJWmREGCgGOofzpso
+	QwOx4PRdnCQnIBH8/WURJi6BkDBmz4Txq73MjoM+3cC0m+tgFXwHYvF7PGAgUbj+r1mRdnW+shPWm
+	z91tN58mskVjXtivPPNQ4abCdRjp5oVX9K/H6hPKxIUgLvGTof8u1xOvrZbZOYHDUSA0RBXlf8UpK
+	+EwqZgPnCs8/NoWhRZDlcV0j9vwQABdACye+Jl3d/qGUBPGCafUEoezfnXg7rcWvZUAWZFgDQ7kjh
+	mslkTOSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6Lo-0000000DUYU-2zyI;
-	Fri, 25 Sep 2026 13:52:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xA6PZ-0000000DVH5-2dxJ;
+	Fri, 25 Sep 2026 13:56:25 +0000
+Received: from mail-lr2-x0f.google.com ([2a00:1450:4864:38::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6Li-0000000DUWg-2q5g
+	id 1xA6PV-0000000DVFt-3Qe2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 13:52:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 374D0438D8;
-	Fri, 25 Sep 2026 13:52:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D711F00893;
-	Fri, 25 Sep 2026 13:52:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790344346;
-	bh=OPYdGvaeqKfsakbhab7FT3Z4eB6jIblMd/9b4ZAI5Y4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VwcBmS8sHlMG3/7lChWi5p+y2gyB89Cx+uQE20O1NGf3Q+3OJStlLP9ZCdQiCL/Vm
-	 m75b9xtZ0fxvF7vpl4ZJbswK8Z2Xznt04s6oKhyUUyO0kawakRvZbaoZBTz78PtkY8
-	 7qLtbm8QpHW7oLPN0bloqzXIkDFkr5xZ4HHlKv2Pi9R7JZ9H/q/gzamYKqxcxrYnhT
-	 bxQyTqPwDRAVJv/vnrG2fc+z+OoGtoFxnnP+3XACA1/IkUqY8fubOgQIxWvQYuh49/
-	 97aPgihCGkaoe+OuRR6Py7UQaFhcHkSvvl7NjTKhdMXQF3Xe/XDhl5dqXsODd4N3gQ
-	 wl5o/wxXa0+9Q==
-Subject: Re: [PATCH net v2 2/4] net: axienet: quiesce the TX path before
- axienet_stop() tears it down
-From: netdev-bot+sashiko@kernel.org
-To: maimon.sagi@gmail.com
-Cc: netdev@vger.kernel.org, radhey.shyam.pandey@amd.com, michal.simek@amd.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
- daniel@iogearbox.net, andybnac@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 25 Sep 2026 13:52:25 +0000
-Message-ID: <179034434500.2160803.13601294298532568960@kernel.org>
-In-Reply-To: <20260924135116.185161-3-maimon.sagi@gmail.com>
-References: <20260924135116.185161-3-maimon.sagi@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 25 Sep 2026 13:56:23 +0000
+Received: by mail-lr2-x0f.google.com with SMTP id 38308e7fff4ca-3a59fa3112cso7227621fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 06:56:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790344578; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Pn0FM81qM80751Aprp3+slr6ZvaWaMYvO3ZVbz4xHTchN33IZWk6ZnTny2uXfgyDEi
+         P/EDVWWHKCR5MD46NQXNSWRES2XGaKCpI4iXwSOyTjFLWtc+kbIgeaj7/jQLTUf/tWF/
+         /hIk4/UMvtrHnmelqpkFCfNKRpgyl4rpJbZnLL6BodIefrP7g1b/QBUdk1UesSstQOhL
+         2q22nClEiP/4j+t8PPFqsvHs+mt/R+eBht31PeOsFo1vDrhIFrY5OnYYPvms8zNoVBF7
+         3kWqxa/Kj3EB7Kl57EbnKNTiZAnsEqOFH38vjDjpXp+t50FndsHxfnaHgTJZv7xE3izR
+         eozg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5RSbzXLvSVEOnRR2F+nkCevP1o0t0p9ITeJnENpJDZs=;
+        fh=cyeequsn9wXtSta5jD6tjlGrE2bsfJY2d4XFJsfD68o=;
+        b=GZw+qEx12F4I80irSN1F/sm3URtO0aVDPLpqQR4QJMXPk4xbx7rbxA10fUgBEEJ9sp
+         /dWFJO8OddZi8kJq9m2uni2WnDY6p3VcZjSi4Vtq8arsydV7UXQvgVXjFhGIU1klse7j
+         QGcP+m1v2lGSrjU5Kyxgzshx1bPqrM613kO85o7S77WdpRpk/Gd1yNEoxpKdYM+1o3Uh
+         46zkwFN6HuByGIkEI/zrKy0H2txRypOIUBrDJaCSBjTGBcxzn5u9BAKEezLqGDbRQ7TM
+         TuLuYEG3p9cHvYCQxB4gY/3eavNSChg+6HRjvSxMZ6uL57TiMuLBBU1SzI+G9qTm3b8J
+         ZpPA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790344578; x=1790949378; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5RSbzXLvSVEOnRR2F+nkCevP1o0t0p9ITeJnENpJDZs=;
+        b=Ah3nxQznwpXpiue5j386eNtBq6lCG2LklmXtDe2NgyQde4b1xGKaIruHTxBhD/XuSg
+         pqaVrCGcARMS+CHqkmTJdS1z8x9kr9k4qzbJYOwBSMj7SC6T2o0EDrCS2kSuroSWEzbA
+         y0NMH8EZkds9xvPvEFAddAFCCPoTtp9XQ+HKEW0bi5Jx+pqN6QNr8cJpVHkXayPTpXWa
+         RI2r8xCVM42gQUhBObQRaK0D0IdCoRoeSHjbv5QTubORFIlvlmpmEROroKdYcY0U1P0Y
+         jdS67vOoapEVNA9yjg4rNHUlBARfEgB3h6JuGPpepkLS/8amLUhpJMO/Z7pr2W7IjEGg
+         wg3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790344578; x=1790949378;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5RSbzXLvSVEOnRR2F+nkCevP1o0t0p9ITeJnENpJDZs=;
+        b=TsYRck2xJe6P2KCA4tvDJGGfIHOjGV51TFxyW5ybAw476L5puVsCIMa5Y1hniVKNhl
+         ELKoR5amREQFo5cYUSUbvOg0VXK3QiOI4Sl//tqK79GrOdV9HRwrWBzAaKlzZIl4c15+
+         xuoRnw5t9VS5XrKZ3Yh0GbhSj98gc7wJGMhZrAtDFefs9s9GOJ+IaD57dgjG+CArr2g5
+         iSMitl7EWdauFK5Kc2C7AhRNhYHh/5YXOOE1UCdYfcN37AkDl0FggnzvZBg+UIANDR2r
+         kMyGGuylEME52sslSPJEWQjXgJBH0KW+E8TCEkn4pJWJIvJ8njPvgUYxckVQnCagQjgl
+         xBeA==
+X-Forwarded-Encrypted: i=1; AKwUvBxcGRaZCmohyViYKgSVkAgc9zZdrA1NBoszNd/WOrwBXPOFVFzHd3qkqyN/PeZgcF6+DKbLz4TWFoYR9PJRtnuD@lists.infradead.org
+X-Gm-Message-State: AFuF++lpxVcri4QFKymx4GxA6QqglMQMhc3BS7aYoqEeimAL46YKVfA2
+	9EM0hDfDzecSVufzg1eKD5n4m3R3X2bhu3qP4rUvWU00gz5H1N+l8QhILks5Y1Og23vwJTkiE6w
+	TESEorGfDgbw5XqEfovft4kuVkMZocvJgn+2K+RzTDg==
+X-Gm-Gg: AYBFou1gA2CNUfomBpcBjEurtv0BnRl05aZwCuspt/j1kjDoAdP3ZKWdXYHgyB5HU5Y
+	9GSznHrj0jFHlKq/pyGrPg75ktkKcPENLS/Rbfd4osPlMvP7nca9mnLBpm6FgYJrD1ilAnLb4hK
+	tBBoz68XQTIQ3R6HXFJLWlAA/kfJky8kG2IWUc+borH0boMAPouhGnuvjYzRVU7Z+FODguuVlgM
+	Kp/wetPwindv6LM8qpReSNS8NtZoim/KJuFv9aVmQx+pLrlLscYNwhUdkt/L78lBjO2pY+V454g
+	UqETMsm8kQPIX1A8OjYJTd6veUdinCa1Co+nJV6H/C46vBOUcdUZDy20
+X-Received: by 2002:a2e:be1d:0:b0:3a5:dfe2:7f5c with SMTP id
+ 38308e7fff4ca-3a63c0df7bemr13420501fa.16.1790344578255; Fri, 25 Sep 2026
+ 06:56:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260924071445.441822-1-adam@wermuth.pl> <20260924071445.441822-2-adam@wermuth.pl>
+ <e03db2e9-085b-49ff-8d4a-bc112bc4ddd7@kwiboo.se> <CABkrwJ6uvjS8bez6j0MZbp2Y+O9RhyU09YOLrUzHaeUEVC=Qkg@mail.gmail.com>
+ <arZ0nqBvHDzSbZOE@venus>
+In-Reply-To: <arZ0nqBvHDzSbZOE@venus>
+From: Adam Wermuth <adam@wermuth.pl>
+Date: Fri, 25 Sep 2026 15:56:07 +0200
+X-Gm-Features: AclHuK-tBvtfu3ULfg1Xof4vNjCZDJ-C6A-b4CKwc6HFF2K6CA8VYr9U3QBsxtw
+Message-ID: <CABkrwJ5xdMcRJsjubSJcfMkTs5CzKdAvQK83Xar3gZPvO_wa0w@mail.gmail.com>
+Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Enable USB 2.0 host1 on Radxa
+ ROCK 3B
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_065622_427941_E0AAC572 
+X-CRM114-Status: GOOD (  36.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,206 +122,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi,
 
-Low priority / nit picks for your consideration:
+On Thu, 25 Sep 2026 3:26 PM, Sebastian Reichel wrote:
+> Why would this be better suited as an Overlay? Nothing describes the
+> specific card plugged in as it is auto-discovered via USB. The
+> overlays are mostly required for things that cannot easily be
+> auto-detected. FWIW we don't have M.2 Key M as a DT overlay either.
 
-- [Low] This patch only works when the previous commit in the series,
-  "net: axienet: start the TX queue in axienet_open()", is also applied.
+The overlay was Jonas' suggestion, so I'll let him explain his
+reasoning. My own understanding was that it would avoid powering the
+slot (always-on supply plus RESET#/W_DISABLE1# hogs) on boards where
+nothing is plugged in.
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it is still
-  reachable after the whole series: on the dmaengine backend,…
-- [High] This problem wasn't introduced by this patch, but it can undo
-  the new TX quiesce and cause use-after-free, oops or hang after an…
-- [Medium] This problem wasn't introduced by this patch, but the legacy-
-  DMA axienet_stop() leaks outstanding TX skbs and their streaming DMA…
+That said, I agree that the module itself is auto-discovered via USB,
+and the Key M slot on this board is described in the base DT as well,
+so I'm fine with keeping the B-key slot there, as in v1.
 
---
+> Something to consider is, that for Key E and Key M there is a proper
+> DT binding now: Documentation/devicetree/bindings/connector/pcie-m2-*.yam=
+l
+>
+> We probably want the same for Key B.
 
-net: axienet: quiesce the TX path before axienet_stop() tears it down
+Thanks for the pointer. As far as I can see, a Key B binding would
+also need driver support to handle the supply, RESET# and W_DISABLE1#,
+so it is a larger piece of work. Would it be acceptable to describe
+the slot in the base DT for now and move to a connector binding once
+one exists for Key B?
 
-This commit adds netif_tx_disable() to the legacy DMA branch of
-axienet_stop(). The call comes after TX NAPI is disabled and the error
-work is flushed, so a transmit still in progress when axienet_suspend()
-runs finishes before the TX ring is freed. The dmaengine path is left
-unchanged on purpose.
+Jonas, Heiko, what do you think?
 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index fb26d2e39faca..6d448d0b523d3 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -1739,6 +1739,14 @@ static int axienet_stop(struct net_device *ndev)
->  
->  		napi_disable(&lp->napi_tx);
->  		napi_disable(&lp->napi_rx);
-> +
-> +		/* Nothing can wake the queue now: the error work returns early
-> +		 * once lp->stopping is set, and TX NAPI is disabled.  Stop it and
-> +		 * wait out any transmit in progress before the ring goes away.
-> +		 * dev_close() has already done this, but axienet_suspend() calls
-> +		 * us directly.
-> +		 */
-> +		netif_tx_disable(ndev);
+The fan patch is independent of this, so I could resend it on its
+own in the meantime.
 
-[Severity: Low]
-This netif_tx_disable() runs on every legacy DMA stop, not only from
-axienet_suspend(). That includes the normal dev_close() -> ndo_stop path.
-So after each ifdown, __QUEUE_STATE_DRV_XOFF stays set on every TX queue.
+Adam
 
-In this tree the next open clears it again. That happens through the
-netif_start_queue() added by the previous commit, 718829c2b094 ("net:
-axienet: start the TX queue in axienet_open()"):
-
-axienet_open() {
-    ...
-	netif_start_queue(ndev);
-
-	return 0;
-    ...
-}
-
-Without that commit, nothing in the driver clears DRV_XOFF on reopen, and
-__dev_open()/dev_activate() don't clear it either. The ring is empty after
-reopen, so axienet_tx_poll() never reaches netif_wake_queue().
-
-This patch has a Fixes: tag, and its hunk context doesn't overlap with the
-prerequisite. If it is backported on its own, would TX stay stopped for
-good after the first down/up cycle? Could the commit message mention the
-dependency on the previous patch, so that stable picks up both?
-
-Related to this, the commit message says:
-
-    On the dev_close() path this is covered by the core:
-    dev_deactivate_many() has already quiesced the qdisc and waited for
-    in-flight transmits with synchronize_net().
-
-The new comment also says "dev_close() has already done this".
-dev_deactivate_many() waits for in-flight transmits but doesn't set
-DRV_XOFF. So on the close path the new call does change the queue state.
-Could the commit message and the comment say so?
-
->  	}
-
-[Severity: High]
-This isn't a bug introduced by this patch, but the dmaengine branch of
-axienet_stop() looks open to the same race from axienet_suspend(). It is
-still unchanged at the end of the series.
-
-axienet_suspend() calls netif_device_detach() and then calls
-axienet_stop() directly. The dmaengine branch then does this without
-netif_tx_disable() or any TX lock barrier:
-
-	dmaengine_terminate_sync(lp->tx_chan);
-	...
-	for (i = 0; i < TX_BD_NUM_MAX; i++)
-		kfree(lp->tx_skb_ring[i]);
-	kfree(lp->tx_skb_ring);
-	...
-	dma_release_channel(lp->tx_chan);
-
-Until the TX channel is terminated, axienet_dma_tx_cb() can still run:
-
-	netif_txq_completed_wake(txq, 1, len,
-				 CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
-				 2);
-
-That wakes the stopped queue, clears the DRV_XOFF set by
-netif_device_detach(), and reschedules the qdisc. On this path the qdisc
-is never deactivated, and netif_running() stays true.
-
-Can axienet_start_xmit_dmaengine() then run during or after the teardown?
-It does:
-
-	dma_dev = lp->tx_chan->device;
-	...
-	skbuf_dma = axienet_get_tx_desc(lp, lp->tx_ring_head);
-	...
-	sg_init_table(skbuf_dma->sgl, sg_len);
-
-That would write into the freed skbuf_dma and tx_skb_ring. It would also
-submit descriptors to a terminated or released channel.
-
-Nothing waits for an xmit that was already past the stopped check when
-netif_device_detach() ran, either.
-
->  
->  	cancel_work_sync(&lp->rx_dim.work);
-
-[Severity: High]
-This is a pre-existing issue, but can the resume path undo the TX quiesce
-added here? axienet_resume() ignores the return value of axienet_open()
-and always attaches:
-
-	rtnl_lock();
-	axienet_open(ndev);
-	rtnl_unlock();
-
-	netif_device_attach(ndev);
-
-netif_running() is still true, so netif_device_attach() calls
-netif_tx_wake_all_queues() even when open failed.
-
-axienet_open() also overwrites the result of the reset:
-
-	ret = axienet_device_reset(ndev);
-	axienet_unlock_mii(lp);
-
-	ret = phylink_of_phy_connect(lp->phylink, lp->dev->of_node, 0);
-
-axienet_device_reset() fails if __axienet_device_reset() times out. It
-also fails if axienet_dma_bd_init() can't allocate and takes its error
-path:
-
-out:
-	axienet_dma_bd_release(ndev);
-	return -ENOMEM;
-
-In either case open keeps going. lp->tx_bd_v is then freed, or still stale
-from the suspend-time axienet_dma_bd_release(). Open reaches
-netif_start_queue() and returns 0.
-
-Would axienet_start_xmit() then write BDs into a freed or NULL tx_bd_v,
-and program a stale tx_bd_p into XAXIDMA_TX_TDESC?
-
-On the dmaengine path, axienet_init_dmaengine() can fail during resume.
-Its error path releases the channels and frees tx_skb_ring, or tx_chan is
-left holding an ERR_PTR. netif_device_attach() still wakes the queue.
-axienet_start_xmit_dmaengine() would then dereference lp->tx_chan->device
-and the freed ring.
-
-A later dev_close() -> axienet_stop() would then call
-dmaengine_terminate_sync() on the bad channel and kfree() tx_skb_ring a
-second time.
-
-On the legacy path, phylink_of_phy_connect() or request_irq() can fail on
-resume. In that case napi_tx and napi_rx stay disabled from the suspend.
-Would a later dev_close() -> axienet_stop() -> napi_disable() then spin
-forever in napi_disable_locked() while holding RTNL?
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but does the legacy DMA stop
-path leak outstanding TX skbs and their DMA mappings?
-
-With this change an in-flight axienet_start_xmit() can finish publishing
-its BDs. Then axienet_dma_stop() resets the engine, and
-axienet_dma_bd_release() only frees the descriptor array:
-
-	dma_free_coherent(lp->dev,
-			  sizeof(*lp->tx_bd_v) * lp->tx_bd_num,
-			  lp->tx_bd_v,
-			  lp->tx_bd_p);
-
-Any BD that axienet_tx_poll() had not reclaimed keeps its
-dma_map_single() mapping and cur_p->skb. The next axienet_dma_bd_init()
-allocates a fresh ring, so nothing can reach those mappings any more.
-
-axienet_dma_err_handler() does walk the TX BDs, calling dma_unmap_single()
-and dev_kfree_skb_irq() for each one. Should axienet_stop() do the same
-before it releases the ring?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924135116.185161-1-maimon.sagi%40gmail.com
+pt., 25 wrz 2026 o 15:26 Sebastian Reichel
+<sebastian.reichel@collabora.com> napisa=C5=82(a):
+>
+> Hi,
+>
+> On Thu, Sep 24, 2026 at 09:03:00PM +0200, Adam Wermuth wrote:
+> > On Thu, 24 Sep 2026 6:12 PM, Jonas Karlman wrote:
+> > > This and next patch is likely best suited as an dt-overlay.
+> >
+> > Thanks for the review. That makes sense, as the B-key slot is not
+> > always populated.
+> >
+> > For v2 I will move the host1 enablement and the WWAN power, RESET#
+> > and W_DISABLE1# handling into a new rk3568-rock-3b-wwan.dtso overlay,
+> > and keep only the fan patch in the base DT.
+>
+> Why would this be better suited as an Overlay? Nothing describes the
+> specific card plugged in as it is auto-discovered via USB. The
+> overlays are mostly required for things that cannot easily be
+> auto-detected. FWIW we don't have M.2 Key M as a DT overlay either.
+>
+> Something to consider is, that for Key E and Key M there is a proper
+> DT binding now: Documentation/devicetree/bindings/connector/pcie-m2-*.yam=
+l
+>
+> We probably want the same for Key B.
+>
+> Greetings,
+>
+> -- Sebastian
+>
+>
+> >
+> >
+> > czw., 24 wrz 2026 o 18:12 Jonas Karlman <jonas@kwiboo.se> napisa=C5=82(=
+a):
+> > >
+> > > Hi Adam,
+> > >
+> > > On 9/24/2026 9:14 AM, Adam Wermuth wrote:
+> > > > The USB 2.0 data lines of the M.2 B-key slot are routed to USB2_HOS=
+T3,
+> > > > which is served by usb_host1_ehci/ohci through the host port of
+> > > > usb2phy1. Enable the controllers and the PHY port so that modules i=
+n
+> > > > the B-key slot, such as LTE modems, can enumerate.
+> > >
+> > > This and next patch is likely best suited as an dt-overlay.
+> > >
+> > > Regards,
+> > > Jonas
+> > >
+> > > >
+> > > > Signed-off-by: Adam Wermuth <adam@wermuth.pl>
+> > > > ---
+> > > >  arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts | 13 +++++++++++++
+> > > >  1 file changed, 13 insertions(+)
+> > > >
+> > > > diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch=
+/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> > > > index 149a5306bb03..ad9a91c0d0d0 100644
+> > > > --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> > > > +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> > > > @@ -758,6 +758,14 @@ &usb_host0_xhci {
+> > > >       status =3D "okay";
+> > > >  };
+> > > >
+> > > > +&usb_host1_ehci {
+> > > > +     status =3D "okay";
+> > > > +};
+> > > > +
+> > > > +&usb_host1_ohci {
+> > > > +     status =3D "okay";
+> > > > +};
+> > > > +
+> > > >  &usb_host1_xhci {
+> > > >       status =3D "okay";
+> > > >  };
+> > > > @@ -780,6 +788,11 @@ &usb2phy1 {
+> > > >       status =3D "okay";
+> > > >  };
+> > > >
+> > > > +&usb2phy1_host {
+> > > > +     phy-supply =3D <&vcc5v0_usb_host>;
+> > > > +     status =3D "okay";
+> > > > +};
+> > > > +
+> > > >  &usb2phy1_otg {
+> > > >       phy-supply =3D <&vcc5v0_usb_host>;
+> > > >       status =3D "okay";
+> > >
+> >
 
