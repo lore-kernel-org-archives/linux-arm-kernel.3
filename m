@@ -4,117 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC78DC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D1BC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRpIuFoFTSYDMCEFJGiUusnifNbms8g6CYYPzdMnXGI=; b=yc7aJFMSB8MwCnxRSqct3DIF6p
-	1Kn+AStPcTRAj21yF0uAwqXTV07HKgrYKwjaFR/05T8Na1a58lfbOZckEZv5x8++riN8lGzGLr5rW
-	eq5eOiPQ4OyE2tEQS/k4yrZWjF1f3+j8hsLyJXJcPIl2EoQlXPPh9+k7VcP0/yfrDyXm5g3ElWzLv
-	Ao/+SAx1jm+2S5mU/UYXtxZpPjHTSxRVauk3tYYgcjNC08WNbCxmZ3KoCTJUgXdWsb55INvNa/Z2c
-	wQ785NUaHfvqXOtzAMoqCwSo9R96mbWja8Pe272aWRxWNzZMNUs8xP5xhNDTPLEqNQH2/AXy2IbvA
-	ysy51lGQ==;
+	bh=ppqYYenfcVVV1g3Rd9jSAJzxbG403OqrOBLeQ08YcPU=; b=JumfjUzSMg1Drg+9M0GYjOWteO
+	bXC9zgP117A3334SpD3aYuW2+DVyA1Owokfv7RRV/XTDwUskoaBREoVfvGp5Ncg5rNr9i2B/rFJd9
+	G74vEfpAG3bDfD7Lq88hnxldsCH+DZxVCCXaip69oLN1qq72GE7HBFyjBAcnjWtwPdBj6aXPJODCW
+	4LjSN+0rvI5r1nWpxX/dvUB59Nys2GtXlxY/ewgtACV7yZa9+pdovDAZ2j+KjXHb2HcyW6HtkfwVv
+	bhAzG9z5+b1iF4Ie8V2q5RPgQfLz1fnIc/JDWBWKarXR1TUtTyuANqjAkv3bVrDaadDuOG6Eknqhq
+	TZZHT/qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3Od-0000000D7ad-1nlF;
-	Fri, 25 Sep 2026 10:43:15 +0000
-Received: from mail-pj2-x0d.google.com ([2607:f8b0:4864:39::d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3Ob-0000000D7Zn-23dz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 10:43:14 +0000
-Received: by mail-pj2-x0d.google.com with SMTP id 98e67ed59e1d1-3a0b89592d2so318777a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 03:43:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790332993; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Xhuv+yK40jCc3ro8PUKaCepQJ2jrrBU5eOfiAROGXkXu1UNb1ivku4cqKQKZLdhJvz
-         cUcmao9kLVhCBmLCc7+UDVUsWHrq3MKHx8EdpUDWbgRKND4ojji4Wm115LXJ+7qE9sN6
-         zbKxN9xE6q690xzGuNi8TMKm2KBomoZNFJOOD+7hx4ZDlOPONUaAvdzgGqIc701xkvoZ
-         5RL5kWDqHVxVZgGcdGV2sQKaixZGrysU3yv4x+iUWQMwM9xEeY4U1G6b2hm9Fqmn3zRe
-         Mt1WEHQi9qe2un6zOEPZYRC3P8xSYqUiEYAiIf+K1+HBS7f6eUk95fyOkIB7f/e2gkqu
-         PXUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=BRpIuFoFTSYDMCEFJGiUusnifNbms8g6CYYPzdMnXGI=;
-        fh=tY7Snp8luyYAsNx4Ox+TGC9QgzGL4to5BLPRoJ8Z1Yg=;
-        b=G87FIo6+7Fzp0qwOC1w9tj0lFRhWL4CtwjnoosAerO/ZNfGAJO2+6us6quw4tkuPhG
-         Bvh9llWJJpT+xe69qmz/g9+Kd+KQLuMiPsu3bGlBRxxELh2RNcXwXkmE7hvb0zo+NyBv
-         UxbLgxUbyF/1vqj6pCvgYyS8+CDRdIMy7Uh7828d65tkhid70HGRa4nKy20K85byAnjz
-         Nyz0K8I9unbbIB9bVVBJPcl/XjrtRUpqORrf5P5IViQwF/9mwYj0vXErUSd7qrDqq9G3
-         70mpcoqGJI+zax5uncjdBqobwMJpV8Do1peex7UNbQUaepbybrmbnaWDgmmrwkT1wcKA
-         T3Cw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1790332993; x=1790937793; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BRpIuFoFTSYDMCEFJGiUusnifNbms8g6CYYPzdMnXGI=;
-        b=Qils32WESQC4ngyNDh7SbA1BhucZW55xuNlr9sLkNlJf17Ma2AKYpt1idtkJ/WiwkL
-         QFhxTIBr3Tz03WFJ64lLUVCaRsqmNDxbFCpJM3st+xk72icIDO5mi8M76qiRv/Hi/3D+
-         dysoO6lJqJkLGoYIfmwGNN2MHyKmnKgIBk2kFJz0sZxzPFWOXbxMSi4WfVwAJEkmfpDJ
-         pKK496ROyqtgRFHH7K5Bh1fXq0m5EKXKOcTGcJejClXxFOVLrsNkkWGtTgLRjL2VuBHQ
-         Afjd/p7rVQcDgjOkQWHEAo5tJRbiRYibKTNwjuxTSqsLT0R6W0Zr4UehavxhhZ3J7llk
-         1BCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790332993; x=1790937793;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=BRpIuFoFTSYDMCEFJGiUusnifNbms8g6CYYPzdMnXGI=;
-        b=spMufTA3G1PUxkeqJPwUfBfbm92rwmSmbrUV0eT9G7M+1YlYcGGqt5v6ZXUnAEm22D
-         NWTH/1dA//BenPVr5irJ9pJ93oRuaqtcG5jW53WxIOuNMnyrWm9AIKzQmkbpDUremvMH
-         5K+zuzqE7QsSh7z6nfNl6KuoBz/bjVJ+SAWRW0q9QdE5EzWYRbcJZ1U1TAOdE6/Qf7Ni
-         8jLgvcohqVEmR34fzHEFK5GKXdFBFAh20pFXyI5770Xr49OD7z5ih7DnpsrMKzDYglKZ
-         xzhGiOrHGBKyghwVWBANUK9b6IyQ+DSlzdFkJH9spJQ0jMFpegQS+QVxp+TwvOY/tJdo
-         049A==
-X-Forwarded-Encrypted: i=1; AKwUvBz/ggLOv1U/+hiBji1tIrxbfMHjDquLcJJsswQEHh8d0TjBkquX3UaEXvDj5aHBRY6ld00KzaCb7jVLeOXkg1rN@lists.infradead.org
-X-Gm-Message-State: AFuF++lwP4hK4IFu8MFOBOflMDjzcvuPR/ItJ1RityFGNHl0JQw6+h4U
-	T5LM8RfHmsEnMfzhY+TOmmQ/35j5pAJIC3hfyhTg81ZRv6ZmOuLJDCjmYdEtzjwy2k4yeIFKLt+
-	x3MVqmFI88Le/rEwoHritKUSUcNOGXJnDd0T/8K7hXQ==
-X-Gm-Gg: AYBFou1XINhxXSkpkHlUO7WTF0HW7wV0PMNWAsBoj2OMivL16FcR8vLP4IEBhjP5lRM
-	3+hJWF2FcBjx5UchLxibs3EFmbM4LdKhjhC3DzvOvfyw+mqSg5vS7ZyUYoHJ99AmiBi2qDENJ+U
-	FCO1R6TY35hUR2pSHKtEfHmGfBNl6VaSxWY0w9FuF96eEQdtvCzbzxIEJE+SA7TKYVCLektLIN5
-	S5+rUX6SbriGajHQ/amXYbfdps74k16nE4AzfQJY8zJTS/g1yf61BP2my3hnkzWKaXqyCnl35NT
-	3BtBkyhRawkCA1GG5fHMYJSw1FYxx/jxzr+uhr+x5+wbv7Hc74klHYkhJo0pmwd7QA==
-X-Received: by 2002:a17:90b:3d46:b0:39d:f317:44cd with SMTP id
- 98e67ed59e1d1-3a09860dff2mr4452158a91.14.1790332988129; Fri, 25 Sep 2026
- 03:43:08 -0700 (PDT)
+	id 1xA3Y0-0000000D8Ex-1a49;
+	Fri, 25 Sep 2026 10:52:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA3Xx-0000000D8EP-1FzN;
+	Fri, 25 Sep 2026 10:52:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D17B4169C;
+	Fri, 25 Sep 2026 03:52:47 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8C633F86F;
+	Fri, 25 Sep 2026 03:52:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790333571; bh=5CuDEdL9d8TbbYaEEXIEL/IwPXE3DV7YkxY7DhU4+yQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ve6g2dxAVpq6FXJMw7XDuiNFz6ragF4OO1ORyYsq8r1qvZZ9WS0+JKSDH9FRYQ1aR
+	 vHmRGkjra7jR0Wp8TUIWIZlxngRg/GI9oKE3bfbWugeGxss4Nn8Ut3W0WW8CXcfaCQ
+	 I7yaQUXem5BGCdyt0Ym4YfDTytnrUFd63uJhyESg=
+Date: Fri, 25 Sep 2026 11:52:43 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Kees Cook <kees@kernel.org>
+Cc: Ben Cressey <ben@cressey.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, Sami Tolvanen <samitolvanen@google.com>,
+	David Woodhouse <dwmw@amazon.co.uk>, kexec@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: kexec: mark machine_kexec() __nocfi
+Message-ID: <arZSe8hNnRPM5FqY@J2N7QTR9R3.cambridge.arm.com>
+References: <20260924-arm64-kexec-nocfi-v1-1-bbae2e2eadc8@cressey.dev>
+ <202609241804.BB23BF10@keescook>
 MIME-Version: 1.0
-References: <20260921-vrr-limiter-uapi-v1-0-2fcd7d011646@collabora.com>
- <20260921-vrr-limiter-uapi-v1-6-2fcd7d011646@collabora.com> <a5bc012a-9b9e-eb2b-d67e-a91f2d93d6bf@nvidia.com>
-In-Reply-To: <a5bc012a-9b9e-eb2b-d67e-a91f2d93d6bf@nvidia.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Fri, 25 Sep 2026 11:42:56 +0100
-X-Gm-Features: AclHuK-I3v9LGdL8IGkTOXDiWq73AU-KwLgPcsiWlNH5IITVHFCCiS3M3P2Jw5E
-Message-ID: <CAPj87rO2+oSA7KtocG-M1hqgQTJO=3Qxmg-OMC5MmOLaja_kRg@mail.gmail.com>
-Subject: Re: [PATCH RFC 06/25] drm/connector: hdmi: Add VTEM EMP generation
-To: Vidith Madhu <vmadhu@nvidia.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	"Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, Leo Li <sunpeng.li@amd.com>, 
-	Daniel Stone <daniels@collabora.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com, Derek Foreman <derek.foreman@collabora.com>, 
-	wayland-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202609241804.BB23BF10@keescook>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_034313_555429_621DA108 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260925_035253_425655_8F46DE95 
+X-CRM114-Status: GOOD (  37.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,38 +78,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vidith,
+On Thu, Sep 24, 2026 at 07:14:52PM -0700, Kees Cook wrote:
+> On Thu, Sep 24, 2026 at 10:42:30PM +0000, Ben Cressey wrote:
+> > With CONFIG_CFI=y the kCFI check on this call loads a type hash from
+> > kern_reloc - 4. arm64_relocate_new_kernel is SYM_CODE_START and carries
+> > no hash. Its copy also sits at the start of the control page, which is
+> > all that TTBR0 maps at this point, so the load faults and the kernel
+> > oopses after "Bye!" instead of entering the new kernel:
+> > [...]
+> > arm64_relocate_new_kernel cannot be given a type hash, since the linker
+> > script asserts that the relocation code starts at that symbol and a
+> > hash would have to precede it. Mark machine_kexec() __nocfi instead, as
+> > commit e2f8216ca2d8 ("arm64: Set __nocfi on swsusp_arch_resume()") did
+> > for the same pattern on the hibernate path and commit 2114796ca041
+> > ("x86/kexec: Mark machine_kexec() with __nocfi") did on x86.
+> 
+> I think e2f8216ca2d8 made a mistake here; using SYM_TYPED_FUNC_START
+> wouldn't have been tautological: the defense is making sure that the
+> indirect call itself can't be used with a bad pointer. 
 
-On Fri, 25 Sept 2026 at 04:49, Vidith Madhu <vmadhu@nvidia.com> wrote:
-> On Mon, 21 Sep 2026, Nicolas Frattaroli wrote:
-> > +     if (!crtc_state->vrr_enabled) {
-> I don't think we should use the vrr_enabled CRTC property to determine
-> VRR_EN in the VTEM EMP. Transitioning the VRR mode sink-side typically causes
-> blanking, and it was discussed in patch [03/25] that drivers should be
-> free to handle vrr_enabled changes as a seamless switch since it only
-> concerns source-side VRR state (this is how the NVIDIA driver handles it).
-> Maybe it would make sense to extend the qms_enabled connector property
-> introduced in this patchset to an enum of {Off, Gaming, QMS}? This would allow
-> a standard path to control the VRR state on the sink, separately from
-> vrr_enabled.
+It wasn't a mistake as such; it was a temporary bodge which wasn't
+followed up with a complete fix. See:
 
-I remain cautious of putting this amount of policy inside the kernel
-and/or left to individual IHV choices. It's relatively obvious for
-NVIDIA and AMD to say 'we'll always enable FRL/VRR to smash the
-maximum rate (unless it's contraindicated by USB-C bandwidth somehow)
-because the power burn is inconsequential', but if you were MediaTek
-or Rockchip you'd probably make a different decision. Then again, if
-you were an MTK device living on AC power, maybe you'd make the same
-decision. Or maybe AMD would want to make a different decision on
-laptop parts because the bandwidth is noticeable then.
+  https://lore.kernel.org/linux-arm-kernel/aXOZ1vsFvQRkxK9x@J2N7QTR9R3.cambridge.arm.com/
 
-The point is that I don't think we should bury this down in implicit
-kernel state. I'm with you on surfacing this as an explicit connector
-property. Possibly a bitmask of modes the user will use? e.g. {
-frr_only = 0, maybe_gaming_vrr = (1 << 0),  maybe_qms = (1 << 1), ...
-}? Or perhaps just a flag for whether the link should be negotiated as
-wide as possible or tight to the existing mode params?
+We knew the more complete fix was to use SYM_TYPED_FUNC_START(), but
+that was a bigger job, and (unfortunately) no-one followed up with the
+complete fix.
 
-Cheers,
-Daniel
+If someone's happy to do that (as you have tried below), let's do that
+and remove the existing bodge for swsusp_arch_resume(), and do the right
+thing here.
+
+Mark.
+
+> Fixing this correctly isn't so bad: it just needs to decouple the
+> entrypoint from the page address.
+> 
+> But, barring that, what I don't like here (and with x86) is that it
+> covers the entire function, so _all_ indirect calls go unprotected.
+> 
+> Can you pull the call out into an inline helper so that the other
+> indirect call (cpu_soft_restart) doesn't lose coverage?
+> 
+> -Kees
+> 
+> P.S.
+> 
+> Doing the whole SYM_TYPED_FUNC_START change (below, only build tested)
+> is larger, but maybe things besides KCFI will want things before the
+> entry point?
+> 
+>  arch/arm64/include/asm/kexec.h      |    2 ++
+>  arch/arm64/kernel/machine_kexec.c   |   13 +++++++++++--
+>  arch/arm64/kernel/relocate_kernel.S |   14 +++++++++-----
+>  arch/arm64/kernel/vmlinux.lds.S     |    5 +++--
+>  4 files changed, 25 insertions(+), 9 deletions(-)
+> 
+> 
+> diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
+> index 892e5bebda957..0be042ec22c1f 100644
+> --- a/arch/arm64/include/asm/kexec.h
+> +++ b/arch/arm64/include/asm/kexec.h
+> @@ -100,6 +100,8 @@ void cpu_soft_restart(unsigned long el2_switch, unsigned long entry,
+>  		      unsigned long arg0, unsigned long arg1,
+>  		      unsigned long arg2);
+>  
+> +void arm64_relocate_new_kernel(struct kimage *kimage);
+> +
+>  int machine_kexec_post_load(struct kimage *image);
+>  #define machine_kexec_post_load machine_kexec_post_load
+>  #endif
+> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+> index 8f9bc2327dc85..1cf4cb135ee2b 100644
+> --- a/arch/arm64/kernel/machine_kexec.c
+> +++ b/arch/arm64/kernel/machine_kexec.c
+> @@ -136,9 +136,18 @@ int machine_kexec_post_load(struct kimage *kimage)
+>  	kimage->arch.ttbr1 = __pa(trans_pgd);
+>  	kimage->arch.zero_page = __pa_symbol(empty_zero_page);
+>  
+> +	/*
+> +	 * The whole .kexec_relocate.text section is copied to the control
+> +	 * page, but arm64_relocate_new_kernel is not required to be the first
+> +	 * thing in it. Allow for whatever precedes it (e.g. a landing pad,
+> +	 * a kCFI type hash, etc) by carrying its offset within the section
+> +	 * across the copy.
+> +	 */
+>  	reloc_size = __relocate_new_kernel_end - __relocate_new_kernel_start;
+>  	memcpy(reloc_code, __relocate_new_kernel_start, reloc_size);
+> -	kimage->arch.kern_reloc = __pa(reloc_code);
+> +	kimage->arch.kern_reloc = __pa(reloc_code) +
+> +		((unsigned long)arm64_relocate_new_kernel -
+> +		 (unsigned long)__relocate_new_kernel_start);
+>  	rc = trans_pgd_idmap_page(&info, &kimage->arch.ttbr0,
+>  				  &kimage->arch.t0sz, reloc_code);
+>  	if (rc)
+> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+> index af1d720209764..81540c09a3db8 100644
+> --- a/arch/arm64/kernel/vmlinux.lds.S
+> +++ b/arch/arm64/kernel/vmlinux.lds.S
+> @@ -432,6 +432,7 @@ ASSERT(swapper_pg_dir - tramp_pg_dir == TRAMP_SWAPPER_OFFSET,
+>  ASSERT(__relocate_new_kernel_end - __relocate_new_kernel_start <= SZ_4K,
+>         "kexec relocation code is bigger than 4 KiB")
+>  ASSERT(KEXEC_CONTROL_PAGE_SIZE >= SZ_4K, "KEXEC_CONTROL_PAGE_SIZE is broken")
+> -ASSERT(__relocate_new_kernel_start == arm64_relocate_new_kernel,
+> -       "kexec control page does not start with arm64_relocate_new_kernel")
+> +ASSERT(arm64_relocate_new_kernel >= __relocate_new_kernel_start &&
+> +       arm64_relocate_new_kernel < __relocate_new_kernel_end,
+> +       "kexec relocation entry point is outside the copied region")
+>  #endif
+> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+> index 1cf4cb135ee2b..90302efebb426 100644
+> --- a/arch/arm64/kernel/machine_kexec.c
+> +++ b/arch/arm64/kernel/machine_kexec.c
+> @@ -202,7 +202,7 @@ void machine_kexec(struct kimage *kimage)
+>  		restart(is_hyp_nvhe(), kimage->start, kimage->arch.dtb_mem,
+>  			0, 0);
+>  	} else {
+> -		void (*kernel_reloc)(struct kimage *kimage);
+> +		typeof(arm64_relocate_new_kernel) *kernel_reloc;
+>  
+>  		if (is_hyp_nvhe())
+>  			__hyp_set_vectors(kimage->arch.el2_vectors);
+> diff --git a/arch/arm64/kernel/relocate_kernel.S b/arch/arm64/kernel/relocate_kernel.S
+> index 6cb4209f5dab5..e3e575c57fe12 100644
+> --- a/arch/arm64/kernel/relocate_kernel.S
+> +++ b/arch/arm64/kernel/relocate_kernel.S
+> @@ -8,6 +8,7 @@
+>   * Pasha Tatashin <pasha.tatashin@soleen.com>
+>   */
+>  
+> +#include <linux/cfi_types.h>
+>  #include <linux/kexec.h>
+>  #include <linux/linkage.h>
+>  
+> @@ -32,11 +33,14 @@
+>   * new image to its final location.  To assure that the
+>   * arm64_relocate_new_kernel routine which does that copy is not overwritten,
+>   * all code and data needed by arm64_relocate_new_kernel must be between the
+> - * symbols arm64_relocate_new_kernel and arm64_relocate_new_kernel_end.  The
+> - * machine_kexec() routine will copy arm64_relocate_new_kernel to the kexec
+> - * safe memory that has been set up to be preserved during the copy operation.
+> + * symbols __relocate_new_kernel_start and __relocate_new_kernel_end.  The
+> + * machine_kexec() routine will copy that whole region to the kexec safe
+> + * memory that has been set up to be preserved during the copy operation,
+> + * and enter it at arm64_relocate_new_kernel's offset within it.
+> + *
+> + * It is called indirectly, through the copy, so it needs a kCFI type hash.
+>   */
+> -SYM_CODE_START(arm64_relocate_new_kernel)
+> +SYM_TYPED_FUNC_START(arm64_relocate_new_kernel)
+>  	/*
+>  	 * The kimage structure isn't allocated specially and may be clobbered
+>  	 * during relocation. We must load any values we need from it prior to
+> @@ -98,4 +102,4 @@ SYM_CODE_START(arm64_relocate_new_kernel)
+>  	mov	x2, xzr
+>  	mov	x3, xzr
+>  	br	x28				/* Jumps from el1 */
+> -SYM_CODE_END(arm64_relocate_new_kernel)
+> +SYM_FUNC_END(arm64_relocate_new_kernel)
+> 
+> 
+> -- 
+> Kees Cook
 
