@@ -4,111 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C82C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9709C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUy9AG7lIgjavOAkd4pUReRQm+p1laq2n2IXc5r/9Fk=; b=GpRAhIeLP70uRsDG5Dp1VEN2yz
-	6A+KciOqH0mikeoD71eD8FGmLc+WZF2PzRDhvFQowQfhEAyddoS1Er6lfjsMql12+YcdQNiQxGBns
-	GKSI3VohHrCpOI/FpOLz47aGOJKeuZKDSIJabeHjwpK4OTtP9zqQK3X1nJJAODDgPVmZ8nwBVmmff
-	IQo47my8lt2wn6VYDAlVJ/y+uXqCn83/6/+f0pnzgzR+cwtFqV06nVtMjNXvGmrOqYtg3mGJVZaE3
-	LG3bLZwRWUQc98JvPRn6kPzku3bvB3aTFwcJwlurrB2s+LAZtGgWevfjSoDYAKWxWsi69p4/jcuhZ
-	1TnSBofw==;
+	bh=ctqcpr5G4Rec+iNZEa/k/0uZY5rb4KJCsJxt1FH7eFI=; b=eEjbEE7ndolpfpGmGiSPynnh/0
+	Y58zb62gpKqWfr12Da95+QgcE4FE5ToLfvX8MbteL6VNAyE4dDVtlv1M/pMOQGp3ug3nQn1xuCN51
+	jSSJCJBfBz41Xs5R5azRADnGJE+Rjc2/CIIMnH4LkNAdB187u+zfU95R1t7NGGRywzQ+zns20poQW
+	AThUUYYj+YXjcY7tGmqGYXF4IugFK0w82lx6QxMOMapkJdSx/4xUFCMIH0Px8xZAyQkn03U5KVVt8
+	iD0PDEqOONQOlDsGF3o09g/xRBpKJCoh25uUykseELna6Imr21zBsazUbG0fGVKlLMUASSfD941Y4
+	Qor24iVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA20b-0000000Cz4U-3ebF;
-	Fri, 25 Sep 2026 09:14:21 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA20Y-0000000Cz3f-4Bwl
+	id 1xA28B-0000000CzV2-33Os;
+	Fri, 25 Sep 2026 09:22:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA288-0000000CzUK-0dw4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 09:14:20 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843796e373so367582f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 02:14:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1790327657; x=1790932457; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RUy9AG7lIgjavOAkd4pUReRQm+p1laq2n2IXc5r/9Fk=;
-        b=Bira7E1IFuCMUIWYJ6Cj8d/gL0ngsrPYO6JmJjiHFllQ/1d6V6Llh6zJKZ3LJTSE69
-         OJ0Wezj2eP/gX7bUGV4RVjwaSpgdMyWyxwhexjk6Mq26RoX+K9SxYuQlXuHPKhJvVh72
-         OgRcv7FAf4fLwqXl/GXrNTJn2Afye7IJV9iVYdsqXvkPynMJmhOCL/9oS1HZ94K/PVS2
-         GyPACaNaD4M3lUWTfDzP5YY1UdXlsXyszBZ8Q4u+0YcC5aKf2N4jA2CnbT9SPkv6Mvvb
-         pP8A8bWzT3kD7F6A2BAwCO6aSGj25N4Q5AGzZ4b5FIh8XNpgC+nFp6bQn0mfVWewXra4
-         oFnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790327657; x=1790932457;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RUy9AG7lIgjavOAkd4pUReRQm+p1laq2n2IXc5r/9Fk=;
-        b=WIPHv6/rVvK7CpgjqGISVnVPJ41ujFx1kGWUaErpSG5xbKNE70IHmqg2e8a2O0q31h
-         vl2dzJGogSiQJdvsuwAu7av8pE42y+UlXSQdATnWPtDqrT+uzF2sv2O4esFnDocx41Im
-         5rbXnmM7tXOByxyTvCxFFOu9DRu73zvLS4W1P6nI05Wi0GW3d+350Asn1ZA5uWRB6czv
-         nreS9XbPoJsL02zFBPwjtzEijbjEIJR86w/dj7InHmtMj+hsMQo+tkYr9LLeIyZPmQrX
-         xQYfIiadv8mxUfdvPSaufmZpJ/3kHbFxoSS2YLTQq2ionn7kpsGh+u8yBiMsGpKJPnLl
-         cu3A==
-X-Forwarded-Encrypted: i=1; AKwUvBznwJeZ7CfmDXZyFTACefk8eoAMzofh/H/zzUcgpgOhCIkt9yiKkBoRL4Rno/vMQSlZYHI/H60itZcMgt9LApBU@lists.infradead.org
-X-Gm-Message-State: AFuF++kgogNoLvk59vlz/cT7AU9JCdAsVdcVSjwzf7WGlB+vVTUyH10p
-	IRJQNFQHP6umySTfckAfUs3tLMM8k27fw8dETiDLAb4OnFszSNUJuCGXsA4uScPmoJg=
-X-Gm-Gg: AYBFou2uVEk1buY8Cg3IRHWLfVs8JuX2hDUsZVZP2xhqiNWmRp+I6Kq0LGvnfrgwcwJ
-	CXDqRYECAGL2cfKYqlYt4AJoq3O0QPdGLfmGbXLPijVf2W9Lc5FO6+Ope3ZDJM+yUkO0ZrzXB6V
-	TUm0uLzNOJyUvgXgC6TFz+h9u28b3IbAQEECZ8N76cqwRNJBPuwhG6c6YQM6fDDIWCJrwLnALB4
-	5pCglziA9APPyvQZGsJO2tUFtJFlwX7l9yYgDqyL3y78utupSY9U4ljvnVDVPD4m/F4zPqKVFpT
-	ymWBS32v+X/2Xn6EUy3gIguPGcvFuwPdZsgu/NfcimCcnxEO0yDQseWJQVVWwANpU9cMaewaI9q
-	oA6cpB0WgiZfFQ9vZFJ/+tL1UmjjTakame0Z4+RkgYYs2WYy+T9PsNhwmimmsQbDAHcijY9sJoH
-	dsVn9hD2PkWLt5RX6cvAB8pB+TuIIyk5eMVohzd0A4h8+hp6gKWDWgZygUjrb+gjGJnFbN/MKV1
-	U5krdZUYKAmCAVyZ5IQlWNH6WyU
-X-Received: by 2002:a05:6000:18a3:b0:487:732:9964 with SMTP id ffacd0b85a97d-488716befa6mr10307474f8f.13.1790327656987;
-        Fri, 25 Sep 2026 02:14:16 -0700 (PDT)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a34a638sm5295892f8f.9.2026.09.25.02.14.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 02:14:16 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-Cc: "sboyd@kernel.org" <sboyd@kernel.org>, "bmasney+clk@redhat.com"
- <bmasney+clk@redhat.com>, "jbrunet+clk@baylibre.com"
- <jbrunet+clk@baylibre.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
- <conor+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- =?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?= <cylee12@realtek.com>,
- "afaerber@suse.com"
- <afaerber@suse.com>, =?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?=
- <jyanchou@realtek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>, =?utf-8?B?SmFtZXMgVGFpIFvmiLQ=?=
- =?utf-8?B?5b+X5bOwXQ==?=
- <james.tai@realtek.com>, =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
- <cy.huang@realtek.com>, =?utf-8?Q?Stanley_Chang=5B=E6=98=8C=E8=82=B2?=
- =?utf-8?Q?=E5=BE=B7=5D?= <stanley_chang@realtek.com>, Brian Masney
- <bmasney@redhat.com>
-Subject: RE: [PATCH v14 09/11] clk: realtek: Add RTD1625-CRT clock
- controller driver
-In-Reply-To: <b9d5a1a82df34aadaee2390af871f7c8@realtek.com>
-References: <20260901072446.2563145-1-eleanor.lin@realtek.com>
- <20260901072446.2563145-10-eleanor.lin@realtek.com>
- <178947735404.448573.10061486937030065064.b4-reply@b4>
- <b9d5a1a82df34aadaee2390af871f7c8@realtek.com>
-Date: Fri, 25 Sep 2026 11:14:15 +0200
-Message-ID: <1jjyo98zh4.fsf@starbuckisacylon.baylibre.com>
+	Fri, 25 Sep 2026 09:22:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D76F71688;
+	Fri, 25 Sep 2026 02:22:00 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 297283F86C;
+	Fri, 25 Sep 2026 02:22:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790328124; bh=vvsH/jsy0p9RrLtoELsLs64nRul6iFMtU+55j8ZDHK8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YWQAfP+/lL054XUPcunay8V7CV83HKV0gj7w9Me3wDmcY4WYSKp2e6L4c/UrD8rXj
+	 YzsmT9PEI7ClMQNYb8byBScTZWPrRwHKeoum/yUy+ksIMRCf/1Gccko0slkAZjK+FU
+	 QTLYwQ+11S3bwZUa31sItFEj4mqMMlWI5hmHqRb8=
+Message-ID: <05714056-53b7-46ce-86eb-fdb7d2afe1fa@arm.com>
+Date: Fri, 25 Sep 2026 10:22:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
+ implemented
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: James Morse <james.morse@arm.com>, Xi Ruoyao <xry111@xry111.site>,
+ Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Gavin Shan <gshan@redhat.com>, Yuan Yao <yaoyuan@linux.alibaba.com>,
+ Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260924165329.1684155-1-fuad.tabba@linux.dev>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260924165329.1684155-1-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_021419_064264_7EEE98D3 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20260925_022208_383270_6C855896 
+X-CRM114-Status: GOOD (  29.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,64 +78,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On mer. 23 sept. 2026 at 05:43, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=9B] <=
-eleanor.lin@realtek.com> wrote:
+Hi Fuad,
 
-> Hi Jerome,
->
->> > +
->> > +static const char * const clk_gpu_parents[] =3D {"pll_gpu", "clk_sys"=
-};
->> > +static RTK_CLK_REGMAP_MUX(clk_gpu, clk_gpu_parents,
->> CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
->> > +                       0x28, 12, 0x1); static const char * const
->> > +clk_ve_parents[] =3D {"pll_vo", "clk_sysh", "pll_ve1", "pll_ve2"};
->> > +static RTK_CLK_REGMAP_MUX(clk_ve1, clk_ve_parents,
->> CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
->> > +                       0x4c, 0, 0x3); static
->> > +RTK_CLK_REGMAP_MUX(clk_ve2, clk_ve_parents, CLK_SET_RATE_PARENT |
->> CLK_SET_RATE_NO_REPARENT,
->> > +                       0x4c, 3, 0x3); static
->> > +RTK_CLK_REGMAP_MUX(clk_ve4, clk_ve_parents, CLK_SET_RATE_PARENT |
->> CLK_SET_RATE_NO_REPARENT,
->> > +                       0x4c, 6, 0x3); static
->> > +RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_misc, CLK_IS_CRITICAL, 0x50,
->> 0,
->> > +1); clk_en_pcie0, 0, 0x50, 2,
->> > +1); clk_en_gspi, 0, 0x50, 6, 1);
->> > +clk_en_iso_misc, 0, 0x50, 10,
->> > +1); clk_en_sds, 0, 0x50, 12, 1);
->> > +clk_en_hdmi, 0, 0x50, 14, 1);
->>=20
->> This is a lot of clock with no parents which is a bit suspicious especia=
-lly for
->> gates.
->> What is really feeding those ?
->>=20
->
-> In v15, we will do our best to reduce the number of gate clocks without a=
- parent.
->
-> However, after discussing with our colleague, we confirmed that for some =
-of
-> these NO_PARENT gate clocks, their actual upstream clocks (like PLLs and
-> Muxes) are located in separate, independent hardware subsystems. The regi=
-sters
-> controlling those upstream clocks are physically inaccessible from the Li=
-nux
-> CPU domain.
+On 24/09/2026 17:53, Fuad Tabba wrote:
+> finalise_el2_state() clears the EL2 MPAM traps on every CPU whose ID
+> registers, with the arm64.nompam override applied, advertise MPAM.
+> KVM sets the traps again on guest entry, but only when the ARM64_MPAM
+> capability is set, and that capability also requires
+> MPAM1_EL1.MPAMEN. MPAMEN is writable only at the highest implemented
+> exception level. Without EL3 that is MPAM2_EL2.MPAMEN, which the
+> kernel does not set, so ARM64_MPAM is never set either and the traps
+> stay clear. A guest on such a machine can access MPAM0_EL1,
 
-Control and input are different things. It feels like your DT (binding)
-description is not complete as it stands which will eventually be a problem.
+IIUC, this patch also covers the mismatched system case where EL3 f/w may set MPAMEN for cpus that
+support MPAM but system_supports_mpam() returns false.
 
-A clock with no input is something that does generate the clock by
-itself, like an osciallator. Pretending it has no parent because you
-don't know how describe it yet is wrong.
+> MPAM1_EL1, MPAMSM_EL1 and MPAMIDR_EL1 while its ID_AA64PFR0_EL1.MPAM
+> reads 0.
+> 
+> Set the traps under the condition finalise_el2_state() clears them:
+> record per CPU whether its ID registers, with the override applied,
+> advertise MPAM, and whether MPAMIDR_EL1.HAS_HCR is set, since
+> MPAMHCR_EL2 is UNDEFINED without it. MPAMEN does not appear in the
+> conditions that trap an MPAM register access to EL2, so the traps
+> take effect whether or not it is set.
+> 
+> Fixes: 31ff96c38ea3 ("KVM: arm64: Fix missing traps of guest accesses to the MPAM registers")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
->
-> Best Regards,
-> Yu-Chun
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
---=20
-Jerome
+Thanks,
+
+Ben
+
+> ---
+> 
+> Notes:
+>     Changes since v3:
+>      - MPAMIDR_EL1.HAS_HCR probed once at CPU init into a second flag,
+>        HAS_MPAM_HCR, instead of read on every guest entry and exit (Marc).
+>      - A comment on why the ID registers are read through
+>        __read_sysreg_by_encoding() (Marc).
+>      - Commit message reworded around MPAMEN being writable only at the
+>        highest implemented exception level (Ben).
+>      - Ben's Reviewed-by dropped, since the MPAMHCR_EL2 test changed.
+>     
+>     Based on Linux 7.3-rc1 (cee9395acd80).
+>     
+>     v3: https://lore.kernel.org/all/20260911104715.307500-1-fuad.tabba@linux.dev/
+>     v2: https://lore.kernel.org/all/20260908145651.2828597-1-fuad.tabba@linux.dev/
+>     v1: https://lore.kernel.org/all/20260903160819.831518-1-fuad.tabba@linux.dev/
+> 
+>  arch/arm64/include/asm/kvm_host.h       |  2 ++
+>  arch/arm64/kvm/arm.c                    | 13 +++++++++++++
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 13 ++++++++-----
+>  3 files changed, 23 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 27fe0cd5b2d7a..3f5b347093fe8 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -755,6 +755,8 @@ struct kvm_host_data {
+>  #define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		4
+>  #define KVM_HOST_DATA_FLAG_L1_VNCR_MAPPED		5
+>  #define KVM_HOST_DATA_FLAG_HAS_BRBE			6
+> +#define KVM_HOST_DATA_FLAG_HAS_MPAM			7
+> +#define KVM_HOST_DATA_FLAG_HAS_MPAM_HCR			8
+>  	unsigned long flags;
+>  
+>  	struct kvm_cpu_context host_ctxt;
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 8b080804bc90b..9677d234e17b1 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2281,9 +2281,22 @@ static void cpu_set_hyp_vector(void)
+>  
+>  static void cpu_hyp_init_context(void)
+>  {
+> +	u64 pfr0 = __read_sysreg_by_encoding(SYS_ID_AA64PFR0_EL1);
+> +	u64 pfr1 = __read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1);
+> +
+>  	kvm_init_host_cpu_context(host_data_ptr(host_ctxt));
+>  	kvm_init_host_debug_data();
+>  
+> +	/*
+> +	 * The ID registers are read above with the arm64.nompam override
+> +	 * applied, as finalise_el2_state() reads them.
+> +	 */
+> +	if (id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1)) {
+> +		host_data_set_flag(HAS_MPAM);
+> +		if (read_sysreg_s(SYS_MPAMIDR_EL1) & MPAMIDR_EL1_HAS_HCR)
+> +			host_data_set_flag(HAS_MPAM_HCR);
+> +	}
+> +
+>  	if (!is_kernel_in_hyp_mode())
+>  		cpu_init_hyp_mode();
+>  }
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 1ce7130e25490..c7adf8c206d84 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -298,14 +298,17 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>  	u64 clr = MPAM2_EL2_EnMPAMSM;
+>  	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+>  
+> -	if (!system_supports_mpam())
+> +	if (!host_data_test_flag(HAS_MPAM))
+>  		return;
+>  
+>  	/* trap guest access to MPAMIDR_EL1 */
+> -	if (system_supports_mpam_hcr()) {
+> +	if (host_data_test_flag(HAS_MPAM_HCR)) {
+>  		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
+>  	} else {
+> -		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
+> +		/*
+> +		 * TIDR is RES0 without MPAMIDR_EL1.HAS_TIDR, which MPAM v1.0
+> +		 * prohibits: such a PE without HAS_HCR can't trap MPAMIDR_EL1.
+> +		 */
+>  		set |= MPAM2_EL2_TIDR;
+>  	}
+>  
+> @@ -317,12 +320,12 @@ static inline void __deactivate_traps_mpam(void)
+>  	u64 clr = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1 | MPAM2_EL2_TIDR;
+>  	u64 set = MPAM2_EL2_EnMPAMSM;
+>  
+> -	if (!system_supports_mpam())
+> +	if (!host_data_test_flag(HAS_MPAM))
+>  		return;
+>  
+>  	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
+>  
+> -	if (system_supports_mpam_hcr())
+> +	if (host_data_test_flag(HAS_MPAM_HCR))
+>  		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
+>  }
+>  
+> 
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+
 
