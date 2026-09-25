@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEEEC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 03:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E20C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 03:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f3w6EdTSd+zhzF1B+kjGs8/3o2x5L8y3XOkHxN1oQgQ=; b=H/c62LEBIQYpq3ZyqCE5V7U4GE
-	L6arppcXEOw7mIfhqbimiyDPwdXFQ7oYfQ87vowAiTXNQY4MdtgrqF3jA09/Yn4vZwvMX73tG+bKt
-	PtDKmVzN+iFZMI7UNWWxtsJuWvZAV70bDefnYbVj4T3BuI4UBmlC8nE40M3AyVMz8kcdcSvv5g/57
-	4SOIVFTghU/kYSBdNuhrU/i813xWpA0+0puDQ0f1YbZLhho6jpt4fKeLkfJmzzueaUI1wTuHGUEbz
-	k4KXFGVXg2KhYqS2p1NpcSQlmIqDXSW41ln93L6uvnrM1wakB+I5oCB5/24zoymdc8upltMBLTXPi
-	CfInf+pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6gpAHbVztnmaeibXEmaS5rZnQ0hRzh9vSUw3IhTR+Og=; b=V2ejixuw/kx7a9bqhYm2soVba+
+	8OUgHgYYCCP6n5tH+jV8/nfYJPwASWSitgaXHcU5HQDa8wkbkqoamM3aPYHYchmhVmYghs4V6VVAk
+	E7gUdVgNiUBUVYVCFm32TOTbQYqU6yo5Aq0+udJ/2kmeB4rNUmUtDIo7+0usIUTfhclxTnL6PAdz1
+	uibPXozpmN8qfq4tK4nAh7aRJ0Zg8oBMo09QV1potaVZW6fgZyCm2Uuk1Bo3InHY8pWIQwX5lq6M6
+	AtjzvKwCXqVdiNwlEll+mkmnA01hkGzEnH+5i2twuWH6c8qxJaOzSpWDjfJIF4OUhcM2s4EE3HOJk
+	AjhWNkow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9wLw-0000000CZEB-3S6w;
-	Fri, 25 Sep 2026 03:12:00 +0000
-Received: from mail-pz2-x0d.google.com ([2607:f8b0:4864:3b::d])
+	id 1x9vuV-0000000CYYe-2nVT;
+	Fri, 25 Sep 2026 02:43:39 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9wLt-0000000CZDq-1oLz
+	id 1x9vuS-0000000CYXp-3l1q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 03:11:58 +0000
-Received: by mail-pz2-x0d.google.com with SMTP id d2e1a72fcca58-86b90133ae8so267271b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 20:11:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790305916; x=1790910716; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=f3w6EdTSd+zhzF1B+kjGs8/3o2x5L8y3XOkHxN1oQgQ=;
-        b=P3cOS9LqWD7gkLGZ1JhWawDElPR+K457p+u89uKQ2NaJepzODKG2/nTVyI9K3u/Eae
-         wyJ2xZ1hdUmA6DmWH3AB18Nz/foQAZpgP4TIjndhnqJbLzez57SDvKjhNKtjnbOreQ61
-         7UT14Ffz7sQiDW2tT/UzR1xAneXVws52XyfmMSg5wTlpT5thTWkGPPsvosqxQ24s4/vC
-         zFvwfjvSjTlX4UnRM9IvDNQFIMEzPBZTJizLbeI4giIpkmad0AdK7m8pGUe01vOUMkZr
-         VY9MKZzXg205nZcguvpCd4CAa94rD04QRBgqkaG8wJVN+rVRRFWSVE3Nw/HZt8Yra9LN
-         JZgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790305916; x=1790910716;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=f3w6EdTSd+zhzF1B+kjGs8/3o2x5L8y3XOkHxN1oQgQ=;
-        b=KlZHxkKH8wLqGibKNUZzG374kS9XwVs23+NV23hZ5C5h/CHeN3kGeLRXMBpLp9kFr0
-         6k8FG9UJzQHKmzMGe0oIIM9xzixcDDYSVGG4w1J6Iq3PCzJ3PzkLW+LhV2oo/J9vZ/Yf
-         PUFMzkkq0hW43f23G2jSG2t9oFXDw4epZu3Hha/8yrs3ZgxKhk3fltwJHtnP+7ky9L42
-         MCvmnT3/c7KArnqI2H6BDcWCQoyfRte1FcTW/1YJ6o/4w2ltk2IzZKLJTSrJVQcqcfR0
-         RzGKWxkJGIu64hzMx9i4ctcR3+UzbKWXyoqd+Htk/ziOHhZip/PB3uvlBE8FU54FiQ1v
-         kkJw==
-X-Forwarded-Encrypted: i=1; AKwUvBzZJLtnedKYUORhhncVZfN8g6pRYnhUI9pNRgbZXm7GF6MtMxfeBuG5r8j+3BDeStFY0nyUPRIyiIgey603hFXO@lists.infradead.org
-X-Gm-Message-State: AFuF++lzV+/FWIDf2U9QTPPKLk6R3gyIRevSPTC93uvvrajGMaudeg5l
-	YjnQCjvKFZnxNNnF3bdgJBDmxASK5gr3YPGqrdayJEybGxkWmXIM1ihL
-X-Gm-Gg: AYBFou1vxjqgy5dRIIwRP6nmhMlCmLDYSrk7q1EnCCi7sV429R+ALIpZho53ugOvkm3
-	67+I1aUsRFpL/Qf5IL55KAtknkwMZDGuWxnG6AmGXQq82yxb5Pv+yGqsWLTYT5xyKzj4md+nCHP
-	9IoCSilDpRPKHeWKirIYnmNE1dFN2SRksL0+KZ7inh2K79vImw1BUWnXKuz2r3kTgNRf1vgiu3J
-	eKrUP7Yys1e6vv2CzgP+pSNNigBK+cnyY9bw+UOeI63m3gBKfWXExKUEbX6Wjc8DYtwDOSz1rDt
-	+F2HtOO4hZVAbLh388K3oLqONy2fH/a6cqR/A4cVNFZBX99hLm7m7h0rDAoess5cTR8rR4jYlz3
-	dgJEaOvy2v2B532Nw7C81Y0zD/KHp13TkLiKe6kI/ame7CMnD+41W4DF107IP2aoCD9CAEMFbqm
-	hEzw/ycy92TvABLeh8BoSJqC73aDxqD/8k0Jg0GE9kReq9r4C/US9/MwK+dABvEHUqXcL4hWaMn
-	iLCoGmkNI/E
-X-Received: by 2002:a05:6a00:b4a:b0:857:7384:b5fd with SMTP id d2e1a72fcca58-87e9995cfdamr3809048b3a.25.1790305915932;
-        Thu, 24 Sep 2026 20:11:55 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-87fe82eb49asm408300b3a.3.2026.09.24.20.11.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 20:11:55 -0700 (PDT)
-Date: Thu, 24 Sep 2026 20:11:54 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH v3 5/7] dt-bindings: watchdog: apple,wdt: Add t8140
- compatible
-Message-ID: <381005d6-0aca-4d71-a08c-58aa7da7196a@roeck-us.net>
-References: <20260924-apple-a18-pro-initial-devicetrees-v3-0-94f7ea52cc64@cyberchaos.dev>
- <20260924-apple-a18-pro-initial-devicetrees-v3-5-94f7ea52cc64@cyberchaos.dev>
+	Fri, 25 Sep 2026 02:43:38 +0000
+X-QQ-mid: zesmtpgz7t1790304168tdb809021
+X-QQ-Originating-IP: w3XVdAtjPMZd2A4bnKpct9MNG2vg7Sbf9tEaRwle0Gc=
+Received: from [10.200.8.55] ( [175.0.204.93])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 25 Sep 2026 10:42:46 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 965729528590291737
+EX-QQ-RecipientCnt: 9
+Message-ID: <E6F9385348472E5C+1794efa3-5320-412a-ae81-cfcc4969b76a@kylinsec.com.cn>
+Date: Fri, 25 Sep 2026 10:40:22 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260924-apple-a18-pro-initial-devicetrees-v3-5-94f7ea52cc64@cyberchaos.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] coresight: syscfg: fix deadlock on device
+ registration failure
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, qinyungao@kylinsec.com.cn
+References: <B16F90D29FAA2B3E+20260914074524.1694-1-dengyingchao@kylinsec.com.cn>
+ <6CC680FFAC60931F+20260914074900.1711-1-dengyingchao@kylinsec.com.cn>
+ <20260924162404.GN200420@e132581.arm.com>
+From: yingchao deng <dengyingchao@kylinsec.com.cn>
+In-Reply-To: <20260924162404.GN200420@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: Ns4vsXN8dJBsIxuMhu7o/4WgHbz7725FQkvC/bpT+bpmLQi4VqWqDDC+
+	XLlGH0Txezz0QT3XZbMZj0nk+fe2pMsyh5n3oHQPDTQW67zCLAHoaQvE/YphbuLG5FqDSDx
+	40vqVO9UxzMjNSesxwc/noP9509r8MDNDPNp2C/FK2OaZP7WIgAWzVT8CmORcGjOq8Wlimq
+	7qhWm0Nw4G7mZjHjTAGGl7/VljrWWU8JrvrKMeEKNzb92NgQEMU5ad+WVHtIa2AdGT4gMzZ
+	mHf4AeSHVKl6EDP5eI/4Mur4LnMUQzvi/4gkK6E4TxVRLS+yc+tWvacfIWXLe1lxnJWWly6
+	HugMNXkEUORIb/VWMifNsB1d3Bo2+pVjgq3LuWkfSMVwa/Mm8mFEnwdK4pf15ZV06XSwxm1
+	ECKc8dQWLQnhT4OwYWRTuUEV6jBs0TU2Fb3H/1OMHyGNBWLPUayWtrdxLbmHwygxNGGDS2k
+	rn44XyCgXOcoZc3xP38ElerOmHmPpaDS6ryhPmr+mUU2zsrM2aZfkUBonjP2tPwQQRciLon
+	RPQ76wLPMV9HLvYtY+Wd5Fwiyx18WCczQVwVYIkzv5jd/eHwv5uuXp6vcmbgKPV9mJ5Vnup
+	Qy/jOUIdmHKZbsOwIwww3p3C/Hb121JHdmGef5vBz1yB2pfMNFEftdvS7CCbtQ5dvxsoGLk
+	QZ8J88qa+++duD9/kDKXqbS/yuPevzN2d5Nx+V7kLT/CVJ4PG/l9vadQbrluDC9Z/3z/Sob
+	/ru68IF+LN2cDRtMg2UuiDsPZJqFDFBRhrhPR2cb0JHMMlIyh0/B9yXKrL8l3QwAFxeKvcm
+	BxHixVZZgCWam1HLZbn/5RzZ2PQWamu0moFPoWG6RQrJWx2EZRuzD6X2oDKRH5GPVbiCGCz
+	wbYxZ+ZgEpEEtsT/Q2Ue3KlG3OFNZ9IXh5qKtfyam+oO3ZadQBGT2yH458/G83xys54iRQT
+	RtMePukVMs0cpbQlXfmOdg4SMx6R008S+2xoCVTjchJyqM2i0zVUXg3J/FLNE3zeTUYmWmA
+	G2/PGDt9MhtUTDXFJTuQQNNBDNuTM=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_201157_474559_ED3709CB 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_194337_482687_1070AFD2 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,15 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 04:17:09PM +0200, Yureka Lilian wrote:
-> The watchdog on the Apple t8140 (A18 Pro) SoC is compatible with the
-> M1-M4 SoCs. Add "apple,t8140-wdt" as SoC specific compatible.
-> 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 
-Applied.
+On 25/09/2026 00:24, Leo Yan wrote:
+> For this patch:
+>
+> Reviewed-by: Leo Yan<leo.yan@arm.com>
+>
+> Sashiko reported an issue for null pointer dereference if configfs
+> init fails fails [1]. It is good to fix it using a separate patch:
+>
+> @@ -1299,8 +1299,10 @@ int __init cscfg_init(void)
+>
+>          /* initialise configfs subsystem */
+>          err = cscfg_configfs_init(cscfg_mgr);
+> -       if (err)
+> -               goto exit_err;
+> +       if (err) {
+> +               device_unregister(cscfg_device());
+> +               return err;
+> +       }
+>
+>          /* preload built-in configurations */
+>          err = cscfg_preload(THIS_MODULE);
+>
+> @Yingchao, do you mind to work out a formal patch for this?
+Happy to. I'll send the patch.
 
 Thanks,
-Guenter
+Yingchao
+
 
