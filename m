@@ -4,66 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D1BC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCC6C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppqYYenfcVVV1g3Rd9jSAJzxbG403OqrOBLeQ08YcPU=; b=JumfjUzSMg1Drg+9M0GYjOWteO
-	bXC9zgP117A3334SpD3aYuW2+DVyA1Owokfv7RRV/XTDwUskoaBREoVfvGp5Ncg5rNr9i2B/rFJd9
-	G74vEfpAG3bDfD7Lq88hnxldsCH+DZxVCCXaip69oLN1qq72GE7HBFyjBAcnjWtwPdBj6aXPJODCW
-	4LjSN+0rvI5r1nWpxX/dvUB59Nys2GtXlxY/ewgtACV7yZa9+pdovDAZ2j+KjXHb2HcyW6HtkfwVv
-	bhAzG9z5+b1iF4Ie8V2q5RPgQfLz1fnIc/JDWBWKarXR1TUtTyuANqjAkv3bVrDaadDuOG6Eknqhq
-	TZZHT/qA==;
+	bh=T79mO8RfFtSmB6j81nq2g+IuZf6o6aRkee1Vz+SAVHI=; b=thw3m/RAPgXhhshK4CPB9GIcBT
+	Ht6Q9EerjKL2ssfZmZPM0wbLJdICfnAlIDQCq2FXBHPCoTFwFWG1/KzVr6qYh0PImtzpDfEsSYIYw
+	N7w1gwIUfPexM+VIJeZSIdSFNbFGvGbN7rRnAF1iJjvrOtr9VMX6rb79ame9a0fId8hqn6v24oWAd
+	78Fb0H6oWwoSozkDllJLqplJiJH/2TdeGMsReZ8dIEOL8hsJzp1T1NO73prm0vOvzOtSiEdCaJWTT
+	eqZ7BtFKcerD9L9/+fPsWvRIk+1rVmNZ9CSpzfga0hHDUuchMkgh53c9mzgRMlbgtzysqaRo/7jB+
+	GttMwFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3Y0-0000000D8Ex-1a49;
-	Fri, 25 Sep 2026 10:52:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3Xx-0000000D8EP-1FzN;
-	Fri, 25 Sep 2026 10:52:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D17B4169C;
-	Fri, 25 Sep 2026 03:52:47 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8C633F86F;
-	Fri, 25 Sep 2026 03:52:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790333571; bh=5CuDEdL9d8TbbYaEEXIEL/IwPXE3DV7YkxY7DhU4+yQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ve6g2dxAVpq6FXJMw7XDuiNFz6ragF4OO1ORyYsq8r1qvZZ9WS0+JKSDH9FRYQ1aR
-	 vHmRGkjra7jR0Wp8TUIWIZlxngRg/GI9oKE3bfbWugeGxss4Nn8Ut3W0WW8CXcfaCQ
-	 I7yaQUXem5BGCdyt0Ym4YfDTytnrUFd63uJhyESg=
-Date: Fri, 25 Sep 2026 11:52:43 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Kees Cook <kees@kernel.org>
-Cc: Ben Cressey <ben@cressey.dev>,
+	id 1xA3Zd-0000000D8Pt-2ZeO;
+	Fri, 25 Sep 2026 10:54:37 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA3Za-0000000D8PW-4BNI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 10:54:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790333675; x=1821869675;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=eW3NlcY9rz1RWvEA+xMyp3+IKIZ5dfni2x0WYBdu1Zc=;
+  b=YpTTLSwrR1mWIfvPVz7uqjwycT31umZtGhGpJo+cUxMIaG5OX2SYdnRd
+   1Mjn9eed0vEQaJ9ZUns7NCGdCByDnvm2Glmz3BH0Zd7t39oFDzu5ORDCN
+   UACmCERcXmMDz0eXTkNEJd+9wGzwjY60Pghs3bA1p7vEApQmGZpHcryzj
+   aIjH4tvQ8RKaf7psiBWhGogWZ64ZZq0BuSnpDF83oSAiTUw/awKheqhTk
+   5PN9l9iz6+JvpNbl2v0iVQQ5eMP3RfZWNe/5S3jjHxqT/Mt5UCf090YHj
+   4DiOlBTAcJDIaXegFwcjAl+3x52JKc+eFW+FHHusBDkNklXf7gPi2JAcO
+   Q==;
+X-CSE-ConnectionGUID: fJYCnMJTQ0yIAjTqFTsH9g==
+X-CSE-MsgGUID: eg6BL5YrQxGrO8IPiLIaow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="90076207"
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="90076207"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 03:54:34 -0700
+X-CSE-ConnectionGUID: t7/XvLctRKC6Kwl9xjQKSQ==
+X-CSE-MsgGUID: 4Z7fXr+dSeaftPoz/pks3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="272883219"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.27])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 03:54:29 -0700
+Date: Fri, 25 Sep 2026 13:54:26 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, Sami Tolvanen <samitolvanen@google.com>,
-	David Woodhouse <dwmw@amazon.co.uk>, kexec@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: kexec: mark machine_kexec() __nocfi
-Message-ID: <arZSe8hNnRPM5FqY@J2N7QTR9R3.cambridge.arm.com>
-References: <20260924-arm64-kexec-nocfi-v1-1-bbae2e2eadc8@cressey.dev>
- <202609241804.BB23BF10@keescook>
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
+Message-ID: <arZS4vwxps01dGb7@ashevche-desk.local>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <arZDwutoadki7tiZ@ashevche-desk.local>
+ <arZNL9BnTGK0Klwc@red-moon>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <202609241804.BB23BF10@keescook>
+In-Reply-To: <arZNL9BnTGK0Klwc@red-moon>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_035253_425655_8F46DE95 
-X-CRM114-Status: GOOD (  37.90  )
+X-CRM114-CacheID: sfid-20260925_035435_083950_C9F8F4B3 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,167 +102,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 07:14:52PM -0700, Kees Cook wrote:
-> On Thu, Sep 24, 2026 at 10:42:30PM +0000, Ben Cressey wrote:
-> > With CONFIG_CFI=y the kCFI check on this call loads a type hash from
-> > kern_reloc - 4. arm64_relocate_new_kernel is SYM_CODE_START and carries
-> > no hash. Its copy also sits at the start of the control page, which is
-> > all that TTBR0 maps at this point, so the load faults and the kernel
-> > oopses after "Bye!" instead of entering the new kernel:
-> > [...]
-> > arm64_relocate_new_kernel cannot be given a type hash, since the linker
-> > script asserts that the relocation code starts at that symbol and a
-> > hash would have to precede it. Mark machine_kexec() __nocfi instead, as
-> > commit e2f8216ca2d8 ("arm64: Set __nocfi on swsusp_arch_resume()") did
-> > for the same pattern on the hibernate path and commit 2114796ca041
-> > ("x86/kexec: Mark machine_kexec() with __nocfi") did on x86.
-> 
-> I think e2f8216ca2d8 made a mistake here; using SYM_TYPED_FUNC_START
-> wouldn't have been tautological: the defense is making sure that the
-> indirect call itself can't be used with a bad pointer. 
+On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
+> On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
+> > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
 
-It wasn't a mistake as such; it was a temporary bodge which wasn't
-followed up with a complete fix. See:
+...
 
-  https://lore.kernel.org/linux-arm-kernel/aXOZ1vsFvQRkxK9x@J2N7QTR9R3.cambridge.arm.com/
+> > > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
+> > > +						  const char *propname,
+> > > +						  unsigned int index, u32 *value)
+> > > +{
+> > > +	u32 *values;
+> > > +	int ret, count;
+> > > +
+> > > +	count = fwnode_property_count_u32(fwnode, propname);
+> > > +	if (count < 0)
+> > > +		return count;
+> > > +
+> > > +	if (index >= count)
+> > > +		return -ENOENT;
+> > > +
+> > > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
+> > > +	if (!values)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
+> > > +	if (!ret)
+> > > +		*value = values[index];
+> > 
+> > Use standard pattern, id est
+> > 
+> > 	if (ret)
+> > 		...
+> > 
+> > > +	kfree(values);
+> > 
+> > You want to use __free()
+> > 
+> > > +	return ret;
+> > > +}
+> > 
+> > I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
+> 
+> Why what (that's what the irq_get() interface requires ?) I agree it is
+> suboptimal - the whole point of the series is an RFC on using properties
+> to store GSI number/flags, then how to read them we will optimize it
+> when/if we agree that's the approach to be taken.
 
-We knew the more complete fix was to use SYM_TYPED_FUNC_START(), but
-that was a bigger job, and (unfortunately) no-one followed up with the
-complete fix.
+Why to have indexed APIs. The callers usually do not want a single item from an
+array, they want all of them or a big pile (exception is the array of strings,
+but we have matching functions for that).
 
-If someone's happy to do that (as you have tried below), let's do that
-and remove the existing bodge for swsusp_arch_resume(), and do the right
-thing here.
+As per approach, this patch is against device property and I don't think we are
+going to agree on the approach taken in *this* patch.
 
-Mark.
+> > it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
+> > array to retrieve a single element is simply wrong.
 
-> Fixing this correctly isn't so bad: it just needs to decouple the
-> entrypoint from the page address.
+...
+
+> > > +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
+> > > +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
+> > > +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
+> > 
+> > Oh... This sounds like a big ugly hack.
 > 
-> But, barring that, what I don't like here (and with x86) is that it
-> covers the entire function, so _all_ indirect calls go unprotected.
+> That does not help much I am afraid.
 > 
-> Can you pull the call out into an inline helper so that the other
-> indirect call (cpu_soft_restart) doesn't lose coverage?
-> 
-> -Kees
-> 
-> P.S.
-> 
-> Doing the whole SYM_TYPED_FUNC_START change (below, only build tested)
-> is larger, but maybe things besides KCFI will want things before the
-> entry point?
-> 
->  arch/arm64/include/asm/kexec.h      |    2 ++
->  arch/arm64/kernel/machine_kexec.c   |   13 +++++++++++--
->  arch/arm64/kernel/relocate_kernel.S |   14 +++++++++-----
->  arch/arm64/kernel/vmlinux.lds.S     |    5 +++--
->  4 files changed, 25 insertions(+), 9 deletions(-)
-> 
-> 
-> diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
-> index 892e5bebda957..0be042ec22c1f 100644
-> --- a/arch/arm64/include/asm/kexec.h
-> +++ b/arch/arm64/include/asm/kexec.h
-> @@ -100,6 +100,8 @@ void cpu_soft_restart(unsigned long el2_switch, unsigned long entry,
->  		      unsigned long arg0, unsigned long arg1,
->  		      unsigned long arg2);
->  
-> +void arm64_relocate_new_kernel(struct kimage *kimage);
-> +
->  int machine_kexec_post_load(struct kimage *image);
->  #define machine_kexec_post_load machine_kexec_post_load
->  #endif
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index 8f9bc2327dc85..1cf4cb135ee2b 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -136,9 +136,18 @@ int machine_kexec_post_load(struct kimage *kimage)
->  	kimage->arch.ttbr1 = __pa(trans_pgd);
->  	kimage->arch.zero_page = __pa_symbol(empty_zero_page);
->  
-> +	/*
-> +	 * The whole .kexec_relocate.text section is copied to the control
-> +	 * page, but arm64_relocate_new_kernel is not required to be the first
-> +	 * thing in it. Allow for whatever precedes it (e.g. a landing pad,
-> +	 * a kCFI type hash, etc) by carrying its offset within the section
-> +	 * across the copy.
-> +	 */
->  	reloc_size = __relocate_new_kernel_end - __relocate_new_kernel_start;
->  	memcpy(reloc_code, __relocate_new_kernel_start, reloc_size);
-> -	kimage->arch.kern_reloc = __pa(reloc_code);
-> +	kimage->arch.kern_reloc = __pa(reloc_code) +
-> +		((unsigned long)arm64_relocate_new_kernel -
-> +		 (unsigned long)__relocate_new_kernel_start);
->  	rc = trans_pgd_idmap_page(&info, &kimage->arch.ttbr0,
->  				  &kimage->arch.t0sz, reloc_code);
->  	if (rc)
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> index af1d720209764..81540c09a3db8 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -432,6 +432,7 @@ ASSERT(swapper_pg_dir - tramp_pg_dir == TRAMP_SWAPPER_OFFSET,
->  ASSERT(__relocate_new_kernel_end - __relocate_new_kernel_start <= SZ_4K,
->         "kexec relocation code is bigger than 4 KiB")
->  ASSERT(KEXEC_CONTROL_PAGE_SIZE >= SZ_4K, "KEXEC_CONTROL_PAGE_SIZE is broken")
-> -ASSERT(__relocate_new_kernel_start == arm64_relocate_new_kernel,
-> -       "kexec control page does not start with arm64_relocate_new_kernel")
-> +ASSERT(arm64_relocate_new_kernel >= __relocate_new_kernel_start &&
-> +       arm64_relocate_new_kernel < __relocate_new_kernel_end,
-> +       "kexec relocation entry point is outside the copied region")
->  #endif
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index 1cf4cb135ee2b..90302efebb426 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -202,7 +202,7 @@ void machine_kexec(struct kimage *kimage)
->  		restart(is_hyp_nvhe(), kimage->start, kimage->arch.dtb_mem,
->  			0, 0);
->  	} else {
-> -		void (*kernel_reloc)(struct kimage *kimage);
-> +		typeof(arm64_relocate_new_kernel) *kernel_reloc;
->  
->  		if (is_hyp_nvhe())
->  			__hyp_set_vectors(kimage->arch.el2_vectors);
-> diff --git a/arch/arm64/kernel/relocate_kernel.S b/arch/arm64/kernel/relocate_kernel.S
-> index 6cb4209f5dab5..e3e575c57fe12 100644
-> --- a/arch/arm64/kernel/relocate_kernel.S
-> +++ b/arch/arm64/kernel/relocate_kernel.S
-> @@ -8,6 +8,7 @@
->   * Pasha Tatashin <pasha.tatashin@soleen.com>
->   */
->  
-> +#include <linux/cfi_types.h>
->  #include <linux/kexec.h>
->  #include <linux/linkage.h>
->  
-> @@ -32,11 +33,14 @@
->   * new image to its final location.  To assure that the
->   * arm64_relocate_new_kernel routine which does that copy is not overwritten,
->   * all code and data needed by arm64_relocate_new_kernel must be between the
-> - * symbols arm64_relocate_new_kernel and arm64_relocate_new_kernel_end.  The
-> - * machine_kexec() routine will copy arm64_relocate_new_kernel to the kexec
-> - * safe memory that has been set up to be preserved during the copy operation.
-> + * symbols __relocate_new_kernel_start and __relocate_new_kernel_end.  The
-> + * machine_kexec() routine will copy that whole region to the kexec safe
-> + * memory that has been set up to be preserved during the copy operation,
-> + * and enter it at arm64_relocate_new_kernel's offset within it.
-> + *
-> + * It is called indirectly, through the copy, so it needs a kCFI type hash.
->   */
-> -SYM_CODE_START(arm64_relocate_new_kernel)
-> +SYM_TYPED_FUNC_START(arm64_relocate_new_kernel)
->  	/*
->  	 * The kimage structure isn't allocated specially and may be clobbered
->  	 * during relocation. We must load any values we need from it prior to
-> @@ -98,4 +102,4 @@ SYM_CODE_START(arm64_relocate_new_kernel)
->  	mov	x2, xzr
->  	mov	x3, xzr
->  	br	x28				/* Jumps from el1 */
-> -SYM_CODE_END(arm64_relocate_new_kernel)
-> +SYM_FUNC_END(arm64_relocate_new_kernel)
-> 
-> 
-> -- 
-> Kees Cook
+> What's a ugly hack ? Property names ? Using properties for this purpose ?
+
+Yes, properties started with "linux," for some core functionality.
+Yes, using properties for this also doesn't sound right. I think the problem
+here is in the table specifications or somewhere that deep. That's why we
+ended up in this series.
+
+> Again, it is an RFC for this specific reason and I mentioned that in the
+> cover letter, thank you for your inputs.
+
+And here we have a discussion started :-)
+
+P.S. Looks like I was too quick to jump into this thread. I will wait for
+others to share their view on all this.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
