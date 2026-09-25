@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDDEC9831E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 02:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF62BC9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 02:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wW+BAwJ115lKHzkVtPbY39q6Ec1PWGoy4bXyW9Rh36w=; b=HCr6HVBzLD3em6VlYtbRBG9mJO
-	s4zJ8RO5PobTxXp/C/tqP4EN1TWq0Dqx+ByPsOtjEA5Bh/VhTwNprxZu2StJXMK2JULhr2fLNHCW+
-	r5bFquk3pZRLB0+CmEmyboNU41BQFHIpE+k49VHlqnJOVzcSh11RAT6yQv/BqrgaqfaPBH2h/cCLz
-	KjreIKTL76tJQ252oshe3M9bY0F64yFsp3pyHMoM+9i9/pKTkkN53p8+Iz+6PhjzW1fEO/BPZdRu4
-	A4gTYgPQvyCByK5SstYSkA1M1KTfkrljvoFNBTrf/GzlPloIi9C3nKxTK9DEKp4PIFf3Xm/dRUmZ2
-	vcCBE81A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=itmgVer1pnntM4cqZXszMDwWecgomg7t2KeCE23xoug=; b=ZMQ2aFmbfQU/4teVPIk4yB+ri5
+	MzPNuPVKoKpwDohL8eu/GQeg7v/puPzCJgELqEK4yUu8Vz+nU6nYiM14LzpcoJrFlPqVSCG8tZ12R
+	Ic085tWQUszraRqxPZbQW/8R6lPEpXsSW5cXneOGJa560GRGiAfIkqMkvlOOG2mdKR7+VY6YVJUUz
+	mHtoaEFwr7zd0HCFYP0ymGubko0UCVgDKDYtogyCb1PRFytmMbMmJkhjRy2fHL2SrbPFHz3izmt3k
+	KYmTXgTZcsZjMOWdvyME+pWTJsvQQUtSrbbvdvn7rGL5BByjACmnSxPwZs74XmbzCNyJ7lU1/+A0s
+	h0wfP5jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9vJ3-0000000CWSG-3UIs;
-	Fri, 25 Sep 2026 02:04:57 +0000
+	id 1x9vL6-0000000CWpt-17S5;
+	Fri, 25 Sep 2026 02:07:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9vIZ-0000000CW8J-37TJ;
-	Fri, 25 Sep 2026 02:04:27 +0000
+	id 1x9vL4-0000000CWpi-303x;
+	Fri, 25 Sep 2026 02:07:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7116543ECD;
-	Fri, 25 Sep 2026 02:04:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 023251F000FF;
-	Fri, 25 Sep 2026 02:04:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 56FAD43974;
+	Fri, 25 Sep 2026 02:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED4F31F000FF;
+	Fri, 25 Sep 2026 02:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790301867;
-	bh=wW+BAwJ115lKHzkVtPbY39q6Ec1PWGoy4bXyW9Rh36w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=l2NEdn/itUJq0FGNeF5uTNNnMipfapi/n0/cIzcMO2/QL7kfGl5mr8CgVIwt4HYNO
-	 yYBp1rK+QC96FAOk8ikA72BuUpmQDK1m+/5D1h8JxNMoEXa64LJInizG6u+VRtWzVQ
-	 rZevZghLIcG7SdhnJGBEau8QBUiLJGxreBNJMC9m8r14HO7N6vIVr/St7LvcVOyl4W
-	 WF4I7eTSocT8Ar+A0ZhM9Q3SXS4yU4X4oR2LPaSvYNBYjSqdIc9h84XJjVV3/QYjwK
-	 RJB0pCKDcDVnXyjjfEaPAdc8WjyptHgmWEWLOzaxVfuikqRV/4fcumjvmp1lDXaD5s
-	 LhywfjFOkn7MQ==
-Date: Fri, 25 Sep 2026 03:04:23 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Lee
- Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- mfd@lists.linux.dev, Roman Vivchar <rva333@protonmail.com>, Luca Leonardo
- Scorcia <l.scorcia@gmail.com>, Andy Shevchenko
- <andriy.shevchenko@intel.com>
-Subject: Re: [PATCH v3 2/3] iio: adc: mt6397-auxadc: add mt6397 PMIC AUXADC
- driver
-Message-ID: <20260925030423.18d48456@jic23-hlaptop>
-In-Reply-To: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-2-c00edacbee64@gmail.com>
-References: <20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-0-c00edacbee64@gmail.com>
-	<20260920-rbrue-suez-upstreaming-mt6397-auxadc-v3-2-c00edacbee64@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1790302022;
+	bh=itmgVer1pnntM4cqZXszMDwWecgomg7t2KeCE23xoug=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CGoprwx/vtepSfIQrcnapGrbZz8FYS2/amIZnv3D+B8Gw3qsPl1MbaFGs9Or14yun
+	 ijv3BIr+IhYUu3343vhWKYRBJOzOn7KPnud6tY0AiPIC8IvOVG4giAo8v2wfYCI81H
+	 Cgv6gbAykkik/jY/5vG9XyHB6DXgcpFl/jUtql9I4BT0Kv9chFW01QzNmuWMAQrtbP
+	 U5tYKT5d/gMFA/hLBLLu28nRtFt7rOxoyUj2+HLO/4LIbGV/dqb/xKH37NyZC8Lp8t
+	 b0XlB5tsdUgNFqcUuaNelf/zaRq//3YlP7iE75CxOY6qy29EYlkZIYfWtZ6ImcU+TS
+	 lyjLlOzbZUYBw==
+Date: Thu, 24 Sep 2026 21:07:00 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	Eugen Hristev <ehristev@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH] dt-bindings: arm: mediatek: Fix MT6779 audsys compatible
+Message-ID: <179030201789.2925774.7508536046130679968.robh@kernel.org>
+References: <20260921232819.3137721-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260921232819.3137721-1-robh@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,145 +73,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 20 Sep 2026 00:31:52 -0500
-Ryan Brue <ryanbrue.dev@gmail.com> wrote:
 
-> The mt6397 AUXADC is a 10-bit ADC behind the SoC's PMIC wrapper. On boards
-> built around this PMIC it is the only way to read the battery: the SoC's
-> AUXADC is wired to board thermistors and the charger ICs these boards use
-> have no ADC of their own.
+On Mon, 21 Sep 2026 18:28:18 -0500, Rob Herring (Arm) wrote:
+> The correct name for the MediaTek MT6779 audsys compatible is
+> "mediatek,mt6779-audio", not "mediatek,mt6779-audsys". The original .txt
+> binding was correct.
 > 
-> Add a driver exposing the battery voltage and battery temperature
-> channels. Only those two are described, so a channel ID in the device tree
-> indexes the driver's channel array rather than the PMIC's channel number,
-> as mt6323-auxadc does. The ready bit lives in a channel's raw result
-> register, but the value comes from the chip's factory-calibrated copy.
-> 
-> The battery voltage is measured through ISENSE, because a board with a
-> switching charger in the power path leaves BATSNS on the charger's system
-> rail instead of on the pack. The thermistor only reads correctly with the
-> PMIC's battery-detect bias and input buffer enabled, which take 20 ms to
-> settle. Both are switched back off afterwards.
-> 
-> Reads average sixteen conversions in software; the chip's sample
-> accumulator makes no measurable difference at any setting, so it is left
-> at one sample per conversion.
-> 
+> Fixes: e97c618234d9 ("dt-bindings: arm: mediatek: convert audsys and mt2701-afe-pcm to yaml")
 > Assisted-by: LLM
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../devicetree/bindings/arm/mediatek/mediatek,audsys.yaml       | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-Hi Ryan,
 
-A few things related to code flow and readability inline.
+Applied, thanks!
 
-> diff --git a/drivers/iio/adc/mt6397-auxadc.c b/drivers/iio/adc/mt6397-auxadc.c
-> new file mode 100644
-> index 000000000000..d860cd3a8922
-> --- /dev/null
-> +++ b/drivers/iio/adc/mt6397-auxadc.c
-
-
-> +static int mt6397_auxadc_isense_enable(struct mt6397_auxadc *adc)
-> +{
-> +	struct regmap *map = adc->regmap;
-> +	int ret;
-> +
-> +	/*
-> +	 * Two of the five independent input enables, not a select field:
-> +	 * BATSNS is cleared first so that the two inputs are never enabled
-> +	 * onto the battery channel at the same time.
-
-I'm not following this comment. Perhaps consider a rewrite?
-
-> +	 */
-> +	ret = regmap_clear_bits(map, MT6397_CHR_CON16, MT6397_CHR_CON16_ADCIN_VBAT_EN);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regmap_set_bits(map, MT6397_CHR_CON16, MT6397_CHR_CON16_ADCIN_VSEN_EN);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return regmap_set_bits(map, MT6397_AUXADC_CON14,
-> +			       MT6397_AUXADC_CON14_CH0_NORM_SEL |
-> +			       MT6397_AUXADC_CON14_CH0_LBAT_SEL);
-> +}
-
-
-> +static int mt6397_auxadc_read_channel(struct iio_dev *indio_dev,
-> +				      const struct iio_chan_spec *chan,
-> +				      int *val)
-> +{
-> +	struct mt6397_auxadc *adc = iio_priv(indio_dev);
-> +	bool isense = chan->channel == MT6397_AUXADC_ISENSE;
-> +	int ret, stop_err, release_err;
-> +
-> +	guard(mutex)(&adc->lock);
-Go back to conventional mutex_lock() / mutex_unlock() or wrap
-everything under the guard so you can avoid mixing goto and 
-guards() (see cleanup.h docs for some of the reason why).
-
-One option would be to just move them up in to the switch statement
-from which this is called with scope carefully defined there.
-It's not ideal but having a wrapper for just taking a lock
-isn't pretty either and you need to do one or the other if you
-don't want to fallback to non guard() approaches.
-
-> +
-> +	if (isense) {
-> +		ret = mt6397_auxadc_isense_enable(adc);
-> +		if (!ret)
-> +			fsleep(MT6397_AUXADC_ISENSE_SETTLE_US);
-
-Keep to errors out of line 
-		if (ret)
-			goto err_stop;
-
-		fsleep(MT6397_AUXADC_ISENSE_SETTLE_US);
-
-> +	} else {
-> +		ret = mt6397_auxadc_battemp_bias_on(adc);
-> +		if (!ret)
-> +			fsleep(MT6397_AUXADC_BATTEMP_SETTLE_US);
-> +	}
-> +
-> +	if (!ret)
-
-With changes above you won't get here with ret not 0 so this can go.
-
-> +		ret = mt6397_auxadc_read_burst(adc, chan, val);
-> +
-> +	/*
-> +	 * The teardown is unconditional: once any part of the setup has been
-> +	 * written it has to run, even if the setup itself failed part-way.
-> +	 * Lowering START also leaves the converter unarmed between reads.
-> +	 * A caller has nothing to do with a teardown error, so it is logged
-> +	 * rather than returned.
-> +	 */
-> +	stop_err = regmap_clear_bits(adc->regmap, MT6397_AUXADC_CON1,
-> +				     MT6397_AUXADC_CON1_START);
-> +
-> +	if (isense)
-> +		release_err = mt6397_auxadc_isense_disable(adc);
-> +	else
-> +		release_err = mt6397_auxadc_battemp_bias_off(adc);
-> +
-> +	if (stop_err || release_err)
-> +		dev_err(&indio_dev->dev, "failed to release channel %d\n",
-> +			chan->channel);
-
-I would make a little helper for the stuff that has to run.
-So everything from the comment onwards. Then
-
-	return mt6397_read_channel_tear_down();
-
-err_stop:
-	mt6397_read_channel_tear_down();
-
-	return ret;
-(with locks if you don't move those up into a wrapper.
-
-> +
-> +	return ret;
-> +}
 
