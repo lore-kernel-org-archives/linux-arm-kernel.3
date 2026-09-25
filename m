@@ -4,79 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC44C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F95C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LiQa2P0K09njvbQ2YQr3gPhYTEh8ecgaEVkM4ZtaZMs=; b=z3Fh5qp/zcpUzjZW4uSwEh7Pxs
-	J038MRmxJ7Nr2X4rAi7Yx8oVTfpJ6nbmpipV/oySr+PsM91jdpsMOd9LIENDrp5Vav3hMwmMhLMgm
-	IDh+Y1NRv6CffrEkbCtprTNIXRYc04l5jnq4NooQoJWgRwhs1aKDK2vLaCawDQmaGtE7u2pQ8LS2l
-	6cXMIniiufe29oO1zTqdNFVw/tesyCUEA0T0SN1ujfStga2ZndcFXwHv5WC7e+qdQPSxxTdCK5W3l
-	y+pMhgm+G4EhpoGzc2leLzYswNhQ114rmin/mDr2oH2aPTOwKfO/J8pxMrDRSlp37Tbsy7XOBgKLm
-	LNYE7LsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zNL174vwz/tCDdI4eZqR8gpeHvejmSBfEPzOVpQopd4=; b=yzRWeIZgAu4zx0YZNpe+1WGEn/
+	sKxjXqQZf/P/AS9GLJMQ6Ws4EQ7taFJq6isEoc5cgfyqx98MaJPumBSQSmGr33ibJB939DnvcODD3
+	hd7pj6Vf49x3ekEY7ecD1XvhYkNdVjpKZ+Fa9XiO/2vxFvwT76pI+Hf9cvDYt5YBpGXYHGk8gLKIi
+	2HEKSymMW1Z0PiCxwbF6uNAylnG+z8/v5hlI9+eWqkM/tEbgffcGWjbPIXtIBX47Vk0AwF4Jd9UZh
+	lCJf5N4J9HKExItwZuRN+yEWLTkn4C6NI3ECpyyqKe5+rKmxUtRqPF0511iu+BwjvO1aEFx6C65ny
+	P3X0W21g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2CQ-0000000Czgf-10HZ;
-	Fri, 25 Sep 2026 09:26:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xA2G4-0000000CzwX-2uhT;
+	Fri, 25 Sep 2026 09:30:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2CO-0000000CzgT-2qBW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Sep 2026 09:26:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LiQa2P0K09njvbQ2YQr3gPhYTEh8ecgaEVkM4ZtaZMs=; b=PFISGUjpapQbsHDTAHBX1K2h3R
-	PBoMTgIFv/Ny1rhoDUEiTlKkKyPEx+09sYCtNr5GWpi6WWD5AnKbUsjWDGxdD3OLIx4V1uLVs5mPn
-	tX4x2LJxitw+j3VHJC86vQEtXmiUaslAf1YnP9hSHApggVFo+8aiir7o08jaKlpcd2TrxhES/t9HF
-	P5vn+KqWFID+pNavsF+dCkPPYbqwYA9twDby7K7Gpvc9v+FqEucoUHUICZMGCuPmjfwCCod+yNPPs
-	qh3gjS6xnfQOM3spXvCEWLE2dIznBalxmhSdE0xde4qJgQFzzF2snQ7gC3WQvH1QbndGFyp6+sX08
-	5YdEcwew==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1xA2CL-0000000GlbP-0J0W
+	id 1xA2G1-0000000Czvd-1jMS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 09:26:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96F3C1688;
-	Fri, 25 Sep 2026 02:26:23 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23B893F86C;
-	Fri, 25 Sep 2026 02:26:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790328387; bh=3kjd6lZj1dIUtedJktMj1UoleqR9/JbTLWiLSRcewj4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TG6UsdHMPSeGq8RWseV0KrNzFW1yYNZcoAhoPJb+pCuWrkSYVje8gJNRx200IDpVW
-	 AFFAKsMlumA3VQnJEnAvDx8FX7Sjjgm2LcTqHUMe/7RhcQzVIqgB7be3ZWQudoZp4v
-	 jjROSC6mVXc8ucrhayAS/kPSypertZMowkz/8mu4=
-Message-ID: <e78a2a94-ab4e-4c5f-8e55-e11b273ed8ec@arm.com>
-Date: Fri, 25 Sep 2026 10:26:23 +0100
+	Fri, 25 Sep 2026 09:30:18 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 78AF4C1;
+	Fri, 25 Sep 2026 11:28:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1790328504;
+	bh=nJ0/J95KwyInOWIEWMeBvCOCvt3BjxmuACXDJLcEw5s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=luk3ajdZNh4jrsQxH9iD6EKfviUNIh76eiSR0zLlBBarwNrHk26waD4shVQ1GdjTP
+	 pH3hy8YERnil0rmBJqyMJLtKFnRdJpkgovKxU6BbNTCuVFj2oKQredB78LF6PP+uM/
+	 6LVUyn6Sk5xGNh8j67z4FOO9foPQcPnbsXU+hYrM=
+Date: Fri, 25 Sep 2026 12:30:11 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Add ISP
+ and IVC nodes
+Message-ID: <20260925093011.GA332413@killaraus.ideasonboard.com>
+References: <20260922-mali-c55-renesas-dts-v1-0-cd63cdb51033@kernel.org>
+ <20260922-mali-c55-renesas-dts-v1-2-cd63cdb51033@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: mpam: Document when to set arm64.nompam
-To: Fuad Tabba <fuad.tabba@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, James Morse <james.morse@arm.com>,
- Xi Ruoyao <xry111@xry111.site>, Marc Zyngier <maz@kernel.org>,
- Bradley Morgan <brads@mainlining.org>, Fuad Tabba <tabba@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260908145622.2828319-1-fuad.tabba@linux.dev>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260908145622.2828319-1-fuad.tabba@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260922-mali-c55-renesas-dts-v1-2-cd63cdb51033@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_102629_456552_3AD6B39F 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260925_023017_606013_E1F46B4C 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +71,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
-
-On 08/09/2026 15:56, Fuad Tabba wrote:
-> arm64.nompam skips the MPAM2_EL2 and MPAMHCR_EL2 writes in
-> finalise_el2_state and leaves the ARM64_MPAM cpucap unset. Where EL3
-> firmware has cleared MPAM3_EL3.TRAPLOWER, the EL2 trap controls are
-> left unwritten, at reset values that are UNKNOWN, and KVM still hides
-> MPAM from the guest but no longer enables the traps that stop a guest
-> from using it. KVM never saves or restores MPAM0_EL1, MPAM1_EL1 and
-> MPAMSM_EL1, so what one guest writes reaches the next guest and the
-> host. Nor can the kernel make the EL2 writes unconditionally: they trap
-> to EL3 on the firmware the option exists for, and TRAPLOWER cannot be
-> read below EL3.
+On Tue, Sep 22, 2026 at 03:34:01PM +0200, Linus Walleij wrote:
+> From: Daniel Scally <dan.scally@ideasonboard.com>
 > 
-> Say so in mpam.rst, and add the rule and a pointer to the
-> kernel-parameters entry.
+> Add nodes to devicetree enabling the ISP and IVC that are found on
+> the RZ/V2H(P) SoC.
 > 
-> Suggested-by: Ben Horgan <ben.horgan@arm.com>
-> Link: https://lore.kernel.org/all/CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com/
-> Reviewed-by: Bradley Morgan <brads@mainlining.org>
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> [Rebase onto v7.3-rc1 and sort the board overrides by label.
+>  - Linus Walleij]
 
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Geert commented on the commit message in the original series, that
+comment seems to have been ignored.
 
-Thanks,
+> 
+> Assisted-by: LLM
 
-Ben
+This gives the impression that Dan's original patch was LLM-assisted,
+which wasn't the case.
 
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> index 637fc92dcc26..74b75be599ae 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r9a09g057h44-rzv2h-evk.dts
+> @@ -305,6 +305,14 @@ versa3: clock-generator@69 {
+>  	};
+>  };
+>  
+> +&isp {
+> +	status = "okay";
+> +};
+> +
+> +&ivc {
+> +	status = "okay";
+> +};
+> +
+>  &mdio0 {
+>  	phy0: ethernet-phy@0 {
+>  		compatible = "ethernet-phy-id0022.1640";
+
+-- 
+Regards,
+
+Laurent Pinchart
 
