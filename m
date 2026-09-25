@@ -4,70 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50818C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 12:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C0AC98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 12:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZMwuJi+uuOVEpnd6zSF27+CwSgdbF03Y7EP5Bx37VQ=; b=dxkmPiLhD9hgUR2ZBhnmMeH/p4
-	4HKW3NiTacSiTMEyAJURxS1mo7Cx2acthey3mpC8CAH8GH2BJ8gYJ7Q5cnOqh/D12DeIF2iQLGGw5
-	JAp88LDudJ/WXKygxGaRM/MABMD5FbTAV2sm3NYCn8zs4B7wQS1gZPyrqbUIfYPfG62/93iGYFrcM
-	u7v12rgFV9pTkWsnRkw3d+A7m/zG/dtjDJ/NRbk+EjtdTFjOPUQXdAJ4F4TURF8a4WiG7Ic0NRTlf
-	3N5Wty2RtigL5SvBEV2URFJP+SBk92ggJULK4IISlLUs97nag8jWe3he8Jw73iev8kaLQBZMw+z5t
-	gZJjW97w==;
+	bh=fePJ76PCz9vvyTRfWHDtj1x0n5FcxIRTgcKLG+qIbA4=; b=GJA+HSkekDqowm53DSb8I+7/Q9
+	n9UZWMBz0qfXaxC65fLytVpbTdRyo6EPpZHLCumkqJwRVUVyS8uzhk0/aB+3+BoF6m6ydft8uv61T
+	AMzzKwBojaLzdr1DvXh7vWiABd6xmrNSwjMes3xjyJ2JgMip9PfiJ96BFvlb8bBeSewzapEyh5YKC
+	SXwqfjlzWgIEcDZs/BfC66Jap245HErSt31eMGRPnlM23B1txHOtnTdKycfE+JZlb6YwTkOic0UZc
+	SUcGxK6mx6a3DKP2sxt3vvyElKhekRRCzDw8oE1bSQRWKjtcGpu9NeKE8vILS3hL0R2nD9echCYo7
+	rjKY9i1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA53u-0000000DKQI-0psb;
-	Fri, 25 Sep 2026 12:29:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xA5KL-0000000DLjY-40aO;
+	Fri, 25 Sep 2026 12:46:58 +0000
+Received: from mail-northcentralusazon11012008.outbound.protection.outlook.com ([40.107.200.8] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA53s-0000000DKQB-1v37
+	id 1xA5KH-0000000DLhL-3W9o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 12:29:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE6B541AE3;
-	Fri, 25 Sep 2026 12:29:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D691F000FF;
-	Fri, 25 Sep 2026 12:29:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790339395;
-	bh=zZMwuJi+uuOVEpnd6zSF27+CwSgdbF03Y7EP5Bx37VQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=k9hQwa5N0f7/1SdDkUvFiNh3KdgCoYAJx8TtlLjJbd7yzw+8ZBEPTrtbFmOqFveLM
-	 /V3HxMcneML6BiVfgdrPAxM/QvHsw2tVM5oAiVeVsv0yN4NHyrc0XVMfXiq8+PkMSX
-	 MElNsNAHFvwvKXMfUsLjIUHCoiZy7Ch1IAUsMXUBMWyfmN03M1MbswlufDTbW/YYKC
-	 ZFqX6j9hITGBzUUPMnM4LfwgsdkxkvYPZJWuGTuxRldU0mgVZNs9cETBNQyzFk1Tam
-	 dIE013yxmVCsEkSSWGubYm9A/xirJYv8rCgw1+I0TJ+INOUpIZG7pu09ldTMdssg7f
-	 7zsNgAcNkQ55A==
-Date: Fri, 25 Sep 2026 07:29:54 -0500
-From: Rob Herring <robh@kernel.org>
-To: Joakim  Zhang =?utf-8?B?KOW8oOW8uuW6hik=?= <joakim.zhang@cixtech.com>
-Cc: Mark Brown <broonie@kernel.org>,
-	"lgirdwood@gmail.com" <lgirdwood@gmail.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"perex@perex.cz" <perex@perex.cz>,
-	"tiwai@suse.com" <tiwai@suse.com>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
-Message-ID: <20260925122954.GE677989-robh@kernel.org>
-References: <20260922112134.4167305-1-joakim.zhang@cixtech.com>
- <20260922112134.4167305-2-joakim.zhang@cixtech.com>
- <arKPdM4bYsAeAKtr@sirena.co.uk>
- <OSNPR06MB86866A7DE38DC5AD8197BF6E82812@OSNPR06MB8686.apcprd06.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 25 Sep 2026 12:46:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HRy46cx1TFt9P+LuFhLGwvR2jtgUIHztad3HvnR9kaqJwTeDNb5WhswuPoqP7Baj81dYC9u47fi5Ajj9N0uXiOAdM0jpTjadITFusgkVR0Ozxk2xTZdq07zs7MrHjmRzNQmZc7/xghowqQ5sKedtPN4Z1NMsdH4VrwxHWnAIbTrGP+YYv4CkQ2pTlYZKBN2Siw8797Vouz+7G8wc0w5T7FCOJkI5ULVIBi+ptDnx4jAevSQko/T+ElBDmoWJyenlZpr37zxeJLBLjZbHiZFMQt6kj4cK/WmeH51ngTOROcZVKO31bV4Bx2pKP9Yd64mYwSiYRsFiwrk06Jfa5viTvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fePJ76PCz9vvyTRfWHDtj1x0n5FcxIRTgcKLG+qIbA4=;
+ b=oCW4kJG5dwMBlhxsYDFzBJwCnn+6QXql0BSPtOiH/l0DOdW02pwHMPPtzKZ8/vUowLLh6JGvFDizcII5wbVGCd0SMKZrZotFBW8v6KpIulV55JHh4c3tP50/fjA+Xdvy5ltgeQEca0is3fOLodlcznbrQrT9+ybIWjMfdAhkIqvJ2JLMNgHUzVIrM06gUcp9T4MqLTMDWvP09U3fgh8xtMeomd+ijaZheks6ktumcvPEt7MgDnAZXH+vwzBr+SEUGnE2YZdg8aBfg7uJOBk1d2byWvYdefHuHK0w2paxoUter5FE2ezqZwTXG5WYGDGBL7eKxDPIwX59a0UyZlG1Ng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fePJ76PCz9vvyTRfWHDtj1x0n5FcxIRTgcKLG+qIbA4=;
+ b=GNQgdg0eGNfWxz7Jy2nSkSF2jklDi33cjy/5AVpsoXbDD7XDoy9FVbAWYtueWR8K11osxC7ry5GUKe32xsl7jVjQqLeNA/3lkfHAmieeyPVJzNSulwz2/r/yvUMdZA7/06YQocpONAgNvk0CI2wKpoz7agE2qI6IO3zFJdyMxmpPheKL74hBaJkF+SpHpaD2LnQYmEGxWKAJnrZ/46jwoqcJTrxwO+J2YTJLnYEv7dPrFk2EcwFhDInXcmN+Qo69qVT1G3ukXXSjh+QHqTj9sJsD2nkhjHl7Z3mfJQ6TJ5tySe2iddu0NEDw6X5+gqYsYNPiNdO8e2BP/6Xyii5PBw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14) by PH8PR12MB999319.namprd12.prod.outlook.com
+ (2603:10b6:510:40f::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
+ 2026 12:46:48 +0000
+Received: from LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5]) by LY0PR12MB325698.namprd12.prod.outlook.com
+ ([fe80::b65f:1548:5b35:e2b5%5]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
+ 12:46:47 +0000
+Date: Fri, 25 Sep 2026 09:46:45 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>,
+	Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] iommu/arm-smmu-v3: Add a cmdq_max_n_shift module
+ parameter
+Message-ID: <20260925124645.GK9354@nvidia.com>
+References: <20260909095228.2174031-1-kas@kernel.org>
+ <20260909095228.2174031-2-kas@kernel.org>
+ <179018301689.3334538.1783583175230817305.b4-review@b4>
+ <arZFDAofKaurSjCd@thinkstation>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <OSNPR06MB86866A7DE38DC5AD8197BF6E82812@OSNPR06MB8686.apcprd06.prod.outlook.com>
+In-Reply-To: <arZFDAofKaurSjCd@thinkstation>
+X-ClientProxiedBy: PH2PEPF0000384F.namprd17.prod.outlook.com
+ (2603:10b6:518:1::71) To LY0PR12MB325698.namprd12.prod.outlook.com
+ (2603:10b6:408:3bb::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LY0PR12MB325698:EE_|PH8PR12MB999319:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3b637ac-2287-471d-144c-08df1b030fd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|56012099006|4143699003|10067099003|11063799006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: ff12VPQblrptE3SzdbaGv/Smf+JFDQxKC5pVbEkujHwqNssBxDAxMQ7YLV0TZ7IyU1v06Nfzj88VeEw86ai7W2xRRQmDhA6IZBLfg2zJA43+T6zIk0cIxK39dqsAlkXLnhOZLAxf1Tso2sBzVy61wWkMb53F/XRrzbAiKMXBvbhp/AZAQ1FhjaSkbGZ5dnqahQUI/LCcJ+kEM7j0sz5+7RTil3fo9NJ0UL4aJ3QcCEqQYiBelwXW31mkqTxQDzPB/VgcdsegvIEgPHDZ/Q2hSCpumNXYSC28QmfHWF0LKa5faRIR8FpwfjcKrOsrU4QZOjmRQkhzL8bnNlXG6SkaFbBnKMNnsnyPvRzo2MtQgJTYh8zDl+7AKLquJ/+Jt6WrNukfcii0xE0Hcd+w8MhUT3hQTkh9nCLMNL8aiQul/qBf7JHdSblaTLdK2W+FyxQo/A5NiwefR2Y3Xxzxw7S2Fvcsb5+JVhoTp4nnBM9v4Xl0NH8FNTV3KCGAiDfurF0KObQciFI3SQrrXbbI/N/FQffO14zS1nFN1ChURt52Essv2VYMe9Rt/AXkjWPoHpWC1SMasPZTq5kBeuRcDiDo6cGkQZSKFLDATYGEyI8qL5Gq79GsTzlaCtE9V98bxCnqtmg/R+cA6S0LxQrho5hK0PGaqDwfwR5USpm2qnmzfXU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB325698.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(56012099006)(4143699003)(10067099003)(11063799006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ybPHFJ2+U3bPMNJWZc0kttTs8puNDF8+0L7dOFTRifEZ+rt+tGhG4K3GB/ei?=
+ =?us-ascii?Q?6Ky1KCbH+qdJJKD7tP6iywY1PaAx3gmIb10N8rNpDjLohJ6kPkojDxEvqUkS?=
+ =?us-ascii?Q?4tLx0a6jZtu7NbcW9TfWDM3/oUa46+cHhk08pNZvEw9y1Ah+fhfEbjU3SPvs?=
+ =?us-ascii?Q?W2/F2yVr54DCxSbGHGm24QdCCNL/i4oKP4Nc9N1wPiUtdtK6Q/dEVHWXXhH6?=
+ =?us-ascii?Q?fumnzMsIkmAr2/o1K1vjbG8286oQulxkx57vFSDtkvT1dxz3MiEUEqoTnGt/?=
+ =?us-ascii?Q?4TuanWCSz6y06NskNqBdfORvrSk1L/iwJ+2/VeQpniBCquMssFqpJTjDGlDL?=
+ =?us-ascii?Q?hHs6vsUgMu8JvMMxm9Xi1qyC8uRERGoDUUGmbWlIIkUcZKgCNxfpAiSbI2Nl?=
+ =?us-ascii?Q?fRU7FEbG/gKf/Y7N5oaQETgDliZWoIiyHRXU3k0j+riAG36egJhR9hG5MvK2?=
+ =?us-ascii?Q?gqk1l/N3j1xcKqLfRgmlGw9cjUjFuQIv3FI4cYa+cNqXXPAjkWhI9woJAb5V?=
+ =?us-ascii?Q?zQXdH5N9q0ocvg6o5t6nx6BU2U2KyJfuFWwrqLcW0ow8P+fiFzu068/Vu4ik?=
+ =?us-ascii?Q?oUPbQzUjfJ8qmdbAXgUCaUnvS8P5aeBS9Ab7Z0zjFBUq32TIJevoaecxb+w5?=
+ =?us-ascii?Q?E9gtuWP5hPwpN3D2et6qzhMPFqg+Vl7z8srdvou16IF7a4zM4PSQTTQepOVt?=
+ =?us-ascii?Q?eQpL2i3ekzLSOR1aHA0pxAW3R980qZOXEdlwI5A1+z7sfjvmg1QDsXST7wHI?=
+ =?us-ascii?Q?tulk7sMo6SrrPqYIEqos9AGBiAhcqjD3laEh+i9VjhKn1EFuKGqNG4t64/BE?=
+ =?us-ascii?Q?YfPKA7Zq/TVi2jPQteFOAPKzeD4MPBC9+ebVpq0LMuPQo11gN1RW0LnNRM0O?=
+ =?us-ascii?Q?mfY23b4Nzj8T4Dxo3y5K+ikuvu472PsI5P3YdVK1AecL0CGHfQofSU4xidlG?=
+ =?us-ascii?Q?T2UM0rJJqS11k8l2e9wdm4f4z4NK/SkSC0iF47V4M5Nz2r2AD//kCWtD6qch?=
+ =?us-ascii?Q?vHbvFFjeAdqxP8tx6sg/K9nwPAOeWs7Q2UL+CuU0wAEOIQW6aYFlejWECB/S?=
+ =?us-ascii?Q?zdTHyOeJsNBTVjpOFBjZwqiiPCdhg/yRTZDK1dxXSMer/OA9P1PWxFz5mO4J?=
+ =?us-ascii?Q?M2WXzqLEL/YeDNtNefcVzpM2JmetiJhJITUfeBkAXNMZGVcutOBZvpy/6NhG?=
+ =?us-ascii?Q?Z6SnrdY8lXP5FV4A47dW/d59uoV39eTNSbut8CVCzzDKnFHMec3fySkrmIN3?=
+ =?us-ascii?Q?lFbLVmb3FwFancLY3fWV7+jnUA4BvmCoBCD563R+aeDiNKwC49c8sGiM1Z2K?=
+ =?us-ascii?Q?nUBF5zAWI/xVfMLW4jmZoqBXllfhXrCA3ru7vmzKcZEh9nMpcAE+iw8g+BZD?=
+ =?us-ascii?Q?eSptZ/FdQT1MWOWJ8zwfJBkLIpcljzBt8xs9qO1jQm7l1kXunehi93C0ovfC?=
+ =?us-ascii?Q?SwqRVvmumWzl37H8kQw4bftSdCmNlgQU/j2lmxss/MgBiEwXmyooG3mdxbh5?=
+ =?us-ascii?Q?QuG1vjG7jeUV38ATzpnGin24dQiz5e1Vr3DpPxv5M1BDMcdvFyGByxWfIy8C?=
+ =?us-ascii?Q?NP/wID6bdEg0Hf4+GpzPBYJLFbc4MIC789kJRqzCsGWprMG5T2ZHfRcWTo+n?=
+ =?us-ascii?Q?XFq9Ee0nVEt6vDhokh1HNpPCmNdUXO6MHNUKtKDXKS2pQnEoK9LHFFYAWzDO?=
+ =?us-ascii?Q?vGS2wMCWum5tDeo8UHKwd5gvNTRUaSBvhOdXhRrox2MqdaP6?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3b637ac-2287-471d-144c-08df1b030fd8
+X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB325698.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 12:46:47.5135
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UZKIU0B+22iUz+p2JsJj4CpdDa80wTI1ApesItPPXVRwwGrsewxbhYnvQKbE9lrn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB999319
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_054653_890313_31AF61A2 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +147,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 07:33:12AM +0000, Joakim  Zhang (张强庆) wrote:
+On Fri, Sep 25, 2026 at 11:01:31AM +0100, Kiryl Shutsemau wrote:
+> On Wed, Sep 23, 2026 at 02:03:36PM -0300, Jason Gunthorpe wrote:
+> > > [ ... 34 lines skipped ... ]
+> > > @@ -40,6 +40,11 @@ module_param(disable_msipolling, bool, 0444);
+> > >  MODULE_PARM_DESC(disable_msipolling,
+> > >  	"Disable MSI-based polling for CMD_SYNC completion.");
+> > >  
+> > > +static unsigned int cmdq_max_n_shift;
+> > > +module_param(cmdq_max_n_shift, uint, 0444);
+> > > +MODULE_PARM_DESC(cmdq_max_n_shift,
+> > > +	"Cap on the command queue depth, as log2 of the number of entries. Zero means the hardware maximum; the queue never shrinks below one page.");
+> > 
+> > The patch looks ok
+> > 
+> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> > 
+> > But I'd rather use lg2 as name, especially user visible, instead of
+> > n_shift. "shift" is a word for bitwise stuff, this is a 2**N log2
+> > encoded value.
 > 
-> Hello,
+> This name has changed twice already. v5 took the value in entries.
+> Nicolin asked for a log2 value and named it after max_n_shift, which is
+> what the driver calls this quantity everywhere else.
 > 
-> > -----Original Message-----
-> > From: Mark Brown <broonie@kernel.org>
-> > Sent: Tuesday, September 22, 2026 10:24 PM
-> > To: Joakim Zhang (张强庆) <joakim.zhang@cixtech.com>
-> > Cc: lgirdwood@gmail.com; robh@kernel.org; krzk+dt@kernel.org;
-> > conor+dt@kernel.org; perex@perex.cz; tiwai@suse.com; p.zabel@pengutronix.de;
-> > cix-kernel-upstream <cix-kernel-upstream@cixtech.com>; linux-
-> > sound@vger.kernel.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
-> > linux-arm-kernel@lists.infradead.org
-> > Subject: Re: [PATCH 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
-> > 
-> > On Tue, Sep 22, 2026 at 07:21:31PM +0800, joakim.zhang@cixtech.com wrote:
-> > 
-> > > Add the DT binding for the Cadence I2S-SC controller integrated in the
-> > > CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo controller
-> > > supporting standard I2S, left/right-justified and DSP formats, plus
-> > > TDM operation with up to 16 slots.
-> > 
-> > > +properties:
-> > > +  compatible:
-> > > +    const: cix,sky1-i2s-sc
-> > 
-> > Should there be some general Cadence fallback for this if it's a Cadence IP?
+> I would rather not rename it a third time without input from the
+> maintainer.
 > 
-> Yes, cdns,sky1-i2s-sc should be better.
+> Will, this is the user-visible name. Do you have a preference here?
+> Unless you want it changed I will leave v6 as it is.
 
-No. Cadence has nothing to do with sky1. It would be the above *plus* a 
-Cadence fallback compatible.
+Please at least fix the internal logic to work in the saner way I
+showed
 
-I'm on the fence whether a Cadence compatible is useful. For complex IP 
-(e.g. PCIe, USB, etc.), IP vendor fallbacks have proven to be not 
-useful. For simple IP blocks, they can be useful. It also depends if 
-there is a h/w manual which can be used so we can really define the 
-correct numbers of clocks, interrupts, etc. Perhaps I2S is simple 
-enough.
-
-Rob
+Jason
 
