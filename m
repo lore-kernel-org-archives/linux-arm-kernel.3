@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0B2C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 539E0C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
 	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nO41lh/H4SzcoCdayvonqkq9okmqSnTubMvlLylaa1w=; b=nEjLLq5ALs9PnlZguy1Oh9gn6C
-	dKPpeLtvPs3jhQY3riGL9uvCtJ/k3XZ6ud+UxCWH4Hx+FdFRncPvhTryBKchJQKcwI2lxh9O3w1IP
-	fvTqZWC3fY8F17ysxMO/1o+eXyP2A+9CCx/3q09c58wR3oJJDDwjOf2EMulMGQOBe0yd8cpTfEPQI
-	P0oPCTT1I/LYe/xwoUjtlBMoLTxy26UT7am3Uqiyy+UMKndsFq+1M+JcVX2gwGwabgv54mOxbf6bN
-	W8AiXPwpfCE/aSM+MdOKpciGxQlg6ljX8BREyKYdK7zhd7VoUh4QKJKGQV2N7wdtudgDd8KJJ331u
-	4VMmZw2Q==;
+	bh=WzH5s2/5AfOfNeFo7Wg4h2yqgF9WIZbfEyb5dAI7fyY=; b=OC2BIqgxYr+xKwFcfSraPA4gfL
+	xxkGgWP3Cq4/lN/Wo9P6svtjhTbrUSg2F/1RsYrMKFyfMoxeUgtKQLdFGXoiGCnITUEnrWQHocS6t
+	FrxJP7FqYYpSvnyVXi7Or0oxUp4Z/bLzv+K2yEnTBRs3YWuLGSnv9fIerSTFdBcgyFRPBN1cgie97
+	U/FXrTjrEAKC/YlG6IFcZ5sgf/dqMsZT/mwXm8AweSc4wT0IHralZxjffvmHesB3tHgv/N1oCeX45
+	lEuGN8kqc3KGMZbmt+SCT0/Zvq1p0oD4hmJJ4kJREh356+tEg8xzPa8WM5iz07gbYl+80kofOMzn8
+	S/deS1ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA4Cn-0000000DD6L-2OBm;
+	id 1xA4Cn-0000000DD7B-3zKJ;
 	Fri, 25 Sep 2026 11:35:05 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA4Cf-0000000DD2m-12Rh
+	id 1xA4Ci-0000000DD40-0kTq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 11:34:58 +0000
+	Fri, 25 Sep 2026 11:35:02 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925113454euoutp029aba4d7652769b32aa244658574edba9~YjTFViDYa0681106811euoutp02X;
-	Fri, 25 Sep 2026 11:34:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925113454euoutp029aba4d7652769b32aa244658574edba9~YjTFViDYa0681106811euoutp02X
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260925113458euoutp01d467da499e745e411c5821d415b73bce~YjTIwg77i2944429444euoutp01J;
+	Fri, 25 Sep 2026 11:34:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260925113458euoutp01d467da499e745e411c5821d415b73bce~YjTIwg77i2944429444euoutp01J
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790336094;
-	bh=nO41lh/H4SzcoCdayvonqkq9okmqSnTubMvlLylaa1w=;
+	s=mail20170921; t=1790336098;
+	bh=WzH5s2/5AfOfNeFo7Wg4h2yqgF9WIZbfEyb5dAI7fyY=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=HT2us8FYPCD02Bqr6zxqNELSXegcdUB71/GiSE79vPh0ddbcgSd4gYAdoEzE+9FfU
-	 aXibiNf7aXZYzd8naEbWeqtRvgyMmH39N++134vhhtm7ENQIBAGk9Lb7PSqTDSnY5A
-	 fdjlRPG2x+BJwq2hJNUpKlor5WltkEwRd9KhMQsU=
+	b=houHxX7PbVwN2g2P/n+zyB12/B1SUvRiIKGJWbQgZ3w+6hwa0OKcCwPQ3ns7CXo76
+	 Zof5QFuEq3wdz54rxcRgVyjYCwLjQ47UrERZkWB/EiQcaljE9/2vZwvQTX5v2orQ/M
+	 LyMk4CxT5Nouc1SUmVcRTD/ac1jzUP7N41TUAUm0=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260925113454eucas1p1ffe6b62a29086943a60137ed7e1f42ef~YjTFCnGhF0249002490eucas1p1k;
-	Fri, 25 Sep 2026 11:34:54 +0000 (GMT)
+	20260925113458eucas1p1fa17760e9d790d3108643ab7f54bc6a3~YjTIdxs2i0252502525eucas1p1j;
+	Fri, 25 Sep 2026 11:34:58 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260925113452eusmtip215fd236cce7ebc09bee5052a2af6141d~YjTDfNwYs0229302293eusmtip2L;
-	Fri, 25 Sep 2026 11:34:52 +0000 (GMT)
+	20260925113456eusmtip2df82080405f06748f997023963072e06~YjTGvwV780094300943eusmtip2m;
+	Fri, 25 Sep 2026 11:34:56 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 25 Sep 2026 13:27:32 +0200
-Subject: [PATCH RFC 2/9] lib/lz4: backport upstream's -Wmissing-prototypes
- fix
+Date: Fri, 25 Sep 2026 13:27:34 +0200
+Subject: [PATCH RFC 4/9] arch: boot: put the LZ4 freestanding headers on the
+ decompressor path
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260925-lz4-vendor-upstream-v1-2-1c7ffbe21c4b@samsung.com>
+Message-Id: <20260925-lz4-vendor-upstream-v1-4-1c7ffbe21c4b@samsung.com>
 In-Reply-To: <20260925-lz4-vendor-upstream-v1-0-1c7ffbe21c4b@samsung.com>
 To: Michal Wilczynski <m.wilczynski@samsung.com>,  Nathan Chancellor
 	<nathan@kernel.org>,  Nick Desaulniers <ndesaulniers@google.com>,  Bill
@@ -79,29 +79,29 @@ Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
 	Marek Szyprowski <m.szyprowski@samsung.com>, linux-erofs@lists.ozlabs.org, 
 	linux-f2fs-devel@lists.sourceforge.net, linux-crypto@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2100;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4459;
 	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=wMVojsfuYF9eT5q5rMs2c29qyYKzm0LcLr4isls1UTQ=;
-	b=owEBbQGS/pANAwAKASw99I2nQptuAcsmYgBqtlxRhAkB7TyATBVr/4+ZvB5W43K313iDQp6Eo
-	GaNSuSsmEuJATMEAAEKAB0WIQR2xBTdTO5XfoUTSOYsPfSNp0KbbgUCarZcUQAKCRAsPfSNp0Kb
-	bqqICAChUCgNeDyv3RGoQ6NgJobTPJZsAhZENmNk+sFHRrRm6s6yXgvJuRHnzHz67u44q3G2aUJ
-	/w62OUYZhnqPXdGHG01nPAl/of1ajK7KLqRJZtwlq76hT4q/T3bD7HTJyl07fgzoJcWA3FJeoQC
-	1ODZi0rz3jnFdvvowe7eSTcTvlQ7A4X+H/saBtEhuoKsMAlE3scE8X1i/kj0dRRcx8yrOhXE433
-	ExlndGyD/0UTmNLSkn9uACbJR7e7T83b1n4lRCzw5cW9WKelHdl7gxKHn3nCqO43ppJbweGga2A
-	TmrhwDJsGXJ9NmpfsGfz7Gd6ImCi+0CtxVH3d3CbdbEGiCeL
+	bh=I+Yu/LWSJmU4MmzceDodGClIT/ZpW+icynx2hHerReQ=;
+	b=owEBbQGS/pANAwAKASw99I2nQptuAcsmYgBqtlxTD5NRGD88A9525xCQ4UbesjQ1pcT/PtAaW
+	U/sTfCxR3WJATMEAAEKAB0WIQR2xBTdTO5XfoUTSOYsPfSNp0KbbgUCarZcUwAKCRAsPfSNp0Kb
+	biMUB/4xsjsZLL0xQWBuB5jOOX6jYTeGTzPjXssVlKc1zPp3vsv0Rx5R23G90Ch8W/UCbyw5RHa
+	NxwrOKr07DNF2crjMF9wVmv2Bzy3VXh5xoZeC6MOi4P6kXgKcfcOcUszZrTtPfsDH+q+YS9UZAs
+	J1SzHKSNrONjQqv7C0sYcmwRKtHcArpTviKaOka1EfhhGZO1oqW1oWIktBdsXBoXGY69yVFbA1v
+	P7h0kRLJk+nVOe3nG17jAiN1S0sTDhc98f0VhzxN90rdEgDVBrmReqAcDpqnfm/helCaChkrE9b
+	A6WAMPQ0T4B34IUAECFWZfI0uS8y7c4tRXp4yIHC8JJa0M/e
 X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
 	fpr=76C414DD4CEE577E851348E62C3DF48DA7429B6E
-X-CMS-MailID: 20260925113454eucas1p1ffe6b62a29086943a60137ed7e1f42ef
+X-CMS-MailID: 20260925113458eucas1p1fa17760e9d790d3108643ab7f54bc6a3
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260925113454eucas1p1ffe6b62a29086943a60137ed7e1f42ef
+X-RootMTR: 20260925113458eucas1p1fa17760e9d790d3108643ab7f54bc6a3
 X-EPHeader: CA
-X-CMS-RootMailID: 20260925113454eucas1p1ffe6b62a29086943a60137ed7e1f42ef
+X-CMS-RootMailID: 20260925113458eucas1p1fa17760e9d790d3108643ab7f54bc6a3
 References: <20260925-lz4-vendor-upstream-v1-0-1c7ffbe21c4b@samsung.com>
-	<CGME20260925113454eucas1p1ffe6b62a29086943a60137ed7e1f42ef@eucas1p1.samsung.com>
+	<CGME20260925113458eucas1p1fa17760e9d790d3108643ab7f54bc6a3@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_043457_587369_409B8A0C 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20260925_043500_545751_F6AD0259 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,52 +116,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-v1.10.0 defines LZ4_loadDict_internal() in lz4.c and LZ4HC_searchExtDict()
-in lz4hc.c with external linkage and no prototype, which the kernel's
--Wmissing-prototypes rejects. The first also prevents linking, since
-lz4_compress.c and lz4_decompress.c both include lz4.c and would each
-define it.
-
-Neither can be forward declared static in lz4_deps.h like the other bare
-helpers, because their signatures use types declared inside the .c files.
-
-Take the two hunks of upstream commit 5ef1f16929b5
-("fix -Wmissing-prototypes warnings") that apply to the files we vendor.
-This is the only deviation from the tag, and goes away at the next
-re-sync.
+lib/decompress_unlz4.c pulls lib/lz4/lz4_decompress.c into the pre-boot
+decompressor on these five arches. A later patch makes that file include
+the vendored LZ4 sources, which include ISO C headers that -nostdinc does
+not provide, so put lib/lz4/freestanding on the include path first.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- lib/lz4/upstream/lz4.c   | 2 +-
- lib/lz4/upstream/lz4hc.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/compressed/Makefile    | 3 +++
+ arch/mips/boot/compressed/Makefile   | 4 ++++
+ arch/parisc/boot/compressed/Makefile | 3 +++
+ arch/s390/boot/Makefile              | 3 +++
+ arch/x86/boot/compressed/Makefile    | 3 +++
+ 5 files changed, 16 insertions(+)
 
-diff --git a/lib/lz4/upstream/lz4.c b/lib/lz4/upstream/lz4.c
-index a2f7abee19fb9a5c768f2a6c266acf5b571f0855..0d474be0236a698d297ab9a430f5082485eb3709 100644
---- a/lib/lz4/upstream/lz4.c
-+++ b/lib/lz4/upstream/lz4.c
-@@ -1584,7 +1584,7 @@ int LZ4_freeStream (LZ4_stream_t* LZ4_stream)
+diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+index e3f550d6285786c8405b16768255af87b4dc8222..c0418ef2618bbcbf18f905e619031c37661563ed 100644
+--- a/arch/arm/boot/compressed/Makefile
++++ b/arch/arm/boot/compressed/Makefile
+@@ -92,6 +92,9 @@ targets       := vmlinux vmlinux.lds piggy_data piggy.o \
+ 		 head.o $(OBJS)
  
- typedef enum { _ld_fast, _ld_slow } LoadDict_mode_e;
- #define HASH_UNIT sizeof(reg_t)
--int LZ4_loadDict_internal(LZ4_stream_t* LZ4_dict,
-+static int LZ4_loadDict_internal(LZ4_stream_t* LZ4_dict,
-                     const char* dictionary, int dictSize,
-                     LoadDict_mode_e _ld)
- {
-diff --git a/lib/lz4/upstream/lz4hc.c b/lib/lz4/upstream/lz4hc.c
-index 4d8c36a6978fcae09e4c4a936572b4b271513466..32b29f382268d961d65383b24c7225494d9044ad 100644
---- a/lib/lz4/upstream/lz4hc.c
-+++ b/lib/lz4/upstream/lz4hc.c
-@@ -360,7 +360,7 @@ typedef struct {
-     int back;  /* negative value */
- } LZ4HC_match_t;
+ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
++# decompress_unlz4.c builds the vendored LZ4 sources, which include a few
++# ISO C headers -nostdinc drops.
++KBUILD_CFLAGS += -I$(srctree)/lib/lz4/freestanding
  
--LZ4HC_match_t LZ4HC_searchExtDict(const BYTE* ip, U32 ipIndex,
-+static LZ4HC_match_t LZ4HC_searchExtDict(const BYTE* ip, U32 ipIndex,
-         const BYTE* const iLowLimit, const BYTE* const iHighLimit,
-         const LZ4HC_CCtx_internal* dictCtx, U32 gDictEndIndex,
-         int currentBestML, int nbAttempts)
+ ccflags-y := -fpic $(call cc-option,-mno-single-pic-base,) -fno-builtin \
+ 	     -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
+diff --git a/arch/mips/boot/compressed/Makefile b/arch/mips/boot/compressed/Makefile
+index e0b8ec9a9516281933b6cc5b175e82f4013c2f54..b832b8a26f20073d817fb50bc4c8015de006b5e4 100644
+--- a/arch/mips/boot/compressed/Makefile
++++ b/arch/mips/boot/compressed/Makefile
+@@ -30,6 +30,10 @@ endif
+ KBUILD_CFLAGS := $(KBUILD_CFLAGS) -D__KERNEL__ -D__DISABLE_EXPORTS \
+ 	-DBOOT_HEAP_SIZE=$(BOOT_HEAP_SIZE) -D"VMLINUX_LOAD_ADDRESS_ULL=$(VMLINUX_LOAD_ADDRESS)ull"
+ 
++# decompress_unlz4.c builds the vendored LZ4 sources, which include a few
++# ISO C headers -nostdinc drops.
++KBUILD_CFLAGS += -I$(srctree)/lib/lz4/freestanding
++
+ KBUILD_AFLAGS := $(KBUILD_AFLAGS) -D__ASSEMBLY__ \
+ 	-DBOOT_HEAP_SIZE=$(BOOT_HEAP_SIZE) \
+ 	-DKERNEL_ENTRY=$(VMLINUX_ENTRY_ADDRESS)
+diff --git a/arch/parisc/boot/compressed/Makefile b/arch/parisc/boot/compressed/Makefile
+index 14eefb5ed5d1d781a4ee0cb2ef61ab86c905cc56..1d4a3e66e3503714c1f723dedb15598183ec8b0a 100644
+--- a/arch/parisc/boot/compressed/Makefile
++++ b/arch/parisc/boot/compressed/Makefile
+@@ -12,6 +12,9 @@ targets += $(OBJECTS) sizes.h
+ 
+ KBUILD_CFLAGS := -D__KERNEL__ -O2 -DBOOTLOADER
+ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
++# decompress_unlz4.c builds the vendored LZ4 sources, which include a few
++# ISO C headers -nostdinc drops.
++KBUILD_CFLAGS += -I$(srctree)/lib/lz4/freestanding
+ KBUILD_CFLAGS += -fno-strict-aliasing
+ KBUILD_CFLAGS += $(cflags-y) -fno-delete-null-pointer-checks -fno-builtin-printf
+ KBUILD_CFLAGS += -fno-PIE -mno-space-regs -mdisable-fpregs -Os
+diff --git a/arch/s390/boot/Makefile b/arch/s390/boot/Makefile
+index 10b75e053a6f6bb9083548e8f82796f0aa9a9958..fd88523eb1102af1eb1f821e156b8faadb502879 100644
+--- a/arch/s390/boot/Makefile
++++ b/arch/s390/boot/Makefile
+@@ -21,6 +21,9 @@ KBUILD_AFLAGS := $(filter-out $(CC_FLAGS_MARCH),$(KBUILD_AFLAGS_DECOMPRESSOR))
+ KBUILD_CFLAGS := $(filter-out $(CC_FLAGS_MARCH),$(KBUILD_CFLAGS_DECOMPRESSOR))
+ KBUILD_AFLAGS += $(CC_FLAGS_MARCH_MINIMUM) -D__DISABLE_EXPORTS
+ KBUILD_CFLAGS += $(CC_FLAGS_MARCH_MINIMUM) -D__DISABLE_EXPORTS
++# decompress_unlz4.c builds the vendored LZ4 sources, which include a few
++# ISO C headers -nostdinc drops.
++KBUILD_CFLAGS += -I$(srctree)/lib/lz4/freestanding
+ KBUILD_CFLAGS += $(call cc-option, -Wno-default-const-init-unsafe)
+ 
+ CFLAGS_sclp_early_core.o += -I$(srctree)/drivers/s390/char
+diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+index 06934f9691d6a9d6952532ae5f7d96f5858719dd..d200a0a4c28b9e7be1be45f603e625eb573d0220 100644
+--- a/arch/x86/boot/compressed/Makefile
++++ b/arch/x86/boot/compressed/Makefile
+@@ -30,6 +30,9 @@ KBUILD_CFLAGS += -fno-strict-aliasing -fPIE
+ KBUILD_CFLAGS += -fno-jump-tables
+ KBUILD_CFLAGS += -Wundef
+ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
++# decompress_unlz4.c builds the vendored LZ4 sources, which include a few
++# ISO C headers -nostdinc drops.
++KBUILD_CFLAGS += -I$(srctree)/lib/lz4/freestanding
+ cflags-$(CONFIG_X86_32) := -march=i386
+ cflags-$(CONFIG_X86_64) := -mcmodel=small -mno-red-zone
+ KBUILD_CFLAGS += $(cflags-y)
 
 -- 
 2.34.1
