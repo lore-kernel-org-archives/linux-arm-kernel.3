@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BEAC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D72C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j60HMtfGTi5eBikMo7Dlitd6O6BP/MQk73xPGWTZ4lQ=; b=fjMNVGH0mo12nE3OmyKqaXIc2t
-	6OafxdlPmdzaiugLs+KQl5G8AUWQgamz5so3MSF4YY71Z/bJ3pzgXr+7ckv9fnkcSWSrkX2UQHXsa
-	bSoOir0epOo1ZKEnXfs+I4Kr7k7lFnYUd2s+I7qEFt82pkPiO1lXOVulD/3NWYxPJ57YmSTYGjMG9
-	nH64YJJadjq5zON7lXkXWKhLoPhhBa1aOe2EfY5mVV+HDSIYLDNnBlUAV1AixLan/yOXeEOh5eLuH
-	tq2eRj7bUKXjIIflLbdBADSfdETLkkfdu6tRXtNF+v4oEcJuEn0hpq5/whpp3WRSk/yiv1lugnd5q
-	dZHDKX3w==;
+	bh=OmyhYylWORRrsIGDw2qMDbsX+gU3arid6ksSQ/SrjKM=; b=nUZzBn6EDUqygzCbkdeBull0WH
+	tjjNEYGhIjwJ00MDkiYYumVesXmtsg7kPt779hYdD4hm7Bmw+uPEpcrLhdjgHTeqsNc2BZTVRJViW
+	4YL4kMh/Xl4Fv1T/bMYnmxsq1MoHF2lTtlzjlBk9emm99i3BpfRrRi1ujVWbDlX7sfWn7Irm6wp/d
+	diFBACQoxoxQRRyy+t+vQDujgZ6A9VH9pIWTcCYXVCVx+DmKVDknxu681LYCPtIgvGQFyuiKnRPPm
+	uaMNC8/ng15go2xvN8QMtpfCEyG+8U0tOtoEcsKZ6VOX1BLOcMrRCkW7okgpf4q9CgyP32N963jCF
+	QsLlu5+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABL9-0000000EES2-1AMy;
+	id 1xABL9-0000000EESJ-1dg6;
 	Fri, 25 Sep 2026 19:12:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABL2-0000000EEQk-37J8
+	id 1xABL5-0000000EERL-3DH1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:12:04 +0000
+	Fri, 25 Sep 2026 19:12:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FB93438EC;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3645F60235;
+	Fri, 25 Sep 2026 19:12:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E236A1F00898;
 	Fri, 25 Sep 2026 19:12:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2761F000FF;
-	Fri, 25 Sep 2026 19:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790363524;
-	bh=j60HMtfGTi5eBikMo7Dlitd6O6BP/MQk73xPGWTZ4lQ=;
+	s=k20260515; t=1790363526;
+	bh=OmyhYylWORRrsIGDw2qMDbsX+gU3arid6ksSQ/SrjKM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NR7ixijDtlKHhJAOMaQZyckJbqnBNEopUbcqLdZC7vMilmPLijp+YbhOg/KP9csly
-	 3hoehJMj5P8fuFYRLbvDmdCm6+GZVV9GkzdnNyBO9T83GXhorb3iVJomZAHTupTATx
-	 /X3lKaKosaYNwxmU2cJRB8JUlkoe1HRc077mN3Fx4wLelOXm24tYxePD9YDBpFxYv0
-	 Tma7is9IL+UhdJvG5hUI734m8D5Hxa67gldk54YGx7AsH+5+SdJrJBChnESxwfxJax
-	 +X6J1kNDkFpnGCX9zYlctK8SJDwwgYaGUhI4r6jbsz+D5J4scInjWRvnbyR34tGHsJ
-	 QPRZ1PPVXljeg==
-Subject: Re: [PATCH net v3 06/10] net: stmmac: keep DMA configurations at
- stable addresses
+	b=ka6e/kK43r9clvAmWkMsif6JOvSNBWXnSCW5iSX5mM9CFgU9n/E638ozbxxydcSf3
+	 FGAlIQI/vGiKzv8nPBVHDtoeEat0A/NzTHeF3kB1oVU15X8WQLZBXFyZfXA8FLndnP
+	 z5v9PUkDWLl0DPkJP7tiEUaofYNe5qQfRMlfYBi6FcrN1h1Zy0hlJ90JS13U0rhIQ/
+	 7ype8kZcInQ/kjU67bzrcAJPd+M5gE5Ncu4CafotgHf6iN9pIbk6GsnbvzTCF2IFS3
+	 hzh8HFoTVmadoZ2pr8lyO2h1FHo2Vvu7W3VyErpQ2cq0oxrfsH5GL6KdGjZJp3DHAY
+	 UZInXZgUEjP3g==
+Subject: Re: [PATCH net v3 07/10] net: stmmac: account for failed live XDP reopening
 From: netdev-bot+sashiko@kernel.org
 To: james.hilliard1@gmail.com
 Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
@@ -62,11 +61,11 @@ Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
  linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
  zhaojinming@uniontech.com, lorenzo.bianconi@oss.qualcomm.com,
  dinghui1111@163.com
-Date: Fri, 25 Sep 2026 19:12:01 +0000
-Message-ID: <179036352184.2160803.4739778084807600711@kernel.org>
-In-Reply-To: <20260924-submit-stmmac-reset-fixes-v1-v3-6-c031e3f3a282@gmail.com>
-References: <20260924-submit-stmmac-reset-fixes-v1-v3-6-c031e3f3a282@gmail.com>
-X-sashiko-severity: High
+Date: Fri, 25 Sep 2026 19:12:04 +0000
+Message-ID: <179036352450.2160803.6163494216878477708@kernel.org>
+In-Reply-To: <20260924-submit-stmmac-reset-fixes-v1-v3-7-c031e3f3a282@gmail.com>
+References: <20260924-submit-stmmac-reset-fixes-v1-v3-7-c031e3f3a282@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -84,10 +83,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 3 (1) · Low: 0
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -95,262 +94,147 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Baseline decision: not confirmed as a remaining issue.
-- [Medium] In drivers/net/ethernet/stmicro/stmmac/stmmac_main.c, the EEE
-  software LPI timer can access a freed DMA configuration.
-- [Medium] In drivers/net/ethernet/stmicro/stmmac/stmmac_main.c,
-  stmmac_features_check() (ndo_features_check) calls…
-- [Medium] Baseline decision: not confirmed as a remaining issue.
-
-Pre-existing issues:
-- [Medium] Baseline decision: not confirmed as a remaining issue.
+- [Medium] This patch makes every live XDP program attach or detach take
+  the physical link down and renegotiate it, even when the reopen…
+- [Medium] The EEE software LPI timer (priv->eee_ctrl_timer) can be re-
+  armed after phylink cancels it, so it escapes the quiescence that this…
 
 --
 
-net: stmmac: keep DMA configurations at stable addresses
+net: stmmac: account for failed live XDP reopening
 
-This commit turns priv->dma_conf from an embedded struct into a pointer
-to the allocated DMA configuration. The goal is to keep RXQ metadata
-registered with XDP and AF_XDP at a stable address. Per-queue MSI
-handlers now use priv->channel[] as their cookie. stmmac_quiesce()
-drains transmitters and NAPI with synchronize_net() before cancelling
-the TX hrtimers. On success the open and MTU paths free the old
-configuration, and on failure they restore it.
+This patch changes the live XDP release/open pair to track datapath
+ownership state. The pair now detaches the netdev and stops/starts
+phylink around the swap, and stmmac_xdp_open() gets proper error
+unwinding. stmmac_xdp_set_prog() now holds the old program reference
+until the reopen succeeds, and restores it when an attach fails.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 3b918cf898067..ce598b5757637 100644
+> index ce598b5757637..467f471874cf7 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 
 [ ... ]
 
-> @@ -463,7 +463,7 @@ static bool stmmac_eee_tx_busy(struct stmmac_priv *priv)
->  
->  	/* check if all TX queues have the work finished */
->  	for (queue = 0; queue < tx_cnt; queue++) {
-> -		struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
-> +		struct stmmac_tx_queue *tx_q = &priv->dma_conf->tx_queue[queue];
->  
->  		if (tx_q->dirty_tx != tx_q->cur_tx)
->  			return true; /* still unfinished work */
-
-[Severity: Medium]
-Now that dma_conf is a separate allocation that gets freed on reopen,
-can the EEE software LPI timer read a freed configuration here? The
-timer path is:
-
-stmmac_eee_ctrl_timer()
-  stmmac_try_to_start_sw_lpi()
-    stmmac_eee_tx_busy()
-      tx_q = &priv->dma_conf->tx_queue[queue];
-
-No lock or RCU protects the priv->dma_conf load.
-
-__stmmac_release() calls phylink_stop() first, and that reaches
-stmmac_mac_disable_tx_lpi():
-
-    priv->eee_sw_timer_en = false;
-    timer_delete_sync(&priv->eee_ctrl_timer);
-
-NAPI is still running at that point. stmmac_tx_clean() checks the flag
-without a lock before it re-arms the timer:
-
-    if (priv->eee_sw_timer_en && !priv->tx_path_in_lpi_mode)
-        stmmac_restart_sw_lpi_timer(priv);
-
-Suppose that check passes just before the flag is cleared. Then
-mod_timer() can run after timer_delete_sync() has returned. Nothing in
-stmmac_quiesce() cancels eee_ctrl_timer again.
-
-Next, suppose the callback loads the old priv->dma_conf before
-__stmmac_open() stores the new one, and is then delayed (for example,
-preempted in the timer softirq thread on PREEMPT_RT). It would then
-dereference tx_queue[] after kfree(old_conf) in stmmac_change_mtu() or
-stmmac_open(). Before this patch the configuration was embedded in
-priv, so the worst case was a stale read.
-
-Later in the series, stmmac_reconfigure_mtu() adds
-timer_delete_sync(&priv->eee_ctrl_timer) after stmmac_quiesce(). The
-ethtool ring and channel paths still seem to lack it:
-
-stmmac_reinit_ringparam() / stmmac_reinit_queues()
-  __stmmac_release()
-  stmmac_reopen()
-    __stmmac_open()
-    kfree(old_conf)
-
-The close/open path also seems to lack it. Should the EEE timer also be
-cancelled on those paths after NAPI is quiesced?
-
-[ ... ]
-
-> @@ -3650,7 +3650,7 @@ static bool stmmac_tso_channel_permitted(struct stmmac_priv *priv,
->  					 unsigned int chan)
+> @@ -7244,19 +7252,15 @@ void stmmac_enable_tx_queue(struct stmmac_priv *priv, u32 queue)
+>  void stmmac_xdp_release(struct net_device *dev)
 >  {
->  	/* TSO and TBS cannot co-exist */
-> -	return !(priv->dma_conf.tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
-> +	return !(priv->dma_conf->tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
->  }
+>  	struct stmmac_priv *priv = netdev_priv(dev);
+> -	u8 chan;
+> -
+> -	/* Ensure tx function is not running */
+> -	netif_tx_disable(dev);
+>  
+> -	/* Disable NAPI process */
+> -	stmmac_disable_all_queues(priv);
+> -
+> -	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+> -		hrtimer_cancel(&priv->dma_conf->tx_queue[chan].txtimer);
+> +	netif_device_detach(dev);
+> +	phylink_stop(priv->phylink);
+> +	stmmac_quiesce(priv);
+> +	priv->datapath = STMMAC_DATAPATH_DOWN;
 
 [Severity: Medium]
-stmmac_features_check(), the ndo_features_check callback, calls this.
-Can it read priv->dma_conf after the old configuration has been freed?
+Does this make every live XDP attach or detach drop the physical link and
+renegotiate it, even when stmmac_xdp_open() succeeds?
 
-netif_skb_features() is called from paths that neither
-netif_device_detach() nor stopped TX queues exclude:
+stmmac_xdp_set_prog() calls the release/open pair each time XDP is
+toggled on a RUNNING datapath. Before this patch the pair only called
+netif_carrier_off() and netif_carrier_on(). Now it does this:
 
-- tbf_segment() in net/sched/sch_tbf.c, and similarly taprio, cake,
-  netem and dualpi2
-- ip_finish_output_gso() and its IPv6 counterpart
-- validate_xmit_skb() in sch_direct_xmit(), before the stopped-queue
-  check
+stmmac_xdp_release()
+  phylink_stop()
+    sfp_upstream_stop()
+    phy_stop()  -> PHY_HALTED -> phy_link_down(), then phy_suspend()
+    (PCS disabled)
 
-In stmmac_change_mtu(), the only synchronize_net() is the one inside
-__stmmac_release(), and it runs before the pointer swap:
+stmmac_xdp_open()
+  phylink_start()
+    phylink_mac_initial_config()
+    phy_start()  -> autonegotiation restarts
 
-stmmac_change_mtu()
-  netif_device_detach(dev)
-  __stmmac_release(dev)
-    stmmac_quiesce()
-      synchronize_net()
-  __stmmac_open(dev, dma_conf)
-    priv->dma_conf = dma_conf;
-  kfree(old_conf)
+As a result, both the link partner and the host would see the link go
+down and come back up. The link stays down for the whole negotiation.
 
-A GSO feature check could load the old pointer after that drain and be
-preempted until after kfree(old_conf). It would then read tbs from
-freed memory.
+The commit in the Fixes: tag, ac746c8520d9, was written to avoid exactly
+this. Its message says the old close/open would "tear down the PHY device
+and causes undesirable autonegotiation which causes a delay whenever
+AFXDP ZC is setup".
 
-The same ordering seems to remain at the end of the series. In
-stmmac_reconfigure_mtu(), synchronize_net() runs before
-priv->dma_conf = new_conf, followed by kfree(old_conf). stmmac_reopen()
-does the same for ring and channel changes.
+As far as I can tell, phylink only has to be stopped on the failure path.
+__stmmac_release() returns early for STMMAC_DATAPATH_DOWN, so otherwise
+nothing would ever stop phylink. On success, could the link stay up as
+it did before?
 
-Is a grace period needed between publishing the new configuration and
-freeing the old one?
+A smaller related point: stmmac_xdp_open() now enables the MAC and starts
+DMA while the PHY is powered down, so its RX clock may be stopped. stmmac
+sets mac_requires_rxc, but stmmac_xdp_open() does not call
+phylink_prepare_resume() the way __stmmac_open() does. This path does no
+DMA software reset, so the effect may be harmless.
 
-[ ... ]
+This behaviour is still present at the end of the series. The later XSK
+pool patch also sends pool changes through the same release/open pair.
 
-> @@ -6267,10 +6274,12 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
->  			return PTR_ERR(dma_conf);
->  		}
->  
-> +		netif_device_detach(dev);
->  		__stmmac_release(dev);
->  
->  		ret = __stmmac_open(dev, dma_conf);
->  		if (ret) {
-> +			priv->dma_conf = old_conf;
->  			free_dma_desc_resources(priv, dma_conf);
->  			kfree(dma_conf);
->  			/*
-> @@ -6282,9 +6291,10 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
->  			return ret;
->  		}
->  
-> -		kfree(dma_conf);
-> +		kfree(old_conf);
-
-[Severity: High]
-The commit message says:
-
-  Drain transmitters and NAPI poll tails before cancelling TX timers so
-  a late rearm cannot outlive the configuration containing the timer.
-
-Can a TX hard-error interrupt restart transmitters after that drain?
-__stmmac_release() runs stmmac_quiesce() and frees the IRQs only
-afterwards:
-
-    stmmac_quiesce(priv);
-    ...
-    stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
-    stmmac_stop_all_dma(priv);
-    free_dma_desc_resources(priv, priv->dma_conf);
-
-In that window, stmmac_msi_intr_tx() calls stmmac_tx_err(), which ends
-with:
-
-    netif_tx_wake_queue(netdev_get_tx_queue(priv->dev, chan));
-
-Once a queue is woken, stack transmitters can enter stmmac_xmit() or
-stmmac_tso_xmit() again. They would be using the old configuration
-while free_dma_desc_resources() frees its rings, and while this
-kfree(old_conf) frees the struct itself.
-
-Two later commits in the series deal with this:
-
-- "net: stmmac: account for failed live XDP reopening" adds a second
-  stmmac_stop_tx_queues() after stmmac_free_irq() in
-  __stmmac_release().
-- "net: stmmac: retain DMA resources across MTU changes" disables IRQ
-  handling in stmmac_reconfigure_mtu() before replacing the
-  configuration.
-
-At this patch, though, can the old configuration still be in use after
-kfree(old_conf)?
-
-[ ... ]
-
-> @@ -7251,7 +7253,7 @@ void stmmac_xdp_release(struct net_device *dev)
->  	stmmac_disable_all_queues(priv);
->  
->  	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
-> -		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
-> +		hrtimer_cancel(&priv->dma_conf->tx_queue[chan].txtimer);
 >  
 >  	/* Free the IRQ lines */
 >  	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
+> +	stmmac_stop_tx_queues(priv);
 
 [Severity: Medium]
-This isn't a bug introduced by this patch, but stmmac_xdp_release()
-still cancels the TX hrtimers right after stmmac_disable_all_queues().
-It does not run the synchronize_net() that stmmac_quiesce() now uses.
-Can a NAPI poll tail re-arm a timer after this cancel?
+Can priv->eee_ctrl_timer be re-armed after phylink cancels it, so that
+this drain misses it?
 
-After napi_complete_done() clears SCHED, stmmac_tx_timer_arm() can see
-napi_is_scheduled() == false and call hrtimer_start(). stmmac_xdp_open()
-then calls hrtimer_setup() on the same txtimer, which could
-re-initialize an armed hrtimer.
+phylink_stop() now runs before stmmac_quiesce() disables NAPI. It cancels
+the EEE timer through this chain:
 
-Later in the series, "net: stmmac: account for failed live XDP
-reopening" addresses this by making stmmac_xdp_release() call
-stmmac_quiesce().
+phylink_stop()
+  phylink_link_down()
+    phylink_deactivate_lpi()
+      stmmac_mac_disable_tx_lpi()
+        priv->eee_sw_timer_en = false;
+        timer_delete_sync(&priv->eee_ctrl_timer);
 
-[ ... ]
+That runs under priv->lock. A NAPI poll on another CPU in stmmac_tx_clean()
+holds only the TX queue lock, and it may already have passed this check:
 
-> @@ -7382,11 +7382,9 @@ int stmmac_xsk_wakeup(struct net_device *dev, u32 queue, u32 flags)
->  	    queue >= priv->plat->tx_queues_to_use)
->  		return -EINVAL;
->  
-> -	rx_q = &priv->dma_conf.rx_queue[queue];
-> -	tx_q = &priv->dma_conf.tx_queue[queue];
->  	ch = &priv->channel[queue];
->  
-> -	if (!rx_q->xsk_pool && !tx_q->xsk_pool)
-> +	if (!test_bit(queue, priv->af_xdp_zc_qps))
->  		return -EINVAL;
-
-[Severity: Medium]
-Is the af_xdp_zc_qps bit a strong enough guard here? In
-stmmac_xdp_enable_pool(), the sequence is:
-
-    set_bit(queue, priv->af_xdp_zc_qps);
+stmmac_tx_clean() {
     ...
-    stmmac_enable_rx_queue(priv, queue);
-    stmmac_enable_tx_queue(priv, queue);
-    napi_enable(&ch->rxtx_napi);
-    err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
+	if (priv->eee_sw_timer_en && !priv->tx_path_in_lpi_mode)
+		stmmac_restart_sw_lpi_timer(priv);
+    ...
+}
 
-Both enable helpers return void. If they fail, dma_rx, buf_pool and
-xsk_pool are left NULL.
+If so, its mod_timer() can run after timer_delete_sync(). Nothing later
+catches it:
 
-If both queue re-enables fail, the old check returned -EINVAL. The new
-check lets NAPI run stmmac_rx_zc() on a NULL ring and pool.
+- netif_device_detach() does not drain NAPI.
+- stmmac_quiesce() and stmmac_stop_tx_queues() only cancel the per-queue
+  txtimer hrtimers.
 
-This seems to go away later in the series with "net: stmmac: use the
-tracked datapath restart for XSK pool changes". That commit switches to
-stmmac_xdp_release()/stmmac_xdp_open() and clears the bit when the
-reopen fails.
+The re-armed timer calls stmmac_eee_ctrl_timer() and then
+stmmac_try_to_start_sw_lpi(), which does not check eee_sw_timer_en. It
+would either force LPI on a MAC where phylink has disabled EEE, or re-arm
+itself while dirty_tx != cur_tx.
+
+Suppose stmmac_xdp_open() then fails before stmmac_reset_queues_param(),
+for example in alloc_dma_desc_resources(). cur_tx and dirty_tx are never
+reset, so the timer could keep re-arming while the device is DOWN.
+Nothing deletes eee_ctrl_timer on close or remove, so could it fire on
+freed priv once the device is removed?
+
+The ordinary release path has had the same phylink_stop()-before-NAPI
+ordering since before this series. This patch adds that ordering to the
+XDP swap path.
+
+The last patch in the series adds timer_delete_sync(&priv->eee_ctrl_timer)
+after stmmac_quiesce() in stmmac_reconfigure_mtu(). stmmac_xdp_release()
+still does not have it at the end of the series. Is the same cancellation
+needed here?
+
+>  
+>  	/* Stop TX/RX DMA channels */
+>  	stmmac_stop_all_dma(priv);
 
 [ ... ]
 
