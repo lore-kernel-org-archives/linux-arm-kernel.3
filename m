@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C038DC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CBBC98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AlSXbEjro2stcGQ4JnkFbJoY4FQMoz5yKwywTEmVVk=; b=Vvuti1D2595GnIRejM8HnWkmUD
-	OUbrPLLThxak4frXH9gjTpihCfGSeeh1/w0UGe+rswzJ9Y3Uznwc3STQsyl7MBHiaqJnXH8KWJKvK
-	HcVqDlLo97X53SWG8FdIzA8h0gXlJ9LWy+60jN0Kc3BK7dR2GFhZxrmM3NNPyb4ntCz/+sjn2fWzj
-	i1mCXuaGoXD1e3D4Z9vr7VRzRS2+roZ1DkQTfPPOPHtdDr4F2KWkUz3QWTZZ3BV+RvCIF3JamRln5
-	/GdECHkEe/WSaA0uqj7aYSgE621IpDgTFbxKtH0a56MZeZIxSX0Oy4qN9f9nNtyD5V5cbBdATofIY
-	W8lVe7Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GAVSnJmPMwarDSH1jMfx2Fzr75wqXb1P/mqnFUbv2M0=; b=KPvn2pPWZFjmfhbZjkq0+eqme1
+	fqqg6tiua0xZ5UuSWwB/lzBq+40a8aFEUAQOo66LwN30eKAmt6S19wv35tsdUttFy86ccinv7r0kw
+	tHtowgGEML+/nHapRziNs+YHHdHaX0EehQvYTCzbgQFXUawE//k6J1CMLY4qDqMTpIxInnhxvSmYE
+	BKsxGO/EJjHix0F8trIBebSktugS9kBfCpZuB6RuTUL+m6pJBBE0r7Ctu/OQSaHyq2yZKucfeGIT+
+	AQTOA1alZtDdOmowXJmhpbwidzucTA3u6+fVQwBNSj27elP23ybU/e5GvP5lfBM37Ya7XMQSYDrbh
+	1OIY9SNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABTv-0000000EFoF-39gR;
-	Fri, 25 Sep 2026 19:21:15 +0000
-Received: from mail-dy2-x0f.google.com ([2607:f8b0:4864:36::f])
+	id 1xABUj-0000000EFvq-3qBR;
+	Fri, 25 Sep 2026 19:22:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABTt-0000000EFnn-1DyF
+	id 1xABUi-0000000EFvb-3Jmx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:21:14 +0000
-Received: by mail-dy2-x0f.google.com with SMTP id 5a478bee46e88-33bfb26865fso1037973eec.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 12:21:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790364073; x=1790968873; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1AlSXbEjro2stcGQ4JnkFbJoY4FQMoz5yKwywTEmVVk=;
-        b=T8jfW6lYfpqm0SMcTI9yKdj+CDVa9ntnHDKM1Hp3hXoCZR/BcFLKnoj/HzpaPXVtTJ
-         n8D+luLrjUOcSCQzMNVcOyS2uYJpYdvFc3qX/pC50UrcNC6kzPU6sm0vq8YU5MvAlNgF
-         /iLjol44syr7dJQ07P/dlC+uuooG22rbfAIQhBwPyl5H8mkTF63vzM/0DL6JTXX2v4qm
-         QsfIzhV+dTDwY2IgCfQlyD1A4Y/zTpzA/QJ+mlgf4Vv7MbHvj/EkWRuti9QEllgZm7bW
-         VysmmNAefKQb1J22nwW9RmWHRvoETrdNHbBmh+Bvqpz/SZeH58BhArAOGkH8gVxx0GSx
-         LvoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790364073; x=1790968873;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1AlSXbEjro2stcGQ4JnkFbJoY4FQMoz5yKwywTEmVVk=;
-        b=uZhKvsZcrpXrnMFUS9iroTt2qsiMuJrkCkdgxcpywM28Zl3MYBcj+uWTF2X+COQIF/
-         v3UZFabFzWXtkEQz8ezoeO2nkj6KB77rik/IQkZoIMv22Cxb/LwWgVPvtpe0l5PgDDD3
-         RDZgtlc/bPgSQvbsYCxcISyN4F4dmKkFyG8pgOwm4ew5AY/ZgvGitGvB30UOqdtZleR3
-         8h9Vjs8RFB5LKTBUXDJQTr17/OmEGvwvNbYkxyU0aNHaBvy3J93ErXskAooi0M5GnK87
-         WHfyCBgqjAZvYXYpQV35pn09JRvf4fv5LYTiL0P786hQ4XypSetJR75gfeGmPlRH07j3
-         EKxA==
-X-Forwarded-Encrypted: i=1; AKwUvBzFjQQMuEoEOqLHcfLKTAbTOqKm4/Ncg7hq7Sjv87QJp6o7b/lfxB42nsmh2r4Oc8a5UgKle/S9uLhrfKrAESuA@lists.infradead.org
-X-Gm-Message-State: AFuF++nV2r+G7WJmGp6xSrtYFhtQCvxQyenBWvlgoO5PwBezKvDjYgqd
-	Nh8X2XX8D8k3TwBbc4dms5m6T7EGU/KKM39Rg4p0LRa4XR6ET26LvqQl
-X-Gm-Gg: AYBFou3GAWzmkV8hCmgaqikfViqc39YDaiVH8cBmenIvWqeEriL3MvYBDPeAdIGiWWD
-	Zswfoyq/8MYU7CuWZQM4o6CcSjZoCFaF4WR5xpGg4Dmb3W21xFj/FcNPqsXVur91WYUAbKUnw4E
-	uXyYf4AvZMxSQFu74gpTo8R2cHmpLjHSkRfNBRCKQXfKOGXJPWKtODrS6rn7JLfi5dmjsHX1RyT
-	l3Q6XCcIZ+98S+YfEGz7PHyHvEDj09pUytTkJqEdDBjIEgpEMEtsC1QLlrbIvpOWfnnobItkxqj
-	yZ3Sszihq8YIvdKbfGAA1vCqaF0XzZMoWM516q+s+cyatAJigU7D1MF8VZk7MdC9BuzH5ENaNzq
-	PbcSCj4ZmycQ9sRIy4yFld6c7xD91W6T+qx1JDGTchRQWuIWB9Bh9wd6KiK9yNfvDgld4gNsps7
-	b5LVpunRhapC0Ogkimfc0irER6Hb+Zti0D4O0B8hdan10WEN4ne8eReUB4518rqsYyRkYrP4lTn
-	6R8DPawRGKNuEeznDSJM7lhrfx/sAFPaja7krs=
-X-Received: by 2002:a05:7022:7e85:b0:143:3242:6301 with SMTP id a92af1059eb24-146ce29fde5mr1024848c88.4.1790364071957;
-        Fri, 25 Sep 2026 12:21:11 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:375:19cf:5fee:be32])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-146bb6551d9sm1708481c88.9.2026.09.25.12.21.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 12:21:10 -0700 (PDT)
-Date: Fri, 25 Sep 2026 12:21:07 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: david@ixit.cz
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Henrik Rydberg <rydberg@bitmath.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Petr Hodina <petr.hodina@protonmail.com>, 
-	linux-input@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v7 3/4] Input: stmfts - support FTS5
-Message-ID: <arbJQezIkyvCf1rR@google.com>
-References: <20260907-stmfts5-v7-0-4a53381cd038@ixit.cz>
- <20260907-stmfts5-v7-3-4a53381cd038@ixit.cz>
+	Fri, 25 Sep 2026 19:22:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF9D96022F;
+	Fri, 25 Sep 2026 19:22:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA65C1F000FF;
+	Fri, 25 Sep 2026 19:22:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790364123;
+	bh=GAVSnJmPMwarDSH1jMfx2Fzr75wqXb1P/mqnFUbv2M0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=MZBPnFeAeoghE+EgKKyZzLFVschIMrk2xqMn30WH7K7HIbj7jB4My4bP48C9HkvV/
+	 ga/K7rB8MTnDiVtu0Bz1IxhWyH5a3jzHKIe3qUkpW6ZB+ykaLXWm+Mk9fpmb9crv6k
+	 vn+gmYZ3huP2nDxS2hLHf+pJILALr5PP/Ffc2HF7dMCPvaFySOns3jFoYChOJmgmc2
+	 MNIoTLVjZ5YyRia8IOUFqdi5Jxs7HzjVgK2HMU0bAPQzCQSkOyRx/yiO3ovUCyUo+t
+	 WeWndhSy7RQr/mOclDIOZB0rWeLpUbbmg2vXk4FVGI15Kz6IrhhNLqplJp35omYzwu
+	 WVcEs2D2v97aQ==
+Date: Fri, 25 Sep 2026 12:22:02 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
+ <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>, Alexis
+ =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
+ Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Jan Petrous
+ <jan.petrous@oss.nxp.com>, Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+ Jose.Abreu@synopsys.com, Nicolai Buchwitz <nb@tipi-net.de>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
+ <david.laight.linux@gmail.com>
+Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
+Message-ID: <20260925122202.611d655a@kernel.org>
+In-Reply-To: <f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
+References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+	<20260921152202.64d4c67a@kernel.org>
+	<f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907-stmfts5-v7-3-4a53381cd038@ixit.cz>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_122113_694161_08D00D7D 
-X-CRM114-Status: GOOD (  12.55  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +84,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+On Fri, 25 Sep 2026 10:20:59 +0200 Maxime Chevallier wrote:
+> On 9/22/26 00:22, Jakub Kicinski wrote:
+> > On Thu, 17 Sep 2026 23:53:31 +0200 Maxime Chevallier wrote:  
+> >> This is V4 of stmmac selftest fixes, addressing Sashiko's issues over
+> >> the MTU patch. This lead to the introduction of a new one. The
+> >> dev_add_pack races have been addressed, however the double-vlan issue
+> >> stayed there. Ovidiu is actively working on it, let's wait for his work
+> >> to land before fixing that.
+> >>
+> >> Nicolai, I took the liberty of keeping your review tags on affected
+> >> patches, let me know if this isn't ok.
+> >>
+> >> This is another round of stmmac selftest fixes, mostly about the selftests
+> >> themselves but a few things were discovered w.r.t MTU and buffer size
+> >> handling, see patch 5 anf 6.
+> >>
+> >> After this is merged, I consider the selftests to be now reliable enough
+> >> to run them nightly on every stmmac series that's sent, and I'll be requiring
+> >> clean selftests for new glue drivers.  
+> > 
+> > This got to the top of the stack for me, LMK if none of the AI feedback
+> > is legit. You mentioned the VLAN one, not sure about the rest.
+> > The EEE complaints look like nit picks but also some are easily
+> > addressable? LMK..  
+> 
+> Thanks for applying :)
+> 
+> Much greener now :
+> 
+> https://minimaxwell.github.io/stmmac-ci/
 
-On Mon, Sep 07, 2026 at 12:50:21PM +0200, David Heidelberg via B4 Relay wrote:
-> +static int stmfts5_setup_input(struct stmfts_data *sdata)
-> +{
-> +	struct device *dev = &sdata->client->dev;
-> +
-> +	sdata->mode_switch_gpio = devm_gpiod_get_optional(dev, "mode-switch",
-> +							  GPIOD_OUT_HIGH);
-> +	if (IS_ERR(sdata->mode_switch_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(sdata->mode_switch_gpio),
-> +				     "Failed to get GPIO 'switch'\n");
-> +
-> +	/* Set resolution for accurate calibration */
-> +	if (!input_abs_get_res(sdata->input, ABS_MT_POSITION_X)) {
-> +		input_abs_set_res(sdata->input, ABS_MT_POSITION_X, 10);
-> +		input_abs_set_res(sdata->input, ABS_MT_POSITION_Y, 10);
-> +	}
-> +
-> +	input_set_abs_params(sdata->input, ABS_MT_DISTANCE, 0, 255, 0, 0);
+Nice :)
 
-You need
-
-	input_set_abs_params(sdata->input, ABS_MT_TOOL_TYPE,
-			     0, MT_TOOL_PALM, 0, 0);
-
-here, otherwise input core will drop ABS_MT_TOOL_TYPE events.
-
-Thanks.
-
--- 
-Dmitry
+BTW - I see you have a thing called "netdev series report"
+I've been meaning to ask someone if they want us to add to SUIE
+subsystem tracking (https://netdev.bots.linux.dev/suie.html)
+I could easily add a drop down to filter just stmmac patches there.
+On the scale of 1 to 10 how useful would that be?
+Is there something beyond "active series" that you need to see?
 
