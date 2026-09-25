@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863E2C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451CEC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=92gf6m9YOIPDsCP688vyQFsYfi3lwgydMZ3LqXmn3gc=; b=V93OSphCWgfeyN8mvKH4p7kh3d
-	T1la7dp1SUG2TN3kWFaDBBs3Jh6XHxeL7Fpf6XdRGWVIbOLjNS9ASwGuXF+mtfe8oDH6mVFgeyvZ/
-	mpp30tF4ApniOXU+STVlgvxpgGaxvOa7OHKf3sC+Cv6ZU2nM8gZlYtMEOEYK6DUoWsTWUACMGI7PB
-	MsBoZsjRAmb2gbRG92cPV3SqvncNFNdLbohoc65ArdccPzTBiPX+xEltW/cqL8nYDrZgLiuaBHXub
-	WTYoFCq3mM+05U2EgJCIoxXjRH8ya3ukRlRxNED1msyfhTGY5FpFexmMoXzIopTzeUosddROm6Ftm
-	KajSnT4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xz+A4Rhkf0YcwXGNdPC9DjVZzWHVqQf/Hhrp/S7UrBY=; b=f8MG34NoXtHd5JSXI/7RZ9cszL
+	LNCYRtDeSzDIVwV0AVX9lzcHL5N9SFSeyDK6hFEE12VMm6tv8w4M93aC6lqyCjiE8GEfsBgGJbn2C
+	pKXJs3haaMg14O9l2+pLk/nHSoQsLGaXj7EQAhwZ0Fg+AQpnCkmuv3+I8vQ1idOa8cWev/ILdCgQT
+	c6ETjXNiCwz9loTsVnu32zLe6fgf9AVEYSXQIF/owWdhDikbp8B3Lv7d2+e08V2GTpbfJULKN6NEh
+	e25YvueOj5JFNAybIwoLV8exKMcKvYrlDKO0uS8IYQ1V04vM3so1rQWo+y0DKNjVv1w5Om4HkEAY8
+	KxSJGCVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5ba-0000000DOhN-2Q2u;
-	Fri, 25 Sep 2026 13:04:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xA5dX-0000000DOuh-3Vvr;
+	Fri, 25 Sep 2026 13:06:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5bZ-0000000DOhE-323m
+	id 1xA5dV-0000000DOu4-27Of
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 13:04:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 472FB40E34;
-	Fri, 25 Sep 2026 13:04:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 363181F000FF;
-	Fri, 25 Sep 2026 13:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790341485;
-	bh=92gf6m9YOIPDsCP688vyQFsYfi3lwgydMZ3LqXmn3gc=;
-	h=From:To:Cc:Subject:Date;
-	b=SBOi/xz15oQl7twIyrtO4yKBCgAQPj6/OZhYu8U3oP8ECGc8P4+iB7/0HxtrimI+p
-	 3hbKLbnScGXlW/P1Xqe7Ur17Z/p4I5GiNYK3vwCocskYglwQH70aKksT6l3enezdxh
-	 1jNKFyOd0tKdt+4NQQE7fIWc5IdGoik4Vso6c8gb3sy5I2g3Iahj6SAnl61rxNAnta
-	 uDqGXX6DRl2cRREfQqy/yxxeV2nfS2HZMXs0zyc8gmK1+78c854yQsdnmtMsvumQ0C
-	 zrdsJo1vHOm1Zp+HrjtwzoANXNy0iFZ/L1FikLc1U6wnRpzc2bxFSmvUKcw/LzfQxV
-	 G3DiELNF9IqXg==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Geetha sowjanya <gakula@marvell.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Yury Norov <ynorov@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] perf: marvell: avoid large stack variables
-Date: Fri, 25 Sep 2026 15:04:30 +0200
-Message-ID: <20260925130440.4107512-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	Fri, 25 Sep 2026 13:06:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1790341605; x=1821877605;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5LiU7u1Sd8vqr5RRPtFupIejm8J7rPUf9Xtw/ZZXIiA=;
+  b=2cmSjwRz1DR4z4m/jWO++YbP3ByImNwQJHktv2CTbQVG/X3zliutkosT
+   EEkG1mwj1Oe4QBdp6yUNV0/8vWmdoOqmxkcfhu6qrQY6m4Yu884JS4qGD
+   lu+5mvEyk60qbwNKVguDzujNT1R6vSUG31QC0GA2az6fFdrPuSFHUphYV
+   90U8HVf3KgfY/5pmpoZLKx2GjzMzj4NbDtJhSFfZ6/Z0cltyHB2UKSGmG
+   FYaeMpYhj1ljYpLcKW0hzL0+BKs3DYMuRQDOi9wLR56NhKFHYkH6pPoHc
+   GjkwYOr2muTHTw+HsCU0XcJahDoxdEeqjXP7UB1lm5/c526fEZHKjeyNi
+   w==;
+X-CSE-ConnectionGUID: 0oTG/wW9SWmgreduiR0bWg==
+X-CSE-MsgGUID: U+rPuNpRSV2rV5jNhfO0Yg==
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="295561569"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 06:06:44 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.49; Fri, 25 Sep 2026 06:06:43 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 25 Sep 2026 06:06:41 -0700
+Date: Fri, 25 Sep 2026 15:06:41 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+CC: Steen Hegelund <Steen.Hegelund@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <kernel-janitors@vger.kernel.org>,
+	<error27@gmail.com>
+Subject: Re: [PATCH] net: microchip: vcap: stop scanning after deleting key
+ field
+Message-ID: <20260925130641.awviajhuq6mcb22w@DEN-DL-M70577.microsemi.net>
+References: <20260925063937.963430-1-harshit.m.mogalapalli@oracle.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260925063937.963430-1-harshit.m.mogalapalli@oracle.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_060645_773185_B7935B51 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,138 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+> The only call outside the KUnit tests is in
+> sparx5_tc_add_rule_copy(), which passes a fixed key list with no
+> duplicate entries. Therefore, the potential double-free is not
+> currently reachable in tree.
 
-The probe function in this driver constructs multiple large structures
-on the stack, which ends up causing a size warning:
+Agree. Not reachable today.
 
-drivers/perf/marvell_cn10k_ddr_pmu.c:1168:12: error: stack frame size (1296) exceeds limit (1280) in 'cn10k_ddr_perf_probe' [-Werror,-Wframe-larger-than]
- 1168 | static int cn10k_ddr_perf_probe(struct platform_device *pdev)
-      |            ^
+> 
+> However, vcap_filter_rule_keys() is exported and does not require its
+> key list entries to be unique. If a future or external caller supplies
+> the same key at another position that the inner loop visits, it calls
+> list_del() and kfree() a second time on the freed field, leading to a
+> potential double-free.
+> 
 
-Avoid this warning and simplify the code by turning these into static
-const structures and directly assigning them without the extra copy.
+Also agree.
 
-Fixes: 9b551a2446b2 ("perf: marvell: Add CN20K DDR PMU support")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/perf/marvell_cn10k_ddr_pmu.c | 85 +++++++++++++++-------------
- 1 file changed, 45 insertions(+), 40 deletions(-)
+> Break the inner loop after removing a matching field. The outer safe
+> list traversal continues to process the remaining rule fields.
+> 
+> Fixes: 465a38a269e9 ("net: microchip: sparx5: Support for copying and modifying rules in the API")
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Closes: https://lore.kernel.org/all/ahs-lCAXXikkaHky@stanley.mountain/
+> Signed-off-by: Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
+> ---
+>  drivers/net/ethernet/microchip/vcap/vcap_api.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> index 788c0728d763..0f8d98f2094d 100644
+> --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> @@ -3527,8 +3527,8 @@ int vcap_filter_rule_keys(struct vcap_rule *rule,
+>                                 if (key == keylist[idx]) {
+>                                         list_del(&ckf->ctrl.list);
+>                                         kfree(ckf);
+> -                                       idx++;
+>                                         err = 0;
+> +                                       break;
+>                                 }
+>                 }
+>         }
+> --
+> 2.52.0
+> 
 
-diff --git a/drivers/perf/marvell_cn10k_ddr_pmu.c b/drivers/perf/marvell_cn10k_ddr_pmu.c
-index 0a8cb6166408..9b68d6c1c31c 100644
---- a/drivers/perf/marvell_cn10k_ddr_pmu.c
-+++ b/drivers/perf/marvell_cn10k_ddr_pmu.c
-@@ -1165,6 +1165,47 @@ static const struct ddr_pmu_platform_data odyssey_ddr_pmu_pdata = {
- };
- #endif
- 
-+static const struct pmu cn10k_pmu = {
-+	.module	      = THIS_MODULE,
-+	.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
-+	.task_ctx_nr = perf_invalid_context,
-+	.attr_groups = cn10k_attr_groups,
-+	.event_init  = cn10k_ddr_perf_event_init,
-+	.add	     = cn10k_ddr_perf_event_add,
-+	.del	     = cn10k_ddr_perf_event_del,
-+	.start	     = cn10k_ddr_perf_event_start,
-+	.stop	     = cn10k_ddr_perf_event_stop,
-+	.read	     = cn10k_ddr_perf_event_update,
-+	.pmu_enable  = cn10k_ddr_perf_pmu_enable,
-+	.pmu_disable = cn10k_ddr_perf_pmu_disable,
-+};
-+
-+static const struct pmu ody_pmu = {
-+	.module       = THIS_MODULE,
-+	.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
-+	.task_ctx_nr = perf_invalid_context,
-+	.attr_groups = odyssey_attr_groups,
-+	.event_init  = cn10k_ddr_perf_event_init,
-+	.add         = cn10k_ddr_perf_event_add,
-+	.del         = cn10k_ddr_perf_event_del,
-+	.start       = cn10k_ddr_perf_event_start,
-+	.stop        = cn10k_ddr_perf_event_stop,
-+	.read        = cn10k_ddr_perf_event_update,
-+};
-+
-+static const struct pmu cn20k_pmu = {
-+	.module       = THIS_MODULE,
-+	.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
-+	.task_ctx_nr = perf_invalid_context,
-+	.attr_groups = cn20k_attr_groups,
-+	.event_init  = cn10k_ddr_perf_event_init,
-+	.add         = cn10k_ddr_perf_event_add,
-+	.del         = cn10k_ddr_perf_event_del,
-+	.start       = cn10k_ddr_perf_event_start,
-+	.stop        = cn10k_ddr_perf_event_stop,
-+	.read        = cn10k_ddr_perf_event_update,
-+};
-+
- static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- {
- 	const struct ddr_pmu_platform_data *dev_data;
-@@ -1202,56 +1243,20 @@ static int cn10k_ddr_perf_probe(struct platform_device *pdev)
- 		/* Setup the PMU counter to work in manual mode */
- 		writeq_relaxed(OP_MODE_CTRL_VAL_MANUAL, ddr_pmu->base +
- 			       ddr_pmu->p_data->cnt_op_mode_ctrl);
-+		ddr_pmu->pmu = cn10k_pmu;
- 
--		ddr_pmu->pmu = (struct pmu) {
--			.module	      = THIS_MODULE,
--			.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
--			.task_ctx_nr = perf_invalid_context,
--			.attr_groups = cn10k_attr_groups,
--			.event_init  = cn10k_ddr_perf_event_init,
--			.add	     = cn10k_ddr_perf_event_add,
--			.del	     = cn10k_ddr_perf_event_del,
--			.start	     = cn10k_ddr_perf_event_start,
--			.stop	     = cn10k_ddr_perf_event_stop,
--			.read	     = cn10k_ddr_perf_event_update,
--			.pmu_enable  = cn10k_ddr_perf_pmu_enable,
--			.pmu_disable = cn10k_ddr_perf_pmu_disable,
--		};
- 	}
- 
- 	if (silicon_flags & IS_ODY) {
- 		ddr_pmu->ops = &ddr_pmu_ody_ops;
--
--		ddr_pmu->pmu = (struct pmu) {
--			.module       = THIS_MODULE,
--			.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
--			.task_ctx_nr = perf_invalid_context,
--			.attr_groups = odyssey_attr_groups,
--			.event_init  = cn10k_ddr_perf_event_init,
--			.add         = cn10k_ddr_perf_event_add,
--			.del         = cn10k_ddr_perf_event_del,
--			.start       = cn10k_ddr_perf_event_start,
--			.stop        = cn10k_ddr_perf_event_stop,
--			.read        = cn10k_ddr_perf_event_update,
--		};
-+		ddr_pmu->pmu = ody_pmu;
- 	}
- 
- 	if (silicon_flags & IS_CN20K) {
- 		ddr_pmu->ops = &ddr_pmu_ody_ops;
--
--		ddr_pmu->pmu = (struct pmu) {
--			.module       = THIS_MODULE,
--			.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
--			.task_ctx_nr = perf_invalid_context,
--			.attr_groups = cn20k_attr_groups,
--			.event_init  = cn10k_ddr_perf_event_init,
--			.add         = cn10k_ddr_perf_event_add,
--			.del         = cn10k_ddr_perf_event_del,
--			.start       = cn10k_ddr_perf_event_start,
--			.stop        = cn10k_ddr_perf_event_stop,
--			.read        = cn10k_ddr_perf_event_update,
--		};
-+		ddr_pmu->pmu = cn20k_pmu;
- 	}
-+
- 	/* Choose this cpu to collect perf data */
- 	ddr_pmu->cpu = raw_smp_processor_id();
- 
--- 
-2.53.0
+Patch is missing the target tree (net), the fix LGTM.
 
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 
