@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBAEC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:27:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35B3C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RWDSKWZuEkPlk2u1p84ALBilVUhoSm1EjrDy3t/LqSE=; b=O+NlSx1a4zJbTVdhnm0/PFecT6
-	x1XJ4rXXY1OkFIrxiO8LdWfHDsVdwiJEElJoyeKfDbS+9AmQ5stEcmatbnUx55opu9FiFVD2YrDc2
-	wgHsQjvtQrjl/3PgS8w2oNI8RJy3be9m0/bFkrt65nr7n2fqTfXKHyMqbhv2P0gucByaixDLhgQNL
-	cpOw7I1zS5JWBXHsXDo3lhYzg0clXiv98pBnQ6/HshRpebDRBn2O9skN4Sj042MZAHn4PWSjhL+7E
-	WkmXGrbMVl5fccYiPZnX6HIGb8dAesiHG5185xXWqNnXqOWye4s0M12h0JFUcgFLnQFLWPn4xcYGa
-	90J6WddA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/PfC+JKXiHR2gOczjEvFYMX7OwerkeM8UAQevJLjnNs=; b=rAF8WL7iDnRoCvZDdOI5r/pN90
+	ucJdH/aaY4L9sj1HGCo9KdfhVAO2b3TyyICDX5/ftXp8IRzg4gU2cBwrTBwi/IzKuM5NCBdtiR57L
+	dkgT1HdSs3MYF+nGMX33O6D8dUQIOu7kNR1SJY2NZtfqBq3peDfCtz1IcI7RYjt5rzDC/dYshowuj
+	6a3Q8ES67K9sH3UIKFMa2RjVSUuSRq2mCRXW9/SsM1cxtrkyEJnFagXy6x+wmcjuiaQENjaGwWvNp
+	cNoZn3Z3I5+WhP72NlpTsjIGvM/11S3VTkhgQV5TD5zXLL3A7p5D06lMvwaMkf+TVjz0ZZXcun8DU
+	1JdpHXBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABaD-0000000EGLk-2tuO;
-	Fri, 25 Sep 2026 19:27:45 +0000
-Received: from mail-dy2-x0e.google.com ([2607:f8b0:4864:36::e])
+	id 1xABdX-0000000EGpP-1Vhz;
+	Fri, 25 Sep 2026 19:31:11 +0000
+Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABaA-0000000EGLJ-2tlH
+	id 1xABdV-0000000EGoU-3V0j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:27:43 +0000
-Received: by mail-dy2-x0e.google.com with SMTP id 5a478bee46e88-341d0522b4dso1402379eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 12:27:42 -0700 (PDT)
+	Fri, 25 Sep 2026 19:31:11 +0000
+Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-13fc403e373so2224738c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 12:31:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790364462; x=1790969262; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RWDSKWZuEkPlk2u1p84ALBilVUhoSm1EjrDy3t/LqSE=;
-        b=Oix2nsjjn7rXPrkH5a3PCgKKIj43BOu+nQImaeGMlGKimz1r3jJUEbmLLGy9+9pKcT
-         qf/bmY2e1yOYIJj1cQ6ISlRayqlT8XnLbhStf+OmjEZrvwrovo1HJNjf9bGdmwbu2gWi
-         bml2iz5dMg9irt0YR3Wi4YR0oxBDNBTN4SZRDR6Rgf9k7hrA2m3xhOXPcoeL4ZBizH2k
-         X3kVNAPETw/nfzgUMWhHnQ8C1DKxFnXkh3M2RFJb7efVuFA+fG5vjVkHDYNAH6hs36gV
-         sGxj9KIRMaDdSi6U5Mkaye7F5+KOMj/DynNmXi3bA2DH+D/1nX765T5UwepIOIsGF76N
-         KDfQ==
+        d=gmail.com; s=20251104; t=1790364668; x=1790969468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/PfC+JKXiHR2gOczjEvFYMX7OwerkeM8UAQevJLjnNs=;
+        b=lrmB9rF07hervuSApSM2GO9jeMA4E8rwx+wgfdxncks7JqTif/cUODQhD5G8pRoHK9
+         8ouLRgEmf7M/ctBli0EkFGwhbNCAnqXRGtfRiRp0hECrRbZVs1ZGracxnqwZkV9AWwm6
+         1sL8PvN9K9llFdvvwbNZogI1Q+dv8h8nOOMDO4CUlKbnhYjWPwCnr2aG3/HVAsjnelvF
+         V6iUpGqN+x9zMUHzMnlTn9f3nB83ReHGgUq3YYgKmra1fH2BYA7j3psHODpMY+nmI3EO
+         SSfFXD77atmXg6ruNWs3coHM9EU45IJkF9LcrdyuWTpWl3LppM/TUAUEeTWAvEiUHdTJ
+         3KhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790364462; x=1790969262;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RWDSKWZuEkPlk2u1p84ALBilVUhoSm1EjrDy3t/LqSE=;
-        b=lmxa0df2iPAVmkVbVcrwtqVfDX6fn/gqgvkmZ0iuWdlOGiOz3QHn2uukkoUiRav8Ap
-         zSByTE/04A5bBAf3EqqWFwfJZmBIjbdKskAPsQFfKdEQXxTqxkadmiWTPSEVLGuPaRth
-         SDTsnAMf+KCX0VQCVJRghgW6m9D9juZB4UNxgO8ZYGuIqEP9O5BGNDVO1LbIxJLc34H1
-         PGXgly7IHh7H77bW3B5gfkrCgkUBOBZ8zzE2yOSPWPauhROuAcmabxqd4jHgL8ddKFJ5
-         scZbt2ZGnCaUSCwIpjZy/S76rYFGsDyIfUeG91FBFXXsd7QVqecns2p0t/eyDld04KkI
-         7Lpg==
-X-Forwarded-Encrypted: i=1; AKwUvBzewsXqndvDaO+0nFRTUeuTnWqoTOIpesrGLPt1GrtJYfV0TvDVDqSObhZ0WkykWBTpnYFbNF8gek3mXaWvn9To@lists.infradead.org
-X-Gm-Message-State: AFuF++maTIwvLFm7O7S6oJLV50R0E9efYZsS7vpr7cHr9XK94ukp+kvr
-	/ckbmLwl0vHIcqKx4R1jCGRVwYPu0Oz/JcqGHV1yx/AHsvGtinOMj6I4
-X-Gm-Gg: AYBFou2gfbeqA99IYsufPvZGGncI/OZWJ9pLsRv1TaX0c7NXrHzUs1M7dnTN76rED+3
-	YI93jqR/XmkwJxeiFcxP2RkPTaKXf5zBvQzRRGPOBnvC+pbzgzELMhzcB5Fano/WMcA+sVFANjv
-	HMC0wt4J7S9tkNqooeuL6pRjv3SsOpfCgjdpowfVw2Tx4Ao2W87EnUc5XFtZjzTMD6wTrAtpCj4
-	tABTG5CmNgakcbFl4xGbhF8TgSe7ANCIue5i+Wgch9NY1Brj6gKWpjw7F+z/kWquZiiPEfVDlcO
-	y/RXCE2B5NvqJtTEAQlOS+kXEMrxB3tRrRtjkk1vy7w65VfFjWw3nSizrwQ7PiRnHr7cU6uk0hA
-	p7Q9lp6RM0JeaLG3gljOnuOO93JQtCgLWlGBeQxnhdaYW66dxCFY8nJQX1ffyaQNfsSpowHIDu4
-	yEfC2MdnK34fOjUUOhNOrBlyW174Sb/PBrt805YG93akSJsNHUfo6mJY2O8tg2WIl1DJihvnn1Z
-	dTZjt08Spcv7UZTaKMp6lDOZ6RFqhKCpUzpKs8=
-X-Received: by 2002:a05:7300:ae23:b0:342:890a:40a8 with SMTP id 5a478bee46e88-342890a4389mr792661eec.30.1790364461569;
-        Fri, 25 Sep 2026 12:27:41 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:375:19cf:5fee:be32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-341460f5166sm7801383eec.29.2026.09.25.12.27.39
+        d=1e100.net; s=20260707; t=1790364668; x=1790969468;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/PfC+JKXiHR2gOczjEvFYMX7OwerkeM8UAQevJLjnNs=;
+        b=kiUDu49bRQovgCRTNyIZ5MGTUBxhhBeSsVGRKBEP/TgOTNCy9SvCoI2fYaa/3IK+OH
+         EPgG8qioV+6mehxA+MTw/aASSGgSE7ACVp0+s6Q+KX2KULMZu8dpGDZELd5jgFrQk+VR
+         zJaQwHKQKj3Vt/eweKvCyPqIbdnCJFAOSQ4VuKp2sOgOWHvVWqzwiOs+3eukGhQz5v+O
+         vXUJYy2nT7H/3JzSMFedOAeB/OgIVhhBxixTD2isjKSV7m1DASMNJBxrsCzu0CwCUmok
+         gLUmK0rrOp9ESj249MIzhasAk/6Jhx2aZt+dTLVByV82laq7h5M9NdAFO4DEgB/qOn5c
+         9rNQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx42OB004BT1mSlMilEzTdoJQ3jD+hcVXnSaXM8GllS9Sp09wk0VE3ZG/axraqcPNs0LlSNcvWRtDqZj0oLCla7@lists.infradead.org
+X-Gm-Message-State: AFuF++kvF67gUsIk6ZYqDqRDTpwuV9tvTTR+pwLReEyHYD+t/9++AMsM
+	E+IPRIto91K5b//aCUlEwuIeldGAJsF1DgmWkj4u864bovbvEotlkgCC
+X-Gm-Gg: AYBFou0QmA25CGw99k98IJKbPMthHJD1b9v8+/oCmLBZOxJyi+ocfmG5SPdp/bsfk+b
+	ylcqvkLKmLtM1A6Azc+ga7peR5wP2zRXXXwzSTWX+gLRp+d8Cfq0u1f0uq2S/jF0JU7oZ2pfmrS
+	FgUjVTurpb2CqM2Ytqnh2nyq3aUV74UmphCGlL8ctN4cEEBZLnDmPHgoSpsUDCcca9VLbd9/0iC
+	S0eWF5R72S8LeTDpbAYWKyo+nYbYHy0u7+b+xADKDQuc1pgJSgKGSYLdkVIKhvL/TMOS2SxfJ5M
+	k58/YP+LY52ZQrlZzDqzD/GUJFY8swWkZvcD6JN5mNSWTZURU32G2cDWl1mwZXE1ooTFa8COMn+
+	hvgtK7hmYzN+agWbf4/hYmyMaEN3LwSWJD+9dqSzLz+gU5fUjPqe9x2thc4vSiFfKO1jzxJIDA4
+	we6AnGpSmm7HIP5wLnkc8l1miQb3c1+TsfBC6Eg/TiaSc7HKcQ5eI05zI89+5tQmdBjRhk5lEAx
+	DLTEaXuSEV9CbBgklYix3k1tNae8W16kjcJmWZVB3Ma67fovkKE8u6MW5VneKfnJThnbPKfxbrE
+	7aQ81NXdoNL6d8dlPaeb/yR9WhnDIsg7MZa03ddwPU3tTw==
+X-Received: by 2002:a05:7022:1584:b0:13b:32f4:e826 with SMTP id a92af1059eb24-146ce968c47mr1007700c88.11.1790364668278;
+        Fri, 25 Sep 2026 12:31:08 -0700 (PDT)
+Received: from ututo.. ([2803:9810:87dd:de10:161:9095:8001:15fb])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-145acc47ab8sm7886956c88.6.2026.09.25.12.31.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 12:27:40 -0700 (PDT)
-Date: Fri, 25 Sep 2026 12:27:37 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: david@ixit.cz
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Henrik Rydberg <rydberg@bitmath.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Petr Hodina <petr.hodina@protonmail.com>, 
-	linux-input@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	phone-devel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v7 1/4] Input: stmfts - wait for controller ready after
- reset
-Message-ID: <arbJrK9zfoO1dGzy@google.com>
-References: <20260907-stmfts5-v7-0-4a53381cd038@ixit.cz>
- <20260907-stmfts5-v7-1-4a53381cd038@ixit.cz>
+        Fri, 25 Sep 2026 12:31:07 -0700 (PDT)
+From: Lucas Costa <2000.costalucas@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linux-spi@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Lucas Costa <2000.costalucas@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
+Date: Fri, 25 Sep 2026 16:30:08 -0300
+Message-ID: <20260925193008.127314-1-2000.costalucas@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260923184450.135601-1-2000.costalucas@gmail.com>
+References: <20260923184450.135601-1-2000.costalucas@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907-stmfts5-v7-1-4a53381cd038@ixit.cz>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_122742_741381_429F5192 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20260925_123109_875774_66CDC90C 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,137 +109,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+of_find_compatible_node() returns a device_node with its reference count
+incremented, but bcm2835_spi_setup() only uses the return value to test
+for a matching node in the loop and never releases it.
 
-On Mon, Sep 07, 2026 at 12:50:19PM +0200, David Heidelberg via B4 Relay wrote:
->  
-> -static void stmfts_reset(struct stmfts_data *sdata)
-> +static int stmfts_reset(struct stmfts_data *sdata)
->  {
->  	gpiod_set_value_cansleep(sdata->reset_gpio, 1);
->  	msleep(20);
->  
-> +	reinit_completion(&sdata->cmd_done);
->  	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
-> -	msleep(50);
-> +	enable_irq(sdata->client->irq);
-> +
-> +	if (!wait_for_completion_timeout(&sdata->cmd_done,
-> +					 msecs_to_jiffies(STMFTS_RESET_TIMEOUT_MS)))
-> +		return -ETIMEDOUT;
-> +
-> +	return 0;
->  }
->  
->  static int stmfts_configure(struct stmfts_data *sdata)
->  {
->  	int err;
->  
->  	err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
->  	if (err)
-> @@ -593,42 +602,47 @@ static int stmfts_power_on(struct stmfts_data *sdata)
->  		return err;
->  
->  	/*
->  	 * The datasheet does not specify the power on time, but considering
->  	 * that the reset time is < 10ms, I sleep 20ms to be sure
->  	 */
->  	msleep(20);
->  
-> -	if (sdata->reset_gpio)
-> -		stmfts_reset(sdata);
-> +	if (sdata->reset_gpio) {
-> +		err = stmfts_reset(sdata);
-> +		if (err) {
-> +			dev_err(&sdata->client->dev,
-> +				"controller not ready after reset: %d\n", err);
-> +			goto err_disable_irq;
-> +		}
-> +	} else {
-> +		enable_irq(sdata->client->irq);
-> +		msleep(50);
-> +	}
->  
->  	err = stmfts_read_system_info(sdata);
->  	if (err)
-> -		goto err_disable_regulators;
-> -
-> -	enable_irq(sdata->client->irq);
-> -
-> -	msleep(50);
-> +		goto err_disable_irq;
+Declare the node with a scope-based __free(device_node) cleanup so the
+reference is dropped automatically when leaving the loop body, matching
+the existing __free(kfree) usage in the same function.
 
+Fixes: e19c1272c80a ("spi: bcm2835: Restore native CS probing when pinctrl-bcm2835 is absent")
+Cc: stable@vger.kernel.org
+Signed-off-by: Lucas Costa <2000.costalucas@gmail.com>
+---
+Changes in v2:
+- Use a scope-based __free(device_node) cleanup instead of an explicit
+  of_node_put(), as suggested by the reviewer.
+- v1: https://lore.kernel.org/all/20260923184450.135601-1-2000.costalucas@gmail.com/
 
-I think the logic is becoming quite convoluted here, and factored out
-stmfts_reset() does not help. How about we make it look like this:
+ drivers/spi/spi-bcm2835.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-static int stmfts_power_on(struct stmfts_data *sdata)
-{
-	int err;
+diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
+index 8f8715809c7c..23606967f7d1 100644
+--- a/drivers/spi/spi-bcm2835.c
++++ b/drivers/spi/spi-bcm2835.c
+@@ -1297,7 +1297,9 @@ static int bcm2835_spi_setup(struct spi_device *spi)
+ 	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(pinctrl_compats); i++) {
+-		if (of_find_compatible_node(NULL, NULL, pinctrl_compats[i]))
++		struct device_node *np __free(device_node) =
++			of_find_compatible_node(NULL, NULL, pinctrl_compats[i]);
++		if (np)
+ 			break;
+ 	}
+ 
 
-	if (sdata->reset_gpio) {
-		gpiod_set_value_cansleep(sdata->reset_gpio, 1);
-		/* a short delay before powering up */
-		usleep_range(1000, 1500);
-	}
-
-	err = regulator_bulk_enable(ARRAY_SIZE(stmfts_supplies),
-				    sdata->supplies);
-	if (err)
-		return err;
-
-	if (sdata->reset_gpio) {
-		reinit_completion(&sdata->cmd_done);
-
-		/*
-		 * The datasheet does not specify the power on time, but
-		 * considering that the reset time is < 10ms, sleep for 20ms
-		 * to be sure before releasing reset line.
-		 */
-		msleep(20);
-		gpiod_set_value_cansleep(sdata->reset_gpio, 0);
-
-		enable_irq(sdata->client->irq);
-
-		if (!wait_for_completion_timeout(&sdata->cmd_done,
-						 msecs_to_jiffies(STMFTS_RESET_TIMEOUT_MS))) {
-			dev_err(&sdata->client->dev, "controller not ready after reset");
-			err = -ETIMEDOUT;
-			goto err_disable_irq;
-		}
-	} else {
-		/*
-		 * We do not know the real controller state (was it powered
-		 * off or reset). Let's hope that this is enough time to
-		 * initialize.
-		 */
-		msleep(70);
-
-		enable_irq(sdata->client->irq);
-	}
-
-	err = sdata->ops->configure(sdata);
-	if (err)
-		goto err_disable_irq;
-
-	/*
-	 * At this point no one is using the touchscreen
-	 * and I don't really care about the return value
-	 */
-	(void)i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
-
-	return 0;
-
-err_disable_irq:
-	disable_irq(sdata->client->irq);
-
-	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies), sdata->supplies);
-	return err;
-}
-
-
-Thanks.
-
+base-commit: fe2ec83746e501645709761605c2464a44fd2929
 -- 
-Dmitry
+2.43.0
+
 
