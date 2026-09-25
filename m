@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E38C9832A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 21:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0904C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 21:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IIMvCRPk4oQabUuNoTzd+hbJerQBs659OSj7AsZRTXU=; b=D/1tIhbXn4oEspf9VJOPEAUgNa
-	fIu8vHfA2FvtIRt1IokfFAHV8+s5hVwCdQM2M5iRF1OowGO4JapaM8NFTePFSvOdLiD+rznYAxJn9
-	6ccS8wpwQlxvDkeQt5z4BHguGkOmisNURxa1WcJAhf0D/pWbxkdXehLZ6dBZsssIldhVozp/uL8Yw
-	ef4B9X34Bc98Pth8S9YTOsNCwyEMdJ1eGMtaepdtSQ9fCa1xuxJkm3MSBpKGpe5QFnfp+TIwXFoFX
-	MWPETDZZElgfVWcCyjnDH1hKSwowpzD0UYcANF4u8RCxSynPh0zbg2mbycI2dDKTy4ENGwTbv2PF0
-	Jk5YgMKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DKt6P2Fl5MJjmmPs8iOrbwYY7/Dy3c/10TSsSmLgIWU=; b=YqSR5ZbMK++DQEJYXs4QvVkNZY
+	g1c96zipiVC+pzuiSNOMfTC8A0GJ/k7QY+LhUHm19BLk2dd2enDg/2bV8jn/cw1e1ediV1aQ/9tnr
+	DyFzCkUSKJjRcJk4PTWWw2go5XI4Z4nJUMRiDbFqy+bkRyWMn1ik/FcOoXRLC7BCw9iDnqBhzoqGS
+	o1gQZinX0lDpsynFGMRXk22uz3HXSMhtUQhKQ9dqi691jos8gbJinW7wAHQ5jdFAx8bBv/UkIzpaq
+	6CJiMsAN7k+wE1qxR6UNtPO3eZPOHwh+e0MHAcAE5bDHzCZzh5ROesAtdoifL1cxBH4tU99+i2VSt
+	1pLF9g2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xADiN-0000000EWNl-3ghB;
-	Fri, 25 Sep 2026 21:44:19 +0000
-Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
+	id 1xADkm-0000000EWcf-0rO7;
+	Fri, 25 Sep 2026 21:46:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xADiM-0000000EWNA-0eiF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 21:44:19 +0000
-Received: by mail-pj2-x0f.google.com with SMTP id d9443c01a7336-2d747ee1f9bso6860485ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 14:44:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790372656; x=1790977456; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IIMvCRPk4oQabUuNoTzd+hbJerQBs659OSj7AsZRTXU=;
-        b=V8cW6gW1rcpG1xCWhSfDcflxOs4p+vIyPcq9b0KF33RYZKVmK+FBbiap3yv1IvsdJy
-         adp5ScrOlZUrS+H3RUAwsIT2zOT1py/WpsqezB0JumSMlR0aj7JiyyHLIdz7oz++B7MQ
-         5Onyr6iPdwBbQtz4q0u5iKq6bWXr07k9Ur7L6MY7sN/q7pAjH1z7aII9bjUdPiImfX/o
-         e2mbMZCXnRUlmFXvXn8QWHuO3GvvbUaMWMjDVaIVh3z6dKB3QOSZPo9zDE170BmniKtz
-         7a+8fma7ce0lQQIvh6nlhjy/wTXwz71QqfVAz5Dkl42ZB0njIi9ivrc3Oua2jxviIWRB
-         7SSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790372656; x=1790977456;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IIMvCRPk4oQabUuNoTzd+hbJerQBs659OSj7AsZRTXU=;
-        b=GAG8UrVBsTW6uchcBcp4z1UxKSj5UJaZzPkG64i7D0OWP/0Qve1MWTQce+IUCsdBle
-         F6Fv384ZVS5t5l4JbVXuhrRUAuUZfEsV8BKkYpqkf2EroaRjC9RpTUlOC/uEAKcefcjd
-         X3i2mnfYNlg6iarZ2YZ6WCmJmXBJJkwk17u4RVL/1PEz2cVKo9fpwKhxUNUwSAMWqv3k
-         m/HGx0RqFdzlHrBedDml/so2ZO5HBULNdVmbgoHxOar521GG3nQ9nVPFLKHYZUoSS/Cl
-         KT0mR70jCUa6cs7rVLPx8sSO70ISnOsFLh4t+dg44PXpESUqBMdNr5iIXmIG+R7CQcmh
-         PwhA==
-X-Forwarded-Encrypted: i=1; AKwUvBxE7Zuz1ZOPy5/GB3hivuWumbg3lkmbrb9oE0/26uBBxbiATstJsbkfjMO39siasropQ7sQW7uL7PQu+3hHXcC1@lists.infradead.org
-X-Gm-Message-State: AFuF++n6lBft7JtuNv4oJzpESodBTmVNbodx5SyuI22gXCK0lQY4dba+
-	Ph2QD4zRUA9s71Ro/J2pPZPAXuco9fByxJ6jWGcb3H6tm770KW0UwdAJFt8CdvvUY7QNpBXGGyM
-	sN6RyCSvG
-X-Gm-Gg: AYBFou3qisp/MriPbJkqNk5DEC3dlpRcZEoIJKMUHa9p51HpL4uAWCw322INXpid9s+
-	5DNq7rLidnuFj9hULfhvT0CLfD4/FXv5qN8w8qErLsqiK43puK8kFLUN7hR265yMYQ251aX0I2g
-	ZMd7Q7/934NGtsFJ7fR0AXCBCyidOGOhr6YC3PWLzNObLouKYhnuth8RfuKHljhyhrFpJhqX93G
-	RICjRiakQWuJ0vlI82ngSEiVIlt4VEWPJeYTLreW1Swy7dnsIoyiug/kW3Ha4F0NoSMO0MEnBzt
-	y2/pMU/DmdhLv18+21u+KbKatJSpY4L6KaLlOZM/ZanU3eBD9tEUvoWiSw0eXWTCFk2leyf/msZ
-	5V4T4UxUFuXliWlL/5sw3pvVCnMuE2uGZSmkzAhJx5zjtyhLb+IFKBmIBT5OxstcURMcFeeBWsS
-	+pa0c18b8po7QyN1BPC6OXtrgT/JN9amlKGMFdri1/iLexMQNGcFNLMWXxyHtgQAOe7jCojyx4a
-	hxbCLZhDk5+ZfafDByUi5Rx/2wDxD1clrx3Nm24
-X-Received: by 2002:a17:903:184c:b0:2df:3b0c:a6a5 with SMTP id d9443c01a7336-2df7da5d1bemr63157015ad.9.1790372655435;
-        Fri, 25 Sep 2026 14:44:15 -0700 (PDT)
-Received: from google.com (192.150.203.35.bc.googleusercontent.com. [35.203.150.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df91476bb4sm16242765ad.83.2026.09.25.14.44.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 14:44:14 -0700 (PDT)
-Date: Fri, 25 Sep 2026 21:44:05 +0000
-From: David Matlack <dmatlack@google.com>
-To: Samiullah Khawaja <skhawaja@google.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Robin Murphy <robin.murphy@arm.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Alex Williamson <alex@shazbot.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>
-Subject: Re: [RFC PATCH 0/3] iommu/arm-smmu-v3: Add support for hitless
- replace of CD entries
-Message-ID: <arbrJYsILS1IPpCK@google.com>
-References: <20260925011308.3381953-1-skhawaja@google.com>
+	id 1xADkl-0000000EWcK-1DVk;
+	Fri, 25 Sep 2026 21:46:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A0EA140144;
+	Fri, 25 Sep 2026 21:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3DD01F000FF;
+	Fri, 25 Sep 2026 21:46:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790372806;
+	bh=DKt6P2Fl5MJjmmPs8iOrbwYY7/Dy3c/10TSsSmLgIWU=;
+	h=From:Date:Subject:To:Cc;
+	b=mjOCOMxonBQrI/fWpS54CVTATTo2gTSmDIx5aJ2pamRmFgvZF5+jTtkD2lXzW8h23
+	 iCt9xJxaT8Cwn9jUJ7x5eM/8xQYEG1K7HmXFs8oPHgMXCR81FPLutdDlGc7y4/usU4
+	 WTkRzjzEgLLxiqaALt9vAiBFnSJAvkQAZ9/35jSPzYb2YPYVrSG+4I//jtfWz3gOtJ
+	 wCbBCh30deIt82y6rl6EiHrzpsl9UpbQjO+QXGPDjCdf3VC7kEQnzc/9t4B7r2mmiz
+	 vssEJMjBYYxV3di4i2cTuY2PFnbGOaiUOJudDc5wKq02b/0xINAToZSlzKZ1SBgRkC
+	 b+aQmc990kQzQ==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Fri, 25 Sep 2026 22:46:32 +0100
+Subject: [PATCH v2] random: vDSO: Avoid call to memset() when zeroing
+ reserved in __cvdso_getrandom_data()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925011308.3381953-1-skhawaja@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_144418_197413_617996F8 
-X-CRM114-Status: GOOD (  22.67  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260925-vdso-getrandom-avoid-memset-llvm-24-v2-1-ce640f872393@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQ6CMBBFr0K6dkw7Aoor72FYVDpAlbamrY2G9
+ O4CnsDlS17++zML5DUFdi5m5inpoJ1dAHcF60ZpBwKtFmbIseaNqCGp4GCg6KVVzoBMTiswZAJ
+ FmKZkAEs4lqqselnzgyC2LD099fq9Va7tj8PrdqcurtOrMeoQnf9sN5JYvf+KSYCAE5cN9kiIl
+ bw8yFua9s4PrM05fwFKSm2x6QAAAA==
+X-Change-ID: 20260916-vdso-getrandom-avoid-memset-llvm-24-74d45fa6031e
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ llvm@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8506; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=qfYb8LExFZKhOZoo6PYdu/74pKDZe28vsCDbBPgPD0M=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDFnbXu9RDM6o0Jg05QFvWviEi/3+0srrju74P981Zgq/2
+ K8vv456d5SyMIhxMciKKbJUP1Y9bmg45yzjjVOTYOawMoEMYeDiFICJvHvJ8D/avGLj8+5Nfocn
+ sPIeE4lQ+qWUtcnXoez+07kPXa+bTXRk+J99+5f4t2va6xcujGQ2+XRa9aPGrBMBqyRmTn4sLnp
+ S4jQDAA==
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +99,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-25 01:13 AM, Samiullah Khawaja wrote:
-> This patch series adds support for replacing IOMMU domains with S1 page
-> tables hitlessly, that is without disrupting the ongoing DMAs. This is
-> one of the dependencies of the Liveupdate IOMMU support for Arm SMMUv3.
-> 
-> S1 domains are programmed by CD entries in the CD table. During a new
-> domain attach these are updated using arm_smmu_write_cd_entry(). Since
-> ASID and TTB0 are in different 64-bit words, arm_smmu_write_cd_entry()
-> considers it a non-hitless update and sets V=0. This means such an
-> update is disruptive and would generate translation faults if there are
-> ongoing DMAs.
-> 
-> Replace the CD entries by using an unused temporary ASID in the
-> following sequence to allow hitless replacement of CD entry,
-> 
-> - Update the CD entry with temporary ASID.
-> - Update the CD entry with the target TTB0.
-> - Invalidate the temporary ASID.
-> - Update the CD entry with target ASID.
-> - Invalidate and release the temporary ASID.
-> 
-> The series adds a vfio selftest that triggers a continuous DMA and does
-> the hwpt replace while the DMA is ongoing. Since domain replacement is a
-> race with the translation requests, the test does it multiple times to
-> capture the small window where IOMMU faults can occur.
-> 
-> Without this change we can observe the SMMU faults in the kernel logs
-> and with it the SMMU faults do not occur.
-> 
-> This is only tested on qemu with the emulated SMMUv3 and an out of tree
-> NVMe vfio selftest driver, not on real hardware. Following are not
-> covered and can be done later,
+After a recent change in LLVM [1], builds with the random vDSO
+implementation, such as PowerPC and RISC-V, fail when checking the vDSO:
 
-Out of curiousity, does the in-tree VFIO selftests driver for IGB not
-work for this testing scenario?
+  arch/powerpc/kernel/vdso/vdso32.so.dbg: dynamic relocations are not supported
+  arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
+
+memset() is now generated when zeroing params->reserved for some builds
+because LLVM has an optimization (now run in more instances) that can
+recognize at compile time when it is assigning a static value to a
+contiguous area of memory and turn that into a call to memset(). Both
+clang and GCC assume memset() is always available [2].
+
+clang provides a builtin, __builtin_memset_inline [3][4], that can be
+used to ensure an external function call is not generated when zeroing
+this memory. Use it when it is available.
+
+While GCC has no issues with the current code, it has generated memset()
+before, as seen in commit b7bad082e113 ("random: vDSO: avoid call to out
+of line memset()"). GCC 14 provides '-finline-stringops=memset' [5][6]
+with a similar guarantee to the clang builtin, so use it and
+__builtin_memset() when available.
+
+If no option is available, provide a simple memset_inline() like the one
+from lib/string.c to avoid adding an ugly ifdef.
+
+Link: https://github.com/llvm/llvm-project/commit/90cebef1411617fc3eedd359bdf00cb44b1c2439 [1]
+Link: https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Standards.html#index-ffreestanding [2]
+Link: https://github.com/llvm/llvm-project/commit/38637ee477541370a90b37f149069d8e5c0c2efd [3]
+Link: https://clang.llvm.org/docs/LanguageExtensions.html#guaranteed-inlined-memset [4]
+Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=1ff6d9f7428b0668cd8ab0b3e3ab94f1d733124d [5]
+Link: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-finline-stringops [6]
+Suggested-by: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+Changes in v2:
+- Switch approach entirely (Jason, Nick)
+  - clang: use __builtin_memset_inline() to avoid external call
+  - GCC 14+: use __builtin_memset + -finline-stringops=memset (hence the
+    massive CC list increase)
+  - GCC < 14: no issues currently but avoid ifdef with simple memset
+    implementation
+- Link to v1: https://patch.msgid.link/20260916-vdso-getrandom-avoid-memset-llvm-24-v1-1-80a92f2e225a@kernel.org
+---
+ arch/arm64/kernel/vdso/Makefile     |  2 +-
+ arch/loongarch/vdso/Makefile        |  1 +
+ arch/powerpc/kernel/vdso/Makefile   |  1 +
+ arch/riscv/kernel/vdso/Makefile     |  1 +
+ arch/s390/kernel/vdso/Makefile      |  1 +
+ arch/x86/entry/vdso/vdso64/Makefile |  2 +-
+ init/Kconfig                        |  7 +++++++
+ lib/vdso/getrandom.c                | 19 +++++++++++++++++--
+ 8 files changed, 30 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index 7dec05dd33b7..f6619e1cb2ce 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+ 			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
+ 			-Wmissing-prototypes -Wmissing-declarations
+ 
+-CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
++CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_OPT_INLINE_MEMSET)
+ 
+ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
+ CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
+diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
+index 9c9181bb4071..0b84892d084b 100644
+--- a/arch/loongarch/vdso/Makefile
++++ b/arch/loongarch/vdso/Makefile
+@@ -16,6 +16,7 @@ ccflags-vdso := \
+ 	$(filter -m64,$(KBUILD_CFLAGS)) \
+ 	$(filter -march=%,$(KBUILD_CFLAGS)) \
+ 	$(filter -m%-float,$(KBUILD_CFLAGS)) \
++	$(CONFIG_CC_OPT_INLINE_MEMSET) \
+ 	$(CLANG_FLAGS) \
+ 	-D__VDSO__
+ 
+diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
+index 368759f81708..0d1a49529885 100644
+--- a/arch/powerpc/kernel/vdso/Makefile
++++ b/arch/powerpc/kernel/vdso/Makefile
+@@ -43,6 +43,7 @@ ccflags-y := -fno-common -fno-builtin -DBUILD_VDSO
+ ccflags-y += $(DISABLE_LATENT_ENTROPY_PLUGIN)
+ ccflags-y += $(call cc-option, -fno-stack-protector)
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
++ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += -ffreestanding -fasynchronous-unwind-tables
+ ccflags-remove-y := $(CC_FLAGS_FTRACE)
+ ldflags-y := -Wl,--hash-style=both -nostdlib -shared -z noexecstack $(CLANG_FLAGS)
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 8dbf2532a573..c023046a3fd7 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -36,6 +36,7 @@ endif
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
+ ccflags-y += -fno-builtin
++ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+ ccflags-y += $(CFI_FULL)
+ asflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+diff --git a/arch/s390/kernel/vdso/Makefile b/arch/s390/kernel/vdso/Makefile
+index 35c834b895ec..54bcf2984ca1 100644
+--- a/arch/s390/kernel/vdso/Makefile
++++ b/arch/s390/kernel/vdso/Makefile
+@@ -29,6 +29,7 @@ KBUILD_CFLAGS_VDSO := $(filter-out -munaligned-symbols,$(KBUILD_CFLAGS_VDSO))
+ KBUILD_CFLAGS_VDSO := $(filter-out -fno-asynchronous-unwind-tables,$(KBUILD_CFLAGS_VDSO))
+ KBUILD_CFLAGS_VDSO += -fPIC -fno-common -fno-builtin -fasynchronous-unwind-tables
+ KBUILD_CFLAGS_VDSO += -fno-stack-protector $(DISABLE_KSTACK_ERASE)
++KBUILD_CFLAGS_VDSO += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ldflags-y := -shared -soname=linux-vdso.so.1 \
+ 	     --hash-style=both --build-id=sha1 \
+ 	     $(call ld-option, --eh-frame-hdr) -T
+diff --git a/arch/x86/entry/vdso/vdso64/Makefile b/arch/x86/entry/vdso/vdso64/Makefile
+index 7c0790065b5e..c2353a065279 100644
+--- a/arch/x86/entry/vdso/vdso64/Makefile
++++ b/arch/x86/entry/vdso/vdso64/Makefile
+@@ -14,7 +14,7 @@ vobjs-$(CONFIG_X86_SGX)			+= vsgx.o
+ vobjs-$(CONFIG_FUTEX_ROBUST_UNLOCK)	+= vfutex.o
+ 
+ # Compilation flags
+-flags-y				:= -DBUILD_VDSO64 -m64 -mcmodel=small
++flags-y				:= -DBUILD_VDSO64 -m64 -mcmodel=small $(CONFIG_CC_OPT_INLINE_MEMSET)
+ 
+ # The location of this include matters!
+ include $(src)/../common/Makefile.include
+diff --git a/init/Kconfig b/init/Kconfig
+index 8583d9f06c52..ff3f8475dd2f 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -173,6 +173,13 @@ config CC_HAS_ALLOC_TOKEN
+ config CC_HAS_MULTIDIMENSIONAL_NONSTRING
+ 	def_bool $(success,echo 'char tag[][4] __attribute__((__nonstring__)) = { };' | $(CC) $(CLANG_FLAGS) -x c - -c -o /dev/null -Werror)
+ 
++config CC_HAS_OPT_INLINE_MEMSET
++	def_bool $(cc-option,-finline-stringops=memset)
++
++config CC_OPT_INLINE_MEMSET
++	string
++	default "-finline-stringops=memset" if CC_HAS_OPT_INLINE_MEMSET
++
+ config LD_CAN_USE_KEEP_IN_OVERLAY
+ 	# ld.lld prior to 21.0.0 did not support KEEP within an overlay description
+ 	# https://github.com/llvm/llvm-project/pull/130661
+diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
+index 2851afa9154f..f5cad5641985 100644
+--- a/lib/vdso/getrandom.c
++++ b/lib/vdso/getrandom.c
+@@ -29,6 +29,22 @@
+ 	}									\
+ } while (0)
+ 
++#if __has_builtin(__builtin_memset_inline)
++#define memset_inline(dst, value, size) __builtin_memset_inline(dst, value, size)
++#elif IS_ENABLED(CONFIG_CC_HAS_OPT_INLINE_MEMSET)
++#define memset_inline(dst, value, size) __builtin_memset(dst, value, size)
++#else
++static inline void *memset_inline(void *dst, int value, size_t size)
++{
++	char *d = dst;
++
++	while (size--)
++		*d++ = value;
++
++	return d;
++}
++#endif
++
+ static void memcpy_and_zero_src(void *dst, void *src, size_t len)
+ {
+ 	if (IS_ENABLED(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)) {
+@@ -83,8 +99,7 @@ __cvdso_getrandom_data(const struct vdso_rng_data *rng_info, void *buffer, size_
+ 		params->size_of_opaque_state = sizeof(*state);
+ 		params->mmap_prot = PROT_READ | PROT_WRITE;
+ 		params->mmap_flags = MAP_DROPPABLE | MAP_ANONYMOUS;
+-		for (size_t i = 0; i < ARRAY_SIZE(params->reserved); ++i)
+-			params->reserved[i] = 0;
++		memset_inline(params->reserved, 0, sizeof(params->reserved));
+ 		return 0;
+ 	}
+ 
+
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260916-vdso-getrandom-avoid-memset-llvm-24-74d45fa6031e
+
+Best regards,
+--  
+Cheers,
+Nathan
+
 
