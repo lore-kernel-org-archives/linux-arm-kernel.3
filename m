@@ -4,80 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EFDC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C2EC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZUN5pHcyJvvH3OmnBbLrWeM+/zZkkxuwsFuxwTvxTUE=; b=phOq9z3ZSMzIOGXFtsuIe/T07h
-	LDZ+EZ01w99nx7NIDKX2aGKynddZij5a0AlDEcmkS6qbwLQbR+vXaRhY/YH76exUqxNRBElT4DOMT
-	fEPcmCJwyGP9BbQcQGRb5LWN1m0LDPNzIWUPN7+3Qq4R9G0KIfB5X9YYyovuxSpljGmvvqqfyaQcr
-	C0gc9JQBse+XVey3iwyLWdke2h/O50+IIy3u1mSHMHfhMnkcdo3ncBQvlqViQ+dPeUBAEC6iGkVFv
-	f970kAzPi+5ILxyEmhjTS8n29vkjHE+VMReCEuSdYPwmrafFyd/H4kXpN4rxdhld6NsT2fU2+ILIn
-	KN0kmnZw==;
+	bh=iihkM/7KvK/mt1x0eZrWDrnWJRfMoQnZsgo9hNqe2G8=; b=ZnpebA765SPAYgwlF57a/uPNE/
+	cvdxmbdOboA2G0q+1cZMr9wDHNkob0fx14BQMO4dbtHSmEx4X0I/qlV701J3Emmha9jkM3BNM/1qZ
+	ePpWc+aBfU2+Xxt1Pth8qG4W1uioiXooC02kEMbdlZjohF7SgucJnuEq0n8eDEx8249dwcEqd/zJX
+	hhZAjoNu9q2e7VwV3/fGh9RyY2DE3UPd3HmxQwabu3fgBdaQBg18/xZyf69ZC4R7jWXL7GF7HfBvA
+	o0EJNZ0algdcIfvXwaag19o4s+dSZ0Lk61TMD9l9oZ08eBy9yYzSNd+6+kzAsFxcGeRTiyqqGAzHx
+	F152MdpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABsA-0000000EIS8-30H1;
-	Fri, 25 Sep 2026 19:46:18 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1xABuB-0000000EIcx-3vcr;
+	Fri, 25 Sep 2026 19:48:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABs7-0000000EIRN-44zX
+	id 1xABuA-0000000EIcl-0ztX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:46:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ZUN5pHcyJvvH3OmnBbLrWeM+/zZkkxuwsFuxwTvxTUE=; b=2pm9hX620kdefDI1x8sSar48MA
-	grw9ppEZSLamxgXUaAViwpIWQ1FbE07rTAX8Fa92eu8FbRoKh1Y/May3YTNzdd6imgS4+h41Caiij
-	8/sybZyoqGrceia0Qqcn4eldN4Tb6sCVDJyu/+VhWrvnGwHmQoVhiY6vAmk1qleBadI0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xABrq-007I4E-Cr; Fri, 25 Sep 2026 21:45:58 +0200
-Date: Fri, 25 Sep 2026 21:45:58 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	Fri, 25 Sep 2026 19:48:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 72FFF403DA;
+	Fri, 25 Sep 2026 19:48:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DDF91F000FF;
+	Fri, 25 Sep 2026 19:48:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790365701;
+	bh=iihkM/7KvK/mt1x0eZrWDrnWJRfMoQnZsgo9hNqe2G8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=aiVZjVmEy1ThNnYtiCN1cN+s5ZqCNT+FP/swQUZVuNiJ7kWC5BDeOeCFutI34nVGg
+	 0LmSxyMmeP4LR6IkdRtS1PgHj7BOOsVIFqSAcmDRbbVl3OR6nELyLXXoQXeZMtZnya
+	 LRxoZRnnfLul7IArKgbVPoCGVm2OUfn3az67oNC3dNhjHhBkPBF+DWAVDY7lDtXs1M
+	 j8rUW8SnEeQydrHCrUGimqDN1e/LZAMlUrBS2RTTE8/V1uMt30mpk3s2yLtwonRJof
+	 qTMGhtCJ9ZH8Pjg2pML5wI+IpiO9QdcvOHn2S/qup/K655+EVWVOB4ee8O6G80lb/v
+	 gFFDHLdg3Ec9A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xABu6-0000000Daim-3CXI;
+	Fri, 25 Sep 2026 19:48:18 +0000
+Date: Fri, 25 Sep 2026 20:48:18 +0100
+Message-ID: <86eceh3yf1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v3 0/5] net: stmmac: Add support for Allwinner
- A733 GMAC210
-Message-ID: <b41e7fe4-2ec8-428e-81ff-47e1c75003b1@lunn.ch>
-References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com>
- <9cc61625-47c9-4bdf-97f0-0528f661a399@lunn.ch>
- <1j7bkb9h5k.fsf@starbuckisacylon.baylibre.com>
- <5fae3b42-552a-458a-9710-927360e58c37@lunn.ch>
- <1jv77u8yak.fsf@starbuckisacylon.baylibre.com>
- <491f043e-6dc6-4936-a490-31a3362c5b6e@lunn.ch>
- <1jse2x91oh.fsf@starbuckisacylon.baylibre.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1jse2x91oh.fsf@starbuckisacylon.baylibre.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_124616_022796_C865A94C 
-X-CRM114-Status: GOOD (  18.21  )
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Jack Thomson <jackabt@amazon.com>,
+	Jack Thomson <jackabt.amazon@gmail.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Leo Soares Passos <Leo.Bras@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	linux-s390@vger.kernel.org
+Subject: Re: [PATCH v4 00/14] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
+In-Reply-To: <arY1uKfUBXRpauaN@gremlin>
+References: <20260923-kvm-arm-prefault-v4-0-d4b0b4dfa8c3@kernel.org>
+	<86ik3u4asq.wl-maz@kernel.org>
+	<arY1uKfUBXRpauaN@gremlin>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ljs@kernel.org, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, corbet@lwn.net, mark.rutland@arm.com, fuad.tabba@linux.dev, rdunlap@infradead.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, david@kernel.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, svens@linux.ibm.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, skhan@linuxfoundation.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, jackabt@amazon.com, jackabt.amazon@gmail.com, alexandru.elisei@arm.com, vdonnefort@google.com, aneesh.kumar@kernel.org, seanjc@google.com, imbrenda@linux.ibm.com, Leo.Bras@arm.com, weilin.chang@arm.com, linux-s390@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +123,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > You need to differentiate between small fine tuning delays, and the
-> > 2ns delay required by the RGMII standard. If the MAC is just doing
-> > fine tuning, you need to still pass PHY_INTERFACE_MODE_RGMII_ID so the
-> > PHY adds the 2ns delay. If the MAC is adding a big delay, you need to
-> > pass PHY_INTERFACE_MODE_RGMII to the PHY.
+On Fri, 25 Sep 2026 09:51:41 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> The PHY is one concern but the series here does not really address this
-> topic. DTS and board specific concerns will come later.
+> On Thu, Sep 24, 2026 at 10:08:37PM +0100, Marc Zyngier wrote:
+> > On Wed, 23 Sep 2026 16:15:43 +0100,
+> > "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+> > >
+> > > This series implements the KVM stage 2 page table pre-faulting feature for
+> > > arm64.
+> >
+> > [...]
+> >
+> > > base-commit: 23ddf997ab16b5f4aa9f948f5a68f5b35e4e398f
+> >
+> > In the future, please don't do this. I've just nuked this commit from
+> > kvmarm/next as I rebuilt it, and using such a random commit is
+> > counter-productive. Just stick to an -rc tag from Linus' tree, and
+> > that's it. I'm perfectly happy to deal with the outcome (conflicts and
+> > other funny things).
+> 
+> Ack! No problem, will do.
+> 
+> Do you prefer that people stick to the same -rc base from the start or OK to
+> roll it over to latest Linus's tree?
 
-They are all interconnected. When phy-mode says 'rgmii-id', it is the
-MAC/PHY pair which needs to decide who adds the delay. If the phy-mode
-is 'na', how does the MAC know it needs to use RGMII, not MII, as you
-said.
+We generally pick -rc3 as the merge base for all topic branches, so
+something -rc{1,2,3} are ideal. If you depend on something that is in
+a further -rc, we can manage. But keep in mind that around -rc6, the
+tree is closed to new features and becomes fixes only. So if you find
+yourself basing something on -rc5, you're already playing with fire.
 
-We need to keep the big picture in mind, otherwise you could go down a
-dead end, and a dead end which makes backwards compatibility really
-messy.
+Thanks,
 
-> It is really just the MAC. So, how does the MAC is supposed to
-> make the decision to amend the PHY mode ? is there a threshold you'd
-> like to recommend for this differentiation ? 
+	M.
 
-This is the first time we have had this condition. So it has not
-really been thought about too much. Maybe 1ns. That is the middle of
-the 2ns required by RGMII.
-
-> I'll try to reach out, just in case. I have the schematics but without
-> the PHY doc, it does not help much.
-
-From that i assume you missed the other emails. Somebody from ARM give
-a link to the data sheet. It documents the strapping. Search for the
-patch adding the PHY driver, it is in that thread.
-
-	Andrew
+-- 
+Without deviation from the norm, progress is not possible.
 
