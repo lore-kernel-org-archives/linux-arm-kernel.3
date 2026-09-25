@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4261C98324
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C82C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HyoxaBB+Uu+rPZn5YTdys1T79Bj3yyewywpS0Yclwi8=; b=GP4ubdJ7m31pQzdlEceoVAHU4H
-	Y0P6BIrT+iLGe39idc637zKHKLZ6SQpoz9i7DESbqwEa/lUmhB7MGS/0wa68aax8fS5/5jJdxAGGD
-	9cfKYSAe6a8eg/zimBUW3hNXDs6ANXBqnu6/lllgzDpwa13PgnSaudYuaBDwVbqQj3hNGw+M0TNLK
-	DWx+FR55paZgy1CLVUDHW1Stz7YuoUaIysCO72AXQOdmEWWg6Bsg4CMHEB7BlvR1Xdm3ooRBBtJzx
-	DkIeOneVEQf9XVi3qiMsnonhFyE8NDdidrxS/a18/W8miufwpLi1h3gGAt4kXI3KvdIJVWo2fJMYi
-	Zcb3YmLA==;
+	bh=RUy9AG7lIgjavOAkd4pUReRQm+p1laq2n2IXc5r/9Fk=; b=GpRAhIeLP70uRsDG5Dp1VEN2yz
+	6A+KciOqH0mikeoD71eD8FGmLc+WZF2PzRDhvFQowQfhEAyddoS1Er6lfjsMql12+YcdQNiQxGBns
+	GKSI3VohHrCpOI/FpOLz47aGOJKeuZKDSIJabeHjwpK4OTtP9zqQK3X1nJJAODDgPVmZ8nwBVmmff
+	IQo47my8lt2wn6VYDAlVJ/y+uXqCn83/6/+f0pnzgzR+cwtFqV06nVtMjNXvGmrOqYtg3mGJVZaE3
+	LG3bLZwRWUQc98JvPRn6kPzku3bvB3aTFwcJwlurrB2s+LAZtGgWevfjSoDYAKWxWsi69p4/jcuhZ
+	1TnSBofw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1tA-0000000Cy9H-2VEd;
-	Fri, 25 Sep 2026 09:06:40 +0000
-Received: from out-82.mta1.migadu.com ([95.215.58.82] helo=mta1.migadu.com)
+	id 1xA20b-0000000Cz4U-3ebF;
+	Fri, 25 Sep 2026 09:14:21 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1st-0000000Cy3p-3C3A
+	id 1xA20Y-0000000Cz3f-4Bwl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 09:06:25 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Y9ZAnxNOH2lrJRb3LRr5HWYioWfcGxX3qidODsECads=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790327182; v=1; x=1790931982;
- b=crUleeVmfIlutHO5eNR+jLwnRRv15dZpW06mzdKd0s1X+7Xg9ol/yHJECz796zSqWriZdPZ9
- oydZmhpyPrGj8yXBIIlbXI4yFXUrEgo8EDrcNq1YL0pFmqwbQB7NtMRwK7sAkDpBGNhG9aQjag/
- JUC7v+ekj9W3v82/sOK3xW1E=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 09c974e8f8fc8fd1;
-	Fri, 25 Sep 2026 09:06:21 +0000
-X-Mizu-Trace-ID: 09c974e8f8fc8fd1
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 3/4] KVM: arm64: Use the host's HCR_EL2 for non-protected VMs in pKVM
-Date: Fri, 25 Sep 2026 10:06:18 +0100
-Message-Id: <20260925090619.852995-4-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260925090619.852995-1-fuad.tabba@linux.dev>
-References: <20260925090619.852995-1-fuad.tabba@linux.dev>
+	Fri, 25 Sep 2026 09:14:20 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4843796e373so367582f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 02:14:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1790327657; x=1790932457; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RUy9AG7lIgjavOAkd4pUReRQm+p1laq2n2IXc5r/9Fk=;
+        b=Bira7E1IFuCMUIWYJ6Cj8d/gL0ngsrPYO6JmJjiHFllQ/1d6V6Llh6zJKZ3LJTSE69
+         OJ0Wezj2eP/gX7bUGV4RVjwaSpgdMyWyxwhexjk6Mq26RoX+K9SxYuQlXuHPKhJvVh72
+         OgRcv7FAf4fLwqXl/GXrNTJn2Afye7IJV9iVYdsqXvkPynMJmhOCL/9oS1HZ94K/PVS2
+         GyPACaNaD4M3lUWTfDzP5YY1UdXlsXyszBZ8Q4u+0YcC5aKf2N4jA2CnbT9SPkv6Mvvb
+         pP8A8bWzT3kD7F6A2BAwCO6aSGj25N4Q5AGzZ4b5FIh8XNpgC+nFp6bQn0mfVWewXra4
+         oFnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790327657; x=1790932457;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RUy9AG7lIgjavOAkd4pUReRQm+p1laq2n2IXc5r/9Fk=;
+        b=WIPHv6/rVvK7CpgjqGISVnVPJ41ujFx1kGWUaErpSG5xbKNE70IHmqg2e8a2O0q31h
+         vl2dzJGogSiQJdvsuwAu7av8pE42y+UlXSQdATnWPtDqrT+uzF2sv2O4esFnDocx41Im
+         5rbXnmM7tXOByxyTvCxFFOu9DRu73zvLS4W1P6nI05Wi0GW3d+350Asn1ZA5uWRB6czv
+         nreS9XbPoJsL02zFBPwjtzEijbjEIJR86w/dj7InHmtMj+hsMQo+tkYr9LLeIyZPmQrX
+         xQYfIiadv8mxUfdvPSaufmZpJ/3kHbFxoSS2YLTQq2ionn7kpsGh+u8yBiMsGpKJPnLl
+         cu3A==
+X-Forwarded-Encrypted: i=1; AKwUvBznwJeZ7CfmDXZyFTACefk8eoAMzofh/H/zzUcgpgOhCIkt9yiKkBoRL4Rno/vMQSlZYHI/H60itZcMgt9LApBU@lists.infradead.org
+X-Gm-Message-State: AFuF++kgogNoLvk59vlz/cT7AU9JCdAsVdcVSjwzf7WGlB+vVTUyH10p
+	IRJQNFQHP6umySTfckAfUs3tLMM8k27fw8dETiDLAb4OnFszSNUJuCGXsA4uScPmoJg=
+X-Gm-Gg: AYBFou2uVEk1buY8Cg3IRHWLfVs8JuX2hDUsZVZP2xhqiNWmRp+I6Kq0LGvnfrgwcwJ
+	CXDqRYECAGL2cfKYqlYt4AJoq3O0QPdGLfmGbXLPijVf2W9Lc5FO6+Ope3ZDJM+yUkO0ZrzXB6V
+	TUm0uLzNOJyUvgXgC6TFz+h9u28b3IbAQEECZ8N76cqwRNJBPuwhG6c6YQM6fDDIWCJrwLnALB4
+	5pCglziA9APPyvQZGsJO2tUFtJFlwX7l9yYgDqyL3y78utupSY9U4ljvnVDVPD4m/F4zPqKVFpT
+	ymWBS32v+X/2Xn6EUy3gIguPGcvFuwPdZsgu/NfcimCcnxEO0yDQseWJQVVWwANpU9cMaewaI9q
+	oA6cpB0WgiZfFQ9vZFJ/+tL1UmjjTakame0Z4+RkgYYs2WYy+T9PsNhwmimmsQbDAHcijY9sJoH
+	dsVn9hD2PkWLt5RX6cvAB8pB+TuIIyk5eMVohzd0A4h8+hp6gKWDWgZygUjrb+gjGJnFbN/MKV1
+	U5krdZUYKAmCAVyZ5IQlWNH6WyU
+X-Received: by 2002:a05:6000:18a3:b0:487:732:9964 with SMTP id ffacd0b85a97d-488716befa6mr10307474f8f.13.1790327656987;
+        Fri, 25 Sep 2026 02:14:16 -0700 (PDT)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a34a638sm5295892f8f.9.2026.09.25.02.14.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Sep 2026 02:14:16 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+Cc: "sboyd@kernel.org" <sboyd@kernel.org>, "bmasney+clk@redhat.com"
+ <bmasney+clk@redhat.com>, "jbrunet+clk@baylibre.com"
+ <jbrunet+clk@baylibre.com>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+ <conor+dt@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ =?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?= <cylee12@realtek.com>,
+ "afaerber@suse.com"
+ <afaerber@suse.com>, =?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?=
+ <jyanchou@realtek.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-realtek-soc@lists.infradead.org"
+ <linux-realtek-soc@lists.infradead.org>, =?utf-8?B?SmFtZXMgVGFpIFvmiLQ=?=
+ =?utf-8?B?5b+X5bOwXQ==?=
+ <james.tai@realtek.com>, =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
+ <cy.huang@realtek.com>, =?utf-8?Q?Stanley_Chang=5B=E6=98=8C=E8=82=B2?=
+ =?utf-8?Q?=E5=BE=B7=5D?= <stanley_chang@realtek.com>, Brian Masney
+ <bmasney@redhat.com>
+Subject: RE: [PATCH v14 09/11] clk: realtek: Add RTD1625-CRT clock
+ controller driver
+In-Reply-To: <b9d5a1a82df34aadaee2390af871f7c8@realtek.com>
+References: <20260901072446.2563145-1-eleanor.lin@realtek.com>
+ <20260901072446.2563145-10-eleanor.lin@realtek.com>
+ <178947735404.448573.10061486937030065064.b4-reply@b4>
+ <b9d5a1a82df34aadaee2390af871f7c8@realtek.com>
+Date: Fri, 25 Sep 2026 11:14:15 +0200
+Message-ID: <1jjyo98zh4.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_020623_982012_780C8E99 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20260925_021419_064264_7EEE98D3 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,151 +123,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In pKVM, a non-protected VM gets only TWI, TWE and VSE from the HCR_EL2
-the host computes for it. EL2 sets the rest in pkvm_vcpu_reset_hcr(),
-which covers only part of vcpu_set_hcr(). On a CPU with MTE the VM can
-then read GMID_EL1, on one without FGT it can execute a TLBI OS its ID
-registers hide, and it never gets the host's TVM, VI or VF.
+On mer. 23 sept. 2026 at 05:43, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=9B] <=
+eleanor.lin@realtek.com> wrote:
 
-Use the host's HCR_EL2 on every entry instead, except for the bits EL2
-owns. The other bits only control what the VM's own execution traps on
-and which virtual exceptions are pending for it. The host computes them
-from the vCPU's features, ID registers and flags, which EL2 already
-takes from the host for a non-protected VM, as it takes MDCR_EL2,
-HCRX_EL2 and the fine-grained traps.
+> Hi Jerome,
+>
+>> > +
+>> > +static const char * const clk_gpu_parents[] =3D {"pll_gpu", "clk_sys"=
+};
+>> > +static RTK_CLK_REGMAP_MUX(clk_gpu, clk_gpu_parents,
+>> CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
+>> > +                       0x28, 12, 0x1); static const char * const
+>> > +clk_ve_parents[] =3D {"pll_vo", "clk_sysh", "pll_ve1", "pll_ve2"};
+>> > +static RTK_CLK_REGMAP_MUX(clk_ve1, clk_ve_parents,
+>> CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
+>> > +                       0x4c, 0, 0x3); static
+>> > +RTK_CLK_REGMAP_MUX(clk_ve2, clk_ve_parents, CLK_SET_RATE_PARENT |
+>> CLK_SET_RATE_NO_REPARENT,
+>> > +                       0x4c, 3, 0x3); static
+>> > +RTK_CLK_REGMAP_MUX(clk_ve4, clk_ve_parents, CLK_SET_RATE_PARENT |
+>> CLK_SET_RATE_NO_REPARENT,
+>> > +                       0x4c, 6, 0x3); static
+>> > +RTK_CLK_REGMAP_GATE_NO_PARENT(clk_en_misc, CLK_IS_CRITICAL, 0x50,
+>> 0,
+>> > +1); clk_en_pcie0, 0, 0x50, 2,
+>> > +1); clk_en_gspi, 0, 0x50, 6, 1);
+>> > +clk_en_iso_misc, 0, 0x50, 10,
+>> > +1); clk_en_sds, 0, 0x50, 12, 1);
+>> > +clk_en_hdmi, 0, 0x50, 14, 1);
+>>=20
+>> This is a lot of clock with no parents which is a bit suspicious especia=
+lly for
+>> gates.
+>> What is really feeding those ?
+>>=20
+>
+> In v15, we will do our best to reduce the number of gate clocks without a=
+ parent.
+>
+> However, after discussing with our colleague, we confirmed that for some =
+of
+> these NO_PARENT gate clocks, their actual upstream clocks (like PLLs and
+> Muxes) are located in separate, independent hardware subsystems. The regi=
+sters
+> controlling those upstream clocks are physically inaccessible from the Li=
+nux
+> CPU domain.
 
-ATA, an owned bit, stays clear, as pKVM doesn't support MTE for any
-guest. TID2 and TID4 move to pvm_init_traps_hcr(), since EL2 now sets
-them only for a protected VM. A protected VM's HCR_EL2 is unchanged.
+Control and input are different things. It feels like your DT (binding)
+description is not complete as it stands which will eventually be a problem.
 
-Fixes: b56680de9c648 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/include/asm/kvm_arm.h       |  1 +
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h | 13 +++++++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c     |  7 ++++---
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 18 ++++++++----------
- 4 files changed, 26 insertions(+), 13 deletions(-)
+A clock with no input is something that does generate the clock by
+itself, like an osciallator. Pretending it has no parent because you
+don't know how describe it yet is wrong.
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 4bfbd827c5aa7..8d187650e463e 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -30,6 +30,7 @@
- #define HCR_AMVOFFEN	__HCR(AMVOFFEN)
- #define HCR_TICAB	__HCR(TICAB)
- #define HCR_TID4	__HCR(TID4)
-+#define HCR_GPF		__HCR(GPF)
- #define HCR_FIEN	__HCR(FIEN)
- #define HCR_FWB		__HCR(FWB)
- #define HCR_NV2		__HCR(NV2)
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index c904647d2f760..75b1122db4c91 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -12,6 +12,19 @@
- #include <nvhe/gfp.h>
- #include <nvhe/spinlock.h>
- 
-+/*
-+ * HCR_EL2 bits EL2 owns for a non-protected VM, whatever the host sets: those
-+ * that restrict the guest, configure EL2 or what it switches (E2H, RW), or
-+ * enable state EL2 doesn't switch or support. RES0 is included, so a bit comes
-+ * from the host only once arch/arm64/tools/sysreg describes it.
-+ */
-+#define PKVM_HCR_EL2_OWNED	((HCR_GUEST_FLAGS & ~(HCR_TWI | HCR_TWE)) | HCR_BSU |	\
-+				 HCR_E2H | HCR_TGE | HCR_TEA | HCR_GPF | HCR_TERR |	\
-+				 HCR_FWB | HCR_DC | HCR_ID | HCR_CD | HCR_NV |		\
-+				 HCR_NV1 | HCR_NV2 | HCR_API | HCR_APK | HCR_ATA |	\
-+				 HCR_DCT | HCR_FIEN | HCR_AMVOFFEN | HCR_ENSCXT |	\
-+				 HCR_EL2_RES0)
-+
- /*
-  * Holds the relevant data for maintaining the vcpu state completely at hyp.
-  */
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 9a3b92e626adb..dec99d5bbee78 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -216,6 +216,7 @@ static void sync_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+	u64 host_hcr_mask = HCR_TWI | HCR_TWE | HCR_VSE;
- 
- 	fpsimd_sve_flush();
- 	flush_debug_state(hyp_vcpu);
-@@ -228,6 +229,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
- 		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
- 			flush_hyp_vcpu_state(hyp_vcpu);
-+		host_hcr_mask = ~PKVM_HCR_EL2_OWNED;
- 	} else {
- 		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
- 	}
-@@ -241,9 +243,8 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	 * trap-control bit, so it must flow to the hyp vCPU alongside TWI/TWE
- 	 * for the vSError to be delivered. sync_hyp_vcpu() reflects it back.
- 	 */
--	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE | HCR_VSE);
--	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
--						 (HCR_TWI | HCR_TWE | HCR_VSE);
-+	hyp_vcpu->vcpu.arch.hcr_el2 &= ~host_hcr_mask;
-+	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) & host_hcr_mask;
- 
- 	hyp_vcpu->vcpu.arch.iflags	= host_vcpu->arch.iflags;
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index affc9595fda20..2cf704036871b 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -30,6 +30,7 @@ unsigned int kvm_host_sve_max_vl;
-  */
- static DEFINE_PER_CPU(struct pkvm_hyp_vcpu *, loaded_hyp_vcpu);
- 
-+/* A non-protected VM keeps only the PKVM_HCR_EL2_OWNED bits of the HCR_EL2 set here. */
- static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
- {
- 	vcpu->arch.hcr_el2 = HCR_GUEST_FLAGS;
-@@ -47,13 +48,6 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
- 	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
- 		vcpu->arch.hcr_el2 |= HCR_FWB;
- 
--	if (cpus_have_final_cap(ARM64_HAS_EVT) &&
--	    !cpus_have_final_cap(ARM64_MISMATCHED_CACHE_TYPE) &&
--	    kvm_read_vm_id_reg(vcpu->kvm, SYS_CTR_EL0) == read_cpuid(CTR_EL0))
--		vcpu->arch.hcr_el2 |= HCR_TID4;
--	else
--		vcpu->arch.hcr_el2 |= HCR_TID2;
--
- 	/*
- 	 * At EL2, vcpu_el1_is_32bit() reads HCR_EL2.RW, and EL2 switches the
- 	 * *32_EL2 registers when it returns true; they're UNDEFINED without AArch32 EL1.
-@@ -64,9 +58,6 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
- 
- 	if (vcpu_has_ptrauth(vcpu))
- 		vcpu->arch.hcr_el2 |= (HCR_API | HCR_APK);
--
--	if (kvm_has_mte(vcpu->kvm))
--		vcpu->arch.hcr_el2 |= HCR_ATA;
- }
- 
- static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
-@@ -84,6 +75,13 @@ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
- 	 */
- 	val |= HCR_TACR | HCR_TIDCP | HCR_TID3 | HCR_TID1;
- 
-+	if (cpus_have_final_cap(ARM64_HAS_EVT) &&
-+	    !cpus_have_final_cap(ARM64_MISMATCHED_CACHE_TYPE) &&
-+	    kvm_read_vm_id_reg(kvm, SYS_CTR_EL0) == read_cpuid(CTR_EL0))
-+		val |= HCR_TID4;
-+	else
-+		val |= HCR_TID2;
-+
- 	if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
- 		val |= HCR_TERR | HCR_TEA;
- 		val &= ~(HCR_FIEN);
--- 
-2.39.5
+>
+> Best Regards,
+> Yu-Chun
 
+--=20
+Jerome
 
