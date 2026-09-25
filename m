@@ -4,129 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E7BC98318
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 01:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C26C9831E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 02:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1LpgHrRnJnI2I5GlqoOwrsqUlD08PGb1FxWLCkR/D4w=; b=09phETsmIMusNw5GT9UNZbZwu5
-	s1U1W4pBOpzGsYPhQjo/WpL59DksWg20R2z3syBjBD3FJ4ycHBqBftDYiTUTlaV3060PdDe5wZYH5
-	Pih8DZLDLPHU8QsEwjAJf35TvcE8O/4kw1fSbGV7f4cY7+0a19f6wWlztatUfYVzkqdDE89DGFzHR
-	JfsAERaJtsPW88YLngfLtsB1Q+GLNY1uSE95X7ctGIg9AIxnNQfW0clt+pf7c3cHpxYf7M6u8l/SD
-	g2H1M3jNb1kUA3hvJiFgwjuldk2UV/O/SwyBJzKxJC2ykpUPH2wIkmOwzNfmQwtewqvDk5wiYka8w
-	biIj6J4w==;
+	bh=XbfLt567UruTanIr/tJZNwrVVvx5lCkEUIU6u9TuyOc=; b=myxm3mAcGmJEr+Aqe+Ujm1FwTe
+	mvYD28nNfnQZsSKqgrwLcCWpYg9s+EIndmB7DS7GkrTnuABRrlX8u6yzL03J4BGHrR6Qv0vQ3De7L
+	1iaBav/O1Zo4oCZtLlIN7qJ5kAXJfT7O6hIvPFLP/EmRkpEiJIDzuw0gvCOqefidJg6WgFylKYzMN
+	QI/hNweSxmX9g0upPmv9QuLuNRzR2vHFG1OaOyWADJnuabZtyGjr2DKBUYrJgqNd+FtTo9p9MDfle
+	JSVA47cuyQA7/6WxKaQHEg43JFJIUBipFoz70+InuuURm/Ys7th5ADG0gqkoR7fhd3Tfr9gFnjYqg
+	a2fqkzGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9v2G-0000000CVPt-3Plx;
-	Fri, 25 Sep 2026 01:47:36 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x9vHo-0000000CVjT-0zST;
+	Fri, 25 Sep 2026 02:03:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9v2E-0000000CVPY-0sru
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 01:47:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lCecZ9CtpnEc7vBD/g4dD1zrkH3BYGMx7f4HL1aiyuQcb+ybHhfStDZJseAzGRffexM0iKxdcNZ1GvREL2hREDHdn+qfBLYhF2XmgZtOe5BmU81j1vMP7QSCbjIGnvPlMr056EvPzvSX9yTw3DOe182iXqlb8p3W7Xq6W1/EQFmSpUtfErCj4Qm4AhNLTN8vAZJKWKx8x2gRWxHK+Y4Ys3eLPZMVzYOUwPMc8x0Bc/kMIB8eqxofM5JY44FbQzzvMUT+LQYO5cGXCkUQ7Fiy16JlE8aXG4ph6aybSje3fT4puFshf0wwWM4TjkMyrmpOFTMQ9az7tljTv1e3d1fS3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1LpgHrRnJnI2I5GlqoOwrsqUlD08PGb1FxWLCkR/D4w=;
- b=s+AqzwiUoaBxBoGiWdQcWpZ2ckLSKAJ0UxLM9wG2y1TEx3t4huHhNLAmRkTL7cPXiZGxQ54vNozkklAmpI+qHWMBtE14fGuWiqLkDj+JmnMB/INfMjIL3wDtdX/wFv8ABOOQyihBheF3MzYCTIlJa1qQYaRuvod5hMPhxX5mkYY6xhI8yRhB1X1vbea9Emu3z4oSXw+eMEStne0wa+qx2w/qjBhNRsEo0vIw/qAjcOAN25mrTkOjBSeuV6PXIV8hvBKLAKzJB3iONthKy4ypK3i5xrgrZCuxqOMakLlZ8ve2EjB4id8RHosa5KpQdfity2x2L8ZLl5QRnpElg7zUOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1LpgHrRnJnI2I5GlqoOwrsqUlD08PGb1FxWLCkR/D4w=;
- b=EAHhwFZRGA1kwcYUpU9p9Pmv94cIqxhYWfy6ALcQLAkJ9oqR+tsg6v3PWENbQwm+K7qFJ8HBr4iwxYcb72oywZXiqlzZPBSWN2Itzwwxk/9WquhJPJA25/bxNAnDGewvQPei9U9ZXyLeOCB52bTjDu4vlPcYaKD2lTCQLA9Hj11zRUHGPS/NgFxdRnqXmIclugGh2rrvTE2ODQ1T3h9KBO/7sPmB4gtD4YKdrCZKB2xV8nB1yZYvBk/loIWaimB10vS4wilNxQcyggjL8xXEwtLS6Rzf5SUvtGTGmc5EFemmxskiBeG91bR52T0ZjzEZ8gnQ8loMNLUkDUTCeaZnTw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DU4PR04MB10646.eurprd04.prod.outlook.com (2603:10a6:10:58e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 01:47:29 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
- 01:47:29 +0000
-Date: Fri, 25 Sep 2026 09:45:01 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/3] dmaengine: imx-sdma: Use __assign_bit() for
- ownership configuration
-Message-ID: <arXSHcT8uVF8Aw3d@nxa18884-linux-1.ap.freescale.net>
-References: <20260903-dma-mask-v1-0-211ffd12c236@nxp.com>
- <20260903-dma-mask-v1-3-211ffd12c236@nxp.com>
- <arWJBi8iHhaeNfcr@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <arWJBi8iHhaeNfcr@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: SG2P153CA0002.APCP153.PROD.OUTLOOK.COM (2603:1096::12) To
- AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+	id 1x9vHm-0000000CVjG-02wd;
+	Fri, 25 Sep 2026 02:03:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 477D540DEF;
+	Fri, 25 Sep 2026 02:03:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C891F000FF;
+	Fri, 25 Sep 2026 02:03:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790301817;
+	bh=XbfLt567UruTanIr/tJZNwrVVvx5lCkEUIU6u9TuyOc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QcLGa2sI2CSFd+1OYFPqtvbpBgmOTP3N190z13MvZcnWpLL3h3ZTDtQ3Y6Wujbb9j
+	 ZDD4qzR0OYXQKF5vHa+lrjv0GfT7A2CAijea5tALLiO41vORmdCMBNXHtEDCkf8auC
+	 aIRJZtRUHFiGGM4NdVuW62rokrRWRndcIRzw42AvY6QyK1cxQeNRkE3maPME4O4HEb
+	 Z9fFkewi6U2HVuRNoUgpToVf9Zg4H5pdJEFS7u6NSKlD/QD+HAUHWLmY+MdHEn7AFX
+	 /ilwNJShqcpYrpjsJq9blWOUIAM0yphSACBZMW+hgQhqhuPydtDSHjkqEy5JL7JuoU
+	 wQZ7nuMr/eUKA==
+Subject: Re: [PATCH net-next v10 01/11] net: stmmac: move XPCS lifetime
+ management to platform drivers
+From: netdev-bot+sashiko@kernel.org
+To: coiaprant@gmail.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org,
+ linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz,
+ netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org
+Date: Fri, 25 Sep 2026 02:03:35 +0000
+Message-ID: <179030181534.2160803.2909836028801902052@kernel.org>
+In-Reply-To: <20260922200336.2201212-2-coiaprant@gmail.com>
+References: <20260922200336.2201212-2-coiaprant@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DU4PR04MB10646:EE_
-X-MS-Office365-Filtering-Correlation-Id: 144858ab-c24f-4a4f-1790-08df1aa6f53d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|366016|1800799024|3023799007|10067099003|22082099003|56012099006|11063799006|4143699003|18002099003;
-X-Microsoft-Antispam-Message-Info: fqSSqn//xtgbptliEu6OaVdSBMK6aeXUn61yxI29OoY85eGYPtals+0NvOryaHK2LmPIeu9H8O3FPBEpsFaVw8dAqf+PlTFWyliFC6COITSWijY6eP8LJ0cW9bsDwghlQMBDOpsUyXNNnXzeELd+6r7BVz3g7/RgOdOrECD4DRVvTq9bZSITnU/LuVMNULSmasNn/D5aVQLQSnH7cfBPLl9QdHFXeFTQVysU5OGhbz0/YXjNECZg+tzg/4ugfG1Fc6sedZytDWZb9sMO08T5wgoq9x+1Yz1j7HlQpSrdT04Rzv8Wx7KwUawH457+K1K/bbzCmQR1pLx8OLSaO0geYjNXB61ya7XuGG2IfgksnETQaf+pTWgOrySYeHvSfyCyXqgQ0/8it+hQvURnF9KdlQr2oobXuXCc1nTFAnGs/TyF3cpcHSvl7OTnPkoa3q57ro9DjMFPosJ2sIUdXmxJHXVRwyy61dxgDNWEr016NSwup7MEvH7UIqurxTmpV020geGjYLbz0RYrO3CxOGBmFdUPFG9wR0YliaD9+Q10Ehu5TGVjOCnQ58R9yrI+WjujFXl3UjF7zKvW4P4/5p6yqhPnWJNsPznKRKELoMhlJFBynFQ1Nca/Vyt8nK+fVtPo
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(366016)(1800799024)(3023799007)(10067099003)(22082099003)(56012099006)(11063799006)(4143699003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MUEzSwBpMBVnmjP9gAIoSczYMxfQZatKBA6KZXc+Ou3UEFqts3skhZN95BC1?=
- =?us-ascii?Q?/aIIkMUwTHP1Xex++X7v4C/A0hfPpINIaGPJRuvGwjn/iM+ET19WTA/b8Rbk?=
- =?us-ascii?Q?GddQzgREE5Pyj00KuTNvlvvUGtszrLjbAQG/WcaUHpqneB0HDMlQVRh2MGOq?=
- =?us-ascii?Q?U44pz99cMyX/XejGK5j3Yut+hkgvCm7zuXsbd3t9beJdUXr0iUzqjC/SB0F5?=
- =?us-ascii?Q?mliW5CeGH3d3eYdh92yQ4IyS3BZebyOO9a5MEYQt/xFjZ517gtDsjC4JIb7z?=
- =?us-ascii?Q?HOsOmukz8EhfgbT5uBT+jfOae0+f/yIKfg1qQMYxs3EzVJi3oKdyO8lDtZml?=
- =?us-ascii?Q?5qygkTw1JPm399ZmQPlAe/f7IeZUdAFr0uNiKsWkAMwAwH/v1qA+AB57uj2y?=
- =?us-ascii?Q?JRpn7iH2roZPaggvY9gmmPPyCOEsDP51zfkcFNwqSCO0+aCymM2f+2E81UTq?=
- =?us-ascii?Q?RdeY9oZxl2nW8245FkkbYDPnAz2EpdZPp0ToDROS142UBPw5AvYtvX72/ZZa?=
- =?us-ascii?Q?h1K2oQv+ibGCgzbc6Wr2sdKxYlTkRhob1BPMestfwNXn9Hxvcen9jFOQRKQi?=
- =?us-ascii?Q?R3wxC4rdf6mdf/Jh4DOe3GrcaG7Wu6ILmHn3unieRwaaymHBN0TZWy2I7rfv?=
- =?us-ascii?Q?9S2odf5nsI2MuIJt6Lhj5kAbOUW70UKJ6FP0+dLJuQwC8o9Q6WcqbnH+Gjs9?=
- =?us-ascii?Q?oMEGWg4biAYd8aYKgeQfQuAujjd15dEzdv3a053UN3NI+gmdcXBkXNI15lPb?=
- =?us-ascii?Q?rDtZQbVZrb86l5T/hZh4oogyXR4uZQTxvP/Z6JZL64kIot+++xjFIGpjwIWD?=
- =?us-ascii?Q?D63AaDYJp/PurWeWZokZeHVYdm3ps9eTxN9CNetmfUN9+Yd5CFmgenmFCwPE?=
- =?us-ascii?Q?IaMAl6kse/BCqFjv+LUjeKgDZVf5sTvXh8VgbSMNoTzsA4vSc2oK+iBGm4HN?=
- =?us-ascii?Q?57MNyr45rg5igyTvQVSRwVMILNLG5JDrdvDs1RUNQsguRwr6k8GJ1VsIIvme?=
- =?us-ascii?Q?qxggndTj/xHktRygmd1sTgnHZ3n3HeZhE/gepY/bLomzt2SOPuhJj8oNJXH2?=
- =?us-ascii?Q?05Q1B2zcTy9eCYMLt4H3U71u+5m99O501noVxhlVsa0yf45DkPC0FJvOAelb?=
- =?us-ascii?Q?BBJ2gpXyG5/Y1/Dq3arQZrrKOUYvMYKyYdgJi1nK9WPIXw9GEJ38D1xvd0wH?=
- =?us-ascii?Q?Zaz8Tc+KJl3QaOOkdwlg+j2qg7R20wcuNCYpo45ZgxAeIICddbgEFcd/x0KU?=
- =?us-ascii?Q?X9aABZqbahbDAp+eqKki61fubmj+8QuCsk6aybmWVSkFZltmpqsgmnbPo4rM?=
- =?us-ascii?Q?O8MOInHBen95uNL7pXbx3buv+9F6J97ZjdyyLYeSOS9o1uFQhs+EIWMnHax2?=
- =?us-ascii?Q?RxQ54Led2rXhoTrkMhzenRqd/47QYG+mCM4p/xsrTCxftqbzN+htFJZRWMsD?=
- =?us-ascii?Q?C7TityahWmVkr3EI86IPxuVr5hQUKtF6QPeBTlbe2B3JJUnHLX60hX4XiRlg?=
- =?us-ascii?Q?6Efbn3JrY501KCrU4Bw/bvM4j7p9MEzleHBrJsZQuc5GW2J79YAStz5INYk2?=
- =?us-ascii?Q?2yKBtWQU89hdFP3ztvWT3j2KyryifNcQoLCr4vevQ8OFslV+nfR+ObOCjoZi?=
- =?us-ascii?Q?+1fKD7i66rUq7H+9Oy587t9rIy9dpAfVizGKvIOd+XyYg0OTAEyfdyJI2sV7?=
- =?us-ascii?Q?JRPmEODKwM2602MGjMtFmJgrQlaClz2MWuCOoG3TaQnkhAM3UBFepHf3sC4+?=
- =?us-ascii?Q?mbeSJers98+erdYa7XEUqMJ87vVvMbVSACOPOA2gs4AdWQ2b5t4s?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 144858ab-c24f-4a4f-1790-08df1aa6f53d
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 01:47:29.2518
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xxCiJjD5xd3M4mmUkSmjKLpsY48dWoETKD1QjHZcLupjN65K5QXbGhwKvua12czUUEtUsisQ1Ejh35z4vtXPcqP35Uz88CWU2gdVMeeafCRw+D3TrafT2bfqAHmgtR81
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10646
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_184734_290466_7B2E6183 
-X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,67 +78,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-On Thu, Sep 24, 2026 at 04:33:10PM -0400, Frank Li wrote:
->On Thu, Sep 03, 2026 at 10:16:14PM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->>
->> Replace the if/else pairs of __set_bit()/__clear_bit() in
->> sdma_config_ownership() with __assign_bit(), which does exactly the
->> same conditional set-or-clear in a single call.
->>
->> No functional change.
->>
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->
->Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Low priority / nit picks for your consideration:
 
-Drop this patch.
+- [Low] Commit message audit claim: "every DTS that pairs a dwmac node
+  with a PCS goes through a glue that sets pcs_init() (Intel, Renesas,…
+- [Low] Commit message framing: the removal of the unconditional
+  `priv->hw->xpcs = xpcs;` in stmmac_pcs_setup() is described as fixing…
 
-[1] is the new patch to cover all in dmaengine subsystem.
+--
 
-[1] https://lore.kernel.org/all/arV6S-U-ArZubwka@lizhi-Precision-Tower-5810/
+net: stmmac: move XPCS lifetime management to platform drivers
 
-Thanks
-Peng
+This moves XPCS creation and destruction out of the common
+stmmac_pcs_setup() and stmmac_pcs_clean(), which now only dispatch to
+plat->pcs_init() and plat->pcs_exit(). The Intel mGbE glue gains its own
+pcs_init()/pcs_exit() pair, and the renesas-gbeth, rzn1 and socfpga
+pcs_exit() callbacks clear priv->hw->phylink_pcs after destroying the PCS.
 
->
->>  drivers/dma/imx-sdma.c | 17 +++--------------
->>  1 file changed, 3 insertions(+), 14 deletions(-)
->>
->> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
->> index 63261ab6402b9..da565409beaaa 100644
->> --- a/drivers/dma/imx-sdma.c
->> +++ b/drivers/dma/imx-sdma.c
->> @@ -710,20 +710,9 @@ static int sdma_config_ownership(struct sdma_channel *sdmac,
->>  	mcu = readl_relaxed(sdma->regs + SDMA_H_HOSTOVR);
->>  	dsp = readl_relaxed(sdma->regs + SDMA_H_DSPOVR);
->>
->> -	if (dsp_override)
->> -		__clear_bit(channel, &dsp);
->> -	else
->> -		__set_bit(channel, &dsp);
->> -
->> -	if (event_override)
->> -		__clear_bit(channel, &evt);
->> -	else
->> -		__set_bit(channel, &evt);
->> -
->> -	if (mcu_override)
->> -		__clear_bit(channel, &mcu);
->> -	else
->> -		__set_bit(channel, &mcu);
->> +	__assign_bit(channel, &dsp, !dsp_override);
->> +	__assign_bit(channel, &evt, !event_override);
->> +	__assign_bit(channel, &mcu, !mcu_override);
->>
->>  	writel_relaxed(evt, sdma->regs + SDMA_H_EVTOVR);
->>  	writel_relaxed(mcu, sdma->regs + SDMA_H_HOSTOVR);
->>
->> --
->> 2.34.1
->>
->
+No Link: tags are present in the commit header.
+
+I looked at the two places in stmmac_pcs_setup() that seemed worth double
+checking and did not find anything to report.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> index afe98ff5bdcb0..7396b68899c66 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+> @@ -426,35 +426,14 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+>  int stmmac_pcs_setup(struct net_device *ndev)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> -	struct fwnode_handle *devnode, *pcsnode;
+> -	struct dw_xpcs *xpcs = NULL;
+> -	int addr, ret;
+> -
+> -	devnode = dev_fwnode(priv->device);
+> -
+> -	if (priv->plat->pcs_init) {
+> -		ret = priv->plat->pcs_init(priv);
+> -	} else if (fwnode_property_present(devnode, "pcs-handle")) {
+> -		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
+> -		xpcs = xpcs_create_fwnode(pcsnode);
+> -		fwnode_handle_put(pcsnode);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else if (priv->plat->mdio_bus_data &&
+> -		   priv->plat->mdio_bus_data->pcs_mask) {
+> -		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
+> -		xpcs = xpcs_create_mdiodev(priv->mii, addr);
+> -		ret = PTR_ERR_OR_ZERO(xpcs);
+> -	} else {
+> +	int ret;
+> +
+> +	if (!priv->plat->pcs_init)
+>  		return 0;
+> -	}
+
+Dropping the generic "pcs-handle" and pcs_mask parsing here matches the
+in-tree users I could find: the only dwmac nodes carrying pcs-handle go
+through dwmac-rzn1 (r9a06g032.dtsi) and dwmac-renesas-gbeth, both of which
+set plat->pcs_init(), and dwmac-intel gains pcs_init() in this same patch.
+
+>  
+> +	ret = priv->plat->pcs_init(priv);
+>  	if (ret)
+> -		return dev_err_probe(priv->device, ret, "No xPCS found\n");
+> -
+> -	if (xpcs)
+> -		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
+> -
+> -	priv->hw->xpcs = xpcs;
+> +		return dev_err_probe(priv->device, ret, "Failed to initialize PCS\n");
+>  
+>  	return 0;
+>  }
+
+Removing the trailing priv->hw->xpcs assignment also looks right. None of
+the pcs_init() implementations present before this patch touch
+priv->hw->xpcs (renesas_gmac_pcs_init(), rzn1_dwmac_pcs_init() and
+socfpga_dwmac_pcs_init() all set priv->hw->phylink_pcs), so no existing
+platform changes behaviour, and a glue that does set priv->hw->xpcs from
+pcs_init() would previously have had it clobbered.
+
+> @@ -463,14 +442,10 @@ void stmmac_pcs_clean(struct net_device *ndev)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+>  
+> -	if (priv->plat->pcs_exit)
+> -		priv->plat->pcs_exit(priv);
+> -
+> -	if (!priv->hw->xpcs)
+> +	if (!priv->plat->pcs_exit)
+>  		return;
+>  
+> -	xpcs_destroy(priv->hw->xpcs);
+> -	priv->hw->xpcs = NULL;
+> +	priv->plat->pcs_exit(priv);
+>  }
+
+The Intel side pairs this with intel_mgbe_pcs_exit(), which calls
+xpcs_destroy() and clears priv->hw->xpcs, so the destroy path is preserved
+for the only platform that was relying on the common code.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260922200336.2201212-1-coiaprant%40gmail.com
 
