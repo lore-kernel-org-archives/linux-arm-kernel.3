@@ -4,125 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2A0C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6DAC9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJSuypaXynJqQikfcJPdhWO1iCIF7RzU05UW6qy9qew=; b=mUm/dhphFkRf6880keqq562y0x
-	vXV1MtnaBu7kActfXs1HeIpWE5PRY89Q7rHn2J9YcaCwLxThVkzHqpNk0lQDa168V8L93syv/cyLh
-	L4svkyOFTXZJS0gTXf1HBsly4RJAZZUDS/LIoW65D4KVtYM3x6jE7CoS6ZmFiEGko5HEzJqZnNwrb
-	MK+Iaij0jOOKCYa0q/4Wj/EMDeXScNP0RwIKLcnC1AD7uaVL017Gs/fziiDQ5ZEjrvmky9tdoXjKK
-	sQwglL6ROxGYiNesH/sVQscPK+CVDKGh3/UXsIlyrabSk2wYQCKShxVEeuQkFzMDwAag2JTk+N17c
-	rApv9Nzw==;
+	bh=jhm3OuOGKpGPipHzsmUmu5dKRRI8/O+LClIrmyA+BRg=; b=FE7HW8Ue3+jDTjRb5i35kE4k7I
+	usdnc4CIa6POWLR6gZR5k1shnLGYdQ/RETawiGIwWL8aep9tuL8WfOo59I9ervTYpCKNlKMEusan1
+	1f5dGbUZyBnBFf4QHLI0Z4iWvM8ZcJct97AUIMBmQOHWneX9keBH/Dwow2THtDlksIZ0t1vMGtVlh
+	isLIS1ZBsTjLAz/kuFtmeXEHGT1X93Pl9b+hPwEanTqX3y1YthKQxIBEY0UCoDuX7aGf2SLg5sGXf
+	6eO3rLKeZh2vnbL9vJMsAKYUOc4PUG9WQyxsUlQJtVGMe6k3qu2kowNyV6aC/d0tdjmXBx+Y28b3M
+	Q6qUt41w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABEp-0000000EDPm-0awT;
-	Fri, 25 Sep 2026 19:05:39 +0000
-Received: from mail-westus3azon11012021.outbound.protection.outlook.com ([40.107.209.21] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xABFj-0000000EDY8-069H;
+	Fri, 25 Sep 2026 19:06:35 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABEm-0000000EDPJ-1xax
+	id 1xABFg-0000000EDVX-1Ve4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:05:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R9KGlN8LFMaVy2ExnwG/I74Xym5krVWY+f6F5TLbXkaD4HgF2GBOoIMosgDYEG/yxiz0OBsFRG4+YquVUQVq9CIyUVAnUbuFyYKQq/nnk+4ArxWXVSYQicHeHoppZlcjR2LxbN5RMv51akfGEA+AJqZHxhbZACIpDVOFsa1t0AqoxEm3XPcHb4EyIiV+pDwkBDd7TXlOClAf+FU30K5Ybo20NJu/nUDTEH1L19ETJdPMYvvxZwAKYatd18VkQHyNVXS1msQ+S7CXE9V+VIfeu1RHRhrO89SJAxvxEl6y3RlLbUZx0qxJ6DnecgYnGBVwiG8zeZu6Gc8fKjmDq9m4Cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WJSuypaXynJqQikfcJPdhWO1iCIF7RzU05UW6qy9qew=;
- b=LPaaKZZbOg0zAxvwX/QsW2DrlzyZe7nr2Q/jBMkIGLeMKOcfaQQ85GclSuOme2PqyhUicVNQNQpE2V+IDCeac/6JvZH7sh0dbcx/e0QObhyvj+62ZH1ai82D/SzLcoGgEs9tymSLa8NMfnhTdkXtYSLg3R4Ux2xjatEQ374L2gElX8mx8rfaR8s3fdatMu9KbBw0bjvJJ1akYJMXGCRNw/eRFE4hc1A7TXHWbLFRq0i1mmF9ickPUQ+MKv9U6TMqmouDfXaXdarE6D3x6kfwth7tLBIqwJSEn7yO1u6Q3BfGARt2JJZWEmwfqDu66+TeCJSP0FeWUeiFA1yiDVqjbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=shutemov.name smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WJSuypaXynJqQikfcJPdhWO1iCIF7RzU05UW6qy9qew=;
- b=sz/h3m13XggOhLI9bpM67zKch9BK9bh/znYc3y7eztJQriS0E22ucyRhm/i39TleWBnuqxFZkHVcN3TlkaZG5Val4hM2GX1A7hx2UyZ9ZzaU4mOJC8ClzX9yWwoTMeuyQz9UWnki9f0h4kvhr6q/vPESNDKY+2glzUJJKxGuFsIKxAGBxXSHxo1ctO/gCfgnRpSV1FHRFCshpJXRNp4vkXO/zVy0OFip5VqHsBXJkBVBNTcRIJSQ5FttfJP01H1jHFRo5Izq7H8TFyxOVuJW5lQKjnBNuE2cdxb3kJLgEMID/LD30avyQcpi9tmvgh/WssM4uF6V/WqGvbub30ML1w==
-Received: from BN9P222CA0012.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::17)
- by DM4PR12MB5916.namprd12.prod.outlook.com (2603:10b6:8:69::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 19:05:23 +0000
-Received: from BN3PEPF0000B06C.namprd21.prod.outlook.com
- (2603:10b6:408:10c:cafe::5e) by BN9P222CA0012.outlook.office365.com
- (2603:10b6:408:10c::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.19 via Frontend Transport; Fri,
- 25 Sep 2026 19:05:22 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF0000B06C.mail.protection.outlook.com (10.167.243.71) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.451.0 via Frontend Transport; Fri, 25 Sep 2026 19:05:22 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 25 Sep
- 2026 12:05:03 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 25 Sep
- 2026 12:05:03 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49 via Frontend
- Transport; Fri, 25 Sep 2026 12:05:01 -0700
-Date: Fri, 25 Sep 2026 12:04:59 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Kiryl Shutsemau <kirill@shutemov.name>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>,
-	Breno Leitao <leitao@debian.org>, "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>, Ashish Mhetre <amhetre@nvidia.com>,
-	Shameer Kolothum <skolothumtho@nvidia.com>, Yuanhe Shu
-	<xiangzao@linux.alibaba.com>, Kyle McMartin <jkkm@meta.com>, Usama Arif
-	<usama.arif@linux.dev>, <kernel-team@meta.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v7 2/2] iommu/arm-smmu-v3: Default queue depths to one
- page in a kdump kernel
-Message-ID: <arbF22yQi9/YxrHq@nvidia.com>
-References: <20260925141532.1274962-1-kirill@shutemov.name>
- <20260925141532.1274962-3-kirill@shutemov.name>
+	Fri, 25 Sep 2026 19:06:34 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-97jw.prod.antispam.mailspamprotection.com; s=arckey; t=1790363192;
+	 b=AzHE+LiI+iO/sx8ChOaUSSBSX6sGxIVVHOEO+kinGnSCKR9+TQUADKjPKMwxKe9NkppXt0gRfs
+	  LkGEy5EW167bOCGRCfL5Fb7/6EeRS6WyII0wUmnNL+C9ekvY3YmgifuPaqNVV3xHZjEz8PTLri
+	  vYQcxHYOcdmZQ6hdO3vA9hDcCaKISfFmDZBXLEjZWy8EN142zdWqFEUEdgwWzbnKAE7rMqgR2Y
+	  BOrfuLBXMr333hPUL2WiDxApT1jFvaYdqmQsQGbED4Fqyr8HOvvqT5pKJxbSyY5Tu9OaaEb9Cf
+	  RgESlV5gOoZlT/Mi7/32B2r/KAIkrv/iy3dmn19PN+f+aw==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-97jw.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-97jw.prod.antispam.mailspamprotection.com; s=arckey; t=1790363192;
+	bh=pfEa9sDfSqmUqAkVSivfg+jwsPnAd7JEdfM7bR8Kono=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=uaet6jkMryyQD/EL/umW6Yonx5dA61K1Xo8S4E23oa7KL0oXCt6bTelIneRq5efBSQQ+ml9r95
+	  HjOd/whifyY5rTijJF2wr3J0NNNWJAeMaz4IMir4Oq9nRJpv1Jpv2CzKkIm74CT8tqOzQLn9lH
+	  Bl0szuXfDVVW5mq8DROsDHNxA/Nb/d4qENmWzhYKLyA2nIIET4krvfVJG5FxThdvSDfzhq2OjB
+	  aBSwoSuz8dN9Q815mSXdvBFRyvCee6ZdKy+CeGF9gU6arAlGPjdQdGJnkz1UTM5U32dvGG43nc
+	  AYbH6+Tbj5dggC/ejQQ39FQWvU1pQJ9/NlOcHe5h9qli+g==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=jhm3OuOGKpGPipHzsmUmu5dKRRI8/O+LClIrmyA+BRg=; b=qosAWmaXvlDP4kBHodTrEMCE0b
+	xQF6jcIhjY1u/99E6FqKjpv2gtT1KwMKPeLT9fH1TyRRgWXxBFC/Dcz2qOFE+zMzL6/ALDPlAcEuI
+	/VvC+cJYylBzpvXueIQrXmBboB30MICKPzxpbCtgtDEePm/DeouA7SA6EqBTAzoOLT64=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-97jw.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xABFV-0000000479C-1m0I
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 19:06:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=jhm3OuOGKpGPipHzsmUmu5dKRRI8/O+LClIrmyA+BRg=; b=u7hR3YJo8ZSr2SisSaLcNNA9di
+	zA3XUxiLlksid/DDe+DIdECQZUJAVZ8/bjoeEVS6W00sscP2aJdJg+YMk9CymkCki0s+B2TN9sXUw
+	6yvzhxIdhakmJQceVp/tAluydMOcnP4JJIpwNXm+4k/TQhLzQ89o8WJWqAP4miEIjMK0=;
+Received: from [79.45.60.29] (port=64306 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xABEv-00000000KZm-1aVj;
+	Fri, 25 Sep 2026 19:05:45 +0000
+Date: Fri, 25 Sep 2026 21:05:43 +0200
+From: Francesco Valla <francesco@valla.it>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 06/12] remoteproc: virtio: add bounce buffering for
+ data buffers
+Message-ID: <arbEmz1jy0V7gjrU@bywater>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-6-dac8c5eb4aa9@valla.it>
+ <arKlvZGqu2nt6Ci0@p14s>
+ <arLXthhYbKkwZ9zY@bywater>
+ <CANLsYkwNOukGX68=NVvwNP7iudP3EcKN6C2L2o9nVCTRxFVxFg@mail.gmail.com>
+ <arP38OEaabFFu8lJ@bywater>
+ <araOI_duKIAbphq6@p14s>
+ <1b55f680-2413-4db1-b928-ed5741696d07@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260925141532.1274962-3-kirill@shutemov.name>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06C:EE_|DM4PR12MB5916:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5ef0bda-4df3-4eae-3287-08df1b37f30d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|376014|7416014|1800799024|10067099003|56012099006|3023799007|6133799003|22082099003|18002099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: fpsNdT2LzgO/ttCOHDxnkasFiAGXu62NrbeF0sp866jD+sIbT+26n8jwSrpDUt33KOlMs1iB21V8EvPcbVxhB37+UPWBMiBhaCARGNB+MEOhgwsj3rP4PGiJXynhCKI0lOe2w2h/s91f9EnzkBza6bgDxQd5wXkTPPpWqKvJBhLT56uUjDz8FGmS86Jz4Fysk0FITp6jz3msoYN0E4lYTJjVodOJt6sGvkEq286nHZpKvWJM6PWGiDTTYep0AjkN7T34jjRcc8hRfwgMHb23eLcv48fFG4KRzEzupSo58rDeYn2wW8967gRzuXhZ5OSP+qxBNup144wefTDrSanPh41PhQkTfiRgHmxtyBYTCZK+1rD9obt+xcdUI/M+nFbKViNF+r+hcHm72MiZNZiMR/C2ycb4ZirKCZsKey8Xkg1AFqvz/3P7bfjpEOEeBXAamJrQbZuJ4w9J2URF5e05jj41CPGBapGzA64PECWgeU9B6+3iXka2EBii6A7T5JZoK5TDFpnr8snZPfOmLw+TgoK6X0R1J2gBXBIzf+1Xjj5OJhYBxE/r5xZJZfDOEG8ahSUM4Dj7KVDmxV2OYBzr8NMCKeJGn6vVHMz7X7VT8n6PkWbLZMW24DhsXJVny3d1S/Qn3lI9XOIj1XrW2jPcPkqV8yKH2HkhLVP1WutOtUKX0tIEFdDJJOcO/NobhsaBm+tEsSzVmJcpbVsGMAhhbQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(376014)(7416014)(1800799024)(10067099003)(56012099006)(3023799007)(6133799003)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3FV7EEf+YRFK/1ftbRkEOmoS4pW5cbP4/4dPKXqyvkDIURnZFzMj4xVJERPwkxYF4HBwkJr/xzHFOQLMorFxMiwZSSMau7CYwr0B2s87eNw+hg9O/vtK+MsKOt75BjqEAnFMIarXmHcLAhSmnu8+s1sxkgQ4jK2ivEmXVoQ36uMMJtss7Rx75oyZgu3lQHiFXS8+YqZDUJhVfr1kMeuWs5NRm+vRK/ZxPTrVOJ1w11TyhN7rMoS/W2P1dNVtQWDFCSrKc87TjcuuBgvrjy6+f3MUsjFNeWVeN3+m/t2dAwPhjVx6UuDWi4AO3fF7v5IjBOPR81CUvCH4mqFVIZTz4zRmRObUY9tMR79MM/ke9uM+Ydg/0g2deaYKDsiVLjGk1iK1kRG2ETGrq9wQJuQP4lCg3iiaq7spc0qp8dB0UQl6l4m+V3hJmBkGEt/CI4dq
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 19:05:22.2976
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5ef0bda-4df3-4eae-3287-08df1b37f30d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06C.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5916
+In-Reply-To: <1b55f680-2413-4db1-b928-ed5741696d07@arm.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: b4b494bfe2759520406af1bea050b67f
+X-AntiAbuse: ID - b4b494bfe2759520406af1bea050b67f
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xABFV-0000000479C-1m0I-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-97jw.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_120536_511656_CA2FE4DA 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20260925_120632_870378_3FB4AA9C 
+X-CRM114-Status: GOOD (  48.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,32 +138,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 03:15:30PM +0100, Kiryl Shutsemau wrote:
-> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-> 
-> All three queues are sized from the maxima the hardware advertises in IDR1
-> and allocated at probe, up to 4 MB each on a 4K-page kernel. The capture
-> kernel already disables two of them: arm_smmu_device_reset() drops
-> CR0_EVTQEN and CR0_PRIQEN. It still allocates both at full size.
-> 
-> A kdump capture kernel runs from a small crashkernel reservation, and every
-> SMMUv3 instance pays that cost again, up to 12 MB apiece. It goes to queues
-> that either serve the handful of devices used to save the dump or are
-> switched off outright, and it is memory the dump itself needs.
-> 
-> Size all three queues at one page worth of entries when is_kdump_kernel().
-> The queues carry commands and fault records rather than DMA data, so dump
-> throughput is unaffected. A shallower command queue only bounds how many
-> commands may be in flight before a sync, which does not matter for the few
-> devices that save the dump. The cmdq_max_n_shift parameter therefore does
-> not apply in a capture kernel.
-> 
-> Suggested-by: Kyle McMartin <jkkm@meta.com>
-> Assisted-by: LLM
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Tested-by: Yuanhe Shu <xiangzao@linux.alibaba.com>
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Hi Robin, Mathieu,
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+On Fri, Sep 25, 2026 at 05:48:25PM +0100, Robin Murphy wrote:
+> On 25/09/2026 4:07 pm, Mathieu Poirier wrote:
+> > On Wed, Sep 23, 2026 at 06:05:35PM +0200, Francesco Valla wrote:
+> > > On Wed, Sep 23, 2026 at 08:44:41AM -0600, Mathieu Poirier wrote:
+> > > > On Tue, 22 Sept 2026 at 13:39, Francesco Valla <francesco@valla.it> wrote:
+> > > > > 
+> > > > > On Tue, Sep 22, 2026 at 09:58:53AM -0600, Mathieu Poirier wrote:
+> > > > > > On Wed, Sep 16, 2026 at 11:10:51PM +0200, Francesco Valla wrote:
+> > > > > > > Depending on the driver originating them, data buffers used for virtio
+> > > > > > > communication can either:
+> > > > > > > 
+> > > > > > >    - already be allocated from the coherent memory area that is
+> > > > > > >      accessible by the remote processor; this is the case of rpmsg
+> > > > > > >      and the rproc flavor of virtio-console;
+> > > > > > >    - be allocated from generic kmem, and thus not accessible directly by
+> > > > > > >      the remote processor.
+> > > > > > > 
+> > > > > > > Exploiting the map operations, which are used by the virtio framework
+> > > > > > > when VIRTIO_F_ACCESS_PLATFORM is part of a vdev's feature flags, add
+> > > > > > > bounce buffering for the second case: when the map() callback is called
+> > > > > > > for a buffer, one or more pages of coherent memory are allocated and
+> > > > > > > data is copied to them, then they are exposed to the remote processor;
+> > > > > > > the data is  then bounced back on unmap().
+> > > > > > > 
+> > > > > > > The first case is not impacted, since buffers already suitable for
+> > > > > > > remote transmission are passed through.
+> > > > > > > 
+> > > > > > > With the bounce buffering in place, any kind of virtio device can be
+> > > > > > > supported through the remoteproc-virtio transport, at least from a
+> > > > > > > data exchange standpoint.
+> > > > > > 
+> > > > > > Is this _necessary_ for the imx93 platform you are implementing feature for?
+> > > > > > 
+> > > > > 
+> > > > > If I don't want to fundamentally change how the remoteproc integration
+> > > > > works (i.e.: using buffers only from a pre-shared area), yes. While in
+> > > > > my test environment the Cortex-M33 serving as remoteproc is able to
+> > > > > access the whole RAM space, that is not always the case.
+> > > > 
+> > > > The first sentence tells me it is mandatory while the second says it
+> > > > is not.  I understand the use case but don't want to bloat the
+> > > > subsystem with code that is trying to address a problem you currently
+> > > > don't have.
+> > > > 
+> > > 
+> > > Let me rephrase: while on i.MX93 the Cortex-M33 can theoretically access
+> > > the whole RAM space, that is not a good idea from a security point of
+> > > view and can be the source of a number of bugs. The target is to
+> > > statically define a static shared memory area (as I am doing on i.MX95)
+> > > and only use that.
+> > 
+> > As Robin pointed out, have you looked at using a restricted-dma-pool for that?
+> > Note that I am not familiar with the concept but open to go that way if it can
+> > work for us.
+> > 
+> > Robin, can you point us to a simple example we could look at?
+> The only in-tree example is mt8192-asurada.dtsi, but even there the
+> fundamental principle seems exactly the same - the system interconnect is
+> locked down such that there's only a particular region of "shared" memory
+> that PCIe DMA can access, so the restricted pool is placed there, and in
+> that case can occupy the entire region since the wifi adapter only really
+> does streaming DMA - restricted pools have some limited ability to act as a
+> fallback for coherent allocations, which won't work for everything, but does
+> happen to be enough for that wifi driver.
+> 
+> Here it would be a case of reserving some of the shared region for a
+> restricted pool alongside the "vdevbuffer" coherent pool, adding it to the
+> memory-region list of the relevant device(s), and usually that would then
+> just work, since the setup is all done automatically by the core DT code.
+> However I know remoteproc does some funky stuff with child devices, so it's
+> quite possible there might need to be something more done there. But still
+> far, far less than reimplementing a whole other bounce-buffering system.
+> 
+> Thanks,
+> Robin.
+
+I took a look at the restricted-memory-pool - with which I wasn't
+familiar - and seems exactly what is needed here.
+
+I am working on a new prototype with it - if everything works as
+expected (I still did not have time to try it) it should only need some
+very limited glue code, cutting the modifications in the
+remoteproc_virtio driver by 95%. I'll let you knwow.
+
+Thank you for the hint!
+
+Regards,
+Francesco
+
+
 
