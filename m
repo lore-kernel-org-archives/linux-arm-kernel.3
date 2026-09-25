@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB36CC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE0DC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1qtZNQkSLL9jY8cFQvdaU+DuydaEVSzJnJZ/ismFcI=; b=fRXGDebCSA/XBV0qUtlOv/I2P9
-	M4BF/ntC2+jbZMbDpy8KEr+CCIok0i8lUj4DBI+zdD+T+2nh68Jjn+DwV3QoRr9h9Hvq+3W389Jhk
-	AyDqiZIttVO9IroUFnA/gss9XDUGWb0LqSS6wuMicI36KqvxWnyAlhbaIRD9xJZXpgeGlakaDXt+0
-	Run/UbFRgL3+b/N0JqlH6DQGoN5FW029BADtSa6H/Q+vRm6AFCzqqUJvJuLui6hsm4Q45zVfPNjSw
-	VhHnRn5xa5ZDYMuJjh7VZLDlObY+7S8yDXr1zrTblIIFEEkfHj505zFVnpFzFr4LsF1FoQ6Z8Uvoz
-	6reo02Ow==;
+	bh=KL/MQSQ2ufa6wux9YuL+tzjixJQA111EVmHyVach6lM=; b=FTjYdvAfsVWIEHu+BKj7OiUuS+
+	erkT0+5jnRf4KT0nIZS/xtbYvI6DSfn0cTv9kSPD6C6AD9xW5ko/71K1K2phNw/q2CcWUuvygOp+K
+	ajxL7aUBEvNe0y+QchDzIP3hNibYNy4nzcI4QMH1fNFk+TrAfTi9k7tPvsh6KLeGCD/R/yIY2Ya5D
+	TGoqgZDopB4Vc3p+69OwS+9+ZKfpXlWS0F8UUD/ZGc5xVwPH3VldNZzoW09fhg0O3DW1VqmehT2Ev
+	M6Ojar/7OK88/Equl2+D/BKb2m55cAmpTRc2wq+PAvtqB7scURFYWmLQNgPaTiQ5vRiXy0t0iZVxn
+	dMTEGwFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2kP-0000000D4mD-2Ojl;
-	Fri, 25 Sep 2026 10:01:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xA2sv-0000000D5FG-1lCa;
+	Fri, 25 Sep 2026 10:10:29 +0000
+Received: from mail-vs2-f42.google.com ([74.125.227.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2kN-0000000D4m3-2Vfz
+	id 1xA2ss-0000000D5Dy-2HS9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 10:01:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 324DC4196A;
-	Fri, 25 Sep 2026 10:01:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE3C1F00899;
-	Fri, 25 Sep 2026 10:01:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790330499;
-	bh=c1qtZNQkSLL9jY8cFQvdaU+DuydaEVSzJnJZ/ismFcI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ry0H7W/pDYg2HNPBp5VpWT3cgYkM6L7bmz00BS9xiLGVwMUCxAgQsJlVxbGOXVRni
-	 OOM4Vrek6dykBdeMzLGoHCzhNSzKt20cUigmR/Eo2NH/Ij9Xw4/swDB1OL2v0xrsFK
-	 MvVXaM1lVdwNLkwNKxyjPVXYzDG2GGXyP6oiNBaHmp1B8n0kpLZ58PDU98cwjHJCaf
-	 UzvQZFGDQ7NeKrroJ5FPhCTJa6wpw62K52yHrREtDVOAK7rQ+Nvd67OedGmj2Are8n
-	 LgmSt/pe/agZJqVefP++D35e29wyh8swf5iRcjqbqHc7cfGUFxSwS7TeZr+kx4Yu/k
-	 2MBDDIAfwQO/Q==
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 919B6198003A;
-	Fri, 25 Sep 2026 06:01:33 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Fri, 25 Sep 2026 06:01:36 -0400
-X-ME-Sender: <xms:fUa2asZjlTTZThjWtSXaPFZJgFBkPnUcvkqUZslxtET03teSnRpFlw>
-    <xme:fUa2amoAxKgYnO5i2XNOhhxeIngCv5Id18Wb4ZmZTTfyyQeXVjC367AEl48R0Ymb-
-    N-wqC9bFjvNyVKj6H8KDnn2ct9Di3B8mSNtusLXcArlZ2eL0u7N87DX>
-X-ME-Received: <xmr:fUa2ajL-639cc4qE0KKv-MgFk1cpqQ4AC0xvbceQOuTWyx4IWGeVB14YLn4>
-X-ME-Proxy-Cause: dmFkZTFaHL7/M+1Ihc5bUYqYtFwJSgrnURianRf/JR5tgLUu7fXkjZXZfmxr42uVkLDENz
-    n6CT7lbp4ydF0hj9OqU2bDAPnJ4sy7gAysDEagQgRgjtp5/JepVQ5/DqM747wnWVnxDpTm
-    jrc4s8XALNefiP8J76+Wd9Svwha8zvIC0O9O96YtBwgD0mX6idSPc1uKI30oRERQlqN8L3
-    Lr8Ld3qlOHIm8iMljBRija5/BxhTJp2TXV2Mkb4SNPIlVJe3N64zVavtx9WdcYOkYU023N
-    aDiaeR+VutG0GUjhSEsKc9hMRKknxanLE2/l1pwQvzn6kS5GFbP3ihVGhp6eMTXXkGvkBS
-    AmeIHYIzhZ1yFuqqvqaHttceMfXxJ9esOyF3qN0yTrvFw5l7swuIkeiaIWZfmYXCLOkUxH
-    VeWCFrW6XfDAicXxWHkznCBWbqieq0djlQ2YFijalVtJhux2dw5S6+WESijC+Z5SzkpHD8
-    6AP3T5/WJZ2Twln5733ADDWrueKkQAIHBNwGdZOaXqWW2Ih4AoS7VjqMXcHB/MboRVRphc
-    DhHmLwygPFVFuzkxTsFkVJmQ+ak4ZvhUKjAEascAyCoLk6pNwzBmTcsQ4y24hX2qaB7OjP
-    0Bk2Z8itCVYzHmcxnXZN5gCoQguQAyxW7M12yG9pjkOqhVb6di6ypYXqSAig
-X-ME-Proxy: <xmx:fUa2ahZg5cvFEiejGT_ny8tJvzmJMMCC6JEOjYjtSmZ2BAsNA8rxTg>
-    <xmx:fUa2aqpZiordqWJcp4HQOrUmrM111pY9DfhfHzjmDir62mi3QT7Gcg>
-    <xmx:fUa2akAIbnxQmmH6kSR8fZHJpOaxnd33Ad3h83f7tdT8gDu1pfm2Tw>
-    <xmx:fUa2aokJ9B0Y8g2Ixga72Cl0sERlNFrflt8vPCraPEXQcvYYyqT6KA>
-    <xmx:fUa2ahptMA3Q0ZKMkk_xxAAkDBS9NMREmdQlWyirfizDxAIVAR4NwhgC>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 25 Sep 2026 06:01:32 -0400 (EDT)
-Date: Fri, 25 Sep 2026 11:01:31 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>, 
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Thierry Reding <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
-	Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/2] iommu/arm-smmu-v3: Add a cmdq_max_n_shift module
- parameter
-Message-ID: <arZFDAofKaurSjCd@thinkstation>
-References: <20260909095228.2174031-1-kas@kernel.org>
- <20260909095228.2174031-2-kas@kernel.org>
- <179018301689.3334538.1783583175230817305.b4-review@b4>
+	Fri, 25 Sep 2026 10:10:28 +0000
+Received: by mail-vs2-f42.google.com with SMTP id 71dfb90a1353d-5c963d7503fso223446e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 03:10:25 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790331024; x=1790935824;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=KL/MQSQ2ufa6wux9YuL+tzjixJQA111EVmHyVach6lM=;
+        b=r+G7U/D3HUie3TclkrTKH8I5k/qyoYHnGGorY27ZkFjmUwQvrFQgdFAlNrowndtxSM
+         zfg7SjeAjTYK0RmiJSjylo24CjBq4mVsLYlu4sbOksKB0Zy7BtOtVFwpbVCFAzdXZh9s
+         itXZJdVC7pKxncpJocDBuNVDlKzfBYN0UZItWVRYNvDovJmmc0UoUC+fgYVp9ltt1eU6
+         Qw3DJd4eoiZgFkZcCIYjhnMkqLVt7L4lydY60+KgaanSxVCF5GUnSnDaNH2m+v+32k47
+         qYa26XaiMUbzaePcUgqQPFhjX5JTvqhsbu6xglOBH5yQdAVOoqXGmN2VS/msR/ir8PFz
+         oVrQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxKxNZhIgUPZxGFph/fHzdhiZY79Djkf95Ou5QnhM4BVfHQb5CGAb1EMsr1AlR0vDfsCrOTiAao8sczFuCRikT0@lists.infradead.org
+X-Gm-Message-State: AFuF++mVcI87wO/t5X25l3udOMBkvlgJ11xpNWnabduGJBGDUZa428Yo
+	SQstIsmNy2Y+GIF7/RsDTZidNREfe8eypLt9XTDdoQVe4zM12jheKPRhEKlTtvAV
+X-Gm-Gg: AYBFou3q4T61cAzIJqaF6rNl9jDsBNR/d7dI6BvR+l8SqkzXfVweKEJ7Ic2bTTHwSRG
+	05hqbIE+6/llZyBHP3eCDnoby8CxoTYwK7kUUHc9dVrPUlDmMLZjc8foy3Br+0g2SVNo6M9iEhC
+	Nvk9LCXt40/i5I2mkRjlqh61UqidwzJ9NEQcH0GYo2rSgF0lCg18LqhOEaBpQB0M3n9vt2ZAToz
+	zjAwsgBSEWLqSuAZcBV7lWlvm/JeEp/oWIFr97ilefNxV0fG+lAUfy+Hdzz+BjOrLhBhn5rZ4zB
+	yp8hYoyJtw1mzBUBoyTP5uQK5c8q6ol265qWegFef5qHEngWsRNF+fpLIADqT/SI4RTWu/dAkJF
+	LrMqv+VJknvN1qrsYVyWEtufAX7IYDFdzERgGcDxQhPW14AFzEPJI5/HVfqfqbpVEv5jvch8Cf0
+	01Qa851WB6mzIFWLnPdEOSxVp3RFeE+dy43Sywzq5erxlXFR0FKV2QoOFK2GOUgfEbNkhVDkEU5
+	FBRPYC6pr9Ufv0jBihzACeVUzbr51tzOYG5
+X-Received: by 2002:a05:6102:3708:b0:7a1:f9df:e35c with SMTP id ada2fe7eead31-7af1e0f1e2fmr2078492137.35.1790331023877;
+        Fri, 25 Sep 2026 03:10:23 -0700 (PDT)
+Received: from mail-vs2-f39.google.com (mail-vs2-f39.google.com. [74.125.227.39])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9861afbaa90sm2013651241.3.2026.09.25.03.10.23
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Sep 2026 03:10:23 -0700 (PDT)
+Received: by mail-vs2-f39.google.com with SMTP id 71dfb90a1353d-5cca96ec1feso154605e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 03:10:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBy8TW+WI6yUyJsKkMxUfOJOuXuQaVZ/gC6ERrLjHo+gsksGvawHRujtKGeF3QysZlmf6EVzSXM0h6Z5tParLy8z@lists.infradead.org
+X-Received: by 2002:a05:6102:94f:b0:7b2:c201:10d8 with SMTP id
+ ada2fe7eead31-7b2c2011359mr193571137.3.1790331023332; Fri, 25 Sep 2026
+ 03:10:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179018301689.3334538.1783583175230817305.b4-review@b4>
+References: <20260922-mali-c55-renesas-dts-v1-0-cd63cdb51033@kernel.org>
+ <20260922-mali-c55-renesas-dts-v1-1-cd63cdb51033@kernel.org>
+ <CAMuHMdVkhSNDn3BpBt-9K8FPKhmODYVF-PCKr+AH8B+o4GHuJA@mail.gmail.com>
+ <CAD++jLk6015ShhR0XAB+NfKF1Gf9ZWA8Z_=9uU6zNZ+wHS97fg@mail.gmail.com> <b9db2577-77f1-466e-b6b8-1eb6501d079f@ideasonboard.com>
+In-Reply-To: <b9db2577-77f1-466e-b6b8-1eb6501d079f@ideasonboard.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 25 Sep 2026 12:10:11 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVMt95DBV1DeLa5zVkMV4sYj8v_uA1TTJiZFi_QKvMkAA@mail.gmail.com>
+X-Gm-Features: AclHuK_GZIBSlb8NwsZCACC-o3m-qOuhGKB_o12zs05PvqCsSGvUGIOw-t14e2o
+Message-ID: <CAMuHMdVMt95DBV1DeLa5zVkMV4sYj8v_uA1TTJiZFi_QKvMkAA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: dts: renesas: r9a09g057: Add IVC and ISP nodes
+To: Dan Scally <dan.scally@ideasonboard.com>
+Cc: Linus Walleij <linusw@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_031026_594839_A5623721 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +99,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 02:03:36PM -0300, Jason Gunthorpe wrote:
-> > [ ... 34 lines skipped ... ]
-> > @@ -40,6 +40,11 @@ module_param(disable_msipolling, bool, 0444);
-> >  MODULE_PARM_DESC(disable_msipolling,
-> >  	"Disable MSI-based polling for CMD_SYNC completion.");
-> >  
-> > +static unsigned int cmdq_max_n_shift;
-> > +module_param(cmdq_max_n_shift, uint, 0444);
-> > +MODULE_PARM_DESC(cmdq_max_n_shift,
-> > +	"Cap on the command queue depth, as log2 of the number of entries. Zero means the hardware maximum; the queue never shrinks below one page.");
-> 
-> The patch looks ok
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> 
-> But I'd rather use lg2 as name, especially user visible, instead of
-> n_shift. "shift" is a word for bitwise stuff, this is a 2**N log2
-> encoded value.
+Hi Dan,
 
-This name has changed twice already. v5 took the value in entries.
-Nicolin asked for a log2 value and named it after max_n_shift, which is
-what the driver calls this quantity everywhere else.
+On Fri, 25 Sept 2026 at 11:48, Dan Scally <dan.scally@ideasonboard.com> wrote:
+> Huh; not sure why I never followed up on this. I haven't touched the board in some time, so it must
+> have slipped my mind. I can pick it back up and address the comments, including adding the other
+> interrupts.
 
-I would rather not rename it a third time without input from the
-maintainer.
+Same for "[PATCH] arm64: dts: renesas: r9a09g057h48-kakip: Enable eth0"?
+Thanks!
 
-Will, this is the user-visible name. Do you have a preference here?
-Unless you want it changed I will leave v6 as it is.
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
