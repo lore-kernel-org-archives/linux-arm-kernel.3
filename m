@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C326C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B373C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cSXpJsTAmKDpohkzKYsAWdxBNERvyX9ZUMK7Pk+TpZo=; b=xp5no5KPbtivsgXyZWseu57xiO
-	W2pEk9BlAfU0/ZdrDdCVcilVjwhey4Q66jFwkYmy8/VwWV3gXfyif7yGvBwb4EFE6dt0XHhW4VFUF
-	RHlFRDyLAdPjpJmOp6sFlfuFEZLEPi42tKcTJugxVAB9/3umLvsVM4LyGM6D51n6Y3Hh2ATGD2v2g
-	pYBXAWto3CvuCCPfdQcKm9rDwL98Ug7DzquPt/69ruK8HfVK7FR6chLsHqIFAmFL+VqbSYP9co1iv
-	NWi1kPNFlzjPvs6Dki6CFRO20U3n/Lh0po6thTmcl9L6pZCkZQvf0qeM+K9zHgAZtV/cqXqneCpxN
-	WOpFZP9g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjfnxeX8KjYcJvDNbBVoMz/4vGL/XWHIgMI/rffXzxY=; b=gVjAanxUPd3VTOpxV5pJfJ2Jvy
+	A1ZRrAV5vWJUSrahQyyjh7iZHF6xZDdFSaV4qOVBiepLE3zvFO5GuhsEEWmehGDxS70OPdU19J+jQ
+	CYR1M52d0vy5FmOwTMlsU+1KoF7F/hm9xZ97JLgh0e7+eEgkHp+n2jTUWbZzCM2T94nB2FbSJX/+W
+	v6Ji4orC9UeFtaPdGX0n+ROsVf610SD2FZRJtFdmhv7xUYEKAa3cbz8nkuJLPMwdacGnny1+MvDeB
+	NOTPOeyXDjW00xgsnGIjOZemko08UJCKKCLfrF18uqEYwEsA0wulvEN4BF35NegXfu1zx7NkHeGJZ
+	wOo0LmkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1gb-0000000Cwvj-0Abk;
-	Fri, 25 Sep 2026 08:53:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xA1gj-0000000CwxQ-0b6p;
+	Fri, 25 Sep 2026 08:53:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1ga-0000000Cwvd-0Aeh
+	id 1xA1gd-0000000CwwB-2pTx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 08:53:40 +0000
+	Fri, 25 Sep 2026 08:53:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 790EF416B1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1422241AD9;
+	Fri, 25 Sep 2026 08:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF7F21F000FF;
 	Fri, 25 Sep 2026 08:53:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42E401F00893;
-	Fri, 25 Sep 2026 08:53:36 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -48,10 +48,12 @@ Cc: linux-clk@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 0/2] arm64: dts: renesas: r8a78000: Add MSIOF support
-Date: Fri, 25 Sep 2026 10:53:28 +0200
-Message-ID: <cover.1790325809.git.geert+renesas@glider.be>
+Subject: [PATCH 1/2] dt-bindings: clock: renesas,r8a78000-cpg: Add MSIOF clocks
+Date: Fri, 25 Sep 2026 10:53:29 +0200
+Message-ID: <9a5f4e324e3b67d367f850264cbaf7e830cec182.1790325809.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1790325809.git.geert+renesas@glider.be>
+References: <cover.1790325809.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -68,34 +70,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+Add definitions for the functional clock parents of the
+Clock-Synchronized Serial Interfaces with FIFO (MSIOF) on the Renesas
+R-Car X5H (R8A78000) SoC:
+  - MSO_SCP_MAIN is the functional clock parent for MSIOF[0-3],
+  - MSOCK_PERW_BUS is the functional clock parent for MSIOF[4-7].
 
-This patch series adds DT support for the Clock-Synchronized Serial
-Interfaces with FIFO (MSIOF) on the Renesas R-Car X5H (R8A78000) SoC.
-I intend to queue these in renesas-devel for v7.4 (the first patch in a
-branch shared by (future) driver and DTS source code).
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ include/dt-bindings/clock/renesas,r8a78000-cpg.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Thanks for your comments!
-
-Geert Uytterhoeven (2):
-  dt-bindings: clock: renesas,r8a78000-cpg: Add MSIOF clocks
-  arm64: dts: renesas: r8a78000: Add MSIOF nodes
-
- arch/arm64/boot/dts/renesas/r8a78000.dtsi     | 104 ++++++++++++++++++
- .../dt-bindings/clock/renesas,r8a78000-cpg.h  |   2 +
- 2 files changed, 106 insertions(+)
-
+diff --git a/include/dt-bindings/clock/renesas,r8a78000-cpg.h b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
+index 7fd09a3fb353d952..14b3885f2d9933a3 100644
+--- a/include/dt-bindings/clock/renesas,r8a78000-cpg.h
++++ b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
+@@ -10,5 +10,7 @@
+ #define R8A78000_CPG_SGASYNCD4_PERW_BUS		0
+ #define R8A78000_CPG_SGASYNCD8_PERW_BUS		1
+ #define R8A78000_CPG_SGASYNCD16_PERW_BUS	2
++#define R8A78000_CPG_MSO_SCP_MAIN		3
++#define R8A78000_CPG_MSOCK_PERW_BUS		4
+ 
+ #endif /* __DT_BINDINGS_CLOCK_RENESAS_R8A78000_CPG_H__ */
 -- 
 2.43.0
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
