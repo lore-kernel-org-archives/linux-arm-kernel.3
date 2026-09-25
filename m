@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD047C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09019C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Waf0cqzYN/DoA4E1QtAC1/YJCneTE+7ad71bBdcmkQY=; b=Vub55deu5/N2qkCcZRrFYcrXSu
-	LT/NZv1McSSrDXcyC1e/R3z31LCood/e3rdWJitWAuedN9e40L0nZ1aE7gr0WsD1S/h6jKQetoFqg
-	FzbeynU9F2TxE4HA149ichk1lNqNT3ua57WjWzo2kWLjQOHGNMMX3kob+G7RBhkMOYdDxFvo6OLLD
-	sX+mrx1cViecpYWMA/ZpnJm/U7+/ukY22lgoOpAK8Z1XT4iv2Rec4BAgVfUHXQRmPmplIx3Wg58lk
-	v9c6+R8RgpBxBvXPQSvXVtgJkB73ZZUQuhMDTnZXixbRx15q9vA4cWfGrWjPJUxLdgfJrHQWk1VpO
-	ki1K0qzQ==;
+	bh=a7Bu3Jvm+/NbbbApmkXLtTPKgbk+0mGZu8Txmrd3+RI=; b=ochXH13A6vCTiaYEj31jIztjWy
+	eFFKPCEaKFbLeGSJmCbf5uFV41Q4b5ZIUmZHOUKb+LE+jUUpxdxbl6dy8WWE4c8UrRmYoKgvox6ac
+	gdvEB5+4Lop8PIcRkLEw4w51leuUDNfdhosQPNGe4J91mOMDcmxhYTiN6uUOc4wKmwhxhtSDzIf2U
+	cK3+3bV98fskTdfhtyT+Q1ZjNGXwmXna2hPubLsFBV/0Hfzj4tPuIJdXqvk5lgUDaBJRQnZqaq2hX
+	ECoieWTqSOs3frjZL+0Kc6GlZG+XGL4oI9Uiqv13+KGeqax3ZqsNONurLOcHksCEBog35ptzCmbzc
+	w0DT3w8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1dS-0000000CvpN-3bCv;
+	id 1xA1dS-0000000Cvpg-40bF;
 	Fri, 25 Sep 2026 08:50:26 +0000
-Received: from out-230.mta1.migadu.com ([95.215.58.230] helo=mta1.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1dH-0000000Cvls-31dR
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA1dI-0000000Cvlo-0jkL
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Sep 2026 08:50:17 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=bbqKbCVQWUtgUYZiQExxW9IUx9sKykumuGPzmEQ+fcs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790326213; v=1; x=1790931013;
- b=d5Ture6LeAhVfoA8mrzFeiZQK8Ft2qnKFbomgM7rbKM3ajLJsYu69kGmrhW8G/qyhwZ2lnnj
- PdigIzM7CLX99PAhqR5800dosaDOeF/fJvQZ4gBVCTNtuR8GG2ILc0HigOfNYSDOCRHvFAxWf8s
- sdCq3fvAwpUDnHoK1hxmUbZ8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 2fbfd764a3836168;
-	Fri, 25 Sep 2026 08:50:11 +0000
-X-Mizu-Trace-ID: 2fbfd764a3836168
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: Radu Rendec <radu@rendec.net>,
-	James Morse <james.morse@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] irqchip/gic-v3-its: Don't free a vPE table shared with another ITS
-Date: Fri, 25 Sep 2026 09:49:58 +0100
-Message-Id: <20260925085000.753400-2-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260925085000.753400-1-fuad.tabba@linux.dev>
-References: <20260925085000.753400-1-fuad.tabba@linux.dev>
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 589D4497;
+	Fri, 25 Sep 2026 01:50:09 -0700 (PDT)
+Received: from [10.57.10.88] (unknown [10.57.10.88])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BA193F86C;
+	Fri, 25 Sep 2026 01:50:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790326212; bh=LjG3pnRJrIkzli/nj9tOlSO8QVv035Dy5xyI+7WVsA0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aJpydRZqDX03ImCyUCSiuiaJMPCxRu8RyBwKnqoMoxxchYA2ksIiSqO+J+yXXVr16
+	 vJpmt66PzxwTDksPTlstFNb6jkuHtnyHmvFP85TQGvulieFaQe1p7QWmYCHiGa7JQl
+	 4EnkAbtaHXAl+0IaR+n8EJejUGC5F6xGKmwe3dKY=
+Message-ID: <a5f54b02-3b44-4e7e-b043-a670f91c5421@arm.com>
+Date: Fri, 25 Sep 2026 09:50:08 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 2/7] firmware: arm_rmm: Check for RMI support at init
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <20260924135201.850038-3-suzuki.poulose@arm.com>
+ <295014e8-24d7-494a-8f3e-0e17794d024f@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <295014e8-24d7-494a-8f3e-0e17794d024f@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_015015_902066_F6AA5C67 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260925_015016_305195_D5B70833 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,52 +78,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On GICv4.1, its_alloc_tables() copies a sibling's vPE table baser
-rather than allocating one, but its_free_tables() frees it like the
-rest. A probe failure on the copying ITS then frees pages the enabled
-sibling still points GITS_BASER2 at, and the kernel comes up running
-on that sibling.
+On 25/09/2026 06:43, Gavin Shan wrote:
+> On 9/24/26 11:51 PM, Suzuki K Poulose wrote:
+>> From: Steven Price <steven.price@arm.com>
+>>
+>> Query the RMI version number and check if it is a compatible version.
+>> The first two feature registers are read and exposed for future code to
+>> use.
+>>
+>> We only support this for Little Endian kernels, the Big Endian kernel
+>> support is anyway marked BROKEN and is being removed.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>> v19:
+>>   * Read all implemented RmiFeatureRegisters - 5
+>>   * Use ARRAY_SIZE(rmi_feat_reg_cache) for the loop in 
+>> rmi_read_features()
+>>   * Fold rmi_features() into rmi_read_features
+>>   * Fix comment for rmi_smccc_invoke()
+>>   * Drop default y
+>>   * Add retry for RMI_BLOCKED and return to caller
+>> v18:
+>>   * Always use arm_smccc_1_2_invoke() for all RMIs making sure the 
+>> unsused
+>>     parameters are 0 - Sashiko
+>>   * Move rmi_features() calls away from the arm-rmi-cmds.h to rmi.c - 
+>> Gavin
+>> v17:
+>>   * Rename ARM_RMM to ARM_RMM_RMI to make it easier to add Guest 
+>> facing RSI
+>>     support, which is also in progress
+>> v16:
+>>   * Update Kconfig text to include PCIe TDISP.
+>>   * Export rmi_feat_reg() here rather than in a later commit.
+>> v15:
+>>   * The code is moved again, this time into the 'firmware' directory.
+>> v14:
+>>   * This moves the basic RMI setup into the 'kernel' directory. This is
+>>     because RMI will be used for some features outside of KVM so should
+>>     be available even if KVM isn't compiled in.
+>> ---
+>>   arch/arm64/Kconfig                |   1 +
+>>   arch/arm64/kernel/cpufeature.c    |   1 +
+>>   drivers/firmware/Kconfig          |   1 +
+>>   drivers/firmware/Makefile         |   1 +
+>>   drivers/firmware/arm_rmm/Kconfig  |  25 +++++++
+>>   drivers/firmware/arm_rmm/Makefile |   2 +
+>>   drivers/firmware/arm_rmm/rmi.c    | 109 ++++++++++++++++++++++++++++++
+>>   include/linux/arm-rmi-cmds.h      |  48 +++++++++++++
+>>   8 files changed, 188 insertions(+)
+>>   create mode 100644 drivers/firmware/arm_rmm/Kconfig
+>>   create mode 100644 drivers/firmware/arm_rmm/Makefile
+>>   create mode 100644 drivers/firmware/arm_rmm/rmi.c
+>>   create mode 100644 include/linux/arm-rmi-cmds.h
+>>
+> 
+> [...]
+> 
+>> diff --git a/drivers/firmware/arm_rmm/Makefile b/drivers/firmware/ 
+>> arm_rmm/Makefile
+>> new file mode 100644
+>> index 0000000000000..65171988fdcae
+>> --- /dev/null
+>> +++ b/drivers/firmware/arm_rmm/Makefile
+>> @@ -0,0 +1,2 @@
+>> +
+>> +obj-$(CONFIG_ARM_RMM_RMI)    = rmi.o
+> 
+> Unnecessary blank line at the top in Makefile. Besides, why doesn't this 
+> come
+> as below? :)
+> 
+> obj-$(CONFIG_ARM_RMM_RMI)    += rmi.o
 
-Mark a shared table so its_free_tables() skips it.
+Good point, now that the ARM_RMM_RSI is also getting merged there.
 
-Fixes: 5e5168461c22c ("irqchip/gic-v4.1: VPE table (aka GICR_VPROPBASER) allocation")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- drivers/irqchip/irq-gic-v3-its.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Cheers
+Suzuki
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index e9807af235373..58e52095e6ea8 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -87,6 +87,8 @@ struct its_baser {
- 	u64		val;
- 	u32		order;
- 	u32		psz;
-+	/* Inherited from a sibling ITS, not freed here */
-+	bool		shared;
- };
- 
- struct its_device;
-@@ -2604,7 +2606,8 @@ static void its_free_tables(struct its_node *its)
- 
- 	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
- 		if (its->tables[i].base) {
--			its_free_pages(its->tables[i].base, its->tables[i].order);
-+			if (!its->tables[i].shared)
-+				its_free_pages(its->tables[i].base, its->tables[i].order);
- 			its->tables[i].base = NULL;
- 		}
- 	}
-@@ -2703,6 +2706,7 @@ static int its_alloc_tables(struct its_node *its)
- 				WARN_ON(i != 2);
- 				if ((sibling = find_sibling_its(its))) {
- 					*baser = sibling->tables[2];
-+					baser->shared = true;
- 					its_write_baser(its, baser, baser->val);
- 					continue;
- 				}
--- 
-2.39.5
+> 
+> Thanks,
+> Gavin
+> 
+> 
 
 
