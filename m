@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DBFC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC36C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+kcEjIlrqzpxkWz+dRuO1OLrkD17AoNrb613emu4XI=; b=jOrmJU5YAM//s3CROi6gHn6fSV
-	Zmx/weMfVejacJGkTi/osjGNAiM0oVQaz4pHNybEH2KC8n72IWuIEE3rNvgF1mMWYpj/rwVqgugdW
-	YvUvtId97xb5rl542z0WAuBm8LQ1PXQlnRe0vT1fh1GFMqE09paCE7+8Hl2OyDLOD1VuQYkR3E8U7
-	HnMHiaTVMIam+d0ljkkQHINuR0trkqRogQtZ00qmu0fcioEsZgU0gojCS01VlLAQQiIGknf09cExo
-	7Y0VU5XZsDAcBxwWLBGz+IFHTGrr8mQFNHv6tCL48q+FEZ4kg2Equg5VSkg6kFT64zAjKrcNh5DbX
-	wbyRR+zw==;
+	bh=3mrsEnPkBHnwgGCwINq/bty1nW4Tp/FYtSArG96rxV8=; b=aFLzb02UFgYuYtVnIjai4gAS8r
+	9GBxQNuO2l23rMfgmoU4X8AqPXHk/z4RSEi8sHn+mOUOGAMbrcIhXkQYlREbNPY1mlrrz08QX3wXn
+	swj8qOsXLZ86K+8+j5o7nkCNxEwZlRnp6TCHVWKjOxPLP/K+/K51Uv9wiCPPs37fUUgqvRTRi597V
+	ljL6PB/qR0qZBZzyGK/O+kXhqIPfOInDDfq9d6VlbKKh1ZdLbDwPxYmauumZSHMkg3v7SIXxJzx+H
+	CghWur12JG9n+EAuveKSCLYnN3UHquHjb5D2ddt2mPiMu0fgWeBDD8VSYlB0+v9/Z93Qol9XLNES0
+	+rkAWujg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2ZA-0000000D2xs-3RBR;
-	Fri, 25 Sep 2026 09:50:04 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1xA2bM-0000000D3Rn-1uvM;
+	Fri, 25 Sep 2026 09:52:20 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2Z8-0000000D2xK-22Sg
+	id 1xA2bJ-0000000D3RL-3Gjj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 09:50:03 +0000
+	Fri, 25 Sep 2026 09:52:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790329802; x=1821865802;
+  t=1790329938; x=1821865938;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=sjQO25DPF6I4YR81FfUFsr7AZEkXc7WRPqKWMV/gMyM=;
-  b=mfwDOgNDTu6fsfYWun5QcnlSnzvuM5qRrtOwdywwfvEG/WEfcqSWlDDM
-   8sGCuRMxPpWChlmI0c8A4m6Px+EVtK0mWwNxHTIMTHn95iM806rCWDanV
-   jP+88jas1pZAKOLOrK009NTfrbj4LmoO1/ubHDJ+n6uk/2ID2DovnC6rA
-   KXqsUMYt9Ig9P5PQNSozgezr3jq12GSm3QCOBAMRtNvDpsjOjdX1tDpfc
-   BwBlqnrkKblewQHtw2fVLHfdst1c26YqCFOY9mrQgptpaDjZbs6FV+qwh
-   02rk7hDMh7kzUH96E5aYEIog1b0gGi2RtJS9LI1dj/Oy8WG0tkCRvAhZN
-   w==;
-X-CSE-ConnectionGUID: ec5kSjnPRC+ztiGUJxjl2Q==
-X-CSE-MsgGUID: FBvqGVf2RMqRYIDYsCwA3g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="90239312"
+  bh=c3Wlh2Q2VXVEe5gte86lqh134KXeDG/AwBNnURu4sHo=;
+  b=Wvm7ib1nGzLBcpuXGfsmErQdsNkhBbWPXIgcGmLvx+qPH9iJZKZB2GPJ
+   p+C0HorHJF4+cdCLvYLsQjxqZSn1gHu94OLF7tsI/5cHAchro8NPPDGGH
+   9zcHdwnKoxORYMUE3bImBm0325G0VVQ54KU6cNVJo9kB0GNmmPT9tXLrn
+   CNUzfSgU/Jylf3TtJ+Bxm81N3zxszuOzQGWKo0lKUm5bkvZJK17STfalv
+   H5qd0LE57sZJ5BQkMi0otgOtmtbRqgEktszCIxEAkioU3XVCfSiQSRWru
+   KUOxJjDGb+9hVWNzmRIi7CsLJLwdtuD9KPHqa0ADVZS1ABH4+YZfIfMAy
+   g==;
+X-CSE-ConnectionGUID: FkCxEdpWQD+OUMY2qk/S5Q==
+X-CSE-MsgGUID: QjxI8iEKSLGM0AbGlia7QQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="101640040"
 X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
-   d="scan'208";a="90239312"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 02:50:01 -0700
-X-CSE-ConnectionGUID: 9ntgpx47RhiHdVDXWx7L6A==
-X-CSE-MsgGUID: 4KMb9J06Q0Cu0ER0QdxE1w==
+   d="scan'208";a="101640040"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 02:52:17 -0700
+X-CSE-ConnectionGUID: B730t5QVQ4CoaRahwCerbQ==
+X-CSE-MsgGUID: SuxLZS75QH6YE12CTCZKrQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
-   d="scan'208";a="273850092"
+   d="scan'208";a="273783342"
 Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.27])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 02:49:57 -0700
-Date: Fri, 25 Sep 2026 12:49:54 +0300
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 02:52:12 -0700
+Date: Fri, 25 Sep 2026 12:52:09 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
@@ -73,19 +73,20 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-Message-ID: <arZDwutoadki7tiZ@ashevche-desk.local>
+Subject: Re: [PATCH RFC 04/11] clocksource/drivers/arm_arch_timer_mmio:
+ Dispose IRQ mappings on probe failure
+Message-ID: <arZESXn4xUJoVRss@ashevche-desk.local>
 References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-4-2c62125d0085@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
+In-Reply-To: <20260925-acpi-static-table-irq-probe-defer-v1-4-2c62125d0085@kernel.org>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_025002_542037_8D4E5A01 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20260925_025217_858990_7F4A1AA4 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,75 +101,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
-> To describe and map GSIs for firmware nodes created out of ACPI static
-> table entries in a uniform way it is required to define some standard
-> properties and attach them to ACPI static fwnode as secondary nodes.
+On Fri, Sep 25, 2026 at 09:48:03AM +0200, Lorenzo Pieralisi wrote:
+> On probe failure the driver does not dispose the IRQ mappings that
+> were carried out before the probe function hit an error condition.
 > 
-> Define properties names to describe GSIs and their trigger-mode/polarity,
-> and implement an irq_get() callback for static fwnodes so that core code
-> can retrieve and map IRQs for ACPI static fwnodes in standard manner.
-> 
-> An empty stub for property_read_string_array() is also added, so that
-> the fwnode_irq_get_byname() interface falls back (through
-> fwnode_property_read_string_array()) to the secondary
-> fwnode to grab the "interrupt-names" property.
+> Add code to dispose the IRQ mappings on driver probe failure.
 
 > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Bartosz Golaszewski <brgl@kernel.org>
-> Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
 > ---
 
-Same here, please avoid polluting commit message with the Cc list.
+Same here about Cc list...
 
 ...
 
-> +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
-> +						  const char *propname,
-> +						  unsigned int index, u32 *value)
+> +static void arch_timer_mmio_unmap_irq(int *irq)
 > +{
-> +	u32 *values;
-> +	int ret, count;
-> +
-> +	count = fwnode_property_count_u32(fwnode, propname);
-> +	if (count < 0)
-> +		return count;
-> +
-> +	if (index >= count)
-> +		return -ENOENT;
-> +
-> +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
-> +	if (!values)
-> +		return -ENOMEM;
-> +
-> +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
-> +	if (!ret)
-> +		*value = values[index];
+> +	if (irq && *irq) {
 
-Use standard pattern, id est
+Would be better to read and maintain with the negative check.
 
-	if (ret)
-		...
-
-> +	kfree(values);
-
-You want to use __free()
-
-> +	return ret;
+> +		irq_dispose_mapping(*irq);
+> +		*irq = 0;
+> +	}
 > +}
 
-I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
-it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
-array to retrieve a single element is simply wrong.
-
 ...
 
-> +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
-> +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
-> +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
+> +static void arch_timer_mmio_unmap_irqs(struct arch_timer_mem *gt_block)
+> +{
+> +	int i;
 
-Oh... This sounds like a big ugly hack.
+Why signed?
+
+> +	for (i = 0; i < ARCH_TIMER_MEM_MAX_FRAMES; i++) {
+
+	for (unsigned int i = 0; i < ARCH_TIMER_MEM_MAX_FRAMES; i++) {
+
+> +		struct arch_timer_mem_frame *frame = &gt_block->frame[i];
+> +
+> +		if (!frame->valid)
+> +			continue;
+> +
+> +		arch_timer_mmio_unmap_frame_irqs(frame);
+> +	}
+> +}
 
 -- 
 With Best Regards,
