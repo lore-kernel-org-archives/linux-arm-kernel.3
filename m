@@ -4,94 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF08C98326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593E9C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U46+/TQQC41hUZlX1Jqyf2quyZyNvdapr8jATlMb4/s=; b=bYYSmvg6OQAJlht+h60T4W7ilx
-	GKImr1TBCvBs77o1ZzE4SjiAtpzpBiOKajAN97XSWpWfV+Gg2y0q8V6VGWP634uqJOTUDzZzMpFx+
-	QcDEWPsz5zUd6hY7TjGGNkXTuHIQVq3nM7O1GDP5Ah35ju887E1zrqrDfFhiqsHjC94ahiZvIAYmC
-	AiCGLiKqWghQ6ZBdh5NIcfc+U9EukF8AZaTwZQpQvCEzvzMnSW7ccOsnMaNFkcK1S6HmyRdVuQw4i
-	AZ3KDI9StebD/cxRTo55hrWiRMaMEsUz0zQDsargeorKRnNv1ULYd71p3sNmxRDEsxlJSxvYgCG77
-	0n8Pjs6g==;
+	bh=sJa6N/GzykXQ82C/0kl9ZKXv34ovu/9qaIOQC1R2/8A=; b=z9jgD/egWhElxs5aCGEManqSuO
+	zi7UaEUv0L4l0kSsBCnp8SFvqA8ebOV41yuAzsxTiCkBIKPQQ42ie76gBYy87ckoVjKCLLp/pmKEM
+	mvsN73NOZRQctfVPvyP+NZgC1AbSO7XZBUVrdpKc0slZJsa470h0FururQgz5RfQ/XJOLVU5wWyGG
+	9dsUrS9mo536LuVtkRHQIi09wdXvUL4PIYiSUtfb2OvOvtSH4kL6MnI3rWxlvFyzGJVt1chy9B95/
+	f5/EWvkSe2Q505/2QmFOKJEG/wYSTcmvzaksiCvCyQshJNeGT+sZOdw3q+zJI6LM4dk0PUyTyAlS7
+	eFkP6STg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA0tp-0000000CseI-3yhY;
-	Fri, 25 Sep 2026 08:03:17 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1xA1BR-0000000Ctho-2qSZ;
+	Fri, 25 Sep 2026 08:21:29 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA0tf-0000000CsaG-3Wfb
+	id 1xA1BN-0000000CthR-0K3s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 08:03:09 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f9f7dbfso68861766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 01:03:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wermuth-pl.20251104.gappssmtp.com; s=20251104; t=1790323386; x=1790928186; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U46+/TQQC41hUZlX1Jqyf2quyZyNvdapr8jATlMb4/s=;
-        b=uLK5dmeEnhBlDvqohCPl/YT5ajsqYLIAzHdHFzvPsvgHwS1kljnsnYUA5gQbKoZtGK
-         UsMHIcZu/VNxz3VqfP5VL61BKQKPuQXSsQK4weknfV5SNUv2yh9iMmaXPpw1fy1JTW2a
-         3xkkvQPCeDQDlWiKJmle30TjmB1HScgHLv0HygNyeS6n9OJHO1ipnwDTGRzfhF03eWvw
-         wE53KlGY/rosP79cp3+DNda5zJQFshGK4cBzQK9MtwPNLAIb37K3PgmJSyY6hSdn7pUk
-         cVL2JkjJs2jU9bnoXGbu7rIrVPVUSo4kEWLS1IXvbRycSgTNNZoJraq4jMpxU/mb7ona
-         nIsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790323386; x=1790928186;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U46+/TQQC41hUZlX1Jqyf2quyZyNvdapr8jATlMb4/s=;
-        b=1dTXTlFtFNg2HgEo0EsgCkyHGNuHAmxWqy2VHJhNX3k2LJBp1+xhmv5FeA+TC3dA0r
-         /seTp+CoLKydivmKRRNGMVQOvINnPOPpzOMdKp+XPbs4nGDv54sbp7zg7luq0wTRd9u5
-         tS1/VHBZ0AUPXqtG/jXF2HKAaTrVAMLDPc8H9itINi9c1b+6CGbD7Y4LqVpzNJ64xq4F
-         vTRsQwVKSH1Y+psVhs/x/Ec0WSF8igeTVXcr/J/98QLBiKT703fIip0EJDVXbWQwuUqF
-         MQw6FPkoR70x5E2BqR/N1QY27Z6tcwxivfbneErXbT4+HQV/D8Kunpw5v6zmYfvIyYPo
-         l7kw==
-X-Forwarded-Encrypted: i=1; AKwUvBwyLclIfAyPB7Hb/fY4NH++s6+XFrR/QM/4+6JoA96oEJYiFjDYcxK0jnok+gMxVpa/t+W0eBc0FHypa6fwyMrd@lists.infradead.org
-X-Gm-Message-State: AFuF++mOO1kZnlfHtL74XuIXs0xV07ZPI3dLZ89iNg08PL0xJgq7coXO
-	uXp96I/eQwdlO375ASlwruba/AoxWPjZIsy3zJOiTZRb2iMWxzSK2+uZJmk+sGmSSww=
-X-Gm-Gg: AYBFou3uz/tcgB8xP9sp5JfAJFfrWAWsKolGzLoppISVlNGMMWdU6HDise/W/q5w9Fd
-	xXrk7keu70eubkP9CJKb4SJat7bSWeXj6dmwKJdYmBBkwaGiSH46FB61X6nde2Zy6XgxkqOBvcb
-	r5mkb4CGIZ5eDLpCPrjyh4vQYrdbkfG6A2tcGaZUvkw7RYmOa02d85oEd3DUwv0RfTNYKBRnnID
-	gSOYFz3nfepIUFza57SFgsg8skGDrpD22RTf9slbYkTEG7GU2Eeyg4LlieoROLLZpm8htVzouM3
-	yRlEqD1DMZWBicbQ/dos1oDHScnbQ/kOOU64XSxs3E42/kZBdRNSmqAID3dowvFPaA18/Dmrsp0
-	PWVoCQift3yqb5Jn9bls/SFdXzhl4Oq/Ys7yJu0mv8uNAYMGeHJQ+VH7jfGlzfK7lXuqroZlcOo
-	gJHhDAnTEIsUbAu+EoJNIEMWpz7v+JfdWGUZJCY1CckBzsICuz81ull3ICMvOu19S43jxBYcPLZ
-	XsdQX2bkvywYd5SU1FX+Ulm7F4jfRYpis82jGOjL65HU9c=
-X-Received: by 2002:a17:907:c08c:b0:c29:3aef:f2e2 with SMTP id a640c23a62f3a-c2ac25f2abemr418331766b.40.1790323386232;
-        Fri, 25 Sep 2026 01:03:06 -0700 (PDT)
-Received: from janlin-02.home.wermuth.pl (109-206-198-27.host.skynet.net.pl. [109.206.198.27])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2ae757b9c1sm76976966b.33.2026.09.25.01.03.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 01:03:05 -0700 (PDT)
-From: Adam Wermuth <adam@wermuth.pl>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Jonas Karlman <jonas@kwiboo.se>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Adam Wermuth <adam@wermuth.pl>
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: Add WWAN overlay for Radxa ROCK 3B
-Date: Fri, 25 Sep 2026 10:02:58 +0200
-Message-ID: <20260925080258.46489-3-adam@wermuth.pl>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260925080258.46489-1-adam@wermuth.pl>
-References: <20260925080258.46489-1-adam@wermuth.pl>
+	Fri, 25 Sep 2026 08:21:28 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 770C64E4083B;
+	Fri, 25 Sep 2026 08:21:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 452506073B;
+	Fri, 25 Sep 2026 08:21:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C13E3103294AF;
+	Fri, 25 Sep 2026 10:21:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790324477; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=sJa6N/GzykXQ82C/0kl9ZKXv34ovu/9qaIOQC1R2/8A=;
+	b=duqAEeCH9IFXoRNfqumO2lC2Xy2TTY11sXerBkjGu6tAQpgrVfEshA3afCWU1+DeH0BCJu
+	88xCQ9Fn/PapNnDRjHPcWqxtiVIS3Q1jGcOTfelc3YR/mP4hddOPH/liRm4mJb1dA90WqM
+	qDcQNpxvQgYSanCE6Qy6alUgVdi/gQfmF7X1Y+dR7K1aw+SppzrWT3g/9UYGP6D6hD3Rhe
+	P74Td7LbkgGf6q+y3ugM0FIXqTL37JVnWJvfHEWTPEywCN0ryzc/5enFWPZPsk5+ZKKiW7
+	r+oX2f1ihaXuui9FVJZSaYK8K44hqjQ5M6sFsvagCRTXFB2Wf6g0CjAodttg3w==
+Message-ID: <f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
+Date: Fri, 25 Sep 2026 10:20:59 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ Nicolai Buchwitz <nb@tipi-net.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de,
+ David Laight <david.laight.linux@gmail.com>
+References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
+ <20260921152202.64d4c67a@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260921152202.64d4c67a@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_010307_940325_7208375F 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260925_012125_269334_0CBA77C5 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,122 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M.2 B-key slot on the ROCK 3B is intended for 4G/5G modules and
-is not always populated. Add a device tree overlay which enables the
-slot when a module is fitted:
+Hi,
 
- - The USB 2.0 data lines of the slot are routed to USB2_HOST3, served
-   by usb_host1_ehci/ohci through the host port of usb2phy1. The slot
-   has no VBUS, so no supply is attached to the PHY port.
- - GPIO0_C6 (4G_PWREN_H) enables the 3.3V supply of the slot, which is
-   generated from vcc5v0_sys by a dedicated buck converter.
- - GPIO0_D6 (4G_RESET) drives RESET# and GPIO1_B0 (4G_DISABLE) drives
-   W_DISABLE1# of the slot. Both are hogged in their inactive state.
+On 9/22/26 00:22, Jakub Kicinski wrote:
+> On Thu, 17 Sep 2026 23:53:31 +0200 Maxime Chevallier wrote:
+>> This is V4 of stmmac selftest fixes, addressing Sashiko's issues over
+>> the MTU patch. This lead to the introduction of a new one. The
+>> dev_add_pack races have been addressed, however the double-vlan issue
+>> stayed there. Ovidiu is actively working on it, let's wait for his work
+>> to land before fixing that.
+>>
+>> Nicolai, I took the liberty of keeping your review tags on affected
+>> patches, let me know if this isn't ok.
+>>
+>> This is another round of stmmac selftest fixes, mostly about the selftests
+>> themselves but a few things were discovered w.r.t MTU and buffer size
+>> handling, see patch 5 anf 6.
+>>
+>> After this is merged, I consider the selftests to be now reliable enough
+>> to run them nightly on every stmmac series that's sent, and I'll be requiring
+>> clean selftests for new glue drivers.
+> 
+> This got to the top of the stack for me, LMK if none of the AI feedback
+> is legit. You mentioned the VLAN one, not sure about the rest.
+> The EEE complaints look like nit picks but also some are easily
+> addressable? LMK..
 
-Tested with a SIMCom SIM7600G-H module.
+Thanks for applying :)
 
-Signed-off-by: Adam Wermuth <adam@wermuth.pl>
----
- arch/arm64/boot/dts/rockchip/Makefile         |  5 ++
- .../dts/rockchip/rk3568-rock-3b-wwan.dtso     | 65 +++++++++++++++++++
- 2 files changed, 70 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-rock-3b-wwan.dtso
+Much greener now :
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index b677914cd3f1..8a1f24ccaa32 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -165,6 +165,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-radxa-e25.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-roc-pc.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3a.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3b.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3b-wwan.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-display-vz.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
-@@ -300,6 +301,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-qnap-ts433-pcb-12-10.dtb
- rk3568-qnap-ts433-pcb-12-10-dtbs := rk3568-qnap-ts433.dtb \
- 	rk3568-qnap-ts433-pcb-12-10.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-rock-3b-wwan.dtb
-+rk3568-rock-3b-wwan-dtbs := rk3568-rock-3b.dtb \
-+	rk3568-rock-3b-wwan.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
- rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
- 	rk3568-wolfvision-pf5-display-vz.dtbo \
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b-wwan.dtso b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b-wwan.dtso
-new file mode 100644
-index 000000000000..73a19408d61c
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b-wwan.dtso
-@@ -0,0 +1,65 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Device tree overlay for a WWAN module in the M.2 B-key slot
-+ * of the Radxa ROCK 3B.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	vcc3v3_wwan: regulator-3v3-vcc-wwan {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wwan_pwren_h>;
-+		regulator-name = "vcc3v3_wwan";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+&gpio0 {
-+	wwan-reset-hog {
-+		gpio-hog;
-+		gpios = <RK_PD6 GPIO_ACTIVE_LOW>;
-+		output-low;
-+		line-name = "wwan-reset";
-+	};
-+};
-+
-+&gpio1 {
-+	wwan-disable-hog {
-+		gpio-hog;
-+		gpios = <RK_PB0 GPIO_ACTIVE_LOW>;
-+		output-low;
-+		line-name = "wwan-w-disable";
-+	};
-+};
-+
-+&pinctrl {
-+	wwan {
-+		wwan_pwren_h: wwan-pwren-h {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&usb2phy1_host {
-+	status = "okay";
-+};
--- 
-2.43.0
+https://minimaxwell.github.io/stmmac-ci/
 
+Maxime
 
