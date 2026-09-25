@@ -4,62 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2416C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C3DC98324
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 11:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TvEPGOfbgk6GAAitdg40W0kx1ikkHQeD6VX4NT0U9cQ=; b=TKM+lZwQtt6Nv8rhKIMtJGNbv/
-	KGPy5vkM1QLVIZOVJ7hEakaahTkt6bhBisnrUEPukueKFMtNXRTGSXJxl1zvPF3okGpa3UevVKLsb
-	zzsoqHhi6TSEuLchjQAYvyEdK/GOjNYoKlMJhcOXzuS6DfZrrCSv6EFjSGloQ973/KSl2zK9/8DRq
-	QNx2RhrOrWgZlLR224L6YFu3FELyXNonz8izKxMBUSCzCi8JXCiWHp1L6XPenZKfuTv5x2VOl0wEY
-	Mtk2e5qzu+X8c1SRS+jw7foxF5YsmzUIQVNGoqFj8e/82H3L2mAIeDWTr9JAZjNKJFw6KJuqwDZ2t
-	deethukQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i2MF8G53+2TJNwdh6H/2D4TjPKTBJGXEPFShL5//B+M=; b=ObAqmtL7K6lgNBJe+t0lqVYp8Q
+	EBABVGNFOA+hSmKMUXkyYqljKLaXtnsoQpda6xGVuzlSsyEjwrNF1OPA5L5qJOMzQMAGb//MSNf3j
+	sPoH/la+aO93HSCM7hvycWH3u+5QQRxq7TWxkzdfx8k0Iee3fluFN9SrQXrOFMNmeIfDBN2+wGbme
+	TcI4uPwb+r/5QIpQ5DVvud422KaDWSrf9RE4W7BmyDhuQOxrob2gxCPyMVdA9YrkLQHMA9tbGwlCy
+	KlVMiUMLsp8PYinu0m/EIjPnwqTP5WgHghHXiTtwjTHXmsFEpjg8GTyGh/6HfQlQhgI2YJerHw0Yk
+	u9I5t2ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3aT-0000000D8dW-31Hn;
-	Fri, 25 Sep 2026 10:55:29 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3aP-0000000D8aD-3V7b
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 10:55:27 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1127)
-	id DE03E20B7167; Fri, 25 Sep 2026 03:54:34 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DE03E20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1790333674;
-	bh=TvEPGOfbgk6GAAitdg40W0kx1ikkHQeD6VX4NT0U9cQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TBY94IAUfCDpClpxzxKhpb9QROdJLRr+DhKGenzz7MpzJd3UNj7yHGq0yh0QHAeC4
-	 E6koLuWaEpulGcS0dREtqRbv1hfMmh2IYVGiOCYQQ6Mys2zmwWB3yPg4LkTsZejpqi
-	 nK1SJU30/cFmjJKSVsaqLq92BY7Cuw/Jf/8920II=
-Date: Fri, 25 Sep 2026 03:54:34 -0700
-From: Saurabh Singh Sengar <ssengar@linux.microsoft.com>
-To: Shradha Gupta <shradhagupta@linux.microsoft.com>
-Cc: "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Michael Kelley <mikelley@microsoft.com>,
-	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, namjain@linux.microsoft.com
-Subject: Re: [PATCH v2] arm64: hyperv: run VMBus kexec handler via syscore
- shutdown
-Message-ID: <arZS6km9V29CnYw9@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
-References: <20260907092544.230338-1-shradhagupta@linux.microsoft.com>
+	id 1xA3gr-0000000D9Of-2Gd2;
+	Fri, 25 Sep 2026 11:02:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA3gp-0000000D9OV-2LBp;
+	Fri, 25 Sep 2026 11:02:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9585E418A4;
+	Fri, 25 Sep 2026 11:02:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBE011F000FF;
+	Fri, 25 Sep 2026 11:01:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790334122;
+	bh=i2MF8G53+2TJNwdh6H/2D4TjPKTBJGXEPFShL5//B+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Cs8M+KUt16tK/XUS4KBWNEBFZCG7qdya4X5Q0/m1DlAhuFxLfunQdq/oOm/3xLhmk
+	 g+mz7RXSaCtI6rsDcJwgvAYI3OjRMNkZK0LcUbazzucK5JBDOKf5kvtv/2ePJtWUdN
+	 ME7b6geBHQ5EcQiztnroB9GCESGBTwfj3BOFpkrCOl2QXW03KCgvW+wRt9Z6cGJwg/
+	 16Pn9i25K6bLCw+K0mlmbRqTKkBOUUALnFf6h+RtaMbve0sYiz7bKXvmaAm6kK77s4
+	 FXoRQNJDmxpHAXV4WVeHP31V50DVpThWrSf4TxjtqXa883PecK/QuYllTic1IK01px
+	 H5q+PVXIZC3Rw==
+Message-ID: <91d800d6-03f3-4068-8c12-618529a81528@kernel.org>
+Date: Fri, 25 Sep 2026 13:01:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260907092544.230338-1-shradhagupta@linux.microsoft.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_035525_922241_CEAB9394 
-X-CRM114-Status: GOOD (  25.65  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arch, mm: promote DEBUG_WX to CHECK_WX
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Michal Hocko <mhocko@suse.com>, Nicholas Piggin <npiggin@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ritesh Harjani <ritesh.list@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Shrikanth Hegde
+ <sshegde@linux.ibm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20260925-direct-map-verify-wx-v1-1-7fd2f7d6d23b@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260925-direct-map-verify-wx-v1-1-7fd2f7d6d23b@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,97 +134,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 02:25:42AM -0700, Shradha Gupta wrote:
-> On ARM64, machine_shutdown() does not provide a platform hook between
-> device_shutdown() and smp_shutdown_nonboot_cpus(), unlike x86's
-> machine_ops.shutdown. This prevents the Hyper-V VMBus kexec handler
-> from running at the correct point during kexec shutdown, causing
-> kexec reboot to fail on ARM64 Hyper-V guests.
+On 9/25/26 11:53, Mike Rapoport (Microsoft) wrote:
+> Verification that the kernel does not have writable + executable
+> mappings is about detecting security risks rather than a pure debug
+> feature.
 > 
-> Use syscore_ops.shutdown instead: syscore_shutdown() runs in the same
-> window (after device_shutdown(), before CPUs are taken offline) where
-> VMBus UNLOAD and cpuhp_remove_state() must execute.
+> Major distribution configurations enable it in their kernels as well as
+> defconfigs of most architectures that have ARCH_HAS_DEBUG_WX.
 > 
-> Provide ARM64-specific overrides of hv_setup_kexec_handler() and
-> hv_remove_kexec_handler() that register/unregister a syscore_ops
-> shutdown callback, replacing the __weak no-op stubs in hv_common.c.
-> On x86, the existing machine_ops.shutdown mechanism is unchanged.
+> Rename relevant generic configuration options to use CHECK_WX and move
+> their definitions from mm/Kconfig.debug to mm/Kconfig.
 > 
-> Fixes: 9d7cf2c96758 ("Drivers: hv: Add arch independent default functions for some Hyper-V handlers")
-> Link: https://lore.kernel.org/all/20260814093133.3191250-1-shradhagupta@linux.microsoft.com/
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Shradha Gupta <shradhagupta@linux.microsoft.com>
-> Reviewed-by: Naman Jain <namjain@linux.microsoft.com>
+> For arm that does not widely enable it, only rename its variants of the
+> config options.
+> 
+> Enabling CHECK_WX adds a few kilobytes to the kernel binary and while
+> the added size can be slightly reduced with churny updates of
+> architecture implementations of ptdump, the core functionality takes
+> most of the added size. It cannot be moved to .init.text because the
+> verification has to happen after init sections are freed.
+> 
+> With this, make generic CHECK_WX default to STRICT_KERNEL_RWX while
+> still leaving users targeting small kernels the possibility to opt-out.
+> 
+> Suggested-by: Dave Hansen <dave.hansen@linux.intel.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->  Changes in V2
->  * Use syscore_ops.shutdown instead of a bare function pointer hook in
->    machine_shutdown(), per Catalin's suggestion.
-> ---
->  arch/arm64/hyperv/mshyperv.c | 40 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 40 insertions(+)
-> 
-> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-> index 4fdc26ade1d7..e608e546a395 100644
-> --- a/arch/arm64/hyperv/mshyperv.c
-> +++ b/arch/arm64/hyperv/mshyperv.c
-> @@ -15,10 +15,50 @@
->  #include <linux/errno.h>
->  #include <linux/version.h>
->  #include <linux/cpuhotplug.h>
-> +#include <linux/kexec.h>
-> +#include <linux/syscore_ops.h>
->  #include <asm/mshyperv.h>
->  
->  static bool hyperv_initialized;
->  
-> +/*
-> + * Kexec handler registered by VMBus.
-> + *
-> + * On ARM64, machine_shutdown() does not provide a platform hook between
-> + * device_shutdown() and smp_shutdown_nonboot_cpus(), unlike the
-> + * machine_ops.shutdown mechanism used on x86.  Use a syscore_ops shutdown
-> + * callback instead: syscore_shutdown() runs after device_shutdown() and
-> + * before CPUs are taken offline, which is the same window VMBus needs to
-> + * run its UNLOAD message and cpuhp_remove_state() during kexec.
-> + */
-> +static void (*hv_kexec_handler_fn)(void);
-> +
-> +static void hv_kexec_syscore_shutdown(void *data)
-> +{
-> +	if (kexec_in_progress && hv_kexec_handler_fn)
-> +		hv_kexec_handler_fn();
-> +}
-> +
-> +static const struct syscore_ops hv_kexec_syscore_ops = {
-> +	.shutdown	= hv_kexec_syscore_shutdown,
-> +};
-> +
-> +static struct syscore hv_kexec_syscore = {
-> +	.ops		= &hv_kexec_syscore_ops,
-> +};
-> +
-> +void hv_setup_kexec_handler(void (*handler)(void))
-> +{
-> +	hv_kexec_handler_fn = handler;
-> +	register_syscore(&hv_kexec_syscore);
-> +}
-> +
-> +void hv_remove_kexec_handler(void)
-> +{
-> +	unregister_syscore(&hv_kexec_syscore);
-> +	hv_kexec_handler_fn = NULL;
-> +}
-> +
->  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
->  {
->  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
-> -- 
-> 2.43.0
->
 
-LGTM. This patch is important for Hyper-V kexec support.
-As discussed in the RFC, the approach used here is also in agreement
-with the ARM maintainer.
+Makes sense to me
 
-Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
 
