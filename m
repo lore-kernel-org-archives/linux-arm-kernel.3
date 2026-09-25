@@ -4,72 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CBBC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058B4C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAVSnJmPMwarDSH1jMfx2Fzr75wqXb1P/mqnFUbv2M0=; b=KPvn2pPWZFjmfhbZjkq0+eqme1
-	fqqg6tiua0xZ5UuSWwB/lzBq+40a8aFEUAQOo66LwN30eKAmt6S19wv35tsdUttFy86ccinv7r0kw
-	tHtowgGEML+/nHapRziNs+YHHdHaX0EehQvYTCzbgQFXUawE//k6J1CMLY4qDqMTpIxInnhxvSmYE
-	BKsxGO/EJjHix0F8trIBebSktugS9kBfCpZuB6RuTUL+m6pJBBE0r7Ctu/OQSaHyq2yZKucfeGIT+
-	AQTOA1alZtDdOmowXJmhpbwidzucTA3u6+fVQwBNSj27elP23ybU/e5GvP5lfBM37Ya7XMQSYDrbh
-	1OIY9SNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pe3VO7IOUXW8W+2mymQNpuRLjGNQ7piBXOGa6ZWGAGA=; b=SS6wanTmqWNqXd20nNpo3RvuP9
+	DqiASqAqPeiOMk/QrQ9z+JN2evh/zUkSlHS2IlrpcXxuGFSLVskIAO3gzeO6amckC6tBbtEqP49Kx
+	V7kHRC05rgPAd/c0fFaHN6aFD+ZdUevlaBPQkLDh6oQRY2TTmpdJ0MhODl0Zhn3pAgqDouQpr+anl
+	binCO8tIhI6Zf9nY7zNMRf7TnsZlxwQg0sD4B79W5PDGTLJQvRCd5O9nT7m9nv94clyIRC93q4j7l
+	t8FKEUOD17PmIHi8DDYPVfKEsPSEPmctuuOJAuU/ZgZhwalIoAuzkNkVoKXIiFXeZG8maw5rUJVxz
+	MmfhzopQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABUj-0000000EFvq-3qBR;
-	Fri, 25 Sep 2026 19:22:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xABZH-0000000EGDk-1skO;
+	Fri, 25 Sep 2026 19:26:47 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABUi-0000000EFvb-3Jmx
+	id 1xABZD-0000000EGDL-2oqK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:22:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF9D96022F;
-	Fri, 25 Sep 2026 19:22:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA65C1F000FF;
-	Fri, 25 Sep 2026 19:22:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790364123;
-	bh=GAVSnJmPMwarDSH1jMfx2Fzr75wqXb1P/mqnFUbv2M0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=MZBPnFeAeoghE+EgKKyZzLFVschIMrk2xqMn30WH7K7HIbj7jB4My4bP48C9HkvV/
-	 ga/K7rB8MTnDiVtu0Bz1IxhWyH5a3jzHKIe3qUkpW6ZB+ykaLXWm+Mk9fpmb9crv6k
-	 vn+gmYZ3huP2nDxS2hLHf+pJILALr5PP/Ffc2HF7dMCPvaFySOns3jFoYChOJmgmc2
-	 MNIoTLVjZ5YyRia8IOUFqdi5Jxs7HzjVgK2HMU0bAPQzCQSkOyRx/yiO3ovUCyUo+t
-	 WeWndhSy7RQr/mOclDIOZB0rWeLpUbbmg2vXk4FVGI15Kz6IrhhNLqplJp35omYzwu
-	 WVcEs2D2v97aQ==
-Date: Fri, 25 Sep 2026 12:22:02 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
- <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>, Alexis
- =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
- Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Jan Petrous
- <jan.petrous@oss.nxp.com>, Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
- Jose.Abreu@synopsys.com, Nicolai Buchwitz <nb@tipi-net.de>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
- <david.laight.linux@gmail.com>
-Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
-Message-ID: <20260925122202.611d655a@kernel.org>
-In-Reply-To: <f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
-References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
-	<20260921152202.64d4c67a@kernel.org>
-	<f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
+	Fri, 25 Sep 2026 19:26:45 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-kb8j.prod.antispam.mailspamprotection.com; s=arckey; t=1790364403;
+	 b=BVbTvmeezDirlWwQxIKxQNJ72mda7lXfldfcfVIfTCgBKLcOjaxYtE/g+Ldr7UFpU9EW9cZAfm
+	  sbquTPC7xC1xtBfqJPJbgT9+dXZM8F6thL2F2B1kyd21lOWPzjveOgn1sTPyM4y2X3gNLC5kGS
+	  nO4HXgM8GRs+bIcM2Ye2r87pPOyGoNGuhzbfVJv3q6PH27jKtwGz1GdfwcAiRtVni24bU8Y4OX
+	  p/yEiCWvY8t39L7o+WPWTtzBAtZs/nujUHFlcY97k0u9TdZl3M8+tkrSLQklPE/322fL6182Ej
+	  1RvswPmlgJ+sDzaioM2mxxKP3+4Aay4eBpcwPjYbTbdPCA==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-kb8j.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-kb8j.prod.antispam.mailspamprotection.com; s=arckey; t=1790364403;
+	bh=xgwXF789iMFU1tHJBCYfohzF1FMXCUeFcBdG42GdAwI=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=p3K8uhsj8tEc9NCZOUHmsVbjTqcBUP8RnQWq43GC0l0Sv6O5Lr/DERD6otgfT3WfQIzu+CPUFl
+	  1xfWtj0dQcqTDFXd7Jhn2q8pO8idXu2mubv0jjjIArJqu0f+E0W5yJNYu0OahcoieopE+eGl6z
+	  EayAmDCKaAeZaPyoUtZct+ovVRck6aqdxh33qtNJL6WhSFnRxj6/z/eQtyJrD6cMxnJwQ+xZ3w
+	  Dteay2sujIBf+FJ+tCsu1EYDvva3qw8CeZdxFTSpLiYHapPk11YPv2vquzRP5enk5peVqU5lb0
+	  iaSD28Ab16M10RUqHmwOb+csDMUb8/1cBZusUSgYNUSNYw==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=pe3VO7IOUXW8W+2mymQNpuRLjGNQ7piBXOGa6ZWGAGA=; b=Mbe2HmhFetv7fzd+uxarPLDNE4
+	Env/qnRzbzPMXV2tBIRPSM8AQx7xW5A05FRuc8EmWqTjKJ53Ns3ug/lWSSuzDdT9TqggRmRlITdQw
+	lO8Mx40wmbpPH1TpWOISmUIQjus3SDAIuYLuKFZQvBHqWdYmbbdH3uNk4JeKol9+/um0=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-kb8j.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xABZ9-00000004dWB-3qWp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 19:26:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=pe3VO7IOUXW8W+2mymQNpuRLjGNQ7piBXOGa6ZWGAGA=; b=TYJhyBN1lLzM3j+8pakSQMWVuQ
+	t9mPBySmzyc3WNNnz8yxKZciuJ4xoz92WA8IDQ9Cf+qyAtkbvu2kdW9CFkJo1rvQUlA6QAnv+Os09
+	A/+p5mE4ALa7sex5tsF+sHPQqVKAeFRcuB359Jqm8Xwur31oJ9WFh59QQVbTtu6FCDtM=;
+Received: from [79.45.60.29] (port=62628 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xABYu-000000007dA-1S38;
+	Fri, 25 Sep 2026 19:26:24 +0000
+Date: Fri, 25 Sep 2026 21:26:22 +0200
+From: Francesco Valla <francesco@valla.it>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev, imx@lists.linux.dev, 
+	iommu@lists.linux.dev
+Subject: Re: [PATCH RFC 12/12] PoC: arm64: dts: imx93-11x11-frdm: add
+ multiple vdevs
+Message-ID: <arbILwxDF9lZZtd7@bywater>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-12-dac8c5eb4aa9@valla.it>
+ <3065678.e9J7NaK4W3@steina-w>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3065678.e9J7NaK4W3@steina-w>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 850b3254dc796f511d915761fe269f08
+X-AntiAbuse: ID - 850b3254dc796f511d915761fe269f08
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xABZ9-00000004dWB-3qWp-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-kb8j.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_122643_775678_2258879F 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +133,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 10:20:59 +0200 Maxime Chevallier wrote:
-> On 9/22/26 00:22, Jakub Kicinski wrote:
-> > On Thu, 17 Sep 2026 23:53:31 +0200 Maxime Chevallier wrote:  
-> >> This is V4 of stmmac selftest fixes, addressing Sashiko's issues over
-> >> the MTU patch. This lead to the introduction of a new one. The
-> >> dev_add_pack races have been addressed, however the double-vlan issue
-> >> stayed there. Ovidiu is actively working on it, let's wait for his work
-> >> to land before fixing that.
-> >>
-> >> Nicolai, I took the liberty of keeping your review tags on affected
-> >> patches, let me know if this isn't ok.
-> >>
-> >> This is another round of stmmac selftest fixes, mostly about the selftests
-> >> themselves but a few things were discovered w.r.t MTU and buffer size
-> >> handling, see patch 5 anf 6.
-> >>
-> >> After this is merged, I consider the selftests to be now reliable enough
-> >> to run them nightly on every stmmac series that's sent, and I'll be requiring
-> >> clean selftests for new glue drivers.  
+Hi Alexander,
+
+On Fri, Sep 25, 2026 at 10:39:46AM +0200, Alexander Stein wrote:
+> Am Mittwoch, 16. September 2026, 23:10:57 CEST schrieb Francesco Valla:
+> > Add rings for multiple vdevs, as well as the required virtio nodes for
+> > I2C, SPI and GPIO functionalities. On top of that, add example
+> > peripherals using all of them.
 > > 
-> > This got to the top of the stack for me, LMK if none of the AI feedback
-> > is legit. You mentioned the VLAN one, not sure about the rest.
-> > The EEE complaints look like nit picks but also some are easily
-> > addressable? LMK..  
+> > NOTE: this is a Proof-Of-Concept, not meant to be integrated!
+> > 
+> > Signed-off-by: Francesco Valla <francesco@valla.it>
 > 
-> Thanks for applying :)
+> Just a general question, unrelated to virtio, but related to AMP: How do you
+> manage the clocks, so that Linux doesn't disable clocks needed by the
+> Cortex-M?
 > 
-> Much greener now :
-> 
-> https://minimaxwell.github.io/stmmac-ci/
+> Best regards
+> Alexander
+>
 
-Nice :)
+Clock management for remote processors on i.MX93 (and other i.MX parts)
+is... not really a management, AFAICT. If you want to use a remote
+processor, the mcore_booted argument shall be specified in the kernel
+cmdline; this forces the clock management driver to leave root clock
+gates enabled for *everything*, leaving the possibility for the remote
+processor to use anything it needs.
 
-BTW - I see you have a thing called "netdev series report"
-I've been meaning to ask someone if they want us to add to SUIE
-subsystem tracking (https://netdev.bots.linux.dev/suie.html)
-I could easily add a drop down to filter just stmmac patches there.
-On the scale of 1 to 10 how useful would that be?
-Is there something beyond "active series" that you need to see?
+While out of scope for the current patchset, some work in this field
+certainly is on my (long) TODO list.
+
+Current implementation can be seen in [1] and [2].
+
+
+Regards,
+Francesco
+
+
+[1] https://elixir.bootlin.com/linux/v7.2.7/source/drivers/clk/imx/clk-imx93.c
+[2] https://elixir.bootlin.com/linux/v7.2.7/source/drivers/clk/imx/clk-composite-93.c#L83
+
 
