@@ -4,74 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B36AC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637B1C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RloHWNhcOY6jiXO7W98mGw5Z5KAg+PTBGMdz0OxO5xI=; b=ornAjnGxGD5Xdv9untfuMqSKqd
-	qRj45PXQiIJdP38+FCLRVGyeCQXLkofH1Cg6U5KQWRA7swnnHceOPpFcwfKIc6yF3VePtvlNwVoi4
-	YxsT2iVUw1ARZyS8UI/QCVJMIKneY36oMlQxK03ABEMt+d9pmBNP4002mkKkObajAk7h6/3dP1P0F
-	ZzIYPqZPGyWRhyd/8txUElO69eDVOnXg+tQK1lT4zy2Ky6HtNgv834p2RpgTt5tP02vPU3VHFQwhv
-	OZmTVX3XJQvz+H0UyJ58f7PQHRLWPu8nUh1SGHGxSRTZMQuj5Vx3+rLurkZK8/aqyqXop/BhbwKN8
-	Acpll4wA==;
+	bh=4RNJ5nQR9k5gmyuH0UoJLYl6j03ODsgZ0SnhdOWBbVs=; b=czLftz/3coQ6YGmC4X9e6epwZm
+	qSENDT0nmfcXsOO91wJE8qSfIyhF5GcDC+5VBSYGmrjoEEfX8sUAUNbT3aLhFQ/dMnR+jZajMLFKX
+	WlHMiwAVQFLRXj8yBrbxA9kP3y+3oEV8EDGI3MTJTiz8t/SIvylJlOB5htFlYlIK1TDEKpXSrhZP3
+	KuMrNasrsIB3MORmDtY+PkjTxFu6IsqdudpHikfmJPdhoHfg3fR+8hpumIoGcF8JCGxShlJt+9ryI
+	Xlufkhbq4IHIngHKMZ5h6QpRqXW5M5Kz92135tGBjzh4Hdgzq5IBdKTf/I7OPVw0scDllnON/93Zq
+	2b4PV3vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACQq-0000000ENeX-1lRv;
-	Fri, 25 Sep 2026 20:22:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xACei-0000000EOtQ-30ul;
+	Fri, 25 Sep 2026 20:36:28 +0000
+Received: from mail-dl2-x10.google.com ([2607:f8b0:4864:38::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACQp-0000000ENeM-2Nw3
+	id 1xACeg-0000000EOsq-15R9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 20:22:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A011860136;
-	Fri, 25 Sep 2026 20:22:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 912611F000FF;
-	Fri, 25 Sep 2026 20:22:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790367726;
-	bh=RloHWNhcOY6jiXO7W98mGw5Z5KAg+PTBGMdz0OxO5xI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WMvASfwH8cTlHEs2kfQc6XOiEh8inJJzJPrnhrApPd+OJ/IrbE5ELpNNeSXGnAY8q
-	 tAai8ITY8ZPO17UZ+XVXlIskorpSY6c8fWMUc0lW9AUVf5oyq/U3qyXm1r5k9Ra1Av
-	 bj6nn4VaHwGmCPsr25kt2WrKgF/G8OT1nnFQa93xHy+1wYcsdcg7GDIa080zVeBcPF
-	 6vC2gahk8/8FTrxlw8pz0yz7ecRJmPtUJhIxIVviDd74rpGLej1c4l1g/H5XgZN/wS
-	 Tt8jFr9gT+AKbVIqEb7PuyJ66sxdiZj2d4ph+IbmckjnozQ3rZ03LctHkZ7jSmYEnR
-	 TaFnt5YFgrAgg==
-Date: Fri, 25 Sep 2026 13:22:04 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
- <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>, Alexis
- =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Minda Chen <minda.chen@starfivetech.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome
- Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>, Jan Petrous
- <jan.petrous@oss.nxp.com>, Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
- Jose.Abreu@synopsys.com, Nicolai Buchwitz <nb@tipi-net.de>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, PKneuper@dspace.de, David Laight
- <david.laight.linux@gmail.com>
-Subject: Re: [PATCH net v4 0/7] net: stmmac: More selftest-related fixes
-Message-ID: <20260925132204.03ce9495@kernel.org>
-In-Reply-To: <d704ea9d-6cca-4f2f-b18b-0267a9082e18@bootlin.com>
-References: <20260917215339.2022523-1-maxime.chevallier@bootlin.com>
-	<20260921152202.64d4c67a@kernel.org>
-	<f8fc89b7-15ff-4915-8f1c-49c3b2357699@bootlin.com>
-	<20260925122202.611d655a@kernel.org>
-	<d704ea9d-6cca-4f2f-b18b-0267a9082e18@bootlin.com>
+	Fri, 25 Sep 2026 20:36:27 +0000
+Received: by mail-dl2-x10.google.com with SMTP id a92af1059eb24-142dd04f7f2so1098636c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 13:36:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790368585; x=1790973385; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=4RNJ5nQR9k5gmyuH0UoJLYl6j03ODsgZ0SnhdOWBbVs=;
+        b=XiazYPKqQiFh8Isv3wiII3toimdIyzv4Fy358xJmffmPUTVCaS1kQl4HyhwA57Egy8
+         xHVXGzaS5RR5fCy5POz1a6hY0f3GYRQsSNAES672pAw0WvD8Yd5gSwl40QZ8+c/ME5ZF
+         YM+JIkOFmY4qhhz+EsDo+0lBIzfRhUdQaZK8ELVnRNOGCZxFFMVa4TTCUYV7+sJKxHZ3
+         gG7a7ys4Mce6L6GBvG9zTC7KCetMZezuj3Np3ytvWherPcnTftIw6Xan3k7gT92uY+ZF
+         4I6XuXPlHHGjtrv9qqqoiKtB1Avxy7Eu6nPX9U9IjESISQRjCHtCWtiQDH5qkqUbqJQh
+         +2yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790368585; x=1790973385;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4RNJ5nQR9k5gmyuH0UoJLYl6j03ODsgZ0SnhdOWBbVs=;
+        b=tC8nIP+fZf/ssHesRX7PN+sB4Bf5+/KIsgWoGm1h4N6CmafqBtSNCEAeQ9c0Y41QHO
+         rFngg5o/EhvjFBBh+fNsD6VTzwhX1Gk6XukzhxCoFVnuMZqixI6nk1m6CG5LU8CQrbCt
+         M+VrCChX4taKTBfXH3OjZF0B+cwAJUS2Vj2y+gLMoiqwSpSA9T21Itz056DVJeyoEuFt
+         onR/LHeEJ6kfaQ0VqjJ8LluJ9bOFMYpdot+KzTdI2aoOzmqSLIowLrlaxpctZlKkv8M2
+         UnGNt16/c31KUDWdjWscAkSPjRp+lp1LBQvuM3kYCevLhcvf/QkL/O+T45Y1MxQd3aZX
+         6QeA==
+X-Forwarded-Encrypted: i=1; AKwUvBzblyIsYzZPBjkqY6ytCJDpfPjFvSp3wnx7frJJHAfED+2Lr1M74yfP2l1SAz36oHc9qGmnIdM4bJpxH2ciBI4o@lists.infradead.org
+X-Gm-Message-State: AFuF++kLzEwEQU2yAwZPJQhNdsWDpGkHD36mVqjrqZu6nzQtSNgPZ1xO
+	qYhMlLfIScRAisqCvP9YT+eLl+kS0KM83feUIkpkrqMWJzqcFqtRbbsH
+X-Gm-Gg: AYBFou1tDtWPAhUKP6EkNjvoWs5hJZed0+9E2MjnV3bfZNgw6Sf5dwtQXkHU+ifMdb0
+	Yd2PdmjGDEdwyvhTiOn8rgC1brAwkxw0VihgR2D3IRNVD/z/vimR2Y1o+xj3C7ztqcoVakGMfKq
+	YPEz8w6uRCi+R/9iHqR4QaWYcSbz9/hN1rOP7pZCrVP51VsSzCKG38CdtDCnjYhh3n01svz3+LN
+	x27+0eoXq7kXlBxwPn1CpWG6VZqRBa3NxwYtj62xBV0YHFxcj/2GnZuracF/UN0erwtAnkmbmIC
+	n48sBqnOCjESBpTxsTZbd72Phekak4jMIHxhRidGBADItyw05Z9SvpT6JUECzFOUNIZXXVw/NcJ
+	haTpj1vmYrCIqaWkezqpdNUzNqrWsKerJC3Pcn6DlWDoV6IooJ+naEJEZ+VpK1o5KXdANiGc0Gn
+	ZfY2/JOw3u/hBTZoyPBn/DJ8RXOCBXF84PXqQNvmNwLW1xmDiIzDYGWxHR/6jxLjdf7NATYxEU5
+	JhiZ4MfT61c87jrotQ/JVsQqliPESraqfUW755UroPU6PyOF55xCFGwoALgq+sSuAjUPA==
+X-Received: by 2002:a05:701b:4346:b0:13e:aa58:89f8 with SMTP id a92af1059eb24-146ce86dbddmr949798c88.15.1790368585236;
+        Fri, 25 Sep 2026 13:36:25 -0700 (PDT)
+Received: from ehlo.thunderbird.net ([2a00:79e1:2e00:6c01:e929:591c:a76d:ca9c])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-145ad9e097fsm8107732c88.13.2026.09.25.13.36.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Sep 2026 13:36:24 -0700 (PDT)
+Date: Fri, 25 Sep 2026 13:36:24 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: David Heidelberg <david@ixit.cz>
+CC: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v7_1/4=5D_Input=3A_stmfts_-_w?=
+ =?US-ASCII?Q?ait_for_controller_ready_after_reset?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <b684b88b-55a6-41a9-a4da-3bca33550164@ixit.cz>
+References: <20260907-stmfts5-v7-0-4a53381cd038@ixit.cz> <20260907-stmfts5-v7-1-4a53381cd038@ixit.cz> <arbJrK9zfoO1dGzy@google.com> <b684b88b-55a6-41a9-a4da-3bca33550164@ixit.cz>
+Message-ID: <B0EA1BC5-3B3E-4D31-9A37-974E38309C74@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_133626_304162_56446F54 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +113,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Sep 2026 22:02:25 +0200 Maxime Chevallier wrote:
-> On 9/25/26 21:22, Jakub Kicinski wrote:
-> 
-> > BTW - I see you have a thing called "netdev series report"
-> > I've been meaning to ask someone if they want us to add to SUIE
-> > subsystem tracking (https://netdev.bots.linux.dev/suie.html)
-> > I could easily add a drop down to filter just stmmac patches there.
-> > On the scale of 1 to 10 how useful would that be?  
-> 
-> I'd say, 10/10. To give you a very concrete example, I was on training
-> for the past 4 days, with little time to look at my inbox.
-> 
-> Today was a struggle to just browse through the stmmac pending
-> patches, some being straightforward patches, some complex but from
-> well-known contributors, some large glue series that are 10+ patches,
-> and then some likely AI-generated series sent as-is without real clarity
-> on whether the author actually fully grasps what's being sent.
-> 
-> So, I resorted to SUIE, ctrl-f stmmac, and going over that list in order...
-> 
-> I think you're asking this question at the best possible time, at least
-> for me :)
+On September 25, 2026 1:20:56 PM PDT, David Heidelberg <david@ixit=2Ecz> wr=
+ote:
+>On 25/09/2026 21:27, Dmitry Torokhov wrote:
+>> Hi David,
+>>=20
+>> On Mon, Sep 07, 2026 at 12:50:19PM +0200, David Heidelberg via B4 Relay=
+ wrote:
+>>>   -static void stmfts_reset(struct stmfts_data *sdata)
+>>> +static int stmfts_reset(struct stmfts_data *sdata)
+>>>   {
+>>>   	gpiod_set_value_cansleep(sdata->reset_gpio, 1);
+>>>   	msleep(20);
+>>>   +	reinit_completion(&sdata->cmd_done);
+>>>   	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
+>>> -	msleep(50);
+>>> +	enable_irq(sdata->client->irq);
+>>> +
+>>> +	if (!wait_for_completion_timeout(&sdata->cmd_done,
+>>> +					 msecs_to_jiffies(STMFTS_RESET_TIMEOUT_MS)))
+>>> +		return -ETIMEDOUT;
+>>> +
+>>> +	return 0;
+>>>   }
+>>>     static int stmfts_configure(struct stmfts_data *sdata)
+>>>   {
+>>>   	int err;
+>>>     	err =3D stmfts_command(sdata, STMFTS_SYSTEM_RESET);
+>>>   	if (err)
+>>> @@ -593,42 +602,47 @@ static int stmfts_power_on(struct stmfts_data *s=
+data)
+>>>   		return err;
+>>>     	/*
+>>>   	 * The datasheet does not specify the power on time, but considerin=
+g
+>>>   	 * that the reset time is < 10ms, I sleep 20ms to be sure
+>>>   	 */
+>>>   	msleep(20);
+>>>   -	if (sdata->reset_gpio)
+>>> -		stmfts_reset(sdata);
+>>> +	if (sdata->reset_gpio) {
+>>> +		err =3D stmfts_reset(sdata);
+>>> +		if (err) {
+>>> +			dev_err(&sdata->client->dev,
+>>> +				"controller not ready after reset: %d\n", err);
+>>> +			goto err_disable_irq;
+>>> +		}
+>>> +	} else {
+>>> +		enable_irq(sdata->client->irq);
+>>> +		msleep(50);
+>>> +	}
+>>>     	err =3D stmfts_read_system_info(sdata);
+>>>   	if (err)
+>>> -		goto err_disable_regulators;
+>>> -
+>>> -	enable_irq(sdata->client->irq);
+>>> -
+>>> -	msleep(50);
+>>> +		goto err_disable_irq;
+>>=20
+>>=20
+>> I think the logic is becoming quite convoluted here, and factored out
+>> stmfts_reset() does not help=2E How about we make it look like this:
+>>=20
+>> static int stmfts_power_on(struct stmfts_data *sdata)
+>> {
+>> 	int err;
+>>=20
+>> 	if (sdata->reset_gpio) {
+>> 		gpiod_set_value_cansleep(sdata->reset_gpio, 1);
+>> 		/* a short delay before powering up */
+>> 		usleep_range(1000, 1500);
+>> 	}
+>>=20
+>> 	err =3D regulator_bulk_enable(ARRAY_SIZE(stmfts_supplies),
+>> 				    sdata->supplies);
+>> 	if (err)
+>> 		return err;
+>>=20
+>> 	if (sdata->reset_gpio) {
+>> 		reinit_completion(&sdata->cmd_done);
+>>=20
+>> 		/*
+>> 		 * The datasheet does not specify the power on time, but
+>> 		 * considering that the reset time is < 10ms, sleep for 20ms
+>> 		 * to be sure before releasing reset line=2E
+>> 		 */
+>> 		msleep(20);
+>> 		gpiod_set_value_cansleep(sdata->reset_gpio, 0);
+>>=20
+>> 		enable_irq(sdata->client->irq);
+>>=20
+>> 		if (!wait_for_completion_timeout(&sdata->cmd_done,
+>> 						 msecs_to_jiffies(STMFTS_RESET_TIMEOUT_MS))) {
+>> 			dev_err(&sdata->client->dev, "controller not ready after reset");
+>> 			err =3D -ETIMEDOUT;
+>> 			goto err_disable_irq;
+>> 		}
+>> 	} else {
+>> 		/*
+>> 		 * We do not know the real controller state (was it powered
+>> 		 * off or reset)=2E Let's hope that this is enough time to
+>> 		 * initialize=2E
+>> 		 */
+>> 		msleep(70);
+>>=20
+>> 		enable_irq(sdata->client->irq);
+>> 	}
+>>=20
+>> 	err =3D sdata->ops->configure(sdata);
+>> 	if (err)
+>> 		goto err_disable_irq;
+>>=20
+>> 	/*
+>> 	 * At this point no one is using the touchscreen
+>> 	 * and I don't really care about the return value
+>> 	 */
+>> 	(void)i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
+>>=20
+>> 	return 0;
+>>=20
+>> err_disable_irq:
+>> 	disable_irq(sdata->client->irq);
+>>=20
+>> 	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies), sdata->supplies);
+>> 	return err;
+>> }
+>
+>Thanks, it seems to be better (thou would be nicer if we didn't have two =
+branches, but=2E=2E=2E what we can do)=2E
 
-Excellent, let me work on this over the weekend.
+That's that enable_irq() in the middle=2E=2E=2E We could have more "ifs" b=
+ut that also looks ugly=2E=20
+
+>
+>I added you as Co-developed-by :)
+
+Thanks but I don't think the change was large enough to warrant it=2E
+
+
+--=20
+Dmitry
 
