@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35B3C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CB9C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PfC+JKXiHR2gOczjEvFYMX7OwerkeM8UAQevJLjnNs=; b=rAF8WL7iDnRoCvZDdOI5r/pN90
-	ucJdH/aaY4L9sj1HGCo9KdfhVAO2b3TyyICDX5/ftXp8IRzg4gU2cBwrTBwi/IzKuM5NCBdtiR57L
-	dkgT1HdSs3MYF+nGMX33O6D8dUQIOu7kNR1SJY2NZtfqBq3peDfCtz1IcI7RYjt5rzDC/dYshowuj
-	6a3Q8ES67K9sH3UIKFMa2RjVSUuSRq2mCRXW9/SsM1cxtrkyEJnFagXy6x+wmcjuiaQENjaGwWvNp
-	cNoZn3Z3I5+WhP72NlpTsjIGvM/11S3VTkhgQV5TD5zXLL3A7p5D06lMvwaMkf+TVjz0ZZXcun8DU
-	1JdpHXBg==;
+	bh=Yp2r+AdNSSNhj8bzMtH1mu8mCpgJfBoAB8kZorGPwPA=; b=QrPr5o3wlsyL1XNqUg5AehKtbJ
+	nEEbnm6mRzVX77mTO5CbrpiQwk3x3S64q1fs8DlYQuus26zfqI3a2666/lrHyJMdxlvLrTSqcyfmi
+	v0tknxW3xlymKT8/PcArdpr/xe3VaKUDC7qE4maylTgBTJS4cviw8DWvO6/ob3x94Pd15QhgVRxpu
+	uFOETDvf8HTPXUSduA+9tMPTwy9gqosCCA9uBuHm90Mp59kGs6awC6GX2gTotWWaoTSD41n6gjpHi
+	nnd5EsMCpgDxFO9yAoTfZrCSuompPpAZA/Y78HUWa6yOcsbPP/YOWXT4XDL0WNludGsYjYW942XwV
+	dXXyZ0tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABdX-0000000EGpP-1Vhz;
-	Fri, 25 Sep 2026 19:31:11 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1xABlB-0000000EHcn-1jgG;
+	Fri, 25 Sep 2026 19:39:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABdV-0000000EGoU-3V0j
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:31:11 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-13fc403e373so2224738c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 12:31:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790364668; x=1790969468; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/PfC+JKXiHR2gOczjEvFYMX7OwerkeM8UAQevJLjnNs=;
-        b=lrmB9rF07hervuSApSM2GO9jeMA4E8rwx+wgfdxncks7JqTif/cUODQhD5G8pRoHK9
-         8ouLRgEmf7M/ctBli0EkFGwhbNCAnqXRGtfRiRp0hECrRbZVs1ZGracxnqwZkV9AWwm6
-         1sL8PvN9K9llFdvvwbNZogI1Q+dv8h8nOOMDO4CUlKbnhYjWPwCnr2aG3/HVAsjnelvF
-         V6iUpGqN+x9zMUHzMnlTn9f3nB83ReHGgUq3YYgKmra1fH2BYA7j3psHODpMY+nmI3EO
-         SSfFXD77atmXg6ruNWs3coHM9EU45IJkF9LcrdyuWTpWl3LppM/TUAUEeTWAvEiUHdTJ
-         3KhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790364668; x=1790969468;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/PfC+JKXiHR2gOczjEvFYMX7OwerkeM8UAQevJLjnNs=;
-        b=kiUDu49bRQovgCRTNyIZ5MGTUBxhhBeSsVGRKBEP/TgOTNCy9SvCoI2fYaa/3IK+OH
-         EPgG8qioV+6mehxA+MTw/aASSGgSE7ACVp0+s6Q+KX2KULMZu8dpGDZELd5jgFrQk+VR
-         zJaQwHKQKj3Vt/eweKvCyPqIbdnCJFAOSQ4VuKp2sOgOWHvVWqzwiOs+3eukGhQz5v+O
-         vXUJYy2nT7H/3JzSMFedOAeB/OgIVhhBxixTD2isjKSV7m1DASMNJBxrsCzu0CwCUmok
-         gLUmK0rrOp9ESj249MIzhasAk/6Jhx2aZt+dTLVByV82laq7h5M9NdAFO4DEgB/qOn5c
-         9rNQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx42OB004BT1mSlMilEzTdoJQ3jD+hcVXnSaXM8GllS9Sp09wk0VE3ZG/axraqcPNs0LlSNcvWRtDqZj0oLCla7@lists.infradead.org
-X-Gm-Message-State: AFuF++kvF67gUsIk6ZYqDqRDTpwuV9tvTTR+pwLReEyHYD+t/9++AMsM
-	E+IPRIto91K5b//aCUlEwuIeldGAJsF1DgmWkj4u864bovbvEotlkgCC
-X-Gm-Gg: AYBFou0QmA25CGw99k98IJKbPMthHJD1b9v8+/oCmLBZOxJyi+ocfmG5SPdp/bsfk+b
-	ylcqvkLKmLtM1A6Azc+ga7peR5wP2zRXXXwzSTWX+gLRp+d8Cfq0u1f0uq2S/jF0JU7oZ2pfmrS
-	FgUjVTurpb2CqM2Ytqnh2nyq3aUV74UmphCGlL8ctN4cEEBZLnDmPHgoSpsUDCcca9VLbd9/0iC
-	S0eWF5R72S8LeTDpbAYWKyo+nYbYHy0u7+b+xADKDQuc1pgJSgKGSYLdkVIKhvL/TMOS2SxfJ5M
-	k58/YP+LY52ZQrlZzDqzD/GUJFY8swWkZvcD6JN5mNSWTZURU32G2cDWl1mwZXE1ooTFa8COMn+
-	hvgtK7hmYzN+agWbf4/hYmyMaEN3LwSWJD+9dqSzLz+gU5fUjPqe9x2thc4vSiFfKO1jzxJIDA4
-	we6AnGpSmm7HIP5wLnkc8l1miQb3c1+TsfBC6Eg/TiaSc7HKcQ5eI05zI89+5tQmdBjRhk5lEAx
-	DLTEaXuSEV9CbBgklYix3k1tNae8W16kjcJmWZVB3Ma67fovkKE8u6MW5VneKfnJThnbPKfxbrE
-	7aQ81NXdoNL6d8dlPaeb/yR9WhnDIsg7MZa03ddwPU3tTw==
-X-Received: by 2002:a05:7022:1584:b0:13b:32f4:e826 with SMTP id a92af1059eb24-146ce968c47mr1007700c88.11.1790364668278;
-        Fri, 25 Sep 2026 12:31:08 -0700 (PDT)
-Received: from ututo.. ([2803:9810:87dd:de10:161:9095:8001:15fb])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-145acc47ab8sm7886956c88.6.2026.09.25.12.31.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 12:31:07 -0700 (PDT)
-From: Lucas Costa <2000.costalucas@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	linux-spi@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lucas Costa <2000.costalucas@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] spi: bcm2835: fix device_node reference leak in bcm2835_spi_setup()
-Date: Fri, 25 Sep 2026 16:30:08 -0300
-Message-ID: <20260925193008.127314-1-2000.costalucas@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260923184450.135601-1-2000.costalucas@gmail.com>
-References: <20260923184450.135601-1-2000.costalucas@gmail.com>
+	id 1xABl9-0000000EHcT-2axh;
+	Fri, 25 Sep 2026 19:39:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Yp2r+AdNSSNhj8bzMtH1mu8mCpgJfBoAB8kZorGPwPA=; b=K0SNo5QHu2Pu3ROi9UL/fXg0tp
+	VnCTgGr2iLzcSCYfTOxTUcDH1g1AKqaKt6A34yY4pj2Qs4l4W2juEZZYwxekNb3GKpRtFt9RQLsv4
+	bNaPLQQa6ljPuDE/ATdqfoaxU3wlfS+qzXwpqJa9uwjEOvZfvrDs9XbWz5ZEH1dAp6RsgGH0aLVwM
+	ycvqixcLcLd1IxVIqj+k0V1wbRgXkoa0tGMykD/emDGbNqfKt3lJpNpb7aH2+5YGfWpyGnehh8ZTq
+	JQhrPOzYWcTJymDcu5AdEpuAIQQLlHafELmPwraR7ieOkAbtI9UdIiUwrVjfVixh3ovLv58YwNap8
+	cMwvvm9A==;
+Received: from [95.181.193.9] (helo=mail.auroraos.dev)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1xABl1-0000000HIQd-2Agz;
+	Fri, 25 Sep 2026 19:38:59 +0000
+Received: from [192.168.2.104] (91.78.45.169) by exch16.corp.auroraos.dev
+ (10.189.209.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1847.3; Fri, 25 Sep
+ 2026 22:38:46 +0300
+Message-ID: <66a4cfe1-286c-4d63-9285-2445c48739ab@auroraos.dev>
+Date: Fri, 25 Sep 2026 22:38:46 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: rockchip: fix domain check in
+ rockchip_pm_add_one_domain()
+From: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+CC: Ulf Hansson <ulfh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	<linux-pm@vger.kernel.org>, <linux-rockchip@lists.infradead.org>, Caesar Wang
+	<wxt@rock-chips.com>, Kevin Hilman <khilman@linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260920175928.42566-1-s.shtylyov@auroraos.dev>
+ <CAPx+jO-Ph038WJQ4gMH93XzoMC09+meht=yT9JQBAnTD6HzGEg@mail.gmail.com>
+ <eae7ec74-5b90-4258-9576-159c700bd8f4@auroraos.dev>
+Content-Language: en-US
+In-Reply-To: <eae7ec74-5b90-4258-9576-159c700bd8f4@auroraos.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [91.78.45.169]
+X-ClientProxiedBy: exch16.corp.auroraos.dev (10.189.209.38) To
+ exch16.corp.auroraos.dev (10.189.209.38)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_123109_875774_66CDC90C 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20260925_203855_775344_C0553EFF 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,44 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_find_compatible_node() returns a device_node with its reference count
-incremented, but bcm2835_spi_setup() only uses the return value to test
-for a matching node in the loop and never releases it.
+On 9/23/26 11:44 PM, Sergey Shtylyov wrote:
+[...]
 
-Declare the node with a scope-based __free(device_node) cleanup so the
-reference is dropped automatically when leaving the loop body, matching
-the existing __free(kfree) usage in the same function.
+>>> In rockchip_pm_add_one_domain(), there's the check (most probably for
+>>> the case where the "reg" prop has an unexpected value?) which doesn't
 
-Fixes: e19c1272c80a ("spi: bcm2835: Restore native CS probing when pinctrl-bcm2835 is absent")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lucas Costa <2000.costalucas@gmail.com>
----
-Changes in v2:
-- Use a scope-based __free(device_node) cleanup instead of an explicit
-  of_node_put(), as suggested by the reviewer.
-- v1: https://lore.kernel.org/all/20260923184450.135601-1-2000.costalucas@gmail.com/
+   By "unexpected value" I meant a domain that isn't controlled by this
+driver and so have no explicit initializer in *_pm_domains[]. Looks like
+for such domain #s rockchip_pm_add_one_domain() should fail with -EINVAL.
 
- drivers/spi/spi-bcm2835.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+>>> make much sense as the variable pd_info will be NULL iff pmu->info->
+>>> domain_info is NULL and the variable id is 0.  What does make sense
+>>> there is checking pd_info->pwr_mask and pd_info->req_mask which (as
+>>> seems to follow from the code) can't both be 0 for a valid domain...
 
-diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
-index 8f8715809c7c..23606967f7d1 100644
---- a/drivers/spi/spi-bcm2835.c
-+++ b/drivers/spi/spi-bcm2835.c
-@@ -1297,7 +1297,9 @@ static int bcm2835_spi_setup(struct spi_device *spi)
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(pinctrl_compats); i++) {
--		if (of_find_compatible_node(NULL, NULL, pinctrl_compats[i]))
-+		struct device_node *np __free(device_node) =
-+			of_find_compatible_node(NULL, NULL, pinctrl_compats[i]);
-+		if (np)
- 			break;
- 	}
- 
+   For the domains that have no matching initializer these fields should
+be both 0. I had chosen checking these 2 fields instead of pd_info->name
+as I intended this patch as a fix, easily backportable to the LTS kernels.
 
-base-commit: fe2ec83746e501645709761605c2464a44fd2929
--- 
-2.43.0
+>>> Found by Linux Verification Center (linuxtesting.org) with the Svace
+>>> static analysis tool.
+>>>
+>>> Fixes: 7c696693a4f5 ("soc: rockchip: power-domain: Add power domain driver")
+>>> Signed-off-by: Sergey Shtylyov <s.shtylyov@auroraos.dev>
+>>
+>> Applied for next, but without the fixes tag, thanks!
+>>
+>> Note, that I am dropping the fixes tag because if there was a real
+>> problem, we would require yet another fix on top to get the
 
+   If a defective DT is considered an issue then there's a problem. :-)
+
+>> corresponding domain declaration to be correct. Yet, the patch is
+>> useful as is!
+
+   Like I've already told, my aim was not detecting the bad declarations,
+just bad DTs. I probably just wasn't elaborate/assertive enough...
+>    I was thinking of doing a more elaborate description but if you
+> considered it good enough, OK... :-)
+
+   So what are you going to do with this, leave things as they are: the
+patch merged to the next branch (in its current form) and not merged to
+fixes? Perhaps a revert or an incremental patch?
+
+>> Kind regards
+>> Uffe
+MBR, Sergey
 
