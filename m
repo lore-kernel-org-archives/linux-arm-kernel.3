@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF3EC9832E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 22:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AD5C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 22:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46Lv+ShejKm07WpN+nrBKwiBAEWtOZ2a+4o6rbCNXJU=; b=sSzUebxn/EgUzN5kjcv9P/zJes
-	kqbrwGV9Po2/f58u+vqLFqBSgTNS/axvBCKY3AjphkJRklSOj6xtcVzBcQAcpguv9q4Hty3/+9nd7
-	HPlFio9ucE9TQFZKmo7K2k0rZWgWgf7cyl9htva6BGgf2lw4nl2TfttxhQARJFoeZVHfjKUqU0KUE
-	obGa7cTIqIQfYo3C412I3tQ/ETJnkcZz4/1mzMVp42Q5XNZp8PwP5n2sFt2u0k6GtHYIYaNdkhCui
-	GX3/PCQKgNLhLxErle7MhmSYSVne1BN3HdvVXisJ8JfGjgrbmcKbNqLFZKN/xkgzaxw63Le4qfITZ
-	l0L6TxqA==;
+	bh=f68Yl/TdpjEAQtO9tkpa/yoYlpUzUOAMeITHyjaOgkM=; b=wVvY7PIwu406OeonGNxYk0UV23
+	mlRtOCWZZWm8gE2k53zQNVI2c36JQpPOpH47Q8lseecoOspHvQ0JokMIyIGKRbV/u0psa78Y6tvwm
+	FSrI8v9gpCQJJpQlrwduaMXvortvBQPgt6HaCSY4ZLpQ1eYOtL6Yb8eFZjuJ/9MB4jNv9ti2D6Lbr
+	lQ4B25mApD9tKHIY7BjkHYahcjErYKYobmW/ddR71UicSXnZUZbBt7aUnO9xpYRPCT46LAi9NbdOS
+	Xeo/Wkov7ZX7tHDRX4iHtkq5ym9J/o4aJUDsgdq7lSTmhc7USIctGc69qHQMUcoj+cFbPdCHorN8H
+	At2g37bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAEq1-0000000Ebf5-3yhR;
-	Fri, 25 Sep 2026 22:56:17 +0000
+	id 1xAEqP-0000000EbnS-1OvD;
+	Fri, 25 Sep 2026 22:56:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAEpu-0000000Ebd3-3XUO
+	id 1xAEq1-0000000EbeW-2G09
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 22:56:12 +0000
+	Fri, 25 Sep 2026 22:56:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D055C169C;
-	Fri, 25 Sep 2026 15:56:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32E57169C;
+	Fri, 25 Sep 2026 15:56:13 -0700 (PDT)
 Received: from ryzen.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 847D13F632;
-	Fri, 25 Sep 2026 15:56:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2B6A3F632;
+	Fri, 25 Sep 2026 15:56:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790376970; bh=3blP0nDMtGN6vIpTbQx5TZFpZ7wvhmdDuk7aLl94D6A=;
+	t=1790376976; bh=sg8jvCBQyHW5vy7uXNNvXeP1MR1xgM2tRjcrl/rYpoI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ch2MCgeRNQuiON+68rcbbb1+lleArxnuaZiRb/vxJl69WhNsvrBnGE+afWZP6d3kr
-	 9qlTxF4HXyAlE1Xfi8rwBIGbAT4phq4kPTy/oj4mLFMjpF1aRl061uZus9VuNiObNr
-	 B4LXW0zlGp+GmcFVxcBoJTW+nZCvvglCa2NTgctk=
+	b=C0/z1680uzcUHf+WVyfZ1DXvoFESy73F+hQHAeXDeDoQuFwWBRhL3mTO0OijoLw94
+	 r6RDOhkdkQg39alkChkbqiQDxpJh/rsOM3MmCUTJXCrGEChJVJiKrlYzmCLXaIADQY
+	 dEhB7h175rw3UbF2pbPM5Tm3ORXQYdeRv0nhihi0=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney+clk@redhat.com>,
@@ -53,17 +53,17 @@ Cc: linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v3 2/4] dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU CCU clock controller
-Date: Sat, 26 Sep 2026 00:51:10 +0200
-Message-ID: <20260925225112.14081-3-andre.przywara@arm.com>
+Subject: [PATCH v3 4/4] arm64: dts: allwinner: a523: add CPU clocks
+Date: Sat, 26 Sep 2026 00:51:12 +0200
+Message-ID: <20260925225112.14081-5-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.4
 In-Reply-To: <20260925225112.14081-1-andre.przywara@arm.com>
 References: <20260925225112.14081-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_155610_963342_97A9C512 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20260925_155617_653765_C33BEAAC 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +78,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are four clock controllers in the A523 SoC, but only three are
-described in the DT binding so far.
+The Allwinner A523 family of SoCs feature a separate clock unit for the
+CPU PLLs and muxes, including one for the DSU interconnect.
 
-Add a description for the CPU CCU, which provides separate clocks for
-the two CPU clusters and the DSU interconnect.
+Add a DT node for the CPU clock controller, and list all the clocks from
+the other CCUs that this controller needs.
+Also list the clock source for each CPU: there is one clock for each
+cluster of four cores, suffixed L and B, for little and big (although
+all cores are of the same Cortex-A55 type).
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- .../clock/allwinner,sun55i-a523-ccu.yaml      | 38 ++++++++++++++++++-
- .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   | 13 +++++++
- 2 files changed, 50 insertions(+), 1 deletion(-)
- create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-index 58be701a720ea..8d5481fb63ae8 100644
---- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-+++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-@@ -19,6 +19,7 @@ properties:
-   compatible:
-     enum:
-       - allwinner,sun55i-a523-ccu
-+      - allwinner,sun55i-a523-cpu-ccu
-       - allwinner,sun55i-a523-mcu-ccu
-       - allwinner,sun55i-a523-r-ccu
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 85ef492ffeae7..d8aa13af3935e 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/clock/sun55i-a523-ccu.h>
+ #include <dt-bindings/clock/sun55i-a523-mcu-ccu.h>
+ #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
++#include <dt-bindings/clock/sun55i-a523-cpu-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-mcu-ccu.h>
+ #include <dt-bindings/reset/sun55i-a523-r-ccu.h>
+@@ -25,6 +26,7 @@ cpu0: cpu@0 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x000>;
++			clocks = <&cpu_ccu CLK_CPU_L>;
+ 			enable-method = "psci";
+ 		};
  
-@@ -35,12 +36,23 @@ properties:
+@@ -32,6 +34,7 @@ cpu1: cpu@100 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x100>;
++			clocks = <&cpu_ccu CLK_CPU_L>;
+ 			enable-method = "psci";
+ 		};
  
- required:
-   - "#clock-cells"
--  - "#reset-cells"
-   - compatible
-   - reg
-   - clocks
-   - clock-names
+@@ -39,6 +42,7 @@ cpu2: cpu@200 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x200>;
++			clocks = <&cpu_ccu CLK_CPU_L>;
+ 			enable-method = "psci";
+ 		};
  
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: allwinner,sun55i-a523-cpu-ccu
-+then:
-+  properties:
-+    "#reset-cells": false
-+else:
-+  required:
-+    - "#reset-cells"
-+
- allOf:
-   - if:
-       properties:
-@@ -64,6 +76,30 @@ allOf:
-             - const: iosc
-             - const: losc-fanout
+@@ -46,6 +50,7 @@ cpu3: cpu@300 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x300>;
++			clocks = <&cpu_ccu CLK_CPU_L>;
+ 			enable-method = "psci";
+ 		};
  
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - allwinner,sun55i-a523-cpu-ccu
+@@ -53,6 +58,7 @@ cpu4: cpu@400 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x400>;
++			clocks = <&cpu_ccu CLK_CPU_B>;
+ 			enable-method = "psci";
+ 		};
+ 
+@@ -60,6 +66,7 @@ cpu5: cpu@500 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x500>;
++			clocks = <&cpu_ccu CLK_CPU_B>;
+ 			enable-method = "psci";
+ 		};
+ 
+@@ -67,6 +74,7 @@ cpu6: cpu@600 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x600>;
++			clocks = <&cpu_ccu CLK_CPU_B>;
+ 			enable-method = "psci";
+ 		};
+ 
+@@ -74,6 +82,7 @@ cpu7: cpu@700 {
+ 			compatible = "arm,cortex-a55";
+ 			device_type = "cpu";
+ 			reg = <0x700>;
++			clocks = <&cpu_ccu CLK_CPU_B>;
+ 			enable-method = "psci";
+ 		};
+ 	};
+@@ -1144,5 +1153,17 @@ npu: npu@7122000 {
+ 			resets = <&mcu_ccu RST_BUS_MCU_NPU>;
+ 			power-domains = <&ppu PD_NPU>;
+ 		};
 +
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: High Frequency Oscillator (usually at 24MHz)
-+            - description: Low Frequency Oscillator (usually at 32kHz)
-+            - description: Internal Oscillator
-+            - description: Peripherals PLL 0 (1200 MHz output)
-+            - description: Peripherals PLL 0 (600 MHz output)
-+
-+        clock-names:
-+          items:
-+            - const: hosc
-+            - const: losc
-+            - const: iosc
-+            - const: pll-periph0-2x
-+            - const: pll-periph0-600m
-+
-   - if:
-       properties:
-         compatible:
-diff --git a/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-new file mode 100644
-index 0000000000000..042f2310f64de
---- /dev/null
-+++ b/include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright 2025 Arm Ltd.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-+#define _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_
-+
-+#define CLK_CPU_L		7
-+#define CLK_CPU_DSU		8
-+#define CLK_CPU_B		9
-+
-+#endif /* _DT_BINDINGS_CLK_SUN55I_A523_CPU_CCU_H_ */
++		cpu_ccu: clock-controller@8817000 {
++			compatible = "allwinner,sun55i-a523-cpu-ccu";
++			reg = <0x08817000 0x80>;
++			clocks = <&osc24M>, <&rtc CLK_OSC32K>,
++				 <&rtc CLK_IOSC>, <&ccu CLK_PLL_PERIPH0_2X>,
++				 <&ccu CLK_PLL_PERIPH0_600M>;
++			clock-names = "hosc", "losc",
++				      "iosc", "pll-periph0-2x",
++				      "pll-periph0-600m";
++			#clock-cells = <1>;
++		};
+ 	};
+ };
 -- 
 2.46.4
 
