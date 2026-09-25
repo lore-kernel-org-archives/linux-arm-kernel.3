@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A13C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB36CC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=091cobKw1OczUPtMjUVWe4j3hvI4PcnBahesORRu4pQ=; b=VPCZHXAuezuaZbkWpDQGSrJMAD
-	wqliA/fbQRG+K3CzxVPBGeJedGAJ88IMgcZeoc8VZ3XaIapnVOMl2XEYvBCFv6wGgwB5u9a6shmCy
-	orC2duPRVEpgpbRjSAgBDkeC5dIp7tgUiU1wk/ViHqgABpTisW3E2rW9I6twuiPlzFvq1hal8jaYq
-	KqMgn0vnBpthv0Mc5UI6pAN7wKH7ce9HCT+e8HXKiDB35KsgEii4ghB9Gjerh8mhXryutXPWNKUv9
-	6jRlQ0U5Q4HO5nUwnA2edLHK3qkeQ6O9t+MRWQLtc1R4OMdECQ6W/Y+ZZanes3AEJOCsMBX4FaARq
-	DZItSm8Q==;
+	bh=c1qtZNQkSLL9jY8cFQvdaU+DuydaEVSzJnJZ/ismFcI=; b=fRXGDebCSA/XBV0qUtlOv/I2P9
+	M4BF/ntC2+jbZMbDpy8KEr+CCIok0i8lUj4DBI+zdD+T+2nh68Jjn+DwV3QoRr9h9Hvq+3W389Jhk
+	AyDqiZIttVO9IroUFnA/gss9XDUGWb0LqSS6wuMicI36KqvxWnyAlhbaIRD9xJZXpgeGlakaDXt+0
+	Run/UbFRgL3+b/N0JqlH6DQGoN5FW029BADtSa6H/Q+vRm6AFCzqqUJvJuLui6hsm4Q45zVfPNjSw
+	VhHnRn5xa5ZDYMuJjh7VZLDlObY+7S8yDXr1zrTblIIFEEkfHj505zFVnpFzFr4LsF1FoQ6Z8Uvoz
+	6reo02Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2je-0000000D4eY-1iIC;
-	Fri, 25 Sep 2026 10:00:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xA2kP-0000000D4mD-2Ojl;
+	Fri, 25 Sep 2026 10:01:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2jb-0000000D4eC-2fhJ
+	id 1xA2kN-0000000D4m3-2Vfz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 10:00:51 +0000
+	Fri, 25 Sep 2026 10:01:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C43556022F;
-	Fri, 25 Sep 2026 10:00:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03FCF1F000FF;
-	Fri, 25 Sep 2026 10:00:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 324DC4196A;
+	Fri, 25 Sep 2026 10:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE3C1F00899;
+	Fri, 25 Sep 2026 10:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790330450;
-	bh=091cobKw1OczUPtMjUVWe4j3hvI4PcnBahesORRu4pQ=;
+	s=k20260515; t=1790330499;
+	bh=c1qtZNQkSLL9jY8cFQvdaU+DuydaEVSzJnJZ/ismFcI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=otlwK+XFcIczRvU351HmIuZLYxMIZCirmb0t07v8w5giskWGcbwuFfzinfGMydPP5
-	 kjhdNcTzGVQH+jRBwqQ0UrYXs9lJgs8+4bSBhexyCrdiFqRfxzFOIVjUJBuSHocuIk
-	 DM5DlzSuOe4hA1pSD7uYeF6oqzFiwhJhLEmuy1tcpnSooMGO+GebjyIn9PvlyazEEq
-	 bhc9PBHLH0Q8xZF1klnLahZKGwaXIU7XohAjArScJG53G899SQRH5tSw82GNMBoAE5
-	 tetOqVHn9nULkXQcgzBdvC+XT4ftE4WmCNgwp8bxWEvHUck12Wt/tp7gTwhvs26EZ1
-	 V2cixsZ2Fo60A==
-Date: Fri, 25 Sep 2026 11:00:46 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Charlie Garner <charlie@akao.au>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
-	Viresh Kumar <viresh.kumar@linaro.org>, Dhruva Gole <d-gole@ti.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: perf: ignore an implausible
- sustained frequency
-Message-ID: <20260925-native-glorious-kelpie-8bf5dd@sudeepholla>
-References: <20260923152245.44624-1-charlie@akao.au>
+	b=Ry0H7W/pDYg2HNPBp5VpWT3cgYkM6L7bmz00BS9xiLGVwMUCxAgQsJlVxbGOXVRni
+	 OOM4Vrek6dykBdeMzLGoHCzhNSzKt20cUigmR/Eo2NH/Ij9Xw4/swDB1OL2v0xrsFK
+	 MvVXaM1lVdwNLkwNKxyjPVXYzDG2GGXyP6oiNBaHmp1B8n0kpLZ58PDU98cwjHJCaf
+	 UzvQZFGDQ7NeKrroJ5FPhCTJa6wpw62K52yHrREtDVOAK7rQ+Nvd67OedGmj2Are8n
+	 LgmSt/pe/agZJqVefP++D35e29wyh8swf5iRcjqbqHc7cfGUFxSwS7TeZr+kx4Yu/k
+	 2MBDDIAfwQO/Q==
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 919B6198003A;
+	Fri, 25 Sep 2026 06:01:33 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Fri, 25 Sep 2026 06:01:36 -0400
+X-ME-Sender: <xms:fUa2asZjlTTZThjWtSXaPFZJgFBkPnUcvkqUZslxtET03teSnRpFlw>
+    <xme:fUa2amoAxKgYnO5i2XNOhhxeIngCv5Id18Wb4ZmZTTfyyQeXVjC367AEl48R0Ymb-
+    N-wqC9bFjvNyVKj6H8KDnn2ct9Di3B8mSNtusLXcArlZ2eL0u7N87DX>
+X-ME-Received: <xmr:fUa2ajL-639cc4qE0KKv-MgFk1cpqQ4AC0xvbceQOuTWyx4IWGeVB14YLn4>
+X-ME-Proxy-Cause: dmFkZTFaHL7/M+1Ihc5bUYqYtFwJSgrnURianRf/JR5tgLUu7fXkjZXZfmxr42uVkLDENz
+    n6CT7lbp4ydF0hj9OqU2bDAPnJ4sy7gAysDEagQgRgjtp5/JepVQ5/DqM747wnWVnxDpTm
+    jrc4s8XALNefiP8J76+Wd9Svwha8zvIC0O9O96YtBwgD0mX6idSPc1uKI30oRERQlqN8L3
+    Lr8Ld3qlOHIm8iMljBRija5/BxhTJp2TXV2Mkb4SNPIlVJe3N64zVavtx9WdcYOkYU023N
+    aDiaeR+VutG0GUjhSEsKc9hMRKknxanLE2/l1pwQvzn6kS5GFbP3ihVGhp6eMTXXkGvkBS
+    AmeIHYIzhZ1yFuqqvqaHttceMfXxJ9esOyF3qN0yTrvFw5l7swuIkeiaIWZfmYXCLOkUxH
+    VeWCFrW6XfDAicXxWHkznCBWbqieq0djlQ2YFijalVtJhux2dw5S6+WESijC+Z5SzkpHD8
+    6AP3T5/WJZ2Twln5733ADDWrueKkQAIHBNwGdZOaXqWW2Ih4AoS7VjqMXcHB/MboRVRphc
+    DhHmLwygPFVFuzkxTsFkVJmQ+ak4ZvhUKjAEascAyCoLk6pNwzBmTcsQ4y24hX2qaB7OjP
+    0Bk2Z8itCVYzHmcxnXZN5gCoQguQAyxW7M12yG9pjkOqhVb6di6ypYXqSAig
+X-ME-Proxy: <xmx:fUa2ahZg5cvFEiejGT_ny8tJvzmJMMCC6JEOjYjtSmZ2BAsNA8rxTg>
+    <xmx:fUa2aqpZiordqWJcp4HQOrUmrM111pY9DfhfHzjmDir62mi3QT7Gcg>
+    <xmx:fUa2akAIbnxQmmH6kSR8fZHJpOaxnd33Ad3h83f7tdT8gDu1pfm2Tw>
+    <xmx:fUa2aokJ9B0Y8g2Ixga72Cl0sERlNFrflt8vPCraPEXQcvYYyqT6KA>
+    <xmx:fUa2ahptMA3Q0ZKMkk_xxAAkDBS9NMREmdQlWyirfizDxAIVAR4NwhgC>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 25 Sep 2026 06:01:32 -0400 (EDT)
+Date: Fri, 25 Sep 2026 11:01:31 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>, 
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Thierry Reding <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
+	Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com, linux-arm-kernel@lists.infradead.org, 
+	iommu@lists.linux.dev, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] iommu/arm-smmu-v3: Add a cmdq_max_n_shift module
+ parameter
+Message-ID: <arZFDAofKaurSjCd@thinkstation>
+References: <20260909095228.2174031-1-kas@kernel.org>
+ <20260909095228.2174031-2-kas@kernel.org>
+ <179018301689.3334538.1783583175230817305.b4-review@b4>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260923152245.44624-1-charlie@akao.au>
+In-Reply-To: <179018301689.3334538.1783583175230817305.b4-review@b4>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,118 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 12:52:45AM +0930, Charlie Garner wrote:
-> On a Dell Inspiron 14 Plus 7441 (Snapdragon X Plus X1P64100, soc_id 615)
-> the SCMI firmware reports a sustained frequency below the lowest available
-> OPP for performance domains NCC1 and NCC2. It reports zero for both
-> sustained_freq_khz and sustained_perf_level there, while NCC0 reports
-> 3417600 kHz at level 12. All three domains use level indexing mode, so
-> mult_factor is fixed at 1000 and the OPP frequencies come from
-> indicative_freq; this is not a units or mult_factor problem.
+On Wed, Sep 23, 2026 at 02:03:36PM -0300, Jason Gunthorpe wrote:
+> > [ ... 34 lines skipped ... ]
+> > @@ -40,6 +40,11 @@ module_param(disable_msipolling, bool, 0444);
+> >  MODULE_PARM_DESC(disable_msipolling,
+> >  	"Disable MSI-based polling for CMD_SYNC completion.");
+> >  
+> > +static unsigned int cmdq_max_n_shift;
+> > +module_param(cmdq_max_n_shift, uint, 0444);
+> > +MODULE_PARM_DESC(cmdq_max_n_shift,
+> > +	"Cap on the command queue depth, as log2 of the number of entries. Zero means the hardware maximum; the queue never shrinks below one page.");
 > 
-> scmi_dvfs_device_opps_add() then flags every OPP in NCC1 and NCC2 as turbo:
+> The patch looks ok
 > 
-> 	data.turbo = freq > dom->sustained_freq_khz * 1000UL;
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 > 
-> cpufreq_frequency_table_cpuinfo() skips boost-flagged entries and fails
-> when none are left:
-> 
-> 	if ((!cpufreq_boost_enabled() || !policy->boost_enabled)
-> 	    && (pos->flags & CPUFREQ_BOOST_FREQ))
-> 		continue;
-> 	...
-> 	if (min_freq == ~0)
-> 		return -EINVAL;
-> 
-> cpufreq_policy_online() drops the policy on that error without logging
-> anything. Only one of the three performance domains ends up with a policy.
-> The part has 10 cores (the x1e80100 DT describes 12, CPUs 7 and 11 fail to
-> boot): 4 of them can scale, the other 6 get no policy, no governor, and no
-> cpufreq cooling device.
-> 
-> This cannot be worked around by enabling boost. policy->boost_enabled is
-> still 0 during that validation, and both places that set it -
-> boost_supported in cpufreq_table_validate_and_sort(), boost_enabled in
-> cpufreq_online() - run after the call that already returned -EINVAL. A
-> domain whose OPPs are all flagged turbo can therefore never get a policy.
-> 
-> Confirmed by probing dev_pm_opp_add_dynamic() on the affected machine: all
-> 13 OPPs are added with turbo=0 for domain NCC0 and turbo=1 for every CPU in
-> NCC1 and NCC2, across an identical 710400-3417600 kHz table. The raw domain
-> attributes above were read the same way, with a kprobe on
-> scmi_dvfs_device_opps_add() fetching the perf_dom_info fields.
-> 
-> A sustained frequency below the lowest OPP carries no information - it
-> cannot separate sustained levels from boost levels. Treat it as "this
-> domain has no turbo levels" instead of letting it disable the domain
-> entirely, and say so once with a FW_BUG warning, since the failure is
-> otherwise silent. A sustained frequency equal to the lowest OPP is left
-> alone, it already leaves that OPP non-turbo.
-> 
-> Fixes: a897575e79d7 ("firmware: arm_scmi: Add support for marking certain frequencies as turbo")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Charlie Garner <charlie@akao.au>
-> ---
-> 
-> Notes:
->     The SCMI quirks framework (quirks.c) would also work here, and this
->     platform already has two quirks enabled. I went with a generic check
->     because a sustained frequency below every OPP is meaningless on any
->     platform, and the check is a no-op for firmware that reports a sane value.
->     Happy to turn it into a quirk if you'd prefer that.
-> 
+> But I'd rather use lg2 as name, especially user visible, instead of
+> n_shift. "shift" is a word for bitwise stuff, this is a 2**N log2
+> encoded value.
 
-I am unable to decide which is better approach. I am more inclined to quirks
-so that other systems are not penalised by unnecessary checks but at the same
-time it seems like a sensible generic check.
+This name has changed twice already. v5 took the value in entries.
+Nicolin asked for a log2 value and named it after max_n_shift, which is
+what the driver calls this quantity everywhere else.
 
-Cristian,
+I would rather not rename it a third time without input from the
+maintainer.
 
-Any strong opinion/inclination ?
-
->  drivers/firmware/arm_scmi/perf.c | 34 ++++++++++++++++++++++++++------
->  1 file changed, 28 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-> index 4583d02bee1c..94f644996f9d 100644
-> --- a/drivers/firmware/arm_scmi/perf.c
-> +++ b/drivers/firmware/arm_scmi/perf.c
-> @@ -861,11 +861,20 @@ static void scmi_perf_domain_init_fc(const struct scmi_protocol_handle *ph,
->  	dom->fc_info = fc;
->  }
->  
-> +static unsigned long scmi_perf_opp_freq(const struct perf_dom_info *dom,
-> +					int idx)
-> +{
-> +	if (!dom->level_indexing_mode)
-> +		return dom->opp[idx].perf * dom->mult_factor;
-> +
-> +	return dom->opp[idx].indicative_freq * dom->mult_factor;
-> +}
-> +
->  static int scmi_dvfs_device_opps_add(const struct scmi_protocol_handle *ph,
->  				     struct device *dev, u32 domain)
->  {
->  	int idx, ret;
-> -	unsigned long freq;
-> +	unsigned long freq, sustained_hz, lowest_hz = ULONG_MAX;
->  	struct dev_pm_opp_data data = {};
->  	struct perf_dom_info *dom;
->  
-> @@ -873,14 +882,27 @@ static int scmi_dvfs_device_opps_add(const struct scmi_protocol_handle *ph,
->  	if (IS_ERR(dom))
->  		return PTR_ERR(dom);
->  
-> +	for (idx = 0; idx < dom->opp_count; idx++)
-> +		lowest_hz = min(lowest_hz, scmi_perf_opp_freq(dom, idx));
-> +
-
-Just wondering how badly the perf values are also screwed up on this system ?
-If we are adding it as generic, I am thinking of just using the sorted
-opp list and lowest_hz = scmi_perf_opp_freq(dom, 0), no ? It avoids
-unnecessary loop above.
+Will, this is the user-visible name. Do you have a preference here?
+Unless you want it changed I will leave v6 as it is.
 
 -- 
-Regards,
-Sudeep
+  Kiryl Shutsemau / Kirill A. Shutemov
 
