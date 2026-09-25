@@ -4,163 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F77C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECCEC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2W7h+GjXafG0ENMAMi9o0mKcMCg1+66X3WswR1szRQ=; b=k7V3O5M4u7f6q39uuEElvKN1db
-	4I0jt31A4yctHI8+Zx1g1vbqlu74pl+P7Led1+eYDQFvsBpTHzbfI7bIC+PI/ow8ryZwxkDBmHk+t
-	JO7dT4cOGyGtcXETGFJ1g6zvJULrOgdqlIeK/sqmiE0TlC3XtDbtDKQ+JkCmtGZxrmQzE3QuWGkVQ
-	rS7V3d+8vHFhOTalYlrSFuClCeEYmFRorMf2xrbXMVs3tRFdE5sR5GZpBRiLdUrfuRqc+3P3GIRhr
-	mR3ntG16wLoSRvcm9VGoTUwi64OW11TXJ6ynBTGoYfOi5Nru/9fuSbBbdNPgPzNc0rpiDWrbKl0Ap
-	e5oQ/ZpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YdJbeVGqh9AgSmmj5nG5sf7cECD5ZVbeKNl4YktWcOI=; b=SsCY3XyioKkgNlT99hntrFhZTh
+	1rRhsKz8dr2fxWUD6lhkajvvnso00Sqv3uRM6BJRuivYqcRjmGUBhSTx3GGAUheGI9BBYa9t9RkQ4
+	ekJj0XEgMCJKzwHSmUzmCSYdJ2/0064ypkouvojDBbfCDN8ghYp2XvlU6cJiRTBx3Es+bInk2mOcr
+	PYf2x288p1kfV1EFvbyon3d+yKxGo38AKEVfHwu7HzbIXoQENECFKyg1T2LIWgY+Wey+67y1DaX96
+	bD6esVnqVHGAQG0NOOnhQRbH9heCGrukRX/rGLIWvpiHFHR/HI5kh2zwmGhjszFFfvZeHjSuB6EVP
+	HuICNgHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA72B-0000000Dbeq-1RKt;
-	Fri, 25 Sep 2026 14:36:19 +0000
-Received: from mail-swedencentralazon11013068.outbound.protection.outlook.com ([52.101.83.68] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xA84a-0000000DpdS-36o5;
+	Fri, 25 Sep 2026 15:42:52 +0000
+Received: from mail-ej2-x0e.google.com ([2a00:1450:4864:34::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA71q-0000000DbS5-0uHT
+	id 1xA84X-0000000DpcF-2S5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 14:35:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Pac2WpMUEh3PKjhzZ4h8StHAAPWlPIbSwazB/oL0P7baFLcyK56CjT085pUUrmfmc8ebnpkZmX42xPMgcKGcvcGB/CfbR1iOnc1hnADYvU6CcnNRvdXA8ISXErDJdHhr2Of8Tp3hN2MK6G2IwE/U3oXBKI4Gk30EZtlRRCAg8o0iA7Ph262Xf1xbHMAJxLcuCM8p1jUnRHLsYBQqQM8EJ8n0ezGlrJjka+qEuCyL+OFr8N50heT8DXJNzppxz+qUC6mwZXrfVXnamjxBkEHCqRGGt6Ho8sBSfJHyc0/MxUyImfquM7WWtm6DAOMoB+hwh3khBsjOMHYceH0qhW5EJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K2W7h+GjXafG0ENMAMi9o0mKcMCg1+66X3WswR1szRQ=;
- b=Fw/s5bGy/T4S7rwhg3ypFRvRKy3CtgtIFIvDYwgZEmh12NTu+N/ll7zIFmnZSXmBs8K/rKKQPM7TMmB3gBMU2elOqFOfK26Ur8qgtNN2ZG7N6RjiKddRP+qdAB0xv6O6kgMuPbiH3J5u0eA1Aq8BsU3BC3XQR36ryY5qbOAlfXH91OSGN8r5DalOuyyhcU8RCd2pLiKxO2q+U0zg8LGT0chhcyS6+LvvzV5KxFfncU0waeiBDHzja6ToFtNTf890VgDBGydJaJDhJUTFTrWoi3EnVxIeeRMu+um/NSSGpmGGBrHcCGsA1+tRGFrs9mDe8QgDabCIe768o030CNELMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K2W7h+GjXafG0ENMAMi9o0mKcMCg1+66X3WswR1szRQ=;
- b=oW7HZoabJkViuQ4TqlxhFWKPzgsE0lbgT5RgJ9ldWsOMmwlsqyvfbBh1T6si2HUVW1gvobLWKvPPILDwUTW3Z8TNAWrpR0+zA+4HJ9r5c9QUsbk4FMt3bDXn1lQYzW2pX1JYPm2Ne9uhKekAqswDUlA9vs74f+/DYGuiKI/Pnh4ssMSoLaOSMw+vMzXgTPcwGT79sc7Jq7ZhoXiX19HYk3bArtZ6IDFkUrlS1maQhFUxZCQSX/e8r1jfRaTnmTohM84geX+8jsnLGqfVAxoeqiP59DqUxCJyBnrJbtQ7Zv84GnToODfHbP981pbxLaZviYFIZ8JUb874xRlpp3vO1A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by DBAPR04MB7256.eurprd04.prod.outlook.com
- (2603:10a6:10:1a3::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 14:35:48 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
- 14:35:48 +0000
-From: Larisa Grigore <larisa.grigore@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa <pedrom.sousa@synopsys.com>,
-	Joao Pinto <Joao.Pinto@synopsys.com>,
-	Hannes Reinicke <hare@suse.de>
-Cc: linux-scsi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	clizzi@redhat.com,
-	aruizrui@redhat.com,
-	eballetb@redhat.com,
-	echanude@redhat.com
-Subject: [PATCH v6 02/12] ufs: unipro: Move Tx/Rx FSM state definitions to unipro.h
-Date: Fri, 25 Sep 2026 16:35:24 +0200
-Message-ID: <20260925143534.3298540-3-larisa.grigore@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260925143534.3298540-1-larisa.grigore@oss.nxp.com>
-References: <20260925143534.3298540-1-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0139.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:96::14) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
+	Fri, 25 Sep 2026 15:42:50 +0000
+Received: by mail-ej2-x0e.google.com with SMTP id a640c23a62f3a-c2b40e4744eso15705766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 08:42:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790350967; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DV8gT08CB+OBO7/MjSVBkBmICzLSoUQ9Y+ONVZPJpgIQq3E2VupQTs4cuDKlJT1P/5
+         Zij7qaBRrMgTvBU/rLqY0bncFNirf6VAqtLa+Fn2If9Da7QfgIATGd7r3ju22iImUpn+
+         gYcKs+teWYyQVFjqrr2V2aXT9wxFgPFzP/bPyiZSgslAgzZF/4n28iFaLoGJZircEmzU
+         MCAZsUBxb1Q3gMO4As/7pkfrgTvCzD5HmB6vSVS1HpZ+0yLsXcGlcz6urjggy7X+mn6s
+         Lc5FXyfhE/cMCmUa1kALoEtguvq09XdPsIFIX2TEaRhT3Lwg+Er9XvZoQE1p0xIx3t5A
+         5oJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YdJbeVGqh9AgSmmj5nG5sf7cECD5ZVbeKNl4YktWcOI=;
+        fh=ojfJmYAwguvwJ2z19SOwXI5Z5FlmkDlYtByak7jvHkk=;
+        b=RUAlK1zQyT8NjmWMv5cJW7qnXZ01STGlqFpqasEaukrlLMGe3tIlTKo2tbVdLrXojY
+         yQijcuC4wA9x2cOvprFmpJUyT/NHIAyMV71AZBMiTVTeJ029x+Ew7nj2JFHjUMAJMNHI
+         YztHkPF7uNlF8KKHDQbtk7uvOsa9XVnUUW4MLFKs2Y/weeaNF5eMDL2wePUGgevzzMWi
+         m03i9lIL8VP+OQmjtvjT3EIpsS/cJaFrUdHacxxySx44HIl7+jY5rf5nOR1NkZ6mIDoI
+         8iPWeu23NPKfqy543JFG4UtkEkvldVDGp7WSTH3ND4yj/o68QWtcwaPHyZDENdofYPG2
+         j79w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1790350967; x=1790955767; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YdJbeVGqh9AgSmmj5nG5sf7cECD5ZVbeKNl4YktWcOI=;
+        b=aFVSRYWrbRbP5it/+8KBwrswLFn5W/c5P3T3KR6RJ2FzHy8cNONFM89Vk9tF4fgmph
+         7QrPUGyyuK3jzuqgeU5F8+jBiCs76jrwJfed6GQc7wfPbLEXM52v7cjbes1Y8Z1pgcAG
+         vt7sl4dAs1YIwcr6WTCpcOLvPFVQcVWAoVEvBtvzoLdfL6xMlDLD4nOfYKUvVIeu02x4
+         bnYD2hp5H6a08qenzt3aNTt8QAnOXkoWs31EIlK4jevhHvgmHqfNPBE0WiVr28KIJpIm
+         vFkQ2d0DovvCiR7VXpiwkGwURxauHzQvcLiNm7hI5bFkccdLXF0ERIIAxGagGJ6H98Pm
+         cApw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790350967; x=1790955767;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YdJbeVGqh9AgSmmj5nG5sf7cECD5ZVbeKNl4YktWcOI=;
+        b=e5a/N+LsLdrFzAFX8zBsYOXZzqi8AGR7Kxr13NlR60FHXH2yB2NjjJOb+VFJZ182AY
+         apYmyHWk621edpQ9+1wQP8EXH2NLnmAJWuqt6cdjuATf00IX3LtZWNhh0+E2/oDboMzp
+         3sUtyFiMXddJ2U7fTwY1vlq51gsWghLpwNhWCiK4+xcl2KIYlvubMr11vLYqq4fgw7TR
+         UybhgsMVtgT/yDYWCqkX4c30dKKLuVWRlhk2QrWZ3IVS0+QrXahpt3h1oQRwf0MaktfO
+         oBEjbAoWBceQaEvDbNQWNt2yF1Tvg5DbLA9+5J8muNoknddwtIV6QzCXUgCMSx/z43W8
+         NXzw==
+X-Forwarded-Encrypted: i=1; AKwUvBw2U4HSvXhniC2/KNRFfH19ZnqXrxAC2r9EsCC18+nFFDmnCpYJC7+/qIb3PBqcn2GuinOVFkQfMx5Xsuh6fn4M@lists.infradead.org
+X-Gm-Message-State: AFuF++noKTgQ5/fBbfX0DZeOZXiIyW1Iuj4F67YtwXkHsswCg2CK1i81
+	s3Eh4p+lKX4TWW6H8dos4gqFKMUfNw6ivm5bPk2m4A550nKUOmXGu9PHIDuwD5BFAUU5ve+Trt7
+	oC3Sb3kU/qta0ffeIOtEZOZGX/2AlHfpQ/tsWVrST6Q==
+X-Gm-Gg: AYBFou12GtbGOjSEDLN3wq2BGdZ3xysTe2fT8YNrkkhGk7zuMcPw7DPRf/AeSPR7gYE
+	1wA4Gi9/hUJEum9ZT3sDVJlpgHnZCZPLvQRnRc8OezurfbxLEV43fHFa7lBMoskq++9j4dxvkmh
+	ZUCZOKcyX9H7KkD7yiBQ+GBYwkL+ffI+JsIpn7yQey4FvWVeKqIYdQfxqS2hVvj6DtXlYrkSDR+
+	ifqZiHK7K/LLg3fiVgvTESEuKEu3Q+LMJ0Mig9NGRt5FjFbH168bCunrtqgDEErhppgj/VF3giN
+	o1W4R4e+ubTZzb/VB3fG8ogUJYbl+4bi7gxYeKE4Y8orfSAdA4IoY0Pl
+X-Received: by 2002:a17:907:c308:b0:c28:ec7c:27ae with SMTP id
+ a640c23a62f3a-c2ac5396f65mr492269466b.25.1790350967019; Fri, 25 Sep 2026
+ 08:42:47 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DBAPR04MB7256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7715b87c-b6d0-439a-fd2c-08df1b124abe
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|23010399003|7416014|376014|10067099003|56012099006|6133799003|11063799006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 8ImktaQRMJsYnltsPKjW7+RTsN3wY53xI44RwXt5AiP8IuVMQJEN7fRCYf7sWVwX2gD3hBwC+Jhfr8mbbuJNGKB+Pbt79a4gK7NpX5FWgqydDU/CtbmZS5fBRadClgWEJ23ty9kibLl6Xum8ZYpc6sD/igS0hN/RU4ExlmdLjRU1DD+k72mVh7ShN6711g2s3LKNcwTNgesWsmqObwQbC8OtM0Tr0Gcw6MFacR2BpnQRoLhMUWqoT/QPk9vBM4J+E/UuZMsOCK5sdAgqdThdw2DYwT9vGDOY3qj4ikDPzJK9rIInaNv/hnMrUw0prqvlm/nDPjAyPJyBgiZKy1RU7Rq1aPArSkfzd82D7FKqjo60XCC1JbwzDjImzHvRGdJ+JpBIoYw8pWmgueMc9L4/dmFUIJH164fqiwpONInP1AL/4Eq6lowQgtjC95ODklEbL7nk7lJ6Q4ENA5d8bDej13hJxKD3OjXKHCLB7fpecm6+rqnuiYNH1ykaxBMjC21VEpp8UIyhnofhRYiq5DktTPPrLbjh/PrQ637bCE51bb4idSr70iyq+jhtkHbW53zFxVBB84i6di7iH9LCAMaxgkTc938QitGDNyU+MGETlre5Ks00e6fdUQtaoT+JqJrj6QG7HfOl2Op447EQjfAcUpgWtwRb/bGxeEkCJXLorw+0NCfGAYW7Vp6UM40yTUxO2oLVHbgl4FOwy8+jh/8R2w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(23010399003)(7416014)(376014)(10067099003)(56012099006)(6133799003)(11063799006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TDNtUEVlTU5BSjF2ODh2c09NOEVKcHlIVVhvNGNXN0xtaFVJbUI3MGhPelZv?=
- =?utf-8?B?Rll5NzExOGQyR3RZczNIZkpSY2VOR2NmU1l2TEZYYTNQV2loK3RrYWNORWpL?=
- =?utf-8?B?STRrTW1mSDhTdVlKQkZhWE91QTdtU0dBcE41UVBJeEo5dkxzUFBNU0VtSlVo?=
- =?utf-8?B?QTlwR0FHMENIaUlzK0RGRnhiTjNmNzZCeFZJVW4yWEhhcVpJRlpUZnRlSXhi?=
- =?utf-8?B?THVWN29hWTA3Qk9hSTBZd3k0RWhsN0dOM1ZvS0FxRWNoUWgwaGN1RTR4bUp1?=
- =?utf-8?B?U0paTFA0MGlhNGp2VlRnbDd6WjgrUFh2bitKOUc2ajhnZTgwT2xYUEFxSmRQ?=
- =?utf-8?B?Nm5qemlNdGNVdm9hd0RYVUk3Z3RURno0c3c1RkhOSS9adzZGRFZHdkhhVWpn?=
- =?utf-8?B?NlUzYU1SS3ltbzhDcjR6bnRLbkpzRjZmdFFkZXdFS2ZOK3dNSDF1QW1UUStM?=
- =?utf-8?B?ZUpqNTdTU0xLSDV6b3creTFKZFRDa1lMTWdxeklzb2lWQlB5RUVQWmRCUzZs?=
- =?utf-8?B?bFUvNythcXRZVy9MOFoxZXRqZlAxb0wxbXprR0NhZW1PZitRR2JPSCtaS0FO?=
- =?utf-8?B?OGwrTHJqeG1TR3pCS3ZCTTBCeGcyQk52SmEraXRhODNSRkN6VEpuaXVkaDln?=
- =?utf-8?B?c0sxaEN5NjJxN25pK3JmQ2czb0ZzYThrMVFkVUI1SkllU2hHMDdKL3RPK2ls?=
- =?utf-8?B?N1c4a0RodXY2VXVzbVZFN0R5akFOTmQ2M0hGbTltZXhaNlBtQk9WS3pDUnM0?=
- =?utf-8?B?NnlCUkdXNTdHY1dhQ3hobVpSRDFBY0ZBTGUvVWRGWWk0ZGQvbnZnUEZLN0JW?=
- =?utf-8?B?ZEhUU2VKK3JvcGIreVR2Qm1JM1RuU3lESzc2V3ZQOGJGT2lIUXRWNVJqMFlX?=
- =?utf-8?B?bjdmc1k1cHZUUWR4OGQrcU5Cb205NWRoVTd5ekxCWkFuUWhHeDBsYTdKc2hp?=
- =?utf-8?B?aXoxSGY1ZHJmN2ZCZ0xWYVkrVUdhbG5EZ244T2lRS0ltTW9xclhBTzQ1MU85?=
- =?utf-8?B?OVJpcHF3eWxoWGsxeHVCT0lVcm04OGJPSndBUGtPa1dpTHh6UHY1NGxhNm45?=
- =?utf-8?B?ZmJ1RTlDZ0t3TzJBWXhGeTB2dlZxNCtjUmZYREpVT3lSMHpoaXhscS9SWG9S?=
- =?utf-8?B?eGJwNk5zeEgvL3I5ZUNDYnBIMnJtbTNEZEU3U1prd1FDS1RwZjMxak83aDBU?=
- =?utf-8?B?bXIxdk1TOWJXZGMySnRJYXdpTlBWS0VhbDV6RUJEVkpuSytuRG95Nm1tUlk0?=
- =?utf-8?B?cStKdGRjazZqMmlaS04veHl3cERHTVlOUk1sVnBsRUpmTWlYOHkrNlZ3N0tI?=
- =?utf-8?B?SC9ta0lCbVVuai9YaFFzdTlNVWd1akRsb2dHVWV6ZE5VYTAySWtQcC9BMk9p?=
- =?utf-8?B?cHJKMjNQbEFpWHB1SnZTUXlmWmJZTDBIS3JueS9meDE3K1pFa0l5SDNVQUYx?=
- =?utf-8?B?NmJKRWpSOVFkcGtpeTZ5dzRpOUdsUGlkaHJOeHBxV0dnT0Z4RER2TWMrTmdz?=
- =?utf-8?B?a1ZLdzZwOHFIdDBlUExRTlAzV2pNZjQ5UHlPOXNueEtaZ1JFaGdyaytDaVVQ?=
- =?utf-8?B?U3ZDRWNSVFFCWlpZWGQ5VCsvNVA3ZkpMTTFqeGtsMDFTQnJvODFRRWFIMXFy?=
- =?utf-8?B?VnlvTm1ZZyswekpoY2RSQzBnei9ZcWI1T28xUnE2SjRmcm51c1lkaUdyOUZE?=
- =?utf-8?B?M0l1aWhZc0x1cnhBRllrakxjR1pBbFpWb2I2TzZ4b3h0dUp6MWhLRnQ1bHBQ?=
- =?utf-8?B?Wmh6YktnWlA5SkJieHhOREtqeTJ5TGl3S0ltbjJmT1AwNnBoSU9xblZGeE9Z?=
- =?utf-8?B?UDJ4Z3lMaUs2YVBjWEMxZkYwMHlYWThhak1Bdk00TVlmQzJVZ052K3dNTUNM?=
- =?utf-8?B?azlkalByczN0MnJ5TjlrLzlwMUdLN0EvdVhFQS9hMXJKcDNjcm9QVVBnZjJT?=
- =?utf-8?B?MjJwU3ZPNE5CMWtTdzFEMVNia00ya0NIa0V5SXZUcldTaGt1a0w5bTRTb0h1?=
- =?utf-8?B?ZDh3WXJNMDZERTk5ZTRqTDMwWHBYbnI4WnFhZ0FWemJqOGtra0hyM1ZBbDVY?=
- =?utf-8?B?RmxUWnNwM09BSWdGWDN1eERqNFd0bTFQZXFtZHMxQWxpNXFKamRkTjR0M1h2?=
- =?utf-8?B?VkQ2dUNBQ1FFd1I0KzNRYmRpTTFKSmo2eEdjWTM5M0s4dlY2MG1rVDhnb2pT?=
- =?utf-8?B?YVoyMTdtczFkS1QzNGIvNS9FbVF4T3pab0lCd0x5SDJ4QTJzaWFpckM0NGR3?=
- =?utf-8?B?a1BZazMxbVBUR2g0U2ZGUlFpcDg0Z3F6Sm1kOVQ3dGVDWjk3LzZVNzNXUFJU?=
- =?utf-8?B?ZXZYOVgwNmhPN1lYc0grbGZGUG4xN1ArZ09abEFHbGdYOTNBREgvdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7715b87c-b6d0-439a-fd2c-08df1b124abe
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 14:35:48.8065
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: flgD1hw2tCsM/cMlIFYrDcRFZHv9NHJohSq41hXhpjCWf7meMXbKOPpLWOE9jAk6YIAZY6D+f86jT/4MbdxKgw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7256
+References: <20260924071445.441822-1-adam@wermuth.pl> <20260924071445.441822-2-adam@wermuth.pl>
+ <e03db2e9-085b-49ff-8d4a-bc112bc4ddd7@kwiboo.se> <CABkrwJ6uvjS8bez6j0MZbp2Y+O9RhyU09YOLrUzHaeUEVC=Qkg@mail.gmail.com>
+ <arZ0nqBvHDzSbZOE@venus> <CABkrwJ5xdMcRJsjubSJcfMkTs5CzKdAvQK83Xar3gZPvO_wa0w@mail.gmail.com>
+In-Reply-To: <CABkrwJ5xdMcRJsjubSJcfMkTs5CzKdAvQK83Xar3gZPvO_wa0w@mail.gmail.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Fri, 25 Sep 2026 19:42:33 +0400
+X-Gm-Features: AclHuK-2aRN6dX_Oa2Kxhd9aYgpoKvv0HzTIcerNNDpaAcjfSDE1KhpeMcsyZ5E
+Message-ID: <CAKTNdwG8YB7j-TrfJUr3f=7OBYC1Qx55Yu7ax=_C2NOtgNVrvQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] arm64: dts: rockchip: Enable USB 2.0 host1 on Radxa
+ ROCK 3B
+To: Adam Wermuth <adam@wermuth.pl>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_073558_252324_9D388E63 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260925_084249_632638_34411176 
+X-CRM114-Status: GOOD (  24.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,163 +123,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the Tx/Rx FSM state definitions from ufshcd-dwc.h to
-include/ufs/unipro.h.
+On Fri, Sep 25, 2026 at 5:56=E2=80=AFPM Adam Wermuth <adam@wermuth.pl> wrot=
+e:
+>
+> Hi,
+>
+> On Thu, 25 Sep 2026 3:26 PM, Sebastian Reichel wrote:
+> > Why would this be better suited as an Overlay? Nothing describes the
+> > specific card plugged in as it is auto-discovered via USB. The
+> > overlays are mostly required for things that cannot easily be
+> > auto-detected. FWIW we don't have M.2 Key M as a DT overlay either.
+>
+> The overlay was Jonas' suggestion, so I'll let him explain his
+> reasoning. My own understanding was that it would avoid powering the
+> slot (always-on supply plus RESET#/W_DISABLE1# hogs) on boards where
+> nothing is plugged in.
+>
+> That said, I agree that the module itself is auto-discovered via USB,
+> and the Key M slot on this board is described in the base DT as well,
+> so I'm fine with keeping the B-key slot there, as in v1.
+>
+> > Something to consider is, that for Key E and Key M there is a proper
+> > DT binding now: Documentation/devicetree/bindings/connector/pcie-m2-*.y=
+aml
+> >
+> > We probably want the same for Key B.
+>
+> Thanks for the pointer. As far as I can see, a Key B binding would
+> also need driver support to handle the supply, RESET# and W_DISABLE1#,
+> so it is a larger piece of work. Would it be acceptable to describe
+> the slot in the base DT for now and move to a connector binding once
+> one exists for Key B?
 
-These state values are UniPro/M-PHY related and are not specific to
-the DesignWare UFS host controller implementation, so unipro.h is a
-more appropriate location for sharing them.
+Key B binding would be somewhat more involved than key E or key M. The
+spec defines 16 distinct interface mux configurations selected by the
+four CONFIG_X pins, which neither key M nor key E have (PCIe vs. SATA,
+USB3 vs. SSIC, different audio configs, different I2C configs, etc.).
+So it's a bit more than the supply, RESET# and W_DISABLE1#.
 
-As part of this move, drop the driver-private TX_FSM_HIBERN8 define in
-ufs-hisi and ufs-qcom and repoint their Hibern8 checks at the shared
-TX_STATE_HIBERN8 enum constant. This is a no-op change: TX_FSM_HIBERN8
-was 0x1 and TX_STATE_HIBERN8 is 1, so the compared values are identical.
+See for example [1] where just the PCIe vs. SATA selection is defined.
+A proper binding will be needed sooner or later, though.
 
-This also prepares for using these definitions in a subsequent commit.
+[1] https://github.com/flipperdevices/u-boot/blob/rk3576/board/flipper/flip=
+per-one/flipper-one-rk3576.c#L41-L172
 
-Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/ufs/host/ufs-hisi.c   |  8 ++++----
- drivers/ufs/host/ufs-hisi.h   |  1 -
- drivers/ufs/host/ufs-qcom.c   |  4 ++--
- drivers/ufs/host/ufs-qcom.h   |  1 -
- drivers/ufs/host/ufshcd-dwc.h | 19 -------------------
- include/ufs/unipro.h          | 20 ++++++++++++++++++++
- 6 files changed, 26 insertions(+), 27 deletions(-)
-
-diff --git a/drivers/ufs/host/ufs-hisi.c b/drivers/ufs/host/ufs-hisi.c
-index 993e20ac211d..2d214ce9620e 100644
---- a/drivers/ufs/host/ufs-hisi.c
-+++ b/drivers/ufs/host/ufs-hisi.c
-@@ -34,8 +34,8 @@ static int ufs_hisi_check_hibern8(struct ufs_hba *hba)
- 				      &tx_fsm_val_0);
- 		err |= ufshcd_dme_get(hba,
- 		    UIC_ARG_MIB_SEL(MPHY_TX_FSM_STATE, 1), &tx_fsm_val_1);
--		if (err || (tx_fsm_val_0 == TX_FSM_HIBERN8 &&
--			tx_fsm_val_1 == TX_FSM_HIBERN8))
-+		if (err || (tx_fsm_val_0 == TX_STATE_HIBERN8 &&
-+			tx_fsm_val_1 == TX_STATE_HIBERN8))
- 			break;
- 
- 		/* sleep for max. 200us */
-@@ -56,8 +56,8 @@ static int ufs_hisi_check_hibern8(struct ufs_hba *hba)
- 	if (err) {
- 		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
- 			__func__, err);
--	} else if (tx_fsm_val_0 != TX_FSM_HIBERN8 ||
--			 tx_fsm_val_1 != TX_FSM_HIBERN8) {
-+	} else if (tx_fsm_val_0 != TX_STATE_HIBERN8 ||
-+			 tx_fsm_val_1 != TX_STATE_HIBERN8) {
- 		err = -1;
- 		dev_err(hba->dev, "%s: invalid TX_FSM_STATE, lane0 = %d, lane1 = %d\n",
- 			__func__, tx_fsm_val_0, tx_fsm_val_1);
-diff --git a/drivers/ufs/host/ufs-hisi.h b/drivers/ufs/host/ufs-hisi.h
-index 5a90c0f4e90c..6af6a268458d 100644
---- a/drivers/ufs/host/ufs-hisi.h
-+++ b/drivers/ufs/host/ufs-hisi.h
-@@ -43,7 +43,6 @@
-  * M-TX Configuration Attributes for Hixxxx
-  */
- #define MPHY_TX_FSM_STATE	0x41
--#define TX_FSM_HIBERN8	0x1
- 
- /*
-  * Hixxxx UFS HC specific Registers
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index 954be9343f42..38897d01fde2 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -393,7 +393,7 @@ static int ufs_qcom_check_hibern8(struct ufs_hba *hba)
- 				UIC_ARG_MIB_SEL(MPHY_TX_FSM_STATE,
- 					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
- 				&tx_fsm_val);
--		if (err || tx_fsm_val == TX_FSM_HIBERN8)
-+		if (err || tx_fsm_val == TX_STATE_HIBERN8)
- 			break;
- 
- 		/* sleep for max. 200us */
-@@ -413,7 +413,7 @@ static int ufs_qcom_check_hibern8(struct ufs_hba *hba)
- 	if (err) {
- 		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
- 				__func__, err);
--	} else if (tx_fsm_val != TX_FSM_HIBERN8) {
-+	} else if (tx_fsm_val != TX_STATE_HIBERN8) {
- 		err = tx_fsm_val;
- 		dev_err(hba->dev, "%s: invalid TX_FSM_STATE = %d\n",
- 				__func__, err);
-diff --git a/drivers/ufs/host/ufs-qcom.h b/drivers/ufs/host/ufs-qcom.h
-index a5ad5ce44a19..3c6cb2281af0 100644
---- a/drivers/ufs/host/ufs-qcom.h
-+++ b/drivers/ufs/host/ufs-qcom.h
-@@ -11,7 +11,6 @@
- #include <ufs/ufshcd.h>
- 
- #define MPHY_TX_FSM_STATE       0x41
--#define TX_FSM_HIBERN8          0x1
- #define HBRN8_POLL_TOUT_MS      100
- #define DEFAULT_CLK_RATE_HZ     1000000
- #define MAX_SUPP_MAC		64
-diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
-index c618bb914904..a5e40e7604a1 100644
---- a/drivers/ufs/host/ufshcd-dwc.h
-+++ b/drivers/ufs/host/ufshcd-dwc.h
-@@ -39,25 +39,6 @@
- #define RX_AFE_CTLE_IDAC(n)	(0x4001 + ((n) * 0x100))
- #define FW_CALIB_CCFG(n)	(0x404D + ((n) * 0x100))
- 
--/* Tx/Rx FSM state */
--enum rx_fsm_state {
--	RX_STATE_DISABLED = 0,
--	RX_STATE_HIBERN8 = 1,
--	RX_STATE_SLEEP = 2,
--	RX_STATE_STALL = 3,
--	RX_STATE_LSBURST = 4,
--	RX_STATE_HSBURST = 5,
--};
--
--enum tx_fsm_state {
--	TX_STATE_DISABLED = 0,
--	TX_STATE_HIBERN8 = 1,
--	TX_STATE_SLEEP = 2,
--	TX_STATE_STALL = 3,
--	TX_STATE_LSBURST = 4,
--	TX_STATE_HSBURST = 5,
--};
--
- struct ufshcd_dme_attr_val {
- 	u32 attr_sel;
- 	u32 mib_val;
-diff --git a/include/ufs/unipro.h b/include/ufs/unipro.h
-index 9c168703b104..e0f490e11c7f 100644
---- a/include/ufs/unipro.h
-+++ b/include/ufs/unipro.h
-@@ -466,4 +466,24 @@ enum {
- 	CPORT_CONNECTED,
- };
- 
-+/* RX_FSM_State encoding, MIPI M-PHY v6.0 Table 50 (M-RX Status Attributes) */
-+enum ufs_rx_fsm_state {
-+	RX_STATE_DISABLED = 0,
-+	RX_STATE_HIBERN8 = 1,
-+	RX_STATE_SLEEP = 2,
-+	RX_STATE_STALL = 3,
-+	RX_STATE_LSBURST = 4,
-+	RX_STATE_HSBURST = 5,
-+};
-+
-+/* TX_FSM_State encoding, MIPI M-PHY v6.0 Table 47 (M-TX Status Attributes) */
-+enum ufs_tx_fsm_state {
-+	TX_STATE_DISABLED = 0,
-+	TX_STATE_HIBERN8 = 1,
-+	TX_STATE_SLEEP = 2,
-+	TX_STATE_STALL = 3,
-+	TX_STATE_LSBURST = 4,
-+	TX_STATE_HSBURST = 5,
-+};
-+
- #endif /* _UNIPRO_H_ */
--- 
-2.43.0
-
+Best regards,
+Alexey
 
