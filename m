@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636D6C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A9CC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQZlysiv0d/2BjDEIe3tNwkeQrAxLfTelLLNUmuJ3W4=; b=OhzXWpXJehHse6QNgDvWcpj81B
-	ManrbEaY8Inq2CqFWwWOX9OqZ3mRKqCHBDK2wGVOmdkjqjTlXgkELI9+Oy/wZYS21nsR9CCzguLCA
-	9kWD8eLNox6Gfo2IZQJh4B7r5SSQa+wucnCsx1ba2Co5CvdosDiTGURd2p0fpHS6IXO/SHCWbHvaB
-	nQHFxQTNOvgEOwHqPC0AoaWphtOLD5cBzoSVGvv5eiCnXgqMD0SSmIET6mZ3dk5RZV5vaPUDjsc3y
-	SHunUxlVVLKDHSZBnQYh7HZtL6Slf0FqsauTJygZ/Rw/A4XZHqKi4bsp+RaP2LAWQA8uB68MGYsa0
-	L1zuYn5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zIEvTG1E/6K4iV46NsQPQYrjluXsxkDyVkbKJN2nwsk=; b=DqKDHpb7Iix8NEz2/Xr13jTE1k
+	FQchPDu7KMohywPFvl+7DwJzkV2SdTHqjqpnSaskh5N9i3tXwzPDudDMJWdygB9dwAn9fqRvfYn4j
+	/pZbhfCa+MfdKqj8m0mMl+CL+Rl1WmtqgIECXsusdOzKFgs09pDD42/BEl82VACd5iOGlpYelej4D
+	3W/pMxkAueyEVBImSUk6vYpjcRWKHxKWPkjaY949w3lwW6N5uv+SzDkl9gK5+zXsmgOCyzD/KtaK4
+	0ml4IbLYsCQ0JPan3ajQXW7t1B8AXYz1y2r9EdpvqkNbKhNmX2dpJKsaj7LyfqpcKdza3H6Qq8LeA
+	xdTcM7eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA65z-0000000DSTd-1Mpv;
-	Fri, 25 Sep 2026 13:36:11 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xA67f-0000000DSxE-3b69;
+	Fri, 25 Sep 2026 13:37:55 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA65g-0000000DSET-47cC;
-	Fri, 25 Sep 2026 13:35:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 42FA21A1012;
-	Fri, 25 Sep 2026 13:35:51 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 152A26073B;
-	Fri, 25 Sep 2026 13:35:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B70A810328856;
-	Fri, 25 Sep 2026 15:35:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790343349; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=WQZlysiv0d/2BjDEIe3tNwkeQrAxLfTelLLNUmuJ3W4=;
-	b=cw1Dm84viQYCZx6ABoHnHL1Qp9oQfr5rKvoMMxb+r9sNGxE7HwsyCXIsK14za/yYulyUev
-	ykqBIkwzXO23hvV/2Xu1UPId8vjaogYuO6EQ36ik2HxCFInJV0o4nFTvnXHrc5rCViVfXf
-	TLs8WZJd9Wnsy5Bwcsy/DxOky5ivu2e3jrStr2kp88CG2xnkPKpETPzc/JDAAz4Ea0lpd0
-	0lOwcLXS8u61ce7L9z5E3hzS67PiK4q0wTDXsbm1j4fmR4A4l7pov7Pl9Xtqol+bQJCF2g
-	SBYbwhpFZD3QCd1IU3JEDouubYPDDsJo4Haj1EZ5XvXvPQJONj/pjKNU5DhhYg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: alexandre.belloni@bootlin.com, Wentao Liang <vulab@iscas.ac.cn>
-Cc: bbrezillon@kernel.org, claudiu.beznea@tuxon.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, nicolas.ferre@microchip.com, richard@nod.at, 
- vigneshr@ti.com, stable@vger.kernel.org
-In-Reply-To: <20260917102924.2146959-1-vulab@iscas.ac.cn>
-References: <20260917102924.2146959-1-vulab@iscas.ac.cn>
-Subject: Re: [PATCH] mtd: rawnand: atmel: Fix MCK clock leak in
- atmel_nand_controller_init()
-Message-Id: <179034334517.1124555.16021884625975139988.b4-ty@bootlin.com>
-Date: Fri, 25 Sep 2026 15:35:45 +0200
+	id 1xA67d-0000000DSwW-3Bdu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 13:37:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790343473; x=1821879473;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=no8+looG0WsomoDxrT8Jj4yE0i92R+oAVoUxuTXdUlw=;
+  b=LT0orXYrai3yspv/zU0L6DRzCKM7mvFhavM3ZTOVISrwkSnj+vT0wST+
+   qBo7/njJRt74tex6wJmnY48qIWk6VdSwqK6bAaPNE5mnkPJPd8QTg7CDf
+   p66sGy7ywEWdbFfOmvoYavHNyIbIMblcOuUJtuLLr0dCYu7mRTxzqb0y7
+   VLIXyS6wWdmbKWD8PsN7rY2ZINj7CarnMvla2nKe0a/PHU69zqR5Fw593
+   iw0tt4F7zLOZCbr0begekQQTpQ7qXHBbwFhkKicWes3SjnD5ogiqZagxS
+   +avhOO81Z1CwT60BgBHQEDkgTm8vrbeGMtbeFmCJMTxjdFzodL2uEglLe
+   A==;
+X-CSE-ConnectionGUID: cnSASVQYRKSI9mTtfXHzpA==
+X-CSE-MsgGUID: xkcw3Np7QeWS1oUcNUbF2w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="101300674"
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="101300674"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 06:37:52 -0700
+X-CSE-ConnectionGUID: LTl/mEoASz21F6/05k7vHw==
+X-CSE-MsgGUID: QXWscqDORNukc7p06SItzQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="279042879"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.27])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 06:37:50 -0700
+Date: Fri, 25 Sep 2026 16:37:47 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Malathi A <malathi.a2000@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] serial: 8250_uniphier: Use devm_clk_get_enabled()
+Message-ID: <arZ5KxIp55qA6UA7@ashevche-desk.local>
+References: <20260917040511.103232-1-malathi.a2000@gmail.com>
+ <97e4ab26-b147-4cf4-97f9-307903f14e61@socionext.com>
+ <arUvJyvChXXcasSu@ashevche-desk.local>
+ <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3ea1f574-ddb5-46a6-9bc1-7a8ea84c54bd@socionext.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_063553_184305_B8F072ED 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260925_063753_836276_36E893D2 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2026 10:29:24 +0000, Wentao Liang wrote:
-> atmel_nand_controller_init() takes a reference to the MCK clock with
-> of_clk_get() and keeps it in nc->mck for the lifetime of the
-> controller.  If the "atmel,smc" phandle is missing or the SMC regmap
-> cannot be obtained afterwards, the error path jumps to out_release_dma
-> which only releases the DMA channel, so the clock reference is leaked.
-> The callers return the error directly and never run
-> atmel_nand_controller_cleanup(), where the clock is normally put.
+On Fri, Sep 25, 2026 at 08:32:20PM +0900, Kunihiko Hayashi wrote:
+> On 2026/09/24 23:09, Andy Shevchenko wrote:
+> > On Thu, Sep 24, 2026 at 06:07:37PM +0900, Kunihiko Hayashi wrote:
+> > > On 2026/09/17 13:05, Malathi A wrote:
+
+...
+
+> > > I'm a bit concerned about the error path in uniphier_uart_resume().
+> > > The clock may have been disabled in uniphier_uart_suspend(), and
+> > > clk_prepare_enable() can fail when trying to enable it again.
+> > > 
+> > > In that case, wouldn't devres try to disable an already disabled
+> > > clock on detach?
+> > 
+> > Isn't there is a guarantee that the .remove() is called with PM runtime on
+
+After reading a code of driver core I see that this is the opposite actually.
+The PM runtime might be off.
+
+> > and get, meaning it's called with the enabled clock? But if not the case,
+> > we might use PM runtime force operations (resume and suspend in the
+> > respective cases.
 > 
-> [...]
+> My concern was just the case where clk_prepare_enable() in the system
+> resume callback fails, leaving the clock disabled before devres cleanup.
+> 
+> This driver currently only uses SET_SYSTEM_SLEEP_PM_OPS(), so I wasn't
+> considering runtime PM here.
 
-Applied to nand/next, thanks!
+So, in such a case how do you see the scenario when system is resumed (Right?
+Otherwise we can't do anything, like detaching driver from the device.) and
+clock is disabled?
 
-[1/1] mtd: rawnand: atmel: Fix MCK clock leak in atmel_nand_controller_init()
-      commit: 94edcda45d888c3bb1310de11e10e4537c166f00
+> I don't have a strong opinion on whether runtime PM should be involved,
+> but if it guarantees that the clock is enabled before .remove(),
+> that would address my concern.
 
-Patche(s) should be available on mtd/linux.git and will be
-part of the next PR (provided that no robot complains by then).
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Kind regards,
-Miquèl
 
 
