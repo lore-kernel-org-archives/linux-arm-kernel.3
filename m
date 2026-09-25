@@ -4,92 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80518C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 06:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E686C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 06:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lIi+33qeuEkwNBz/fk+oqvqVziUPzN6OFpjduAUkZHw=; b=ElgNUjL/z6Vwr5anBgpCaeOX3p
-	vqnk5JTX4bJwCMZn9b00sFZSEoJV4bmdyVksoCIGxIf28cKgOX/atHdBw3hURqom2LNxFueXaq1vB
-	jKCdp8mCgE0WHka3moGkgrRL4XwCRyxPrVEWFkYyz49lx4CD02B7+PLfxQ24yFAitfQy3cf0Y0QwK
-	T3S1zj3rIiB/mtJhUeWT1+MHSq/RaQrNDwsMmOnQcCWXNY1IQ+LGYoEU4vS/M/IGD6BqsWDi5MtN3
-	J4W2HcR1E70/kp5U5iZs8mTgkmLHAK0UrqsX3lGYY90rATU8Zu27SDZx6TwTZfckj26YAj6GCar+i
-	g0pLniFw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ll7flwWgIu475+3ZjFH1CFh44ywyc/783LJaMOFJs1U=; b=sox9zkzz2erSEayH6DnZmNaPwI
+	NKs1KxAHDavuFXnOrUk3AFg+z09od5L3mUN5pnoyljftOM98SJjLETywZxZKJ79f91lYtQTCejCkl
+	j2u3k9fW1eY5Bf9UlbJu+9cTUOYjNFwUMFtpVrbEvHS8XuWmblxl8dteZpS4WHA/vZ/bllp2wic9/
+	zAEm0n3dQ2aT9b8Cqu4gJYiOYyzMhbXLi8AOkQG+oud+uQxoNIAPh3HyhW/b0LLQF94phAT13kl+9
+	oH2u2ygZkz293JPK+nexkVz5MAblklmov9SHAswrqMyLXfkntUcxZJbgL54cb48L1b3jVgg5bqU3i
+	0XSzEkJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9zpC-0000000CmHl-0Ytf;
-	Fri, 25 Sep 2026 06:54:26 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1x9zpT-0000000CmOq-2E2N;
+	Fri, 25 Sep 2026 06:54:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9zpA-0000000CmGr-0ivp
+	id 1x9zpR-0000000CmOD-405B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 06:54:25 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso3712715e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 23:54:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790319262; x=1790924062; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lIi+33qeuEkwNBz/fk+oqvqVziUPzN6OFpjduAUkZHw=;
-        b=c5r1xifNEYvWl/HMRVt3MlcNjBcEQjNFVHadTXyhop3HSDUQQU8pt5z37P6HR76V0E
-         q9LSnM+SJfFRPZ+XVMqsXg2HEaFtc8nl+xzkI7zYR4g20aqWceAeCAMnFlXUHO15FAtA
-         JXKIWGeq7hVx+DW2591pPlw/amCRKWSA7Zq3T/NPeuiQk1kKiPBy+88ywNJrlmfc/NEM
-         EDEvUdHUqfmFFb7rPZ6ZJeUAa/IIeK4PE/PB9O09RkLv+x8DfyLrSCWM3j81v4/E34yR
-         EuepXgn9cOxqcW0NfpbP0UuGWOjgIk3bLXP1Ff0UaKg9YtTLpoyi638jad17VHGBDM62
-         rBjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790319262; x=1790924062;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lIi+33qeuEkwNBz/fk+oqvqVziUPzN6OFpjduAUkZHw=;
-        b=f3CVywNZ5LAQUIzw7a6ugPwi+WRG8yCBW7/cWC9chktv6jNsH6VXfoeVrbu2VrMPKP
-         JSWHiv5eRIYu0XfTpLG+lDFCRniDCxxGI3ojmNK0hySEL0a52Lc+9oewNK1m2MOlqKkc
-         mWdQI8OkUaISKmVkpyRtejqrz8ydLcn+WDsSGdFG9EZOK0EJ5ZaIgpbilC4fC4PbZaRR
-         uHokRpcXd7hsFEIfmsgenWOmB504SlHFXTKEclBb1wX4hvubEzxfI/0s7xKyuh2fFiQU
-         jErR5zO0ODw7ogYyJNIkAt8zvtwsg3swVxqAGzFGfsiL5PYkHmcn9srixJbxBZUMh+PA
-         Yv7Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwU/ULo1dfhRqicsytTf50i66nEtVS7U6bcCspL4U0RvTJM5QEegyqf/pWV0DtLGRz94mb1Q1L1QNcbfshPrrws@lists.infradead.org
-X-Gm-Message-State: AFuF++naR4GsPO77nsqIO0xydtYEnA3gtaHtfFb7AaAYQpjXO6WdeWVk
-	GVSSbzI1ONu3Am8Q3qgUbMyBgluNEddKpJ7P61w8AXKeUhHMsgznvViP
-X-Gm-Gg: AYBFou0E/YsQpnYcvwuQwJNm0eIwTR6Tjr3sYnC1p2wNpNEHQnxuRJbD054Ksn1fZSa
-	NPD9mv1cvqwyrUaX8UjXFpcG6TpxHTDGNR0go2rcEfUPv+c2wViyONkTXNxT9tYqCrevyThilOI
-	Vq5ICcbxcfHu6kOiLa5f0+Ba/V+7P9fn+UWdZfLIXbbWHKanYQ1uXQiXtdM8FE3GjZUnaU9LzDT
-	bP1gr8MhScSo3Mhvc5odyNEY+SiR3RDedp3Se6sR8I80S/z90TpLKqhVIGp8G68vLNLXKhInoO/
-	PP6eHSwN638RbfPhKanUH34tA5JfNnexMo6do0sEXD9pnZPoNduDzIhUS7Z5rJriGDjyrn7d1SO
-	Aj0EcGPunnJeUJjXfGN5NDD0+Gl6MYRCet2apvZzyWy02BYyvwD7fkNRjOX77NQGFF3s8T9IGFq
-	6umKVXI60BM3HG1q8HsI/6Fvwx7dJ80LiQoFeTX1/pWk75JnlZ74o/r8P82MFMbkuSLGGCY8zb1
-	FvRm3fl52jInncBM6KHF2vESDed7Z+e5JOE8KUvOW8UIK1xich2Nu60GKOFKzyqTyD85eY6U4+7
-	mEYP018a7sILHKWs/45nx8EcakiDBHE7q11C9D7vD179AKnYL4JSOJYYxsmI5VAjMjtgJEFu/+t
-	KrgxyVqJf+oDR2TCcpy8=
-X-Received: by 2002:a05:600c:8b4c:b0:49c:fa20:cbfc with SMTP id 5b1f17b1804b1-49fe66eb0f0mr80244325e9.19.1790319262338;
-        Thu, 24 Sep 2026 23:54:22 -0700 (PDT)
-Received: from cypher.home.roving-it.com.com (78.45.167.195.static.otenet.gr. [195.167.45.78])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49ff43ad975sm14424155e9.13.2026.09.24.23.54.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 23:54:21 -0700 (PDT)
-From: Peter Robinson <pbrobinson@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH] arm: dts: bcm2711: Add emc2301 to the CM4 IO board
-Date: Fri, 25 Sep 2026 07:54:10 +0100
-Message-ID: <20260925065418.2248731-1-pbrobinson@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Fri, 25 Sep 2026 06:54:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A9416022E;
+	Fri, 25 Sep 2026 06:54:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44251F000FF;
+	Fri, 25 Sep 2026 06:54:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790319280;
+	bh=ll7flwWgIu475+3ZjFH1CFh44ywyc/783LJaMOFJs1U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=dFP/SFVffpEfADCUW/3/h/rABojLtLdqrQ6lHU48baRKVVHzSKiCMiPFJn5eqoqe/
+	 JRPElPZR+1q9sCfcW3bZDlH5weJ4mzfrVWKZrXbzXeHwSwueE/Wm6ouT61K5bpVBTH
+	 dBIO4CgDYmDH1pyzhiulXZ1ucXebE7TXWzyODOP7n/rqfBsHN6HnsphcKCEOJbspeU
+	 aANb57pekKLUchOl1Vavezn4Rf2VPuTNgeUznlmK6tY5MLIloMzkiyMHLwDHYir2PS
+	 osAiiac2ZJFzmcu5BCyt2HpqKZUZquYoUVrMi80GHGt/J0BSxeIPNb8Q4gxAqFuPvX
+	 rk7aAzDLNY9rA==
+Message-ID: <feeed1f5-0e82-4b6f-8640-f38f3a892d20@kernel.org>
+Date: Fri, 25 Sep 2026 08:54:33 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_235424_231766_47BA4F3B 
-X-CRM114-Status: GOOD (  11.55  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCHv3 0/2] usb: bcma: control VBUS via a regulator
+To: Rosen Penev <rosenp@gmail.com>, linux-usb@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Hauke Mehrtens <hauke@hauke-m.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <zajec5@gmail.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "moderated list:BROADCOM BCM5301X ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+References: <20260924233831.127617-1-rosenp@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260924233831.127617-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +122,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CM4 IO carrier board has a emc2301 fan controller. Add
-it so it can be used on the CM4 board.
+On 25/09/2026 01:38, Rosen Penev wrote:
+> bcma-hcd currently drives the USB power line by grabbing the
+> undocumented "vcc-gpio" property from the controller node and poking
+> it through gpiolib. Besides relying on a non-standard binding, this
+> cannot work on boards such as the NETGEAR R7000 and R8000 where one
+> chipcommon GPIO powers both the USB2 and USB3 cores: the two
+> controllers each request that GPIO exclusively, so the second one
+> fails with -EBUSY and its port stays dead.
+> 
+> Instead, switch the driver to the standard regulator interface and
+> express the power rails as regulator-fixed nodes bound to the
+> chipcommon GPIOs. The regulator core reference-counts enable/disable
+> requests, letting both controllers share one GPIO without conflicts.
 
-Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
----
- arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Please use standard email subjects, so with the PATCH keyword in the
+title. `git format-patch -vX` helps here to create proper versioned
+patches. Another useful tool is b4. Skipping the PATCH keyword makes
+filtering of emails more difficult thus making the review process less
+convenient.
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts b/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
-index 8e45de01d2ad1..4f81fbdb85b56 100644
---- a/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
-@@ -107,6 +107,20 @@ &genet {
- };
- 
- &i2c0_1 {
-+	emc2301: fan-controller@2f {
-+		compatible = "microchip,emc2301", "microchip,emc2305";
-+		reg = <0x2f>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		#pwm-cells = <3>;
-+
-+		fan@0 {
-+			reg = <0x0>;
-+			pwms = <&emc2301 26000 0 1>;
-+			#cooling-cells = <2>;
-+		};
-+	};
-+
- 	pcf85063: rtc@51 {
- 		/* Attention: An alarm resets the machine */
- 		compatible = "nxp,pcf85063a";
--- 
-2.55.0
+Almost all your patches for months now do everything to escape my filters.
 
+Best regards,
+Krzysztof
 
