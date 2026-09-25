@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED3FC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 21:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E38C9832A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 21:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGAVtFU1ZWDmCtLaT+G7B5o5ljsTh3nqCzq4ca6rlME=; b=2MikNbnfyLH4ixagmDQ5MT6JL+
-	6x2dXEpIggED4Xvc3gugAk/C6XtXVKIOKWbDU2gmoPrCCUf03dswK8lqg9vzJm5IaR0iGPPWmln6z
-	ZHcm9s4CPNFP9s7Xi7HiJtsdsZi6V2WdiN7SqefXllGSqRs7fc7CL0Nvy4TJDUp2hlyoXUKh0f+7w
-	jwW8i6w7QFmhjF/tCXp5ok8KvPALiRdAqEjdQ8CFRSI3cajoumAaKDQSnJ8pDrAF50EwYCtt9C675
-	no0juZoPZI3OewQnE9cEoofrBD4dybSCu2gU3nXxcc16Xx8FtvB/NRiRkbVwe9sfq/AkZvlDMm1vZ
-	ISlVP8wg==;
+	bh=IIMvCRPk4oQabUuNoTzd+hbJerQBs659OSj7AsZRTXU=; b=D/1tIhbXn4oEspf9VJOPEAUgNa
+	fIu8vHfA2FvtIRt1IokfFAHV8+s5hVwCdQM2M5iRF1OowGO4JapaM8NFTePFSvOdLiD+rznYAxJn9
+	6ccS8wpwQlxvDkeQt5z4BHguGkOmisNURxa1WcJAhf0D/pWbxkdXehLZ6dBZsssIldhVozp/uL8Yw
+	ef4B9X34Bc98Pth8S9YTOsNCwyEMdJ1eGMtaepdtSQ9fCa1xuxJkm3MSBpKGpe5QFnfp+TIwXFoFX
+	MWPETDZZElgfVWcCyjnDH1hKSwowpzD0UYcANF4u8RCxSynPh0zbg2mbycI2dDKTy4ENGwTbv2PF0
+	Jk5YgMKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xADdj-0000000EVwF-0uOa;
-	Fri, 25 Sep 2026 21:39:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xADiN-0000000EWNl-3ghB;
+	Fri, 25 Sep 2026 21:44:19 +0000
+Received: from mail-pj2-x0f.google.com ([2607:f8b0:4864:39::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xADdi-0000000EVw0-0E0b
+	id 1xADiM-0000000EWNA-0eiF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 21:39:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE20960136;
-	Fri, 25 Sep 2026 21:39:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CA41F000FF;
-	Fri, 25 Sep 2026 21:39:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790372368;
-	bh=qGAVtFU1ZWDmCtLaT+G7B5o5ljsTh3nqCzq4ca6rlME=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Uq3jK6lzFPBk2mUB+21kzIEJ3e7xo6lES0MeUECU8KDNeBmretRa77Q3OlwhtoQmE
-	 JG8Dx0lTEjtjm2k8juBgSTzHaF2rroNVk1zww7OONmnk0v+x0FA56wC0MjZCrNSV/e
-	 H2pVr0Zo24UJv/vG9L8beZRRHMlmE7YAN/RF7/BIf3sCxDQZGCKJr+E+v3UjzyyNbI
-	 MirHao5U2KikMGzvv4h38MAzkcRcWP7PU8EZ2aiQo71N4cAbsRUfMEcbTXCJ/xYXPz
-	 HyiCZr2awcrNsxXI7Kdq8YVAeSXWzjieQzGLgVnG89GGjnkOohpJbH4QMHQxQzDjRf
-	 Ccal7IQ4ASL7g==
-Date: Fri, 25 Sep 2026 14:39:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Minchan Kim <minchan@kernel.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
-	linux-block@vger.kernel.org, Yann Collet <yann.collet.73@gmail.com>,
-	Nick Terrell <terrelln@meta.com>, Gao Xiang <xiang@kernel.org>,
-	Chao Yu <chao@kernel.org>, Jaegeuk Kim <jaegeuk@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Phillip Lougher <phillip@squashfs.org.uk>,
-	Sungguk <sungguk.na@samsung.com>,
-	Jaehoon Chung <jh80.chung@samsung.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-erofs@lists.ozlabs.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-crypto@vger.kernel.org
-Subject: Re: [PATCH RFC 9/9] MAINTAINERS: add an entry for the LZ4
- compression library
-Message-ID: <20260925213926.GA1903@quark>
-References: <20260925-lz4-vendor-upstream-v1-0-1c7ffbe21c4b@samsung.com>
- <CGME20260925113507eucas1p2ddb94f2077b679426aa86dd1d492eaf3@eucas1p2.samsung.com>
- <20260925-lz4-vendor-upstream-v1-9-1c7ffbe21c4b@samsung.com>
+	Fri, 25 Sep 2026 21:44:19 +0000
+Received: by mail-pj2-x0f.google.com with SMTP id d9443c01a7336-2d747ee1f9bso6860485ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 14:44:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790372656; x=1790977456; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IIMvCRPk4oQabUuNoTzd+hbJerQBs659OSj7AsZRTXU=;
+        b=V8cW6gW1rcpG1xCWhSfDcflxOs4p+vIyPcq9b0KF33RYZKVmK+FBbiap3yv1IvsdJy
+         adp5ScrOlZUrS+H3RUAwsIT2zOT1py/WpsqezB0JumSMlR0aj7JiyyHLIdz7oz++B7MQ
+         5Onyr6iPdwBbQtz4q0u5iKq6bWXr07k9Ur7L6MY7sN/q7pAjH1z7aII9bjUdPiImfX/o
+         e2mbMZCXnRUlmFXvXn8QWHuO3GvvbUaMWMjDVaIVh3z6dKB3QOSZPo9zDE170BmniKtz
+         7a+8fma7ce0lQQIvh6nlhjy/wTXwz71QqfVAz5Dkl42ZB0njIi9ivrc3Oua2jxviIWRB
+         7SSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790372656; x=1790977456;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IIMvCRPk4oQabUuNoTzd+hbJerQBs659OSj7AsZRTXU=;
+        b=GAG8UrVBsTW6uchcBcp4z1UxKSj5UJaZzPkG64i7D0OWP/0Qve1MWTQce+IUCsdBle
+         F6Fv384ZVS5t5l4JbVXuhrRUAuUZfEsV8BKkYpqkf2EroaRjC9RpTUlOC/uEAKcefcjd
+         X3i2mnfYNlg6iarZ2YZ6WCmJmXBJJkwk17u4RVL/1PEz2cVKo9fpwKhxUNUwSAMWqv3k
+         m/HGx0RqFdzlHrBedDml/so2ZO5HBULNdVmbgoHxOar521GG3nQ9nVPFLKHYZUoSS/Cl
+         KT0mR70jCUa6cs7rVLPx8sSO70ISnOsFLh4t+dg44PXpESUqBMdNr5iIXmIG+R7CQcmh
+         PwhA==
+X-Forwarded-Encrypted: i=1; AKwUvBxE7Zuz1ZOPy5/GB3hivuWumbg3lkmbrb9oE0/26uBBxbiATstJsbkfjMO39siasropQ7sQW7uL7PQu+3hHXcC1@lists.infradead.org
+X-Gm-Message-State: AFuF++n6lBft7JtuNv4oJzpESodBTmVNbodx5SyuI22gXCK0lQY4dba+
+	Ph2QD4zRUA9s71Ro/J2pPZPAXuco9fByxJ6jWGcb3H6tm770KW0UwdAJFt8CdvvUY7QNpBXGGyM
+	sN6RyCSvG
+X-Gm-Gg: AYBFou3qisp/MriPbJkqNk5DEC3dlpRcZEoIJKMUHa9p51HpL4uAWCw322INXpid9s+
+	5DNq7rLidnuFj9hULfhvT0CLfD4/FXv5qN8w8qErLsqiK43puK8kFLUN7hR265yMYQ251aX0I2g
+	ZMd7Q7/934NGtsFJ7fR0AXCBCyidOGOhr6YC3PWLzNObLouKYhnuth8RfuKHljhyhrFpJhqX93G
+	RICjRiakQWuJ0vlI82ngSEiVIlt4VEWPJeYTLreW1Swy7dnsIoyiug/kW3Ha4F0NoSMO0MEnBzt
+	y2/pMU/DmdhLv18+21u+KbKatJSpY4L6KaLlOZM/ZanU3eBD9tEUvoWiSw0eXWTCFk2leyf/msZ
+	5V4T4UxUFuXliWlL/5sw3pvVCnMuE2uGZSmkzAhJx5zjtyhLb+IFKBmIBT5OxstcURMcFeeBWsS
+	+pa0c18b8po7QyN1BPC6OXtrgT/JN9amlKGMFdri1/iLexMQNGcFNLMWXxyHtgQAOe7jCojyx4a
+	hxbCLZhDk5+ZfafDByUi5Rx/2wDxD1clrx3Nm24
+X-Received: by 2002:a17:903:184c:b0:2df:3b0c:a6a5 with SMTP id d9443c01a7336-2df7da5d1bemr63157015ad.9.1790372655435;
+        Fri, 25 Sep 2026 14:44:15 -0700 (PDT)
+Received: from google.com (192.150.203.35.bc.googleusercontent.com. [35.203.150.192])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df91476bb4sm16242765ad.83.2026.09.25.14.44.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Sep 2026 14:44:14 -0700 (PDT)
+Date: Fri, 25 Sep 2026 21:44:05 +0000
+From: David Matlack <dmatlack@google.com>
+To: Samiullah Khawaja <skhawaja@google.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Robin Murphy <robin.murphy@arm.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Alex Williamson <alex@shazbot.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Pranjal Shrivastava <praan@google.com>
+Subject: Re: [RFC PATCH 0/3] iommu/arm-smmu-v3: Add support for hitless
+ replace of CD entries
+Message-ID: <arbrJYsILS1IPpCK@google.com>
+References: <20260925011308.3381953-1-skhawaja@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260925-lz4-vendor-upstream-v1-9-1c7ffbe21c4b@samsung.com>
+In-Reply-To: <20260925011308.3381953-1-skhawaja@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_144418_197413_617996F8 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +108,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 01:27:39PM +0200, Michal Wilczynski wrote:
-> lib/lz4/ has never had one: get_maintainer.pl returns only the LKML
-> fallback for every file in it, including include/linux/lz4.h, which eight
-> subsystems build against.
+On 2026-09-25 01:13 AM, Samiullah Khawaja wrote:
+> This patch series adds support for replacing IOMMU domains with S1 page
+> tables hitlessly, that is without disrupting the ongoing DMAs. This is
+> one of the dependencies of the Liveupdate IOMMU support for Arm SMMUv3.
 > 
-> This matters more now than it did. With the previous patches lib/lz4 is
-> vendored upstream sources, and someone has to bump them to new upstream
-> releases and decide what the kernel-side glue may do. I am willing to do
-> that, so add myself as its maintainer.
+> S1 domains are programmed by CD entries in the CD table. During a new
+> domain attach these are updated using arm_smmu_write_cd_entry(). Since
+> ASID and TTB0 are in different 64-bit words, arm_smmu_write_cd_entry()
+> considers it a non-hitless update and sets V=0. This means such an
+> update is disruptive and would generate translation faults if there are
+> ongoing DMAs.
 > 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  MAINTAINERS | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Replace the CD entries by using an unused temporary ASID in the
+> following sequence to allow hitless replacement of CD entry,
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index cc3cae2e378b34aeb705cef654c720ca9f2ba223..989e1b5fab21432dd7042d1e60c4bbad85beb925 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -15606,6 +15606,12 @@ S:	Supported
->  F:	drivers/net/pcs/pcs-lynx.c
->  F:	include/linux/pcs-lynx.h
->  
-> +LZ4 COMPRESSION LIBRARY
-> +M:	Michal Wilczynski <m.wilczynski@samsung.com>
-> +S:	Maintained
-> +F:	include/linux/lz4.h
-> +F:	lib/lz4/
-> +
+> - Update the CD entry with temporary ASID.
+> - Update the CD entry with the target TTB0.
+> - Invalidate the temporary ASID.
+> - Update the CD entry with target ASID.
+> - Invalidate and release the temporary ASID.
+> 
+> The series adds a vfio selftest that triggers a continuous DMA and does
+> the hwpt replace while the DMA is ongoing. Since domain replacement is a
+> race with the translation requests, the test does it multiple times to
+> capture the small window where IOMMU faults can occur.
+> 
+> Without this change we can observe the SMMU faults in the kernel logs
+> and with it the SMMU faults do not occur.
+> 
+> This is only tested on qemu with the emulated SMMUv3 and an out of tree
+> NVMe vfio selftest driver, not on real hardware. Following are not
+> covered and can be done later,
 
-Should this entry cover lib/decompress_unlz4.c and
-include/linux/decompress/unlz4.h as well?
-
-- Eric
+Out of curiousity, does the in-tree VFIO selftests driver for IGB not
+work for this testing scenario?
 
