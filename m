@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40AECC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 08:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E5FC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fRkS/AwRvXfqS9hACKPrCrxlhkEVLAdRbTDbRYWa8VU=; b=yWfQ6sFLWlTaxbJVaBe4fJOh+2
-	ylkMBWnnAf4gIU+Zj1YMP1X5Dhb69f3sker6OcWsx/qKUouM8Lno0CsZpfspdYyKK9Mdl6a+Uto4Q
-	BVfFtpr6X2DSVFP6hRdF8wVY0NQYd+QoG7cJG6W1QD0iGW5e4PdhcFTIgq+9/IsM3vCz+2xHK1rSP
-	p8GK1qF2QV1k0OwyWe4ExfGoC44lSw65AUFklQQq4Yf9Ai6DWuiPuTnMg8sBaI4fxZlZIFsKyrhIh
-	CNsy1NFcNdo1xh5A72nrfM27jWzXv4qIgI/Ntf/Zq3MCe6gT7tJiW1IduziL2JKMRheEgRCvRrcIn
-	5jnrHj9A==;
+	bh=cWihEX/LNMg2JeV4HNtUE2MAnoHe+L0E+l/b3zuEULk=; b=v5kmt8Fxota64tjFJkTjU3fWwq
+	gWVuaKM/0gcanYCSgdu9A2uHCdmfocx26kUCLs9EgwY0sz2j+LIMR7AcVZue1l1Li9N5OTKB5XmF1
+	5jV2/Z4fKzKMSnknRxSeDBal+BrtDYH2pv8DaU5C7d5WtYtngqyJJMGuqFHcIvYhsmQLgXbsy8MOc
+	4EFRMl1KGyn6sZO8geuyZqRdN7Papkbf+r3jWR1F7OknL5UkBTcNLwWJizaQDvvoVrZmgTCjTcd94
+	FV02uQcbAdb0jC8Dh+aUw7RTirjTWeaXWz4GqwCA1OAi548Q2LNH2mDzDU0LHZpRtZBPSBVxag45n
+	KTU8GgQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1k9-0000000CxSG-38BH;
-	Fri, 25 Sep 2026 08:57:21 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA1k4-0000000CxRU-26Sf;
-	Fri, 25 Sep 2026 08:57:20 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925085711euoutp023034b78e8628550a3ae5d7840b37570c~YhJYCLvL92670226702euoutp022;
-	Fri, 25 Sep 2026 08:57:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925085711euoutp023034b78e8628550a3ae5d7840b37570c~YhJYCLvL92670226702euoutp022
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790326631;
-	bh=fRkS/AwRvXfqS9hACKPrCrxlhkEVLAdRbTDbRYWa8VU=;
-	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
-	b=vanVKrSk5T6FjDTn74/1SUO/LMXVqJxekusjmh+babZgiVJMQp94HjScOSgxnGlOR
-	 5d4koPLRi1e6pSrU0IEHhOTj75hlbtCMapcYoGSA9uiDQv+BCXn4dZic+bQLLvKziH
-	 LU69fdmLb9XCyuTFLtUEuYD6O202XJ3H6/pu8JBg=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260925085711eucas1p1485ce5a6153e8db654ed3cd6ed2fb70c~YhJX0T9dK1519715197eucas1p1s;
-	Fri, 25 Sep 2026 08:57:11 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260925085707eusmtip2203bb57f8f737ff31c8cf3ba1f2b8a50~YhJULSaYY1254612546eusmtip2q;
-	Fri, 25 Sep 2026 08:57:07 +0000 (GMT)
-Message-ID: <40d8c179-f240-486d-b446-c76549d72772@samsung.com>
-Date: Fri, 25 Sep 2026 10:57:07 +0200
+	id 1xA1q9-0000000Cxqi-2qxa;
+	Fri, 25 Sep 2026 09:03:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA1q6-0000000CxqM-0nij
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 09:03:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C4DE1758;
+	Fri, 25 Sep 2026 02:03:25 -0700 (PDT)
+Received: from [10.57.10.88] (unknown [10.57.10.88])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57A9A3F86C;
+	Fri, 25 Sep 2026 02:03:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790327008; bh=sOAlpYevyEEeqo1Lx6FnS3Y7E3aUZb0OVhb2WCb8c0o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ule2hsFwr8aED801DCcqIgLrUcWuQutUQXVi9350MdfOoGlVbmTrOv7pRQ7HqRVnV
+	 gGCzsDpOqeDYg8meXD0+euDrJXWydl1ypuJ6Jvwv4Ofhui1FX7gF81H2fkpJy0kamF
+	 eQv78mxZEV1sYyrBH7fDPXjnD3kqprKDEvQuPnHk=
+Message-ID: <0c41a8a4-c4b5-4ca7-b1c9-8aaa1958e4bb@arm.com>
+Date: Fri, 25 Sep 2026 10:03:23 +0100
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH v6 0/8] dma: swiotlb: Centralize default pool policy and
- sizing
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, Mark
-	Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Steven Price
-	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
-	Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Jason
-	Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, Petr Tesarik
-	<ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan Williams
-	<dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>, Madhavan
-	Srinivasan <maddy@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, Albert Ou
-	<aou@eecs.berkeley.edu>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
-Content-Language: en-US
-In-Reply-To: <20260924060756.1325156-1-aneesh.kumar@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 0/7] firmware: arm_rmm: Add RMM v2.0 base RMI support
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: maz@kernel.org, will@kernel.org, catalin.marinas@arm.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, oupton@kernel.org,
+ joey.gouly@arm.com, tabba@google.com, yuzenghui@huawei.com,
+ linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com,
+ sdonthineni@nvidia.com, alpergun@google.com, fj0570is@fujitsu.com,
+ WeiLin.Chang@arm.com, lpieralisi@kernel.org, enju.kohei@fujitsu.com,
+ sudeep.holla@arm.com, jonathan.cameron@oss.qualcomm.com
+References: <20260924135201.850038-1-suzuki.poulose@arm.com>
+ <fd404549-9c40-4fdf-9259-104c28b64c76@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <fd404549-9c40-4fdf-9259-104c28b64c76@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260925085711eucas1p1485ce5a6153e8db654ed3cd6ed2fb70c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3
-X-EPHeader: CA
-X-CMS-RootMailID: 20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3
-References: <CGME20260924060823eucas1p1d27fbf57221c9b4c0e9831a9b0cdd7d3@eucas1p1.samsung.com>
-	<20260924060756.1325156-1-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_015717_928946_1C60B465 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20260925_020330_314855_65477CFE 
+X-CRM114-Status: GOOD (  30.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +77,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.09.2026 08:07, Aneesh Kumar K.V (Arm) wrote:
-> This series centralizes swiotlb default-pool selection and sizing, and
-> simplifies the initialization flags used to describe pool placement.
->
-> The first patch replaces the addressing-limit argument with initialization
-> flags and introduces explicit policies for the different reasons a default
-> pool may be needed. Architectures now report DMA addressing constraints with
-> SWIOTLB_INIT_ADDRESSING_LIMIT, while the core selects the corresponding pool
-> policy.
->
-> The second patch moves the reduced sizing used when the pool is needed only
-> for unaligned kmalloc bouncing from arm64 and RISC-V into the swiotlb core.
->
-> The third patch centralizes swiotlb sizing for memory-encrypted systems. It
-> moves the existing x86 guest-sizing policy into the core. Host memory
-> encryption retains the normal pool size, and a shared default pool is not
-> selected solely for guest memory encryption when a restricted DMA pool is
-> present.
->
-> The fourth patch removes SWIOTLB_ANY. Pool placement is derived directly from
-> SWIOTLB_INIT_ADDRESSING_LIMIT: pools required for limited DMA addressing are
-> allocated below the architecture's low address limit, while other pools may
-> be allocated anywhere in directly mapped memory. Xen continues to request a
-> pool explicitly with SWIOTLB_INIT_REMAP without imposing a low-address
-> constraint.
+On 25/09/2026 07:29, Gavin Shan wrote:
+> On 9/24/26 11:51 PM, Suzuki K Poulose wrote:
+>> This series adds the generic firmware layer for talking to the Realm
+>> Management Monitor (RMM), as specified by the RMM v2.0-bet3
+>> specification[1]. It is the first part of the Arm CCA host support that
+>> was previously posted as part of the larger KVM series.
+>>
+>> The split allows this RMM support to be used as a base for other work,
+>> including Aneesh's PCI IDE support with Arm CCA RMM as the TSM,
+>>   without depending on the KVM Realm support that will follow as separate
+>>   series. (See more on that below)
+>>
+>> The series adds:
+>>
+>>   * The RMI SMC definitions and direct-call wrappers.
+>>
+>>   * RMM discovery and version checks during firmware init.
+>>
+>>   * RMM host configuration, including the host page size.
+>>
+>>   * Stateful RMI Operation (SRO) infrastructure for commands which the 
+>> RMM
+>>     can complete across multiple SMC calls while requesting or returning
+>>     memory to the host.
+>>
+>>   * Verification that granule tracking is available at fine granularity.
+>>     Fine-grained tracking allows each granule in the system to be tracked
+>>     independently, which is required before individual granules can be
+>>     delegated. A future series will add support for dynamically supplying
+>>     memory to the RMM for this tracking.
+>>
+>>   * Support for fully firmware-managed systems, where the Granule 
+>> Protection
+>>     Tables for memory regions are allocated and managed by firmware. 
+>> RMM v2.0
+>>     also allows dynamic GPT creation on demand; support for that will 
+>> be added
+>>     in a later series.
+>>
+>>   * Wrappers for the RMI commands that are used for managing the 
+>> "Realm VM"
+>>     lifecycle. This is added in to make it easier for the on-going KVM 
+>> support
+>>     to evolve in parallel pieces.
+>>
+>> If the platform firmware cannot manage the granule tracking or the 
+>> GPTs, we
+>> bail out and deactivate the RMM, reclaiming any memory that we have 
+>> donated.
+>>
+>> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+>> the RMM to complete an operation over several SMC calls while requesting
+>> or returning memory to the host. This allows interrupts to be handled in
+>> the middle of an operation and lets the RMM dynamically allocate memory
+>> for internal tracking purposes. For example, RMI_REC_CREATE no longer
+>> needs auxiliary granules to be provided up front, and can instead
+>> request memory during the operation.
+>>
+>> This series applies on v7.3-rc2 and a branch is available at [2]. The KVM
+>> CCA support that builds on this series is available at [3] as an 
+>> integration
+>> branch. The KVM support depends on guest-memfd-in-place conversion 
+>> support v13
+>> from Ackerley [4], we plan to split that into parts, which apply 
+>> cleanly on
+>> v7.3-rcx without any dependency and is in progress. This will be made 
+>> available
+>> as soon as it is ready. Until then [3] shows how this base series 
+>> enables KVM
+>> CCA support. You may find the tf-RMM [5] and kvmtool support [6] below.
+>>
+>> [1] RMM spec : https://support.arm.com/documentation/den0137/2-0bet3/
+>> [2] This series: https://gitlab.arm.com/linux-arm/linux-cca.git cca/ 
+>> cca-host/fw_rmm/v19
+>> [3] KVM CCA v17 integration branch: https://gitlab.arm.com/linux-arm/ 
+>> linux-cca.git cca/cca/cca-host/kvm-v20/integration
+> 
+> s/v17/v20 ?
+
+Yikes, I have pushed this in the kvm-v20, with the changes to the 
+RMI_RESULT instead of RMI_RETURN etc. So the branch is correct, but the 
+description is not. I will rectify that
 
 
-I would like to give this patchset some tests in linux-next and merge this to
-v7.4-rc1, as this is important continuation of the code already merged to v7.3.
+>> [4] Gmem inplace conversion https://github.com/googleprodkernel/linux- 
+>> cc/tree/guest_memfd-inplace-conversion-v13
+>> [5] TF-RMM https://git.trustedfirmware.org/TF-RMM/tf-rmm.git main 
+>> (commit: 134266ae)
+>> [6] kvmtool https://gitlab.arm.com/linux-arm/kvmtool-cca.git tag:cca- 
+>> kvm-v20 (Also cca/kvm-v18)
+>>
+>> Known issues: RMMv2.0 spec.
+>>   * RmiOpMemDonateReq:count (Uint14) is incompatible with 
+>> RmiAddrRangeDesc4KB
+>>    (Uint10) and RmiAddrRangeDesc16KB (Uint12). i.e., a larger 
+>> contiguous request
+>>    may not be satisfiable by the host. This is resolved in the RMM 
+>> spec, by clamping
+>>    the upper limit on the number to match the RmiAddrRangeDesc* and 
+>> will be published
+>>    in the next release.
+>>   * RMM to clarify the scenarios that triggers the RMI_BLOCKED and the
+>>     recommendations to limit the cases.
+>>
+> 
+> Applied this series on top of upstream linux v7.3.rc4. The built kernel 
+> can boot up on
+> GH200 machine and CCA host emulated by QEMU with various combinations: 
+> 4KB or 64KB base
+> page size, CONFIG_ARM_RMM_RMI is {Y, N}. The RMI is only detected and 
+> configured on CCA
+> host when the base page size is 4KB because RMM only support 4KB granule 
+> size at present.
+> Details can be found from TF-RMM/runtime/rmi/ 
+> granule.c::smc_rmm_config_set(). Besides,
+> some of the added functions based on the RMI calls aren't covered by the 
+> tests obviously.
+> So I think this series doesn't introduce regressions at least.
+> 
+> Tested-by: Gavin Shan <gshan@redhat.com>
 
+Thanks Gavin ! Much appreciated
 
-Any chance to get some more acks from arch maintainers (especially x86)?
-Unfortunately I had to reduce the CC list due to my smtp limits...
-
-> ...
->
->  Documentation/core-api/swiotlb.rst   |   8 +-
->  arch/arm/mm/init.c                   |   6 +-
->  arch/arm/xen/mm.c                    |   2 +-
->  arch/arm64/mm/init.c                 |  14 +-
->  arch/loongarch/kernel/setup.c        |   2 +-
->  arch/mips/cavium-octeon/dma-octeon.c |   2 +-
->  arch/mips/loongson64/dma.c           |   2 +-
->  arch/mips/sibyte/common/dma.c        |   2 +-
->  arch/powerpc/kernel/dma-swiotlb.c    |   4 +-
->  arch/powerpc/mm/mem.c                |  17 ++-
->  arch/powerpc/platforms/pseries/svm.c |  10 --
->  arch/powerpc/sysdev/fsl_pci.c        |   1 +
->  arch/riscv/mm/init.c                 |  24 +---
->  arch/s390/mm/init.c                  |   2 +-
->  arch/x86/include/asm/crash_reserve.h |   4 +-
->  arch/x86/kernel/pci-dma.c            |  23 +++-
->  arch/x86/mm/mem_encrypt.c            |  24 ----
->  include/linux/swiotlb.h              |  17 ++-
->  kernel/dma/swiotlb.c                 | 193 +++++++++++++++++++--------
->  19 files changed, 210 insertions(+), 147 deletions(-)
-
-Best regards
-
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Cheers
+Suzuki
 
