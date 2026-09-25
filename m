@@ -4,94 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC4EC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 22:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE15C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 22:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNk5t+un5bnjvH3s5WgAuUT8uY+MtqkDR0o9w3npnBk=; b=Q9fkxfIra821OjPmPaBX6/GOYV
-	yo1gZnt8j/F3BSNNnheqHECdj4qSx9S96y/siDw2OEznqwjhmgPqcfqCQ5bmyNtmbq4105skQwXTe
-	+WRZXtREW9YyCIZIfrkrXifGku9VvNRgzteqoh98M17tmlymyaamJGAo60yF2itEuhynTDWaQdtko
-	zyYTkIqp8o8dHLr5ozaj0sZnkXzUeCH/Do5UKrpdcLIHzE7l6Fv7tupChpY/TiJPHLmp0B4fQRFkR
-	ZXtVu3/yg545ZanOFhuKE2aiy99WaHvoWhpr51h2DTmW5BMJSzGiMxWKa6Kbdlks8ly++L18846Fs
-	Lx5cTLJQ==;
+	bh=WDiJhqeP/3eK61Zue18ejXmcZlLg6KE7iWJtrDX6Be8=; b=onz9owGW/w5IUaDs4F2dL+yPUD
+	YPEzltiKFfJp1IY/cUfbvsafoH4iOVQT3QCZttXINSLPiiubHji7g8pXARWCOVzz7W4QKg+UM53Zh
+	/krk1mj/TKe+A+Z8b6/N5mdTq/A2o3CrRnVDSLdINbqwCjAMmth+2xHTM+Du7AgNO3xVcAPBkthzP
+	FF9kOXF8sIeksFdbJiTLi+DVNBUpMtT49zhP+gJopxHo3L2U4eNOScLZ4cNFMtrdtH3Qd+cNmMoU8
+	1EkpMvnfb6Jk9Avb+F1obyYZAPOAn/RuVJyvus/h0qDTBadn7y2P1oZWU+FPS3baPB8WkT/2t3RUA
+	aLOTlG2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAEiU-0000000Eb25-2aHD;
-	Fri, 25 Sep 2026 22:48:30 +0000
-Received: from mail-oo2-x29.google.com ([2607:f8b0:4864:31::29])
+	id 1xAEig-0000000Eb4M-333O;
+	Fri, 25 Sep 2026 22:48:42 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAEiR-0000000Eb0x-1d7S
+	id 1xAEie-0000000Eb3N-2Bb9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 22:48:29 +0000
-Received: by mail-oo2-x29.google.com with SMTP id 46e09a7af769-8137b129131so932698a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 15:48:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790376505; x=1790981305; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jNk5t+un5bnjvH3s5WgAuUT8uY+MtqkDR0o9w3npnBk=;
-        b=ARgTSFJxjxihnjd/VcQ20OlaCFRqrkHs5Paw1zEmk8BVpgrZtRjuN63qImMnduRFTu
-         mHHSB2A8VJ8n15g0HdQuYc80bOQfflTJFxoE7nkgokGKGkqd/wsHlQAoGs9OqYqkaNbq
-         1zcJpPRueBtMFw3z9YO3hWzIEsZ9QaW8JOlwGnkgo93pkkwIHRtwo8LMX7RTnE029E3E
-         fo0iEcT8beS6u6lxSfCt3YGG+5JMtW6b3o2jCdOBECl2EZd8BznlAPV93VyhRcfP98fy
-         LMnailcQC8xcZnfLc6NEi5Zzqo5M3PE2pKYkgm23KjfwvmvQCa/SZqdDyqgf7bx3s13R
-         jYWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790376505; x=1790981305;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jNk5t+un5bnjvH3s5WgAuUT8uY+MtqkDR0o9w3npnBk=;
-        b=dbzu+vwHSRQJTjU8jAqRnow8nKdecodUA6i9BJQjTB8Bms4/gpVN+Io+yerhtKxaZa
-         fBYFsrPjiT1EWS9PM6hDClh2adgadXaQgCFhybSG03apF6G7vbl7XgJ29rZ6RZWPsKF6
-         s1IhlSSDf1Xc46EaDupXkND3XNRH6cegGf0yW0YyTnyJEKgFm/VBxuZG5hqrBnOkwrZJ
-         w/+VwcHoM1XLWJvaysyp9UiRk2uw94rnUAISstiGIDtc+OahHi7LUFU0W7glPGHIVXtj
-         XLrn32XNt94AW3IfWtXPPbfHm6zyXGdbho3W7W70l1ZUL0NYXJVJpNNlEbKo5ZNq4Vsi
-         UPgQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwTURfqqDTnf0dQGhLLPPzdnmTUaaYrHQbgN7uTqyoQe2S8BckuO2Iuoo6RLjORa9Af7yRCj5I8gIVmN+VLIrK6@lists.infradead.org
-X-Gm-Message-State: AFuF++kdVWRFcJoPaqDxxkVWkmMeQ43lhStfblvr8XcB7aLPq/a+p+FV
-	zvcD1/RIIQVWQnd9NAJq2yt6McQ2UTVIR34Naeuz8eo7xk6PwIWvsZi+Sw+Ty22nZA==
-X-Gm-Gg: AYBFou1mr9FpWkzo7t+hqOov/i8qOkTJNgWlXtsITHFI4T5gBGm7CZfiRvz3KqPddac
-	SZ3Vs2Pp9Yhtp5fne2+oJGnxfCQstGuPxwxyqiqSPaRSLW45RK/5FT7gmBzWzKMUi+zemhl5m9E
-	r/Da9GFSD6mxRohnMKrfl0mAhkuva1LH6FaoxEjWFzSN8bSi0d3rshgkxDtmg5BU/clH5+8errm
-	z2h4UFJUCkc8qYjj6bAdc8ntSTAgtwcAfNj6Jv2C6V4ZVng4SG2QcUij0gvepX9xegvZ8O3RNMQ
-	CguabvSkmIuZPu2rwNNa3lyaN60gJvAVqGPFWzkvDqlaGtOOuTpdv4zmk6WoOBW9W+6iYtNoSVD
-	YH1vrRChaVbSlGuXR9xhTmREveUoSCp4ex6SuJlM0lW5+OqcU2PsoKJPnYBMpLf8drEuzHsv/0l
-	q0ntR8AG8MSsrU/YoyMA13sM01BvMwwGD4cgxQ334ea/8si/4Wg0N9F+xe24NTWklIROP/KBa32
-	L+jsG9OARuyvdiDwwK8JtQY0GOmp6tJ/65J0qDauDAdxAQ=
-X-Received: by 2002:a05:6830:4425:b0:7f4:eb76:8820 with SMTP id 46e09a7af769-8178168df1dmr7919471a34.13.1790376504752;
-        Fri, 25 Sep 2026 15:48:24 -0700 (PDT)
-Received: from google.com (222.97.173.34.bc.googleusercontent.com. [34.173.97.222])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-819471d2bdbsm2561506a34.13.2026.09.25.15.48.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 15:48:24 -0700 (PDT)
-Date: Fri, 25 Sep 2026 22:48:22 +0000
-From: Neill Kapron <nkapron@google.com>
-To: RD Babiera <rdbabiera@google.com>
-Cc: vkoul@kernel.org, peter.griffin@linaro.org, andre.draszik@linaro.org,
-	tudor.ambarus@linaro.org, p.zabel@pengutronix.de,
-	neil.armstrong@linaro.org, badhri@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+	Fri, 25 Sep 2026 22:48:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V36iN/97eVLzChOE0M3l+zOSLZsDROYEWKwawOb3jUlmRr2xQYt+UKCjP6vMJ29OiIBwuFDqLPRWjAoaWhccAMsciIfPs+D5rwcQiyl2l3YbQEP9+t+2NBwca2/Dq2VhMl+UONHJGGdQZcL/RCUyjSr0GRCkzLVcy7HQRf4MiUuIKC8qQB6Sa9DFP0NuiKnamjHTRDmyDhkRB/9xNQ2JDo5mZH5d5uc7VQgOr+O56LztAXPR41VcEThC1ING7fwlKMdCavkAYZbUew0C/OaWCpykWC+3rsI/uY8WhoEu9aVj8qy49y7cdq6KVfFKeoirXT157ax676ZVdsUCJ6THOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WDiJhqeP/3eK61Zue18ejXmcZlLg6KE7iWJtrDX6Be8=;
+ b=hxdP5xwaI1LrPutyyFMH5ceh0USvDjPVTCuSwHsWT3dZTJWusmqBEnDtxgvLSnc3XB+4Wn9WqnliuFLkpxPQ7EGI099iIxwkyLjs3/5Zkm9x5iWHRRPKJfvTl+kD9pgDai6LE+RRgUJhM6l64ocdB9I3CV9Qierjpbh2Ol8MpNFbdS4uXkb6Zn7sHCpSG2XqKm+7fDhRdACmtAAAexoNJ6f9JP41FBzrkdQsnZiBR5uDMCjnONxmVVytqq2R1Gc57G9bCYDuyhu22jBqUAO6CDKIUT2vbTWK2ipcfjAeK+MC5q1lT5sRXr26L3lxs5Sjh+0aWdu6gCrdhdezvUdn3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WDiJhqeP/3eK61Zue18ejXmcZlLg6KE7iWJtrDX6Be8=;
+ b=r5huvLzm/S2umvj7nQz4/9RKWuyta/VlALYstIRNxf8nO/r1Wl1dr37va1h1FlgIWoC8jQ1FPu41KZQPZlbly03Wt1BZOSIdYcuMr5KUObiIaMk1G6yXm6TjvAm5Pz8ZF994EvA3mABGw9jjjT4zw/xr7pRQ9dwTaZ6mLFiAQgeeR1dobI84ozWBllG413gXfOAt1Unz6j1X1lyBYW6uRUqZzQ4x2xa8hQNfzyYPBEl0eNM9gKQz286YAxn6nuXOynpq0YjlsmLMafoIyk7FaMq8XXbmPJ4UUDiN/lUjkXyWO/Kk7Us2bYlrfa/KjTgSfF3RbMf9cjRiPYzSNzuybQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by CH3PR12MB8546.namprd12.prod.outlook.com
+ (2603:10b6:610:15f::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
+ 2026 22:48:31 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
+ 22:48:31 +0000
+Date: Fri, 25 Sep 2026 19:48:29 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Kiryl Shutsemau <kirill@shutemov.name>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Breno Leitao <leitao@debian.org>,
+	"Kiryl Shutsemau (Meta)" <kas@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	Yuanhe Shu <xiangzao@linux.alibaba.com>,
+	Kyle McMartin <jkkm@meta.com>, Usama Arif <usama.arif@linux.dev>,
+	kernel-team@meta.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8] phy: Add USB3 PHY support to Google Tensor SoC USB
- PHY driver
-Message-ID: <arb6Nn1Yy5_1u00w@google.com>
-References: <20260925222959.3607769-2-rdbabiera@google.com>
-MIME-Version: 1.0
+Subject: Re: [PATCH v7 0/2] iommu/arm-smmu-v3: Make the queue depths tunable,
+ and shrink them in a kdump kernel
+Message-ID: <20260925224829.GO9354@nvidia.com>
+References: <20260925141532.1274962-1-kirill@shutemov.name>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260925222959.3607769-2-rdbabiera@google.com>
+In-Reply-To: <20260925141532.1274962-1-kirill@shutemov.name>
+X-ClientProxiedBy: SN7PR04CA0235.namprd04.prod.outlook.com
+ (2603:10b6:806:127::30) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH3PR12MB8546:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab966ada-d3b5-4505-2612-08df1b571f2c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|10067099003|56012099006|6133799003|18002099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: KWNmDDlXxKexecToWvC5BZUb3Xr3PO7v1qKODunslHJatYqLzHdplui3OvSOmJUQjKlT6lqaoksdGH/eLXjFNlnsKg04VJHx8VtQt45fGQedQzvv99r5muEZ60Ek3RiJez2/WVzKH5emXykfFw66CXgoR8pn7qL4tRz1oKDMGi3sFzCLDtQz/wCOb2x0MdxR8aA/ti61UGSTganYC1Y1Rsj1CnixDwDLWxdmm/5IcdWEpSLdFMZkGQwIvagDV9LlTUEA/tHor/Yqc5jPvBxel35/U94A869J6Z3rdOsXJXKHyzaysYeDfj3k7sJCmvkqpSq4dwJmcqTYg0rAcc+w4rS/NMKevusYoCE10U3IUmeTHVF6dVHLU2Rd6ImrXFZ2n3ZZbJRzW52a766I9L3SrutGwBUhDWwbsg9XZKp0Pz+hpv7lhbUvcPeodkeXxzPyEyc9nEZ7YaLZJ9Qad5HhCz1tBH7JsMkVNI++wlEJHFyqYaPY1EMD4dKKoi3UCl/YMsjajUscg6YXVOKrKg20cXuXDS5VENG5bKoEf/oQLGrqcHxGQCzV/CJQcnugGs9lr3o9jQxgWT74hEaWt+VpbRSdVOZv899XB87iqeYRVOvNgSAffPeVNRUnGVhxXRGvOmbNsbWwvqwQYo99dv4mykOhc3T15JZ5JvNrl65aesY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(10067099003)(56012099006)(6133799003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oaJ6XXKnH5MxHQpLbQhF0uQ4n94+NAwMc/6N+qBjVoBIVzQ5+iK5Mlop0N5R?=
+ =?us-ascii?Q?luHrYLqjwT9Pn6ezwwZoe/8EtztbvzjAnA6QUnbl8qQtQ80chLAlmq03z+6p?=
+ =?us-ascii?Q?K14miclQkr9tZYdpJd7bz41JFGwaIMR1Qha4WlG2fyOgaW6lbH/vOpr4m4hC?=
+ =?us-ascii?Q?ExcgRa7HMOA3qPwEywPujH8l2fc3ABiNNCCDzlxwvg3YmUhHW3KvwmxQOD7y?=
+ =?us-ascii?Q?w/PB4n5UVWJv34V+mR5neCcYf0JO6ofNb4ep5pH/HKfnNK9VLwDlU2N2YODk?=
+ =?us-ascii?Q?wzWD8pZBZNNqNQQTPwbvIJHmXCOVmJViLVZlf9B+ketlHzhRGFPo6zjUsi7C?=
+ =?us-ascii?Q?TzV2IIg/AU20MbXZBshvonR3Y53iMyOvG9CgPfaaivNRN6kjzSnRT0WJGWFi?=
+ =?us-ascii?Q?zhj9APXFGgY+fY5RcEMeiddlCIpbW1lPtdID65Z0FVNvk2z1dTuSDYTamzpU?=
+ =?us-ascii?Q?gka7HFaW1WtupMi9ALo9Dpws+mXEXD3fV5gVfHxW+/usCj027ABpu9+uaC7L?=
+ =?us-ascii?Q?LZ0qog2aCautdbbxz+jKfEC49GiqYqy72PkkLJtOFjFNA/thX4l1yv+6UX/h?=
+ =?us-ascii?Q?Vkv/oJifEAEkHBtjONJoO+apZgbjJKb1jQRMwk6yONYt0HEZjhnmPpoxOH+I?=
+ =?us-ascii?Q?vOihEnrUxk9yaNLW7aiwu7v+CvWcJF/iqsy7x3qChF+dnpHSPf/pErTx3T+s?=
+ =?us-ascii?Q?uVYvdYSxTQPe5tCyg11Cq3mJhSS49Sqq6TjppPC1xoKtm4CUwtxczl3oEAK7?=
+ =?us-ascii?Q?ZXacEvK554gInExwJvjVrViz2qgf9F2Mj4c9sfvgezrZ5CmQxBaR7R4usCA3?=
+ =?us-ascii?Q?w4Tx9pLd7IKcVzEtVD/q6Fb9XunFv5Gk1BqIh2OuxgKDcGPMcVxGSqaHn1Tu?=
+ =?us-ascii?Q?13cnkP1oW70buNLImos3S+dVfDSZr46iLcx6hoZLvPMCDq0KnqdlY62BLMYf?=
+ =?us-ascii?Q?h7wH9COZdJSeys17ZfobS1xnHy3pqd/5qImhd+AxaE8JXR6zamkjtxhxCRFh?=
+ =?us-ascii?Q?nY9AJWodn8REFJJx/37c2H0sLgvbfdDz/j3lzNUQWaqBH6c03nSyLlJg7bWo?=
+ =?us-ascii?Q?xWYcGgDP3bEEDmarDlFBYqmVKNskQ7aiFEvpiON7yJw/OQDrafEakdaENZni?=
+ =?us-ascii?Q?VD4fKuJqKV1Yz9KkiPC/wyGpV5U2Jwhn0xoA3KXy8yjjqfBxzPicr8Xrk8OA?=
+ =?us-ascii?Q?iTsgMlHQlaucEzQwLuLPe+JEyJMytaQKiDz2jA791Udv8RsYVg+LQQwUEeMT?=
+ =?us-ascii?Q?BVET2PqvYhA3gcdo/mM2OOH/sODUpWRcZpRt/nIW5q5RUVueL60nV38tpzNX?=
+ =?us-ascii?Q?RcOP4Sb4CsuGQuN5a1psZuVCEazm4QLFc57oGO/7/GAV6y5G7kOHbjHhG2kC?=
+ =?us-ascii?Q?bbGD2zzCWaUcf0wir9La2tIUivcx1jSL4EAXloEUjttqE0FPRlgBUe59w2vR?=
+ =?us-ascii?Q?NeQjCY4vixfJg4FoWkUBLIFXM7bX4eZ2wHEKhDgTv18WVkT87/jIPnSEs6BV?=
+ =?us-ascii?Q?WTzPaQ6oXl7mLVLqJ4GWpMrh+KlA0CztPfvyTQ3JtJlE0qwk3cc7XUOvrFiS?=
+ =?us-ascii?Q?NlUk7sL8P1SN0acM93jpqhLejcxsNFRo6ZbdjESl/sNCki0jDnSrQUZjHC5g?=
+ =?us-ascii?Q?gCKmMvDvb0jixuXPErMD2tQsyhHBhl+jUc5NP//h26AU/g/FAVbmTbL6PHdr?=
+ =?us-ascii?Q?IIpqml4dJOlXUDsBARm+VGKiVUqJo5sfSewKOS3sHHEDOmbj?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab966ada-d3b5-4505-2612-08df1b571f2c
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 22:48:31.0040
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6J6wQOPVfE8MXaTZRpZmg1MKMjNZxIW4PcnD6dA7YvPZOOD4SiHmOYOgVwIqdJdE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8546
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_154827_429674_9FC4F2E1 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260925_154840_576185_A733A297 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,7 +150,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the clarification on v7!
+On Fri, Sep 25, 2026 at 03:15:28PM +0100, Kiryl Shutsemau wrote:
+> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+> 
+> The queues are sized from the IDR1 maxima and allocated at probe, costing
+> megabytes per queue per SMMU instance. A kdump capture kernel pays that out
+> of a small crashkernel reservation, for queues it barely uses and two of
+> which it switches off anyway.
+> 
+> Patch 1 adds a cmdq_max_n_shift module parameter, decided in a per-queue
+> helper and floored at one page. Patch 2 has a kdump kernel size all three
+> queues at one page through the same helper. The parameter does not apply
+> there.
 
-Reviewed-by: Neill Kapron <nkapron@google.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason
 
