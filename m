@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910B0C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 07:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117FBC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 07:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+blcjwrBB0xFVey69zEwGWMEXl0s5+FMl34UhaVFoas=; b=l96uYGiMe++RdH6+Gl25NPvyFq
-	iXuVxLTs1UJO5MVqUJ3qOsI/6qAh/YrQZuEmVXR4+2CclagYraC7J91bncCco7hzS/VER3HCbkgvP
-	QZyKoZ3NYWOx/BBC+WXQT+sIhbkmLOTYF0N2vZlRUpkte6pcLwLqnks4yq9DstNrfkKKhHGJVgXOv
-	ILo0mDNfOreIVzUb+pDUMIAY/GnEuzu7110qf2vkQPjHNVuHqX0yZp5+0Ar6b9UOyHJ7wMsTrtg9J
-	0kIZY6o/WS+iyVV/vDiMG4sxYUm3OZAuNSjWaGswOoVEjvblWzcb/E2MteHd8XIjB1Em38dUihRHx
-	NLHQNr0Q==;
+	bh=bbS6RVxPwSJkhIbaoq1cDhXQrT6Zk0hyEGnIaNM8PH8=; b=GE74bmkRCTPqe3QXRbVjyYY1g5
+	q7+M5ejSG1HgchuXnCBn0BgWP9U/y5iaSrfXMXHTd+KyTNtGJmuE980yDkCzszqGjEOEGHFxdciUg
+	cuL3clXgJUe7yVhKYKah3R+xkLvedY4BMyM0UGfMc9mz/Va0BzEUZK0o6dKa7rJT3LxF0Zjb57swj
+	MbQ6avywlmd6rvgqQWPNR+6ne7IoMPDsFcVjBBuA7szip/1o3WkZtWSixTToIeFFA2xGoQqMZFIkT
+	0HhAK1xI2aA5DaG6DjdWGsQk2ER72ruBRz8tJLkj+CTqR763Y6PqatOOy1Tg4a5C1muqr/NIkIsNu
+	gK9LgX1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA0g3-0000000CqoK-1lRU;
-	Fri, 25 Sep 2026 07:49:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xA0gQ-0000000Cr7v-2al7;
+	Fri, 25 Sep 2026 07:49:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA0ft-0000000Cqi6-2Lxn
+	id 1xA0g4-0000000Cqon-0g6U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 07:48:53 +0000
+	Fri, 25 Sep 2026 07:49:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED56F6022E;
-	Fri, 25 Sep 2026 07:48:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D2C1F00893;
-	Fri, 25 Sep 2026 07:48:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C07EE40639;
+	Fri, 25 Sep 2026 07:49:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 903B21F00893;
+	Fri, 25 Sep 2026 07:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790322532;
-	bh=+blcjwrBB0xFVey69zEwGWMEXl0s5+FMl34UhaVFoas=;
+	s=k20260515; t=1790322543;
+	bh=bbS6RVxPwSJkhIbaoq1cDhXQrT6Zk0hyEGnIaNM8PH8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=IHoDb3KlNqakCxRtTKMOQp0onbS8090NLs7t/Am6RBSR3ybiqnxrJ8aN5T1N6YEf7
-	 7p8wB+JQ+3cPRHjWUmXf6+G+xHCpUMZXEbnaH9w6RbzQPTbjkt/7EuiCBPMXa6/1Vv
-	 ATWw0rZuzurRIqsgGkhUizgHyTWjl93k5EanESTAPp+xGzSfxEqLkdCXO6LIOmPv74
-	 HvCIUV0o7sIvX1OGuJa6YPM+QT3nS8pgQXByPavVk2gHnHt2GNVCVcmX7FPTVhp2So
-	 63uPn8Mmdyd9meGOCBUeusy8SWfakmWrQkvUj2xjgBnUrz6oq1MwAXwHOXivrG5w9c
-	 g7YnH4TX/CL1w==
+	b=TY2kkkVbvwuQLcFikGbNiXx2TM/xYBOBVA/RwbDzi6SZOY0n3IPQgpfBCZ90+FH6V
+	 QgYyFdmARNyN0aPpfsxBos5sfP4T/hQEaZUb0SoLzz5blq5CLqFqiSpjBzF3wI47XR
+	 9dp3igO4g8VtwU701v1aBscSVkp1Lvzag54p0ODXDFUv8OVahZ2K8AdmnzAHgzHP60
+	 tm8jAdHrULcsY3hJpTpjmlA/X7VNUWR/ybl5affhj2EIoKGJ+mXYl3V/jHfcnq4fTo
+	 O3V+LSgLn1bS6RApaa8O8Jp1ESaLK7Bl4iEJLfBKTTJILz5cJ8AMwdhRioQHu6egPo
+	 bHpbRZuHgsw2g==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Fri, 25 Sep 2026 09:48:06 +0200
-Subject: [PATCH RFC 07/11] ACPI/IORT: Convert IORT devices to IRQs
- software-node properties
+Date: Fri, 25 Sep 2026 09:48:08 +0200
+Subject: [PATCH RFC 09/11] iommu/arm-smmu: Add arm-smmu IRQ mapping
+ -EPROBE_DEFER handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260925-acpi-static-table-irq-probe-defer-v1-7-2c62125d0085@kernel.org>
+Message-Id: <20260925-acpi-static-table-irq-probe-defer-v1-9-2c62125d0085@kernel.org>
 References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
 In-Reply-To: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -82,394 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Static devices created out of IORT nodes might require GSI interrupts that
-are routed to interrupt controllers that have not yet probed (so their
-respective IRQ domain is not registered yet and therefore the GSI
-mapping would fail if tried) to be mapped in current IORT code.
+With the advent of GICv5, IRQs mapping can fail if the interrupt
+controller the wired SMMU interrupts are routed to has not probed
+yet when the SMMU driver probes.
 
-Instead of trying to map the GSIs at platform device creation time,
-stash standard GSIs numbers, trigger/polarity and names properties into
-the IORT static fwnode secondary swnodes so that they can be later
-retrieved, in a uniform fashion, by the device drivers claiming them.
+Handle -EPROBE_DEFER gracefully for IRQ mappings failures.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Hanjun Guo <guohanjun@huawei.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>
 ---
- drivers/acpi/arm64/iort.c | 250 ++++++++++++++++++++++++++--------------------
- 1 file changed, 142 insertions(+), 108 deletions(-)
+ drivers/iommu/arm/arm-smmu/arm-smmu.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-index 1020ac953e42..9b7aa51aedc3 100644
---- a/drivers/acpi/arm64/iort.c
-+++ b/drivers/acpi/arm64/iort.c
-@@ -1567,47 +1567,52 @@ int iort_dma_get_ranges(struct device *dev, u64 *limit)
- 		return nc_dma_get_range(dev, limit);
- }
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+index 889a0966d36c..a111b80553da 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+@@ -2154,6 +2154,8 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 		return PTR_ERR(smmu);
  
--static void __init acpi_iort_register_irq(int hwirq, const char *name,
--					  int trigger,
--					  struct resource *res)
-+static void __init acpi_iort_add_irq(u32 hwirq, const char *name, unsigned int trigger_val,
-+				     u32 *gsi, u32 *trigger,
-+				     u32 *polarity, const char **names,
-+				     unsigned int *index)
- {
--	int irq = acpi_register_gsi(NULL, hwirq, trigger,
--				    ACPI_ACTIVE_HIGH);
--
--	if (irq <= 0) {
--		pr_err("could not register gsi hwirq %d name [%s]\n", hwirq,
--								      name);
-+	if (!hwirq)
- 		return;
--	}
+ 	num_irqs = platform_irq_count(pdev);
++	if (num_irqs < 0)
++		return dev_err_probe(dev, num_irqs, "IRQ count failed\n");
  
--	res->start = irq;
--	res->end = irq;
--	res->flags = IORESOURCE_IRQ;
--	res->name = name;
-+	gsi[*index] = hwirq;
-+	trigger[*index] = trigger_val;
-+	polarity[*index] = ACPI_ACTIVE_HIGH;
-+	if (names)
-+		names[*index] = name;
-+	(*index)++;
-+}
-+
-+static int __init acpi_iort_get_irq_props(const u32 *gsi,
-+					  const u32 *trigger,
-+					  const u32 *polarity,
-+					  const char * const *names,
-+					  unsigned int irq_count,
-+					  const struct property_entry **props)
-+{
-+	struct property_entry entries[5] = {};
-+	int next_prop = 0;
-+
-+	if (!irq_count)
-+		return 0;
-+
-+	entries[next_prop++] = PROPERTY_ENTRY_U32_ARRAY_LEN(ACPI_IRQ_PROP_GSI,
-+							     gsi, irq_count);
-+	entries[next_prop++] = PROPERTY_ENTRY_U32_ARRAY_LEN(ACPI_IRQ_PROP_GSI_TRIGGER,
-+							     trigger, irq_count);
-+	entries[next_prop++] = PROPERTY_ENTRY_U32_ARRAY_LEN(ACPI_IRQ_PROP_GSI_POLARITY,
-+							     polarity, irq_count);
-+	if (names)
-+		entries[next_prop++] = PROPERTY_ENTRY_STRING_ARRAY_LEN("interrupt-names",
-+									names, irq_count);
-+
-+	*props = property_entries_dup(entries);
-+	return PTR_ERR_OR_ZERO(*props);
- }
+ 	smmu->num_context_irqs = num_irqs - global_irqs - pmu_irqs;
+ 	if (smmu->num_context_irqs <= 0)
+@@ -2171,7 +2173,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 		int irq = platform_get_irq(pdev, global_irqs + pmu_irqs + i);
  
- static int __init arm_smmu_v3_count_resources(struct acpi_iort_node *node)
- {
--	struct acpi_iort_smmu_v3 *smmu;
--	/* Always present mem resource */
--	int num_res = 1;
--
--	/* Retrieve SMMUv3 specific data */
--	smmu = (struct acpi_iort_smmu_v3 *)node->node_data;
--
--	if (smmu->event_gsiv)
--		num_res++;
--
--	if (smmu->pri_gsiv)
--		num_res++;
--
--	if (smmu->gerr_gsiv)
--		num_res++;
--
--	if (smmu->sync_gsiv)
--		num_res++;
--
--	return num_res;
-+	return 1;
- }
- 
- static bool arm_smmu_v3_is_combined_irq(struct acpi_iort_smmu_v3 *smmu)
-@@ -1644,44 +1649,47 @@ static void __init arm_smmu_v3_init_resources(struct resource *res,
- 					      struct acpi_iort_node *node)
- {
- 	struct acpi_iort_smmu_v3 *smmu;
--	int num_res = 0;
- 
- 	/* Retrieve SMMUv3 specific data */
- 	smmu = (struct acpi_iort_smmu_v3 *)node->node_data;
- 
--	res[num_res].start = smmu->base_address;
--	res[num_res].end = smmu->base_address +
--				arm_smmu_v3_resource_size(smmu) - 1;
--	res[num_res].flags = IORESOURCE_MEM;
-+	res[0].start = smmu->base_address;
-+	res[0].end = smmu->base_address + arm_smmu_v3_resource_size(smmu) - 1;
-+	res[0].flags = IORESOURCE_MEM;
-+}
-+
-+static int __init arm_smmu_v3_init_irq_props(const struct property_entry **props,
-+					     struct acpi_iort_node *node)
-+{
-+	u32 gsi[4], trigger[4], polarity[4];
-+	struct acpi_iort_smmu_v3 *smmu;
-+	unsigned int irq_count = 0;
-+	const char *names[4];
-+
-+	smmu = (struct acpi_iort_smmu_v3 *)node->node_data;
- 
--	num_res++;
- 	if (arm_smmu_v3_is_combined_irq(smmu)) {
--		if (smmu->event_gsiv)
--			acpi_iort_register_irq(smmu->event_gsiv, "combined",
--					       ACPI_EDGE_SENSITIVE,
--					       &res[num_res++]);
-+		acpi_iort_add_irq(smmu->event_gsiv, "combined",
-+				  ACPI_EDGE_SENSITIVE, gsi, trigger,
-+				  polarity, names, &irq_count);
- 	} else {
-+		acpi_iort_add_irq(smmu->event_gsiv, "eventq",
-+				  ACPI_EDGE_SENSITIVE, gsi, trigger,
-+				  polarity, names, &irq_count);
- 
--		if (smmu->event_gsiv)
--			acpi_iort_register_irq(smmu->event_gsiv, "eventq",
--					       ACPI_EDGE_SENSITIVE,
--					       &res[num_res++]);
--
--		if (smmu->pri_gsiv)
--			acpi_iort_register_irq(smmu->pri_gsiv, "priq",
--					       ACPI_EDGE_SENSITIVE,
--					       &res[num_res++]);
--
--		if (smmu->gerr_gsiv)
--			acpi_iort_register_irq(smmu->gerr_gsiv, "gerror",
--					       ACPI_EDGE_SENSITIVE,
--					       &res[num_res++]);
--
--		if (smmu->sync_gsiv)
--			acpi_iort_register_irq(smmu->sync_gsiv, "cmdq-sync",
--					       ACPI_EDGE_SENSITIVE,
--					       &res[num_res++]);
-+		acpi_iort_add_irq(smmu->pri_gsiv, "priq",
-+				  ACPI_EDGE_SENSITIVE, gsi, trigger,
-+				  polarity, names, &irq_count);
-+		acpi_iort_add_irq(smmu->gerr_gsiv, "gerror",
-+				  ACPI_EDGE_SENSITIVE, gsi, trigger,
-+				  polarity, names, &irq_count);
-+		acpi_iort_add_irq(smmu->sync_gsiv, "cmdq-sync",
-+				  ACPI_EDGE_SENSITIVE, gsi, trigger,
-+				  polarity, names, &irq_count);
+ 		if (irq < 0)
+-			return irq;
++			return dev_err_probe(dev, irq, "failed to get context IRQ\n");
+ 		smmu->irqs[i] = irq;
  	}
-+
-+	return acpi_iort_get_irq_props(gsi, trigger, polarity, names,
-+				       irq_count, props);
- }
  
- static void __init arm_smmu_v3_dma_configure(struct device *dev,
-@@ -1732,54 +1740,55 @@ static int  __init arm_smmu_v3_set_proximity(struct device *dev,
+@@ -2211,7 +2213,7 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+ 		int irq = platform_get_irq(pdev, i);
  
- static int __init arm_smmu_count_resources(struct acpi_iort_node *node)
- {
--	struct acpi_iort_smmu *smmu;
--
--	/* Retrieve SMMU specific data */
--	smmu = (struct acpi_iort_smmu *)node->node_data;
--
--	/*
--	 * Only consider the global fault interrupt and ignore the
--	 * configuration access interrupt.
--	 *
--	 * MMIO address and global fault interrupt resources are always
--	 * present so add them to the context interrupt count as a static
--	 * value.
--	 */
--	return smmu->context_interrupt_count + 2;
-+	return 1;
- }
+ 		if (irq < 0)
+-			return irq;
++			return dev_err_probe(dev, irq, "failed to get global IRQ\n");
  
- static void __init arm_smmu_init_resources(struct resource *res,
- 					   struct acpi_iort_node *node)
- {
- 	struct acpi_iort_smmu *smmu;
--	int i, hw_irq, trigger, num_res = 0;
--	u64 *ctx_irq, *glb_irq;
- 
- 	/* Retrieve SMMU specific data */
- 	smmu = (struct acpi_iort_smmu *)node->node_data;
- 
--	res[num_res].start = smmu->base_address;
--	res[num_res].end = smmu->base_address + smmu->span - 1;
--	res[num_res].flags = IORESOURCE_MEM;
--	num_res++;
-+	res[0].start = smmu->base_address;
-+	res[0].end = smmu->base_address + smmu->span - 1;
-+	res[0].flags = IORESOURCE_MEM;
-+}
-+
-+static int __init arm_smmu_init_irq_props(const struct property_entry **props,
-+					  struct acpi_iort_node *node)
-+{
-+	struct acpi_iort_smmu *smmu;
-+	unsigned int irq_count = 0;
-+	u64 *ctx_irq, *glb_irq;
-+	int i;
-+
-+	smmu = (struct acpi_iort_smmu *)node->node_data;
-+
-+	u32 *gsi __free(kfree) = kcalloc(smmu->context_interrupt_count + 1,
-+					 sizeof(*gsi), GFP_KERNEL);
-+	u32 *trigger __free(kfree) = kcalloc(smmu->context_interrupt_count + 1,
-+					     sizeof(*trigger), GFP_KERNEL);
-+	u32 *polarity __free(kfree) = kcalloc(smmu->context_interrupt_count + 1,
-+					      sizeof(*polarity), GFP_KERNEL);
-+	if (!gsi || !trigger || !polarity)
-+		return -ENOMEM;
- 
- 	glb_irq = ACPI_ADD_PTR(u64, node, smmu->global_interrupt_offset);
--	/* Global IRQs */
--	hw_irq = IORT_IRQ_MASK(glb_irq[0]);
--	trigger = IORT_IRQ_TRIGGER_MASK(glb_irq[0]);
-+	acpi_iort_add_irq(IORT_IRQ_MASK(glb_irq[0]), NULL,
-+			  IORT_IRQ_TRIGGER_MASK(glb_irq[0]), gsi,
-+			  trigger, polarity, NULL, &irq_count);
- 
--	acpi_iort_register_irq(hw_irq, "arm-smmu-global", trigger,
--				     &res[num_res++]);
--
--	/* Context IRQs */
- 	ctx_irq = ACPI_ADD_PTR(u64, node, smmu->context_interrupt_offset);
- 	for (i = 0; i < smmu->context_interrupt_count; i++) {
--		hw_irq = IORT_IRQ_MASK(ctx_irq[i]);
--		trigger = IORT_IRQ_TRIGGER_MASK(ctx_irq[i]);
--
--		acpi_iort_register_irq(hw_irq, "arm-smmu-context", trigger,
--				       &res[num_res++]);
-+		acpi_iort_add_irq(IORT_IRQ_MASK(ctx_irq[i]), NULL,
-+				  IORT_IRQ_TRIGGER_MASK(ctx_irq[i]), gsi,
-+				  trigger, polarity, NULL, &irq_count);
- 	}
-+
-+	return acpi_iort_get_irq_props(gsi, trigger, polarity, NULL,
-+				       irq_count, props);
- }
- 
- static void __init arm_smmu_dma_configure(struct device *dev,
-@@ -1803,16 +1812,7 @@ static void __init arm_smmu_dma_configure(struct device *dev,
- 
- static int __init arm_smmu_v3_pmcg_count_resources(struct acpi_iort_node *node)
- {
--	struct acpi_iort_pmcg *pmcg;
--
--	/* Retrieve PMCG specific data */
--	pmcg = (struct acpi_iort_pmcg *)node->node_data;
--
--	/*
--	 * There are always 2 memory resources.
--	 * If the overflow_gsiv is present then add that for a total of 3.
--	 */
--	return pmcg->overflow_gsiv ? 3 : 2;
-+	return 2;
- }
- 
- static void __init arm_smmu_v3_pmcg_init_resources(struct resource *res,
-@@ -1837,10 +1837,22 @@ static void __init arm_smmu_v3_pmcg_init_resources(struct resource *res,
- 		res[1].end = pmcg->page1_base_address + SZ_4K - 1;
- 		res[1].flags = IORESOURCE_MEM;
- 	}
-+}
- 
--	if (pmcg->overflow_gsiv)
--		acpi_iort_register_irq(pmcg->overflow_gsiv, "overflow",
--				       ACPI_EDGE_SENSITIVE, &res[2]);
-+static int __init arm_smmu_v3_pmcg_init_irq_props(const struct property_entry **props,
-+						  struct acpi_iort_node *node)
-+{
-+	u32 gsi[1], trigger[1], polarity[1];
-+	struct acpi_iort_pmcg *pmcg;
-+	unsigned int irq_count = 0;
-+	const char *names[1];
-+
-+	pmcg = (struct acpi_iort_pmcg *)node->node_data;
-+
-+	acpi_iort_add_irq(pmcg->overflow_gsiv, "overflow", ACPI_EDGE_SENSITIVE,
-+			  gsi, trigger, polarity, names, &irq_count);
-+	return acpi_iort_get_irq_props(gsi, trigger, polarity, names,
-+				       irq_count, props);
- }
- 
- static struct acpi_platform_list pmcg_plat_info[] __initdata = {
-@@ -1884,6 +1896,8 @@ struct iort_dev_config {
- 	int (*dev_count_resources)(struct acpi_iort_node *node);
- 	void (*dev_init_resources)(struct resource *res,
- 				     struct acpi_iort_node *node);
-+	int (*dev_init_irq_props)(const struct property_entry **props,
-+				  struct acpi_iort_node *node);
- 	int (*dev_set_proximity)(struct device *dev,
- 				    struct acpi_iort_node *node);
- 	int (*dev_add_platdata)(struct platform_device *pdev);
-@@ -1894,6 +1908,7 @@ static const struct iort_dev_config iort_arm_smmu_v3_cfg __initconst = {
- 	.dev_dma_configure = arm_smmu_v3_dma_configure,
- 	.dev_count_resources = arm_smmu_v3_count_resources,
- 	.dev_init_resources = arm_smmu_v3_init_resources,
-+	.dev_init_irq_props = arm_smmu_v3_init_irq_props,
- 	.dev_set_proximity = arm_smmu_v3_set_proximity,
- };
- 
-@@ -1902,12 +1917,14 @@ static const struct iort_dev_config iort_arm_smmu_cfg __initconst = {
- 	.dev_dma_configure = arm_smmu_dma_configure,
- 	.dev_count_resources = arm_smmu_count_resources,
- 	.dev_init_resources = arm_smmu_init_resources,
-+	.dev_init_irq_props = arm_smmu_init_irq_props,
- };
- 
- static const struct iort_dev_config iort_arm_smmu_v3_pmcg_cfg __initconst = {
- 	.name = "arm-smmu-v3-pmcg",
- 	.dev_count_resources = arm_smmu_v3_pmcg_count_resources,
- 	.dev_init_resources = arm_smmu_v3_pmcg_init_resources,
-+	.dev_init_irq_props = arm_smmu_v3_pmcg_init_irq_props,
- 	.dev_add_platdata = arm_smmu_v3_pmcg_add_platdata,
- };
- 
-@@ -1937,6 +1954,7 @@ static int __init iort_add_platform_device(struct acpi_iort_node *node,
- 					   const struct iort_dev_config *ops)
- {
- 	struct fwnode_handle *fwnode;
-+	const struct property_entry *props = NULL;
- 	struct platform_device *pdev;
- 	struct resource *r;
- 	int ret, count;
-@@ -1994,6 +2012,20 @@ static int __init iort_add_platform_device(struct acpi_iort_node *node,
- 
- 	platform_device_set_fwnode(pdev, fwnode);
- 
-+	if (ops->dev_init_irq_props) {
-+		ret = ops->dev_init_irq_props(&props, node);
-+		if (ret)
-+			goto dev_put;
-+
-+		if (props) {
-+			ret = device_create_managed_software_node(&pdev->dev,
-+								 props, NULL);
-+			property_entries_free(props);
-+			if (ret)
-+				goto dev_put;
-+		}
-+	}
-+
- 	if (ops->dev_dma_configure)
- 		ops->dev_dma_configure(&pdev->dev, node);
- 
-@@ -2007,6 +2039,8 @@ static int __init iort_add_platform_device(struct acpi_iort_node *node,
- 
- dma_deconfigure:
- 	arch_teardown_dma_ops(&pdev->dev);
-+	device_remove_software_node(&pdev->dev);
-+	platform_device_set_fwnode(pdev, NULL);
- dev_put:
- 	platform_device_put(pdev);
- 
+ 		err = devm_request_irq(dev, irq, global_fault, IRQF_SHARED,
+ 				       "arm-smmu global fault", smmu);
 
 -- 
 2.54.0
