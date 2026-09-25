@@ -4,102 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2AECC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5A8C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nnp5HOIGcAOyxCzrPOE4p3KTTNVywfZTwHRYxevT9oE=; b=W0cN4HKVT8jZ+0m9Z9+bPI/uXC
-	ac65eLeg+97ThC4ZlynFLG8YHEndR8Kul3vxCWnw29h01QoGLrcHTxWLiEtzrNErQdAxBUF+g9ZHC
-	REushh84U6MUkStDag38na4SGsgb8kdAu2feRffsSbUYCuwtu6+7NABAjssD7NReqf7Xnyq+T9wcw
-	1rC54/9oQ08QLflLUmPPgfsxlGWV34inpwWlEtmhoaZkd9GfeuJP1156LH0Bk1NrHGParTBxPWmtA
-	Pk46zWU+II8iPTw6GqyCx75tdO2h3lx9EOshVjrBSvjlAA1nC20UnE+J66SxC+STd9SBs4+mHIF6i
-	yDDa2JQQ==;
+	bh=dWHwO8k89KMIOROmHdTn+tsJpwKFcpuMyDpGO9S6/Q0=; b=PxFyzRpmC3Lbydgi/dpMXtAi9k
+	3PFZ5niWv+A1040BDJZcRWP9om/9w0VZD2VWrp9WREeIcJarXq218Q470hXf2OsSagwucEN2PH0ld
+	4eGyfIiOHWpF6/szetUjqtf4/JwHYyBQroeqtgFTLv8553BifOkrvih4LqePiKwRR+fya3pq6AkYi
+	LgOCbRxV1H7TKhFIgp2scT+T6FQvZFxEoGbjQrICEdOfhEhwPGcfADWgYMwxeeK9kGrIeiUu3/LOI
+	NwJ3LQrx04Td7zTa65+senSYupvNt5UEGbTQpBnkHfmC1/e5XhZQAVi6eUL/1p9tlEOkTayF+uBqz
+	4Bj0+iwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5re-0000000DPh5-3hE8;
-	Fri, 25 Sep 2026 13:21:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xA5ua-0000000DQ5r-3rVL;
+	Fri, 25 Sep 2026 13:24:24 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA5rd-0000000DPgs-3OlA
+	id 1xA5uY-0000000DQ4h-1nsz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 13:21:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1CDBD43C58;
-	Fri, 25 Sep 2026 13:21:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C9D81F0089B;
-	Fri, 25 Sep 2026 13:21:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790342481;
-	bh=nnp5HOIGcAOyxCzrPOE4p3KTTNVywfZTwHRYxevT9oE=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=dCEHQwIHAhEiqlOSbrZQu1HXQa1FLHFwqHzuiaWNdDfpkRC64TjVFIdlfmQ/cC1Xe
-	 5/x7z6b78oA85nUYJkhhVWS8m7YVDRuF8VMGX+8rwe32893U/G2wwb4Y0raywMihfY
-	 FTeKUBoSvQwQwCb+PMrEZFm//AxI2wvrke2D1l3xxKdY5LrTNr2Suhx+Xqj+OTVLjH
-	 ycPe7hVFy37MVF57XMF8NkRxN/ghC464JDgmpjISx3NNYF/evQVOporj48duNi9wkl
-	 9mfXhpdqEscNELl29xOugeHUUc3HBRLwK3gf2yuMp5dJ4raF5w/jWI5qKVikGOYQJj
-	 dbAzFpt36ROMA==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id A368B198005A;
-	Fri, 25 Sep 2026 09:21:17 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Fri, 25 Sep 2026 09:21:17 -0400
-X-ME-Sender: <xms:SHW2aktaus6bb3IDuwehy0tHmweKqR04JpLaMh72_iSOaPlqzXvfjQ>
-    <xme:SHW2asSnKpWQ-r8xqObdC2hSfp-2imDbKVp5NBJuyfgOSvio4fGmEOyM5nQ9ahFsn
-    kqOeUq5fxXXYI5iD6Y_2CQ5nw40e37Is80LXaS-sAhalrV-DLrdURsk>
-X-ME-Proxy-Cause: dmFkZTGm//tvmOX7B1Z6aN22M5G/NImGiJI5CG+zWqb2Cz5VW2X9+opF+vwz1PFhssRYty
-    oD8XLhwfOFQeDBAu0BJPFbOMXjR8yUQo3h6q/OacKqpkU0GkT9Plok53rbQqbjW3fcguac
-    PFdoO4I+6Si4H1xddpnS0WdVtz3WxK8NoXh8W2ru9lYH925szGXJjXx3Y+vB4izliBqDc+
-    J1ni3rDNHLoAHy+nSwmI7gwEkj85FUw4B/aFanwVvYpsZBAaCygwrpKO9P9m45bmAZJLrD
-    IJDwKb6eb1YdHlf6/5vjdaV2WvJTzeZLEugQPszF1ilewRcazFfoDb+r1OV6+YI9SmRMJg
-    punkHkfINQz5IsX9htKb+bV85phrVMj3lY2al1xwQs997rDo15yxZfcBBoQwE5h/etuk0Q
-    nqMv8To7cMP5rPdvrcccT5GG+1mY0sC5o8vka5eieW4pZ6HyCnqc3r/mX/WGMGmAWlu7TY
-    FCTQnFBks8dPu0cUVM3LZv3/ULJLlsa0QPLsBPxssiLh4T+spgXVbzKrpqM5xPZoKD2AWW
-    53sHXPvAERtyW/YFkqdqVkA20ADoFtRf6jfgl+6TgGI6dwIiT0zxjXHEHDKbBEBkL9MLdx
-    GjfkR3sbyYPnN7CeuGYvFBSUCxcnTRuwR9qzQWhUUUMfK0KXvALVLTj9CJOw
-X-ME-Proxy: <xmx:TXW2aoFGG9loSWBbU31zJMbvMsmadwoE-lf0L6goyRTRjs2sMswMwg>
-    <xmx:TXW2ahQsQs7GlhxzxyfMH8kbES1Gm9RO1OqkFbvawwTGnlRkN_fS4w>
-    <xmx:TXW2atvaN1CUhzVQloD2COOrpG08nOOHR7XsZMzf6Eq6Y4J5b8EsNw>
-    <xmx:TXW2avBFFV8S5v5cD7WUgwOyDYfNJ0TZUkcRgUm-E5DU7gWWxkwD7A>
-    <xmx:TXW2an0LHs8XQNJAz7oOEnt22V-eLS5U9yMpLvFpPM292dcPHo1nbyYl>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 622AEF80086; Fri, 25 Sep 2026 09:21:12 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 25 Sep 2026 13:24:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 4C6A41A1022;
+	Fri, 25 Sep 2026 13:24:18 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 114D06073B;
+	Fri, 25 Sep 2026 13:24:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7FB8103282D5;
+	Fri, 25 Sep 2026 15:24:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790342656; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dWHwO8k89KMIOROmHdTn+tsJpwKFcpuMyDpGO9S6/Q0=;
+	b=l9dlpdkDqiMckaNfwr7bun/p57zAVub7v1PghXsTuWnOsGqHAv7yuZLECjhqrrsOeJUlt8
+	0yi7CHR2q3FKkEu2BWyKiTdGdFyriXxXWni+kPX//yN7vO8tYReF0gJRI4D6/VYNUXKadT
+	P/NLpDmMJxWSM66/UTT8NCpc+1YWPVWxixpKyenM6bzKNGCL37wrmmjS5N884rAc0om23n
+	FoLrsIGum1CEoiMAq5r1n1hPJ7y7vPZklmteNdn3HQb8/uEBaq9lATJSaE7nTOFVOESVEv
+	0+UGOn3R4XdzuF3E1tQSRg6EQ2GujU5+bWm6Wn9LDddEUB91EaiETkax8M+e5Q==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jacky Huang <ychuang3@nuvoton.com>,  Shan-Chun Hung
+ <schung@nuvoton.com>,  Michael Turquette <mturquette@baylibre.com>,
+  Stephen Boyd <sboyd@kernel.org>,  Richard Cochran
+ <richardcochran@gmail.com>,  Arnd Bergmann <arnd@arndb.de>,  Brian Masney
+ <bmasney+clk@redhat.com>,  Jerome Brunet <jbrunet+clk@baylibre.com>,  Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Steam Lin <STLin2@winbond.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-clk@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  devicetree@vger.kernel.org,  Jacky Huang
+ <ychuang570808@gmail.com>,  stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] clk: nuvoton: ma35d1: Add missing WDT/WWDT
+ parent clocks
+In-Reply-To: <20260925-skinny-husky-of-cookies-4aaddb@quoll> (Krzysztof
+	Kozlowski's message of "Fri, 25 Sep 2026 14:58:11 +0200")
+References: <20260921-perso-ma35d1-upstream-clk-v2-0-209fd32a8b00@bootlin.com>
+	<20260921-perso-ma35d1-upstream-clk-v2-1-209fd32a8b00@bootlin.com>
+	<20260924-bald-awesome-griffin-7d1d5b@quoll>
+	<87jyo9ljlo.fsf@bootlin.com>
+	<20260925-skinny-husky-of-cookies-4aaddb@quoll>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Fri, 25 Sep 2026 15:24:08 +0200
+Message-ID: <87a4p5jwg7.fsf@bootlin.com>
 MIME-Version: 1.0
-Date: Fri, 25 Sep 2026 15:20:51 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Jason Gunthorpe" <jgg@nvidia.com>,
- "Jonathan Cameron" <jonathan.cameron@oss.qualcomm.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Arnd Bergmann" <arnd@arndb.de>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Jonathan Corbet" <corbet@lwn.net>, "David Sterba" <dsterba@suse.com>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-riscv@lists.infradead.org, "Mark Rutland" <mark.rutland@arm.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Paul Walmsley" <pjw@kernel.org>,
- "Randy Dunlap" <rdunlap@infradead.org>, "Simon Glass" <sjg@chromium.org>,
- "Shuah Khan" <skhan@linuxfoundation.org>,
- "Nick Terrell" <terrelln@fb.com>, "Will Deacon" <will@kernel.org>,
- "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Conor Dooley" <conor.dooley@microchip.com>,
- linux-integrity@vger.kernel.org, "Palmer Dabbelt" <palmer@rivosinc.com>,
- patches@lists.linux.dev, "Ross Philipson" <ross.philipson@gmail.com>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Song Shuai" <songshuaishuai@tinylab.org>
-Message-Id: <ee493585-e685-4616-945f-9d1daae0667f@app.fastmail.com>
-In-Reply-To: <20260925125945.GN9354@nvidia.com>
-References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
- <3-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
- <20260924154902.0000528b@oss.qualcomm.com> <20260925125945.GN9354@nvidia.com>
-Subject: Re: [PATCH 03/16] efi/libstub: Free cmdline_ptr in efi_pe_entry
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_062422_607209_0D35C918 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,50 +91,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On Fri, 25 Sep 2026, at 14:59, Jason Gunthorpe wrote:
-> On Thu, Sep 24, 2026 at 03:49:02PM -0700, Jonathan Cameron wrote:
->> On Thu, 24 Sep 2026 10:53:06 -0300
->> Jason Gunthorpe <jgg@nvidia.com> wrote:
->> 
->> > Sashiko points out that efi_handle_cmdline() allocates this memory and
->> > hands it over to the caller. If efi_pe_entry() ever returns it should be
->> > freed. Add a __free annotation.
->> > 
->> > Fixes: 42c8ea3dca09 ("efi: libstub: Factor out EFI stub entrypoint into separate file")
->> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
->> > ---
->> >  drivers/firmware/efi/libstub/efi-stub-entry.c | 2 +-
->> >  1 file changed, 1 insertion(+), 1 deletion(-)
->> > 
->> > diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
->> > index aa85e910fe595e..83fade2b0d3b84 100644
->> > --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
->> > +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
->> > @@ -40,7 +40,7 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
->> >  	unsigned long image_addr;
->> >  	unsigned long image_size = 0;
->> >  	/* addr/point and size pairs for memory management*/
->> > -	char *cmdline_ptr = NULL;
->> > +	char *cmdline_ptr __free(efi_pool) = NULL;
->> 
->> Can we move this down to just above the call to efi_handle_cmdline that
->> does the constructor side of this?
->> 
->> I see none of the efi stuff follow those guidance note that went in
->> cleanup.h.
+>> Maybe one way to fix that mess is to:
+>> 1- Add the 2 new values (238 and 239) + a new define:
+>>    NUVOTON_MA35D1_MAX_IDX 240
+>>    238 would then have two definitions for a short period of time.
+>> 2- Replace CLK_MAX_IDX by NUVOTON_MA35D1_MAX_IDX in the driver
+>> 3- Drop CLK_MAX_IDX in the bindings.
 >
+> Why we can't fix it like we did everywhere else?
+> git lg -- include/dt-bindings/clock/
+> and search for "number" which leads to recent commits like
+> d10f26a7abbd3dd5d59bac1acdca117385b54ea9
+> but there was same work for Samsung and many others (Renesas, maybe
+> NXP?). You add define to the driver, then drop it from the
+> binding. Can
 
-My bad. Patches welcome.
+Aaah, ok, got it. Now I get what you mean by "the max is not a
+binding". While true, I find it much less obvious to have it somewhere
+outside of the file defining the clocks. I would have "preferred" to
+consider the name of the definition immutable, rather than its value,
+but if that's the way, I'll comply :-)
 
+> be a few commits like we did for many cases, but recent change from
+> Linus I think went acked while combined binding and driver.
 
-> Yeah, I stuck with what was there.. It looks kind of weird that way:
->
-> 	char *cmdline_ptr __free(efi_pool) = NULL;
-> 	status = efi_handle_cmdline(image, &cmdline_ptr);
-> 	if (status != EFI_SUCCESS)
-> 		return status;
->
+Thanks for the pointers, I'll "move" that number away from the bindings,
+since the driver is the only consumer of that.
 
-That looks fine, no?
+Thanks,
+Miqu=C3=A8l
 
