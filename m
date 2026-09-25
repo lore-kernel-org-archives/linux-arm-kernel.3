@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EF6C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCF0C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 09:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8rbBY7tOZS1I6xbunY/ZVWqlDUxt7wQouXNVOazbTE=; b=mkjdROjxPwBZEMYt4fdY4V8Flt
-	l+FsqdAGJ97qi9l31NYB3a9bLOWfvs+NcgGxJIV/yen3YAfi+qNcsPkBzsKvje7Qp2jiK3VzyoMBm
-	Wvs5snlbyJJ8Hj8IL/JT2WjVOgSsyYsS/DCXuPGQoSM4zLyD5ie8yXCIMe4sM9HS6frKiyAtw03P0
-	zXhVDqTrhnhQOHzr+qP39l+OQ2MiaFZ/o6IPvH3D/QhtyuRd959EseD8fQWi9mw8LnpZKI2vCx+Z9
-	Zh/BPQ2JQ/LyUo8xCVJO0EOWtAes2vykRmjbpiWtyZAEEjPVLtMkNgdYOSvxiBijKZmJtH6TJlzk4
-	ZQftVWfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oCFoKaCk6m7j1gJUhrAt5cQVvO90lzEt/5aJ+1KQK2I=; b=wTRDPwFCV94Yj0kumr9o0h/bYX
+	aiqBf+TeuH8kqC5YfgV5IPHIBrmdUblUPl///SwI2nymmjptFRIWXHPvEhbs593srifY5q+Kz/QHY
+	XzNfVZPlyfaf1jTf0kNGwl2WIrXzm3ZGZRqk+6XtCsqOhd7XnUkrYTvokuMDze1tiZR95CSbPrdt+
+	Yay2vvHrxw8/4fniap9Y7Kz1G1OLVwGWMxRq458ksdqVTM1eT7FY9yJVEEKfyz92wfh7MiqjLByxK
+	gabNJX33D//oivVKgS5jNaRC+02G9w6iuZk0Gz3Lc8KwZx/2vwuwEmMzZ5+wd0f+sI3ZBc/hyaoVF
+	Q4Vu78Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2N5-0000000D0YG-2vMf;
-	Fri, 25 Sep 2026 09:37:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xA2Uf-0000000D13u-0JuS;
+	Fri, 25 Sep 2026 09:45:25 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA2N4-0000000D0Y9-3DxB
+	id 1xA2Uc-0000000D13E-1xSb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 09:37:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EBF0560230;
-	Fri, 25 Sep 2026 09:37:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE971F000FF;
-	Fri, 25 Sep 2026 09:37:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790329053;
-	bh=S8rbBY7tOZS1I6xbunY/ZVWqlDUxt7wQouXNVOazbTE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CVRtW7FvQnz7sJUapIeWFHWtBZxeNPl06POWsm3SXZLQ7JECJhstj6KdcqV2+f1QZ
-	 /rstgiDLOxl3XA6skseO//CDvsWpCbbftmBGo12Q3AtMvv4enKR7vEHrB+C9904Ryu
-	 fe1BKW6hMtPKxkihTRYeiHeULSe6N2JPKOeBx+MESgwnX7NQwE8w426Z4AmdMy6vLQ
-	 +Gbxe5UcX/JlWt/5UcldQKFv518kXmXlv1NTV1u5q+Zw2lqbLc2fzTjY13atj32s5N
-	 +PclzoZvBEICCrq+GXb5loNgNgLVUAt1TST32633kOb/kmJ1uT5GNySwcDWYYY/OIC
-	 vJvFo81AzG21Q==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Hans de Goede <johannes.goede@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Frank.Li@kernel.org,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/2] firmware: arm_scmi: fix module auto-loading
-Date: Fri, 25 Sep 2026 10:37:26 +0100
-Message-ID: <179032900575.1420945.238832920241309403.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
-References: <20260918092951.5656-1-johannes.goede@oss.qualcomm.com>
+	Fri, 25 Sep 2026 09:45:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1790329523; x=1821865523;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=u03sCXgRX7pcyePoPYi95dX0Tff82Nq1OTABJ1meNc0=;
+  b=M133wOniLPTEo+C9wIkDcAvVVZJH5iXfDSrJgsl0irevmHADXPdN8D8K
+   wmYbnkNpTokGRebY9g1WQWYFU5zGYcFS0dSFMOuQvzGxO/XbiiXwYbFR8
+   m/L0pV+VlQTqDbyBXfVupKCdEcfEEuifBZN8LxejDwvb/I24FH9x4GT4Z
+   TlBHC06a2D+6pblZAi2Gw5PRU7gWPWm+H2tWWZQ7Tkx3pY9zkZiMLJjeC
+   f/ri7QdWanHaw8++SchicdEo0gsKBCY3IJ03xIqeeYECSVODGYqTCR4Cg
+   ohAfiENnhSP07B+W0r8z4IDltyxCnlWJjwIHwqDjfwfPmzvFJvqf/qa9k
+   Q==;
+X-CSE-ConnectionGUID: oP3eAaqqRfW5vUKnu/FHTQ==
+X-CSE-MsgGUID: avYOSquxTPW+crNt1f7UuA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="90019988"
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="90019988"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 02:45:20 -0700
+X-CSE-ConnectionGUID: wdn0TnkBRpSrePz8THZskQ==
+X-CSE-MsgGUID: lcRbf3LGT5+3e3PDRzZSIA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
+   d="scan'208";a="277458396"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.27])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 02:45:15 -0700
+Date: Fri, 25 Sep 2026 12:45:13 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH RFC 01/11] ACPI: irq: Return -EPROBE_DEFER on missing IRQ
+ domain
+Message-ID: <arZCqRJHaCp-pgWI@ashevche-desk.local>
+References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
+ <20260925-acpi-static-table-irq-probe-defer-v1-1-2c62125d0085@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260925-acpi-static-table-irq-probe-defer-v1-1-2c62125d0085@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_024522_544521_4A74EEAF 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +101,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Sep 2026 11:29:49 +0200, Hans de Goede wrote:
-> Here is v7 of the patch series fixing arm_scmi module autoloading this
-> combines:
+On Fri, Sep 25, 2026 at 09:48:00AM +0200, Lorenzo Pieralisi wrote:
+> acpi_register_gsi() might fail if the IRQ domain a GSI belongs to has
+> not been registered yet by the respective interrupt controller driver.
 > 
-> 1. Patch 1/2 from Bjorn to add support for scmi bus modaliases to modpost:
-> https://lore.kernel.org/all/20260618-scmi-modalias-v2-1-8c7547c1be21@oss.qualcomm.com/
+> Return -EPROBE_DEFER in this case so that the mapping can be retried
+> later by deferring the probe for the driver that requested the IRQ
+> mapping.
 > 
-> 2. A new patch 2/2 to always create devices for standard protocols,
-> replacing Cristian's patch to pre-register the standard protocol device-ids
-> from v4.
-> 
-> [...]
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
 
-[1/2] module: add SCMI device table alias support
-      https://git.kernel.org/sudeep.holla/c/d59717cfbe1e
-[2/2] firmware: arm_scmi: Always create devices for standard protocols
-      https://git.kernel.org/sudeep.holla/c/aac4e67d6eb9
+You may keep the Cc list under the '---' cutter, so this noise won't make
+the commit message. The email will be still send to the respective people
+and someone can harvest it in the lore archive if needed in the future
+(when commit gets accepted).
+
+Note, you may keep that part in your local Git tree (in the commit message)
+and handle with `b4 trailers`.
+
+> ---
+
 -- 
-Regards,
-Sudeep
+With Best Regards,
+Andy Shevchenko
+
 
 
