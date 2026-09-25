@@ -4,104 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9398AC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2AECC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
-	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqYALz+AsdPepU4xJNa3Tb//Hl3pCcjBXIZ3dK6t6w8=; b=L7qyT8E3s68J1UlQoPl1zLfgz0
-	Dh+8T9IHfZtGDzd0v2NmeXf/CTpAAq2NnC7Ku5YxNWHkYnSvtnHqRhXHhrcOP63p87fQBqmMEg3Hh
-	zGncqUxeZ2FMca2JjZtoI5gTbgWA5XulByJNFWN1MojekCctGjgLSByxHVhGsmYhtzOWyKJRp6GPQ
-	bu1CplO9O9jSpHirx4PMTgs7s1YSRhV37JwAm9tDR2WGYP3VEtqpMeHS0MvdseQUFyE5lYfVYaayw
-	0lMlOWiIC1ZDKtVTyjOHLtlo3hclqV6N1RZCFchONeT+HtPUGb1VSzfyQqns0msAhsXIU1vFKhWkm
-	2mYY6rfw==;
+	bh=nnp5HOIGcAOyxCzrPOE4p3KTTNVywfZTwHRYxevT9oE=; b=W0cN4HKVT8jZ+0m9Z9+bPI/uXC
+	ac65eLeg+97ThC4ZlynFLG8YHEndR8Kul3vxCWnw29h01QoGLrcHTxWLiEtzrNErQdAxBUF+g9ZHC
+	REushh84U6MUkStDag38na4SGsgb8kdAu2feRffsSbUYCuwtu6+7NABAjssD7NReqf7Xnyq+T9wcw
+	1rC54/9oQ08QLflLUmPPgfsxlGWV34inpwWlEtmhoaZkd9GfeuJP1156LH0Bk1NrHGParTBxPWmtA
+	Pk46zWU+II8iPTw6GqyCx75tdO2h3lx9EOshVjrBSvjlAA1nC20UnE+J66SxC+STd9SBs4+mHIF6i
+	yDDa2JQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA4DE-0000000DDKt-08Bo;
-	Fri, 25 Sep 2026 11:35:33 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xA5re-0000000DPh5-3hE8;
+	Fri, 25 Sep 2026 13:21:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA4Co-0000000DD6Q-2yR5
+	id 1xA5rd-0000000DPgs-3OlA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 11:35:10 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260925113504euoutp01207c625784059f72a10413f233f68c76~YjTOT9LtP3035130351euoutp01-;
-	Fri, 25 Sep 2026 11:35:04 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260925113504euoutp01207c625784059f72a10413f233f68c76~YjTOT9LtP3035130351euoutp01-
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790336104;
-	bh=YqYALz+AsdPepU4xJNa3Tb//Hl3pCcjBXIZ3dK6t6w8=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=ZIv7w6ePTCwV48FAH/XJbvFKNls/1IuxTEJ4QF8CoAPdMUpvY38ZeD15VjhHZp4oB
-	 WarkTIRrsrgUKOndr2vUViko+3AwSQx63CQqR6AtJ1OxQi3o3SzIdQFZY4gYsbr51i
-	 JEV9tkDreMJNXqpcAyJgqHOoS3UI7q6yRSEYq/Ys=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260925113504eucas1p25e50de59c02681fc1385220be8acd184~YjTN-RCmz1156911569eucas1p2p;
-	Fri, 25 Sep 2026 11:35:04 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260925113502eusmtip22f6a1190cef90f55135b73cc84d12eac~YjTMXy85F3032230322eusmtip2z;
-	Fri, 25 Sep 2026 11:35:02 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 25 Sep 2026 13:27:37 +0200
-Subject: [PATCH RFC 7/9] lib/lz4: switch the decompressor to the vendored
- sources
+	Fri, 25 Sep 2026 13:21:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CDBD43C58;
+	Fri, 25 Sep 2026 13:21:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C9D81F0089B;
+	Fri, 25 Sep 2026 13:21:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790342481;
+	bh=nnp5HOIGcAOyxCzrPOE4p3KTTNVywfZTwHRYxevT9oE=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=dCEHQwIHAhEiqlOSbrZQu1HXQa1FLHFwqHzuiaWNdDfpkRC64TjVFIdlfmQ/cC1Xe
+	 5/x7z6b78oA85nUYJkhhVWS8m7YVDRuF8VMGX+8rwe32893U/G2wwb4Y0raywMihfY
+	 FTeKUBoSvQwQwCb+PMrEZFm//AxI2wvrke2D1l3xxKdY5LrTNr2Suhx+Xqj+OTVLjH
+	 ycPe7hVFy37MVF57XMF8NkRxN/ghC464JDgmpjISx3NNYF/evQVOporj48duNi9wkl
+	 9mfXhpdqEscNELl29xOugeHUUc3HBRLwK3gf2yuMp5dJ4raF5w/jWI5qKVikGOYQJj
+	 dbAzFpt36ROMA==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id A368B198005A;
+	Fri, 25 Sep 2026 09:21:17 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Fri, 25 Sep 2026 09:21:17 -0400
+X-ME-Sender: <xms:SHW2aktaus6bb3IDuwehy0tHmweKqR04JpLaMh72_iSOaPlqzXvfjQ>
+    <xme:SHW2asSnKpWQ-r8xqObdC2hSfp-2imDbKVp5NBJuyfgOSvio4fGmEOyM5nQ9ahFsn
+    kqOeUq5fxXXYI5iD6Y_2CQ5nw40e37Is80LXaS-sAhalrV-DLrdURsk>
+X-ME-Proxy-Cause: dmFkZTGm//tvmOX7B1Z6aN22M5G/NImGiJI5CG+zWqb2Cz5VW2X9+opF+vwz1PFhssRYty
+    oD8XLhwfOFQeDBAu0BJPFbOMXjR8yUQo3h6q/OacKqpkU0GkT9Plok53rbQqbjW3fcguac
+    PFdoO4I+6Si4H1xddpnS0WdVtz3WxK8NoXh8W2ru9lYH925szGXJjXx3Y+vB4izliBqDc+
+    J1ni3rDNHLoAHy+nSwmI7gwEkj85FUw4B/aFanwVvYpsZBAaCygwrpKO9P9m45bmAZJLrD
+    IJDwKb6eb1YdHlf6/5vjdaV2WvJTzeZLEugQPszF1ilewRcazFfoDb+r1OV6+YI9SmRMJg
+    punkHkfINQz5IsX9htKb+bV85phrVMj3lY2al1xwQs997rDo15yxZfcBBoQwE5h/etuk0Q
+    nqMv8To7cMP5rPdvrcccT5GG+1mY0sC5o8vka5eieW4pZ6HyCnqc3r/mX/WGMGmAWlu7TY
+    FCTQnFBks8dPu0cUVM3LZv3/ULJLlsa0QPLsBPxssiLh4T+spgXVbzKrpqM5xPZoKD2AWW
+    53sHXPvAERtyW/YFkqdqVkA20ADoFtRf6jfgl+6TgGI6dwIiT0zxjXHEHDKbBEBkL9MLdx
+    GjfkR3sbyYPnN7CeuGYvFBSUCxcnTRuwR9qzQWhUUUMfK0KXvALVLTj9CJOw
+X-ME-Proxy: <xmx:TXW2aoFGG9loSWBbU31zJMbvMsmadwoE-lf0L6goyRTRjs2sMswMwg>
+    <xmx:TXW2ahQsQs7GlhxzxyfMH8kbES1Gm9RO1OqkFbvawwTGnlRkN_fS4w>
+    <xmx:TXW2atvaN1CUhzVQloD2COOrpG08nOOHR7XsZMzf6Eq6Y4J5b8EsNw>
+    <xmx:TXW2avBFFV8S5v5cD7WUgwOyDYfNJ0TZUkcRgUm-E5DU7gWWxkwD7A>
+    <xmx:TXW2an0LHs8XQNJAz7oOEnt22V-eLS5U9yMpLvFpPM292dcPHo1nbyYl>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 622AEF80086; Fri, 25 Sep 2026 09:21:12 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+Date: Fri, 25 Sep 2026 15:20:51 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Jason Gunthorpe" <jgg@nvidia.com>,
+ "Jonathan Cameron" <jonathan.cameron@oss.qualcomm.com>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Arnd Bergmann" <arnd@arndb.de>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Jonathan Corbet" <corbet@lwn.net>, "David Sterba" <dsterba@suse.com>,
+ "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-riscv@lists.infradead.org, "Mark Rutland" <mark.rutland@arm.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Paul Walmsley" <pjw@kernel.org>,
+ "Randy Dunlap" <rdunlap@infradead.org>, "Simon Glass" <sjg@chromium.org>,
+ "Shuah Khan" <skhan@linuxfoundation.org>,
+ "Nick Terrell" <terrelln@fb.com>, "Will Deacon" <will@kernel.org>,
+ "Alexandre Ghiti" <alexghiti@rivosinc.com>,
+ "Conor Dooley" <conor.dooley@microchip.com>,
+ linux-integrity@vger.kernel.org, "Palmer Dabbelt" <palmer@rivosinc.com>,
+ patches@lists.linux.dev, "Ross Philipson" <ross.philipson@gmail.com>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Song Shuai" <songshuaishuai@tinylab.org>
+Message-Id: <ee493585-e685-4616-945f-9d1daae0667f@app.fastmail.com>
+In-Reply-To: <20260925125945.GN9354@nvidia.com>
+References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <3-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <20260924154902.0000528b@oss.qualcomm.com> <20260925125945.GN9354@nvidia.com>
+Subject: Re: [PATCH 03/16] efi/libstub: Free cmdline_ptr in efi_pe_entry
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260925-lz4-vendor-upstream-v1-7-1c7ffbe21c4b@samsung.com>
-In-Reply-To: <20260925-lz4-vendor-upstream-v1-0-1c7ffbe21c4b@samsung.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>,  Nathan Chancellor
-	<nathan@kernel.org>,  Nick Desaulniers <ndesaulniers@google.com>,  Bill
-	Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,  Russell
-	King <linux@armlinux.org.uk>,  Thomas Bogendoerfer
-	<tsbogend@alpha.franken.de>,  "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>,  Helge Deller <deller@gmx.de>,
-	Heiko Carstens <hca@linux.ibm.com>,  Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>,  Christian Borntraeger
-	<borntraeger@linux.ibm.com>,  Sven Schnelle <svens@linux.ibm.com>, Thomas
-	Gleixner <tglx@kernel.org>,  Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>,  Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Minchan Kim <minchan@kernel.org>,  Sergey
-	Senozhatsky <senozhatsky@chromium.org>, Jens Axboe <axboe@kernel.dk>, 
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org, 
-	linux-block@vger.kernel.org, Yann Collet <yann.collet.73@gmail.com>,  Nick
-	Terrell <terrelln@meta.com>, Gao Xiang <xiang@kernel.org>,  Chao Yu
-	<chao@kernel.org>, Jaegeuk Kim <jaegeuk@kernel.org>,  Herbert Xu
-	<herbert@gondor.apana.org.au>,  Phillip Lougher <phillip@squashfs.org.uk>,
-	Sungguk <sungguk.na@samsung.com>,  Jaehoon Chung <jh80.chung@samsung.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, linux-erofs@lists.ozlabs.org, 
-	linux-f2fs-devel@lists.sourceforge.net, linux-crypto@vger.kernel.org
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=41357;
-	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=Ba1geGNNp1HOBz6V9sT4upMPo3ykQVPYLfz+dzgLQIc=;
-	b=owGbwMvMwMWoY/uld7nT7DzG02pJDFnbYsLyA5l+C73wXt0VOouN/9YjB5HkyAezjdIDOxX5T
-	+fJTmbuZDRmYWDkYpAVU2QpOyJy1+ddeF2rsMczmEGsTCBTGLg4BWAiK5ay/08VzL3oECdqHjJt
-	+gz3yy0/BF59CHnhZSty/nxln7jRR+6JUXZpugu819zbvzmi1PlsZ5Ve+fvH8ZK3awN3tC5/W/d
-	g3a6Non+XSW72da24eMSw1irTadnsnZbXGDi43Fn7jvRliFmoMh9K8qvdcNxszpGaXvbNm3mbdF
-	hcile9jAsx8ZxX4BN56Ur9SduyxRHOyYbN/z2EOS/OlJw3/9GNXhaJauUpf7fwHrnoIR8sIXDF9
-	8p5L67uhSmLRdffPJrSN8Pp2EqDPv3wVo/qadIxfNMcFAV1fd84BzstquHUs4w/4CLYxd0XnRcT
-	wbxwus6zD8JaSWcqz8q2inl5NATOF3eVlPxQwHvp7VwA
-X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
-	fpr=76C414DD4CEE577E851348E62C3DF48DA7429B6E
-X-CMS-MailID: 20260925113504eucas1p25e50de59c02681fc1385220be8acd184
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260925113504eucas1p25e50de59c02681fc1385220be8acd184
-X-EPHeader: CA
-X-CMS-RootMailID: 20260925113504eucas1p25e50de59c02681fc1385220be8acd184
-References: <20260925-lz4-vendor-upstream-v1-0-1c7ffbe21c4b@samsung.com>
-	<CGME20260925113504eucas1p25e50de59c02681fc1385220be8acd184@eucas1p2.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_043507_195588_4D4C69A6 
-X-CRM114-Status: GOOD (  29.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,1240 +114,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the forked decompressor with thin entry points over the vendored
-lz4.c. The API is already signature-compatible, so every export is a
-plain forwarder. lz4defs.h has no users left and goes.
 
-lib/decompress_unlz4.c still includes this file for the pre-boot
-decompressor; the exports stay behind #ifndef STATIC.
 
-That include is why LZ4_streamDecode_t is incomplete: under PREBOOT the
-translation unit has both <linux/lz4.h> and upstream's lz4.h, so both
-must name the same type. Both repeat upstream's forward declaration,
-and the file builds without guards.
+On Fri, 25 Sep 2026, at 14:59, Jason Gunthorpe wrote:
+> On Thu, Sep 24, 2026 at 03:49:02PM -0700, Jonathan Cameron wrote:
+>> On Thu, 24 Sep 2026 10:53:06 -0300
+>> Jason Gunthorpe <jgg@nvidia.com> wrote:
+>> 
+>> > Sashiko points out that efi_handle_cmdline() allocates this memory and
+>> > hands it over to the caller. If efi_pe_entry() ever returns it should be
+>> > freed. Add a __free annotation.
+>> > 
+>> > Fixes: 42c8ea3dca09 ("efi: libstub: Factor out EFI stub entrypoint into separate file")
+>> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+>> > ---
+>> >  drivers/firmware/efi/libstub/efi-stub-entry.c | 2 +-
+>> >  1 file changed, 1 insertion(+), 1 deletion(-)
+>> > 
+>> > diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
+>> > index aa85e910fe595e..83fade2b0d3b84 100644
+>> > --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
+>> > +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
+>> > @@ -40,7 +40,7 @@ efi_status_t __efiapi efi_pe_entry(efi_handle_t handle,
+>> >  	unsigned long image_addr;
+>> >  	unsigned long image_size = 0;
+>> >  	/* addr/point and size pairs for memory management*/
+>> > -	char *cmdline_ptr = NULL;
+>> > +	char *cmdline_ptr __free(efi_pool) = NULL;
+>> 
+>> Can we move this down to just above the call to efi_handle_cmdline that
+>> does the constructor side of this?
+>> 
+>> I see none of the efi stuff follow those guidance note that went in
+>> cleanup.h.
+>
 
-LZ4_streamDecode_t is the last of the three, so LZ4_STREAMDECODESIZE and
-LZ4_STREAMDECODESIZE_U64 go and LZ4_MEM_DECOMPRESS takes over, 32 bytes.
+My bad. Patches welcome.
 
-LZ4_COMPRESSBOUND is likewise defined by both headers; guard it.
-LZ4_compressBound() cannot be guarded, so drop the inline wrapper:
-lib/decompress_unlz4.c was its only caller and uses the macro now.
 
-This picks up upstream's decoder fixes since v1.8.3 and retires six
-local patches:
+> Yeah, I stuck with what was there.. It looks kind of weird that way:
+>
+> 	char *cmdline_ptr __free(efi_pool) = NULL;
+> 	status = efi_handle_cmdline(image, &cmdline_ptr);
+> 	if (status != EFI_SUCCESS)
+> 		return status;
+>
 
-commit 8cb5d7482810 ("lib/lz4: make arrays static const, reduces object code size")
-commit b1a3e75e466d ("lz4: fix kernel decompression speed")
-commit 89b158635ad7 ("lib/lz4: explicitly support in-place decompression")
-commit 7fde9d6e839d ("lz4_decompress: declare LZ4_decompress_safe_withPrefix64k static")
-commit eafc0a02391b ("lz4: fix LZ4_decompress_safe_partial read out of bound")
-commit 2d8867f3e083 ("lib: make LZ4_decompress_safe_forceExtDict() static")
-
-The decompression speed fix has an upstream equivalent, carried since
-v1.9.3 as upstream commit fe2a1b3707d5
-("Call LZ4_memcpy() instead of memcpy()").
-
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/block/zram/backend_lz4.c   |   2 +-
- drivers/block/zram/backend_lz4hc.c |   2 +-
- include/linux/lz4.h                |  51 +--
- lib/decompress_unlz4.c             |   4 +-
- lib/lz4/lz4_decompress.c           | 718 +++----------------------------------
- lib/lz4/lz4defs.h                  | 247 -------------
- 6 files changed, 74 insertions(+), 950 deletions(-)
-
-diff --git a/drivers/block/zram/backend_lz4.c b/drivers/block/zram/backend_lz4.c
-index 50265e3ce256490994cb6dae32a45da376e408e0..b9b8a5f678c155442fa3fd2c1984e45182e6fc38 100644
---- a/drivers/block/zram/backend_lz4.c
-+++ b/drivers/block/zram/backend_lz4.c
-@@ -84,7 +84,7 @@ static int lz4_create(struct zcomp_params *params, struct zcomp_ctx *ctx)
- 		if (!zctx->mem)
- 			goto error;
- 	} else {
--		zctx->dstrm = kzalloc_obj(*zctx->dstrm);
-+		zctx->dstrm = kzalloc(LZ4_MEM_DECOMPRESS, GFP_KERNEL);
- 		if (!zctx->dstrm)
- 			goto error;
- 
-diff --git a/drivers/block/zram/backend_lz4hc.c b/drivers/block/zram/backend_lz4hc.c
-index 894695753d99bf2fec7e191c4ec2fff489b5bddd..7fabd0e6d66095d411007bec5eaa8e5f553b626d 100644
---- a/drivers/block/zram/backend_lz4hc.c
-+++ b/drivers/block/zram/backend_lz4hc.c
-@@ -65,7 +65,7 @@ static int lz4hc_create(struct zcomp_params *params, struct zcomp_ctx *ctx)
- 		if (!zctx->mem)
- 			goto error;
- 	} else {
--		zctx->dstrm = kzalloc_obj(*zctx->dstrm);
-+		zctx->dstrm = kzalloc(LZ4_MEM_DECOMPRESS, GFP_KERNEL);
- 		if (!zctx->dstrm)
- 			goto error;
- 
-diff --git a/include/linux/lz4.h b/include/linux/lz4.h
-index 0e617c096653ba122f466b019c68a30661e04989..22adf26904754b3a274274d6b77955eb119e463f 100644
---- a/include/linux/lz4.h
-+++ b/include/linux/lz4.h
-@@ -48,10 +48,16 @@
-  *	CONSTANTS
-  **************************************************************************/
- #define LZ4_MAX_INPUT_SIZE	0x7E000000 /* 2 113 929 216 bytes */
-+
-+/* lib/decompress_unlz4.c sees this header and, under PREBOOT, upstream's
-+ * lz4.h too; both define this identically.
-+ */
-+#ifndef LZ4_COMPRESSBOUND
- #define LZ4_COMPRESSBOUND(isize)	(\
- 	(unsigned int)(isize) > (unsigned int)LZ4_MAX_INPUT_SIZE \
- 	? 0 \
- 	: (isize) + ((isize)/255) + 16)
-+#endif
- 
- #define LZ4_ACCELERATION_DEFAULT 1
- 
-@@ -66,12 +72,8 @@
- #define LZ4HC_CLAMP_CLEVEL			10
- 
- /*-************************************************************************
-- *	STREAMING CONSTANTS AND STRUCTURES
-+ *	STREAMING STRUCTURES
-  **************************************************************************/
--#define LZ4_STREAMDECODESIZE_U64	4
--#define LZ4_STREAMDECODESIZE		 (LZ4_STREAMDECODESIZE_U64 * \
--	sizeof(unsigned long long))
--
- /*
-  * LZ4_stream_t - an LZ4 stream.  Incomplete: lib/lz4 owns the layout.
-  * Allocate LZ4_MEM_COMPRESS bytes and cast, do not sizeof().
-@@ -85,21 +87,11 @@ typedef union LZ4_stream_u LZ4_stream_t;
- typedef union LZ4_streamHC_u LZ4_streamHC_t;
- 
- /*
-- * LZ4_streamDecode_t - information structure to track an
-- *	LZ4 stream during decompression.
-- *
-- * init this structure using LZ4_setStreamDecode (or memset()) before first use
-+ * LZ4_streamDecode_t - an LZ4 stream during decompression.  Incomplete:
-+ * lib/lz4 owns the layout.  Allocate LZ4_MEM_DECOMPRESS bytes and cast, do
-+ * not sizeof().  Init with LZ4_setStreamDecode() (or zero it) before use.
-  */
--typedef struct {
--	const uint8_t *externalDict;
--	size_t extDictSize;
--	const uint8_t *prefixEnd;
--	size_t prefixSize;
--} LZ4_streamDecode_t_internal;
--typedef union {
--	unsigned long long table[LZ4_STREAMDECODESIZE_U64];
--	LZ4_streamDecode_t_internal internal_donotuse;
--} LZ4_streamDecode_t;
-+typedef union LZ4_streamDecode_u LZ4_streamDecode_t;
- 
- /*-************************************************************************
-  *	SIZE OF STATE
-@@ -111,23 +103,12 @@ typedef union {
-  */
- #define LZ4_MEM_COMPRESS	16416
- #define LZ4HC_MEM_COMPRESS	262200
-+#define LZ4_MEM_DECOMPRESS	32
- 
- /*-************************************************************************
-  *	Compression Functions
-  **************************************************************************/
- 
--/**
-- * LZ4_compressBound() - Max. output size in worst case szenarios
-- * @isize: Size of the input data
-- *
-- * Return: Max. size LZ4 may output in a "worst case" szenario
-- * (data not compressible)
-- */
--static inline int LZ4_compressBound(size_t isize)
--{
--	return LZ4_COMPRESSBOUND(isize);
--}
--
- /**
-  * LZ4_compress_default() - Compress data from source to dest
-  * @source: source address of the original data
-@@ -141,7 +122,7 @@ static inline int LZ4_compressBound(size_t isize)
-  * Compresses 'sourceSize' bytes from buffer 'source'
-  * into already allocated 'dest' buffer of size 'maxOutputSize'.
-  * Compression is guaranteed to succeed if
-- * 'maxOutputSize' >= LZ4_compressBound(inputSize).
-+ * 'maxOutputSize' >= LZ4_COMPRESSBOUND(inputSize).
-  * It also runs faster, so it's a recommended setting.
-  * If the function cannot compress 'source' into a more limited 'dest' budget,
-  * compression stops *immediately*, and the function result is zero.
-@@ -295,7 +276,7 @@ int LZ4_decompress_safe_partial(const char *source, char *dest,
-  *
-  * Compress data from 'src' into 'dst', using the more powerful
-  * but slower "HC" algorithm. Compression is guaranteed to succeed if
-- * `dstCapacity >= LZ4_compressBound(srcSize)
-+ * `dstCapacity >= LZ4_COMPRESSBOUND(srcSize)
-  *
-  * Return : the number of bytes written into 'dst' or 0 if compression fails.
-  */
-@@ -359,7 +340,7 @@ int	LZ4_loadDictHC(LZ4_streamHC_t *streamHCPtr, const char *dictionary,
-  * (including initial dictionary when present) must remain accessible
-  * and unmodified during compression.
-  * 'dst' buffer should be sized to handle worst case scenarios, using
-- *  LZ4_compressBound(), to ensure operation success.
-+ *  LZ4_COMPRESSBOUND(), to ensure operation success.
-  *  If, for any reason, previous data blocks can't be preserved unmodified
-  *  in memory during next compression block,
-  *  you must save it to a safer memory space, using LZ4_saveDictHC().
-@@ -455,7 +436,7 @@ int LZ4_saveDict(LZ4_stream_t *streamPtr, char *safeBuffer, int dictSize);
-  * as dictionary to improve compression ratio.
-  * Important : Previous data blocks are assumed to still
-  * be present and unmodified !
-- * If maxDstSize >= LZ4_compressBound(srcSize),
-+ * If maxDstSize >= LZ4_COMPRESSBOUND(srcSize),
-  * compression is guaranteed to succeed, and runs faster.
-  *
-  * Return: Number of bytes written into buffer 'dst'  or 0 if compression fails
-diff --git a/lib/decompress_unlz4.c b/lib/decompress_unlz4.c
-index c0dbb3cea915eb91d8f4ac26c38c4785bbf19770..48ac767dbf68d69082dd00fa4970aaf50aa1db5c 100644
---- a/lib/decompress_unlz4.c
-+++ b/lib/decompress_unlz4.c
-@@ -69,7 +69,7 @@ STATIC inline int INIT unlz4(u8 *input, long in_len,
- 		error("NULL input pointer and missing fill function");
- 		goto exit_1;
- 	} else {
--		inp = large_malloc(LZ4_compressBound(uncomp_chunksize));
-+		inp = large_malloc(LZ4_COMPRESSBOUND(uncomp_chunksize));
- 		if (!inp) {
- 			error("Could not allocate input buffer");
- 			goto exit_1;
-@@ -140,7 +140,7 @@ STATIC inline int INIT unlz4(u8 *input, long in_len,
- 			inp += 4;
- 			size -= 4;
- 		} else {
--			if (chunksize > LZ4_compressBound(uncomp_chunksize)) {
-+			if (chunksize > LZ4_COMPRESSBOUND(uncomp_chunksize)) {
- 				error("chunk length is longer than allocated");
- 				goto exit_2;
- 			}
-diff --git a/lib/lz4/lz4_decompress.c b/lib/lz4/lz4_decompress.c
-index 3a2cd9acada4a09ef70a344090d48167c46088a1..68c8a87476df58fff48b1ffbeee8f2d3bbf743df 100644
---- a/lib/lz4/lz4_decompress.c
-+++ b/lib/lz4/lz4_decompress.c
-@@ -1,707 +1,97 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
- /*
-- * LZ4 - Fast LZ compression algorithm
-  * Copyright (C) 2011 - 2016, Yann Collet.
-- * BSD 2 - Clause License (http://www.opensource.org/licenses/bsd - license.php)
-- * Redistribution and use in source and binary forms, with or without
-- * modification, are permitted provided that the following conditions are
-- * met:
-- *	* Redistributions of source code must retain the above copyright
-- *	  notice, this list of conditions and the following disclaimer.
-- *	* Redistributions in binary form must reproduce the above
-- * copyright notice, this list of conditions and the following disclaimer
-- * in the documentation and/or other materials provided with the
-- * distribution.
-- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-- * You can contact the author at :
-- *	- LZ4 homepage : http://www.lz4.org
-- *	- LZ4 source repository : https://github.com/lz4/lz4
-+ * Copyright (C) 2016, Sven Schmidt <4sschmid@informatik.uni-hamburg.de>
-+ * Copyright (c) 2026 Samsung Electronics Co., Ltd.
-+ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-  *
-- *	Changed for kernel usage by:
-- *	Sven Schmidt <4sschmid@informatik.uni-hamburg.de>
-+ * LZ4 decompressor -- kernel entry points
-+ *
-+ * The decompressor is upstream's, in the verbatim lz4.c included below.  The
-+ * API is signature-compatible, so every export is a plain forwarder.  This
-+ * file is also included by lib/decompress_unlz4.c for the pre-boot
-+ * decompressor, which defines STATIC.
-  */
- 
--/*-************************************
-- *	Dependencies
-- **************************************/
--#include "lz4defs.h"
--#include <linux/init.h>
--#include <linux/module.h>
--#include <linux/kernel.h>
--#include <linux/unaligned.h>
-+#include "lz4_deps.h"
-+#include "upstream/lz4.c"
- 
--/*-*****************************
-- *	Decompression functions
-- *******************************/
-+/* Upstream's short names for these clash with <linux/minmax.h>. */
-+#undef MIN
-+#undef MAX
-+#undef KB
-+#undef MB
-+#undef GB
- 
--#define DEBUGLOG(l, ...) {}	/* disabled */
-+#include "lz4_kernel_api.h"
- 
--#ifndef assert
--#define assert(condition) ((void)0)
-+#ifndef STATIC
-+#include <linux/export.h>
-+#include <linux/module.h>
- #endif
- 
--/*
-- * LZ4_decompress_generic() :
-- * This generic decompression function covers all use cases.
-- * It shall be instantiated several times, using different sets of directives.
-- * Note that it is important for performance that this function really get inlined,
-- * in order to remove useless branches during compilation optimization.
-- */
--static FORCE_INLINE int LZ4_decompress_generic(
--	 const char * const src,
--	 char * const dst,
--	 int srcSize,
--		/*
--		 * If endOnInput == endOnInputSize,
--		 * this value is `dstCapacity`
--		 */
--	 int outputSize,
--	 /* endOnOutputSize, endOnInputSize */
--	 endCondition_directive endOnInput,
--	 /* full, partial */
--	 earlyEnd_directive partialDecoding,
--	 /* noDict, withPrefix64k, usingExtDict */
--	 dict_directive dict,
--	 /* always <= dst, == dst when no prefix */
--	 const BYTE * const lowPrefix,
--	 /* only if dict == usingExtDict */
--	 const BYTE * const dictStart,
--	 /* note : = 0 if noDict */
--	 const size_t dictSize
--	 )
--{
--	const BYTE *ip = (const BYTE *) src;
--	const BYTE * const iend = ip + srcSize;
--
--	BYTE *op = (BYTE *) dst;
--	BYTE * const oend = op + outputSize;
--	BYTE *cpy;
--
--	const BYTE * const dictEnd = (const BYTE *)dictStart + dictSize;
--	static const unsigned int inc32table[8] = {0, 1, 2, 1, 0, 4, 4, 4};
--	static const int dec64table[8] = {0, 0, 0, -1, -4, 1, 2, 3};
--
--	const int safeDecode = (endOnInput == endOnInputSize);
--	const int checkOffset = ((safeDecode) && (dictSize < (int)(64 * KB)));
--
--	/* Set up the "end" pointers for the shortcut. */
--	const BYTE *const shortiend = iend -
--		(endOnInput ? 14 : 8) /*maxLL*/ - 2 /*offset*/;
--	const BYTE *const shortoend = oend -
--		(endOnInput ? 14 : 8) /*maxLL*/ - 18 /*maxML*/;
--
--	DEBUGLOG(5, "%s (srcSize:%i, dstSize:%i)", __func__,
--		 srcSize, outputSize);
--
--	/* Special cases */
--	assert(lowPrefix <= op);
--	assert(src != NULL);
--
--	/* Empty output buffer */
--	if ((endOnInput) && (unlikely(outputSize == 0)))
--		return ((srcSize == 1) && (*ip == 0)) ? 0 : -1;
--
--	if ((!endOnInput) && (unlikely(outputSize == 0)))
--		return (*ip == 0 ? 1 : -1);
--
--	if ((endOnInput) && unlikely(srcSize == 0))
--		return -1;
--
--	/* Main Loop : decode sequences */
--	while (1) {
--		size_t length;
--		const BYTE *match;
--		size_t offset;
--
--		/* get literal length */
--		unsigned int const token = *ip++;
--		length = token>>ML_BITS;
--
--		/* ip < iend before the increment */
--		assert(!endOnInput || ip <= iend);
--
--		/*
--		 * A two-stage shortcut for the most common case:
--		 * 1) If the literal length is 0..14, and there is enough
--		 * space, enter the shortcut and copy 16 bytes on behalf
--		 * of the literals (in the fast mode, only 8 bytes can be
--		 * safely copied this way).
--		 * 2) Further if the match length is 4..18, copy 18 bytes
--		 * in a similar manner; but we ensure that there's enough
--		 * space in the output for those 18 bytes earlier, upon
--		 * entering the shortcut (in other words, there is a
--		 * combined check for both stages).
--		 *
--		 * The & in the likely() below is intentionally not && so that
--		 * some compilers can produce better parallelized runtime code
--		 */
--		if ((endOnInput ? length != RUN_MASK : length <= 8)
--		   /*
--		    * strictly "less than" on input, to re-enter
--		    * the loop with at least one byte
--		    */
--		   && likely((endOnInput ? ip < shortiend : 1) &
--			     (op <= shortoend))) {
--			/* Copy the literals */
--			LZ4_memcpy(op, ip, endOnInput ? 16 : 8);
--			op += length; ip += length;
--
--			/*
--			 * The second stage:
--			 * prepare for match copying, decode full info.
--			 * If it doesn't work out, the info won't be wasted.
--			 */
--			length = token & ML_MASK; /* match length */
--			offset = LZ4_readLE16(ip);
--			ip += 2;
--			match = op - offset;
--			assert(match <= op); /* check overflow */
--
--			/* Do not deal with overlapping matches. */
--			if ((length != ML_MASK) &&
--			    (offset >= 8) &&
--			    (dict == withPrefix64k || match >= lowPrefix)) {
--				/* Copy the match. */
--				LZ4_memcpy(op + 0, match + 0, 8);
--				LZ4_memcpy(op + 8, match + 8, 8);
--				LZ4_memcpy(op + 16, match + 16, 2);
--				op += length + MINMATCH;
--				/* Both stages worked, load the next token. */
--				continue;
--			}
--
--			/*
--			 * The second stage didn't work out, but the info
--			 * is ready. Propel it right to the point of match
--			 * copying.
--			 */
--			goto _copy_match;
--		}
--
--		/* decode literal length */
--		if (length == RUN_MASK) {
--			unsigned int s;
--
--			if (unlikely(endOnInput ? ip >= iend - RUN_MASK : 0)) {
--				/* overflow detection */
--				goto _output_error;
--			}
--			do {
--				s = *ip++;
--				length += s;
--			} while (likely(endOnInput
--				? ip < iend - RUN_MASK
--				: 1) & (s == 255));
--
--			if ((safeDecode)
--			    && unlikely((uptrval)(op) +
--					length < (uptrval)(op))) {
--				/* overflow detection */
--				goto _output_error;
--			}
--			if ((safeDecode)
--			    && unlikely((uptrval)(ip) +
--					length < (uptrval)(ip))) {
--				/* overflow detection */
--				goto _output_error;
--			}
--		}
--
--		/* copy literals */
--		cpy = op + length;
--		LZ4_STATIC_ASSERT(MFLIMIT >= WILDCOPYLENGTH);
--
--		if (((endOnInput) && ((cpy > oend - MFLIMIT)
--			|| (ip + length > iend - (2 + 1 + LASTLITERALS))))
--			|| ((!endOnInput) && (cpy > oend - WILDCOPYLENGTH))) {
--			if (partialDecoding) {
--				if (cpy > oend) {
--					/*
--					 * Partial decoding :
--					 * stop in the middle of literal segment
--					 */
--					cpy = oend;
--					length = oend - op;
--				}
--				if ((endOnInput)
--					&& (ip + length > iend)) {
--					/*
--					 * Error :
--					 * read attempt beyond
--					 * end of input buffer
--					 */
--					goto _output_error;
--				}
--			} else {
--				if ((!endOnInput)
--					&& (cpy != oend)) {
--					/*
--					 * Error :
--					 * block decoding must
--					 * stop exactly there
--					 */
--					goto _output_error;
--				}
--				if ((endOnInput)
--					&& ((ip + length != iend)
--					|| (cpy > oend))) {
--					/*
--					 * Error :
--					 * input must be consumed
--					 */
--					goto _output_error;
--				}
--			}
--
--			/*
--			 * supports overlapping memory regions; only matters
--			 * for in-place decompression scenarios
--			 */
--			LZ4_memmove(op, ip, length);
--			ip += length;
--			op += length;
--
--			/* Necessarily EOF when !partialDecoding.
--			 * When partialDecoding, it is EOF if we've either
--			 * filled the output buffer or
--			 * can't proceed with reading an offset for following match.
--			 */
--			if (!partialDecoding || (cpy == oend) || (ip >= (iend - 2)))
--				break;
--		} else {
--			/* may overwrite up to WILDCOPYLENGTH beyond cpy */
--			LZ4_wildCopy(op, ip, cpy);
--			ip += length;
--			op = cpy;
--		}
--
--		/* get offset */
--		offset = LZ4_readLE16(ip);
--		ip += 2;
--		match = op - offset;
--
--		/* get matchlength */
--		length = token & ML_MASK;
--
--_copy_match:
--		if ((checkOffset) && (unlikely(match + dictSize < lowPrefix))) {
--			/* Error : offset outside buffers */
--			goto _output_error;
--		}
--
--		/* costs ~1%; silence an msan warning when offset == 0 */
--		/*
--		 * note : when partialDecoding, there is no guarantee that
--		 * at least 4 bytes remain available in output buffer
--		 */
--		if (!partialDecoding) {
--			assert(oend > op);
--			assert(oend - op >= 4);
--
--			LZ4_write32(op, (U32)offset);
--		}
--
--		if (length == ML_MASK) {
--			unsigned int s;
--
--			do {
--				s = *ip++;
--
--				if ((endOnInput) && (ip > iend - LASTLITERALS))
--					goto _output_error;
--
--				length += s;
--			} while (s == 255);
--
--			if ((safeDecode)
--				&& unlikely(
--					(uptrval)(op) + length < (uptrval)op)) {
--				/* overflow detection */
--				goto _output_error;
--			}
--		}
--
--		length += MINMATCH;
--
--		/* match starting within external dictionary */
--		if ((dict == usingExtDict) && (match < lowPrefix)) {
--			if (unlikely(op + length > oend - LASTLITERALS)) {
--				/* doesn't respect parsing restriction */
--				if (!partialDecoding)
--					goto _output_error;
--				length = min(length, (size_t)(oend - op));
--			}
--
--			if (length <= (size_t)(lowPrefix - match)) {
--				/*
--				 * match fits entirely within external
--				 * dictionary : just copy
--				 */
--				memmove(op, dictEnd - (lowPrefix - match),
--					length);
--				op += length;
--			} else {
--				/*
--				 * match stretches into both external
--				 * dictionary and current block
--				 */
--				size_t const copySize = (size_t)(lowPrefix - match);
--				size_t const restSize = length - copySize;
-+static_assert(sizeof(LZ4_streamDecode_t) == LZ4_STREAMDECODE_MINSIZE);
-+static_assert(LZ4_STREAMDECODE_MINSIZE == 32); /* LZ4_MEM_DECOMPRESS */
- 
--				LZ4_memcpy(op, dictEnd - copySize, copySize);
--				op += copySize;
--				if (restSize > (size_t)(op - lowPrefix)) {
--					/* overlap copy */
--					BYTE * const endOfMatch = op + restSize;
--					const BYTE *copyFrom = lowPrefix;
--
--					while (op < endOfMatch)
--						*op++ = *copyFrom++;
--				} else {
--					LZ4_memcpy(op, lowPrefix, restSize);
--					op += restSize;
--				}
--			}
--			continue;
--		}
--
--		/* copy match within block */
--		cpy = op + length;
--
--		/*
--		 * partialDecoding :
--		 * may not respect endBlock parsing restrictions
--		 */
--		assert(op <= oend);
--		if (partialDecoding &&
--		    (cpy > oend - MATCH_SAFEGUARD_DISTANCE)) {
--			size_t const mlen = min(length, (size_t)(oend - op));
--			const BYTE * const matchEnd = match + mlen;
--			BYTE * const copyEnd = op + mlen;
--
--			if (matchEnd > op) {
--				/* overlap copy */
--				while (op < copyEnd)
--					*op++ = *match++;
--			} else {
--				LZ4_memcpy(op, match, mlen);
--			}
--			op = copyEnd;
--			if (op == oend)
--				break;
--			continue;
--		}
--
--		if (unlikely(offset < 8)) {
--			op[0] = match[0];
--			op[1] = match[1];
--			op[2] = match[2];
--			op[3] = match[3];
--			match += inc32table[offset];
--			LZ4_memcpy(op + 4, match, 4);
--			match -= dec64table[offset];
--		} else {
--			LZ4_copy8(op, match);
--			match += 8;
--		}
--
--		op += 8;
--
--		if (unlikely(cpy > oend - MATCH_SAFEGUARD_DISTANCE)) {
--			BYTE * const oCopyLimit = oend - (WILDCOPYLENGTH - 1);
--
--			if (cpy > oend - LASTLITERALS) {
--				/*
--				 * Error : last LASTLITERALS bytes
--				 * must be literals (uncompressed)
--				 */
--				goto _output_error;
--			}
--
--			if (op < oCopyLimit) {
--				LZ4_wildCopy(op, match, oCopyLimit);
--				match += oCopyLimit - op;
--				op = oCopyLimit;
--			}
--			while (op < cpy)
--				*op++ = *match++;
--		} else {
--			LZ4_copy8(op, match);
--			if (length > 16)
--				LZ4_wildCopy(op + 8, match + 8, cpy);
--		}
--		op = cpy; /* wildcopy correction */
--	}
--
--	/* end of decoding */
--	if (endOnInput) {
--		/* Nb of output bytes decoded */
--		return (int) (((char *)op) - dst);
--	} else {
--		/* Nb of input bytes read */
--		return (int) (((const char *)ip) - src);
--	}
--
--	/* Overflow error detected */
--_output_error:
--	return (int) (-(((const char *)ip) - src)) - 1;
--}
--
--int LZ4_decompress_safe(const char *source, char *dest,
--	int compressedSize, int maxDecompressedSize)
-+int LZ4_decompress_safe(const char *source, char *dest, int compressedSize,
-+			int maxDecompressedSize)
- {
--	return LZ4_decompress_generic(source, dest,
--				      compressedSize, maxDecompressedSize,
--				      endOnInputSize, decode_full_block,
--				      noDict, (BYTE *)dest, NULL, 0);
-+	return __lz4_decompress_safe(source, dest, compressedSize,
-+				     maxDecompressedSize);
- }
- 
--int LZ4_decompress_safe_partial(const char *src, char *dst,
--	int compressedSize, int targetOutputSize, int dstCapacity)
-+int LZ4_decompress_safe_partial(const char *source, char *dest,
-+				int compressedSize, int targetOutputSize,
-+				int maxDecompressedSize)
- {
--	dstCapacity = min(targetOutputSize, dstCapacity);
--	return LZ4_decompress_generic(src, dst, compressedSize, dstCapacity,
--				      endOnInputSize, partial_decode,
--				      noDict, (BYTE *)dst, NULL, 0);
-+	return __lz4_decompress_safe_partial(source, dest, compressedSize,
-+					     targetOutputSize,
-+					     maxDecompressedSize);
- }
- 
- int LZ4_decompress_fast(const char *source, char *dest, int originalSize)
- {
--	return LZ4_decompress_generic(source, dest, 0, originalSize,
--				      endOnOutputSize, decode_full_block,
--				      withPrefix64k,
--				      (BYTE *)dest - 64 * KB, NULL, 0);
--}
--
--/* ===== Instantiate a few more decoding cases, used more than once. ===== */
--
--static int LZ4_decompress_safe_withPrefix64k(const char *source, char *dest,
--				      int compressedSize, int maxOutputSize)
--{
--	return LZ4_decompress_generic(source, dest,
--				      compressedSize, maxOutputSize,
--				      endOnInputSize, decode_full_block,
--				      withPrefix64k,
--				      (BYTE *)dest - 64 * KB, NULL, 0);
-+	return __lz4_decompress_fast(source, dest, originalSize);
- }
- 
--static int LZ4_decompress_safe_withSmallPrefix(const char *source, char *dest,
--					       int compressedSize,
--					       int maxOutputSize,
--					       size_t prefixSize)
--{
--	return LZ4_decompress_generic(source, dest,
--				      compressedSize, maxOutputSize,
--				      endOnInputSize, decode_full_block,
--				      noDict,
--				      (BYTE *)dest - prefixSize, NULL, 0);
--}
--
--static int LZ4_decompress_safe_forceExtDict(const char *source, char *dest,
--					    int compressedSize, int maxOutputSize,
--					    const void *dictStart, size_t dictSize)
--{
--	return LZ4_decompress_generic(source, dest,
--				      compressedSize, maxOutputSize,
--				      endOnInputSize, decode_full_block,
--				      usingExtDict, (BYTE *)dest,
--				      (const BYTE *)dictStart, dictSize);
--}
--
--static int LZ4_decompress_fast_extDict(const char *source, char *dest,
--				       int originalSize,
--				       const void *dictStart, size_t dictSize)
--{
--	return LZ4_decompress_generic(source, dest,
--				      0, originalSize,
--				      endOnOutputSize, decode_full_block,
--				      usingExtDict, (BYTE *)dest,
--				      (const BYTE *)dictStart, dictSize);
--}
--
--/*
-- * The "double dictionary" mode, for use with e.g. ring buffers: the first part
-- * of the dictionary is passed as prefix, and the second via dictStart + dictSize.
-- * These routines are used only once, in LZ4_decompress_*_continue().
-- */
--static FORCE_INLINE
--int LZ4_decompress_safe_doubleDict(const char *source, char *dest,
--				   int compressedSize, int maxOutputSize,
--				   size_t prefixSize,
--				   const void *dictStart, size_t dictSize)
--{
--	return LZ4_decompress_generic(source, dest,
--				      compressedSize, maxOutputSize,
--				      endOnInputSize, decode_full_block,
--				      usingExtDict, (BYTE *)dest - prefixSize,
--				      (const BYTE *)dictStart, dictSize);
--}
--
--static FORCE_INLINE
--int LZ4_decompress_fast_doubleDict(const char *source, char *dest,
--				   int originalSize, size_t prefixSize,
--				   const void *dictStart, size_t dictSize)
--{
--	return LZ4_decompress_generic(source, dest,
--				      0, originalSize,
--				      endOnOutputSize, decode_full_block,
--				      usingExtDict, (BYTE *)dest - prefixSize,
--				      (const BYTE *)dictStart, dictSize);
--}
--
--/* ===== streaming decompression functions ===== */
--
- int LZ4_setStreamDecode(LZ4_streamDecode_t *LZ4_streamDecode,
--	const char *dictionary, int dictSize)
-+			const char *dictionary, int dictSize)
- {
--	LZ4_streamDecode_t_internal *lz4sd =
--		&LZ4_streamDecode->internal_donotuse;
--
--	lz4sd->prefixSize = (size_t) dictSize;
--	lz4sd->prefixEnd = (const BYTE *) dictionary + dictSize;
--	lz4sd->externalDict = NULL;
--	lz4sd->extDictSize	= 0;
--	return 1;
-+	return __lz4_setStreamDecode(LZ4_streamDecode, dictionary, dictSize);
- }
- 
--/*
-- * *_continue() :
-- * These decoding functions allow decompression of multiple blocks
-- * in "streaming" mode.
-- * Previously decoded blocks must still be available at the memory
-- * position where they were decoded.
-- * If it's not possible, save the relevant part of
-- * decoded data into a safe buffer,
-- * and indicate where it stands using LZ4_setStreamDecode()
-- */
- int LZ4_decompress_safe_continue(LZ4_streamDecode_t *LZ4_streamDecode,
--	const char *source, char *dest, int compressedSize, int maxOutputSize)
-+				 const char *source, char *dest,
-+				 int compressedSize, int maxDecompressedSize)
- {
--	LZ4_streamDecode_t_internal *lz4sd =
--		&LZ4_streamDecode->internal_donotuse;
--	int result;
--
--	if (lz4sd->prefixSize == 0) {
--		/* The first call, no dictionary yet. */
--		assert(lz4sd->extDictSize == 0);
--		result = LZ4_decompress_safe(source, dest,
--			compressedSize, maxOutputSize);
--		if (result <= 0)
--			return result;
--		lz4sd->prefixSize = result;
--		lz4sd->prefixEnd = (BYTE *)dest + result;
--	} else if (lz4sd->prefixEnd == (BYTE *)dest) {
--		/* They're rolling the current segment. */
--		if (lz4sd->prefixSize >= 64 * KB - 1)
--			result = LZ4_decompress_safe_withPrefix64k(source, dest,
--				compressedSize, maxOutputSize);
--		else if (lz4sd->extDictSize == 0)
--			result = LZ4_decompress_safe_withSmallPrefix(source,
--				dest, compressedSize, maxOutputSize,
--				lz4sd->prefixSize);
--		else
--			result = LZ4_decompress_safe_doubleDict(source, dest,
--				compressedSize, maxOutputSize,
--				lz4sd->prefixSize,
--				lz4sd->externalDict, lz4sd->extDictSize);
--		if (result <= 0)
--			return result;
--		lz4sd->prefixSize += result;
--		lz4sd->prefixEnd  += result;
--	} else {
--		/*
--		 * The buffer wraps around, or they're
--		 * switching to another buffer.
--		 */
--		lz4sd->extDictSize = lz4sd->prefixSize;
--		lz4sd->externalDict = lz4sd->prefixEnd - lz4sd->extDictSize;
--		result = LZ4_decompress_safe_forceExtDict(source, dest,
--			compressedSize, maxOutputSize,
--			lz4sd->externalDict, lz4sd->extDictSize);
--		if (result <= 0)
--			return result;
--		lz4sd->prefixSize = result;
--		lz4sd->prefixEnd  = (BYTE *)dest + result;
--	}
--
--	return result;
-+	return __lz4_decompress_safe_continue(LZ4_streamDecode, source, dest,
-+					      compressedSize,
-+					      maxDecompressedSize);
- }
- 
- int LZ4_decompress_fast_continue(LZ4_streamDecode_t *LZ4_streamDecode,
--	const char *source, char *dest, int originalSize)
-+				 const char *source, char *dest,
-+				 int originalSize)
- {
--	LZ4_streamDecode_t_internal *lz4sd = &LZ4_streamDecode->internal_donotuse;
--	int result;
--
--	if (lz4sd->prefixSize == 0) {
--		assert(lz4sd->extDictSize == 0);
--		result = LZ4_decompress_fast(source, dest, originalSize);
--		if (result <= 0)
--			return result;
--		lz4sd->prefixSize = originalSize;
--		lz4sd->prefixEnd = (BYTE *)dest + originalSize;
--	} else if (lz4sd->prefixEnd == (BYTE *)dest) {
--		if (lz4sd->prefixSize >= 64 * KB - 1 ||
--		    lz4sd->extDictSize == 0)
--			result = LZ4_decompress_fast(source, dest,
--						     originalSize);
--		else
--			result = LZ4_decompress_fast_doubleDict(source, dest,
--				originalSize, lz4sd->prefixSize,
--				lz4sd->externalDict, lz4sd->extDictSize);
--		if (result <= 0)
--			return result;
--		lz4sd->prefixSize += originalSize;
--		lz4sd->prefixEnd  += originalSize;
--	} else {
--		lz4sd->extDictSize = lz4sd->prefixSize;
--		lz4sd->externalDict = lz4sd->prefixEnd - lz4sd->extDictSize;
--		result = LZ4_decompress_fast_extDict(source, dest,
--			originalSize, lz4sd->externalDict, lz4sd->extDictSize);
--		if (result <= 0)
--			return result;
--		lz4sd->prefixSize = originalSize;
--		lz4sd->prefixEnd = (BYTE *)dest + originalSize;
--	}
--	return result;
-+	return __lz4_decompress_fast_continue(LZ4_streamDecode, source, dest,
-+					      originalSize);
- }
- 
- int LZ4_decompress_safe_usingDict(const char *source, char *dest,
--				  int compressedSize, int maxOutputSize,
-+				  int compressedSize, int maxDecompressedSize,
- 				  const char *dictStart, int dictSize)
- {
--	if (dictSize == 0)
--		return LZ4_decompress_safe(source, dest,
--					   compressedSize, maxOutputSize);
--	if (dictStart+dictSize == dest) {
--		if (dictSize >= 64 * KB - 1)
--			return LZ4_decompress_safe_withPrefix64k(source, dest,
--				compressedSize, maxOutputSize);
--		return LZ4_decompress_safe_withSmallPrefix(source, dest,
--			compressedSize, maxOutputSize, dictSize);
--	}
--	return LZ4_decompress_safe_forceExtDict(source, dest,
--		compressedSize, maxOutputSize, dictStart, dictSize);
-+	return __lz4_decompress_safe_usingDict(source, dest, compressedSize,
-+					       maxDecompressedSize, dictStart,
-+					       dictSize);
- }
- 
- int LZ4_decompress_fast_usingDict(const char *source, char *dest,
--				  int originalSize,
--				  const char *dictStart, int dictSize)
-+				  int originalSize, const char *dictStart,
-+				  int dictSize)
- {
--	if (dictSize == 0 || dictStart + dictSize == dest)
--		return LZ4_decompress_fast(source, dest, originalSize);
--
--	return LZ4_decompress_fast_extDict(source, dest, originalSize,
--		dictStart, dictSize);
-+	return __lz4_decompress_fast_usingDict(source, dest, originalSize,
-+					       dictStart, dictSize);
- }
- 
- #ifndef STATIC
-diff --git a/lib/lz4/lz4defs.h b/lib/lz4/lz4defs.h
-deleted file mode 100644
-index 17277ec16919f3a554afc7d91ad515c493d745ca..0000000000000000000000000000000000000000
---- a/lib/lz4/lz4defs.h
-+++ /dev/null
-@@ -1,247 +0,0 @@
--#ifndef __LZ4DEFS_H__
--#define __LZ4DEFS_H__
--
--/*
-- * lz4defs.h -- common and architecture specific defines for the kernel usage
--
-- * LZ4 - Fast LZ compression algorithm
-- * Copyright (C) 2011-2016, Yann Collet.
-- * BSD 2-Clause License (http://www.opensource.org/licenses/bsd-license.php)
-- * Redistribution and use in source and binary forms, with or without
-- * modification, are permitted provided that the following conditions are
-- * met:
-- *	* Redistributions of source code must retain the above copyright
-- *	  notice, this list of conditions and the following disclaimer.
-- *	* Redistributions in binary form must reproduce the above
-- * copyright notice, this list of conditions and the following disclaimer
-- * in the documentation and/or other materials provided with the
-- * distribution.
-- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-- * You can contact the author at :
-- *	- LZ4 homepage : http://www.lz4.org
-- *	- LZ4 source repository : https://github.com/lz4/lz4
-- *
-- *	Changed for kernel usage by:
-- *	Sven Schmidt <4sschmid@informatik.uni-hamburg.de>
-- */
--
--#include <linux/unaligned.h>
--
--#include <linux/bitops.h>
--#include <linux/string.h>	 /* memset, memcpy */
--#include <linux/lz4.h>
--
--#define FORCE_INLINE __always_inline
--
--/*-************************************
-- *	Basic Types
-- **************************************/
--#include <linux/types.h>
--
--typedef	uint8_t BYTE;
--typedef uint16_t U16;
--typedef uint32_t U32;
--typedef	int32_t S32;
--typedef uint64_t U64;
--typedef uintptr_t uptrval;
--
--/*-************************************
-- *	Architecture specifics
-- **************************************/
--#if defined(CONFIG_64BIT)
--#define LZ4_ARCH64 1
--#else
--#define LZ4_ARCH64 0
--#endif
--
--#if defined(__LITTLE_ENDIAN)
--#define LZ4_LITTLE_ENDIAN 1
--#else
--#define LZ4_LITTLE_ENDIAN 0
--#endif
--
--/*-************************************
-- *	Constants
-- **************************************/
--#define MINMATCH 4
--
--#define WILDCOPYLENGTH 8
--#define LASTLITERALS 5
--#define MFLIMIT (WILDCOPYLENGTH + MINMATCH)
--/*
-- * ensure it's possible to write 2 x wildcopyLength
-- * without overflowing output buffer
-- */
--#define MATCH_SAFEGUARD_DISTANCE  ((2 * WILDCOPYLENGTH) - MINMATCH)
--
--/* Increase this value ==> compression run slower on incompressible data */
--#define LZ4_SKIPTRIGGER 6
--
--#define HASH_UNIT sizeof(size_t)
--
--#define KB (1 << 10)
--#define MB (1 << 20)
--#define GB (1U << 30)
--
--#define MAX_DISTANCE LZ4_DISTANCE_MAX
--#define STEPSIZE sizeof(size_t)
--
--#define ML_BITS	4
--#define ML_MASK	((1U << ML_BITS) - 1)
--#define RUN_BITS (8 - ML_BITS)
--#define RUN_MASK ((1U << RUN_BITS) - 1)
--
--/*-************************************
-- *	Reading and writing into memory
-- **************************************/
--static FORCE_INLINE U16 LZ4_read16(const void *ptr)
--{
--	return get_unaligned((const U16 *)ptr);
--}
--
--static FORCE_INLINE U32 LZ4_read32(const void *ptr)
--{
--	return get_unaligned((const U32 *)ptr);
--}
--
--static FORCE_INLINE size_t LZ4_read_ARCH(const void *ptr)
--{
--	return get_unaligned((const size_t *)ptr);
--}
--
--static FORCE_INLINE void LZ4_write16(void *memPtr, U16 value)
--{
--	put_unaligned(value, (U16 *)memPtr);
--}
--
--static FORCE_INLINE void LZ4_write32(void *memPtr, U32 value)
--{
--	put_unaligned(value, (U32 *)memPtr);
--}
--
--static FORCE_INLINE U16 LZ4_readLE16(const void *memPtr)
--{
--	return get_unaligned_le16(memPtr);
--}
--
--static FORCE_INLINE void LZ4_writeLE16(void *memPtr, U16 value)
--{
--	return put_unaligned_le16(value, memPtr);
--}
--
--/*
-- * LZ4 relies on memcpy with a constant size being inlined. In freestanding
-- * environments, the compiler can't assume the implementation of memcpy() is
-- * standard compliant, so apply its specialized memcpy() inlining logic. When
-- * possible, use __builtin_memcpy() to tell the compiler to analyze memcpy()
-- * as-if it were standard compliant, so it can inline it in freestanding
-- * environments. This is needed when decompressing the Linux Kernel, for example.
-- */
--#define LZ4_memcpy(dst, src, size) __builtin_memcpy(dst, src, size)
--#define LZ4_memmove(dst, src, size) __builtin_memmove(dst, src, size)
--
--static FORCE_INLINE void LZ4_copy8(void *dst, const void *src)
--{
--#if LZ4_ARCH64
--	U64 a = get_unaligned((const U64 *)src);
--
--	put_unaligned(a, (U64 *)dst);
--#else
--	U32 a = get_unaligned((const U32 *)src);
--	U32 b = get_unaligned((const U32 *)src + 1);
--
--	put_unaligned(a, (U32 *)dst);
--	put_unaligned(b, (U32 *)dst + 1);
--#endif
--}
--
--/*
-- * customized variant of memcpy,
-- * which can overwrite up to 7 bytes beyond dstEnd
-- */
--static FORCE_INLINE void LZ4_wildCopy(void *dstPtr,
--	const void *srcPtr, void *dstEnd)
--{
--	BYTE *d = (BYTE *)dstPtr;
--	const BYTE *s = (const BYTE *)srcPtr;
--	BYTE *const e = (BYTE *)dstEnd;
--
--	do {
--		LZ4_copy8(d, s);
--		d += 8;
--		s += 8;
--	} while (d < e);
--}
--
--static FORCE_INLINE unsigned int LZ4_NbCommonBytes(register size_t val)
--{
--#if LZ4_LITTLE_ENDIAN
--	return __ffs(val) >> 3;
--#else
--	return (BITS_PER_LONG - 1 - __fls(val)) >> 3;
--#endif
--}
--
--static FORCE_INLINE unsigned int LZ4_count(
--	const BYTE *pIn,
--	const BYTE *pMatch,
--	const BYTE *pInLimit)
--{
--	const BYTE *const pStart = pIn;
--
--	while (likely(pIn < pInLimit - (STEPSIZE - 1))) {
--		size_t const diff = LZ4_read_ARCH(pMatch) ^ LZ4_read_ARCH(pIn);
--
--		if (!diff) {
--			pIn += STEPSIZE;
--			pMatch += STEPSIZE;
--			continue;
--		}
--
--		pIn += LZ4_NbCommonBytes(diff);
--
--		return (unsigned int)(pIn - pStart);
--	}
--
--#if LZ4_ARCH64
--	if ((pIn < (pInLimit - 3))
--		&& (LZ4_read32(pMatch) == LZ4_read32(pIn))) {
--		pIn += 4;
--		pMatch += 4;
--	}
--#endif
--
--	if ((pIn < (pInLimit - 1))
--		&& (LZ4_read16(pMatch) == LZ4_read16(pIn))) {
--		pIn += 2;
--		pMatch += 2;
--	}
--
--	if ((pIn < pInLimit) && (*pMatch == *pIn))
--		pIn++;
--
--	return (unsigned int)(pIn - pStart);
--}
--
--typedef enum { noLimit = 0, limitedOutput = 1 } limitedOutput_directive;
--typedef enum { byPtr, byU32, byU16 } tableType_t;
--
--typedef enum { noDict = 0, withPrefix64k, usingExtDict } dict_directive;
--typedef enum { noDictIssue = 0, dictSmall } dictIssue_directive;
--
--typedef enum { endOnOutputSize = 0, endOnInputSize = 1 } endCondition_directive;
--typedef enum { decode_full_block = 0, partial_decode = 1 } earlyEnd_directive;
--
--#define LZ4_STATIC_ASSERT(c)	BUILD_BUG_ON(!(c))
--
--#endif
-
--- 
-2.34.1
-
+That looks fine, no?
 
