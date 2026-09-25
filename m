@@ -4,115 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E816C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 04:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A05FC98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 04:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNCXrCGsdTEIc304eZ6sG3kavghRL8koSeqoFiVhQaw=; b=dHm26OMTMqC7tvT590Bdze7P4x
-	6ABHLl75F/xJn7mcWG18sp3p2I1BXFbbrc9AIxYCahntCaEyNrBjNhoOL5lhSJFR3fuGQk9963Ga2
-	HM0AAFWe1sywTBpMya/7DwkSQdYPE2raPn7d8lsN1M78N7vEqS81hxoTkEUmKALNSbdjrIab0GH8U
-	hyNV3+Ti+WU+ymkxDqI0G5+qUB9NAzQ6pr3UUl5KHfQsU1xZbKb+fMJ0k0Dp6SStYpvfh8ogPBwO1
-	VVwC+7W6J1F3U05O2FYxG0XndFaP/fUyXejHuAhZkT/gJjM12jQq322wJtiEnAfLn/FKbUkZN3iIs
-	H//2+4Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7NMumamLPsUjip2aJ3R0u6HxC8UmZ1ahMOlQhN17zHI=; b=azpcWTTqHfLxS7I2z2g7yqDRep
+	8NS48Q+8WpiJoyZp69ZOXAfsDyXz014bag0JTkQAAgR5NJBki2kqDzkB99B9kwsrmUyPu3yRj67KN
+	f6Yo+9G0pyxXZv5fCd9aFN5aT8DVRcuAWH4rNpIjwIQCmm6VTMdkLvBKT7gVCapTmN15L10DpRTrv
+	LX4dCwrm4xdmaOsxKG4RlZ3j78USYTlKhMFbtXhMws8ymKT7NP/l8ypScs9pFgpCvHwvS7nEneF2Q
+	OZRXk+2W6TEhd2nZG6khULBSJYDdZSMSMAuILkfG+5pmNxnKXnlZCkGA850KrkGRja2dRtRD4Jicj
+	rIWBHF2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9xbJ-0000000Cc5H-2vGt;
-	Fri, 25 Sep 2026 04:31:57 +0000
-Received: from mail-ej2-x05.google.com ([2a00:1450:4864:34::5])
+	id 1x9xcB-0000000CcFr-0IAc;
+	Fri, 25 Sep 2026 04:32:51 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9xbG-0000000Cc46-2Ufu
+	id 1x9xc8-0000000CcEf-1JHk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 04:31:56 +0000
-Received: by mail-ej2-x05.google.com with SMTP id a640c23a62f3a-c294938a983so17204766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Sep 2026 21:31:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790310712; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oVuDr39CDRJsykPnJNshEz0m8LW2hyBbiCI67yrQ2Z/6Wn5/oxVRaKQH/f8lplTqGt
-         2CU5kGpZPQetlgV1/EPsVymdoVJ/a7ir4cEqPRW4ksdPoBY/AyEktIOZlBz0gyRFQhiO
-         nn4xCb3CIGwrdPXAwwEkrWpGmU7p9GXpPcP9gf3PgVQ9ANSf9lOFi2T5uRU6G4Z5biWg
-         tLQWSFoqkxdmaLCnUA73g2EqGwl+hNFGOQNxy4LpWDagM45g2PKkRLKOVOgSE7LZZiFq
-         ynWdpq6+V/AuzTixJXBdKOxO+2R3D101gBXT8evhUL1Q4BQ8JipIuocZovSeHaN/Ntbe
-         UjbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TNCXrCGsdTEIc304eZ6sG3kavghRL8koSeqoFiVhQaw=;
-        fh=My6Y/L/QpZ0j/vc+l57/xN8eEuPgCUSA5h/qG+eORA0=;
-        b=LHV9hjnL7UD+CuHOK/ORl6EFVJr6DIDHvgNQcqIE8D+1Quteft1vrl8a5iwfYPsdkZ
-         bk3uaxv3ItZ5o/4+zPy5/NF6dJ+OX6uh76QsEQaa3WIPBfphFNKDINE7cqBpm5fE/Vdb
-         J5vcOZiSxYDq27wjf+PPh1iBmbS64GG0OnIr5ywpdBpllA+cAl320TRKYWhMruuw1hV6
-         KtB6/7o91a7fu94qt2/aNvliY87yoQYcfM5XZeiHeseAZIbxgcS0lU+P4XAN5UCm+ljG
-         bk+inmR8fEv9hD79QBCzqkfpE3dIX2Sv8fd0PRnX6TZFlt5VfW9iAbZef4Ph3ueEJyVn
-         MnAg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790310712; x=1790915512; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TNCXrCGsdTEIc304eZ6sG3kavghRL8koSeqoFiVhQaw=;
-        b=APPBLoRRGdjeILWa8ZHHRKQWmJCmRhaxTY0OOrRf1DLGAPufuEw2sq9RVV+lWf+XwK
-         vJdRlGpTwaiQq+QfNUrvMJWcAktKfVdUQftcN01BGOGVxEJjFpYKqGnl+EnH8XuoQezR
-         KWmx1GevxDApsfcbtdkrVdqAuxVx1159L8IzfAk1OhEZuxkbO4y3ml2bXolsteJx7sZI
-         cS1NGI6iy8e4qT4/h/rRO0gBa0L/GNiE4NGuQrncFuqRSGzibdjmFp8BPKWpxNk1HyjH
-         6d1t/FaX89jPj9JNtwuPM2pYDZlXKwpkYdD55N7OXxCQ7BmqhctucX/T8lE4meNB55MX
-         8HfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790310712; x=1790915512;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TNCXrCGsdTEIc304eZ6sG3kavghRL8koSeqoFiVhQaw=;
-        b=Q/D4ZUxCcRgmSFgaBHDWsY85MmHtvt/LfZXZUg0pyZIeFnq3rB80tthkEjhoZGotM2
-         rN0frLQKF8z36HL7LOxMuIrypjK2fZpT1dVChgcSbiadQwFiEpaoxflXmfnsUHDUI0em
-         8ZcbBqTL7j7wUo8jGzyeY0ZZxlpIe/3RlRkgFF7wI5qIgKlhaBa1Ops35hgh3GYqqnf6
-         OSWXJLdXDTf1SpFr50R+C1sXSFgUZS8pJr68KMcCizGSUMjxF4A1lhFRRg+ArmUNcyiX
-         tRC2ZIXLGyIM9lUuFJWkkObDWi6GN9r72Hq8jdHnYEqrx/Yx8ctEWjGaO/xHITSY7Z9G
-         zrhg==
-X-Forwarded-Encrypted: i=1; AKwUvBzmCsL1lru/E4CVR1MZIqAkxvGF8evSPj9yiEgveliSTLQhNIKTBtNp4OuAp+aQ63EoHxb42wfTpo3eYUwZcnkB@lists.infradead.org
-X-Gm-Message-State: AFuF++mxQDmZkjOoUUnwHEfRSBLlIX4moC6WhbRbnhrAmjx3VVK/bFp1
-	SQlKJpDkz1S4tizeFeuvI22LRGe9LgITNNxqSg8XgGupSGddFedtCPXNxwPy2E8gci4O4KoTY2e
-	ZCxgbJb/IV3j0TvpeCqKRSX0Lli6ugTY=
-X-Gm-Gg: AYBFou1aDGwx785Y3ERU5BLeZGj4lPTy/Un/NFacXni0X7jDY7vEo6Znn95w6C5/PC9
-	rO1nNhqrfpIerigyyvBZ7tEynu/EUXmH6K+J0aHGiaeg4iQn2vC8bx9rYV3cNXEBydxvqrImlzU
-	ioQ7cBngLDAiWH4ZQ7KvA8/svvUbUe+kZ6KuCrS2pXSEZcI2tqROUSN2A8rUFRsuw9eNQAAuZQN
-	ukW1d6fsZ3OtBi+u94j/SaTkN6w2EC6NSb2b4yBJDfnexButiaX/4ZbajDTQbqeZ8umL043pR3S
-	WIDSIfSpYdZjYjH0YtlLtRBLOuHIGbSeA9Vnh1NHuLo79z3tQfuoKls6x1nvfxIWuUURIg==
-X-Received: by 2002:a17:907:3f89:b0:c15:e8c8:340 with SMTP id
- a640c23a62f3a-c2ac23eb793mr381414366b.23.1790310712139; Thu, 24 Sep 2026
- 21:31:52 -0700 (PDT)
+	Fri, 25 Sep 2026 04:32:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WTX/9Bvm9knwd2AeCqru+Bwwr2vWxGTlgDS4E9OqJkY+BssQ8pxKkBzbRr0fdpiH7tds6kFtJE7JTysQ2fSP3BLaiK5E7xKo0ylbTMTvJ41jX2GH/p3j1lWFt2AOAuX548Kx/+ZWFPmV9T5Eo3/+p01dLstir174ZgxlXfI0iGMal5p+tpGqx54NfCYOdErAo+z3CVnDT54KgAVH8xm7HoQF+2fgUVN9a5ExEh7QBdHHLtkQjFFLmKT5Q4oSRFNg9/4/nGXfYJKm8dGkpDsEV100NlLQcnmaVA1wnpbUe0kzhNizujX160qB7tjWYvy7qUoxM8zvei/8ae789NSZ6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7NMumamLPsUjip2aJ3R0u6HxC8UmZ1ahMOlQhN17zHI=;
+ b=SJvAdiFfy3BKIVNgypCF8uxgKNvEYB/j0GZ6qHqsVC2eHMDxRloEaIqWl7MOFnaikKRe/PnbBDNyEseqgR8mHB/lRKlxoIJJSzyF3LVsABABv/GnKHcwPcIc/UV1T0It1AWZtEI8Y1McFh4Bb+5b3bmDZSiWpOtIo/Oo2TBMFFUOiRS+cXaAkO3jwb8u88HA+wvAiezsJkMCR7U3vOvF3sgOUn4vjd2oz2qJYckblBz8dueBKqje3VoVKYwPWw9RMx7rRRRLiyse5C23S4FK+g/+jsioft6k01gdLYoA4vj3yQ3B+PCY/SYYcNo90cNwqFkd8xQyhGGzmQM1QyFZ4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7NMumamLPsUjip2aJ3R0u6HxC8UmZ1ahMOlQhN17zHI=;
+ b=AiaWFUE6kVTunWx8uS1EB+ri1NWsf4VU56SK29JQaDpeJ6C8aykfOykhGQjXQcBscIDrCaDrhLA7Ye5vvXQEUGw3P/KQfGVCwL3D1Y8WcK6f3hqltFhNXD2hUwNMbJL9/7eXlE3Vn5i2/s6+jBeDYzE23hQ4B71LMOn2ZQ8uH0/6sDSFGQxKerNq/dzu/DoYGXSjRzhYBgfTHmPrCszqoCkfAsGov2NAb5jIYEPJ5wK5mTfcYd7TzDqaIwFfzp2B7mEImMQ9EWw9Ssp5ShKAwHIoySqJxTXZobsLKLQ2mLoOOzhO1oVxMHOwM8sCSsAbEDk3ohmSpf7ldhV8bSCTfg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV4PR04MB11308.eurprd04.prod.outlook.com
+ (2603:10a6:150:297::19) by DBAPR04MB7368.eurprd04.prod.outlook.com
+ (2603:10a6:10:1ad::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
+ 2026 04:32:41 +0000
+Received: from GV4PR04MB11308.eurprd04.prod.outlook.com
+ ([fe80::b043:b2d1:9a94:1891]) by GV4PR04MB11308.eurprd04.prod.outlook.com
+ ([fe80::b043:b2d1:9a94:1891%5]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
+ 04:32:40 +0000
+Message-ID: <c6186100-d43f-4af4-9fc1-3335a441cf2d@oss.nxp.com>
+Date: Fri, 25 Sep 2026 07:32:37 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: s32cc: Remove const from groups allocation type
+To: Kees Cook <kees@kernel.org>, Chester Lin <chester62515@gmail.com>
+Cc: Kees Cook <kees+treewide@kernel.org>, Matthias Brugger
+ <mbrugger@suse.com>, NXP S32 Linux Team <s32@nxp.com>,
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260917211452.i.365-kees@kernel.org>
+Content-Language: en-GB
+From: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+In-Reply-To: <20260917211452.i.365-kees@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR0P281CA0180.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b4::10) To GV4PR04MB11308.eurprd04.prod.outlook.com
+ (2603:10a6:150:297::19)
 MIME-Version: 1.0
-References: <20260922200336.2201212-10-coiaprant@gmail.com> <179030182602.2160803.7636364487893366164@kernel.org>
-In-Reply-To: <179030182602.2160803.7636364487893366164@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Fri, 25 Sep 2026 12:31:40 +0800
-X-Gm-Features: AclHuK-geYaCrQiIqbsqm9RqVt7-leTLevfj4XZTsxhgOEb2JIertLp2aoE5xzw
-Message-ID: <CALj3r0hF_fwnA7Psp8kc8EqthS9FZr4LUkqGXDLtVHesw7tUvQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v10 09/11] net: stmmac: dwmac-rk: add SGMII
- support for RK3568
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, heiko@sntech.de, vkoul@kernel.org, 
-	maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, prabhakar.mahadev-lad.rj@bp.renesas.com, 
-	romain.gantois@bootlin.com, hkallweit1@gmail.com, neil.armstrong@linaro.org, 
-	linux@armlinux.org.uk, shawn.lin@rock-chips.com, david@ixit.cz, 
-	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV4PR04MB11308:EE_|DBAPR04MB7368:EE_
+X-MS-Office365-Filtering-Correlation-Id: 484ef454-30f2-486f-fb0f-08df1abe08cb
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|6133799003|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: tYnkNBGobyBGvtYKtSH8Q736lkTM8NdCE1eb5euHihYGN2LRYkS0sGx4OAPP0YPB6PEG8m7gOcgtRvAnkHbg2lQFfXHpeyxnOXcX74Heh5Z6loP5cqjG3FI0TySjkHP9JjT5WeycB6kv5lz1duhdG5tCm2NqKPlR80AKU5Y/qvED5xRdj3dT5hZuYE/DQ4mynyfmgF2oUwupwDE1MwocTF4w3oA1Uih5aRfJ0YVT5YyzE3uSss2MQf9Zx7oMxuset0TWcMT65dercSbGZRcbQwgNUDM/pyO0NUkPfI2Wy4CV6jLmQVFdQT9WG+saoJQdHoeaqC7wUdmXHgAJ0pei/D5553J0HBkHZTjkarwguo7C8AdqIdbARPSaReszAzWU3OnkGkAHqUf0O4ZjkoFAcjJj9b0sUTeDEOYWFVVSRnhO32kCVd43obL2v7Ucs5Cm3ugxs53wfpl/EHVtVPtI/k6ttZBMJ3ysm24e2TXzbdh9QCW9H4RaWu+AA8wtW0HzLim1ii3WvDX39eVg95BKIjwK3ev51yRx3LrSvgNT+Ui/gpkUzMsC9mw8F+v+oaI6d1Wo7zYH71rScr44jOqsygnxJH0cyBJZ5V7Ljxi+qYr4opzu9qkl0GovXF0Spfy/psw1MiytBb3bVBdOrG2PlO433RNBfJjU3MzVhthlrro=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV4PR04MB11308.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(6133799003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmZMTXRyYWk1eGVlZUk0bmpLQ21yRHlrdzMzUjY1TkJDOE9uVGttNllUa3o0?=
+ =?utf-8?B?WVdQaVNXNXg0UGJET1JPVERoVHJpLzNUTVFUYmNxYlROT2JDZFZ6c2xpYitH?=
+ =?utf-8?B?K2JJY1NrWkJiTVZQdG1JSldySFI1SndqL2hxSXdWOTU5a2NkNFVPODdXSCtC?=
+ =?utf-8?B?RktPbjU4b2dlZkIxeGZrMlZTMHFKcTlnTmJsQUVHY3V3RU8zczdXVDQ5QWNY?=
+ =?utf-8?B?UEJrTUljaU9FUkpsV3IzM1p6YmFnY3h0R2Y2SWkwR3RtNENwOE41YzIraFBq?=
+ =?utf-8?B?R215MDJqeWg3bExQWFZjSjE4RFpRTC9YYUhWTElydTk0WitNd3hFWGJKWkZx?=
+ =?utf-8?B?QlVJWW82WTR6OXgyRGVlOXp6OGpEWW8xY3FEQm9RNDRuZ3BHdkd2Uy9NbXFi?=
+ =?utf-8?B?Z3dIdkp1eWhrMC9vSE1yeFFVT3pyYmJXVlNyaGNKcEtOTTVTenNDMFZIMzNF?=
+ =?utf-8?B?eEpPVWRTdWRvRlp0aGFRU2dnYWdxODF1K0pqd1ZlOVJxZDJISjNVSDlWN2p1?=
+ =?utf-8?B?SHBGVnk2a0ZaQ2FlSStDZjR2dTlwNkJrNVVtWi9FTThneGdsN0NXbnovWWxm?=
+ =?utf-8?B?aGIvaXFzQmNWQktkZzFlZEwrcVFycnRPU1dmZERwWXl6UDRRS3dFeXlOOURL?=
+ =?utf-8?B?eEYvd0tPNnRxZU9OaWl5b2NUVU8wYlpNL0hxdERKb0JkUElvUHFxN2ZNaEZy?=
+ =?utf-8?B?YmtSOWxPeERTUVgvVzBZWnpjUmxJdzErQ1JxN2ljYWRqaUpIUU1LUEUrNG81?=
+ =?utf-8?B?Nm4zOEFwZUJQSE5CN1diUlFZVTVyMXErWUo4czUzeGhPLzlGRnVPNjQrdjZa?=
+ =?utf-8?B?L2dQREZVWEpNaGNNRjBWcGVpQmZ4VlBLbEJtMzZEK1ZYSk5nRnFYQSt4dW9M?=
+ =?utf-8?B?S1hGR2NyQklKTVhKSGs2a21aSHhzYVpuVnNUaFNYdzFaRnZVZ3B6RjliR0o5?=
+ =?utf-8?B?RVRMSHFuelVGSURDVUJRWWk5TGQrSzh2UEE4SEhlR0pFNHF6MmNtSGN0OHlG?=
+ =?utf-8?B?a0Y5dEJTOFRnWC9rQzdKUlFFbG8wR0ZTL21jelk5OGpMeWFacDdwMWJoTVZT?=
+ =?utf-8?B?a2lsbEJOdVpoRThSdWFnSDZCRFdpQjVjZHVFUHJMY2RYTmNlMk53M0NLSHlV?=
+ =?utf-8?B?OWZDanVaVnlkOEp0N2xoQkJBMGFxb2JpeFBPc2xPcGQxcXFXNVF0RS8zZXJB?=
+ =?utf-8?B?OC9mN0V5YVlNa2VPa2xVeXdzNjNjMkUyRnIzZml1OWl5bmNDUW50VTBkREgr?=
+ =?utf-8?B?c0EwRFZackZYYkpqOEQxSHBUM01MYVN0RGFlcWFmWWlsbVh0MDl3TFJyTG9Y?=
+ =?utf-8?B?bkVEZy9mZUhtakJZNHNvd25laXEvS2ozUlQzaytOMUFwUXhGLzJMY1pjckZs?=
+ =?utf-8?B?b0pZaTUzZXlWdVZpTXN6TTRISE50cE14QjFNYklzNWNibjNWTlBwMDFoNklm?=
+ =?utf-8?B?OTllVGJ3dUZxaGdYOERaMjJqNUZVVUxmakpISDNKaEhIcWJtRTVRQlpyblpM?=
+ =?utf-8?B?NWtQL0lpYlV2OHJGTEltais4MkhjOWVVRGt5TjdEYnNnaWNPaGR3RkdwN2E5?=
+ =?utf-8?B?Q1h5M0VCeXpTQUttWWdENkF5WG4zMThWUnRRTW81eGhrNnozK3Fxb1Y5ZGZP?=
+ =?utf-8?B?K093NTRCMncxNGtXbldZYTRXVGs3K09ubmsvaHBHcXVVMjJ6NWhaanIwL3Zx?=
+ =?utf-8?B?RjU0OUhxU24rZ0hQcjdnOEVDV28zVndYME1rb2IvQTZVNXhLQWpZdStjNWR5?=
+ =?utf-8?B?NjN3bksvc2FoaTk3RGc1OTk1bWtlODhvSUJ5d2U0M203NURZR0Y0bHgrREVr?=
+ =?utf-8?B?WVFXSmZuTnlxaGpNaUtRc3hYTGpaTVJsQ20xR3Q0Vk01bWhGS2FwdndhVjFw?=
+ =?utf-8?B?dGNtaXRtV3FIOTN6SEs2UndHYlUzeGs0ZHlNVDJrWXcyclZReERRV2JYNUh1?=
+ =?utf-8?B?TmttRFBnTERGdnovaXVWajIxYlQrRk5PSS9tZDJRYWhScnBsYTJ1MzB5WldN?=
+ =?utf-8?B?cnRiSExFVXdyNTlEUE90S0ZqTEs1QkM5RFJjN283NjFKbThGUGVkdTRHb0dB?=
+ =?utf-8?B?UFRZb0pjOFVnbjF2cXpVVjRzbzRZajlFdFEvSE9jSDk3c1dXc1NpZEs1OWgw?=
+ =?utf-8?B?NE9KNEpQNk5UQXZuZzNtOGx5ZTJ1T05DL2VJalFoMG9aamcrNXlZN3NmWXZS?=
+ =?utf-8?B?N1ZDQUdQK2VLaUc5OGphUHpVSHBPdjhZVExiYk5MNkdrSkJxQWlZdCs0Rkx4?=
+ =?utf-8?B?RVFVVUdtQVh3QTR5a1RoTWh4WHl2UEllbk1Ga0J2RnhPZWwxeThTdWJzV1Js?=
+ =?utf-8?B?d1VJdWRGY0MzYWJwN0pVMk53RlRqTlRiazBCZHB0NlVITDNhMXFXMkMxSVhr?=
+ =?utf-8?Q?p2y+6jHbhuW+FTfs=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 484ef454-30f2-486f-fb0f-08df1abe08cb
+X-MS-Exchange-CrossTenant-AuthSource: GV4PR04MB11308.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 04:32:40.6123
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +ub5HO7CSxEDF7PgpuZ2DXonViYjlCHNLPs0ZhcE/ssrn3v7VCuYTGLgQmzlfSDrBVyPziXJRGr9okH7ZoWMH1AJ3dg1M5M1sWFWU/FuxN0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7368
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_213154_717067_DF9BB8EB 
-X-CRM114-Status: GOOD (  51.28  )
+X-CRM114-CacheID: sfid-20260924_213248_371013_6A9525E5 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,333 +155,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-<netdev-bot+sashiko@kernel.org> =E4=BA=8E2026=E5=B9=B49=E6=9C=8825=E6=97=A5=
-=E5=91=A8=E4=BA=94 10:03=E5=86=99=E9=81=93=EF=BC=9A
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 (3) =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] In SGMII mode, the RK3568 glue tells phylink it supports
->   interface modes that the hardware cannot run and that the glue never=E2=
-=80=A6
-> - [Medium] The commit's explanation of the SGMII in-band vs out-of-band
->   problem does not match the code, and the driver does nothing to reject=
-=E2=80=A6
->
-> Pre-existing issues:
-> - [Medium] rk_gmac_resume() (dwmac-rk.c:1618-1627) calls
->   rk_gmac_powerup() and throws away its return value, then always=E2=80=
-=A6
-> - [Medium] gmac_clk_enable(bsp_priv, true) (dwmac-rk.c:1181-1200) first
->   enables the bulk clocks with clk_bulk_prepare_enable() (line 1187).
-> - [Medium] __stmmac_dvr_probe() calls pm_runtime_get_noresume(device) and
->   enables runtime PM (stmmac_main.c:8112-8115) before calling=E2=80=A6
->
+On 9/18/2026 12:14 AM, Kees Cook wrote:
+> From: Kees Cook <kees+treewide@kernel.org>
+> 
+> In preparation for making the devm_kmalloc family of allocators type
+> aware, we need to make sure that the returned type from the allocation
+> matches the type of the variable being assigned. (Before, the allocator
+> would always return "void *", which can be implicitly cast to any
+> pointer type.)
+> 
+> The assigned type is "const char **", but the converted allocation type
+> would be "const char * const *", as the size was taken from
+> "*func->groups", whose type "const char * const" is const qualified. As
+> there is no general way to remove const qualifiers, take the size from
+> the assignment target instead. No change in allocation size results.
+> 
+> Build tested ARCH=arm64 allmodconfig with GCC aarch64-linux-gnu 16.1.0:
+> drivers/pinctrl/nxp/pinctrl-s32cc.o
+> 
+> Assisted-by: LLM coccinelle
+> Signed-off-by: Kees Cook <kees+treewide@kernel.org>
+> ---
+> Cc: Chester Lin <chester62515@gmail.com>
+> Cc: Matthias Brugger <mbrugger@suse.com>
+> Cc: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> Cc: NXP S32 Linux Team <s32@nxp.com>
+> Cc: Dong Aisheng <aisheng.dong@nxp.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Jacky Bai <ping.bai@nxp.com>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Cc: <linux-arm-kernel@lists.infradead.org>
+> Cc: <linux-gpio@vger.kernel.org>
+> ---
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> index 4b40770a38b7..9c4ebae22674 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> @@ -825,7 +825,7 @@ static int s32_pinctrl_parse_functions(struct device_node *np,
+>                                      "No groups defined in %pOF\n", np);
+> 
+>         groups = devm_kcalloc(info->dev, func->ngroups,
+> -                                   sizeof(*func->groups), GFP_KERNEL);
+> +                                   sizeof(*groups), GFP_KERNEL);
+>         if (!groups)
+>                 return -ENOMEM;
+> 
 > --
->
-> net: stmmac: dwmac-rk: add SGMII support for RK3568
->
-> This adds SGMII support for the RK3568 GMACs. It sets GRF bit 7 and
-> hooks up the Rockchip XPCS through the pcs_init, pcs_exit and select_pcs
-> callbacks. It also moves the clock enable in rk_gmac_powerup() earlier,
-> unifies its error unwinding, and for SGMII clears set_clk_tx_rate and
-> sets default_an_inband.
->
-> Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TR=
-M%20Part1%20V1.1-20210301.pdf (Page 386)
->
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/n=
-et/ethernet/stmicro/stmmac/dwmac-rk.c
-> > index 8d7042e689261..88f09014e3a69 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
->
-> [ ... ]
->
-> > @@ -1208,6 +1236,43 @@ static void rk_phy_powerdown(struct rk_priv_data=
- *bsp_priv)
-> >               dev_err(bsp_priv->dev, "fail to disable phy-supply\n");
-> >  }
-> >
-> > +static int rk_pcs_init(struct stmmac_priv *priv)
-> > +{
-> > +     struct device_node *np =3D priv->device->of_node;
-> > +     struct device_node *pcs_node;
-> > +     struct dw_xpcs *xpcs;
-> > +
-> > +     pcs_node =3D of_parse_phandle(np, "pcs-handle", 0);
-> > +     if (!pcs_node)
-> > +             return -ENODEV;
-> > +
-> > +     xpcs =3D xpcs_rk_create(priv->device, pcs_node);
-> > +     of_node_put(pcs_node);
-> > +     if (IS_ERR(xpcs))
-> > +             return PTR_ERR(xpcs);
->
-> [Severity: Medium]
-> This is a pre-existing issue in the stmmac core, but this patch makes it
-> much easier to hit. rk_pcs_init() returns -EPROBE_DEFER from
-> xpcs_rk_create() whenever the XPCS device isn't bound yet. Does each of
-> those deferrals leak a runtime PM usage count?
->
-> __stmmac_dvr_probe() takes the reference before PCS setup:
->
->     pm_runtime_get_noresume(device);
->     pm_runtime_set_active(device);
->     if (!pm_runtime_enabled(device))
->         pm_runtime_enable(device);
->     ...
-> error_pcs_setup:
->     stmmac_mdio_unregister(ndev);
-> error_mdio_register:
->     stmmac_napi_del(ndev);
->
-> None of the error labels drop that count or disable runtime PM.
-> pm_runtime_reinit() returns early while runtime PM is enabled, so
-> usage_count is never reset.
->
-> fw_devlink doesn't parse pcs-handle, so the GMAC can probe before the
-> XPCS. After the probe finally succeeds, the count can't reach zero, so
-> the MAC would never runtime suspend.
->
-> Deferral from stmmac_mdio_register() already hit this path before the
-> patch, but deferral is now likely on RK3568 SGMII boards.
+> 2.34.1
+> 
 
-Agreed that this is a real problem, but it's in __stmmac_dvr_probe(),
-not in dwmac-rk. The error labels in the core don't drop the count that
-pm_runtime_get_noresume() took, and pcs-handle is not a fw_devlink
-dependency so the deferral is now easier to hit. That should be fixed
-in the stmmac core in a separate series. I'm not going to restructure
-the core probe error paths as part of a platform glue patch.
+Reviewed-by: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
 
-> > +
-> > +     priv->hw->xpcs =3D xpcs;
-> > +     return 0;
-> > +}
-> > +
->
-> [ ... ]
->
-> > +static struct phylink_pcs *rk_select_pcs(struct stmmac_priv *priv,
-> > +                                      phy_interface_t interface)
-> > +{
-> > +     if (!priv->hw->xpcs)
-> > +             return NULL;
-> > +
-> > +     return xpcs_to_phylink_pcs(priv->hw->xpcs);
-> > +}
->
-> [Severity: Medium]
-> Does this give phylink interface modes that the RK3568 hardware can't
-> run?
->
-> rk_get_interfaces() still sets RGMII and RMII, because rk3568_ops now
-> has both set_to_rgmii and set_to_rmii. SGMII comes from the XPCS through
-> stmmac_phylink_setup():
->
->     if (pcs)
->         phy_interface_or(config->supported_interfaces,
->                          config->supported_interfaces,
->                          pcs->supported_interfaces);
->
-> xpcs_rk_create() uses the plain xpcs_create_mdiodev() and never narrows
-> pcs.supported_interfaces. The set is therefore filled from the generic
-> synopsys_xpcs_compat[] table: USXGMII, 10GKR, 25GBASER, XLGMII,
-> 50GBASER, LAUI, 100GBASEP, 10GBASER, SGMII, 1000BASEX and 2500BASEX.
->
-> The rockchip,rk3568-xpcs.yaml binding in this series says the hardware
-> supports only 1000BASE-X, SGMII and QSGMII. The dwmac4 MAC caps include
-> MAC_2500FD, so phylink keeps 2500BASE-X and USXGMII as valid choices.
->
-> rk_select_pcs() also ignores its interface argument and returns the XPCS
-> for every mode. Neither the GRF nor the combphy is reprogrammed when the
-> interface changes: set_to_sgmii() runs once from the DT phy-mode, and
-> the combphy is fixed to PHY_TYPE_SGMII.
->
-> Now take an SFP cage, or a PHY that switches host interface, such as a
-> 2.5G PHY moving between SGMII and 2500BASE-X. Could phylink pick
-> 2500BASE-X or USXGMII, and xpcs_config() then program a mode the SerDes
-> and MAC clocking can't carry?
->
-> The same set is also copied into lpi_interfaces for EEE.
->
-> The in-tree Photonicat board uses a 1G PHY with a fixed SGMII interface,
-> so it isn't affected.
->
-> Could the RK3568 XPCS supported_interfaces be restricted, and
-> rk_select_pcs() return the PCS only for SGMII?
-
-The glue passes pcs-handle to xpcs_rk_create(), which uses the plain
-xpcs_create_mdiodev(). The XPCS core has no platform callback to narrow
-supported_interfaces, so the glue cannot filter the list cleanly.
-
-The only way I see to restrict it from the glue is to overwrite
-pcs->supported_interfaces (and possibly compat) after
-xpcs_create_mdiodev() returns. That reaches into the core's internal
-structure and I'm not sure maintainers would accept it, so I've left it
-out of this series for now. If there's a preferred way to express
-"this platform only supports SGMII" from a glue driver, I'm happy to
-use it.
-
-In practice the phy-mode is fixed in DT and the combphy is configured
-for PHY_TYPE_SGMII, so phylink will not negotiate into 2500BASE-X or
-USXGMII on this platform. The wide set is harmless here.
-
-> > @@ -1379,16 +1449,19 @@ static int rk_gmac_powerup(struct rk_priv_data =
-*bsp_priv)
-> >       if (ret)
-> >               return ret;
-> >
-> > +     ret =3D gmac_clk_enable(bsp_priv, true);
-> > +     if (ret)
-> > +             return ret;
-> > +
->
-> [Severity: Medium]
-> This isn't a bug introduced by this patch, but the direct return here
-> only works if gmac_clk_enable() cleans up after itself. Does it?
->
-> gmac_clk_enable() {
->     ...
->         ret =3D clk_bulk_prepare_enable(bsp_priv->num_clks,
->                                       bsp_priv->clks);
->         if (ret)
->             return ret;
->
->         ret =3D clk_prepare_enable(bsp_priv->clk_phy);
->         if (ret)
->             return ret;
->     ...
-> }
->
-> If clk_prepare_enable(bsp_priv->clk_phy) fails, the bulk clocks stay
-> enabled and clk_enabled stays false.
->
-> Every later gmac_clk_enable(bsp_priv, false) then returns early on the
-> clk_enabled check. That includes the new clk_disable label and
-> rk_gmac_powerdown(). Does this leak the enable counts of the bulk
-> clocks?
->
-> This only applies with an integrated PHY, because clk_phy is NULL
-> otherwise.
-
-The clk_phy failure path was already fixed by a separate commit.
-
-> >       ret =3D rk_phy_powerup(bsp_priv);
-> > -     if (ret) {
-> > -             gmac_clk_enable(bsp_priv, false);
-> > -             return ret;
-> > -     }
-> > +     if (ret)
-> > +             goto clk_disable;
-> >
-> >       pm_runtime_get_sync(dev);
-> >
-> > @@ -1463,6 +1538,10 @@ static int rk_gmac_powerup(struct rk_priv_data *=
-bsp_priv)
-> >               bsp_priv->ops->integrated_phy_powerup(bsp_priv);
-> >
-> >       return 0;
-> > +
-> > +clk_disable:
-> > +     gmac_clk_enable(bsp_priv, false);
-> > +     return ret;
-> >  }
->
-> [Severity: Medium]
-> This is a pre-existing issue, but rk_gmac_resume() throws away the error
-> that this path returns:
->
->     if (!device_may_wakeup(dev))
->         rk_gmac_powerup(bsp_priv);
->
->     return 0;
->
-> On the non-WoL resume path, a failure in rk_phy_powerup() takes the
-> clk_disable label, gates the GMAC clocks and returns an error. Nothing
-> sees that error.
->
-> stmmac_resume() checks the plat->resume return value, but gets 0 here.
-> Can it then go on to MDIO and MAC/DMA setup with pclk_mac and aclk_mac
-> disabled?
-
-Pre-existing. The path that returns an error from rk_gmac_powerup() is
-the rk_phy_powerup() failure, which on RK3568 is the external PHY
-regulator. It's not related to SGMII or XPCS. I'll leave it for a
-separate fix.
-
-> > @@ -1602,6 +1681,17 @@ static int rk_gmac_probe(struct platform_device =
-*pdev)
-> >       plat_dat->suspend =3D rk_gmac_suspend;
-> >       plat_dat->resume =3D rk_gmac_resume;
-> >
-> > +     if (plat_dat->phy_interface =3D=3D PHY_INTERFACE_MODE_SGMII) {
-> > +             /* SGMII clock always runs at 125 MHz */
-> > +             plat_dat->set_clk_tx_rate =3D NULL;
-> > +
-> > +             /* SGMII requires a PCS */
-> > +             plat_dat->default_an_inband =3D true;
->
-> [Severity: Medium]
-> Does the commit message's explanation of the in-band vs out-of-band
-> problem match the code? It says:
->
->     Out-of-band mode does not work because the MAC would need to change
->     the clock rate to 125/12.5/1.25 MHz for 1000/100/10 Mbps
->     respectively, and the clock is fixed.
->
-> The clk_tx_i comment in include/linux/stmmac.h and
-> stmmac_set_clk_tx_rate() both give 125/25/2.5 MHz for 1000/100/10.
->
-> In stmmac_mac_link_up(), the negotiation mode is passed only to
-> plat->fix_mac_speed, which dwmac-rk doesn't set. The MAC speed
-> programming and the now-NULL set_clk_tx_rate call are the same in both
-> modes. The MAC therefore sees the same fixed 125 MHz clock whether
-> in-band or out-of-band is used.
->
-> The difference between the modes seems to be on the XPCS side: AN in
-> xpcs_config_aneg_c37_sgmii(), versus the fixed BMCR write in
-> xpcs_link_up_sgmii_1000basex():
->
->     if (neg_mode =3D=3D PHYLINK_PCS_NEG_INBAND_ENABLED)
->         return;
->     ...
->     ret =3D xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
->                      mii_bmcr_encode_fixed(speed, duplex));
->
-> The commit message also says that fixed-link nodes, and PHYs without
-> in-band support, can still end up in out-of-band SGMII. TX then works
-> but RX fails at 10/100.
->
-> xpcs_inband_caps() returns this for SGMII:
->
->     case DW_AN_C37_SGMII:
->     case DW_AN_C37_1000BASEX:
->         return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
->
-> So phylink will accept out-of-band mode, and the glue neither rejects
-> nor reports it. Should rk_gmac_probe() refuse, or at least warn about, a
-> fixed-link or out-of-band SGMII setup, rather than bring the link up
-> with RX not working?
-
-The out-of-band SGMII rejection cannot be implemented here: the XPCS
-core's xpcs_inband_caps() returns LINK_INBAND_DISABLE |
-LINK_INBAND_ENABLE for SGMII, and there is no platform callback for the
-glue to narrow that or to veto out-of-band mode. Phylink will therefore
-accept out-of-band SGMII and the link will come up with RX broken at
-10/100. That needs an XPCS core API, not a dwmac-rk change.
-
-No respin planned for this series.
-
-Coia
+-- 
+Regards,
+Ghennadi
 
