@@ -4,95 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4548C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B35C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 15:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uQbHVyvOfJT59Z1tjcStlzFu/GfhyqjlrHuEPmE7uTg=; b=K5duBEdBNdRTS/kwOuecqcu3+D
-	jtDd0fyaXY6FXBBdtSA+9yrfR/V1ZgmSkVbEtDMc2QC+vxmSPO1SpXjtwkXhWe6XzO3UBZXd+gli9
-	HcExEkkzvaDdRpg4cQeREqbBvn9vn4rOIph3ueJdsP5JwvBtAFb+EOjMrR2fq4eIlIbN0YKei0T9e
-	pQUmBi1gydGPHQf0SdlWt1M1wb4i9TfyrzBgJShCHx0uJBu+gboJtQ2sa7UM92N2jalbIXj8ZoLx7
-	ATioa6WVplQSxqLdNk9tPGQKF079opKUiK85nTnGT1bwjwtJ9dB2yun4IQDJX0ESFfNhXJgreHnU1
-	L6r/31RQ==;
+	bh=ol2/P943VHNX8pz7YbLs6fKod7p9P9n9+1yOpUCN/Gk=; b=qkT1LiSRIXg+12LApHQzGoK/0R
+	7zJNznEVEBtOUzrsrDwwghShn7RJPWQ0qFfwAcASAz0mlZTuJJVgjQkujGM1+8NEqqoeu6h5kaQnF
+	4MKj3qDr1whE5lpsOkC6w5s2wb3X4JQy2DiVOTXgd/bn+zWayqFK97sORB2PjMirYCMQ2aNn5DV3Q
+	lg5S8OrskM+VOPSftCIi7be4anCvjuhcfP/EcO4IFwmdrDORYg8+XmWos88lop1JLfBM3cg5cduLf
+	5S5p8hiI7wG4QsvvZpxpjDr4nwySN3OIPi3T5FhAZwORA6GaJIhzKDVIEMuvFZQrrMlnMW37Iz5v6
+	qtaHW9yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Rh-0000000DgUa-0fNO;
-	Fri, 25 Sep 2026 15:02:41 +0000
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
+	id 1xA7Sc-0000000DgjT-2uxy;
+	Fri, 25 Sep 2026 15:03:38 +0000
+Received: from mail-swedencentralazon11013035.outbound.protection.outlook.com ([52.101.83.35] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA7Rd-0000000DgSN-3C1t
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 15:02:39 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e71cdb22bso7505295e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 08:02:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790348555; x=1790953355; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uQbHVyvOfJT59Z1tjcStlzFu/GfhyqjlrHuEPmE7uTg=;
-        b=b2fNHSRA3cBhEIW5JOcETXcXdhc21J5fvSziZ3XZ5VvxDaV/Wwwf8KqJqin3yr0mD7
-         We37pESNZv12Wcsyn8joi8sJ8hi6azyCjXCQ4OwWM6FPv1WC1iXUTqpkGSnm4bNFlUz1
-         FhMnmtu2YpYsdwIttn4fSk/mUWPZnK3S7Wp1XNulkG09p3kakeuhdBsJh0Nn7W0PAUUT
-         ZRDU05dvX6aperun7mj78tcCzoHqRYv0wDhbi08olCvrUoCv4IevySwa9FNJqTbRML1v
-         qSWTLIpAXOqg0hjzpOAuXZEzIezRfFX6Rh/90F1hiS2Wdls/z7JDKnVGGzVefrQ9quem
-         rxUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790348555; x=1790953355;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uQbHVyvOfJT59Z1tjcStlzFu/GfhyqjlrHuEPmE7uTg=;
-        b=DSNWeY6esdUrEkcT729TOzIo/POQcMO6APavMYbooSs7/ksg8aLlduXpKH9ySdusMa
-         mU/ox3BnNimDynbUhbsREYSTQdPe0oXNNfj6M/z44HJU4YM8fDUKDWShCysTw6K15Vzj
-         l9i2bgxgtuGgbgsEFgObIpaSa1OAbccljOX3fPZELsUAlucloSr9O00LWNr7jKWhX8ZZ
-         8Fj6QfuZ1kpKlP7DlV3KSpSuHgzSjVKI/h32rJGpqAA1oOJxkUaqg1vMgcHmXYhuloiv
-         VCgYKGn/MZ2leFTB/JsoC1PiwXiJiO5g66XeSjBL2YZ1xt+xb0i6TgW1LeIz7YMHrSN9
-         5s/Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzMGG2EM8Kc7hJV9MNe4THbfbnutqVNozBh1/9LPje3WY4aLEdaAwzxDA/Z+uzB4f1ElWHc7RJ80RPpHH6G4tiy@lists.infradead.org
-X-Gm-Message-State: AFuF++m588vSt+0D4GPu1/9QOgRHWz7iLp2lGDLc2e45uehx458ed2i9
-	yLOe/P/8ZjVls9QMudARfoh3k3FaxEEvf2H4htVc1eiw9dXymSSotQWffQDubv4YYg==
-X-Gm-Gg: AYBFou3IQD39lKa0gSbO3BlBCwrOhsQDedOrgJyJwXREGheF7YzqoyXBkFAB9M6dMAC
-	u/Ev9FkyLkKpvP4Hp7qihL8LyoMkP5n1fnJDcztJrg3h5GwU5qhHwV6WoNV+/iir4oTaOm5oiD2
-	GSwWaz9NCObxQDMGdQ1LBYgRYfr75NzQwQ2BWz2bZTFr1wUaRjx0VJsY69fucYk3ROSLt1VBr9J
-	Ze4rtkC0DFXmlfd/j/dYMzTWPf6K3U5hJFZbdxdwYj7TJjFSENSvG0fuvIzBRBH9vR5vGr+jKJ5
-	R2m0ZmqcmHgJ/hNcBlZjnlQTw44Suc0fL+4bCv7fZva48LH8++TpSqAvb/CHGrxyjLh8/53VtSc
-	MhDFkhb7RcK0fVykq+lKx5ekYLUKwNVYpjr8J9bf3HJzHYlqNlALoW0dmx2ewgzL+kOeOkUzZYv
-	R0RnAwQ1MJYIxVIcsa+8ItVNWVPgRDzW9Y8b0JyyEVNpkf492d2DpUvnfid9gMc4iYTqlgdfakk
-	eVShdszZBeZoszx4lms3L7/qT23T4xTR1BJUHCPFjY=
-X-Received: by 2002:a05:600c:4594:b0:49e:6249:268b with SMTP id 5b1f17b1804b1-49fe6707f69mr117966225e9.32.1790348554298;
-        Fri, 25 Sep 2026 08:02:34 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ff06bdef2sm66540075e9.11.2026.09.25.08.02.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 08:02:31 -0700 (PDT)
-Date: Fri, 25 Sep 2026 16:02:27 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	fuad.tabba@linux.dev, qperret@google.com, weilin.chang@arm.com,
-	Keir Fraser <keirf@google.com>
-Subject: Re: [PATCH v2 01/22] KVM: arm64: Prefault host stage-2 entries on
- block split
-Message-ID: <araNAy968NbQkfer@google.com>
-References: <20260911135053.146435-1-vdonnefort@google.com>
- <20260911135053.146435-2-vdonnefort@google.com>
- <arVgKRqRRon00wTD@google.com>
-MIME-Version: 1.0
+	id 1xA7SZ-0000000DgiE-3F56;
+	Fri, 25 Sep 2026 15:03:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qdCEz9pGsLILzPN3+NgAxjmNZlb4luHguXkkIXsNp09X25vIqYKTjXY/ZUMy5qjKUZJhAJXKuUUXz/yp+w6xybGsE3uf3g6oTLUlhjVdy9oAUzOeZhCWXnChe2li8EuY+cgvhJBUsenqFSxMr70jiU+GVEnJ8lWmHBll09+qg4WZ8RmfEMUVlwHCMcRSvDJYkFlQzN03uSnXt7/9Fl6SPOQ8UrLeA4s6m1eREAjcMI6KPB54O65H7Jmj/Kywsejo9H7DCgJNSxiNqHhe0bkqUHUGEBZAtcsdkpuTN+w8AS/cWzaTd582ACTC6MG4Mg9SRGzaFvlbBlNkWDHWi+rB/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ol2/P943VHNX8pz7YbLs6fKod7p9P9n9+1yOpUCN/Gk=;
+ b=uIIK6hDCCGxu6sgMalbowqx3TClj6H3DPeGa7UKJViWnn7+8oOmRz2WqEcdIk9KHybmuIHftE8KUDJfmiUYb4RG6phf+AqAwdG9JbWNIKA+R7V/0H9sg9XkMMl/tzgeAJS13eWY6A70IKlSd63kQVFsO+RWwuLo4GSyJUXPj0fQssoMDS9ysR5aiihGwuRqaQqfJTgnqlT//oU6gDqRPz8U9TfeisHen30FjwSmBw3q22udkIYe6pzO8qtuj6/qSFMJ3zNjBqCkgp0Pf/nniZpEkF0YPa7PMUHjO+rhR9/nFSOWkog3YwaL+rEkyLDw+iCjDkFgfbR3ovYxWLfvxSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ol2/P943VHNX8pz7YbLs6fKod7p9P9n9+1yOpUCN/Gk=;
+ b=tI7du/oXoRWYC2DIQZtlDcQM/PF+jIWSW/usSy9MqYI6EnITGxTw776vMtjIphiT8lNCPI2xSYFxHlf7NYIuXC7PU88vfsN7H9lnVErWFG5h8+JYeOY/8VpxVHhl1HHOh2nRlaNIfzBWoPPcXoL6mITsBMHi7xeDtzJ9b9VBbVcie3twYDpxoy5wOizAMqUhUypIenaWWwnoAo8hK6jUcdfDbHVn6CGuok4gI9NVAaBDJmcJntG1jfIQMfnf6yJb9i0zOg0aDDmSLb3TIb18wG45JRQw3YTX6LrOmJdNVij59/f0xfWXxQpQ06d4jE25RwQ/MM0Hr+Bf4rv26HjlbQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV4PR04MB11896.eurprd04.prod.outlook.com (2603:10a6:150:2ec::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
+ 2026 15:03:28 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
+ 15:03:28 +0000
+Date: Fri, 25 Sep 2026 10:03:17 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, conor@kernel.org,
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v4 1/3] media: verisilicon: Remove deprecated variant
+Message-ID: <araNNW0RyJXSt5ST@SMW015318>
+References: <20260925085152.41852-1-benjamin.gaignard@collabora.com>
+ <20260925085152.41852-2-benjamin.gaignard@collabora.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arVgKRqRRon00wTD@google.com>
+In-Reply-To: <20260925085152.41852-2-benjamin.gaignard@collabora.com>
+X-ClientProxiedBy: CY5PR15CA0125.namprd15.prod.outlook.com
+ (2603:10b6:930:68::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV4PR04MB11896:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e7203e9-0f42-4371-be85-08df1b1627d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|366016|1800799024|4143699003|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: NVrBqgFNzEOKpoaAMLfnPX73F6IDOihEkCgd4JWyWhWLLisU3xS0o0q/uk5ZhH8inB3UmIGGpkcsvUMmGrL44xIBzpZ1pCRwlwm1U17PmoYZwk/gHe48Y0C8lQoJjObInaRRnA5YdrxSSkKIlwfB/9A76mkscvAutgxAdDhE1hLLgp/UCqi7JgvpEi59r6MWXxlNlssx1WtgzAQVAP4MGjGlb6oUWrW5AVMycjdPA1+ZhpHLr5bFivIHzv18miya/o9xcWpx97lP7mPUTCxKrWVkOyNf0vnMtrcOi96b6Ja+/0zbPKdr7ui35Yw8EMkrdLxI10wJK2Ad07ZBP4HVZHZsj7GgZSnubZ3w07GxNk8+EkH5pMSOOCwLKYRrNI00mXzM7bYJVHur3zQou+xT69SaOvdESrhlcriFD3OoqHxDg3Js0zA2iSgwx0fFRzoj4uv7iJMhrmO6gCYiNBtP3b9qd/C7PL6lh6OddhyZT/SUxkItSgsCC0m1eXb4TlSqJbXyWSoujdeaAFGLprGb6gTGvVPXjUk8gDm4n+I2Y3y148kir3wx3xOEJr7+Cc5o5s62CGyVAhOecR9Kx2Wu8n5oB2Nkq35BhdXVPq5jKGJeWCVPjbbSTgxxbrHlfyalokVR2CfG7EoyA177s386WiU/3i1+yEetPn9O65pDy8U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(366016)(1800799024)(4143699003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MNaUQsCVDCzgP6SR56U+d4ROw0tiouys+BGSSUU1jS+nGs0HUays7QlPdTSf?=
+ =?us-ascii?Q?b6O08ZFKKI8dY06JNyvD3BJ/0zQaoT/DlUN41FkQfTEKejG1zbD4mmRrEoPb?=
+ =?us-ascii?Q?P8OuC6eeQVIy6mdAIxDeRKRAxLJwj7U4zaenaqLPwdtMLM1wXlgwoSfUrJ+H?=
+ =?us-ascii?Q?wKE/WI/PYizhLnuDWOspu40E7RRejZgZbYm2q42y8MMxGu97BMQRuE8PHAve?=
+ =?us-ascii?Q?6RHqqBCJ55jEa29aDifQt/c2KgskjLryaqgkvUdwA5c4Xb0ej7U4JQy4bb1D?=
+ =?us-ascii?Q?19npQhY2lQ78u3/zPPS5hOlLRitmapiCWtI/jIkIGHa1CQ/U73g7vhFg/e7w?=
+ =?us-ascii?Q?9Tt5CLYQxEw+PWhV1KyFvbk56Zbyr+reQT52GTatDI3lRIMrOR0sseCk5oVH?=
+ =?us-ascii?Q?7Ku9c2TX1SQrCY1UmvHWZD2xWaaRN5/FeO5Rhff1I0O2y0BLgKNeh3/RlPgK?=
+ =?us-ascii?Q?kmIok90FqlpOoaPfgOsNYPTy2cP5VtHsFAb1nxPiqspE3sRDlffj7qdMULRf?=
+ =?us-ascii?Q?CaU6YyuIcpnL0H0EnSZUzMHfm/xR2mNaB+SWnlXbhhSf/rVIWkDCyrjGl0YR?=
+ =?us-ascii?Q?SnBJ9jwrimGvldGE7ehx1cbm9eliwTb8UFky+V+v/WkNIXsT++6Adlyi2LSs?=
+ =?us-ascii?Q?CrPxvJQOEDX6WHaDPX2GMxGlmwFVt82Q+BKrjknhN0Rw7i9nKWbRIY5U5+DF?=
+ =?us-ascii?Q?fMWvMP0fBHfND8fdK+EvWhN07xLTWnEFbXfDkyAiv/qx5NtLyWsRE6huXM4g?=
+ =?us-ascii?Q?SdpykVMgqXa8YDuEokkHu5Z00JlLl0RvQfgQ8azPiZuYLtELGqbN/3VeR1H9?=
+ =?us-ascii?Q?lTHJ8BFQRNRsgWwtuj8CayPMIzovGM/2mMqkeWIRMwIs1fCQgrBJzvzWp3kX?=
+ =?us-ascii?Q?bkf7ItOD7Ns6FRY2ngQ3kRqiiGbLgD2Qgz/ghApu0WzRALQ69OpKMRKTPOKe?=
+ =?us-ascii?Q?mBHtFyTTZxaA7ea4lXt/O2FR9k2dcG3p7hpyXyzuVG9uFTiDsaHxN2p8fK0Z?=
+ =?us-ascii?Q?PyHW4E6fU5OE34A99VTGRlq29dFjRp/Bx6H+M9VAQdDkmjm6uRUxjRY7Zgoh?=
+ =?us-ascii?Q?mkf5yRl7RQagCFn2CGnxmHBaxDS0oMsu2H5yqkXYZzgRvN6ShP4Ue8XVQzE5?=
+ =?us-ascii?Q?EjXZbsFD/b4iE3uYPtS3zcla8iwTfdVtxg5wLRCMtfN+7HrcwjUs32ebURfP?=
+ =?us-ascii?Q?IKHrJmp1wgm8YK14ycRt8JGbXS1OFTKuwho4SP7Qkp1TKPVoIlpjWPOmo5Bh?=
+ =?us-ascii?Q?wVk/PBiELhDqhNHF8lzBcAUvMn0NA4RE1lLEAckkWt0yPk7OhlPTsrDOfBgD?=
+ =?us-ascii?Q?nQv/JQ9eQmWpNjWwQWpWU6hVFJKwWJjz5sxihiQC3UbqpvTleQ0wH60qK6x2?=
+ =?us-ascii?Q?RQx/gWX3ABrPvNNAebPaM1WPtSE4TDch50+3FXqpC/IiHU5kjJid3kVcKJpX?=
+ =?us-ascii?Q?oJVOKwuqjmbovNjGE+vzwRyP9yXh3JCbeRD3qOnlbROcMdowI59RyEgKc9as?=
+ =?us-ascii?Q?74ciATI84xngOrJgH4mbl3HZf7vka/I/CSZDg80Ir6sjoDpxO3y3oHzRiGPQ?=
+ =?us-ascii?Q?oduXBh6QaN0rfRwwT6OyEo2Yv58GjyOz5MjAO7s4F6BYXwZK89ZjUC+/w+oY?=
+ =?us-ascii?Q?M8BHsMi42RIpWfgpFlMHsoDEvjNmwwL4NkGdhz43EOov2mOcfDBZlmUJo+An?=
+ =?us-ascii?Q?w+6e5aLdyiBUMDtCJ7m7liNKuQzsmFVCtIygbJ+BNni+Egn3mUW1jt+/4awz?=
+ =?us-ascii?Q?7nvf4uXe7FmVcGEODA1viyup6jf2q2WbeuB5+A04VmnW9TUgjAq3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e7203e9-0f42-4371-be85-08df1b1627d8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 15:03:28.4908
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xFXCG7v2IWmZjgfbSTVR3dA4GNk6rbnb/EiSxcyxAz94CbgPKgEjRV24Lc2a1y37BqkDUJwIsBt3ieO0YruK7sMShMX9sS6O8QHZfl4ptShIHSlNKSrTjOSEfM6xsOMa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11896
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_080237_858874_E84ADEF9 
-X-CRM114-Status: GOOD (  34.16  )
+X-CRM114-CacheID: sfid-20260925_080335_825760_2870450E 
+X-CRM114-Status: GOOD (  24.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,102 +141,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 05:38:49PM +0000, Mostafa Saleh wrote:
-> On Fri, Sep 11, 2026 at 02:50:32PM +0100, 'Vincent Donnefort' via kernel-team wrote:
-> > From: Keir Fraser <keirf@google.com>
-> > 
-> > For the host stage-2 that is idmap, we can avoid lazy-mapping on block
-> > splitting by propagating existing valid mappings to neighbouring entries
-> > of the new table.
-> > 
-> > Signed-off-by: Keir Fraser <keirf@google.com>
-> > Co-developed-by: Quentin Perret <qperret@google.com>
-> > Signed-off-by: Quentin Perret <qperret@google.com>
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/pgtable.c | 32 ++++++++++++++++++++++++++++++++
-> >  1 file changed, 32 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index b74dd5ce1efd..34f78a58cded 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -1030,10 +1030,39 @@ static int stage2_map_walk_table_pre(const struct kvm_pgtable_visit_ctx *ctx,
-> >  	return 0;
-> >  }
-> >  
-> > +static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t *ptep)
-> > +{
-> > +	kvm_pte_t block_pte = ctx->old;
-> > +	u64 pa;
-> > +	int i;
-> > +
-> > +	if (!kvm_pte_valid(block_pte))
-> > +		return;
-> > +
-> > +	pa = ALIGN_DOWN(ctx->addr, kvm_granule_size(ctx->level));
-> > +	for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep, pa += kvm_granule_size(ctx->level + 1)) {
-> > +		kvm_pte_t pte = kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1);
-> > +
-> > +		/*
-> > +		 * Skip ptes in the range being modified by the caller if we're
-> > +		 * installing last level entries. Otherwise, we need to
-> > +		 * temporarily put in a valid mapping to make sure the
-> > +		 * prefaulting logic is triggered on the next
-> > +		 * stage2_map_walk_leaf(). This adds an unnecessary TLBI as
-> > +		 * we'll presumably re-break the freshly installed block, but
-> > +		 * that should happen very infrequently.
-> > +		 */
-> > +		if ((ctx->level < (KVM_PGTABLE_LAST_LEVEL - 1)) ||
-> > +		    (pa < ctx->addr) || (pa >= ctx->end))
-> > +			*ptep = pte;
-> 
-> Do we need now to call get_page() on the table as we are installing a
-> new PTE?
+On Fri, Sep 25, 2026 at 10:51:50AM +0200, Benjamin Gaignard wrote:
+> "nxp,imx8mq-vpu" is tagged as deprecated since:
+> commit f3116f2e52e6 ("media: dt-bindings: media: nxp, imx8mq-vpu: Split G1 and G2 nodes")
+> merged since v5.17-rc1. There is more reference to it since that.
+> Remove for driver to clean up the code.
 
-Ouch, I really start mixing android branches with upstream... I thought this
-wasn't an issue because the host stage-2 doesn't refcount valid PTE... but this
-is only true on Android branches, not in the current upstream...
 
-So yes, you are right (and so were Wei-Lin who reported it as well on v1), I
-should move the if (counted) get_page() from PATCH2 into PATCH1.
+You missed update subject
 
-> 
-> Also, I think we need a WRITE_ONCE() for the PTE write.
+media: verisilicon: Remove deprecated nxp,imx8mq-vpu variant
+				      ^^^^
 
-This one though I am pretty sure it isn't needed because of the
-smp_store_release() when replacing the PTE with a table.
-> 
-> Thanks,
-> Mostafa
-> 
-> > +	}
-> > +}
-> > +
-> >  static int stage2_map_walk_leaf(const struct kvm_pgtable_visit_ctx *ctx,
-> >  				struct stage2_map_data *data)
-> >  {
-> >  	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
-> > +	struct kvm_pgtable *pgt = data->mmu->pgt;
-> >  	kvm_pte_t *childp, new;
-> >  	int ret;
-> >  
-> > @@ -1051,6 +1080,9 @@ static int stage2_map_walk_leaf(const struct kvm_pgtable_visit_ctx *ctx,
-> >  	if (!childp)
-> >  		return -ENOMEM;
-> >  
-> > +	if (pgt->flags & KVM_PGTABLE_S2_IDMAP)
-> > +		stage2_map_prefault_idmap(ctx, childp);
-> > +
-> >  	if (!stage2_try_break_pte(ctx, data->mmu)) {
-> >  		mm_ops->put_page(childp);
-> >  		return -EAGAIN;
-> > -- 
-> > 2.55.0.1007.g17ff1f9808-goog
-> > 
-> > To unsubscribe from this group and stop receiving emails from it, send an email to kernel-team+unsubscribe@android.com.
-> > 
+Frank
 
--- 
-Vincent
+>
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> ---
+> changes in v4:
+> - rework commit message
+>
+>  .../media/platform/verisilicon/hantro_drv.c   |  10 --
+>  .../media/platform/verisilicon/imx8m_vpu_hw.c | 105 ------------------
+>  2 files changed, 115 deletions(-)
+>
+> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+> index ad71c0402ef3..12c804dcc669 100644
+> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+> @@ -725,7 +725,6 @@ static const struct of_device_id of_hantro_match[] = {
+>  #endif
+>  #ifdef CONFIG_VIDEO_HANTRO_IMX8M
+>  	{ .compatible = "nxp,imx8mm-vpu-g1", .data = &imx8mm_vpu_g1_variant, },
+> -	{ .compatible = "nxp,imx8mq-vpu", .data = &imx8mq_vpu_variant, },
+>  	{ .compatible = "nxp,imx8mq-vpu-g1", .data = &imx8mq_vpu_g1_variant },
+>  	{ .compatible = "nxp,imx8mq-vpu-g2", .data = &imx8mq_vpu_g2_variant },
+>  #endif
+> @@ -1100,15 +1099,6 @@ static int hantro_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>
+> -	/*
+> -	 * Support for nxp,imx8mq-vpu is kept for backwards compatibility
+> -	 * but it's deprecated. Please update your DTS file to use
+> -	 * nxp,imx8mq-vpu-g1 or nxp,imx8mq-vpu-g2 instead.
+> -	 */
+> -	if (of_device_is_compatible(pdev->dev.of_node, "nxp,imx8mq-vpu"))
+> -		dev_warn(&pdev->dev, "%s compatible is deprecated\n",
+> -			 match->compatible);
+> -
+>  	INIT_DELAYED_WORK(&vpu->watchdog_work, hantro_watchdog);
+>
+>  	vpu->clocks = devm_kcalloc(&pdev->dev, vpu->variant->num_clocks,
+> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> index fa4224de4b99..b091d807ae4e 100644
+> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> @@ -25,55 +25,6 @@
+>  #define CTRL_G1_PP_FUSE		0x0c
+>  #define CTRL_G2_DEC_FUSE	0x10
+>
+> -static void imx8m_soft_reset(struct hantro_dev *vpu, u32 reset_bits)
+> -{
+> -	u32 val;
+> -
+> -	/* Assert */
+> -	val = readl(vpu->ctrl_base + CTRL_SOFT_RESET);
+> -	val &= ~reset_bits;
+> -	writel(val, vpu->ctrl_base + CTRL_SOFT_RESET);
+> -
+> -	udelay(2);
+> -
+> -	/* Release */
+> -	val = readl(vpu->ctrl_base + CTRL_SOFT_RESET);
+> -	val |= reset_bits;
+> -	writel(val, vpu->ctrl_base + CTRL_SOFT_RESET);
+> -}
+> -
+> -static void imx8m_clk_enable(struct hantro_dev *vpu, u32 clock_bits)
+> -{
+> -	u32 val;
+> -
+> -	val = readl(vpu->ctrl_base + CTRL_CLOCK_ENABLE);
+> -	val |= clock_bits;
+> -	writel(val, vpu->ctrl_base + CTRL_CLOCK_ENABLE);
+> -}
+> -
+> -static int imx8mq_runtime_resume(struct hantro_dev *vpu)
+> -{
+> -	int ret;
+> -
+> -	ret = clk_bulk_prepare_enable(vpu->variant->num_clocks, vpu->clocks);
+> -	if (ret) {
+> -		dev_err(vpu->dev, "Failed to enable clocks\n");
+> -		return ret;
+> -	}
+> -
+> -	imx8m_soft_reset(vpu, RESET_G1 | RESET_G2);
+> -	imx8m_clk_enable(vpu, CLOCK_G1 | CLOCK_G2);
+> -
+> -	/* Set values of the fuse registers */
+> -	writel(0xffffffff, vpu->ctrl_base + CTRL_G1_DEC_FUSE);
+> -	writel(0xffffffff, vpu->ctrl_base + CTRL_G1_PP_FUSE);
+> -	writel(0xffffffff, vpu->ctrl_base + CTRL_G2_DEC_FUSE);
+> -
+> -	clk_bulk_disable_unprepare(vpu->variant->num_clocks, vpu->clocks);
+> -
+> -	return 0;
+> -}
+> -
+>  /*
+>   * Supported formats.
+>   */
+> @@ -234,45 +185,10 @@ static const struct hantro_fmt imx8m_vpu_g2_dec_fmts[] = {
+>  	},
+>  };
+>
+> -static int imx8mq_vpu_hw_init(struct hantro_dev *vpu)
+> -{
+> -	vpu->ctrl_base = vpu->reg_bases[vpu->variant->num_regs - 1];
+> -
+> -	return 0;
+> -}
+> -
+> -static void imx8m_vpu_g1_reset(struct hantro_ctx *ctx)
+> -{
+> -	struct hantro_dev *vpu = ctx->dev;
+> -
+> -	imx8m_soft_reset(vpu, RESET_G1);
+> -}
+> -
+>  /*
+>   * Supported codec ops.
+>   */
+>
+> -static const struct hantro_codec_ops imx8mq_vpu_codec_ops[] = {
+> -	[HANTRO_MODE_MPEG2_DEC] = {
+> -		.run = hantro_g1_mpeg2_dec_run,
+> -		.reset = imx8m_vpu_g1_reset,
+> -		.init = hantro_mpeg2_dec_init,
+> -		.exit = hantro_mpeg2_dec_exit,
+> -	},
+> -	[HANTRO_MODE_VP8_DEC] = {
+> -		.run = hantro_g1_vp8_dec_run,
+> -		.reset = imx8m_vpu_g1_reset,
+> -		.init = hantro_vp8_dec_init,
+> -		.exit = hantro_vp8_dec_exit,
+> -	},
+> -	[HANTRO_MODE_H264_DEC] = {
+> -		.run = hantro_g1_h264_dec_run,
+> -		.reset = imx8m_vpu_g1_reset,
+> -		.init = hantro_h264_dec_init,
+> -		.exit = hantro_h264_dec_exit,
+> -	},
+> -};
+> -
+>  static const struct hantro_codec_ops imx8mq_vpu_g1_codec_ops[] = {
+>  	[HANTRO_MODE_MPEG2_DEC] = {
+>  		.run = hantro_g1_mpeg2_dec_run,
+> @@ -319,30 +235,9 @@ static const struct hantro_irq imx8mq_g2_irqs[] = {
+>  	{ "g2", hantro_g2_irq },
+>  };
+>
+> -static const char * const imx8mq_clk_names[] = { "g1", "g2", "bus" };
+> -static const char * const imx8mq_reg_names[] = { "g1", "g2", "ctrl" };
+>  static const char * const imx8mq_g1_clk_names[] = { "g1" };
+>  static const char * const imx8mq_g2_clk_names[] = { "g2" };
+>
+> -const struct hantro_variant imx8mq_vpu_variant = {
+> -	.dec_fmts = imx8m_vpu_dec_fmts,
+> -	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
+> -	.postproc_fmts = imx8m_vpu_postproc_fmts,
+> -	.num_postproc_fmts = ARRAY_SIZE(imx8m_vpu_postproc_fmts),
+> -	.postproc_ops = &hantro_g1_postproc_ops,
+> -	.codec = HANTRO_MPEG2_DECODER | HANTRO_VP8_DECODER |
+> -		 HANTRO_H264_DECODER,
+> -	.codec_ops = imx8mq_vpu_codec_ops,
+> -	.init = imx8mq_vpu_hw_init,
+> -	.runtime_resume = imx8mq_runtime_resume,
+> -	.irqs = imx8mq_irqs,
+> -	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
+> -	.clk_names = imx8mq_clk_names,
+> -	.num_clocks = ARRAY_SIZE(imx8mq_clk_names),
+> -	.reg_names = imx8mq_reg_names,
+> -	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
+> -};
+> -
+>  static const struct of_device_id imx8mq_vpu_shared_resources[] = {
+>  	{ .compatible = "nxp,imx8mq-vpu-g1", },
+>  	{ .compatible = "nxp,imx8mq-vpu-g2", },
+> --
+> 2.53.0
+>
+>
 
