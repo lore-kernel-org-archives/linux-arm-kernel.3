@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCC6C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2416C98321
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 10:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T79mO8RfFtSmB6j81nq2g+IuZf6o6aRkee1Vz+SAVHI=; b=thw3m/RAPgXhhshK4CPB9GIcBT
-	Ht6Q9EerjKL2ssfZmZPM0wbLJdICfnAlIDQCq2FXBHPCoTFwFWG1/KzVr6qYh0PImtzpDfEsSYIYw
-	N7w1gwIUfPexM+VIJeZSIdSFNbFGvGbN7rRnAF1iJjvrOtr9VMX6rb79ame9a0fId8hqn6v24oWAd
-	78Fb0H6oWwoSozkDllJLqplJiJH/2TdeGMsReZ8dIEOL8hsJzp1T1NO73prm0vOvzOtSiEdCaJWTT
-	eqZ7BtFKcerD9L9/+fPsWvRIk+1rVmNZ9CSpzfga0hHDUuchMkgh53c9mzgRMlbgtzysqaRo/7jB+
-	GttMwFTw==;
+	bh=TvEPGOfbgk6GAAitdg40W0kx1ikkHQeD6VX4NT0U9cQ=; b=TKM+lZwQtt6Nv8rhKIMtJGNbv/
+	KGPy5vkM1QLVIZOVJ7hEakaahTkt6bhBisnrUEPukueKFMtNXRTGSXJxl1zvPF3okGpa3UevVKLsb
+	zzsoqHhi6TSEuLchjQAYvyEdK/GOjNYoKlMJhcOXzuS6DfZrrCSv6EFjSGloQ973/KSl2zK9/8DRq
+	QNx2RhrOrWgZlLR224L6YFu3FELyXNonz8izKxMBUSCzCi8JXCiWHp1L6XPenZKfuTv5x2VOl0wEY
+	Mtk2e5qzu+X8c1SRS+jw7foxF5YsmzUIQVNGoqFj8e/82H3L2mAIeDWTr9JAZjNKJFw6KJuqwDZ2t
+	deethukQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3Zd-0000000D8Pt-2ZeO;
-	Fri, 25 Sep 2026 10:54:37 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA3Za-0000000D8PW-4BNI
+	id 1xA3aT-0000000D8dW-31Hn;
+	Fri, 25 Sep 2026 10:55:29 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xA3aP-0000000D8aD-3V7b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 10:54:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1790333675; x=1821869675;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=eW3NlcY9rz1RWvEA+xMyp3+IKIZ5dfni2x0WYBdu1Zc=;
-  b=YpTTLSwrR1mWIfvPVz7uqjwycT31umZtGhGpJo+cUxMIaG5OX2SYdnRd
-   1Mjn9eed0vEQaJ9ZUns7NCGdCByDnvm2Glmz3BH0Zd7t39oFDzu5ORDCN
-   UACmCERcXmMDz0eXTkNEJd+9wGzwjY60Pghs3bA1p7vEApQmGZpHcryzj
-   aIjH4tvQ8RKaf7psiBWhGogWZ64ZZq0BuSnpDF83oSAiTUw/awKheqhTk
-   5PN9l9iz6+JvpNbl2v0iVQQ5eMP3RfZWNe/5S3jjHxqT/Mt5UCf090YHj
-   4DiOlBTAcJDIaXegFwcjAl+3x52JKc+eFW+FHHusBDkNklXf7gPi2JAcO
-   Q==;
-X-CSE-ConnectionGUID: fJYCnMJTQ0yIAjTqFTsH9g==
-X-CSE-MsgGUID: eg6BL5YrQxGrO8IPiLIaow==
-X-IronPort-AV: E=McAfee;i="6800,10657,11915"; a="90076207"
-X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
-   d="scan'208";a="90076207"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 03:54:34 -0700
-X-CSE-ConnectionGUID: t7/XvLctRKC6Kwl9xjQKSQ==
-X-CSE-MsgGUID: 4Z7fXr+dSeaftPoz/pks3A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,122,1787036400"; 
-   d="scan'208";a="272883219"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.27])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2026 03:54:29 -0700
-Date: Fri, 25 Sep 2026 13:54:26 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Robin Murphy <robin.murphy@arm.com>,
+	Fri, 25 Sep 2026 10:55:27 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1127)
+	id DE03E20B7167; Fri, 25 Sep 2026 03:54:34 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DE03E20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1790333674;
+	bh=TvEPGOfbgk6GAAitdg40W0kx1ikkHQeD6VX4NT0U9cQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TBY94IAUfCDpClpxzxKhpb9QROdJLRr+DhKGenzz7MpzJd3UNj7yHGq0yh0QHAeC4
+	 E6koLuWaEpulGcS0dREtqRbv1hfMmh2IYVGiOCYQQ6Mys2zmwWB3yPg4LkTsZejpqi
+	 nK1SJU30/cFmjJKSVsaqLq92BY7Cuw/Jf/8920II=
+Date: Fri, 25 Sep 2026 03:54:34 -0700
+From: Saurabh Singh Sengar <ssengar@linux.microsoft.com>
+To: Shradha Gupta <shradhagupta@linux.microsoft.com>
+Cc: "K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev, linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH RFC 02/11] ACPI: Introduce irq_get() for static fwnodes
-Message-ID: <arZS4vwxps01dGb7@ashevche-desk.local>
-References: <20260925-acpi-static-table-irq-probe-defer-v1-0-2c62125d0085@kernel.org>
- <20260925-acpi-static-table-irq-probe-defer-v1-2-2c62125d0085@kernel.org>
- <arZDwutoadki7tiZ@ashevche-desk.local>
- <arZNL9BnTGK0Klwc@red-moon>
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Michael Kelley <mikelley@microsoft.com>,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, namjain@linux.microsoft.com
+Subject: Re: [PATCH v2] arm64: hyperv: run VMBus kexec handler via syscore
+ shutdown
+Message-ID: <arZS6km9V29CnYw9@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20260907092544.230338-1-shradhagupta@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <arZNL9BnTGK0Klwc@red-moon>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260907092544.230338-1-shradhagupta@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_035435_083950_C9F8F4B3 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20260925_035525_922241_CEAB9394 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +74,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 12:30:07PM +0200, Lorenzo Pieralisi wrote:
-> On Fri, Sep 25, 2026 at 12:49:54PM +0300, Andy Shevchenko wrote:
-> > On Fri, Sep 25, 2026 at 09:48:01AM +0200, Lorenzo Pieralisi wrote:
-
-...
-
-> > > +static int acpi_static_fwnode_read_u32_prop_index(const struct fwnode_handle *fwnode,
-> > > +						  const char *propname,
-> > > +						  unsigned int index, u32 *value)
-> > > +{
-> > > +	u32 *values;
-> > > +	int ret, count;
-> > > +
-> > > +	count = fwnode_property_count_u32(fwnode, propname);
-> > > +	if (count < 0)
-> > > +		return count;
-> > > +
-> > > +	if (index >= count)
-> > > +		return -ENOENT;
-> > > +
-> > > +	values = kcalloc(count, sizeof(*values), GFP_KERNEL);
-> > > +	if (!values)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	ret = fwnode_property_read_u32_array(fwnode, propname, values, count);
-> > > +	if (!ret)
-> > > +		*value = values[index];
-> > 
-> > Use standard pattern, id est
-> > 
-> > 	if (ret)
-> > 		...
-> > 
-> > > +	kfree(values);
-> > 
-> > You want to use __free()
-> > 
-> > > +	return ret;
-> > > +}
-> > 
-> > I believe the whole approach is suboptimal, if you wish get indexed value (but why?)
+On Mon, Sep 07, 2026 at 02:25:42AM -0700, Shradha Gupta wrote:
+> On ARM64, machine_shutdown() does not provide a platform hook between
+> device_shutdown() and smp_shutdown_nonboot_cpus(), unlike x86's
+> machine_ops.shutdown. This prevents the Hyper-V VMBus kexec handler
+> from running at the correct point during kexec shutdown, causing
+> kexec reboot to fail on ARM64 Hyper-V guests.
 > 
-> Why what (that's what the irq_get() interface requires ?) I agree it is
-> suboptimal - the whole point of the series is an RFC on using properties
-> to store GSI number/flags, then how to read them we will optimize it
-> when/if we agree that's the approach to be taken.
-
-Why to have indexed APIs. The callers usually do not want a single item from an
-array, they want all of them or a big pile (exception is the array of strings,
-but we have matching functions for that).
-
-As per approach, this patch is against device property and I don't think we are
-going to agree on the approach taken in *this* patch.
-
-> > it needs to be retrieved as that in the guts of ACPI. Allocating memory for the whole
-> > array to retrieve a single element is simply wrong.
-
-...
-
-> > > +#define ACPI_IRQ_PROP_GSI		"linux,acpi-gsi"
-> > > +#define ACPI_IRQ_PROP_GSI_TRIGGER	"linux,acpi-gsi-trigger"
-> > > +#define ACPI_IRQ_PROP_GSI_POLARITY	"linux,acpi-gsi-polarity"
-> > 
-> > Oh... This sounds like a big ugly hack.
+> Use syscore_ops.shutdown instead: syscore_shutdown() runs in the same
+> window (after device_shutdown(), before CPUs are taken offline) where
+> VMBus UNLOAD and cpuhp_remove_state() must execute.
 > 
-> That does not help much I am afraid.
+> Provide ARM64-specific overrides of hv_setup_kexec_handler() and
+> hv_remove_kexec_handler() that register/unregister a syscore_ops
+> shutdown callback, replacing the __weak no-op stubs in hv_common.c.
+> On x86, the existing machine_ops.shutdown mechanism is unchanged.
 > 
-> What's a ugly hack ? Property names ? Using properties for this purpose ?
+> Fixes: 9d7cf2c96758 ("Drivers: hv: Add arch independent default functions for some Hyper-V handlers")
+> Link: https://lore.kernel.org/all/20260814093133.3191250-1-shradhagupta@linux.microsoft.com/
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Shradha Gupta <shradhagupta@linux.microsoft.com>
+> Reviewed-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  Changes in V2
+>  * Use syscore_ops.shutdown instead of a bare function pointer hook in
+>    machine_shutdown(), per Catalin's suggestion.
+> ---
+>  arch/arm64/hyperv/mshyperv.c | 40 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 40 insertions(+)
+> 
+> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+> index 4fdc26ade1d7..e608e546a395 100644
+> --- a/arch/arm64/hyperv/mshyperv.c
+> +++ b/arch/arm64/hyperv/mshyperv.c
+> @@ -15,10 +15,50 @@
+>  #include <linux/errno.h>
+>  #include <linux/version.h>
+>  #include <linux/cpuhotplug.h>
+> +#include <linux/kexec.h>
+> +#include <linux/syscore_ops.h>
+>  #include <asm/mshyperv.h>
+>  
+>  static bool hyperv_initialized;
+>  
+> +/*
+> + * Kexec handler registered by VMBus.
+> + *
+> + * On ARM64, machine_shutdown() does not provide a platform hook between
+> + * device_shutdown() and smp_shutdown_nonboot_cpus(), unlike the
+> + * machine_ops.shutdown mechanism used on x86.  Use a syscore_ops shutdown
+> + * callback instead: syscore_shutdown() runs after device_shutdown() and
+> + * before CPUs are taken offline, which is the same window VMBus needs to
+> + * run its UNLOAD message and cpuhp_remove_state() during kexec.
+> + */
+> +static void (*hv_kexec_handler_fn)(void);
+> +
+> +static void hv_kexec_syscore_shutdown(void *data)
+> +{
+> +	if (kexec_in_progress && hv_kexec_handler_fn)
+> +		hv_kexec_handler_fn();
+> +}
+> +
+> +static const struct syscore_ops hv_kexec_syscore_ops = {
+> +	.shutdown	= hv_kexec_syscore_shutdown,
+> +};
+> +
+> +static struct syscore hv_kexec_syscore = {
+> +	.ops		= &hv_kexec_syscore_ops,
+> +};
+> +
+> +void hv_setup_kexec_handler(void (*handler)(void))
+> +{
+> +	hv_kexec_handler_fn = handler;
+> +	register_syscore(&hv_kexec_syscore);
+> +}
+> +
+> +void hv_remove_kexec_handler(void)
+> +{
+> +	unregister_syscore(&hv_kexec_syscore);
+> +	hv_kexec_handler_fn = NULL;
+> +}
+> +
+>  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
+>  {
+>  	hv_get_vpreg_128(HV_REGISTER_HYPERVISOR_VERSION,
+> -- 
+> 2.43.0
+>
 
-Yes, properties started with "linux," for some core functionality.
-Yes, using properties for this also doesn't sound right. I think the problem
-here is in the table specifications or somewhere that deep. That's why we
-ended up in this series.
+LGTM. This patch is important for Hyper-V kexec support.
+As discussed in the RFC, the approach used here is also in agreement
+with the ARM maintainer.
 
-> Again, it is an RFC for this specific reason and I mentioned that in the
-> cover letter, thank you for your inputs.
-
-And here we have a discussion started :-)
-
-P.S. Looks like I was too quick to jump into this thread. I will wait for
-others to share their view on all this.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
 
