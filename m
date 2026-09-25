@@ -4,103 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC56C9830D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18F3C98328
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 13:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZ4tp2eoIotFzdh0KT5kqPmQquJ1TlPLTl8eKwffrqI=; b=jprXhpsqEjFDZPEcrEqkwRv1SK
-	J0pj6GjfSEszuc5N3lBNHIGJJnungUNCXho9Y+56TujOySm9SE0MO1XnAV1fsQpYBvlbKYzUkaC/3
-	c7X45seo9RJuxHAbbnsqP4NlwTm3zQIhIEl0L9jTB0v0Vy/AxCwN2iGJLUGRAORzcHJNxBtymUxvb
-	APAlZITiRIU6CcQdlg2jg3j3eU2ufz/KJx6VReDXkwT6JqlJQ15MNWUNoI3JeZ8QVCoul1OZRzWIv
-	U4GOxZ2HB3/QBUOC5lM1Df/RSEUIcowFI4pjLWNQJYGbNnNtJ5PQSBDv3XrSZb4FLetZNZuB5WShy
-	hEWyjmDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aiJfOovEGtm3GAgqmGUeTlOS/1DYwOJDD0vC04FCsm4=; b=XWvk7GVhnNRyYjJ5gfoDXhuXe+
+	EpOIRFlSm4I5n5ddU4Fc2zagFjF5n33sTTLK4azFXUfNZcLpf8RuQJCZX3UdBcKg1pHqAg5Yx/g//
+	jEKS5zn4OR2kz0//nY0Ja5US/QcE4SWxSLq+pXhycYI2i+YcFhU3b2YnvXqzHKRpM+r2SUTNOAymB
+	mKOvZJuRYHBaMVBdml5nceZpSzRLqj43Uq+ts0E0yhNXiC+ASB9oNf9cfk0Nmqz3hA1dJ2GtbZMyh
+	vLOapnO6+HmEnvj9b8fHuqWRAYsjSbOBnCfcoVRFVm5Zde5qiqhLNbg40kydaCwK4ExEVYcQHgEbi
+	DkBZ/N3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA61M-0000000DR0T-00Ae;
+	id 1xA61M-0000000DR1B-19uS;
 	Fri, 25 Sep 2026 13:31:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA61E-0000000DQx2-149V
+	id 1xA61H-0000000DQyo-3Eu0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 13:31:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE1846022F;
-	Fri, 25 Sep 2026 13:31:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B84D01F00899;
-	Fri, 25 Sep 2026 13:31:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790343075;
-	bh=VZ4tp2eoIotFzdh0KT5kqPmQquJ1TlPLTl8eKwffrqI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=lRUrwpGcqS1kuxeDagQfJeuE/MLm7JBNkzmNXz4q/V9qZuJsfE56cE4WXHuYv79Q0
-	 BX+ew66MF/P8nFqG1f8hmm9cWegfMqJ5rk43bW+6bTPmfKN+J69FQQkDYOKiOs8r3C
-	 9giQhjy7hF201aEYxi5gOVMEK1HPCc3W6PBbJGBaZep7j8/qK7g3i1i8sFiOrUT7c2
-	 shfEn3D95+tik8rcMJRLFOxUeLgIBR0ds8rDCCZBQiisbJmp1b3LwmdPevk4tKxbsL
-	 b3qaltRurA4tc32zaNmKNZY960FTwqguB/5o0BWXJhr3lPYXFw4JRT0zOddjvYdEkJ
-	 gTTSALYMAU58A==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 0FBC3198003A;
-	Fri, 25 Sep 2026 09:31:11 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Fri, 25 Sep 2026 09:31:11 -0400
-X-ME-Sender: <xms:mXe2auaDmvXz_ZbNQ5IUJUvYulOdkwXsiDPPm9R48nIri4QEnP-RXQ>
-    <xme:mXe2asOg4Uw2Voj5roTOu2w_3W42g94Ku9M-KmHxhBE3eG4CeOWlhUOj3UPC7XS4M
-    9AedKEJpZ2v7g91WPnKPBRLHfpSmkbITrWurBoh578CH7n78bedTURj>
-X-ME-Proxy-Cause: dmFkZTEMF3/5tb6mz+ib9V0nff9NPmGPtWKkpNVahF43RJATx7iiAV9mOQ1UX28wOiLXG6
-    jf7rcb1V5l5VxL6pbRzDh96fda46eQgCweXFg/XRm3wMx1Gd8rI5l0Wpz0HzoF3Sg3N81s
-    R4dklUgOcIrqDzQzHPK3FWNsqerTynZIDmUQlFBSG1fhgmFPWVd88BfpDvD2ONNOlL6PD9
-    RcHqYFkv7x72ewz577x/8VfmX9Ufo1EBw8Z+mbiQl4pkbAnujHjV6DVJFwda6p4IF/G2s3
-    l55ZGhXkHxZH5BOeGYioJ+Rj4P+N1ARQs3Wu1hFMJzXC8LIqRkqnq10fB/tdxU48g6eNtV
-    e9i6AdN9NTKtwRMswwiyiGxRi/JrcPEvipCWJjq/jROH81UrjeleKirf4Gx2sFYKpFpfr1
-    +zCPn+1f1n8WyT1uCJPh12A9tlq1/+ig4PkNjvRrU1v/bq1jzksE3Q4YSfMmI3+N1sHjxO
-    +I14IciFlV8OotFodD/QjTFbodk/ydtL2awqThW45gMwuMWu3qsonxCbATLJOLkpFh47tz
-    DI0doApvsSc6lUU4nZx6rQVDX0cuFg9MLivKCF9qAPsbPFj3UqWsniE2xBiFBCmGops4wb
-    FCBJRZT8VeLHluNTUQYK0XUhIRAzAmRkje4/l6jZQeuN1L3mP3bFdUMlg3Bw
-X-ME-Proxy: <xmx:n3e2avHuUEcObNIoXGXVULzB97Xau8XE8vbJcgFkzf51IoPHIRupTQ>
-    <xmx:n3e2amAl2zXKBFcjb666kOEFcfSb9IpKzDE3DruVAa_Ce6q74zpaWQ>
-    <xmx:n3e2agdrxIVQyzKCNUhwZmr8flkKS885KQsk50KkuswdLVkPVPChcg>
-    <xmx:n3e2alL6PjnwBM2Bm0Hu7ue0PGlyLpdDhyRJNNYTtkaynBlirqyLAQ>
-    <xmx:n3e2apuVFjFjdTqRYxaqTId9GBDBlwAuBz3cn8VWRF4pO6kRWeP01-bN>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 36A15F80080; Fri, 25 Sep 2026 09:31:05 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 25 Sep 2026 13:31:21 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68PD7mKi1848571;
+	Fri, 25 Sep 2026 08:31:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=aiJfOovEGtm3GAgqmGUeTlOS/1DYwOJDD0vC04FCs
+	m4=; b=RVx+5Ait6WUkHnxojhI4N+P4aycNEvyo+RHi5JkRJUqp7bn4p7BzLPSTN
+	uUncnZ2c5LO1KYHd07DmdC7QZX9XCl+xTvpODu0jC6k8FkOF+Pobrnf6DVRuqsET
+	67kXRltDNPuwZZbDfxM4aqq+RH3jYLuCbRqaN9jaddfyWAOj71uO0ForbARqd+EM
+	QW0yzuUYa1iFPdkrbsPSHPr+wB/nNe3i5wuBmeDFwAgmaL0bpocDVJvtotAI8jDa
+	EiAu6zJZdeYY6yxq5shPLcYsv3WwjOWiTqVjc/mN8NUYsuaZ4nKZ/DxA29fcnhs4
+	V/SrMqWZd15Cuvm6yLrMiYOeY5QZQ==
+Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11010068.outbound.protection.outlook.com [52.101.61.68])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gwkhra07j-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 25 Sep 2026 08:31:11 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MgxDM7UxL/oFgpsJ/i6+27jg/8ZLqCnKq2luF4CHh7t6+SA+/zBb6FlyAG0IeSsiAPT0lDUVE0EeoW2o9dgfL5cTU5riu27Xd8+pmjUNEom4Fe5lSElgr6/fQJe9NeOqZGszelXCEgCjJsGffC5jrq571X6/gOHJR721D6M4l3HEfW/OHbadzoPWITdSPwDDzyJAAlaMr3hmfvAhL6Tdaazeg5IFkVd3udpRX/YROdbooOgFfPEj2JKCWUn34hBL2b7B7KCE4lCDFj6jl/p9DLOxOSNfx8RtCzb+IbPUuEpQc/Av4K4e51xpolkQ2QaMqV6UlKhh1bY3jxOaFNuJ0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aiJfOovEGtm3GAgqmGUeTlOS/1DYwOJDD0vC04FCsm4=;
+ b=HB0lF/ilcJljSVkj8sgQ7HrYPiMNvNZ8hIZxZxxWA++rg5DBFmOUJ+8z07/nWa6m+rZVuEDFMVzUgcm2ZFBPjqKmgFpto7bxlnfTXKDFs5kdSJ8mBADj4bk78jt2nz0otWDrXeRebAemtS00EWKRGU44ClYzsg5A+krEJbStdvMAUVRlkeKyNnzON+GbpATaH6OrlqwZwFv/HIbCwndP6kUB0thRDNwpwMjGc0y4tZBirH3LNe9bde/8QtAQAmaQ2mBnlarjsW5wRTW5HUosThJqJUtfLhey825ZEUVvWcHRKP7myqFssadu0Qb3AKHyDL29hqPhTxG04cai2XhClw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aiJfOovEGtm3GAgqmGUeTlOS/1DYwOJDD0vC04FCsm4=;
+ b=hFvmtKfHoY5l28s5Nejerg0jXxhy5m1MoDmwPAnfqa8ycImGpdbbA2IS3Cw18vOMtn+7mCp3rtz+xUhNMtUGmq9xnGqic4yQq/LBmDgaROaIatIRGYoC1GbzwC6iCgU7a1L7RF96LoIUexg9g54m5ym5FZk7pPL0NjYZTLLFEUE=
+Received: from SJ0PR03CA0214.namprd03.prod.outlook.com (2603:10b6:a03:39f::9)
+ by SJ0PR10MB4687.namprd10.prod.outlook.com (2603:10b6:a03:2d8::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.13; Fri, 25 Sep
+ 2026 13:31:01 +0000
+Received: from SJ1PEPF000037A8.namprd03.prod.outlook.com
+ (2603:10b6:a03:39f:cafe::68) by SJ0PR03CA0214.outlook.office365.com
+ (2603:10b6:a03:39f::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.18 via Frontend Transport; Fri,
+ 25 Sep 2026 13:31:00 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF000037A8.mail.protection.outlook.com (10.167.244.181) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.451.8 via Frontend Transport; Fri, 25 Sep 2026 13:30:59 +0000
+Received: from DLEE208.ent.ti.com (157.170.170.97) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 25 Sep
+ 2026 08:30:24 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE208.ent.ti.com
+ (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 25 Sep
+ 2026 08:30:24 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Fri, 25 Sep 2026 08:30:24 -0500
+Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.52.125])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 68PDU1n82840014;
+	Fri, 25 Sep 2026 08:30:19 -0500
+From: Rishikesh Donadkar <r-donadkar@ti.com>
+To: <linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <tomi.valkeinen@ideasonboard.com>, <mchehab@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
+        <vigneshr@ti.com>, <kristo@kernel.org>, <sakari.ailus@linux.intel.com>,
+        <mripard@kernel.org>, <jai.luthra@linux.dev>,
+        <jai.luthra@ideasonboard.com>, <devarsht@ti.com>,
+        <y-abhilashchandra@ti.com>, <mirela.rabulea@nxp.com>,
+        <laurent.pinchart@ideasonboard.com>
+Subject: [RFC PATCH 3/8] media: i2c: ds90ub960: Add 10-bit RGBIr formats
+Date: Fri, 25 Sep 2026 18:59:56 +0530
+Message-ID: <20260925133001.2780868-4-r-donadkar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260925133001.2780868-1-r-donadkar@ti.com>
+References: <20260925133001.2780868-1-r-donadkar@ti.com>
 MIME-Version: 1.0
-Date: Fri, 25 Sep 2026 15:30:44 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Jason Gunthorpe" <jgg@nvidia.com>,
- "Jonathan Cameron" <jonathan.cameron@oss.qualcomm.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Arnd Bergmann" <arnd@arndb.de>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Jonathan Corbet" <corbet@lwn.net>, "David Sterba" <dsterba@suse.com>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-riscv@lists.infradead.org, "Mark Rutland" <mark.rutland@arm.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Paul Walmsley" <pjw@kernel.org>,
- "Randy Dunlap" <rdunlap@infradead.org>, "Simon Glass" <sjg@chromium.org>,
- "Shuah Khan" <skhan@linuxfoundation.org>,
- "Nick Terrell" <terrelln@fb.com>, "Will Deacon" <will@kernel.org>,
- "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Conor Dooley" <conor.dooley@microchip.com>,
- linux-integrity@vger.kernel.org, "Palmer Dabbelt" <palmer@rivosinc.com>,
- patches@lists.linux.dev, "Ross Philipson" <ross.philipson@gmail.com>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Song Shuai" <songshuaishuai@tinylab.org>
-Message-Id: <74197f6b-2ac3-43f3-804a-91e4041da20f@app.fastmail.com>
-In-Reply-To: <20260924235031.GE9354@nvidia.com>
-References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
- <4-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
- <20260924155307.00007dfc@oss.qualcomm.com> <20260924235031.GE9354@nvidia.com>
-Subject: Re: [PATCH 04/16] vmlinux.lds: Move DATA_LE32() from arm64 to the common
- linker script
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000037A8:EE_|SJ0PR10MB4687:EE_
+X-MS-Office365-Filtering-Correlation-Id: eca9e39b-246a-4a2d-0d98-08df1b093cd0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|82310400026|36860700016|1800799024|376014|56012099006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 9o16NcxWU5IG39KlWEOElkwKjGip5f4eX80yxaGY/1OeicgPB15KmWn1/v9RvIdkeMROXZzthh70JUG3mN7n8rjloEIsEODECryW5ti5yLdej3bPjayDG0yQnG+Uv+bTia02gSBNRz2sjAxIjsk8ZtcNjfdeDyd+U/aoFBmrks5Ny+ibb9G8qp3q/jMgde3CgNEfXFL8CoCDWlwhEijFMW+P3bIu8a9lCYjh+0+D9OreD/37FtY7rtyHOjbThawtmwnbW/6eLN7DXh5S+AG4tpTDiywZzoRNqpN1Z7ekiYUYEzCODHV9wqU7wDNuwegKXinR6pJSJtC25KD+hXdrnB0ST3YjTdSKcucX5RhxHx/oNlmikmbNYJCzp/TK2z5Fvvoqncwbp2Sdp6OYQr5/3wZos0ZoRQoG9odRVZ7FdA2Bq/5pRrS9k69FsdpNyJiEy7s0m9wJc/1JlVUoVsAdEnswrU/FeS9dWHDGU2vPDJoalw2ORZDz08h4aZ6G20byI67boOaZ22X3YJ5Oo9ve+/amJBh0XI1JnLNlWdxgieaoSlzPa97gUtyRPDbZ4EoXAN4Jot5UScT232+jsDVj6171QxVfwgYXsHt8VGty1DvJ7UC/Lz9UIkq92qsPbWOcNPVsNR2mJDQX6l+BR4vHsBrRfpIalXaXzrY9dUDXI5KJ7EYzAD6a82wHkrs8ilU1BJa6lrIWLO05uuzz3zjbzQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: lZzjE2CVKGD/TM9hygUd5mfZv/QwaX/ZX86+n6pecDbyAJyZtijCwZfOuUJJrHkBW5O4lzCUragNLgxa9G8dkWJMTbyCr4PDF5vRoZUS0LvxNQQmqBMdTqeEGIFEdyL7tkvJsKmvQ/4JuewCpfj47sT2bIb74A/dQ0o8MRbqj5qkclDQo8ak5QyBBiDaL7LNg8I3kiy+QTW4CzQrmEfdXWdTxeYFtjjE0ey9csAbtfM30nohgig/o9N6Xjk8ToAarzohRG1tpQG2usRWmC3EL0SvaENR6ryqaA2HtUGUo+R1xz6FNjul8b1gxUso1FS0xqoAX9DMtuRCysfVYcq9jKIUXuX6VxTYnmFHsNn5R5PFpuruQHJzu9F8VMhaxN9bJbplPFMUrAsUddsN1SBDC/+BG5DkEbxoTIlb1/lckmJOsjf2kAIulH1QsN93FQh+
+X-Exchange-RoutingPolicyChecked: NO/qm6crlUc2NdP0ItXgCTPZbL89PWUydFhRKH7GvF0G26RbB1uEZgQMPtt/sLi8gg39fjGR/6R5rFTGERqvRnEC5yrH2ZNPk2vewWCGDOgwvZ0aRXQChEfoXLQVKi7T8ZdD1Nw2oXNzpSIdjeqcRnoHBcbUbPCZlXXk1FH8DwP3Mkuqtg6GPGfe6aWz/BMbNz7Zwv5F3t22SLTsZUtWDLRsui0erZYts8yYtBmLUDVJFdrPfjnq2ylqyF5HYLO49EkqQG6rjKWdJyBKFf2zU9FUY6bHagPBicI2P5ixyT7Pg14pMwVs+L9AKf8gBy5xGt8jhJnYvphPKH8pcuBkTQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 13:30:59.7474
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: eca9e39b-246a-4a2d-0d98-08df1b093cd0
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000037A8.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4687
+X-Authority-Analysis: v=2.4 cv=Fv+QbGrq c=1 sm=1 tr=0 ts=6ab6779f cx=c_pps
+ a=UdDD+omNl1Ext3Jod4IcCg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=8QvoPrtP3C4mnMn6ANIA:9
+X-Proofpoint-GUID: o6JePAr3Fm02pC9KDAuRWNNVTn-jSD19
+X-Proofpoint-ORIG-GUID: o6JePAr3Fm02pC9KDAuRWNNVTn-jSD19
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI1MDA1MyBTYWx0ZWRfXxhcYdX4EOea3
+ 9IfF8fEenB3qbd/Ac0em97I4CgrWTyoEc8iEexNhm3EtMj/JzkKZipNBEh+REXHZ1jgiLWzlhUg
+ QXrG/s2W3xGc79XWXer5jvqgULHcQ92mV6QhpYRqwXlEBjdfWK3TD3V7jTVT7kfoJBqee4j71tV
+ R10musbotujunopise754I/mCXeI4+Z160wecjMMMBeipocqWYYSAiFBuzs+uFs6r7Sr7B9MvxR
+ uCISEnsFU6KsK3F0zo4dRC3ujvTuyd0DtVKWtpJrFUDfcnptUZeDNtQ7hMXrCYN6M06dWiLGwOp
+ 16bCuN44OXngi+tYRugeSaIGOGdqyQT1a7ESQEvE34SIUKqRBPp6VytaJ3w36GhB3ZoTBU6z+On
+ 2PHAgF31nMr9yj4GZIHatkyz3L7WuDZr7sZ4LggHaiUtcTBoNRcxcfFbBTJIzPBuJVipq3/h8h6
+ BVHQUYpX72ASrmg9piw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI1MDA1MyBTYWx0ZWRfXzfWjOA4LL6Xe
+ lDNiSBcplFTbeEBZKrjMqtSr14Z6z8CillUxuv1u4AHQPpYxCWFOTCWzvqjPlfG2Pc+67twDXAH
+ rhQPkCfu8/qeRXZELEasCE+pOT8jy4M=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-25_02,2026-09-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 spamscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609250053
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_063119_933552_2D1318E8 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,34 +178,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Jai Luthra <j-luthra@ti.com>
 
+Add new 4x4 RGBIr bayer formats
 
-On Fri, 25 Sep 2026, at 01:50, Jason Gunthorpe wrote:
-> On Thu, Sep 24, 2026 at 03:53:07PM -0700, Jonathan Cameron wrote:
->> On Thu, 24 Sep 2026 10:53:07 -0300
->> Jason Gunthorpe <jgg@nvidia.com> wrote:
->> 
->> > Other arches may want to use this to get consistent fixed endian output.
->> 
->> You will have to grab it quickly!
->> https://lore.kernel.org/all/20260918145217.1669-10-will@kernel.org/#Z31arch:arm64:kernel:image.h
->> drops that definition as part of ripping out arm64 big endian support.
->
-> Ah, well easy conflict resolution then :)
->
-> When I was doing this I was really doubting why it had to be endian
-> specific, this is mostly a cargo cult from the other stuff that was
-> already working that way..
->
-> I'm personally skeptical any arch could have either EFI stub a
-> different endianess than the vmlinux, it seems like nonsense on alot
-> of levels.
->
-> So, I will remove the fixed endian pieces from here? Does anyone think
-> otherwise?
->
+Signed-off-by: Jai Luthra <j-luthra@ti.com>
+Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+---
+ drivers/media/i2c/ds90ub960.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Booting a BE kernel from EFI has never worked so no need to start caring
-about it now.
+diff --git a/drivers/media/i2c/ds90ub960.c b/drivers/media/i2c/ds90ub960.c
+index 7d7ba6d349fc..c86b18e0b4b3 100644
+--- a/drivers/media/i2c/ds90ub960.c
++++ b/drivers/media/i2c/ds90ub960.c
+@@ -664,6 +664,24 @@ static const struct ub960_format_info ub960_formats[] = {
+ 	{ .code = MEDIA_BUS_FMT_SGBRG12_1X12, .bpp = 12, .datatype = MIPI_CSI2_DT_RAW12, },
+ 	{ .code = MEDIA_BUS_FMT_SGRBG12_1X12, .bpp = 12, .datatype = MIPI_CSI2_DT_RAW12, },
+ 	{ .code = MEDIA_BUS_FMT_SRGGB12_1X12, .bpp = 12, .datatype = MIPI_CSI2_DT_RAW12, },
++
++	{ .code	= MEDIA_BUS_FMT_SRGGB8_1X8, .bpp = 8, .datatype = MIPI_CSI2_DT_RAW8, },
++	{ .code	= MEDIA_BUS_FMT_SGRBG8_1X8, .bpp = 8, .datatype = MIPI_CSI2_DT_RAW8, },
++	{ .code	= MEDIA_BUS_FMT_SGBRG8_1X8, .bpp = 8, .datatype = MIPI_CSI2_DT_RAW8, },
++	{ .code	= MEDIA_BUS_FMT_SBGGR8_1X8, .bpp = 8, .datatype = MIPI_CSI2_DT_RAW8, },
++	{ .code	= MEDIA_BUS_FMT_SRGGB10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SGRBG10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SGBRG10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SBGGR10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++
++	{ .code	= MEDIA_BUS_FMT_SRGGI10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SGRIG10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SBGGI10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SGBIG10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SGIRG10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SIGGR10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SGIBG10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
++	{ .code	= MEDIA_BUS_FMT_SIGGB10_1X10, .bpp = 10, .datatype = MIPI_CSI2_DT_RAW10, },
+ };
+ 
+ static const struct ub960_format_info *ub960_find_format(u32 code)
+-- 
+2.34.1
 
 
