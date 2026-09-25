@@ -4,97 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E0CC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954F6C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R72S8DmRi/X/3ay93ymVYKLFPysF0+EoCRlZHiXClqQ=; b=2p9lsMnWgp4ljAGtrCyRUcM5GP
-	OBJ1SgyFNJUx2P81ZbUlNAOBxYGGmBcwMyH+eG/Op70h6jIKhqey+ZZ1wY9euDk2++8Evy5WvzExF
-	H7N284qixcKSELbDRy4i+Md80Y/+n869B6E0BlxTA+M3Ze/NPgDcxY77GDjfEN0hzZOaqGXwlBNuO
-	Grnerexn2qxK/S4o34I9RvHNlktyUmAIu3OSg8fGXWnaZhvqApF+edu57yOoASYtyLeyBkA7QPd0o
-	a+9yIv8+3mj4F7mEWVE3C9EQfIDgK16ycogKuWZypV5PaomPtCeB6lqpz2t8ovuKE1DPwQJqXjnXd
-	77PUhfNw==;
+	bh=PgOgOgX/53l72xX/VCoPzjEGh8tHz10dY4VffJmYMnQ=; b=Ljo4Tyb5LWAterEsaEfs5f/U8+
+	BAlWIl6qotcqcILG39J4+aHGevVfHTIYtFuMZJ6tBw22GsKZrYiRjVQt7HMZHtTA8KGidDBYedjps
+	4Pc8Q1VUx471G9QvXQkPJBpjhLaYypqReSX8tT4WZchCQfrjaLER2cM5aI4FLWvv95pBtkF05pzPt
+	7PnmuaLeNMj6Atz+uUNSes0DWr+4L4OBgVYM9kiTE2OOBuq/mAgq6yJCkU1t3yyx6yrbHPfs+RzY/
+	XHXAaASQz4Kv1DL2oasWD86AXxpWLueak7aIhZ5GcE3ITzRMbK80C48nMPhNbpRa/Y8uhZpd74Gr9
+	V7LY4MMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACEY-0000000EKee-0HsS;
-	Fri, 25 Sep 2026 20:09:26 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xACPm-0000000ENWF-17D8;
+	Fri, 25 Sep 2026 20:21:02 +0000
+Received: from ixit.cz ([2a02:830a:f787:8f00::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACEU-0000000EKc1-0hZs;
-	Fri, 25 Sep 2026 20:09:25 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925200914euoutp02190211168e9262f27661be7eb6326ac0~YqUJW3dDY2877128771euoutp02d;
-	Fri, 25 Sep 2026 20:09:14 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925200914euoutp02190211168e9262f27661be7eb6326ac0~YqUJW3dDY2877128771euoutp02d
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1790366954;
-	bh=R72S8DmRi/X/3ay93ymVYKLFPysF0+EoCRlZHiXClqQ=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=kjgvy4zlvFmyqpQHEzHq/zWMUA3FgQkqE75j4+LomdrHrNmkJpvcM3ydDGtKc4VXp
-	 fWZsWjxcsrdkzuWcJLhS1ty46ziDUjRf9WEicSKvI1tcUCxzIfuP5EWFNFERIqLDX4
-	 zaHyNsRYRimaSmp2xvCGlZcGHHhLniYdd49lPjJI=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260925200913eucas1p198ff3fecf4c9d327b4b2d573f4509285~YqUIQc1cW1226912269eucas1p1i;
-	Fri, 25 Sep 2026 20:09:13 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260925200911eusmtip12932e01dfb1872e66825c5d6349ffed6~YqUGgNfWN0501005010eusmtip1G;
-	Fri, 25 Sep 2026 20:09:11 +0000 (GMT)
-Message-ID: <0c29c063-0b09-4710-8bf8-1d9adee4eb53@samsung.com>
-Date: Fri, 25 Sep 2026 22:09:10 +0200
+	id 1xACPj-0000000ENVY-3Sqf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 20:21:01 +0000
+Received: from [IPV6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e] (unknown [IPv6:2a02:830a:f787:8f00:d622:eaa3:3dd6:8f5e])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id C6B1B5340215;
+	Fri, 25 Sep 2026 22:20:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1790367656;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=PgOgOgX/53l72xX/VCoPzjEGh8tHz10dY4VffJmYMnQ=;
+	b=rSfzWamQPk8r0LfhDfHY11UnKlZihsBnF7ExdfD+7jEEapvq3lZgcCaLZcSdCpR6JO5DwU
+	E4HgGUGOCGvi/1QBYn0JUkWIEVRCAcQkbnKy571y5aK1CowtpM1z6puja4rIqxiAMi/nve
+	LzVML0cPLkjTRTjgDAiOYAfzu4CrS+0=
+Message-ID: <b684b88b-55a6-41a9-a4da-3bca33550164@ixit.cz>
+Date: Fri, 25 Sep 2026 22:20:56 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
- subsystem
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Byron Stanoszek
-	<gandalf@winds.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
-	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Chaoyi
-	Chen <chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>,
-	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <cdb63b93c4a8857ac61b17902369086e9a278dd3.camel@iscas.ac.cn>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260925200913eucas1p198ff3fecf4c9d327b4b2d573f4509285
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
-References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com>
-	<20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<b8b046ee-c574-3e16-6079-2fc415633dae@winds.org>
-	<cdb63b93c4a8857ac61b17902369086e9a278dd3.camel@iscas.ac.cn>
+Subject: Re: [PATCH v7 1/4] Input: stmfts - wait for controller ready after
+ reset
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260907-stmfts5-v7-0-4a53381cd038@ixit.cz>
+ <20260907-stmfts5-v7-1-4a53381cd038@ixit.cz> <arbJrK9zfoO1dGzy@google.com>
+Content-Language: en-US, cs-CZ
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ xsFNBF5v1x4BEADS3EddwsNsvVAI1XF8uQKbdYPY/GhjaSLziwVnbwv5BGwqB1tfXoHnccoA
+ 9kTgKAbiXG/CiZFhD6l4WCIskQDKzyQN3JhCUIxh16Xyw0lECI7iqoW9LmMoN1dNKcUmCO9g
+ lZxQaOl+1bY/7ttd7DapLh9rmBXJ2lKiMEaIpUwb/Nw0d7Enp4Jy2TpkhPywIpUn8CoJCv3/
+ 61qbvI9y5utB/UhfMAUXsaAgwEJyGPAqHlC0YZjaTwOu+YQUE3AFzhCbksq95CwDz4U4gdls
+ dmv9tkATfu2OmzERZQ6vJTehK0Pu4l5KmCAzYg42I9Dy4E6b17x6NncKbcByQFOXMtG0qVUk
+ F1yeeOQUHwu+8t3ZDMBUhCkRL/juuoqLmyDWKMc0hKNNeZ9BNXgB8fXkRLWEUfgDXsFyEkKp
+ NxUy5bDRlivf6XfExnikk5kj9l2gGlNQwqROti/46bfbmlmc/a2GM4k8ZyalHNEAdwtXYSpP
+ 8JJmlbQ7hNTLkc3HQLRsIocN5th/ur7pPMz1Beyp0gbE9GcOceqmdZQB80vJ01XDyCAihf6l
+ AMnzwpXZsjqIqH9r7T7tM6tVEVbPSwPt4eZYXSoJijEBC/43TBbmxDX+5+3txRaSCRQrG9dY
+ k3mMGM3xJLCps2KnaqMcgUnvb1KdTgEFUZQaItw7HyRd6RppewARAQABzSBEYXZpZCBIZWlk
+ ZWxiZXJnIDxkYXZpZEBpeGl0LmN6PsLBlAQTAQgAPgIbAwULCQgHAgYVCgkICwIEFgIDAQIe
+ AQIXgBYhBNd6Cc/u3Cu9U6cEdGACP8TTSSByBQJl+KksBQkPDaAOAAoJEGACP8TTSSBy6IAQ
+ AMqFqVi9LLxCEcUWBn82ssQGiVSDniKpFE/tp7lMXflwhjD5xoftoWOmMYkiWE86t5x5Fsp7
+ afALx7SEDz599F1K1bLnaga+budu55JEAYGudD2WwpLJ0kPzRhqBwGFIx8k6F+goZJzxPDsf
+ loAtXQE62UvEKa4KRRcZmF0GGoRsgA7vE7OnV8LMeocdD3eb2CuXLzauHAfdvqF50IfPH/sE
+ jbzROiAZU+WgrwU946aOzrN8jVU+Cy8XAccGAZxsmPBfhTY5f2VN1IqvfaRdkKKlmWVJWGw+
+ ycFpAEJKFRdfcc5PSjUJcALn5C+hxzL2hBpIZJdfdfStn+DWHXNgBeRDiZj1x6vvyaC43RAb
+ VXvRzOQfG4EaMVMIOvBjBA/FtIpb1gtXA42ewhvPnd5RVCqD9YYUxsVpJ9d+XsAy7uib3BsV
+ W2idAEsPtoqhVhq8bCUs/G4sC2DdyGZK8MRFDJqciJSUbqA+5z1ZCuE8UOPDpZKiW6H/OuOM
+ zDcjh0lOzr4p+/1TSg1PbUh7fQ+nbMuiT044sC1lLtJK0+Zyn0GwhR82oNM4fldNsaHRW42w
+ QGD35+eNo5Pvb3We5XRMlBdhFnj7Siggp4J8/PJ6MJvRyC+RIJPGtbdMB2/RxWunFLn87e5w
+ UgwR9jPMHAstuTR1yR23c4SIYoQ2fzkrRzuazsFNBF5v1x4BEADnlrbta2WL87BlEOotZUh0
+ zXANMrNV15WxexsirLetfqbs0AGCaTRNj+uWlTUDJRXOVIwzmF76Us3I2796+Od2ocNpLheZ
+ 7EIkq8budtLVd1c06qJ+GMraz51zfgSIazVInNMPk9T6fz0lembji5yEcNPNNBA4sHiFmXfo
+ IhepHFOBApjS0CiOPqowYxSTPe/DLcJ/LDwWpTi37doKPhBwlHev1BwVCbrLEIFjY0MLM0aT
+ jiBBlyLJaTqvE48gblonu2SGaNmGtkC3VoQUQFcVYDXtlL9CVbNo7BAt5gwPcNqEqkUL60Jh
+ FtvVSKyQh6gn7HHsyMtgltjZ3NKjv8S3yQd7zxvCn79tCKwoeNevsvoMq/bzlKxc9QiKaRPO
+ aDj3FtW7R/3XoKJBY8Hckyug6uc2qYWRpnuXc0as6S0wfek6gauExUttBKrtSbPPHiuTeNHt
+ NsT4+dyvaJtQKPBTbPHkXpTO8e1+YAg7kPj3aKFToE/dakIh8iqUHLNxywDAamRVn8Ha67WO
+ AEAA3iklJ49QQk2ZyS1RJ2Ul28ePFDZ3QSr9LoJiOBZv9XkbhXS164iRB7rBZk6ZRVgCz3V6
+ hhhjkipYvpJ/fpjXNsVL8jvel1mYNf0a46T4QQDQx4KQj0zXJbC2fFikAtu1AULktF4iEXEI
+ rSjFoqhd4euZ+QARAQABwsF8BBgBCAAmAhsMFiEE13oJz+7cK71TpwR0YAI/xNNJIHIFAmX4
+ qVAFCQ8NoDIACgkQYAI/xNNJIHKN4A/+Ine2Ii7JiuGITjJkcV6pgKlfwYdEs4eFD1pTRb/K
+ 5dprUz3QSLP41u9OJQ23HnESMvn31UENk9ffebNoW7WxZ/8cTQY0JY/cgTTrlNXtyAlGbR3/
+ 3Q/VBJptf04Er7I6TaKAmqWzdVeKTw33LljpkHp02vrbOdylb4JQG/SginLV9purGAFptYRO
+ 8JNa2J4FAQtQTrfOUjulOWMxy7XRkqK3QqLcPW79/CFn7q1yxamPkpoXUJq9/fVjlhk7P+da
+ NYQpe4WQQnktBY29SkFnvfIAwqIVU8ix5Oz8rghuCcAdR7lEJ7hCX9bR0EE05FOXdZy5FWL9
+ GHvFa/Opkq3DPmFl/0nt4HJqq1Nwrr+WR6d0414oo1n2hPEllge/6iD3ZYwptTvOFKEw/v0A
+ yqOoYSiKX9F7Ko7QO+VnYeVDsDDevKic2T/4GDpcSVd9ipiKxCQvUAzKUH7RUpqDTa+rYurm
+ zRKcgRumz2Tc1ouHj6qINlzEe3a5ldctIn/dvR1l2Ko7GBTG+VGp9U5NOAEkGpxHG9yg6eeY
+ fFYnMme51H/HKiyUlFiE3yd5LSmv8Dhbf+vsI4x6BOOOq4Iyop/Exavj1owGxW0hpdUGcCl1
+ ovlwVPO/6l/XLAmSGwdnGqok5eGZQzSst0tj9RC9O0dXO1TZocOsf0tJ8dR2egX4kxM=
+In-Reply-To: <arbJrK9zfoO1dGzy@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_130922_784716_B3BB1968 
-X-CRM114-Status: GOOD (  30.72  )
+X-CRM114-CacheID: sfid-20260925_132100_112991_C442AE0B 
+X-CRM114-Status: GOOD (  26.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,194 +129,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bryan and Icenowy,
-
-On 9/20/26 09:35, Icenowy Zheng wrote:
-> 在 2026-09-20日的 02:09 -0400，Byron Stanoszek写道：
->> On Tue, 15 Sep 2026, Michal Wilczynski wrote:
->>
->>> This series enables the display subsystem on the StarFive JH7110.
->>
->> Hi Michal,
->>
->> I tested your v4 patch series on my VisionFive2 1.3B with kernel 7.3-
->> rc3 today
->> and it works very well, except for 2 issues. Note, to make the screen
->> refresh
->> properly, I am using the noncoherent cache fixes from
->> https://protect2.fireeye.com/v1/url?k=3d78ed45-62e3d45a-3d79660a-000babdfecba-dbc6e750c3338bb9&q=1&e=d9589fcd-304c-4065-91c9-c5043969df15&u=https%3A%2F%2Fgithub.com%2Fganboing-jh7110%2Flinux%2Fcommits%2Fganboing-jh7110-cache-fix-v1%2F
->> (specifically commits 3683d97, ef93e2c, 277db0b, and 26ce3e6) in
->> addition to
->> your patch.
->>
->> Issue 1: I have a Dell U2711 monitor which has limited HDMI 1.3
->> capability, so
->> I invented my own Xorg mode to get a good frame rate:
->>
->> "2560x1440_40.22"  162.00  2560 2608 2640 2720  1440 1443 1448 1481
->> +hsync -vsync
->>
->> With this mode and your new driver, I started getting rows of black
->> pixels
->> flickering in the upper-left corner of my LCD screen. These weren't
->> there back
->> when I was running the same mode under the Keith Zhao driver from
->> StarFive
->> (drm/verisilicon v5 plus a bunch of patches for dma cache coherency)
->> (
->> https://patchwork.kernel.org/project/dri-devel/cover/20241120061848.196754-1-keith.zhao@starfivetech.com
->> /).
->>
->> The glitches I saw suggested the sync polarity was being set
->> incorrectly; the
->> number of glitched rows was exactly the vsync pulse width plus 1
->> (i.e.
->> "1440 1443 1448 1481" produced 6 bad rows, "1440 1443 1456 1481"
->> produced 14,
->> "1440 1441 1442 1481" produced 2, and so forth).
->>
->> I did a register dump between the two drivers and found that,
->> although the
->> DC8200 HSYNC and VSYNC registers were identical between the two
->> versions, the
->> hsync and vsync bits on the inno hdmi tx were swapped between the
->> two. When I
->> manually set the VIDEO_TIMING_CTL register from 0x09 to 0x05
->> (matching the
->> output of Keith's driver), the glitches went away.
->>
->> Keith Zhao driver:
->>
->> === DC8200 display 0 ===
->> DC   PANEL_CONFIG               0x1418 = 0x00001111
->> DC   HSIZE                      0x1430 = 0x0AA00A00
->> DC   HSYNC                      0x1438 = 0x45280A30
->> DC   VSIZE                      0x1440 = 0x05C905A0
->> DC   VSYNC                      0x1448 = 0xC2D405A3
->> DC   DPI_CONFIG                 0x14B8 = 0x00000005
->> DC   FB_CONFIG                  0x1518 = 0x14000000
->> DC   FB_ADDRESS                 0x1400 = 0x71200000
->> DC   FB_STRIDE                  0x1408 = 0x00002800
->> DC   FB_SIZE                    0x1810 = 0x02D00A00
->> DC   FB_CONFIG_EX               0x1CC0 = 0x00002000
->> DC   PANEL_START                0x1CCC = 0x00000001
->> DC   DP_CONFIG                  0x1CD0 = 0x0000000A
->> DC   FB_WATER_MARK              0x1CE8 = 0x00000000
->> DC   PANEL_CONFIG_EX            0x2518 = 0x00000000
->>
->> === INNO HDMI TX video timing ===
->> HDMI VIDEO_TIMING_CTL           0x08   = 0x05
->> HDMI EXT_HTOTAL_L               0x09   = 0xA0
->> HDMI EXT_HTOTAL_H               0x0A   = 0x0A
->> HDMI EXT_HBLANK_L               0x0B   = 0xA0
->> HDMI EXT_HBLANK_H               0x0C   = 0x00
->> HDMI EXT_HDELAY_L               0x0D   = 0x70
->> HDMI EXT_HDELAY_H               0x0E   = 0x00
->> HDMI EXT_HDURATION_L            0x0F   = 0x20
->> HDMI EXT_HDURATION_H            0x10   = 0x00
->> HDMI EXT_VTOTAL_L               0x11   = 0xC9
->> HDMI EXT_VTOTAL_H               0x12   = 0x05
->> HDMI EXT_VBLANK                 0x13   = 0x29
->> HDMI EXT_VDELAY                 0x14   = 0x26
->> HDMI EXT_VDURATION              0x15   = 0x05
->>
->> Your driver (showing only the changed values):
->>
->> DC   DP_CONFIG                  0x1CD0 = 0x00000000
->> DC   PANEL_CONFIG_EX            0x2518 = 0x00000001
->> HDMI VIDEO_TIMING_CTL           0x08   = 0x09
->>
->> Specifically the bit#s are different between the two drivers:
->>
->> inno_hdmi-starfive.h (Keith Zhao):     inno-hdmi.c (generic):
->>    v_HSYNC_POLARITY_SF(n)  ((n) << 2)     v_HSYNC_POLARITY  bit 3
->>    v_VSYNC_POLARITY_SF(n)  ((n) << 3)     v_VSYNC_POLARITY  bit 2
->>
->> "_SF" suggests this change is specific to StarFive. The correct
->> positions are
->> HSYNC=bit 2 and VSYNC=bit 3 for the JH7110.
+On 25/09/2026 21:27, Dmitry Torokhov wrote:
+> Hi David,
 > 
-> In fact it's not SF specific, [1] pg.13 (full manual page 979) also
-> shows the same for RK.
+> On Mon, Sep 07, 2026 at 12:50:19PM +0200, David Heidelberg via B4 Relay wrote:
+>>   
+>> -static void stmfts_reset(struct stmfts_data *sdata)
+>> +static int stmfts_reset(struct stmfts_data *sdata)
+>>   {
+>>   	gpiod_set_value_cansleep(sdata->reset_gpio, 1);
+>>   	msleep(20);
+>>   
+>> +	reinit_completion(&sdata->cmd_done);
+>>   	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
+>> -	msleep(50);
+>> +	enable_irq(sdata->client->irq);
+>> +
+>> +	if (!wait_for_completion_timeout(&sdata->cmd_done,
+>> +					 msecs_to_jiffies(STMFTS_RESET_TIMEOUT_MS)))
+>> +		return -ETIMEDOUT;
+>> +
+>> +	return 0;
+>>   }
+>>   
+>>   static int stmfts_configure(struct stmfts_data *sdata)
+>>   {
+>>   	int err;
+>>   
+>>   	err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
+>>   	if (err)
+>> @@ -593,42 +602,47 @@ static int stmfts_power_on(struct stmfts_data *sdata)
+>>   		return err;
+>>   
+>>   	/*
+>>   	 * The datasheet does not specify the power on time, but considering
+>>   	 * that the reset time is < 10ms, I sleep 20ms to be sure
+>>   	 */
+>>   	msleep(20);
+>>   
+>> -	if (sdata->reset_gpio)
+>> -		stmfts_reset(sdata);
+>> +	if (sdata->reset_gpio) {
+>> +		err = stmfts_reset(sdata);
+>> +		if (err) {
+>> +			dev_err(&sdata->client->dev,
+>> +				"controller not ready after reset: %d\n", err);
+>> +			goto err_disable_irq;
+>> +		}
+>> +	} else {
+>> +		enable_irq(sdata->client->irq);
+>> +		msleep(50);
+>> +	}
+>>   
+>>   	err = stmfts_read_system_info(sdata);
+>>   	if (err)
+>> -		goto err_disable_regulators;
+>> -
+>> -	enable_irq(sdata->client->irq);
+>> -
+>> -	msleep(50);
+>> +		goto err_disable_irq;
 > 
-> It could be an error from Rockchip developers since the beginning.
+> 
+> I think the logic is becoming quite convoluted here, and factored out
+> stmfts_reset() does not help. How about we make it look like this:
+> 
+> static int stmfts_power_on(struct stmfts_data *sdata)
+> {
+> 	int err;
+> 
+> 	if (sdata->reset_gpio) {
+> 		gpiod_set_value_cansleep(sdata->reset_gpio, 1);
+> 		/* a short delay before powering up */
+> 		usleep_range(1000, 1500);
+> 	}
+> 
+> 	err = regulator_bulk_enable(ARRAY_SIZE(stmfts_supplies),
+> 				    sdata->supplies);
+> 	if (err)
+> 		return err;
+> 
+> 	if (sdata->reset_gpio) {
+> 		reinit_completion(&sdata->cmd_done);
+> 
+> 		/*
+> 		 * The datasheet does not specify the power on time, but
+> 		 * considering that the reset time is < 10ms, sleep for 20ms
+> 		 * to be sure before releasing reset line.
+> 		 */
+> 		msleep(20);
+> 		gpiod_set_value_cansleep(sdata->reset_gpio, 0);
+> 
+> 		enable_irq(sdata->client->irq);
+> 
+> 		if (!wait_for_completion_timeout(&sdata->cmd_done,
+> 						 msecs_to_jiffies(STMFTS_RESET_TIMEOUT_MS))) {
+> 			dev_err(&sdata->client->dev, "controller not ready after reset");
+> 			err = -ETIMEDOUT;
+> 			goto err_disable_irq;
+> 		}
+> 	} else {
+> 		/*
+> 		 * We do not know the real controller state (was it powered
+> 		 * off or reset). Let's hope that this is enough time to
+> 		 * initialize.
+> 		 */
+> 		msleep(70);
+> 
+> 		enable_irq(sdata->client->irq);
+> 	}
+> 
+> 	err = sdata->ops->configure(sdata);
+> 	if (err)
+> 		goto err_disable_irq;
+> 
+> 	/*
+> 	 * At this point no one is using the touchscreen
+> 	 * and I don't really care about the return value
+> 	 */
+> 	(void)i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
+> 
+> 	return 0;
+> 
+> err_disable_irq:
+> 	disable_irq(sdata->client->irq);
+> 
+> 	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies), sdata->supplies);
+> 	return err;
+> }
 
-Yeah I agree; Maud Spierings reported similar issue and Dominuque
-Belhachemi also figured that v_HSYNC_POLARITY and v_VSYNC_POLARITY are
-simply swapped in
-inno-hdmi.c.
+Thanks, it seems to be better (thou would be nicer if we didn't have two 
+branches, but... what we can do).
 
-As Icenowy stated Rockhip TRM also confirms this. I intend to send a fix
-as part of this series (as suggested by Maud).
+I added you as Co-developed-by :)
+
+David
 
 > 
-> [1]
-> https://protect2.fireeye.com/v1/url?k=ba283351-e5b30a4e-ba29b81e-000babdfecba-1b86e6ec0e74b45d&q=1&e=d9589fcd-304c-4065-91c9-c5043969df15&u=https%3A%2F%2Fgithub.com%2FDeciHD%2Frockchip_docs%2Fblob%2Fmain%2Frk3128%2FTRM-chapter-24-hdmi-tx.pdf
 > 
-> Thanks,
-> Icenowy
+> Thanks.
 > 
->>
->> I'm guessing that your 42-mode test passed because most CEA modes are
->> +hsync
->> +vsync, and this wouldn't show any difference if the two bits were
->> transposed.
->>
->> Once the sync polarity is sorted, I'd be happy to give a Tested-by:
->> on the
->> series.
->>
->>   --
->>
->> Issue 2: This is more a feature request than an issue. Originally, I
->> tried
->> running this Xorg modeline, which worked well under Keith's driver:
->>
->> "2560x1440_49.90"  201.00  2560 2608 2640 2720  1440 1443 1448 1481
->> +hsync -vsync
->>
->> However, your driver would not accept this pixel clock. I then
->> noticed you have
->> a pre-PLL table of fixed clocks. Is there any chance you can change
->> the code to
->> compute the pre-PLL on the fly like how Keith does it, rather than
->> use a table?
 
-I can add the entry, hopefully you can let me know in the v5 whether it
-works for you.
-
-inno_hdmi_phy_pre_pll_determine_rate() returns -EINVAL for any rate not
-in the table, and .mode_valid is built entirely on that:
-
-rounded = clk_round_rate(ctrl->clks[CLK_PCLK].clk, pixelclk);
-if (rounded != pixelclk)
-      return MODE_NOCLOCK;
-
-If the PHY computes dividers on demand, clk_round_rate() starts
-succeeding for almost every rate .mode_valid stops rejecting anything
-and we're back to advertising modes the PHY can't drive  the
-blank screen bug patch 11 exists to fix.
-
-To keep the rejection you'd have to replace the table with a real
-constraint model.
-
-The fracdiv values doesn't seem to be cleanly derivable and the Rockchip
-has the datasheet and still chose a table. 
-
-
->>
->> Thanks for all your great work!
->>
->> Best regards,
->>   -Byron
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> https://protect2.fireeye.com/v1/url?k=46fbedc2-1960d4dd-46fa668d-000babdfecba-e6e7fb64f005c1b3&q=1&e=d9589fcd-304c-4065-91c9-c5043969df15&u=http%3A%2F%2Flists.infradead.org%2Fmailman%2Flistinfo%2Flinux-riscv
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
 
