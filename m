@@ -4,138 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE15C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 22:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E596C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 22:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WDiJhqeP/3eK61Zue18ejXmcZlLg6KE7iWJtrDX6Be8=; b=onz9owGW/w5IUaDs4F2dL+yPUD
-	YPEzltiKFfJp1IY/cUfbvsafoH4iOVQT3QCZttXINSLPiiubHji7g8pXARWCOVzz7W4QKg+UM53Zh
-	/krk1mj/TKe+A+Z8b6/N5mdTq/A2o3CrRnVDSLdINbqwCjAMmth+2xHTM+Du7AgNO3xVcAPBkthzP
-	FF9kOXF8sIeksFdbJiTLi+DVNBUpMtT49zhP+gJopxHo3L2U4eNOScLZ4cNFMtrdtH3Qd+cNmMoU8
-	1EkpMvnfb6Jk9Avb+F1obyYZAPOAn/RuVJyvus/h0qDTBadn7y2P1oZWU+FPS3baPB8WkT/2t3RUA
-	aLOTlG2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IIIFzm9oaZxzicx6BWbKuI2rRJrGZyE6LJDMIb/C2kQ=; b=Q63tRf15gXkdxbg9VBSkPK6e4Y
+	RG9w1LSHEtMOZDFnOgEM7pcvcYwvxNsP8RS+f4DllAiS1/k1q+gnw/Rdnr1KakmJN99yfbTF0mi4m
+	DF+L9kX89LBhs2Rc8QETBf7LjmZmCfe8Qc8o0CZ1XxK7Sz9I8skMj8m4VPLgTV7X/xz9VhLvEmWbw
+	jiSabm7uPUXtS1RQi84r1IgtyvuPqtRc37J92ssKjr6vhMTVCIUV/Gx2CvQTHoKHO6pYmvcLo1iiz
+	FXLgVgDU/wevEYzpV5OcqJtgU8vmprvjx1oYPy2RockZtYae03L5icl6l+zSG5SFWk4Ir/QWq67N4
+	YmvP2ORA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAEig-0000000Eb4M-333O;
-	Fri, 25 Sep 2026 22:48:42 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAEie-0000000Eb3N-2Bb9
+	id 1xAEpt-0000000Ebcd-32Ta;
+	Fri, 25 Sep 2026 22:56:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1xAEpr-0000000Ebc1-0qCH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 22:48:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V36iN/97eVLzChOE0M3l+zOSLZsDROYEWKwawOb3jUlmRr2xQYt+UKCjP6vMJ29OiIBwuFDqLPRWjAoaWhccAMsciIfPs+D5rwcQiyl2l3YbQEP9+t+2NBwca2/Dq2VhMl+UONHJGGdQZcL/RCUyjSr0GRCkzLVcy7HQRf4MiUuIKC8qQB6Sa9DFP0NuiKnamjHTRDmyDhkRB/9xNQ2JDo5mZH5d5uc7VQgOr+O56LztAXPR41VcEThC1ING7fwlKMdCavkAYZbUew0C/OaWCpykWC+3rsI/uY8WhoEu9aVj8qy49y7cdq6KVfFKeoirXT157ax676ZVdsUCJ6THOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WDiJhqeP/3eK61Zue18ejXmcZlLg6KE7iWJtrDX6Be8=;
- b=hxdP5xwaI1LrPutyyFMH5ceh0USvDjPVTCuSwHsWT3dZTJWusmqBEnDtxgvLSnc3XB+4Wn9WqnliuFLkpxPQ7EGI099iIxwkyLjs3/5Zkm9x5iWHRRPKJfvTl+kD9pgDai6LE+RRgUJhM6l64ocdB9I3CV9Qierjpbh2Ol8MpNFbdS4uXkb6Zn7sHCpSG2XqKm+7fDhRdACmtAAAexoNJ6f9JP41FBzrkdQsnZiBR5uDMCjnONxmVVytqq2R1Gc57G9bCYDuyhu22jBqUAO6CDKIUT2vbTWK2ipcfjAeK+MC5q1lT5sRXr26L3lxs5Sjh+0aWdu6gCrdhdezvUdn3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WDiJhqeP/3eK61Zue18ejXmcZlLg6KE7iWJtrDX6Be8=;
- b=r5huvLzm/S2umvj7nQz4/9RKWuyta/VlALYstIRNxf8nO/r1Wl1dr37va1h1FlgIWoC8jQ1FPu41KZQPZlbly03Wt1BZOSIdYcuMr5KUObiIaMk1G6yXm6TjvAm5Pz8ZF994EvA3mABGw9jjjT4zw/xr7pRQ9dwTaZ6mLFiAQgeeR1dobI84ozWBllG413gXfOAt1Unz6j1X1lyBYW6uRUqZzQ4x2xa8hQNfzyYPBEl0eNM9gKQz286YAxn6nuXOynpq0YjlsmLMafoIyk7FaMq8XXbmPJ4UUDiN/lUjkXyWO/Kk7Us2bYlrfa/KjTgSfF3RbMf9cjRiPYzSNzuybQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by CH3PR12MB8546.namprd12.prod.outlook.com
- (2603:10b6:610:15f::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 22:48:31 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
- 22:48:31 +0000
-Date: Fri, 25 Sep 2026 19:48:29 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Breno Leitao <leitao@debian.org>,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Ashish Mhetre <amhetre@nvidia.com>,
-	Shameer Kolothum <skolothumtho@nvidia.com>,
-	Yuanhe Shu <xiangzao@linux.alibaba.com>,
-	Kyle McMartin <jkkm@meta.com>, Usama Arif <usama.arif@linux.dev>,
-	kernel-team@meta.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/2] iommu/arm-smmu-v3: Make the queue depths tunable,
- and shrink them in a kdump kernel
-Message-ID: <20260925224829.GO9354@nvidia.com>
-References: <20260925141532.1274962-1-kirill@shutemov.name>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260925141532.1274962-1-kirill@shutemov.name>
-X-ClientProxiedBy: SN7PR04CA0235.namprd04.prod.outlook.com
- (2603:10b6:806:127::30) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	Fri, 25 Sep 2026 22:56:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 872B9169C;
+	Fri, 25 Sep 2026 15:56:00 -0700 (PDT)
+Received: from ryzen.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 52C2F3F632;
+	Fri, 25 Sep 2026 15:56:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790376964; bh=sCbdqOYDE+J/MhWw6Yok3HLazdmH5YreU68DshgauHU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jEMlTWxxoJMnI1UhQcnj5XtED9OG6mSOLSkwQq4h4DUEzuv3tdb0Wtm7jarX6GQhx
+	 J2T7clL381kZy90zEmj/BcPDNVCex6Rd/4n+SNPsCrDAZqA83H9DQ4P530KdJTUtZh
+	 /ZPC6Q5iziHQ8OXEux7tbwx+MXVizGtoMENRvLys=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH v3 0/4] arm64: allwinner: a523: Enable CPU clocks
+Date: Sat, 26 Sep 2026 00:51:08 +0200
+Message-ID: <20260925225112.14081-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.4
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH3PR12MB8546:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab966ada-d3b5-4505-2612-08df1b571f2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|10067099003|56012099006|6133799003|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: KWNmDDlXxKexecToWvC5BZUb3Xr3PO7v1qKODunslHJatYqLzHdplui3OvSOmJUQjKlT6lqaoksdGH/eLXjFNlnsKg04VJHx8VtQt45fGQedQzvv99r5muEZ60Ek3RiJez2/WVzKH5emXykfFw66CXgoR8pn7qL4tRz1oKDMGi3sFzCLDtQz/wCOb2x0MdxR8aA/ti61UGSTganYC1Y1Rsj1CnixDwDLWxdmm/5IcdWEpSLdFMZkGQwIvagDV9LlTUEA/tHor/Yqc5jPvBxel35/U94A869J6Z3rdOsXJXKHyzaysYeDfj3k7sJCmvkqpSq4dwJmcqTYg0rAcc+w4rS/NMKevusYoCE10U3IUmeTHVF6dVHLU2Rd6ImrXFZ2n3ZZbJRzW52a766I9L3SrutGwBUhDWwbsg9XZKp0Pz+hpv7lhbUvcPeodkeXxzPyEyc9nEZ7YaLZJ9Qad5HhCz1tBH7JsMkVNI++wlEJHFyqYaPY1EMD4dKKoi3UCl/YMsjajUscg6YXVOKrKg20cXuXDS5VENG5bKoEf/oQLGrqcHxGQCzV/CJQcnugGs9lr3o9jQxgWT74hEaWt+VpbRSdVOZv899XB87iqeYRVOvNgSAffPeVNRUnGVhxXRGvOmbNsbWwvqwQYo99dv4mykOhc3T15JZ5JvNrl65aesY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(10067099003)(56012099006)(6133799003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oaJ6XXKnH5MxHQpLbQhF0uQ4n94+NAwMc/6N+qBjVoBIVzQ5+iK5Mlop0N5R?=
- =?us-ascii?Q?luHrYLqjwT9Pn6ezwwZoe/8EtztbvzjAnA6QUnbl8qQtQ80chLAlmq03z+6p?=
- =?us-ascii?Q?K14miclQkr9tZYdpJd7bz41JFGwaIMR1Qha4WlG2fyOgaW6lbH/vOpr4m4hC?=
- =?us-ascii?Q?ExcgRa7HMOA3qPwEywPujH8l2fc3ABiNNCCDzlxwvg3YmUhHW3KvwmxQOD7y?=
- =?us-ascii?Q?w/PB4n5UVWJv34V+mR5neCcYf0JO6ofNb4ep5pH/HKfnNK9VLwDlU2N2YODk?=
- =?us-ascii?Q?wzWD8pZBZNNqNQQTPwbvIJHmXCOVmJViLVZlf9B+ketlHzhRGFPo6zjUsi7C?=
- =?us-ascii?Q?TzV2IIg/AU20MbXZBshvonR3Y53iMyOvG9CgPfaaivNRN6kjzSnRT0WJGWFi?=
- =?us-ascii?Q?zhj9APXFGgY+fY5RcEMeiddlCIpbW1lPtdID65Z0FVNvk2z1dTuSDYTamzpU?=
- =?us-ascii?Q?gka7HFaW1WtupMi9ALo9Dpws+mXEXD3fV5gVfHxW+/usCj027ABpu9+uaC7L?=
- =?us-ascii?Q?LZ0qog2aCautdbbxz+jKfEC49GiqYqy72PkkLJtOFjFNA/thX4l1yv+6UX/h?=
- =?us-ascii?Q?Vkv/oJifEAEkHBtjONJoO+apZgbjJKb1jQRMwk6yONYt0HEZjhnmPpoxOH+I?=
- =?us-ascii?Q?vOihEnrUxk9yaNLW7aiwu7v+CvWcJF/iqsy7x3qChF+dnpHSPf/pErTx3T+s?=
- =?us-ascii?Q?uVYvdYSxTQPe5tCyg11Cq3mJhSS49Sqq6TjppPC1xoKtm4CUwtxczl3oEAK7?=
- =?us-ascii?Q?ZXacEvK554gInExwJvjVrViz2qgf9F2Mj4c9sfvgezrZ5CmQxBaR7R4usCA3?=
- =?us-ascii?Q?w4Tx9pLd7IKcVzEtVD/q6Fb9XunFv5Gk1BqIh2OuxgKDcGPMcVxGSqaHn1Tu?=
- =?us-ascii?Q?13cnkP1oW70buNLImos3S+dVfDSZr46iLcx6hoZLvPMCDq0KnqdlY62BLMYf?=
- =?us-ascii?Q?h7wH9COZdJSeys17ZfobS1xnHy3pqd/5qImhd+AxaE8JXR6zamkjtxhxCRFh?=
- =?us-ascii?Q?nY9AJWodn8REFJJx/37c2H0sLgvbfdDz/j3lzNUQWaqBH6c03nSyLlJg7bWo?=
- =?us-ascii?Q?xWYcGgDP3bEEDmarDlFBYqmVKNskQ7aiFEvpiON7yJw/OQDrafEakdaENZni?=
- =?us-ascii?Q?VD4fKuJqKV1Yz9KkiPC/wyGpV5U2Jwhn0xoA3KXy8yjjqfBxzPicr8Xrk8OA?=
- =?us-ascii?Q?iTsgMlHQlaucEzQwLuLPe+JEyJMytaQKiDz2jA791Udv8RsYVg+LQQwUEeMT?=
- =?us-ascii?Q?BVET2PqvYhA3gcdo/mM2OOH/sODUpWRcZpRt/nIW5q5RUVueL60nV38tpzNX?=
- =?us-ascii?Q?RcOP4Sb4CsuGQuN5a1psZuVCEazm4QLFc57oGO/7/GAV6y5G7kOHbjHhG2kC?=
- =?us-ascii?Q?bbGD2zzCWaUcf0wir9La2tIUivcx1jSL4EAXloEUjttqE0FPRlgBUe59w2vR?=
- =?us-ascii?Q?NeQjCY4vixfJg4FoWkUBLIFXM7bX4eZ2wHEKhDgTv18WVkT87/jIPnSEs6BV?=
- =?us-ascii?Q?WTzPaQ6oXl7mLVLqJ4GWpMrh+KlA0CztPfvyTQ3JtJlE0qwk3cc7XUOvrFiS?=
- =?us-ascii?Q?NlUk7sL8P1SN0acM93jpqhLejcxsNFRo6ZbdjESl/sNCki0jDnSrQUZjHC5g?=
- =?us-ascii?Q?gCKmMvDvb0jixuXPErMD2tQsyhHBhl+jUc5NP//h26AU/g/FAVbmTbL6PHdr?=
- =?us-ascii?Q?IIpqml4dJOlXUDsBARm+VGKiVUqJo5sfSewKOS3sHHEDOmbj?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab966ada-d3b5-4505-2612-08df1b571f2c
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 22:48:31.0040
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6J6wQOPVfE8MXaTZRpZmg1MKMjNZxIW4PcnD6dA7YvPZOOD4SiHmOYOgVwIqdJdE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8546
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_154840_576185_A733A297 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260925_155607_423763_661F958E 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,20 +76,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 03:15:28PM +0100, Kiryl Shutsemau wrote:
-> From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-> 
-> The queues are sized from the IDR1 maxima and allocated at probe, costing
-> megabytes per queue per SMMU instance. A kdump capture kernel pays that out
-> of a small crashkernel reservation, for queues it barely uses and two of
-> which it switches off anyway.
-> 
-> Patch 1 adds a cmdq_max_n_shift module parameter, decided in a per-queue
-> helper and floored at one page. Patch 2 has a kdump kernel size all three
-> queues at one page through the same helper. The parameter does not apply
-> there.
+Hi,
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+an update for the A523 CPU clock series, aiming at eventually lifting
+all A523 boards out of their current 768MHz misery ;-)
+This addresses the comments on the list and from Sashiko, though I took
+the freedom to ignore impossible scenarios (we cannot really remove this
+clock module), and pathological corner cases (race condition between
+registering the CCU and registering the clock notifiers).
+Changes to mention are the usage of a new clock macro based on a divider
+clock for the PLL dividers, and the rework of the PLL start routine. 
+For a more complete changelog see below. Based on v7.3-rc1.
 
-Jason
+==============================
+This series adds support for the CPU clock controller in the Allwinner
+A523/A527/T527 family of SoCs.
+
+In contrast to all earlier Allwinner SoCs, this chip features a separate
+CCU for the CPU clocks (one for each of the two clusters) and the DSU
+clock.
+
+Patch 1 adds some slight enhancement to the sunxi-ng clock driver
+framework, to generalise the update bit.
+Patch 2 adds the binding document for the new CCU.
+Patch 3 adds the actual clock driver, and patch 4 makes use of that by
+adding the clock description to the SoC .dtsi.
+
+Please have a look and test!
+
+Cheers,
+Andre
+
+Changes in v3:
+- forbid #reset-cells in DT binding
+- adjust top level comment to include DSU divider bits
+- drop patch 2 in favour of using a div clock and a new macro
+- describe PLL divider clocks using new divider clock macro
+- rename 600MHz input clock name to match binding (lower case "m")
+- add MUX notifier for DSU clock as well
+- add new function to start CPU PLLs in a safer way
+- add MODULE_DEVICE_TABLE
+- drop unneeded (and now forbidden) #reset-cells from .dtsi
+- only build driver for CONFIG_ARCH_SUNXI
+
+Changes in v2:
+- rebase on v7.3-rc1
+- cover CCU_FEATURE_KEY_FIELD in update bits generalisation
+- explicitly include binding header in clock driver
+- order clocks property before enable-method in DT nodes
+
+
+Andre Przywara (4):
+  clk: sunxi-ng: generalise update bit
+  dt-bindings: clock: sun55i-a523-ccu: Add A523 CPU CCU clock controller
+  clk: sunxi-ng: add support for the A523/T527 CPU CCU
+  arm64: dts: allwinner: a523: add CPU clocks
+
+ .../clock/allwinner,sun55i-a523-ccu.yaml      |  38 +-
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  21 +
+ drivers/clk/sunxi-ng/Kconfig                  |   5 +
+ drivers/clk/sunxi-ng/Makefile                 |   2 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.c    | 378 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.h    |  24 ++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  12 +-
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c          |   4 +-
+ drivers/clk/sunxi-ng/ccu_common.h             |   8 +-
+ drivers/clk/sunxi-ng/ccu_div.c                |   3 +-
+ drivers/clk/sunxi-ng/ccu_div.h                |   5 +
+ drivers/clk/sunxi-ng/ccu_gate.c               |   6 +-
+ drivers/clk/sunxi-ng/ccu_mp.h                 |   8 +-
+ drivers/clk/sunxi-ng/ccu_mux.c                |   8 +-
+ drivers/clk/sunxi-ng/ccu_nm.c                 |   1 +
+ .../dt-bindings/clock/sun55i-a523-cpu-ccu.h   |  13 +
+ 16 files changed, 506 insertions(+), 30 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-cpu.h
+ create mode 100644 include/dt-bindings/clock/sun55i-a523-cpu-ccu.h
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+-- 
+2.46.4
+
 
