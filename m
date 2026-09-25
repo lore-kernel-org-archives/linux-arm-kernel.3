@@ -4,152 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC8DC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E0CC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 20:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H7EjYyotsXIBmjrdrIh0zUAPbe/C/Q6QJHJbi4UIdkg=; b=Ji3WPcGz75iGj6VdHmKPmv542z
-	UTlKFcAx1eKxnTBADtxdpcpcbpPWzrmaaGChXyZSPdR84PZAZWUkZVn6ROt86dRQI77eNiSJyfImB
-	oTPBDzqN1KxUHX7DIddIQ9jnff4UkQ7cSqkqueJXnn3rq3eDHeTwM/dSMhlKrATJcoLF5gzll8gaK
-	d1ziqTd8C3na1adpk3Wi5z0A0nIAKKFunFulfcrUPS/+50ss9lI6grt52lCclM4JdtxroB1F6I+i9
-	BXbxaYTfgqFnO+g9rn/hqMyUKhGRSncr+CYmmb5EmPK7DM5Tia4pwNjKcTZkL9ovZluY9x2JGTHOt
-	5dX6Etvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R72S8DmRi/X/3ay93ymVYKLFPysF0+EoCRlZHiXClqQ=; b=2p9lsMnWgp4ljAGtrCyRUcM5GP
+	OBJ1SgyFNJUx2P81ZbUlNAOBxYGGmBcwMyH+eG/Op70h6jIKhqey+ZZ1wY9euDk2++8Evy5WvzExF
+	H7N284qixcKSELbDRy4i+Md80Y/+n869B6E0BlxTA+M3Ze/NPgDcxY77GDjfEN0hzZOaqGXwlBNuO
+	Grnerexn2qxK/S4o34I9RvHNlktyUmAIu3OSg8fGXWnaZhvqApF+edu57yOoASYtyLeyBkA7QPd0o
+	a+9yIv8+3mj4F7mEWVE3C9EQfIDgK16ycogKuWZypV5PaomPtCeB6lqpz2t8ovuKE1DPwQJqXjnXd
+	77PUhfNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACEN-0000000EKc4-436G;
-	Fri, 25 Sep 2026 20:09:15 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xACEY-0000000EKee-0HsS;
+	Fri, 25 Sep 2026 20:09:26 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xACEK-0000000EKbJ-3pJq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 20:09:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cG7j4Pt6s7q2xscBhfOlLDl/Hr4gGD5JBxo5ydcsblWd2z1RFssarFhVXKpiuK0i6p8sJFC9FgqAQPldDxnUuFHsrL0hv2bBESEvzLjGb3nxw+fhE//JLg8Jy2OvrlLX381bz0baozaQC227YOj1uPGFW1ZbRdzPSc+lMrKef1DPBnR1rSEkH+DuzMORn/anrkDSvZXdbNVYGdUUvXI1lFIjCdLcAQFVVthdZUprD67BeLPVLpAd8qlBI2Q5k8GBbO8L0vIdJ+FneZskT/dqnz/+Qs/JPS2uif9/W22JTNtp0SczXrIdvshN0cZcATG5Dezgrv5G0IV0jV28WbfYbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H7EjYyotsXIBmjrdrIh0zUAPbe/C/Q6QJHJbi4UIdkg=;
- b=Gvc8huO1X7lGdayTPntmjpdAjeicBu1lHWqtH+3GAmjhuyNS/PPU/tD88N5Rww3Qk/mF0TOwViTBlVp8hZy4fLxuJ/UWibCCAC/ORA+dhjQCEqEkG/7aW4CpdwEpV+f642m+ho7T9S+byTxgjHVkk1xIof4OoruEKubn+i+7Bk/kpYxnigtm0/wr1z8TZ7uHmvjHoLC3698thpn9vvI/pwYC4b36G9mXHIIhuD0gfYxEdh7b8Eq3CyQuE/4OSdx2cNLxCpgEwahkeqWiKej/E1/QiODy1atKvgYmjIw0jyvxtS71TneOL6ba9iRdMLBRl1e7ifBF9Uotj2uV2+JtDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H7EjYyotsXIBmjrdrIh0zUAPbe/C/Q6QJHJbi4UIdkg=;
- b=x0cyYGLgJyiwTIRbA9R0b1VKASI56jtWlNBsjailI+pUwQhnH6/kT5UmFGNJm4taJGKMJh8LfPsisA5NUIp2UIngKYPYSRH2rfZ/e09dUp54E2GbuH2fvyCajAL160MWHJ4iynFVMuJmV3tHlZAOF3AMOI/1QCqKbyDSffGB4W6r6Eyp1ODbFP6kQqzCPQwkhiudrqZX83u+1pcBEZr4919kQEwPJgL1k7krZvM+DXM7epNqvYAtJDeKL0llPzuhxLo/1cmRqia47FeYt5THJoymV3q7sV+5KkJYIJySymFPHQSWPkYrKBinEQHyx19S8p9/dj2JRMdo4CtKCJDPww==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB12352.eurprd04.prod.outlook.com (2603:10a6:800:322::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Fri, 25 Sep
- 2026 20:09:08 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0451.014; Fri, 25 Sep 2026
- 20:09:07 +0000
-From: Frank.Li@oss.nxp.com
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Cunhao Lu <1579567540@qq.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Raul E Rangel <rrangel@chromium.org>,
-	Moteen Shah <m-shah@ti.com>,
-	Kendall Willis <k-willis@ti.com>,
-	Dhruva Gole <d-gole@ti.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Matthias Feser <mfe@KBSgmbhfr.onmicrosoft.com>,
-	Kartik Rajput <kkartik@nvidia.com>,
-	Fan Wu <fanwu01@zju.edu.cn>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	=?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Zhaoyang Yu <2426767509@qq.com>,
-	Kees Cook <kees@kernel.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>,
-	linux-kernel@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
-	linux-serial@vger.kernel.org (open list:TTY LAYER AND SERIAL DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
-Cc: vkoul@kernel.org,
-	imx@lists.linux.dev
-Subject: [PATCH 1/2] serial: use dmaengine_get_dma_device() instead of chan->device->dev
-Date: Fri, 25 Sep 2026 16:08:30 -0400
-Message-ID: <20260925200850.1678179-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CY5PR13CA0008.namprd13.prod.outlook.com (2603:10b6:930::26)
- To GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+	id 1xACEU-0000000EKc1-0hZs;
+	Fri, 25 Sep 2026 20:09:25 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260925200914euoutp02190211168e9262f27661be7eb6326ac0~YqUJW3dDY2877128771euoutp02d;
+	Fri, 25 Sep 2026 20:09:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260925200914euoutp02190211168e9262f27661be7eb6326ac0~YqUJW3dDY2877128771euoutp02d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1790366954;
+	bh=R72S8DmRi/X/3ay93ymVYKLFPysF0+EoCRlZHiXClqQ=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=kjgvy4zlvFmyqpQHEzHq/zWMUA3FgQkqE75j4+LomdrHrNmkJpvcM3ydDGtKc4VXp
+	 fWZsWjxcsrdkzuWcJLhS1ty46ziDUjRf9WEicSKvI1tcUCxzIfuP5EWFNFERIqLDX4
+	 zaHyNsRYRimaSmp2xvCGlZcGHHhLniYdd49lPjJI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260925200913eucas1p198ff3fecf4c9d327b4b2d573f4509285~YqUIQc1cW1226912269eucas1p1i;
+	Fri, 25 Sep 2026 20:09:13 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260925200911eusmtip12932e01dfb1872e66825c5d6349ffed6~YqUGgNfWN0501005010eusmtip1G;
+	Fri, 25 Sep 2026 20:09:11 +0000 (GMT)
+Message-ID: <0c29c063-0b09-4710-8bf8-1d9adee4eb53@samsung.com>
+Date: Fri, 25 Sep 2026 22:09:10 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB12352:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2f1b205-d60b-46e7-becb-08df1b40dae0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|19092799006|921020|6133799003|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: IosuMMYKujRudtFLRImfdw1bxe6HJ7cj2Fw4mMPIeuneAKWJCN6pKBBHfrIhSw1BO0qOgWDfNTOdQ2mR1cPalNdGctNd+f8CnBOuFlAwnuxLARyZrtXe3NYK6Psx7XqeR8HPQNjb+bAPG2SpHT4csUlQDymukHT0nut9PNnD6Q7wHRYgX3v5sEJP2HFF2mqs88J1yNMhA7wzJdbIhprsGtCW3yGpzLdN2THIMa5gETNVZ812PW7Rs6P0+wl6OXB5xHM+wQNeh3fz/xFaCD7eM3ABqUPNjUYHxLxz2iqLkgVXFrvq8N31iYQl8uDY3PIqCr4ywR8ZugKZi2RR6+U1PoP6LXwC23ymxnC/7PvWYRIJvs4IqaymsJtfsnsHK1ddZ5bukVgyF0SVLLwDmL99cyYJjj6+5cIHUViWpjjB8TfoIQu6/BF2AmrFNFneaNh4Mx90T9hY7km5Qxxe5BYgKbVIbFB+6Nk1aw35525pRLQnl7Ghw2dcnhhzBYy3Nl5O+xEibV/7QgT9yBNpjqs4h6Ok2pssiRBmk03cY5Dd2EvAqihg/hztKj3Ty3ABd8MFpsDSSZE26t0yrR6il+QD9GEvCuW1tUpRSSxaMJGJ2KEfB+QGhJefBqHnfwN9tm9uPmtpKWGNk7TodaA8Pqy9is5cNq49+rPydmuoj+ingPk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(19092799006)(921020)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qlQtk4P5+PsYwkifG2MLRTrCXZE+pJ7cyC0hP4En78/Jf0E1Q0nTv6aM7vMu?=
- =?us-ascii?Q?XthD8UzeKsb/xSfJTuavWNKUHRTqvMfjtNToqBlfkW3wa7i0Sfr0PJ9rUdHS?=
- =?us-ascii?Q?sMLCv6deVRrVVUDecr+NJwJCj8M20tuRnB5AFclU8b6k9jOtA31vq6gLuGre?=
- =?us-ascii?Q?zpL2jzBIQ5MYZbzX18kIAhqRY1WR2BDGCTnYmpop04Y3aFE94DyKMS6hPQ5Y?=
- =?us-ascii?Q?RF/R1tz1W1bC61uRIqShmJtn4RjL7O16A/AG+GUyoT6oRlbUR950RRV9NSZW?=
- =?us-ascii?Q?2h3IxTvgmWQeHZMkKky5fybZzpngHs16ReMh/uGyKiEghWYcs9biFHCDzXMX?=
- =?us-ascii?Q?6eZ1upnj2xtLW+2QDX45/PHFqsqkarSI5J65uOihvEePr7elbzQvjtKpdaex?=
- =?us-ascii?Q?T8PM+IiIdNCyoTwl6iAlCwhDnlHAYcT/y8VBL3vgokVccNJQhnvQ8F+0XQPx?=
- =?us-ascii?Q?eNxCSa8azAL+B75E3pYf7ylgVO+g8gu1bWVolAriRtByqmZ5AWS7IrftaGMA?=
- =?us-ascii?Q?HD8lUhOxsGqC4nRyTuDcHi4GGIIFUiApWSBziHKXiWzAsRwZywXpHVijACFC?=
- =?us-ascii?Q?IIx+NOIuclZmYjOPM7SZbZkH9CqskO9UxBKNLo07YqBWZSzR5N8V7/Z7rzOk?=
- =?us-ascii?Q?YTe53/WqjrveAWiXPk6daG9z1p59R3i29ixonfjlSIan11g18DKmrC+0vFmg?=
- =?us-ascii?Q?hUnXp5WqaQwTaFEvi3b78KM7pZqnaNt6393ate1vKjDu+95FpfgpEuKicI7s?=
- =?us-ascii?Q?Jt6KahYXinugUFUkuZ5Jj8Ei4s5FNecPP60BSEe8ydgxRGyG+4IilVcQDHX0?=
- =?us-ascii?Q?R8PjK/tT6f+S/N9DPREhn0Uvb6bXj0dSz/fqbu+d3MUQmhtMS3aSljD2mARX?=
- =?us-ascii?Q?OJrE1zpb1ZYhFRN0gzsW6QoP8iEiFq9c++dRBVIgapmvfFzCca4bi464S3KK?=
- =?us-ascii?Q?tn0OvnZ1A98yMJskZ+fblWtS/WAbgga34xY3lJrYXkfrAL/dzXA2Jf7/OE7v?=
- =?us-ascii?Q?C8hhEO9gQO7btEBENw9pNoG59eSxWNFM4PyW8vRySgy8fTA8lzl5uNnScFRJ?=
- =?us-ascii?Q?LxQuhLlV10nDwp6EkQevAVP4zgx5ESz2X1goAczBSY7WLcSiRgTN7BbGCwTl?=
- =?us-ascii?Q?0mEI1igPF9VzmPWi2BuonqwO7dt3KYB7Ld6IHtwkZYdDSMxgZCspOpPNM7vE?=
- =?us-ascii?Q?3S9k0Nv95OtfmWXNRU3IxiZv1UK67WsXSil73Zw2WiEmxXB9m5/QssuEg+gX?=
- =?us-ascii?Q?ERMNwTVki93I9pgCsT8yLqRlqxK4YAHY1qd6LvUxbzcYLlvLvOB3LauvlI7i?=
- =?us-ascii?Q?wy3C3KVxM9w3rzQTl5/HEr2UuELgXaZzKus48Y0d4AnlE9HTyfWzjf9oNBv9?=
- =?us-ascii?Q?HsiAZuGCMOigBBw2vQieBnOhDFwZ1/dIcGIvWUf38bnpCqA/vCey+IBjNQfY?=
- =?us-ascii?Q?hu7VaBeR8/LrIW20nuBoJgkfxkLSkAixXnIUjWvQfZqzLbS7bxnCNj3zMxwH?=
- =?us-ascii?Q?5X0mW8PuqMzxjmOPoyQGTYaj8gM07mIAldwWiI1d7JiwzCk16ONDNxR/NtaW?=
- =?us-ascii?Q?bQiC8RPbJwtkuCch02LHoQhm9CZF5zM7v5nG5CSSyd6/8BUKUJj35SiRkURe?=
- =?us-ascii?Q?R2Y4lxJ75sHKy5RL3PlW6kFxOkPgkjciwSsCBj6ksKpIiJzqtzXccd33YlhF?=
- =?us-ascii?Q?wS6amyvva777bZOWNB81tFdPEV1CPI7JCOHejAp/buUTgsQZXPkizgioBvxl?=
- =?us-ascii?Q?e3XFrAD7dHWZCQ5GOeGDLrZEGdKbrXVEOvdDDS7Aw2IdiksZT/zN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2f1b205-d60b-46e7-becb-08df1b40dae0
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2026 20:09:07.5875
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 42RDZ/bEjne9JkJGtavjlJnpYxYwbVCHE+th6qrvQ+9PVfhG97XVAKHa5zh4e8efM81ohPZ/N5W6R4KQXc7JSmTwAChZSLrSXoFgPmf+euL0ps21YGM7T7fQzhuQOfZN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12352
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
+ subsystem
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Byron Stanoszek
+	<gandalf@winds.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Chaoyi
+	Chen <chaoyi.chen@rock-chips.com>, Joshua Peisach <jpeisach@ubuntu.com>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <cdb63b93c4a8857ac61b17902369086e9a278dd3.camel@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260925200913eucas1p198ff3fecf4c9d327b4b2d573f4509285
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
+References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com>
+	<20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<b8b046ee-c574-3e16-6079-2fc415633dae@winds.org>
+	<cdb63b93c4a8857ac61b17902369086e9a278dd3.camel@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_130912_976028_1939BEB3 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20260925_130922_784716_B3BB1968 
+X-CRM114-Status: GOOD (  30.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,372 +109,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi Bryan and Icenowy,
 
-Replace direct dma_chan::device::dev access with the proper
-dmaengine_get_dma_device() for consumer API
+On 9/20/26 09:35, Icenowy Zheng wrote:
+> 在 2026-09-20日的 02:09 -0400，Byron Stanoszek写道：
+>> On Tue, 15 Sep 2026, Michal Wilczynski wrote:
+>>
+>>> This series enables the display subsystem on the StarFive JH7110.
+>>
+>> Hi Michal,
+>>
+>> I tested your v4 patch series on my VisionFive2 1.3B with kernel 7.3-
+>> rc3 today
+>> and it works very well, except for 2 issues. Note, to make the screen
+>> refresh
+>> properly, I am using the noncoherent cache fixes from
+>> https://protect2.fireeye.com/v1/url?k=3d78ed45-62e3d45a-3d79660a-000babdfecba-dbc6e750c3338bb9&q=1&e=d9589fcd-304c-4065-91c9-c5043969df15&u=https%3A%2F%2Fgithub.com%2Fganboing-jh7110%2Flinux%2Fcommits%2Fganboing-jh7110-cache-fix-v1%2F
+>> (specifically commits 3683d97, ef93e2c, 277db0b, and 26ce3e6) in
+>> addition to
+>> your patch.
+>>
+>> Issue 1: I have a Dell U2711 monitor which has limited HDMI 1.3
+>> capability, so
+>> I invented my own Xorg mode to get a good frame rate:
+>>
+>> "2560x1440_40.22"  162.00  2560 2608 2640 2720  1440 1443 1448 1481
+>> +hsync -vsync
+>>
+>> With this mode and your new driver, I started getting rows of black
+>> pixels
+>> flickering in the upper-left corner of my LCD screen. These weren't
+>> there back
+>> when I was running the same mode under the Keith Zhao driver from
+>> StarFive
+>> (drm/verisilicon v5 plus a bunch of patches for dma cache coherency)
+>> (
+>> https://patchwork.kernel.org/project/dri-devel/cover/20241120061848.196754-1-keith.zhao@starfivetech.com
+>> /).
+>>
+>> The glitches I saw suggested the sync polarity was being set
+>> incorrectly; the
+>> number of glitched rows was exactly the vsync pulse width plus 1
+>> (i.e.
+>> "1440 1443 1448 1481" produced 6 bad rows, "1440 1443 1456 1481"
+>> produced 14,
+>> "1440 1441 1442 1481" produced 2, and so forth).
+>>
+>> I did a register dump between the two drivers and found that,
+>> although the
+>> DC8200 HSYNC and VSYNC registers were identical between the two
+>> versions, the
+>> hsync and vsync bits on the inno hdmi tx were swapped between the
+>> two. When I
+>> manually set the VIDEO_TIMING_CTL register from 0x09 to 0x05
+>> (matching the
+>> output of Keith's driver), the glitches went away.
+>>
+>> Keith Zhao driver:
+>>
+>> === DC8200 display 0 ===
+>> DC   PANEL_CONFIG               0x1418 = 0x00001111
+>> DC   HSIZE                      0x1430 = 0x0AA00A00
+>> DC   HSYNC                      0x1438 = 0x45280A30
+>> DC   VSIZE                      0x1440 = 0x05C905A0
+>> DC   VSYNC                      0x1448 = 0xC2D405A3
+>> DC   DPI_CONFIG                 0x14B8 = 0x00000005
+>> DC   FB_CONFIG                  0x1518 = 0x14000000
+>> DC   FB_ADDRESS                 0x1400 = 0x71200000
+>> DC   FB_STRIDE                  0x1408 = 0x00002800
+>> DC   FB_SIZE                    0x1810 = 0x02D00A00
+>> DC   FB_CONFIG_EX               0x1CC0 = 0x00002000
+>> DC   PANEL_START                0x1CCC = 0x00000001
+>> DC   DP_CONFIG                  0x1CD0 = 0x0000000A
+>> DC   FB_WATER_MARK              0x1CE8 = 0x00000000
+>> DC   PANEL_CONFIG_EX            0x2518 = 0x00000000
+>>
+>> === INNO HDMI TX video timing ===
+>> HDMI VIDEO_TIMING_CTL           0x08   = 0x05
+>> HDMI EXT_HTOTAL_L               0x09   = 0xA0
+>> HDMI EXT_HTOTAL_H               0x0A   = 0x0A
+>> HDMI EXT_HBLANK_L               0x0B   = 0xA0
+>> HDMI EXT_HBLANK_H               0x0C   = 0x00
+>> HDMI EXT_HDELAY_L               0x0D   = 0x70
+>> HDMI EXT_HDELAY_H               0x0E   = 0x00
+>> HDMI EXT_HDURATION_L            0x0F   = 0x20
+>> HDMI EXT_HDURATION_H            0x10   = 0x00
+>> HDMI EXT_VTOTAL_L               0x11   = 0xC9
+>> HDMI EXT_VTOTAL_H               0x12   = 0x05
+>> HDMI EXT_VBLANK                 0x13   = 0x29
+>> HDMI EXT_VDELAY                 0x14   = 0x26
+>> HDMI EXT_VDURATION              0x15   = 0x05
+>>
+>> Your driver (showing only the changed values):
+>>
+>> DC   DP_CONFIG                  0x1CD0 = 0x00000000
+>> DC   PANEL_CONFIG_EX            0x2518 = 0x00000001
+>> HDMI VIDEO_TIMING_CTL           0x08   = 0x09
+>>
+>> Specifically the bit#s are different between the two drivers:
+>>
+>> inno_hdmi-starfive.h (Keith Zhao):     inno-hdmi.c (generic):
+>>    v_HSYNC_POLARITY_SF(n)  ((n) << 2)     v_HSYNC_POLARITY  bit 3
+>>    v_VSYNC_POLARITY_SF(n)  ((n) << 3)     v_VSYNC_POLARITY  bit 2
+>>
+>> "_SF" suggests this change is specific to StarFive. The correct
+>> positions are
+>> HSYNC=bit 2 and VSYNC=bit 3 for the JH7110.
+> 
+> In fact it's not SF specific, [1] pg.13 (full manual page 979) also
+> shows the same for RK.
+> 
+> It could be an error from Rockchip developers since the beginning.
 
-chan->device->dev is not always the device used for DMA mapping.
-Some DMA engines support per-channel IOMMU mappings, so different
-channels may use different DMA devices.  dmaengine_get_dma_device()
-returns the correct device for each channel.
+Yeah I agree; Maud Spierings reported similar issue and Dominuque
+Belhachemi also figured that v_HSYNC_POLARITY and v_VSYNC_POLARITY are
+simply swapped in
+inno-hdmi.c.
 
-This also prepares for making the DMA engine provider data structures
-private. DMA consumers should not access DMA engine internals directly.
+As Icenowy stated Rockhip TRM also confirms this. I intend to send a fix
+as part of this series (as suggested by Maud).
 
-Assisted-by: LLM
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Check all unders driver/tty/ by rename device to _device in dma_chan struct
-with all yes config.
+> 
+> [1]
+> https://protect2.fireeye.com/v1/url?k=ba283351-e5b30a4e-ba29b81e-000babdfecba-1b86e6ec0e74b45d&q=1&e=d9589fcd-304c-4065-91c9-c5043969df15&u=https%3A%2F%2Fgithub.com%2FDeciHD%2Frockchip_docs%2Fblob%2Fmain%2Frk3128%2FTRM-chapter-24-hdmi-tx.pdf
+> 
+> Thanks,
+> Icenowy
+> 
+>>
+>> I'm guessing that your 42-mode test passed because most CEA modes are
+>> +hsync
+>> +vsync, and this wouldn't show any difference if the two bits were
+>> transposed.
+>>
+>> Once the sync polarity is sorted, I'd be happy to give a Tested-by:
+>> on the
+>> series.
+>>
+>>   --
+>>
+>> Issue 2: This is more a feature request than an issue. Originally, I
+>> tried
+>> running this Xorg modeline, which worked well under Keith's driver:
+>>
+>> "2560x1440_49.90"  201.00  2560 2608 2640 2720  1440 1443 1448 1481
+>> +hsync -vsync
+>>
+>> However, your driver would not accept this pixel clock. I then
+>> noticed you have
+>> a pre-PLL table of fixed clocks. Is there any chance you can change
+>> the code to
+>> compute the pre-PLL on the fly like how Keith does it, rather than
+>> use a table?
 
-Still few left, one for copy_align access, which need new API. some filter
-DMA channel, need new API to get provider devices.
+I can add the entry, hopefully you can let me know in the v5 whether it
+works for you.
 
-In https://lore.kernel.org/imx/67966b47-22cb-4b07-80c7-2044f557dbcb@app.fastmail.com/
-There are better idea to move map singe/sg into dma prep functions.
+inno_hdmi_phy_pre_pll_determine_rate() returns -EINVAL for any rate not
+in the table, and .mode_valid is built entirely on that:
 
-But it takes more times, not straightforward works. Let replace this firstly,
----
- drivers/tty/serial/8250/8250_dma.c  | 21 +++++++++++++--------
- drivers/tty/serial/8250/8250_omap.c |  4 ++--
- drivers/tty/serial/amba-pl011.c     | 10 +++++-----
- drivers/tty/serial/pch_uart.c       |  2 +-
- drivers/tty/serial/samsung_tty.c    | 27 +++++++++++++++------------
- drivers/tty/serial/sh-sci.c         | 14 ++++++++------
- 6 files changed, 44 insertions(+), 34 deletions(-)
+rounded = clk_round_rate(ctrl->clks[CLK_PCLK].clk, pixelclk);
+if (rounded != pixelclk)
+      return MODE_NOCLOCK;
 
-diff --git a/drivers/tty/serial/8250/8250_dma.c b/drivers/tty/serial/8250/8250_dma.c
-index 5a83e5269b415..dc7fb3db1584d 100644
---- a/drivers/tty/serial/8250/8250_dma.c
-+++ b/drivers/tty/serial/8250/8250_dma.c
-@@ -19,7 +19,7 @@ static void __dma_tx_complete(void *param)
- 	unsigned long	flags;
- 	int		ret;
- 
--	dma_sync_single_for_cpu(dma->txchan->device->dev, dma->tx_addr,
-+	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
- 				UART_XMIT_SIZE, DMA_TO_DEVICE);
- 
- 	uart_port_lock_irqsave(&p->port, &flags);
-@@ -136,7 +136,7 @@ int serial8250_tx_dma(struct uart_8250_port *p)
- 
- 	dma->tx_cookie = dmaengine_submit(desc);
- 
--	dma_sync_single_for_device(dma->txchan->device->dev, dma->tx_addr,
-+	dma_sync_single_for_device(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
- 				   UART_XMIT_SIZE, DMA_TO_DEVICE);
- 
- 	dma_async_issue_pending(dma->txchan);
-@@ -223,6 +223,8 @@ EXPORT_SYMBOL_GPL(serial8250_rx_dma_flush);
- int serial8250_request_dma(struct uart_8250_port *p)
- {
- 	struct uart_8250_dma	*dma = p->dma;
-+	struct device *rx_dev;
-+	struct device *tx_dev;
- 	phys_addr_t rx_dma_addr = dma->rx_dma_addr ?
- 				  dma->rx_dma_addr : p->port.mapbase;
- 	phys_addr_t tx_dma_addr = dma->tx_dma_addr ?
-@@ -282,11 +284,14 @@ int serial8250_request_dma(struct uart_8250_port *p)
- 
- 	dmaengine_slave_config(dma->txchan, &dma->txconf);
- 
-+	rx_dev = dmaengine_get_dma_device(dma->rxchan);
-+	tx_dev = dmaengine_get_dma_device(dma->txchan);
-+
- 	/* RX buffer */
- 	if (!dma->rx_size)
- 		dma->rx_size = PAGE_SIZE;
- 
--	dma->rx_buf = dma_alloc_coherent(dma->rxchan->device->dev, dma->rx_size,
-+	dma->rx_buf = dma_alloc_coherent(rx_dev, dma->rx_size,
- 					&dma->rx_addr, GFP_KERNEL);
- 	if (!dma->rx_buf) {
- 		ret = -ENOMEM;
-@@ -294,12 +299,12 @@ int serial8250_request_dma(struct uart_8250_port *p)
- 	}
- 
- 	/* TX buffer */
--	dma->tx_addr = dma_map_single(dma->txchan->device->dev,
-+	dma->tx_addr = dma_map_single(tx_dev,
- 					p->port.state->port.xmit_buf,
- 					UART_XMIT_SIZE,
- 					DMA_TO_DEVICE);
--	if (dma_mapping_error(dma->txchan->device->dev, dma->tx_addr)) {
--		dma_free_coherent(dma->rxchan->device->dev, dma->rx_size,
-+	if (dma_mapping_error(tx_dev, dma->tx_addr)) {
-+		dma_free_coherent(rx_dev, dma->rx_size,
- 				  dma->rx_buf, dma->rx_addr);
- 		ret = -ENOMEM;
- 		goto err;
-@@ -326,14 +331,14 @@ void serial8250_release_dma(struct uart_8250_port *p)
- 	/* Release RX resources */
- 	dmaengine_terminate_sync(dma->rxchan);
- 	dma->rx_running = 0;
--	dma_free_coherent(dma->rxchan->device->dev, dma->rx_size, dma->rx_buf,
-+	dma_free_coherent(dmaengine_get_dma_device(dma->rxchan), dma->rx_size, dma->rx_buf,
- 			  dma->rx_addr);
- 	dma_release_channel(dma->rxchan);
- 	dma->rxchan = NULL;
- 
- 	/* Release TX resources */
- 	dmaengine_terminate_sync(dma->txchan);
--	dma_unmap_single(dma->txchan->device->dev, dma->tx_addr,
-+	dma_unmap_single(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
- 			 UART_XMIT_SIZE, DMA_TO_DEVICE);
- 	dma_release_channel(dma->txchan);
- 	dma->txchan = NULL;
-diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
-index ceecb39fb82da..3a1473bf54d0f 100644
---- a/drivers/tty/serial/8250/8250_omap.c
-+++ b/drivers/tty/serial/8250/8250_omap.c
-@@ -1076,7 +1076,7 @@ static void omap_8250_dma_tx_complete(void *param)
- 	bool			en_thri = false;
- 	struct omap8250_priv	*priv = p->port.private_data;
- 
--	dma_sync_single_for_cpu(dma->txchan->device->dev, dma->tx_addr,
-+	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
- 				UART_XMIT_SIZE, DMA_TO_DEVICE);
- 
- 	guard(uart_port_lock_irqsave)(&p->port);
-@@ -1193,7 +1193,7 @@ static int omap_8250_tx_dma(struct uart_8250_port *p)
- 
- 	dma->tx_cookie = dmaengine_submit(desc);
- 
--	dma_sync_single_for_device(dma->txchan->device->dev, dma->tx_addr,
-+	dma_sync_single_for_device(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
- 				   UART_XMIT_SIZE, DMA_TO_DEVICE);
- 
- 	dma_async_issue_pending(dma->txchan);
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index c4824c201e1c3..86729ddbdadc8 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -435,7 +435,7 @@ static int pl011_fifo_to_tty(struct uart_amba_port *uap)
- static int pl011_dmabuf_init(struct dma_chan *chan, struct pl011_dmabuf *db,
- 			     enum dma_data_direction dir)
- {
--	db->buf = dma_alloc_coherent(chan->device->dev, PL011_DMA_BUFFER_SIZE,
-+	db->buf = dma_alloc_coherent(dmaengine_get_dma_device(chan), PL011_DMA_BUFFER_SIZE,
- 				     &db->dma, GFP_KERNEL);
- 	if (!db->buf)
- 		return -ENOMEM;
-@@ -448,7 +448,7 @@ static void pl011_dmabuf_free(struct dma_chan *chan, struct pl011_dmabuf *db,
- 			      enum dma_data_direction dir)
- {
- 	if (db->buf) {
--		dma_free_coherent(chan->device->dev,
-+		dma_free_coherent(dmaengine_get_dma_device(chan),
- 				  PL011_DMA_BUFFER_SIZE, db->buf, db->dma);
- 	}
- }
-@@ -609,7 +609,7 @@ static void pl011_dma_tx_callback(void *data)
- 
- 	uart_port_lock_irqsave(&uap->port, &flags);
- 	if (uap->dmatx.queued)
--		dma_unmap_single(dmatx->chan->device->dev, dmatx->dma,
-+		dma_unmap_single(dmaengine_get_dma_device(dmatx->chan), dmatx->dma,
- 				 dmatx->len, DMA_TO_DEVICE);
- 
- 	dmacr = uap->dmacr;
-@@ -867,7 +867,7 @@ __acquires(&uap->port.lock)
- 	dmaengine_terminate_async(uap->dmatx.chan);
- 
- 	if (uap->dmatx.queued) {
--		dma_unmap_single(uap->dmatx.chan->device->dev, uap->dmatx.dma,
-+		dma_unmap_single(dmaengine_get_dma_device(uap->dmatx.chan), uap->dmatx.dma,
- 				 uap->dmatx.len, DMA_TO_DEVICE);
- 		uap->dmatx.queued = false;
- 		uap->dmacr &= ~UART011_TXDMAE;
-@@ -1249,7 +1249,7 @@ static void pl011_dma_shutdown(struct uart_amba_port *uap)
- 		/* In theory, this should already be done by pl011_dma_flush_buffer */
- 		dmaengine_terminate_sync(uap->dmatx.chan);
- 		if (uap->dmatx.queued) {
--			dma_unmap_single(uap->dmatx.chan->device->dev,
-+			dma_unmap_single(dmaengine_get_dma_device(uap->dmatx.chan),
- 					 uap->dmatx.dma, uap->dmatx.len,
- 					 DMA_TO_DEVICE);
- 			uap->dmatx.queued = false;
-diff --git a/drivers/tty/serial/pch_uart.c b/drivers/tty/serial/pch_uart.c
-index db5c62b0322f6..5e8540e835351 100644
---- a/drivers/tty/serial/pch_uart.c
-+++ b/drivers/tty/serial/pch_uart.c
-@@ -656,7 +656,7 @@ static bool filter(struct dma_chan *chan, void *slave)
- 	struct pch_dma_slave *param = slave;
- 
- 	if ((chan->chan_id == param->chan_id) && (param->dma_dev ==
--						  chan->device->dev)) {
-+						  dmaengine_get_dma_device(chan))) {
- 		chan->private = param;
- 		return true;
- 	} else {
-diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-index 63d0232dffc20..640f85e2d636b 100644
---- a/drivers/tty/serial/samsung_tty.c
-+++ b/drivers/tty/serial/samsung_tty.c
-@@ -300,7 +300,7 @@ static void s3c24xx_serial_stop_tx(struct uart_port *port)
- 		dmaengine_pause(dma->tx_chan);
- 		dmaengine_tx_status(dma->tx_chan, dma->tx_cookie, &state);
- 		dmaengine_terminate_all(dma->tx_chan);
--		dma_sync_single_for_cpu(dma->tx_chan->device->dev,
-+		dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->tx_chan),
- 					dma->tx_transfer_addr, dma->tx_size,
- 					DMA_TO_DEVICE);
- 		async_tx_ack(dma->tx_desc);
-@@ -333,7 +333,7 @@ static void s3c24xx_serial_tx_dma_complete(void *args)
- 	count = dma->tx_bytes_requested - state.residue;
- 	async_tx_ack(dma->tx_desc);
- 
--	dma_sync_single_for_cpu(dma->tx_chan->device->dev,
-+	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->tx_chan),
- 				dma->tx_transfer_addr, dma->tx_size,
- 				DMA_TO_DEVICE);
- 
-@@ -435,7 +435,7 @@ static int s3c24xx_serial_start_tx_dma(struct s3c24xx_uart_port *ourport,
- 	dma->tx_size = count & ~(dma_get_cache_alignment() - 1);
- 	dma->tx_transfer_addr = dma->tx_addr + tail;
- 
--	dma_sync_single_for_device(dma->tx_chan->device->dev,
-+	dma_sync_single_for_device(dmaengine_get_dma_device(dma->tx_chan),
- 				   dma->tx_transfer_addr, dma->tx_size,
- 				   DMA_TO_DEVICE);
- 
-@@ -509,7 +509,7 @@ static void s3c24xx_uart_copy_rx_to_tty(struct s3c24xx_uart_port *ourport,
- 	if (!count)
- 		return;
- 
--	dma_sync_single_for_cpu(dma->rx_chan->device->dev, dma->rx_addr,
-+	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->rx_chan), dma->rx_addr,
- 				dma->rx_size, DMA_FROM_DEVICE);
- 
- 	ourport->port.icount.rx += count;
-@@ -631,7 +631,7 @@ static void s3c64xx_start_rx_dma(struct s3c24xx_uart_port *ourport)
- {
- 	struct s3c24xx_uart_dma *dma = ourport->dma;
- 
--	dma_sync_single_for_device(dma->rx_chan->device->dev, dma->rx_addr,
-+	dma_sync_single_for_device(dmaengine_get_dma_device(dma->rx_chan), dma->rx_addr,
- 				   dma->rx_size, DMA_FROM_DEVICE);
- 
- 	dma->rx_desc = dmaengine_prep_slave_single(dma->rx_chan,
-@@ -1101,20 +1101,23 @@ static int s3c24xx_serial_request_dma(struct s3c24xx_uart_port *p)
- 		goto err_release_tx;
- 	}
- 
--	dma->rx_addr = dma_map_single(dma->rx_chan->device->dev, dma->rx_buf,
-+	struct device *rx_dev = dmaengine_get_dma_device(dma->rx_chan);
-+	struct device *tx_dev = dmaengine_get_dma_device(dma->tx_chan);
-+
-+	dma->rx_addr = dma_map_single(rx_dev, dma->rx_buf,
- 				      dma->rx_size, DMA_FROM_DEVICE);
--	if (dma_mapping_error(dma->rx_chan->device->dev, dma->rx_addr)) {
-+	if (dma_mapping_error(rx_dev, dma->rx_addr)) {
- 		reason = "DMA mapping error for RX buffer";
- 		ret = -EIO;
- 		goto err_free_rx;
- 	}
- 
- 	/* TX buffer */
--	dma->tx_addr = dma_map_single(dma->tx_chan->device->dev,
-+	dma->tx_addr = dma_map_single(tx_dev,
- 				      p->port.state->port.xmit_buf,
- 				      UART_XMIT_SIZE,
- 				      DMA_TO_DEVICE);
--	if (dma_mapping_error(dma->tx_chan->device->dev, dma->tx_addr)) {
-+	if (dma_mapping_error(tx_dev, dma->tx_addr)) {
- 		reason = "DMA mapping error for TX buffer";
- 		ret = -EIO;
- 		goto err_unmap_rx;
-@@ -1123,7 +1126,7 @@ static int s3c24xx_serial_request_dma(struct s3c24xx_uart_port *p)
- 	return 0;
- 
- err_unmap_rx:
--	dma_unmap_single(dma->rx_chan->device->dev, dma->rx_addr,
-+	dma_unmap_single(dmaengine_get_dma_device(dma->rx_chan), dma->rx_addr,
- 			 dma->rx_size, DMA_FROM_DEVICE);
- err_free_rx:
- 	kfree(dma->rx_buf);
-@@ -1143,7 +1146,7 @@ static void s3c24xx_serial_release_dma(struct s3c24xx_uart_port *p)
- 
- 	if (dma->rx_chan) {
- 		dmaengine_terminate_all(dma->rx_chan);
--		dma_unmap_single(dma->rx_chan->device->dev, dma->rx_addr,
-+		dma_unmap_single(dmaengine_get_dma_device(dma->rx_chan), dma->rx_addr,
- 				 dma->rx_size, DMA_FROM_DEVICE);
- 		kfree(dma->rx_buf);
- 		dma_release_channel(dma->rx_chan);
-@@ -1152,7 +1155,7 @@ static void s3c24xx_serial_release_dma(struct s3c24xx_uart_port *p)
- 
- 	if (dma->tx_chan) {
- 		dmaengine_terminate_all(dma->tx_chan);
--		dma_unmap_single(dma->tx_chan->device->dev, dma->tx_addr,
-+		dma_unmap_single(dmaengine_get_dma_device(dma->tx_chan), dma->tx_addr,
- 				 UART_XMIT_SIZE, DMA_TO_DEVICE);
- 		dma_release_channel(dma->tx_chan);
- 		dma->tx_chan = NULL;
-diff --git a/drivers/tty/serial/sh-sci.c b/drivers/tty/serial/sh-sci.c
-index 50ae9aae6b614..bd58bbfa65aa7 100644
---- a/drivers/tty/serial/sh-sci.c
-+++ b/drivers/tty/serial/sh-sci.c
-@@ -1495,7 +1495,7 @@ static void sci_dma_rx_release(struct sci_port *s)
- 	uart_port_unlock_irqrestore(port, flags);
- 
- 	dmaengine_terminate_sync(chan);
--	dma_free_coherent(chan->device->dev, s->buf_len_rx * 2, s->rx_buf[0],
-+	dma_free_coherent(dmaengine_get_dma_device(chan), s->buf_len_rx * 2, s->rx_buf[0],
- 			  sg_dma_address(&s->sg_rx[0]));
- 	dma_release_channel(chan);
- }
-@@ -1591,7 +1591,7 @@ static void sci_dma_tx_release(struct sci_port *s)
- 	s->chan_tx_saved = s->chan_tx = NULL;
- 	s->cookie_tx = -EINVAL;
- 	dmaengine_terminate_sync(chan);
--	dma_unmap_single(chan->device->dev, s->tx_dma_addr, UART_XMIT_SIZE,
-+	dma_unmap_single(dmaengine_get_dma_device(chan), s->tx_dma_addr, UART_XMIT_SIZE,
- 			 DMA_TO_DEVICE);
- 	dma_release_channel(chan);
- }
-@@ -1676,7 +1676,7 @@ static void sci_dma_tx_work_fn(struct work_struct *work)
- 		goto switch_to_pio;
- 	}
- 
--	dma_sync_single_for_device(chan->device->dev, buf, s->tx_dma_len,
-+	dma_sync_single_for_device(dmaengine_get_dma_device(chan), buf, s->tx_dma_len,
- 				   DMA_TO_DEVICE);
- 
- 	desc->callback = sci_dma_tx_complete;
-@@ -1832,12 +1832,13 @@ static void sci_request_dma(struct uart_port *port)
- 	chan = sci_request_dma_chan(port, DMA_MEM_TO_DEV);
- 	dev_dbg(port->dev, "%s: TX: got channel %p\n", __func__, chan);
- 	if (chan) {
-+		struct device *dma_dev = dmaengine_get_dma_device(chan);
- 		/* UART circular tx buffer is an aligned page. */
--		s->tx_dma_addr = dma_map_single(chan->device->dev,
-+		s->tx_dma_addr = dma_map_single(dma_dev,
- 						tport->xmit_buf,
- 						UART_XMIT_SIZE,
- 						DMA_TO_DEVICE);
--		if (dma_mapping_error(chan->device->dev, s->tx_dma_addr)) {
-+		if (dma_mapping_error(dma_dev, s->tx_dma_addr)) {
- 			dev_warn(port->dev, "Failed mapping Tx DMA descriptor\n");
- 			dma_release_channel(chan);
- 		} else {
-@@ -1853,12 +1854,13 @@ static void sci_request_dma(struct uart_port *port)
- 	chan = sci_request_dma_chan(port, DMA_DEV_TO_MEM);
- 	dev_dbg(port->dev, "%s: RX: got channel %p\n", __func__, chan);
- 	if (chan) {
-+		struct device *dma_dev = dmaengine_get_dma_device(chan);
- 		unsigned int i;
- 		dma_addr_t dma;
- 		void *buf;
- 
- 		s->buf_len_rx = 2 * max_t(size_t, 16, port->fifosize);
--		buf = dma_alloc_coherent(chan->device->dev, s->buf_len_rx * 2,
-+		buf = dma_alloc_coherent(dma_dev, s->buf_len_rx * 2,
- 					 &dma, GFP_KERNEL);
- 		if (!buf) {
- 			dev_warn(port->dev,
+If the PHY computes dividers on demand, clk_round_rate() starts
+succeeding for almost every rate .mode_valid stops rejecting anything
+and we're back to advertising modes the PHY can't drive  the
+blank screen bug patch 11 exists to fix.
+
+To keep the rejection you'd have to replace the table with a real
+constraint model.
+
+The fracdiv values doesn't seem to be cleanly derivable and the Rockchip
+has the datasheet and still chose a table. 
+
+
+>>
+>> Thanks for all your great work!
+>>
+>> Best regards,
+>>   -Byron
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> https://protect2.fireeye.com/v1/url?k=46fbedc2-1960d4dd-46fa668d-000babdfecba-e6e7fb64f005c1b3&q=1&e=d9589fcd-304c-4065-91c9-c5043969df15&u=http%3A%2F%2Flists.infradead.org%2Fmailman%2Flistinfo%2Flinux-riscv
+
+Best regards,
 -- 
-2.43.0
-
+Michal Wilczynski <m.wilczynski@samsung.com>
 
