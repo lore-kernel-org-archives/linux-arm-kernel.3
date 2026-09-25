@@ -4,72 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C772CC98328
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990D9C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 19:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pOTd0QsZFwY/1NPCwglWY7eTyUnFOT12GMBT8oi99Wk=; b=dnWDDCgP508aye3k4yGX6JUzpi
-	zfx58JLGM9fTh90M15Fq4KbbqeEjRfQp8YDnypmlx2rTB+IcF6BgS2nFxHBpTptVAHqj/VGAiGNWb
-	M6XTKLx+ntPYI2c2aMjbEgx0EGpB3RFenahk0DiXvWmaYmsNm8NzT8OkcUBnqGhtG/ZLRJ6yY0TK5
-	xsIcg7/PtaGkgCfrevPEVHuTJG6TbLLEsja++1jCdm4tazV7B8FX9836pd/daDnA7ZLR7n+k8aVMf
-	epQRbbn37c0EFzDMQ1P+FfH/c7zctF0whe1pX9vvHx61kvFsG2fNKbcVZNhjNrr4Gx/f/oFa0q26S
-	928uSX5w==;
+	bh=1cy28oamoCRjiNiWmfH98MKJagA+6yzbPIYdI0DQhmg=; b=vff7Xa1z39XXt3aXkx8cTWu7yc
+	e9V369QCdOEvV3ERev8FUPC56Z46yoKu3r75QPV4lRu9ZuF7k4J/8xXfb8IajBYCTYVbhLPsO+ciY
+	so6TsHwvLuvqkHoDrYwaR5UQ6WfG7g8iyONqpt4zdbcH0qwmf/N53WIoMTe8ZelWUvCMHqP38a8Af
+	Xx3ODhw3lbxEbMmSblEgN3HdH0tlASKHCmQzvJHdNoZiArHUPF0VnxtryJ7dYaifDJ7XHXICgQFuy
+	SxPjWUgrvyUJGiTC3Zy4yfpmvivuruqrcGxUrwoM7RdDc0V7P/xNKImNaRCpaZUPhG6luobcDIChP
+	XmrhXD0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABLh-0000000EEho-1HqN;
-	Fri, 25 Sep 2026 19:12:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xABMz-0000000EF8u-3lch;
+	Fri, 25 Sep 2026 19:14:05 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xABLA-0000000EETi-3Hrq
+	id 1xABMx-0000000EF89-11WE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 19:12:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 869BB43BA5;
-	Fri, 25 Sep 2026 19:12:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4538E1F0089A;
-	Fri, 25 Sep 2026 19:12:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790363532;
-	bh=pOTd0QsZFwY/1NPCwglWY7eTyUnFOT12GMBT8oi99Wk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fSQC067Y7GVhB5Jepd7waKyynC6keHTYYOTNdqToOBdFbHbBtOKKPJbyaMQsxGlc7
-	 zF8Mkwr9sK0OFKn+rialddblW1WR99QFqHzXXZUhZ8W7rGvIscREfBMbO5g9pu9zfp
-	 bS764VizpInXL14FTzguX4+COYLJ5ugCEiautA74xQOhIzJosn77BbzJnbZ0Ykg8Vb
-	 /GuwiT3JUHB9i46Zi9tVDrZwf49qTNs+bFkCMLYNHo6ctW5i2GOYgPLvRPObXC97W9
-	 2yJSBKmD+GDymLZhhMnq9pd2Tw1FLz0ci+Q/ea5bvEBaiGarrLKFJjYABy4Vx+1LCY
-	 Cnfx6oyrzlXog==
-Subject: Re: [PATCH net v3 09/10] net: stmmac: retain PHY and PM ownership
- during ethtool reopening
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- qiangqing.zhang@nxp.com, rmk+kernel@armlinux.org.uk,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ansuelsmth@gmail.com,
- yangtiezhu@loongson.cn, chenhuacai@kernel.org, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, fancer.lancer@gmail.com, quic_jsuraj@quicinc.com,
- richardcochran@gmail.com, Joao.Pinto@synopsys.com, vladimir.oltean@nxp.com,
- boon.leong.ong@intel.com, weifeng.voon@intel.com, yoong.siang.song@intel.com,
- richard.genoud@bootlin.com, alastair@d-silva.org, mripard@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- zhaojinming@uniontech.com, lorenzo.bianconi@oss.qualcomm.com,
- dinghui1111@163.com
-Date: Fri, 25 Sep 2026 19:12:09 +0000
-Message-ID: <179036352982.2160803.2753579871439489009@kernel.org>
-In-Reply-To: <20260924-submit-stmmac-reset-fixes-v1-v3-9-c031e3f3a282@gmail.com>
-References: <20260924-submit-stmmac-reset-fixes-v1-v3-9-c031e3f3a282@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 25 Sep 2026 19:14:05 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-2q7f.prod.antispam.mailspamprotection.com; s=arckey; t=1790363643;
+	 b=Kx+bW0W+QWGs/gRtEEcDGj+IEEk8Lb4WAX8+MGp5wcw9VqQ0rxTTn3PNnKu2QHHEUxz4Kz96oO
+	  GGqQ4dvkfGgddIOUFxf0yY0BXma9tG8+no6kiRW5CrmowrN5NgOZSNhVbKe9h9rQxoJNuOasAY
+	  h7vFdly5ylQCe2slUQVab2KRBMxslchaMAm9VolAj4jP3QtL4b6xNYijjhpE9b6km8ML0871/+
+	  PIXRLA8NaVgazwr+lqfqfoBS4JzyliBzBwgFHxb1jCbN//jTc0ALXV397R3dBIHdBaoenRok7Q
+	  L53E2nCAUPa966FXux/Of/Qar6Dn8vKyPjDC54dVmRlKUA==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-2q7f.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-2q7f.prod.antispam.mailspamprotection.com; s=arckey; t=1790363643;
+	bh=yx/Ft/8wjagadLROp2/zxX+aa83VVkqcyzW3JXIAwYI=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=LFdLEi4en9I0iyPPUcH6zg9vjDUEKe6iF6sqgE7/Tp6vXpiEftWp/h2aqFdghvuD7g55UDHOKI
+	  hSUf7Sc2GEJPrapfahaX1uGcg4LE0dSB0lvJpSwrpE6kDqLmm7lGAdr8eNNtBb3a1wt4Wvnk+5
+	  1K62Bjs0ALOiBzPurgAcFY3UMKJsEVSqJs3xSXU2Var9NN4dSItDJ6ocSiSZ1tOtN630jG0T0G
+	  6U2z33SHqKQ/HizSt8wg+ObTT2KBrRMpPLI15fDIjMRSB5qh+bCbGHCqLpiqPUxlYDtMI8uwPQ
+	  bEFLJx9iwr7VgtclfULmCnuTlaUzUax39HNynW+T6DqQVw==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=1cy28oamoCRjiNiWmfH98MKJagA+6yzbPIYdI0DQhmg=; b=oxz/AdOWd0J8CUe/CT9CEgluxH
+	aWR2b12RvBKAnuEnNZrPTjxScFV/QXlzZ8SW6KCChTUT4bGbUFnMubOwwioouQvdmEAKasBU37XiI
+	7tvJfTUAAKuqn83N84Yttg5PtglsYEPwatQhtO93J+dxRZAerQmu7t6V6Oow+kAsW5dc=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-2q7f.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xABMt-00000006R10-2Sbi
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Sep 2026 19:14:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=1cy28oamoCRjiNiWmfH98MKJagA+6yzbPIYdI0DQhmg=; b=LpL2B+x/aNpsi65IdfB6Ebt8ru
+	aamO37IwhtRAj/59mH2tx7/idp18FjYphBv0CK7I8SW+Swv7szpMG2H1j8ufYUcPyRuv2WQHc/1S7
+	duO/Kr0wLjfrlTGxgMwOJQtoSWCmyTFwSUK18mT5egF0yW2qgzUMH24GK4uc0Tfu3sIM=;
+Received: from [79.45.60.29] (port=60566 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xABMZ-00000000Pn3-1jQq;
+	Fri, 25 Sep 2026 19:13:39 +0000
+Date: Fri, 25 Sep 2026 21:13:37 +0200
+From: Francesco Valla <francesco@valla.it>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Robin Murphy <robin.murphy@arm.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peng Fan <peng.fan@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	virtualization@lists.linux.dev, imx@lists.linux.dev, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 12/12] PoC: arm64: dts: imx93-11x11-frdm: add
+ multiple vdevs
+Message-ID: <arbGLZ8_xKJTpiVa@bywater>
+References: <20260916-remoteproc_virtio_map-v1-0-dac8c5eb4aa9@valla.it>
+ <20260916-remoteproc_virtio_map-v1-12-dac8c5eb4aa9@valla.it>
+ <arKiOCGrWAKyc-bc@p14s>
+ <arLawAw6kgFT2e0W@bywater>
+ <arP06mWDehsIDh5s@p14s>
+ <arP5AvA51GHrI8aN@bywater>
+ <CANLsYkyT3NopaQy8CpTUrD-MTbif1dvyjaUUcQUWLzcTL7GpcQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CANLsYkyT3NopaQy8CpTUrD-MTbif1dvyjaUUcQUWLzcTL7GpcQ@mail.gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 32e6190fc3560d6d3a4b026c8a288b1b
+X-AntiAbuse: ID - 32e6190fc3560d6d3a4b026c8a288b1b
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xABMt-00000006R10-2Sbi-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-2q7f.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260925_121403_628211_141814BE 
+X-CRM114-Status: GOOD (  53.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,223 +136,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Thu, Sep 24, 2026 at 09:49:08AM -0600, Mathieu Poirier wrote:
+> On Wed, 23 Sept 2026 at 12:42, Francesco Valla <francesco@valla.it> wrote:
+> >
+> > On Wed, Sep 23, 2026 at 09:48:58AM -0600, Mathieu Poirier wrote:
+> > > On Tue, Sep 22, 2026 at 10:19:48PM +0200, Francesco Valla wrote:
+> > > > On Tue, Sep 22, 2026 at 09:43:52AM -0600, Mathieu Poirier wrote:
+> > > > > On Wed, Sep 16, 2026 at 11:10:57PM +0200, Francesco Valla wrote:
+> > > > > > Add rings for multiple vdevs, as well as the required virtio nodes for
+> > > > > > I2C, SPI and GPIO functionalities. On top of that, add example
+> > > > > > peripherals using all of them.
+> > > > > >
+> > > > > > NOTE: this is a Proof-Of-Concept, not meant to be integrated!
+> > > > > >
+> > > > > > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > > > > > ---
+> > > > > >  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 128 +++++++++++++++++++--
+> > > > > >  1 file changed, 119 insertions(+), 9 deletions(-)
+> > > > > >
+> > > > > > diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > > > > > index bd14ba28690c..dfa3b122ac5f 100644
+> > > > > > --- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > > > > > +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> > > > > > @@ -53,6 +53,32 @@ button-k3 {
+> > > > > >                 };
+> > > > > >         };
+> > > > > >
+> > > > > > +       gpio-keys-virtio {
+> > > > > > +               compatible = "gpio-keys-polled";
+> > > > > > +               poll-interval = <100>;
+> > > > > > +
+> > > > > > +               button-v1 {
+> > > > > > +                       label = "Button V1";
+> > > > > > +                       linux,code = <BTN_3>;
+> > > > > > +                       gpios = <&v_gpio 23 GPIO_ACTIVE_LOW>;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               button-v2 {
+> > > > > > +                       label = "Button V2";
+> > > > > > +                       linux,code = <BTN_4>;
+> > > > > > +                       gpios = <&v_gpio 24 GPIO_ACTIVE_LOW>;
+> > > > > > +               };
+> > > > > > +       };
+> > > > > > +
+> > > > > > +       leds {
+> > > > > > +               compatible = "gpio-leds";
+> > > > > > +
+> > > > > > +               led {
+> > > > > > +                       gpios = <&v_gpio 18 GPIO_ACTIVE_HIGH>;
+> > > > > > +                       label = "LED V";
+> > > > > > +               };
+> > > > > > +       };
+> > > > > > +
+> > > > > >         reg_usdhc2_vmmc: regulator-usdhc2 {
+> > > > > >                 compatible = "regulator-fixed";
+> > > > > >                 off-on-delay-us = <12000>;
+> > > > > > @@ -89,11 +115,6 @@ linux,cma {
+> > > > > >                         linux,cma-default;
+> > > > > >                 };
+> > > > > >
+> > > > > > -               rsc_table: rsc-table@2021e000 {
+> > > > > > -                       reg = <0 0x2021e000 0 0x1000>;
+> > > > > > -                       no-map;
+> > > > > > -               };
+> > > > > > -
+> > > > >
+> > > > > Why is the resource table removed?  There is no mention of that in the
+> > > > > changelog...
+> > > > >
+> > > >
+> > > > You are obviously right, the commit message here should have been a
+> > > > poem, not a form of hermetic poetry. My bad.
+> > > >
+> > > > The resource table here is causing problems with how Zephyr is managing
+> > > > it at its side. If it is kept in a separate memory location and copied
+> > > > there at runtime by the remote processor firmware during its startup
+> > > > (which is the current Zephyr behavior), then there might be a race
+> > > > condition when the aforesaid firmware is loaded and started by Linux
+> > > > *and* at least one of the vdev drivers (here including rpmsg_bus) is
+> > > > built-in. In this case, the copy of the resource table done by the
+> > > > remote processor might - depending on the async execution of the two
+> > > > processors - overwrite the status bit set by the Linux driver:
+> > > >
+> > > >   Firmware load and startup (echo start > /sys/.../state)
+> > > >                            |
+> > > >                        |
+> > > >                        V
+> > > >   The vdev devices get registered (by register_virtio_device())
+> > > >                            |
+> > > >                        |
+> > > >                        V
+> > > >   If a driver is built-in, it probes and sets the vdev status
+> > > >   inside the resource table @rsc-table.
+> > > >                            .
+> > > >                        . (in the mean time)
+> > > >                        .
+> > > >   The remote processor starts up and copies the resource table from its
+> > > >   dedicated section to @rsc-table.
+> > > >
+> > > > Depending on the system load and the complexity of the firmware, the two
+> > > > operations can happen in whatever sequence, causing a race condition.
+> > >
+> > > This would happen regardless of this patchset.
+> > >
+> >
+> > Correct, *if* the remote processor is copying the resource table to a
+> > specific location and expects the host to use that. On Zephyr (which is
+> > clearly outside the scope here) this can be enabled through the
+> > CONFIG_OPENAMP_COPY_RSC_TABLE option. I am keeping that disabled, and
+> > removing the rsc-table node here.
+> >
+> > I am planning to reason on this and propose a proper fix in a separate
+> > patchset.
+> >
+> 
+> It seems like we need two solutions here, one for imx and another
+> applicable to everyone.
+>
+> > > >
+> > > > This is somewhat masked if vdev drivers are built as modules, as the
+> > > > devices does not probe immediately but only after the modules have been
+> > > > loaded, giving the remote processor time to start. Note that this is not
+> > > > a solution! but a workaround.
+> > > >
+> > > > If the rsc-table node is not there, the startup logic falls back to the
+> > > > classic rproc_elf_find_loaded_rsc_table().
+> > >
+> > > We can't remove @rsc-table to make a problem go away.
+> > >
+> >
+> > I need to re-take a look at the NXP SDK to understand what's the real
+> > purpose of having the rsc-table here. Judging from the commit message
+> > that introduced support for such facility [1], it seems the SDK is not
+> > really using it.
+> >
+> > Maybe someone from NXP can comment on this?
+> >
+> > > >
+> > > > This is specific to i.MX platforms [1] and is probably not normally an
+> > > > issue because - as stated in [1] - the offical SDK from NXP seems not
+> > > > to check the status inside the resource table.
+> > > >
+> > > > > >                 vdev0vring0: vdev0vring0@a4000000 {
+> > > > > >                         reg = <0 0xa4000000 0 0x8000>;
+> > > > > >                         no-map;
+> > > > > > @@ -105,12 +126,42 @@ vdev0vring1: vdev0vring1@a4008000 {
+> > > > > >                 };
+> > > > > >
+> > > > > >                 vdev1vring0: vdev1vring0@a4010000 {
+> > > > > > -                       reg = <0 0xa4010000 0 0x8000>;
+> > > > > > +                       reg = <0 0xa4010000 0 0x1000>;
+> > > > > > +                       no-map;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev2vring0: vdev2vring0@a4011000 {
+> > > > > > +                       reg = <0 0xa4011000 0 0x2000>;
+> > > > > > +                       no-map;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev2vring1: vdev2vring1@a4013000 {
+> > > > > > +                       reg = <0 0xa4013000 0 0x2000>;
+> > > > > > +                       no-map;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev3vring0: vdev3vring0@a4015000 {
+> > > > > > +                       reg = <0 0xa4015000 0 0x2000>;
+> > > > > > +                       no-map;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev4vring0: vdev4vring0@a4017000 {
+> > > > > > +                       reg = <0 0xa4017000 0 0x4000>;
+> > > > > > +                       no-map;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev5vring0: vdev5vring0@a401B000 {
+> > > > > > +                       reg = <0 0xa401B000 0 0x2000>;
+> > > > > > +                       no-map;
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev5vring1: vdev5vring1@a401D000 {
+> > > > > > +                       reg = <0 0xa401D000 0 0x2000>;
+> > > > > >                         no-map;
+> > > > > >                 };
+> > > > > >
+> > > > > > -               vdev1vring1: vdev1vring1@a4018000 {
+> > > > > > -                       reg = <0 0xa4018000 0 0x8000>;
+> > > > > > +               vdev5vring2: vdev5vring2@a401F000 {
+> > > > > > +                       reg = <0 0xa401F000 0 0x1000>;
+> > > > > >                         no-map;
+> > > > > >                 };
+> > > > > >
+> > > > > > @@ -149,8 +200,67 @@ &cm33 {
+> > > > > >                  <&mu1 3 1>;
+> > > > > >         mbox-names = "tx", "rx", "rxdb";
+> > > > > >         memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+> > > > > > -                       <&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+> > > > > > +                       <&vdev1vring0>, <&vdev2vring0>, <&vdev2vring1>,
+> > > > > > +                       <&vdev3vring0>, <&vdev4vring0>,
+> > > > > > +                       <&vdev5vring0>, <&vdev5vring1>, <&vdev5vring2>;
+> > > > >
+> > > > > Who is using vdev5 vrings?
+> > > > >
+> > > >
+> > > > Another thing that should have been in the commit message. Vdevs are
+> > > > defined, in the Zephyr application I am using as PoC, as follows:
+> > > >
+> > > >  - vdev0: RPMSG (tx and rx vrings)
+> > >
+> > > To be backward compatible, there has to be a way to make vdev0 defaulting to
+> > > RPMSG.  It would also be nice if bindings were define for RPMSG so that it can
+> > > show up in the list of remoteproc-virtio devices like i2c, gpio and others.
+> > >
+> >
+> > What vdev type is inside vdev0 is up to the resource table (i.e., to the
+> > firmware running on the remote processor), not the remoteproc-virtio
+> > framework.
+> >
+> 
+> We are of the same opinion.  Up to now vdev0 was automatically
+> assigned to RPMSG but with this new feature, it can be anywhere in the
+> list.  I see your point about RPMSG not requiring hardware
+> description.
+> 
+> > Defining bindings for rpmsg would today be... pointless? Since no
+> > hardware needs to be described for it. The same goes for virtio-can and
+> > virtio-entropy.
+> >
+> 
+> Just to make sure we understand each other, there are entries in the
+> resource table for virtio-can and virtio-entropy.  Please confirm.
+>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+This is correct. You can take a look at the resource table used for this
+Poc in [1]; basically it is defined as:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+struct fw_resource_table {
+    struct resource_table hdr;
+    uint32_t offset[RSC_TABLE_NUM_ENTRIES];
 
-- [Medium] In commit "net: stmmac: retain PHY and PM ownership during
-  ethtool reopening", a failed hardware setup during a live ethtool…
-- [Low] The commit message says the old behaviour lets 'an MTU change ...
-  quiesce NAPI which is already disabled'.
-- [Low] After a failed live channel change, the netdev core and the
-  driver disagree on queue counts.
+    DECL_RSC_TABLE_VDEV(rpmsg, 2);
+    DECL_RSC_TABLE_VDEV(entropy, 1);
+    DECL_RSC_TABLE_VDEV_CONFIG(gpio, 2, struct virtio_gpio_config);
+    DECL_RSC_TABLE_VDEV(i2c, 1);
+    DECL_RSC_TABLE_VDEV_CONFIG(spi, 1, struct virtio_spi_config);
+    DECL_RSC_TABLE_VDEV_CONFIG(can, 3, struct virtio_can_config);
+};
 
---
+where:
 
-net: stmmac: retain PHY and PM ownership during ethtool reopening
+DECL_RSC_TABLE_VDEV(<vdev-type>, <num-of-vrings>[, <config space>])
 
-This commit changes the stmmac ethtool ring size and channel count paths.
-They now detach the device and release only the datapath, then reopen
-through a new stmmac_reopen() helper that keeps the PHY attachment and the
-runtime-PM reference. On failure the previous ring sizes or queue counts are
-restored and the device stays detached.
+> > >
+> > > >  - vdev1: entropy (single request vring)
+> > > >  - vdev2: GPIO (request and event vrings)
+> > > >  - vdev3: I2C (single request vring)
+> > > >  - vdev4: SPI (single request vring)
+> > > >  - vdev5: CAN (tx, rx and control vrings)
+> > > >
+> > > > vdev5 is not represented inside the devicetree because the can-virtio
+> > > > driver registers a single CAN network device and has thus no need for
+> > > > such representation.
+> > >
+> > > Then why is it part of the remoteproc's memory-regions?
+> > >
+> >
+> > Because a vring description needs to be present for it, or the
+> > remoteproc-virtio won't be able to fill the entry inside the resource
+> > table.
+> >
+> > > >
+> > > > > >         status = "okay";
+> > > > > > +
+> > > > > > +       virtio {
+> > > > > > +               #address-cells = <1>;
+> > > > > > +               #size-cells = <0>;
+> > > > > > +
+> > > > > > +               vdev@2 {
+> > > > > > +                       reg = <2>;
+> > > > > > +
+> > > > > > +                       v_gpio: gpio {
+> > > > > > +                               compatible = "virtio,device29";
+> > > > > > +                               gpio-controller;
+> > > > > > +                               #gpio-cells = <2>;
+> > > > > > +                               interrupt-controller;
+> > > > > > +                               #interrupt-cells = <2>;
+> > > > > > +                       };
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev@3 {
+> > > > > > +                       reg = <3>;
+> > > > > > +
+> > > > > > +                       i2c {
+> > > > > > +                               compatible = "virtio,device22";
+> > > > > > +                               #address-cells = <1>;
+> > > > > > +                               #size-cells = <0>;
+> > > > > > +
+> > > > > > +                               eeprom@50 {
+> > > > > > +                                       compatible = "atmel,24c1025";
+> > > > > > +                                       reg = <0x50>;
+> > > > > > +                               };
+> > > > > > +                       };
+> > > > > > +               };
+> > > > > > +
+> > > > > > +               vdev@4 {
+> > > > > > +                       reg = <4>;
+> > > > > > +
+> > > > > > +                       spi {
+> > > > > > +                               compatible = "virtio,device2d";
+> > > > > > +                               #address-cells = <1>;
+> > > > > > +                               #size-cells = <0>;
+> > > > > > +
+> > > > > > +                               sram@0 {
+> > > > > > +                                       compatible = "microchip,mchp23k256";
+> > > > > > +                                       reg = <0>;
+> > > > > > +                                       spi-max-frequency = <20000000>;
+> > > > > > +                               };
+> > > > > > +
+> > > > > > +                               lcd@1 {
+> > > > > > +                                       compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+> > > > > > +                                       reg = <1>;
+> > > > > > +                                       spi-max-frequency = <10000000>;
+> > > > > > +                                       dc-gpios = <&v_gpio 21 GPIO_ACTIVE_HIGH>;
+> > > > > > +                                       reset-gpios = <&v_gpio 20 GPIO_ACTIVE_HIGH>;
+> > > > > > +                                       rotation = <90>;
+> > > > > > +                               };
+> > > > > > +                       };
+> > > > > > +               };
+> > > > > > +       };
+> > > > > >  };
+> > > > > >
+> > > > > >  &eqos {
+> > > > > >
+> > > > > > --
+> > > > > > 2.55.0
+> > > > > >
+> > > >
+> > > > Thank you!
+> > > >
+> > > > Regards,
+> > > > Francesco
+> > > >
+> > > >
+> >
+> > Thank you for the discussion - is helping in defining further
+> > requirements and constraints.
+> >
+> 
+> Well, I certainly appreciate that you are willing to have a discussion.
+> 
 
-> the PHY attachment and runtime-PM reference have already been dropped, but
-> the next ordinary close drops them again. The device also remains present,
-> allowing an MTU change to quiesce NAPI which is already disabled.
+Regards,
+Francesco
 
-[Severity: Low]
-Is this description accurate for this tree?
-
-With the old code, a failed ethtool reopen is stmmac_release() followed by a
-failed stmmac_open(). After that, priv->datapath stays
-STMMAC_DATAPATH_DOWN. A later jumbo MTU change calls __stmmac_release(),
-which returns early:
-
-    if (priv->datapath == STMMAC_DATAPATH_DOWN)
-        return;
-
-An earlier patch in this series added that guard ("net: stmmac: keep
-datapath state coherent after reinitialization failure"). So
-stmmac_quiesce() and napi_disable() never run. MTU changes that don't need
-jumbo buffers don't touch the datapath at all.
-
-The real hazard looks different. stmmac_change_mtu() goes on to call
-__stmmac_open(), which restarts DMA, IRQs and phylink. At that point
-stmmac_release() has already disconnected the PHY and dropped the
-runtime-PM reference.
-
-This patch does close that, because dev_set_mtu_ext() returns -ENODEV for a
-detached device. Could the commit message describe that consequence instead?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index d56b7f911db0a..d17c68f55caf6 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -7658,13 +7660,37 @@ static void stmmac_napi_del(struct net_device *dev)
->  	}
->  }
->  
-> -int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
-> +/* Rebuild only the datapath. The administratively-up device still owns its
-> + * PHY attachment and runtime-PM reference, even if this reopen fails.
-> + */
-> +static int stmmac_reopen(struct net_device *dev)
->  {
->  	struct stmmac_priv *priv = netdev_priv(dev);
-> -	int ret = 0, i;
-> +	struct stmmac_dma_conf *old_conf = priv->dma_conf;
-> +	struct stmmac_dma_conf *dma_conf;
-> +	int ret;
->  
-> -	if (netif_running(dev))
-> -		stmmac_release(dev);
-> +	dma_conf = stmmac_setup_dma_desc(priv, dev->mtu);
-> +	if (IS_ERR(dma_conf))
-> +		return PTR_ERR(dma_conf);
-> +
-> +	ret = __stmmac_open(dev, dma_conf);
-> +	if (ret) {
-> +		priv->dma_conf = old_conf;
-> +		free_dma_desc_resources(priv, dma_conf);
-> +		kfree(dma_conf);
-> +		return ret;
-> +	}
-
-[Severity: Medium]
-Can this failure path leave the PHY powered up while phylink is stopped and
-the MAC is disabled?
-
-Before the reopen, __stmmac_release() goes through phylink_stop() and
-phy_stop(). That suspends the PHY unless WoL is set.
-
-__stmmac_open() then resumes the PHY before hardware setup. stmmac always
-sets config->mac_requires_rxc = true, so phylink_prepare_resume() calls
-phy_resume():
-
-__stmmac_open()
-    phylink_prepare_resume(priv->phylink);
-    ...
-    ret = stmmac_hw_setup(dev, false);
-    if (ret < 0) {
-        ...
-        goto init_error;
-    }
-    ...
-init_error:
-    stmmac_stop_all_dma(priv);
-    stmmac_mac_set(priv, priv->ioaddr, false);
-    return ret;
-
-stmmac_hw_setup() can fail, for example when the DMA software reset times
-out. The init_error label then skips phylink_stop(), and the error branch
-above only frees the replacement dma_conf.
-
-The old path was stmmac_open() error -> phylink_disconnect_phy() ->
-phy_detach() -> phy_suspend(). That put the PHY back into power-down.
-
-With this change the PHY can stay powered and bring up a link with the
-partner, while the host has no carrier and the MAC is off. This seems to
-last until the interface is taken down. At that point __stmmac_release()
-returns early on STMMAC_DATAPATH_DOWN, and only phylink_disconnect_phy() in
-stmmac_release() suspends the PHY.
-
-phylink_stop() already handles an instance that is already stopped. The
-commit "net: phylink: allow stopping a suspended instance" added this
-branch:
-
-drivers/net/phy/phylink.c:phylink_stop() {
-    if (test_bit(PHYLINK_DISABLE_STOPPED, &pl->phylink_disable_state)) {
-        if (pl->phydev)
-            phy_suspend(pl->phydev);
-        return;
-    }
-    ...
-}
-
-Would calling phylink_stop() on this failure path undo the power-up and
-still keep the PHY attached and the runtime-PM reference held?
-stmmac_reopen() is not changed later in the series, so this remains at the
-end of the series.
-
-> +
-> +	kfree(old_conf);
-> +	netif_device_attach(dev);
-> +	return 0;
-> +}
-
-[ ... ]
-
-> @@ -7676,9 +7702,31 @@ int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
->  									rx_cnt);
->  
->  	stmmac_napi_add(dev);
-> +}
-> +
-> +int stmmac_reinit_queues(struct net_device *dev, u8 rx_cnt, u8 tx_cnt)
-> +{
-> +	struct stmmac_priv *priv = netdev_priv(dev);
-> +	u8 old_rx = priv->plat->rx_queues_to_use;
-> +	u8 old_tx = priv->plat->tx_queues_to_use;
-> +	int ret = 0;
-> +
-> +	if (netif_running(dev)) {
-> +		if (!netif_device_present(dev))
-> +			return -ENETDOWN;
-> +		netif_device_detach(dev);
-> +		__stmmac_release(dev);
-> +	}
-> +
-> +	stmmac_set_queues(dev, rx_cnt, tx_cnt);
->  
->  	if (netif_running(dev))
-> -		ret = stmmac_open(dev);
-> +		ret = stmmac_reopen(dev);
-> +	if (ret) {
-> +		stmmac_set_queues(dev, old_rx, old_tx);
-
-[Severity: Low]
-Does this leave dev->real_num_rx_queues and dev->real_num_tx_queues at the
-new counts while the driver goes back to the old ones?
-
-__stmmac_open() can fail after stmmac_hw_setup() has already succeeded, for
-example when stmmac_request_irq() fails. By then stmmac_hw_setup() has
-already run this with the new counts:
-
-    netif_set_real_num_rx_queues(dev, priv->plat->rx_queues_to_use);
-    netif_set_real_num_tx_queues(dev, priv->plat->tx_queues_to_use);
-
-stmmac_set_queues(dev, old_rx, old_tx) restores
-priv->plat->rx/tx_queues_to_use, the RSS table and the NAPI instances. It
-does not restore the core real_num_* values.
-
-Until the next ndo_open re-syncs them in stmmac_hw_setup(), the core (sysfs
-queue kobjects, XPS/RPS, xsk qid bounds) sees the new topology and the
-driver sees the old one. The old code never restored the plat values, so
-both sides stayed consistent.
-
-Does this partial restore match what the commit message describes as
-restoring the "channel topology after failure"?
-
-> +		netdev_err(dev, "failed reopening after channel change: %pe; interface remains detached\n",
-> +			   ERR_PTR(ret));
-> +	}
->  
->  	return ret;
->  }
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260924-submit-stmmac-reset-fixes-v1-v3-0-c031e3f3a282%40gmail.com
+[1] https://github.com/WallaceIT/zephyr/blob/multi_vdev/samples/subsys/ipc/multi_vdev/src/resource_table.c#L88
 
