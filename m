@@ -4,116 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ED5C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 14:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FAEC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Sep 2026 14:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ttIzdSgGwF3oYew4qv8F+STrNKpMlUPsu7xJxs95kI=; b=QLfCwXqURecDntjz5GlbZjSTz4
-	apz3asuKahARSUqr59GCv1N8sDS9iifo9Y73dSis1R/dSM7tK+hmrmsBJVNu69aISOItn6xfbHFsU
-	bDeLYlBt/X17vlH3jWxCtmYI8TVsTCAU0KI2cHU1uCDl0VwNHIwQHJ3rWZed3HJRxnzb6UP47sSea
-	MoyXiOwLLKxrJQ1DTWWV0ddQ2pHF4nfCVB5j4Fst7kkyr5BMP/DznWaQPBEm39/XxzCWq+nPZITWy
-	RpopjMlsRehFy4VNoCBUmpVuacjnEHc4VN4nFP9FFhq8iPHWN6oSi2JG6wfkuFt6EmOmsfgbsF6rI
-	51whn3GA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dFImymqJ582yn/mBoWa/LNPDaCA7McUmWhyuGJ48+PA=; b=XzEvE2h46swSR3h9J9fE071aLB
+	8yqw1OaRxLfjDblY8/nAWpSvA9y2NpwV+PMsD0y39cCotM53AZDIDeJ0+ciMNPdYKbbS67Qh/uLwO
+	c6GQtuUXGxp1jyKCdTrV695KoOCh3HUOr9F1qKg06nUaDoft0xYKEapb0kCYCovtkGQUngtExFq4D
+	mgfB3BDRd7/GwTmWoGlfm/zBPmdydllxqx9dZ+OiCYEuim5WamHmJ1cbkJbfK5Y7QfTuWGNlm9HWh
+	aGWUUXoLT3L1O/XYpXBI5LRPqW7JS1qOAUeEPiLOx2YaNfkC4yGqfGQTPAk04c6AezCUhL2HfNSvG
+	128B57jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6XC-0000000DWfc-2aRz;
-	Fri, 25 Sep 2026 14:04:18 +0000
-Received: from mail-wr2-x2a.google.com ([2a00:1450:4864:30::2a])
+	id 1xA6iG-0000000DYUn-2zSA;
+	Fri, 25 Sep 2026 14:15:44 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6WY-0000000DWII-2SLr
+	id 1xA6iC-0000000DYTf-3lnS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Sep 2026 14:03:40 +0000
-Received: by mail-wr2-x2a.google.com with SMTP id ffacd0b85a97d-48439feca17so678092f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Sep 2026 07:03:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790345017; x=1790949817; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4ttIzdSgGwF3oYew4qv8F+STrNKpMlUPsu7xJxs95kI=;
-        b=ZlURiMwNz2KDSL0tGvXjItEk+rftutrja29np88RFouWk2h6vnUjQlLiun/pBdjD/y
-         RwBsqjp6Yp0elJFzMQqJKgjKIgsu6y7cxF9BZlE4963DBxq6jad80LJGXGhTa7s+4AtS
-         TWdX92Ntl8SGuUhO/jcwNJpm29yOPcGejdnuYBunstpGpFsK3LUO3rWVCGYh00tbs+v2
-         ei5t2pZeJYXNVs+Pr2FffupZsDQqq1gHG7Hi8BcP6WHd1UEjuw0kDOcg8QbPMZXwFsv5
-         ftkZhteZRZSx3kQ+bfehY+ATcWSR1FdjzMwlAjPXVHxqaJBDVyK2O0zJ9MEkCfN3MpS9
-         hWQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790345017; x=1790949817;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4ttIzdSgGwF3oYew4qv8F+STrNKpMlUPsu7xJxs95kI=;
-        b=bjBC5R488GeeIzbMhmKcEL7bCxdoEBsuGTd+8aAjJ37QSUyJE5sspY7RPW5RZUjbXU
-         wczfcgknrcVrO9tZGrlU36ZpDFshKYMJ6e+QGK6seV+ll6CfCTBRaWgHORbfVt284cql
-         nW1oJTsEpLKS6U7xo3S5QfBZ2t1NMwYgWlvrQvLcYMU4BxMPuSt+W7UL3MMXEeTSI9T5
-         51VpVYomLClajQP7QECntsGxPxXmhWuN6UDUhNoDTafrKKd9iZq5h7SDP1BQK+go4S2h
-         6Ys0jDcm73dW6j879KbgfosCyjQx7zkiUc7eomQ+KkafwYWnM458j0x2ar4z6BmEu3Bu
-         8UtQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzTHv2R22tRmPeQ41TcW/m8YHEe8PDvwY+YwEGQHez/0QMIVqsxezjrYYf5ch7pf2pUC5AYP2QS/mJpxUg7PaWP@lists.infradead.org
-X-Gm-Message-State: AFuF++moZ97XaF0Hqj9ynvVO8pdCJEkoaUoTPVTUoLWSl1H8+Ro8hMLZ
-	FyvIaQIBYMSvk0sV2eHcI2iY228VFwDc6tHGSeqbIJASM/zvu5pL/xb7
-X-Gm-Gg: AYBFou2oEDW3+5XNE+/bau6Jm5pkVIjB2Vt0Cp7B+sTg62QPTEUqdB5ucyfyndJCDP5
-	NNXCIqhpWnOHDVfsajD+vXpPMZzobQ8kSGS6bVZnCl1SlyUehH5PqLjtjqXvobVt5WIqTXwexof
-	I3uz0sDzbqgvxRr/3/thTlluik7Z/RTeSDzXP0FNKGzBm6fygriEy4V7nfFz9REq9on7FBUqjvn
-	WH3MpJUHFFNY8i14FpcQsRplxM4DayRyTH7lM8sFwGcvU2b83rQGBg2XVj4otlZlHvLsTqTN5+R
-	b9wG5phNfesnDpIAj9UwZWMxAgmDHf+aEFfhvbLhOOf+UhjUpXnHUUa3ZYC12ow7pZJZmGW4MQG
-	Q/17IHTjVMHukmSA7v+6mOigYUp5JCVpz4TH4oKWwUBYuYSDbdgftS0eJqt02CtVqqxB7ldnU3h
-	8M4Tt68qRfTuy9AHgXZvKxZzuUNABx2CB7g5Te/mTSHDp4dhSp6DnnvtEYj3szwU7zryw6k1cs5
-	oCwkK2FkZsOUbp4cu5hAfA4IyEO/6aJ4+IhvbKIJKLMx/epw5EPC1KrWTaeiS+vA1yALhXofYOz
-	YgcAnmHTgMnYTkHLF1oB4A==
-X-Received: by 2002:a05:6000:4684:b0:488:764c:7a17 with SMTP id ffacd0b85a97d-488764c80c7mr5477878f8f.1.1790345016305;
-        Fri, 25 Sep 2026 07:03:36 -0700 (PDT)
-Received: from Lord-Beerus.station ([31.27.155.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4887a355c65sm7522431f8f.19.2026.09.25.07.03.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Sep 2026 07:03:35 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Joseph Guo <qijian.guo@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	netdev@vger.kernel.org
-Subject: [PATCH v1 07/11] ARM: dts: imx6ul: Reuse Variscite DTSI files for Concerto
-Date: Fri, 25 Sep 2026 16:02:24 +0200
-Message-ID: <305bd230d96770d84ff0e9395fe92fe7ab39bc3f.1790344389.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1790344389.git.stefano.r@variscite.com>
-References: <cover.1790344389.git.stefano.r@variscite.com>
+	Fri, 25 Sep 2026 14:15:43 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 654DE140015A;
+	Fri, 25 Sep 2026 10:15:37 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Fri, 25 Sep 2026 10:15:37 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm3; t=1790345737; x=1790432137; bh=dFImymqJ58
+	2yn/mBoWa/LNPDaCA7McUmWhyuGJ48+PA=; b=Yx+gdAsbx4AWAIjS25buGp2077
+	xb5dk9nY7aDBEetOb9+iEljCwXp0GXY+cr3mD3UadrUVXhwEy1W9fK+BoLaR0IAD
+	/rKPwGBzEsWGlDCkcNycYnG0V+AQP+CX7Qt0+k/MqIsH2EqZZVJ1KqtgE9zfYe4w
+	I8gc137E0cZJiB1r6aecfJ1hZdsGGebL1o465TnAjrb5tJskZnw19vgL+g2CJzlH
+	bRK2KA7bd1tlLn//cISk4pfxfcTNQKUX9AsFEuPX5c8oACT+vahV54aEFaqj+gOd
+	rpJd9TuL7BvGfEZzynuvuGalA349ZTWieoZi/gfSqBMO2d8rLbG5tWdbTAgA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1790345737; x=1790432137; bh=dFImymqJ582yn/mBoWa/LNPDaCA7McUmWhy
+	uGJ48+PA=; b=ownh1sgVfit33Dq6Hr0h0d9eBW9LdYZdqH0hk7OFOatLgoZrvn1
+	lQzE03KiOxuC40LbL1LyvGM3s+DgN4I8RVe761qVYR60/BsoL1cZEkC0yb9BJ8vl
+	I/VxTCJrohJ0LbA4ET6krM00+bvK6aofV5uWugN+OIuwOVy2SDaB2kLsvOl3/YqK
+	Z3t2EIWV1RDmJK4CHanvjSmq3Md9KBwSU6RjV3BPoqwBkojfyZNYv3R/n0Zw+W8m
+	5WUcn2gXzUIXqn9pTrTSbQ4uLQ6L5plszHtQD/7robnDBnAI3W1HhONAbGpGm1hv
+	e+zeN8j6QNVOjz3lUFMM/QiokMLOj4GMXOg==
+X-ME-Sender: <xms:CIK2apFJVQfYdIMDSgoBmj7f6POWt0j2ZnQFvSxgZxoy1WjGrj1Nbw>
+    <xme:CIK2al8RzEYzWunRyVM2yTQxVaNs9A-ryAk0SzA9xzYWruKFjoggKB5oYKQC9DXr0
+    NhemUncKwM3K39ZnJCeGf8IxNgCxe7KFHEofohzY1XQqGnXV9F6VvQ>
+X-ME-Received: <xmr:CIK2arXG2_cqHfnlcUN8Xh0vdYHWXQad_Oiy1m0u0Y1nU1A3easlkI1gw8E>
+X-ME-Proxy-Cause: dmFkZTFtVMPCrlBVoZqL+SJIZp0s2Jd7Wu3nUF+AUN1gAS1aD7ulj63R8JOoTdDeAqN4Tu
+    9hGImosjjpSUvLz/rROF2ESivswRYFsyWEvAExY7WLxcp3hJhBaW2wSSR+iSE2AMoMCOvv
+    wmePoZYRugZRdfBQwTMOyRLBvCAqdTaSXY/seQ96bpaeJrtuxpKpyUpyLLZM4zsSNKA6R9
+    sfIelzdHvwllgaTwh00ExxojlXwovGySFTNIiWbIvOqOAy3EnOxM/prZZsE/BWUIpsaIJ7
+    +7mZ3xSvs/WxDcigCm+xwvVCb4WaJPHtXplm6EEvzWBLbhDSQk6/C5Kc+QdpbVJmCmQpB+
+    LtlgLh6gUd7oDD4RO57CXVC/g623izbtBgqI+wI9DqrYOogHJmBB/lAtYLexjw5TdMZBu9
+    AVZDpilsZH/aQmKRTTpTvbjiyA5HJexCZveLOdp/xyrh9tuVwaZUsVPNAR5uN5R2LSouiV
+    U9Tx0IZsKKG5568r2MnwbTP1jqP8Vv1Kwc8pFK6AhFVrIbcp455BZNyQW9epkLjOmztdiV
+    Q5/VHyC5N6kcloNjjffjuHuAlayxZqz9EiC6rEsueLWje9q+y/qKdbri1Mde+gqWkad85o
+    Cjs1usZWPO95e3N3zH5xrlHvht/1rBPun6TWZVJvD7m+Hr4PkzT6Zbj4EcJw
+X-ME-Proxy: <xmx:CIK2anEeuIil0U4Pi78Su9EC5qoqpkhIoJxcbRhPP7bbxqQ9ySSLeQ>
+    <xmx:CIK2av4i_HVn6oKbP3VUK2yapK3fq-m7epeqWq8rN1lgQRCq3hLZAg>
+    <xmx:CIK2apK27Re_JCRxFyCoIFudINbYucZ96mMg6qLMGF3mbqfoTExk5g>
+    <xmx:CIK2aqDbJq9Lq22JpbJTlzKycJM1_y4nT4n3D28MKtPld-G-IJsSuQ>
+    <xmx:CYK2ajXSQLGawnttQoZeXhEGVNSYejMEKMoU_N5PDPKC-8h1xpjNLFb0>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 25 Sep 2026 10:15:36 -0400 (EDT)
+From: Kiryl Shutsemau <kirill@shutemov.name>
+To: Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Breno Leitao <leitao@debian.org>
+Cc: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Ashish Mhetre <amhetre@nvidia.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	Yuanhe Shu <xiangzao@linux.alibaba.com>,
+	Kyle McMartin <jkkm@meta.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	kernel-team@meta.com,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 0/2] iommu/arm-smmu-v3: Make the queue depths tunable, and shrink them in a kdump kernel
+Date: Fri, 25 Sep 2026 15:15:28 +0100
+Message-ID: <20260925141532.1274962-1-kirill@shutemov.name>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_070338_826781_46470602 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20260925_071541_227947_FD920A00 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,976 +122,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 
-Convert the existing i.MX6UL and i.MX6ULL Concerto boards to the
-shared module, option and carrier DTSI files. Keep the existing DTB
-names and compatible strings.
+The queues are sized from the IDR1 maxima and allocated at probe, costing
+megabytes per queue per SMMU instance. A kdump capture kernel pays that out
+of a small crashkernel reservation, for queues it barely uses and two of
+which it switches off anyway.
 
-The former LVDS panel graph did not describe the working Variscite
-display setup. Replace it with the LCDIF display timings and backlight
-configuration for the actual Concerto hardware.
+Patch 1 adds a cmdq_max_n_shift module parameter, decided in a per-queue
+helper and floored at one page. Patch 2 has a kdump kernel size all three
+queues at one page through the same helper. The parameter does not apply
+there.
 
-The old Wi-Fi power sequence and Bluetooth nodes modeled enable and
-reset control in the kernel. On these SoMs those controls are handled
-in userspace, so use the shared Broadcom Wi-Fi description without the
-old kernel-managed nodes.
+Yuanhe Shu tested v6 on an arm64 server with six SMMUv3 instances, 64K
+pages and a 512 MiB crashkernel reservation. Without the series the queues
+took 192 MiB and the capture kernel OOMed before makedumpfile ran. With it
+they take about 1 MiB and the vmcore is saved.
 
-Fold the remaining common, audio, SD and Ethernet descriptions into
-the shared module and carrier DTSI files.
+Measured per instance under QEMU on -M virt,iommu=smmuv3 with the virtio
+devices behind the SMMU, the capture kernel identified by elfcorehdr= on
+the command line:
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../dts/nxp/imx/imx6ul-var-som-audio.dtsi     |  30 ---
- .../dts/nxp/imx/imx6ul-var-som-common.dtsi    | 187 ---------------
- .../imx/imx6ul-var-som-concerto-common.dtsi   | 215 ------------------
- .../nxp/imx/imx6ul-var-som-concerto-full.dts  |  15 +-
- .../dts/nxp/imx/imx6ul-var-som-concerto.dts   |  14 +-
- .../dts/nxp/imx/imx6ul-var-som-enet1.dtsi     |  44 ----
- .../dts/nxp/imx/imx6ul-var-som-enet2.dtsi     |  79 -------
- .../nxp/imx/imx6ul-var-som-lvds-panel.dtsi    | 112 ---------
- .../boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi   |  27 ---
- .../boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi |  75 ------
- .../nxp/imx/imx6ull-var-som-concerto-full.dts |  15 +-
- .../dts/nxp/imx/imx6ull-var-som-concerto.dts  |  14 +-
- 12 files changed, 32 insertions(+), 795 deletions(-)
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
- delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
+                        4K page          64K page
+      cmdq         1 MB -> 4 KB      8 MB -> 64 KB
+      evtq         1 MB -> 4 KB     16 MB -> 64 KB
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
-deleted file mode 100644
-index 3c480bc7a6ad..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-audio.dtsi
-+++ /dev/null
-@@ -1,30 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Audio support for Variscite VAR-SOM-6UL module.
-- *
-- * Copyright 2019-2024 Variscite Ltd.
-- * Copyright 2026 Dimonoff
-- */
--
--&iomuxc {
--	pinctrl_sai2: sai2grp {
--		fsl,pins = <
--			MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK	0x17088
--			MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC	0x17088
--			MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA	0x11088
--			MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA	0x11088
--			MX6UL_PAD_JTAG_TMS__SAI2_MCLK		0x17088
--		>;
--	};
--};
--
--&sai2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_sai2>;
--	assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>,
--			  <&clks IMX6UL_CLK_SAI2>;
--	assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
--	assigned-clock-rates = <0>, <12288000>;
--	fsl,sai-mclk-direction-output;
--	status = "okay";
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-deleted file mode 100644
-index 5600eeaa5854..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-common.dtsi
-+++ /dev/null
-@@ -1,187 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Support for the common parts shared by all the different CPU options on
-- * Variscite VAR-SOM-6UL Module
-- *
-- * Copyright 2019 Variscite Ltd.
-- * Copyright 2025 Bootlin
-- */
--
--#include <dt-bindings/clock/imx6ul-clock.h>
--#include <dt-bindings/gpio/gpio.h>
--
--/ {
--	model = "Variscite VAR-SOM-6UL module";
--	compatible = "variscite,var-som-imx6ul", "fsl,imx6ul";
--
--	memory@80000000 {
--		device_type = "memory";
--		reg = <0x80000000 0x20000000>;
--	};
--
--	reg_3p3v: regulator-3p3v {
--		compatible = "regulator-fixed";
--		regulator-name = "3P3V";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		regulator-always-on;
--	};
--
--	reg_gpio_dvfs: reg-gpio-dvfs {
--		compatible = "regulator-gpio";
--		regulator-min-microvolt = <1300000>;
--		regulator-max-microvolt = <1400000>;
--		regulator-name = "gpio_dvfs";
--		regulator-type = "voltage";
--		gpios = <&gpio4 13 GPIO_ACTIVE_HIGH>;
--		states = <1300000 0x1
--			  1400000 0x0>;
--	};
--};
--
--&clks {
--	assigned-clocks = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
--	assigned-clock-rates = <786432000>;
--};
--
--&iomuxc {
--	pinctrl_i2c1: i2c1grp {
--		fsl,pins = <
--			MX6UL_PAD_CSI_PIXCLK__I2C1_SCL		0x4001b8b0
--			MX6UL_PAD_CSI_MCLK__I2C1_SDA		0x4001b8b0
--		>;
--	};
--
--	pinctrl_tsc: tscgrp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
--			MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0xb0
--			MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0xb0
--			MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0
--		>;
--	};
--
--	pinctrl_uart2: uart2grp {
--		fsl,pins = <
--			MX6UL_PAD_UART2_TX_DATA__UART2_DCE_TX	0x1b0b1
--			MX6UL_PAD_UART2_RX_DATA__UART2_DCE_RX	0x1b0b1
--			MX6UL_PAD_UART2_CTS_B__UART2_DCE_CTS	0x1b0b1
--			MX6UL_PAD_UART2_RTS_B__UART2_DCE_RTS	0x1b0b1
--		>;
--	};
--
--	pinctrl_usdhc1: usdhc1grp {
--		fsl,pins = <
--			MX6UL_PAD_SD1_CMD__USDHC1_CMD		0x17059
--			MX6UL_PAD_SD1_CLK__USDHC1_CLK		0x17059
--			MX6UL_PAD_SD1_DATA0__USDHC1_DATA0	0x17059
--			MX6UL_PAD_SD1_DATA1__USDHC1_DATA1	0x17059
--			MX6UL_PAD_SD1_DATA2__USDHC1_DATA2	0x17059
--			MX6UL_PAD_SD1_DATA3__USDHC1_DATA3	0x17059
--		>;
--	};
--
--	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
--		fsl,pins = <
--			MX6UL_PAD_SD1_CMD__USDHC1_CMD		0x170b9
--			MX6UL_PAD_SD1_CLK__USDHC1_CLK		0x100b9
--			MX6UL_PAD_SD1_DATA0__USDHC1_DATA0	0x170b9
--			MX6UL_PAD_SD1_DATA1__USDHC1_DATA1	0x170b9
--			MX6UL_PAD_SD1_DATA2__USDHC1_DATA2	0x170b9
--			MX6UL_PAD_SD1_DATA3__USDHC1_DATA3	0x170b9
--		>;
--	};
--
--	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
--		fsl,pins = <
--			MX6UL_PAD_SD1_CMD__USDHC1_CMD		0x170f9
--			MX6UL_PAD_SD1_CLK__USDHC1_CLK		0x100f9
--			MX6UL_PAD_SD1_DATA0__USDHC1_DATA0	0x170f9
--			MX6UL_PAD_SD1_DATA1__USDHC1_DATA1	0x170f9
--			MX6UL_PAD_SD1_DATA2__USDHC1_DATA2	0x170f9
--			MX6UL_PAD_SD1_DATA3__USDHC1_DATA3	0x170f9
--		>;
--	};
--
--	pinctrl_usdhc2: usdhc2grp {
--		fsl,pins = <
--			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x10069
--			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x17059
--			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x17059
--			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x17059
--			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x17059
--			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x17059
--			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x17059
--			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x17059
--			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x17059
--			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x17059
--		>;
--	};
--
--	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
--		fsl,pins = <
--			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x100b9
--			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x170b9
--			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x170b9
--			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x170b9
--			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x170b9
--			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x170b9
--			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x170b9
--			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x170b9
--			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x170b9
--			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x170b9
--		>;
--	};
--
--	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
--		fsl,pins = <
--			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x100f9
--			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x170f9
--			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x170f9
--			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x170f9
--			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x170f9
--			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x170f9
--			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x170f9
--			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x170f9
--			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x170f9
--			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x170f9
--		>;
--	};
--};
--
--&pxp {
--	status = "okay";
--};
--
--&snvs_poweroff {
--	status = "okay";
--};
--
--&tsc {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_tsc>;
--	xnur-gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
--	measure-delay-time = <0xffff>;
--	pre-charge-time = <0xfff>;
--	status = "okay";
--};
--
--&uart2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart2>;
--	uart-has-rtscts;
--	status = "okay";
--};
--
--&usdhc2 {
--	pinctrl-names = "default", "state_100mhz", "state_200mhz";
--	pinctrl-0 = <&pinctrl_usdhc2>;
--	pinctrl-1 = <&pinctrl_usdhc2_100mhz>;
--	pinctrl-2 = <&pinctrl_usdhc2_200mhz>;
--	bus-width = <8>;
--	no-1-8-v;
--	non-removable;
--	keep-power-in-suspend;
--	wakeup-source;
--	status = "okay";
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-deleted file mode 100644
-index e5637310ba63..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-common.dtsi
-+++ /dev/null
-@@ -1,215 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Support for Variscite Concerto Carrier board with the VAR-SOM-6UL
-- * Variscite SoM mounted on it (all CPU variants)
-- *
-- * Copyright 2019 Variscite Ltd.
-- * Copyright 2025 Bootlin
-- */
--
--#include <dt-bindings/leds/common.h>
--
--/ {
--	chosen {
--		stdout-path = &uart1;
--	};
--
--	gpio-keys {
--		compatible = "gpio-keys";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_gpio_key_back>, <&pinctrl_gpio_key_wakeup>;
--
--		key-back {
--			gpios = <&gpio4 14 GPIO_ACTIVE_LOW>;
--			linux,code = <KEY_BACK>;
--		};
--
--		key-wakeup {
--			gpios = <&gpio5 8 GPIO_ACTIVE_LOW>;
--			linux,code = <KEY_WAKEUP>;
--			wakeup-source;
--		};
--	};
--
--	leds {
--		compatible = "gpio-leds";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_gpio_leds>;
--
--		led-0 {
--			function = LED_FUNCTION_STATUS;
--			color = <LED_COLOR_ID_GREEN>;
--			label = "gpled2";
--			gpios = <&gpio1 25 GPIO_ACTIVE_HIGH>;
--			linux,default-trigger = "heartbeat";
--		};
--	};
--
--	lvds_panel: lvds-panel {
--		compatible = "sgd,gktw70sdae4se", "panel-lvds";
--		data-mapping = "jeida-18";
--		width-mm = <153>;
--		height-mm = <86>;
--
--		panel-timing {
--			clock-frequency = <35000000>;
--			hactive = <800>;
--			vactive = <480>;
--			hback-porch = <40>;
--			hfront-porch = <40>;
--			vback-porch = <29>;
--			vfront-porch = <13>;
--			hsync-len = <48>;
--			vsync-len = <3>;
--			hsync-active = <0>;
--			vsync-active = <0>;
--			de-active = <1>;
--			pixelclk-active = <0>;
--		};
--	};
--};
--
--&can1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_flexcan1>;
--	status = "okay";
--};
--
--&i2c1 {
--	clock-frequency = <100000>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_i2c1>;
--	status = "okay";
--
--	rtc@68 {
--		/*
--		 * To actually use this interrupt
--		 * connect pins J14.8 & J14.10 on the Concerto-Board.
--		 */
--		compatible = "dallas,ds1337";
--		reg = <0x68>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_rtc>;
--		interrupt-parent = <&gpio1>;
--		interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
--	};
--};
--
--&iomuxc {
--	pinctrl_flexcan1: flexcan1grp {
--		fsl,pins = <
--			MX6UL_PAD_UART3_RTS_B__FLEXCAN1_RX	0x1b020
--			MX6UL_PAD_UART3_CTS_B__FLEXCAN1_TX	0x1b020
--		>;
--	};
--
--	pinctrl_gpio_key_back: gpio-key-backgrp {
--		fsl,pins = <
--			MX6UL_PAD_NAND_CE1_B__GPIO4_IO14	0x17059
--		>;
--	};
--
--	pinctrl_gpio_key_wakeup: gpio-keys-wakeupgrp {
--		fsl,pins = <
--			MX6UL_PAD_SNVS_TAMPER8__GPIO5_IO08	0x17059
--		>;
--	};
--
--	pinctrl_gpio_leds: gpio-ledsgrp {
--		fsl,pins = <
--			MX6UL_PAD_UART3_RX_DATA__GPIO1_IO25	0x1b0b0	/* GPLED2 */
--		>;
--	};
--
--	pinctrl_rtc: rtcgrp {
--		fsl,pins = <
--			MX6UL_PAD_JTAG_MOD__GPIO1_IO10		0x1b0b0 /* RTC alarm IRQ */
--		>;
--	};
--
--	pinctrl_uart1: uart1grp {
--		fsl,pins = <
--			MX6UL_PAD_UART1_TX_DATA__UART1_DCE_TX	0x1b0b1
--			MX6UL_PAD_UART1_RX_DATA__UART1_DCE_RX	0x1b0b1
--		>;
--	};
--
--	pinctrl_uart5: uart5grp {
--		fsl,pins = <
--			MX6UL_PAD_CSI_DATA00__UART5_DCE_TX	0x1b0b1
--			MX6UL_PAD_CSI_DATA01__UART5_DCE_RX	0x1b0b1
--			MX6UL_PAD_GPIO1_IO09__UART5_DCE_CTS	0x1b0b1
--			MX6UL_PAD_GPIO1_IO08__UART5_DCE_RTS	0x1b0b1
--		>;
--	};
--
--	pinctrl_usb_otg1_id: usbotg1idgrp {
--		fsl,pins = <
--			MX6UL_PAD_UART3_TX_DATA__ANATOP_OTG1_ID	0x17059
--		>;
--	};
--
--	pinctrl_wdog: wdoggrp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO01__WDOG1_WDOG_B	0x78b0
--		>;
--	};
--};
--
--&snvs_pwrkey {
--	status = "disabled";
--};
--
--&snvs_rtc {
--	status = "disabled";
--};
--
--&tsc {
--	/*
--	 * Conflics with wdog1 ext-reset-output & SD CD pins,
--	 * so we keep it disabled by default.
--	 */
--	status = "disabled";
--};
--
--/* Console UART */
--&uart1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart1>;
--	status = "okay";
--};
--
--/* ttymxc4 UART */
--&uart5 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart5>;
--	uart-has-rtscts;
--	status = "okay";
--};
--
--&usbotg1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_usb_otg1_id>;
--	dr_mode = "otg";
--	disable-over-current;
--	srp-disable;
--	hnp-disable;
--	adp-disable;
--	status = "okay";
--};
--
--&usbotg2 {
--	dr_mode = "host";
--	disable-over-current;
--	status = "okay";
--};
--
--&wdog1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_wdog>;
--	/*
--	 * To actually use ext-reset-output
--	 * connect pins J17.3 & J17.8 on the Concerto-Board
--	 */
--	fsl,ext-reset-output;
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-index 725f34d6b7ee..6df34c1a104d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto-full.dts
-@@ -8,15 +8,16 @@
- 
- /dts-v1/;
- 
-+#include "imx6ul.dtsi"
- #include "imx6ul-var-som.dtsi"
--#include "imx6ul-var-som-concerto-common.dtsi"
--#include "imx6ul-var-som-wifi.dtsi"
--#include "imx6ul-var-som-enet2.dtsi"
--#include "imx6ul-var-som-enet1.dtsi"
--#include "imx6ul-var-som-audio.dtsi"
--#include "imx6ul-var-som-lvds-panel.dtsi"
-+#include "imx6ul-imx6ull-var-som-emmc.dtsi"
-+#include "imx6ul-imx6ull-var-som-wifi-brcm.dtsi"
-+#include "imx6ul-imx6ull-var-som-wm8904.dtsi"
-+#include "imx6ul-var-som-concerto-board.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
--	compatible = "variscite,mx6ulconcerto", "variscite,var-som-imx6ul", "fsl,imx6ul";
-+	compatible = "variscite,mx6ulconcerto",
-+		     "variscite,var-som-imx6ul",
-+		     "fsl,imx6ul";
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-index c249e15772b8..bb2fe650c633 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-concerto.dts
-@@ -9,14 +9,16 @@
- 
- /dts-v1/;
- 
-+#include "imx6ul.dtsi"
- #include "imx6ul-var-som.dtsi"
--#include "imx6ul-var-som-concerto-common.dtsi"
--#include "imx6ul-var-som-sd.dtsi"
--#include "imx6ul-var-som-enet2.dtsi"
--#include "imx6ul-var-som-audio.dtsi"
--#include "imx6ul-var-som-lvds-panel.dtsi"
-+#include "imx6ul-imx6ull-var-som-emmc.dtsi"
-+#include "imx6ul-imx6ull-var-som-wm8904.dtsi"
-+#include "imx6ul-var-som-concerto-board.dtsi"
-+#include "imx6ul-imx6ull-var-som-concerto-board-sd-card.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6UL CPU)";
--	compatible = "variscite,mx6ulconcerto", "variscite,var-som-imx6ul", "fsl,imx6ul";
-+	compatible = "variscite,mx6ulconcerto",
-+		     "variscite,var-som-imx6ul",
-+		     "fsl,imx6ul";
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
-deleted file mode 100644
-index 6b1e34347bec..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet1.dtsi
-+++ /dev/null
-@@ -1,44 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Ethernet ENET1 support for Variscite VAR-SOM-6UL module with
-- * the EC configuration option ((ethernet PHY assembled on SOM).
-- *
-- * Copyright 2019-2024 Variscite Ltd.
-- * Copyright 2026 Dimonoff
-- */
--
--&fec1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_enet1>, <&pinctrl_enet1_gpio>;
--	phy-mode = "rmii";
--	phy-handle = <&ethphy0>;
--	status = "okay";
--};
--
--&iomuxc {
--	pinctrl_enet1: enet1grp {
--		fsl,pins = <
--			MX6UL_PAD_ENET1_RX_EN__ENET1_RX_EN	0x1b0b0
--			MX6UL_PAD_ENET1_RX_ER__ENET1_RX_ER	0x1b0b0
--			MX6UL_PAD_ENET1_RX_DATA0__ENET1_RDATA00	0x1b0b0
--			MX6UL_PAD_ENET1_RX_DATA1__ENET1_RDATA01	0x1b0b0
--			MX6UL_PAD_ENET1_TX_EN__ENET1_TX_EN	0x1b0b0
--			MX6UL_PAD_ENET1_TX_DATA0__ENET1_TDATA00	0x1b0b0
--			MX6UL_PAD_ENET1_TX_DATA1__ENET1_TDATA01	0x1b0b0
--			MX6UL_PAD_ENET1_TX_CLK__ENET1_REF_CLK1	0x4001b031
--		>;
--	};
--};
--
--&mdio_enet2 {
--	ethphy0: ethernet-phy@1 {
--		compatible = "ethernet-phy-ieee802.3-c22";
--		reg = <1>;
--		clocks = <&rmii_ref_clk>;
--		clock-names = "rmii-ref";
--		reset-gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
--		reset-assert-us = <100000>;
--		micrel,led-mode = <1>;
--		micrel,rmii-reference-clock-select-25-mhz;
--	};
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-deleted file mode 100644
-index b29fcdc079e3..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-enet2.dtsi
-+++ /dev/null
-@@ -1,79 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Ethernet ENET2 support for Variscite VAR-SOM-6UL module.
-- *
-- * Copyright 2019-2024 Variscite Ltd.
-- * Copyright 2026 Dimonoff
-- */
--
--/ {
--	rmii_ref_clk: rmii-ref-clk {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <25000000>;
--		clock-output-names = "rmii-ref";
--	};
--};
--
--&fec2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_enet2>, <&pinctrl_enet2_gpio>, <&pinctrl_enet2_mdio>;
--	phy-mode = "rmii";
--	phy-handle = <&ethphy1>;
--	status = "okay";
--
--	mdio_enet2: mdio {
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		ethphy0: ethernet-phy@1 {
--			compatible = "ethernet-phy-ieee802.3-c22";
--			reg = <1>;
--			clocks = <&rmii_ref_clk>;
--			clock-names = "rmii-ref";
--			reset-gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
--			reset-assert-us = <100000>;
--			micrel,led-mode = <1>;
--			micrel,rmii-reference-clock-select-25-mhz;
--		};
--
--		ethphy1: ethernet-phy@3 {
--			compatible = "ethernet-phy-ieee802.3-c22";
--			reg = <3>;
--			clocks = <&rmii_ref_clk>;
--			clock-names = "rmii-ref";
--			reset-gpios = <&gpio5 5 GPIO_ACTIVE_LOW>;
--			reset-assert-us = <100000>;
--			micrel,led-mode = <0>;
--			micrel,rmii-reference-clock-select-25-mhz;
--		};
--	};
--};
--
--&iomuxc {
--	pinctrl_enet2: enet2grp {
--		fsl,pins = <
--			MX6UL_PAD_ENET2_RX_EN__ENET2_RX_EN	0x1b0b0
--			MX6UL_PAD_ENET2_RX_ER__ENET2_RX_ER	0x1b0b0
--			MX6UL_PAD_ENET2_RX_DATA0__ENET2_RDATA00	0x1b0b0
--			MX6UL_PAD_ENET2_RX_DATA1__ENET2_RDATA01	0x1b0b0
--			MX6UL_PAD_ENET2_TX_EN__ENET2_TX_EN	0x1b0b0
--			MX6UL_PAD_ENET2_TX_DATA0__ENET2_TDATA00	0x1b0b0
--			MX6UL_PAD_ENET2_TX_DATA1__ENET2_TDATA01	0x1b0b0
--			MX6UL_PAD_ENET2_TX_CLK__ENET2_REF_CLK2	0x4001b031
--		>;
--	};
--
--	pinctrl_enet2_gpio: enet2-gpiogrp {
--		fsl,pins = <
--			MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05	0x1b0b0 /* fec2 reset */
--		>;
--	};
--
--	pinctrl_enet2_mdio: enet2-mdiogrp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO06__ENET2_MDIO	0x1b0b0
--			MX6UL_PAD_GPIO1_IO07__ENET2_MDC		0x1b0b0
--		>;
--	};
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
-deleted file mode 100644
-index 996b37d35d6e..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-lvds-panel.dtsi
-+++ /dev/null
-@@ -1,112 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * LVDS panel support for Variscite VAR-SOM-6UL module.
-- *
-- * Copyright 2019-2024 Variscite Ltd.
-- * Copyright 2026 Dimonoff
-- */
--
--/ {
--	lcd_backlight: lcd-backlight {
--		compatible = "pwm-backlight";
--		pwms = <&pwm4 0 2000000 0>;
--		pwm-names = "LCD_BKLT_PWM";
--		brightness-levels = <0 4 8 16 32 64 128 255>;
--		default-brightness-level = <6>;
--		status = "okay";
--	};
--
--	lvds_encoder: lvds-encoder {
--		compatible = "ti,sn75lvds93", "lvds-encoder";
--		power-supply = <&reg_3p3v>;
--
--		ports {
--			#address-cells = <1>;
--			#size-cells = <0>;
--
--			port@0 {
--				reg = <0>;
--
--				lvds_enc_in: endpoint {
--					remote-endpoint = <&lcdif_out>;
--				};
--			};
--
--			port@1 {
--				reg = <1>;
--
--				lvds_enc_out: endpoint {
--					remote-endpoint = <&lvds_panel_in>;
--				};
--			};
--		};
--	};
--};
--
--&iomuxc {
--	pinctrl_lcdif_ctrl: lcdif-ctrl-grp {
--		fsl,pins = <
--			MX6UL_PAD_LCD_CLK__LCDIF_CLK		0x79
--			MX6UL_PAD_LCD_ENABLE__LCDIF_ENABLE	0x79
--		>;
--	};
--
--	pinctrl_lcdif_dat: lcdif-dat-grp {
--		fsl,pins = <
--			MX6UL_PAD_LCD_DATA02__LCDIF_DATA02	0x79
--			MX6UL_PAD_LCD_DATA03__LCDIF_DATA03	0x79
--			MX6UL_PAD_LCD_DATA04__LCDIF_DATA04	0x79
--			MX6UL_PAD_LCD_DATA05__LCDIF_DATA05	0x79
--			MX6UL_PAD_LCD_DATA06__LCDIF_DATA06	0x79
--			MX6UL_PAD_LCD_DATA07__LCDIF_DATA07	0x79
--			MX6UL_PAD_LCD_DATA10__LCDIF_DATA10	0x79
--			MX6UL_PAD_LCD_DATA11__LCDIF_DATA11	0x79
--			MX6UL_PAD_LCD_DATA12__LCDIF_DATA12	0x79
--			MX6UL_PAD_LCD_DATA13__LCDIF_DATA13	0x79
--			MX6UL_PAD_LCD_DATA14__LCDIF_DATA14	0x79
--			MX6UL_PAD_LCD_DATA15__LCDIF_DATA15	0x79
--			MX6UL_PAD_LCD_DATA18__LCDIF_DATA18	0x79
--			MX6UL_PAD_LCD_DATA19__LCDIF_DATA19	0x79
--			MX6UL_PAD_LCD_DATA20__LCDIF_DATA20	0x79
--			MX6UL_PAD_LCD_DATA21__LCDIF_DATA21	0x79
--			MX6UL_PAD_LCD_DATA22__LCDIF_DATA22	0x79
--			MX6UL_PAD_LCD_DATA23__LCDIF_DATA23	0x79
--		>;
--	};
--
--	pinctrl_pwm4: pwm4-grp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO05__PWM4_OUT		0x110b0 /* LCD BACKLIGHT */
--		>;
--	};
--};
--
--&lcdif {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_lcdif_dat
--		     &pinctrl_lcdif_ctrl>;
--	status = "okay";
--
--	port {
--		lcdif_out: endpoint {
--			remote-endpoint = <&lvds_enc_in>;
--		};
--	};
--};
--
--&lvds_panel {
--	status = "okay";
--
--	port {
--		lvds_panel_in: endpoint {
--			remote-endpoint = <&lvds_enc_out>;
--		};
--	};
--};
--
--/* PWM LCD */
--&pwm4 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_pwm4>;
--	status = "okay";
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
-deleted file mode 100644
-index 0e6d9b945eb4..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-sd.dtsi
-+++ /dev/null
-@@ -1,27 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Support optional SD card interface on Variscite VAR-SOM-6UL module.
-- *
-- * Copyright 2019-2024 Variscite Ltd.
-- * Copyright 2026 Dimonoff
-- */
--
--&iomuxc {
--	pinctrl_usdhc1_gpio: usdhc1-gpiogrp {
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x1b0b1 /* CD */
--		>;
--	};
--};
--
--&usdhc1 {
--	pinctrl-names = "default", "state_100mhz", "state_200mhz";
--	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_usdhc1_gpio>;
--	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_usdhc1_gpio>;
--	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_usdhc1_gpio>;
--	cd-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
--	no-1-8-v;
--	keep-power-in-suspend;
--	wakeup-source;
--	status = "okay";
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
-deleted file mode 100644
-index 6d16ff7909da..000000000000
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som-wifi.dtsi
-+++ /dev/null
-@@ -1,75 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Support optional Wifi/Bluetooth on Variscite VAR-SOM-6UL module.
-- *
-- * Copyright 2019-2024 Variscite Ltd.
-- * Copyright 2026 Dimonoff
-- */
--
--/ {
--	reg_sd1_vmmc: regulator_sd1_vmmc {
--		compatible = "regulator-fixed";
--		regulator-name = "VMMC1";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		gpio = <&gpio5 2 GPIO_ACTIVE_HIGH>;
--		enable-active-high;
--		startup-delay-us = <10000>;
--	};
--
--	usdhc1_pwrseq: usdhc1-pwrseq {
--		compatible = "mmc-pwrseq-simple";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_brcm_wifi>;
--		reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
--	};
--};
--
--&iomuxc {
--	pinctrl_32k_clk: 32kclkgrp {
--		/*
--		 * For TP option, an additional oscillator is assembled on the
--		 * SOM to provide 32 kHz to the WiFi module. Without TP option,
--		 * this pin is configured to provide the 32 KHz clock to the
--		 * WiFi module.
--		 */
--		fsl,pins = <
--			MX6UL_PAD_GPIO1_IO03__OSC32K_32K_OUT	0x03029
--		>;
--	};
--};
--
--&tsc {
--	status = "disabled";
--};
--
--/* Bluetooth UART */
--&uart2 {
--	bluetooth {
--		compatible = "brcm,bcm43438-bt";
--		pinctrl-names = "default";
--		pinctrl-0 = <&pinctrl_brcm_bt>;
--		shutdown-gpios = <&gpio5 4 GPIO_ACTIVE_HIGH>;
--		vbat-supply = <&reg_3p3v>;
--		vddio-supply = <&reg_3p3v>;
--	};
--};
--
--&usdhc1 {
--	#address-cells = <1>;
--	#size-cells = <0>;
--	pinctrl-names = "default", "state_100mhz", "state_200mhz";
--	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_32k_clk>;
--	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_32k_clk>;
--	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_32k_clk>;
--	no-1-8-v;
--	non-removable;
--	mmc-pwrseq = <&usdhc1_pwrseq>;
--	vmmc-supply = <&reg_sd1_vmmc>;
--	status = "okay";
--
--	brcmf: wifi@1 {
--		compatible = "brcm,bcm4329-fmac"; /* LWB option: Sterling LWB5 */
--		reg = <1>;
--	};
--};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-index 1b7c1a3383ee..58c265ea9129 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto-full.dts
-@@ -8,15 +8,16 @@
- 
- /dts-v1/;
- 
-+#include "imx6ull.dtsi"
- #include "imx6ull-var-som.dtsi"
--#include "imx6ul-var-som-concerto-common.dtsi"
--#include "imx6ul-var-som-wifi.dtsi"
--#include "imx6ul-var-som-enet2.dtsi"
--#include "imx6ul-var-som-enet1.dtsi"
--#include "imx6ul-var-som-audio.dtsi"
--#include "imx6ul-var-som-lvds-panel.dtsi"
-+#include "imx6ul-imx6ull-var-som-emmc.dtsi"
-+#include "imx6ul-imx6ull-var-som-wifi-brcm.dtsi"
-+#include "imx6ul-imx6ull-var-som-wm8904.dtsi"
-+#include "imx6ull-var-som-concerto-board.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
--	compatible = "variscite,mx6ullconcerto", "variscite,var-som-imx6ull", "fsl,imx6ull";
-+	compatible = "variscite,mx6ullconcerto",
-+		     "variscite,var-som-imx6ull",
-+		     "fsl,imx6ull";
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-index 9c9d16eb1a11..890267fa1067 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-var-som-concerto.dts
-@@ -8,14 +8,16 @@
- 
- /dts-v1/;
- 
-+#include "imx6ull.dtsi"
- #include "imx6ull-var-som.dtsi"
--#include "imx6ul-var-som-concerto-common.dtsi"
--#include "imx6ul-var-som-sd.dtsi"
--#include "imx6ul-var-som-enet2.dtsi"
--#include "imx6ul-var-som-audio.dtsi"
--#include "imx6ul-var-som-lvds-panel.dtsi"
-+#include "imx6ul-imx6ull-var-som-emmc.dtsi"
-+#include "imx6ul-imx6ull-var-som-wm8904.dtsi"
-+#include "imx6ull-var-som-concerto-board.dtsi"
-+#include "imx6ul-imx6ull-var-som-concerto-board-sd-card.dtsi"
- 
- / {
- 	model = "Variscite VAR-SOM-6UL Concerto Board (6ULL CPU)";
--	compatible = "variscite,mx6ullconcerto", "variscite,var-som-imx6ull", "fsl,imx6ull";
-+	compatible = "variscite,mx6ullconcerto",
-+		     "variscite,var-som-imx6ull",
-+		     "fsl,imx6ull";
- };
+cmdq_max_n_shift moves the command queue alone outside kdump and is
+ignored inside it; zero gives one page. QEMU exposes no PRI queue, which
+takes the same path. No CMD_SYNC timeout, GERROR or context fault in any
+run. Build-tested across 4K/16K/64K, TEGRA241_CMDQV=n, CRASH_DUMP=n and
+ARM_SMMU_V3=m, every commit warning-free.
+
+v7:
+ - Flatten the depth helper as Jason suggested: floor the limit, then min
+   with the hardware maximum; callers pass their alignment cap as the
+   limit.
+ - Initialise cmdq_max_n_shift to CMDQ_MAX_SZ_SHIFT, so zero is no longer
+   the "default" sentinel; it asks for the smallest queue, one page.
+ - A kdump kernel always gets one page; cmdq_max_n_shift no longer
+   overrides it.
+ - Tags: Breno's and Jason's Reviewed-by on patch 1, Jason's Reviewed-by
+   and Yuanhe's Tested-by on patch 2.
+
+v6: https://lore.kernel.org/all/20260909095228.2174031-1-kas@kernel.org/
+v5: https://lore.kernel.org/all/20260907095835.1233352-1-kas@kernel.org/
+v4: https://lore.kernel.org/all/20260902121724.3494954-1-kas@kernel.org/
+v3: https://lore.kernel.org/all/20260706084708.8072-1-kas@kernel.org/
+
+Range-diff against v6:
+
+1:  ee766da1c34e ! 1:  65d617205157 iommu/arm-smmu-v3: Add a cmdq_max_n_shift module parameter
+    @@ Commit message
+     
+         Add cmdq_max_n_shift, a cap on the depth given as the log2 of the entry
+         count, the form the hardware itself takes in the LOG2SIZE field of
+    -    CMDQ_BASE. Decide the depth in arm_smmu_cmdq_max_n_shift(), which caps the
+    -    IDR1 value for natural alignment and then applies the parameter, so the
+    -    queue is allocated at the requested size. The Tegra241 CMDQV sizes its
+    -    VCMDQs from IDR1 itself, so route that through the same helper.
+    +    CMDQ_BASE. It defaults to the largest depth the driver allocates, so an
+    +    unset parameter changes nothing. Decide the depth in
+    +    arm_smmu_cmdq_max_n_shift(), which applies the parameter to the IDR1
+    +    value, so the queue is allocated at the requested size. The Tegra241 CMDQV
+    +    sizes its VCMDQs from IDR1 itself, so route that through the same helper.
+     
+         Floor the request at one page worth of entries. Without the floor, a small
+         request trips the CMDQ_BATCH_ENTRIES check in arm_smmu_device_hw_probe()
+    @@ Commit message
+         fills the page.
+     
+         Assisted-by: LLM
+    +    Reviewed-by: Breno Leitao <leitao@debian.org>
+    +    Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+         Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+     
+      ## drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c ##
+    @@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: module_param(disable_msipolling, bo
+      MODULE_PARM_DESC(disable_msipolling,
+      	"Disable MSI-based polling for CMD_SYNC completion.");
+      
+    -+static unsigned int cmdq_max_n_shift;
+    ++static unsigned int cmdq_max_n_shift = CMDQ_MAX_SZ_SHIFT;
+     +module_param(cmdq_max_n_shift, uint, 0444);
+     +MODULE_PARM_DESC(cmdq_max_n_shift,
+    -+	"Cap on the command queue depth, as log2 of the number of entries. Zero means the hardware maximum; the queue never shrinks below one page.");
+    ++	"Cap on the command queue depth, as log2 of the number of entries. Defaults to the hardware maximum; the queue never shrinks below one page.");
+     +
+      static const struct iommu_ops arm_smmu_ops;
+      static struct iommu_dirty_ops arm_smmu_dirty_ops;
+    @@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: static struct iommu_dirty_ops arm_s
+     +
+     +/**
+     + * arm_smmu_queue_max_n_shift() - pick the log2 depth of a queue
+    -+ * @ceiling: default log2 depth ceiling of the queue
+    ++ * @hw_max_n_shift: log2 depth the hardware advertises in IDR1
+     + * @ent_sz_shift: log2 of the queue entry size in bytes
+    -+ * @shift: log2 depth asked for, or zero for the default
+    ++ * @limit_n_shift: log2 depth to cap the queue at
+     + *
+    -+ * @shift is floored at one page, because coherent DMA is page granular: a
+    -+ * shallower queue occupies the same memory as one that fills the page, and
+    -+ * arm_smmu_init_one_queue() stops shrinking at a page too.
+    ++ * @limit_n_shift is floored at one page, because coherent DMA is page
+    ++ * granular: a shallower queue occupies the same memory as one that fills the
+    ++ * page, and arm_smmu_init_one_queue() stops shrinking at a page too.
+     + */
+    -+static u32 arm_smmu_queue_max_n_shift(u32 ceiling, u32 ent_sz_shift, u32 shift)
+    ++static u32 arm_smmu_queue_max_n_shift(u32 hw_max_n_shift, u32 ent_sz_shift,
+    ++				      u32 limit_n_shift)
+     +{
+    -+	u32 floor = PAGE_SHIFT - ent_sz_shift;
+    ++	u32 floor_n_shift = PAGE_SHIFT - ent_sz_shift;
+     +
+    -+	if (!shift)
+    -+		return ceiling;
+    -+
+    -+	return min(ceiling, max(shift, floor));
+    ++	limit_n_shift = max(limit_n_shift, floor_n_shift);
+    ++	return min(hw_max_n_shift, limit_n_shift);
+     +}
+     +
+     +/*
+     + * Command queues are also allocated by the Tegra241 CMDQV for its VCMDQs, which
+     + * need the same depth decision.
+     + */
+    -+u32 arm_smmu_cmdq_max_n_shift(u32 ceiling)
+    ++u32 arm_smmu_cmdq_max_n_shift(u32 hw_max_n_shift)
+     +{
+     +	/* Capped to ensure natural alignment */
+    -+	ceiling = min(CMDQ_MAX_SZ_SHIFT, ceiling);
+    -+
+    -+	return arm_smmu_queue_max_n_shift(ceiling, CMDQ_ENT_SZ_SHIFT,
+    -+					  cmdq_max_n_shift);
+    ++	return arm_smmu_queue_max_n_shift(hw_max_n_shift, CMDQ_ENT_SZ_SHIFT,
+    ++					  min(CMDQ_MAX_SZ_SHIFT, cmdq_max_n_shift));
+     +}
+     +
+      int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+    @@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h: static inline void arm_smmu_domain_
+      
+      void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+      			      struct arm_smmu_cmdq *cmdq);
+    -+u32 arm_smmu_cmdq_max_n_shift(u32 ceiling);
+    ++u32 arm_smmu_cmdq_max_n_shift(u32 hw_max_n_shift);
+      int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+      			    struct arm_smmu_queue *q, void __iomem *page,
+      			    unsigned long prod_off, unsigned long cons_off,
+2:  a1fc639ce127 ! 2:  07a25755ccf1 iommu/arm-smmu-v3: Default queue depths to one page in a kdump kernel
+    @@ Commit message
+         that either serve the handful of devices used to save the dump or are
+         switched off outright, and it is memory the dump itself needs.
+     
+    -    Default all three depths to one page worth of entries when
+    -    is_kdump_kernel(). The queues carry commands and fault records rather than
+    -    DMA data, so dump throughput is unaffected. A shallower command queue only
+    -    bounds how many commands may be in flight before a sync, which does not
+    -    matter for the few devices that save the dump.
+    -
+    -    An explicit cmdq_max_n_shift still wins, so a capture kernel that wants a
+    -    deeper command queue can ask for one on the command line.
+    +    Size all three queues at one page worth of entries when is_kdump_kernel().
+    +    The queues carry commands and fault records rather than DMA data, so dump
+    +    throughput is unaffected. A shallower command queue only bounds how many
+    +    commands may be in flight before a sync, which does not matter for the few
+    +    devices that save the dump. The cmdq_max_n_shift parameter therefore does
+    +    not apply in a capture kernel.
+     
+         Suggested-by: Kyle McMartin <jkkm@meta.com>
+         Assisted-by: LLM
+    +    Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+    +    Tested-by: Yuanhe Shu <xiangzao@linux.alibaba.com>
+         Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+     
+      ## drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c ##
+    +@@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: MODULE_PARM_DESC(disable_msipolling,
+    + static unsigned int cmdq_max_n_shift = CMDQ_MAX_SZ_SHIFT;
+    + module_param(cmdq_max_n_shift, uint, 0444);
+    + MODULE_PARM_DESC(cmdq_max_n_shift,
+    +-	"Cap on the command queue depth, as log2 of the number of entries. Defaults to the hardware maximum; the queue never shrinks below one page.");
+    ++	"Cap on the command queue depth, as log2 of the number of entries. Defaults to the hardware maximum; the queue never shrinks below one page. A kdump kernel always uses one page.");
+    + 
+    + static const struct iommu_ops arm_smmu_ops;
+    + static struct iommu_dirty_ops arm_smmu_dirty_ops;
+     @@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: static struct iommu_dirty_ops arm_smmu_dirty_ops = {
+       * @ent_sz_shift: log2 of the queue entry size in bytes
+    -  * @shift: log2 depth asked for, or zero for the default
+    +  * @limit_n_shift: log2 depth to cap the queue at
+       *
+    -+ * The default is @ceiling, except in a kdump capture kernel, which defaults to
+    -+ * one page worth of entries.
+    ++ * A kdump capture kernel gets one page worth of entries whatever the limit.
+     + *
+    -  * @shift is floored at one page, because coherent DMA is page granular: a
+    -  * shallower queue occupies the same memory as one that fills the page, and
+    -  * arm_smmu_init_one_queue() stops shrinking at a page too.
+    -@@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: static u32 arm_smmu_queue_max_n_shift(u32 ceiling, u32 ent_sz_shift, u32 shift)
+    +  * @limit_n_shift is floored at one page, because coherent DMA is page
+    +  * granular: a shallower queue occupies the same memory as one that fills the
+    +  * page, and arm_smmu_init_one_queue() stops shrinking at a page too.
+    +@@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: static u32 arm_smmu_queue_max_n_shift(u32 hw_max_n_shift, u32 ent_sz_shift,
+      {
+    - 	u32 floor = PAGE_SHIFT - ent_sz_shift;
+    + 	u32 floor_n_shift = PAGE_SHIFT - ent_sz_shift;
+      
+    --	if (!shift)
+    -+	if (shift)
+    -+		shift = max(shift, floor);
+    -+	else if (is_kdump_kernel())
+    -+		shift = floor;
+    -+	else
+    - 		return ceiling;
+    - 
+    --	return min(ceiling, max(shift, floor));
+    -+	return min(ceiling, shift);
+    -+}
+    ++	if (is_kdump_kernel())
+    ++		return min(hw_max_n_shift, floor_n_shift);
+     +
+    -+static inline u32 arm_smmu_evtq_max_n_shift(u32 ceiling)
+    -+{
+    -+	/* Capped to ensure natural alignment */
+    -+	ceiling = min(EVTQ_MAX_SZ_SHIFT, ceiling);
+    -+
+    -+	return arm_smmu_queue_max_n_shift(ceiling, EVTQ_ENT_SZ_SHIFT, 0);
+    -+}
+    -+
+    -+static inline u32 arm_smmu_priq_max_n_shift(u32 ceiling)
+    -+{
+    -+	/* Capped to ensure natural alignment */
+    -+	ceiling = min(PRIQ_MAX_SZ_SHIFT, ceiling);
+    -+
+    -+	return arm_smmu_queue_max_n_shift(ceiling, PRIQ_ENT_SZ_SHIFT, 0);
+    + 	limit_n_shift = max(limit_n_shift, floor_n_shift);
+    + 	return min(hw_max_n_shift, limit_n_shift);
+      }
+      
+    ++static inline u32 arm_smmu_evtq_max_n_shift(u32 hw_max_n_shift)
+    ++{
+    ++	/* Capped to ensure natural alignment */
+    ++	return arm_smmu_queue_max_n_shift(hw_max_n_shift, EVTQ_ENT_SZ_SHIFT,
+    ++					  EVTQ_MAX_SZ_SHIFT);
+    ++}
+    ++
+    ++static inline u32 arm_smmu_priq_max_n_shift(u32 hw_max_n_shift)
+    ++{
+    ++	/* Capped to ensure natural alignment */
+    ++	return arm_smmu_queue_max_n_shift(hw_max_n_shift, PRIQ_ENT_SZ_SHIFT,
+    ++					  PRIQ_MAX_SZ_SHIFT);
+    ++}
+    ++
+      /*
+    +  * Command queues are also allocated by the Tegra241 CMDQV for its VCMDQs, which
+    +  * need the same depth decision.
+     @@ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c: static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+      	if (reg & IDR1_ATTR_TYPES_OVR)
+      		smmu->features |= ARM_SMMU_FEAT_ATTR_TYPES_OVR;
+
+Kiryl Shutsemau (Meta) (2):
+  iommu/arm-smmu-v3: Add a cmdq_max_n_shift module parameter
+  iommu/arm-smmu-v3: Default queue depths to one page in a kdump kernel
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 68 +++++++++++++++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  2 +-
+ 3 files changed, 63 insertions(+), 8 deletions(-)
+
+
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
 -- 
-2.47.3
+2.54.0
 
 
